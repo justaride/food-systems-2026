@@ -1,0 +1,83 @@
+import type { SourceDoc } from '../types'
+
+export const sources: SourceDoc[] = [
+  {
+    id: 'src-1',
+    filename: 'Just now (12.Revise-Gab) Nordic Circular Food systems - V.2.md',
+    type: 'soknad',
+    description: 'Den store NI-soknaden (avslatt). Full prosjektbeskrivelse, partnere, budsjett, handlingsplan',
+    relevance: 'Primaer bakgrunn - gjenbruk tekst og analyse',
+  },
+  {
+    id: 'src-2',
+    filename: '1. Food system_ Oslo Innovasjons program 2025.md',
+    type: 'soknad',
+    description: 'Oslo Innovasjonsprogram-soknad med bakgrunn fra Cecilie, ideer, mal',
+    relevance: 'Lokal kontekst - Gamlebyen, urban food systems',
+  },
+  {
+    id: 'src-3',
+    filename: '9, mars 2026 FOOD.md',
+    type: 'notat',
+    description: 'Mote 9. mars med aksjonspunkter fra Einar/Martin',
+    relevance: 'Oppdragsbeskrivelse - hva som skal gjores na',
+  },
+  {
+    id: 'src-4',
+    filename: 'Speaker 1.md',
+    type: 'transkripsjon',
+    description: 'Samtale (trolig Gabriel + Cathrine/Martin) om a finne dokumenter og starte arbeidet',
+    relevance: 'Kontekst - forsta hva som mangler',
+  },
+  {
+    id: 'src-5',
+    filename: 'Speaker 1 (1).md',
+    type: 'transkripsjon',
+    description: 'Lengre samtale om strategi, data, verdikjeder, transition groups, nordisk merverdi',
+    relevance: 'Strategisk innsikt - cascading, HORECA, data, power law',
+  },
+  {
+    id: 'src-6',
+    filename: 'Untitled document.md',
+    type: 'duplikat',
+    description: 'Samme som 9. mars-notater med ekstra kontekst',
+    relevance: 'Redundant',
+    isDuplicate: true,
+  },
+  {
+    id: 'src-7',
+    filename: '2026 1401 DROFTING TRANSITION GROUPS.pdf',
+    type: 'strategi',
+    description: 'Cathrines 20-siders drofting: TG-metodikk, governance, branding, tjenester',
+    relevance: 'Metodisk rammeverk for hele arbeidet',
+  },
+  {
+    id: 'src-8',
+    filename: '2026 TRANSITION GROUP OVERVIEW WORKING DOC.pdf',
+    type: 'arbeidsdok',
+    description: 'Revidert 10-step start, vurderingskriterier, felles prosesser',
+    relevance: 'Operasjonell mal',
+  },
+  {
+    id: 'src-9',
+    filename: 'Natural State Mail - NCH application 2025.pdf',
+    type: 'epost',
+    description: 'Martin videresender NCH 2025-soknaden (Michel Bajuk justert)',
+    relevance: 'Referanse - soknaden som ble innvilget',
+  },
+  {
+    id: 'src-10',
+    filename: 'Natural State Mail - DROFTING TG.pdf',
+    type: 'epost',
+    description: 'Cathrine deler droftingsdokumentet med Gabriel',
+    relevance: 'Kontekst',
+  },
+  {
+    id: 'src-11',
+    filename: '1. Food system_ Oslo Innovasjons program 2025 (1).md',
+    type: 'duplikat',
+    description: 'Kopi av Oslo-soknaden',
+    relevance: 'Redundant',
+    isDuplicate: true,
+  },
+]

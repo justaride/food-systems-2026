@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-neutral-950 text-neutral-100 antialiased font-mono;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-lg border border-neutral-800 bg-neutral-900 p-5;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+
+  .badge-green {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-green-900/50 text-green-400 border border-green-800;
+  }
+
+  .badge-red {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-red-900/50 text-red-400 border border-red-800;
+  }
+
+  .badge-amber {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-amber-900/50 text-amber-400 border border-amber-800;
+  }
+
+  .badge-neutral {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-neutral-800 text-neutral-400 border border-neutral-700;
+  }
+
+  .badge-blue {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-blue-900/50 text-blue-400 border border-blue-800;
+  }
+
+  .badge-purple {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-purple-900/50 text-purple-400 border border-purple-800;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #171717;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+}
