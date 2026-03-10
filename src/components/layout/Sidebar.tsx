@@ -9,6 +9,7 @@ const navigation = [
   { name: 'Team', href: '/team', description: 'Organisasjon' },
   { name: 'Metodikk', href: '/metodikk', description: 'Ten Step + KPIs' },
   { name: 'Leveranser', href: '/leveranser', description: 'Oppgaver og faser' },
+  { name: 'Moter', href: '/moter', description: 'Executive summaries' },
   { name: 'Kilder', href: '/kilder', description: 'Dokumenter' },
 ]
 
