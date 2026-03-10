@@ -1,0 +1,253 @@
+{
+  "zipf_chains": {
+    "n_chains": 14,
+    "slope": -1.6042,
+    "intercept": 3.398,
+    "r_squared": 0.5349,
+    "is_zipf": false,
+    "chain_distribution": [
+      {
+        "rank": 1,
+        "chain": "Kiwi",
+        "stores": 726
+      },
+      {
+        "rank": 2,
+        "chain": "Rema 1000",
+        "stores": 692
+      },
+      {
+        "rank": 3,
+        "chain": "Extra",
+        "stores": 584
+      },
+      {
+        "rank": 4,
+        "chain": "Joker",
+        "stores": 450
+      },
+      {
+        "rank": 5,
+        "chain": "Spar",
+        "stores": 289
+      },
+      {
+        "rank": 6,
+        "chain": "Coop Prix",
+        "stores": 262
+      },
+      {
+        "rank": 7,
+        "chain": "Bunnpris",
+        "stores": 253
+      },
+      {
+        "rank": 8,
+        "chain": "Meny",
+        "stores": 184
+      },
+      {
+        "rank": 9,
+        "chain": "N\u00e6rbutikken",
+        "stores": 132
+      },
+      {
+        "rank": 10,
+        "chain": "Coop Marked",
+        "stores": 97
+      },
+      {
+        "rank": 11,
+        "chain": "Matkroken",
+        "stores": 81
+      },
+      {
+        "rank": 12,
+        "chain": "Coop Mega",
+        "stores": 64
+      },
+      {
+        "rank": 13,
+        "chain": "Obs",
+        "stores": 34
+      },
+      {
+        "rank": 14,
+        "chain": "Mega",
+        "stores": 1
+      }
+    ],
+    "interpretation": "Slope of -1 = pure Zipf; steeper = more concentrated; flatter = more equal",
+    "note": "Full Zipf test on municipalities requires point-in-polygon matching at runtime"
+  },
+  "zipf_population": {
+    "n_municipalities": 357,
+    "slope": -1.2652,
+    "intercept": 6.4449,
+    "r_squared": 0.9009,
+    "is_zipf": true,
+    "top_10": [
+      {
+        "rank": 1,
+        "name": "Oslo",
+        "population": 717710
+      },
+      {
+        "rank": 2,
+        "name": "Bergen",
+        "population": 291940
+      },
+      {
+        "rank": 3,
+        "name": "Trondheim - Tr\u00e5ante",
+        "population": 214565
+      },
+      {
+        "rank": 4,
+        "name": "Stavanger",
+        "population": 149048
+      },
+      {
+        "rank": 5,
+        "name": "B\u00e6rum",
+        "population": 130921
+      },
+      {
+        "rank": 6,
+        "name": "Kristiansand",
+        "population": 116986
+      },
+      {
+        "rank": 7,
+        "name": "Drammen",
+        "population": 104487
+      },
+      {
+        "rank": 8,
+        "name": "Asker",
+        "population": 98815
+      },
+      {
+        "rank": 9,
+        "name": "Lillestr\u00f8m",
+        "population": 94201
+      },
+      {
+        "rank": 10,
+        "name": "Fredrikstad",
+        "population": 85230
+      }
+    ],
+    "interpretation": "Population follows Zipf if stores do (if stores per capita is constant)"
+  },
+  "concentration": {
+    "total_stores": 3849,
+    "n_chains": 14,
+    "n_parents": 5,
+    "chains": [
+      {
+        "chain": "Kiwi",
+        "count": 726,
+        "share": 18.86
+      },
+      {
+        "chain": "Rema 1000",
+        "count": 692,
+        "share": 17.98
+      },
+      {
+        "chain": "Extra",
+        "count": 584,
+        "share": 15.17
+      },
+      {
+        "chain": "Joker",
+        "count": 450,
+        "share": 11.69
+      },
+      {
+        "chain": "Spar",
+        "count": 289,
+        "share": 7.51
+      },
+      {
+        "chain": "Coop Prix",
+        "count": 262,
+        "share": 6.81
+      },
+      {
+        "chain": "Bunnpris",
+        "count": 253,
+        "share": 6.57
+      },
+      {
+        "chain": "Meny",
+        "count": 184,
+        "share": 4.78
+      },
+      {
+        "chain": "N\u00e6rbutikken",
+        "count": 132,
+        "share": 3.43
+      },
+      {
+        "chain": "Coop Marked",
+        "count": 97,
+        "share": 2.52
+      }
+    ],
+    "parents": [
+      {
+        "parent": "NorgesGruppen",
+        "count": 1862,
+        "share": 48.38
+      },
+      {
+        "parent": "Coop Norge",
+        "count": 1041,
+        "share": 27.05
+      },
+      {
+        "parent": "Reitangruppen",
+        "count": 692,
+        "share": 17.98
+      },
+      {
+        "parent": "Bunnpris AS",
+        "count": 253,
+        "share": 6.57
+      },
+      {
+        "parent": "Other",
+        "count": 1,
+        "share": 0.03
+      }
+    ],
+    "chain_hhi": 1241,
+    "parent_hhi": 3438,
+    "top_3_share": 93.4,
+    "gini": 0.4703,
+    "h2_result": "SUPPORTED",
+    "h3_result": "SUPPORTED"
+  },
+  "municipal_hhi": {
+    "n_municipalities": 0,
+    "mean_hhi": 0,
+    "median_hhi": 0,
+    "std_hhi": 0,
+    "min_hhi": 0,
+    "max_hhi": 0,
+    "classification": {
+      "competitive (<1500)": 0,
+      "moderate (1500-2500)": 0,
+      "concentrated (2500-4000)": 0,
+      "highly_concentrated (>4000)": 0
+    },
+    "most_competitive": [],
+    "most_concentrated": []
+  },
+  "demographics": {
+    "n_municipalities": 0,
+    "correlations": {}
+  }
+}

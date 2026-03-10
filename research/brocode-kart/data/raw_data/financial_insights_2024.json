@@ -1,0 +1,38 @@
+{
+  "reporting_year": "2024",
+  "corporate_results": {
+    "NorgesGruppen": {
+      "revenue_nok_bn": 118.0,
+      "net_profit_nok_bn": 3.9,
+      "profit_margin_percent": 3.3,
+      "retail_segment_margin": 0.026,
+      "key_drivers": ["KIWI growth (54.3bn turnover)", "ASKO cost pressure", "Fruit/Veg logistics integration"]
+    },
+    "Reitan_Retail_Norway": {
+      "revenue_nok_bn": 54.5,
+      "operating_profit_nok_bn": 2.1,
+      "operating_margin_percent": 3.85,
+      "key_drivers": ["Rema 1000 growth", "Inflationary pressure"]
+    },
+    "Coop_Norge": {
+      "revenue_nok_bn": 61.0,
+      "profit_before_tax_nok_m": 316,
+      "result_margin_percent": 1.0,
+      "member_dividend_nok_bn": 1.4,
+      "key_drivers": ["Extra growth (>60% share)", "Efficiency programs"]
+    }
+  },
+  "value_chain_margins_study_2024": {
+    "source": "Konkurransetilsynet",
+    "findings": {
+      "supplier_level": "Higher gross/operating margins; more 'super profit'",
+      "retail_level": "Lower margins (approx. 12% lower on Private Label vs National Brands)",
+      "pandemic_effect": "Margins increased across all levels 2020-2021",
+      "ukraine_war_effect": "Supplier margins fell; retail margins remained stable"
+    }
+  },
+  "external_analysis": {
+    "Oslo_Economics": "High prices driven by factors upstream, not retail margins",
+    "Virke": "Operating margins in grocery (1.9%) are lower than other retail sectors"
+  }
+}
