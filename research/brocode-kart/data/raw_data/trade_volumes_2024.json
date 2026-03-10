@@ -1,0 +1,34 @@
+{
+  "updated": "2024",
+  "domestic_production": {
+    "grain_tonnes": 1183800,
+    "meat_total_tonnes": 357086,
+    "meat_breakdown": {
+      "pork": 131800,
+      "poultry": 110800,
+      "beef": 86000,
+      "sheep_lamb": 22370,
+      "reindeer": 1301
+    },
+    "milk_tonnes": 1524400,
+    "fruit_veg_tonnes": 232340
+  },
+  "imports": {
+    "total_value_nok_bn": 78.7,
+    "fruit_veg_tonnes": 479229,
+    "cheese_tonnes": 20041,
+    "meat_tonnes": 18200
+  },
+  "exports": {
+    "seafood_total_tonnes": 2800000,
+    "seafood_value_nok_bn": 175.4,
+    "breakdown": {
+      "aquaculture_tonnes": 1300000,
+      "fisheries_tonnes": 1500000
+    }
+  },
+  "market_balance": {
+    "fruit_veg_domestic_share_percent": 39,
+    "meat_import_dependency_percent": 5.1
+  }
+}
