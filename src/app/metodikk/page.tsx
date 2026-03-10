@@ -10,8 +10,8 @@ export default function MetodikkPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-neutral-100">Metodikk</h1>
-        <p className="text-sm text-neutral-500 mt-1">Ten Step Start v2.0, KPIs og Evidence Pack</p>
+        <h1 className="text-2xl font-bold text-stone-900">Metodikk</h1>
+        <p className="text-sm text-stone-400 mt-1">Ten Step Start v2.0, KPIs og Evidence Pack</p>
       </div>
 
       <Card title="Ten Step Start v2.0">
@@ -35,11 +35,11 @@ export default function MetodikkPage() {
           {evidencePack.map((doc, i) => (
             <div
               key={doc.id}
-              className="flex items-center justify-between py-2 border-b border-neutral-800 last:border-0"
+              className="flex items-center justify-between py-2 border-b border-stone-100 last:border-0"
             >
               <div className="flex items-center gap-3">
-                <span className="text-xs font-mono text-neutral-600 w-4">{i + 1}</span>
-                <span className="text-sm text-neutral-300">{doc.name}</span>
+                <span className="text-xs font-mono text-stone-400 w-4">{i + 1}</span>
+                <span className="text-sm text-stone-700">{doc.name}</span>
               </div>
               <StatusBadge status={doc.status} />
             </div>

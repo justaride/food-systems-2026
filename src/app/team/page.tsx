@@ -32,8 +32,8 @@ export default function TeamPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-neutral-100">Team</h1>
-        <p className="text-sm text-neutral-500 mt-1">Organisasjon og nokkelpersoner</p>
+        <h1 className="text-2xl font-bold text-stone-900">Team</h1>
+        <p className="text-sm text-stone-400 mt-1">Organisasjon og nokkelpersoner</p>
       </div>
 
       {groups.map(group => {
@@ -49,20 +49,20 @@ export default function TeamPage() {
               {members.map(member => (
                 <div
                   key={member.id}
-                  className="flex items-start gap-3 p-3 rounded-lg border border-neutral-800 bg-neutral-900/50"
+                  className="flex items-start gap-3 p-3 rounded-lg border border-stone-200 bg-stone-50/50"
                 >
-                  <div className="w-9 h-9 rounded-full bg-neutral-800 border border-neutral-700 flex items-center justify-center text-sm font-bold text-neutral-400 flex-shrink-0">
+                  <div className="w-9 h-9 rounded-full bg-stone-100 border border-stone-200 flex items-center justify-center text-sm font-bold text-stone-500 flex-shrink-0">
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
-                      <h4 className="text-sm font-medium text-neutral-200">{member.name}</h4>
+                      <h4 className="text-sm font-medium text-stone-800">{member.name}</h4>
                       <span className={ROLE_BADGE[member.role]}>
                         {ROLE_LABELS[member.role]}
                       </span>
                     </div>
-                    <p className="text-xs text-neutral-500 mt-0.5">{member.title}</p>
-                    <p className="text-xs text-neutral-600">{member.organization}</p>
+                    <p className="text-xs text-stone-500 mt-0.5">{member.title}</p>
+                    <p className="text-xs text-stone-400">{member.organization}</p>
                   </div>
                 </div>
               ))}

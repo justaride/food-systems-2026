@@ -17,29 +17,29 @@ export default function OversiktPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-neutral-100">Food Systems 2026</h1>
-        <p className="text-sm text-neutral-500 mt-1">NCH Transition Group - Forprosjekt</p>
+        <h1 className="text-2xl font-bold text-stone-900">Food Systems 2026</h1>
+        <p className="text-sm text-stone-400 mt-1">NCH Transition Group - Forprosjekt</p>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <Card>
-          <p className="text-xs text-neutral-500 uppercase tracking-wider">Fase</p>
-          <p className="text-2xl font-bold text-neutral-100 mt-1">{currentPhase} / 4</p>
-          <p className="text-xs text-neutral-500 mt-1">{phases[currentPhase - 1]?.name}</p>
+          <p className="text-xs text-stone-400 uppercase tracking-wider">Fase</p>
+          <p className="text-2xl font-bold text-stone-900 mt-1">{currentPhase} / 4</p>
+          <p className="text-xs text-stone-500 mt-1">{phases[currentPhase - 1]?.name}</p>
         </Card>
         <Card>
-          <p className="text-xs text-neutral-500 uppercase tracking-wider">Leveranser</p>
-          <p className="text-2xl font-bold text-neutral-100 mt-1">{completedDeliverables} / {deliverables.length}</p>
+          <p className="text-xs text-stone-400 uppercase tracking-wider">Leveranser</p>
+          <p className="text-2xl font-bold text-stone-900 mt-1">{completedDeliverables} / {deliverables.length}</p>
           <ProgressBar value={completedDeliverables} max={deliverables.length} className="mt-2" />
         </Card>
         <Card>
-          <p className="text-xs text-neutral-500 uppercase tracking-wider">Evidence Pack</p>
-          <p className="text-2xl font-bold text-neutral-100 mt-1">{completedEvidence} / {evidencePack.length}</p>
+          <p className="text-xs text-stone-400 uppercase tracking-wider">Evidence Pack</p>
+          <p className="text-2xl font-bold text-stone-900 mt-1">{completedEvidence} / {evidencePack.length}</p>
           <ProgressBar value={completedEvidence} max={evidencePack.length} className="mt-2" />
         </Card>
         <Card>
-          <p className="text-xs text-neutral-500 uppercase tracking-wider">Ten Step</p>
-          <p className="text-2xl font-bold text-neutral-100 mt-1">Steg {currentStep} / 10</p>
+          <p className="text-xs text-stone-400 uppercase tracking-wider">Ten Step</p>
+          <p className="text-2xl font-bold text-stone-900 mt-1">Steg {currentStep} / 10</p>
           <ProgressBar value={currentStep - 1} max={10} className="mt-2" />
         </Card>
       </div>
@@ -49,20 +49,20 @@ export default function OversiktPage() {
           {phases.map((phase, i) => (
             <div
               key={phase.id}
-              className={`rounded-lg border p-3 ${
+              className={`rounded-lg border p-3 transition-colors ${
                 phase.status === 'pagar'
-                  ? 'border-amber-700 bg-amber-950/20'
+                  ? 'border-amber-300 bg-amber-50/60'
                   : phase.status === 'fullfort'
-                    ? 'border-green-700 bg-green-950/20'
-                    : 'border-neutral-800 bg-neutral-900/50'
+                    ? 'border-emerald-300 bg-emerald-50/60'
+                    : 'border-stone-200 bg-stone-50'
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono text-neutral-500">Fase {i + 1}</span>
+                <span className="text-xs font-mono text-stone-400">Fase {i + 1}</span>
                 <StatusBadge status={phase.status} />
               </div>
-              <h4 className="text-sm font-medium text-neutral-200">{phase.name}</h4>
-              <p className="text-xs text-neutral-500 mt-0.5">{phase.weeks}</p>
+              <h4 className="text-sm font-medium text-stone-800">{phase.name}</h4>
+              <p className="text-xs text-stone-400 mt-0.5">{phase.weeks}</p>
             </div>
           ))}
         </div>
@@ -73,12 +73,12 @@ export default function OversiktPage() {
           {openTasks.map(task => (
             <div
               key={task.id}
-              className="flex items-center gap-3 py-2 border-b border-neutral-800 last:border-0"
+              className="flex items-center gap-3 py-2 border-b border-stone-100 last:border-0"
             >
               <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                task.status === 'pagar' ? 'bg-amber-400' : 'bg-neutral-600'
+                task.status === 'pagar' ? 'bg-amber-400' : 'bg-stone-300'
               }`} />
-              <span className="text-sm text-neutral-300 flex-1">{task.title}</span>
+              <span className="text-sm text-stone-700 flex-1">{task.title}</span>
               <StatusBadge status={task.priority} />
             </div>
           ))}

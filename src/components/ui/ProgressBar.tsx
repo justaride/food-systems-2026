@@ -11,14 +11,14 @@ export function ProgressBar({ value, max, label, className = '' }: ProgressBarPr
   return (
     <div className={className}>
       {label && (
-        <div className="flex justify-between text-xs text-neutral-400 mb-1">
+        <div className="flex justify-between text-xs text-stone-500 mb-1">
           <span>{label}</span>
           <span>{value}/{max}</span>
         </div>
       )}
-      <div className="h-1.5 bg-neutral-800 rounded-full overflow-hidden">
+      <div className="h-1.5 bg-stone-100 rounded-full overflow-hidden">
         <div
-          className="h-full bg-green-500 rounded-full transition-all"
+          className="h-full bg-emerald-500 rounded-full transition-all"
           style={{ width: `${pct}%` }}
         />
       </div>

@@ -7,20 +7,20 @@ type KpiCardProps = {
 export function KpiCard({ kpi }: KpiCardProps) {
   return (
     <div className="card">
-      <h4 className="text-sm font-semibold text-neutral-200">{kpi.name}</h4>
-      <p className="text-xs text-neutral-500 mt-1">{kpi.description}</p>
+      <h4 className="text-sm font-semibold text-stone-800">{kpi.name}</h4>
+      <p className="text-xs text-stone-500 mt-1">{kpi.description}</p>
       {(kpi.current || kpi.target) && (
         <div className="mt-3 flex gap-3 text-xs">
           {kpi.current && (
             <div>
-              <span className="text-neutral-500">Na: </span>
-              <span className="text-neutral-300">{kpi.current}</span>
+              <span className="text-stone-400">Na: </span>
+              <span className="text-stone-700 font-medium">{kpi.current}</span>
             </div>
           )}
           {kpi.target && (
             <div>
-              <span className="text-neutral-500">Mal: </span>
-              <span className="text-neutral-300">{kpi.target}</span>
+              <span className="text-stone-400">Mal: </span>
+              <span className="text-stone-700 font-medium">{kpi.target}</span>
             </div>
           )}
         </div>
