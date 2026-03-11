@@ -1,0 +1,168 @@
+{
+  "spec": {
+    "slug": "dk-statbank-food-price-levels-ppp1",
+    "source_name": "StatBank Denmark price level indices food",
+    "adapter": "statbank",
+    "url": "https://api.statbank.dk/v1/data",
+    "note": ""
+  },
+  "request_payload": {
+    "table": "PPP1",
+    "format": "JSONSTAT",
+    "variables": [
+      {
+        "code": "VAREGR",
+        "values": [
+          "A010101"
+        ]
+      },
+      {
+        "code": "LAND",
+        "values": [
+          "DK",
+          "FI",
+          "IS",
+          "NO",
+          "SE"
+        ]
+      },
+      {
+        "code": "Tid",
+        "values": [
+          "2015",
+          "2018",
+          "2021",
+          "2024"
+        ]
+      }
+    ]
+  },
+  "fetched_at": "2026-03-11T15:40:49.259356+00:00",
+  "content_type": "text/json; charset=utf-8",
+  "http_status": 200,
+  "response": {
+    "dataset": {
+      "dimension": {
+        "VAREGR": {
+          "label": "varegruppe",
+          "category": {
+            "index": {
+              "A010101": 0
+            },
+            "label": {
+              "A010101": "F\u00f8devarer"
+            }
+          }
+        },
+        "LAND": {
+          "label": "land",
+          "category": {
+            "index": {
+              "DK": 0,
+              "FI": 1,
+              "IS": 2,
+              "NO": 3,
+              "SE": 4
+            },
+            "label": {
+              "DK": "Danmark",
+              "FI": "Finland",
+              "IS": "Island",
+              "NO": "Norge",
+              "SE": "Sverige"
+            }
+          }
+        },
+        "ContentsCode": {
+          "label": "Indhold",
+          "category": {
+            "index": {
+              "PPP1": 0
+            },
+            "label": {
+              "PPP1": "Prisniveau indeks for f\u00f8devarer EU=100"
+            },
+            "unit": {
+              "PPP1": {
+                "base": "-",
+                "decimals": 0
+              }
+            }
+          }
+        },
+        "Tid": {
+          "label": "tid",
+          "category": {
+            "index": {
+              "2015": 0,
+              "2018": 1,
+              "2021": 2,
+              "2024": 3
+            },
+            "label": {
+              "2015": "2015",
+              "2018": "2018",
+              "2021": "2021",
+              "2024": "2024"
+            }
+          }
+        },
+        "id": [
+          "VAREGR",
+          "LAND",
+          "ContentsCode",
+          "Tid"
+        ],
+        "size": [
+          1,
+          5,
+          1,
+          4
+        ],
+        "role": {
+          "geo": [
+            "LAND"
+          ],
+          "metric": [
+            "ContentsCode"
+          ],
+          "time": [
+            "Tid"
+          ]
+        }
+      },
+      "label": "Prisniveau indeks for f\u00f8devarer EU=100 efter varegruppe, land, Indhold og tid",
+      "source": "Danmarks Statistik",
+      "updated": "2025-07-01T06:00:00Z",
+      "value": [
+        142,
+        130,
+        118,
+        119,
+        119,
+        119,
+        112,
+        108,
+        132,
+        150,
+        142,
+        146,
+        157,
+        161,
+        149,
+        131,
+        125,
+        118,
+        116,
+        107
+      ],
+      "extension": {
+        "px": {
+          "infofile": "https://www.dst.dk/statistikdokumentation/83cc557b-906f-4cae-aa55-7f28cddfb0cd",
+          "tableid": "PPP1",
+          "decimals": 0
+        }
+      }
+    }
+  }
+}

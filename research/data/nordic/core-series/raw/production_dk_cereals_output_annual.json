@@ -1,0 +1,89 @@
+{
+  "dataset": {
+    "dimension": {
+      "PRODUKT": {
+        "label": "product",
+        "category": {
+          "index": {
+            "010000": 0
+          },
+          "label": {
+            "010000": "4.1 Cereals (including seeds)"
+          }
+        }
+      },
+      "PRISENHED": {
+        "label": "price unit",
+        "category": {
+          "index": {
+            "00": 0
+          },
+          "label": {
+            "00": "Current prices"
+          }
+        }
+      },
+      "ContentsCode": {
+        "label": "Indhold",
+        "category": {
+          "index": {
+            "JOEK1": 0
+          },
+          "label": {
+            "JOEK1": "Economic accounts for agriculture"
+          },
+          "unit": {
+            "JOEK1": {
+              "base": "m DKK",
+              "decimals": 0
+            }
+          }
+        }
+      },
+      "Tid": {
+        "label": "time",
+        "category": {
+          "index": {
+            "2024": 0
+          },
+          "label": {
+            "2024": "2024"
+          }
+        }
+      },
+      "id": [
+        "PRODUKT",
+        "PRISENHED",
+        "ContentsCode",
+        "Tid"
+      ],
+      "size": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "role": {
+        "metric": [
+          "ContentsCode"
+        ],
+        "time": [
+          "Tid"
+        ]
+      }
+    },
+    "label": "Economic accounts for agriculture by product, price unit, Indhold and time",
+    "source": "Statistics Denmark",
+    "updated": "2025-11-07T07:00:00Z",
+    "value": [
+      11534
+    ],
+    "extension": {
+      "px": {
+        "infofile": "https://www.dst.dk/documentationofstatistics/a9fe5dae-435f-4ac2-9133-35e21a72cd0e",
+        "tableid": "JOEK1",
+        "decimals": 0
+      }
+    }
+  }
+}

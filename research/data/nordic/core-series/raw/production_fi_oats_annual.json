@@ -1,0 +1,168 @@
+{
+  "version": "2.0",
+  "class": "dataset",
+  "label": "Balance sheet for food commodities by Year, Commodity and Data",
+  "source": "Natural Resources Institute Finland, Balance sheet for food commodities",
+  "updated": "2025-08-18T05:00:00Z",
+  "note": [
+    "Latest year: preliminary data.\r\nGame meat production and consumption 2024 updated on 18th August 2025.\r\nBeer consumption 2023 and 2024 updated on 18th August 2025.\r\nSoya bean\u2019s and slaughter fats\u2019 use as feed 2023 and 2024 updated on 18th August 2025.\r\n"
+  ],
+  "role": {
+    "time": [
+      "Vuosi"
+    ]
+  },
+  "id": [
+    "Vuosi",
+    "Elintarvike",
+    "Tieto"
+  ],
+  "size": [
+    20,
+    1,
+    1
+  ],
+  "dimension": {
+    "ContentsCode": {
+      "label": "EliminatedContents",
+      "category": {
+        "index": {
+          "EliminatedValue": 0
+        },
+        "label": {
+          "EliminatedValue": "Balance sheet for food commodities"
+        },
+        "unit": {
+          "EliminatedValue": {
+            "base": "million kg",
+            "decimals": 5
+          }
+        }
+      },
+      "extension": {
+        "elimination": true
+      }
+    },
+    "Vuosi": {
+      "label": "Year",
+      "category": {
+        "index": {
+          "2005": 0,
+          "2006": 1,
+          "2007": 2,
+          "2008": 3,
+          "2009": 4,
+          "2010": 5,
+          "2011": 6,
+          "2012": 7,
+          "2013": 8,
+          "2014": 9,
+          "2015": 10,
+          "2016": 11,
+          "2017": 12,
+          "2018": 13,
+          "2019": 14,
+          "2020": 15,
+          "2021": 16,
+          "2022": 17,
+          "2023": 18,
+          "2024": 19
+        },
+        "label": {
+          "2005": "2005",
+          "2006": "2006",
+          "2007": "2007",
+          "2008": "2008",
+          "2009": "2009",
+          "2010": "2010",
+          "2011": "2011",
+          "2012": "2012",
+          "2013": "2013",
+          "2014": "2014",
+          "2015": "2015",
+          "2016": "2016",
+          "2017": "2017",
+          "2018": "2018",
+          "2019": "2019",
+          "2020": "2020",
+          "2021": "2021",
+          "2022": "2022",
+          "2023": "2023",
+          "2024": "2024"
+        }
+      },
+      "extension": {
+        "elimination": false,
+        "show": "value"
+      }
+    },
+    "Elintarvike": {
+      "label": "Commodity",
+      "category": {
+        "index": {
+          "Kaura": 0
+        },
+        "label": {
+          "Kaura": "Oats"
+        }
+      },
+      "extension": {
+        "elimination": false,
+        "show": "value"
+      }
+    },
+    "Tieto": {
+      "label": "Data",
+      "category": {
+        "index": {
+          "Tuotanto": 0
+        },
+        "label": {
+          "Tuotanto": "Production"
+        }
+      },
+      "extension": {
+        "elimination": false,
+        "show": "value"
+      }
+    }
+  },
+  "extension": {
+    "px": {
+      "decimals": 1,
+      "official-statistics": false,
+      "aggregallowed": true,
+      "language": "fi",
+      "description": "Balance sheet for food commodities (million kg)",
+      "matrix": "Luke_Maa_Ravtase_02",
+      "subject-code": "MAA"
+    },
+    "contact": [
+      {
+        "raw": "tietopalvelu@luke.fi#<A HREF=https://www.luke.fi/en/statistics/balance-sheet-for-food-commodities TARGET=_blank>The home page of statistics</A>"
+      }
+    ]
+  },
+  "value": [
+    1073.3,
+    1028.8,
+    1222,
+    1213.4,
+    1114.7,
+    809.7,
+    1043.1,
+    1073.1,
+    1196.8,
+    1039,
+    979.6,
+    1035.1,
+    1013.9,
+    818.2,
+    1169.8,
+    1194.6,
+    790.2,
+    1174.3,
+    1008,
+    1207.5
+  ]
+}

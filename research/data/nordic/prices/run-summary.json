@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-03-11T15:42:52.290241+00:00",
+  "output_dir": "/Users/gabrielboen/Documents/Food Systems 2026/research/data/nordic/prices",
+  "selected_specs": [
+    "nordic-eurostat-hicp-food-monthly",
+    "nordic-eurostat-food-price-levels-annual",
+    "no-ssb-cpi-food-14700",
+    "no-ssb-cpi-food-03013-archive",
+    "no-ssb-ppi-food-domestic-12462",
+    "dk-statbank-cpi-food-pris01",
+    "dk-statbank-hicp-food-pris07",
+    "dk-statbank-food-price-levels-ppp1",
+    "se-scb-cpi-food-kpi2020coicopm",
+    "se-scb-ppi-food-ppi2020m",
+    "fi-statfin-cpi-food-15b5",
+    "fi-statfin-hicp-food-15b7",
+    "fi-statfin-ppi-food-118g"
+  ],
+  "skipped_datasets": [
+    {
+      "slug": "fi-luke-producer-prices-0400-tuohin",
+      "reason": "Separate producer-price commodity series, not comparable food CPI/HICP for prices v1."
+    },
+    {
+      "slug": "dk-statbank-agricultural-output-prices-lpris10",
+      "reason": "Commodity-specific farm gate table; keep for later producer-price extension."
+    },
+    {
+      "slug": "is-statistics-iceland-cpi-vis01000",
+      "reason": "General CPI table, not food-filtered in current registry entry."
+    },
+    {
+      "slug": "is-statistics-iceland-hicp-vis02502",
+      "reason": "Cross-country HICP table without food-group filter in current registry entry."
+    }
+  ],
+  "counters": {
+    "selected": 13,
+    "ok": 13,
+    "errors": 0
+  }
+}
