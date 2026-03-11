@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
+import { KpiCard } from '@/components/ui/KpiCard'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { phases } from '@/lib/data/phases'
@@ -8,6 +9,14 @@ import { evidencePack } from '@/lib/data/evidence-pack'
 import { tenSteps } from '@/lib/data/ten-step-start'
 import { tasks } from '@/lib/data/tasks'
 import { insights } from '@/lib/data/insights'
+import type { KPI } from '@/lib/types'
+
+const FOOD_SYSTEM_KPIS: KPI[] = [
+  { id: 'butikker', name: 'Butikker kartlagt', description: 'OSM-data, 14 kjeder', current: '3 849' },
+  { id: 'konsentrasjon', name: 'Markedskonsentrasjon', description: 'Tre kjeder dominerer', current: '96%', target: '<80%' },
+  { id: 'selvforsyning', name: 'Selvforsyningsgrad', description: 'Meld. St. 11-mål innen 2030', current: '44%', target: '50%' },
+  { id: 'matsvinn', name: 'Matsvinn', description: 'Årlig spiselig mat kastet', current: '390 000 t' },
+]
 
 export default function OversiktPage() {
   const completedDeliverables = deliverables.filter(d => d.status === 'fullfort').length
@@ -73,6 +82,15 @@ export default function OversiktPage() {
           <p className="text-xl font-bold text-stone-900 mt-1">{completedTasks} / {tasks.length}</p>
           <ProgressBar value={completedTasks} max={tasks.length} className="mt-2" />
         </Card>
+      </div>
+
+      <div>
+        <h2 className="text-sm font-semibold text-stone-700 mb-3">Matsystemdata</h2>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          {FOOD_SYSTEM_KPIS.map(kpi => (
+            <KpiCard key={kpi.id} kpi={kpi} />
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
