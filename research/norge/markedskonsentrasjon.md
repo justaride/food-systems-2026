@@ -266,13 +266,13 @@ Key concepts:
 
 ### 5.2 The Price Transmission Paradox
 
-**Empirical finding from SSB data (2020-2025):**
+**Empirical finding from SSB data (2020-2026):**
 
 | Metric | Growth |
 |--------|--------|
-| Producer Price Index (PPI) | +42.7% |
-| Consumer Price Index (KPI) | +32.5% |
-| **Spread** | **-10.2 pts** |
+| Producer Price Index (PPI) | +48.7% |
+| Consumer Price Index (KPI) | +33.2% |
+| **Spread (latest)** | **-15.5 pts** |
 
 This is counter-intuitive. Simple "greedflation" would predict KPI ≥ PPI. Instead, producers absorbed more inflation than consumers.
 
@@ -449,7 +449,7 @@ The real pattern is at the parent company level: **three companies control 93.4%
 | H6 | Fear culture | Feedback | Untested | Survey of suppliers on complaint behavior |
 | H7 | 3-player attractor | Emergence | CONSISTENT | Historical market structure data |
 | H8 | Simple rules | Emergence | Untested | Agent-based simulation |
-| H9 | Trophic extraction | Metabolism | CONSISTENT | PPI +42.7% vs KPI +32.5% supports hidden extraction |
+| H9 | Trophic extraction | Metabolism | CONSISTENT | PPI +48.7% vs KPI +33.2% supports hidden extraction |
 | H10 | Carrying capacity | Metabolism | Untested | Historical store count time series |
 
 ---
@@ -564,7 +564,7 @@ The broader implication: In essential systems—food, energy, communications—*
 3. Konkurransetilsynet (2024). Prisjeger decision
 4. Nordic White Paper (2024). Sustainable Food Systems
 5. Damer, B. & Deamer, D. (2020). "The Hot Spring Hypothesis for an Origin of Life"
-6. SSB Tables 03013 (KPI), 12462 (PPI)
+6. SSB Tables 14700 and 03013 (archived KPI bridge), 12462 (PPI)
 
 ---
 

@@ -1,7 +1,7 @@
-# Data Insight: Price Transmission Analysis (2020-2025)
+# Data Insight: Price Transmission Analysis (2020-2026)
 
-**Date:** December 30, 2025
-**Source:** SSB Tables 03013 (KPI) and 12462 (PPI)
+**Date:** March 10, 2026
+**Source:** SSB Table 14700 (KPI, with archived 03013 bridge) and 12462 (PPI)
 **Methodology:** Rebased both indices to Jan 2020 = 100 to observe cumulative inflation since the start of the pandemic/inflationary cycle.
 
 ## Key Findings
@@ -9,9 +9,9 @@
 ### 1. The "Reverse" Gap
 Contrary to the popular "Greedflation" hypothesis (that retailers hiked prices faster than costs), the data shows that **Producer Prices (PPI)** have risen significantly faster than **Consumer Prices (KPI)** since 2020.
 
-*   **PPI Growth (Jan 2020 - Nov 2025):** +42.7%
-*   **KPI Growth (Jan 2020 - Nov 2025):** +32.5%
-*   **Spread:** -10.2 points
+*   **PPI Growth (Jan 2020 - Feb 2026):** +48.7%
+*   **KPI Growth (Jan 2020 - Feb 2026):** +33.2%
+*   **Spread (latest):** -15.5 points
 
 ### 2. Interpretation
 This data suggests two possibilities:

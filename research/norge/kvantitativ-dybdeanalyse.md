@@ -8,13 +8,13 @@
 
 ## Sammendrag
 
-Denne analysen anvender Philip Meyers presisjonsjournalistikk-rammeverk på det norske matsystemet. Vi tester seks hypoteser mot empiriske data fra SSB prisindekser (132 månedlige observasjoner, 2015–2025), markedskonsentrasjonsdata (3 849 butikker, 14 kjeder, 5 morselskaper), og offentlig tilgjengelige nøkkeltall fra Konkurransetilsynet, Riksrevisjonen og selskapenes årsrapporter.
+Denne analysen anvender Philip Meyers presisjonsjournalistikk-rammeverk på det norske matsystemet. Vi tester seks hypoteser mot empiriske data fra SSB prisindekser (134 månedlige observasjoner, jan. 2015–feb. 2026), markedskonsentrasjonsdata (3 849 butikker, 14 kjeder, 5 morselskaper), og offentlig tilgjengelige nøkkeltall fra Konkurransetilsynet, Riksrevisjonen og selskapenes årsrapporter.
 
 **Hovedfunn:**
 - Markedet er høykonsentrert (HHI 3 438 på morselskap-nivå; topp-3 = 93,4 %)
-- Produsentpriser (PPI) har steget 42,7 % siden jan. 2020 vs. konsumpriser (KPI) +32,5 % — en «omvendt gap» som tyder på at verdiekstraksjon skjer gjennom skjulte mekanismer, ikke gjennom synlige prisøkninger
+- Produsentpriser (PPI) har steget 48,7 % siden jan. 2020 vs. konsumpriser (KPI) +33,2 % — en «omvendt gap» som tyder på at verdiekstraksjon skjer gjennom skjulte mekanismer, ikke gjennom synlige prisøkninger
 - Juli-effekten: KPI stiger i snitt +3,8 indekspoeng fra juni til juli hvert år, konsistent med sesongbasert marginekspansjon
-- Spredningen (PPI−KPI) nådde sitt verste i mars 2023 (−24,3 pts) og er nå i ferd med å smalnes (−10,2 pts i nov. 2025) — men KPI akselererer raskere enn PPI avtar, noe som kan indikere forsinket gjennomslag eller aktiv marginbygging
+- Spredningen (KPI−PPI) nådde sitt verste i mars 2023 (−24,4 pts). Siste tilgjengelige observasjon er −15,5 pts i feb. 2026, etter en midlertidig innsmalning gjennom 2025.
 
 ---
 
@@ -24,7 +24,7 @@ Denne analysen anvender Philip Meyers presisjonsjournalistikk-rammeverk på det 
 
 | Datasett | Kilde | Omfang | Kvalitet |
 |----------|-------|--------|----------|
-| Prisindekser (KPI/PPI) | SSB tabell 03013 / 12462 | 132 mnd obs., jan. 2015 – nov. 2025 | Høy (offisiell statistikk) |
+| Prisindekser (KPI/PPI) | SSB tabell 14700 + 03013 (arkivbro) / 12462 | 134 mnd obs., jan. 2015 – feb. 2026 | Høy (offisiell statistikk) |
 | Markedskonsentrasjon | OSM + bearbeidet | 3 849 butikker, 14 kjeder, 5 morselskaper | Medium-høy (OSM-basert) |
 | Kommunedata | SSB + Kartverket | 357 kommuner med befolkning, inntekt, demografi | Høy |
 | Finansielle nøkkeltall | Årsrapporter 2024 | NorgesGruppen, Reitan, Coop | Høy (revidert) |
@@ -35,7 +35,7 @@ Denne analysen anvender Philip Meyers presisjonsjournalistikk-rammeverk på det 
 ### 1.2 Datavalidering
 
 **Prisindeks-data:**
-- Fullstendighet: 132 av 132 forventede månedlige observasjoner (jan. 2015 – nov. 2025) ✅
+- Fullstendighet: 134 av 134 forventede månedlige observasjoner (jan. 2015 – feb. 2026) ✅
 - Basår: Jan. 2020 = 100 for begge indekser ✅
 - Spread = KPI − PPI (beregnet, konsistent gjennom hele serien) ✅
 - Ingen manglende verdier, ingen åpenbare datafeil ✅
@@ -60,57 +60,58 @@ Denne analysen anvender Philip Meyers presisjonsjournalistikk-rammeverk på det 
 
 ## 2. Deskriptiv statistikk
 
-### 2.1 Prisindeksutvikling (2015–2025)
+### 2.1 Prisindeksutvikling (2015–2026)
 
 **KPI (Konsumprisindeks, mat og alkoholfrie drikkevarer):**
 
 | Statistikk | Verdi |
 |------------|-------|
-| Observasjoner | 132 |
-| Minimum | 90,93 (jan. 2015) |
-| Maksimum | 136,58 (jul. 2025) |
-| Gjennomsnitt | 107,17 |
-| Standardavvik | 12,48 |
-| Totalvekst (jan. 2015 → nov. 2025) | +45,7 % |
-| Vekst siden basår (jan. 2020 → nov. 2025) | +32,5 % |
+| Observasjoner | 134 |
+| Minimum | 90,85 (jan. 2015) |
+| Maksimum | 136,60 (jul. 2025) |
+| Gjennomsnitt | 106,32 |
+| Standardavvik | 12,55 |
+| Totalvekst (jan. 2015 → feb. 2026) | +46,6 % |
+| Vekst siden basår (jan. 2020 → feb. 2026) | +33,2 % |
 
 **PPI (Produsentprisindeks, næringsmidler):**
 
 | Statistikk | Verdi |
 |------------|-------|
-| Observasjoner | 132 |
+| Observasjoner | 134 |
 | Minimum | 87,91 (jan. 2015) |
-| Maksimum | 142,69 (aug./nov. 2025) |
-| Gjennomsnitt | 111,27 |
-| Standardavvik | 18,87 |
-| Totalvekst (jan. 2015 → nov. 2025) | +62,3 % |
-| Vekst siden basår (jan. 2020 → nov. 2025) | +42,7 % |
+| Maksimum | 148,69 (feb. 2026) |
+| Gjennomsnitt | 111,37 |
+| Standardavvik | 19,40 |
+| Totalvekst (jan. 2015 → feb. 2026) | +69,1 % |
+| Vekst siden basår (jan. 2020 → feb. 2026) | +48,7 % |
 
 **Spread (KPI − PPI):**
 
 | Statistikk | Verdi |
 |------------|-------|
-| Gjennomsnitt | −4,10 |
-| Standardavvik | 8,85 |
-| Minimum (verste gap) | −24,28 (mar. 2023) |
-| Maksimum | +5,55 (jul. 2015) |
-| Nåværende (nov. 2025) | −10,23 |
+| Gjennomsnitt | −5,05 |
+| Standardavvik | 8,19 |
+| Minimum (verste gap) | −24,38 (mar. 2023) |
+| Maksimum | +5,52 (jul. 2015) |
+| Nåværende (feb. 2026) | −15,48 |
 
 ### 2.2 Spread etter år (gjennomsnittlig KPI − PPI)
 
 | År | Gj.snitt spread | Fase |
 |----|-----------------|------|
-| 2015 | +3,44 | Pre-krise likevekt |
-| 2016 | +1,85 | Pre-krise likevekt |
-| 2017 | +1,26 | Pre-krise likevekt |
-| 2018 | +1,99 | Pre-krise likevekt |
-| 2019 | +0,54 | Overgang |
-| 2020 | +0,62 | Pandemi-sjokk |
-| 2021 | −4,58 | Divergens begynner |
-| 2022 | −13,96 | Gapet åpner seg |
-| 2023 | −17,99 | Maksimalt gap |
-| 2024 | −15,73 | Delvis konvergens |
-| 2025 | −10,80 | Innsmalning pågår |
+| 2015 | +3,42 | Pre-krise likevekt |
+| 2016 | +1,80 | Pre-krise likevekt |
+| 2017 | +1,22 | Pre-krise likevekt |
+| 2018 | +1,94 | Pre-krise likevekt |
+| 2019 | +0,49 | Overgang |
+| 2020 | +0,56 | Pandemi-sjokk |
+| 2021 | −4,63 | Divergens begynner |
+| 2022 | −14,01 | Gapet åpner seg |
+| 2023 | −18,04 | Maksimalt gap |
+| 2024 | −15,77 | Delvis konvergens |
+| 2025 | −11,02 | Innsmalning pågår |
+| 2026* | −13,81 | Foreløpig (jan.–feb.) |
 
 ### 2.3 Markedsstruktur
 
@@ -234,24 +235,24 @@ Til sammenligning: dagligvarebransjens gjennomsnittlige driftsmargin er 1,9 % (V
 
 | Fase | Periode | Gj.snitt spread | Dynamikk |
 |------|---------|-----------------|----------|
-| 1. Pre-krise likevekt | 2015–2019 | +1,82 | KPI > PPI; normalt marginnivå |
-| 2. Pandemisjokk | 2020 | +0,62 | Midlertidig prispress, hamstring |
-| 3. Divergens | 2021 | −4,58 | PPI akselererer på energi/råvarer; KPI henger etter |
-| 4. Maksimalt gap | 2022–2023 | −15,98 | PPI +42,7 % vs KPI +32,5 %; produsentene absorberer |
-| 5. Innsmalning | 2024–2025 | −13,27 | PPI stabiliserer; KPI akselererer → margin catchup |
+| 1. Pre-krise likevekt | 2015–2019 | +1,77 | KPI > PPI; normalt marginnivå |
+| 2. Pandemisjokk | 2020 | +0,56 | Midlertidig prispress, hamstring |
+| 3. Divergens | 2021 | −4,63 | PPI akselererer på energi/råvarer; KPI henger etter |
+| 4. Maksimalt gap | 2022–2023 | −16,02 | PPI-løp fra KPI; produsentene absorberer inflasjonssjokket |
+| 5. Delvis catch-up og ny utvidelse | 2024–2026* | −13,42 | KPI tok innpå gjennom 2025, men gapet utvidet seg igjen tidlig i 2026 |
 
 **Nøkkelobservasjon — Fase 5 er kritisk:**
-- PPI-vekst (des. 2023 → nov. 2025): +3,3 % (avtagende)
-- KPI-vekst (des. 2023 → nov. 2025): +11,3 % (akselererende)
+- PPI-vekst (des. 2023 → feb. 2026): +7,6 %
+- KPI-vekst (des. 2023 → feb. 2026): +12,0 %
 
-KPI stiger nå tre ganger raskere enn PPI. To mulige tolkninger:
+KPI har siden des. 2023 steget om lag 1,6 ganger raskere enn PPI. To mulige tolkninger:
 
 1. **Forsinket gjennomslag (uskyldig):** Detaljistene implementerer forsinkede kostøkninger som allerede var absorbert
 2. **Marginbygging (bekymringsverdig):** Detaljistene utnytter at forbrukerne har «vant seg til» høye priser og øker marginene aktivt
 
-**Data støtter begge**, men Konkurransetilsynets funn om «significantly higher than expected profitability» (mai 2024) peker mot tolkning 2.
+**Data støtter begge**, men utviklingen i jan.–feb. 2026 viser at konvergensen ikke er lineær. Konkurransetilsynets funn om «significantly higher than expected profitability» (mai 2024) holder derfor tolkning 2 åpen.
 
-**Vurdering: STØTTET** — asymmetrisk pristransmisjon er tydelig. KPI steg langsommere enn PPI på vei opp (2021–2023) og faller ikke selv om PPI-veksten avtar (2024–2025). Klassisk rockets and feathers.
+**Vurdering: STØTTET** — asymmetrisk pristransmisjon er tydelig. KPI steg langsommere enn PPI på vei opp (2021–2023), tok innpå gjennom 2024–2025, men gapet er fortsatt klart negativt ved inngangen til 2026. Klassisk rockets and feathers, men med et mer ujevnt forløp enn først antatt.
 
 ### H-NY2: Sesongbasert marginekspansjon (juli-effekten)
 
@@ -292,36 +293,38 @@ Gjennomsnittlig: −2,18 KPI-poeng
 
 ### 4.1 Dekomponering
 
-**Trend:** Spread beveger seg fra stabilt positivt (+1,8 i 2015–2019) gjennom et negativt sjokk (−18,0 i 2023) og tilbake mot et nytt likevektsnivå (estimert −8 til −10).
+**Trend:** Spread beveger seg fra stabilt positivt (+1,8 i 2015–2019) gjennom et negativt sjokk (−18,0 i 2023), inn i en periode med delvis innsmalning i 2025, og deretter til ny utvidelse i starten av 2026.
 
 **Syklisk komponent:** Spreaden har en tydelig 12-måneders syklus drevet av sesongvariasjoner i KPI (juli-topp, desember-bunn) som ikke korresponderer med PPI-sesong.
 
 **Infleksjons­punkter:**
-1. **Sep. 2019 → jan. 2020:** Spread krysser null for siste gang som «normalt positivt»
-2. **Sep. 2021:** Spread passerer −6,3 — entydig negativ trend etablert
-3. **Mar. 2023:** Bunnen nådd ved −24,3 — maksimal «produsentsmerte»
-4. **Jul. 2025:** Spread smalner til −6,0 — smaleste siden aug. 2021
+1. **Mar. 2021:** Spread blir varig negativ etter siste korte positive observasjon i feb. 2021
+2. **Mar. 2023:** Bunnen nådd ved −24,4 — maksimal «produsentsmerte»
+3. **Jul. 2025:** Spread smalner til −6,0 — smaleste nivå siden 2021
+4. **Feb. 2026:** Spread utvider seg igjen til −15,5
 
 ### 4.2 Årsbasert PPI-KPI-veksttakt
 
 | Periode | KPI-vekst | PPI-vekst | Gap (KPI − PPI) |
 |---------|-----------|-----------|-----------------|
-| 2020 → 2021 | −1,9 % | +9,5 % | −11,4 pp |
-| 2021 → 2022 | +10,3 % | +20,0 % | −9,7 pp |
+| 2020 → 2021 | −2,0 % | +7,4 % | −9,4 pp |
+| 2021 → 2022 | +11,5 % | +19,6 % | −8,1 pp |
 | 2022 → 2023 | +8,9 % | +5,5 % | +3,4 pp |
-| 2023 → 2024 | +4,0 % | +1,5 % | +2,5 pp |
-| 2024 → 2025* | +7,0 % | +1,7 % | +5,3 pp |
+| 2023 → 2024 | +4,0 % | +1,5 % | +2,4 pp |
+| 2024 → 2025 | +5,3 % | +2,0 % | +3,3 pp |
+| 2025 → 2026** | +2,3 % | +3,9 % | −1,6 pp |
 
-*2025: beregnet des. 2024 → nov. 2025
+*2026-fasen over er foreløpig (jan.–feb.)  
+**2025 → 2026 er beregnet des. 2025 → feb. 2026
 
-**Kritisk funn:** Siden 2023 vokser KPI raskere enn PPI. Detaljistene henter igjen gapet — men overskyteren kan indikere netto marginekspansjon. I 2025 vokser KPI fire ganger raskere enn PPI.
+**Kritisk funn:** Siden 2023 har KPI i hovedsak vokst raskere enn PPI. Detaljistene henter igjen deler av gapet, men de første 2026-observasjonene viser at denne catch-upen ikke er stabil.
 
 ### 4.3 Kumulativ divergens
 
 Total kumulativ «produsenttap» (periode der PPI > KPI):
-- Varte fra ~sep. 2019 til pågående (75+ måneder)
-- Maksimal divergens: PPI 24,3 indekspoeng over KPI (mar. 2023)
-- Nåværende divergens: PPI 10,2 indekspoeng over KPI (nov. 2025)
+- Sammenhengende negativ spread fra mars 2021 til feb. 2026 (60 måneder)
+- Maksimal divergens: PPI 24,4 indekspoeng over KPI (mar. 2023)
+- Nåværende divergens: PPI 15,5 indekspoeng over KPI (feb. 2026)
 
 Denne langvarige perioden der produsentprisene ligger over konsumprisene betyr at enten:
 1. Produsenter har absorbert en kolossal kostøkning som ikke er fullt overført til forbrukere
@@ -407,8 +410,8 @@ Det norske dagligvaremarkedet viser:
 
 | Kilde | Data | Tilgang | Oppdatering |
 |-------|------|---------|-------------|
-| SSB tabell 03013 | KPI matvarer | Bearbeidet CSV, des. 2025 | Månedlig |
-| SSB tabell 12462 | PPI næringsmidler | Bearbeidet CSV, des. 2025 | Månedlig |
+| SSB tabell 14700 + 03013 (arkivbro) | KPI matvarer og alkoholfrie drikkevarer | Live API-uttrekk, 10. mars 2026 | Månedlig |
+| SSB tabell 12462 | PPI næringsmidler (innenlandsk marked) | Live API-uttrekk, 10. mars 2026 | Månedlig |
 | OpenStreetMap via Overpass | Butikklokasjoner | JSON, des. 2025 | Løpende |
 | NorgesGruppen årsrapport 2024 | Finansielle nøkkeltall | PDF, 2025 | Årlig |
 | Reitangruppen årsrapport 2024 | Finansielle nøkkeltall | PDF, 2025 | Årlig |
@@ -422,8 +425,8 @@ Det norske dagligvaremarkedet viser:
 | Begrep | Definisjon | Operasjonalisering |
 |--------|------------|---------------------|
 | HHI | Herfindahl-Hirschman-indeks | Σ(s_i²) der s_i er markedsandel i prosent; skala 0–10 000 |
-| KPI (mat) | Konsumprisindeks, matvarer og alkoholfrie drikkevarer | SSB tabell 03013, rebasert til jan. 2020 = 100 |
-| PPI (mat) | Produsentprisindeks, næringsmiddelindustri | SSB tabell 12462, rebasert til jan. 2020 = 100 |
+| KPI (mat) | Konsumprisindeks, matvarer og alkoholfrie drikkevarer | SSB tabell 14700, med SSB tabell 03013 som arkivbro; rebasert til jan. 2020 = 100 |
+| PPI (mat) | Produsentprisindeks, næringsmiddelindustri | SSB tabell 12462 (innenlandsk marked), rebasert til jan. 2020 = 100 |
 | Spread | KPI − PPI | Positivt = detaljistmargin over produksjonskost; negativt = produsent absorberer mer |
 | Selvforsyningsgrad | Andel av kaloriforbruk dekket av norsk produksjon | SSB/NIBIO offisielle beregninger |
 | Juli-premie | KPI(juli) − KPI(juni) i et gitt år | Beregnet fra månedlige indeksdata |
@@ -478,32 +481,34 @@ Det norske dagligvaremarkedet viser:
 
 | År | Jan | Feb | Mar | Apr | Mai | Jun | Jul | Aug | Sep | Okt | Nov | Des |
 |----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| 2015 | 3,0 | 3,5 | 2,0 | 2,4 | 3,3 | 4,7 | 5,6 | 4,3 | 4,7 | 3,5 | 3,8 | 0,5 |
-| 2016 | 0,1 | 3,0 | −1,0 | 1,7 | 1,3 | 1,9 | 3,9 | 3,2 | 3,7 | 3,1 | 2,2 | −0,8 |
-| 2017 | 0,5 | 1,2 | 0,8 | −1,2 | 1,3 | 2,7 | 4,6 | 1,4 | 1,2 | 1,7 | 1,1 | −0,1 |
-| 2018 | 0,8 | 2,5 | 0,1 | 0,2 | 0,4 | 1,0 | 5,1 | 3,4 | 3,0 | 2,2 | 3,7 | 1,6 |
-| 2019 | 0,9 | 3,0 | 2,1 | 1,0 | −0,1 | 0,8 | 4,2 | 1,0 | 0,1 | −1,2 | −1,8 | −3,4 |
-| 2020 | 0,0 | 1,6 | 1,2 | 0,8 | 0,2 | −0,8 | 1,9 | 1,5 | 1,6 | 1,0 | 0,4 | −2,0 |
-| 2021 | −1,0 | 0,4 | −0,7 | −2,6 | −2,9 | −3,6 | −3,2 | −4,9 | −6,3 | −8,7 | −9,9 | −11,4 |
-| 2022 | −10,9 | −7,9 | −11,2 | −11,3 | −14,4 | −13,9 | −12,7 | −13,8 | −14,4 | −16,0 | −19,4 | −21,7 |
-| 2023 | −21,0 | −20,3 | −24,3 | −21,6 | −19,2 | −16,4 | −14,0 | −14,3 | −14,5 | −14,7 | −16,4 | −19,2 |
-| 2024 | −17,1 | −19,6 | −21,9 | −17,9 | −16,5 | −13,4 | −10,3 | −12,1 | −14,7 | −14,7 | −14,0 | −16,5 |
-| 2025 | −12,5 | −11,7 | −13,7 | −16,3 | −12,3 | −10,2 | −6,0 | −8,6 | −8,7 | −8,6 | −10,2 | — |
+| 2015 | 2,9 | 3,5 | 2,0 | 2,4 | 3,2 | 4,8 | 5,5 | 4,3 | 4,7 | 3,5 | 3,8 | 0,5 |
+| 2016 | 0,1 | 2,9 | −1,0 | 1,6 | 1,2 | 1,8 | 3,8 | 3,1 | 3,7 | 3,1 | 2,1 | −0,9 |
+| 2017 | 0,5 | 1,2 | 0,7 | −1,3 | 1,2 | 2,6 | 4,6 | 1,3 | 1,2 | 1,7 | 1,1 | −0,1 |
+| 2018 | 0,7 | 2,5 | 0,0 | 0,0 | 0,3 | 1,0 | 5,1 | 3,4 | 3,0 | 2,1 | 3,6 | 1,5 |
+| 2019 | 0,8 | 3,0 | 2,0 | 0,8 | −0,2 | 0,7 | 4,2 | 0,9 | 0,1 | −1,3 | −1,8 | −3,5 |
+| 2020 | 0,0 | 1,5 | 1,1 | 0,7 | 0,1 | −0,8 | 1,9 | 1,5 | 1,6 | 0,9 | 0,4 | −2,0 |
+| 2021 | −1,1 | 0,3 | −0,8 | −2,6 | −2,9 | −3,7 | −3,4 | −4,9 | −6,3 | −8,8 | −9,9 | −11,6 |
+| 2022 | −11,0 | −7,9 | −11,3 | −11,3 | −14,4 | −14,0 | −12,7 | −13,8 | −14,5 | −16,0 | −19,5 | −21,8 |
+| 2023 | −21,1 | −20,3 | −24,4 | −21,6 | −19,2 | −16,5 | −14,1 | −14,4 | −14,5 | −14,8 | −16,4 | −19,2 |
+| 2024 | −17,1 | −19,7 | −21,9 | −18,0 | −16,5 | −13,4 | −10,3 | −12,2 | −14,8 | −14,7 | −14,1 | −16,6 |
+| 2025 | −12,4 | −11,7 | −13,8 | −16,4 | −12,4 | −10,3 | −6,0 | −8,6 | −8,8 | −8,7 | −10,3 | −12,9 |
+| 2026 | −12,1 | −15,5 | — | — | — | — | — | — | — | — | — | — |
 
 ---
 
 ## Vedlegg B: Referanser
 
-1. SSB tabell 03013: Konsumprisindeks, etter konsumgruppe. ssb.no/statbank
-2. SSB tabell 12462: Produsentprisindeks, etter næring. ssb.no/statbank
-3. Konkurransetilsynet (2024). Vedtak om prissamarbeid i dagligvaresektoren, 4,9 mrd NOK
-4. Konkurransetilsynet (2024). Dagligvaremarkedet — en markedsstudie
-5. Riksrevisjonen (2023). Matsikkerhet og beredskap. Dokument 3:5 (2023–2024)
-6. Dagligvaretilsynet (2023). Årsrapport — Lov om god handelsskikk
-7. NorgesGruppen ASA (2024). Årsrapport 2024
-8. Reitangruppen (2024). Årsrapport 2024
-9. Coop Norge SA (2024). Årsrapport 2024
-10. Landbruksdirektoratet / SSB (2024). Selvforsyningsgrad og produksjonsstatistikk
+1. SSB tabell 14700: Konsumprisindeks, etter vare- og tjenestegruppe. ssb.no/statbank
+2. SSB tabell 03013: Arkivert KPI-serie brukt som kontinuitetsbro etter tabellbytte 10.02.2026. ssb.no/statbank
+3. SSB tabell 12462: Produsentprisindeks, etter næring. ssb.no/statbank
+4. Konkurransetilsynet (2024). Vedtak om prissamarbeid i dagligvaresektoren, 4,9 mrd NOK
+5. Konkurransetilsynet (2024). Dagligvaremarkedet — en markedsstudie
+6. Riksrevisjonen (2023). Matsikkerhet og beredskap. Dokument 3:5 (2023–2024)
+7. Dagligvaretilsynet (2023). Årsrapport — Lov om god handelsskikk
+8. NorgesGruppen ASA (2024). Årsrapport 2024
+9. Reitangruppen (2024). Årsrapport 2024
+10. Coop Norge SA (2024). Årsrapport 2024
+11. Landbruksdirektoratet / SSB (2024). Selvforsyningsgrad og produksjonsstatistikk
 
 ---
 
