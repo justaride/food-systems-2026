@@ -1,4 +1,7 @@
+'use client'
+
 import { Card } from '@/components/ui/Card'
+import { ExpandableSources } from '@/components/ui/ExpandableSources'
 import { meetings } from '@/lib/data/meetings'
 
 export default function MoterPage() {
@@ -71,6 +74,10 @@ export default function MoterPage() {
                 </ul>
               </div>
             </div>
+
+            {meeting.sources?.length ? (
+              <ExpandableSources sources={meeting.sources} />
+            ) : null}
           </Card>
         ))}
       </div>

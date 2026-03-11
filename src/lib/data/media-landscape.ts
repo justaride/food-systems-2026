@@ -10,12 +10,9 @@ export type MediaThemeId =
 
 export type MediaFocusLevel = 'lav' | 'middels' | 'hoy' | 'kritisk'
 
-export type MediaSource = {
-  sourceId?: string
-  label: string
-  url?: string
-  note?: string
-}
+import type { SourceRef } from '../types'
+
+export type MediaSource = SourceRef
 
 export type MediaTheme = {
   id: MediaThemeId

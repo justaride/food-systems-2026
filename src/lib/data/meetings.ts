@@ -1,3 +1,5 @@
+import type { SourceRef } from '../types'
+
 export type Meeting = {
   id: string
   date: string
@@ -8,6 +10,7 @@ export type Meeting = {
   keyDecisions: string[]
   actionItems: string[]
   keyInsights: string[]
+  sources?: SourceRef[]
 }
 
 export const meetings: Meeting[] = [
@@ -42,6 +45,10 @@ export const meetings: Meeting[] = [
       '80 personer pa workshop-liste fra Helsinki-initiativ',
       'Behov for grundig kartlegging for man bestemmer spesifikt fokus',
     ],
+    sources: [
+      { sourceId: 'src-3', label: '9. mars 2026 motenotat', note: 'Aksjonspunkter fra Einar/Martin' },
+      { sourceId: 'src-1', label: 'NI-soknaden (avslatt)', note: 'Bakgrunnsmateriale for prosjektet' },
+    ],
   },
   {
     id: 'meeting-2',
@@ -75,6 +82,11 @@ export const meetings: Meeting[] = [
       'Power Law-analyse: a bryte opp markedsaktorer gir bare temporary perturbation - ma endre reglene',
       'Selvforsyningsgrad Norge: 98% melk, men import-avhengighet pa mange andre kategorier',
     ],
+    sources: [
+      { sourceId: 'src-5', label: 'Speaker 1 transkripsjon', note: 'Strategi, data, verdikjeder og nordisk merverdi' },
+      { sourceId: 'src-7', label: 'Cathrines TG-drofting', note: 'Metodikk, governance og branding' },
+      { sourceId: 'src-14', label: 'Dagligvarerapport 2024-25', url: 'https://konkurransetilsynet.no/wp-content/uploads/2025/04/Konkurransetilsynets-Dagligvarerapport-2024-25.pdf', note: 'Markedskonsentrasjon og triopol' },
+    ],
   },
   {
     id: 'meeting-3',
@@ -102,6 +114,11 @@ export const meetings: Meeting[] = [
       'Food Desert Analysis er relevant vinkling for Norden pga import-avhengighet',
       'Verdikjede-tilnaerming: fra kaffebonne til waste - identifisere intervensjonspunkter',
       'Ma ga bredt ut forst, men raskt spisse fokus for a unnga "alt i alt = ingenting"',
+    ],
+    sources: [
+      { sourceId: 'src-4', label: 'Speaker 1 transkripsjon', note: 'Dokumentgjennomgang og kontekst' },
+      { sourceId: 'src-1', label: 'NI-soknaden (avslatt)', note: 'Gjenbruk tekst og analyse' },
+      { sourceId: 'src-8', label: 'TG Working Doc', note: 'Ten Step Start rammeverk' },
     ],
   },
 ]
