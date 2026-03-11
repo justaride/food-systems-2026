@@ -1,0 +1,5 @@
+series_id,country,latest_period,metric,analysis_value,analysis_unit,display_value,display_unit,comparability_flag
+fi_agri_food_imports,FI,2024-12,Trade value,151.499,index (series base=100),151.499,index (series base=100),fallback_only
+fi_agri_food_exports,FI,2024-12,Trade value,173.437,index (series base=100),173.437,index (series base=100),fallback_only
+dk_cereals_output_value,DK,2024,Cereals output,56.941,index (series base=100),11534.000,m DKK,fallback_only
+is_beef_production,IS,2025,Beef production,4.674,"1,000 tonnes",4.674,"1,000 tonnes",fallback_only

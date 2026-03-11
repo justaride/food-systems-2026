@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-03-11T18:00:59+00:00",
+  "output_dir": "research/data/nordic/trade-groups",
+  "files": {
+    "monthly_panel": "research/data/nordic/trade-groups/normalized/trade-group-imports-monthly.csv",
+    "annual_panel": "research/data/nordic/trade-groups/normalized/trade-group-imports-annual.csv",
+    "manifest_csv": "research/data/nordic/trade-groups/manifest.csv"
+  },
+  "included_countries": [
+    "NO",
+    "DK",
+    "SE",
+    "FI",
+    "IS"
+  ],
+  "included_groups": [
+    "meat",
+    "dairy_eggs",
+    "fish_seafood",
+    "cereals",
+    "fruit_veg",
+    "fats_oils"
+  ],
+  "coverage_by_country": {
+    "NO": {
+      "start": "2015",
+      "end": "2025"
+    },
+    "DK": {
+      "start": "2022",
+      "end": "2026"
+    },
+    "SE": {
+      "start": "2015",
+      "end": "2025"
+    },
+    "FI": {
+      "start": "2015",
+      "end": "2024"
+    },
+    "IS": {
+      "start": "2015",
+      "end": "2026"
+    }
+  },
+  "row_counts": {
+    "monthly_panel": 2604,
+    "annual_panel": 294,
+    "manifest": 5
+  },
+  "source_status": {
+    "NO": "ok",
+    "DK": "ok",
+    "SE": "ok",
+    "FI": "ok",
+    "IS": "ok"
+  },
+  "notes": [
+    "The panel is imports-only in v1 so Iceland can be included from the ready grouped source.",
+    "Denmark coverage starts in 2022 because the ready SITC2R4 monthly table does not expose earlier months in the harvested metadata set.",
+    "Norway is included as an annual-only panel from SSB table 08801, aggregated from detailed commodity-number rows.",
+    "Annual rows also include share_of_selected_food_basket, a within-country share for the selected six food groups."
+  ]
+}

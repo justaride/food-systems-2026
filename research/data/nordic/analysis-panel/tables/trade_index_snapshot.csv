@@ -1,0 +1,9 @@
+flow,country,latest_period,base_period,trade_index_common_base_2022_01_100,change_from_base_pct
+imports,DK,2025-12,2022-01,109.186,9.186
+imports,IS,2025-12,2022-01,140.866,40.866
+imports,NO,2025-12,2022-01,137.526,37.526
+imports,SE,2025-12,2022-01,110.079,10.079
+exports,DK,2025-12,2022-01,115.088,15.088
+exports,IS,2025-12,2022-01,97.956,-2.044
+exports,NO,2025-12,2022-01,78.062,-21.938
+exports,SE,2025-12,2022-01,115.902,15.902

@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-03-11T17:34:05.514301+00:00",
+  "dependency": "research/data/fetch_nordic_core_series.py",
+  "input_files": [
+    "research/data/nordic/core-series/prices_hicp_food_monthly.csv",
+    "research/data/nordic/core-series/trade_monthly_first_panel.csv",
+    "research/data/nordic/core-series/production_annual_first_panel.csv"
+  ],
+  "output_files": {
+    "harmonized_panel": "research/data/nordic/analysis-panel/nordic_harmonized_panel.csv",
+    "comparable_panel": "research/data/nordic/analysis-panel/nordic_comparable_panel.csv",
+    "change_panel": "research/data/nordic/analysis-panel/nordic_change_comparison_panel.csv",
+    "series_summary": "research/data/nordic/analysis-panel/nordic_series_summary.csv"
+  },
+  "row_counts": {
+    "harmonized_panel": 1859,
+    "comparable_panel": 706,
+    "change_panel": 1600,
+    "series_summary": 20
+  },
+  "flag_definitions": {
+    "level_comparable": "Raw or unit-standardized levels can be compared directly across the intended country group.",
+    "index_only": "Compare rebased movement, not raw levels, because currencies or source construction differ.",
+    "fallback_only": "Useful context series that should stay outside the pooled cross-country comparison."
+  }
+}

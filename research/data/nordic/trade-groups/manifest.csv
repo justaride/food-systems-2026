@@ -1,0 +1,6 @@
+country,status,source_name,dataset_or_table_id,observations_fetched,monthly_group_rows,annual_group_rows,raw_json,note
+NO,ok,SSB external trade by commodity number,08801,5818758,0,66,research/data/nordic/trade-groups/raw-json/no-food-group-imports-annual.json,"Annual-only import panel from detailed SSB commodity-number rows, chunked one year at a time."
+DK,ok,StatBank imports and exports SITC,SITC2R4,392,294,30,research/data/nordic/trade-groups/raw-json/dk-food-group-imports-monthly.json,"SITC imports, LAND=W1, UHBEGREB=GP."
+SE,ok,SCB imports and exports CN monthly,ImpExpKNTotMan,924,792,66,research/data/nordic/trade-groups/raw-json/se-food-group-imports-monthly.json,"ContentsCode=HA0201AI, selected top-level CN chapters only."
+FI,ok,Luke agri-food foreign trade,Luke_maa_Ukaup_kk.px,8640,720,60,research/data/nordic/trade-groups/raw-json/fi-food-group-imports-monthly.json,"maa=AA, muuttuja=V1, suunta=1."
+IS,ok,Statistics Iceland imports by SITC and countries,UTA06201.px,269192,798,72,research/data/nordic/trade-groups/raw-json/is-food-group-imports-monthly.json,"Unit=0 (Import cif), split into yearly API calls and summed across partner countries in normalization."
