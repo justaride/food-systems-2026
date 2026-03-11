@@ -8,7 +8,7 @@ Migrert fra BroCode-prosjektet. Grunnlag for Transition Group-arbeid og whitepap
 |---|---|
 | `forsyningskjede.md` | Komplett verdikjedeanalyse: produksjon → grossist → detaljist. Tre-aktør-oligopol (NorgesGruppen 44%, Coop 29%, REMA 24%) |
 | `markedskonsentrasjon.md` | Kvantitativ analyse: HHI ~3400, Zipf-fordeling, Gini 0.82. Feedback loops som opprettholder konsentrasjon |
-| `pristransmisjon.md` | PPI vs KPI-analyse 2015–2025. Asymmetrisk pristransmisjon — produsent absorberer sjokk, forbrukerpris stiger monotont |
+| `pristransmisjon.md` | PPI vs KPI-analyse 2015–2026. Asymmetrisk pristransmisjon — produsent absorberer sjokk, forbrukerpris stiger tregere enn produsentpris |
 | `nordstad-tesen.md` | Infrastruktur som essential facility. Grossistleddet som flaskehals. Konkurranserettslig analyse |
 | `nordstad-oppdatering.md` | 2025-oppdatering: Prisjeger-boten, Gaasland-rapporten, nye data |
 | `regulatorisk-landskap.md` | Lov om god handelsskikk, EMV-regulering, Dagligvaretilsynet, konkurranseloven |
@@ -41,12 +41,23 @@ Migrert fra BroCode-prosjektet. Grunnlag for Transition Group-arbeid og whitepap
 
 | Fil | Innhold |
 |---|---|
-| `prisindekser-2015-2025.csv` | Prisindekser (PPI/KPI) med 2020-base. Kjernedata for pristransmisjonsanalyse |
+| `fetch_price_series.py` | Reproduserbart uttrekk av SSB- og Eurostat-serier for prisanalyse |
+| `prisindekser-2015-2026.csv` | Kombinert KPI/PPI-serie med 2020-base, oppdatert fra live SSB-tabeller |
+| `ssb_kpi_14700_food_non_alcoholic_beverages.csv` | Rå KPI-serie fra ny SSB-tabell 14700 |
+| `ssb_kpi_03013_food_non_alcoholic_beverages.csv` | Arkivserie fra utfaset SSB-tabell 03013 for bro/validering |
+| `ssb_ppi_12462_food_products_domestic_market.csv` | Rå PPI-serie fra SSB tabell 12462 (innenlandsk marked) |
+| `eurostat_hicp_food_monthly_2015_2026.csv` | Månedlig nordisk HICP-serie for mat og alkoholfrie drikkevarer |
+| `eurostat_price_level_indices_food_2015_2024.csv` | Årlige prisnivåindekser for nordiske land (EU27_2020=100) |
+| `price_series_metadata.json` | Metadata, oppdateringsdatoer, noter og bridge-sjekk mellom 03013 og 14700 |
 | `markedskonsentrasjon-resultater.json` | HHI, Zipf-eksponenter, Gini-koeffisienter. Beregnet fra markedsandelsdata |
 
 ## norden/ — Nordisk komparativ analyse
 
-Tom — klar for neste arbeidsfase (dansk, svensk, finsk matsystemdata).
+| Fil | Innhold |
+|---|---|
+| `nordisk-komparativ-analyse.md` | Strukturell sammenlikning av dagligvaremarkedene i Danmark, Sverige, Finland og Norge |
+| `nordic-food-retail-comparative.md` | Engelsk researchlogg med selskaper, markedsandeler og regulatoriske kilder |
+| `nordic-food-price-comparison.md` | Eurostat-basert sammenlikning av matinflasjon og prisnivå i Norden |
 
 ## brocode-bakgrunn/ — Prosjekthistorikk
 

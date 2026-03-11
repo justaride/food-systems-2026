@@ -1,0 +1,84 @@
+{
+  "generated_at_utc": "2026-03-10T18:12:52.818465+00:00",
+  "ssb": {
+    "14700": {
+      "table": "14700",
+      "updated": "2026-03-10T07:00:00Z",
+      "label": "14700: Consumer price index, by goods and services, contents and month",
+      "notes": [
+        "On sub-group levels a code is attached to the text, meaning services (S), non-durables (ND), semi-durables (SD) or durables (D).",
+        "This table replaces [table 03013](https://www.ssb.no/en/statbank/table/03013).\n"
+      ],
+      "base_period": "2025",
+      "row_count": 134,
+      "start": "2015-01",
+      "end": "2026-02"
+    },
+    "03013": {
+      "table": "03013",
+      "updated": "2026-01-09T07:00:00Z",
+      "label": "03013: Consumer Price Index, by consumption group, contents and month",
+      "notes": [
+        "As of 2017 the reference year is 2015=100. Rates of change calculated from the 2015=100 series may differ from previously published rates of change where reference year differs. The deviations are mainly due to rounding effects. See the completed time series 11446 for published rates of change figures through 2016 with 1998=100.  \r\nAs of January 2016, EUROSTAT's consumer classification (ECOICOP) is applied - an extended classification at the detailed level.",
+        "The following price indices for services are based on estimated values due to non-availability during the COVID-19 pandemic 2020M04: 06.2.2, 07.3.3, 09.4.2, 09.6.0, 11.2.0, 12.1.1, 12.4.0., 2020M05: 06.2.2, 07.3.3, 09.4.2, 09.6.0, 11.2.0, 2020M06-2020M12: 07.3.3.2, 09.6.0, 2021M01-M05: 07.3.3, 07.3.4, 09.6.0, 2021M06-M07: 07.3.3.2, 07.3.4, 09.6.0, 2021M08: 07.3.3.2, 09.6.0",
+        "This table will no longer be updated, and will be replaced by a new table [14700](https://www.ssb.no/en/statbank/table/14700) from 10 February 2026."
+      ],
+      "base_period": "2015",
+      "row_count": 132,
+      "start": "2015-01",
+      "end": "2025-12"
+    },
+    "12462": {
+      "table": "12462",
+      "updated": "2026-03-09T07:00:00Z",
+      "label": "12462: Producer price index. Oil/ gas extraction, manufacturing, mining and electricity (2021=100), by market, industry/commodity group, contents and month",
+      "notes": [
+        "Corrected figures for February 2025 to November 2025 was published 09.01.2026 for the series 'SNN35 Electricity, gas and steam' for domestic market and 'domestic and export market, total', as well as the aggregates PPI Total and Energy goods.",
+        "Commodities, usage, see [2009 - variant of Standard Industrial Classification 2007 (SIC 2007)](https://www.ssb.no/en/klass/klassifikasjoner/6/varianter/1121)."
+      ],
+      "base_period": "2021",
+      "row_count": 134,
+      "start": "2015-01",
+      "end": "2026-02"
+    }
+  },
+  "eurostat": {
+    "prc_hicp_midx": {
+      "updated": "2026-02-06T23:00:00+0100",
+      "label": "HICP - monthly data (index)",
+      "row_count": 132,
+      "start": "2015-01",
+      "end": "2025-12",
+      "countries": {
+        "DK": "Denmark",
+        "FI": "Finland",
+        "NO": "Norway",
+        "SE": "Sweden"
+      }
+    },
+    "prc_ppp_ind": {
+      "updated": "2025-07-10T11:00:00+0200",
+      "label": "Purchasing power parities, price level indices, nominal and real expenditures by analytical categories - based on COICOP 1999",
+      "row_count": 10,
+      "start": "2015",
+      "end": "2024",
+      "countries": {
+        "DK": "Denmark",
+        "FI": "Finland",
+        "NO": "Norway",
+        "SE": "Sweden"
+      },
+      "na_item": "PLI_EU27_2020",
+      "ppp_cat": "A0101"
+    }
+  },
+  "combined_series": {
+    "rebase_month": "2020-01",
+    "row_count": 134,
+    "start": "2015-01",
+    "end": "2026-02",
+    "bridge_overlap_months": 132,
+    "bridge_max_abs_delta": 0.1475,
+    "bridge_mean_abs_delta": 0.0514
+  }
+}

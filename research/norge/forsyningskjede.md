@@ -375,7 +375,7 @@ The producer-retail relationship can be framed as:
 - **Parasitism:** One extracts value at the other's expense
 
 **Evidence for Parasitism:**
-- PPI +42.7% vs. KPI +32.5% (2020-2025) — producers absorb more inflation
+- PPI +48.7% vs. KPI +33.2% (2020-2026) — producers absorb more inflation
 - EMV expansion erodes producer brand equity
 - "Fear culture" suppresses supplier complaints
 

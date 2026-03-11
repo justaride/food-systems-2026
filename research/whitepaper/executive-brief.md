@@ -15,7 +15,7 @@ Three companies control 93.4% of Norway's grocery stores (HHI 3,438 — 37.5% ab
 | Finding | Evidence |
 |---------|----------|
 | **Norwegian triopoly is structural** | HHI 3,438; top-3 share 93.4% (stores) / ~97% (revenue); stable 25+ years |
-| **Hidden value extraction** | Producer prices +42.7% since 2020 vs. consumer +32.5% — extraction via opaque fees, not shelf prices |
+| **Hidden value extraction** | Producer prices +48.7% since 2020 vs. consumer +33.2% — extraction via opaque fees, not shelf prices |
 | **Seasonal margin expansion** | July consumer-producer price gap quintupled: 0.83 pts (2015) → 4.23 pts (2025) |
 | **Norway is the Nordic extreme** | Highest top-3 share, lowest self-sufficiency (44%), no international competitors |
 | **Denmark proves alternatives exist** | 5 players, declining concentration, net food exporter (~300% self-sufficiency) |
@@ -46,7 +46,7 @@ Three companies control 93.4% of Norway's grocery stores (HHI 3,438 — 37.5% ab
 
 ## Evidence Base
 
-This brief summarizes a 19-page whitepaper with 9 publication-quality figures, based on: 132 monthly SSB price observations, 3,849 mapped store locations, comparative data across 4 countries, and regulatory mapping of 4 national frameworks + EU directives.
+This brief summarizes a 19-page whitepaper with 9 publication-quality figures, based on: 134 monthly SSB price observations, 3,849 mapped store locations, comparative data across 4 countries, and regulatory mapping of 4 national frameworks + EU directives.
 
 ---
 

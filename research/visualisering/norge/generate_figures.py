@@ -49,12 +49,13 @@ def save(fig, name):
 
 
 # ──────────────────────────────────────────────
-# Figure 1: Price Transmission Gap (2015-2025)
+# Figure 1: Price Transmission Gap
 # ──────────────────────────────────────────────
 def fig1_price_transmission():
     print('Fig 1: Price Transmission Gap')
-    df = pd.read_csv(os.path.join(DATA_DIR, 'prisindekser-2015-2025.csv'))
+    df = pd.read_csv(os.path.join(DATA_DIR, 'prisindekser-2015-2026.csv'))
     df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m')
+    year_range = f"{df['Date'].dt.year.min()}–{df['Date'].dt.year.max()}"
 
     fig, ax = plt.subplots(figsize=(10, 5))
 
@@ -72,7 +73,7 @@ def fig1_price_transmission():
     ax.text(pd.Timestamp('2020-02-01'), 138, 'Base: Jan 2020 = 100', fontsize=7, color=COLORS['text'])
 
     ax.set_ylabel('Index (Jan 2020 = 100)')
-    ax.set_title('Price Transmission Gap: Consumer vs Producer Prices (2015–2025)',
+    ax.set_title(f'Price Transmission Gap: Consumer vs Producer Prices ({year_range})',
                  fontsize=12, fontweight='bold', pad=12)
     ax.legend(loc='upper left', frameon=False, fontsize=8)
     ax.set_xlim(df['Date'].min(), df['Date'].max())
@@ -81,7 +82,7 @@ def fig1_price_transmission():
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
 
-    fig.text(0.99, 0.01, 'Source: SSB Tables 03013, 12462', ha='right', fontsize=7, color='#9ca3af')
+    fig.text(0.99, 0.01, 'Source: SSB Tables 14700, 03013 (archive bridge), 12462', ha='right', fontsize=7, color='#9ca3af')
     save(fig, 'fig1_price_transmission_gap')
 
 
@@ -228,8 +229,9 @@ def fig4_zipf():
 # ──────────────────────────────────────────────
 def fig5_spread():
     print('Fig 5: PPI-KPI Spread Timeline')
-    df = pd.read_csv(os.path.join(DATA_DIR, 'prisindekser-2015-2025.csv'))
+    df = pd.read_csv(os.path.join(DATA_DIR, 'prisindekser-2015-2026.csv'))
     df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m')
+    year_range = f"{df['Date'].dt.year.min()}–{df['Date'].dt.year.max()}"
 
     fig, ax = plt.subplots(figsize=(10, 5))
 
@@ -241,21 +243,29 @@ def fig5_spread():
     rolling = df['Spread'].rolling(window=window, center=True).mean()
     ax.plot(df['Date'], rolling, color=COLORS['spread'], linewidth=2, label=f'{window}-month moving average')
 
-    # Annotate key moments
-    ax.annotate('Mar 2023\nWorst gap: −24.3',
-                xy=(pd.Timestamp('2023-03-01'), -24.3),
-                xytext=(pd.Timestamp('2021-06-01'), -28),
-                arrowprops=dict(arrowstyle='->', color=COLORS['text'], lw=0.8),
-                fontsize=7, ha='center')
+    worst_gap = df.loc[df['Spread'].idxmin()]
+    latest = df.iloc[-1]
 
-    ax.annotate('Jul 2025\nNarrowest: −6.0',
-                xy=(pd.Timestamp('2025-07-01'), -6.0),
-                xytext=(pd.Timestamp('2025-01-01'), -22),
-                arrowprops=dict(arrowstyle='->', color=COLORS['text'], lw=0.8),
-                fontsize=7, ha='center')
+    ax.annotate(
+        f"{worst_gap['Date'].strftime('%b %Y')}\nWorst gap: {worst_gap['Spread']:.1f}",
+        xy=(worst_gap['Date'], worst_gap['Spread']),
+        xytext=(worst_gap['Date'] - pd.DateOffset(months=20), worst_gap['Spread'] - 4),
+        arrowprops=dict(arrowstyle='->', color=COLORS['text'], lw=0.8),
+        fontsize=7,
+        ha='center',
+    )
+
+    ax.annotate(
+        f"{latest['Date'].strftime('%b %Y')}\nLatest: {latest['Spread']:.1f}",
+        xy=(latest['Date'], latest['Spread']),
+        xytext=(latest['Date'] - pd.DateOffset(months=10), latest['Spread'] - 12),
+        arrowprops=dict(arrowstyle='->', color=COLORS['text'], lw=0.8),
+        fontsize=7,
+        ha='center',
+    )
 
     ax.set_ylabel('Spread (KPI − PPI, index points)')
-    ax.set_title('Producer-Consumer Price Spread: Margin Dynamics (2015–2025)',
+    ax.set_title(f'Producer-Consumer Price Spread: Margin Dynamics ({year_range})',
                  fontsize=12, fontweight='bold', pad=12)
     ax.legend(loc='lower left', frameon=False, fontsize=8)
     ax.set_xlim(df['Date'].min(), df['Date'].max())
@@ -269,22 +279,34 @@ def fig5_spread():
         ('2020-01', '2020-12', 'Pandemic', 3),
         ('2021-01', '2021-12', 'Divergence\nbegins', -2),
         ('2022-01', '2023-06', 'Maximum\ngap', -2),
-        ('2023-07', '2025-11', 'Partial\nconvergence', -2),
+        ('2023-07', df['Date'].max().strftime('%Y-%m'), 'Partial\nconvergence', -2),
     ]
     for start, end, label, y_pos in phases:
         mid = pd.Timestamp(start) + (pd.Timestamp(end) - pd.Timestamp(start)) / 2
         ax.text(mid, y_pos, label, fontsize=6, ha='center', va='center',
                 color='#6b7280', fontstyle='italic')
 
-    fig.text(0.99, 0.01, 'Source: SSB Tables 03013, 12462', ha='right', fontsize=7, color='#9ca3af')
+    fig.text(0.99, 0.01, 'Source: SSB Tables 14700, 03013 (archive bridge), 12462', ha='right', fontsize=7, color='#9ca3af')
     save(fig, 'fig5_ppi_kpi_spread_timeline')
 
 
 if __name__ == '__main__':
     print('Generating Norwegian Food System Figures...\n')
-    fig1_price_transmission()
-    fig2_treemap()
-    fig3_lorenz()
-    fig4_zipf()
-    fig5_spread()
-    print('\nAll figures generated successfully.')
+    failures = []
+    for label, figure_fn in [
+        ('fig1_price_transmission', fig1_price_transmission),
+        ('fig2_treemap', fig2_treemap),
+        ('fig3_lorenz', fig3_lorenz),
+        ('fig4_zipf', fig4_zipf),
+        ('fig5_spread', fig5_spread),
+    ]:
+        try:
+            figure_fn()
+        except ModuleNotFoundError as exc:
+            failures.append((label, exc.name))
+            print(f'  Skipped {label}: missing optional dependency {exc.name}')
+
+    if failures:
+        print('\nFigure generation completed with skipped steps.')
+    else:
+        print('\nAll figures generated successfully.')

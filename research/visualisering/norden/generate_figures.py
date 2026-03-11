@@ -8,11 +8,15 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
+import matplotlib.dates as mdates
 import numpy as np
 import os
+import csv
+from datetime import datetime
 
 FIGDIR = os.path.join(os.path.dirname(__file__), '..', 'figurer')
 os.makedirs(FIGDIR, exist_ok=True)
+DATA_DIR = os.path.join(os.path.dirname(__file__), '..', '..', 'data')
 
 COLORS = {
     'norway': '#ba0c2f',
@@ -39,6 +43,30 @@ def save(fig, name):
         fig.savefig(path, dpi=300, bbox_inches='tight', facecolor='white')
     plt.close(fig)
     print(f'  Saved: {name}.png / .pdf')
+
+
+def load_hicp_rows():
+    path = os.path.join(DATA_DIR, 'eurostat_hicp_food_monthly_2015_2026.csv')
+    with open(path, newline='') as handle:
+        rows = list(csv.DictReader(handle))
+
+    output = []
+    for row in rows:
+        output.append({
+            'Date': datetime.strptime(row['Time'], '%Y-%m'),
+            'NO': float(row['NO']),
+            'DK': float(row['DK']),
+            'SE': float(row['SE']),
+            'FI': float(row['FI']),
+        })
+    return output
+
+
+def load_price_level_rows():
+    path = os.path.join(DATA_DIR, 'eurostat_price_level_indices_food_2015_2024.csv')
+    with open(path, newline='') as handle:
+        rows = list(csv.DictReader(handle))
+    return rows
 
 
 # ──────────────────────────────────────────────
@@ -259,10 +287,105 @@ def fig9_regulatory():
     save(fig, 'fig9_regulatory_heatmap')
 
 
+# ──────────────────────────────────────────────
+# Figure 10: Nordic Food Inflation (HICP)
+# ──────────────────────────────────────────────
+def fig10_food_inflation():
+    print('Fig 10: Nordic Food Inflation')
+    rows = load_hicp_rows()
+    dates = [row['Date'] for row in rows]
+    series = {
+        'Norway': ('NO', COLORS['norway']),
+        'Denmark': ('DK', COLORS['denmark']),
+        'Sweden': ('SE', COLORS['sweden']),
+        'Finland': ('FI', COLORS['finland']),
+    }
+
+    fig, ax = plt.subplots(figsize=(10.5, 5.5))
+    for label, (code, color) in series.items():
+        values = [row[code] for row in rows]
+        ax.plot(dates, values, linewidth=2, color=color, label=label)
+        ax.text(dates[-1], values[-1], f' {label} {values[-1]:.1f}', color=color, va='center', fontsize=8)
+
+    ax.axhline(100, color=COLORS['grid'], linestyle='--', linewidth=0.8)
+    ax.axvline(datetime(2021, 1, 1), color=COLORS['grid'], linestyle=':', linewidth=0.8)
+    ax.text(datetime(2021, 2, 1), 101.5, '2021 inflation cycle marker', fontsize=7, color='#6b7280')
+
+    ax.set_title('Nordic Food Inflation: Harmonised Consumer Price Index (2015–2025)',
+                 fontsize=12, fontweight='bold', pad=12)
+    ax.set_ylabel('HICP food and non-alcoholic beverages (2015=100)')
+    ax.set_xlim(dates[0], dates[-1])
+    ax.xaxis.set_major_locator(mdates.YearLocator(2))
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
+    ax.yaxis.set_major_formatter(mticker.FormatStrFormatter('%.0f'))
+    ax.grid(axis='y', color=COLORS['grid'], linewidth=0.5)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.legend(loc='upper left', frameon=False, fontsize=8)
+
+    fig.text(0.99, 0.01, 'Source: Eurostat prc_hicp_midx (CP01, I15), latest available month: Dec 2025',
+             ha='right', fontsize=7, color='#9ca3af')
+    save(fig, 'fig10_nordic_food_inflation_hicp')
+
+
+# ──────────────────────────────────────────────
+# Figure 11: Nordic Food Price Levels
+# ──────────────────────────────────────────────
+def fig11_food_price_levels():
+    print('Fig 11: Nordic Food Price Levels')
+    rows = load_price_level_rows()
+    latest = rows[-1]
+
+    countries = ['Norway', 'Denmark', 'Sweden', 'Finland']
+    codes = ['NO', 'DK', 'SE', 'FI']
+    values = [float(latest[code]) for code in codes]
+
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5), gridspec_kw={'width_ratios': [1.3, 1]})
+
+    ax1 = axes[0]
+    bars = ax1.bar(countries, values, color=COUNTRY_COLORS, alpha=0.85, width=0.65)
+    ax1.axhline(100, color='#ef4444', linestyle='--', linewidth=1, label='EU27_2020 = 100')
+    for bar, val in zip(bars, values):
+        ax1.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 1.5,
+                 f'{val:.1f}', ha='center', va='bottom', fontweight='bold', fontsize=10)
+    ax1.set_ylabel('Price level index')
+    ax1.set_title('A. Food Price Levels, 2024', fontsize=11, fontweight='bold')
+    ax1.set_ylim(0, max(values) + 18)
+    ax1.grid(axis='y', color=COLORS['grid'], linewidth=0.5)
+    ax1.spines['top'].set_visible(False)
+    ax1.spines['right'].set_visible(False)
+    ax1.legend(loc='upper left', frameon=False, fontsize=8)
+
+    ax2 = axes[1]
+    norway = float(latest['NO'])
+    peers = [('Denmark', float(latest['DK'])), ('Sweden', float(latest['SE'])), ('Finland', float(latest['FI']))]
+    premiums = [((norway / peer) - 1) * 100 for _, peer in peers]
+    peer_colors = [COLORS['denmark'], COLORS['sweden'], COLORS['finland']]
+    bars = ax2.bar([name for name, _ in peers], premiums, color=peer_colors, alpha=0.85, width=0.6)
+    for bar, val in zip(bars, premiums):
+        ax2.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.8,
+                 f'+{val:.1f}%', ha='center', va='bottom', fontweight='bold', fontsize=10)
+    ax2.set_ylabel('Norway premium vs peer')
+    ax2.set_title('B. Norway Price Premium, 2024', fontsize=11, fontweight='bold')
+    ax2.set_ylim(0, max(premiums) + 8)
+    ax2.grid(axis='y', color=COLORS['grid'], linewidth=0.5)
+    ax2.spines['top'].set_visible(False)
+    ax2.spines['right'].set_visible(False)
+
+    fig.suptitle('Nordic Food Price Levels: Relative Cost of Food in 2024',
+                 fontsize=13, fontweight='bold', y=1.02)
+    fig.tight_layout()
+    fig.text(0.99, -0.02, 'Source: Eurostat prc_ppp_ind (A0101, PLI_EU27_2020), latest year: 2024',
+             ha='right', fontsize=7, color='#9ca3af')
+    save(fig, 'fig11_nordic_food_price_levels')
+
+
 if __name__ == '__main__':
     print('Generating Nordic Comparative Figures...\n')
     fig6_hhi()
     fig7_concentration()
     fig8_selfsufficiency()
     fig9_regulatory()
+    fig10_food_inflation()
+    fig11_food_price_levels()
     print('\nAll figures generated successfully.')

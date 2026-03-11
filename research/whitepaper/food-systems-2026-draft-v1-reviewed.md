@@ -15,7 +15,7 @@ This whitepaper, prepared for NCH's Food Systems Transition Group, presents the 
 
 **Norwegian system:**
 - Market concentration (HHI 3,438) is 37.5% above the international "highly concentrated" threshold
-- Producer prices rose 42.7% since January 2020 vs. consumer prices +32.5% — a "reverse gap" suggesting hidden value extraction mechanisms
+- Producer prices rose 48.7% since January 2020 vs. consumer prices +33.2% — a "reverse gap" suggesting hidden value extraction mechanisms
 - July consumer price spikes have quintupled over 10 years, indicating seasonal margin expansion
 - Three closed logistics networks (ASKO, Rema, C-Log) representing 254,000+ m² of warehouse capacity constitute an entry barrier measured in billions of NOK
 
@@ -56,7 +56,7 @@ Food is the most universal human need, yet Nordic food systems are characterized
 ### 1.3 Scope and Approach
 
 This analysis covers grocery retail market structures in Norway, Denmark, Sweden, and Finland. It combines:
-- Quantitative analysis of Norwegian price indices (132 monthly observations, 2015–2025)
+- Quantitative analysis of Norwegian price indices (134 monthly observations, Jan 2015–Feb 2026)
 - Store-level concentration data (3,849 Norwegian stores mapped)
 - Comparative market structure data across four countries
 - Regulatory mapping including EU directives, national legislation, and enforcement records
@@ -75,8 +75,8 @@ We follow Meyer's scientific journalism methodology: observation → hypothesis 
 
 | Dataset | Source | Coverage | Reliability |
 |---------|--------|----------|-------------|
-| Consumer Price Index (KPI) | SSB Table 03013 | Monthly, Jan 2015 – Nov 2025 | High (official statistics) |
-| Producer Price Index (PPI) | SSB Table 12462 | Monthly, Jan 2015 – Nov 2025 | High (official statistics) |
+| Consumer Price Index (KPI) | SSB Table 14700, with archived 03013 bridge | Monthly, Jan 2015 – Feb 2026 | High (official statistics) |
+| Producer Price Index (PPI) | SSB Table 12462 | Monthly, Jan 2015 – Feb 2026 | High (official statistics) |
 | Store locations | OpenStreetMap | 3,849 stores, 14 chains | Medium-high |
 | Market concentration | Computed from OSM data | 5 parent companies | High (verified) |
 | Financial data | Annual reports 2024 | NorgesGruppen, Reitan, Coop | High (audited) |
@@ -131,11 +131,11 @@ Each new store on an existing network has near-zero marginal logistics cost. A n
 
 ### 3.3 Price Transmission: The "Reverse Gap"
 
-Our analysis of 132 monthly observations (Jan 2015 – Nov 2025) reveals a counter-intuitive pattern:
+Our analysis of 134 monthly observations (Jan 2015 – Feb 2026) reveals a counter-intuitive pattern:
 
-- **Producer prices (PPI):** +42.7% since January 2020
-- **Consumer prices (KPI):** +32.5% since January 2020
-- **Gap:** 10.2 percentage points
+- **Producer prices (PPI):** +48.7% since January 2020
+- **Consumer prices (KPI):** +33.2% since January 2020
+- **Latest spread (KPI − PPI):** −15.5 index points
 
 **[→ Figure 1: Price Transmission Gap]**
 
@@ -358,7 +358,7 @@ The transition from insight to action requires moving from Step 6 (Baseline) to 
 
 ### 8.1 Price Index Analysis
 
-Both indices are rebased to January 2020 = 100. KPI covers food and non-alcoholic beverages (SSB Table 03013). PPI covers the food manufacturing industry (SSB Table 12462). Spread is calculated as KPI − PPI; negative values indicate producer prices exceeding consumer prices.
+Both indices are rebased to January 2020 = 100. KPI covers food and non-alcoholic beverages using SSB Table 14700, with archived Table 03013 used as a continuity bridge after SSB replaced the series on 10 February 2026. PPI covers the food manufacturing industry in SSB Table 12462. Spread is calculated as KPI − PPI; negative values indicate producer prices exceeding consumer prices.
 
 ### 8.2 HHI Calculation
 
@@ -399,7 +399,7 @@ Market shares for Denmark, Sweden, and Finland are compiled from multiple source
 
 | # | Source | Used In | Claim Supported |
 |---|--------|---------|-----------------|
-| 1 | SSB Table 03013 | §3.3, §3.4 | KPI monthly data |
+| 1 | SSB Table 14700 + archived Table 03013 | §3.3, §3.4 | KPI monthly data |
 | 2 | SSB Table 12462 | §3.3, §3.4 | PPI monthly data |
 | 3 | OSM / BroCode store data | §3.1 | 3,849 stores, 14 chains |
 | 4 | Konkurransetilsynet (Aug 2024) | §3.3, §6.2 | NOK 4.9B Prisjeger fine |
@@ -422,7 +422,7 @@ Market shares for Denmark, Sweden, and Finland are compiled from multiple source
 
 | Figure | Title | Location |
 |--------|-------|----------|
-| Fig. 1 | Price Transmission Gap (2015–2025) | `research/visualisering/figurer/fig1_price_transmission_gap.png` |
+| Fig. 1 | Price Transmission Gap (2015–2026) | `research/visualisering/figurer/fig1_price_transmission_gap.png` |
 | Fig. 2 | Market Concentration Treemap | `research/visualisering/figurer/fig2_market_concentration_treemap.png` |
 | Fig. 3 | Lorenz Curve with Gini | `research/visualisering/figurer/fig3_lorenz_curve_gini.png` |
 | Fig. 4 | Zipf Distribution Analysis | `research/visualisering/figurer/fig4_zipf_distribution.png` |
