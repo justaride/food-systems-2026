@@ -1,0 +1,429 @@
+{
+  "registry_row": {
+    "country": "DK",
+    "theme": "agriculture",
+    "source_name": "StatBank farms and crop area",
+    "owner": "Statistics Denmark",
+    "url": "https://www.statbank.dk/AFG207",
+    "access_method": "api",
+    "api_base_or_endpoint": "https://api.statbank.dk/v1/data",
+    "dataset_or_table_id": "AFG207",
+    "update_frequency": "annual",
+    "geography_level": "region",
+    "analysis_use": "regional crop mix and land use",
+    "priority": "HIGH",
+    "status": "ready",
+    "verified_date": "2026-03-11",
+    "notes": "strong core table for crop area by region"
+  },
+  "fetch_url": "https://api.statbank.dk/v1/tableinfo?lang=en&id=AFG207",
+  "fetched_at": "2026-03-11T13:55:36.520439+00:00",
+  "content_type": "text/json; charset=utf-8",
+  "http_status": 200,
+  "summary": {
+    "payload_kind": "dict",
+    "keys": [
+      "active",
+      "contacts",
+      "description",
+      "documentation",
+      "footnote",
+      "id",
+      "suppressedDataValue",
+      "text",
+      "unit",
+      "updated",
+      "variables"
+    ],
+    "variable_count": 4,
+    "updated": "2025-05-14T08:00:00"
+  },
+  "payload": {
+    "id": "AFG207",
+    "text": "Farms and area with selected crops",
+    "description": "Farms and area with selected crops by region, Area with the crop, unit and time",
+    "unit": "-",
+    "suppressedDataValue": "0",
+    "updated": "2025-05-14T08:00:00",
+    "active": true,
+    "contacts": [
+      {
+        "name": "Karsten Kjeld Larsen",
+        "phone": "+4521295576",
+        "mail": "kkl@dst.dk"
+      }
+    ],
+    "documentation": {
+      "id": "02717309-7893-4229-8a45-19384079c800",
+      "url": "https://www.dst.dk/documentationofstatistics/02717309-7893-4229-8a45-19384079c800"
+    },
+    "footnote": null,
+    "variables": [
+      {
+        "id": "OMR\u00c5DE",
+        "text": "region",
+        "elimination": true,
+        "time": false,
+        "map": "Denmark_region_07",
+        "values": [
+          {
+            "id": "000",
+            "text": "All Denmark"
+          },
+          {
+            "id": "084",
+            "text": "Region Hovedstaden"
+          },
+          {
+            "id": "15",
+            "text": "Provinces Byen K\u00f8benhavn, K\u00f8benhavns omegn and Nordsj\u00e6lland"
+          },
+          {
+            "id": "04",
+            "text": "Province Bornholm"
+          },
+          {
+            "id": "085",
+            "text": "Region Sj\u00e6lland"
+          },
+          {
+            "id": "083",
+            "text": "Region Syddanmark"
+          },
+          {
+            "id": "07",
+            "text": "Province Fyn"
+          },
+          {
+            "id": "08",
+            "text": "Province Sydjylland"
+          },
+          {
+            "id": "082",
+            "text": "Region Midtjylland"
+          },
+          {
+            "id": "09",
+            "text": "Province \u00d8stjylland"
+          },
+          {
+            "id": "10",
+            "text": "Province Vestjylland"
+          },
+          {
+            "id": "081",
+            "text": "Region Nordjylland"
+          }
+        ]
+      },
+      {
+        "id": "AREALAFG",
+        "text": "Area with the crop",
+        "elimination": false,
+        "time": false,
+        "values": [
+          {
+            "id": "10000",
+            "text": "No cereals"
+          },
+          {
+            "id": "10005",
+            "text": "0,1-4,9 hectares with cereals"
+          },
+          {
+            "id": "10010",
+            "text": "5,0-9,9 hectares with cereals"
+          },
+          {
+            "id": "10015",
+            "text": "10,0-14,9 hectares with cereals"
+          },
+          {
+            "id": "10020",
+            "text": "15,0-19,9 hectares with cereals"
+          },
+          {
+            "id": "10025",
+            "text": "20,0-29,9 hectares with cereals"
+          },
+          {
+            "id": "10030",
+            "text": "30,0-49,9 hectares with cereals"
+          },
+          {
+            "id": "10035",
+            "text": "50,0-99,9 hectares with cereals"
+          },
+          {
+            "id": "10040",
+            "text": "100,0 hectares with cereals and over"
+          },
+          {
+            "id": "10045",
+            "text": "All farms with cereals"
+          },
+          {
+            "id": "10050",
+            "text": "No wheat"
+          },
+          {
+            "id": "10055",
+            "text": "0,1-4,9 hectares with wheat"
+          },
+          {
+            "id": "10060",
+            "text": "5,0-9,9 hectares with wheat"
+          },
+          {
+            "id": "10065",
+            "text": "10,0-14,9 hectares with wheat"
+          },
+          {
+            "id": "10070",
+            "text": "15,0-19,9 hectares with wheat"
+          },
+          {
+            "id": "10075",
+            "text": "20,0-29,9 hectares with wheat"
+          },
+          {
+            "id": "10080",
+            "text": "30,0-49,9 hectares with wheat"
+          },
+          {
+            "id": "10085",
+            "text": "50,0-99,9 hectares with wheat"
+          },
+          {
+            "id": "10090",
+            "text": "100,0 hectares with wheat and over"
+          },
+          {
+            "id": "10095",
+            "text": "All farms with wheat"
+          },
+          {
+            "id": "10100",
+            "text": "No barley"
+          },
+          {
+            "id": "10105",
+            "text": "0,1-4,9 hectares with barley"
+          },
+          {
+            "id": "10110",
+            "text": "5,0-9,9 hectares with barley"
+          },
+          {
+            "id": "10115",
+            "text": "10,0-14,9 hectares with barley"
+          },
+          {
+            "id": "10120",
+            "text": "15,0-19,9 hectares with barley"
+          },
+          {
+            "id": "10125",
+            "text": "20,0-29,9 hectares with barley"
+          },
+          {
+            "id": "10130",
+            "text": "30,0-49,9 hectares with barley"
+          },
+          {
+            "id": "10135",
+            "text": "50,0-99,9 hectares with barley"
+          },
+          {
+            "id": "10140",
+            "text": "100,0 hectares with barley and over"
+          },
+          {
+            "id": "10145",
+            "text": "All farms with barley"
+          },
+          {
+            "id": "10150",
+            "text": "No permanent grass"
+          },
+          {
+            "id": "10155",
+            "text": "0,1-4,9 hectares with permanent grass"
+          },
+          {
+            "id": "10160",
+            "text": "5,0-9,9 hectares with permanent grass"
+          },
+          {
+            "id": "10165",
+            "text": "10,0-14,9 hectares with permanent grass"
+          },
+          {
+            "id": "10170",
+            "text": "15,0-19,9 hectares with permanent grass"
+          },
+          {
+            "id": "10175",
+            "text": "20,0-29,9 hectares with permanent grass"
+          },
+          {
+            "id": "10180",
+            "text": "30,0-49,9 hectares with permanent grass"
+          },
+          {
+            "id": "10185",
+            "text": "50,0-99,9 hectares with permanent grass"
+          },
+          {
+            "id": "10190",
+            "text": "100,0 hectares with permanent grass and over"
+          },
+          {
+            "id": "10195",
+            "text": "All farms with permanent grass"
+          },
+          {
+            "id": "10200",
+            "text": "No grass and green fodder in rotation"
+          },
+          {
+            "id": "10205",
+            "text": "0,1-4,9 hectares with grass and green fodder in rotation"
+          },
+          {
+            "id": "10210",
+            "text": "5,0-9,9 hectares with grass and green fodder in rotation"
+          },
+          {
+            "id": "10215",
+            "text": "10,0-14,9 hectares with grass and green fodder in rotation"
+          },
+          {
+            "id": "10220",
+            "text": "15,0-19,9 hectares with grass and green fodder in rotation"
+          },
+          {
+            "id": "10225",
+            "text": "20,0-29,9 hectares with grass and green fodder in rotation"
+          },
+          {
+            "id": "10230",
+            "text": "30,0-49,9 hectares with grass and green fodder in rotation"
+          },
+          {
+            "id": "10235",
+            "text": "50,0-99,9 hectares with grass and green fodder in rotation"
+          },
+          {
+            "id": "10240",
+            "text": "100,0 hectares with grass and green fodder in rotation and over"
+          },
+          {
+            "id": "10245",
+            "text": "All farms with grass and green fodder in rotation"
+          }
+        ]
+      },
+      {
+        "id": "ENHED",
+        "text": "unit",
+        "elimination": false,
+        "time": false,
+        "values": [
+          {
+            "id": "200",
+            "text": "Hectares with the crop"
+          },
+          {
+            "id": "400",
+            "text": "Number of farms "
+          }
+        ]
+      },
+      {
+        "id": "Tid",
+        "text": "time",
+        "elimination": false,
+        "time": true,
+        "values": [
+          {
+            "id": "2006",
+            "text": "2006"
+          },
+          {
+            "id": "2007",
+            "text": "2007"
+          },
+          {
+            "id": "2008",
+            "text": "2008"
+          },
+          {
+            "id": "2009",
+            "text": "2009"
+          },
+          {
+            "id": "2010",
+            "text": "2010"
+          },
+          {
+            "id": "2011",
+            "text": "2011"
+          },
+          {
+            "id": "2012",
+            "text": "2012"
+          },
+          {
+            "id": "2013",
+            "text": "2013"
+          },
+          {
+            "id": "2014",
+            "text": "2014"
+          },
+          {
+            "id": "2015",
+            "text": "2015"
+          },
+          {
+            "id": "2016",
+            "text": "2016"
+          },
+          {
+            "id": "2017",
+            "text": "2017"
+          },
+          {
+            "id": "2018",
+            "text": "2018"
+          },
+          {
+            "id": "2019",
+            "text": "2019"
+          },
+          {
+            "id": "2020",
+            "text": "2020"
+          },
+          {
+            "id": "2021",
+            "text": "2021"
+          },
+          {
+            "id": "2022",
+            "text": "2022"
+          },
+          {
+            "id": "2023",
+            "text": "2023"
+          },
+          {
+            "id": "2024",
+            "text": "2024"
+          }
+        ]
+      }
+    ]
+  }
+}

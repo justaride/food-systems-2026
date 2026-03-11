@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-03-11T13:55:40.604478+00:00",
+  "registry_path": "/Users/gabrielboen/Documents/Food Systems 2026/research/norden/nordic-source-registry.csv",
+  "output_dir": "/Users/gabrielboen/Documents/Food Systems 2026/research/data/nordic/registry-metadata",
+  "filters": {
+    "priority": "HIGH",
+    "access_method": "api",
+    "country": ""
+  },
+  "counters": {
+    "selected": 54,
+    "fetched": 45,
+    "ready": 45,
+    "query_required": 6,
+    "auth_required": 3,
+    "unsupported": 0,
+    "errors": 0
+  }
+}

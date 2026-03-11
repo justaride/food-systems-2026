@@ -1,0 +1,192 @@
+{
+  "registry_row": {
+    "country": "IS",
+    "theme": "agriculture",
+    "source_name": "Statistics Iceland agricultural output",
+    "owner": "Statistics Iceland",
+    "url": "https://px.hagstofa.is/pxen/api/v1/en/Atvinnuvegir/landbunadur/landbhagreikn/afkomalandbundadarins/LAN1101.px",
+    "access_method": "api",
+    "api_base_or_endpoint": "https://px.hagstofa.is/pxen/api/v1/en/Atvinnuvegir/landbunadur/landbhagreikn/afkomalandbundadarins/LAN1101.px",
+    "dataset_or_table_id": "LAN1101.px",
+    "update_frequency": "annual",
+    "geography_level": "country",
+    "analysis_use": "agricultural output baseline",
+    "priority": "HIGH",
+    "status": "ready",
+    "verified_date": "2026-03-11",
+    "notes": "2007 to 2024"
+  },
+  "fetch_url": "https://px.hagstofa.is/pxen/api/v1/en/Atvinnuvegir/landbunadur/landbhagreikn/afkomalandbundadarins/LAN1101.px",
+  "fetched_at": "2026-03-11T13:55:39.765673+00:00",
+  "content_type": "application/json; charset=utf-8",
+  "http_status": 200,
+  "summary": {
+    "payload_kind": "dict",
+    "keys": [
+      "title",
+      "variables"
+    ],
+    "variable_count": 4,
+    "title": "Agricultural output 2007-2024"
+  },
+  "payload": {
+    "title": "Agricultural output 2007-2024",
+    "variables": [
+      {
+        "code": "Ver\u00f0",
+        "text": "Price",
+        "values": [
+          "0",
+          "1"
+        ],
+        "valueTexts": [
+          "Basic prices",
+          "Producer prices"
+        ]
+      },
+      {
+        "code": "M\u00e6likvar\u00f0i",
+        "text": "Measure",
+        "values": [
+          "0",
+          "1",
+          "2"
+        ],
+        "valueTexts": [
+          "Current prices",
+          "Previous year's prices",
+          "Percentage of total output"
+        ]
+      },
+      {
+        "code": "V\u00f6ruflokkur",
+        "text": "Product",
+        "values": [
+          "01",
+          "01.1",
+          "01.11",
+          "01.3",
+          "01.4",
+          "03",
+          "03.9",
+          "04.",
+          "04.1",
+          "04.11",
+          "04.12",
+          "04.19",
+          "04.2",
+          "04.21",
+          "04.22",
+          "05",
+          "10",
+          "11",
+          "11.1",
+          "11.2",
+          "11.3",
+          "11.4",
+          "11.5",
+          "11.9",
+          "12",
+          "12.1",
+          "12.2",
+          "12.9",
+          "12.91",
+          "12.93",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "17.1",
+          "17.9",
+          "18"
+        ],
+        "valueTexts": [
+          "01 Cereals (incl.seeds)",
+          "01.1 Wheat and spelt",
+          "01.11 Soft wheat and spelt",
+          "01.3 Barley",
+          "01.4 Oats and summer cereal mixtures",
+          "03 Forage plants",
+          "03.9 Other forage plants",
+          "04. Vegetables and horticultural products",
+          "04.1 Fresh vegetables",
+          "04.11 Cauliflower",
+          "04.12 Tomatoes",
+          "04.19 Other fresh vegetables",
+          "04.2 Plants and flowers",
+          "04.21 Nursery plants",
+          "04.22 Ornamental plants and flowers",
+          "05 Potatoes (incl. seeds)",
+          "10 Crop output (01 to 05)",
+          "11 Animals",
+          "11.1 Cattle",
+          "11.2 Pigs",
+          "11.3 Equines",
+          "11.4 Sheep and goats",
+          "11.5 Poultry",
+          "11.9 Other animals",
+          "12 Animal products",
+          "12.1 Milk",
+          "12.2 Eggs",
+          "12.9 Other animal products",
+          "12.91 Raw wool",
+          "12.93 Other animal products: others",
+          "13 Animal output (11+12)",
+          "14 Agricultural goods output (10+13)",
+          "15 Agricultural services output",
+          "16 Agricultural output (14+15)",
+          "17 Non-agricultural secondary activities (inseparable)",
+          "17.1 Processing of agricultural products",
+          "17.9 Other inseparable secondary activities (goods and services)",
+          "18 Output of the agricultural \u2018industry\u2019 (16+17)"
+        ]
+      },
+      {
+        "code": "\u00c1r",
+        "text": "Year",
+        "values": [
+          "2007",
+          "2008",
+          "2009",
+          "2010",
+          "2011",
+          "2012",
+          "2013",
+          "2014",
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "valueTexts": [
+          "2007",
+          "2008",
+          "2009",
+          "2010",
+          "2011",
+          "2012",
+          "2013",
+          "2014",
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "time": true
+      }
+    ]
+  }
+}

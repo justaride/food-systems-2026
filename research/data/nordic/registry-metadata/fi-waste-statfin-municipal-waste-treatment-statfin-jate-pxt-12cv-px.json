@@ -1,0 +1,115 @@
+{
+  "registry_row": {
+    "country": "FI",
+    "theme": "waste",
+    "source_name": "StatFin municipal waste treatment",
+    "owner": "Statistics Finland",
+    "url": "https://pxdata.stat.fi/PxWeb/api/v1/en/StatFin/jate/statfin_jate_pxt_12cv.px",
+    "access_method": "api",
+    "api_base_or_endpoint": "https://pxdata.stat.fi/PxWeb/api/v1/en/StatFin/jate/statfin_jate_pxt_12cv.px",
+    "dataset_or_table_id": "statfin_jate_pxt_12cv.px",
+    "update_frequency": "annual",
+    "geography_level": "country",
+    "analysis_use": "municipal waste baseline",
+    "priority": "HIGH",
+    "status": "ready",
+    "verified_date": "2026-03-11",
+    "notes": "2018 to 2024"
+  },
+  "fetch_url": "https://pxdata.stat.fi/PxWeb/api/v1/en/StatFin/jate/statfin_jate_pxt_12cv.px",
+  "fetched_at": "2026-03-11T13:55:38.274703+00:00",
+  "content_type": "application/json; charset=utf-8",
+  "http_status": 200,
+  "summary": {
+    "payload_kind": "dict",
+    "keys": [
+      "title",
+      "variables"
+    ],
+    "variable_count": 3,
+    "title": "Municipal waste by treatment method in Finland by J\u00e4tejae, Year and Information"
+  },
+  "payload": {
+    "title": "Municipal waste by treatment method in Finland by J\u00e4tejae, Year and Information",
+    "variables": [
+      {
+        "code": "jatejae",
+        "text": "J\u00e4tejae",
+        "values": [
+          "SSS",
+          "100",
+          "200",
+          "210",
+          "220",
+          "230",
+          "240",
+          "250",
+          "260",
+          "270",
+          "280",
+          "300"
+        ],
+        "valueTexts": [
+          "Total waste",
+          "Mixed waste",
+          "Separately collected waste total",
+          "Separately collected paper and cardboard waste",
+          "Separately collected biodegradable waste",
+          "Separately collected glass waste",
+          "Separately collected metal waste",
+          "Separately collected wood waste",
+          "Separately collected plastic waste",
+          "Separately collected electrical and electronic waste",
+          "Other separately collected fractions",
+          "Other and unspecified waste"
+        ],
+        "elimination": true
+      },
+      {
+        "code": "timeperiod",
+        "text": "Year",
+        "values": [
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "valueTexts": [
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "time": true
+      },
+      {
+        "code": "ContentCode",
+        "text": "Information",
+        "values": [
+          "SSS",
+          "jate_3a2_jate3b",
+          "jate_3a1_3a3",
+          "jate_1",
+          "jate_2",
+          "jate_4_5",
+          "jate_3ax"
+        ],
+        "valueTexts": [
+          "Total",
+          "Material recovery, without aerobic and anaerobic digestion",
+          "Aerobic and anaerobic digestion",
+          "Energy recovery",
+          "Incineration without energy recovery",
+          "Landfilling and other disposal",
+          "Preparing for reuse"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,284 @@
+{
+  "registry_row": {
+    "country": "DK",
+    "theme": "prices",
+    "source_name": "StatBank price level indices food",
+    "owner": "Statistics Denmark",
+    "url": "https://api.statbank.dk/v1/tableinfo?lang=en&id=PPP1",
+    "access_method": "api",
+    "api_base_or_endpoint": "https://api.statbank.dk/v1/tableinfo?lang=en&id=PPP1",
+    "dataset_or_table_id": "PPP1",
+    "update_frequency": "annual",
+    "geography_level": "country",
+    "analysis_use": "food price level vs EU",
+    "priority": "HIGH",
+    "status": "ready",
+    "verified_date": "2026-03-11",
+    "notes": "EU 100 benchmark"
+  },
+  "fetch_url": "https://api.statbank.dk/v1/tableinfo?lang=en&id=PPP1",
+  "fetched_at": "2026-03-11T13:55:34.158470+00:00",
+  "content_type": "text/json; charset=utf-8",
+  "http_status": 200,
+  "summary": {
+    "payload_kind": "dict",
+    "keys": [
+      "active",
+      "contacts",
+      "description",
+      "documentation",
+      "footnote",
+      "id",
+      "suppressedDataValue",
+      "text",
+      "unit",
+      "updated",
+      "variables"
+    ],
+    "variable_count": 3,
+    "updated": "2025-07-01T08:00:00"
+  },
+  "payload": {
+    "id": "PPP1",
+    "text": "Price level indices for food EU=100",
+    "description": "Price level indices for food EU=100 by commodity group, country and time",
+    "unit": "-",
+    "suppressedDataValue": "0",
+    "updated": "2025-07-01T08:00:00",
+    "active": true,
+    "contacts": [
+      {
+        "name": "Theis Hagedorn Michaelsen",
+        "phone": "+4524488075",
+        "mail": "thm@dst.dk"
+      }
+    ],
+    "documentation": {
+      "id": "83cc557b-906f-4cae-aa55-7f28cddfb0cd",
+      "url": "https://www.dst.dk/documentationofstatistics/83cc557b-906f-4cae-aa55-7f28cddfb0cd"
+    },
+    "footnote": {
+      "text": "For the year 2006 price level indices for food is EU25=100. For the years 2009 and 2012 the price level indices for food are EU27=100 and for the years 2015 and 2018 the  price level indices for food is EU28=100 . For the years 2021 and 2024 price level indices for food is EU27 (without United KIngdom) =100. More detailed data can be found at Eurostats database:  http://ec.europa.eu/eurostat/data/database",
+      "mandatory": true
+    },
+    "variables": [
+      {
+        "id": "VAREGR",
+        "text": "commodity group",
+        "elimination": false,
+        "time": false,
+        "values": [
+          {
+            "id": "A010101",
+            "text": "Food"
+          },
+          {
+            "id": "A01010101",
+            "text": "Bread and cereals"
+          },
+          {
+            "id": "A01010102",
+            "text": "Meat"
+          },
+          {
+            "id": "A01010103",
+            "text": "Fish"
+          },
+          {
+            "id": "A01010104",
+            "text": "Milk, cheese and eggs"
+          },
+          {
+            "id": "A01010105",
+            "text": "Oils and fats"
+          },
+          {
+            "id": "A01010106",
+            "text": "Fruits, vegetables, potatoes"
+          },
+          {
+            "id": "A010102",
+            "text": "Non-alcoholic beverages"
+          },
+          {
+            "id": "A010201",
+            "text": "Alcoholic beverages"
+          },
+          {
+            "id": "A010202",
+            "text": "Tobacco"
+          }
+        ]
+      },
+      {
+        "id": "LAND",
+        "text": "country",
+        "elimination": false,
+        "time": false,
+        "map": "europe_dk",
+        "values": [
+          {
+            "id": "FR",
+            "text": "France and Monaco"
+          },
+          {
+            "id": "NL",
+            "text": "Netherlands"
+          },
+          {
+            "id": "DE",
+            "text": "Germany"
+          },
+          {
+            "id": "IT",
+            "text": "Italy"
+          },
+          {
+            "id": "GB",
+            "text": "United Kingdom"
+          },
+          {
+            "id": "IE",
+            "text": "Ireland"
+          },
+          {
+            "id": "DK",
+            "text": "Denmark"
+          },
+          {
+            "id": "GR",
+            "text": "Greece"
+          },
+          {
+            "id": "PT",
+            "text": "Portugal"
+          },
+          {
+            "id": "ES",
+            "text": "Spain"
+          },
+          {
+            "id": "BE",
+            "text": "Belgium"
+          },
+          {
+            "id": "LU",
+            "text": "Luxembourg"
+          },
+          {
+            "id": "IS",
+            "text": "Iceland"
+          },
+          {
+            "id": "NO",
+            "text": "Norway"
+          },
+          {
+            "id": "SE",
+            "text": "Sweden"
+          },
+          {
+            "id": "FI",
+            "text": "Finland"
+          },
+          {
+            "id": "AT",
+            "text": "Austria"
+          },
+          {
+            "id": "CH",
+            "text": "Switzerland"
+          },
+          {
+            "id": "MT",
+            "text": "Malta"
+          },
+          {
+            "id": "EE",
+            "text": "Estonia"
+          },
+          {
+            "id": "LV",
+            "text": "Latvia"
+          },
+          {
+            "id": "LT",
+            "text": "Lithuania"
+          },
+          {
+            "id": "PL",
+            "text": "Poland"
+          },
+          {
+            "id": "CZ",
+            "text": "Czech Republic"
+          },
+          {
+            "id": "SK",
+            "text": "Slovakia"
+          },
+          {
+            "id": "HU",
+            "text": "Hungary"
+          },
+          {
+            "id": "RO",
+            "text": "Romania"
+          },
+          {
+            "id": "BG",
+            "text": "Bulgaria"
+          },
+          {
+            "id": "SI",
+            "text": "Slovenia"
+          },
+          {
+            "id": "HR",
+            "text": "Croatia"
+          },
+          {
+            "id": "CY",
+            "text": "Cyprus"
+          }
+        ]
+      },
+      {
+        "id": "Tid",
+        "text": "time",
+        "elimination": false,
+        "time": true,
+        "values": [
+          {
+            "id": "2006",
+            "text": "2006"
+          },
+          {
+            "id": "2009",
+            "text": "2009"
+          },
+          {
+            "id": "2012",
+            "text": "2012"
+          },
+          {
+            "id": "2015",
+            "text": "2015"
+          },
+          {
+            "id": "2018",
+            "text": "2018"
+          },
+          {
+            "id": "2021",
+            "text": "2021"
+          },
+          {
+            "id": "2024",
+            "text": "2024"
+          }
+        ]
+      }
+    ]
+  }
+}

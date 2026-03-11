@@ -1,0 +1,128 @@
+{
+  "registry_row": {
+    "country": "NO",
+    "theme": "agriculture",
+    "source_name": "SSB cereals and oil seeds production",
+    "owner": "Statistics Norway",
+    "url": "https://data.ssb.no/api/v0/en/table/07479/",
+    "access_method": "api",
+    "api_base_or_endpoint": "https://data.ssb.no/api/v0/en/table/07479/",
+    "dataset_or_table_id": "07479",
+    "update_frequency": "annual",
+    "geography_level": "country",
+    "analysis_use": "grain production and self sufficiency",
+    "priority": "HIGH",
+    "status": "ready",
+    "verified_date": "2026-03-11",
+    "notes": "total production 1 000 tonnes"
+  },
+  "fetch_url": "https://data.ssb.no/api/v0/en/table/07479/",
+  "fetched_at": "2026-03-11T13:55:32.838604+00:00",
+  "content_type": "application/json; charset=utf-8",
+  "http_status": 200,
+  "summary": {
+    "payload_kind": "dict",
+    "keys": [
+      "title",
+      "variables"
+    ],
+    "variable_count": 2,
+    "title": "07479: Total production (1 000 tonnes), by contents and year"
+  },
+  "payload": {
+    "title": "07479: Total production (1 000 tonnes), by contents and year",
+    "variables": [
+      {
+        "code": "ContentsCode",
+        "text": "contents",
+        "values": [
+          "Korn",
+          "Kveite",
+          "Bygg",
+          "Havre",
+          "RugRugHvete"
+        ],
+        "valueTexts": [
+          "Grain, total",
+          "Wheat",
+          "Barley",
+          "Oats",
+          "Rye and triticale"
+        ]
+      },
+      {
+        "code": "Tid",
+        "text": "year",
+        "values": [
+          "1989",
+          "1995",
+          "1996",
+          "1997",
+          "1998",
+          "1999",
+          "2000",
+          "2001",
+          "2002",
+          "2003",
+          "2004",
+          "2005",
+          "2006",
+          "2007",
+          "2008",
+          "2009",
+          "2010",
+          "2011",
+          "2012",
+          "2013",
+          "2014",
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "valueTexts": [
+          "1989",
+          "1995",
+          "1996",
+          "1997",
+          "1998",
+          "1999",
+          "2000",
+          "2001",
+          "2002",
+          "2003",
+          "2004",
+          "2005",
+          "2006",
+          "2007",
+          "2008",
+          "2009",
+          "2010",
+          "2011",
+          "2012",
+          "2013",
+          "2014",
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "time": true
+      }
+    ]
+  }
+}

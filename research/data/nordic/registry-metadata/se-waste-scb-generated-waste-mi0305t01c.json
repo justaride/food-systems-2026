@@ -1,0 +1,206 @@
+{
+  "registry_row": {
+    "country": "SE",
+    "theme": "waste",
+    "source_name": "SCB generated waste",
+    "owner": "Statistics Sweden",
+    "url": "https://api.scb.se/OV0104/v1/doris/en/ssd/MI/MI0305/MI0305T01C",
+    "access_method": "api",
+    "api_base_or_endpoint": "https://api.scb.se/OV0104/v1/doris/en/ssd/MI/MI0305/MI0305T01C",
+    "dataset_or_table_id": "MI0305T01C",
+    "update_frequency": "every second year",
+    "geography_level": "industry",
+    "analysis_use": "material flow and waste",
+    "priority": "HIGH",
+    "status": "ready",
+    "verified_date": "2026-03-11",
+    "notes": "includes households and NACE"
+  },
+  "fetch_url": "https://api.scb.se/OV0104/v1/doris/en/ssd/MI/MI0305/MI0305T01C",
+  "fetched_at": "2026-03-11T13:55:36.962924+00:00",
+  "content_type": "application/json; charset=utf-8",
+  "http_status": 200,
+  "summary": {
+    "payload_kind": "dict",
+    "keys": [
+      "title",
+      "variables"
+    ],
+    "variable_count": 5,
+    "title": "Generated waste (tonnes) by property, industrial classification, waste category, observations and every other year"
+  },
+  "payload": {
+    "title": "Generated waste (tonnes) by property, industrial classification, waste category, observations and every other year",
+    "variables": [
+      {
+        "code": "OfarligtFarligt",
+        "text": "property",
+        "values": [
+          "O",
+          "F",
+          "tot"
+        ],
+        "valueTexts": [
+          "non-hazardous waste",
+          "hazardous waste",
+          "total"
+        ]
+      },
+      {
+        "code": "SNI2007MI",
+        "text": "industrial classification",
+        "values": [
+          "A01-03",
+          "B05-09",
+          "C10-12",
+          "C13-15",
+          "C16",
+          "C17-18",
+          "C19",
+          "C20-22",
+          "C23",
+          "C24-25",
+          "C26-30",
+          "C31-33",
+          "D35",
+          "E36-37.39",
+          "E38",
+          "F41-43",
+          "G45-T99",
+          "G46.77",
+          "HUSH"
+        ],
+        "valueTexts": [
+          "AGRICULTURE, FORESTRY AND FISHING (A01-03)",
+          "MINING AND QUARRYING (B05-09)",
+          "MANUFACTURE OF FOOD PRODUCTS, BEVERAGES AND TOBACCO PRODUCTS",
+          "MANUFACTURE OF TEXTILES, WEARING APPAREL AND LEATHER",
+          "MANUFACTURE OF WOOD AND WOOD PRODUCTS",
+          "MANUFACTURE OF PAPER AND PAPER PRODUCTS; PRINTING AND REPRODUCTION OF RECORDED MEDIA",
+          "MANUFACTURE OF COKE AND REFINED PETROLEUM PRODUCTS",
+          "MANUFACTURE OF CHEMICALS AND CHEMICAL PRODUCTS, PHARMACEUTICAL PRODUCTS, RUBBER AND PLASTIC PRODUCTS",
+          "MANUFACTURE OF OTHER NON-METALLIC MINERAL PRODUCTS",
+          "MANUFACTURE OF BASIC METALS AND METAL PRODUCTS",
+          "MANUFACTURE OF COMPUTER, ELECTRONIC AND OPTICAL PRODUCTS, ELECTRICAL EQUIPMENT, MACHINERY, MOTOR VEHICLES AND OTHER TRANSPORT EQUIPMENT",
+          "MANUFACTURE OF FURNITURE, OTHER MANUFACTURING AND REPAIR AND INSTALLATION OF MACHINERY AND EQUIPMENT",
+          "ELECTRICITY, GAS, STEAM AND AIR CONDITIONING SUPPLY",
+          "WATER SUPPLY, SEWERAGE, WASTE MANAGEMENT AND REMEDIATION ACTIVITIES",
+          "WASTE COLLECTION, TREATMENT AND DISPOSAL ACTIVITIES; MATERIALS RECOVERY",
+          "CONSTRUCTION",
+          "SERVICE ACTIVITIES",
+          "WHOLESALE OF WASTE AND SCRAP",
+          "HOUSEHOLDS"
+        ]
+      },
+      {
+        "code": "Avfallsslag",
+        "text": "waste category",
+        "values": [
+          "01.1",
+          "01.2",
+          "01.3",
+          "01.4,02,03.1",
+          "03.2",
+          "03.3",
+          "05",
+          "06.1",
+          "06.2",
+          "06.3",
+          "07.1",
+          "07.2",
+          "07.3",
+          "07.4",
+          "07.5",
+          "07.6",
+          "07.7",
+          "08 ex 08.1,41",
+          "08.1",
+          "08.41",
+          "09.1",
+          "09.2",
+          "09.3",
+          "10.1",
+          "10.2",
+          "10.3",
+          "11",
+          "12.1",
+          "12.2,3,5",
+          "12.4",
+          "12.6",
+          "12.7",
+          "12.8,13",
+          "TOT"
+        ],
+        "valueTexts": [
+          "spent solvents",
+          "acid, alkaline or saline wastes",
+          "used oils",
+          "chemical wastes",
+          "industrial effluent sludges",
+          "sludges and liquid wastes from w. treatm.",
+          "health care and biological wastes",
+          "metallic wastes, ferrous",
+          "metallic wastes, non-ferrous",
+          "metallic wastes, mixed",
+          "glass wastes",
+          "paper and cardboard wastes",
+          "rubber wastes",
+          "plastic wastes",
+          "wood wastes",
+          "textile wastes",
+          "waste containing PCB",
+          "discarded equipment",
+          "discarded vehicles",
+          "batteries and accumulators wastes",
+          "animal and mixed food waste",
+          "vegetal wastes",
+          "animal faeces, urine and manure",
+          "household and similar wastes",
+          "mixed and undifferentiated materials",
+          "sorting residues",
+          "common sludges",
+          "mineral waste from constr. and demol.",
+          "other mineral wastes",
+          "combustion wastes",
+          "soils",
+          "dredging spoils (dry weight)",
+          "min. waste from w. treatm. and stabilised w.",
+          "Total"
+        ]
+      },
+      {
+        "code": "ContentsCode",
+        "text": "observations",
+        "values": [
+          "000004DS"
+        ],
+        "valueTexts": [
+          "Generated waste (tonnes)"
+        ]
+      },
+      {
+        "code": "Tid",
+        "text": "every other year",
+        "values": [
+          "2010",
+          "2012",
+          "2014",
+          "2016",
+          "2018",
+          "2020",
+          "2022"
+        ],
+        "valueTexts": [
+          "2010",
+          "2012",
+          "2014",
+          "2016",
+          "2018",
+          "2020",
+          "2022"
+        ],
+        "time": true
+      }
+    ]
+  }
+}

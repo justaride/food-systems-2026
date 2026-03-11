@@ -1,0 +1,1581 @@
+{
+  "registry_row": {
+    "country": "DK",
+    "theme": "trade",
+    "source_name": "StatBank imports and exports SITC",
+    "owner": "Statistics Denmark",
+    "url": "https://www.statbank.dk/SITC2R4",
+    "access_method": "api",
+    "api_base_or_endpoint": "https://api.statbank.dk/v1/data",
+    "dataset_or_table_id": "SITC2R4",
+    "update_frequency": "monthly",
+    "geography_level": "country partner",
+    "analysis_use": "monitor food and agri trade exposure",
+    "priority": "HIGH",
+    "status": "ready",
+    "verified_date": "2026-03-11",
+    "notes": "current monthly trade table by main SITC groups"
+  },
+  "fetch_url": "https://api.statbank.dk/v1/tableinfo?lang=en&id=SITC2R4",
+  "fetched_at": "2026-03-11T13:55:36.030010+00:00",
+  "content_type": "text/json; charset=utf-8",
+  "http_status": 200,
+  "summary": {
+    "payload_kind": "dict",
+    "keys": [
+      "active",
+      "contacts",
+      "description",
+      "documentation",
+      "footnote",
+      "id",
+      "suppressedDataValue",
+      "text",
+      "unit",
+      "updated",
+      "variables"
+    ],
+    "variable_count": 5,
+    "updated": "2026-03-11T08:00:00"
+  },
+  "payload": {
+    "id": "SITC2R4",
+    "text": "Value of imports and exports (DKK 1.000)",
+    "description": "Value of imports and exports (DKK 1.000) by main SITC groups, country, imports and exports, submission of goods and time",
+    "unit": "DKK 1,000",
+    "suppressedDataValue": "0",
+    "updated": "2026-03-11T08:00:00",
+    "active": true,
+    "contacts": [
+      {
+        "name": "Pia Nielsen",
+        "phone": "+4530619305",
+        "mail": "pin@dst.dk"
+      }
+    ],
+    "documentation": {
+      "id": "30a76856-be5c-47e1-93bb-51beb2974eaa",
+      "url": "https://www.dst.dk/documentationofstatistics/30a76856-be5c-47e1-93bb-51beb2974eaa"
+    },
+    "footnote": null,
+    "variables": [
+      {
+        "id": "SITC",
+        "text": "main SITC groups",
+        "elimination": true,
+        "time": false,
+        "values": [
+          {
+            "id": "TOT",
+            "text": "TOT TOTAL"
+          },
+          {
+            "id": "00",
+            "text": "00 Live animals other than fish, crustaceans, molluscs and aquatic invertebrates of division"
+          },
+          {
+            "id": "01",
+            "text": "01 Meat and meat preparations"
+          },
+          {
+            "id": "02",
+            "text": "02 Dairy products and birds eggs"
+          },
+          {
+            "id": "03",
+            "text": "03 Fish (not marine mammals), crustaceans, molluscs and aquatic invertebrates, and preparations thereof"
+          },
+          {
+            "id": "04",
+            "text": "04 Cereals and cereal preparations"
+          },
+          {
+            "id": "05",
+            "text": "05 Vegetables and fruit"
+          },
+          {
+            "id": "06",
+            "text": "06 Sugars, sugar preparations and honey"
+          },
+          {
+            "id": "07",
+            "text": "07 Coffee, tea, cocoa, spices and manufactures thereof"
+          },
+          {
+            "id": "08",
+            "text": "08 Feeding stuff for animals (not including unmilled cereals)"
+          },
+          {
+            "id": "09",
+            "text": "09 Miscellaneous edible products and preparations"
+          },
+          {
+            "id": "0H",
+            "text": "0H Confidential commodities under Section 0"
+          },
+          {
+            "id": "11",
+            "text": "11 Beverages"
+          },
+          {
+            "id": "12",
+            "text": "12 Tobacco and tobacco manufactures"
+          },
+          {
+            "id": "21",
+            "text": "21 Hides, skins and furskins, raw"
+          },
+          {
+            "id": "22",
+            "text": "22 Oil seeds and oleaginous fruits"
+          },
+          {
+            "id": "23",
+            "text": "23 Crude rubber (including synthetic and reclaimed)"
+          },
+          {
+            "id": "24",
+            "text": "24 Cork and wood"
+          },
+          {
+            "id": "25",
+            "text": "25 Pulp and waste paper"
+          },
+          {
+            "id": "26",
+            "text": "26 Textile fibers (other than wool tops and other combed wool) and their wastes (not manufactured into"
+          },
+          {
+            "id": "27",
+            "text": "27 Crude fertilizers (imports only), except those of division 56, and crude minerals (excluding coal, "
+          },
+          {
+            "id": "28",
+            "text": "28 Metalliferous ores and metal scrap"
+          },
+          {
+            "id": "29",
+            "text": "29 Crude animal and vegetable materials, N.E.S."
+          },
+          {
+            "id": "2H",
+            "text": "2H Confidential commodities under Section 2"
+          },
+          {
+            "id": "32",
+            "text": "32 Coal, coke and briquettes"
+          },
+          {
+            "id": "33",
+            "text": "33 Petroleum, petroleum products and related materials"
+          },
+          {
+            "id": "34",
+            "text": "34 Gas, natural and manufactured"
+          },
+          {
+            "id": "35",
+            "text": "35 Electric current"
+          },
+          {
+            "id": "3H",
+            "text": "3H Confidential commodities under Section 3"
+          },
+          {
+            "id": "41",
+            "text": "41 Animal oils and fats"
+          },
+          {
+            "id": "42",
+            "text": "42 Fixed vegetable fats and oils, crude, refined or fractionated"
+          },
+          {
+            "id": "43",
+            "text": "43 Animal or vegetable fats and oils processed, waxes and inedible mixtures or preparations of animal "
+          },
+          {
+            "id": "4H",
+            "text": "4H Confidential commodities under Section 4"
+          },
+          {
+            "id": "51",
+            "text": "51 Organic chemicals"
+          },
+          {
+            "id": "52",
+            "text": "52 Inorganic chemicals"
+          },
+          {
+            "id": "53",
+            "text": "53 Dyeing, tanning and coloring materials"
+          },
+          {
+            "id": "54",
+            "text": "54 Medicinal and pharmaceutical products"
+          },
+          {
+            "id": "55",
+            "text": "55 Essential oils and resinoids and perfume materials, toilet, polishing and cleansing preparations"
+          },
+          {
+            "id": "56",
+            "text": "56 Fertilizers (exports include group 272, imports exclude group 272)"
+          },
+          {
+            "id": "57",
+            "text": "57 Plastics in primary forms"
+          },
+          {
+            "id": "58",
+            "text": "58 Plastics in nonprimary forms"
+          },
+          {
+            "id": "59",
+            "text": "59 Chemical materials and products, N.E.S."
+          },
+          {
+            "id": "5H",
+            "text": "5H Confidential commodities under Section 5"
+          },
+          {
+            "id": "61",
+            "text": "61 Leather, leather manufactures, N.E.S., and dressed furskins"
+          },
+          {
+            "id": "62",
+            "text": "62 Rubber manufactures, N.E.S."
+          },
+          {
+            "id": "63",
+            "text": "63 Cork and wood manufactures other than furniture"
+          },
+          {
+            "id": "64",
+            "text": "64 Paper, paperboard, and articles of paper pulp, paper or paper board"
+          },
+          {
+            "id": "65",
+            "text": "65 Textile yarn, fabrics, made-up articles, N.E.S., and related products"
+          },
+          {
+            "id": "66",
+            "text": "66 Nonmetallic mineral manufactures, N.E.S."
+          },
+          {
+            "id": "67",
+            "text": "67 Iron and steel"
+          },
+          {
+            "id": "68",
+            "text": "68 Nonferrous metals"
+          },
+          {
+            "id": "69",
+            "text": "69 Manufactures of metals, N.E.S."
+          },
+          {
+            "id": "6H",
+            "text": "6H Confidential commodities under Section 6"
+          },
+          {
+            "id": "71",
+            "text": "71 Power generating machinery and equipment"
+          },
+          {
+            "id": "72",
+            "text": "72 Machinery specialized for particular industries"
+          },
+          {
+            "id": "73",
+            "text": "73 Metalworking machinery"
+          },
+          {
+            "id": "74",
+            "text": "74 General industrial machinery and equipment, N.E.S., and machine parts, N.E.S."
+          },
+          {
+            "id": "75",
+            "text": "75 Office machines and automatic data processing machines"
+          },
+          {
+            "id": "76",
+            "text": "76 Telecommunications and sound recording and reproducing apparatus and equipment"
+          },
+          {
+            "id": "77",
+            "text": "77 Electrical machinery, apparatus and appliances, N.E.S., and electrical parts thereof (Including Non"
+          },
+          {
+            "id": "78",
+            "text": "78 Road vehicles (including air-cushion vehicles)"
+          },
+          {
+            "id": "79",
+            "text": "79 Transport equipment, N.E.S."
+          },
+          {
+            "id": "7H",
+            "text": "7H Confidential commodities under Section 7"
+          },
+          {
+            "id": "81",
+            "text": "81 Prefabricated buildings, sanitary, plumbing, heating and lighting fixtures and fittings, N.E.S"
+          },
+          {
+            "id": "82",
+            "text": "82 Furniture and parts thereof, bedding, mattresses, mattress supports, cushions and similar stuffed Funiture"
+          },
+          {
+            "id": "83",
+            "text": "83 Travel Goods, Handbags And Similar Containers"
+          },
+          {
+            "id": "84",
+            "text": "84 Articles of apparel and clothing accessories"
+          },
+          {
+            "id": "85",
+            "text": "85 Footwear"
+          },
+          {
+            "id": "87",
+            "text": "87 Profssional, scientific and controlling instruments and apparatus, N.E.S."
+          },
+          {
+            "id": "88",
+            "text": "88 Photographic apparatus, equipment and supplies and optical goods, N.E.S., watches and clocks"
+          },
+          {
+            "id": "89",
+            "text": "89 Miscellaneous manufactured articles, N.E.S."
+          },
+          {
+            "id": "8H",
+            "text": "8H Confidential commodities under Section 8"
+          },
+          {
+            "id": "93",
+            "text": "93 Special transactions and commodities not classified according to kind"
+          },
+          {
+            "id": "96",
+            "text": "96 Coin (other than gold coin), not being legal tender"
+          },
+          {
+            "id": "97",
+            "text": "97 Gold, nonmonetary (excluding gold ores and concentrates)"
+          }
+        ]
+      },
+      {
+        "id": "LAND",
+        "text": "country",
+        "elimination": true,
+        "time": false,
+        "map": "Verden_dk",
+        "values": [
+          {
+            "id": "W1",
+            "text": "REST OF THE WORLD"
+          },
+          {
+            "id": "BE",
+            "text": "Belgium"
+          },
+          {
+            "id": "BG",
+            "text": "Bulgaria"
+          },
+          {
+            "id": "CY",
+            "text": "Cyprus"
+          },
+          {
+            "id": "EE",
+            "text": "Estonia"
+          },
+          {
+            "id": "4A",
+            "text": "European Union Institutions (excl. ECB and ESM)"
+          },
+          {
+            "id": "4F",
+            "text": "European Central Bank (ECB)"
+          },
+          {
+            "id": "4S",
+            "text": "European Stability Mechanism (ESM)"
+          },
+          {
+            "id": "FI",
+            "text": "Finland"
+          },
+          {
+            "id": "FR",
+            "text": "France"
+          },
+          {
+            "id": "GR",
+            "text": "Greece"
+          },
+          {
+            "id": "IE",
+            "text": "Ireland"
+          },
+          {
+            "id": "IT",
+            "text": "Italy"
+          },
+          {
+            "id": "HR",
+            "text": "Croatia"
+          },
+          {
+            "id": "LV",
+            "text": "Latvia"
+          },
+          {
+            "id": "LT",
+            "text": "Lithuania"
+          },
+          {
+            "id": "LU",
+            "text": "Luxembourg"
+          },
+          {
+            "id": "MT",
+            "text": "Malta"
+          },
+          {
+            "id": "NL",
+            "text": "Netherlands"
+          },
+          {
+            "id": "PL",
+            "text": "Poland"
+          },
+          {
+            "id": "PT",
+            "text": "Portugal"
+          },
+          {
+            "id": "RO",
+            "text": "Romania"
+          },
+          {
+            "id": "SK",
+            "text": "Slovakia"
+          },
+          {
+            "id": "SI",
+            "text": "Slovenia"
+          },
+          {
+            "id": "ES",
+            "text": "Spain"
+          },
+          {
+            "id": "SE",
+            "text": "Sweden"
+          },
+          {
+            "id": "CZ",
+            "text": "Czech Republic"
+          },
+          {
+            "id": "DE",
+            "text": "Germany"
+          },
+          {
+            "id": "HU",
+            "text": "Hungary"
+          },
+          {
+            "id": "AT",
+            "text": "Austria"
+          },
+          {
+            "id": "AL",
+            "text": "Albania"
+          },
+          {
+            "id": "AD",
+            "text": "Andorra"
+          },
+          {
+            "id": "BA",
+            "text": "Bosnia and Herzegovina"
+          },
+          {
+            "id": "FO",
+            "text": "Faroe Islands"
+          },
+          {
+            "id": "GI",
+            "text": "Gibraltar"
+          },
+          {
+            "id": "GG",
+            "text": "Guernsey"
+          },
+          {
+            "id": "BY",
+            "text": "Belarus"
+          },
+          {
+            "id": "IS",
+            "text": "Iceland"
+          },
+          {
+            "id": "IM",
+            "text": "Isle of Man"
+          },
+          {
+            "id": "JE",
+            "text": "Jersey"
+          },
+          {
+            "id": "LI",
+            "text": "Liechtenstein"
+          },
+          {
+            "id": "MK",
+            "text": "Republic of North Macedonia"
+          },
+          {
+            "id": "MD",
+            "text": "Moldova"
+          },
+          {
+            "id": "ME",
+            "text": "Montenegro"
+          },
+          {
+            "id": "NO",
+            "text": "Norway"
+          },
+          {
+            "id": "RU",
+            "text": "Russia"
+          },
+          {
+            "id": "SM",
+            "text": "San Marino"
+          },
+          {
+            "id": "CH",
+            "text": "Switzerland "
+          },
+          {
+            "id": "RS",
+            "text": "Serbia"
+          },
+          {
+            "id": "GB",
+            "text": "United Kingdom"
+          },
+          {
+            "id": "TR",
+            "text": "Turkey"
+          },
+          {
+            "id": "UA",
+            "text": "Ukraine"
+          },
+          {
+            "id": "VA",
+            "text": "Vatican City State"
+          },
+          {
+            "id": "DZ",
+            "text": "Algeria"
+          },
+          {
+            "id": "EG",
+            "text": "Egypt"
+          },
+          {
+            "id": "LY",
+            "text": "Libya"
+          },
+          {
+            "id": "MA",
+            "text": "Morocco"
+          },
+          {
+            "id": "TN",
+            "text": "Tunisia"
+          },
+          {
+            "id": "AO",
+            "text": "Angola"
+          },
+          {
+            "id": "BJ",
+            "text": "Benin"
+          },
+          {
+            "id": "BW",
+            "text": "Botswana"
+          },
+          {
+            "id": "IO",
+            "text": "British Indian Ocean Territory"
+          },
+          {
+            "id": "BF",
+            "text": "Burkina Faso"
+          },
+          {
+            "id": "BI",
+            "text": "Burundi"
+          },
+          {
+            "id": "CM",
+            "text": "Cameroon"
+          },
+          {
+            "id": "CF",
+            "text": "Central African Republic"
+          },
+          {
+            "id": "KM",
+            "text": "Comoros"
+          },
+          {
+            "id": "CD",
+            "text": "Congo, the Democratic Republic of the "
+          },
+          {
+            "id": "CG",
+            "text": "Congo, Republic"
+          },
+          {
+            "id": "DJ",
+            "text": "Djibouti"
+          },
+          {
+            "id": "CI",
+            "text": "C\u00f4te dIvoire"
+          },
+          {
+            "id": "ER",
+            "text": "Eritrea"
+          },
+          {
+            "id": "ET",
+            "text": "Ethiopia"
+          },
+          {
+            "id": "GA",
+            "text": "Gabon"
+          },
+          {
+            "id": "GM",
+            "text": "Gambia"
+          },
+          {
+            "id": "GH",
+            "text": "Ghana"
+          },
+          {
+            "id": "GN",
+            "text": "Guinea"
+          },
+          {
+            "id": "GW",
+            "text": "Guinea-Bissau"
+          },
+          {
+            "id": "CV",
+            "text": "Cape Verde"
+          },
+          {
+            "id": "KE",
+            "text": "Kenya"
+          },
+          {
+            "id": "LS",
+            "text": "Lesotho"
+          },
+          {
+            "id": "LR",
+            "text": "Liberia"
+          },
+          {
+            "id": "MG",
+            "text": "Madagascar"
+          },
+          {
+            "id": "MW",
+            "text": "Malawi"
+          },
+          {
+            "id": "ML",
+            "text": "Mali"
+          },
+          {
+            "id": "MR",
+            "text": "Mauritania"
+          },
+          {
+            "id": "MU",
+            "text": "Mauritius"
+          },
+          {
+            "id": "MZ",
+            "text": "Mozambique"
+          },
+          {
+            "id": "NA",
+            "text": "Namibia"
+          },
+          {
+            "id": "NE",
+            "text": "Niger"
+          },
+          {
+            "id": "NG",
+            "text": "Nigeria"
+          },
+          {
+            "id": "RW",
+            "text": "Rwanda"
+          },
+          {
+            "id": "ST",
+            "text": "Sao Tome & Principe"
+          },
+          {
+            "id": "SN",
+            "text": "Senegal"
+          },
+          {
+            "id": "SC",
+            "text": "Seychelles"
+          },
+          {
+            "id": "SL",
+            "text": "Sierra Leone"
+          },
+          {
+            "id": "SH",
+            "text": "St Helena"
+          },
+          {
+            "id": "SO",
+            "text": "Somalia"
+          },
+          {
+            "id": "SD",
+            "text": "Sudan"
+          },
+          {
+            "id": "SZ",
+            "text": "Eswantini"
+          },
+          {
+            "id": "ZA",
+            "text": "South Africa"
+          },
+          {
+            "id": "SS",
+            "text": "South Sudan"
+          },
+          {
+            "id": "TZ",
+            "text": "Tanzania, United Republic of"
+          },
+          {
+            "id": "TD",
+            "text": "Chad"
+          },
+          {
+            "id": "TG",
+            "text": "Togo"
+          },
+          {
+            "id": "UG",
+            "text": "Uganda"
+          },
+          {
+            "id": "ZM",
+            "text": "Zambia"
+          },
+          {
+            "id": "ZW",
+            "text": "Zimbabwe"
+          },
+          {
+            "id": "GQ",
+            "text": "Equatorial Guinea"
+          },
+          {
+            "id": "CA",
+            "text": "Canada"
+          },
+          {
+            "id": "GL",
+            "text": "Greenland"
+          },
+          {
+            "id": "US",
+            "text": "United States"
+          },
+          {
+            "id": "VI",
+            "text": "Virgin Islands, U.S."
+          },
+          {
+            "id": "AI",
+            "text": "Anguilla"
+          },
+          {
+            "id": "AG",
+            "text": "Antigua and Barbuda"
+          },
+          {
+            "id": "AW",
+            "text": "Aruba"
+          },
+          {
+            "id": "BS",
+            "text": "Bahamas"
+          },
+          {
+            "id": "BB",
+            "text": "Barbados"
+          },
+          {
+            "id": "BZ",
+            "text": "Belize"
+          },
+          {
+            "id": "BM",
+            "text": "Bermuda"
+          },
+          {
+            "id": "BQ",
+            "text": "Bonaire, St Eustatius and Saba"
+          },
+          {
+            "id": "VG",
+            "text": "Virgin Islands, British "
+          },
+          {
+            "id": "KY",
+            "text": "Cayman Islands"
+          },
+          {
+            "id": "CR",
+            "text": "Costa Rica"
+          },
+          {
+            "id": "CU",
+            "text": "Cuba"
+          },
+          {
+            "id": "CW",
+            "text": "Cura\u00e7ao"
+          },
+          {
+            "id": "DM",
+            "text": "Dominica"
+          },
+          {
+            "id": "DO",
+            "text": "Dominican Republic"
+          },
+          {
+            "id": "SV",
+            "text": "El Salvador"
+          },
+          {
+            "id": "GD",
+            "text": "Grenada"
+          },
+          {
+            "id": "GT",
+            "text": "Guatemala"
+          },
+          {
+            "id": "HT",
+            "text": "Haiti"
+          },
+          {
+            "id": "HN",
+            "text": "Honduras"
+          },
+          {
+            "id": "JM",
+            "text": "Jamaica"
+          },
+          {
+            "id": "MX",
+            "text": "Mexico"
+          },
+          {
+            "id": "MS",
+            "text": "Montserrat"
+          },
+          {
+            "id": "NI",
+            "text": "Nicaragua"
+          },
+          {
+            "id": "PA",
+            "text": "Panama"
+          },
+          {
+            "id": "SX",
+            "text": "St Maarten"
+          },
+          {
+            "id": "KN",
+            "text": "St Kitts and Nevis"
+          },
+          {
+            "id": "LC",
+            "text": "Saint Lucia"
+          },
+          {
+            "id": "VC",
+            "text": "St Vincent and the Grenadines"
+          },
+          {
+            "id": "TT",
+            "text": "Trinidad and Tobago"
+          },
+          {
+            "id": "TC",
+            "text": "Turks & Caicos Islands"
+          },
+          {
+            "id": "AR",
+            "text": "Argentina"
+          },
+          {
+            "id": "BO",
+            "text": "Bolivia"
+          },
+          {
+            "id": "BR",
+            "text": "Brazil"
+          },
+          {
+            "id": "CL",
+            "text": "Chile"
+          },
+          {
+            "id": "CO",
+            "text": "Colombia"
+          },
+          {
+            "id": "EC",
+            "text": "Ecuador"
+          },
+          {
+            "id": "FK",
+            "text": "Falkland Islands"
+          },
+          {
+            "id": "GY",
+            "text": "Guyana"
+          },
+          {
+            "id": "PY",
+            "text": "Paraguay"
+          },
+          {
+            "id": "PE",
+            "text": "Peru"
+          },
+          {
+            "id": "SR",
+            "text": "Suriname"
+          },
+          {
+            "id": "UY",
+            "text": "Uruguay"
+          },
+          {
+            "id": "VE",
+            "text": "Venezuela"
+          },
+          {
+            "id": "BH",
+            "text": "Bahrain"
+          },
+          {
+            "id": "AE",
+            "text": "United Arab Emirates"
+          },
+          {
+            "id": "IQ",
+            "text": "Iraq"
+          },
+          {
+            "id": "KW",
+            "text": "Kuwait"
+          },
+          {
+            "id": "OM",
+            "text": "Oman"
+          },
+          {
+            "id": "QA",
+            "text": "Qatar"
+          },
+          {
+            "id": "SA",
+            "text": "Saudi Arabia"
+          },
+          {
+            "id": "YE",
+            "text": "Yemen"
+          },
+          {
+            "id": "AM",
+            "text": "Armenia"
+          },
+          {
+            "id": "AZ",
+            "text": "Azerbaijan"
+          },
+          {
+            "id": "PS",
+            "text": "Palestinian Territory "
+          },
+          {
+            "id": "GE",
+            "text": "Georgia"
+          },
+          {
+            "id": "IL",
+            "text": "Israel"
+          },
+          {
+            "id": "JO",
+            "text": "Jordan"
+          },
+          {
+            "id": "LB",
+            "text": "Lebanon"
+          },
+          {
+            "id": "SY",
+            "text": "Syrian "
+          },
+          {
+            "id": "AF",
+            "text": "Afghanistan"
+          },
+          {
+            "id": "BD",
+            "text": "Bangladesh"
+          },
+          {
+            "id": "BT",
+            "text": "Bhutan"
+          },
+          {
+            "id": "BN",
+            "text": "Brunei Darussalam"
+          },
+          {
+            "id": "KH",
+            "text": "Cambodia "
+          },
+          {
+            "id": "PH",
+            "text": "Philippines"
+          },
+          {
+            "id": "HK",
+            "text": "Hong Kong"
+          },
+          {
+            "id": "IN",
+            "text": "India"
+          },
+          {
+            "id": "ID",
+            "text": "Indonesia"
+          },
+          {
+            "id": "IR",
+            "text": "Iran"
+          },
+          {
+            "id": "JP",
+            "text": "Japan"
+          },
+          {
+            "id": "KZ",
+            "text": "Kazakhstan"
+          },
+          {
+            "id": "CN",
+            "text": "China"
+          },
+          {
+            "id": "KG",
+            "text": "Kyrgyzstan"
+          },
+          {
+            "id": "LA",
+            "text": "Laos"
+          },
+          {
+            "id": "MO",
+            "text": "Macao"
+          },
+          {
+            "id": "MY",
+            "text": "Malaysia"
+          },
+          {
+            "id": "MV",
+            "text": "Maldives"
+          },
+          {
+            "id": "MN",
+            "text": "Mongolia"
+          },
+          {
+            "id": "MM",
+            "text": "Burma/Myanmar"
+          },
+          {
+            "id": "NP",
+            "text": "Nepal"
+          },
+          {
+            "id": "KP",
+            "text": "North Korea"
+          },
+          {
+            "id": "PK",
+            "text": "Pakistan"
+          },
+          {
+            "id": "SG",
+            "text": "Singapore"
+          },
+          {
+            "id": "LK",
+            "text": "Sri Lanka"
+          },
+          {
+            "id": "KR",
+            "text": "South Korea"
+          },
+          {
+            "id": "TJ",
+            "text": "Tajikistan"
+          },
+          {
+            "id": "TW",
+            "text": "Taiwan"
+          },
+          {
+            "id": "TH",
+            "text": "Thailand"
+          },
+          {
+            "id": "TM",
+            "text": "Turkmenistan"
+          },
+          {
+            "id": "UZ",
+            "text": "Uzbekistan"
+          },
+          {
+            "id": "VN",
+            "text": "Viet Nam"
+          },
+          {
+            "id": "TL",
+            "text": "Timor-Leste"
+          },
+          {
+            "id": "AS",
+            "text": "American Samoa"
+          },
+          {
+            "id": "AQ",
+            "text": "Antartica"
+          },
+          {
+            "id": "AU",
+            "text": "Australia"
+          },
+          {
+            "id": "BV",
+            "text": "Bouvet Island"
+          },
+          {
+            "id": "CC",
+            "text": "Cocos (Keeling Islands)"
+          },
+          {
+            "id": "CK",
+            "text": "Cook Islands"
+          },
+          {
+            "id": "FJ",
+            "text": "Fiji"
+          },
+          {
+            "id": "PF",
+            "text": "French Polynesia"
+          },
+          {
+            "id": "TF",
+            "text": "French Southern and Antarctic Lands"
+          },
+          {
+            "id": "GU",
+            "text": "Guam"
+          },
+          {
+            "id": "HM",
+            "text": "Heard Island and McDonald Islands"
+          },
+          {
+            "id": "CX",
+            "text": "Christmas Islands"
+          },
+          {
+            "id": "KI",
+            "text": "Kiribati"
+          },
+          {
+            "id": "MH",
+            "text": "Marshall Islands"
+          },
+          {
+            "id": "FM",
+            "text": "Micronesia, Federated States of"
+          },
+          {
+            "id": "NR",
+            "text": "Nauru"
+          },
+          {
+            "id": "NZ",
+            "text": "New Zealand"
+          },
+          {
+            "id": "NU",
+            "text": "Niue"
+          },
+          {
+            "id": "MP",
+            "text": "Northern Mariana Islands"
+          },
+          {
+            "id": "NF",
+            "text": "Norfolk Island"
+          },
+          {
+            "id": "NC",
+            "text": "New Caledonia"
+          },
+          {
+            "id": "PW",
+            "text": "Palau"
+          },
+          {
+            "id": "PG",
+            "text": "Papua New Guinea"
+          },
+          {
+            "id": "PN",
+            "text": "Pitcairn"
+          },
+          {
+            "id": "SB",
+            "text": "Solomon Islands"
+          },
+          {
+            "id": "GS",
+            "text": "South Georgia and the South Sandwich Islands"
+          },
+          {
+            "id": "TK",
+            "text": "Tokelau"
+          },
+          {
+            "id": "TO",
+            "text": "Tonga"
+          },
+          {
+            "id": "TV",
+            "text": "Tuvalu"
+          },
+          {
+            "id": "UM",
+            "text": "US Minor Outlying Islands"
+          },
+          {
+            "id": "VU",
+            "text": "Vanuatu"
+          },
+          {
+            "id": "WS",
+            "text": "Samoa"
+          },
+          {
+            "id": "WF",
+            "text": "Wallis and Futuna"
+          },
+          {
+            "id": "9A",
+            "text": "INTERNATIONAL ORGANISATIONS (EXCL. EU INST.)"
+          },
+          {
+            "id": "QX",
+            "text": "Confidential"
+          }
+        ]
+      },
+      {
+        "id": "INDUD",
+        "text": "imports and exports",
+        "elimination": false,
+        "time": false,
+        "values": [
+          {
+            "id": "1",
+            "text": "Imports"
+          },
+          {
+            "id": "2",
+            "text": "Exports"
+          }
+        ]
+      },
+      {
+        "id": "UHBEGREB",
+        "text": "submission of goods",
+        "elimination": false,
+        "time": false,
+        "values": [
+          {
+            "id": "GP",
+            "text": "Trade in goods (border crossing principle)"
+          },
+          {
+            "id": "ES",
+            "text": "Trade in goods (change of ownership principle)"
+          }
+        ]
+      },
+      {
+        "id": "Tid",
+        "text": "time",
+        "elimination": false,
+        "time": true,
+        "values": [
+          {
+            "id": "2022M01",
+            "text": "2022M01"
+          },
+          {
+            "id": "2022M02",
+            "text": "2022M02"
+          },
+          {
+            "id": "2022M03",
+            "text": "2022M03"
+          },
+          {
+            "id": "2022M04",
+            "text": "2022M04"
+          },
+          {
+            "id": "2022M05",
+            "text": "2022M05"
+          },
+          {
+            "id": "2022M06",
+            "text": "2022M06"
+          },
+          {
+            "id": "2022M07",
+            "text": "2022M07"
+          },
+          {
+            "id": "2022M08",
+            "text": "2022M08"
+          },
+          {
+            "id": "2022M09",
+            "text": "2022M09"
+          },
+          {
+            "id": "2022M10",
+            "text": "2022M10"
+          },
+          {
+            "id": "2022M11",
+            "text": "2022M11"
+          },
+          {
+            "id": "2022M12",
+            "text": "2022M12"
+          },
+          {
+            "id": "2023M01",
+            "text": "2023M01"
+          },
+          {
+            "id": "2023M02",
+            "text": "2023M02"
+          },
+          {
+            "id": "2023M03",
+            "text": "2023M03"
+          },
+          {
+            "id": "2023M04",
+            "text": "2023M04"
+          },
+          {
+            "id": "2023M05",
+            "text": "2023M05"
+          },
+          {
+            "id": "2023M06",
+            "text": "2023M06"
+          },
+          {
+            "id": "2023M07",
+            "text": "2023M07"
+          },
+          {
+            "id": "2023M08",
+            "text": "2023M08"
+          },
+          {
+            "id": "2023M09",
+            "text": "2023M09"
+          },
+          {
+            "id": "2023M10",
+            "text": "2023M10"
+          },
+          {
+            "id": "2023M11",
+            "text": "2023M11"
+          },
+          {
+            "id": "2023M12",
+            "text": "2023M12"
+          },
+          {
+            "id": "2024M01",
+            "text": "2024M01"
+          },
+          {
+            "id": "2024M02",
+            "text": "2024M02"
+          },
+          {
+            "id": "2024M03",
+            "text": "2024M03"
+          },
+          {
+            "id": "2024M04",
+            "text": "2024M04"
+          },
+          {
+            "id": "2024M05",
+            "text": "2024M05"
+          },
+          {
+            "id": "2024M06",
+            "text": "2024M06"
+          },
+          {
+            "id": "2024M07",
+            "text": "2024M07"
+          },
+          {
+            "id": "2024M08",
+            "text": "2024M08"
+          },
+          {
+            "id": "2024M09",
+            "text": "2024M09"
+          },
+          {
+            "id": "2024M10",
+            "text": "2024M10"
+          },
+          {
+            "id": "2024M11",
+            "text": "2024M11"
+          },
+          {
+            "id": "2024M12",
+            "text": "2024M12"
+          },
+          {
+            "id": "2025M01",
+            "text": "2025M01"
+          },
+          {
+            "id": "2025M02",
+            "text": "2025M02"
+          },
+          {
+            "id": "2025M03",
+            "text": "2025M03"
+          },
+          {
+            "id": "2025M04",
+            "text": "2025M04"
+          },
+          {
+            "id": "2025M05",
+            "text": "2025M05"
+          },
+          {
+            "id": "2025M06",
+            "text": "2025M06"
+          },
+          {
+            "id": "2025M07",
+            "text": "2025M07"
+          },
+          {
+            "id": "2025M08",
+            "text": "2025M08"
+          },
+          {
+            "id": "2025M09",
+            "text": "2025M09"
+          },
+          {
+            "id": "2025M10",
+            "text": "2025M10"
+          },
+          {
+            "id": "2025M11",
+            "text": "2025M11"
+          },
+          {
+            "id": "2025M12",
+            "text": "2025M12"
+          },
+          {
+            "id": "2026M01",
+            "text": "2026M01"
+          }
+        ]
+      }
+    ]
+  }
+}

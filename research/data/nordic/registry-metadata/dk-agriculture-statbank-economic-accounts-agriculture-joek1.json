@@ -1,0 +1,447 @@
+{
+  "registry_row": {
+    "country": "DK",
+    "theme": "agriculture",
+    "source_name": "StatBank economic accounts agriculture",
+    "owner": "Statistics Denmark",
+    "url": "https://api.statbank.dk/v1/tableinfo?lang=en&id=JOEK1",
+    "access_method": "api",
+    "api_base_or_endpoint": "https://api.statbank.dk/v1/tableinfo?lang=en&id=JOEK1",
+    "dataset_or_table_id": "JOEK1",
+    "update_frequency": "annual",
+    "geography_level": "country",
+    "analysis_use": "agricultural production and income",
+    "priority": "HIGH",
+    "status": "ready",
+    "verified_date": "2026-03-11",
+    "notes": "product and price unit dimensions"
+  },
+  "fetch_url": "https://api.statbank.dk/v1/tableinfo?lang=en&id=JOEK1",
+  "fetched_at": "2026-03-11T13:55:35.384841+00:00",
+  "content_type": "text/json; charset=utf-8",
+  "http_status": 200,
+  "summary": {
+    "payload_kind": "dict",
+    "keys": [
+      "active",
+      "contacts",
+      "description",
+      "documentation",
+      "footnote",
+      "id",
+      "suppressedDataValue",
+      "text",
+      "unit",
+      "updated",
+      "variables"
+    ],
+    "variable_count": 3,
+    "updated": "2025-11-07T08:00:00"
+  },
+  "payload": {
+    "id": "JOEK1",
+    "text": "Economic accounts for agriculture",
+    "description": "Economic accounts for agriculture by product, price unit and time",
+    "unit": "m DKK",
+    "suppressedDataValue": "0",
+    "updated": "2025-11-07T08:00:00",
+    "active": true,
+    "contacts": [
+      {
+        "name": "Simone Thun",
+        "phone": "+4551369251",
+        "mail": "sit@dst.dk"
+      }
+    ],
+    "documentation": {
+      "id": "a9fe5dae-435f-4ac2-9133-35e21a72cd0e",
+      "url": "https://www.dst.dk/documentationofstatistics/a9fe5dae-435f-4ac2-9133-35e21a72cd0e"
+    },
+    "footnote": {
+      "text": "JOEK1 is published for the first time in October 2025 with data for the years 2022, 2023, and 2024.\n The statistics are compiled at basic prices, where subsidies and taxes on products are included in the sales values (only for potatoes and cattle).The table replaces LBFI1.\nThe most recent two years are provisional.",
+      "mandatory": false
+    },
+    "variables": [
+      {
+        "id": "PRODUKT",
+        "text": "product",
+        "elimination": false,
+        "time": false,
+        "values": [
+          {
+            "id": "180000",
+            "text": "1 OUTPUT OF THE AGRICULTURAL INDUSTRY (2 + 7)"
+          },
+          {
+            "id": "160000",
+            "text": "2 AGRICULTURAL OUTPUT (3 + 6)"
+          },
+          {
+            "id": "140000",
+            "text": "3 AGRICULTURAL GOODS (4 + 5)"
+          },
+          {
+            "id": "100000",
+            "text": "4 CROP, INCLUDING FRUIT AND VEGETABLES"
+          },
+          {
+            "id": "010000",
+            "text": "4.1 Cereals (including seeds)"
+          },
+          {
+            "id": "011000",
+            "text": "4.1.1 Wheat and spelt"
+          },
+          {
+            "id": "012000",
+            "text": "4.1.2 Rye and winter cereal mixtures (meslin)"
+          },
+          {
+            "id": "013000",
+            "text": "4.1.3 Barley"
+          },
+          {
+            "id": "014000",
+            "text": "4.1.4 Oats and summer cereal mixtures"
+          },
+          {
+            "id": "015000",
+            "text": "4.1.5 Grain maize"
+          },
+          {
+            "id": "019000",
+            "text": "4.1.6 Other cereals"
+          },
+          {
+            "id": "020000",
+            "text": "4.2 Industrial Crops"
+          },
+          {
+            "id": "021100",
+            "text": "4.2.1 Rape and turnip rape seed"
+          },
+          {
+            "id": "022000",
+            "text": "4.2.2 Protein crops (including seeds)"
+          },
+          {
+            "id": "024000",
+            "text": "4.2.3 Sugar beet"
+          },
+          {
+            "id": "030000",
+            "text": "4.3 Forage Plants"
+          },
+          {
+            "id": "032000",
+            "text": "4.3.1 Fodder root crops (including forage beet)"
+          },
+          {
+            "id": "033000",
+            "text": "4.3.2 Green maize"
+          },
+          {
+            "id": "039000",
+            "text": "4.3.3 Other forage plants"
+          },
+          {
+            "id": "040000",
+            "text": "4.4 Vegetables and horticultural products"
+          },
+          {
+            "id": "041000",
+            "text": "4.4.1 Fresh vegetables"
+          },
+          {
+            "id": "042000",
+            "text": "4.4.2 Plants and flowers"
+          },
+          {
+            "id": "050000",
+            "text": "4.5 Potatoes (including seeds)"
+          },
+          {
+            "id": "060000",
+            "text": "4.6 Fruit"
+          },
+          {
+            "id": "092000",
+            "text": "4.7 Seeds"
+          },
+          {
+            "id": "130000",
+            "text": "5 ANIMAL GOODS"
+          },
+          {
+            "id": "110000",
+            "text": "5.1 Animals"
+          },
+          {
+            "id": "111000",
+            "text": "5.1.1 Live cattle"
+          },
+          {
+            "id": "112000",
+            "text": "5.1.2 Live pigs"
+          },
+          {
+            "id": "113000",
+            "text": "5.1.3 Live horses, asses, mules and hinnies"
+          },
+          {
+            "id": "114000",
+            "text": "5.1.4 Live sheep and goats"
+          },
+          {
+            "id": "115000",
+            "text": "5.1.5 Live poultry"
+          },
+          {
+            "id": "119000",
+            "text": "5.1.6 Other animals"
+          },
+          {
+            "id": "120000",
+            "text": "5.2 Animal products"
+          },
+          {
+            "id": "121000",
+            "text": "5.2.1 Raw milk"
+          },
+          {
+            "id": "122000",
+            "text": "5.2.2 Eggs"
+          },
+          {
+            "id": "129000",
+            "text": "5.2.3 Other animal products"
+          },
+          {
+            "id": "150000",
+            "text": "6 Agricultural services output"
+          },
+          {
+            "id": "170000",
+            "text": "7 Secondary activities (inseparable)"
+          },
+          {
+            "id": "200000",
+            "text": "8 GOODS AND SERVICES CURRENTLY CONSUMED IN AGRICULTURE (TOTAL INTERMEDIATE CONSUMPTION)"
+          },
+          {
+            "id": "201000",
+            "text": "8.1 Seeds and planting stock"
+          },
+          {
+            "id": "202000",
+            "text": "8.2 Energy; lubricants"
+          },
+          {
+            "id": "202100",
+            "text": "8.2.1 Electricity"
+          },
+          {
+            "id": "202700",
+            "text": "8.2.2 Gas"
+          },
+          {
+            "id": "202800",
+            "text": "8.2.3 Other fuels and propellants"
+          },
+          {
+            "id": "203000",
+            "text": "8.3 Fertilisers and soil improvers"
+          },
+          {
+            "id": "204000",
+            "text": "8.4 Plant protection products"
+          },
+          {
+            "id": "205000",
+            "text": "8.5 Veterinary expenses"
+          },
+          {
+            "id": "206000",
+            "text": "8.6 Feedingstuffs (Intermediate consumption)"
+          },
+          {
+            "id": "206011",
+            "text": "8.6.1 Feedingstuffs supplied by other agricultural holdings"
+          },
+          {
+            "id": "206012",
+            "text": "8.6.2 Feedingstuffs purchased from outside the agricultural industry"
+          },
+          {
+            "id": "206020",
+            "text": "8.6.3 Feedingstuffs produced and consumed by the same agricultural holding"
+          },
+          {
+            "id": "207000",
+            "text": "8.7 Maintenance of materials"
+          },
+          {
+            "id": "208000",
+            "text": "8.8 Maintenance of buildings"
+          },
+          {
+            "id": "209100",
+            "text": "8.9 Agricultural services (Intermediate consumption)"
+          },
+          {
+            "id": "209200",
+            "text": "8.10 Financial intermediation services indirectly measured (FISIM)"
+          },
+          {
+            "id": "209900",
+            "text": "8.11 Other goods and services"
+          },
+          {
+            "id": "260000",
+            "text": "9 GROSS VALUE ADDED (1 - 8)"
+          },
+          {
+            "id": "240000",
+            "text": "10 GROSS FIXED CAPITAL FORMATION"
+          },
+          {
+            "id": "210000",
+            "text": "10.1 Goods and services contributing to agricultural investment - GFCF in non-agricultural products"
+          },
+          {
+            "id": "211000",
+            "text": "10.1.1 Machinery and equipment"
+          },
+          {
+            "id": "212000",
+            "text": "10.1.2 Buildings"
+          },
+          {
+            "id": "219210",
+            "text": "10.1.3 GFCF in major land improvements"
+          },
+          {
+            "id": "230000",
+            "text": "10.2 Gross fixed capital formation in agricultural products"
+          },
+          {
+            "id": "231000",
+            "text": "10.2.1 GFCF in plantations"
+          },
+          {
+            "id": "232000",
+            "text": "10.2.2 GFCF in Livestock"
+          },
+          {
+            "id": "250000",
+            "text": "11 NET FIXED CAPITAL FORMATION (10 - 12)"
+          },
+          {
+            "id": "270000",
+            "text": "12 Consumption of fixed capital (CFC)"
+          },
+          {
+            "id": "271000",
+            "text": "12.1 CFC of Equipment"
+          },
+          {
+            "id": "272000",
+            "text": "12.2 CFC of Buildings"
+          },
+          {
+            "id": "280000",
+            "text": "13 NET VALUE ADDED (9 - 12)"
+          },
+          {
+            "id": "290000",
+            "text": "14 Compensation of employees"
+          },
+          {
+            "id": "300000",
+            "text": "15 Other taxes on production"
+          },
+          {
+            "id": "310000",
+            "text": "16 Other subsidies on production"
+          },
+          {
+            "id": "320000",
+            "text": "17 FACTOR INCOME (13 - 15 + 16)"
+          },
+          {
+            "id": "330000",
+            "text": "18 OPERATING SURPLUS/MIXED INCOME (13 - 14 - 15 + 16)"
+          },
+          {
+            "id": "340000",
+            "text": "19 Rents and other real estate rental charges to be paid"
+          },
+          {
+            "id": "350000",
+            "text": "20 Interest paid"
+          },
+          {
+            "id": "360000",
+            "text": "21 Interest received"
+          },
+          {
+            "id": "370000",
+            "text": "22 ENTREPRENEURIAL INCOME (18 - 19 - 20 + 21)"
+          },
+          {
+            "id": "380000",
+            "text": "23 Changes in inventories"
+          },
+          {
+            "id": "390000",
+            "text": "24 Capital transfers"
+          },
+          {
+            "id": "391000",
+            "text": "24.1 Investment grants"
+          },
+          {
+            "id": "399000",
+            "text": "24.2 Other capital transfers"
+          }
+        ]
+      },
+      {
+        "id": "PRISENHED",
+        "text": "price unit",
+        "elimination": false,
+        "time": false,
+        "values": [
+          {
+            "id": "00",
+            "text": "Current prices"
+          },
+          {
+            "id": "05",
+            "text": "Constant prices (previous year)"
+          }
+        ]
+      },
+      {
+        "id": "Tid",
+        "text": "time",
+        "elimination": false,
+        "time": true,
+        "values": [
+          {
+            "id": "2022",
+            "text": "2022"
+          },
+          {
+            "id": "2023",
+            "text": "2023"
+          },
+          {
+            "id": "2024",
+            "text": "2024"
+          }
+        ]
+      }
+    ]
+  }
+}

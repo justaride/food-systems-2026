@@ -1,0 +1,130 @@
+{
+  "registry_row": {
+    "country": "NO",
+    "theme": "register",
+    "source_name": "Brreg organisations API",
+    "owner": "Br\u00f8nn\u00f8ysundregistrene",
+    "url": "https://data.brreg.no/enhetsregisteret/api/enheter",
+    "access_method": "api",
+    "api_base_or_endpoint": "https://data.brreg.no/enhetsregisteret/api/enheter",
+    "dataset_or_table_id": "",
+    "update_frequency": "continuous",
+    "geography_level": "unit",
+    "analysis_use": "chain and unit mapping",
+    "priority": "HIGH",
+    "status": "ready",
+    "verified_date": "2026-03-11",
+    "notes": "combine with underenheter endpoint"
+  },
+  "fetch_url": "https://data.brreg.no/enhetsregisteret/api/enheter?size=1",
+  "fetched_at": "2026-03-11T13:55:33.125273+00:00",
+  "content_type": "application/json",
+  "http_status": 200,
+  "summary": {
+    "payload_kind": "dict",
+    "keys": [
+      "_embedded",
+      "_links",
+      "page"
+    ]
+  },
+  "payload": {
+    "_embedded": {
+      "enheter": [
+        {
+          "organisasjonsnummer": "916627939",
+          "navn": "- P A L M E R A -",
+          "organisasjonsform": {
+            "kode": "FLI",
+            "beskrivelse": "Forening/lag/innretning",
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/organisasjonsformer/FLI"
+              }
+            }
+          },
+          "hjemmeside": "palmera-i-bergen.no",
+          "postadresse": {
+            "land": "Norge",
+            "landkode": "NO",
+            "postnummer": "5033",
+            "poststed": "BERGEN",
+            "adresse": [
+              "c/o Lady Tatiana Lozano Prieto",
+              "Hans Hauges gate 37"
+            ],
+            "kommune": "BERGEN",
+            "kommunenummer": "4601"
+          },
+          "registreringsdatoEnhetsregisteret": "2016-01-26",
+          "registrertIMvaregisteret": false,
+          "naeringskode1": {
+            "kode": "94.992",
+            "beskrivelse": "Aktiviteter i andre medlemsorganisasjoner ellers"
+          },
+          "harRegistrertAntallAnsatte": false,
+          "epostadresse": "palmera.i.bergen@gmail.com",
+          "mobil": "451 72 987",
+          "forretningsadresse": {
+            "land": "Norge",
+            "landkode": "NO",
+            "postnummer": "5004",
+            "poststed": "BERGEN",
+            "adresse": [
+              "Strandgaten 208"
+            ],
+            "kommune": "BERGEN",
+            "kommunenummer": "4601"
+          },
+          "stiftelsesdato": "2015-11-01",
+          "institusjonellSektorkode": {
+            "kode": "7000",
+            "beskrivelse": "Ideelle organisasjoner"
+          },
+          "registrertIForetaksregisteret": false,
+          "registrertIStiftelsesregisteret": false,
+          "registrertIFrivillighetsregisteret": true,
+          "konkurs": false,
+          "underAvvikling": false,
+          "underTvangsavviklingEllerTvangsopplosning": false,
+          "maalform": "Bokm\u00e5l",
+          "aktivitet": [
+            "Er et non-profit kunstnerstyrt visningsrom og kunstgalleri i",
+            "Bergen sentrum. Stiller ut samtidskunst fra lokale og",
+            "internasjonale kunstnere."
+          ],
+          "registreringsdatoFrivillighetsregisteret": "2022-06-18",
+          "registrertIPartiregisteret": false,
+          "paategninger": [],
+          "erIKonsern": false,
+          "_links": {
+            "self": {
+              "href": "https://data.brreg.no/enhetsregisteret/api/enheter/916627939"
+            }
+          },
+          "respons_klasse": "Enhet"
+        }
+      ]
+    },
+    "_links": {
+      "first": {
+        "href": "https://data.brreg.no/enhetsregisteret/api/enheter?page=0&size=1"
+      },
+      "self": {
+        "href": "https://data.brreg.no/enhetsregisteret/api/enheter?size=1"
+      },
+      "next": {
+        "href": "https://data.brreg.no/enhetsregisteret/api/enheter?page=1&size=1"
+      },
+      "last": {
+        "href": "https://data.brreg.no/enhetsregisteret/api/enheter?page=1153944&size=1"
+      }
+    },
+    "page": {
+      "size": 1,
+      "totalElements": 1153945,
+      "totalPages": 1153945,
+      "number": 0
+    }
+  }
+}
