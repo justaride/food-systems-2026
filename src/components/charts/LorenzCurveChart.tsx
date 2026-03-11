@@ -10,36 +10,35 @@ import {
   ReferenceLine,
 } from 'recharts'
 import { Card } from '@/components/ui/Card'
-
-const DATA = [
-  { popShare: 0, storeShare: 0 },
-  { popShare: 10, storeShare: 2 },
-  { popShare: 20, storeShare: 6 },
-  { popShare: 30, storeShare: 12 },
-  { popShare: 40, storeShare: 20 },
-  { popShare: 50, storeShare: 30 },
-  { popShare: 60, storeShare: 42 },
-  { popShare: 70, storeShare: 56 },
-  { popShare: 80, storeShare: 72 },
-  { popShare: 90, storeShare: 86 },
-  { popShare: 100, storeShare: 100 },
-]
+import { ChartSource } from '@/components/ui/ChartSource'
+import { useChartMetrics } from '@/lib/hooks/useChartMetrics'
 
 const EQUALITY = [
   { popShare: 0, equal: 0 },
   { popShare: 100, equal: 100 },
 ]
 
-const GINI = 0.38
-
 export function LorenzCurveChart() {
+  const { data: metrics, isLoading } = useChartMetrics()
+
+  if (isLoading || !metrics) {
+    return (
+      <Card>
+        <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Lorenz-kurve (butikktilgang)</h3>
+        <div className="h-[220px] flex items-center justify-center text-xs text-stone-400">Laster...</div>
+      </Card>
+    )
+  }
+
+  const { data, gini } = metrics.lorenzCurve
+
   return (
     <Card>
       <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Lorenz-kurve (butikktilgang)</h3>
-      <p className="text-xs text-stone-400 mb-3">Gini = {GINI} &middot; Moderat ulikhet i butikktetthet</p>
+      <p className="text-xs text-stone-400 mb-3">Gini = {gini} &middot; {gini < 0.3 ? 'Lav' : gini < 0.5 ? 'Moderat' : 'Høy'} ulikhet i butikktetthet</p>
       <div className="h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={DATA} margin={{ top: 5, right: 10, bottom: 5, left: 0 }}>
+          <AreaChart data={data} margin={{ top: 5, right: 10, bottom: 5, left: 0 }}>
             <XAxis
               dataKey="popShare"
               tick={{ fontSize: 10 }}
@@ -72,6 +71,7 @@ export function LorenzCurveChart() {
           </AreaChart>
         </ResponsiveContainer>
       </div>
+      <ChartSource source="Kilde: OSM butikkdata + SSB befolkningsdata 2024" />
     </Card>
   )
 }

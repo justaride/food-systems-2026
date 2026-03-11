@@ -1,5 +1,10 @@
 {
   "type": "FeatureCollection",
+  "_meta": {
+    "source": "Nortura, Tine, BAMA, Orkla, Lerøy, Mowi — kurert fra offentlige årsrapporter og selskapssider",
+    "updated": "2024-Q1",
+    "records": 30
+  },
   "features": [
     {
       "type": "Feature",

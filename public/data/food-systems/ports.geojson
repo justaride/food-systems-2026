@@ -1,5 +1,10 @@
 {
   "type": "FeatureCollection",
+  "_meta": {
+    "source": "Fiskeridirektoratet, Kystverket — kurert fra offentlige registre",
+    "updated": "2024",
+    "records": 25
+  },
   "features": [
     {
       "type": "Feature",

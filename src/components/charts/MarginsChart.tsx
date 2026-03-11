@@ -12,6 +12,7 @@ import {
   Cell,
 } from 'recharts'
 import { Card } from '@/components/ui/Card'
+import { ChartSource } from '@/components/ui/ChartSource'
 
 const DATA = [
   { name: 'NorgesGruppen', margin: 3.3 },
@@ -57,6 +58,7 @@ export function MarginsChart() {
           </BarChart>
         </ResponsiveContainer>
       </div>
+      <ChartSource source="Kilde: Årsrapporter 2024, Konkurransetilsynet verdikjedestudie" />
     </Card>
   )
 }

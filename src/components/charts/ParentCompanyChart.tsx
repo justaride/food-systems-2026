@@ -2,23 +2,32 @@
 
 import { ResponsivePie } from '@nivo/pie'
 import { Card } from '@/components/ui/Card'
-
-const DATA = [
-  { id: 'NorgesGruppen', label: 'NorgesGruppen', value: 43.5, color: '#1565C0' },
-  { id: 'Coop Norge', label: 'Coop Norge', value: 29.3, color: '#E30613' },
-  { id: 'Reitangruppen', label: 'Reitangruppen', value: 23.4, color: '#4CAF50' },
-  { id: 'Bunnpris AS', label: 'Bunnpris AS', value: 3.8, color: '#E91E63' },
-]
+import { ChartSource } from '@/components/ui/ChartSource'
+import { useChartMetrics } from '@/lib/hooks/useChartMetrics'
 
 export function ParentCompanyChart() {
+  const { data, isLoading } = useChartMetrics()
+
+  if (isLoading || !data) {
+    return (
+      <Card>
+        <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Eierkonsentrasjon (2024)</h3>
+        <div className="h-[220px] flex items-center justify-center text-xs text-stone-400">Laster...</div>
+      </Card>
+    )
+  }
+
+  const { data: chartData, parentHHI } = data.parentCompany
+
   return (
     <Card>
       <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Eierkonsentrasjon (2024)</h3>
-      <p className="text-xs text-stone-400 mb-3">Markedsandel etter morselskap &middot; HHI &asymp; 3 200</p>
+      <p className="text-xs text-stone-400 mb-1">Butikkandel etter morselskap &middot; HHI &asymp; {parentHHI.toLocaleString()}</p>
+      <p className="text-[10px] text-stone-400 mb-3">Omsetningsandel: NG ~44%, Coop ~29%, Reitan ~23%, Bunnpris ~4% (Dagligvarerapporten 2024)</p>
       <div className="h-[220px]">
         <ResponsivePie
-          data={DATA}
-          colors={DATA.map(d => d.color)}
+          data={chartData}
+          colors={chartData.map(d => d.color)}
           margin={{ top: 10, right: 80, bottom: 10, left: 10 }}
           innerRadius={0.55}
           padAngle={2}
@@ -43,7 +52,7 @@ export function ParentCompanyChart() {
               symbolSize: 10,
               symbolShape: 'circle',
               itemTextColor: '#57534e',
-              data: DATA.map(d => ({
+              data: chartData.map(d => ({
                 id: d.id,
                 label: d.id,
                 color: d.color,
@@ -56,6 +65,7 @@ export function ParentCompanyChart() {
           }}
         />
       </div>
+      <ChartSource source="Kilde: OSM/Overpass butikkdata 2024 (n=3 849)" />
     </Card>
   )
 }

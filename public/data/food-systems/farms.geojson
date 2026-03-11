@@ -1,5 +1,11 @@
 {
   "type": "FeatureCollection",
+  "_meta": {
+    "source": "Syntetiske eksempeldata for visualisering — ikke faktiske gårdsbruk",
+    "updated": "2024",
+    "records": 50,
+    "synthetic": true
+  },
   "features": [
     {
       "type": "Feature",

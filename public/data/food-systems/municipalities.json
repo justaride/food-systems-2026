@@ -1,4 +1,9 @@
 {
+  "_meta": {
+    "source": "SSB Tabell 07459, Geonorge administrative enheter",
+    "updated": "2024",
+    "description": "357 kommuner med befolkning, areal, medianinntekt, husholdninger, aldersfordeling"
+  },
   "3101": {
     "code": "3101",
     "name": "Halden",

@@ -1,6 +1,7 @@
 'use client'
 
 import { Card } from '@/components/ui/Card'
+import { ChartSource } from '@/components/ui/ChartSource'
 
 type Node = { id: string; label: string; x: number; y: number }
 type Link = { from: string; to: string; polarity: '+' | '-'; type: 'reinforcing' | 'balancing' }
@@ -115,6 +116,7 @@ export function CausalLoopDiagram() {
           </g>
         </svg>
       </div>
+      <ChartSource source="Konseptuell modell basert på systemdynamikk-teori" />
     </Card>
   )
 }

@@ -2,33 +2,32 @@
 
 import { Sankey, Tooltip, ResponsiveContainer } from 'recharts'
 import { Card } from '@/components/ui/Card'
+import { ChartSource } from '@/components/ui/ChartSource'
 
 const DATA = {
   nodes: [
     { name: 'Kornproduksjon' },
-    { name: 'Kj\u00F8ttproduksjon' },
+    { name: 'Kjøttproduksjon' },
     { name: 'Meieriproduksjon' },
-    { name: 'Frukt & gr\u00F8nt' },
+    { name: 'Frukt & grønt' },
     { name: 'Havbruk' },
     { name: 'Fiskeri' },
     { name: 'Import' },
     { name: 'Innenlands forbruk' },
-    { name: 'Sj\u00F8mateksport' },
+    { name: 'Sjømateksport' },
   ],
   links: [
     { source: 0, target: 7, value: 1184 },
     { source: 1, target: 7, value: 357 },
     { source: 2, target: 7, value: 1524 },
     { source: 3, target: 7, value: 232 },
-    { source: 4, target: 8, value: 1100 },
-    { source: 4, target: 7, value: 200 },
-    { source: 5, target: 8, value: 1300 },
-    { source: 5, target: 7, value: 200 },
+    { source: 4, target: 8, value: 1235 },
+    { source: 4, target: 7, value: 65 },
+    { source: 5, target: 8, value: 1425 },
+    { source: 5, target: 7, value: 75 },
     { source: 6, target: 7, value: 517 },
   ],
 }
-
-const COLORS = ['#F59E0B', '#EF4444', '#3B82F6', '#10B981', '#0891B2', '#2563EB', '#8B5CF6', '#57534e', '#0D9488']
 
 export function FoodFlowSankey() {
   return (
@@ -71,6 +70,7 @@ export function FoodFlowSankey() {
           </Sankey>
         </ResponsiveContainer>
       </div>
+      <ChartSource source="Kilde: SSB, Landbruksdirektoratet, Sjømatrådet 2024" />
     </Card>
   )
 }

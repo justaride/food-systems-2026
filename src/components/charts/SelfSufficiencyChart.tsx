@@ -11,6 +11,7 @@ import {
   Cell,
 } from 'recharts'
 import { Card } from '@/components/ui/Card'
+import { ChartSource } from '@/components/ui/ChartSource'
 
 const DATA = [
   { name: 'Melk', value: 98 },
@@ -51,6 +52,7 @@ export function SelfSufficiencyChart() {
           </BarChart>
         </ResponsiveContainer>
       </div>
+      <ChartSource source="Kilde: SSB/Landbruksdirektoratet, selvforsyningsgrad 2023" />
     </Card>
   )
 }

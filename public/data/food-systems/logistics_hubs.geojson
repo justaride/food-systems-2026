@@ -1,5 +1,10 @@
 {
   "type": "FeatureCollection",
+  "_meta": {
+    "source": "ASKO, Coop Logistikk, Rema Distribusjon — kurert fra årsrapporter og bransjekilder",
+    "updated": "2024",
+    "records": 19
+  },
   "features": [
     {
       "type": "Feature",
