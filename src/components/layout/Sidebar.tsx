@@ -24,6 +24,7 @@ const navGroups = [
       { name: 'Moter', href: '/moter', description: 'Motesammendrag og referater' },
       { name: 'Kommunikasjon', href: '/kommunikasjon', description: 'E-post og korrespondanse' },
       { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
+      { name: 'Kart', href: '/kart', description: 'Butikker og kommunegrenser' },
     ],
   },
   {

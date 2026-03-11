@@ -13,6 +13,7 @@ const navigation = [
   { name: 'Moter', href: '/moter' },
   { name: 'Kommunikasjon', href: '/kommunikasjon' },
   { name: 'Media', href: '/media' },
+  { name: 'Kart', href: '/kart' },
   { name: 'Team', href: '/team' },
   { name: 'Metodikk', href: '/metodikk' },
   { name: 'Kilder', href: '/kilder' },
