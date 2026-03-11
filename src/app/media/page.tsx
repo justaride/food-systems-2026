@@ -1,4 +1,8 @@
+'use client'
+
 import { Card } from '@/components/ui/Card'
+import { SourceChip } from '@/components/ui/SourceChip'
+import { ExpandableSources } from '@/components/ui/ExpandableSources'
 import {
   mediaCountryProfiles,
   mediaInternalSources,
@@ -109,14 +113,29 @@ function CountryCard({ profile }: { profile: MediaCountryProfile }) {
           <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Viktige triggere</p>
           <div className="mt-2 space-y-2">
             {profile.triggerMoments.map(moment => (
-              <div key={`${profile.id}-${moment.year}`} className="flex gap-3 text-sm text-stone-600">
-                <span className="font-mono text-stone-400">{moment.year}</span>
-                <span>{moment.label}</span>
+              <div key={`${profile.id}-${moment.year}`}>
+                <div className="flex gap-3 text-sm text-stone-600">
+                  <span className="font-mono text-stone-400">{moment.year}</span>
+                  <span>{moment.label}</span>
+                </div>
+                {moment.sources && moment.sources.length > 0 && (
+                  <div className="ml-12 mt-1 flex flex-wrap gap-1.5">
+                    {moment.sources.map(source => (
+                      <SourceChip key={source.label} source={source} />
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {profile.sources && profile.sources.length > 0 && (
+        <div className="mt-5 border-t border-stone-100 pt-4">
+          <ExpandableSources sources={profile.sources} label="profilkilder" />
+        </div>
+      )}
     </div>
   )
 }
@@ -221,6 +240,13 @@ export default function MediaPage() {
                 <div className="flex-1 min-w-0 pb-4 border-b border-stone-100 last:border-0">
                   <p className="text-sm font-medium text-stone-800">{entry.label}</p>
                   <p className="mt-1 text-xs leading-5 text-stone-500">{entry.note}</p>
+                  {entry.sources && entry.sources.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {entry.sources.map(source => (
+                        <SourceChip key={source.label} source={source} />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -233,6 +259,9 @@ export default function MediaPage() {
               <div key={theme.id} className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
                 <p className="text-sm font-semibold text-stone-800">{theme.name}</p>
                 <p className="mt-1 text-sm leading-6 text-stone-500">{theme.description}</p>
+                {theme.sources && theme.sources.length > 0 && (
+                  <ExpandableSources sources={theme.sources} />
+                )}
               </div>
             ))}
           </div>
