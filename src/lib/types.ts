@@ -102,10 +102,39 @@ export type SourceDoc = {
   isDuplicate?: boolean
 }
 
+export type PhaseId = 'fase-1' | 'fase-2' | 'fase-3' | 'fase-4'
+
 export type Phase = {
   id: string
   name: string
   weeks: string
   items: string[]
   status: PhaseStatus
+}
+
+export type InsightType = 'notat' | 'kartlegging' | 'analyse' | 'funn' | 'lenke'
+
+export type Insight = {
+  id: string
+  title: string
+  description: string
+  type: InsightType
+  source: string
+  phase?: PhaseId
+  tags?: string[]
+  url?: string
+  date: string
+}
+
+export type CommType = 'epost' | 'melding' | 'brev'
+
+export type Communication = {
+  id: string
+  title: string
+  summary: string
+  type: CommType
+  from: string
+  to: string | string[]
+  date: string
+  tags?: string[]
 }

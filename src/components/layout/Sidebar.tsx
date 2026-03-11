@@ -3,15 +3,37 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-const navigation = [
-  { name: 'Oversikt', href: '/', description: 'Status og fremdrift' },
-  { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
-  { name: 'Tidslinje', href: '/tidslinje', description: 'Soknader og hendelser' },
-  { name: 'Team', href: '/team', description: 'Organisasjon' },
-  { name: 'Metodikk', href: '/metodikk', description: 'Ten Step + KPIs' },
-  { name: 'Leveranser', href: '/leveranser', description: 'Oppgaver og faser' },
-  { name: 'Moter', href: '/moter', description: 'Executive summaries' },
-  { name: 'Kilder', href: '/kilder', description: 'Dokumenter' },
+const navGroups = [
+  {
+    items: [
+      { name: 'Oversikt', href: '/', description: 'Fase, fremdrift, neste steg' },
+    ],
+  },
+  {
+    label: 'Utforing',
+    items: [
+      { name: 'Oppgaver', href: '/oppgaver', description: 'Alle oppgaver og status' },
+      { name: 'Leveranser', href: '/leveranser', description: 'Leveranser og evidence pack' },
+      { name: 'Tidslinje', href: '/tidslinje', description: 'Faser og soknader' },
+    ],
+  },
+  {
+    label: 'Kunnskap',
+    items: [
+      { name: 'Innsikt', href: '/innsikt', description: 'Forskning, kartlegging, analyse' },
+      { name: 'Moter', href: '/moter', description: 'Motesammendrag og referater' },
+      { name: 'Kommunikasjon', href: '/kommunikasjon', description: 'E-post og korrespondanse' },
+      { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
+    ],
+  },
+  {
+    label: 'Referanse',
+    items: [
+      { name: 'Team', href: '/team', description: 'Medlemmer og roller' },
+      { name: 'Metodikk', href: '/metodikk', description: 'Ten Step + KPIs' },
+      { name: 'Kilder', href: '/kilder', description: 'Dokumenter og referanser' },
+    ],
+  },
 ]
 
 export function Sidebar() {
@@ -30,31 +52,40 @@ export function Sidebar() {
 
         <div className="mb-6 border-t border-stone-100" />
 
-        <nav>
-          <ul className="space-y-0.5">
-            {navigation.map((item) => {
-              const isActive = pathname === item.href
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={`
-                      block px-3 py-2 rounded-lg text-sm transition-colors
-                      ${isActive
-                        ? 'bg-stone-100 text-stone-900'
-                        : 'text-stone-500 hover:text-stone-800 hover:bg-stone-50'
-                      }
-                    `}
-                  >
-                    <span className="font-medium">{item.name}</span>
-                    <span className={`block text-xs mt-0.5 ${isActive ? 'text-stone-500' : 'text-stone-400'}`}>
-                      {item.description}
-                    </span>
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
+        <nav className="space-y-4">
+          {navGroups.map((group, gi) => (
+            <div key={gi}>
+              {group.label && (
+                <p className="px-3 mb-1 text-[10px] uppercase tracking-wider text-stone-400">
+                  {group.label}
+                </p>
+              )}
+              <ul className="space-y-0.5">
+                {group.items.map((item) => {
+                  const isActive = pathname === item.href
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={`
+                          block px-3 py-2 rounded-lg text-sm transition-colors
+                          ${isActive
+                            ? 'bg-stone-100 text-stone-900'
+                            : 'text-stone-500 hover:text-stone-800 hover:bg-stone-50'
+                          }
+                        `}
+                      >
+                        <span className="font-medium">{item.name}</span>
+                        <span className={`block text-xs mt-0.5 ${isActive ? 'text-stone-500' : 'text-stone-400'}`}>
+                          {item.description}
+                        </span>
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          ))}
         </nav>
 
         <div className="mt-6 border-t border-stone-100 pt-4">

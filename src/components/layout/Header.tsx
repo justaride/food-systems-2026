@@ -6,12 +6,15 @@ import { useState } from 'react'
 
 const navigation = [
   { name: 'Oversikt', href: '/' },
-  { name: 'Media', href: '/media' },
+  { name: 'Oppgaver', href: '/oppgaver' },
+  { name: 'Leveranser', href: '/leveranser' },
   { name: 'Tidslinje', href: '/tidslinje' },
+  { name: 'Innsikt', href: '/innsikt' },
+  { name: 'Moter', href: '/moter' },
+  { name: 'Kommunikasjon', href: '/kommunikasjon' },
+  { name: 'Media', href: '/media' },
   { name: 'Team', href: '/team' },
   { name: 'Metodikk', href: '/metodikk' },
-  { name: 'Leveranser', href: '/leveranser' },
-  { name: 'Moter', href: '/moter' },
   { name: 'Kilder', href: '/kilder' },
 ]
 
