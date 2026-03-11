@@ -7,6 +7,9 @@ import { FilterChips } from '@/components/ui/FilterChips'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { SourceChip } from '@/components/ui/SourceChip'
 import { insights } from '@/lib/data/insights'
+import { SelfSufficiencyChart } from '@/components/charts/SelfSufficiencyChart'
+import { MarginsChart } from '@/components/charts/MarginsChart'
+import { MarketShareChart } from '@/components/charts/MarketShareChart'
 
 const typeFilters = [
   { label: 'Alle', value: 'alle' },
@@ -29,6 +32,12 @@ export default function InnsiktPage() {
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Innsikt</h1>
         <p className="text-sm text-stone-400 mt-1">Forskning, kartlegging og analyse</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <SelfSufficiencyChart />
+        <MarginsChart />
+        <MarketShareChart />
       </div>
 
       <FilterChips items={typeFilters} defaultValue="alle" onChange={setTypeFilter} />
