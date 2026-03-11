@@ -1,0 +1,400 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bergen-fishing",
+        "name": "Bergen Fiskerihavn",
+        "type": "fishing",
+        "annualTonnage": 85000,
+        "primaryCatch": ["Cod", "Haddock", "Saithe", "Mackerel"],
+        "facilities": ["Fish auction", "Cold storage", "Processing"],
+        "region": "Vestland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.3221, 60.3913]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "alesund-fishing",
+        "name": "Alesund Fiskerihavn",
+        "type": "fishing",
+        "annualTonnage": 120000,
+        "primaryCatch": ["Cod", "Herring", "Mackerel", "Blue whiting"],
+        "facilities": ["Fish auction", "Cold storage", "Freezing plant", "Processing"],
+        "region": "More og Romsdal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.1549, 62.4722]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tromso-fishing",
+        "name": "Tromso Fiskerihavn",
+        "type": "fishing",
+        "annualTonnage": 95000,
+        "primaryCatch": ["Cod", "Haddock", "King crab", "Shrimp"],
+        "facilities": ["Fish auction", "Cold storage", "Processing", "Research center"],
+        "region": "Troms"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [18.9553, 69.6489]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bodo-fishing",
+        "name": "Bodo Fiskerihavn",
+        "type": "fishing",
+        "annualTonnage": 45000,
+        "primaryCatch": ["Cod", "Saithe", "Redfish"],
+        "facilities": ["Fish auction", "Cold storage"],
+        "region": "Nordland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.4050, 67.2804]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hammerfest-fishing",
+        "name": "Hammerfest Fiskerihavn",
+        "type": "mixed",
+        "annualTonnage": 75000,
+        "primaryCatch": ["Cod", "King crab", "Snow crab", "Halibut"],
+        "facilities": ["Fish reception", "Cold storage", "LNG terminal"],
+        "region": "Finnmark"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [23.6821, 70.6634]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kristiansund-fishing",
+        "name": "Kristiansund Havn",
+        "type": "fishing",
+        "annualTonnage": 55000,
+        "primaryCatch": ["Clipfish", "Stockfish", "Cod"],
+        "facilities": ["Fish processing", "Clipfish production", "Cold storage"],
+        "region": "More og Romsdal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [7.7282, 63.1107]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "vardoe-fishing",
+        "name": "Vardo Fiskerihavn",
+        "type": "fishing",
+        "annualTonnage": 35000,
+        "primaryCatch": ["Cod", "King crab", "Haddock"],
+        "facilities": ["Fish reception", "Cold storage"],
+        "region": "Finnmark"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [31.1110, 70.3705]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "honningsvag-fishing",
+        "name": "Honningsvag Fiskerihavn",
+        "type": "fishing",
+        "annualTonnage": 42000,
+        "primaryCatch": ["Cod", "Haddock", "King crab"],
+        "facilities": ["Fish reception", "Cold storage", "Processing"],
+        "region": "Finnmark"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.9706, 70.9827]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "svolvaer-fishing",
+        "name": "Svolvaer Fiskerihavn",
+        "type": "fishing",
+        "annualTonnage": 65000,
+        "primaryCatch": ["Cod", "Stockfish", "Saithe"],
+        "facilities": ["Fish auction", "Stockfish drying", "Cold storage"],
+        "region": "Nordland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.5685, 68.2329]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "egersund-fishing",
+        "name": "Egersund Havn",
+        "type": "fishing",
+        "annualTonnage": 180000,
+        "primaryCatch": ["Mackerel", "Herring", "Blue whiting", "Capelin"],
+        "facilities": ["Fish meal plant", "Fish oil production", "Large vessel capacity"],
+        "region": "Rogaland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.0003, 58.4523]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "oslo-cargo",
+        "name": "Oslo Havn",
+        "type": "cargo",
+        "annualTonnage": 6000000,
+        "facilities": ["Container terminal", "Bulk cargo", "Cold storage", "Cruise terminal"],
+        "region": "Oslo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.7352, 59.9025]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "stavanger-mixed",
+        "name": "Stavanger Havn",
+        "type": "mixed",
+        "annualTonnage": 2500000,
+        "primaryCatch": ["Mackerel", "Herring"],
+        "facilities": ["Oil base", "Container terminal", "Fish reception", "Offshore supply"],
+        "region": "Rogaland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.7331, 58.9700]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "trondheim-cargo",
+        "name": "Trondheim Havn",
+        "type": "cargo",
+        "annualTonnage": 3200000,
+        "facilities": ["Container terminal", "Bulk cargo", "Ro-Ro", "Offshore base"],
+        "region": "Trondelag"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.4055, 63.4400]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "narvik-cargo",
+        "name": "Narvik Havn",
+        "type": "cargo",
+        "annualTonnage": 18000000,
+        "facilities": ["Iron ore terminal", "Bulk cargo", "Container capacity"],
+        "region": "Nordland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [17.4283, 68.4380]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moss-cargo",
+        "name": "Moss Havn",
+        "type": "cargo",
+        "annualTonnage": 1800000,
+        "facilities": ["Ro-Ro", "Container terminal", "Ferry terminal"],
+        "region": "Viken"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.6606, 59.4340]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "larvik-cargo",
+        "name": "Larvik Havn",
+        "type": "cargo",
+        "annualTonnage": 2100000,
+        "facilities": ["Ferry terminal", "Ro-Ro", "General cargo"],
+        "region": "Vestfold"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.0326, 59.0530]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "froya-aquaculture",
+        "name": "Froya Havbrukshavn",
+        "type": "aquaculture",
+        "annualTonnage": 95000,
+        "primaryCatch": ["Salmon", "Trout"],
+        "facilities": ["Wellboat terminal", "Feed storage", "Processing"],
+        "region": "Trondelag"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.8544, 63.7127]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hitra-aquaculture",
+        "name": "Hitra Havbrukshavn",
+        "type": "aquaculture",
+        "annualTonnage": 85000,
+        "primaryCatch": ["Salmon", "Trout"],
+        "facilities": ["Wellboat terminal", "Processing", "Smolt facility"],
+        "region": "Trondelag"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.7655, 63.5847]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "maloy-fishing",
+        "name": "Maloy Fiskerihavn",
+        "type": "fishing",
+        "annualTonnage": 110000,
+        "primaryCatch": ["Herring", "Mackerel", "Blue whiting", "Capelin"],
+        "facilities": ["Pelagic processing", "Fish meal", "Cold storage"],
+        "region": "Vestland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.1138, 61.9336]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "floro-mixed",
+        "name": "Floro Havn",
+        "type": "mixed",
+        "annualTonnage": 45000,
+        "primaryCatch": ["Cod", "Saithe", "Herring"],
+        "facilities": ["Fish reception", "Offshore base", "General cargo"],
+        "region": "Vestland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.0296, 61.5996]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "harstad-fishing",
+        "name": "Harstad Havn",
+        "type": "mixed",
+        "annualTonnage": 38000,
+        "primaryCatch": ["Cod", "Haddock", "Shrimp"],
+        "facilities": ["Fish reception", "Navy base", "General cargo"],
+        "region": "Troms"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.5428, 68.7988]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "finnsnes-fishing",
+        "name": "Finnsnes Fiskerihavn",
+        "type": "fishing",
+        "annualTonnage": 28000,
+        "primaryCatch": ["Cod", "Saithe", "Halibut"],
+        "facilities": ["Fish reception", "Cold storage"],
+        "region": "Troms"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [17.9835, 69.2331]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kirkenes-mixed",
+        "name": "Kirkenes Havn",
+        "type": "mixed",
+        "annualTonnage": 420000,
+        "primaryCatch": ["King crab", "Snow crab"],
+        "facilities": ["General cargo", "Fish reception", "Border trade"],
+        "region": "Finnmark"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [30.0453, 69.7271]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "batsfjord-fishing",
+        "name": "Batsfjord Fiskerihavn",
+        "type": "fishing",
+        "annualTonnage": 48000,
+        "primaryCatch": ["Cod", "Haddock", "King crab"],
+        "facilities": ["Fish reception", "Processing", "Cold storage"],
+        "region": "Finnmark"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [29.7183, 70.6344]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rorvik-aquaculture",
+        "name": "Rorvik Havn",
+        "type": "aquaculture",
+        "annualTonnage": 72000,
+        "primaryCatch": ["Salmon"],
+        "facilities": ["Wellboat terminal", "Processing", "Feed storage"],
+        "region": "Trondelag"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [11.2377, 64.8614]
+      }
+    }
+  ]
+}
