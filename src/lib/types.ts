@@ -10,7 +10,21 @@ export type TaskPriority = 'hoy' | 'middels' | 'lav'
 
 export type TaskStatus = 'ikke-startet' | 'pagar' | 'fullfort'
 
-export type SourceType = 'soknad' | 'notat' | 'transkripsjon' | 'strategi' | 'epost' | 'arbeidsdok' | 'duplikat'
+export type SourceType = 
+  | 'soknad' 
+  | 'notat' 
+  | 'transkripsjon' 
+  | 'strategi' 
+  | 'epost' 
+  | 'arbeidsdok' 
+  | 'duplikat'
+  | 'nou'
+  | 'rapport'
+  | 'masteroppgave'
+  | 'statistikk'
+  | 'lovverk'
+  | 'analyse'
+  | 'årsrapport'
 
 export type PhaseStatus = 'ikke-startet' | 'pagar' | 'fullfort'
 
@@ -78,9 +92,13 @@ export type ProjectTask = {
 export type SourceDoc = {
   id: string
   filename: string
+  title?: string
+  author?: string
+  year?: number | string
   type: SourceType
   description: string
   relevance: string
+  url?: string
   isDuplicate?: boolean
 }
 

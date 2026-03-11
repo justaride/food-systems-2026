@@ -20,6 +20,7 @@ USER_AGENT = "FoodSystems2026/core-series-harvester"
 TIMEOUT_SECONDS = 90
 
 MONTH_START = "2015-01"
+MONTH_START_CODE = "2015M01"
 YEAR_START = "2010"
 
 EUROSTAT_API_ROOT = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data"
@@ -315,6 +316,17 @@ def trade_rows() -> tuple[list[dict[str, str]], list[dict[str, Any]]]:
             {"code": "LAND", "values": ["W1"]},
             {"code": "INDUD", "values": ["1", "2"]},
             {"code": "UHBEGREB", "values": ["GP"]},
+            {
+                "code": "Tid",
+                "values": [
+                    value
+                    for value in load_metadata_values(
+                        "dk-trade-statbank-imports-and-exports-sitc-sitc2r4.json",
+                        "Tid",
+                    )
+                    if value >= MONTH_START_CODE
+                ],
+            },
         ],
     )
     dk_raw = save_raw("trade_dk_total_goods_monthly", dk_payload)
