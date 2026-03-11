@@ -1,0 +1,348 @@
+{
+  "registry_row": {
+    "country": "DK",
+    "theme": "trade",
+    "source_name": "StatBank organic external trade",
+    "owner": "Statistics Denmark",
+    "url": "https://www.statbank.dk/OEKO66",
+    "access_method": "api",
+    "api_base_or_endpoint": "https://api.statbank.dk/v1/data",
+    "dataset_or_table_id": "OEKO66",
+    "update_frequency": "monthly",
+    "geography_level": "country partner",
+    "analysis_use": "track organic food trade flows",
+    "priority": "HIGH",
+    "status": "ready",
+    "verified_date": "2026-03-11",
+    "notes": "imports and exports of organic products"
+  },
+  "fetch_url": "https://api.statbank.dk/v1/tableinfo?lang=en&id=OEKO66",
+  "fetched_at": "2026-03-11T13:55:36.325267+00:00",
+  "content_type": "text/json; charset=utf-8",
+  "http_status": 200,
+  "summary": {
+    "payload_kind": "dict",
+    "keys": [
+      "active",
+      "contacts",
+      "description",
+      "documentation",
+      "footnote",
+      "id",
+      "suppressedDataValue",
+      "text",
+      "unit",
+      "updated",
+      "variables"
+    ],
+    "variable_count": 4,
+    "updated": "2025-12-05T08:00:00"
+  },
+  "payload": {
+    "id": "OEKO66",
+    "text": "External trade with organic products",
+    "description": "External trade with organic products by imports and exports, country, main SITC groups and time",
+    "unit": "DKK 1,000",
+    "suppressedDataValue": "0",
+    "updated": "2025-12-05T08:00:00",
+    "active": true,
+    "contacts": [
+      {
+        "name": "Martin Lund\u00f8",
+        "phone": "+4551461512",
+        "mail": "mlu@dst.dk"
+      }
+    ],
+    "documentation": {
+      "id": "fe591b3e-9a7f-47d1-a157-a9e9fdee2942",
+      "url": "https://www.dst.dk/documentationofstatistics/fe591b3e-9a7f-47d1-a157-a9e9fdee2942"
+    },
+    "footnote": null,
+    "variables": [
+      {
+        "id": "INDUD",
+        "text": "imports and exports",
+        "elimination": false,
+        "time": false,
+        "values": [
+          {
+            "id": "0415",
+            "text": "Imports"
+          },
+          {
+            "id": "0430",
+            "text": "Exports"
+          }
+        ]
+      },
+      {
+        "id": "NATION",
+        "text": "country",
+        "elimination": true,
+        "time": false,
+        "values": [
+          {
+            "id": "TOT",
+            "text": "COUNTRIES TOTAL"
+          },
+          {
+            "id": "51",
+            "text": "EUROPE"
+          },
+          {
+            "id": "BE",
+            "text": "Belgium"
+          },
+          {
+            "id": "FI",
+            "text": "Finland"
+          },
+          {
+            "id": "FR",
+            "text": "France"
+          },
+          {
+            "id": "GR",
+            "text": "Greece"
+          },
+          {
+            "id": "IE",
+            "text": "Ireland"
+          },
+          {
+            "id": "IT",
+            "text": "Italy"
+          },
+          {
+            "id": "NL",
+            "text": "Netherlands"
+          },
+          {
+            "id": "NO",
+            "text": "Norway"
+          },
+          {
+            "id": "PL",
+            "text": "Poland"
+          },
+          {
+            "id": "GB",
+            "text": "United Kingdom"
+          },
+          {
+            "id": "ES",
+            "text": "Spain"
+          },
+          {
+            "id": "SE",
+            "text": "Sweden"
+          },
+          {
+            "id": "TR",
+            "text": "Turkey"
+          },
+          {
+            "id": "DE",
+            "text": "Germany"
+          },
+          {
+            "id": "AT",
+            "text": "Austria"
+          },
+          {
+            "id": "52",
+            "text": "AFRICA"
+          },
+          {
+            "id": "53",
+            "text": "AMERICA"
+          },
+          {
+            "id": "54",
+            "text": "ASIA"
+          },
+          {
+            "id": "55",
+            "text": "OCEANIA & POLAR REGIONS"
+          }
+        ]
+      },
+      {
+        "id": "SITC",
+        "text": "main SITC groups",
+        "elimination": false,
+        "time": false,
+        "values": [
+          {
+            "id": "TOT",
+            "text": "TOT TOTAL"
+          },
+          {
+            "id": "00",
+            "text": "00 Live animals other than fish, crustaceans, molluscs and aquatic invertebrates of division"
+          },
+          {
+            "id": "01",
+            "text": "01 Meat and meat preparations"
+          },
+          {
+            "id": "02",
+            "text": "02 Dairy products and birds eggs"
+          },
+          {
+            "id": "03",
+            "text": "03 Fish (not marine mammals), crustaceans, molluscs and aquatic invertebrates, and preparations thereof"
+          },
+          {
+            "id": "04",
+            "text": "04 Cereals and cereal preparations"
+          },
+          {
+            "id": "05",
+            "text": "05 Vegetables and fruit"
+          },
+          {
+            "id": "06",
+            "text": "06 Sugars, sugar preparations and honey"
+          },
+          {
+            "id": "07",
+            "text": "07 Coffee, tea, cocoa, spices and manufactures thereof"
+          },
+          {
+            "id": "08",
+            "text": "08 Feeding stuff for animals (not including unmilled cereals)"
+          },
+          {
+            "id": "09",
+            "text": "09 Miscellaneous edible products and preparations"
+          },
+          {
+            "id": "11",
+            "text": "11 Beverages"
+          },
+          {
+            "id": "22",
+            "text": "22 Oil seeds and oleaginous fruits"
+          },
+          {
+            "id": "29",
+            "text": "29 Crude animal and vegetable materials, N.E.S."
+          },
+          {
+            "id": "41",
+            "text": "41 Animal oils and fats"
+          },
+          {
+            "id": "42",
+            "text": "42 Fixed vegetable fats and oils, crude, refined or fractionated"
+          },
+          {
+            "id": "43",
+            "text": "43 Animal or vegetable fats and oils processed, waxes and inedible mixtures or preparations of animal "
+          },
+          {
+            "id": "49",
+            "text": "49 Other goods"
+          }
+        ]
+      },
+      {
+        "id": "Tid",
+        "text": "time",
+        "elimination": false,
+        "time": true,
+        "values": [
+          {
+            "id": "2003",
+            "text": "2003"
+          },
+          {
+            "id": "2004",
+            "text": "2004"
+          },
+          {
+            "id": "2005",
+            "text": "2005"
+          },
+          {
+            "id": "2006",
+            "text": "2006"
+          },
+          {
+            "id": "2007",
+            "text": "2007"
+          },
+          {
+            "id": "2008",
+            "text": "2008"
+          },
+          {
+            "id": "2009",
+            "text": "2009"
+          },
+          {
+            "id": "2010",
+            "text": "2010"
+          },
+          {
+            "id": "2011",
+            "text": "2011"
+          },
+          {
+            "id": "2012",
+            "text": "2012"
+          },
+          {
+            "id": "2013",
+            "text": "2013"
+          },
+          {
+            "id": "2014",
+            "text": "2014"
+          },
+          {
+            "id": "2015",
+            "text": "2015"
+          },
+          {
+            "id": "2016",
+            "text": "2016"
+          },
+          {
+            "id": "2017",
+            "text": "2017"
+          },
+          {
+            "id": "2018",
+            "text": "2018"
+          },
+          {
+            "id": "2019",
+            "text": "2019"
+          },
+          {
+            "id": "2020",
+            "text": "2020"
+          },
+          {
+            "id": "2021",
+            "text": "2021"
+          },
+          {
+            "id": "2022",
+            "text": "2022"
+          },
+          {
+            "id": "2023",
+            "text": "2023"
+          },
+          {
+            "id": "2024",
+            "text": "2024"
+          }
+        ]
+      }
+    ]
+  }
+}

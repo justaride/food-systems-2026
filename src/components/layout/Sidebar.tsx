@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 
 const navigation = [
   { name: 'Oversikt', href: '/', description: 'Status og fremdrift' },
+  { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
   { name: 'Tidslinje', href: '/tidslinje', description: 'Soknader og hendelser' },
   { name: 'Team', href: '/team', description: 'Organisasjon' },
   { name: 'Metodikk', href: '/metodikk', description: 'Ten Step + KPIs' },

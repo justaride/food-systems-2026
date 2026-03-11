@@ -1,0 +1,365 @@
+{
+  "registry_row": {
+    "country": "DK",
+    "theme": "agriculture",
+    "source_name": "StatBank farms",
+    "owner": "Statistics Denmark",
+    "url": "https://api.statbank.dk/v1/tableinfo?lang=en&id=BDF11",
+    "access_method": "api",
+    "api_base_or_endpoint": "https://api.statbank.dk/v1/tableinfo?lang=en&id=BDF11",
+    "dataset_or_table_id": "BDF11",
+    "update_frequency": "annual",
+    "geography_level": "region",
+    "analysis_use": "farm structure and area",
+    "priority": "HIGH",
+    "status": "ready",
+    "verified_date": "2026-03-11",
+    "notes": "region and farm type dimensions"
+  },
+  "fetch_url": "https://api.statbank.dk/v1/tableinfo?lang=en&id=BDF11",
+  "fetched_at": "2026-03-11T13:55:35.606294+00:00",
+  "content_type": "text/json; charset=utf-8",
+  "http_status": 200,
+  "summary": {
+    "payload_kind": "dict",
+    "keys": [
+      "active",
+      "contacts",
+      "description",
+      "documentation",
+      "footnote",
+      "id",
+      "suppressedDataValue",
+      "text",
+      "unit",
+      "updated",
+      "variables"
+    ],
+    "variable_count": 5,
+    "updated": "2025-05-14T08:00:00"
+  },
+  "payload": {
+    "id": "BDF11",
+    "text": "Farms",
+    "description": "Farms by region, unit, type of farm, area and time",
+    "unit": "-",
+    "suppressedDataValue": "0",
+    "updated": "2025-05-14T08:00:00",
+    "active": true,
+    "contacts": [
+      {
+        "name": "Karsten Kjeld Larsen",
+        "phone": "+4521295576",
+        "mail": "kkl@dst.dk"
+      }
+    ],
+    "documentation": {
+      "id": "02717309-7893-4229-8a45-19384079c800",
+      "url": "https://www.dst.dk/documentationofstatistics/02717309-7893-4229-8a45-19384079c800"
+    },
+    "footnote": null,
+    "variables": [
+      {
+        "id": "OMR\u00c5DE",
+        "text": "region",
+        "elimination": true,
+        "time": false,
+        "map": "Denmark_region_07",
+        "values": [
+          {
+            "id": "000",
+            "text": "All Denmark"
+          },
+          {
+            "id": "084",
+            "text": "Region Hovedstaden"
+          },
+          {
+            "id": "15",
+            "text": "Provinces Byen K\u00f8benhavn, K\u00f8benhavns omegn and Nordsj\u00e6lland"
+          },
+          {
+            "id": "04",
+            "text": "Province Bornholm"
+          },
+          {
+            "id": "085",
+            "text": "Region Sj\u00e6lland"
+          },
+          {
+            "id": "083",
+            "text": "Region Syddanmark"
+          },
+          {
+            "id": "07",
+            "text": "Province Fyn"
+          },
+          {
+            "id": "08",
+            "text": "Province Sydjylland"
+          },
+          {
+            "id": "082",
+            "text": "Region Midtjylland"
+          },
+          {
+            "id": "09",
+            "text": "Province \u00d8stjylland"
+          },
+          {
+            "id": "10",
+            "text": "Province Vestjylland"
+          },
+          {
+            "id": "081",
+            "text": "Region Nordjylland"
+          }
+        ]
+      },
+      {
+        "id": "TAL",
+        "text": "unit",
+        "elimination": false,
+        "time": false,
+        "values": [
+          {
+            "id": "ANTAL",
+            "text": "Farms (numbers)"
+          },
+          {
+            "id": "AREAL",
+            "text": "Total agricultural area (ha)"
+          }
+        ]
+      },
+      {
+        "id": "BEDRIFT",
+        "text": "type of farm",
+        "elimination": true,
+        "time": false,
+        "values": [
+          {
+            "id": "B10",
+            "text": "All farms"
+          },
+          {
+            "id": "B15",
+            "text": "Farms, cereals and industrial seeds"
+          },
+          {
+            "id": "B30",
+            "text": "Farms, other field crops farms"
+          },
+          {
+            "id": "B31",
+            "text": "Farms, horticultur and green house"
+          },
+          {
+            "id": "B32",
+            "text": "Farms, horticulture and free land crops"
+          },
+          {
+            "id": "B33",
+            "text": "Farms, fruit plantations and nursery"
+          },
+          {
+            "id": "B34",
+            "text": "Farms, mixed hoticulture"
+          },
+          {
+            "id": "B41",
+            "text": "Dairy cattle farms"
+          },
+          {
+            "id": "B42",
+            "text": "Farms specialised in cattle rearing/fattening"
+          },
+          {
+            "id": "B49",
+            "text": "Other grazing livestock farms"
+          },
+          {
+            "id": "B50",
+            "text": "Pig farms"
+          },
+          {
+            "id": "B52",
+            "text": "Poultry farms"
+          },
+          {
+            "id": "B54",
+            "text": "Farms fur animals"
+          },
+          {
+            "id": "B58",
+            "text": "Farms with mixed livestock"
+          },
+          {
+            "id": "B60",
+            "text": "Other farms"
+          }
+        ]
+      },
+      {
+        "id": "AREAL1",
+        "text": "area",
+        "elimination": true,
+        "time": false,
+        "values": [
+          {
+            "id": "AIALT",
+            "text": "Total"
+          },
+          {
+            "id": "A00",
+            "text": "No cultivated area"
+          },
+          {
+            "id": "A5",
+            "text": "0.1 - 4.9 hectares"
+          },
+          {
+            "id": "A10",
+            "text": "5.0 - 9.9 hectares"
+          },
+          {
+            "id": "A15",
+            "text": "10.0 - 14.9 hectares"
+          },
+          {
+            "id": "A20",
+            "text": "15.0 - 19.9 hectares"
+          },
+          {
+            "id": "A25",
+            "text": "20.0 - 24.9 hectares"
+          },
+          {
+            "id": "A30",
+            "text": "25.0 - 29.9 hectares"
+          },
+          {
+            "id": "A40",
+            "text": "30.0 - 39.9 hectares"
+          },
+          {
+            "id": "A50",
+            "text": "40.0 - 49.9 hectares"
+          },
+          {
+            "id": "A60",
+            "text": "50.0 - 59.9 hectares"
+          },
+          {
+            "id": "A75",
+            "text": "60.0 - 74.9 hectares"
+          },
+          {
+            "id": "A100",
+            "text": "75.0 - 99.9 hectares"
+          },
+          {
+            "id": "A125",
+            "text": "100.0 - 124.9 hectares"
+          },
+          {
+            "id": "A150",
+            "text": "125.0 - 149.0 hectares"
+          },
+          {
+            "id": "A175",
+            "text": "150.0 - 174.9 hectares"
+          },
+          {
+            "id": "A200",
+            "text": "175.0 - 199.9 hectares"
+          },
+          {
+            "id": "A250",
+            "text": "200.0 - 249.9 hectares"
+          },
+          {
+            "id": "A300",
+            "text": "250.0 - 299.9 hectares"
+          },
+          {
+            "id": "A400",
+            "text": "300.0 - 399.9 hectares"
+          },
+          {
+            "id": "A500",
+            "text": "400.0 hectares and over"
+          }
+        ]
+      },
+      {
+        "id": "Tid",
+        "text": "time",
+        "elimination": false,
+        "time": true,
+        "values": [
+          {
+            "id": "2010",
+            "text": "2010"
+          },
+          {
+            "id": "2011",
+            "text": "2011"
+          },
+          {
+            "id": "2012",
+            "text": "2012"
+          },
+          {
+            "id": "2013",
+            "text": "2013"
+          },
+          {
+            "id": "2014",
+            "text": "2014"
+          },
+          {
+            "id": "2015",
+            "text": "2015"
+          },
+          {
+            "id": "2016",
+            "text": "2016"
+          },
+          {
+            "id": "2017",
+            "text": "2017"
+          },
+          {
+            "id": "2018",
+            "text": "2018"
+          },
+          {
+            "id": "2019",
+            "text": "2019"
+          },
+          {
+            "id": "2020",
+            "text": "2020"
+          },
+          {
+            "id": "2021",
+            "text": "2021"
+          },
+          {
+            "id": "2022",
+            "text": "2022"
+          },
+          {
+            "id": "2023",
+            "text": "2023"
+          },
+          {
+            "id": "2024",
+            "text": "2024"
+          }
+        ]
+      }
+    ]
+  }
+}

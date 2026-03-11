@@ -1,0 +1,142 @@
+{
+  "registry_row": {
+    "country": "FI",
+    "theme": "waste",
+    "source_name": "StatFin waste generation by industry",
+    "owner": "Statistics Finland",
+    "url": "https://pxdata.stat.fi/PxWeb/api/v1/en/StatFin/jate/statfin_jate_pxt_12qw.px",
+    "access_method": "api",
+    "api_base_or_endpoint": "https://pxdata.stat.fi/PxWeb/api/v1/en/StatFin/jate/statfin_jate_pxt_12qw.px",
+    "dataset_or_table_id": "statfin_jate_pxt_12qw.px",
+    "update_frequency": "annual",
+    "geography_level": "industry",
+    "analysis_use": "food industry waste and circularity",
+    "priority": "HIGH",
+    "status": "ready",
+    "verified_date": "2026-03-11",
+    "notes": "NACE based waste generation"
+  },
+  "fetch_url": "https://pxdata.stat.fi/PxWeb/api/v1/en/StatFin/jate/statfin_jate_pxt_12qw.px",
+  "fetched_at": "2026-03-11T13:55:38.374416+00:00",
+  "content_type": "application/json; charset=utf-8",
+  "http_status": 200,
+  "summary": {
+    "payload_kind": "dict",
+    "keys": [
+      "title",
+      "variables"
+    ],
+    "variable_count": 4,
+    "title": "Waste generation by industry by Year, NACE, Waste class and Information"
+  },
+  "payload": {
+    "title": "Waste generation by industry by Year, NACE, Waste class and Information",
+    "variables": [
+      {
+        "code": "Vuosi",
+        "text": "Year",
+        "values": [
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "valueTexts": [
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "time": true
+      },
+      {
+        "code": "Toimiala 2008",
+        "text": "NACE",
+        "values": [
+          "SSSSS",
+          "B",
+          "10-12",
+          "16",
+          "17-18",
+          "19-22",
+          "23",
+          "24-25",
+          "D",
+          "E",
+          "F",
+          "G_U",
+          "C13-15_C26-33",
+          "HH",
+          "C",
+          "G_U_HH"
+        ],
+        "valueTexts": [
+          "Total",
+          "NACE Section B: Mining and quarrying (05-09)",
+          "NACE C 10 - 12 Food products and beverages",
+          "NACE C 16 Wood and wood products",
+          "NACE C 17 - 18 Paper and paper products printing and reproduction of recorded media",
+          "NACE C 19-22 Coke and refined petroleum products, Chemicals, chemical products and rubber and plastic products",
+          "NACE C 23 Non-metallic mineral products",
+          "NACE C 24 - 25 Basic metals and metal products",
+          "NACE D Electricity, gas, steam and air conditioning supply (35)",
+          "NACE E Water supply; sewerage, waste management and remediation activities (36-39)",
+          "NACE F Construction (41-43)",
+          "NACE G - U Services, Goverment",
+          "Others (C 13-15, 26-33)",
+          "Households",
+          "Manufacturing",
+          "Households and services"
+        ],
+        "elimination": true
+      },
+      {
+        "code": "J\u00e4teluokka",
+        "text": "Waste class",
+        "values": [
+          "SSS",
+          "1",
+          "2",
+          "4",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "15"
+        ],
+        "valueTexts": [
+          "Total",
+          "Chemical waste",
+          "Metallic waste",
+          "Paper and cardboard waste",
+          "Wood waste",
+          "Animal and vegetal waste",
+          "Household and mixed waste",
+          "Sludges",
+          "Mineral waste",
+          "Other waste",
+          "Of which hazardous waste"
+        ],
+        "elimination": true
+      },
+      {
+        "code": "Tiedot",
+        "text": "Information",
+        "values": [
+          "tmaara"
+        ],
+        "valueTexts": [
+          "Amount of waste 1000 tons"
+        ]
+      }
+    ]
+  }
+}
