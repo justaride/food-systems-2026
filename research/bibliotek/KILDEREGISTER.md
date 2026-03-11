@@ -603,16 +603,94 @@ Legg til én oppføring per innhentet kilde. Følg malen under. Sortér etter ka
   3. Distriktene er sårbare for svikt i sentrale logistikknutepunkter til tross for høy butikktetthet.
 - **Perspektiv/bias:** Faglig/Statlig utredning.
 
-### Retail Media: Den nye maktfaktoren (2025)
+### Konkurransetilsynet: Dagligvarerapporter & Arkiv (2011–2024)
 
-- **Full tittel:** Datamonetisering og annonsering i dagligvarekjeder
-- **Forfatter/utgiver:** Bransjeanalyser (NielsenIQ / ZetaDisplay / Zeta)
-- **År:** 2025 (Status)
-- **Type:** Markedsanalyse
-- **Filplassering:** research/bibliotek/akademia/sifo/retail-media-2025.md
-- **Relevans for whitepaper:** Skjulte marginer og digital makt over leverandørene.
+- **Hovedside:** https://konkurransetilsynet.no/tema/dagligvaremarkedet/
+- **Rapporter:**
+  - [Dagligvarerapport 2024](https://konkurransetilsynet.no/wp-content/uploads/2025/04/Konkurransetilsynets-Dagligvarerapport-2024-25.pdf)
+  - [Dagligvarerapport 2023](https://konkurransetilsynet.no/wp-content/uploads/2024/01/Konkurransetilsynets-dagligvarerapport-2023.pdf)
+  - [Dagligvarerapport 2022](https://konkurransetilsynet.no/wp-content/uploads/2022/04/Dagligvarerapporten-2022.pdf)
+  - [Innkjøpsbetingelser 2020](https://konkurransetilsynet.no/wp-content/uploads/2020/11/Kartlegging-av-innkjopsbetingelser-2020.pdf)
+- **Årsrapporter (2011–2021):** [Arkivside](https://konkurransetilsynet.no/publikasjoner/arsmeldinger/)
+- **Relevans for whitepaper:** Historisk utvikling i markedskonsentrasjon og innkjøpsmakt over 15 år.
+
+### Historien om Norske Merkevarer: Orkla og TINE
+
+- **Full tittel:** Historisk analyse av Stabburet/Toro-fusjonen og meierikonkurransen
+- **Forfatter/utgiver:** Diverse historiske kilder (Orkla, TINE, Media)
+- **År:** 2013–2025
+- **Type:** Historisk kartlegging
+- **Filplassering:** research/bibliotek/bransje/organisasjoner/merkevarer-historie.md
+- **Relevans for whitepaper:** Forklarer maktbalansen mellom uavhengig industri og kjedemakt.
 - **Nøkkelfunn:**
-  1. Milliardindustri med marginer på 70-80 % (annonsesalg og innsikt).
-  2. Kjedene selger kundedata tilbake til leverandørene som innsikt.
-  3. Coop og NorgesGruppen ruller ut massive nettverk av digitale skjermer i butikk.
-- **Perspektiv/bias:** Kommersielt fokus på teknologi og vekst.
+  1. Orkla slo sammen Toro og Stabburet i 2013 primært for å bygge forhandlingsmakt mot EMV.
+  2. TINE har en lovpålagt dobbeltrolle som markedsregulator og konkurrent mot Q-Meieriene.
+  3. Sterke merkevarer ("must-haves") er leverandørenes eneste reelle våpen mot kjedene.
+- **Perspektiv/bias:** Industriperspektiv (Leverandørmakt).
+
+### Eiendomsmakt og Lokale Konflikter
+
+- **Full tittel:** Bruk av eiendom, reguleringsplaner og servitutter for å styre konkurranse
+- **Forfatter/utgiver:** Tilsynsvedtak og kommunale planprosesser (Bergen/Trondheim)
+- **År:** 2010–2025
+- **Type:** Juridisk/Geografisk analyse
+- **Filplassering:** research/bibliotek/juridisk/eiendomsmakt-lokal-konkurranse.md
+- **Relevans for whitepaper:** Dokumenterer den fysiske barrieren for nye aktører.
+- **Nøkkelfunn:**
+  1. NorgesGruppen eier over 1 mill. kvm og bruker dette aktivt for å sikre lokasjoner.
+  2. Kjedene har systematisk brukt tinglyste servitutter for å blokkere konkurrenter (nå forbudt).
+  3. Konkurransetilsynet overvåker lokale eiendomskjøp tett gjennom særskilt opplysningsplikt.
+- **Perspektiv/bias:** Konkurranseøkonomisk byutvikling.
+
+### VGs Matbørs og Priskrigenes Historie
+
+- **Full tittel:** Effekten av medieovervåking på norsk dagligvare (2000–2025)
+- **Forfatter/utgiver:** Mediehistorikk og NHH-forskning
+- **År:** 2000–2025
+- **Type:** Medieanalyse
+- **Filplassering:** research/bibliotek/akademia/nhh-food/matbors-historie.md
+- **Relevans for whitepaper:** Viser hvordan media indirekte har formet kjedestrukturen.
+- **Nøkkelfunn:**
+  1. Etablert i 2000; skapte et ekstremt fokus på pris fremfor utvalg/kvalitet.
+  2. Førte til etableringen av prisjeger-systemet, som endte i 4,9 mrd. kr i gebyr.
+  3. Driver "vannsengeffekten": Lave priser på testvarer subsidieres av høye priser på andre varer.
+- **Perspektiv/bias:** Forbrukerjournalistikk og atferdsøkonomi.
+
+### Dagligvaretilsynet: Samarbeidsklima (2022–2024)
+
+- **Hovedside:** https://www.dagligvaretilsynet.no/rapporter-og-strategi
+- **Dokumenter:**
+  - [Samarbeidsklimaet 2024 (PDF)](https://www.dagligvaretilsynet.no/s/Samarbeidsklimaet-i-Dagligvarebransjen-2024.pdf)
+  - [Samarbeidsklimaet 2023 (PDF)](https://www.dagligvaretilsynet.no/s/Samarbeidsklimaet-i-Dagligvarebransjen-2023.pdf)
+  - [Samarbeidsklimaet 2022 (PDF)](https://www.dagligvaretilsynet.no/s/Samarbeidsklimaet-i-Dagligvarebransjen-2022.pdf)
+- **Relevans for whitepaper:** Dokumenterer fryktkultur og forhandlingsmakt i verdikjeden over tid.
+
+### Reitan Retail: Årsrapport 2024 / Tall 2025
+
+- **Full tittel:** Reitan Retail Års- og ansvarsrapport 2024 / Foreløpige tall 2025
+- **Forfatter/utgiver:** Reitan AS
+- **År:** 2025/2026
+- **URL:** [Rapporteringsside](https://www.reitanretail.no/rapportering)
+- **Filplassering:** research/bibliotek/bransje/arsrapporter/reitan-2024-25.md
+- **Nøkkeltall:**
+  1. Omsetning 2025: 153 mrd. NOK. EBIT: 6,1 mrd. NOK.
+  2. REMA 1000 markedsleder i Danmark (18,2 % andel i 2025).
+  3. Markedsandel Norge 2024: 23,9 %.
+- **Perspektiv/bias:** Kommersiell aktør. Fokus på lavpris og nordisk vekst.
+
+### Nordiske Årsrapporter 2024 (ICA, Axfood, Kesko)
+
+- **Dokumenter:**
+  - [ICA Gruppen Årsredovisning 2024](https://www.icagruppen.se/globalassets/arkiv/rapporter/arsredovisningar/svenska/ica-gruppen-arsredovisning-2024.pdf)
+  - [Axfood Års- og hållbarhetsredovisning 2024](https://www.axfood.se/globalassets/investors/rapporter-och-presentationer/axfood-ars-och-hallbarhetsredovisning-2024.pdf)
+  - [Kesko Annual Report 2024](https://www.kesko.fi/globalassets/03-sijoittaja/raportit-ja-esitykset/2025/kesko-annual-report-2024.pdf)
+- **Relevans for whitepaper:** Grunnlag for komparativ analyse av marginer og bærekraftstrender i Norden.
+
+### NHH FOOD: Sentrale forskningsbidrag (Steen & Foros)
+
+- **Utvalgte titler:**
+  - "The effect of cross-border shopping on tax revenue" (Friberg, Steen m.fl., 2024)
+  - "Co-location and entry of discount variety stores" (Evensen, Steen, Ulsaker, 2023)
+  - "Individuelle priser i dagligvaremarkedet" (Foros, Kind, Steen, 2017)
+- **URL:** [NHH FOOD Research](https://www.nhh.no/en/research-centres/food/research/)
+- **Relevans for whitepaper:** Akademisk tyngde på grensehandel, "Normal-effekten" og personlig prising.

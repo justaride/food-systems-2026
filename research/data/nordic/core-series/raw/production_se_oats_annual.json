@@ -1,0 +1,343 @@
+{
+  "version": "2.0",
+  "class": "dataset",
+  "label": "Total production, tonnes by region, crop, observations and year",
+  "source": "Swedish Board of Agriculture",
+  "updated": "2025-04-16T11:08:00Z",
+  "note": [
+    "Correction 2023-07-12. Total production of sugar beets in Sweden has been corrected.",
+    "The crop production statistics is based on a sample survey. As a result, sampling errors may cause some uncertainty. \r\n The data for cereals are presented at a moisture content of 14 per cent. The data for cereals for the years 1965\u20132003 have been recalculated from 15 to 14 per cent. \r\n The data for dried pulses (peas and dried beans) are presented at a moisture content of 15 per cent. \r\n The data for oilseed crops are presented at a moisture content of  9 per cent. The data for oilseed crops for the years 1965\u20131992 have been recalculated from 18 to 9 per cent.  \r\n The data for potatoes are presented as harvested reduced production. \r\n When the number of survey units is too low, this is indicated with two dots."
+  ],
+  "role": {
+    "time": [
+      "Tid"
+    ],
+    "metric": [
+      "ContentsCode"
+    ]
+  },
+  "id": [
+    "Region",
+    "Groda",
+    "ContentsCode",
+    "Tid"
+  ],
+  "size": [
+    1,
+    1,
+    1,
+    60
+  ],
+  "dimension": {
+    "Region": {
+      "label": "region",
+      "category": {
+        "index": {
+          "00": 0
+        },
+        "label": {
+          "00": "Sweden"
+        }
+      },
+      "extension": {
+        "elimination": true,
+        "eliminationValueCode": "00",
+        "show": "code_value"
+      }
+    },
+    "Groda": {
+      "label": "crop",
+      "category": {
+        "index": {
+          "50": 0
+        },
+        "label": {
+          "50": "oats"
+        }
+      },
+      "extension": {
+        "elimination": false,
+        "show": "value"
+      }
+    },
+    "ContentsCode": {
+      "label": "observations",
+      "category": {
+        "index": {
+          "000005G3": 0
+        },
+        "label": {
+          "000005G3": "Total production, tonnes"
+        },
+        "unit": {
+          "000005G3": {
+            "base": "tonnes",
+            "decimals": 0
+          }
+        }
+      },
+      "extension": {
+        "elimination": false,
+        "refperiod": {
+          "000005G3": ""
+        },
+        "show": "value",
+        "measuringType": {
+          "000005G3": "Flow"
+        },
+        "priceType": {
+          "000005G3": "NotApplicable"
+        },
+        "adjustment": {
+          "000005G3": "None"
+        }
+      }
+    },
+    "Tid": {
+      "label": "year",
+      "category": {
+        "index": {
+          "1965": 0,
+          "1966": 1,
+          "1967": 2,
+          "1968": 3,
+          "1969": 4,
+          "1970": 5,
+          "1971": 6,
+          "1972": 7,
+          "1973": 8,
+          "1974": 9,
+          "1975": 10,
+          "1976": 11,
+          "1977": 12,
+          "1978": 13,
+          "1979": 14,
+          "1980": 15,
+          "1981": 16,
+          "1982": 17,
+          "1983": 18,
+          "1984": 19,
+          "1985": 20,
+          "1986": 21,
+          "1987": 22,
+          "1988": 23,
+          "1989": 24,
+          "1990": 25,
+          "1991": 26,
+          "1992": 27,
+          "1993": 28,
+          "1994": 29,
+          "1995": 30,
+          "1996": 31,
+          "1997": 32,
+          "1998": 33,
+          "1999": 34,
+          "2000": 35,
+          "2001": 36,
+          "2002": 37,
+          "2003": 38,
+          "2004": 39,
+          "2005": 40,
+          "2006": 41,
+          "2007": 42,
+          "2008": 43,
+          "2009": 44,
+          "2010": 45,
+          "2011": 46,
+          "2012": 47,
+          "2013": 48,
+          "2014": 49,
+          "2015": 50,
+          "2016": 51,
+          "2017": 52,
+          "2018": 53,
+          "2019": 54,
+          "2020": 55,
+          "2021": 56,
+          "2022": 57,
+          "2023": 58,
+          "2024": 59
+        },
+        "label": {
+          "1965": "1965",
+          "1966": "1966",
+          "1967": "1967",
+          "1968": "1968",
+          "1969": "1969",
+          "1970": "1970",
+          "1971": "1971",
+          "1972": "1972",
+          "1973": "1973",
+          "1974": "1974",
+          "1975": "1975",
+          "1976": "1976",
+          "1977": "1977",
+          "1978": "1978",
+          "1979": "1979",
+          "1980": "1980",
+          "1981": "1981",
+          "1982": "1982",
+          "1983": "1983",
+          "1984": "1984",
+          "1985": "1985",
+          "1986": "1986",
+          "1987": "1987",
+          "1988": "1988",
+          "1989": "1989",
+          "1990": "1990",
+          "1991": "1991",
+          "1992": "1992",
+          "1993": "1993",
+          "1994": "1994",
+          "1995": "1995",
+          "1996": "1996",
+          "1997": "1997",
+          "1998": "1998",
+          "1999": "1999",
+          "2000": "2000",
+          "2001": "2001",
+          "2002": "2002",
+          "2003": "2003",
+          "2004": "2004",
+          "2005": "2005",
+          "2006": "2006",
+          "2007": "2007",
+          "2008": "2008",
+          "2009": "2009",
+          "2010": "2010",
+          "2011": "2011",
+          "2012": "2012",
+          "2013": "2013",
+          "2014": "2014",
+          "2015": "2015",
+          "2016": "2016",
+          "2017": "2017",
+          "2018": "2018",
+          "2019": "2019",
+          "2020": "2020",
+          "2021": "2021",
+          "2022": "2022",
+          "2023": "2023",
+          "2024": "2024"
+        }
+      },
+      "extension": {
+        "elimination": false,
+        "show": "code"
+      }
+    }
+  },
+  "extension": {
+    "noteMandatory": {
+      "0": true
+    },
+    "px": {
+      "infofile": "JO0601",
+      "tableid": "TAB3123",
+      "decimals": 0,
+      "official-statistics": true,
+      "aggregallowed": true,
+      "copyright": false,
+      "language": "en",
+      "contents": "Total production, tonnes",
+      "descriptiondefault": false,
+      "heading": [
+        "ContentsCode",
+        "Tid"
+      ],
+      "stub": [
+        "Region",
+        "Groda"
+      ],
+      "matrix": "000005G3",
+      "subject-code": "JO",
+      "subject-area": "Agriculture, forestry and fishery"
+    },
+    "discontinued": null,
+    "contact": [
+      {
+        "name": "Statistikservice",
+        "organization": "Statistics Sweden",
+        "phone": "010-479 50 00",
+        "mail": "information@scb.se",
+        "raw": " Statistikservice, Statistics Sweden# +46 010-479 50 00#information@scb.se"
+      },
+      {
+        "name": "Ann-Marie Karlsson",
+        "organization": "Swedish Board of Agriculture",
+        "phone": "036-15 59 33",
+        "mail": "ann-marie.karlsson@jordbruksverket.se",
+        "raw": "Ann-Marie Karlsson, Swedish Board of Agriculture# +46 036-15 59 33#ann-marie.karlsson@jordbruksverket.se"
+      },
+      {
+        "name": "Robert Almqvist",
+        "organization": "Statistics Sweden",
+        "phone": "010-479 40 78",
+        "mail": "robert.almqvist@scb.se",
+        "raw": "Robert Almqvist, Statistics Sweden# +46 010-479 40 78#robert.almqvist@scb.se"
+      }
+    ]
+  },
+  "value": [
+    1299960,
+    1120610,
+    1355280,
+    1538010,
+    1096390,
+    1636820,
+    1812460,
+    1582130,
+    1174220,
+    1637050,
+    1305510,
+    1236750,
+    1399790,
+    1532340,
+    1506350,
+    1548470,
+    1794470,
+    1643470,
+    1253740,
+    1881890,
+    1648510,
+    1468920,
+    1423260,
+    1314800,
+    1438400,
+    1565800,
+    1409500,
+    797100,
+    1279700,
+    979100,
+    935700,
+    1185800,
+    1259480,
+    1122990,
+    1042830,
+    1137720,
+    952490,
+    1166970,
+    1089480,
+    925300,
+    746300,
+    624400,
+    889800,
+    820000,
+    744200,
+    559300,
+    692000,
+    731200,
+    851500,
+    665900,
+    744700,
+    771500,
+    676400,
+    363500,
+    671200,
+    807600,
+    551200,
+    734800,
+    411500,
+    622500
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "dataset": {
+    "dimension": {
+      "SITC": {
+        "label": "main SITC groups",
+        "category": {
+          "index": {
+            "TOT": 0
+          },
+          "label": {
+            "TOT": "TOTAL"
+          }
+        }
+      },
+      "LAND": {
+        "label": "country",
+        "category": {
+          "index": {
+            "W1": 0
+          },
+          "label": {
+            "W1": "REST OF THE WORLD"
+          }
+        }
+      },
+      "INDUD": {
+        "label": "imports and exports",
+        "category": {
+          "index": {
+            "1": 0,
+            "2": 1
+          },
+          "label": {
+            "1": "Imports",
+            "2": "Exports"
+          }
+        }
+      },
+      "UHBEGREB": {
+        "label": "submission of goods",
+        "category": {
+          "index": {
+            "GP": 0
+          },
+          "label": {
+            "GP": "Trade in goods (border crossing principle)"
+          }
+        }
+      },
+      "ContentsCode": {
+        "label": "Indhold",
+        "category": {
+          "index": {
+            "SITC2R4": 0
+          },
+          "label": {
+            "SITC2R4": "Value of imports and exports (DKK 1.000)"
+          },
+          "unit": {
+            "SITC2R4": {
+              "base": "DKK 1,000",
+              "decimals": 0
+            }
+          }
+        }
+      },
+      "Tid": {
+        "label": "time",
+        "category": {
+          "index": {
+            "2026M01": 0
+          },
+          "label": {
+            "2026M01": "2026M01"
+          }
+        }
+      },
+      "id": [
+        "SITC",
+        "LAND",
+        "INDUD",
+        "UHBEGREB",
+        "ContentsCode",
+        "Tid"
+      ],
+      "size": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "role": {
+        "geo": [
+          "LAND"
+        ],
+        "metric": [
+          "ContentsCode"
+        ],
+        "time": [
+          "Tid"
+        ]
+      }
+    },
+    "label": "Value of imports and exports (DKK 1.000) by main SITC groups, country, imports and exports, submission of goods, Indhold and time",
+    "source": "Statistics Denmark",
+    "updated": "2026-03-11T07:00:00Z",
+    "value": [
+      71378784,
+      79362895
+    ],
+    "extension": {
+      "px": {
+        "infofile": "https://www.dst.dk/documentationofstatistics/30a76856-be5c-47e1-93bb-51beb2974eaa",
+        "tableid": "SITC2R4",
+        "decimals": 0
+      }
+    }
+  }
+}
