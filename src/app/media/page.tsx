@@ -202,25 +202,26 @@ export default function MediaPage() {
 
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1.3fr_0.7fr]">
         <Card title="Nordisk narrativpuls 2016-2025">
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-5 xl:grid-cols-10">
+          <div className="space-y-4">
             {mediaTimeline.map(entry => (
-              <div key={entry.year} className="rounded-2xl border border-stone-200 bg-stone-50/70 p-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-stone-400">{entry.year}</span>
-                  <span className="text-[11px] text-stone-500">{entry.intensity}/5</span>
+              <div key={entry.year} className="flex gap-4 items-start">
+                <div className="shrink-0 w-20 pt-0.5">
+                  <span className="text-sm font-mono font-medium text-stone-900">{entry.year}</span>
+                  <div className="flex gap-1 mt-1.5">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <span
+                        key={`${entry.year}-${index}`}
+                        className={`h-1.5 w-3 rounded-full ${
+                          index < entry.intensity ? 'bg-emerald-500' : 'bg-stone-200'
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </div>
-                <div className="mt-3 flex gap-1">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <span
-                      key={`${entry.year}-${index}`}
-                      className={`h-1.5 flex-1 rounded-full ${
-                        index < entry.intensity ? 'bg-emerald-500' : 'bg-stone-200'
-                      }`}
-                    />
-                  ))}
+                <div className="flex-1 min-w-0 pb-4 border-b border-stone-100 last:border-0">
+                  <p className="text-sm font-medium text-stone-800">{entry.label}</p>
+                  <p className="mt-1 text-xs leading-5 text-stone-500">{entry.note}</p>
                 </div>
-                <p className="mt-3 text-sm font-medium leading-5 text-stone-800">{entry.label}</p>
-                <p className="mt-2 text-xs leading-5 text-stone-500">{entry.note}</p>
               </div>
             ))}
           </div>
