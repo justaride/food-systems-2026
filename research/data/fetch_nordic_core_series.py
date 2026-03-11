@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import re
@@ -196,6 +197,25 @@ def save_raw(name: str, payload: Any) -> str:
     path = RAW_DIR / f"{name}.json"
     write_json(path, payload)
     return str(path.relative_to(DATA_DIR.parent.parent))
+
+
+def load_existing_summary(path: Path) -> dict[str, Any]:
+    if path.exists():
+        return json.loads(path.read_text())
+    return {
+        "generated_at": "",
+        "dependency": str((DATA_DIR / "fetch_nordic_registry_metadata.py").relative_to(DATA_DIR.parent.parent)),
+        "metadata_dir": str(METADATA_DIR.relative_to(DATA_DIR.parent.parent)),
+        "output_dir": str(OUTPUT_DIR.relative_to(DATA_DIR.parent.parent)),
+        "files": {},
+        "rows": {},
+        "series_manifest": [],
+        "notes": [
+            "Prices use Eurostat HICP food as the first cross-country comparable monthly backbone.",
+            "Trade mixes total-goods monthly series with Finland's ready monthly agri-food series, so trade comparability is partial.",
+            "Production contains one directly comparable oats-quantity subgroup (FI/NO/SE) and documented fallbacks for DK and IS.",
+        ],
+    }
 
 
 def price_rows() -> tuple[list[dict[str, str]], dict[str, Any]]:
@@ -708,6 +728,13 @@ def production_rows() -> tuple[list[dict[str, str]], list[dict[str, Any]]]:
         [
             {"code": "PRODUKT", "values": ["010000"]},
             {"code": "PRISENHED", "values": ["00"]},
+            {
+                "code": "Tid",
+                "values": load_metadata_values(
+                    "dk-agriculture-statbank-economic-accounts-agriculture-joek1.json",
+                    "Tid",
+                ),
+            },
         ],
     )
     dk_raw = save_raw("production_dk_cereals_output_annual", dk_payload)
@@ -803,44 +830,45 @@ def production_rows() -> tuple[list[dict[str, str]], list[dict[str, Any]]]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--only", choices=["prices", "trade", "production"])
+    args = parser.parse_args()
+
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     RAW_DIR.mkdir(parents=True, exist_ok=True)
-
-    prices, price_meta = price_rows()
-    trade, trade_meta = trade_rows()
-    production, production_meta = production_rows()
 
     prices_path = OUTPUT_DIR / "prices_hicp_food_monthly.csv"
     trade_path = OUTPUT_DIR / "trade_monthly_first_panel.csv"
     production_path = OUTPUT_DIR / "production_annual_first_panel.csv"
+    summary_path = OUTPUT_DIR / "series_manifest.json"
+    summary = load_existing_summary(summary_path)
 
-    write_csv(prices_path, prices, COMMON_FIELDS)
-    write_csv(trade_path, trade, COMMON_FIELDS)
-    write_csv(production_path, production, COMMON_FIELDS)
+    if args.only in (None, "prices"):
+        prices, price_meta = price_rows()
+        write_csv(prices_path, prices, COMMON_FIELDS)
+        summary["files"]["prices"] = str(prices_path.relative_to(DATA_DIR.parent.parent))
+        summary["rows"]["prices"] = len(prices)
+        summary["series_manifest"] = [entry for entry in summary["series_manifest"] if entry.get("theme") != "prices"]
+        summary["series_manifest"].append(price_meta)
 
-    summary = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "dependency": str((DATA_DIR / "fetch_nordic_registry_metadata.py").relative_to(DATA_DIR.parent.parent)),
-        "metadata_dir": str(METADATA_DIR.relative_to(DATA_DIR.parent.parent)),
-        "output_dir": str(OUTPUT_DIR.relative_to(DATA_DIR.parent.parent)),
-        "files": {
-            "prices": str(prices_path.relative_to(DATA_DIR.parent.parent)),
-            "trade": str(trade_path.relative_to(DATA_DIR.parent.parent)),
-            "production": str(production_path.relative_to(DATA_DIR.parent.parent)),
-        },
-        "rows": {
-            "prices": len(prices),
-            "trade": len(trade),
-            "production": len(production),
-        },
-        "series_manifest": [price_meta, *trade_meta, *production_meta],
-        "notes": [
-            "Prices use Eurostat HICP food as the first cross-country comparable monthly backbone.",
-            "Trade mixes total-goods monthly series with Finland's ready monthly agri-food series, so trade comparability is partial.",
-            "Production contains one directly comparable oats-quantity subgroup (FI/NO/SE) and documented fallbacks for DK and IS.",
-        ],
-    }
-    write_json(OUTPUT_DIR / "series_manifest.json", summary)
+    if args.only in (None, "trade"):
+        trade, trade_meta = trade_rows()
+        write_csv(trade_path, trade, COMMON_FIELDS)
+        summary["files"]["trade"] = str(trade_path.relative_to(DATA_DIR.parent.parent))
+        summary["rows"]["trade"] = len(trade)
+        summary["series_manifest"] = [entry for entry in summary["series_manifest"] if entry.get("theme") != "trade"]
+        summary["series_manifest"].extend(trade_meta)
+
+    if args.only in (None, "production"):
+        production, production_meta = production_rows()
+        write_csv(production_path, production, COMMON_FIELDS)
+        summary["files"]["production"] = str(production_path.relative_to(DATA_DIR.parent.parent))
+        summary["rows"]["production"] = len(production)
+        summary["series_manifest"] = [entry for entry in summary["series_manifest"] if entry.get("theme") != "production"]
+        summary["series_manifest"].extend(production_meta)
+
+    summary["generated_at"] = datetime.now(timezone.utc).isoformat()
+    write_json(summary_path, summary)
 
 
 if __name__ == "__main__":
