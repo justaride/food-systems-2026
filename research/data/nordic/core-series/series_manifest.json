@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-11T15:42:56.554685+00:00",
+  "generated_at": "2026-03-11T17:32:02.258190+00:00",
   "dependency": "research/data/fetch_nordic_registry_metadata.py",
   "metadata_dir": "research/data/nordic/registry-metadata",
   "output_dir": "research/data/nordic/core-series",
@@ -10,8 +10,8 @@
   },
   "rows": {
     "prices": 660,
-    "trade": 1038,
-    "production": 63
+    "trade": 1134,
+    "production": 65
   },
   "series_manifest": [
     {
@@ -44,7 +44,7 @@
       "country": "DK",
       "source_name": "StatBank imports and exports SITC",
       "dataset_or_table_id": "SITC2R4",
-      "rows": 2,
+      "rows": 98,
       "raw_file": "research/data/nordic/core-series/raw/trade_dk_total_goods_monthly.json",
       "notes": "Monthly total-goods imports/exports from StatBank SITC TOT."
     },
@@ -114,7 +114,7 @@
       "country": "DK",
       "source_name": "StatBank economic accounts agriculture",
       "dataset_or_table_id": "JOEK1",
-      "rows": 1,
+      "rows": 3,
       "raw_file": "research/data/nordic/core-series/raw/production_dk_cereals_output_annual.json",
       "notes": "Annual cereals output in current prices."
     },
