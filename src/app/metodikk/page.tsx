@@ -5,6 +5,8 @@ import { KpiCard } from '@/components/ui/KpiCard'
 import { tenSteps } from '@/lib/data/ten-step-start'
 import { kpis } from '@/lib/data/kpis'
 import { evidencePack } from '@/lib/data/evidence-pack'
+import { CausalLoopDiagram } from '@/components/charts/CausalLoopDiagram'
+import { EmergenceVisualization } from '@/components/charts/EmergenceVisualization'
 
 export default function MetodikkPage() {
   return (
@@ -27,6 +29,14 @@ export default function MetodikkPage() {
           {kpis.map(kpi => (
             <KpiCard key={kpi.id} kpi={kpi} />
           ))}
+        </div>
+      </Card>
+
+      <Card title="Systemtenkning">
+        <p className="text-sm text-stone-500 mb-4">Konseptuelle modeller og pedagogiske simuleringer for matvaresystemet</p>
+        <div className="space-y-4">
+          <CausalLoopDiagram />
+          <EmergenceVisualization />
         </div>
       </Card>
 

@@ -3,6 +3,8 @@
 import dynamic from 'next/dynamic'
 import { MapProvider } from '@/lib/map/MapContext'
 import LayerPanel from '@/components/map/LayerPanel'
+import FoodDesertPanel from '@/components/map/FoodDesertPanel'
+import VulnerabilityPanel from '@/components/map/VulnerabilityPanel'
 
 const FoodMap = dynamic(() => import('@/components/map/FoodMap'), {
   ssr: false,
@@ -22,6 +24,8 @@ export default function KartPage() {
       <div className="w-full h-full relative" style={{ height: 'calc(100vh - 57px)' }}>
         <FoodMap />
         <LayerPanel />
+        <FoodDesertPanel />
+        <VulnerabilityPanel />
       </div>
     </MapProvider>
   )

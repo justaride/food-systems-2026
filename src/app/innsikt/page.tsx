@@ -10,6 +10,10 @@ import { insights } from '@/lib/data/insights'
 import { SelfSufficiencyChart } from '@/components/charts/SelfSufficiencyChart'
 import { MarginsChart } from '@/components/charts/MarginsChart'
 import { MarketShareChart } from '@/components/charts/MarketShareChart'
+import { LorenzCurveChart } from '@/components/charts/LorenzCurveChart'
+import { ZipfDistributionChart } from '@/components/charts/ZipfDistributionChart'
+import { FoodFlowSankey } from '@/components/charts/FoodFlowSankey'
+import { ParentCompanyChart } from '@/components/charts/ParentCompanyChart'
 
 const typeFilters = [
   { label: 'Alle', value: 'alle' },
@@ -38,6 +42,13 @@ export default function InnsiktPage() {
         <SelfSufficiencyChart />
         <MarginsChart />
         <MarketShareChart />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <LorenzCurveChart />
+        <ZipfDistributionChart />
+        <ParentCompanyChart />
+        <FoodFlowSankey />
       </div>
 
       <FilterChips items={typeFilters} defaultValue="alle" onChange={setTypeFilter} />
