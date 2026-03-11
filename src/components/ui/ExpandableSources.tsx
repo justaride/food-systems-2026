@@ -1,10 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import type { MediaSource } from '@/lib/data/media-landscape'
+import type { SourceRef } from '@/lib/types'
 import { SourceChip } from './SourceChip'
 
-export function ExpandableSources({ sources, label = 'kilder' }: { sources: MediaSource[]; label?: string }) {
+export function ExpandableSources({ sources, label = 'kilder' }: { sources: SourceRef[]; label?: string }) {
   const [open, setOpen] = useState(false)
 
   if (!sources.length) return null

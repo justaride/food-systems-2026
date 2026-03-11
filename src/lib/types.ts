@@ -124,6 +124,14 @@ export type Insight = {
   tags?: string[]
   url?: string
   date: string
+  sources?: SourceRef[]
+}
+
+export type SourceRef = {
+  sourceId?: string
+  label: string
+  url?: string
+  note?: string
 }
 
 export type CommType = 'epost' | 'melding' | 'brev'

@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { FilterChips } from '@/components/ui/FilterChips'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { SourceChip } from '@/components/ui/SourceChip'
 import { insights } from '@/lib/data/insights'
 
 const typeFilters = [
@@ -43,8 +44,16 @@ export default function InnsiktPage() {
                 <StatusBadge status={item.type} />
               </div>
               <p className="text-sm text-stone-600 leading-relaxed">{item.description}</p>
-              <div className="flex gap-3 mt-2.5 text-xs text-stone-400">
-                <span>Kilde: {item.source}</span>
+              <div className="flex flex-wrap items-center gap-3 mt-2.5 text-xs text-stone-400">
+                {item.sources?.length ? (
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.sources.map(s => (
+                      <SourceChip key={s.label} source={s} />
+                    ))}
+                  </div>
+                ) : (
+                  <span>Kilde: {item.source}</span>
+                )}
                 {item.phase && (
                   <>
                     <span>·</span>

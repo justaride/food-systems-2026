@@ -1,6 +1,6 @@
-import type { MediaSource } from '@/lib/data/media-landscape'
+import type { SourceRef } from '@/lib/types'
 
-export function SourceChip({ source }: { source: MediaSource }) {
+export function SourceChip({ source }: { source: SourceRef }) {
   const base = 'inline-flex items-center gap-1 rounded-full border border-stone-200 bg-stone-50 px-2.5 py-0.5 text-[11px] font-medium text-stone-600 transition-colors'
 
   if (source.url) {
