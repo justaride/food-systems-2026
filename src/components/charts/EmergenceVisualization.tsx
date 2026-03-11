@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { Card } from '@/components/ui/Card'
+import { ChartSource } from '@/components/ui/ChartSource'
 
 type Agent = {
   x: number
@@ -228,6 +229,7 @@ export function EmergenceVisualization() {
           </p>
         </div>
       </div>
+      <ChartSource source="Pedagogisk simulering — illustrerer emergente mønstre, ikke empiriske data" />
     </Card>
   )
 }

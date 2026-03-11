@@ -34,5 +34,15 @@
     "operating_margin_grocery": 0.019,
     "border_trade_2023_nok": 9350000000,
     "cpi_food_oct24_oct25": 0.031
+  },
+  "food_waste_2024": {
+    "source": "Matvett / NORSUS — Matsvinn i Norge 2024",
+    "total_edible_tonnes": 390000,
+    "breakdown_pct": {
+      "households": 58,
+      "industry": 22,
+      "retail": 14,
+      "food_service": 6
+    }
   }
 }

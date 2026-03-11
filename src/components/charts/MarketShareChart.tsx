@@ -9,6 +9,7 @@ import {
   Legend,
 } from 'recharts'
 import { Card } from '@/components/ui/Card'
+import { ChartSource } from '@/components/ui/ChartSource'
 
 const DATA = [
   { name: 'Lavpris', value: 66.3 },
@@ -54,6 +55,7 @@ export function MarketShareChart() {
           </PieChart>
         </ResponsiveContainer>
       </div>
+      <ChartSource source="Kilde: SSB/Landbruksdirektoratet markedsdata 2024" />
     </Card>
   )
 }
