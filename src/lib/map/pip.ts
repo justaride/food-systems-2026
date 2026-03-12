@@ -3,13 +3,14 @@ import { bbox as turfBbox, booleanPointInPolygon, point } from '@turf/turf'
 
 export function assignStoresToMunicipalities(
   stores: Store[],
-  geojson: GeoJSON.FeatureCollection
+  geojson: GeoJSON.FeatureCollection,
+  municipalityIdProp = 'kommunenummer'
 ): Record<string, Store[]> {
   const result: Record<string, Store[]> = {}
 
   const features = geojson.features
     .map(f => {
-      const code = f.properties?.kommunenummer as string
+      const code = f.properties?.[municipalityIdProp] as string
       if (!code) return null
       const b = turfBbox(f)
       return { code, feature: f, bbox: b }

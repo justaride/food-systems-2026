@@ -5,8 +5,8 @@ import { Card } from '@/components/ui/Card'
 import { ChartSource } from '@/components/ui/ChartSource'
 import { useChartMetrics } from '@/lib/hooks/useChartMetrics'
 
-export function ParentCompanyChart() {
-  const { data, isLoading } = useChartMetrics()
+export function ParentCompanyChart({ country = 'no' }: { country?: string }) {
+  const { data, isLoading } = useChartMetrics(country as 'no')
 
   if (isLoading || !data) {
     return (

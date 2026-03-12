@@ -1,0 +1,711 @@
+{
+  "type": "FeatureCollection",
+  "_meta": {
+    "source": "Syntetiske eksempeldata for visualisering — ikke faktiske gårdsbruk",
+    "updated": "2024",
+    "records": 50,
+    "synthetic": true
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-001",
+        "municipalityCode": "3101",
+        "type": "grain",
+        "productionArea": 145,
+        "products": ["wheat", "barley", "oats"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [11.42, 59.12]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-002",
+        "municipalityCode": "3103",
+        "type": "vegetables",
+        "productionArea": 32,
+        "products": ["potatoes", "carrots", "onions"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.65, 59.43]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-003",
+        "municipalityCode": "3105",
+        "type": "mixed",
+        "productionArea": 89,
+        "products": ["wheat", "beef cattle"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [11.11, 59.28]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-004",
+        "municipalityCode": "3107",
+        "type": "dairy",
+        "productionArea": 67,
+        "products": ["milk", "cheese"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.92, 59.23]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-005",
+        "municipalityCode": "5001",
+        "type": "dairy",
+        "productionArea": 120,
+        "products": ["milk"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.42, 63.43]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-006",
+        "municipalityCode": "5001",
+        "type": "livestock",
+        "productionArea": 85,
+        "products": ["beef", "sheep"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.38, 63.38]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-007",
+        "municipalityCode": "4601",
+        "type": "dairy",
+        "productionArea": 55,
+        "products": ["milk", "butter"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.33, 60.39]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-008",
+        "municipalityCode": "4601",
+        "type": "vegetables",
+        "productionArea": 18,
+        "products": ["strawberries", "raspberries"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.42, 60.42]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-009",
+        "municipalityCode": "0301",
+        "type": "vegetables",
+        "productionArea": 12,
+        "products": ["herbs", "lettuce"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.75, 59.95]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-010",
+        "municipalityCode": "1103",
+        "type": "livestock",
+        "productionArea": 210,
+        "products": ["sheep", "lamb"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.73, 58.97]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-011",
+        "municipalityCode": "1103",
+        "type": "dairy",
+        "productionArea": 95,
+        "products": ["milk", "yogurt"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.68, 58.93]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-012",
+        "municipalityCode": "3401",
+        "type": "grain",
+        "productionArea": 280,
+        "products": ["wheat", "rye", "barley"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [11.47, 60.79]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-013",
+        "municipalityCode": "3401",
+        "type": "mixed",
+        "productionArea": 165,
+        "products": ["oats", "pigs"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [11.52, 60.85]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-014",
+        "municipalityCode": "3403",
+        "type": "grain",
+        "productionArea": 320,
+        "products": ["wheat", "rapeseed"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.95, 60.68]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-015",
+        "municipalityCode": "3403",
+        "type": "livestock",
+        "productionArea": 145,
+        "products": ["pigs", "poultry"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.88, 60.72]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-016",
+        "municipalityCode": "5401",
+        "type": "dairy",
+        "productionArea": 78,
+        "products": ["milk"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.40, 67.28]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-017",
+        "municipalityCode": "5401",
+        "type": "livestock",
+        "productionArea": 185,
+        "products": ["reindeer", "sheep"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.55, 67.35]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-018",
+        "municipalityCode": "1506",
+        "type": "dairy",
+        "productionArea": 62,
+        "products": ["milk", "cheese"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.55, 62.47]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-019",
+        "municipalityCode": "1506",
+        "type": "vegetables",
+        "productionArea": 25,
+        "products": ["berries", "apples"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.48, 62.45]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-020",
+        "municipalityCode": "4602",
+        "type": "vegetables",
+        "productionArea": 42,
+        "products": ["apples", "pears", "cherries"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.55, 60.42]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-021",
+        "municipalityCode": "4602",
+        "type": "mixed",
+        "productionArea": 95,
+        "products": ["fruit", "sheep"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.48, 60.38]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-022",
+        "municipalityCode": "3001",
+        "type": "grain",
+        "productionArea": 185,
+        "products": ["wheat", "oats"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.33, 59.13]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-023",
+        "municipalityCode": "3001",
+        "type": "vegetables",
+        "productionArea": 28,
+        "products": ["tomatoes", "cucumbers"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.38, 59.18]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-024",
+        "municipalityCode": "3002",
+        "type": "mixed",
+        "productionArea": 112,
+        "products": ["grain", "beef"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.15, 59.28]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-025",
+        "municipalityCode": "3007",
+        "type": "dairy",
+        "productionArea": 88,
+        "products": ["milk"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.68, 59.42]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-026",
+        "municipalityCode": "3007",
+        "type": "livestock",
+        "productionArea": 155,
+        "products": ["pigs"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.72, 59.38]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-027",
+        "municipalityCode": "3803",
+        "type": "vegetables",
+        "productionArea": 35,
+        "products": ["strawberries", "vegetables"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.22, 59.08]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-028",
+        "municipalityCode": "3803",
+        "type": "grain",
+        "productionArea": 195,
+        "products": ["wheat", "barley"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.28, 59.12]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-029",
+        "municipalityCode": "5007",
+        "type": "dairy",
+        "productionArea": 72,
+        "products": ["milk", "cheese"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.68, 63.35]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-030",
+        "municipalityCode": "5007",
+        "type": "mixed",
+        "productionArea": 98,
+        "products": ["beef", "grain"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.72, 63.42]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-031",
+        "municipalityCode": "1804",
+        "type": "dairy",
+        "productionArea": 45,
+        "products": ["milk"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.45, 68.44]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-032",
+        "municipalityCode": "1804",
+        "type": "livestock",
+        "productionArea": 165,
+        "products": ["sheep", "goats"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.52, 68.48]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-033",
+        "municipalityCode": "1149",
+        "type": "livestock",
+        "productionArea": 125,
+        "products": ["sheep"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.52, 58.78]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-034",
+        "municipalityCode": "1149",
+        "type": "vegetables",
+        "productionArea": 22,
+        "products": ["greenhouse vegetables"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.48, 58.82]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-035",
+        "municipalityCode": "4621",
+        "type": "vegetables",
+        "productionArea": 55,
+        "products": ["apples", "plums"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.62, 60.07]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-036",
+        "municipalityCode": "4621",
+        "type": "dairy",
+        "productionArea": 68,
+        "products": ["milk", "goat cheese"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.68, 60.12]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-037",
+        "municipalityCode": "3024",
+        "type": "grain",
+        "productionArea": 225,
+        "products": ["wheat", "oats", "barley"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.45, 60.18]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-038",
+        "municipalityCode": "3024",
+        "type": "mixed",
+        "productionArea": 135,
+        "products": ["grain", "pigs"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.52, 60.22]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-039",
+        "municipalityCode": "3025",
+        "type": "dairy",
+        "productionArea": 82,
+        "products": ["milk"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.78, 60.12]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-040",
+        "municipalityCode": "3025",
+        "type": "livestock",
+        "productionArea": 145,
+        "products": ["poultry", "eggs"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.82, 60.08]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-041",
+        "municipalityCode": "5025",
+        "type": "dairy",
+        "productionArea": 58,
+        "products": ["milk", "butter"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [11.35, 63.72]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-042",
+        "municipalityCode": "5025",
+        "type": "grain",
+        "productionArea": 165,
+        "products": ["barley", "oats"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [11.42, 63.68]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-043",
+        "municipalityCode": "5028",
+        "type": "mixed",
+        "productionArea": 108,
+        "products": ["dairy", "grain"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.88, 64.02]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-044",
+        "municipalityCode": "5028",
+        "type": "livestock",
+        "productionArea": 175,
+        "products": ["beef cattle"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.92, 63.98]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-045",
+        "municipalityCode": "4201",
+        "type": "vegetables",
+        "productionArea": 38,
+        "products": ["potatoes", "vegetables"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [7.98, 58.15]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-046",
+        "municipalityCode": "4201",
+        "type": "livestock",
+        "productionArea": 95,
+        "products": ["poultry"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.02, 58.18]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-047",
+        "municipalityCode": "4204",
+        "type": "grain",
+        "productionArea": 178,
+        "products": ["wheat", "oats"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.58, 58.35]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-048",
+        "municipalityCode": "4204",
+        "type": "dairy",
+        "productionArea": 72,
+        "products": ["milk"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.52, 58.38]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-049",
+        "municipalityCode": "5501",
+        "type": "dairy",
+        "productionArea": 48,
+        "products": ["milk", "cheese"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [18.95, 69.65]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "farm-050",
+        "municipalityCode": "5501",
+        "type": "livestock",
+        "productionArea": 220,
+        "products": ["reindeer"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [19.02, 69.72]
+      }
+    }
+  ]
+}

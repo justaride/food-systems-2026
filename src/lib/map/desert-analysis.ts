@@ -38,7 +38,8 @@ export function createStoreBuffers(
 export function calculateCoverageAnalysis(
   stores: Store[],
   municipalities: Record<string, Municipality>,
-  geojson: FeatureCollection
+  geojson: FeatureCollection,
+  municipalityIdProp = 'kommunenummer'
 ): CoverageAnalysis {
   if (stores.length === 0) {
     const totalArea = Object.values(municipalities).reduce((sum, m) => sum + (m.area || 0), 0)
@@ -78,7 +79,7 @@ export function calculateCoverageAnalysis(
   const affectedMunicipalities: string[] = []
 
   for (const feature of geojson.features) {
-    const code = feature.properties?.kommunenummer
+    const code = feature.properties?.[municipalityIdProp]
     if (!code || !municipalities[code]) continue
 
     const muniStores = stores.filter(store => {
@@ -115,13 +116,14 @@ export function calculateMunicipalityCoverage(
   municipalityCode: string,
   stores: Store[],
   municipalities: Record<string, Municipality>,
-  geojson: FeatureCollection
+  geojson: FeatureCollection,
+  municipalityIdProp = 'kommunenummer'
 ): MunicipalityCoverage | null {
   const municipality = municipalities[municipalityCode]
   if (!municipality) return null
 
   const feature = geojson.features.find(
-    f => f.properties?.kommunenummer === municipalityCode
+    f => f.properties?.[municipalityIdProp] === municipalityCode
   )
   if (!feature) return null
 

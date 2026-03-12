@@ -13,8 +13,8 @@ import { Card } from '@/components/ui/Card'
 import { ChartSource } from '@/components/ui/ChartSource'
 import { useChartMetrics } from '@/lib/hooks/useChartMetrics'
 
-export function ZipfDistributionChart() {
-  const { data: metrics, isLoading } = useChartMetrics()
+export function ZipfDistributionChart({ country = 'no' }: { country?: string }) {
+  const { data: metrics, isLoading } = useChartMetrics(country as 'no')
 
   if (isLoading || !metrics) {
     return (
