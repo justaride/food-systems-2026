@@ -30,6 +30,7 @@ const navGroups = [
     label: 'Analyse',
     items: [
       { name: 'Innsikt', href: '/innsikt', description: 'Forskning, kartlegging, analyse' },
+      { name: 'Forskning', href: '/forskning', description: 'Deep research-prompter' },
       { name: 'Kart', href: '/kart', description: 'Butikker og kommunegrenser' },
     ],
   },

@@ -134,6 +134,32 @@ export type SourceRef = {
   note?: string
 }
 
+export type ResearchCategory =
+  | 'boker-akademisk'
+  | 'forskningsartikler'
+  | 'naeringspublikasjoner'
+  | 'offentlige-rapporter'
+  | 'regulatorisk'
+  | 'nordisk-komparativ'
+  | 'matsikkerhet'
+  | 'matsvinn-sirkulaer'
+  | 'logistikk-verdikjede'
+  | 'interessenter'
+  | 'finansiering'
+  | 'mediedebatt'
+
+export type ResearchModel = 'chatgpt-deep-research' | 'gemini-deep-research' | 'perplexity' | 'claude'
+
+export type ResearchPrompt = {
+  id: string
+  category: ResearchCategory
+  title: string
+  prompt: string
+  model: ResearchModel
+  expectedOutput: string
+  language: 'no' | 'en'
+}
+
 export type CommType = 'epost' | 'melding' | 'brev'
 
 export type Communication = {
