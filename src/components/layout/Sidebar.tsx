@@ -10,6 +10,15 @@ const navGroups = [
     ],
   },
   {
+    label: 'Intern',
+    items: [
+      { name: 'Team', href: '/team', description: 'Medlemmer og roller' },
+      { name: 'Moter', href: '/moter', description: 'Motesammendrag og referater' },
+      { name: 'Kommunikasjon', href: '/kommunikasjon', description: 'E-post og korrespondanse' },
+      { name: 'Metodikk', href: '/metodikk', description: 'Ten Step + KPIs' },
+    ],
+  },
+  {
     label: 'Utforing',
     items: [
       { name: 'Oppgaver', href: '/oppgaver', description: 'Alle oppgaver og status' },
@@ -18,21 +27,17 @@ const navGroups = [
     ],
   },
   {
-    label: 'Kunnskap',
+    label: 'Analyse',
     items: [
       { name: 'Innsikt', href: '/innsikt', description: 'Forskning, kartlegging, analyse' },
-      { name: 'Moter', href: '/moter', description: 'Motesammendrag og referater' },
-      { name: 'Kommunikasjon', href: '/kommunikasjon', description: 'E-post og korrespondanse' },
-      { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
       { name: 'Kart', href: '/kart', description: 'Butikker og kommunegrenser' },
     ],
   },
   {
     label: 'Referanse',
     items: [
-      { name: 'Team', href: '/team', description: 'Medlemmer og roller' },
-      { name: 'Metodikk', href: '/metodikk', description: 'Ten Step + KPIs' },
       { name: 'Kilder', href: '/kilder', description: 'Dokumenter og referanser' },
+      { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
     ],
   },
 ]
