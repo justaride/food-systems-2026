@@ -22,6 +22,13 @@ Dette registeret inneholder alle primære og sekundære kilder benyttet i de fir
     *   NOU 2011:4. *Mat, makt og avmakt — om styrkeforholdene i verdikjeden for mat*. Oslo: Departementenes servicesenter.
     *   Høie-utvalget (2026). *Matsystemutvalgets delrapport: Bærekraft og helse i norsk matpolitikk*. Oslo: NOU-utkast.
 
+*   **URL-er til sentrale offentlige dokumenter:**
+    *   Regjeringen – NFD: [regjeringen.no/no/dep/nfd](https://www.regjeringen.no/no/dep/nfd/)
+    *   Regjeringen – LMD: [regjeringen.no/no/dep/lmd](https://www.regjeringen.no/no/dep/lmd/)
+    *   Konkurransetilsynet: [konkurransetilsynet.no](https://konkurransetilsynet.no/)
+    *   Lovdata – Lov om god handelsskikk: [lovdata.no/dokument/NL/lov/2020-04-17-33](https://lovdata.no/dokument/NL/lov/2020-04-17-33)
+    *   Lovdata – Matsvinnloven: [lovdata.no/dokument/NL/lov/2025-06-20-42](https://lovdata.no/dokument/NL/lov/2025-06-20-42)
+
 ---
 
 ## 2. Nordiske og Internasjonale Myndighetskilder
@@ -41,6 +48,13 @@ Dette registeret inneholder alle primære og sekundære kilder benyttet i de fir
 *   **Storbritannia (Benchmark):**
     *   Groceries Code Adjudicator (GCA) (2024). *Annual Report and Accounts 2023-2024*. London: GCA.gov.uk.
     *   CMA (Competition and Markets Authority) (2023). *Groceries unit pricing: update on the CMA's review*.
+
+*   **Island:**
+    *   Iceland Review (2025). *Iceland's Only Flour Mill Set to Be Scrapped*. Reykjavík: icelandreview.com.
+    *   Milling and Grain (2025). *Iceland's Only Flour Mill Set to Close Amid Food Security Concerns*. millingandgrain.com.
+
+*   **Nordisk samarbeid:**
+    *   Nordisk Ministerråd (2024). *Karlstad-erklæringen: Nordisk samarbeid om matvareberedskap og regionale varestrømmer*. Karlstad. `[referert i selvforsyning-dokument]`
 
 ---
 
@@ -80,6 +94,34 @@ Dette registeret inneholder alle primære og sekundære kilder benyttet i de fir
 *   **Interesseorganisasjoner:**
     *   DLF (Dagligvareleverandørenes Forening) (2024). *Posisjonsnotat: EMV-vekst og innovasjonshindringer*.
     *   Norsk Bondelag (2025). *Innspill til Jordbruksoppgjøret 2026: Fokus på beredskap*.
+
+---
+
+## 6. Kilder tilføyd gjennom kvalitetssikring (mars 2026)
+
+*   **Markedsdata (verifisert):**
+    *   NielsenIQ (2025). *Dagligvarerapporten 2024: Markedsandeler og trender i Norden*. `[publisert]` — Referert i markedsstruktur-dokument.
+    *   OECD (2024). *Producer Support Estimate (PSE) Database*. Paris: OECD.Stat. `[publisert]` — Kilde for 59 %-tallet (norsk støttenivå).
+
+*   **Nordisk selvforsyning (verifisert):**
+    *   Jordbruksverket (2025). *Livsmedelskonsumtion och näringsinnehåll: Uppgifter till och med 2024*. Jönköping. `[publisert]`
+    *   LRF (2025). *Försörjningsgrad: Svensk livsmedelsproduktion*. Stockholm: lrf.se. `[publisert]`
+    *   Danish Agriculture & Food Council (2024). *Food Balance and Trade Statistics*. København. `[publisert]`
+
+*   **Sverige dagligvare (verifisert):**
+    *   Axfood (2025). *Q2 2025: Strengthened market positions and completed acquisition of City Gross*. Stockholm: Cision. `[publisert]`
+    *   ICA Gruppen (2025). *Year in Review 2024*. Stockholm: icagruppen.se. `[publisert]`
+    *   NHH Food Research (2026). *Axfood threatens ICA and Coop*. Bergen: nhh.no. `[publisert]`
+    *   Konkurrensverket (2024). *Decision: Axfood allowed to acquire City Gross*. Stockholm. `[publisert]`
+
+*   **Foodtech og nye aktører (verifisert):**
+    *   Oda (2025). *Oda er vekstvinner i dagligvaremarkedet*. Pressemelding, mars 2025. `[publisert]`
+    *   Oda (2025). *Omsetningsrekord for Oda*. Pressemelding, mars 2025. `[publisert]`
+
+*   **Forventede kilder (2026):**
+    *   Matsystemutvalget / Høie-utvalget (2026). *NOU: Bærekraftig matsystem for fremtiden*. Oslo. `[forventet november 2026]`
+    *   Konkurransetilsynet (2026). *Første markedsetterforskning i dagligvaresektoren*. `[forventet 2026]`
+    *   NielsenIQ (2026). *Dagligvarerapporten 2025*. `[forventet Q1 2026]`
 
 ---
 **Sist oppdatert:** 12. mars 2026

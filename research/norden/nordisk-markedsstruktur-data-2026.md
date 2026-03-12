@@ -16,7 +16,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Markedsstørrelse** | ~230 mrd NOK | ~315 mrd SEK | ~125 mrd DKK | ~24 mrd EUR | ~200 mrd ISK |
 | **Butikktetthet (per 1k innb.)** | **0.70 – 0.75** (Høyest) | 0.30 – 0.35 | 0.45 – 0.50 | 0.48 | 0.25 – 0.30 |
-| **Toppkjede (Market Share)** | NorgesGruppen (43.5%) | ICA Gruppen (~36%) | Salling Group (~35%) | S Group (48.8%) | Hagar (~45%) |
+| **Toppkjede (Market Share)** | NorgesGruppen (43.5%) | ICA Gruppen (~33%)* | Salling Group (~35%) | S Group (48.8%) | Hagar (~45%) |
 | **Topp 3 (CR3)** | **~96.6%** | ~90% | ~87% | ~91.9% | ~90% |
 | **HHI (Nasjonal)** | ~3,300 | ~3,300 | **~2,500** (Lavest) | **~3,600** (Høyest) | ~3,400 |
 | **Hovedstruktur** | Soft Discount / Nærbutikk | Supermarked / Hyper | Discount / Super | Duopol (S/K-Group) | Discount / Hyper |
@@ -24,6 +24,11 @@
 | **E-handel andel** | ~4-5% | ~4.1% | ~5-6% | ~3% | ~2% |
 | **Internasjonale kjeder** | Ingen (Lidl mangler) | Lidl (~6-7%) | Lidl (~8%), Aldi ut | Lidl (~9.4%) | Ingen |
 | **Distribusjon** | Vertikalt integrert | Vertikalt integrert | Fragmentert/Integrert | Kooperativ dominans | Sentralisert (Reykjavik) |
+
+*\*ICA Gruppens andel falt fra ~36 % (2023) til ~33 % (H1 2025) etter at Axfood styrket sin posisjon gjennom oppkjøpet av City Gross (fullført november 2024). Axfood har nå ~25,4 % av det svenske dagligvaremarkedet. De tre store (ICA, Axfood, Coop) kontrollerer fortsatt ~90 % samlet. Kilde: Axfood Q2 2025, ICA Gruppen Year in Review 2024, NHH Food Research.*
+
+### Metodikk-merknad: HHI og CR3
+Konsentrasjonsmålene i denne tabellen er basert på **omsetningsandeler** (revenue share) fra NielsenIQ/Euromonitor. For Norge gir dette: CR3 ≈ 96,6 % (NorgesGruppen 43,5 % + Coop 29,3 % + REMA 23,8 %) og HHI ≈ 3 300. Egne beregninger basert på **butikkandeler** (store count) gir avvikende verdier: CR3 = 93,4 %, HHI = 3 438 (se `research/data/markedskonsentrasjon-resultater.json`). Forskjellen skyldes at NorgesGruppen har en høyere andel av butikker (48,4 %) enn av omsetning (43,5 %), ettersom mange av deres formater er små nærbutikker (Joker, Nærbutikken). Omsetningsbaserte tall er bransjens standardmål og brukes konsekvent i tabellen over.
 
 ---
 
@@ -45,7 +50,7 @@ Det norske importvernet på landbruksvarer (meieriprodukter, kjøtt, grønnsaker
 ## 3. Strukturelle og Regulatoriske Faktorer
 
 *   **Finland (Seksjon 4a):** Har en unik lov som definerer "dominerende stilling" automatisk ved 30 % markedsandel. Dette har lagt sterke begrensninger på S-Group og K-Group, selv om de fortsatt dominerer.
-*   **Sverige (Plan- og bygglagen):** Kommunal soneinndeling har historisk begrenset nyetableringer, men Axfoods oppkjøp av City Gross i 2024 viser en trend mot ytterligere konsolidering.
+*   **Sverige (Plan- og bygglagen):** Kommunal soneinndeling har historisk begrenset nyetableringer. Axfoods oppkjøp av City Gross (fullført november 2024, godkjent av Konkurrensverket) ga Axfood ~25,4 % markedsandel og presser ICA og Coop. City Gross bidro med 2,3 mrd SEK i omsetning i Q2 2025, men er foreløpig ikke lønnsomt (estimert break-even H2 2026).
 *   **Danmark (Konkurranse- og Forbrugerstyrelsen):** Er den mest aktive regulatoren som nylig (2025) påla Salling Group begrensninger ved overtakelse av Coop-butikker. Dette har holdt HHI-indeksen lavere enn i nabolandene.
 *   **Historisk arv:** Kooperativer (Coop) står sterkt i hele Norden, men har mistet fotfeste i Sverige, mens de i Finland (S-Group) har klart å kombinere medlemsfordeler med en ekstremt effektiv logistikk.
 
