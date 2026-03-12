@@ -19,15 +19,17 @@ Selvforsyningsgraden i Norden varierer sterkt basert på naturgitte forhold, his
 | **Finland** | ~80 % | Korn (112 %), meieri, egg | Proteinfôr, energi, gjødsel |
 | **Danmark** | >300 %* | Svinekjøtt, meieri (nettoeksportør) | Import av fôringredienser (soya) |
 | **Island** | ~53 % | Kjøtt, meieri, fisk (>100 %) | Korn (1 %), grønnsaker (lavt ute) |
-| **Sverige** | ~50 % | Korn, sukker, svinekjøtt | Grønnsaker, frukt, innsatsvarer |
+| **Sverige** | ~50 %** | Korn, sukker, svinekjøtt | Grønnsaker, frukt, innsatsvarer |
 | **Norge** | ~47 % | Fisk, kjøtt, meieri | Mathvete, grønnsaker, frukt |
 
-*\*Danmark er en massiv nettoeksportør av mat, men er samtidig avhengig av betydelig import for å opprettholde sin intensive produksjon.*
+*\*Danmark er en massiv nettoeksportør av mat, men er samtidig avhengig av betydelig import for å opprettholde sin intensive produksjon. Tallet >300 % reflekterer brutto kaloribasert produksjonskapasitet inkludert fôrproduksjon til eksport (særlig svinekjøtt og meieri). Netto selvforsyning korrigert for importerte fôringredienser (soya, mais) er betydelig lavere (~150 %). Kilde: Danish Agriculture & Food Council, OECD Food Balance Sheets.*
+
+*\*\*Sveriges ~50 % er et gjennomsnitt som varierer sterkt mellom kategorier: korn, egg og meieri >100 %, mens grønnsaker (~20 %) og frukt trekker ned. Brutto produksjonskapasitet har falt fra ~75 % i 1988. Jordbruksverket bruker begrepet «svensk marknadsandel» fremfor «självförsörjningsgrad». Kilde: Jordbruksverket Marknadsrapport 2025, LRF försörjningsgrad-data.*
 
 ### Nøkkelinnsikt per land:
 *   **Finland (Luke):** Opprettholder den høyeste nasjonale matsikkerheten i Norden. Selv om de er selvforsynte på korn, falt selvforsyningen på rug til 55 % i 2024 pga. dårlig høst.
 *   **Norge (NIBIO):** Målet i Hurdal-plattformen er 50 % korrigert for fôrimport. "Dekningsgraden" (inkl. fiskeeksport) er over 90 %, men dette gir ikke reell beredskap uten omstilling av kostholdet i krise.
-*   **Island:** Har tilnærmet 100 % selvforsyning på animalske proteiner, men er ekstremt sårbar på korn etter at landets eneste kornmølle ble lagt ned tidlig i 2025.
+*   **Island:** Har tilnærmet 100 % selvforsyning på animalske proteiner, men er ekstremt sårbar på korn etter at landets eneste kornmølle (Kornax, Sundahöfn, Reykjavík) ble demontert 1. april 2025. Havnemyndigheten Faxaflóahafnir sa opp leieavtalen, og Kornax fikk ikke tillatelse til relokalisering til Grundartangi. Island er nå avhengig av importert ferdigmalt mel med kortere holdbarhet, noe som svekker muligheten for strategisk kornlagring. Kilde: Iceland Review, Milling and Grain (mars 2025).
 
 ## 2. Landbrukspolitiske Rammeverk
 

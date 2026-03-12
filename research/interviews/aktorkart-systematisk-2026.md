@@ -84,6 +84,67 @@
 
 ---
 
+## 7. Dagligvarekjedene (Detaljistleddet)
+
+| Navn | Eier | Markedsandel (omsetning) | Butikker | Kjeder / Formater | Rolle i matsystemet (2026) |
+| :--- | :--- | :---: | :---: | :--- | :--- |
+| **NorgesGruppen** | Familieeid (Johannson) | 43,5 % | 1 862 | Kiwi, Meny, Spar, Joker, Nærbutikken, Matkroken | Systemets dominerende aktør. Kontrollerer hele verdikjeden fra grossist (ASKO) til butikk. EMV-strategi (First Price) presser leverandører. |
+| **Coop Norge** | Samvirke (2,25 mill. medlemmer) | 29,3 % | 1 041 | Coop Prix, Extra, Coop Mega, Coop Marked, Obs | Alternativ eierskapsmodell. Extra er vekstvinneren i lavpris. Medlemsnytte (3 mrd kr/år) er viktigste lojalitetsverktøy. |
+| **Reitangruppen / REMA 1000** | Familieeid (Reitan) | 23,8 % | 692 | REMA 1000 (ren discount) | Ren lavpriskjede med sentralisert modell. «Æ»-appen driver digital lojalitet. Bruker norsk overskudd til aggressiv ekspansjon i Danmark. |
+| **Bunnpris** | Familieeid (Johansen) | ~3,4 % | 253 | Bunnpris | Uavhengig regional kjede, primært i Midt-Norge. Grossistavhengig av ASKO (NorgesGruppen), noe som skaper strukturell sårbarhet. |
+
+*Kilde: NielsenIQ Dagligvarerapporten 2024, årsrapporter (se `research/bibliotek/bransje/arsrapporter/`).*
+
+---
+
+## 8. Grossist- og logistikkleddet
+
+| Navn | Eier | Type | Dekning | Rolle i matsystemet (2026) |
+| :--- | :--- | :--- | :--- | :--- |
+| **ASKO** | NorgesGruppen | Integrert grossist | 13 regionlager, nasjonal | Norges dominerende dagligvaregrossist. Forsyner NorgesGruppens egne kjeder samt Bunnpris. Vertikal integrasjon gir betydelig kjøpsmakt og logistisk overlegenhet. Sentral i debatten om «funksjonelt skille». |
+| **Coop Logistikk** | Coop Norge | Integrert grossist | Nasjonal, mindre dekning enn ASKO | Eget grossistledd for Coop-kjedene. Lavere skalafordeler enn ASKO. |
+| **REMA Distribusjon** | Reitangruppen | Integrert grossist | Sentralisert modell | Eget grossistledd for REMA 1000. Sentralisert og kostnadseffektivt, men begrenset til én kjede. |
+
+*Merk: Det finnes i praksis ingen uavhengige fullsortiments dagligvaregrossister i Norge per 2026. Alle uavhengige dagligvareaktører er avhengige av de integrerte grossistene (primært ASKO) for høyvolumvarer. Menon-rapporten (2026) og regjeringens utredning av funksjonelt skille adresserer nettopp denne strukturelle flaskehalsen. Kilde: Menon Economics (2026), regjeringen.no.*
+
+---
+
+## 9. Media og presse
+
+| Navn | Type | Fokus | Nettside | Rolle i dagligvaredebatten (2026) |
+| :--- | :--- | :--- | :--- | :--- |
+| **E24** | Næringslivsmedium | Økonomi og næringsliv | [e24.no](https://e24.no) | Viktigste næringslivsmedium for dagligvaredekning. Gravejournalistikk om marginer, priser og maktkonsentrasjon. |
+| **Nationen** | Landbrukspresse | Landbruk og distrikt | [nationen.no](https://www.nationen.no) | Bondens perspektiv. Dekker jordbruksoppgjøret, selvforsyning og distriktspolitikk tett. |
+| **Dagligvarehandelen.no** | Bransjemedium | Dagligvare | [dagligvarehandelen.no](https://www.dagligvarehandelen.no) | Bransjemedium med nyheter, analyser og markedsdata for dagligvaresektoren. |
+| **Matindustrien.no** | Bransjekanal | Matindustri | [matindustrien.no](https://www.matindustrien.no) | NHO Mat og Drikkes bransjekanal. Dekker produsentleddet og industriens rammevilkår. |
+| **NRK Brennpunkt / Folkeopplysningen** | Offentlig kringkasting | Dokumentar | [nrk.no](https://www.nrk.no) | Dokumentarjournalistikk om matbransjen. Har tidligere satt søkelys på priskrig, matsvinn og maktforhold. |
+
+---
+
+## 10. Politiske aktører
+
+| Navn | Type | Hovedmandat / Fokus | Rolle i dagligvaredebatten (2026) |
+| :--- | :--- | :--- | :--- |
+| **Stortingets næringskomité** | Stortingskomité | Næringspolitikk, konkurranse | Behandler dagligvarepolitikk, lov om god handelsskikk og spørsmål om markedsmakt. |
+| **Stortingets landbruks- og matkomité** | Stortingskomité | Landbruk, jordbruksavtalen | Sentral i forhandlinger om selvforsyning, tollvern og jordbruksoppgjøret. |
+| **Matsystemutvalget (Høie-utvalget)** | Ekspertutvalg | Helse, klima, landbrukspolitikk | Leverer NOU i november 2026. Ser på sammenhengen mellom matsystem, folkehelse og klima. |
+| **Regjeringens tiltakspakke** | Politisk prosess | Markedsmakt, konkurranse | NFDs 7-punktsplan mot markedsmakt (2024–2026). Inkluderer sammenslåing av Dagligvaretilsynet/Konkurransetilsynet og utredning av funksjonelt skille. |
+
+---
+
+## 11. Foodtech og nye aktører
+
+| Navn | Type | Fokus | Nettside | Rolle i matsystemet (2026) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Oda** | Nettbasert dagligvare | E-handel, logistikk | [oda.com/no](https://oda.com/no/) | Norges største matbutikk på nett med >65 % av netthandelen for dagligvarer. Omsatte 356 mill. kr i mars 2025 (rekord). Vokser 15 % årlig og utfordrer tradisjonell modell. Nytt LaaS-produkt (Oda Systems) selger logistikkløsninger til andre aktører. |
+| **Too Good To Go** | Matsvinn-app | Matsvinn, bærekraft | [toogoodtogo.com](https://www.toogoodtogo.com/) | Stor i Norge med hundretusener av brukere. Hjelper butikker og restauranter med å selge overskuddsmat. Sentral i praktisk implementering av matsvinnmål. |
+| **Normal** | Verdibutikk | Personlig pleie, husholdning | [normal.com](https://www.normal.com/) | Ikke dagligvare, men stjeler lønnsomme kategorier (kosmetikk, snacks, vaskemidler) fra matbutikkene. 200+ butikker, 4,8 mrd NOK omsetning, 25,6 % vekst. Presser tradisjonell dagligvaremodell. |
+| **Europris** | Verdibutikk | Lavpris, bredt sortiment | [europris.no](https://www.europris.no/) | 10,6 mrd NOK omsetning (2025). Sammen med Normal omsetter verdibutikk-segmentet for >16 mrd kr og vokser dobbelt så raskt som tradisjonell dagligvare. |
+
+*Kilde: Oda pressemelding mars 2025, NielsenIQ, årsrapporter Normal/Europris.*
+
+---
+
 ## Sentrale tverrgående prosesser 2025–2026
 *   **Matsystemutvalget:** Et ekspertutvalg ledet av Bent Høie som skal levere sin NOU i november 2026. Utvalget ser på sammenhengen mellom helse, klima og landbrukspolitikk.
 *   **Implementering av Matsvinnloven:** Lovverket som krever at dagligvarebransjen og matindustrien halverer matsvinnet innen 2030, med sanksjonsmuligheter fra 2026.
