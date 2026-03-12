@@ -14,6 +14,7 @@ const navigation = [
   { name: 'Leveranser', href: '/leveranser' },
   { name: 'Tidslinje', href: '/tidslinje' },
   { name: 'Innsikt', href: '/innsikt' },
+  { name: 'Forskning', href: '/forskning' },
   { name: 'Kart', href: '/kart' },
   { name: 'Kilder', href: '/kilder' },
   { name: 'Media', href: '/media' },
