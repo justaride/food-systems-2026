@@ -5,15 +5,10 @@ import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { useMapContext } from '@/lib/map/MapContext'
 import {
-  CHAIN_CONFIGS,
-  NORWAY_CENTER,
   AQUACULTURE_COLORS,
-  PROCESSING_COLORS,
   PORT_COLORS,
   type Store,
-  type ChainId,
   type AquacultureProductionType,
-  type ProcessingCompany,
   type PortType,
 } from '@/lib/map/types'
 import { getVulnerabilityColor } from '@/lib/map/vulnerability'
@@ -54,27 +49,6 @@ function clusterStores(stores: Store[], zoom: number): StoreCluster[] {
   })
 }
 
-function createClusterIcon(count: number, chainIds: string[]): L.DivIcon {
-  const size = Math.min(30 + Math.log2(count) * 6, 50)
-  const counts: Record<string, number> = {}
-  for (const id of chainIds) counts[id] = (counts[id] || 0) + 1
-  const dominant = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0]
-  const color = CHAIN_CONFIGS[dominant as ChainId]?.color ?? '#6B7280'
-
-  return L.divIcon({
-    className: 'store-cluster',
-    html: `<div style="
-      width:${size}px;height:${size}px;
-      background:${color};border:2px solid white;border-radius:50%;
-      box-shadow:0 2px 4px rgba(0,0,0,0.3);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:bold;color:white;font-size:${size * 0.35}px;
-    ">${count}</div>`,
-    iconSize: [size, size],
-    iconAnchor: [size / 2, size / 2],
-  })
-}
-
 export default function FoodMap() {
   const mapRef = useRef<L.Map | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -89,16 +63,58 @@ export default function FoodMap() {
   const {
     stores, geojson, activeLayers, activeChains, municipalities,
     aquacultureSites, processingPlants, ports, vulnerabilityScores,
-    setSelectedMunicipality,
+    setSelectedMunicipality, countryConfig,
   } = useMapContext()
   const [mapReady, setMapReady] = useState(false)
 
+  const chainConfigs = countryConfig?.chains ?? {}
+  const muniIdProp = countryConfig?.municipalityIdProp ?? 'kommunenummer'
+  const muniNameProp = countryConfig?.municipalityNameProp ?? 'kommunenavn'
+
+  function getChainColor(chainId: string): string {
+    return chainConfigs[chainId]?.color ?? '#6B7280'
+  }
+
+  function getProcessingColor(company: string): string {
+    const defaultColors: Record<string, string> = {
+      Nortura: '#DC2626', Tine: '#2563EB', BAMA: '#16A34A',
+      Orkla: '#7C3AED', 'Lerøy': '#0891B2', Mowi: '#0D9488',
+    }
+    return defaultColors[company] ?? '#6B7280'
+  }
+
+  function createClusterIcon(count: number, chainIds: string[]): L.DivIcon {
+    const size = Math.min(30 + Math.log2(count) * 6, 50)
+    const counts: Record<string, number> = {}
+    for (const id of chainIds) counts[id] = (counts[id] || 0) + 1
+    const dominant = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0]
+    const color = getChainColor(dominant)
+
+    return L.divIcon({
+      className: 'store-cluster',
+      html: `<div style="
+        width:${size}px;height:${size}px;
+        background:${color};border:2px solid white;border-radius:50%;
+        box-shadow:0 2px 4px rgba(0,0,0,0.3);
+        display:flex;align-items:center;justify-content:center;
+        font-weight:bold;color:white;font-size:${size * 0.35}px;
+      ">${count}</div>`,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+    })
+  }
+
   useEffect(() => {
-    if (!containerRef.current || mapRef.current) return
+    if (!containerRef.current || !countryConfig) return
+
+    if (mapRef.current) {
+      mapRef.current.setView(countryConfig.center, countryConfig.zoom)
+      return
+    }
 
     const map = L.map(containerRef.current, {
-      center: NORWAY_CENTER,
-      zoom: 5,
+      center: countryConfig.center,
+      zoom: countryConfig.zoom,
       minZoom: 4,
       maxZoom: 18,
       zoomControl: true,
@@ -117,7 +133,8 @@ export default function FoodMap() {
       mapRef.current = null
       setMapReady(false)
     }
-  }, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [countryConfig?.code])
 
   // Municipality boundaries (hidden when vulnerability active)
   useEffect(() => {
@@ -138,8 +155,8 @@ export default function FoodMap() {
         fillOpacity: 0.05,
       }),
       onEachFeature: (feature, featureLayer) => {
-        const code = feature.properties?.kommunenummer
-        const name = feature.properties?.kommunenavn
+        const code = feature.properties?.[muniIdProp]
+        const name = feature.properties?.[muniNameProp]
         const muni = municipalities[code]
         let tip = `<strong>${name}</strong>`
         if (muni) tip += `<br/>Innbyggere: ${muni.population?.toLocaleString() ?? 'N/A'}`
@@ -154,7 +171,7 @@ export default function FoodMap() {
       if (mapRef.current && layer) mapRef.current.removeLayer(layer)
       boundariesRef.current = null
     }
-  }, [geojson, activeLayers, municipalities])
+  }, [geojson, activeLayers, municipalities, muniIdProp, muniNameProp])
 
   // Aquaculture sites
   useEffect(() => {
@@ -204,7 +221,7 @@ export default function FoodMap() {
 
     const layer = L.layerGroup()
     for (const plant of processingPlants) {
-      const color = PROCESSING_COLORS[plant.company as ProcessingCompany] || PROCESSING_COLORS.Other
+      const color = getProcessingColor(plant.company)
       const marker = L.circleMarker(
         [plant.coordinates[1], plant.coordinates[0]],
         { radius: 7, fillColor: color, color: '#fff', weight: 2, fillOpacity: 0.9 }
@@ -278,7 +295,7 @@ export default function FoodMap() {
 
     const renderer = L.canvas()
     const layer = L.layerGroup()
-    const filtered = stores.filter(s => activeChains.includes(s.chainId as ChainId))
+    const filtered = stores.filter(s => activeChains.includes(s.chainId))
     for (const store of filtered) {
       L.circle([store.location.lat, store.location.lng], {
         radius: 5000,
@@ -310,7 +327,7 @@ export default function FoodMap() {
 
     const layer = L.geoJSON(geojson, {
       style: (feature) => {
-        const code = feature?.properties?.kommunenummer
+        const code = feature?.properties?.[muniIdProp]
         const vs = vulnerabilityScores[code]
         const color = vs ? getVulnerabilityColor(vs.score) : '#d6d3d1'
         return {
@@ -321,8 +338,8 @@ export default function FoodMap() {
         }
       },
       onEachFeature: (feature, featureLayer) => {
-        const code = feature.properties?.kommunenummer
-        const name = feature.properties?.kommunenavn
+        const code = feature.properties?.[muniIdProp]
+        const name = feature.properties?.[muniNameProp]
         const vs = vulnerabilityScores[code]
         const muni = municipalities[code]
         let tip = `<strong>${name}</strong>`
@@ -340,7 +357,7 @@ export default function FoodMap() {
       if (mapRef.current && layer) mapRef.current.removeLayer(layer)
       vulnerabilityRef.current = null
     }
-  }, [geojson, activeLayers, vulnerabilityScores, municipalities, setSelectedMunicipality])
+  }, [geojson, activeLayers, vulnerabilityScores, municipalities, setSelectedMunicipality, muniIdProp, muniNameProp])
 
   // Store markers with clustering
   const updateMarkers = useCallback(() => {
@@ -351,7 +368,7 @@ export default function FoodMap() {
     layer.clearLayers()
     if (!activeLayers.includes('stores')) return
 
-    const filtered = stores.filter(s => activeChains.includes(s.chainId as ChainId))
+    const filtered = stores.filter(s => activeChains.includes(s.chainId))
     if (!filtered.length) return
 
     const zoom = map.getZoom()
@@ -360,12 +377,12 @@ export default function FoodMap() {
     for (const cluster of clusters) {
       if (cluster.stores.length === 1) {
         const store = cluster.stores[0]
-        const cfg = CHAIN_CONFIGS[store.chainId as ChainId]
-        if (!cfg) continue
+        const color = getChainColor(store.chainId)
+        const chainName = chainConfigs[store.chainId]?.name ?? store.chain
 
         const marker = L.circleMarker(cluster.center, {
           radius: 5,
-          fillColor: cfg.color,
+          fillColor: color,
           color: '#fff',
           weight: 1,
           fillOpacity: 0.8,
@@ -374,7 +391,7 @@ export default function FoodMap() {
         marker.bindPopup(`
           <div style="min-width:180px">
             <strong>${store.name}</strong><br/>
-            <span style="color:${cfg.color}">\u25CF</span> ${store.chain} <small style="color:#999">(${store.storeType})</small>
+            <span style="color:${color}">\u25CF</span> ${chainName} <small style="color:#999">(${store.storeType})</small>
             ${store.address || store.city ? `<br/><small>${[store.address, store.city].filter(Boolean).join(', ')}</small>` : ''}
             ${store.openingHours ? `<br/><small>${store.openingHours}</small>` : ''}
           </div>
@@ -387,7 +404,7 @@ export default function FoodMap() {
 
         const counts: Record<string, number> = {}
         for (const s of cluster.stores) {
-          const name = CHAIN_CONFIGS[s.chainId as ChainId]?.name || s.chain
+          const name = chainConfigs[s.chainId]?.name || s.chain
           counts[name] = (counts[name] || 0) + 1
         }
         const breakdown = Object.entries(counts)
@@ -408,7 +425,8 @@ export default function FoodMap() {
         marker.addTo(layer)
       }
     }
-  }, [stores, activeLayers, activeChains])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stores, activeLayers, activeChains, countryConfig])
 
   useEffect(() => {
     if (!mapReady) return

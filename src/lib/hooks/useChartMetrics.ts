@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import type { CountryCode } from '@/lib/config/countries'
 
 export type ParentCompanyData = {
   id: string
@@ -12,6 +13,7 @@ export type ParentCompanyData = {
 
 export type ChartMetrics = {
   generated: string
+  country?: string
   totalStores: number
   parentCompany: {
     data: ParentCompanyData[]
@@ -30,18 +32,24 @@ export type ChartMetrics = {
   }
 }
 
-let cached: ChartMetrics | null = null
+const cache = new Map<string, ChartMetrics>()
 
-export function useChartMetrics(): { data: ChartMetrics | null; isLoading: boolean } {
-  const [data, setData] = useState<ChartMetrics | null>(cached)
-  const [isLoading, setIsLoading] = useState(!cached)
+export function useChartMetrics(country: CountryCode = 'no'): { data: ChartMetrics | null; isLoading: boolean } {
+  const [data, setData] = useState<ChartMetrics | null>(cache.get(country) ?? null)
+  const [isLoading, setIsLoading] = useState(!cache.has(country))
 
   useEffect(() => {
-    if (cached) return
-    fetch('/data/food-systems/chart-metrics.json')
+    if (cache.has(country)) {
+      setData(cache.get(country)!)
+      setIsLoading(false)
+      return
+    }
+
+    setIsLoading(true)
+    fetch(`/data/food-systems/${country}/chart-metrics.json`)
       .then(r => r.json())
       .then((d: ChartMetrics) => {
-        cached = d
+        cache.set(country, d)
         setData(d)
         setIsLoading(false)
       })
@@ -49,7 +57,7 @@ export function useChartMetrics(): { data: ChartMetrics | null; isLoading: boole
         console.error('Failed to load chart metrics:', err)
         setIsLoading(false)
       })
-  }, [])
+  }, [country])
 
   return { data, isLoading }
 }

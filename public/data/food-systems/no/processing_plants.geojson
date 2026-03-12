@@ -1,0 +1,400 @@
+{
+  "type": "FeatureCollection",
+  "_meta": {
+    "source": "Nortura, Tine, BAMA, Orkla, Lerøy, Mowi — kurert fra offentlige årsrapporter og selskapssider",
+    "updated": "2024-Q1",
+    "records": 30
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [10.7522, 59.9139] },
+      "properties": {
+        "id": "pp-001",
+        "name": "Nortura Furuset",
+        "company": "Nortura",
+        "type": "meat",
+        "capacity": "200,000 tonnes/year",
+        "products": ["Gilde beef", "Gilde pork", "Prior poultry"],
+        "employees": 850
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [10.4053, 63.4305] },
+      "properties": {
+        "id": "pp-002",
+        "name": "Nortura Malvik",
+        "company": "Nortura",
+        "type": "meat",
+        "capacity": "80,000 tonnes/year",
+        "products": ["Gilde processed meats", "Sausages"],
+        "employees": 420
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5.7324, 58.9700] },
+      "properties": {
+        "id": "pp-003",
+        "name": "Nortura Forus",
+        "company": "Nortura",
+        "type": "meat",
+        "capacity": "60,000 tonnes/year",
+        "products": ["Gilde lamb", "Prior chicken"],
+        "employees": 350
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [11.0451, 60.7945] },
+      "properties": {
+        "id": "pp-004",
+        "name": "Nortura Rudshogda",
+        "company": "Nortura",
+        "type": "meat",
+        "capacity": "45,000 tonnes/year",
+        "products": ["Beef processing", "Lamb"],
+        "employees": 280
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [10.2128, 59.7440] },
+      "properties": {
+        "id": "pp-005",
+        "name": "Tine Meieriet Oslo",
+        "company": "Tine",
+        "type": "dairy",
+        "capacity": "300 million liters/year",
+        "products": ["Milk", "Yogurt", "Cream"],
+        "employees": 550
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5.3221, 60.3913] },
+      "properties": {
+        "id": "pp-006",
+        "name": "Tine Meieriet Bergen",
+        "company": "Tine",
+        "type": "dairy",
+        "capacity": "180 million liters/year",
+        "products": ["Milk", "Cream", "Sour cream"],
+        "employees": 320
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [10.3951, 63.4305] },
+      "properties": {
+        "id": "pp-007",
+        "name": "Tine Meieriet Trondheim",
+        "company": "Tine",
+        "type": "dairy",
+        "capacity": "150 million liters/year",
+        "products": ["Milk", "Cheese", "Butter"],
+        "employees": 290
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [8.0059, 58.1599] },
+      "properties": {
+        "id": "pp-008",
+        "name": "Tine Kristiansand",
+        "company": "Tine",
+        "type": "dairy",
+        "capacity": "100 million liters/year",
+        "products": ["Milk", "Yogurt"],
+        "employees": 180
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [7.1586, 62.7373] },
+      "properties": {
+        "id": "pp-009",
+        "name": "Tine Elnesvagen",
+        "company": "Tine",
+        "type": "dairy",
+        "capacity": "80 million liters/year",
+        "products": ["Jarlsberg cheese", "Export cheese"],
+        "employees": 210
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [10.7891, 59.9250] },
+      "properties": {
+        "id": "pp-010",
+        "name": "BAMA Grorud",
+        "company": "BAMA",
+        "type": "produce",
+        "capacity": "500,000 tonnes/year",
+        "products": ["Fresh fruits", "Vegetables", "Salads"],
+        "employees": 650
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5.2860, 60.3928] },
+      "properties": {
+        "id": "pp-011",
+        "name": "BAMA Bergen",
+        "company": "BAMA",
+        "type": "produce",
+        "capacity": "150,000 tonnes/year",
+        "products": ["Fresh produce", "Fruit packing"],
+        "employees": 280
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [10.4511, 63.4200] },
+      "properties": {
+        "id": "pp-012",
+        "name": "BAMA Trondheim",
+        "company": "BAMA",
+        "type": "produce",
+        "capacity": "120,000 tonnes/year",
+        "products": ["Fresh vegetables", "Fruit"],
+        "employees": 220
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5.7342, 58.9700] },
+      "properties": {
+        "id": "pp-013",
+        "name": "BAMA Stavanger",
+        "company": "BAMA",
+        "type": "produce",
+        "capacity": "100,000 tonnes/year",
+        "products": ["Fresh produce", "Pre-cut vegetables"],
+        "employees": 180
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [14.4049, 67.2804] },
+      "properties": {
+        "id": "pp-014",
+        "name": "Leroy Svolvær",
+        "company": "Lerøy",
+        "type": "seafood",
+        "capacity": "25,000 tonnes/year",
+        "products": ["Cod", "Haddock", "Stockfish"],
+        "employees": 320
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5.3264, 60.3930] },
+      "properties": {
+        "id": "pp-015",
+        "name": "Leroy Bergen HQ",
+        "company": "Lerøy",
+        "type": "seafood",
+        "capacity": "100,000 tonnes/year",
+        "products": ["Salmon", "Trout", "Pelagic fish"],
+        "employees": 580
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.9553, 69.6489] },
+      "properties": {
+        "id": "pp-016",
+        "name": "Leroy Tromso",
+        "company": "Lerøy",
+        "type": "seafood",
+        "capacity": "40,000 tonnes/year",
+        "products": ["King crab", "Cod", "Whitefish"],
+        "employees": 280
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [6.1530, 62.4722] },
+      "properties": {
+        "id": "pp-017",
+        "name": "Mowi Alesund",
+        "company": "Mowi",
+        "type": "seafood",
+        "capacity": "80,000 tonnes/year",
+        "products": ["Atlantic salmon", "Smoked salmon"],
+        "employees": 420
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5.3221, 60.3913] },
+      "properties": {
+        "id": "pp-018",
+        "name": "Mowi Bergen",
+        "company": "Mowi",
+        "type": "seafood",
+        "capacity": "120,000 tonnes/year",
+        "products": ["Fresh salmon", "Salmon portions"],
+        "employees": 650
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [11.9840, 66.0185] },
+      "properties": {
+        "id": "pp-019",
+        "name": "Mowi Herøy",
+        "company": "Mowi",
+        "type": "seafood",
+        "capacity": "45,000 tonnes/year",
+        "products": ["Salmon processing", "Filleting"],
+        "employees": 240
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [10.7522, 59.9139] },
+      "properties": {
+        "id": "pp-020",
+        "name": "Orkla Foods Oslo",
+        "company": "Orkla",
+        "type": "produce",
+        "capacity": "150,000 tonnes/year",
+        "products": ["Frozen vegetables", "Pizza", "Ready meals"],
+        "employees": 520
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [9.0568, 59.2132] },
+      "properties": {
+        "id": "pp-021",
+        "name": "Orkla Confectionery Porsgrunn",
+        "company": "Orkla",
+        "type": "produce",
+        "capacity": "40,000 tonnes/year",
+        "products": ["Nidar chocolate", "Candy"],
+        "employees": 380
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [10.3951, 63.4305] },
+      "properties": {
+        "id": "pp-022",
+        "name": "Orkla Trondheim",
+        "company": "Orkla",
+        "type": "produce",
+        "capacity": "60,000 tonnes/year",
+        "products": ["Sauces", "Ketchup", "Mayonnaise"],
+        "employees": 290
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [10.7522, 59.9139] },
+      "properties": {
+        "id": "pp-023",
+        "name": "Ringnes Brewery Oslo",
+        "company": "Other",
+        "type": "beverage",
+        "capacity": "400 million liters/year",
+        "products": ["Ringnes beer", "Soft drinks"],
+        "employees": 680
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5.3221, 60.3913] },
+      "properties": {
+        "id": "pp-024",
+        "name": "Hansa Borg Bergen",
+        "company": "Other",
+        "type": "beverage",
+        "capacity": "200 million liters/year",
+        "products": ["Hansa beer", "Soft drinks"],
+        "employees": 320
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [10.9250, 63.1150] },
+      "properties": {
+        "id": "pp-025",
+        "name": "Felleskjøpet Grain Verdal",
+        "company": "Other",
+        "type": "grain",
+        "capacity": "200,000 tonnes/year",
+        "products": ["Flour", "Feed grain", "Cereals"],
+        "employees": 180
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [10.7522, 59.9139] },
+      "properties": {
+        "id": "pp-026",
+        "name": "Lantmannen Mills Oslo",
+        "company": "Other",
+        "type": "grain",
+        "capacity": "150,000 tonnes/year",
+        "products": ["Bread flour", "Pasta", "Bakery products"],
+        "employees": 220
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [17.4270, 68.4385] },
+      "properties": {
+        "id": "pp-027",
+        "name": "Nordlaks Stokmarknes",
+        "company": "Other",
+        "type": "seafood",
+        "capacity": "35,000 tonnes/year",
+        "products": ["Salmon", "Trout"],
+        "employees": 210
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [10.0157, 59.0379] },
+      "properties": {
+        "id": "pp-028",
+        "name": "Tine Sandefjord",
+        "company": "Tine",
+        "type": "dairy",
+        "capacity": "50 million liters/year",
+        "products": ["Cottage cheese", "Specialty dairy"],
+        "employees": 140
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [12.0000, 65.8500] },
+      "properties": {
+        "id": "pp-029",
+        "name": "Cermaq Nordland",
+        "company": "Other",
+        "type": "seafood",
+        "capacity": "50,000 tonnes/year",
+        "products": ["Atlantic salmon", "Salmon smolt"],
+        "employees": 280
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [5.7324, 58.9700] },
+      "properties": {
+        "id": "pp-030",
+        "name": "Nortura Egersund",
+        "company": "Nortura",
+        "type": "meat",
+        "capacity": "30,000 tonnes/year",
+        "products": ["Poultry processing", "Chicken products"],
+        "employees": 180
+      }
+    }
+  ]
+}

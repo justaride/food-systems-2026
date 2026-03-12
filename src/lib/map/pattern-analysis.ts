@@ -1,5 +1,5 @@
 import type { Store, Municipality } from './types'
-import { CHAIN_CONFIGS } from './types'
+import type { ChainConfig } from '@/lib/config/countries'
 
 export type ZipfAnalysis = {
   data: Array<{ rank: number; storeCount: number; logRank: number; logCount: number; municipalityName: string }>
@@ -105,7 +105,8 @@ export function calculateLorenzCurve(
 
 export function analyzeConcentration(
   stores: Store[],
-  municipalities: Record<string, Municipality>
+  municipalities: Record<string, Municipality>,
+  chainConfigs: Record<string, ChainConfig> = {}
 ): ConcentrationAnalysis {
   const chainCounts = new Map<string, number>()
   for (const store of stores) {
@@ -122,7 +123,7 @@ export function analyzeConcentration(
 
   const parentCounts = new Map<string, number>()
   for (const store of stores) {
-    const config = CHAIN_CONFIGS[store.chainId as keyof typeof CHAIN_CONFIGS]
+    const config = chainConfigs[store.chainId]
     const parent = config?.parent || 'Unknown'
     parentCounts.set(parent, (parentCounts.get(parent) || 0) + 1)
   }

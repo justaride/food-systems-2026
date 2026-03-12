@@ -1,0 +1,305 @@
+{
+  "type": "FeatureCollection",
+  "_meta": {
+    "source": "ASKO, Coop Logistikk, Rema Distribusjon — kurert fra årsrapporter og bransjekilder",
+    "updated": "2024",
+    "records": 19
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "asko-vestby",
+        "name": "ASKO Sentrallager",
+        "owner": "NorgesGruppen",
+        "type": "Central Hub",
+        "capacity": "100,000 m2",
+        "role": "National Dry Goods",
+        "storesServed": 1800,
+        "city": "Vestby"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.745, 59.605]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "asko-vestby-kjol",
+        "name": "ASKO Sentrallager Kjøl",
+        "owner": "NorgesGruppen",
+        "type": "Central Hub",
+        "role": "National Refrigerated/Frozen",
+        "city": "Vestby"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.748, 59.603]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "coop-clog",
+        "name": "Coop C-Log",
+        "owner": "Coop",
+        "type": "Central Hub",
+        "capacity": "84,000 m2",
+        "role": "National/Regional Automated",
+        "storesServed": 1200,
+        "automation": "WITRON system",
+        "throughput": "690,000 picks/day target",
+        "city": "Gardermoen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [11.085, 60.193]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rema-vinterbro",
+        "name": "Rema Vinterbro",
+        "owner": "Rema 1000",
+        "type": "Central Hub",
+        "capacity": "70,000 m2",
+        "role": "Regional East/Central",
+        "automation": "Automated facility",
+        "city": "Vinterbro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.783, 59.730]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "asko-oslo",
+        "name": "ASKO Oslo",
+        "owner": "NorgesGruppen",
+        "type": "Regional Hub",
+        "role": "Oslo Metro Area",
+        "city": "Kalbakken"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.880, 59.955]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "asko-ost",
+        "name": "ASKO Øst",
+        "owner": "NorgesGruppen",
+        "type": "Regional Hub",
+        "role": "Eastern Norway",
+        "city": "Lillestrøm area"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [11.050, 59.960]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "asko-hedmark",
+        "name": "ASKO Hedmark",
+        "owner": "NorgesGruppen",
+        "type": "Regional Hub",
+        "role": "Hedmark Region",
+        "city": "Hamar area"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [11.068, 60.794]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "asko-oppland",
+        "name": "ASKO Oppland",
+        "owner": "NorgesGruppen",
+        "type": "Regional Hub",
+        "role": "Oppland Region",
+        "city": "Lillehammer area"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.466, 61.115]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "asko-midt-norge",
+        "name": "ASKO Midt-Norge",
+        "owner": "NorgesGruppen",
+        "type": "Regional Hub",
+        "role": "Central Norway",
+        "city": "Tiller, Trondheim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.375, 63.355]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rema-tiller",
+        "name": "Rema Trondheim",
+        "owner": "Rema 1000",
+        "type": "Regional Hub",
+        "role": "Central Norway",
+        "city": "Tiller, Trondheim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.390, 63.350]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "asko-vest",
+        "name": "ASKO Vest",
+        "owner": "NorgesGruppen",
+        "type": "Regional Hub",
+        "role": "Western Norway",
+        "city": "Bergen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.350, 60.380]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rema-hylkje",
+        "name": "Rema Bergen",
+        "owner": "Rema 1000",
+        "type": "Regional Hub",
+        "role": "Western Norway",
+        "city": "Hylkje, Bergen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.410, 60.470]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "asko-rogaland",
+        "name": "ASKO Rogaland",
+        "owner": "NorgesGruppen",
+        "type": "Regional Hub",
+        "role": "Southwest Norway",
+        "city": "Stavanger area"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.730, 58.970]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rema-sandnes",
+        "name": "Rema Stavanger",
+        "owner": "Rema 1000",
+        "type": "Regional Hub",
+        "role": "Southwest Norway",
+        "city": "Sandnes/Vagle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.750, 58.850]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "asko-agder",
+        "name": "ASKO Agder",
+        "owner": "NorgesGruppen",
+        "type": "Regional Hub",
+        "role": "Southern Norway",
+        "city": "Lillesand"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.380, 58.250]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rema-kristiansand",
+        "name": "Rema Kristiansand",
+        "owner": "Rema 1000",
+        "type": "Regional Hub",
+        "role": "Southern Norway",
+        "city": "Kristiansand"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [7.996, 58.146]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "asko-nord",
+        "name": "ASKO Nord",
+        "owner": "NorgesGruppen",
+        "type": "Regional Hub",
+        "role": "Northern Norway",
+        "city": "Tromsø"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [18.995, 69.675]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rema-narvik",
+        "name": "Rema Narvik",
+        "owner": "Rema 1000",
+        "type": "Regional Hub",
+        "role": "Northern Norway",
+        "city": "Bjerkvik",
+        "notes": "New facility with solar investments"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [17.550, 68.550]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bunnpris-central",
+        "name": "Bunnpris Sentral",
+        "owner": "Bunnpris AS",
+        "type": "Central Hub",
+        "role": "Bunnpris National Distribution",
+        "city": "Trondheim area",
+        "notes": "Independent chain, 4th player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.400, 63.430]
+      }
+    }
+  ]
+}

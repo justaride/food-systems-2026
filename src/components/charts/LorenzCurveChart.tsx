@@ -18,8 +18,8 @@ const EQUALITY = [
   { popShare: 100, equal: 100 },
 ]
 
-export function LorenzCurveChart() {
-  const { data: metrics, isLoading } = useChartMetrics()
+export function LorenzCurveChart({ country = 'no' }: { country?: string }) {
+  const { data: metrics, isLoading } = useChartMetrics(country as 'no')
 
   if (isLoading || !metrics) {
     return (

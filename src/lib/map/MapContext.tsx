@@ -2,24 +2,27 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, type ReactNode } from 'react'
 import type {
-  Store, Municipality, MapLayer, ChainId,
+  Store, Municipality, MapLayer,
   AquacultureSite, ProcessingPlant, Port, LogisticsHub, MunicipalityMetrics,
 } from './types'
-import { ALL_CHAINS } from './types'
 import { calculateMunicipalityMetrics } from './metrics'
 import { calculateVulnerabilityScores, type VulnerabilityScore } from './vulnerability'
 import { assignStoresToMunicipalities } from './pip'
+import type { CountryConfig, CountryCode } from '@/lib/config/countries'
+import { getCountryConfig } from '@/lib/config/countries'
 
 type MapContextType = {
   isLoading: boolean
   error: string | null
+  country: CountryCode
+  countryConfig: CountryConfig | null
   stores: Store[]
   municipalities: Record<string, Municipality>
   geojson: GeoJSON.FeatureCollection | null
   activeLayers: MapLayer[]
   toggleLayer: (layer: MapLayer) => void
-  activeChains: ChainId[]
-  toggleChain: (chain: ChainId) => void
+  activeChains: string[]
+  toggleChain: (chain: string) => void
   aquacultureSites: AquacultureSite[]
   processingPlants: ProcessingPlant[]
   ports: Port[]
@@ -121,14 +124,19 @@ function parseLogisticsHubs(geojson: GeoJSON.FeatureCollection): LogisticsHub[] 
     })
 }
 
-export function MapProvider({ children }: { children: ReactNode }) {
+function dataPath(country: CountryCode, file: string): string {
+  return `/data/food-systems/${country}/${file}`
+}
+
+export function MapProvider({ children, country }: { children: ReactNode; country: CountryCode }) {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [countryConfig, setCountryConfig] = useState<CountryConfig | null>(null)
   const [stores, setStores] = useState<Store[]>([])
   const [municipalities, setMunicipalities] = useState<Record<string, Municipality>>({})
   const [geojson, setGeojson] = useState<GeoJSON.FeatureCollection | null>(null)
   const [activeLayers, setActiveLayers] = useState<MapLayer[]>(['stores'])
-  const [activeChains, setActiveChains] = useState<ChainId[]>(ALL_CHAINS)
+  const [activeChains, setActiveChains] = useState<string[]>([])
   const [aquacultureSites, setAquacultureSites] = useState<AquacultureSite[]>([])
   const [processingPlants, setProcessingPlants] = useState<ProcessingPlant[]>([])
   const [ports, setPorts] = useState<Port[]>([])
@@ -136,42 +144,75 @@ export function MapProvider({ children }: { children: ReactNode }) {
   const [selectedMunicipality, setSelectedMunicipality] = useState<string | null>(null)
 
   useEffect(() => {
+    setIsLoading(true)
+    setError(null)
+    setStores([])
+    setMunicipalities({})
+    setGeojson(null)
+    setAquacultureSites([])
+    setProcessingPlants([])
+    setPorts([])
+    setLogisticsHubs([])
+    setSelectedMunicipality(null)
+
     const fetchJson = (url: string) =>
       fetch(url).then(r => {
         if (!r.ok) throw new Error(`Failed to fetch ${url}: ${r.status}`)
         return r.json()
       })
 
-    Promise.all([
-      fetchJson('/data/food-systems/stores.json'),
-      fetchJson('/data/food-systems/municipalities.json'),
-      fetchJson('/data/food-systems/norway-municipalities.geojson'),
-      fetchJson('/data/food-systems/aquaculture_sites.geojson'),
-      fetchJson('/data/food-systems/processing_plants.geojson'),
-      fetchJson('/data/food-systems/ports.geojson'),
-      fetchJson('/data/food-systems/logistics_hubs.geojson'),
-    ])
-      .then(([storesData, municipalitiesData, geojsonData, aquaData, plantData, portData, hubData]) => {
-        setStores(storesData)
-        setMunicipalities(municipalitiesData)
-        setGeojson(geojsonData)
-        setAquacultureSites(parseAquacultureSites(aquaData))
-        setProcessingPlants(parseProcessingPlants(plantData))
-        setPorts(parsePorts(portData))
-        setLogisticsHubs(parseLogisticsHubs(hubData))
-        setIsLoading(false)
-      })
-      .catch(err => {
-        console.error('Failed to load map data:', err)
-        setError(err.message)
-        setIsLoading(false)
-      })
-  }, [])
+    const optionalFetch = (url: string) =>
+      fetch(url).then(r => {
+        if (!r.ok) return null
+        return r.json()
+      }).catch(() => null)
+
+    getCountryConfig(country).then(config => {
+      setCountryConfig(config)
+      setActiveChains(Object.keys(config.chains))
+
+      const { dataFiles } = config
+
+      const required = [
+        fetchJson(dataPath(country, dataFiles.stores)),
+        fetchJson(dataPath(country, dataFiles.municipalities)),
+        fetchJson(dataPath(country, dataFiles.boundaries)),
+      ]
+
+      const optional = [
+        dataFiles.aquaculture ? optionalFetch(dataPath(country, dataFiles.aquaculture)) : Promise.resolve(null),
+        dataFiles.processing ? optionalFetch(dataPath(country, dataFiles.processing)) : Promise.resolve(null),
+        dataFiles.ports ? optionalFetch(dataPath(country, dataFiles.ports)) : Promise.resolve(null),
+        dataFiles.logistics ? optionalFetch(dataPath(country, dataFiles.logistics)) : Promise.resolve(null),
+      ]
+
+      Promise.all([...required, ...optional])
+        .then(([storesData, municipalitiesData, geojsonData, aquaData, plantData, portData, hubData]) => {
+          setStores(storesData)
+          setMunicipalities(municipalitiesData)
+          setGeojson(geojsonData)
+          if (aquaData) setAquacultureSites(parseAquacultureSites(aquaData))
+          if (plantData) setProcessingPlants(parseProcessingPlants(plantData))
+          if (portData) setPorts(parsePorts(portData))
+          if (hubData) setLogisticsHubs(parseLogisticsHubs(hubData))
+          setIsLoading(false)
+        })
+        .catch(err => {
+          console.error('Failed to load map data:', err)
+          setError(err.message)
+          setIsLoading(false)
+        })
+    }).catch(err => {
+      console.error('Failed to load country config:', err)
+      setError(err.message)
+      setIsLoading(false)
+    })
+  }, [country])
 
   const municipalityMetrics = useMemo(() => {
-    if (!stores.length || !geojson || !Object.keys(municipalities).length) return {}
+    if (!stores.length || !geojson || !Object.keys(municipalities).length || !countryConfig) return {}
 
-    const storesByMuni = assignStoresToMunicipalities(stores, geojson)
+    const storesByMuni = assignStoresToMunicipalities(stores, geojson, countryConfig.municipalityIdProp)
     const result: Record<string, MunicipalityMetrics> = {}
 
     for (const [code, muni] of Object.entries(municipalities)) {
@@ -181,12 +222,19 @@ export function MapProvider({ children }: { children: ReactNode }) {
     }
 
     return result
-  }, [stores, municipalities, geojson])
+  }, [stores, municipalities, geojson, countryConfig])
 
   const vulnerabilityScores = useMemo(() => {
-    if (!Object.keys(municipalityMetrics).length || !logisticsHubs.length || !geojson) return {}
-    return calculateVulnerabilityScores(municipalities, municipalityMetrics, logisticsHubs, geojson)
-  }, [municipalities, municipalityMetrics, logisticsHubs, geojson])
+    if (!Object.keys(municipalityMetrics).length || !logisticsHubs.length || !geojson || !countryConfig) return {}
+    return calculateVulnerabilityScores(
+      municipalities,
+      municipalityMetrics,
+      logisticsHubs,
+      geojson,
+      countryConfig.selfSufficiency,
+      countryConfig.municipalityIdProp
+    )
+  }, [municipalities, municipalityMetrics, logisticsHubs, geojson, countryConfig])
 
   const toggleLayer = useCallback((layer: MapLayer) => {
     setActiveLayers(prev =>
@@ -196,7 +244,7 @@ export function MapProvider({ children }: { children: ReactNode }) {
     )
   }, [])
 
-  const toggleChain = useCallback((chain: ChainId) => {
+  const toggleChain = useCallback((chain: string) => {
     setActiveChains(prev =>
       prev.includes(chain)
         ? prev.filter(c => c !== chain)
@@ -207,6 +255,8 @@ export function MapProvider({ children }: { children: ReactNode }) {
   const value = useMemo(() => ({
     isLoading,
     error,
+    country,
+    countryConfig,
     stores,
     municipalities,
     geojson,
@@ -223,7 +273,7 @@ export function MapProvider({ children }: { children: ReactNode }) {
     selectedMunicipality,
     setSelectedMunicipality,
   }), [
-    isLoading, error, stores, municipalities, geojson,
+    isLoading, error, country, countryConfig, stores, municipalities, geojson,
     activeLayers, toggleLayer, activeChains, toggleChain,
     aquacultureSites, processingPlants, ports, logisticsHubs,
     municipalityMetrics, vulnerabilityScores, selectedMunicipality,

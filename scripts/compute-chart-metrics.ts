@@ -1,8 +1,6 @@
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import { bbox as turfBbox, booleanPointInPolygon, point } from '@turf/turf'
-
-const DATA_DIR = join(__dirname, '..', 'public', 'data', 'food-systems')
 
 type Store = {
   id: string
@@ -18,42 +16,63 @@ type Municipality = {
   area: number
 }
 
-const CHAIN_PARENTS: Record<string, string> = {
-  rema: 'Reitangruppen',
-  kiwi: 'NorgesGruppen',
-  extra: 'Coop Norge',
-  'coop-prix': 'Coop Norge',
-  bunnpris: 'Bunnpris AS',
-  joker: 'NorgesGruppen',
-  spar: 'NorgesGruppen',
-  meny: 'NorgesGruppen',
-  'coop-mega': 'Coop Norge',
-  'coop-marked': 'Coop Norge',
-  naerbutikken: 'NorgesGruppen',
-  matkroken: 'NorgesGruppen',
-  obs: 'Coop Norge',
+type CountryDef = {
+  dataDir: string
+  storesFile: string
+  municipalitiesFile: string
+  boundariesFile: string
+  municipalityIdProp: string
+  chainParents: Record<string, string>
+  parentColors: Record<string, string>
 }
 
-const PARENT_COLORS: Record<string, string> = {
-  NorgesGruppen: '#1565C0',
-  'Coop Norge': '#E30613',
-  Reitangruppen: '#4CAF50',
-  'Bunnpris AS': '#E91E63',
+const BASE_DIR = join(__dirname, '..', 'public', 'data', 'food-systems')
+
+const COUNTRIES: Record<string, CountryDef> = {
+  no: {
+    dataDir: join(BASE_DIR, 'no'),
+    storesFile: 'stores.json',
+    municipalitiesFile: 'municipalities.json',
+    boundariesFile: 'norway-municipalities.geojson',
+    municipalityIdProp: 'kommunenummer',
+    chainParents: {
+      rema: 'Reitangruppen',
+      kiwi: 'NorgesGruppen',
+      extra: 'Coop Norge',
+      'coop-prix': 'Coop Norge',
+      bunnpris: 'Bunnpris AS',
+      joker: 'NorgesGruppen',
+      spar: 'NorgesGruppen',
+      meny: 'NorgesGruppen',
+      'coop-mega': 'Coop Norge',
+      'coop-marked': 'Coop Norge',
+      naerbutikken: 'NorgesGruppen',
+      matkroken: 'NorgesGruppen',
+      obs: 'Coop Norge',
+    },
+    parentColors: {
+      NorgesGruppen: '#1565C0',
+      'Coop Norge': '#E30613',
+      Reitangruppen: '#4CAF50',
+      'Bunnpris AS': '#E91E63',
+    },
+  },
 }
 
-function loadJson<T>(filename: string): T {
-  return JSON.parse(readFileSync(join(DATA_DIR, filename), 'utf-8'))
+function loadJson<T>(dir: string, filename: string): T {
+  return JSON.parse(readFileSync(join(dir, filename), 'utf-8'))
 }
 
 function assignStoresToMunicipalities(
   stores: Store[],
-  geojson: GeoJSON.FeatureCollection
+  geojson: GeoJSON.FeatureCollection,
+  municipalityIdProp: string
 ): Record<string, Store[]> {
   const result: Record<string, Store[]> = {}
 
   const features = geojson.features
     .map(f => {
-      const code = f.properties?.kommunenummer as string
+      const code = f.properties?.[municipalityIdProp] as string
       if (!code) return null
       const b = turfBbox(f)
       return { code, feature: f, bbox: b }
@@ -102,25 +121,36 @@ function linearRegression(x: number[], y: number[]): { slope: number; intercept:
   return { slope, intercept, rSquared }
 }
 
-function main() {
+function computeForCountry(countryCode: string) {
+  const def = COUNTRIES[countryCode]
+  if (!def) {
+    console.error(`Unknown country: ${countryCode}. Available: ${Object.keys(COUNTRIES).join(', ')}`)
+    process.exit(1)
+  }
+
+  if (!existsSync(def.dataDir)) {
+    console.error(`Data directory not found: ${def.dataDir}`)
+    process.exit(1)
+  }
+
+  console.log(`\n=== Computing metrics for ${countryCode.toUpperCase()} ===`)
   console.log('Loading data...')
-  const stores = loadJson<Store[]>('stores.json')
-  const municipalitiesRaw = loadJson<Record<string, Municipality>>('municipalities.json')
-  const geojson = loadJson<GeoJSON.FeatureCollection>('norway-municipalities.geojson')
+  const stores = loadJson<Store[]>(def.dataDir, def.storesFile)
+  const municipalitiesRaw = loadJson<Record<string, Municipality>>(def.dataDir, def.municipalitiesFile)
+  const geojson = loadJson<GeoJSON.FeatureCollection>(def.dataDir, def.boundariesFile)
 
   console.log(`Loaded ${stores.length} stores, ${Object.keys(municipalitiesRaw).length} municipalities`)
 
   console.log('Running PIP assignment...')
-  const storesByMuni = assignStoresToMunicipalities(stores, geojson)
+  const storesByMuni = assignStoresToMunicipalities(stores, geojson, def.municipalityIdProp)
 
   const assignedCount = Object.values(storesByMuni).reduce((sum, s) => sum + s.length, 0)
   console.log(`Assigned ${assignedCount}/${stores.length} stores to municipalities`)
 
-  // --- Parent Company ---
   console.log('Computing parent company shares...')
   const parentCounts = new Map<string, number>()
   for (const store of stores) {
-    const parent = CHAIN_PARENTS[store.chainId] || 'Unknown'
+    const parent = def.chainParents[store.chainId] || 'Unknown'
     parentCounts.set(parent, (parentCounts.get(parent) || 0) + 1)
   }
 
@@ -130,7 +160,7 @@ function main() {
       label: parent,
       value: Math.round((count / stores.length) * 1000) / 10,
       count,
-      color: PARENT_COLORS[parent] || '#6B7280',
+      color: def.parentColors[parent] || '#6B7280',
     }))
     .sort((a, b) => b.count - a.count)
 
@@ -139,7 +169,6 @@ function main() {
   console.log('Parent shares:', byParent.map(p => `${p.id}: ${p.value}% (${p.count})`).join(', '))
   console.log('Parent HHI:', Math.round(parentHHI))
 
-  // --- Municipality store counts for Lorenz/Zipf ---
   const muniStoreData: Array<{ code: string; name: string; population: number; storeCount: number }> = []
 
   for (const [code, muni] of Object.entries(municipalitiesRaw)) {
@@ -153,7 +182,6 @@ function main() {
     })
   }
 
-  // --- Zipf Distribution ---
   console.log('Computing Zipf distribution...')
   const zipfData = muniStoreData
     .filter(m => m.storeCount > 0)
@@ -175,7 +203,6 @@ function main() {
 
   console.log(`Zipf: slope=${slope.toFixed(3)}, R²=${rSquared.toFixed(3)}, isZipf=${isZipf}`)
 
-  // --- Lorenz Curve ---
   console.log('Computing Lorenz curve...')
   const lorenzInput = muniStoreData
     .filter(m => m.population > 0)
@@ -202,7 +229,6 @@ function main() {
     })
   }
 
-  // Sample ~20 points for the chart
   const lorenzCurve: Array<{ popShare: number; storeShare: number }> = []
   for (let pct = 0; pct <= 100; pct += 5) {
     const target = pct / 100
@@ -215,7 +241,6 @@ function main() {
     })
   }
 
-  // Gini from Lorenz curve (trapezoidal area)
   let areaUnderLorenz = 0
   for (let i = 1; i < lorenzCurveRaw.length; i++) {
     const dx = lorenzCurveRaw[i].cumulativePopShare - lorenzCurveRaw[i - 1].cumulativePopShare
@@ -226,9 +251,9 @@ function main() {
 
   console.log(`Lorenz: Gini=${gini}, ${lorenzCurve.length} chart points`)
 
-  // --- Build output ---
   const output = {
     generated: new Date().toISOString(),
+    country: countryCode,
     totalStores: stores.length,
     parentCompany: {
       data: byParent,
@@ -253,9 +278,22 @@ function main() {
     },
   }
 
-  const outPath = join(DATA_DIR, 'chart-metrics.json')
+  const outPath = join(def.dataDir, 'chart-metrics.json')
   writeFileSync(outPath, JSON.stringify(output, null, 2))
-  console.log(`\nWrote ${outPath}`)
+  console.log(`Wrote ${outPath}`)
+}
+
+function main() {
+  const countryArg = process.argv.find(a => a.startsWith('--country='))
+  const country = countryArg ? countryArg.split('=')[1] : 'no'
+
+  if (country === 'all') {
+    for (const code of Object.keys(COUNTRIES)) {
+      computeForCountry(code)
+    }
+  } else {
+    computeForCountry(country)
+  }
 }
 
 main()

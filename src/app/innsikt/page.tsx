@@ -14,6 +14,7 @@ import { LorenzCurveChart } from '@/components/charts/LorenzCurveChart'
 import { ZipfDistributionChart } from '@/components/charts/ZipfDistributionChart'
 import { FoodFlowSankey } from '@/components/charts/FoodFlowSankey'
 import { ParentCompanyChart } from '@/components/charts/ParentCompanyChart'
+import { COUNTRY_LIST, type CountryCode } from '@/lib/config/countries'
 
 const typeFilters = [
   { label: 'Alle', value: 'alle' },
@@ -26,6 +27,7 @@ const typeFilters = [
 
 export default function InnsiktPage() {
   const [typeFilter, setTypeFilter] = useState('alle')
+  const [country, setCountry] = useState<CountryCode>('no')
 
   const filtered = insights.filter(i =>
     typeFilter === 'alle' || i.type === typeFilter
@@ -33,9 +35,28 @@ export default function InnsiktPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-stone-900">Innsikt</h1>
-        <p className="text-sm text-stone-400 mt-1">Forskning, kartlegging og analyse</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-stone-900">Innsikt</h1>
+          <p className="text-sm text-stone-400 mt-1">Forskning, kartlegging og analyse</p>
+        </div>
+        <div className="flex gap-1 bg-white rounded-lg border border-stone-200 p-1">
+          {COUNTRY_LIST.map(({ code, name, flag }) => (
+            <button
+              key={code}
+              onClick={() => setCountry(code)}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-md text-sm transition-colors ${
+                code === country
+                  ? 'bg-emerald-50 text-emerald-700 font-medium'
+                  : 'text-stone-500 hover:bg-stone-50 hover:text-stone-700'
+              }`}
+              title={name}
+            >
+              <span>{flag}</span>
+              <span className="hidden md:inline">{name}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -45,9 +66,9 @@ export default function InnsiktPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <LorenzCurveChart />
-        <ZipfDistributionChart />
-        <ParentCompanyChart />
+        <LorenzCurveChart country={country} />
+        <ZipfDistributionChart country={country} />
+        <ParentCompanyChart country={country} />
         <FoodFlowSankey />
       </div>
 
