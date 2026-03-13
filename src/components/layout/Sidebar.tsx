@@ -34,6 +34,7 @@ const navGroups = [
       { name: 'Masteroppgaver', href: '/masteroppgaver', description: 'Syntese og stikkord' },
       { name: 'Kart', href: '/kart', description: 'Butikker og kommunegrenser' },
       { name: 'Sammenligning', href: '/sammenligning', description: 'Nordisk sammenligning' },
+      { name: 'Graf', href: '/graf', description: 'Kunnskapsgraf og koblinger' },
     ],
   },
   {
@@ -41,6 +42,8 @@ const navGroups = [
     items: [
       { name: 'Kilder', href: '/kilder', description: 'Dokumenter og referanser' },
       { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
+      { name: 'Selskaper', href: '/selskap', description: 'Selskapsdata og regnskap' },
+      { name: 'Sok', href: '/sok', description: 'Sok pa tvers av alt' },
     ],
   },
 ]

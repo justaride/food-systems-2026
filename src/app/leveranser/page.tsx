@@ -1,10 +1,14 @@
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
-import { deliverables } from '@/lib/data/deliverables'
-import { tasks } from '@/lib/data/tasks'
-import { phases } from '@/lib/data/phases'
+import { getDeliverables, getTasks, getPhases } from '@/lib/queries/project'
 
-export default function LeveranserPage() {
+export default async function LeveranserPage() {
+  const [deliverables, tasks, phases] = await Promise.all([
+    getDeliverables(),
+    getTasks(),
+    getPhases(),
+  ])
+
   return (
     <div className="space-y-6">
       <div>

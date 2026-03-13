@@ -2,13 +2,17 @@ import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { StepCard } from '@/components/ui/StepCard'
 import { KpiCard } from '@/components/ui/KpiCard'
-import { tenSteps } from '@/lib/data/ten-step-start'
-import { kpis } from '@/lib/data/kpis'
-import { evidencePack } from '@/lib/data/evidence-pack'
+import { getTenSteps, getKpis, getEvidenceDocs } from '@/lib/queries/project'
 import { CausalLoopDiagram } from '@/components/charts/CausalLoopDiagram'
 import { EmergenceVisualization } from '@/components/charts/EmergenceVisualization'
 
-export default function MetodikkPage() {
+export default async function MetodikkPage() {
+  const [tenSteps, kpis, evidencePack] = await Promise.all([
+    getTenSteps(),
+    getKpis(),
+    getEvidenceDocs(),
+  ])
+
   return (
     <div className="space-y-6">
       <div>

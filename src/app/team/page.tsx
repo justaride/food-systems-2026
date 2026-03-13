@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
-import { team } from '@/lib/data/team'
+import { getTeam } from '@/lib/queries/project'
 import type { TeamRole } from '@/lib/types'
 
 const ROLE_ORDER: TeamRole[] = ['lead', 'ceo', 'project-leader', 'team', 'partner']
@@ -28,7 +28,9 @@ const groups = [
   { label: 'Partnere', roles: ['partner'] as TeamRole[] },
 ]
 
-export default function TeamPage() {
+export default async function TeamPage() {
+  const team = await getTeam()
+
   return (
     <div className="space-y-6">
       <div>
@@ -38,8 +40,8 @@ export default function TeamPage() {
 
       {groups.map(group => {
         const members = team
-          .filter(m => group.roles.includes(m.role))
-          .sort((a, b) => ROLE_ORDER.indexOf(a.role) - ROLE_ORDER.indexOf(b.role))
+          .filter(m => group.roles.includes(m.role as TeamRole))
+          .sort((a, b) => ROLE_ORDER.indexOf(a.role as TeamRole) - ROLE_ORDER.indexOf(b.role as TeamRole))
 
         if (members.length === 0) return null
 
@@ -57,8 +59,8 @@ export default function TeamPage() {
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
                       <h4 className="text-sm font-medium text-stone-800">{member.name}</h4>
-                      <span className={ROLE_BADGE[member.role]}>
-                        {ROLE_LABELS[member.role]}
+                      <span className={ROLE_BADGE[member.role as TeamRole]}>
+                        {ROLE_LABELS[member.role as TeamRole]}
                       </span>
                     </div>
                     <p className="text-xs text-stone-500 mt-0.5">{member.title}</p>
