@@ -38,6 +38,7 @@
   "exclude": [
     "node_modules",
     "research/**/*",
-    "food-systems-2026/**/*"
+    "food-systems-2026/**/*",
+    "scripts/**/*"
   ]
 }
