@@ -249,10 +249,17 @@ Kjente relevante oppgaver:
 
 | # | Forfatter | Tittel | År | Status |
 |---|-----------|--------|----|--------|
-| 1 | Nguyen & Hartmann | Restrictive covenants in the Norwegian grocery market | 2024 | [ ] |
-| 2 | Dräger & Vågene | Markedskonsentrasjon i Skandinavia | 2017 | [ ] |
-| 3 | Martens & Norum | Importvernets påvirkning på konsentrasjonen i leverandørleddet | ~2020 | [ ] |
-| 4 | (ukjent) | Det norske dagligvaremarkedet: relasjoner mellom detaljist og produsent | ~2015 | [ ] |
+| 1 | Nguyen & Hartmann | Restrictive covenants in the Norwegian grocery market | 2024 | [x] |
+| 2 | Dräger & Vågene | Markedskonsentrasjon i Skandinavia | 2017 | [x] |
+| 3 | Martens & Norum | Importvernets påvirkning på konsentrasjonen i leverandørleddet | 2020 | [x] |
+| 4 | Barbakken & Hausken | Det norske dagligvaremarkedet: relasjoner mellom detaljist og produsent | 2006 | [x] |
+| 5 | Fretheim & Rodnova | Etableringshindringer i dagligvaremarkedet | 2020 | [x] |
+| 6 | Selmani & Førre | Hvorfor mislyktes Lidl i Norge? | 2023 | [x] |
+| 7 | Skulstad & Svensson | ICAs fall i Norge | 2024 | [x] |
+| 8 | Sandanger | EMV og horisontal konkurranse | 2012 | [x] |
+| 9 | Skjervheim Bernes & Flo | Paraplykjedenes overtakelse av distribusjonen | 2016 | [x] |
+| 10 | Meile | Uniform Pricing in Norwegian Grocery Retail | 2020 | [x] |
+| 11 | Nilsen & Paulsen | Pass-through av råvarepriser (kakao/kaffe) | 2025 | [x] |
 
 **Søkestrenger:**
 - "dagligvare" / "grocery" / "matmarked"
@@ -280,17 +287,19 @@ Se også:
 - UiB Institutt for økonomi — industriell organisasjon
 - NTNU — logistikk og verdikjedestyring i matbransjen
 
+**Søk gjennomført:** 13. mars 2026. Funnet: Gangstøe (UiB/BECCLE, 2019) om hemmelige kontrakter. I tillegg identifisert ~25 oppgaver fra UiO, UiB/BECCLE, NTNU og NMBU — se `research/nordic-theses-bibliography.md` for komplett liste.
+
 **Lagres i:** `research/bibliotek/akademia/andre-norske/`
 
 ### 4F: Nordiske universiteter
 
 | # | Universitet | Relevant fagmiljø | Søk i | Status |
 |---|------------|-------------------|-------|--------|
-| 1 | **Copenhagen Business School** | Competition economics | CBS Research Portal | [ ] |
-| 2 | **SLU (Sveriges lantbruksuniversitet)** | Livsmedelssystem | SLU Epsilon | [ ] |
-| 3 | **Lund University** | Food systems, competition | LUP Student Papers | [ ] |
-| 4 | **University of Helsinki** | Agricultural economics | HELDA | [ ] |
-| 5 | **Aalto University** | Business, food innovation | Aaltodoc | [ ] |
+| 1 | **Copenhagen Business School** | Competition economics | CBS Research Portal | [x] |
+| 2 | **SLU (Sveriges lantbruksuniversitet)** | Livsmedelssystem | SLU Epsilon | [x] |
+| 3 | **Lund University** | Food systems, competition | LUP Student Papers | [x] |
+| 4 | **University of Helsinki** | Agricultural economics | HELDA | [x] |
+| 5 | **Aalto University** | Business, food innovation | Aaltodoc | [x] |
 
 **Søkestrenger:**
 - "grocery market concentration Nordic"
