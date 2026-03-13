@@ -60,16 +60,16 @@ export default function InnsiktPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <SelfSufficiencyChart />
-        <MarginsChart />
-        <MarketShareChart />
+        <SelfSufficiencyChart country={country} />
+        <MarginsChart country={country} />
+        <MarketShareChart country={country} />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <LorenzCurveChart country={country} />
         <ZipfDistributionChart country={country} />
         <ParentCompanyChart country={country} />
-        <FoodFlowSankey />
+        <FoodFlowSankey country={country} />
       </div>
 
       <FilterChips items={typeFilters} defaultValue="alle" onChange={setTypeFilter} />

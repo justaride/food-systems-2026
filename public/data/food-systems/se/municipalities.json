@@ -1,0 +1,1742 @@
+{
+  "1060": {
+    "code": "1060",
+    "name": "Olofström",
+    "population": 15720,
+    "area": 514
+  },
+  "1080": {
+    "code": "1080",
+    "name": "Karlskrona",
+    "population": 47490,
+    "area": 561
+  },
+  "1081": {
+    "code": "1081",
+    "name": "Ronneby",
+    "population": 16610,
+    "area": 371
+  },
+  "1082": {
+    "code": "1082",
+    "name": "Karlshamn",
+    "population": 45980,
+    "area": 536
+  },
+  "1083": {
+    "code": "1083",
+    "name": "Sölvesborg",
+    "population": 16420,
+    "area": 418
+  },
+  "1214": {
+    "code": "1214",
+    "name": "Svalöv",
+    "population": 12710,
+    "area": 427
+  },
+  "1230": {
+    "code": "1230",
+    "name": "Staffanstorp",
+    "population": 25260,
+    "area": 561
+  },
+  "1231": {
+    "code": "1231",
+    "name": "Burlöv",
+    "population": 25190,
+    "area": 323
+  },
+  "1233": {
+    "code": "1233",
+    "name": "Vellinge",
+    "population": 11070,
+    "area": 313
+  },
+  "1256": {
+    "code": "1256",
+    "name": "Östra Göinge",
+    "population": 16930,
+    "area": 261
+  },
+  "1257": {
+    "code": "1257",
+    "name": "Örkelljunga",
+    "population": 14540,
+    "area": 198
+  },
+  "1260": {
+    "code": "1260",
+    "name": "Bjuv",
+    "population": 18050,
+    "area": 236
+  },
+  "1261": {
+    "code": "1261",
+    "name": "Kävlinge",
+    "population": 22330,
+    "area": 398
+  },
+  "1262": {
+    "code": "1262",
+    "name": "Lomma",
+    "population": 40630,
+    "area": 422
+  },
+  "1263": {
+    "code": "1263",
+    "name": "Svedala",
+    "population": 15130,
+    "area": 131
+  },
+  "1264": {
+    "code": "1264",
+    "name": "Skurup",
+    "population": 12550,
+    "area": 163
+  },
+  "1265": {
+    "code": "1265",
+    "name": "Sjöbo",
+    "population": 13440,
+    "area": 388
+  },
+  "1266": {
+    "code": "1266",
+    "name": "Hörby",
+    "population": 14130,
+    "area": 217
+  },
+  "1267": {
+    "code": "1267",
+    "name": "Höör",
+    "population": 7920,
+    "area": 195
+  },
+  "1270": {
+    "code": "1270",
+    "name": "Tomelilla",
+    "population": 18470,
+    "area": 316
+  },
+  "1272": {
+    "code": "1272",
+    "name": "Bromölla",
+    "population": 14710,
+    "area": 264
+  },
+  "1273": {
+    "code": "1273",
+    "name": "Osby",
+    "population": 22810,
+    "area": 395
+  },
+  "1275": {
+    "code": "1275",
+    "name": "Perstorp",
+    "population": 10640,
+    "area": 278
+  },
+  "1276": {
+    "code": "1276",
+    "name": "Klippan",
+    "population": 12240,
+    "area": 339
+  },
+  "1277": {
+    "code": "1277",
+    "name": "Åstorp",
+    "population": 8210,
+    "area": 183
+  },
+  "1278": {
+    "code": "1278",
+    "name": "Båstad",
+    "population": 10920,
+    "area": 267
+  },
+  "1280": {
+    "code": "1280",
+    "name": "Malmö",
+    "population": 350647,
+    "area": 149
+  },
+  "1281": {
+    "code": "1281",
+    "name": "Lund",
+    "population": 48105,
+    "area": 44
+  },
+  "1282": {
+    "code": "1282",
+    "name": "Landskrona",
+    "population": 32650,
+    "area": 81
+  },
+  "1283": {
+    "code": "1283",
+    "name": "Helsingborg",
+    "population": 116850,
+    "area": 194
+  },
+  "1284": {
+    "code": "1284",
+    "name": "Höganäs",
+    "population": 26560,
+    "area": 107
+  },
+  "1285": {
+    "code": "1285",
+    "name": "Eslöv",
+    "population": 24250,
+    "area": 219
+  },
+  "1286": {
+    "code": "1286",
+    "name": "Ystad",
+    "population": 14960,
+    "area": 149
+  },
+  "1287": {
+    "code": "1287",
+    "name": "Trelleborg",
+    "population": 18640,
+    "area": 113
+  },
+  "1290": {
+    "code": "1290",
+    "name": "Kristianstad",
+    "population": 25430,
+    "area": 260
+  },
+  "1291": {
+    "code": "1291",
+    "name": "Simrishamn",
+    "population": 18710,
+    "area": 290
+  },
+  "1292": {
+    "code": "1292",
+    "name": "Ängelholm",
+    "population": 47550,
+    "area": 313
+  },
+  "1293": {
+    "code": "1293",
+    "name": "Hässleholm",
+    "population": 18190,
+    "area": 264
+  },
+  "1315": {
+    "code": "1315",
+    "name": "Hylte",
+    "population": 17060,
+    "area": 1302
+  },
+  "1380": {
+    "code": "1380",
+    "name": "Halmstad",
+    "population": 71380,
+    "area": 962
+  },
+  "1381": {
+    "code": "1381",
+    "name": "Laholm",
+    "population": 31100,
+    "area": 618
+  },
+  "1382": {
+    "code": "1382",
+    "name": "Falkenberg",
+    "population": 32370,
+    "area": 528
+  },
+  "1383": {
+    "code": "1383",
+    "name": "Varberg",
+    "population": 14750,
+    "area": 1200
+  },
+  "1384": {
+    "code": "1384",
+    "name": "Kungsbacka",
+    "population": 20310,
+    "area": 949
+  },
+  "1401": {
+    "code": "1401",
+    "name": "Härryda",
+    "population": 45370,
+    "area": 479
+  },
+  "1402": {
+    "code": "1402",
+    "name": "Partille",
+    "population": 61010,
+    "area": 711
+  },
+  "1407": {
+    "code": "1407",
+    "name": "Öckerö",
+    "population": 68940,
+    "area": 501
+  },
+  "1415": {
+    "code": "1415",
+    "name": "Stenungsund",
+    "population": 23690,
+    "area": 604
+  },
+  "1419": {
+    "code": "1419",
+    "name": "Tjörn",
+    "population": 40100,
+    "area": 514
+  },
+  "1421": {
+    "code": "1421",
+    "name": "Orust",
+    "population": 14380,
+    "area": 1437
+  },
+  "1427": {
+    "code": "1427",
+    "name": "Sotenäs",
+    "population": 10180,
+    "area": 728
+  },
+  "1430": {
+    "code": "1430",
+    "name": "Munkedal",
+    "population": 11980,
+    "area": 1040
+  },
+  "1435": {
+    "code": "1435",
+    "name": "Tanum",
+    "population": 10080,
+    "area": 1321
+  },
+  "1438": {
+    "code": "1438",
+    "name": "Dals-Ed",
+    "population": 14150,
+    "area": 843
+  },
+  "1439": {
+    "code": "1439",
+    "name": "Färgelanda",
+    "population": 9400,
+    "area": 744
+  },
+  "1440": {
+    "code": "1440",
+    "name": "Ale",
+    "population": 58270,
+    "area": 646
+  },
+  "1441": {
+    "code": "1441",
+    "name": "Lerum",
+    "population": 24570,
+    "area": 780
+  },
+  "1442": {
+    "code": "1442",
+    "name": "Vårgårda",
+    "population": 15460,
+    "area": 741
+  },
+  "1443": {
+    "code": "1443",
+    "name": "Bollebygd",
+    "population": 8520,
+    "area": 466
+  },
+  "1444": {
+    "code": "1444",
+    "name": "Grästorp",
+    "population": 22000,
+    "area": 430
+  },
+  "1445": {
+    "code": "1445",
+    "name": "Essunga",
+    "population": 14090,
+    "area": 1130
+  },
+  "1446": {
+    "code": "1446",
+    "name": "Karlsborg",
+    "population": 22890,
+    "area": 671
+  },
+  "1447": {
+    "code": "1447",
+    "name": "Gullspång",
+    "population": 15330,
+    "area": 602
+  },
+  "1452": {
+    "code": "1452",
+    "name": "Tranemo",
+    "population": 14380,
+    "area": 621
+  },
+  "1460": {
+    "code": "1460",
+    "name": "Bengtsfors",
+    "population": 12150,
+    "area": 680
+  },
+  "1461": {
+    "code": "1461",
+    "name": "Mellerud",
+    "population": 27640,
+    "area": 671
+  },
+  "1462": {
+    "code": "1462",
+    "name": "Lilla Edet",
+    "population": 53240,
+    "area": 485
+  },
+  "1463": {
+    "code": "1463",
+    "name": "Mark",
+    "population": 42580,
+    "area": 352
+  },
+  "1465": {
+    "code": "1465",
+    "name": "Svenljunga",
+    "population": 10700,
+    "area": 450
+  },
+  "1466": {
+    "code": "1466",
+    "name": "Herrljunga",
+    "population": 9190,
+    "area": 613
+  },
+  "1470": {
+    "code": "1470",
+    "name": "Vara",
+    "population": 10860,
+    "area": 539
+  },
+  "1471": {
+    "code": "1471",
+    "name": "Götene",
+    "population": 579281,
+    "area": 450
+  },
+  "1472": {
+    "code": "1472",
+    "name": "Tibro",
+    "population": 10640,
+    "area": 495
+  },
+  "1473": {
+    "code": "1473",
+    "name": "Töreboda",
+    "population": 23400,
+    "area": 299
+  },
+  "1480": {
+    "code": "1480",
+    "name": "Göteborg",
+    "population": 587549,
+    "area": 450
+  },
+  "1481": {
+    "code": "1481",
+    "name": "Mölndal",
+    "population": 105264,
+    "area": 274
+  },
+  "1482": {
+    "code": "1482",
+    "name": "Kungälv",
+    "population": 68230,
+    "area": 330
+  },
+  "1484": {
+    "code": "1484",
+    "name": "Lysekil",
+    "population": 43490,
+    "area": 298
+  },
+  "1485": {
+    "code": "1485",
+    "name": "Uddevalla",
+    "population": 56260,
+    "area": 356
+  },
+  "1486": {
+    "code": "1486",
+    "name": "Strömstad",
+    "population": 22950,
+    "area": 253
+  },
+  "1487": {
+    "code": "1487",
+    "name": "Vänersborg",
+    "population": 34190,
+    "area": 305
+  },
+  "1488": {
+    "code": "1488",
+    "name": "Trollhättan",
+    "population": 69190,
+    "area": 362
+  },
+  "1489": {
+    "code": "1489",
+    "name": "Alingsås",
+    "population": 46390,
+    "area": 445
+  },
+  "1490": {
+    "code": "1490",
+    "name": "Borås",
+    "population": 42280,
+    "area": 683
+  },
+  "1491": {
+    "code": "1491",
+    "name": "Ulricehamn",
+    "population": 21300,
+    "area": 459
+  },
+  "1492": {
+    "code": "1492",
+    "name": "Åmål",
+    "population": 10720,
+    "area": 407
+  },
+  "1493": {
+    "code": "1493",
+    "name": "Mariestad",
+    "population": 53650,
+    "area": 692
+  },
+  "1494": {
+    "code": "1494",
+    "name": "Lidköping",
+    "population": 10930,
+    "area": 485
+  },
+  "1495": {
+    "code": "1495",
+    "name": "Skara",
+    "population": 55530,
+    "area": 378
+  },
+  "1496": {
+    "code": "1496",
+    "name": "Skövde",
+    "population": 42910,
+    "area": 464
+  },
+  "1497": {
+    "code": "1497",
+    "name": "Hjo",
+    "population": 27690,
+    "area": 492
+  },
+  "1498": {
+    "code": "1498",
+    "name": "Tidaholm",
+    "population": 33170,
+    "area": 413
+  },
+  "1499": {
+    "code": "1499",
+    "name": "Falköping",
+    "population": 20770,
+    "area": 467
+  },
+  "1715": {
+    "code": "1715",
+    "name": "Kil",
+    "population": 8120,
+    "area": 2076
+  },
+  "1730": {
+    "code": "1730",
+    "name": "Eda",
+    "population": 8360,
+    "area": 3036
+  },
+  "1737": {
+    "code": "1737",
+    "name": "Torsby",
+    "population": 11420,
+    "area": 1568
+  },
+  "1760": {
+    "code": "1760",
+    "name": "Storfors",
+    "population": 25040,
+    "area": 5360
+  },
+  "1761": {
+    "code": "1761",
+    "name": "Hammarö",
+    "population": 13470,
+    "area": 2755
+  },
+  "1762": {
+    "code": "1762",
+    "name": "Munkfors",
+    "population": 11250,
+    "area": 2403
+  },
+  "1763": {
+    "code": "1763",
+    "name": "Forshaga",
+    "population": 24050,
+    "area": 2133
+  },
+  "1764": {
+    "code": "1764",
+    "name": "Grums",
+    "population": 5850,
+    "area": 3564
+  },
+  "1765": {
+    "code": "1765",
+    "name": "Årjäng",
+    "population": 5820,
+    "area": 3030
+  },
+  "1766": {
+    "code": "1766",
+    "name": "Sunne",
+    "population": 7300,
+    "area": 2223
+  },
+  "1780": {
+    "code": "1780",
+    "name": "Karlstad",
+    "population": 28380,
+    "area": 2260
+  },
+  "1781": {
+    "code": "1781",
+    "name": "Kristinehamn",
+    "population": 63560,
+    "area": 2143
+  },
+  "1782": {
+    "code": "1782",
+    "name": "Filipstad",
+    "population": 12810,
+    "area": 1745
+  },
+  "1783": {
+    "code": "1783",
+    "name": "Hagfors",
+    "population": 8500,
+    "area": 2449
+  },
+  "1784": {
+    "code": "1784",
+    "name": "Arvika",
+    "population": 14610,
+    "area": 1503
+  },
+  "1785": {
+    "code": "1785",
+    "name": "Säffle",
+    "population": 59870,
+    "area": 2223
+  },
+  "1814": {
+    "code": "1814",
+    "name": "Lekeberg",
+    "population": 7510,
+    "area": 6800
+  },
+  "1860": {
+    "code": "1860",
+    "name": "Laxå",
+    "population": 15260,
+    "area": 3543
+  },
+  "1861": {
+    "code": "1861",
+    "name": "Hallsberg",
+    "population": 8250,
+    "area": 4463
+  },
+  "1862": {
+    "code": "1862",
+    "name": "Degerfors",
+    "population": 12640,
+    "area": 3085
+  },
+  "1863": {
+    "code": "1863",
+    "name": "Hällefors",
+    "population": 5630,
+    "area": 3295
+  },
+  "1864": {
+    "code": "1864",
+    "name": "Ljusnarsberg",
+    "population": 8690,
+    "area": 2785
+  },
+  "1880": {
+    "code": "1880",
+    "name": "Örebro",
+    "population": 63479,
+    "area": 4259
+  },
+  "1881": {
+    "code": "1881",
+    "name": "Kumla",
+    "population": 14450,
+    "area": 1846
+  },
+  "1882": {
+    "code": "1882",
+    "name": "Askersund",
+    "population": 8820,
+    "area": 2361
+  },
+  "1883": {
+    "code": "1883",
+    "name": "Karlskoga",
+    "population": 15220,
+    "area": 3268
+  },
+  "1884": {
+    "code": "1884",
+    "name": "Nora",
+    "population": 7320,
+    "area": 4338
+  },
+  "1885": {
+    "code": "1885",
+    "name": "Lindesberg",
+    "population": 7520,
+    "area": 6427
+  },
+  "1904": {
+    "code": "1904",
+    "name": "Skinnskatteberg",
+    "population": 7280,
+    "area": 4351
+  },
+  "1907": {
+    "code": "1907",
+    "name": "Surahammar",
+    "population": 18460,
+    "area": 3599
+  },
+  "1960": {
+    "code": "1960",
+    "name": "Kungsör",
+    "population": 7040,
+    "area": 2821
+  },
+  "1961": {
+    "code": "1961",
+    "name": "Hallstahammar",
+    "population": 5500,
+    "area": 8012
+  },
+  "1962": {
+    "code": "1962",
+    "name": "Norberg",
+    "population": 20660,
+    "area": 7848
+  },
+  "1980": {
+    "code": "1980",
+    "name": "Västerås",
+    "population": 8560,
+    "area": 3447
+  },
+  "1981": {
+    "code": "1981",
+    "name": "Sala",
+    "population": 6270,
+    "area": 4359
+  },
+  "1982": {
+    "code": "1982",
+    "name": "Fagersta",
+    "population": 6860,
+    "area": 2655
+  },
+  "1983": {
+    "code": "1983",
+    "name": "Köping",
+    "population": 5380,
+    "area": 3398
+  },
+  "1984": {
+    "code": "1984",
+    "name": "Arboga",
+    "population": 15150,
+    "area": 4188
+  },
+  "2021": {
+    "code": "2021",
+    "name": "Vansbro",
+    "population": 7290,
+    "area": 6789
+  },
+  "2023": {
+    "code": "2023",
+    "name": "Malung-Sälen",
+    "population": 7140,
+    "area": 6513
+  },
+  "2026": {
+    "code": "2026",
+    "name": "Gagnef",
+    "population": 6370,
+    "area": 5244
+  },
+  "2029": {
+    "code": "2029",
+    "name": "Leksand",
+    "population": 3380,
+    "area": 3076
+  },
+  "2031": {
+    "code": "2031",
+    "name": "Rättvik",
+    "population": 18940,
+    "area": 10598
+  },
+  "2034": {
+    "code": "2034",
+    "name": "Orsa",
+    "population": 3450,
+    "area": 4112
+  },
+  "2039": {
+    "code": "2039",
+    "name": "Älvdalen",
+    "population": 5310,
+    "area": 2773
+  },
+  "2061": {
+    "code": "2061",
+    "name": "Smedjebacken",
+    "population": 7260,
+    "area": 5461
+  },
+  "2062": {
+    "code": "2062",
+    "name": "Mora",
+    "population": 10050,
+    "area": 4709
+  },
+  "2080": {
+    "code": "2080",
+    "name": "Falun",
+    "population": 12740,
+    "area": 5424
+  },
+  "2081": {
+    "code": "2081",
+    "name": "Borlänge",
+    "population": 71620,
+    "area": 7426
+  },
+  "2082": {
+    "code": "2082",
+    "name": "Säter",
+    "population": 7430,
+    "area": 2928
+  },
+  "2083": {
+    "code": "2083",
+    "name": "Hedemora",
+    "population": 8360,
+    "area": 3300
+  },
+  "2084": {
+    "code": "2084",
+    "name": "Avesta",
+    "population": 19680,
+    "area": 7900
+  },
+  "2085": {
+    "code": "2085",
+    "name": "Ludvika",
+    "population": 56470,
+    "area": 5940
+  },
+  "2101": {
+    "code": "2101",
+    "name": "Ockelbo",
+    "population": 4790,
+    "area": 4265
+  },
+  "2104": {
+    "code": "2104",
+    "name": "Hofors",
+    "population": 6990,
+    "area": 11267
+  },
+  "2121": {
+    "code": "2121",
+    "name": "Ovanåker",
+    "population": 10090,
+    "area": 5454
+  },
+  "2132": {
+    "code": "2132",
+    "name": "Nordanstig",
+    "population": 5010,
+    "area": 6174
+  },
+  "2161": {
+    "code": "2161",
+    "name": "Ljusdal",
+    "population": 6200,
+    "area": 3440
+  },
+  "2180": {
+    "code": "2180",
+    "name": "Gävle",
+    "population": 16280,
+    "area": 7939
+  },
+  "2181": {
+    "code": "2181",
+    "name": "Sandviken",
+    "population": 9220,
+    "area": 14244
+  },
+  "2182": {
+    "code": "2182",
+    "name": "Söderhamn",
+    "population": 3950,
+    "area": 4990
+  },
+  "2183": {
+    "code": "2183",
+    "name": "Bollnäs",
+    "population": 4870,
+    "area": 9391
+  },
+  "2184": {
+    "code": "2184",
+    "name": "Hudiksvall",
+    "population": 8790,
+    "area": 9536
+  },
+  "2260": {
+    "code": "2260",
+    "name": "Ånge",
+    "population": 14880,
+    "area": 5463
+  },
+  "2262": {
+    "code": "2262",
+    "name": "Timrå",
+    "population": 6410,
+    "area": 4979
+  },
+  "2280": {
+    "code": "2280",
+    "name": "Härnösand",
+    "population": 59230,
+    "area": 8140
+  },
+  "2281": {
+    "code": "2281",
+    "name": "Sundsvall",
+    "population": 77840,
+    "area": 5116
+  },
+  "2282": {
+    "code": "2282",
+    "name": "Kramfors",
+    "population": 7470,
+    "area": 2543
+  },
+  "2283": {
+    "code": "2283",
+    "name": "Sollefteå",
+    "population": 9460,
+    "area": 3405
+  },
+  "2284": {
+    "code": "2284",
+    "name": "Örnsköldsvik",
+    "population": 26610,
+    "area": 4301
+  },
+  "2303": {
+    "code": "2303",
+    "name": "Ragunda",
+    "population": 3250,
+    "area": 4389
+  },
+  "2305": {
+    "code": "2305",
+    "name": "Bräcke",
+    "population": 2640,
+    "area": 4299
+  },
+  "2309": {
+    "code": "2309",
+    "name": "Krokom",
+    "population": 15280,
+    "area": 5041
+  },
+  "2313": {
+    "code": "2313",
+    "name": "Strömsund",
+    "population": 8180,
+    "area": 8069
+  },
+  "2321": {
+    "code": "2321",
+    "name": "Åre",
+    "population": 4580,
+    "area": 6308
+  },
+  "2326": {
+    "code": "2326",
+    "name": "Berg",
+    "population": 1930,
+    "area": 3221
+  },
+  "2361": {
+    "code": "2361",
+    "name": "Härjedalen",
+    "population": 3700,
+    "area": 6296
+  },
+  "2380": {
+    "code": "2380",
+    "name": "Östersund",
+    "population": 19830,
+    "area": 12197
+  },
+  "2401": {
+    "code": "2401",
+    "name": "Nordmaling",
+    "population": 5040,
+    "area": 2510
+  },
+  "2403": {
+    "code": "2403",
+    "name": "Bjurholm",
+    "population": 2280,
+    "area": 3088
+  },
+  "2404": {
+    "code": "2404",
+    "name": "Vindeln",
+    "population": 8260,
+    "area": 5076
+  },
+  "2409": {
+    "code": "2409",
+    "name": "Robertsfors",
+    "population": 2970,
+    "area": 3424
+  },
+  "2417": {
+    "code": "2417",
+    "name": "Norsjö",
+    "population": 6750,
+    "area": 5506
+  },
+  "2418": {
+    "code": "2418",
+    "name": "Malå",
+    "population": 7170,
+    "area": 3136
+  },
+  "2421": {
+    "code": "2421",
+    "name": "Storuman",
+    "population": 3830,
+    "area": 6293
+  },
+  "2422": {
+    "code": "2422",
+    "name": "Sorsele",
+    "population": 2610,
+    "area": 3658
+  },
+  "2425": {
+    "code": "2425",
+    "name": "Dorotea",
+    "population": 7470,
+    "area": 3127
+  },
+  "2460": {
+    "code": "2460",
+    "name": "Vännäs",
+    "population": 3400,
+    "area": 5143
+  },
+  "2462": {
+    "code": "2462",
+    "name": "Vilhelmina",
+    "population": 5680,
+    "area": 8263
+  },
+  "2463": {
+    "code": "2463",
+    "name": "Åsele",
+    "population": 6460,
+    "area": 2697
+  },
+  "2480": {
+    "code": "2480",
+    "name": "Umeå",
+    "population": 78549,
+    "area": 19447
+  },
+  "2481": {
+    "code": "2481",
+    "name": "Lycksele",
+    "population": 4430,
+    "area": 4725
+  },
+  "2482": {
+    "code": "2482",
+    "name": "Skellefteå",
+    "population": 5850,
+    "area": 3161
+  },
+  "2505": {
+    "code": "2505",
+    "name": "Arvidsjaur",
+    "population": 2710,
+    "area": 3430
+  },
+  "2506": {
+    "code": "2506",
+    "name": "Arjeplog",
+    "population": 2560,
+    "area": 3310
+  },
+  "2510": {
+    "code": "2510",
+    "name": "Jokkmokk",
+    "population": 6740,
+    "area": 3242
+  },
+  "2513": {
+    "code": "2513",
+    "name": "Överkalix",
+    "population": 3690,
+    "area": 3064
+  },
+  "2514": {
+    "code": "2514",
+    "name": "Kalix",
+    "population": 3440,
+    "area": 2831
+  },
+  "2518": {
+    "code": "2518",
+    "name": "Övertorneå",
+    "population": 2930,
+    "area": 2943
+  },
+  "2521": {
+    "code": "2521",
+    "name": "Pajala",
+    "population": 8400,
+    "area": 5139
+  },
+  "2523": {
+    "code": "2523",
+    "name": "Gällivare",
+    "population": 18620,
+    "area": 5171
+  },
+  "2560": {
+    "code": "2560",
+    "name": "Älvsbyn",
+    "population": 3790,
+    "area": 3139
+  },
+  "2580": {
+    "code": "2580",
+    "name": "Luleå",
+    "population": 45570,
+    "area": 5513
+  },
+  "2581": {
+    "code": "2581",
+    "name": "Piteå",
+    "population": 9510,
+    "area": 7071
+  },
+  "2582": {
+    "code": "2582",
+    "name": "Boden",
+    "population": 4200,
+    "area": 3152
+  },
+  "2583": {
+    "code": "2583",
+    "name": "Haparanda",
+    "population": 10930,
+    "area": 6612
+  },
+  "2584": {
+    "code": "2584",
+    "name": "Kiruna",
+    "population": 32900,
+    "area": 15477
+  },
+  "0138": {
+    "code": "0138",
+    "name": "Tyresö",
+    "population": 50186,
+    "area": 69
+  },
+  "0181": {
+    "code": "0181",
+    "name": "Södertälje",
+    "population": 99030,
+    "area": 525
+  },
+  "0382": {
+    "code": "0382",
+    "name": "Östhammar",
+    "population": 68646,
+    "area": 1062
+  },
+  "0461": {
+    "code": "0461",
+    "name": "Gnesta",
+    "population": 68115,
+    "area": 1228
+  },
+  "0860": {
+    "code": "0860",
+    "name": "Hultsfred",
+    "population": 7820,
+    "area": 1730
+  },
+  "0184": {
+    "code": "0184",
+    "name": "Solna",
+    "population": 72606,
+    "area": 159
+  },
+  "0188": {
+    "code": "0188",
+    "name": "Norrtälje",
+    "population": 18193,
+    "area": 679
+  },
+  "0191": {
+    "code": "0191",
+    "name": "Sigtuna",
+    "population": 11773,
+    "area": 409
+  },
+  "0192": {
+    "code": "0192",
+    "name": "Nynäshamn",
+    "population": 17082,
+    "area": 1752
+  },
+  "0162": {
+    "code": "0162",
+    "name": "Danderyd",
+    "population": 40003,
+    "area": 67
+  },
+  "0562": {
+    "code": "0562",
+    "name": "Finspång",
+    "population": 12470,
+    "area": 5496
+  },
+  "0764": {
+    "code": "0764",
+    "name": "Alvesta",
+    "population": 8430,
+    "area": 1227
+  },
+  "0765": {
+    "code": "0765",
+    "name": "Älmhult",
+    "population": 7880,
+    "area": 773
+  },
+  "0123": {
+    "code": "0123",
+    "name": "Järfälla",
+    "population": 81562,
+    "area": 54
+  },
+  "0480": {
+    "code": "0480",
+    "name": "Nyköping",
+    "population": 140820,
+    "area": 1607
+  },
+  "0780": {
+    "code": "0780",
+    "name": "Växjö",
+    "population": 65090,
+    "area": 1556
+  },
+  "0821": {
+    "code": "0821",
+    "name": "Högsby",
+    "population": 9550,
+    "area": 2010
+  },
+  "0760": {
+    "code": "0760",
+    "name": "Uppvidinge",
+    "population": 15240,
+    "area": 2018
+  },
+  "0861": {
+    "code": "0861",
+    "name": "Mönsterås",
+    "population": 17250,
+    "area": 2399
+  },
+  "0187": {
+    "code": "0187",
+    "name": "Vaxholm",
+    "population": 12183,
+    "area": 141
+  },
+  "0509": {
+    "code": "0509",
+    "name": "Ödeshög",
+    "population": 13684,
+    "area": 918
+  },
+  "0561": {
+    "code": "0561",
+    "name": "Åtvidaberg",
+    "population": 12750,
+    "area": 1780
+  },
+  "0662": {
+    "code": "0662",
+    "name": "Gislaved",
+    "population": 11470,
+    "area": 2347
+  },
+  "0128": {
+    "code": "0128",
+    "name": "Salem",
+    "population": 48788,
+    "area": 229
+  },
+  "0136": {
+    "code": "0136",
+    "name": "Haninge",
+    "population": 30034,
+    "area": 290
+  },
+  "0643": {
+    "code": "0643",
+    "name": "Habo",
+    "population": 7810,
+    "area": 1295
+  },
+  "0665": {
+    "code": "0665",
+    "name": "Vaggeryd",
+    "population": 25080,
+    "area": 2946
+  },
+  "0163": {
+    "code": "0163",
+    "name": "Sollentuna",
+    "population": 104636,
+    "area": 30
+  },
+  "0483": {
+    "code": "0483",
+    "name": "Katrineholm",
+    "population": 41260,
+    "area": 1299
+  },
+  "0584": {
+    "code": "0584",
+    "name": "Vadstena",
+    "population": 11810,
+    "area": 776
+  },
+  "0880": {
+    "code": "0880",
+    "name": "Kalmar",
+    "population": 37190,
+    "area": 1781
+  },
+  "0114": {
+    "code": "0114",
+    "name": "Upplands Väsby",
+    "population": 46907,
+    "area": 75
+  },
+  "0488": {
+    "code": "0488",
+    "name": "Trosa",
+    "population": 23970,
+    "area": 1466
+  },
+  "0617": {
+    "code": "0617",
+    "name": "Gnosjö",
+    "population": 14690,
+    "area": 5420
+  },
+  "0980": {
+    "code": "0980",
+    "name": "Gotland",
+    "population": 24440,
+    "area": 3147
+  },
+  "0186": {
+    "code": "0186",
+    "name": "Lidingö",
+    "population": 27867,
+    "area": 530
+  },
+  "0684": {
+    "code": "0684",
+    "name": "Sävsjö",
+    "population": 12820,
+    "area": 1074
+  },
+  "0686": {
+    "code": "0686",
+    "name": "Eksjö",
+    "population": 14050,
+    "area": 884
+  },
+  "0513": {
+    "code": "0513",
+    "name": "Kinda",
+    "population": 12027,
+    "area": 1478
+  },
+  "0642": {
+    "code": "0642",
+    "name": "Mullsjö",
+    "population": 10540,
+    "area": 1883
+  },
+  "0884": {
+    "code": "0884",
+    "name": "Vimmerby",
+    "population": 13060,
+    "area": 1058
+  },
+  "0360": {
+    "code": "0360",
+    "name": "Tierp",
+    "population": 50580,
+    "area": 406
+  },
+  "0381": {
+    "code": "0381",
+    "name": "Enköping",
+    "population": 72580,
+    "area": 1175
+  },
+  "0512": {
+    "code": "0512",
+    "name": "Ydre",
+    "population": 16044,
+    "area": 1335
+  },
+  "0563": {
+    "code": "0563",
+    "name": "Valdemarsvik",
+    "population": 7570,
+    "area": 7279
+  },
+  "0781": {
+    "code": "0781",
+    "name": "Ljungby",
+    "population": 38650,
+    "area": 1478
+  },
+  "0481": {
+    "code": "0481",
+    "name": "Oxelösund",
+    "population": 42085,
+    "area": 1094
+  },
+  "0680": {
+    "code": "0680",
+    "name": "Jönköping",
+    "population": 96780,
+    "area": 1131
+  },
+  "0761": {
+    "code": "0761",
+    "name": "Lessebo",
+    "population": 13180,
+    "area": 780
+  },
+  "0840": {
+    "code": "0840",
+    "name": "Mörbylånga",
+    "population": 23370,
+    "area": 4098
+  },
+  "0881": {
+    "code": "0881",
+    "name": "Nybro",
+    "population": 7630,
+    "area": 1049
+  },
+  "0126": {
+    "code": "0126",
+    "name": "Huddinge",
+    "population": 100669,
+    "area": 198
+  },
+  "0380": {
+    "code": "0380",
+    "name": "Uppsala",
+    "population": 41858,
+    "area": 2285
+  },
+  "0580": {
+    "code": "0580",
+    "name": "Linköping",
+    "population": 144210,
+    "area": 1382
+  },
+  "0767": {
+    "code": "0767",
+    "name": "Markaryd",
+    "population": 18700,
+    "area": 2181
+  },
+  "0139": {
+    "code": "0139",
+    "name": "Upplands-Bro",
+    "population": 42571,
+    "area": 163
+  },
+  "0687": {
+    "code": "0687",
+    "name": "Tranås",
+    "population": 13920,
+    "area": 1217
+  },
+  "0763": {
+    "code": "0763",
+    "name": "Tingsryd",
+    "population": 13490,
+    "area": 1120
+  },
+  "0862": {
+    "code": "0862",
+    "name": "Emmaboda",
+    "population": 15710,
+    "area": 1641
+  },
+  "0125": {
+    "code": "0125",
+    "name": "Ekerö",
+    "population": 28710,
+    "area": 173
+  },
+  "0330": {
+    "code": "0330",
+    "name": "Knivsta",
+    "population": 49671,
+    "area": 474
+  },
+  "0685": {
+    "code": "0685",
+    "name": "Vetlanda",
+    "population": 10170,
+    "area": 1241
+  },
+  "0160": {
+    "code": "0160",
+    "name": "Täby",
+    "population": 46812,
+    "area": 67
+  },
+  "0486": {
+    "code": "0486",
+    "name": "Strängnäs",
+    "population": 28700,
+    "area": 1491
+  },
+  "0582": {
+    "code": "0582",
+    "name": "Söderköping",
+    "population": 38940,
+    "area": 1604
+  },
+  "0682": {
+    "code": "0682",
+    "name": "Nässjö",
+    "population": 57170,
+    "area": 1423
+  },
+  "0834": {
+    "code": "0834",
+    "name": "Torsås",
+    "population": 7360,
+    "area": 2208
+  },
+  "0883": {
+    "code": "0883",
+    "name": "Västervik",
+    "population": 63560,
+    "area": 1781
+  },
+  "0115": {
+    "code": "0115",
+    "name": "Vallentuna",
+    "population": 34494,
+    "area": 360
+  },
+  "0117": {
+    "code": "0117",
+    "name": "Österåker",
+    "population": 46849,
+    "area": 310
+  },
+  "0127": {
+    "code": "0127",
+    "name": "Botkyrka",
+    "population": 114010,
+    "area": 60
+  },
+  "0683": {
+    "code": "0683",
+    "name": "Värnamo",
+    "population": 23680,
+    "area": 828
+  },
+  "0882": {
+    "code": "0882",
+    "name": "Oskarshamn",
+    "population": 12190,
+    "area": 1709
+  },
+  "0140": {
+    "code": "0140",
+    "name": "Nykvarn",
+    "population": 73170,
+    "area": 57
+  },
+  "0319": {
+    "code": "0319",
+    "name": "Älvkarleby",
+    "population": 11620,
+    "area": 604
+  },
+  "0428": {
+    "code": "0428",
+    "name": "Vingåker",
+    "population": 14089,
+    "area": 1215
+  },
+  "0120": {
+    "code": "0120",
+    "name": "Värmdö",
+    "population": 47127,
+    "area": 440
+  },
+  "0183": {
+    "code": "0183",
+    "name": "Sundbyberg",
+    "population": 70839,
+    "area": 155
+  },
+  "0331": {
+    "code": "0331",
+    "name": "Heby",
+    "population": 20277,
+    "area": 279
+  },
+  "0560": {
+    "code": "0560",
+    "name": "Boxholm",
+    "population": 28310,
+    "area": 3471
+  },
+  "0581": {
+    "code": "0581",
+    "name": "Norrköping",
+    "population": 55920,
+    "area": 876
+  },
+  "0604": {
+    "code": "0604",
+    "name": "Aneby",
+    "population": 29150,
+    "area": 750
+  },
+  "0305": {
+    "code": "0305",
+    "name": "Håbo",
+    "population": 41091,
+    "area": 23
+  },
+  "0484": {
+    "code": "0484",
+    "name": "Eskilstuna",
+    "population": 26453,
+    "area": 584
+  },
+  "0583": {
+    "code": "0583",
+    "name": "Motala",
+    "population": 57160,
+    "area": 1766
+  },
+  "0180": {
+    "code": "0180",
+    "name": "Stockholm",
+    "population": 978770,
+    "area": 187
+  },
+  "0182": {
+    "code": "0182",
+    "name": "Nacka",
+    "population": 111776,
+    "area": 172
+  },
+  "0482": {
+    "code": "0482",
+    "name": "Flen",
+    "population": 37547,
+    "area": 449
+  },
+  "0586": {
+    "code": "0586",
+    "name": "Mjölby",
+    "population": 11060,
+    "area": 1431
+  },
+  "0885": {
+    "code": "0885",
+    "name": "Borgholm",
+    "population": 11660,
+    "area": 1131
+  }
+}

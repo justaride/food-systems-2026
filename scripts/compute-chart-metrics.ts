@@ -57,6 +57,105 @@ const COUNTRIES: Record<string, CountryDef> = {
       'Bunnpris AS': '#E91E63',
     },
   },
+  se: {
+    dataDir: join(BASE_DIR, 'se'),
+    storesFile: 'stores.json',
+    municipalitiesFile: 'municipalities.json',
+    boundariesFile: 'municipalities.geojson',
+    municipalityIdProp: 'kommunkod',
+    chainParents: {
+      'ica-n-ra': 'ICA Gruppen',
+      'ica-supermarket': 'ICA Gruppen',
+      'ica-kvantum': 'ICA Gruppen',
+      'maxi-ica-stormarknad': 'ICA Gruppen',
+      ica: 'ICA Gruppen',
+      'ica-maxi': 'ICA Gruppen',
+      coop: 'Coop Sverige',
+      'coop-sweden': 'Coop Sverige',
+      'coop-konsum': 'Coop Sverige',
+      'coop-n-ra': 'Coop Sverige',
+      'x-tra': 'Coop Sverige',
+      willys: 'Axfood',
+      'hemk-p': 'Axfood',
+      tempo: 'Axfood',
+      'handlar-n': 'Axfood',
+      handlarn: 'Axfood',
+      'mat-ppet': 'Axfood',
+      lidl: 'Lidl',
+      'city-gross': 'Bergendahls',
+    },
+    parentColors: {
+      'ICA Gruppen': '#E3000B',
+      Axfood: '#00843D',
+      'Coop Sverige': '#00529B',
+      Lidl: '#0050AA',
+      Bergendahls: '#FF6900',
+    },
+  },
+  dk: {
+    dataDir: join(BASE_DIR, 'dk'),
+    storesFile: 'stores.json',
+    municipalitiesFile: 'municipalities.json',
+    boundariesFile: 'municipalities.geojson',
+    municipalityIdProp: 'kommunekode',
+    chainParents: {
+      netto: 'Salling Group',
+      'rema-1000': 'Reitangruppen',
+      '365discount': 'Coop Danmark',
+      'coop-365discount': 'Coop Danmark',
+      'coop-365-discount': 'Coop Danmark',
+      superbrugsen: 'Coop Danmark',
+      'dagli-brugsen': 'Coop Danmark',
+      daglibrugsen: 'Coop Danmark',
+      brugsen: 'Coop Danmark',
+      kvickly: 'Coop Danmark',
+      lidl: 'Lidl',
+      'min-k-bmand': 'Dagrofa',
+      spar: 'Dagrofa',
+      meny: 'Dagrofa',
+      'f-tex': 'Salling Group',
+      'f-tex-food': 'Salling Group',
+      bilka: 'Salling Group',
+      'abc-lavpris': 'Dagrofa',
+      'elite-k-bmand': 'Dagrofa',
+      'l-vbjerg': 'Dagrofa',
+      'let-k-b': 'Dagrofa',
+      'letk-b': 'Dagrofa',
+    },
+    parentColors: {
+      'Salling Group': '#E31937',
+      'Coop Danmark': '#00529B',
+      Reitangruppen: '#003DA5',
+      Dagrofa: '#2E8B57',
+      Lidl: '#0050AA',
+    },
+  },
+  fi: {
+    dataDir: join(BASE_DIR, 'fi'),
+    storesFile: 'stores.json',
+    municipalitiesFile: 'municipalities.json',
+    boundariesFile: 'municipalities.geojson',
+    municipalityIdProp: 'kuntanumero',
+    chainParents: {
+      'k-market': 'Kesko',
+      'k-supermarket': 'Kesko',
+      'k-citymarket': 'Kesko',
+      's-market': 'S-Group',
+      sale: 'S-Group',
+      alepa: 'S-Group',
+      prisma: 'S-Group',
+      lidl: 'Lidl',
+      halpahalli: 'Tokmanni Group',
+      minimani: 'Minimani',
+    },
+    parentColors: {
+      'S-Group': '#00A651',
+      Kesko: '#FF6600',
+      Lidl: '#0050AA',
+      'Tokmanni Group': '#E31937',
+      Minimani: '#6B7280',
+    },
+  },
 }
 
 function loadJson<T>(dir: string, filename: string): T {
@@ -74,8 +173,14 @@ function assignStoresToMunicipalities(
     .map(f => {
       const code = f.properties?.[municipalityIdProp] as string
       if (!code) return null
-      const b = turfBbox(f)
-      return { code, feature: f, bbox: b }
+      const geomType = f.geometry?.type
+      if (!geomType || geomType === 'GeometryCollection') return null
+      try {
+        const b = turfBbox(f)
+        return { code, feature: f, bbox: b }
+      } catch {
+        return null
+      }
     })
     .filter((f): f is NonNullable<typeof f> => f !== null)
 

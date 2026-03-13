@@ -1,0 +1,1922 @@
+{
+  "102": {
+    "code": "102",
+    "name": "Huittinen",
+    "population": 9850,
+    "area": 510
+  },
+  "103": {
+    "code": "103",
+    "name": "Humppila",
+    "population": 2260,
+    "area": 181
+  },
+  "105": {
+    "code": "105",
+    "name": "Hyrynsalmi",
+    "population": 2160,
+    "area": 1326
+  },
+  "106": {
+    "code": "106",
+    "name": "Hyvinkää",
+    "population": 47070,
+    "area": 323
+  },
+  "108": {
+    "code": "108",
+    "name": "Hämeenkyrö",
+    "population": 10490,
+    "area": 463
+  },
+  "109": {
+    "code": "109",
+    "name": "Hämeenlinna",
+    "population": 68011,
+    "area": 1786
+  },
+  "111": {
+    "code": "111",
+    "name": "Heinola",
+    "population": 18460,
+    "area": 684
+  },
+  "139": {
+    "code": "139",
+    "name": "Ii",
+    "population": 10090,
+    "area": 1553
+  },
+  "140": {
+    "code": "140",
+    "name": "Iisalmi",
+    "population": 21080,
+    "area": 763
+  },
+  "142": {
+    "code": "142",
+    "name": "Iitti",
+    "population": 6420,
+    "area": 454
+  },
+  "143": {
+    "code": "143",
+    "name": "Ikaalinen",
+    "population": 6830,
+    "area": 754
+  },
+  "145": {
+    "code": "145",
+    "name": "Ilmajoki",
+    "population": 11870,
+    "area": 577
+  },
+  "146": {
+    "code": "146",
+    "name": "Ilomantsi",
+    "population": 4880,
+    "area": 2849
+  },
+  "148": {
+    "code": "148",
+    "name": "Inari",
+    "population": 7300,
+    "area": 17334
+  },
+  "149": {
+    "code": "149",
+    "name": "Inkoo",
+    "population": 5570,
+    "area": 348
+  },
+  "151": {
+    "code": "151",
+    "name": "Isojoki",
+    "population": 2000,
+    "area": 363
+  },
+  "152": {
+    "code": "152",
+    "name": "Isokyrö",
+    "population": 4530,
+    "area": 357
+  },
+  "153": {
+    "code": "153",
+    "name": "Imatra",
+    "population": 26060,
+    "area": 191
+  },
+  "164": {
+    "code": "164",
+    "name": "Jalasjärvi",
+    "population": 7170,
+    "area": 507
+  },
+  "165": {
+    "code": "165",
+    "name": "Janakkala",
+    "population": 16230,
+    "area": 582
+  },
+  "167": {
+    "code": "167",
+    "name": "Joensuu",
+    "population": 78430,
+    "area": 2382
+  },
+  "169": {
+    "code": "169",
+    "name": "Jokioinen",
+    "population": 5480,
+    "area": 181
+  },
+  "170": {
+    "code": "170",
+    "name": "Jomala",
+    "population": 5260,
+    "area": 142
+  },
+  "171": {
+    "code": "171",
+    "name": "Joroinen",
+    "population": 4790,
+    "area": 599
+  },
+  "172": {
+    "code": "172",
+    "name": "Joutsa",
+    "population": 4150,
+    "area": 827
+  },
+  "174": {
+    "code": "174",
+    "name": "Juankoski",
+    "population": 4360,
+    "area": 846
+  },
+  "176": {
+    "code": "176",
+    "name": "Juuka",
+    "population": 4500,
+    "area": 1846
+  },
+  "177": {
+    "code": "177",
+    "name": "Juupajoki",
+    "population": 1830,
+    "area": 261
+  },
+  "178": {
+    "code": "178",
+    "name": "Juva",
+    "population": 5590,
+    "area": 1112
+  },
+  "179": {
+    "code": "179",
+    "name": "Jyväskylä",
+    "population": 145602,
+    "area": 1171
+  },
+  "181": {
+    "code": "181",
+    "name": "Jämijärvi",
+    "population": 1810,
+    "area": 285
+  },
+  "182": {
+    "code": "182",
+    "name": "Jämsä",
+    "population": 20530,
+    "area": 1624
+  },
+  "186": {
+    "code": "186",
+    "name": "Järvenpää",
+    "population": 44870,
+    "area": 38
+  },
+  "202": {
+    "code": "202",
+    "name": "Kaarina",
+    "population": 34390,
+    "area": 154
+  },
+  "204": {
+    "code": "204",
+    "name": "Kaavi",
+    "population": 2810,
+    "area": 717
+  },
+  "205": {
+    "code": "205",
+    "name": "Kajaani",
+    "population": 35820,
+    "area": 2264
+  },
+  "208": {
+    "code": "208",
+    "name": "Kalajoki",
+    "population": 12540,
+    "area": 840
+  },
+  "211": {
+    "code": "211",
+    "name": "Kangasala",
+    "population": 32480,
+    "area": 870
+  },
+  "213": {
+    "code": "213",
+    "name": "Kangasniemi",
+    "population": 5200,
+    "area": 1132
+  },
+  "214": {
+    "code": "214",
+    "name": "Kankaanpää",
+    "population": 10950,
+    "area": 573
+  },
+  "216": {
+    "code": "216",
+    "name": "Kannonkoski",
+    "population": 1330,
+    "area": 365
+  },
+  "217": {
+    "code": "217",
+    "name": "Kannus",
+    "population": 5350,
+    "area": 461
+  },
+  "218": {
+    "code": "218",
+    "name": "Karijoki",
+    "population": 1260,
+    "area": 190
+  },
+  "224": {
+    "code": "224",
+    "name": "Karkkila",
+    "population": 8960,
+    "area": 243
+  },
+  "226": {
+    "code": "226",
+    "name": "Karstula",
+    "population": 3940,
+    "area": 891
+  },
+  "230": {
+    "code": "230",
+    "name": "Karvia",
+    "population": 2290,
+    "area": 299
+  },
+  "231": {
+    "code": "231",
+    "name": "Kaskinen",
+    "population": 1160,
+    "area": 10
+  },
+  "232": {
+    "code": "232",
+    "name": "Kauhajoki",
+    "population": 12790,
+    "area": 1299
+  },
+  "233": {
+    "code": "233",
+    "name": "Kauhava",
+    "population": 15970,
+    "area": 1312
+  },
+  "235": {
+    "code": "235",
+    "name": "Kauniainen",
+    "population": 10320,
+    "area": 6
+  },
+  "236": {
+    "code": "236",
+    "name": "Kaustinen",
+    "population": 4150,
+    "area": 384
+  },
+  "239": {
+    "code": "239",
+    "name": "Keitele",
+    "population": 2190,
+    "area": 586
+  },
+  "240": {
+    "code": "240",
+    "name": "Kemi",
+    "population": 20810,
+    "area": 95
+  },
+  "241": {
+    "code": "241",
+    "name": "Keminmaa",
+    "population": 7870,
+    "area": 644
+  },
+  "244": {
+    "code": "244",
+    "name": "Kempele",
+    "population": 18240,
+    "area": 73
+  },
+  "245": {
+    "code": "245",
+    "name": "Kerava",
+    "population": 37640,
+    "area": 31
+  },
+  "249": {
+    "code": "249",
+    "name": "Keuruu",
+    "population": 9330,
+    "area": 1260
+  },
+  "250": {
+    "code": "250",
+    "name": "Kihniö",
+    "population": 1820,
+    "area": 470
+  },
+  "256": {
+    "code": "256",
+    "name": "Kinnula",
+    "population": 1470,
+    "area": 466
+  },
+  "257": {
+    "code": "257",
+    "name": "Kirkkonummi",
+    "population": 40760,
+    "area": 366
+  },
+  "260": {
+    "code": "260",
+    "name": "Kitee",
+    "population": 9810,
+    "area": 1157
+  },
+  "261": {
+    "code": "261",
+    "name": "Kittilä",
+    "population": 6680,
+    "area": 8263
+  },
+  "263": {
+    "code": "263",
+    "name": "Kiuruvesi",
+    "population": 7640,
+    "area": 1302
+  },
+  "265": {
+    "code": "265",
+    "name": "Kivijärvi",
+    "population": 1100,
+    "area": 537
+  },
+  "271": {
+    "code": "271",
+    "name": "Kokemäki",
+    "population": 7180,
+    "area": 482
+  },
+  "272": {
+    "code": "272",
+    "name": "Kokkola",
+    "population": 48380,
+    "area": 2073
+  },
+  "273": {
+    "code": "273",
+    "name": "Kolari",
+    "population": 3720,
+    "area": 2617
+  },
+  "275": {
+    "code": "275",
+    "name": "Konnevesi",
+    "population": 2690,
+    "area": 475
+  },
+  "276": {
+    "code": "276",
+    "name": "Kontiolahti",
+    "population": 15120,
+    "area": 628
+  },
+  "280": {
+    "code": "280",
+    "name": "Korsnäs",
+    "population": 1740,
+    "area": 225
+  },
+  "283": {
+    "code": "283",
+    "name": "Hämeenkoski",
+    "population": 2000,
+    "area": 178
+  },
+  "284": {
+    "code": "284",
+    "name": "Koski Tl",
+    "population": 2280,
+    "area": 196
+  },
+  "285": {
+    "code": "285",
+    "name": "Kotka",
+    "population": 51230,
+    "area": 271
+  },
+  "286": {
+    "code": "286",
+    "name": "Kouvola",
+    "population": 81760,
+    "area": 2558
+  },
+  "287": {
+    "code": "287",
+    "name": "Kristiinankaupunki",
+    "population": 6420,
+    "area": 854
+  },
+  "288": {
+    "code": "288",
+    "name": "Kruunupyy",
+    "population": 6520,
+    "area": 716
+  },
+  "290": {
+    "code": "290",
+    "name": "Kuhmo",
+    "population": 7890,
+    "area": 5458
+  },
+  "291": {
+    "code": "291",
+    "name": "Kuhmoinen",
+    "population": 2160,
+    "area": 644
+  },
+  "295": {
+    "code": "295",
+    "name": "Kumlinge",
+    "population": 310,
+    "area": 99
+  },
+  "297": {
+    "code": "297",
+    "name": "Kuopio",
+    "population": 122784,
+    "area": 1597
+  },
+  "300": {
+    "code": "300",
+    "name": "Kuortane",
+    "population": 3530,
+    "area": 461
+  },
+  "301": {
+    "code": "301",
+    "name": "Kurikka",
+    "population": 20580,
+    "area": 951
+  },
+  "304": {
+    "code": "304",
+    "name": "Kustavi",
+    "population": 860,
+    "area": 175
+  },
+  "305": {
+    "code": "305",
+    "name": "Kuusamo",
+    "population": 14700,
+    "area": 5809
+  },
+  "309": {
+    "code": "309",
+    "name": "Outokumpu",
+    "population": 6740,
+    "area": 250
+  },
+  "312": {
+    "code": "312",
+    "name": "Kyyjärvi",
+    "population": 1280,
+    "area": 449
+  },
+  "316": {
+    "code": "316",
+    "name": "Kärkölä",
+    "population": 4300,
+    "area": 226
+  },
+  "317": {
+    "code": "317",
+    "name": "Kärsämäki",
+    "population": 2440,
+    "area": 605
+  },
+  "318": {
+    "code": "318",
+    "name": "Kökar",
+    "population": 230,
+    "area": 54
+  },
+  "319": {
+    "code": "319",
+    "name": "Köyliö",
+    "population": 2600,
+    "area": 203
+  },
+  "320": {
+    "code": "320",
+    "name": "Kemijärvi",
+    "population": 7340,
+    "area": 3932
+  },
+  "322": {
+    "code": "322",
+    "name": "Kemiönsaari",
+    "population": 6790,
+    "area": 573
+  },
+  "398": {
+    "code": "398",
+    "name": "Lahti",
+    "population": 120651,
+    "area": 135
+  },
+  "399": {
+    "code": "399",
+    "name": "Laihia",
+    "population": 8000,
+    "area": 399
+  },
+  "400": {
+    "code": "400",
+    "name": "Laitila",
+    "population": 8530,
+    "area": 332
+  },
+  "402": {
+    "code": "402",
+    "name": "Lapinlahti",
+    "population": 9180,
+    "area": 644
+  },
+  "403": {
+    "code": "403",
+    "name": "Lappajärvi",
+    "population": 2840,
+    "area": 367
+  },
+  "405": {
+    "code": "405",
+    "name": "Lappeenranta",
+    "population": 73750,
+    "area": 1722
+  },
+  "407": {
+    "code": "407",
+    "name": "Lapinjärvi",
+    "population": 2650,
+    "area": 352
+  },
+  "408": {
+    "code": "408",
+    "name": "Lapua",
+    "population": 14320,
+    "area": 741
+  },
+  "410": {
+    "code": "410",
+    "name": "Laukaa",
+    "population": 19120,
+    "area": 646
+  },
+  "413": {
+    "code": "413",
+    "name": "Lavia",
+    "population": 1720,
+    "area": 348
+  },
+  "416": {
+    "code": "416",
+    "name": "Lemi",
+    "population": 3230,
+    "area": 231
+  },
+  "417": {
+    "code": "417",
+    "name": "Lemland",
+    "population": 2020,
+    "area": 113
+  },
+  "418": {
+    "code": "418",
+    "name": "Lempäälä",
+    "population": 24010,
+    "area": 112
+  },
+  "420": {
+    "code": "420",
+    "name": "Leppävirta",
+    "population": 9770,
+    "area": 1298
+  },
+  "421": {
+    "code": "421",
+    "name": "Lestijärvi",
+    "population": 700,
+    "area": 474
+  },
+  "422": {
+    "code": "422",
+    "name": "Lieksa",
+    "population": 10650,
+    "area": 4069
+  },
+  "423": {
+    "code": "423",
+    "name": "Lieto",
+    "population": 20590,
+    "area": 153
+  },
+  "425": {
+    "code": "425",
+    "name": "Liminka",
+    "population": 10800,
+    "area": 400
+  },
+  "426": {
+    "code": "426",
+    "name": "Liperi",
+    "population": 12090,
+    "area": 1158
+  },
+  "430": {
+    "code": "430",
+    "name": "Loimaa",
+    "population": 15600,
+    "area": 679
+  },
+  "433": {
+    "code": "433",
+    "name": "Loppi",
+    "population": 8240,
+    "area": 407
+  },
+  "434": {
+    "code": "434",
+    "name": "Loviisa",
+    "population": 15070,
+    "area": 908
+  },
+  "435": {
+    "code": "435",
+    "name": "Luhanka",
+    "population": 650,
+    "area": 211
+  },
+  "436": {
+    "code": "436",
+    "name": "Lumijoki",
+    "population": 2130,
+    "area": 243
+  },
+  "438": {
+    "code": "438",
+    "name": "Lumparland",
+    "population": 400,
+    "area": 17
+  },
+  "440": {
+    "code": "440",
+    "name": "Luoto",
+    "population": 5420,
+    "area": 82
+  },
+  "441": {
+    "code": "441",
+    "name": "Luumäki",
+    "population": 4520,
+    "area": 752
+  },
+  "442": {
+    "code": "442",
+    "name": "Luvia",
+    "population": 3250,
+    "area": 184
+  },
+  "444": {
+    "code": "444",
+    "name": "Lohja",
+    "population": 47350,
+    "area": 328
+  },
+  "445": {
+    "code": "445",
+    "name": "Parainen",
+    "population": 15380,
+    "area": 612
+  },
+  "475": {
+    "code": "475",
+    "name": "Maalahti",
+    "population": 5480,
+    "area": 500
+  },
+  "476": {
+    "code": "476",
+    "name": "Maaninka",
+    "population": 3450,
+    "area": 434
+  },
+  "478": {
+    "code": "478",
+    "name": "Maarianhamina",
+    "population": 11680,
+    "area": 21
+  },
+  "480": {
+    "code": "480",
+    "name": "Marttila",
+    "population": 1970,
+    "area": 163
+  },
+  "481": {
+    "code": "481",
+    "name": "Masku",
+    "population": 10260,
+    "area": 134
+  },
+  "483": {
+    "code": "483",
+    "name": "Merijärvi",
+    "population": 1010,
+    "area": 271
+  },
+  "484": {
+    "code": "484",
+    "name": "Merikarvia",
+    "population": 2920,
+    "area": 755
+  },
+  "489": {
+    "code": "489",
+    "name": "Miehikkälä",
+    "population": 1810,
+    "area": 433
+  },
+  "491": {
+    "code": "491",
+    "name": "Mikkeli",
+    "population": 51580,
+    "area": 2416
+  },
+  "494": {
+    "code": "494",
+    "name": "Muhos",
+    "population": 9070,
+    "area": 636
+  },
+  "495": {
+    "code": "495",
+    "name": "Multia",
+    "population": 1530,
+    "area": 640
+  },
+  "498": {
+    "code": "498",
+    "name": "Muonio",
+    "population": 2280,
+    "area": 2038
+  },
+  "499": {
+    "code": "499",
+    "name": "Mustasaari",
+    "population": 19540,
+    "area": 912
+  },
+  "500": {
+    "code": "500",
+    "name": "Muurame",
+    "population": 10450,
+    "area": 142
+  },
+  "503": {
+    "code": "503",
+    "name": "Mynämäki",
+    "population": 8370,
+    "area": 300
+  },
+  "504": {
+    "code": "504",
+    "name": "Myrskylä",
+    "population": 1910,
+    "area": 200
+  },
+  "505": {
+    "code": "505",
+    "name": "Mäntsälä",
+    "population": 21520,
+    "area": 582
+  },
+  "507": {
+    "code": "507",
+    "name": "Mäntyharju",
+    "population": 5680,
+    "area": 1230
+  },
+  "508": {
+    "code": "508",
+    "name": "Mänttä-Vilppula",
+    "population": 9570,
+    "area": 615
+  },
+  "529": {
+    "code": "529",
+    "name": "Naantali",
+    "population": 19830,
+    "area": 312
+  },
+  "531": {
+    "code": "531",
+    "name": "Nakkila",
+    "population": 5480,
+    "area": 205
+  },
+  "532": {
+    "code": "532",
+    "name": "Nastola",
+    "population": 14440,
+    "area": 363
+  },
+  "535": {
+    "code": "535",
+    "name": "Nivala",
+    "population": 10430,
+    "area": 535
+  },
+  "536": {
+    "code": "536",
+    "name": "Nokia",
+    "population": 36740,
+    "area": 289
+  },
+  "538": {
+    "code": "538",
+    "name": "Nousiainen",
+    "population": 4600,
+    "area": 193
+  },
+  "541": {
+    "code": "541",
+    "name": "Nurmes",
+    "population": 7050,
+    "area": 3728
+  },
+  "543": {
+    "code": "543",
+    "name": "Nurmijärvi",
+    "population": 44540,
+    "area": 362
+  },
+  "545": {
+    "code": "545",
+    "name": "Närpiö",
+    "population": 9370,
+    "area": 571
+  },
+  "560": {
+    "code": "560",
+    "name": "Orimattila",
+    "population": 16280,
+    "area": 561
+  },
+  "561": {
+    "code": "561",
+    "name": "Oripää",
+    "population": 1340,
+    "area": 120
+  },
+  "562": {
+    "code": "562",
+    "name": "Orivesi",
+    "population": 8840,
+    "area": 831
+  },
+  "563": {
+    "code": "563",
+    "name": "Oulainen",
+    "population": 7110,
+    "area": 497
+  },
+  "564": {
+    "code": "564",
+    "name": "Oulu",
+    "population": 209648,
+    "area": 3817
+  },
+  "576": {
+    "code": "576",
+    "name": "Padasjoki",
+    "population": 2900,
+    "area": 561
+  },
+  "577": {
+    "code": "577",
+    "name": "Paimio",
+    "population": 10820,
+    "area": 223
+  },
+  "578": {
+    "code": "578",
+    "name": "Paltamo",
+    "population": 3110,
+    "area": 929
+  },
+  "580": {
+    "code": "580",
+    "name": "Parikkala",
+    "population": 4540,
+    "area": 1118
+  },
+  "581": {
+    "code": "581",
+    "name": "Parkano",
+    "population": 6380,
+    "area": 851
+  },
+  "583": {
+    "code": "583",
+    "name": "Pelkosenniemi",
+    "population": 910,
+    "area": 1881
+  },
+  "584": {
+    "code": "584",
+    "name": "Perho",
+    "population": 2480,
+    "area": 747
+  },
+  "588": {
+    "code": "588",
+    "name": "Pertunmaa",
+    "population": 1630,
+    "area": 314
+  },
+  "592": {
+    "code": "592",
+    "name": "Petäjävesi",
+    "population": 3600,
+    "area": 508
+  },
+  "593": {
+    "code": "593",
+    "name": "Pieksämäki",
+    "population": 17680,
+    "area": 1299
+  },
+  "595": {
+    "code": "595",
+    "name": "Pielavesi",
+    "population": 4230,
+    "area": 1233
+  },
+  "598": {
+    "code": "598",
+    "name": "Pietarsaari",
+    "population": 19120,
+    "area": 97
+  },
+  "599": {
+    "code": "599",
+    "name": "Pedersören kunta",
+    "population": 10820,
+    "area": 801
+  },
+  "601": {
+    "code": "601",
+    "name": "Pihtipudas",
+    "population": 3800,
+    "area": 849
+  },
+  "604": {
+    "code": "604",
+    "name": "Pirkkala",
+    "population": 19960,
+    "area": 81
+  },
+  "607": {
+    "code": "607",
+    "name": "Polvijärvi",
+    "population": 4050,
+    "area": 1068
+  },
+  "608": {
+    "code": "608",
+    "name": "Pomarkku",
+    "population": 2070,
+    "area": 358
+  },
+  "609": {
+    "code": "609",
+    "name": "Pori",
+    "population": 83720,
+    "area": 834
+  },
+  "611": {
+    "code": "611",
+    "name": "Pornainen",
+    "population": 5420,
+    "area": 153
+  },
+  "614": {
+    "code": "614",
+    "name": "Posio",
+    "population": 3230,
+    "area": 3040
+  },
+  "615": {
+    "code": "615",
+    "name": "Pudasjärvi",
+    "population": 7740,
+    "area": 5635
+  },
+  "616": {
+    "code": "616",
+    "name": "Pukkila",
+    "population": 1910,
+    "area": 142
+  },
+  "619": {
+    "code": "619",
+    "name": "Punkalaidun",
+    "population": 2850,
+    "area": 407
+  },
+  "620": {
+    "code": "620",
+    "name": "Puolanka",
+    "population": 2570,
+    "area": 2467
+  },
+  "623": {
+    "code": "623",
+    "name": "Puumala",
+    "population": 2200,
+    "area": 781
+  },
+  "624": {
+    "code": "624",
+    "name": "Pyhtää",
+    "population": 5070,
+    "area": 291
+  },
+  "625": {
+    "code": "625",
+    "name": "Pyhäjoki",
+    "population": 2970,
+    "area": 298
+  },
+  "626": {
+    "code": "626",
+    "name": "Pyhäjärvi",
+    "population": 4570,
+    "area": 1175
+  },
+  "630": {
+    "code": "630",
+    "name": "Pyhäntä",
+    "population": 1490,
+    "area": 810
+  },
+  "631": {
+    "code": "631",
+    "name": "Pyhäranta",
+    "population": 1930,
+    "area": 194
+  },
+  "635": {
+    "code": "635",
+    "name": "Pälkäne",
+    "population": 6600,
+    "area": 563
+  },
+  "636": {
+    "code": "636",
+    "name": "Pöytyä",
+    "population": 8410,
+    "area": 528
+  },
+  "638": {
+    "code": "638",
+    "name": "Porvoo",
+    "population": 55270,
+    "area": 654
+  },
+  "678": {
+    "code": "678",
+    "name": "Raahe",
+    "population": 24270,
+    "area": 271
+  },
+  "680": {
+    "code": "680",
+    "name": "Raisio",
+    "population": 24360,
+    "area": 49
+  },
+  "681": {
+    "code": "681",
+    "name": "Rantasalmi",
+    "population": 3480,
+    "area": 594
+  },
+  "683": {
+    "code": "683",
+    "name": "Ranua",
+    "population": 3480,
+    "area": 3696
+  },
+  "684": {
+    "code": "684",
+    "name": "Rauma",
+    "population": 39270,
+    "area": 495
+  },
+  "686": {
+    "code": "686",
+    "name": "Rautalampi",
+    "population": 3010,
+    "area": 636
+  },
+  "687": {
+    "code": "687",
+    "name": "Rautavaara",
+    "population": 1420,
+    "area": 1138
+  },
+  "689": {
+    "code": "689",
+    "name": "Rautjärvi",
+    "population": 3140,
+    "area": 355
+  },
+  "691": {
+    "code": "691",
+    "name": "Reisjärvi",
+    "population": 2530,
+    "area": 472
+  },
+  "694": {
+    "code": "694",
+    "name": "Riihimäki",
+    "population": 28610,
+    "area": 122
+  },
+  "697": {
+    "code": "697",
+    "name": "Ristijärvi",
+    "population": 1210,
+    "area": 872
+  },
+  "698": {
+    "code": "698",
+    "name": "Rovaniemi",
+    "population": 64445,
+    "area": 8017
+  },
+  "700": {
+    "code": "700",
+    "name": "Ruokolahti",
+    "population": 4820,
+    "area": 908
+  },
+  "702": {
+    "code": "702",
+    "name": "Ruovesi",
+    "population": 4280,
+    "area": 754
+  },
+  "704": {
+    "code": "704",
+    "name": "Rusko",
+    "population": 6490,
+    "area": 77
+  },
+  "707": {
+    "code": "707",
+    "name": "Rääkkylä",
+    "population": 2050,
+    "area": 504
+  },
+  "710": {
+    "code": "710",
+    "name": "Raasepori",
+    "population": 28350,
+    "area": 701
+  },
+  "729": {
+    "code": "729",
+    "name": "Saarijärvi",
+    "population": 9150,
+    "area": 1409
+  },
+  "732": {
+    "code": "732",
+    "name": "Salla",
+    "population": 3190,
+    "area": 5872
+  },
+  "734": {
+    "code": "734",
+    "name": "Salo",
+    "population": 51140,
+    "area": 2168
+  },
+  "736": {
+    "code": "736",
+    "name": "Saltvik",
+    "population": 1870,
+    "area": 152
+  },
+  "738": {
+    "code": "738",
+    "name": "Sauvo",
+    "population": 2950,
+    "area": 171
+  },
+  "739": {
+    "code": "739",
+    "name": "Savitaipale",
+    "population": 3310,
+    "area": 502
+  },
+  "740": {
+    "code": "740",
+    "name": "Savonlinna",
+    "population": 32770,
+    "area": 1987
+  },
+  "742": {
+    "code": "742",
+    "name": "Savukoski",
+    "population": 990,
+    "area": 6440
+  },
+  "743": {
+    "code": "743",
+    "name": "Seinäjoki",
+    "population": 64543,
+    "area": 1469
+  },
+  "746": {
+    "code": "746",
+    "name": "Sievi",
+    "population": 5150,
+    "area": 813
+  },
+  "747": {
+    "code": "747",
+    "name": "Siikainen",
+    "population": 1340,
+    "area": 504
+  },
+  "748": {
+    "code": "748",
+    "name": "Siikajoki",
+    "population": 5100,
+    "area": 965
+  },
+  "749": {
+    "code": "749",
+    "name": "Siilinjärvi",
+    "population": 21860,
+    "area": 398
+  },
+  "751": {
+    "code": "751",
+    "name": "Simo",
+    "population": 3030,
+    "area": 897
+  },
+  "753": {
+    "code": "753",
+    "name": "Sipoo",
+    "population": 22590,
+    "area": 339
+  },
+  "755": {
+    "code": "755",
+    "name": "Siuntio",
+    "population": 6360,
+    "area": 233
+  },
+  "758": {
+    "code": "758",
+    "name": "Sodankylä",
+    "population": 8260,
+    "area": 12415
+  },
+  "759": {
+    "code": "759",
+    "name": "Soini",
+    "population": 2030,
+    "area": 558
+  },
+  "761": {
+    "code": "761",
+    "name": "Somero",
+    "population": 8550,
+    "area": 602
+  },
+  "762": {
+    "code": "762",
+    "name": "Sonkajärvi",
+    "population": 3550,
+    "area": 895
+  },
+  "765": {
+    "code": "765",
+    "name": "Sotkamo",
+    "population": 9810,
+    "area": 2681
+  },
+  "766": {
+    "code": "766",
+    "name": "Sottunga",
+    "population": 110,
+    "area": 28
+  },
+  "768": {
+    "code": "768",
+    "name": "Sulkava",
+    "population": 2260,
+    "area": 591
+  },
+  "771": {
+    "code": "771",
+    "name": "Sund",
+    "population": 1030,
+    "area": 103
+  },
+  "777": {
+    "code": "777",
+    "name": "Suomussalmi",
+    "population": 7440,
+    "area": 5337
+  },
+  "778": {
+    "code": "778",
+    "name": "Suonenjoki",
+    "population": 6830,
+    "area": 593
+  },
+  "781": {
+    "code": "781",
+    "name": "Sysmä",
+    "population": 3610,
+    "area": 670
+  },
+  "783": {
+    "code": "783",
+    "name": "Säkylä",
+    "population": 6780,
+    "area": 254
+  },
+  "785": {
+    "code": "785",
+    "name": "Vaala",
+    "population": 2860,
+    "area": 1365
+  },
+  "790": {
+    "code": "790",
+    "name": "Sastamala",
+    "population": 24490,
+    "area": 1556
+  },
+  "791": {
+    "code": "791",
+    "name": "Siikalatva",
+    "population": 5320,
+    "area": 2946
+  },
+  "831": {
+    "code": "831",
+    "name": "Taipalsaari",
+    "population": 4610,
+    "area": 373
+  },
+  "832": {
+    "code": "832",
+    "name": "Taivalkoski",
+    "population": 3710,
+    "area": 2564
+  },
+  "833": {
+    "code": "833",
+    "name": "Taivassalo",
+    "population": 1600,
+    "area": 56
+  },
+  "834": {
+    "code": "834",
+    "name": "Tammela",
+    "population": 5940,
+    "area": 419
+  },
+  "837": {
+    "code": "837",
+    "name": "Tampere",
+    "population": 244315,
+    "area": 525
+  },
+  "838": {
+    "code": "838",
+    "name": "Tarvasjoki",
+    "population": 1790,
+    "area": 113
+  },
+  "844": {
+    "code": "844",
+    "name": "Tervo",
+    "population": 1470,
+    "area": 393
+  },
+  "845": {
+    "code": "845",
+    "name": "Tervola",
+    "population": 2830,
+    "area": 1514
+  },
+  "846": {
+    "code": "846",
+    "name": "Teuva",
+    "population": 5200,
+    "area": 492
+  },
+  "848": {
+    "code": "848",
+    "name": "Tohmajärvi",
+    "population": 4220,
+    "area": 823
+  },
+  "849": {
+    "code": "849",
+    "name": "Toholampi",
+    "population": 3100,
+    "area": 401
+  },
+  "850": {
+    "code": "850",
+    "name": "Toivakka",
+    "population": 2420,
+    "area": 258
+  },
+  "851": {
+    "code": "851",
+    "name": "Tornio",
+    "population": 21350,
+    "area": 1085
+  },
+  "853": {
+    "code": "853",
+    "name": "Turku",
+    "population": 195301,
+    "area": 246
+  },
+  "854": {
+    "code": "854",
+    "name": "Pello",
+    "population": 3100,
+    "area": 1863
+  },
+  "857": {
+    "code": "857",
+    "name": "Tuusniemi",
+    "population": 2320,
+    "area": 514
+  },
+  "858": {
+    "code": "858",
+    "name": "Tuusula",
+    "population": 39700,
+    "area": 220
+  },
+  "859": {
+    "code": "859",
+    "name": "Tyrnävä",
+    "population": 7330,
+    "area": 422
+  },
+  "886": {
+    "code": "886",
+    "name": "Ulvila",
+    "population": 12510,
+    "area": 361
+  },
+  "887": {
+    "code": "887",
+    "name": "Urjala",
+    "population": 4770,
+    "area": 445
+  },
+  "889": {
+    "code": "889",
+    "name": "Utajärvi",
+    "population": 2550,
+    "area": 1642
+  },
+  "890": {
+    "code": "890",
+    "name": "Utsjoki",
+    "population": 1210,
+    "area": 5373
+  },
+  "892": {
+    "code": "892",
+    "name": "Uurainen",
+    "population": 3960,
+    "area": 348
+  },
+  "893": {
+    "code": "893",
+    "name": "Uusikaarlepyy",
+    "population": 7250,
+    "area": 722
+  },
+  "895": {
+    "code": "895",
+    "name": "Uusikaupunki",
+    "population": 15120,
+    "area": 498
+  },
+  "905": {
+    "code": "905",
+    "name": "Vaasa",
+    "population": 67636,
+    "area": 394
+  },
+  "908": {
+    "code": "908",
+    "name": "Valkeakoski",
+    "population": 21090,
+    "area": 271
+  },
+  "911": {
+    "code": "911",
+    "name": "Valtimo",
+    "population": 2020,
+    "area": 850
+  },
+  "915": {
+    "code": "915",
+    "name": "Varkaus",
+    "population": 20660,
+    "area": 524
+  },
+  "918": {
+    "code": "918",
+    "name": "Vehmaa",
+    "population": 2170,
+    "area": 135
+  },
+  "921": {
+    "code": "921",
+    "name": "Vesanto",
+    "population": 2010,
+    "area": 424
+  },
+  "922": {
+    "code": "922",
+    "name": "Vesilahti",
+    "population": 4570,
+    "area": 308
+  },
+  "924": {
+    "code": "924",
+    "name": "Veteli",
+    "population": 3020,
+    "area": 476
+  },
+  "925": {
+    "code": "925",
+    "name": "Vieremä",
+    "population": 3260,
+    "area": 893
+  },
+  "927": {
+    "code": "927",
+    "name": "Vihti",
+    "population": 30070,
+    "area": 568
+  },
+  "931": {
+    "code": "931",
+    "name": "Viitasaari",
+    "population": 5890,
+    "area": 1303
+  },
+  "934": {
+    "code": "934",
+    "name": "Vimpeli",
+    "population": 2740,
+    "area": 332
+  },
+  "935": {
+    "code": "935",
+    "name": "Virolahti",
+    "population": 3110,
+    "area": 348
+  },
+  "936": {
+    "code": "936",
+    "name": "Virrat",
+    "population": 6420,
+    "area": 1162
+  },
+  "941": {
+    "code": "941",
+    "name": "Vårdö",
+    "population": 420,
+    "area": 101
+  },
+  "946": {
+    "code": "946",
+    "name": "Vöyri",
+    "population": 6100,
+    "area": 770
+  },
+  "976": {
+    "code": "976",
+    "name": "Ylitornio",
+    "population": 3870,
+    "area": 2127
+  },
+  "977": {
+    "code": "977",
+    "name": "Ylivieska",
+    "population": 15160,
+    "area": 557
+  },
+  "980": {
+    "code": "980",
+    "name": "Ylöjärvi",
+    "population": 34350,
+    "area": 389
+  },
+  "981": {
+    "code": "981",
+    "name": "Ypäjä",
+    "population": 2350,
+    "area": 175
+  },
+  "989": {
+    "code": "989",
+    "name": "Ähtäri",
+    "population": 5700,
+    "area": 836
+  },
+  "992": {
+    "code": "992",
+    "name": "Äänekoski",
+    "population": 18910,
+    "area": 847
+  },
+  "005": {
+    "code": "005",
+    "name": "Alajärvi",
+    "population": 9680,
+    "area": 1047
+  },
+  "009": {
+    "code": "009",
+    "name": "Alavieska",
+    "population": 2520,
+    "area": 141
+  },
+  "010": {
+    "code": "010",
+    "name": "Alavus",
+    "population": 11470,
+    "area": 899
+  },
+  "016": {
+    "code": "016",
+    "name": "Asikkala",
+    "population": 7800,
+    "area": 565
+  },
+  "018": {
+    "code": "018",
+    "name": "Askola",
+    "population": 5210,
+    "area": 213
+  },
+  "019": {
+    "code": "019",
+    "name": "Aura",
+    "population": 4100,
+    "area": 95
+  },
+  "035": {
+    "code": "035",
+    "name": "Brändö",
+    "population": 460,
+    "area": 108
+  },
+  "043": {
+    "code": "043",
+    "name": "Eckerö",
+    "population": 970,
+    "area": 108
+  },
+  "046": {
+    "code": "046",
+    "name": "Enonkoski",
+    "population": 1340,
+    "area": 328
+  },
+  "047": {
+    "code": "047",
+    "name": "Enontekiö",
+    "population": 1870,
+    "area": 8391
+  },
+  "049": {
+    "code": "049",
+    "name": "Espoo",
+    "population": 299013,
+    "area": 312
+  },
+  "050": {
+    "code": "050",
+    "name": "Eura",
+    "population": 11720,
+    "area": 610
+  },
+  "051": {
+    "code": "051",
+    "name": "Eurajoki",
+    "population": 9100,
+    "area": 362
+  },
+  "052": {
+    "code": "052",
+    "name": "Evijärvi",
+    "population": 2370,
+    "area": 353
+  },
+  "060": {
+    "code": "060",
+    "name": "Finström",
+    "population": 2560,
+    "area": 123
+  },
+  "061": {
+    "code": "061",
+    "name": "Forssa",
+    "population": 17150,
+    "area": 249
+  },
+  "062": {
+    "code": "062",
+    "name": "Föglö",
+    "population": 540,
+    "area": 135
+  },
+  "065": {
+    "code": "065",
+    "name": "Geta",
+    "population": 490,
+    "area": 84
+  },
+  "069": {
+    "code": "069",
+    "name": "Haapajärvi",
+    "population": 6730,
+    "area": 557
+  },
+  "071": {
+    "code": "071",
+    "name": "Haapavesi",
+    "population": 6440,
+    "area": 1048
+  },
+  "072": {
+    "code": "072",
+    "name": "Hailuoto",
+    "population": 1010,
+    "area": 199
+  },
+  "074": {
+    "code": "074",
+    "name": "Halsua",
+    "population": 1120,
+    "area": 422
+  },
+  "075": {
+    "code": "075",
+    "name": "Hamina",
+    "population": 20250,
+    "area": 609
+  },
+  "076": {
+    "code": "076",
+    "name": "Hammarland",
+    "population": 1570,
+    "area": 138
+  },
+  "077": {
+    "code": "077",
+    "name": "Hankasalmi",
+    "population": 4970,
+    "area": 464
+  },
+  "078": {
+    "code": "078",
+    "name": "Hanko",
+    "population": 8340,
+    "area": 117
+  },
+  "079": {
+    "code": "079",
+    "name": "Harjavalta",
+    "population": 6810,
+    "area": 127
+  },
+  "081": {
+    "code": "081",
+    "name": "Hartola",
+    "population": 2840,
+    "area": 586
+  },
+  "082": {
+    "code": "082",
+    "name": "Hattula",
+    "population": 10050,
+    "area": 353
+  },
+  "086": {
+    "code": "086",
+    "name": "Hausjärvi",
+    "population": 8960,
+    "area": 366
+  },
+  "090": {
+    "code": "090",
+    "name": "Heinävesi",
+    "population": 3220,
+    "area": 1280
+  },
+  "091": {
+    "code": "091",
+    "name": "Helsinki",
+    "population": 658864,
+    "area": 214
+  },
+  "092": {
+    "code": "092",
+    "name": "Vantaa",
+    "population": 243244,
+    "area": 238
+  },
+  "097": {
+    "code": "097",
+    "name": "Hirvensalmi",
+    "population": 2130,
+    "area": 463
+  },
+  "098": {
+    "code": "098",
+    "name": "Hollola",
+    "population": 24640,
+    "area": 143
+  },
+  "099": {
+    "code": "099",
+    "name": "Honkajoki",
+    "population": 1560,
+    "area": 337
+  },
+  "020": {
+    "code": "020",
+    "name": "Akaa",
+    "population": 16640,
+    "area": 293
+  }
+}

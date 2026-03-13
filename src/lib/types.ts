@@ -160,6 +160,26 @@ export type ResearchPrompt = {
   language: 'no' | 'en'
 }
 
+export type ThesisTheme =
+  | 'konsentrasjon' | 'makt' | 'etableringshindringer'
+  | 'regulering' | 'verdikjede' | 'prising' | 'emv' | 'nordisk'
+
+export type Thesis = {
+  id: string
+  authors: string
+  institution: string
+  year: number
+  title: string
+  titleNo?: string
+  url: string
+  synthesis: string
+  keyFindings: string[]
+  tags: ThesisTheme[]
+  takeaways: string[]
+  method?: string
+  awardWinning?: boolean
+}
+
 export type CommType = 'epost' | 'melding' | 'brev'
 
 export type Communication = {

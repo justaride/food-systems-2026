@@ -13,25 +13,32 @@ import {
 } from 'recharts'
 import { Card } from '@/components/ui/Card'
 import { ChartSource } from '@/components/ui/ChartSource'
+import { EmptyState } from '@/components/ui/EmptyState'
+import { countryChartData } from '@/lib/data/country-chart-data'
+import type { CountryCode } from '@/lib/config/countries'
 
-const DATA = [
-  { name: 'NorgesGruppen', margin: 3.3 },
-  { name: 'Reitan (Rema)', margin: 3.85 },
-  { name: 'Coop Norge', margin: 1.0 },
-  { name: 'Leverandører', margin: 6.0 },
-]
+export function MarginsChart({ country = 'no' }: { country?: string }) {
+  const margins = countryChartData[country as CountryCode].margins
 
-const INDUSTRY_AVG = 1.9
+  if (!margins) {
+    return (
+      <Card>
+        <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Fortjenestemarginer</h3>
+        <EmptyState message="Margindata ikke tilgjengelig for dette landet" />
+      </Card>
+    )
+  }
 
-export function MarginsChart() {
+  const { data, industryAvg, source } = margins
+
   return (
     <Card>
-      <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Fortjenestemarginer (2024)</h3>
+      <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Fortjenestemarginer ({margins.year})</h3>
       <p className="text-xs text-stone-400 mb-3">Drifts-/resultatmargin, dagligvare vs. leverandører</p>
       <div className="h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
-            data={DATA}
+            data={data}
             margin={{ top: 0, right: 16, left: 0, bottom: 0 }}
           >
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e7e5e4" />
@@ -42,23 +49,23 @@ export function MarginsChart() {
               contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e7e5e4' }}
             />
             <ReferenceLine
-              y={INDUSTRY_AVG}
+              y={industryAvg}
               label={{ value: 'Bransjesn.', fontSize: 10, fill: '#78716c' }}
               stroke="#f43f5e"
               strokeDasharray="3 3"
             />
             <Bar dataKey="margin" name="Margin %" radius={[4, 4, 0, 0]}>
-              {DATA.map((entry, i) => (
+              {data.map((entry, i) => (
                 <Cell
                   key={i}
-                  fill={entry.margin >= INDUSTRY_AVG ? '#10b981' : '#78716c'}
+                  fill={entry.margin >= industryAvg ? '#10b981' : '#78716c'}
                 />
               ))}
             </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
-      <ChartSource source="Kilde: Årsrapporter 2024, Konkurransetilsynet verdikjedestudie" />
+      <ChartSource source={`Kilde: ${source}`} />
     </Card>
   )
 }
