@@ -339,6 +339,27 @@ Tre konsoliderte kildebiblioteker innhentet gjennom systematisk desk research ba
 *   **Innhold:** Syntesedokument basert på VK-001 til VK-009. Konsentrasjonskart for 9 verdikjedeledd × 5 land, HHI-rangering, krysseierskap, 7 flaskehalser, systemrisikomatrise, sirkulærøkonomi-gaps.
 *   **Nøkkelkonklusjoner:** Norge HHI ~3400 (Europas høyeste), BAMA-nettverket unik maktposisjon, Yara Porsgrunn single point of failure, biogass-gap 9,7× under Danmark.
 
+### 9.5 Dyp Akademisk Research
+
+*   **Fil:** `research/bibliotek/akademia-dyp-research.md`
+*   **Innhold:** 27 akademiske kilder — NHH FOOD (Steen, Foros: prismekanismer, co-location, grensehandel), SIFO/OsloMet (Dyrtid 4, referansebudsjettet, kundeprogrammer), UiB/BECCLE (Gabrielsen: kjøpermakt, EMV), internasjonalt (Dobson: buyer power EU, Rey/Tirole: vertikale restriksjoner, OECD competition in food).
+*   **Dekker:** DESK-RESEARCH-PLAN seksjon 4.
+*   **Nøkkelfunn:** 1 av 12 husholdninger matfattigdom, matkostnader +30 % (2021-2025), sortiment som skjult markedsmakt, EMV 20 %.
+
+### 9.6 Tenketanker, NGO-er og Sivilsamfunn
+
+*   **Fil:** `research/bibliotek/tenketanker-ngo.md`
+*   **Innhold:** 17 kilder — Civita/Agenda/Manifest (politisk spekter), FIVH/Naturvernforbundet/Matvalget/Spire/Forbrukerrådet (miljø/forbruker), Stockholm Resilience Centre/Nordic Council/EAT/Ellen MacArthur/IPES-Food (systemnivå), BERAS/DNVA/Matsystemutvalget (nordisk).
+*   **Dekker:** DESK-RESEARCH-PLAN seksjon 7.
+*   **Nøkkelfunn:** DNVA — Norge mangler nasjonal matpolitikk. IPES-Food 8 lock-ins. EAT legges ned 2026. Nordisk COP30-erklæring om mat.
+
+### 9.7 Sirkularitet og Matsvinn: Dyp Research
+
+*   **Fil:** `research/bibliotek/sirkularitet-dyp.md`
+*   **Innhold:** 22 kilder — Matvett (407k tonn matsvinn, 24 % reduksjon), matsvinnloven 2026, biogass-gap 11,6× (DK 8 TWh vs NO 0,7 TWh), fosfor-gjenvinning (HIAS struvitt), insektprotein (Invertapro, Enorm), Wageningen cascading, BERAS sirkulært landbruk.
+*   **Dekker:** DESK-RESEARCH-PLAN seksjon 12 + biogass-gap fra kryssanalysen.
+*   **Nøkkelfunn:** 100-160 nye biogassanlegg, 15-25 mrd NOK investering, 5 virkemidler. Matsvinnloven = Nordens første obligatoriske lovgivning.
+
 ---
 **Sist oppdatert:** 13. mars 2026
 **Ansvarlig:** Food Systems 2026 Research Team

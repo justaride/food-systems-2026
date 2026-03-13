@@ -506,4 +506,88 @@ export const insights: Insight[] = [
       { sourceId: 'src-65', label: 'NOU-stortingsdok-juridisk', note: '10 primaerkilder dokumentert' },
     ],
   },
+  {
+    id: 'ins-37',
+    title: '1 av 12 norske husholdninger viser tegn til matfattigdom',
+    type: 'funn',
+    source: 'SIFO/OsloMet',
+    phase: 'fase-1',
+    date: '2026-03-13',
+    description:
+      'SIFOs Dyrtid 4-rapport dokumenterer at 1 av 12 norske husholdninger hopper over maaltider, bruker matbanker eller reduserer matinntak grunnet oekonomi. Matkostnadene oekte 30% fra 2021 til 2025 for en referansefamilie. Matfattigdom er ikke lenger et marginalt fenomen i Norge.',
+    tags: ['matfattigdom', 'forbruker', 'ulikhet', 'SIFO'],
+    sources: [
+      { sourceId: 'src-68', label: 'Akademia dyp research', note: 'SIFO Dyrtid 4 og referansebudsjettet 2025' },
+    ],
+  },
+  {
+    id: 'ins-38',
+    title: 'Biogass-gap oppdatert: Norge 11,6x under Danmark (0,7 vs 8 TWh)',
+    type: 'funn',
+    source: 'Sirkularitet-research',
+    phase: 'fase-1',
+    date: '2026-03-13',
+    description:
+      'Oppdatert analyse viser gapet er 11,6x (ikke 9,7x som i kryssanalysen). Danmark: 8 TWh, 160 anlegg, 37,3% av gassforbruk. Norge: 0,7 TWh, 40 anlegg. Hovedforklaring: 20-aars forutsigbar feed-in-premium i Danmark vs kortsiktige ordninger i Norge. Potensial: 5,5-11 TWh med 100-160 nye anlegg og 15-25 mrd NOK investering.',
+    tags: ['biogass', 'sirkulaer', 'danmark', 'norge', 'energi'],
+    sources: [
+      { sourceId: 'src-70', label: 'Sirkularitet dyp research', note: 'Biogas Danmark, Biogass Norge, Enova' },
+    ],
+  },
+  {
+    id: 'ins-39',
+    title: 'IPES-Food: 8 lock-ins holder matsystemer fast i uholdbar bane',
+    type: 'analyse',
+    source: 'Tenketanker/NGO',
+    phase: 'fase-1',
+    date: '2026-03-13',
+    description:
+      'IPES-Food identifiserer 8 lock-ins som hindrer matsystemtransformasjon: (1) path dependency i infrastruktur, (2) eksportorientering, (3) maktkonsentrasjon, (4) silo-tenkning i politikk, (5) kortsiktig oekonomisk logikk, (6) maaltall som premierer volum, (7) forventning om billig mat, (8) mangel paa alternativ kunnskap.',
+    tags: ['lock-in', 'systemtransformasjon', 'IPES-Food', 'politikk'],
+    sources: [
+      { sourceId: 'src-69', label: 'Tenketanker-NGO', note: 'IPES-Food: From Uniformity to Diversity (2016) og Too Big to Feed (2017)' },
+    ],
+  },
+  {
+    id: 'ins-40',
+    title: 'DNVA: Norge mangler nasjonal matpolitikk — 18 anbefalinger',
+    type: 'funn',
+    source: 'Tenketanker/NGO',
+    phase: 'fase-1',
+    date: '2026-03-13',
+    description:
+      'Det Norske Videnskaps-Akademi (DNVA) konkluderer at Norge mangler en samlet nasjonal matpolitikk. 18 anbefalinger inkluderer: nasjonal matstrategi, samordning mellom departementer, styrket beredskap, oekt selvforsyning. Matsystemutvalget (Hoeie) skal levere NOU innen november 2026.',
+    tags: ['matpolitikk', 'DNVA', 'strategi', 'matsystemutvalget'],
+    sources: [
+      { sourceId: 'src-69', label: 'Tenketanker-NGO', note: 'DNVA-rapporten og Matsystemutvalget' },
+    ],
+  },
+  {
+    id: 'ins-41',
+    title: 'Matsvinnloven 2026: Nordens foerste obligatoriske matsvinnsregulering',
+    type: 'kartlegging',
+    source: 'Sirkularitet-research',
+    phase: 'fase-1',
+    date: '2026-03-13',
+    description:
+      'Norges matsvinnlov (vedtatt juni 2025, ikraft 2026) innfoerer aktsomhetsplikt, donasjonsplikt og prisreduksjonsplikt. Foerste obligatoriske lovgivning mot matsvinn i Norden. Bygger paa bransjeavtalen som allerede har redusert matsvinn 24% siden 2015 (407 000 tonn gjenstaande).',
+    tags: ['matsvinn', 'regulering', 'matsvinnloven', 'norge'],
+    sources: [
+      { sourceId: 'src-70', label: 'Sirkularitet dyp research', note: 'Matvett, Stortinget, Matsvinnutvalget' },
+    ],
+  },
+  {
+    id: 'ins-42',
+    title: 'Sortiment som skjult markedsmakt: NHH-forskning paa hylleplass',
+    type: 'analyse',
+    source: 'NHH FOOD',
+    phase: 'fase-1',
+    date: '2026-03-13',
+    description:
+      'Ozhegova (NHH FOOD working paper) dokumenterer at dagligvarekjedenes kontroll over sortiment og hylleplass er en skjult markedsmaktmekanisme. Kjedene styrer hvilke produkter forbrukerne ser — og dermed hva de kjoeper. Supplerer portvoktermakt-begrepet fra NOU 2013:6.',
+    tags: ['sortiment', 'markedsmakt', 'NHH', 'EMV'],
+    sources: [
+      { sourceId: 'src-68', label: 'Akademia dyp research', note: 'Ozhegova working paper + Menon EMV-kartlegging' },
+    ],
+  },
 ]
