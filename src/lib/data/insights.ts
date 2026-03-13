@@ -420,4 +420,90 @@ export const insights: Insight[] = [
       { sourceId: 'src-61', label: 'Nordisk sjomatverdikjede', note: 'Forprodusent-oversikt' },
     ],
   },
+  {
+    id: 'ins-31',
+    title: 'Norge har Europas hoeyeste dagligvare-HHI (~3400)',
+    type: 'analyse',
+    source: 'Kryssegment-analyse',
+    phase: 'fase-1',
+    date: '2026-03-13',
+    description:
+      'Kryssegment-analysen estimerer Norges dagligvare-HHI til ~3400 — hoeyest i Europa og i Norden. Finland foelger med ~3200 (duopol), Danmark lavest (~1800). Konsentrasjonen er strukturell og har vaert dokumentert siden 2005.',
+    tags: ['maktkonsentrasjon', 'HHI', 'nordisk', 'dagligvare'],
+    sources: [
+      { sourceId: 'src-64', label: 'Kryssegment verdikjedeanalyse', note: 'HHI-tilnaerming basert paa VK-001 til VK-009' },
+      { sourceId: 'src-66', label: 'Nordic Food Markets 2005', note: 'Historisk HHI opp til 3100' },
+    ],
+  },
+  {
+    id: 'ins-32',
+    title: 'Syv kritiske flaskehalser i nordisk matforsyning',
+    type: 'analyse',
+    source: 'Kryssegment-analyse',
+    phase: 'fase-1',
+    date: '2026-03-13',
+    description:
+      'Identifisert 7 kritiske flaskehalser: (1) Yara Porsgrunn — eneste nordiske nitrogengjoedselfabrikk, (2) BAMA — 70% av norsk frukt/groent, (3) Tre utenlandskeide fiskeforselskaper, (4) Denofa — eneste soyaimportoer, (5) Oestlandet lagerkonsentrasjon, (6) Kooperativ foredlingsmonopol, (7) Digital infrastruktur (kjedeeide kundeprogrammer).',
+    tags: ['flaskehalser', 'sarbarhet', 'infrastruktur', 'systemrisiko'],
+    sources: [
+      { sourceId: 'src-64', label: 'Kryssegment verdikjedeanalyse' },
+    ],
+  },
+  {
+    id: 'ins-33',
+    title: 'Selvforsyningsgrad kollapset: 41,6% til 34,9% paa ett aar',
+    type: 'funn',
+    source: 'Beredskapskilder',
+    phase: 'fase-1',
+    date: '2026-03-13',
+    description:
+      'Norges forkorrigerte selvforsyningsgrad falt fra 41,6% til 34,9% mellom 2023 og 2024 — et dramatisk fall mot det politiske maalet paa 50%. Kjottimport oekte 45%. Finland har 8,5 maaneders kornlager; Norge har null statlige matlagre.',
+    tags: ['selvforsyning', 'beredskap', 'matsikkerhet', 'norge'],
+    sources: [
+      { sourceId: 'src-67', label: 'Bransje-statistikk-beredskap', note: 'NIBIO, SSB, NESA/HVK' },
+    ],
+  },
+  {
+    id: 'ins-34',
+    title: 'Prisjeger-vedtaket: NOK 4,9 mrd for ulovlig prisinformasjon',
+    type: 'funn',
+    source: 'Konkurransetilsynet',
+    phase: 'fase-1',
+    date: '2026-03-13',
+    description:
+      'Konkurransetilsynet ila overtredelsesgebyr paa 4,9 mrd NOK til NorgesGruppen, Coop og REMA for ulovlig informasjonsutveksling gjennom prisjegere (2011-2018). Historiens stoerste norske konkurransesak. Dokumenterer at priskonkurransen var svekket i en aarrekke.',
+    tags: ['prisjeger', 'konkurranserett', 'dagligvare', 'vedtak'],
+    sources: [
+      { sourceId: 'src-66', label: 'Konkurransetilsyn-konsulent', note: 'Vedtak 2024' },
+      { sourceId: 'src-42', label: 'Prisjeger-saken' },
+    ],
+  },
+  {
+    id: 'ins-35',
+    title: 'Bestiller-bias: Statlige rapporter finner svak konkurranse, bransjen finner det motsatte',
+    type: 'analyse',
+    source: 'Konkurransetilsynet/konsulenter',
+    phase: 'fase-1',
+    date: '2026-03-13',
+    description:
+      'Systematisk moenster i konsulentrapporter: Statlig bestilte (SOA 2023, KT-rapporter) finner hoeye marginer og svak konkurranse. Bransjebestilte (Oslo Economics for NorgesGruppen, Menon for Virke) finner at konkurransen fungerer. Bestiller-identitet korrelerer sterkt med konklusjon.',
+    tags: ['bias', 'konsulentrapporter', 'metodikk', 'dagligvare'],
+    sources: [
+      { sourceId: 'src-66', label: 'Konkurransetilsyn-konsulent', note: 'Systematisk gjennomgang av 12 kilder' },
+    ],
+  },
+  {
+    id: 'ins-36',
+    title: 'NOU 2013:6 definerte portvoktermakt — grunnlaget for dagens regulering',
+    type: 'kartlegging',
+    source: 'NOU/stortingsdokumenter',
+    phase: 'fase-1',
+    date: '2026-03-13',
+    description:
+      'Dagligvarelovutvalget (Hjelmeng) definerte portvoktermakt som makten til aa avgjore om andre faar bringe sitt produkt til markedet. Utredningen la grunnlaget for lov om god handelsskikk (2020), Dagligvaretilsynet og markedsetterforskning (2025). Tre parallelle regulatoriske spor: handelsskikk, konkurranserett og markedsetterforskning.',
+    tags: ['portvoktermakt', 'regulering', 'NOU', 'handelsskikk'],
+    sources: [
+      { sourceId: 'src-65', label: 'NOU-stortingsdok-juridisk', note: '10 primaerkilder dokumentert' },
+    ],
+  },
 ]
