@@ -1,0 +1,412 @@
+generator client {
+  provider        = "prisma-client"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  extensions = [pg_trgm(map: "pg_trgm"), vector(map: "vector")]
+}
+
+// ─── Domain 1: Documents ────────────────────────────────────────────
+
+model Document {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  filePath     String   @unique
+  title        String
+  author       String?
+  year         Int?
+  documentType String?
+  category     String?
+  subcategory  String?
+  country      String?
+  content      String
+  summary      String?
+  url          String?
+  wordCount    Int      @default(0)
+  tags         String[]
+  metadata     Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  refsFrom            DocumentRef[]        @relation("refFrom")
+  refsTo              DocumentRef[]        @relation("refTo")
+  sourceDoc           SourceDoc?           @relation
+  thesis              Thesis?              @relation
+  insightDocumentRefs InsightDocumentRef[]
+  companyDocumentRefs CompanyDocumentRef[]
+
+  @@index([category])
+  @@index([country])
+  @@index([documentType])
+  @@index([tags], type: Gin)
+}
+
+model DocumentRef {
+  id      String @id @default(cuid())
+  fromId  String
+  toId    String
+  refType String // cites, references, supports, contradicts
+
+  from Document @relation("refFrom", fields: [fromId], references: [id])
+  to   Document @relation("refTo", fields: [toId], references: [id])
+
+  @@unique([fromId, toId, refType])
+}
+
+// ─── Domain 2: Sources ──────────────────────────────────────────────
+
+model SourceDoc {
+  id          String  @id // src-1..src-70
+  filename    String
+  title       String?
+  author      String?
+  year        String? // can be number or string in source data
+  sourceType  String
+  description String
+  relevance   String
+  url         String?
+  isDuplicate Boolean @default(false)
+
+  documentId String?   @unique
+  document   Document? @relation(fields: [documentId], references: [id])
+
+  sourceRefs SourceRef[]
+  insights   Insight[]  @relation("InsightSourceDoc")
+
+  @@index([sourceType])
+}
+
+model SourceRef {
+  id          String  @id @default(cuid())
+  sourceDocId String?
+  label       String
+  url         String?
+  note        String?
+
+  sourceDoc SourceDoc? @relation(fields: [sourceDocId], references: [id])
+  insightId String?
+  insight   Insight?   @relation(fields: [insightId], references: [id])
+  meetingId String?
+  meeting   Meeting?   @relation(fields: [meetingId], references: [id])
+
+  @@index([sourceDocId])
+  @@index([insightId])
+}
+
+// ─── Domain 3: Insights ─────────────────────────────────────────────
+
+model Insight {
+  id          String  @id // ins-01..ins-42
+  title       String
+  description String
+  insightType String
+  source      String
+  phaseId     String?
+  tags        String[]
+  url         String?
+  date        String
+
+  sourceDocLinks SourceDoc[] @relation("InsightSourceDoc")
+  sourceRefs     SourceRef[]
+  documentRefs   InsightDocumentRef[]
+
+  @@index([insightType])
+  @@index([phaseId])
+  @@index([tags], type: Gin)
+}
+
+model InsightDocumentRef {
+  id         String @id @default(cuid())
+  insightId  String
+  documentId String
+  relevance  String @default("related")
+
+  insight  Insight  @relation(fields: [insightId], references: [id])
+  document Document @relation(fields: [documentId], references: [id])
+
+  @@unique([insightId, documentId])
+}
+
+// ─── Domain 4: Theses ───────────────────────────────────────────────
+
+model Thesis {
+  id           String   @id // e.g. jacobsen-jansson-2022
+  authors      String
+  institution  String
+  year         Int
+  title        String
+  titleNo      String?
+  url          String
+  synthesis    String
+  keyFindings  String[]
+  tags         String[]
+  takeaways    String[]
+  method       String?
+  awardWinning Boolean  @default(false)
+
+  documentId String?   @unique
+  document   Document? @relation(fields: [documentId], references: [id])
+
+  @@index([institution])
+  @@index([tags], type: Gin)
+}
+
+// ─── Domain 5: Companies ────────────────────────────────────────────
+
+model Company {
+  id              String  @id @default(cuid())
+  name            String
+  orgNr           String  @unique
+  legalForm       String?
+  founded         Int?
+  naceCode        String?
+  naceDescription String?
+  country         String  @default("NO")
+  hqAddress       String?
+  hqCity          String?
+  employees       Int?
+  ownershipType   String? // family, cooperative, state, foreign, listed
+  valueChainStage String? // retail, processing, seafood, inputs, logistics
+  metadata        Json?
+
+  financials   CompanyFinancial[]
+  shareholders Shareholder[]
+  boardMembers BoardMember[]
+  subsidies    Subsidy[]
+  documentRefs CompanyDocumentRef[]
+
+  @@index([country])
+  @@index([valueChainStage])
+}
+
+model CompanyFinancial {
+  id              String   @id @default(cuid())
+  companyId       String
+  year            Int
+  revenueNok      Decimal? @db.Decimal(15, 2)
+  operatingResult Decimal? @db.Decimal(15, 2)
+  operatingMargin Decimal? @db.Decimal(5, 2)
+  ebitda          Decimal? @db.Decimal(15, 2)
+  equityRatio     Decimal? @db.Decimal(5, 2)
+  groupEmployees  Int?
+  source          String?
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, year])
+}
+
+model Shareholder {
+  id              String   @id @default(cuid())
+  companyId       String
+  name            String
+  ownershipPct    Decimal? @db.Decimal(5, 2)
+  shareholderType String?  // family, institutional, state, cooperative, foreign
+  isControlling   Boolean  @default(false)
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@index([companyId])
+}
+
+model BoardMember {
+  id         String @id @default(cuid())
+  companyId  String
+  personName String
+  role       String // styreleder, nestleder, styremedlem, CEO, CFO
+  personKey  String // normalized name for interlocking detection
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@index([companyId])
+  @@index([personKey])
+}
+
+model Subsidy {
+  id          String   @id @default(cuid())
+  companyId   String
+  subsidyType String
+  project     String?
+  amountNok   Decimal? @db.Decimal(15, 2)
+  year        Int?
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@index([companyId])
+}
+
+model CompanyDocumentRef {
+  id         String @id @default(cuid())
+  companyId  String
+  documentId String
+  context    String?
+
+  company  Company  @relation(fields: [companyId], references: [id])
+  document Document @relation(fields: [documentId], references: [id])
+
+  @@unique([companyId, documentId])
+}
+
+// ─── Domain 6: Project Management ───────────────────────────────────
+
+model Phase {
+  id     String   @id // fase-1..fase-4
+  name   String
+  weeks  String
+  items  String[]
+  status String   @default("ikke-startet")
+}
+
+model ProjectTask {
+  id       String  @id // task-1..task-18
+  title    String
+  source   String
+  status   String  @default("ikke-startet")
+  priority String  @default("middels")
+  phaseId  String?
+}
+
+model TeamMember {
+  id           String @id // gabriel, cathrine, etc.
+  name         String
+  role         String
+  title        String
+  organization String
+}
+
+model Application {
+  id       String   @id // ni-2024, nch-2025, oslo-2025
+  title    String
+  year     Int
+  status   String
+  budget   String
+  partners String[]
+  phases   Json     // ApplicationPhase[]
+  scope    String
+}
+
+model Deliverable {
+  id       String @id
+  name     String
+  deadline String
+  status   String @default("ikke-startet")
+}
+
+model KPI {
+  id          String  @id
+  name        String
+  description String
+  current     String?
+  target      String?
+}
+
+model TenStep {
+  step   Int    @id
+  theme  String
+  output String
+  status String @default("ikke-startet")
+}
+
+model EvidenceDoc {
+  id     String @id
+  name   String
+  status String @default("ikke-startet")
+}
+
+// ─── Domain 7: Meetings & Communications ────────────────────────────
+
+model Meeting {
+  id           String     @id // meeting-1, meeting-2, etc.
+  date         String
+  title        String
+  participants String[]
+  source       String
+  summary      String
+  keyDecisions String[]
+  actionItems  String[]
+  keyInsights  String[]
+  sourceRefs   SourceRef[]
+}
+
+model Communication {
+  id      String   @id
+  title   String
+  summary String
+  commType String
+  sender  String   @map("from")
+  recipients String[] @map("to")
+  date    String
+  tags    String[]
+
+  @@index([tags], type: Gin)
+}
+
+// ─── Domain 8: Research Prompts ─────────────────────────────────────
+
+model ResearchPrompt {
+  id             String @id
+  category       String
+  title          String
+  prompt         String
+  model          String
+  expectedOutput String
+  language       String @default("no")
+
+  @@index([category])
+}
+
+// ─── Domain 9: Market Data ──────────────────────────────────────────
+
+model CountryMetric {
+  id         String   @id @default(cuid())
+  country    String   // no, se, dk, fi, is
+  metricType String   // selfSufficiency, margin, marketShare
+  category   String   // e.g. "Melk", "Kjøtt", "NorgesGruppen"
+  value      Decimal  @db.Decimal(10, 2)
+  unit       String?  // %, NOK, etc.
+  year       String
+  source     String
+  subtitle   String?
+  metadata   Json?
+
+  @@unique([country, metricType, category, year])
+  @@index([country, metricType])
+}
+
+// ─── Domain 10: Media Landscape ─────────────────────────────────────
+
+model MediaTheme {
+  id          String @id // beredskap, prispress, etc.
+  name        String
+  description String
+  sources     Json?  // SourceRef[]
+}
+
+model MediaTimelineEntry {
+  id        String @id @default(cuid())
+  year      Int
+  intensity Int
+  label     String
+  note      String
+  sources   Json?  // SourceRef[]
+
+  @@unique([year])
+}
+
+model MediaCountryProfile {
+  id                String @id // no, se, dk, fi
+  name              String
+  iso               String
+  dominantNarrative String
+  summary           String
+  strongestPeriod   String
+  keyQuestion       String
+  yearlySignal      Int[]
+  focusLevels       Json   // Record<MediaThemeId, MediaFocusLevel>
+  triggerMoments    Json   // MediaTriggerMoment[]
+  sources           Json?  // SourceRef[]
+}
