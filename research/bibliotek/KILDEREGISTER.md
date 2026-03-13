@@ -308,5 +308,37 @@ Kilder benyttet i de åtte verdikjede-dokumentene (`research/norden/verdikjede/0
 *   **Kavli Holding AS / Kavlifondet (2023).** *Årsrapporter og stiftelsesstruktur.* kavli.com
 
 ---
+
+## 9. Desk Research: Konsoliderte Kildebiblioteker (mars 2026)
+
+Tre konsoliderte kildebiblioteker innhentet gjennom systematisk desk research basert på `DESK-RESEARCH-PLAN.md`.
+
+### 9.1 NOU-er, Stortingsdokumenter og Juridiske Kilder
+
+*   **Fil:** `research/bibliotek/nou-stortingsdok-juridisk.md`
+*   **Innhold:** 10 primærkilder — NOU 2013:6 (handelsskikk), Meld. St. 9/11/4, Prop. 33 L, markedsetterforskning LOV-2024-12-20-100, lov om god handelsskikk, konkurranseloven, finsk kilpailulaki § 4a, EU UTP-direktivet 2019/633.
+*   **Dekker:** DESK-RESEARCH-PLAN seksjon 1 og 9.
+
+### 9.2 Konkurransemyndigheter og Konsulentrapporter
+
+*   **Fil:** `research/bibliotek/konkurransetilsyn-konsulent.md`
+*   **Innhold:** 12 kilder — Nordic Food Markets 2005, innkjøpspriskartlegging 2017-2023, dagligvarerapporter 2022-2023, prisjusteringsvinduer, marginstudie Del 1, Prisjeger-vedtaket (4,9 mrd), Samarbeidsklima 2022-2024, KFST Salling/Coop, SØA EMV-utredning, Menon EMV, Oslo Economics.
+*   **Dekker:** DESK-RESEARCH-PLAN seksjon 2 og 3.
+*   **Nøkkelobservasjon:** Systematisk bestiller-bias — statlige rapporter finner svak konkurranse, bransjebestilte rapporter finner det motsatte.
+
+### 9.3 Bransje-, Statistikk- og Beredskapskilder
+
+*   **Fil:** `research/bibliotek/bransje-statistikk-beredskap.md`
+*   **Innhold:** 16 kilder — Virke, NHO Mat og Drikke, Bondelaget, Sjømat Norge, SSB (7 tabeller), Eurostat, FAO, OECD, NIBIO, Landbruksdirektoratet, DSB, HVK Finland. 30+ kvantitative nøkkelmetrikker.
+*   **Dekker:** DESK-RESEARCH-PLAN seksjon 5, 6 og 11.
+*   **Nøkkeltall:** Selvforsyning 34,9 % (2024), import 125,5 mrd NOK, matpriser 31 % over EU-snitt, Finland 8,5 mnd kornlager vs. Norge null.
+
+### 9.4 Kryssegment Verdikjedeanalyse
+
+*   **Fil:** `research/norden/verdikjede/10-kryss-analyse.md`
+*   **Innhold:** Syntesedokument basert på VK-001 til VK-009. Konsentrasjonskart for 9 verdikjedeledd × 5 land, HHI-rangering, krysseierskap, 7 flaskehalser, systemrisikomatrise, sirkulærøkonomi-gaps.
+*   **Nøkkelkonklusjoner:** Norge HHI ~3400 (Europas høyeste), BAMA-nettverket unik maktposisjon, Yara Porsgrunn single point of failure, biogass-gap 9,7× under Danmark.
+
+---
 **Sist oppdatert:** 13. mars 2026
 **Ansvarlig:** Food Systems 2026 Research Team

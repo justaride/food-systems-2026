@@ -34,7 +34,7 @@ Disse er grunnmuren. NOU-er og stortingsmeldinger definerer det politiske landsk
 | # | Dokument | År | URL | Status |
 |---|----------|----|-----|--------|
 | 1 | **NOU 2011:4 — Mat, makt og avmakt** | 2011 | https://www.regjeringen.no/no/dokumenter/nou-2011-4/id640128/ | [x] |
-| 2 | **NOU 2013:6 — God handelsskikk i dagligvarekjeden** | 2013 | https://www.regjeringen.no/no/dokumenter/nou-2013-6/id725309/ | [ ] |
+| 2 | **NOU 2013:6 — God handelsskikk i dagligvarekjeden** | 2013 | https://www.regjeringen.no/no/dokumenter/nou-2013-6/id725309/ | [x] |
 | 3 | **NOU 2022:14 — Inntektsmåling i jordbruket** | 2022 | https://www.regjeringen.no/no/dokumenter/nou-2022-14/id2930144/ | [x] |
 | 4 | **Matsystemutvalget (NOU kommer)** | Nov 2026 | https://nettsteder.regjeringen.no/matsystemutvalget/ | [x] |
 
@@ -54,9 +54,9 @@ Sjekk også eldre NOU-er som kan gi historisk kontekst (1990-tallet: deregulerin
 
 | # | Dokument | År | URL | Status |
 |---|----------|----|-----|--------|
-| 1 | **Meld. St. 9 (2011–2012) — Landbruks- og matpolitikken** | 2011 | https://www.regjeringen.no/no/dokumenter/meld-st-9-20112012/id664980/ | [ ] |
-| 2 | **Meld. St. 11 (2023–2024) — Strategi for auka sjølvforsyning** | 2023 | https://www.stortinget.no/no/Saker-og-publikasjoner/Saker/Sak/?p=98067 | [ ] |
-| 3 | **Meld. St. 4 (2024–2025) — Dagligvareseksjoner** | 2024 | https://www.regjeringen.no/no/dokumenter/meld.-st.-4-20242025/id3056808/ | [ ] |
+| 1 | **Meld. St. 9 (2011–2012) — Landbruks- og matpolitikken** | 2011 | https://www.regjeringen.no/no/dokumenter/meld-st-9-20112012/id664980/ | [x] |
+| 2 | **Meld. St. 11 (2023–2024) — Strategi for auka sjølvforsyning** | 2023 | https://www.stortinget.no/no/Saker-og-publikasjoner/Saker/Sak/?p=98067 | [x] |
+| 3 | **Meld. St. 4 (2024–2025) — Dagligvareseksjoner** | 2024 | https://www.regjeringen.no/no/dokumenter/meld.-st.-4-20242025/id3056808/ | [x] |
 
 **Søkeoppdrag:** Søk på stortinget.no og regjeringen.no etter:
 - "Meld. St." + "mat" / "landbruk" / "dagligvare" / "forsyningssikkerhet"
@@ -68,8 +68,8 @@ Sjekk også eldre NOU-er som kan gi historisk kontekst (1990-tallet: deregulerin
 
 | # | Dokument | År | Søk etter | Status |
 |---|----------|----|-----------|--------|
-| 1 | **Prop. 33 L (2019–2020) — Lov om god handelsskikk** | 2020 | regjeringen.no | [ ] |
-| 2 | **Forarbeider til markedsundersøkelseshjemmel (juli 2025)** | 2024–25 | regjeringen.no / stortinget.no | [ ] |
+| 1 | **Prop. 33 L (2019–2020) — Lov om god handelsskikk** | 2020 | regjeringen.no | [x] |
+| 2 | **Forarbeider til markedsundersøkelseshjemmel (juli 2025)** | 2024–25 | regjeringen.no / stortinget.no | [x] |
 | 3 | **Høringssvar: avvikling av Dagligvaretilsynet** | 2025–26 | regjeringen.no/horinger | [ ] |
 
 **Søkeoppdrag:** Gå til https://www.regjeringen.no/no/dokument/hoyringar/ og søk:
@@ -368,13 +368,13 @@ Se også:
 
 | # | Organisasjon | URL | Hva du leter etter | Status |
 |---|-------------|-----|---------------------|--------|
-| 1 | **Virke Dagligvare** | https://www.virke.no/bransjeomrade/dagligvare/ | Dagligvarehandelen (årlig), Handelsrapporten, prognoser, grensehandelsdata | [ ] |
-| 2 | **NHO Mat og Drikke** | https://www.nho.no/naringsforening/nho-mat-og-drikke/ | Leverandørperspektiv, innkjøpspriser, bransjestatistikk | [ ] |
+| 1 | **Virke Dagligvare** | https://www.virke.no/bransjeomrade/dagligvare/ | Dagligvarehandelen (årlig), Handelsrapporten, prognoser, grensehandelsdata | [x] |
+| 2 | **NHO Mat og Drikke** | https://www.nho.no/naringsforening/nho-mat-og-drikke/ | Leverandørperspektiv, innkjøpspriser, bransjestatistikk | [x] |
 | 3 | **Norsk Nærings- og Nytelsesmiddelarbeiderforbund (NNN)** | https://www.nnn.no/ | Arbeidstakerperspektiv, lønnsdata, arbeidsvilkår | [ ] |
-| 4 | **Norges Bondelag** | https://www.bondelaget.no/ | Primærprodusentperspektiv, jordbruksavtale, prispress | [ ] |
+| 4 | **Norges Bondelag** | https://www.bondelaget.no/ | Primærprodusentperspektiv, jordbruksavtale, prispress | [x] |
 | 5 | **Norsk Bonde- og Småbrukarlag** | https://www.smabrukarlaget.no/ | Småskalaperspektiv, alternativ verdikjede | [ ] |
-| 6 | **Sjømat Norge** | https://sjomatnorge.no/ | Eksportdata, verdikjede sjømat | [ ] |
-| 7 | **Dagligvarehandelen.no** | https://dagligvarehandelen.no/ | Bransjenytt, markedsandeler, butikktall | [ ] |
+| 6 | **Sjømat Norge** | https://sjomatnorge.no/ | Eksportdata, verdikjede sjømat | [x] |
+| 7 | **Dagligvarehandelen.no** | https://dagligvarehandelen.no/ | Bransjenytt, markedsandeler, butikktall | [x] |
 | 8 | **PTY (Finland)** | https://www.pty.fi/ | Finsk dagligvareforbund, markedsdata | [ ] |
 | 9 | **Svensk Dagligvaruhandel** | https://www.svenskdagligvaruhandel.se/ | Svensk dagligvarestatistikk | [ ] |
 | 10 | **Dansk Erhverv** | https://www.danskerhverv.dk/ | Dansk detaljhandelsstatistikk | [ ] |
@@ -402,12 +402,12 @@ NorgesGruppens logistikkarm er sentral for infrastruktur-tesen.
 
 | # | Tabell/tema | URL/søk | Hva det gir | Status |
 |---|-------------|---------|-------------|--------|
-| 1 | **Omsetning i varehandel (detaljhandel)** | SSB statistikkbanken → "Varehandel" | Omsetningsutvikling dagligvare over tid | [ ] |
-| 2 | **Utenrikshandel med varer (HS-kapitler)** | https://www.ssb.no/statbank/table/08801/ | Importvolum mat per land og vare | [ ] |
-| 3 | **Grensehandel** | https://www.ssb.no/varehandel-og-tjenesteyting/varehandel/statistikk/grensehandel | Norsk handelslekkasje til Sverige | [ ] |
-| 4 | **Avfall fra husholdningene** | SSB → "Avfall" | Matavfall per kommune | [ ] |
+| 1 | **Omsetning i varehandel (detaljhandel)** | SSB statistikkbanken → "Varehandel" | Omsetningsutvikling dagligvare over tid | [x] |
+| 2 | **Utenrikshandel med varer (HS-kapitler)** | https://www.ssb.no/statbank/table/08801/ | Importvolum mat per land og vare | [x] |
+| 3 | **Grensehandel** | https://www.ssb.no/varehandel-og-tjenesteyting/varehandel/statistikk/grensehandel | Norsk handelslekkasje til Sverige | [x] |
+| 4 | **Avfall fra husholdningene** | SSB → "Avfall" | Matavfall per kommune | [x] |
 | 5 | **Foretak (strukturstatistikk varehandel)** | SSB → NACE 47.11 | Antall foretak, ansatte, omsetning i dagligvare | [ ] |
-| 6 | **Jordbruk: Areal, husdyr, produksjon** | SSB → "Jordbruk" | Norsk matproduksjon over tid | [ ] |
+| 6 | **Jordbruk: Areal, husdyr, produksjon** | SSB → "Jordbruk" | Norsk matproduksjon over tid | [x] |
 | 7 | **Befolkning per kommune** | SSB → "Befolkning" | For butikk-per-innbygger-beregninger | [ ] |
 
 **Lagres i:** `research/data/ssb/` (CSV-filer med beskrivende navn)
@@ -425,8 +425,8 @@ NorgesGruppens logistikkarm er sentral for infrastruktur-tesen.
 
 | # | Datasett | URL | Formål | Status |
 |---|----------|-----|--------|--------|
-| 1 | **Comparative price levels** | https://ec.europa.eu/eurostat → "Comparative price levels" | Norges "prispremie" vs. naboland | [ ] |
-| 2 | **HICP mat (utvidet)** | Eurostat data browser → prc_hicp_midx | Harmonisert inflasjon for sammenligning | [ ] |
+| 1 | **Comparative price levels** | https://ec.europa.eu/eurostat → "Comparative price levels" | Norges "prispremie" vs. naboland | [x] |
+| 2 | **HICP mat (utvidet)** | Eurostat data browser → prc_hicp_midx | Harmonisert inflasjon for sammenligning | [x] |
 | 3 | **Strukturstatistikk detaljhandel** | Eurostat → SBS → G47 | Butikkstørrelse, omsetning per ansatt, konsentrasjon | [ ] |
 
 **Lagres i:** `research/data/eurostat/`
@@ -435,9 +435,9 @@ NorgesGruppens logistikkarm er sentral for infrastruktur-tesen.
 
 | # | Datasett | URL | Formål | Status |
 |---|----------|-----|--------|--------|
-| 1 | **FAOSTAT Food Balance Sheets** | https://www.fao.org/faostat/en/#data/FBS | Selvforsyning per land, standardisert | [ ] |
-| 2 | **OECD Agricultural Outlook** | https://www.oecd.org/agriculture/ | Projeksjoner, policy-analyse | [ ] |
-| 3 | **OECD Competition Assessment — Food** | OECD iLibrary → søk "competition food retail" | Internasjonal benchmark | [ ] |
+| 1 | **FAOSTAT Food Balance Sheets** | https://www.fao.org/faostat/en/#data/FBS | Selvforsyning per land, standardisert | [x] |
+| 2 | **OECD Agricultural Outlook** | https://www.oecd.org/agriculture/ | Projeksjoner, policy-analyse | [x] |
+| 3 | **OECD Competition Assessment — Food** | OECD iLibrary → søk "competition food retail" | Internasjonal benchmark | [x] |
 | 4 | **World Bank — Food Price Monitor** | https://www.worldbank.org/en/topic/food-security | Global kontekst | [ ] |
 
 **Lagres i:** `research/data/internasjonal/`
@@ -512,10 +512,10 @@ NorgesGruppens logistikkarm er sentral for infrastruktur-tesen.
 
 | # | Kilde | URL | Hva | Status |
 |---|-------|-----|-----|--------|
-| 1 | **Lov om god handelsskikk i dagligvarekjeden** | https://lovdata.no/lov/2020-03-12-6 | Fulltekst + forarbeider | [ ] |
-| 2 | **Konkurranseloven** | https://lovdata.no/lov/2004-03-05-12 | Norsk konkurranserett | [ ] |
-| 3 | **Finlands konkurranselov § 4a** | finlex.fi → "Kilpailulaki" 4a § | Originaltekst + forarbeider | [ ] |
-| 4 | **EU UTP-direktivet 2019/633** | EUR-Lex | Utro handelspraksis i matforsyningskjeden | [ ] |
+| 1 | **Lov om god handelsskikk i dagligvarekjeden** | https://lovdata.no/lov/2020-03-12-6 | Fulltekst + forarbeider | [x] |
+| 2 | **Konkurranseloven** | https://lovdata.no/lov/2004-03-05-12 | Norsk konkurranserett | [x] |
+| 3 | **Finlands konkurranselov § 4a** | finlex.fi → "Kilpailulaki" 4a § | Originaltekst + forarbeider | [x] |
+| 4 | **EU UTP-direktivet 2019/633** | EUR-Lex | Utro handelspraksis i matforsyningskjeden | [x] |
 | 5 | **EU EUDR (Deforestation Regulation)** | EUR-Lex | Innvirkning på importverdikjeder | [ ] |
 | 6 | **EU PPWR (Packaging Regulation)** | EUR-Lex | Emballasje, sirkularitet | [ ] |
 
@@ -543,12 +543,12 @@ Eget spor fordi det berører flere departementer og kilder.
 
 | # | Kilde | URL | Hva | Status |
 |---|-------|-----|-----|--------|
-| 1 | **NIBIO selvforsyningsgrad** | https://www.nibio.no/tema/mat-og-samfunn/selvforsyning | Metode + tall | [ ] |
-| 2 | **Landbruksdirektoratet** | https://www.landbruksdirektoratet.no/ | Importvern, toll, kvoter, jordbruksavtalen | [ ] |
-| 3 | **Mattilsynet** | https://www.mattilsynet.no/ | Mattrygghet, import, kontroll | [ ] |
-| 4 | **DSB (Direktoratet for samfunnssikkerhet)** | https://www.dsb.no/ | Beredskapsanalyser, risikovurderinger mat | [ ] |
+| 1 | **NIBIO selvforsyningsgrad** | https://www.nibio.no/tema/mat-og-samfunn/selvforsyning | Metode + tall | [x] |
+| 2 | **Landbruksdirektoratet** | https://www.landbruksdirektoratet.no/ | Importvern, toll, kvoter, jordbruksavtalen | [x] |
+| 3 | **Mattilsynet** | https://www.mattilsynet.no/ | Mattrygghet, import, kontroll | [x] |
+| 4 | **DSB (Direktoratet for samfunnssikkerhet)** | https://www.dsb.no/ | Beredskapsanalyser, risikovurderinger mat | [x] |
 | 5 | **Totalforsvarsprogrammet** | regjeringen.no / Forsvarsdepartementet | Matforsyning i beredskapskontekst | [ ] |
-| 6 | **Finland: Huoltovarmuuskeskus** | https://www.nesa.fi/ (National Emergency Supply Agency) | Finsk beredskapslager-modell | [ ] |
+| 6 | **Finland: Huoltovarmuuskeskus** | https://www.nesa.fi/ (National Emergency Supply Agency) | Finsk beredskapslager-modell | [x] |
 
 **Lagres i:** `research/bibliotek/beredskap/`
 
@@ -618,13 +618,13 @@ Når du har hentet en kilde, loggfør den i `research/bibliotek/KILDEREGISTER.md
 | 2. Konkurransemyndigheter | ~20 | [ ] |
 | 3. Konsulentrapporter | ~8 | [ ] |
 | 4. Akademia / masteroppgaver | ~30+ | [ ] |
-| 5. Bransjekilder / årsrapporter | ~20 | [ ] |
-| 6. Statistikkbanker | ~15 datasett | [ ] |
+| 5. Bransjekilder / årsrapporter | ~20 | [x] delvis |
+| 6. Statistikkbanker | ~15 datasett | [x] delvis |
 | 7. Tenketanker / NGO | ~15 | [ ] |
 | 8. Media | ~20 artikler | [ ] |
 | 9. Juridiske kilder | ~6 | [ ] |
 | 10. Geodata | ~5 | [ ] |
-| 11. Beredskap | ~6 | [ ] |
+| 11. Beredskap | ~6 | [x] delvis |
 | 12. Sirkularitet | ~7 | [ ] |
 | 13. Regjering samlesider | ~5 | [ ] |
 | **Totalt** | **~170+ kilder** | |
