@@ -1,0 +1,172 @@
+{
+  "generated": "2026-03-13",
+  "country": "fi",
+  "totalStores": 2211,
+  "parentCompany": {
+    "data": [
+      {
+        "id": "Kesko",
+        "label": "Kesko",
+        "value": 46.8,
+        "count": 1034,
+        "color": "#FF6600"
+      },
+      {
+        "id": "S-Group",
+        "label": "S-Group",
+        "value": 42.2,
+        "count": 932,
+        "color": "#00A651"
+      },
+      {
+        "id": "Lidl",
+        "label": "Lidl",
+        "value": 9.4,
+        "count": 207,
+        "color": "#0050AA"
+      },
+      {
+        "id": "Tokmanni Group",
+        "label": "Tokmanni Group",
+        "value": 1.4,
+        "count": 32,
+        "color": "#E31937"
+      },
+      {
+        "id": "Minimani",
+        "label": "Minimani",
+        "value": 0.3,
+        "count": 6,
+        "color": "#6B7280"
+      }
+    ],
+    "parentHHI": 4061
+  },
+  "lorenzCurve": {
+    "data": [
+      {
+        "popShare": 0,
+        "storeShare": 0
+      },
+      {
+        "popShare": 10,
+        "storeShare": 0.3
+      },
+      {
+        "popShare": 20,
+        "storeShare": 1.7
+      },
+      {
+        "popShare": 30,
+        "storeShare": 5.3
+      },
+      {
+        "popShare": 40,
+        "storeShare": 9.0
+      },
+      {
+        "popShare": 50,
+        "storeShare": 14.5
+      },
+      {
+        "popShare": 60,
+        "storeShare": 23.8
+      },
+      {
+        "popShare": 70,
+        "storeShare": 35.1
+      },
+      {
+        "popShare": 80,
+        "storeShare": 47.9
+      },
+      {
+        "popShare": 90,
+        "storeShare": 68.2
+      },
+      {
+        "popShare": 100,
+        "storeShare": 100.0
+      }
+    ],
+    "gini": 0.489
+  },
+  "zipf": {
+    "data": [
+      {
+        "rank": 1,
+        "storeCount": 702,
+        "logRank": 0.0,
+        "logCount": 2.846,
+        "name": "k-market"
+      },
+      {
+        "rank": 2,
+        "storeCount": 451,
+        "logRank": 0.301,
+        "logCount": 2.654,
+        "name": "s-market"
+      },
+      {
+        "rank": 3,
+        "storeCount": 282,
+        "logRank": 0.477,
+        "logCount": 2.45,
+        "name": "sale"
+      },
+      {
+        "rank": 4,
+        "storeCount": 249,
+        "logRank": 0.602,
+        "logCount": 2.396,
+        "name": "k-supermarket"
+      },
+      {
+        "rank": 5,
+        "storeCount": 207,
+        "logRank": 0.699,
+        "logCount": 2.316,
+        "name": "lidl"
+      },
+      {
+        "rank": 6,
+        "storeCount": 120,
+        "logRank": 0.778,
+        "logCount": 2.079,
+        "name": "alepa"
+      },
+      {
+        "rank": 7,
+        "storeCount": 83,
+        "logRank": 0.845,
+        "logCount": 1.919,
+        "name": "k-citymarket"
+      },
+      {
+        "rank": 8,
+        "storeCount": 79,
+        "logRank": 0.903,
+        "logCount": 1.898,
+        "name": "prisma"
+      },
+      {
+        "rank": 9,
+        "storeCount": 32,
+        "logRank": 0.954,
+        "logCount": 1.505,
+        "name": "halpahalli"
+      },
+      {
+        "rank": 10,
+        "storeCount": 6,
+        "logRank": 1.0,
+        "logCount": 0.778,
+        "name": "minimani"
+      }
+    ],
+    "slope": -1.617,
+    "intercept": 3.144,
+    "rSquared": 0.724,
+    "isZipf": false
+  }
+}

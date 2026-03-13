@@ -1,0 +1,207 @@
+{
+  "generated": "2026-03-13",
+  "country": "se",
+  "totalStores": 2899,
+  "parentCompany": {
+    "data": [
+      {
+        "id": "ICA Gruppen",
+        "label": "ICA Gruppen",
+        "value": 44.4,
+        "count": 1287,
+        "color": "#E3000B"
+      },
+      {
+        "id": "Coop Sverige",
+        "label": "Coop Sverige",
+        "value": 25.8,
+        "count": 747,
+        "color": "#00529B"
+      },
+      {
+        "id": "Axfood",
+        "label": "Axfood",
+        "value": 21.6,
+        "count": 625,
+        "color": "#00843D"
+      },
+      {
+        "id": "Lidl",
+        "label": "Lidl",
+        "value": 7.0,
+        "count": 204,
+        "color": "#0050AA"
+      },
+      {
+        "id": "Bergendahls",
+        "label": "Bergendahls",
+        "value": 1.2,
+        "count": 36,
+        "color": "#FF6900"
+      }
+    ],
+    "parentHHI": 3154
+  },
+  "lorenzCurve": {
+    "data": [
+      {
+        "popShare": 0,
+        "storeShare": 0
+      },
+      {
+        "popShare": 5,
+        "storeShare": 0.1
+      },
+      {
+        "popShare": 95,
+        "storeShare": 78.2
+      },
+      {
+        "popShare": 100,
+        "storeShare": 100.0
+      }
+    ],
+    "gini": 0.595
+  },
+  "zipf": {
+    "data": [
+      {
+        "rank": 1,
+        "storeCount": 631,
+        "logRank": 0.0,
+        "logCount": 2.8,
+        "name": "ica-n-ra"
+      },
+      {
+        "rank": 2,
+        "storeCount": 516,
+        "logRank": 0.301,
+        "logCount": 2.713,
+        "name": "coop"
+      },
+      {
+        "rank": 3,
+        "storeCount": 415,
+        "logRank": 0.477,
+        "logCount": 2.618,
+        "name": "ica-supermarket"
+      },
+      {
+        "rank": 4,
+        "storeCount": 239,
+        "logRank": 0.602,
+        "logCount": 2.378,
+        "name": "willys"
+      },
+      {
+        "rank": 5,
+        "storeCount": 206,
+        "logRank": 0.699,
+        "logCount": 2.314,
+        "name": "hemk-p"
+      },
+      {
+        "rank": 6,
+        "storeCount": 204,
+        "logRank": 0.778,
+        "logCount": 2.31,
+        "name": "lidl"
+      },
+      {
+        "rank": 7,
+        "storeCount": 202,
+        "logRank": 0.845,
+        "logCount": 2.305,
+        "name": "coop-sweden"
+      },
+      {
+        "rank": 8,
+        "storeCount": 134,
+        "logRank": 0.903,
+        "logCount": 2.127,
+        "name": "ica-kvantum"
+      },
+      {
+        "rank": 9,
+        "storeCount": 93,
+        "logRank": 0.954,
+        "logCount": 1.968,
+        "name": "maxi-ica-stormarknad"
+      },
+      {
+        "rank": 10,
+        "storeCount": 69,
+        "logRank": 1.0,
+        "logCount": 1.839,
+        "name": "tempo"
+      },
+      {
+        "rank": 11,
+        "storeCount": 61,
+        "logRank": 1.041,
+        "logCount": 1.785,
+        "name": "handlar-n"
+      },
+      {
+        "rank": 12,
+        "storeCount": 36,
+        "logRank": 1.079,
+        "logCount": 1.556,
+        "name": "city-gross"
+      },
+      {
+        "rank": 13,
+        "storeCount": 27,
+        "logRank": 1.114,
+        "logCount": 1.431,
+        "name": "mat-ppet"
+      },
+      {
+        "rank": 14,
+        "storeCount": 23,
+        "logRank": 1.146,
+        "logCount": 1.362,
+        "name": "handlarn"
+      },
+      {
+        "rank": 15,
+        "storeCount": 12,
+        "logRank": 1.176,
+        "logCount": 1.079,
+        "name": "ica"
+      },
+      {
+        "rank": 16,
+        "storeCount": 12,
+        "logRank": 1.204,
+        "logCount": 1.079,
+        "name": "coop-konsum"
+      },
+      {
+        "rank": 17,
+        "storeCount": 12,
+        "logRank": 1.23,
+        "logCount": 1.079,
+        "name": "x-tra"
+      },
+      {
+        "rank": 18,
+        "storeCount": 5,
+        "logRank": 1.255,
+        "logCount": 0.699,
+        "name": "coop-n-ra"
+      },
+      {
+        "rank": 19,
+        "storeCount": 2,
+        "logRank": 1.279,
+        "logCount": 0.301,
+        "name": "ica-maxi"
+      }
+    ],
+    "slope": -1.804,
+    "intercept": 3.398,
+    "rSquared": 0.787,
+    "isZipf": false
+  }
+}
