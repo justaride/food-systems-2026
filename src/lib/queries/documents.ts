@@ -42,6 +42,36 @@ export async function getDocuments(opts?: {
   return { documents, total }
 }
 
+export async function getDocumentsList() {
+  return prisma.document.findMany({
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      author: true,
+      year: true,
+      category: true,
+      subcategory: true,
+      country: true,
+      documentType: true,
+      summary: true,
+      wordCount: true,
+      tags: true,
+    },
+    orderBy: { title: 'asc' },
+  })
+}
+
+export async function getDocumentById(id: string) {
+  return prisma.document.findUnique({
+    where: { id },
+    include: {
+      refsFrom: { include: { to: { select: { id: true, title: true, slug: true } } } },
+      refsTo: { include: { from: { select: { id: true, title: true, slug: true } } } },
+    },
+  })
+}
+
 export async function getDocumentBySlug(slug: string) {
   return prisma.document.findUnique({
     where: { slug },
