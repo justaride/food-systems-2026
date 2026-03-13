@@ -1,18 +1,32 @@
-'use client'
-
 import { Card } from '@/components/ui/Card'
 import { SourceChip } from '@/components/ui/SourceChip'
 import { ExpandableSources } from '@/components/ui/ExpandableSources'
-import {
-  mediaCountryProfiles,
-  mediaInternalSources,
-  mediaScanGuidance,
-  mediaThemes,
-  mediaTimeline,
-  mediaYears,
-  type MediaCountryProfile,
-  type MediaFocusLevel,
-} from '@/lib/data/media-landscape'
+import { getMediaThemes, getMediaTimeline, getMediaCountryProfiles } from '@/lib/queries/media'
+import type { SourceRef } from '@/lib/types'
+
+type MediaFocusLevel = 'lav' | 'middels' | 'hoy' | 'kritisk'
+
+type MediaTriggerMoment = {
+  year: number
+  label: string
+  sources?: SourceRef[]
+}
+
+const mediaYears = [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+
+const mediaScanGuidance = [
+  'Bygg faktiske mediesok per land mot 2016-2025 som neste lag oppa denne kvalitative profilen.',
+  'Kod hver omtale pa tema, trigger, tone og geografisk fokus for a skille politikk, marked og innovasjon.',
+  'Hold 2026 utenfor historikkgrafene til hele aret eller et definert delaar er lukket og sammenlignbart.',
+  'Bruk denne siden som narrativt kart, ikke som endelig mediestatistikk; den maa kalibreres mot faktiske artikkeltreff.',
+]
+
+const mediaInternalSources = [
+  'research/norden/nordisk-komparativ-analyse.md',
+  'research/norden/regulatory-policy-landscape-nordic.md',
+  'research/source-scouting-2026-03-10.md',
+  'Speaker 1.md',
+]
 
 const focusWeight: Record<MediaFocusLevel, number> = {
   lav: 1,
@@ -60,7 +74,28 @@ function SignalBars({ values }: { values: number[] }) {
   )
 }
 
-function CountryCard({ profile }: { profile: MediaCountryProfile }) {
+type CountryCardProfile = {
+  id: string
+  name: string
+  iso: string
+  dominantNarrative: string
+  summary: string
+  strongestPeriod: string
+  keyQuestion: string
+  yearlySignal: number[]
+  focusLevels: Record<string, MediaFocusLevel>
+  triggerMoments: MediaTriggerMoment[]
+  sources: SourceRef[] | null
+}
+
+type ThemeItem = {
+  id: string
+  name: string
+  description: string
+  sources: SourceRef[] | null
+}
+
+function CountryCard({ profile, themes }: { profile: CountryCardProfile; themes: ThemeItem[] }) {
   return (
     <div className="relative overflow-hidden rounded-2xl border border-stone-200 bg-white p-5 shadow-sm shadow-stone-900/[0.03]">
       <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${countryAccentClass[profile.iso]}`} />
@@ -92,7 +127,7 @@ function CountryCard({ profile }: { profile: MediaCountryProfile }) {
       <div className="mt-5">
         <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Hva mediene egentlig sporer</p>
         <div className="mt-3 flex flex-wrap gap-2">
-          {mediaThemes.map(theme => {
+          {themes.map(theme => {
             const level = profile.focusLevels[theme.id]
             return (
               <span key={theme.id} className={`badge ${focusClassName[level]}`}>
@@ -140,18 +175,50 @@ function CountryCard({ profile }: { profile: MediaCountryProfile }) {
   )
 }
 
-export default function MediaPage() {
-  const strongestCountry = [...mediaCountryProfiles]
+export default async function MediaPage() {
+  const [themes, timeline, countryProfiles] = await Promise.all([
+    getMediaThemes(),
+    getMediaTimeline(),
+    getMediaCountryProfiles(),
+  ])
+
+  const typedThemes: ThemeItem[] = themes.map(t => ({
+    id: t.id,
+    name: t.name,
+    description: t.description,
+    sources: (t.sources as SourceRef[] | null),
+  }))
+
+  const typedProfiles: CountryCardProfile[] = countryProfiles.map(p => ({
+    id: p.id,
+    name: p.name,
+    iso: p.iso,
+    dominantNarrative: p.dominantNarrative,
+    summary: p.summary,
+    strongestPeriod: p.strongestPeriod,
+    keyQuestion: p.keyQuestion,
+    yearlySignal: p.yearlySignal,
+    focusLevels: p.focusLevels as Record<string, MediaFocusLevel>,
+    triggerMoments: (p.triggerMoments as unknown as MediaTriggerMoment[]),
+    sources: (p.sources as SourceRef[] | null),
+  }))
+
+  const typedTimeline = timeline.map(e => ({
+    ...e,
+    sources: (e.sources as SourceRef[] | null),
+  }))
+
+  const strongestCountry = [...typedProfiles]
     .sort(
       (left, right) =>
         right.yearlySignal.reduce((sum, value) => sum + value, 0) -
         left.yearlySignal.reduce((sum, value) => sum + value, 0),
     )[0]
 
-  const topThemes = [...mediaThemes]
+  const topThemes = [...typedThemes]
     .map(theme => ({
       name: theme.name,
-      score: mediaCountryProfiles.reduce(
+      score: typedProfiles.reduce(
         (sum, profile) => sum + focusWeight[profile.focusLevels[theme.id]],
         0,
       ),
@@ -160,7 +227,7 @@ export default function MediaPage() {
     .slice(0, 2)
     .map(theme => theme.name)
 
-  const peakYears = mediaTimeline
+  const peakYears = typedTimeline
     .filter(entry => entry.intensity >= 4)
     .map(entry => entry.year)
 
@@ -192,7 +259,7 @@ export default function MediaPage() {
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <Card className="border-emerald-200/80 bg-emerald-50/60">
           <p className="text-xs uppercase tracking-wider text-emerald-700/70">Dekning</p>
-          <p className="mt-2 text-2xl font-semibold text-emerald-950">{mediaCountryProfiles.length} land</p>
+          <p className="mt-2 text-2xl font-semibold text-emerald-950">{typedProfiles.length} land</p>
           <p className="mt-1 text-xs text-emerald-800/70">Nordiske profiler med egne narrativspor</p>
         </Card>
 
@@ -222,7 +289,7 @@ export default function MediaPage() {
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1.3fr_0.7fr]">
         <Card title="Nordisk narrativpuls 2016-2025">
           <div className="space-y-4">
-            {mediaTimeline.map(entry => (
+            {typedTimeline.map(entry => (
               <div key={entry.year} className="flex gap-4 items-start">
                 <div className="shrink-0 w-20 pt-0.5">
                   <span className="text-sm font-mono font-medium text-stone-900">{entry.year}</span>
@@ -255,7 +322,7 @@ export default function MediaPage() {
 
         <Card title="Hva som skal spores">
           <div className="space-y-4">
-            {mediaThemes.map(theme => (
+            {typedThemes.map(theme => (
               <div key={theme.id} className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
                 <p className="text-sm font-semibold text-stone-800">{theme.name}</p>
                 <p className="mt-1 text-sm leading-6 text-stone-500">{theme.description}</p>
@@ -270,8 +337,8 @@ export default function MediaPage() {
 
       <Card title="Landprofiler">
         <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
-          {mediaCountryProfiles.map(profile => (
-            <CountryCard key={profile.id} profile={profile} />
+          {typedProfiles.map(profile => (
+            <CountryCard key={profile.id} profile={profile} themes={typedThemes} />
           ))}
         </div>
       </Card>
@@ -285,7 +352,7 @@ export default function MediaPage() {
                   <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">
                     Land
                   </th>
-                  {mediaThemes.map(theme => (
+                  {typedThemes.map(theme => (
                     <th
                       key={theme.id}
                       className="py-3 pr-3 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400"
@@ -296,7 +363,7 @@ export default function MediaPage() {
                 </tr>
               </thead>
               <tbody>
-                {mediaCountryProfiles.map(profile => (
+                {typedProfiles.map(profile => (
                   <tr key={profile.id} className="border-b border-stone-100 last:border-0">
                     <td className="py-3 pr-4">
                       <div className="flex items-center gap-3">
@@ -304,7 +371,7 @@ export default function MediaPage() {
                         <span className="font-medium text-stone-800">{profile.name}</span>
                       </div>
                     </td>
-                    {mediaThemes.map(theme => {
+                    {typedThemes.map(theme => {
                       const level = profile.focusLevels[theme.id]
                       return (
                         <td key={`${profile.id}-${theme.id}`} className="py-3 pr-3">

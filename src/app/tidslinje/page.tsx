@@ -1,8 +1,10 @@
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
-import { applications } from '@/lib/data/applications'
+import { getApplications } from '@/lib/queries/project'
 
-export default function TidslinjePage() {
+export default async function TidslinjePage() {
+  const applications = await getApplications()
+
   return (
     <div className="space-y-6">
       <div>

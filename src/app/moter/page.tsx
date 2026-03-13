@@ -1,10 +1,10 @@
-'use client'
-
 import { Card } from '@/components/ui/Card'
 import { ExpandableSources } from '@/components/ui/ExpandableSources'
-import { meetings } from '@/lib/data/meetings'
+import { getMeetings } from '@/lib/queries/meetings'
 
-export default function MoterPage() {
+export default async function MoterPage() {
+  const meetings = await getMeetings()
+
   return (
     <div className="space-y-6">
       <div>
@@ -75,8 +75,8 @@ export default function MoterPage() {
               </div>
             </div>
 
-            {meeting.sources?.length ? (
-              <ExpandableSources sources={meeting.sources} />
+            {meeting.sourceRefs?.length ? (
+              <ExpandableSources sources={meeting.sourceRefs.map(s => ({ label: s.label, url: s.url ?? undefined, note: s.note ?? undefined }))} />
             ) : null}
           </Card>
         ))}

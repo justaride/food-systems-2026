@@ -3,12 +3,7 @@ import { Card } from '@/components/ui/Card'
 import { KpiCard } from '@/components/ui/KpiCard'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { ProgressBar } from '@/components/ui/ProgressBar'
-import { phases } from '@/lib/data/phases'
-import { deliverables } from '@/lib/data/deliverables'
-import { evidencePack } from '@/lib/data/evidence-pack'
-import { tenSteps } from '@/lib/data/ten-step-start'
-import { tasks } from '@/lib/data/tasks'
-import { insights } from '@/lib/data/insights'
+import { getPhases, getTasks, getDeliverables, getTenSteps, getEvidenceDocs, getRecentInsights } from '@/lib/queries/project'
 import type { KPI } from '@/lib/types'
 
 const FOOD_SYSTEM_KPIS: KPI[] = [
@@ -18,7 +13,16 @@ const FOOD_SYSTEM_KPIS: KPI[] = [
   { id: 'matsvinn', name: 'Matsvinn', description: 'Årlig spiselig mat kastet', current: '390 000 t' },
 ]
 
-export default function OversiktPage() {
+export default async function OversiktPage() {
+  const [phases, deliverables, evidencePack, tenSteps, tasks, recentInsights] = await Promise.all([
+    getPhases(),
+    getDeliverables(),
+    getEvidenceDocs(),
+    getTenSteps(),
+    getTasks(),
+    getRecentInsights(3),
+  ])
+
   const completedDeliverables = deliverables.filter(d => d.status === 'fullfort').length
   const completedEvidence = evidencePack.filter(d => d.status === 'ferdig').length
   const completedSteps = tenSteps.filter(s => s.status === 'fullfort').length
@@ -27,7 +31,6 @@ export default function OversiktPage() {
   const activePhaseIndex = phases.findIndex(p => p.status === 'pagar')
   const activePhase = activePhaseIndex >= 0 ? phases[activePhaseIndex] : phases[0]
   const openTasks = tasks.filter(t => t.status !== 'fullfort').slice(0, 5)
-  const recentInsights = insights.slice(0, 3)
 
   return (
     <div className="space-y-5">
@@ -130,7 +133,7 @@ export default function OversiktPage() {
                 <div key={item.id} className="py-1.5 px-2 rounded-lg bg-stone-50">
                   <p className="text-xs text-stone-700">{item.title}</p>
                   <p className="text-[10px] text-stone-400 mt-0.5">
-                    Kilde: {item.source} · {item.type}
+                    Kilde: {item.source} · {item.insightType}
                   </p>
                 </div>
               ))}

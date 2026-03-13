@@ -1,4 +1,7 @@
 import { prisma } from '@/lib/db'
+import { semanticSearch } from './semantic-search'
+
+export type SearchMode = 'keyword' | 'semantic' | 'hybrid'
 
 export type SearchResult = {
   type: 'document' | 'insight' | 'source' | 'thesis' | 'company'
@@ -10,7 +13,59 @@ export type SearchResult = {
   relevance?: number
 }
 
-export async function unifiedSearch(query: string, limit = 20): Promise<SearchResult[]> {
+export async function unifiedSearch(query: string, limit = 20, mode: SearchMode = 'keyword'): Promise<SearchResult[]> {
+  if (mode === 'semantic') {
+    try {
+      const results = await semanticSearch(query, limit)
+      return results.map(r => ({
+        type: 'document' as const,
+        id: r.id,
+        title: r.title,
+        excerpt: r.excerpt,
+        tags: r.tags,
+        url: `/forskning/${r.slug}`,
+        relevance: 1 - r.distance,
+      }))
+    } catch {
+      return keywordSearch(query, limit)
+    }
+  }
+
+  if (mode === 'hybrid') {
+    try {
+      const [keyword, semantic] = await Promise.all([
+        keywordSearch(query, limit),
+        semanticSearch(query, limit).then(results =>
+          results.map(r => ({
+            type: 'document' as const,
+            id: r.id,
+            title: r.title,
+            excerpt: r.excerpt,
+            tags: r.tags,
+            url: `/forskning/${r.slug}`,
+            relevance: 1 - r.distance,
+          }))
+        ),
+      ])
+      const seen = new Set<string>()
+      const merged: SearchResult[] = []
+      for (const r of [...keyword, ...semantic]) {
+        const key = `${r.type}-${r.id}`
+        if (!seen.has(key)) {
+          seen.add(key)
+          merged.push(r)
+        }
+      }
+      return merged.slice(0, limit)
+    } catch {
+      return keywordSearch(query, limit)
+    }
+  }
+
+  return keywordSearch(query, limit)
+}
+
+async function keywordSearch(query: string, limit: number): Promise<SearchResult[]> {
   const results: SearchResult[] = []
   const terms = query.trim().split(/\s+/).join(' & ')
 
