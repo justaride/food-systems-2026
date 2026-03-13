@@ -1,0 +1,229 @@
+{
+  "generated": "2026-03-13",
+  "country": "dk",
+  "totalStores": 2608,
+  "parentCompany": {
+    "data": [
+      {
+        "id": "Coop Danmark",
+        "label": "Coop Danmark",
+        "value": 32.6,
+        "count": 850,
+        "color": "#00529B"
+      },
+      {
+        "id": "Salling Group",
+        "label": "Salling Group",
+        "value": 26.8,
+        "count": 699,
+        "color": "#E31937"
+      },
+      {
+        "id": "Dagrofa",
+        "label": "Dagrofa",
+        "value": 17.8,
+        "count": 464,
+        "color": "#2E8B57"
+      },
+      {
+        "id": "Reitangruppen",
+        "label": "Reitangruppen",
+        "value": 16.4,
+        "count": 428,
+        "color": "#003DA5"
+      },
+      {
+        "id": "Lidl",
+        "label": "Lidl",
+        "value": 6.4,
+        "count": 167,
+        "color": "#0050AA"
+      }
+    ],
+    "parentHHI": 2408
+  },
+  "lorenzCurve": {
+    "data": [
+      {
+        "popShare": 0,
+        "storeShare": 0
+      },
+      {
+        "popShare": 5,
+        "storeShare": 0.2
+      },
+      {
+        "popShare": 10,
+        "storeShare": 0.7
+      },
+      {
+        "popShare": 90,
+        "storeShare": 61.7
+      },
+      {
+        "popShare": 95,
+        "storeShare": 78.1
+      },
+      {
+        "popShare": 100,
+        "storeShare": 100.0
+      }
+    ],
+    "gini": 0.571
+  },
+  "zipf": {
+    "data": [
+      {
+        "rank": 1,
+        "storeCount": 571,
+        "logRank": 0.0,
+        "logCount": 2.757,
+        "name": "netto"
+      },
+      {
+        "rank": 2,
+        "storeCount": 428,
+        "logRank": 0.301,
+        "logCount": 2.631,
+        "name": "rema-1000"
+      },
+      {
+        "rank": 3,
+        "storeCount": 278,
+        "logRank": 0.477,
+        "logCount": 2.444,
+        "name": "365discount"
+      },
+      {
+        "rank": 4,
+        "storeCount": 218,
+        "logRank": 0.602,
+        "logCount": 2.338,
+        "name": "superbrugsen"
+      },
+      {
+        "rank": 5,
+        "storeCount": 173,
+        "logRank": 0.699,
+        "logCount": 2.238,
+        "name": "dagli-brugsen"
+      },
+      {
+        "rank": 6,
+        "storeCount": 167,
+        "logRank": 0.778,
+        "logCount": 2.223,
+        "name": "lidl"
+      },
+      {
+        "rank": 7,
+        "storeCount": 138,
+        "logRank": 0.845,
+        "logCount": 2.14,
+        "name": "min-k-bmand"
+      },
+      {
+        "rank": 8,
+        "storeCount": 127,
+        "logRank": 0.903,
+        "logCount": 2.104,
+        "name": "spar"
+      },
+      {
+        "rank": 9,
+        "storeCount": 116,
+        "logRank": 0.954,
+        "logCount": 2.064,
+        "name": "meny"
+      },
+      {
+        "rank": 10,
+        "storeCount": 112,
+        "logRank": 1.0,
+        "logCount": 2.049,
+        "name": "f-tex"
+      },
+      {
+        "rank": 11,
+        "storeCount": 65,
+        "logRank": 1.041,
+        "logCount": 1.813,
+        "name": "kvickly"
+      },
+      {
+        "rank": 12,
+        "storeCount": 65,
+        "logRank": 1.079,
+        "logCount": 1.813,
+        "name": "brugsen"
+      },
+      {
+        "rank": 13,
+        "storeCount": 28,
+        "logRank": 1.114,
+        "logCount": 1.447,
+        "name": "coop-365discount"
+      },
+      {
+        "rank": 14,
+        "storeCount": 25,
+        "logRank": 1.146,
+        "logCount": 1.398,
+        "name": "elite-k-bmand"
+      },
+      {
+        "rank": 15,
+        "storeCount": 19,
+        "logRank": 1.176,
+        "logCount": 1.279,
+        "name": "daglibrugsen"
+      },
+      {
+        "rank": 16,
+        "storeCount": 16,
+        "logRank": 1.204,
+        "logCount": 1.204,
+        "name": "bilka"
+      },
+      {
+        "rank": 17,
+        "storeCount": 16,
+        "logRank": 1.23,
+        "logCount": 1.204,
+        "name": "l-vbjerg"
+      },
+      {
+        "rank": 18,
+        "storeCount": 14,
+        "logRank": 1.255,
+        "logCount": 1.146,
+        "name": "let-k-b"
+      },
+      {
+        "rank": 19,
+        "storeCount": 14,
+        "logRank": 1.279,
+        "logCount": 1.146,
+        "name": "letk-b"
+      },
+      {
+        "rank": 20,
+        "storeCount": 14,
+        "logRank": 1.301,
+        "logCount": 1.146,
+        "name": "abc-lavpris"
+      },
+      {
+        "rank": 21,
+        "storeCount": 4,
+        "logRank": 1.322,
+        "logCount": 0.602,
+        "name": "coop-365-discount"
+      }
+    ],
+    "slope": -1.518,
+    "intercept": 3.195,
+    "rSquared": 0.831,
+    "isZipf": false
+  }
+}
