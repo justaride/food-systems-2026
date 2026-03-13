@@ -12,25 +12,30 @@ import {
 } from 'recharts'
 import { Card } from '@/components/ui/Card'
 import { ChartSource } from '@/components/ui/ChartSource'
+import { EmptyState } from '@/components/ui/EmptyState'
+import { countryChartData } from '@/lib/data/country-chart-data'
+import type { CountryCode } from '@/lib/config/countries'
 
-const DATA = [
-  { name: 'Melk', value: 98 },
-  { name: 'Kjøtt', value: 96 },
-  { name: 'Poteter', value: 77 },
-  { name: 'Grønnsaker', value: 49 },
-  { name: 'Kalorier', value: 44 },
-  { name: 'Frukt', value: 4 },
-]
+export function SelfSufficiencyChart({ country = 'no' }: { country?: string }) {
+  const { data, year, source, subtitle } = countryChartData[country as CountryCode].selfSufficiency
 
-export function SelfSufficiencyChart() {
+  if (!data.length) {
+    return (
+      <Card>
+        <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Selvforsyningsgrad</h3>
+        <EmptyState message="Selvforsyningsdata ikke tilgjengelig for dette landet" />
+      </Card>
+    )
+  }
+
   return (
     <Card>
-      <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Selvforsyningsgrad (2023)</h3>
-      <p className="text-xs text-stone-400 mb-3">Andel av forbruk dekket av norsk produksjon</p>
+      <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Selvforsyningsgrad ({year})</h3>
+      <p className="text-xs text-stone-400 mb-3">{subtitle}</p>
       <div className="h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
-            data={DATA}
+            data={data}
             layout="vertical"
             margin={{ top: 0, right: 16, left: 0, bottom: 0 }}
           >
@@ -42,7 +47,7 @@ export function SelfSufficiencyChart() {
               contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e7e5e4' }}
             />
             <Bar dataKey="value" name="Selvforsyning" radius={[0, 4, 4, 0]}>
-              {DATA.map((entry, i) => (
+              {data.map((entry, i) => (
                 <Cell
                   key={i}
                   fill={entry.value >= 50 ? '#10b981' : '#f43f5e'}
@@ -52,7 +57,7 @@ export function SelfSufficiencyChart() {
           </BarChart>
         </ResponsiveContainer>
       </div>
-      <ChartSource source="Kilde: SSB/Landbruksdirektoratet, selvforsyningsgrad 2023" />
+      <ChartSource source={`Kilde: ${source}`} />
     </Card>
   )
 }

@@ -1,0 +1,590 @@
+{
+  "0101": {
+    "code": "0101",
+    "name": "København",
+    "population": 653674,
+    "area": 88
+  },
+  "0147": {
+    "code": "0147",
+    "name": "Frederiksberg",
+    "population": 104410,
+    "area": 9
+  },
+  "0151": {
+    "code": "0151",
+    "name": "Ballerup",
+    "population": 49640,
+    "area": 34
+  },
+  "0153": {
+    "code": "0153",
+    "name": "Brøndby",
+    "population": 35450,
+    "area": 20
+  },
+  "0155": {
+    "code": "0155",
+    "name": "Dragør",
+    "population": 14240,
+    "area": 18
+  },
+  "0157": {
+    "code": "0157",
+    "name": "Gentofte",
+    "population": 75750,
+    "area": 26
+  },
+  "0159": {
+    "code": "0159",
+    "name": "Gladsaxe",
+    "population": 69980,
+    "area": 25
+  },
+  "0161": {
+    "code": "0161",
+    "name": "Glostrup",
+    "population": 23270,
+    "area": 13
+  },
+  "0163": {
+    "code": "0163",
+    "name": "Herlev",
+    "population": 28710,
+    "area": 12
+  },
+  "0165": {
+    "code": "0165",
+    "name": "Albertslund",
+    "population": 28130,
+    "area": 23
+  },
+  "0167": {
+    "code": "0167",
+    "name": "Hvidovre",
+    "population": 53890,
+    "area": 22
+  },
+  "0169": {
+    "code": "0169",
+    "name": "Høje-Taastrup",
+    "population": 50870,
+    "area": 78
+  },
+  "0173": {
+    "code": "0173",
+    "name": "Lyngby-Taarbæk",
+    "population": 56210,
+    "area": 39
+  },
+  "0175": {
+    "code": "0175",
+    "name": "Rødovre",
+    "population": 40230,
+    "area": 12
+  },
+  "0183": {
+    "code": "0183",
+    "name": "Ishøj",
+    "population": 23440,
+    "area": 26
+  },
+  "0185": {
+    "code": "0185",
+    "name": "Tårnby",
+    "population": 43740,
+    "area": 65
+  },
+  "0187": {
+    "code": "0187",
+    "name": "Vallensbæk",
+    "population": 16770,
+    "area": 9
+  },
+  "0190": {
+    "code": "0190",
+    "name": "Furesø",
+    "population": 41650,
+    "area": 57
+  },
+  "0201": {
+    "code": "0201",
+    "name": "Allerød",
+    "population": 26200,
+    "area": 68
+  },
+  "0210": {
+    "code": "0210",
+    "name": "Fredensborg",
+    "population": 41530,
+    "area": 113
+  },
+  "0217": {
+    "code": "0217",
+    "name": "Helsingør",
+    "population": 63930,
+    "area": 121
+  },
+  "0219": {
+    "code": "0219",
+    "name": "Hillerød",
+    "population": 53510,
+    "area": 215
+  },
+  "0223": {
+    "code": "0223",
+    "name": "Hørsholm",
+    "population": 25310,
+    "area": 31
+  },
+  "0230": {
+    "code": "0230",
+    "name": "Rudersdal",
+    "population": 57050,
+    "area": 73
+  },
+  "0240": {
+    "code": "0240",
+    "name": "Egedal",
+    "population": 44960,
+    "area": 125
+  },
+  "0250": {
+    "code": "0250",
+    "name": "Frederikssund",
+    "population": 46150,
+    "area": 249
+  },
+  "0253": {
+    "code": "0253",
+    "name": "Greve",
+    "population": 50380,
+    "area": 60
+  },
+  "0259": {
+    "code": "0259",
+    "name": "Køge",
+    "population": 62170,
+    "area": 256
+  },
+  "0260": {
+    "code": "0260",
+    "name": "Halsnæs",
+    "population": 31670,
+    "area": 122
+  },
+  "0265": {
+    "code": "0265",
+    "name": "Roskilde",
+    "population": 89170,
+    "area": 212
+  },
+  "0269": {
+    "code": "0269",
+    "name": "Solrød",
+    "population": 23430,
+    "area": 40
+  },
+  "0270": {
+    "code": "0270",
+    "name": "Gribskov",
+    "population": 41850,
+    "area": 279
+  },
+  "0306": {
+    "code": "0306",
+    "name": "Odsherred",
+    "population": 33040,
+    "area": 355
+  },
+  "0316": {
+    "code": "0316",
+    "name": "Holbæk",
+    "population": 72390,
+    "area": 579
+  },
+  "0320": {
+    "code": "0320",
+    "name": "Faxe",
+    "population": 37100,
+    "area": 405
+  },
+  "0326": {
+    "code": "0326",
+    "name": "Kalundborg",
+    "population": 49820,
+    "area": 604
+  },
+  "0329": {
+    "code": "0329",
+    "name": "Ringsted",
+    "population": 35140,
+    "area": 295
+  },
+  "0330": {
+    "code": "0330",
+    "name": "Slagelse",
+    "population": 79320,
+    "area": 567
+  },
+  "0336": {
+    "code": "0336",
+    "name": "Stevns",
+    "population": 23130,
+    "area": 250
+  },
+  "0340": {
+    "code": "0340",
+    "name": "Sorø",
+    "population": 30260,
+    "area": 310
+  },
+  "0350": {
+    "code": "0350",
+    "name": "Lejre",
+    "population": 28340,
+    "area": 239
+  },
+  "0360": {
+    "code": "0360",
+    "name": "Lolland",
+    "population": 41960,
+    "area": 892
+  },
+  "0370": {
+    "code": "0370",
+    "name": "Næstved",
+    "population": 84600,
+    "area": 684
+  },
+  "0376": {
+    "code": "0376",
+    "name": "Guldborgsund",
+    "population": 60210,
+    "area": 907
+  },
+  "0390": {
+    "code": "0390",
+    "name": "Vordingborg",
+    "population": 46730,
+    "area": 621
+  },
+  "0400": {
+    "code": "0400",
+    "name": "Bornholm",
+    "population": 39270,
+    "area": 588
+  },
+  "0410": {
+    "code": "0410",
+    "name": "Middelfart",
+    "population": 39160,
+    "area": 300
+  },
+  "0420": {
+    "code": "0420",
+    "name": "Assens",
+    "population": 41520,
+    "area": 512
+  },
+  "0430": {
+    "code": "0430",
+    "name": "Faaborg-Midtfyn",
+    "population": 51920,
+    "area": 634
+  },
+  "0440": {
+    "code": "0440",
+    "name": "Kerteminde",
+    "population": 24050,
+    "area": 207
+  },
+  "0450": {
+    "code": "0450",
+    "name": "Nyborg",
+    "population": 36410,
+    "area": 277
+  },
+  "0461": {
+    "code": "0461",
+    "name": "Odense",
+    "population": 205978,
+    "area": 304
+  },
+  "0479": {
+    "code": "0479",
+    "name": "Svendborg",
+    "population": 59040,
+    "area": 416
+  },
+  "0480": {
+    "code": "0480",
+    "name": "Nordfyns",
+    "population": 30130,
+    "area": 451
+  },
+  "0482": {
+    "code": "0482",
+    "name": "Langeland",
+    "population": 12240,
+    "area": 284
+  },
+  "0492": {
+    "code": "0492",
+    "name": "Ærø",
+    "population": 6040,
+    "area": 91
+  },
+  "0510": {
+    "code": "0510",
+    "name": "Haderslev",
+    "population": 57520,
+    "area": 814
+  },
+  "0530": {
+    "code": "0530",
+    "name": "Billund",
+    "population": 26910,
+    "area": 536
+  },
+  "0540": {
+    "code": "0540",
+    "name": "Sønderborg",
+    "population": 74050,
+    "area": 497
+  },
+  "0550": {
+    "code": "0550",
+    "name": "Tønder",
+    "population": 37220,
+    "area": 1284
+  },
+  "0561": {
+    "code": "0561",
+    "name": "Esbjerg",
+    "population": 116032,
+    "area": 742
+  },
+  "0563": {
+    "code": "0563",
+    "name": "Fanø",
+    "population": 3430,
+    "area": 56
+  },
+  "0573": {
+    "code": "0573",
+    "name": "Varde",
+    "population": 50950,
+    "area": 1240
+  },
+  "0575": {
+    "code": "0575",
+    "name": "Vejen",
+    "population": 43320,
+    "area": 814
+  },
+  "0580": {
+    "code": "0580",
+    "name": "Aabenraa",
+    "population": 60170,
+    "area": 940
+  },
+  "0607": {
+    "code": "0607",
+    "name": "Fredericia",
+    "population": 52130,
+    "area": 135
+  },
+  "0615": {
+    "code": "0615",
+    "name": "Horsens",
+    "population": 92910,
+    "area": 520
+  },
+  "0621": {
+    "code": "0621",
+    "name": "Kolding",
+    "population": 94280,
+    "area": 604
+  },
+  "0630": {
+    "code": "0630",
+    "name": "Vejle",
+    "population": 118970,
+    "area": 1068
+  },
+  "0657": {
+    "code": "0657",
+    "name": "Herning",
+    "population": 91350,
+    "area": 1323
+  },
+  "0661": {
+    "code": "0661",
+    "name": "Holstebro",
+    "population": 59250,
+    "area": 793
+  },
+  "0665": {
+    "code": "0665",
+    "name": "Lemvig",
+    "population": 19730,
+    "area": 1075
+  },
+  "0671": {
+    "code": "0671",
+    "name": "Struer",
+    "population": 21260,
+    "area": 246
+  },
+  "0706": {
+    "code": "0706",
+    "name": "Syddjurs",
+    "population": 43530,
+    "area": 693
+  },
+  "0707": {
+    "code": "0707",
+    "name": "Norddjurs",
+    "population": 37220,
+    "area": 724
+  },
+  "0710": {
+    "code": "0710",
+    "name": "Favrskov",
+    "population": 49440,
+    "area": 543
+  },
+  "0727": {
+    "code": "0727",
+    "name": "Odder",
+    "population": 23780,
+    "area": 225
+  },
+  "0730": {
+    "code": "0730",
+    "name": "Randers",
+    "population": 99590,
+    "area": 748
+  },
+  "0740": {
+    "code": "0740",
+    "name": "Silkeborg",
+    "population": 95890,
+    "area": 854
+  },
+  "0741": {
+    "code": "0741",
+    "name": "Samsø",
+    "population": 3700,
+    "area": 114
+  },
+  "0746": {
+    "code": "0746",
+    "name": "Skanderborg",
+    "population": 62490,
+    "area": 416
+  },
+  "0751": {
+    "code": "0751",
+    "name": "Aarhus",
+    "population": 352751,
+    "area": 468
+  },
+  "0756": {
+    "code": "0756",
+    "name": "Ikast-Brande",
+    "population": 41640,
+    "area": 737
+  },
+  "0760": {
+    "code": "0760",
+    "name": "Ringkøbing-Skjern",
+    "population": 57260,
+    "area": 1489
+  },
+  "0766": {
+    "code": "0766",
+    "name": "Hedensted",
+    "population": 47200,
+    "area": 551
+  },
+  "0773": {
+    "code": "0773",
+    "name": "Morsø",
+    "population": 20160,
+    "area": 366
+  },
+  "0779": {
+    "code": "0779",
+    "name": "Skive",
+    "population": 46470,
+    "area": 687
+  },
+  "0787": {
+    "code": "0787",
+    "name": "Thisted",
+    "population": 44130,
+    "area": 1073
+  },
+  "0791": {
+    "code": "0791",
+    "name": "Viborg",
+    "population": 100320,
+    "area": 1409
+  },
+  "0810": {
+    "code": "0810",
+    "name": "Brønderslev",
+    "population": 36450,
+    "area": 633
+  },
+  "0813": {
+    "code": "0813",
+    "name": "Frederikshavn",
+    "population": 60720,
+    "area": 649
+  },
+  "0820": {
+    "code": "0820",
+    "name": "Vesthimmerlands",
+    "population": 36870,
+    "area": 769
+  },
+  "0825": {
+    "code": "0825",
+    "name": "Læsø",
+    "population": 1780,
+    "area": 114
+  },
+  "0840": {
+    "code": "0840",
+    "name": "Rebild",
+    "population": 30790,
+    "area": 623
+  },
+  "0846": {
+    "code": "0846",
+    "name": "Mariagerfjord",
+    "population": 43310,
+    "area": 724
+  },
+  "0849": {
+    "code": "0849",
+    "name": "Jammerbugt",
+    "population": 38730,
+    "area": 864
+  },
+  "0851": {
+    "code": "0851",
+    "name": "Aalborg",
+    "population": 217075,
+    "area": 1137
+  },
+  "0860": {
+    "code": "0860",
+    "name": "Hjørring",
+    "population": 65010,
+    "area": 930
+  }
+}

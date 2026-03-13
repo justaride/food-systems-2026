@@ -10,25 +10,35 @@ import {
 } from 'recharts'
 import { Card } from '@/components/ui/Card'
 import { ChartSource } from '@/components/ui/ChartSource'
+import { EmptyState } from '@/components/ui/EmptyState'
+import { countryChartData } from '@/lib/data/country-chart-data'
+import type { CountryCode } from '@/lib/config/countries'
 
-const DATA = [
-  { name: 'Lavpris', value: 66.3 },
-  { name: 'Supermarked', value: 22.9 },
-  { name: 'Nærbutikk', value: 10.9 },
-]
+const COLORS = ['#10b981', '#57534e', '#a8a29e', '#d6d3d1']
 
-const COLORS = ['#10b981', '#57534e', '#a8a29e']
+export function MarketShareChart({ country = 'no' }: { country?: string }) {
+  const marketShare = countryChartData[country as CountryCode].marketShare
 
-export function MarketShareChart() {
+  if (!marketShare) {
+    return (
+      <Card>
+        <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Markedsandel</h3>
+        <EmptyState message="Markedsandelsdata ikke tilgjengelig for dette landet" />
+      </Card>
+    )
+  }
+
+  const { data, year, source } = marketShare
+
   return (
     <Card>
-      <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Markedsandel (2024)</h3>
+      <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Markedsandel ({year})</h3>
       <p className="text-xs text-stone-400 mb-3">Omsetning etter konsepttype</p>
       <div className="h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
-              data={DATA}
+              data={data}
               cx="50%"
               cy="45%"
               innerRadius={50}
@@ -38,8 +48,8 @@ export function MarketShareChart() {
               label={({ percent }) => `${((percent ?? 0) * 100).toFixed(0)}%`}
               fontSize={11}
             >
-              {DATA.map((_, i) => (
-                <Cell key={i} fill={COLORS[i]} />
+              {data.map((_, i) => (
+                <Cell key={i} fill={COLORS[i % COLORS.length]} />
               ))}
             </Pie>
             <Tooltip
@@ -55,7 +65,7 @@ export function MarketShareChart() {
           </PieChart>
         </ResponsiveContainer>
       </div>
-      <ChartSource source="Kilde: SSB/Landbruksdirektoratet markedsdata 2024" />
+      <ChartSource source={`Kilde: ${source}`} />
     </Card>
   )
 }

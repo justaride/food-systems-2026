@@ -3,6 +3,7 @@
 import { Sankey, Tooltip, ResponsiveContainer } from 'recharts'
 import { Card } from '@/components/ui/Card'
 import { ChartSource } from '@/components/ui/ChartSource'
+import { EmptyState } from '@/components/ui/EmptyState'
 
 const DATA = {
   nodes: [
@@ -29,7 +30,16 @@ const DATA = {
   ],
 }
 
-export function FoodFlowSankey() {
+export function FoodFlowSankey({ country = 'no' }: { country?: string }) {
+  if (country !== 'no') {
+    return (
+      <Card>
+        <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Matflyt</h3>
+        <EmptyState message="Matflytdata kun tilgjengelig for Norge" />
+      </Card>
+    )
+  }
+
   return (
     <Card>
       <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Matflyt Norge (2024-estimat)</h3>

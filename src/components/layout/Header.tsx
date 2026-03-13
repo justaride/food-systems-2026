@@ -16,6 +16,7 @@ const navigation = [
   { name: 'Innsikt', href: '/innsikt' },
   { name: 'Forskning', href: '/forskning' },
   { name: 'Kart', href: '/kart' },
+  { name: 'Sammenligning', href: '/sammenligning' },
   { name: 'Kilder', href: '/kilder' },
   { name: 'Media', href: '/media' },
 ]
