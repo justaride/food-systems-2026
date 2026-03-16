@@ -708,4 +708,14 @@ export const sources: SourceDoc[] = [
     description: '22 kilder: Matvett matsvinn 407k tonn, matsvinnloven 2026, biogass-gap 11,6x (DK 8 TWh vs NO 0,7 TWh), fosfor-gjenvinning HIAS, insektprotein, Wageningen cascading.',
     relevance: 'Konkret transformasjonsspor: 100-160 nye biogassanlegg, 15-25 mrd NOK investering, 5 virkemidler for aa lukke gapet med Danmark.',
   },
+  {
+    id: 'src-71',
+    filename: 'meeting-4-research-focus.md',
+    title: 'Research Focus Report: Meeting-4',
+    author: 'Food Systems 2026 Research',
+    year: 2026,
+    type: 'analyse',
+    description: 'Destillering av 27+ forskningstraader fra meeting-4 (strategisk ledergruppe 16. mars). 7 seksjoner: hypoteser, konseptuelle gap, datainfrastruktur, aktoerer, policy, metodikk, prioriteringsmatrise med 20 punkter.',
+    relevance: 'Styringsdokument for forskningsprioriteringer mars-juni 2026. Identifiserer gap i eiendomsmodell, food desert-analyse, sirkularitetskobling og aktoerregister.',
+  },
 ]

@@ -161,5 +161,8 @@ export const meetings: Meeting[] = [
       'Eiendomsmodellen i dagligvare: kjeder leier av seg selv til hoy pris → "fiktivt kapitaltap" som driver matpriser',
       'Gabriels kartdata (food desert, butikktetthet, akvakultur) godt mottatt — inspirerer til nordisk granularitet',
     ],
+    sources: [
+      { sourceId: 'src-71', label: 'Research Focus Report', note: 'Destillering av 27+ forskningstraader fra motet' },
+    ],
   },
 ]
