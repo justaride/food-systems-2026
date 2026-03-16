@@ -237,11 +237,17 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
   }, [municipalities, municipalityMetrics, logisticsHubs, geojson, countryConfig])
 
   const toggleLayer = useCallback((layer: MapLayer) => {
-    setActiveLayers(prev =>
-      prev.includes(layer)
-        ? prev.filter(l => l !== layer)
-        : [...prev, layer]
-    )
+    setActiveLayers(prev => {
+      if (prev.includes(layer)) return prev.filter(l => l !== layer)
+      const exclusive: MapLayer[][] = [['desert', 'vulnerability']]
+      let next = [...prev, layer]
+      for (const group of exclusive) {
+        if (group.includes(layer)) {
+          next = next.filter(l => !group.includes(l) || l === layer)
+        }
+      }
+      return next
+    })
   }, [])
 
   const toggleChain = useCallback((chain: string) => {

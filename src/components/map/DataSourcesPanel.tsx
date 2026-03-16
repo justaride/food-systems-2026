@@ -43,6 +43,11 @@ export default function DataSourcesPanel() {
           </div>
 
           <div className="overflow-y-auto flex-1 p-5">
+            {dataSources.length === 0 && (
+              <div className="text-center py-8">
+                <p className="text-sm text-stone-500">Datakildedokumentasjon er ikke tilgjengelig for dette landet enn&aring;.</p>
+              </div>
+            )}
             <div className="grid gap-2">
               {dataSources.map((ds, idx) => {
                 const isExpanded = expandedIdx === idx
