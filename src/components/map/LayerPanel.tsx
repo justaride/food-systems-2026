@@ -8,7 +8,7 @@ type LayerGroup = {
   layers: { id: MapLayer; label: string }[]
 }
 
-const LAYER_GROUPS: LayerGroup[] = [
+const BASE_LAYER_GROUPS: LayerGroup[] = [
   {
     label: 'Kartlag',
     layers: [
@@ -34,7 +34,21 @@ const LAYER_GROUPS: LayerGroup[] = [
 ]
 
 export default function LayerPanel() {
-  const { activeLayers, toggleLayer, activeChains, toggleChain, stores, isLoading, aquacultureSites, processingPlants, ports, countryConfig } = useMapContext()
+  const { activeLayers, toggleLayer, activeChains, toggleChain, stores, isLoading, aquacultureSites, processingPlants, ports, vulnerabilityScores, countryConfig } = useMapContext()
+
+  const hasData: Record<string, boolean> = {
+    aquaculture: aquacultureSites.length > 0,
+    processing: processingPlants.length > 0,
+    ports: ports.length > 0,
+    vulnerability: Object.keys(vulnerabilityScores).length > 0,
+  }
+
+  const layerGroups = BASE_LAYER_GROUPS
+    .map(group => ({
+      ...group,
+      layers: group.layers.filter(l => hasData[l.id] !== false),
+    }))
+    .filter(group => group.layers.length > 0)
 
   const chainConfigs = countryConfig?.chains ?? {}
   const storeCount = stores.length
@@ -58,7 +72,7 @@ export default function LayerPanel() {
       </div>
 
       <div className="p-4 space-y-3 max-h-[calc(100vh-200px)] overflow-y-auto">
-        {LAYER_GROUPS.map(group => (
+        {layerGroups.map(group => (
           <div key={group.label}>
             <p className="text-[10px] uppercase tracking-wider text-stone-400 mb-1.5">{group.label}</p>
             <div className="space-y-1.5">
