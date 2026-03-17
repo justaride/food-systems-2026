@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+  <head><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=11"/><![endif]-->
+<meta charset="utf-8" />
+<meta name="description" content="NIBIO leverer kunnskap om mat- og planteproduksjon, miljø, klimasmart landbruk, kart, arealbruk, genressurser, skog, ressursforvaltning og landbruksøkonomi. " />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title> - Nibio</title>
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/_/asset/com.norsedigital.nibio:0000019c65d52f20/apple-touch-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  href="/_/asset/com.norsedigital.nibio:0000019c65d52f20/favicon-32x32.png"
+  sizes="32x32"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  href="/_/asset/com.norsedigital.nibio:0000019c65d52f20/favicon-16x16.png"
+  sizes="16x16"
+/>
+<link
+  rel="manifest"
+  href="/_/asset/com.norsedigital.nibio:0000019c65d52f20/manifest.json"
+/>
+<link
+  rel="mask-icon"
+  href="/_/asset/com.norsedigital.nibio:0000019c65d52f20/safari-pinned-tab.svg"
+  color="#5bbad5"
+/>
+<link
+  rel="shortcut icon"
+  href="/_/asset/com.norsedigital.nibio:0000019c65d52f20/favicon.ico"
+/>
+<meta name="theme-color" content="#ffffff" />
+<meta
+  name="google-site-verification"
+  content="KhACqHw1ZCS9Mbpig8UvXUnACYyniy5VvGMA27NJQhU"
+/>
+
+<!-- Open Graph data -->
+<meta property="og:title" content=" - Nibio" />
+<meta property="og:type" content="article" />
+<meta
+  property="og:url" content="https://www.nibio.no/publikasjoner/selvforsyningsgrad--sammenligning-av-norske-og-internasjonale-beregninger"
+/>
+<meta property="og:image" content="https://www.nibio.no/_/asset/com.norsedigital.nibio:0000019c65d52f20/android-chrome-512x512.png" />
+<meta property="og:description" content="NIBIO leverer kunnskap om mat- og planteproduksjon, miljø, klimasmart landbruk, kart, arealbruk, genressurser, skog, ressursforvaltning og landbruksøkonomi. " />
+<meta property="og:site_name" content="Nibio" />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+
+<!-- Place favicon.ico in the root directory -->
+
+<link
+  href="//fonts.googleapis.com/css?family=Merriweather:300,400,400i,700|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="/_/asset/com.norsedigital.nibio:0000019c65d52f20/styles/main.css"
+/>
+
+<script type="text/javascript">
+  var userip = null;
+  var re = /(46\.249\.232\.8(?!.))|(62\.50\.173\.106)|(77\.106\.175\.179)|(79\.135\.25\.5(?!.))|(79\.161\.49\.18(?!.))|(80\.89\.41\.154)|(80\.232\.108\.2(?!.))|(82\.147\.34\.194)|(84\.205\.40\.229)|(185\.3\.3\.214)|(193\.213\.35\.215)|(158\.37\.160\.178)|(158\.36\.141\.83(?!.))|(128\.39\.47\.46(?!.))|(217\.144\.240\.(109|110))|(88\.84\.191\.23[3-8])|(128\.39\.((5[8-9])|(9[8-9]))\.(([1][0-9][0-9])|([2][0-4][0-9])|([2][5][0-5])|([1-9][0-9])|([1-9])))|(128\.39\.184\.(([0-1][0-9][0-9])|([2][0-5][0-4])|([1-9][0-9])(?![0-9])|([1-9])(?![0-9])))|(128\.39\.97\.((([1][0-1][0-9])|([1][0-2][0-6])|([1][2][9])|([1][3-4][0-9])|([1][5][0-8])|([1-9][0-9])(?![0-9])|([1-9])(?![0-9]))))|(158\.38\.1\.(([1][6][1-9])|([1][7-8][0-9])|([1][9][0])))|(192\.168\..{1,3}\..{1,3})|(10\..{1,3}\..{1,3}\..{1,3})|(172\.[123][0-9]\..{1,3}\..{1,3})|(127\.0\.0\.1)$/;
+  if (userip && re.test(userip) && ( !location.search || (location.search && location.search.indexOf('locationfilter') == -1) ) ) {
+    var hash = location.hash ? location.hash : '';
+    window.history.replaceState(null, null, location.pathname+(location.search ? location.search+'&':'?')+'locationfilter=true'+(location.hash ? location.hash : ''));
+  }
+</script>
+
+<script
+  src="/_/asset/com.norsedigital.nibio:0000019c65d52f20/scripts/vendor/modernizr.js"
+></script>
+</head>
+  <body>
+    <!-- Global header -->
+<header>
+  <a href="#content" class="skip-navigation">Hopp til hovedinnholdet</a>
+  <nav class="navbar navbar-default sticky-scroller master-nav" id="master-nav">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+            <img src="/_/asset/com.norsedigital.nibio:0000019c65d52f20/images/nibio-logo-neg.png" alt="NIBIO Logo" />
+        </a>
+        <a href="/en"
+          class="hidden-xs hidden-lg english btn btn-default">En </a>
+        <!-- <button type="button" class="btn btn-default search-toggle hidden-sm hidden-md hidden-lg" data-toggle="collapse"
+          data-target="#search-nav" aria-expanded="false">
+          <img src="#" data-th-src="${portal.assetUrl({'_path=images/magnifying-glass.png'})}" alt="Search" />
+        </button> -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#master-nav-collapse"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span><!-- MENY -->
+        </button>
+        <button type="button" class="search-new__toggle toggle-mobile"
+          data-toggle="collapse"
+          data-target="#search-nav" aria-expanded="false">
+          Search
+        </button>
+        <!-- <a href="#content" class="skip-navigation">Hopp til hovedinnholdet</a> -->
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse no-transition" id="master-nav-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/prosjekter">Prosjekter</a>
+            <div class="marker">
+              <span></span>
+            </div>
+          </li>
+          <li>
+            <a href="/publikasjoner">Publikasjoner</a>
+            <div class="marker">
+              <span></span>
+            </div>
+          </li>
+          <li>
+            <a href="/tema">Tema</a>
+            <div class="marker">
+              <span></span>
+            </div>
+          </li>
+          <li>
+            <a href="/kalender">Kalender</a>
+            <div class="marker">
+              <span></span>
+            </div>
+          </li>
+          <li>
+            <a href="/tjenester">Tjenester</a>
+            <div class="marker">
+              <span></span>
+            </div>
+          </li>
+          <li>
+            <a href="/nyheter">Nyheter</a>
+            <div class="marker">
+              <span></span>
+            </div>
+          </li>
+          <li>
+            <a href="/ansatte">Ansatte</a>
+            <div class="marker">
+              <span></span>
+            </div>
+          </li>
+          <li>
+            <a href="/om-nibio">Om NIBIO</a>
+            <div class="marker">
+              <span></span>
+            </div>
+          </li>
+          <li>
+            <button type="button" class="search-new__toggle"
+              data-toggle="collapse"
+              data-target="#search-nav" aria-expanded="false">
+              Search
+            </button>
+          </li>
+          <li class="english hidden-sm hidden-md">
+            <a href="/en">
+            <span >nibio.no English</span>
+              
+              
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--
+
+				FRONT PAGE IMAGE UNCOMMENT WHEN WORKING WITH IT
+				APPEARS ON EVERY PAGE NOW
+
+	-->
+
+  
+
+  
+
+  <!--
+
+				FRONT PAGE MAIN IMAGE END
+
+	-->
+
+  <div class="search-new" tabindex="-1">
+    <div class="search-new__wrapper">
+      <form id="search-form" action="/sok">
+        <div class="search-new__input" id="search-input">
+            <input type="text" class="form-control" id="q" name="q" value=""
+            autocomplete="off" placeholder="Bruk anførselstegn ved søk på eksakt ord eller frase" aria-label="Søk" test="Bruk anførselstegn ved søk på eksakt ord eller frase" />
+          <button type="submit" class="search-new__submit">
+            Søk
+          </button>
+        </div>
+
+        <div class="search-new__category">
+          <h4>Søk i</h4>
+          <div class="search-new__options">
+            <!-- <a href="#" rel="nofollow" data-core="sitewide" class="active">nibio.no</a> -->
+            <a href="#" rel="nofollow" data-core="/sok" class="active">alt</a><a href="#" rel="nofollow" data-core="/ansatte">ansatte</a><a href="#" rel="nofollow" data-core="/prosjekter">prosjekter</a><a href="#" rel="nofollow" data-core="/publikasjoner">publikasjoner</a><a href="#" rel="nofollow" data-core="/tema">tema</a><a href="#" rel="nofollow" data-core="/tjenester">tjenester</a><a href="#" rel="nofollow" data-core="/kalender">kalender</a><a href="#" rel="nofollow" data-core="/nyheter">nyheter</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- <nav class="navbar navbar-default sticky-scroller search-nav collapse" id="search-nav">
+    <form class="navbar-form" id="search-form" data-th-action="${currentSearchCore.link}">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 search-category">
+            <a href="#" rel="nofollow">
+              <span data-th-text="${portal.localize({'_key=global.searchfor','_locale='+currentLanguage})}"
+                data-th-remove="tag"></span>
+              <span data-th-text="${currentSearchCore.displayName}">nibio.no</span>:</a>
+            <div class="search-category-options">
+              <a href="#" rel="nofollow" data-th-each="core :${searchCores}" data-th-text="${core.displayName}"
+                data-th-attr="data-core=${core.link}">core.displayName</a>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8 search-input" id="search-input">
+            <input type="text" class="form-control" id="q" name="q" data-th-value="${params.q}"
+              data-th-attr="placeholder=${portal.localize({'_key=global.search.placeholder','_locale='+currentLanguage})},aria-label=${portal.localize({'_key=global.search','_locale='+currentLanguage})},test=${portal.localize({'_key=global.search.placeholder','_locale='+currentLanguage})}"
+              autocomplete="off" />
+            <div class="labels" id="search-labels"></div>
+            <div class="icon icon-question-mark">?</div>
+
+            <div class="search-explanation">
+              <div class="search-explanation-close">close</div>
+              <div class="search-explanation-container"
+                data-th-text="${portal.localize({'_key=global.searchExplanation','_locale='+currentLanguage})}">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-2 col-md-1 col-lg-1 search-submit">
+            <button type="submit" class="btn">
+              <span data-th-text="${portal.localize({'_key=global.search','_locale='+currentLanguage})}"
+                data-th-remove="tag">global.search</span>
+              <i class="arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </nav> -->
+</header>
+<div class="visible-print-block print-logo">
+  <img src="/_/asset/com.norsedigital.nibio:0000019c65d52f20/images/nibio-logo.png" alt="NIBIO Logo" />
+  <span class="currentDate">
+    Utskrift
+    <span class="date"></span>
+  </span>
+</div>
+<!-- END Global header -->
+<div></div>
+
+
+    <main role="main">
+      <section class="intro">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5">
+              <h1>Ikke funnet</h1>
+            </div>
+            <div class="col-md-7">
+              <p>Innhold ikke funnet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-2 col-lg-2 logo">
+                <img src="/_/asset/com.norsedigital.nibio:0000019c65d52f20/images/nibio-logo-neg.png" class="img-responsive"
+                    alt="Describing image text" />
+
+              <img src="/_/asset/com.norsedigital.nibio:0000019c65d52f20/images/Miljfyrtarn-ensfarget-hvit.png" class="img-responsive"
+                   alt="Miljfyrtarn ensfarget hvit logo" />
+            </div>
+            <div class="col-sm-4 col-md-offset-0 col-md-3 col-lg-3 col-lg-offset-1 contact">
+                <h3>Kontakt oss</h3>
+                <table>
+                    <tr>
+                        <th>Post</th>
+                        <td><p>Postboks 115<br />NO-1431 &Aring;s</p></td>
+                    </tr>
+                    <tr>
+                        <th>Telefon</th>
+                        <td>
+                            
+                            
+                            <a href="tel:+ 47 406 04 100">+ 47 406 04 100</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>E-post</th>
+                        <td>
+                            <a href="mailto:post@nibio.no">post@nibio.no</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="width: auto;" class="col-sm-4 col-md-3 col-lg-3 buttons">
+             <div>
+                <a href="/ansatte"
+                    class="btn btn-default btn-block">
+                    ANSATTE
+                    <i class="arrow-right"></i>
+                </a>
+                
+             </div>
+             <div>
+                <a href="/om-nibio/adresser"
+                    class="btn btn-default btn-block">
+                    ADRESSER
+                    <i class="arrow-right"></i>
+                </a>
+                
+             </div>
+             <div>
+                <a href="/om-nibio/nyhetsbrev-fra-nibio"
+                    class="btn btn-default btn-block">
+                    Nyhetsbrev
+                    <i class="arrow-right"></i>
+                </a>
+                
+             </div>
+             <div>
+                
+                <a href="https://uustatus.no/nb/erklaringer/publisert/91f64cdf-15bc-47d4-9f3d-4eea523c6f87"
+                    class="btn btn-default btn-block">
+                    Tilgjengelighetserklæring
+                    <i class="arrow-right"></i>
+                </a>
+             </div>
+             <div>
+                <a href="/om-nibio/personvernombudet-i-nibio/personvernerklaering-for-nibio"
+                    class="btn btn-default btn-block">
+                    Personvern
+                    <i class="arrow-right"></i>
+                </a>
+                
+             </div>
+            </div>
+
+            <div style="margin-left: 2%;" class="col-sm-4 col-md-3 col-md-offset-1 col-lg-2 col-lg-offset-1 some">
+                <h3>Sosiale medier</h3>
+                <div class="some">
+                    <a href="https://nb-no.facebook.com/Nibio.no/ ">
+                        <img src="/publikasjoner/selvforsyningsgrad--sammenligning-av-norske-og-internasjonale-beregninger/_/image/539c1f67-fbd8-485b-895a-9a4a3646bf8f:eaebbef4c0cc8e057327afd2162e9bab75d66d4d/height-54/facebook.png" alt="facebook" />
+                    </a><a href="https://www.instagram.com/nibio_no/">
+                        <img src="/publikasjoner/selvforsyningsgrad--sammenligning-av-norske-og-internasjonale-beregninger/_/image/4d6ebfda-a997-4e74-9c4d-510e633c8f7a:7251a93b1b35b94c62b56b4fc4804cb4bd16b010/height-54/instagram.png" alt="Instagram" />
+                    </a><a href="https://www.linkedin.com/company/80106/">
+                        <img src="/publikasjoner/selvforsyningsgrad--sammenligning-av-norske-og-internasjonale-beregninger/_/image/23fc91ec-e8d8-40b3-9903-c54046577dda:64c803d65da303d0b896c7f54fc9b4779362f354/height-54/linkedin.png" alt="LinkedIn" />
+                    </a><a href="https://www.youtube.com/channel/UCfvBzDisycpX9ks3PkWiEFw">
+                        <img src="/publikasjoner/selvforsyningsgrad--sammenligning-av-norske-og-internasjonale-beregninger/_/image/52b3bd69-bd13-40c8-bd0e-613fd44c56ed:5feb5111d47ff9f44f30390b092c1674f1e7d5d5/height-54/youtube@2x%20(1).png" alt="YouTube" />
+                    </a><a href="https://www.nibio.no/utils/nibio-rss">
+                        <img src="/publikasjoner/selvforsyningsgrad--sammenligning-av-norske-og-internasjonale-beregninger/_/image/f4b607fd-8336-4e96-8710-a96f6151bffb:57976b3fe71e15b4bad42bda4b899bfec4a48905/height-54/rss.png" alt="Nibio RSS" />
+                    </a>
+                </div>
+                <hr />
+                <p>2026 © Norsk institutt for bioøkonomi</p>
+                <!-- <p class="cookie-information">
+                    <span data-th-text="${portal.localize({'_key=footer.cookiesinfo','_locale='+content.language})}"
+                        data-th-remove="tag"></span><br />
+                    <a href="#" data-th-href="${PRIVACY_URL}" class="privacy" data-th-if="${PRIVACY_URL}"
+                        data-th-text="${portal.localize({'_key=footer.privacylink','_locale='+content.language})}">footer.privacylink</a>
+                </p> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- <div id="cookieConsent">
+      Allow Cookies tracking? 
+      <button class="consentButton btn-yes" data-consent="yes">Yes</button>
+      <button class="consentButton" data-consent="no">No</button>
+    </div> -->
+</footer>
+
+<script>
+    var translations = {"expandTable":"Utvid tabellen "};
+    var ASSETS_PATH = "\/_\/asset\/com.norsedigital.nibio:0000019c65d52f20\/.";
+</script>
+<script data-cookieconsent="ignore" src="/_/asset/com.norsedigital.nibio:0000019c65d52f20/scripts/vendor.js"></script>
+<script data-cookieconsent="ignore" src="/_/asset/com.norsedigital.nibio:0000019c65d52f20/scripts/plugins.js"></script>
+<script data-cookieconsent="ignore" src="/_/asset/com.norsedigital.nibio:0000019c65d52f20/scripts/main.js"></script>
+<script data-cookieconsent="ignore" src="/_/asset/com.norsedigital.nibio:0000019c65d52f20/scripts/mapbox.js"></script>
+
+  </body>
+</html>

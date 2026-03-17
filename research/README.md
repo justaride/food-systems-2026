@@ -21,6 +21,8 @@ Migrert fra BroCode-prosjektet. Grunnlag for Transition Group-arbeid og whitepap
 | `systemteori-perspektiver.md` | Økologisk, nettverks- og TEK-perspektiver på matsystemet |
 | `grand-unified-theory.md` | Filosofisk overbygning: kompleksitetsteori møter matsystemer |
 | `metaforer-og-visualisering.md` | Konsepter for visuell kommunikasjon av systemdynamikk |
+| `prosjektgjennomgang-food-systems-2026.md` | Operativ gjennomgang av prosjektformål, underlag, dekningsmatrise og viktigste gap |
+| `perplexity-masterliste-food-systems-2026.md` | Kanonisk Perplexity-backlog med prioriterte prompts, lagringsstier og researchregler |
 | `forskningsmasterliste.md` | Komplett forskningshistorikk — hypoteser, metoder, funn (v2) |
 | `forskningsmasterliste-v1.md` | "Dark Matter"-arkiv: 73 hinge points, 5 forskningsområder (Maxwell's Demon, Macy, McLuhan, supernormale stimuli, enclosure) |
 | `teori-ekstrapolering.md` | Strategi for teori-utvidelse: Bateson + Wolfram + Damer, Metacrisis, Ruliad, Architect→Gardener |
