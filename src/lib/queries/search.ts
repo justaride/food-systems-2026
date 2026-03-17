@@ -1,10 +1,11 @@
 import { prisma } from '@/lib/db'
 import { semanticSearch } from './semantic-search'
+import { isMissingPrismaTable } from './prisma-errors'
 
 export type SearchMode = 'keyword' | 'semantic' | 'hybrid'
 
 export type SearchResult = {
-  type: 'document' | 'insight' | 'source' | 'thesis' | 'company'
+  type: 'document' | 'insight' | 'source' | 'thesis' | 'company' | 'actor'
   id: string
   title: string
   excerpt: string
@@ -181,6 +182,34 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
       excerpt: `${c.naceDescription ?? ''} — ${c.valueChainStage ?? ''} — ${c.hqCity ?? ''}`,
       url: `/selskap/${c.id}`,
     })
+  }
+
+  try {
+    const actorsResult = await prisma.actor.findMany({
+      where: {
+        OR: [
+          { name: { contains: query, mode: 'insensitive' } },
+          { roleSummary: { contains: query, mode: 'insensitive' } },
+          { currentRelevance: { contains: query, mode: 'insensitive' } },
+          { specificAsk: { contains: query, mode: 'insensitive' } },
+          { themeTags: { has: query.toLowerCase() } },
+        ],
+      },
+      take: limit,
+    })
+
+    for (const actor of actorsResult) {
+      results.push({
+        type: 'actor',
+        id: actor.id,
+        title: actor.name,
+        excerpt: `${actor.actorType} — ${actor.currentStance ?? 'unknown stance'} — ${actor.roleSummary}`,
+        tags: actor.themeTags,
+        url: `/aktorer/${actor.slug}`,
+      })
+    }
+  } catch (error) {
+    if (!isMissingPrismaTable(error, 'Actor')) throw error
   }
 
   return results.slice(0, limit)

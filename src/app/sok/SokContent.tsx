@@ -5,7 +5,7 @@ import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
 
 type SearchResult = {
-  type: 'document' | 'insight' | 'source' | 'thesis' | 'company'
+  type: 'document' | 'insight' | 'source' | 'thesis' | 'company' | 'actor'
   id: string
   title: string
   excerpt: string
@@ -19,6 +19,7 @@ const TYPE_LABELS: Record<string, string> = {
   source: 'Kilde',
   thesis: 'Masteroppgave',
   company: 'Selskap',
+  actor: 'Aktor',
 }
 
 const TYPE_COLORS: Record<string, string> = {
@@ -27,6 +28,7 @@ const TYPE_COLORS: Record<string, string> = {
   source: 'bg-amber-50 text-amber-700 border-amber-200',
   thesis: 'bg-violet-50 text-violet-700 border-violet-200',
   company: 'bg-rose-50 text-rose-700 border-rose-200',
+  actor: 'bg-teal-50 text-teal-700 border-teal-200',
 }
 
 type SearchMode = 'keyword' | 'semantic' | 'hybrid'
@@ -78,7 +80,7 @@ export function SokContent() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Sok</h1>
-        <p className="text-sm text-stone-400 mt-1">Sok pa tvers av dokumenter, innsikt, kilder og selskaper</p>
+        <p className="text-sm text-stone-400 mt-1">Sok pa tvers av dokumenter, innsikt, kilder, selskaper og aktorer</p>
       </div>
 
       <div className="relative">

@@ -8,7 +8,7 @@ const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), { ssr: false 
 type GraphNode = {
   id: string
   label: string
-  type: 'document' | 'insight' | 'thesis' | 'company' | 'source'
+  type: 'document' | 'insight' | 'thesis' | 'company' | 'source' | 'actor'
   tags?: string[]
 }
 
@@ -29,6 +29,7 @@ const NODE_COLORS: Record<string, string> = {
   thesis: '#7c3aed',
   company: '#e11d48',
   source: '#d97706',
+  actor: '#0f766e',
 }
 
 const NODE_SIZES: Record<string, number> = {
@@ -37,13 +38,14 @@ const NODE_SIZES: Record<string, number> = {
   thesis: 5,
   company: 7,
   source: 4,
+  actor: 6,
 }
 
 export function KnowledgeGraph({ nodes, edges }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [dimensions, setDimensions] = useState({ width: 800, height: 500 })
   const [activeTypes, setActiveTypes] = useState<Set<string>>(
-    new Set(['document', 'insight', 'thesis', 'company', 'source'])
+    new Set(['document', 'insight', 'thesis', 'company', 'source', 'actor'])
   )
 
   useEffect(() => {
