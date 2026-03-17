@@ -39,6 +39,7 @@ model Document {
   thesis              Thesis?              @relation
   insightDocumentRefs InsightDocumentRef[]
   companyDocumentRefs CompanyDocumentRef[]
+  actorDocumentRefs   ActorDocumentRef[]
 
   @@index([category])
   @@index([country])
@@ -179,6 +180,7 @@ model Company {
   boardMembers BoardMember[]
   subsidies    Subsidy[]
   documentRefs CompanyDocumentRef[]
+  actor        Actor?
 
   @@index([country])
   @@index([valueChainStage])
@@ -250,6 +252,88 @@ model CompanyDocumentRef {
   document Document @relation(fields: [documentId], references: [id])
 
   @@unique([companyId, documentId])
+}
+
+model Actor {
+  id               String  @id
+  slug             String  @unique
+  name             String
+  actorType        String
+  country          String  @default("NO")
+  organizationType String?
+  roleSummary      String
+  currentRelevance String?
+  website          String?
+  currentStance    String?
+  desiredStance    String?
+  specificAsk      String?
+  priorityTier     String?
+  owner            String?
+  nextStep         String?
+  powerScore       Int?
+  interestScore    Int?
+  themeTags        String[]
+  notes            String?
+  metadata         Json?
+
+  companyId String?  @unique
+  company   Company? @relation(fields: [companyId], references: [id])
+
+  contacts          ActorContact[]
+  documentRefs      ActorDocumentRef[]
+  relationshipsFrom ActorRelationship[] @relation("ActorRelationshipFrom")
+  relationshipsTo   ActorRelationship[] @relation("ActorRelationshipTo")
+
+  @@unique([country, name])
+  @@index([actorType])
+  @@index([country])
+  @@index([priorityTier])
+  @@index([currentStance])
+  @@index([themeTags], type: Gin)
+}
+
+model ActorContact {
+  id           String @id @default(cuid())
+  actorId      String
+  name         String
+  role         String?
+  email        String?
+  organization String?
+  note         String?
+
+  actor Actor @relation(fields: [actorId], references: [id])
+
+  @@index([actorId])
+}
+
+model ActorDocumentRef {
+  id         String @id @default(cuid())
+  actorId    String
+  documentId String
+  context    String?
+
+  actor    Actor    @relation(fields: [actorId], references: [id])
+  document Document @relation(fields: [documentId], references: [id])
+
+  @@unique([actorId, documentId])
+  @@index([documentId])
+}
+
+model ActorRelationship {
+  id           String @id @default(cuid())
+  fromActorId  String
+  toActorId    String
+  relationType String
+  strength     String?
+  note         String?
+
+  fromActor Actor @relation("ActorRelationshipFrom", fields: [fromActorId], references: [id])
+  toActor   Actor @relation("ActorRelationshipTo", fields: [toActorId], references: [id])
+
+  @@unique([fromActorId, toActorId, relationType])
+  @@index([fromActorId])
+  @@index([toActorId])
+  @@index([relationType])
 }
 
 // ─── Domain 6: Project Management ───────────────────────────────────

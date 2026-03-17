@@ -43,6 +43,7 @@ const navGroups = [
     items: [
       { name: 'Bibliotek', href: '/bibliotek', description: 'Fulltekst forskningsdokumenter' },
       { name: 'Kilder', href: '/kilder', description: 'Dokumenter og referanser' },
+      { name: 'Aktorer', href: '/aktorer', description: 'Prioritering, asks og relasjoner' },
       { name: 'Selskaper', href: '/selskap', description: 'Selskapsdata og regnskap' },
       { name: 'Sok', href: '/sok', description: 'Sok pa tvers av alt' },
     ],
