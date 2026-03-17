@@ -9,5 +9,6 @@ next-env.d.ts
 *.key
 __pycache__/
 *.pyc
+.agent/
 
 /src/generated/prisma
