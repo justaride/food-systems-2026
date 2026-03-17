@@ -1,19 +1,16 @@
-# Sammendrag: SIFO-rapport 1-2026 — Kundeprogrammer og lojalitet
+# Kunnskapsgrunnlag om kundeprogrammene i dagligvaremarkedet (SIFO 1-2026)
 
-**Full tittel:** Kunnskapsgrunnlag om kundeprogrammene i dagligvaremarkedet. Del 1.
-**Dato:** 11. mars 2026 (Analysert)
-**Kilde:** SIFO / OsloMet (Jan 2026)
+**Tittel:** Kunnskapsgrunnlag om kundeprogrammene i dagligvaremarkedet. Del 1: Appanalyse og litteraturgjennomgang
+**Forfatter:** Frode Alfnes, Ann-Kristin Ansteensen, Svein Ole Borgen og Alexander Schjøll (SIFO/OsloMet)
+**Dato:** Januar 2026
+**Dokumenttype:** Forskningsrapport
+**Originalfil:** research/evidence-pack/akademia/sifo-kundeprogram-2026.pdf
 
----
+## Sammendrag
+Rapporten kartlegger kundeprogrammer (apper som Trumf, Æ og Coop Medlem) i det norske dagligvaremarkedet. Den analyserer hvordan slike programmer påvirker konkurranse og forbrukeratferd.
 
-## Problemstilling
-Hvilken betydning har de digitale fordelsprogrammene (Trumf, Coop, Rema) for priser, konkurranse og sosiale forskjeller?
-
-## Hovedfunn
-1. **Det digitale skillet:** Forbrukere som er teknologisk kompetente og bruker appene aktivt, oppnår betydelig lavere priser enn de som står utenfor. Dette rammer ofte eldre, folk med lave digitale ferdigheter og de med språkutfordringer.
-2. **Uoversiktlig prisbilde:** Innføringen av personlige priskutt (basert på tidligere kjøp) og "kuponger" gjør det umulig å vite hva en vare egentlig koster før man står i kassa. Dette svekker muligheten til å sammenligne priser på tvers av kjeder.
-3. **Innlocked-effekt:** Programmene er designet for å skape lojalitet (lock-in). Når du har opptjent bonus ett sted eller har personlige tilbud der, øker terskelen for å handle hos en konkurrent.
-4. **Data som valuta:** Kjedene samler inn enorme mengder data om kundenes bevegelser og preferanser. Denne innsikten gir dem en stor fordel i forhandlinger med leverandører og i utvikling av EMV.
-
-## Relevans for Food Systems 2026
-Viktig bidrag til analysen av "den nye maktfaktoren" i dagligvare. Makten har flyttet seg fra bare hylleplass til også å eie relasjonen til kunden gjennom data.
+### Hovedpunkter
+- **Lojalitet og Lock-in:** Kundeprogrammer skaper sterke lojalitetsbånd som kan redusere forbrukerens insentiv til å bytte mellom kjeder.
+- **Prisgjennomsiktighet:** Bonusordninger og personlige rabatter gjør det vanskeligere for forbrukere å sammenligne faktiske hyllepriser.
+- **Datafangst:** Kjedene samler inn enorme mengder data som gir dem en fordel i prisprising og markedsføring.
+- **Konkurranseeffekt:** Store kjeder har en fordel gjennom mer avanserte programmer, noe som kan virke som en etableringshindring for nye aktører.
