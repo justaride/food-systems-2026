@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "title": "Sjømatfôr — Råvarekart 2024",
+    "date": "2026-03-17",
+    "source": "Perplexity research + SINTEF/Frontiers 2024"
+  },
+  "total_feed_2024": {
+    "volume_tonnes": 2260000,
+    "value_usd": 3160000000,
+    "import_share_pct": 92
+  },
+  "composition": {
+    "vegetable_protein": {
+      "share_pct": 35,
+      "main": "SPC (soya)"
+    },
+    "vegetable_oil": {
+      "share_pct": 15,
+      "main": "rapseolje"
+    },
+    "marine_meal": {
+      "share_pct": 12,
+      "main": "fiskemel (Peru, NE-Atlanteren)"
+    },
+    "marine_oil": {
+      "share_pct": 10,
+      "main": "fiskeolje (Peru, NE-Atlanteren)"
+    },
+    "other_conventional": {
+      "share_pct": 27.6
+    },
+    "novel_ingredients": {
+      "share_pct": 0.4,
+      "target_2030_pct": 25
+    }
+  },
+  "historical_shift": [
+    { "year": 1990, "marine_pct": 89, "vegetable_pct": 11, "novel_pct": 0 },
+    { "year": 2000, "marine_pct": 55, "vegetable_pct": 45, "novel_pct": 0 },
+    { "year": 2010, "marine_pct": 35, "vegetable_pct": 65, "novel_pct": 0 },
+    { "year": 2020, "marine_pct": 25, "vegetable_pct": 74.6, "novel_pct": 0.4 },
+    { "year": 2024, "marine_pct": 22, "vegetable_pct": 77.6, "novel_pct": 0.4 }
+  ],
+  "origin_regions": [
+    {
+      "region": "Brasil",
+      "ingredient": "SPC (soya)",
+      "share_of_ingredient_pct": 94,
+      "volume_tonnes": 473000,
+      "value_usd": 492000000,
+      "risk_level": "high",
+      "risks": ["ILUC avskoging", "3 leverandører", "politisk ustabilitet"]
+    },
+    {
+      "region": "Peru/Chile",
+      "ingredient": "Fiskemel/olje (ansjos)",
+      "share_of_global_pct": 30,
+      "risk_level": "high",
+      "risks": ["El Niño volatilitet", "2023: 70% nedgang", "prissjokk"]
+    },
+    {
+      "region": "Vest-Afrika",
+      "ingredient": "Fiskeolje",
+      "risk_level": "critical",
+      "risks": ["Matsikkerhetskonflikt 2.5-4M mennesker", "NGO-kampanje", "Sardinella overbeskattet"]
+    },
+    {
+      "region": "Russland/Belarus",
+      "ingredient": "Rapseolje",
+      "share_of_import_pct": 25,
+      "risk_level": "high",
+      "risks": ["Geopolitisk (Ukraina-krigen)", "Reformulering nødvendig"]
+    },
+    {
+      "region": "NE-Atlanteren",
+      "ingredient": "Fiskemel/olje (biprodukter)",
+      "share_of_marine_pct": 38,
+      "risk_level": "low"
+    }
+  ],
+  "novel_ingredients": [
+    {
+      "type": "Algeolje (Veramaris)",
+      "status": "kommersiell",
+      "2024_growth_pct": 61,
+      "adopter": "Cargill/EWOS standard"
+    },
+    {
+      "type": "Insektprotein (BSF/Protix)",
+      "status": "kommersialisering",
+      "effect": "4% BSF → 9.6% vektgevinst",
+      "eu_approved": true
+    },
+    {
+      "type": "Mikroalger (CO2-basert)",
+      "status": "FoU/pilot",
+      "funding_nok": 93300000,
+      "max_inclusion_pct": 15
+    },
+    {
+      "type": "Gjær/soppprotein",
+      "status": "FoU",
+      "funding_eur": 10000000,
+      "project": "NordicFeed/NordForsk"
+    }
+  ],
+  "feed_companies": [
+    {
+      "name": "Skretting",
+      "parent": "Nutreco/SHV Holdings (NL)",
+      "market_share_no_pct": 40,
+      "key_fact": "Verdens største; MicroBalance FLX (første fôr uten fiskemel)"
+    },
+    {
+      "name": "BioMar",
+      "parent": "BioMar Group (DK)",
+      "key_fact": "97% karbonavtrykk fra råvarer; forlot Russland 2022"
+    },
+    {
+      "name": "Mowi Feed",
+      "parent": "Mowi ASA (NO)",
+      "production_tonnes": 527751,
+      "key_fact": "Vertikalt integrert; 10-15% nye råvarer mål 2030"
+    },
+    {
+      "name": "Cargill/EWOS",
+      "parent": "Cargill Inc (US)",
+      "key_fact": "3 norske fabrikker; ProTerra soya; Veramaris standard"
+    }
+  ]
+}

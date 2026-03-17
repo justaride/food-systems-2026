@@ -590,4 +590,323 @@ export const insights: Insight[] = [
       { sourceId: 'src-68', label: 'Akademia dyp research', note: 'Ozhegova working paper + Menon EMV-kartlegging' },
     ],
   },
+  {
+    id: 'ins-43',
+    title: 'WUR 6-nivaa operativt rammeverk for sirkulaere matsystemer',
+    type: 'kartlegging',
+    source: 'Perplexity-research sirkulaert',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'WUR definerer 6 operative nivaaer for sirkulaere matsystemer: materialer, naeringsstoffer, energi, logistikk/verdikjede, sosial sirkularitet og offentlig innkjoep. Fire kjerneprinsipp: (1) mark til humant konsum, (2) minimer mattap, (3) resirkuler biprodukter, (4) dyr som resirkulatorer.',
+    tags: ['sirkularitet', 'rammeverk', 'WUR', 'operativt'],
+    sources: [
+      { sourceId: 'src-72', label: 'WUR Circular Food Systems', url: 'https://doi.org/10.18174/638397' },
+      { sourceId: 'src-73', label: 'van Zanten Nature Food 2023', url: 'https://www.nature.com/articles/s43016-023-00734-9' },
+    ],
+  },
+  {
+    id: 'ins-44',
+    title: 'NKJ identifiserer 12 nordiske intervensjonspunkter for matsystemtransformasjon',
+    type: 'kartlegging',
+    source: 'Perplexity-research sirkulaert',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Nordisk komite for jordbruksforskning (NKJ) identifiserer 12 intervensjonspunkter organisert i 4 pilarer for nordisk matsystemtransformasjon. Dekker hele verdikjeden fra primaerproduksjon til forbruk og avfall.',
+    tags: ['nordisk', 'intervensjonspunkter', 'NKJ', 'transformasjon'],
+    sources: [
+      { sourceId: 'src-76', label: 'NKJ White Paper 2024' },
+    ],
+  },
+  {
+    id: 'ins-45',
+    title: 'EU Farm to Fork: 50% pesticid, 20% gjodsel, 25% okologisk innen 2030',
+    type: 'funn',
+    source: 'Perplexity-research sirkulaert',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'EU Farm to Fork-strategiens kvantifiserte maal: 50% reduksjon i pesticidbruk, 20% reduksjon i gjodselforbruk, 25% oekologisk areal innen 2030. Gir konkrete benchmarks for nordisk matsystemarbeid.',
+    tags: ['EU', 'Farm-to-Fork', 'maal', 'regulering'],
+    sources: [
+      { sourceId: 'src-75', label: 'JRC SPP 2025' },
+    ],
+  },
+  {
+    id: 'ins-46',
+    title: 'Norsk lokal HHI: median 1.0 (monopol) paa postnummernivaet',
+    type: 'funn',
+    source: 'Perplexity-research food access',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Halseth (NHH 2023) kartlegger lokal HHI i norsk dagligvare paa postnummernivaet. Median HHI er 1.0, som betyr at halvparten av norske postnumre har kun en enkelt dagligvarekjede tilgjengelig — de facto lokale monopoler.',
+    tags: ['HHI', 'food-access', 'monopol', 'Norge', 'lokal-konkurranse'],
+    sources: [
+      { sourceId: 'src-77', label: 'Halseth NHH 2023: Lokal HHI' },
+    ],
+  },
+  {
+    id: 'ins-47',
+    title: 'Sverige: 102 av 290 kommuner mangler discounter (~1M mennesker beroert)',
+    type: 'funn',
+    source: 'Perplexity-research food access',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Konkurrensverkets analyse (2024:4) viser at 102 av 290 svenske kommuner helt mangler discountbutikker. Ca. 1 million mennesker bor i kommuner uten tilgang til lavprisalternativ — en strukturell food access-utfordring.',
+    tags: ['Sverige', 'food-access', 'discounter', 'lokal-konkurranse'],
+    sources: [
+      { sourceId: 'src-78', label: 'Konkurrensverket 2024:4', url: 'https://www.konkurrensverket.se/publikationer/' },
+    ],
+  },
+  {
+    id: 'ins-48',
+    title: 'Metodisk gap: Ingen nordisk studie kombinerer NEMS kvalitetsscorer med GIS-tilgjengelighet',
+    type: 'analyse',
+    source: 'Perplexity-research food access',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Gjennomgang av nordisk food access-forskning avdekker et sentralt metodisk gap: ingen studie kombinerer NEMS-type kvalitetsscoring (sortiment, pris, ferskhet) med GIS-basert tilgjengelighetsanalyse. Britiske CDRC Priority Places Index (7-domene kompositt) er nermeste referanse.',
+    tags: ['metodikk', 'food-access', 'kunnskapsgap', 'GIS', 'NEMS'],
+    sources: [
+      { sourceId: 'src-80', label: 'CDRC Priority Places v2.1', url: 'https://data.cdrc.ac.uk/' },
+    ],
+  },
+  {
+    id: 'ins-49',
+    title: 'Alle 5 nordiske land har HHI >2500: highly concentrated etter DOJ/EU-standard',
+    type: 'funn',
+    source: 'Perplexity-research markedsstruktur',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Validert 2024-data viser at alle 5 nordiske dagligvaremarkeder har HHI over 2500: NO 3327, SE 3500, DK 2623, FI 3633, IS 3298. Samtlige klassifiseres som «highly concentrated» etter DOJ/EU Horizontal Merger Guidelines.',
+    tags: ['HHI', 'nordisk', 'maktkonsentrasjon', 'dagligvare'],
+    sources: [
+      { sourceId: 'src-82', label: 'ECR Dagligvarukartan 2024/2025' },
+      { sourceId: 'src-83', label: 'PTY Finnish Grocery Trade 2024/2025' },
+      { sourceId: 'src-86', label: 'NHH FOOD Steen 2024' },
+    ],
+  },
+  {
+    id: 'ins-50',
+    title: 'Axfood kjopte City Gross (3.7% andel) for SEK 2 mrd — svensk konsolidering',
+    type: 'funn',
+    source: 'Perplexity-research markedsstruktur',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Axfood fullfoerte kjop av City Gross (3.7% markedsandel) for SEK 2 milliarder i 2024, noe som oeker Axfoods totale andel til ~24.9% og forsterker svensk konsolideringstrend.',
+    tags: ['Sverige', 'konsolidering', 'Axfood', 'oppkjop'],
+    sources: [
+      { sourceId: 'src-82', label: 'ECR Dagligvarukartan 2024/2025' },
+    ],
+  },
+  {
+    id: 'ins-51',
+    title: 'Island: Drangar hf. dannet (Samkaup+Heimkaup+Orkan fusjon des. 2024)',
+    type: 'funn',
+    source: 'Perplexity-research markedsstruktur',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Drangar hf. ble dannet desember 2024 gjennom fusjon av Samkaup, Heimkaup og Orkan med samlet omsetning ISK 75 milliarder (~20% markedsandel). Island gaar fra 5 til 3 aktorer.',
+    tags: ['Island', 'fusjon', 'konsolidering', 'Drangar'],
+    sources: [
+      { sourceId: 'src-85', label: 'USDA GAIN Iceland 2024' },
+    ],
+  },
+  {
+    id: 'ins-52',
+    title: 'Aldi Nord forlot Danmark 2024; Lidl fravaerende fra NO og IS',
+    type: 'funn',
+    source: 'Perplexity-research markedsstruktur',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Aldi Nord trakk seg ut av Danmark i 2024 etter aarevis med tap. Lidl er fravaerende fra Norge og Island. Dokumenterer strukturelle etableringsbarrierer i nordiske dagligvaremarkeder.',
+    tags: ['etableringsbarrierer', 'Aldi', 'Lidl', 'nordisk'],
+    sources: [
+      { sourceId: 'src-84', label: 'USDA GAIN Denmark 2024' },
+    ],
+  },
+  {
+    id: 'ins-53',
+    title: 'NOK 4.9 mrd bot for ulovlig prissamarbeid 2011-2018 — anke paagaar',
+    type: 'funn',
+    source: 'Perplexity-research markedsstruktur',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Oppdatering: Konkurransetilsynets vedtak om NOK 4.9 mrd i overtredelsesgebyr til NorgesGruppen, Coop og REMA for prisjeger-samarbeid 2011-2018 er anket. Saken behandles i rettssystemet.',
+    tags: ['prisjeger', 'konkurranse', 'anke', 'dagligvare'],
+    sources: [
+      { sourceId: 'src-86', label: 'NHH FOOD Steen 2024' },
+      { sourceId: 'src-42', label: 'Prisjeger-saken' },
+    ],
+  },
+  {
+    id: 'ins-54',
+    title: 'Halseth PhD: Coop/ICA rebranding 554 butikker — 7-12.9% salgsfall for eksisterende discountere',
+    type: 'funn',
+    source: 'Perplexity-research avhandlinger',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Halseths NHH PhD (2024) viser at Coop og ICAs rebranding av 554 butikker til discountformat foraarsaket 7-12.9% salgsfall for eksisterende discountere i naerhet. Foerste granulare CID-analyse (Competition Impact of Discounters) i Norden.',
+    tags: ['konkurranse', 'discounter', 'rebranding', 'NHH'],
+    sources: [
+      { sourceId: 'src-87', label: 'Halseth PhD 2024: CID-analyse' },
+    ],
+  },
+  {
+    id: 'ins-55',
+    title: 'Danmark 88% okologisk offentlig innkjop vs. Norge 2% — offentlig innkjop er sterkeste policy-verktoy',
+    type: 'analyse',
+    source: 'Perplexity-research avhandlinger',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Kjoebenhavns kommune har 88% oekologisk andel i offentlige kjoekken. Norges offentlige innkjoep ligger paa ~2%. Stein (Salford 2022) dokumenterer at offentlig innkjoep er det sterkeste tilgjengelige policyverktoeyet for matsystemtransformasjon.',
+    tags: ['offentlig-innkjoep', 'oekologisk', 'Danmark', 'policy'],
+    sources: [
+      { sourceId: 'src-87', label: 'Halseth PhD 2024', note: 'Komparativ kontekst' },
+      { sourceId: 'src-75', label: 'JRC SPP 2025' },
+    ],
+  },
+  {
+    id: 'ins-56',
+    title: 'Island matsvinn: Reykjavik 48-27 kg/person (44% reduksjon 2015-2018)',
+    type: 'funn',
+    source: 'Perplexity-research avhandlinger',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Burgherr (Uni. Iceland 2019) dokumenterer at Reykjavik reduserte matsvinn fra 48 til 27 kg per person (44% reduksjon) mellom 2015 og 2018 — en av de raskeste dokumenterte matsvinreduksjonene i Norden.',
+    tags: ['matsvinn', 'Island', 'Reykjavik', 'reduksjon'],
+    sources: [
+      { sourceId: 'src-88', label: 'Eriksson SLU PhD 2015', note: 'Komparativ kontekst' },
+    ],
+  },
+  {
+    id: 'ins-57',
+    title: 'Matsvinnutvalget 2024: 75% reduksjon av matsvinn er mulig — over SDG 12.3 (50%)',
+    type: 'funn',
+    source: 'Perplexity-research offentlige rapporter',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Norges Matsvinnutvalg konkluderer at 75% reduksjon av matsvinn er mulig med riktige tiltak — langt over FNs beaerekraftsmaal 12.3 som sikter mot 50% reduksjon innen 2030.',
+    tags: ['matsvinn', 'ambisjon', 'Matsvinnutvalget', 'SDG'],
+    sources: [
+      { sourceId: 'src-91', label: 'Matsvinnutvalgets rapport 2024' },
+    ],
+  },
+  {
+    id: 'ins-58',
+    title: 'NOU 2023:1 + Meld.St.11: Regjeringen hever selvforsyningsambisjon til 50% innen 2030',
+    type: 'kartlegging',
+    source: 'Perplexity-research offentlige rapporter',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Regjeringens Meld. St. 11 (2023-2024) setter eksplisitt maal om 50% selvforsyningsgrad innen 2030. Sammenstilt med NOU 2023:1 utgoer dette den mest ambisiose norske matsikkerhetspolitikken paa tiaar.',
+    tags: ['selvforsyning', 'policy', 'matsikkerhet', 'Meld.St.11'],
+    sources: [
+      { sourceId: 'src-26', label: 'Meld. St. 11 selvforsyning', url: 'https://www.regjeringen.no/no/dokumenter/meld-st-11-20232024/id3033241/' },
+    ],
+  },
+  {
+    id: 'ins-59',
+    title: 'Norsk laksefor: 92% importavhengighet ($2.80 mrd), 9/10 kg fra saarbare regioner',
+    type: 'funn',
+    source: 'Perplexity-research sjomatfor',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'I 2024 ble 2.26 millioner tonn for brukt til norsk lakseoppdrett med ingrediensverdi $3.16 mrd, hvorav $2.80 mrd (92%) var importert. 9 av 10 kg raavarer kommer fra geopolitisk eller klimatisk saarbare regioner (Brasil, Peru, Vest-Afrika).',
+    tags: ['sjomatfor', 'importavhengighet', 'sarbarhet', 'lakseoppdrett'],
+    sources: [
+      { sourceId: 'src-94', label: 'Greenpeace Feeding a Monster 2021', url: 'https://www.greenpeace.org/' },
+      { sourceId: 'src-95', label: 'Feedback Blue Empire 2024' },
+      { sourceId: 'src-97', label: 'Skretting Sustainability 2024' },
+    ],
+  },
+  {
+    id: 'ins-60',
+    title: 'Vest-Afrika fiskeolje: 123-144K tonn fisk tilsv. 2.5-4M menneskers matforbruk',
+    type: 'funn',
+    source: 'Perplexity-research sjomatfor',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Norsk laksenearing brukte 123-144K tonn smaapelagisk fisk fra Vest-Afrika (Mauritania, Senegal, Gambia) i 2020 — nok til aa ernaere 2.5-4 millioner mennesker i ett aar. Aktiv politisk konflikt med 39 NGOer som krever forbud.',
+    tags: ['Vest-Afrika', 'matsikkerhet', 'fiskefor', 'etikk', 'NGO'],
+    sources: [
+      { sourceId: 'src-94', label: 'Greenpeace Feeding a Monster 2021' },
+      { sourceId: 'src-95', label: 'Feedback Blue Empire 2024' },
+    ],
+  },
+  {
+    id: 'ins-61',
+    title: 'Historisk forskift: 1990 65% fiskemel → 2024 22% marine, 73% vegetabilsk',
+    type: 'analyse',
+    source: 'Perplexity-research sjomatfor',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Norsk laksefor har gjennomgaatt dramatisk sammensetningsendring: fra 65% fiskemel og 24% fiskeolje i 1990 til ~22% marine og ~73% vegetabilske raavarer i 2024. Men soyaavhengigheten (20% av for) utgoer ny importrisiko fra Brasil.',
+    tags: ['forsammensetning', 'historisk', 'soya', 'risikoskift'],
+    sources: [
+      { sourceId: 'src-97', label: 'Skretting Sustainability 2024' },
+    ],
+  },
+  {
+    id: 'ins-62',
+    title: 'Raavareloeftet: 0.4% → 25% nye raavarer innen 2030 (6000% oekning)',
+    type: 'kartlegging',
+    source: 'Perplexity-research sjomatfor',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Raavareloeftet (Bellona + Sjoemat Norge + forselskaper) setter maal om 25% nye raavarer (insektmel, mikroalger, gjaerprotein) i norsk laksefor innen 2030 — opp fra 0.4% i 2020. Kritisk transformasjonsvindu paa 4 aar.',
+    tags: ['Raavareloeftet', 'novel-ingredienser', 'transformasjon', 'for'],
+    sources: [
+      { sourceId: 'src-96', label: 'Raavareloeftet 2.0' },
+      { sourceId: 'src-98', label: 'NordicFeed NordForsk' },
+      { sourceId: 'src-99', label: 'Green Platform Mikroalger' },
+    ],
+  },
+  {
+    id: 'ins-63',
+    title: 'Peru anchovy: El Nino 2023 → 1.3M tonn (ned 70%), 2024 normalisert 4.85M tonn',
+    type: 'funn',
+    source: 'Perplexity-research sjomatfor',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Peru-ansjosfangsten kollapset med 70% i 2023 (1.3M tonn) pga. El Nino, men normaliserte til 4.85M tonn i 2024. Strukturell volatilitet: gjennomsnittlig en alvorlig El Nino hvert 4-7 aar pavirker direkte norsk laksefor.',
+    tags: ['Peru', 'anchovy', 'El-Nino', 'volatilitet', 'fiskefor'],
+    sources: [
+      { sourceId: 'src-94', label: 'Greenpeace Feeding a Monster', note: 'Kontekst for raavare-sarbarhet' },
+    ],
+  },
+  {
+    id: 'ins-64',
+    title: 'Regjeringens 5M tonn laks 2050-ambisjon umulig innenfor 92% importbasert raavaregrunnlag',
+    type: 'analyse',
+    source: 'Perplexity-research sjomatfor',
+    phase: 'fase-1',
+    date: '2026-03-17',
+    description:
+      'Norges ambisjon om 5 millioner tonn lakseproduksjon innen 2050 (opp fra 1.6M tonn) er umulig aa realisere innenfor dagens 92% importbaserte raavaregrunnlag uten fundamental omlegging av foringredienssystemet.',
+    tags: ['lakseproduksjon', 'ambisjon', 'importavhengighet', 'umulig'],
+    sources: [
+      { sourceId: 'src-96', label: 'Raavareloeftet 2.0' },
+      { sourceId: 'src-97', label: 'Skretting Sustainability 2024' },
+    ],
+  },
 ]

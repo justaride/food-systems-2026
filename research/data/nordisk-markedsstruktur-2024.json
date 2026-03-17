@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "title": "Nordisk dagligvaremarked — Markedsstruktur 2024",
+    "date": "2026-03-17",
+    "source": "Perplexity research mars 2026; primærkilder: Konkurransetilsynet, DLF/Delfi, USDA GAIN, PTY, Hagar hf.",
+    "methodology": "HHI beregnet fra verifiserte markedsandeler; ikke offisielle HHI-publikasjoner (unntak: norsk lokalt HHI fra Dagligvarerapport 2023)"
+  },
+  "countries": {
+    "NO": {
+      "total_market": "NOK 227 mrd (fysisk butikk, 2024)",
+      "currency": "NOK",
+      "actors": [
+        { "name": "NorgesGruppen ASA", "share_pct": 43.5, "change_from_2020": -0.6, "formats": ["Kiwi", "Meny", "Spar", "Joker"] },
+        { "name": "Coop Norge SA", "share_pct": 29.2, "change_from_2020": 0, "formats": ["Extra", "Coop Prix", "Mega", "Obs"] },
+        { "name": "Reitan Retail (Rema 1000)", "share_pct": 23.9, "change_from_2020": 1.5, "formats": ["Rema 1000"] },
+        { "name": "Bunnpris (IK Lykke AS)", "share_pct": 3.3, "change_from_2020": 0, "formats": ["Bunnpris"] }
+      ],
+      "CR3": 96.6,
+      "HHI": 3327,
+      "HHI_local_avg": 3945,
+      "data_trust": "verified",
+      "source": "Konkurransetilsynets Dagligvarerapport 2024 (april 2025)",
+      "key_events_2024_2025": [
+        "NOK 4.9 mrd bot for prissamarbeid 2011-2018 (Coop/NG/Rema) — anke pågår",
+        "Kiwi passerte Rema 1000 som største lavpriskjede",
+        "21 fusjonsmeldinger i 2024"
+      ]
+    },
+    "SE": {
+      "total_market": "SEK 340-402 mrd (2024)",
+      "currency": "SEK",
+      "actors": [
+        { "name": "ICA Gruppen", "share_pct": 50.6, "change_from_2023": 0.7, "formats": ["Maxi ICA", "ICA Kvantum", "ICA Supermarket", "ICA Nära"] },
+        { "name": "Axfood AB", "share_pct": 24.9, "change_from_2023": 3.0, "formats": ["Willys", "Hemköp", "City Gross"] },
+        { "name": "Coop Sverige AB", "share_pct": 16.7, "change_from_2023": -0.3, "formats": ["Coop", "Coop Forum", "Coop Extra"] },
+        { "name": "Lidl KB", "share_pct": 6.3, "change_from_2023": -0.1, "formats": ["Lidl"] }
+      ],
+      "CR3": 92.2,
+      "HHI": 3500,
+      "data_trust": "verified",
+      "source": "Dagligvarukartan 2025 (DLF/Delfi, november 2025)",
+      "key_events_2024_2025": [
+        "Axfood kjøpte City Gross for SEK 2 mrd (okt 2024)",
+        "ICA Gruppen solgte Rimi Baltic til Salling Group (juni 2025)"
+      ]
+    },
+    "DK": {
+      "total_market": "DKK ~128 mrd (2024 est.)",
+      "currency": "DKK",
+      "actors": [
+        { "name": "Salling Group A/S", "share_pct": 36.3, "formats": ["Netto", "Bilka", "Føtex", "Salling"] },
+        { "name": "Coop Danmark A/S", "share_pct": 29.5, "formats": ["365discount", "Kvickly", "SuperBrugsen"] },
+        { "name": "Reitan (Rema 1000)", "share_pct": 16.6, "formats": ["Rema 1000", "7-Eleven"] },
+        { "name": "Dagrofa ApS", "share_pct": 12.0, "formats": ["Meny", "Spar", "Min Købmand"] },
+        { "name": "Lidl", "share_pct": 4.5, "formats": ["Lidl"] }
+      ],
+      "CR3": 82.4,
+      "HHI": 2623,
+      "data_trust": "estimated",
+      "source": "USDA GAIN Retail Foods Annual Denmark (DA2025-0002, juni 2025)",
+      "key_events_2024_2025": [
+        "Aldi Nord forlot Danmark 2024",
+        "OK kjøpte 50.82% i Coop Danmark (DKK 2 mrd, april 2024)",
+        "Salling kjøpte 33 Coop-butikker (mars 2025)"
+      ]
+    },
+    "FI": {
+      "total_market": "EUR ~23.5 mrd (2024)",
+      "currency": "EUR",
+      "actors": [
+        { "name": "S Group (SOK)", "share_pct": 48.8, "formats": ["Prisma", "S-Market", "Alepa", "Sale"] },
+        { "name": "K Group (Kesko)", "share_pct": 33.7, "change_from_2023": -0.6, "formats": ["K-Citymarket", "K-Supermarket", "K-Market"] },
+        { "name": "Lidl Finland", "share_pct": 9.8, "formats": ["Lidl"] },
+        { "name": "Tokmanni", "share_pct": 3.2, "formats": ["Tokmanni", "Miny"] }
+      ],
+      "CR3": 91.8,
+      "HHI": 3633,
+      "data_trust": "verified",
+      "source": "PTY Finnish Grocery Trade Statistics 2024; Kesko IR Blog mars 2025",
+      "key_events_2024_2025": [
+        "K Groups andel falt 0.6 pp",
+        "FCCA pågående studie om matvarekjedens funksjon"
+      ]
+    },
+    "IS": {
+      "total_market": "EUR ~1.3 mrd (2024)",
+      "currency": "EUR",
+      "actors": [
+        { "name": "Hagar hf.", "share_pct": 48, "formats": ["Bónus", "Hagkaup"] },
+        { "name": "Festi hf. (Krónan)", "share_pct": 28, "formats": ["Krónan"] },
+        { "name": "Drangar hf.", "share_pct": 20, "formats": ["Nettó", "Krambúðin", "Prís"] }
+      ],
+      "CR3": 92,
+      "HHI": 3298,
+      "data_trust": "estimated",
+      "source": "Hagar hf. Management Report 2024/25; SKEL hf. børsmelding des 2024; USDA GAIN Iceland",
+      "key_events_2024_2025": [
+        "Drangar hf. dannet (Samkaup+Heimkaup+Orkan fusjon des 2024, ISK 75 mrd)",
+        "Hagar kjøpte P/F SMS Færøyene (DKK 467M)"
+      ]
+    }
+  },
+  "cross_nordic": {
+    "all_HHI_above_2500": true,
+    "doj_eu_threshold": 2500,
+    "most_concentrated": "Finland (HHI 3633)",
+    "least_concentrated": "Denmark (HHI 2623)",
+    "international_actors": {
+      "Lidl_present": ["SE", "DK", "FI"],
+      "Lidl_absent": ["NO", "IS"],
+      "Aldi_exited": ["DK (2024)"],
+      "Costco_present": ["IS (1 butikk)"]
+    },
+    "source": "NHH FOOD Prof. Frode Steen april 2024"
+  }
+}
