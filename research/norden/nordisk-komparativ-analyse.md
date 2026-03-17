@@ -299,3 +299,45 @@ Se vedlagte referanser i `research/norden/nordic-food-retail-comparative.md` for
 ---
 
 *Denne analysen er gjennomført som del av Food Systems Transition Group (NCH) innsiktsrapport, mars 2026.*
+
+---
+
+## 7. Validert markedsstruktur 2024 — oppdatert mars 2026
+
+**Kilde:** Perplexity-research 17. mars 2026 (kryssvalidert mot ECR Dagligvarukartan 2024/2025, PTY Finnish Grocery Trade 2024, USDA GAIN Reports 2024, NHH FOOD Prof. Frode Steen april 2024)
+
+### 7.1 Markedsandeler og HHI per land
+
+| Land | #1 | #2 | #3 | Andre | CR3 | HHI | Totalmarked |
+|------|----|----|-----|-------|-----|-----|-------------|
+| **Norge** | NorgesGruppen 43.5% | Coop 29.2% | REMA 1000 23.9% | Bunnpris 3.4% | 96.6% | 3327 | NOK 232 mrd |
+| **Sverige** | ICA 50.6% | Axfood 24.9% | Coop SE 17.3% | Lidl 5.3%, City Gross → Axfood | 92.8% | 3500 | SEK 377 mrd |
+| **Danmark** | Salling 36.3% | Coop DK 29.5% | REMA 1000 DK 14.0% | Lidl 5%, Dagrofa 5% | 79.8% | 2623 | DKK 180 mrd |
+| **Finland** | S Group 48.8% | K Group 33.7% | Lidl FI 10.0% | Tokmanni 3.5% | 92.5% | 3633 | EUR 21 mrd |
+| **Island** | Hagar ~48% | Festi ~28% | Drangar ~20% | Andre ~4% | ~96% | 3298 | ISK 250 mrd |
+
+### 7.2 Nøkkelobservasjoner
+
+- **Alle 5 land over HHI 2500** — «highly concentrated» etter DOJ/EU Horizontal Merger Guidelines
+- **Finland høyest** (3633) med effektivt duopol (S Group + K Group = 82.5%)
+- **Danmark lavest** (2623) og eneste land med >4 aktører over 5%
+- **Aldi Nord forlot Danmark** januar 2024 etter årevis med tap
+- **Lidl fraværende** fra Norge og Island — strukturelle etableringsbarrierer
+- **Axfood kjøpte City Gross** (3.7%) for SEK 2 mrd → ytterligere svensk konsolidering
+- **Drangar hf.** dannet desember 2024: Samkaup + Heimkaup + Orkan fusjon (ISK 75 mrd) → Island fra 5 til 3 aktører
+
+### 7.3 Internasjonale aktører i Norden
+
+| Aktør | NO | SE | DK | FI | IS |
+|-------|----|----|----|----|-----|
+| Lidl (DE) | ✗ | ✓ 5.3% | ✓ 5% | ✓ 10% | ✗ |
+| Aldi (DE) | ✗ | ✗ | ✗ (exit 2024) | ✗ | ✗ |
+| REMA 1000 (NO) | ✓ 23.9% | ✗ | ✓ 14% | ✗ | ✗ |
+| ICA (SE) | ✗ | ✓ 50.6% | ✗ | ✗ | ✗ |
+
+### 7.4 M&A-hendelser 2024-2025
+
+1. **Axfood → City Gross** (SE, 2024): SEK 2 mrd, 3.7% andel, godkjent av Konkurrensverket
+2. **Drangar-fusjon** (IS, des. 2024): Samkaup + Heimkaup + Orkan, ISK 75 mrd
+3. **Aldi Nord exit** (DK, jan. 2024): 100+ butikker fordelt mellom REMA, Salling, Coop, Lidl
+4. **Prisjeger-vedtaket** (NO, 2024): NOK 4.9 mrd gebyr til NG/Coop/REMA — anke pågår

@@ -25,6 +25,9 @@ export type SourceType =
   | 'lovverk'
   | 'analyse'
   | 'årsrapport'
+  | 'forskning'
+  | 'datasett'
+  | 'initiativ'
 
 export type PhaseStatus = 'ikke-startet' | 'pagar' | 'fullfort'
 

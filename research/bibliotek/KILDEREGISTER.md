@@ -361,5 +361,57 @@ Tre konsoliderte kildebiblioteker innhentet gjennom systematisk desk research ba
 *   **Nøkkelfunn:** 100-160 nye biogassanlegg, 15-25 mrd NOK investering, 5 virkemidler. Matsvinnloven = Nordens første obligatoriske lovgivning.
 
 ---
-**Sist oppdatert:** 13. mars 2026
+
+## 10. Perplexity-research: Nye kilder (17. mars 2026)
+
+Kilder identifisert gjennom 8 Perplexity-forskningsrapporter. Originaler arkivert i `research/perpl-17-03/`.
+
+### 10.1 Sirkulære matsystemer — Rammeverk
+
+*   **WUR (Bonilla Cedrez et al., 2023).** *White Paper: Circular Food Systems around the world.* [doi.org/10.18174/638397](https://doi.org/10.18174/638397)
+*   **van Zanten et al. (2023).** *Circularity in Europe strengthens the sustainability of global food systems.* Nature Food. [nature.com](https://www.nature.com/articles/s43016-023-00734-9)
+*   **EAT-Lancet Commission (2025).** *Food in the Anthropocene 2.0.* [eatforum.org](https://eatforum.org/eat-lancet-commission/)
+*   **JRC (2025).** *Green Public Procurement Criteria for Food and Catering (SPP 2025).*
+*   **NKJ (2024).** *White Paper: Nordic Sustainable Food Systems — 12 intervensjonspunkter.*
+
+### 10.2 Food Access og Lokal HHI
+
+*   **Strøm Halseth (NHH, 2023).** *Lokal HHI i norsk dagligvare: median 1.0 på postnummernivå.*
+*   **Konkurrensverket (2024:4).** *Närmaste konkurrent-analys: 290 kommuner.* [konkurrensverket.se](https://www.konkurrensverket.se/publikationer/)
+*   **KFST (2024-2025).** *Fusjonsanalyse Salling/Coop (drive-time HHI).*
+*   **CDRC (2024).** *Priority Places for Food Index v2.1.* [data.cdrc.ac.uk](https://data.cdrc.ac.uk/)
+*   **Statistics Finland (2012).** *HBS: Butikkavstand (median 700m).*
+
+### 10.3 Nordisk Markedsstruktur — Validering
+
+*   **ECR / DLF/Delfi (2025).** *Dagligvarukartan 2024/2025.*
+*   **PTY (2025).** *Finnish Grocery Trade Statistics 2024/2025.*
+*   **USDA FAS (2024).** *GAIN Retail Foods Annual: Denmark 2024.*
+*   **USDA FAS (2024).** *GAIN Retail Foods Annual: Iceland 2024.*
+*   **Prof. Frode Steen, NHH FOOD (2024).** *Markedsanalyse april 2024.*
+
+### 10.4 Avhandlinger og PhD (nye)
+
+*   **Halseth (NHH, 2024).** *PhD: Competition and Grocery Retail Formats (CID-analyse).*
+*   **Eriksson (SLU, 2015).** *PhD: Supermarket food waste — Prevention and management.*
+*   **Sundin (SLU, 2024).** *PhD: Sustainability of food waste prevention.*
+*   **Lehtokunnas (Tampere, 2023).** *PhD: Enacting a Circular Economy — ethnography.*
+
+### 10.5 Offentlige rapporter (nye)
+
+*   **Matsvinnutvalget (2024).** *Rapport: 75% reduksjon mulig.*
+*   **Nordisk Ministerråd (2018).** *NMR Vision 2030: Nordic Bioeconomy Programme.*
+*   **OECD (2025).** *Beyond FLW Reduction Targets.*
+
+### 10.6 Sjømatfôr — Råvareopprinnelse
+
+*   **Greenpeace / Changing Markets (2021).** *«Feeding a Monster»: Vest-afrikansk fiskemel i norsk laksefôr.* [greenpeace.org](https://www.greenpeace.org/)
+*   **Feedback / Greenpeace Africa (2024).** *«Blue Empire»: Matsikkerhetskonflikt norsk laksefôr og Vest-Afrika.*
+*   **Bellona / Sjømat Norge (2024).** *Råvareløftet 2.0: 0.4% → 25% nye råvarer innen 2030.*
+*   **Skretting (2024).** *Sustainability Report: MicroBalance FLX (første fôr uten fiskemel).*
+*   **NordicFeed / NordForsk (2025).** *EUR 10M prosjekt: Gjær/soppprotein fra sidestrømmer.*
+*   **Nofima / SINTEF / UiT (2025).** *Green Platform NOK 93.3M: Mikroalger CO₂-basert.*
+
+---
+**Sist oppdatert:** 17. mars 2026
 **Ansvarlig:** Food Systems 2026 Research Team

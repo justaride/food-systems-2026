@@ -1,0 +1,275 @@
+{
+  "metadata": {
+    "title": "Food Access, Food Deserts og Lokal HHI — Nordisk metodikk",
+    "date": "2026-03-17",
+    "source": "Perplexity research"
+  },
+  "methods": [
+    {
+      "name": "HHI (markedsandeler)",
+      "level": "postnummer/kommune",
+      "formula": "HHI = Σ Si²",
+      "strengths": "Enkel, sammenlignbar, internasjonal standard (DOJ/FTC, EU). Fanger konsentrasjonsgrad i ett tall.",
+      "limitations": "Krever nøyaktige markedsandeler per geografisk nivå. Sensitiv for markedsavgrensning. Sier lite om tilgjengelighet.",
+      "used_by": ["Strøm Halseth NHH", "KFST DK", "CMA UK"]
+    },
+    {
+      "name": "Avstandsbasert (euklidisk/nettverk)",
+      "level": "rutenett/adresse",
+      "formula": "min(d(bosted, butikk_i)) for alle butikker i",
+      "strengths": "Intuitiv, enkel å kommunisere. Nettverksavstand fanger topografi og infrastruktur.",
+      "limitations": "Euklidisk avstand urealistisk i kuppert terreng. Ignorerer butikkvalitet og sortiment. Binær terskel oversimplifiserer.",
+      "used_by": ["Statistics Finland HBS", "Tillväxtverket Pipos", "USDA Food Access Research Atlas"]
+    },
+    {
+      "name": "Nettverksbuffer / isokron-analyse",
+      "level": "rutenett/befolkningsrute",
+      "formula": "Service area = {x : travel_time(x, butikk) ≤ threshold}",
+      "strengths": "Identifiserer befolkning utenfor serviceareal direkte. Tidsbasert mer realistisk enn avstand.",
+      "limitations": "Avhenger av kvaliteten på veinettverksdata. Terskelverdier er arbitrære. Computationally intensive for store områder.",
+      "used_by": ["KFST DK (5/10 min drive-time)", "Pipos/Serviceanalys SE", "CDRC UK"]
+    },
+    {
+      "name": "PPFI komposittindeks",
+      "level": "LSOA (UK) / tilsvarende småområde",
+      "formula": "PPFI = weighted_sum(7 domener: tilgjengelighet, transport, husholdning, bolig, helse, sosialt, netthandel)",
+      "strengths": "Fanger multidimensjonal deprivasjon. Inkluderer etterspørselssiden (inntekt, transport, helse). Mest helhetlige tilnærming.",
+      "limitations": "Svært datakrevende. Vanskelig å replikere uten tilsvarende mikrodatainfrastruktur. Vektingsskjemaet er normativt.",
+      "used_by": ["CDRC UK (Priority Places for Food Index v2.1)"]
+    },
+    {
+      "name": "Drive-time HHI",
+      "level": "butikksentrert (5/10 min radius)",
+      "formula": "For hvert punkt p: HHI_p = Σ (andel_kjede_i i drive-time radius)²",
+      "strengths": "Kombinerer konkurranseanalyse med geografisk tilgjengelighet. Fungerer godt i fusjonsanalyser.",
+      "limitations": "Krever kjøretidsmatrise for alle punkt-butikk-par. Forutsetter bilbruk som standard.",
+      "used_by": ["KFST DK", "CMA UK", "FTC USA"]
+    },
+    {
+      "name": "Gravitasjonsmodell (Huff)",
+      "level": "butikk/handelsområde",
+      "formula": "Pij = (Sj^α / Dij^β) / Σk(Sk^α / Dik^β)",
+      "strengths": "Modellerer forbrukervalg mellom butikker. Fanger butikkattraktivitet og avstandsfriksjon. Kan estimere markedsområder.",
+      "limitations": "Krever kalibrering av α/β-parametere. Forutsetter rasjonell forbruker. Data om butikkattraktivitet ofte utilgjengelig.",
+      "used_by": ["Pipos/Serviceanalys SE", "Handelsanalyser generelt"]
+    }
+  ],
+  "data_sources": {
+    "NO": [
+      {
+        "name": "SSB Statistikkbank",
+        "access": "åpen",
+        "url": "ssb.no/en/statbank",
+        "description": "Handelsstatistikk, befolkningsrutenett, demografiske variabler"
+      },
+      {
+        "name": "Geodata AS butikkregister",
+        "access": "kommersiell",
+        "url": null,
+        "description": "Geokodet butikkregister med kjedetilhørighet og butikkareal"
+      },
+      {
+        "name": "Konkurransetilsynet direkte innrapportering",
+        "access": "offentlig (aggregert)",
+        "url": "konkurransetilsynet.no",
+        "description": "Markedsandeler per kjede, nasjonal og regional"
+      },
+      {
+        "name": "Prognosesenteret",
+        "access": "kommersiell",
+        "url": "prognosesenteret.no",
+        "description": "Dagligvaremarkedet, omsetningstall per aktør"
+      },
+      {
+        "name": "NVDB / Kartverket",
+        "access": "åpen (CC BY 4.0)",
+        "url": "vegvesen.no/nvdb",
+        "description": "Nasjonalt veinettverksdata for nettverksanalyse"
+      }
+    ],
+    "SE": [
+      {
+        "name": "Pipos / Serviceanalys (Tillväxtverket)",
+        "access": "offentlig sektor",
+        "url": "tillvaxtverket.se",
+        "description": "Butikkregistre og tilgjengelighetsanalyser per kommun"
+      },
+      {
+        "name": "SCB Öppna geodata",
+        "access": "åpen (CC0)",
+        "url": "scb.se",
+        "description": "Befolkningsrutenett, administrative grenser"
+      },
+      {
+        "name": "SCB handelsområder / bedriftsregister",
+        "access": "åpen / delvis begrenset",
+        "url": "scb.se",
+        "description": "Sysselsetting og omsetning per bransje og handelsområde"
+      },
+      {
+        "name": "Konkurrensverket rapport 2024:4",
+        "access": "offentlig",
+        "url": "konkurrensverket.se",
+        "description": "Lokal dagligvarekonkurranse, kommuneanalyse, discounter-dekning"
+      }
+    ],
+    "DK": [
+      {
+        "name": "KFST fusjonsanalyser",
+        "access": "offentlig",
+        "url": "kfst.dk",
+        "description": "Drive-time HHI (5/10 min), detaljerte lokal-HHI i fusjonsvedtak"
+      },
+      {
+        "name": "Danmarks Statistik",
+        "access": "åpen / delvis begrenset",
+        "url": "dst.dk",
+        "description": "Handelsstatistikk, befolkningsdata"
+      },
+      {
+        "name": "Salling/Coop fusjonsanalyse",
+        "access": "offentlig (vedtaksdokumenter)",
+        "url": "kfst.dk",
+        "description": "Detaljerte lokal-HHI-beregninger fra fusjonsanalyse"
+      }
+    ],
+    "FI": [
+      {
+        "name": "PTY Finnish Grocery Trade",
+        "access": "åpen",
+        "url": "pty.fi",
+        "description": "Årlig dagligvarestatistikk, markedsandeler, butikktall"
+      },
+      {
+        "name": "Statistics Finland HBS",
+        "access": "åpen",
+        "url": "stat.fi",
+        "description": "Household Budget Survey 2012, median butikkavstand 700m"
+      },
+      {
+        "name": "KKV fusjonsvedtak",
+        "access": "offentlig",
+        "url": "kkv.fi",
+        "description": "Konkurranse- og forbrukerverkets markedsanalyser"
+      }
+    ],
+    "UK": [
+      {
+        "name": "CDRC PPFI v2.1",
+        "access": "åpen",
+        "url": "cdrc.ac.uk",
+        "description": "Priority Places for Food Index, 7 domener, LSOA-nivå"
+      },
+      {
+        "name": "CMA fusjonsanalyser",
+        "access": "offentlig",
+        "url": "gov.uk/cma-cases",
+        "description": "Lokal HHI og fascia-telling i dagligvarefusjoner"
+      },
+      {
+        "name": "Geolytix Retail Points",
+        "access": "kommersiell / akademisk lisens",
+        "url": "geolytix.com",
+        "description": "Geokodet butikkregister for hele UK"
+      }
+    ],
+    "IS": []
+  },
+  "key_findings": [
+    {
+      "country": "NO",
+      "metric": "Lokal HHI median",
+      "value": "1.0 (monopol)",
+      "level": "postnummer",
+      "source": "Strøm Halseth NHH 2023",
+      "note": "Flertallet av norske postnumre har kun én dagligvarekjede representert"
+    },
+    {
+      "country": "NO",
+      "metric": "Nasjonal HHI",
+      "value": "~0.26 (høykonsentrert)",
+      "level": "nasjonalt",
+      "source": "Konkurransetilsynet / bransjerapporter",
+      "note": "NorgesGruppen ~44%, Coop ~29%, Rema 1000 ~23%"
+    },
+    {
+      "country": "SE",
+      "metric": "Kommuner uten discounter",
+      "value": "102 av 290",
+      "level": "kommune",
+      "source": "Konkurrensverket 2024:4",
+      "note": "Berører anslagsvis ~1 million innbyggere"
+    },
+    {
+      "country": "SE",
+      "metric": "Nasjonal markedsstruktur",
+      "value": "ICA ~53%, Axfood ~22%, Coop ~18%",
+      "level": "nasjonalt",
+      "source": "DLF / bransjerapporter",
+      "note": "Høy konsentrasjon, men mer geografisk spredning enn Norge"
+    },
+    {
+      "country": "DK",
+      "metric": "KFST drive-time metodikk",
+      "value": "Systematisk 5/10 min HHI",
+      "level": "lokalmarked",
+      "source": "KFST fusjonsanalyser",
+      "note": "Mest utviklede lokal-HHI-metodikk i Norden"
+    },
+    {
+      "country": "FI",
+      "metric": "Innbyggere per butikk",
+      "value": "1263",
+      "level": "nasjonalt",
+      "source": "PTY 2024",
+      "note": "Duopol: S-Group ~46% + K-Group ~36% = >80%"
+    },
+    {
+      "country": "FI",
+      "metric": "Median butikkavstand",
+      "value": "700m",
+      "level": "husholdning",
+      "source": "Statistics Finland HBS 2012",
+      "note": "Eldre datapunkt, sannsynligvis økt pga butikknedleggelser"
+    }
+  ],
+  "knowledge_gaps": [
+    "Island: Ingen studier identifisert om food access eller lokal konkurranse",
+    "Ingen nordisk studie kombinerer NEMS kvalitetsscorer med GIS-tilgjengelighet",
+    "E-matørkener ikke kartlagt i Norden (CDRC-metodikk ikke replikert)",
+    "Kommunal HHI-database mangler for Norge og Finland",
+    "Ingen nordisk studie kobler lokal HHI til prisnivå på butikknivå",
+    "Tidsserieperspektiv mangler — vanskelig å spore endring i lokal konsentrasjon over tid"
+  ],
+  "recommended_framework": {
+    "project": "Food Systems 2026",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Kartlegg tilgjengelighet (Accessibility Mapping)",
+        "tasks": [
+          "Innhent butikkregister med koordinater og kjedetilhørighet",
+          "Hent SSB 250m befolkningsrutenett",
+          "Beregn nettverksavstand (kjøretid + gangtid) via NVDB/OSM",
+          "Generer isokroner (5, 10, 15 min kjøretid; 10, 20 min gangtid)",
+          "Identifiser food desert-befolkning utenfor serviceareal"
+        ],
+        "tools": ["Python (osmnx, networkx)", "QGIS", "PostGIS"],
+        "data_required": ["Butikkregister", "Befolkningsrutenett", "Veinettverksdata"]
+      },
+      {
+        "step": 2,
+        "name": "Beregn lokal HHI (Competition Mapping)",
+        "tasks": [
+          "Definer lokalmarkeder (drive-time 10 min eller postnummer/grunnkrets)",
+          "Estimer markedsandeler per lokalmarked (butikkareal som proxy)",
+          "Beregn HHI per lokalmarked",
+          "Overlay tilgjengelighet × konsentrasjon",
+          "Identifiser sårbare områder (lav tilgjengelighet + høy HHI)"
+        ],
+        "tools": ["Python", "GeoPandas", "QGIS"],
+        "data_required": ["Butikkareal per enhet", "Kjedetilhørighet", "Lokalmarkedsavgrensning"]
+      }
+    ]
+  }
+}
