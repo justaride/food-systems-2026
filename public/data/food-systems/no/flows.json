@@ -1,0 +1,98 @@
+{
+  "country": "no",
+  "title": "Norway food flow prototype",
+  "description": "Curated origin-destination edges between public Norwegian port and logistics hub IDs.",
+  "unit": "index",
+  "flows": [
+    {
+      "source": "bergen-fishing",
+      "target": "asko-vest",
+      "value": 96,
+      "label": "Vestland seafood to west Norway distribution"
+    },
+    {
+      "source": "maloy-fishing",
+      "target": "asko-vest",
+      "value": 82,
+      "label": "Northwest coast landing to western hub"
+    },
+    {
+      "source": "alesund-fishing",
+      "target": "asko-midt-norge",
+      "value": 91,
+      "label": "More og Romsdal capture to central Norway"
+    },
+    {
+      "source": "kristiansund-fishing",
+      "target": "asko-midt-norge",
+      "value": 78,
+      "label": "Trondelag corridor seafood movement"
+    },
+    {
+      "source": "trondheim-cargo",
+      "target": "bunnpris-central",
+      "value": 88,
+      "label": "Trondheim cargo into national distribution"
+    },
+    {
+      "source": "bodo-fishing",
+      "target": "asko-nord",
+      "value": 75,
+      "label": "Nordland fish landing to northern hub"
+    },
+    {
+      "source": "tromso-fishing",
+      "target": "asko-nord",
+      "value": 94,
+      "label": "Troms landing to northern logistics"
+    },
+    {
+      "source": "hammerfest-fishing",
+      "target": "asko-nord",
+      "value": 68,
+      "label": "Finnmark seafood into northern distribution"
+    },
+    {
+      "source": "stavanger-mixed",
+      "target": "asko-rogaland",
+      "value": 84,
+      "label": "Southwest mixed port to regional hub"
+    },
+    {
+      "source": "egersund-fishing",
+      "target": "rema-sandnes",
+      "value": 59,
+      "label": "Rogaland fishing to retail distribution"
+    },
+    {
+      "source": "narvik-cargo",
+      "target": "rema-narvik",
+      "value": 63,
+      "label": "Narvik cargo to local retail hub"
+    },
+    {
+      "source": "froya-aquaculture",
+      "target": "asko-midt-norge",
+      "value": 71,
+      "label": "Aqua landing into central Norwegian flow"
+    },
+    {
+      "source": "hitra-aquaculture",
+      "target": "coop-clog",
+      "value": 66,
+      "label": "Aqua logistics into automated distribution"
+    },
+    {
+      "source": "floro-mixed",
+      "target": "asko-vest",
+      "value": 72,
+      "label": "Vestland mixed port to west hub"
+    },
+    {
+      "source": "kirkenes-mixed",
+      "target": "asko-nord",
+      "value": 57,
+      "label": "Far north mixed cargo to northern hub"
+    }
+  ]
+}

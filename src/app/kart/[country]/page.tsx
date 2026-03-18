@@ -1,6 +1,7 @@
 'use client'
 
 import { use } from 'react'
+import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import { MapProvider, useMapContext } from '@/lib/map/MapContext'
@@ -54,6 +55,21 @@ function MapErrorOverlay() {
   )
 }
 
+function FlowPrototypeLink() {
+  const { country } = useMapContext()
+
+  return (
+    <Link
+      href={`/kart/${country}/flow`}
+      className="absolute top-4 right-4 z-[1000] inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-white px-3 py-2 text-xs font-medium text-emerald-700 shadow-sm transition-colors hover:bg-emerald-50"
+      title="Åpne den separate flow-prototypen"
+    >
+      <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />
+      Flow prototype
+    </Link>
+  )
+}
+
 export default function KartCountryPage({ params }: { params: Promise<{ country: string }> }) {
   const { country } = use(params)
 
@@ -66,6 +82,7 @@ export default function KartCountryPage({ params }: { params: Promise<{ country:
       <div className="w-full h-full relative" style={{ height: 'calc(100vh - 57px)' }}>
         <FoodMap />
         <MapErrorOverlay />
+        <FlowPrototypeLink />
         <CountrySelector currentCountry={country} />
         <LayerPanel />
         <FoodDesertPanel />
