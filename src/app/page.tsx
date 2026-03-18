@@ -96,6 +96,31 @@ export default async function OversiktPage() {
         </div>
       </div>
 
+      <Card className="border-emerald-200 bg-gradient-to-br from-white to-emerald-50/70">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-[10px] uppercase tracking-wider text-emerald-700">Ny prototype</p>
+            <h2 className="mt-1 text-base font-semibold text-stone-900">Matflyt Norge</h2>
+            <p className="mt-1 text-sm text-stone-600">
+              Egen flow-visning med kuraterte forbindelser mellom norske havner og logistikkhub-er.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2 text-xs text-stone-500">
+              <span className="rounded-full border border-emerald-200 bg-white px-2.5 py-1">Norge-only</span>
+              <span className="rounded-full border border-emerald-200 bg-white px-2.5 py-1">15 forbindelser</span>
+              <span className="rounded-full border border-emerald-200 bg-white px-2.5 py-1">Kartprototype</span>
+            </div>
+          </div>
+          <div className="flex shrink-0">
+            <Link
+              href="/kart/no/flow"
+              className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-emerald-700"
+            >
+              Åpne flow prototype →
+            </Link>
+          </div>
+        </div>
+      </Card>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <Card>
           <div className="flex justify-between items-center mb-3">
