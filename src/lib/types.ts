@@ -166,6 +166,9 @@ export type ResearchPrompt = {
 export type ThesisTheme =
   | 'konsentrasjon' | 'makt' | 'etableringshindringer'
   | 'regulering' | 'verdikjede' | 'prising' | 'emv' | 'nordisk'
+  | 'matsvinn' | 'sirkulaer' | 'offentlig-innkjop' | 'atferd' | 'emballasje' | 'okologi'
+
+export type ThesisDegree = 'master' | 'phd'
 
 export type Thesis = {
   id: string
@@ -181,6 +184,7 @@ export type Thesis = {
   takeaways: string[]
   method?: string
   awardWinning?: boolean
+  degree: ThesisDegree
 }
 
 export type CommType = 'epost' | 'melding' | 'brev'
