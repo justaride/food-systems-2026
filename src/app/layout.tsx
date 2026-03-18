@@ -3,6 +3,8 @@ import '../styles/globals.css'
 import { Header } from '@/components/layout/Header'
 import { Sidebar } from '@/components/layout/Sidebar'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Food Systems 2026 - NCH Transition Group',
   description: 'Dashboard for Food Systems Transition Group under Nordic Circular Hotspot',
