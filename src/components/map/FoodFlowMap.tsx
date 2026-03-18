@@ -29,24 +29,73 @@ type FlowNode = {
 }
 
 type Point = { x: number; y: number }
+type MapBounds = {
+  minLng: number
+  maxLng: number
+  minLat: number
+  maxLat: number
+}
+type LabelPlacement = {
+  nodeId: string
+  side: 'left' | 'right'
+  x: number
+  y: number
+  width: number
+  height: number
+  detailY: number
+  textAnchor: 'start' | 'end'
+}
 
 const SVG_WIDTH = 1000
 const SVG_HEIGHT = 1400
 const PADDING = 84
-const NORWAY_BOUNDS = {
+const DEFAULT_BOUNDS: MapBounds = {
   minLng: 4.5,
   maxLng: 32.5,
   minLat: 57.5,
   maxLat: 71.7,
 }
+const LABEL_HEIGHT = 44
+const LABEL_GAP = 14
+const LABEL_MARGIN_TOP = 42
+const LABEL_MARGIN_BOTTOM = 136
 
 function clamp(value: number, min: number, max: number) {
   return Math.max(min, Math.min(max, value))
 }
 
-function project([lng, lat]: [number, number]): Point {
-  const x = PADDING + ((lng - NORWAY_BOUNDS.minLng) / (NORWAY_BOUNDS.maxLng - NORWAY_BOUNDS.minLng)) * (SVG_WIDTH - PADDING * 2)
-  const y = PADDING + (1 - (lat - NORWAY_BOUNDS.minLat) / (NORWAY_BOUNDS.maxLat - NORWAY_BOUNDS.minLat)) * (SVG_HEIGHT - PADDING * 2)
+function createBounds(nodes: FlowNode[]): MapBounds {
+  if (nodes.length === 0) return DEFAULT_BOUNDS
+
+  let minLng = Infinity
+  let maxLng = -Infinity
+  let minLat = Infinity
+  let maxLat = -Infinity
+
+  for (const node of nodes) {
+    const [lng, lat] = node.coordinates
+    minLng = Math.min(minLng, lng)
+    maxLng = Math.max(maxLng, lng)
+    minLat = Math.min(minLat, lat)
+    maxLat = Math.max(maxLat, lat)
+  }
+
+  const lngSpan = Math.max(maxLng - minLng, 4.5)
+  const latSpan = Math.max(maxLat - minLat, 5.5)
+  const lngPadding = lngSpan * 0.18
+  const latPadding = latSpan * 0.22
+
+  return {
+    minLng: minLng - lngPadding,
+    maxLng: maxLng + lngPadding,
+    minLat: minLat - latPadding,
+    maxLat: maxLat + latPadding,
+  }
+}
+
+function project([lng, lat]: [number, number], bounds: MapBounds): Point {
+  const x = PADDING + ((lng - bounds.minLng) / (bounds.maxLng - bounds.minLng)) * (SVG_WIDTH - PADDING * 2)
+  const y = PADDING + (1 - (lat - bounds.minLat) / (bounds.maxLat - bounds.minLat)) * (SVG_HEIGHT - PADDING * 2)
   return {
     x: clamp(x, PADDING, SVG_WIDTH - PADDING),
     y: clamp(y, PADDING, SVG_HEIGHT - PADDING),
@@ -76,6 +125,80 @@ function kindStyles(kind: FlowNode['kind']) {
   return kind === 'port'
     ? { ring: 'stroke-sky-500', core: 'fill-sky-500', halo: '#0EA5E9' }
     : { ring: 'stroke-emerald-500', core: 'fill-emerald-500', halo: '#10B981' }
+}
+
+function estimateLabelWidth(node: Pick<FlowNode, 'name' | 'label' | 'kind'>) {
+  const primary = node.name.length * 9.2
+  const secondary = `${node.label} · ${kindLabel(node.kind)}`.length * 6.6
+  return clamp(Math.max(primary, secondary) + 22, 132, 220)
+}
+
+function layoutLabels(nodes: Array<FlowNode & Point & { radius: number; degree: number }>): Map<string, LabelPlacement> {
+  const placementsById = new Map<string, LabelPlacement>()
+  const placedBySide: Record<'left' | 'right', LabelPlacement[]> = { left: [], right: [] }
+
+  const sortedNodes = [...nodes].sort((a, b) => a.y - b.y)
+
+  for (const [index, node] of sortedNodes.entries()) {
+    const centered = node.x > SVG_WIDTH * 0.36 && node.x < SVG_WIDTH * 0.68
+    const side: 'left' | 'right' =
+      centered ? (index % 2 === 0 ? 'right' : 'left') : (node.x < SVG_WIDTH / 2 ? 'right' : 'left')
+
+    const width = estimateLabelWidth(node)
+    const anchorX = node.x + (side === 'right' ? 22 : -22)
+    const x = side === 'right' ? anchorX : anchorX - width
+    let y = clamp(
+      node.y + (node.kind === 'port' ? -18 : 16) - LABEL_HEIGHT / 2,
+      LABEL_MARGIN_TOP,
+      SVG_HEIGHT - LABEL_MARGIN_BOTTOM - LABEL_HEIGHT
+    )
+
+    const previous = placedBySide[side]
+    for (const prior of previous) {
+      const overlapsVertically = y < prior.y + prior.height + LABEL_GAP && y + LABEL_HEIGHT > prior.y - LABEL_GAP
+      const overlapsHorizontally = x < prior.x + prior.width + 16 && x + width > prior.x - 16
+      if (overlapsVertically && overlapsHorizontally) {
+        y = prior.y + prior.height + LABEL_GAP
+      }
+    }
+
+    previous.push({
+      nodeId: node.id,
+      side,
+      x,
+      y,
+      width,
+      height: LABEL_HEIGHT,
+      detailY: y + 28,
+      textAnchor: side === 'right' ? 'start' : 'end',
+    })
+  }
+
+  for (const side of ['left', 'right'] as const) {
+    const sidePlacements = placedBySide[side]
+    const overflow = sidePlacements.at(-1)
+      ? sidePlacements[sidePlacements.length - 1].y + LABEL_HEIGHT - (SVG_HEIGHT - LABEL_MARGIN_BOTTOM)
+      : 0
+
+    if (overflow > 0) {
+      let remainingOverflow = overflow
+      for (let index = sidePlacements.length - 1; index >= 0; index -= 1) {
+        const current = sidePlacements[index]
+        const previousBottom = index === 0 ? LABEL_MARGIN_TOP : sidePlacements[index - 1].y + LABEL_HEIGHT + LABEL_GAP
+        const availableShift = current.y - previousBottom
+        const shift = Math.min(availableShift, remainingOverflow)
+        current.y -= shift
+        current.detailY -= shift
+        remainingOverflow -= shift
+      }
+    }
+
+    for (const placement of sidePlacements) {
+      placementsById.set(placement.nodeId, placement)
+    }
+  }
+
+  return placementsById
 }
 
 export default function FoodFlowMap() {
@@ -146,6 +269,7 @@ export default function FoodFlowMap() {
   }, [ports, logisticsHubs, dataset?.flows])
 
   const nodeLookup = useMemo(() => new Map(activeNodes.map(node => [node.id, node] as const)), [activeNodes])
+  const mapBounds = useMemo(() => createBounds(activeNodes), [activeNodes])
 
   const degreeCounts = useMemo(() => {
     const counts = new Map<string, number>()
@@ -163,8 +287,8 @@ export default function FoodFlowMap() {
         const target = nodeLookup.get(flow.target)
         if (!source || !target) return null
 
-        const from = project(source.coordinates)
-        const to = project(target.coordinates)
+        const from = project(source.coordinates, mapBounds)
+        const to = project(target.coordinates, mapBounds)
         return {
           ...flow,
           source,
@@ -176,18 +300,19 @@ export default function FoodFlowMap() {
         }
       })
       .filter((item): item is NonNullable<typeof item> => Boolean(item))
-  }, [dataset?.flows, nodeLookup])
+  }, [dataset?.flows, mapBounds, nodeLookup])
 
   const nodePositions = useMemo(() => {
     return activeNodes.map(node => {
-      const projected = project(node.coordinates)
+      const projected = project(node.coordinates, mapBounds)
       const degree = degreeCounts.get(node.id) ?? 0
       const radius = node.kind === 'hub'
         ? clamp(7 + degree * 1.1, 7, 16)
         : clamp(6 + degree * 0.9, 6, 14)
       return { ...node, ...projected, radius, degree }
     })
-  }, [activeNodes, degreeCounts])
+  }, [activeNodes, degreeCounts, mapBounds])
+  const labelPlacements = useMemo(() => layoutLabels(nodePositions), [nodePositions])
 
   const selectedCountryName = countryConfig?.name ?? 'Norge'
 
@@ -356,27 +481,45 @@ export default function FoodFlowMap() {
               })}
 
               {nodePositions.map(node => {
-                const labelOffset = node.kind === 'port' ? -16 : 18
-                const anchor = node.x < SVG_WIDTH / 2 ? 'start' : 'end'
-                const labelX = node.x + (node.x < SVG_WIDTH / 2 ? 14 : -14)
-                const labelY = node.y + labelOffset
+                const placement = labelPlacements.get(node.id)
+                if (!placement) return null
+                const textX = placement.side === 'right' ? placement.x + 12 : placement.x + placement.width - 12
+                const connectorX = placement.side === 'right' ? placement.x : placement.x + placement.width
+                const connectorY = placement.y + placement.height / 2
                 return (
                   <g key={`${node.id}-label`}>
+                    <path
+                      d={`M ${node.x.toFixed(1)} ${node.y.toFixed(1)} L ${connectorX.toFixed(1)} ${connectorY.toFixed(1)}`}
+                      fill="none"
+                      stroke={node.kind === 'port' ? '#7DD3FC' : '#6EE7B7'}
+                      strokeOpacity="0.8"
+                      strokeWidth="1.5"
+                    />
+                    <rect
+                      x={placement.x}
+                      y={placement.y}
+                      width={placement.width}
+                      height={placement.height}
+                      rx="14"
+                      fill="rgba(255,255,255,0.92)"
+                      stroke="rgba(231,229,228,0.95)"
+                      strokeWidth="1"
+                    />
                     <text
-                      x={labelX}
-                      y={labelY}
-                      textAnchor={anchor}
-                      className="fill-stone-800 text-[20px] font-semibold"
-                      style={{ fontSize: 20 }}
+                      x={textX}
+                      y={placement.y + 18}
+                      textAnchor={placement.textAnchor}
+                      className="fill-stone-800 text-[15px] font-semibold"
+                      style={{ fontSize: 15 }}
                     >
                       {node.name}
                     </text>
                     <text
-                      x={labelX}
-                      y={labelY + 22}
-                      textAnchor={anchor}
-                      className="fill-stone-500 text-[14px]"
-                      style={{ fontSize: 14 }}
+                      x={textX}
+                      y={placement.detailY}
+                      textAnchor={placement.textAnchor}
+                      className="fill-stone-500 text-[11px]"
+                      style={{ fontSize: 11 }}
                     >
                       {node.label} · {kindLabel(node.kind)}
                     </text>
