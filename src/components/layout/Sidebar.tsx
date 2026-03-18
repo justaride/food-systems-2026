@@ -31,7 +31,7 @@ const navGroups = [
     items: [
       { name: 'Innsikt', href: '/innsikt', description: 'Forskning, kartlegging, analyse' },
       { name: 'Forskning', href: '/forskning', description: 'Deep research-prompter' },
-      { name: 'Masteroppgaver', href: '/masteroppgaver', description: 'Syntese og stikkord' },
+      { name: 'Akademia', href: '/masteroppgaver', description: 'Master- og PhD-avhandlinger' },
       { name: 'Kart', href: '/kart', description: 'Butikker og kommunegrenser' },
       { name: 'Sammenligning', href: '/sammenligning', description: 'Nordisk sammenligning' },
       { name: 'Graf', href: '/graf', description: 'Kunnskapsgraf og koblinger' },

@@ -19,11 +19,13 @@ type ThesisRow = {
   takeaways: string[]
   method: string | null
   awardWinning: boolean
+  degree: string
 }
 
 type ThesisTheme =
   | 'konsentrasjon' | 'makt' | 'etableringshindringer'
   | 'regulering' | 'verdikjede' | 'prising' | 'emv' | 'nordisk'
+  | 'matsvinn' | 'sirkulaer' | 'offentlig-innkjop' | 'atferd' | 'emballasje' | 'okologi'
 
 const themeLabels: Record<ThesisTheme, string> = {
   konsentrasjon: 'Konsentrasjon',
@@ -34,6 +36,12 @@ const themeLabels: Record<ThesisTheme, string> = {
   prising: 'Prising',
   emv: 'EMV',
   nordisk: 'Nordisk',
+  matsvinn: 'Matsvinn',
+  sirkulaer: 'Sirkulaer',
+  'offentlig-innkjop': 'Offentlig innkjop',
+  atferd: 'Atferd',
+  emballasje: 'Emballasje',
+  okologi: 'Okologi',
 }
 
 const THEME_COLORS: Record<ThesisTheme, string> = {
@@ -45,21 +53,44 @@ const THEME_COLORS: Record<ThesisTheme, string> = {
   prising: 'bg-emerald-50 text-emerald-700 border-emerald-200',
   emv: 'bg-pink-50 text-pink-700 border-pink-200',
   nordisk: 'bg-sky-50 text-sky-700 border-sky-200',
+  matsvinn: 'bg-lime-50 text-lime-700 border-lime-200',
+  sirkulaer: 'bg-teal-50 text-teal-700 border-teal-200',
+  'offentlig-innkjop': 'bg-indigo-50 text-indigo-700 border-indigo-200',
+  atferd: 'bg-yellow-50 text-yellow-700 border-yellow-200',
+  emballasje: 'bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200',
+  okologi: 'bg-green-50 text-green-700 border-green-200',
 }
 
 export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
+  const [degreeFilter, setDegreeFilter] = useState('alle')
   const [themeFilter, setThemeFilter] = useState('alle')
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
 
-  const themeFilters = [
-    { label: 'Alle', value: 'alle' },
-    ...Object.entries(themeLabels).map(([value, label]) => {
-      const count = theses.filter(t => t.tags.includes(value)).length
-      return { label: `${label} (${count})`, value }
-    }),
+  const masterCount = theses.filter(t => t.degree === 'master').length
+  const phdCount = theses.filter(t => t.degree === 'phd').length
+
+  const degreeFilters = [
+    { label: `Alle (${theses.length})`, value: 'alle' },
+    { label: `Master (${masterCount})`, value: 'master' },
+    { label: `PhD (${phdCount})`, value: 'phd' },
   ]
 
-  const filtered = theses.filter(t =>
+  const afterDegree = theses.filter(t =>
+    degreeFilter === 'alle' || t.degree === degreeFilter
+  )
+
+  const activeThemes = new Set(afterDegree.flatMap(t => t.tags))
+  const themeFilters = [
+    { label: 'Alle temaer', value: 'alle' },
+    ...Object.entries(themeLabels)
+      .filter(([value]) => activeThemes.has(value))
+      .map(([value, label]) => {
+        const count = afterDegree.filter(t => t.tags.includes(value)).length
+        return { label: `${label} (${count})`, value }
+      }),
+  ]
+
+  const filtered = afterDegree.filter(t =>
     themeFilter === 'alle' || t.tags.includes(themeFilter)
   )
 
@@ -75,16 +106,19 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-stone-900">Masteroppgaver</h1>
+        <h1 className="text-2xl font-bold text-stone-900">Akademia</h1>
         <p className="text-sm text-stone-400 mt-1">
-          Syntese og stikkord fra {theses.length} analyserte masteroppgaver om norsk dagligvare
+          Syntese og stikkord fra {theses.length} analyserte avhandlinger — {masterCount} master, {phdCount} PhD
         </p>
       </div>
 
-      <FilterChips items={themeFilters} defaultValue="alle" onChange={setThemeFilter} />
+      <div className="space-y-2">
+        <FilterChips items={degreeFilters} defaultValue="alle" onChange={(v) => { setDegreeFilter(v); setThemeFilter('alle') }} />
+        <FilterChips items={themeFilters} defaultValue="alle" onChange={setThemeFilter} />
+      </div>
 
       {filtered.length === 0 ? (
-        <EmptyState message="Ingen oppgaver med dette temaet" />
+        <EmptyState message="Ingen avhandlinger med dette filteret" />
       ) : (
         <div className="space-y-3">
           {filtered.map(thesis => {
@@ -112,6 +146,11 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
                       <h3 className="text-sm font-semibold text-stone-800 truncate">
                         {thesis.titleNo || thesis.title}
                       </h3>
+                      {thesis.degree === 'phd' && (
+                        <span className="shrink-0 text-[10px] px-1.5 py-0.5 rounded bg-violet-50 text-violet-700 border border-violet-200 font-medium">
+                          PhD
+                        </span>
+                      )}
                       {thesis.awardWinning && (
                         <span className="shrink-0 text-[10px] px-1.5 py-0.5 rounded bg-yellow-50 text-yellow-700 border border-yellow-200 font-medium">
                           Prisvinnende
@@ -159,7 +198,7 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
                         <ul className="space-y-1">
                           {thesis.keyFindings.map((finding, i) => (
                             <li key={i} className="text-sm text-stone-600 flex gap-2">
-                              <span className="text-stone-300 shrink-0">\u2014</span>
+                              <span className="text-stone-300 shrink-0">{'\u2014'}</span>
                               <span>{finding}</span>
                             </li>
                           ))}
@@ -171,7 +210,7 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
                         <ul className="space-y-1">
                           {thesis.takeaways.map((takeaway, i) => (
                             <li key={i} className="text-sm text-emerald-800 flex gap-2">
-                              <span className="text-emerald-400 shrink-0">\u2192</span>
+                              <span className="text-emerald-400 shrink-0">{'\u2192'}</span>
                               <span>{takeaway}</span>
                             </li>
                           ))}
@@ -186,7 +225,7 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
                             rel="noopener noreferrer"
                             className="text-xs text-stone-400 hover:text-stone-600 underline underline-offset-2"
                           >
-                            Les fulltext \u2192
+                            Les fulltext {'\u2192'}
                           </a>
                         </div>
                       )}

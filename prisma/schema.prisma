@@ -149,6 +149,7 @@ model Thesis {
   takeaways    String[]
   method       String?
   awardWinning Boolean  @default(false)
+  degree       String   @default("master") // master | phd
 
   documentId String?   @unique
   document   Document? @relation(fields: [documentId], references: [id])

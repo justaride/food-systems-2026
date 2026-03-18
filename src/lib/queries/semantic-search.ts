@@ -1,3 +1,4 @@
+import pgvector from 'pgvector'
 import { prisma } from '@/lib/db'
 
 type SemanticResult = {
@@ -31,7 +32,7 @@ async function getQueryEmbedding(query: string): Promise<number[]> {
 
 export async function semanticSearch(query: string, limit = 10): Promise<SemanticResult[]> {
   const embedding = await getQueryEmbedding(query)
-  const vec = `[${embedding.join(',')}]`
+  const vector = pgvector.toSql(embedding)
 
   const results = await prisma.$queryRawUnsafe<Array<{
     id: string
@@ -47,7 +48,7 @@ export async function semanticSearch(query: string, limit = 10): Promise<Semanti
      WHERE embedding IS NOT NULL
      ORDER BY embedding <=> $1::vector
      LIMIT $2`,
-    vec,
+    vector,
     limit
   )
 

@@ -154,6 +154,7 @@ async function importTheses() {
         takeaways: t.takeaways,
         method: t.method ?? null,
         awardWinning: t.awardWinning ?? false,
+        degree: t.degree,
       },
       create: {
         id: t.id,
@@ -169,6 +170,7 @@ async function importTheses() {
         takeaways: t.takeaways,
         method: t.method ?? null,
         awardWinning: t.awardWinning ?? false,
+        degree: t.degree,
       },
     })
   }
