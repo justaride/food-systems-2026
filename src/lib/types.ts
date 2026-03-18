@@ -187,6 +187,28 @@ export type Thesis = {
   degree: ThesisDegree
 }
 
+export type ReportCategory =
+  | 'nou' | 'konkurransetilsyn' | 'bransje' | 'offentlig'
+  | 'konsulentrapport' | 'akademia' | 'tenketank'
+  | 'juridisk' | 'beredskap' | 'sirkularitet' | 'oversikt'
+
+export type Report = {
+  id: string
+  title: string
+  fullTitle?: string
+  author?: string
+  institution?: string
+  date?: string
+  year?: number
+  sourceUrl?: string
+  reportCategory: ReportCategory
+  country?: string
+  keyFindings: string[]
+  recommendations: string[]
+  relevance: string
+  tags: string[]
+}
+
 export type CommType = 'epost' | 'melding' | 'brev'
 
 export type Communication = {

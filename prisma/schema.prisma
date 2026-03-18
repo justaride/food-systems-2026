@@ -37,6 +37,7 @@ model Document {
   refsTo              DocumentRef[]        @relation("refTo")
   sourceDoc           SourceDoc?           @relation
   thesis              Thesis?              @relation
+  report              Report?              @relation
   insightDocumentRefs InsightDocumentRef[]
   companyDocumentRefs CompanyDocumentRef[]
   actorDocumentRefs   ActorDocumentRef[]
@@ -155,6 +156,32 @@ model Thesis {
   document   Document? @relation(fields: [documentId], references: [id])
 
   @@index([institution])
+  @@index([tags], type: Gin)
+}
+
+// ─── Domain 4b: Reports ─────────────────────────────────────────────
+
+model Report {
+  id              String   @id
+  title           String
+  fullTitle       String?
+  author          String?
+  institution     String?
+  date            String?
+  year            Int?
+  sourceUrl       String?
+  reportCategory  String
+  country         String   @default("NO")
+  keyFindings     String[]
+  recommendations String[]
+  relevance       String
+  tags            String[]
+
+  documentId String?   @unique
+  document   Document? @relation(fields: [documentId], references: [id])
+
+  @@index([reportCategory])
+  @@index([country])
   @@index([tags], type: Gin)
 }
 
