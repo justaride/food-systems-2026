@@ -18,6 +18,8 @@ const navigation = [
   { name: 'Akademia', href: '/masteroppgaver' },
   { name: 'Kart', href: '/kart' },
   { name: 'Sammenligning', href: '/sammenligning' },
+  { name: 'Verdikjede', href: '/verdikjede' },
+  { name: 'Rapporter', href: '/rapporter' },
   { name: 'Kilder', href: '/kilder' },
   { name: 'Media', href: '/media' },
 ]

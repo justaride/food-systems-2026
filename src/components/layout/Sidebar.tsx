@@ -36,11 +36,13 @@ const navGroups = [
       { name: 'Sammenligning', href: '/sammenligning', description: 'Nordisk sammenligning' },
       { name: 'Graf', href: '/graf', description: 'Kunnskapsgraf og koblinger' },
       { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
+      { name: 'Verdikjede', href: '/verdikjede', description: 'Nordisk verdikjedeanalyse' },
     ],
   },
   {
     label: 'Bibliotek',
     items: [
+      { name: 'Rapporter', href: '/rapporter', description: 'Offentlige og bransjeanalyser' },
       { name: 'Bibliotek', href: '/bibliotek', description: 'Fulltekst forskningsdokumenter' },
       { name: 'Kilder', href: '/kilder', description: 'Dokumenter og referanser' },
       { name: 'Aktorer', href: '/aktorer', description: 'Prioritering, asks og relasjoner' },

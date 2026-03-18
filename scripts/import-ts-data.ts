@@ -21,6 +21,7 @@ import {
   mediaCountryProfiles,
 } from '../src/lib/data/media-landscape'
 import { countryChartData } from '../src/lib/data/country-chart-data'
+import { reports } from '../src/lib/data/reports'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -451,6 +452,47 @@ async function importMediaLandscape() {
   console.log(`  ${mediaCountryProfiles.length} media country profiles imported`)
 }
 
+async function importReports() {
+  console.log('Importing reports...')
+  for (const r of reports) {
+    await prisma.report.upsert({
+      where: { id: r.id },
+      update: {
+        title: r.title,
+        fullTitle: r.fullTitle ?? null,
+        author: r.author ?? null,
+        institution: r.institution ?? null,
+        date: r.date ?? null,
+        year: r.year ?? null,
+        sourceUrl: r.sourceUrl ?? null,
+        reportCategory: r.reportCategory,
+        country: r.country ?? 'NO',
+        keyFindings: r.keyFindings,
+        recommendations: r.recommendations,
+        relevance: r.relevance,
+        tags: r.tags,
+      },
+      create: {
+        id: r.id,
+        title: r.title,
+        fullTitle: r.fullTitle ?? null,
+        author: r.author ?? null,
+        institution: r.institution ?? null,
+        date: r.date ?? null,
+        year: r.year ?? null,
+        sourceUrl: r.sourceUrl ?? null,
+        reportCategory: r.reportCategory,
+        country: r.country ?? 'NO',
+        keyFindings: r.keyFindings,
+        recommendations: r.recommendations,
+        relevance: r.relevance,
+        tags: r.tags,
+      },
+    })
+  }
+  console.log(`  ${reports.length} reports imported`)
+}
+
 async function importCountryMetrics() {
   console.log('Importing country metrics...')
   let count = 0
@@ -558,6 +600,7 @@ async function main() {
   await importCommunications()
   await importResearchPrompts()
   await importMediaLandscape()
+  await importReports()
   await importCountryMetrics()
 
   console.log('\nAll data imported successfully!')
