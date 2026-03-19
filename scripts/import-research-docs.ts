@@ -248,6 +248,45 @@ function extractTitle(content: string): string {
   return match ? match[1].trim() : 'Untitled'
 }
 
+function extractMarkdownSummary(content: string): string | null {
+  const lines = content.split('\n')
+  const bodyLines: string[] = []
+
+  for (const line of lines) {
+    const trimmed = line.trim()
+    if (!trimmed || trimmed.startsWith('#') || trimmed.startsWith('---') || trimmed.startsWith('**')) continue
+    if (trimmed.startsWith('|') || trimmed.startsWith(':---')) continue
+    bodyLines.push(trimmed)
+    if (bodyLines.length >= 10) break
+  }
+
+  if (bodyLines.length === 0) return null
+
+  const joined = bodyLines.join(' ')
+  const sentences = joined.match(/[^.!?]+[.!?]+/g)
+  if (sentences && sentences.length > 0) {
+    let summary = ''
+    for (let i = 0; i < Math.min(3, sentences.length); i++) {
+      const next = summary + sentences[i]
+      if (next.split(/\s+/).length > 200) break
+      summary = next
+    }
+    return summary.trim() || null
+  }
+
+  const words = joined.split(/\s+/)
+  return words.slice(0, 200).join(' ').trim() || null
+}
+
+function extractMarkdownUrl(content: string): string | null {
+  const lines = content.split('\n').slice(0, 20)
+  for (const line of lines) {
+    const match = line.match(/https?:\/\/[^\s"'<>)]+/)
+    if (match) return match[0]
+  }
+  return null
+}
+
 function parseCsv(content: string): string[][] {
   const rows: string[][] = []
   let row: string[] = []
@@ -329,6 +368,12 @@ function loadEvidenceBacklog(): Map<string, EvidenceBacklogRow> {
 
 function extractCategory(relPath: string): { category: string; subcategory: string | null } {
   const parts = relPath.split(path.sep)
+  if (parts[0] === 'evidence-pack' && parts.length > 1) {
+    return { category: 'evidence-pack', subcategory: parts[1] }
+  }
+  if (parts[0] === 'bibliotek' && parts.length > 2) {
+    return { category: 'bibliotek', subcategory: parts.slice(1, -1).join('/') }
+  }
   if (parts[0] === 'bibliotek' && parts.length > 1) {
     return { category: 'bibliotek', subcategory: parts[1] }
   }
@@ -432,15 +477,15 @@ function derivePdfTitle(
   return baseTitle.replace(/\b(19|20)\d{2}\s*-\s*(19|20)\d{2}\b/, String(fileYear))
 }
 
-function detectPdfAvailabilityStatus(filePath: string): 'local_pdf' | 'invalid_local_copy' {
+function detectPdfAvailabilityStatus(filePath: string): 'fulltext-pdf' | 'metadata-only' {
   try {
     const fd = fs.openSync(filePath, 'r')
     const buffer = Buffer.alloc(5)
     fs.readSync(fd, buffer, 0, 5, 0)
     fs.closeSync(fd)
-    return buffer.toString('utf-8') === '%PDF-' ? 'local_pdf' : 'invalid_local_copy'
+    return buffer.toString('utf-8') === '%PDF-' ? 'fulltext-pdf' : 'metadata-only'
   } catch {
-    return 'invalid_local_copy'
+    return 'metadata-only'
   }
 }
 
@@ -627,7 +672,7 @@ function buildPdfRecord(
     url ? 'Offentlig kilde-URL registrert.' : 'Ingen offentlig kilde-URL registrert.',
     backlogRow?.currentLocalStatus
       ? `Lokal status: ${backlogRow.currentLocalStatus}.`
-      : (availabilityStatus === 'invalid_local_copy' ? 'Lokal kopi ser ikke ut til aa vaere en gyldig PDF.' : null),
+      : (availabilityStatus === 'metadata-only' ? 'Lokal kopi ser ikke ut til aa vaere en gyldig PDF.' : null),
     supplemental?.note || null,
   ].filter(Boolean).join(' ')
 
@@ -651,7 +696,7 @@ function buildPdfRecord(
     '## Importnotat',
     'Dette dokumentet er importert som metadata fra en lokal PDF i `research/evidence-pack/`.',
     'Fulltekst er forelopig ikke ekstrahert til databasen, men dokumentet er gjort sokbart og synlig i biblioteklaget.',
-    availabilityStatus === 'invalid_local_copy'
+    availabilityStatus === 'metadata-only'
       ? 'Den lokale filen ser ikke ut til aa vaere en gyldig PDF, og boer erstattes eller lastes ned pa nytt.'
       : null,
     supplemental?.note || null,
@@ -961,6 +1006,13 @@ async function main() {
         wordCount = content.split(/\s+/).filter(Boolean).length
         documentType = extractDocumentType(file.relPath)
         tags = [category, subcategory, country, documentType].filter(Boolean) as string[]
+        summary = extractMarkdownSummary(content)
+        url = extractMarkdownUrl(content)
+        metadata = {
+          canonicalFileType: 'md',
+          availabilityStatus: 'fulltext',
+          localPath: file.relPath,
+        }
       } else {
         const pdfRecord = buildPdfRecord(file.relPath, evidenceBacklog.get(file.relPath.replaceAll('\\', '/')))
         title = pdfRecord.title
