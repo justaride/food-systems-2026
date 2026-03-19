@@ -2,7 +2,8 @@
 
 **Dato:** 17. mars 2026  
 **Formål:** Gi prosjektet en operativ, prioritert og repo-kompatibel masterliste med prompts som kan kjøres i Perplexity for å hente inn flere kilder, sterkere dokumentasjon og nye spor for kartleggingen.  
-**Status:** Kanonisk arbeidsliste for ekstern desk research.
+**Status:** Kanonisk arbeidsliste for ekstern desk research.  
+**Oppdatering 18. mars 2026:** Flere av sporene i denne listen er nå helt eller delvis dekket av nytt materiale i `research/perpl-17-03/`, `research/norden/`, `research/interviews/` og `research/bibliotek/`. Før nye søk startes, bruk `research/rammeverk/prompt-dekning-og-neste-perplexity-fase-2026-03-18.md` som operativ beslutningslogg.
 
 ---
 

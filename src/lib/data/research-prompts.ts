@@ -1,4 +1,4 @@
-import type { ResearchCategory, ResearchPrompt } from '@/lib/types'
+import type { ResearchCategory, ResearchPrompt, ResearchPromptStatus } from '@/lib/types'
 
 export const categoryLabels: Record<ResearchCategory, { label: string; description: string }> = {
   'boker-akademisk': {
@@ -51,7 +51,35 @@ export const categoryLabels: Record<ResearchCategory, { label: string; descripti
   },
 }
 
-export const researchPrompts: ResearchPrompt[] = [
+const researchPromptStatuses: Record<string, ResearchPromptStatus> = {
+  'forskning-no-masteroppgaver': 'arkivert',
+  'forskning-en-hhi-grocery': 'arkivert',
+  'naering-no-arsrapporter': 'delvis',
+  'naering-no-leverandor': 'delvis',
+  'naering-no-dagligvarerapporten': 'delvis',
+  'offentlig-no-nouer': 'arkivert',
+  'offentlig-no-konkurransetilsynet': 'delvis',
+  'offentlig-no-riksrevisjonen': 'arkivert',
+  'offentlig-no-meldinger': 'arkivert',
+  'reg-no-handelsskikk': 'delvis',
+  'reg-en-eu-utp': 'arkivert',
+  'reg-en-competition-law': 'delvis',
+  'nordisk-en-market-structure': 'arkivert',
+  'nordisk-en-self-sufficiency': 'arkivert',
+  'matsikkerhet-no-selvforsyning': 'arkivert',
+  'matsikkerhet-en-frameworks': 'delvis',
+  'matsikkerhet-no-finsk-modell': 'arkivert',
+  'matsvinn-no-data': 'delvis',
+  'matsvinn-en-circular': 'arkivert',
+  'matsvinn-en-measurement': 'delvis',
+  'logistikk-no-asko': 'arkivert',
+  'logistikk-en-digital': 'delvis',
+  'interessenter-no-aktorkart': 'arkivert',
+  'interessenter-en-academic': 'delvis',
+  'forskning-en-buyer-power': 'delvis',
+}
+
+const rawResearchPrompts: Omit<ResearchPrompt, 'status'>[] = [
   // 1. Boker og akademisk litteratur (3)
   {
     id: 'bok-no-dagligvare',
@@ -1259,3 +1287,8 @@ Compile articles with links, publication dates, and key arguments. Assess whethe
     language: 'en'
   },
 ]
+
+export const researchPrompts: ResearchPrompt[] = rawResearchPrompts.map(prompt => ({
+  ...prompt,
+  status: researchPromptStatuses[prompt.id] ?? 'aktiv',
+}))

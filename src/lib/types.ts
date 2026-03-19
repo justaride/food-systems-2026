@@ -153,6 +153,8 @@ export type ResearchCategory =
 
 export type ResearchModel = 'chatgpt-deep-research' | 'gemini-deep-research' | 'perplexity' | 'claude'
 
+export type ResearchPromptStatus = 'aktiv' | 'delvis' | 'arkivert' | 'erstattet'
+
 export type ResearchPrompt = {
   id: string
   category: ResearchCategory
@@ -161,6 +163,7 @@ export type ResearchPrompt = {
   model: ResearchModel
   expectedOutput: string
   language: 'no' | 'en'
+  status: ResearchPromptStatus
 }
 
 export type ThesisTheme =
