@@ -258,7 +258,7 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
                               {loaded.refsFrom.map(ref => ref.to && (
                                 <a
                                   key={ref.to.id}
-                                  href={`/kilder/${ref.to.slug}`}
+                                  href={`/bibliotek/${ref.to.slug}`}
                                   className="text-xs px-2 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition-colors"
                                 >
                                   {ref.to.title}
@@ -267,7 +267,7 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
                               {loaded.refsTo.map(ref => ref.from && (
                                 <a
                                   key={ref.from.id}
-                                  href={`/kilder/${ref.from.slug}`}
+                                  href={`/bibliotek/${ref.from.slug}`}
                                   className="text-xs px-2 py-1 rounded bg-violet-50 text-violet-700 border border-violet-200 hover:bg-violet-100 transition-colors"
                                 >
                                   {ref.from.title}
