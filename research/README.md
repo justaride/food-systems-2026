@@ -21,8 +21,15 @@ Migrert fra BroCode-prosjektet. Grunnlag for Transition Group-arbeid og whitepap
 | `systemteori-perspektiver.md` | Økologisk, nettverks- og TEK-perspektiver på matsystemet |
 | `grand-unified-theory.md` | Filosofisk overbygning: kompleksitetsteori møter matsystemer |
 | `metaforer-og-visualisering.md` | Konsepter for visuell kommunikasjon av systemdynamikk |
+| `narrativ-struktur.md` | Whitepaperets narrative arkitektur: hook, bevisrekkefølge, figurplassering og gap for menneskelig input |
 | `prosjektgjennomgang-food-systems-2026.md` | Operativ gjennomgang av prosjektformål, underlag, dekningsmatrise og viktigste gap |
 | `perplexity-masterliste-food-systems-2026.md` | Kanonisk Perplexity-backlog med prioriterte prompts, lagringsstier og researchregler |
+| `prompt-dekning-og-neste-perplexity-fase-2026-03-18.md` | Beslutningslogg for hvilke prompts som er dekket, hva som kan tas ut av aktiv kø og hva neste Perplexity-bølge bør være |
+| `materialkart-databaseflyt-og-oppskalering-2026-03-18.md` | Statusnotat for korpus, database, relasjonslag, Codex-flyt og neste målarkitektur |
+| `underlagskartlegging-dokumentkorpus-og-tilgjengelighet-2026-03-18.md` | Materialregnskap for lokale dokumenter, PDF-er, typed registere og nett-tilgjengelighet pa tvers av SourceDoc, Thesis og Report |
+| `plan-for-a-finne-og-laste-ned-flere-rapporter-2026-03-18.md` | Operativ plan for aa rydde kjente dokumenthull, speile flere PDF-er lokalt og lete systematisk etter nye rapportfamilier |
+| `github-kodebase-referanser-2026-03-18.md` | Kuratert GitHub-kart over relevante referanseprosjekter for knowledge graph, geodata, dashboards og supply chain-visualisering |
+| `sirkulaer-matsystem-rammeverk.md` | Operativ syntese av WUR, EMF, NMR, EU F2F og nordiske CE-strategier for sirkulære matsystemer |
 | `forskningsmasterliste.md` | Komplett forskningshistorikk — hypoteser, metoder, funn (v2) |
 | `forskningsmasterliste-v1.md` | "Dark Matter"-arkiv: 73 hinge points, 5 forskningsområder (Maxwell's Demon, Macy, McLuhan, supernormale stimuli, enclosure) |
 | `teori-ekstrapolering.md` | Strategi for teori-utvidelse: Bateson + Wolfram + Damer, Metacrisis, Ruliad, Architect→Gardener |

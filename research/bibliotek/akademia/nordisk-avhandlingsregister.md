@@ -24,7 +24,7 @@ Samlet oversikt over ~40 avhandlinger (master og PhD) om matsystemer, dagligvare
 | 7 | Sørensen | DTU | 2016 | PhD | Organic food conversion in Danish public kitchens | København 88 % økologisk i offentlige kjøkken gjennom systematisk omlegging og dedikerte rådgivere | Offentlig innkjøp |
 | 8 | Dräger & Vågene | NHH | 2017 | Master | Markedskonsentrasjon i Skandinavia | Eksogene faktorer (geografi, regulering) forklarer ulik markedskonsentrasjon i Norge, Sverige og Danmark | Konkurranse |
 | 9 | Sigurðardóttir | University of Iceland | 2017 | Master | Predicting Household Food Waste Reduction | Opplevd atferdskontroll er sterkeste prediktor for svinnreduksjon — sterkere enn verdier og normer | Matsvinn — husholdning |
-| 10 | Ulsaker | NHH | 2018 | PhD | Essays on Competition in the Norwegian Grocery Market | Vertikale avtaler, kjøpermakt og prisgjennomsiktighet i norsk dagligvare | Konkurranse |
+| 10 | Ulsaker | NHH | 2016 | PhD | On Vertical Restraints: Essays in Industrial Organzation | Vertikale avtaler, kjøpermakt og prisgjennomsiktighet i norsk dagligvare | Konkurranse |
 | 11 | Gangstøe | UiB / BECCLE | 2019 | Master | Hemmelige kontrakter i dagligvaremarkedet | Hemmelige grossistpriser gir kjedene forhandlingsfordeler og påvirker detaljistprisnivå | Konkurranse |
 | 12 | Kayhan & Rönnbäck | KTH | 2019 | Master | Dynamics in the Swedish Grocery Retail Industry | SEK 281 mrd marked, 4 aktører >90 %, e-handel 2 % men voksende | Konkurranse |
 | 13 | Burgherr | University of Iceland | 2019 | Master | Food waste in Reykjavík – comparison 2015 vs 2018 | 48→27 kg/person (44 % reduksjon), deltakelse i kampanjer som nøkkelfaktor | Matsvinn — husholdning |

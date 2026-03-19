@@ -376,11 +376,11 @@ export const theses: Thesis[] = [
     degree: 'phd',
   },
   {
-    id: 'ulsaker-phd-2018',
+    id: 'ulsaker-phd-2016',
     authors: 'Ulsaker',
     institution: 'NHH',
-    year: 2018,
-    title: 'Essays on Competition in the Norwegian Grocery Market',
+    year: 2016,
+    title: 'On Vertical Restraints: Essays in Industrial Organzation',
     synthesis: 'Analyserer hvordan forhandlinger mellom store leverandorer og dominerende kjeder pavirker prisene. Droefter om kjedenes makt forer til lavere eller hoyere priser for forbrukerne.',
     keyFindings: [
       'Analyserer forhandlinger mellom store leverandorer og dominerende kjeder og effekt pa forbrukerpriser',
@@ -394,7 +394,7 @@ export const theses: Thesis[] = [
       'Prisgjennomsiktighet-diskusjonen er relevant for dagligvaretilsynets mandat',
     ],
     method: 'PhD-avhandling med multiple studier av det norske dagligvaremarkedet',
-    url: '',
+    url: 'https://hdl.handle.net/11250/3197662',
     degree: 'phd',
   },
   {
