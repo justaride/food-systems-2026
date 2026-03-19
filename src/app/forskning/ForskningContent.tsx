@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { FilterChips } from '@/components/ui/FilterChips'
 import { EmptyState } from '@/components/ui/EmptyState'
+import type { ResearchPromptStatus } from '@/lib/types'
 
 type ResearchPromptRow = {
   id: string
@@ -13,6 +14,7 @@ type ResearchPromptRow = {
   model: string
   expectedOutput: string
   language: string
+  status: string
 }
 
 const categoryLabels: Record<string, { label: string; description: string }> = {
@@ -80,10 +82,39 @@ const MODEL_LABELS: Record<string, string> = {
   'claude': 'Claude',
 }
 
+const STATUS_META: Record<ResearchPromptStatus, { label: string; className: string; note?: string; noteClassName?: string }> = {
+  aktiv: {
+    label: 'Aktiv',
+    className: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  },
+  delvis: {
+    label: 'Delvis dekket',
+    className: 'bg-amber-50 text-amber-700 border-amber-200',
+    note: 'Denne prompten er delvis dekket og bor omskrives til en smalere, mer bevisorientert variant for ny bruk.',
+    noteClassName: 'border-amber-200 bg-amber-50 text-amber-800',
+  },
+  arkivert: {
+    label: 'Arkivert',
+    className: 'bg-stone-100 text-stone-600 border-stone-200',
+  },
+  erstattet: {
+    label: 'Erstattet',
+    className: 'bg-sky-50 text-sky-700 border-sky-200',
+    note: 'Denne prompten er erstattet av et nyere og mer presist spor.',
+    noteClassName: 'border-sky-200 bg-sky-50 text-sky-800',
+  },
+}
+
+function normalizeStatus(status: string): ResearchPromptStatus {
+  return status in STATUS_META ? (status as ResearchPromptStatus) : 'aktiv'
+}
+
 export function ForskningContent({ researchPrompts }: { researchPrompts: ResearchPromptRow[] }) {
   const [categoryFilter, setCategoryFilter] = useState('alle')
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
   const [copiedId, setCopiedId] = useState<string | null>(null)
+  const activeCount = researchPrompts.filter(prompt => normalizeStatus(prompt.status) === 'aktiv').length
+  const partialCount = researchPrompts.filter(prompt => normalizeStatus(prompt.status) === 'delvis').length
 
   const categoryFilters = [
     { label: 'Alle', value: 'alle' },
@@ -117,7 +148,10 @@ export function ForskningContent({ researchPrompts }: { researchPrompts: Researc
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Forskning</h1>
         <p className="text-sm text-stone-400 mt-1">
-          Deep research-prompter for systematisk kunnskapsinnhenting ({researchPrompts.length} prompts)
+          Deep research-prompter for systematisk kunnskapsinnhenting ({researchPrompts.length} operative prompts)
+        </p>
+        <p className="text-xs text-stone-500 mt-2">
+          Operativ ko: {activeCount} aktive og {partialCount} delvis dekkede. Arkiverte prompts er skjult.
         </p>
       </div>
 
@@ -131,6 +165,8 @@ export function ForskningContent({ researchPrompts }: { researchPrompts: Researc
             const isExpanded = expandedIds.has(prompt.id)
             const isCopied = copiedId === prompt.id
             const cat = categoryLabels[prompt.category]
+            const status = normalizeStatus(prompt.status)
+            const statusMeta = STATUS_META[status]
 
             return (
               <Card key={prompt.id} className="!p-0">
@@ -156,6 +192,11 @@ export function ForskningContent({ researchPrompts }: { researchPrompts: Researc
                   </div>
 
                   <div className="flex items-center gap-2 shrink-0">
+                    {status !== 'aktiv' && (
+                      <span className={`text-[10px] px-1.5 py-0.5 rounded border ${statusMeta.className}`}>
+                        {statusMeta.label}
+                      </span>
+                    )}
                     <span className="text-[10px] px-1.5 py-0.5 rounded border bg-stone-50 text-stone-500 border-stone-200">
                       {cat?.label ?? prompt.category}
                     </span>
@@ -174,6 +215,12 @@ export function ForskningContent({ researchPrompts }: { researchPrompts: Researc
 
                 {isExpanded && (
                   <div className="px-4 pb-4 border-t border-stone-100">
+                    {statusMeta.note && (
+                      <div className={`mt-3 text-xs rounded-md border px-3 py-2 ${statusMeta.noteClassName ?? 'border-stone-200 bg-stone-50 text-stone-700'}`}>
+                        {statusMeta.note}
+                      </div>
+                    )}
+
                     <div className="mt-3">
                       <pre className="font-mono bg-stone-50 p-4 rounded-lg text-xs text-stone-700 whitespace-pre-wrap leading-relaxed">
                         {prompt.prompt}

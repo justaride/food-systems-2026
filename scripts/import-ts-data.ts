@@ -12,7 +12,7 @@ import { kpis } from '../src/lib/data/kpis'
 import { deliverables } from '../src/lib/data/deliverables'
 import { evidencePack } from '../src/lib/data/evidence-pack'
 import { tenSteps } from '../src/lib/data/ten-step-start'
-import { meetings } from '../src/lib/data/meetings'
+import { meetings, type Meeting } from '../src/lib/data/meetings'
 import { communications } from '../src/lib/data/communications'
 import { researchPrompts } from '../src/lib/data/research-prompts'
 import {
@@ -25,6 +25,55 @@ import { reports } from '../src/lib/data/reports'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
+
+function extractYear(value: string): number | null {
+  const match = value.match(/\b(19|20)\d{2}\b/)
+  return match ? Number(match[0]) : null
+}
+
+function buildMeetingDocument(meeting: Meeting) {
+  const filePath = `generated/meetings/${meeting.id}.md`
+  const slug = `meeting-${meeting.id}`
+  const relatedSources = (meeting.sources ?? []).map(source => {
+    const detailParts = [source.note, source.url].filter(Boolean)
+    return detailParts.length
+      ? `- ${source.label}: ${detailParts.join(' | ')}`
+      : `- ${source.label}`
+  })
+
+  const content = [
+    `# ${meeting.title}`,
+    '',
+    `- Mote-ID: ${meeting.id}`,
+    `- Dato: ${meeting.date}`,
+    `- Deltakere: ${meeting.participants.join(', ')}`,
+    `- Primarunderlag: ${meeting.source}`,
+    '',
+    '## Sammendrag',
+    meeting.summary,
+    '',
+    '## Beslutninger',
+    ...meeting.keyDecisions.map(item => `- ${item}`),
+    '',
+    '## Aksjonspunkter',
+    ...meeting.actionItems.map(item => `- ${item}`),
+    '',
+    '## Nokkelfunn',
+    ...meeting.keyInsights.map(item => `- ${item}`),
+    '',
+    '## Kildegrunnlag',
+    `- Primarunderlag: ${meeting.source}`,
+    ...relatedSources,
+  ].join('\n')
+
+  return {
+    filePath,
+    slug,
+    content,
+    wordCount: content.split(/\s+/).filter(Boolean).length,
+    year: extractYear(meeting.date),
+  }
+}
 
 async function importPhases() {
   console.log('Importing phases...')
@@ -294,6 +343,8 @@ async function importTenSteps() {
 async function importMeetings() {
   console.log('Importing meetings...')
   for (const m of meetings) {
+    const document = buildMeetingDocument(m)
+
     await prisma.meeting.upsert({
       where: { id: m.id },
       update: {
@@ -319,24 +370,68 @@ async function importMeetings() {
       },
     })
 
+    await prisma.sourceRef.deleteMany({
+      where: { meetingId: m.id },
+    })
+
     if (m.sources) {
       for (const sr of m.sources) {
-        const existing = await prisma.sourceRef.findFirst({
-          where: { meetingId: m.id, label: sr.label },
+        await prisma.sourceRef.create({
+          data: {
+            sourceDocId: sr.sourceId ?? null,
+            label: sr.label,
+            url: sr.url ?? null,
+            note: sr.note ?? null,
+            meetingId: m.id,
+          },
         })
-        if (!existing) {
-          await prisma.sourceRef.create({
-            data: {
-              sourceDocId: sr.sourceId ?? null,
-              label: sr.label,
-              url: sr.url ?? null,
-              note: sr.note ?? null,
-              meetingId: m.id,
-            },
-          })
-        }
       }
     }
+
+    await prisma.document.upsert({
+      where: { filePath: document.filePath },
+      update: {
+        slug: document.slug,
+        title: m.title,
+        author: m.participants.join(', '),
+        year: document.year,
+        documentType: 'meeting-summary',
+        category: 'meetings',
+        subcategory: 'generated',
+        country: null,
+        content: document.content,
+        summary: m.summary,
+        wordCount: document.wordCount,
+        tags: ['meeting', 'meeting-summary', m.id],
+        metadata: {
+          meetingId: m.id,
+          source: m.source,
+          participants: m.participants,
+          generatedFrom: 'src/lib/data/meetings.ts',
+        },
+      },
+      create: {
+        slug: document.slug,
+        filePath: document.filePath,
+        title: m.title,
+        author: m.participants.join(', '),
+        year: document.year,
+        documentType: 'meeting-summary',
+        category: 'meetings',
+        subcategory: 'generated',
+        country: null,
+        content: document.content,
+        summary: m.summary,
+        wordCount: document.wordCount,
+        tags: ['meeting', 'meeting-summary', m.id],
+        metadata: {
+          meetingId: m.id,
+          source: m.source,
+          participants: m.participants,
+          generatedFrom: 'src/lib/data/meetings.ts',
+        },
+      },
+    })
   }
   console.log(`  ${meetings.length} meetings imported`)
 }
@@ -383,6 +478,7 @@ async function importResearchPrompts() {
         model: rp.model,
         expectedOutput: rp.expectedOutput,
         language: rp.language,
+        status: rp.status,
       },
       create: {
         id: rp.id,
@@ -392,6 +488,7 @@ async function importResearchPrompts() {
         model: rp.model,
         expectedOutput: rp.expectedOutput,
         language: rp.language,
+        status: rp.status,
       },
     })
   }

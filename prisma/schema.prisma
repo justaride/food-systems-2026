@@ -468,8 +468,10 @@ model ResearchPrompt {
   model          String
   expectedOutput String
   language       String @default("no")
+  status         String @default("aktiv")
 
   @@index([category])
+  @@index([status])
 }
 
 // ─── Domain 9: Market Data ──────────────────────────────────────────

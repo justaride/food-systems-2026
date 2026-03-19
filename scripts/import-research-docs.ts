@@ -59,6 +59,7 @@ function slugify(filePath: string): string {
 
 function extractDocumentType(relPath: string, content: string): string {
   const lower = relPath.toLowerCase()
+  if (lower.startsWith('meetings/')) return 'meeting-note'
   if (lower.includes('masteroppgaver')) return 'thesis'
   if (lower.includes('nou') || lower.includes('stortingsdok')) return 'policy'
   if (lower.includes('arsrapporter')) return 'annual-report'

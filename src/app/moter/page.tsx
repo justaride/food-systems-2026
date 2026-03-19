@@ -9,7 +9,10 @@ export default async function MoterPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Moter</h1>
-        <p className="text-sm text-stone-400 mt-1">Executive summaries fra {meetings.length} moter</p>
+        <p className="text-sm text-stone-400 mt-1">
+          Kuraterte motesammendrag fra {meetings.length} moter. Primarunderlag holdes i egne notater,
+          transkripsjoner og analyser.
+        </p>
       </div>
 
       <div className="space-y-4">
@@ -18,23 +21,42 @@ export default async function MoterPage() {
             <div className="flex items-start justify-between gap-3 mb-4">
               <div>
                 <h3 className="text-base font-semibold text-stone-800">{meeting.title}</h3>
-                <div className="flex items-center gap-3 mt-1">
+                <div className="flex flex-wrap items-center gap-3 mt-1">
                   <span className="text-xs text-stone-500">{meeting.date}</span>
                   <span className="text-xs text-stone-300">|</span>
-                  <span className="text-xs text-stone-500">{meeting.participants.join(', ')}</span>
+                  <span className="text-xs text-stone-500">{meeting.participants.length} deltakere</span>
                 </div>
+                <p className="text-xs text-stone-500 mt-1">{meeting.participants.join(', ')}</p>
               </div>
-              <span className="text-xs text-stone-400 font-mono shrink-0">{meeting.source}</span>
+              <div className="shrink-0 text-right">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-stone-400">Primarunderlag</p>
+                <p className="text-xs text-stone-500 font-mono mt-1 max-w-[18rem] break-all">{meeting.source}</p>
+              </div>
             </div>
 
-            <p className="text-sm text-stone-600 leading-relaxed mb-4">
-              {meeting.summary}
-            </p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-700">
+                {meeting.keyDecisions.length} avklaringer
+              </span>
+              <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-[11px] font-medium text-amber-700">
+                {meeting.actionItems.length} oppfolginger
+              </span>
+              <span className="rounded-full border border-sky-200 bg-sky-50 px-2.5 py-1 text-[11px] font-medium text-sky-700">
+                {meeting.keyInsights.length} fokuspunkt
+              </span>
+            </div>
+
+            <div className="mb-4 rounded-2xl border border-stone-200 bg-stone-50/80 p-4">
+              <p className="text-[10px] uppercase tracking-[0.18em] text-stone-400 mb-2">Kort oppsummert</p>
+              <p className="text-sm text-stone-700 leading-relaxed">
+                {meeting.summary}
+              </p>
+            </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              <div>
+              <div className="rounded-2xl border border-stone-200 bg-white p-4">
                 <h4 className="text-xs text-stone-400 uppercase tracking-wider font-medium mb-2">
-                  Beslutninger
+                  Avklart i motet
                 </h4>
                 <ul className="space-y-1.5">
                   {meeting.keyDecisions.map((d, i) => (
@@ -46,9 +68,9 @@ export default async function MoterPage() {
                 </ul>
               </div>
 
-              <div>
+              <div className="rounded-2xl border border-stone-200 bg-white p-4">
                 <h4 className="text-xs text-stone-400 uppercase tracking-wider font-medium mb-2">
-                  Aksjonspunkter
+                  Oppfolging
                 </h4>
                 <ul className="space-y-1.5">
                   {meeting.actionItems.map((a, i) => (
@@ -60,9 +82,9 @@ export default async function MoterPage() {
                 </ul>
               </div>
 
-              <div>
+              <div className="rounded-2xl border border-stone-200 bg-white p-4">
                 <h4 className="text-xs text-stone-400 uppercase tracking-wider font-medium mb-2">
-                  Nokkelfunn
+                  Fokus og nokkelfunn
                 </h4>
                 <ul className="space-y-1.5">
                   {meeting.keyInsights.map((ins, i) => (
