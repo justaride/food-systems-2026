@@ -254,7 +254,7 @@ function extractMarkdownSummary(content: string): string | null {
 
   for (const line of lines) {
     const trimmed = line.trim()
-    if (!trimmed || trimmed.startsWith('#') || trimmed.startsWith('---') || trimmed.startsWith('**')) continue
+    if (!trimmed || trimmed.startsWith('#') || trimmed.startsWith('---') || trimmed.startsWith('**') || trimmed.startsWith('>')) continue
     if (trimmed.startsWith('|') || trimmed.startsWith(':---')) continue
     bodyLines.push(trimmed)
     if (bodyLines.length >= 10) break
@@ -368,8 +368,11 @@ function loadEvidenceBacklog(): Map<string, EvidenceBacklogRow> {
 
 function extractCategory(relPath: string): { category: string; subcategory: string | null } {
   const parts = relPath.split(path.sep)
-  if (parts[0] === 'evidence-pack' && parts.length > 1) {
+  if (parts[0] === 'evidence-pack' && parts.length > 2) {
     return { category: 'evidence-pack', subcategory: parts[1] }
+  }
+  if (parts[0] === 'evidence-pack') {
+    return { category: 'evidence-pack', subcategory: null }
   }
   if (parts[0] === 'bibliotek' && parts.length > 2) {
     return { category: 'bibliotek', subcategory: parts.slice(1, -1).join('/') }
