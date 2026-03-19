@@ -296,7 +296,7 @@ function strategyD(
     for (const tag of doc.tags) {
       if (insightTagSet.has(tag.toLowerCase())) shared.push(tag)
     }
-    if (shared.length >= 2) {
+    if (shared.length >= 3) {
       candidates.push({ doc, overlap: shared.length, shared })
     }
   }

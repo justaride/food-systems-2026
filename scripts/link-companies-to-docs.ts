@@ -146,6 +146,33 @@ async function main() {
     }
   }
 
+  const reports = await prisma.report.findMany({
+    where: { documentId: { not: null } },
+    select: { id: true, documentId: true, keyFindings: true, recommendations: true },
+  })
+
+  for (const profile of profiles) {
+    for (const report of reports) {
+      const docId = report.documentId!
+      const key = `${profile.id}:${docId}`
+      if (refs.some(r => r.companyId === profile.id && r.documentId === docId)) continue
+
+      const combined = [...report.keyFindings, ...report.recommendations].join(' ')
+      let found = false
+      for (const pattern of profile.patterns) {
+        if (countOccurrences(combined, pattern) > 0) {
+          found = true
+          break
+        }
+      }
+      if (found) {
+        refs.push({ companyId: profile.id, documentId: docId, context: 'rapport' })
+        const stats = perCompany[profile.id]
+        if (stats) stats.contentMatches++
+      }
+    }
+  }
+
   const deduped = new Map<string, RefCandidate>()
   for (const ref of refs) {
     const key = `${ref.companyId}:${ref.documentId}`
