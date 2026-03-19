@@ -47,6 +47,7 @@ type TranscriptRecord = {
   title: string
   channel: string
   txtFile: string
+  jsonFile: string
   txtDir: string
   url: string
   language: string | null
@@ -76,6 +77,18 @@ function extractSummary(content: string, maxWords = 200): string | null {
 
   if (words.length === 0) return null
   return words.slice(0, maxWords).join(' ')
+}
+
+function computeDurationSeconds(jsonPath: string): number | null {
+  try {
+    const data = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'))
+    const snippets = data.snippets as { start: number; duration: number }[] | undefined
+    if (!snippets || snippets.length === 0) return null
+    const last = snippets[snippets.length - 1]
+    return Math.round(last.start + last.duration)
+  } catch {
+    return null
+  }
 }
 
 function normalizeChannelTag(channel: string): string {
@@ -117,6 +130,7 @@ async function main() {
           title: entry.title,
           channel: CHANNEL,
           txtFile: entry.txt_file,
+          jsonFile: entry.json_file,
           txtDir: TRANSCRIPTS_DIR,
           url: entry.url,
           language: entry.language_code,
@@ -136,6 +150,7 @@ async function main() {
           title: entry.title,
           channel: CHANNEL,
           txtFile: localAsr.txt_file,
+          jsonFile: localAsr.json_file,
           txtDir: LOCAL_ASR_DIR,
           url: entry.url,
           language: localAsr.language,
@@ -169,6 +184,8 @@ async function main() {
     const summary = extractSummary(content)
     const channelTag = normalizeChannelTag(rec.channel)
     const sourceDocId = `src-yt-${rec.videoId}`
+    const jsonPath = path.join(rec.txtDir, rec.jsonFile)
+    const durationSeconds = computeDurationSeconds(jsonPath)
 
     try {
       const doc = await prisma.document.upsert({
@@ -192,6 +209,7 @@ async function main() {
             availabilityStatus: 'fulltext',
             videoId: rec.videoId,
             channel: rec.channel,
+            duration: durationSeconds,
             language: rec.language,
             segmentCount: rec.segmentCount,
             isLocalAsr: rec.isLocalAsr,
@@ -219,6 +237,7 @@ async function main() {
             availabilityStatus: 'fulltext',
             videoId: rec.videoId,
             channel: rec.channel,
+            duration: durationSeconds,
             language: rec.language,
             segmentCount: rec.segmentCount,
             isLocalAsr: rec.isLocalAsr,
