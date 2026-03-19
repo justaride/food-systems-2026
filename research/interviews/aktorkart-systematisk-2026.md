@@ -1,9 +1,11 @@
 # Aktørkart: Det Norske Matsystemet (Status 2026)
 
-**Dokument-ID:** FS2026-RES-001  
-**Status:** Validert (Deep Research)  
-**Sist oppdatert:** 12. mars 2026  
+**Dokument-ID:** FS2026-RES-001
+**Status:** Validert (Deep Research + transkripttriangulering)
+**Sist oppdatert:** 19. mars 2026
 **Kontekst:** Underlag for Evidence Pack #3 (Stakeholder Map) og Whitepaper §3.
+
+*Tillegg 19. mars 2026: Dokumentet er supplert med innsikter fra Landbruk Arena-transkripsjoner om eiendomspolitikk, samvirke, markedsregulering, tillitsledd og miljøtiltak rundt Oslofjorden. Disse innsiktene styrker spesielt aktørprioriteringen i landbruks- og reguleringssporet.*
 
 ---
 
@@ -18,6 +20,7 @@
 | **Landbruks- og matdepartementet (LMD)** | Departement | Ansvar for landbruk, matproduksjon og nasjonal forsyningssikkerhet. | [regjeringen.no/lmd](https://www.regjeringen.no/lmd) | Fokus på økt selvforsyningsgrad (mål om 50 %) og styrking av bondens forhandlingsposisjon i verdikjeden. |
 | **Konkurransetilsynet** | Tilsynsmyndighet | Sikre effektiv konkurranse til fordel for forbrukerne. | [konkurransetilsynet.no](https://konkurransetilsynet.no) | Operativ maktbase fra 2026. Har fått nye fullmakter til "markedsetterforskning" og overtatt oppgavene fra Dagligvaretilsynet for å sikre god handelsskikk. |
 | **Mattilsynet** | Tilsynsmyndighet | Sikre trygg mat, god dyrevelferd og plantehelse. | [mattilsynet.no](https://mattilsynet.no) | Sentral i oppfølging av ny stortingsmelding om dyrevelferd og tilsyn med merking av matvarer (opprinnelse og bærekraft). |
+| **Statsforvalterne** | Regional forvaltning | Forvalte statlig landbruks- og miljøpolitikk regionalt. | [statsforvalteren.no](https://www.statsforvalteren.no) | Viktige implementeringsnoder for miljøkrav, tilskudd og praktisk oppfølging av vannmiljøtiltak. Landbruk Arena-materialet peker på store regionale forskjeller i erfaring, bruk av virkemidler og legitimitet. |
 | **Omsetningsrådet** | Forvaltningsorgan | Administrere markedsregulering for landbruksvarer. | [landbruksdirektoratet.no](https://www.landbruksdirektoratet.no) | Forvalter markedsbalanseringstiltak; debattert rolle knyttet til uavhengighet fra de store samvirkene (TINE/Nortura). |
 
 *Merk: Dagligvaretilsynet ble i løpet av 2026 formelt avviklet som egen etat og integrert i Konkurransetilsynet for å skape et kraftigere fagmiljø mot markedsmakt.*
@@ -35,14 +38,17 @@
 
 ---
 
-## 3. Produsentorganisasjoner
+## 3. Produsentorganisasjoner og samvirker
 
 | Navn | Type | Hovedmandat / Fokus | Nettside | Rolle i dagligvaredebatten (2026) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Norges Bondelag** | Faglag | Bøndenes største medlemsorganisasjon. | [bondelaget.no](https://www.bondelaget.no) | Hovedfokus på "inntektsgapet" og tollvern. Krever at mer av verdiskapingen i butikk skal tilfalle bonden. |
 | **Norsk Bonde- og Småbrukarlag** | Faglag | Representerer små og mellomstore bruk. | [smabrukarlaget.no](https://www.smabrukarlaget.no) | Radikal røst for matsuverenitet og desentralisert produksjon. Kritisk til maktkonsentrasjon i alle ledd, også samvirkene. |
-| **Nortura** | Samvirke | Markedsregulator og industriaktør (kjøtt og egg). | [nortura.no](https://www.nortura.no) | Forsvarer samvirkemodellen og mottaksplikten; utfordres av kjedenes egne slakterier og EMV-strategier. |
-| **TINE** | Samvirke | Markedsregulator og industriaktør (meieriprodukter). | [tine.no](https://www.tine.no) | "Tine-modellen" (skille mellom råvare og industri) brukes som referanse i debatten om oppsplitting av dagligvarekjedenes grossistledd. |
+| **Norsk Landbrukssamvirke** | Samvirkeparaply | Samler og representerer landbrukssamvirkene politisk og strategisk. | [landbrukssamvirke.no](https://www.landbrukssamvirke.no) | Viktig systemaktør for å forstå samvirke som eiermodell, investeringsmekanisme og kollektiv koordinering i norsk matindustri. |
+| **Nortura** | Samvirke | Markedsregulator og industriaktør (kjøtt og egg). | [nortura.no](https://www.nortura.no) | Forsvarer samvirkemodellen og mottaksplikten; sentral for å forstå hvordan avsetning, reguleringslager og sesongutjevning virker i praksis. |
+| **Totalmarked kjøtt og egg** | Markedsreguleringsenhet | Prognoser, markedsbalansering og operativ reguleringslogikk for kjøtt og egg. | [animalia.no/no/totalmarked](https://www.animalia.no/no/totalmarked/) | Høyverdi-node for commitment map fordi enheten sitter tett på de faktiske beslutningene om dekningsgrad, tiltak og markedsforståelse. |
+| **TINE** | Samvirke | Markedsregulator og industriaktør (meieriprodukter). | [tine.no](https://www.tine.no) | "Tine-modellen" brukes som referanse i debatten om funksjonelt skille og viser hvordan samvirkestruktur kan kombinere råvarehåndtering, industri og markedsrolle. |
+| **Felleskjøpet Agri** | Samvirke | Innsatsvarer, korn, maskiner og logistikk til landbruket. | [felleskjopet.no](https://www.felleskjopet.no) | Viktig koblingspunkt mellom produksjon, innsatsfaktorer og kornøkonomi. Relevansen øker i et sirkularitetsperspektiv der innsatsmidler, jordhelse og kretsløp må sees sammen. |
 
 ---
 
@@ -67,7 +73,8 @@
 | **NHH** | Handelshøyskole | Økonomi og konkurranseanalyse. | [nhh.no](https://www.nhh.no) | Eksperter (f.eks. Frode Steen) analyserer marginer og prissignaler i dagligvaremarkedet; ofte sitert i konkurransedebatten. |
 | **SIFO (OsloMet)** | Forskningsinst. | Forbruksforskning og forbrukeradferd. | [oslomet.no/sifo](https://www.oslomet.no/sifo) | Analyserer hvordan dyrtid og prisøkninger påvirker matvaner og husholdningsøkonomi. |
 | **BI** | Handelshøyskole | Markedsføring, verdikjeder og logistikk. | [bi.no](https://www.bi.no) | Fokus på maktforhold i forsyningskjeder og effekten av digitalisering/AI i dagligvarehandelen. |
-| **AgriAnalyse** | Utredningsinst. | Samfunnsøkonomiske analyser for landbruket. | [agrianalyse.no](https://www.agrianalyse.no) | Leverer analyser som støtter bondens sak i forhandlingene og belyser kostnadsutviklingen i primærleddet. |
+| **AgriAnalyse** | Utredningsinst. | Samfunnsøkonomiske analyser for landbruket. | [agrianalyse.no](https://www.agrianalyse.no) | Leverer analyser som støtter bondens sak i forhandlingene og belyser kostnadsutviklingen i primærleddet. Landbruk Arena-seminaret om avrenningstiltak gjør dem ekstra relevante for casearbeid om Oslofjorden, kostnader, legitimitet og regulatorisk implementering. |
+| **Norsk Landbruksrådgiving (NLR)** | Kunnskaps- og rådgivingsaktør | Praktisk rådgiving om drift, agronomi, jordhelse og tiltak på gårdsnivå. | [nlr.no](https://www.nlr.no) | Potensiell nøkkelaktør i intervju- og pilotsporet fordi gjennomføring av miljøtiltak og driftsendringer ofte avhenger av rådgivingsleddet, ikke bare av formelle regler. |
 
 ---
 
@@ -149,3 +156,26 @@
 *   **Matsystemutvalget:** Et ekspertutvalg ledet av Bent Høie som skal levere sin NOU i november 2026. Utvalget ser på sammenhengen mellom helse, klima og landbrukspolitikk.
 *   **Implementering av Matsvinnloven:** Lovverket som krever at dagligvarebransjen og matindustrien halverer matsvinnet innen 2030, med sanksjonsmuligheter fra 2026.
 *   **Høring om funksjonelt skille:** Basert på Menon-rapporten (2026) diskuteres det politisk om grossistleddet må skilles eiermessig fra detaljistleddet for å slippe til nye aktører.
+*   **Miljøkrav i Oslofjord-regionen:** Overgang fra frivillige tiltak til forskriftsbaserte krav i flere fylker gjør statsforvaltere, rådgivingsledd og berørte produsentgrupper til viktigere aktører i omstillingskartet.
+*   **Landbrukets institusjonelle grunnarkitektur:** Landbruk Arena-materialet tydeliggjør at konsesjonslov, jordlov, odelslov, samvirker og markedsregulering må forstås som operative styringsmekanismer i matsystemet, ikke bare som bakgrunnsregulering.
+
+---
+
+## 12. Tillegg fra Landbruk Arena-materialet
+
+Følgende innsikter bør brukes aktivt når aktørkartet prioriteres videre:
+
+- **Eiendomsregimet er en maktstruktur.**
+  Konsesjonslova, jordlova og odelslova framstår som sentrale for hvem som kan eie jord, hvordan jord holdes i drift, og hvordan rekruttering og bosetting sikres.
+
+- **Samvirke er infrastruktur, ikke bare organisasjonsform.**
+  Samvirkene beskrives som mekanismer for koordinering, investering, forhandlingsmakt og lokal verdiskaping.
+
+- **Markedsregulering er et praktisk styringslag.**
+  Mottaksplikt, forsyningsplikt, reguleringslager og Omsetningsrådet er ikke perifere ordninger, men kjernen i hvordan pris, risiko og geografi håndteres i norsk landbruk.
+
+- **Oslofjord-caset viser legitimitetsproblemet i grønn omstilling.**
+  Mange bønder aksepterer ansvar for vannkvalitet, men etterspør sterkere dokumentasjon på effekt og bedre kompensasjon for tapte inntekter og økte kostnader.
+
+- **Tillitsledd er viktige mobiliseringsnoder.**
+  Tillitsvalgte, kursarenaer og faglag bør ikke behandles som randfenomener; de kan være avgjørende for commitment building og faktisk gjennomføring.

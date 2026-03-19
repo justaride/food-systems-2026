@@ -24,7 +24,7 @@ export async function unifiedSearch(query: string, limit = 20, mode: SearchMode 
         title: r.title,
         excerpt: r.excerpt,
         tags: r.tags,
-        url: `/forskning/${r.slug}`,
+        url: `/bibliotek/${r.slug}`,
         relevance: 1 - r.distance,
       }))
     } catch {
@@ -43,7 +43,7 @@ export async function unifiedSearch(query: string, limit = 20, mode: SearchMode 
             title: r.title,
             excerpt: r.excerpt,
             tags: r.tags,
-            url: `/forskning/${r.slug}`,
+            url: `/bibliotek/${r.slug}`,
             relevance: 1 - r.distance,
           }))
         ),
@@ -77,16 +77,21 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
         { content: { contains: query, mode: 'insensitive' } },
       ],
     },
-    select: { id: true, title: true, content: true, tags: true, slug: true },
+    select: { id: true, title: true, content: true, summary: true, tags: true, slug: true },
     take: limit,
   })
 
   for (const doc of documents) {
-    const idx = doc.content.toLowerCase().indexOf(query.toLowerCase())
-    const start = Math.max(0, idx - 80)
-    const excerpt = idx >= 0
-      ? '...' + doc.content.slice(start, start + 200) + '...'
-      : doc.content.slice(0, 200) + '...'
+    let excerpt: string
+    if (doc.summary) {
+      excerpt = doc.summary.slice(0, 200)
+    } else {
+      const idx = doc.content.toLowerCase().indexOf(query.toLowerCase())
+      const start = Math.max(0, idx - 80)
+      excerpt = idx >= 0
+        ? '...' + doc.content.slice(start, start + 200) + '...'
+        : doc.content.slice(0, 200) + '...'
+    }
 
     results.push({
       type: 'document',
@@ -94,7 +99,7 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
       title: doc.title,
       excerpt,
       tags: doc.tags,
-      url: `/forskning/${doc.slug}`,
+      url: `/bibliotek/${doc.slug}`,
     })
   }
 
