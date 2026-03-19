@@ -3,20 +3,241 @@ import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import * as fs from 'fs'
 import * as path from 'path'
+import { execFileSync } from 'child_process'
+import { theses } from '../src/lib/data/theses'
+import { reports } from '../src/lib/data/reports'
+import { sources } from '../src/lib/data/sources'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
 const RESEARCH_DIR = path.resolve(__dirname, '../research')
+const EVIDENCE_BACKLOG_PATH = path.join(RESEARCH_DIR, 'evidence-pack/download-backlog-2026-03-18.csv')
 
-function walkDir(dir: string): string[] {
-  const results: string[] = []
+type ResearchFile = {
+  fullPath: string
+  relPath: string
+  extension: 'md' | 'pdf'
+}
+
+type EvidenceBacklogRow = {
+  priority: string
+  status: string
+  country: string
+  theme: string
+  docType: string
+  institution: string
+  title: string
+  year: string
+  url: string
+  urlType: string
+  currentLocalStatus: string
+  targetPath: string
+  nextAction: string
+  sourceBasis: string
+}
+
+type SupplementalPdfMatch = {
+  thesisId?: string
+  reportId?: string
+  sourceDocId?: string
+  title?: string
+  author?: string
+  year?: number
+  url?: string
+  country?: string
+  documentType?: string
+  tags?: string[]
+  note?: string
+}
+
+type SupplementalPdfMetadata = {
+  thesisId?: string
+  reportId?: string
+  sourceDocId?: string
+  title: string | null
+  author: string | null
+  year: number | null
+  url: string | null
+  country: string | null
+  documentType: string | null
+  tags: string[]
+  note: string | null
+}
+
+const thesisById = new Map(theses.map(thesis => [thesis.id, thesis]))
+const reportById = new Map(reports.map(report => [report.id, report]))
+const sourceById = new Map(sources.map(source => [source.id, source]))
+
+const SUPPLEMENTAL_PDF_MATCHES: Record<string, SupplementalPdfMatch> = {
+  'evidence-pack/akademia/agrianalyse-bondens-andel-2025.pdf': {
+    title: 'AgriAnalyse 2025 placeholder for missing publication',
+    author: 'AgriAnalyse',
+    year: 2025,
+    country: 'no',
+    documentType: 'academic',
+    tags: ['agrianalyse', 'jordbruk', 'matpriser'],
+    note: 'Lokal fil er en HTML-placeholder fra en stale getfile-lenke. AgriAnalyse sitt 2025-arkiv viser Notat 1-3, men ingen offentlig PDF for "Bondens andel av matkronen".',
+  },
+  'evidence-pack/akademia/drager-vagene-2017.pdf': { thesisId: 'drager-vagene-2017' },
+  'evidence-pack/akademia/fretheim-rodnova-2020.pdf': { thesisId: 'fretheim-rodnova-2020' },
+  'evidence-pack/akademia/gangstoe-2019-uib.pdf': { thesisId: 'gangstoe-2019' },
+  'evidence-pack/akademia/huynh-mortensen-2025.pdf': { thesisId: 'huynh-mortensen-2025' },
+  'evidence-pack/akademia/jacobsen-jansson-2022-black-sheep.pdf': {
+    thesisId: 'jacobsen-jansson-2022',
+    sourceDocId: 'src-19',
+  },
+  'evidence-pack/akademia/martens-norum-2020.pdf': { thesisId: 'martens-norum-2020' },
+  'evidence-pack/akademia/meile-2020.pdf': { thesisId: 'meile-2020' },
+  'evidence-pack/akademia/nilsen-paulsen-2025.pdf': { thesisId: 'nilsen-paulsen-2025' },
+  'evidence-pack/akademia/rey-verge-2005.pdf': {
+    title: 'Rey & Verge 2005',
+    author: 'Rey & Verge',
+    year: 2005,
+    documentType: 'academic',
+    tags: ['competition', 'grocery', 'theory'],
+  },
+  'evidence-pack/akademia/selmani-forre-2023.pdf': { thesisId: 'selmani-forre-2023' },
+  'evidence-pack/akademia/sifo-kundeprogram-2026.pdf': {
+    reportId: 'akademia-sifo-kundeprogram-2026',
+    sourceDocId: 'src-21',
+    note: 'Lokal fil ser ut til aa vaere en HTML-placeholder og boer erstattes med en faktisk PDF.',
+  },
+  'evidence-pack/akademia/skjervheim-flo-2016.pdf': { thesisId: 'skjervheim-flo-2016' },
+  'evidence-pack/akademia/skulstad-svensson-2024.pdf': { thesisId: 'skulstad-svensson-2024' },
+  'evidence-pack/akademia/sorensen-phd-2016-danish-public-kitchens.pdf': { thesisId: 'sorensen-phd-2016' },
+  'evidence-pack/akademia/ulsaker-phd-thesis.pdf': { thesisId: 'ulsaker-phd-2016' },
+  'evidence-pack/nordisk/finland-food2030.pdf': {
+    title: 'Ruoka2030: Maukasta, kotimaista, kilpailukykyista',
+    author: 'Finnish Government',
+    year: 2017,
+    country: 'fi',
+    documentType: 'policy',
+    tags: ['finland', 'food-policy', '2030'],
+  },
+  'evidence-pack/nordisk/karlstad-declaration-2024.pdf': {
+    title: 'Karlstad Declaration 2024',
+    author: 'Nordisk Ministerraad',
+    year: 2024,
+    country: 'nordic',
+    documentType: 'policy',
+    tags: ['nordic', 'declaration', 'food-systems'],
+  },
+  'evidence-pack/nordisk/konkurrensverket-summary-2024.pdf': {
+    title: 'Summary of the Swedish Competition Authority inquiry into the food industry 2023-2024',
+    author: 'Konkurrensverket',
+    year: 2024,
+    country: 'se',
+    documentType: 'report',
+    tags: ['sweden', 'competition', 'food-industry'],
+  },
+  'evidence-pack/nordisk/nordic-food-alert-2025.pdf': {
+    title: 'Nordic Food Alert 2025',
+    year: 2025,
+    country: 'nordic',
+    documentType: 'report',
+    tags: ['nordic', 'food-systems'],
+    note: 'Tittel er avledet fra filnavn og boer verifiseres manuelt.',
+  },
+  'evidence-pack/nordisk/nordic-food-markets-2005.pdf': {
+    title: 'Nordic Food Markets - a taste for competition',
+    author: 'Nordic competition authorities',
+    year: 2005,
+    country: 'nordic',
+    documentType: 'report',
+    tags: ['nordic', 'competition', 'food-markets'],
+  },
+  'evidence-pack/nordisk/salling-coop-danmark-2025.pdf': {
+    title: 'Salling Coop Danmark 2025',
+    year: 2025,
+    country: 'dk',
+    documentType: 'report',
+    tags: ['denmark', 'competition', 'grocery'],
+    note: 'Lokal fil er ikke mapet til en strukturert kildepost enda.',
+  },
+  'evidence-pack/nordisk/sou-2024-8-livsmedelsberedskap.pdf': { reportId: 'sou-2024-8-svensk-beredskap' },
+  'evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2024.pdf': {
+    title: 'Dagligvaretilsynet arsrapport 2024',
+    author: 'Dagligvaretilsynet',
+    year: 2024,
+    country: 'no',
+    documentType: 'regulatory',
+    url: 'https://www.dagligvaretilsynet.no/rapporter-og-strategi',
+    tags: ['dagligvaretilsynet', 'arsrapport'],
+    note: 'Lokal fil ser ut til aa vaere en HTML-placeholder og boer erstattes med en faktisk PDF.',
+  },
+  'evidence-pack/offentlig/emv-kartlegging-2023.pdf': { reportId: 'soa-emv-2023' },
+  'evidence-pack/offentlig/eu-utp-report-2024.pdf': {
+    title: 'EU UTP Report 2024',
+    author: 'European Commission',
+    year: 2024,
+    country: 'eu',
+    documentType: 'policy',
+    tags: ['eu', 'utp', 'food-supply-chain'],
+  },
+  'evidence-pack/offentlig/eu-utp-staff-working-doc-2024.pdf': {
+    title: 'EU UTP Staff Working Document 2024',
+    author: 'European Commission',
+    year: 2024,
+    country: 'eu',
+    documentType: 'policy',
+    tags: ['eu', 'utp', 'staff-working-document'],
+  },
+  'evidence-pack/offentlig/meld-st-11-selvforsyning-2024.pdf': { reportId: 'meld-st-11-selvforsyning' },
+  'evidence-pack/offentlig/menon-funksjonelt-skille-2026.pdf': {
+    reportId: 'menon-funksjonelt-skille-2026',
+    note: 'Lokal fil ser ut til aa vaere en HTML-placeholder og boer erstattes med en faktisk PDF.',
+  },
+  'evidence-pack/offentlig/nibio-selvforsyning-2026.pdf': {
+    reportId: 'beredskap-nibio-selvforsyning-2026',
+    note: 'Lokal fil ser ut til aa vaere en HTML-placeholder og boer erstattes med en faktisk PDF.',
+  },
+  'evidence-pack/offentlig/nou-2011-4-mat-makt-avmakt.pdf': { reportId: 'nou-2011-4' },
+  'evidence-pack/offentlig/riksrevisjonen-matsikkerhet-2023.pdf': { reportId: 'riksrevisjonen-matsikkerhet-2023' },
+  'evidence-pack/tilsyn/dagligvarerapport-2024.pdf': { reportId: 'kt-dagligvarerapport-2024' },
+  'evidence-pack/tilsyn/dagligvarerapport-2025.pdf': {
+    reportId: 'kt-dagligvarerapport-2024',
+    sourceDocId: 'src-14',
+  },
+  'evidence-pack/tilsyn/dagligvaretilsynet-samarbeidsklima-2025.pdf': { reportId: 'dt-samarbeidsklima-2025' },
+  'evidence-pack/tilsyn/innkjopspriser-2017-2023.pdf': { reportId: 'kt-innkjopspriser-2017-2023' },
+  'evidence-pack/tilsyn/marginstudie-2024-del1-offisiell.pdf': { reportId: 'kt-marginstudie-2024-del1' },
+  'evidence-pack/tilsyn/marginstudie-2024-del1.pdf': { reportId: 'kt-marginstudie-2024-del1' },
+  'evidence-pack/tilsyn/marginstudie-2025-del2-offisiell.pdf': { reportId: 'kt-marginstudie-2025-del2' },
+  'evidence-pack/tilsyn/marginstudie-2025-del2.pdf': { reportId: 'kt-marginstudie-2025-del2' },
+  'evidence-pack/tilsyn/prisjeger-saken-2024-offentlig-versjon.pdf': { reportId: 'kt-prisjeger-saken-2024' },
+  'evidence-pack/tilsyn/prisjusteringsvinduer-2023.pdf': { reportId: 'kt-prisjusteringsvinduer-2023' },
+}
+
+function normalizeResearchRelativePath(input: string): string {
+  const trimmed = input.trim()
+  if (!trimmed) return ''
+
+  if (path.isAbsolute(trimmed)) {
+    return path.relative(RESEARCH_DIR, trimmed).replaceAll('\\', '/')
+  }
+
+  const normalized = trimmed.replaceAll('\\', '/').replace(/^\.?\//, '')
+  return normalized.startsWith('research/') ? normalized.slice('research/'.length) : normalized
+}
+
+function walkResearchFiles(dir: string, baseDir = dir): ResearchFile[] {
+  const results: ResearchFile[] = []
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const fullPath = path.join(dir, entry.name)
     if (entry.isDirectory()) {
-      results.push(...walkDir(fullPath))
-    } else if (entry.name.endsWith('.md')) {
-      results.push(fullPath)
+      results.push(...walkResearchFiles(fullPath, baseDir))
+    } else if (entry.name.endsWith('.md') || entry.name.endsWith('.pdf')) {
+      const relPath = path.relative(baseDir, fullPath)
+      if (entry.name.endsWith('.pdf') && !relPath.startsWith(`evidence-pack${path.sep}`)) {
+        continue
+      }
+
+      results.push({
+        fullPath,
+        relPath,
+        extension: entry.name.endsWith('.pdf') ? 'pdf' : 'md',
+      })
     }
   }
   return results
@@ -25,6 +246,85 @@ function walkDir(dir: string): string[] {
 function extractTitle(content: string): string {
   const match = content.match(/^#\s+(.+)$/m)
   return match ? match[1].trim() : 'Untitled'
+}
+
+function parseCsv(content: string): string[][] {
+  const rows: string[][] = []
+  let row: string[] = []
+  let field = ''
+  let inQuotes = false
+
+  for (let i = 0; i < content.length; i++) {
+    const char = content[i]
+
+    if (char === '"') {
+      if (inQuotes && content[i + 1] === '"') {
+        field += '"'
+        i++
+      } else {
+        inQuotes = !inQuotes
+      }
+      continue
+    }
+
+    if (char === ',' && !inQuotes) {
+      row.push(field)
+      field = ''
+      continue
+    }
+
+    if ((char === '\n' || char === '\r') && !inQuotes) {
+      if (char === '\r' && content[i + 1] === '\n') i++
+      row.push(field)
+      field = ''
+      if (row.some(value => value.length > 0)) rows.push(row)
+      row = []
+      continue
+    }
+
+    field += char
+  }
+
+  if (field.length > 0 || row.length > 0) {
+    row.push(field)
+    if (row.some(value => value.length > 0)) rows.push(row)
+  }
+
+  return rows
+}
+
+function loadEvidenceBacklog(): Map<string, EvidenceBacklogRow> {
+  const byPath = new Map<string, EvidenceBacklogRow>()
+  if (!fs.existsSync(EVIDENCE_BACKLOG_PATH)) return byPath
+
+  const csv = fs.readFileSync(EVIDENCE_BACKLOG_PATH, 'utf-8')
+  const [header, ...rows] = parseCsv(csv)
+  const index = Object.fromEntries(header.map((name, idx) => [name, idx]))
+
+  for (const values of rows) {
+    const row: EvidenceBacklogRow = {
+      priority: values[index.priority] ?? '',
+      status: values[index.status] ?? '',
+      country: values[index.country] ?? '',
+      theme: values[index.theme] ?? '',
+      docType: values[index.doc_type] ?? '',
+      institution: values[index.institution] ?? '',
+      title: values[index.title] ?? '',
+      year: values[index.year] ?? '',
+      url: values[index.url] ?? '',
+      urlType: values[index.url_type] ?? '',
+      currentLocalStatus: values[index.current_local_status] ?? '',
+      targetPath: values[index.target_path] ?? '',
+      nextAction: values[index.next_action] ?? '',
+      sourceBasis: values[index.source_basis] ?? '',
+    }
+
+    for (const target of row.targetPath.split('|').map(part => part.trim()).filter(Boolean)) {
+      byPath.set(normalizeResearchRelativePath(target), row)
+    }
+  }
+
+  return byPath
 }
 
 function extractCategory(relPath: string): { category: string; subcategory: string | null } {
@@ -51,13 +351,13 @@ function extractCountry(relPath: string): string | null {
 
 function slugify(filePath: string): string {
   return filePath
-    .replace(/\.md$/, '')
+    .replace(/\.(md|pdf)$/, '')
     .replace(/[^a-zA-Z0-9-_/]/g, '-')
     .replace(/-+/g, '-')
     .toLowerCase()
 }
 
-function extractDocumentType(relPath: string, content: string): string {
+function extractDocumentType(relPath: string): string {
   const lower = relPath.toLowerCase()
   if (lower.startsWith('meetings/')) return 'meeting-note'
   if (lower.includes('masteroppgaver')) return 'thesis'
@@ -75,84 +375,663 @@ function extractDocumentType(relPath: string, content: string): string {
   return 'research'
 }
 
+function mapBacklogCountry(country: string): string | null {
+  const normalized = country.trim().toLowerCase()
+  if (normalized === 'no') return 'no'
+  if (normalized === 'se') return 'se'
+  if (normalized === 'dk') return 'dk'
+  if (normalized === 'fi') return 'fi'
+  if (normalized === 'is') return 'is'
+  return null
+}
+
+function mapBacklogDocumentType(docType: string): string | null {
+  switch (docType) {
+    case 'annual_report':
+      return 'annual-report'
+    case 'policy_report':
+      return 'policy'
+    case 'industry_report':
+      return 'industry'
+    case 'phd_thesis':
+    case 'thesis':
+      return 'thesis'
+    case 'decision':
+      return 'decision'
+    case 'report':
+      return 'report'
+    default:
+      return null
+  }
+}
+
+function extractYearFromValue(value: string): number | null {
+  const match = value.match(/\b(19|20)\d{2}\b/)
+  return match ? Number(match[0]) : null
+}
+
+function humanizeFilename(relPath: string): string {
+  return path.basename(relPath, path.extname(relPath))
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function derivePdfTitle(
+  relPath: string,
+  backlogRow: EvidenceBacklogRow | undefined,
+  pdfTitle: string | null
+): string {
+  const baseTitle = backlogRow?.title || pdfTitle || humanizeFilename(relPath)
+
+  if (!backlogRow?.targetPath.includes('|')) return baseTitle
+
+  const fileYear = extractYearFromValue(path.basename(relPath))
+  if (!fileYear) return baseTitle
+
+  return baseTitle.replace(/\b(19|20)\d{2}\s*-\s*(19|20)\d{2}\b/, String(fileYear))
+}
+
+function detectPdfAvailabilityStatus(filePath: string): 'local_pdf' | 'invalid_local_copy' {
+  try {
+    const fd = fs.openSync(filePath, 'r')
+    const buffer = Buffer.alloc(5)
+    fs.readSync(fd, buffer, 0, 5, 0)
+    fs.closeSync(fd)
+    return buffer.toString('utf-8') === '%PDF-' ? 'local_pdf' : 'invalid_local_copy'
+  } catch {
+    return 'invalid_local_copy'
+  }
+}
+
+function getSupplementalPdfMetadata(relPath: string): SupplementalPdfMetadata | null {
+  const match = SUPPLEMENTAL_PDF_MATCHES[relPath]
+  if (!match) return null
+
+  const thesis = match.thesisId ? thesisById.get(match.thesisId) : undefined
+  const report = match.reportId ? reportById.get(match.reportId) : undefined
+  const source = match.sourceDocId ? sourceById.get(match.sourceDocId) : undefined
+
+  const title = match.title
+    ?? report?.fullTitle
+    ?? report?.title
+    ?? thesis?.title
+    ?? source?.title
+    ?? null
+
+  const author = match.author
+    ?? report?.author
+    ?? report?.institution
+    ?? thesis?.authors
+    ?? source?.author
+    ?? null
+
+  const sourceYear = source?.year ? extractYearFromValue(String(source.year)) : null
+  const year = match.year ?? report?.year ?? thesis?.year ?? sourceYear ?? null
+
+  const thesisUrl = thesis?.url?.trim() ? thesis.url : null
+  const sourceUrl = source?.url?.trim() ? source.url : null
+  const url = match.url ?? report?.sourceUrl ?? thesisUrl ?? sourceUrl ?? null
+
+  const country = match.country ?? report?.country?.toLowerCase() ?? null
+  const documentType = match.documentType ?? (thesis ? 'thesis' : null)
+
+  const tags = Array.from(new Set([
+    ...(match.tags ?? []),
+    ...(thesis?.tags ?? []),
+    ...(report?.tags ?? []),
+    source?.type,
+  ].filter(Boolean) as string[]))
+
+  return {
+    thesisId: match.thesisId,
+    reportId: match.reportId,
+    sourceDocId: match.sourceDocId,
+    title,
+    author,
+    year,
+    url,
+    country,
+    documentType,
+    tags,
+    note: match.note ?? null,
+  }
+}
+
+function normalizeUrl(value: string | null | undefined): string | null {
+  if (!value) return null
+
+  const trimmed = value.trim()
+  if (!trimmed) return null
+
+  try {
+    const normalized = new URL(trimmed)
+    normalized.hash = ''
+    normalized.pathname = normalized.pathname.replace(/\/+$/, '') || '/'
+    return normalized.toString()
+  } catch {
+    return trimmed.replace(/#.*$/, '').replace(/\/+$/, '')
+  }
+}
+
+function normalizeTitle(value: string | null | undefined): string {
+  return (value ?? '')
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+}
+
+function reportMatchesTitle(
+  report: { title: string; fullTitle: string | null | undefined },
+  normalizedDocumentTitle: string
+): boolean {
+  if (!normalizedDocumentTitle) return false
+
+  const reportTitle = normalizeTitle(report.title)
+  const reportFullTitle = normalizeTitle(report.fullTitle)
+  const documentTokens = normalizedDocumentTitle.split(/\s+/).filter(Boolean)
+
+  if (documentTokens.length < 2) {
+    return normalizedDocumentTitle === reportTitle || normalizedDocumentTitle === reportFullTitle
+  }
+
+  return Boolean(
+    (reportTitle && (
+      normalizedDocumentTitle === reportTitle ||
+      normalizedDocumentTitle.includes(reportTitle) ||
+      reportTitle.includes(normalizedDocumentTitle)
+    )) ||
+    (reportFullTitle && (
+      normalizedDocumentTitle === reportFullTitle ||
+      normalizedDocumentTitle.includes(reportFullTitle) ||
+      reportFullTitle.includes(normalizedDocumentTitle)
+    ))
+  )
+}
+
+function extractPdfMetadata(filePath: string): { title: string | null; pages: number | null } {
+  try {
+    const output = execFileSync('pdfinfo', [filePath], {
+      encoding: 'utf-8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+    const lines = Object.fromEntries(
+      output
+        .split('\n')
+        .map(line => line.split(/:\s+/, 2))
+        .filter(parts => parts.length === 2)
+        .map(([key, value]) => [key.trim(), value.trim()])
+    )
+
+    return {
+      title: lines.Title || null,
+      pages: lines.Pages ? Number(lines.Pages) : null,
+    }
+  } catch {
+    return { title: null, pages: null }
+  }
+}
+
+async function ensureDocumentRelation(fromId: string, toId: string, refType: string) {
+  if (fromId === toId) return
+
+  await prisma.documentRef.createMany({
+    data: [{ fromId, toId, refType }],
+    skipDuplicates: true,
+  })
+}
+
+function buildPdfRecord(
+  relPath: string,
+  backlogRow: EvidenceBacklogRow | undefined
+): {
+  title: string
+  author: string | null
+  year: number | null
+  category: string
+  subcategory: string | null
+  country: string | null
+  content: string
+  summary: string
+  wordCount: number
+  documentType: string
+  tags: string[]
+  url: string | null
+  metadata: Record<string, unknown>
+} {
+  const fullPath = path.join(RESEARCH_DIR, relPath)
+  const pdfMeta = extractPdfMetadata(fullPath)
+  const supplemental = getSupplementalPdfMetadata(relPath)
+  const availabilityStatus = detectPdfAvailabilityStatus(fullPath)
+  const { category, subcategory } = extractCategory(relPath)
+  const title = derivePdfTitle(relPath, backlogRow, supplemental?.title || pdfMeta.title)
+  const author = backlogRow?.institution || supplemental?.author || null
+  const year = backlogRow?.year
+    ? extractYearFromValue(backlogRow.year)
+    : (supplemental?.year ?? null)
+  const country = mapBacklogCountry(backlogRow?.country ?? '')
+    ?? supplemental?.country
+    ?? extractCountry(relPath)
+  const documentType = mapBacklogDocumentType(backlogRow?.docType ?? '')
+    ?? supplemental?.documentType
+    ?? extractDocumentType(relPath)
+  const url = backlogRow?.url || supplemental?.url || null
+  const pageCount = pdfMeta.pages
+
+  const summary = [
+    'Metadata-import av lokal PDF fra evidence-pack.',
+    pageCount ? `${pageCount} sider.` : null,
+    author ? `Kilde: ${author}.` : null,
+    url ? 'Offentlig kilde-URL registrert.' : 'Ingen offentlig kilde-URL registrert.',
+    backlogRow?.currentLocalStatus
+      ? `Lokal status: ${backlogRow.currentLocalStatus}.`
+      : (availabilityStatus === 'invalid_local_copy' ? 'Lokal kopi ser ikke ut til aa vaere en gyldig PDF.' : null),
+    supplemental?.note || null,
+  ].filter(Boolean).join(' ')
+
+  const contentLines = [
+    `# ${title}`,
+    '',
+    '- Importtype: metadata-only PDF record',
+    `- Lokal fil: ${relPath}`,
+    pageCount ? `- Sider: ${pageCount}` : null,
+    author ? `- Institusjon/kilde: ${author}` : null,
+    year ? `- Aar: ${year}` : null,
+    country ? `- Land: ${country}` : null,
+    documentType ? `- Dokumenttype: ${documentType}` : null,
+    url ? `- Kilde-URL: ${url}` : null,
+    backlogRow?.status ? `- Backlog-status: ${backlogRow.status}` : null,
+    `- Lokal tilgjengelighet: ${backlogRow?.currentLocalStatus || availabilityStatus}`,
+    supplemental?.thesisId ? `- Strukturert kobling: Thesis ${supplemental.thesisId}` : null,
+    supplemental?.reportId ? `- Strukturert kobling: Report ${supplemental.reportId}` : null,
+    supplemental?.sourceDocId ? `- Strukturert kobling: SourceDoc ${supplemental.sourceDocId}` : null,
+    '',
+    '## Importnotat',
+    'Dette dokumentet er importert som metadata fra en lokal PDF i `research/evidence-pack/`.',
+    'Fulltekst er forelopig ikke ekstrahert til databasen, men dokumentet er gjort sokbart og synlig i biblioteklaget.',
+    availabilityStatus === 'invalid_local_copy'
+      ? 'Den lokale filen ser ikke ut til aa vaere en gyldig PDF, og boer erstattes eller lastes ned pa nytt.'
+      : null,
+    supplemental?.note || null,
+    backlogRow?.nextAction ? '' : null,
+    backlogRow?.nextAction ? '## Neste steg' : null,
+    backlogRow?.nextAction || null,
+  ].filter(Boolean) as string[]
+
+  const content = contentLines.join('\n')
+  const tags = Array.from(new Set([
+    'pdf',
+    category,
+    subcategory,
+    country,
+    documentType,
+    backlogRow?.theme,
+    ...((supplemental?.tags ?? [])),
+    backlogRow?.institution?.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+  ].filter(Boolean) as string[]))
+
+  return {
+    title,
+    author,
+    year,
+    category,
+    subcategory,
+    country,
+    content,
+    summary,
+    wordCount: content.split(/\s+/).filter(Boolean).length,
+    documentType,
+    tags,
+    url,
+    metadata: {
+      canonicalFileType: 'pdf',
+      availabilityStatus,
+      localPath: relPath,
+      pageCount,
+      backlog: backlogRow ?? null,
+      structuredSource: supplemental
+        ? {
+            thesisId: supplemental.thesisId ?? null,
+            reportId: supplemental.reportId ?? null,
+            sourceDocId: supplemental.sourceDocId ?? null,
+          }
+        : null,
+      note: supplemental?.note ?? null,
+    },
+  }
+}
+
+async function linkStructuredRecords(opts: {
+  documentId: string
+  relPath: string
+  extension: 'md' | 'pdf'
+  title: string
+  url: string | null
+}) {
+  const filename = path.basename(opts.relPath, path.extname(opts.relPath))
+  const normalizedUrl = normalizeUrl(opts.url)
+  const normalizedTitle = normalizeTitle(opts.title)
+  const supplemental = opts.extension === 'pdf' ? getSupplementalPdfMetadata(opts.relPath) : null
+
+  if (supplemental?.sourceDocId) {
+    const sourceDoc = await prisma.sourceDoc.findUnique({
+      where: { id: supplemental.sourceDocId },
+      select: { id: true, documentId: true },
+    })
+    if (sourceDoc) {
+      if (!sourceDoc.documentId) {
+        await prisma.sourceDoc.update({
+          where: { id: sourceDoc.id },
+          data: { documentId: opts.documentId },
+        })
+        console.log(`  Linked ${opts.relPath} → SourceDoc ${sourceDoc.id} (exact)`)
+      } else if (sourceDoc.documentId !== opts.documentId) {
+        await ensureDocumentRelation(sourceDoc.documentId, opts.documentId, 'source-file')
+        console.log(`  Related ${opts.relPath} ↔ SourceDoc ${sourceDoc.id} via existing document`)
+      }
+    }
+  }
+
+  if (supplemental?.thesisId) {
+    const thesis = await prisma.thesis.findUnique({
+      where: { id: supplemental.thesisId },
+      select: { id: true, documentId: true },
+    })
+    if (thesis) {
+      if (!thesis.documentId) {
+        await prisma.thesis.update({
+          where: { id: thesis.id },
+          data: { documentId: opts.documentId },
+        })
+        console.log(`  Linked ${opts.relPath} → Thesis ${thesis.id} (exact)`)
+      } else if (thesis.documentId !== opts.documentId) {
+        await ensureDocumentRelation(thesis.documentId, opts.documentId, 'source-file')
+        console.log(`  Related ${opts.relPath} ↔ Thesis ${thesis.id} via existing document`)
+      }
+    }
+  }
+
+  if (supplemental?.reportId) {
+    const report = await prisma.report.findUnique({
+      where: { id: supplemental.reportId },
+      select: {
+        id: true,
+        title: true,
+        fullTitle: true,
+        documentId: true,
+        document: { select: { title: true } },
+      },
+    })
+    if (report) {
+      if (!report.documentId) {
+        await prisma.report.update({
+          where: { id: report.id },
+          data: { documentId: opts.documentId },
+        })
+        console.log(`  Linked ${opts.relPath} → Report ${report.id} (exact)`)
+      } else if (report.documentId !== opts.documentId && !reportMatchesTitle(report, normalizeTitle(report.document?.title))) {
+        await prisma.report.update({
+          where: { id: report.id },
+          data: { documentId: opts.documentId },
+        })
+        console.log(`  Re-linked ${opts.relPath} → Report ${report.id} (exact-repair)`)
+      } else if (report.documentId !== opts.documentId) {
+        await ensureDocumentRelation(report.documentId, opts.documentId, 'source-file')
+        console.log(`  Related ${opts.relPath} ↔ Report ${report.id} via existing document`)
+      }
+      return
+    }
+  }
+
+  if (supplemental?.sourceDocId || supplemental?.thesisId || supplemental?.reportId) {
+    return
+  }
+
+  if (normalizedUrl) {
+    const sourceCandidates = await prisma.sourceDoc.findMany({
+      where: { url: { not: null } },
+      select: { id: true, url: true, documentId: true },
+    })
+    const sourceByUrl = sourceCandidates.find(source => normalizeUrl(source.url) === normalizedUrl)
+    if (sourceByUrl) {
+      if (!sourceByUrl.documentId) {
+        await prisma.sourceDoc.update({
+          where: { id: sourceByUrl.id },
+          data: { documentId: opts.documentId },
+        })
+        console.log(`  Linked ${opts.relPath} → SourceDoc ${sourceByUrl.id} (url)`)
+      } else if (sourceByUrl.documentId !== opts.documentId) {
+        await ensureDocumentRelation(sourceByUrl.documentId, opts.documentId, 'source-file')
+        console.log(`  Related ${opts.relPath} ↔ SourceDoc ${sourceByUrl.id} via existing document`)
+      }
+    }
+
+    const thesisCandidates = await prisma.thesis.findMany({
+      where: { url: { not: '' } },
+      select: { id: true, url: true, documentId: true },
+    })
+    const thesisByUrl = thesisCandidates.find(thesis => normalizeUrl(thesis.url) === normalizedUrl)
+    if (thesisByUrl) {
+      if (!thesisByUrl.documentId) {
+        await prisma.thesis.update({
+          where: { id: thesisByUrl.id },
+          data: { documentId: opts.documentId },
+        })
+        console.log(`  Linked ${opts.relPath} → Thesis ${thesisByUrl.id} (url)`)
+      } else if (thesisByUrl.documentId !== opts.documentId) {
+        await ensureDocumentRelation(thesisByUrl.documentId, opts.documentId, 'source-file')
+        console.log(`  Related ${opts.relPath} ↔ Thesis ${thesisByUrl.id} via existing document`)
+      }
+    }
+
+    const reportCandidates = await prisma.report.findMany({
+      where: { sourceUrl: { not: null } },
+      select: {
+        id: true,
+        title: true,
+        fullTitle: true,
+        sourceUrl: true,
+        documentId: true,
+        document: { select: { title: true } },
+      },
+    })
+    const reportByUrl = reportCandidates.find(report =>
+      normalizeUrl(report.sourceUrl) === normalizedUrl &&
+      reportMatchesTitle(report, normalizedTitle)
+    )
+    if (reportByUrl) {
+      if (!reportByUrl.documentId) {
+        await prisma.report.update({
+          where: { id: reportByUrl.id },
+          data: { documentId: opts.documentId },
+        })
+        console.log(`  Linked ${opts.relPath} → Report ${reportByUrl.id} (url)`)
+      } else if (reportByUrl.documentId !== opts.documentId && !reportMatchesTitle(reportByUrl, normalizeTitle(reportByUrl.document?.title))) {
+        await prisma.report.update({
+          where: { id: reportByUrl.id },
+          data: { documentId: opts.documentId },
+        })
+        console.log(`  Re-linked ${opts.relPath} → Report ${reportByUrl.id} (title-repair)`)
+      } else if (reportByUrl.documentId !== opts.documentId) {
+        await ensureDocumentRelation(reportByUrl.documentId, opts.documentId, 'source-file')
+        console.log(`  Related ${opts.relPath} ↔ Report ${reportByUrl.id} via existing document`)
+      }
+      return
+    }
+  }
+
+  if (opts.extension === 'pdf' && normalizedTitle) {
+    const reportCandidates = await prisma.report.findMany({
+      select: {
+        id: true,
+        title: true,
+        fullTitle: true,
+        documentId: true,
+        document: { select: { title: true } },
+      },
+    })
+    const reportByTitle = reportCandidates.find(report => reportMatchesTitle(report, normalizedTitle))
+
+    if (reportByTitle) {
+      if (!reportByTitle.documentId) {
+        await prisma.report.update({
+          where: { id: reportByTitle.id },
+          data: { documentId: opts.documentId },
+        })
+        console.log(`  Linked ${opts.relPath} → Report ${reportByTitle.id} (title)`)
+      } else if (reportByTitle.documentId !== opts.documentId && !reportMatchesTitle(reportByTitle, normalizeTitle(reportByTitle.document?.title))) {
+        await prisma.report.update({
+          where: { id: reportByTitle.id },
+          data: { documentId: opts.documentId },
+        })
+        console.log(`  Re-linked ${opts.relPath} → Report ${reportByTitle.id} (title-repair)`)
+      } else if (reportByTitle.documentId !== opts.documentId) {
+        await ensureDocumentRelation(reportByTitle.documentId, opts.documentId, 'source-file')
+        console.log(`  Related ${opts.relPath} ↔ Report ${reportByTitle.id} via existing document`)
+      }
+    }
+  }
+
+  if (opts.extension === 'md') {
+    const matchingSource = await prisma.sourceDoc.findFirst({
+      where: {
+        filename: { contains: filename },
+        documentId: null,
+      },
+    })
+    if (matchingSource) {
+      await prisma.sourceDoc.update({
+        where: { id: matchingSource.id },
+        data: { documentId: opts.documentId },
+      })
+      console.log(`  Linked ${filename} → SourceDoc ${matchingSource.id}`)
+    }
+
+    const matchingThesis = await prisma.thesis.findFirst({
+      where: {
+        id: { contains: filename },
+        documentId: null,
+      },
+    })
+    if (matchingThesis) {
+      await prisma.thesis.update({
+        where: { id: matchingThesis.id },
+        data: { documentId: opts.documentId },
+      })
+      console.log(`  Linked ${filename} → Thesis ${matchingThesis.id}`)
+    }
+  }
+}
+
 async function main() {
   console.log('Importing research documents...\n')
 
-  const files = walkDir(RESEARCH_DIR)
-  console.log(`Found ${files.length} markdown files in research/\n`)
+  const files = walkResearchFiles(RESEARCH_DIR)
+  const evidenceBacklog = loadEvidenceBacklog()
+  console.log(`Found ${files.length} importable research files (${files.filter(f => f.extension === 'md').length} markdown, ${files.filter(f => f.extension === 'pdf').length} pdf)\n`)
 
   let imported = 0
   let skipped = 0
 
-  for (const filePath of files) {
-    const relPath = path.relative(RESEARCH_DIR, filePath)
-    const content = fs.readFileSync(filePath, 'utf-8')
-    const title = extractTitle(content)
-    const { category, subcategory } = extractCategory(relPath)
-    const country = extractCountry(relPath)
-    const slug = slugify(relPath)
-    const wordCount = content.split(/\s+/).length
-    const documentType = extractDocumentType(relPath, content)
-    const filename = path.basename(filePath, '.md')
+  for (const file of files) {
+    const slug = slugify(file.relPath)
 
     try {
+      let title: string
+      let author: string | null = null
+      let year: number | null = null
+      let category: string
+      let subcategory: string | null
+      let country: string | null
+      let content: string
+      let summary: string | null = null
+      let wordCount: number
+      let documentType: string
+      let tags: string[]
+      let url: string | null = null
+      let metadata: Record<string, unknown> | null = null
+
+      if (file.extension === 'md') {
+        content = fs.readFileSync(file.fullPath, 'utf-8')
+        title = extractTitle(content)
+        ;({ category, subcategory } = extractCategory(file.relPath))
+        country = extractCountry(file.relPath)
+        wordCount = content.split(/\s+/).filter(Boolean).length
+        documentType = extractDocumentType(file.relPath)
+        tags = [category, subcategory, country, documentType].filter(Boolean) as string[]
+      } else {
+        const pdfRecord = buildPdfRecord(file.relPath, evidenceBacklog.get(file.relPath.replaceAll('\\', '/')))
+        title = pdfRecord.title
+        author = pdfRecord.author
+        year = pdfRecord.year
+        category = pdfRecord.category
+        subcategory = pdfRecord.subcategory
+        country = pdfRecord.country
+        content = pdfRecord.content
+        summary = pdfRecord.summary
+        wordCount = pdfRecord.wordCount
+        documentType = pdfRecord.documentType
+        tags = pdfRecord.tags
+        url = pdfRecord.url
+        metadata = pdfRecord.metadata
+      }
+
       await prisma.document.upsert({
-        where: { filePath: relPath },
+        where: { filePath: file.relPath },
         update: {
           title,
+          author,
+          year,
           category,
           subcategory,
           country,
           content,
+          summary,
+          url,
           wordCount,
           documentType,
           slug,
+          tags,
+          metadata,
         },
         create: {
           slug,
-          filePath: relPath,
+          filePath: file.relPath,
           title,
+          author,
+          year,
           category,
           subcategory,
           country,
           content,
+          summary,
+          url,
           wordCount,
           documentType,
-          tags: [category, subcategory, country, documentType].filter(Boolean) as string[],
+          tags,
+          metadata,
         },
       })
 
-      const matchingSource = await prisma.sourceDoc.findFirst({
-        where: {
-          filename: { contains: filename },
-          documentId: null,
-        },
+      const importedDocument = await prisma.document.findUnique({
+        where: { filePath: file.relPath },
+        select: { id: true },
       })
-      if (matchingSource) {
-        await prisma.sourceDoc.update({
-          where: { id: matchingSource.id },
-          data: { documentId: (await prisma.document.findUnique({ where: { filePath: relPath } }))!.id },
+      if (importedDocument) {
+        await linkStructuredRecords({
+          documentId: importedDocument.id,
+          relPath: file.relPath,
+          extension: file.extension,
+          title,
+          url,
         })
-        console.log(`  Linked ${filename} → SourceDoc ${matchingSource.id}`)
-      }
-
-      const matchingThesis = await prisma.thesis.findFirst({
-        where: {
-          id: { contains: filename },
-          documentId: null,
-        },
-      })
-      if (matchingThesis) {
-        await prisma.thesis.update({
-          where: { id: matchingThesis.id },
-          data: { documentId: (await prisma.document.findUnique({ where: { filePath: relPath } }))!.id },
-        })
-        console.log(`  Linked ${filename} → Thesis ${matchingThesis.id}`)
       }
 
       imported++
     } catch (err) {
-      console.error(`  Failed: ${relPath}`, err)
+      console.error(`  Failed: ${file.relPath}`, err)
       skipped++
     }
   }
