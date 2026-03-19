@@ -238,7 +238,7 @@ export default async function ActorDetailPage({
             actor.documentRefs.map(ref => (
               <div key={ref.id} className="flex flex-col gap-1 rounded-xl border border-stone-200 bg-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <Link href={`/forskning/${ref.document.slug}`} className="text-sm font-medium text-emerald-700 hover:underline">
+                  <Link href={`/bibliotek/${ref.document.slug}`} className="text-sm font-medium text-emerald-700 hover:underline">
                     {ref.document.title}
                   </Link>
                   <p className="text-xs text-stone-500 mt-1">

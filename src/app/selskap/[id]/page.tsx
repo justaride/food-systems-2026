@@ -175,7 +175,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
           <div className="space-y-2">
             {company.documentRefs.map(ref => (
               <div key={ref.id} className="flex items-center justify-between py-2 border-b border-stone-100 last:border-0">
-                <a href={`/forskning/${ref.document.slug}`} className="text-sm text-emerald-700 hover:underline">
+                <a href={`/bibliotek/${ref.document.slug}`} className="text-sm text-emerald-700 hover:underline">
                   {ref.document.title}
                 </a>
                 {ref.context && <span className="text-xs text-stone-400">{ref.context}</span>}
