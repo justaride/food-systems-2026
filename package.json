@@ -12,11 +12,12 @@
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
-    "db:import": "tsx scripts/import-ts-data.ts && tsx scripts/import-research-docs.ts && tsx scripts/import-company-data.ts && tsx scripts/import-actors.ts",
+    "db:import": "tsx scripts/import-ts-data.ts && tsx scripts/import-research-docs.ts && tsx scripts/import-company-data.ts && tsx scripts/import-actors.ts && tsx scripts/import-transcripts.ts",
     "db:import:ts": "tsx scripts/import-ts-data.ts",
     "db:import:docs": "tsx scripts/import-research-docs.ts",
     "db:import:companies": "tsx scripts/import-company-data.ts",
-    "db:import:actors": "tsx scripts/import-actors.ts"
+    "db:import:actors": "tsx scripts/import-actors.ts",
+    "db:import:transcripts": "tsx scripts/import-transcripts.ts"
   },
   "dependencies": {
     "@nivo/bar": "^0.99.0",
