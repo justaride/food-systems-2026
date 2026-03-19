@@ -1,10 +1,11 @@
-# Kjøpermakt og konkurranse i dagligvaremarkedet (Simen A. Ulsaker PhD)
+# Vertikale restriksjoner og konkurranse i dagligvaremarkedet (Simen A. Ulsaker PhD)
 
-**Tittel:** Essays on Competition in the Norwegian Grocery Market
+**Tittel:** On Vertical Restraints: Essays in Industrial Organzation
 **Forfatter:** Simen Aardal Ulsaker (NHH)
-**Dato:** 2018 (identifisert som sentralt grunnlagsdokument)
+**Dato:** 2016
 **Dokumenttype:** PhD-avhandling
 **Originalfil:** research/evidence-pack/akademia/ulsaker-phd-thesis.pdf
+**Offentlig handle:** https://hdl.handle.net/11250/3197662
 
 ## Sammendrag
 Avhandlingen består av flere studier som analyserer konkurransen i det norske dagligvaremarkedet, med fokus på vertikale relasjoner, kjøpermakt og prisdannelse.

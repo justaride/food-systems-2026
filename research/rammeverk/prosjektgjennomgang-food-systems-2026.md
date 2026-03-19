@@ -39,12 +39,12 @@ Dette repoet er allerede mer enn et notatarkiv. Det består av fem lag som henge
 
 Tallene under er basert på dagens repo-struktur:
 
-- `research/bibliotek/`: **77** markdown-dokumenter
-- `research/norden/`: **21** markdown-dokumenter
+- `research/bibliotek/`: **95** markdown-dokumenter
+- `research/norden/`: **23** markdown-dokumenter
 - `research/norge/`: **9** markdown-dokumenter
-- `research/rammeverk/`: **15** markdown-dokumenter
-- `src/lib/data/sources.ts`: **71** registrerte `SourceDoc`-oppføringer
-- `src/lib/data/theses.ts`: **15** registrerte master-/avhandlingsoppføringer
+- `research/rammeverk/`: **21** markdown-dokumenter
+- `src/lib/data/sources.ts`: **100** registrerte `SourceDoc`-oppføringer
+- `src/lib/data/theses.ts`: **31** registrerte master-/avhandlingsoppføringer
 - `src/lib/data/research-prompts.ts`: **39** prompts fordelt på **12** kategorier
 
 ### 2.2 Kjernedokumenter som definerer retningen
