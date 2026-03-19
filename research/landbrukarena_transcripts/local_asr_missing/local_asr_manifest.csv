@@ -1,0 +1,8 @@
+index,video_id,title,url,status,model,language,language_probability,segment_count,txt_file,json_file,error
+12,6kP1Kfmzm9w,Landbruk Arena forklarer: Konsesjonsloven,https://www.youtube.com/watch?v=6kP1Kfmzm9w,ok,small,no,1,16,12-6kP1Kfmzm9w-local-asr-small.txt,12-6kP1Kfmzm9w-local-asr-small.json,
+14,q2I7m0YE7rg,Landbruk Arena forklarer: Hva setter rammene for de årlige jordbruksforhandlingene?,https://www.youtube.com/watch?v=q2I7m0YE7rg,ok,small,no,1,0,14-q2I7m0YE7rg-local-asr-small.txt,14-q2I7m0YE7rg-local-asr-small.json,
+15,mvZS-dV_tAA,Kurs i landbrukspolitikk: Jordbruksforhandlingene,https://www.youtube.com/watch?v=mvZS-dV_tAA,error,small,no,,0,15-mvZS-dV_tAA-local-asr-small.txt,15-mvZS-dV_tAA-local-asr-small.json,"CalledProcessError: Command '['yt-dlp', '-f', 'ba', '-o', '/private/tmp/yt_local_asr/15-mvZS-dV_tAA.%(ext)s', 'https://www.youtube.com/watch?v=mvZS-dV_tAA']' returned non-zero exit status 1."
+16,USSkCfpjGbM,Kurs i landbrukspolitikk: Eiendomspolitikk,https://www.youtube.com/watch?v=USSkCfpjGbM,ok,small,no,1,107,16-USSkCfpjGbM-local-asr-small.txt,16-USSkCfpjGbM-local-asr-small.json,
+17,nvb9MJdwIzA,Kurs i landbrukspolitikk: Samvirke,https://www.youtube.com/watch?v=nvb9MJdwIzA,ok,small,no,1,56,17-nvb9MJdwIzA-local-asr-small.txt,17-nvb9MJdwIzA-local-asr-small.json,
+18,-TkOU0IeVq0,Kurs i landbrukspolitikk: Introduksjon,https://www.youtube.com/watch?v=-TkOU0IeVq0,ok,small,no,1,14,18--TkOU0IeVq0-local-asr-small.txt,18--TkOU0IeVq0-local-asr-small.json,
+19,EMeYsB6Vk2Y,Kurs i landbrukspolitikk: Markedsbalansering,https://www.youtube.com/watch?v=EMeYsB6Vk2Y,ok,small,no,1,155,19-EMeYsB6Vk2Y-local-asr-small.txt,19-EMeYsB6Vk2Y-local-asr-small.json,

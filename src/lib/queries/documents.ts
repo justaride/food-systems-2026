@@ -78,6 +78,7 @@ export async function getDocumentBySlug(slug: string) {
     include: {
       sourceDoc: true,
       thesis: true,
+      report: true,
       refsFrom: { include: { to: { select: { id: true, title: true, slug: true } } } },
       refsTo: { include: { from: { select: { id: true, title: true, slug: true } } } },
     },

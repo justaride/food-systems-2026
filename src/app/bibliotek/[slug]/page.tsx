@@ -1,0 +1,251 @@
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import { getDocumentBySlug } from '@/lib/queries/documents'
+import { Card } from '@/components/ui/Card'
+
+type Props = {
+  params: Promise<{ slug: string }>
+}
+
+function formatWordCount(n: number): string {
+  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, '')}k ord`
+  return `${n} ord`
+}
+
+export default async function DocumentDetailPage({ params }: Props) {
+  const { slug } = await params
+  const doc = await getDocumentBySlug(slug)
+
+  if (!doc) notFound()
+
+  const hasRefs = doc.refsFrom.length > 0 || doc.refsTo.length > 0
+  const meta = [doc.author, doc.year, doc.documentType, doc.country].filter(Boolean)
+
+  return (
+    <div className="space-y-6">
+      <Link
+        href="/bibliotek"
+        className="inline-flex items-center gap-1.5 text-sm text-stone-400 hover:text-stone-600 transition-colors"
+      >
+        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+        Tilbake til biblioteket
+      </Link>
+
+      <div>
+        <h1 className="text-2xl font-bold text-stone-900">{doc.title}</h1>
+        {meta.length > 0 && (
+          <p className="text-sm text-stone-400 mt-1">
+            {meta.join(' \u00b7 ')}
+          </p>
+        )}
+        <p className="text-xs text-stone-400 mt-0.5">{formatWordCount(doc.wordCount)}</p>
+      </div>
+
+      {doc.tags.length > 0 && (
+        <div className="flex gap-1.5 flex-wrap">
+          {doc.tags.map(tag => (
+            <span
+              key={tag}
+              className="text-xs px-2 py-0.5 rounded-full bg-stone-100 text-stone-500 border border-stone-200"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {doc.summary && (
+        <Card title="Sammendrag">
+          <p className="text-sm text-stone-700 leading-relaxed">{doc.summary}</p>
+        </Card>
+      )}
+
+      <Card title="Fulltekst">
+        <div className="max-h-[600px] overflow-y-auto rounded-lg bg-stone-50 border border-stone-200 p-4">
+          <pre className="text-sm text-stone-700 whitespace-pre-wrap font-sans leading-relaxed">
+            {doc.content}
+          </pre>
+        </div>
+      </Card>
+
+      {hasRefs && (
+        <Card title="Relaterte dokumenter">
+          <div className="space-y-3">
+            {doc.refsFrom.length > 0 && (
+              <div>
+                <p className="text-xs text-stone-400 mb-1.5">Refererer til</p>
+                <div className="flex gap-1.5 flex-wrap">
+                  {doc.refsFrom.map(ref => ref.to && (
+                    <Link
+                      key={ref.to.id}
+                      href={`/bibliotek/${ref.to.slug}`}
+                      className="text-xs px-2 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition-colors"
+                    >
+                      {ref.to.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+            {doc.refsTo.length > 0 && (
+              <div>
+                <p className="text-xs text-stone-400 mb-1.5">Referert av</p>
+                <div className="flex gap-1.5 flex-wrap">
+                  {doc.refsTo.map(ref => ref.from && (
+                    <Link
+                      key={ref.from.id}
+                      href={`/bibliotek/${ref.from.slug}`}
+                      className="text-xs px-2 py-1 rounded bg-violet-50 text-violet-700 border border-violet-200 hover:bg-violet-100 transition-colors"
+                    >
+                      {ref.from.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </Card>
+      )}
+
+      {doc.thesis && (
+        <Card title="Masteroppgave / PhD">
+          <div className="space-y-2 text-sm">
+            <div className="flex gap-2">
+              <span className="text-stone-400 shrink-0 w-24">Forfattere</span>
+              <span className="text-stone-700">{doc.thesis.authors}</span>
+            </div>
+            <div className="flex gap-2">
+              <span className="text-stone-400 shrink-0 w-24">Institusjon</span>
+              <span className="text-stone-700">{doc.thesis.institution}</span>
+            </div>
+            <div className="flex gap-2">
+              <span className="text-stone-400 shrink-0 w-24">Grad</span>
+              <span className="text-stone-700">{doc.thesis.degree === 'phd' ? 'PhD' : 'Master'}</span>
+            </div>
+            {doc.thesis.method && (
+              <div className="flex gap-2">
+                <span className="text-stone-400 shrink-0 w-24">Metode</span>
+                <span className="text-stone-700">{doc.thesis.method}</span>
+              </div>
+            )}
+            {doc.thesis.keyFindings.length > 0 && (
+              <div>
+                <p className="text-stone-400 mb-1">Hovedfunn</p>
+                <ul className="list-disc list-inside space-y-0.5 text-stone-700">
+                  {doc.thesis.keyFindings.map((f, i) => <li key={i}>{f}</li>)}
+                </ul>
+              </div>
+            )}
+            {doc.thesis.url && (
+              <a
+                href={doc.thesis.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-xs text-stone-400 hover:text-stone-600 underline underline-offset-2 mt-1"
+              >
+                Apne oppgave &rarr;
+              </a>
+            )}
+          </div>
+        </Card>
+      )}
+
+      {doc.report && (
+        <Card title="Rapport">
+          <div className="space-y-2 text-sm">
+            {doc.report.institution && (
+              <div className="flex gap-2">
+                <span className="text-stone-400 shrink-0 w-24">Institusjon</span>
+                <span className="text-stone-700">{doc.report.institution}</span>
+              </div>
+            )}
+            <div className="flex gap-2">
+              <span className="text-stone-400 shrink-0 w-24">Kategori</span>
+              <span className="text-stone-700">{doc.report.reportCategory}</span>
+            </div>
+            {doc.report.relevance && (
+              <div className="flex gap-2">
+                <span className="text-stone-400 shrink-0 w-24">Relevans</span>
+                <span className="text-stone-700">{doc.report.relevance}</span>
+              </div>
+            )}
+            {doc.report.keyFindings.length > 0 && (
+              <div>
+                <p className="text-stone-400 mb-1">Hovedfunn</p>
+                <ul className="list-disc list-inside space-y-0.5 text-stone-700">
+                  {doc.report.keyFindings.map((f, i) => <li key={i}>{f}</li>)}
+                </ul>
+              </div>
+            )}
+            {doc.report.recommendations.length > 0 && (
+              <div>
+                <p className="text-stone-400 mb-1">Anbefalinger</p>
+                <ul className="list-disc list-inside space-y-0.5 text-stone-700">
+                  {doc.report.recommendations.map((r, i) => <li key={i}>{r}</li>)}
+                </ul>
+              </div>
+            )}
+            {doc.report.sourceUrl && (
+              <a
+                href={doc.report.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-xs text-stone-400 hover:text-stone-600 underline underline-offset-2 mt-1"
+              >
+                Apne rapport &rarr;
+              </a>
+            )}
+          </div>
+        </Card>
+      )}
+
+      {doc.sourceDoc && (
+        <Card title="Kildedokument">
+          <div className="space-y-2 text-sm">
+            {doc.sourceDoc.description && (
+              <p className="text-stone-700">{doc.sourceDoc.description}</p>
+            )}
+            <div className="flex gap-2">
+              <span className="text-stone-400 shrink-0 w-24">Type</span>
+              <span className="text-stone-700">{doc.sourceDoc.sourceType}</span>
+            </div>
+            {doc.sourceDoc.relevance && (
+              <div className="flex gap-2">
+                <span className="text-stone-400 shrink-0 w-24">Relevans</span>
+                <span className="text-stone-700">{doc.sourceDoc.relevance}</span>
+              </div>
+            )}
+            {doc.sourceDoc.url && (
+              <a
+                href={doc.sourceDoc.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-xs text-stone-400 hover:text-stone-600 underline underline-offset-2 mt-1"
+              >
+                Apne kilde &rarr;
+              </a>
+            )}
+          </div>
+        </Card>
+      )}
+
+      {doc.url && (
+        <div className="pt-2">
+          <a
+            href={doc.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-700 underline underline-offset-2 transition-colors"
+          >
+            Apne ekstern kilde
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+          </a>
+        </div>
+      )}
+    </div>
+  )
+}
