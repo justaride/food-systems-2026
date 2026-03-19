@@ -1,0 +1,55 @@
+index,video_id,title,url,status,language_code,language,is_generated,is_translatable,segment_count,txt_file,json_file,error
+1,BOQZvBG_LBw,Kari Toft fullversjon bred,https://www.youtube.com/watch?v=BOQZvBG_LBw,ok,en,English (auto-generated),True,True,9,01-kari-toft-fullversjon-bred-BOQZvBG_LBw.txt,01-kari-toft-fullversjon-bred-BOQZvBG_LBw.json,
+2,W2VaX150Uw8,Seminar om avrenningstiltak i jordbruket i regi av AgriAnalyse 2025,https://www.youtube.com/watch?v=W2VaX150Uw8,ok,no,Norwegian (auto-generated),True,False,1085,02-seminar-om-avrenningstiltak-i-jordbruket-i-regi-av-agrianalyse-2025-W2VaX150Uw8.txt,02-seminar-om-avrenningstiltak-i-jordbruket-i-regi-av-agrianalyse-2025-W2VaX150Uw8.json,
+3,n1qF1TRh2d0,Erling Aas Eng om tillitsverv i landbruket,https://www.youtube.com/watch?v=n1qF1TRh2d0,ok,no,Norwegian (auto-generated),True,False,33,03-erling-aas-eng-om-tillitsverv-i-landbruket-n1qF1TRh2d0.txt,03-erling-aas-eng-om-tillitsverv-i-landbruket-n1qF1TRh2d0.json,
+4,UPYj1SNHYdw,Nina Ranøien om kurstilbud for landbrukets tillitsvalgte,https://www.youtube.com/watch?v=UPYj1SNHYdw,ok,no,Norwegian (auto-generated),True,False,21,04-nina-ranøien-om-kurstilbud-for-landbrukets-tillitsvalgte-UPYj1SNHYdw.txt,04-nina-ranøien-om-kurstilbud-for-landbrukets-tillitsvalgte-UPYj1SNHYdw.json,
+5,8JZSIH4WC5A,Per Inge Egeland om kurstilbud for landbrukets tillitsvalgte,https://www.youtube.com/watch?v=8JZSIH4WC5A,ok,no,Norwegian (auto-generated),True,False,17,05-per-inge-egeland-om-kurstilbud-for-landbrukets-tillitsvalgte-8JZSIH4WC5A.txt,05-per-inge-egeland-om-kurstilbud-for-landbrukets-tillitsvalgte-8JZSIH4WC5A.json,
+6,aPzdVR0eaI4,Sigrid Heringstad om kurstilbud for landbrukets tillitsvalgte,https://www.youtube.com/watch?v=aPzdVR0eaI4,ok,no,Norwegian (auto-generated),True,False,22,06-sigrid-heringstad-om-kurstilbud-for-landbrukets-tillitsvalgte-aPzdVR0eaI4.txt,06-sigrid-heringstad-om-kurstilbud-for-landbrukets-tillitsvalgte-aPzdVR0eaI4.json,
+7,blx_7Jwq0Nc,Loopfilm Norges Bondelag,https://www.youtube.com/watch?v=blx_7Jwq0Nc,ok,no,Norwegian (auto-generated),True,False,53,07-loopfilm-norges-bondelag-blx_7Jwq0Nc.txt,07-loopfilm-norges-bondelag-blx_7Jwq0Nc.json,
+8,SgltfUW8Ymg,Norsk landbruk Tilde,https://www.youtube.com/watch?v=SgltfUW8Ymg,ok,no,Norwegian (auto-generated),True,False,13,08-norsk-landbruk-tilde-SgltfUW8Ymg.txt,08-norsk-landbruk-tilde-SgltfUW8Ymg.json,
+9,fc50NCdLhL4,Norsk landbruk Nina Rangøien,https://www.youtube.com/watch?v=fc50NCdLhL4,ok,no,Norwegian (auto-generated),True,False,25,09-norsk-landbruk-nina-rangøien-fc50NCdLhL4.txt,09-norsk-landbruk-nina-rangøien-fc50NCdLhL4.json,
+10,hALbwiwHdOM,Norsk Landbruk Nina kort,https://www.youtube.com/watch?v=hALbwiwHdOM,ok,no,Norwegian (auto-generated),True,False,21,10-norsk-landbruk-nina-kort-hALbwiwHdOM.txt,10-norsk-landbruk-nina-kort-hALbwiwHdOM.json,
+11,XcV4bZe0J_I,Film alle fire m plakater kursdeltagere,https://www.youtube.com/watch?v=XcV4bZe0J_I,ok,no,Norwegian (auto-generated),True,False,45,11-film-alle-fire-m-plakater-kursdeltagere-XcV4bZe0J_I.txt,11-film-alle-fire-m-plakater-kursdeltagere-XcV4bZe0J_I.json,
+12,6kP1Kfmzm9w,Landbruk Arena forklarer: Konsesjonsloven,https://www.youtube.com/watch?v=6kP1Kfmzm9w,error,,,,,0,12-landbruk-arena-forklarer-konsesjonsloven-6kP1Kfmzm9w.txt,12-landbruk-arena-forklarer-konsesjonsloven-6kP1Kfmzm9w.json,"TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=6kP1Kfmzm9w! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!"
+13,cvT_rOtTDBo,Landbruk Arena forklarer: Hva er kronetoll og hva er prosenttoll?,https://www.youtube.com/watch?v=cvT_rOtTDBo,ok,vi,Vietnamese (auto-generated),True,True,5,13-landbruk-arena-forklarer-hva-er-kronetoll-og-hva-er-prosenttoll-cvT_rOtTDBo.txt,13-landbruk-arena-forklarer-hva-er-kronetoll-og-hva-er-prosenttoll-cvT_rOtTDBo.json,
+14,q2I7m0YE7rg,Landbruk Arena forklarer: Hva setter rammene for de årlige jordbruksforhandlingene?,https://www.youtube.com/watch?v=q2I7m0YE7rg,error,,,,,0,14-landbruk-arena-forklarer-hva-setter-rammene-for-de-årlige-jordbruksforhandlingen-q2I7m0YE7rg.txt,14-landbruk-arena-forklarer-hva-setter-rammene-for-de-årlige-jordbruksforhandlingen-q2I7m0YE7rg.json,"TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=q2I7m0YE7rg! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!"
+15,mvZS-dV_tAA,Kurs i landbrukspolitikk: Jordbruksforhandlingene,https://www.youtube.com/watch?v=mvZS-dV_tAA,error,,,,,0,15-kurs-i-landbrukspolitikk-jordbruksforhandlingene-mvZS-dV_tAA.txt,15-kurs-i-landbrukspolitikk-jordbruksforhandlingene-mvZS-dV_tAA.json,"TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=mvZS-dV_tAA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!"
+16,USSkCfpjGbM,Kurs i landbrukspolitikk: Eiendomspolitikk,https://www.youtube.com/watch?v=USSkCfpjGbM,error,,,,,0,16-kurs-i-landbrukspolitikk-eiendomspolitikk-USSkCfpjGbM.txt,16-kurs-i-landbrukspolitikk-eiendomspolitikk-USSkCfpjGbM.json,"TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=USSkCfpjGbM! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!"
+17,nvb9MJdwIzA,Kurs i landbrukspolitikk: Samvirke,https://www.youtube.com/watch?v=nvb9MJdwIzA,error,,,,,0,17-kurs-i-landbrukspolitikk-samvirke-nvb9MJdwIzA.txt,17-kurs-i-landbrukspolitikk-samvirke-nvb9MJdwIzA.json,"TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=nvb9MJdwIzA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!"
+18,-TkOU0IeVq0,Kurs i landbrukspolitikk: Introduksjon,https://www.youtube.com/watch?v=-TkOU0IeVq0,error,,,,,0,18-kurs-i-landbrukspolitikk-introduksjon--TkOU0IeVq0.txt,18-kurs-i-landbrukspolitikk-introduksjon--TkOU0IeVq0.json,"TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=-TkOU0IeVq0! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!"
+19,EMeYsB6Vk2Y,Kurs i landbrukspolitikk: Markedsbalansering,https://www.youtube.com/watch?v=EMeYsB6Vk2Y,error,,,,,0,19-kurs-i-landbrukspolitikk-markedsbalansering-EMeYsB6Vk2Y.txt,19-kurs-i-landbrukspolitikk-markedsbalansering-EMeYsB6Vk2Y.json,"TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=EMeYsB6Vk2Y! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!"

@@ -1,0 +1,788 @@
+{
+  "video_id": "EMeYsB6Vk2Y",
+  "title": "Kurs i landbrukspolitikk: Markedsbalansering",
+  "url": "https://www.youtube.com/watch?v=EMeYsB6Vk2Y",
+  "source": "local_asr",
+  "model": "small",
+  "language": "no",
+  "language_probability": 1,
+  "segment_count": 155,
+  "quality_note": "Locally generated transcript. Review before quoting.",
+  "snippets": [
+    {
+      "start": 4.02,
+      "end": 12.62,
+      "text": "Hei og velkommen til en veldig kort innføring i markedsbalansering og markedsregulering."
+    },
+    {
+      "start": 12.62,
+      "end": 17.66,
+      "text": "Jeg vil legge vekt på markedsreguleringen på kjøtt og egg."
+    },
+    {
+      "start": 17.66,
+      "end": 23.5,
+      "text": "Jeg heter Olle Skuldberg og jobber i totalmarkedskøtt og egg i Nortura."
+    },
+    {
+      "start": 23.5,
+      "end": 31.46,
+      "text": "Markedsbalansering eller markedsreguleringen i Norge har som hovedforumål"
+    },
+    {
+      "start": 31.46,
+      "end": 43.1,
+      "text": "og egentlig det eneste formålet å sikre avsettning for bundensyn og varer til en forutsigbar og stabil pris."
+    },
+    {
+      "start": 44.1,
+      "end": 54.34,
+      "text": "Og det er også viktig å legge vekt på at markedsreguleringer ikke er til for å redusere risiko for handel og industri."
+    },
+    {
+      "start": 54.34,
+      "end": 68.84,
+      "text": "Vi opplever ikke selden at enkelte deler av norsk næringsliv også ønsker å bruke markedsreguleringen for å avlaste industrien for risiko,"
+    },
+    {
+      "start": 68.84,
+      "end": 84.84,
+      "text": "Men det er tro salt en ordning som har eksisterelser av 1930-tallet netop med det formål å sikre avsittning for bondensindeprodukter og redusere bondensrisiko."
+    },
+    {
+      "start": 84.84,
+      "end": 93.12,
+      "text": "Det er tre elementer i markedstreguleringa som er helt vesentlig."
+    },
+    {
+      "start": 93.12,
+      "end": 98.6,
+      "text": "Det er montagspliktet, det er forskjøningsspliktet og det er informasjonspliktet."
+    },
+    {
+      "start": 98.6,
+      "end": 101.28,
+      "text": "Jeg kommer litt nærmer inn på disse av tre."
+    },
+    {
+      "start": 103.58,
+      "end": 106.7,
+      "text": "Når trenger vi en markedsregulering."
+    },
+    {
+      "start": 108.14,
+      "end": 112.22,
+      "text": "Det barerer nok litt fra produksjon til produksjon."
+    },
+    {
+      "start": 112.22,
+      "end": 118.54,
+      "text": "Og det er nok ikke jeg utømme en liste det jeg viser her, men jeg vil si at"
+    },
+    {
+      "start": 120.38,
+      "end": 124.34,
+      "text": "Norge velger å ha et landbruk i hele landet."
+    },
+    {
+      "start": 124.94,
+      "end": 138.94,
+      "text": "så vil det nesten ikke lade seg gjøre uten at man har en motaktsplikt og en stor aktør i Norge som har den garantien over forbonden at den får leveret sine produkter."
+    },
+    {
+      "start": 138.94,
+      "end": 149.94,
+      "text": "Og i kjøtt og egsektoren så er det Nortura som da er pliktig til å mota slakt eller kjøtt eller egg fra producenter i hele landet."
+    },
+    {
+      "start": 149.94,
+      "end": 156.42,
+      "text": "Produsjonen med tydelig sessong er jo markedsreguleringen kjempeviktig."
+    },
+    {
+      "start": 156.42,
+      "end": 162.22,
+      "text": "Vi kan ta Lamm som eksempel, hvor vi producerer mye på høsten,"
+    },
+    {
+      "start": 162.22,
+      "end": 165.78,
+      "text": "men vi får selvsagt ikke spist hele denne produksjonen da,"
+    },
+    {
+      "start": 165.78,
+      "end": 171.42,
+      "text": "og da bruker vi reguleringslagere så at vi kan forskine markedag i første halvår."
+    },
+    {
+      "start": 171.42,
+      "end": 186.42,
+      "text": "Og så er det jo selvsaktig i Norge med norske priser, helt nøvendig når vi nærmer oss taket eller en overproduksjon, for våre priser gjør det jo lite attraktivt å eksportere."
+    },
+    {
+      "start": 186.42,
+      "end": 203.42,
+      "text": "Om vi tanker på at bonden gjør sinneinviseringen med en horisont på 20-30 år og kanskje generasjon eller to, så er det jo fantastisk at vi har et system i Norge som skal sikre at dere som bønder får avsettning for produktet av deres."
+    },
+    {
+      "start": 203.42,
+      "end": 209.82,
+      "text": "Hvis dere ser på den pransjen her, så har jeg ikke de feldige at du har valgt ut disse to bildene."
+    },
+    {
+      "start": 209.82,
+      "end": 216.74,
+      "text": "Dere ser jo de store slakter i anlegget på rutsøg da, og går da rundt der."
+    },
+    {
+      "start": 216.74,
+      "end": 226.5,
+      "text": "Det er klart at for en aktør så er produksjonen så nærme et anlegg, og på centralløst landet,"
+    },
+    {
+      "start": 226.5,
+      "end": 238.14,
+      "text": "kanskje mer attraktivt enn å mota slakt fra mindre gorsbruk, litt ut på noe øyer i noen land, som det andre bilder viser,"
+    },
+    {
+      "start": 238.14,
+      "end": 244.53,
+      "text": "men vi i Nordtura er jo pliktig til å ta imot et."
+    },
+    {
+      "start": 244.53,
+      "end": 249.25,
+      "text": "Bruker ikke veldig mye tid på å si hvem som gjør hva når det gjelder markedsregulering,"
+    },
+    {
+      "start": 249.25,
+      "end": 255.45,
+      "text": "men sånn dreien formelt er det jo stortinget som vet av romsetningslåven og det er norske politikere"
+    },
+    {
+      "start": 255.45,
+      "end": 260.85,
+      "text": "som gir oss som mæring den muligheten vi har over regulere markedet."
+    },
+    {
+      "start": 261.81,
+      "end": 264.89,
+      "text": "Avtaldepartner har en viktig rolle."
+    },
+    {
+      "start": 264.89,
+      "end": 267.41,
+      "text": "De legger premisser gjennom hjulstavtalen blandt annet,"
+    },
+    {
+      "start": 267.41,
+      "end": 273.09,
+      "text": "til forhold til kvaliteter og det vi skal måles på priseuttak på,"
+    },
+    {
+      "start": 273.09,
+      "end": 275.61,
+      "text": "og de setter også priser på en del produkter."
+    },
+    {
+      "start": 276.93,
+      "end": 280.49,
+      "text": "Landbruk som altdepartemange har jo en rolle de må"
+    },
+    {
+      "start": 280.49,
+      "end": 288.49,
+      "text": "og setter blant annet andre for omsettningsråde og på å sette maksimal grenser for omsettningsagifta."
+    },
+    {
+      "start": 288.49,
+      "end": 296.49,
+      "text": "Men jeg vil si at det er omsettningsråde som har av andre organer den viktigste rollen,"
+    },
+    {
+      "start": 296.49,
+      "end": 307.49,
+      "text": "og er vel egentlig dem som avgjør og tilslutter gir grønt lys for de forslaget som vi som markedsregulator kommer med,"
+    },
+    {
+      "start": 307.49,
+      "end": 313.81,
+      "text": "Når de gjelder, for eksempel, avsetningstilltak, nivåpå- og omsetningsaifter og så videre."
+    },
+    {
+      "start": 314.81,
+      "end": 324.49,
+      "text": "Så som vi totalmarked bruker å si, så kommer vi med gode eller dårlige forslag og så la vi den voksne- og omsetningsrådet bestemme hvordan dette skal gjøre oss."
+    },
+    {
+      "start": 324.89,
+      "end": 328.05,
+      "text": "Jeg viser bare prognosa nå kort."
+    },
+    {
+      "start": 328.85,
+      "end": 336.41,
+      "text": "Vi i totalmarked lager jo 6 prognoser i året, hvor vi både prognoserer sagsproduksjonen."
+    },
+    {
+      "start": 336.41,
+      "end": 344.41,
+      "text": "Hvor mye i det norske market er det dere som bønner producerer av storfæg, lamse av gridsvegg."
+    },
+    {
+      "start": 344.41,
+      "end": 351.41,
+      "text": "Og vi prognoserer å få vent av totalsalg av helslakt."
+    },
+    {
+      "start": 351.41,
+      "end": 362.41,
+      "text": "Det her er jo mye av grunnlaget for det vi bestemmer oss for, eller ser behovet for, for å gjøre av fram i tid av regleringstiltak."
+    },
+    {
+      "start": 362.41,
+      "end": 365.41,
+      "text": "Så prognosa er kjempeviktig på alle måter."
+    },
+    {
+      "start": 365.41,
+      "end": 372.77,
+      "text": "Både for til prisen, og det er muligheten vi ser på pris for dere som bømmer framover."
+    },
+    {
+      "start": 372.77,
+      "end": 377.41,
+      "text": "Og hva vi eventuelt foreslår av reguleringens tiltak."
+    },
+    {
+      "start": 377.41,
+      "end": 388.41,
+      "text": "Kjøtt og eggesektoren har tre prissystemer som i større eller mindre grad skal sikre dere som bømmer et prisnivå."
+    },
+    {
+      "start": 388.41,
+      "end": 391.41,
+      "text": "Vi starter på toppen med målpris-modellen."
+    },
+    {
+      "start": 391.41,
+      "end": 397.41,
+      "text": "Der er jo noe gris, mjærk, korn, oljefru, puttet, noe grønt å epple det."
+    },
+    {
+      "start": 399.41,
+      "end": 406.41,
+      "text": "Vi opplever hvertfall når det gjelder grisen og målpris på gris, så er det nærmeste en automatikk at"
+    },
+    {
+      "start": 406.41,
+      "end": 413.41,
+      "text": "den prisenderingen som blir vetet i jordsåtalen blir videreført videre i verdikjeden."
+    },
+    {
+      "start": 413.41,
+      "end": 420.41,
+      "text": "Og at dagligvarehandel og andre aktører ser på det som et formelt v-tak, som dem innretter seg til."
+    },
+    {
+      "start": 422.41,
+      "end": 425.41,
+      "text": "Så har vi neste nivå, det er volume-modellen."
+    },
+    {
+      "start": 425.41,
+      "end": 430.41,
+      "text": "Det skyller seg ikke sånn reguleringsmessig som er veldig fra en målpris-modell,"
+    },
+    {
+      "start": 430.41,
+      "end": 435.41,
+      "text": "annet enn at det er styrinortura som setter prisen to ganger i året."
+    },
+    {
+      "start": 436.41,
+      "end": 440.41,
+      "text": "Det gjelder for storfe, savalan og egg."
+    },
+    {
+      "start": 440.41,
+      "end": 449.41,
+      "text": "Det her er også priser som vi opplever i stor grad blir videreført for dere som bønner."
+    },
+    {
+      "start": 449.41,
+      "end": 459.41,
+      "text": "Men kan være noe mer diskusjon rundt hvor mye vi faktisk får pressa gjennom."
+    },
+    {
+      "start": 459.41,
+      "end": 463.41,
+      "text": "Og så har vi det vi kaller for kildingmodellen."
+    },
+    {
+      "start": 463.41,
+      "end": 466.41,
+      "text": "Det er egentlig en ren kontraksproduksjon."
+    },
+    {
+      "start": 466.41,
+      "end": 472.41,
+      "text": "men hvor du blir satt i en referansepris som egentlig bare er med å styre nivå på tollen."
+    },
+    {
+      "start": 472.41,
+      "end": 481.41,
+      "text": "Hvordan er den fri prisdansen og man er mer i prisgitt den kjeden eller dem varremotakerne man har?"
+    },
+    {
+      "start": 481.41,
+      "end": 492.41,
+      "text": "Så jeg vil si at fra toppen og nedover så mer reduced statlig styring så øker også risikoen for bunden"
+    },
+    {
+      "start": 492.41,
+      "end": 497.41,
+      "text": "at priserikket blir kjørt gjennom valikkjeden."
+    },
+    {
+      "start": 497.41,
+      "end": 505.41,
+      "text": "Så er det jo viktig for å si at en ting er priserne som enten athaldepartner vetar,"
+    },
+    {
+      "start": 505.41,
+      "end": 511.41,
+      "text": "eller styre i noturer vetar, som går på angroprisen, altså helt slakt."
+    },
+    {
+      "start": 511.41,
+      "end": 516.41,
+      "text": "Så har jo industrien også sine kostnader som skal legges på toppen av det igjen,"
+    },
+    {
+      "start": 516.41,
+      "end": 521.41,
+      "text": "så det er jo mye videre her sånn som man kanskje ikke helt kjenner igjen"
+    },
+    {
+      "start": 521.41,
+      "end": 523.41,
+      "text": "når det kommer til butikilla."
+    },
+    {
+      "start": 523.41,
+      "end": 526.41,
+      "text": "Og det kan vi jo se på den figuren her."
+    },
+    {
+      "start": 528.41,
+      "end": 532.41,
+      "text": "Hvor mittpunktet som har rett et notert angropris,"
+    },
+    {
+      "start": 532.41,
+      "end": 537.41,
+      "text": "det er det punktet som vi i totalmarked har et ansvar for å ta ut."
+    },
+    {
+      "start": 537.41,
+      "end": 539.41,
+      "text": "Målprisen er det samme punktet."
+    },
+    {
+      "start": 539.41,
+      "end": 545.41,
+      "text": "Så når da blir vedtatt en pris på angroprisen,"
+    },
+    {
+      "start": 545.41,
+      "end": 549.41,
+      "text": "så er det ikke det det som avreiningspris i dere som bundet,"
+    },
+    {
+      "start": 549.41,
+      "end": 553.93,
+      "text": "eller det man nødvendigvis finner igjen i butikkenet."
+    },
+    {
+      "start": 553.93,
+      "end": 560.09,
+      "text": "I avreningsprisen er det jo blant annet en del trek, slaktekostnader, inntransport og så videre,"
+    },
+    {
+      "start": 560.09,
+      "end": 561.69,
+      "text": "og kanskje noe tillegg."
+    },
+    {
+      "start": 561.69,
+      "end": 568.13,
+      "text": "Og så går det jo videre i verdikjeden med skjæring, forredling og logistikk, hele det ligger i butikkenet."
+    },
+    {
+      "start": 568.13,
+      "end": 572.49,
+      "text": "Notakspliktet."
+    },
+    {
+      "start": 572.49,
+      "end": 578.85,
+      "text": "Nortura er jo pliktet til å ta imot slakt og egg fra alle producenter i hele landet,"
+    },
+    {
+      "start": 578.85,
+      "end": 581.99,
+      "text": "uavhenge av om man er medlemmer eller ikke."
+    },
+    {
+      "start": 582.33,
+      "end": 587.73,
+      "text": "Og vi er også faktisk nødtel å tilby helt like vilkor,"
+    },
+    {
+      "start": 587.73,
+      "end": 591.99,
+      "text": "inkluder etterbetaling til producenter som leverer til nortura,"
+    },
+    {
+      "start": 592.25,
+      "end": 595.89,
+      "text": "uavhenge av om man er medlem eller ikke."
+    },
+    {
+      "start": 596.73,
+      "end": 601.69,
+      "text": "Når det gjelder oppgjøret og prisen som betales til dere som bønner,"
+    },
+    {
+      "start": 601.69,
+      "end": 604.85,
+      "text": "så gjelder det det aktuelle slakt i rianlegget."
+    },
+    {
+      "start": 604.85,
+      "end": 617.85,
+      "text": "Så hvis vi går tilbake til bildene vi så tidligere, så vil jo da en bonde som leverer til rudsøgda oppleve den prisen som er på rudsøgda."
+    },
+    {
+      "start": 617.85,
+      "end": 624.85,
+      "text": "Og de som leverer til for eksempel Bjerke vil ha krav på den prisen som gjelder Bjerke."
+    },
+    {
+      "start": 624.85,
+      "end": 629.53,
+      "text": "Nå er det jo i veldig stor grad utjammning og like priser i Nortura."
+    },
+    {
+      "start": 629.53,
+      "end": 635.17,
+      "text": "Med sånn regn formelt så har jo Nortura anledning til å differensiere en del her."
+    },
+    {
+      "start": 635.17,
+      "end": 639.75,
+      "text": "Nå er det klart for å kunne påtas av motagsplikten,"
+    },
+    {
+      "start": 639.75,
+      "end": 645.47,
+      "text": "så må Nortura også ha muligheten til å gjennomføre reguleringstiltak"
+    },
+    {
+      "start": 645.47,
+      "end": 648.83,
+      "text": "og kompensert en del av kostnaderne med det."
+    },
+    {
+      "start": 648.83,
+      "end": 653.75,
+      "text": "Sånn som nå så er det jo et stort overskudd av land på reguleringslager,"
+    },
+    {
+      "start": 653.75,
+      "end": 661.39,
+      "text": "godt over 2000 ton, og hvis du skal gi en aktør en plikt til å ta imot så mye kjøtt,"
+    },
+    {
+      "start": 661.39,
+      "end": 669.76,
+      "text": "så om du strengtalt ikke ser at du har boføy, så må du også få kompensert for å prøve å få gjort noe med det."
+    },
+    {
+      "start": 669.76,
+      "end": 677.64,
+      "text": "Forsynningsplikta. Det her er en planse med en god del tekst, og det kan jo være at dere får tilsent disse plansen etterkant,"
+    },
+    {
+      "start": 677.64,
+      "end": 681.8,
+      "text": "eller at de er greie å lese her på videoen."
+    },
+    {
+      "start": 681.8,
+      "end": 687.28,
+      "text": "Forsynningspliktet har kort fortalt er at Nortura har motaktsplikt på den ene siden."
+    },
+    {
+      "start": 687.28,
+      "end": 694.24,
+      "text": "I tillegg er vi pliktig til å forsynne den øvre bransjen som ønsker å kjøpe helslagt av Nortura."
+    },
+    {
+      "start": 695.24,
+      "end": 704.12,
+      "text": "Hver onsdag, kl. 1, så bereiner vi i totalmarked dekningsgraden som vi kaller det."
+    },
+    {
+      "start": 704.12,
+      "end": 710.44,
+      "text": "Det vil si at alle som ønsker å kjøpe helslagt av Nortura legger inn besillinger."
+    },
+    {
+      "start": 710.44,
+      "end": 716.84,
+      "text": "Vi ser hvor mye som kommer inn og blir slakt av og er tilgjengelig, den enkelte uka."
+    },
+    {
+      "start": 716.84,
+      "end": 725.8,
+      "text": "Da etter klokka 1 beregner vi hvor mye slakt som er tilgjengelig for hver aktør."
+    },
+    {
+      "start": 725.8,
+      "end": 731.96,
+      "text": "Hvis for eksempel dekningsgraden på storføy er 90 prosent i uke,"
+    },
+    {
+      "start": 731.96,
+      "end": 740.12,
+      "text": "så innebærer det at både Nortura og alle andre som har bestilt får 90 prosent av den bestillingen som er lagt inn."
+    },
+    {
+      "start": 740.12,
+      "end": 746.12,
+      "text": "Resten vil da enten kunne forsynes fra reguleringslager, eventuelt at de åpenst oppfor i bort."
+    },
+    {
+      "start": 746.12,
+      "end": 757.2,
+      "text": "Figuren her viser jo litt flyten og samhandlinger i Nortura."
+    },
+    {
+      "start": 757.2,
+      "end": 767.2,
+      "text": "Vi har jo motagspliktet på den ene siden, som da gjør at vi er pliktig til å ta emot og håndtere det slakte,"
+    },
+    {
+      "start": 767.2,
+      "end": 770.2,
+      "text": "og betale et av den vilkorre som da gjelder."
+    },
+    {
+      "start": 770.2,
+      "end": 781.2,
+      "text": "Vi i Totalmarket får jo inn bestillinger, og vi har informasjonsplikter, hvor vi deler informasjonen likt med hele bransjen av det som er nødvendig."
+    },
+    {
+      "start": 781.2,
+      "end": 790.2,
+      "text": "Så fordeler vi dem slakta eller egg per uke."
+    },
+    {
+      "start": 790.2,
+      "end": 796.64,
+      "text": "Hvis det er for mye, sier at det dekningsgraden viser 102 prosent,"
+    },
+    {
+      "start": 796.64,
+      "end": 807.28,
+      "text": "da vil totalmarked kjøpe den siste 2 prosenten fra Nordhura og frys inn den på regjelleringslager."
+    },
+    {
+      "start": 807.28,
+      "end": 816.72,
+      "text": "Og som sagt er det for lite, så tilvirger vi bransjen og tar ut fra regjelleringslager i tillegg til det de får forslint av ferskt."
+    },
+    {
+      "start": 816.72,
+      "end": 824.56,
+      "text": "Det er jo mye prat om at det ikke finnes hvertøy i hvertøy i markedsreguleringen."
+    },
+    {
+      "start": 824.56,
+      "end": 828.96,
+      "text": "Jeg vil jo si at det er en sterk overdrivelse."
+    },
+    {
+      "start": 828.96,
+      "end": 836.12,
+      "text": "Vi mister nå et kjempeviktig hvertøy som er reguleringsexporten på gris."
+    },
+    {
+      "start": 836.12,
+      "end": 838.2,
+      "text": "Den har vi ut etter året."
+    },
+    {
+      "start": 838.2,
+      "end": 842.92,
+      "text": "Det er klart at når den har hatt den muligheten tidligere,"
+    },
+    {
+      "start": 842.92,
+      "end": 846.92,
+      "text": "ved å skrive prisen på varende og overskudd og sende det rett ut av landet,"
+    },
+    {
+      "start": 846.92,
+      "end": 850.92,
+      "text": "så har det jo vært relativt enkelt å balansere kjøttmarkedet."
+    },
+    {
+      "start": 850.92,
+      "end": 859.92,
+      "text": "Fra med nå så må vi spise hver eneste kottelet, hvert eneste lammelår og alt stort for kjøttet i Norge."
+    },
+    {
+      "start": 859.92,
+      "end": 865.92,
+      "text": "Det er jo at vi må være enda mer på ballen og klara å holde oss rett under 100% dekning,"
+    },
+    {
+      "start": 865.92,
+      "end": 871.92,
+      "text": "for at prisen til dere som bønder skal være avbrukbar, og omsetningssagiftene ikke skal bli på høy."
+    },
+    {
+      "start": 871.92,
+      "end": 882.17,
+      "text": "Så avsetningstilltaker går jo i stor grad på å få til aktiviteter med salg fra reguleringslager."
+    },
+    {
+      "start": 882.17,
+      "end": 886.17,
+      "text": "På egg så har vi jo priseskrivning for sille produkter."
+    },
+    {
+      "start": 886.17,
+      "end": 896.17,
+      "text": "Og i verste fall så vil jo totalt marked kunne fremve forslag som å selles av til pelstyre for, eller egg til grisefor."
+    },
+    {
+      "start": 896.17,
+      "end": 903.13,
+      "text": "Vi har også produktionsreguleringen for kjøtt og eggesektoren."
+    },
+    {
+      "start": 903.13,
+      "end": 908.57,
+      "text": "Jeg vil si på egge, så har vi en etableret ordning som er fantastisk god, og det er ført i slaktingen."
+    },
+    {
+      "start": 908.57,
+      "end": 917.05,
+      "text": "Den gjør jo at vi klarer å ligge med en høy produksjon for å dekke høytiene og perioder med stort overskudd,"
+    },
+    {
+      "start": 917.05,
+      "end": 921.77,
+      "text": "og så slakter vi ned litteran i periodene mellom."
+    },
+    {
+      "start": 921.77,
+      "end": 937.77,
+      "text": "På kjøtt siden så har vi jo hatt en runde med frivillig produksjonsregulering nå, blandt svinnebønne, og alle hun hørte dere, for der gjorde dere en veldig god innsats en periode som gjorde at det ikke ble totalt kaos i totalmarkedet."
+    },
+    {
+      "start": 937.77,
+      "end": 945.29,
+      "text": "Vi har hatt en utkjøvsordning av smågris-producenter."
+    },
+    {
+      "start": 945.29,
+      "end": 955.77,
+      "text": "Det er også hjelp av mye, så vi har noe om muligheter, men jeg vil si at en del av produsjonsregulerende virkemille er ikke noe man skal ligge med konstant,"
+    },
+    {
+      "start": 955.77,
+      "end": 960.33,
+      "text": "men som er mer enn nødbremsen og virkelig trengs."
+    },
+    {
+      "start": 960.33,
+      "end": 969.58,
+      "text": "Til forskjell fra mjelkesektoren som er kvoteregulert, så er det jo mye mer krevende på kjøtt- og egsektoren hvor det er frihetablering."
+    },
+    {
+      "start": 969.58,
+      "end": 977.58,
+      "text": "Men som er lite innspillig i diskusjonen av dem som ønsker å kvoteregulere også kjøttproduksjonen, så er det jo ikke bare positivt med kvoter eller,"
+    },
+    {
+      "start": 977.58,
+      "end": 987.58,
+      "text": "for den begynner jo faktisk oppe en produksjons rettighet knyttet til ett gårdsbruk, en familie som sånset går i arv eller selves på gårdsbruket."
+    },
+    {
+      "start": 987.58,
+      "end": 994.86,
+      "text": "Det gjør jo også den produksjonen veldig statistisk og det er jo positivt og negativt med det."
+    },
+    {
+      "start": 994.86,
+      "end": 1006.58,
+      "text": "Men skulle ni gjort det på kjøttsektoren, så ville nok også en sånn produksjonsrett fått en relativt høykapitalverdige, som også måtte lånes opp og betales for på videre."
+    },
+    {
+      "start": 1006.58,
+      "end": 1013.08,
+      "text": "Avslutningsvis vil jeg bare si at markedsregulering og jordbrukspolitik må dra i samme retning."
+    },
+    {
+      "start": 1013.08,
+      "end": 1021.08,
+      "text": "Det er ikke sånn at vi som markedsregulator eller totalmarked står med det fulle og hele ansvaret."
+    },
+    {
+      "start": 1021.08,
+      "end": 1027.58,
+      "text": "Vi er jo nødt til å ha en lik virkelighetsforståelse mellom oss."
+    },
+    {
+      "start": 1027.58,
+      "end": 1035.08,
+      "text": "Faglag og myndigheter og jordbrukspolitikken må også utformes i tråd med det som er markedsmulighetene."
+    },
+    {
+      "start": 1035.08,
+      "end": 1041.48,
+      "text": "Det opplever vi at den mye større graden nå gjør en fornående ord tilbake."
+    },
+    {
+      "start": 1041.48,
+      "end": 1051.48,
+      "text": "For vi skal ikke så veldig langt tilbake, for vi stilte spørsmålene er det lurt å føre en jordvis politikk som stimulerer til økproduksjon, og vi har overproduksjon."
+    },
+    {
+      "start": 1051.48,
+      "end": 1057.08,
+      "text": "Men der opplever vi at vi går i mer riktig retning."
+    },
+    {
+      "start": 1057.08,
+      "end": 1063.88,
+      "text": "Hvis det er noen av dere som har spørsmål eller vil komme innspill, så er det bare å ta kontakt."
+    },
+    {
+      "start": 1063.88,
+      "end": 1068.08,
+      "text": "Dere finner telefonnummeret mitt eller postadresset på hjemmesiden av vores."
+    },
+    {
+      "start": 1068.08,
+      "end": 1070.08,
+      "text": "Takk så gøy da!"
+    }
+  ]
+}
