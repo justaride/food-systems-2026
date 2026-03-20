@@ -4,7 +4,7 @@ import { isMissingPrismaTable } from './prisma-errors'
 export type GraphNode = {
   id: string
   label: string
-  type: 'document' | 'insight' | 'thesis' | 'company' | 'source' | 'actor'
+  type: 'document' | 'insight' | 'thesis' | 'company' | 'source' | 'actor' | 'person' | 'property'
   tags?: string[]
 }
 
@@ -130,13 +130,44 @@ export async function getFullGraph(): Promise<GraphData> {
     if (!isMissingPrismaTable(error, 'Actor')) throw error
   }
 
+  const [ownershipEdges, bizRelEdges, personProfiles, properties] = await Promise.all([
+    prisma.companyOwnership.findMany({
+      select: { parentCompanyId: true, childCompanyId: true, ownershipType: true },
+    }),
+    prisma.businessRelationship.findMany({
+      select: { fromCompanyId: true, toCompanyId: true, relationshipType: true },
+    }),
+    prisma.personProfile.findMany({
+      select: { id: true, name: true, tags: true, roles: true },
+    }),
+    prisma.companyProperty.findMany({
+      select: { id: true, companyId: true, propertyType: true, municipality: true, selfLeased: true, tenantCompanyId: true },
+    }),
+  ])
+
+  const companyIdSet = new Set(companies.map(c => c.id))
+
   const nodes: GraphNode[] = [
     ...docs.map(d => ({ id: d.id, label: d.title, type: 'document' as const, tags: d.tags })),
     ...insights.map(i => ({ id: i.id, label: i.title, type: 'insight' as const, tags: i.tags })),
     ...theses.map(t => ({ id: t.id, label: t.title, type: 'thesis' as const, tags: t.tags })),
     ...companies.map(c => ({ id: c.id, label: c.name, type: 'company' as const })),
     ...actors.map(a => ({ id: a.id, label: a.name, type: 'actor' as const, tags: a.themeTags })),
+    ...personProfiles.map(p => ({ id: p.id, label: p.name, type: 'person' as const, tags: p.tags })),
+    ...properties.map(p => ({
+      id: p.id,
+      label: `${p.propertyType}${p.municipality ? ` (${p.municipality})` : ''}`,
+      type: 'property' as const,
+      tags: [p.propertyType, ...(p.selfLeased ? ['self-leased'] : [])],
+    })),
   ]
+
+  const personEdges: GraphEdge[] = personProfiles.flatMap(p => {
+    const roles = p.roles as Array<{ companyId?: string }>
+    return roles
+      .filter(r => r.companyId && companyIdSet.has(r.companyId))
+      .map(r => ({ source: p.id, target: r.companyId!, type: 'person-role' }))
+  })
 
   const edges: GraphEdge[] = [
     ...docRefs.map(r => ({ source: r.fromId, target: r.toId, type: r.refType })),
@@ -150,6 +181,13 @@ export async function getFullGraph(): Promise<GraphData> {
     ...theses
       .filter(t => t.documentId)
       .map(t => ({ source: t.documentId!, target: t.id, type: 'thesis-doc' })),
+    ...ownershipEdges.map(r => ({ source: r.parentCompanyId, target: r.childCompanyId, type: r.ownershipType })),
+    ...bizRelEdges.map(r => ({ source: r.fromCompanyId, target: r.toCompanyId, type: r.relationshipType })),
+    ...personEdges,
+    ...properties.map(p => ({ source: p.companyId, target: p.id, type: 'owns-property' })),
+    ...properties
+      .filter(p => p.tenantCompanyId)
+      .map(p => ({ source: p.tenantCompanyId!, target: p.id, type: 'leases-property' })),
   ]
 
   return { nodes, edges }

@@ -29,6 +29,7 @@ type MapContextType = {
   logisticsHubs: LogisticsHub[]
   municipalityMetrics: Record<string, MunicipalityMetrics>
   vulnerabilityScores: Record<string, VulnerabilityScore>
+  companyProperties: GeoJSON.FeatureCollection | null
   selectedMunicipality: string | null
   setSelectedMunicipality: (code: string | null) => void
 }
@@ -141,6 +142,7 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
   const [processingPlants, setProcessingPlants] = useState<ProcessingPlant[]>([])
   const [ports, setPorts] = useState<Port[]>([])
   const [logisticsHubs, setLogisticsHubs] = useState<LogisticsHub[]>([])
+  const [companyProperties, setCompanyProperties] = useState<GeoJSON.FeatureCollection | null>(null)
   const [selectedMunicipality, setSelectedMunicipality] = useState<string | null>(null)
 
   useEffect(() => {
@@ -236,6 +238,14 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
     )
   }, [municipalities, municipalityMetrics, logisticsHubs, geojson, countryConfig])
 
+  useEffect(() => {
+    if (!activeLayers.includes('properties') || companyProperties) return
+    fetch('/api/properties')
+      .then(r => r.json())
+      .then(setCompanyProperties)
+      .catch(console.error)
+  }, [activeLayers, companyProperties])
+
   const toggleLayer = useCallback((layer: MapLayer) => {
     setActiveLayers(prev => {
       if (prev.includes(layer)) return prev.filter(l => l !== layer)
@@ -276,13 +286,14 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
     logisticsHubs,
     municipalityMetrics,
     vulnerabilityScores,
+    companyProperties,
     selectedMunicipality,
     setSelectedMunicipality,
   }), [
     isLoading, error, country, countryConfig, stores, municipalities, geojson,
     activeLayers, toggleLayer, activeChains, toggleChain,
     aquacultureSites, processingPlants, ports, logisticsHubs,
-    municipalityMetrics, vulnerabilityScores, selectedMunicipality,
+    municipalityMetrics, vulnerabilityScores, companyProperties, selectedMunicipality,
   ])
 
   return (
