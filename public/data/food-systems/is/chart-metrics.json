@@ -1,0 +1,387 @@
+{
+  "generated": "2026-03-20T16:55:19.457Z",
+  "country": "is",
+  "totalStores": 243,
+  "parentCompany": {
+    "data": [
+      {
+        "id": "Unknown",
+        "label": "Unknown",
+        "value": 43.6,
+        "count": 106,
+        "color": "#6B7280"
+      },
+      {
+        "id": "Festi",
+        "label": "Festi",
+        "value": 20.2,
+        "count": 49,
+        "color": "#00529B"
+      },
+      {
+        "id": "Samkaup",
+        "label": "Samkaup",
+        "value": 18.5,
+        "count": 45,
+        "color": "#00843D"
+      },
+      {
+        "id": "Hagar",
+        "label": "Hagar",
+        "value": 17.7,
+        "count": 43,
+        "color": "#E3000B"
+      }
+    ],
+    "parentHHI": 2965
+  },
+  "lorenzCurve": {
+    "data": [
+      {
+        "popShare": 0,
+        "storeShare": 0
+      },
+      {
+        "popShare": 5,
+        "storeShare": 0
+      },
+      {
+        "popShare": 10,
+        "storeShare": 0
+      },
+      {
+        "popShare": 15,
+        "storeShare": 0
+      },
+      {
+        "popShare": 20,
+        "storeShare": 1.5
+      },
+      {
+        "popShare": 25,
+        "storeShare": 2.5
+      },
+      {
+        "popShare": 30,
+        "storeShare": 10.8
+      },
+      {
+        "popShare": 35,
+        "storeShare": 12.3
+      },
+      {
+        "popShare": 40,
+        "storeShare": 17.7
+      },
+      {
+        "popShare": 45,
+        "storeShare": 19.7
+      },
+      {
+        "popShare": 50,
+        "storeShare": 19.7
+      },
+      {
+        "popShare": 55,
+        "storeShare": 19.7
+      },
+      {
+        "popShare": 60,
+        "storeShare": 19.7
+      },
+      {
+        "popShare": 65,
+        "storeShare": 60.6
+      },
+      {
+        "popShare": 70,
+        "storeShare": 60.6
+      },
+      {
+        "popShare": 75,
+        "storeShare": 60.6
+      },
+      {
+        "popShare": 80,
+        "storeShare": 60.6
+      },
+      {
+        "popShare": 85,
+        "storeShare": 66.5
+      },
+      {
+        "popShare": 90,
+        "storeShare": 72.9
+      },
+      {
+        "popShare": 95,
+        "storeShare": 80.8
+      },
+      {
+        "popShare": 100,
+        "storeShare": 100
+      }
+    ],
+    "gini": 0.355
+  },
+  "zipf": {
+    "data": [
+      {
+        "logRank": 0,
+        "logCount": 1.919,
+        "name": "Reykjavík",
+        "rank": 1,
+        "storeCount": 83
+      },
+      {
+        "logRank": 0.301,
+        "logCount": 1.23,
+        "name": "Kópavogur",
+        "rank": 2,
+        "storeCount": 17
+      },
+      {
+        "logRank": 0.477,
+        "logCount": 1.079,
+        "name": "Akureyrarkaupstaður",
+        "rank": 3,
+        "storeCount": 12
+      },
+      {
+        "logRank": 0.602,
+        "logCount": 1.041,
+        "name": "Reykjanesbær",
+        "rank": 4,
+        "storeCount": 11
+      },
+      {
+        "logRank": 0.699,
+        "logCount": 0.903,
+        "name": "Mosfellsbær",
+        "rank": 5,
+        "storeCount": 8
+      },
+      {
+        "logRank": 0.778,
+        "logCount": 0.845,
+        "name": "Sveitarfélagið Árborg",
+        "rank": 6,
+        "storeCount": 7
+      },
+      {
+        "logRank": 0.845,
+        "logCount": 0.699,
+        "name": "Akraneskaupstaður",
+        "rank": 7,
+        "storeCount": 5
+      },
+      {
+        "logRank": 0.903,
+        "logCount": 0.699,
+        "name": "Fjarðabyggð",
+        "rank": 8,
+        "storeCount": 5
+      },
+      {
+        "logRank": 0.954,
+        "logCount": 0.602,
+        "name": "Bolungarvíkurkaupstaður",
+        "rank": 9,
+        "storeCount": 4
+      },
+      {
+        "logRank": 1,
+        "logCount": 0.602,
+        "name": "Ísafjarðarbær",
+        "rank": 10,
+        "storeCount": 4
+      },
+      {
+        "logRank": 1.041,
+        "logCount": 0.602,
+        "name": "#11",
+        "rank": 11,
+        "storeCount": 4
+      },
+      {
+        "logRank": 1.079,
+        "logCount": 0.602,
+        "name": "#12",
+        "rank": 12,
+        "storeCount": 4
+      },
+      {
+        "logRank": 1.114,
+        "logCount": 0.602,
+        "name": "#13",
+        "rank": 13,
+        "storeCount": 4
+      },
+      {
+        "logRank": 1.146,
+        "logCount": 0.477,
+        "name": "#14",
+        "rank": 14,
+        "storeCount": 3
+      },
+      {
+        "logRank": 1.176,
+        "logCount": 0.477,
+        "name": "#15",
+        "rank": 15,
+        "storeCount": 3
+      },
+      {
+        "logRank": 1.204,
+        "logCount": 0.477,
+        "name": "#16",
+        "rank": 16,
+        "storeCount": 3
+      },
+      {
+        "logRank": 1.23,
+        "logCount": 0.477,
+        "name": "#17",
+        "rank": 17,
+        "storeCount": 3
+      },
+      {
+        "logRank": 1.255,
+        "logCount": 0.301,
+        "name": "#18",
+        "rank": 18,
+        "storeCount": 2
+      },
+      {
+        "logRank": 1.279,
+        "logCount": 0.301,
+        "name": "#19",
+        "rank": 19,
+        "storeCount": 2
+      },
+      {
+        "logRank": 1.301,
+        "logCount": 0.301,
+        "name": "#20",
+        "rank": 20,
+        "storeCount": 2
+      },
+      {
+        "logRank": 1.322,
+        "logCount": 0.301,
+        "name": "#21",
+        "rank": 21,
+        "storeCount": 2
+      },
+      {
+        "logRank": 1.342,
+        "logCount": 0,
+        "name": "#22",
+        "rank": 22,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.362,
+        "logCount": 0,
+        "name": "#23",
+        "rank": 23,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.38,
+        "logCount": 0,
+        "name": "#24",
+        "rank": 24,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.398,
+        "logCount": 0,
+        "name": "#25",
+        "rank": 25,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.415,
+        "logCount": 0,
+        "name": "#26",
+        "rank": 26,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.431,
+        "logCount": 0,
+        "name": "#27",
+        "rank": 27,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.447,
+        "logCount": 0,
+        "name": "#28",
+        "rank": 28,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.462,
+        "logCount": 0,
+        "name": "#29",
+        "rank": 29,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.477,
+        "logCount": 0,
+        "name": "#30",
+        "rank": 30,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.491,
+        "logCount": 0,
+        "name": "#31",
+        "rank": 31,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.505,
+        "logCount": 0,
+        "name": "#32",
+        "rank": 32,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.519,
+        "logCount": 0,
+        "name": "#33",
+        "rank": 33,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.531,
+        "logCount": 0,
+        "name": "#34",
+        "rank": 34,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.544,
+        "logCount": 0,
+        "name": "#35",
+        "rank": 35,
+        "storeCount": 1
+      },
+      {
+        "logRank": 1.556,
+        "logCount": 0,
+        "name": "#36",
+        "rank": 36,
+        "storeCount": 1
+      }
+    ],
+    "slope": -1.177,
+    "intercept": 1.763,
+    "rSquared": 0.956,
+    "isZipf": true
+  }
+}

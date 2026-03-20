@@ -916,9 +916,89 @@ const companies: CompanyData[] = [
       { personName: 'Trond Bentestuen', role: 'CEO' },
     ],
   },
+
+  // === M&A TARGETS (Session 10) ===
+
+  {
+    name: 'NTS ASA',
+    orgNr: '952587687',
+    legalForm: 'ASA',
+    founded: 2013,
+    naceCode: '03.211',
+    naceDescription: 'Produksjon av matfisk og skalldyr i hav- og kystbasert fiskeoppdrett',
+    hqCity: 'Rørvik',
+    ownershipType: 'listed',
+    valueChainStage: 'seafood',
+    shareholders: [
+      { name: 'SalMar ASA (100% etter fusjon)', ownershipPct: 100, shareholderType: 'institutional', isControlling: true },
+    ],
+  },
+  {
+    name: 'Nova Sea AS',
+    orgNr: '961056268',
+    legalForm: 'AS',
+    founded: 1991,
+    naceCode: '03.211',
+    naceDescription: 'Produksjon av matfisk og skalldyr i hav- og kystbasert fiskeoppdrett',
+    hqCity: 'Lovund',
+    employees: 358,
+    ownershipType: 'private',
+    valueChainStage: 'seafood',
+    shareholders: [
+      { name: 'Mowi ASA', ownershipPct: 95, shareholderType: 'institutional', isControlling: true },
+    ],
+  },
+  {
+    name: 'Orkla Food Ingredients AS',
+    orgNr: '911161419',
+    legalForm: 'AS',
+    founded: 1918,
+    naceCode: '10.610',
+    naceDescription: 'Produksjon av kornvarer',
+    hqAddress: 'Drammensveien 149A',
+    hqCity: 'Oslo',
+    employees: 30,
+    ownershipType: 'private',
+    valueChainStage: 'processing',
+    shareholders: [
+      { name: 'Orkla ASA', ownershipPct: 60, shareholderType: 'institutional', isControlling: true },
+      { name: 'Rhône Capital', ownershipPct: 40, shareholderType: 'institutional', isControlling: false },
+    ],
+  },
+  {
+    name: 'Lilleborg AS',
+    orgNr: '925745855',
+    legalForm: 'AS',
+    founded: 2020,
+    naceCode: '46.750',
+    naceDescription: 'Engroshandel med kjemiske produkter',
+    hqAddress: 'Hoffsveien 21',
+    hqCity: 'Oslo',
+    employees: 133,
+    ownershipType: 'foreign',
+    valueChainStage: 'processing',
+    shareholders: [
+      { name: 'Solenis International LLC', ownershipPct: 100, shareholderType: 'foreign', isControlling: true },
+    ],
+  },
 ]
 
 const nordicCompanies: CompanyData[] = [
+  // === M&A TARGETS (Nordic, Session 10) ===
+  {
+    name: 'City Gross Sverige AB',
+    orgNr: 'SE-556448-4498',
+    country: 'SE',
+    legalForm: 'AB',
+    founded: 2002,
+    hqCity: 'Halmstad',
+    ownershipType: 'private',
+    valueChainStage: 'retail',
+    shareholders: [
+      { name: 'Axfood AB (100% etter oppkjøp)', ownershipPct: 100, shareholderType: 'institutional', isControlling: true },
+    ],
+  },
+
   // === SWEDEN ===
   {
     name: 'ICA Gruppen AB',

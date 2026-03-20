@@ -38,22 +38,19 @@ const ownershipRecords: OwnershipRecord[] = [
   // --- M&A 2022-2025 (Session 9) ---
 
   // SalMar -> NTS/NRS/SalmoNor (completed Dec 2022, NOK 15.1B)
-  { parentOrgNr: '960514718', childOrgNr: 'NO-952587687', ownershipPct: 100, ownershipType: 'subsidiary', effectiveFrom: '2022-12-29', source: 'SalMar Borsmeld. 2022-12', metadata: { dealValue: 'NOK 15.1B', dealType: 'merger', target: 'NTS ASA / Norway Royal Salmon / SalmoNor', notes: 'SalMar absorbed NTS/NRS/SalmoNor via merger, became world #2 salmon producer. EU Commission approved with conditions.' } },
+  { parentOrgNr: '960514718', childOrgNr: '952587687', ownershipPct: 100, ownershipType: 'subsidiary', effectiveFrom: '2022-12-29', source: 'SalMar Borsmeld. 2022-12', metadata: { dealValue: 'NOK 15.1B', dealType: 'merger', target: 'NTS ASA / Norway Royal Salmon / SalmoNor', notes: 'SalMar absorbed NTS/NRS/SalmoNor via merger, became world #2 salmon producer. EU Commission approved with conditions.' } },
 
   // Mowi -> Nova Sea (49% -> 95%, completed Oct 2025, NOK 7.4B for 46% stake)
-  { parentOrgNr: '964118191', childOrgNr: 'NO-960507828', ownershipPct: 95, ownershipType: 'subsidiary', effectiveFrom: '2025-10-21', source: 'Mowi Borsmeld. jan 2025 / GlobeNewswire', metadata: { dealValue: 'NOK 7.4B (46% stake)', totalEquityValue: 'NOK 16.0B', dealType: 'acquisition', target: 'Nova Sea AS', notes: 'Mowi held 49% since 1995, acquired Vigner Olaisen 46% (30% shares, 70% cash). Harvest ~52k tonnes. EV/EBIT 9x.' } },
+  { parentOrgNr: '964118191', childOrgNr: '961056268', ownershipPct: 95, ownershipType: 'subsidiary', effectiveFrom: '2025-10-21', source: 'Mowi Borsmeld. jan 2025 / GlobeNewswire', metadata: { dealValue: 'NOK 7.4B (46% stake)', totalEquityValue: 'NOK 16.0B', dealType: 'acquisition', target: 'Nova Sea AS', notes: 'Mowi held 49% since 1995, acquired Vigner Olaisen 46% (30% shares, 70% cash). Harvest ~52k tonnes. EV/EBIT 9x.' } },
 
   // Axfood -> City Gross Sverige (9.9% -> 100%, completed Nov 2024, SEK 2.0B)
   { parentOrgNr: 'SE-556542-5353', childOrgNr: 'SE-556448-4498', ownershipPct: 100, ownershipType: 'subsidiary', effectiveFrom: '2024-11-01', source: 'Axfood Pressrelease 2024-10-29', metadata: { dealValue: 'SEK 2.0B', dealType: 'acquisition', target: 'City Gross Sverige AB', notes: 'Axfood acquired remaining 90.1% from Bergendahl Food Holding. 42 stores, 2800 employees.' } },
 
-  // REMA 1000 DK -> Aldi DK stores (114 stores + 3 DCs, completed Jan 2024)
-  { parentOrgNr: 'DK-14705627', childOrgNr: 'DK-ALDI-STORES', ownershipPct: 100, ownershipType: 'subsidiary', effectiveFrom: '2024-01-18', source: 'Reitan Retail / Konkurrenceradet 2024', metadata: { dealType: 'asset-acquisition', target: 'Aldi Nord DK (114 stores, 3 DCs)', notes: 'REMA 1000 acquired majority of Aldi DK. Remaining 30 stores split to Salling (13), Coop, Lidl.' } },
-
   // Orkla -> OFI/Rhone partnership (60/40, completed Apr 2024, NOK 2.5B for 40%)
-  { parentOrgNr: '910747711', childOrgNr: 'NO-OFI-928598129', ownershipPct: 60, ownershipType: 'subsidiary', effectiveFrom: '2024-04-17', source: 'Orkla Pressrelease 2024-04-17', metadata: { dealValue: 'NOK 2.5B (40% stake)', enterpriseValue: 'NOK 15.5B', dealType: 'partial-sale', target: 'Orkla Food Ingredients AS', notes: 'Orkla sold 40% to Rhone Capital. OFI rev. NOK 18.1B. Rhone option for +9% through Mar 2027.' } },
+  { parentOrgNr: '910747711', childOrgNr: '911161419', ownershipPct: 60, ownershipType: 'subsidiary', effectiveFrom: '2024-04-17', source: 'Orkla Pressrelease 2024-04-17', metadata: { dealValue: 'NOK 2.5B (40% stake)', enterpriseValue: 'NOK 15.5B', dealType: 'partial-sale', target: 'Orkla Food Ingredients AS', notes: 'Orkla sold 40% to Rhone Capital. OFI rev. NOK 18.1B. Rhone option for +9% through Mar 2027.' } },
 
   // Orkla -> Lilleborg divestment (100% sold Jun 2024, NOK 600M)
-  { parentOrgNr: '910747711', childOrgNr: 'NO-LILLEBORG-910747703', ownershipPct: 0, ownershipType: 'subsidiary', effectiveFrom: '2024-06-12', effectiveTo: '2024-06-12', source: 'Orkla Pressrelease 2024-06', metadata: { dealValue: 'NOK 600M', dealType: 'divestment', target: 'Lilleborg AS', buyer: 'Solenis International LLC', notes: 'Orkla sold 100% of Lilleborg (B2B cleaning, market leader NO) to Solenis.' } },
+  { parentOrgNr: '910747711', childOrgNr: '925745855', ownershipPct: 0, ownershipType: 'subsidiary', effectiveFrom: '2024-06-12', effectiveTo: '2024-06-12', source: 'Orkla Pressrelease 2024-06', metadata: { dealValue: 'NOK 600M', dealType: 'divestment', target: 'Lilleborg AS', buyer: 'Solenis International LLC', notes: 'Orkla sold 100% of Lilleborg (B2B cleaning, market leader NO) to Solenis.' } },
 ]
 
 const relationshipRecords: RelationshipRecord[] = [

@@ -1,0 +1,525 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "0000", "sveitarfelagsnafn": "Reykjavík" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.00, 64.09], [-21.80, 64.09], [-21.80, 64.19], [-22.00, 64.19], [-22.00, 64.09]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "1000", "sveitarfelagsnafn": "Kópavogur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.01, 64.06], [-21.81, 64.06], [-21.81, 64.16], [-22.01, 64.16], [-22.01, 64.06]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "1100", "sveitarfelagsnafn": "Seltjarnarnes" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.02, 64.15], [-21.92, 64.15], [-21.92, 64.20], [-22.02, 64.20], [-22.02, 64.15]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "1300", "sveitarfelagsnafn": "Garðabær" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.02, 64.04], [-21.82, 64.04], [-21.82, 64.14], [-22.02, 64.14], [-22.02, 64.04]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "1400", "sveitarfelagsnafn": "Hafnarfjörður" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.07, 64.02], [-21.87, 64.02], [-21.87, 64.12], [-22.07, 64.12], [-22.07, 64.02]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "1604", "sveitarfelagsnafn": "Mosfellsbær" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-21.80, 64.12], [-21.60, 64.12], [-21.60, 64.22], [-21.80, 64.22], [-21.80, 64.12]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "2000", "sveitarfelagsnafn": "Reykjanesbær" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.67, 63.94], [-22.47, 63.94], [-22.47, 64.04], [-22.67, 64.04], [-22.67, 63.94]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "2300", "sveitarfelagsnafn": "Grindavíkurbær" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.63, 63.79], [-22.23, 63.79], [-22.23, 64.09], [-22.63, 64.09], [-22.63, 63.79]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "2503", "sveitarfelagsnafn": "Sveitarfélagið Vogar" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.50, 63.92], [-22.20, 63.92], [-22.20, 64.12], [-22.50, 64.12], [-22.50, 63.92]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "2506", "sveitarfelagsnafn": "Suðurnesjabær" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.40, 63.90], [-22.20, 63.90], [-22.20, 64.00], [-22.40, 64.00], [-22.40, 63.90]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "3000", "sveitarfelagsnafn": "Akraneskaupstaður" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.17, 64.27], [-21.97, 64.27], [-21.97, 64.37], [-22.17, 64.37], [-22.17, 64.27]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "3506", "sveitarfelagsnafn": "Skorradalshreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-21.70, 64.35], [-21.30, 64.35], [-21.30, 64.65], [-21.70, 64.65], [-21.70, 64.35]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "3511", "sveitarfelagsnafn": "Hvalfjarðarsveit" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-21.90, 64.30], [-21.50, 64.30], [-21.50, 64.60], [-21.90, 64.60], [-21.90, 64.30]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "3609", "sveitarfelagsnafn": "Borgarbyggð" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-21.80, 64.50], [-21.00, 64.50], [-21.00, 65.00], [-21.80, 65.00], [-21.80, 64.50]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "3710", "sveitarfelagsnafn": "Grundarfjarðarbær" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-23.40, 64.80], [-23.10, 64.80], [-23.10, 65.00], [-23.40, 65.00], [-23.40, 64.80]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "3714", "sveitarfelagsnafn": "Snæfellsbær" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-23.90, 64.70], [-23.50, 64.70], [-23.50, 65.00], [-23.90, 65.00], [-23.90, 64.70]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "3811", "sveitarfelagsnafn": "Eyja- og Miklaholtshreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.50, 64.70], [-22.10, 64.70], [-22.10, 65.00], [-22.50, 65.00], [-22.50, 64.70]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "4100", "sveitarfelagsnafn": "Bolungarvíkurkaupstaður" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-23.35, 66.05], [-23.15, 66.05], [-23.15, 66.20], [-23.35, 66.20], [-23.35, 66.05]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "4200", "sveitarfelagsnafn": "Ísafjarðarbær" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-23.50, 65.80], [-22.80, 65.80], [-22.80, 66.30], [-23.50, 66.30], [-23.50, 65.80]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "4502", "sveitarfelagsnafn": "Reykhólahreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.20, 65.30], [-21.60, 65.30], [-21.60, 65.70], [-22.20, 65.70], [-22.20, 65.30]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "4604", "sveitarfelagsnafn": "Tálknafjarðarhreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-23.90, 65.50], [-23.50, 65.50], [-23.50, 65.80], [-23.90, 65.80], [-23.90, 65.50]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "4607", "sveitarfelagsnafn": "Vesturbyggð" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-24.10, 65.60], [-23.70, 65.60], [-23.70, 65.90], [-24.10, 65.90], [-24.10, 65.60]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "4803", "sveitarfelagsnafn": "Súðavíkurhreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.90, 65.90], [-22.50, 65.90], [-22.50, 66.20], [-22.90, 66.20], [-22.90, 65.90]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "4901", "sveitarfelagsnafn": "Árneshreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.10, 65.90], [-21.50, 65.90], [-21.50, 66.30], [-22.10, 66.30], [-22.10, 65.90]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "4902", "sveitarfelagsnafn": "Kaldrananeshreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-22.00, 65.70], [-21.60, 65.70], [-21.60, 66.00], [-22.00, 66.00], [-22.00, 65.70]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "4911", "sveitarfelagsnafn": "Strandabyggð" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-21.70, 65.60], [-21.10, 65.60], [-21.10, 66.10], [-21.70, 66.10], [-21.70, 65.60]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "5200", "sveitarfelagsnafn": "Sveitarfélagið Skagafjörður" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-19.70, 65.40], [-18.90, 65.40], [-18.90, 66.00], [-19.70, 66.00], [-19.70, 65.40]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "5508", "sveitarfelagsnafn": "Húnaþing vestra" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-21.40, 65.40], [-20.70, 65.40], [-20.70, 65.90], [-21.40, 65.90], [-21.40, 65.40]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "5604", "sveitarfelagsnafn": "Blönduósbær" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-20.60, 65.50], [-20.20, 65.50], [-20.20, 65.80], [-20.60, 65.80], [-20.60, 65.50]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "5609", "sveitarfelagsnafn": "Sveitarfélagið Skagaströnd" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-20.30, 65.70], [-20.00, 65.70], [-20.00, 66.00], [-20.30, 66.00], [-20.30, 65.70]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "5706", "sveitarfelagsnafn": "Akrahreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-19.10, 65.50], [-18.70, 65.50], [-18.70, 65.80], [-19.10, 65.80], [-19.10, 65.50]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "6000", "sveitarfelagsnafn": "Akureyrarkaupstaður" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-18.19, 65.63], [-17.99, 65.63], [-17.99, 65.73], [-18.19, 65.73], [-18.19, 65.63]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "6100", "sveitarfelagsnafn": "Norðurþing" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-16.80, 65.60], [-15.90, 65.60], [-15.90, 66.30], [-16.80, 66.30], [-16.80, 65.60]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "6250", "sveitarfelagsnafn": "Fjallabyggð" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-18.60, 65.90], [-18.20, 65.90], [-18.20, 66.20], [-18.60, 66.20], [-18.60, 65.90]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "6400", "sveitarfelagsnafn": "Dalvíkurbyggð" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-18.70, 65.80], [-18.40, 65.80], [-18.40, 66.10], [-18.70, 66.10], [-18.70, 65.80]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "6513", "sveitarfelagsnafn": "Eyjafjarðarsveit" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-18.50, 65.30], [-17.80, 65.30], [-17.80, 65.80], [-18.50, 65.80], [-18.50, 65.30]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "6601", "sveitarfelagsnafn": "Grýtubakkahreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-17.80, 65.60], [-17.50, 65.60], [-17.50, 65.80], [-17.80, 65.80], [-17.80, 65.60]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "6602", "sveitarfelagsnafn": "Svalbarðsstrandarhreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-18.00, 65.70], [-17.70, 65.70], [-17.70, 65.90], [-18.00, 65.90], [-18.00, 65.70]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "6607", "sveitarfelagsnafn": "Hörgársveit" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-18.40, 65.50], [-17.90, 65.50], [-17.90, 65.90], [-18.40, 65.90], [-18.40, 65.50]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "6611", "sveitarfelagsnafn": "Svalbarðshreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-17.30, 65.60], [-16.80, 65.60], [-16.80, 66.00], [-17.30, 66.00], [-17.30, 65.60]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "6612", "sveitarfelagsnafn": "Grýtubakkahreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-17.60, 65.50], [-17.30, 65.50], [-17.30, 65.70], [-17.60, 65.70], [-17.60, 65.50]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "6706", "sveitarfelagsnafn": "Þingeyjarsveit" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-17.50, 65.30], [-16.50, 65.30], [-16.50, 66.00], [-17.50, 66.00], [-17.50, 65.30]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "6709", "sveitarfelagsnafn": "Skútustaðahreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-17.20, 65.30], [-16.30, 65.30], [-16.30, 65.90], [-17.20, 65.90], [-17.20, 65.30]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "7000", "sveitarfelagsnafn": "Seyðisfjörður" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-14.20, 65.15], [-13.90, 65.15], [-13.90, 65.35], [-14.20, 65.35], [-14.20, 65.15]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "7300", "sveitarfelagsnafn": "Fljótsdalshérað" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-15.50, 64.80], [-14.50, 64.80], [-14.50, 65.50], [-15.50, 65.50], [-15.50, 64.80]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "7502", "sveitarfelagsnafn": "Fljótsdalshreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-15.40, 64.70], [-14.90, 64.70], [-14.90, 65.10], [-15.40, 65.10], [-15.40, 64.70]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "7505", "sveitarfelagsnafn": "Borgarfjarðarhreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-14.10, 65.35], [-13.80, 65.35], [-13.80, 65.55], [-14.10, 65.55], [-14.10, 65.35]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "7509", "sveitarfelagsnafn": "Breiðdalshreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-14.50, 64.60], [-14.00, 64.60], [-14.00, 65.00], [-14.50, 65.00], [-14.50, 64.60]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "7613", "sveitarfelagsnafn": "Djúpavogshreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-14.50, 64.50], [-14.00, 64.50], [-14.00, 64.80], [-14.50, 64.80], [-14.50, 64.50]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "7617", "sveitarfelagsnafn": "Fjarðabyggð" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-14.30, 65.00], [-13.50, 65.00], [-13.50, 65.50], [-14.30, 65.50], [-14.30, 65.00]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "7620", "sveitarfelagsnafn": "Sveitarfélagið Hornafjörður" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-16.00, 63.90], [-15.00, 63.90], [-15.00, 64.60], [-16.00, 64.60], [-16.00, 63.90]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "7708", "sveitarfelagsnafn": "Vopnafjarðarhreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-15.00, 65.50], [-14.50, 65.50], [-14.50, 65.90], [-15.00, 65.90], [-15.00, 65.50]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "7709", "sveitarfelagsnafn": "Langanesbyggð" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-15.20, 65.80], [-14.60, 65.80], [-14.60, 66.30], [-15.20, 66.30], [-15.20, 65.80]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "8000", "sveitarfelagsnafn": "Vestmannaeyjabær" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-20.37, 63.39], [-20.17, 63.39], [-20.17, 63.49], [-20.37, 63.49], [-20.37, 63.39]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "8200", "sveitarfelagsnafn": "Sveitarfélagið Árborg" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-21.10, 63.88], [-20.90, 63.88], [-20.90, 63.98], [-21.10, 63.98], [-21.10, 63.88]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "8508", "sveitarfelagsnafn": "Mýrdalshreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-19.40, 63.30], [-18.90, 63.30], [-18.90, 63.70], [-19.40, 63.70], [-19.40, 63.30]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "8509", "sveitarfelagsnafn": "Skaftárhreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-18.80, 63.50], [-17.80, 63.50], [-17.80, 64.20], [-18.80, 64.20], [-18.80, 63.50]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "8610", "sveitarfelagsnafn": "Ásahreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-19.70, 63.70], [-19.20, 63.70], [-19.20, 64.10], [-19.70, 64.10], [-19.70, 63.70]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "8613", "sveitarfelagsnafn": "Rangárþing eystra" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-20.00, 63.50], [-19.40, 63.50], [-19.40, 64.00], [-20.00, 64.00], [-20.00, 63.50]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "8614", "sveitarfelagsnafn": "Rangárþing ytra" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-20.50, 63.60], [-19.90, 63.60], [-19.90, 64.10], [-20.50, 64.10], [-20.50, 63.60]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "8710", "sveitarfelagsnafn": "Hrunamannahreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-20.80, 63.90], [-20.30, 63.90], [-20.30, 64.30], [-20.80, 64.30], [-20.80, 63.90]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "8716", "sveitarfelagsnafn": "Flóahreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-21.10, 63.80], [-20.70, 63.80], [-20.70, 64.10], [-21.10, 64.10], [-21.10, 63.80]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "8717", "sveitarfelagsnafn": "Skeiða- og Gnúpverjahreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-20.60, 63.80], [-20.10, 63.80], [-20.10, 64.20], [-20.60, 64.20], [-20.60, 63.80]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "8720", "sveitarfelagsnafn": "Bláskógabyggð" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-21.00, 64.00], [-20.10, 64.00], [-20.10, 64.60], [-21.00, 64.60], [-21.00, 64.00]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "sveitarfelagsnumer": "8722", "sveitarfelagsnafn": "Grímsnes- og Grafningshreppur" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-21.20, 64.00], [-20.80, 64.00], [-20.80, 64.30], [-21.20, 64.30], [-21.20, 64.00]]]
+      }
+    }
+  ]
+}

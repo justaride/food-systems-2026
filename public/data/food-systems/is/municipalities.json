@@ -1,0 +1,397 @@
+{
+  "_meta": {
+    "source": "Hagstofa Íslands (Statistics Iceland), Samband íslenskra sveitarfélaga",
+    "updated": "2024",
+    "description": "64 sveitarfélög (municipalities) with population and area in km²"
+  },
+  "0000": {
+    "code": "0000",
+    "name": "Reykjavík",
+    "population": 140000,
+    "area": 273
+  },
+  "1000": {
+    "code": "1000",
+    "name": "Kópavogur",
+    "population": 40000,
+    "area": 80
+  },
+  "1100": {
+    "code": "1100",
+    "name": "Seltjarnarnes",
+    "population": 4900,
+    "area": 2
+  },
+  "1300": {
+    "code": "1300",
+    "name": "Garðabær",
+    "population": 19000,
+    "area": 71
+  },
+  "1400": {
+    "code": "1400",
+    "name": "Hafnarfjörður",
+    "population": 31000,
+    "area": 143
+  },
+  "1604": {
+    "code": "1604",
+    "name": "Mosfellsbær",
+    "population": 13000,
+    "area": 187
+  },
+  "2000": {
+    "code": "2000",
+    "name": "Reykjanesbær",
+    "population": 21000,
+    "area": 132
+  },
+  "2300": {
+    "code": "2300",
+    "name": "Grindavíkurbær",
+    "population": 3500,
+    "area": 423
+  },
+  "2503": {
+    "code": "2503",
+    "name": "Sveitarfélagið Vogar",
+    "population": 1300,
+    "area": 171
+  },
+  "2506": {
+    "code": "2506",
+    "name": "Suðurnesjabær",
+    "population": 3000,
+    "area": 69
+  },
+  "3000": {
+    "code": "3000",
+    "name": "Akraneskaupstaður",
+    "population": 7800,
+    "area": 11
+  },
+  "3506": {
+    "code": "3506",
+    "name": "Skorradalshreppur",
+    "population": 170,
+    "area": 361
+  },
+  "3511": {
+    "code": "3511",
+    "name": "Hvalfjarðarsveit",
+    "population": 1000,
+    "area": 622
+  },
+  "3609": {
+    "code": "3609",
+    "name": "Borgarbyggð",
+    "population": 3800,
+    "area": 3709
+  },
+  "3710": {
+    "code": "3710",
+    "name": "Grundarfjarðarbær",
+    "population": 900,
+    "area": 164
+  },
+  "3714": {
+    "code": "3714",
+    "name": "Snæfellsbær",
+    "population": 1700,
+    "area": 574
+  },
+  "3811": {
+    "code": "3811",
+    "name": "Eyja- og Miklaholtshreppur",
+    "population": 120,
+    "area": 503
+  },
+  "4100": {
+    "code": "4100",
+    "name": "Bolungarvíkurkaupstaður",
+    "population": 900,
+    "area": 62
+  },
+  "4200": {
+    "code": "4200",
+    "name": "Ísafjarðarbær",
+    "population": 3700,
+    "area": 2493
+  },
+  "4502": {
+    "code": "4502",
+    "name": "Reykhólahreppur",
+    "population": 300,
+    "area": 1498
+  },
+  "4604": {
+    "code": "4604",
+    "name": "Tálknafjarðarhreppur",
+    "population": 290,
+    "area": 571
+  },
+  "4607": {
+    "code": "4607",
+    "name": "Vesturbyggð",
+    "population": 1000,
+    "area": 1093
+  },
+  "4803": {
+    "code": "4803",
+    "name": "Súðavíkurhreppur",
+    "population": 200,
+    "area": 511
+  },
+  "4901": {
+    "code": "4901",
+    "name": "Árneshreppur",
+    "population": 40,
+    "area": 1079
+  },
+  "4902": {
+    "code": "4902",
+    "name": "Kaldrananeshreppur",
+    "population": 100,
+    "area": 242
+  },
+  "4911": {
+    "code": "4911",
+    "name": "Strandabyggð",
+    "population": 500,
+    "area": 1565
+  },
+  "5200": {
+    "code": "5200",
+    "name": "Sveitarfélagið Skagafjörður",
+    "population": 4300,
+    "area": 4175
+  },
+  "5508": {
+    "code": "5508",
+    "name": "Húnaþing vestra",
+    "population": 1100,
+    "area": 2539
+  },
+  "5604": {
+    "code": "5604",
+    "name": "Blönduósbær",
+    "population": 900,
+    "area": 301
+  },
+  "5609": {
+    "code": "5609",
+    "name": "Sveitarfélagið Skagaströnd",
+    "population": 500,
+    "area": 194
+  },
+  "5706": {
+    "code": "5706",
+    "name": "Akrahreppur",
+    "population": 280,
+    "area": 1009
+  },
+  "6000": {
+    "code": "6000",
+    "name": "Akureyrarkaupstaður",
+    "population": 19600,
+    "area": 138
+  },
+  "6100": {
+    "code": "6100",
+    "name": "Norðurþing",
+    "population": 2800,
+    "area": 3541
+  },
+  "6250": {
+    "code": "6250",
+    "name": "Fjallabyggð",
+    "population": 1800,
+    "area": 506
+  },
+  "6400": {
+    "code": "6400",
+    "name": "Dalvíkurbyggð",
+    "population": 1900,
+    "area": 255
+  },
+  "6513": {
+    "code": "6513",
+    "name": "Eyjafjarðarsveit",
+    "population": 1600,
+    "area": 3103
+  },
+  "6601": {
+    "code": "6601",
+    "name": "Grýtubakkahreppur",
+    "population": 300,
+    "area": 188
+  },
+  "6602": {
+    "code": "6602",
+    "name": "Svalbarðsstrandarhreppur",
+    "population": 400,
+    "area": 242
+  },
+  "6607": {
+    "code": "6607",
+    "name": "Hörgársveit",
+    "population": 500,
+    "area": 1119
+  },
+  "6611": {
+    "code": "6611",
+    "name": "Svalbarðshreppur",
+    "population": 120,
+    "area": 1089
+  },
+  "6612": {
+    "code": "6612",
+    "name": "Grýtubakkahreppur",
+    "population": 130,
+    "area": 295
+  },
+  "6706": {
+    "code": "6706",
+    "name": "Þingeyjarsveit",
+    "population": 1000,
+    "area": 5050
+  },
+  "6709": {
+    "code": "6709",
+    "name": "Skútustaðahreppur",
+    "population": 400,
+    "area": 3273
+  },
+  "7000": {
+    "code": "7000",
+    "name": "Seyðisfjörður",
+    "population": 700,
+    "area": 264
+  },
+  "7300": {
+    "code": "7300",
+    "name": "Fljótsdalshérað",
+    "population": 3400,
+    "area": 8884
+  },
+  "7502": {
+    "code": "7502",
+    "name": "Fljótsdalshreppur",
+    "population": 200,
+    "area": 1390
+  },
+  "7505": {
+    "code": "7505",
+    "name": "Borgarfjarðarhreppur",
+    "population": 120,
+    "area": 356
+  },
+  "7509": {
+    "code": "7509",
+    "name": "Breiðdalshreppur",
+    "population": 200,
+    "area": 1397
+  },
+  "7613": {
+    "code": "7613",
+    "name": "Djúpavogshreppur",
+    "population": 460,
+    "area": 1016
+  },
+  "7617": {
+    "code": "7617",
+    "name": "Fjarðabyggð",
+    "population": 5000,
+    "area": 4672
+  },
+  "7620": {
+    "code": "7620",
+    "name": "Sveitarfélagið Hornafjörður",
+    "population": 2200,
+    "area": 7072
+  },
+  "7708": {
+    "code": "7708",
+    "name": "Vopnafjarðarhreppur",
+    "population": 700,
+    "area": 1208
+  },
+  "7709": {
+    "code": "7709",
+    "name": "Langanesbyggð",
+    "population": 400,
+    "area": 1441
+  },
+  "8000": {
+    "code": "8000",
+    "name": "Vestmannaeyjabær",
+    "population": 4500,
+    "area": 16
+  },
+  "8200": {
+    "code": "8200",
+    "name": "Sveitarfélagið Árborg",
+    "population": 10000,
+    "area": 109
+  },
+  "8508": {
+    "code": "8508",
+    "name": "Mýrdalshreppur",
+    "population": 600,
+    "area": 677
+  },
+  "8509": {
+    "code": "8509",
+    "name": "Skaftárhreppur",
+    "population": 400,
+    "area": 5206
+  },
+  "8610": {
+    "code": "8610",
+    "name": "Ásahreppur",
+    "population": 220,
+    "area": 1073
+  },
+  "8613": {
+    "code": "8613",
+    "name": "Rangárþing eystra",
+    "population": 1900,
+    "area": 1447
+  },
+  "8614": {
+    "code": "8614",
+    "name": "Rangárþing ytra",
+    "population": 1800,
+    "area": 1308
+  },
+  "8710": {
+    "code": "8710",
+    "name": "Hrunamannahreppur",
+    "population": 1200,
+    "area": 1380
+  },
+  "8716": {
+    "code": "8716",
+    "name": "Flóahreppur",
+    "population": 1200,
+    "area": 574
+  },
+  "8717": {
+    "code": "8717",
+    "name": "Skeiða- og Gnúpverjahreppur",
+    "population": 600,
+    "area": 1293
+  },
+  "8720": {
+    "code": "8720",
+    "name": "Bláskógabyggð",
+    "population": 2000,
+    "area": 4160
+  },
+  "8722": {
+    "code": "8722",
+    "name": "Grímsnes- og Grafningshreppur",
+    "population": 600,
+    "area": 454
+  }
+}

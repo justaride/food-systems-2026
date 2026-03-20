@@ -156,6 +156,28 @@ const COUNTRIES: Record<string, CountryDef> = {
       Minimani: '#6B7280',
     },
   },
+  is: {
+    dataDir: join(BASE_DIR, 'is'),
+    storesFile: 'stores.json',
+    municipalitiesFile: 'municipalities.json',
+    boundariesFile: 'municipalities.geojson',
+    municipalityIdProp: 'sveitarfelagsnumer',
+    chainParents: {
+      'b-nus': 'Hagar',
+      hagkaup: 'Hagar',
+      '10-11': 'Hagar',
+      'kr-nan': 'Festi',
+      'kj-rb-in': 'Festi',
+      n1: 'Festi',
+      nett: 'Samkaup',
+      kramb: 'Samkaup',
+    },
+    parentColors: {
+      Hagar: '#E3000B',
+      Festi: '#00529B',
+      Samkaup: '#00843D',
+    },
+  },
 }
 
 function loadJson<T>(dir: string, filename: string): T {
