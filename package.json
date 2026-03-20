@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "compute-metrics": "tsx scripts/compute-chart-metrics.ts",
+    "compute-metrics": "tsx scripts/compute-chart-metrics.ts --country=all",
     "build": "prisma generate && npm run compute-metrics && next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,7 +12,7 @@
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
-    "db:import": "tsx scripts/import-ts-data.ts && tsx scripts/import-research-docs.ts && tsx scripts/import-root-docs.ts && tsx scripts/import-external-sources.ts && tsx scripts/import-company-data.ts && tsx scripts/import-company-ownership.ts && tsx scripts/import-person-profiles.ts && tsx scripts/import-actors.ts && tsx scripts/import-transcripts.ts && tsx scripts/import-market-metrics.ts",
+    "db:import": "tsx scripts/import-ts-data.ts && tsx scripts/import-research-docs.ts && tsx scripts/import-root-docs.ts && tsx scripts/import-external-sources.ts && tsx scripts/import-company-data.ts && tsx scripts/import-company-ownership.ts && tsx scripts/import-person-profiles.ts && tsx scripts/import-actors.ts && tsx scripts/import-transcripts.ts && tsx scripts/import-market-metrics.ts && tsx scripts/import-session5-supply-chain.ts",
     "db:import:root": "tsx scripts/import-root-docs.ts",
     "db:import:external": "tsx scripts/import-external-sources.ts",
     "db:import:ts": "tsx scripts/import-ts-data.ts",

@@ -377,11 +377,22 @@ const profiles: PersonProfileData[] = [
   },
 ]
 
+const NAME_ALIASES: Record<string, string> = {
+  'REMA 1000 AS': 'REMA 1000 Norge AS',
+  'Reitangruppen AS': 'Reitan Retail AS',
+  'Kavli AS': 'Kavli Holding AS',
+  'Kiwi Minidrift AS': 'NorgesGruppen ASA',
+  'Lerøy Midt AS': 'Lerøy Seafood Group ASA',
+  'Lerøy Midnor AS': 'Lerøy Seafood Group ASA',
+  'Hallvard Lerøy AS': 'Lerøy Seafood Group ASA',
+}
+
 async function resolveCompanyIds(roles: PersonRole[]): Promise<PersonRole[]> {
   const resolved: PersonRole[] = []
   for (const role of roles) {
+    const lookupName = NAME_ALIASES[role.companyName] ?? role.companyName
     const company = await prisma.company.findFirst({
-      where: { name: role.companyName },
+      where: { name: lookupName },
       select: { id: true },
     })
     resolved.push({

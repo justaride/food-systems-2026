@@ -345,6 +345,7 @@ const properties: PropertyData[] = [
   // Iceland
   { companyOrgNr: 'IS-510199-2859', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', lat: 64.135, lng: -21.895, source: 'hagar.is (Höfuðstöðvar)' },
   { companyOrgNr: 'IS-640907-1670', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', lat: 64.128, lng: -21.878, source: 'samkaup.is (Höfuðstöðvar)' },
+  { companyOrgNr: 'IS-510298-3199', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', lat: 64.140, lng: -21.910, source: 'festi.is (Höfuðstöðvar)' },
 
   // ═══ Additional Norwegian logistics/production ═══
 

@@ -130,5 +130,9 @@ echo "Waiting 15s before next request..."
 sleep 15
 
 fetch_country "fi" "FI"
+echo "Waiting 15s before next request..."
+sleep 15
+
+fetch_country "is" "IS"
 
 echo "=== Done ==="

@@ -1,0 +1,4862 @@
+[
+  {
+    "id": "n1-53017162",
+    "osmId": 53017162,
+    "name": "N1",
+    "chain": "N1",
+    "chainId": "n1",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.04758,
+      "lng": -17.343445
+    },
+    "address": "Héðinsbraut",
+    "city": "Húsavík",
+    "postcode": "640",
+    "openingHours": "Mo-Fr 08:00-23:30; Sa 09:00-22:00; Su 10:00-22:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-60743085",
+    "osmId": 60743085,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.69203,
+      "lng": -18.109226
+    },
+    "address": "Langholt",
+    "city": "Akureyri",
+    "postcode": "603",
+    "openingHours": "Mo-Su 10:00-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-122274060",
+    "osmId": 122274060,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.32723,
+      "lng": -22.055203
+    },
+    "address": "Smiðjuvellir",
+    "city": "Akranes",
+    "postcode": "300",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-122275592",
+    "osmId": 122275592,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.541234,
+      "lng": -21.90933
+    },
+    "address": "Digranesgata",
+    "city": "Borgarnes",
+    "postcode": "310",
+    "openingHours": "Mo-Su 10:00-20:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-126524221",
+    "osmId": 126524221,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.073877,
+      "lng": -22.728919
+    },
+    "address": "Borgarbraut",
+    "city": "Stykkishólmur",
+    "postcode": "340",
+    "openingHours": "Mo-Sa 10:00-19:00; Su 12:00-18:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-192959398",
+    "osmId": 192959398,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.937692,
+      "lng": -21.001801
+    },
+    "address": "Austurvegur",
+    "city": "Selfoss",
+    "postcode": "800",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "yes",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "nett-201518347",
+    "osmId": 201518347,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.936754,
+      "lng": -20.98985
+    },
+    "address": "Austurvegur",
+    "city": "Selfoss",
+    "postcode": "800",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-251964864",
+    "osmId": 251964864,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.142501,
+      "lng": -21.847606
+    },
+    "address": "Holtavegur",
+    "city": "Reykjavík",
+    "postcode": "104",
+    "openingHours": "Mo-Su 10:00-20:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://www.bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-252165594",
+    "osmId": 252165594,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.052359,
+      "lng": -21.979749
+    },
+    "address": "Tjarnarvellir",
+    "city": "Hafnarfjörður",
+    "postcode": "221",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "yes",
+    "phone": "+354 544 8101",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-252742024",
+    "osmId": 252742024,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.072947,
+      "lng": -21.912065
+    },
+    "address": "Kauptún",
+    "city": "Garðabær",
+    "postcode": "210",
+    "openingHours": "Mo-Su 10:00-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-285919888",
+    "osmId": 285919888,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.995661,
+      "lng": -21.190165
+    },
+    "address": "Sunnumörk",
+    "city": "Hveragerði",
+    "postcode": "810",
+    "openingHours": "Mo-Su 10:00-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-288058255",
+    "osmId": 288058255,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.932309,
+      "lng": -21.000243
+    },
+    "address": "Tryggvagata",
+    "city": "Selfoss",
+    "postcode": "800",
+    "openingHours": "Mo-Fr 07:30-23:30; Sa 08:00-23:30; Su 09:00-23:30",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-295014466",
+    "osmId": 295014466,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.165803,
+      "lng": -21.69696
+    },
+    "address": "Bjarkarholt",
+    "city": "Mosfellsbær",
+    "postcode": "270",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-296347276",
+    "osmId": 296347276,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.155137,
+      "lng": -21.949509
+    },
+    "address": "Fiskislóð",
+    "city": "Reykjavík",
+    "postcode": "101",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "yes",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "landvegam-t-297289761",
+    "osmId": 297289761,
+    "name": "Landvegamót",
+    "chain": "Landvegamót",
+    "chainId": "landvegam-t",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.879584,
+      "lng": -20.500729
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "hagkaup-301005703",
+    "osmId": 301005703,
+    "name": "Hagkaup",
+    "chain": "Hagkaup",
+    "chainId": "hagkaup",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.129611,
+      "lng": -21.869196
+    },
+    "address": "Skeifan",
+    "city": "Reykjavík",
+    "postcode": "108",
+    "openingHours": "24/7",
+    "wheelchair": "yes",
+    "phone": "+354 563 5100",
+    "website": "https://www.hagkaup.is/",
+    "organic": ""
+  },
+  {
+    "id": "nett-301013791",
+    "osmId": 301013791,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.133459,
+      "lng": -21.867859
+    },
+    "address": "Álfheimar",
+    "city": "Reykjavík",
+    "postcode": "104",
+    "openingHours": "Mo-Su 08:00-24:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://netto.is",
+    "organic": ""
+  },
+  {
+    "id": "lab-305004175",
+    "osmId": 305004175,
+    "name": "Ólabúð",
+    "chain": "Ólabúð",
+    "chainId": "lab",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.130289,
+      "lng": -21.85284
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Fr 09:00-21:00, Sa-Su 11:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-306597504",
+    "osmId": 306597504,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.128511,
+      "lng": -21.887338
+    },
+    "address": "Háaleitisbraut",
+    "city": "Reykjavík",
+    "postcode": "103",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "yes",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "nett-312947180",
+    "osmId": 312947180,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.142486,
+      "lng": -21.903115
+    },
+    "address": "Nóatún",
+    "city": "Reykjavík",
+    "postcode": "105",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "yes",
+    "phone": "+354 522 5406",
+    "website": "https://netto.is/",
+    "organic": ""
+  },
+  {
+    "id": "10-11-316138190",
+    "osmId": 316138190,
+    "name": "10-11",
+    "chain": "10-11",
+    "chainId": "10-11",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.147572,
+      "lng": -21.937874
+    },
+    "address": "Austurstræti",
+    "city": "Reykjavík",
+    "postcode": "101",
+    "openingHours": "24/7",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-318966726",
+    "osmId": 318966726,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.321799,
+      "lng": -22.069986
+    },
+    "address": "Dalbraut",
+    "city": "Akranes",
+    "postcode": "300",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "hagkaup-319970958",
+    "osmId": 319970958,
+    "name": "Hagkaup",
+    "chain": "Hagkaup",
+    "chainId": "hagkaup",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.690378,
+      "lng": -18.089502
+    },
+    "address": "Furuvellir",
+    "city": "Akureyri",
+    "postcode": "600",
+    "openingHours": "Mo-Su 08:00-24:00",
+    "wheelchair": "yes",
+    "phone": "+354 563 5256",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-320557574",
+    "osmId": 320557574,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.10191,
+      "lng": -21.872967
+    },
+    "address": "Skógarlind",
+    "city": "Kópavogur",
+    "postcode": "201",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "yes",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "nett-320959961",
+    "osmId": 320959961,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.677557,
+      "lng": -18.118962
+    },
+    "address": "Hrísalundur",
+    "city": "Akureyri",
+    "postcode": "600",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-324375422",
+    "osmId": 324375422,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.97305,
+      "lng": -18.531546
+    },
+    "address": "",
+    "city": "Dalvík",
+    "postcode": "620",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "sbyrgi-324466466",
+    "osmId": 324466466,
+    "name": "Àsbyrgi",
+    "chain": "Àsbyrgi",
+    "chainId": "sbyrgi",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.030362,
+      "lng": -16.483503
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "no",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-331196629",
+    "osmId": 331196629,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.655967,
+      "lng": -14.286028
+    },
+    "address": "Búland",
+    "city": "Djúpivogur",
+    "postcode": "765",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-331269141",
+    "osmId": 331269141,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.263606,
+      "lng": -14.404737
+    },
+    "address": "Miðvangur",
+    "city": "Egilsstaðir",
+    "postcode": "700",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-337977634",
+    "osmId": 337977634,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.25984,
+      "lng": -14.008912
+    },
+    "address": "Vesturvegur",
+    "city": "Seyðisfjörður",
+    "postcode": "710",
+    "openingHours": "Mo-We,Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00; Th 08:00-18:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-367401100",
+    "osmId": 367401100,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.073698,
+      "lng": -18.645003
+    },
+    "address": "",
+    "city": "Ólafsfjörður",
+    "postcode": "625",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-372929954",
+    "osmId": 372929954,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.972765,
+      "lng": -22.543609
+    },
+    "address": "Fitjar",
+    "city": "Reykjanesbær",
+    "postcode": "260",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 527 9000",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "ol-s-412698223",
+    "osmId": 412698223,
+    "name": "Olís",
+    "chain": "Olís",
+    "chainId": "ol-s",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.979658,
+      "lng": -22.546708
+    },
+    "address": "Fitjabakki",
+    "city": "Reykjanesbær",
+    "postcode": "260",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-415492565",
+    "osmId": 415492565,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.83484,
+      "lng": -20.401227
+    },
+    "address": "Suðurlandsvegur",
+    "city": "Hella",
+    "postcode": "850",
+    "openingHours": "Mo-Fr 09:00-20:00; Sa 09:00-18:00; Su 09:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kassinn-418770070",
+    "osmId": 418770070,
+    "name": "Kassinn",
+    "chain": "Kassinn",
+    "chainId": "kassinn",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.897421,
+      "lng": -23.709133
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Th 09:00-18:00; Fr 09:00-20:00; Su 13:00-17:00; Sa 11:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-430847358",
+    "osmId": 430847358,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.0604,
+      "lng": -23.174285
+    },
+    "address": "Skeiði",
+    "city": "Ísafjörður",
+    "postcode": "400",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "+354 456 3230",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-440120535",
+    "osmId": 440120535,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.659832,
+      "lng": -20.284739
+    },
+    "address": "Húnabraut",
+    "city": "Blönduós",
+    "postcode": "540",
+    "openingHours": "Mo-Th 09:00-18:00; Sa-Su 10:00-17:00; Fr 09:00-19:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-445050535",
+    "osmId": 445050535,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.66933,
+      "lng": -18.110518
+    },
+    "address": "Kjarnagata",
+    "city": "Akureyri",
+    "postcode": "600",
+    "openingHours": "Mo-Su 10:00-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-tborg-445830928",
+    "osmId": 445830928,
+    "name": "Kjötborg",
+    "chain": "Kjötborg",
+    "chainId": "kj-tborg",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.145936,
+      "lng": -21.951207
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-448541787",
+    "osmId": 448541787,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.142816,
+      "lng": -21.928424
+    },
+    "address": "Skólavörðustígur",
+    "city": "Reykjavík",
+    "postcode": "101",
+    "openingHours": "Mo-Fr 08:00-23:30; Sa-Su,PH 09:00-23:30",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-451709617",
+    "osmId": 451709617,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.125147,
+      "lng": -21.814976
+    },
+    "address": "Bíldshöfði",
+    "city": "Reykjavík",
+    "postcode": "110",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "nesbakki-477529741",
+    "osmId": 477529741,
+    "name": "Nesbakki",
+    "chain": "Nesbakki",
+    "chainId": "nesbakki",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.148672,
+      "lng": -13.668012
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-483740394",
+    "osmId": 483740394,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.14733,
+      "lng": -13.692386
+    },
+    "address": "Hafnarbraut",
+    "city": "Neskaupstaður",
+    "postcode": "740",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "ol-s-616397906",
+    "osmId": 616397906,
+    "name": "Olís",
+    "chain": "Olís",
+    "chainId": "ol-s",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.034142,
+      "lng": -14.231288
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-626580415",
+    "osmId": 626580415,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.032142,
+      "lng": -14.219544
+    },
+    "address": "Hafnargata",
+    "city": "Reyðarfjörður",
+    "postcode": "730",
+    "openingHours": "Mo-Th 11:00-18:00; Fr 11:00-19:00; Sa 11:00-17:00; Su 12:00-16:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is",
+    "organic": ""
+  },
+  {
+    "id": "hyrnan-694333710",
+    "osmId": 694333710,
+    "name": "Hyrnan",
+    "chain": "Hyrnan",
+    "chainId": "hyrnan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.543872,
+      "lng": -21.911023
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Su 08:00-23:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-793762274",
+    "osmId": 793762274,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.15076,
+      "lng": -18.910579
+    },
+    "address": "Suðurgata",
+    "city": "Siglufjörður",
+    "postcode": "580",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "ol-s-varmahl-817319618",
+    "osmId": 817319618,
+    "name": "Olís - Varmahlíð",
+    "chain": "Olís - Varmahlíð",
+    "chainId": "ol-s-varmahl",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.553517,
+      "lng": -19.446718
+    },
+    "address": "",
+    "city": "Varmahlíð",
+    "postcode": "560",
+    "openingHours": "",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "n1-817319648",
+    "osmId": 817319648,
+    "name": "N1",
+    "chain": "N1",
+    "chainId": "n1",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.260839,
+      "lng": -14.407783
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Fr 08:00-22:00; Sa-Su 09:00-22:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "gvendarkj-r-830944310",
+    "osmId": 830944310,
+    "name": "Gvendarkjör",
+    "chain": "Gvendarkjör",
+    "chainId": "gvendarkj-r",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.79023,
+      "lng": -18.047837
+    },
+    "address": "Klausturvegur",
+    "city": "",
+    "postcode": "880",
+    "openingHours": "Mo-Fr 11:30-18:00; Sa 10:00-14:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://www.facebook.com/gvendarkjor/",
+    "organic": ""
+  },
+  {
+    "id": "kramb-846980679",
+    "osmId": 846980679,
+    "name": "Krambúðin",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.216865,
+      "lng": -20.734006
+    },
+    "address": "Dalbraut",
+    "city": "Laugarvatn",
+    "postcode": "840",
+    "openingHours": "Mo-Fr 09:00-19:00; Sa-Su 10:00-19:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-847673689",
+    "osmId": 847673689,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.10807,
+      "lng": -21.762823
+    },
+    "address": "Vesturbraut",
+    "city": "Búðardalur",
+    "postcode": "370",
+    "openingHours": "Mo-Su 09:00-19:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-860254403",
+    "osmId": 860254403,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.844486,
+      "lng": -22.434717
+    },
+    "address": "Víkurbraut",
+    "city": "Grindavík",
+    "postcode": "240",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "+354 426 8065",
+    "website": "https://netto.is/",
+    "organic": ""
+  },
+  {
+    "id": "fossb-897371247",
+    "osmId": 897371247,
+    "name": "Fossbúð",
+    "chain": "Fossbúð",
+    "chainId": "fossb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.526882,
+      "lng": -19.509085
+    },
+    "address": "Ytri Skógar",
+    "city": "",
+    "postcode": "861",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-998922740",
+    "osmId": 998922740,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.039381,
+      "lng": -17.342945
+    },
+    "address": "Garðarsbraut",
+    "city": "Húsavík",
+    "postcode": "640",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "+354 464 1750",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-998927789",
+    "osmId": 998927789,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.700824,
+      "lng": -21.685885
+    },
+    "address": "Höfðatún",
+    "city": "Hólmavík",
+    "postcode": "510",
+    "openingHours": "Mo-Fr 09:00-19:00; Sa-Su 10:00-18:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "drekinn-1229343228",
+    "osmId": 1229343228,
+    "name": "Drekinn",
+    "chain": "Drekinn",
+    "chainId": "drekinn",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.143899,
+      "lng": -21.926174
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Fr 09:30-23:30; Sa,Su 11:00-23:30",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "melab-in-1241852013",
+    "osmId": 1241852013,
+    "name": "Melabúðin",
+    "chain": "Melabúðin",
+    "chainId": "melab-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.144713,
+      "lng": -21.960361
+    },
+    "address": "Hagamelur",
+    "city": "",
+    "postcode": "107",
+    "openingHours": "Mo-Fr 09:00-20:00; Sa 10:00-20:00; Su 12:00-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "10-11-1243095788",
+    "osmId": 1243095788,
+    "name": "10-11",
+    "chain": "10-11",
+    "chainId": "10-11",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.996464,
+      "lng": -22.622828
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "24/7",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-1252270381",
+    "osmId": 1252270381,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.543145,
+      "lng": -21.911829
+    },
+    "address": "Borgarbraut",
+    "city": "Borgarnes",
+    "postcode": "310",
+    "openingHours": "Mo-Su 09:00-20:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "hagkaup-1253751283",
+    "osmId": 1253751283,
+    "name": "Hagkaup",
+    "chain": "Hagkaup",
+    "chainId": "hagkaup",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.090433,
+      "lng": -21.925815
+    },
+    "address": "Litlatún",
+    "city": "Garðabær",
+    "postcode": "210",
+    "openingHours": "24/7",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "skj-lfti-1259103379",
+    "osmId": 1259103379,
+    "name": "Skjálfti",
+    "chain": "Skjálfti",
+    "chainId": "skj-lfti",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.662773,
+      "lng": -21.283159
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "hagkaup-1269864497",
+    "osmId": 1269864497,
+    "name": "Hagkaup",
+    "chain": "Hagkaup",
+    "chainId": "hagkaup",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.150286,
+      "lng": -21.98433
+    },
+    "address": "",
+    "city": "Seltjarnarnes",
+    "postcode": "170",
+    "openingHours": "Mo-Su 08:00-24:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://www.hagkaup.is/",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-1283535743",
+    "osmId": 1283535743,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.103561,
+      "lng": -21.879654
+    },
+    "address": "Smáratorg",
+    "city": "Kópavogur",
+    "postcode": "201",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "hagkaup-1285282368",
+    "osmId": 1285282368,
+    "name": "Hagkaup",
+    "chain": "Hagkaup",
+    "chainId": "hagkaup",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.100835,
+      "lng": -21.881492
+    },
+    "address": "Hagasmári",
+    "city": "Kópavogur",
+    "postcode": "201",
+    "openingHours": "Mo-Fr 10:00-19:00; Sa 10:00-18:00; Su 12:00-17:00",
+    "wheelchair": "yes",
+    "phone": "+354 530 1000",
+    "website": "https://www.hagkaup.is/",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-1299573397",
+    "osmId": 1299573397,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.11551,
+      "lng": -21.790077
+    },
+    "address": "Rofabær",
+    "city": "Reykjavík",
+    "postcode": "110",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "bjarnab-1326234903",
+    "osmId": 1326234903,
+    "name": "Bjarnabúð",
+    "chain": "Bjarnabúð",
+    "chainId": "bjarnab",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.177078,
+      "lng": -20.453568
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa,Su 11:00-18:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "mini-market-1344370145",
+    "osmId": 1344370145,
+    "name": "Mini Market",
+    "chain": "Mini Market",
+    "chainId": "mini-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.101251,
+      "lng": -21.824265
+    },
+    "address": "Drafnarfell",
+    "city": "Reykjavík",
+    "postcode": "111",
+    "openingHours": "Sa 09:00-20:00; Su 10:00-20:00; Mo-Fr 10:00-21:00",
+    "wheelchair": "yes",
+    "phone": "+354 517 01 07",
+    "website": "https://minimarket.is/",
+    "organic": ""
+  },
+  {
+    "id": "skagfir-ingab-1364756198",
+    "osmId": 1364756198,
+    "name": "Skagfirðingabúð",
+    "chain": "Skagfirðingabúð",
+    "chainId": "skagfir-ingab",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.741403,
+      "lng": -19.63738
+    },
+    "address": "Ártorg",
+    "city": "Sauðárkrókur",
+    "postcode": "550",
+    "openingHours": "Mo-Fr 09:00-19:00; Sa 10:00-16:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://www.ks.is/",
+    "organic": ""
+  },
+  {
+    "id": "nett-1374259192",
+    "osmId": 1374259192,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.686773,
+      "lng": -18.10401
+    },
+    "address": "",
+    "city": "Akureyri",
+    "postcode": "600",
+    "openingHours": "Mo-Su 09:00-20:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "rborg-1389249076",
+    "osmId": 1389249076,
+    "name": "Árborg",
+    "chain": "Árborg",
+    "chainId": "rborg",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.04132,
+      "lng": -20.250972
+    },
+    "address": "",
+    "city": "",
+    "postcode": "804",
+    "openingHours": "Mo-Sa 09:00-19:00; Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "skaft-rsk-li-grill-1407336173",
+    "osmId": 1407336173,
+    "name": "Skaftárskáli Grill",
+    "chain": "Skaftárskáli Grill",
+    "chainId": "skaft-rsk-li-grill",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.793839,
+      "lng": -18.040085
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Su 11:00-21:30",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nu-skutl-1407351556",
+    "osmId": 1407351556,
+    "name": "Krónu Skutl",
+    "chain": "Krónu Skutl",
+    "chainId": "kr-nu-skutl",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.789216,
+      "lng": -18.049956
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "mountain-mall-1412604559",
+    "osmId": 1412604559,
+    "name": "Mountain Mall",
+    "chain": "Mountain Mall",
+    "chainId": "mountain-mall",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.989588,
+      "lng": -19.058985
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-1457633610",
+    "osmId": 1457633610,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.129745,
+      "lng": -21.895777
+    },
+    "address": "Kringlan",
+    "city": "Reykjavík",
+    "postcode": "103",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://www.bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "hagkaup-1457633635",
+    "osmId": 1457633635,
+    "name": "Hagkaup",
+    "chain": "Hagkaup",
+    "chainId": "hagkaup",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.131122,
+      "lng": -21.893675
+    },
+    "address": "Kringlan",
+    "city": "Reykjavík",
+    "postcode": "103",
+    "openingHours": "Mo-Fr 10:00-18:30; Sa 10:00-18:00; Su 12:00-17:00",
+    "wheelchair": "yes",
+    "phone": "+354 563 5200",
+    "website": "https://www.hagkaup.is/",
+    "organic": ""
+  },
+  {
+    "id": "tyrkneskur-bazar-1492802548",
+    "osmId": 1492802548,
+    "name": "Tyrkneskur Bazar",
+    "chain": "Tyrkneskur Bazar",
+    "chainId": "tyrkneskur-bazar",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.134866,
+      "lng": -21.878102
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "v-kurb-in-1651352932",
+    "osmId": 1651352932,
+    "name": "Víkurbúðin",
+    "chain": "Víkurbúðin",
+    "chainId": "v-kurb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.026052,
+      "lng": -22.991421
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-1730242027",
+    "osmId": 1730242027,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.112236,
+      "lng": -21.903886
+    },
+    "address": "Hamraborg",
+    "city": "Kópavogur",
+    "postcode": "200",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "kramb-1760884564",
+    "osmId": 1760884564,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.141588,
+      "lng": -21.962052
+    },
+    "address": "Hjarðarhagi",
+    "city": "Reykjavík",
+    "postcode": "107",
+    "openingHours": "Mo-Fr 08:00-23:30; Sa-Su 09:00-23:30",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-1801741683",
+    "osmId": 1801741683,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.938128,
+      "lng": -20.973743
+    },
+    "address": "Larsenstræti",
+    "city": "Selfoss",
+    "postcode": "800",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "hagkaup-s-rvara-1801741684",
+    "osmId": 1801741684,
+    "name": "Hagkaup Sérvara",
+    "chain": "Hagkaup Sérvara",
+    "chainId": "hagkaup-s-rvara",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.938402,
+      "lng": -20.973845
+    },
+    "address": "Larsenstræti",
+    "city": "Selfoss",
+    "postcode": "800",
+    "openingHours": "Mo-Th 11:00-18:30; Fr 10:00-19:30; Sa 10:00-18:00; Su 12:00-18:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "drekinn-1849130160",
+    "osmId": 1849130160,
+    "name": "Drekinn",
+    "chain": "Drekinn",
+    "chainId": "drekinn",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.079824,
+      "lng": -21.942824
+    },
+    "address": "Dalshraun",
+    "city": "Hafnarfjörður",
+    "postcode": "220",
+    "openingHours": "Mo-Fr 10:00-23:00; Sa-Su 11:00-23:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "u-dziada-1853727120",
+    "osmId": 1853727120,
+    "name": "u Dziada",
+    "chain": "u Dziada",
+    "chainId": "u-dziada",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.110772,
+      "lng": -21.847401
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "matarb-in-n-ndin-1863751547",
+    "osmId": 1863751547,
+    "name": "Matarbúðin Nándin",
+    "chain": "Matarbúðin Nándin",
+    "chainId": "matarb-in-n-ndin",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.067173,
+      "lng": -21.951803
+    },
+    "address": "Austurgata",
+    "city": "Hafnarfjörður",
+    "postcode": "220",
+    "openingHours": "Mo-Fr 10:00-18:00; Sa 12:00-16:00",
+    "wheelchair": "",
+    "phone": "+354 470 1300",
+    "website": "https://www.matarbudin.is",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-1865607752",
+    "osmId": 1865607752,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.15742,
+      "lng": -23.249278
+    },
+    "address": "",
+    "city": "Bolungarvík",
+    "postcode": "415",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "grill-1865609073",
+    "osmId": 1865609073,
+    "name": "Grill",
+    "chain": "Grill",
+    "chainId": "grill",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.153159,
+      "lng": -23.248975
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "ristur-ormsson-1867939801",
+    "osmId": 1867939801,
+    "name": "Þristur Ormsson",
+    "chain": "Þristur Ormsson",
+    "chainId": "ristur-ormsson",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.073725,
+      "lng": -23.120224
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-1880180139",
+    "osmId": 1880180139,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.070861,
+      "lng": -14.013768
+    },
+    "address": "Strandgata",
+    "city": "Eskifjörður",
+    "postcode": "735",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "veitingasala-1916214874",
+    "osmId": 1916214874,
+    "name": "Veitingasala",
+    "chain": "Veitingasala",
+    "chainId": "veitingasala",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.990434,
+      "lng": -16.896237
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "verslun-einars-lafssonar-2019146672",
+    "osmId": 2019146672,
+    "name": "Verslun Einars Ólafssonar",
+    "chain": "Verslun Einars Ólafssonar",
+    "chainId": "verslun-einars-lafssonar",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.319595,
+      "lng": -22.076525
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-2078435386",
+    "osmId": 2078435386,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.039372,
+      "lng": -22.706354
+    },
+    "address": "Miðnestorg",
+    "city": "Sandgerði",
+    "postcode": "245",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-2157130257",
+    "osmId": 2157130257,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.135459,
+      "lng": -21.951067
+    },
+    "address": "Eggertsgata",
+    "city": "Reykjavík",
+    "postcode": "102",
+    "openingHours": "Mo-Su 07:00-24:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "mai-thai-2247125380",
+    "osmId": 2247125380,
+    "name": "Mai Thai",
+    "chain": "Mai Thai",
+    "chainId": "mai-thai",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.142922,
+      "lng": -21.914671
+    },
+    "address": "Laugavegur",
+    "city": "",
+    "postcode": "105",
+    "openingHours": "Mo-Fr 11:00-21:00; Sa 14:00-21:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://www.maithai.is",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-2337596213",
+    "osmId": 2337596213,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.114261,
+      "lng": -21.898338
+    },
+    "address": "Nýbýlavegur",
+    "city": "Kópavogur",
+    "postcode": "200",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://www.bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "nett-2356459308",
+    "osmId": 2356459308,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.110007,
+      "lng": -21.858837
+    },
+    "address": "Engihjalli",
+    "city": "Kópavogur",
+    "postcode": "200",
+    "openingHours": "Mo-Su 08:00-24:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-2378038495",
+    "osmId": 2378038495,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.096427,
+      "lng": -21.802901
+    },
+    "address": "Ögurhvarf",
+    "city": "Kópavogur",
+    "postcode": "203",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "iceland-2383054289",
+    "osmId": 2383054289,
+    "name": "Iceland",
+    "chain": "Iceland",
+    "chainId": "iceland",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.066754,
+      "lng": -21.936331
+    },
+    "address": "Staðarberg",
+    "city": "Hafnarfjörður",
+    "postcode": "221",
+    "openingHours": "24/7",
+    "wheelchair": "yes",
+    "phone": "+354 555 3511",
+    "website": "https://icelandbudir.is/",
+    "organic": ""
+  },
+  {
+    "id": "nett-2383088038",
+    "osmId": 2383088038,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.999936,
+      "lng": -22.576657
+    },
+    "address": "Iðavellir",
+    "city": "Reykjanesbær",
+    "postcode": "230",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-2410386536",
+    "osmId": 2410386536,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.260465,
+      "lng": -14.406735
+    },
+    "address": "Kaupvangur",
+    "city": "Egilsstaðir",
+    "postcode": "700",
+    "openingHours": "Mo-Su 09:00-20:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kaupf-lag-vestur-h-nvetninga-2412862340",
+    "osmId": 2412862340,
+    "name": "Kaupfélag Vestur-Húnvetninga",
+    "chain": "Kaupfélag Vestur-Húnvetninga",
+    "chainId": "kaupf-lag-vestur-h-nvetninga",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.395871,
+      "lng": -20.946751
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Th 09:00-18:00; Fr 09:00-19:00; Sa 11:00-16:00; PH off",
+    "wheelchair": "yes",
+    "phone": "+354 455 2300",
+    "website": "https://www.kvh.is/",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-2477138534",
+    "osmId": 2477138534,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.108945,
+      "lng": -21.816042
+    },
+    "address": "Lóuhólar",
+    "city": "Reykjavík",
+    "postcode": "111",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-2487357960",
+    "osmId": 2487357960,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.857425,
+      "lng": -21.381833
+    },
+    "address": "Selvogsbraut",
+    "city": "Þorlákshöfn",
+    "postcode": "815",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-2935303659",
+    "osmId": 2935303659,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.925312,
+      "lng": -23.260221
+    },
+    "address": "Grundargata",
+    "city": "Grundarfjörður",
+    "postcode": "350",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kaupt-n-2946113762",
+    "osmId": 2946113762,
+    "name": "Kauptún",
+    "chain": "Kauptún",
+    "chainId": "kaupt-n",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.753753,
+      "lng": -14.827086
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Jan-Dec: Mo-Fr 09:30-18:00; Sa 12:00-16:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-2946126429",
+    "osmId": 2946126429,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.92993,
+      "lng": -14.011287
+    },
+    "address": "Skólavegur",
+    "city": "Fáskrúðsfjörður",
+    "postcode": "750",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kaupfjelagi-2948445247",
+    "osmId": 2948445247,
+    "name": "Kaupfjelagið",
+    "chain": "Kaupfjelagið",
+    "chainId": "kaupfjelagi",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.792073,
+      "lng": -14.009388
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-2970556506",
+    "osmId": 2970556506,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.08448,
+      "lng": -21.821531
+    },
+    "address": "Vallakór",
+    "city": "Kópavogur",
+    "postcode": "203",
+    "openingHours": "Mo-Su 08:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "verslunin-lfheimar-2988344881",
+    "osmId": 2988344881,
+    "name": "Verslunin Álfheimar",
+    "chain": "Verslunin Álfheimar",
+    "chainId": "verslunin-lfheimar",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.137505,
+      "lng": -21.859172
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Su 10:00-22:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "ol-s-2999522081",
+    "osmId": 2999522081,
+    "name": "Olís",
+    "chain": "Olís",
+    "chainId": "ol-s",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.039113,
+      "lng": -17.343173
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "+354 464 1040",
+    "website": "https://www.olis.is/",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-3315387544",
+    "osmId": 3315387544,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.089051,
+      "lng": -21.920261
+    },
+    "address": "Garðatorg",
+    "city": "Garðabær",
+    "postcode": "210",
+    "openingHours": "Mo-Su 10:00-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "kramb-3622187781",
+    "osmId": 3622187781,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.087592,
+      "lng": -21.833205
+    },
+    "address": "Búðakór",
+    "city": "Kópavogur",
+    "postcode": "203",
+    "openingHours": "Mo-Su 08:00-24:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-3698950691",
+    "osmId": 3698950691,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.141487,
+      "lng": -21.907392
+    },
+    "address": "Skipholt",
+    "city": "Reykjavík",
+    "postcode": "105",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://www.bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "h-teigsb-in-3705941057",
+    "osmId": 3705941057,
+    "name": "Háteigsbúðin",
+    "chain": "Háteigsbúðin",
+    "chainId": "h-teigsb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.139555,
+      "lng": -21.915493
+    },
+    "address": "Háteigsvegur",
+    "city": "Reykjavík",
+    "postcode": "105",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kvikk-3716150052",
+    "osmId": 3716150052,
+    "name": "Kvikk",
+    "chain": "Kvikk",
+    "chainId": "kvikk",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.10208,
+      "lng": -21.884256
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "24/7",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kvikk-on-the-go-3743575208",
+    "osmId": 3743575208,
+    "name": "Kvikk On the Go",
+    "chain": "Kvikk On the Go",
+    "chainId": "kvikk-on-the-go",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.1312,
+      "lng": -21.918373
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Su 08:00-24:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-3756692819",
+    "osmId": 3756692819,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.13009,
+      "lng": -21.761236
+    },
+    "address": "Þjóðhildarstígur",
+    "city": "Reykjavík",
+    "postcode": "113",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 585 7185",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-3757119761",
+    "osmId": 3757119761,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.062026,
+      "lng": -21.964474
+    },
+    "address": "Hvaleyrarbraut",
+    "city": "Hafnarfjörður",
+    "postcode": "220",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "yes",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-3757631164",
+    "osmId": 3757631164,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.442493,
+      "lng": -20.271438
+    },
+    "address": "Strandvegur",
+    "city": "Vestmannaeyjar",
+    "postcode": "900",
+    "openingHours": "Mo-Fr 09:00-20:00; Sa-Su 10:00-20:00",
+    "wheelchair": "yes",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-3769068467",
+    "osmId": 3769068467,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.077509,
+      "lng": -21.942087
+    },
+    "address": "Helluhraun",
+    "city": "Hafnarfjörður",
+    "postcode": "220",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "uppskeran-3814765882",
+    "osmId": 3814765882,
+    "name": "Uppskeran",
+    "chain": "Uppskeran",
+    "chainId": "uppskeran",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.133516,
+      "lng": -21.86835
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Fr 11:00 - 18:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-3839387862",
+    "osmId": 3839387862,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.133442,
+      "lng": -21.911248
+    },
+    "address": "Mávahlíð",
+    "city": "Reykjavík",
+    "postcode": "105",
+    "openingHours": "Mo-Fr 08:00-23:30; Sa-Su 09:00-23:30",
+    "wheelchair": "limited",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "euro-market-4007220602",
+    "osmId": 4007220602,
+    "name": "Euro Market",
+    "chain": "Euro Market",
+    "chainId": "euro-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.142356,
+      "lng": -21.912445
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Fr 09:00-21:00; Sa-Su 10:00-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "fisk-kompan-4035421238",
+    "osmId": 4035421238,
+    "name": "Fisk Kompaní",
+    "chain": "Fisk Kompaní",
+    "chainId": "fisk-kompan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.669405,
+      "lng": -18.110435
+    },
+    "address": "Kjarnagata",
+    "city": "Akureyri",
+    "postcode": "600",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "+354 571 8080",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-4039853984",
+    "osmId": 4039853984,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.003236,
+      "lng": -22.556556
+    },
+    "address": "Túngata",
+    "city": "Reykjanesbær",
+    "postcode": "230",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-4077534523",
+    "osmId": 4077534523,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.070469,
+      "lng": -22.650216
+    },
+    "address": "Sunnubraut",
+    "city": "Garður",
+    "postcode": "250",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-4178526374",
+    "osmId": 4178526374,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.993341,
+      "lng": -22.55058
+    },
+    "address": "Krossmói",
+    "city": "Reykjanesbær",
+    "postcode": "260",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "hr-seyjarb-in-4225364991",
+    "osmId": 4225364991,
+    "name": "Hríseyjarbúðin",
+    "chain": "Hríseyjarbúðin",
+    "chainId": "hr-seyjarb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.979501,
+      "lng": -18.376893
+    },
+    "address": "Norðurvegur",
+    "city": "Hrísey",
+    "postcode": "630",
+    "openingHours": "Mo-Fr 11:00-18:00; Sa-Su 13:00-16:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-4233511788",
+    "osmId": 4233511788,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.117983,
+      "lng": -21.795707
+    },
+    "address": "Hraunbær",
+    "city": "Reykjavík",
+    "postcode": "110",
+    "openingHours": "Mo-Su 10:00-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://www.bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-4236333490",
+    "osmId": 4236333490,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.198471,
+      "lng": -15.337314
+    },
+    "address": "Langanesvegur",
+    "city": "Þórshöfn",
+    "postcode": "680",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "pl-smarka-urinn-4295035501",
+    "osmId": 4295035501,
+    "name": "Plúsmarkaðurinn",
+    "chain": "Plúsmarkaðurinn",
+    "chainId": "pl-smarka-urinn",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.141539,
+      "lng": -21.894923
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Fr 09:00-17:00; Sa 10:00-15:00; Su 11:00-14:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "d-n-sjoppa-4301433334",
+    "osmId": 4301433334,
+    "name": "Dínó Sjoppa",
+    "chain": "Dínó Sjoppa",
+    "chainId": "d-n-sjoppa",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.126158,
+      "lng": -21.878403
+    },
+    "address": "Grensásvegur",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Th, Su 11:00-23:00; Fr, Sa 11:00-00:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://www.facebook.com/p/D%C3%8DN%C3%93-61559922615669/",
+    "organic": ""
+  },
+  {
+    "id": "skaft-rsk-li-4318759232",
+    "osmId": 4318759232,
+    "name": "Skaftárskáli",
+    "chain": "Skaftárskáli",
+    "chainId": "skaft-rsk-li",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.793917,
+      "lng": -18.039914
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Su 09:00-22:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-4326718689",
+    "osmId": 4326718689,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.099641,
+      "lng": -21.831019
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "fj-lval-4328129593",
+    "osmId": 4328129593,
+    "name": "Fjölval",
+    "chain": "Fjölval",
+    "chainId": "fj-lval",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.598328,
+      "lng": -24.001131
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Fr 09:30-18:30; Sa-Su 11:00-16:00",
+    "wheelchair": "",
+    "phone": "+354 456 1545",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "albina-4344978390",
+    "osmId": 4344978390,
+    "name": "Albina",
+    "chain": "Albina",
+    "chainId": "albina",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.5931,
+      "lng": -23.977858
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-4426159272",
+    "osmId": 4426159272,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.98133,
+      "lng": -22.544343
+    },
+    "address": "Fitjabraut",
+    "city": "Reykjanesbær",
+    "postcode": "260",
+    "openingHours": "Mo-Su 08:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "h-safell-verslun-4451727338",
+    "osmId": 4451727338,
+    "name": "Húsafell verslun",
+    "chain": "Húsafell verslun",
+    "chainId": "h-safell-verslun",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.699189,
+      "lng": -20.868595
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Su 09:30-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-4506905893",
+    "osmId": 4506905893,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.144572,
+      "lng": -21.922825
+    },
+    "address": "Laugavegur",
+    "city": "Reykjavík",
+    "postcode": "101",
+    "openingHours": "Mo-Su 10:00-22:00",
+    "wheelchair": "limited",
+    "phone": "",
+    "website": "https://www.bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "extrakaup-market-4888336123",
+    "osmId": 4888336123,
+    "name": "Extrakaup Market",
+    "chain": "Extrakaup Market",
+    "chainId": "extrakaup-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.132773,
+      "lng": -21.873656
+    },
+    "address": "Grensásvegur",
+    "city": "Reykjavík",
+    "postcode": "108",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "n1-4990094729",
+    "osmId": 4990094729,
+    "name": "N1",
+    "chain": "N1",
+    "chainId": "n1",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.074649,
+      "lng": -23.123619
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-4990146322",
+    "osmId": 4990146322,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.073553,
+      "lng": -23.121224
+    },
+    "address": "Hafnarstræti",
+    "city": "Ísafjörður",
+    "postcode": "400",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://www.netto.is/",
+    "organic": ""
+  },
+  {
+    "id": "nesti-5009686664",
+    "osmId": 5009686664,
+    "name": "Nesti",
+    "chain": "Nesti",
+    "chainId": "nesti",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.06655,
+      "lng": -21.938694
+    },
+    "address": "Reykjanesbraut",
+    "city": "",
+    "postcode": "220",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "n1-mini-market-5009885238",
+    "osmId": 5009885238,
+    "name": "N1 Mini-market",
+    "chain": "N1 Mini-market",
+    "chainId": "n1-mini-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.260593,
+      "lng": -14.408008
+    },
+    "address": "Austurlandsvegur",
+    "city": "",
+    "postcode": "700",
+    "openingHours": "",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "vietnam-market-5051280886",
+    "osmId": 5051280886,
+    "name": "Vietnam Market",
+    "chain": "Vietnam Market",
+    "chainId": "vietnam-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.139892,
+      "lng": -21.884371
+    },
+    "address": "Suðurlandsbraut",
+    "city": "",
+    "postcode": "108",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-5079448821",
+    "osmId": 5079448821,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.417452,
+      "lng": -18.99909
+    },
+    "address": "Austurvegur",
+    "city": "Vík",
+    "postcode": "870",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "yes",
+    "phone": "+354 585 7000",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "asian-supermarket-5472681441",
+    "osmId": 5472681441,
+    "name": "Asian Supermarket",
+    "chain": "Asian Supermarket",
+    "chainId": "asian-supermarket",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.128658,
+      "lng": -21.864988
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-5749897388",
+    "osmId": 5749897388,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.098189,
+      "lng": -21.908546
+    },
+    "address": "Akrabraut",
+    "city": "Garðabær",
+    "postcode": "210",
+    "openingHours": "Mo-Su 08:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "sam-5863033325",
+    "osmId": 5863033325,
+    "name": "SAM",
+    "chain": "SAM",
+    "chainId": "sam",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.06043,
+      "lng": -23.17378
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Th 11:00-18:30; Fr 10:00-19:00; Sa 10:00-18:00; Su 11:00-18:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "hyalin-reykjav-k-6264292343",
+    "osmId": 6264292343,
+    "name": "Hyalin Reykjavík",
+    "chain": "Hyalin Reykjavík",
+    "chainId": "hyalin-reykjav-k",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.14647,
+      "lng": -21.928839
+    },
+    "address": "Hverfisgata",
+    "city": "Reykjavík",
+    "postcode": "101",
+    "openingHours": "Mo-Fr 11:00-19:00; Sa 11:00-18:00",
+    "wheelchair": "",
+    "phone": "+354 519 7171",
+    "website": "https://www.hyalin-reykjavik.com/",
+    "organic": ""
+  },
+  {
+    "id": "b-in-6447396401",
+    "osmId": 6447396401,
+    "name": "Búðin",
+    "chain": "Búðin",
+    "chainId": "b-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.527199,
+      "lng": -13.816704
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo, Tu, Th, Fr 13:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-6527943321",
+    "osmId": 6527943321,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.138577,
+      "lng": -21.891032
+    },
+    "address": "Lágmúli",
+    "city": "Reykjavík",
+    "postcode": "108",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "ol-s-6582740114",
+    "osmId": 6582740114,
+    "name": "Olís",
+    "chain": "Olís",
+    "chainId": "ol-s",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.943851,
+      "lng": -21.007956
+    },
+    "address": "",
+    "city": "Selfoss",
+    "postcode": "800",
+    "openingHours": "24/7",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "vegam-t-6615988785",
+    "osmId": 6615988785,
+    "name": "Vegamót",
+    "chain": "Vegamót",
+    "chainId": "vegam-t",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.685528,
+      "lng": -23.600876
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Fr 11:00-21:00; Sa,Su 12:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "city-market-6646847094",
+    "osmId": 6646847094,
+    "name": "City Market",
+    "chain": "City Market",
+    "chainId": "city-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.114288,
+      "lng": -21.896701
+    },
+    "address": "Nýbýlavegur",
+    "city": "Kópavogur",
+    "postcode": "200",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "+354 691 4848",
+    "website": "https://fiska.is/",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-6981239818",
+    "osmId": 6981239818,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.097334,
+      "lng": -21.826532
+    },
+    "address": "Jafnaseli",
+    "city": "Reykjavík",
+    "postcode": "109",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-6981239819",
+    "osmId": 6981239819,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.076464,
+      "lng": -21.941856
+    },
+    "address": "Flatahraun",
+    "city": "Hafnarfjörður",
+    "postcode": "220",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "yes",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-6981239901",
+    "osmId": 6981239901,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.749937,
+      "lng": -20.232649
+    },
+    "address": "Austurvegur",
+    "city": "Hvolsvöllur",
+    "postcode": "860",
+    "openingHours": "Mo-Su 09:00-19:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-6981239902",
+    "osmId": 6981239902,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.130205,
+      "lng": -21.872492
+    },
+    "address": "Skeifan",
+    "city": "Reykjavík",
+    "postcode": "108",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-7159546999",
+    "osmId": 7159546999,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.165727,
+      "lng": -21.699043
+    },
+    "address": "Bjarkarholt",
+    "city": "Mosfellsbær",
+    "postcode": "270",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "city-market-7239757822",
+    "osmId": 7239757822,
+    "name": "City Market",
+    "chain": "City Market",
+    "chainId": "city-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.114139,
+      "lng": -21.892965
+    },
+    "address": "Dalbrekka",
+    "city": "",
+    "postcode": "200",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "euro-market-7942617513",
+    "osmId": 7942617513,
+    "name": "Euro Market",
+    "chain": "Euro Market",
+    "chainId": "euro-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.111127,
+      "lng": -21.85089
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Fr 10:00-21:00; Sa-Su 10:00-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-7993167472",
+    "osmId": 7993167472,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.145629,
+      "lng": -21.934089
+    },
+    "address": "Hallveigarstígur",
+    "city": "Reykjavík",
+    "postcode": "101",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "yes",
+    "phone": "+354 585 7000",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-8011272290",
+    "osmId": 8011272290,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.046318,
+      "lng": -21.983982
+    },
+    "address": "Norðurhella",
+    "city": "Hafnarfjörður",
+    "postcode": "221",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "",
+    "phone": "+354 585 7000",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-8011272291",
+    "osmId": 8011272291,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.099486,
+      "lng": -21.831239
+    },
+    "address": "Seljabraut",
+    "city": "Reykjavík",
+    "postcode": "109",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "extra-8014883929",
+    "osmId": 8014883929,
+    "name": "Extra",
+    "chain": "Extra",
+    "chainId": "extra",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.144527,
+      "lng": -21.91858
+    },
+    "address": "Barónsstígur",
+    "city": "Reykjavík",
+    "postcode": "101",
+    "openingHours": "Mo-Su 08:00-24:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://www.extra.is",
+    "organic": ""
+  },
+  {
+    "id": "nett-8235618207",
+    "osmId": 8235618207,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.093836,
+      "lng": -21.859131
+    },
+    "address": "Salavegur",
+    "city": "Kópavogur",
+    "postcode": "201",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "bj-rki-8345063580",
+    "osmId": 8345063580,
+    "name": "Björki",
+    "chain": "Björki",
+    "chainId": "bj-rki",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.751829,
+      "lng": -20.235283
+    },
+    "address": "Austurvegur",
+    "city": "",
+    "postcode": "860",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "videomarka-urinn-8420837950",
+    "osmId": 8420837950,
+    "name": "Videomarkaðurinn",
+    "chain": "Videomarkaðurinn",
+    "chainId": "videomarka-urinn",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.112332,
+      "lng": -21.903268
+    },
+    "address": "Hamraborg",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Fr 09:00-22:00; Sa 10:00-22:00; Su 12:00-22:00",
+    "wheelchair": "",
+    "phone": "+354 554 6777",
+    "website": "https://www.facebook.com/videomarkadurinn",
+    "organic": ""
+  },
+  {
+    "id": "10-11-8442528299",
+    "osmId": 8442528299,
+    "name": "10-11",
+    "chain": "10-11",
+    "chainId": "10-11",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.143044,
+      "lng": -21.91534
+    },
+    "address": "Laugavegur",
+    "city": "Reykjavík",
+    "postcode": "105",
+    "openingHours": "Mo-Su 08:00-23:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-8479250983",
+    "osmId": 8479250983,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.154554,
+      "lng": -21.951995
+    },
+    "address": "Fiskislóð",
+    "city": "Reykjavík",
+    "postcode": "101",
+    "openingHours": "Mo-Su 07:30-24:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "plus-market-8563226496",
+    "osmId": 8563226496,
+    "name": "Plus Market",
+    "chain": "Plus Market",
+    "chainId": "plus-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.105271,
+      "lng": -21.81517
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "lj-malind-8787353060",
+    "osmId": 8787353060,
+    "name": "Ljómalind",
+    "chain": "Ljómalind",
+    "chainId": "lj-malind",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.543267,
+      "lng": -21.910924
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "mini-market-8879657940",
+    "osmId": 8879657940,
+    "name": "Mini Market",
+    "chain": "Mini Market",
+    "chainId": "mini-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.1107,
+      "lng": -21.850938
+    },
+    "address": "Smiðjuvegur",
+    "city": "Kópavogur",
+    "postcode": "200",
+    "openingHours": "Mo-Sa 09:00-20:00; Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "+354 571 0607",
+    "website": "https://minimarket.is/",
+    "organic": ""
+  },
+  {
+    "id": "mini-market-8879657941",
+    "osmId": 8879657941,
+    "name": "Mini Market",
+    "chain": "Mini Market",
+    "chainId": "mini-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.998139,
+      "lng": -22.549508
+    },
+    "address": "Hafnargata",
+    "city": "Keflavík",
+    "postcode": "230",
+    "openingHours": "Mo-Sa 10:00-20:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "+354 435 0107",
+    "website": "https://minimarket.is/",
+    "organic": ""
+  },
+  {
+    "id": "p-tursb-8926783504",
+    "osmId": 8926783504,
+    "name": "Pétursbúð",
+    "chain": "Pétursbúð",
+    "chainId": "p-tursb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.149544,
+      "lng": -21.946389
+    },
+    "address": "Ránargata",
+    "city": "Reykjavík",
+    "postcode": "101",
+    "openingHours": "Mo-Fr 09:00-22:00; Su,PH 10:00-22:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "hyalin-9252624017",
+    "osmId": 9252624017,
+    "name": "Hyalin",
+    "chain": "Hyalin",
+    "chainId": "hyalin",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.146184,
+      "lng": -21.933039
+    },
+    "address": "Skólavörðustígur",
+    "city": "",
+    "postcode": "101",
+    "openingHours": "Mo-Sa 11:00-18:00",
+    "wheelchair": "",
+    "phone": "+354 519 7171",
+    "website": "https://hyalin-shop.com/",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-9286812370",
+    "osmId": 9286812370,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.153627,
+      "lng": -21.951466
+    },
+    "address": "Fiskislóð",
+    "city": "Reykjavík",
+    "postcode": "101",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-9286812371",
+    "osmId": 9286812371,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.131285,
+      "lng": -21.869297
+    },
+    "address": "Skeifan",
+    "city": "Reykjavík",
+    "postcode": "108",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-9286812379",
+    "osmId": 9286812379,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.150472,
+      "lng": -21.789413
+    },
+    "address": "Spöngin",
+    "city": "Reykjavík",
+    "postcode": "112",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-9286847420",
+    "osmId": 9286847420,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.441857,
+      "lng": -20.271752
+    },
+    "address": "Miðstræti",
+    "city": "Vestmannaeyjar",
+    "postcode": "900",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-9286935533",
+    "osmId": 9286935533,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.135111,
+      "lng": -21.846234
+    },
+    "address": "Skútuvogur",
+    "city": "Reykjavík",
+    "postcode": "104",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://www.bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "nett-9297740425",
+    "osmId": 9297740425,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.163497,
+      "lng": -21.691029
+    },
+    "address": "Sunnukriki",
+    "city": "Mosfellsbær",
+    "postcode": "270",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-9494983262",
+    "osmId": 9494983262,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.108591,
+      "lng": -21.842562
+    },
+    "address": "Þönglabakki",
+    "city": "Reykjavík",
+    "postcode": "109",
+    "openingHours": "24/7",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kaupf-lag-steingr-msfjar-ar-9522271453",
+    "osmId": 9522271453,
+    "name": "Kaupfélag Steingrímsfjarðar",
+    "chain": "Kaupfélag Steingrímsfjarðar",
+    "chainId": "kaupf-lag-steingr-msfjar-ar",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.689319,
+      "lng": -21.442297
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Th 09:30-10:30, 13:00-17:00; Fr 09:30-10:30, 13:00-18:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-9755777555",
+    "osmId": 9755777555,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.145693,
+      "lng": -21.898156
+    },
+    "address": "Borgartún",
+    "city": "Reykjavík",
+    "postcode": "105",
+    "openingHours": "Mo-Su 08:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://kronan.is/",
+    "organic": ""
+  },
+  {
+    "id": "kr-nan-9883521270",
+    "osmId": 9883521270,
+    "name": "Krónan",
+    "chain": "Krónan",
+    "chainId": "kr-nan",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.689091,
+      "lng": -18.098702
+    },
+    "address": "Tryggvabraut",
+    "city": "Akureyri",
+    "postcode": "600",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "extra24-9893866517",
+    "osmId": 9893866517,
+    "name": "Extra24",
+    "chain": "Extra24",
+    "chainId": "extra24",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.001324,
+      "lng": -22.551198
+    },
+    "address": "Hafnargata",
+    "city": "Keflavík",
+    "postcode": "230",
+    "openingHours": "24/7",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://www.extra.is",
+    "organic": ""
+  },
+  {
+    "id": "n1-9903829617",
+    "osmId": 9903829617,
+    "name": "N1",
+    "chain": "N1",
+    "chainId": "n1",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.99616,
+      "lng": -21.192596
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "vietnam-market-9906743517",
+    "osmId": 9906743517,
+    "name": "Vietnam Market",
+    "chain": "Vietnam Market",
+    "chainId": "vietnam-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.146613,
+      "lng": -21.933164
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "corner-market-9907457617",
+    "osmId": 9907457617,
+    "name": "Corner Market",
+    "chain": "Corner Market",
+    "chainId": "corner-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.147938,
+      "lng": -21.941973
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Su-We 06:00-03:00, Th-Sa 00:00+",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "matab-r-kaju-10002119224",
+    "osmId": 10002119224,
+    "name": "Matabúr Kaju",
+    "chain": "Matabúr Kaju",
+    "chainId": "matab-r-kaju",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.320594,
+      "lng": -22.069936
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://www.kajaorganic.com/matarbur-kaju",
+    "organic": ""
+  },
+  {
+    "id": "esjusk-linn-10031202310",
+    "osmId": 10031202310,
+    "name": "Esjuskálinn",
+    "chain": "Esjuskálinn",
+    "chainId": "esjusk-linn",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.241997,
+      "lng": -21.82995
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Th 08:00-20:00; Fr 08:00-21:00; Sa 09:00-21:00; Su 10:00-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "euro-market-10039030034",
+    "osmId": 10039030034,
+    "name": "Euro Market",
+    "chain": "Euro Market",
+    "chainId": "euro-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.11273,
+      "lng": -21.903303
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "j-nsab-10135042406",
+    "osmId": 10135042406,
+    "name": "Jónsabúð",
+    "chain": "Jónsabúð",
+    "chainId": "j-nsab",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.946747,
+      "lng": -18.181449
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-10838060572",
+    "osmId": 10838060572,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.698358,
+      "lng": -18.13911
+    },
+    "address": "Austursíða",
+    "city": "Akureyri",
+    "postcode": "603",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://bonus.is/",
+    "organic": ""
+  },
+  {
+    "id": "hagkaup-10865443471",
+    "osmId": 10865443471,
+    "name": "Hagkaup",
+    "chain": "Hagkaup",
+    "chainId": "hagkaup",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.150725,
+      "lng": -21.787195
+    },
+    "address": "Spöngin",
+    "city": "Reykjavík",
+    "postcode": "112",
+    "openingHours": "Mo-Su 08:00-24:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-10884336152",
+    "osmId": 10884336152,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.078814,
+      "lng": -21.957327
+    },
+    "address": "Miðvangur",
+    "city": "Hafnarfjörður",
+    "postcode": "220",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-10884336153",
+    "osmId": 10884336153,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.252453,
+      "lng": -15.212622
+    },
+    "address": "Litlabrú",
+    "city": "Höfn",
+    "postcode": "780",
+    "openingHours": "Mo-Fr 09:00-19:00; Sa-Su 10:00-19:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://netto.is/",
+    "organic": ""
+  },
+  {
+    "id": "nett-10884336163",
+    "osmId": 10884336163,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.050327,
+      "lng": -21.989629
+    },
+    "address": "Selhella",
+    "city": "Hafnarfjörður",
+    "postcode": "221",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kj-rb-in-10891967088",
+    "osmId": 10891967088,
+    "name": "Kjörbúðin",
+    "chain": "Kjörbúðin",
+    "chainId": "kj-rb-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.824602,
+      "lng": -20.30592
+    },
+    "address": "Bogabraut",
+    "city": "Skagaströnd",
+    "postcode": "545",
+    "openingHours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 12:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-10892916586",
+    "osmId": 10892916586,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.676969,
+      "lng": -18.100822
+    },
+    "address": "Byggðavegur",
+    "city": "Akureyri",
+    "postcode": "600",
+    "openingHours": "Mo-Fr 08:00-23:30; Sa-Su 09:00-23:30",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-10892964469",
+    "osmId": 10892964469,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.32153,
+      "lng": -22.056138
+    },
+    "address": "Garðagrund",
+    "city": "Akranes",
+    "postcode": "300",
+    "openingHours": "Mo-Fr 08:00-23:30; Sa-Su 09:00-23:30",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-10892964470",
+    "osmId": 10892964470,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.686811,
+      "lng": -18.128355
+    },
+    "address": "Borgarbraut",
+    "city": "Akureyri",
+    "postcode": "603",
+    "openingHours": "24/7",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-10892964471",
+    "osmId": 10892964471,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.131019,
+      "lng": -20.320982
+    },
+    "address": "Grund",
+    "city": "Flúðir",
+    "postcode": "845",
+    "openingHours": "Mo-Su 09:00-19:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-10893090696",
+    "osmId": 10893090696,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.111763,
+      "lng": -21.918314
+    },
+    "address": "Hófgerði",
+    "city": "Kópavogur",
+    "postcode": "200",
+    "openingHours": "Mo-Fr 08:00-23:30; Sa-Su 09:00-23:30",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-10893090699",
+    "osmId": 10893090699,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.006266,
+      "lng": -22.565254
+    },
+    "address": "Hringbraut",
+    "city": "",
+    "postcode": "230",
+    "openingHours": "24/7",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-10893090700",
+    "osmId": 10893090700,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.046744,
+      "lng": -17.343143
+    },
+    "address": "Garðarsbraut",
+    "city": "Húsavík",
+    "postcode": "640",
+    "openingHours": "Mo-Fr 08:00-23:00; Sa-Su 10:00-23:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-10893090701",
+    "osmId": 10893090701,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.148258,
+      "lng": -21.88346
+    },
+    "address": "Laugalækur",
+    "city": "Reykjavík",
+    "postcode": "105",
+    "openingHours": "Mo-Fr 08:00-23:30; Sa-Su 09:00-23:30",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-10893170693",
+    "osmId": 10893170693,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.123875,
+      "lng": -21.926544
+    },
+    "address": "Menntavegur",
+    "city": "Reykjavík",
+    "postcode": "102",
+    "openingHours": "Mo-Fr 07:30-22:00; Sa-Su 10:00-18:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-10893194708",
+    "osmId": 10893194708,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.974601,
+      "lng": -22.50708
+    },
+    "address": "Tjarnabraut",
+    "city": "",
+    "postcode": "260",
+    "openingHours": "Mo-Fr 08:00-23:30; Sa-Su 09:00-23:30",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-10893194709",
+    "osmId": 10893194709,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.641723,
+      "lng": -16.910543
+    },
+    "address": "Hraunvegur",
+    "city": "Reykjahlíð",
+    "postcode": "660",
+    "openingHours": "Mo-Fr 08:00-21:00; Sa-Su 09:00-21:00",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "https://www.krambudin.is/verslun/reykjahlid/",
+    "organic": ""
+  },
+  {
+    "id": "iceland-10913826007",
+    "osmId": 10913826007,
+    "name": "Iceland",
+    "chain": "Iceland",
+    "chainId": "iceland",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.105517,
+      "lng": -21.822882
+    },
+    "address": "Vesturberg",
+    "city": "Reykjavík",
+    "postcode": "111",
+    "openingHours": "Mo-Fr 07:00-24:00; Sa-Su 09:00-24:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "bl-horni-10947635005",
+    "osmId": 10947635005,
+    "name": "Bláhornið",
+    "chain": "Bláhornið",
+    "chainId": "bl-horni",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.144069,
+      "lng": -21.935744
+    },
+    "address": "Grundarstígur",
+    "city": "Reykjavík",
+    "postcode": "101",
+    "openingHours": "Mo-Sa 11:00-23:30; Su 12:00-23:30",
+    "wheelchair": "",
+    "phone": "+354 571 0449",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-10978037447",
+    "osmId": 10978037447,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.101253,
+      "lng": -21.776961
+    },
+    "address": "Norðlingabraut",
+    "city": "Reykjavík",
+    "postcode": "110",
+    "openingHours": "Mo-Su 10:00-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "ok-market-10989526436",
+    "osmId": 10989526436,
+    "name": "OK Market",
+    "chain": "OK Market",
+    "chainId": "ok-market",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.133339,
+      "lng": -21.932105
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Sa 07:00-24:00, Su 09:00-24:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nesti-11013766753",
+    "osmId": 11013766753,
+    "name": "Nesti",
+    "chain": "Nesti",
+    "chainId": "nesti",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.669887,
+      "lng": -18.080944
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nest-11018082572",
+    "osmId": 11018082572,
+    "name": "Nestí",
+    "chain": "Nestí",
+    "chainId": "nest",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.047572,
+      "lng": -17.343597
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "reykh-lab-in-11063157805",
+    "osmId": 11063157805,
+    "name": "Reykhólabúðin",
+    "chain": "Reykhólabúðin",
+    "chainId": "reykh-lab-in",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.451605,
+      "lng": -22.201563
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "vogus-11179345081",
+    "osmId": 11179345081,
+    "name": "Vogus",
+    "chain": "Vogus",
+    "chainId": "vogus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.980663,
+      "lng": -22.379174
+    },
+    "address": "Iðndalur",
+    "city": "Vogar",
+    "postcode": "190",
+    "openingHours": "Mo-Sa 11:00-19:00; Su 11:00-17:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "kramb-11214290878",
+    "osmId": 11214290878,
+    "name": "Krambúð",
+    "chain": "Krambúð",
+    "chainId": "kramb",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.07452,
+      "lng": -21.908029
+    },
+    "address": "",
+    "city": "Garðabær",
+    "postcode": "210",
+    "openingHours": "Mo-Fr 08:00-23:30; Sa-Su 09:00-23:30",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "b-nus-11375843498",
+    "osmId": 11375843498,
+    "name": "Bónus",
+    "chain": "Bónus",
+    "chainId": "b-nus",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.076221,
+      "lng": -21.927112
+    },
+    "address": "Miðhraun",
+    "city": "Garðabær",
+    "postcode": "210",
+    "openingHours": "Mo-Su 10:00-20:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://bonus.is",
+    "organic": ""
+  },
+  {
+    "id": "pr-s-12142729114",
+    "osmId": 12142729114,
+    "name": "Prís",
+    "chain": "Prís",
+    "chainId": "pr-s",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.102631,
+      "lng": -21.880691
+    },
+    "address": "Smáratorg",
+    "city": "Kópavogur",
+    "postcode": "201",
+    "openingHours": "Mo-Su 10:00-19:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://www.prisarar.is",
+    "organic": ""
+  },
+  {
+    "id": "l-tl-something-12244055146",
+    "osmId": 12244055146,
+    "name": "Lítl Something",
+    "chain": "Lítl Something",
+    "chainId": "l-tl-something",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.819017,
+      "lng": -23.56419
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nett-12422337603",
+    "osmId": 12422337603,
+    "name": "Nettó",
+    "chain": "Nettó",
+    "chainId": "nett",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.932847,
+      "lng": -21.015852
+    },
+    "address": "Eyravegur",
+    "city": "Selfoss",
+    "postcode": "800",
+    "openingHours": "Mo-Su 08:00-19:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "extra24-12670965368",
+    "osmId": 12670965368,
+    "name": "Extra24",
+    "chain": "Extra24",
+    "chainId": "extra24",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.67935,
+      "lng": -18.108964
+    },
+    "address": "Mýrarvegur",
+    "city": "Akureyri",
+    "postcode": "600",
+    "openingHours": "24/7",
+    "wheelchair": "",
+    "phone": "",
+    "website": "https://www.extra.is",
+    "organic": ""
+  },
+  {
+    "id": "dracula-grocery-store-magazin-romanesc-12828405497",
+    "osmId": 12828405497,
+    "name": "Dracula Grocery Store - Magazin Romanesc",
+    "chain": "Dracula Grocery Store - Magazin Romanesc",
+    "chainId": "dracula-grocery-store-magazin-romanesc",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.079552,
+      "lng": -21.943382
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "self-service-12888970101",
+    "osmId": 12888970101,
+    "name": "Self-Service",
+    "chain": "Self-Service",
+    "chainId": "self-service",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.608681,
+      "lng": -24.170273
+    },
+    "address": "Kollsvíkurvegur",
+    "city": "",
+    "postcode": "",
+    "openingHours": "24/7",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "fiskab-ri-12897322301",
+    "osmId": 12897322301,
+    "name": "Fiskabúrið",
+    "chain": "Fiskabúrið",
+    "chainId": "fiskab-ri",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.551037,
+      "lng": -23.19841
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "24/7",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "hei-arleikab-12899746501",
+    "osmId": 12899746501,
+    "name": "Heiðarleikabúð",
+    "chain": "Heiðarleikabúð",
+    "chainId": "hei-arleikab",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.507801,
+      "lng": -22.465282
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "24/7",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "deli-12922379173",
+    "osmId": 12922379173,
+    "name": "Deli",
+    "chain": "Deli",
+    "chainId": "deli",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.167681,
+      "lng": -21.696502
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "Mo-Su 07:00-22:00",
+    "wheelchair": "",
+    "phone": "+354 781 0345",
+    "website": "https://deli.is/",
+    "organic": ""
+  },
+  {
+    "id": "verslunin-skerjakolla-12997224401",
+    "osmId": 12997224401,
+    "name": "Verslunin Skerjakolla",
+    "chain": "Verslunin Skerjakolla",
+    "chainId": "verslunin-skerjakolla",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 66.300349,
+      "lng": -16.447835
+    },
+    "address": "Bakkagata",
+    "city": "",
+    "postcode": "670",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "verslun-hofs-si-13665097502",
+    "osmId": 13665097502,
+    "name": "Verslun Hofsósi",
+    "chain": "Verslun Hofsósi",
+    "chainId": "verslun-hofs-si",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.898391,
+      "lng": -19.407998
+    },
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "fr-lauga-108371048",
+    "osmId": 108371048,
+    "name": "Frú Lauga",
+    "chain": "Frú Lauga",
+    "chainId": "fr-lauga",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.148237,
+      "lng": -21.883803
+    },
+    "address": "Laugalækur",
+    "city": "",
+    "postcode": "105",
+    "openingHours": "Mo-Fr 11:00-18:00; Sa 11:00-16:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "http://www.frulauga.is/",
+    "organic": "yes"
+  },
+  {
+    "id": "rang-109295153",
+    "osmId": 109295153,
+    "name": "Rangá",
+    "chain": "Rangá",
+    "chainId": "rang",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.139861,
+      "lng": -21.857348
+    },
+    "address": "Skipasund",
+    "city": "",
+    "postcode": "104",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nesti-135979605",
+    "osmId": 135979605,
+    "name": "Nesti",
+    "chain": "Nesti",
+    "chainId": "nesti",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.166025,
+      "lng": -21.695664
+    },
+    "address": "Bjarkarholt",
+    "city": "Mosfellsbær",
+    "postcode": "270",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "n1-169155921",
+    "osmId": 169155921,
+    "name": "N1",
+    "chain": "N1",
+    "chainId": "n1",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.915079,
+      "lng": -23.884302
+    },
+    "address": "Útnesvegur",
+    "city": "Hellissandur",
+    "postcode": "360",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "fjar-arkaup-172051601",
+    "osmId": 172051601,
+    "name": "Fjarðarkaup",
+    "chain": "Fjarðarkaup",
+    "chainId": "fjar-arkaup",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.08229,
+      "lng": -21.940442
+    },
+    "address": "Hólshraun",
+    "city": "Hafnarfjörður",
+    "postcode": "220",
+    "openingHours": "Mo-We 09:00-18:00; Th 09:00-18:30; Fr 09:00-19:00; Sa 10:00-16:00; Su off",
+    "wheelchair": "yes",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "nesti-197268731",
+    "osmId": 197268731,
+    "name": "Nesti",
+    "chain": "Nesti",
+    "chainId": "nesti",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.660246,
+      "lng": -20.275886
+    },
+    "address": "Norðurlandsvegur",
+    "city": "Blönduós",
+    "postcode": "540",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "hl-arkaup-219454261",
+    "osmId": 219454261,
+    "name": "Hlíðarkaup",
+    "chain": "Hlíðarkaup",
+    "chainId": "hl-arkaup",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 65.73481,
+      "lng": -19.647253
+    },
+    "address": "Akurhlíð",
+    "city": "Sauðárkrókur",
+    "postcode": "550",
+    "openingHours": "Mo-Sa 09:00-22:00; Su 10:00-22:00",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "shellsk-linn-219769752",
+    "osmId": 219769752,
+    "name": "Shellskálinn",
+    "chain": "Shellskálinn",
+    "chainId": "shellsk-linn",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 63.995547,
+      "lng": -21.185219
+    },
+    "address": "Austurmörk",
+    "city": "",
+    "postcode": "810",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "n1-512341639",
+    "osmId": 512341639,
+    "name": "N1",
+    "chain": "N1",
+    "chainId": "n1",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.066778,
+      "lng": -21.93877
+    },
+    "address": "Lækjargata",
+    "city": "",
+    "postcode": "220",
+    "openingHours": "24/7",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  },
+  {
+    "id": "n1-514576628",
+    "osmId": 514576628,
+    "name": "N1",
+    "chain": "N1",
+    "chainId": "n1",
+    "storeType": "supermarket",
+    "location": {
+      "lat": 64.1099,
+      "lng": -21.856383
+    },
+    "address": "Stórihjalli",
+    "city": "Kópavogur",
+    "postcode": "200",
+    "openingHours": "",
+    "wheelchair": "",
+    "phone": "",
+    "website": "",
+    "organic": ""
+  }
+]
