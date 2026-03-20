@@ -22,6 +22,7 @@ const BASE_LAYER_GROUPS: LayerGroup[] = [
       { id: 'aquaculture', label: 'Akvakultur' },
       { id: 'processing', label: 'Foredlingsanlegg' },
       { id: 'ports', label: 'Havner' },
+      { id: 'properties', label: 'Eiendommer' },
     ],
   },
   {
@@ -34,12 +35,13 @@ const BASE_LAYER_GROUPS: LayerGroup[] = [
 ]
 
 export default function LayerPanel() {
-  const { activeLayers, toggleLayer, activeChains, toggleChain, stores, isLoading, aquacultureSites, processingPlants, ports, vulnerabilityScores, countryConfig } = useMapContext()
+  const { activeLayers, toggleLayer, activeChains, toggleChain, stores, isLoading, aquacultureSites, processingPlants, ports, vulnerabilityScores, companyProperties, countryConfig } = useMapContext()
 
   const hasData: Record<string, boolean> = {
     aquaculture: aquacultureSites.length > 0,
     processing: processingPlants.length > 0,
     ports: ports.length > 0,
+    properties: (companyProperties?.features?.length ?? 0) > 0,
     vulnerability: Object.keys(vulnerabilityScores).length > 0,
   }
 
@@ -67,6 +69,7 @@ export default function LayerPanel() {
             {aquacultureSites.length > 0 && ` \u00B7 ${aquacultureSites.length} akvakultur`}
             {processingPlants.length > 0 && ` \u00B7 ${processingPlants.length} anlegg`}
             {ports.length > 0 && ` \u00B7 ${ports.length} havner`}
+            {(companyProperties?.features?.length ?? 0) > 0 && ` \u00B7 ${companyProperties!.features.length} eiendommer`}
           </p>
         )}
       </div>

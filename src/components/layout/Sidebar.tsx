@@ -37,6 +37,10 @@ const navGroups = [
       { name: 'Graf', href: '/graf', description: 'Kunnskapsgraf og koblinger' },
       { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
       { name: 'Verdikjede', href: '/verdikjede', description: 'Nordisk verdikjedeanalyse' },
+      { name: 'Okonomi', href: '/okonomi', description: 'Finansielle trender og sammenligning' },
+      { name: 'Styremedlemmer', href: '/styremedlemmer', description: 'Kryssstyrer og nettverk' },
+      { name: 'Forsyningskjede', href: '/forsyningskjede', description: 'Leverandorkjeder og relasjoner' },
+      { name: 'Eierskap', href: '/eierskap', description: 'Konsernstrukturer og eiertraer' },
     ],
   },
   {
@@ -47,6 +51,7 @@ const navGroups = [
       { name: 'Kilder', href: '/kilder', description: 'Dokumenter og referanser' },
       { name: 'Aktorer', href: '/aktorer', description: 'Prioritering, asks og relasjoner' },
       { name: 'Selskaper', href: '/selskap', description: 'Selskapsdata og regnskap' },
+      { name: 'Personer', href: '/personer', description: 'Nokkelpersoner og roller' },
       { name: 'Sok', href: '/sok', description: 'Sok pa tvers av alt' },
     ],
   },

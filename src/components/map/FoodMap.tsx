@@ -7,9 +7,11 @@ import { useMapContext } from '@/lib/map/MapContext'
 import {
   AQUACULTURE_COLORS,
   PORT_COLORS,
+  PROPERTY_COLORS,
   type Store,
   type AquacultureProductionType,
   type PortType,
+  type PropertyType,
 } from '@/lib/map/types'
 import { getVulnerabilityColor } from '@/lib/map/vulnerability'
 
@@ -59,11 +61,12 @@ export default function FoodMap() {
   const portsRef = useRef<L.LayerGroup | null>(null)
   const desertRef = useRef<L.LayerGroup | null>(null)
   const vulnerabilityRef = useRef<L.GeoJSON | null>(null)
+  const propertiesRef = useRef<L.LayerGroup | null>(null)
 
   const {
     stores, geojson, activeLayers, activeChains, municipalities,
     aquacultureSites, processingPlants, ports, vulnerabilityScores,
-    setSelectedMunicipality, countryConfig,
+    companyProperties, setSelectedMunicipality, countryConfig,
   } = useMapContext()
   const [mapReady, setMapReady] = useState(false)
 
@@ -358,6 +361,52 @@ export default function FoodMap() {
       vulnerabilityRef.current = null
     }
   }, [geojson, activeLayers, vulnerabilityScores, municipalities, setSelectedMunicipality, muniIdProp, muniNameProp])
+
+  // Company properties
+  useEffect(() => {
+    if (!mapRef.current) return
+    if (propertiesRef.current) {
+      mapRef.current.removeLayer(propertiesRef.current)
+      propertiesRef.current = null
+    }
+    if (!activeLayers.includes('properties') || !companyProperties) return
+
+    const layer = L.layerGroup()
+    for (const feature of companyProperties.features) {
+      const p = feature.properties || {}
+      const coords = (feature.geometry as GeoJSON.Point).coordinates as [number, number]
+      const color = PROPERTY_COLORS[p.propertyType as PropertyType] || '#6B7280'
+
+      const markerOptions: L.CircleMarkerOptions = {
+        radius: 6,
+        fillColor: color,
+        color: p.selfLeased ? '#DC2626' : '#fff',
+        weight: p.selfLeased ? 2 : 1,
+        fillOpacity: 0.8,
+        ...(p.selfLeased ? { dashArray: '4 3' } : {}),
+      }
+
+      const marker = L.circleMarker([coords[1], coords[0]], markerOptions)
+      marker.bindPopup(`
+        <div style="min-width:200px">
+          <strong>${p.companyName}</strong><br/>
+          <span style="color:${color}">\u25CF</span> ${p.propertyType}
+          ${p.address ? `<br/><small>${p.address}</small>` : ''}
+          ${p.sqMeters ? `<br/><small>${p.sqMeters.toLocaleString()} m\u00B2</small>` : ''}
+          ${p.selfLeased ? '<br/><small style="color:#DC2626">\u26A0 Selvleid</small>' : ''}
+          ${p.tenantName ? `<br/><small>Leietaker: ${p.tenantName}</small>` : ''}
+        </div>
+      `)
+      marker.addTo(layer)
+    }
+    layer.addTo(mapRef.current)
+    propertiesRef.current = layer
+
+    return () => {
+      if (mapRef.current && layer) mapRef.current.removeLayer(layer)
+      propertiesRef.current = null
+    }
+  }, [companyProperties, activeLayers])
 
   // Store markers with clustering
   const updateMarkers = useCallback(() => {

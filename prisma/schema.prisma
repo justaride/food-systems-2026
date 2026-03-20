@@ -210,6 +210,13 @@ model Company {
   documentRefs CompanyDocumentRef[]
   actor        Actor?
 
+  parentOf           CompanyOwnership[]      @relation("ParentCompany")
+  childOf            CompanyOwnership[]      @relation("ChildCompany")
+  ownedProperties    CompanyProperty[]       @relation("PropertyOwner")
+  tenantProperties   CompanyProperty[]       @relation("PropertyTenant")
+  relationshipsFrom  BusinessRelationship[]  @relation("RelationshipFrom")
+  relationshipsTo    BusinessRelationship[]  @relation("RelationshipTo")
+
   @@index([country])
   @@index([valueChainStage])
 }
@@ -362,6 +369,89 @@ model ActorRelationship {
   @@index([fromActorId])
   @@index([toActorId])
   @@index([relationType])
+}
+
+// ─── Domain 5b: Corporate Structure & Relationships ────────────────
+
+model CompanyOwnership {
+  id              String    @id @default(cuid())
+  parentCompanyId String
+  childCompanyId  String
+  ownershipPct    Float?
+  ownershipType   String    // subsidiary, joint-venture, minority-stake
+  effectiveFrom   DateTime?
+  effectiveTo     DateTime?
+  source          String
+  metadata        Json?
+
+  parentCompany Company @relation("ParentCompany", fields: [parentCompanyId], references: [id])
+  childCompany  Company @relation("ChildCompany", fields: [childCompanyId], references: [id])
+
+  @@unique([parentCompanyId, childCompanyId])
+  @@index([parentCompanyId])
+  @@index([childCompanyId])
+}
+
+model CompanyProperty {
+  id             String   @id @default(cuid())
+  companyId      String
+  propertyType   String   // warehouse, retail, office, production, logistics
+  address        String?
+  municipality   String?
+  county         String?
+  country        String   @default("NO")
+  lat            Float?
+  lng            Float?
+  sqMeters       Float?
+  acquiredYear   Int?
+  selfLeased     Boolean  @default(false)
+  tenantCompanyId String?
+  source         String?
+  metadata       Json?
+
+  company       Company  @relation("PropertyOwner", fields: [companyId], references: [id])
+  tenantCompany Company? @relation("PropertyTenant", fields: [tenantCompanyId], references: [id])
+
+  @@index([companyId])
+  @@index([tenantCompanyId])
+  @@index([propertyType])
+  @@index([selfLeased])
+}
+
+model BusinessRelationship {
+  id               String  @id @default(cuid())
+  fromCompanyId    String
+  toCompanyId      String
+  relationshipType String  // supplier, buyer, distributor, franchisor, self-dealing, joint-venture
+  description      String?
+  sector           String?
+  estimatedValue   Float?
+  source           String?
+  metadata         Json?
+
+  fromCompany Company @relation("RelationshipFrom", fields: [fromCompanyId], references: [id])
+  toCompany   Company @relation("RelationshipTo", fields: [toCompanyId], references: [id])
+
+  @@unique([fromCompanyId, toCompanyId, relationshipType])
+  @@index([fromCompanyId])
+  @@index([toCompanyId])
+  @@index([relationshipType])
+}
+
+model PersonProfile {
+  id           String   @id @default(cuid())
+  name         String
+  personKey    String   @unique
+  roles        Json[]   // {companyId, companyName, role, fromYear, toYear}
+  biography    String?
+  linkedInUrl  String?
+  photoUrl     String?
+  affiliations String[]
+  tags         String[]
+  metadata     Json?
+
+  @@index([personKey])
+  @@index([tags], type: Gin)
 }
 
 // ─── Domain 6: Project Management ───────────────────────────────────

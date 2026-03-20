@@ -1,12 +1,20 @@
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { getCompanyById } from '@/lib/queries/companies'
+import { getCompanyTreeIds } from '@/lib/queries/ownership'
+import { getPersonKeysWithProfiles } from '@/lib/queries/persons'
 
 export default async function SelskapPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const company = await getCompanyById(id)
+  const [company, treeIds, profileKeys] = await Promise.all([
+    getCompanyById(id),
+    getCompanyTreeIds(),
+    getPersonKeysWithProfiles(),
+  ])
   if (!company) return notFound()
+  const isInTree = treeIds.has(company.id)
 
   const latestFinancial = company.financials[0]
 
@@ -26,6 +34,11 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
         </div>
         {company.naceDescription && (
           <p className="text-sm text-stone-500 mt-2">{company.naceDescription}</p>
+        )}
+        {isInTree && (
+          <Link href="/eierskap" className="inline-flex items-center gap-1 text-sm text-emerald-700 hover:underline mt-2">
+            Se eierskapstre &rarr;
+          </Link>
         )}
       </div>
 
@@ -132,7 +145,13 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                   {m.personName.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-stone-800">{m.personName}</p>
+                  {profileKeys.has(m.personKey) ? (
+                    <Link href={`/personer/${m.personKey}`} className="text-sm font-medium text-emerald-700 hover:underline">
+                      {m.personName}
+                    </Link>
+                  ) : (
+                    <p className="text-sm font-medium text-stone-800">{m.personName}</p>
+                  )}
                   <p className="text-xs text-stone-400">{m.role}</p>
                 </div>
               </div>
