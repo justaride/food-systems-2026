@@ -84,6 +84,21 @@ Knowledge base + analysis app for Norwegian/Nordic food systems. Maps corporate 
 ```
 --- Norway (NO) ---
 929228723 | ASKO Norge AS          | logistics   | family (NorgesGruppen 100%)
+930622974 | ASKO Oslofjord AS      | logistics   | family (ASKO Norge 100%)
+979487916 | ASKO Vest AS           | logistics   | family (ASKO Norge 100%)
+918710507 | ASKO Hedmark AS        | logistics   | family (ASKO Norge 100%)
+923622845 | ASKO Rogaland AS       | logistics   | family (ASKO Norge 100%)
+979334109 | ASKO Midt-Norge AS     | logistics   | family (ASKO Norge 100%)
+913117883 | ASKO Agder AS          | logistics   | family (ASKO Norge 100%)
+933129950 | ASKO Vestfold Telemark AS | logistics | family (ASKO Norge 100%)
+912015238 | ASKO Oest AS           | logistics   | family (ASKO Norge 100%)
+979655215 | ASKO Nord AS           | logistics   | family (ASKO Norge 100%)
+813612992 | ASKO Molde AS          | logistics   | family (ASKO Norge 100%)
+999320600 | ASKO Transport AS      | logistics   | family (ASKO Norge 100%)
+925216534 | ASKO Maritime AS       | logistics   | family (ASKO Norge 100%)
+916286074 | ASKO Fornybar AS       | logistics   | family (ASKO Norge 100%)
+925109185 | ASKO Mat AS            | logistics   | family (ASKO Norge 100%)
+884133572 | ASKO Bygg Vestby AS    | logistics   | family (ASKO Norge 100%)
 929975200 | Austevoll Seafood ASA  | seafood     | listed (Møgster 52.7%)
 914224314 | BAMA Gruppen AS        | logistics   | family (NG 46%, REMA 20%, Bama 34%)
 936560288 | Coop Norge SA          | retail      | cooperative
@@ -198,6 +213,7 @@ main()
 | `import-transcripts.ts` | Document | `db:import:transcripts` |
 | `import-session5-supply-chain.ts` | Company, CompanyProperty, CompanyOwnership, BusinessRelationship | `db:import:session5` |
 | `import-horeca-companies.ts` | Company, CompanyOwnership, BusinessRelationship | `db:import:horeca` |
+| `import-asko-corporate-tree.ts` | Company, CompanyFinancial, CompanyOwnership, CompanyProperty, BoardMember, PersonProfile | `db:import:asko` |
 
 ---
 
@@ -217,20 +233,20 @@ main()
 
 | Entity | Count |
 |---|---|
-| Companies | 69 (NO:30+8 session5, SE:6, DK:6, FI:6, IS:3) + 13 HORECA |
-| CompanyFinancial | 208 |
+| Companies | 89 (NO:30+8 session5+15 ASKO+6 HORECA, SE:6, DK:6, FI:6, IS:3, HORECA:7 non-NO) |
+| CompanyFinancial | 219 (208 + 11 ASKO) |
 | Actors | 84 (76 + 8 HORECA) |
 | Documents | 394 |
 | Theses | 32 |
 | Reports | 61 |
 | Source Docs | 126 |
 | Insights | 86 (81 + 5 HORECA) |
-| CompanyOwnership | 14 (10 + 4 HORECA) |
-| CompanyProperty | 109 |
+| CompanyOwnership | 34 (10 + 4 HORECA + 15 ASKO + NorgesGruppen→ASKO 5) |
+| CompanyProperty | 119 (109 + 10 ASKO warehouses) |
 | BusinessRelationship | 73 (68 + 5 HORECA) |
 | CountryMetric | 243 |
-| BoardMembers | 418 |
-| PersonProfile | 31 |
+| BoardMembers | 425 (418 + 7 ASKO Norge) |
+| PersonProfile | 34 (31 + 3 ASKO key people) |
 
 ---
 
