@@ -1023,4 +1023,138 @@ export const insights: Insight[] = [
       { sourceId: 'src-105', label: 'Upphandlingsmyndigheten 2025' },
     ],
   },
+  {
+    id: 'ins-73',
+    title: 'Nordisk matsvinnreduksjon: Norge -24 %, Sverige 0 % — divergerende baner mot 2030',
+    type: 'analyse',
+    source: 'Matvett/NORSUS 2024, Naturvaardsverket 2024',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Norge har oppnaatt -24 % per capita matsvinnreduksjon (2015-baseline), men totalvolumet er fortsatt over 407 000 tonn. Sverige viser null reduksjon siden 2020 — etappmaalet for 2025 (20 %) er ikke naatt. For aa naa 50 %-maalet innen 2030 maa Norges aarlige reduksjonstakt oeke fra 2,7 til 4,3 prosentpoeng. Husholdningene (47 % av matsvinnet, bare -18 % reduksjon) er flaskehalsen.',
+    tags: ['matsvinn', 'tidsserier', 'nordisk', '2030-maal', 'husholdninger'],
+    sources: [
+      { sourceId: 'src-96', label: 'Matvett/NORSUS matsvinnrapport 2024' },
+      { sourceId: 'src-97', label: 'Naturvaardsverket matavfallstatistikk 2024' },
+    ],
+  },
+  {
+    id: 'ins-74',
+    title: 'Sirkulaer matomkonomi: tre uutnyttede spaker — redistribusjon, biogass, innkjoep',
+    type: 'funn',
+    source: 'Sirkularitetsanalyse 2026',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Matsentralen redistribuerer bare 3 % av kassert mat (6 000 av ~200 000 tonn). Norges biogassproduksjon (828 GWh) er 11x lavere enn Danmarks (>8 000 GWh) grunnet kortsiktige subsidier vs. Danmarks 20-aars feed-in-tariffer. Norge mangler nasjonalt maal for oekologisk offentlig innkjoep — Danmark (84 % i Koebenhavn) og Sverige (39 % nasjonalt) er langt foran. Kombinert representerer disse tre spakene det stoerste transformasjonsmulighetsrommet i nordisk matpolitikk.',
+    tags: ['sirkularitet', 'redistribusjon', 'biogass', 'offentlig-innkjoep', 'transformasjon'],
+    sources: [
+      { sourceId: 'src-98', label: 'Matsentralen aarsdata 2024' },
+      { sourceId: 'src-99', label: 'Biogass Norge 2025' },
+      { sourceId: 'src-100', label: 'Future of Food Foundation 2024' },
+    ],
+  },
+  {
+    id: 'ins-75',
+    title: 'Panteordninger (87-94 %) mest effektive nordiske sirkulaerverktoeyet — matsvinnlov for tidlig aa evaluere',
+    type: 'analyse',
+    source: 'Nordisk regulatorisk komparativ 2026',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Panteordninger er det mest vellykkede regulatoriske sirkulaerinstrumentet i Norden: alle fem land oppnaar 87-94 % returandel gjennom bransjeeid non-profit-infrastruktur. Biogasssubsidier med lang horisont (DK: 20 aar) gir dramatisk hoeyere effekt enn kortsiktige ordninger (NO). Sivilsamfunnsmobilisering (Stop Spild Af Mad, DK) oppnaadde -25 % reduksjon uten lovgivning. Norges matsvinnlov (2025) er banebrytende men ikke traadt i kraft — forskrifter under utvikling 2026.',
+    tags: ['regulering', 'panteordning', 'matsvinnlov', 'biogass', 'virkemiddeldesign'],
+    sources: [
+      { sourceId: 'src-101', label: 'Infinitum/PALPA/Dansk Retursystem aarsdata 2024' },
+      { sourceId: 'src-102', label: 'Biogas Danmark Outlook 2025' },
+      { sourceId: 'src-103', label: 'Lovdata: Lov 2025-06-20-103 matsvinnloven' },
+    ],
+  },
+  {
+    id: 'ins-76',
+    title: 'REKO-ringer: 400+ ringer og 1 mill.+ medlemmer i Finland/Sverige — motmodell til kjedekonsentrasjon',
+    type: 'kartlegging',
+    source: 'REKO-ring Wikipedia, ATL.nu, EkoNu.fi',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'REKO-ringene er en Facebook-basert direktdistribusjonsmodell der smaaskalaprodusenter selger direkte til forbrukere uten mellomledd. Finland har ~180 ringer (270 000+ medlemmer, startet 2013), Sverige ~220 ringer (800 000+ medlemmer, startet 2016). Globalt >600 ringer i 14 land. Modellen gir produsenter full priskontroll utenfor dagligvarekjedenes oligopol. Begrenset skalerbarhet og digitalt ekskluderende for enkelte grupper, men et funksjonsbevis for alternativ distribusjon.',
+    tags: ['REKO', 'direktdistribusjon', 'motmodell', 'Finland', 'Sverige', 'smaaskala'],
+    sources: [
+      { sourceId: 'src-106', label: 'REKO-ring Wikipedia (sv)' },
+      { sourceId: 'src-107', label: 'ATL.nu: Reko-ringarna vaexer i antal' },
+      { sourceId: 'src-108', label: 'EkoNu.fi: REKO Finland' },
+    ],
+  },
+  {
+    id: 'ins-77',
+    title: 'Markedskonsentrasjon som stabil attraktor: CR3 ~ 96 % i 8 aar',
+    type: 'analyse',
+    source: 'Konkurransetilsynets Dagligvarerapport 2017-2024',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'CR3 for norsk dagligvare har ligget mellom 95,5 % og 96,6 % fra 2017 til 2024 — en variasjon paa 1,1 prosentpoeng over 8 aar. NorgesGruppen har holdt seg i baandet 42,3-44,1 %, Coop 29,0-29,5 %, REMA 23,1-23,9 %. Moensteret bekrefter at markedsstrukturen er en stabil attraktor der politisk oppmerksomhet, offentlig debatt og tilsynsrapporter ikke har endret systemets grunnleggende dynamikk.',
+    tags: ['markedskonsentrasjon', 'CR3', 'stabil-attraktor', 'dagligvare', 'konkurransetilsynet'],
+    sources: [
+      { sourceId: 'src-114', label: 'Konkurransetilsynets Dagligvarerapport 2024 (april 2025)' },
+    ],
+  },
+  {
+    id: 'ins-78',
+    title: 'Eiendomsinvestering 6x raskere enn omsetningsvekst: strukturell lock-in',
+    type: 'analyse',
+    source: 'Broennoeysundregistrene / NorgesGruppen aarsregnskap',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'NorgesGruppens eiendomsinvesteringer vokste fra 727 MNOK (2018) til 4 200 MNOK (2022) — en 6x oekning. Samlet eiendomsportefoelje for Big 3 er 35,2 mrd. NOK (2024): NorgesGruppen 12,7 mrd., Reitan 16,0 mrd., Coop 6,5 mrd. Eiendomsportefoeljene utgjoer 32-65 % av konsernenes totale eiendeler. Denne veksttakten overgaar kraftig dagligvareomsetningens vekst, noe som indikerer bevisst kapitalallokering til eiendom som etableringshindring.',
+    tags: ['eiendom', 'lock-in', 'etableringshindring', 'eiendomsportefoelje', 'dagligvare'],
+    sources: [
+      { sourceId: 'src-115', label: 'Broennoeysundregistrene — selskapsregnskap 2024 (offentligdata MCP)' },
+    ],
+  },
+  {
+    id: 'ins-79',
+    title: 'Divergerende trender: matsvinn -24 % mens konsentrasjon og priser vedvarer',
+    type: 'analyse',
+    source: 'Matvett/NORSUS OR.27.25, Eurostat, Konkurransetilsynet',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Tre indikatorer viser divergerende trender 2015-2024: (1) Matsvinn per capita falt 24 %, med dagligvareleddet ned 47 %. (2) Markedskonsentrasjon forble uendret (CR3 ~96 %). (3) Norsk matprisnivaa forble 23-39 % over Sverige og akselererte etter 2023 (17,6 % vekst vs. 9,1 % i Sverige). Moensteret viser at kjedene er effektive innenfor sin sfaere (matsvinn), men at denne effektiviteten ikke kanaliseres til lavere priser eller redusert markedsmakt.',
+    tags: ['divergerende-trender', 'matsvinn', 'matpriser', 'konsentrasjon', 'paradoks'],
+    sources: [
+      { sourceId: 'src-116', label: 'Matvett/NORSUS matsvinnrapport 2024' },
+      { sourceId: 'src-114', label: 'Konkurransetilsynets Dagligvarerapport 2024' },
+    ],
+  },
+  {
+    id: 'ins-80',
+    title: 'Matpolitikk fragmentert over 4-6 departementer i hvert nordisk land',
+    type: 'kartlegging',
+    source: 'Governance-arkitektur-analyse 2026',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Kartlegging av nordisk styringsarkitektur viser at matpolitikken i hvert land er spredt over 4-6 departementer (landbruk, naering, miljoe, helse, beredskap, forbrukervern) uten at noe enkelt departement eier matsystemet helhetlig. Norge har den mest fragmenterte strukturen: LMD (produksjon), NFD (konkurranse), KLD (sirkularitet), JD (beredskap), HOD (folkehelse) og BFD (forbrukervern) deler alle ansvaret. Danmark forsoeker aa loese dette gjennom sammenslaaingen av Foedevarestyrelsen og Landbrugsstyrelsen fra 1.1.2026. Finlands Matmarkedsombud + KKV § 4a-modellen viser at supplerende sektorspesifikke organer kan kompensere for departemental fragmentering.',
+    tags: ['governance', 'fragmentering', 'departementsstruktur', 'nordisk', 'institusjonell'],
+    sources: [
+      { sourceId: 'src-90', label: 'Governance-arkitektur nordisk: komparativ kartlegging 2026' },
+    ],
+  },
+  {
+    id: 'ins-81',
+    title: 'Ingen nordisk institusjon eier sirkulaer matsystemomstilling',
+    type: 'kartlegging',
+    source: 'Governance-arkitektur-analyse 2026',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Sirkulaer matsystemomstilling — som krever koordinering paa tvers av primaerproduksjon, industri, handel, avfall og energi — har ingen institusjonell eier i noe nordisk land. Matsvinnreduksjon deles typisk mellom 2-3 myndigheter (i Sverige: Livsmedelsverket + Naturvaardsverket + Jordbruksverket). Biomassekaskade-prinsippet har ingen ansvarlig myndighet. Regenerativt jordbruk er ikke eksplisitt i mandatet til noe landbruksdirektorat. For NCH betyr dette at et sirkulaert matpolitikkmandat maa skapes — det finnes ikke i dag.',
+    tags: ['governance', 'sirkularitet', 'styringshull', 'biomasse', 'nordisk', 'matsvinn'],
+    sources: [
+      { sourceId: 'src-90', label: 'Governance-arkitektur nordisk: komparativ kartlegging 2026' },
+    ],
+  },
 ]
