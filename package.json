@@ -25,7 +25,10 @@
     "db:import:market": "tsx scripts/import-market-metrics.ts",
     "db:import:session5": "tsx scripts/import-session5-supply-chain.ts",
     "db:import:horeca": "tsx scripts/import-horeca-companies.ts",
-    "db:import:asko": "tsx scripts/import-asko-corporate-tree.ts"
+    "db:import:asko": "tsx scripts/import-asko-corporate-tree.ts",
+    "db:import:ng-tree": "tsx scripts/import-norgesgruppen-tree.ts",
+    "db:import:coop-tree": "tsx scripts/import-coop-tree.ts",
+    "db:import:reitan-tree": "tsx scripts/import-reitan-tree.ts"
   },
   "dependencies": {
     "@nivo/bar": "^0.99.0",
