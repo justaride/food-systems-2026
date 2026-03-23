@@ -7,7 +7,7 @@ tags: [avhandlinger, masteroppgaver, PhD, nordisk, akademia]
 
 # Nordisk avhandlingsregister
 
-Samlet oversikt over 69 avhandlinger (master og PhD) om matsystemer, dagligvare, matsvinn og matpolitikk i Norden. Dekker perioden 2006-2026.
+Samlet oversikt over 70 avhandlinger (master og PhD) om matsystemer, dagligvare, matsvinn og matpolitikk i Norden. Dekker perioden 2006-2026.
 
 ---
 
@@ -79,6 +79,12 @@ Samlet oversikt over 69 avhandlinger (master og PhD) om matsystemer, dagligvare,
 | 62 | Nilsen & Paulsen | NHH | 2025 | Master | Pass-through av ravarepriser for kakao- og kaffeprodukter | Asymmetrisk pristransmisjon (rockets and feathers) som indikator pa markedsmakt | Konkurranse |
 | 63 | Huynh & Mortensen | AAU | 2025 | Master | Analyse af Salling Group A/S og Coop Danmark A/S | Komparativ finansiell analyse av Danmarks to storste dagligvareaktorer 2018-2023 | Konkurranse |
 | 64 | Sundqvist | University of Helsinki | 2025 | PhD | Navigating a Transformative Governance Maze | Matemballasje-styring er labyrint av motstridende reguleringer | Sirkulaerokonomi |
+| 65 | Stahl | KTH | 2024 | Master | Politics You Can Eat: Sodertalje Municipality's Food Supply Strategy | Kommunal matstrategi kan operasjonaliseres gjennom offentlige innkjop | Offentlig innkjop |
+| 66 | Sedwall et al. | JIBS | 2025 | Master | Hybrid Supply Chain Models in Swedish Grocery Retail | Hybrid distribusjon reduserer bade utslipp og logistikkkostnader | Verdikjede |
+| 67 | Zakeri & Lei | Uppsala University | 2024 | Master | AI in the Swedish Food System: Adoption in Primary Production | Betydelige barrierer for AI-adopsjon i svensk matproduksjon | Digital |
+| 68 | Duong | Aalto University | 2025 | Master | Common Grocery Self-Service Checkout Failures | Friksjonspunkter i selvbetjente kasser pavirker kundetilfredshet | Digital |
+| 69 | Rislakki | JYU | 2024 | Master | Promoting the Planetary Health Diet in Grocery Retail: Finland | Finske kjeder bruker ulike nudging-strategier for baerekraftig kosthold | Atferd |
+| 70 | Hagan | University of Tennessee | 2025 | Master | Impact of Food Waste Reduction on Consumer Store Choice | Matsvinnreduksjon pavirker butikkvalg hos en andel forbrukere | Matsvinn |
 
 ---
 
@@ -86,26 +92,26 @@ Samlet oversikt over 69 avhandlinger (master og PhD) om matsystemer, dagligvare,
 
 | Kategori | Antall | Andel |
 |----------|--------|-------|
-| Konkurranse og markedsstruktur | 24 | 37% |
-| Matsvinn (dagligvare + husholdning) | 14 | 22% |
-| Beredskap og selvforsyning | 8 | 12% |
-| Digital og e-handel | 5 | 8% |
-| Offentlig innkjop og politikk | 3 | 5% |
-| Regulering og matpolitikk | 3 | 5% |
-| Klima og proteinskifte | 3 | 5% |
+| Konkurranse og markedsstruktur | 24 | 34% |
+| Matsvinn (dagligvare + husholdning) | 15 | 21% |
+| Beredskap og selvforsyning | 8 | 11% |
+| Digital og e-handel | 7 | 10% |
+| Offentlig innkjop og politikk | 4 | 6% |
+| Regulering og matpolitikk | 3 | 4% |
+| Klima og proteinskifte | 3 | 4% |
+| Verdikjede | 2 | 3% |
+| Atferd og forbrukere | 2 | 3% |
 | Sirkulaerokonomi | 2 | 3% |
-| Atferd og forbrukere | 1 | 2% |
-| Verdikjede (alternativ) | 1 | 2% |
-| **Totalt** | **64** | **100%** |
+| **Totalt** | **70** | **100%** |
 
 ### Geografisk fordeling
 
 | Land | Antall | Institusjoner |
 |------|--------|---------------|
 | Norge | 33 | NHH (15), UiB (5), UiO (3), NMBU (2), OsloMet (2), NTNU (2), UiT (1), UiA (1), Nord (1), NHH/BECCLE (1) |
-| Sverige | 12 | SLU (6), KTH (1), Umea (1), Boras (1), Uppsala (1), CBS (1), Salford (1) |
+| Sverige | 15 | SLU (6), KTH (2), Uppsala (2), Umea (1), Boras (1), JIBS (1), CBS (1), Salford (1) |
 | Danmark | 12 | AAU (5), CBS (4), DTU (2), CBS (1) |
-| Finland | 5 | Aalto (2), Tampere (1), LUT (2), Helsinki (1) |
+| Finland | 7 | Aalto (3), LUT (2), Tampere (1), JYU (1), Helsinki (1) |
 | Island | 3 | University of Iceland (3) |
 
 ### Tidsfordeling
@@ -116,14 +122,14 @@ Samlet oversikt over 69 avhandlinger (master og PhD) om matsystemer, dagligvare,
 | 2013-2016 | 10 |
 | 2017-2019 | 14 |
 | 2020-2022 | 14 |
-| 2023-2026 | 22 |
+| 2023-2026 | 28 |
 
 ### Institusjonell diversitet (NHH-andel)
 
 | | Opprinnelig | Na |
 |---|---|---|
-| NHH-avhandlinger | ~22 (70%) | 16 (25%) |
-| Non-NHH | ~9 (30%) | 48 (75%) |
+| NHH-avhandlinger | ~22 (70%) | 16 (23%) |
+| Non-NHH | ~9 (30%) | 54 (77%) |
 
 ---
 
