@@ -1157,4 +1157,74 @@ export const insights: Insight[] = [
       { sourceId: 'src-90', label: 'Governance-arkitektur nordisk: komparativ kartlegging 2026' },
     ],
   },
+  {
+    id: 'ins-82',
+    title: 'Dagligvarekjedenes grossistmonopol reproduseres i HORECA',
+    type: 'kartlegging',
+    source: 'HORECA-kartlegging 2026',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Dagligvarekjedenes grossistdominans overfoeres direkte til foodservice-sektoren. ASKO Servering (NorgesGruppen) kontrollerer ~70 % av norsk storhusholdningsgrossist. I Finland kontrollerer Kespro (Kesko, ~49 %) og Meira Nova (S-Group, ~25 %) tilsammen ~74 %. I Sverige eier Axel Johnson baade Axfood (dagligvare #2) og Martin & Servera (foodservice #1, 19,9 mrd SEK). Moenstrene viser at markedskonsentrasjon i dagligvare reproduseres 1:1 i foodservice-grossistleddet.',
+    tags: ['horeca', 'maktkonsentrasjon', 'grossist', 'nordisk', 'foodservice'],
+    sources: [
+      { sourceId: 'src-117', label: 'HORECA-kartlegging nordisk foodservice 2026' },
+    ],
+  },
+  {
+    id: 'ins-83',
+    title: 'Compass Group dominerer nordisk kontraktcatering etter to oppkjoep',
+    type: 'kartlegging',
+    source: 'HORECA-kartlegging 2026',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Compass Group plc (UK, GBP 38+ mrd global omsetning) har blitt dominerende i nordisk kontraktcatering gjennom to oppkjoep: Fazer Food Services (2020, EUR 475M, 1000+ kantiner i FI/SE/DK/NO) og 4Service AS (2024, norsk catering/FM). Selskapet driver naa over 300 personalrestauranter i Skandinavia og Forsvarets kantiner i Norge (~900 MNOK kontraktsverdi, ~35 000 daglige maaltider). Oppkjoepene ble vurdert nasjonalt, ikke som nordisk konsolideringsstrategi.',
+    tags: ['horeca', 'kontraktcatering', 'compass-group', 'konsolidering', 'nordisk'],
+    sources: [
+      { sourceId: 'src-117', label: 'HORECA-kartlegging nordisk foodservice 2026' },
+    ],
+  },
+  {
+    id: 'ins-84',
+    title: 'Skolematsystemet er Nordens stoerste uutnyttede folkehelseverktoy',
+    type: 'analyse',
+    source: 'HORECA-kartlegging 2026',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Finland (1948) og Sverige (1946) har universelt gratis skolemat for alle elever — tilsammen ~2,4 millioner daglige maaltider. Lunds universitet viser at universell skolelunsj oeker livstidinntekt med 3 %. Norge og Danmark har matpakkemodell der ernaeringskvaliteten gjenspeiler hjemmets sosiooekonomiske status. Overgangen til universelt skolemat i Norge/Danmark ville vaere det stoerste folkehelsegrepet i nordisk matpolitikk — men motstanden handler om kostnad, ikke evidens.',
+    tags: ['horeca', 'skolemat', 'folkehelse', 'ulikhet', 'nordisk', 'policy'],
+    sources: [
+      { sourceId: 'src-117', label: 'HORECA-kartlegging nordisk foodservice 2026' },
+    ],
+  },
+  {
+    id: 'ins-85',
+    title: 'Axel Johnson-familien kontrollerer baade dagligvare og storhusholdning i Sverige',
+    type: 'funn',
+    source: 'HORECA-kartlegging 2026',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Axel Johnson AB eier Axfood (50,1 %, Sveriges #2 dagligvarekjede) og Martin & Servera (100 %, Sveriges #1 foodservice-grossist med 19,9 mrd SEK omsetning). Samme familiekonsern kontrollerer dermed baade dagligvare- og storhusholdningsdistribusjon — en dobbeltposisjon uten parallell i noe annet nordisk land. Konkurrensverket har ikke undersoekt denne kryss-kanal-konsentrasjonen.',
+    tags: ['horeca', 'axel-johnson', 'dual-kontroll', 'sverige', 'maktkonsentrasjon'],
+    sources: [
+      { sourceId: 'src-117', label: 'HORECA-kartlegging nordisk foodservice 2026' },
+    ],
+  },
+  {
+    id: 'ins-86',
+    title: 'HORECA-sektoren mangler maktkonsentrasjonsovervaaking i alle nordiske land',
+    type: 'analyse',
+    source: 'HORECA-kartlegging 2026',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Ingen nordisk konkurransetilsyn publiserer regelmessige rapporter om foodservice-konsentrasjon. Konkurransetilsynets aarlige Dagligvarerapport dekker ikke storhusholdning, til tross for at 30-40 % av nordisk matforbruk skjer utenfor hjemmet. Foodservice-sektoren — med estimert nordisk omsetning paa 250+ mrd NOK — opererer i et tilsynsmessig vakuum. For NCH betyr dette at HORECA-perspektivet maa loftes inn i whitepaperret som et blindpunkt i eksisterende maktanalyse.',
+    tags: ['horeca', 'tilsynsgap', 'konkurransetilsyn', 'nordisk', 'blindpunkt'],
+    sources: [
+      { sourceId: 'src-117', label: 'HORECA-kartlegging nordisk foodservice 2026' },
+    ],
+  },
 ]

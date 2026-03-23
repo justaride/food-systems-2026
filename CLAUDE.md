@@ -107,23 +107,36 @@ Knowledge base + analysis app for Norwegian/Nordic food systems. Maps corporate 
 917203261 | Too Good To Go Norge AS| circular    | foreign (TGTG ApS, DK)
 885316522 | Unil AS                | processing  | private (NorgesGruppen 100%)
 986228608 | Yara International ASA | inputs      | state (36.2%)
+930258008 | Storcash Norge AS      | foodservice | family (NorgesGruppen 100%)
+952507729 | Compass Group Norge AS | foodservice | foreign (Compass Group plc UK)
+932144336 | Sodexo AS              | foodservice | foreign (Sodexo SA FR)
+914791723 | ISS Facility Services AS| foodservice | foreign (ISS A/S DK)
+897392232 | 4Service Gruppen AS    | foodservice | foreign (Compass Group plc UK)
+933444724 | Servicegrossistene AS  | foodservice | cooperative
 
 --- Sweden (SE) ---
 SE-556048-2837  | ICA Gruppen AB    | retail | listed (Nasdaq Stockholm)
 SE-556542-5353  | Axfood AB         | retail | listed (Axel Johnson 50.1%)
 SE-702001-3469  | Coop Sverige AB   | retail | cooperative
 SE-969697-6594  | Lidl Sverige KB   | retail | foreign (Schwarz Group DE)
+SE-556559-1135  | Martin & Servera AB | foodservice | family (Axel Johnson AB)
+SE-556424-2537  | Menigo Foodservice AB | foodservice | foreign (Sysco US)
 
 --- Denmark (DK) ---
 DK-36471411     | Salling Group A/S | retail | family (Sallings Fond)
 DK-36004412     | Coop Danmark A/S  | retail | cooperative
 DK-14705627     | REMA 1000 A/S     | retail | foreign (Reitan Retail NO)
 DK-25395644     | Dagrofa A/S       | retail | private (NorgesGruppen 48.9%)
+DK-29215079     | Euro Cater A/S    | foodservice | family
+DK-28316745     | ISS A/S           | foodservice | listed (Nasdaq Copenhagen)
 
 --- Finland (FI) ---
 FI-0116323-9    | SOK / S Group     | retail | cooperative (2.7M members)
 FI-0110456-8    | Kesko Oyj         | retail | listed (Nasdaq Helsinki)
 FI-1615492-7    | Lidl Suomi Ky     | retail | foreign (Schwarz Group DE)
+FI-0944086-0    | Meira Nova Oy     | foodservice | cooperative (S-Group 100%)
+FI-2646674-9    | Wolt Enterprises Oy | foodservice | foreign (DoorDash US)
+FI-1922768-5    | Leijona Catering Oy | foodservice | state
 
 --- Iceland (IS) ---
 IS-510199-2859  | Hagar hf          | retail | listed (Nasdaq Iceland)
@@ -184,6 +197,7 @@ main()
 | `import-actors.ts` | Actor, ActorContact, ActorRelationship | `db:import:actors` |
 | `import-transcripts.ts` | Document | `db:import:transcripts` |
 | `import-session5-supply-chain.ts` | Company, CompanyProperty, CompanyOwnership, BusinessRelationship | `db:import:session5` |
+| `import-horeca-companies.ts` | Company, CompanyOwnership, BusinessRelationship | `db:import:horeca` |
 
 ---
 
@@ -203,16 +217,17 @@ main()
 
 | Entity | Count |
 |---|---|
-| Companies | 56 (NO:24+8 session5, SE:4, DK:4, FI:3, IS:3) |
+| Companies | 69 (NO:30+8 session5, SE:6, DK:6, FI:6, IS:3) + 13 HORECA |
 | CompanyFinancial | 208 |
-| Actors | 76 |
+| Actors | 84 (76 + 8 HORECA) |
 | Documents | 394 |
 | Theses | 32 |
 | Reports | 61 |
 | Source Docs | 126 |
-| CompanyOwnership | 10 |
+| Insights | 86 (81 + 5 HORECA) |
+| CompanyOwnership | 14 (10 + 4 HORECA) |
 | CompanyProperty | 109 |
-| BusinessRelationship | 68 |
+| BusinessRelationship | 73 (68 + 5 HORECA) |
 | CountryMetric | 243 |
 | BoardMembers | 418 |
 | PersonProfile | 31 |

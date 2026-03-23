@@ -23,7 +23,8 @@
     "db:import:ownership": "tsx scripts/import-company-ownership.ts",
     "db:import:persons": "tsx scripts/import-person-profiles.ts",
     "db:import:market": "tsx scripts/import-market-metrics.ts",
-    "db:import:session5": "tsx scripts/import-session5-supply-chain.ts"
+    "db:import:session5": "tsx scripts/import-session5-supply-chain.ts",
+    "db:import:horeca": "tsx scripts/import-horeca-companies.ts"
   },
   "dependencies": {
     "@nivo/bar": "^0.99.0",
