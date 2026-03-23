@@ -32,7 +32,11 @@
     "db:import:orkla-tree": "tsx scripts/import-orkla-tree.ts",
     "db:import:nortura-tree": "tsx scripts/import-nortura-tree.ts",
     "db:import:tine-tree": "tsx scripts/import-tine-tree.ts",
-    "db:import:fk-tree": "tsx scripts/import-felleskjopet-tree.ts"
+    "db:import:fk-tree": "tsx scripts/import-felleskjopet-tree.ts",
+    "db:import:mowi-tree": "tsx scripts/import-mowi-tree.ts",
+    "db:import:salmar-tree": "tsx scripts/import-salmar-tree.ts",
+    "db:import:leroy-tree": "tsx scripts/import-leroy-tree.ts",
+    "db:import:seafood-holdings": "tsx scripts/import-seafood-holdings-tree.ts"
   },
   "dependencies": {
     "@nivo/bar": "^0.99.0",
