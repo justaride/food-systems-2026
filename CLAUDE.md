@@ -159,10 +159,51 @@ Knowledge base + analysis app for Norwegian/Nordic food systems. Maps corporate 
 917114684 | Reitan Kapital AS      | retail      | family (Reitan AS 100%)
 915994415 | Reitan Eiendom AS      | retail      | family (Reitan AS 72.23%)
 915990487 | Odd Reitan Private Holding AS | retail | family (Odd Reitan 100%)
+-- Orkla system (Sprint 2) --
+910747711 | Orkla ASA              | processing  | family (Hagen/Canica 25.1%)
+930097705 | Orkla Foods AS         | processing  | family (Orkla 100%)
+916170858 | Orkla Foods Norge AS   | processing  | family (Orkla Foods 100%)
+930097748 | Orkla Snacks AS        | processing  | family (Orkla 100%)
+940712580 | Orkla Snacks Norge AS  | processing  | family (Orkla Snacks 100%)
+911161419 | Orkla Food Ingredients AS | processing | family (Orkla 100%)
+930097683 | Orkla Health Holding AS| processing  | family (Orkla 100%)
+986519904 | Orkla Health AS        | processing  | family (Health Holding 100%)
+911161230 | Orkla Home and Personal Care AS | processing | family (Orkla 100%)
+996888142 | Orkla House Care Norge AS | processing | family (HPC 100%)
+912692094 | Pierre Robert Group AS | processing  | family (Orkla 100%)
+932176076 | Orkla Eiendom AS       | processing  | family (Orkla 100%)
+991742255 | Orkla IT AS            | processing  | family (Orkla 100%)
+-- Nortura system (Sprint 2) --
+938752648 | Nortura SA             | processing  | cooperative
+995643316 | Norilia AS             | processing  | cooperative (Nortura 100%)
+997754123 | Norfersk AS            | processing  | cooperative (Nortura 100%)
+885209432 | Prima Slakt AS         | processing  | cooperative (Nortura 100%)
+962977006 | Norsk Dyremat AS       | processing  | cooperative (Nortura 100%)
+921042434 | Biosirk Norge AS       | processing  | cooperative (Nortura 67%)
+976502744 | Fjordkjoekken AS       | processing  | cooperative (Nortura 56.5%)
+919117060 | Animalia AS            | research    | cooperative (Nortura 66%)
+992318899 | Noridane Foods AS      | processing  | cooperative (Nortura 65%)
+936661386 | Fjordland AS           | processing  | JV (TINE 51.1%, Nortura 38.9%, Hoff 10%)
+987390689 | Telespor AS            | inputs      | cooperative (Nortura 99.7%)
+913755855 | NorPri AS              | processing  | cooperative (Nortura 49%)
+-- TINE system (Sprint 2) --
+947942638 | TINE SA                | processing  | cooperative
+984460198 | Diplom-Is AS           | processing  | cooperative (TINE 100%)
+821186382 | Mimiro Holding AS      | inputs      | cooperative (TINE 56.6%)
+921761929 | Kukraft AS             | inputs      | cooperative (TINE 100%)
+-- Felleskjøpet system (Sprint 2) --
+911608103 | Felleskjopet Agri SA   | inputs      | cooperative
+885719422 | Norgesmollene AS       | processing  | cooperative (FK 100%)
+958457952 | Cernova AS             | processing  | cooperative (FK 100%)
+912589455 | Cernova Trading AS     | processing  | cooperative (Cernova 100%)
+916329717 | Strand Unikorn AS      | inputs      | cooperative (FK 100%)
+998232058 | Felleskjoepet Forutvikling AS | research | cooperative (FK 100%)
+975871096 | Norgesfor AS           | inputs      | cooperative (FK 100%)
+915442552 | Felleskjoepet Rogaland Agder SA | inputs | cooperative (sister)
+975856844 | Fiskaa Molle AS        | inputs      | cooperative (FKRA 100%)
 -- Other Norwegian companies --
 929975200 | Austevoll Seafood ASA  | seafood     | listed (Moegster 52.7%)
 914224314 | BAMA Gruppen AS        | logistics   | family (NG 46%, REMA 20%, Bama 34%)
-911608103 | Felleskjopet Agri SA   | inputs      | cooperative
 815664582 | Holdbart AS            | circular    | private
 913344162 | Kavli Holding AS       | processing  | foundation (O. Kavli Fond)
 975350940 | Leroey Seafood Group ASA| seafood    | listed (Moegster 52.7%)
@@ -170,12 +211,9 @@ Knowledge base + analysis app for Norwegian/Nordic food systems. Maps corporate 
 997898397 | Matvett AS             | circular    | private (NHO Mat og Drikke)
 964118191 | Mowi ASA               | seafood     | listed (Fredriksen 14.4%)
 989278835 | Nofima AS              | research    | state (NFD 56.8%)
-938752648 | Nortura SA             | processing  | cooperative
 932256134 | Oda                    | retail      | private (Softbank/Kinnevik)
-910747711 | Orkla ASA              | processing  | family (Hagen/Canica 25.1%)
 960514718 | SalMar ASA             | seafood     | family (Witzoee 41.3%)
 988044113 | Skretting AS           | inputs      | foreign (Nutreco/SHV 100%)
-947942638 | TINE SA                | processing  | cooperative
 917203261 | Too Good To Go Norge AS| circular    | foreign (TGTG ApS, DK)
 986228608 | Yara International ASA | inputs      | state (36.2%)
 952507729 | Compass Group Norge AS | foodservice | foreign (Compass Group plc UK)
@@ -272,6 +310,10 @@ main()
 | `import-norgesgruppen-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:ng-tree` |
 | `import-coop-tree.ts` | Company, CompanyFinancial, CompanyOwnership, CompanyProperty, BoardMember, PersonProfile | `db:import:coop-tree` |
 | `import-reitan-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:reitan-tree` |
+| `import-orkla-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:orkla-tree` |
+| `import-nortura-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember | `db:import:nortura-tree` |
+| `import-tine-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember | `db:import:tine-tree` |
+| `import-felleskjopet-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:fk-tree` |
 
 ---
 
@@ -287,24 +329,24 @@ main()
 
 ---
 
-## Current Record Counts (as of Sprint 1 — retail conglomerate trees)
+## Current Record Counts (as of Sprint 2 — processing/agriculture trees)
 
 | Entity | Count |
 |---|---|
-| Companies | 139 (+50 from Sprint 1: 21 NG, 19 Coop, 10 Reitan) |
-| CompanyFinancial | 261 (+42 from Sprint 1: 13 NG, 19 Coop, 10 Reitan) |
+| Companies | 172 (+33 from Sprint 2: 12 Orkla, 11 Nortura, 3 TINE, 8 FK — minus 1 Fjordland overlap) |
+| CompanyFinancial | 297 (+36 from Sprint 2: 13 Orkla, 12 Nortura, 3 TINE, 8 FK) |
 | Actors | 84 |
 | Documents | 394 |
 | Theses | 32 |
 | Reports | 61 |
 | Source Docs | 126 |
 | Insights | 86 |
-| CompanyOwnership | 76 (+42 from Sprint 1: 24 NG, 8 Coop, 12 Reitan — note: minus 2 overlap with existing) |
-| CompanyProperty | 126 (+7 Coop warehouses) |
+| CompanyOwnership | 109 (+33 from Sprint 2: 12 Orkla, 11 Nortura, 4 TINE, 7 FK — minus 1 Fjordland overlap) |
+| CompanyProperty | 126 |
 | BusinessRelationship | 73 |
 | CountryMetric | 243 |
-| BoardMembers | 548 (+123 from Sprint 1: NG subsidiaries + Coop regionals + Reitan group) |
-| PersonProfile | 123 (+89 from Sprint 1: 6 NG + 5 Coop + 4 Reitan key people + board member auto-profiles) |
+| BoardMembers | 595 (+47 from Sprint 2: 10 Orkla ASA, 14 Nortura SA, 11 TINE SA, 12 FK Agri SA + subsidiary boards) |
+| PersonProfile | 126 (+3 from Sprint 2: 2 Orkla + 1 FK key people) |
 
 ---
 
