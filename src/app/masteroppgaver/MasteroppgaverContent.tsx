@@ -26,6 +26,7 @@ type ThesisTheme =
   | 'konsentrasjon' | 'makt' | 'etableringshindringer'
   | 'regulering' | 'verdikjede' | 'prising' | 'emv' | 'nordisk'
   | 'matsvinn' | 'sirkulaer' | 'offentlig-innkjop' | 'atferd' | 'emballasje' | 'okologi'
+  | 'beredskap' | 'digital' | 'selvforsyning' | 'klima' | 'protein' | 'logistikk'
 
 const themeLabels: Record<ThesisTheme, string> = {
   konsentrasjon: 'Konsentrasjon',
@@ -42,6 +43,12 @@ const themeLabels: Record<ThesisTheme, string> = {
   atferd: 'Atferd',
   emballasje: 'Emballasje',
   okologi: 'Okologi',
+  beredskap: 'Beredskap',
+  digital: 'Digital',
+  selvforsyning: 'Selvforsyning',
+  klima: 'Klima',
+  protein: 'Proteinskifte',
+  logistikk: 'Logistikk',
 }
 
 const THEME_COLORS: Record<ThesisTheme, string> = {
@@ -59,6 +66,12 @@ const THEME_COLORS: Record<ThesisTheme, string> = {
   atferd: 'bg-yellow-50 text-yellow-700 border-yellow-200',
   emballasje: 'bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200',
   okologi: 'bg-green-50 text-green-700 border-green-200',
+  beredskap: 'bg-rose-50 text-rose-700 border-rose-200',
+  digital: 'bg-cyan-50 text-cyan-700 border-cyan-200',
+  selvforsyning: 'bg-stone-50 text-stone-700 border-stone-200',
+  klima: 'bg-slate-50 text-slate-700 border-slate-200',
+  protein: 'bg-purple-50 text-purple-700 border-purple-200',
+  logistikk: 'bg-zinc-50 text-zinc-700 border-zinc-200',
 }
 
 export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
