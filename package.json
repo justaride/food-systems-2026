@@ -28,7 +28,11 @@
     "db:import:asko": "tsx scripts/import-asko-corporate-tree.ts",
     "db:import:ng-tree": "tsx scripts/import-norgesgruppen-tree.ts",
     "db:import:coop-tree": "tsx scripts/import-coop-tree.ts",
-    "db:import:reitan-tree": "tsx scripts/import-reitan-tree.ts"
+    "db:import:reitan-tree": "tsx scripts/import-reitan-tree.ts",
+    "db:import:orkla-tree": "tsx scripts/import-orkla-tree.ts",
+    "db:import:nortura-tree": "tsx scripts/import-nortura-tree.ts",
+    "db:import:tine-tree": "tsx scripts/import-tine-tree.ts",
+    "db:import:fk-tree": "tsx scripts/import-felleskjopet-tree.ts"
   },
   "dependencies": {
     "@nivo/bar": "^0.99.0",
