@@ -909,4 +909,118 @@ export const insights: Insight[] = [
       { sourceId: 'src-97', label: 'Skretting Sustainability 2024' },
     ],
   },
+  {
+    id: 'ins-65',
+    title: 'Dagligvarekjedenes eiendomsportefoljer utgjor over 35 mrd. NOK',
+    type: 'kartlegging',
+    source: 'Bronnoysund/offentligdata MCP',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'NorgesGruppen (~12,7 mrd.), Reitan Eiendom (~16,0 mrd.) og Coop Eiendom (~6,5 mrd.) har samlede eiendomseiendeler paa minimum 35,2 mrd. NOK. Reitan Eiendom AS alene har 16 mrd. NOK i eiendeler med 89,7 % egenkapitalandel. NorgesGruppen opererer med minst 10 separate eiendomsselskaper fordelt paa holding, kapital, utvikling og regionale enheter.',
+    tags: ['eiendom', 'eiendomsmodell', 'NorgesGruppen', 'Reitan', 'Coop', 'maktkonsentrasjon'],
+    sources: [
+      { sourceId: 'src-100', label: 'Bronnoysundregistrene — selskapsregnskap 2024' },
+    ],
+  },
+  {
+    id: 'ins-66',
+    title: 'Estimert internleie i dagligvare: 2,5-4,6 mrd. NOK aarlig',
+    type: 'analyse',
+    source: 'Bronnoysund/offentligdata MCP',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Basert paa regionale eiendomsselskapers driftsinntekter og antatt yield paa eiendomsportefoljer, estimeres internleien mellom eiendomsselskaper og operative dagligvareselskaper til 2,5-4,6 mrd. NOK aarlig. NorgesGruppens regionale selskaper hadde alene ~1,23 mrd. i driftsinntekter (2024), primaert leie fra Kiwi/Meny/SPAR-butikker.',
+    tags: ['eiendom', 'self-dealing', 'internleie', 'profittforskyvning'],
+    sources: [
+      { sourceId: 'src-100', label: 'Bronnoysundregistrene — selskapsregnskap 2024' },
+    ],
+  },
+  {
+    id: 'ins-67',
+    title: 'Eiendomsmodellen gir 3-8 % strukturell kostnadsfordel',
+    type: 'analyse',
+    source: 'Bronnoysund/offentligdata MCP',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'De tre store dagligvarekjedene internaliserer leiekostnaden som konsernpost, mens nye konkurrenter maa betale markedsleie. Forskjellen estimeres til 3-8 % av omsetningen — avgjorende i en bransje med netto driftsmargin under 3 %. Kombinert med kontroll over prime lokasjoner skaper dette en naer uoverkommelig etableringshindring. Lidls exit i 2008 understreker poenget.',
+    tags: ['eiendom', 'etableringshindring', 'konkurranse', 'self-dealing', 'Lidl'],
+    sources: [
+      { sourceId: 'src-100', label: 'Bronnoysundregistrene — selskapsregnskap 2024' },
+    ],
+  },
+  {
+    id: 'ins-68',
+    title: 'Odd Reitan leder personlig Reitan Eiendom med 16 mrd. i eiendeler',
+    type: 'funn',
+    source: 'Bronnoysund/offentligdata MCP',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Reitan Eiendom AS (915994415), med 16 mrd. NOK i eiendeler og 14,3 mrd. i egenkapital, har Odd Reitan som styreleder. Selskapet ble stiftet i 2015 som del av restrukturering av Reitan-konsernet. Den hoye egenkapitalandelen (89,7 %) indikerer at portefoljen er finansiert med akkumulert overskudd fra dagligvaredriften, ikke gjeldsfinansiert ekspansjon.',
+    tags: ['eiendom', 'Reitan', 'Odd Reitan', 'styrekoblinger', 'maktkonsentrasjon'],
+    sources: [
+      { sourceId: 'src-100', label: 'Bronnoysundregistrene — selskapsregnskap 2024' },
+    ],
+  },
+  {
+    id: 'ins-69',
+    title: 'Halvparten av enslige forsoergere rapporterer lav matsikkerhet',
+    type: 'funn',
+    source: 'SIFO/OsloMet 2024',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'SIFO-forskning viser at 50 % av familier med enslige forsoergere sliter med aa ha raad til nok og sunn mat (2024). Lavinntektsfamilier bruker 39,1 % av disponibel inntekt paa mat, mot 11,9 % for hoyinntektsfamilier. Matfattigdom i Norge er et reelt og voksende problem.',
+    tags: ['matfattigdom', 'saarbarhet', 'lavinntekt', 'matsikkerhet'],
+    sources: [
+      { sourceId: 'src-101', label: 'SIFO/OsloMet: Aleneforeldres matsikkerhet 2024' },
+    ],
+  },
+  {
+    id: 'ins-70',
+    title: 'Median HHI = 1,0 (monopol) paa postnummernivaa i norsk dagligvare',
+    type: 'analyse',
+    source: 'Strom & Halseth, NHH 2023',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'NHH-forskning viser at flertallet av norske postnumre har kun en dagligvarekjede (median HHI = 1,0). Coop staar for naer halvparten av omsetningen i de 50 minst befolkede kommunene. Kombinert med matprisvekst paa 33 % (2021-2024) betyr dette at husholdninger i distriktene moeter monopolprising uten alternativer.',
+    tags: ['HHI', 'monopol', 'maktkonsentrasjon', 'distrikt', 'matorken'],
+    sources: [
+      { sourceId: 'src-58', label: 'Strom & Halseth: Competition and Grocery Retail Formats (NHH 2023)' },
+    ],
+  },
+  {
+    id: 'ins-71',
+    title: 'Koebenhavn 84 % oekologisk i offentlige kjokken uten oekt budsjett',
+    type: 'kartlegging',
+    source: 'Future of Food Foundation 2024',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Koebenhavns 1 000+ offentlige kjokken serverer 70 000 maaltider daglig med 84 % oekologisk andel, oppnaadd uten budsjettoekning siden 2001. Norge har ingen nasjonal maaling av oekologisk andel i offentlige kjokken. Med 611 mrd. NOK i samlede offentlige innkjoep representerer matandelen et stort uutnyttet potensial.',
+    tags: ['offentlig-innkjoep', 'oekologisk', 'Koebenhavn', 'benchmark'],
+    sources: [
+      { sourceId: 'src-102', label: 'Future of Food Foundation: Copenhagen Public Kitchens 2024' },
+      { sourceId: 'src-103', label: 'DFOE/Anskaffelser.no: Mat og maaltidstjenester' },
+    ],
+  },
+  {
+    id: 'ins-72',
+    title: 'Sverige leder Norden i oekologisk offentlig matinnkjoep med 39 %',
+    type: 'kartlegging',
+    source: 'University of Copenhagen 2021',
+    phase: 'fase-1',
+    date: '2026-03-23',
+    description:
+      'Sverige oppnaadde 39 % oekologisk andel i offentlig sektor (2019). Oerebro kommune leder med 70 %. Livsmedelsstrategin sikter mot 60 % innen 2030. SLU-forskning dokumenterer positiv kobling mellom kommuners oekologiske innkjoep og oekologisk jordbruksareal — innkjoepspolitikk driver produksjonsomlegging. Norge og Finland ligger langt bak.',
+    tags: ['offentlig-innkjoep', 'oekologisk', 'Sverige', 'nordisk', 'benchmark'],
+    sources: [
+      { sourceId: 'src-104', label: 'University of Copenhagen: Organic procurement comparison 2021' },
+      { sourceId: 'src-105', label: 'Upphandlingsmyndigheten 2025' },
+    ],
+  },
 ]
