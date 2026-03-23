@@ -83,6 +83,7 @@ Knowledge base + analysis app for Norwegian/Nordic food systems. Maps corporate 
 
 ```
 --- Norway (NO) ---
+-- ASKO system (NorgesGruppen logistics) --
 929228723 | ASKO Norge AS          | logistics   | family (NorgesGruppen 100%)
 930622974 | ASKO Oslofjord AS      | logistics   | family (ASKO Norge 100%)
 979487916 | ASKO Vest AS           | logistics   | family (ASKO Norge 100%)
@@ -99,30 +100,84 @@ Knowledge base + analysis app for Norwegian/Nordic food systems. Maps corporate 
 916286074 | ASKO Fornybar AS       | logistics   | family (ASKO Norge 100%)
 925109185 | ASKO Mat AS            | logistics   | family (ASKO Norge 100%)
 884133572 | ASKO Bygg Vestby AS    | logistics   | family (ASKO Norge 100%)
-929975200 | Austevoll Seafood ASA  | seafood     | listed (Møgster 52.7%)
-914224314 | BAMA Gruppen AS        | logistics   | family (NG 46%, REMA 20%, Bama 34%)
+-- NorgesGruppen tree (Sprint 1) --
+819731322 | NorgesGruppen ASA      | retail      | family (Johannson 74.4%)
+975959171 | Kiwi Norge AS          | retail      | family (NG 100%)
+985131406 | Kiwi Minidrift AS      | retail      | family (Kiwi Norge 100%)
+977066727 | MENY AS                | retail      | family (NG 100%)
+989578790 | Meny Butikkdrift AS    | retail      | family (MENY 100%)
+977263646 | Kjopmannshuset Norge AS| retail      | family (NG 100%)
+995915820 | Kjopmannshuset Butikkdrift AS | retail | family (Kjopmannshuset 100%)
+976769511 | NG Servicehandel AS    | retail      | family (NG 100%)
+985402779 | Deli de Luca Norge AS  | retail      | family (NG Servicehandel 100%)
+882578402 | NG Detalj AS           | retail      | family (NG 100%)
+997732812 | NG Merkevare AS        | processing  | family (NG 100%)
+913283805 | Joh. Johannson Kaffe AS| processing  | family (NG Merkevare 100%)
+914183332 | Bakehuset AS           | processing  | family (NG Merkevare 100%)
+983392970 | NG Fellestjenester AS  | retail      | family (NG 100%)
+971047917 | NorgesGruppen Data AS  | retail      | family (NG Fellestjenester 100%)
+883743512 | NorgesGruppen Regnskap AS | retail   | family (NG Fellestjenester 100%)
+997747054 | NG Eiendom Holding AS  | retail      | family (NG 100%)
+976542223 | NorgesGruppen Eiendom AS | retail    | family (NG Eiendom Holding 100%)
+989009001 | NG Eiendomskapital AS  | retail      | family (NG Eiendom Holding 100%)
+995666553 | NG Eiendomsutvikling AS| retail      | family (NG Eiendom 100%)
+920341659 | NG Finans Holding AS   | retail      | family (NG 100%)
+920428959 | NorgesGruppen Finans AS| retail      | family (NG Finans Holding 100%)
+885316522 | Unil AS                | processing  | family (NG Merkevare 100%)
+930258008 | Storcash Norge AS      | foodservice | family (ASKO Norge 100%)
+-- Coop system (Sprint 1) --
 936560288 | Coop Norge SA          | retail      | cooperative
-911608103 | Felleskjøpet Agri SA   | inputs      | cooperative
+988445177 | Coop Norge Eiendom AS  | retail      | cooperative (Coop Norge 100%)
+931186744 | Norsk Butikkdrift AS   | retail      | cooperative (Coop Norge 100%)
+882722422 | Coop Norge Kaffe AS    | processing  | cooperative (Coop Norge 100%)
+919784725 | Coop Norge Trondheim Eiendom AS | retail | cooperative (Eiendom 100%)
+919784814 | Coop Norge Langhus Eiendom AS | retail | cooperative (Eiendom 100%)
+989085557 | Coop Norge Stavanger Eiendom AS | retail | cooperative (Eiendom 100%)
+997800419 | Coop Norge Tromsoe Eiendom AS | retail | cooperative (Eiendom 100%)
+819784922 | Coop Norge Stavanger Eiendom II AS | retail | cooperative (Eiendom 100%)
+938786054 | Coop Midt-Norge SA     | retail      | cooperative (member of Coop Norge)
+948432617 | Coop Oest SA           | retail      | cooperative (member of Coop Norge)
+966833300 | Coop Soervest SA       | retail      | cooperative (member of Coop Norge)
+942763654 | Coop Nordvest SA       | retail      | cooperative (member of Coop Norge)
+938497257 | Coop Nord SA           | retail      | cooperative (member of Coop Norge)
+982594421 | Coop Hordaland SA      | retail      | cooperative (member of Coop Norge)
+946231819 | Coop Nordland SA       | retail      | cooperative (member of Coop Norge)
+979419287 | Coop Innlandet SA      | retail      | cooperative (member of Coop Norge)
+953452626 | Coop Oekonom SA        | retail      | cooperative (member of Coop Norge)
+950264799 | Coop Vestviken SA      | retail      | cooperative (member of Coop Norge)
+981397568 | Coop Finnmark SA       | retail      | cooperative (member of Coop Norge)
+-- Reitan system (Sprint 1) --
+912609987 | Reitan AS              | retail      | family (Odd Reitan 33.33% A-shares)
+914526647 | Reitan Retail AS       | retail      | family (Reitan AS 100%)
+883409442 | REMA 1000 AS           | retail      | family (Reitan Retail 100%)
+982254604 | REMA 1000 Norge AS     | retail      | family (REMA 1000 AS 100%)
+983415652 | Reitan Convenience AS  | retail      | family (Reitan Retail 100%)
+983415660 | Reitan Convenience Norway AS | retail | family (Reitan Convenience 100%)
+988247111 | Uno-X Mobility AS      | retail      | family (Reitan Retail 100%)
+921757131 | Uno-X Mobility Norge AS| retail      | family (Uno-X Mobility 100%)
+928211398 | Uno-X E-Mobility Norge AS | retail   | family (Uno-X Mobility 100%)
+917114684 | Reitan Kapital AS      | retail      | family (Reitan AS 100%)
+915994415 | Reitan Eiendom AS      | retail      | family (Reitan AS 72.23%)
+915990487 | Odd Reitan Private Holding AS | retail | family (Odd Reitan 100%)
+-- Other Norwegian companies --
+929975200 | Austevoll Seafood ASA  | seafood     | listed (Moegster 52.7%)
+914224314 | BAMA Gruppen AS        | logistics   | family (NG 46%, REMA 20%, Bama 34%)
+911608103 | Felleskjopet Agri SA   | inputs      | cooperative
 815664582 | Holdbart AS            | circular    | private
 913344162 | Kavli Holding AS       | processing  | foundation (O. Kavli Fond)
-975350940 | Lerøy Seafood Group ASA| seafood     | listed (Møgster 52.7%)
+975350940 | Leroey Seafood Group ASA| seafood    | listed (Moegster 52.7%)
 919702974 | Matsentralen Norge     | circular    | nonprofit
 997898397 | Matvett AS             | circular    | private (NHO Mat og Drikke)
 964118191 | Mowi ASA               | seafood     | listed (Fredriksen 14.4%)
 989278835 | Nofima AS              | research    | state (NFD 56.8%)
-819731322 | NorgesGruppen ASA      | retail      | family (Johannson 74.4%)
 938752648 | Nortura SA             | processing  | cooperative
 932256134 | Oda                    | retail      | private (Softbank/Kinnevik)
 910747711 | Orkla ASA              | processing  | family (Hagen/Canica 25.1%)
-982254604 | REMA 1000 Norge AS     | retail      | family (Reitan 100%)
-914526647 | Reitan Retail AS       | retail      | family (Reitan 100%)
-960514718 | SalMar ASA             | seafood     | family (Witzøe 41.3%)
+960514718 | SalMar ASA             | seafood     | family (Witzoee 41.3%)
 988044113 | Skretting AS           | inputs      | foreign (Nutreco/SHV 100%)
 947942638 | TINE SA                | processing  | cooperative
 917203261 | Too Good To Go Norge AS| circular    | foreign (TGTG ApS, DK)
-885316522 | Unil AS                | processing  | private (NorgesGruppen 100%)
 986228608 | Yara International ASA | inputs      | state (36.2%)
-930258008 | Storcash Norge AS      | foodservice | family (NorgesGruppen 100%)
 952507729 | Compass Group Norge AS | foodservice | foreign (Compass Group plc UK)
 932144336 | Sodexo AS              | foodservice | foreign (Sodexo SA FR)
 914791723 | ISS Facility Services AS| foodservice | foreign (ISS A/S DK)
@@ -214,6 +269,9 @@ main()
 | `import-session5-supply-chain.ts` | Company, CompanyProperty, CompanyOwnership, BusinessRelationship | `db:import:session5` |
 | `import-horeca-companies.ts` | Company, CompanyOwnership, BusinessRelationship | `db:import:horeca` |
 | `import-asko-corporate-tree.ts` | Company, CompanyFinancial, CompanyOwnership, CompanyProperty, BoardMember, PersonProfile | `db:import:asko` |
+| `import-norgesgruppen-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:ng-tree` |
+| `import-coop-tree.ts` | Company, CompanyFinancial, CompanyOwnership, CompanyProperty, BoardMember, PersonProfile | `db:import:coop-tree` |
+| `import-reitan-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:reitan-tree` |
 
 ---
 
@@ -229,24 +287,24 @@ main()
 
 ---
 
-## Current Record Counts (as of Session 10 consolidation)
+## Current Record Counts (as of Sprint 1 — retail conglomerate trees)
 
 | Entity | Count |
 |---|---|
-| Companies | 89 (NO:30+8 session5+15 ASKO+6 HORECA, SE:6, DK:6, FI:6, IS:3, HORECA:7 non-NO) |
-| CompanyFinancial | 219 (208 + 11 ASKO) |
-| Actors | 84 (76 + 8 HORECA) |
+| Companies | 139 (+50 from Sprint 1: 21 NG, 19 Coop, 10 Reitan) |
+| CompanyFinancial | 261 (+42 from Sprint 1: 13 NG, 19 Coop, 10 Reitan) |
+| Actors | 84 |
 | Documents | 394 |
 | Theses | 32 |
 | Reports | 61 |
 | Source Docs | 126 |
-| Insights | 86 (81 + 5 HORECA) |
-| CompanyOwnership | 34 (10 + 4 HORECA + 15 ASKO + NorgesGruppen→ASKO 5) |
-| CompanyProperty | 119 (109 + 10 ASKO warehouses) |
-| BusinessRelationship | 73 (68 + 5 HORECA) |
+| Insights | 86 |
+| CompanyOwnership | 76 (+42 from Sprint 1: 24 NG, 8 Coop, 12 Reitan — note: minus 2 overlap with existing) |
+| CompanyProperty | 126 (+7 Coop warehouses) |
+| BusinessRelationship | 73 |
 | CountryMetric | 243 |
-| BoardMembers | 425 (418 + 7 ASKO Norge) |
-| PersonProfile | 34 (31 + 3 ASKO key people) |
+| BoardMembers | 548 (+123 from Sprint 1: NG subsidiaries + Coop regionals + Reitan group) |
+| PersonProfile | 123 (+89 from Sprint 1: 6 NG + 5 Coop + 4 Reitan key people + board member auto-profiles) |
 
 ---
 
