@@ -170,6 +170,7 @@ export type ThesisTheme =
   | 'konsentrasjon' | 'makt' | 'etableringshindringer'
   | 'regulering' | 'verdikjede' | 'prising' | 'emv' | 'nordisk'
   | 'matsvinn' | 'sirkulaer' | 'offentlig-innkjop' | 'atferd' | 'emballasje' | 'okologi'
+  | 'beredskap' | 'digital' | 'selvforsyning' | 'klima' | 'protein' | 'logistikk'
 
 export type ThesisDegree = 'master' | 'phd'
 
