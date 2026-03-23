@@ -201,18 +201,38 @@ Knowledge base + analysis app for Norwegian/Nordic food systems. Maps corporate 
 975871096 | Norgesfor AS           | inputs      | cooperative (FK 100%)
 915442552 | Felleskjoepet Rogaland Agder SA | inputs | cooperative (sister)
 975856844 | Fiskaa Molle AS        | inputs      | cooperative (FKRA 100%)
+-- Mowi system (Sprint 3) --
+964118191 | Mowi ASA               | seafood     | listed (Fredriksen 14.4%)
+921668236 | Mowi Seawater Norway AS| seafood     | listed (Mowi 100%)
+916146337 | Mowi Markets Norway AS | seafood     | listed (Mowi 100%)
+911610744 | Mowi Feed AS           | inputs      | listed (Mowi 100%)
+919441879 | Mowi Norway FoU AS     | research    | listed (Mowi 100%)
+-- SalMar system (Sprint 3) --
+960514718 | SalMar ASA             | seafood     | family (Witzoee/Kverva 44.3%)
+966840528 | SalMar Farming AS      | seafood     | listed (SalMar 100%)
+952662813 | SalmoNor AS            | seafood     | listed (SalMar 100%)
+919818824 | Kverva AS              | seafood     | family (Witzoee 92.5%)
+960329856 | Kverva Industrier AS   | seafood     | family (Kverva 100%)
+-- Leroey system (Sprint 3) --
+975350940 | Leroey Seafood Group ASA| seafood    | listed (Austevoll 52.7%)
+914353561 | Hallvard Leroey AS     | seafood     | listed (LSG 100%)
+985940460 | Leroey Aurora AS       | seafood     | listed (LSG 100%)
+985848718 | Leroey Midt AS         | seafood     | listed (LSG 100%)
+886813082 | Leroey Vest AS         | seafood     | listed (LSG 100%)
+986392858 | Leroey Havfisk AS      | seafood     | listed (LSG 100%)
+995548194 | Leroey Norway Seafoods AS | seafood  | listed (LSG 100%)
+927894254 | Sjoetroll AS           | seafood     | listed (Leroey Vest 100%)
+-- Austevoll/Moegster holding (Sprint 3) --
+929975200 | Austevoll Seafood ASA  | seafood     | listed (Laco 55.55%)
+937305354 | Laco AS                | seafood     | family (Moegster family)
 -- Other Norwegian companies --
-929975200 | Austevoll Seafood ASA  | seafood     | listed (Moegster 52.7%)
 914224314 | BAMA Gruppen AS        | logistics   | family (NG 46%, REMA 20%, Bama 34%)
 815664582 | Holdbart AS            | circular    | private
 913344162 | Kavli Holding AS       | processing  | foundation (O. Kavli Fond)
-975350940 | Leroey Seafood Group ASA| seafood    | listed (Moegster 52.7%)
 919702974 | Matsentralen Norge     | circular    | nonprofit
 997898397 | Matvett AS             | circular    | private (NHO Mat og Drikke)
-964118191 | Mowi ASA               | seafood     | listed (Fredriksen 14.4%)
 989278835 | Nofima AS              | research    | state (NFD 56.8%)
 932256134 | Oda                    | retail      | private (Softbank/Kinnevik)
-960514718 | SalMar ASA             | seafood     | family (Witzoee 41.3%)
 988044113 | Skretting AS           | inputs      | foreign (Nutreco/SHV 100%)
 917203261 | Too Good To Go Norge AS| circular    | foreign (TGTG ApS, DK)
 986228608 | Yara International ASA | inputs      | state (36.2%)
@@ -314,6 +334,10 @@ main()
 | `import-nortura-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember | `db:import:nortura-tree` |
 | `import-tine-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember | `db:import:tine-tree` |
 | `import-felleskjopet-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:fk-tree` |
+| `import-mowi-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:mowi-tree` |
+| `import-salmar-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:salmar-tree` |
+| `import-leroy-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:leroy-tree` |
+| `import-seafood-holdings-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:seafood-holdings` |
 
 ---
 
@@ -329,24 +353,24 @@ main()
 
 ---
 
-## Current Record Counts (as of Sprint 2 — processing/agriculture trees)
+## Current Record Counts (as of Sprint 3 — seafood corporate trees)
 
 | Entity | Count |
 |---|---|
-| Companies | 172 (+33 from Sprint 2: 12 Orkla, 11 Nortura, 3 TINE, 8 FK — minus 1 Fjordland overlap) |
-| CompanyFinancial | 297 (+36 from Sprint 2: 13 Orkla, 12 Nortura, 3 TINE, 8 FK) |
+| Companies | 188 (+16 from Sprint 3: 4 Mowi, 4 SalMar, 7 Leroey, 1 Laco) |
+| CompanyFinancial | 307 (+10 from Sprint 3: 2 Mowi, 2 SalMar, 7 Leroey, 1 Austevoll) |
 | Actors | 84 |
 | Documents | 394 |
 | Theses | 32 |
 | Reports | 61 |
 | Source Docs | 126 |
 | Insights | 86 |
-| CompanyOwnership | 109 (+33 from Sprint 2: 12 Orkla, 11 Nortura, 4 TINE, 7 FK — minus 1 Fjordland overlap) |
+| CompanyOwnership | 125 (+16 from Sprint 3: 4 Mowi, 4 SalMar, 7 Leroey, 2 Austevoll/Laco) |
 | CompanyProperty | 126 |
 | BusinessRelationship | 73 |
 | CountryMetric | 243 |
-| BoardMembers | 595 (+47 from Sprint 2: 10 Orkla ASA, 14 Nortura SA, 11 TINE SA, 12 FK Agri SA + subsidiary boards) |
-| PersonProfile | 126 (+3 from Sprint 2: 2 Orkla + 1 FK key people) |
+| BoardMembers | 619 (+24 from Sprint 3: 7 Mowi, 7 SalMar, 9 Leroey, 8 Austevoll — some overlap with existing) |
+| PersonProfile | 132 (+6 from Sprint 3: 2 Mowi, 2 SalMar, 2 Leroey/Moegster) |
 
 ---
 
