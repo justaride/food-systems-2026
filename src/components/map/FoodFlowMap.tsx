@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useMapContext } from '@/lib/map/MapContext'
 
@@ -201,10 +201,92 @@ function layoutLabels(nodes: Array<FlowNode & Point & { radius: number; degree: 
   return placementsById
 }
 
+const MIN_ZOOM = 0.4
+const MAX_ZOOM = 3.0
+const ZOOM_STEP = 0.15
+
 export default function FoodFlowMap() {
   const { country, countryConfig, ports, logisticsHubs, isLoading, error } = useMapContext()
   const [dataset, setDataset] = useState<FlowDataset | null>(null)
   const [datasetError, setDatasetError] = useState<string | null>(null)
+
+  const svgRef = useRef<SVGSVGElement>(null)
+  const [zoom, setZoom] = useState(1)
+  const [pan, setPan] = useState({ x: 0, y: 0 })
+  const [dragging, setDragging] = useState(false)
+  const dragStart = useRef({ x: 0, y: 0, panX: 0, panY: 0 })
+
+  const screenToSvg = useCallback((clientX: number, clientY: number) => {
+    const svg = svgRef.current
+    if (!svg) return { x: 0, y: 0 }
+    const rect = svg.getBoundingClientRect()
+    const scaleX = SVG_WIDTH / rect.width
+    const scaleY = SVG_HEIGHT / rect.height
+    const scale = Math.max(scaleX, scaleY)
+    const offsetX = (rect.width - SVG_WIDTH / scale) / 2
+    const offsetY = (rect.height - SVG_HEIGHT / scale) / 2
+    return {
+      x: (clientX - rect.left - offsetX) * scale,
+      y: (clientY - rect.top - offsetY) * scale,
+    }
+  }, [])
+
+  const handleWheel = useCallback((e: React.WheelEvent<SVGSVGElement>) => {
+    e.preventDefault()
+    const direction = e.deltaY < 0 ? 1 : -1
+    setZoom(prev => {
+      const next = clamp(prev + direction * ZOOM_STEP, MIN_ZOOM, MAX_ZOOM)
+      const cursor = screenToSvg(e.clientX, e.clientY)
+      const ratio = 1 - next / prev
+      setPan(p => ({
+        x: p.x + (cursor.x - p.x) * ratio,
+        y: p.y + (cursor.y - p.y) * ratio,
+      }))
+      return next
+    })
+  }, [screenToSvg])
+
+  const handlePointerDown = useCallback((e: React.PointerEvent<SVGSVGElement>) => {
+    if (e.button !== 0) return
+    setDragging(true)
+    dragStart.current = { x: e.clientX, y: e.clientY, panX: pan.x, panY: pan.y }
+    ;(e.target as Element).setPointerCapture?.(e.pointerId)
+  }, [pan])
+
+  const handlePointerMove = useCallback((e: React.PointerEvent<SVGSVGElement>) => {
+    if (!dragging) return
+    const svg = svgRef.current
+    if (!svg) return
+    const rect = svg.getBoundingClientRect()
+    const scaleX = SVG_WIDTH / rect.width
+    const scaleY = SVG_HEIGHT / rect.height
+    const scale = Math.max(scaleX, scaleY)
+    const dx = (e.clientX - dragStart.current.x) * scale / zoom
+    const dy = (e.clientY - dragStart.current.y) * scale / zoom
+    setPan({ x: dragStart.current.panX + dx, y: dragStart.current.panY + dy })
+  }, [dragging, zoom])
+
+  const handlePointerUp = useCallback(() => {
+    setDragging(false)
+  }, [])
+
+  const handleDoubleClick = useCallback(() => {
+    setZoom(1)
+    setPan({ x: 0, y: 0 })
+  }, [])
+
+  const zoomIn = useCallback(() => {
+    setZoom(prev => clamp(prev + ZOOM_STEP * 2, MIN_ZOOM, MAX_ZOOM))
+  }, [])
+
+  const zoomOut = useCallback(() => {
+    setZoom(prev => clamp(prev - ZOOM_STEP * 2, MIN_ZOOM, MAX_ZOOM))
+  }, [])
+
+  const resetView = useCallback(() => {
+    setZoom(1)
+    setPan({ x: 0, y: 0 })
+  }, [])
 
   useEffect(() => {
     let mounted = true
@@ -417,11 +499,19 @@ export default function FoodFlowMap() {
           <div className="relative min-h-[620px] overflow-hidden rounded-[28px] border border-stone-200 bg-[radial-gradient(circle_at_top,rgba(236,253,245,0.9)_0%,rgba(250,250,249,1)_45%,rgba(244,244,245,1)_100%)] shadow-sm">
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_28%)]" />
             <svg
+              ref={svgRef}
               viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`}
-              preserveAspectRatio="xMidYMid slice"
-              className="absolute inset-0 h-full w-full"
+              preserveAspectRatio="xMidYMid meet"
+              className={`absolute inset-0 h-full w-full ${dragging ? 'cursor-grabbing' : 'cursor-grab'}`}
               aria-label="Schematic flow map of Norwegian seafood and grocery logistics"
               role="img"
+              onWheel={handleWheel}
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerUp}
+              onPointerLeave={handlePointerUp}
+              onDoubleClick={handleDoubleClick}
+              style={{ touchAction: 'none' }}
             >
               <defs>
                 <linearGradient id="flowStroke" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -436,6 +526,7 @@ export default function FoodFlowMap() {
                 </pattern>
               </defs>
 
+              <g transform={`translate(${pan.x.toFixed(2)} ${pan.y.toFixed(2)}) scale(${zoom.toFixed(4)})`}>
               <rect x="0" y="0" width={SVG_WIDTH} height={SVG_HEIGHT} fill="url(#grid)" opacity="0.55" />
 
               <g stroke="#a8a29e" strokeOpacity="0.28" strokeWidth="1">
@@ -526,7 +617,33 @@ export default function FoodFlowMap() {
                   </g>
                 )
               })}
+              </g>
             </svg>
+
+            <div className="absolute bottom-20 left-4 flex flex-col gap-1">
+              <button
+                onClick={zoomIn}
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-700 shadow-sm transition-colors hover:bg-stone-50 active:bg-stone-100"
+                aria-label="Zoom inn"
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
+              </button>
+              <button
+                onClick={zoomOut}
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-700 shadow-sm transition-colors hover:bg-stone-50 active:bg-stone-100"
+                aria-label="Zoom ut"
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
+              </button>
+              <button
+                onClick={resetView}
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-stone-200 bg-white text-xs font-medium text-stone-500 shadow-sm transition-colors hover:bg-stone-50 active:bg-stone-100"
+                aria-label="Tilbakestill visning"
+                title="Tilbakestill (dobbelklikk)"
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l2-3 2 3M4 2v5a3 3 0 006 0V5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </button>
+            </div>
 
             <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center gap-2 rounded-2xl border border-white/70 bg-white/82 px-4 py-3 text-xs text-stone-600 shadow-sm backdrop-blur">
               <span className="inline-flex items-center gap-2">
