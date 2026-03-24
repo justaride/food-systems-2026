@@ -1510,4 +1510,25 @@ export const theses: Thesis[] = [
     method: 'Kvantitativ undersokelse av forbrukerpreferanser for matsvinnreduksjon',
     degree: 'master',
   },
+  {
+    id: 'segersven-2024',
+    authors: 'Segersven',
+    institution: 'LUT University',
+    year: 2024,
+    title: 'Development of risk management and resilience of supply chains in Finnish food industry companies post-COVID-19',
+    url: 'https://urn.fi/URN:NBN:fi-fe2024043024001',
+    synthesis: 'Undersøker hvordan finske matindustribedrifter har utviklet forsyningskjedens risikostyring (SCRM) og beredskap etter pandemien. Viser et skifte fra kortsiktig krisehåndtering til langsiktig strategisk resiliens.',
+    keyFindings: [
+      'Pandemien tvang frem en mer smidig (agile) tilnærming til forsyningskjeder',
+      'Risikostyring er nå en mer strategisk og integrert del av toppledelsens arbeid',
+      'Fokus på tettere leverandørsamarbeid, multi-sourcing og åpenhet',
+    ],
+    tags: ['beredskap', 'logistikk', 'nordisk'],
+    takeaways: [
+      'Beredskapsfokuset har skiftet permanent etter 2020 i finsk industri',
+      'Relevant komparativt for norsk matberedskap',
+    ],
+    method: 'Kvalitativ studie av finske matindustribedrifter post-COVID-19',
+    degree: 'master',
+  },
 ]
