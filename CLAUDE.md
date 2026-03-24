@@ -352,6 +352,7 @@ main()
 | `import-seafood-holdings-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:seafood-holdings` |
 | `import-bama-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:bama-tree` |
 | `import-kavli-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:kavli-tree` |
+| `import-remaining-deep.ts` | BoardMember, PersonProfile | `db:import:remaining-deep` |
 
 ---
 
@@ -367,24 +368,24 @@ main()
 
 ---
 
-## Current Record Counts (as of Sprint 4 — BAMA + Kavli trees)
+## Current Record Counts (as of Sprint 4 — remaining deep)
 
 | Entity | Count |
 |---|---|
-| Companies | 198 (+10 from Sprint 4: 7 BAMA, 3 Kavli) |
-| CompanyFinancial | 314 (+7 from Sprint 4: 4 BAMA, 3 Kavli) |
+| Companies | 198 |
+| CompanyFinancial | 314 |
 | Actors | 84 |
 | Documents | 394 |
 | Theses | 32 |
 | Reports | 61 |
 | Source Docs | 126 |
 | Insights | 86 |
-| CompanyOwnership | 135 (+10 from Sprint 4: 7 BAMA, 3 Kavli) |
+| CompanyOwnership | 135 |
 | CompanyProperty | 126 |
 | BusinessRelationship | 73 |
 | CountryMetric | 243 |
-| BoardMembers | 636 (+17 from Sprint 4: 8 BAMA, 9 Kavli) |
-| PersonProfile | 135 (+3 from Sprint 4: 2 BAMA, 1 Kavli) |
+| BoardMembers | 614 (+33 HORECA boards: Compass Group, Sodexo, ISS, Servicegrossistene, 4Service) |
+| PersonProfile | 140 (+5 new: Nofima CEO/styreleder, Yara styreleder, Skretting CEO, HORECA CEOs) |
 
 ---
 
