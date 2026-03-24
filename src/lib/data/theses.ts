@@ -1531,4 +1531,27 @@ export const theses: Thesis[] = [
     method: 'Kvalitativ studie av finske matindustribedrifter post-COVID-19',
     degree: 'master',
   },
+  {
+    id: 'lund-beijer-2026',
+    authors: 'Lund University / Beijer Institute',
+    institution: 'Lund University',
+    year: 2026,
+    title: 'Impact of food retail market power on small food producers in Sweden: Challenges and opportunities',
+    url: 'https://www.sciencedirect.com/science/article/pii/S305083552600001X',
+    synthesis: 'Undersøker hvordan EMV-vekst og asymmetriske maktforhold presser små svenske produsenter ut. Kvalitativ studie av tre case-selskaper i Sverige som utforsker rollen til felles forståelse og tillit for bærekraftig innkjøpspraksis.',
+    keyFindings: [
+      'Økende markedskonsentrasjon i dagligvarehandelen forsterker maktasymmetrier i verdikjeden',
+      'Fleksible partnerskapsmodeller og politisk markedsregulering er nødvendig for å adressere systemiske barrierer',
+      'Suksess avhenger av samarbeidsrammer som prioriterer gjensidig nytte, bedre markedsføring av lokale produkter, og statlig intervensjon',
+      'Vekst i egne merkevarer (EMV) presser småprodusenter og truer innenlandsk produksjon',
+    ],
+    tags: ['makt', 'emv', 'nordisk', 'verdikjede'],
+    takeaways: [
+      'Direkte relevans for norsk EMV-debatt og småprodusent-problematikk',
+      'Svensk case viser at markedsregulering er nødvendig for å bevare mangfold i leverandørkjeden',
+      'Komparativt grunnlag for nordisk maktanalyse',
+    ],
+    method: 'Kvalitativ casestudie av tre svenske matprodusenter med fokus på maktdynamikk i leverandør-detaljist-relasjoner',
+    degree: 'master',
+  },
 ]

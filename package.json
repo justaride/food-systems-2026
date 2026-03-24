@@ -39,7 +39,8 @@
     "db:import:seafood-holdings": "tsx scripts/import-seafood-holdings-tree.ts",
     "db:import:bama-tree": "tsx scripts/import-bama-tree.ts",
     "db:import:kavli-tree": "tsx scripts/import-kavli-tree.ts",
-    "db:import:remaining-deep": "tsx scripts/import-remaining-deep.ts"
+    "db:import:remaining-deep": "tsx scripts/import-remaining-deep.ts",
+    "db:import:nordic-deep": "tsx scripts/import-nordic-deepening.ts"
   },
   "dependencies": {
     "@nivo/bar": "^0.99.0",

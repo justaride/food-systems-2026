@@ -255,11 +255,18 @@ Knowledge base + analysis app for Norwegian/Nordic food systems. Maps corporate 
 933444724 | Servicegrossistene AS  | foodservice | cooperative
 
 --- Sweden (SE) ---
+SE-556223-6959  | Axel Johnson AB   | retail | family (Antonia Ax:son Johnson)
 SE-556048-2837  | ICA Gruppen AB    | retail | listed (Nasdaq Stockholm)
+SE-556021-0261  | ICA Sverige AB    | retail | listed (ICA Gruppen 100%)
+SE-556033-8518  | ICA Fastigheter AB| retail | listed (ICA Gruppen 100%)
 SE-556542-5353  | Axfood AB         | retail | listed (Axel Johnson 50.1%)
+SE-556163-2232  | Willys AB         | retail | listed (Axfood 100%)
+SE-556113-8826  | Hemkop AB         | retail | listed (Axfood 100%)
+SE-556070-3166  | Dagab Inkop & Logistik AB | logistics | listed (Axfood 100%)
+SE-556000-3575  | Axfood Snabbgross AB | foodservice | listed (Axfood 100%)
 SE-702001-3469  | Coop Sverige AB   | retail | cooperative
 SE-969697-6594  | Lidl Sverige KB   | retail | foreign (Schwarz Group DE)
-SE-556559-1135  | Martin & Servera AB | foodservice | family (Axel Johnson AB)
+SE-556559-1135  | Martin & Servera AB | foodservice | family (Axel Johnson 100%)
 SE-556424-2537  | Menigo Foodservice AB | foodservice | foreign (Sysco US)
 
 --- Denmark (DK) ---
@@ -273,6 +280,7 @@ DK-28316745     | ISS A/S           | foodservice | listed (Nasdaq Copenhagen)
 --- Finland (FI) ---
 FI-0116323-9    | SOK / S Group     | retail | cooperative (2.7M members)
 FI-0110456-8    | Kesko Oyj         | retail | listed (Nasdaq Helsinki)
+FI-1804478-1    | Kespro Oy         | foodservice | listed (Kesko 100%)
 FI-1615492-7    | Lidl Suomi Ky     | retail | foreign (Schwarz Group DE)
 FI-0944086-0    | Meira Nova Oy     | foodservice | cooperative (S-Group 100%)
 FI-2646674-9    | Wolt Enterprises Oy | foodservice | foreign (DoorDash US)
@@ -280,8 +288,14 @@ FI-1922768-5    | Leijona Catering Oy | foodservice | state
 
 --- Iceland (IS) ---
 IS-510199-2859  | Hagar hf          | retail | listed (Nasdaq Iceland)
+IS-620390-0229  | Bonus hf          | retail | listed (Hagar 100%)
+IS-560269-4449  | Hagkaup hf        | retail | listed (Hagar 100%)
+IS-660269-3079  | Olis hf           | retail | listed (Hagar 100%)
 IS-640907-1670  | Samkaup hf        | retail | cooperative
+IS-530189-0349  | Netto Iceland ehf | retail | cooperative (Samkaup 100%)
 IS-510298-3199  | Festi hf          | retail | listed
+IS-510203-1530  | Kronan hf         | retail | listed (Festi 100%)
+IS-691008-0550  | N1 hf             | retail | listed (Festi 100%)
 ```
 
 Norwegian companies use numeric orgNr from Brønnøysund. Nordic companies use country-prefixed IDs (SE-/DK-/FI-/IS-).
@@ -353,6 +367,7 @@ main()
 | `import-bama-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:bama-tree` |
 | `import-kavli-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:kavli-tree` |
 | `import-remaining-deep.ts` | BoardMember, PersonProfile | `db:import:remaining-deep` |
+| `import-nordic-deepening.ts` | Company, CompanyOwnership, PersonProfile, BusinessRelationship | `db:import:nordic-deep` |
 
 ---
 
@@ -368,24 +383,24 @@ main()
 
 ---
 
-## Current Record Counts (as of Sprint 4 — remaining deep)
+## Current Record Counts (as of Sprint 5 — Nordic Deepening)
 
 | Entity | Count |
 |---|---|
-| Companies | 198 |
+| Companies | 212 |
 | CompanyFinancial | 314 |
 | Actors | 84 |
 | Documents | 394 |
-| Theses | 32 |
+| Theses | 33 |
 | Reports | 61 |
 | Source Docs | 126 |
 | Insights | 86 |
-| CompanyOwnership | 135 |
+| CompanyOwnership | 150 |
 | CompanyProperty | 126 |
-| BusinessRelationship | 73 |
+| BusinessRelationship | 83 |
 | CountryMetric | 243 |
-| BoardMembers | 614 (+33 HORECA boards: Compass Group, Sodexo, ISS, Servicegrossistene, 4Service) |
-| PersonProfile | 140 (+5 new: Nofima CEO/styreleder, Yara styreleder, Skretting CEO, HORECA CEOs) |
+| BoardMembers | 614 |
+| PersonProfile | 156 |
 
 ---
 
