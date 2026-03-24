@@ -181,7 +181,7 @@ const newCompanies: NewCompany[] = [
   },
   {
     name: 'Euro Cater A/S',
-    orgNr: 'DK-29215079',
+    orgNr: 'DK-29783535',
     country: 'DK',
     legalForm: 'A/S',
     hqCity: 'Aarhus',
@@ -208,7 +208,7 @@ const newCompanies: NewCompany[] = [
   },
   {
     name: 'Meira Nova Oy',
-    orgNr: 'FI-0944086-0',
+    orgNr: 'FI-0697627-4',
     country: 'FI',
     legalForm: 'Oy',
     hqCity: 'Helsinki',
@@ -233,7 +233,7 @@ const newCompanies: NewCompany[] = [
   },
   {
     name: 'Leijona Catering Oy',
-    orgNr: 'FI-1922768-5',
+    orgNr: 'FI-2449777-9',
     country: 'FI',
     legalForm: 'Oy',
     hqCity: 'Helsinki',
@@ -248,7 +248,7 @@ const newCompanies: NewCompany[] = [
 const ownershipRecords: OwnershipRecord[] = [
   { parentOrgNr: '819731322', childOrgNr: '930258008', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Broennoysund / NorgesGruppen aarsrapport' },
   { parentOrgNr: '952507729', childOrgNr: '897392232', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Compass Group plc pressemelding 2024 (4Service-oppkjop)' },
-  { parentOrgNr: 'FI-0116323-9', childOrgNr: 'FI-0944086-0', ownershipPct: 100, ownershipType: 'subsidiary', source: 'S-Group aarsrapport' },
+  { parentOrgNr: 'FI-0116323-9', childOrgNr: 'FI-0697627-4', ownershipPct: 100, ownershipType: 'subsidiary', source: 'S-Group aarsrapport' },
   { parentOrgNr: 'DK-28316745', childOrgNr: '914791723', ownershipPct: 100, ownershipType: 'subsidiary', source: 'ISS A/S aarsrapport' },
 ]
 

@@ -1136,7 +1136,7 @@ const nordicCompanies: CompanyData[] = [
   // === DENMARK ===
   {
     name: 'Salling Group A/S',
-    orgNr: 'DK-36471411',
+    orgNr: 'DK-35954716',
     country: 'DK',
     legalForm: 'A/S',
     founded: 1906,
@@ -1169,7 +1169,7 @@ const nordicCompanies: CompanyData[] = [
   },
   {
     name: 'Coop Danmark A/S',
-    orgNr: 'DK-36004412',
+    orgNr: 'DK-26259495',
     country: 'DK',
     legalForm: 'A/S',
     founded: 1866,
@@ -1232,7 +1232,7 @@ const nordicCompanies: CompanyData[] = [
   },
   {
     name: 'Dagrofa A/S',
-    orgNr: 'DK-25395644',
+    orgNr: 'DK-38714295',
     country: 'DK',
     legalForm: 'A/S',
     founded: 2007,
@@ -1362,7 +1362,7 @@ const nordicCompanies: CompanyData[] = [
   // === ICELAND ===
   {
     name: 'Hagar hf',
-    orgNr: 'IS-510199-2859',
+    orgNr: 'IS-670203-2120',
     country: 'IS',
     legalForm: 'hf',
     founded: 1999,
@@ -1392,7 +1392,7 @@ const nordicCompanies: CompanyData[] = [
   },
   {
     name: 'Samkaup hf',
-    orgNr: 'IS-640907-1670',
+    orgNr: 'IS-571298-3769',
     country: 'IS',
     legalForm: 'hf',
     founded: 1907,
@@ -1422,7 +1422,7 @@ const nordicCompanies: CompanyData[] = [
   },
   {
     name: 'Festi hf',
-    orgNr: 'IS-510298-3199',
+    orgNr: 'IS-540206-2010',
     country: 'IS',
     legalForm: 'hf',
     founded: 1998,

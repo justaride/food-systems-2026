@@ -32,7 +32,7 @@ const ownershipRecords: OwnershipRecord[] = [
   { parentOrgNr: '819731322', childOrgNr: '914224314', ownershipPct: 46, ownershipType: 'minority-stake', source: 'Brønnøysund' },
 
   // --- Nordic cross-border ownership (Session 4) ---
-  { parentOrgNr: '819731322', childOrgNr: 'DK-25395644', ownershipPct: 48.9, ownershipType: 'minority-stake', source: 'NorgesGruppen Credit Report 2025 / Dagrofa corporate presentation', metadata: { note: 'NorgesGruppen (NO) owns 48.9% of Dagrofa (DK). Cross-border NO→DK.' } },
+  { parentOrgNr: '819731322', childOrgNr: 'DK-38714295', ownershipPct: 48.9, ownershipType: 'minority-stake', source: 'NorgesGruppen Credit Report 2025 / Dagrofa corporate presentation', metadata: { note: 'NorgesGruppen (NO) owns 48.9% of Dagrofa (DK). Cross-border NO→DK.' } },
   { parentOrgNr: '914526647', childOrgNr: 'DK-14705627', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Reitan Retail årsrapport 2024', metadata: { note: 'Reitan Retail (NO) owns REMA 1000 A/S (DK) 100%. Cross-border NO→DK.' } },
 
   // --- M&A 2022-2025 (Session 9) ---
@@ -82,10 +82,10 @@ const relationshipRecords: RelationshipRecord[] = [
 
   // --- Nordic cross-border relationships (Session 4) ---
   { fromOrgNr: '914526647', toOrgNr: 'DK-14705627', relationshipType: 'franchisor', description: 'Reitan Retail (NO) er franchisor for REMA 1000 (DK) med 419 butikker i Danmark', sector: 'dagligvare', source: 'Reitan Retail Årsrapport 2024' },
-  { fromOrgNr: '819731322', toOrgNr: 'DK-25395644', relationshipType: 'distributor', description: 'NorgesGruppen (NO) eier 48.9% av Dagrofa (DK) og samarbeider om innkjøp og logistikk', sector: 'dagligvare', source: 'NorgesGruppen/Dagrofa samarbeidsavtale' },
+  { fromOrgNr: '819731322', toOrgNr: 'DK-38714295', relationshipType: 'distributor', description: 'NorgesGruppen (NO) eier 48.9% av Dagrofa (DK) og samarbeider om innkjøp og logistikk', sector: 'dagligvare', source: 'NorgesGruppen/Dagrofa samarbeidsavtale' },
   { fromOrgNr: 'SE-556542-5353', toOrgNr: 'SE-556048-2837', relationshipType: 'buyer', description: 'Axfood og ICA Gruppen er hovedkonkurrenter i det svenske dagligvaremarkedet', sector: 'dagligvare', source: 'Konkurrensverket Rapport 2024:5', metadata: { note: 'Competitor relationship, not direct buyer-supplier. ICA ~50% + Axfood ~25% = 75% market share.' } },
   { fromOrgNr: 'FI-0116323-9', toOrgNr: 'FI-0110456-8', relationshipType: 'buyer', description: 'SOK/S Group og Kesko er duopol i finsk dagligvare (~83% samlet markedsandel)', sector: 'dagligvare', source: 'KKV FCCA 2024 / PTY', metadata: { note: 'Competitor duopoly. Both deemed dominant under Section 4a (>30% threshold).' } },
-  { fromOrgNr: 'DK-36471411', toOrgNr: 'DK-36004412', relationshipType: 'buyer', description: 'Salling Group kjøpte 33 butikker fra Coop Danmark (godkjent mars 2025)', sector: 'dagligvare', source: 'KFST beslutning 26. mars 2025', metadata: { note: 'Salling Group acquired 33 stores from Coop DK, approved by DCCA.' } },
+  { fromOrgNr: 'DK-35954716', toOrgNr: 'DK-26259495', relationshipType: 'buyer', description: 'Salling Group kjøpte 33 butikker fra Coop Danmark (godkjent mars 2025)', sector: 'dagligvare', source: 'KFST beslutning 26. mars 2025', metadata: { note: 'Salling Group acquired 33 stores from Coop DK, approved by DCCA.' } },
 ]
 
 async function resolveCompanyId(orgNr: string): Promise<string | null> {
