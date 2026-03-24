@@ -225,10 +225,22 @@ Knowledge base + analysis app for Norwegian/Nordic food systems. Maps corporate 
 -- Austevoll/Moegster holding (Sprint 3) --
 929975200 | Austevoll Seafood ASA  | seafood     | listed (Laco 55.55%)
 937305354 | Laco AS                | seafood     | family (Moegster family)
--- Other Norwegian companies --
-914224314 | BAMA Gruppen AS        | logistics   | family (NG 46%, REMA 20%, Bama 34%)
-815664582 | Holdbart AS            | circular    | private
+-- BAMA system (Sprint 4) --
+914224314 | BAMA Gruppen AS        | logistics   | family (NG 46%, REMA 20%, Banan 34%)
+976565967 | BAMA Industri AS       | processing  | family (BAMA 100%)
+995518333 | BAMA Storkjoekken AS   | foodservice | family (BAMA 100%)
+965437150 | BAMA Logistikk AS      | logistics   | family (BAMA 100%)
+995244071 | BAMA Pakkerier AS      | processing  | family (BAMA 100%)
+959657769 | BAMA International AS  | logistics   | family (BAMA 100%)
+981384016 | BAMA Blomster Holding AS| logistics  | family (BAMA 100%)
+992714409 | BAMA Blomster Sourcing AS| logistics  | family (Blomster Holding 100%)
+-- Kavli system (Sprint 4) --
 913344162 | Kavli Holding AS       | processing  | foundation (O. Kavli Fond)
+985461791 | Kavli Norge AS         | processing  | foundation (Kavli Holding 100%)
+971142138 | O Kavli AS             | processing  | foundation (Kavli Norge 100%)
+982423767 | Q-Meieriene AS         | processing  | foundation (Kavli Norge 100%)
+-- Other Norwegian companies --
+815664582 | Holdbart AS            | circular    | private
 919702974 | Matsentralen Norge     | circular    | nonprofit
 997898397 | Matvett AS             | circular    | private (NHO Mat og Drikke)
 989278835 | Nofima AS              | research    | state (NFD 56.8%)
@@ -338,6 +350,8 @@ main()
 | `import-salmar-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:salmar-tree` |
 | `import-leroy-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:leroy-tree` |
 | `import-seafood-holdings-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:seafood-holdings` |
+| `import-bama-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:bama-tree` |
+| `import-kavli-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:kavli-tree` |
 
 ---
 
@@ -353,24 +367,24 @@ main()
 
 ---
 
-## Current Record Counts (as of Sprint 3 — seafood corporate trees)
+## Current Record Counts (as of Sprint 4 — BAMA + Kavli trees)
 
 | Entity | Count |
 |---|---|
-| Companies | 188 (+16 from Sprint 3: 4 Mowi, 4 SalMar, 7 Leroey, 1 Laco) |
-| CompanyFinancial | 307 (+10 from Sprint 3: 2 Mowi, 2 SalMar, 7 Leroey, 1 Austevoll) |
+| Companies | 198 (+10 from Sprint 4: 7 BAMA, 3 Kavli) |
+| CompanyFinancial | 314 (+7 from Sprint 4: 4 BAMA, 3 Kavli) |
 | Actors | 84 |
 | Documents | 394 |
 | Theses | 32 |
 | Reports | 61 |
 | Source Docs | 126 |
 | Insights | 86 |
-| CompanyOwnership | 125 (+16 from Sprint 3: 4 Mowi, 4 SalMar, 7 Leroey, 2 Austevoll/Laco) |
+| CompanyOwnership | 135 (+10 from Sprint 4: 7 BAMA, 3 Kavli) |
 | CompanyProperty | 126 |
 | BusinessRelationship | 73 |
 | CountryMetric | 243 |
-| BoardMembers | 619 (+24 from Sprint 3: 7 Mowi, 7 SalMar, 9 Leroey, 8 Austevoll — some overlap with existing) |
-| PersonProfile | 132 (+6 from Sprint 3: 2 Mowi, 2 SalMar, 2 Leroey/Moegster) |
+| BoardMembers | 636 (+17 from Sprint 4: 8 BAMA, 9 Kavli) |
+| PersonProfile | 135 (+3 from Sprint 4: 2 BAMA, 1 Kavli) |
 
 ---
 

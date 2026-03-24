@@ -36,7 +36,9 @@
     "db:import:mowi-tree": "tsx scripts/import-mowi-tree.ts",
     "db:import:salmar-tree": "tsx scripts/import-salmar-tree.ts",
     "db:import:leroy-tree": "tsx scripts/import-leroy-tree.ts",
-    "db:import:seafood-holdings": "tsx scripts/import-seafood-holdings-tree.ts"
+    "db:import:seafood-holdings": "tsx scripts/import-seafood-holdings-tree.ts",
+    "db:import:bama-tree": "tsx scripts/import-bama-tree.ts",
+    "db:import:kavli-tree": "tsx scripts/import-kavli-tree.ts"
   },
   "dependencies": {
     "@nivo/bar": "^0.99.0",
