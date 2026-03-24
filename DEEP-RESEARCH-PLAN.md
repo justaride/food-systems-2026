@@ -15,7 +15,7 @@ Batch 1:  S1 (schema + scripts)           -- COMPLETE
 Batch 2:  S2 + S4 + S7  (parallel)        -- COMPLETE (corporate NO + Nordic + academic)
 Batch 3:  S3 + S5 + S8  (parallel)        -- COMPLETE (verification + supply chain + circular)
 Batch 4:  S6 + S9       (parallel)        -- COMPLETE (people + financials)
-Batch 5:  S10           (verification)     -- PENDING
+Batch 5:  S10           (verification)     -- COMPLETE
 ```
 
 ---
@@ -269,9 +269,18 @@ Reitan AS -> REMA 1000 -> Reitan Distribution -> Reitan Convenience -> Uno-X.
 
 ---
 
-## Session 10 -- Verification, Cross-Check & Integration
+## Session 10 -- Verification, Cross-Check & Integration [COMPLETE]
 
 **Goal**: Final data quality pass and integration verification.
+
+**Completed 2026-03-24 (Sprint 6):**
+- All referential integrity checks passed (0 orphan records across ownership, relationships, properties, board members, person profiles)
+- 150 ownership, 83 relationships, 127 properties, 614 board members, 156 person profiles — all valid
+- Market share sums verified: NO 100.1%, SE 100.0%, DK 100.1%, FI 100.0%, IS 100.0%
+- All 5 country data files (stores.json + chart-metrics.json) present and valid
+- 9 unprofiled interlocking directors identified and profiled
+- SourceDoc coverage: 143/143 (100%)
+- Total records: 2,751
 
 ### Phase A (parallel):
 
