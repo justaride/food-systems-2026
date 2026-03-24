@@ -90,7 +90,7 @@ const newCompanies: NordicCompany[] = [
   },
   {
     name: 'Dagab Inköp & Logistik AB',
-    orgNr: 'SE-556070-3166',
+    orgNr: 'SE-556004-7903',
     country: 'SE',
     legalForm: 'AB',
     hqCity: 'Stockholm',
@@ -114,7 +114,7 @@ const newCompanies: NordicCompany[] = [
   // --- Finland: Kesko subsidiary ---
   {
     name: 'Kespro Oy',
-    orgNr: 'FI-1804478-1',
+    orgNr: 'FI-0777402-5',
     country: 'FI',
     legalForm: 'Oy',
     hqCity: 'Helsinki',
@@ -126,7 +126,7 @@ const newCompanies: NordicCompany[] = [
   // --- Iceland: Hagar subsidiaries ---
   {
     name: 'Bonus hf',
-    orgNr: 'IS-620390-0229',
+    orgNr: 'IS-450199-3389',
     country: 'IS',
     legalForm: 'hf',
     hqCity: 'Reykjavik',
@@ -137,7 +137,7 @@ const newCompanies: NordicCompany[] = [
   },
   {
     name: 'Hagkaup hf',
-    orgNr: 'IS-560269-4449',
+    orgNr: 'IS-430698-3549',
     country: 'IS',
     legalForm: 'hf',
     hqCity: 'Reykjavik',
@@ -148,7 +148,7 @@ const newCompanies: NordicCompany[] = [
   },
   {
     name: 'Olis hf',
-    orgNr: 'IS-660269-3079',
+    orgNr: 'IS-500269-3249',
     country: 'IS',
     legalForm: 'hf',
     hqCity: 'Reykjavik',
@@ -160,7 +160,7 @@ const newCompanies: NordicCompany[] = [
   // --- Iceland: Festi subsidiaries ---
   {
     name: 'Kronan hf',
-    orgNr: 'IS-510203-1530',
+    orgNr: 'IS-711298-2239',
     country: 'IS',
     legalForm: 'hf',
     hqCity: 'Reykjavik',
@@ -171,7 +171,7 @@ const newCompanies: NordicCompany[] = [
   },
   {
     name: 'N1 hf',
-    orgNr: 'IS-691008-0550',
+    orgNr: 'IS-411003-3370',
     country: 'IS',
     legalForm: 'hf',
     hqCity: 'Reykjavik',
@@ -179,18 +179,6 @@ const newCompanies: NordicCompany[] = [
     valueChainStage: 'retail',
     naceCode: '47.300',
     naceDescription: 'Eldsneytissala',
-  },
-  // --- Iceland: Samkaup subsidiaries ---
-  {
-    name: 'Netto Iceland ehf',
-    orgNr: 'IS-530189-0349',
-    country: 'IS',
-    legalForm: 'ehf',
-    hqCity: 'Akureyri',
-    ownershipType: 'cooperative',
-    valueChainStage: 'retail',
-    naceCode: '47.110',
-    naceDescription: 'Matvöruverslun',
   },
 ]
 
@@ -214,7 +202,7 @@ const ownershipLinks: OwnershipLink[] = [
   // --- Sweden: Axfood -> subsidiaries ---
   { parentOrgNr: 'SE-556542-5353', childOrgNr: 'SE-556163-2232', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Axfood Arsredovisning 2024' },
   { parentOrgNr: 'SE-556542-5353', childOrgNr: 'SE-556113-8826', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Axfood Arsredovisning 2024' },
-  { parentOrgNr: 'SE-556542-5353', childOrgNr: 'SE-556070-3166', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Axfood Arsredovisning 2024' },
+  { parentOrgNr: 'SE-556542-5353', childOrgNr: 'SE-556004-7903', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Axfood Arsredovisning 2024' },
   { parentOrgNr: 'SE-556542-5353', childOrgNr: 'SE-556000-3575', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Axfood Arsredovisning 2024' },
 
   // --- Cross-border: Axel Johnson -> Axfood + Martin & Servera ---
@@ -222,22 +210,19 @@ const ownershipLinks: OwnershipLink[] = [
   { parentOrgNr: 'SE-556223-6959', childOrgNr: 'SE-556559-1135', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Axel Johnson AB arsredovisning 2024' },
 
   // --- Finland: SOK -> Meira Nova (already in DB) ---
-  { parentOrgNr: 'FI-0116323-9', childOrgNr: 'FI-0944086-0', ownershipPct: 100, ownershipType: 'subsidiary', source: 'SOK tilinpaatos 2024' },
+  { parentOrgNr: 'FI-0116323-9', childOrgNr: 'FI-0697627-4', ownershipPct: 100, ownershipType: 'subsidiary', source: 'SOK tilinpaatos 2024' },
 
   // --- Finland: Kesko -> Kespro ---
-  { parentOrgNr: 'FI-0110456-8', childOrgNr: 'FI-1804478-1', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Kesko vuosikertomus 2024' },
+  { parentOrgNr: 'FI-0110456-8', childOrgNr: 'FI-0777402-5', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Kesko vuosikertomus 2024' },
 
   // --- Iceland: Hagar -> subsidiaries ---
-  { parentOrgNr: 'IS-510199-2859', childOrgNr: 'IS-620390-0229', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Hagar hf arsreikningur 2024/25' },
-  { parentOrgNr: 'IS-510199-2859', childOrgNr: 'IS-560269-4449', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Hagar hf arsreikningur 2024/25' },
-  { parentOrgNr: 'IS-510199-2859', childOrgNr: 'IS-660269-3079', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Hagar hf arsreikningur 2024/25' },
+  { parentOrgNr: 'IS-670203-2120', childOrgNr: 'IS-450199-3389', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Hagar hf arsreikningur 2024/25' },
+  { parentOrgNr: 'IS-670203-2120', childOrgNr: 'IS-430698-3549', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Hagar hf arsreikningur 2024/25' },
+  { parentOrgNr: 'IS-670203-2120', childOrgNr: 'IS-500269-3249', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Hagar hf arsreikningur 2024/25' },
 
   // --- Iceland: Festi -> subsidiaries ---
-  { parentOrgNr: 'IS-510298-3199', childOrgNr: 'IS-510203-1530', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Festi hf arsreikningur 2025' },
-  { parentOrgNr: 'IS-510298-3199', childOrgNr: 'IS-691008-0550', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Festi hf arsreikningur 2025' },
-
-  // --- Iceland: Samkaup -> Netto ---
-  { parentOrgNr: 'IS-640907-1670', childOrgNr: 'IS-530189-0349', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Samkaup hf arsreikningur 2024' },
+  { parentOrgNr: 'IS-540206-2010', childOrgNr: 'IS-711298-2239', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Festi hf arsreikningur 2025' },
+  { parentOrgNr: 'IS-540206-2010', childOrgNr: 'IS-411003-3370', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Festi hf arsreikningur 2025' },
 
   // --- Cross-border: Schwarz Group -> Lidl SE + Lidl FI ---
   // Schwarz Group is not in DB (German company), so we use cross-border business relationships instead
@@ -427,7 +412,7 @@ const businessRelationships: BizRelation[] = [
   },
   // Axfood logistics: Dagab serves Willys + Hemkop
   {
-    fromOrgNr: 'SE-556070-3166',
+    fromOrgNr: 'SE-556004-7903',
     toOrgNr: 'SE-556163-2232',
     relationshipType: 'distributor',
     description: 'Dagab er sentral innkjops- og logistikkenhet for Willys og hele Axfood-gruppen',
@@ -436,7 +421,7 @@ const businessRelationships: BizRelation[] = [
   },
   // Finnish foodservice: Meira Nova serves S-Group stores
   {
-    fromOrgNr: 'FI-0944086-0',
+    fromOrgNr: 'FI-0697627-4',
     toOrgNr: 'FI-0116323-9',
     relationshipType: 'distributor',
     description: 'Meira Nova Oy er S-Groups foodservice-grossist som leverer til restauranter, kantiner og storhusholdninger',
@@ -445,7 +430,7 @@ const businessRelationships: BizRelation[] = [
   },
   // Finnish foodservice: Kespro serves Kesko ecosystem
   {
-    fromOrgNr: 'FI-1804478-1',
+    fromOrgNr: 'FI-0777402-5',
     toOrgNr: 'FI-0110456-8',
     relationshipType: 'distributor',
     description: 'Kespro Oy er Keskos foodservice-grossist og HoReCa-leverandor',
@@ -472,8 +457,8 @@ const businessRelationships: BizRelation[] = [
   },
   // Iceland: Hagar competitive position
   {
-    fromOrgNr: 'IS-510199-2859',
-    toOrgNr: 'IS-510298-3199',
+    fromOrgNr: 'IS-670203-2120',
+    toOrgNr: 'IS-540206-2010',
     relationshipType: 'buyer',
     description: 'Hagar (Bonus/Hagkaup) og Festi (Kronan/N1) er Islands to storste dagligvarekonsern — duopol-lignende markedsstruktur',
     sector: 'dagligvare',
@@ -482,7 +467,7 @@ const businessRelationships: BizRelation[] = [
   // Cross-border: Jeff Gravenhorst links ISS DK <-> Coop DK
   {
     fromOrgNr: 'DK-28316745',
-    toOrgNr: 'DK-36004412',
+    toOrgNr: 'DK-26259495',
     relationshipType: 'self-dealing',
     description: 'Jeff Gravenhorst var CEO i ISS A/S (2010-2020), na bestyrelsesformand i Coop Danmark — interlocking director',
     sector: 'governance',
@@ -490,8 +475,8 @@ const businessRelationships: BizRelation[] = [
   },
   // Dagrofa <-> Euro Cater: Danish foodservice ecosystem
   {
-    fromOrgNr: 'DK-25395644',
-    toOrgNr: 'DK-29215079',
+    fromOrgNr: 'DK-38714295',
+    toOrgNr: 'DK-29783535',
     relationshipType: 'supplier',
     description: 'Dagrofa og Euro Cater er store danske foodservice-grossister — konkurrenter i dansk HoReCa',
     sector: 'foodservice',

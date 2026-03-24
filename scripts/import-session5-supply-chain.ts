@@ -332,10 +332,10 @@ const properties: PropertyData[] = [
   { companyOrgNr: 'SE-969697-6594', propertyType: 'office', municipality: 'Solna', county: 'Stockholm', lat: 59.364, lng: 18.005, source: 'lidl.se (Svenskt huvudkontor)' },
 
   // Denmark
-  { companyOrgNr: 'DK-36471411', propertyType: 'office', address: 'Rosbjergvej 33', municipality: 'Brabrand', county: 'Midtjylland', lat: 56.155, lng: 10.097, source: 'sallinggroup.com (Hovedkontor)' },
-  { companyOrgNr: 'DK-36004412', propertyType: 'office', address: 'Roskildevej 65', municipality: 'Albertslund', county: 'Hovedstaden', lat: 55.656, lng: 12.356, source: 'coop.dk (Hovedkontor)' },
+  { companyOrgNr: 'DK-35954716', propertyType: 'office', address: 'Rosbjergvej 33', municipality: 'Brabrand', county: 'Midtjylland', lat: 56.155, lng: 10.097, source: 'sallinggroup.com (Hovedkontor)' },
+  { companyOrgNr: 'DK-26259495', propertyType: 'office', address: 'Roskildevej 65', municipality: 'Albertslund', county: 'Hovedstaden', lat: 55.656, lng: 12.356, source: 'coop.dk (Hovedkontor)' },
   { companyOrgNr: 'DK-14705627', propertyType: 'office', municipality: 'Horsens', county: 'Midtjylland', lat: 55.862, lng: 9.850, source: 'rema1000.dk (Hovedkontor)' },
-  { companyOrgNr: 'DK-25395644', propertyType: 'office', municipality: 'Ringsted', county: 'Sjælland', lat: 55.442, lng: 11.790, source: 'dagrofa.dk (Hovedkontor)' },
+  { companyOrgNr: 'DK-38714295', propertyType: 'office', municipality: 'Ringsted', county: 'Sjælland', lat: 55.442, lng: 11.790, source: 'dagrofa.dk (Hovedkontor)' },
 
   // Finland
   { companyOrgNr: 'FI-0116323-9', propertyType: 'office', address: 'Fleminginkatu 34', municipality: 'Helsinki', county: 'Uusimaa', lat: 60.187, lng: 24.953, source: 's-ryhma.fi (Pääkonttori)' },
@@ -343,9 +343,9 @@ const properties: PropertyData[] = [
   { companyOrgNr: 'FI-1615492-7', propertyType: 'office', municipality: 'Janakkala', county: 'Kanta-Häme', lat: 60.886, lng: 24.616, source: 'lidl.fi (Pääkonttori)' },
 
   // Iceland
-  { companyOrgNr: 'IS-510199-2859', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', lat: 64.135, lng: -21.895, source: 'hagar.is (Höfuðstöðvar)' },
-  { companyOrgNr: 'IS-640907-1670', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', lat: 64.128, lng: -21.878, source: 'samkaup.is (Höfuðstöðvar)' },
-  { companyOrgNr: 'IS-510298-3199', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', lat: 64.140, lng: -21.910, source: 'festi.is (Höfuðstöðvar)' },
+  { companyOrgNr: 'IS-670203-2120', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', lat: 64.135, lng: -21.895, source: 'hagar.is (Höfuðstöðvar)' },
+  { companyOrgNr: 'IS-571298-3769', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', lat: 64.128, lng: -21.878, source: 'samkaup.is (Höfuðstöðvar)' },
+  { companyOrgNr: 'IS-540206-2010', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', lat: 64.140, lng: -21.910, source: 'festi.is (Höfuðstöðvar)' },
 
   // ═══ Additional Norwegian logistics/production ═══
 

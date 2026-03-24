@@ -262,40 +262,40 @@ SE-556033-8518  | ICA Fastigheter AB| retail | listed (ICA Gruppen 100%)
 SE-556542-5353  | Axfood AB         | retail | listed (Axel Johnson 50.1%)
 SE-556163-2232  | Willys AB         | retail | listed (Axfood 100%)
 SE-556113-8826  | Hemkop AB         | retail | listed (Axfood 100%)
-SE-556070-3166  | Dagab Inkop & Logistik AB | logistics | listed (Axfood 100%)
+SE-556004-7903  | Dagab Inkop & Logistik AB | logistics | listed (Axfood 100%)
 SE-556000-3575  | Axfood Snabbgross AB | foodservice | listed (Axfood 100%)
+SE-556597-2451  | City Gross Sverige AB | retail | listed (Axfood 100%, acquired Nov 2024)
 SE-702001-3469  | Coop Sverige AB   | retail | cooperative
 SE-969697-6594  | Lidl Sverige KB   | retail | foreign (Schwarz Group DE)
 SE-556559-1135  | Martin & Servera AB | foodservice | family (Axel Johnson 100%)
 SE-556424-2537  | Menigo Foodservice AB | foodservice | foreign (Sysco US)
 
 --- Denmark (DK) ---
-DK-36471411     | Salling Group A/S | retail | family (Sallings Fond)
-DK-36004412     | Coop Danmark A/S  | retail | cooperative
+DK-35954716     | Salling Group A/S | retail | family (Sallings Fond)
+DK-26259495     | Coop Danmark A/S  | retail | cooperative
 DK-14705627     | REMA 1000 A/S     | retail | foreign (Reitan Retail NO)
-DK-25395644     | Dagrofa A/S       | retail | private (NorgesGruppen 48.9%)
-DK-29215079     | Euro Cater A/S    | foodservice | family
+DK-38714295     | Dagrofa ApS       | retail | private (NorgesGruppen 48.9%)
+DK-29783535     | Euro Cater A/S    | foodservice | family (KIRKBI 31%)
 DK-28316745     | ISS A/S           | foodservice | listed (Nasdaq Copenhagen)
 
 --- Finland (FI) ---
 FI-0116323-9    | SOK / S Group     | retail | cooperative (2.7M members)
 FI-0110456-8    | Kesko Oyj         | retail | listed (Nasdaq Helsinki)
-FI-1804478-1    | Kespro Oy         | foodservice | listed (Kesko 100%)
+FI-0777402-5    | Kespro Oy         | foodservice | listed (Kesko 100%)
 FI-1615492-7    | Lidl Suomi Ky     | retail | foreign (Schwarz Group DE)
-FI-0944086-0    | Meira Nova Oy     | foodservice | cooperative (S-Group 100%)
+FI-0697627-4    | Meira Nova Oy     | foodservice | cooperative (S-Group 100%)
 FI-2646674-9    | Wolt Enterprises Oy | foodservice | foreign (DoorDash US)
-FI-1922768-5    | Leijona Catering Oy | foodservice | state
+FI-2449777-9    | Leijona Catering Oy | foodservice | state
 
 --- Iceland (IS) ---
-IS-510199-2859  | Hagar hf          | retail | listed (Nasdaq Iceland)
-IS-620390-0229  | Bonus hf          | retail | listed (Hagar 100%)
-IS-560269-4449  | Hagkaup hf        | retail | listed (Hagar 100%)
-IS-660269-3079  | Olis hf           | retail | listed (Hagar 100%)
-IS-640907-1670  | Samkaup hf        | retail | cooperative
-IS-530189-0349  | Netto Iceland ehf | retail | cooperative (Samkaup 100%)
-IS-510298-3199  | Festi hf          | retail | listed
-IS-510203-1530  | Kronan hf         | retail | listed (Festi 100%)
-IS-691008-0550  | N1 hf             | retail | listed (Festi 100%)
+IS-670203-2120  | Hagar hf          | retail | listed (Nasdaq Iceland)
+IS-450199-3389  | Bonus hf          | retail | listed (Hagar 100%)
+IS-430698-3549  | Hagkaup hf        | retail | listed (Hagar 100%)
+IS-500269-3249  | Oliverzlun Islands ehf | retail | listed (Hagar 100%)
+IS-571298-3769  | Samkaup hf        | retail | cooperative
+IS-540206-2010  | Festi hf          | retail | listed
+IS-711298-2239  | Kronan ehf        | retail | listed (Festi 100%)
+IS-411003-3370  | N1 ehf            | retail | listed (Festi 100%)
 ```
 
 Norwegian companies use numeric orgNr from Brønnøysund. Nordic companies use country-prefixed IDs (SE-/DK-/FI-/IS-).
@@ -368,6 +368,7 @@ main()
 | `import-kavli-tree.ts` | Company, CompanyFinancial, CompanyOwnership, BoardMember, PersonProfile | `db:import:kavli-tree` |
 | `import-remaining-deep.ts` | BoardMember, PersonProfile | `db:import:remaining-deep` |
 | `import-nordic-deepening.ts` | Company, CompanyOwnership, PersonProfile, BusinessRelationship | `db:import:nordic-deep` |
+| `fix-nordic-orgnr.ts` | Company (orgNr migration) | `db:fix:nordic-orgnr` |
 
 ---
 
