@@ -94,12 +94,12 @@ Last ned alt herfra. Spesifikt:
 
 | # | Dokument | År | URL | Status |
 |---|----------|----|-----|--------|
-| 1 | **Nordic Food Markets (fellesnordisk)** | 2005 | https://konkurransetilsynet.no/wp-content/uploads/2018/08/NORDIC_FOOD_MARKETS.pdf | [ ] |
-| 2 | **Kartlegging av innkjøpspriser** | 2017–2023 | https://konkurransetilsynet.no/dagligvare-forskjeller-i-innkjopspriser-ytterligere-redusert/ | [ ] |
-| 3 | **Dagligvarerapport 2022** | 2022 | Rapporter-siden | [ ] |
-| 4 | **Utredning om prisjusteringsvinduer** | 2023 | https://konkurransetilsynet.no/wp-content/uploads/2023/12/Utredning-om-prisjusteringsvinduer-2023.pdf | [ ] |
-| 5 | **Dagligvarerapport 2023** | 2024 | https://konkurransetilsynet.no/wp-content/uploads/2024/01/Konkurransetilsynets-dagligvarerapport-2023.pdf | [ ] |
-| 6 | **Marginstudie Del 1 — Lønnsomhet på virksomhetsnivå** | 2024 | https://konkurransetilsynet.no/publikasjoner/rapporter/ | [ ] |
+| 1 | **Nordic Food Markets (fellesnordisk)** | 2005 | https://konkurransetilsynet.no/wp-content/uploads/2018/08/NORDIC_FOOD_MARKETS.pdf | [x] |
+| 2 | **Kartlegging av innkjøpspriser** | 2017–2023 | https://konkurransetilsynet.no/dagligvare-forskjeller-i-innkjopspriser-ytterligere-redusert/ | [x] |
+| 3 | **Dagligvarerapport 2022** | 2022 | Rapporter-siden | [x] |
+| 4 | **Utredning om prisjusteringsvinduer** | 2023 | https://konkurransetilsynet.no/wp-content/uploads/2023/12/Utredning-om-prisjusteringsvinduer-2023.pdf | [x] |
+| 5 | **Dagligvarerapport 2023** | 2024 | https://konkurransetilsynet.no/wp-content/uploads/2024/01/Konkurransetilsynets-dagligvarerapport-2023.pdf | [x] |
+| 6 | **Marginstudie Del 1 — Lønnsomhet på virksomhetsnivå** | 2024 | https://konkurransetilsynet.no/publikasjoner/rapporter/ | [x] |
 | 7 | **Marginstudie Del 2 — Marginer på produktnivå** | 2025 | https://konkurransetilsynet.no/wp-content/uploads/2025/01/Del-2.-Kartlegging-av-marginer-ved-bruk-av-informasjon-pa-produktniva.pdf | [x] |
 | 8 | **Dagligvarerapport 2024** | 2025 | https://konkurransetilsynet.no/wp-content/uploads/2025/04/Konkurransetilsynets-Dagligvarerapport-2024-25.pdf | [x] |
 | 9 | **Prisjeger-vedtaket (NOK 4,9 mrd)** | 2024 | Søk på konkurransetilsynet.no | [ ] |
@@ -118,14 +118,14 @@ Last ned alt herfra. Spesifikt:
 
 | # | Dokument | År | Status |
 |---|----------|----|--------|
-| 1 | **Samarbeidsklima-undersøkelsen 2022** | 2022 | [ ] |
-| 2 | **Samarbeidsklima-undersøkelsen 2023** | 2023 | [ ] |
-| 3 | **Samarbeidsklima-undersøkelsen 2024** | 2024 | [ ] |
+| 1 | **Samarbeidsklima-undersøkelsen 2022** | 2022 | [x] |
+| 2 | **Samarbeidsklima-undersøkelsen 2023** | 2023 | [x] |
+| 3 | **Samarbeidsklima-undersøkelsen 2024** | 2024 | [x] |
 | 4 | **Samarbeidsklima-undersøkelsen 2025** | 2025 | [x] |
-| 5 | **Årsrapport 2023** | 2024 | [ ] |
-| 6 | **Årsrapport 2022** | 2023 | [ ] |
-| 7 | **Strategidokumenter** | div. | [ ] |
-| 8 | **Veiledninger og tolkningsuttalelser** | div. | [ ] |
+| 5 | **Årsrapport 2023** | 2024 | [x] |
+| 6 | **Årsrapport 2022** | 2023 | [x] |
+| 7 | **Strategidokumenter** | div. | [x] |
+| 8 | **Veiledninger og tolkningsuttalelser** | div. | [x] |
 
 **Søkeoppdrag:** Last ned alt som ligger på rapporter-siden. Sjekk også regjeringen.no for tildelingsbrev og evalueringer.
 
@@ -166,11 +166,11 @@ Disse er ofte bestilt av myndighetene eller bransjen og gir dybdeanalyser.
 
 | # | Dokument | Oppdragsgiver | År | URL | Status |
 |---|----------|---------------|----|----|--------|
-| 1 | **Samfunnsøkonomisk Analyse: EMV og vertikal integrasjon** | Regjeringen | 2023 | https://www.regjeringen.no/contentassets/41847427caa14feb8b8578af3d6d45bc/r15-2023-kartlegging-av-egne-merkevarer-og-vertikal-integrasjon-i-dagligvaremarkedet.pdf | [ ] |
-| 2 | **Menon Economics: EMV og innovasjon** (3 rapporter) | Virke | 2022 | https://menon.no/prosjekter/egne-merkevarer-emv-og-innovasjon-i-dagligvare | [ ] |
-| 3 | **Oslo Economics: Konkurransen — bedre enn sitt rykte** | NorgesGruppen | 2024 | https://osloeconomics.no/wp-content/uploads/2024/06/Oslo-Economics-Konkurransen-i-dagligvaremarkedet-betydelig-bedre-enn-sitt-rykte.pdf | [ ] |
-| 4 | **Copenhagen Economics** (dagligvare) | Div. | Søk | https://copenhageneconomics.com → søk "grocery" / "retail" | [ ] |
-| 5 | **Vista Analyse** — evt. matrelaterte utredninger | Div. | Søk | https://vista-analyse.no/rapporter/ → søk "mat" / "dagligvare" | [ ] |
+| 1 | **Samfunnsøkonomisk Analyse: EMV og vertikal integrasjon** | Regjeringen | 2023 | https://www.regjeringen.no/contentassets/41847427caa14feb8b8578af3d6d45bc/r15-2023-kartlegging-av-egne-merkevarer-og-vertikal-integrasjon-i-dagligvaremarkedet.pdf | [x] |
+| 2 | **Menon Economics: EMV og innovasjon** (3 rapporter) | Virke | 2022 | https://menon.no/prosjekter/egne-merkevarer-emv-og-innovasjon-i-dagligvare | [x] |
+| 3 | **Oslo Economics: Konkurransen — bedre enn sitt rykte** | NorgesGruppen | 2024 | https://osloeconomics.no/wp-content/uploads/2024/06/Oslo-Economics-Konkurransen-i-dagligvaremarkedet-betydelig-bedre-enn-sitt-rykte.pdf | [x] |
+| 4 | **Copenhagen Economics** (dagligvare) | Div. | Søk | https://copenhageneconomics.com → søk "grocery" / "retail" | [x] |
+| 5 | **Vista Analyse** — evt. matrelaterte utredninger | Div. | Søk | https://vista-analyse.no/rapporter/ → søk "mat" / "dagligvare" | [x] |
 
 **Søkeoppdrag:** Søk på regjeringen.no etter bestilte utredninger:
 - "dagligvare" + "utredning" / "kartlegging" / "analyse"
@@ -190,12 +190,12 @@ Disse er ofte bestilt av myndighetene eller bransjen og gir dybdeanalyser.
 
 | # | Hva | URL | Status |
 |---|-----|-----|--------|
-| 1 | **Komplett publikasjonsliste** | https://www.nhh.no/en/research-centres/food/research/ | [ ] |
+| 1 | **Komplett publikasjonsliste** | https://www.nhh.no/en/research-centres/food/research/ | [x] |
 | 2 | **Jacobsen & Jansson: "Norway — the Black Sheep"** | https://www.nhh.no/contentassets/c39bd16817434d7ea326aa52a2eb14a6/scandinavia-comparison-efficiency-jacobsen--jansson-h2022.pdf | [x] |
 | 3 | **Foros, Friberg, Kind, Shaffer & Steen: Medieoppmerksomhet og priskonkurranse** | nhh.no/food/news | [x] |
-| 4 | **"All retail sectors are highly concentrated"** | https://www.nhh.no/en/research-centres/food/food-news/2024/all-retail-sectors-are-highly-concentrated/ | [ ] |
-| 5 | **Frode Steen — alle publikasjoner** | https://www.researchgate.net/profile/Frode-Steen | [ ] |
-| 6 | **Øystein Foros — alle publikasjoner** | https://www.nhh.no/en/employees/faculty/oystein-foros/ | [ ] |
+| 4 | **"All retail sectors are highly concentrated"** | https://www.nhh.no/en/research-centres/food/food-news/2024/all-retail-sectors-are-highly-concentrated/ | [x] |
+| 5 | **Frode Steen — alle publikasjoner** | https://www.researchgate.net/profile/Frode-Steen | [x] |
+| 6 | **Øystein Foros — alle publikasjoner** | https://www.nhh.no/en/employees/faculty/oystein-foros/ | [x] |
 
 **Søkeoppdrag:**
 - Gå gjennom hele FOOD-publikasjonslisten
@@ -214,8 +214,8 @@ Disse er ofte bestilt av myndighetene eller bransjen og gir dybdeanalyser.
 | # | Hva | År | Status |
 |---|-----|----|--------|
 | 1 | **Kunnskapsgrunnlag om kundeprogrammer i dagligvare** | 2026 | [x] |
-| 2 | **Referansebudsjett for forbruksutgifter** (matseksjonen) | Årlig | [ ] |
-| 3 | **Forbrukertrender mat** (alle relevante rapporter) | Div. | [ ] |
+| 2 | **Referansebudsjett for forbruksutgifter** (matseksjonen) | Årlig | [x] |
+| 3 | **Forbrukertrender mat** (alle relevante rapporter) | Div. | [x] |
 
 **Søkeoppdrag:** Søk i ODA-arkivet (oda.oslomet.no) etter:
 - "dagligvare" / "mat" / "matforbruk" / "matvaner" / "matpriser"
