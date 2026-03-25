@@ -47,6 +47,7 @@ export const theses: Thesis[] = [
     method: 'Komparativ finansiell analyse av skandinaviske dagligvarekjeder',
     awardWinning: true,
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
   },
   {
     id: 'nguyen-hartmann-2024',
@@ -72,6 +73,7 @@ export const theses: Thesis[] = [
     method: 'Empirisk studie av tinglyste eiendomsservitutter og lokal markedskonsentrasjon',
     awardWinning: true,
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
   },
   {
     id: 'drager-vagene-2017',
@@ -93,6 +95,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvantitativ analyse av eksogene variablers effekt pa markedskonsentrasjon',
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
   },
   {
     id: 'martens-norum-2020',
@@ -115,6 +118,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvantitativ analyse av importvernets betydning for leverandorkonsentrasjon',
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
   },
   {
     id: 'barbakken-hausken-2006',
@@ -136,6 +140,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ casestudie av relasjoner mellom kjeder og leverandorer',
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
+    doi: 'hdl:11250/167473',
   },
   {
     id: 'fretheim-rodnova-2020',
@@ -157,6 +163,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Analyse av lokale reguleringsregimer og effekt pa nyetablering',
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
   },
   {
     id: 'selmani-forre-2023',
@@ -180,6 +187,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ casestudie av Lidls inntreden og tilbaketrekning',
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
   },
   {
     id: 'skulstad-svensson-2024',
@@ -203,6 +211,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ casestudie av ICAs norske operasjoner fra etablering til nedleggelse',
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
   },
   {
     id: 'sandanger-2012',
@@ -225,6 +234,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Analyse av EMV-strategier og effekt pa horisontal konkurranse',
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
+    doi: 'hdl:11250/166778',
   },
   {
     id: 'skjervheim-flo-2016',
@@ -247,6 +258,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Analyse av vertikale integrasjonsprosesser i distribusjon',
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
   },
   {
     id: 'gangstoe-2019',
@@ -268,6 +280,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Okonomisk-teoretisk analyse av kontraktsformer i dagligvare',
     degree: 'master',
+    publisher: 'Universitetet i Bergen',
   },
   {
     id: 'kronqvist-2010',
@@ -292,6 +305,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Formell duopolmodell med Bertrand-konkurranse og differensierte varer',
     degree: 'master',
+    publisher: 'Aalto University',
+    doi: 'hdl:123456789/523',
   },
   {
     id: 'meile-2020',
@@ -314,6 +329,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Empirisk studie av prisstrategier i norske dagligvarekjeder',
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
   },
   {
     id: 'huynh-mortensen-2025',
@@ -335,6 +351,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvantitativ finansiell analyse med kvalitative forbrukerintervjuer',
     degree: 'master',
+    publisher: 'Aalborg Universitet',
   },
   {
     id: 'nilsen-paulsen-2025',
@@ -356,6 +373,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Okonometrisk analyse av prisdata for kakao- og kaffeprodukter',
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
   },
 
   // --- PhD-avhandlinger ---
@@ -380,6 +398,7 @@ export const theses: Thesis[] = [
     method: 'Difference-in-Differences (DiD) analyse med butikkniva salgsdata, for og etter Coop/ICA-rebranding',
     url: '',
     degree: 'phd',
+    publisher: 'Norges Handelshoyskole',
   },
   {
     id: 'ulsaker-phd-2016',
@@ -402,6 +421,8 @@ export const theses: Thesis[] = [
     method: 'PhD-avhandling med multiple studier av det norske dagligvaremarkedet',
     url: 'https://hdl.handle.net/11250/3197662',
     degree: 'phd',
+    publisher: 'Norges Handelshoyskole',
+    doi: 'hdl:11250/3197662',
   },
   {
     id: 'hebrok-phd-2020',
@@ -423,6 +444,7 @@ export const theses: Thesis[] = [
     method: 'Praksisorientert designforskning med etnografisk feltarbeid i husholdninger og kreative designworkshops',
     url: '',
     degree: 'phd',
+    publisher: 'OsloMet - storbyuniversitetet',
   },
   {
     id: 'eriksson-phd-2015',
@@ -444,6 +466,7 @@ export const theses: Thesis[] = [
     method: 'Kvantitativ kartlegging i 6 svenske supermarkeder med systematisk veiing og kategorisering, pluss LCA',
     url: '',
     degree: 'phd',
+    publisher: 'Sveriges lantbruksuniversitet',
   },
   {
     id: 'albizzati-phd-2021',
@@ -465,6 +488,7 @@ export const theses: Thesis[] = [
     method: 'Systematisk livssyklusanalyse (LCA) av 21 matsvinnhandteringsveier med sensitivitetsanalyser',
     url: '',
     degree: 'phd',
+    publisher: 'Danmarks Tekniske Universitet',
   },
   {
     id: 'brancoli-phd-2021',
@@ -486,6 +510,7 @@ export const theses: Thesis[] = [
     method: 'Materialstromsanalyse, livssyklusanalyse (LCA) og verdikjedeanalyse av brodverdikjeden i Sverige',
     url: '',
     degree: 'phd',
+    publisher: 'Hogskolan i Boras',
   },
   {
     id: 'sundin-phd-2024',
@@ -507,6 +532,7 @@ export const theses: Thesis[] = [
     method: 'Kvantitativ modellering av klimagassutslipp knyttet til matsvinn i svenske husholdninger med scenarioanalyser',
     url: '',
     degree: 'phd',
+    publisher: 'Sveriges lantbruksuniversitet',
   },
   {
     id: 'lehtokunnas-phd-2023',
@@ -528,6 +554,7 @@ export const theses: Thesis[] = [
     method: 'Multi-sited etnografi pa tre steder: supermarkeder, husholdninger og biogassanlegg i Finland',
     url: '',
     degree: 'phd',
+    publisher: 'Tampere University',
   },
   {
     id: 'sundqvist-phd-2025',
@@ -549,6 +576,7 @@ export const theses: Thesis[] = [
     method: 'Governance-analyse av matembalasjepolitikk i Finland og EU med dokumentanalyse og intervjuer',
     url: '',
     degree: 'phd',
+    publisher: 'University of Helsinki',
   },
   {
     id: 'sorensen-phd-2016',
@@ -570,6 +598,7 @@ export const theses: Thesis[] = [
     method: 'Mixed methods: kvantitativ analyse av innkjopsdata fra danske offentlige kjokken med kvalitative casestudier',
     url: '',
     degree: 'phd',
+    publisher: 'Danmarks Tekniske Universitet',
   },
 
   // --- Nye masteroppgaver ---
@@ -594,6 +623,7 @@ export const theses: Thesis[] = [
     method: 'Dokumentanalyse av offentlige utredninger, stortingsmeldinger og bransjeavtaler med polysentrisk governance-rammeverk',
     url: '',
     degree: 'master',
+    publisher: 'Universitetet i Bergen',
   },
   {
     id: 'deljanin-2015',
@@ -615,6 +645,7 @@ export const theses: Thesis[] = [
     method: 'Kvalitativ casestudie basert pa markedssosiologi (Callon, Cochoy) av The Ugly Mugs-initiativet',
     url: '',
     degree: 'master',
+    publisher: 'Copenhagen Business School',
   },
   {
     id: 'kayhan-ronnback-2019',
@@ -636,6 +667,7 @@ export const theses: Thesis[] = [
     method: 'Industrianalyse med Porters femkraftsmodell, markedsdata og intervjuer med bransjeaktorer',
     url: '',
     degree: 'master',
+    publisher: 'Kungliga Tekniska hogskolan',
   },
   {
     id: 'burgherr-2019',
@@ -657,6 +689,7 @@ export const theses: Thesis[] = [
     method: 'Komparativ kvantitativ studie med veiing og kategorisering av husholdningsavfall i to tidsperioder',
     url: '',
     degree: 'master',
+    publisher: 'Haskoli Islands',
   },
   {
     id: 'sigurdardottir-2017',
@@ -678,6 +711,7 @@ export const theses: Thesis[] = [
     method: 'Kvantitativ sporreundersokelse med strukturell likningsmodellering (SEM) for a teste TPB og VBN',
     url: '',
     degree: 'master',
+    publisher: 'Haskoli Islands',
   },
   {
     id: 'stein-2022',
@@ -699,6 +733,7 @@ export const theses: Thesis[] = [
     method: 'Komparativ casestudie av offentlig matinnkjop i UK, Danmark og Sverige med policyanalyse og intervjuer',
     url: '',
     degree: 'phd',
+    publisher: 'University of Salford',
   },
 
   // --- Nye avhandlinger fra systematisk soek (mars 2026) ---
@@ -726,6 +761,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Risiko- og sarbarhetsanalyse (ROS) av norsk matforsyning',
     degree: 'master',
+    publisher: 'UiT Norges arktiske universitet',
+    doi: 'hdl:10037/10932',
   },
   {
     id: 'orlova-2019',
@@ -747,6 +784,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Spillteoretisk modell av vertikal markedsstruktur med nettaktorer',
     degree: 'master',
+    publisher: 'Universitetet i Bergen',
+    doi: 'hdl:1956/20623',
   },
   {
     id: 'morken-2015',
@@ -768,6 +807,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Systematisk litteraturstudie av innkjopssamarbeid og konkurranseeffekter',
     degree: 'master',
+    publisher: 'Universitetet i Bergen',
+    doi: 'hdl:1956/10899',
   },
   {
     id: 'simonsen-2017',
@@ -790,6 +831,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ STS-studie med intervjuer av bransjeaktorer',
     degree: 'master',
+    publisher: 'Norges teknisk-naturvitenskapelige universitet',
+    doi: 'hdl:11250/2456020',
   },
   {
     id: 'granlund-lindskog-2024',
@@ -811,6 +854,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ studie av cybersikkerhet i norsk matforsyningssektor',
     degree: 'master',
+    publisher: 'Norges teknisk-naturvitenskapelige universitet',
+    doi: 'hdl:11250/3156088',
   },
   {
     id: 'sandbraaten-2023',
@@ -833,6 +878,7 @@ export const theses: Thesis[] = [
     method: 'Atferdsoekonomisk modellering av sosiale eksternaliteters effekt pa matvalg',
     awardWinning: true,
     degree: 'master',
+    publisher: 'Universitetet i Oslo',
   },
   {
     id: 'tallaksen-2022',
@@ -855,6 +901,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ studie med individuelle intervjuer og fokusgrupper blant universitetsstudenter',
     degree: 'master',
+    publisher: 'Universitetet i Oslo',
   },
   {
     id: 'vangelsten-2017',
@@ -877,6 +924,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvantitativ modellering av arealbruk og selvforsyningsgrad under ulike kostholdsscenarier',
     degree: 'master',
+    publisher: 'Nord Universitet',
+    doi: 'hdl:11250/2491452',
   },
   {
     id: 'moe-2018',
@@ -898,6 +947,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ casestudie av andelslandbruk i Ost-Norge',
     degree: 'master',
+    publisher: 'Norges miljo- og biovitenskapelige universitet',
+    doi: 'hdl:11250/2569075',
   },
   {
     id: 'jevne-schiotz-2021',
@@ -920,6 +971,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ studie med scenarier for digital utvikling av REKO-ringen',
     degree: 'master',
+    publisher: 'Norges miljo- og biovitenskapelige universitet',
+    doi: 'hdl:11250/2788657',
   },
   {
     id: 'tesdal-2013',
@@ -941,6 +994,8 @@ export const theses: Thesis[] = [
     ],
     method: 'STS-analyse av samspillet mellom offentlig merkeordning og private aktorers interesser',
     degree: 'master',
+    publisher: 'Universitetet i Oslo',
+    doi: 'hdl:10852/34009',
   },
   {
     id: 'handlykken-2023',
@@ -962,6 +1017,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Systematisk litteraturgjennomgang av 20 fagfellevurderte artikler om nudging i dagligvare',
     degree: 'master',
+    publisher: 'OsloMet - storbyuniversitetet',
+    doi: 'hdl:11250/3101983',
   },
   {
     id: 'paschen-eriksen-2014',
@@ -983,6 +1040,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Statsvitendskapelig analyse av norsk forvaltnings matpolitiske handlingsrom innenfor EOS',
     degree: 'master',
+    publisher: 'Universitetet i Agder',
+    doi: 'hdl:11250/276369',
   },
   {
     id: 'hasle-tjostheim-2024',
@@ -1006,6 +1065,7 @@ export const theses: Thesis[] = [
     method: 'Empirisk analyse av 100 000+ kundeundersokelser 2008-2024',
     awardWinning: true,
     degree: 'master',
+    publisher: 'Norges Handelshoyskole',
   },
 
   // SVERIGE
@@ -1030,6 +1090,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Okonometrisk analyse av offentlig innkjop, forbrukerdata og pristransmisjon i okologiske markeder',
     degree: 'phd',
+    publisher: 'Umea University',
+    doi: 'diva2:1600403',
   },
   {
     id: 'adlers-2022',
@@ -1052,6 +1114,8 @@ export const theses: Thesis[] = [
     method: 'Komparativ studie av svensk notkjott- og kornproduksjon med selvforsyningsberegninger',
     awardWinning: true,
     degree: 'master',
+    publisher: 'Sveriges lantbruksuniversitet',
+    doi: 'slu:17609',
   },
   {
     id: 'nikolaev-2023',
@@ -1073,6 +1137,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Rapid review av 30 fagfellevurderte artikler om matforsyningskjede-resiliens',
     degree: 'master',
+    publisher: 'Sveriges lantbruksuniversitet',
+    doi: 'slu:19302',
   },
   {
     id: 'khandaker-2021',
@@ -1094,6 +1160,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ casestudie av Lantmannens kornforsyningskjede under COVID-19',
     degree: 'master',
+    publisher: 'Sveriges lantbruksuniversitet',
+    doi: 'slu:17412',
   },
   {
     id: 'sturen-2023',
@@ -1115,6 +1183,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Scenarioanalyse av brodforsyningskjeder i Sverige med vekt pa donasjon og sirkulaere losninger',
     degree: 'master',
+    publisher: 'Sveriges lantbruksuniversitet',
+    doi: 'slu:19444',
   },
 
   // DANMARK
@@ -1139,6 +1209,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Strategisk analyse med verdikjedeanalyse, BMC, finansiell benchmarking og Porters femkraftsmodell',
     degree: 'master',
+    publisher: 'Aalborg Universitet',
   },
   {
     id: 'jorgensen-ahmadi-2024',
@@ -1160,6 +1231,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Strategisk analyse med PESTEL, Porter, finansiell nokkeltallsanalyse og trippel bunnlinje BMC',
     degree: 'master',
+    publisher: 'Aalborg Universitet',
   },
   {
     id: 'storm-teigland-2017',
@@ -1181,6 +1253,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ casestudie av REMA 1000 Danmarks matsvinnstrategi',
     degree: 'master',
+    publisher: 'Copenhagen Business School',
   },
   {
     id: 'schuler-2017',
@@ -1203,6 +1276,7 @@ export const theses: Thesis[] = [
     method: 'Materialstromsanalyse av dansk fersk potetforsyningskjede fra gard til gaffel',
     awardWinning: true,
     degree: 'master',
+    publisher: 'Copenhagen Business School',
   },
   {
     id: 'minkeviciute-2019',
@@ -1224,6 +1298,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Komparativ analyse av dagligvare-e-handelsmodeller i Danmark, Sverige og Norge',
     degree: 'master',
+    publisher: 'Copenhagen Business School',
   },
   {
     id: 'nielsen-andersen-2016',
@@ -1245,6 +1320,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvantitativ sporring blant 506 danske forbrukere med segmenteringsanalyse',
     degree: 'master',
+    publisher: 'Copenhagen Business School',
   },
 
   // FINLAND
@@ -1269,6 +1345,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ casestudie av S-group og Keskos matsvinnspraksis i Finland',
     degree: 'master',
+    publisher: 'Aalto University',
+    doi: 'hdl:123456789/21500',
   },
   {
     id: 'mattila-2024',
@@ -1290,6 +1368,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvantitativ casestudie av AI-basert ettersporselprognostisering med for-og-etter-malinger',
     degree: 'master',
+    publisher: 'LUT University',
+    doi: 'hdl:10024/170079',
   },
   {
     id: 'makela-2023',
@@ -1311,6 +1391,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Analyse av strukturelle og relasjonelle faktorer for svinnhandtering i matforsyningskjeder',
     degree: 'master',
+    publisher: 'LUT University',
+    doi: 'hdl:10024/165638',
   },
 
   // ISLAND
@@ -1335,6 +1417,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Okonomisk dataanalyse, ekspertintervjuer og offentlig sporring om matsikkerhet',
     degree: 'master',
+    publisher: 'Haskoli Islands',
+    doi: 'hdl:1946/7794',
   },
 
   // TVERRNASJONAL / GAP-FILLING
@@ -1359,6 +1443,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Okonomisk-teoretisk modell av to-rolle-plattformer i dagligvaremarkedet',
     degree: 'master',
+    publisher: 'Universitetet i Bergen',
   },
   {
     id: 'ortiz-cuadra-2023',
@@ -1380,6 +1465,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ studie av lokal matproduksjon som beredskapsstrategi i Uppsala',
     degree: 'master',
+    publisher: 'Uppsala University',
   },
 
   // BACKLOG 2026 — verifiserte avhandlinger
@@ -1404,6 +1490,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Casestudie av Sodertalje kommunes matforsyningsstrategi',
     degree: 'master',
+    publisher: 'Kungliga Tekniska hogskolan',
+    doi: 'diva2:1877280',
   },
   {
     id: 'sedwall-2025',
@@ -1425,6 +1513,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Analyse av hybride forsyningskjedeloesninger i svensk dagligvaresektor',
     degree: 'master',
+    publisher: 'Jonkoping International Business School',
+    doi: 'diva2:1966137',
   },
   {
     id: 'zakeri-lei-2024',
@@ -1446,6 +1536,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ studie av AI-adopsjon i svensk primarproduksjon',
     degree: 'master',
+    publisher: 'Uppsala University',
+    doi: 'diva2:1872486',
   },
   {
     id: 'duong-2025',
@@ -1467,6 +1559,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Brukerundersokelse og feilanalyse av selvbetjente kassesystemer',
     degree: 'master',
+    publisher: 'Aalto University',
   },
   {
     id: 'rislakki-2024',
@@ -1488,6 +1581,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Komparativ analyse av nudging-strategier i finske dagligvarekjeder',
     degree: 'master',
+    publisher: 'Jyvaskylan yliopisto',
   },
   {
     id: 'hagan-2025',
@@ -1509,6 +1603,7 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvantitativ undersokelse av forbrukerpreferanser for matsvinnreduksjon',
     degree: 'master',
+    publisher: 'University of Tennessee',
   },
   {
     id: 'segersven-2024',
@@ -1530,6 +1625,8 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ studie av finske matindustribedrifter post-COVID-19',
     degree: 'master',
+    publisher: 'LUT University',
+    doi: 'URN:NBN:fi-fe2024043024001',
   },
   {
     id: 'lund-beijer-2026',
@@ -1553,5 +1650,6 @@ export const theses: Thesis[] = [
     ],
     method: 'Kvalitativ casestudie av tre svenske matprodusenter med fokus på maktdynamikk i leverandør-detaljist-relasjoner',
     degree: 'master',
+    publisher: 'Lund University',
   },
 ]

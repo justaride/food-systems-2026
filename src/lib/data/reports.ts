@@ -26,6 +26,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Fungerer som nullpunktet for analyse av det norske matsystemet. Mange av problemstillingene fra 2011 er fremdeles uloste eller har forsterket seg i 2026, saerlig knyttet til EMV-andeler og logistikkmakt.',
     tags: ['markedskonsentrasjon', 'maktforhold', 'dagligvare', 'emv', 'verdikjede', 'handelsskikk'],
+    publisher: 'Matkjedeutvalget',
   },
   {
     id: 'nou-2022-14',
@@ -49,6 +50,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Sentral for aa forstaa primaerprodusentens posisjon i verdikjeden. Hvis bondens inntekt maales feil, vil ogsaa tiltakene for aa sikre selvforsyning og beredskap treffe feil.',
     tags: ['inntekt', 'jordbruk', 'maalesystem', 'primaerprodusent', 'lonnsomhet'],
+    publisher: 'Regjeringen',
   },
   {
     id: 'matsystemutvalget-2026',
@@ -70,6 +72,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Forventes aa bli det viktigste styringsdokumentet for norsk matpolitikk det neste tiaaret. Food Systems 2026-prosjektet bor fungere som uavhengig skyggerapport.',
     tags: ['matsystem', 'kosthold', 'planteproduksjon', 'baerekraft', 'klima', 'virkemiddel'],
+    publisher: 'Matsystemutvalget',
   },
   {
     id: 'meld-st-11-selvforsyning',
@@ -91,6 +94,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Det politiske mandatet for systemomstillingen. Alle analyser maa forholde seg til 50 %-maalet og hvordan markedskonsentrasjon paavirker bondens mulighet til aa naa de okonomiske maalene.',
     tags: ['selvforsyning', 'inntekt', 'beredskap', 'planteproduksjon', 'for', 'jordbruk'],
+    publisher: 'Landbruks- og matdepartementet',
   },
   {
     id: 'meld-st-4-dagligvare',
@@ -113,6 +117,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Dokumenterer den regulatoriske verktoeykassen som er i ferd med aa rulles ut. Spesielt punktet om lojalitetsprogrammer er en direkte bro til SIFO-rapporten fra 2026.',
     tags: ['dagligvare', 'regulering', 'emv', 'grossist', 'konkurranse', 'lojalitetsprogram'],
+    publisher: 'Naerings- og fiskeridepartementet',
   },
   {
     id: 'riksrevisjonen-matsikkerhet-2023',
@@ -135,6 +140,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Konkluderer med at Norge ikke er godt nok forberedt. Underbygger behovet for systemisk omstilling for aa sikre forsyningssikkerhet.',
     tags: ['matsikkerhet', 'beredskap', 'importavhengighet', 'jordvern', 'krisekosthold'],
+    publisher: 'Riksrevisjonen',
   },
   {
     id: 'sou-2024-8-svensk-beredskap',
@@ -157,6 +163,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Danner grunnlaget for Sveriges nye beredskapsstrategi. Verdifull nordisk sammenligning — Sverige beveger seg mot en mer strukturert tilnaerming til matberedskap enn Norge.',
     tags: ['beredskap', 'livsmedelsberedskap', 'sverige', 'nordisk', 'rammelov', 'jordvern'],
+    publisher: 'Statens offentliga utredningar (Sverige)',
   },
 
   // ═══ Konkurransetilsyn ═══════════════════════════════════════════════
@@ -183,6 +190,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Viktigste kilde for kvantitativ status paa konkurransen. Koblingen mellom importvern og markedsmakt er sentral for whitepaperet.',
     tags: ['konkurranse', 'markedsandeler', 'importvern', 'marginer', 'prisjeger', 'dagligvare'],
+    publisher: 'Konkurransetilsynet',
   },
   {
     id: 'kt-marginstudie-2024-del1',
@@ -202,6 +210,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Frikjenner kjedene for griskflasjon, men feller dom over systemet: etableringshindringene er saa hoye at aktorene kan ta ut vedvarende hoy profitt.',
     tags: ['marginer', 'lonnsomhet', 'griskflasjon', 'grossist', 'etableringsbarrierer'],
+    publisher: 'Konkurransetilsynet',
   },
   {
     id: 'kt-marginstudie-2025-del2',
@@ -221,6 +230,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Gir beviset for at kjedene bruker pris som strategisk vaapen paa tvers av kategorier. Essensielt for aa forklare prisforskjeller mot Sverige.',
     tags: ['marginer', 'produktnivaa', 'emv', 'kostnadsovervelting', 'asymmetrisk-makt'],
+    publisher: 'Konkurransetilsynet',
   },
   {
     id: 'kt-markedsundersokelser-2026',
@@ -239,6 +249,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Markerer overgangen fra et reaktivt tilsyn til et proaktivt tilsyn som kan forme markedets struktur.',
     tags: ['markedsundersokelser', 'regulering', 'paragraf-14', 'emv', 'proaktivt-tilsyn'],
+    publisher: 'Konkurransetilsynet',
   },
   {
     id: 'kt-prisjeger-saken-2024',
@@ -258,6 +269,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Dokumenterer den taktiske siden av det norske triopolet. Viser at tilsynelatende aktiv priskonkurranse kan vaere svak reell konkurranse.',
     tags: ['prisjeger', 'informasjonsutveksling', 'gebyr', 'oligopol', 'priskoordinering'],
+    publisher: 'Konkurransetilsynet',
   },
   {
     id: 'kt-innkjopspriser-2017-2023',
@@ -276,6 +288,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Dokumenterer kjopermakt direkte — det mest konsentrerte dagligvaremarkedet gir NorgesGruppen systematisk bedre innkjopsbetingelser.',
     tags: ['innkjopspriser', 'kjopermakt', 'norgesgruppen', 'prisdiskriminering'],
+    publisher: 'Konkurransetilsynet',
   },
   {
     id: 'kt-prisjusteringsvinduer-2023',
@@ -296,6 +309,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Direkte eksempel paa stilltiende koordinering i oligopolmarkeder — faste prisjusteringsvinduer fungerer som koordineringsmekanismer.',
     tags: ['prisjusteringsvinduer', 'koordinering', 'oligopol', 'prismekanismer'],
+    publisher: 'Konkurransetilsynet',
   },
   {
     id: 'nordisk-food-markets-2005',
@@ -315,6 +329,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Historisk benchmark for nordisk konsentrasjon. Viser at problemene er strukturelle og har vaert dokumentert i over 20 aar.',
     tags: ['nordisk', 'hhi', 'konsentrasjon', 'benchmark', 'matpriser', 'historisk'],
+    publisher: 'De nordiske konkurransemyndighetene',
   },
 
   // ═══ Nordisk konkurransetilsyn ═══════════════════════════════════════
@@ -337,6 +352,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Viser at konsolidering paagaar i hele Norden. Danmark har mer reell fjerdekjede-konkurranse (Lidl tilstede), men trenden er mot ytterligere konsentrasjon.',
     tags: ['fusjon', 'oppkjop', 'danmark', 'salling-group', 'coop', 'konsolidering'],
+    publisher: 'KFST',
   },
   {
     id: 'kkv-fi-4a-dominans',
@@ -356,6 +372,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Viktigste eksempelet paa radikal lovgivning i Norden. Viser at man kan definere markedsmakt politisk og juridisk — aktuelt ogsaa i Norge.',
     tags: ['finland', 'dominans', '30-prosent', 'lovgivning', 's-gruppen', 'kesko'],
+    publisher: 'KKV',
   },
   {
     id: 'is-markedsstruktur-2024',
@@ -373,6 +390,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Viser ekstrem konsentrasjon og vertikal integrasjon i et lite nordisk marked. Costco som maverick-aktor er interessant parallell til diskusjonen om nye aktorer i Norge.',
     tags: ['island', 'vertikal-integrasjon', 'konsentrasjon', 'fusjon', 'costco'],
+    publisher: 'Samkeppniseftirlitid',
   },
   {
     id: 'se-konkurrensverket-2024-5',
@@ -395,6 +413,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Viser at de samme strukturelle problemene som i Norge finnes i Sverige, men at Sverige mangler det sterke lavpris-segmentet.',
     tags: ['sverige', 'oligopol', 'lavpris', 'etableringshindringer', 'ica', 'axfood'],
+    publisher: 'Konkurrensverket',
   },
 
   // ═══ Dagligvaretilsyn / Offentlig ═══════════════════════════════════
@@ -417,6 +436,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Dokumenterer asymmetrisk makt i forhandlingsrommet. Tallene paa kontrollerbarhet hos Coop er viktig datapunkt for diskusjon om strengere regulering.',
     tags: ['samarbeidsklima', 'god-handelsskikk', 'leverandorer', 'fryktkultur', 'lokalmat'],
+    publisher: 'Dagligvaretilsynet',
   },
   {
     id: 'menon-funksjonelt-skille-2026',
@@ -438,6 +458,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Sentral utredning for det paagaaende reguleringsarbeidet. Direkte kobling til Meld. St. 4 og sporsmelet om grossistleddet skal skilles fra detaljistleddet.',
     tags: ['funksjonelt-skille', 'grossist', 'vertikal-integrasjon', 'regulering', 'dagligvare'],
+    publisher: 'Menon Economics',
   },
 
   // ═══ Bransje ════════════════════════════════════════════════════════
@@ -460,6 +481,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Coop representerer den alternative eierskapsmodellen. Deres evne til aa utfordre NorgesGruppen paa pris (via Extra) og samtidig levere medlemsnytte er sentral for mangfoldet.',
     tags: ['coop', 'samvirke', 'extra', 'lavpris', 'medlemsnytte', 'matsvinn'],
+    publisher: 'Coop Norge SA',
   },
   {
     id: 'nordisk-sammenligning-2024',
@@ -477,6 +499,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Beviser at Norge faktisk har lavere marginer i butikkleddet enn baade Sverige og Finland. Underbygger tesen om at de hoye norske prisene ligger i leddene for butikken.',
     tags: ['ica', 'axfood', 'kesko', 'norden', 'marginer', 'prisnivaa'],
+    publisher: 'Diverse (ICA, Axfood, Kesko)',
   },
   {
     id: 'norgesgruppen-2024-25',
@@ -496,6 +519,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'NorgesGruppen er systemet i Norge. Deres marginutvikling og EMV-strategi er de viktigste driverne for hvordan resten av markedet utvikler seg.',
     tags: ['norgesgruppen', 'kiwi', 'first-price', 'emv', 'asko', 'markedsleder'],
+    publisher: 'NorgesGruppen ASA',
   },
   {
     id: 'reitan-2024-25',
@@ -514,6 +538,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Viser hvordan Reitan bruker overskuddet fra Norge til aa finansiere aggressiv ekspansjon i Danmark. Retail Media via AE-appen er voksende inntektskilde.',
     tags: ['reitan', 'rema-1000', 'danmark', 'ae-appen', 'retail-media', 'lavpris'],
+    publisher: 'Reitan Retail AS',
   },
   {
     id: 'verdibutikker-utfordrere',
@@ -547,6 +572,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Stotter tesen om at logistikk er den virkelige inngangsbarrieren i det norske markedet. Den som kontrollerer veien til butikken, kontrollerer markedet.',
     tags: ['asko', 'logistikk', 'infrastruktur', 'inngangsbarriere', 'norgesgruppen'],
+    publisher: 'ASKO / NorgesGruppen',
   },
   {
     id: 'dagligvarerapporten-2025',
@@ -565,6 +591,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Fasiten paa markedets struktur. Tallene bekrefter at det norske systemet er et rendyrket lavprissystem styrt av tre store blokker.',
     tags: ['markedsandeler', 'lavpris', 'emv', 'virke', 'dagligvare', 'prisvekst'],
+    publisher: 'Virke Handel',
   },
   {
     id: 'dlf-leverandor-2025',
@@ -585,6 +612,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Gir innsiden av forhandlingsrommet. DLF-perspektivet forklarer hvorfor vareutvalget i Norge er mer begrenset enn i nabolandene.',
     tags: ['dlf', 'leverandorer', 'maktbalanse', 'emv', 'god-handelsskikk', 'innovasjon'],
+    publisher: 'DLF',
   },
   {
     id: 'merkevarer-historie',
@@ -621,6 +649,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Representerer produksjonssiden av beredskapsdebatten. NBS-perspektivet er nodvendig for aa forstaa de fysiske begrensningene i systemet.',
     tags: ['nbs', 'selvforsyning', 'beredskap', 'soya', 'kraftfor', 'smaabruk'],
+    publisher: 'Norsk Bonde- og Smaabrukarlag',
   },
 
   // ═══ Konsulentrapporter ═════════════════════════════════════════════
@@ -642,6 +671,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Gir viktig nyanse: EMV er ikke bare en trussel mot mangfoldet, men ogsaa et verktoey for konkurranse i et marked dominert av sterke merkevare-monopolister.',
     tags: ['menon', 'emv', 'innovasjon', 'grossisttilgang', 'konkurranse'],
+    publisher: 'Menon Economics',
   },
   {
     id: 'oslo-economics-forsvar-2024',
@@ -659,6 +689,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Nodvendig for balansert fremstilling. Empirisk riktig at butikkmarginer (3-4 %) ikke er oppsiktsvekkende. Maktproblemet ligger i volumet og portvokterfunksjonen.',
     tags: ['oslo-economics', 'marginer', 'forsvar', 'norgesgruppen', 'kapitalavkastning'],
+    publisher: 'Oslo Economics',
   },
   {
     id: 'soa-emv-2023',
@@ -680,6 +711,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Underbygger maktforskyvnings-tesen. Gir det teoretiske beviset for at vertikal integrasjon er en av de storste barrierene for nye aktorer.',
     tags: ['soa', 'emv', 'vertikal-integrasjon', 'maktforskyvning', 'dobbeltrollen'],
+    publisher: 'Samfunnsokonomisk Analyse',
   },
 
   // ═══ Tenketanker ════════════════════════════════════════════════════
@@ -721,6 +753,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Tilforer den myke men kritiske dimensjonen. Et effektivt og billig system er ikke nodvendigvis baerekraftig hvis det hviler paa uetisk import.',
     tags: ['fivh', 'matsvinnloven', 'aapenhetsloven', 'baerekraft', 'gronnvasking', 'sporbarhet'],
+    publisher: 'Framtiden i vaare hender',
   },
   {
     id: 'norden-policy-2024',
@@ -742,6 +775,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Gir konkrete policy-anbefalinger for whitepaperet. De nordiske landene staar overfor de samme utfordringene og kan laere av hverandres virkemidler.',
     tags: ['nordisk-ministerraad', 'a4-modellen', 'klimamerking', 'avgiftspolitikk', 'mattransformasjon'],
+    publisher: 'Nordisk Ministerraad',
   },
   {
     id: 'stockholm-resilience-2019',
@@ -762,6 +796,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Gir den okologiske rammen for whitepaperet. Matpriser handler ikke bare om kroner i kassa, men ogsaa om skjulte kostnader for natur og helse.',
     tags: ['stockholm-resilience', 'eat-lancet', 'kjottforbruk', 'sirkulaer', 'helsekostnader'],
+    publisher: 'Stockholm Resilience Centre',
   },
 
   // --- Beredskap ---
@@ -785,6 +820,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Sentral referanse for beredskapsdimensjonen. Viser at det finnes et velfungerende nordisk alternativ til den norske ad hoc-modellen.',
     tags: ['beredskap', 'finland', 'hvk', 'kornlagre', 'selvforsyning'],
+    publisher: 'Huoltovarmuuskeskus (HVK)',
   },
   {
     id: 'beredskap-island-melmolle-2025',
@@ -806,6 +842,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Illustrerer ekstremtilfellet av nordisk saerbarhet — relevant for aa forstaa hele spekteret av matberedskap.',
     tags: ['beredskap', 'island', 'melmolle', 'saerbarhet', 'geotermisk'],
+    publisher: 'Islands regjering / Samkeppniseftirlitid',
   },
   {
     id: 'beredskap-nibio-selvforsyning-2026',
@@ -828,6 +865,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Helt sentral kilde for aa dokumentere reell norsk matsikkerhet. Forskjellen mellom 45% og 36% er politisk sprengstoff.',
     tags: ['beredskap', 'selvforsyning', 'nibio', 'forimport', 'korn'],
+    publisher: 'NIBIO (Norsk institutt for biookonomi)',
   },
   {
     id: 'beredskap-nibio-selvforsyning-metode',
@@ -850,6 +888,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Viktig metodisk bakgrunn for all beredskapsanalyse. Avdekker hvordan tallbruk kan villede.',
     tags: ['beredskap', 'metode', 'selvforsyning', 'nibio', 'statistikk'],
+    publisher: 'NIBIO (Norsk institutt for biookonomi)',
   },
 
   // --- Sirkularitet ---
@@ -873,6 +912,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Matsvinn er en sentral dimensjon i verdikjedeanalysen og et omraade der dagligvarekjedene har direkte ansvar.',
     tags: ['sirkularitet', 'matsvinn', 'nordisk-ministerraad', 'husholdning', 'maalemetode'],
+    publisher: 'Nordisk Ministerraad',
   },
   {
     id: 'sirkularitet-definisjoner-wur-emf',
@@ -893,6 +933,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Gir det teoretiske rammeverket for sirkulaeritets-dimensjonen i whitepaperet.',
     tags: ['sirkularitet', 'wur', 'emf', 'rammeverk', 'regenerativt'],
+    publisher: 'Wageningen University / Ellen MacArthur Foundation',
   },
 
   // --- Juridisk ---
@@ -916,6 +957,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Avdekker en strukturell barriere for konkurranse som gaar utover tradisjonell innkjoepsmaktanalyse.',
     tags: ['juridisk', 'eiendom', 'servitutter', 'dagligvaretilsynet', 'konkurranse'],
+    publisher: 'Dagligvaretilsynet / juridisk analyse',
   },
   {
     id: 'juridisk-eudr-norge-2025',
@@ -937,6 +979,7 @@ export const reports: Report[] = [
     ],
     relevance: 'EUDR er det viktigste nye regulatoriske grepet som treffer norsk dagligvare — baade i innkjoep og i verdikjeden.',
     tags: ['juridisk', 'eudr', 'avskoging', 'sporbarhet', 'eos'],
+    publisher: 'EU / norsk implementering',
   },
 
   // --- Akademia ---
@@ -961,6 +1004,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Retail media er en ny maktdimensjon som ikke er dekket i tradisjonelle konkurranseanalyser.',
     tags: ['akademia', 'sifo', 'retail-media', 'leverandoermakt', 'digitalisering'],
+    publisher: 'SIFO / OsloMet',
   },
   {
     id: 'akademia-sifo-kundeprogram-2026',
@@ -983,6 +1027,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Datadimensjonen av kjedemakten er underkommunisert og relevant for whitepaperets analyse av maktkonsentrasjon.',
     tags: ['akademia', 'sifo', 'lojalitetsprogram', 'prisdata', 'trumf', 'personvern'],
+    publisher: 'SIFO / OsloMet',
   },
   {
     id: 'akademia-nhh-butikkstruktur-2024',
@@ -1005,6 +1050,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Gir mikro-evidens for makro-paastanden om at konsentrasjon driver hoeyere priser.',
     tags: ['akademia', 'nhh', 'butikkstruktur', 'etableringsbarrierer', 'lokale-monopoler'],
+    publisher: 'NHH — Norges Handelshoyskole',
   },
   {
     id: 'akademia-nhh-foros-media-2025',
@@ -1027,6 +1073,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Innovativt perspektiv som kobler to norske konsentrasjonsdebatter — kan styrke whitepaperets argument.',
     tags: ['akademia', 'nhh', 'foros', 'vertikal-integrasjon', 'emv', 'mediekonsentrasjon'],
+    publisher: 'NHH — Norges Handelshoyskole',
   },
   {
     id: 'akademia-nhh-matbors-historie',
@@ -1048,6 +1095,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Historisk kontekst som viser at dagens system ikke er naturlig — det er resultat av politiske valg.',
     tags: ['akademia', 'nhh', 'matbors', 'prishistorikk', 'regulering', 'deregulering'],
+    publisher: 'NHH — Norges Handelshoyskole',
   },
   {
     id: 'akademia-uib-kjopermakt',
@@ -1069,6 +1117,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Akademisk fundament for whitepaperets sentrale pastand om maktasymmetri i verdikjeden.',
     tags: ['akademia', 'uib', 'kjopermakt', 'leverandorer', 'konkurranselov'],
+    publisher: 'Universitetet i Bergen',
   },
 
   // --- Oversikt ---
@@ -1089,6 +1138,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Grunnlagsstatistikk som underbygger hele whitepaperet.',
     tags: ['oversikt', 'statistikk', 'markedsandeler', 'beredskap', 'hhi'],
+    publisher: 'Diverse kilder (Nielsen, SSB, dagligvaretilsynet)',
   },
   {
     id: 'oversikt-nordisk-mat-tenkere',
@@ -1109,6 +1159,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Identifiserer hvem som former matpolitisk tenkning i Norden — viktig for disseminering.',
     tags: ['oversikt', 'nettverk', 'forskere', 'paaverkere', 'kartlegging'],
+    publisher: 'Egenkartlegging',
   },
   {
     id: 'oversikt-nordisk-matmakt-historikk',
@@ -1126,6 +1177,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Historisk kontekst som viser at konsentrasjon er en nordisk trend, ikke norsk saerfenomen.',
     tags: ['oversikt', 'historikk', 'konsentrasjon', 'nordisk', 'tidslinje'],
+    publisher: 'Egenkartlegging / diverse kilder',
   },
   {
     id: 'oversikt-nou-stortingsdok-juridisk',
@@ -1144,6 +1196,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Oversikt over det regulatoriske landskapet — avgjorende for aa forstaa hva som er forsoekt og hva som mangler.',
     tags: ['oversikt', 'nou', 'stortinget', 'regulering', 'dagligvaretilsynet'],
+    publisher: 'Stortinget / regjeringen',
   },
   {
     id: 'oversikt-offentlig-rapportlogg',
@@ -1162,6 +1215,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Meta-oversikt som viser omfanget av utredningsarbeid — og gapet mellom analyse og handling.',
     tags: ['oversikt', 'rapportlogg', 'offentlig', 'kronologisk', 'metaanalyse'],
+    publisher: 'Diverse offentlige instanser',
   },
   {
     id: 'oversikt-sirkularitet-dyp',
@@ -1182,6 +1236,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Dypanalyse av sirkulaeritets-dimensjonen som supplerer det overfladiske matsvinnfokuset.',
     tags: ['oversikt', 'sirkularitet', 'biogass', 'emballasje', 'nordisk'],
+    publisher: 'Egenkartlegging / nordiske kilder',
   },
   {
     id: 'oversikt-tenketanker-ngo',
@@ -1202,6 +1257,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Kartlegger landskapet NCH opererer i og identifiserer alliansemuligheter.',
     tags: ['oversikt', 'tenketanker', 'ngo', 'forbrukerraad', 'bondelaget'],
+    publisher: 'Egenkartlegging',
   },
   {
     id: 'oversikt-akademia-dyp-research',
@@ -1222,6 +1278,7 @@ export const reports: Report[] = [
     ],
     relevance: 'Kartlegger hvem som forsker paa hva — viktig for akademisk forankring av whitepaperet.',
     tags: ['oversikt', 'akademia', 'nhh', 'sifo', 'slu', 'forskningsmiljoer'],
+    publisher: 'Egenkartlegging',
   },
   {
     id: 'oversikt-nordisk-avhandlingsregister',
@@ -1242,5 +1299,6 @@ export const reports: Report[] = [
     ],
     relevance: 'Systematiserer det akademiske grunnlaget og identifiserer kunnskapshull.',
     tags: ['oversikt', 'avhandlinger', 'register', 'master', 'phd', 'nordisk'],
+    publisher: 'Egenkartlegging',
   },
 ]

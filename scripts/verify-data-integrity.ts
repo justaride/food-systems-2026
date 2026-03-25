@@ -248,6 +248,57 @@ async function checkUnprofiledInterlocks() {
   }
 }
 
+async function checkThesisMissingUrls() {
+  header('10. Thesis Missing URLs')
+  const theses = await prisma.thesis.findMany({ where: { url: '' } })
+  if (theses.length === 0) {
+    pass('All theses have URLs')
+  } else {
+    fail(`${theses.length} theses have empty URLs:`)
+    for (const t of theses) {
+      console.log(`    - ${t.id} (${t.authors}, ${t.year})`)
+    }
+  }
+}
+
+async function checkReportMissingUrls() {
+  header('11. Report Missing URLs')
+  const reports = await prisma.report.findMany({ where: { sourceUrl: null } })
+  if (reports.length === 0) {
+    pass('All reports have source URLs')
+  } else {
+    fail(`${reports.length} reports have no source URL:`)
+    for (const r of reports) {
+      console.log(`    - ${r.id} (${r.title.slice(0, 50)})`)
+    }
+  }
+}
+
+async function checkDOICoverage() {
+  header('12. Citation DOI Coverage')
+  const totalTheses = await prisma.thesis.count()
+  const thesesWithDoi = await prisma.thesis.count({ where: { doi: { not: null } } })
+  const totalReports = await prisma.report.count()
+  const reportsWithDoi = await prisma.report.count({ where: { doi: { not: null } } })
+  const totalSources = await prisma.sourceDoc.count({ where: { isDuplicate: false } })
+  const sourcesWithDoi = await prisma.sourceDoc.count({ where: { doi: { not: null }, isDuplicate: false } })
+
+  const thesisPct = totalTheses ? ((thesesWithDoi / totalTheses) * 100).toFixed(1) : '0'
+  const reportPct = totalReports ? ((reportsWithDoi / totalReports) * 100).toFixed(1) : '0'
+  const sourcePct = totalSources ? ((sourcesWithDoi / totalSources) * 100).toFixed(1) : '0'
+
+  pass(`Theses: ${thesesWithDoi}/${totalTheses} (${thesisPct}%) have DOI/persistent ID`)
+  pass(`Reports: ${reportsWithDoi}/${totalReports} (${reportPct}%) have DOI`)
+  pass(`Sources: ${sourcesWithDoi}/${totalSources} (${sourcePct}%) have DOI`)
+
+  const thesesWithPub = await prisma.thesis.count({ where: { publisher: { not: null } } })
+  const reportsWithPub = await prisma.report.count({ where: { publisher: { not: null } } })
+  const thPubPct = totalTheses ? ((thesesWithPub / totalTheses) * 100).toFixed(1) : '0'
+  const rPubPct = totalReports ? ((reportsWithPub / totalReports) * 100).toFixed(1) : '0'
+  pass(`Theses: ${thesesWithPub}/${totalTheses} (${thPubPct}%) have publisher`)
+  pass(`Reports: ${reportsWithPub}/${totalReports} (${rPubPct}%) have publisher`)
+}
+
 async function main() {
   console.log('Food Systems 2026 — Data Integrity Check')
   console.log(`Run at: ${new Date().toISOString()}`)
@@ -261,6 +312,9 @@ async function main() {
   checkRetailerShares()
   await printRecordCounts()
   await checkUnprofiledInterlocks()
+  await checkThesisMissingUrls()
+  await checkReportMissingUrls()
+  await checkDOICoverage()
 
   header('Summary')
   if (errorCount > 0) {

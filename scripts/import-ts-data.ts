@@ -114,6 +114,8 @@ async function importSources() {
         relevance: s.relevance,
         url: s.url ?? null,
         isDuplicate: s.isDuplicate ?? false,
+        doi: s.doi ?? null,
+        publisher: s.publisher ?? null,
       },
       create: {
         id: s.id,
@@ -126,6 +128,8 @@ async function importSources() {
         relevance: s.relevance,
         url: s.url ?? null,
         isDuplicate: s.isDuplicate ?? false,
+        doi: s.doi ?? null,
+        publisher: s.publisher ?? null,
       },
     })
   }
@@ -205,6 +209,10 @@ async function importTheses() {
         method: t.method ?? null,
         awardWinning: t.awardWinning ?? false,
         degree: t.degree,
+        doi: t.doi ?? null,
+        isbn: t.isbn ?? null,
+        publisher: t.publisher ?? null,
+        accessDate: t.accessDate ?? null,
       },
       create: {
         id: t.id,
@@ -221,6 +229,10 @@ async function importTheses() {
         method: t.method ?? null,
         awardWinning: t.awardWinning ?? false,
         degree: t.degree,
+        doi: t.doi ?? null,
+        isbn: t.isbn ?? null,
+        publisher: t.publisher ?? null,
+        accessDate: t.accessDate ?? null,
       },
     })
   }
@@ -568,6 +580,10 @@ async function importReports() {
         recommendations: r.recommendations,
         relevance: r.relevance,
         tags: r.tags,
+        doi: r.doi ?? null,
+        isbn: r.isbn ?? null,
+        issn: r.issn ?? null,
+        publisher: r.publisher ?? null,
       },
       create: {
         id: r.id,
@@ -584,6 +600,10 @@ async function importReports() {
         recommendations: r.recommendations,
         relevance: r.relevance,
         tags: r.tags,
+        doi: r.doi ?? null,
+        isbn: r.isbn ?? null,
+        issn: r.issn ?? null,
+        publisher: r.publisher ?? null,
       },
     })
   }

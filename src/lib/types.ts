@@ -103,6 +103,8 @@ export type SourceDoc = {
   relevance: string
   url?: string
   isDuplicate?: boolean
+  doi?: string
+  publisher?: string
 }
 
 export type PhaseId = 'fase-1' | 'fase-2' | 'fase-3' | 'fase-4'
@@ -189,6 +191,10 @@ export type Thesis = {
   method?: string
   awardWinning?: boolean
   degree: ThesisDegree
+  doi?: string
+  isbn?: string
+  publisher?: string
+  accessDate?: string
 }
 
 export type ReportCategory =
@@ -211,6 +217,10 @@ export type Report = {
   recommendations: string[]
   relevance: string
   tags: string[]
+  doi?: string
+  isbn?: string
+  issn?: string
+  publisher?: string
 }
 
 export type CommType = 'epost' | 'melding' | 'brev'
