@@ -42,7 +42,9 @@
     "db:import:kavli-tree": "tsx scripts/import-kavli-tree.ts",
     "db:import:remaining-deep": "tsx scripts/import-remaining-deep.ts",
     "db:import:nordic-deep": "tsx scripts/import-nordic-deepening.ts",
-    "db:fix:nordic-orgnr": "tsx scripts/fix-nordic-orgnr.ts"
+    "db:fix:nordic-orgnr": "tsx scripts/fix-nordic-orgnr.ts",
+    "db:check-urls": "tsx scripts/check-urls.ts",
+    "db:audit": "tsx scripts/verify-data-integrity.ts"
   },
   "dependencies": {
     "@nivo/bar": "^0.99.0",

@@ -727,7 +727,9 @@ export const sources: SourceDoc[] = [
     type: 'forskning',
     description: 'Wageningen-rammeverk med 4 operative prinsipper for sirkulaere matsystemer og biomassehierarki.',
     relevance: 'Grunnlag for operativt kriteriesett i sirkularitetsanalyse.',
+    publisher: 'Wageningen University & Research',
     url: 'https://doi.org/10.18174/638397',
+    doi: '10.18174/638397',
   },
   {
     id: 'src-73',
@@ -738,6 +740,7 @@ export const sources: SourceDoc[] = [
     type: 'forskning',
     description: 'Nature Food-artikkel som modellerer europeisk sirkularitet og viser at CFS reduserer globalt arealbruk 71% og GHG 29%.',
     relevance: 'Kvantifiserer nordisk sirkularitetspotensial.',
+    publisher: 'Nature Food',
     url: 'https://www.nature.com/articles/s43016-023-00734-9',
   },
   {
@@ -749,6 +752,7 @@ export const sources: SourceDoc[] = [
     type: 'forskning',
     description: 'Oppdatert planetaert referansekoshold med sterkere vekt paa regenerativt landbruk og sirkulaer biomasse.',
     relevance: 'Global referanseramme for nordisk matsystemtransformasjon.',
+    publisher: 'The Lancet',
     url: 'https://eatforum.org/eat-lancet-commission/',
   },
   {
@@ -760,6 +764,7 @@ export const sources: SourceDoc[] = [
     type: 'rapport',
     description: 'EUs groenne innkjoepskriterier for mat: oekologisk, lavutslipp, redusert matsvinn i offentlige kontrakter.',
     relevance: 'Operativt rammeverk for offentlig innkjoep som policy-verktoy.',
+    publisher: 'European Commission Joint Research Centre',
   },
   {
     id: 'src-76',
@@ -770,6 +775,7 @@ export const sources: SourceDoc[] = [
     type: 'rapport',
     description: 'Identifiserer 12 nordiske intervensjonspunkter for matsystemtransformasjon inkl. 4 pilarer.',
     relevance: 'Nordisk-spesifikt rammeverk for transformasjon.',
+    publisher: 'Nordisk komite for jordbruksforskning',
   },
   {
     id: 'src-77',

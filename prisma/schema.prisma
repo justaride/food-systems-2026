@@ -73,6 +73,8 @@ model SourceDoc {
   relevance   String
   url         String?
   isDuplicate Boolean @default(false)
+  doi         String?
+  publisher   String?
 
   documentId String?   @unique
   document   Document? @relation(fields: [documentId], references: [id])
@@ -151,6 +153,10 @@ model Thesis {
   method       String?
   awardWinning Boolean  @default(false)
   degree       String   @default("master") // master | phd
+  doi          String?
+  isbn         String?
+  publisher    String?
+  accessDate   String?
 
   documentId String?   @unique
   document   Document? @relation(fields: [documentId], references: [id])
@@ -176,6 +182,10 @@ model Report {
   recommendations String[]
   relevance       String
   tags            String[]
+  doi             String?
+  isbn            String?
+  issn            String?
+  publisher       String?
 
   documentId String?   @unique
   document   Document? @relation(fields: [documentId], references: [id])
