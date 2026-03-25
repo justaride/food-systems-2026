@@ -59,6 +59,7 @@ export const reports: Report[] = [
     author: 'Bent Hoie (leder)',
     institution: 'Matsystemutvalget',
     year: 2026,
+    sourceUrl: 'https://nettsteder.regjeringen.no/matsystemutvalget/',
     reportCategory: 'nou',
     country: 'NO',
     keyFindings: [
@@ -80,6 +81,7 @@ export const reports: Report[] = [
     fullTitle: 'Meld. St. 11 (2023–2024) — Strategi for auka sjoelvforsyning av jordbruksvarer',
     institution: 'Landbruks- og matdepartementet',
     year: 2024,
+    sourceUrl: 'https://www.regjeringen.no/no/dokumenter/meld.-st.-11-20232024/id3028626/',
     reportCategory: 'offentlig',
     country: 'NO',
     keyFindings: [
@@ -102,6 +104,7 @@ export const reports: Report[] = [
     fullTitle: 'Meld. St. 4 (2024–2025) — Dagligvaretiltak',
     institution: 'Naerings- og fiskeridepartementet',
     year: 2024,
+    sourceUrl: 'https://www.regjeringen.no/no/dokumenter/meld.-st.-4-20242025/id3056808/',
     reportCategory: 'offentlig',
     country: 'NO',
     keyFindings: [
@@ -125,6 +128,7 @@ export const reports: Report[] = [
     fullTitle: 'Undersokelse av myndighetenes arbeid med matsikkerhet og beredskap (Dokument 3:4 2023–2024)',
     institution: 'Riksrevisjonen',
     year: 2023,
+    sourceUrl: 'https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/matsikkerhet-og-beredskap-pa-landbruksomradet/',
     reportCategory: 'offentlig',
     country: 'NO',
     keyFindings: [
@@ -148,6 +152,7 @@ export const reports: Report[] = [
     fullTitle: 'SOU 2024:8 — Livsmedelsberedskap for en ny tid',
     institution: 'Statens offentliga utredningar (Sverige)',
     year: 2024,
+    sourceUrl: 'https://www.regeringen.se/rattsliga-dokument/statens-offentliga-utredningar/2024/02/sou-20248/',
     reportCategory: 'offentlig',
     country: 'SE',
     keyFindings: [
@@ -238,6 +243,7 @@ export const reports: Report[] = [
     fullTitle: 'Status: Konkurransetilsynets Markedsundersokelser (2026)',
     institution: 'Konkurransetilsynet',
     year: 2026,
+    sourceUrl: 'https://www.regjeringen.no/no/aktuelt/i-dag-far-konkurransetilsynet-et-nytt-verktoy-for-a-bekjempe-alvorlige-konkurranseproblemer/id3113837/',
     reportCategory: 'konkurransetilsyn',
     country: 'NO',
     keyFindings: [
@@ -360,6 +366,7 @@ export const reports: Report[] = [
     fullTitle: 'Kilpailulaki (Competition Act) 948/2011, Section 4a',
     institution: 'KKV',
     year: 2014,
+    sourceUrl: 'https://www.kkv.fi/en/facts-and-advice/competition-affairs/abuse-of-dominant-position/maaraava-markkina-asema-paivittaistavarakaupassa/',
     reportCategory: 'konkurransetilsyn',
     country: 'FI',
     keyFindings: [
@@ -379,6 +386,7 @@ export const reports: Report[] = [
     title: 'Island — Markedskonsentrasjon og vertikal integrasjon',
     institution: 'Samkeppniseftirlitid',
     year: 2024,
+    sourceUrl: 'https://www.samkeppni.is/urlausnir/skyrslur/',
     reportCategory: 'konkurransetilsyn',
     country: 'IS',
     keyFindings: [
@@ -398,6 +406,7 @@ export const reports: Report[] = [
     fullTitle: 'Konkurrensverkets genomlysning av livsmedelsbranschen 2023–2024',
     institution: 'Konkurrensverket',
     year: 2024,
+    sourceUrl: 'https://www.konkurrensverket.se/informationsmaterial/rapportlista/konkurrensverkets-genomlysning-av-livsmedelsbranschen-20232024/',
     reportCategory: 'konkurransetilsyn',
     country: 'SE',
     keyFindings: [
@@ -445,6 +454,7 @@ export const reports: Report[] = [
     author: 'Menon Economics / Kvale Advokatfirma',
     institution: 'Menon Economics',
     year: 2026,
+    sourceUrl: 'https://www.regjeringen.no/contentassets/06b381ba03a74b4e9c58822890f7cc2f/utredning-av-funksjonelt-og-regnskapsmessig-skille-i-verdikjeden-for-mat-og-dagligvarer.pdf',
     reportCategory: 'konsulentrapport',
     country: 'NO',
     keyFindings: [
@@ -469,6 +479,7 @@ export const reports: Report[] = [
     fullTitle: 'Coop Norge Aarsresultat og medlemsnytte 2024',
     institution: 'Coop Norge SA',
     year: 2024,
+    sourceUrl: 'https://www.coop.no/om-coop/virksomheten/arsrapport',
     reportCategory: 'bransje',
     country: 'NO',
     keyFindings: [
@@ -507,6 +518,7 @@ export const reports: Report[] = [
     fullTitle: 'NorgesGruppen Aars- og baerekraftsrapport 2024',
     institution: 'NorgesGruppen ASA',
     year: 2024,
+    sourceUrl: 'https://www.norgesgruppen.no/globalassets/finansiell-informasjon/rapporter/2024/ng_ars--og-barekraftsrapport-2024.pdf',
     reportCategory: 'bransje',
     country: 'NO',
     keyFindings: [
@@ -526,6 +538,7 @@ export const reports: Report[] = [
     title: 'Reitan Retail / REMA 1000 (2024/2025)',
     institution: 'Reitan Retail AS',
     year: 2024,
+    sourceUrl: 'https://www.reitanretail.no/om-oss/rapporter',
     reportCategory: 'bransje',
     country: 'NO',
     keyFindings: [
@@ -561,6 +574,7 @@ export const reports: Report[] = [
     title: 'ASKO — Infrastruktur og Logistikkmakt',
     institution: 'ASKO / NorgesGruppen',
     year: 2025,
+    sourceUrl: 'https://asko.no/en/about-us/',
     reportCategory: 'bransje',
     country: 'NO',
     keyFindings: [
@@ -580,6 +594,7 @@ export const reports: Report[] = [
     fullTitle: 'Dagligvarerapporten 2025 (Virke/NielsenIQ)',
     institution: 'Virke Handel',
     year: 2025,
+    sourceUrl: 'https://www.virke.no/analyse/statistikk-rapporter/dagligvarehandelen/',
     reportCategory: 'bransje',
     country: 'NO',
     keyFindings: [
@@ -635,6 +650,7 @@ export const reports: Report[] = [
     title: 'NBS — Systemkritikk',
     institution: 'Norsk Bonde- og Smaabrukarlag',
     year: 2025,
+    sourceUrl: 'https://www.smabrukarlaget.no/politikk/mat-og-produksjon/',
     reportCategory: 'bransje',
     country: 'NO',
     keyFindings: [
@@ -660,6 +676,7 @@ export const reports: Report[] = [
     fullTitle: 'Egne merkevarer (EMV) og innovasjon i dagligvaremarkedet',
     institution: 'Menon Economics',
     year: 2022,
+    sourceUrl: 'https://www.menon.no/wp-content/uploads/2022-68-EMV-og-innovasjon-i-dagligvare.pdf',
     reportCategory: 'konsulentrapport',
     country: 'NO',
     keyFindings: [
@@ -678,6 +695,7 @@ export const reports: Report[] = [
     title: 'Oslo Economics — Konkurransen bedre enn sitt rykte',
     institution: 'Oslo Economics',
     year: 2024,
+    sourceUrl: 'https://osloeconomics.no/wp-content/uploads/2024/06/Oslo-Economics-Konkurransen-i-dagligvaremarkedet-betydelig-bedre-enn-sitt-rykte.pdf',
     reportCategory: 'konsulentrapport',
     country: 'NO',
     keyFindings: [
@@ -697,6 +715,7 @@ export const reports: Report[] = [
     fullTitle: 'Kartlegging av egne merkevarer og vertikal integrasjon i dagligvaremarkedet (R15-2023)',
     institution: 'Samfunnsokonomisk Analyse',
     year: 2023,
+    sourceUrl: 'https://www.regjeringen.no/contentassets/41847427caa14feb8b8578af3d6d45bc/r15-2023-kartlegging-av-egne-merkevarer-og-vertikal-integrasjon-i-dagligvaremarkedet.pdf',
     reportCategory: 'konsulentrapport',
     country: 'NO',
     keyFindings: [
@@ -720,6 +739,7 @@ export const reports: Report[] = [
     id: 'civita-manifest-debatt',
     title: 'Civita vs. Manifest — Matmaktdebatten',
     year: 2023,
+    sourceUrl: 'https://civita.no/okonomi/naeringspolitikk/svak-konkurranse-som-fortjent/',
     reportCategory: 'tenketank',
     country: 'NO',
     keyFindings: [
@@ -739,6 +759,7 @@ export const reports: Report[] = [
     title: 'FIVH — Etikk og Baerekraft 2025',
     institution: 'Framtiden i vaare hender',
     year: 2025,
+    sourceUrl: 'https://www.framtiden.no/tema/mat',
     reportCategory: 'tenketank',
     country: 'NO',
     keyFindings: [
@@ -761,6 +782,7 @@ export const reports: Report[] = [
     fullTitle: 'Policy tools for sustainable and healthy eating',
     institution: 'Nordisk Ministerraad',
     year: 2024,
+    sourceUrl: 'https://pub.norden.org/nord2024-007/index.html',
     reportCategory: 'tenketank',
     keyFindings: [
       'A4-modellen: baerekraftig mat maa vaere Available, Affordable, Accessible og Attractive',
@@ -783,6 +805,7 @@ export const reports: Report[] = [
     fullTitle: 'Nordic Food Systems for Improved Health and Sustainability',
     institution: 'Stockholm Resilience Centre',
     year: 2019,
+    sourceUrl: 'https://www.stockholmresilience.org/download/18.66e0efc517643c2b810381d/1618468740819/SRC_Report%20Nordic%20Food%20Systems_%20June%202019%20adapted.pdf',
     reportCategory: 'tenketank',
     keyFindings: [
       'Nordmenn og svensker spiser 4,5 ganger mer rodt kjott enn planeten og helsa taaler (EAT-Lancet)',
@@ -806,6 +829,7 @@ export const reports: Report[] = [
     fullTitle: 'Finsk matberedskapsmodell: Huoltovarmuuskeskus (HVK) og strategiske kornlagre',
     institution: 'Huoltovarmuuskeskus (HVK)',
     year: 2024,
+    sourceUrl: 'https://www.huoltovarmuuskeskus.fi/en/security-of-supply',
     reportCategory: 'beredskap',
     country: 'FI',
     keyFindings: [
@@ -851,6 +875,7 @@ export const reports: Report[] = [
     author: 'NIBIO',
     institution: 'NIBIO (Norsk institutt for biookonomi)',
     year: 2026,
+    sourceUrl: 'https://www.nibio.no/tema/landbruksokonomi/selvforsyningsgrad-og-engrosforbruk',
     reportCategory: 'beredskap',
     country: 'NO',
     keyFindings: [
@@ -874,6 +899,7 @@ export const reports: Report[] = [
     author: 'NIBIO',
     institution: 'NIBIO (Norsk institutt for biookonomi)',
     year: 2024,
+    sourceUrl: 'https://nibio.brage.unit.no/nibio-xmlui/bitstream/handle/11250/3105805/NIBIO_RAPPORT_2023_9_137.pdf',
     reportCategory: 'beredskap',
     country: 'NO',
     keyFindings: [
@@ -898,6 +924,7 @@ export const reports: Report[] = [
     fullTitle: 'Matsvinn og matavfall i nordiske land: Status, maalemetoder og tiltak',
     institution: 'Nordisk Ministerraad',
     year: 2024,
+    sourceUrl: 'https://pub.norden.org/nord2024-034/nord2024-034.pdf',
     reportCategory: 'sirkularitet',
     country: 'NO',
     keyFindings: [
@@ -920,6 +947,7 @@ export const reports: Report[] = [
     fullTitle: 'Circular Economy in Food Systems: Definitions and Frameworks (WUR/EMF)',
     institution: 'Wageningen University / Ellen MacArthur Foundation',
     year: 2023,
+    sourceUrl: 'https://www.ellenmacarthurfoundation.org/topics/food/overview',
     reportCategory: 'sirkularitet',
     keyFindings: [
       'Sirkulaer okonomi i mat handler om tre prinsipper: regenerativt landbruk, eliminere avfall, resirkulere naeringsstoffer',
@@ -943,6 +971,7 @@ export const reports: Report[] = [
     fullTitle: 'Dagligvarekjedenes eiendomsportefoeljer og effekt paa lokal konkurranse',
     institution: 'Dagligvaretilsynet / juridisk analyse',
     year: 2024,
+    sourceUrl: 'https://www.regjeringen.no/no/aktuelt/forbyr-praksis-som-motvirker-konkurranse-i-dagligvaremarkedet/id2985486/',
     reportCategory: 'juridisk',
     country: 'NO',
     keyFindings: [
@@ -965,6 +994,7 @@ export const reports: Report[] = [
     fullTitle: 'EU Deforestation Regulation (EUDR): Implikasjoner for norsk dagligvarehandel',
     institution: 'EU / norsk implementering',
     year: 2025,
+    sourceUrl: 'https://www.landbruksdirektoratet.no/nb/skogbruk/eus-avskogingsforordning-eudr',
     reportCategory: 'juridisk',
     country: 'NO',
     keyFindings: [
@@ -990,6 +1020,7 @@ export const reports: Report[] = [
     author: 'SIFO-forskergruppe',
     institution: 'SIFO / OsloMet',
     year: 2025,
+    sourceUrl: 'https://www.oslomet.no/om/sifo/publikasjoner',
     reportCategory: 'akademia',
     country: 'NO',
     keyFindings: [
@@ -1013,6 +1044,7 @@ export const reports: Report[] = [
     author: 'SIFO-forskergruppe',
     institution: 'SIFO / OsloMet',
     year: 2026,
+    sourceUrl: 'https://www.regjeringen.no/contentassets/139405f88a35456986e5aa579de7f290/sifo-rapport-1-2026-kunnskapsgrunnlag-om-kundeprogrammene-i-dagligvaremarkedet.pdf',
     reportCategory: 'akademia',
     country: 'NO',
     keyFindings: [
@@ -1036,6 +1068,7 @@ export const reports: Report[] = [
     author: 'NHH-forskergruppe',
     institution: 'NHH — Norges Handelshoyskole',
     year: 2024,
+    sourceUrl: 'https://www.nhh.no/en/research-centres/food/',
     reportCategory: 'akademia',
     country: 'NO',
     keyFindings: [
@@ -1059,6 +1092,7 @@ export const reports: Report[] = [
     author: 'Oystein Foros et al.',
     institution: 'NHH — Norges Handelshoyskole',
     year: 2025,
+    sourceUrl: 'https://www.nhh.no/en/employees/faculty/oystein-foros/',
     reportCategory: 'akademia',
     country: 'NO',
     keyFindings: [
@@ -1081,6 +1115,7 @@ export const reports: Report[] = [
     fullTitle: 'Historien om matboersen: Prisdannelse i norsk dagligvare fra regulering til marked',
     institution: 'NHH — Norges Handelshoyskole',
     year: 2023,
+    sourceUrl: 'https://www.nhh.no/en/research-centres/food/',
     reportCategory: 'akademia',
     country: 'NO',
     keyFindings: [
@@ -1103,6 +1138,7 @@ export const reports: Report[] = [
     fullTitle: 'Buyer Power in Nordic Grocery Markets: Theory, Evidence and Policy',
     institution: 'Universitetet i Bergen',
     year: 2024,
+    sourceUrl: 'https://www.uib.no/en/persons/Tommy.Gabrielsen',
     reportCategory: 'akademia',
     country: 'NO',
     keyFindings: [
