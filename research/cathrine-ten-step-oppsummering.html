@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ten Step Start v2.0 — Oppdatering med Cathrines innspill</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #292524; background: #fafaf9; line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    header { background: linear-gradient(135deg, #1c1917, #292524); color: white; padding: 40px 0 32px; }
+    header .org { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #34d399; margin-bottom: 6px; }
+    header h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+    header .sub { font-size: 15px; color: #a8a29e; }
+    .badge { display: inline-block; margin-top: 12px; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); border-radius: 16px; padding: 4px 14px; font-size: 12px; color: #34d399; font-weight: 600; }
+
+    section { padding: 28px 0; }
+    section + section { border-top: 1px solid #e7e5e4; }
+    h2 { font-size: 18px; font-weight: 700; color: #1c1917; margin-bottom: 14px; }
+    h3 { font-size: 15px; font-weight: 600; color: #44403c; margin-bottom: 8px; margin-top: 16px; }
+    p, li { color: #57534e; font-size: 14px; }
+    p { margin-bottom: 10px; }
+    ul { padding-left: 18px; margin-bottom: 10px; }
+    li { margin-bottom: 3px; }
+    strong { color: #292524; }
+    a { color: #059669; text-decoration: none; }
+
+    .context-box { background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 10px; padding: 16px 18px; margin-bottom: 20px; }
+    .context-box p { color: #065f46; margin-bottom: 4px; font-size: 13px; }
+    .context-box strong { color: #047857; }
+
+    /* Step cards */
+    .step { background: white; border: 1px solid #e7e5e4; border-radius: 12px; padding: 0; margin-bottom: 12px; overflow: hidden; }
+    .step-head { display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px 0; }
+    .step-num { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; flex-shrink: 0; }
+    .step-num.active { background: #ecfdf5; color: #047857; }
+    .step-num.pending { background: #f5f5f4; color: #a8a29e; }
+    .step-top { flex: 1; }
+    .step-theme { font-size: 15px; font-weight: 600; color: #1c1917; }
+    .step-output { font-size: 12px; color: #78716c; margin-top: 2px; }
+    .step-status { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+    .status-pagar { background: #fef3c7; color: #d97706; }
+    .status-ikke { background: #f5f5f4; color: #a8a29e; }
+
+    .step-body { padding: 10px 18px 16px; margin-left: 50px; }
+    .step-desc { font-size: 13px; color: #57534e; line-height: 1.6; margin-bottom: 6px; }
+    .step-method { font-size: 11px; color: #059669; font-weight: 600; padding: 3px 0; }
+
+    /* Critique */
+    .critique { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+    .critique-card { background: white; border: 1px solid #e7e5e4; border-radius: 10px; padding: 14px 16px; }
+    .critique-card.problem { border-left: 3px solid #f43f5e; }
+    .critique-card.solution { border-left: 3px solid #10b981; }
+    .critique-card h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .critique-card.problem h4 { color: #f43f5e; }
+    .critique-card.solution h4 { color: #10b981; }
+    .critique-card p { font-size: 13px; color: #57534e; margin: 0; }
+
+    /* KPI */
+    .kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 12px 0; }
+    .kpi { background: white; border: 1px solid #e7e5e4; border-radius: 8px; padding: 12px 10px; text-align: center; }
+    .kpi-name { font-size: 11px; font-weight: 700; color: #047857; text-transform: uppercase; letter-spacing: 0.5px; }
+    .kpi-desc { font-size: 11px; color: #78716c; margin-top: 2px; }
+
+    /* Evidence */
+    .ev-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; margin: 12px 0; }
+    .ev { background: white; border: 1px solid #e7e5e4; border-radius: 8px; padding: 10px 12px; font-size: 12px; color: #44403c; font-weight: 500; }
+    .ev .num { color: #a8a29e; font-size: 10px; font-weight: 700; margin-right: 4px; }
+
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .tag { padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+    .tag-green { background: #ecfdf5; color: #047857; }
+    .tag-sky { background: #f0f9ff; color: #0284c7; }
+    .tag-amber { background: #fffbeb; color: #d97706; }
+
+    /* New data summary */
+    .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 12px 0; }
+    .data-card { background: white; border: 1px solid #e7e5e4; border-radius: 10px; padding: 14px 16px; }
+    .data-card h4 { font-size: 13px; font-weight: 600; color: #1c1917; margin-bottom: 6px; }
+    .data-card p { font-size: 12px; color: #78716c; margin: 0; }
+    .data-card ul { padding-left: 14px; margin: 4px 0 0; }
+    .data-card li { font-size: 12px; color: #57534e; margin-bottom: 2px; }
+
+    footer { background: #f5f5f4; padding: 20px 0; font-size: 12px; color: #a8a29e; text-align: center; }
+
+    @media (max-width: 640px) {
+      .critique { grid-template-columns: 1fr; }
+      .kpi-row { grid-template-columns: repeat(2, 1fr); }
+      .step-head { gap: 10px; }
+      .step-body { margin-left: 0; }
+    }
+    @media print { header { padding: 20px 0; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="org">NCH Transition Group &middot; Food Systems</div>
+    <h1>Ten Step Start v2.0 &mdash; oppdatert med Cathrines innspill</h1>
+    <div class="sub">Oppsummering av endringer integrert i plattformen</div>
+    <div class="badge">26. mars 2026</div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- BAKGRUNN -->
+  <section>
+    <h2>Bakgrunn</h2>
+    <div class="context-box">
+      <p>Basert p&aring; Cathrines dr&oslash;ftingsdokument (januar 2026), e-poster 10.&ndash;18. mars, discussion deck og TG FOOD-notater er Ten Step Start v2.0 n&aring; beriket med <strong>metodikk-referanser</strong>, <strong>utdypende beskrivelser</strong> og <strong>sirkulaer&oslash;konomi-forankring</strong> i plattformen.</p>
+      <p>Alle endringer er synlige p&aring; <a href="https://food-systems.naturalstateproject.com/metodikk" target="_blank"><strong>food-systems.naturalstateproject.com/metodikk</strong></a></p>
+    </div>
+
+    <h3>Tre kritikker av v1.0 &rarr; L&oslash;sning i v2.0</h3>
+    <div class="critique">
+      <div class="critique-card problem">
+        <h4>Problem</h4>
+        <p>&laquo;Publicising&raquo; f&oslash;r skarpt scope og kjernekoalisjon &mdash; gir deltakelse uten eierskap.</p>
+      </div>
+      <div class="critique-card solution">
+        <h4>L&oslash;sning</h4>
+        <p>Steg 3 (commitment mapping) kommer n&aring; f&oslash;r steg 4 (mobilisering). &laquo;Inviter rett&raquo; erstatter &laquo;inviter mange&raquo;.</p>
+      </div>
+      <div class="critique-card problem">
+        <h4>Problem</h4>
+        <p>Mangler styringselementer: mandat, KPI, risiko, finansspor og go/no-go gates.</p>
+      </div>
+      <div class="critique-card solution">
+        <h4>L&oslash;sning</h4>
+        <p>Gate A (uke 2) og Gate B (uke 8) innf&oslash;rt. 5 Core KPIer. Transition Factor-test: Owner + Pilot + Adoption + Finance.</p>
+      </div>
+      <div class="critique-card problem">
+        <h4>Problem</h4>
+        <p>&laquo;Facilitation&raquo; er ikke et steg &mdash; det er en gjennomg&aring;ende kapasitet.</p>
+      </div>
+      <div class="critique-card solution">
+        <h4>L&oslash;sning</h4>
+        <p>Fasilitering integrert i Operating Model (steg 5) som kapabilitet under alle steg. Minimumsstandard for m&oslash;tedesign.</p>
+      </div>
+    </div>
+
+    <h3>Ny sirkulaer filtrering tidlig i prosessen</h3>
+    <p>Cathrine foresl&aring;r at &laquo;Transition&raquo;-temaet filtreres gjennom sirkulaer strategi allerede i steg 1&ndash;2:</p>
+    <div class="tags">
+      <span class="tag tag-green">10R (Wageningen)</span>
+      <span class="tag tag-green">ISO 59000-serien</span>
+      <span class="tag tag-green">ESRS 1-5 / Taxonomien</span>
+      <span class="tag tag-sky">Eurostat sirkulaermonitor</span>
+      <span class="tag tag-sky">PESTEL per land</span>
+      <span class="tag tag-sky">Strategyzer BME</span>
+      <span class="tag tag-amber">Ellen MacArthur / IDEO</span>
+      <span class="tag tag-amber">Cambridge CE-pensum</span>
+    </div>
+  </section>
+
+  <!-- TEN STEPS -->
+  <section>
+    <h2>Ten Step Start v2.0 &mdash; alle steg</h2>
+    <p>Hvert steg viser n&aring; output, beskrivelse og metodikk-forankring i plattformen.</p>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num active">1</div>
+        <div class="step-top">
+          <div class="step-theme">Mandat, North Star, suksesskriterium</div>
+          <div class="step-output">TG Charter (1 side)</div>
+        </div>
+        <div class="step-status status-pagar">P&aring;g&aring;r</div>
+      </div>
+      <div class="step-body">
+        <div class="step-desc">Kvifor, m&aring;l, scope, ikkje-scope, suksessm&aring;l/KPI, roller. Tidleg filtrering gjennom sirkulaer strategi: 10R (Wageningen), ISO 59000, ESRS 1-5 (Taxonomien) og NCH sektor/system-dimensjonen.</div>
+        <div class="step-method">PRINCE2/PMI (project charter, governance) + RACI</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num active">2</div>
+        <div class="step-top">
+          <div class="step-theme">Problemframing og avgrensing</div>
+          <div class="step-output">Nordisk case for change</div>
+        </div>
+        <div class="step-status status-pagar">P&aring;g&aring;r</div>
+      </div>
+      <div class="step-body">
+        <div class="step-desc">Skarp problemdefinisjon + &laquo;why Nordic, why now&raquo; + prioriterte overgangshypoteser. Tydeliggj&oslash;r &laquo;Den nordiske faktoren&raquo; &mdash; kvar oppst&aring;r avfall, ressurstap og ineffektivitet. PESTEL-analyse per land.</div>
+        <div class="step-method">Design Thinking / Double Diamond (Define) + Theory of Change</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num active">3</div>
+        <div class="step-top">
+          <div class="step-theme">Stakeholder &rarr; Commitment mapping</div>
+          <div class="step-output">Prioritert akt&oslash;rkart med &laquo;ask&raquo;</div>
+        </div>
+        <div class="step-status status-pagar">P&aring;g&aring;r</div>
+      </div>
+      <div class="step-body">
+        <div class="step-desc">Tidleg stakeholder power/commitment-analyse. Identifiser &laquo;must-win&raquo; akt&oslash;rer og kva vi ber kvar om. Oppdater iterativt. Intervjuguide med kjerne + moduler (Food/City).</div>
+        <div class="step-method">Bryson stakeholder analysis + Kotter (guiding coalition)</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num pending">4</div>
+        <div class="step-top">
+          <div class="step-theme">Mobilisering og kommunikasjon</div>
+          <div class="step-output">Invitasjonsplan + commitment light</div>
+        </div>
+        <div class="step-status status-ikke">Ikke startet</div>
+      </div>
+      <div class="step-body">
+        <div class="step-desc">Flytt fr&aring; &laquo;inviter mange&raquo; til &laquo;inviter rett&raquo;. Kommunikasjonskonsept og nordisk fag&oslash;kt (60&ndash;75 min) for felles situasjonsforst&aring;else.</div>
+        <div class="step-method">Kotter (guiding coalition) + Nordic Innovation Playbooks</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num pending">5</div>
+        <div class="step-top">
+          <div class="step-theme">Operating model for TG</div>
+          <div class="step-output">M&oslash;terytme, sprintplan, beslutningslogg</div>
+        </div>
+        <div class="step-status status-ikke">Ikke startet</div>
+      </div>
+      <div class="step-body">
+        <div class="step-desc">Fasilitering som gjennomg&aring;ende kapabilitet, ikkje eit steg. RACI, m&oslash;terytme, dokumentstruktur. <strong>Gate A (veke 2):</strong> scope + koalisjonskvalitet (Go/Iterate/Pause).</div>
+        <div class="step-method">Agile sprint + RACI + beslutningslogg</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num active">6</div>
+        <div class="step-top">
+          <div class="step-theme">Innsikt og baseline + transition-levers</div>
+          <div class="step-output">Innsiktsnotat, systemkart, flaskehalser</div>
+        </div>
+        <div class="step-status status-pagar">P&aring;g&aring;r</div>
+      </div>
+      <div class="step-body">
+        <div class="step-desc">Omgivelseskartlegging: Market Forces, Key Trends, Industry Forces, Macro-Economic. <strong>Fem sl&oslash;yfer:</strong> Forebygge, Redistribuere, Utnytte sidestr&oslash;mmer, Tilbakef&oslash;re n&aelig;ringsstoffer, Sirkulaer emballasje/logistikk. Koble til Eurostat sirkulaermonitor-indikatorer.</div>
+        <div class="step-method">Strategyzer Business Model Environment + MFA/LCA + Eurostat monitor + ISO 59020</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num pending">7</div>
+        <div class="step-top">
+          <div class="step-theme">Co-design og pilotportefolje</div>
+          <div class="step-output">2&ndash;5 pilotforslag + owner map</div>
+        </div>
+        <div class="step-status status-ikke">Ikke startet</div>
+      </div>
+      <div class="step-body">
+        <div class="step-desc">Velg f&aring;, skarpe pilotar. Krav: tydelig problemtrykk, m&aring;lbar effekt innan 90 dagar, delbar metode, gjenbrukbar data, partnarskap p&aring; tvers. Prioriteringsfilter: Effekt, Gjennomf&oslash;rbarheit, Reproduserbarheit, Datatilgang, Eier.</div>
+        <div class="step-method">Ellen MacArthur / IDEO Circular Design Guide + Cambridge CE</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num pending">8</div>
+        <div class="step-top">
+          <div class="step-theme">White paper som &laquo;motor&raquo;</div>
+          <div class="step-output">White paper + executive brief</div>
+        </div>
+        <div class="step-status status-ikke">Ikke startet</div>
+      </div>
+      <div class="step-body">
+        <div class="step-desc">White paper skal vere motor for pilot/policy/finans &mdash; ikkje berre sluttprodukt. Koble eksplisitt til procurement/standard/finance tracks.</div>
+        <div class="step-method">Theory of Change + evidence-based policy brief</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num pending">9</div>
+        <div class="step-top">
+          <div class="step-theme">Gate-evaluering og konsolidering</div>
+          <div class="step-output">L&aelig;ringsnotat + beslutning</div>
+        </div>
+        <div class="step-status status-ikke">Ikke startet</div>
+      </div>
+      <div class="step-body">
+        <div class="step-desc"><strong>Gate B (veke 8):</strong> Transition Factor = Owner + Pilot + Adoption + Finance i eitt samanhengande roadmap. Start/Stop/Continue i kvart m&oslash;te.</div>
+        <div class="step-method">Stage-gate + mini-retro + Transition Factor test</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num pending">10</div>
+        <div class="step-top">
+          <div class="step-theme">Implementerbar Roadmap 1&ndash;3 &aring;r</div>
+          <div class="step-output">Roadmap med tiltak, eiere, milep&aelig;ler</div>
+        </div>
+        <div class="step-status status-ikke">Ikke startet</div>
+      </div>
+      <div class="step-body">
+        <div class="step-desc">Implementerbar: tiltak + eigar + milep&aelig;l + ressurs/finans + risiko + KPI. <strong>Minimum Viable Transition:</strong> Ownership, Implementation, Institutional og Resourcing Outcome.</div>
+        <div class="step-method">Roadmapping + risiko/finans/KPI-integrasjon</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPI + EVIDENCE -->
+  <section>
+    <h2>Core KPIs og Evidence Pack</h2>
+    <p>Fem m&aring;lepunkter som rapporteres m&aring;nedlig:</p>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-name">Coalition Power</div><div class="kpi-desc">&laquo;Must-win&raquo; akt&oslash;rer engasjert</div></div>
+      <div class="kpi"><div class="kpi-name">Decisions Taken</div><div class="kpi-desc">Formelle beslutninger logget</div></div>
+      <div class="kpi"><div class="kpi-name">Pilots in Motion</div><div class="kpi-desc">Startet / fullf&oslash;rt / skalert</div></div>
+      <div class="kpi"><div class="kpi-name">Adoption</div><div class="kpi-desc">Innkj&oslash;pskrav / standarder aktivert</div></div>
+      <div class="kpi"><div class="kpi-name">Capital Mobilised</div><div class="kpi-desc">Finansiering utl&oslash;st</div></div>
+    </div>
+
+    <h3>Evidence Pack (8 obligatoriske dokumenter)</h3>
+    <div class="ev-grid">
+      <div class="ev"><span class="num">1</span> TG Charter</div>
+      <div class="ev"><span class="num">2</span> Decision Log</div>
+      <div class="ev"><span class="num">3</span> Commitment Map</div>
+      <div class="ev"><span class="num">4</span> Pilot Brief</div>
+      <div class="ev"><span class="num">5</span> Adoption Track Note</div>
+      <div class="ev"><span class="num">6</span> Finance Note</div>
+      <div class="ev"><span class="num">7</span> Roadmap 1&ndash;3 &aring;r</div>
+      <div class="ev"><span class="num">8</span> Executive Brief</div>
+    </div>
+
+    <h3>Governance Cadence</h3>
+    <ul>
+      <li>Hvert m&oslash;te: 5 min &laquo;Start/Stop/Continue&raquo; + oppdater Decision Log</li>
+      <li>Hver 4. uke: KPI-snapshot + evidence-sjekk</li>
+      <li><strong>Gate A (uke 2):</strong> Scope + koalisjonskvalitet (Go / Iterate / Pause)</li>
+      <li><strong>Gate B (uke 8):</strong> Transition Factor-test (Owner + Pilot + Adoption + Finance)</li>
+      <li>&Aring;rlig NCH roll-up: portef&oslash;ljeoversikt p&aring; tvers av Cities/Food/Textile/Corporate</li>
+    </ul>
+  </section>
+
+  <!-- ANDRE ENDRINGER I PLATTFORMEN -->
+  <section>
+    <h2>Andre endringer integrert fra Cathrines materiale</h2>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <h4>Hanne Fjerdingby Olsen (NMBU)</h4>
+        <p>Lagt til som kontaktperson p&aring; NMBU-akt&oslash;ren</p>
+        <ul>
+          <li>FeedLoop (2025&ndash;2027) &mdash; sirkulaert matsystemdesign</li>
+          <li>NewTools (FHI) &mdash; indikatorer</li>
+          <li>Kobling SLU, Wageningen, FoodStudio Helsinki</li>
+        </ul>
+      </div>
+      <div class="data-card">
+        <h4>NCE Heidner Biocluster</h4>
+        <p>Ny akt&oslash;r med 4 kontaktpersoner</p>
+        <ul>
+          <li>NMBU-interns kartlegger matberedskap NO/SE/FI</li>
+          <li>Koblet til AgriFoodTech Norway</li>
+          <li>Parallellprosess til TG Food Systems</li>
+        </ul>
+      </div>
+      <div class="data-card">
+        <h4>Standard Norge / ISO 59000</h4>
+        <p>Ny akt&oslash;r</p>
+        <ul>
+          <li>ISO 59004 (terminologi), 59010 (omlegging), 59020 (m&aring;ling)</li>
+          <li>Cathrine har full tilgang via speilkomiteen</li>
+        </ul>
+      </div>
+      <div class="data-card">
+        <h4>SLU oppgradert</h4>
+        <p>P3 &rarr; P2 med nye koblinger</p>
+        <ul>
+          <li>SLU Future Food som svensk TG-partner</li>
+          <li>FeedLoop bruker SLU-modelleringsverkt&oslash;y</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>6 nye insights</h3>
+    <ul>
+      <li><strong>EU PPWR/WFD/EUDR</strong> &mdash; reguleringstidslinje, implementeringsvindu 18 mnd</li>
+      <li><strong>Nordisk matsvinnforpliktelse</strong> &mdash; ministerr&aring;dsforpliktelse halvere innen 2030</li>
+      <li><strong>Fem sirkulaere sl&oslash;yfer</strong> &mdash; forebygge, redistribuere, sidestr&oslash;mmer, n&aelig;ringsstoffer, emballasje</li>
+      <li><strong>ISO 59000</strong> &mdash; forankring i standardisert terminologi og m&aring;lrammeverk</li>
+      <li><strong>NMBU FeedLoop</strong> &mdash; operasjonalisert sirkulaert matsystemdesign</li>
+      <li><strong>NCE Heidner</strong> &mdash; parallellprosess matberedskap NO/SE/FI</li>
+    </ul>
+
+    <h3>5 nye relasjoner i aktørgrafen</h3>
+    <ul>
+      <li>NMBU &harr; SLU (FeedLoop-samarbeid)</li>
+      <li>NMBU &harr; Wageningen (Circular Food Valley)</li>
+      <li>NCE Heidner &harr; NMBU (intern-program)</li>
+      <li>NCE Heidner &rarr; LMD (IFK totalforsvar)</li>
+      <li>Standard Norge &harr; NMBU</li>
+    </ul>
+  </section>
+
+  <!-- CATHRINES KILDELISTE -->
+  <section>
+    <h2>Cathrines metodikk-referanser</h2>
+    <p>Disse rammeverkene er n&aring; forankret i de relevante stegene i plattformen:</p>
+    <ul>
+      <li><strong>Strategyzer</strong> Business Model Environment (Market Forces, Key Trends, Industry Forces, Macro-Economic)</li>
+      <li><strong>ISO 59000-serien</strong> &mdash; 59004 terminologi, 59010 forretningsmodell-omlegging, 59020 m&aring;ling av sirkularitet</li>
+      <li><strong>Ellen MacArthur / IDEO</strong> Circular Design Guide &mdash; 20&ndash;30 metodikker for problemformulering og design</li>
+      <li><strong>10R (Wageningen)</strong> &mdash; sirkulaer&oslash;konomi-indikatorer og cascading-modell</li>
+      <li><strong>MFA og LCA</strong> &mdash; materialflytanalyse og livssyklusvurdering for verdikjede-mapping</li>
+      <li><strong>Eurostat sirkulaermonitor</strong> &mdash; kobler TG til EUs indikatorer for m&aring;lbar leveranse</li>
+      <li><strong>PESTEL</strong> &mdash; politisk, &oslash;konomisk, sosiokulturell, teknologisk, milj&oslash;, juridisk</li>
+      <li><strong>Nordic Innovation Playbooks</strong> &mdash; gjennomg&aring;s for need-to/nice-to i TG-prosessen</li>
+      <li><strong>Cambridge CE-pensum</strong> &mdash; Martin og Cathrines strategifag</li>
+      <li><strong>Bryson</strong> stakeholder analysis + <strong>Kotter</strong> guiding coalition</li>
+      <li><strong>PRINCE2/PMI</strong> project charter og governance</li>
+      <li><strong>Theory of Change</strong> og Stage-gate-modellen</li>
+    </ul>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    Food Systems 2026 &middot; NCH Transition Group &middot; Natural State
+    <br>
+    <a href="https://food-systems.naturalstateproject.com/metodikk" target="_blank" style="color: #059669;">Se oppdatert metodikk-side &rarr;</a>
+  </div>
+</footer>
+
+</body>
+</html>

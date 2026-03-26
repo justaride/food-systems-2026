@@ -60,6 +60,8 @@ export type TenStep = {
   theme: string
   output: string
   status: StepStatus
+  methodology?: string
+  description?: string
 }
 
 export type KPI = {

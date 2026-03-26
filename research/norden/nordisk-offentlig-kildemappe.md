@@ -193,7 +193,7 @@ For disse hullene bør vi bruke:
 
 ### Kilder
 
-- Eksisterende prosjektmateriale i repoet, spesielt `research/source-scouting-2026-03-10.md`, `research/norden/nordisk-komparativ-analyse.md` og `research/norden/regulatorisk-kartlegging.md`.
+- Eksisterende prosjektmateriale i repoet, spesielt `research/analyse/source-scouting-2026-03-10.md`, `research/norden/nordisk-komparativ-analyse.md` og `research/norden/regulatorisk-kartlegging.md`.
 - Offisielle og åpne nettressurser kontrollert 11. mars 2026.
 
 ### Begrensninger

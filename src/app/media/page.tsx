@@ -24,7 +24,7 @@ const mediaScanGuidance = [
 const mediaInternalSources = [
   'research/norden/nordisk-komparativ-analyse.md',
   'research/norden/regulatory-policy-landscape-nordic.md',
-  'research/source-scouting-2026-03-10.md',
+  'research/analyse/source-scouting-2026-03-10.md',
   'Speaker 1.md',
 ]
 

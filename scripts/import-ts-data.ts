@@ -345,8 +345,8 @@ async function importTenSteps() {
   for (const s of tenSteps) {
     await prisma.tenStep.upsert({
       where: { step: s.step },
-      update: { theme: s.theme, output: s.output, status: s.status },
-      create: { step: s.step, theme: s.theme, output: s.output, status: s.status },
+      update: { theme: s.theme, output: s.output, status: s.status, methodology: s.methodology ?? null, description: s.description ?? null },
+      create: { step: s.step, theme: s.theme, output: s.output, status: s.status, methodology: s.methodology ?? null, description: s.description ?? null },
     })
   }
   console.log(`  ${tenSteps.length} ten steps imported`)

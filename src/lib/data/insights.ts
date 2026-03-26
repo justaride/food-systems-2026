@@ -1227,4 +1227,92 @@ export const insights: Insight[] = [
       { sourceId: 'src-117', label: 'HORECA-kartlegging nordisk foodservice 2026' },
     ],
   },
+  {
+    id: 'ins-87',
+    title: 'EU PPWR: ny emballasjeforordning med generell anvendelse fra august 2026',
+    type: 'funn',
+    source: 'Cathrine Barth / EU-regelverk',
+    phase: 'fase-2',
+    date: '2026-03-09',
+    description:
+      'EUs nye Packaging and Packaging Waste Regulation (PPWR) traadde i kraft 11.02.2025 og har generell anvendelse fra 12.08.2026. Sammen med revidert Waste Framework Directive (bindende maal: 10% matavfallsreduksjon i prosessering, 30% per capita i retail/forbruk innen 2030) og EUDR (utsatt til des 2026/juni 2027) skaper dette et implementeringsvindu der kravene blir operative i markedet de neste 18 maanedene. Tre signal: mindre rom for lineaere loesninger, mer behov for dokumentasjon i verdikjeden, stoerre verdi i aktoerer som kobler mat, emballasje, avfall og data.',
+    tags: ['PPWR', 'WFD', 'EUDR', 'EU-regulering', 'emballasje', 'matsvinn', 'sirkulaer'],
+    sources: [
+      { label: 'EUR-Lex Regulation (EU) 2025/40', url: 'https://eur-lex.europa.eu/eli/reg/2025/40/oj/eng' },
+      { label: 'EC Revised Waste Framework Directive', url: 'https://environment.ec.europa.eu/news/revised-waste-framework-directive-enters-force-2025-10-16_en' },
+      { label: 'EC Food waste reduction targets', url: 'https://food.ec.europa.eu/food-safety/food-waste/eu-food-waste-relevant-legislation/food-waste-reduction-targets_en' },
+      { label: 'Access2Markets EUDR delay', url: 'https://trade.ec.europa.eu/access-to-markets/en/news/delay-until-december-2026-and-other-developments-implementation-eudr-regulation' },
+    ],
+  },
+  {
+    id: 'ins-88',
+    title: 'Nordisk matsvinnforpliktelse: halvere matavfall innen 2030',
+    type: 'funn',
+    source: 'Cathrine Barth / Nordisk ministerraad',
+    phase: 'fase-2',
+    date: '2026-03-09',
+    description:
+      'Nordisk ministerforpliktelse fra 2023: halvere matavfall i regionen innen 2030. Ulik policy-modenhet mellom landene: Norge har bransjeavtale + matsvinnlov paa vei, Danmark har Madspildsstrategi 2.0, Sverige har oppdatert handlingsplan, Finland nasjonal avfallsplan til 2027. Felles retning gir NCH legitimt handlingsrom. TG-en boer designes som nordisk laeringsarena med lokale piloter — ikkje eein homogen nordisk policyfortelling.',
+    tags: ['nordisk', 'matsvinn', 'policy', 'ministerraad', '2030-maal'],
+    sources: [
+      { label: 'Nordic Co-operation: Reducing food waste', url: 'https://www.norden.org/en/declaration/policy-commitment-reducing-food-waste-green-nordic-region' },
+      { label: 'Regjeringen: Bransjeavtale matsvinn', url: 'https://www.regjeringen.no/no/tema/mat-fiske-og-landbruk/mat/matsvinn/bransjeavtale-om-matsvinn-reduksjon/id2891198/' },
+      { label: 'Regjeringen: Prop. 130 L matsvinnlov', url: 'https://www.regjeringen.no/no/dokumenter/prop.-130-l-20242025/id3096529/' },
+    ],
+  },
+  {
+    id: 'ins-89',
+    title: 'Fem sirkulaere sloyfer for TG Food Systems',
+    type: 'analyse',
+    source: 'Cathrine Barth / NCH discussion deck',
+    phase: 'fase-2',
+    date: '2026-03-09',
+    description:
+      'TG-en boer ikkje eie heile matsystemet, men arbeide maalretta der regulering, ressursstroemmer og samhandling moetast. Fem sloyfer identifisert: (1) Forebygge matsvinn, (2) Redistribuere overskuddsmat, (3) Utnytte sidestroummer, (4) Tilbakefoere naeringsstoffer til jord, (5) Sirkulaer emballasje og logistikk. Tre mulighetsrom: matsvinnforebygging/redistribusjon, sirkulaer emballasje/logistikk, og sporbare/robuste importkjeder (kaffe, kakao, soya).',
+    tags: ['sirkulaer', 'sloyfer', 'TG-scope', 'matsvinn', 'emballasje', 'sidestroemmer', 'naeringsstoffer'],
+    sources: [
+      { label: 'Circular Food Systems discussion deck NCH (mars 2026)' },
+    ],
+  },
+  {
+    id: 'ins-90',
+    title: 'ISO 59000-serien som forankring for TG sirkulaeroekonomi',
+    type: 'analyse',
+    source: 'Cathrine Barth / Standard Norge',
+    phase: 'fase-2',
+    date: '2026-03-17',
+    description:
+      'ISO 59000-serien (59004: terminologi og prinsipper, 59010: omlegging av forretningsmodeller, 59020: maaling av sirkularitet) gir anerkjent rammeverk for aa forankre TG-arbeidet. Cathrine har full tilgang gjennom speilkomiteen. Aa knytte TG til Eurostats sirkulaerindikatorer og ISO-terminologi styrker relevans, konkretisering mot leveranse og troverdighet overfor finansioerer/policy-aktoerer.',
+    tags: ['ISO-59000', 'standardisering', 'sirkularitet', 'metodikk', 'indikatorer'],
+    sources: [
+      { label: 'Standard Norge: ISO 59000-serien', url: 'https://standard.no/fagomrader/sirkularokonomi/sirkular-okonomi-iso-59000-serien/' },
+      { label: 'Eurostat Circular Economy Monitor', url: 'https://ec.europa.eu/eurostat/web/circular-economy/monitoring-framework' },
+    ],
+  },
+  {
+    id: 'ins-91',
+    title: 'NMBU FeedLoop: operasjonalisert sirkulaert matsystemdesign',
+    type: 'funn',
+    source: 'Cathrine Barth / NMBU-intervju',
+    phase: 'fase-2',
+    date: '2026-03-18',
+    description:
+      'Hanne Fjerdingby Olsen (NMBU) leder FeedLoop-prosjektet (2025-2027) som redesigner lokale matsystemer for sirkulaer husdyrproduksjon. Bruker optimaliseringsmodell (CIBUS-OPT) og living lab-tilnaerming i Troendelag/Innlandet. Direkte kobling til SLU (svensk modelleringsverktoy). NewTools (FHI) utvikler indikatorer for ernaering og baerekraft. Senter for baerekraftige matsystemer avvikles i 2026 — aapner rom for ny samarbeidsarkitektur.',
+    tags: ['NMBU', 'FeedLoop', 'sirkulaer', 'living-lab', 'indikatorer', 'SLU', 'forskning'],
+    sources: [
+      { label: 'NMBU profil Hanne Fjerdingby Olsen', url: 'https://www.nmbu.no/om/ansatte/hanne-fjerdingby-olsen' },
+      { label: 'SLU Future Food', url: 'https://www.slu.se/en/about-slu/organisation/future-platforms/slu-future-food/' },
+    ],
+  },
+  {
+    id: 'ins-92',
+    title: 'NCE Heidner kartlegger matberedskap i NO/SE/FI — parallellprosess',
+    type: 'kartlegging',
+    source: 'Cathrine Barth / LinkedIn',
+    phase: 'fase-2',
+    date: '2026-03-19',
+    description:
+      'To NMBU-masterstudenter (Thea Ingvaldsen og Martin Saetra, biooekonomi) kartlegger paagende initiativer og prosjekter innen matberedskap i Norge, Sverige og Finland gjennom internship hos NCE Heidner Biocluster og Klosser Innovasjon. Koblet til IFK-prosjektet "Matproduksjon som del av totalforsvaret" og AgriFoodTech Norway. Funn kan vaere direkte relevant for TG Food Systems innsiktsarbeid.',
+    tags: ['matberedskap', 'nordisk', 'NMBU', 'Heidner', 'parallellprosess', 'kartlegging'],
+  },
 ]

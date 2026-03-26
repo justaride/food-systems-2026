@@ -7,7 +7,7 @@
 
 - Prosjektet har allerede et kuratert lag i `src/lib/data/meetings.ts` med sammendrag, beslutninger, aksjonspunkter og nokkelfunn.
 - `/moter` viser et komprimert beslutningslag istedenfor fulle transkripsjoner.
-- `research/meeting-4-research-focus.md` viser at transkripsjoner kan destilleres videre til et nyttig arbeidsdokument.
+- `research/analyse/meeting-4-research-focus.md` viser at transkripsjoner kan destilleres videre til et nyttig arbeidsdokument.
 
 ## Viktigste problemer
 
@@ -64,7 +64,7 @@
 
 ### Lag 3: Analyse
 
-- Avledede dokumenter som `research/meeting-4-research-focus.md` bor eksplisitt markeres som analyse, ikke transkripsjon.
+- Avledede dokumenter som `research/analyse/meeting-4-research-focus.md` bor eksplisitt markeres som analyse, ikke transkripsjon.
 - Analyselag kan gjerne vere mer tolkende og tematisk, men ma alltid kunne spores tilbake til lag 1 og 2.
 
 ## Praktisk kvalitetsregel for komprimering
