@@ -1,7 +1,7 @@
 # Sammendrag: Hagan (University of Tennessee, Knoxville, 2025) - FLW og valg av dagligvarebutikk
 
 **Full tittel:** The Impact of Food Loss and Waste Reduction Practices on Consumer Grocery Store Choice
-**Type:** Master of Science i Agricultural and Resource Economics
+**Type:** Master of Science
 **Institusjon:** University of Tennessee, Knoxville, Graduate School
 **Dato:** 26. mars 2026 (Analysert)
 **URL:** https://trace.tennessee.edu/handle/20.500.14382/35461

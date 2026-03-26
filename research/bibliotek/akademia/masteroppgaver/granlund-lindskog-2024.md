@@ -11,7 +11,7 @@
 
 ## Hovedfunn
 1. Kvalitative intervjuer peker paa bedre OT-sikkerhetsmodenhet enn forventet, men med store forskjeller mellom virksomheter.
-2. NIS2-forberedelser, oversikt over eiendeler, overvaking og trusselbevissthet framheves som sentrale behov.
+2. NIS2-beredskapen virker god, mens samarbeid, kunnskapsdeling, eiendelsoversikt, overvaking og trusselbevissthet trekkes frem som forbedringspunkter.
 3. Rapporten peker paa samarbeid som viktig for a heve sikkerhetsnivaaet i sektoren.
 
 ## Metode
