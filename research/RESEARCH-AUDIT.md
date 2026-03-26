@@ -2,16 +2,18 @@
 
 **Oppdatert:** 26. mars 2026
 **Formaal:** Oversikt over forskningsmaterialets tilstand, dybde og gap per kategori. Brukes som referanse for videre forskning.
-**Totalvolum:** 240 markdown-filer i biblioteket, 65 PDF-er i evidence pack, 70 avhandlinger i databasen, 61 rapporter, 126 kildedokumenter
+**Totalvolum:** 316 markdown-filer i biblioteket, 65 PDF-er i evidence pack, 70 avhandlinger i databasen, 61 rapporter, 126 kildedokumenter
 
 ---
 
 ## Sammendrag
 
+Tabellen under er opprinnelig audit-snapshot per kategori. Se `Statusoppdatering 26. mars 2026` under for gjennomforte tiltak etter audit-gjennomgangen.
+
 | Kategori | Filer | Dybde (1-5) | Kvalitet | Prioriterte gap |
 |----------|-------|-------------|----------|-----------------|
 | Akademia / Internasjonalt | 30 | 4 | Sterk | Flere empiriske case-studier fra EU, utviklingsland |
-| Akademia / Masteroppgaver | 31 | 4 | Sterk | Nordisk avhandlingsregister (70 stk) godt systematisert |
+| Akademia / Masteroppgaver | 74 | 5 | Sterk | 70/70 registerposter har individuell note; neste gap er nye soeketrancher |
 | Akademia / NHH FOOD | 15+3 | 4 | Sterk | Nordstad-arkivet bor utdypes |
 | Akademia / NMBU | 7 | 3 | Solid | Mangler: FoodProFuture, NIBIO-samarbeid |
 | Akademia / SIFO | 8 | 4 | Sterk | Ny Omnibus-data 2026 savnes |
@@ -42,6 +44,13 @@
 | Verdikjede | 2 | 2 | Grunn | Kun Coop CLog og REMA distribusjon |
 
 **Dybdeskala:** 1 = Overflate/stikkord, 2 = Grunnleggende oversikt, 3 = Solid dekning med kilder, 4 = Grundig analyse med tall og sammenheng, 5 = Komplett -- publiseringsklar
+
+## Statusoppdatering 26. mars 2026
+
+- Prioritert handlingsplan 1-15 er gjennomfort i biblioteket.
+- Nordisk avhandlingsregister har naa individuell dekning for alle 70 registerposter.
+- Register-til-fil-diff for avhandlingssporet er verifisert til `0`.
+- Videre arbeid paa akademia-sporet er derfor ikke backlog-lukking, men nye soeketrancher, spraklig bredde og database/app-synk.
 
 ---
 
@@ -85,7 +94,7 @@
 ## 2. Akademia -- Masteroppgaver og PhD-avhandlinger
 
 **Sti:** `research/bibliotek/akademia/masteroppgaver/`
-**Filer:** 31 (individuelle oppsummeringer) + nordisk avhandlingsregister (70 oppfoeringer)
+**Filer:** 74 markdown-filer i mappen, hvorav 70 dekker registerpostene, + nordisk avhandlingsregister (70 oppfoeringer)
 **Database:** 70 poster i `theses.ts`
 
 ### Innhold
@@ -121,13 +130,15 @@
 - Alle individuelle oppsummeringer foelger konsistent format
 - Dekker perioden 2006-2026 med god spredning
 - Master-PhD-backlog (`MASTER-PHD-BACKLOG-2026.md`) for systematisk kartlegging
+- Individuell dekning er naa lukket for hele registeret; 70/70 registerposter har note eller konservativ metadata-basert oppsummering
+- Registeret er harmonisert mot offisiell metadata for aar, gradstype og forfatterstreng der registeret tidligere var unoyaktig
 
 ### Gap og neste steg
-- [ ] 39 av 70 avhandlinger i registeret mangler individuelle oppsummeringer i biblioteket
-- [ ] Nordiske avhandlinger etter 2024 (nye soeketrancher trengs)
+- [x] 70 av 70 avhandlinger i registeret har naa individuelle oppsummeringer i biblioteket
+- [ ] Nye nordiske avhandlinger etter mars 2026 (nye soeketrancher trengs)
 - [ ] Finske avhandlinger paa finsk (Theseus-portalen) -- kun engelskspraaklige funnet
 - [ ] Islandske avhandlinger paa islandsk (Skemman) -- begrenset dekning
-- [ ] Norske avhandlinger fra NTNU (teknologi/logistikk) og UiT (arktisk mat) underrepresentert
+- [ ] Norske avhandlinger utover registeret fra NTNU (teknologi/logistikk), UiT (arktisk mat) og Nofima boer soekes bredere
 
 ### Kryssreferanser
 - Relatert til: NHH FOOD, NMBU, SIFO, Nordisk
@@ -943,7 +954,7 @@ Disse tre kategoriene overlapper og er for tynne. Regulering-mappen har kun 1 fi
 
 ### Gap og neste steg
 - [ ] Rapporter: Flere nordiske rapporter -- Danmark og Finland er underrepresentert
-- [ ] Avhandlinger: Koble thesis-poster til bibliotekfiler (39 av 70 mangler individuell oppsummering)
+- [ ] Avhandlinger: Synk app/database-laget mot den naa fullfoerte bibliotekdekningen (register-til-fil-diff = 0)
 - [ ] Selskaper: Verifisere nordiske ID-er (CVR, Y-tunnus, kennitala) -- kjent problem
 - [ ] Insights: 42 poster -- behov for oppdatering med nye funn
 
@@ -1039,26 +1050,27 @@ Disse tre kategoriene overlapper og er for tynne. Regulering-mappen har kun 1 fi
 
 ## Prioritert handlingsplan
 
-### Hoey prioritet (blokkerer whitepaper-kvalitet)
-1. **Verdikjedestruktur:** Skriv komplett verdikjedeanalyse fra gaardbruker til forbruker med marginer per ledd
-2. **Juridisk rammeverk:** Dekk Lov om god handelsskikk, konkurranseloven, aapenhetsloven, matloven
-3. **Baerekraft/klima:** Klimagassregnskap per verdikjedledd, Scope 3 for kjedene
-4. **Nordiske arsrapporter:** Oppsummer Axfood, ICA, Kesko, Coop DK, Hagar, S-Group, Salling Group
-5. **Menon funksjonelt skille 2026:** Grundig analyse -- dette er hoeyaktuelt (hoeringsfrist 17. april)
+### Gjennomfort per 26. mars 2026
+1. [x] Verdikjedestruktur
+2. [x] Juridisk rammeverk
+3. [x] Baerekraft/klima
+4. [x] Nordiske arsrapporter
+5. [x] Menon funksjonelt skille 2026
+6. [x] Andre norske akademia
+7. [x] Beredskap nordisk
+8. [x] Tenketanker
+9. [x] HORECA grossister
+10. [x] Sirkularitet
+11. [x] Avhandlinger: registergap lukket og harmonisert
+12. [x] FOOD working papers: kjente 2025-2026-gap lukket i biblioteket
+13. [x] Internasjonale case: USA, Australia og Filippinene lagt inn
+14. [x] Historiske NOU-er og stortingsmeldinger
+15. [x] Rotnivaa-filer: ryddet og flyttet til riktigere mapper
 
-### Medium prioritet (styrker analysen)
-6. **Andre norske akademia:** UiB, UiT, NTNU, Nofima -- fylle det stoerste akademiske hullet
-7. **Beredskap nordisk:** Svensk, dansk og islandsk beredskapsmodell
-8. **Tenketanker:** Agenda, Manifest, WWF, Greenpeace
-9. **HORECA grossister:** Servicegrossistmarkedet og hotell/catering
-10. **Sirkularitet:** Emballasjereform, biogass, regenerativt landbruk
-
-### Lav prioritet (forbedrer dybde)
-11. Avhandlinger: Oppsummer 39 manglende poster fra nordisk register
-12. FOOD working papers: Sjekk for nye 2025-2026 publikasjoner
-13. Internasjonal: USA, Australia, Soeroeest-Asia case-studier
-14. Historiske NOU-er og stortingsmeldinger
-15. Rotnivaa-filer: Rydd og integrer i respektive mapper
+### Naturlige neste steg
+1. Ny soeketranche for avhandlinger og working papers etter mars 2026, særlig finsk- og islandskspraaklige spor
+2. Synk `theses.ts` og resten av app-/database-laget eksplisitt mot den naa fullfoerte bibliotekdekningen
+3. Samlet sluttreview av hele lavprioritetsblokken dersom den skal formaliseres som egen leveransepakke
 
 ---
 

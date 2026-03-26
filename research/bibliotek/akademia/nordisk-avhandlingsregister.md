@@ -19,7 +19,7 @@ Samlet oversikt over 70 avhandlinger (master og PhD) om matsystemer, dagligvare,
 | 2 | Kronqvist | Aalto University | 2010 | Master | Consumer-owned retail cooperative in duopoly | Finlands kooperative S-gruppen priser til marginalkostnad og demper duopoleffekter | Konkurranse |
 | 3 | Johannsson | University of Iceland | 2011 | Master | Food Security in Iceland: Present Vulnerabilities, Possible Solutions | Island sarbart for matimport-avbrudd; utilstrekkelig beredskapspolitikk | Beredskap |
 | 4 | Sandanger | NHH | 2012 | Master | Horisontal konkurranse: Bruken av EMV | EMV brukes for konseptdifferensiering, reduserer sammenlignbarhet og kan dempe priskonkurranse | Konkurranse |
-| 5 | Tesdal | UiO | 2013 | Master | Nokkelhull pa matvarer — private aktorers interesser og merkeordningen | Priskrig forte til at produsenter fjernet Nokkelhull fra sunne produkter | Regulering |
+| 5 | Tesdal | UiO | 2012 | Master | Nokkelhull pa matvarer — en analyse av private aktorers okonomiske interesser og konsekvensene for myndighetenes merkeordning | Priskrig, kjedemakt og begrenset hylleplass kan svekke den frivillige Nokkelhull-ordningen | Regulering |
 | 6 | Paschen-Eriksen | UiA | 2014 | Master | Matpolitikk i Norge — fremdeles norsk? EOS-rammeverket | EOS legger betydelige foeringer pa norsk matpolitikk; begrenset nasjonal autonomi | Regulering |
 | 7 | Eriksson | SLU Uppsala | 2015 | PhD | Supermarket food waste: Prevention and management | Forste kvantitative studie av svenske supermarkeder; ferskvarer dominerer svinn | Matsvinn |
 | 8 | Deljanin | CBS | 2015 | Master | Market's imperfections — Building a concerned market for food waste | Imperfekte gronnsaker omdefineres fra avfall til salgbar vare gjennom aktiv markedsbygging | Matsvinn |
@@ -75,12 +75,12 @@ Samlet oversikt over 70 avhandlinger (master og PhD) om matsystemer, dagligvare,
 | 58 | Granlund & Lindskog | NTNU | 2024 | Master | OT Cybersecurity in Norwegian Food Supply Sector | Norsk matforsyning har betydelige cybersikkerhetsarbarheter | Beredskap |
 | 59 | Jorgensen & Ahmadi | AAU | 2024 | Master | Rema 1000: Nokkelen til succes pa det danske detailmarked | REMA 1000 styrket posisjon gjennom oppkjop av 116 Aldi-butikker i 2023 | Konkurranse |
 | 60 | Naess | UiB | 2024 | Master | To-rolle-plattformer og egne merkevarer: konkurranse- og velferdseffekter | Dagligvarekjeder som bade markedsplass og EMV-produsent pavirker velferd | EMV |
-| 61 | Mattila | LUT University | 2024 | Master | Data-driven demand forecasting for food waste reduction | AI-basert ettersporselprognostisering reduserte serveringssvinn med 22% | Digital |
+| 61 | Mattila | LUT University | 2025 | Master | Impacts of data-driven demand forecasting in reducing food waste and CO2 emissions in campus restaurants | Datadrevet prognostisering reduserte serveringssvinn og utslipp i campusrestauranter | Digital |
 | 62 | Nilsen & Paulsen | NHH | 2025 | Master | Pass-through av ravarepriser for kakao- og kaffeprodukter | Asymmetrisk pristransmisjon (rockets and feathers) som indikator pa markedsmakt | Konkurranse |
 | 63 | Huynh & Mortensen | AAU | 2025 | Master | Analyse af Salling Group A/S og Coop Danmark A/S | Komparativ finansiell analyse av Danmarks to storste dagligvareaktorer 2018-2023 | Konkurranse |
 | 64 | Sundqvist | University of Helsinki | 2025 | PhD | Navigating a Transformative Governance Maze | Matemballasje-styring er labyrint av motstridende reguleringer | Sirkulaerokonomi |
 | 65 | Stahl | KTH | 2024 | Master | Politics You Can Eat: Sodertalje Municipality's Food Supply Strategy | Kommunal matstrategi kan operasjonaliseres gjennom offentlige innkjop | Offentlig innkjop |
-| 66 | Sedwall et al. | JIBS | 2025 | Master | Hybrid Supply Chain Models in Swedish Grocery Retail | Hybrid distribusjon reduserer bade utslipp og logistikkkostnader | Verdikjede |
+| 66 | Sedwall, Bjerne & Grandin | JIBS | 2025 | Bachelor | Hybrid Supply Chain Models in Swedish Grocery Retail | Hybridmodeller kan balansere kostnader, utslipp og sosiale hensyn i svensk dagligvare | Verdikjede |
 | 67 | Zakeri & Lei | Uppsala University | 2024 | Master | AI in the Swedish Food System: Adoption in Primary Production | Betydelige barrierer for AI-adopsjon i svensk matproduksjon | Digital |
 | 68 | Duong | Aalto University | 2025 | Master | Common Grocery Self-Service Checkout Failures | Friksjonspunkter i selvbetjente kasser pavirker kundetilfredshet | Digital |
 | 69 | Rislakki | JYU | 2024 | Master | Promoting the Planetary Health Diet in Grocery Retail: Finland | Finske kjeder bruker ulike nudging-strategier for baerekraftig kosthold | Atferd |
@@ -137,5 +137,5 @@ Samlet oversikt over 70 avhandlinger (master og PhD) om matsystemer, dagligvare,
 
 - Registeret ble betydelig utvidet 2026-03-23 gjennom systematisk soek i 6 parallelle agenter mot norske, svenske, danske, finske og islandske repositorier
 - Tidligere oppforinger #32-40 (Volpe, Stenmarck, Hanssen/Moller, Gram-Hanssen, Gjerris, Aschemann-Witzel, Halloran, Cederberg, Nassen) ble fjernet — alle viste seg a vaere enten rapporter, professorers tidligere arbeid, eller utenfor prosjektets omfang
-- 5 nye tematiske kategorier lagt til: Beredskap, Digital, Selvforsyning, Klima, Proteinskifte, Logistikk
+- 6 nye tematiske kategorier lagt til: Beredskap, Digital, Selvforsyning, Klima, Proteinskifte, Logistikk
 - Alle oppsummerte avhandlinger er importert i databasen via `scripts/import-ts-data.ts`
