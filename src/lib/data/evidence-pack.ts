@@ -24,21 +24,21 @@ export const evidencePack: EvidenceDoc[] = [
   {
     id: 'adoption-track',
     name: 'Adoption Track Note (1 side)',
-    status: 'ikke-startet',
+    status: 'utkast',
   },
   {
     id: 'finance-note',
     name: 'Finance Note (1 side)',
-    status: 'ikke-startet',
+    status: 'utkast',
   },
   {
     id: 'roadmap',
     name: 'Roadmap (1-3 ar)',
-    status: 'ikke-startet',
+    status: 'utkast',
   },
   {
     id: 'executive-brief',
     name: 'Executive Brief (1 side)',
-    status: 'ikke-startet',
+    status: 'ferdig',
   },
 ]
