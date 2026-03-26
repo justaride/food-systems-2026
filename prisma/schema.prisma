@@ -518,10 +518,12 @@ model KPI {
 }
 
 model TenStep {
-  step   Int    @id
-  theme  String
-  output String
-  status String @default("ikke-startet")
+  step        Int     @id
+  theme       String
+  output      String
+  status      String  @default("ikke-startet")
+  methodology String?
+  description String?
 }
 
 model EvidenceDoc {

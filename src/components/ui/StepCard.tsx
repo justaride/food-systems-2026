@@ -17,6 +17,12 @@ export function StepCard({ step }: StepCardProps) {
           <StatusBadge status={step.status} />
         </div>
         <p className="text-xs text-stone-500 mt-1">{step.output}</p>
+        {step.description && (
+          <p className="text-xs text-stone-400 mt-1.5 leading-relaxed">{step.description}</p>
+        )}
+        {step.methodology && (
+          <p className="text-[10px] text-emerald-600/70 mt-1 font-medium">{step.methodology}</p>
+        )}
       </div>
     </div>
   )

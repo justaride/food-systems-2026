@@ -4,7 +4,7 @@
 **Myndighet:** Konkurrence- og Forbrugerstyrelsen (Danmark)
 **Dato:** 26. mars 2025
 **Dokumenttype:** Konkurransevedtak (Fase II)
-**Originalfil:** research/evidence-pack/nordisk/dk-salling-coop-decision-2025.pdf
+**Originalfil:** research/evidence-pack/nordisk/kfst-salling-coop-2025-full.pdf
 
 ## Sammendrag
 Konkurrencerådet godkjente Salling Groups overtakelse av 33 butikker fra Coop Danmark. Opprinnelig gjaldt avtalen 35 butikker, men to butikker ble tatt ut av handelen etter konkurransebekymringer i lokale markeder (Taastrup og Slagelse).

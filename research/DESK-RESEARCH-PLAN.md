@@ -287,7 +287,7 @@ Se også:
 - UiB Institutt for økonomi — industriell organisasjon
 - NTNU — logistikk og verdikjedestyring i matbransjen
 
-**Søk gjennomført:** 13. mars 2026. Funnet: Gangstøe (UiB/BECCLE, 2019) om hemmelige kontrakter. I tillegg identifisert ~25 oppgaver fra UiO, UiB/BECCLE, NTNU og NMBU — se `research/nordic-theses-bibliography.md` for komplett liste.
+**Søk gjennomført:** 13. mars 2026. Funnet: Gangstøe (UiB/BECCLE, 2019) om hemmelige kontrakter. I tillegg identifisert ~25 oppgaver fra UiO, UiB/BECCLE, NTNU og NMBU — se `research/bibliotek/akademia/nordic-theses-bibliography.md` for komplett liste.
 
 **Lagres i:** `research/bibliotek/akademia/andre-norske/`
 
@@ -631,4 +631,4 @@ Når du har hentet en kilde, loggfør den i `research/bibliotek/KILDEREGISTER.md
 
 ---
 
-*Dette dokumentet er et arbeidsdokument. Oppdater det fortløpende mens du henter kilder. Kryssreferér med `source-scouting-2026-03-10.md` for datasettene som allerede er identifisert der.*
+*Dette dokumentet er et arbeidsdokument. Oppdater det fortløpende mens du henter kilder. Kryssreferér med `research/analyse/source-scouting-2026-03-10.md` for datasettene som allerede er identifisert der.*

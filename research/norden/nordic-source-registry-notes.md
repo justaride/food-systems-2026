@@ -94,7 +94,7 @@ Dette registeret dekker ikke alt som prosjektet kan trenge senere. Særlig mangl
 ## Relaterte filer
 
 - `research/norden/nordisk-offentlig-kildemappe.md`
-- `research/source-scouting-2026-03-10.md`
+- `research/analyse/source-scouting-2026-03-10.md`
 - `research/norden/nordisk-komparativ-analyse.md`
 - `research/data/fetch_nordic_registry_metadata.py`
 - `research/norden/nordic-statistics-mcp-note.md`

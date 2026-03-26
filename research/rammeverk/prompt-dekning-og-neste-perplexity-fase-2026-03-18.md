@@ -31,7 +31,7 @@ Konklusjonen er derfor:
 | Promptfamilie | Opprinnelige prompts | Nåværende dekning | Anbefaling |
 |---|---|---|---|
 | Nordisk markedsstruktur | `nordisk-en-market-structure` | `research/norden/nordisk-markedsstruktur-data-2026.md`, `research/perpl-17-03/Nordisk Dagligvaremarked  Markedsstruktur og Validering 2024–2026.md` | Ta ut av aktiv kø |
-| Norske og nordiske avhandlinger | `forskning-no-masteroppgaver` | `research/perpl-17-03/Nordiske avhandlinger og masteroppgaver om matsystemer, dagligvare og matpolitikk (2010–2026).md`, `research/nordic-theses-bibliography.md`, `research/bibliotek/akademia/masteroppgaver/` | Ta ut av aktiv kø |
+| Norske og nordiske avhandlinger | `forskning-no-masteroppgaver` | `research/perpl-17-03/Nordiske avhandlinger og masteroppgaver om matsystemer, dagligvare og matpolitikk (2010–2026).md`, `research/bibliotek/akademia/nordic-theses-bibliography.md`, `research/bibliotek/akademia/masteroppgaver/` | Ta ut av aktiv kø |
 | Offentlige rapporter / policygrunnlag | `offentlig-no-nouer`, `offentlig-no-riksrevisjonen`, `offentlig-no-meldinger`, deler av `offentlig-no-konkurransetilsynet` | `research/bibliotek/offentlig-rapportlogg-prioritert.md`, `research/perpl-17-03/Prioritert masterlogg  Offentlige rapporter om matsystemer, dagligvaremakt, selvforsyning og matsikkerhet (2010–2026).md`, `research/norden/nordisk-offentlig-kildemappe.md` | Ta ut av aktiv kø |
 | Nordisk regulatorikk / UTP | `reg-en-eu-utp`, store deler av `reg-en-competition-law` | `research/regulatory/nordic-regulatorisk-sammenligning-2026.md`, `research/norden/regulatory-policy-landscape-nordic.md` | Ta ut av aktiv kø |
 | Selvforsyning og beredskap | `nordisk-en-self-sufficiency`, `matsikkerhet-no-selvforsyning`, `matsikkerhet-no-finsk-modell` | `research/norden/nordisk-selvforsyning-beredskap-2026.md`, `research/bibliotek/beredskap/finsk-modell-hvk.md`, `research/bibliotek/beredskap/nibio-selvforsyning-metode.md` | Ta ut av aktiv kø |
@@ -123,4 +123,3 @@ Fra den **operative** promptkøen bør de dekkede promptfamiliene i seksjon 2 be
 
 **Neste oppryddingssteg hvis ønskelig:**  
 Legg inn et faktisk statusfelt i promptmodellen (`aktiv`, `arkivert`, `delvis`, `erstattet`) og la UI-et vise bare aktive prompts.
-

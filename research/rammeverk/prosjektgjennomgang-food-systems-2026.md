@@ -57,7 +57,7 @@ De viktigste styrings- og kontekstdokumentene er:
 - `research/RESEARCH-EXECUTION-PLAN.md`
 - `research/VERDIKJEDE-KARTLEGGING-PLAN.md`
 - `research/whitepaper/gap-list.md`
-- `research/meeting-4-research-focus.md`
+- `research/analyse/meeting-4-research-focus.md`
 - `research/norden/nordisk-offentlig-kildemappe.md`
 - `research/norden/nordic-source-registry-notes.md`
 
