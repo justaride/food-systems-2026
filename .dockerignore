@@ -1,0 +1,10 @@
+.git
+.next
+node_modules
+output
+tmp
+.env
+.env.*
+.claude
+.agent
+.DS_Store
