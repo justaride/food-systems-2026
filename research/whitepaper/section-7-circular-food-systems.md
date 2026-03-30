@@ -1,8 +1,8 @@
 # 7. Sirkulære matsystemer i Norden
 
 **Seksjon 7 av NCH-rapporten «Food Systems in Transition»**
-**Dato:** 23. mars 2026
-**Status:** Komplett utkast — klar for intern gjennomgang
+**Dato:** 30. mars 2026
+**Status:** Komplett utkast — oppdatert med PubMed wave 1-analyse
 
 ---
 
@@ -15,6 +15,19 @@ Et sirkulært matsystem skiller seg fundamentalt fra sirkulær økonomi for indu
 Wageningen University & Research (WUR) definerer et sirkulært matsystem som et system der «planter er de primære produsentene, og dyr ikke lenger primært holdes for å produsere mat, men for å resirkulere biomasse som ikke er egnet til humant konsum» (De Boer & Van Ittersum, 2018). Ellen MacArthur Foundation (EMF) supplerer med et regenerativt perspektiv: mat skal dyrkes regenerativt, og biprodukter ledes til sin høyeste verdi. I EMFs butterfly-diagram opererer matsystemer nesten utelukkende i den biologiske sirkelen (høyre side) — i motsetning til tekstiler, elektronikk og byggematerialer som primært tilhører den tekniske sirkelen (venstre side).
 
 **Operativ kjerne:** Matsystemsirkularitet handler om å maksimere verdien av all biomasse som allerede er produsert — gjennom forebygging av svinn, redistribusjon av overskudd, oppgradering av sidestrømmer og tilbakeføring av næringsstoffer til jord.
+
+### Mattrygghet som gate-kriterium
+
+Nyere wave 1-litteratur fra Wageningen/npj Science of Food korrigerer en vanlig svakhet i sirkularitetsdebatten: at "mer lukket kretsløp" automatisk antas å være bedre. `van der Fels-Klerx et al. (2024)` og `van Leeuwen et al. (2024)` viser at sirkularitet også kan øke sannsynligheten for at kjemiske og mikrobiologiske farer sirkulerer eller akkumulerer, særlig når avfalls- og sidestrømmer føres tilbake til jordbruk, fôr eller matproduksjon.
+
+Dette gjelder spesielt:
+
+- gjødsel og andre organiske innsatsfaktorer
+- insektsubstrater og oppsirkulert fôr
+- swill og tidligere matvarer
+- avløpsvann, PFAS og andre kjemiske kontaminanter
+
+**Konsekvens for denne rapporten:** Et tiltak er ikke analytisk robust bare fordi det "lukker et kretsløp". Sirkularitet må passere et gate-kriterium for mattrygghet, sporbarhet og regulatorisk egnethet før det kan omtales som en systemisk forbedring.
 
 ### Biomassekaskaden
 
@@ -74,6 +87,8 @@ Norge har oppnådd en dokumentert reduksjon på 24 % i forholdsmessig matsvinn p
 **Husholdningene** er den største utfordringen. Med 215 000 tonn årlig (53 % av totalen) og bare -5 % per capita-reduksjon på ni år, er dette sektoren der Norges 2030-mål står eller faller. Frukt/grønnsaker, brød/bakervarer og matrester dominerer. Matsvinnloven (2026) kan gjøre forskjell gjennom prisnedsettelseskrav som reduserer overskudd i butikk, men husholdningsatferd krever kampanjer og nudging-tiltak.
 
 **Matindustrien** (-12 %) har redusert svinn gjennom prosessoptimalisering og sidestrømsvalosering, men det gjenværende svinnet (80 000 tonn) representerer et betydelig verdiskapingspotensial.
+
+**Storhusholdning / HORECA** (-10 %) er et felt der styring og måling ser ut til å være like viktig som holdningsarbeid. En ny multi-case-studie fra fem HORECA-virksomheter i Tyskland, Sveits og Hellas (`Sigala et al., 2025`) fant 23-51 % reduksjon i matsvinn i 4 av 5 case når AI-basert waste-tracking ble kombinert med konkrete driftsendringer som opplæring, porsjonsjusteringer og bedre etterspørselsstyring. Poenget er ikke at KI alene løser problemet, men at systematisk måling kan gjøre matsvinn operasjonelt styrbart.
 
 ### Gapet til 2030-målet
 
@@ -184,6 +199,8 @@ Matsentralens 6 000 tonn/år utgjør bare ~3 % av bransjens kasserte mat. Med ma
 
 #### 3. Lukking av biogassgapet
 
+Biogass bør samtidig forstås som mer enn en energihistorie. Norsk forskning viser både at mesofil samråtning av matavfall og husdyrgjødsel kan gi reelle synergier (`Zamanzadeh et al., 2017`), og at digestat kan fungere som bærer for bakterier som reduserer N2O-utslipp betydelig i jord (`Hiis et al., 2024`). Dette styrker argumentet for å behandle biogass og biorest som en plattform for energi, næringsstoffer og klimaeffekt — men ikke som toppunktet i biomassekaskaden. Høyere verdinivåer må fortsatt vurderes først.
+
 Norge produserer 828 GWh biogass — **11x mindre enn Danmark** (>8 000 GWh). Potensialet er 5,5–11 TWh. Gapet skyldes virkemiddeldesign: Danmark ga 20-års forutsigbare subsidier; Norge har hatt kortsiktige ordninger. NCH bør anbefale dansk-inspirert langsiktig feed-in-premium (20 år) for å utløse investering i de 100–160 nye anleggene som kreves. Fiskeslam fra akvakultur (3 TWh potensial) er en unik norsk mulighet som ikke har noe motstykke i andre nordiske land.
 
 #### 4. Offentlig innkjøp etter København-modellen
@@ -227,6 +244,10 @@ NCH er unikt posisjonert til å bygge denne broen: mellom norsk regulering, dans
 - Ellen MacArthur Foundation (2019). *Cities and Circular Economy for Food*.
 - Nordisk Ministerråd (2021). *Nordic Bioeconomy Programme*.
 - NKJ White Paper (2024). *Nordic Circular Food Systems*.
+- van der Fels-Klerx, H.J. et al. (2024). *Framework for evaluation of food safety in the circular food system*. npj Science of Food.
+- van Leeuwen, S.P.J. et al. (2024). *A novel approach to identify critical knowledge gaps for food safety in circular food systems*. npj Science of Food.
+- Javourez, U., O'Donohue, M. & Hamelin, L. (2021). *Waste-to-nutrition: a review of current and emerging conversion pathways*. Biotechnology Advances.
+- Wohner, B. et al. (2020). *Environmental and economic assessment of food-packaging systems with a focus on food waste*. Science of the Total Environment.
 
 ### Offentlig innkjøp
 - Future of Food Foundation (2024). *How Copenhagen's Public Kitchens Achieved 84% Organic Food*.
@@ -238,9 +259,13 @@ NCH er unikt posisjonert til å bygge denne broen: mellom norsk regulering, dans
 - Biogass Norge (2025). *Biogassplattformen*.
 - Biogas Danmark (2025). *Biogas Outlook 2025*.
 - Energigas Sverige (2025). *Biogas statistics*.
+- Zamanzadeh, M. et al. (2017). *Biogas production from food waste via co-digestion and digestion-effects on performance and microbial ecology*. Scientific Reports.
+- Hiis, E.G. et al. (2024). *Unlocking bacterial potential to reduce farmland N2O emissions*. Nature.
 
 ### Redistribusjon og sirkulær innovasjon
 - Matsentralen Norge (2024). *Årsdata 2024: 6 000 tonn redistribuert*.
 - Too Good To Go (2024). *Annual Report 2024: DKK 725 mill. omsetning*.
 - REKO-ring Finland/Sverige — Wikipedia, EkoNu.fi, ATL.nu.
 - Tracxn (2026). *Top Food Tech Startups in Nordics*.
+- Sigala, E.G. et al. (2025). *Reducing food waste in the HORECA sector using AI-based waste-tracking devices*. Waste Management.
+- Szulecka, J., Bradshaw, C. & Principato, L. (2024). *Food Waste Governance Architectures in Europe*. Global Challenges.
