@@ -69,6 +69,12 @@ Dette registeret inneholder alle primære og sekundære kilder benyttet i de fir
     *   Menon Economics (2026). *Utredning om funksjonelt skille i dagligvarekjeden*. Rapport nr. 04/2026, utført på oppdrag for Nærings- og fiskeridepartementet.
     *   Oslo Economics (2024). *Konkurranseanalyse av grossistmarkedet for dagligvarer*. Rapport 2024-12.
 
+*   **Peer-reviewed journalartikler / PubMed-tranche (status 30. mars 2026):**
+    *   PubMed-søket fra 19. mars 2026 er operasjonalisert i [pubmed-soek-2026-03-19-gap-analyse.md](/Users/gabrielboen/Documents/Food%20Systems%202026/research/bibliotek/pubmed-soek-2026-03-19-gap-analyse.md) og [pubmed-wave1-index-2026-03-30.md](/Users/gabrielboen/Documents/Food%20Systems%202026/research/bibliotek/pubmed-wave1-index-2026-03-30.md).
+    *   Wave 1-status: 9 lokale PDF-er, 6 metadata-only poster og 1 artikkel med fortsatt tilgangsproblem.
+    *   Lokale PDF-er ligger i [research/evidence-pack/akademia/pubmed](/Users/gabrielboen/Documents/Food%20Systems%202026/research/evidence-pack/akademia/pubmed), og arbeidsnotene ligger i [research/bibliotek/akademia/pubmed](/Users/gabrielboen/Documents/Food%20Systems%202026/research/bibliotek/akademia/pubmed).
+    *   Nedlastede wave 1-artikler inkluderer van der Fels-Klerx et al. (2024), van Leeuwen et al. (2024), Javourez et al. (2021), Zamanzadeh et al. (2017), Sigala et al. (2025), Wohner et al. (2020), Szulecka et al. (2024), Recanati et al. (2019) og Hiis et al. (2024).
+
 *   **Masteroppgaver:**
 
     **Norge (NHH):**

@@ -1,6 +1,6 @@
 # Research Corpus Audit -- Food Systems 2026
 
-**Oppdatert:** 26. mars 2026
+**Oppdatert:** 30. mars 2026
 **Formaal:** Oversikt over forskningsmaterialets tilstand, dybde og gap per kategori. Brukes som referanse for videre forskning.
 **Totalvolum:** 316 markdown-filer i biblioteket, 65 PDF-er i evidence pack, 70 avhandlinger i databasen, 61 rapporter, 126 kildedokumenter
 
@@ -8,7 +8,7 @@
 
 ## Sammendrag
 
-Tabellen under er opprinnelig audit-snapshot per kategori. Se `Statusoppdatering 26. mars 2026` under for gjennomforte tiltak etter audit-gjennomgangen.
+Tabellen under er opprinnelig audit-snapshot per kategori. Se `Statusoppdatering 26. mars 2026` og `Statusoppdatering 30. mars 2026` under for gjennomforte tiltak etter audit-gjennomgangen.
 
 | Kategori | Filer | Dybde (1-5) | Kvalitet | Prioriterte gap |
 |----------|-------|-------------|----------|-----------------|
@@ -51,6 +51,14 @@ Tabellen under er opprinnelig audit-snapshot per kategori. Se `Statusoppdatering
 - Nordisk avhandlingsregister har naa individuell dekning for alle 70 registerposter.
 - Register-til-fil-diff for avhandlingssporet er verifisert til `0`.
 - Videre arbeid paa akademia-sporet er derfor ikke backlog-lukking, men nye soeketrancher, spraklig bredde og database/app-synk.
+
+## Statusoppdatering 30. mars 2026
+
+- De 9 lokale PubMed wave 1-PDF-ene i `research/evidence-pack/akademia/pubmed/` er naa oppgradert fra korte stubbnoter til utvidede evidensnoter i biblioteket.
+- Hver note inneholder naa metode/studiedesign, datagrunnlag/geografi, konkrete funn, begrensninger/overfoerbarhet, koblinger til prosjektspor og forelopig kildevurdering.
+- Tverrgaaende syntese for wave 1 er skrevet i `research/analyse/pubmed-wave1-syntese-2026-03-30.md`.
+- De 6 metadata-only-postene og 1 blokkert artikkel i samme wave er naa oppgradert til abstract-baserte arbeidsnoter med journalmetadata, hovedfunn, begrensninger og forelopig vurdering.
+- Wave 1-restlisten er dermed ikke lenger et foerste analysepass, men et separat oppfoelgingsspor for fulltekstinnhenting og eventuell fordypning for 7 restposter.
 
 ---
 
@@ -963,15 +971,15 @@ Disse tre kategoriene overlapper og er for tynne. Regulering-mappen har kun 1 fi
 ## 28. Evidence Pack
 
 **Sti:** `research/evidence-pack/`
-**Totalt:** 65 PDF-er + diverse planeringsfiler
+**Totalt:** 74 PDF-er + diverse planeringsfiler
 
 ### Innhold per mappe
 | Mappe | Filer | Innhold |
 |-------|-------|---------|
-| akademia/ | 10 | Masteroppgaver og PhD-avhandlinger (PDF) |
-| arsrapporter/ | 10 | NorgesGruppen, Coop, Reitan, Axfood, ICA, Kesko, Coop DK, Hagar |
-| nordisk/ | 10 | KFST-vedtak, Konkurrensverket, KKV, Karlstad, Nordic Food Alert |
-| offentlig/ | 10 | Dagligvaretilsynet, EMV-kartlegging, EU UTP, Meld. St. 4 og 11, NIBIO |
+| akademia/ | 25 | 16 masteroppgaver/PhD/andre akademia-PDF-er + 9 peer-reviewed journalartikler i `akademia/pubmed/` |
+| arsrapporter/ | 11 | NorgesGruppen, Coop, Reitan, Axfood, ICA, Kesko, Coop DK, Hagar |
+| nordisk/ | 13 | KFST-vedtak, Konkurrensverket, KKV, Karlstad, Nordic Food Alert |
+| offentlig/ | 15 | Dagligvaretilsynet, EMV-kartlegging, EU UTP, Meld. St. 4 og 11, NIBIO |
 | tilsyn/ | 10 | Dagligvarerapporter, marginstudier, prisjeger, samarbeidsklima, innkjoepspriser |
 
 ### Planleggingsfiler
@@ -979,16 +987,21 @@ Disse tre kategoriene overlapper og er for tynne. Regulering-mappen har kun 1 fi
 - `adoption-track.md` -- Brukersporing
 - `statusrapport-mars-2026.md` -- Statusrapport
 - `download-backlog-2026-03-18.csv` -- Nedlastningsbacklog
+- `pubmed-wave1-manifest-2026-03-30.jsonl` -- Maskinlesbart manifest for PubMed wave 1
 
 ### Styrker
 - Systematisk organisert med tydelige kategorier
 - Norske tilsynsrapporter er nesten komplett
 - Nordiske arsrapporter dekker alle store aktoeerer
+- Egen journalartikkelbase er etablert i `research/evidence-pack/akademia/pubmed/` med 9 lokale peer-reviewed PDF-er
 
 ### Gap og neste steg
 - [ ] 5 arsrapporter er lastet ned men ikke oppsummert i biblioteket
 - [ ] S-Group og Salling Group arsrapporter mangler
-- [ ] Akademiske artikler (journal papers) -- ingen PDF-er av peer-reviewed artikler
+- [x] Fullanalyse er gjennomfort for de 9 nedlastede PubMed wave 1-artiklene
+- [x] Tverrgaaende syntese er opprettet i `research/analyse/pubmed-wave1-syntese-2026-03-30.md`
+- [ ] 6 PubMed wave 1-poster er forelopig kun metadata/noter uten lokal PDF
+- [ ] Parra-Lopez & Carmona-Torres (2026) mangler fortsatt PDF/fullteksttilgang
 - [ ] SIFO-rapporter -- ingen PDF-er
 - [ ] Nordiske ministerraadsrapporter -- ingen PDF-er
 
@@ -1068,9 +1081,11 @@ Disse tre kategoriene overlapper og er for tynne. Regulering-mappen har kun 1 fi
 15. [x] Rotnivaa-filer: ryddet og flyttet til riktigere mapper
 
 ### Naturlige neste steg
-1. Ny soeketranche for avhandlinger og working papers etter mars 2026, særlig finsk- og islandskspraaklige spor
-2. Synk `theses.ts` og resten av app-/database-laget eksplisitt mot den naa fullfoerte bibliotekdekningen
-3. Samlet sluttreview av hele lavprioritetsblokken dersom den skal formaliseres som egen leveransepakke
+1. Hent fulltekst/PDF for de 7 gjenvaerende PubMed wave 1-postene og oppgrader abstract-notene der tilgang lar seg sikre
+2. Bruk `research/analyse/pubmed-wave1-syntese-2026-03-30.md` direkte i whitepaperets sirkularitets-, matsvinn- og policyspor
+3. Ny soeketranche for avhandlinger og working papers etter mars 2026, saerlig finsk- og islandskspraaklige spor
+4. Synk `theses.ts` og resten av app-/database-laget eksplisitt mot den naa fullfoerte bibliotekdekningen
+5. Samlet sluttreview av hele lavprioritetsblokken dersom den skal formaliseres som egen leveransepakke
 
 ---
 
