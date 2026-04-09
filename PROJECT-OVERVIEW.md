@@ -40,28 +40,36 @@ Gabriel Freeman og Cathrine Barth leder **Food Systems Transition Group** under 
 
 ---
 
-### Søknad 2: NCH 2025 - Forprosjekt (INNVILGET)
+### Søknad 2: NCH 2025 Transition Groups (INNVILGET — kontrakt P25013)
 
 | | |
 |---|---|
-| **Kontekst** | Etter avslaget søkte NCH om midler for å starte 4 transition groups |
+| **Kontrakt** | 201-2503-P25013, signert 16. oktober 2025 |
+| **Program** | 201 – Innovative Solutions for 2030 (Nordic Innovation) |
+| **Periode** | 8. august 2025 – 31. juli 2026 |
+| **Total budsjett** | NOK 3 000 000 (NI 1.5M + konsortium 1.5M in-kind) |
+| **WP3 Food Systems** | NOK 500 000 (250k NI + 250k in-kind) |
+| **WP3 Lead** | Natural State (NO) |
 | **Food Systems-team** | Gabriel Freeman & Cathrine Barth |
-| **Leveranse** | Innsiktsrapport / whitepaper (juni 2026) |
-| **Formål** | Mulighetsstudie + aktørkartlegging + søknadsklar concept note |
+| **Hovedleveranse** | Strategic roadmap + offentlig online event (M17, juni/juli 2026) |
 
-**De 4 transition groups (2026):**
-1. Corporate Transition
-2. **Food Systems** (NMBU / Vestland grønn region / Nordic Edge)
-3. Circular Textile
-4. Circular Cities
+**De 4 transition groups i kontrakten:**
+1. WP1 Nordic Circular Cities (NOK 500k, lead Natural State)
+2. WP2 Nordic Circular Business/Corporate (NOK 1M, lead Cradlenet SE)
+3. **WP3 Nordic Circular Food Systems** (NOK 500k, lead Natural State)
+4. WP4 Nordic Circular Textile (NOK 1M, lead Lifestyle and Design Cluster DK)
 
-**Hva skal leveres:**
-- Whitepaper med mulighetsstudie
-- Aktørkartlegging og innsikt
-- Concept note med partnere klar til videre søknader
-- Regulatorisk kartlegging
-- Strategisk konklusjon på videre arbeid
-- Evaluering av nordisk merverdi (juni)
+**Seks kontraktsmilepæler for WP3 (M13–M18):**
+1. Recruit and engage relevant stakeholders
+2. Define a contextually relevant plan for activities within the TG
+3. Execute workshops and other relevant activities
+4. Write a strategic roadmap that summarizes key insights
+5. **Publish the roadmap and present results in a public online event**
+6. Discuss possible next steps and make plan for further action
+
+**Referanser:**
+- Full kontraktsekstrakt: `research/external/nch-contract/contract-201-2503-P25013.md`
+- Navigasjonsdokument for leveransestrategi: `research/rammeverk/leveranseplan-wp3-food-systems.md`
 
 ---
 
