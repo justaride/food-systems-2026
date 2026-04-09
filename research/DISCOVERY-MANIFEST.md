@@ -79,7 +79,7 @@ Sti: `~/Documents/Bærekraft Kartlegging Prosjekt/50 - Sektor-fokus (SEC)/51 - M
 |---|--------|-----------|----------|--------|
 | N3 | **Food** | `31ef447d5b4380f9a141e80492a644ad` | Placeholder-oppgave i leveransedatabase, ingen innhold | Ikke importert |
 | N4 | **Coffee** | `31ef447d5b43802681c6d7f6da82187a` | Placeholder-oppgave, kobling til kaffeprosjektet | Ikke importert |
-| N5 | **Nordic Circular Transition Groups** | `29cf447d5b438060a56aec6043148f5d` | Fakturerings-/avtalerecord, case 201-2503-P Nordic | Ikke importert |
+| N5 | **Nordic Circular Transition Groups** | `29cf447d5b438060a56aec6043148f5d` | Fakturerings-/avtalerecord, case 201-2503-P25013 — kontrakt signert 16.10.2025, NOK 3M total (NI 1.5M), WP3 Food Systems = NOK 500k | Importert → `research/external/nch-contract/contract-201-2503-P25013.md` (+ PDF-kopi) |
 | N6 | **Planlegging av søknad til NI** | `264f447d5b4380dc8687f6c7777ae826` | NI-søknadsplanlegging — men fokus er bygg/konstruksjon, ikke mat | Ikke importert |
 | N8 | **Funding Map** | `320f447d5b438113aaf0f34fce1ec699` | Natural States interne funding-verktøy, Horizon/NI/Interreg muligheter | Importert → `research/external/notion/funding-map.md` |
 | N9 | **Ta kontakt kaffe/Fuglen** | `317f447d5b43816f8d76c7b97acb6c41` | Fullført oppgave, Fuglen-kontakt | Ikke importert |
