@@ -1660,4 +1660,23 @@ export const theses: Thesis[] = [
     degree: 'master',
     publisher: 'Lund University',
   },
+  {
+    id: 'rey-verge-2005',
+    authors: 'Rey & Vergé',
+    institution: 'Akademia (europeisk)',
+    year: 2005,
+    title: 'The economics of vertical restraints',
+    url: '',
+    synthesis: 'Klassisk akademisk arbeid om vertikale restriksjoner i verdikjeder. Teoretisk fundament for å forstå hvordan kontraktsvilkår mellom produsent og detaljist påvirker konkurranse og velferd.',
+    keyFindings: [
+      'Fulltekst ikke enriched — se PDF for detaljer',
+    ],
+    tags: ['regulering', 'verdikjede', 'makt'],
+    takeaways: [
+      'Teoretisk rammeverk for analyse av vertikale kontraktsforhold i dagligvare',
+    ],
+    method: 'Økonomisk teori og litteraturgjennomgang',
+    degree: 'phd',
+    publisher: 'Akademia',
+  },
 ]

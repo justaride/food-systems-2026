@@ -1,0 +1,840 @@
+{
+  "generatedAt": "2026-04-09T14:09:40.448Z",
+  "theses": {
+    "jacobsen-jansson-2022": {
+      "pdf": "evidence-pack/akademia/jacobsen-jansson-2022-black-sheep.pdf",
+      "score": 22,
+      "confidence": "high",
+      "why": "id-boundary+author-jacobsen+year-2022+title-black,sheep"
+    },
+    "drager-vagene-2017": {
+      "pdf": "evidence-pack/akademia/drager-vagene-2017.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+author-drager+year-2017"
+    },
+    "martens-norum-2020": {
+      "pdf": "evidence-pack/akademia/martens-norum-2020.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+author-martens+year-2020"
+    },
+    "fretheim-rodnova-2020": {
+      "pdf": "evidence-pack/akademia/fretheim-rodnova-2020.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+author-fretheim+year-2020"
+    },
+    "selmani-forre-2023": {
+      "pdf": "evidence-pack/akademia/selmani-forre-2023.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+author-selmani+year-2023"
+    },
+    "skulstad-svensson-2024": {
+      "pdf": "evidence-pack/akademia/skulstad-svensson-2024.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+author-skulstad+year-2024"
+    },
+    "skjervheim-flo-2016": {
+      "pdf": "evidence-pack/akademia/skjervheim-flo-2016.pdf",
+      "score": 22,
+      "confidence": "high",
+      "why": "exact-id+year-2016"
+    },
+    "gangstoe-2019": {
+      "pdf": "evidence-pack/akademia/gangstoe-2019-uib.pdf",
+      "score": 18,
+      "confidence": "high",
+      "why": "id-boundary+author-gangstoe+year-2019"
+    },
+    "meile-2020": {
+      "pdf": "evidence-pack/akademia/meile-2020.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+author-meile+year-2020"
+    },
+    "huynh-mortensen-2025": {
+      "pdf": "evidence-pack/akademia/huynh-mortensen-2025.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+author-huynh+year-2025"
+    },
+    "nilsen-paulsen-2025": {
+      "pdf": "evidence-pack/akademia/nilsen-paulsen-2025.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+author-nilsen+year-2025"
+    },
+    "ulsaker-phd-2016": {
+      "pdf": "evidence-pack/akademia/ulsaker-phd-thesis.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "brancoli-phd-2021": {
+      "pdf": "evidence-pack/akademia/brancoli-phd-2021.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "lehtokunnas-phd-2023": {
+      "pdf": "evidence-pack/akademia/lehtokunnas-phd-2023.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "sorensen-phd-2016": {
+      "pdf": "evidence-pack/akademia/sorensen-phd-2016-danish-public-kitchens.pdf",
+      "score": 27,
+      "confidence": "high",
+      "why": "id-boundary+author-sorensen+year-2016+title-3tok"
+    },
+    "kayhan-ronnback-2019": {
+      "pdf": "evidence-pack/akademia/kayhan-ronnback-2019.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "hasle-tjostheim-2024": {
+      "pdf": "evidence-pack/akademia/hasle-tjostheim-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "lindstrom-phd-2021": {
+      "pdf": "evidence-pack/akademia/lindstrom-phd-2021.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "adlers-2022": {
+      "pdf": "evidence-pack/akademia/adlers-2022.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "nikolaev-2023": {
+      "pdf": "evidence-pack/akademia/nikolaev-2023.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "khandaker-2021": {
+      "pdf": "evidence-pack/akademia/khandaker-2021.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "sturen-2023": {
+      "pdf": "evidence-pack/akademia/sturen-2023.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "tanderup-rasmussen-hansen-2023": {
+      "pdf": "evidence-pack/akademia/tanderup-rasmussen-hansen-2023.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "jorgensen-ahmadi-2024": {
+      "pdf": "evidence-pack/akademia/jorgensen-ahmadi-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "mattila-2024": {
+      "pdf": "evidence-pack/akademia/mattila-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "makela-2023": {
+      "pdf": "evidence-pack/akademia/makela-2023.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "ortiz-cuadra-2023": {
+      "pdf": "evidence-pack/akademia/ortiz-cuadra-2023.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "stahl-2024": {
+      "pdf": "evidence-pack/akademia/stahl-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "zakeri-lei-2024": {
+      "pdf": "evidence-pack/akademia/zakeri-lei-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "duong-2025": {
+      "pdf": "evidence-pack/akademia/duong-2025.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "rislakki-2024": {
+      "pdf": "evidence-pack/arsrapporter/reitan-retail-2024.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-retail,retail"
+    },
+    "rey-verge-2005": {
+      "pdf": "evidence-pack/akademia/rey-verge-2005.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    }
+  },
+  "reports": {
+    "nou-2011-4": {
+      "pdf": "evidence-pack/offentlig/nou-2011-4-mat-makt-avmakt.pdf",
+      "score": 18,
+      "confidence": "high",
+      "why": "id-boundary+year-2011+title-makt,avmakt"
+    },
+    "nou-2022-14": {
+      "pdf": "evidence-pack/offentlig/nou-2022-14.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "meld-st-11-selvforsyning": {
+      "pdf": "evidence-pack/offentlig/meld-st-11-selvforsyning-2024.pdf",
+      "score": 14,
+      "confidence": "medium",
+      "why": "id-boundary+year-2024"
+    },
+    "riksrevisjonen-matsikkerhet-2023": {
+      "pdf": "evidence-pack/offentlig/riksrevisjonen-matsikkerhet-2023.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+year-2023+title-riksrevisjonen,matsikkerhet"
+    },
+    "sou-2024-8-svensk-beredskap": {
+      "pdf": "evidence-pack/nordisk/sou-2024-8-livsmedelsberedskap.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "kt-dagligvarerapport-2024": {
+      "pdf": "evidence-pack/tilsyn/dagligvarerapport-2024.pdf",
+      "score": 22,
+      "confidence": "high",
+      "why": "exact-id-stripped+title-dagligvarerapport,2024"
+    },
+    "kt-marginstudie-2024-del1": {
+      "pdf": "evidence-pack/tilsyn/marginstudie-2024-del1-offisiell.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "kt-marginstudie-2025-del2": {
+      "pdf": "evidence-pack/tilsyn/marginstudie-2025-del2-offisiell.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "kt-prisjeger-saken-2024": {
+      "pdf": "evidence-pack/tilsyn/prisjeger-saken-2024-offentlig-versjon.pdf",
+      "score": 16,
+      "confidence": "medium",
+      "why": "id-stripped-boundary+year-2024+title-prisjeger,saken"
+    },
+    "kt-innkjopspriser-2017-2023": {
+      "pdf": "evidence-pack/tilsyn/innkjopspriser-2017-2023.pdf",
+      "score": 27,
+      "confidence": "high",
+      "why": "exact-id-stripped+title-3tok"
+    },
+    "kt-prisjusteringsvinduer-2023": {
+      "pdf": "evidence-pack/tilsyn/prisjusteringsvinduer-2023.pdf",
+      "score": 22,
+      "confidence": "high",
+      "why": "exact-id-stripped+year-2023+title-prisjusteringsvinduer"
+    },
+    "nordisk-food-markets-2005": {
+      "pdf": "evidence-pack/nordisk/nordic-food-markets-2005.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "kfst-salling-coop-2025": {
+      "pdf": "evidence-pack/nordisk/kfst-salling-coop-2025-full.pdf",
+      "score": 18,
+      "confidence": "high",
+      "why": "id-boundary+year-2025+title-salling,coop"
+    },
+    "se-konkurrensverket-2024-5": {
+      "pdf": "evidence-pack/nordisk/konkurrensverket-2024-4-dagligvaruhandelns-etablering.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-konkurrensverket,2024"
+    },
+    "dt-samarbeidsklima-2025": {
+      "pdf": "evidence-pack/tilsyn/dagligvaretilsynet-samarbeidsklima-2025.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2025+title-samarbeidsklima,2025"
+    },
+    "menon-funksjonelt-skille-2026": {
+      "pdf": "evidence-pack/offentlig/menon-funksjonelt-skille-2026.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+year-2026+title-funksjonelt,skille"
+    },
+    "coop-2024": {
+      "pdf": "evidence-pack/arsrapporter/coop-danmark-2024.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-coop,2024"
+    },
+    "norgesgruppen-2024-25": {
+      "pdf": "evidence-pack/arsrapporter/norgesgruppen-2024.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-norgesgruppen,2024"
+    },
+    "reitan-2024-25": {
+      "pdf": "evidence-pack/arsrapporter/reitan-retail-2024.pdf",
+      "score": 11,
+      "confidence": "medium",
+      "why": "year-2024+title-3tok"
+    },
+    "oslo-economics-forsvar-2024": {
+      "pdf": "evidence-pack/konsulentrapport/oslo-economics-forsvar-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "fivh-etikk-2025": {
+      "pdf": "evidence-pack/tenketank/fivh-etikk-2025.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "stockholm-resilience-2019": {
+      "pdf": "evidence-pack/tenketank/stockholm-resilience-2019.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "beredskap-nibio-selvforsyning-2026": {
+      "pdf": "evidence-pack/offentlig/nibio-selvforsyning-2026.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2026+title-nibio,2026"
+    },
+    "sirkularitet-matsvinn-2024": {
+      "pdf": "evidence-pack/offentlig/matsvinnutvalget-2024.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-matsvinn,2024"
+    },
+    "akademia-sifo-kundeprogram-2026": {
+      "pdf": "evidence-pack/akademia/akademia-sifo-kundeprogram-2026.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "akademia-nhh-foros-media-2025": {
+      "pdf": "evidence-pack/akademia/akademia-nhh-foros-media-2025.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "asko-barekraft-2024": {
+      "pdf": "evidence-pack/arsrapporter/asko-barekraft-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "axfood-annual-report-2024": {
+      "pdf": "evidence-pack/arsrapporter/axfood-annual-report-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "coop-norge-2024": {
+      "pdf": "evidence-pack/arsrapporter/coop-norge-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "hagar-2024-25": {
+      "pdf": "evidence-pack/arsrapporter/hagar-2024-25.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "ica-gruppen-annual-report-2024": {
+      "pdf": "evidence-pack/arsrapporter/ica-gruppen-annual-report-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "kesko-annual-report-2024": {
+      "pdf": "evidence-pack/arsrapporter/kesko-annual-report-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "salling-group-2024": {
+      "pdf": "evidence-pack/arsrapporter/salling-group-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "is-samkeppni-annual-report-2024": {
+      "pdf": "evidence-pack/nordisk/is-samkeppni-annual-report-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "dk-salling-coop-decision-2025": {
+      "pdf": "evidence-pack/nordisk/dk-salling-coop-decision-2025.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "salling-coop-danmark-2025": {
+      "pdf": "evidence-pack/nordisk/salling-coop-danmark-2025.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "konkurrensverket-summary-2024": {
+      "pdf": "evidence-pack/nordisk/konkurrensverket-summary-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "finland-food-market-ombudsman-2023": {
+      "pdf": "evidence-pack/nordisk/finland-food-market-ombudsman-2023.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "finland-food2030": {
+      "pdf": "evidence-pack/nordisk/finland-food2030.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "karlstad-declaration-2024": {
+      "pdf": "evidence-pack/nordisk/karlstad-declaration-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "nordic-food-alert-2025": {
+      "pdf": "evidence-pack/nordisk/nordic-food-alert-2025.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "dagligvaretilsynet-aarsrapport-2021": {
+      "pdf": "evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2021.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "dagligvaretilsynet-aarsrapport-2022": {
+      "pdf": "evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2022.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "dagligvaretilsynet-aarsrapport-2023": {
+      "pdf": "evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2023.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "dagligvaretilsynet-aarsrapport-2024": {
+      "pdf": "evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "emv-kartlegging-2023": {
+      "pdf": "evidence-pack/offentlig/emv-kartlegging-2023.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "eu-utp-report-2024": {
+      "pdf": "evidence-pack/offentlig/eu-utp-report-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "eu-utp-staff-working-doc-2024": {
+      "pdf": "evidence-pack/offentlig/eu-utp-staff-working-doc-2024.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "nou-2013-6-god-handelsskikk": {
+      "pdf": "evidence-pack/offentlig/nou-2013-6-god-handelsskikk.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "agrianalyse-bondens-andel-2025": {
+      "pdf": "evidence-pack/akademia/agrianalyse-bondens-andel-2025.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    }
+  },
+  "sources": {
+    "src-7": {
+      "pdf": "evidence-pack/offentlig/src-73.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "id-contains"
+    },
+    "src-12": {
+      "pdf": "evidence-pack/offentlig/nou-2011-4-mat-makt-avmakt.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2011+title-makt,avmakt"
+    },
+    "src-14": {
+      "pdf": "evidence-pack/tilsyn/dagligvarerapport-2024.pdf",
+      "score": 29,
+      "confidence": "high",
+      "why": "filename-exact+title-dagligvarerapport,2024"
+    },
+    "src-15": {
+      "pdf": "evidence-pack/tilsyn/dagligvaretilsynet-samarbeidsklima-2025.pdf",
+      "score": 19,
+      "confidence": "high",
+      "why": "filename-contains+year-2025+title-2025"
+    },
+    "src-17": {
+      "pdf": "evidence-pack/arsrapporter/norgesgruppen-halvarsrapport-2025.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2025+title-halvarsrapport,2025"
+    },
+    "src-19": {
+      "pdf": "evidence-pack/akademia/jacobsen-jansson-2022-black-sheep.pdf",
+      "score": 21,
+      "confidence": "high",
+      "why": "filename-contains+year-2022+title-black,sheep"
+    },
+    "src-20": {
+      "pdf": "evidence-pack/akademia/akademia-nhh-foros-media-2025.pdf",
+      "score": 19,
+      "confidence": "high",
+      "why": "filename-contains+year-2025+title-media"
+    },
+    "src-21": {
+      "pdf": "evidence-pack/akademia/sifo-kundeprogram-2026.pdf",
+      "score": 27,
+      "confidence": "high",
+      "why": "filename-exact+year-2026"
+    },
+    "src-23": {
+      "pdf": "evidence-pack/tenketank/stockholm-resilience-2019.pdf",
+      "score": 27,
+      "confidence": "high",
+      "why": "filename-exact+year-2019"
+    },
+    "src-26": {
+      "pdf": "evidence-pack/offentlig/meld-st-11-selvforsyning-2024.pdf",
+      "score": 17,
+      "confidence": "medium",
+      "why": "filename-contains+year-2024"
+    },
+    "src-29": {
+      "pdf": "evidence-pack/offentlig/meld-st-4-2024-2025-dagligvare.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2025+title-2025,2024"
+    },
+    "src-35": {
+      "pdf": "evidence-pack/tenketank/fivh-etikk-2025.pdf",
+      "score": 27,
+      "confidence": "high",
+      "why": "filename-exact+year-2025"
+    },
+    "src-42": {
+      "pdf": "evidence-pack/tilsyn/prisjeger-saken-2024-offentlig-versjon.pdf",
+      "score": 17,
+      "confidence": "medium",
+      "why": "filename-contains+year-2024"
+    },
+    "src-44": {
+      "pdf": "evidence-pack/tilsyn/marginstudie-2024-del1-offisiell.pdf",
+      "score": 17,
+      "confidence": "medium",
+      "why": "filename-contains+year-2024"
+    },
+    "src-45": {
+      "pdf": "evidence-pack/konsulentrapport/oslo-economics-forsvar-2024.pdf",
+      "score": 27,
+      "confidence": "high",
+      "why": "filename-exact+year-2024"
+    },
+    "src-53": {
+      "pdf": "evidence-pack/offentlig/meld-st-4-2024-2025-dagligvare.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2025+title-dagligvare,2025"
+    },
+    "src-54": {
+      "pdf": "evidence-pack/arsrapporter/reitan-retail-2024.pdf",
+      "score": 9,
+      "confidence": "low",
+      "why": "title-3tok"
+    },
+    "src-73": {
+      "pdf": "evidence-pack/offentlig/src-73.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "src-78": {
+      "pdf": "evidence-pack/nordisk/konkurrensverket-2024-4-dagligvaruhandelns-etablering.pdf",
+      "score": 17,
+      "confidence": "medium",
+      "why": "filename-contains+year-2024"
+    },
+    "src-79": {
+      "pdf": "evidence-pack/nordisk/kfst-salling-coop-2025-full.pdf",
+      "score": 12,
+      "confidence": "medium",
+      "why": "year-off-by-one+title-4tok"
+    },
+    "src-82": {
+      "pdf": "evidence-pack/offentlig/meld-st-4-2024-2025-dagligvare.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2025+title-2024,2025"
+    },
+    "src-83": {
+      "pdf": "evidence-pack/nordisk/pty-finnish-grocery-trade-statistics-2024.pdf",
+      "score": 13,
+      "confidence": "medium",
+      "why": "title-5tok"
+    },
+    "src-84": {
+      "pdf": "evidence-pack/arsrapporter/reitan-retail-2024.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-retail,2024"
+    },
+    "src-85": {
+      "pdf": "evidence-pack/arsrapporter/reitan-retail-2024.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-retail,2024"
+    },
+    "src-90": {
+      "pdf": "evidence-pack/akademia/lehtokunnas-phd-2023.pdf",
+      "score": 27,
+      "confidence": "high",
+      "why": "filename-exact+year-2023"
+    },
+    "src-91": {
+      "pdf": "evidence-pack/offentlig/matsvinnutvalget-2024.pdf",
+      "score": 29,
+      "confidence": "high",
+      "why": "filename-exact+year-2024+title-2024"
+    }
+  },
+  "orphanPdfs": [],
+  "seedWithoutPdf": {
+    "theses": [
+      "nguyen-hartmann-2024",
+      "barbakken-hausken-2006",
+      "sandanger-2012",
+      "kronqvist-2010",
+      "halseth-phd-2024",
+      "hebrok-phd-2020",
+      "eriksson-phd-2015",
+      "albizzati-phd-2021",
+      "sundin-phd-2024",
+      "sundqvist-phd-2025",
+      "esposito-2022",
+      "deljanin-2015",
+      "burgherr-2019",
+      "sigurdardottir-2017",
+      "stein-2022",
+      "steien-2016",
+      "orlova-2019",
+      "morken-2015",
+      "simonsen-2017",
+      "granlund-lindskog-2024",
+      "sandbraaten-2023",
+      "tallaksen-2022",
+      "vangelsten-2017",
+      "moe-2018",
+      "jevne-schiotz-2021",
+      "tesdal-2013",
+      "handlykken-2023",
+      "paschen-eriksen-2014",
+      "storm-teigland-2017",
+      "schuler-2017",
+      "minkeviciute-2019",
+      "nielsen-andersen-2016",
+      "syroegina-2016",
+      "johannsson-2011",
+      "naess-2024",
+      "sedwall-2025",
+      "hagan-2025",
+      "segersven-2024",
+      "lund-beijer-2026"
+    ],
+    "reports": [
+      "matsystemutvalget-2026",
+      "meld-st-4-dagligvare",
+      "kt-markedsundersokelser-2026",
+      "kkv-fi-4a-dominans",
+      "is-markedsstruktur-2024",
+      "nordisk-sammenligning-2024",
+      "verdibutikker-utfordrere",
+      "asko-infrastruktur-2025",
+      "dagligvarerapporten-2025",
+      "dlf-leverandor-2025",
+      "merkevarer-historie",
+      "nbs-systemkritikk",
+      "menon-emv-innovasjon",
+      "soa-emv-2023",
+      "civita-manifest-debatt",
+      "norden-policy-2024",
+      "beredskap-finsk-modell-hvk",
+      "beredskap-island-melmolle-2025",
+      "beredskap-nibio-selvforsyning-metode",
+      "sirkularitet-definisjoner-wur-emf",
+      "juridisk-eiendomsmakt-lokal-konkurranse",
+      "juridisk-eudr-norge-2025",
+      "akademia-sifo-retail-media-2025",
+      "akademia-nhh-butikkstruktur-2024",
+      "akademia-nhh-matbors-historie",
+      "akademia-uib-kjopermakt",
+      "oversikt-bransje-statistikk-beredskap",
+      "oversikt-nordisk-mat-tenkere",
+      "oversikt-nordisk-matmakt-historikk",
+      "oversikt-nou-stortingsdok-juridisk",
+      "oversikt-offentlig-rapportlogg",
+      "oversikt-sirkularitet-dyp",
+      "oversikt-tenketanker-ngo",
+      "oversikt-akademia-dyp-research",
+      "oversikt-nordisk-avhandlingsregister"
+    ],
+    "sources": [
+      "src-1",
+      "src-2",
+      "src-3",
+      "src-4",
+      "src-5",
+      "src-6",
+      "src-8",
+      "src-9",
+      "src-10",
+      "src-11",
+      "src-13",
+      "src-16",
+      "src-18",
+      "src-22",
+      "src-24",
+      "src-25",
+      "src-27",
+      "src-28",
+      "src-30",
+      "src-31",
+      "src-32",
+      "src-33",
+      "src-34",
+      "src-36",
+      "src-37",
+      "src-38",
+      "src-39",
+      "src-40",
+      "src-41",
+      "src-43",
+      "src-46",
+      "src-47",
+      "src-48",
+      "src-49",
+      "src-50",
+      "src-51",
+      "src-52",
+      "src-55",
+      "src-56",
+      "src-57",
+      "src-58",
+      "src-59",
+      "src-60",
+      "src-61",
+      "src-62",
+      "src-63",
+      "src-64",
+      "src-65",
+      "src-66",
+      "src-67",
+      "src-68",
+      "src-69",
+      "src-70",
+      "src-71",
+      "src-72",
+      "src-74",
+      "src-75",
+      "src-76",
+      "src-77",
+      "src-80",
+      "src-81",
+      "src-86",
+      "src-87",
+      "src-88",
+      "src-89",
+      "src-92",
+      "src-93",
+      "src-94",
+      "src-95",
+      "src-96",
+      "src-97",
+      "src-98",
+      "src-99",
+      "src-100",
+      "src-101",
+      "src-102",
+      "src-103",
+      "src-104",
+      "src-105",
+      "src-106",
+      "src-107",
+      "src-108",
+      "src-109",
+      "src-110",
+      "src-111",
+      "src-112",
+      "src-113",
+      "src-114",
+      "src-115",
+      "src-116",
+      "src-117",
+      "src-118",
+      "src-119",
+      "src-120",
+      "src-121",
+      "src-122",
+      "src-123",
+      "src-124",
+      "src-125",
+      "src-126"
+    ]
+  }
+}
