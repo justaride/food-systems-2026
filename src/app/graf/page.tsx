@@ -3,7 +3,15 @@ import { KnowledgeGraph } from '@/components/charts/KnowledgeGraph'
 import { getFullGraph } from '@/lib/queries/graph'
 
 export default async function GrafPage() {
-  const { nodes, edges } = await getFullGraph()
+  let nodes: Awaited<ReturnType<typeof getFullGraph>>['nodes'] = []
+  let edges: Awaited<ReturnType<typeof getFullGraph>>['edges'] = []
+  try {
+    const graph = await getFullGraph()
+    nodes = graph.nodes
+    edges = graph.edges
+  } catch (e) {
+    console.error('[graf] DB query failed:', e)
+  }
 
   const typeCounts = nodes.reduce<Record<string, number>>((acc, n) => {
     acc[n.type] = (acc[n.type] ?? 0) + 1

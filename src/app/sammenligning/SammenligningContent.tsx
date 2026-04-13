@@ -11,7 +11,8 @@ type SammenligningContentProps = {
   countryChartData: Record<string, CountryChartDataSet | null>
 }
 
-const countries = COUNTRY_LIST
+const CHART_COUNTRIES = ['no', 'se', 'dk', 'fi'] as const
+const countries = COUNTRY_LIST.filter(c => (CHART_COUNTRIES as readonly string[]).includes(c.code))
 
 const CALORIE_KEYS = ['Kalorier', 'Kalorit']
 
