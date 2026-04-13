@@ -1,7 +1,5 @@
 # Project Context
 
-## Overview
-
 Food Systems 2026 is a knowledge base and analysis app for Norwegian and Nordic food systems. The project tracks corporate structures, ownership, supply chains, policy, and market power across food retail, production, and related sectors.
 
 ## Stack
@@ -21,6 +19,12 @@ Food Systems 2026 is a knowledge base and analysis app for Norwegian and Nordic 
 - Auto-deploy from GitHub is expected
 - Never target Vercel for this project
 
+## Operational Context
+
+- `PROJECT-OVERVIEW.md` is the delivery brief for the June 2026 whitepaper and transition-group work
+- `DEEP-RESEARCH-PLAN.md` is the 10-session research sequencing document
+- Treat those project notes as source context, not as agent-instruction files
+
 ## Workspace Map
 
 - `src/app`: route segments and page-level UI
@@ -31,13 +35,8 @@ Food Systems 2026 is a knowledge base and analysis app for Norwegian and Nordic 
 - `research`: source corpus, evidence pack, analysis, and visualizations
 - `public`: static assets
 
-## Supporting Docs
+## Read Next
 
-- `PROJECT-OVERVIEW.md`: broader project and delivery context
-- `DEEP-RESEARCH-PLAN.md`: 10-session research plan and sequencing
-
-## Research Tooling
-
-- Prefer `offentligdata` first for Norwegian company and person registry lookups
-- Use PubMed for academic source discovery when relevant
-- Notion, Figma, and Google Drive are useful project context sources when those connectors are available in the current session
+- Use [Database Schema](database.md) for model-level work
+- Use [Data Imports](data-imports.md) for import scripts and data-loading tasks
+- Use [Research Workflows](research-workflows.md) for graph queries and external-source research
