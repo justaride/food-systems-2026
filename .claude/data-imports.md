@@ -1,5 +1,7 @@
 # Data Imports
 
+Use this guide for any task that creates, updates, or audits imported data.
+
 ## Import Script Pattern
 
 All import scripts follow the same structure:
@@ -36,7 +38,9 @@ main()
 - Normalize `personKey` with lowercase text, NFD decomposition, diacritic stripping, and spaces replaced by hyphens
 - Run one-off scripts with `npx tsx scripts/script-name.ts`
 - Run the full import chain with `npm run db:import`
+- Run `npm run db:audit` after major import changes when you need an integrity check
 - Prefer Prisma upserts so imports stay idempotent
+- For company entities, check [Company Registry](company-registry.md) before adding new records
 
 ## Import Script Inventory
 

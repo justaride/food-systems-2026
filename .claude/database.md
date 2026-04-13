@@ -73,24 +73,7 @@
 | `ActorRelationship` | Actor to actor links such as dependency, ally, or oversight |
 | `ActorContact` | Contact persons for actors |
 
-## Current Record Counts
+## Data Integrity
 
-Counts below reflect Sprint 6 (2026-03-24). All integrity checks pass.
-
-| Entity | Count |
-|---|---|
-| Companies | 212 |
-| CompanyFinancial | 303 |
-| Actors | 76 |
-| Documents | 424 |
-| Theses | 71 |
-| Reports | 61 |
-| Source Docs | 143 |
-| Insights | 86 |
-| CompanyOwnership | 150 |
-| CompanyProperty | 127 |
-| BusinessRelationship | 83 |
-| CountryMetric | 243 |
-| BoardMembers | 614 |
-| PersonProfile | 165 |
-| Shareholders | 86 |
+- Use `npm run db:audit` when you need current counts or integrity status
+- Treat historical record counts in notes as snapshots, not stable instructions

@@ -1,5 +1,7 @@
 # Code Conventions
 
+Apply these rules to app code and one-off scripts unless the task explicitly requires something else.
+
 ## TypeScript
 
 - Keep TypeScript in strict mode

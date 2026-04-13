@@ -1,4 +1,6 @@
-# Graph and Research
+# Research Workflows
+
+Use this guide for graph queries, corpus extension, and source-discovery tasks.
 
 ## Knowledge Graph
 
@@ -10,15 +12,19 @@
 - `getDocumentGraph(id)` returns a document-centered subgraph
 - `src/components/charts/KnowledgeGraph.tsx` is the main graph visualization entry point
 
-## Research Pipeline
+## Corpus Extension
 
 - `DEEP-RESEARCH-PLAN.md` contains the full 10-session plan
-- Current project note marks Sessions 1-10 as complete
 - When extending the corpus, write findings into typed import arrays and populate the database through the import scripts rather than ad hoc database edits
-- If the user explicitly asks for parallel or delegated work, the research plan can be split into independent tracks; otherwise keep the work local
+- When company entities are involved, check [Company Registry](company-registry.md) before creating records
+- Use [Data Imports](data-imports.md) for the import-script pattern and [Database Schema](database.md) for model details
 
-## Preferred External Sources
+## Source Preferences
 
 - `offentligdata` for Norwegian company and person registry work
 - PubMed for academic source search
 - Notion, Figma, and Google Drive when those connectors are available and relevant to the task
+
+## Execution Model
+
+- If the user explicitly asks for parallel or delegated work, the research plan can be split into independent tracks; otherwise keep the work local
