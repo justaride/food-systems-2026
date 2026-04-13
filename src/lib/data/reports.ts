@@ -1613,7 +1613,7 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Supplerende analyse til den danske konkurranseavgjørelsen om Salling/Coop-fusjonen.',
     tags: ['juridisk', 'analyse', 'salling', 'coop', 'danmark'],
-    publisher: 'Konkurrence- og Forbrugerstyrelsen',
+    publisher: 'Aalborg Universitet',
   },
   {
     id: 'konkurrensverket-summary-2024',
