@@ -207,6 +207,177 @@ const SUPPLEMENTAL_PDF_MATCHES: Record<string, SupplementalPdfMatch> = {
   'evidence-pack/tilsyn/marginstudie-2025-del2.pdf': { reportId: 'kt-marginstudie-2025-del2' },
   'evidence-pack/tilsyn/prisjeger-saken-2024-offentlig-versjon.pdf': { reportId: 'kt-prisjeger-saken-2024' },
   'evidence-pack/tilsyn/prisjusteringsvinduer-2023.pdf': { reportId: 'kt-prisjusteringsvinduer-2023' },
+
+  // ── Akademia: theses (wave 2) ──
+  'evidence-pack/akademia/adlers-2022.pdf': { thesisId: 'adlers-2022' },
+  'evidence-pack/akademia/brancoli-phd-2021.pdf': { thesisId: 'brancoli-phd-2021' },
+  'evidence-pack/akademia/duong-2025.pdf': { thesisId: 'duong-2025' },
+  'evidence-pack/akademia/hasle-tjostheim-2024.pdf': { thesisId: 'hasle-tjostheim-2024' },
+  'evidence-pack/akademia/jorgensen-ahmadi-2024.pdf': { thesisId: 'jorgensen-ahmadi-2024' },
+  'evidence-pack/akademia/kayhan-ronnback-2019.pdf': { thesisId: 'kayhan-ronnback-2019' },
+  'evidence-pack/akademia/khandaker-2021.pdf': { thesisId: 'khandaker-2021' },
+  'evidence-pack/akademia/lehtokunnas-phd-2023.pdf': { thesisId: 'lehtokunnas-phd-2023' },
+  'evidence-pack/akademia/lindstrom-phd-2021.pdf': { thesisId: 'lindstrom-phd-2021' },
+  'evidence-pack/akademia/makela-2023.pdf': { thesisId: 'makela-2023' },
+  'evidence-pack/akademia/mattila-2024.pdf': { thesisId: 'mattila-2024' },
+  'evidence-pack/akademia/nikolaev-2023.pdf': { thesisId: 'nikolaev-2023' },
+  'evidence-pack/akademia/ortiz-cuadra-2023.pdf': { thesisId: 'ortiz-cuadra-2023' },
+  'evidence-pack/akademia/stahl-2024.pdf': { thesisId: 'stahl-2024' },
+  'evidence-pack/akademia/sturen-2023.pdf': { thesisId: 'sturen-2023' },
+  'evidence-pack/akademia/tanderup-rasmussen-hansen-2023.pdf': { thesisId: 'tanderup-rasmussen-hansen-2023' },
+  'evidence-pack/akademia/zakeri-lei-2024.pdf': { thesisId: 'zakeri-lei-2024' },
+
+  // ── Akademia: reports (wave 2) ──
+  'evidence-pack/akademia/akademia-nhh-foros-media-2025.pdf': { reportId: 'akademia-nhh-foros-media-2025' },
+  'evidence-pack/akademia/akademia-sifo-kundeprogram-2026.pdf': { reportId: 'akademia-sifo-kundeprogram-2026' },
+
+  // ── PubMed articles ──
+  'evidence-pack/akademia/pubmed/hiis-eg-2024-unlocking-bacterial-potential-to-reduce.pdf': {
+    title: 'Unlocking bacterial potential to reduce farmland N2O emissions',
+    author: 'Hiis EG et al.',
+    year: 2024,
+    documentType: 'pubmed',
+    tags: ['climate', 'agriculture', 'N2O', 'bacteria', 'NMBU'],
+  },
+  'evidence-pack/akademia/pubmed/javourez-u-2021-waste-to-nutrition-a-review.pdf': {
+    title: 'Waste-to-nutrition: a review of current and emerging conversion pathways',
+    author: 'Javourez U, O\'Donohue M & Hamelin L',
+    year: 2021,
+    documentType: 'pubmed',
+    tags: ['circular-economy', 'waste-to-nutrition', 'food-waste'],
+  },
+  'evidence-pack/akademia/pubmed/recanati-f-2019-assessing-the-role-of-cap.pdf': {
+    title: 'Assessing the role of CAP for more sustainable and healthier food systems in Europe',
+    author: 'Recanati F et al.',
+    year: 2019,
+    country: 'eu',
+    documentType: 'pubmed',
+    tags: ['eu', 'CAP', 'food-policy', 'sustainability'],
+  },
+  'evidence-pack/akademia/pubmed/sigala-eg-2025-reducing-food-waste-in-the.pdf': {
+    title: 'Reducing food waste in the HORECA sector using AI-based waste-tracking devices',
+    author: 'Sigala EG et al.',
+    year: 2025,
+    documentType: 'pubmed',
+    tags: ['food-waste', 'HORECA', 'AI', 'waste-tracking'],
+  },
+  'evidence-pack/akademia/pubmed/szulecka-j-2024-food-waste-governance-architectures-in.pdf': {
+    title: 'Food Waste Governance Architectures in Europe',
+    author: 'Szulecka J, Bradshaw C & Principato L',
+    year: 2024,
+    country: 'eu',
+    documentType: 'pubmed',
+    tags: ['food-waste', 'governance', 'europe', 'policy'],
+  },
+  'evidence-pack/akademia/pubmed/van-der-fels-klerx-hj-2024-framework-for-evaluation-of-food.pdf': {
+    title: 'Framework for evaluation of food safety in the circular food system',
+    author: 'van der Fels-Klerx HJ et al.',
+    year: 2024,
+    documentType: 'pubmed',
+    tags: ['food-safety', 'circular-economy', 'framework'],
+  },
+  'evidence-pack/akademia/pubmed/van-leeuwen-spj-2024-a-novel-approach-to-identify.pdf': {
+    title: 'A novel approach to identify critical knowledge gaps for food safety in circular food systems',
+    author: 'van Leeuwen SPJ et al.',
+    year: 2024,
+    documentType: 'pubmed',
+    tags: ['food-safety', 'circular-economy', 'knowledge-gaps'],
+  },
+  'evidence-pack/akademia/pubmed/wohner-b-2020-environmental-and-economic-assessment-of.pdf': {
+    title: 'Environmental and economic assessment of food-packaging systems',
+    author: 'Wohner B et al.',
+    year: 2020,
+    documentType: 'pubmed',
+    tags: ['packaging', 'LCA', 'food-waste', 'circular-economy'],
+  },
+  'evidence-pack/akademia/pubmed/zamanzadeh-m-2017-biogas-production-from-food-waste.pdf': {
+    title: 'Biogas production from food waste via co-digestion and digestion',
+    author: 'Zamanzadeh M et al.',
+    year: 2017,
+    country: 'no',
+    documentType: 'pubmed',
+    tags: ['biogas', 'food-waste', 'co-digestion', 'norway'],
+  },
+
+  // ── Arsrapporter ──
+  'evidence-pack/arsrapporter/asko-barekraft-2024.pdf': { reportId: 'asko-barekraft-2024' },
+  'evidence-pack/arsrapporter/axfood-annual-report-2024.pdf': { reportId: 'axfood-annual-report-2024' },
+  'evidence-pack/arsrapporter/coop-danmark-2024.pdf': {
+    title: 'Coop Danmark Arsberetning 2024',
+    author: 'Coop Danmark',
+    year: 2024,
+    country: 'dk',
+    documentType: 'annual-report',
+    tags: ['coop', 'denmark', 'annual-report'],
+  },
+  'evidence-pack/arsrapporter/coop-norge-2024.pdf': { reportId: 'coop-2024' },
+  'evidence-pack/arsrapporter/hagar-2024-25.pdf': { reportId: 'hagar-2024-25' },
+  'evidence-pack/arsrapporter/ica-gruppen-annual-report-2024.pdf': { reportId: 'ica-gruppen-annual-report-2024' },
+  'evidence-pack/arsrapporter/kesko-annual-report-2024.pdf': { reportId: 'kesko-annual-report-2024' },
+  'evidence-pack/arsrapporter/norgesgruppen-2024.pdf': { reportId: 'norgesgruppen-2024-25' },
+  'evidence-pack/arsrapporter/norgesgruppen-halvarsrapport-2025.pdf': {
+    title: 'NorgesGruppen Halvarsrapport 2025',
+    author: 'NorgesGruppen',
+    year: 2025,
+    country: 'no',
+    documentType: 'annual-report',
+    tags: ['norgesgruppen', 'halvarsrapport', 'norway'],
+  },
+  'evidence-pack/arsrapporter/reitan-retail-2024.pdf': { reportId: 'reitan-2024-25' },
+  'evidence-pack/arsrapporter/salling-group-2024.pdf': { reportId: 'salling-group-2024' },
+
+  // ── Konsulentrapport ──
+  'evidence-pack/konsulentrapport/oslo-economics-forsvar-2024.pdf': { reportId: 'oslo-economics-forsvar-2024' },
+
+  // ── Nordisk ──
+  'evidence-pack/nordisk/dk-salling-coop-decision-2025.pdf': { reportId: 'dk-salling-coop-decision-2025' },
+  'evidence-pack/nordisk/finland-food-market-ombudsman-2023.pdf': { reportId: 'finland-food-market-ombudsman-2023' },
+  'evidence-pack/nordisk/is-samkeppni-annual-report-2024.pdf': { reportId: 'is-samkeppni-annual-report-2024' },
+  'evidence-pack/nordisk/kfst-salling-coop-2025-full.pdf': { reportId: 'kfst-salling-coop-2025' },
+  'evidence-pack/nordisk/konkurrensverket-2024-4-dagligvaruhandelns-etablering.pdf': {
+    title: 'Dagligvaruhandelns etablering - rapport 2024:4',
+    author: 'Konkurrensverket',
+    year: 2024,
+    country: 'se',
+    documentType: 'regulatory',
+    tags: ['sweden', 'competition', 'establishment', 'grocery'],
+  },
+  'evidence-pack/nordisk/pty-finnish-grocery-trade-statistics-2024.pdf': {
+    title: 'Finnish Grocery Trade Statistics 2024',
+    author: 'PTY ry (Finnish Grocery Trade Association)',
+    year: 2024,
+    country: 'fi',
+    documentType: 'report',
+    tags: ['finland', 'grocery', 'statistics', 'market-share'],
+  },
+
+  // ── Offentlig ──
+  'evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2021.pdf': { reportId: 'dagligvaretilsynet-aarsrapport-2021' },
+  'evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2022.pdf': { reportId: 'dagligvaretilsynet-aarsrapport-2022' },
+  'evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2023.pdf': { reportId: 'dagligvaretilsynet-aarsrapport-2023' },
+  'evidence-pack/offentlig/matsvinnutvalget-2024.pdf': {
+    title: 'Matsvinnutvalgets rapport 2024',
+    author: 'Matsvinnutvalget',
+    year: 2024,
+    country: 'no',
+    documentType: 'policy',
+    tags: ['food-waste', 'norway', 'committee', 'policy'],
+  },
+  'evidence-pack/offentlig/meld-st-4-2024-2025-dagligvare.pdf': { reportId: 'meld-st-4-dagligvare' },
+  'evidence-pack/offentlig/nou-2013-6-god-handelsskikk.pdf': { reportId: 'nou-2013-6-god-handelsskikk' },
+  'evidence-pack/offentlig/nou-2022-14.pdf': { reportId: 'nou-2022-14' },
+  'evidence-pack/offentlig/src-73.pdf': {
+    sourceDocId: 'src-73',
+    title: 'Konkurransetilsynets rapport (src-73)',
+    author: 'Konkurransetilsynet',
+    country: 'no',
+    documentType: 'regulatory',
+    tags: ['competition', 'norway', 'analysis'],
+  },
+
+  // ── Tenketank ──
+  'evidence-pack/tenketank/fivh-etikk-2025.pdf': { reportId: 'fivh-etikk-2025' },
+  'evidence-pack/tenketank/stockholm-resilience-2019.pdf': { reportId: 'stockholm-resilience-2019' },
 }
 
 function normalizeResearchRelativePath(input: string): string {
