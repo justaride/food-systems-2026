@@ -65,6 +65,7 @@
 - **Leveranse:** 20 slides + consortium av willing partners
 - Einars kapasitetsreduksjon av JT må reverseres
 - Matberedskap/Brimi foreslått som mulig pilot
+- **Einar ga konkrete aktøreksempler:** Restaurant Rest (konkurs sept 2024, zero-waste, TINE-eid) som case på sirkulær fiasko. Mediekartlegging etterlyst. Gabriel: «akkurat det jeg trenger»
 
 ### Møte 6 — 13.04.2026: JT + Gabriel arbeidsmøte
 - **Thea:** 90 timer totalt (ned fra 30% til 20%). Prosjektkoder: 195 (food), 196 (cities)

@@ -1,0 +1,111 @@
+{
+  "country": "fi",
+  "year": 2024,
+  "population": 5600000,
+  "currency": "EUR",
+  "selfSufficiency": {
+    "caloric_pct": 80,
+    "strategic_grain_reserve_months": 9,
+    "hvk_model": true,
+    "notes": "HVK (Huoltovarmuuskeskus) model: 9-month strategic grain reserve. Highest preparedness in Nordics.",
+    "source": "Luke, HVK"
+  },
+  "steps": [
+    {
+      "name": "Primærproduksjon",
+      "id": "primary",
+      "volume_tonnes": null,
+      "breakdown": {
+        "grain_tonnes": 3700000,
+        "wheat_tonnes": 751000,
+        "barley_tonnes": 1165000,
+        "oats_tonnes": 1208000,
+        "rye_other_tonnes": 576000,
+        "meat_tonnes": 397000,
+        "milk_litres": 2140000000,
+        "milk_notes": "Declining trend, -4% since 2020",
+        "grain_self_sufficiency_pct": "113-140",
+        "grain_self_sufficiency_notes": "Net exporter of cereals",
+        "farm_count_trend": "-40% since 2010",
+        "notes": "Oat production particularly strong. Finland is world's largest per-capita oat producer."
+      },
+      "import_tonnes": null,
+      "export_tonnes": null,
+      "waste_tonnes": null,
+      "co2e_mt": null,
+      "sources": ["Luke (Naturresursinstitutet)", "stat.fi PxWeb"]
+    },
+    {
+      "name": "Foredling",
+      "id": "processing",
+      "key_actors": ["Valio", "Fazer Group", "Atria", "HKFoods"],
+      "emv_share_pct": 39,
+      "turnover_bn_eur": 10.7,
+      "notes": "Highest EMV share in Nordics at 39%. Strong cooperative tradition (Valio). Food manufacturing EUR 10.7B.",
+      "sources": ["PTY", "stat.fi PxWeb", "verdikjede.ts"]
+    },
+    {
+      "name": "Distribusjon/grossist",
+      "id": "distribution",
+      "key_actors": ["Inex Partners (S-Group)", "Kesko Logistics"],
+      "sources": ["verdikjede.ts"]
+    },
+    {
+      "name": "Detaljhandel",
+      "id": "retail",
+      "concentration": {
+        "cr2_pct": 82.5,
+        "shares": {
+          "S-Group": 46,
+          "Kesko": 37,
+          "Lidl": 10,
+          "Other": 7
+        }
+      },
+      "waste_tonnes": null,
+      "sources": ["KKV", "PTY", "chart-metrics.json"]
+    },
+    {
+      "name": "HoReCa",
+      "id": "horeca",
+      "notes": "Universal free school meals since 1946 — world's oldest system. ~37 bn NOK/year combined with Sweden.",
+      "waste_tonnes": null,
+      "sources": ["verdikjede.ts"]
+    },
+    {
+      "name": "Husholdning",
+      "id": "household",
+      "waste_tonnes": 120000,
+      "waste_per_capita_kg": 22,
+      "sources": ["Luke"]
+    },
+    {
+      "name": "Avfall/sirkularitet",
+      "id": "waste",
+      "total_waste_tonnes": 520000,
+      "waste_per_capita_kg": 68,
+      "waste_range_notes": "Estimates vary: 400,000-641,000 tonnes depending on methodology.",
+      "circularity": {
+        "biogas_gwh": 930,
+        "biogas_target_multiplier": "4x",
+        "biogas_plants": 120,
+        "biogas_investment_eur_bn": 1.02,
+        "reko_rings": 180,
+        "reko_users": 250000,
+        "mandatory_food_waste_sorting": "2024, buildings >5 apartments"
+      },
+      "novel_protein_actors": [
+        { "name": "Solar Foods (Solein)", "status": "Factory 01 operational", "capacity_tonnes_yr": 160 },
+        { "name": "Enifer (PEKILO)", "status": "EFSA application Oct 2024", "funding_eur_m": 36 },
+        { "name": "Origin by Ocean", "status": "Algae extraction" }
+      ],
+      "sources": ["Luke", "stat.fi", "SA-02", "SEC-MAT-TEK-02"]
+    }
+  ],
+  "key_policies": [
+    { "name": "Kildesortering matavfall utvidet", "year": 2024, "type": "mandatory" },
+    { "name": "Matsvinnsmål 50% innen 2030 (Luke-koordinert)", "type": "voluntary" },
+    { "name": "HVK beredskapslagre", "type": "strategic reserves" },
+    { "name": "Business Finland cleantech", "type": "funding" }
+  ]
+}

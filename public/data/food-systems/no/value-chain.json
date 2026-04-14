@@ -1,0 +1,186 @@
+{
+  "country": "no",
+  "year": 2024,
+  "population": 5550000,
+  "currency": "NOK",
+  "selfSufficiency": {
+    "caloric_pct": 47,
+    "target_pct": 50,
+    "target_year": 2030,
+    "source": "Regjeringen, Jordbruksoppgjøret 2024"
+  },
+  "steps": [
+    {
+      "name": "Primærproduksjon",
+      "id": "primary",
+      "volume_tonnes": 3293000,
+      "breakdown": {
+        "grain_area_dekar": 2802400,
+        "grain_tonnes": 1183800,
+        "grain_notes": "SSB discontinued grain yield table. Estimated from area x ~420 kg/dekar",
+        "meat_tonnes": 356786,
+        "meat_breakdown": {
+          "pork": 128159,
+          "poultry": 120555,
+          "beef": 86090,
+          "sheep_lamb": 21598,
+          "reindeer": 1301,
+          "other": 1083
+        },
+        "meat_trend": "Pork declining (-3%), poultry rising (+13%) since 2020",
+        "milk_tonnes": 1524400,
+        "dairy_cows": 210261,
+        "fruit_veg_tonnes": 218934,
+        "fruit_veg_breakdown": {
+          "vegetables": 184445,
+          "fruit": 25576,
+          "berries": 8913
+        },
+        "potato_tonnes": 354900,
+        "eggs_tonnes": 70000,
+        "livestock": {
+          "cattle_total": 856058,
+          "sheep_total": 2116518,
+          "pigs_total": 728846,
+          "laying_hens": 4948143,
+          "broilers": 16162563
+        }
+      },
+      "employment": {
+        "agriculture_nace01": 36327,
+        "food_manufacturing_nace10": 47812,
+        "beverages_nace11": 3316,
+        "fisheries_aquaculture_nace03": 23035
+      },
+      "import_tonnes": 517000,
+      "import_value_bn": 78.7,
+      "export_tonnes": null,
+      "waste_tonnes": 27000,
+      "co2e_mt": 4.4,
+      "production_value_bn": 68.9,
+      "value_added_bn": 28.0,
+      "sources": ["SSB", "SSB 09171", "trade_volumes_2024.json", "NORSUS"]
+    },
+    {
+      "name": "Sjømat",
+      "id": "seafood",
+      "volume_tonnes": 3800000,
+      "breakdown": {
+        "aquaculture_tonnes": 1300000,
+        "fisheries_tonnes": 1500000,
+        "fish_feed_tonnes": 2260000
+      },
+      "import_tonnes": null,
+      "export_tonnes": 2800000,
+      "export_value_bn": 175.4,
+      "waste_tonnes": 12400,
+      "co2e_mt": null,
+      "production_value_bn": 176.3,
+      "value_added_bn": 63.4,
+      "notes": "92% of feed raw materials imported. Feed = 75% of salmon GHG footprint.",
+      "sources": ["Sjømatrådet", "SSB 09171", "NORSUS 2021"]
+    },
+    {
+      "name": "Foredling",
+      "id": "processing",
+      "volume_tonnes": null,
+      "import_tonnes": null,
+      "export_tonnes": null,
+      "waste_tonnes": 80000,
+      "co2e_mt": 0.9,
+      "production_value_bn": 377.4,
+      "value_added_bn": 62.2,
+      "food_excl_fish_value_bn": 235.3,
+      "fish_processing_value_bn": 142.1,
+      "employees": 47812,
+      "employees_fish_processing": 12629,
+      "employees_meat": 9567,
+      "employees_dairy": 6152,
+      "employees_bakery": 8645,
+      "notes": "Næringsmiddelindustrien er Norges største industri. EMV-andel ~30-35%. Total food system: 622 bn NOK production, 154 bn NOK GVA.",
+      "sources": ["SSB 09171", "SSB 13470", "NORSUS", "matsvinn-2024.md"]
+    },
+    {
+      "name": "Distribusjon/grossist",
+      "id": "distribution",
+      "volume_tonnes": null,
+      "infrastructure": {
+        "asko_warehouses": 13,
+        "asko_area_sqm": 425000,
+        "trucks_daily": 700,
+        "electric_trucks": 200
+      },
+      "waste_tonnes": null,
+      "co2e_mt": 0.5,
+      "notes": "Vertically integrated: all 3 chains own distribution. Centralized around Oslo = systemic risk.",
+      "sources": ["verdikjede.ts", "ASKO"]
+    },
+    {
+      "name": "Detaljhandel",
+      "id": "retail",
+      "volume_tonnes": null,
+      "market_value_bn": 224,
+      "stores": 3849,
+      "format_share": {
+        "discount_pct": 66.3,
+        "supermarket_pct": 22.9,
+        "convenience_pct": 10.9
+      },
+      "concentration": {
+        "cr3_pct": 96.6,
+        "hhi": 3445,
+        "shares": {
+          "NorgesGruppen": 48.4,
+          "Coop": 27.1,
+          "Reitangruppen": 18.0,
+          "Bunnpris": 6.6
+        }
+      },
+      "waste_tonnes": 50000,
+      "waste_reduction_since_2015_pct": -42,
+      "sources": ["Dagligvaretilsynet", "chart-metrics.json", "matsvinn-2024.md"]
+    },
+    {
+      "name": "HoReCa",
+      "id": "horeca",
+      "volume_tonnes": null,
+      "market_value_bn": 76.9,
+      "projected_2029_bn": 92.5,
+      "waste_tonnes": 35000,
+      "sources": ["verdikjede.ts", "NORSUS"]
+    },
+    {
+      "name": "Husholdning",
+      "id": "household",
+      "waste_tonnes": 215000,
+      "waste_per_capita_kg": 42,
+      "waste_reduction_since_2015_pct": -5,
+      "sources": ["NORSUS", "bransjeavtalen"]
+    },
+    {
+      "name": "Avfall/sirkularitet",
+      "id": "waste",
+      "total_waste_tonnes": 407100,
+      "waste_per_capita_kg": 73.4,
+      "waste_reduction_since_2015_pct": -24,
+      "circularity": {
+        "biogas_gwh": 470,
+        "biogas_target_gwh": 5500,
+        "biogas_plants": 40,
+        "biogas_plants_planned": 12,
+        "pant_return_rate_pct": 92.3,
+        "matsentralen_tonnes": 5735,
+        "matsentralen_meals": 10200000,
+        "tgtg_magic_bags": 2000000
+      },
+      "co2e_mt": 1.6,
+      "sources": ["NORSUS", "bransjeavtalen", "Infinitum", "Matsentralen", "SA-02"]
+    }
+  ],
+  "key_policies": [
+    { "name": "Matsvinnloven", "year": 2026, "type": "law" },
+    { "name": "Bransjeavtale matsvinn", "year": 2017, "type": "voluntary", "target": "50% reduction by 2030" },
+    { "name": "Kildesortering matavfall", "year": 2023, "type": "mandatory" },
+    { "name": "PFAS-forbud emballasje", "year": 2026, "date": "2026-08-12", "type": "regulation" }
+  ]
+}

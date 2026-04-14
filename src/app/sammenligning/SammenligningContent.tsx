@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { COUNTRY_LIST } from '@/lib/config/countries'
 import { useChartMetrics } from '@/lib/hooks/useChartMetrics'
@@ -13,6 +14,39 @@ type SammenligningContentProps = {
 
 const CHART_COUNTRIES = ['no', 'se', 'dk', 'fi'] as const
 const countries = COUNTRY_LIST.filter(c => (CHART_COUNTRIES as readonly string[]).includes(c.code))
+
+type ValueChainData = {
+  country: string
+  steps: Array<{
+    id: string
+    waste_tonnes?: number | null
+    waste_per_capita_kg?: number | null
+    circularity?: { biogas_gwh?: number; biogas_target_gwh?: number } | null
+  }>
+  selfSufficiency?: { caloric_pct?: number | null }
+  population?: number
+}
+
+function useValueChainData() {
+  const [data, setData] = useState<Record<string, ValueChainData | null>>({})
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    Promise.all(
+      CHART_COUNTRIES.map((code) =>
+        fetch(`/data/food-systems/${code}/value-chain.json`)
+          .then((r) => r.json())
+          .then((d: ValueChainData) => [code, d] as const)
+          .catch(() => [code, null] as const)
+      )
+    ).then((results) => {
+      setData(Object.fromEntries(results))
+      setLoading(false)
+    })
+  }, [])
+
+  return { data, loading }
+}
 
 const CALORIE_KEYS = ['Kalorier', 'Kalorit']
 
@@ -38,6 +72,7 @@ export function SammenligningContent({ countryChartData }: SammenligningContentP
   const allMetrics = { no, se, dk, fi }
   const isLoading = no.isLoading || se.isLoading || dk.isLoading || fi.isLoading
   const allLoaded = no.data && se.data && dk.data && fi.data
+  const vc = useValueChainData()
 
   if (isLoading || !allLoaded) {
     return (
@@ -133,6 +168,48 @@ export function SammenligningContent({ countryChartData }: SammenligningContentP
           description="Totalt antall dagligvarebutikker"
         />
 
+        {!vc.loading && (() => {
+          const biogasData = countries.map(c => {
+            const wasteStep = vc.data[c.code]?.steps?.find(s => s.id === 'waste')
+            const gwh = (wasteStep?.circularity as Record<string, number> | undefined)?.biogas_gwh ?? 0
+            return { country: c.name, flag: c.flag, value: gwh, label: `${gwh} GWh` }
+          })
+
+          const wasteData = countries.map(c => {
+            const wasteStep = vc.data[c.code]?.steps?.find(s => s.id === 'waste')
+            const kg = (wasteStep as Record<string, number> | undefined)?.waste_per_capita_kg ?? 0
+            return { country: c.name, flag: c.flag, value: kg, label: `${kg} kg` }
+          })
+
+          const vcSelfSuff = countries.map(c => {
+            const pct = vc.data[c.code]?.selfSufficiency?.caloric_pct ?? 0
+            return { country: c.name, flag: c.flag, value: Math.min(pct, 150), label: `${pct}%` }
+          })
+
+          return (
+            <>
+              <ComparisonBarChart
+                title="Biogassproduksjon"
+                data={biogasData}
+                unit="GWh"
+                description="Arlig biogassproduksjon fra matavfall og manure"
+              />
+              <ComparisonBarChart
+                title="Matsvinn per innbygger"
+                data={wasteData}
+                unit="kg"
+                description="Totalt matsvinn per capita (alle verdikjedeledd)"
+              />
+              <ComparisonBarChart
+                title="Selvforsyningsgrad (verdikjede)"
+                data={vcSelfSuff}
+                unit="%"
+                description="Kaloribasert selvforsyning fra verdikjededata"
+              />
+            </>
+          )
+        })()}
+
         <Card>
           <h3 className="text-sm font-semibold text-stone-700 mb-3">Oppsummeringstabell</h3>
           <div className="overflow-x-auto">
@@ -191,6 +268,34 @@ export function SammenligningContent({ countryChartData }: SammenligningContentP
                     </td>
                   ))}
                 </tr>
+                {!vc.loading && (
+                  <>
+                    <tr>
+                      <td className="py-2 pr-3 text-stone-500">Biogass (GWh)</td>
+                      {countries.map(c => {
+                        const wasteStep = vc.data[c.code]?.steps?.find(s => s.id === 'waste')
+                        const gwh = (wasteStep?.circularity as Record<string, number> | undefined)?.biogas_gwh ?? 0
+                        return (
+                          <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
+                            {gwh.toLocaleString()}
+                          </td>
+                        )
+                      })}
+                    </tr>
+                    <tr>
+                      <td className="py-2 pr-3 text-stone-500">Matsvinn/capita</td>
+                      {countries.map(c => {
+                        const wasteStep = vc.data[c.code]?.steps?.find(s => s.id === 'waste')
+                        const kg = (wasteStep as Record<string, number> | undefined)?.waste_per_capita_kg ?? 0
+                        return (
+                          <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
+                            {kg} kg
+                          </td>
+                        )
+                      })}
+                    </tr>
+                  </>
+                )}
               </tbody>
             </table>
           </div>

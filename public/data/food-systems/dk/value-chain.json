@@ -1,0 +1,104 @@
+{
+  "country": "dk",
+  "year": 2024,
+  "population": 5950000,
+  "currency": "DKK",
+  "selfSufficiency": {
+    "caloric_pct": 300,
+    "notes": "Net food exporter. Agriculture ~25% of export value. 62% of land area in agriculture.",
+    "source": "DST, Landbrug & Fødevarer"
+  },
+  "steps": [
+    {
+      "name": "Primærproduksjon",
+      "id": "primary",
+      "volume_tonnes": 16300000,
+      "volume_notes": "Sum of pork + dairy + grain. Excludes poultry, eggs, vegetables.",
+      "breakdown": {
+        "pork_tonnes": 1700000,
+        "dairy_tonnes": 5600000,
+        "grain_tonnes": 9000000,
+        "notes": "Denmark is Europe's largest pork exporter. 62% of land is agricultural."
+      },
+      "import_tonnes": null,
+      "export_tonnes": null,
+      "waste_tonnes": null,
+      "co2e_mt": null,
+      "sources": ["DST", "Landbrug & Fødevarer"]
+    },
+    {
+      "name": "Foredling",
+      "id": "processing",
+      "volume_tonnes": null,
+      "export_value": {
+        "total_dkk_bn": 203.6,
+        "year": 2024
+      },
+      "key_actors": ["Arla Foods", "Danish Crown", "Carlsberg"],
+      "waste_tonnes": null,
+      "co2e_mt": null,
+      "notes": "Food cluster exported 203.6 bn DKK in 2024. EMV ~35%.",
+      "sources": ["verdikjede.ts", "DST"]
+    },
+    {
+      "name": "Distribusjon/grossist",
+      "id": "distribution",
+      "volume_tonnes": null,
+      "notes": "Salling Group and Coop DK dominate distribution.",
+      "sources": ["verdikjede.ts"]
+    },
+    {
+      "name": "Detaljhandel",
+      "id": "retail",
+      "concentration": {
+        "cr2_pct": 68,
+        "shares": {
+          "Salling Group": 35,
+          "Coop DK": 33,
+          "REMA 1000": 17,
+          "Other": 15
+        }
+      },
+      "format_notes": "Discount >40% of market. Netto (Salling) is largest chain.",
+      "waste_tonnes": null,
+      "sources": ["KFST", "chart-metrics.json"]
+    },
+    {
+      "name": "HoReCa",
+      "id": "horeca",
+      "notes": "Copenhagen: 84% organic food in 900 public kitchens. Danes eat out more frequently than other Nordics.",
+      "waste_tonnes": null,
+      "sources": ["verdikjede.ts"]
+    },
+    {
+      "name": "Husholdning",
+      "id": "household",
+      "waste_tonnes": 244000,
+      "waste_per_capita_kg": 41,
+      "sources": ["DST"]
+    },
+    {
+      "name": "Avfall/sirkularitet",
+      "id": "waste",
+      "total_waste_tonnes": 814000,
+      "waste_per_capita_kg": 139,
+      "waste_notes": "High per-capita figure reflects large food processing industry relative to population.",
+      "circularity": {
+        "biogas_gwh": 8100,
+        "biogas_plants": 175,
+        "biogas_share_of_gas_pct": 41,
+        "biogas_target": "100% green gas by 2030",
+        "kalundborg_symbiosis": true,
+        "mandatory_food_waste_sorting": "2024, all municipalities"
+      },
+      "sources": ["IEA Bioenergy DK 2024", "Biogas Outlook 2025", "SA-02"]
+    }
+  ],
+  "key_policies": [
+    { "name": "CO2-avgift landbruk", "year": 2030, "rate_dkk_per_tonne": 300, "rate_2035": 750, "type": "carbon tax" },
+    { "name": "Green Area Fund", "budget_dkk_m": 43, "targets": "250,000 ha forest + 140,000 ha peatland", "type": "subsidy" },
+    { "name": "Kildesortering matavfall", "year": 2024, "type": "mandatory" },
+    { "name": "Together Against Food Waste", "type": "voluntary" },
+    { "name": "National Action Plan for Plant-Based Food", "year": 2023, "type": "strategy" }
+  ]
+}

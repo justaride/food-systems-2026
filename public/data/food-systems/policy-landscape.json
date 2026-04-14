@@ -1,0 +1,111 @@
+{
+  "generated": "2026-04-14",
+  "description": "Nordic food circularity policy comparison across 5 countries + EU",
+  "policies": {
+    "food_waste_law": {
+      "label": "Matsvinnlov / lovfestet matsvinnreduksjon",
+      "NO": { "status": "enacted", "year": 2026, "details": "Matsvinnloven: aktsomhetsplikt, prisreduksjonsplikt, donasjonsplikt. Nordens forste lovfestede matsvinnreduksjon", "source": "Regjeringen.no" },
+      "SE": { "status": "voluntary", "details": "Livsmedelsverket frivillig mal. Ingen lovfestet matsvinnlov", "source": "Livsmedelsverket" },
+      "DK": { "status": "voluntary", "details": "Together Against Food Waste. Frivillig bransjeavtale", "source": "fvm.dk" },
+      "FI": { "status": "voluntary", "details": "Luke-koordinert frivillig mal", "source": "Luke" },
+      "IS": { "status": "minimal", "details": "Matarsoun-initiativ. Ingen nasjonal matsvinnstrategi", "source": "SA-02" },
+      "EU": { "status": "binding", "year": 2025, "details": "WFD revisjon: bindende 10% industri, 30% retail/husholdning innen 2030. Baseline 2021-2023", "source": "EC WFD 2025" }
+    },
+    "food_waste_target": {
+      "label": "Matsvinn-reduksjonsmaal",
+      "NO": { "target_pct": 50, "year": 2030, "baseline": 2015, "progress": "24% reduction per capita since 2015 (retail -42%, industry -12%, household -5%)", "source": "Bransjeavtalen" },
+      "SE": { "target_pct": 50, "year": 2030, "source": "Naturvardsverket" },
+      "DK": { "target_pct": 50, "year": 2030, "source": "fvm.dk" },
+      "FI": { "target_pct": 50, "year": 2030, "source": "Luke" },
+      "IS": { "target_pct": null, "notes": "Ingen formal malsetting" },
+      "EU": { "target_pct": "10/30", "year": 2030, "notes": "10% industry, 30% retail+household. Binding from Oct 2025" }
+    },
+    "mandatory_food_waste_sorting": {
+      "label": "Obligatorisk kildesortering matavfall",
+      "NO": { "year": 2023, "scope": "all municipalities", "source": "Avfallsforskriften" },
+      "SE": { "year": 2024, "scope": "all municipalities from Jan 2024", "source": "Naturvardsverket" },
+      "DK": { "year": 2024, "scope": "all municipalities from 2024", "source": "Miljostyrelsen" },
+      "FI": { "year": 2024, "scope": "buildings with >5 apartments", "source": "YM" },
+      "IS": { "year": 2023, "scope": "4 fractions", "source": "UST" }
+    },
+    "carbon_tax_agriculture": {
+      "label": "CO2-avgift pa landbruk",
+      "NO": { "status": "none", "notes": "Landbruket er fritatt fra CO2-avgift" },
+      "SE": { "status": "none", "notes": "Diskuteres" },
+      "DK": { "status": "enacted", "year": 2030, "rate_dkk_per_tonne": 300, "rate_2035_dkk": 750, "details": "Verdens forste CO2-avgift pa biologiske utslipp. Inkluderer metan og lystgass fra husdyr", "green_area_fund_dkk_m": 43, "green_area_targets": "250,000 ha skog + 140,000 ha myr", "source": "Skatteministeriet" },
+      "FI": { "status": "none" },
+      "IS": { "status": "none" }
+    },
+    "biogas_policy": {
+      "label": "Biogasspolitikk",
+      "NO": { "instrument": "Enova investment support", "predictability": "Short-term project grants", "production_gwh": 470, "target_gwh": 5500, "gap_vs_dk": "17x lower production than Denmark" },
+      "SE": { "instrument": "Tax incentives, Biogassutredning 2023", "predictability": "Medium", "production_gwh": 2000, "target_gwh": 7000, "target_year": 2030 },
+      "DK": { "instrument": "20-year feed-in tariff subsidy", "predictability": "High (20-year regime)", "production_gwh": 8100, "share_of_gas_pct": 41, "target": "100% green gas by 2030" },
+      "FI": { "instrument": "Investment support", "predictability": "Medium", "production_gwh": 930, "investment_planned_eur_bn": 1.02 },
+      "IS": { "instrument": "None", "production_gwh": 0 }
+    },
+    "self_sufficiency_policy": {
+      "label": "Selvforsyningspolitikk",
+      "NO": { "caloric_pct": 47, "target_pct": 50, "target_year": 2030, "gap_pp": 3, "strategic_reserve": "No formal grain reserve", "notes": "Would be ~100% if seafood export counted" },
+      "SE": { "caloric_pct": 50, "target_pct": null, "notes": "SOU 2024:8 livsmedelsberedskap. No formal target but active review" },
+      "DK": { "caloric_pct": 300, "notes": "Net exporter. Agriculture = ~25% of export value" },
+      "FI": { "caloric_pct": 80, "strategic_reserve_months": 9, "model": "HVK (Huoltovarmuuskeskus)", "notes": "Gold standard in Nordics. 9-month grain reserve" },
+      "IS": { "caloric_pct": null, "notes": "Limited data. High for seafood, very low for grains/produce" }
+    },
+    "packaging_regulation": {
+      "label": "Emballasjeregulering",
+      "NO": { "pant_return_pct": 92.3, "epr_system": "Gront Punkt Norge", "pfas_ban_date": "2026-08-12", "notes": "1000kg EPR threshold removed 1.7.2025. PFAS ban Aug 2026 affects ~80% of fiber-based food packaging" },
+      "SE": { "pant_return_pct": 87, "epr_system": "Pantamera (Returpack)" },
+      "DK": { "epr_system": "Dansk Retursystem" },
+      "FI": { "epr_system": "PALPA" },
+      "IS": { "epr_system": "Endurvinnslan" },
+      "EU": { "regulation": "PPWR", "reuse_targets": { "takeaway_2030_pct": 10, "transport_2030_pct": 30 } }
+    },
+    "novel_protein_regulation": {
+      "label": "Regulering av alternative proteiner",
+      "EU": {
+        "efsa_approved_insect_species": 7,
+        "status": "7 species EU-approved as of Q1 2025",
+        "pending_decisions": "2025-2026 EFSA decisions will determine viability",
+        "key_applications": ["Enifer PEKILO (Oct 2024)", "Solar Foods Solein (approved Singapore 2022, EU pending)"]
+      },
+      "NO": { "notes": "Follows EU/EEA regulation. Invertapro (Tromso) active in BSF" },
+      "FI": { "notes": "Home to Solar Foods, Enifer, Volare. Finland 8th globally in agrifoodtech VC ($390M in 2024)" },
+      "DK": { "notes": "ENORM bankruptcy Oct 2025 chilled sector. Ÿnsect (FR) liquidation Dec 2025 added pressure" }
+    },
+    "branch_agreement_food_waste": {
+      "label": "Bransjeavtale matsvinn",
+      "NO": { "year": 2017, "parties": "5 departementer + 12 bransjeorganisasjoner", "status": "Active, model for Europe (Szulecka 2024)", "reporting": "2021/2025/2030 milestones" },
+      "SE": { "status": "Voluntary (Livsmedelsverket)" },
+      "DK": { "status": "Voluntary (Together Against Food Waste)" },
+      "FI": { "status": "Voluntary (Luke-koordinert)" },
+      "IS": { "status": "Matarsoun-initiativ" }
+    }
+  },
+  "eu_framework": {
+    "waste_framework_directive_2025": {
+      "in_force": "October 2025",
+      "binding_targets": "10% industry, 30% retail/household by 2030",
+      "baseline": "Average 2021-2023",
+      "authority_deadline": "17 January 2026",
+      "programme_adaptation": "17 October 2027",
+      "donation_obligation": "Economic operators must facilitate donation of unsold food"
+    },
+    "ppwr": {
+      "reuse_takeaway_2030_pct": 10,
+      "reuse_transport_2030_pct": 30,
+      "notes": "Packaging and Packaging Waste Regulation"
+    },
+    "pfas_restriction": {
+      "date": "2026-08-12",
+      "impact": "~80% of fiber-based food packaging affected",
+      "notes": "Immediate supply chain disruption and innovation opportunity"
+    },
+    "horizon_europe_cluster_6": {
+      "budget_2026_eur_m": 677,
+      "budget_2027_eur_m": 632,
+      "focus": "Food, bioeconomy, natural resources, agriculture, environment",
+      "deadlines": "Applications April/September 2026"
+    }
+  }
+}

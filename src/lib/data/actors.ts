@@ -2058,6 +2058,24 @@ export const actorsSeed: ActorSeed[] = [
     notes: 'Konkurs 30.10.2025. Bostyrer: Henrik Selchau Poulsen. Relevant som negativ case for innovasjon.',
   },
 
+  {
+    id: 'actor-restaurant-rest',
+    slug: 'restaurant-rest',
+    name: 'Restaurant Rest (KONKURS)',
+    actorType: 'corporate',
+    organizationType: 'restaurant',
+    country: 'NO',
+    roleSummary: 'Oslobasert gourmetrestaurant bygget paa zero-waste-konsept. 70-80 % av menyen fra overskuddsraavarer (stygge groennsaker, naer-utloepte varer). Michelin Green Star. Eid av Shepherd\'s Pie Capital (50 %), TINE SA (33.4 %), grunnlegger Jimmy Oien (7.5 %). 8 bord, Kirkegata 1-3 Oslo. GIKK KONKURS september 2024 etter COVID-likviditetskrise, energikrise og kostnadsinflasjon.',
+    currentRelevance: 'Kritisk case for sirkulaer mat: selv med Michelin-anerkjennelse og TINE som storinvestor var premium zero-waste-restaurant oekonomisk skjoer. Del av boelge: 41 restaurantkonkurser sept 2024 (+37 %). Viser at plattform/discount-modeller (TGTG, Holdbart) er mer robuste enn produksjon/fine dining for sirkulaer mat. Nevnt av Einar i moete 13.04.2026 som konkret eksempel.',
+    website: 'https://www.restaurantrest.com',
+    currentStance: 'neutral',
+    priorityTier: 'p3',
+    powerScore: 0,
+    interestScore: 3,
+    themeTags: ['circular-economy', 'food-waste', 'restaurant', 'bankruptcy', 'zero-waste', 'horeca'],
+    notes: 'Org.nr 919 972 696. Konkurs sept 2024, slettet fra Enhetsregisteret 18.06.2025. Jimmy Oien (kokk, Bocuse d\'Or 2015) + Oeystein Ruud grunnla selskapet 2017. Aapnet sept 2018.',
+  },
+
   // ===== SIRKULAER OEKONOMI: Redistribusjon og upcycling =====
   {
     id: 'actor-motatos',
