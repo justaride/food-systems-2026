@@ -1,0 +1,56 @@
+{
+  "country": "is",
+  "year": 2024,
+  "population": 390000,
+  "currency": "ISK",
+  "selfSufficiency": {
+    "caloric_pct": null,
+    "notes": "Data limited. High fish consumption (83.8 kg/capita, ~3x Norway). Import dependent for most non-seafood products.",
+    "source": "Hagstofa Íslands"
+  },
+  "steps": [
+    {
+      "name": "Primærproduksjon",
+      "id": "primary",
+      "volume_tonnes": null,
+      "breakdown": {
+        "notes": "Sheep farming and dairy significant. Geothermal greenhouses (tomatoes, cucumbers) are unique to Iceland. Fish is dominant sector."
+      },
+      "sources": ["Hagstofa Íslands"]
+    },
+    {
+      "name": "Sjømat",
+      "id": "seafood",
+      "volume_tonnes": null,
+      "notes": "World's most technologically advanced whitefish processing (Marel technology). Key export sector. Samherji is largest company.",
+      "key_actors": ["Samherji", "Marel"],
+      "sources": ["verdikjede.ts"]
+    },
+    {
+      "name": "Detaljhandel",
+      "id": "retail",
+      "concentration": {
+        "notes": "Hagar dominates. 80% of consumers report competition problems.",
+        "dominant_actor": "Hagar"
+      },
+      "sources": ["chart-metrics.json"]
+    },
+    {
+      "name": "Avfall/sirkularitet",
+      "id": "waste",
+      "total_waste_tonnes": null,
+      "circularity": {
+        "biogas_gwh": null,
+        "biogas_notes": "No significant biogas production",
+        "mandatory_food_waste_sorting": "2023, 4 fractions",
+        "no_national_food_waste_strategy": true
+      },
+      "sources": ["SA-02"]
+    }
+  ],
+  "key_policies": [
+    { "name": "Kildesortering 4 fraksjoner", "year": 2023, "type": "mandatory" },
+    { "name": "Matarsoun-initiativ", "type": "voluntary" }
+  ],
+  "data_quality": "Low. Significant gaps across all value chain steps. Priority for data harvest."
+}

@@ -86,6 +86,15 @@ Dashboard for matsystemdata ble vist og diskutert:
 
 **Aksjon:** Gabriel og Einar/Cathrine må sette seg ned og bli enige om hvilke indikatorer som er relevante
 
+### Einars innspill mot slutten: konkrete aktører og mediekartlegging
+
+Einar ga konkrete eksempler på sirkulære aktører i matbransjen, bl.a.:
+- **Restaurant Rest** (Oslo) — gourmetrestaurant med zero-waste-konsept, Michelin Green Star, TINE som 33% eier. Gikk konkurs sept 2024 etter COVID + energikrise + kostnadsinflasjon
+- Poenget: sirkulære initiativ som prøver og feiler er viktige å kartlegge — ikke bare de som lykkes
+- Mediekartlegging: hvordan sirkulære mat-narrativer dekkes i mediene per land
+
+**Gabriels respons:** «Dette er akkurat det jeg trenger — veldig konkret for å jobbe etter.» Konkrete aktørhistorier med utfall (suksess/fiasko) gir bedre arbeidsgrunnlag enn abstrakte rammeverk.
+
 ---
 
 ## Åpne problemstillinger

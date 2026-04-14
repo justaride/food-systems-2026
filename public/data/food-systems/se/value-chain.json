@@ -1,0 +1,112 @@
+{
+  "country": "se",
+  "year": 2024,
+  "population": 10550000,
+  "currency": "SEK",
+  "selfSufficiency": {
+    "caloric_pct": 50,
+    "notes": "SOU 2024:8 livsmedelsberedskap comprehensive preparedness review.",
+    "source": "Jordbruksverket, SOU 2024:8"
+  },
+  "steps": [
+    {
+      "name": "Primærproduksjon",
+      "id": "primary",
+      "volume_tonnes": null,
+      "breakdown": {
+        "grain_tonnes": 6400000,
+        "grain_notes": "Record harvest 2025",
+        "wheat_tonnes": 2800000,
+        "barley_tonnes": 1500000,
+        "oats_tonnes": 900000,
+        "rye_rapeseed_other_tonnes": 1200000,
+        "organic_share_pct": 20.2,
+        "organic_notes": "Highest organic farmland share in Nordics"
+      },
+      "import_tonnes": null,
+      "export_tonnes": null,
+      "waste_tonnes": null,
+      "co2e_mt": null,
+      "sources": ["SCB", "Jordbruksverket", "SCB PxWeb"]
+    },
+    {
+      "name": "Foredling",
+      "id": "processing",
+      "volume_tonnes": null,
+      "key_actors": ["Arla Foods SE", "Lantmännen", "HKScan (→Lantmännen)", "Fazer"],
+      "emv_share_pct": 28,
+      "enterprises": 3654,
+      "employees": 43000,
+      "turnover_bn_sek": 222,
+      "workforce_gap": 20000,
+      "workforce_gap_year": 2028,
+      "waste_tonnes": null,
+      "notes": "Sweden needs 20,000 new food industry workers by 2028. Lantmännen acquired HKScan SE.",
+      "sources": ["SCB PxWeb", "verdikjede.ts"]
+    },
+    {
+      "name": "Distribusjon/grossist",
+      "id": "distribution",
+      "infrastructure": {
+        "coop_eskilstuna_automation_pct": 95,
+        "axfood_kungsbacka_investment_eur_m": 265,
+        "fehmarn_belt_tunnel_year": 2029
+      },
+      "notes": "Major automation investments. Axfood investing EUR 265M in fully automated Kungsbacka warehouse (2026-2031).",
+      "sources": ["verdikjede.ts"]
+    },
+    {
+      "name": "Detaljhandel",
+      "id": "retail",
+      "market_value_bn_sek": 308.7,
+      "concentration": {
+        "cr3_pct": 90,
+        "shares": {
+          "ICA": 36,
+          "Axfood": 23,
+          "Coop SE": 19,
+          "Lidl": 8,
+          "Other": 14
+        }
+      },
+      "waste_tonnes": null,
+      "sources": ["SCB PxWeb", "Konkurrensverket", "chart-metrics.json"]
+    },
+    {
+      "name": "HoReCa",
+      "id": "horeca",
+      "notes": "Universal free school meals since 1948. ~37 bn NOK/year combined with Finland.",
+      "waste_tonnes": null,
+      "sources": ["verdikjede.ts"]
+    },
+    {
+      "name": "Husholdning",
+      "id": "household",
+      "waste_tonnes": 370000,
+      "waste_per_capita_kg": 35,
+      "sources": ["Naturvårdsverket 2024"]
+    },
+    {
+      "name": "Avfall/sirkularitet",
+      "id": "waste",
+      "total_waste_tonnes": 880000,
+      "waste_per_capita_kg": 84,
+      "circularity": {
+        "biogas_gwh": 2000,
+        "biogas_target_gwh": 7000,
+        "biogas_target_year": 2030,
+        "biogas_plants": 280,
+        "pantamera_return_rate_pct": 87,
+        "mandatory_food_waste_sorting": "January 2024",
+        "reko_rings": 220
+      },
+      "sources": ["Naturvårdsverket", "IEA Bioenergy SE 2024", "SA-02"]
+    }
+  ],
+  "key_policies": [
+    { "name": "Obligatorisk kildesortering matavfall", "year": 2024, "type": "mandatory" },
+    { "name": "Biogassutredning 2023", "type": "strategy" },
+    { "name": "SOU 2024:8 Livsmedelsberedskap", "type": "review" },
+    { "name": "Matsvinnsmål 50% innen 2030", "type": "voluntary" }
+  ]
+}
