@@ -43,9 +43,14 @@
     "db:import:remaining-deep": "tsx scripts/import-remaining-deep.ts",
     "db:import:nordic-deep": "tsx scripts/import-nordic-deepening.ts",
     "db:import:research-20260420": "tsx scripts/import-research-20260420.ts",
+    "db:import:food-process-intake": "tsx scripts/import-food-research-process-intake.ts",
     "db:fix:nordic-orgnr": "tsx scripts/fix-nordic-orgnr.ts",
     "db:check-urls": "tsx scripts/check-urls.ts",
-    "db:audit": "tsx scripts/verify-data-integrity.ts"
+    "db:audit": "tsx scripts/verify-data-integrity.ts",
+    "research:intake:food-process:preview": "tsx scripts/preview-food-research-process-intake.ts",
+    "research:intake:food-process:promotion-candidates": "tsx scripts/build-food-process-promotion-candidates.ts",
+    "research:intake:food-process:blocked-worklist": "tsx scripts/build-food-process-blocked-promotion-worklist.ts",
+    "research:intake:food-process:import:dry-run": "tsx scripts/import-food-research-process-intake.ts --dry-run"
   },
   "dependencies": {
     "@nivo/bar": "^0.99.0",
