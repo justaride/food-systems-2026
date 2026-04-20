@@ -4,6 +4,8 @@
 **Dato:** 11. mars 2026 (Analysert)
 **Kilde:** Framtiden i våre hender (FIVH)
 
+**Merk:** Den lokale PDF-koblingen som tidligere var knyttet til denne noten ble fjernet 20. april 2026 fordi den pekte til en NORSUS/Matvett-rapport om matsvinn, ikke til et FIVH-dokument.
+
 ---
 
 ## Hovedfokus 2025
