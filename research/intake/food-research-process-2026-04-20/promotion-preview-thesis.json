@@ -1,0 +1,942 @@
+{
+  "summary": {
+    "generatedAt": "2026-04-20T20:49:56.128Z",
+    "batchName": "food-research-process-2026-04-20",
+    "target": "thesis",
+    "targetLabel": "Thesis",
+    "apply": true,
+    "minConfidence": "low",
+    "selected": 25,
+    "promotable": 10,
+    "skipped": 15,
+    "conflicts": 0,
+    "wouldCreate": 0,
+    "wouldUpdate": 10,
+    "created": 0,
+    "updated": 10,
+    "artifactChecks": {
+      "importedRowsInSummary": 191,
+      "batchDocumentsInDb": 225,
+      "promotionSummaryTargetCount": 20
+    },
+    "reasonCounts": {
+      "document-already-linked-to-thesis": 10,
+      "review-action-not-import": 10,
+      "unresolved-title-remediation": 1,
+      "thesis-metadata-too-weak:authors+institution+year+url+synthesis+title-quality": 4
+    },
+    "outputs": {
+      "csv": "research/intake/food-research-process-2026-04-20/promotion-preview-thesis.csv",
+      "json": "research/intake/food-research-process-2026-04-20/promotion-preview-thesis.json",
+      "md": "research/intake/food-research-process-2026-04-20/promotion-preview-thesis.md"
+    }
+  },
+  "decisions": [
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Effekter-av-innkjopssamarbeid-i-det-norske-dagligvaremarkedet-masteroppgave-2015.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/bef4051e02-effekter-av-innkjopssamarbeid-i-det-norske-dagligvaremarkedet-masteroppgave-2015.pdf",
+      "filename": "Effekter-av-innkjopssamarbeid-i-det-norske-dagligvaremarkedet-masteroppgave-2015.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjfw000ezo0dgez09d69",
+      "documentTitle": "Microsoft Word - Masteroppgave revidert 3.docx",
+      "promotedTitle": "Microsoft Word - Masteroppgave revidert 3.docx",
+      "typedId": "thesis-food-bef4051e02de",
+      "currentTargetLinks": [
+        "Thesis:thesis-food-bef4051e02de"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "thesis-food-bef4051e02de",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-bef4051e02de",
+        "authors": "Kare Helvik Morken",
+        "institution": "Universitetet i Bergen, Institutt for okonomi",
+        "year": 2015,
+        "title": "Effekter av innkjopssamarbeid i det norske dagligvaremarkedet - En litteraturstudie",
+        "titleNo": null,
+        "url": "https://hdl.handle.net/1956/10899",
+        "synthesis": "Litteraturstudie av hvordan innkjopssamarbeid paverker konkurranse og velferd i norsk dagligvare. Oppgaven konkluderer med at slike samarbeid oker risikoen for hoyere sluttbrukerpriser og lavere konsumentvelferd uten tydelig gevinst for samlet velferd.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cfjfw000ezo0dgez09d69"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Resource-Recovery-surplus-bread-thesis.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/49a5e899db-resource-recovery-surplus-bread-thesis.pdf",
+      "filename": "Resource-Recovery-surplus-bread-thesis.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjvp001gzo0de8n9rsaa",
+      "documentTitle": "Prevention and valorisation of surplus bread at the supplier–retailer interface",
+      "promotedTitle": "Prevention and valorisation of surplus bread at the supplier–retailer interface",
+      "typedId": "thesis-food-49a5e899db68",
+      "currentTargetLinks": [
+        "Thesis:thesis-food-49a5e899db68"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "thesis-food-49a5e899db68",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-49a5e899db68",
+        "authors": "Pedro Luz Brancoli",
+        "institution": "University of Boras, Faculty of Textiles, Engineering and Business",
+        "year": 2021,
+        "title": "Prevention and valorisation of surplus bread at the supplier-retailer interface",
+        "titleNo": null,
+        "url": "https://urn.kb.se/resolve?urn=urn:nbn:se:hb:diva-26454",
+        "synthesis": "Doktoravhandlingen kvantifiserer svensk brodsvinn og viser at take-back-avtaler mellom bakeri og retail er en sentral driver for overproduksjon og svinn. Den finner ogsa at forebygging, donasjon og dyrefor gir bedre miljoresultater enn anaerob nedbrytning og forbrenning.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-waste-circularity",
+          "04_Food_Waste_And_Circularity"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cfjvp001gzo0de8n9rsaa"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/806685_Master_Thesis_Assessment_of_Grocery_eCommerce_in_Scandinavia_jumi18ab.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/85e4cae388-806685-master-thesis-assessment-of-grocery-ecommerce-in-scandinavia-jumi18ab.pdf",
+      "filename": "806685_Master_Thesis_Assessment_of_Grocery_eCommerce_in_Scandinavia_jumi18ab.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkx40032zo0dry52p719",
+      "documentTitle": "Assessment of Grocery eCommerce in Scandinavia",
+      "promotedTitle": "Assessment of Grocery eCommerce in Scandinavia",
+      "typedId": "thesis-food-85e4cae388ae",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Bilgic2025tht_VoR.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/f2e9e64b95-bilgic2025tht-vor.pdf",
+      "filename": "Bilgic2025tht_VoR.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfl020038zo0dcofpmf18",
+      "documentTitle": "untitled",
+      "promotedTitle": "untitled",
+      "typedId": "thesis-food-f2e9e64b954a",
+      "currentTargetLinks": [],
+      "reviewAction": "import",
+      "titleRemediationStatus": "blocked",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "unresolved-title-remediation"
+      ],
+      "reasonSummary": "unresolved-title-remediation",
+      "payloadPreview": null
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_2.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/e627428c94-cellar-1fefebb0-1b4e-11ee-806b-01aa75ed71a1-0001-02-doc-2.pdf",
+      "filename": "cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_2.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfl0k0039zo0d906yig9q",
+      "documentTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 2",
+      "promotedTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 2",
+      "typedId": "thesis-food-e627428c942b",
+      "currentTargetLinks": [],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "thesis-metadata-too-weak:authors+institution+year+url+synthesis+title-quality"
+      ],
+      "reasonSummary": "thesis-metadata-too-weak:authors+institution+year+url+synthesis+title-quality",
+      "payloadPreview": {
+        "id": "thesis-food-e627428c942b",
+        "authors": "",
+        "institution": "",
+        "year": 0,
+        "title": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 2",
+        "titleNo": null,
+        "url": "",
+        "synthesis": "",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cfl0k0039zo0d906yig9q"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_3.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/b2260530c2-cellar-1fefebb0-1b4e-11ee-806b-01aa75ed71a1-0001-02-doc-3.pdf",
+      "filename": "cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_3.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfl12003azo0dfsuwhrxl",
+      "documentTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 3",
+      "promotedTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 3",
+      "typedId": "thesis-food-b2260530c2af",
+      "currentTargetLinks": [],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "thesis-metadata-too-weak:authors+institution+year+url+synthesis+title-quality"
+      ],
+      "reasonSummary": "thesis-metadata-too-weak:authors+institution+year+url+synthesis+title-quality",
+      "payloadPreview": {
+        "id": "thesis-food-b2260530c2af",
+        "authors": "",
+        "institution": "",
+        "year": 0,
+        "title": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 3",
+        "titleNo": null,
+        "url": "",
+        "synthesis": "",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cfl12003azo0dfsuwhrxl"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_4.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/4c1e829dd6-cellar-1fefebb0-1b4e-11ee-806b-01aa75ed71a1-0001-02-doc-4.pdf",
+      "filename": "cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_4.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfl1m003bzo0dl1p4idl3",
+      "documentTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 4",
+      "promotedTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 4",
+      "typedId": "thesis-food-4c1e829dd694",
+      "currentTargetLinks": [],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "thesis-metadata-too-weak:authors+institution+year+url+synthesis+title-quality"
+      ],
+      "reasonSummary": "thesis-metadata-too-weak:authors+institution+year+url+synthesis+title-quality",
+      "payloadPreview": {
+        "id": "thesis-food-4c1e829dd694",
+        "authors": "",
+        "institution": "",
+        "year": 0,
+        "title": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 4",
+        "titleNo": null,
+        "url": "",
+        "synthesis": "",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cfl1m003bzo0dl1p4idl3"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_5.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/e36f2878e9-cellar-1fefebb0-1b4e-11ee-806b-01aa75ed71a1-0001-02-doc-5.pdf",
+      "filename": "cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_5.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfl21003czo0d1blem0mk",
+      "documentTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 5",
+      "promotedTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 5",
+      "typedId": "thesis-food-e36f2878e975",
+      "currentTargetLinks": [],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "thesis-metadata-too-weak:authors+institution+year+url+synthesis+title-quality"
+      ],
+      "reasonSummary": "thesis-metadata-too-weak:authors+institution+year+url+synthesis+title-quality",
+      "payloadPreview": {
+        "id": "thesis-food-e36f2878e975",
+        "authors": "",
+        "institution": "",
+        "year": 0,
+        "title": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 5",
+        "titleNo": null,
+        "url": "",
+        "synthesis": "",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cfl21003czo0d1blem0mk"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/HDR___Afgangsprojekt___Gruppe_25.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/bdddbddf7d-hdr-afgangsprojekt-gruppe-25.pdf",
+      "filename": "HDR___Afgangsprojekt___Gruppe_25.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cflab003qzo0dxqs6gj9g",
+      "documentTitle": "HDR Afgangsprojekt Gruppe 25",
+      "promotedTitle": "HDR Afgangsprojekt Gruppe 25",
+      "typedId": "thesis-food-bdddbddf7d19",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/HDR_Afgangsprojekt_maj_2024.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/28bf4892a6-hdr-afgangsprojekt-maj-2024.pdf",
+      "filename": "HDR_Afgangsprojekt_maj_2024.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cflaq003rzo0d4qgsq4g1",
+      "documentTitle": "Rema 1000: Nøglen til succes på det danske detailmarked",
+      "promotedTitle": "Rema 1000: Nøglen til succes på det danske detailmarked",
+      "typedId": "thesis-food-28bf4892a6a2",
+      "currentTargetLinks": [
+        "Thesis:thesis-food-28bf4892a6a2"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "thesis-food-28bf4892a6a2",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-28bf4892a6a2",
+        "authors": "Mads Jorgensen; Meisam Ahmadi",
+        "institution": "Aalborg Universitet",
+        "year": 2024,
+        "title": "Rema 1000: Noglen til succes pa det danske detailmarked",
+        "titleNo": null,
+        "url": "https://projekter.aau.dk/rema-1000-noglen-til-succes-pa-det-danske-detailmarked-bf170821.html",
+        "synthesis": "Oppgaven forklarer Rema 1000s danske vekst gjennom analyse av konkurranseforhold, okonomi, franchisemodell og kundeverdi. Den peker saerlig pa sterk finansiell ryggrad, lokal tilpasning gjennom franchising og et tydelig lavpriskonsept som forklaring pa hoy lojalitet og markedsfremgang.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cflaq003rzo0d4qgsq4g1"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/hse_ethesis_14678.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/fc5c0c484e-hse-ethesis-14678.pdf",
+      "filename": "hse_ethesis_14678.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cflb5003szo0dza7m081w",
+      "documentTitle": "Retailer's role in reducing food waste Case study of Finnish retailers",
+      "promotedTitle": "Retailer's role in reducing food waste Case study of Finnish retailers",
+      "typedId": "thesis-food-fc5c0c484e1b",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Hybrid-Supply-Chain-Models-in-Swedish-Grocery-Retail.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/5c1b2fbf7c-hybrid-supply-chain-models-in-swedish-grocery-retail.pdf",
+      "filename": "Hybrid-Supply-Chain-Models-in-Swedish-Grocery-Retail.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cflbl003tzo0dikg4m4np",
+      "documentTitle": "Hybrid Supply Chain Models in Swedish Grocery Retail: Balancing Cost Drivers, Environmental Sustainability and Social Responsibility",
+      "promotedTitle": "Hybrid Supply Chain Models in Swedish Grocery Retail: Balancing Cost Drivers, Environmental Sustainability and Social Responsibility",
+      "typedId": "thesis-food-5c1b2fbf7c82",
+      "currentTargetLinks": [
+        "Thesis:thesis-food-5c1b2fbf7c82"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "thesis-food-5c1b2fbf7c82",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-5c1b2fbf7c82",
+        "authors": "Emilia Sedwall; Calle Bjerne; Alexander Grandin",
+        "institution": "JIBS, Business Administration, Jonkoping University",
+        "year": 2025,
+        "title": "Hybrid Supply Chain Models in Swedish Grocery Retail: Balancing Cost Drivers Environmental Sustainability and Social Responsibility",
+        "titleNo": null,
+        "url": "https://urn.kb.se/resolve?urn=urn:nbn:se:hj:diva-68275",
+        "synthesis": "Oppgaven kombinerer litteratursok med syv semistrukturerte intervjuer for a vurdere hybride forsyningskjeder i svensk dagligvarehandel. Den konkluderer med at en blanding av sentralisert og desentralisert distribusjon kan redusere kostnader og utslipp samtidig som den stotter sosialt ansvar gjennom bedre lagerstrategier og mer baerekraftig drift.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cflbl003tzo0dikg4m4np"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Lina-Orlova_Masteroppgave2019.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/f39079f2cd-lina-orlova-masteroppgave2019.pdf",
+      "filename": "Lina-Orlova_Masteroppgave2019.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfldd003xzo0ddqqmr4gu",
+      "documentTitle": "Lina Orlova Masteroppgave2019",
+      "promotedTitle": "Lina Orlova Masteroppgave2019",
+      "typedId": "thesis-food-f39079f2cd99",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Marie+Hebrok.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/c3ed438dd6-marie-hebrok.pdf",
+      "filename": "Marie+Hebrok.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cflfb0041zo0dvp1eubqj",
+      "documentTitle": "Food Waste: A practice-oriented design for sustainability approach",
+      "promotedTitle": "Food Waste: A practice-oriented design for sustainability approach",
+      "typedId": "thesis-food-c3ed438dd6cf",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/master_Duong_Linh_2025.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/bde4758481-master-duong-linh-2025.pdf",
+      "filename": "master_Duong_Linh_2025.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cflfq0042zo0dd23x5xuv",
+      "documentTitle": "Master Thesis_Linh Duong",
+      "promotedTitle": "Master Thesis_Linh Duong",
+      "typedId": "thesis-food-bde475848143",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/MASTER-EMILIAEPOSITO-.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/3a4005a27b-master-emiliaeposito.pdf",
+      "filename": "MASTER-EMILIAEPOSITO-.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cflg50043zo0dzc8c6p32",
+      "documentTitle": "Microsoft Word - MASTER2022.docx",
+      "promotedTitle": "Microsoft Word - MASTER2022.docx",
+      "typedId": "thesis-food-3a4005a27bf6",
+      "currentTargetLinks": [
+        "Thesis:thesis-food-3a4005a27bf6"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "thesis-food-3a4005a27bf6",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-3a4005a27bf6",
+        "authors": "Emilia Alnaes Esposito",
+        "institution": "Universitetet i Bergen",
+        "year": 2022,
+        "title": "Nar matsvinn blir et politikkomrade: Et casestudie av Norges tilnaerming til matsvinnproblematikken",
+        "titleNo": null,
+        "url": "https://hdl.handle.net/11250/3010552",
+        "synthesis": "Dokumentanalyse av hvordan matsvinn gikk fra marginalt tema til etablert norsk politikkomrade. Fremhever polysentrisk styring der stat, naeringsliv og sivilsamfunn deler ansvar gjennom overlappende nettverk og avtaler.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cflg50043zo0dzc8c6p32"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Master's Thesis Peppi Segersven.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/930f5a92fd-master-s-thesis-peppi-segersven.pdf",
+      "filename": "Master's Thesis Peppi Segersven.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cflgl0044zo0dq93gg03y",
+      "documentTitle": "Master's Thesis Peppi Segersven",
+      "promotedTitle": "Master's Thesis Peppi Segersven",
+      "typedId": "thesis-food-930f5a92fd59",
+      "currentTargetLinks": [
+        "Thesis:segersven-2024"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "segersven-2024",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-930f5a92fd59",
+        "authors": "Peppi Segersven",
+        "institution": "Lappeenranta-Lahti University of Technology LUT",
+        "year": 2024,
+        "title": "Development of risk management and resilience of supply chains in Finnish food industry companies post-COVID-19",
+        "titleNo": null,
+        "url": "https://urn.fi/URN:NBN:fi-fe2024043024001",
+        "synthesis": "Intervjuer med fem finske matindustribedrifter viser at pandemien loftet supply chain risk management til et mer strategisk niva. Leverandorsamarbeid, multi-sourcing, synlighet og rask beredskap trekkes fram som de viktigste post-COVID grepene.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cflgl0044zo0dq93gg03y"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Master's Thesis_Mäkelä_Mika.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/fc018a0d7b-master-s-thesis-makela-mika.pdf",
+      "filename": "Master's Thesis_Mäkelä_Mika.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cflgz0045zo0dy3s79u8f",
+      "documentTitle": "Master's Thesis Mäkelä Mika",
+      "promotedTitle": "Master's Thesis Mäkelä Mika",
+      "typedId": "thesis-food-fc018a0d7be7",
+      "currentTargetLinks": [
+        "Thesis:makela-2023"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "makela-2023",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-fc018a0d7be7",
+        "authors": "Mika Makela",
+        "institution": "Lappeenranta-Lahti University of Technology LUT",
+        "year": 2023,
+        "title": "Managing waste in food supply chains with supply chain collaboration and integration",
+        "titleNo": null,
+        "url": "https://urn.fi/URN:NBN:fi-fe2023052245722",
+        "synthesis": "Kvalitativ fler-case-studie av seks finske matbedrifter om hvordan leverandor-detaljist-samarbeid kan redusere matsvinn. Konkluderer med at samarbeid og integrasjon hjelper, men at effekten avhenger av koordinering pa tvers av hele kjeden.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cflgz0045zo0dy3s79u8f"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/masteroppgave__mats_b._simonsen.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/67557def0c-masteroppgave-mats-b-simonsen.pdf",
+      "filename": "masteroppgave__mats_b._simonsen.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cflhf0046zo0d0bqs0x9g",
+      "documentTitle": "masteroppgave mats b simonsen",
+      "promotedTitle": "masteroppgave mats b simonsen",
+      "typedId": "thesis-food-67557def0cdf",
+      "currentTargetLinks": [
+        "Thesis:thesis-food-67557def0cdf"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "thesis-food-67557def0cdf",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-67557def0cdf",
+        "authors": "Mats Baltscheffskij Simonsen",
+        "institution": "Norges teknisk-naturvitenskapelige universitet (NTNU)",
+        "year": 2017,
+        "title": "Digitaliseringen av norsk dagligvarehandel: En kvalitativ studie av visjonsarbeid brukerforstaelser og dets implikasjoner pa innovative prosesser",
+        "titleNo": null,
+        "url": "https://hdl.handle.net/11250/2456020",
+        "synthesis": "STS-orientert kvalitativ studie av hvordan norsk dagligvare digitaliseres gjennom aktorer som SPAR, Meny, Bunnpris og Kolonial.no. Skiller mellom konservative, radikale og hybride losninger og viser at brukerforstaelser og tekniske justeringer former hvilke modeller som overlever.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cflhf0046zo0d0bqs0x9g"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Paola_Federica_Albizzati_thesis.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/56c9607251-paola-federica-albizzati-thesis.pdf",
+      "filename": "Paola_Federica_Albizzati_thesis.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cflqr004lzo0d694jzmo3",
+      "documentTitle": "Paola Federica Albizzati thesis",
+      "promotedTitle": "Paola Federica Albizzati thesis",
+      "typedId": "thesis-food-56c96072511e",
+      "currentTargetLinks": [
+        "Thesis:albizzati-phd-2021"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "albizzati-phd-2021",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-56c96072511e",
+        "authors": "Paola Federica Albizzati",
+        "institution": "Technical University of Denmark (DTU)",
+        "year": 2021,
+        "title": "Sustainability Assessment of Food Waste Management",
+        "titleNo": null,
+        "url": "https://orbit.dtu.dk/en/publications/sustainability-assessment-of-food-waste-management",
+        "synthesis": "PhD-avhandling som vurderer 21 matsvinnsveier med livslops- og baerekraftsanalyse. Viser at forebygging er klart best, og at redistribusjon og dyrefor normalt kommer bedre ut enn energiutnyttelse, forbrenning og deponi.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cflqr004lzo0d694jzmo3"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/pdf  MARK STEIN  PhD  24  OCT  22.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/a42ecc1c4f-pdf-mark-stein-phd-24-oct-22.pdf",
+      "filename": "pdf  MARK STEIN  PhD  24  OCT  22.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cflrb004mzo0d38qrt0r7",
+      "documentTitle": "University of Salford, Manchester",
+      "promotedTitle": "University of Salford, Manchester",
+      "typedId": "thesis-food-a42ecc1c4f1d",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/PhD_Thesis_Nina_N_rgaard_S_rensen_print_final.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/7a19be6dbe-phd-thesis-nina-n-rgaard-s-rensen-print-final.pdf",
+      "filename": "PhD_Thesis_Nina_N_rgaard_S_rensen_print_final.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cflru004nzo0d0dn38621",
+      "documentTitle": "Organic food conversion in Danish public kitchens: The effects of the Danish Organic Action Plan 2020 on organic public procurement and wellbeing at work",
+      "promotedTitle": "Organic food conversion in Danish public kitchens: The effects of the Danish Organic Action Plan 2020 on organic public procurement and wellbeing at work",
+      "typedId": "thesis-food-7a19be6dbec1",
+      "currentTargetLinks": [
+        "Thesis:thesis-food-7a19be6dbec1"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "thesis-food-7a19be6dbec1",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-7a19be6dbec1",
+        "authors": "Nina Norgaard Sorensen",
+        "institution": "Technical University of Denmark, National Food Institute",
+        "year": 2016,
+        "title": "Organic food conversion in Danish public kitchens: The effects of the Danish Organic Action Plan 2020 on organic public procurement and wellbeing at work",
+        "titleNo": null,
+        "url": "https://orbit.dtu.dk/en/publications/organic-food-conversion-in-danish-public-kitchens-the-effects-of-/",
+        "synthesis": "Evaluates how Denmark's Organic Action Plan 2020 affected public kitchens' organic procurement and staff wellbeing. The thesis finds substantial increases in organic purchasing without deterioration in work conditions, with many kitchen workers reporting higher motivation.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cflru004nzo0d0dn38621"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Susanne_Helen_Gangstøe_Masteroppgave.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/b72466e769-susanne-helen-gangst-e-masteroppgave.pdf",
+      "filename": "Susanne_Helen_Gangstøe_Masteroppgave.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfm1c0055zo0doa1gsfle",
+      "documentTitle": "Susanne Helen Gangstøe Masteroppgave",
+      "promotedTitle": "Susanne Helen Gangstøe Masteroppgave",
+      "typedId": "thesis-food-b72466e769a6",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/thesis_food_ng_meile_uniform_pricing_public_version.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/daa9a51733-thesis-food-ng-meile-uniform-pricing-public-version.pdf",
+      "filename": "thesis_food_ng_meile_uniform_pricing_public_version.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfm6p005izo0dxyh9ffle",
+      "documentTitle": "thesis food ng meile uniform pricing public version",
+      "promotedTitle": "thesis food ng meile uniform pricing public version",
+      "typedId": "thesis-food-daa9a5173334",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Matsikkerhet-i-Norge-forsyningsberedskap-masteroppgave-2016.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/9350b777ab-matsikkerhet-i-norge-forsyningsberedskap-masteroppgave-2016.pdf",
+      "filename": "Matsikkerhet-i-Norge-forsyningsberedskap-masteroppgave-2016.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfmeo0060zo0d5hrtedok",
+      "documentTitle": "Matsikkerhet i Norge forsyningsberedskap masteroppgave 2016",
+      "promotedTitle": "Matsikkerhet i Norge forsyningsberedskap masteroppgave 2016",
+      "typedId": "thesis-food-9350b777abaa",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-04-20T16:09:44.356Z",
+  "batchName": "food-research-process-2026-04-20",
+  "reviewCsv": "research/intake/food-research-process-2026-04-20/review.csv",
+  "titleRemediationCsv": "research/intake/food-research-process-2026-04-20/title-remediation.csv",
+  "importSummaryJson": "research/intake/food-research-process-2026-04-20/import-summary.json",
+  "importedRowsAnalyzed": 225,
+  "skippedRows": 25,
+  "countsByTarget": {
+    "Report": 71,
+    "Thesis": 20,
+    "SourceDoc": 126,
+    "Hold": 7,
+    "Manual review": 1
+  },
+  "countsByConfidence": {
+    "medium": 128,
+    "high": 70,
+    "low": 27
+  },
+  "countsByTargetAndConfidence": {
+    "SourceDoc": {
+      "high": 30,
+      "medium": 96
+    },
+    "Report": {
+      "medium": 25,
+      "high": 28,
+      "low": 18
+    },
+    "Thesis": {
+      "medium": 7,
+      "low": 1,
+      "high": 12
+    },
+    "Hold": {
+      "low": 7
+    },
+    "Manual review": {
+      "low": 1
+    }
+  },
+  "manualReviewRows": [
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Zero waste solutions in hospitality  technology alignment and agile management practices for responsible consumption and production of food.pdf",
+      "analysisTitle": "Zero waste solutions in hospitality: technology alignment and agile management practices for respons",
+      "reason": "Signals are weak or mixed across SourceDoc, Report, and Thesis. Review manually before promoting into a typed layer."
+    }
+  ],
+  "holdRows": [
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/NORDIC_FOOD_MARKETS.pdf",
+      "analysisTitle": "543348.indd",
+      "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food-waste-reduction-corporate-responsibility-and-national-policies-2024.pdf",
+      "analysisTitle": "BFJ-11-2023-0982_proof 470..485",
+      "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Bilgic2025tht_VoR.pdf",
+      "analysisTitle": "untitled",
+      "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_2.pdf",
+      "analysisTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 2",
+      "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_3.pdf",
+      "analysisTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 3",
+      "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_4.pdf",
+      "analysisTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 4",
+      "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_5.pdf",
+      "analysisTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 5",
+      "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+    }
+  ],
+  "outputs": {
+    "csv": "research/intake/food-research-process-2026-04-20/promotion-candidates.csv",
+    "markdown": "research/intake/food-research-process-2026-04-20/PROMOTION-CANDIDATES.md",
+    "json": "research/intake/food-research-process-2026-04-20/promotion-candidates-summary.json"
+  }
+}

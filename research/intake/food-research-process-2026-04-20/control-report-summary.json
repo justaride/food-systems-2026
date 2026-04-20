@@ -1,0 +1,1283 @@
+{
+  "generatedAt": "2026-04-20T16:21:27.857Z",
+  "batchName": "food-research-process-2026-04-20",
+  "consistency": {
+    "checksPassed": true,
+    "checks": [
+      "manifest.reviewCsv: ok",
+      "importSummary.reviewCsv: ok",
+      "promotionSummary.reviewCsv: ok",
+      "promotionSummary.titleRemediationCsv: ok",
+      "promotionSummary.importSummaryJson: ok",
+      "titleRemediationSummary.batchName: ok",
+      "promotionSummary.batchName: ok"
+    ]
+  },
+  "inputArtifacts": {
+    "manifestJson": "research/intake/food-research-process-2026-04-20/manifest.json",
+    "reviewCsv": "research/intake/food-research-process-2026-04-20/review.csv",
+    "importSummaryJson": "research/intake/food-research-process-2026-04-20/import-summary.json",
+    "titleRemediationCsv": "research/intake/food-research-process-2026-04-20/title-remediation.csv",
+    "titleRemediationSummaryJson": "research/intake/food-research-process-2026-04-20/title-remediation-summary.json",
+    "promotionCandidatesCsv": "research/intake/food-research-process-2026-04-20/promotion-candidates.csv",
+    "promotionCandidatesSummaryJson": "research/intake/food-research-process-2026-04-20/promotion-candidates-summary.json"
+  },
+  "source": {
+    "sourceDir": "Food Research Process 20.04.26",
+    "sourceBatchSize": 264,
+    "reviewableRows": 250,
+    "exactDuplicatesExcluded": 14,
+    "countsByFolder": {
+      "00_Working_Files": 19,
+      "01_Data_And_Archives": 6,
+      "03_Policy_Governance_And_Market": 34,
+      "04_Food_Waste_And_Circularity": 23,
+      "05_Foodtech_Alt_Protein_And_Innovation": 31,
+      "06_Company_And_Annual_Reports": 15,
+      "07_Academic_Research_And_Theses": 102,
+      "08_Food_Security_Agriculture_And_Seafood": 20
+    },
+    "countsByAction": {
+      "hold": 25,
+      "import": 225
+    },
+    "unclassifiedActionCounts": {},
+    "countsByExt": {
+      ".docx": 8,
+      ".md": 9,
+      ".pdf": 226,
+      ".numbers": 1,
+      ".zip": 4,
+      ".xml": 1,
+      ".xlsx": 1
+    }
+  },
+  "intake": {
+    "reviewImportRows": 225,
+    "reviewHoldRows": 25,
+    "reviewUnclassifiedActionRows": 0,
+    "holdCountsByFolder": {
+      "00_Working_Files": 19,
+      "01_Data_And_Archives": 6
+    },
+    "importSummary": {
+      "dryRun": false,
+      "selected": 225,
+      "imported": 225,
+      "skipped": 0
+    }
+  },
+  "titleRemediation": {
+    "generatedAt": "2026-04-20T15:48:14.207Z",
+    "batchName": "food-research-process-2026-04-20",
+    "applyMode": true,
+    "weakTitleCount": 17,
+    "autoApplyCount": 0,
+    "dbChangedCount": 0,
+    "reviewCsvChangedCount": 0,
+    "appliedCount": 0,
+    "weakCounts": {
+      "generic_short_title": 6,
+      "leading_identifier": 1,
+      "truncated_source_title": 3,
+      "artifact_label": 8
+    },
+    "suggestionCounts": {
+      "pdf-heading": 12,
+      "manual-review": 4,
+      "filename": 1
+    },
+    "unresolvedQueueCount": 17,
+    "unresolvedSuggestedCount": 13,
+    "unresolvedManualOnlyCount": 4,
+    "unresolvedCountsByConfidence": {
+      "medium": 13,
+      "low": 4
+    },
+    "unresolvedCountsBySuggestionSource": {
+      "pdf-heading": 12,
+      "manual-review": 4,
+      "filename": 1
+    },
+    "unresolvedCountsByWeakReason": {
+      "leading_identifier": 1,
+      "generic_short_title": 6,
+      "truncated_source_title": 3,
+      "artifact_label": 8
+    },
+    "unresolvedRows": [
+      {
+        "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/2022-68-EMV-og-innovasjon-i-dagligvare-1.pdf",
+        "currentTitle": "2022 68 EMV og innovasjon i dagligvare 1",
+        "suggestedTitle": "Egne Merkevarer (EMV) og Innovasjon i Dagligvare",
+        "suggestionSource": "pdf-heading",
+        "confidence": "medium",
+        "weakReasons": [
+          "leading_identifier"
+        ],
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport-marginstudie.pdf",
+        "currentTitle": "Rapport marginstudie",
+        "suggestedTitle": "KONKURRANSETILSYNETS MARGINSTUDIE 2024 Del 1. Lønnsomhetsberegninger på virksomhetsnivå",
+        "suggestionSource": "pdf-heading",
+        "confidence": "medium",
+        "weakReasons": [
+          "generic_short_title"
+        ],
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+samarbeidsklimaet+i+dagligvarebransjen+2024_Final_17.10.24.pdf",
+        "currentTitle": "Samarbeidsklimaet i Dagligvarebransjen",
+        "suggestedTitle": null,
+        "suggestionSource": "manual-review",
+        "confidence": "low",
+        "weakReasons": [
+          "truncated_source_title"
+        ],
+        "reason": "Weak title flagged for review, but no unambiguous automatic replacement was found."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Zero waste solutions in hospitality  technology alignment and agile management practices for responsible consumption and production of food.pdf",
+        "currentTitle": "Zero waste solutions in hospitality: technology alignment and agile management practices for respons",
+        "suggestedTitle": "Zero waste solutions in hospitality technology alignment and agile management practices for responsible consumption and production of food",
+        "suggestionSource": "filename",
+        "confidence": "medium",
+        "weakReasons": [
+          "truncated_source_title"
+        ],
+        "reason": "Expanded a truncated import title to the fuller source filename."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2024 Environmental Footprint Report ENG.pdf",
+        "currentTitle": "Environmental footprint of the food saved by Too Good To Go V1.1",
+        "suggestedTitle": null,
+        "suggestionSource": "manual-review",
+        "confidence": "low",
+        "weakReasons": [
+          "artifact_label"
+        ],
+        "reason": "Weak title flagged for review, but no unambiguous automatic replacement was found."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/Annual report 2024.pdf",
+        "currentTitle": "Annual report 2024",
+        "suggestedTitle": null,
+        "suggestionSource": "manual-review",
+        "confidence": "low",
+        "weakReasons": [
+          "generic_short_title"
+        ],
+        "reason": "Weak title flagged for review, but no unambiguous automatic replacement was found."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/806685_Master_Thesis_Assessment_of_Grocery_eCommerce_in_Scandinavia_jumi18ab.pdf",
+        "currentTitle": "806685 Master Thesis Assessment of Grocery eCommerce in Scandinavia jumi18ab",
+        "suggestedTitle": null,
+        "suggestionSource": "manual-review",
+        "confidence": "low",
+        "weakReasons": [
+          "artifact_label"
+        ],
+        "reason": "Weak title flagged for review, but no unambiguous automatic replacement was found."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/978-952-03-2923-5.pdf",
+        "currentTitle": "978 952 03 2923 5",
+        "suggestedTitle": "TARU LEHTOKUNNAS Enacting a Circular Economy A multi-sited ethnography on food waste practices",
+        "suggestionSource": "pdf-heading",
+        "confidence": "medium",
+        "weakReasons": [
+          "generic_short_title"
+        ],
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/about-oecd-environmental-performance-reviews-brochure-2022-web.pdf",
+        "currentTitle": "about oecd environmental performance reviews brochure 2022 web",
+        "suggestedTitle": "Environmental Performance Reviews oe.cd/epr EVIDENCE-BASED, SYSTEMATIC, COUNTRY-TAILORED",
+        "suggestionSource": "pdf-heading",
+        "confidence": "medium",
+        "weakReasons": [
+          "artifact_label"
+        ],
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Bilgic2025tht_VoR.pdf",
+        "currentTitle": "untitled",
+        "suggestedTitle": "© 2025 The Authors Water Science & Technology Vol 91 No 11, 1234 doi: 10.2166/wst.2025.068 Thermal hydrolysis treatment of digestates derived from food waste and sewage sludge – effect on residual methane potential",
+        "suggestionSource": "pdf-heading",
+        "confidence": "medium",
+        "weakReasons": [
+          "artifact_label"
+        ],
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Hybrid-Supply-Chain-Models-in-Swedish-Grocery-Retail.pdf",
+        "currentTitle": "Bachelor Thesis",
+        "suggestedTitle": "Hybrid Supply Chain Models in Swedish Grocery Retail: Balancing Cost Drivers, Environmental Sustainability and Social Responsibility BACHELOR THESIS WITHIN: Major in Business Administration",
+        "suggestionSource": "pdf-heading",
+        "confidence": "medium",
+        "weakReasons": [
+          "generic_short_title"
+        ],
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/luke-luobio_51_2025.pdf",
+        "currentTitle": "Robust Food Waste Management Method for Food Services (Romance) : Final report.",
+        "suggestedTitle": "Robust Food Waste Management Method for Food Services (Romance)",
+        "suggestionSource": "pdf-heading",
+        "confidence": "medium",
+        "weakReasons": [
+          "artifact_label"
+        ],
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Marie+Hebrok.pdf",
+        "currentTitle": "Doctor Thesis",
+        "suggestedTitle": "Marie Hebrok Marie Hebrok Food Waste: A practice-oriented design for",
+        "suggestionSource": "pdf-heading",
+        "confidence": "medium",
+        "weakReasons": [
+          "generic_short_title"
+        ],
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/ng_arsrapport-2025-web.pdf",
+        "currentTitle": "Årsrapport",
+        "suggestedTitle": "Innhold Dette ER Norgesgruppen Strategi Ledelse og Styring Økonomi 2025 Bærekraft 2025 Årsrapport 2025",
+        "suggestionSource": "pdf-heading",
+        "confidence": "medium",
+        "weakReasons": [
+          "generic_short_title",
+          "truncated_source_title"
+        ],
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/OrriJohannsson FoodSecurity Final.pdf",
+        "currentTitle": "Food_Security_-_Final.pdf",
+        "suggestedTitle": "Food Security in Iceland Present Vulnerabilities, Possible Solutions Orri Jóhannsson",
+        "suggestionSource": "pdf-heading",
+        "confidence": "medium",
+        "weakReasons": [
+          "artifact_label"
+        ],
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/PhD_Thesis_Nina_N_rgaard_S_rensen_print_final.pdf",
+        "currentTitle": "PhD Thesis Nina N rgaard S rensen print final",
+        "suggestedTitle": "Organic food conversion in Danish public kitchens The effects of the Danish Organic Action Plan 2020 on organic public procurement and wellbeing at work",
+        "suggestionSource": "pdf-heading",
+        "confidence": "medium",
+        "weakReasons": [
+          "artifact_label"
+        ],
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/SUSFOOD STRATEGIC SCENE review report 2018-final.pdf",
+        "currentTitle": "SUSFOOD STRATEGIC SCENE review report 2018 final",
+        "suggestedTitle": "Susfood Strategic Scene Review Report 2018 a H2020 Era-net Cofund on Sustainable Food Production and Consumption",
+        "suggestionSource": "pdf-heading",
+        "confidence": "medium",
+        "weakReasons": [
+          "artifact_label"
+        ],
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review."
+      }
+    ]
+  },
+  "promotion": {
+    "generatedAt": "2026-04-20T16:09:44.356Z",
+    "batchName": "food-research-process-2026-04-20",
+    "reviewCsv": "research/intake/food-research-process-2026-04-20/review.csv",
+    "titleRemediationCsv": "research/intake/food-research-process-2026-04-20/title-remediation.csv",
+    "importSummaryJson": "research/intake/food-research-process-2026-04-20/import-summary.json",
+    "importedRowsAnalyzed": 225,
+    "skippedRows": 25,
+    "countsByTarget": {
+      "Report": 71,
+      "Thesis": 20,
+      "SourceDoc": 126,
+      "Hold": 7,
+      "Manual review": 1
+    },
+    "countsByConfidence": {
+      "medium": 128,
+      "high": 70,
+      "low": 27
+    },
+    "countsByTargetAndConfidence": {
+      "SourceDoc": {
+        "high": 30,
+        "medium": 96
+      },
+      "Report": {
+        "medium": 25,
+        "high": 28,
+        "low": 18
+      },
+      "Thesis": {
+        "medium": 7,
+        "low": 1,
+        "high": 12
+      },
+      "Hold": {
+        "low": 7
+      },
+      "Manual review": {
+        "low": 1
+      }
+    },
+    "manualReviewRows": [
+      {
+        "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Zero waste solutions in hospitality  technology alignment and agile management practices for responsible consumption and production of food.pdf",
+        "analysisTitle": "Zero waste solutions in hospitality: technology alignment and agile management practices for respons",
+        "reason": "Signals are weak or mixed across SourceDoc, Report, and Thesis. Review manually before promoting into a typed layer."
+      }
+    ],
+    "holdRows": [
+      {
+        "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/NORDIC_FOOD_MARKETS.pdf",
+        "analysisTitle": "543348.indd",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food-waste-reduction-corporate-responsibility-and-national-policies-2024.pdf",
+        "analysisTitle": "BFJ-11-2023-0982_proof 470..485",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Bilgic2025tht_VoR.pdf",
+        "analysisTitle": "untitled",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_2.pdf",
+        "analysisTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 2",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_3.pdf",
+        "analysisTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 3",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_4.pdf",
+        "analysisTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 4",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_5.pdf",
+        "analysisTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 5",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated."
+      }
+    ],
+    "outputs": {
+      "csv": "research/intake/food-research-process-2026-04-20/promotion-candidates.csv",
+      "markdown": "research/intake/food-research-process-2026-04-20/PROMOTION-CANDIDATES.md",
+      "json": "research/intake/food-research-process-2026-04-20/promotion-candidates-summary.json"
+    },
+    "typedRecommendationCount": 217,
+    "typedReadyCount": 202,
+    "typedBlockedByTitleCount": 15,
+    "typedReadyCountsByTarget": {
+      "Report": 63,
+      "Thesis": 16,
+      "SourceDoc": 123
+    },
+    "typedBlockedByTitleCountsByTarget": {
+      "Report": 8,
+      "Thesis": 4,
+      "SourceDoc": 3
+    },
+    "attentionRows": [
+      {
+        "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/NORDIC_FOOD_MARKETS.pdf",
+        "analysisTitle": "543348.indd",
+        "target": "Hold",
+        "confidence": "low",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "cautionFlags": ""
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food-waste-reduction-corporate-responsibility-and-national-policies-2024.pdf",
+        "analysisTitle": "BFJ-11-2023-0982_proof 470..485",
+        "target": "Hold",
+        "confidence": "low",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "cautionFlags": ""
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Zero waste solutions in hospitality  technology alignment and agile management practices for responsible consumption and production of food.pdf",
+        "analysisTitle": "Zero waste solutions in hospitality: technology alignment and agile management practices for respons",
+        "target": "Manual review",
+        "confidence": "low",
+        "reason": "Signals are weak or mixed across SourceDoc, Report, and Thesis. Review manually before promoting into a typed layer.",
+        "cautionFlags": "title-remediation weak-title flags: truncated_source_title | unapplied title-remediation suggestion exists but was not used for classification"
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Bilgic2025tht_VoR.pdf",
+        "analysisTitle": "untitled",
+        "target": "Hold",
+        "confidence": "low",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "cautionFlags": "title-remediation weak-title flags: artifact_label | unapplied title-remediation suggestion exists but was not used for classification"
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_2.pdf",
+        "analysisTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 2",
+        "target": "Hold",
+        "confidence": "low",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "cautionFlags": ""
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_3.pdf",
+        "analysisTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 3",
+        "target": "Hold",
+        "confidence": "low",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "cautionFlags": ""
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_4.pdf",
+        "analysisTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 4",
+        "target": "Hold",
+        "confidence": "low",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "cautionFlags": ""
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_5.pdf",
+        "analysisTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 5",
+        "target": "Hold",
+        "confidence": "low",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "cautionFlags": ""
+      }
+    ],
+    "countsByTargetFromCsv": {
+      "Report": 71,
+      "Thesis": 20,
+      "SourceDoc": 126,
+      "Hold": 7,
+      "Manual review": 1
+    },
+    "countsByTargetAndConfidenceFromCsv": {
+      "Report": {
+        "medium": 25,
+        "high": 28,
+        "low": 18
+      },
+      "Thesis": {
+        "medium": 7,
+        "low": 1,
+        "high": 12
+      },
+      "SourceDoc": {
+        "high": 30,
+        "medium": 96
+      },
+      "Hold": {
+        "low": 7
+      },
+      "Manual review": {
+        "low": 1
+      }
+    }
+  },
+  "manualAttention": {
+    "reviewHoldCount": 25,
+    "reviewUnclassifiedActionCount": 0,
+    "titleReviewQueueCount": 17,
+    "promotionAttentionCount": 8,
+    "overlappingTitleAndPromotionCount": 2,
+    "uniqueRowCount": 48,
+    "rows": [
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden.docx",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden.docx",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/compass_artifact_wf-ec2d735b-d33b-4ffa-a5ba-7877ce1d1a3c_text_markdown.md",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "compass_artifact_wf-ec2d735b-d33b-4ffa-a5ba-7877ce1d1a3c_text_markdown.md",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "compass artifact wf ec2d735b d33b 4ffa a5ba 7877ce1d1a3c text markdown",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/deep-research-report (39).md",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "deep-research-report (39).md",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "deep research report (39)",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/deep-research-report (40).md",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "deep-research-report (40).md",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "deep research report (40)",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/deep-research-report (41).md",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "deep-research-report (41).md",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "deep research report (41)",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/deep-research-report (42).md",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "deep-research-report (42).md",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "deep research report (42)",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/deep-research-report (43).md",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "deep-research-report (43).md",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "deep research report (43)",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/deep-research-report (44).md",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "deep-research-report (44).md",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "deep research report (44)",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/deep-research-report (45).md",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "deep-research-report (45).md",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "deep research report (45)",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/deep-research-report (46).md",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "deep-research-report (46).md",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "deep research report (46)",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/Eiendomsmakt i dagligvaremarkedet i Norge og Norden.docx",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "Eiendomsmakt i dagligvaremarkedet i Norge og Norden.docx",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Eiendomsmakt i dagligvaremarkedet i Norge og Norden",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/Evidensnotat for Food Systems 2026.docx",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "Evidensnotat for Food Systems 2026.docx",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Evidensnotat for Food Systems 2026",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/Framstillinger av mat, makt og beredskap i norsk offentlighet.docx",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "Framstillinger av mat, makt og beredskap i norsk offentlighet.docx",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Framstillinger av mat, makt og beredskap i norsk offentlighet",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/Makt, fryktkultur og svak enforcement i norsk og nordisk dagligvare.docx",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "Makt, fryktkultur og svak enforcement i norsk og nordisk dagligvare.docx",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Makt, fryktkultur og svak enforcement i norsk og nordisk dagligvare",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/Nordisk analyse av HORECA, offentlige måltider og institusjonelle innkjøp i matsystemet.docx",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "Nordisk analyse av HORECA, offentlige måltider og institusjonelle innkjøp i matsystemet.docx",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Nordisk analyse av HORECA, offentlige måltider og institusjonelle innkjøp i matsystemet",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/Nordiske dagligvarecase som mislyktes og hva de avslører om etableringsbarrierer.docx",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "Nordiske dagligvarecase som mislyktes og hva de avslører om etableringsbarrierer.docx",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Nordiske dagligvarecase som mislyktes og hva de avslører om etableringsbarrierer",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/Nordiske og internasjonale benchmark-case for matsystemomstilling.docx",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "Nordiske og internasjonale benchmark-case for matsystemomstilling.docx",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Nordiske og internasjonale benchmark case for matsystemomstilling",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/Research-Report-Norges-matrevolusjon-2026.pdf",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "Research-Report-Norges-matrevolusjon-2026.pdf",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Research Report",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/00_Working_Files/URL-MANIFEST.numbers",
+        "sourceTopFolder": "00_Working_Files",
+        "filename": "URL-MANIFEST.numbers",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "URL MANIFEST",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/01_Data_And_Archives/cei_pc035_esmsip2.sdmx.zip",
+        "sourceTopFolder": "01_Data_And_Archives",
+        "filename": "cei_pc035_esmsip2.sdmx.zip",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "cei pc035 esmsip2 sdmx",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/01_Data_And_Archives/cellar_d34251c8-d865-11ef-be2a-01aa75ed71a1.xml",
+        "sourceTopFolder": "01_Data_And_Archives",
+        "filename": "cellar_d34251c8-d865-11ef-be2a-01aa75ed71a1.xml",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "cellar d34251c8 d865 11ef be2a 01aa75ed71a1",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/01_Data_And_Archives/Engrosforbruk per innbygger 1999-2024.xlsx",
+        "sourceTopFolder": "01_Data_And_Archives",
+        "filename": "Engrosforbruk per innbygger 1999-2024.xlsx",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Engrosforbruk per innbygger 1999 2024",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/01_Data_And_Archives/ng-2025-12-31-1-no.zip",
+        "sourceTopFolder": "01_Data_And_Archives",
+        "filename": "ng-2025-12-31-1-no.zip",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "ng 2025 12 31 1 no",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/01_Data_And_Archives/ngasa-2023-12-31-no.zip.zip",
+        "sourceTopFolder": "01_Data_And_Archives",
+        "filename": "ngasa-2023-12-31-no.zip.zip",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "ngasa 2023 12 31 no zip",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/01_Data_And_Archives/ngasa-2024-12-31-no.zip",
+        "sourceTopFolder": "01_Data_And_Archives",
+        "filename": "ngasa-2024-12-31-no.zip",
+        "categories": [
+          "Review hold"
+        ],
+        "reviewAction": "hold",
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "ngasa 2024 12 31 no",
+        "reason": "Still marked hold in review.csv.",
+        "notes": null
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/2022-68-EMV-og-innovasjon-i-dagligvare-1.pdf",
+        "sourceTopFolder": "03_Policy_Governance_And_Market",
+        "filename": "2022-68-EMV-og-innovasjon-i-dagligvare-1.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "Egne Merkevarer (EMV) og Innovasjon i Dagligvare",
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "2022 68 EMV og innovasjon i dagligvare 1",
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/NORDIC_FOOD_MARKETS.pdf",
+        "sourceTopFolder": "03_Policy_Governance_And_Market",
+        "filename": "NORDIC_FOOD_MARKETS.pdf",
+        "categories": [
+          "Promotion Hold"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": "Hold",
+        "promotionConfidence": "low",
+        "currentTitle": "543348.indd",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport-marginstudie.pdf",
+        "sourceTopFolder": "03_Policy_Governance_And_Market",
+        "filename": "Rapport-marginstudie.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "KONKURRANSETILSYNETS MARGINSTUDIE 2024 Del 1. Lønnsomhetsberegninger på virksomhetsnivå",
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Rapport marginstudie",
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+samarbeidsklimaet+i+dagligvarebransjen+2024_Final_17.10.24.pdf",
+        "sourceTopFolder": "03_Policy_Governance_And_Market",
+        "filename": "Rapport+om+samarbeidsklimaet+i+dagligvarebransjen+2024_Final_17.10.24.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "low",
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Samarbeidsklimaet i Dagligvarebransjen",
+        "reason": "Weak title flagged for review, but no unambiguous automatic replacement was found.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food-waste-reduction-corporate-responsibility-and-national-policies-2024.pdf",
+        "sourceTopFolder": "04_Food_Waste_And_Circularity",
+        "filename": "Food-waste-reduction-corporate-responsibility-and-national-policies-2024.pdf",
+        "categories": [
+          "Promotion Hold"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": "Hold",
+        "promotionConfidence": "low",
+        "currentTitle": "BFJ-11-2023-0982_proof 470..485",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Zero waste solutions in hospitality  technology alignment and agile management practices for responsible consumption and production of food.pdf",
+        "sourceTopFolder": "04_Food_Waste_And_Circularity",
+        "filename": "Zero waste solutions in hospitality  technology alignment and agile management practices for responsible consumption and production of food.pdf",
+        "categories": [
+          "Title review queue",
+          "Promotion Manual review"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "Zero waste solutions in hospitality technology alignment and agile management practices for responsible consumption and production of food",
+        "promotionTarget": "Manual review",
+        "promotionConfidence": "low",
+        "currentTitle": "Zero waste solutions in hospitality: technology alignment and agile management practices for respons",
+        "reason": "Signals are weak or mixed across SourceDoc, Report, and Thesis. Review manually before promoting into a typed layer.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2024 Environmental Footprint Report ENG.pdf",
+        "sourceTopFolder": "06_Company_And_Annual_Reports",
+        "filename": "2024 Environmental Footprint Report ENG.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "low",
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Environmental footprint of the food saved by Too Good To Go V1.1",
+        "reason": "Weak title flagged for review, but no unambiguous automatic replacement was found.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/Annual report 2024.pdf",
+        "sourceTopFolder": "06_Company_And_Annual_Reports",
+        "filename": "Annual report 2024.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "low",
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Annual report 2024",
+        "reason": "Weak title flagged for review, but no unambiguous automatic replacement was found.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/806685_Master_Thesis_Assessment_of_Grocery_eCommerce_in_Scandinavia_jumi18ab.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "806685_Master_Thesis_Assessment_of_Grocery_eCommerce_in_Scandinavia_jumi18ab.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "low",
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "806685 Master Thesis Assessment of Grocery eCommerce in Scandinavia jumi18ab",
+        "reason": "Weak title flagged for review, but no unambiguous automatic replacement was found.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/978-952-03-2923-5.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "978-952-03-2923-5.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "TARU LEHTOKUNNAS Enacting a Circular Economy A multi-sited ethnography on food waste practices",
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "978 952 03 2923 5",
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/about-oecd-environmental-performance-reviews-brochure-2022-web.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "about-oecd-environmental-performance-reviews-brochure-2022-web.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "Environmental Performance Reviews oe.cd/epr EVIDENCE-BASED, SYSTEMATIC, COUNTRY-TAILORED",
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "about oecd environmental performance reviews brochure 2022 web",
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Bilgic2025tht_VoR.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "Bilgic2025tht_VoR.pdf",
+        "categories": [
+          "Title review queue",
+          "Promotion Hold"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "© 2025 The Authors Water Science & Technology Vol 91 No 11, 1234 doi: 10.2166/wst.2025.068 Thermal hydrolysis treatment of digestates derived from food waste and sewage sludge – effect on residual methane potential",
+        "promotionTarget": "Hold",
+        "promotionConfidence": "low",
+        "currentTitle": "untitled",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_2.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_2.pdf",
+        "categories": [
+          "Promotion Hold"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": "Hold",
+        "promotionConfidence": "low",
+        "currentTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 2",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_3.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_3.pdf",
+        "categories": [
+          "Promotion Hold"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": "Hold",
+        "promotionConfidence": "low",
+        "currentTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 3",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_4.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_4.pdf",
+        "categories": [
+          "Promotion Hold"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": "Hold",
+        "promotionConfidence": "low",
+        "currentTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 4",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_5.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_5.pdf",
+        "categories": [
+          "Promotion Hold"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": null,
+        "titleRemediationSuggestedTitle": null,
+        "promotionTarget": "Hold",
+        "promotionConfidence": "low",
+        "currentTitle": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 5",
+        "reason": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Hybrid-Supply-Chain-Models-in-Swedish-Grocery-Retail.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "Hybrid-Supply-Chain-Models-in-Swedish-Grocery-Retail.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "Hybrid Supply Chain Models in Swedish Grocery Retail: Balancing Cost Drivers, Environmental Sustainability and Social Responsibility BACHELOR THESIS WITHIN: Major in Business Administration",
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Bachelor Thesis",
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/luke-luobio_51_2025.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "luke-luobio_51_2025.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "Robust Food Waste Management Method for Food Services (Romance)",
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Robust Food Waste Management Method for Food Services (Romance) : Final report.",
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Marie+Hebrok.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "Marie+Hebrok.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "Marie Hebrok Marie Hebrok Food Waste: A practice-oriented design for",
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Doctor Thesis",
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/ng_arsrapport-2025-web.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "ng_arsrapport-2025-web.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "Innhold Dette ER Norgesgruppen Strategi Ledelse og Styring Økonomi 2025 Bærekraft 2025 Årsrapport 2025",
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Årsrapport",
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/OrriJohannsson FoodSecurity Final.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "OrriJohannsson FoodSecurity Final.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "Food Security in Iceland Present Vulnerabilities, Possible Solutions Orri Jóhannsson",
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "Food_Security_-_Final.pdf",
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/PhD_Thesis_Nina_N_rgaard_S_rensen_print_final.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "PhD_Thesis_Nina_N_rgaard_S_rensen_print_final.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "Organic food conversion in Danish public kitchens The effects of the Danish Organic Action Plan 2020 on organic public procurement and wellbeing at work",
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "PhD Thesis Nina N rgaard S rensen print final",
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      },
+      {
+        "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/SUSFOOD STRATEGIC SCENE review report 2018-final.pdf",
+        "sourceTopFolder": "07_Academic_Research_And_Theses",
+        "filename": "SUSFOOD STRATEGIC SCENE review report 2018-final.pdf",
+        "categories": [
+          "Title review queue"
+        ],
+        "reviewAction": null,
+        "titleRemediationConfidence": "medium",
+        "titleRemediationSuggestedTitle": "Susfood Strategic Scene Review Report 2018 a H2020 Era-net Cofund on Sustainable Food Production and Consumption",
+        "promotionTarget": null,
+        "promotionConfidence": null,
+        "currentTitle": "SUSFOOD STRATEGIC SCENE review report 2018 final",
+        "reason": "The first-page title block looks stronger than the current import title, but it was left for review.",
+        "notes": "Pretriaged 2026-04-20: thematic PDF in curated folder. Verify metadata and final project fit before production use."
+      }
+    ]
+  },
+  "outputs": {
+    "markdown": "research/intake/food-research-process-2026-04-20/CONTROL-REPORT.md",
+    "json": "research/intake/food-research-process-2026-04-20/control-report-summary.json"
+  }
+}
