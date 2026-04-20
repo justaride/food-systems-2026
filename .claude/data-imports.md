@@ -74,6 +74,7 @@ main()
 | `import-barekraft-sources.ts` | `Document`, `SourceDoc` (full-text SEC-MAT + SA-02) | `db:import:barekraft` |
 | `import-remaining-deep.ts` | `BoardMember`, `PersonProfile` | `db:import:remaining-deep` |
 | `import-nordic-deepening.ts` | `Company`, `CompanyOwnership`, `PersonProfile`, `BusinessRelationship` | `db:import:nordic-deep` |
+| `import-research-20260420.ts` | `Company`, `CompanyOwnership`, `CompanyProperty`, `BusinessRelationship`, `PersonProfile` (April 2026 forskningsrunde: eiendomsgrener, alt-distribusjon, HORECA-grossister, failed entrants, benchmarks) | `db:import:research-20260420` |
 | `fix-nordic-orgnr.ts` | `Company` orgNr migration | `db:fix:nordic-orgnr` |
 
 ## Adding New Companies

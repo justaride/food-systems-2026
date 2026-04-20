@@ -25,6 +25,27 @@ Use this guide for graph queries, corpus extension, and source-discovery tasks.
 - PubMed for academic source search
 - Notion, Figma, and Google Drive when those connectors are available and relevant to the task
 
+## Download-Backlog System
+
+URL nedlastingsstatus spores i filbaserte CSV-er under `research/evidence-pack/`:
+
+| Backlog | Formål |
+|---|---|
+| `download-backlog-2026-03-18.csv` | Mars-runden: regulatoriske rapporter + årsrapporter |
+| `download-backlog-2026-04-20.csv` | April-runden: kilder til de 8 dybderapportene (eiendom, HORECA, alt-distribusjon, fryktkultur, benchmarks) |
+| `download-backlog-sirkular-konkurser-2026-04-20.csv` | Sirkulær-konkurser-sporet (Rest, Enorm, Mycorena, DUG, Infarm m.fl.) |
+
+**Format** (samme kolonner på tvers): `priority,status,country,theme,doc_type,institution,title,year,url,url_type,current_local_status,target_path,next_action,source_basis`
+
+**Status-verdier:** `downloaded` (lokal PDF finnes) / `url_only` (må lastes) / `missing_metadata_only` (kjent kilde, mangler URL).
+
+Loader: `src/lib/queries/download-backlog.ts` — leser CSV, matcher SourceDocs via URL/filnavn/tittel, vises på `/kilder` (statusprikk per rad) og `/forskningsrunder` (full tabell).
+
+## URL-Manifest
+
+`research/URL-MANIFEST.csv` er autogenerert (426 unike URL-er). Dedupliserer URL-er fra alle 3 backlog-CSVer + 5 datafiler (sources.ts, reports.ts, theses.ts, actors.ts, insights.ts). Regenerer med `python3 scripts/build-url-manifest.py` når kildefiler endres.
+
 ## Execution Model
 
 - If the user explicitly asks for parallel or delegated work, the research plan can be split into independent tracks; otherwise keep the work local
+- For en ny forskningsrunde: opprett ny backlog-CSV i `research/evidence-pack/`, utvid loaderen hvis nødvendig, og legg til seksjon på `/forskningsrunder`
