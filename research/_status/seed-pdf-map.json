@@ -315,12 +315,6 @@
       "confidence": "high",
       "why": "manual-override"
     },
-    "fivh-etikk-2025": {
-      "pdf": "evidence-pack/tenketank/fivh-etikk-2025.pdf",
-      "score": 999,
-      "confidence": "high",
-      "why": "manual-override"
-    },
     "stockholm-resilience-2019": {
       "pdf": "evidence-pack/tenketank/stockholm-resilience-2019.pdf",
       "score": 999,
@@ -562,12 +556,6 @@
       "score": 6,
       "confidence": "low",
       "why": "year-2025+title-2025,2024"
-    },
-    "src-35": {
-      "pdf": "evidence-pack/tenketank/fivh-etikk-2025.pdf",
-      "score": 27,
-      "confidence": "high",
-      "why": "filename-exact+year-2025"
     },
     "src-42": {
       "pdf": "evidence-pack/tilsyn/prisjeger-saken-2024-offentlig-versjon.pdf",

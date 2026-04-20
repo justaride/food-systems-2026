@@ -131,7 +131,7 @@ Denne rapporten kobler seed-entries i `src/lib/data/{theses,reports,sources}.ts`
 | `oslo-economics-forsvar-2024` | Oslo Economics — Konkurransen bedre enn sitt rykte | Oslo Economics | ✓ | `evidence-pack/konsulentrapport/oslo-economics-forsvar-2024.pdf` | `bibliotek/konsulentrapporter/oslo-economics-forsvar-2024.md` | high |
 | `soa-emv-2023` | SOA — EMV og Vertikal integrasjon | Samfunnsokonomisk Analyse | ✓ | — | `bibliotek/konsulentrapporter/soa-emv-2023.md` | none |
 | `civita-manifest-debatt` | Civita vs. Manifest — Matmaktdebatten |  | ✓ | — | `bibliotek/tenketanker/civita-manifest-debatt.md` | none |
-| `fivh-etikk-2025` | FIVH — Etikk og Baerekraft 2025 | Framtiden i vaare hender | ✓ | `evidence-pack/tenketank/fivh-etikk-2025.pdf` | `bibliotek/tenketanker/fivh-etikk-2025.md` | high |
+| `fivh-etikk-2025` | FIVH — Etikk og Baerekraft 2025 | Framtiden i vaare hender | ✓ | — | `bibliotek/tenketanker/fivh-etikk-2025.md` | high |
 | `norden-policy-2024` | Nordisk Ministerraad — Policyverktoey 2024 | Nordisk Ministerraad | ✓ | — | `bibliotek/tenketanker/norden-policy-2024.md` | none |
 | `stockholm-resilience-2019` | Stockholm Resilience Centre — Nordic Food Systems | Stockholm Resilience Centre | ✓ | `evidence-pack/tenketank/stockholm-resilience-2019.pdf` | `bibliotek/tenketanker/stockholm-resilience-2019.md` | high |
 | `beredskap-finsk-modell-hvk` | Finsk matberedskap — HVK-modellen | Huoltovarmuuskeskus (HVK) | ✓ | — | — | none |
@@ -220,7 +220,7 @@ Denne rapporten kobler seed-entries i `src/lib/data/{theses,reports,sources}.ts`
 | `src-32` | Kvantifiserer ressurstap i hele verdikjeden. | matsvinn-2024.md | ✓ | — | — | none |
 | `src-33` | Dokumenterer Norges prisposisjon sammenlignet med EU. | price-levels-2024.md | ✓ | — | — | none |
 | `src-34` | Politiske ytterpunkter i debatten om importvern og markedsmakt. | civita-manifest-debatt.md | — | — | — | none |
-| `src-35` | Sosial bærekraft og etisk handel i matsystemet. | fivh-etikk-2025.md | ✓ | `evidence-pack/tenketank/fivh-etikk-2025.pdf` | `bibliotek/tenketanker/fivh-etikk-2025.md` | high |
+| `src-35` | Sosial bærekraft og etisk handel i matsystemet. | fivh-etikk-2025.md | ✓ | — | `bibliotek/tenketanker/fivh-etikk-2025.md` | high |
 | `src-36` | Status for nye regulatoriske verktøy for å tøyle markedsmakt. | markedsundersokelser-status.md | ✓ | — | — | none |
 | `src-37` | Vurderer EMVs effekt på konkurranse og innovasjonstakt. | menon-emv-innovasjon.md | ✓ | — | — | none |
 | `src-38` | Teoretisk rammeverk for kjøpermakt og forbrukervelferd. | uib-kjøpermakt.md | ✓ | — | — | none |
@@ -316,4 +316,3 @@ Denne rapporten kobler seed-entries i `src/lib/data/{theses,reports,sources}.ts`
 ## 4. Foreldreløse PDF-er (0)
 
 PDF-filer i `research/` som ikke er koblet til noen seed-entry. Kandidater for innlegging i `src/lib/data/{reports,theses}.ts` eller eksklusjon via `seed-pdf-map.overrides.json`.
-

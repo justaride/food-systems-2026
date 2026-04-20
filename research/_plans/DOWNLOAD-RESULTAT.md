@@ -23,7 +23,7 @@
 |---|---:|---|
 | `nou-2022-14` | 4371 KB | `evidence-pack/offentlig/nou-2022-14.pdf` |
 | `oslo-economics-forsvar-2024` | 762 KB | `evidence-pack/konsulentrapport/oslo-economics-forsvar-2024.pdf` |
-| `fivh-etikk-2025` | 2591 KB | `evidence-pack/tenketank/fivh-etikk-2025.pdf` |
+| `fivh-etikk-2025` | 2591 KB | `evidence-pack/tenketank/norsus-matvett-kartleggingsrapport-matbransjen-undervisning-omsorg-forbrukerleddet-or48-21.pdf` |
 | `stockholm-resilience-2019` | 6914 KB | `evidence-pack/tenketank/stockholm-resilience-2019.pdf` |
 | `akademia-sifo-kundeprogram-2026` | 5718 KB | `evidence-pack/akademia/akademia-sifo-kundeprogram-2026.pdf` |
 | `akademia-nhh-foros-media-2025` | 769 KB | `evidence-pack/akademia/akademia-nhh-foros-media-2025.pdf` |

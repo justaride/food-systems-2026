@@ -22,6 +22,7 @@
 | 4 | 16.03.2026 | [Strategisk ledergruppe Marked](Strategisk%20ledergruppe%20Marked%2016%20mars%202026.md) | Martin (org.), Einar, Gabriel, Jan Thomas, Cathrine, Thea | Zoom | `Strategisk ledergruppe Marked 16 mars 2026.md` |
 | 5 | 13.04.2026 | [Transition Groups — Kapasiteter og roller](TRANSITION%20GROUPS%20-%20M%C3%B8te%2013-04-26.md) | Kristian (org.), Einar, Gabriel, Jan Thomas, Cathrine (digitalt), Thea | Google Meet + fysisk | `TRANSITION GROUPS - Møte 13-04-26.md` |
 | 6 | 13.04.2026 | [JT + Gabriel — Arbeidsmøte](JT-GABRIEL%20-%20Arbeidsm%C3%B8te%2013-04-26.md) | Jan Thomas, Gabriel, Thea (kort) | Fysisk | `JT-GABRIEL - Arbeidsmøte 13-04-26.md` |
+| 7 | 20.04.2026 | [JT + Gabriel — R9, sirkularitetsspørsmål og fôr](JT-GABRIEL%20-%20Arbeidsm%C3%B8te%2020-04-26.md) | Jan Thomas, Gabriel | Fysisk | `JT-GABRIEL - Arbeidsmøte 20-04-26.md` |
 
 ---
 
@@ -77,6 +78,22 @@
 - **Medienarrativer per land:** DK (eksport/duopol), FI (beredskap), NO (prispress), SE (selvforsyning)
 - JT: «Sett foten ned ved verdikjedestrukturen — hvor maten flyter og hvor den kastes»
 
+### Møte 7 — 20.04.2026: R9-rammeverk, sirkularitetsspørsmål og fôr
+- **R9-rammeverk** skal brukes som teoretisk grunnlag for å vurdere sirkularitetsgrad i hvert ledd av matsystemet
+- **7–10 nøkkelspørsmål** for sirkularitet i mat skal formuleres — basert på verdikjeden og identifiserte svakheter
+- **Alternativt fôr** fortsatt et prioritert spor: nordisk matsystem kan bidra mer til husdyr- og fiskefôr
+- **AX Foundation «Framtidens Fisk»** som referansecase: bærekraftig fôrmiks med 20 ingredienser, erstatter soja/fiskemel med insekter, mikroproteiner og muslinger — nå i salg
+- **Volare (Finland)** og **AX Foundation (Sverige)** som topp-5 lovende sirkulær-mat-initiativer
+- **Havremelk-avfall** (30–50 kg fast avfall per liter) som eksempel på lovende konsept som ikke har levert
+- **Matavfall og mikroplast**: grønne poser kontaminerer matavfall → kan ikke brukes til fôr, bare energi. Biorest etter biogass full av mikroplast
+- **Svartvann-dimensjon**: Helsingborg-prosjektet (2500 boliger, separasjon svartvann/gråvann) som nordisk referanse for næringsgjenvinning (kalium, nitrogen)
+- **Fôrineffektivitet i oppdrett**: ~70% av fôr går rett i fjorden → argument for lukkede anlegg og gjødsel-gjenvinning
+- **Kaffe** som nytt forskningsspor å begynne å se nærmere på
+- **Too Good To Go** som eksempel på «rethink» i R9-skalaen
+- **Potetlefser uten skall** (Sørlandet) som «reduce»-eksempel: 10–15% reduksjon i matavfall
+- JT skal skrive liste over de 10 temaene han mener er viktigst
+- Gabriel jobber videre med URL-manifest og dokumenthenting, inkl. kartlegging av hva som har lykkes/feilet og hvorfor
+
 ---
 
 ## Dokumenter referert i møtene
@@ -108,7 +125,7 @@
 - Omgivelseskartlegging påbegynt (Gabriel)
 - Ten-step start v2.0 definert (Cathrine/PROJECT-OVERVIEW)
 - Deep research-plan (`DEEP-RESEARCH-PLAN.md`)
-- 6 møter gjennomført og dokumentert
+- 7 møter gjennomført og dokumentert
 
 ### Ikke gjort
 - Ingen eksterne partnere kontaktet

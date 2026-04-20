@@ -10,5 +10,17 @@ next-env.d.ts
 __pycache__/
 *.pyc
 .agent/
+.kilocode/
+.playwright-cli/
+.playwright-mcp/
+tmp/
+output/
 
 /src/generated/prisma
+
+# Research binaries — track metadata/manifests, not the files themselves
+research/bibliotek/**/*.pdf
+research/arkiv-sortert/**/*.pdf
+research/arkiv-sortert/**/*.docx
+research/pdf-downloads-20-04-26/**/*.pdf
+docs/**/*.pdf

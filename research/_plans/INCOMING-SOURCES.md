@@ -1,7 +1,7 @@
 # Incoming Sources Manifest
 
 Single source of truth for pending ingestion work.
-Updated: 2026-03-19
+Updated: 2026-04-20
 
 ## Pending source families
 
@@ -10,6 +10,7 @@ Updated: 2026-03-19
 | 1 | `research/landbrukarena_transcripts/` | YouTube transcripts from LandBruk Arena channel (12 .txt, 13 .json, manifest.csv, manifest.json, ALL_TRANSCRIPTS.md) | 28 | 368 KB | **ingested** | step 10 | 17 transcripts imported (12 YouTube captions + 5 local ASR). Import script: `scripts/import-transcripts.ts`. 2 videos still missing (index 14: empty ASR, index 15: download error). |
 | 2 | `scripts/fetch_youtube_channel_transcripts.py` | Python CLI tool that produced the transcripts above (yt-dlp + youtube-transcript-api) | 1 | 6 KB | **ingested** | step 10 | Tooling used for transcript fetch. Retained for future channel updates. |
 | 3 | `scripts/transcribe_missing_youtube_videos.py` | Whisper-based local ASR for videos missing YouTube captions (faster-whisper + yt-dlp) | 1 | 5 KB | **ingested** | step 10 | Used to fill 5 transcripts where YouTube captions were disabled. Retained for future use. |
+| 4 | `Food Research Process 20.04.26/` | Lokal forskningspakke bygget fra URL-MANIFEST-nedlastinger, arbeidsnotater og tilhørende rapportutkast. Ryddet, hash-deduplisert og sortert i tematiske mapper med egen intake-preview under `research/intake/food-research-process-2026-04-20/`. | 265 | 1.3 GB | **ready** | intake review | Skal ikke importeres direkte. Kjør `npm run research:intake:food-process:preview`, marker `action=import` i review-CSV, verifiser med `npm run research:intake:food-process:import:dry-run`, og importer deretter med `npm run db:import:food-process-intake`. |
 
 ## Disposition key
 
