@@ -1,0 +1,122 @@
+[
+  {
+    "name": "ENORM Biofactory",
+    "country": "DK",
+    "concept": "BSF insect protein factory (22,000 m²) for aquaculture and livestock feed, converting organic waste streams to protein meal",
+    "founded": 2017,
+    "rLevel": "R7",
+    "status": "Konkurs oktober 2025 etter mislykket rekonstruksjon",
+    "invested_eur_m": 50,
+    "bankrupt": "October 2025",
+    "cause": "Ekstrem CAPEX (575 MDKK gjeld) bundet i én mega-fabrikk, lang ramp-up med minimal inntekt, energikostnader og prisgap mot soya/fiskemel. Kapitaltørke 2025 da rekonstruksjon ikke tiltrakk nye investorer.",
+    "lesson": "Unngå single-asset risiko i umodne markeder. Modulær oppskalering (flere små anlegg) hadde gitt inntekt underveis og redusert total eksponering mot én teknologisk flaskehals."
+  },
+  {
+    "name": "Mycorena",
+    "country": "SE",
+    "concept": "B2B mycoprotein-ingrediens (Promyc) fra fermentering av biomasse til mat- og fôrindustrien",
+    "founded": 2017,
+    "rLevel": "R3",
+    "status": "Konkurs august 2024, IP og anlegg kjøpt av Naplasol/VEOS Group",
+    "invested_eur_m": 35,
+    "bankrupt": "August 2024",
+    "cause": "Mislykket Series B i stramt funding-marked (2023-24). Kostbar fabrikk ble kansellert, B2B-kunder bremset avtaler. Strukturelt problem: B2B-ingrediens krever lang salgssyklus mens burn rate er høy.",
+    "lesson": "B2B-ingrediens med lang kvalifiseringstid hos kunder krever enten strategisk industrieier (som Axfoundation-modellen) eller revenue fra dag 1 via co-manufacturing. IP overlevde via oppkjøp — teknologien var ikke problemet."
+  },
+  {
+    "name": "Hooked Foods",
+    "country": "SE",
+    "concept": "Plantebasert sjømat (fish sticks, tuna alternative) for nordisk dagligvare",
+    "founded": 2018,
+    "rLevel": "R1",
+    "status": "Konkurs januar 2026",
+    "invested_eur_m": 6,
+    "bankrupt": "January 2026",
+    "cause": "Svakt markedssvar for plantebasert sjømat i dagligvare — selv med forbedret produktkvalitet var pull-etterspørselen for lav. Lave marginer og lang vei til lønnsomhet i retail-kanal.",
+    "lesson": "Kategori-skapende produkter (plantbasert fisk) krever massiv markedsutdanning. Retail-listing ≠ salgsvolum. Validér reell betalingsvilje i butikk, ikke bare interesse fra innkjøpere."
+  },
+  {
+    "name": "DUG Foodtech",
+    "country": "SE",
+    "concept": "Potetbasert plantemelk (DUG) med lavt klimaavtrykk, opprinnelig Veg of Lund",
+    "founded": 2016,
+    "rLevel": "R1",
+    "status": "Konkurs desember 2025 (dom 19.12.2025)",
+    "invested_eur_m": 8,
+    "bankrupt": "December 2025",
+    "cause": "Vedvarende tap i en mettet plantemelk-kategori dominert av havre. Svak kategoriforståelse hos forbruker, drukner i Oatly/soya-støy. Mislykkede emisjoner til tross for multiple kapitalrunder.",
+    "lesson": "Me-too i etablert kategori (plantemelk) med differensiering kun på bærekraft er ekstremt krevende. Distribusjonskostnad i dagligvare spiser marginene. Niche-posisjonering (allergi, smak) hadde kanskje vært mer robust."
+  },
+  {
+    "name": "Infarm",
+    "country": "DE",
+    "concept": "Vertikalt jordbruk med modulære in-store og warehouse-farms for leafy greens i nordeuropeiske byer",
+    "founded": 2013,
+    "rLevel": "R2",
+    "status": "EU-kjernen insolvent november 2023, gjenoppstått som Infarm Technologies Ltd 2024 i redusert skala",
+    "invested_eur_m": 604,
+    "bankrupt": "November 2023",
+    "cause": "Høy CAPEX+OPEX vs. billig import-salat. Energikostnader eksploderte 2022. Operasjonell kompleksitet med distribuerte enheter. Funding-vindu lukket etter tech-crash. Enhetøkonomi aldri bevist.",
+    "lesson": "Vertikalt jordbruk må bevise enhetøkonomi FØR skalering. €604M invested uten positiv contribution margin per farm = strukturell feil. Nordisk relevans: energipris og lysforhold gjør caset enda vanskeligere."
+  },
+  {
+    "name": "Ÿnsect",
+    "country": "FR",
+    "concept": "Verdens største mealworm-fabrikk for insektprotein til fôr og petfood (Amiens, Frankrike)",
+    "founded": 2011,
+    "rLevel": "R7",
+    "status": "Judicial liquidation 2025, etter safeguard-prosedyre 2024",
+    "invested_eur_m": 600,
+    "bankrupt": "December 2025",
+    "cause": "Til tross for >600 MEUR i kapital: for dyrt å bygge og drive mega-fabrikk, svak lønnsomhet vs. soya/fiskemel-pris, regulatorisk kompleksitet i EU. Selve skala-ambisjonen ble fellen.",
+    "lesson": "Selv med massiv kapital og EU-godkjenning kan insektprotein ikke konkurrere på bulk-pris mot soya ($540/t vs $3800-6000/t insektmel). Markedet må modnes via premium-segmenter (petfood, aqua) før commodity-volum."
+  },
+  {
+    "name": "Meatless Farm",
+    "country": "GB",
+    "concept": "Plantebaserte kjøttalternativer (burgere, pølser, mince) for britisk og nordisk dagligvare",
+    "founded": 2016,
+    "rLevel": "R1",
+    "status": "Administration juni 2023, brand kjøpt av VFC",
+    "invested_eur_m": 40,
+    "bankrupt": "June 2023",
+    "cause": "Svak etterspørsel etter plant-meat i dagligvare post-2022, priskrig med Beyond/Impossible, marginpress. Grunnlegger Morten Toft Bech (norsk) tapte mot kategori-nedgang.",
+    "lesson": "Plant-meat kategorien hadde peak hype 2019-2021. Timing av exit/funding er kritisk — selskaper som hentet kapital i 2021-toppen og ikke nådde break-even før 2022 ble fanget."
+  },
+  {
+    "name": "Plant & Bean",
+    "country": "GB",
+    "concept": "Co-manufacturing facility for plant-based meat (white-label produksjon for andre merker)",
+    "founded": 2019,
+    "rLevel": "R1",
+    "status": "Administrasjon 2022-23, anlegg solgt",
+    "invested_eur_m": 25,
+    "bankrupt": "Late 2022",
+    "cause": "Kapitaltørke, energipriser (UK 2022) og svakere kundepipeline enn forventet. Overkapasitet i produksjon da plant-meat-merkene selv bremset bestillinger.",
+    "lesson": "Co-manufacturing for en hype-kategori arver klientenes volumrisiko. Diversifisér kundebase og produkttyper tidlig. Anleggsverdi overlever ofte selskapet (solgt videre)."
+  },
+  {
+    "name": "Tattooed Chef",
+    "country": "US",
+    "concept": "SPAC-notert frysevare-selskap med plantebaserte ferdigretter for US grocery",
+    "founded": 2017,
+    "rLevel": "R1",
+    "status": "Chapter 11 / likvidasjon 2023",
+    "invested_eur_m": 200,
+    "bankrupt": "August 2023",
+    "cause": "Børsnotert vekstcase (SPAC) som kollapset med fallende salg, høye kostnader og dyr kapital post-2022. Retail-distribusjon uten consumer pull = lageroppbygging og avskrivninger.",
+    "lesson": "SPAC-modellen presset selskapet til å rapportere vekst over lønnsomhet. Relevant for nordiske: børsnotering av umodne food-tech selskaper skaper perverse incentiver."
+  },
+  {
+    "name": "VBites",
+    "country": "GB",
+    "concept": "Plantebasert kjøtt og ost, en av Europas eldste alt-protein merkevarer (grunnlagt av Heather Mills)",
+    "founded": 1993,
+    "rLevel": "R1",
+    "status": "Administrasjon 2023-24, delvis restart i mindre skala",
+    "invested_eur_m": null,
+    "bankrupt": "Late 2023",
+    "cause": "Svak etterspørsel i mettet plant-meat marked, høye faste kostnader i britisk produksjon, og vansker med refinansiering i stramt kapitalmarked.",
+    "lesson": "Selv en 30-år gammel merkevare kan tape i plant-meat når kategorien svikter. Brand-heritage beskytter ikke mot strukturelle markedsendringer."
+  }
+]
