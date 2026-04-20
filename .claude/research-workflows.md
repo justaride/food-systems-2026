@@ -34,6 +34,7 @@ URL nedlastingsstatus spores i filbaserte CSV-er under `research/evidence-pack/`
 | `download-backlog-2026-03-18.csv` | Mars-runden: regulatoriske rapporter + årsrapporter |
 | `download-backlog-2026-04-20.csv` | April-runden: kilder til de 8 dybderapportene (eiendom, HORECA, alt-distribusjon, fryktkultur, benchmarks) |
 | `download-backlog-sirkular-konkurser-2026-04-20.csv` | Sirkulær-konkurser-sporet (Rest, Enorm, Mycorena, DUG, Infarm m.fl.) |
+| `download-backlog-perplexity-kilder-2026-04-20.csv` | Perplexity-runden: primærkilder fra 15 dybderapporter (makt, CCS, fôr, biorest, HORECA, benchmarks) |
 
 **Format** (samme kolonner på tvers): `priority,status,country,theme,doc_type,institution,title,year,url,url_type,current_local_status,target_path,next_action,source_basis`
 
@@ -43,7 +44,7 @@ Loader: `src/lib/queries/download-backlog.ts` — leser CSV, matcher SourceDocs 
 
 ## URL-Manifest
 
-`research/URL-MANIFEST.csv` er autogenerert (426 unike URL-er). Dedupliserer URL-er fra alle 3 backlog-CSVer + 5 datafiler (sources.ts, reports.ts, theses.ts, actors.ts, insights.ts). Regenerer med `python3 scripts/build-url-manifest.py` når kildefiler endres.
+`research/URL-MANIFEST.csv` er autogenerert (506 unike URL-er). Dedupliserer URL-er fra alle 4 backlog-CSVer + 5 datafiler (sources.ts, reports.ts, theses.ts, actors.ts, insights.ts). Regenerer med `python3 scripts/build-url-manifest.py` når kildefiler endres.
 
 ## Execution Model
 

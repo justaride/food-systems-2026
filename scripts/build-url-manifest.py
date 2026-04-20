@@ -80,6 +80,7 @@ BACKLOG_FILES = [
     'research/evidence-pack/download-backlog-2026-03-18.csv',
     'research/evidence-pack/download-backlog-2026-04-20.csv',
     'research/evidence-pack/download-backlog-sirkular-konkurser-2026-04-20.csv',
+    'research/evidence-pack/download-backlog-perplexity-kilder-2026-04-20.csv',
 ]
 
 for fp in BACKLOG_FILES:

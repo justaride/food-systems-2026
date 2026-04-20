@@ -419,5 +419,111 @@ Kilder identifisert gjennom 8 Perplexity-forskningsrapporter. Originaler arkiver
 *   **Nofima / SINTEF / UiT (2025).** *Green Platform NOK 93.3M: Mikroalger CO₂-basert.*
 
 ---
-**Sist oppdatert:** 17. mars 2026
+
+## 11. Perplexity-research: Primærkilder (20. april 2026)
+
+Primærkilder identifisert og lastet ned fra 15 Perplexity-dybderapporter (makt, CCS, fôr, biorest, HORECA, alt-distribusjon, eiendom, benchmarks). 66 kilder totalt, alle lokalt tilgjengelige. Backlog: `research/evidence-pack/download-backlog-perplexity-kilder-2026-04-20.csv`.
+
+### 11.1 Regjeringen, Stortinget og lovverk
+
+*   Regjeringen / Dagligvaretilsynet (2024). *Årsrapport Dagligvaretilsynet 2024*. Oslo. [PDF](research/evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2024.pdf)
+*   Regjeringen / NFD (2024). *Tildelingsbrev for Konkurransetilsynet 2026*. Oslo. [PDF](research/evidence-pack/offentlig/kt-tildelingsbrev-2026.pdf)
+*   Regjeringen / KLD (2024). *Rapport: CO₂-håndtering i norsk landbasert industri frem mot 2050*. Oslo. [PDF](research/evidence-pack/offentlig/rapport-co2-handtering-norsk-industri-2050.pdf)
+*   Regjeringen / NFD (2024). *Høringsnotat om forslag til endringer i lov om god handelsskikk*. Oslo. [PDF](research/evidence-pack/offentlig/horingsnotat-god-handelsskikk-endringer.pdf)
+*   Regjeringen (2020). *Meld. St. 27 (2019–2020): Dagligvare og konkurranse — kampen om satisfikk* (engelsk oversettelse). Oslo. [PDF](research/evidence-pack/offentlig/meld-st-27-2019-2020-dagligvare-eng.pdf)
+*   Regjeringen (2020). *Meld. St. 27 (2019–2020): Dagligvare og konkurranse*. Oslo. [PDF](research/evidence-pack/offentlig/meld-st-27-2019-2020-dagligvare.pdf)
+*   NOU 2011:4. *Mat, makt og avmakt — om styrkeforholdene i verdikjeden for mat* (fullstendig). Oslo. [PDF](research/evidence-pack/offentlig/nou-2011-4-mat-makt-avmakt-full.pdf)
+*   Regjeringen (2025). *Meld. St. 25 (2024–2025): Sirkulær økonomi*. Oslo. [PDF](research/evidence-pack/offentlig/meld-st-25-2024-2025-sirkular.pdf)
+*   Regjeringen (2019). *Prop. 33 L (2019–2020): Lov om god handelsskikk i dagligvarekjeden*. Oslo. [PDF](research/evidence-pack/offentlig/prop-33-l-2019-2020.pdf)
+*   Regjeringen (2025). *Prop. 4 L (2025–2026): Endringer i lov om god handelsskikk*. Oslo. [PDF](research/evidence-pack/offentlig/prop-4-l-2025-2026.pdf)
+*   Riksrevisjonen (2023). *Matsikkerhet og beredskap på landbruksområdet*. Oslo. [PDF](research/evidence-pack/offentlig/riksrevisjonen-matsikkerhet-2023.pdf)
+*   Stortinget (2024). *Innst. 258 S (2023–2024): Innstilling om dagligvare og konkurranse*. Oslo. [PDF](research/evidence-pack/stortinget/innst-258s-2023-2024.pdf)
+*   Stortinget (2025). *Innst. 130 S (2025–2026): Importvern og tollvern i landbruket*. Oslo. [MD](research/evidence-pack/stortinget/innst-130s-2025-2026-importvern.md)
+*   Lovdata (2020). *Lov om god handelsskikk i dagligvarekjeden* (LOV-2020-04-17-29). [PDF](research/evidence-pack/offentlig/lovdata-lov-god-handelsskikk-2020.pdf)
+*   Lovdata (2026). *Forskrift om dagligvare* (FOR-2026-04-17-601). [PDF](research/evidence-pack/offentlig/lovdata-forskrift-dagligvare-2026.pdf)
+
+### 11.2 Tilsynsmyndigheter (Norge)
+
+*   Konkurransetilsynet (2022). *Dagligvarerapport 2022*. Bergen. [PDF](research/evidence-pack/tilsyn/dagligvarerapport-2022.pdf)
+*   Konkurransetilsynet (2025). *Dagligvarerapport 2024/25*. Bergen. [PDF](research/evidence-pack/tilsyn/dagligvarerapport-2025.pdf)
+*   Konkurransetilsynet (2018). *Betaling for hylleplass: Vurdering av konkurranseeffekter*. Bergen. [PDF](research/evidence-pack/tilsyn/betaling-for-hylleplass-2018.pdf)
+*   Dagligvaretilsynet (2023). *Rapport om samarbeidsklimaet i dagligvarebransjen 2023*. Oslo. [PDF](research/evidence-pack/tilsyn/dagligvaretilsynet-samarbeidsklima-2025.pdf)
+*   Dagligvaretilsynet (2024). *Høringssvar om endringer i lov om god handelsskikk — håndheving*. Oslo. [PDF](research/evidence-pack/tilsyn/dagligvaretilsynet-horingssvar-handelsskikk.pdf)
+
+### 11.3 Forskningsinstitutter
+
+**Forskningsrådet:**
+*   Forskningsrådet (2026). *På vei mot bærekraftig fôr — 20 grep for 2026*. Oslo. [PDF](research/evidence-pack/forskningsinstitutt/forskningsradet-barekraftig-for-2026.pdf)
+*   Forskningsrådet (2023). *Et samfunnsløft for bærekraftig fôr*. Oslo. [PDF](research/evidence-pack/forskningsinstitutt/forskningsradet-samfunnsloft-barekraftig-for-2023.pdf)
+
+**Havforskningsinstituttet (HI):**
+*   HI (2024). *Risikorapport norsk fiskeoppdrett 2024*. Rapport fra havforskningen 2024-4. Bergen. [MD](research/evidence-pack/forskningsinstitutt/hi-nettrapporter/risikorapport-fiskeoppdrett-2024.md)
+*   HI (2025). *Risikorapport norsk fiskeoppdrett 2025*. Rapport fra havforskningen 2025-14. Bergen. [MD](research/evidence-pack/forskningsinstitutt/hi-nettrapporter/risikorapport-fiskeoppdrett-2025.md)
+*   HI (2026). *Ressursoversikt 2026*. Rapport fra havforskningen 2026-7. Bergen. [MD](research/evidence-pack/forskningsinstitutt/hi-nettrapporter/ressursoversikt-2026.md)
+*   HI (2018). *Framtidsrettet mat fra havet*. Bergen. [PDF](research/evidence-pack/forskningsinstitutt/hi-framtidsrettet-mat-2018.pdf)
+*   HI (2019). *Miljøeffekter som følge av utslipp av løste næringssalter fra fiskeoppdrett*. Bergen. [PDF](research/evidence-pack/forskningsinstitutt/hi-miljoeffekter-neringssalter-fiskeoppdrett-2019.pdf)
+
+**NIBIO:**
+*   NIBIO (2020). *NIBIO POP 2020/6/43: Biochar — Carbo-Fertil: Implementing biochar fertilizer solution in Norway*. Ås. [PDF](research/evidence-pack/forskningsinstitutt/nibio-pop-biochar-carbo-fertil-2020.pdf)
+
+**SINTEF:**
+*   SINTEF Ocean (u.å.). *Industriell fremstilling av norske fôrråvarer*. Trondheim. [PDF](research/evidence-pack/forskningsinstitutt/sintef-industriell-fremstilling-norske-forravarer.pdf)
+*   SINTEF Ocean (u.å.). *Kvantifisering av utslipp fra havbruk* (SLAM-prosjektet, delrapport 1). Trondheim. [PDF](research/evidence-pack/forskningsinstitutt/sintef-kvantifisering-utslipp-havbruk.pdf)
+*   SINTEF/NINA (u.å.). *Effekter av organisk utslipp fra havbruk* (SLAM-prosjektet, L2.1). Trondheim. [PDF](research/evidence-pack/forskningsinstitutt/sintef-nina-organisk-utslipp-havbruk.pdf)
+
+**NORSUS:**
+*   NORSUS (2023). *OR 48.23: Biorest fra marine råstoffer og husdyrgjødsel*. Kråkerøy. [PDF](research/evidence-pack/forskningsinstitutt/norsus-biorest-marine-rastoffer-husdyrgjodsel.pdf)
+*   NORSUS (u.å.). *Mobiplast: Økonomiske konsekvenser av posevalg*. Kråkerøy. [PDF](research/evidence-pack/forskningsinstitutt/norsus-mobiplast-posevalg.pdf)
+
+**Ruralis:**
+*   Ruralis / Åsgård (2020). *Utnyttelse av fôrressurser i norsk lakseoppdrett i 2020* (sluttkonferanse). Trondheim. [PDF](research/evidence-pack/forskningsinstitutt/ruralis-forressurser-lakseoppdrett-2020.pdf)
+
+### 11.4 Nordiske konkurransemyndigheter
+
+*   KFST — Konkurrence- og Forbrugerstyrelsen (u.å.). *Fremtidens detailhandel*. København. [PDF](research/evidence-pack/nordisk/kfst-fremtidens-detailhandel.pdf)
+*   KFST (2024). *Evaluering af fødevarehandelsloven 2024*. København. [PDF](research/evidence-pack/nordisk/kfst-evaluering-foedevarehandelsloven-2024.pdf)
+*   Konkurrensverket (2024). *Rapport 2024:5 — Dagligvarumarknaden (Summary)*. Stockholm. [PDF](research/evidence-pack/nordisk/konkurrensverket-summary-2024.pdf)
+*   Konkurrensverket (2025). *Rapport 2025:5*. Stockholm. [PDF](research/evidence-pack/nordisk/konkurrensverket-rapport-2025-5.pdf)
+*   Ruokavirasto / ETMV (2024). *Toimintakertomus 2024* (Finnish Food Market Ombudsman — Activity Report). Helsinki. [PDF](research/evidence-pack/nordisk/finland-food-market-ombudsman-2023.pdf)
+
+### 11.5 Internasjonale organisasjoner
+
+*   Nordisk Ministerråd (2020). *Nord 2020:048: Food Waste in the Nordic Countries*. København. [PDF](research/evidence-pack/nordisk/norden-food-waste-2020-048.pdf)
+*   EU-kommisjonen (2019). *EU Actions against Food Waste: Food Donation — MS Practices*. Brussel. [PDF](research/evidence-pack/nordisk/eu-food-donation-practices-2019.pdf)
+*   EU-kommisjonen (u.å.). *Unfair Trading Practices in the Food Supply Chain — UTP Directive Brochure*. Brussel. [PDF](research/evidence-pack/nordisk/eu-utp-directive-brochure.pdf)
+*   OECD (2008). *Land Use Restrictions as Barriers to Entry*. Paris. [PDF](research/evidence-pack/nordisk/oecd-land-use-barriers-2008.pdf)
+*   OECD (2017). *Environmental Performance Reviews: Korea 2017*. Paris. [PDF](research/evidence-pack/nordisk/oecd-korea-environmental-review-2017.pdf)
+*   FSEC — Food System Economics Commission (2024). *Global Policy Report*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/fsec-global-policy-report.pdf)
+*   EAT-Lancet Commission (2025). *Summary Report for and with Policymakers*. Oslo/Stockholm. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-lancet-2025-summary-for-policymakers.pdf)
+
+### 11.6 Akademia — journalartikler og avhandlinger
+
+**Akvakultur og fôr:**
+*   Ytrestøyl, T. et al. (2017). *Resource utilization of Norwegian salmon farming in 2016*. Aquaculture, 484. UiB/Bora. [PDF](research/evidence-pack/akademia/perplexity-runde/bora-uib-aquaculture-feed-2017.pdf)
+*   [Elsevier] (2024). *Insect-based feeds for aquaculture*. Aquaculture (S0044848624011104). [PDF](research/evidence-pack/akademia/perplexity-runde/sciencedirect-S2352513424003168-insect-feeds.pdf)
+*   [Elsevier] (2024). *Alternative protein sources in aquafeeds* (S2451943X24000486). [PDF](research/evidence-pack/akademia/perplexity-runde/sciencedirect-S2451943X24000486.pdf)
+*   [Elsevier] (2024). *Insects in aquafeed — review* (S2949824424001587). [PDF](research/evidence-pack/akademia/perplexity-runde/sciencedirect-S2949824424001587-insects-aquafeed.pdf)
+*   [PMC] (2022). *Aquaculture feed sustainability — review* (PMC9727232). [PDF](research/evidence-pack/akademia/perplexity-runde/pmc-9727232-aquaculture.pdf)
+*   [Wiley] (2025). *Protein and fishmeal alternatives in aquaculture* (ANU/3198303). [PDF](research/evidence-pack/akademia/perplexity-runde/wiley-anu-protein-fishmeal-alternatives-2025.pdf)
+*   [Wiley] (2018). *Insect meals as fish feed ingredients — review* (RAQ.12281). [PDF](research/evidence-pack/akademia/perplexity-runde/wiley-raq-insect-meals-fish-2018.pdf)
+
+**Sirkulær økonomi, biorest og biochar:**
+*   [Tandfonline] (2025). *Biochar application in Finnish agriculture — carbon management*. Carbon Management. [PDF](research/evidence-pack/akademia/perplexity-runde/tandfonline-biochar-finland-2025.pdf)
+*   NTNU (u.å.). *Mikroplast i biorest* (masteroppgave). [PDF](research/evidence-pack/akademia/perplexity-runde/ntnu-microplast-biorest.pdf)
+*   [Emerald] (u.å.). *What does it take to close the loop? Lessons from citrus valorization*. British Food Journal, 126(13). [PDF](research/evidence-pack/akademia/perplexity-runde/emerald-bfj-close-the-loop-citrus.pdf)
+*   [MDPI] (2021). *Sustainability assessment of food waste reduction strategies* (Sustainability 13/18/10471). [PDF](research/evidence-pack/akademia/perplexity-runde/mdpi-sustainability-food-waste.pdf)
+
+**Alternative distribusjonskanaler:**
+*   [Emerald] (2022). *Practicing mundane consumer resistance in the REKO network*. Qualitative Market Research, 24(3). [PDF](research/evidence-pack/akademia/perplexity-runde/emerald-qmr-reko-resistance.pdf)
+*   [Journal.fi] (2022). *REKO-lähiruokarinki — sosiologinen analyysi*. Sosiologia. [PDF](research/evidence-pack/akademia/perplexity-runde/journal-fi-sosiologia-reko-2022.pdf)
+*   [ResearchGate] (2022). *Characteristics and stability of consumer food-buying groups: the case of food circles*. [PDF](research/evidence-pack/akademia/perplexity-runde/researchgate-food-buying-groups.pdf)
+
+**Nordisk matinnovasjon og policy:**
+*   VTT (2021). *Food Research and Innovation Strategy for Finland 2021–2035*. Espoo. [PDF](research/evidence-pack/akademia/perplexity-runde/vtt-food-innovation-strategy-finland-2021-2035.pdf)
+*   Riuttalahti, S. (u.å.). *Roal Enzymes — case study* (Theseus). [PDF](research/evidence-pack/akademia/perplexity-runde/theseus-riuttalahti-roal-enzymes.pdf)
+*   DiVA (2024). *[Swedish food systems research]* (diva2:2052202). [PDF](research/evidence-pack/akademia/perplexity-runde/diva-fulltext-2052202.pdf)
+*   Helsinki University (u.å.). *Food systems analysis* (Helda). [PDF](research/evidence-pack/akademia/perplexity-runde/helda-helsinki-food-systems.pdf)
+
+---
+**Sist oppdatert:** 20. april 2026
 **Ansvarlig:** Food Systems 2026 Research Team
