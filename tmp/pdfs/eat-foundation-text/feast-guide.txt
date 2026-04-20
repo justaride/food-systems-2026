@@ -1,0 +1,2348 @@
+THE FEAST GUIDE
+A handbook to co-develop
+interventions that focus on food,
+health and sustainability
+FEAST is co-funded by the European Union’s Horizon Europe
+research and innovation programme under grant agreement number
+101060536. Views and opinions expressed are those of the author(s)
+only and do not necessarily reflect those of the European Union.
+Neither the European Union nor the granting authority can be held
+responsible for them.
+UK participant in FEAST (Good Food Oxfordshire) is supported by
+Innovate UK grant number 10041509 and the Swiss participant in
+FEAST (FiBL) is supported by the Swiss State Secretariat for Education,
+Research and Innovation (SERI) under contract number 22.00156.
+
+Start Date 01/07/2022, End Date 30/06/2027
+
+
+Cite as:   Fabricci, I., Consalez, F., Rut, M., & Amici, I. (2025)
+           The FEAST Guide – A handbook to co-develop interventions
+           that focus on food, health and sustainability. FEAST project
+           - Food systems that support transitions to hEalthy And
+           Sustainable dieTs.
+
+
+
+
+This document is shared under Creative Commons
+Attribution 4.0 International License (CC BY 4.0).
+
+
+
+
+                                                                          01
+This Guide (part of Deliverable 4.3) represents a synthesis of insights and experiences
+shared by members of the FEAST community between June 2022 and May 2025. We
+extend our gratitude to all those who contributed to the FEAST activities, including
+speakers, organizers, and participants.
+
+
+Authors: Irene Fabricci, Fabio Consalez, Monika Rut and Ismaele Amici (ICLEI Europe).
+
+Contributors: Cristina Biella (OpenDot), Leonie Barelds and Annemarie Kapteijns
+(Louis Bolk Institute), Elsa Chiffard-Carricaburu (City of Avignon), Luisa Garcia (CIM
+Alto Minho), Sandrine Bertin and Denise Cahill (Cork City), Hannelore Herreman (City
+of Ghent), Carina Bell Bastlund Woollhead (Guldborgsund Municipality), Michaela
+Hickersberger and Martin Hosner (Ökosoziales Forum Österreich & Europa), Marie
+Mauer (Leuven 2030), Kaja Zapędowska-Kling and Aleksandra Różalska (University of
+Lodz), Jessica Kopp (Good Food Oxfordshire), Adela Gjorgjioska (ARETE Sustainable
+Prosperity), Chiara Ferravante (Azienda USL Toscana Nord Ovest), Pavlos- Alexandros
+Kapetanakis (Sitia Municipality), Maria Konstantopoulou (Demokritos), Andreas Exner
+and Livia Cepoiu (University of Graz).
+
+We would like to thank the reviewers for critical comments and constructive
+suggestions. The document has been reviewed by Anant Jani, Aditi Bunker, Elisabeth
+Lindner and Pengzhu Li.
+
+
+The Guide has been designed by Agnese Gualandi, Antonio Cioppa, Marta Golfera
+(OpenDot).
+
+
+
+
+                                                                                          02
+Index:
+table of contents
+INTRODUCTION: THE WHAT AND WHY OF FEAST INTERVENTIONS
+
+
+
+SHORT INTRO TO FEAST LIVING LABS
+
+
+
+ROADMAP
+
+
+
+6 STEPS TO FOOD HEALTH & SUSTAINABILITY INTERVENTIONS
+
+
+ Step 1     Step 2      Step 3      Step 4   Step 5     Step 6
+
+
+
+TYPES OF INTERVENTIONS
+
+ Food education      Work with smallholder farmers     Food environments
+
+ Public Food Procurement
+
+
+IN-DEPTH CASE STUDIES
+
+ Case study 1     Case study 2
+
+
+
+RESOURCES
+
+ Storytelling as listening method
+
+ Community workshop to co-design solutions for better access to healthier and more sustainable food
+
+ Hack for Food, Hack for Good! methodology       Place Standard Tool: Food in My Area - the Food Lens
+
+
+
+GLOSSARY
+
+
+
+
+                                                                                                        03
+         Index            INTRODUCTION: THE WHAT AND WHY OF FEAST INTERVENTIONS
+
+
+
+
+Introduction: The what and why
+of FEAST Interventions
+Europe’s current food system is unsustainable, driving environmental degradation,
+worsening public health, and straining public finances, while primarily benefiting
+large food corporations. 1,2,3 Despite Europe being one of the wealthiest regions in
+the world, food poverty and malnutrition remain pressing issues. In 2023, almost
+10% of the EU population could not afford a nutritious meal every second day,
+highlighting significant inequalities in access to healthy food. 4 Poor dietary habits,
+characterized by high consumption of processed foods as well as foods high in
+sugar, salt, and unhealthy fats, are fuelling non-communicable diseases like obesity,
+type 2 diabetes, and cardiovascular conditions. 5 These preventable diseases
+account for the majority of deaths in Europe and impose a massive financial
+burden, with 70% of EU healthcare spending directed toward their treatment.
+Limited access to nutritious food not only worsens public health but also deepens
+social inequalities, leaving vulnerable populations at even greater risk of diet-related
+illnesses.
+
+Without urgent action to transition towards healthier and more sustainable food
+systems, these issues will continue to worsen, harming both people and the planet.
+In this context, FEAST’s mission is to make it easy for every person in Europe to eat
+a delicious, healthier, and more sustainable diet.
+
+Local action is essential for transforming food systems by shaping food
+environments and influencing food behaviours. Food environments—whether
+physical or digital—serve as the contextual sphere in which food behaviours are
+formed and carried out. 6 These behaviours are shaped by the interplay of attitudes,
+intentions, and norms influenced by various environmental factors, including,
+among others, exposure to marketing cues; the availability, accessibility, and
+proximity of food; cultural traditions and social norms; socio-economic conditions;
+and levels of food literacy. 7,8,9 By directly influencing the environmental factors that
+shape these behaviours, local interventions can serve as a form of coordinated
+grassroots initiative acting on several levels of the food-value chain to foster
+healthier and more sustainable dietary habits and contribute to the well-being of
+the local community.
+
+
+REFERENCES:
+
+1
+  Xu, X. et al. Global greenhouse gas emissions from animal-based foods are twice those of plant-based foods. Nat Food 2,
+724–732; 10.1038/s43016-021-00358-x (2021).
+2
+  Lobstein, T. The language of obesity just makes matters worse. Nat Hum Behav 2, 165; 10.1038/s41562-018-0295-6 (2018).
+3
+  Allen, L. N., Hatefi, A. & Feigl, A. B. Corporate profits versus spending on non-communicable disease prevention: an unhealthy
+balance. The Lancet Global Health 7, e1482-e1483; 10.1016/S2214-109X(19)30399-7 (2019).
+4
+  https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240712-1
+5
+  Changing life expectancy in European countries 1990–2021: a subanalysis of causes and risk factors from the Global Burden of
+Disease Study 2021, Steel, Nicholas et al., The Lancet Public Health, Volume 0, Issue 0
+6
+  Swinburn, Boyd, Garry Egger, and Fezeela Raza. “Dissecting obesogenic environments: the development and application of a
+framework for identifying and prioritizing environmental interventions for obesity.” Preventive medicine 29.6 (1999): 563-570.
+
+
+                                                                                                                                   04
+         Index             INTRODUCTION: THE WHAT AND WHY OF FEAST INTERVENTIONS
+
+
+
+
+Within FEAST, partners from municipalities, research centres, and civil society
+organisations come together to co-create and test innovative interventions to
+tackle Food Health & Sustainability challenges by strengthening the supply of
+and demand for healthier and more sustainable diets. They do this through Living
+Labs, that actively include vulnerable groups (those that are struggling socially,
+economically or geographically) during the identification of needs and the co-
+development of solutions. Living Labs also enable analysis and corresponding
+solutions that are context-specific, thus building on relevant patterns and trends
+in cultural, social, economic, and food environments and which consider the
+supply-side constraints to healthy choices. 10 The experimental nature of Living
+Labs enables explorative spaces where different actors can come together and
+contribute to shaping their own environment. While their commitment is strong,
+municipalities often face many obstacles to their work, such as a lack of a
+dedicated budget and up-to-date data to support their interventions and measure
+their impacts. The FEAST Living Labs and all FEAST Partners have analysed these
+challenges and collaboratively co-designed solutions with vulnerable groups to
+tackle these challenges and support them to eat healthier and more sustainable
+diets.
+
+The FEAST Guide is a tool for municipalities across Europe that would like to get
+inspired by the FEAST process and their resulting interventions and to ultimately
+replicate the process of co-creating innovative and inclusive solutions to support
+people to create healthier and more sustainable food environments and adopt
+healthier food behaviours.
+
+The FEAST Guide includes:
+• A handy Roadmap to accompany municipalities in their journey towards Food
+  Health & Sustainability Interventions
+• Insights from the 12 FEAST Living Labs on four types of interventions: food
+  education, work with smallholder farmers, food environments, and public
+  procurement
+• Two in-depth case studies from the Living Labs
+• A series of useful resources for planning and implementing interventions
+
+The FEAST Guide stems from the experiences of the Living Labs and was co-
+developed with them through a series of interviews and a workshop during the
+FEAST Consortium Meeting in Alto Minho, Portugal.
+
+
+REFERENCES:
+
+7
+  Boyland, E. J., & Whalen, R. (2015). Food advertising to children and its effects on diet: a review of recent prevalence and impact
+data. Pediatric Diabetes, 16(5), 331–337.
+8
+  Higgs, S. (2015). Social norms and their influence on eating behaviours. Appetite, 86, 38–44.
+9
+  Vidgen, H. A., & Gallegos, D. (2014). Defining food literacy and its components. Appetite, 76, 50–59
+10
+   https://cgspace.cgiar.org/items/96fbc3f5-5c7e-41f7-9edf-5be26db2935b
+
+
+
+
+                                                                                                                                        05
+      Index     SHORT INTRO TO FEAST LIVING LABS
+
+
+
+
+Short intro to FEAST Living Labs
+DEF   Living lab: Living Labs: Practice-driven organisations that facilitate and foster
+                  open, collaborative innovation and real-life environments or arenas
+                         where both open innovation and user innovation processes can be
+                         studied and subject to experiments and where new solutions are
+                         developed (SCAR, 2023).
+
+
+
+
+                         Avignon
+                         Food culture at school through cooking workshops and
+                         quality school meals that valorise the local food system.
+
+
+
+                         CIM Alto Minho
+                         Transitioning to healthier and more sustainable food systems
+                         in Alto Minho’s school canteens.
+
+
+
+                         Cork
+                         Driving a consultation process for the Cork Food Strategy and
+                         developing a Food Hub that supports young farmers.
+
+
+
+                         Ghent
+                         Strengthening food access in underprivileged neighbourhoods.
+
+
+
+                         Guldborgsund
+                         Introducing food education and school meals in the rural
+                         education system.
+
+
+
+                         LEADER Weinviertel-Donauraum
+                         Creating a more attractive environment for school food.
+
+
+
+                         Leuven
+                         Developing a community action platform on healthy and
+                         sustainable diets among vulnerable groups.
+
+
+
+
+                                                                                           06
+  Index   SHORT INTRO TO FEAST LIVING LABS
+
+
+
+
+The living labs
+
+                 Lodz
+                 Supporting the holistic health of seniors through workshops,
+                 social gatherings and procurement.
+
+
+
+                 Oxfordshire
+                 Organising food education for parents in five marginalised
+                 communities.
+
+
+
+                 Prilep
+                 Shaping nutritional pedagogy across the country.
+
+
+
+
+                 Tuscany
+                 Primary and secondary prevention: food education for
+                 students and elderly alongside an outpatient paediatric
+                 nutrition clinic.
+
+
+
+
+                 Sitia
+                 Valorising local olive oil for farmers’ incomes and health.
+
+
+
+
+                                                                                07
+  Index       SHORT INTRO TO FEAST LIVING LABS
+
+
+
+
+The living labs
+
+
+
+
+                                                 Guldborgsund
+
+
+
+
+  Cork
+                  Oxfordshire                                   Lodz
+                                Ghent
+                                  Leuven
+
+
+                                                           LEADER-Region
+                                                           Weinviertel Donauraum
+
+
+
+
+                                Avignon
+                                             Tuscany
+                                                                    Prilep
+
+
+ Alto minho
+
+
+
+                                                                             Sitia
+
+
+
+
+                                                                                     08
+         Index                ROADMAP
+
+
+
+
+Roadmap
+
+                                              Scope what’s already there
+                                STEP 1
+                                              •       Map existing initiatives, networks and (community) assets
+                                              •       Find the gatekeepers
+                                              •       Explore new activities with current partners
+
+
+
+
+             Invite different stakeholders
+             •     The experts are within the community, work with them
+STEP 2       •     Fill the gaps in your skills with the right partnerships
+             •     Create new, innovative connections
+             •     Build trust
+
+
+
+                                    Agree on a burning problem
+
+                     STEP 3
+                                    •       Listen carefully, rather than making assumptions
+                                    •       Be mindful of the language you use
+                                    •       Remember that food is cultural
+
+
+
+                                                  Co-design an intervention:
+                                                  tasting solutions
+                                   STEP 4
+                                                  •    Don’t underestimate logistics
+                                                  •    Ask people what they need and want
+                                                  •    Prioritise what can be put in place easily
+                                                  •    Set realistic expectations and keep people informed
+
+
+
+
+                     Whet political appetite
+                     •        Align the intervention with existing political and
+          STEP 5
+                              financial priorities
+                     •        Mainstream the conversation about food
+                     •        Drive attention of local politicians and policymakers to
+                              your project
+
+
+
+
+                                STEP 6        Generate robust evidence to evaluate impact
+
+                                                                                                                  09
+  6 STEPS TO
+FOOD HEALTH &
+SUSTAINABILITY
+INTERVENTIONS
+     Index
+
+
+
+
+Step 1
+
+Scope what’s already there
+
+Before you start planning and designing the intervention, you need to familiarise
+yourself with what is already happening in the food system in your city and
+region. This will allow you to find key partners with whom to work, avoid repeating
+activities that are already taking place, and learn from past projects in your area,
+both successes and failures.
+
+Map existing initiatives, networks and (community) assets that work
+on food or with your target group:
+Start by mapping the stakeholders that run food projects, learn about their work
+and connect with them! These actors can be both within the municipality, i.e.
+in other departments that work on food, health, or environment, or outside the
+municipality, such as networks of NGOs and community organisations working
+on the topic or with your target group. Connecting with people who have already
+worked with some of the actors you plan to engage, such as schools or community
+organisations, will provide insights into which actors are more responsive, or which
+activities seem to be most successful.
+
+
+
+        It takes time to find and build trust with the right stakeholders!
+
+
+
+Find the gatekeepers:
+While mapping and talking with different stakeholders, pay attention to which
+names pop up often. These may be people and organisations that are trusted
+by the other organisations in the space. Building a relationship and collaborating
+with them may open many doors to be able to work with other organisations or
+with your target groups, particularly the most disadvantaged. In fragile contexts,
+trust is crucial to reach the most vulnerable populations and working with people
+and organisations that they trust will increase the chances of commitment and a
+successful intervention.
+
+Explore the possibility of new activities with current partners:
+While mapping organisations you don’t yet know is crucial to opening up new
+horizons, be sure to also talk with the people you already know! Partners with
+whom you collaborate in current projects may provide valuable insights for new
+activities, with the added advantage that you have already built a relationship and
+know how to work with them and vice versa.
+
+                                                                                       11
+       Index
+
+
+
+
+Step 2
+
+Invite different stakeholders
+After you’ve mapped existing food organisations and projects, you will have to
+decide who to invite to the table. Who will you invite to take part in the identification
+of the problems, the co-design of the solution, the implementation of the
+intervention and the collection of the data to understand how your intervention
+worked? What should you keep in mind when making the selection? You don’t
+need to work alone, you can find reliable and impactful partners!
+
+The experts are within the community, work with them:
+The best way to ensure that your understanding and analysis of the problem is
+accurate and the design of your intervention targets real needs is work with people
+who have first-hand experience of the issues you want to address,
+whether it is food poverty, unhealthy eating habits or problems accessing a
+viable market. They have the lived-experience and knowledge needed to address
+these issues that is often lacking in policy-making. Working with them may mean
+setting up open consultation sessions directly with members of the community or
+collaborating with community organisations that serve them and represent
+their interests. Remember that experts by experience will have multiple personal
+and professional commitments and you may have to be flexible with your time.
+Moreover, their knowledge is valuable and needs to be acknowledged. .
+
+
+
+How to value lived experience expertise?
+Examples from the FEAST Living Labs
+Good Food Oxfordshire set up a model of community facilitators in five communities.
+The community facilitators are usually people who were already employed in community
+organisations, either as part-time staff or volunteers, and that through this role are able to
+dedicate more time to the activities and be remunerated for their work. The community
+facilitators received training on research skills and project management, as well as further training
+on the topic of healthy diets, nutrition, inclusive food systems. The facilitators are members of
+the communities where the Oxfordshire Living Lab is active, so they were pivotal in recruiting
+participants and adapting the work of the Living Lab to the specific context of each community.
+Each facilitator ran an initial survey, two focus groups discussions and two co-design
+workshops in their community to understand the burning issue that needs to be addressed in the
+community and design possible interventions. The training built capacity in the community
+themselves, developing skills in data collection, data analysis and solution design.
+The Ghent municipality works with deLink, a Flemish organisation that offers two-year trainings
+for people experiencing poverty to become poverty experts. After the training, they can provide
+policy advice on questions related to vulnerable groups. These experts are part of the working
+group of local poverty organisations, health experts and city services that gives direction to the
+Living Lab’s activities.
+
+
+                                                                                                        12
+      Index      6 STEPS TO FOOD HEALTH & SUSTAINABILITY INTERVENTIONS
+
+
+
+
+Fill the gaps in your skills with the right partnerships:
+Reflect on the gaps in knowledge and skills in your team and invite people who
+can fill those gaps. These may be gaps in research skills needed to understand
+the root causes of a problem or to measure a baseline before implementing your
+intervention or a post-intervention measurement, people to help you analyse your
+data or the advocacy skills needed to give more visibility to your cause.
+
+Create new, innovative connections.
+Look beyond your circle and build links with people you did not initially consider. For
+instance, the Avignon Living Lab reached out to chefs from several restaurants
+in the city to develop and deliver cooking classes for children. The chefs were
+enthusiastic, and the intervention created a new relationship between the local
+schools and the local restaurants, which were previously disconnected. Looking for
+new connections can also help you to find your first supporter, who will help you
+start your movement. This is what happened in Guldborgsund, where, in an
+effort to initiate public school meals in the municipality, the Living Lab team
+looked beyond the education department and found an ally in the public health
+department, who helped to frame school meals as disease prevention, thus gaining
+support with health officers.
+
+
+     VIDEO - How to start a movement
+
+
+
+Build trust.
+Take the time to develop the relationship with your partners, strong relationships
+are key to impactful interventions!
+
+
+
+
+ADDITIONAL RESOURCES:
+
+
+    Telling stories and shaping solutions (2020): A toolkit showing techniques, strategies
+    and best practices to empower people who have lived experience of food poverty.
+    Involving experts by experience (2016) A guidebook explaining how to involve experts
+    by experience in policy influencing activities and events.
+
+
+
+
+                                                                                             13
+     Index
+
+
+
+
+Step 3
+
+Agree on a burning problem
+Once you’ve decided who to invite to the table, you will need to collectively
+understand the issues that prevent people in the community from eating a healthier
+and more sustainable diet, and which issue is the most pressing.
+
+
+Talk with people from your target beneficiary group and listen
+carefully, rather than making assumptions:
+Conduct interviews, workshops, meetings with the people you want to work for and
+with, to ask them what problems they are facing. Truly listen to the answers, which
+will often defy your assumptions, that are based on your experience of the world
+and your perception of the problem. One example comes from the Ghent Living
+Lab: the municipality noticed that people on low incomes did not make use of
+solidarity pricing of Community Supported Agriculture (CSA), which is meant to
+make vegetables more financially accessible. One of the poverty organisations
+involved in the intervention conducted an experiment and worked with people in
+poverty on the land of the CSA farm. During this experiment, they found out that
+working outdoors and being part of a community was much more important than
+harvesting fruits and vegetables for themselves. Therefore, the problem was not
+the price, but what was offered and what the community members got in return.
+
+
+  RESOURCE - Storytelling as listening method
+
+
+
+Be mindful of the language you use:
+we all have different experiences, ideas and ideals and the language we speak
+usually reflects this diversity. While two people may both speak English, the
+meaning behind their words is shaped by a myriad of factors that can end up
+conveying or receiving very different messages. We all engage in communication
+by using our own framing. While it is not possible to speak everyone’s language,
+it is important to try to engage stakeholders through positive, clear and inclusive
+language. Language that is not polarising can also inspire wider commitment:
+striving for more “tasty food” will be more widely accepted than pushing for more
+“healthy food”.
+
+
+
+
+                                                                                      14
+       Index        6 STEPS TO FOOD HEALTH & SUSTAINABILITY INTERVENTIONS
+
+
+
+
+Remember that food is cultural:
+When working towards dietary transitions, it is paramount to recognise people’s
+food culture and their previous food experiences. This means recognising people’s
+attachment to their cultural foods (dishes that are perceived as unique to and
+emblematic of a culture), as well as their food culture – the set of customary
+practices and beliefs that define how food is part of a population’s daily life and
+social structure. People hold very strong cultural beliefs on what sustainable food
+is and what a healthy diet looks like. How can we value the diversity of food
+cultures in our societies, while fostering the changes necessary to promote
+healthier and more sustainable diets for us and the generations to come?
+
+
+
+
+Paying attention to food’s cultural dimension -
+examples from the FEAST Living Labs
+In Guldborgsund, the Food School teaches students new, plant-based interpretations of
+traditional danish smørrebrød (which is also the main staple of homemade school lunches, with
+cold meat cuts on ryebread).
+The Tuscany Living Lab uses the Cross-Cultural Food Pyramid, elaborated by the Italian Society
+of Pediatrics, within the outpatient pediatric nutrition clinic as food education tool. This tool, in
+line with today’s multiethnic society, combines the Mediterranean Diet model with typical foods
+from different food traditions (particularly from Asia, Africa, and South America Regions), so as
+to provide children and their families with useful knowledge to integrate into their daily routines
+in accordance with their food culture.
+
+
+
+
+ADDITIONAL RESOURCES:
+
+
+     Positive communication toolkit (2021): A toolkit exploring how to implement
+     positive and optimistic communication strategies around environmental and animal
+     conservation topics.
+     Food citizenship: a communication toolkit (2017): A toolkit for organization in the
+     agrifood sector aiming to improve their communication towards citizens rather than
+     consumers.
+
+
+
+
+                                                                                                        15
+      Index
+
+
+
+
+Step 4
+
+Co-design the intervention
+After analysing the problems the community faces, you can start co-creating
+solutions with them. This will involve one or more moments of encounter, either
+in person or online, in which everyone can share ideas and brainstorm possible
+actions. Before these encounters, you’ll need to think about the logistics – the
+location, the invites, the agenda – as well as the appropriate methodology for your
+workshop. After the meeting, you’ll have to think of which actions to start with and
+how to keep participants engaged over time.
+
+Don’t underestimate logistics:
+when planning your co-design activities, special attention should be placed on
+where, when, and how you will meet, to ensure that people with specific needs can
+access the event and be included. How can you take care of a full range of special
+needs to ensure inclusivity? Think of the location of the event, is it reachable by
+affordable public transport? Are there parking opportunities nearby? Is it close to
+the area where the people who would have more difficulty joining live or work? Is
+the venue accessible for people with limited mobility? Are there enough seating
+options for people who will get tired more easily? Reflect on the timing of the event:
+what would be the best time of the day and week for working people to come, e.g.
+the evening or in the weekend? How long should the workshop be? How can you
+make the format more inclusive? Can you organise multiple events with smaller
+groups, or one event with small breakout groups to support people’s confidence
+when sharing their ideas? Is it possible to provide childcare for people who will
+have to come with their children? Can you hire a facilitator that has proven cultural
+awareness skills? Depending on the length of the session, try to ensure healthy and
+sustainablerefreshments and meal options are available.
+
+Ask people what they need and want:
+the main goals of co-design are to create a sense of ownership among the people
+involved and to make sure that an intervention will be truly useful for those we are
+trying to support. What is their vision of a healthy and sustainable diet and how do
+they imagine getting there? For this, it is necessary to create formats that allow
+them to share their ideas and opinions freely, the responses may surprise you! For
+example, while co-developing the intervention in Ghent, people from lower-income
+households said they do not need a new cookbook to show them how to cook
+healthy meals, but rather they want more access to fresh fruits and vegetables.
+On the other hand, in Oxfordshire, families making use of food support, such as
+
+
+
+                                                                                         16
+      Index       6 STEPS TO FOOD HEALTH & SUSTAINABILITY INTERVENTIONS
+
+
+
+
+food banks or community larders, were enthusiastic about the idea of learning
+new recipes and cooking techniques to help them adopt a healthier diet. This
+meant that in Ghent and Oxfordshire, a similar starting point led to two completely
+different solutions, based on the needs of the community.
+
+
+   RESOURCE - Explore workshop methodologies that include visioning exercises
+
+
+
+Prioritise what can be put in place easily:
+at the beginning you may want to focus on a small intervention that can be
+implemented with limited resources. Once the intervention is running successfully,
+you will have a concrete example of your work to showcase and gain support from
+other actors. Be sure to publicise your success!
+
+
+Set realistic expectations and keep people informed:
+while in a co-design process you want to involve people from the beginning, you
+can’t make any promises about the results at the start. Be clear and realistic about
+the results that will be possible from the co-design exercise at this initial stage,
+based on the financial and political support your solution already has. Additionally,
+after the co-design event, set up communication channels with the participants,
+such as emails, a newsletter, a WhatsApp group or field visits. Make sure to
+communicate openly about what is happening or is not happening.
+
+
+
+
+ADDITIONAL RESOURCES:
+
+
+    The power of many (2024): A guide for city officials and policymakers on how to
+    design co-creation processes involving different stakeholders for environmental
+    sustainability and social justice related projects.
+    Getting participation right (and wrong) (2023): A blog article showcasing success and
+    unsuccess \stories of recruitment processes in co-design and group decision-making
+    activities.
+    Equitable events handbook (2023): A handbook providing guidelines to organize non-
+    discriminatory, equitable and inclusive events.
+
+
+
+                                                                                            17
+       Index
+
+
+
+
+Step 5
+
+Whet political appetite
+To institutionalise your intervention and, ideally, obtain funding to ensure its
+continuity over time, or to expand to different groups, you will need political support
+from the policymakers who decide on these matters.
+
+
+Align the intervention with existing political and financial priorities:
+if your city already has a policy on food, such as a food strategy, you should make
+sure that your intervention and its impacts align with the objectives of this policy.
+However, not all cities may have a policy on food, as they could prioritise other
+themes, such as health or climate. But fret not! Food is cross-sectoral, and as such,
+you can link your intervention to other priorities of your municipality. The
+Guldborgsund Living Lab, for instance, shifted the perspective from food to the
+health agenda, framing the impact of school meals in relation to the positive
+effects on childrens’ health. This way, they leveraged one of the priorities of the
+Guldborgsund Municipality (health) and gained allies in another municipal
+department to support their work.
+
+
+
+Aligning interventions with the city’s strategies – examples from the FEAST
+Living Labs
+The city of Ghent has had a food strategy for more than 10 years, which was designed by the
+Gent Food Council and adopted by the city council. The strategy has three main objectives: 1. a
+short and sustainable food chain 2. sustainable food for everyone 3. no food waste. The
+interventions of the Ghent Living Lab implement the objectives “Sustainable food for all” as well
+as “Short and sustainable food chain”.
+
+In Guldborgsund, the Committee for Children and Learning has a strategy that states “Care and
+health promotion: Through partnerships, we will work to provide more information about health
+so that children, young people and parents have the best conditions for making healthy choices.
+We want to offer healthy food in daycare centres and schools and give children and young
+people a taste for healthy choices.” By aligning its interventions with the goals of this strategy, the
+Guldborgsund Living Lab was able to obtain the mandate to work on food in schools and food
+literacy for students.
+
+Cork has just received the EU Mission label for Climate Action and Smart Cities. The Test Site
+group in the Cork Living Lab is using this opportunity to make developing urban agriculture
+relevant to the Net Zero objectives and other City’s strategies related to economic development,
+biodiversity and climate action. There is a biodiversity and foraging zone on the site, a composting
+pilot with a business on waste prevention and reduction. Moreover, the head market gardener
+is a Chef who is developing a selling plan with a group of restaurants very supportive of local
+food growers, which ties in with the objectives to develop Cork as the Food Capital of Ireland and
+encourages stakeholders to include sustainability in their plans.
+
+                                                                                                          18
+     Index      6 STEPS TO FOOD HEALTH & SUSTAINABILITY INTERVENTIONS
+
+
+
+
+Mainstream the conversation about food:
+while your intervention may be focused on a specific issue, target group or
+location, you can highlight the importance of the topic by talking about food and its
+relevance for different themes of urban development, such as climate, health, green
+spaces, social cohesion. Mainstreaming the conversation about food allows you to
+build onto the momentum of existing initiatives in other departments. For instance,
+the Living Lab in Guldborgsund tied the topic of food to the city’s Climate Action
+Plans by spearheading an intervention in the canteen of the municipality, which
+aimed to decrease the CO2 impact of the municipal meals through a reduction of
+food waste as well as the increase of organic purchases and skills development
+for canteen staff. The initiative worked wonders in terms of people talking about
+climate and food in the municipal building. And thus it paved the way for MORE talk,
+more discussion, more interest in food.
+
+Drive attention of local politicians and policymakers to your project:
+people don’t always understand how to influence policy, but sometimes it’s easier
+than we imagine. Involve people from the community, bring them together and give
+them a platform to voice their concerns. Bring these concerns (and the people!) to
+the policy makers. Especially at the local level, moments of encounter are easier to
+organise and have the most impact. Involve local media during your interventions
+and attract the attention of local politicians. Contact them often so that they know
+who you are and can recognise you.
+
+
+
+
+                                                                                        19
+      Index
+
+
+
+
+Step 6
+
+Generate robust evidence
+to evaluate impact
+Demonstrating the impact of planned interventions is essential, not only to
+showcase areas of improvement to funders and policy makers but also to give
+back to the community by creating conditions for long-lasting systemic change.
+Therefore, impact needs to be planned from the early design phases of an
+intervention and integrated through the whole intervention process. Ask yourself:
+What change do you want to see in your city, community, or target groups? What
+short-term changes will result immediately from the intervention; for example,
+setting up a community garden? What long-term impacts could emerge, such
+as sustained community involvement in land stewardship or better access to
+fresh and healthy vegetables over time? Integrating impact assessment into
+your interventions is crucial for demonstrating the cross-sectoral nature of food
+systems. Consider how the intervention you are leading can generate positive co
+benefits across multiple sectors. For example, enabling access to fresh vegetables
+and fruits in communities contributes to long-term reductions in public health
+expenditures by preventing diet-related diseases. Developing tenders that enable
+small-scale farmers to participate in the bidding and strengthening of local food
+economies.
+
+There are multiple ways to measure impact, both qualitative and quantitative.
+Setting a baseline of what you would like to measure, how and why is key to
+understanding your starting point.
+
+•   Qualitative methods - such as fieldwork, focus groups, and interviews - can be
+    time - intensive but offer powerful stories of change, giving voice to the people
+    driving the interventions.
+•   Quantitative measures, often framed as datasets, allow for broader
+    comparisons and hypothesis testing and are frequently used to inform policy
+    makers.
+
+Ideally, a mix of methods is used to collect, analyse, and communicate the impact
+achieved on the ground. It would be ideal to design the evaluation in a simple way
+that means you and your team can do the data collection and analysis based on
+the skills you have but there could be instances where this is not possible. In some
+cases, impact measurement can be an overwhelming process that involves expert
+knowledge.
+
+
+
+
+                                                                                        20
+       Index        6 STEPS TO FOOD HEALTH & SUSTAINABILITY INTERVENTIONS
+
+
+
+
+For example, developing consent forms and setting up evaluation methods.
+Therefore, it is helpful to work with trained professionals. This can be achieved, for
+example, through collaboration with universities, where PhD students or postdocs
+conducting relevant research can contribute to setting up impact assessment
+frameworks.
+
+
+
+Example in FEAST: Healthy and Sustainable Diets and Food Education
+In achieving impact through the interventions, FEAST has served as an enabler for many LLs,
+fostering better dialogue between city departments and various food sector stakeholders,
+including small-scale producers, school canteen staff, catering companies, and food
+organisations. This in many of the FEAST LL, has led to improving access to and affordability of
+healthy, sustainable meals across public institutions such as schools and elderly homes.
+
+FEAST Living Labs have achieved a variety of outcomes, including:
+
+•   Bringing social and political attention to the most precious investment for the future: children
+•   Making children agents of change by involving them in decisions about their own diets,
+    participating in the reduction of food waste
+•   Empowering vulnerable groups to identify durable tools for food accessibility
+•   Emphasizing the diversity of knowledge and the collective intelligence as community
+    empowering tool
+
+For example, in Alto Minho, ten municipalities joined forces to coordinate their school meal
+programs, ensuring that procurement processes support local farmers. Similarly, in Avignon,
+procurement criteria were reshaped to prioritize small-scale food producers, leading to an
+increase in local and seasonal food consumption in schools. In Lodz, menus in elderly homes
+were redesigned to increase the number of fresh vegetables served, ensuring that meal changes
+align with both the dietary and taste preferences of the elderly. Meanwhile, in Prilep, a revision
+of national nutritional guidelines was undertaken, incorporating food education to school meals
+programmes. While procurement might be seen as a low-hanging fruit, its co-benefits are
+emerging from the FEAST LL, particularly in strengthening local food economies. By creating
+demand for local, seasonal, and homegrown food, procurement supports small-scale food
+producers, who often struggle to obtain a fair income in a sector where jobs are in decline.
+
+
+
+
+                                                                                                       21
+   TYPES OF
+INTERVENTIONS
+     Index       6 STEPS TO FOOD HEALTH & SUSTAINABILITY INTERVENTIONS
+
+
+
+
+Types of interventions
+The twelve FEAST Living Labs have approached the topic of healthy and
+sustainable diets through different angles. This is due to the different geographical
+contexts and target groups of their activities. As the process of co-creation in each
+Living Lab was anchored in the local reality and the needs of the target groups, the
+resulting interventions differed in focus and scope.
+
+Nevertheless, the interventions can be grouped in four broad typologies:
+
+
+                       Type 1: Food education
+                        Children and students      With parents
+
+                        With professionals      With elderly people
+
+
+                       Type 2: Work with smallholder farmers
+                        Access to resources
+
+                        Valorising cultural products
+
+
+                       Type 3: Food environments
+                        Addressing food deserts and food swamps
+
+                        Designing physical food spaces
+
+                        Shaping food environments through governance and research
+
+
+                       Type 4: Public food procurement
+                        Changing menus and suppliers for healthy and appealing school meals
+
+                        Improving food quality for people and planet
+
+
+
+
+This section presents insights from the Living Labs for each of these typologies.
+
+
+
+
+                                                                                              23
+                                                 Index      TYPES OF INTERVENTIONS
+
+
+                         Food education is one of the elements needed to empower people and
+
+
+
+
+type 1: Food education
+                         communities to choose nutritious and sustainable food — teaching people
+                         about food production, nutrition, cooking, and sustainability opportunities and
+                         challenges. This approach can equip individuals with the skills to make informed
+                         decisions to optimize their nutritional intake, reduce food waste, and support the
+                         transition towards sustainable food systems. The ultimate objective of food
+                         education is to empower individuals and communities to decide consciously and
+                         responsibly about their food choices and cultivate lifelong habits that promote
+                         good health. Food education starts with children: attitude forming is easier than
+                         attitude change. However, learning is a lifelong activity and food education can
+                         also target adults and elderly populations.
+
+                         Many FEAST Living Labs work on food education with different groups:
+
+                                                   The Avignon Living Lab organised cooking classes and lessons on food
+                                                   systems for elementary school children in collaboration with chefs from local
+
+
+
+
+                         Children and students
+                                                   restaurants. The chefs came up with a menu that included local and seasonal
+                                                   ingredients and taught the recipes to the children in a pedagogical kitchen
+                                                   located in a social centre. Because of the limited capacity of the kitchen and
+                                                   safety requirements, while half of the children were cooking, the other half took
+                                                   part in more theoretical classes on nutrition and healthy diets. At the end of the
+                                                   cooking class, all the children and the chef shared the meal they cooked.
+
+                                                   In Guldborgsund, the FEAST Living Lab partnered with a private food school
+                                                   to provide a series of cooking classes for all the students in 5th and 6th grade
+                                                   in 13 public schools. The municipality paid for the cooking classes and the
+                                                   schools organised the transport to the location of the cooking courses.
+
+                                                   The Tuscany Living Lab co-designed lessons on sustainable and healthy
+                                                   diets with around 100 middle and high school students from Piana di Lucca
+                                                   and Valle del Serchio. These lessons, organized in seven thematic modules
+                                                   including theoretical and practical activities, aimed to foster a healthy and
+                                                   aware approach towards food and nutrition in the students and were co-
+                                                   designed through a questionnaire and in-depth meetings. At the end of the
+                                                   co-design process, a “classroom pact” was drafted and signed by all students
+                                                   to collectively agree on the concept of the course and the topics to be covered.
+                                                   This secured the agreement and cooperation of the students throughout the
+                                                   course of the lessons.
+
+
+                                                   In Oxfordshire, the FEAST Living Lab is working with five community groups
+                                                   to examine the barriers that make it difficult for parents with children under
+
+
+
+                         With parents
+                                                   5 to adopt healthier and more sustainable eating habits, and to identify and
+                                                   implement innovative strategies that enable these groups to integrate healthier
+                                                   and more sustainable food choices into their daily lives. Their intervention
+                                                   explored both community cooking interventions, where parents could learn
+                                                   quick and easy healthy recipes for the whole family and a digital hub of healthy
+                                                   family friendly recipes, evidence based nutritional advice and meal plans.
+                                                   The Tuscany Living Lab set up an outpatient paediatric nutrition clinic within
+                                                   the Piana di Lucca District Zone to promote healthier and more conscious
+                                                   food choices by providing children and their families with useful knowledge,
+
+
+
+
+                                                                                                                                        24
+                      Index      TYPES OF INTERVENTIONS
+
+
+                        strategies and tools that they can integrate into their daily routine. The service
+                        is free of charge and aimed at children and adolescents aged 5 to 16 for needs
+                        concerning nutrition, such as overweight and obesity. To access the outpatient
+                        clinic, a request from the general practitioner or the paediatrician is needed.
+
+
+                        The Prilep Living Lab, whose project was titled “Building Healthy Eating
+                        Habits Amongst Preschool Children,” is a critical initiative aimed at creating
+
+
+
+
+With professionals
+                        sustainable food systems in North Macedonia. By equipping kindergarten
+                        teachers with comprehensive training on nutritional pedagogy, the Living Lab
+                        empowers educators to instill healthy eating habits from an early age. The
+                        “Magic Plate” tool, along with policy guidelines and interactive workshops, form
+                        the core of the intervention.
+
+                        The Guldborgsund Living Lab developed an intervention at the public canteen
+                        level with the aim of making them more environmentally sustainable. Two
+                        talented chefs organized a comprehensive training program that went in-depth
+                        into taste, texture and ingredients, and put it all into a climate perspective. The
+                        municipality then invited the dietary managers of the municipality’s daycare
+                        center to participate in the training alongside the municipality canteen chefs. At
+                        the end of the project, they published a collection of sustainable food recipes
+                        and made them available to other kitchen professionals in the municipality.
+                        Many people in Guldborgsund are looking for inspiration and knowledge on
+                        how to cook ‘greener food’ in public kitchens.
+
+                        The Leuven Living Lab organised a series of activities for cooks, community
+                        workers and visitors of four social restaurants in Leuven in collaboration with
+                        its partners. The activities aimed at opening the dialogue and strenghtening
+                        existing knowledge. During a six-month trajectory, (cooking) workshops were
+                        organised, community workers were connected via the interactive community
+                        action platform and a study on communication and the perception of healthy
+                        and sustainable food was performed.
+
+                        The Lodz Living Lab organised lessons on healthy diets for the residents of a
+                        daycare home for older people. The classes started from the basics, with basic
+
+
+
+
+With elderly people
+                        terminology around food and nutrition, what a healthy, balanced diet means,
+                        and why people over 60 need a special diet. The Living Lab adopted a holistic
+                        approach to health: they did not only focus on the residents’ diet, but also
+                        addressed physical health, mental health, psychological safety, physical activity,
+                        and attention to group dynamics. For example, they organised yoga classes
+                        combined with a healthy and sustainable breakfast, and an intergenerational
+                        picnic where the residents of the daycare home could meet students for the
+                        city’s university.
+
+                        In Tuscany, the Living Lab organised a series of events for elderly people
+                        named “Health in the third age: prevention strategies for healthy and active
+                        aging”. They paired nutrition with other topics such as mental well-being,
+                        physical activity, proper use of antibiotics and adherence to vaccination
+                        and screening campaigns. The series of events created a fruitful informal
+                        discussion space between health professionals and citizens in which useful
+                        strategies, tools, materials and information were shared that can be carried and
+                        applied in everyday life.
+
+
+
+
+                                                                                                              25
+                                                                  Index      TYPES OF INTERVENTIONS
+
+
+                                            To achieve a more sustainable food system and support healthier diets, it is
+
+
+
+
+type 2: Work with smallholder farmerstion
+                                            paramount to work with the people who are actually producing the food that
+                                            reaches our table. Small-scale farmers represent nearly 40% of farmers in the
+                                            EU. They ensure sustainable and more secure access to fresh, diverse and
+                                            seasonal food, which can strengthen the resilience and cultural significance
+                                            of the city-region food systems. They are the main promoters of sustainable
+                                            agricultural practices that support biodiversity and soil health. However, they
+                                            are often the ones that face the strongest challenges in finding secure land or a
+                                            market for their products, making a fair income, or accessing the resources
+                                            that they need to succeed.
+
+                                            The importance of working with smallholder farmers was recognised by some of
+                                            the Living Labs, whose activities focused on:
+
+                                                                    The Living Lab of CIM Alto Minho worked with the smallholder farmers in the
+                                                                    region to ensure that they would be able to supply schools with the products
+
+
+
+
+                                            Access to resources
+                                                                    they needed for school meals. They conducted market dialogues where they
+                                                                    asked farmers the types and quantities of products they would be able to
+                                                                    provide, with the intent of tailoring the menus in the schools. Moreover, they
+                                                                    geomapped many of the producers in the area to ensure that potential
+                                                                    customers could find out about them. Both of these actions aimed to provide
+                                                                    local smallholder farmers with access to new markets.
+
+                                                                    The Cork City Living Lab focuses on setting the stage for urban agriculture
+                                                                    by supporting farmers in accessing land, creating a network and developing
+                                                                    skills. Firstly, they set up a 1-acre plot of land that functions as an incubator.
+                                                                    The Test Site incubator started with a group of skilled growers: two market
+                                                                    gardeners freshly graduated from the local school of horticulture, two
+                                                                    community gardeners learning intensive market garden techniques with them
+                                                                    and two allotment gardeners supporting with tasks such as watering, weeding,
+                                                                    composting, etc. The group is developing an innovative model of community
+                                                                    market gardening, where market gardeners can develop an activity with the
+                                                                    help of community gardeners, directly inspired by people’s contributions to a
+                                                                    preliminary consultation and co-design process. As a new community group,
+                                                                    they tied in with the existing network of horticulturalists and food growers
+                                                                    from Cork City’s 29 community gardens, to keep each other informed on
+                                                                    developments about urban agriculture in the city, and actively work together.
+                                                                    Finally, they have developed the Biodiversity Hub, an educational centre where
+                                                                    the people from the network and beyond can gather and share their knowledge
+                                                                    and build each other’s capacity. The project evolved from offering land as a
+                                                                    resource to giving access to a natural space and networks to co-create a new
+                                                                    community of growers. The community aspect turned out to be paramount as
+                                                                    opposed to location or quality of land.
+
+
+
+
+                                                                                                                                                         26
+                               Index          TYPES OF INTERVENTIONS
+
+
+
+
+                                 After conducting interviews with olive farmers, the Sitia Living Lab understood
+                                 that farmers face strenuous conditions because of the impact of climate
+
+
+
+
+Valorising cultural products
+                                 change on their crops, and the harvest losses have a negative impact not only
+                                 on their income, but also on their diets. Because of the rising prices of olive
+                                 oil due to poor harvests, olive farmers opt to not use olive oil for their own
+                                 consumption, thus altering their cultural Mediterranean diet, with dire impacts
+                                 on their health. To counter this, the Living Lab set up olive oil panels where
+                                 people can taste olive oil produced locally and recognise its quality.
+
+                                 In Avignon, all the meals served in the city’s schools are produced in one
+                                 central kitchen run by the municipality. The Living Lab decreased the amount
+                                 of meat served in the school canteens and developed a partnership with local
+                                 meat producers to provide products of higher quality to the central kitchen and
+                                 support the local food economy. This enabled the Avignon Living Lab to push
+                                 for less and better meat, from local producers who raise animals in a more
+                                 ethical manner than industrial livestock producers.
+
+
+
+
+                                 Sitia Living Lab                      Avignon Living Lab
+
+
+
+
+                                 Cork Living Lab
+
+
+
+
+                                                                                                                   27
+                                                            Index         TYPES OF INTERVENTIONS
+
+
+                            The concept of food environment defines where people interact with food and
+
+
+
+
+type 3: Food environments
+                            make decisions about what to eat. This includes both physical places, such as
+                            supermarkets, canteens, and farmers’ markets, and the food messaging people
+                            are exposed to, such as awareness campaigns and advertisements. Food
+                            environments are shaped by physical, economic, political and socio-cultural
+                            factors that influence peoples’ dietary preferences.11
+
+                            FEAST Living Labs work on food environments in different ways, both in terms of
+                            physical spaces and food messaging:
+
+                                                              The Ghent Living Lab is working in two lower-income neighbourhoods.
+                                                              In one neighbourhood, the Living Lab, including the poverty organisation
+
+
+
+
+                             Food deserts and food swamps
+                                                              SIVI, partners with a CSA farm to grow vegetables with people from the
+                                                              neighbourhood. The harvest will be processed in long-life products and
+                                                              meals to be redistributed. In the other neighbourhood, the Living Lab set
+                                                              up a local farmers’ market to increase residents’ access to fresh fruits,
+                                                              vegetables, eggs and milk. Mindful of the financial barriers that people
+                                                              often face when accessing fresh and, especially, organic products, the
+                                                              farmers at the market do not sell exclusively organic produce - the meat
+                                                              and dairy sold are organic, while the fruits and vegetables are not. While
+                                                              this trade-off may decrease the sustainability impact of the intervention,
+                                                              it will nonetheless shorten the supply chain and increase influx of healthy
+                                                              foods in the neighbourhood, while also increasing the accessibility of
+                                                              lower-climate impact plant-based foods. In addition, the Living Lab is
+                                                              planning to set up a social restaurant in the canteen of a local hospital,
+                                                              which would become accessible to all residents.
+
+                                                              In Lodz, the FEAST Living Lab redesigned the space of the senior home
+                                                              by planting vegetables, herbs, flowers and encouraging seniors to do
+
+
+
+
+                            Design physical food spaces
+                                                              more gardening. The team built two gardens where the residents of
+                                                              the senior day centre could grow their own vegetables. One of the two
+                                                              gardens is a raised bed that was custom built by the Living Lab team to
+                                                              be used by people with limited mobility. The vegetables and herbs from
+                                                              the garden were for the residents’ meals and as part of the cooking
+                                                              classes they were involved in.
+
+
+
+
+                                                              Lodz Living Lab                             Lodz Living Lab
+
+
+
+
+                                                                                                                                            28
+                          Index         TYPES OF INTERVENTIONS
+
+
+                            After launching the discussion document outlining the vision for the
+                            Sustainable and Healthy Cork Food Strategy in August 2024, the Cork
+
+
+
+
+Governance and research
+                            City Living Lab initiated a participatory consultation process with the
+                            public and local food system stakeholders to refine and define the vision
+                            for Cork’s Sustainable and Healthy local Food Strategy. The strategy
+                            aims to address the current shortage of locally grown food and the high
+                            reliance on food imports. Additionally, by fostering cross - departmental
+                            collaboration, the Living Lab has begun aligning with health - related
+                            projects to pilot the use of the Place Standard Tool - Food Lens. This tool
+                            aims to engage and support food - disadvantaged communities within
+                            the Sláintecare Healthy Communities12 program in assessing their
+                            local food environment. Findings from this pilot study will further inform
+                            the development of the food strategy.
+
+
+
+
+                            Ghent Living Lab
+
+
+
+
+REFERENCES:
+
+11 https://openknowledge.fao.org/server/api/core/bitstreams/4ac1286e-eef3-4f1d-b5bd-
+d92f5d1ce738/content
+12 https://www.hse.ie/eng/about/who/healthwellbeing/slaintecare-healthy-communities/.
+
+
+
+
+                                                                                                          29
+                                                                                                        Index      TYPES OF INTERVENTIONS
+
+
+                                  In Europe, local and regional public authorities play a key role in the
+
+
+
+
+type 4: Public Food Procurement
+                                  implementation of sustainable food systems, and they have the mandate to
+                                  procure food or catering services for their institutions and bodies, such as
+                                  schools, daycares, hospitals, and beyond. Not only do they command the
+                                  budgets, and thus have the power to exert market pressure, they have the
+                                  responsibility to beexemplary in how they spend taxpayers’ money. Sustainable
+                                  procurement involves looking beyond short-term needs and considering the
+                                  longer-term impacts of each purchasee (Buy Better Food Manifesto).
+
+                                  Some of the Living Labs have focused on improving public food procurement
+                                  through different means including:
+
+
+                                                                                                          The Avignon Living Lab has been working to improve the quality of
+                                                                                                          food in municipal schools by directly influencing the supply from the
+
+
+
+
+                                  Changing menus and suppliers for healthy and appealing school meals
+                                                                                                          central municipal kitchen, which serves approximately 6,000 meals daily.
+                                                                                                          By introducing vegetarian options twice a week and collaborating with
+                                                                                                          local meat suppliers to offer higher-quality meat, the Living Lab aims
+                                                                                                          to provide children with more sustainable and nutritious meals. These
+                                                                                                          efforts have led to an overall improvement in meal quality while also
+                                                                                                          reducing costs. However, the initiative faced challenges, particularly
+                                                                                                          pushback from some parents and school canteen staff regarding the
+                                                                                                          reduction in meat portions. To address these concerns, the Living Lab
+                                                                                                          began distributing newsletters to parents highlighting the benefits of
+                                                                                                          the changes and offering insights into the local producers supplying the
+                                                                                                          high-quality ingredients. Additionally, some students and canteen staff
+                                                                                                          had the opportunity to meet local producers and take photos, giving
+                                                                                                          them a deeper understanding of where their food comes from.
+
+                                                                                                          By engaging a wide range of local stakeholders at the Korneuburg
+                                                                                                          campus—including school administrators, teachers, kitchen staff,
+                                                                                                          parents, municipal representatives, and nearby food providers—the
+                                                                                                          LEADER Weinviertel-Donauraum Living Lab is working to make school
+                                                                                                          food more attractive, healthy and sustainable. A survey among students
+                                                                                                          and parents, and talks with school personnel revealed that many
+                                                                                                          teenagers skipped the canteen in favour of nearby junk-food options,
+                                                                                                          leading to both nutritional and environmental concerns. Through
+                                                                                                          collaborative workshops and feedback sessions, the Living Lab wants
+                                                                                                          to identify specific barriers (e.g., menu variety, taste preferences, portion
+                                                                                                          sizes) and co-develop strategies to address them. These range from
+                                                                                                          small menu adjustments and better communication about ingredients
+                                                                                                          to improved meal presentation and potential price incentives. In the next
+                                                                                                          phase, the Living Lab will align with local food suppliers and nutrition
+                                                                                                          experts to source higher-quality, regionally produced foods—helping to
+                                                                                                          reinforce a healthier, more appealing food environment on the campus.
+
+
+
+
+                                                                                                                                                                                          30
+                                               Index        TYPES OF INTERVENTIONS
+
+
+
+
+                                                 By integrating these insights into the overall school-meal planning
+                                                 process, Korneuburg aims to reduce junk-food consumption among
+                                                 students, support local producers, and inspire other municipalities to
+                                                 adopt similarly holistic approaches to fostering healthier and more
+                                                 sustainable eating habits.
+
+                                                 Guldborgsund Living Lab is working hard to set up free school meals for
+                                                 all children in the municipality, which so far do not exist in the context of
+
+
+
+
+Improving food quality for people and planet
+                                                 rural Denmark. It is a long process that requires a lot of considerations
+                                                 not only in terms of finances but also in logistics, responsibilities,
+                                                 cooperation, and administration. In the meantime, the Living Lab set up
+                                                 another public procurement intervention to support the green transition
+                                                 of the municipal canteen where all public servants can have lunch. For a
+                                                 few months, food purchases were measured and weighed very carefully
+                                                 to calculate CO2 accounts for all product groups, including meat, fruit
+                                                 and vegetables, dairy products, groceries and everything else that is
+                                                 purchased to keep the canteen supplied. This guided the change
+                                                 in products purchased, opting for more seasonal and local products,
+                                                 which, alongside cooking trainings for the chefs, delivered a change
+                                                 towards healthier and more sustainable meals for the people who will
+                                                 work on setting up the school meals system for children.
+
+                                                 In Lodz, the Living Lab is negotiating with the manager of the senior care
+                                                 centre to drive a change in the institution’s procurement procedure, to
+                                                 increase quality requirements for purchased meals. This would not only
+                                                 benefit the health and wellbeing of the seniors eating the food, but also
+                                                 the environmental impact of the meals they are served.
+
+
+
+
+                                                 Guldborgsund Living Lab
+
+
+
+
+                                                                                                                                 31
+IN-DEPTH CASE
+   STUDIES
+        Index     IN-DEPTH CASE STUDIES
+
+
+
+
+In-depth case studies
+
+Lodz Living Lab
+
+
+
+
+Lodz Living Lab
+
+
+
+Background
+Healthy eating is part of healthy aging. The LL in Lodz is helping to improve diets
+in a senior home to demonstrate how food procurement can be improved in this
+institutional setting, aiming at a higher - level policy change inspired by the LL’s
+successes.
+
+Intervention
+The LL was focusing on awareness raising and education of seniors and staff. In
+addition to incorporating healthier, more nutritious and more sustainable meals
+in Senior Homes, the LL wanted to improve access to self-grown herbs and
+vegetables, to increase knowledge of healthy diets, and of the nutritional needs
+of people 60+, and to support a holistic approach to seniors’ well-being through
+increasing physical activity, reducing social isolation and strengthening the bonds
+with other seniors in the senior home. To this end, the LL organized workshops,
+games, participatory discussions and mini-lectures, and provided audiovisual
+materials and the opportunity to taste new food. Regarding the improvement of
+meals at the senior home, the project modified the procurement procedure, based
+on in-depth interviews on food habits and meal satisfaction with seniors, and the
+manager of the facility delivering food to the senior home.
+
+
+
+
+                                                                                       33
+      Index      IN-DEPTH CASE STUDIES
+
+
+
+
+Impact measurement approach
+The impact of this intervention was measured by a questionnaire measuring food
+knowledge, food habits, food attitudes and well-being administered to the senior
+home where the intervention took place as well as to two other senior homes as
+control group. The study included 76 participants spread across the Control and
+Intervention groups as follows: 32 from Control Group 1 (62.5% women, average
+age 79), 27 from Control Group 2 (59.3% women, average age 80), and 16 from the
+Living Lab in Tuszyn that was exposed to the intervention (LL, 68.8% women,
+average age 78).
+
+Outcomes
+Meals are now more diversified, and three quality requirements were added to
+the procurement announcement: a) at least one vegetarian lunch per week, 2)
+seasonal fruit added to lunch, c) salads prepared accordingly to special needs of
+elderly (chewing problems). Meal satisfaction is now higher than before, and the
+sense of food agency has increased.Residents of the Senior Home targeted by the
+Living Lab rated their meal quality much higher than those of the two other Senior
+Homes (Control Group 1 [CG1], Control Group 2 [CG2]). 75% rated it as very positive,
+compared to 9.4% in CG1 and 22.2% in CG2. Additionally, 75% of Living Lab
+participants felt that the quality of their meals had recently improved, compared
+to 28.1% in CG1 and 29.6% in CG2. Moreover, Living Lab participants were more
+open to trying new foods, with 81.3% expressing such interest, compared to 56.3%
+in CG1 and 74.1% in CG2. Importantly, Living Lab participants more frequently
+reported that they eat healthily (68.8%) compared to 34.4% in CG1 and 14.8% in
+CG2. Additionally, a larger portion of Living Lab participants (62.5%) believed they
+know how to eat healthily, compared to 43.8% in CG1 and 29.6% in CG2. The
+average self-assessed health score was also higher in the Living Lab group
+(8.06/10) compared to 5.56/10 in CG1 and 5.74/10 in CG2.
+
+Living Lab participants also stood out in terms of their fresh vegetable
+consumption – 68.8% reported eating vegetables several times a day, compared
+to 40.6% in CG1 and 37% in CG2. The trend was not as pronounced with fresh
+fruit but the Living Lab participants still reported consuming more fruits, with
+56.3% of Living Lab participants consuming them several times a day, compared
+to 21.9% in CG1 and 51.9% in CG2. Residents of the Senior Home targeted by the
+Living Lab also had a significantly higher knowledge of healthy products. On a list
+of 14 items (hummus, chickpeas, avocado, guacamole, mango, turmeric, coconut
+milk, sushi, oat milk, flaxseed oil, black cumin, ginger, stevia, erythritol), Living Lab
+participants recognized an average of 12 items, while participants from CG1 and
+CG2 recognized just 5 items. A similar trend was observed in actual consumption,
+with Living Lab participants consuming an average of 13 out of 14 items, compared
+to just three in CG2 and five in CG1. While these outcomes are promising, work will
+continue in Lodz to strengthen the evidence on impact – particularly by ensuring
+baseline measures are taken before implementing the intervention and also
+increasing the number of people who receive the holistic intervention seniors in
+Tuszyn received.
+
+                                                                                            34
+       Index         IN-DEPTH CASE STUDIES
+
+
+
+
+In-depth case studies
+
+Tuscany Living Lab
+
+
+
+
+Tuscany Living Lab
+
+
+
+Background
+To foster a healthy and conscious approach toward food and nutrition, the Tuscany
+LL was working in middle and high schools with about 100 students attending
+a special food course. The background of these activities is growing obesity
+and overweight in regional youth populations. Moreover, many students report
+unhealthy eating practices such as leaving out breakfast and eating little fruits and
+vegetables.
+
+Intervention
+A food course was designed and included several lessons in seven thematic
+modules ranging from theoretical to practical, interactive activities. To prepare it, a
+questionnaire to measure food literacy, adherence to the Mediterranean Diet as well
+as food beliefs, habits, attitudes and obstacles to change these was developed.
+Moreover, in-depth discussions with students about their food habits took place. A
+classroom pact was signed before the lessons to ensure shared understandings.
+
+
+
+
+                                                                                          35
+ Index      IN-DEPTH CASE STUDIES
+
+
+
+
+Module 1: “The nutrients that compose our food”
+  • The macro and micronutrients: what are they and what are they for?
+  • The five food groups
+
+
+
+
+Module 2: “Quality, variety and quantity: the three musketeers of
+our diet. Part 1”
+  • Principles of the Mediterranean diet pyramid
+  • The importance of the 5 meals in daily lifes
+
+
+
+
+Module 3: “Quality, variety and quantity: the three musketeers of
+our diet. Part 2”
+  • Healthy eating in daily life: where to start?
+  • The effects of our food choices on daily life
+
+
+
+
+Module 4: “Taste, Flavor and Sustainability”
+ • What does sustainable diet mean?
+ • Organic vs. conventional agriculture
+
+
+
+Module 5: “Taste, Flavor and Sustainability: it’s the turn of fruit
+and vegetables”
+ • Benefits in consuming seasonal fruits and vegetables
+ • How many places for fruit in your food day!
+ • Taste and vegetables: a good match
+
+
+
+Module 6: “Taste, Flavor and sustainability: it’s the turn of legumes”
+ • The world of legumes: an interesting discovery!
+ • Practical examples of how to increase legume consumption in daily life
+
+
+
+
+Module 7: ”In the jungle of food labels”
+ • Packaging and food labels
+ • Tips for making informed choices
+
+
+
+
+                                                                            36
+     Index      IN-DEPTH CASE STUDIES
+
+
+
+
+Impact measurement approach
+A questionnaire measuring adherence to the Mediterranean diet, food habits,
+knowledge and attitudes was filled out by 110 students before the intervention, with
+a slight drop in respondents after the intervention.
+
+Outcomes
+Lessons promoted adherence to the Mediterranean Diet, increased knowledge
+about food and nutrition, and mitigated barriers to eating practices, and facilitated
+enabling factors. 30% of the students reported an increase in the level of adherence
+compared to the beginning of the intervention and a significant increase in the
+presence of students in the high adherence-category after the intervention (43%) as
+compared to the baseline (24.55%). The consumption of vegetables regularly once
+a day increased from 59% to 68%, as did eating legumes more than once a week,
+which increased from 54% to 73%.
+
+
+
+
+                                                                                        37
+RESOURCES
+     Index      RESOURCES
+
+
+
+
+Useful toolkits to develop
+food interventions:
+FOOD2030 Toolkit for public engagement (2024): A toolkit designed to involve
+stakeholders in Food Systems related activities proposing a broad range of tools,
+from guidelines that can help co-create new projects, to ideas and props that can
+be used during stakeholder engagement events.
+
+FOOD2030 Toolkit for education (2024): A toolkit supporting formal, non-formal,
+and informal educators in exploring our complex food systems by covering road
+range of topics from planetary health to sustainable diets.
+
+Sustainable Food Places Toolkit: A toolkit offering strategies and processes on
+how to build partnerships and strategies in Food Systems.
+
+Foodshift Transition Toolkit (2023): A toolkit showcasing different success stories
+of food system innovations that took place in different cities across Europe.
+
+Additional resources on involving experts by experience:
+Telling stories and shaping solutions (2020): A toolkit showing techniques,
+strategies and best practices to empower people who have lived experience of food
+poverty.
+
+Involving experts by experience (2016) A guidebook explaining how to involve
+experts by experience in policy influencing activities and events
+
+Additional resources on communication:
+Positive communication toolkit (2021): A toolkit exploring how to implement
+positive and optimistic communication strategies around environmental and
+animal conservation topics
+
+Food citizenship: a communication toolkit (2017): A toolkit for organization in the
+agrifood sector aiming to improve their communication towards citizens rather
+than consumers.
+
+
+
+
+                                                                                      39
+     Index      RESOURCES
+
+
+
+
+Additional resources on developing co-design events:
+The power of many (2024): A guide for city officials and policymakers on how to
+design co-creation processes involving different stakeholders for environmental
+sustainability and social justice related projects.
+
+Getting participation right (and wrong) (2023): blog article showcasing success
+and unsuccess stories of recruitment processes in co-design and group decision-
+making activities.
+
+Equitable events handbook (2023): A handbook providing guidelines to organize
+non-discriminatory, equitable and inclusive events.
+
+
+
+
+                                                                                  40
+      Index          RESOURCES
+
+
+
+
+Storytelling as listening method
+Storytelling
+Storytelling is the practice of using narratives to convey experiences, ideas, and
+emotions in a compelling and meaningful way. It helps people connect with
+information on a personal level, making complex topics more relatable and
+memorable.
+Co-creating interventions in the Food Health & Sustainability Sector
+Storytelling can play a crucial role in co-designing more inclusive and effective
+interventions by connecting people to places, issues, and perspectives they may
+not have previously considered.
+
+              When co-creating a community garden, asking participants why they want it
+              can reveal diverse needs—one may seek fresh food, another a green space
+              for children. These insights might inspire a kids’ gardening workshop. By
+              integrating personal stories, organizations can design more impactful programs,
+              communicate effectively, and ensure initiatives truly serve the community.
+
+
+Retrieving useful data and insights
+Storytelling can uncover insights that numbers and data often overlook, especially
+when participants share their food-related experiences. By comparing different
+stories—like those about food access, community gardens, or shared meals—
+hidden patterns and challenges emerge, providing a deeper understanding of the
+issues and opportunities within food systems and community well-being.
+
+              In school canteens, for example, it could be possible to better understand how
+              to change menus to make them more nutritious, healthier and more sustainable
+              by asking the kids to draw what they would like to eat as a healthy school meal.
+              Then, the canteen nutritionist could compare the drawing to understand which
+              elements recur more often and develop a menu starting from this exercise.
+
+
+Inspiring behaviour change - within the intervention itself
+Storytelling can be a powerful catalyst for behaviour change, especially when it is
+woven into the intervention itself. By sharing authentic, relatable, and emotionally
+compelling stories, people are more likely to connect with new ideas, reflect on
+their own behaviours, and feel motivated to change. Here’s how storytelling can
+inspire behaviour change within an intervention:
+
+              A storytelling workshop can support the launch of a mobile fresh food market
+              in a low-income community by inviting residents to share personal stories
+              about their relationships with food. By reflecting on their experiences, people
+              build connections, celebrate cultural food traditions, and feel more invested
+              in the market. Their stories and recipes could be compiled into a community
+              cookbook, reinforcing engagement and making healthy eating feel more
+              accessible and relevant. This storytelling approach would drive participation
+              and long-term success.
+
+
+
+                                                                                                 41
+      Index          RESOURCES
+
+
+
+
+In these ways, storytelling doesn’t just serve as a tool for communication—it
+becomes an active part of the intervention that inspires and sustains behaviour
+change.
+Showcasing the impact
+Stories effectively capture the real impact of food interventions by showcasing
+personal experiences and community perspectives. When individuals share their
+narratives—about food access, waste reduction, or improved eating spaces—
+patterns emerge, revealing both successes and challenges.
+
+              Storytelling can effectively showcase the impact of a public diner for vulnerable
+              groups. Diners could share their experiences through recorded testimonials,
+              written reflections, or artwork. One person might describe how the diner
+              provided a warm meal when they had nowhere else to turn, while another could
+              highlight how it helped them rebuild social connections and confidence. Staff
+              and volunteers might share how their interactions with guests deepened their
+              understanding of food insecurity and changed their views on poverty and food
+              justice. These stories offer valuable insights into the diner’s success and areas
+              for improvement, helping to refine services to better serve the community.
+
+
+Storytelling. How to do it?
+Any story has a few elements that are always present:
+• Audience: Who is the target for the story (E.g. citizens, policymakers,
+  stakeholders, etc.)
+• Plot: What happens? What is the arc of action? (E.g. The set up of a community
+  garden, lecture on food waste in a school, etc.)
+• Setting: Where and when is the story is set? (E.g. Nowadays, in a European
+  municipality, etc.)
+• Point of view: Who is telling the story? (E.g. A legislator, a farmer, a consumer, etc.)
+• Conflict: What drives the story forward? What is the problem that the characters
+  are facing? (E.g. Food insecurity, food waste, etc.)
+
+Any story follows a particular scheme that evolves around conflict, as it shows in
+the graph below.
+
+
+
+
+                                                         In FEAST, the Living Labs have been
+                                                         taught on how to use storytelling in
+                                                         their interventions during the first
+                                                         Building Capacity Session in April 2024,
+                                                         which focused on methodologies and
+                                                         mechanisms for co-creating interventions.
+
+
+
+
+                                                                                                     42
+     Index       RESOURCES
+
+
+
+
+Community workshop to
+co-design solutions for better
+access to healthier and more
+sustainable food
+The FEAST project, funded by the European Union’s Horizon Europe program, aims
+to support transitions toward healthier and more sustainable diets. Working with
+living labs is one of the core elements of FEAST because they promote co-creation
+while leveraging the participation of end-users (citizens, including vulnerable
+groups) by gathering their real-world insights and local knowledge.
+The co-design workshop for Living Labs is designed to actively engage
+communities and stakeholders in developing actionable solutions to address food-
+related challenges in their communities.
+
+Workshop overview:
+The workshop enables participants to collaboratively identify barriers to healthier
+and more sustainable eating and design solutions that cater to their specific
+community needs. It is based on participatory methods, emphasizing the co-
+creation of interventions that encourage better dietary behaviour.
+
+
+Key components in three rounds:
+• Graph over time and dream: Participants visualize how food-related challenges
+  have evolved in their community and envision future scenarios.
+• Mapping barriers and qualities: Using a cognitive mapping approach,
+  participants collaboratively identify barriers to healthier and more sustainable
+  food consumption and existing strengths within the community.
+• Solution pathways: Groups brainstorm and develop potential interventions,
+  make the connection with the bottlenecks and qualities and identify key
+  stakeholders for implementation. .
+
+
+
+
+                                                                                      43
+      Index      RESOURCES
+
+
+
+
+Outcomes and benefits for Living Labs:
+• Identify challenges and opportunities: Through structured exercises,
+  participants map bottlenecks and qualities that might be supportive in solving
+  the problem and focus on points for improvement.
+• Tailored approach: In the workshop the participants create common
+  understanding of the challenge the living lab is facing. The workshop can be
+  adapted to focus on specific community needs, such as childrens’ nutrition or
+  local food environments.
+• Co-create solutions: The workshop encourages participants to design practical
+  solutions that are feasible and impactful for the community.
+• Actionable outcomes: The solution(s) are connected with the bottlenecks and
+  qualities. The solutions generated have a strong support base and are directly
+  applicable, with a focus on interventions that can be implemented within the
+  community. The workshop facilitates an holistic approach to food systems. The
+  level of responsibility (micro, meso or macro) is clear.
+• Empower local people: The workshop can involve only citizens, but can also
+  include a mix of inhabitants (including vulnerable groups) and key stakeholders
+  (e.g., policymakers, school officials) or solely stakeholders. It fosters cooperation
+  among diverse groups, ensuring that all voices are heard.
+
+How to get involved:
+Living Labs interested in running a co-design workshop can use this structured
+process to foster healthier and more, sustainable eating within their communities.
+FEAST provides resources, including facilitator guidelines, templates, and tools,
+ensuring that the workshop is easy to implement.
+
+For more information, see the handbook of the workshop and the outcomes and
+insights from FEAST Living Labs report based on workshops that were held during
+the FEAST program in different Living Labs across Europe.
+
+
+
+
+                                                                                          44
+        Index       RESOURCES
+
+
+
+
+Hack for Food, Hack for Good!
+methodology
+
+
+
+
+Berlin Living Lab
+
+
+
+Hack for Food Hack for Good! is a hackathon series designed and hosted by
+OpenDot from 2022 to 2025 in 5 European cities, with a co-design approach that
+harnesses collaborative innovation to address challenges in food and health.
+
+Developed within the framework of OpenDot’s co-design practices, this
+methodology emphasizes inclusive, participatory design that brings together
+diverse stakeholders - from individuals with specific needs to healthcare
+professionals, designers, and researchers - to co-create solutions tailored to
+real-world challenges. Through an iterative process of ideation, prototyping,
+and testing, it ensures that innovations are practical, scalable, sustainable, and
+aligned with users’ lived experiences.
+
+The results were 6 prototypes that addressed different needs in each local context
+for different users and vulnerable groups, and institutions or professionals that
+work with and for vulnerable populations.
+
+Co-design is at the heart of this methodology. In this process end-users and
+stakeholders actively contribute to the design and development of solutions,
+ensuring that the outcomes are tailored to real needs. This participatory approach
+empowers individuals by valuing their lived experiences, fostering a sense of
+ownership, and improving the likelihood of long-term adoption and impact.
+
+
+
+                                                                                     45
+       Index       RESOURCES
+
+
+
+
+Key principles
+
+•   Inclusion - Engaging all relevant stakeholders, especially those directly affected
+    by the challenge, as end-users (vulnerable groups) and “experts of the need”.
+•   Networking and Stakeholder Activation - Identifying key actors in the
+    ecosystem and facilitating their engagement through formal partnerships
+    and shared objectives, including experts and researchers in each field of
+    intervention.
+•   Prototyping for Validation - Using rapid prototyping to test ideas, processes,
+    and products, ensuring feasibility before full implementation.
+•   Iteration - Testing solutions in real-world settings, refining them through
+    continuous feedback.
+•   Sustainability - Ensuring that proposed solutions are practical and aligned with
+    long-term goals.
+•   Open Knowledge - Open-source sharing of insights and solutions to foster wider
+    adoption and adaptation.
+
+
+
+
+Human-Centered Design and Co-design
+A fundamental pillar of the “Hack for Food, Hack for Good!” methodology is Human-Centered
+Design (HCD), which prioritizes empathy, user engagement, and real-world applicability. Unlike
+conventional top-down design approaches, HCD ensures that the end-users are actively involved
+throughout the development process, from identifying needs to refining solutions.
+HCD is an iterative design methodology focused on understanding users’ experiences,
+challenges, and aspirations. It relies on research techniques to immerse in the users’ context to
+gather insights and define the problem space - such as interviews, ethnographic observations,
+and co-creation workshops to generate insights that guide solution development. HCD then goes
+beyond designing for users - it designs with them, ensuring solutions are functional but also
+impactful, feasible, meaningful, and sustainable in their specific contexts for specific needs.
+
+Co-design is a subset of HCD and further extends this principle by promoting direct collaboration
+between designers and users. This participatory approach not only enhances the relevance of
+solutions but also empowers individuals, fostering a sense of ownership and commitment to
+the outcomes. Co-design involves multi-stakeholder engagement, where diverse perspectives
+contribute to more inclusive and innovative solutions.
+
+By integrating HCD and co-design, this methodology bridges the gap between design expertise
+and lived experience, leading to solutions that are more effective, adaptable, and widely accepted
+by the communities they serve.
+
+
+
+
+                                                                                                     46
+        Index       RESOURCES
+
+
+
+
+The process - from Challenge to Solution, from Concept to Prototype:
+organization and implementation.
+
+The methodology was structured in distinct phases (see the following page)
+
+The “Hack for Food, Hack for Good!” initiative applies this methodology to food-
+related challenges, particularly focusing on inclusive actions, sustainable food
+systems, and nutritional education. The initiative leverages co-design to create
+tools, resources, and environments to support specific needs.
+The “Hack for Food, Hack for Good!” hackathon series held between 2023 and
+2024 for the Feast project generated 6 projects, including analog products and
+services (made thanks to digital manufacturing) and digital ones, in the form of
+functional and testable prototypes.
+
+The end goal reached is the co-creation of personalized physical tools, specific
+methodologies, and interactive digital systems, to support health experts,
+caregivers, patients, and people in vulnerable conditions, envisioning a future of
+effective food and health innovation through co-design and prototyping.
+For further details about the solutions, we refer to the sites of feast2030.eu and
+opendot.it
+
+
+
+
+Berlin Living Lab
+
+
+
+
+                                                                                     47
+          Index        RESOURCES
+
+
+From Challenge to Solution, from
+Concept to Prototype:                              7. Host a Co-Design Event - the
+                                                   Hackathon format
+organization and implementation.
+                                                   The format comes right from the computer-
+                                                   technology field: a short-time event where
+                                                   teams of people engage to compete with
+1. Set the collaboration with local                each other, to find solutions to one or more
+partners                                           “challenges”, with a view to innovation and
+It is crucial to construct a network of local      improvement. It also allows people from
+partners that will collaborate in the process at   different disciplines to be involved in a
+least 12 months before the date of the event       challenge, emphasizing a collaborative mode
+                                                   that must express maximum effectiveness to
+                                                   lead to a satisfactory solution.
+
+2. Understand the need
+From the earliest stages, it is good to            8. Mentoring and Prototyping sessions
+actively engage with users and stakeholders,
+explaining the process, the roles and the goals    After each event, it is possible to include
+                                                   a mentoring or educational session from
+                                                   3 months to 12 months (depending on
+                                                   the complexity of the project), to enable
+3. Host citizen engagement sessions                participants of the winning ideas to develop
+                                                   personal skills, develop design systems
+Setting collaborations within the local context    and brand-a-like solutions, empower their
+is important from the outset, both to prepare      team and communities involved. This helps
+for participation in the whole process and to      to design and realize physical and digital
+ensure that everyone’s needs and interests are     prototypes of the solutions, using a wide
+aligned.                                           range of technologies and digital fabrication
+                                                   methods). The emphasis on translating ideas
+                                                   into tangible prototypes is a core strength of
+                                                   this methodology.
+4. Define a thematic and one or more
+challenges
+This step is dedicated to setting the thematic
+boundaries of the project - in collaboration       9. Test and refinement of the solution
+with all the stakeholders - to tackle the right    This phase can start during the prototyping: in
+challenge, interesting both for the public and     an iterative way, it is useful to test the solution,
+the private sectors, the institutions and the      involving primarily end users and experts
+communities involved                               and local stakeholders, testing early-stage
+                                                   concepts, functionalities and features in real
+                                                   environments, incorporating feedback and
+                                                   improving designs through repeated sessions;
+5. Design of the format of the hackathon           in a second moment test also with end users
+event                                              from other contexts.
+Considering the participants and the city
+context, it is important to adapt timing and
+sessions based on the ideal audience, the
+                                                   10. Implement the solution
+theme, and the challenge.
+                                                   After testing, it is possible to modify and
+                                                   correct the prototype, deploying a finalized
+                                                   solution.
+6. Launch open calls and invitations
+Launch an open call for participants, designing
+it based on the challenge and the possible
+                                                   11. Host online and onsite events
+and desirable output. The usual audience of
+this process can include a very different type     These actions enable to foster engagement
+of audience, ranging from young students,          and collaboration during the whole process,
+innovators, startuppers, researchers,              and facilitate the test, dissemination and
+consultants, or simply curious people.             scalability of the results.
+
+                                                                                                          48
+      Index       RESOURCES
+
+
+
+
+Triggering creativity in
+participatory processes
+Turning ideas into tangible solutions requires a structured yet flexible approach
+that allows for both creativity and practicality. Creativity in participatory design is
+not just about generating ideas - it’s about guiding innovation through structured
+phases of exploration and refinement. And an ideal design journey balances
+creative, first, and then practical thinking.
+The creative process leverages various ideation techniques to refine initial thoughts
+into workable ideas. It’s important to collect the ideas in a free and open way,
+engaging all the stakeholders involved, from designers to institutions to final users.
+Then, there will be time to select ideas, ensuring that the final ones are not only
+innovative but also feasible sustainable, and aligned with real-world needs.
+
+
+                                 In the first phase, participants expand their thinking,
+                                 exploring a wide range of possibilities through
+                                 brainstorming, research, and collaborative ideation.
+                                 This is the creative stage, where ideas flow freely,
+                                 and unexpected connections emerge. There are a
+                                 lot of techniques that help structure this exploration,
+                                 pushing beyond conventional solutions, and
+                                 expanding creative and lateral thinking.
+
+
+To nominate a few:
+
+              Background Research
+              Before diving into ideation, gathering background information is
+              crucial. Researching existing studies, case examples, and market
+              trends helps teams understand the landscape of their challenge. This
+              phase ensures that new ideas are informed, feasible, and built on a
+              foundation of knowledge, often leading to unexpected insights and
+              innovative connections.
+
+              Mind Mapping
+              Mind mapping is a visual technique that encourages non-linear
+              thinking. A core idea is placed at the center of a page, with related
+              concepts branching outward. This method helps in structuring
+              thoughts, connecting seemingly unrelated ideas, and uncovering
+              potential opportunities that might not emerge in a traditional
+              brainstorming session.
+
+
+
+
+                                                                                           49
+     Index       RESOURCES
+
+
+
+
+             Crazy Eights
+             This rapid ideation exercise challenges participants to think quickly and
+             expansively. A sheet of paper is divided into eight sections, and within
+             eight minutes, participants sketch out eight different ideas. The goal
+             is not perfection but rather volume-breaking out of habitual thought
+             patterns and embracing new possibilities.
+
+
+                               In the second phase, creativity shifts towards
+                               tangible and testable outputs. Here, ideas are
+                               refined, evaluated, and selected based on feasibility
+                               and impact. This phase transforms abstract
+                               concepts into concrete prototypes, ensuring that
+                               innovation remains both visionary and applicable.
+
+
+By alternating between these open-ended explorations and focused refinements,
+participatory design ensures that creativity is not only encouraged but also
+channelled into meaningful, real-world solutions.
+
+
+
+
+                                                                                         50
+      Index       RESOURCES
+
+
+
+
+Place Standard Tool:
+Food in My Area - the Food Lens
+Location plays a significant role in shaping individual food choices. Factors such
+as accessibility, availability, and proximity, all influenced by place, impact how
+easily people can purchase healthy food. Additionally, local traditions and culture
+shape attitudes and intentions around food, influencing buying preferences.
+Beyond individual choices, food also serves a social and economic function within
+communities, fostering job opportunities and a sense of belonging. Therefore,
+when designing local initiatives to promote healthier and more sustainable food
+choices, it is essential to measure both how place affects food access and how
+food, in turn, contributes to the character of a place.
+
+The Place Standard Tool (PST) Food Lens is a tailored adaptation of the PST
+methodology, originally developed by Public Health Scotland, to facilitate
+community discussions about local food environments. Designed for use by both
+communities and professionals, this interactive and group -based methodology
+helps assess food accessibility in specific areas, whether neighbourhoods, towns,
+or parts of cities, across urban, rural, and island settings. By providing participants
+with handouts covering 13 themes, the tool encourages users to evaluate the food
+environment within a place and its suitability for accessing healthy food for all.
+Each theme includes a guiding question to steer discussions, followed by a 7-point
+rating scale to evaluate the place. Participants are also asked to identify strengths
+and suggest potential improvements for the area. Additionally, each theme provides
+optional, non-binding questions to further support reflection and discussion.
+
+
+The 13 themes to reflect about the local food place:
+1. Moving Around: How easy is it to move around my area to get food?
+2. Public Transport: What is the public transport like in my area to get to the supermarket,
+eat out or get to the local food producers?
+3. Traffic and Parking: How does the traffic and parking in the area impact on the food
+you buy?
+4. Streets and Spaces: Does food play a role in the design of our buildings, streets or
+spaces?
+5. Play and Recreation/ Natural Spaces: What is the food like in the spaces we play and
+socialize in?
+6. Facilities and Services: How well do facilities and services in my area provide and
+promote good food?
+7. Work and Local Economy: What opportunities are there in the area to work, volunteer
+or train in food?
+
+
+
+
+                                                                                               51
+      Index        RESOURCES
+
+
+
+
+8. Housing and Community: Do the homes in the area meet everyone’s needs around
+food and do we have a strong community spirit around food?
+9. Social Interaction: how good are the opportunities to enjoy good food when I’m
+meeting and spending time with others in my area?
+10. Identity and Belonging: To what extent does this area have a positive identity around
+food?
+11. Feeling Safe: How do I feel about buying and preparing food safely?
+12. Care and Maintenance: Is your neighbourhood clean and tidy?
+13. Influence and Control: Do people listen to what you say and include you in decision
+making?
+
+
+Benefits and opportunities for Living Labs
+The PST-Food Lens is a resource-efficient interactive and group-based
+methodology for Living Labs to identify the opportunities to improve the local
+food environment and identify priority areas within which to develop actions,
+which could take the form of a “local place plan”. Furthermore, the PST-Food Lens
+can be a useful monitoring tool to assess differences in the perception of place
+before, during and after the implementation of local actions. This facilitates the
+measurement of progress and identification of corrective measures that need to be
+put in place to adjust the direction of the intervention to achieve desired outcomes.
+
+
+
+As part of FEAST, the Cork Living Lab hosted a series of five workshops in the Sláintecare Healthy
+Communities – North Cork City, bringing together community organization representatives and
+local residents to explore food in their area. The Healthy Cities Coordinator (and member of the
+Cork Food Policy Council) guided the consultation process, the results of which will contribute to
+the workplan of the recently appointed local Community Food and Nutrition Worker. The insights
+gathered will support the food mapping requirement in the area, build local relationships as well
+as contributing to shaping the Cork Food Policy Council’s food strategy for Cork City and its
+surrounding areas.
+
+
+
+
+                                                                                                     52
+GLOSSARY
+            Index      GLOSSARY
+
+
+
+
+      Glossary
+
+DEF
+      Living lab:            Living Labs: Practice-driven organisations that facilitate and foster
+                             open, collaborative innovation and real-life environments or arenas
+                             where both open innovation and user innovation processes can be
+                             studied and subject to experiments and where new solutions are
+                             developed (SCAR, 2023).
+
+DEF
+      Vulnerable             Dependent on the context these groups may include children, pregnant
+                             or lactating women, indigenous communities, elderly population,
+      groups                 farmers, people living in remote areas and people with lower
+                             socio-economic status based on education levels and/or income.
+                             Conceptually, vulnerable groups can be characterized as those with
+                             high risk and low resilience (Exner, et al., 2016).
+
+
+DEF
+      Food                   The physical, economic, political and socio-cultural context in which
+                             consumers engage with the food system to make their decisions about
+      environment            acquiring, preparing and consuming food (HLPE, 2017).
+
+
+
+      For more definitions see: https://feast2030.eu/glossary
+
+
+
+
+                                                                                                     54
+www.feast2030.eu   FEAST is co-funded by the European Union’s Horizon Europe research and inno-
+                   vation programme under grant agreement number 101060536. Views and opinions
+                   expressed are those of the author(s) only and do not necessarily reflect those of the
+                   European Union. Neither the European Union nor the granting authority can be held
+                   responsible for them.
+
+                   UK participant in FEAST (Good Food Oxfordshire) is supported by Innovate UK grant
+                   number 10041509 and the Swiss participant in FEAST (FiBL) is supported by the Swiss
+                   State Secretariat for Education, Research and Innovation (SERI) under contract number
+                   22.00156.
+

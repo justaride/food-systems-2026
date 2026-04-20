@@ -1,0 +1,2082 @@
+European cities leading
+in urban food systems
+    transformation:
+   connecting Milan & FOOD 2030
+                             Independent
+                             Expert
+                             Report
+
+
+
+
+              Research and
+              Innovation
+European cities leading in urban food systems transformation: connecting Milan & FOOD 2030
+European Commission
+Directorate-General for Research and Innovation
+Directorate C — Healthy Planet
+Unit C2 — Bioeconomy & Food Systems
+
+Contact    Tatiana Tallarico
+Email	Tatiana.Tallarico@ec.europa.eu
+           RTD-Planet-Comm@ec.europa.eu
+            RTD-PUBLICATIONS@ec.europa.eu
+European Commission
+B-1049 Brussels
+
+Printed by the Publications Office of the European Union in Luxembourg
+Manuscript completed in September 2019
+
+This document has been prepared for the European Commission, however it reflects the views only of the authors, and the European
+Commission is not liable for any consequence stemming from the reuse of this publication.
+More information on the European Union is available on the internet (http://europa.eu).
+
+Luxembourg: Publications Office of the European Union, 2019
+
+Print                        ISBN 978-92-76-00043-3             doi:10.2777/268251               KI-04-19-174-EN-C
+PDF                          ISBN 978-92-76-00042-6             doi:10.2777/1214                 KI-04-19-174-EN-N
+
+© European Union, 2019
+Reuse is authorised provided the source is acknowledged. The reuse policy of European Commission documents is regulated by
+Decision 2011/833/EU (OJ L 330, 14.12.2011, p. 39).
+
+For any use or reproduction of photos or other material that is not under the copyright of the European Union, permission must be
+sought directly from the copyright holders.
+Image(s) © Joshua Resnick, #151008920, 2019. Source: stock.adobe.com
+                                EUROPEAN COMMISSION
+
+
+
+
+European cities leading
+in urban food systems
+    transformation:
+        connecting Milan & FOOD 2030
+
+
+       Edited by Andrea Magarini and Elisa Porreca (Milan Food Policy Office)
+
+
+
+
+                        Directorate-General for Research and Innovation
+2019                             Directorate C – Healthy Planet                 EN
+Contents
+Foreword — City of Milan                                                                            3
+Foreword — Directorate-General for Research and Innovation                                          4
+1. The role of Milan in shaping a new framework for action
+   on urban food policies in the global arena                                                       5
+   1.1. Milan Urban Food Policy Pact                                                                5
+   1.2. How to recognise cities’ advancements on food policies
+        through the Milan Pact Awards                                                               7
+   1.3. A joint initiative to monitor the progress of the urban food system:
+        the FAO–MUFPP monitoring framework                                                          8
+2. European regionalisation of the process to raise awareness of
+   urban food policies                                                                             11
+   2.1. Eurocities Working Group Food                                                              12
+   2.2. The European Commission’s Food 2030 framework                                              13
+   2.3. Urban experimentation: the Fit4Food2030 city labs                                          16
+3. European cities’ actions                                                                        19
+   3.1. Overview of 101 urban food practices                                                       20
+   3.2. Best practices by European cities                                                          24
+   3.3. Milan as a living laboratory: learning from global knowledge
+        to shape Milan’s food policy as a beta tester and trendsetter                              33
+
+
+
+
+Section 3.3.1 was written by Carlo Mango and Valentina Amorese (Cariplo Foundation)
+Section 2.3 was written by Cristina Paca, Carmen Fenollosa (Ecsite), Jacqueline Broerse, Barbara Regeer,
+Alanya den Boer, Kris Kok (VU Amsterdam) and Mads Dahl Gjefsen (OsloMet)
+
+
+
+
+                                                       2
+Foreword — City of Milan
+The City of Milan is playing a particular role in the spreading of urban food
+policies. Milan has pursued new forms of city diplomacy thanks to its innovative
+approach to food-system issues, sharing experiences and involving cities from
+all over the world. This publication aims to facilitate debate, discussions,
+dissemination, mutual learning and the exchange of best practices among
+stakeholders in relation to food-policy issues.
+
+The City of Milan has occupied a privileged position in the Milan Urban Food
+Policy Pact creation process from the very beginning, because it is aware of the
+complex dynamics in food policy development, and has a clear view of the
+ongoing debate over the issues relating to food, food policy and circularity that
+characterise the EU. This is why Milan can provide an overview of the practices
+relating to the food system and food policies that have been spreading all over
+Europe since 2014.
+
+This publication is meant to support everyone who is interested in learning
+more about the ongoing actions and debates over European food policies at the
+urban level. It aims to lay out a road map for anyone who is already working on
+food policies, to enhance and enrich already-existing tools and also to help
+orient, within a clear framework, those who are approaching this topic for the
+first time. Having explored this topic for quite some time, Milan has learned
+about the different ways in which cities and citizens can develop their
+approaches to food.
+
+In this publication Milan has brought together various practices and activities
+relating to urban food policies in Europe. We decided to organise them in
+accordance with the main framework of Food 2030, and then to provide some
+general recommendations. These recommendations include one that we feel we
+must mention here, and that we consider essential to the success of any
+initiatives, which has to do with the direct and significant engagement of local
+authorities and policymakers. They indeed represent a conditio sine qua non to
+achieve success.
+
+Local authorities have committed themselves strongly to transforming their
+approach to food in recent years, producing advancements and supporting the
+success of existing experiences. The role of political commitment is crucial in
+order to both reinforce food-system sustainability and implement meaningful
+food governance.
+
+European cities are becoming living laboratories for the originators and
+facilitators of innovative policies. Local authorities, acting as urban leaders, are
+catalysing changes by supporting the transformation towards inclusive, future-
+proof food systems, engaging a wide range of actors for the co-creation of
+breakthrough food-policy solutions. Food has always occupied a central role in
+our societies and lives, and approaching the topic from the policy perspective
+represents a relatively new way to look at the matter.
+
+Anna Scavuzzo
+Vice-Mayor of Milan
+in charge of Food Policy
+
+
+
+                                            3
+Foreword — Directorate-General Research & Innovation
+The European Union’s ‘Green New Deal’ sets out a farm-to-fork food-system
+approach. Farming practices will need to adapt to a changing world; we eat less
+healthily than we should, and we need to prepare the food system for climate
+change. EU citizens are demanding sustainable food systems that guarantee
+food security and health, that support growth and jobs in the food chain and
+that sustain our rich and diverse European food culture. Research and
+innovation are key to helping redesign food systems and maximising co-benefits
+such as nutrition, food safety, the climate, circularity, the environment, social
+equity, etc. The European Commission’s Food 2030 initiative has been pivotal in
+putting food systems on the agenda by helping to structure and align research
+and innovation efforts across the EU. It promotes a systems approach to
+complex problems that delivers real impact (and co-benefits) from research and
+innovation in the four priority areas of nutrition and health, climate and
+sustainability, circularity and resource efficiency, and community empowerment
+and jobs.
+One of the major global challenges we are facing is unprecedented urban
+growth, where over half of the global population is urban and where by 2050 an
+additional 2.5 billion people are expected to live in urban areas. Urban areas
+currently consume over 70 % of the global food supply. We do not know
+enough about balancing this urban–rural interface. In 2017 the Food 2030
+Expert Group proposed and defined cities as a new type of food-system partner,
+which can act as a multi-objective and multi-actor facilitator. In this respect,
+the 2015 Milan Urban Food Policy Pact was identified as a pioneer municipal
+project, which has since been strongly supported and followed up by different
+Food 2030 actions.
+We therefore welcome this timely study from the Milan group, which provides a
+useful outline of the diverse and complex urban food-policy actions and
+dynamics going on at the European level. It provides a clear view of the
+ongoing debate over the issues relating to food, food policy and circularity, and
+an overview of the practices relating to the food system and food policies. It
+identifies the correct stakeholders and players, and provides a useful road map
+and framework for other cities that wish to follow similar routes. In addition,
+accelerators, facilitators and living laboratories will become key tools in helping
+to identify and push for innovation and progress under the Horizon Europe
+programme. This study supplies working examples of their successful
+deployment at different scales.
+All urban actors need to be more cooperative and flexible towards meeting
+common goals. In Horizon Europe this could be facilitated through a food-
+system partnership, which can bring diverse communities together to create
+cohesion and a common understanding with a view to future calls for proposals
+and the broader political implications. Such a partnership can also assist policy
+and system science (and tools) in support of decision-making, behavioural
+change and policy options; in engaging youth in finding solutions throughout
+the research and innovation process; and in promoting food-systems education
+and awareness at all levels.
+
+John Bell
+Director, DG Research and Innovation — ‘Healthy Planet & Clean Planet’
+
+
+
+                                            4
+                     Figure 1. MUFPP signatory cities (City of Milan, 2018).
+
+
+
+1. The role of Milan in shaping a new framework for
+   action on urban food policies in the global arena
+Since 2014 Milan has been at the centre of a comprehensive initiative of city
+diplomacy in the realm of urban food policies, and has capitalised on both the
+experience of bidding to hold the 2015 Universal Exposition (2006-2008) and
+the work relating to the content of Expo 2015 itself (2008-2015).
+The initiative revolves around four main pillars: urban networking; the
+involvement of international bodies; seeding food topics in the existing
+international discussion; and project design.
+The Milan Urban Food Policy Pact (MUFPP) was signed on 15 October 2015 in
+Milan by 113 mayors, and was presented the following day to the UN Secretary
+General, Ban Ki-Moon, on the occasion of the World Food Day celebration. It
+represents one of the most important legacies of the Milan Universal Exposition
+2015 ‘Feeding the Planet’. By signing the pact, mayors from all over the world
+voluntarily commit to working together so that their citizens can benefit from
+local food systems that are more sustainable, fair, climate friendly, safe,
+diverse, resilient, inclusive and able to provide healthy and affordable food to all
+people, within a human-rights-based framework.
+With the intention of leading the MUFPP, the City of Milan started to define its
+own local food policy in order to improve the sustainability of its food system
+and test the most inspirational practices from around the world.
+
+
+1.1. Milan Urban Food Policy Pact
+The MUFPP is a voluntary agreement among mayors who are committed to
+making urban food systems more sustainable, resilient and equitable. The
+announcement of the initiative was made in 2014 at the C40 Summit in
+Johannesburg, when the Mayor of Milan launched the proposal for signing the
+pact at the Universal Expo 2015. An initial group of 46 cities took on the
+preliminary content-drafting activities, guided by a scientific advisory group of
+organisations committed to the sustainability of the food system.
+The MUFPP is a global commitment by mayors from 200 cities around the world
+(October 2019) that considers food to be an entry point into the sustainable
+
+
+
+                                                   5
+development of growing cities. It represents the main framework for cities and
+international stakeholders that are active in the definition of innovative urban
+food policies for the management and governance of local food systems. Today,
+the pact is a new arena of debate and cooperation among cities and
+metropolitan and regional authorities.
+The framework for action of the MUFPP is made up of 37 recommended actions
+structured into six integrated categories:
+   Governance;
+   Sustainable Diets and Nutrition;
+   Social and Economic Equity;
+   Food Production and Urban–Rural Linkages;
+   Food Supply and Distribution;
+   Food Waste Reduction and Management.
+Cities choose specific actions to develop, and whether and how to adapt them
+to their specific contexts. The overall objective of the pact is to develop urban
+food systems that are sustainable, inclusive, resilient, safe and diverse, and
+that provide healthy and affordable food to all people within a human-rights-
+based framework. This ambitious goal can be achieved through urban food
+policies built on a comprehensive and integrated approach.
+Signatory cities gather once a year, at an event that is held in a different Milan
+Pact city every year. It is an opportunity to meet, exchange knowledge and
+practices, participate in technical workshops, share progress and build
+partnerships. Mayors meet each other and get inspired by innovative solutions
+implemented in other cities.
+The MUFPP works in synergy with several international areas of debate, such as
+the New Urban Agenda, the Paris Declaration on Climate Change and the World
+Urban Forum, with existing urban networks, such as C40, Eurocities and WHO
+Healthy Cities, and with UN bodies, such as the Food and Agriculture
+Organisation (FAO), UN-Habitat and SDSN Youth, to connect with the global
+agenda for sustainable development.
+The Milan Pact brings together cities belonging to different contexts, from North
+to global South. Since 2016, on the basis of various forms of regionalisation,
+these cities have worked together to overcome challenges, adding value and
+content to existing regional networks.
+
+1.1.1. Timeline of milestones
+
+   February 2014. Mayor of Milan launches the idea of a mayors’ pact on
+    food.
+   September 2015. Start of content definition by 46 cities.
+   October 2015. Signature ceremony of the MUFPP involving 113 cities
+    worldwide, and presentation to the UN Secretary General.
+   September 2016. African signatory cities meeting in Dakar (Senegal).
+   October 2016. Second Annual Gathering and Mayors’ Summit of signatory
+    cities in Rome (Italy) at the FAO headquarters, and first edition of the Milan
+    Pact Awards (MPAs).
+   February 2017. European signatory cities’ meeting in Birmingham (United
+    Kingdom).
+
+
+
+                                           6
+   October 2017. Third Annual Gathering and Mayors’ Summit of signatory
+    cities hosted by the City of Valencia (Spain), and launch of the MUFPP
+    monitoring framework.
+   September 2018. Fourth Annual Gathering and Mayors’ Summit of
+    signatory cities hosted by the City of Tel Aviv (Israel).
+   May 2019. Latin American signatory cities’ meeting in Rio de Janeiro
+    (Brazil).
+   October 2019. Fifth Annual Gathering and Mayors’ Summit of signatory
+    cities hosted by the City of Montpellier (France).
+
+1.2. How to recognise cities’ advancements                       on   food    policies
+     through the Milan Pact Awards
+The MPAs were launched for the first time in 2016. The initiative was promoted
+by the City of Milan and the Cariplo Foundation. The goal of the prizes has
+always been to foster the sharing of knowledge between cities all around the
+world and to develop an urban accountability tool. Over the four editions of the
+MPAs so far (2016, 2017, 2018 and 2019) we have collected 261 practices
+relating to urban food policies.
+
+The philosophy behind the MPAs requires winning cities to invest the prize in
+city-to-city initiatives that are implemented in order to share their knowledge
+with another city participating in the MUFFP. Every year the MPAs assign two
+monetary prizes (EUR 15 000 each) and six special mentions. The MPAs have
+the ambition of becoming a reference framework for knowledge sharing in the
+coming years.
+
+With the MPAs, cities are invited to start cooperating and exchanging knowledge
+among themselves and sharing tangible solutions. Since 2015 the experiences
+that have been exchanged have helped to define the added value of
+decentralised cooperation.
+
+In the last four editions of the awards, 116 food practices and policies were
+gathered from European cities (out of 261 practices worldwide), and 10 cities
+won prizes or special mentions.
+
+MPA        Winning
+                         Category                Practice
+EDITION    city
+                                                 From food waste to healthy off-
+2016       Riga          Food Waste
+                                                 season food
+                         Sustainable Diets
+2016       Birmingham                            Public health
+                         and Nutrition
+                                                 Political commitment for integrated
+2017       Ede           Governance              food governance: the success story
+                                                 of Ede
+                         Sustainable Diets       Organic conversion project 2002-
+2017       Copenhagen
+                         and Nutrition           2017
+                         Food Supply and         Short food-supply chains in the city
+2017       Ljubljana
+                         Distribution            municipality of Ljubljana
+
+2017       Bruges        Food Waste              Food-waste prevention and reduction
+
+
+
+
+                                             7
+2018        Ghent          Food Waste              Foodsavers Ghent
+
+                           Sustainable Diets       Giocampus project, fostering the
+2018        Parma
+                           and Nutrition           well-being of future generation
+
+2018        Turin          Food Waste              Towards circular markets
+
+                           Food Supply and
+2019        Montpellier                            Structuring the sustainable supply
+                           Distribution
+
+
+
+
+1.3. A joint initiative to monitor the progress of the urban food
+     system: the FAO–MUFPP monitoring framework
+In early 2016 the MUFPP Secretariat and the FAO started developing a monitoring
+framework that reflects the six categories of the Milan Pact Framework of Action.
+Two surveys were circulated among the pact’s signatory cities to assess their
+priorities and the availability of data.
+
+A first set of indicators was presented on 19 October 2017 at the third MUFPP
+Annual Gathering in Valencia, and further discussed with signatory cities and their
+networks.
+
+In November 2017 a refined list of 44 quantitative and qualitative indicators was
+released by the FAO’s team of experts. A methodological guide to help cities and
+partners in collecting and analysing the right data for the indicators is being drafted.
+For each indicator the guide contains information such as an explanation of the
+types of data required and the level of data aggregation; a definition of samples;
+and examples of how some cities have already implemented the indicator. The guide
+will also highlight the connections with the sustainable development goals (SDGs)
+and targets.
+
+1.3.1. The complete set of 44 indicators
+
+Governance
+
+1. Presence of an active municipal interdepartmental government body for
+   advisory and decision making of food policies and programmes.
+2. Presence of an active multi-stakeholder food policy and planning structure.
+3. Presence of a municipal urban food policy or strategy and/or action plans.
+4. Presence of an inventory of local food initiatives and practices to guide
+   development and expansion of municipal urban food policy and
+   programmes.
+5. Presence of a mechanism for assembling and analysing urban food system
+   data to monitor/evaluate and inform municipal policy making on urban food
+   policies.
+6. Existence of a food supply emergency/food resilience management plan for
+   the municipality (in response to disasters; vulnerabilities in food production,
+   transport, access; socio economic shocks, etc.) based on vulnerability
+   assessment.
+
+
+
+                                               8
+Sustainable Diets and Nutrition
+
+7. Minimum dietary diversity for women of reproductive age.
+8. Number of households living in ‘food deserts’.
+9. Costs of a nutritious food basket at city/community level.
+10. Individual average daily consumption of meat.
+11. Number of adults with type 2 diabetes.
+12. Prevalence of stunting for children under 5 years.
+13. Prevalence of overweight or obesity among adults, youth and children.
+14. Number of city-led or supported activities to promote sustainable diets.
+15. Existence of policies/programmes that address sugar, salt and fat
+    consumption in relation to specific target groups.
+16. Presence of programmes/policies that promote the availability of nutritious
+    and diversified foods in public facilities.
+17. Percentage of population with access to safe drinking water and adequate
+    sanitation.
+
+
+Social and Economic Equity
+
+18. Percentage of food insecure households based on the Food Insecurity
+    Experience Scale (FIES).
+19. Percentage of people supported by food and/or social assistance
+    programmes.
+20. Percentage of children and youth (under 18 years) benefitting from school
+    feeding programmes.
+21. Number of formal jobs related to urban food system that pay at least the
+    national minimum or living wage.
+22. Number of community-based food assets in the city.
+23. Presence of food-related policies and targets with a specific focus on socially
+    vulnerably groups.
+24. Number of opportunities for food system-related learning and skill
+    development in i) food and nutrition literacy, ii) employment training and iii)
+    leadership.
+
+
+Food Production
+
+25. Number of city residents within the municipal boundary with access to an
+    (urban) agriculture garden.
+26. Presence of municipal policies and regulations that allow and promote
+    agriculture production and processing in the municipal area.
+27. Surface area of (potential) agricultural spaces within the municipal
+    boundary.
+28. Proportion of total agricultural population — within the municipal
+    boundaries — with ownership or secure rights over agricultural land for food
+    production, by sex.
+
+
+                                            9
+29. Proportion of agricultural land in the municipal area under sustainable
+    agriculture.
+30. Number of urban and peri-urban food producers that benefited from
+    technical training and assistance in the past 12 months.
+31. Number of municipal food processing and distribution infrastructures
+    available to food producers in the municipal area.
+32. Proportion of local/regional food producers that sell their products to public
+    markets in the city.
+33. Annual proportion of urban organic waste collected that is re-used in
+    agricultural production taking place within municipal boundaries.
+
+
+
+Food Supply and Distribution
+
+34. Existence of policies/programmes that address the reduction of GHG
+    emissions in different parts of the food supply chain.
+35. Presence of a development plan to strengthen resilience and efficiency of
+    local food supply chains logistics.
+36. Number of fresh fruit and vegetable outlets per 1 000 inhabitants (markets
+    and shops) supported by the municipality.
+37. Annual municipal investment in food markets or retail outlets providing
+    fresh food to city residents, as a proportion of total (investment) budget.
+38. Proportion of food procurement expenditure by public institutions on food
+    from sustainable, ethical sources and shorter (local/regional) supply chains.
+39. Presence of food safety legislation and implementation and enforcement
+    procedures.
+40. Existence of support services for the informal food sector providing business
+    planning, finance and development advice.
+
+
+Food Waste
+
+41. Total annual volume of food losses & waste.
+42. Annual number of events and campaigns aimed at decreasing food loss and
+    waste.
+43. Presence of policies or regulations that address food waste prevention,
+    recovery and redistribution.
+44. Total annual volume of surplus food recovered and redistributed for direct
+    human consumption.
+
+
+
+
+                                           10
+  Figure 2. European cities that are members of the Eurocities Working Group Food (City of Milan, 2019).
+
+
+2. European regionalisation of the process to raise
+   awareness of urban food policies
+The European interest in the MUFPP also becomes clear due to the advisory role
+the European Commission and the European Committee of the Regions had, in
+2015, in the process of defining the content and international dissemination.
+The relevance of the MUFPP in Europe, through the active role of the City of
+Milan, also increased interactions with different European spaces and the most
+innovative European food projects, including TRiFOCAL with WRAP;
+Fit4Food2030 with Amsterdam University; the ‘Food in cities’ tender for the
+Commission’s Directorate-General (DG) for Research and Innovation;
+membership of DG Health and Food Safety’s EU Platform for Food Losses and
+Waste; and the ‘Towards a common food policy’ project on the future of the
+common agricultural policy with the International Panel of Experts on
+Sustainable Food Systems and DG Regional and Urban Policy.
+The European Commission’s Food 2030 Expert Group has defined cities as being
+a new kind of actor that can make a difference in food-system transformation,
+and has proposed cities as an innovative partner for Europe in defining a multi-
+
+
+                                                       11
+objective and multi-actor drive for responsible innovation across the food
+system.
+In this chapter of the report the European regionalisation process of the MUFPP
+will be presented within the frame of reference of Food 2030.
+
+
+2.1. Eurocities Working Group Food
+The Eurocities Working Group Food aims to become a creative hub of food-
+policy knowledge, where information, ideas and best practices are shared and
+innovative solutions for urban food challenges are shaped. The working group
+was launched in 2016 as the European regionalisation structure of the MUFPP.
+It represents the starting point for setting up a European framework to
+consolidate the effort of Eurocities members and MUFPP cities. The network
+organises European advocacy actions, common EU projects and training
+sessions for food-policy officers on specific topics for food-policy
+implementation.
+
+Eurocities members are food-system leaders. Many cities have established an
+urban food policy, enhancing the participation of stakeholders to make a more
+sustainable food system. Also, European cities are often more ambitious than
+their national governments. With 75 % of Europeans living in urban areas, cities
+can generate a significant impact on their food system using their institutional
+power.
+
+Some pioneer cities of the Eurocities Working Group Food are creating
+innovative food-policy actions based around several main actions, as listed
+below.
+
+1. Sustainable diets. Relevant education, health promotion and communication
+   programmes, and developing sustainable dietary guidelines.
+2. Public procurement. Reorienting school feeding programmes and other
+   institutional food services to provide food that is healthy, locally or
+   regionally sourced, seasonal and sustainably produced.
+3. Urban agriculture. Local food production, strengthening urban and peri-
+   urban food production, supporting short food-supply chains.
+4. Food Waste Prevention. Saving food by facilitating recovery and
+   redistribution for human consumption of food donation.
+
+Since its foundation the Eurocities Working Group Food has organised the
+following meetings.
+
+   2017 — Birmingham, on urban innovation.
+   2017 — Valencia, during the third MUFPP Annual Gathering.
+   2018 — Amsterdam, on food waste.
+   2018 — Lyon, on urban agriculture.
+   2019 — Ghent, on climate change.
+   2019 — Montpellier, on political commitment during the fifth MUFPP
+    Annual Gathering.
+
+
+
+
+                                          12
+2.1.1. European map of cities, networks and projects
+
+This map was developed to outline the European geography of cities, networks
+and projects that are contributing to making the food system more sustainable.
+The multilayer map allows the clear geolocation of cities that are members of
+the Eurocities Working Group Food, and provides information on the main
+European projects they are involved in. It also provides the opportunity to
+generally keep track of European activities on food-related topics. Being a very
+visual tool that can also incorporate data on each project and city, the map will
+provide significant support to cities that are interested in implementing food-
+policy actions. The map is available at: https://bit.ly/2mQNsR5
+
+2.2. The European Commission’s Food 2030 framework
+Food 2030 was launched after the 2015 Milan World Expo, when the European
+Commissioner for Research and Innovation, Carlos Moedas, announced his
+intention to launch a food research area by World Food Day 2016. Food 2030 is
+a research and innovation (R & I) policy framework of the European
+Commission, deployed under its multiannual framework programmes. The
+transformation of the food system is not only about production and
+consumption, but is also something that requires a broader approach.
+Furthermore, everyone is a stakeholder in the necessary food-system
+transformation: researchers, Member States, industry, regions, cities and
+citizens.
+
+The Food 2030 initiative is developing a framework geared towards highlighting
+priorities and creating efficient investments. In this initiative the European
+Commission has recognised the challenge of making our food system future-
+proof. Several publications and conferences have been dedicated to the need
+for a food-systems approach with improved governance. To take further steps
+towards implementing Food 2030, DG Research and Innovation has established
+a group of experts to appraise the current research landscape relevant to food
+systems and to formulate missions that can direct future research and
+innovation actions in Europe.
+
+2.2.1. Food 2030 priorities
+
+   Nutrition for sustainable and healthy diets. Ensuring that nutritious
+    food and water is available, accessible and affordable for all. It involves
+    reducing hunger and malnutrition, ensuring high levels of food safety and
+    traceability, reducing the incidence of non-communicable diet-related
+    diseases and helping all citizens and consumers adopt sustainable and
+    healthy diets for good health and well-being.
+   Climate-smart and environmentally sustainable food systems.
+    Building climate-smart food systems adaptive to climate change, conserving
+    natural resources and contributing to climate-change mitigation. It seeks to
+    support healthy, productive and biodiverse ecosystems. Ensuring diversity
+    in food systems (including production, processing, distribution and logistics)
+    including in terms of cultural and environmental diversity. Natural resources
+    (water, soil, land and sea) are used sustainably within the planetary
+    boundaries and available to future generations.
+
+
+
+
+                                           13
+   Circularity and resource efficiency of food systems. Implementing
+    resource-efficient circular-economy principles across the whole food system
+    while reducing its environmental footprint. Circularity is applied for
+    sustainable and resource-efficient food systems, and food losses and waste
+    are minimised throughout.
+   Innovation and empowerment of communities. Boosting innovation
+    and investment, while empowering communities. A broad innovation
+    ecosystem leading to new business models and value-added products,
+    goods and services, meeting the needs, values and expectations of society
+    in a responsible and ethical way. More and better jobs across the EU,
+    fostering thriving urban, rural and coastal economies and communities.
+    Through closer partnerships with industry and food producers, markets that
+    function in a responsible manner thereby fostering fair trade and pricing,
+    inclusiveness and sustainability. Scientific evidence and knowledge from a
+    wide diversity of actors underpinning the development and implementation
+    of FNS (food and nutrition security)-relevant policies, at all geographical
+    scales (local to global).
+
+2.2.2. Implementation tools
+
+‘Food 2030 uses several tools in its research and implementation activities. The
+Food 2030 Independent Expert Group gathers experts from around Europe who
+are able to bring background knowledge and personal insights to the
+implementation of the policy. Eurocities, the City of Milan and Cardiff University
+produced the ‘Food in Cities’ study on innovation for the sustainable and
+healthy production, delivery and consumption of food in cities, based on a
+tender from DG Research and Innovation, mapping cities that were active on
+food policy issues in 2016. The EU’s Horizon 2020 framework programme and
+the upcoming Horizon Europe are the key programmes for fostering food-
+system transformation.
+
+2.2.3. Food 2030 High-Level Event held in Plovdiv (Bulgaria)
+
+The City of Milan, as chair of the Eurocities Working Group Food, and the
+consortium of the European Fit4Food2030 project organised the side event
+‘Sustainable Food System for European Cities’ at the invitation of the
+European Commission. The event was designed to be a workshop about cities’
+experiences in the field of food-system transformation. The fruitful debate
+involved European Commission officers, researchers and city officers. During
+the discussion participants were invited to work with the main tools used to
+define the elements of success of food-policy actions and to assess the content
+of these actions. The tools were defined by the Fit4Food2030 consortium as a
+set of criteria with which to assess city cases, and they were linked to the six
+MUFPP categories.
+
+Among the participants at the High-Level Event held in Plovdiv in June 2018,
+a delegation from Milan (city and Cariplo Foundation) was there to advocate on
+the added value of cities as game changers when talking about food-system
+transformation. For the first time at EU level, cities were mentioned as being a
+new kind of actor that should have a stronger role in Europe, integrated into a
+higher institutional level within the EU along with the Commission and the
+
+
+
+                                           14
+Member States. This innovative role emerged from the conclusions of the expert
+groups, in the declaration and in the call for action.
+
+The Food 2030 Expert Group defined cities as a new kind of stakeholder that
+can make a difference in the transformation of the food system and proposed
+them as an innovative partner for Europe in the definition of a multi-objective
+and multi-actor drive for responsible innovation across the food system. Cities
+and other local authorities need to introduce a proactive and evidence-based
+food policy that creates healthy, sustainable urban environments to make
+healthy and sustainable choices appealing to consumers. Cities should make
+sure that their neighbourhoods are connected to the surrounding peri-urban
+areas for a healthy lifestyle. It was also highlighted that multiparty innovation
+should be an important part of urban food policies.
+
+The Food 2030 Plovdiv Declaration promotes, together with the European
+Commission and Member States, an agenda for future-proof food systems that
+will have important positive effects on Europeans in terms of healthier lives,
+cultural and societal benefits for urban and rural communities, a cleaner
+environment, more sustainable production and consumption, lower import
+dependency and more vibrant enterprises. The transformation of our food
+systems is an opportunity to build new and stronger partnerships and to
+develop improved approaches, technologies and business models that
+concurrently place environmental sustainability, health and inclusion at their
+centre. This can be achieved by fostering place-based innovative food systems
+in rural and urban areas that provide job opportunities, enhance prosperity and
+wellbeing and empower communities. Cities are also quoted in the seventh
+point of the call for action to ‘stimulate European regions and cities to
+implement novel solutions and showcase good practices’.
+
+2.2.4. ‘People’s food — people’s health’ conference and Food 2030
+Workshop
+
+The conference ‘People’s Food — People’s Health: Towards healthy and
+sustainable European food systems’ was organised under the Austrian
+Presidency of the Council of the European Union and held in Vienna (Austria) in
+November 2018. It was the occasion for the workshop ‘Food 2030: Research
+and innovation driving food systems for health’, co-organised by DG Research
+and Innovation and DG Health and Food Safety. The main focus of the
+conference was to develop a dialogue on concrete solutions to make a healthy
+and sustainable diet available, affordable, acceptable and appealing for all.
+
+Along the same lines, the Food 2030 Workshop aimed at gathering
+stakeholders to discuss the role of R & I in driving food-system transformation,
+with a particular focus on nutrition for sustainable and healthy diets. The City of
+Milan was present at the event, represented by the Vice-Mayor in charge of
+Food Policy, to give the benefit of its experience as a municipality and to
+highlight the momentum of the MUFPP. A major outcome of the discussion was
+the recognition of the role of public procurement in addressing healthy diets and
+nutrition, focusing on the need for innovative ways of provision and
+consumption to develop nutrition-sensitive food systems. Cities can play a
+strategic role in shaping the consumption habits of large numbers of people
+
+
+
+                                           15
+through their public procurement, from school canteens to care homes for the
+elderly.
+
+2.2.5. Food 2030 at the High-Level Conference in Bucharest (Romania)
+
+The High-Level Event held during the Romanian Presidency of the Council
+explored ‘Circularity and Resource Efficiency in Food Systems’. Within this
+framework Food 2030 set up a workshop to create a supportive environment for
+establishing new collaborations in the field of agri-food research. The occasion
+was used to strengthen collaboration with Eastern Europe and other regions in
+order to build up an efficient and effective European food system.
+
+The main aims of the event were to raise awareness about sustainable
+production and consumption, to minimise food waste and to transform agri-food
+by-products and residues into new raw materials for various purposes using an
+environment-friendly approach. The City of Milan participated in the event, with
+its food-policy coordinator presenting Milan’s experience.
+
+2.3. Urban experimentation: the Fit4Food2030 city labs
+The Fit4Food2030 project (2017-2020) is a Horizon 2020-funded project that
+supports the European Commission in implementing the Food 2030 policy
+framework.
+
+The project aims to establish a sustainable, multistakeholder, multilevel
+platform — the Food 2030 Platform — made up of three interlinked structures:
+
+   14 city labs (also referred to as food labs), built around science centres,
+    museums and science shops that develop and implement hands-on
+    (in)formal training sessions to build the competences of students and
+    professionals, bringing a wide variety of actors together in the process;
+   11 national policy labs that mobilise food-system stakeholders in order to
+    align R & I policies and investment schemes; and
+   an EU think tank that links project activities with the European Commission
+    and shapes the field via policy briefs.
+
+The project is built around two main ideas: a holistic food-systems approach
+and responsible research and innovation (RRI).
+
+In line with the increased recognition that traditional models that focus purely
+on food production or linear models such as food-supply or value chains are not
+appropriate to represent the full complexity of the food system, the project
+works with the notion of adaptive food systems. This implies taking into account
+their complex dynamics, their multifunctional and multi-actor character and the
+multitude of problem perceptions, knowledge gaps, values and visions for
+future-proofing food systems. The concept of RRI can help tackle this, as its
+processes and requirements aim to align the wide range of actors (consumers,
+citizens, farmers, policymakers, businesses) and activities involved in R & I
+processes for more desirable, sustainable and acceptable future outcomes. This
+section zooms in on the model of urban experimentation that currently informs
+the actions of 14 city labs across the European Union.
+
+
+
+                                          16
+2.3.1. City-lab trajectories
+
+Adopting the food-system approach and RRI, the city labs are tackling the
+challenge of implementing bottom-up transformation. This approach requires a
+high level of experimentation and the delivery of three intermediary objectives:
+
+   building sustainable multistakeholder networks;
+   developing a common vision while acknowledging different perspectives;
+    and
+   ensuring a learning process that is broad and reflexive.
+
+While the trajectories of individual labs reflect the diversity of conditions found
+across cities and regions, all activities are based on continuous engagement of
+stakeholders and face-to-face multistakeholder workshops, along a shared
+timeline.
+
+2.3.2. Actors and visions
+
+City labs started with an iterative actor analysis to understand which food-
+related actors are active in their contexts, including an estimation of food
+actors’ levels of power and interest, and special attention for groups that are
+under-represented in the existing networks and initiatives. Mobilising the actors
+required tailored communication strategies and sufficient incentives for
+participation.
+
+One of the first endeavours in the labs was a process of shared vision
+development, chosen as it can both generate compelling statements of
+preferred futures and act as a starting point for thinking about concrete
+recommendations and transformations. Multistakeholder dialogues focused on:
+(1) visions of a future-proof food system; (2) visions of the role of R & I
+towards a future-proof food system; and (3) visions on the competences
+(knowledge, attitude and skills) required for individuals engaged in R & I
+processes for a future-proof food system.
+
+2.3.3. Understanding the food system
+
+Fit4Food2030 has adapted tools to support the city labs and the broader Food
+2030 platform in the analysis of the food system and to identify leverage points
+where the current state of things can be transformed. The model is built around
+the following three concepts, used during lab workshops to co-develop local
+food-system knowledge and understanding.
+
+   Trends. Large-scale developments influencing food-systems R & I.
+   Showcases. R & I initiatives or funding programmes that have contributed,
+    or are contributing, to food-systems R & I developments.
+   Breakthroughs. Significant R & I developments in the field of food and
+    nutrition security, potentially resulting in structural changes in food
+    systems, making them more sustainable and resilient.
+
+
+
+
+                                           17
+2.3.4. Facilitating learning between the labs
+
+With 14 city labs and 11 policy labs, a central goal of Fit4Food2030 is to make
+sure that their efforts continue after the project and inspire new initiatives. To
+that end, a special emphasis is placed on stimulating shared and interactive
+learning between individual cities and labs so that a community of practice can
+be established across Europe. Learning is fostered at regular in-person
+meetings and training sessions that equip lab coordinators with materials and
+resources to use locally. In addition, regular virtual meetings inspired by the
+dynamic learning agenda methodology allow each individual lab coordinator to
+present current challenges and barriers in their lab activities and benefit from a
+supportive community — a space where they can be open about the planning
+process in their city or region.
+
+2.3.5. Action planning for transformation
+
+To focus activities around a concrete output and ensure meaningful results that
+could strengthen the community, all city labs focused on at least one
+contribution with the potential to accelerate transformation: the co-
+development of a set of educational modules to stimulate competence
+development, which is crucial for real transformative change. Both current
+professionals (such as researchers, social entrepreneurs and journalists),
+professionals-to-be (students of all levels) and citizens at large are the targets
+of this action, and 17 modules are currently under development based on
+visioning results, local knowledge and lab-specific expertise. Competences
+tackled include systems, futures, values, strategic thinking, collaboration, and
+problem-solving.
+
+The reconnection of local food-system actors in the city labs is also taking place
+around other concrete actions such as R & I agendas and support for food-
+policy processes, action plans and partnership building in several different
+ways.
+
+The first group of seven city labs has already been supplemented by seven new
+recruits, the experiences of which will strengthen the potential of project tools.
+The project is streamlining its understanding of learning, replication and scaling
+up, and will launch its resources after this extensive pilot process.
+
+
+
+
+                                           18
+             Figure 3. European cities presented in this chapter (City of Milan, 2019).
+
+
+
+
+3. European cities’ actions
+European cities are key actors in prompting changes towards a more
+sustainable food system under the international frameworks of the MUFPP,
+SDGs and Food 2030. They can exploit their institutional power to drive
+innovation in food systems thanks to their direct competences, with municipal
+bodies and urban actors being involved in all stages of the food system
+(production, transformation, logistics, distributions, consumption and waste).
+Europe is the most active region in the world in this regard due to its close
+partnership with an existing network of European cities that have decided to
+establish a dedicated working group on food policy. In this part of the report we
+will provide a general overview of all the cases gathered between 2015 and
+2018, a description of eight best practices and an in-depth analysis of the case
+of Milan as a food-policy trendsetter. All of the analyses are organised under the
+framework of the four priorities of Food 2030.
+
+
+
+
+                                                    19
+3.1. Overview of 101 urban food practices
+The basket from which the practices were selected is global and takes into
+consideration the experiences gathered over the last 4 years (2015-2018): 68
+by the City of Milan and the Cariplo Foundation through the MPAs (first three
+editions) and 33 by Eurocities through the call for practices from different
+Working Group Food meetings. This overview was explored during a workshop
+involving 15 selected officers of the City of Milan (Food Policy Office, MUFPP
+Secretariat and EU Affairs Unit) and the Cariplo Foundation (research, social
+and environmental areas) who are engaged with food-policy actions on a day-
+to-day basis. In the workshop the basket of 101 practices was analysed: on the
+one hand the potential for impacts on each Food 2030 priority was evaluated
+(with a range from 1 to 5), on the other hand the shift towards stakeholder
+engagement, co-creation processes, citizen-science interest, business model
+definition and circular-economy potentiality
+was analysed (with an estimation of the
+potential expressed by ‘yes’ or ‘no’). The
+main results of this exercise are presented
+here, along with the considerations
+gathered from the participants.
+
+Overall, we can say that up to now the
+majority of practices in the EU that are
+associated with urban food-policy issues
+deal with topics such as food waste,
+sustainable diets and nutrition, and
+governance. The latter is a cross-cutting
+element that encompasses three out of
+four of the Food 2030 priorities. In
+addition, our analysis indicates that circular
+practices tend to relate strictly to food
+waste, whereas practices that come under
+the nutrition category relates strictly to
+diets. The practices associated with climate
+are more diverse in terms of topics. More
+specifically, the following can be noted.
+
+   The practices relating to circularity have, since the beginning, tended to
+    engage different stakeholders, and are well equipped in terms of co-
+    creation. These experiences tend to be weaker in terms of citizen science
+    and replicability (business model). Circular practices are not surprisingly the
+    most important in terms of a circular-economy approach.
+   Practices associated with climate are not observed very frequently,
+    nonetheless from what we could see they are lacking in terms of both
+    citizen science and co-creation.
+   Practices relating to innovation, which were the second most numerous
+    after the topic of circularity, perform well in terms of stakeholder
+    engagement and co-creation, while in line with the climate topic these
+    practices are weak in terms of citizen science and replicability (business
+    model). These practices are also interesting because of the attention they
+    pay to circularity.
+
+
+
+
+                                            20
+   Finally, with regard to nutrition practices we once again saw strong
+    engagement on the part of stakeholders in parallel with not particularly high
+    levels of co-creation, citizen science and replicability. In this case, the
+    circular approach also seems to be rather weak.
+
+In conclusion, food-policy practices tend to include stakeholders and are quite
+active in terms of co-creation and the implementation of a circular-economy
+approach. Importantly, they are not constructed to be replicated but tend to be
+strictly attached to the context and specificity of local circumstances. Finally, we
+noted widespread difficulties in valuing citizen science. This is noticeable
+especially considering the great efforts made by the EU over the past several
+decades to give new impetus to engagement and citizen science.
+
+
+
+
+Figure 4. Relationships among the MUFPP categories with the four Food 2030 priorities (City of Milan 2019).
+
+
+
+
+This is a preliminary set of recommendations and we still need to complete,
+discuss and improve them. They are aimed at city officers throughout the
+world, and in particular at EU cities and authorities, including the European
+Commission.
+
+1. In order to have an impact and to be effective, food-policy practices require
+   the engagement of local authorities.
+2. Food-policy practices are still perceived as a contingent experience and are
+   not yet associated with an easily replicable business model.
+3. Food-policy practices engage different stakeholders, however in light of the
+   lack of attention towards citizen science it seems possible to argue that they
+   might not value each stakeholder in the same way.
+4. A large variety of food topics in cities can be connected to other European
+   drivers (national governments, EU policies, urban networks) to increase
+   their impact.
+
+
+
+
+                                                        21
+3.1.1. Table of cities’ analysed actions
+
+N    City            Country       Source   Year   Food 2030     Cat   Title
+1    Amsterdam       Netherlands   MPAs     2017   Circularity   GOV   Online platform for mapping Amsterdam food
+                                                                       system stakeholders
+2    Amsterdam       Netherlands   WG       2018   Circularity   FW    Instock initiative
+3    Athens          Greece        WG       2018   Circularity   FW    Athens biowaste programme
+4    Barcelona       Spain         WG       2018   Circularity   FW    Waste prevention plan
+5    Bari            Italy         MPAs     2017   Circularity   FW    Avanzi Popolo 2.0 / People’s leftovers 2.0
+6    Bologna         Italy         WG       2018   Circularity   FW    Community fridges
+7    Bordeaux        France        WG       2018   Circularity   FW    Collection of biowaste in Bordeaux hotels by
+                                                                       Les Détritivores
+8    Bruges          Belgium       MPAs     2017   Circularity   FW    Food-waste prevention, reduction and
+                                                                       management
+9    Burgas          Bulgaria      WG       2018   Circularity   FW    Biowaste collection in supermarkets and
+                                                                       hotels
+10   Dublin          Ireland       WG       2018   Circularity   FW    Eastern-Midlands regional waste management
+                                                                       plan 2015-2021
+11   Edinburgh       UK            WG       2018   Circularity   FW    Zero waste policy food kitchens
+12   Genova          Italy         MPAs     2018   Circularity   FW    Ricibo network as a smart food policy best
+                                                                       practice
+14   Ghent           Belgium       MPAs     2018   Circularity   FSD   Platform for short supply chain products
+13   Ghent           Belgium       MPAs     2018   Circularity   FW    Foodsavers Ghent
+15   Gothenburg      Sweden        WG       2018   Circularity   FW    Model for reduced food waste
+16   Helsinki        Sweden        WG       2018   Circularity   FW    Biowaste collection to produce compost and
+                                                                       energy
+17   Katowice        Poland        WG       2018   Circularity   FW    Redistribution of food surpluses
+18   Linköping       Sweden        WG       2018   Circularity   FW    Waste-to-energy (WTE) plant
+19   Ljubljana       Slovenia      WG       2018   Circularity   FW    Raise your voice against food waste
+20   London          UK            WG       2018   Circularity   FW    FoodSave programme
+21   Lyon            France        WG       2018   Circularity   FW    Small retailers food waste recovery
+22   Malmo           Sweden        WG       2018   Circularity   FW    Bio-waste for bio fuel of public transportation
+                                                                       Awareness Biogas
+23   Milan           Italy         WG       2018   Circularity   FW    Experiences on food losses and waste
+                                                                       management
+24   Milan           Italy         MPAs     2018   Circularity   FW    A comprehensive food policy to tackle food
+                                                                       waste
+25   Modena          Italy         MPAs     2018   Circularity   FW    Modena community projects against food
+                                                                       waste
+26   Oslo            Norway        WG       2018   Circularity   FW    Raising awareness campaigns
+27   Oss             Netherlands   MPAs     2018   Circularity   FW    Fight against food waste
+28   Paris           France        WG       2018   Circularity   FW    Recovery and redistribution of safe and
+                                                                       nutritious food to people in need
+29   Prague          Czech         WG       2018   Circularity   FW    Biowaste collection for biogas and compost
+                     Republic
+30   Riga            Latvia        MPAs     2016   Circularity   FW    From food waste to healthy, off-season food
+32   s-              Netherlands   MPAs     2018   Circularity   FW    Agreement to reduce food waste
+     Hertoghenbosh
+31   s-              Netherlands   MPAs     2018   Circularity   S     Big data for better food
+     Hertoghenbosh
+33   Sofia           Bulgaria      WG       2018   Circularity   FW    Separate collection and treatment of biowaste
+34   Stavanger       Norway        WG       2018   Circularity   FW    Restevenn campaign
+35   The Hague       Netherlands   WG       2018   Circularity   FW    Community composting
+36   Tilburg         Netherlands   WG       2018   Circularity   FW    ZuiderZwam
+37   Toulouse        France        WG       2018   Circularity   FW    Recovery of food losses at Rio Loco music
+                                                                       festival
+39   Turin           Italy         MPAs     2017   Circularity   FW    Porta Palazzo organic project
+38   Turin           Italy         MPAs     2018   Circularity   FW    POPP (Progetto Organico Porta Palazzo):
+                                                                       towards circular markets
+40   Utrecht         Netherlands   WG       2018   Circularity   FW    Reusing coffee waste for growing oyster
+                                                                       mushrooms
+41   Venice          Italy         MPAs     2017   Circularity   FW    Progetto R.E.S.A.
+
+
+
+                                                          22
+42   Amsterdam       Netherlands   MPAs   2018   Climate      FSD   Mapping the food system: Last mile
+                                                                    distribution local hotel and catering industry
+43   Basel           Switzerland   WG     2018   Climate      FW    Living lab
+44   Bordeaux        France        MPAs   2016   Climate      FP    Système Alimentaire Terriorial social
+45   Copenhagen      Denmark       MPAs   2017   Climate      SDN   Organic conversion project 2002-2017
+46   Frankfurt       Germany       MPAs   2017   Climate      GOV   Klimagourmet Network
+47   Ljubljana       Slovenia      MPAs   2016   Climate      FSD   Bee path
+48   Ljubljana       Slovenia      MPAs   2016   Climate      FSD   Short food supply chains in the City of
+                                                                    Ljubljana
+49   Ljubljana       Slovenia      WG     2017   Climate      FP    Attention to rural development and urban
+                                                                    gardens
+50   Lyon            France        MPAs   2018   Climate      GOV   Increased supply of organic food to local
+                                                                    restaurants
+51   Madrid          Spain         MPAs   2017   Climate      GOV   Urban community gardens network: School of
+                                                                    food citizenship
+52   Molfetta        Italy         MPAs   2016   Climate      FSD   Fish all days
+53   Nantes          France        MPAs   2018   Climate      FP    Turning wastelands into productive lands
+     Métropole
+54   Tirana          Albania       MPAs   2017   Climate      GOV   Improving our citizens’ lives and food security
+55   Valencia        Spain         MPAs   2018   Climate      FSD   Políticas de revitalización de la tira de contar
+56   Valencia        Spain         MPAs   2018   Climate      GOV   An observatory to defend the green belt
+57   Venice          Italy         MPAs   2018   Climate      FW    Agreement for testing new green fuel for public
+                                                                    transport
+58   Vienna          Austria       MPAs   2018   Climate      FSD   Ecological public procurement
+61   Almere          Netherlands   MPAs   2017   Innovation   FW    Coalition extraordinary Almere
+59   Almere          Netherlands   MPAs   2017   Innovation   GOV   Oosterwold: urban agriculture
+60   Almere          Netherlands   MPAs   2017   Innovation   SEE   Onze-(Our) allotment under glass
+62   Bordeaux        France        MPAs   2018   Innovation   GOV   Conseil consultatif de gouvernance alimentaire
+                                                                    durable
+64   Bruges          Belgium       MPAs   2016   Innovation   GOV   Food lab
+63   Bruges          Belgium       MPAs   2017   Innovation   GOV   Guidelines on sustainable food on events
+66   Ede             Netherlands   MPAs   2017   Innovation   GOV   Political commitment for integrated food
+                                                                    governance: the success story of Ede
+65   Ede             Netherlands   MPAs   2018   Innovation   GOV   Measuring change: how Ede municipality
+                                                                    developed a tool to monitor improvement in its
+                                                                    local food system.
+67   Ghent           Belgium       MPAs   2018   Innovation   GOV   A co-creative governance approach
+68   Gothenburg      Sweden        WG     2017   Innovation   GOV   Environmental considerations driving a
+                                                                    comprehensive food strategy
+69   Ljubljana       Slovenia      MPAs   2016   Innovation   GOV   Strategy for rural development of the
+                                                                    Municipality of Lubljana 2014-2020
+70   Lyon            France        MPAs   2016   Innovation   GOV   Sustainable food for all
+71   Milan           Italy         WG     2017   Innovation   GOV   Seeking cooperation across department and
+                                                                    stakeholders’ involvement
+72   Nantes          France        MPAs   2017   Innovation   FP    Territorial food project of the Nantes
+     Métropole                                                      Metropolis
+73   Parma           Italy         MPAs   2018   Innovation   SEE   Youth in action for a sustainable and creative
+                                                                    gastronomy
+74   Rotterdam       Netherlands   WG     2017   Innovation   FSD   A strong focus on economic development
+75   s-              Netherlands   MPAs   2016   Innovation   GOV   Agrifood capital triple helix
+     Hertoghenbosh
+76   s-              Netherlands   MPAs   2016   Innovation   GOV   Grow campus
+     Hertoghenbosh
+77   Turin           Italy         MPAs   2016   Innovation   GOV   The right to food in the statute of the City of
+                                                                    Turin
+78   Utrecht         Netherlands   MPAs   2018   Innovation   SEE   Food as a means of reducing inequalities
+79   Valladolid      Spain         WG     2018   Innovation   FSD   City food policy
+80   Venice          Italy         MPAs   2017   Innovation   GOV   ‘Citizens In…deed!’ project
+81   Venice          Italy         MPAs   2017   Innovation   SEE   Off-course map project
+82   Amsterdam       Netherlands   MPAs   2016   Nutrition    SDN   Healthy lifestyles
+83   Basel           Switzerland   MPAs   2016   Nutrition    SDN   Sustainable catering at the University of Basel
+84   Basel           Switzerland   MPAs   2016   Nutrition    SDN   A healthy bodyweight for children and youths
+86   Birmingham      UK            MPAs   2016   Nutrition    SDN   Public health
+
+
+
+
+                                                       23
+85    Birmingham      UK            MPAs   2017   Nutrition   SDN   Nutrition smart cities: a Birmingham–India
+                                                                    initiative (BINDI)
+87    Cremona         Italy         MPAs   2017   Nutrition   SDN   Cremona: a model for a new sustainable
+                                                                    school canteen
+88    Dénia           Spain         MPAs   2018   Nutrition   SDN   Strengthening of the local food ecosystem
+                                                                    through healthy nutrition and sustainable
+                                                                    gastronomy
+89    Ghent           Belgium       MPAs   2017   Nutrition   SDN   A multifaceted approach to sustainable school
+                                                                    meals
+90    Lisbon          Portugal      WG     2017   Nutrition   SDN   Healthy food and social considerations
+91    Oss             Netherlands   MPAs   2018   Nutrition   SDN   De Wereldburger
+92    Pamplona        Spain         MPAs   2018   Nutrition   SDN   Direct purchase for improved diets in schools
+94    Parma           Italy         MPAs   2016   Nutrition   SDN   Food app — family daily meal planning
+                                                                    assistant for healthy, nutritious and tasty ideas
+                                                                    for good and sustainable meals
+93    Parma           Italy         MPAs   2018   Nutrition   SDN   Giocampus project: fostering the well-being of
+                                                                    future generations
+95    Riga            Latvia        MPAs   2018   Nutrition   SDN   Riga Central Market — a place for developing
+                                                                    healthy eating habits
+96    s-              Netherlands   MPAs   2016   Nutrition   FSD   Kitchen heroes
+      Hertoghenbosh
+97    Tirana          Albania       MPAs   2018   Nutrition   SDN   Change of food menu in kindergartens and
+                                                                    nurseries of Tirana
+99    Turin           Italy         MPAs   2016   Nutrition   SEE   Soup kitchens
+98    Turin           Italy         MPAs   2016   Nutrition   SDN   I made the menu
+100   Torres Vedras   Portugal      MPAs   2018   Nutrition   SDN   Sustainability programme school feeding
+101   Villanueva de   Spain         MPAs   2017   Nutrition   SDN   Healthy and sustainable feeding in the school
+      la Cañada                                                     menus in Villanueva
+
+
+3.2. Best practices by European cities
+Connected to each Food 2030 priority are several Milan Pact recommended
+actions that European cities are now designing and implementing. For each
+priority, two cases were selected as the contribution by eight cities to the
+localisation of this European framework. In the following pages we selected
+eight European best practices coming from cities that were awarded monetary
+prizes or special mentions in any of the editions of the MPAs. The aim is to
+provide a significant overview of how cities are able to put into practice different
+approaches to food-system issues and implement the Food 2030 framework as
+an accountability tool to assess urban food practices.
+
+     Nutrition — Birmingham and Copenhagen. A shift in diets (involving a
+      rising demand for protein, staple foods sometimes shipped from remote
+      locations, malnutrition and hunger from macro/micronutrient shortages), an
+      increase in obesity and a rise in non-communicable diseases from unhealthy
+      diets make up the current global picture for nutrition.
+     Climate — Ljubljana and Riga. Building climate-smart food systems that
+      are adaptive to climate change, conserving natural resources and
+      contributing to climate-change mitigation, particularly developing a disaster
+      risk reduction strategy.
+     Circularity — Bruges and Ghent. Implementing resource-efficient
+      circular-economy principles across the whole food system while reducing its
+      environmental footprint. Circularity is applied to sustainable and resource-
+      efficient food systems, and food losses and waste are minimised
+      throughout.
+     Innovation — Ede and Bordeaux. Boosting innovation and investment,
+      while empowering communities. A wide-ranging innovation ecosystem
+      leading to new business models and added-value products, goods and
+
+
+                                                         24
+   services, meeting the needs, values and expectations of society in a
+   responsible and ethical way.
+
+During the Food 2030 side event ‘Sustainable Food System for European Cities’
+in Plovdiv, the experts participating in the workshop examined the eight city
+cases, providing an in-depth analysis of the level to which they matched the
+Food 2030 priorities and other criteria, i.e. sustainability dimensions, actors
+involved, generic impact and scale.
+
+3.2.1. Nutrition — Birmingham: Public health against obesity
+
+In Birmingham 25 % of children are obese by the time they leave primary
+school. The Birmingham Childhood Obesity Partnership is leading a coordinated
+effort to impact on childhood obesity at all levels. The project includes policy
+change, partnerships, communications and specific interventions. Since signing
+the Milan Pact, Birmingham has been exploring and implementing innovative
+approaches to tackle childhood obesity, improve health and tackle health
+inequality.
+
+Birmingham City Council is involved in several initiatives to tackle childhood
+obesity through work focusing on the food environment rather than the
+individual. This work includes the following steps.
+
+1. Implementing an action plan to increase the usage of Healthy Start
+   vouchers. These vouchers are for pregnant women and low-income families
+   with children aged 0-4, and are redeemed in shops for milk, fruit and/or
+   vegetables. Current uptake is 70-75 %. The plan is to increase registration
+   and usage to 85 % as way of tackling health inequality.
+2. Hosting a Birmingham University National Institute for Health Research
+   fellow who is coordinating action with local retailers to promote the
+   purchase of fruit and vegetables, focusing efforts in the most deprived
+   communities; and working with schools to measure the impact of physical-
+   activity interventions and food choice in school canteens.
+3. Working with the innovative social enterprise Shift to create healthier food
+   environments. Poorer families are turning to hot, pre-prepared food more
+   often as it provides the perfect solution to putting a meal on the table with
+   the life pressures they experience. But this food is currently high in fat,
+   sugar and salt, comes in large portions and was designed as an occasional
+   treat. Shift and Birmingham City Council are piloting ‘No more same old
+   takeaway, proper dinner for you and the kids, delivered to your door’ to
+   provide a healthier alternative.
+4. Engaging in the national ‘Peas Please’ campaign led by the Food Foundation.
+   Birmingham City Council and partners have committed to several pledges to
+   increase the availability of vegetables, including increasing the number of
+   portions in school meals.
+5. Taking part in a Smart Cities initiative called BINDI. The Food Foundation is
+   facilitating a Nutrition Smart Cities initiative that involves the development
+   of policies and practices through a learning partnership between
+   Birmingham, United Kingdom and Pune, India to tackle all forms of
+   malnutrition.
+6. Commissioning a crowdfunding campaign to support and fund innovative
+   community-based health and well-being projects.
+
+
+                                          25
+7. Working with commissioning and procurement officers to encourage
+   healthier, more sustainable public procurement relating to food.
+
+The systemic response to childhood obesity set up by the municipality presents
+several learning points: through a partnership approach, the group brought
+together a range of organisations that had not worked together previously;
+crowdfunding demonstrated how it is possible to raise funds and amplify public-
+sector funds for social, health and well-being projects; the food projects/pilots
+take place in areas of multiple deprivation/need to address social and economic
+equity.
+
+3.2.2. Nutrition — Copenhagen: 90 % organic food procurement
+
+Since 2002 the Municipality of Copenhagen has had a food strategy that aims to
+use 90 % organic ingredients in the meals of the whole city’s public food
+system. An average rate of 88 % was reached in 2016. The 90 % organic
+strategy has been a dual effort of both training and upskilling kitchen staff, and
+simultaneously restructuring the methods of procurement to ensure the supply
+of quality organic ingredients.
+
+The organic conversion of approximately 900 kitchens across the city has been
+undertaken by departments within the municipality, with the help of various
+consultants and trainers. The main idea behind the strategy is to train kitchen
+staff in cooking techniques so that they are able to plan their menus sustainably
+and cook food from scratch, as opposed to using processed and pre-prepared
+food. The city has invested EUR 5.5 million in knowledge, education and
+counselling to facilitate the change (1.6 % of the total food-procurement
+budget). The task was to carry out this conversion within the existing budgets.
+
+The city has put a great deal of effort into ensuring that the organic transition in
+the kitchens will be supported by quality organic procurement and tenders that
+encourage the market to develop the organic and sustainable parts of their
+product ranges. Copenhagen organises four ‘market dialogue’ meetings
+annually prior to tender, to ensure supply and gain knowledge of possibilities in
+the market, at which officers discuss visions, upcoming political developments
+and future demands. As a direct result, there has been a professionalisation of
+the organic supply lines for canteens, schools, hospitals and nursing homes,
+and increased diversity in the products offered.
+
+The organic conversion can be done by adapting consumption and production in
+the kitchen. This process of change will entail a variation in the produce and the
+nutritional composition. In Copenhagen they call it a ‘conversion of heads and
+saucepans’.
+
+In 2007 the City of Copenhagen established the Copenhagen House of Food, an
+independent, non-commercial foundation to improve the quality of meals
+offered by the city to its citizens and create a healthy, happy and sustainable
+public food culture.
+
+Data on the school canteen service
+80 000 daily meals, 40 000 daily dinners
+7 375 tonnes of food procurement, 142 tonnes weekly
+
+
+                                            26
+1 100 kitchens in 925 locations, 1 700 kitchen staff
+EUR 40 300 000
+
+3.2.3. Climate — Ljubljana: Bee path for urban biodiversity
+
+Two thirds of the total surface area of the Municipality of Ljubljana are the so-
+called rural areas, which include 826 active farms, each covering approximately
+7 hectares. In its rural development strategy for 2014-2020, the Municipality of
+Ljubljana set as its first and most fundamental objective the premise to ‘ensure
+quality agriculture and forestry goods from a preserved environment, with the
+aim of self-sufficiency of Ljubljana’. By doing so, the municipality ensures food
+sovereignty and unburdens the environment by using short food-supply chains,
+while enhancing the food security of the urban population.
+
+To ensure self-sufficiency, the city recognised the importance of pollinators and
+their connection with food producers. This action is particularly relevant for the
+Municipality of Ljubljana, which accounts for 3 % of all Slovenian beekeepers,
+managing 4 500 bee colonies. In 2015, Ljubljana decided to involve the
+beekeepers of the city in the Bee Path project, with the aim of highlighting their
+key role in food production and self-sufficiency.
+
+The Bee Path was designed and opened in 2015. The path was realised with an
+interdisciplinary approach, presenting beekeeping from different perspectives.
+Visitors learn about the importance of bees for human survival and for food
+security, and the importance of honey in the daily diet. The project also
+provides visitors with a historical perspective, presenting the heritage of
+beekeeping in the city. The route involves various stakeholders, including
+educational and cultural institutions, institutions related to health, businesses,
+non-governmental organisations (NGOs) and, of course, beekeepers. Their main
+task is to ensure that their activities associated with the Bee Path raise
+awareness and inform city residents about the importance of bees in the city.
+
+Ljubljana protects the environment in a way that is friendly to bees, for
+example by planting honey plants in public spaces and promoting the activities
+of beekeepers’ associations. Additionally, Ljubljana has prepared educational
+programmes for children in primary school and kindergarten, emphasising the
+importance of education for youngsters. The content was developed by each of
+the 30 stakeholders that are included in the path, creating a shared vision on
+beekeeping for self-sufficiency.
+
+The municipality has taken over the role of developer and facilitator. Special
+attention is also paid to the elderly, who are involved in various educational
+activities, field trips and lectures where experts teach about the importance of
+honey and bee products for their health. Four members of the Bee Path have
+completed a course in apitherapy and are passing their knowledge to the
+younger generation. Moreover, the Bee Path is an extremely interesting tourist
+product, which promotes local tourism and the consumption of the locally
+produced honey.
+
+
+
+
+                                           27
+3.2.4. Climate — Riga: Biomass heat for greenhouse production
+
+Getliņi EKO is an environmentally friendly, high-technology ecological waste
+management company, majority-owned by the Municipality of Riga, that
+operates the Getliņi waste landfill site. It is responsible for the collection and
+ecological management of waste within the Riga waste-management area.
+About 50 % of all waste produced in Latvia, or 300 000 tonnes of waste
+annually, is transported to Getliņi.
+
+Food waste forms 41 50 % of waste biomass. The efficient use of this waste has
+been an issue for the municipality for many years, because food waste accounts
+for a huge amount of the waste that is deposited. For reasons involving
+environmental safety and the well-being of surrounding areas, and because of
+limited opportunities to grow territorially, this growth had to be limited. Food
+waste, when disposed of, creates landfill gas that should be properly gathered
+and used, otherwise it has a very negative impact on the environment and the
+soil. The practice plan for the landfill is based on two main pillars: operational
+practice and social education.
+
+Food waste is deposited in environmentally safe biodegradable cells. The landfill
+gas that forms in the cells is channelled to the Getliņi power unit and
+transformed into energy. The impact of waste on the environment is reduced to
+a minimum. The gas is transformed into energy. Getliņi ecological landfill is one
+of the largest producers of green energy in Latvia (in 2015, 33 718 200 kWh).
+The by-product of energy production is heat (in 2015, 21 336 800 kWh). The
+heat is used by the greenhouses that are located in the territory of the landfill
+and operated by Getliņi EKO.
+
+The greenhouse team grows tomatoes during the local vegetable off-season,
+and supplies Riga’s citizens via the largest supermarket chains. The possibility
+of having vegetables is an important aspect, since Latvia as a Nordic country
+experiences insufficient vegetable supplies during winter and spring. Only
+organic solutions and natural organisms are used to grow tomatoes, meaning
+that they are healthy and valuable products. Some 390 tonnes are produced
+during the off-season.
+
+The quality and the nutrition value of the products are higher than those of
+imported tomatoes. This ecological management practice has created a chain of
+benefits: food waste turned into green energy and nutritious food, with a huge
+positive impact on the environment. Due to Riga’s practices our atmosphere is
+protected from 2 000 m3 of environmentally harmful gases per hour. Intensive
+educational work is carried out to educate society about the life cycle of
+household waste, recycling and food-waste reduction.
+
+The company organises free field trips to the landfill, along with visiting
+seminars. The field trips are available for pre-schools, schools, universities,
+companies, groups of environmental activists, etc.
+
+
+
+
+                                           28
+3.2.5. Circularity — Bruges: Food-waste reduction in healthcare
+
+In 2015, the City of Bruges facilitated a bottom-up process to build a
+sustainable food policy focused on food-waste reduction in public organisations.
+Recent research shows that food waste is a major problem in the healthcare
+sector, and could reach up to 40 % of total waste. The health sector faces
+unique challenges: healthcare structures create personalised dietary options
+based on the health status of patients, and they frequently serve non-voluntary
+consumers and unpredictable numbers of clients. On top of that, it is often not
+straightforward to bring together the different stakeholders along the food chain
+of healthcare institutions. This makes food-waste reduction a complicated
+effort. To tackle this issue, the Municipality of Bruges coordinated an
+immersive, participatory process of measurement, ideation, evaluation and
+refinement of food-waste-reduction approaches in the healthcare sector.
+
+The overall objective was to find solutions to reduce food waste in healthcare
+institutions through a participatory approach. Bruges has 19 healthcare
+institutions, four of which are actively involved in the project that started in
+2017 (three centres with a total of 1 479 patients and a catering operator linked
+to six care institutions).
+
+The first step in the process was to measure and analyse current food waste
+and its economic impact in the four selected healthcare institutions. The next
+step was to support them in reducing food waste by coaching employees,
+developing successful methodologies to reduce food waste in healthcare
+institutions. The personnel of the healthcare structures were trained in
+measuring food waste and were actively involved in an innovative process to
+find specific solutions.
+
+Furthermore, surveys were conducted among personnel, patients and visitors to
+gain information on the quality, quantity, choice and timing of meals and the
+way they were being served. The solutions were transferred to other healthcare
+institutions in Bruges and the region of Flanders through a manual. Besides
+healthcare institutions, FoodWIN (the European Food Waste Innovation
+Network, which supports European cities in reducing food waste) and the Food
+Lab of Bruges were involved in the innovation process.
+
+Results and lessons learned. Food waste can be reduced by 27 652 kg per year,
+which results in a saving of 88 487 kg CO2 equivalent per year. Besides
+prevention, the project also focuses on the valorisation of food waste through
+donations to local food banks. Beyond quantifiable results, the main innovation
+introduced by this practice lies in its participatory approach, which was
+fundamental in addressing the complexity of tackling food waste in the
+healthcare sector. Nurses, nutritionists and kitchen staff are in key positions to
+create tailored solutions.
+
+
+
+
+                                           29
+3.2.6. Circularity — Ghent: Foodsavers
+
+At the city level there are significant volumes of leftover food available through
+classic wholesale distribution and retail systems. At the same time, cities are
+trying to tackle food poverty and malnourishment within their urban context. In
+Ghent the municipality noticed that there was a larger amount of leftover food
+available than was being recovered and redistributed by social organisations.
+The City of Ghent and the social welfare department built scenarios with the
+stakeholders involved and decided to launch a logistics platform to better match
+the available amount of and the demand for leftover food. This process took
+about 2 years of discussions and research.
+
+In March 2017 the Foodsavers platform was launched. It brings together
+leftover food from the wholesale market and local retailers and redistributes it
+to social organisations in Ghent. The organisations are a mix of food banks,
+social restaurants and social supermarkets. The goal is threefold, as explained
+below.
+
+   Climate target. By preventing food from being wasted, CO2 emissions are
+    decreased. According to the FAO, decreasing food waste in Ghent by
+    100 tonnes would be equivalent to preventing 254 tonnes of CO2 emissions.
+    The goal was to prevent at least 100 tonnes of food from being wasted in
+    2017.
+   Social employment. The Foodsavers platform is being operated by people
+    who have been in long-term unemployment. The project trains them in
+    logistical skills and prepares them for the regular labour market. The goal
+    was to employ 10 to 12 long-term unemployed people for whom access to
+    the labour market was difficult.
+   Fighting poverty. The leftover food is distributed to people living in poverty.
+    It focuses on fresh, healthy food and should thus increase access to healthy
+    food for people in that group. Nevertheless, the project is not considered to
+    be a structural way of fighting poverty because it does not tackle the causes
+    of food poverty. The whole topic of food poverty and determining the causes
+    of a lack of access to healthy, sustainable food is being looked at in another
+    project.
+
+After 10 months the results are overwhelming. Some 300 tonnes of food have
+been recovered and redistributed. That equals savings of about 762 tonnes of
+CO2 emissions. Most of the leftovers are fruit and vegetables. A total of 172 000
+portions have been redistributed to about 19 000 people, both as food packs for
+families in need and as individual meals in social restaurants. Nineteen formerly
+unemployed people have already been given work though Foodsavers.
+
+Leftovers are being distributed through 58 social organisations, and 24
+retailers, one wholesale market, two retail distribution centres, one organic
+farm and one company have provided leftovers. The project has been very
+successful, and has received a lot of study visits from other cities, both locally
+and internationally. It has already received three awards.
+
+
+
+
+                                           30
+3.2.7. Innovation — Ede: Political commitment for food governance
+
+The City of Ede adopted its first integrated food strategy in 2015. A careful
+process followed in which many different stakeholders from society were
+consulted to create a bottom-up food policy. Whereas many municipalities
+develop their strategy as a voluntary tool that provides guidance, Ede’s food
+strategy was officially adopted by the city council, which gives it very significant
+status. The city council showed that the strategy would not remain only on
+paper by allocating a large budget upon adoption. Through this integrated food
+strategy, Ede works to ensure that healthy and sustainable food is available to
+all of its citizens by focusing on improving and strengthening both the economic
+and the social conditions in Ede.
+
+Ede is the first municipality in the Netherlands to truly achieve a food
+governance shift towards healthy and sustainable food for all its citizens.
+Through its integrated food strategy, food issues are addressed in a systemic
+and coherent way. Ede goes even further by having a food programme to
+operationalise this strategy, a budget to implement it, a municipal food team of
+five full-time staff and the first municipal food councillor in the Netherlands with
+food as the primary subject in his portfolio. This political and administrative
+commitment is in fact rooted in the municipal organisation, which works closely
+together with a wide range of societal actors.
+
+The Municipality of Ede is also in close contact with other cities (through the
+project ‘City deal: Food on the urban agenda’), the province of Gelderland
+(regional level) and the Ministry of Economic Affairs and Internal Affairs
+(national level). Together with these partners, the city is integrating its own
+role as a local government within the food system, in coordination with the
+province and the national government.
+
+Results and lessons learned. By using an integrated food strategy Ede connects
+several elements of the food system: food education, public health, food waste,
+short food chains, sustainable and innovative food production and integrated
+governance. Ede applies a multilevel approach, focused on territorial and social
+inclusion. The best example of this is the ‘FoodFloor’, a concept developed by
+several citizens’ groups. Citizens can pitch an idea for healthy/sustainable food
+in Ede and apply for a small subsidy to take their project to the next level.
+
+The subsidies are provided by the municipality. FoodFloor is hence a nice
+example of an innovative collaboration between societal groups and the
+municipality for a modern way of assisting food initiatives. Getting food issues
+on the political agenda is a complex journey, for which a specific food team can
+be an important catalyst.
+
+
+
+
+                                            31
+3.2.8. Innovation — Bordeaux: Metropolitan food council
+
+In 2011, the Quévremont report, commissioned by the Urban Community of
+Bordeaux, revealed the causes of the disappearance of the urban greenbelt of
+the agglomeration and stressed the limit of its food self-sufficiency: only 1 day.
+The territorial diagnosis of Bordeaux Métropole and the mapping of actors, both
+carried out in 2014 by the International Urban Food Network, made it possible
+to put a spotlight on these territorial problems (urban sprawl, increasing
+distance between producers and consumers, public health issues), while at the
+same time identifying the many initiatives taking place relating to food.
+
+In this context, a need was felt to invent a new mechanism for the governance
+of territorial initiatives that could articulate the actions of public and private
+actors and civil society at different scales. Moreover, the theme of sustainable
+food has become subject to national and territorial questions with the
+promotion of Territorial Food Projects, a mechanism promoted by the Ministry
+of Food and Agriculture.
+
+Bordeaux Métropole is also a pilot territory of the GouTer (Gouvernance
+territoriale des systèmes alimentaires) project (by the International Urban Food
+Network, the Institute for Research and Debate on Governance and the RUAF
+Foundation). The project aims to strengthen territorial authorities’ capacities in
+local governance of food systems. Against this background, and strengthened
+by the experience that it has acquired over the last several years, Bordeaux
+Métropole decided to bring the subject of food governance to its 28
+municipalities, in parallel and in strict correlation with the topic of agriculture,
+while investing in partnerships with neighbouring territories. The metropolis
+represents the right level for the steering of this food-governance body because
+of its consumption pool, its broadened powers and its links with rural territories.
+
+On 19 May 2017, the Bordeaux Metropolitan Council approved the creation of
+the Consultative Council for Sustainable Food Governance in Bordeaux
+Métropole (CCGAD), enabling the metropolis to pool its competences in relation
+to sustainable food in a single body. Thus, the objective of the council is to offer
+communities and actors in the territories the means to create original
+initiatives, new tools and innovative methodologies for the relocation of the
+food system. Its main aim is to ensure that the issue of sustainable food is
+highlighted in the metropolitan strategy, following a participatory approach.
+
+The Council will also address the issues of sustainable food at the
+suprametropolitan level, while assessing the impact of actions taken to work
+towards an ecological transition. The Council aims to include the territory’s
+various ‘actors’, divided into five colleges. These actors will be represented in
+the four thematic workshops, which will integrate all six thematic areas of the
+MUFPP.
+
+
+
+
+                                            32
+3.3. Milan as a living laboratory: learning from global knowledge to
+     shape Milan’s food policy as a beta tester and trendsetter
+The City of Milan, during Expo Milan 2015 ‘Feeding the Planet, Energy for
+Life’, adopted one of the most innovative urban food policies in Europe. In 2014
+Milan started an action-research process that produced an analysis of its food
+system, articulated through 10 main issues. After that, the city launched a
+public consultation engaging its different departments, universities, civil-society
+organisations, start-ups and the private sector.
+The Milan food policy was the first innovative step the municipality took to
+move forward in making its food system more sustainable, resilient and equal.
+The policy, first of its kind in Italy, is the result of a growing awareness among
+different actors on pressing environmental issues and on the need for the
+responsible management of food assets. The Milan food policy was created
+thanks to the partnership between the municipality and the Cariplo Foundation.
+In July 2014, the partners signed a memorandum of understanding to promote
+and implement the initiative.
+The Cariplo Foundation further committed itself to allocating funds for the
+technical support of the food policy, provided by an independent research
+centre. In 2014, a preliminary local food-system study was defined, and the
+active involvement of citizens and all those operating in the city as part of the
+food system was sought in order to capitalise on the different resources (ideas,
+skills, investment, planning, etc.) able to trigger a multiplier effect. The food
+policy became a reference initiative ready to pay attention to the city’s needs.
+
+
+
+
+Figure   5.   Diagram   showing   the   Milan   food   system’s   main   elements   (Andrea   Magarini,   2015).
+
+
+
+
+                                                           33
+The process ended in 2015 with a vote in the city council on five priorities
+encompassing different themes with an integrated approach, 16 guidelines and
+48 actions for the Milan food policy. These five priorities were:
+
+1.   ensuring healthy food and water for all citizens;
+2.   promoting the sustainability of the food system;
+3.   promoting food education;
+4.   fighting against food waste;
+5.   supporting scientific research in the agri-food sector.
+
+From 2016 the City of Milan, within the framework of its food policy,
+implemented several actions relating to the target areas of multilevel
+governance; local public procurement and innovative peri-urban agriculture;
+food losses and waste management; and healthy diets. In 2017 a Vice-Mayor
+for Milan Food Policy was designated by the mayor, with coordination role and
+with the technical support of the newly established Food Policy Office.
+
+Milan is committed to including choices that directly or indirectly affect food and
+water in the framework of its institutional prerogatives and in the activities of
+its subsidiary companies, in order to improve people’s quality of life and the
+quality of its territory, and also to play an innovation role at the national and
+international levels.
+
+The food policy is gradually reaching different areas around the city; the map
+below shows how the initiative has spread. The markers refer to short-supply-
+chain project partners, local food waste hubs, associations and businesses that
+are active against food waste, schools with food policy projects, significant
+institutions and food policy hubs. As an integrated but also innovative action,
+being able to reach the majority of the city is a primary goal of the food policy
+and proves its ability to involve a wide range of stakeholders.
+
+
+
+
+Figure 6. Geolocalisation of the Milan food policy actions (City of Milan, 2019).
+
+
+
+
+                                                           34
+3.3.1. The responsible research and innovation approach at the base of the
+preliminary study for the Milan food policy
+
+RRI is a cross-cutting issue in Horizon 2020, the EU’s 2014-2020 programme
+for research and innovation. RRI means engaging society in science and
+innovation very early in the process of R & I in order to align its outcomes with
+the values of society. It connects different aspects of the relationship between
+R & I and society: public engagement, open access, gender equality, science
+education, ethics and governance. RRI entails engaging all actors (researchers,
+policymakers, educators, business and industry innovators, civil-society
+organisations) through inclusive, participatory methodologies in all stages of the
+R & I process and at all levels of R & I governance (from agenda setting to
+design, implementation and evaluation). This in turn will help R & I tackle
+societal challenges and align with the values, needs and expectations of a wider
+public. Not only is this ethically and societally worthwhile, but it also produces
+better science, making research agendas more diverse and taking better
+account of real-world complexities.
+
+During the starting phase of the food policy, what immediately became clear
+was the complexity of food as an issue and its natural engagement with
+multiple stakeholders and different views, values, needs, desires and opinions.
+
+To tackle this complexity, the collaboration between the Cariplo Foundation and
+the City of Milan brought looked at the RRI methodological approach as a tool
+to explore the fluid panorama of Milan’s food system. The choice to implement
+the RRI approach is rooted in the values of responsibility, openness and
+inclusion that inspire the method, as well as its robustness.
+
+Clearly, any method requires adaptation in order to be applied efficiently in a
+specific context, along with a certain level of flexibility. The journey of the Milan
+food policy began in 2014, with the memorandum of understanding signed
+between the Cariplo Foundation and the City of Milan to promote and
+implement a comprehensive strategy on food for the City of Milan. From the
+very beginning, the aim was to develop a policy for and of citizens as a legacy
+of Expo 2015. This necessitated a dialogue bringing together citizens,
+entrepreneurs, researchers and policymakers, which occurred in May 2015 at
+an open public debate hosted by the City of Milan at City Hall. A long period of
+preparatory work, supported by the Cariplo Foundation, created a
+comprehensive map of the current state of affairs in relation to the local food
+system, in terms of research, private actors and projects. The preparatory work
+encouraged the debate on food-system issues and allowed a picture of the
+Milan context to be put together.
+
+The next step in the process was the approval of Milan food-policy guidelines in
+October 2015 that reflected the indications and insights that had emerged from
+the preparatory work and the public debate. The high level of engagement of
+the local municipality in this initiative was evident from the very beginning, and
+after the approval of the food-policy guidelines it made the decision to establish
+a Milan Food Policy Office within the municipality. This choice had significant
+practical consequences. More specifically, it led to the development, support
+and launch of a number of initiatives, projects and events that have permeated
+the local food system since 2017. The governance of the food policy required
+
+
+                                            35
+the direct engagement of important figures such as Milan’s vice-mayor, the
+delegate for the municipality and the head of the Cariplo Foundation’s Science
+and Research Area. Together they make up the Milan Food Policy Advisory
+Board, shaping the office, identifying the timeline and priorities and
+guaranteeing that the activities are closely aligned with the Milan food-policy
+guidelines.
+
+The Milan food policy is still thriving. This experience allowed the RRI
+approach — a method the Cariplo Foundation participated in building on
+through its engagement in the ‘RRI tools’ project (seventh framework
+programme grant No 612393) — to be put into practice. As an approach, RRI
+works well in tackling complex issues such as food, food systems and other
+food-related issues (e.g. social inclusion, mitigation of food poverty, climate
+change, etc.). Nonetheless, as with everything, it comes with a cost that in this
+case is in terms of both time and money. It should be noted that the
+participation of a body such as the Cariplo Foundation (which is synonymous
+with reliability) and the strong engagement of policymakers were crucial
+ingredients for the success of the Milan food policy. In this context, all the
+relevant stakeholders participating Milan’s food system were willing to
+participate in bringing to the debate different visions, values and opinions. This
+hybridisation of perspectives guaranteed the development of innovative ideas
+and initiatives that together represent the uniqueness of the Milan food policy.
+
+3.3.2. The sustainable development goals in the city’s agenda
+
+The holistic approach of urban food policies makes them compliant with the
+SDGs of Agenda 2030. Milan, thanks to the support of an independent research
+centre, explored the synergy between its food-policy priorities, the MUFPP
+monitoring framework and the SDGs’ targets. The result was an instrument that
+could provide permanent monitoring of the policy advancements with both
+qualitative and quantitative indicators. The process will lead to the development
+of a tool for the accountability of Milan towards its citizens in sharing priorities
+and assessing the results in comparison with other global cities. It could also
+become a participation tool for citizens within an international framework.
+
+3.3.3. Stakeholder engagement as a paradigm to work with urban actors
+
+The Milan food policy was launched after a large-scale consultation among local
+actors, involving citizens, universities, NGOs and the private sector. During the
+implementation of the policy a large number of stakeholders were involved at
+different levels. NGOs and citizens are engaged through thematic workshops
+that are organised on a yearly basis. Strong partnerships with academia and
+the private sector contribute to the implementation of the policy at the local
+level.
+
+To maintain a constant level of engagement since 2015 the municipality has
+established institutional relations, through letters of intent and memoranda of
+understanding, with the main public players of the Milan system. These actors
+have become the main stakeholders of the municipality in implementing the
+food policy.
+
+
+
+
+                                            36
+Year          Actor                           Topic
+
+2015          Cariplo Foundation              Joint deal to develop the food policy
+
+2016          Assolombarda                    Defining a model against food waste
+              (private-sector union)          in the different city neighbourhoods’
+                                              local food waste hubs
+              Politecnico di Milano (*)
+              (University School of
+              Management)
+
+2017          Regional Health Agency (*)      Developing joint actions on healthy
+                                              diets
+
+2018          Milan Agricultural Park (*)     Promoting local agriculture
+
+              Slow Food Italy
+
+2019          Ellen MacArthur Foundation      Support for the circular economy
+
+2019          Metropolitan Authority*         Promoting the circular economy and
+                                              the food policy in local schools
+              ATO (*) (metropolitan
+              agency of municipalities for
+              water)
+
+              Regional School Office (*)
+
+(*) Public bodies
+
+In parallel with these actors, the municipality can count on the constant
+engagement of its own municipal agencies, with direct effects on the food
+system. Among these we note:
+
+   Milano Ristorazione — Municipal Agency for School Canteens,
+   AMSA — Municipal Agency for Waste Management,
+   AMAT — Municipal Agency for Environmental Accountabilty,
+   MM — Municipal Agency for Water Management,
+   Sogemi — Municipal Agency for General Food Market.
+
+3.3.4. Nutrition
+
+‘Morning break with fruit’ is an initiative developed by Milano Ristorazione
+within the scope of the Milan food policy. This initiative aims to improve school
+children’s diets by supporting the consumption of fruit as a snack in the
+morning. ‘Morning break with fruit’ was developed to fight obesity among
+children, a growing issue over the last 20 years, promoting healthy habits and
+lifestyles. At the same time, the consumption of fruit in the morning allows food
+waste to be reduced at lunchtime, further contributing to the sustainability of
+the whole food system. Finally, the distribution of fruit as a snack allows
+financial pressure to be reduced on vulnerable families, who might struggle to
+provide healthy food to their children.
+
+
+                                             37
+A first pilot scheme was launched in June 2016, involving approximately 30
+primary schools and 4 000 children. The project has now become a standard
+practice in approximately 50 primary schools within the city, specifically
+targeting vulnerable neighbourhoods. The added value of the project lies in its
+integration within the school system, which allows a constantly growing number
+of children to be reached. Two years after the launch of ‘Morning break with
+fruit’ it was found that eating fruit instead of other food in mid morning
+increases the enjoyment of lunch by 11 %, and also leads to a drop in the
+amount of food waste, quantified in a decrease of 17 %.
+
+Milano Ristorazione has also started a process of sensitisation of children and
+parents by introducing changes to the school menu. The municipal agency has
+completely eliminated added salt from kindergarten menus and food
+preparation. This project has been under way since 2017, and the aim is to
+follow children over the years and over their school experience so that as they
+grow and go to primary school, the programme will follow them. Similarly, but
+for different reasons, Milano Ristorazione significantly cut the presence of red
+meat in primary school menus. The menu has been suitably adapted by
+replacing red meat with other protein sources. In this case the aim is to educate
+children on food variety and reduce CO2 emissions due to animal farming.
+
+The City of Milan is also active in defining a map of the school gardens that
+are active in Milan. The idea is to provide every school with a handbook that
+explains the best way to start a school garden, choose the correct cultivars and
+grow them to be consumed by children and families. The municipality also aims
+to increase the number of school gardens to enhance Milan’s production of
+healthy food.
+
+3.3.5. Climate
+
+The food policy has connected public procurement for school canteens in Milan
+with the rice supply chain through Milan’s agricultural district (180 000 kg/year,
+to the value of EUR 300 000/year). The know-how provided by this experience
+now acts as the grounds for further scalability by making available 19
+horticultural supply chains for school canteens’ public procurement. With
+co-financing from the EU’s common agricultural policy managed by the regional
+authority, an integrated area plan was created with 31 partners in Milan
+reorienting investments in agricultural farms to the value of EUR 4 million.
+Under this plan the funds are invested in the conversion of cultures concerning
+local organic horticultural supply chains.
+
+The municipality, together with the Municipal Agency for Waste Management
+and the energy provider, has launched a project called #AmbienteaScuola
+(environment at school). The initiative began in 2018, and aims to introduce
+separate waste collection in all of the city’s schools, along with environmental
+education, contributing to the implementation of the SDGs. The project is
+developing a pilot scheme in 2019 to create plastic-free schools. Two high
+schools planned to become the first to completely eliminate bottled water from
+their buildings, distributing steel bottles and installing free water distributors.
+
+The City of Milan is lead of the development education and awareness raising
+project ‘Food wave — empowering urban youth for climate action’. The
+
+
+                                           38
+project’s overall objective is that EU citizens will increase their knowledge of,
+awareness of and engagement on sustainable patterns of food consumption and
+production for climate-change mitigation and adaptation. In order to contribute
+to this wider goal, the project will attempt to ensure that young people in 16 EU
+Member States are committed to changing their food consumption behaviour
+and actively promote the shift towards ecological and inclusive urban food
+systems, contributing to the EU’s efforts to mitigate and adapt to climate
+change. In fact, the main expected results of the projects are that it will raise
+awareness of the importance of climate-friendly food consumption (i.e.
+behaviours, policies and food-system models) and have an impact on policies
+and food-system models through the development of content and the
+dissemination of media materials to sensitise young people to climate-change
+issues.
+
+3.3.6. Circularity
+
+The city council approved a reduction in the waste tax in 2018. This reduced
+the tax on waste by a maximum of 20 % in favour of food businesses that
+donate their food losses to charities. The action is coordinated by different
+departments of the municipality (fiscal, environmental, food policy) as part of a
+multisectoral working group. The measure further supports the mapping,
+strengthening and dissemination of food donation initiatives in the city, mainly
+led by non-profit organisations. According to the preliminary review of
+participation, it will lead to the recovery of over 600 tonnes of food. At the
+same time, the action is a structural variation on the tax rules, enabling food-
+policy initiatives to be consolidated and local players to become permanently
+involved as it moves forward. For the first-year pilot scheme, the waste tax
+allowed the engagement of about 50 supermarkets from six different
+companies, five big retailers from the general markets, six small retailers and
+106 school canteens.
+
+In order to support food recovery by small, local players, the municipality has
+developed an agreement with a university lab at the Politecnico di Milano (to
+design a model and data analysis for food losses and waste management), the
+private-sector union Assolombarda (representing supermarkets and companies
+with canteens) and the philanthropic Cariplo Foundation (which covered the
+infrastructure costs) to develop a pilot project to redistribute food losses in two
+local neighbourhoods. One of the local food waste hubs is hosted in a space
+owned by the municipality and managed by a food bank. During the course of
+the pilot year of implementation (2019), the incoming and outgoing flows of
+donations to and from the hub will be monitored and the knowledge will be
+passed to 35 local organisations mapped by the food policy and working on food
+donations. According to a preliminary analysis, each hub will gather and
+redistribute approximately 60 tonnes of food per year.
+
+Thanks to a systemic approach, these hubs generate positive economic, social
+and environmental impacts.
+
+   The hubs involved 15 supermarkets, four private canteens and 18 local
+    social associations in the initiative.
+   In 2018, the hubs saved and donated 60 tonnes of food losses, equivalent
+    to 220 000 meals.
+
+
+                                           39
+   The commercial value of the food donations is estimated at about
+    EUR 380 000.
+   About EUR 6 000 worth of waste-treatment management costs were saved.
+   Those involved could benefit from the deduction of VAT and income tax, in
+    addition to the reduction in the waste tax for companies that donate food.
+   The hub saved 96 million litres of water, the quantity needed to produce the
+    food saved.
+   The hub saved food that would have required an area equivalent to
+    81 hectares for production.
+   The equivalent of 237 tonnes of CO2 were saved thanks to the food
+    recovery.
+
+These data are generated on the basis of a set of proxy coefficients defined in
+2015 in the local regional context by an assessment and a life-cycle assessment
+organised by the regional authority.
+
+3.3.7. Innovation
+
+The community orchard in the neighbourhood of Gallaratese aims to
+promote healthy food and health through the creation of a large-scale orchard
+integrated into the neighbourhood. Through the involvement of the inhabitants
+of the Gallaratese and QT8 districts, areas will be redeveloped that are not used
+by citizens because they are enclosed, degraded or to be reclaimed, and they
+will be used for the production of fruit and vegetables, along with integrated
+services. Specifically, the Gallaratese orchard will lead to increased social
+cohesion by directly involving the residents; will increase the attractiveness of
+the neighbourhoods by building an identity associated with healthy food; and
+will increase the quality of the local ecosystem through urban agriculture, green
+roofs and the regeneration of the soil through bioremediation.
+
+The Food Policy Hot Pot is an instrument launched by Cariplo Factory to bring
+together businesses’ innovation needs under the Milan food-policy framework
+and to connect them with start-up solutions. The Food Policy Hot Pot aims to
+empower local actors in a broad innovation ecosystem, leading to new business
+models and added-value products, goods and services, meeting the needs,
+values and expectations of actors in a responsible and ethical way. More
+specifically, business needs, either expressed or unexpressed, provide a basis
+from which can grow original proposals from various sections of society, such as
+independent citizens, schools, small businesses, NGOs and start-ups.
+
+The participation of the local municipality in the Food Policy Hot Pot represents
+a guarantee to citizens that this platform will respect and reflect the principles
+of the food policy. The programme was able to involve five major food
+companies that are present in Milan (three large retailers, one municipal agency
+and the general market) and to bring together their innovation needs in the first
+part of 2019. The second phase of the initiative will be opened up to start-ups
+to be able to explore all kinds of solutions and business models.
+
+
+
+
+                                           40
+Getting in touch with the EU
+IN PERSON
+All over the European Union there are hundreds of Europe Direct information centres.
+You can find the address of the centre nearest you at:
+https://europa.eu/european-union/contact_en
+
+ON THE PHONE OR BY EMAIL
+Europe Direct is a service that answers your questions about the European Union.
+You can contact this service:
+– by freephone: 00 800 6 7 8 9 10 11 (certain operators may charge for these calls),
+– at the following standard number: +32 22999696 or
+– by email via: https://europa.eu/european-union/contact_en
+
+
+Finding information about the EU
+ONLINE
+Information about the European Union in all the official languages of the EU is available on
+the Europa website at: https://europa.eu/european-union/index_en
+
+EU PUBLICATIONS
+You can download or order free and priced EU publications at:
+https://publications.europa.eu/en/publications. Multiple copies of free publications may be
+obtained by contacting Europe Direct or your local information centre
+(see https://europa.eu/european-union/contact_en)
+
+EU LAW AND RELATED DOCUMENTS
+For access to legal information from the EU, including all EU law since 1952 in all the official
+language versions, go to EUR-Lex at: http://eur-lex.europa.eu
+
+OPEN DATA FROM THE EU
+The EU Open Data Portal (http://data.europa.eu/euodp/en) provides access to
+datasets from the EU. Data can be downloaded and reused for free, for both commercial and
+non-commercial purposes.
+European cities leading in urban food systems transformation is a report
+of significant EU experiences of urban food policies gathered by the City of
+Milan, which started working on the topic in 2015 and occupies a strong
+role in the leadership of the topic. The main aim of the document is to
+facilitate debate, discussions, diffusion, mutual learning and the exchange
+of best practices among the stakeholders active on these issues.
+
+The report explores two of the main frameworks on food policies:
+the Milan Urban Food Policy Pact and Food 2030, with a focus on the
+European regionalisation process carried out by Eurocities. The European
+Commission is greatly interested in the potentiality of urban contexts
+to address food-related issues, and the report therefore provides a
+general overview of 101 European cities’ actions and eight in-depth best
+practices, along with a thorough analysis of Milan’s experience.
+
+
+
+
+Studies and reports
+

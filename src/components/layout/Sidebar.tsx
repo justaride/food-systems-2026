@@ -30,6 +30,7 @@ const navGroups = [
     label: 'Analyse',
     items: [
       { name: 'Innsikt', href: '/innsikt', description: 'Forskning, kartlegging, analyse' },
+      { name: 'Forskningsrunder', href: '/forskningsrunder', description: 'Food Research Process 20. april 2026' },
       { name: 'Forskning', href: '/forskning', description: 'Deep research-prompter' },
       { name: 'Akademia', href: '/masteroppgaver', description: 'Master- og PhD-avhandlinger' },
       { name: 'Kart', href: '/kart', description: 'Butikker og kommunegrenser' },

@@ -1,0 +1,1908 @@
+               Living Labs
+               kick-off
+                    M4.1
+               Report
+
+
+
+
+www.feast2030.eu
+FEAST is co-funded by the European Union’s Horizon Europe
+research and innovation programme under grant agreement number
+101060536. Views and opinions expressed are those of the author(s)
+only and do not necessarily reflect those of the European Union.
+Neither the European Union nor the granting authority can be held
+responsible for them.
+UK participant in FEAST (Good Food Oxfordshire) is supported by
+Innovate UK grant number 10041509 and the Swiss participant in
+FEAST (FiBL) is supported by the Swiss State Secretariat for Education,
+Research and Innovation (SERI) under contract number 22.00156.
+
+Start Date 01/07/2022, End Date 30/06/2027
+
+
+
+
+Cite as:   Exner, A., Cepoiu, L., Vordemfelde, J., & Konstantopoulou, M.
+           (2024).      FEAST - Report on Living Labs kick-off.
+           Zenodo. FEAST project - Food systems that support
+           transitions to hEalthy And Sustainable dieTs.
+
+DOI:       hhttps://doi.org/10.5281/zenodo.11367142
+
+
+
+
+This document is shared under Creative Commons
+Attribution 4.0 International License (CC BY 4.0).
+Food systems that support
+transitions to hEalthy And
+Sustainable dieTs
+
+Deliverable Name                    Report on Living Labs kick-off
+Description                   Report on Living Labs’ kick-off events and
+                              current state assessment, challenges, and
+                                            SWOT analysis
+Work Package (WP)                 Co-developed community-based
+                                         solutions (WP4)
+Deliverable Related No.                         D4.1
+Lead Beneficiary                       Universitaet Graz - UGR
+Type                                         Report (R)
+Dissemination Level                          Public (PU)
+Due Date and Project Month         December 31 2023 / Month 18
+Author(s)                     Andreas Exner (University of Graz), Livia
+                               Cepoiu (University of Graz) Johanna
+                                   Vordemfelde (ICLEI), Maria
+                                     Konstantopoulou (DEM)
+Revision                            See Table History of Changes
+Reviewed by (if applicable)                      N/A
+
+
+
+
+                                                                 Page 1 of 36
+     Report on Living Labs kick-off
+
+
+
+
+       Table of contents
+Table of contents ..................................................................................................................................... 2
+List of Figures ........................................................................................................................................... 3
+List of Tables ............................................................................................................................................ 3
+Key Facts .................................................................................................................................................. 4
+1      Introduction ..................................................................................................................................... 5
+2      Overview of the Living Labs ............................................................................................................. 7
+    2.1        General Information ................................................................................................................ 7
+    2.2        Methodologies and process .................................................................................................... 9
+    2.3 Next steps .................................................................................................................................... 11
+3      Results............................................................................................................................................ 11
+    3.1        Alto Minho, Portugal.............................................................................................................. 11
+    3.2        Avignon, France ..................................................................................................................... 13
+    3.3        Ghent, Belgium ...................................................................................................................... 15
+    3.4        Guldborgsund, Denmark ....................................................................................................... 17
+    3.5        LEADER region Weinviertel-Donauraum, Austria .................................................................. 19
+    3.6        Lodz, Poland........................................................................................................................... 21
+    3.7        Tuscany, Italy ......................................................................................................................... 23
+    3.8        Oxfordshire, United Kingdom ................................................................................................ 25
+    3.9        Prilep, North Macedonia ....................................................................................................... 27
+    3.10       Rotterdam, Netherlands ........................................................................................................ 29
+    3.11       Sitia (Crete), Greece ............................................................................................................... 31
+4      Discussion of results ...................................................................................................................... 34
+5      Appendices .................................................................................................................................... 35
+
+
+
+
+                                                                                                                                                 Page 2 of 36
+     Report on Living Labs kick-off
+
+
+       List of Figures
+Figure 1     Geographical food system typology and location of FEAST Living Labs (typology developed
+by FEAST) 6
+Figure 2     Food system model showing how WP4 Living Labs cut across levels and are addressing
+various stakeholders ................................................................................................................................ 6
+
+       List of Tables
+Table 1        Document history of changes ................................................................................................ 4
+Table 2        Overview of Living Labs and target groups ............................................................................ 7
+Table 3        SWOT Analysis Alto Minho Living Lab .................................................................................. 12
+Table 4        Kick-off meeting Alto Minho ................................................................................................ 13
+Table 5        SWOT Analysis Avignon Living Lab ....................................................................................... 14
+Table 6        Kick-off meeting Avignon ..................................................................................................... 15
+Table 7        SWOT Analysis Ghent Living Lab .......................................................................................... 16
+Table 8        Kick-off meeting Ghent........................................................................................................ 17
+Table 9        SWOT Analysis Guldborgsund Living Lab ............................................................................. 18
+Table 10          Kick-off meeting Guldborgsund ....................................................................................... 19
+Table 11          SWOT analysis LEADER Living Lab .................................................................................... 20
+Table 12          Kick-off meeting ............................................................................................................... 21
+Table 13          SWOT Analysis Lodz Living Lab ........................................................................................ 22
+Table 14          Kick-off meeting Lodz....................................................................................................... 23
+Table 15          SWOT Analysis Tuscany Living Lab ................................................................................... 24
+Table 16          Kick-off meeting ............................................................................................................... 24
+Table 17          SWOT Analysis Oxfordshire Living Lab ............................................................................. 26
+Table 18          Kick-off meeting ............................................................................................................... 26
+Table 19          SWOT Analysis Prilep Living Lab....................................................................................... 28
+Table 20          Kick-off meeting ............................................................................................................... 29
+Table 21          SWOT Analysis Rotterdam Living Lab............................................................................... 30
+Table 22          Kick-off meeting ............................................................................................................... 30
+Table 23          SWOT Analysis Sitia Living Lab ......................................................................................... 32
+Table 24          Kick-off meeting ............................................................................................................... 33
+
+
+
+
+                                                                                                                                          Page 3 of 36
+   Report on Living Labs kick-off
+
+
+HISTORY OF CHANGES
+
+Table 1 Document history of changes
+
+                                       HISTORY OF CHANGES
+ Version     Publication Date           Changes
+    1.0             21.12.2023          First version
+                                        See first document version here:
+                                        https://zenodo.org/records/10552169
+    2.0             28.05.2024          Update of the funding logo and the disclaimer
+
+
+
+     Key Facts
+
+            Action Number: 101060536
+            Action Acronym: FEAST
+            Action title: Food systems that support transitions to hEalthy And Sustainable dieTs
+            Date: 28.05.2024
+            Report version: 1.0
+
+
+
+
+                                                                                               Page 4 of 36
+    Report on Living Labs kick-off
+
+
+1 Introduction
+To further the development of food democracy on multiple levels across Europe while also improving
+food sovereignty, FEAST (Food systems that support transitions to hEalthy And Sustainable dieTs) was
+launched in July 2022. The 5-year project is run by a consortium consisting of 35 partners across 15
+European countries and is funded under the program HORIZON-CL6-2021-FARM2FORK-01-15. FEAST
+aims to explore new forms of governance through processes of social-ecological transformation in
+various institutional settings1. In doing so, FEAST is laying emphasis on vulnerable groups and all those
+that remain unheard or do not have sufficient leverage to shape food systems.
+
+One crucial element of FEAST are participatory forms of co-creating solutions that are called Living Labs
+(LL). In a LL, actors affected by a problem, and those that are needed to help design or implement a
+solution, come together to jointly develop possible solutions. In FEAST, our LL and co-designed
+solutions will focus on supporting vulnerable people with food security related issues taking into
+account six dimensions of food security2. These solutions will be implemented within FEAST from 2024-
+2026 and their impacts will be measured. In this way, promising solutions can be replicated further by
+replicator cities within FEAST and other actors beyond the project. FEAST LLs include municipalities
+directly representing approximately 3.35 million individuals across different European contexts and
+varied food system actors through our small city and rural partners as well as an additional 14 million
+individuals through our associated large city LLs. Each LL is dedicated to a unique vision.
+
+Within FEAST, WP4 is designed to support FEAST’s community-based Living Labs (LL) to identify locally
+relevant challenges for vulnerable target groups to access and utilize healthier and more sustainable
+food3. WP4 aims to co-create and test solutions for healthier and more sustainable diets of these
+groups. This includes understanding challenges and opportunities at the local government level related
+to systemically transforming behavior towards healthier and more sustainable food while also exploring
+how to improve food environments to ensure people have better access to healthier and more
+sustainable food (see below). The LLs represent a diversity of important dimensions of food systems
+across Europe, using a geographical food system typology developed by FEAST (Figure 1), which
+combines existing classifications of regional diets, food production systems and welfare systems. In this
+way, they cover different nutritional and agricultural as well as social policy and institutional contexts.
+The following map situates FEAST LLs in relation to geographical food system types.
+
+
+
+
+1
+  Frontiers | Transitions to food democracy through multilevel governance (frontiersin.org)
+2
+  see for the classical definition using four dimensions: https://www.fao.org/3/al936e/al936e00.pdf; see for
+expanding this concept including agency and sustainability: https://www.fao.org/3/ca9731en/ca9731en.pdf; also
+see https://www.sciencedirect.com/science/article/pii/S0306919221001445
+3
+  Thus addressing the dimensions of access, utilization, agency and sustainability of the updated FAO food security
+concept: https://www.fao.org/3/ca9731en/ca9731en.pdf
+                                                                                                         Page 5 of 36
+      Report on Living Labs kick-off
+
+
+
+
+        Figure 1 Geographical food system typology and location of FEAST Living Labs (typology developed by FEAST) 4
+
+
+
+LLs also cut across different levels of Europe’s food systems, from production to distribution, processing
+and consumption. In this way, WP4 LLs are addressing food environments, and how these are shaping
+consumer behavior as being reflected in diets and their health and sustainability impacts (Figure 2).
+
+
+
+
+     Figure 2 Food system model showing how WP4 Living Labs cut across levels and are addressing various stakeholders
+
+
+
+This report describes how FEAST LLs assess local situations regarding challenges related to vulnerable
+target groups they have identified, features of the relevant food system mapped through SWOT-
+analyses, and respective kick-off events that brought together those actors that are necessary to co-
+design and implement solutions including the voices of those affected by the local burning issue related
+to food security.
+
+
+
+
+4
+    See: https://www.frontiersin.org/articles/10.3389/fsufs.2022.1039127/full
+                                                                                                                Page 6 of 36
+    Report on Living Labs kick-off
+
+
+2 Overview of the Living Labs
+2.1 General Information
+
+Building on FEAST’s multi-actor approach, community-based LLs were kick-started after an assessment
+of relevant stakeholders and their perspectives in relation to specific food security-related challenges
+faced by target groups in each LL location. Stakeholders included, depending on local context, residents
+(including both citizens and non-citizens), civil society organizations, local businesses such as catering
+companies, farmers, charity organizations, school managers and teachers, social centers, academia,
+planners, and public administrations. Each LL was responsible for a community workshop kick-off event,
+to serve as a start for the co-design process in view of possible solutions for the local burning issue
+affecting vulnerable groups. Based on prior knowledge and activities, LLs already had a certain idea
+regarding vulnerable groups and their specific challenges in accessing and offering healthier and more
+sustainable food choices in local contexts.
+
+After an in-depth mapping and analysis of the situation regarding food security linked to healthier and
+more sustainable diets in their specific context, the LLs have kick-started the co-design process with
+the following target groups (Table 2).
+
+Table 2 Overview of Living Labs and target groups
+
+
+ Living Lab                                         Food system   Partners                Target    groups
+                                                    type                                  and topics
+
+ Alto Minho (Portugal)                              Southern      o   Comunidade          Children/schools
+                                                    Group             Intermunicipal      : food
+ https://feast2030.eu/livinglabs/cim-alto-
+                                                                      do Minho-Lima
+ minho                                                                                    competency;
+                                                                      – CIM Alto
+                                                                                          small farmers
+                                                                      Minho
+                                                                                          and fisherman:
+                                                                  o   Instituto
+                                                                      politecnico de      supply chain
+                                                                      Viana de Castelo    strategies
+                                                                      (IPVC)
+
+
+
+
+ Avignon (France)                                   Central       o   City of Avignon     Children/schools
+                                                    European      o   Institute           : nutritional
+ https://feast2030.eu/livinglabs/avignon
+                                                    Group             national de         education and
+                                                                      recherche pour      public food
+                                                                      l´agriculture,      procurement
+                                                                      l´alimentation et   through local
+                                                                      l´environment
+                                                                                          partnerships
+                                                                      (INRAE)
+
+
+
+
+ Ghent (Belgium)                                    Central       o   City of Ghent       Low-income
+                                                    European      o   ICLEI Europe        neighborhood to
+ https://feast2030.eu/livinglabs/ghent
+                                                    Group
+                                                                                          identify
+                                                                                          strategies to
+                                                                                          enhance access
+                                                                                                  Page 7 of 36
+  Report on Living Labs kick-off
+
+
+                                                                                    for all citizens to
+                                                                                    healthier and
+                                                                                    more
+                                                                                    sustainable diets
+
+Guldborgsund (Denmark)                        Scandinavia   o   Guldborgsund        Children/schools
+                                              n Group           Municipality        : nutrition
+https://feast2030.eu/livinglabs/guldborgsun
+d                                                           o   Roskilde            education;
+                                                                University          investigating
+                                                                                    how to
+                                                                                    introduce a
+                                                                                    school food
+                                                                                    scheme to the
+                                                                                    public schools in
+                                                                                    the municipality
+
+LEADER region Weinviertel-Donauraum           Central       o   LEADER-Region       Workers
+(Austria)                                     European          Weinviertel         /company
+                                              Group             Donauraum           canteens in the
+https://feast2030.eu/livinglabs/leader
+                                                                                    industry sector
+
+Oxfordshire (United Kingdom)                  Anglosaxon    o   Good Food           Food poor low-
+                                              Group             Oxfordshire         income
+https://feast2030.eu/livinglabs/goodfood-
+oxfordshire                                                 o   Heidelberg          households:
+                                                                University          understand and
+                                                                                    influence
+                                                                                    national supply
+                                                                                    chains and local
+                                                                                    markets
+
+
+Lodz (Poland)                                 Eastern       o   Uniwersytet         Senior
+                                              European          Lodzki              citizens/care
+https://feast2030.eu/livinglabs/lodz
+                                              Group
+                                                                                    homes: increase
+                                                                                    well-being
+                                                                                    through
+                                                                                    healthier and
+                                                                                    freshly cooked
+                                                                                    meals
+
+Tuscany (Italy)                               Southern      o   Tuscany Region      Adolescents and
+                                              European      o   Scuola superiore    elderly people:
+https://feast2030.eu/livinglabs/tuscany
+                                              Group             di studi            promoting a
+                                                                universitari e di   healthy and
+                                                                perfezionament      conscious
+                                                                o Sant´Anna         approach
+                                                            o   Universita          towards food
+                                                                degli studi di      and nutrition
+                                                                Scienze
+                                                                Gastronomiche
+                                                                (USG)
+
+
+
+                                                                                              Page 8 of 36
+      Report on Living Labs kick-off
+
+
+    Prilep (North Macedonia)                       Eastern        o    City of Prilep     Children/schools
+                                                   European       o    ARETE              : working with
+    https://feast2030.eu/livinglabs/prilep
+                                                   Group               Association for    the municipal
+                                                                       Sustainable        government to
+                                                                       Prosperity
+                                                                                          improve their
+                                                                                          capacities in
+                                                                                          positively
+                                                                                          influencing the
+                                                                                          food
+                                                                                          environment
+                                                                                          and food system
+
+    Sitia (Crete, Greece)                          Southern       o    Dimon Sitia –      Vulnerable,
+                                                   European            Municipality of    small scale olive
+    https://feast2030.eu/livinglabs/sitia
+                                                   Group               Sitia
+                                                                                          oil farmers:
+                                                                  o    Demokritos         enhance local
+                                                                                          sustainable olive
+                                                                                          oil production
+                                                                                          and supply
+                                                                                          chains to impact
+                                                                                          income and food
+                                                                                          security for
+                                                                                          vulnerable
+                                                                                          farmers
+
+    Rotterdam (Netherlands)                        Central        o    City of            Low-income
+                                                   European            Rotterdam          neighborhoods:
+    https://feast2030.eu/livinglabs/rotterdam
+                                                   Group          o    Susmetro           improving
+                                                                                          supply and
+                                                                                          accessibility of
+                                                                                          fresh food
+
+
+
+
+2.2 Methodologies and process
+
+LLs were supported through a range of tools and activities conveying specific methodologies and
+methods. We first provided LLs with a protocol integrating the time plan of the LL development with
+useful tools regarding group and vision building, stakeholder engagement and the analysis of local
+challenges. Part of the protocol was a LL toolkit 5 that had been developed under the JPI projects
+Smarter Labs and URB@Exp6. We then organized internal webinars for the LLs with experts in human
+centered design to facilitate co-creating solutions in local contexts through hackathons (see Appendix
+1 for an example of an agenda). A further webinar addressed nutritional guidelines. The input of these
+webinars was enhanced by training sessions on lived experience research. Regular group meetings (see
+Appendix 2 for the example of an agenda) with all the LLs safeguarded knowledge exchange, facilitated
+by supporting mutual learning of LLs within LL clusters that were defined according to type of
+
+
+5
+ https://smarterlabs.uni-graz.at/en/
+6
+ https://static.uni-graz.at/fileadmin/projekte/smarterlabs/downloads/SmarterLabs_Guidelines.pdf,
+https://www.maastrichtuniversity.nl/research/msi/research-output/urban-lab-kit
+                                                                                                   Page 9 of 36
+    Report on Living Labs kick-off
+
+
+vulnerable group that LLs were working to support. Further meetings were held regularly for the group
+of partners leading the tasks of WP4 plus the overall WP lead. Finally, bilateral meetings between the
+WP4 and Task4.1 leads with individual LLs were scheduled depending on issues that required more
+intensive communication and problem-solving. LLs provided monthly updates on their progress, ideas,
+and challenges in a common repository to mutually keep track of activities, which allows WP and Task
+leads to react quickly to challenges in the LLs.
+
+To sketch out the local situation regarding burning issues and possible solutions, and respective
+challenges, LLs first elaborated stakeholder maps. In this way, LLs gained a better understanding of local
+food system structures and processes. As a result of the information gained in this way, each LL
+narrowed down the target group and the burning issue using a “population, intervention, control and
+outcome” approach (PICO). For vulnerable groups, FEAST adopted a general understanding in line with
+usual lists of vulnerable groups that refers to how exposure to stressors and shocks relates to resilience7,
+i.e., the possibility to adapt to challenges. Resilience depends on social, economic and cultural capital
+as well as on political support. It is regulated by a range of factors such as legislation, income
+distribution, the existence of welfare organizations, social policies etc8. In that way, any group that is
+exposed to significant risks and has insufficient means to counter them is considered as vulnerable. Yet
+this definition also includes those that have already been wounded by unjust social, economic and
+political structures. Regarding our general concept of vulnerability, and relating it to FEASTs topic of
+sustainable and healthy diets, groups such as children, inmates, people with disabilities, single mothers,
+low-income households (including small scale farmers suffering food insecurity) and similar ones were
+regarded as being vulnerable. It is important to note that these groups do not refer to any substantial
+social entities. In reality, any individual is positioned in social space across several dimensions of
+inequality. For this reason, vulnerability is an intersectional concept that should not be understood as
+essentializing social groups, but as guiding the identification of target groups, their resources, and
+challenges with the aim of reducing societal inequalities.
+
+Based on this understanding of the relevant stakeholder landscape, challenges and options relevant for
+tackling local burning issues for local food security issues linked to sustainable and healthy dietary
+choices by vulnerable groups were identified using a Strengths-Weaknesses-Opportunities-Threats
+(SWOT) analysis tailored to the specific focus of each LL. The SWOT analyses were then used for
+identifying possibly relevant stakeholders regarding an intervention that will be co-designed in the next
+phase of the LL development process, considering different barriers to food system change, and options
+for dealing with these. Relevant stakeholders identified through the information that had been
+structured by local LL SWOT models were then contacted for kick-offs.
+
+Kick-off events were organized by each Living Lab individually. These were the first stakeholder
+meetings with the whole group of involved stakeholders, vulnerable groups and policy makers. These
+meetings varied from LL to LL: some involved a broader public, others designed these meetings as
+closed-door conversations. These kick-off events marked the beginning of a co-design and co-creation
+process with the stakeholders providing advice on guidance on the context-sensitive co-design
+approaches that should be taken by the LL. We expect stakeholder groups to further vary depending
+on the intervention the LL decides upon.
+
+
+
+
+7
+  Building on https://www.sciencedirect.com/science/article/abs/pii/S0301421515302445, and adapting the
+concept presented there; also see https://www.tandfonline.com/doi/full/10.1080/23254823.2021.1997616
+8
+  See in particular https://www.tandfonline.com/doi/full/10.1080/23254823.2021.1997616
+                                                                                                 Page 10 of 36
+   Report on Living Labs kick-off
+
+
+
+
+2.3 Next steps
+
+The activities reported here feed into other tasks within WP4 (4.2, 4.3 and 4.4). Thus, in the phases
+following activities documented in this report, LLs will work to co-develop local catalogues of best
+practices for different target groups and actors in the food system such as producers, consumers,
+processors, distributors/retailers, and municipalities (Task 4.2). This catalogue will further inform the
+co-creation processes that will be established in the next phase subsequent to the one reported here.
+The strategies for intervention implementation will be clustered within Task 4.3 and later replicated to
+other European cities in Task 4.4.
+
+In the first two quarters of 2024, the LLs and their scientific partners will – following the kick-off
+meetings each LL has had with relevant stakeholders – start a co-design and then co-creation process.
+This shared effort of the LL stakeholder groups will be followed by implementing concrete interventions
+and refining the stakeholder group that functions as an inner circle for the intervention. They will then
+also begin data collection to assess outcomes and impacts before and after the intervention. For
+analyzing the interventions’ outcomes and impact, each LL is working on its individual research design
+and data collection method taking advantage of the PICO-approach. To collect data on the vulnerable
+target groups, LLs will need national ethics approvals of their respective research designs – some of
+which have already been approved, while others are expected to be in place in early 2024.
+
+
+
+3 Results
+
+In this chapter, each subsection highlights a specific FEAST LL; first, the target group and corresponding
+challenges will be described, before presenting the respective SWOT-analysis, followed by a description
+of the LL’s kick-off meeting.
+
+
+3.1 Alto Minho, Portugal
+Target group
+Alto Minho’s LL main target group are school children who have their daily meals (lunch) at school
+canteens. The LL in Alto Minho is focused on public school canteens, whose purpose is to promote the
+transition (firstly within the school environment and, through it, the wider territory) to healthier and
+more sustainable food consumption and production habits. Due to a high sugar and salt intake in
+schools, bars and canteens, Alto Minho implemented salt and sugar reductions in school menus and,
+thus, in students school meals. The sale of products such as pizzas, ice cream, rissoles, hamburgers,
+and soft drinks was prohibited. However, a potential shortcoming of this measure may be associated
+with the growth of fast-food restaurants and cafés within school boundaries and the demand for these
+foods by students.
+
+Challenges
+In terms of education, only 11.36% of Alto Minho’s residents have a higher education degree and most
+of this territory’s population (61.18%) has only concluded the basic level of education. Statistical data
+from 2020 point out Alto Minho having 32,001 students distributed across its 123 schools – from
+kindergarten to secondary schools – the majority of which are managed by or jointly with Alto Minho’s
+municipalities. A key area of work for the municipality is to support vulnerable groups, particularly
+people with a low socio-economic status. There are already systems and initiatives in place to meet the
+                                                                                                Page 11 of 36
+     Report on Living Labs kick-off
+
+
+food needs of these individuals through initiatives like social pricing in several restaurants and grocery
+stores, as well as food support provided by local social organisations. Generally, the area suffers from
+the abandonment of cultivated land, weak territorial cohesion, and climate change.
+
+SWOT Analysis
+Alto Minho finds itself in a stage where many infrastructures for change are already in place, most
+importantly a network of already existing initiatives that the municipality can leverage due to its
+influential position. At the same time, the position of the municipality comes with some constraints
+which include certain procurement rules at the municipal level as well as the challenge to understand
+and act upon these rules and laws. Changing food systems towards more sustainable and healthier
+diets within the target group of the LL brings along the chance to also change local supply chains and
+foster local production of healthier and more sustainable food. The ongoing challenge consists of
+competing problems the food sector is facing; i.e. once economic concerns increase, the interest in
+sustainability automatically seems to falter. Also, parents and students must identify and realize their
+own benefits of changing diet if they are to be motivated to support food system transformation.
+
+Table 3 SWOT Analysis Alto Minho Living Lab
+
+ STRENGTHS                                                   WEAKNESSES
+ o     Active smallholder agriculture / fishermen            o   Large portions on the plate lead to food waste
+ o     Trendy topics: sustainability; healthy food in        o   Children's unhealthy dietary preferences (food
+       public institutions; endogenous products                  choices)
+ o     Green schools [ecoschools], working on healthy        o   Intervention towards sustainability might
+       food and sustainability                                   create extra work/hurdles
+ o     Schools with equipped and functioning kitchens        o   No direct marketing structures
+       and canteens                                          o   Lack of knowledge about public procurement
+ o     Municipalities with autonomy to decide on how             tenders (EU) which lead to a lack of capacity
+       school food is supplied                                   from local food suppliers to respond to tenders
+ o     National public policies - food and health -          o   Legal constraints for public food procurement
+       directed to schools                                       in municipalities
+ o     Ongoing awareness campaigns on healthy food           o   Prices of sustainably produced food are higher
+       choices targeting pupils of various ages                  than those of unsustainable alternatives
+                                                             o   Lack of networks (food procurement and
+                                                                 smalholders)
+                                                             o   Production seasonality and small sized
+                                                                 production (may lead to supply shortage)
+
+
+ OPPORTUNITIES                                               THREATS
+ o     Safeguarding income opportunities for                 o   Parents' criticism of or reluctance for the
+       organic/local smallholders                                intervention
+ o     Promoting healthier and more sustainable local        o   Children's' resistance to change – difficulty in
+       food at schools for upscaling                             the uptake of healthier food habits/products
+ o     Food waste reduction along the value chain                (in the short term may lead to an increase in
+ o     Decrease of conditions, such as overweight,               food waste)
+       obesity and malnutrition in school children           o   Pedagogical staff not participating in the
+ o     Promote shorter food chains and decrease                  intervention
+       environmental impacts                                 o   Lack of interest from some municipalities
+ o     Work on communicating healthy and sustainable             (focus solely on healthy food and not on
+       attributes in locally based foodstuffs (e.g. algae,       healthy food produced in a sustainable way)
+       olive oil)                                            o   Lack of interest from agricultural/fishermen
+ o     Promote economic development of rural areas               associations (which may be necessary/helpful
+       and, thus, contribute to population fixation              for direct marketing)
+       (”retainment”)                                        o   Ongoing inflation makes healthier amd more
+                                                                 sustainable food less attractive to stakeholders
+
+                                                                                                        Page 12 of 36
+      Report on Living Labs kick-off
+
+
+                                                          o   Climate change (may influence production
+                                                              cycles)
+
+
+
+Kick off
+Table 4 Kick-off meeting Alto Minho
+
+    Date                               February 24th, 2023
+    Location                           Alto Minho
+    Attendees (Type)                   Alto Minho municipalities, directors/representatives of school groupings
+    Agenda                             Target group, methodology, strategic objectives, stakeholder roles, next
+                                       steps
+
+
+
+
+3.2 Avignon, France
+Target group
+Children aged from 3 to 11 years in Avignons’ schools are part of vulnerable groups and exposed to
+various conditionss linked to excess of unhealthy food, i.e., highly processed products and unbalanced
+diets, especially when they come from disadvantaged families where parents are facing social and
+cultural difficulties9. The population of Avignon is facing several social difficulties as the poverty rate is
+around 19.5% 10 . Poor nutrition, non-communicable diseases and obesity are consequences of
+unfavorable dietary patterns that are impacting children in negative ways. Our main target group
+consists of children attending municipal canteens. These canteens deliver from 4,000 to 5,500 meals
+per day. The municipality has just carried out a large survey covering 12 schools regarding food habits
+at home and appreciation of the canteen. The municipality is currently analyzing these data with regard
+to how social difficulties impact childrens’ daily diets. This will provide important background
+knowledge for making canteens a driver to improve current diets. The 12 schools captured by the
+survey will not necessarily be the same schools that will be addressed by the intervention. Avignon has
+52 schools in total, including 36 canteens serving these.
+
+Challenges
+Being a municipality in charge of our school catering, we – as the local LL organizer - prepare between
+4,000 and 5,500 meals daily for our children, distributed through 36 canteens. The municipality of
+Avignon is already engaged in activities strengthening and extending partnerships with local producers,
+raising awareness for seasonality and freshness of products, improving access to healthier and more
+sustainable food, and enhancing respective choices. Within the FEAST project, the municipality aims to
+go further and to deepen and extend activities in favor of childrens’ health and the sustainability of
+food. Food has now become a strong component of public health policies. The LL takes this as an
+opportunity for change, with the municipality running the LL being in charge of school catering.
+National legislation is supportive of such actions, but the challenge is to re-structure local policies
+accordingly.
+
+
+
+
+9
+  https://www.foodwatch.org/fileadmin/-FR/Documents/Foodwatch_Publication_rapport_malbouffe_pub-
+enfants_23_09_12.pdf, https://www.unicef.fr/article/grandir-en-france-un-defi-pour-les-6-18-ans-des-
+quartiers-prioritaires/
+10
+   CAF de Vaucluse (2022): La CAF au service de la commune d’Avignon. Données CAF au 01/01/2022.
+                                                                                                     Page 13 of 36
+     Report on Living Labs kick-off
+
+
+Accordingly, the LL concentrates on two challenges: First, to increase the quality of meals prepared by
+the central kitchen of the municipality by selecting quality suppliers and producers, offering more
+plant-based menus, and reducing processed products. Second, to develop a healthier and more
+sustainable food culture at school, collaborating with different types of stakeholders to raise childrens’
+awareness of healthier and more sustainable food.
+
+SWOT analysis
+The LL in Avignon can build upon political will, a network of fresh food suppliers as well as experiences
+from previous European projects, while also needing to support a large number of people living in low-
+income households. The will and drive for change within the municipality, also looking at recent laws
+and regulations, is beneficial, and stakeholders from within the city are highly engaged in changing the
+school food system. However, inflation and the economic situation in general will pose a challenge to
+the work of the LL: Food prices are rising while low-income households suffer from economic
+vulnerability especially in times of inflation. The challenge is, inter alia, to ensure healthier and more
+sustainable food provision while not overburdening households. Ideally the intervention will not result
+in trade-offs, but in co-benefits.
+
+
+
+Table 5 SWOT Analysis Avignon Living Lab
+
+ STRENGTHS                                                  WEAKNESSES
+ o     The City of Avignon is in charge of food catering    o   Avignon is one of the poorest cities in the South
+       for school canteens since 2014                           of France; the poverty rate is around 19.5%
+ o     Political will is strong about the high quality of   o   Children come from families that face various
+       food offered in the canteens                             issues: economical, social (low incomes), cultural
+ o     Long term partnerships are already set up with       o   Lack of knowledge and expertise on food
+       some local producers                                     practices are observed within families; children
+ o     We can find a lot of fresh products (fruits and          are not used to cooking or getting information
+       vegetables) as we are located in an agricultural         about their daily local supply is difficult for some
+       area                                                     products such as meat/fish, all types of dairy
+ o     The team of the central kitchen is already aware         products
+       of the importance of this topic                      o   Food is not included as an educational topic in
+ o     The City of Avignon is already involved in               French school curricula
+       another European project about food,
+       FoodSHIFT 2030, ending in December 202311
+
+
+
+ OPPORTUNITIES                                              THREATS
+ o     The French government promoted a law on              o   High inflation rate and increase of prices of food
+       food catering and qualitative requirements: a            products and fuel/energy
+       certain percentage of organic products and local     o   Risks of shortage in the supply of food products
+       products, evaluation of food waste, etc.                 for the central kitchen
+ o     The current legislation is also promoting actions    o   The next annual budget allocated to the central
+       about environmental issues: the ban of plastic           kitchen will decrease by 15%
+       for central kitchens and restaurants,                o   In a context of high inflation, the families’
+       composting biowaste or at least finding a                economic difficulties will increase and the
+       treatment solution about food waste                      quality of food will not be a priority
+ o     The relationship between schools and our
+       municipal Education Department is already well
+       established, some schools participated in the
+       children food habits survey
+
+11
+  https://foodshift2030.eu/labs/regional-lunch-for-all-lab/, https://foodshift2030.eu/children-involvement-
+food-waste/
+                                                                                                          Page 14 of 36
+     Report on Living Labs kick-off
+
+
+ o     Some other municipal actors are already
+       involved in food-related topics (social centres)
+
+
+
+Kick-Off Event
+Table 6 Kick-off meeting Avignon
+
+ Date                                  June 15th and 16th, 2023
+ Location                              Avignon, in a municipal park
+ Attendees (Type)                      285 children, 12 teachers, 15 parents and 10 municipal workers, 3
+                                       elected representatives
+ Agenda                                Pedagogical strategies (slogan: “Sustainable food for you, children!”)
+                                       and gaming methods to change food culture, related to topics such as
+                                       seasonality, the role of bees, how to plant seeds, the impacts of food
+                                       marketing on childrens’ food choices, food waste, composting
+                                       methods, and cooking workshops; how to involve various local NGOs
+                                       but also municipal services (library, waste management service,
+                                       nutritional service etc.)
+
+
+3.3 Ghent, Belgium
+Target group
+The main target group of this LL are people with low income, first focusing on households with a yearly
+income below 25,291.73 € (with 4,682.19 € added per each family member), which amounted to
+20.4% of the population of Ghent in 202212. Households within this category are automatically granted
+the right to healthcare at lower prices, to food support and some leisure activities. The LL considers
+this group as being officially recognized as low income-households. Within this population, the LL plans
+to distinguish different groups based on socio-demographic factors. For example, young people
+between 18-25 years old, families with children, seniors. Geographically, the LL will focus on one or
+more neighborhoods with a high poverty rate (specifically the Watersportbaan neighborhood, a food
+desert, and the Heilig Hart neighborhood, a food swamp)13.
+
+Challenges
+Currently, for food poor households, there are two channels of emergency aid in Ghent. Organizations
+distribute food for free to people in poverty who are referred by the OCMW14 or other first-line help.
+These organizations want to fight poverty through distributing food donations, but often also organize
+other activities and measures including double pricing systems. They get their supplies through
+Foodsavers (a City distribution platform that collects surpluses from auction, food companies and
+retailers), FEAD (Fonds voor Europese hulp aan de meest behoeftigen) and a local food bank. These
+organizations are run by volunteers, most of which are seniors, and human resources for continuing
+these services appear to be precarious in the longer run. In addition, there is a channel called Let's Save
+Food, where ecologically motivated members collect and redistribute surpluses. Anyone, including
+
+
+12
+   https://gent.buurtmonitor.be/jive?report=rap_arm_ind_v_02122020; for definitions see https://www.caami-
+hziv.fgov.be/nl/leden/terugbetaling-medische-kosten/voordelen/verhoogde-
+tegemoetkoming#:~:text=U%20heeft%20enkel%20recht%20op,februari%202022%20(huidige%20inkomsten
+13
+   A food desert is defined as an area suffering from a lack of outlets that are offering healthy and affordable
+food. A food swamp denotes an an area suffering from a disproportionate share of outlets that are offering
+unhealthy food.
+14
+   https://stad.gent/nl/samenleven-welzijn-gezondheid/ocmw-gent
+                                                                                                       Page 15 of 36
+     Report on Living Labs kick-off
+
+
+people not affected by poverty, can collect/use surplus food. This organization operates in several
+neighborhoods and relies on young volunteers. Such emergency food aid channels are generally not
+perceived as a solution to fight poverty in Ghent, yet they are increasingly used for this end in practice.
+
+Against this backdrop, the City of Ghent wants to create another channel where people can consume
+or purchase more sustainable, healthier and affordable food in a non-stigmatizing way. The LL wants to
+support this policy shift from focusing on poverty alleviation through charity to more empowering,
+emancipatory strategies. Moreover, these strategies would in the best case also help to overcome the
+problem of traditional anti-poverty organizations struggling with a lack of human resources. The LL thus
+is working with the boundaries of current food policies at local, national and European levels in view
+of experimenting with innovative, potentially more sustainable solutions for food poor households to
+demonstrate whether and how Ghent’s current food policies can be improved.
+
+The existing Ghent en Garde initiative15 aims to provide more sustainable and healthier food in an
+accessible way to all inhabitants of the city. To achieve this goal, a variety of actions have been
+implemented, but they have not been mapped systematically. This LL tackles the challenge to create a
+coherent policy for all stakeholders within the city. Accordingly, the LL will aim to increase access to
+more sustainable and healthier food for people with low income. Several organizations in Ghent are
+already using various methods, such as double pricing, free contribution or solidarity systems to this
+end. Other organizations are exploring ways to utilize such systems to ensure that people with low
+income are able to benefit from their services. This LLs’ goal is to increase the number of low-income
+individuals who can access the double pricing system in various sectors of the food system, such as
+retail, hospitality industry, farms and schools (e.g., double pricing restaurants, social canteens,
+community supported agriculture). Solidarity systems depend on wealthier households that pay more
+for vegetables than poorer households. The difference is distributed to reduce costs for low-income
+households when buying food at a venue with such a scheme.
+
+SWOT analysis
+The Ghent LL can benefit from a wide range of initiatives and infrastructures that work in the sectors
+of low-income households or food security and provide a good outreach to stakeholder groups as well
+as from a wide basis of data to build upon, though an overview of this data and networks has yet to be
+achieved. At the same time there is no political consensus for accessibility of healthier and more
+sustainable food for everyone – especially low-income households. The main thread, as in many other
+cities, is the economic component, rising food prices, inflation that hits low-income households the
+most and makes sustainability (in the sense that sustainability of products makes those pricier) a
+secondary priority.
+Table 7 SWOT Analysis Ghent Living Lab
+
+ STRENGTHS                                             WEAKNESSES
+ o     A large amount of data is already available     o   There is no general overview of data concerning
+ o     A large number of organizations work with           food and people with low SES
+       people with low SES, spread in different        o   There is no general overview of food initiatives
+       neighbourhoods                                      for people with low SES
+ o     A large number of grass root food initiatives   o   There is no political consensus on accessible
+ o     A large number of different methods to make         food for everyone
+       food accessible
+
+
+
+15
+
+https://stad.gent/sites/default/files/media/documents/20230404_PU_GeG%20Voedselraad%20brochure_EN_fi
+naal.pdf
+                                                                                                   Page 16 of 36
+     Report on Living Labs kick-off
+
+
+ o     The social service has a decentralized strategy
+       for food support systems
+
+
+ OPPORTUNITIES                                              THREATS
+ o     More well organised grass root initiatives such      o   Rising food prices makes the need for food
+       as Let’s Save Food, Farmers Market, Kookploeg            support bigger
+       Solidair                                             o   Budget cuts in different departments of the city;
+ o     Outreachers in each neighbourhood                        less investment in food support
+                                                            o   More sustainable food is not always affordable
+
+
+
+Kick-Off Event
+Table 8   Kick-off meeting Ghent
+
+ Date                                  January 31st, 2023
+ Location                              Kunstencentrum Vooruit / Viernulvier, Ghent
+ Attendees (Type)                      Organizations which work with people with low household income,
+                                       providers of more sustainable and healthier food
+ Agenda                                Round table conversations about food security with the following
+                                       guiding questions: “What does work, what is not working and why?”
+                                       and “What do we need to make things work?” Outcomes: The eight
+                                       characteristics for accessible food (“B’s” in Dutch) should be used, i.e.,
+                                       that food has to be accessible, available, affordable, usable,
+                                       understandable, reliable, familiar and understanding.
+
+
+3.4 Guldborgsund, Denmark
+Target group
+This LL’s target group are school children (aged 6-16 years old, i.e. grades 4-10), in the context of a
+general deterioration of public health in the municipality. Studies show that roughly 5% of young
+children (1st grade students, aged 6-7) have a tendency towards being overweight when they start
+primary school, rising to about 20% by the time they graduate from the 9 th or 10th grade16. Due to the
+decline in public health, associated human, societal and financial costs are increasing.
+
+Challenges
+Approximately 55% of all adults in Guldborgsund Municipality are classified as being overweight
+according to the BMI guidelines of the Danish Health Authority and the Health Profile for the Region of
+Zealand 17 . Likewise, the overall health and mental wellbeing, especially among young people, is
+deteriorating, inter alia due to low quality food18, with repercussions at both the personal and societal
+levels. The part of the population who has access to knowledge (education) and resources (income) is
+able to live healthy lives and feed their children, while citizens with lower income and education
+
+16
+   Data from The BørnUngeLiv (ChildrenYouthLives) and Ungeprofil (Youth Profile) Survey:
+https://www.boernungeliv.dk/Public/Forside.aspx?ReturnUrl=%2f
+17
+   Health Profile of Region Zealand, 2021:
+https://www.regionsjaelland.dk/fagfolk/sundhedsprofilen/sundhedsprofilen-2021
+18
+   https://www.vive.dk/da/udgivelser/boern-og-unge-i-danmark-velfaerd-og-trivsel-2022-0xgg53xk/,
+https://ugeskriftet.dk/videnskab/mulig-sammenhaeng-mellem-kost-og-depression,
+https://sciencenews.dk/en/people-with-depression-or-bipolar-disorder-have-an-imbalanced-gut-microbiota,
+https://app-rsjdxp-cms-prod-
+001.azurewebsites.net/media/ze1eei5l/062333_resj_mat_sundhedsprofil_2021_tilnettetapril2022.pdf
+                                                                                                           Page 17 of 36
+     Report on Living Labs kick-off
+
+
+experience significantly more challenges in health and wellbeing. It was recently anounced that
+Guldborgsund Municipality will have to introduce severe austerity measures to meet the budget
+requirements for the coming years. Over a period of four years, from 2024-27, the municipality has to
+cut back and reprioritize activities, which in part is due to rising health care related expenses. The
+situation is not unique to Guldborgsund, but is shared by the majority of the rural municipalities in
+Denmark. Currently, in Guldborgsund Municipality, 90% of the health care budget is spent on secondary
+and tertiary care and only 10% of the health care budget is spent on preventive measures19.
+
+As in most Danish municipalities, there is no common school food program for children in
+Guldborgsund Municipality at the primary school level, grades 1-9. Data gathered by the municipality
+show that many school children, especially from the 7th grade onwards, do not eat at all, or eat very
+little during the day. Nutrition education is a mandatory part of the national curriculum in the 5th and
+6th grades, with 60 mandatory hours per year. Furthermore, some schools offer voluntary nutrition
+education for grades 7-9. It is up to the individual teacher to decide how to teach nutrition education,
+as long as the guidelines determined by the Ministry of Education are taken into account. In Denmark,
+the municipality has the overall legal responsibility of providing education and running the schools, as
+part of the core, municipal tasks. This does not include providing food or eating opportunities, as is the
+case in some other Scandinavian countries, such as for example Sweden, Finland and a number of other
+countries across Europe. Consequently, there is great variation in available kitchen facilities in local
+schools – some have authorized kitchen and dining facilities, most schools do not.
+
+SWOT analysis
+Against a backdrop of budget constraints and overall inflation, a major strength of the Guldborgsund
+LL is the shared understanding of the importance of stimulating positive changes in the dietary habits
+and “food competency” of children and young people in order to empower them to become “healthier
+adults”, who, in turn and over the long run, will need less medical attention and social assistance from
+public institutions. Building up technical and logistical infrastructure and cross-sector cooperation will
+be a task in the coming years. The Living Lab operates within a strong national framework for green
+transition which ensures a pulling force and good timing.
+
+Table 9 SWOT Analysis Guldborgsund Living Lab
+
+ STRENGTHS                                                 o WEAKNESSES
+ o     Political interest in public health and             o   Financial constraints and unknown
+       children/vulnerable groups -> potential                 cost/investment for healthier and more
+       "political will" and high-level support                 sustainable food in schools
+ o     High degree of understanding among schools of       o   Inability to identify cost-benefit across sectors
+       the importance of healthy nourishment for               (investment now-> long-term savings on public
+       children and youths                                     heath expenses (physical, mental health etc.))
+ o     Existing local public infrastructure for food       o   Normative adversity to pre-prepared food
+       preparation and delivery                                (political ideation about "home-made cooking")
+ o     High commitment to sustainability and UN SDGs       o   Lack of institutional cross-sector cooperation - >
+       and good support from the administration                unidentified "common interest"
+ o     High level of experience with EU projects in the    o   Resistance from the municipal school
+       municipality and good support from the political        administration could shut down the trial testing
+       level                                                   of a school food scheme
+ o     The LL activities can have positive impact on       o   "Jealousy" from schools not selected for trial
+       other municipal activities, objectives and goals.       testing
+
+
+19
+  Sundhed og sygdom i Guldborgsund Kommune – forebyggelse i det kommunale sundhedsvæsen, Martin Løf
+Krøyer, 2023.
+                                                                                                        Page 18 of 36
+      Report on Living Labs kick-off
+
+
+                                                             o   Insufficient facilities for preparation and eating
+                                                                 of meals
+                                                             o   Inability to find funding for trial testing
+
+
+ OPPORTUNITIES                                               THREATS
+ o      Strong national and regional agendas on green        o   Inability to engage constructively with all
+        transition, sustainable development and public           relevant actors (municipal actors, schools,
+        health                                                   parents etc.) in the processes leading to
+ o      External funding possibilities available                 activities
+ o      Could become "a good story"/example for other        o   Inequality in access / insufficient funding
+        rural municipalities in Denmark                          /pricing issues
+ o      High level of attraction to new settlers             o   Logistical challenges (delivery, waste etc.)
+ o      Useful expert experience available (local            o   Force Majeure (war, energy sector breakdown,
+        expertise, Copenhagen school system, etc.)               disease, lock-down and/or other unforeseen
+                                                                 events).
+ o      Prominent and experienced advocates in the
+        area (Claus Meyer) and relevant events (The
+        Food Summit)
+ o      Good cross-sector communication and
+        experience in cooperating on health issues
+        (including at the national and regional level)
+
+
+Kick-Off Event
+Table 10 Kick-off meeting Guldborgsund
+
+ Date                                    October 28th 2022
+ Location                                Rosenvænget 17, 4800 Nykøbing F
+ Attendees (Type)                        Regional development actors, academia, hospital
+ Agenda                                  Scope and plans for the LL
+
+
+
+
+3.5 LEADER region Weinviertel-Donauraum, Austria
+Target group
+Target groups are workers and administrative personnel (people with very different nutrient
+requirements) in large companies (with canteens) situated in industrial zones without access to
+alternative eating options, which amounts to literal food deserts. One such company comprises about
+800 employees, with 40% working in seed production and a garden outlet. Workers and other types of
+employees are often vulnerable regarding access and agency dimensions of food security when a
+company is located in a (rural) food desert. Due to shift work or because of the location of the company
+at the outskirts of cities Workers, employees and administrative personnel partly do not have access
+to alternative food choices besides the canteen menu. In general, the Austrian population shows a high
+share of overweight persons (54%), with 16.6% classified as being obese. Lower Austria is slightly above
+these values. Only 5.4% of the Austrian population state that they eat the recommended five portions
+of fruit and vegetables a day. This situation is even worse for men aged 45-6020.
+
+Challenges
+
+
+
+20
+     https://www.statistik.at/services/tools/services/publikationen/detail/848
+                                                                                                               Page 19 of 36
+      Report on Living Labs kick-off
+
+
+Canteen kitchens in Austria provide 2.2 million meals daily, of which 1.3 million meals are provided in
+company canteens.21 The aspect of healthier and more sustainable food in companies is usually not
+prioritized. As a result many companies do not have any mass catering or if there is catering, the quality
+of the food provided is low (when comparing it to sustainable and healthy food choices). Additionally,
+these canteens often offer fried, meat-based or processed meals. There are no general policies in place
+that target mass catering in companies, but since September 2023, canteens must indicate the origin
+of meat, milk and eggs.
+
+
+SWOT analysis
+The LEADER Living Lab has the benefit of building on existing stakeholder networks, infrastructure and
+supply chains for sustainable food production and awareness of involved groups. In practice there is a
+lack of interest but also the difficulty to change the status quo due to unwillingness from the companies,
+lack of interest in dietary changes and also the extra burdening of canteen staff, when buying fresh and
+regional food as well as preparing freshly cooked meals. Additionally fresh cooking always depends on
+kitchen infrastructure.
+
+Table 11 SWOT analysis LEADER Living Lab
+
+ STRENGTHS                                                 WEAKNESSES
+ o      Active smallholder agriculture                     o   No direct marketing structures
+ o      Trendy topic: healthy food in companies            o   Lack of interest/distrust by stakeholders
+ o      Active LEADER management with well-                o   Lack of information in advance of LL
+        developed networks                                 o   Lack of knowledge about procurement
+ o      Some regional producers already have               o   Intervention will create extra work for staff
+        relationships with local companies
+                                                           o   Underestimation of importance of healthier and
+ o      Some companies already offer regionally-               regional food
+        produced food in their canteens
+                                                           o   Unwillingness of companies to change the status
+ o      Awareness of company management for                    quo
+        healthier and more sustainable food in canteens
+
+
+ OPPORTUNITIES                                             THREATS
+ o      Safeguarding income opportunities for              o   Companies’ criticism towards the intervention
+        organic/local smallholders                         o   Stakeholders do not participate in intervention
+ o      Setting an example of healthier and more           o   Lack of farmers’ interest
+        sustainable food in local companies for
+                                                           o   Building networks and relationship is too
+        upscaling
+                                                               expensive/complex
+ o      Food waste reduction along the value chain
+                                                           o   Lack of interest by agricultural associations (that
+ o      Possible cooperation with already existing             may be needed/helpful for direct marketing)
+        organisations
+                                                           o   Ongoing inflation rendering healthier and more
+ o      Increasing importance of the topic (in politics)       sustainable food less accessible to stakeholders,
+ o      Awareness of topic as an asset to make                 in particular regarding the price of locally
+        companies more attractive for employees                produced food
+                                                           o   Direct marketing logistically too demanding
+
+
+
+Kick-Off Event
+
+
+21
+     https://www.landschafftleben.at/hintergruende/gemeinschaftsverpflegung
+                                                                                                           Page 20 of 36
+     Report on Living Labs kick-off
+
+
+Table 12 Kick-off meeting
+
+ Date                                 6.9.2023
+ Location                             Korneuburg
+ Attendees (Type)                     FEAST-LL-Team, staff-representative, canteen operator, canteen cook
+ Agenda                               Presentation of FEAST, assessment of canteen offers from different
+                                      stakeholder perspectives, brainstorming regarding possible options
+                                      for improvement.
+
+
+
+
+3.6 Lodz, Poland
+Target group
+This LL is focusing on users of a Senior Day Care Centre called “WIGOR”, which is part of a chain of day-
+care institutions for elderly people financed by the Ministry of Family and Social Policy within the
+second edition of the Senior+ governmental programme (2021-2025). According to Marlena Maląg, the
+Polish Minister of Family and Social Policy, there are currently 970 senior homes and senior clubs
+operating under the ministerial programme “Senior+”, offering more than 23,000 places for seniors
+from local communities. In the current edition of the programme (2021-2025), it is estimated that the
+total number of day-care facilities will be greater than 1,080, with more than 25,600 places for senior
+residents22.
+
+The choice of the day care center WIGOR was strictly connected to: a) location (closeness to the
+University of Łódź), b) willingness to participate in the research, and c) offer type. Location close to the
+University of Łódź was important because the respective LL requires both regular and spontaneous
+interventions. People representing the University of Łódź should be able to reach it within a maximum
+of two hours to have oversight of interventions applied and observe residents. Willingness to
+participate in the research is also crucial when it comes to ethical issues. Offer type refers to the Senior-
+WIGOR house in Tuszyn meeting all three requirements.
+
+There is relatively little knowledge on healthier and more sustainable diets among the age group of
+senior residents (60-96), which has a relatively low intake of fresh vegetables / raw salads on site23.
+For instance, seniors were complaining about monotonous and hard to chew cabbage-based salads
+that were hardly ever consumed. As the Polish Living Lab is a Day Care Centre, the residents still
+function as consumers and housekeepers, most of them still prepare meals independently at home.
+The primary target group comprises 21 residents (18 women and three men), between the ages of 60
+and 96. The group’s physical and mental abilities vary, but none of the residents are legally
+incapacitated.
+
+Challenges
+Currently, the improvement of the dietary situation is challenging due to a lack of national policies on
+the quality of diets in such centers. At the day care center of the LL, residents fluctuate, and are
+attached to traditional meals that are less healthy than recommended. Moreover, bureaucracy, which
+is not conducive to facilitate or implement co-created solutions, presents further challenges. To have
+wider outreach, national action is needed in order to achieve three goals: a) to evaluate the quality of
+
+22
+   https://www.gov.pl/web/rodzina/senior-dzieki-tegorocznej-edycji-programu-liczba-placowek-przekroczy-
+tysiac
+23
+   http://www.phie.pl/pdf/phe-2018/phe-2018-2-166.pdf
+
+                                                                                                    Page 21 of 36
+     Report on Living Labs kick-off
+
+
+meals provided at other Senior WIGOR Day Care institutions (there are approximately 257 Senior
+WIGOR homes in Poland financed by the Ministry of Family and Social Policy in years 2021-2025); b) to
+raise awareness of healthier and more sustainable diets among residents of senior homes; c) to share
+best practice and recommend other Senior WIGOR sites to establish their own vegetable gardens, or
+at least movable vegetable pots.
+
+SWOT
+The Lodz LL benefits from the high acceptance and enthusiasm their involvement creates in the target
+group. Working with this special target group comes with some challenges, such as the high rotation
+of the seniors as well as cognitive difficulties that especially influence the ability to engage in research
+activities such as interviews. At the same time the political situation for the LL intervention is not
+favorable, since the right-wing ruling party presents a difficult political climate for food system change.
+The bureaucratical framework forces the LL to find creative solutions, while advocating for a change in
+policies.
+Table 13 SWOT Analysis Lodz Living Lab
+
+ STRENGTHS                                               WEAKNESSES
+ o     Promising & fruitful cooperation established      o   Rotation of residents (death, sickness)
+       between the University of Lodz & the Senior       o   Cognitive impairments of some of the
+       Day Care Centre                                       participants
+ o     Recognition of the importance of the topic of     o   Strong attachment to tradition and life-long
+       healthier & more sustainable diet in old age          customs in age group 60-96 (potential
+ o     Willingness & enthusiasm of LL residents to           reluctance to change, might be gender-biased)
+       participate in the project                        o   Potential exchange of the manager of the facility
+ o     Active engagement of staff members (care              during the course of the project
+       takers, manager of the site)                      o   Bureaucracy, time-consuming procedures
+ o     Sufficient infrastructure to initiate positive    o   Inflation, financial constraints
+       change (space for the garden, planting herbs,
+       access to kitchen appliances etc.)
+ o     Strong food culture & significant meaning of
+       meals in everyday life of residents
+ o     Professional and emotional engagement of Lodz
+       FEAST team in the project tasks, dedication,
+       responsibility and mission
+
+
+ OPPORTUNITIES                                           THREATS
+ o     Potential effective cooperation with the Mayor    o   Adverse circumstances, general reluctance to
+       of Tuszyn municipality                                „gender issues” of right-wing ruling party (and
+ o     Potential effective cooperation with the              right-wing local politicians), unfavourable
+       contractor (meals provider) –                         political/ideological conditions
+       a local vocational institution                    o   High inflation rate and rising costs of food
+ o     Potential effective engagement of local farmers   o   Fixed procurement / tender procedure (path
+       / food producers                                      dependency theory)
+ o     Potential effective engagement of business        o   The risk of discontinuation of the ministerial
+       partners (sponsors, donors, CSR)                      programme under which „Senior-Wigor” Day
+ o     Ambition of upscaling & providing guidelines /        Care Centres operate nationwide
+       recommendations / good practices / policy
+       papers addressed at other „Senior-Wigor”
+       institutions nationwide
+
+
+
+Kick-Off Event
+
+                                                                                                     Page 22 of 36
+     Report on Living Labs kick-off
+
+
+Table 14 Kick-off meeting Lodz
+
+ Date                                 November 24th, 2022
+ Location                             Senior-WIGOR Day Care Centre, Tuszyn
+ Attendees (Type)                     Senior users, staff
+ Agenda                               Getting to know each other, pyramids of healthy eating
+
+
+3.7 Tuscany, Italy
+
+Target group
+This LL addresses two target groups: first, adolescents between the age of 12 to 16; second, elderly
+people between the ages of 60 to 85, with different socio-economic and ethnic backgrounds, health
+conditions, experiences and needs. In the Tuscany Region, 14% of adolescents are overweight and 2.5%
+are obese, a trend that, despite several policy initiatives, remains relatively stable compared to previous
+findings except for a slight increase in the prevalence of obesity24. Moreover, 22.6% report never eating
+breakfast, which can affect metabolic profile, concentration and learning abilities, and can lead to the
+consumption of junk food. Even fruit and vegetables consumption is far from National Guidelines - just
+17.8% eat fruits and vegetables “more than once a day”25. Tuscany is one of the Italian Regions with
+the highest percentage of elderly people (65+), representing one Tuscan citizen out of four26. Data from
+National Surveillance “PASSI D’ARGENTO” (2021-2022)27 report that 42.9% of Tuscan elderly people are
+overweight and 11.2% are obese. Furthermore, it is important to highlight that 4.6% show
+unintentional weight loss due to biological and pathological factors, representing a commonly used
+indicator for frailty. Even in this case, the consumption of fruit and vegetables does not reach the
+recommended quantity. However, despite the relevant National and Regional initiatives relating to
+active aging and the management of chronicity, nutrition education represents an aspect to be
+improved and promoted. The Tuscany Region showcases a concerning scenario, reporting high
+prevalence of excess weight and a low adherence to the principles of the Mediterranean Diet both in
+adolescents and in older populations.
+
+Challenges
+Existing research indicates that the Italian population currently exhibits unhealthy eating habits that
+are not aligned with the Mediterranean Diet, increasing the risk of overweight, obesity, eating disorders
+and the development of chronic noncommunicable diseases (NCDs), which represent a public health
+priority and a shared global challenge due to the high impact on individuals’ quality of life and the
+enormous burden on health and social services. According to these premises, the Italian National
+Prevention Plan 2020-2025 and the consequent Tuscan Regional Prevention Plan28 in which priorities
+and goals are reflected, highlight the relevance of outlining interventions that can encourage the
+
+
+
+24
+  https://www.epicentro.iss.it/hbsc/indagine-2022-nazionali
+25
+  https://www.crea.gov.it/en/web/alimenti-e-nutrizione/-/linee-guida-per-una-sana-alimentazione-2018;
+https://www.crea.gov.it/documents/59764/0/Dossier+Scientifico+Linee+Guida+2018+%281%29.pdf
+26
+
+https://www.ars.toscana.it/images/pubblicazioni/Collana_ARS/2022/Documento_ARS_116/Documento_anzian
+i_2022_15_02.pdf
+27
+   https://www.epicentro.iss.it/passi-argento/
+28
+   National Plan: https://www.salute.gov.it/imgs/C_17_notizie_5029_0_file.pdf, Regional Plan:
+https://www301.regione.toscana.it/bancadati/atti/Contenuto.xml?id=5314160&nomeFile=Delibera_n.1406_de
+l_27-12-2021-Allegato-A
+
+                                                                                                 Page 23 of 36
+     Report on Living Labs kick-off
+
+
+adoption of healthier eating habits to promote both individual well-being and decrease health and
+social costs associated with unhealthy diets.
+
+SWOT
+In the Tuscany Living Lab, support from several partners – such as local initiatives, the “Education and
+Heath Promotion Department” as well as the Scuola Superiore Sant'Anna as Academic Partner – can
+be counted on. Also, a wider political acceptance can be seen as an opportunity. Difficulties present
+themselves through the lack of interest and possible withdrawal from the project, as well as in
+budgetary challenges of the Living Lab.
+Table 15 SWOT Analysis Tuscany Living Lab
+
+
+
+ STRENGTHS                                                  WEAKNESSES
+ o     Partnerships and networks already in place with      o   Parents' skepticism and shortage of available
+       some local producers, companies and projects             time
+       (ex. "Piana del Cibo", "Slow Food")                  o   Lack of interest from relevant stakeholders
+ o     Growing interest for healthier and more              o   Withdrawal of relevant stakeholders during the
+       sustainable food habits from different sectors           project
+ o     Presence of social vegetables gardens                o   Administrative/requirements obstacles
+ o     Education and Health Promotion Department            o   Delays in project preparatory activities
+       devoted to draft projects concerning health
+       promotion and with a significant experience of
+       projects in schools, with children and
+       adolescents
+ o     Scuola Superiore Sant'Anna as Academic
+       Partner
+ o     Already existing networks with schools of Piana
+       di Lucca and Valle del Serchio District Zones
+
+
+ OPPORTUNITIES                                              THREATS
+ o     Mediterranean Diet as a food culture and             o   Privacy issues
+       tradition                                            o   Possible increase in costs for healthier foods
+ o     Existing projects: “Proxy Young-Be Food”,
+       “Circularifood”, “Move junior”,
+       “"Invecchiamento Attivo", "FoodClic"
+ o     National agendas and programs fostering
+       healthier and more sustainable diets (National
+       and Regional Prevention Plan 2020-2025)
+       throughout the life-course
+ o     National Initiatives such as "Scuole che
+       promuovo salute"
+
+
+
+
+Kick-Off Event
+Table 16 Kick-off meeting
+
+ Date                                  October 16th, 2023
+ Location                              Online
+ Attendees (Type)                      Health and education authorities from different levels
+ Agenda                                Status of activities, envisaged outcomes, next steps
+
+                                                                                                         Page 24 of 36
+      Report on Living Labs kick-off
+
+
+
+
+3.8 Oxfordshire, United Kingdom
+
+Target group
+In Oxfordshire, people on lower incomes have poorer diet-related health outcomes and higher
+incidence of type-2 diabetes29. For example, the most deprived areas of Oxfordshire have a greater
+prevalence of childhood obesity than the least deprived areas at both Reception (11.5% versus 6.5%
+respectively) and Year six (24.4% versus 13.6% respectively). Furthermore, despite Oxfordshire having
+lower admission rates for heart attacks than the average for England, six of Oxfordshire’s most deprived
+wards had admission rates that were rated as significantly higher than the average across England. We
+hypothesize that people on lower incomes are less likely to participate in more sustainable and
+healthier dietary choices due to access and affordability constraints. We also know that many residents
+are facing problems in being able to afford healthier and more sustainable food30. We have data that
+shows that healthier and more sustainable food is less available and more expensive in some of the
+most deprived areas31. We estimate that around 100,000 people in Oxfordshire were experiencing food
+insecurity in September 2022 based on extrapolations of national data and our local knowledge around
+the current use of foodbanks and larders 32 . Anecdotally, the Oxfordshire LL observes citizens to
+experience challenges, including a lack of knowledge, confidence and skills around cooking, including
+budgeting, planning, cooking techniques and facilities for cooking. We also know, from local knowledge,
+that Oxfordshire is made up of many unique and diverse community groups, and therefore a ‘one-size-
+fits-all’ solution derived through a top-down research process is unlikely to have the greatest impact
+and sustainability. The target group are thus communities that are most at risk of diet-related ill-health
+and food insecurity. This broadly defined group consists of parents with children aged under 18,
+expectant mothers, ethnic minorities, as well as adults without children in the household with low
+incomes. In particular, those who rely on community-based food services in areas with high levels of
+deprivation are the Oxfordshire LL’s target.
+
+Challenges
+In recent years in the UK there has been some traction to influence food system policy at a national
+level, e.g. through levies on sugar sweetened beverages. Yet, despite some success, progress has been
+slow, with more recent legislation being delayed in response to other evolving policy positions.
+Without grass-root, community led interventions to influence and support change at a local level, the
+socioeconomic gap in diet related ill-health will continue to widen, exacerbating the intergenerational
+cycle of malnutrition and poverty.
+
+SWOT
+The Oxfordshire LL’s approach is being implemented in the context of momentum for the topic,
+meaning the support and infrastructure in initiatives and organizations is high and society has a growing
+
+
+29
+     Oxfordshire Insight. (2022). Joint Strategic Needs Assessment,
+https://insight.oxfordshire.gov.uk/cms/joint-strategic-needs-assessment
+30
+     https://priorityplacesforfood.which.co.uk/
+31
+     Oxfordshire Insight. (2022). Joint Strategic Needs Assessment,
+https://insight.oxfordshire.gov.uk/cms/joint-strategic-needs-assessment; Food Foundation. (2022). Food
+insecurity tracking. https://foodfoundation.org.uk/initiatives/food-insecurity-tracking
+32
+   Food Foundation. (2022). Food insecurity tracking. https://foodfoundation.org.uk/initiatives/food-
+insecurity-tracking
+
+                                                                                               Page 25 of 36
+     Report on Living Labs kick-off
+
+
+normative understanding of the need for more sustainable and healthier diets. At the same time,
+stakeholders are experiencing a cost-of-living crisis due to inflation and supply shortages and the
+diverse needs of the target groups are difficult to face through one single solution. In terms of
+participatory research processes, the LL can rely on strong and good connections to research agencies
+and a general interest in participatory research processes, while the sustainable implication of the
+intervention will require a maintenance budget which is difficult to ensure.
+Table 17 SWOT Analysis Oxfordshire Living Lab
+
+ STRENGTHS                                                  WEAKNESSES
+ o     Strong network of community groups across            o   Some research fatigue amongst community
+       Oxfordshire with similar missions to address             groups
+       poverty and food related poverty                     o   Slow decision making within community groups
+ o     Strong local Public Health interest for the          o   Challenges with designing a solution that meets
+       planned outcomes                                         the needs of a diverse range of groups serving
+ o     Growing normative understanding of the need              different communities
+       for healthier, more sustainable and affordable       o   Cost of living challenges changing the focus from
+       diets                                                    ensuring healthier and more sustainable diets to
+ o     Normative understanding of the need for                  other competing priorities
+       suitable nourishment to support childhood            o   Inherently challenging to accurately measure
+       growth and development, and the need to                  programme impacts for dietary nutritional
+       address food insecurity for diverse groups               composition improvements within the
+                                                                programme timescales
+
+
+ OPPORTUNITIES                                              THREATS
+ o     Growing interest and drive for participatory         o   Perceived and real high costs of eating healthier
+       research approaches, that benefit communities,           and more sustainable food may challenge the
+       rather than being extractive                             sustainability of a solution
+ o     Strong networks with local academic and              o   Challenges to secure maintenance costs to
+       research institutions that are looking to actively       support implemented system
+       support community-based research approaches          o   Inability to proactively engage with all relevant
+ o     Strong networks with local academic and                  actors required to ensure programme success
+       research institutions that provide routes to         o   Force Majeure
+       external funding opportunities
+
+
+
+
+Kick-Off Event
+Table 18 Kick-off meeting
+
+ Date                                   June-September 2023, 4 events
+ Location                               In each district of Oxfordshire (City, Cherwell, West, South & Vale)
+ Attendees (Type)                       Local councilors, local council officers, members of our Community
+                                        Food Network (e.g. Food Larders, Food Banks), local food producers
+                                        and retailers, members of the National Farmers Union, academics
+ Agenda                                 Attendees were given a background on the project, it’s aims and
+                                        objectives and an overview of the plan for delivery, and asked to
+                                        nominate suitable community groups to be involved in the co-design
+                                        process.
+
+
+
+
+                                                                                                          Page 26 of 36
+     Report on Living Labs kick-off
+
+
+3.9 Prilep, North Macedonia
+
+Target group
+The primary target group of this LL are children (aged 3-6) attending kindergartens within the
+Municipality of Prilep and their families. These children are likely to be of different ages, genders,
+ethnicities, and socio-economic backgrounds, and may have different food preferences, health
+conditions, and learning abilities. The families are likely to be diverse and may face different challenges
+and opportunities, such as time constraints, financial constraints, and health illiteracy. In North
+Macedonia, malnutrition is persisting at a relatively low rate, but is an enduring concern, particularly
+within vulnerable groups. Concurrently, there is an alarming rise in childhood obesity. Additionally,
+socio-economic limitations hinder some families from providing adequately balanced meals for their
+children.33
+
+Challenges
+Failing to comprehensively improve childhood nutrition could perpetuate and intensify the existing
+malnutrition and intensify the obesity epidemic 34 . Neglecting this issue risks long-term health
+ramifications, hindering childrens‘ cognitive, emotional, and physical development. In the context of
+promoting and preserving local, traditional and sustainable diets, the absence of action could lead to
+further erosion of traditional diets and the loss of health benefits associated with these diets. Without
+intervention, the homogenization, standardization, and commodification of food driven by
+globalization, urbanization, industrialization, and Westernization would continue to dominate,
+potentially leading to a decline in dietary diversity, nutrition, and overall well-being.
+
+SWOT
+The combination of a local tradition for agriculture, an interest in the topics of healthier and more
+sustainable diets as well as the small size of the municipality, and therefore availability to gain an
+overview of the risks and opportunities, presents the Prilep LL with a good point of departure. The
+cooperation with the national government is slow and transparency is lacking, which at the same time
+enables room for creativity and initiative for civil society priorities. The biggest threat can be seen in
+inflation that is at nearly 20% and subsequently the food and energy crisis in the country.
+
+
+
+
+33
+   Jasar, D., & Curcic, B. (2021). Common nutrition and health issues of food in the Balkans. In Nutritional and
+Health Aspects of Food in the Balkans (pp. 279-297). Academic Press,
+http://globalnutritionreport.org/files/2014/12/gnr14_cp_the_former_yugoslav_republic_of_macedonia.pdf,
+Stojcheska, A. M. (2023). The role of food systems in the transition of diets and the prevention of malnutrition
+in North Macedonia. Sustainable and nutrition-sensitive food systems for healthy diets and prevention of
+malnutrition in Europe and Central Asia, 277
+34
+   Министерство за труд и социјална заштита (2022). Правилник за изменување на правилникот за
+стандардите и нормативите за вршење на дејноста на установите за деца, 11-3643/1, available at
+https://www.mtsp.gov.mk/pravilnici-ns_article-pravilnici-od-zakonot-za-zashtita-na-decata-novo.nspx,
+http://globalnutritionreport.org/files/2014/12/gnr14_cp_the_former_yugoslav_republic_of_macedonia.pdf
+                                                                                                       Page 27 of 36
+     Report on Living Labs kick-off
+
+
+Table 19 SWOT Analysis Prilep Living Lab
+
+ STRENGTHS                                                   WEAKNESSES
+ o     There is a local tradition for sustainable            o   The municipality may not have the full
+       agriculture                                               autonomy to take up big projects, due to
+ o     Active small farmers/agriculture producers and            administrative, political and procedural
+       agriculture associations                                  obstacles
+ o     Sustainability and health is a topic that is          o   Low national and local government transparency
+       gaining traction locally                                  that may pose difficulties with needs mapping
+ o     The municipality is small enough to be able to        o   Disorganised government at a local and national
+       easily map out risks/opportunities and to                 level, low levels of coordination
+       organise local distribution                           o   Often slow responses by local and national
+ o     There are positive examples that can be drawn             governments
+       from nationally and applied in the local context
+
+
+ OPPORTUNITIES                                               THREATS
+ o     High level of motivation by the team in the           o   With inflation of nearly 20% and food+energy
+       municipality                                              insecurity rising, anything apart from short-term
+ o     Many young/creative people live in the                    direct provision of food to vulnerable categories
+       municipality but very few activities for their            may be viewed as redundant or detached from
+       involvement                                               social needs
+ o     IT Sector is strong nationally                        o   Political/bureaucratic threats in dealing with
+ o     The municipality of Prilep is in traditional              local and national governments
+       farming areas                                         o   Being viewed as competitors by existing
+ o     There are existing food-related initiatives and           initiatives
+       networks such as “Slow Food MKD” and                  o   Lack of interest by farmers/schools/consumers
+       “Zemjodelie.mk” that demonstrate a local              o   The perception of our project and party-
+       interest in food sustainability                           politically driven, or as an external intrusion
+ o     Several development agencies are working on           o   The project achieves its own objectives, but has
+       sustainability in the country, and we can                 little positive, local impact
+       cooperate with them if there are synergies            o   Backlash from supermarkets
+ o     Since not much is done by the central
+       government, there are opportunities to make
+       tangible changes, in areas such as reducing food
+       waste, safeguarding income for local small
+       farmers, providing/promoting more sustainable
+       food for local schools, reducing food waste,
+       promoting locally sourced consumption
+       patterns, and in the process helping the
+       municipality’s local development model
+ o     Could become a good story and especially so if
+       we find complementarity between FEAST’s WP4
+       and WP5 and are able to address real needs
+ o     The global cost of living crisis increases the need
+       to be more food independent
+
+
+
+
+                                                                                                         Page 28 of 36
+     Report on Living Labs kick-off
+
+
+
+Kick-Off Event
+Table 20 Kick-off meeting
+
+ Date                                 December 10th 2023
+ Location                             Online
+ Attendees (Type)                     Pedagogists, representatives of public authorities, project managers
+
+ Agenda                               Visions, objectives and anticipated impact of the LL, ways of
+                                      collaboration, roles and responsibilities, brainstorm and feedback on
+                                      the initiative
+
+
+
+
+3.10 Rotterdam, Netherlands
+
+Target group
+Beijerlandselaan is the largest shopping street in Rotterdam South area and is surrounded by three
+neighborhoods, including the Hillesluis district. Hillesluis has about 12,000 inhabitants of which about
+2,400 are under 16 and about 4,000 are under 25. In the Hillesluis neighborhood, where this LL will be
+taking place, 57% of adults are overweight compared to 50% nationally, which amounts to about 4,500
+people. 21% of adults are severely obese compared to 15% nationally, which amounts to approximately
+1,600 people. 59% of adults perceive their health as good/very good against 75% nationally35. Against
+this backdrop, the target group consists of unemployed individuals and families in a low-income
+neighborhood. In this neighborhood, we hypothesize that there are many more people with
+overweight problems and an abundance of shops that sell fast food than on average.
+
+Challenges
+The Beijerlandselaan-Groene Hilledijk (together Boulevard Zuid) has 240 shops and catering
+establishments, of which 51 are entrepreneurs selling food. There is a one-sided food offer with most
+of the shops selling fast food. Therefore the neighborhood can be considered to be a food swamp. This
+problematic local foodscape is contributing to obesity and other health issues. At the same time shop-
+owners are open to new approaches such as implementing more plant-based food choices. These
+initiatives show that the offering of healthy alternatives is a possible solution that resonates among
+businesses.
+
+SWOT
+The Rotterdam Living lab has a wide network of collaborations through an established dietician in the
+area as well as the alliance of shop owners. At the same time the target group faces severe problems
+when it comes to income, debts and overall economic stress that influences dietary choices. These
+problems call for holistic solutions that have already been proposed by the local government, whilst
+the situation now is highly influenced by a cost-of-living crisis, where healthier eating is pushed to the
+back end of the priority list.
+
+
+
+
+35
+  https://gezondheidinkaart.nl/jive/report?id=tabellenboek_incl_wijk&inp_geo=wijk13_rap_059910,
+https://gezondheidinkaart.nl/dashboard/dashboard/voeding
+                                                                                                      Page 29 of 36
+     Report on Living Labs kick-off
+
+
+Table 21 SWOT Analysis Rotterdam Living Lab
+
+ STRENGTHS                                                WEAKNESSES
+ o     The City of Rotterdam will focus on primary        o   Significant research fatigue among community
+       prevention of health problems in its policies          members
+ o     Collaboration with a dietician that operates for   o   Disrupted access to vulnerable groups because of
+       20 years in this neighbourhood                         an unanticipated major construction project
+ o     Collaboration with an alliance of shop owners      o   The perspective of an economically feasible
+ o     Focus on collaboration with inhabitants                solution to the problem is still missing: for how
+                                                              long will a local government be able to support
+                                                              this project?
+                                                          o   Health and sustainability policies should be far
+                                                              more integrated with policies on income and on
+                                                              debt management. Low income and debts are an
+                                                              important source of stress among inhabitants.
+                                                              This stress interferes with making healthier and
+                                                              more sustainable choices about food intake
+
+
+ OPPORTUNITIES                                            THREATS
+ o     Several local partners invest in improving this    o   Local politicians are reluctant to bother shop
+       neighbourhood                                          management with health-related issues;
+ o     The national government announced the              o   High inflation rate and increasing prices of
+       preparation of legislation that gives local            heating: "heat or eat?"
+       authorities instruments to limit the number of
+       shops that supply fast food in certain areas
+       (december 14th 2022)
+ o     The rise of a local policy program on
+       management of poverty in the city
+ o     Collaboration with a National network of local
+       governments with similar projects
+
+
+
+
+Kick-Off Event
+Table 22 Kick-off meeting
+
+ Date                                 March 2023
+ Location                             Community building in Boulevard Zuid area in Rotterdam
+ Attendees (Type)                     Shop owners, entrepreneurs
+ Agenda                               Healthy alternatives in the food offerings
+
+
+
+
+                                                                                                      Page 30 of 36
+     Report on Living Labs kick-off
+
+
+3.11 Sitia (Crete), Greece
+
+Target group
+Sitia Municipality’s population, according to the 2021 census, is 20,268 people; the population of
+people with a farmer profile is approximately 7,50036. The main farming occupation is the production
+of extra virgin olive oil from Sitia Protective Origin (extra virgin olive oil category is based on the oils
+acidity, so all olive oils below 0.8 acidity belong to this category). With the exception of professional
+farmers in Sitia, most of the local citizens produce their own olive oil (self-sufficiency) as a base for the
+traditional Mediterranean diet37. According to pre-project mapping and exploratory conversations with
+the main stakeholders of the region, olive oil is the backbone of the local economy and is exposed to
+diverse and divergent pressures including climate change and degrading environmental conditions
+(including pests), economic factors, the cost of energy and rural de-population. Farmers and domestic
+producers are also acting as consumers; usually, during production season they store quantities of olive
+oil for their own use (olive oil is the basic ingredient of the Cretan Diet). Generally, farmers could be
+distinguished as farmers and owners of the olive groves or professional (specialized workers) who rent
+and / or collect olives from olive groves.
+
+Due to this year’s challenging economic conditions (low production and high product price), local
+farmers are forced to follow a strategy that leads to a series of cascading effects. Persistently increasing
+production costs, which sometimes synergistically acts with the Greek economic crisis, has led many
+farmers either to sell all their production of olive oil through existing markets or to try to lower
+production costs which then leads to a smaller production of olive oil (for example, the olive trees are
+not pruned properly because of the cost of specialist workers). Combined with the fact that the market
+price of olive oil has tripled during the last year, farmers have focused on selling at a high price to cover
+cost obligations. This chain of events has led to the utilization of less quantities of olive oil for domestic
+use or to an increase of different types of oils for cooking. For the situation of local farmers being
+consumers themselves, although they produce a very healthy and sustainable food product, they are
+exposed to food insecurity and are forced to change their diet. This key threat for this vulnerable group
+will orient farmers (as consumers) to the use of other cooking oils for every day meal preparation and
+transition away from their traditional food culture to dietary alterations which may be less healthy.
+
+Challenges
+The olive oil produced locally is the foundation of the daily diet and many local producers are not
+certain that they will be able to continue their occupation and continue to keep their normal
+dietary/culinary routines. Sitia Olive Oil production, a product of Protected Designation of Origin with
+unique characteristics of the Koroneiki variety, relies heavily on the expertise and knowledge of local
+producers and farmers. The cultivation of olive trees has been a part of the local culture since the
+Minoan Era (ca. 2,000 BC), and this knowledge has been passed down from generation to generation.
+The farmers’ experience, combined with present-day technology and guidance from agronomists, has
+led to the creation of the world-renowned Sitia Olive Oil brand. Cretans consume large quantities of
+olive oil per person (larger than Greece’s average 11.2 kg) per year. Studies conducted over many years
+have concluded that olive oil is considered a key food for health and well-being, related to long life and
+
+
+
+
+36
+   https://www.sitia.gr/information-services/press-release/207apografi.html,
+https://esdak.gr/wp-content/uploads/2021/07/%CE%9C%CE%A0%CE%95-%CE%94.-
+%CE%A3%CE%97%CE%A4%CE%95%CE%99%CE%91%CE%A3.pdf
+37
+   https://www.sciencedirect.com/science/article/pii/S1568163714001123?pes=vor
+                                                                                                    Page 31 of 36
+     Report on Living Labs kick-off
+
+
+the reduction of several diseases such as diabetes and heart problems38. With the need for a healthy
+diet, olive oil is now considered a super food providing many essential nutrients. It is thus important
+for olive oil, being undoubtedly the basis of the Mediterranean diet (and notably the Cretan diet), to
+maintain all those quality characteristics that make it unique. It is also important for local agriculture
+groups to maintain and increase production levels so that they may deal with all olive oil production
+challenges starting from the field all the way until the final products reach the consumer. Faced with
+challenges such as climate change, farmers cooperatives have to restructure their organization as well
+as explore adaptation measures in the production chain to be able to keep providing this product to
+regional consumers.
+
+SWOT
+The Sitia Living Lab operates with the benefit of being part of the UNESCO Global Geopark network and
+having a fast acceptance for their intervention within the community. Confronted with threads such as
+climate change, that poses special risks to the Mediterranean, and rising prices of energy, the situation
+for farmers is difficult. Reacting to these crises, the Sitia LL will co-design a holistic change management
+approach that presents opportunities such as changing the system to be more resilient through i.e.
+biological and chemical free fertilizers.
+
+Table 23 SWOT Analysis Sitia Living Lab
+
+ STRENGTHS                                                     WEAKNESSES
+ o     The city of Sitia has a long tradition of olive oil     o   Continual increases of economic and energy
+       production                                                  costs for olive production
+ o     Sitia Geopark is a major part of the municipality and   o   Abandonment of the villages by young
+       is registered within the UNESCO Global Geopark              people
+       Network. Olive trees are an inherent part of the        o   Effects of Climate Change - the
+       Geopark                                                     Mediterranean is considered a climate Hot
+ o     The international proprietary name “Protective              Spot according to IPCC
+       Origin Sitia Lasithiou Kritis (Crete)”, presents the    o   Use of synthetic fertilizers and chemical
+       unique properties of a fine olive oil , produced in         pesticides
+       the region, one of the most well known brand            o   Difficulties for local producers to get their
+       names in markets world wide                                 products into public institutions
+ o     The area includes approx. 2.5 million olive trees,      o   Promotion of Sitia Olive Oil into global
+       producing between 10 to 15 thousand tons of olive           markets
+       oil per year                                            o   Accessibility of the area (especially in winter)
+ o     Olive oil is an integral part of the traditional
+       Mediterranean diet
+ o     Local olive oil production has been officially
+       monitored by the cooperatives since the 1980s
+ o     Major percentage of the farmers are members of
+       cooperatives or a farming group
+
+
+ OPPORTUNITIES                                                 THREATS
+ o     Novel procurement model that helps local food           o   Climate change due to dry-thermal
+       producers in the region to get their products into          conditions
+       main markets                                            o   Continuous increase of economic and energy
+ o     Improvement of the quality of cultivation/products          costs
+       and of its environmental footprint through              o   Rising olive product prices
+       biological cultivation
+
+38
+  https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/mediterranean-diet-and-
+cardiovascular-health-an-historical-perspective/D257C33D41BDCE1C747D9C6A76C4AF9D
+
+
+                                                                                                         Page 32 of 36
+     Report on Living Labs kick-off
+
+
+ o     Use of biological pest management                     o   Limited olive oil production compared to
+ o     Increased awareness of local olive oil supply chain       international competition
+       values                                                o   Invasive insect pest species
+ o     Support local economy through local interventions     o   Rural depopulation/ lack of labor force
+ o     Promotion of bio/chemical free olive oils without
+       reduced yields
+ o     Participation in research projects related to the
+       agri- sector
+
+
+
+
+Kick-Off Event
+Table 24 Kick-off meeting
+
+ Date                                 June 9th, 2023
+ Location                             Sitia Municipality
+ Attendees (Type)                     Board of farmers, cooperative, local packers, municipality officers,
+                                      researchers
+ Agenda                               Productivity, promotion of olive oil, nutrition benefits, consumers’
+                                      access and use of olive oil
+
+
+
+
+                                                                                                    Page 33 of 36
+   Report on Living Labs kick-off
+
+
+4 Discussion of results
+The starting conditions, initial assessments of challenges and identified target groups cover a broad
+range of different situations captured by FEAST’s food system typology as well as rural-urban gradients.
+Those features can be used to group LLs according to type of challenge faced, in relation to specific
+types of target vulnerable groups. Four LLs are addressing school food (Alto Minho, Avignon,
+Guldborgsund, Prilep), reacting to lack of school food or to a lack of healthier and more sustainable
+school food options. The local contexts of these schools are quite different. While in Prilep, food
+poverty is an issue and in Avignon, the share of poor households is significant, in Alto Minho and
+Guldborgsund, the LLs rather identify health issues as their prime concern. Tuscany is focusing on food
+education and literacy in schools and is also addressing the elderly. Similar to these school food LLs
+regarding institutional context is the LL in Lodz, targeting users of a senior daycare home. Two LLs stand
+out for their low-income neighborhood focus, Ghent and Rotterdam. In these cases, food poverty is a
+significant concern, coupled with a prevalence of unhealthy and unsustainable food within food
+environments near poor households. Finally, two LLs are addressing further, distinct groups of
+vulnerable people. The Sitia LL is engaging with olive oil producers struggling with economic decline
+and other stressors, threatening local provision of healthy and sustainably produced olive oil, while the
+LL in the Weinviertel is targeting company workers who suffer food desert-like situations and other
+difficulties in accessing and eating healthier and more sustainable food.
+
+LLs have been developing differently according to the availability of information on challenges and
+possible solutions, the interest and engagement of relevant stakeholders, and the specific barriers for
+food system transformation that their sites are facing. Additionally, the network LLs can build upon,
+such as the existence of a food policy council or active civil society groups, has turned out to be a crucial
+advantage for kicking off LLs´ work.
+
+In the next phase, building on the results documented in this report, LLs will refine their perspective
+on local challenges related to vulnerable groups with the help of stakeholders engaged in their kick-off
+events, and additional collection of data on situations of vulnerability and barriers for food system
+change. In particular, they will start the co-design process of the solution to be tested in their LLs,
+together with relevant stakeholders. This will be the basis for elaborating research designs to measure
+pre- and post-intervention impacts in terms of variables and qualitative information necessary to assess
+health-related, ecological, social and economic impacts associated with food security and the
+consumption of healthier and more sustainable diets.
+
+
+
+
+                                                                                                   Page 34 of 36
+   Report on Living Labs kick-off
+
+
+5 Appendices
+Appendix 1: Agenda of a LL webinar on hackathons
+
+Agenda of Hackathon meetings
+
+    •   Meeting #1 - 13.02.2023: USERS - How understanding people is fundamental in creating
+        effective solutions that can be uptaken
+
+    •   Meeting #2 - 27.02.2023: TOOLS - Some useful tools that can be used in the different stages of
+        the development of ideas
+
+    •   Meeting #3 - 13.03.2023: HACKATHONS - Structure and outcomes, how to prototype and why
+        it is so important
+
+Agenda meeting #1:
+
+    •   What is human-centered design
+    •   Case study on human-centered design
+    •   Stages of a hackathon
+    •   Systems thinking
+    •   Working iteratively
+    •   Human-centered design and co-design
+    •   Complexity of need identification
+    •   Techniques (interview guidelines, daily journals, clustering)
+    •   How to document results
+    •   How to develop a solution
+    •   How to develop a prototype
+
+Appendix 2: Exemplary agenda of a LL meeting
+
+ Time             Section/Presentation                                  Additional info
+
+ 2:00-2:10        Welcome & housekeeping messages                       Chair: Johanna
+
+ Inputs from other WPs
+
+ 2.10-2.25        Louis Bolk WP GMB workshops & feedback                Leonie
+
+ 2.25 - 2.40      Reporting & Q&A                                       Anant
+
+ Updates from WP leads
+
+ 2.40 - 2.50      Deliverable 4.1                                       WP4
+
+ 2.50-3.00        Presentation of Baseline Measurement Outcomes WP4
+
+ 3.00-3.10        Buffer/small break
+
+ Small Groups
+
+ 3.10 - 3.30      Vision Interviews                                     Andreas & Livia
+
+ 3.30 - 3.45      Small Group Structure & Feedback                      Johanna
+                                                                                            Page 35 of 36
+  Report on Living Labs kick-off
+
+
+3.45 - 4.15      Breakout Session: Small groups     Facilitation: Andreas,      Livia,
+                                                    Maria, Johanna
+
+4.15 - 4.30      Groups report back and good byes   All
+
+
+
+
+                                                                             Page 36 of 36
+www.feast2030.eu   FEAST is co-funded by the European Union’s Horizon Europe research and inno-
+                   vation programme under grant agreement number 101060536. Views and opinions
+                   expressed are those of the author(s) only and do not necessarily reflect those of the
+                   European Union. Neither the European Union nor the granting authority can be held
+                   responsible for them.
+
+                   UK participant in FEAST (Good Food Oxfordshire) is supported by Innovate UK grant
+                   number 10041509 and the Swiss participant in FEAST (FiBL) is supported by the Swiss
+                   State Secretariat for Education, Research and Innovation (SERI) under contract number
+                   22.00156.
+
