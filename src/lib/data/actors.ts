@@ -2945,6 +2945,22 @@ export const actorsSeed: ActorSeed[] = [
     notes: 'Survived insect sector shakeout 2023-2025 where Ynsect and ENORM failed. Differentiated by: modular scaling (not megafactory), petfood focus for higher margins, industrial partnerships.',
   },
 
+  {
+    id: 'actor-nomy',
+    slug: 'nomy',
+    name: 'NOMY',
+    actorType: 'industry-association',
+    organizationType: 'forening',
+    country: 'NO',
+    roleSummary: 'Norsk aktør registrert på grunnlag av nomy.no for å holde sirkulærøkonomisk kobling i norsk matsektor synlig i kartet.',
+    currentRelevance: 'Plassert som mulig bransjeorganisasjon i sirkulærøkonomi-feltet, pending bekreftelse av mandat og konkrete relasjoner.',
+    website: 'https://nomy.no/',
+    currentStance: 'unknown',
+    specificAsk: 'Bekreft aktørtype, mandat og sentrale samarbeidspartnere i matsystem-miljøet.',
+    priorityTier: 'p4',
+    themeTags: ['circular-economy', 'food-system', 'mapper'],
+  },
+
 ]
 
 export const actorRelationshipsSeed: ActorRelationshipSeed[] = [
@@ -3026,6 +3042,7 @@ export const actorRelationshipsSeed: ActorRelationshipSeed[] = [
   { fromActorId: 'actor-matvett', toActorId: 'actor-norgesgruppen', relationType: 'partners_with', strength: 'high', note: 'Bransjeavtalen 2017-2030 matsvinnreduksjon' },
   { fromActorId: 'actor-matvett', toActorId: 'actor-matsentralen', relationType: 'partners_with', strength: 'high', note: 'Samarbeid om matsvinndata og redistribusjon' },
   { fromActorId: 'actor-matvett', toActorId: 'actor-lmd', relationType: 'influences', strength: 'medium', note: 'Rapporterer matsvinndata til myndighetene' },
+  { fromActorId: 'actor-nomy', toActorId: 'actor-matvett', relationType: 'partners_with', strength: 'low', note: 'Potensielt samarbeid om matsvinn og sirkulaere tiltak i norsk sektor' },
   { fromActorId: 'actor-holdbart', toActorId: 'actor-norgesgruppen', relationType: 'competes_with', strength: 'low', note: 'Alternativ lavpriskanal for datovarer' },
   { fromActorId: 'actor-nofima', toActorId: 'actor-matvett', relationType: 'partners_with', strength: 'medium', note: 'Forskningspartner paa matsvinn og holdbarhet' },
 
@@ -3104,4 +3121,3 @@ export const actorRelationshipsSeed: ActorRelationshipSeed[] = [
   { fromActorId: 'actor-mycorena', toActorId: 'actor-enifer', relationType: 'parallel_to', strength: 'medium', note: 'Mycoprotein nordisk: SE konkurs (2024) vs FI vekst (Enifer Oy fortsatt aktiv)' },
   { fromActorId: 'actor-apetit', toActorId: 'actor-enifer', relationType: 'partners_with', strength: 'low', note: 'Begge finske food-tech. Apetit som etablert noteret aktoer vs Enifer som VTT-spin-off' },
 ]
-

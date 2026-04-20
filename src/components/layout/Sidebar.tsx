@@ -38,7 +38,7 @@ const navGroups = [
       { name: 'Graf', href: '/graf', description: 'Kunnskapsgraf og koblinger' },
       { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
       { name: 'Verdikjede', href: '/verdikjede', description: 'Nordisk verdikjedeanalyse' },
-      { name: 'Sirkularitet', href: '/sirkularitet', description: 'Looper, gap og aktorcaser' },
+      { name: 'Sirkularitet', href: '/sirkularitet', description: 'R-stige, 10 spormal, looper og caser' },
       { name: 'Okonomi', href: '/okonomi', description: 'Finansielle trender og sammenligning' },
       { name: 'Styremedlemmer', href: '/styremedlemmer', description: 'Kryssstyrer og nettverk' },
       { name: 'Forsyningskjede', href: '/forsyningskjede', description: 'Leverandorkjeder og relasjoner' },

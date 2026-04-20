@@ -1,7 +1,7 @@
 {
   "generated": "2026-04-20",
   "description": "Nordic nutrient flow analysis (N, P, K) — imports, losses, and recovery potential per country",
-  "methodology": "Material Flow Analysis (MFA) based on NIBIO, SSB, Norsk Vann, Frontiers P-MFA studies (Hamilton et al. 2023), HSY Finland, Svenskt Vatten, DTU Environment. Order-of-magnitude estimates, not official statistics.",
+  "methodology": "Material Flow Analysis (MFA) based on NIBIO, SSB, Norsk Vann, Frontiers P-MFA studies (Hamilton et al. 2023), HSY Finland, Svenskt Vatten, DTU Environment. Cross-validated with P27 (avlopsanlegg) and P29 (gjodselimport) from Perplexity Runde 2, 20.04.26. Order-of-magnitude estimates, not official statistics.",
   "countries": {
     "NO": {
       "population_m": 5.5,
