@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-20",
+  "generated": "2026-04-21",
   "description": "Nordic food system circularity loops — existing operational loops, identified gaps, and actor cases scored on R-ladder (R0-R9)",
   "existing_loops": [
     {
@@ -167,28 +167,6 @@
       ]
     },
     {
-      "id": "no-magiske-fabrikken",
-      "name": "Den Magiske Fabrikken (Norge)",
-      "country": "NO",
-      "maturity": "operational",
-      "trl": 9,
-      "rLevel": "R9",
-      "volume": "106,000 tonnes/year → 5.1M liters diesel-equivalent",
-      "value_chain_step": [
-        "waste",
-        "primary"
-      ],
-      "flow": "Food waste + manure → co-digestion → biogas (vehicle fuel) + digestate (fertilizer)",
-      "actors": [
-        "Greve Biogass/VEAS"
-      ],
-      "policy_support": "Enova investment support",
-      "theme": "matsvinn",
-      "sources": [
-        "sirkulaer-biookonomi"
-      ]
-    },
-    {
       "id": "no-nortura-biprod",
       "name": "Nortura biprodukter til for (Norge)",
       "country": "NO",
@@ -330,7 +308,7 @@
       "maturity": "operational",
       "trl": 8,
       "rLevel": "R8",
-      "volume": "2,500 boliger i Oceanhamnen/H+ distriktet",
+      "volume": "320 leiligheter operativt (Oceanhamnen); 2,500 boliger er langsiktig mal for hele H+",
       "value_chain_step": [
         "household",
         "waste",
@@ -460,6 +438,171 @@
         "Regjeringen potetplakat",
         "Miljodirektoratet ravare-klassifisering"
       ]
+    },
+    {
+      "id": "no-magiske-fabrikken",
+      "name": "Den Magiske Fabrikken (Norge)",
+      "country": "NO",
+      "maturity": "commercial",
+      "trl": 9,
+      "rLevel": "R8",
+      "volume": "80-100 GWh/yr biogas, matavfall fra 1.2M innbyggere + husdyrgjodsel",
+      "value_chain_step": [
+        "household",
+        "primary",
+        "waste"
+      ],
+      "flow": "Kildesortert matavfall + husdyrgjodsel → anaerob nedbrytning → biometan + biorest-gjodsel → jordbruk",
+      "actors": [
+        "Greve Biogass"
+      ],
+      "policy_support": "Kommunal avfallsinnsamling, matsvinnloven",
+      "theme": "biogass",
+      "sources": [
+        "P46 biogass-runde2",
+        "Biogass Norge statistikk 2023"
+      ]
+    },
+    {
+      "id": "se-linkoping-biogas",
+      "name": "Linkoping biogass (Sverige)",
+      "country": "SE",
+      "maturity": "commercial",
+      "trl": 9,
+      "rLevel": "R8",
+      "volume": "~200 GWh/yr, matavfall + slakteriavfall + industribiprodukter",
+      "value_chain_step": [
+        "processing",
+        "household",
+        "waste"
+      ],
+      "flow": "Matavfall + slakteriavfall → biogass → drivstoff til kollektivtransport + digestat til jordbruk",
+      "actors": [
+        "Svensk Biogas / kommunalt"
+      ],
+      "policy_support": "Kommunalt eid, svensk biogasstrategi",
+      "theme": "biogass",
+      "sources": [
+        "P46 biogass-runde2",
+        "Avfall Sverige"
+      ]
+    },
+    {
+      "id": "fi-stormossen-vaasa",
+      "name": "Stormossen biogass (Finland)",
+      "country": "FI",
+      "maturity": "operational",
+      "trl": 9,
+      "rLevel": "R8",
+      "volume": "30-40 GWh/yr, matavfall + bioavfall + slam",
+      "value_chain_step": [
+        "household",
+        "waste"
+      ],
+      "flow": "Matavfall + bioavfall → biogass + biorest som godkjent gjodsel",
+      "actors": [
+        "Stormossen (regionalt avfallsselskap)"
+      ],
+      "policy_support": "Finsk avfallslov, regionalt monopol",
+      "theme": "biogass",
+      "sources": [
+        "P46 biogass-runde2",
+        "IEA Bioenergy Task 37 Finland"
+      ]
+    },
+    {
+      "id": "nl-peelpioneers",
+      "name": "PeelPioneers sitrusskall",
+      "country": "NL",
+      "maturity": "commercial",
+      "trl": 9,
+      "rLevel": "R6",
+      "volume": "35 000 tonn skall behandlet pa 3 ar, 26 000 t CO2 unngatt",
+      "value_chain_step": [
+        "retail",
+        "processing"
+      ],
+      "flow": "Sitrusskall fra supermarkeder/juiceryper → industriell prosessering → fiber/olje/aroma → B2B mat/kosmetikk",
+      "actors": [
+        "PeelPioneers",
+        "Renewi",
+        "Seenons"
+      ],
+      "policy_support": "Markedsdrevet, EU circular economy package",
+      "theme": "sidestream",
+      "sources": [
+        "P41 internasjonale-suksesser-runde2"
+      ],
+      "nordic_transferable": true
+    },
+    {
+      "id": "uk-toast-ale",
+      "name": "Toast Ale bredoverskudd",
+      "country": "GB",
+      "maturity": "commercial",
+      "trl": 9,
+      "rLevel": "R6",
+      "volume": "2.9M brodskiver oppsirkulert, 1.4M enheter solgt/ar",
+      "value_chain_step": [
+        "processing",
+        "retail"
+      ],
+      "flow": "Overskuddsbroed fra bakerier → erstatter malt i oel → B2C/B2B Companion-ingrediens",
+      "actors": [
+        "Toast Ale"
+      ],
+      "policy_support": "Sosialt foretak, impact-profil, Heineken-investering",
+      "theme": "sidestream",
+      "sources": [
+        "P41 internasjonale-suksesser-runde2"
+      ],
+      "nordic_transferable": true
+    },
+    {
+      "id": "au-goterra",
+      "name": "Goterra modulaer BSF",
+      "country": "AU",
+      "maturity": "scaling",
+      "trl": 7,
+      "rLevel": "R6",
+      "volume": "Kapasitet 45 000 t/ar matavfall, container-moduler",
+      "value_chain_step": [
+        "retail",
+        "horeca",
+        "waste"
+      ],
+      "flow": "Matavfall fra grossister/flyplasser → container-BSF-moduler → insektprotein til for + frass-gjodsel",
+      "actors": [
+        "Goterra"
+      ],
+      "policy_support": "8M AUD Serie A, modular deployment",
+      "theme": "insekt_protein",
+      "sources": [
+        "P41 internasjonale-suksesser-runde2"
+      ],
+      "nordic_transferable": true
+    },
+    {
+      "id": "dk-kaffe-bueno",
+      "name": "Kaffe Bueno kaffegrut-bioraffineri (Danmark)",
+      "country": "DK",
+      "maturity": "scaling",
+      "trl": 7,
+      "rLevel": "R6",
+      "volume": "500-1500 t/ar kaffegrut, bioaktive forbindelser",
+      "value_chain_step": [
+        "horeca",
+        "processing"
+      ],
+      "flow": "Kaffegrut fra kafeer/industri → bioraffinering → olje/fiber/bioaktive → kosmetikk/mat/funksjonelle ingredienser",
+      "actors": [
+        "Kaffe Bueno"
+      ],
+      "policy_support": "EIC-finansiert",
+      "theme": "sidestream",
+      "sources": [
+        "P33 kaffegrut-runde2"
+      ]
     }
   ],
   "gaps": [
@@ -476,6 +619,10 @@
       "sources": [
         "posisjonsdokument",
         "SA-02"
+      ],
+      "value_chain_step": [
+        "seafood",
+        "waste"
       ]
     },
     {
@@ -490,6 +637,11 @@
       "theme": "matsvinn",
       "sources": [
         "arbeidsanalyse"
+      ],
+      "value_chain_step": [
+        "retail",
+        "horeca",
+        "household"
       ]
     },
     {
@@ -505,6 +657,10 @@
       "sources": [
         "SA-02",
         "arbeidsanalyse"
+      ],
+      "value_chain_step": [
+        "waste",
+        "primary"
       ]
     },
     {
@@ -520,6 +676,10 @@
       "sources": [
         "SEC-MAT-TEK-02",
         "arbeidsanalyse"
+      ],
+      "value_chain_step": [
+        "waste",
+        "processing"
       ]
     },
     {
@@ -534,6 +694,10 @@
       "theme": "alger_spillvarme",
       "sources": [
         "arbeidsanalyse"
+      ],
+      "value_chain_step": [
+        "primary",
+        "processing"
       ]
     },
     {
@@ -548,6 +712,10 @@
       "theme": "fiskeslam",
       "sources": [
         "arbeidsanalyse"
+      ],
+      "value_chain_step": [
+        "seafood",
+        "waste"
       ]
     },
     {
@@ -563,6 +731,9 @@
       "sources": [
         "matsvinn-2024",
         "arbeidsanalyse"
+      ],
+      "value_chain_step": [
+        "household"
       ]
     },
     {
@@ -578,6 +749,9 @@
       "sources": [
         "SEC-MAT-03",
         "arbeidsanalyse"
+      ],
+      "value_chain_step": [
+        "horeca"
       ]
     },
     {
@@ -593,6 +767,9 @@
       "sources": [
         "SEC-MAT-PROD-02",
         "arbeidsanalyse"
+      ],
+      "value_chain_step": [
+        "primary"
       ]
     },
     {
@@ -606,7 +783,8 @@
       "theme": "akademia_skala",
       "sources": [
         "arbeidsanalyse"
-      ]
+      ],
+      "value_chain_step": []
     },
     {
       "id": "gap-havremelk-okara",
@@ -621,6 +799,10 @@
       "sources": [
         "Mote JT-Gabriel 20.04.26",
         "SEC-MAT-TEK-02"
+      ],
+      "value_chain_step": [
+        "processing",
+        "waste"
       ]
     },
     {
@@ -635,6 +817,11 @@
       "theme": "regenerativt_landbruk",
       "sources": [
         "Mote JT-Gabriel 20.04.26"
+      ],
+      "value_chain_step": [
+        "household",
+        "waste",
+        "primary"
       ]
     },
     {
@@ -1023,7 +1210,7 @@
     },
     {
       "id": "gap-norden-svartvann-skala",
-      "name": "Nordisk svartvann-gjenvinning — kun pilotskala (2,500 boliger)",
+      "name": "Nordisk svartvann-gjenvinning — kun pilotskala (320 boliger operativt, 2500 maal)",
       "country": "nordic",
       "rLevel": "R8",
       "potential_volume": "124,000 t N/ar og 16,600 t P/ar i nordisk svartvann totalt. Kun Helsingborg H+ (2,500 boliger) opererer kildeseparering i stor skala. Realistisk 40-60% N-gjenvinning og 60-80% P-gjenvinning mulig med eksisterende teknologi.",
@@ -1048,7 +1235,11 @@
         "rLevel": "R1",
         "status": "Aktiv i 20-21 land, flere store VC-runder, global markedsleder for overskuddsmat-apps",
         "business_model": "Platform/marketplace — commission per bag",
-        "lesson": "Two-sided plattform som løser både husholdningsøkonomi og klimanød: billig mat + konkret svinnreduksjon. Transaksjonsbasert modell gir skalerbar enhetøkonomi."
+        "lesson": "Two-sided plattform som løser både husholdningsøkonomi og klimanød: billig mat + konkret svinnreduksjon. Transaksjonsbasert modell gir skalerbar enhetøkonomi.",
+        "value_chain_step": [
+          "retail",
+          "horeca"
+        ]
       },
       {
         "name": "Solar Foods (Solein)",
@@ -1057,8 +1248,11 @@
         "founded": 2017,
         "rLevel": "R1",
         "status": "Factory 01 operational (160t/yr). Singapore approval 2022",
-        "investment_eur_m": 100,
-        "lesson": "Deep-tech can scale with patient capital + regulatory fast-track (Singapore)"
+        "lesson": "Deep-tech can scale with patient capital + regulatory fast-track (Singapore)",
+        "value_chain_step": [
+          "processing"
+        ],
+        "invested_eur_m": 100
       },
       {
         "name": "Den Magiske Fabrikken",
@@ -1067,7 +1261,11 @@
         "founded": null,
         "rLevel": "R9",
         "status": "106,000 t/yr processed, 5.1M liter diesel-equivalent",
-        "lesson": "Public-private partnership + waste infrastructure integration works"
+        "lesson": "Public-private partnership + waste infrastructure integration works",
+        "value_chain_step": [
+          "waste",
+          "primary"
+        ]
       },
       {
         "name": "REKO-ringer",
@@ -1076,7 +1274,11 @@
         "founded": 2013,
         "rLevel": "R1",
         "status": "274 rings, 786,000 active users, ~500 MNOK/year",
-        "lesson": "Zero infrastructure costs (Facebook groups). Grassroots scales when friction is minimal"
+        "lesson": "Zero infrastructure costs (Facebook groups). Grassroots scales when friction is minimal",
+        "value_chain_step": [
+          "primary",
+          "retail"
+        ]
       },
       {
         "name": "Gasum",
@@ -1085,7 +1287,11 @@
         "founded": 1994,
         "rLevel": "R9",
         "status": "Operating plants in FI, SE, NO. Cross-border LBG trade",
-        "lesson": "Nordic interoperability in energy infrastructure enables scale"
+        "lesson": "Nordic interoperability in energy infrastructure enables scale",
+        "value_chain_step": [
+          "waste",
+          "distribution"
+        ]
       }
     ],
     "failure": [
@@ -1096,9 +1302,12 @@
         "founded": 2019,
         "rLevel": "R1",
         "bankrupt": "September 2024",
-        "invested": "TINE 33.4%, Shepherd's Pie 50%",
         "cause": "COVID aftermath + energy crisis + cost inflation. Part of wave (41 restaurant bankruptcies Sept 2024)",
-        "lesson": "Premium/fine dining + circularity = economically fragile. High fixed costs cannot absorb macro shocks"
+        "lesson": "Premium/fine dining + circularity = economically fragile. High fixed costs cannot absorb macro shocks",
+        "value_chain_step": [
+          "horeca"
+        ],
+        "ownership": "TINE 33.4%, Shepherd's Pie 50%"
       },
       {
         "name": "Enorm Biofactory",
@@ -1110,7 +1319,11 @@
         "invested_eur_m": 50,
         "cause": "Ekstrem CAPEX (575 MDKK gjeld) bundet i én mega-fabrikk, lang ramp-up med minimal inntekt, energikostnader og prisgap mot soya/fiskemel. Kapitaltørke 2025 da rekonstruksjon ikke tiltrakk nye investorer.",
         "lesson": "Unngå single-asset risiko i umodne markeder. Modulær oppskalering (flere små anlegg) hadde gitt inntekt underveis og redusert total eksponering mot én teknologisk flaskehals.",
-        "status": "Konkurs oktober 2025 etter mislykket rekonstruksjon"
+        "status": "Konkurs oktober 2025 etter mislykket rekonstruksjon",
+        "value_chain_step": [
+          "waste",
+          "processing"
+        ]
       }
     ],
     "pattern": "Platform/discount models (TGTG, REKO, Holdbart) survive under cost pressure. Production-heavy models (Enorm, Ynsect, Infarm) collapse — even with €600M+ invested. Key failure patterns: (1) mega-CAPEX in unproven markets, (2) B2C plant-meat post-hype demand collapse, (3) structural price gap vs soy/fishmeal (3-10x). Survivors: B2B ingredient plays (PeelPioneers), consortium/foundation models (AX Foundation), low-CAPEX platforms (TGTG, Matsentralen). Finnish insect companies (Volare) surviving where Danish/French fail — leaner cost structure + patient capital."
@@ -1122,7 +1335,11 @@
       "concept": "Insect protein from industrial food waste (BSF). Circular upcycling of residual streams into protein, oil, fertilizer",
       "rLevel": "R7",
       "status": "Raised $35.8M (2024-2025). $29M debt + $6.8M Series A",
-      "lesson": "Finnish insect companies surviving where Danish/French fail — possibly leaner cost structure"
+      "lesson": "Finnish insect companies surviving where Danish/French fail — possibly leaner cost structure",
+      "value_chain_step": [
+        "waste",
+        "processing"
+      ]
     },
     {
       "name": "Finnforel",
@@ -1130,7 +1347,10 @@
       "concept": "Recirculating aquaculture system (RAS). 3,000t rainbow trout/year. Two operational facilities",
       "rLevel": "R8",
       "status": "Raised $259.8M Series A (Oct 2024). Largest agrifoodtech raise in Finland",
-      "lesson": "Closed-loop aquaculture at scale attracts massive capital. Captures all waste for valorization"
+      "lesson": "Closed-loop aquaculture at scale attracts massive capital. Captures all waste for valorization",
+      "value_chain_step": [
+        "seafood"
+      ]
     },
     {
       "name": "Melta",
@@ -1139,7 +1359,11 @@
       "founded": 2020,
       "rLevel": "R8",
       "status": "Won Nordic Circular Hotspot Award. Partnership with Kronan supermarket. Created Moldamin product from expired produce",
-      "lesson": "Low-tech circular solution for rural communities. Reduces collection costs 70%. Fights Iceland's soil erosion"
+      "lesson": "Low-tech circular solution for rural communities. Reduces collection costs 70%. Fights Iceland's soil erosion",
+      "value_chain_step": [
+        "waste",
+        "primary"
+      ]
     },
     {
       "name": "AX Foundation — Framtidens Fisk",
@@ -1149,7 +1373,11 @@
       "rLevel": "R7",
       "status": "Fisk på mykoprotein-fôr lansert i Hemköp 2025. 25 aktører i konsortiet. Nordens første kommersielle salg av fisk oppdrettet på insekt/mykoprotein.",
       "business_model": "Foundation-backed R&D + lisensiering av forresept til oppdretter og forprodusent",
-      "lesson": "Konsortium-modell med 25 aktører fordeler CAPEX-risiko. Start i fôr/ingrediens-ledd der betalingsvilje og regulatorisk modenhet er høyere enn i konsumentprodukter. Stiftelsesform gir tålmodig kapital."
+      "lesson": "Konsortium-modell med 25 aktører fordeler CAPEX-risiko. Start i fôr/ingrediens-ledd der betalingsvilje og regulatorisk modenhet er høyere enn i konsumentprodukter. Stiftelsesform gir tålmodig kapital.",
+      "value_chain_step": [
+        "processing",
+        "seafood"
+      ]
     },
     {
       "name": "Helsingborg svartvann (Oceanhamnen)",
@@ -1159,7 +1387,12 @@
       "rLevel": "R8",
       "status": "Operativt. Stoerste nordiske pilot innen svartvann-naeringsgjenvinning. Flere norske kommuner bruker som referanse.",
       "lesson": "Naeringsgjenvinning fra avlop er teknisk gjennomforbart pa bydelsnivaa. Krever infrastrukturbeslutninger i nybygg og politisk forankring. Stater kan koble avlopsoppgradering til gjodselsubsidier.",
-      "business_model": "Kommunalt VA-selskap + EU-innovasjonsstotte"
+      "business_model": "Kommunalt VA-selskap + EU-innovasjonsstotte",
+      "value_chain_step": [
+        "household",
+        "waste",
+        "primary"
+      ]
     },
     {
       "name": "Potetlefser med skall (Sorlandet)",
@@ -1167,7 +1400,10 @@
       "concept": "Potetlefser produsert med skall pa — fjerner 10-15 % masseavfall fra skrelleprosessen.",
       "rLevel": "R2",
       "status": "Kommersielt. Regional produsent, lokal distribusjon.",
-      "lesson": "Produktdesign-innovasjon pa R2-niva (reduce) krever verken ny teknologi eller subsidier. Avfallsreduksjon = kostreduksjon for produsent og gir umiddelbar okonomisk gevinst."
+      "lesson": "Produktdesign-innovasjon pa R2-niva (reduce) krever verken ny teknologi eller subsidier. Avfallsreduksjon = kostreduksjon for produsent og gir umiddelbar okonomisk gevinst.",
+      "value_chain_step": [
+        "processing"
+      ]
     },
     {
       "name": "PeelPioneers",
@@ -1177,8 +1413,8 @@
       "rLevel": "R7",
       "status": "Operativ, skalerer i Nederland, brukes som nordisk benchmark for sidestrøm-oppgradering",
       "business_model": "B2B ingredient sales — stabil etterspørsel fra mat/kosmetikk-industri basert på pris/kvalitet, ikke storytelling",
-      "investment_eur_m": null,
-      "lesson": "B2B-ingrediens fra sidestrømmer er mer robust enn B2C: kundene bryr seg om funksjon og pris, ikke merkevare-hype. Usynlig men stabil etterspørsel."
+      "lesson": "B2B-ingrediens fra sidestrømmer er mer robust enn B2C: kundene bryr seg om funksjon og pris, ikke merkevare-hype. Usynlig men stabil etterspørsel.",
+      "invested_eur_m": null
     },
     {
       "name": "Bokashi Norge / Bokashi Norden",
@@ -1188,8 +1424,8 @@
       "rLevel": "R8",
       "status": "Operativ, lønnsom SMB, brukes i Circular Regions som skalerbar modell",
       "business_model": "B2C: salg av utstyr/strø + kurs. B2B-piloter med restauranter. Lav CAPEX, lokal syklus.",
-      "investment_eur_m": null,
-      "lesson": "Desentraliserte, lavkost-løsninger med direkte brukerverdi (redusert renovasjon, egen kompost) kan skalere uten venture-kapital. Regulatorisk usikkerhet (varmebehandlingskrav) bremser profesjonalisering."
+      "lesson": "Desentraliserte, lavkost-løsninger med direkte brukerverdi (redusert renovasjon, egen kompost) kan skalere uten venture-kapital. Regulatorisk usikkerhet (varmebehandlingskrav) bremser profesjonalisering.",
+      "invested_eur_m": null
     },
     {
       "name": "Foodsharing Copenhagen",
@@ -1199,8 +1435,8 @@
       "rLevel": "R3",
       "status": "600+ frivillige, 13 000+ tonn reddet mat, etablert som institusjon i København",
       "business_model": "Non-profit, frivilligbasert. Null kapitalbehov. Verdi via aktivistisk klimaidentitet + gratis mat.",
-      "investment_eur_m": 0,
-      "lesson": "Kombinasjonen 'gratis mat + aktivistisk identitet' er en kraftig rekrutteringsmekanisme. Skalerer via sosial kapital, ikke finanskapital. Begrenset av logistikk og mattrygghet-krav."
+      "lesson": "Kombinasjonen 'gratis mat + aktivistisk identitet' er en kraftig rekrutteringsmekanisme. Skalerer via sosial kapital, ikke finanskapital. Begrenset av logistikk og mattrygghet-krav.",
+      "invested_eur_m": 0
     },
     {
       "name": "Oatly okara-håndtering",
@@ -1210,8 +1446,8 @@
       "rLevel": "R7",
       "status": "Okara går primært til dyrefôr og biogass. FoU pågår (fermentering, fiber-ingrediens) men ikke i kommersielt food-produkt ennå",
       "business_model": "Intern kostnadsreduksjon (fôrsalg vs. avfallskostnad). Ikke ekstern revenue-driver.",
-      "investment_eur_m": null,
-      "lesson": "Selv verdens ledende plantemelk-selskap har ikke klart å oppgradere sin hovedsidestrøm til mat-ingrediens. Barrierer: tørking er energikrevende, Novel Food-regulering, konkurransepriser fra soya/myse."
+      "lesson": "Selv verdens ledende plantemelk-selskap har ikke klart å oppgradere sin hovedsidestrøm til mat-ingrediens. Barrierer: tørking er energikrevende, Novel Food-regulering, konkurransepriser fra soya/myse.",
+      "invested_eur_m": null
     },
     {
       "name": "AX Foundation — Smart Svensk Sjömat",
@@ -1221,8 +1457,8 @@
       "rLevel": "R7",
       "status": "Produkter lansert (Sillenbergare 2024), infrastruktur bygget for innsjøfisk-foredling",
       "business_model": "Konsortium-modell: stiftelse tar FoU-risiko, industri tar kommersialisering. Prosjektfinansiering + partnerbidrag.",
-      "investment_eur_m": null,
-      "lesson": "Underutnyttede arter representerer 'free' biomasse — verdiskapningen ligger i foredling og markedsintroduksjon, ikke i fangst. Konsortie-modellen fordeler risiko."
+      "lesson": "Underutnyttede arter representerer 'free' biomasse — verdiskapningen ligger i foredling og markedsintroduksjon, ikke i fangst. Konsortie-modellen fordeler risiko.",
+      "invested_eur_m": null
     },
     {
       "name": "Kernza / Knylkorn (AX Foundation pilot)",
@@ -1232,8 +1468,8 @@
       "rLevel": "R1",
       "status": "Pre-kommersiell pilot, produkter testet men ikke i dagligvare ennå",
       "business_model": "Forskningsdrevet, ingen standalone forretningsmodell. Avhengig av policy-støtte for regenerativt landbruk.",
-      "investment_eur_m": null,
-      "lesson": "Flerårige kornarter løser erosjon og karbonbinding strukturelt, men yield er fortsatt 30-50% av hvete. Krever langsiktig sortsforedling + premium-marked (spesialbrød, craft-pizza)."
+      "lesson": "Flerårige kornarter løser erosjon og karbonbinding strukturelt, men yield er fortsatt 30-50% av hvete. Krever langsiktig sortsforedling + premium-marked (spesialbrød, craft-pizza).",
+      "invested_eur_m": null
     },
     {
       "name": "Svensk Baljväxtfärs (AX Foundation)",
@@ -1243,8 +1479,8 @@
       "rLevel": "R2",
       "status": "Kommersialisert via IKEA og offentlige kjøkken, svensk produksjon",
       "business_model": "Lisens/partnerskap med IKEA Food Services. Offentlige innkjøp som volum-driver.",
-      "investment_eur_m": null,
-      "lesson": "Offentlige kjøkken og store food-service aktører (IKEA) kan gi volum-garanti som dagligvare ikke gir. 50/50-konseptet (blanding, ikke full erstatning) senker adopsjon-terskelen drastisk."
+      "lesson": "Offentlige kjøkken og store food-service aktører (IKEA) kan gi volum-garanti som dagligvare ikke gir. 50/50-konseptet (blanding, ikke full erstatning) senker adopsjon-terskelen drastisk.",
+      "invested_eur_m": null
     },
     {
       "name": "VermiNord",
@@ -1254,8 +1490,8 @@
       "rLevel": "R8",
       "status": "Operativ, liten skala, utvikler og leverandør av vermikompost-løsninger",
       "business_model": "Produktsalg (vermikompost) + konsulenttjenester. Lokal, lavkost.",
-      "investment_eur_m": null,
-      "lesson": "Vermikompostering gir høykvalitets jordprodukt men er klimasensitiv (frost) og har lav volumkapasitet per areal. Fungerer best som komplementær lokal løsning, ikke industriell erstatning for biogass."
+      "lesson": "Vermikompostering gir høykvalitets jordprodukt men er klimasensitiv (frost) og har lav volumkapasitet per areal. Fungerer best som komplementær lokal løsning, ikke industriell erstatning for biogass.",
+      "invested_eur_m": null
     }
   ],
   "additional_failure": [
@@ -1268,7 +1504,11 @@
       "bankrupt": "December 2025 (judicial liquidation)",
       "invested_eur_m": 600,
       "cause": "Insect meal 2-10x more expensive than fish/soy meal. Regulatory barriers on using organic waste as feedstock. Variable waste composition = slower growth/higher mortality. $600M+ burned without reaching profitability",
-      "lesson": "Even with massive capital, novel protein production cannot compete on price alone. Regulatory framework must change for waste-as-feedstock to work"
+      "lesson": "Even with massive capital, novel protein production cannot compete on price alone. Regulatory framework must change for waste-as-feedstock to work",
+      "value_chain_step": [
+        "waste",
+        "processing"
+      ]
     },
     {
       "name": "Havremelk-okara (ikke kommersialisert)",
@@ -1277,7 +1517,11 @@
       "rLevel": "R6",
       "bankrupt": "Ikke realisert (gap, ikke konkurs)",
       "cause": "3-timers prosesseringsvindu etter pressing for mat-godkjenning. Krever spesialisert logistikk og prosesseringsinfrastruktur. Produsenter (Oatly m.fl.) har ikke sett lonsomhet nok til a bygge parallell linje.",
-      "lesson": "Lovende sideressurs med klar gjenbruksverdi forblir ubrukt nar teknisk vindu er smalt og logistikk-investering krever industrisamarbeid. Typisk case for offentlig medfinansiering av pilot."
+      "lesson": "Lovende sideressurs med klar gjenbruksverdi forblir ubrukt nar teknisk vindu er smalt og logistikk-investering krever industrisamarbeid. Typisk case for offentlig medfinansiering av pilot.",
+      "value_chain_step": [
+        "processing",
+        "waste"
+      ]
     },
     {
       "name": "Mycorena",
@@ -1326,18 +1570,6 @@
       "bankrupt": "November 2023",
       "cause": "Høy CAPEX+OPEX vs. billig import-salat. Energikostnader eksploderte 2022. Operasjonell kompleksitet med distribuerte enheter. Funding-vindu lukket etter tech-crash. Enhetøkonomi aldri bevist.",
       "lesson": "Vertikalt jordbruk må bevise enhetøkonomi FØR skalering. €604M invested uten positiv contribution margin per farm = strukturell feil. Nordisk relevans: energipris og lysforhold gjør caset enda vanskeligere."
-    },
-    {
-      "name": "Ÿnsect",
-      "country": "FR",
-      "concept": "Verdens største mealworm-fabrikk for insektprotein til fôr og petfood (Amiens, Frankrike)",
-      "founded": 2011,
-      "rLevel": "R7",
-      "status": "Judicial liquidation 2025, etter safeguard-prosedyre 2024",
-      "invested_eur_m": 600,
-      "bankrupt": "December 2025",
-      "cause": "Til tross for >600 MEUR i kapital: for dyrt å bygge og drive mega-fabrikk, svak lønnsomhet vs. soya/fiskemel-pris, regulatorisk kompleksitet i EU. Selve skala-ambisjonen ble fellen.",
-      "lesson": "Selv med massiv kapital og EU-godkjenning kan insektprotein ikke konkurrere på bulk-pris mot soya ($540/t vs $3800-6000/t insektmel). Markedet må modnes via premium-segmenter (petfood, aqua) før commodity-volum."
     },
     {
       "name": "Meatless Farm",
