@@ -1,0 +1,399 @@
+{
+  "generated": "2026-04-20",
+  "source": "p02-r9-kpi-katalog-2026-04-20.md (Perplexity Runde 2)",
+  "description": "20 operative KPIs for measuring circular food system progress across R0-R9 levels in the Nordic countries",
+  "kpis": [
+    {
+      "id": "kpi-01",
+      "name": "Total Food Waste Index",
+      "r_level": "R2",
+      "unit": "%",
+      "data_availability": "good",
+      "nordic_sources": [
+        "Eurostat",
+        "Matvett",
+        "Norsus",
+        "Naturvardsverket",
+        "Miljostyrelsen",
+        "Luke"
+      ],
+      "description": "Percentage of total food supply ending as food waste across the entire chain, aligned with SDG 12.3 and Eurostat food waste indicator."
+    },
+    {
+      "id": "kpi-02",
+      "name": "Household Food Waste",
+      "r_level": "R2",
+      "unit": "kg/capita/year",
+      "data_availability": "good",
+      "nordic_sources": [
+        "Eurostat",
+        "Matvett",
+        "ForMat",
+        "Naturvardsverket",
+        "Miljostyrelsen",
+        "Luke"
+      ],
+      "description": "Kilograms of food waste from households per capita per year, measured as fresh mass per Eurostat methodology."
+    },
+    {
+      "id": "kpi-03",
+      "name": "Supply Chain Food Waste",
+      "r_level": "R2",
+      "unit": "kg/capita/year",
+      "data_availability": "partial",
+      "nordic_sources": [
+        "Eurostat",
+        "Norsus",
+        "Naturvardsverket",
+        "Matvett"
+      ],
+      "description": "Food waste per capita distributed across primary production, industry, retail, and food service sectors."
+    },
+    {
+      "id": "kpi-04",
+      "name": "Food Redistribution Rate",
+      "r_level": "R1",
+      "unit": "%",
+      "data_availability": "poor",
+      "nordic_sources": [
+        "Food banks",
+        "Too Good To Go",
+        "Retail chains"
+      ],
+      "description": "Percentage of edible food waste redistributed via food banks, social actors, or discount solutions."
+    },
+    {
+      "id": "kpi-05",
+      "name": "Low-Footprint Diet Share",
+      "r_level": "R0",
+      "unit": "%",
+      "data_availability": "partial",
+      "nordic_sources": [
+        "National dietary surveys",
+        "JRC PEF",
+        "National LCA databases"
+      ],
+      "description": "Share of caloric intake from low material/carbon footprint products aligned with national dietary guidelines."
+    },
+    {
+      "id": "kpi-06",
+      "name": "Feed from Residual Streams",
+      "r_level": "R3",
+      "unit": "%",
+      "data_availability": "partial",
+      "nordic_sources": [
+        "Luke",
+        "Feed industry associations",
+        "National feed statistics"
+      ],
+      "description": "Percentage of total compound feed volume derived from residual streams and by-products."
+    },
+    {
+      "id": "kpi-07",
+      "name": "Animal By-products to Feed",
+      "r_level": "R3",
+      "unit": "%",
+      "data_availability": "partial",
+      "nordic_sources": [
+        "Slaughterhouse reporting",
+        "Seafood industry statistics"
+      ],
+      "description": "Percentage of animal by-products going to feed production rather than energy or waste."
+    },
+    {
+      "id": "kpi-08",
+      "name": "Food Residuals: Feed vs Lower Tiers",
+      "r_level": "R3",
+      "unit": "%",
+      "data_availability": "partial",
+      "nordic_sources": [
+        "Eurostat",
+        "Biomass utilisation studies"
+      ],
+      "description": "Share of food biomass unsuitable for human consumption going to feed vs energy/waste."
+    },
+    {
+      "id": "kpi-09",
+      "name": "N/P Recovery to Soil",
+      "r_level": "R5",
+      "unit": "%",
+      "data_availability": "partial",
+      "nordic_sources": [
+        "SSB",
+        "Naturvardsverket",
+        "Luke",
+        "National nutrient balances"
+      ],
+      "description": "Percentage of N and P in food-related residuals returned to agriculture as fertiliser."
+    },
+    {
+      "id": "kpi-10",
+      "name": "Organic Food Waste to Composting",
+      "r_level": "R5",
+      "unit": "%",
+      "data_availability": "good",
+      "nordic_sources": [
+        "Eurostat",
+        "SSB",
+        "Naturvardsverket",
+        "Miljostyrelsen"
+      ],
+      "description": "Percentage of collected organic food waste going to composting or biogas with digestate return to soil."
+    },
+    {
+      "id": "kpi-11",
+      "name": "Food Packaging Material Recycling",
+      "r_level": "R5",
+      "unit": "%",
+      "data_availability": "partial",
+      "nordic_sources": [
+        "Gront Punkt Norge",
+        "Eurostat packaging waste",
+        "PROs"
+      ],
+      "description": "Percentage of food packaging materially recycled relative to total placed on market."
+    },
+    {
+      "id": "kpi-12",
+      "name": "Regenerative Agricultural Area",
+      "r_level": "R1",
+      "unit": "%",
+      "data_availability": "good",
+      "nordic_sources": [
+        "National agricultural statistics",
+        "CAP/CSP programmes",
+        "Luke"
+      ],
+      "description": "Share of food-linked agricultural land under regenerative or agroecological management."
+    },
+    {
+      "id": "kpi-13",
+      "name": "Food Residuals to Biogas/Energy",
+      "r_level": "R7",
+      "unit": "%",
+      "data_availability": "partial",
+      "nordic_sources": [
+        "National waste statistics",
+        "Biogas statistics",
+        "Renewable energy stats"
+      ],
+      "description": "Percentage of food waste and organic residuals going to biogas or energy recovery."
+    },
+    {
+      "id": "kpi-14",
+      "name": "Energy Recovery Efficiency",
+      "r_level": "R7",
+      "unit": "GWh/tonne",
+      "data_availability": "poor",
+      "nordic_sources": [
+        "Plant reporting",
+        "National energy accounts",
+        "Waste statistics"
+      ],
+      "description": "Energy recovered per tonne of organic food-related residuals entering energy recovery."
+    },
+    {
+      "id": "kpi-15",
+      "name": "Food Waste to Landfill/No Recovery",
+      "r_level": "R8",
+      "unit": "%",
+      "data_availability": "partial",
+      "nordic_sources": [
+        "Eurostat",
+        "SSB",
+        "National waste accounts"
+      ],
+      "description": "Percentage of food waste ending in landfill or incineration without energy recovery."
+    },
+    {
+      "id": "kpi-16",
+      "name": "Food System Material Footprint",
+      "r_level": "R0",
+      "unit": "tonnes/capita/year",
+      "data_availability": "partial",
+      "nordic_sources": [
+        "SSB",
+        "Eurostat MFA",
+        "JRC IO-models"
+      ],
+      "description": "Material Footprint linked to food consumption per capita including biomass and indirect resources."
+    },
+    {
+      "id": "kpi-17",
+      "name": "Food System Carbon Footprint",
+      "r_level": "R0",
+      "unit": "tCO2e/capita/year",
+      "data_availability": "partial",
+      "nordic_sources": [
+        "National consumption-based accounts",
+        "LCA studies",
+        "JRC PEF"
+      ],
+      "description": "CO2-equivalent emissions from food system per capita, cradle-to-grave."
+    },
+    {
+      "id": "kpi-18",
+      "name": "Cascade Index",
+      "r_level": "cross-cutting",
+      "unit": "index 0-1",
+      "data_availability": "none",
+      "nordic_sources": [
+        "Waste and biomass statistics",
+        "Sector studies"
+      ],
+      "description": "Index measuring how high in value cascade organic residual streams end up (food > feed > material > energy > waste)."
+    },
+    {
+      "id": "kpi-19",
+      "name": "Food System Circularity Rate",
+      "r_level": "cross-cutting",
+      "unit": "%",
+      "data_availability": "none",
+      "nordic_sources": [
+        "Material flow accounts",
+        "Waste statistics",
+        "Nutrient balances"
+      ],
+      "description": "Share of total food system material inputs from secondary/recycled sources."
+    },
+    {
+      "id": "kpi-20",
+      "name": "National CE Monitor - Food Component",
+      "r_level": "cross-cutting",
+      "unit": "composite index",
+      "data_availability": "partial",
+      "nordic_sources": [
+        "SSB",
+        "Eurostat CE monitor",
+        "Naturvardsverket"
+      ],
+      "description": "Composite indicator describing food system contribution to national CE monitoring framework."
+    }
+  ],
+  "primary_sources": {
+    "perplexity_prompt": "research/bibliotek/forskningsrunde-2026-04-20-r2/p02-r9-kpi-katalog-2026-04-20.md",
+    "verification_status": "pending — Perplexity-syntese, primærkilder under er rå-pekere fra prompten og må verifiseres uavhengig før sitering",
+    "citations": [
+      {
+        "id": 1,
+        "url": "https://agris.fao.org/search/en/providers/125335/records/67bdacdf7a9727816ad37bfb"
+      },
+      {
+        "id": 2,
+        "url": "https://ec.europa.eu/eurostat/databrowser/product/page/cei_pc035"
+      },
+      {
+        "id": 3,
+        "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Food_waste_and_food_waste_prevention_-_estimates"
+      },
+      {
+        "id": 4,
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/CEI_PC035/default/table"
+      },
+      {
+        "id": 5,
+        "url": "https://circulareconomy.europa.eu/platform/sites/default/files/circular_economy_indicators_for_the_food-system.pdf"
+      },
+      {
+        "id": 6,
+        "url": "https://ec.europa.eu/eurostat/databrowser/bookmark/76edf586-f138-4a4a-9a18-28ee45cd015b?lang=en"
+      },
+      {
+        "id": 7,
+        "url": "https://sdg-indikatoren.de/en/12-3-1/"
+      },
+      {
+        "id": 8,
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/env_wasfw/default/table?lang=en"
+      },
+      {
+        "id": 9,
+        "url": "https://norsus.no/wp-content/uploads/OR.49.21-Basis-for-new-EU-reporting-on-food-waste.pdf"
+      },
+      {
+        "id": 10,
+        "url": "https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251016-2"
+      },
+      {
+        "id": 11,
+        "url": "https://ec.europa.eu/food/safety/food_waste/eu-food-loss-waste-prevention-hub/resource/show/6397"
+      },
+      {
+        "id": 12,
+        "url": "https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2022.1014228/full"
+      },
+      {
+        "id": 13,
+        "url": "https://www.luke.fi/sites/default/files/2023-03/FoodVision2040_0.pdf"
+      },
+      {
+        "id": 14,
+        "url": "https://standard.no/globalassets/kurs-arrangement-og-radgiving/standard-morgen-og-andre-arr/ny-internasjonal-standard-for-avfallshandtering-fra-akvakultur/standard-norge-20-mai-2025---bechmann-1.pdf"
+      },
+      {
+        "id": 15,
+        "url": "https://ec.europa.eu/eurostat/databrowser/product/view/env_wasfw"
+      },
+      {
+        "id": 16,
+        "url": "https://www.rmci.ase.ro/no18vol1/09.pdf"
+      },
+      {
+        "id": 17,
+        "url": "https://www.ssb.no/en/natur-og-miljo/miljoregnskap/artikler/national-indicators-for-circular-economy/_/attachment/inline/43b19d5c-368f-43ac-a406-ca6319f336ca:544daaa038ced888f45bd2f6ed274366ca2a27c4/RAPP2025-36.pdf"
+      },
+      {
+        "id": 18,
+        "url": "https://www.ssb.no/natur-og-miljo/miljoregnskap/artikler/nasjonale-indikatorer-for-sirkulaer-okonomi"
+      },
+      {
+        "id": 19,
+        "url": "https://agriculture.ec.europa.eu/common-agricultural-policy/cap-overview/cmef_en"
+      },
+      {
+        "id": 20,
+        "url": "https://circular-cities-and-regions.ec.europa.eu/support-materials/tools-and-methods/eu-ce-monitoring-framework"
+      },
+      {
+        "id": 21,
+        "url": "https://www.regjeringen.no/contentassets/1048f3f6a70b44de980dffaf02068ee8/no/pdfs/baerekraft-i-det-norske-matsystemet.pdf"
+      },
+      {
+        "id": 22,
+        "url": "https://www.ssb.no/natur-og-miljo/miljoregnskap/artikler/nasjonale-indikatorer-for-sirkulaer-okonomi/_/attachment/inline/43b19d5c-368f-43ac-a406-ca6319f336ca:544daaa038ced888f45bd2f6ed274366ca2a27c4/RAPP2025-36.pdf"
+      },
+      {
+        "id": 23,
+        "url": "https://www.regjeringen.no/contentassets/c326b9d2b114473f832b0539034ed772/deloitte_kunnskapsgrunnlag-for-sirkular-okonomi---potensialer.pdf"
+      },
+      {
+        "id": 24,
+        "url": "https://www.circularnorway.no/kundehistorier/sirk-indikatorer"
+      },
+      {
+        "id": 25,
+        "url": "https://www.circularnorway.no/nyheter/cgr-danmark"
+      },
+      {
+        "id": 26,
+        "url": "https://www.compostnetwork.info/eu-commission-includes-new-indicators-in-revised-ce-monitoring-framework/"
+      },
+      {
+        "id": 27,
+        "url": "https://www.ssb.no/priser-og-prisindekser/konsumpriser/statistikk/konsumprisindeksen/artikler/kpis-representantvarer"
+      },
+      {
+        "id": 28,
+        "url": "https://www.circularnorway.no/nyheter/sirk-indikatorer"
+      },
+      {
+        "id": 29,
+        "url": "https://www.leroyseafood.com/no/barekraft/barekraftsbibliotek2021/kpier/kpi-bruk-av-ferskvann/"
+      },
+      {
+        "id": 30,
+        "url": "https://www.statista.com/chart/31072/food-wasted-per-capita-in-european-countries/"
+      }
+    ]
+  }
+}
