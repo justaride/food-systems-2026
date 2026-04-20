@@ -34,13 +34,9 @@
     "kesko-annual-report-2024": "evidence-pack/arsrapporter/kesko-annual-report-2024.pdf",
     "salling-group-2024": "evidence-pack/arsrapporter/salling-group-2024.pdf",
     "is-samkeppni-annual-report-2024": "evidence-pack/nordisk/is-samkeppni-annual-report-2024.pdf",
-    "dk-salling-coop-decision-2025": "evidence-pack/nordisk/dk-salling-coop-decision-2025.pdf",
-    "salling-coop-danmark-2025": "evidence-pack/nordisk/salling-coop-danmark-2025.pdf",
     "konkurrensverket-summary-2024": "evidence-pack/nordisk/konkurrensverket-summary-2024.pdf",
     "finland-food-market-ombudsman-2023": "evidence-pack/nordisk/finland-food-market-ombudsman-2023.pdf",
     "finland-food2030": "evidence-pack/nordisk/finland-food2030.pdf",
-    "karlstad-declaration-2024": "evidence-pack/nordisk/karlstad-declaration-2024.pdf",
-    "nordic-food-alert-2025": "evidence-pack/nordisk/nordic-food-alert-2025.pdf",
     "dagligvaretilsynet-aarsrapport-2021": "evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2021.pdf",
     "dagligvaretilsynet-aarsrapport-2022": "evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2022.pdf",
     "dagligvaretilsynet-aarsrapport-2023": "evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2023.pdf",
@@ -49,7 +45,6 @@
     "eu-utp-report-2024": "evidence-pack/offentlig/eu-utp-report-2024.pdf",
     "eu-utp-staff-working-doc-2024": "evidence-pack/offentlig/eu-utp-staff-working-doc-2024.pdf",
     "nou-2013-6-god-handelsskikk": "evidence-pack/offentlig/nou-2013-6-god-handelsskikk.pdf",
-    "agrianalyse-bondens-andel-2025": "evidence-pack/akademia/agrianalyse-bondens-andel-2025.pdf",
     "nou-2022-14": "evidence-pack/offentlig/nou-2022-14.pdf",
     "oslo-economics-forsvar-2024": "evidence-pack/konsulentrapport/oslo-economics-forsvar-2024.pdf",
     "stockholm-resilience-2019": "evidence-pack/tenketank/stockholm-resilience-2019.pdf",
@@ -60,7 +55,6 @@
     "src-73": "evidence-pack/offentlig/src-73.pdf"
   },
   "exclude_pdfs": [
-    "evidence-pack/tilsyn/dagligvarerapport-2025.pdf",
     "evidence-pack/tilsyn/marginstudie-2024-del1.pdf",
     "evidence-pack/tilsyn/marginstudie-2025-del2.pdf",
     "evidence-pack/akademia/pubmed/hiis-eg-2024-unlocking-bacterial-potential-to-reduce.pdf",
@@ -74,10 +68,9 @@
     "evidence-pack/akademia/pubmed/zamanzadeh-m-2017-biogas-production-from-food-waste.pdf"
   ],
   "_notes": {
-    "dagligvarerapport-2025": "SHA256 identisk med dagligvarerapport-2024.pdf — ekte duplikat. Ekskludert.",
-    "marginstudie-del1-del2-uten-suffiks": "Mindre/eldre utgaver av del1/del2-offisiell. Beholdt på disk, men offisiell-versjonene er kanoniske.",
+    "dedup-executed-2026-04-21": "Slettet: dagligvarerapport-2025.pdf (dup -2024), dk-salling-coop-decision-2025.pdf (dup kfst-salling-coop-2025-full), karlstad-declaration-2024.pdf og nordic-food-alert-2025.pdf (arkitekturpublikasjoner, feilfilt), agrianalyse-bondens-andel-2025.pdf (HTML feil-lagret som PDF), nou-2011-4-mat-makt-avmakt-full.pdf (dup -avmakt.pdf), salling-coop-danmark-2025.pdf (dup huynh-mortensen-2025.pdf).",
+    "marginstudie-del1-del2-uten-suffiks": "Del1 uten suffiks = engelsk; -offisiell = norsk. Del2 uten suffiks og -offisiell har ulik SHA men identisk tekstinnhold (7 bytes metadata-forskjell). Offisiell-versjonene er kanoniske.",
     "orphans-to-add-to-reports-ts": [
-      "agrianalyse-bondens-andel-2025.pdf",
       "asko-barekraft-2024.pdf",
       "axfood-annual-report-2024.pdf",
       "coop-norge-2024.pdf",
@@ -94,10 +87,6 @@
       "emv-kartlegging-2023.pdf",
       "eu-utp-report-2024.pdf",
       "eu-utp-staff-working-doc-2024.pdf",
-      "karlstad-declaration-2024.pdf",
-      "nordic-food-alert-2025.pdf",
-      "dk-salling-coop-decision-2025.pdf",
-      "salling-coop-danmark-2025.pdf",
       "finland-food-market-ombudsman-2023.pdf",
       "finland-food2030.pdf",
       "konkurrensverket-summary-2024.pdf",

@@ -445,7 +445,7 @@ Primærkilder identifisert og lastet ned fra 15 Perplexity-dybderapporter (makt,
 ### 11.2 Tilsynsmyndigheter (Norge)
 
 *   Konkurransetilsynet (2022). *Dagligvarerapport 2022*. Bergen. [PDF](research/evidence-pack/tilsyn/dagligvarerapport-2022.pdf)
-*   Konkurransetilsynet (2025). *Dagligvarerapport 2024/25*. Bergen. [PDF](research/evidence-pack/tilsyn/dagligvarerapport-2025.pdf)
+*   Konkurransetilsynet (2025). *Dagligvarerapport 2024/25*. Bergen. [PDF](research/evidence-pack/tilsyn/dagligvarerapport-2024.pdf)
 *   Konkurransetilsynet (2018). *Betaling for hylleplass: Vurdering av konkurranseeffekter*. Bergen. [PDF](research/evidence-pack/tilsyn/betaling-for-hylleplass-2018.pdf)
 *   Dagligvaretilsynet (2023). *Rapport om samarbeidsklimaet i dagligvarebransjen 2023*. Oslo. [PDF](research/evidence-pack/tilsyn/dagligvaretilsynet-samarbeidsklima-2025.pdf)
 *   Dagligvaretilsynet (2024). *Høringssvar om endringer i lov om god handelsskikk — håndheving*. Oslo. [PDF](research/evidence-pack/tilsyn/dagligvaretilsynet-horingssvar-handelsskikk.pdf)
@@ -524,6 +524,228 @@ Primærkilder identifisert og lastet ned fra 15 Perplexity-dybderapporter (makt,
 *   DiVA (2024). *[Swedish food systems research]* (diva2:2052202). [PDF](research/evidence-pack/akademia/perplexity-runde/diva-fulltext-2052202.pdf)
 *   Helsinki University (u.å.). *Food systems analysis* (Helda). [PDF](research/evidence-pack/akademia/perplexity-runde/helda-helsinki-food-systems.pdf)
 
+### 11.7 Fase 2 — Offentlige dokumenter / pressekilder (append)
+
+*   Landbruks- og matdepartementet (2024). *Bærekraft i det norske matsystemet. Nasjonal dialog og innspill*. Oslo. [PDF](research/evidence-pack/offentlig/baerekraft-i-det-norske-matsystemet-2024.pdf)
+*   Landbruks- og matdepartementet (2024). *Landbruks- og matdepartementets arbeid med bærekraftige matsystemer*. Oslo. [PDF](research/evidence-pack/offentlig/lmd-arbeid-med-baerekraftige-matsystemer-2024.pdf)
+*   Landbruksdirektoratet (2024). *Matsvinn i jordbrukssektoren. Kartlegging for 2023*. Oslo. [PDF](research/evidence-pack/offentlig/landbruksdirektoratet-matsvinn-i-jordbrukssektoren-2023-rapport-52-2024.pdf)
+*   Helsedirektoratet (2024). *Kostråd om fett – en oppdatering og vurdering av kunnskapsgrunnlaget*. Oslo. [PDF](research/evidence-pack/offentlig/helsedirektoratet-ernaering-2024.pdf)
+*   Helsedirektoratet (2024). *Skolemaaltid i Norge*. [MD](research/evidence-pack/offentlig/helsedirektoratet-skolemaltid-2024.md)
+*   Regjeringen (2024). *Milepæl for norsk beredskap*. Oslo. [MD](research/evidence-pack/offentlig/press-id3046671-2024.md)
+*   Regjeringen / Konkurransetilsynet (2025). *Dagligvarerapport 2024 — pressevariant*. Oslo. [PDF](research/evidence-pack/offentlig/press-id3101561-2025.pdf) (pressevariant av Konkurransetilsynets Dagligvarerapport 2024, §11.2)
+
+### 11.8 Fase 2 — EAT-kildene fra forskningsrunde-april 2026 (append)
+
+*   EAT Foundation (2026). *Norges matrevolusjon tar form langs kysten og i laben*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/research-report-2026-04-20.pdf)
+*   EAT-Lancet (2019). *Food in the Anthropocene: the EAT-Lancet Commission on healthy diets from sustainable food systems*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-lancet-2019-full-report.pdf)
+*   EAT-Lancet (2019). *Summary Report of the EAT-Lancet Commission*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-lancet-2019-summary-report.pdf)
+*   EAT-Lancet (2019). *EAT-Lancet brief for everyone*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-lancet-2019-brief-everyone.pdf)
+*   EAT-Lancet (2019). *EAT-Lancet brief for Policymakers*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-lancet-2019-brief-policymakers.pdf)
+*   EAT-Lancet (2019). *EAT-Lancet brief for Food Service Professionals*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-lancet-2019-brief-food-service-professionals.pdf)
+*   EAT-Lancet (2019). *EAT-Lancet brief for Farmers*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-lancet-2019-brief-farmers.pdf)
+*   EAT-Lancet (2019). *EAT-Lancet brief for Cities*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-lancet-2019-brief-cities.pdf)
+*   EAT-Lancet (2019). *EAT-Lancet brief for African Cities*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-lancet-2019-brief-african-cities.pdf)
+*   EAT-Lancet (2025). *The EAT-Lancet Commission on healthy, sustainable, and just food systems*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-lancet-2025-full-report.pdf)
+*   EAT (2024). *Communities for Action Brief: Chefs, Restaurants and Food Service*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-communities-for-action-chefs-restaurants-food-service.pdf)
+*   EAT (2024). *Communities for Action Brief: Cities*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-communities-for-action-cities.pdf)
+*   EAT (2024). *Communities for Action Brief: Consumers*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-communities-for-action-consumers.pdf)
+*   EAT (2024). *Communities for Action Brief: Farmers and Fishers*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-communities-for-action-farmers-fishers.pdf)
+*   EAT (2024). *Communities for Action Brief: Food Retail and Manufacturers*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-communities-for-action-food-retail-manufacturers.pdf)
+*   EAT (2024). *Communities for Action Brief: Healthcare Professionals*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-communities-for-action-healthcare-professionals.pdf)
+*   EAT (2024). *Communities for Action Brief: Indigenous Peoples*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-communities-for-action-indigenous-peoples.pdf)
+*   EAT (2024). *Shifting Urban Diets Project Report*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-shifting-urban-diets-project-report.pdf)
+*   EAT (2024). *Workshop Report: Shifting Urban Diets in the Nordics*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-shifting-urban-diets-in-the-nordics-workshop-report.pdf)
+*   EAT (2024). *EAT Cities 2022-2024*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-cities-2022-2024.pdf)
+*   EAT (2024). *Oslo Youth for Healthy and Sustainable Diets*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-oslo-youth-project-report.pdf)
+*   EAT (2026). *EAT Impact Achievements 2026*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/eat-impact-achievements-2026.pdf)
+*   EAT Foundation (2024). *C40 Good Food Cities Declaration*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/c40-good-food-cities-declaration.pdf)
+*   EAT Foundation (2023). *C40 Good Food Cities Accelerator Report 2023*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/c40-good-food-cities-accelerator-report-2023.pdf)
+*   EAT Foundation (2021). *Grains of Truth 2021*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/grains-of-truth-2021.pdf)
+*   EAT Foundation (2022). *Grains of Truth 2022*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/grains-of-truth-2022.pdf)
+*   EAT Foundation (2023). *Grains of Truth 2023*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/grains-of-truth-2023.pdf)
+*   EAT Foundation (2024). *Grains of Truth 2024*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/grains-of-truth-2024.pdf)
+*   EAT Foundation (2025). *Grains of Truth 2025*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/grains-of-truth-2025.pdf)
+*   EAT Foundation (2021). *Blue Food Assessment Booklet*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/blue-food-assessment-booklet.pdf)
+*   EAT Foundation (2025). *FEAST Guide*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/feast-guide.pdf)
+*   EAT Foundation (2025). *FEAST report on policy barriers and facilitators*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/feast-report-policy-barriers-facilitators.pdf)
+*   EAT Foundation (2024). *FEAST report on living lab kick-off*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/feast-report-living-lab-kick-off.pdf)
+*   EAT Foundation (2026). *FEAST 3rd Year Highlights*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/feast-third-year-highlights.pdf)
+*   EAT Foundation (2024). *Food Trails Replication Handbook (English)*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/food-trails-replication-handbook-english.pdf)
+*   EAT Foundation (2024). *European cities leading in urban food systems transformation*. [PDF](research/evidence-pack/forskningsrunde-2026-04-20/eat-foundation/food-trails-european-cities-leading-urban-food-systems-transformation.pdf)
+
 ---
-**Sist oppdatert:** 20. april 2026
+
+## 12. Perplexity-research Runde 2: Sirkularitet, fôr, næringsstoffer og innovasjon (20. april 2026)
+
+48 forskningsrapporter (P01–P50, ekskl. P35/P36 mangler) generert i Perplexity. Originaler arkivert i `research/bibliotek/forskningsrunde-2026-04-20-r2/`. Temaer: R9-matrise, fôrsammensetning, alternative proteiner, næringsgjenvinning, matavfall, sirkulær innovasjon, kaffe, regenerativt landbruk, EU-regulering.
+
+### 12.1 Offentlige/regulatoriske kilder
+
+*   EU Forordning 999/2001 (TSE) + endringsforordning 2021/1372 — insektprotein i fôr.
+*   EU Waste Framework Directive revisjon (art. 9a) — bindende matsvinnmål, i kraft 16.10.2025.
+*   PPWR — Packaging and Packaging Waste Regulation, EU 2025/2026.
+*   EUDR — Regulation (EU) 2023/1115, avskogingsfrie forsyningskjeder, gjelder 30.12.2025.
+*   CSDDD — Directive (EU) 2024/1760, aktsomhetsplikt i verdikjeder.
+*   Mattilsynet. *Insekter til bruk i fôr* og *Sirkulærøkonomi og bærekraftig fôr*. mattilsynet.no.
+*   EFSA (2015). *Scientific Opinion on risks related to insects as food and feed*. EFSA Journal 13(10):4257.
+*   Miljødirektoratet. *M1016: Norsk matsvinn*. miljodirektoratet.no.
+*   Naturvårdsverket (2024). *Matavfall 2023*. naturvardsverket.se.
+*   Regjeringen (2024). *Handlingsplan for sirkulær økonomi*. regjeringen.no.
+*   Regjeringen (2024). *Mål om 25% norske råvarer i fôr innen 2034*. regjeringen.no/id3029864.
+*   NOU 2023:25 (Klimautvalget 2050). regjeringen.no.
+*   Norsk matsvinnlov (vedtatt Stortinget 27.05.2025).
+*   Norsk gjødselvareforskrift (i kraft feb 2025).
+*   SSB. *63 000 tonn avløpsslam til landbruket*. ssb.no.
+*   Energistyrelsen (DK). Biogassproduksjonsstatistikk. ens.dk.
+*   Stockholms Avfallsplan 2021–2024.
+
+### 12.2 Forskningsinstitutter
+
+*   Nofima/FHF prosjekt 901604. *Ressursregnskap for fôrråvarer til laks og regnbueørret* (2010/2012/2016/2020). fhf.no.
+*   HI (2025). *Risikorapport norsk fiskeoppdrett 2025*. Rapport 2025-14.
+*   SINTEF Ocean. *Kvantifisering av utslipp fra havbruk* (SLAM-prosjektet L1.1).
+*   FHF prosjekt 901572. *Næringsutslipp fra havbruk — nasjonale og regionale belastninger*.
+*   FHF prosjekt 901155. *Miljøkonsekvensanalyse av integrert multitrofisk havbruk i Norge*.
+*   SINTEF Ocean. *AURORA IMTA*. sintef.no/prosjekter/2022/aurora-imta.
+*   SINTEF. *Analyse marint restråstoff 2023*. sintef.no.
+*   NIBIO. *Tre fluger i ein smekk: Sirkulær produksjon av insektlarvar*. nibio.no.
+*   NIBIO. *MiReKo-prosjektet: Mikroplast i biorest og kompost*. nibio.no.
+*   NORSUS (2023). *Mulighetsrommet for produksjon av biogass i Norge* (OR-06.23).
+*   NORSUS (2025). *PLASMA-rapport: Biorest-kvalitet*.
+*   NORSUS (2021). OR.49.21: *Basis for new EU reporting on food waste*.
+*   IEA Bioenergy Task 37. *Country Report Norway*.
+*   RISE (SE). *Svensk Näringsplattformen — blackwater/RecoLab*.
+*   Vista Analyse (2019). *Samfunnsøkonomisk analyse av økt bruk av biorest som gjødsel*.
+*   EUMOFA (2025). *Fishmeal and fish oil study — 2025 Edition*. eumofa.eu.
+*   Nofima. *InProVe — Innovative Processing of Vegetables*.
+*   Nofima/Nordisk Ministerråd. *Akvatiske matsystemer i Norden* (2024–2026).
+*   VTT (FI). *Sustainable growth from cellular agriculture value chains*.
+
+### 12.3 Nordisk Ministerråd og organisasjoner
+
+*   Nordisk Ministerråd. *Bioøkonomi-strategi*. norden.org.
+*   Temanord 2024-524. *Current status of waste incineration in the Nordics*. pub.norden.org.
+*   PolitikNord 2025-715. *Utvalget for et bærekraftig Norden*. pub.norden.org.
+*   NORD2024-034. *Food waste and circular economy*. pub.norden.org.
+*   Nordregio. *Policy tools for sustainable and healthy eating*. nordregio.org.
+*   Nordic Council. *Solutions Menu: A Nordic guide to sustainable food policy*. norden.org.
+
+### 12.4 Akademia og forskningsprogrammer
+
+*   van Zanten et al. (2023). *Circularity in Europe strengthens the sustainability of global food systems*. Nature Food.
+*   WUR CiFoS-modell — sirkulære matsystemer.
+*   NMBU Foods of Norway (SFI, PI: M. Øverland) — nye fôrkilder fra bioressurser.
+*   SLU Future Food platform og EPOK Centre for Organic Food.
+*   Mistra Food Futures (2020–2029). mistrafoodfutures.se.
+*   Chalmers Industriteknik. *Circular & sustainable food chains*-program.
+*   EU Nutri2Cycle (Ghent). N/P-resirkulering i landbruk.
+*   NMBU FoodProFuture — norsk planteprotein-kunnskapsplattform.
+*   NTNU PhD: FOOD2FEED — oppgradering av matavfall til fôr.
+*   NMBU PhD: *Circular aquacultural food systems for the future* (P. Weththasinghe).
+*   De Bernardi et al. *Circular food systems research agenda*. Emerald, BFJ-05-2021-0576.
+*   SSB Rapport 2025-36. *Nasjonale indikatorer for sirkulær økonomi*.
+*   Circularity Gap Report Norway 2025 (sirknorge.no).
+
+### 12.5 Industri, stiftelser og bransje
+
+*   Axfoundation. *Framtidens foder för fågel, fisk och fläsk* (SLU + 25 partnere). axfoundation.se.
+*   Axfood/Hemköp (2025). *Svenskodlad regnbågslax med cirkulärt foder* (produktlansering sept. 2025).
+*   Axfoundation. *Resursfisk*, *Smart Svensk Sjömat*, *Sillfärs*. axfoundation.se.
+*   Vinnova. *Grön mat från grönt foder* (19,96 MSEK, SLU, 2022–2026). vinnova.se.
+*   Skretting. *Impact Report 2024 — Use of vegetable raw materials* (ProTerra/Europe Soya). skretting.com.
+*   Framtiden i våre hender (2021). *Soya i norsk fôr*. framtiden.no.
+*   Biogass Norge. *Biogassstatistikken 2023*. biogassnorge.no.
+*   Biogas Danmark. *Biogas Outlook 2022*. biogas.dk.
+*   IPIFF. Substrate guide 2019 og EU-policy brief. ipiff.org.
+*   Volare Oy (FI). EUR 26M raise 2025, BSF insektprotein (Pori). Investorer: Maki.vc, Finnish Climate Fund.
+*   Kaffe Bueno (DK). Bioraffineri for kaffegrut, EIC-finansiert, 500–1500 t/år.
+*   Matvett. *Slik var matsvinnåret 2025*. matvett.no.
+*   Yara Integrated Report 2024.
+*   IFFO. *Marine Ingredients Market Trends* (2023–2025). iffo.com.
+*   Changing Markets Foundation. *Fishing for Catastrophe* (vest-afrikansk fiskemel).
+*   FF Skagen (DK). ~500 000 tonn råfisk/år til fiskemel. ffskagen.dk.
+*   Hoff SA. 40 000 tonn potetsidestrømmer utnyttet årlig.
+*   EAT Foundation. *EAT-Lancet 2.0* + avvikling 2026.
+*   Sitra (FI). Sirkulær økonomi-program.
+
+### 12.6 Sirkulær innovasjon — suksesser og fiaskoer
+
+**Internasjonale suksesser:**
+*   PeelPioneers (NL). circulareconomyforfood.eu.
+*   Toast Ale (UK). ashden.org.
+*   Full Harvest (US). B2B-plattform for «imperfect produce». fullharvest.com.
+*   Goterra (AU). Modulært insektsystem. goterra.com.
+*   Bio-bean (UK). Kaffegrut-resirkulering. bio-bean.com.
+
+**Nordiske fiaskoer:**
+*   ENORM BioFactory (DK/NO). Konkurs 2024. food-supply.dk.
+*   Mycorena (SE). Konkurs 2024, mycoprotein. mynewsdesk.com/se/mycorena-ab.
+*   Ljusgårda / Supernormal Greens (SE). Vertikal farming-nedleggelse. impactloop.com.
+*   Restaurant Rest (NO). TINE-eid, konkurs sept 2024. Parallell: Rub & Stub (DK), Instock (NL).
+
+### 12.7 Næringsgjenvinning og gjødsel
+
+*   OECD (2024). *Understanding the Resilience of Fertiliser Markets to Shocks*.
+*   Eawag/VUNA (2015). *Final Report — Urine diversion and nutrient recovery*. eawag.ch.
+*   NSVA (SE). ANCHOR Interreg — kildeseparerende avløpssystemer.
+*   Smart City Sweden. *RecoLab — pilot recovery plant*. smartcitysweden.com.
+*   HSY Helsinki. Biorest-til-landbruk-prosjekt. hsy.fi.
+*   Regjeringen (2024). Tolløkning på gjødsel fra Russland/Belarus. regjeringen.no/id3114265.
+*   SPCR 120 (Avfall Sverige). Svensk biorest-sertifiseringsstandard.
+
+### 12.8 Datasett og kvantitative kilder
+
+*   FAO Food Balance Sheets (FAOSTAT) — REST API, JSON/CSV.
+*   SSB Statistikkbanken (PxWeb API).
+*   SCB Statistikdatabasen (SE).
+*   Luke Statistics Finland.
+*   Eurostat Agriculture + Comext trade databases.
+*   Fiskeridirektoratet. *Nøkkeltall norsk havbruksnæring 2024*. fiskeridir.no.
+*   IFFO global fishmeal/fish oil production data.
+*   Eurostat Food Waste cei_pc035 og env_wasfw.
+*   World Bank fertilizer price index.
+
+## § 13 Matsvinn, tap og ressurshåndtering — verdikjeden
+
+Kilder kartlagt 21. april 2026. Dekker hele verdikjeden fra jordbruk til forbruker, inkludert avfallshåndtering (biogass, kompost, fôr, forbrenning).
+
+### 13.1 Hovedrapporter og sektorrapporter
+
+*   Miljødirektoratet (2021). *Bransjeavtalen om reduksjon av matsvinn: Hovedrapport 2020*. 454 350 tonn matsvinn i 2020, ~10 % reduksjon fra 2015. [PDF](research/evidence-pack/offentlig/bransjeavtalen-hovedrapport-2020.pdf)
+*   Landbruksdirektoratet (2024). *Matsvinn i jordbrukssektoren. Kartlegging for 2023* (Rapport 52/2024). 1,7 % av all mat = matsvinn i primærleddet. [PDF](research/evidence-pack/offentlig/landbruksdirektoratet-matsvinn-i-jordbrukssektoren-2023-rapport-52-2024.pdf)
+*   NORSUS/Matvett (2021). *Kartleggingsrapport for matbransjen og forbrukerleddet 2020*. Dekker matindustri, grossist, dagligvare, servering, forbruker. [PDF](research/evidence-pack/offentlig/norsus-matvett-sektorrapport-matbransjen-offentlig-sektor-husholdningsleddet-or36-21.pdf)
+*   SINTEF Ocean (2021). *Sektorrapport sjømatindustrien for 2020*. Matsvinn i fiskeri- og havbruksnæringen. [PDF](research/evidence-pack/offentlig/sintef-ocean-matsvinn-i-sjomatindustrien-2020.pdf)
+
+### 13.2 Metodeutvikling og statistikkgrunnlag
+
+*   Landbruksdirektoratet (2019). *Utvikling av matsvinnstatistikk i jordbrukssektoren*. Definisjoner, avgrensninger, datakilder per produksjon. [PDF](research/evidence-pack/offentlig/landbruksdirektoratet-utvikling-av-matsvinnstatistikk-i-jordbrukssektoren-2019.pdf)
+*   Landbruksdirektoratet (2020). *Utvikling av matsvinnstatistikk i korn- og grøntsektoren*. Tilleggsrapport for sektorer uten statistikk. [PDF](research/evidence-pack/offentlig/landbruksdirektoratet-utvikling-av-matsvinnstatistikk-i-korn-og-grontsektoren-2020.pdf)
+
+### 13.3 Politikkdokumenter og helhetlige analyser
+
+*   Regjeringen (2023). *Bærekraft i det norske matsystemet*. Matsystemtilnærmingen «fra jord og fjord til bord og tilbake». [PDF](research/evidence-pack/offentlig/baerekraft-i-det-norske-matsystemet-2024.pdf)
+*   Regjeringen/LMD (2024). *Landbruks- og matdepartementets arbeid med bærekraftige matsystemer*. Inkl. NIBIO-analyse. [PDF](research/evidence-pack/offentlig/lmd-arbeid-med-baerekraftige-matsystemer-2024.pdf)
+*   KLD/LMD (2024). *Matsvinnutvalget — tiltak og virkemidler for 50 % reduksjon innen 2030*. Utredning av matkastelov. [PDF](research/evidence-pack/offentlig/matsvinnutvalget-2024.pdf)
+*   NIBIO (2023). *Bærekraft i norsk jordbruksproduksjon — Kunnskapsstatus for vidare analysar (Del 1)*. hdl.handle.net/11250/3088083. **Krever manuell nedlasting** (nibio.brage.unit.no DNS nede).
+*   NIBIO (2024). *Bærekraft i norsk jordbruksproduksjon — Premisser og tiltak for forbedringer (Del 2)*. hdl.handle.net/11250/3159516. **Krever manuell nedlasting**.
+
+### 13.4 Forskningsrapporter (NORSUS/Østfoldforskning)
+
+*   NORSUS (2019). *Matsvinn i Norge — Rapportering av nøkkeltall 2015–2018*. [PDF](research/evidence-pack/forskningsinstitutt/norsus-matsvinn-i-norge-nokkeltall-2015-2018.pdf)
+*   Østfoldforskning/NORSUS (2016). *Matsvinn i Norge 2010–2015 (ForMat sluttrapport)*. Minst 385 000 tonn spiselig mat, ~73 kg/innbygger, ~22 mrd. NOK. [PDF](research/evidence-pack/forskningsinstitutt/norsus-format-matsvinn-2010-2015-sluttrapport.pdf)
+*   NORSUS (2025). *Faktaark om matsvinn i Norge 2024*. [PDF](research/evidence-pack/forskningsinstitutt/norsus-faktaark-matsvinn-norge-2024.pdf)
+
+### 13.5 SSB avfalls- og ressursstatistikk
+
+*   SSB. *Avfallshåndtering ved avfallsanlegg*. 605 000 t behandlet 2019; >70 % biogass. ssb.no/natur-og-miljo/avfall/statistikk/avfallshandtering-ved-avfallsanlegg
+*   SSB. *Avfall fra industrien*. Næringsmiddelindustri ~280 000 t, herav 110 000 t matavfall. ssb.no/natur-og-miljo/statistikker/avfind
+*   SSB. *Avfallsregnskapet*. Samlet norsk avfallsregnskap. ssb.no/natur-og-miljo/avfall/statistikk/avfallsregnskapet
+*   SSB. *Avfall frå hushalda (KOSTRA)*. Årlige tall fordelt på materialgjenvinning, kompostering, biogass, forbrenning. ssb.no/natur-og-miljo/avfall/statistikk/avfall-fra-hushalda
+
+### 13.6 Forskningsprosjekter
+
+*   Nofima. *FoodProFuture / Forbrukere i et bærekraftig norsk matsystem*. 26 partnere. nofima.com/projects/sustainable-eaters/
+
+---
+**Sist oppdatert:** 21. april 2026
 **Ansvarlig:** Food Systems 2026 Research Team
