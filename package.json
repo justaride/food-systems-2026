@@ -7,7 +7,7 @@
     "compute-metrics": "tsx scripts/compute-chart-metrics.ts --country=all",
     "build": "prisma generate && npm run compute-metrics && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
