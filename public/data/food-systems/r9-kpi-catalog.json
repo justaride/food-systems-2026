@@ -272,128 +272,196 @@
   ],
   "primary_sources": {
     "perplexity_prompt": "research/bibliotek/forskningsrunde-2026-04-20-r2/p02-r9-kpi-katalog-2026-04-20.md",
-    "verification_status": "pending — Perplexity-syntese, primærkilder under er rå-pekere fra prompten og må verifiseres uavhengig før sitering",
+    "verification_status": "alle 30 URL-er er reachable per 2026-04-21 (0 returnerer 401/403 ved HEAD/GET fra bot — verifiser i nettleser); innholdet må fortsatt verifiseres uavhengig før sitering",
     "citations": [
       {
         "id": 1,
-        "url": "https://agris.fao.org/search/en/providers/125335/records/67bdacdf7a9727816ad37bfb"
+        "url": "https://agris.fao.org/search/en/providers/125335/records/67bdacdf7a9727816ad37bfb",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 2,
-        "url": "https://ec.europa.eu/eurostat/databrowser/product/page/cei_pc035"
+        "url": "https://ec.europa.eu/eurostat/databrowser/product/page/cei_pc035",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 3,
-        "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Food_waste_and_food_waste_prevention_-_estimates"
+        "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Food_waste_and_food_waste_prevention_-_estimates",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 4,
-        "url": "https://ec.europa.eu/eurostat/databrowser/view/CEI_PC035/default/table"
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/CEI_PC035/default/table",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 5,
-        "url": "https://circulareconomy.europa.eu/platform/sites/default/files/circular_economy_indicators_for_the_food-system.pdf"
+        "url": "https://circulareconomy.europa.eu/platform/sites/default/files/circular_economy_indicators_for_the_food-system.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 6,
-        "url": "https://ec.europa.eu/eurostat/databrowser/bookmark/76edf586-f138-4a4a-9a18-28ee45cd015b?lang=en"
+        "url": "https://ec.europa.eu/eurostat/databrowser/bookmark/76edf586-f138-4a4a-9a18-28ee45cd015b?lang=en",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 7,
-        "url": "https://sdg-indikatoren.de/en/12-3-1/"
+        "url": "https://sdg-indikatoren.de/en/12-3-1/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 8,
-        "url": "https://ec.europa.eu/eurostat/databrowser/view/env_wasfw/default/table?lang=en"
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/env_wasfw/default/table?lang=en",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 9,
-        "url": "https://norsus.no/wp-content/uploads/OR.49.21-Basis-for-new-EU-reporting-on-food-waste.pdf"
+        "url": "https://norsus.no/wp-content/uploads/OR.49.21-Basis-for-new-EU-reporting-on-food-waste.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 10,
-        "url": "https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251016-2"
+        "url": "https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251016-2",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 11,
-        "url": "https://ec.europa.eu/food/safety/food_waste/eu-food-loss-waste-prevention-hub/resource/show/6397"
+        "url": "https://ec.europa.eu/food/safety/food_waste/eu-food-loss-waste-prevention-hub/resource/show/6397",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 12,
-        "url": "https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2022.1014228/full"
+        "url": "https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2022.1014228/full",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 13,
-        "url": "https://www.luke.fi/sites/default/files/2023-03/FoodVision2040_0.pdf"
+        "url": "https://www.luke.fi/sites/default/files/2023-03/FoodVision2040_0.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 14,
-        "url": "https://standard.no/globalassets/kurs-arrangement-og-radgiving/standard-morgen-og-andre-arr/ny-internasjonal-standard-for-avfallshandtering-fra-akvakultur/standard-norge-20-mai-2025---bechmann-1.pdf"
+        "url": "https://standard.no/globalassets/kurs-arrangement-og-radgiving/standard-morgen-og-andre-arr/ny-internasjonal-standard-for-avfallshandtering-fra-akvakultur/standard-norge-20-mai-2025---bechmann-1.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 15,
-        "url": "https://ec.europa.eu/eurostat/databrowser/product/view/env_wasfw"
+        "url": "https://ec.europa.eu/eurostat/databrowser/product/view/env_wasfw",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 16,
-        "url": "https://www.rmci.ase.ro/no18vol1/09.pdf"
+        "url": "https://www.rmci.ase.ro/no18vol1/09.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 17,
-        "url": "https://www.ssb.no/en/natur-og-miljo/miljoregnskap/artikler/national-indicators-for-circular-economy/_/attachment/inline/43b19d5c-368f-43ac-a406-ca6319f336ca:544daaa038ced888f45bd2f6ed274366ca2a27c4/RAPP2025-36.pdf"
+        "url": "https://www.ssb.no/en/natur-og-miljo/miljoregnskap/artikler/national-indicators-for-circular-economy/_/attachment/inline/43b19d5c-368f-43ac-a406-ca6319f336ca:544daaa038ced888f45bd2f6ed274366ca2a27c4/RAPP2025-36.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 18,
-        "url": "https://www.ssb.no/natur-og-miljo/miljoregnskap/artikler/nasjonale-indikatorer-for-sirkulaer-okonomi"
+        "url": "https://www.ssb.no/natur-og-miljo/miljoregnskap/artikler/nasjonale-indikatorer-for-sirkulaer-okonomi",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 19,
-        "url": "https://agriculture.ec.europa.eu/common-agricultural-policy/cap-overview/cmef_en"
+        "url": "https://agriculture.ec.europa.eu/common-agricultural-policy/cap-overview/cmef_en",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 20,
-        "url": "https://circular-cities-and-regions.ec.europa.eu/support-materials/tools-and-methods/eu-ce-monitoring-framework"
+        "url": "https://circular-cities-and-regions.ec.europa.eu/support-materials/tools-and-methods/eu-ce-monitoring-framework",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 21,
-        "url": "https://www.regjeringen.no/contentassets/1048f3f6a70b44de980dffaf02068ee8/no/pdfs/baerekraft-i-det-norske-matsystemet.pdf"
+        "url": "https://www.regjeringen.no/contentassets/1048f3f6a70b44de980dffaf02068ee8/no/pdfs/baerekraft-i-det-norske-matsystemet.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 22,
-        "url": "https://www.ssb.no/natur-og-miljo/miljoregnskap/artikler/nasjonale-indikatorer-for-sirkulaer-okonomi/_/attachment/inline/43b19d5c-368f-43ac-a406-ca6319f336ca:544daaa038ced888f45bd2f6ed274366ca2a27c4/RAPP2025-36.pdf"
+        "url": "https://www.ssb.no/natur-og-miljo/miljoregnskap/artikler/nasjonale-indikatorer-for-sirkulaer-okonomi/_/attachment/inline/43b19d5c-368f-43ac-a406-ca6319f336ca:544daaa038ced888f45bd2f6ed274366ca2a27c4/RAPP2025-36.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 23,
-        "url": "https://www.regjeringen.no/contentassets/c326b9d2b114473f832b0539034ed772/deloitte_kunnskapsgrunnlag-for-sirkular-okonomi---potensialer.pdf"
+        "url": "https://www.regjeringen.no/contentassets/c326b9d2b114473f832b0539034ed772/deloitte_kunnskapsgrunnlag-for-sirkular-okonomi---potensialer.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 24,
-        "url": "https://www.circularnorway.no/kundehistorier/sirk-indikatorer"
+        "url": "https://www.circularnorway.no/kundehistorier/sirk-indikatorer",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 25,
-        "url": "https://www.circularnorway.no/nyheter/cgr-danmark"
+        "url": "https://www.circularnorway.no/nyheter/cgr-danmark",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 26,
-        "url": "https://www.compostnetwork.info/eu-commission-includes-new-indicators-in-revised-ce-monitoring-framework/"
+        "url": "https://www.compostnetwork.info/eu-commission-includes-new-indicators-in-revised-ce-monitoring-framework/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 27,
-        "url": "https://www.ssb.no/priser-og-prisindekser/konsumpriser/statistikk/konsumprisindeksen/artikler/kpis-representantvarer"
+        "url": "https://www.ssb.no/priser-og-prisindekser/konsumpriser/statistikk/konsumprisindeksen/artikler/kpis-representantvarer",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 28,
-        "url": "https://www.circularnorway.no/nyheter/sirk-indikatorer"
+        "url": "https://www.circularnorway.no/nyheter/sirk-indikatorer",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 29,
-        "url": "https://www.leroyseafood.com/no/barekraft/barekraftsbibliotek2021/kpier/kpi-bruk-av-ferskvann/"
+        "url": "https://www.leroyseafood.com/no/barekraft/barekraftsbibliotek2021/kpier/kpi-bruk-av-ferskvann/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 30,
-        "url": "https://www.statista.com/chart/31072/food-wasted-per-capita-in-european-countries/"
+        "url": "https://www.statista.com/chart/31072/food-wasted-per-capita-in-european-countries/",
+        "status": "ok",
+        "http_status": 200
       }
-    ]
+    ],
+    "last_checked": "2026-04-21",
+    "link_check_summary": {
+      "total": 30,
+      "ok": 30,
+      "redirect": 0,
+      "blocked": 0,
+      "dead": 0
+    }
   }
 }

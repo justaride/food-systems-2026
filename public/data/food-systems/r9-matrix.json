@@ -153,184 +153,280 @@
   ],
   "primary_sources": {
     "perplexity_prompt": "research/bibliotek/forskningsrunde-2026-04-20-r2/p01-r9-matrise-matsystemer-2026-04-20.md",
-    "verification_status": "pending — Perplexity-syntese, primærkilder under er rå-pekere fra prompten og må verifiseres uavhengig før sitering",
+    "verification_status": "4 av 44 URL-er er døde per 2026-04-21; 40 levende (5 bot-blokkert). Innhold må verifiseres uavhengig før sitering",
     "citations": [
       {
         "id": 1,
-        "url": "https://ec.europa.eu/eurostat/cache/metadata/en/cei_pc035_esmsip2.htm"
+        "url": "https://ec.europa.eu/eurostat/cache/metadata/en/cei_pc035_esmsip2.htm",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 2,
-        "url": "https://pub.norden.org/nord2024-034/nord2024-034.pdf"
+        "url": "https://pub.norden.org/nord2024-034/nord2024-034.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 3,
-        "url": "https://treasource.eu/wp-content/uploads/2023/06/Edvardsen-M.-2025.-Developing-Rural–Urban-Symbiosis-through-biogas-–-A-Stakeholder-and-Regional-Innovation-System-Perspective.-Masters-Thesis.-Western-Norway-University-of-Applied-Sciences.pdf"
+        "url": "https://treasource.eu/wp-content/uploads/2023/06/Edvardsen-M.-2025.-Developing-Rural–Urban-Symbiosis-through-biogas-–-A-Stakeholder-and-Regional-Innovation-System-Perspective.-Masters-Thesis.-Western-Norway-University-of-Applied-Sciences.pdf",
+        "status": "dead",
+        "http_status": null
       },
       {
         "id": 4,
-        "url": "https://www.naturvardsverket.se/om-oss/aktuellt/nyheter-och-pressmeddelanden/2024/december/matsvinnet-minskar-inte/"
+        "url": "https://www.naturvardsverket.se/om-oss/aktuellt/nyheter-och-pressmeddelanden/2024/december/matsvinnet-minskar-inte/",
+        "status": "dead",
+        "http_status": 404
       },
       {
         "id": 5,
-        "url": "https://www.sciencedirect.com/science/article/pii/S0921344920305346"
+        "url": "https://www.sciencedirect.com/science/article/pii/S0921344920305346",
+        "status": "blocked",
+        "http_status": 403
       },
       {
         "id": 6,
-        "url": "https://www.miljodirektoratet.no/globalassets/publikasjoner/M1016/M1016.pdf"
+        "url": "https://www.miljodirektoratet.no/globalassets/publikasjoner/M1016/M1016.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 7,
-        "url": "https://pub.norden.org/nord2024-034/what-can-authorities-and-public-decision-makers-do-.html"
+        "url": "https://pub.norden.org/nord2024-034/what-can-authorities-and-public-decision-makers-do-.html",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 8,
-        "url": "https://www.matvett.no/uploads/documents/Slik-var-matsvinnaret-2025.pdf"
+        "url": "https://www.matvett.no/uploads/documents/Slik-var-matsvinnaret-2025.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 9,
-        "url": "https://niva.org/norden-news-entries/new-report-tougher-measures-required-if-nordics-are-to-halve-food-waste-by-2030/"
+        "url": "https://niva.org/norden-news-entries/new-report-tougher-measures-required-if-nordics-are-to-halve-food-waste-by-2030/",
+        "status": "dead",
+        "http_status": 404
       },
       {
         "id": 10,
-        "url": "https://www.regjeringen.no/no/dep/kld/organisasjon/styrer-rad-og-utvalg/rad-og-utvalg-som-har-avlagt-sine-rapporter/matsvinnutvalget/id2962650/"
+        "url": "https://www.regjeringen.no/no/dep/kld/organisasjon/styrer-rad-og-utvalg/rad-og-utvalg-som-har-avlagt-sine-rapporter/matsvinnutvalget/id2962650/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 11,
-        "url": "https://www.matsentralen.no/rapporter/food-redistribution-in-the-nordic-region-phase-ii"
+        "url": "https://www.matsentralen.no/rapporter/food-redistribution-in-the-nordic-region-phase-ii",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 12,
-        "url": "https://www.ellenmacarthurfoundation.org/topics/food/overview"
+        "url": "https://www.ellenmacarthurfoundation.org/topics/food/overview",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 13,
-        "url": "https://www.ellenmacarthurfoundation.org/cultivating-change-designing-a-nature-positive-food-system"
+        "url": "https://www.ellenmacarthurfoundation.org/cultivating-change-designing-a-nature-positive-food-system",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 14,
-        "url": "https://circulareconomy.europa.eu/platform/en/knowledge/big-food-redesign-regenerating-nature-circular-economy"
+        "url": "https://circulareconomy.europa.eu/platform/en/knowledge/big-food-redesign-regenerating-nature-circular-economy",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 15,
-        "url": "https://www.helsedirektoratet.no/rapporter/utviklingen-i-norsk-kosthold-2025/om-datagrunnlaget"
+        "url": "https://www.helsedirektoratet.no/rapporter/utviklingen-i-norsk-kosthold-2025/om-datagrunnlaget",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 16,
-        "url": "https://www.regjeringen.no/no/aktuelt/barekraft-i-internasjonale-og-norske-matsystemer/id3031402/"
+        "url": "https://www.regjeringen.no/no/aktuelt/barekraft-i-internasjonale-og-norske-matsystemer/id3031402/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 17,
-        "url": "https://www.helsedirektoratet.no/rapporter/utviklingen-i-norsk-kosthold-2025/matvarer"
+        "url": "https://www.helsedirektoratet.no/rapporter/utviklingen-i-norsk-kosthold-2025/matvarer",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 18,
-        "url": "https://www.sintef.no/fagomrader/fremtidens-matsystem/"
+        "url": "https://www.sintef.no/fagomrader/fremtidens-matsystem/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 19,
-        "url": "https://www.livsmedelifokus.se/okat-matsvinn-inom-industrin-en-resurs/"
+        "url": "https://www.livsmedelifokus.se/okat-matsvinn-inom-industrin-en-resurs/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 20,
-        "url": "https://bioeast.eu/wp-content/uploads/2020/03/BIOEAST-food-waste-and-circular-economy-21-Feb-2020.pdf"
+        "url": "https://bioeast.eu/wp-content/uploads/2020/03/BIOEAST-food-waste-and-circular-economy-21-Feb-2020.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 21,
-        "url": "https://www.pubaffairsbruxelles.eu/eu-institution-news/preventing-food-waste-promoting-circular-economy-commission-adopts-common-methodology-to-measure-food-waste-across-the-eu/"
+        "url": "https://www.pubaffairsbruxelles.eu/eu-institution-news/preventing-food-waste-promoting-circular-economy-commission-adopts-common-methodology-to-measure-food-waste-across-the-eu/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 22,
-        "url": "https://docs.wbcsd.org/2020/11/WBCSD_Circular_Economy_Action_Plan_2020%E2%80%93Summary_for_business.pdf"
+        "url": "https://docs.wbcsd.org/2020/11/WBCSD_Circular_Economy_Action_Plan_2020%E2%80%93Summary_for_business.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 23,
-        "url": "https://www.forskningsradet.no/siteassets/publikasjoner/2025/vei-barekraftig-20-grep-2030_16feb.pdf"
+        "url": "https://www.forskningsradet.no/siteassets/publikasjoner/2025/vei-barekraftig-20-grep-2030_16feb.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 24,
-        "url": "https://media.wwf.no/assets/attachments/Nature-has-limits_How-to-reduce-Norways-material-footprint_EY-2024.pdf"
+        "url": "https://media.wwf.no/assets/attachments/Nature-has-limits_How-to-reduce-Norways-material-footprint_EY-2024.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 25,
-        "url": "http://www.diva-portal.org/smash/get/diva2:1889401/FULLTEXT01.pdf"
+        "url": "http://www.diva-portal.org/smash/get/diva2:1889401/FULLTEXT01.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 26,
-        "url": "https://avinor.no/contentassets/e639d54bf7d145b28a8b02cebd09706e/zero-waste-guide---terminal-2.pdf"
+        "url": "https://avinor.no/contentassets/e639d54bf7d145b28a8b02cebd09706e/zero-waste-guide---terminal-2.pdf",
+        "status": "dead",
+        "http_status": 404
       },
       {
         "id": 27,
-        "url": "https://om.avinor.no/siteassets/barekraft/klima/pdfer/zero-waste-guide---terminal-2.pdf"
+        "url": "https://om.avinor.no/siteassets/barekraft/klima/pdfer/zero-waste-guide---terminal-2.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 28,
-        "url": "https://www.statsforvalteren.no/contentassets/d5952b39ef7b4cc29df523622b8b4174/arsrapport-2022.pdf"
+        "url": "https://www.statsforvalteren.no/contentassets/d5952b39ef7b4cc29df523622b8b4174/arsrapport-2022.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 29,
-        "url": "https://academic.oup.com/cjres/article/17/3/443/7692834"
+        "url": "https://academic.oup.com/cjres/article/17/3/443/7692834",
+        "status": "blocked",
+        "http_status": 403
       },
       {
         "id": 30,
-        "url": "https://www.nhomd.no/contentassets/7ea27a78569f4189b8b5a20c2a098347/barekraftige-norske-matsystemer-v3.pdf"
+        "url": "https://www.nhomd.no/contentassets/7ea27a78569f4189b8b5a20c2a098347/barekraftige-norske-matsystemer-v3.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 31,
-        "url": "https://www.cncda.gov.pt/images/noticias/IP-19-2391_EN.pdf"
+        "url": "https://www.cncda.gov.pt/images/noticias/IP-19-2391_EN.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 32,
-        "url": "https://www.avfallsverige.se/aktuellt/nyheter/matsvinnet-minskar-fortfarande-inte/"
+        "url": "https://www.avfallsverige.se/aktuellt/nyheter/matsvinnet-minskar-fortfarande-inte/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 33,
-        "url": "https://www.regjeringen.no/globalassets/upload/fin/vedlegg/okstyring/rundskriv/arlige/2024/vedlegg2_r9-2024_sats.docx"
+        "url": "https://www.regjeringen.no/globalassets/upload/fin/vedlegg/okstyring/rundskriv/arlige/2024/vedlegg2_r9-2024_sats.docx",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 34,
-        "url": "https://www.regjeringen.no/contentassets/6862980b691b4786a2d4b36ecdf3af5f/no/epub/prp201720180092000dddepub.epub"
+        "url": "https://www.regjeringen.no/contentassets/6862980b691b4786a2d4b36ecdf3af5f/no/epub/prp201720180092000dddepub.epub",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 35,
-        "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Innstillinger/Stortinget/2010-2011/inns-201011-008/2/4/"
+        "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Innstillinger/Stortinget/2010-2011/inns-201011-008/2/4/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 36,
-        "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/bse.3684"
+        "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/bse.3684",
+        "status": "blocked",
+        "http_status": 403
       },
       {
         "id": 37,
-        "url": "https://www.regjeringen.no/no/aktuelt/lokalmat-i-kraftig-vekst/id3141746/"
+        "url": "https://www.regjeringen.no/no/aktuelt/lokalmat-i-kraftig-vekst/id3141746/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 38,
-        "url": "https://cms.lokalmat.no/uploads/Lokalmat_2024_4_nb_no_c8c047c583.pdf"
+        "url": "https://cms.lokalmat.no/uploads/Lokalmat_2024_4_nb_no_c8c047c583.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 39,
-        "url": "https://joint-research-centre.ec.europa.eu/jrc-news-and-updates/jrc-food-waste-indicators-2021-10-21_en"
+        "url": "https://joint-research-centre.ec.europa.eu/jrc-news-and-updates/jrc-food-waste-indicators-2021-10-21_en",
+        "status": "blocked",
+        "http_status": 403
       },
       {
         "id": 40,
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12294240/"
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12294240/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 41,
-        "url": "https://rcbc.ca/wp-content/uploads/2022/08/EU-European-Union-Circular-Economy-Action-Plan-2020.pdf"
+        "url": "https://rcbc.ca/wp-content/uploads/2022/08/EU-European-Union-Circular-Economy-Action-Plan-2020.pdf",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 42,
-        "url": "https://www.sciencedirect.com/science/article/pii/S3050835526000239"
+        "url": "https://www.sciencedirect.com/science/article/pii/S3050835526000239",
+        "status": "blocked",
+        "http_status": 403
       },
       {
         "id": 43,
-        "url": "https://nordicfoodtech.io/episode/ellen-macarthur-foundations-emma-chow/"
+        "url": "https://nordicfoodtech.io/episode/ellen-macarthur-foundations-emma-chow/",
+        "status": "ok",
+        "http_status": 200
       },
       {
         "id": 44,
-        "url": "https://content.ellenmacarthurfoundation.org/m/3d4eba36b0311c08/original/Growth-within-A-circular-economy-vision-for-a-competitive-europe.pdf"
+        "url": "https://content.ellenmacarthurfoundation.org/m/3d4eba36b0311c08/original/Growth-within-A-circular-economy-vision-for-a-competitive-europe.pdf",
+        "status": "ok",
+        "http_status": 200
       }
-    ]
+    ],
+    "last_checked": "2026-04-21",
+    "link_check_summary": {
+      "total": 44,
+      "ok": 35,
+      "redirect": 0,
+      "blocked": 5,
+      "dead": 4
+    }
   }
 }
