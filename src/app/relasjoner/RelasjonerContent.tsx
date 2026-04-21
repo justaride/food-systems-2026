@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { RelationshipNetworkGraph } from './RelationshipNetworkGraph'
 
 type RelationshipRow = {
   id: string
@@ -67,6 +68,7 @@ function formatNOK(value: number | null) {
 export function RelasjonerContent({ relationships, stats }: Props) {
   const [typeFilter, setTypeFilter] = useState('alle')
   const [search, setSearch] = useState('')
+  const [viewMode, setViewMode] = useState<'table' | 'graph'>('table')
 
   const relationshipTypes = useMemo(
     () => Array.from(new Set(relationships.map(r => r.relationshipType))).sort(),
@@ -158,31 +160,69 @@ export function RelasjonerContent({ relationships, stats }: Props) {
       )}
 
       <Card>
-        <div className="flex flex-wrap gap-2">
-          <select
-            value={typeFilter}
-            onChange={e => setTypeFilter(e.target.value)}
-            className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
+        <div className="flex flex-wrap gap-2 items-center justify-between">
+          <div className="flex flex-wrap gap-2">
+            <select
+              value={typeFilter}
+              onChange={e => setTypeFilter(e.target.value)}
+              className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
+            >
+              <option value="alle">Type: Alle</option>
+              {relationshipTypes.map(type => (
+                <option key={type} value={type}>
+                  {TYPE_LABELS[type] ?? type}
+                </option>
+              ))}
+            </select>
+            <input
+              type="search"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              placeholder="Søk selskap, sektor, beskrivelse..."
+              className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300 min-w-[220px]"
+            />
+          </div>
+          <div
+            role="tablist"
+            aria-label="Visningsmodus"
+            className="inline-flex rounded-lg border border-stone-200 bg-white p-0.5"
           >
-            <option value="alle">Type: Alle</option>
-            {relationshipTypes.map(type => (
-              <option key={type} value={type}>
-                {TYPE_LABELS[type] ?? type}
-              </option>
-            ))}
-          </select>
-          <input
-            type="search"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            placeholder="Søk selskap, sektor, beskrivelse..."
-            className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300 min-w-[220px]"
-          />
+            <button
+              type="button"
+              role="tab"
+              aria-selected={viewMode === 'table'}
+              onClick={() => setViewMode('table')}
+              className={`text-xs px-2.5 py-1.5 rounded-md transition-colors ${
+                viewMode === 'table'
+                  ? 'bg-stone-900 text-white'
+                  : 'text-stone-600 hover:bg-stone-100'
+              }`}
+            >
+              Tabell
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={viewMode === 'graph'}
+              onClick={() => setViewMode('graph')}
+              className={`text-xs px-2.5 py-1.5 rounded-md transition-colors ${
+                viewMode === 'graph'
+                  ? 'bg-stone-900 text-white'
+                  : 'text-stone-600 hover:bg-stone-100'
+              }`}
+            >
+              Nettverk
+            </button>
+          </div>
         </div>
       </Card>
 
       {filtered.length === 0 ? (
         <EmptyState message="Ingen relasjoner matcher filteret" />
+      ) : viewMode === 'graph' ? (
+        <Card>
+          <RelationshipNetworkGraph relationships={filtered} />
+        </Card>
       ) : (
         <Card>
           <div className="overflow-x-auto">
