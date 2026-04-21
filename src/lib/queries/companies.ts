@@ -3,12 +3,32 @@ import { prisma } from '@/lib/db'
 export async function getCompanies(opts?: {
   valueChainStage?: string
   ownershipType?: string
+  includeAll?: boolean
 }) {
-  const { valueChainStage, ownershipType } = opts ?? {}
+  const { valueChainStage, ownershipType, includeAll = false } = opts ?? {}
+
+  const trackedOnly = !includeAll
+    ? {
+        OR: [
+          { financials: { some: {} } },
+          { boardMembers: { some: {} } },
+          { shareholders: { some: {} } },
+          { ownedProperties: { some: {} } },
+          { tenantProperties: { some: {} } },
+          { relationshipsFrom: { some: {} } },
+          { relationshipsTo: { some: {} } },
+          { childOf: { some: {} } },
+          { parentOf: { some: {} } },
+          { aquacultureSites: { some: {} } },
+          { actor: { isNot: null } },
+        ],
+      }
+    : {}
 
   const where = {
     ...(valueChainStage && { valueChainStage }),
     ...(ownershipType && { ownershipType }),
+    ...trackedOnly,
   }
 
   return prisma.company.findMany({
@@ -16,7 +36,15 @@ export async function getCompanies(opts?: {
     include: {
       financials: { orderBy: { year: 'desc' }, take: 1 },
       shareholders: { where: { isControlling: true } },
-      _count: { select: { boardMembers: true, subsidies: true } },
+      _count: {
+        select: {
+          boardMembers: true,
+          subsidies: true,
+          ownedProperties: true,
+          relationshipsFrom: true,
+          relationshipsTo: true,
+        },
+      },
     },
     orderBy: { name: 'asc' },
   })
