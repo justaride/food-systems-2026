@@ -5,7 +5,7 @@ import { isMissingPrismaTable } from './prisma-errors'
 export type SearchMode = 'keyword' | 'semantic' | 'hybrid'
 
 export type SearchResult = {
-  type: 'document' | 'insight' | 'source' | 'thesis' | 'company' | 'actor'
+  type: 'document' | 'insight' | 'source' | 'thesis' | 'company' | 'actor' | 'relationship' | 'property' | 'person'
   id: string
   title: string
   excerpt: string
@@ -66,9 +66,28 @@ export async function unifiedSearch(query: string, limit = 20, mode: SearchMode 
   return keywordSearch(query, limit)
 }
 
+function interleaveByType(results: SearchResult[], cap: number): SearchResult[] {
+  const groups = new Map<string, SearchResult[]>()
+  for (const r of results) {
+    const list = groups.get(r.type) ?? []
+    list.push(r)
+    groups.set(r.type, list)
+  }
+  const queues = [...groups.values()]
+  const out: SearchResult[] = []
+  while (out.length < cap && queues.some(q => q.length > 0)) {
+    for (const queue of queues) {
+      if (out.length >= cap) break
+      const next = queue.shift()
+      if (next) out.push(next)
+    }
+  }
+  return out
+}
+
 async function keywordSearch(query: string, limit: number): Promise<SearchResult[]> {
   const results: SearchResult[] = []
-  const terms = query.trim().split(/\s+/).join(' & ')
+  const perTypeLimit = Math.max(5, Math.ceil(limit / 4))
 
   const documents = await prisma.document.findMany({
     where: {
@@ -78,7 +97,7 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
       ],
     },
     select: { id: true, title: true, content: true, summary: true, tags: true, slug: true },
-    take: limit,
+    take: perTypeLimit,
   })
 
   for (const doc of documents) {
@@ -111,7 +130,7 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
         { tags: { has: query.toLowerCase() } },
       ],
     },
-    take: limit,
+    take: perTypeLimit,
   })
 
   for (const ins of insightsResult) {
@@ -133,7 +152,7 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
         { filename: { contains: query, mode: 'insensitive' } },
       ],
     },
-    take: limit,
+    take: perTypeLimit,
   })
 
   for (const src of sourcesResult) {
@@ -154,7 +173,7 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
         { tags: { has: query.toLowerCase() } },
       ],
     },
-    take: limit,
+    take: perTypeLimit,
   })
 
   for (const t of thesesResult) {
@@ -176,7 +195,7 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
         { valueChainStage: { contains: query, mode: 'insensitive' } },
       ],
     },
-    take: limit,
+    take: perTypeLimit,
   })
 
   for (const c of companiesResult) {
@@ -201,7 +220,7 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
           { themeTags: { hasSome: themeVariants } },
         ],
       },
-      take: limit,
+      take: perTypeLimit,
     })
 
     for (const actor of actorsResult) {
@@ -218,5 +237,100 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
     if (!isMissingPrismaTable(error, 'Actor')) throw error
   }
 
-  return results.slice(0, limit)
+  try {
+    const relationshipsResult = await prisma.businessRelationship.findMany({
+      where: {
+        OR: [
+          { description: { contains: query, mode: 'insensitive' } },
+          { sector: { contains: query, mode: 'insensitive' } },
+          { relationshipType: { contains: query, mode: 'insensitive' } },
+          { fromCompany: { name: { contains: query, mode: 'insensitive' } } },
+          { toCompany: { name: { contains: query, mode: 'insensitive' } } },
+        ],
+      },
+      include: {
+        fromCompany: { select: { name: true } },
+        toCompany: { select: { name: true } },
+      },
+      take: perTypeLimit,
+    })
+
+    for (const rel of relationshipsResult) {
+      results.push({
+        type: 'relationship',
+        id: rel.id,
+        title: `${rel.fromCompany.name} → ${rel.toCompany.name}`,
+        excerpt: `${rel.relationshipType}${rel.sector ? ` — ${rel.sector}` : ''}${rel.description ? ` — ${rel.description}` : ''}`,
+        url: `/relasjoner#${rel.id}`,
+      })
+    }
+  } catch (error) {
+    if (!isMissingPrismaTable(error, 'BusinessRelationship')) throw error
+  }
+
+  try {
+    const propertiesResult = await prisma.companyProperty.findMany({
+      where: {
+        OR: [
+          { address: { contains: query, mode: 'insensitive' } },
+          { municipality: { contains: query, mode: 'insensitive' } },
+          { county: { contains: query, mode: 'insensitive' } },
+          { propertyType: { contains: query, mode: 'insensitive' } },
+          { company: { name: { contains: query, mode: 'insensitive' } } },
+        ],
+      },
+      include: {
+        company: { select: { name: true } },
+      },
+      take: perTypeLimit,
+    })
+
+    for (const prop of propertiesResult) {
+      const location = [prop.address, prop.municipality, prop.county].filter(Boolean).join(', ')
+      results.push({
+        type: 'property',
+        id: prop.id,
+        title: `${prop.company.name} — ${prop.propertyType}`,
+        excerpt: location || prop.propertyType,
+        url: `/eiendommer#${prop.id}`,
+      })
+    }
+  } catch (error) {
+    if (!isMissingPrismaTable(error, 'CompanyProperty')) throw error
+  }
+
+  try {
+    const personsResult = await prisma.personProfile.findMany({
+      where: {
+        OR: [
+          { name: { contains: query, mode: 'insensitive' } },
+          { biography: { contains: query, mode: 'insensitive' } },
+          { affiliations: { has: query } },
+          { tags: { has: query.toLowerCase() } },
+        ],
+      },
+      take: perTypeLimit,
+    })
+
+    for (const person of personsResult) {
+      const roles = (person.roles as Array<{ companyName?: string; role?: string }> | null) ?? []
+      const topRoles = roles
+        .map(r => r.companyName && r.role ? `${r.role} @ ${r.companyName}` : r.role ?? r.companyName)
+        .filter((v): v is string => Boolean(v))
+        .slice(0, 2)
+        .join(' · ')
+      results.push({
+        type: 'person',
+        id: person.personKey,
+        title: person.name,
+        excerpt: person.biography?.slice(0, 200) ?? topRoles ?? person.affiliations.join(', '),
+        tags: person.tags,
+        url: `/personer/${encodeURIComponent(person.personKey)}`,
+      })
+    }
+  } catch (error) {
+    if (!isMissingPrismaTable(error, 'PersonProfile')) throw error
+  }
+
+  return interleaveByType(results, limit)
 }

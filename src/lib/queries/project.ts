@@ -1,20 +1,16 @@
 import { prisma } from '@/lib/db'
 import { applications as fallbackApplications } from '@/lib/data/applications'
-import { deliverables as fallbackDeliverables } from '@/lib/data/deliverables'
 import { evidencePack as fallbackEvidencePack } from '@/lib/data/evidence-pack'
 import { insights as fallbackInsights } from '@/lib/data/insights'
 import { kpis as fallbackKpis } from '@/lib/data/kpis'
 import { phases as fallbackPhases } from '@/lib/data/phases'
-import { tasks as fallbackTasks } from '@/lib/data/tasks'
 import { team as fallbackTeam } from '@/lib/data/team'
 import { tenSteps as fallbackTenSteps } from '@/lib/data/ten-step-start'
 import type {
   Phase,
-  ProjectTask,
   TenStep,
   KPI,
   EvidenceDoc,
-  Deliverable,
   Application,
 } from '@/lib/types'
 import { isPrismaDataUnavailable } from './prisma-errors'
@@ -34,26 +30,6 @@ export async function getPhases(): Promise<Phase[]> {
   }
 }
 
-export async function getTasks(opts?: { status?: string; phaseId?: string }): Promise<ProjectTask[]> {
-  const { status, phaseId } = opts ?? {}
-  const where = {
-    ...(status && { status }),
-    ...(phaseId && { phaseId }),
-  }
-  try {
-    const rows = await prisma.projectTask.findMany({ where, orderBy: { id: 'asc' } })
-    return rows as unknown as ProjectTask[]
-  } catch (error) {
-    if (!isPrismaDataUnavailable(error)) throw error
-    logProjectFallback('tasks', error)
-    return fallbackTasks.filter(task => {
-      if (status && task.status !== status) return false
-      if (phaseId && task.phase !== phaseId) return false
-      return true
-    })
-  }
-}
-
 export async function getTeam() {
   try {
     return await prisma.teamMember.findMany({ orderBy: { id: 'asc' } })
@@ -61,17 +37,6 @@ export async function getTeam() {
     if (!isPrismaDataUnavailable(error)) throw error
     logProjectFallback('team', error)
     return fallbackTeam
-  }
-}
-
-export async function getDeliverables(): Promise<Deliverable[]> {
-  try {
-    const rows = await prisma.deliverable.findMany({ orderBy: { id: 'asc' } })
-    return rows as unknown as Deliverable[]
-  } catch (error) {
-    if (!isPrismaDataUnavailable(error)) throw error
-    logProjectFallback('deliverables', error)
-    return fallbackDeliverables
   }
 }
 

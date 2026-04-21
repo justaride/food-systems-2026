@@ -1,12 +1,22 @@
+import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { StepCard } from '@/components/ui/StepCard'
 import { KpiCard } from '@/components/ui/KpiCard'
 import { getTenSteps, getKpis, getEvidenceDocs } from '@/lib/queries/project'
+import { getResearchPrompts } from '@/lib/queries/research-prompts'
 import { CausalLoopDiagram } from '@/components/charts/CausalLoopDiagram'
 import { EmergenceVisualization } from '@/components/charts/EmergenceVisualization'
 
 export default async function MetodikkPage() {
+  let activePromptsCount = 0
+  try {
+    const prompts = await getResearchPrompts()
+    activePromptsCount = prompts.filter(p => p.status === 'aktiv' || p.status === 'delvis').length
+  } catch {
+    activePromptsCount = 0
+  }
+
   const [tenSteps, kpis, evidencePack] = await Promise.all([
     getTenSteps(),
     getKpis(),
@@ -17,8 +27,25 @@ export default async function MetodikkPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Metodikk</h1>
-        <p className="text-sm text-stone-400 mt-1">Ten Step Start v2.0, KPIs og Evidence Pack</p>
+        <p className="text-sm text-stone-400 mt-1">Ten Step Start v2.0, KPIs, Evidence Pack og deep research-prompter</p>
       </div>
+
+      <Card>
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <h3 className="text-sm font-semibold text-stone-800">Deep research-prompter</h3>
+            <p className="text-xs text-stone-500 mt-1">
+              {activePromptsCount} operative prompt-maler for systematisk kunnskapsinnhenting via ChatGPT, Gemini, Perplexity og Claude deep research.
+            </p>
+          </div>
+          <Link
+            href="/metodikk/prompts"
+            className="shrink-0 inline-flex items-center gap-1 text-xs px-3 py-1.5 rounded-md bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200"
+          >
+            Se alle prompts →
+          </Link>
+        </div>
+      </Card>
 
       <Card title="Ten Step Start v2.0">
         <div className="space-y-2">

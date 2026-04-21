@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { KpiCard } from '@/components/ui/KpiCard'
-import { StatusBadge } from '@/components/ui/StatusBadge'
 import { ProgressBar } from '@/components/ui/ProgressBar'
-import { getPhases, getTasks, getDeliverables, getTenSteps, getEvidenceDocs, getRecentInsights } from '@/lib/queries/project'
+import { getPhases, getTenSteps, getEvidenceDocs, getRecentInsights } from '@/lib/queries/project'
 import type { KPI } from '@/lib/types'
 
 const FOOD_SYSTEM_KPIS: KPI[] = [
@@ -14,23 +13,18 @@ const FOOD_SYSTEM_KPIS: KPI[] = [
 ]
 
 export default async function OversiktPage() {
-  const [phases, deliverables, evidencePack, tenSteps, tasks, recentInsights] = await Promise.all([
+  const [phases, evidencePack, tenSteps, recentInsights] = await Promise.all([
     getPhases(),
-    getDeliverables(),
     getEvidenceDocs(),
     getTenSteps(),
-    getTasks(),
     getRecentInsights(3),
   ])
 
-  const completedDeliverables = deliverables.filter(d => d.status === 'fullfort').length
   const completedEvidence = evidencePack.filter(d => d.status === 'ferdig').length
   const completedSteps = tenSteps.filter(s => s.status === 'fullfort').length
   const currentStep = completedSteps + 1
-  const completedTasks = tasks.filter(t => t.status === 'fullfort').length
   const activePhaseIndex = phases.findIndex(p => p.status === 'pagar')
   const activePhase = activePhaseIndex >= 0 ? phases[activePhaseIndex] : phases[0]
-  const openTasks = tasks.filter(t => t.status !== 'fullfort').slice(0, 5)
 
   return (
     <div className="space-y-5">
@@ -64,12 +58,7 @@ export default async function OversiktPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-        <Card>
-          <p className="text-[10px] text-stone-400 uppercase tracking-wider">Leveranser</p>
-          <p className="text-xl font-bold text-stone-900 mt-1">{completedDeliverables} / {deliverables.length}</p>
-          <ProgressBar value={completedDeliverables} max={deliverables.length} className="mt-2" />
-        </Card>
+      <div className="grid grid-cols-2 gap-3">
         <Card>
           <p className="text-[10px] text-stone-400 uppercase tracking-wider">Evidence Pack</p>
           <p className="text-xl font-bold text-stone-900 mt-1">{completedEvidence} / {evidencePack.length}</p>
@@ -79,11 +68,6 @@ export default async function OversiktPage() {
           <p className="text-[10px] text-stone-400 uppercase tracking-wider">Ten Step</p>
           <p className="text-xl font-bold text-stone-900 mt-1">Steg {currentStep} / 10</p>
           <ProgressBar value={currentStep - 1} max={10} className="mt-2" />
-        </Card>
-        <Card>
-          <p className="text-[10px] text-stone-400 uppercase tracking-wider">Oppgaver</p>
-          <p className="text-xl font-bold text-stone-900 mt-1">{completedTasks} / {tasks.length}</p>
-          <ProgressBar value={completedTasks} max={tasks.length} className="mt-2" />
         </Card>
       </div>
 
@@ -121,51 +105,26 @@ export default async function OversiktPage() {
         </div>
       </Card>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <Card>
-          <div className="flex justify-between items-center mb-3">
-            <h3 className="text-sm font-semibold text-stone-700">Aktive oppgaver</h3>
-            <Link href="/oppgaver" className="text-xs text-emerald-600 hover:text-emerald-700">Alle →</Link>
-          </div>
+      <Card>
+        <div className="flex justify-between items-center mb-3">
+          <h3 className="text-sm font-semibold text-stone-700">Siste innsikt</h3>
+          <Link href="/innsikt" className="text-xs text-emerald-600 hover:text-emerald-700">Alle →</Link>
+        </div>
+        {recentInsights.length === 0 ? (
+          <p className="text-sm text-stone-400 py-4 text-center">Ingen innsikt enna</p>
+        ) : (
           <div className="space-y-2">
-            {openTasks.map(task => (
-              <div key={task.id} className="flex items-center gap-2.5 py-1.5 px-2 rounded-lg bg-stone-50">
-                <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                  task.status === 'pagar' ? 'bg-amber-400' : 'bg-stone-300'
-                }`} />
-                <span className="text-xs text-stone-700 flex-1 truncate">{task.title}</span>
-                <StatusBadge status={task.priority} />
+            {recentInsights.map(item => (
+              <div key={item.id} className="py-1.5 px-2 rounded-lg bg-stone-50">
+                <p className="text-xs text-stone-700">{item.title}</p>
+                <p className="text-[10px] text-stone-400 mt-0.5">
+                  Kilde: {item.source} · {item.insightType}
+                </p>
               </div>
             ))}
-            {tasks.filter(t => t.status !== 'fullfort').length > 5 && (
-              <p className="text-xs text-stone-400 px-2">
-                + {tasks.filter(t => t.status !== 'fullfort').length - 5} oppgaver
-              </p>
-            )}
           </div>
-        </Card>
-
-        <Card>
-          <div className="flex justify-between items-center mb-3">
-            <h3 className="text-sm font-semibold text-stone-700">Siste innsikt</h3>
-            <Link href="/innsikt" className="text-xs text-emerald-600 hover:text-emerald-700">Alle →</Link>
-          </div>
-          {recentInsights.length === 0 ? (
-            <p className="text-sm text-stone-400 py-4 text-center">Ingen innsikt enna</p>
-          ) : (
-            <div className="space-y-2">
-              {recentInsights.map(item => (
-                <div key={item.id} className="py-1.5 px-2 rounded-lg bg-stone-50">
-                  <p className="text-xs text-stone-700">{item.title}</p>
-                  <p className="text-[10px] text-stone-400 mt-0.5">
-                    Kilde: {item.source} · {item.insightType}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
-        </Card>
-      </div>
+        )}
+      </Card>
 
       <Card>
         <h3 className="text-sm font-semibold text-stone-700 mb-3">Ten Step Start v2.0</h3>

@@ -109,7 +109,7 @@ function normalizeStatus(status: string): ResearchPromptStatus {
   return status in STATUS_META ? (status as ResearchPromptStatus) : 'aktiv'
 }
 
-export function ForskningContent({ researchPrompts }: { researchPrompts: ResearchPromptRow[] }) {
+export function PromptsContent({ researchPrompts }: { researchPrompts: ResearchPromptRow[] }) {
   const [categoryFilter, setCategoryFilter] = useState('alle')
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -146,9 +146,14 @@ export function ForskningContent({ researchPrompts }: { researchPrompts: Researc
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-stone-900">Forskning</h1>
+        <div className="flex items-center gap-2 text-xs text-stone-400">
+          <a href="/metodikk" className="hover:text-stone-600">Metodikk</a>
+          <span>·</span>
+          <span>Deep research-prompter</span>
+        </div>
+        <h1 className="text-2xl font-bold text-stone-900 mt-1">Deep research-prompter</h1>
         <p className="text-sm text-stone-400 mt-1">
-          Deep research-prompter for systematisk kunnskapsinnhenting ({researchPrompts.length} operative prompts)
+          Prompt-maler for systematisk kunnskapsinnhenting ({researchPrompts.length} operative prompts). Intern metodikk som produserer innholdet i /innsikt og /rapporter.
         </p>
         <p className="text-xs text-stone-500 mt-2">
           Operativ ko: {activeCount} aktive og {partialCount} delvis dekkede. Arkiverte prompts er skjult.

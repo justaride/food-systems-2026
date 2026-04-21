@@ -15,14 +15,7 @@ const navGroups = [
       { name: 'Team', href: '/team', description: 'Medlemmer og roller' },
       { name: 'Moter', href: '/moter', description: 'Motesammendrag og referater' },
       { name: 'Kommunikasjon', href: '/kommunikasjon', description: 'E-post og korrespondanse' },
-      { name: 'Metodikk', href: '/metodikk', description: 'Ten Step + KPIs' },
-    ],
-  },
-  {
-    label: 'Utforing',
-    items: [
-      { name: 'Oppgaver', href: '/oppgaver', description: 'Alle oppgaver og status' },
-      { name: 'Leveranser', href: '/leveranser', description: 'Leveranser og evidence pack' },
+      { name: 'Metodikk', href: '/metodikk', description: 'Ten Step, KPIs og deep research-prompter' },
       { name: 'Tidslinje', href: '/tidslinje', description: 'Faser og soknader' },
     ],
   },
@@ -59,7 +52,6 @@ const navGroups = [
     label: 'Kunnskap',
     items: [
       { name: 'Innsikt', href: '/innsikt', description: 'Forskning, kartlegging, analyse' },
-      { name: 'Forskning', href: '/forskning', description: 'Deep research-prompter' },
       { name: 'Forskningsrunder', href: '/forskningsrunder', description: 'Food Research Process 20. april 2026' },
       { name: 'Akademia', href: '/masteroppgaver', description: 'Master- og PhD-avhandlinger' },
       { name: 'Graf', href: '/graf', description: 'Kunnskapsgraf og koblinger' },
