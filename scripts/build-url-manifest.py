@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build consolidated URL manifest across backlog CSVs + TypeScript data files.
 
-Outputs: research/URL-MANIFEST.csv
+Outputs: research/_status/URL-MANIFEST.csv
 """
 import csv
 import re
@@ -76,12 +76,9 @@ def add(url, *, title='', author='', year='', country='', doc_type='', theme='',
 
 # ───────────── 1. Backlog CSVs (authoritative) ─────────────
 
-BACKLOG_FILES = [
-    'research/evidence-pack/download-backlog-2026-03-18.csv',
-    'research/evidence-pack/download-backlog-2026-04-20.csv',
-    'research/evidence-pack/download-backlog-sirkular-konkurser-2026-04-20.csv',
-    'research/evidence-pack/download-backlog-perplexity-kilder-2026-04-20.csv',
-]
+import glob as _glob
+
+BACKLOG_FILES = sorted(_glob.glob('research/evidence-pack/download-backlog*.csv'))
 
 for fp in BACKLOG_FILES:
     try:
@@ -217,7 +214,7 @@ for iid, body in insight_blocks:
 
 # ───────────── Write consolidated manifest ─────────────
 
-OUTPUT = 'research/URL-MANIFEST.csv'
+OUTPUT = 'research/_status/URL-MANIFEST.csv'
 
 with open(OUTPUT, 'w', newline='') as f:
     w = csv.writer(f)
