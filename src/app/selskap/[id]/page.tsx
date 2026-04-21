@@ -256,6 +256,124 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
         </Card>
       )}
 
+      {(company.relationshipsFrom.length > 0 || company.relationshipsTo.length > 0) && (
+        <Card title="Forretningsrelasjoner">
+          <div className="space-y-6">
+            {company.relationshipsFrom.length > 0 && (
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-2">
+                  Utgående ({company.relationshipsFrom.length})
+                </h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-stone-200">
+                        <th className="text-left py-2 text-stone-400">Type</th>
+                        <th className="text-left py-2 text-stone-400">Motpart</th>
+                        <th className="text-left py-2 text-stone-400">Beskrivelse</th>
+                        <th className="text-right py-2 text-stone-400">Estimert verdi</th>
+                        <th className="text-left py-2 text-stone-400">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {company.relationshipsFrom.map(r => {
+                        const isSelfDealing =
+                          r.relationshipType === 'self-dealing' ||
+                          r.fromCompanyId === r.toCompanyId
+                        return (
+                          <tr key={r.id} className="border-b border-stone-100">
+                            <td className="py-2 text-stone-700">{r.relationshipType}</td>
+                            <td className="py-2">
+                              <Link
+                                href={`/selskap/${r.toCompany.id}`}
+                                className="text-emerald-700 hover:underline"
+                              >
+                                {r.toCompany.name}
+                              </Link>
+                            </td>
+                            <td className="py-2 text-stone-600">{r.description ?? '—'}</td>
+                            <td className="py-2 text-right text-stone-700 tabular-nums">
+                              {r.estimatedValue
+                                ? `${Math.round(r.estimatedValue).toLocaleString('no')} NOK`
+                                : '—'}
+                            </td>
+                            <td className="py-2">
+                              {isSelfDealing ? (
+                                <span className="text-[10px] px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200">
+                                  Selvhandel
+                                </span>
+                              ) : (
+                                <span className="text-stone-400">—</span>
+                              )}
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {company.relationshipsTo.length > 0 && (
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-2">
+                  Inngående ({company.relationshipsTo.length})
+                </h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-stone-200">
+                        <th className="text-left py-2 text-stone-400">Type</th>
+                        <th className="text-left py-2 text-stone-400">Motpart</th>
+                        <th className="text-left py-2 text-stone-400">Beskrivelse</th>
+                        <th className="text-right py-2 text-stone-400">Estimert verdi</th>
+                        <th className="text-left py-2 text-stone-400">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {company.relationshipsTo.map(r => {
+                        const isSelfDealing =
+                          r.relationshipType === 'self-dealing' ||
+                          r.fromCompanyId === r.toCompanyId
+                        return (
+                          <tr key={r.id} className="border-b border-stone-100">
+                            <td className="py-2 text-stone-700">{r.relationshipType}</td>
+                            <td className="py-2">
+                              <Link
+                                href={`/selskap/${r.fromCompany.id}`}
+                                className="text-emerald-700 hover:underline"
+                              >
+                                {r.fromCompany.name}
+                              </Link>
+                            </td>
+                            <td className="py-2 text-stone-600">{r.description ?? '—'}</td>
+                            <td className="py-2 text-right text-stone-700 tabular-nums">
+                              {r.estimatedValue
+                                ? `${Math.round(r.estimatedValue).toLocaleString('no')} NOK`
+                                : '—'}
+                            </td>
+                            <td className="py-2">
+                              {isSelfDealing ? (
+                                <span className="text-[10px] px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200">
+                                  Selvhandel
+                                </span>
+                              ) : (
+                                <span className="text-stone-400">—</span>
+                              )}
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+          </div>
+        </Card>
+      )}
+
       {company.documentRefs.length > 0 && (
         <Card title="Relaterte dokumenter">
           <div className="space-y-2">

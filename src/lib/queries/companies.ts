@@ -37,6 +37,18 @@ export async function getCompanyById(id: string) {
         include: { tenantCompany: { select: { id: true, name: true } } },
         orderBy: [{ propertyType: 'asc' }, { municipality: 'asc' }],
       },
+      relationshipsFrom: {
+        include: {
+          toCompany: { select: { id: true, name: true } },
+        },
+        orderBy: [{ relationshipType: 'asc' }, { estimatedValue: 'desc' }],
+      },
+      relationshipsTo: {
+        include: {
+          fromCompany: { select: { id: true, name: true } },
+        },
+        orderBy: [{ relationshipType: 'asc' }, { estimatedValue: 'desc' }],
+      },
     },
   })
 }
