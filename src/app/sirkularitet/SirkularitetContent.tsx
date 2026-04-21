@@ -4,6 +4,9 @@ import { useEffect, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { RLadderMatrix } from '@/components/charts/RLadderMatrix'
+import { RLadderMaturityOverview } from '@/components/charts/RLadderMaturityOverview'
+import { R9KpiCatalog } from '@/components/charts/R9KpiCatalog'
+import { NutrientFlowsView } from '@/components/charts/NutrientFlowsView'
 import { circularityQuestions, type CircularityQuestion, type QuestionStatus } from '@/lib/data/circularity-questions'
 import { rLadderById } from '@/lib/data/r-ladder'
 
@@ -98,7 +101,7 @@ const COUNTRY_FLAGS: Record<string, string> = {
   nordic: 'Norden',
 }
 
-type Tab = 'matrix' | 'questions' | 'loops' | 'gaps' | 'actors'
+type Tab = 'matrix' | 'maturity' | 'kpi' | 'questions' | 'loops' | 'gaps' | 'actors' | 'naeringsflyt'
 
 const QUESTION_STATUS_LABEL: Record<QuestionStatus, string> = {
   open: 'apen',
@@ -228,7 +231,7 @@ export function SirkularitetContent() {
       </div>
 
       <div className="flex gap-2 flex-wrap">
-        {(['matrix', 'questions', 'loops', 'gaps', 'actors'] as Tab[]).map((t) => (
+        {(['matrix', 'maturity', 'kpi', 'questions', 'loops', 'gaps', 'actors', 'naeringsflyt'] as Tab[]).map((t) => (
           <button
             key={t}
             type="button"
@@ -240,10 +243,13 @@ export function SirkularitetContent() {
             }`}
           >
             {t === 'matrix' && `R-stige x verdikjede`}
+            {t === 'maturity' && `R-stige modenhet`}
+            {t === 'kpi' && `KPI-katalog`}
             {t === 'questions' && `10 sirkularitetsspormal (${circularityQuestions.length})`}
             {t === 'loops' && `Eksisterende looper (${data.existing_loops.length})`}
             {t === 'gaps' && `Gap og muligheter (${data.gaps.length})`}
             {t === 'actors' && `Aktorcaser (${allSuccess.length + allFailure.length})`}
+            {t === 'naeringsflyt' && `Naeringsflyt N/P/K`}
           </button>
         ))}
       </div>
@@ -261,6 +267,12 @@ export function SirkularitetContent() {
           <RLadderMatrix items={matrixItems} />
         </div>
       )}
+
+      {tab === 'maturity' && <RLadderMaturityOverview />}
+
+      {tab === 'kpi' && <R9KpiCatalog />}
+
+      {tab === 'naeringsflyt' && <NutrientFlowsView />}
 
       {tab === 'questions' && (
         <div className="space-y-4">
