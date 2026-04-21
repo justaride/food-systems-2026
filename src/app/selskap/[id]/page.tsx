@@ -44,30 +44,42 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
 
       {latestFinancial && (
         <Card title="Regnskap">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Omsetning</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.revenueNok ? `${(Number(latestFinancial.revenueNok) / 1e9).toFixed(1)} mrd` : '\u2014'}
+                {latestFinancial.revenueNok ? `${(Number(latestFinancial.revenueNok) / 1e9).toFixed(1)} mrd` : '—'}
               </p>
               <p className="text-xs text-stone-400">{latestFinancial.year}</p>
             </div>
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Driftsresultat</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.operatingResult ? `${(Number(latestFinancial.operatingResult) / 1e6).toFixed(0)} MNOK` : '\u2014'}
+                {latestFinancial.operatingResult ? `${(Number(latestFinancial.operatingResult) / 1e6).toFixed(0)} MNOK` : '—'}
               </p>
             </div>
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Driftsmargin</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.operatingMargin ? `${Number(latestFinancial.operatingMargin)}%` : '\u2014'}
+                {latestFinancial.operatingMargin ? `${Number(latestFinancial.operatingMargin)}%` : '—'}
+              </p>
+            </div>
+            <div>
+              <p className="text-xs text-stone-400 uppercase tracking-wider">EBITDA</p>
+              <p className="text-lg font-bold text-stone-900">
+                {latestFinancial.ebitda ? `${(Number(latestFinancial.ebitda) / 1e6).toFixed(0)} MNOK` : '—'}
+              </p>
+            </div>
+            <div>
+              <p className="text-xs text-stone-400 uppercase tracking-wider">Egenkapitalandel</p>
+              <p className="text-lg font-bold text-stone-900">
+                {latestFinancial.equityRatio ? `${Number(latestFinancial.equityRatio)}%` : '—'}
               </p>
             </div>
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Ansatte</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.groupEmployees?.toLocaleString() ?? company.employees?.toLocaleString() ?? '\u2014'}
+                {latestFinancial.groupEmployees?.toLocaleString() ?? company.employees?.toLocaleString() ?? '—'}
               </p>
             </div>
           </div>
@@ -81,6 +93,8 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                     <th className="text-right py-2 text-stone-400">Omsetning</th>
                     <th className="text-right py-2 text-stone-400">Driftsresultat</th>
                     <th className="text-right py-2 text-stone-400">Margin</th>
+                    <th className="text-right py-2 text-stone-400">EBITDA</th>
+                    <th className="text-right py-2 text-stone-400">Egenkapital</th>
                     <th className="text-right py-2 text-stone-400">Ansatte</th>
                   </tr>
                 </thead>
@@ -89,16 +103,22 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                     <tr key={f.id} className="border-b border-stone-100">
                       <td className="py-2 text-stone-700">{f.year}</td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.revenueNok ? `${(Number(f.revenueNok) / 1e9).toFixed(1)} mrd` : '\u2014'}
+                        {f.revenueNok ? `${(Number(f.revenueNok) / 1e9).toFixed(1)} mrd` : '—'}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.operatingResult ? `${(Number(f.operatingResult) / 1e6).toFixed(0)} M` : '\u2014'}
+                        {f.operatingResult ? `${(Number(f.operatingResult) / 1e6).toFixed(0)} M` : '—'}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.operatingMargin ? `${Number(f.operatingMargin)}%` : '\u2014'}
+                        {f.operatingMargin ? `${Number(f.operatingMargin)}%` : '—'}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.groupEmployees?.toLocaleString() ?? '\u2014'}
+                        {f.ebitda ? `${(Number(f.ebitda) / 1e6).toFixed(0)} M` : '—'}
+                      </td>
+                      <td className="text-right py-2 text-stone-700 tabular-nums">
+                        {f.equityRatio ? `${Number(f.equityRatio)}%` : '—'}
+                      </td>
+                      <td className="text-right py-2 text-stone-700 tabular-nums">
+                        {f.groupEmployees?.toLocaleString() ?? '—'}
                       </td>
                     </tr>
                   ))}
@@ -176,11 +196,11 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                 {company.subsidies.map(s => (
                   <tr key={s.id} className="border-b border-stone-100">
                     <td className="py-2 text-stone-700">{s.subsidyType}</td>
-                    <td className="py-2 text-stone-700">{s.project ?? '\u2014'}</td>
+                    <td className="py-2 text-stone-700">{s.project ?? '—'}</td>
                     <td className="text-right py-2 text-stone-700 tabular-nums">
-                      {s.amountNok ? `${(Number(s.amountNok) / 1e3).toFixed(0)}k` : '\u2014'}
+                      {s.amountNok ? `${(Number(s.amountNok) / 1e3).toFixed(0)}k` : '—'}
                     </td>
-                    <td className="text-right py-2 text-stone-700">{s.year ?? '\u2014'}</td>
+                    <td className="text-right py-2 text-stone-700">{s.year ?? '—'}</td>
                   </tr>
                 ))}
               </tbody>
