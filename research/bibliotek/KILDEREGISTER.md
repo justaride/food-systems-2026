@@ -654,6 +654,7 @@ Primærkilder identifisert og lastet ned fra 15 Perplexity-dybderapporter (makt,
 *   Vinnova. *Grön mat från grönt foder* (19,96 MSEK, SLU, 2022–2026). vinnova.se.
 *   Skretting. *Impact Report 2024 — Use of vegetable raw materials* (ProTerra/Europe Soya). skretting.com.
 *   Framtiden i våre hender (2021). *Soya i norsk fôr*. framtiden.no.
+*   Framtiden i våre hender (2024). *Rettighetsbrudd bak norsk tomatimport — om arbeidsforhold i spanske drivhus som leverer til Bama og Coop*. Oslo. [PDF](research/evidence-pack/tenketank/fivh-rettighetsbrudd-tomatimport-2024.pdf)
 *   Biogass Norge. *Biogassstatistikken 2023*. biogassnorge.no.
 *   Biogas Danmark. *Biogas Outlook 2022*. biogas.dk.
 *   IPIFF. Substrate guide 2019 og EU-policy brief. ipiff.org.
@@ -726,8 +727,8 @@ Kilder kartlagt 21. april 2026. Dekker hele verdikjeden fra jordbruk til forbruk
 *   Regjeringen (2023). *Bærekraft i det norske matsystemet*. Matsystemtilnærmingen «fra jord og fjord til bord og tilbake». [PDF](research/evidence-pack/offentlig/baerekraft-i-det-norske-matsystemet-2024.pdf)
 *   Regjeringen/LMD (2024). *Landbruks- og matdepartementets arbeid med bærekraftige matsystemer*. Inkl. NIBIO-analyse. [PDF](research/evidence-pack/offentlig/lmd-arbeid-med-baerekraftige-matsystemer-2024.pdf)
 *   KLD/LMD (2024). *Matsvinnutvalget — tiltak og virkemidler for 50 % reduksjon innen 2030*. Utredning av matkastelov. [PDF](research/evidence-pack/offentlig/matsvinnutvalget-2024.pdf)
-*   NIBIO (2023). *Bærekraft i norsk jordbruksproduksjon — Kunnskapsstatus for vidare analysar (Del 1)*. hdl.handle.net/11250/3088083. **Krever manuell nedlasting** (nibio.brage.unit.no DNS nede).
-*   NIBIO (2024). *Bærekraft i norsk jordbruksproduksjon — Premisser og tiltak for forbedringer (Del 2)*. hdl.handle.net/11250/3159516. **Krever manuell nedlasting**.
+*   NIBIO (2023). *Bærekraft i norsk jordbruksproduksjon — Kunnskapsstatus for vidare analysar (Del 1)*. NIBIO Rapport 9(110)/2023. [PDF](research/evidence-pack/offentlig/nibio-baerekraft-jordbruksproduksjon-kunnskapsstatus-2023.pdf) (hentet via Wayback Machine 2024-03-06; nibio.brage.unit.no migrert til nva.sikt.no)
+*   NIBIO (2024). *Bærekraft i norsk jordbruksproduksjon — Premisser og tiltak for forbedringer (Del 2)*. NIBIO Rapport 10(110)/2024. [PDF](research/evidence-pack/offentlig/nibio-baerekraft-jordbruksproduksjon-premisser-tiltak-2024.pdf) (hentet via Wayback Machine 2024-10-22)
 
 ### 13.4 Forskningsrapporter (NORSUS/Østfoldforskning)
 
