@@ -35,6 +35,7 @@ const navGroups = [
       { name: 'Akademia', href: '/masteroppgaver', description: 'Master- og PhD-avhandlinger' },
       { name: 'Kart', href: '/kart', description: 'Butikker og kommunegrenser' },
       { name: 'Sammenligning', href: '/sammenligning', description: 'Nordisk sammenligning' },
+      { name: 'Politikk', href: '/politikk', description: 'Nordisk matpolitikk-sammenligning' },
       { name: 'Graf', href: '/graf', description: 'Kunnskapsgraf og koblinger' },
       { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
       { name: 'Verdikjede', href: '/verdikjede', description: 'Nordisk verdikjedeanalyse' },
