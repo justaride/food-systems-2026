@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
@@ -32,6 +33,8 @@ type InsightRow = {
     note: string | null
     sourceDocId: string | null
   }>
+  documentSlug: string | null
+  origin: 'structured' | 'document'
 }
 
 const typeFilters = [
@@ -46,6 +49,8 @@ const typeFilters = [
 export function InnsiktContent({ insights }: { insights: InsightRow[] }) {
   const [typeFilter, setTypeFilter] = useState('alle')
   const [country, setCountry] = useState<CountryCode>('no')
+  const structuredCount = insights.filter((item) => item.origin === 'structured').length
+  const documentFallbackCount = insights.length - structuredCount
 
   const filtered = insights.filter(i =>
     typeFilter === 'alle' || i.insightType === typeFilter
@@ -56,7 +61,10 @@ export function InnsiktContent({ insights }: { insights: InsightRow[] }) {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-stone-900">Innsikt</h1>
-          <p className="text-sm text-stone-400 mt-1">Forskning, kartlegging og analyse</p>
+          <p className="text-sm text-stone-400 mt-1">
+            {structuredCount} strukturerte innsiktsposter
+            {documentFallbackCount > 0 ? ` + ${documentFallbackCount} dokumentbaserte analyser` : ''}
+          </p>
         </div>
         <div className="flex gap-1 bg-white rounded-lg border border-stone-200 p-1">
           {COUNTRY_LIST.map(({ code, name, flag }) => (
@@ -101,6 +109,11 @@ export function InnsiktContent({ insights }: { insights: InsightRow[] }) {
               <div className="flex items-center gap-2 mb-1.5">
                 <h3 className="text-sm font-semibold text-stone-800">{item.title}</h3>
                 <StatusBadge status={item.insightType} />
+                {item.origin === 'document' && (
+                  <span className="text-[10px] px-1.5 py-0.5 rounded border font-medium bg-emerald-50 text-emerald-700 border-emerald-200">
+                    Dokument
+                  </span>
+                )}
               </div>
               <p className="text-sm text-stone-600 leading-relaxed">{item.description}</p>
               <div className="flex flex-wrap items-center gap-3 mt-2.5 text-xs text-stone-400">
@@ -122,6 +135,14 @@ export function InnsiktContent({ insights }: { insights: InsightRow[] }) {
                 {item.tags.map(tag => (
                   <span key={tag}>· {tag}</span>
                 ))}
+                {item.documentSlug && (
+                  <Link
+                    href={`/bibliotek/${item.documentSlug}`}
+                    className="text-emerald-700 hover:text-emerald-800 underline underline-offset-2"
+                  >
+                    Bibliotek
+                  </Link>
+                )}
               </div>
             </Card>
           ))}

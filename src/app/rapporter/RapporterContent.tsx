@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { FilterChips } from '@/components/ui/FilterChips'
@@ -20,6 +21,8 @@ type ReportRow = {
   recommendations: string[]
   relevance: string
   tags: string[]
+  documentSlug: string | null
+  origin: 'structured' | 'document'
 }
 
 type ReportCategory =
@@ -58,6 +61,8 @@ const CATEGORY_COLORS: Record<ReportCategory, string> = {
 export function RapporterContent({ reports }: { reports: ReportRow[] }) {
   const [categoryFilter, setCategoryFilter] = useState('alle')
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
+  const structuredCount = reports.filter((report) => report.origin === 'structured').length
+  const documentFallbackCount = reports.length - structuredCount
 
   const categoryCounts = reports.reduce<Record<string, number>>((acc, r) => {
     acc[r.reportCategory] = (acc[r.reportCategory] || 0) + 1
@@ -92,7 +97,8 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Rapporter</h1>
         <p className="text-sm text-stone-400 mt-1">
-          {reports.length} strukturerte rapporter fra offentlige utredninger, tilsyn, bransje og forskning
+          {structuredCount} strukturerte rapporter
+          {documentFallbackCount > 0 ? ` + ${documentFallbackCount} dokumentbaserte poster` : ''}
         </p>
       </div>
 
@@ -131,6 +137,11 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
                       <span className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded border font-medium ${CATEGORY_COLORS[cat] ?? 'bg-stone-50 text-stone-500 border-stone-200'}`}>
                         {categoryLabels[cat] ?? cat}
                       </span>
+                      {report.origin === 'document' && (
+                        <span className="shrink-0 text-[10px] px-1.5 py-0.5 rounded border font-medium bg-emerald-50 text-emerald-700 border-emerald-200">
+                          Dokument
+                        </span>
+                      )}
                     </div>
                     <div className="flex items-center gap-2 mt-0.5 text-xs text-stone-400">
                       {report.institution && <span>{report.institution}</span>}
@@ -208,6 +219,17 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
                           >
                             Les kilde {'\u2192'}
                           </a>
+                        </div>
+                      )}
+
+                      {report.documentSlug && (
+                        <div className="pt-1">
+                          <Link
+                            href={`/bibliotek/${report.documentSlug}`}
+                            className="text-xs text-emerald-700 hover:text-emerald-800 underline underline-offset-2"
+                          >
+                            Apne i biblioteket {'\u2192'}
+                          </Link>
                         </div>
                       )}
                     </div>
