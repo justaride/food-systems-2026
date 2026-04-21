@@ -1315,4 +1315,368 @@ export const insights: Insight[] = [
       'To NMBU-masterstudenter (Thea Ingvaldsen og Martin Saetra, biooekonomi) kartlegger paagende initiativer og prosjekter innen matberedskap i Norge, Sverige og Finland gjennom internship hos NCE Heidner Biocluster og Klosser Innovasjon. Koblet til IFK-prosjektet "Matproduksjon som del av totalforsvaret" og AgriFoodTech Norway. Funn kan vaere direkte relevant for TG Food Systems innsiktsarbeid.',
     tags: ['matberedskap', 'nordisk', 'NMBU', 'Heidner', 'parallellprosess', 'kartlegging'],
   },
+
+  // ═══ Forskningsrunde 2026-04-20 — 8 dybderapporter (Eiendomsmakt, fryktkultur, HORECA, alt-distribusjon, failed entrants, benchmark, framstillinger, evidens) ═══
+
+  {
+    id: 'ins-93',
+    title: 'Eiendom som strukturell konkurransebarriere — 350+ registrerte negative servitutter',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / Eiendomsmakt-rapport',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Konkurransetilsynet har identifisert over 350 registrerte negative servitutter der en av de tre paraplykjedene (NorgesGruppen, Coop, REMA) er rettighetshaver — hovedsakelig i og rundt storbyene. Nye negative servitutter ble forbudt fra 1. januar 2024, og regjeringen prioriterer arbeid mot eksklusive leieavtaler i 2025-2026. Eksklusivitet i leieavtaler er fortsatt privat og dermed usynlig for offentlig innsyn — sannsynlig undervurdering av faktisk kontroll.',
+    tags: ['eiendom', 'servitutter', 'konkurranse', 'maktkonsentrasjon', 'dagligvare', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Regjeringen — forbyr praksis som motvirker konkurranse', url: 'https://www.regjeringen.no/no/aktuelt/forbyr-praksis-som-motvirker-konkurranse-i-dagligvaremarkedet/id2985486/' },
+      { label: 'Konkurransetilsynets dagligvarerapport 2024-25', url: 'https://konkurransetilsynet.no/wp-content/uploads/2025/04/Konkurransetilsynets-Dagligvarerapport-2024-25.pdf' },
+    ],
+  },
+  {
+    id: 'ins-94',
+    title: 'Internleie i NorgesGruppen — NOK 168m til naerstaaende eiendom 2024',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / Eiendomsmakt-rapport',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'NorgesGruppens registreringsdokument 2025 dokumenterer 2024-husleie paa ca NOK 120m til Joh. Johannson Eiendom AS og Bokveien 112 AS (Johannson-familien), og ca NOK 48m (NGs andel) til Alf Bjercke Eiendom AS. Totalt paa tvers av aar har de naerstaaende rentestroemmene ligget i intervallet NOK 10-200m. Sale-leaseback-transaksjoner og internleie gjoer at eiendomsverdier og leiekostnader kan flyttes mellom naerstaaende selskaper utenfor offentlig innsyn.',
+    tags: ['internleie', 'naerstaaende', 'NorgesGruppen', 'eiendom', 'Johannson', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'NorgesGruppen registreringsdokument 02.06.2025 (NO0013462705)' },
+    ],
+  },
+  {
+    id: 'ins-95',
+    title: 'Reitan Eiendom forvalter 2,077 millioner kvm bygningsmasse — REBUS-portefoelje overfoert',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / Eiendomsmakt-rapport',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Reitan Eiendom AS (etablert 1995) forvalter ca 2,077 millioner kvm bygningsmasse i 2024 med ca NOK 2 mrd i omsetning. REBUS Handelseiendom kjoepte REBUS Utvikling fra REMA 1000 Norge i desember 2023 — en portefoelje paa 27 heleide og 38 deleide eiendommer. Datterselskaper inkluderer E C Dahls Eiendom, RELOG, Christiania Areal. Coop Midt-Norge forvalter ca 925 000 kvm tomteareal og 325 000 kvm bygningsmasse med 120 interne og ca 400 eksterne leieforhold.',
+    tags: ['eiendom', 'Reitan', 'REBUS', 'Coop', 'REMA', 'eiendomsportefoelje', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Reitan Eiendom arsrapport 2024', url: 'https://2024.reitaneiendom.no/' },
+    ],
+  },
+  {
+    id: 'ins-96',
+    title: 'Dagligvaretilsynet: 0 vedtak om lovbrudd siden oppstart',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / Makt, fryktkultur og enforcement',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Dagligvaretilsynets aarsrapport 2024 viser 12 mottatte saker — 7 loest paa leverandoersiden, 4 i dialog med kjeder, 1 uavklart. Null vedtak om lovbrudd siden tilsynet ble etablert i 2020. Handheving av Lov om god handelsskikk flyttes til Konkurransetilsynet fra 30. april 2026 (forskrift 2026-04-17-601). Dagligvaretilsynets hoeringssvar 2025 peker paa narrow lovdesign (Prop. 33 L 2019-2020) og dialogbasert handheving som hovedforklaringer paa lav inngripen.',
+    tags: ['handheving', 'Dagligvaretilsynet', 'Konkurransetilsynet', 'lov-om-god-handelsskikk', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Dagligvaretilsynet aarsrapport 2024' },
+      { label: 'Forskrift 2026-04-17-601', url: 'https://lovdata.no/' },
+      { label: 'Prop. 4 L (2025-2026)', url: 'https://www.regjeringen.no/id3124887/' },
+    ],
+  },
+  {
+    id: 'ins-97',
+    title: 'Fryktkultur: 13-17% muntlige sideavtaler; >1/3 leverandoerer delistet uten saklig grunn',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / Makt, fryktkultur og enforcement',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      '13-17% av norske leverandoerer rapporterte i 2024 muntlige sideavtaler i tillegg til skriftlige avtaler med de tre stoerste kjedene. Over en tredjedel av leverandoerrepresentanter opplever delisting uten saklig begrunnet forklaring. Matkjedeutvalget (NOU 2011:4) beskrev "konstant og reell trussel" om delisting — situasjonen er strukturelt uendret. Under-rapportering driver lav handhevingsstatistikk; den er ikke en indikasjon paa lav fryktkultur men paa intens fryktkultur.',
+    tags: ['fryktkultur', 'leverandoerer', 'delisting', 'muntlige-avtaler', 'dagligvare', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Samarbeidsklimaet i Dagligvarebransjen 2023 — Dagligvaretilsynet' },
+      { label: 'NOU 2011:4 Mat, makt og avmakt' },
+    ],
+  },
+  {
+    id: 'ins-98',
+    title: 'Nordisk UTP-handheving: Sverige 4 sanksjonsavgifter, Danmark 1 klage trukket',
+    type: 'kartlegging',
+    source: 'Forskningsrunde 2026-04-20 / Makt, fryktkultur og enforcement',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Nordisk handhevingsgap er strukturelt. Sverige (Konkurrensverket 2025): 4 saker med sanksjonsavgift per 31. oktober 2025. Danmark (KFST 2024): 1 klage siden foedevarehandelsloven traadte i kraft — senere trukket, null vedtak. Finland (Ruokavirasto/ETMV 2024): 40% av respondenter i frukt/baer sektor peker paa ensidige kontraktsendringer som stoerste problem, drikkevare-sektor paa betalingstid. Bred UTP-regulering hjelper ikke naar underliggende avhengighet er hoy.',
+    tags: ['UTP', 'nordisk', 'handheving', 'Konkurrensverket', 'KFST', 'Ruokavirasto', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Konkurrensverket rapport 2025-5' },
+      { label: 'KFST Evaluering af foedevarehandelsloven 2024' },
+      { label: 'ETMV toimintakertomus 2024 — Finnish Food Market Ombudsman' },
+    ],
+  },
+  {
+    id: 'ins-99',
+    title: 'Nordisk offentlig maaltid: 5,5 millioner maaltider per dag',
+    type: 'kartlegging',
+    source: 'Forskningsrunde 2026-04-20 / HORECA-analyse',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Offentlige og institusjonelle maaltider utgjoer ca 5,5 millioner maaltider per dag paa tvers av Norden. Sverige: 3 millioner maaltider per dag (skole/vaard/omsorg) — SEK 10 mrd i matinnkjoep + SEK 2 mrd maaltidstjenester (2019). Finland: 850 000 elever med rett til gratis skolemaaltid, 750-868 millioner maaltider aarlig i profesjonelle kjoekken. Kespro dominerer finsk foodservice-grossist med ca 49% markedsandel. Danmark: 3500 kjoekken med oekologisk spisemaerke. Norge har ingen nasjonal skolemaaltidsordning — kun 45% av ungdomsskoler og 6% av vgs tilbyr daglig maaltid.',
+    tags: ['HORECA', 'offentlige-maaltider', 'nordisk', 'innkjoep', 'skolemaaltid', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Kesko Q3 2025 investor presentation' },
+      { label: 'Copenhagen Food Strategy 2019' },
+      { label: 'Motiva — Guide for Responsible Procurement of Food (2026)' },
+      { label: 'Helsedirektoratet — Kartlegging av ernaeringsomraadet 2024' },
+    ],
+  },
+  {
+    id: 'ins-100',
+    title: 'Koebenhavn 87,8% oekologisk i 70 000 daglige maaltider — samme budsjett',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / HORECA og benchmark-case',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Koebenhavns Madhus leverer ca 70 000 maaltider per dag i ca 1000 institusjoner med over 1750 kjoekkenmedarbeidere. Oekologisk andel gikk fra ca 35% til 72% uten oekt budsjett; toppet paa 88% i 2015, er ca 87,8% i dag. Maatet klimaavtrykk: -17,6% fra mat i perioden 2018-2022, nyere data >30% CO2-reduksjon. Motor: opplaering, menyendringer, mindre svinn — ikke dyrere raavarer. Danmark kjoerer ogsaa nasjonal skolemaaltidsproevordning med 191 skoler og 4 aars finansiering fra 2025.',
+    tags: ['benchmark', 'oekologisk', 'Kobenhavn', 'offentlige-maaltider', 'klimafotavtrykk', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Koebenhavns Madhus — Food Strategy' },
+    ],
+  },
+  {
+    id: 'ins-101',
+    title: 'Alternative distribusjonskanaler Norden: penetrasjonsindeks SE 3,8 / NO 3,6 / FI 3,4 / DK 3,0',
+    type: 'analyse',
+    source: 'Forskningsrunde 2026-04-20 / Alternative distribusjonskanaler',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Indikativ penetrasjonsindeks (0-5) for alternative kanaler (REKO, D2C, subscription, kooperativer, digitale nisjer): Sverige 3,8, Norge 3,6, Finland 3,4, Danmark 3,0. REKO sterkest i FI/SE, D2C i NO/FI, subscription i DK/SE/NO. Norsk lokalmat 2025: NOK 13,55 mrd totalt, NOK 938m direkte salg. Finland: 62% av REKO-produsenter rapporterte oekt loensomhet, 53% oekt profitt, 23% hoyere salgspriser. Kanalene erstatter ikke kjedene — de fyller strukturelle hull (kortere kjeder, lokal opprinnelse, fleksibelt sortiment).',
+    tags: ['alternative-distribusjon', 'REKO', 'D2C', 'lokalmat', 'subscription', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Stiftelsen Norsk Mat — Lokalmatrapport 2025' },
+      { label: 'Jukuri.luke.fi — Finnish local food study' },
+      { label: 'Emerald QMR — Practicing mundane consumer resistance in the REKO (2021)' },
+    ],
+  },
+  {
+    id: 'ins-102',
+    title: 'Cheffelo SEK 1,188 mrd — nordens stoerste maaltidskasse-aktoer',
+    type: 'kartlegging',
+    source: 'Forskningsrunde 2026-04-20 / Alternative distribusjonskanaler',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Cheffelo (NO/SE/DK, Finland-pilot planlagt 2026) omsatte SEK 1,188 mrd i 2025 og leverte ca 17 millioner maaltider. 2024-fordeling: NO 505,5 MSEK / SE 403,1 MSEK / DK 149,6 MSEK. Andre nordiske alternativer: Aarstiderne (DK) leverer til 50 000 DK-husholdninger + 10 000 SE-husholdninger (~250 000 ukentlige maaltider); Linas Matkasse (SE) SEK 403,1m; RetNemt (DK) SEK 149,6m; Matsmart (SE, overskuddsmat) SEK 756m nordisk 2024.',
+    tags: ['subscription', 'Cheffelo', 'Aarstiderne', 'Matsmart', 'maaltidskasse', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Cheffelo Q4 2025 press release' },
+      { label: 'Aarstiderne corporate site 2024-2025' },
+    ],
+  },
+  {
+    id: 'ins-103',
+    title: 'Etableringsbarrierer: 7-dimensjonal modell fra nordiske failed entrants',
+    type: 'analyse',
+    source: 'Forskningsrunde 2026-04-20 / Failed-entrants-rapport',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Analyse av nordiske dagligvare-failures gir en 7-dimensjonal etableringsbarrieremodell: (1) innkjoepsmakt, (2) grossist-logistikk, (3) lokalitet-eiendom, (4) regulering, (5) etterspoersel-vane, (6) konsentrasjonsmotreaksjon, (7) kapital-utholdenhet. Lidl Norge (2004-2008) feilet paa alle 7. ICA Norge (solgt 2014) feilet paa innkjoep + volum — markedsandel falt 15,7% (2009) til 11,1% (2013), -SEK 577m EBIT T12M. Coop.dk MAD: 10 aar med tap, stengt 2023. Stockmann Delicatessen: -EUR 11m i 2016, solgt til S Group 2017. Irma: 65 butikker splittet under "Fremtidens Coop" 2023.',
+    tags: ['etableringsbarrierer', 'failed-entrants', 'Lidl', 'ICA', 'Coop.dk', 'Irma', 'dagligvare', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'ICA Gruppen press release 2014' },
+      { label: 'NHH food-news 2023 (Coop.dk MAD)' },
+      { label: 'Konkurransetilsynet dagligvarerapport 2022' },
+      { label: 'Lindex Group press release 2017 (Stockmann Delicatessen)' },
+    ],
+  },
+  {
+    id: 'ins-104',
+    title: 'Mathem/Oda/Axfood online grocery — konsolidering endte i rekonstruksjon 2024',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / Failed-entrants-rapport',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Svensk online grocery konsolidering viser at online "ikke bryter gamle barrierer — det flytter dem" (fra butikknettverk til plukkhastighet, rutedensitet, kapital i automatisering). Axfood byttet Mat.se for andel i Mathem (2021), lang-tidskontrakt med Dagab. 2023 slo Mathem seg sammen med Oda, 2024 foertagsrekonstruktion. Lager i Gothenburg og Malmoe flyttet til automatisert Larsboda-anlegg. Laerdom: prosessautomatisering + grossistavhengighet = samme konsentrasjonsmekanikk som tradisjonell dagligvare.',
+    tags: ['online-grocery', 'Mathem', 'Oda', 'Axfood', 'Dagab', 'rekonstruksjon', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Mathem press release 2024 — financial sustainability (Mynewsdesk)' },
+      { label: 'Kinnevik press release 2021 — Mat.se/Mathem merger' },
+    ],
+  },
+  {
+    id: 'ins-105',
+    title: 'Too Good To Go 120 millioner brukere / 1,35 megatonn CO2e unngaatt',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / Benchmark-rapport',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Too Good To Go (DK, 2015-) har 120 millioner registrerte brukere og 180 000 aktive partnere i 20 land, med over 500 millioner maaltider reddet og ca 1,35 millioner tonn CO2e unngaatt. Introduserte "Look-Smell-Taste" datomerking. Norsk Coop-avtale (2021) dekker alle 804 Coop-butikker, forventet ca 6% reduksjon i matsvinn og 550 000 reddede poser = 1375 tonn CO2e. Modell viser at enkle markedsplattformer kan skalere naar de gjoer riktig adferd enklere og mer attraktiv.',
+    tags: ['benchmark', 'Too-Good-To-Go', 'matsvinn', 'plattform', 'Coop', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Too Good To Go press release / CEVA Logistics 2024' },
+    ],
+  },
+  {
+    id: 'ins-106',
+    title: 'Plantefonden (DK) forpliktet DKK 394m over 116 prosjekter 2023-2025',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / Benchmark-rapport',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Danmarks Plantefond (DKK 675m for perioden 2023-2030, forankret i Gront Landbrugsavtalen) har committet ca DKK 393,8m over 116 prosjekter i 2023-2025. Dedikert offentlig fond for plantebasert matsystemomlegging — kapital motor i trekanten (demand/operational/finance) som skiller benchmarks som skifter praksis fra de som ikke gjoer det. Benchmark-modell direkte relevant for norsk Raavareloefte og matsystemutvalgets arbeid.',
+    tags: ['benchmark', 'Plantefonden', 'plantebasert', 'protein', 'Danmark', 'finansiering', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Plantefonden.dk — projects page' },
+    ],
+  },
+  {
+    id: 'ins-107',
+    title: 'Soer-Korea resirkulerer 96,8% av 4,81 megatonn matavfall (2023)',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / Benchmark-rapport',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'PAYT/RFID-basert matavfallshaandtering i Soer-Korea resirkulerte 96,8% av 4,81 millioner tonn matavfall i 2023. Seoul: -23,9% matsvinn siden 2013. Alt matavfall gaar til foor/kompost/biogass. Hovedbarriere: drifts- og vedlikeholdskostnad, spesielt for smaa kommuner. Kontrast til fransk Garot-lov (2016): krever donasjonsavtaler for butikker >400 kvm; ADEME-panel av 10 butikker: -22% svinn paa 3 maaneder = 160 tonn/aar = ~EUR 70 000 per butikk per aar. Begge er forskriftsdrevne — markedsmodeller (TGTG) fungerer parallelt.',
+    tags: ['benchmark', 'matsvinn', 'Soer-Korea', 'Frankrike', 'PAYT', 'regulering', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'OECD Environmental Performance Reviews — Korea 2017' },
+      { label: 'ADEME — French food waste panel study' },
+    ],
+  },
+  {
+    id: 'ins-108',
+    title: 'Arla FarmAhead: -9,9% CO2/kg melk fra 2020-basislinjen innen 2025',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / Benchmark-rapport',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Arla Foods FarmAhead Check omfatter ca 8000 gaarder i 7 europeiske land med 99% datadekning av melk. EUR 337m utbetalt i 2024 (ramme EUR 500m/aar). Utslippsintensitet 1,12 kg CO2e/kg melk (2022) til 1,06 (2024) — -9,9% fra 2020-basislinjen innen 2025. Private-sektor parallell til offentlige procurement-incentiver, relevant som modell for Tine/Q-Meieriene sirkulaer-incentiver. Viser at demand+operational+finance-trekanten fungerer ogsaa som intra-samvirke insentiv.',
+    tags: ['benchmark', 'Arla', 'melk', 'klima', 'samvirke', 'gaardsincentiv', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Arla.com — FarmAhead sustainability' },
+    ],
+  },
+  {
+    id: 'ins-109',
+    title: 'Brasil PNAE: 71,2% av kommuner naar 30%-familiebruk-krav — 120 000 familier, 40 mill elever',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / Benchmark-rapport',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Brasil PNAE (Lov 11.947/2009) forvaltet av FNDE dekker ca 40 millioner elever og 50+ millioner daglige maaltider. 30%-regelen krever at en tredjedel av offentlig skolemat kjoepes fra familielandbruk — 71,2% av undersoekte kommuner naar kravet, og ca halvparten av landets kommuner fortsatt under kravet. Modellen beviser at policy kan flytte stoerre volum naar den er lovfestet og budsjettmessig forankret — relevant for nordisk diskusjon om 30%-klimavekt og maaltidsprosjekter.',
+    tags: ['benchmark', 'PNAE', 'Brasil', 'offentlige-innkjoep', 'familielandbruk', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'FAO Brazil programme / Global Alliance Against Hunger' },
+    ],
+  },
+  {
+    id: 'ins-110',
+    title: 'Framstillinger 2020-2026: to narrative poler — beredskap og kjoepekraft',
+    type: 'analyse',
+    source: 'Forskningsrunde 2026-04-20 / Framstillinger av mat, makt og beredskap',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Norsk offentlig diskurs om mat har konvergert mot to narrative poler 2020-2026: (1) mat-som-beredskap (pandemi, Ukrainakrigen, Riksrevisjonen 2023, beredskapslagre 2024-26) og (2) mat-som-kjoepekraft (inflasjon 2022 +11,5%, dagligvaremakt). Stoerste analytiske fravaerende temaer er distribusjon/tilgang i krise, importavhengighetens dybde, og sirkularitet utover matsvinn. Anbefaling: hvitbokens rammeverk bor flyttes fra "billig mat" og "hoyere selvforsyningsprosent" til "trygg, rettferdig og robust matforsyning".',
+    tags: ['media-framing', 'beredskap', 'kjoepekraft', 'diskursanalyse', 'hvitbok', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Riksrevisjonen — Matsikkerhet og beredskap 2023' },
+      { label: 'SIFO/OsloMet — dyrtiden research' },
+      { label: 'Matvett 2025 — husholdningens matsvinn' },
+    ],
+  },
+  {
+    id: 'ins-111',
+    title: 'Regulatorisk tidslinje 2024-2026 — 8 hoeydepunkter for dagligvarepolitikk',
+    type: 'kartlegging',
+    source: 'Forskningsrunde 2026-04-20 / Syntese',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Aatte regulatoriske ankerpunkter i perioden: (1) 1. januar 2024 — nye negative servitutter forbudt; (2) 18. april 2024 — Stortingsinstruks om 50% selvforsyning innen 2030; (3) 25. juni 2024 — beredskapslager matkorn-avtaler; (4) 19. mai 2025 — regjeringens konkurransepakke dagligvare; (5) 20. juni 2025 — matsvinnloven sanksjonert; (6) 22. desember 2025 — lov 129/2025 (forskrift 2026-04-17-601); (7) 30. april 2026 — handheving av lov om god handelsskikk flyttes til Konkurransetilsynet; (8) 1. november 2026 — NOU-frist matsystemutvalget.',
+    tags: ['regulering', 'tidslinje', 'policy-events', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Regjeringen — 19. mai 2025 konkurransepakke', url: 'https://www.regjeringen.no/id3101561/' },
+      { label: 'Regjeringen — beredskapslager matkorn', url: 'https://www.regjeringen.no/id3046671/' },
+    ],
+  },
+  {
+    id: 'ins-112',
+    title: 'STROBE+GRADE-ramverk for FS2026 evidensregister',
+    type: 'notat',
+    source: 'Forskningsrunde 2026-04-20 / Evidensnotat',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'FS2026 boer bruke STROBE (kildemetadata) og GRADE (tillitsgradering) som skjelett for evidensregister. 8 prioriterte metadatafelt: (1) kildeopprinnelse, (2) dato/feltperiode, (3) studiedesign, (4) geografisk omfang, (5) utvalgsstoerrelse, (6) utfall/indikator, (7) sammenligning/basislinje, (8) begrensninger/bias. Tre epistemiske kategorier: dokumentert / analyse-tolkning / arbeidshypotese. Anbefalt tidslinje: 1-2 dager kildeinventar, 2-4 dager utfallsekstraksjon, 3-5 dager GRADE-gradering foer hvitbokscopy.',
+    tags: ['metodikk', 'STROBE', 'GRADE', 'evidens', 'hvitbok', 'forskningsrunde-2026-04-20'],
+  },
+  {
+    id: 'ins-113',
+    title: 'Norges sirkulaer matinnovasjon: biogass, tare, plantebasert, CSA — fem laererike case',
+    type: 'kartlegging',
+    source: 'Forskningsrunde 2026-04-20 / Norges matrevolusjon-compass',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Fem norske sirkulaere matcase som alle skalerer ved aa binde seg til eksisterende verdikjeder (Coop, Orkla, Pelagia) istedenfor stoppe alene: (1) Den Magiske Fabrikken (Greve Biogass, Vestfold) — 120 000 tonn matavfall + gjoedsel til ca 120 GWh biogass + CO2 til naboens klimatomater; (2) Alginor ASA (Haugesund) — biorafineri inntil 50 000 tonn tare/aar, AORTA-teknologi; (3) Pelagia kjoepte Hordafor 2021 (NOK 477m) — 180 000 tonn fiskebirestraavare; (4) Orkla Alternative Proteins (2021) — NOK 3 mrd omsetningsmaal 2025, Naturli fava-hamburger; (5) Avisomo+Coop JV Himmelgroent (2023) — 100 tonn salat/aar vertikalt paa Gardermoen. 80-90 aktive CSA-gaarder i 2024, vs 1 i 2006.',
+    tags: ['sirkulaer', 'biogass', 'tare', 'plantebasert', 'vertikalt-landbruk', 'CSA', 'Norge', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'FoodProFuture (Nofima)' },
+      { label: 'Den Magiske Fabrikken — Greve Biogass' },
+    ],
+  },
+  {
+    id: 'ins-114',
+    title: 'Nordisk foodservice-grossistkart: Kespro 49% FI, ASKO dominant NO, Martin & Servera + Menigo SE',
+    type: 'kartlegging',
+    source: 'Forskningsrunde 2026-04-20 / HORECA-analyse',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Foodservice-grossist konsentrasjon er hoy paa tvers av Norden, parallell til dagligvaredelen. Norge: ASKO (NG-eid) stoerst, Servicegrossistene #2, Norengros #3. Sverige: Martin & Servera (Axel Johnson), Menigo, Dagab (Axfood). Finland: Kespro ca 49% av foodservice-grossist (del av Kesko, EUR 2,5 mrd marked 2025), Meira Nova, Metro-tukku, Valio Aimo. Danmark: Dagrofa, Hoerkram Foodservice, Dansk Cater, BC Catering. Hoy vertikal integrasjon med detaljhandel gjoer at HORECA-offentlig-innkjoep blir enda mer eksponert for samme innkjoepsmakt.',
+    tags: ['HORECA', 'grossist', 'ASKO', 'Kespro', 'Martin-Servera', 'Dagrofa', 'nordisk', 'forskningsrunde-2026-04-20'],
+  },
+  {
+    id: 'ins-115',
+    title: 'Norsk 30%-klimavekt i offentlige innkjoep fra 1. januar 2024',
+    type: 'funn',
+    source: 'Forskningsrunde 2026-04-20 / HORECA-analyse',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Fra 1. januar 2024 skal norske offentlige innkjoep vekte klima- og miljoehensyn minst 30% (alternativt som kravspesifikasjon). Kombinert med fragmentert norsk skolemaaltidssystem, ~1/3 av sykehuspasienter underernaerte eller i risiko (Helsedirektoratet), og manglende nasjonal maaltidsstandard, gir dette betydelig uutnyttet loeftepotensial. Motiva (FI) har utgitt nasjonal innkjoepsveileder januar 2026 som benchmark for struktur-tilnaerming. Koebenhavns 87,8% oekologisk og Soedertaelje 24 000 maaltider/dag samme budsjett er direkte relevante best-practice.',
+    tags: ['offentlig-innkjoep', 'klimavekt', 'HORECA', 'Norge', '30-prosent-regel', 'forskningsrunde-2026-04-20'],
+    sources: [
+      { label: 'Regjeringen — 30% klima/miljoe pressmelding' },
+      { label: 'Motiva — Responsible Food Procurement Guide 2026' },
+      { label: 'Helsedirektoratet — Kartlegging ernaering 2024' },
+    ],
+  },
+  {
+    id: 'ins-116',
+    title: 'Under-rapportering er hovedeffekten — ikke lav lovbruddssats',
+    type: 'analyse',
+    source: 'Forskningsrunde 2026-04-20 / Makt og fryktkultur',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Aarsakskjeden i nordisk dagligvare: konsentrasjon → avhengighet → frykt → svak rapportering → svak handheving → narrow lov treffer ikke de mest effektive formene for makt. Overflytting av handheving til Konkurransetilsynet (30. april 2026) loeser ikke dette uten (a) styrket materielle bestemmelser i Lov om god handelsskikk og (b) klar varsleverbeskyttelse. Internasjonal erfaring: bred UTP-lovgivning i DK/FI gir fortsatt lav innleveringssats naar markedsstruktur er toppkonsentrert.',
+    tags: ['fryktkultur', 'handheving', 'varsler', 'UTP', 'Konkurransetilsynet', 'forskningsrunde-2026-04-20'],
+  },
+  {
+    id: 'ins-117',
+    title: 'Tre motorer for faktisk endring: etterspoersel, operasjon, finansiering',
+    type: 'analyse',
+    source: 'Forskningsrunde 2026-04-20 / Benchmark-rapport',
+    phase: 'fase-2',
+    date: '2026-04-20',
+    description:
+      'Syntese fra 10 nordisk-internasjonale benchmarks: case som faktisk har flyttet praksis/policy/kapital kombinerer tre motorer: (1) demand (innkjoep/pris/regulering) — Garot-loven, 30%-regelen, Koebenhavn maaltidsprogram; (2) operational (opplaering/data/logistikk) — Koebenhavns Madhus-opplaering, PeelPioneers logistikk, FarmAhead-data; (3) finance (tilskudd/fond/kontrakter) — Plantefonden, Agrain-kapital, PNAE-budsjett. Policy og markedsmodeller utfyller — Soer-Korea+Frankrike viser regulering virker naar det gjoer praksis obligatorisk; TGTG+REKO viser marked virker naar det gjoer praksis enkel+attraktiv.',
+    tags: ['benchmark', 'transformasjon', 'policy-design', 'forskningsrunde-2026-04-20'],
+  },
 ]

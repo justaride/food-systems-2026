@@ -1,0 +1,1678 @@
+Waste Management 198 (2025) 77–86
+
+Contents lists available at ScienceDirect
+
+Waste Management
+journal homepage: www.elsevier.com/locate/wasman
+
+Research Paper
+
+Reducing food waste in the HORECA sector using AI-based
+waste-tracking devices
+Evangelia G. Sigala a, Paula Gerwin b, Christina Chroni a , Konstadinos Abeliotis a ,
+Christina Strotmann b, Katia Lasaridi a,*
+a
+b
+
+School of Environment, Geography and Applied Economics, Harokopio University, 17671, Athens, Greece
+Institute of Sustainable Nutrition, Muenster University of Applied Sciences, 48149 Münster, Germany
+
+A R T I C L E I N F O
+
+A B S T R A C T
+
+Keywords:
+Food waste
+Foodservice sector
+Waste-tracking device
+Artificial intelligence
+Computer vision
+Waste prevention
+
+This study assesses the effectiveness of an intervention employing an AI-based, fully automatic waste-tracking
+system for food waste reduction in HORECA establishments. Waste-tracking devices were installed in a restau­
+rant within a holiday resort and a business caterer in Germany, a hotel in Switzerland, and two hotels in Greece.
+The devices utilize computer vision and advanced deep learning algorithms to automatically weigh and optically
+segregate food waste in real time. At baseline, total food waste was 76.2–121.0 g/meal for the hotels, 99.4 g/
+meal for the business caterer, and 151.9 g/meal for the restaurant. Avoidable food waste constituted 45 % to73%
+of the total, attributable to overproduction (20–92 %) and consumers’ leftovers (8–80 %). The remaining waste
+was unavoidable, stemming from preparation procedures (47–99 %) and consumers’ leftovers (1–53 %). Veg­
+etables and prepared foods contributed the most to total amounts. This data-driven intervention raised staff
+awareness towards food waste, facilitating the implementation of corrective actions. Therefore, except for the
+Swiss hotel that exhibited an increase of 13 %, the intervention was effective in achieving a 23–51 % reduction in
+food waste, especially in food preparation and overproduction, demonstrating the intervention’s transferability
+across different settings. Additional evidence supported its long-term sustainability. The cost of wasted food per
+meal was reduced by up to 39 % compared to the baseline. Future studies should explore combining wastetracking devices with consumer-level interventions to enhance food waste reduction.
+
+1. Introduction
+
+has been associated with low labor productivity, hindered social
+development, social inequalities, and a higher prevalence of poverty
+(Cm, 2022; FAO, 2019; HLPE, 2014). Additionally, wasting food creates
+an ethical issue since macro- and micronutrients, as well as bioactive
+compounds embedded in the food matrix, are discarded amidst food
+insecurity, affecting approximately one-third of the world’s population
+(FAO et al., 2024).
+Although food waste is generated across the entire food supply chain,
+the food waste produced downstream reflects a higher loss of resources,
+labor, and investments, as it aggregates inputs from all the previous
+stages. Future projections suggest that, under a business-as-usual sce­
+nario, increasing world’s population, rapid urbanization, rising percapita affluence, and other demographic shifts driving food prefer­
+ences will result in an upsurge in food demand, especially for resourceintensive foods such as meat and dairy products, necessitating a 50 %
+increase in agricultural production by 2050 compared to the 2012 levels
+(FAO, 2018). Without any intervention, food waste levels are
+
+The food waste challenge, a prominent element of unsustainable
+food production and consumption patterns that emerged during the
+Anthropocene period, undermines the resilience of global agri-food
+systems and impedes their transition towards sustainability (FAO,
+2019; HLPE, 2014). From an environmental perspective, food waste
+directly imposes additional strains on planetary environmental bound­
+aries by exacerbating the overexploitation of natural resources, exces­
+sive fertilizer applications (FAO, 2013; Kummu et al., 2012), loss of
+biodiversity (FAO, 2013), and greenhouse gas emissions, including
+methane emissions from food waste disposal in landfills (HLPE, 2014;
+Mbow et al., 2019; Scialabba, 2015). As such, it entails hidden costs
+stemming from these environmental impacts and their adverse effects on
+human health and well-being (FAO, 2014). Moreover, wasting food
+represents intrinsic financial, investment, and income losses (FAO,
+2014; HLPE, 2014) and may cause a rise in food prices (HLPE, 2014). It
+* Corresponding author at: Harokopio University of Athens, 17671 Greece.
+E-mail address: klasaridi@hua.gr (K. Lasaridi).
+
+https://doi.org/10.1016/j.wasman.2025.02.044
+Received 30 September 2024; Received in revised form 16 February 2025; Accepted 24 February 2025
+Available online 1 March 2025
+0956-053X/© 2025 The Authors. Published by Elsevier Ltd. This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).
+
+E.G. Sigala et al.
+
+Waste Management 198 (2025) 77–86
+
+anticipated to exhibit an upward trend in both in- and out-of-home
+consumption settings. To address this issue, the United Nations (2015)
+has included in its Sustainable Development Targets (SDG) the target
+12.3 requiring to curb food waste at the retail and consumption stages (i.
+e., households and the foodservice sector) by 50 % by 2050. The Euro­
+pean Commission has committed to this aspirational target (European
+Commission, 2015) and has since implemented several initiatives and
+policies to support its achievement (European Parliament and of the
+Council, 2018). In the forthcoming revision of the EU Waste Framework
+Directive, legally binding targets for food waste reduction by 30 % percapita in retail, restaurants, food services and households, and 10 % in
+processing and manufacturing by 2030 are foreseen (Council of the EU,
+2024; European Commission, 2023).
+Approximately 1.05 billion metric tons of food were discarded
+globally in 2022 at the retail and consumption stages, amounting to a
+per-capita quantity of 132 kg (UNEP, 2024). The primary contributors
+were private households, accounting for 60 % of this per-capita total (79
+kg/ca), followed by the foodservice sector at 28 % (36 kg/ca), and re­
+tailers at 12 % (17 kg/ca). According to the latest available statistics, in
+2021 in the EU, 58.4 million tons of food (131 kg/ca) were wasted along
+the entire food chain, with circa 63 % arising at the consumption stages
+(Eurostat, 2023). Specifically, 54 % of the per-capita food waste (70 kg/
+ca) were discarded by householders, while 9 % (12 kg/ca) were wasted
+in out-of-home consumption settings.
+Food waste in the foodservice sector has been characterized as an
+“unsustainability hotspot” (Eriksson et al., 2018), given its substantial
+impacts on social, economic, and environmental pillars of sustainability
+(Lins et al., 2021). This phenomenon is largely driven by an interplay of
+factors related to inefficiencies in operational practices (Dhir et al.,
+2020; Filimonau and De Coteau, 2019; Okumus, 2020), such as mis­
+sestimation of expected guests, improper storage and handling
+(Okumus, 2020), and managerial decisions (Heikkilä et al., 2016);
+insufficient staff training and awareness for food waste; wasteful con­
+sumer behaviors (Dhir et al., 2020; Filimonau and De Coteau, 2019),
+including over-ordering (Papargyropoulou et al., 2016); undue quality
+standards and food safety considerations (Dhir et al., 2020; Okumus,
+2020); meal purposes (Wang et al., 2017); as well as gaps in legislative
+frameworks and regulatory incentives (Dhir et al., 2020) that subse­
+quently hinder the promotion of food sharing initiatives (Filimonau and
+De Coteau, 2019).
+Food waste in out-of-home settings originates primarily from three
+sources: pre-kitchen or inventory-related stages, preparation and
+serving procedures, and plate waste left by consumers (Filimonau and
+De Coteau, 2019; UNEP, 2024). However, this issue is much more
+intricate due to the wide spectrum of foodservice types and subsectors
+–ranging from low turnover, privately owned businesses to multina­
+tional chain-affiliated settings, as well as establishments where food
+provision is not the primary or even a profit-driven activity, such as
+healthcare units and schools, each with different operational activity
+models, settings, and conditions, as well as consumer target groups,
+thereby resulting in diverse wasting patterns, requiring tailored reduc­
+tion measures (Dhir et al., 2020; Eriksson et al., 2018). Nonetheless, it is
+acknowledged that the foodservice sector exhibits substantial opportu­
+nities for food waste mitigation (Eriksson et al., 2017), with companies
+in the sector having demonstrated the feasibility of successfully curbing
+food waste through targeted strategies (Beretta and Hellweg, 2019;
+Clowes et al., 2019, 2018a, 2018b).
+Research on hotels or other short-term accommodation, restaurants,
+cafeterias, catering services, and canteens (HORECA), where food ser­
+vice constitutes a primary profit activity (i.e., excluding hospitals and
+other healthcare facilities, educational institutions serving food, etc.),
+has revealed that food waste levels range between 50.1 ± 9.4 g/portion
+and 192.0 ± 31.0 g/portion, depending on the foodservice type
+(Malefors et al., 2019). In Finnish cafeterias, restaurants, and workplace
+canteens, food waste amounted to 102 g/portion, 153 g/portion, and
+189 g/portion, respectively (Silvennoinen et al., 2015). Moreover,
+
+significant discrepancies have been noted between different restaurant
+types, with fine dining restaurants generating 261.1 g/day per meal
+served and casual dining restaurants 99.3 g/day/meal. Quick-service
+and limited service restaurants have typically lower food waste rates,
+in the range of 17 to 60 g/day/meal without considering customers’
+leftovers (McAdams et al., 2019). Additionally, all-you-can-eat buffets
+generate larger food waste amounts than à la carte services
+(Papargyropoulou et al., 2019), with hotels in Germany reporting a daily
+mean of 7.5 kg of breakfast buffet leftovers (Leverenz et al., 2021). These
+figures highlight the urgent need for food waste reduction initiatives in
+HORECA businesses. In recent years, corporate sustainability has
+received paramount attention (Montiel and Delgado-Ceballos, 2014),
+leading to the design and evaluation of numerous prevention-centered
+interventions.
+Table 1 summarizes a range of peer-reviewed case studies that have
+implemented reduction interventions and initiatives in HORECA and
+have provided evidence regarding aspects of their impact, as defined by
+(Garcia-Herrero et al., 2023). The majority of existing literature has
+focused on consumer-targeted interventions, including nudges, i.e., cues
+that predictably guide consumers’ decision-making and choices without
+imposing restrictions (Garcia-Herrero et al., 2023), offering a reduction
+potential up to 40 % (Candeal et al., 2023). Another piece of research
+has highlighted the significance of staff training, increasing staff
+awareness, and operational changes, such as redesigning menus and
+decreasing portion sizes (Filimonau et al., 2017a; Filimonau and De
+Coteau, 2019; Montesdeoca-Calderón et al., 2024; Orr and Goossens,
+2024). Additionally, mounting evidence suggests the food waste quan­
+tification process itself serves as a cornerstone of effective reduction
+strategies (Goossens et al., 2022). Quantification is a cornerstone in any
+food waste prevention effort in the food service sector: a meta-analysis
+revealed that, using different measurement methods, 61 % of catering
+establishments reduced their food waste in the last half of the quanti­
+fication days compared to the first half of the measurement period
+(Eriksson et al., 2019). However, due to the inherent complexity in this
+sector, measuring food waste continues to present notable challenges
+(Eriksson et al., 2018).
+Eriksson (2019) classified direct quantification methods into three
+groups: manual methods, semi-automatic tracking systems, and auto­
+matic tracking systems. The first category involves weighing food waste
+and manually recording data by staff. Semi-automatic tools feature
+websites or applications (apps) for data collection, but they still require
+staff to weigh the food waste and manually input the data. Automatic
+systems feature scales connected to a touchscreen electronic device
+(tablet or computer), where staff weigh food waste and categorize it by
+selecting the available menu options. Although the degree of staff
+involvement decreases from manual to automatic methods, all methods
+require additional effort and workload and thus can disrupt typical
+workflows (Orr and Goossens, 2024), potentially leading to underesti­
+mation depending on staff engagement and awareness. In previous
+research, the degree of automation in the quantification method has
+been positively associated with the data volume recorded (Eriksson
+et al., 2019). Notwithstanding differences in operation and staff
+involvement, companies providing semi-automatic and automatic sys­
+tems differ in the level of consulting services they offer (Leverenz et al.,
+2021). This study expands the above classification with the additional
+category of fully automatic waste-tracking devices, such as KITRO,
+Leanpath, Lumitics, Orbisk, and Winnow which combine waste bins
+with software, leveraging artificial intelligence (AI) to automatically
+weigh and recognize the food waste items and categories minimizing
+staff effort. Such tools manage data and segregate waste quantities into a
+large number of different food items using computer vision in real time.
+These fully automatic, AI-based waste-tracking devices have shown
+effectiveness varying from 25 % to 70 % in hotels (KITRO S.A., personal
+communication; Leanpath, Inc., 2024; Winnow Solutions Ltd, 2024), 54
+% in restaurants and bistros (Zornes, 2022), and 41 % to 50 % in
+workplace caterers (Leanpath, Inc., 2024; Winnow Solutions Ltd, 2024).
+78
+
+E.G. Sigala et al.
+
+Waste Management 198 (2025) 77–86
+
+Table 1
+Overview of studies implementing interventions for food waste prevention in
+HORECA.
+Authors
+(Year)
+
+Setting(s),
+country,
+timeframe
+
+Methodology
+
+Consumer-level interventions and operational changes
+Dolnicar
+Hotel.
+Game-based
+et al.
+Slovenia.
+intervention utilizing a
+(2020)
+50 days.
+stamp collection
+booklet vs flyers
+asking to help reduce
+food waste without vs
+with a proenvironmental appeal
+vs control group.
+Stöckli et al.,
+Pizzeria.
+Informational prompt
+(2018)
+Switzerland.
+about food waste in a
+6 weeks.
+card vs informational
+and normative prompt
+in a card to encourage
+boxing leftover vs
+control group.
+Kallbekken
+and Sælen
+(2013)
+
+52 hotels (38
+control group).
+Norway.
+06/2012–08/
+2012.
+
+Nudges to reduce plate
+size vs. signs with
+social cues
+encouraging guests to
+visit buffets more than
+once vs control group.
+
+Quantification
+(a) Semi-automatic waste-tracking devices
+Orr and
+2 staff canteens.
+Awareness-raising
+Goossens
+Germany.
+among kitchen staff,
+(2024)
+11/2022–04/
+serving half-sized
+2023
+portions, providing
+small plates at the
+salad buffet, preparing
+soup from
+overproduction,
+offering reusable
+containers for
+takeaway, introducing
+meal deals at the end
+of serving time, and
+enhancing awareness
+of the food value.
+
+(b) Automatic waste-tracking devices
+Leverenz
+4 hotels of a fouret al.
+star hotel group.
+(2021)
+Germany.
+and
+At different time
+
+Quantification of
+breakfast buffet
+leftovers using a
+digital scale and a
+
+Table 1 (continued )
+Authors
+(Year)
+
+Findings
+Goossens
+et al.
+(2022)
+Effectiveness of
+stamp collection
+booklet: − 34 %.
+
+Effectiveness of
+informational
+prompts: 55 %
+asked to box their
+leftovers.
+Effectiveness of
+informational and
+normative prompts:
+64 %.
+Effectiveness of
+plate size
+reduction: − 19.5
+%.
+Effectiveness of
+signs with cues:
+− 20.5 %.
+Financial savings:
+NOK 50/kg/hotel
+(USD 9/kg/hotel).
+Transferability:
+Likely transferable
+to other settings
+with buffet-style
+meals.
+Minimal costs for
+implementation.
+No impact on
+guests’ satisfaction.
+
+Setting(s),
+country,
+timeframe
+
+Methodology
+
+Findings
+
+points for each
+hotel between
+2014–2015
+(measurement
+duration: 12
+months).
+
+computer
+(“ResourceManager
+Food”).
+
+year/hotel.
+Financial savings:
+€8,900 per year/
+hotel.
+Environmental
+savings: 6.8 tons
+CO2 eq. and 841
+mPt PEF per year.
+Efficiency: savings
+of 0.33 kg of food,
+€1.69, 680 kcal,
+1.30 kg CO2 eq.,
+and 0.16 mPt PEF
+per €1 invested
+(equipment cost:
+€4,500).
+Sustainability over
+time: Almost
+constantly low
+leftover levels after
+5 months, although
+continuity depends
+on initial
+investment cost.
+
+Abbreviation: PEF: product environmental footprint.
+
+Up to date, there are no peer-reviewed studies on fully automatic, AIbased food waste-tracking systems, denoting a dearth of evidence-based
+information on the effectiveness, transferability, and long-term sus­
+tainability of such interventions. Only fragmented insights stemming
+from grey literature are available. Given the surging development in AI
+and its increasing capabilities, there is a need to elucidate the impact of
+AI-based interventions across different foodservice settings and
+geographic regions. Moreover, higher resolution measurement data in
+the HORECA sector remains scarce (Malefors et al., 2019). Hence, this
+study aims to evaluate an AI-based intervention, combining a weighing
+scale with computer vision in different HORECA located in Germany,
+Greece, and Switzerland, as part of the LOWINFOOD H2020 project.
+2. Materials and methods
+
+Effectiveness: − 46
+%
+Nutritional savings:
+450,000 kcal.
+Financial savings:
+€15,500.
+Environmental
+savings: 31 tons
+CO2 eq. and 213
+mPt PEF.
+Efficiency: savings
+of 0.03 kg of food,
+€2.37, 40.78 kcal,
+2.74 kg CO2 eq.,
+and 0.02 mPt PEF
+per €1 invested.
+Transferability:
+High.
+Sustainability over
+time: Medium-tohigh, depending on
+the examined
+measure.
+
+2.1. Study design and procedures
+The LOWINFOOD research project aims to cut food waste across the
+whole supply chain by co-designing and implementing a portfolio of
+pioneering actions. By leveraging a multi-actor strategy, the project
+assesses the effectiveness of these actions in decreasing food waste,
+while also examining their broader impacts and outreach. A notable
+innovation investigated in this project is the utilization of AI-based
+waste-tracking devices in the foodservice sector, through the partici­
+pation of KITRO S.A. as a project partner. KITRO S.A. is a Swiss-based
+company that offers a fully automatic system for data collection, realtime monitoring and analysis, as well as customized counseling for
+foodservice businesses. This data-driven approach enables users to
+optimize their operational processes, and KITRO promises their cus­
+tomers will experience substantial reductions in food waste, leading to
+substantial net cost savings.
+As part of this intervention, this study employed a pre-post design
+comprising a baseline period followed by a demonstration stage, as
+illustrated in Fig. 1. At every stage, consumers were not aware of the
+intervention. Prior to the baseline measurements, semi-structured in­
+terviews were conducted by trained researchers with the managers of
+each participating establishment to assess their motives, readiness, and
+expectations for reducing food waste. During this preparatory phase, the
+managers and the KITRO team collaborated to establish the country-
+
+Effectiveness: − 64
+%
+Nutritional savings:
+3,600,000 kcal/
+
+79
+
+E.G. Sigala et al.
+
+Waste Management 198 (2025) 77–86
+
+2.3. Settings in which the waste-tracking device interventions were tested
+The users of the KITRO devices who participated in this study are
+described in detail in the following sections and summarized in Table 2.
+The primary criterion for selecting this sample was that the imple­
+mentation of KITRO could yield a satisfactory return on investment in
+these establishments, as they handle a large number of tickets daily.
+2.3.1. Restaurant in a holiday resort in Germany, DE1
+The DE1 establishment, a restaurant located in a holiday resort in
+Germany, mainly served individuals renting vacation homes and other
+visitors. When measurements began in December 2021, the COVID-19
+incidence rates in Germany were remarkably high, and thus, further
+restrictions were imposed, affecting also restaurants and hotels
+(Bundesministerium für Gesundheit, 2023). Therefore, although this
+restaurant usually attracts many customers during the winter season, the
+recorded baseline month showed the lowest guest count among all
+recorded months, averaging 94 guests daily.
+2.3.2. Business caterer in Germany, DE2
+DE2 was a business caterer operating in a company’s office building
+in Germany, providing food services only for individuals associated with
+the company and conferences or other meetings held in the office
+building. Before the COVID-19 pandemic, the caterer served approxi­
+mately 800 individuals daily. During the winters of 2021 and 2022, the
+daily guest count was reduced to nearly 150. When measurements began
+in May 2022, the average guest number was about 330 guests/day, but
+this varied significantly by weekday due to ongoing stay-at-home orders
+and heating energy shortages. Although the business caterer also offered
+some snack and breakfast items throughout the day, only the food waste
+generated at lunch was monitored.
+
+Fig. 1. Schematic illustration of the study design.
+
+specific market prices for food items, which were then utilized in
+KITRO’s cost calculations, with the flexibility to adjust for price changes
+during the whole implementation period. At the baseline stage, the
+waste-tracking devices were installed and measured food waste without
+managers having access to the collected data.
+During the demonstration phase, which immediately followed the
+baseline, KITRO users were provided access to the online data dash­
+board, enabling real-time monitoring and analysis of the data recorded.
+Based on this information, the KITRO support team and managers held
+regular goal-setting meetings to discuss the findings, adjust reduction
+targets, and develop tailored prevention actions. After the demonstra­
+tion period, follow-up semi-structured interviews were conducted with
+the managers to obtain insights into the accomplished goals, experi­
+ences, and difficulties encountered, as well as to assess changes induced
+by the implementation of the interventions.
+
+2.3.3. Hotel in Switzerland, CH
+The third KITRO user, CH, was a hotel in Switzerland with an
+oriental-style restaurant and a bar serving drinks and snacks. The
+restaurant served about 300 guests on a typical day. At the beginning of
+the measurements, the Swiss COVID-19 restrictions had been mostly
+lifted (Schweizerische Eidgenossenschaft, 2022). During the first study
+months, the hotel experienced a reduced overall guest count; however,
+the number of dinner guests remained consistent, likely due to the
+external customers dining at the restaurant alongside hotel guests. Over
+the course of the study, guest counts returned to normal. To monitor
+food waste from the hotel restaurant and bar, a KITRO device was
+installed in a hotel area. In contrast to the devices installed in other
+establishments, which classified food waste based on the device’s loca­
+tion, this device utilized an advanced algorithm that considered waste
+mass, service time, and data from the images.
+
+2.2. The waste-tracking device employed
+
+2.3.4. Four-star all-inclusive hotel in Greece, GR1
+The fourth establishment, GR1, was a four-star all-inclusive hotel
+located on the island of Kos in Greece. The hotel operated on a seasonal
+cycle from May to October. During the 2022 and 2023 seasons, when the
+KITRO devices were installed, the average number of daily guests was
+170 at the beginning and end of the season, while in the peak months of
+July and August, the average daily guest count doubled to 350.
+
+The waste-tracking device integrates a hardware unit comprising of a
+scale and an Internet of Things (IoT) device with a camera. The scale is
+placed underneath any type of bin and the IoT device on top of the bin.
+This system detects and analyzes each waste event by measuring the
+weight of the discarded foods with the scale, while the IoT device cap­
+tures images that are sent to a cloud system, which utilizes advanced
+image recognition and deep learning algorithms to identify and classify
+food waste into food groups. Additionally, each food waste event is
+further segregated into specific food items. These are further charac­
+terized as avoidable and unavoidable and classified according to their
+source types, depending on the device location (e.g., food preparation
+areas, kitchen, restaurants) and the algorithm. Moreover, users have
+access to a personalized online dashboard, providing insights into their
+food waste data, such as images of waste events, statistics of food waste
+groups, and temporal trends.
+
+2.3.5. Five-star hotel in Greece, GR2
+The GR2 KITRO user was a five-star hotel on the island of Santorini in
+Greece. Similar to the hotel in Kos, this hotel operated on a seasonal
+cycle. During the implementation of the intervention in the 2022 and
+2023 seasons, the guest number increased from an average of 170 guests
+per day in May to nearly 200–240 guests per day from July to
+September. By the end of the season in October, the daily guest count
+decreased to 100.
+
+80
+
+E.G. Sigala et al.
+
+Waste Management 198 (2025) 77–86
+
+Table 2
+Overview of foodservice settings and timeframes of the interventions.
+User
+
+DE1
+
+DE2
+
+CH
+
+GR1
+
+GR2
+
+Country
+Foodservice type
+Menu types
+Breakfast
+Lunch
+Dinner
+Number of devices
+Baseline duration (days)
+Baseline dates (mm/yyyy)
+Demonstration duration (days)
+Demonstration dates (mm/yyyy)
+
+Germany
+Resort
+
+Germany
+Business caterer
+
+Switzerland
+Hotel
+
+Greece
+Hotel
+
+Greece
+Hotel
+
+​
+
+​
+
+​
+
+​
+
+​
+
+Meals count at baseline (n)
+Meals count at demonstration (n)
+
+2,714
+30,845
+
+Buffet (extra fee)
+À la carte
+À la carte
+2
+29
+12/2021
+233
+01–11/2022
+
+Fixed menu with a self-service option
+n.a.
+2
+32
+05–06/2022
+217
+07/2022–05/2023
+
+Buffet
+À la carte
+À la carte
+1
+28
+02/2022
+307
+03/2022–01/2023
+
+10,764
+74,387
+
+6,519
+92,342
+
+​
+
+Buffet
+Buffet
+Buffet
+5
+30
+05–06/2022
+314
+06–10/2022
+&
+05–10/2023
+17,148
+256,885
+
+Buffet
+n.a.
+Buffet & À la carte
+4
+30
+05/2022
+305
+05–10/2022
+&
+05–10/2023
+10,107
+117,107
+
+Abbreviations: mm: month, n: absolute number, n.a.: not applicable, yyyy: year.
+
+2.4. Food waste definitions
+
+was conducted to evaluate changes in waste composition by avoidability
+potential, generation source and food groups, as well as cost savings
+from the avoidable food waste prevention.
+To investigate statistical trends in food waste estimates, a second KPI
+was defined reflecting the amount of food waste generated on a daily
+basis relative to the number of meals served on that particular day, i:
+
+In this study, food waste is defined based on the European Com­
+mission’s standardized terminology for the uniform food waste mea­
+surement across Member States (European Commission, 2019). In
+addition to once-edible food parts, the term encompasses inedible food
+fractions that were not segregated from the edible parts during food
+production.
+Food waste is further classified based on its avoidability potential
+(WRAP, 2013a). Avoidable food waste encompasses food items or
+fractions that are culturally acceptable and suitable for consumption at
+some point before being discarded, suggesting that their disposal could
+have been prevented. Conversely, discarded inedible food parts are
+classified as unavoidable. Furthermore, food waste is categorized, based
+on the underlying processes or stages of its generation, into preparation
+waste, overproduction, and plate waste.
+Preparation waste encompasses inedible and borderline edible food
+parts discarded during preparation procedures (UNEP, 2024). In this
+study, all preparation waste is classified as unavoidable. Overproduction
+refers to food that was discarded because it was produced in excess of
+demand, thus it could have been prevented. Although it may include
+small quantities of unavoidable waste, such as bones, here it is classified
+as avoidable. Plate waste comprises both avoidable and unavoidable
+consumers’ leftovers, depending on their potential for prevention.
+
+Daily per-meal food waste [g/meal/day] =
+
+(Food waste amount)i
+(Number of meals served)i
+(2)
+
+This KPI captures the variations in daily per-meal food waste levels,
+regardless of how the meal count varies from day to day.
+Descriptive statistics are presented as medians (Mdn) and inter­
+quartile ranges, calculated as the difference between the 1st and 3rd
+quartiles (Q), (1st Q, 3rd Q), to represent the non-Gaussian, skewed
+nature of the daily per-meal food waste KPI. Differences between phases
+across two independent samples were evaluated utilizing the MannWhitney U test. Furthermore, the Spearman rank-order correlation
+was employed to explore the strength and direction of the relationship
+between the daily per-meal food waste quantity and the daily meal
+count. Statistical significance was assessed with p-values obtained from
+two-tailed hypotheses and a significance level set at 5 %. Statistical
+analyses were conducted using STATA version 18 (STATA Corp., College
+Station, Texas, USA).
+Qualitative data obtained from the semi-structured interviews,
+including changes in practices and behaviors, was evaluated to provide
+further insights into the interventions’ outcomes.
+
+2.5. Data analyses and key performance indicators
+For each establishment, the dataset included the following variables:
+date and time of the recorded waste events and the discarded food items,
+along with their food group category; weight; food waste classification
+based on the avoidability potential and item source; the cost for the
+avoidable food waste; and the device that recorded the waste event.
+Approximately 6–10 % of all records comprised non-food items, such as
+staff hands and utensils, which were removed from the datasets. Daily
+guest numbers were provided in a separate file by the KITRO users.
+Defining effectiveness as the extent to which the interventions suc­
+cessfully reduced food waste levels (Garcia-Herrero et al., 2023), the
+impact of the interventions was assessed through a key performance
+indicator (KPI) calculated by dividing the summed amount of food waste
+generated during the baseline or demonstration phase by the total
+number of meals served during the respective phase:
+∑n
+(Food waste amount)i
+Per-meal food waste [g/meal] = ∑n i=1
+(1)
+i=1 (Number of meals served)i
+
+3. Results and discussion
+3.1. Baseline total food waste levels and composition in mass and cost
+units
+Table 3 displays the per-meal food waste during both phases. At
+baseline, the per-meal total food waste varied across the five users,
+spanning from 76.2 g/meal (GR1) to 121.0 g/meal (CH) for the hotels,
+99.4 g/meal for the business caterer (DE2), and 151.9 g/meal for the
+restaurant in the holiday resort (DE1). This is within the range reported
+in the literature for similar types of facilities. A recent study reported
+per-portion food waste of 50.1 ± 9.4 g, 141.0 ± 6.4 g, and 192.0 ± 31.0
+g for canteens, hotels, and restaurants, respectively (Malefors et al.,
+2019). Orr and Goossens (2024) reported baseline food waste to be 89 g/
+meal and 151 g/meal for two staff caterers, though excluding prepara­
+tion waste. On average, 1.1 kg/guest was wasted daily in a five-star hotel
+in Malaysia, which offered buffet and à la carte menu (Papargyropoulou
+et al., 2016), while a recent review reported that HORECA businesses
+generate a per-meal average of 209 g of food waste (Vardopoulos et al.,
+
+where i ∈ {1, 2, …, n} with n ∈ ℕ representing each day of measurement
+during each phase. Subsequently, the percentage change from baseline
+was utilized to gauge the interventions’ effectiveness. A similar analysis
+81
+
+E.G. Sigala et al.
+
+Waste Management 198 (2025) 77–86
+
+Table 3
+Comparative analysis of per-meal food waste levels by avoidability potential and the stage of generation, as well as cost of per-meal avoidable food waste, across the
+intervention phases.
+Baseline
+
+Demonstration phase
+
+Operational level
+User
+​
+
+DE1
+DE2
+CH
+GR1
+GR2
+​
+
+DE1
+DE2
+CH
+GR1
+GR2
+
+Overproduction
+
+Costumers
+Preparation
+waste
+
+Avoidable
+plate waste
+
+Mass of food waste per served meal (g/meal)
+41.5
+40.6
+55.0
+43.3
+36.3
+19.3
+55.8
+27.1
+32.7
+6.9
+19.8
+27.1
+41.8
+30.1
+3.7
+
+Operational level
+Unavoidable
+plate waste
+
+Overproduction
+
+Preparation
+waste
+
+Avoidable
+plate waste
+
+Unavoidable
+plate waste
+
+14.7
+0.5
+5.5
+22.4
+1.0
+
+18.4
+26.6
+63.6
+4.2
+22.9
+
+29.3
+19.1
+34.8
+3.0
+5.7
+
+41.9
+25.0
+33.5
+32.1
+7.2
+
+11.8
+5.8
+4.5
+14.9
+1.9
+
+0.08
+0.15
+0.42
+0.01
+0.13
+
+n.a.
+n.a.
+n.a.
+n.a.
+n.a.
+
+0.28
+0.17
+0.24
+0.16
+0.06
+
+n.a.
+n.a.
+n.a.
+n.a.
+n.a.
+
+Cost of avoidable food waste per served meal (€ /meal or CHF/meal‡)
+0.26
+n.a.
+0.34
+n.a.
+0.29
+n.a.
+0.11
+n.a.
+0.41
+n.a.
+0.24
+n.a.
+0.03
+n.a.
+0.14
+n.a.
+0.25
+n.a.
+0.03
+n.a.
+
+Change in
+total levels
+(%)
+
+Costumers
+
+​
+
+–33 %
+–23 %
++13 %
+− 29 %
+− 51 %
+​
+
+− 39 %
+− 21 %
++1%
+− 1%
+− 34 %
+
+Values are described as the sum of each variable divided by the total number of meals served.
+Abbreviations: CH: hotel in Switzerland; DE1: restaurant in a holiday resort in Germany; DE2: business caterer in Germany; GR1: hotel in Greece; GR2: hotel in Greece,
+n.a.: not applicable.
+†
+Change refers to the percentage change in per-meal total food waste from the baseline to the demonstration phase.
+‡
+The per-meal cost is expressed in € for foodservices located in Germany and Greece. For the Swiss hotel, this cost is expressed as CHF/meal.
+
+2025).
+The percentage of avoidable food waste ranged significantly, from
+45 % at GR1 to 73 % at CH (GR2: 59 %; DE2: 63 %; DE1: 64 %). The
+composition of this avoidable fraction exhibited considerable variability
+among the establishments. Specifically, overproduction ranged widely,
+from 20 % at GR1 to 92 % at GR2 (DE1: 43 %; CH: 63 %; DE2: 69 %).
+Moreover, the avoidable fraction of plate waste ranged from 8 % at GR2
+to 80 % at GR1 (DE2: 31 %; CH: 37 %; DE1: 57 %). A similar broad range
+was observed in the proportion of unavoidable plate waste relative to
+the total unavoidable waste, spanning from 1 % at DE2 to 53 % at GR1
+(GR2: 3 % CH: 17 %; DE1: 27 %). Conversely, the share of preparation
+waste on total unavoidable food waste was consistently high across most
+establishments (DE1: 73 %; CH: 83 %; GR2: 97 %; DE2: 99 %), except for
+GR1 (47 %). Literature data from German foodservice businesses
+showed that 25–55 % of food waste was due to overproduction, 25–30 %
+from plate waste, and 20–35 % occurred during preparation (Borstel
+et al., 2020). Moreover, in the UK, 75 % of food waste in hospitality
+businesses was classified as avoidable, with overproduction accounting
+for 45 %, 34 % from consumers leftovers, and 21 % from food spoilage
+(WRAP, 2013b). Similarly, 56 % of food discarded in a five-star hotel in
+Malaysia could have been prevented, while the remaining 44 % was
+attributed to the preparation of high-quality meals from scratch,
+resulting in substantial volumes of inedible food parts (Papargyropoulou
+et al., 2016). In another study, avoidable food waste ranged from 32 %
+to 63 % of total food waste (Papargyropoulou et al., 2019).
+Table 4 illustrates per-meal food waste by food groups. Vegetables
+
+accounted for the largest share of total food waste per meal at GR2 (47
+%) and DE1 (51 %). Prepared foods, such as scrambled eggs, French
+fries, salads, pizza and sandwiches, stews, etc., constituted the highest
+proportion of per-meal total food waste at GR1 (31 %), DE2 (53 %), and
+CH (54 %). However, at GR1, vegetables and fruits combined reached
+49 %. Vegetables, cereals, and fruit have been identified as the top three
+most wasted foods, with vegetables and fruits mostly contributing to
+preparation waste and cereals to consumers’ leftovers (Papargyropoulou
+et al., 2016).
+In economic terms, the baseline cost of per-meal avoidable food
+waste ranged from 0.17 €/meal (GR1) to 0.59 €/meal (DE1), and 0.65
+CHF/meal at CH (Table 3). The cost of food discarded due to over­
+production varied substantially from 20 % at GR1 to 90 % at GR2 (DE1:
+43 %; CH: 63 %; DE2: 72 %). Similarly, the contribution of avoidable
+plate waste also varied widely from 10 % at GR2 to 83 % at CH (DE2: 37
+%; DE1: 57 %; GR1: 80 %). Other sources reported an economic loss of
+23 % of food purchased (Papargyropoulou et al., 2019).
+3.2. Effectiveness of the interventions
+The installation of the waste-tracking devices led to a reduction in
+per-meal total food waste by 23–51 % for all establishments, except for
+CH, which exhibited a modest increase of 13 % (Table 3). Specifically,
+this rise at CH was driven by a 21 % increase in the unavoidable fraction
+and a 10 % increase in avoidable food waste. Conversely, significant
+reductions in the avoidable fraction were observed at DE2 (− 38 %), GR2
+
+Table 4
+Comparative analysis of per-meal food waste levels by food groups, across the intervention phases.
+Baseline
+
+Demonstration phase
+
+Food waste category
+
+DE1
+
+DE2
+
+CH
+
+GR1
+
+GR2
+
+DE1
+
+DE2
+
+CH
+
+GR1
+
+GR2
+
+Vegetables (g/meal)
+Fruits (g/meal)
+Prepared foods (g/meal)
+Confectionery products (g/meal)
+Starchy foods (g/meal)
+Dairy products (g/meal)
+Meat & seafood (g/meal)
+Animal-derived inedible food parts (g/meal)
+
+77.5
+11.6
+46.0
+4.2
+5.3
+0.6
+3.8
+3.0
+
+25.7
+5.4
+52.4
+0.5
+10.5
+0.2
+1.4
+3.2
+
+23.6
+6.3
+54.6
+18.3
+5.3
+5.6
+7.1
+0.1
+
+18.9
+18.6
+24.0
+4.8
+4.6
+1.0
+0.9
+3.4
+
+36.2
+9.4
+18.6
+2.6
+6.3
+2.1
+1.1
+0.4
+
+43.3
+7.9
+36.5
+3.6
+3.1
+0.6
+3.3
+3.1
+
+12.4
+0.7
+51.5
+1.0
+6.6
+0.5
+1.6
+2.2
+
+23.9
+4.0
+73.5
+15.4
+7.7
+4.2
+5.6
+1.9
+
+4.6
+3.3
+33.6
+4.2
+2.5
+0.6
+3.0
+2.4
+
+8.3
+2.0
+16.1
+3.5
+2.3
+0.9
+1.9
+2.7
+
+Values are described as the sum of each variable divided by the total number of meals served.
+Abbreviations: CH: hotel in Switzerland; DE1: restaurant in a holiday resort in Germany; DE2: business caterer in Germany; GR1: hotel in Greece; GR2: hotel in Greece.
+82
+
+E.G. Sigala et al.
+
+Waste Management 198 (2025) 77–86
+
+(− 34 %), and DE1 (− 18 %). There is a dearth of studies utilizing AIbased devices for waste tracking. To the best of our knowledge, only
+self-reported, non-peer-reviewed results from corporate initiatives using
+fully automatic waste-tracking devices are available. These have re­
+ported effectiveness ranging widely, from 25-70 % in hotels (KITRO S.
+A., personal communication; Leanpath, Inc., 2024; Winnow Solutions
+Ltd, 2024), 54 % in restaurants and bistros (Zornes, 2022), and 41–50 %
+in workplace caterers (Leanpath, Inc., 2024; Winnow Solutions Ltd,
+2024). Moreover, Orr and Goossens (2024) reported a 46 % reduction in
+waste in staff canteens using semi-automatic waste-tracking devices,
+while Leverenz et al. (2021) observed a 64 % reduction in breakfast
+buffet leftovers in four hotels in Germany with the implementation of
+non-AI-based automatic waste-tracking systems. As typically higher
+amounts of food waste are generated in buffets than in à la carte menu
+(Papargyropoulou et al., 2019), it is likely that, overall, there was a
+greater potential for food waste prevention in the Leverenz et al. (2021)
+study. Still, the results of these studies, using non-AI-based wastetracking systems, imply that waste-tracking systems with technologies
+of lower complexity can achieve comparable effectiveness. However, a
+significant restriction of the latter systems is their requirement for
+higher staff involvement, making long term adherence to the recording
+process more demanding.
+While adjustments to mitigate overproduction, based on KITRO re­
+sults, were recorded for all four users (DE1: − 56 %; DE2: − 39 %; GR1:
+− 39 %; GR2: − 45 %) decreases in avoidable plate waste were only
+observed at DE1 (− 24 %). The unavoidable food waste dropped for all
+users except CH (GR1: − 76 %; GR1: − 58 %; DE2: –32 %; DE1: − 26 %),
+with declines in preparation waste being more pronounced (GR1: − 85
+%; GR2: − 81 %; DE2: − 47 %; DE1: − 28 %) compared to unavoidable
+plate waste, which was decreased only at two users (GR1: –33 %; DE1:20 %). Additionally, the intervention’s impact on specific food waste
+categories revealed that fruits exhibited the largest reductions among
+eight food groups (DE1: − 87 %; GR1: − 83 %; GR2: − 79 %; CH: − 36 %),
+while vegetables showed the largest decrease at DE1 (− 44 %) (Table 4).
+Upon examining the effectiveness of the interventions in economic
+terms, cost savings from decreasing per-meal avoidable food waste
+ranged from 1 % to 39 % for all establishments except for CH (Table 3).
+Specifically, compared to baseline, the cost associated with food over­
+production dropped in four establishments (DE1: − 69 %; GR1: − 66 %;
+GR2: − 50 %; DE2: − 48 %) during the demonstration phase, whereas the
+cost of plate waste decreased only at DE1 (− 16 %). Based on non-peerreviewed data, in other HORECA financial savings of 51–66 % have been
+reported using fully automated tracking devices (Leanpath, Inc., 2024),
+while in a hotel with an average of 400 guest/day, KITRO imple­
+mentation resulted in 170 % return on investment after 34 months
+(KITRO S.A., personal communication). Leverenz et al. (2021) reported
+monetary savings of 65 % through the implementation of automatic
+waste-tracking systems in hotels. In that study, the most significant
+savings were seen in the categories of fruits, cheese, fish, and other
+items, each experiencing a decline exceeding 80 %.
+Regarding the longitudinal changes in daily per-meal food waste
+levels, similar trends were observed across all establishments (Table 1S).
+Specifically, except CH, the interventions resulted in a statistically sig­
+nificant decrease in the median daily total food waste generated per
+meal from the baseline to the demonstration phase (p-values for differ­
+ences: DE1: 0.007; DE2: 0.005; GR1: <0.001; GR2: <0.001). Conversely,
+at CH, the median daily per-meal total food waste increased (p-value for
+difference: 0.037). Further analysis using the Mann-Whitney U test
+revealed, in most cases, statistically significant changes in all four food
+waste categories examined, providing evidence that improvements in all
+respective processes were the primary underlying drivers of the
+observed reductions.
+
+3.3. Qualitative outcomes and the link between food waste and meal
+count
+Interviews with managers combined with an investigation of the
+correlation between food waste and meal count (Table 2S) were utilized
+to identify underlying patterns, and operational and behavioral changes
+induced by the intervention.
+3.3.1. Restaurant in a holiday resort in Germany, DE1
+Before the installation of waste-tracking devices, managers reported
+being unaware of their food waste levels; thus, the lack of significant
+correlations between the daily per-meal food waste and meal count
+during this period may reflect poor demand forecasting and large
+portion sizes, along with limitations in food redistribution due to
+COVID-19 restrictions (Table 2S).
+Nonetheless, at the demonstration phase, a weak negative correla­
+tion emerged between total food waste per meal and the number of
+meals served daily. This suggests that the corrective measures adopted
+on the basis of KITRO results may have been more effective in reducing
+food waste as the daily meal count increased. The follow-up interview
+revealed that these measures included good food management practices,
+such as more frequent restocking of the breakfast buffet with smaller
+food quantities, reduction in unnecessary overproduction, and portion
+size adjustments to meet the actual food demand.
+3.3.2. Business caterer in Germany, DE2
+At the first semi-structured interview conducted before the baseline,
+the management of the business caterer asserted existing endeavors to
+reduce food waste. This is likely reflected in the negative correlations
+between the daily per-meal food waste and daily meal count at baseline,
+possibly indicating a more effective demand forecasting as the daily
+meal count increases (Table 2S).
+At the demonstration phase, the previously strong negative correla­
+tion between the daily per-meal total food waste and the number of
+meals served daily weakened. This suggests that, as information on food
+waste generated became more available through KITRO, the impact of
+the food waste reduction efforts became less dependent on the number
+of meals served daily. Additionally, the association between the daily
+meal count and preparation waste lost its statistical significance, indi­
+cating that preventive measures, such as the menu adjustments stated by
+the managers during the follow-up interview, may have contributed to
+food waste reduction independently of the number of meals served
+daily. Conversely, the association with daily per-meal overproduction
+food waste surpassed the statistical significance threshold, shifting to a
+very weak negative correlation, implying that preventive measures
+targeting overproduction were more effective when economies of scale
+could be attained, albeit to a limited extent.
+3.3.3. Hotel in Switzerland, CH
+Prior to the baseline, the hotel managers revealed their motivation
+and existing, albeit fragmented, efforts to decrease food waste. The
+negative associations between the daily per-meal food waste and the
+daily meal count likely reflect again a more effective demand forecasting
+as the number of meals served daily increases (Table 2S).
+During the demonstration phase, there was a slight weakening of the
+negative correlation between the daily meal count and the daily permeal total food waste and unavoidable preparation waste. Nonethe­
+less, the food waste variation between the baseline and demonstration
+phase has been likely influenced by external factors, such as the COVID19 pandemic, which made food demand forecasting more challenging,
+especially for external dinner guests. This is reflected in the increase of
+overproduction and preparation food waste in the demonstration period
+(Table 3). During the follow-up interview, the hotel management
+confirmed that measures for reducing food waste, such as frequent
+restocking breakfast buffets and discussions with staff, were initiated,
+but they were not fully implemented. Furthermore, high staff turnover
+83
+
+E.G. Sigala et al.
+
+Waste Management 198 (2025) 77–86
+
+and a shift to a four-day workweek have impeded the implementation of
+the preventive actions. Additionally, according to management, some
+staff members exhibited unawareness towards the amount of food waste.
+
+baseline food waste levels do not seem to influence the effectiveness of
+quantification interventions (Table 3). Instead, managers’ and staff’s
+engagement, awareness, and willingness to implement the prevention
+measures seem to be more important. This is particularly evident at the
+CH, in which per-meal total food waste increased. This increase was
+likely due to several factors that hampered food demand forecasting and
+redistribution of uneaten food, such as the COVID-19 pandemic. Addi­
+tional factors include limited opportunities for staff training due to the
+reported high staff turnover, a weak motivation of managers and staff, or
+possibly their resistance to change − a limitation of our study, yet
+reflective of real-world settings. These issues are commonly reported by
+other researchers (Filimonau and De Coteau, 2019; Martin-Rios et al.,
+2018; Montesdeoca-Calderón et al., 2024). However, the increase in
+food waste at CH cannot be conclusively attributed to any single factor,
+as these aspects were not specifically explored in our analysis, which
+constitutes another limitation of our study. Overall, as discussed in prior
+studies (Dhir et al., 2020; Malefors et al., 2019; Papargyropoulou et al.,
+2016), socio-cultural and geographic differences, diverse operational
+activities, settings, and menu types, along with the differentiated impact
+of external factors, like COVID-19 and heating energy shortages, may
+have accounted for these differences between settings. However, not all
+establishments were affected by these external factors, such as COVID19 and energy shortages; only DE1, DE2, and CH experienced impacts.
+Specifically, DE1 had a lower guest count at baseline due to COVID-19
+and energy shortages; in DE2, the intervention started in May 2022,
+after COVID-19, with a lower guest count; and in CH, although Swiss
+COVID-19 restrictions had been mostly lifted, the guest count remained
+lower than usual. Therefore, with relatively higher guest counts during
+the demonstration phases, this could have undermined the results of the
+interventions. Moreover, another limitation is that the possibility of the
+Hawthorne effect, behavioral reactivity (Jones, 1992), and social
+desirability bias induced by the self-observation process, as well as
+misclassification errors or incomplete recording of waste events in the
+waste-tracking device cannot be entirely dismissed, particularly in the
+CH, where staff motivation was low and only one KITRO device was
+available. The results from KITRO devices were not validated through
+on-site waste compositional analyses by a researcher or a third party.
+However, images uploaded to the dashboard were thoroughly checked
+by the research team through random sampling.
+A key strength of this study is the successful implementation of the
+intervention across different contextual and geographic settings, which
+demonstrates its transferability. However, the cost of the initial invest­
+ment cannot be assessed, as the interventions were part of the LOW­
+INFOOD project. Thus, the financial efficiency of the intervention
+cannot be evaluated. However, follow-up communication with the
+managers of GR2 a year later confirmed that they decided to invest in the
+KITRO technology, when this study ended. Moreover, the company
+owing DE1 decided to install KITRO devices in other establishments it
+owns. This suggests that the companies considered the intervention to be
+useful to sustain good food waste prevention practices over time and
+cost-effective for their overall business priorities.
+А practical asset, highlighted by all establishments involved in this
+study, was the user-friendly online dashboard and the automatically
+produced reports for managers and chefs. All users of KITRO reported
+that these outputs provided clear daily understanding of the food waste
+hot spots, required minimal effort and time to assess related perfor­
+mance indicators, and were cost-effective considering the final savings.
+Moreover, the high data granularity provided without additional staff
+workload facilitated the detailed detection of food waste sources.
+This intervention type was more effective in reducing preparation
+food waste and overproduction than consumers’ leftovers. Therefore, it
+may be more suitable for targeting food waste related to operational
+procedures and demand forecasting. This underscores the need to also
+address consumers’ plate waste by combining behavioral interventions
+that raise consumers’ awareness, such as nudges, along with in­
+terventions using waste-tracking devices, thereby facilitating food waste
+
+3.3.4. Four-star all-inclusive hotel in Greece, GR1
+Before the baseline period, hotel managers declared that they had
+already made attempts to curb food waste. Delving deeper into the
+correlations, the negative correlations between daily per-meal food
+waste and the number of meals served daily indicate that these efforts
+were more effective in larger guest counts (Table 2S). At baseline, there
+was a moderate increase in daily avoidable plate waste per meal as the
+number of daily meals rose. This may be attributed to the baseline
+coinciding with the beginning of the summer season, during which new
+menu options were tested by the chefs, as reported by the hotel man­
+agement. It is possible that guests did not like all these menu options,
+leaving more food on their plates.
+At the demonstration phase, only the association between daily meal
+count and daily per-meal preparation waste retained its statistical sig­
+nificance, shifting to a weak positive relationship. This shift may be
+indicative of the increased availability of summer fruits on the buffets,
+such as watermelons and melons, which contain a high proportion of
+inedible parts. Moreover, the intervention’s effectiveness in reducing
+food waste and the loss of statistical significance in other correlations
+suggest that re-designing the menu and staff training, as reported by
+hotel management, may have been effective preventive measures irre­
+spective of how many meals were served daily.
+3.3.5. Five-star hotel in Greece, GR2
+Prior to the installation of waste-tracking devices, hotel management
+was motivated to reduce food waste. However, they noted that this
+objective occasionally contradicted their willingness to satisfy their
+guests. This may explain the strong positive associations observed at
+baseline between daily per-meal plate waste and daily meal count
+(Table 2S), as the desire of the hotel management to provide many food
+options and high food availability in the buffets resulted to an abun­
+dance of food presented, likely leading guests to overload their plates
+(Papargyropoulou et al., 2019). This was more pronounced the higher
+the guest count, as more food was made available in the buffets.
+At the demonstration period, daily per-meal total food waste, as well
+as food waste due to preparation and overproduction, were negatively
+correlated with the number of meals served daily. This indicates that the
+implementation of preventive measures was more effective in high guest
+counts. Hotel managers reported improvements in food management
+practices, such as better food storage to reduce spoilage; decreased food
+overproduction; implementation of a corporate policy for redistributing
+unconsumed food from the kitchen (i.e. overproduction) to staff; portion
+size adjustments; an on-demand preparation of foods, like scrambled
+eggs, at the buffets; and staff training. Similarly to the hotel in Kos, the
+very weak correlation between daily per-meal unavoidable plate waste
+and the daily meal count may be linked to consumers’ dietary prefer­
+ences, such as the consumption of summer fruits with a high proportion
+of inedible parts, which are served with peelings at this hotel.
+3.4. Assessment of the interventions, strengths and limitations
+The effectiveness of the intervention in lowering food waste varied
+across the different settings examined, with the largest reduction
+observed at GR2, which implemented the greatest number of tailored
+measures. Therefore, systematically measuring food waste, in conjunc­
+tion with other measures (Eriksson et al., 2019), provides HORECA
+businesses with valuable insights into the magnitude of the problem,
+allows for the identification of food waste hotspots, and enhances
+managers’ and staff’s awareness, thereby facilitating the implementa­
+tion of targeted corrective measures (Goossens et al., 2022; Leverenz
+et al., 2021; Strotmann et al., 2022).
+Moreover, contrary to previous findings (Eriksson et al., 2019), high
+84
+
+E.G. Sigala et al.
+
+Waste Management 198 (2025) 77–86
+
+reduction at all levels of foodservice. This combined approach could also
+amplify the potential positive systemic effects of waste-tracking devices,
+such as when trained staff adopt pro-environmental behaviors at their
+households (Wang et al., 2022).
+
+Data availability
+Data will be made available on request.
+References
+
+4. Conclusions
+
+Beretta, C., Hellweg, S., 2019. Potential environmental benefits from food waste
+prevention in the food service sector. Resour. Conserv. Recycl. 147, 169–178.
+https://doi.org/10.1016/j.resconrec.2019.03.023.
+Bundesministerium für Gesundheit, 2023. Coronavirus-Pandemie: Was geschah wann?
+[WWW Document]. BMG. URL https://www.bundesgesundheitsministerium.de/
+coronavirus/chronik-coronavirus (accessed 9.2.24).
+Candeal, T., Brüggemann, N., Bruns, H., Casonato, C., Diercxsens, C., Garcia Herrero, L.,
+Gil, J.M., Haglund, Y., Kaptan, G., Kasza, G., Mikkelsen, B.E., Obersteiner, G., Pires,
+I.M., Swannell, R., Vainioranta, J., Van Herpen, E., Vittuari, M., Watanabe, K., Sala,
+S., 2023. Tools, best practices and recommendations to reduce consumer food waste
+- A compendium. Publications Office of the European Union, Luxembourg,
+JRC133004. doi: 10.2760/404597.
+Clowes, A., Mitchell, P., Hanson, C., 2018a. The Business Case for Reducing Food Loss
+and Waste: Catering, The Business Case for Reducing Food Loss and Waste.
+Clowes, A., Mitchell, P., Hanson, C., 2018b. The Business Case for Reducing Food Loss
+and Waste: Hotels, The Business Case for Reducing Food Loss and Waste.
+Clowes, A., Hanson, C., Swannell, R., 2019. The Business Case for Reducing Food Loss
+and Waste: Restaurants, The Business Case for Reducing Food Loss and Waste.
+Cm, J., 2022. Impacts of food wastage on economic growth. World Food Policy 8,
+118–125. https://doi.org/10.1002/wfp2.12038.
+Council of the EU, 2024. Waste framework directive: Council set to start talks on its
+revision [WWW Document]. Consilium. URL https://www.consilium.europa.eu/en/
+press/press-releases/2024/06/17/waste-framework-directive-council-set-to-starttalks-on-its-revision/ (accessed 7.20.24).
+Dhir, A., Talwar, S., Kaur, P., Malibari, A., 2020. Food waste in hospitality and food
+services: A systematic literature review and framework development approach.
+J. Clean. Prod. 270, 122861. https://doi.org/10.1016/j.jclepro.2020.122861.
+Dolnicar, S., Juvan, E., Grün, B., 2020. Reducing the plate waste of families at hotel
+buffets – A quasi-experimental field study. Tour. Manage. 80. https://doi.org/
+10.1016/j.tourman.2020.104103.
+Eriksson, M., Persson Osowski, C., Malefors, C., Björkman, J., Eriksson, E., 2017.
+Quantification of food waste in public catering services – A case study from a
+Swedish municipality. Waste Manag. 61, 415–422. https://doi.org/10.1016/j.
+wasman.2017.01.035.
+Eriksson, M., Persson Osowski, C., Björkman, J., Hansson, E., Malefors, C., Eriksson, E.,
+Ghosh, R., 2018. The tree structure — A general framework for food waste
+quantification in food services. Resour. Conserv. Recycl. 130, 140–151. https://doi.
+org/10.1016/j.resconrec.2017.11.030.
+Eriksson, M., Malefors, C., Callewaert, P., Hartikainen, H., Pietiläinen, O., Strid, I., 2019.
+What gets measured gets managed – Or does it? Connection between food waste
+quantification and food waste reduction in the hospitality sector. Resour. Conserv.
+Recycl.: X 4. https://doi.org/10.1016/j.rcrx.2019.100021.
+European Commission, 2015. Communication from the Commission to the European
+Parliament, The Council, The European Economic and Social Committee and The
+Committee of the Regions Closing the loop - An EU action plan for the Circular
+Economy, COM(2015) 614 final.
+European Commission, 2019. Commission Delegated Decision (EU) 2019/1597 of 3 May
+2019 supplementing Directive 2008/98/EC of the European Parliament and of the
+Council as regards a common methodology and minimum quality requirements for
+the uniform measurement of levels of food waste, (OJ L 248, 27.9.2019, p. 77–85).
+European Commission, 2023. Proposal for a Directive of the European Parliament and of
+the Council amending Directive 2008/98/EC on waste, COM (2023) 420 final.
+European Parliament and of the Council, 2018. Directive (EU) 2018/851 of the European
+Parliament and of the Council of 30 May 2018 amending Directive 2008/98/EC on
+waste, (OJ L 150, 14.6.2018, p. 109–140).
+Eurostat, 2023. Food waste and food waste prevention by NACE Rev. 2 activity - tonnes
+of fresh mass. URL https://ec.europa.eu/eurostat/databrowser/view/env_wasfw/
+default/table?lang=en (accessed 11.8.23).
+FAO, 2014. Food Wastage Footprint: Full-Cost Accounting (Final Report). FAO, Rome,
+Italy.
+FAO, IFAD, UNICEF, WFP, WHO, 2024. The State of Food Security and Nutrition in the
+World 2024: Financing to end hunger, food insecurity and malnutrition in all its
+forms. FAO, IFAD, UNICEF, WFP, WHO, Rome, Italy.
+FAO, 2013. Food wastage footprint: Impacts on Natural Resources. Summary Report.
+FAO, Rome, Italy.
+FAO, 2018. The future of food and agriculture-Alternative pathways to 2050. FAO.
+FAO, 2019. The State of Food and Agriculture 2019: Moving Forward on Food Loss and
+Waste Reduction. FAO. doi: 10.18356/32f21f8c-en.
+Filimonau, V., De Coteau, D.A., 2019. Food waste management in hospitality operations:
+A critical review. Tour. Manage. 71, 234–245. https://doi.org/10.1016/j.
+tourman.2018.10.009.
+Filimonau, V., Lemmer, C., Marshall, D., Bejjani, G., 2017a. Restaurant menu re-design
+as a facilitator of more responsible consumer choice: An exploratory and preliminary
+study. J. Hosp. Tour. Manag. 33, 73–81. https://doi.org/10.1016/j.
+jhtm.2017.09.005.
+Garcia-Herrero, L., Casonato, C., Caldeira, C., De Laurentiis, V., Bruns, H., Sala, S., 2023.
+Scoping consumer food waste: an evaluation framework of prevention interventions.
+
+This study is unique, as it provides both quantitative and qualitative
+evidence on the results attained by interventions using AI-based, fully
+automatic food waste tracking devices, to facilitate and guide the
+development and implementation of tailored prevention measures at the
+operational level. The installation of these devices resulted in a 23–51 %
+reduction in per-meal total food waste across different settings, with
+reported positive evidence of sustainability over time. In these estab­
+lishments, the intervention enhanced staff awareness towards food
+waste, facilitating prevention actions, at the operational level, such as
+mitigation of food overproduction, regular buffet restocking, portion
+and menu adjustments, food storage improvement, redistribution of
+uneaten food to staff, on-demand food preparation at buffets, and staff
+training. Conversely, a 13 % increase in food waste observed in one of
+the establishments examined, was mainly attributed to external factors,
+such as the COVID-19 pandemic, and low motivation of managers and
+staff. Future studies should focus on combined interventions that
+address both operational and consumer level, while government and
+legislative bodies should support incentives for implementing these
+projects.
+CRediT authorship contribution statement
+Evangelia G. Sigala: Writing – original draft, Methodology, Formal
+analysis, Data curation, Conceptualization. Paula Gerwin: Writing –
+original draft, Methodology, Investigation, Formal analysis, Data cura­
+tion, Conceptualization. Christina Chroni: Writing – review & editing,
+Project administration, Investigation, Data curation, Conceptualization.
+Konstadinos Abeliotis: Writing – review & editing, Supervision,
+Methodology, Conceptualization. Christina Strotmann: Writing – re­
+view & editing, Project administration, Investigation, Data curation,
+Conceptualization. Katia Lasaridi: Writing – review & editing, Super­
+vision, Resources, Project administration, Methodology, Funding
+acquisition, Conceptualization.
+Funding
+LOWINFOOD has received funding from the European Union’s Ho­
+rizon 2020 Research and Innovation programme under grant agreement
+No 101000439.
+Declaration of competing interest
+The authors declare that they have no known competing financial
+interests or personal relationships that could have appeared to influence
+the work reported in this paper.
+Acknowledgements
+Authors would like to thank KITRO S.A. for their cooperation during
+the demonstration phase. The trusting collaboration and the provision of
+internal data formed the basis for our study. We would also like to thank
+the participating establishments, in which KITRO devices were installed,
+for their support in providing the required data for our analyses. Busi­
+nesses’ cooperation for data publishing is never a matter of course.
+Appendix A. Supplementary data
+Supplementary data to this article can be found online at https://doi.
+org/10.1016/j.wasman.2025.02.044.
+85
+
+E.G. Sigala et al.
+
+Waste Management 198 (2025) 77–86
+
+Publications Office of the European Union, Luxembourg, JRC128763. doi: 10.2760/
+3128.
+Goossens, Y., Leverenz, D., Kuntscher, M., 2022. Waste-tracking tools: A business case for
+more sustainable and resource efficient food services. Resour. Conserv. Recycl. 15,
+200112. https://doi.org/10.1016/j.rcradv.2022.200112.
+Heikkilä, L., Reinikainen, A., Katajajuuri, J.-M., Silvennoinen, K., Hartikainen, H., 2016.
+Elements affecting food waste in the food service sector. Waste Manag. 56, 446–453.
+https://doi.org/10.1016/j.wasman.2016.06.019.
+Hlpe, 2014. Food losses and waste in the context of sustainable food systems. A report by
+the High Level Panel of Experts on Food Security and Nutrition of the Committee on
+World Food Security. HPLE, Rome, Italy.
+Jones, S.R.G., 1992. Was There a Hawthorne Effect? Am. J. Sociol. 98, 451–468.
+Kallbekken, S., Sælen, H., 2013. ‘Nudging’ hotel guests to reduce food waste as a
+win–win environmental measure. Econ. Lett. 119, 325–327.
+Kummu, M., de Moel, H., Porkka, M., Siebert, S., Varis, O., Ward, P.J., 2012. Lost food,
+wasted resources: Global food supply chain losses and their impacts on freshwater,
+cropland, and fertiliser use. Sci. Total Environ. 438, 477–489. https://doi.org/
+10.1016/j.scitotenv.2012.08.092.
+Leanpath, Inc., 2024. Resources - Leanpath [WWW Document]. URL https://www.
+leanpath.com/resources/#case (accessed 9.10.24).
+Leverenz, D., Hafner, G., Moussawel, S., Kranert, M., Goossens, Y., Schmidt, T., 2021.
+Reducing food waste in hotel kitchens based on self-reported data. Ind. Mark.
+Manag. 93, 617–627.
+Lins, M., Puppin Zandonadi, R., Raposo, A., Ginani, V.C., 2021. Food waste on
+foodservice: an overview through the perspective of sustainable dimensions. Foods
+10. https://doi.org/10.3390/foods10061175.
+Malefors, C., Callewaert, P., Hansson, P.-A., Hartikainen, H., Pietiläinen, O., Strid, I.,
+Strotmann, C., Eriksson, M., 2019. Towards a baseline for food-waste quantification
+in the hospitality sector—quantities and data processing criteria. Sustainability 11.
+https://doi.org/10.3390/su11133541.
+Martin-Rios, C., Demen-Meier, C., Gössling, S., Cornuz, C., 2018. Food waste
+management innovations in the foodservice industry. Waste Manag. 79, 196–206.
+https://doi.org/10.1016/j.wasman.2018.07.033.
+Mbow, C., Rosenzweig, C., Barioni, L.G., Benton, T.G., Herrero, M., Krishnapillai, M.,
+Liwenga, E., Pradhan, P., Rivera-Ferre, M.G., Sapkota, T., Tubiello, F.N., Xu, Y.,
+2019. Food Security, in: Climate Change and Land: An IPCC Special Report on
+Climate Change, Desertification, Land Degradation, Sustainable Land Management,
+Food Security, and Greenhouse Gas Fluxes in Terrestrial Ecosystems [P.R. Shukla, J.
+Skea, E. Calvo Buendia, V. Masson-Delmotte, H.-O. Pörtner, D.C. Roberts, P. Zhai, R.
+Slade, S. Connors, R. van Diemen, M. Ferrat, E. Haughey, S. Luz, S. Neogi, M. Pathak,
+J. Petzold, J. Portugal Pereira, P. Vyas, E. Huntley, K. Kissick, M. Belkacemi, J.
+Malley, (Eds.)].
+McAdams, B., von Massow, M., Gallant, M., Hayhoe, M.-A., 2019. A cross industry
+evaluation of food waste in restaurants. J. Foodserv. Bus. Res. 22, 449–466. https://
+doi.org/10.1080/15378020.2019.1637220.
+Montesdeoca-Calderón, M.-G., Gil-Saura, I., Ruiz-Molina, M.-E., Martin-Rios, C., 2024.
+Tackling food waste management: Professional training in the public interest. Int. J.
+Gastron. Food Sci. 35, 100863. https://doi.org/10.1016/j.ijgfs.2023.100863.
+Montiel, I., Delgado-Ceballos, J., 2014. Defining and measuring corporate sustainability:
+are we there yet? Organ. Environ. 27, 113–139. https://doi.org/10.1177/
+1086026614526413.
+Okumus, B., 2020. How do hotels manage food waste? evidence from hotels in Orlando,
+Florida. J. Hosp. Mark. Manage. 29, 291–309. https://doi.org/10.1080/
+19368623.2019.1618775.
+
+Orr, L., Goossens, Y., 2024. Trimming the plate: a comprehensive case study on effective
+food waste reduction strategies in corporate canteens. Sustainability 16, 785.
+https://doi.org/10.3390/su16020785.
+Papargyropoulou, E., Wright, N., Lozano, R., Steinberger, J., Padfield, R., Ujang, Z.,
+2016. Conceptual framework for the study of food waste generation and prevention
+in the hospitality sector. Waste Manag. 49, 326–336. https://doi.org/10.1016/j.
+wasman.2016.01.017.
+Papargyropoulou, E., Steinberger, J.K., Wright, N., Lozano, R., Padfield, R., Ujang, Z.,
+2019. Patterns and causes of food waste in the hospitality and food service sector:
+Food waste prevention insights from Malaysia. Sustainability 11. https://doi.org/
+10.3390/su11216016.
+Schweizerische Eidgenossenschaft, 2022. Coronavirus: Bundesrat hebt Massnahmen auf
+– einzig Maskenpflicht im öffentlichen Verkehr und in Gesundheitseinrichtungen
+sowie Isolation bleiben noch bis Ende März [WWW Document]. URL https://www.
+admin.ch/gov/de/start/dokumentation/medienmitteilungen.msg-id-87216.html
+(accessed 9.13.24).
+Scialabba, N., 2015. Food Wastage Footprint & Climate Change. FAO, Rome, Italy.
+Silvennoinen, K., Heikkilä, L., Katajajuuri, J.-M., Reinikainen, A., 2015. Food waste
+volume and origin: Case studies in the Finnish food service sector. Waste Manag. 46,
+140–145. https://doi.org/10.1016/j.wasman.2015.09.010.
+Stöckli, S., Dorn, M., Liechti, S., 2018. Normative prompts reduce consumer food waste
+in restaurants. Waste Manag. 77, 532–536. https://doi.org/10.1016/j.
+wasman.2018.04.047.
+Strotmann, C., Baur, V., Börnert, N., Gerwin, P., 2022. Generation and prevention of food
+waste in the German food service sector in the COVID-19 pandemic – Digital
+approaches to encounter the pandemic related crisis. Socio-Econ. Plann. Sci. 82.
+https://doi.org/10.1016/j.seps.2021.101104.
+UNEP, 2024. Food Waste Index Report 2024. Think Eat Save: Tracking Progress to Halve
+Global Food Waste. United Nations Environment Programme, Nairobi.
+United Nations, 2015. Transforming our world: the 2030 Agenda for Sustainable
+Development. United Nations, New York, NY, USA.
+Vardopoulos, I., Abeliotis, K., Lasaridi, K., 2025. A systematic informetric analysis and
+literature review of food waste quantification studies in the food service industry.
+Sustainability 17, 103. https://doi.org/10.3390/su17010103.
+Borstel, T. von, Prenzel, G.K., Welte, B., 2020. FOOD WASTE 4.0. Zwischenbilanz 2020.
+Reduktionsziele• Warenverluste• Umweltkennzahlen. Plankstadt. URL https://
+www.united-against-waste.de/downloads/united-against-waste-zwischenbilanz2020-kompakt.pdf.
+Wang, L.-E., Liu, G., Liu, X., Liu, Y., Gao, J., Zhou, B., Gao, S., Cheng, S., 2017. The
+weight of unfinished plate: A survey based characterization of restaurant food waste
+in Chinese cities. Waste Manag. 66, 3–12. https://doi.org/10.1016/j.
+wasman.2017.04.007.
+Wang, F., Shreedhar, G., Galizzi, M.M., Mourato, S., 2022. A take-home message:
+workplace food waste interventions influence household pro-environmental
+behaviors. Resour., Conserv. Recycl. Adv. 15. https://doi.org/10.1016/j.
+rcradv.2022.200106.
+Winnow Solutions Ltd, 2024. Case studies [WWW Document]. URL https://www.
+winnowsolutions.com/en/case-studies (accessed 9.10.24).
+Wrap, 2013a. Household Food and Drink Waste in the United Kingdom 2012. WRAP, UK.
+WRAP, 2013b. Overview of waste in the hospitality and food service sector [WWW
+Document]. URL https://www.wrap.ngo/resources/report/overview-wastehospitality-and-food-service-sector (accessed 9.10.24).
+Zornes, M., 2022. How IKEA co-workers teamed up with Winnow to halve their global
+food waste [WWW Document]. URL https://blog.winnowsolutions.com/ikeawinnow-halve-their-global-food-waste (accessed 9.10.24).
+
+86
+
+

@@ -1,9 +1,9 @@
 # Master Analyse-Indeks: Evidence Pack
 
 > Generert: 2026-04-13
-> Oppdatert: 2026-04-14 (opprydding fullfort)
-> Totalt i evidence-pack: 91 PDF-filer (96 inkl. pubmed-undermappe)
-> Analysert: alle filer gjennomgatt
+> Oppdatert: 2026-04-21
+> Totalt i evidence-pack etter opprydding: ~240 PDF-filer (inkl. matsvinn-korpus, perplexity-runde, forskningsrunde-2026-04-20)
+> Analysert: alle filer gjennomgatt (se pdf-gjennomgang-*.md)
 
 ## Status-sammendrag (etter opprydding)
 
@@ -19,17 +19,21 @@
 | konsulentrapport | 1 | |
 | **Totalt** | **96** | **6 filer slettet i opprydding** |
 
-## Opprydding utfort 2026-04-14
+## Opprydding utført 2026-04-21
 
-### Slettet (6 filer)
+Oppryddingen som var planlagt 2026-04-14 ble først gjennomført 2026-04-21. Se `git log` for hash-verifikasjon.
+
+### Slettet eller omdøpt (8 filer)
 | Fil | Grunn |
 |-----|-------|
-| `nordisk/dk-salling-coop-decision-2025.pdf` | Duplikat av kfst-salling-coop-2025-full.pdf (identisk SHA256) |
-| `tilsyn/dagligvarerapport-2025.pdf` | Duplikat av dagligvarerapport-2024.pdf (identisk SHA256, villedende filnavn) |
-| `nordisk/karlstad-declaration-2024.pdf` | Feilfilt — er Nordisk Ministerrad arkitekturpublikasjon, ikke matsystem |
-| `nordisk/nordic-food-alert-2025.pdf` | Feilfilt — arkitekturpublikasjon, ikke matvarsel |
-| `tenketank/fivh-etikk-2025.pdf` | Feilmerket — er NORSUS/Matvett matsvinnrapport 2021 (OR.48.21) |
-| `akademia/agrianalyse-bondens-andel-2025.pdf` | Korrupt — var HTML-fil (57 KB), ikke PDF |
+| `nordisk/dk-salling-coop-decision-2025.pdf` | Duplikat av kfst-salling-coop-2025-full.pdf (SHA `db15012312…`) |
+| `nordisk/salling-coop-danmark-2025.pdf` | Duplikat av akademia/huynh-mortensen-2025.pdf (SHA `9f8d0396…`) |
+| `tilsyn/dagligvarerapport-2025.pdf` | Duplikat av dagligvarerapport-2024.pdf (SHA `f0fab2be…`, villedende filnavn) |
+| `nordisk/karlstad-declaration-2024.pdf` | Feilfilt — Nordisk Ministerrad arkitekturpublikasjon (nord2024-023), ikke matsystem |
+| `nordisk/nordic-food-alert-2025.pdf` | Feilfilt — *Beyond Zero: Nordic Architecture on the Road Towards Renewed Practices* |
+| `offentlig/nou-2011-4-mat-makt-avmakt-full.pdf` | Duplikat av nou-2011-4-mat-makt-avmakt.pdf (SHA `e1b7b881…`) |
+| `tenketank/norsus-matvett-kartleggingsrapport-matbransjen-undervisning-omsorg-forbrukerleddet-or48-21.pdf` | Omdøpt fra `fivh-etikk-2025.pdf` 2026-04-20 — er NORSUS/Matvett matsvinnrapport 2021 (OR.48.21). FIVH etikkrapport 2025 må lastes ned separat. |
+| `akademia/agrianalyse-bondens-andel-2025.pdf` | HTML-fil (57 KB) feil-lagret som PDF |
 
 ### Beholdt (verifisert IKKE duplikater)
 | Fil A | Fil B | Merknad |
@@ -49,9 +53,14 @@
 | [pdf-gjennomgang-akademia-3.md](pdf-gjennomgang-akademia-3.md) | 11 | Ja |
 | [pdf-gjennomgang-pubmed.md](pdf-gjennomgang-pubmed.md) | 9 | Ja |
 | [pdf-gjennomgang-offentlig.md](pdf-gjennomgang-offentlig.md) | 17 | Ja |
+| [pdf-gjennomgang-offentlig-2.md](pdf-gjennomgang-offentlig-2.md) | 12 (11 unike) | Ja |
 | [pdf-gjennomgang-nordisk.md](pdf-gjennomgang-nordisk.md) | 13 (10 unike) | Ja |
+| [pdf-gjennomgang-nordisk-2.md](pdf-gjennomgang-nordisk-2.md) | 10 | Ja |
 | [pdf-gjennomgang-arsrapporter.md](pdf-gjennomgang-arsrapporter.md) | 11 | Ja |
 | [pdf-gjennomgang-tilsyn-tenketank.md](pdf-gjennomgang-tilsyn-tenketank.md) | 13 (10 unike) | Ja |
+| [pdf-gjennomgang-perplexity-runde.md](pdf-gjennomgang-perplexity-runde.md) | 18 | Ja |
+| [pdf-gjennomgang-forskningsinstitutt.md](pdf-gjennomgang-forskningsinstitutt.md) | 17 | Ja |
+| [pdf-gjennomgang-forskningsrunde-april.md](pdf-gjennomgang-forskningsrunde-april.md) | 39 (38 lokalt, 1 eksternreferanse) | Ja |
 
 ---
 

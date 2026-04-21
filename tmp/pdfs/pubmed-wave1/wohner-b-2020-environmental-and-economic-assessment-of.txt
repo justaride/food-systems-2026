@@ -1,0 +1,1734 @@
+Science of the Total Environment 738 (2020) 139846
+
+Contents lists available at ScienceDirect
+
+Science of the Total Environment
+journal homepage: www.elsevier.com/locate/scitotenv
+
+Environmental and economic assessment of food-packaging systems
+with a focus on food waste. Case study on tomato ketchup
+Bernhard Wohner a,⁎, Viktoria Helene Gabriel a,b, Barbara Krenn a, Victoria Krauter a, Manfred Tacker a
+a
+b
+
+Section Packaging and Resource Management, University of Applied Sciences Campus Vienna, Helmut-Qualtinger-Gasse 2/2/3, Vienna 1030, Austria
+Circular Analytics TK GmbH, Otto-Bauer-Gasse 3/13, Vienna 1060, Austria
+
+H I G H L I G H T S
+
+G R A P H I C A L
+
+A B S T R A C T
+
+• Ketchup waste due to poor emptiability
+ranged from 3.85% (±0.41) to 28.80%
+(±3.30).
+• Emptiability of ketchup in glass packaging is better than in polypropylene bottles.
+• Glass packaging has greater environmental impacts than polypropylene
+bottles.
+• Including packaging-related FLW can
+alter the ranking of products.
+• Poor emptiability increases costs to the
+consumer but also economic value
+added.
+
+a r t i c l e
+
+i n f o
+
+Article history:
+Received 14 January 2020
+Received in revised form 25 May 2020
+Accepted 29 May 2020
+Available online 1 June 2020
+Editor: Deyi Hou
+Keywords:
+Life cycle assessment
+Multi-criteria decision analysis
+Circular economy
+Food packaging
+Value added
+Food waste
+
+a b s t r a c t
+In this paper, a sustainability evaluation method for food-packaging systems is proposed. First, food waste due to
+poor emptiability was determined. Then, these quantities were included in life cycle assessments (LCA) and life
+cycle costing (value added, VA) of the products. Finally, LCA and VA results were combined using multi-criteria
+decision analysis, Technique for Order by Similarity to Ideal Solution (TOPSIS), in order to identify the most sustainable food packaging system.
+As a case study, four different ketchup products were examined. For ketchup in polypropylene bottles, FLW
+resulting from poor emptiability ranged from 13.12% (±2.05) to 28.80% (±3.30) respectively, while this was
+only 3.85% (±0.41) for ketchup packaged in glass. After integrating the emptiability results into life cycle assessments, this resulted in greenhouse gas emissions of 5.66 to 9.16 kg CO2eq per 3.80 kg consumed ketchup, the average consumption per capita in Austria. Importantly, poor emptiability of the examined products led to greater
+environmental impacts than the associated packaging. While greater product loss also pushes up the costs for
+consumers, it contributes to more value added to the economic system, which is in stark contrast to the goal of
+decoupling the economy from resource consumption.
+© 2020 The Authors. Published by Elsevier B.V. This is an open access article under the CC BY license (http://
+creativecommons.org/licenses/by/4.0/).
+
+Abbreviations: AC, acidiﬁcation; CC, climate change; CNV, conventional agriculture; CRITIC, Criteria Importance through Intercriteria Correlation; EMPT, emptiability; FEU,
+eutrophication, freshwater; FLW, food losses and waste; FRD, resource use, fossils; FU, functional unit; GL, glass; LCA, life cycle assessment; MCDA, multi-criteria decision analysis; PP, polypropylene; ORG, organic agriculture; PEF, product environmental footprint; PM, particulate matter; TOPSIS, technique for order by similarity to ideal solution; VA, value added; WU, water
+use.
+⁎ Corresponding author.
+E-mail address: bernhard.wohner@fh-campuswien.ac.at (B. Wohner).
+
+https://doi.org/10.1016/j.scitotenv.2020.139846
+0048-9697/© 2020 The Authors. Published by Elsevier B.V. This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).
+
+2
+
+B. Wohner et al. / Science of the Total Environment 738 (2020) 139846
+
+1. Introduction
+Today, the world's economy is mainly based on a linear model. Recent studies suggest that globally, only 9% of all raw materials are
+reused, recycled or composted after their use (de Wit et al., 2018).
+Concerning the European Union (EU), only 67% of packaging and 46%
+of municipal waste is currently recycled (eurostat, 2019a). As a result,
+initiating a transformation towards a circular economy by adopting
+the ‘Circular Economy Package’ has become one of the top priorities of
+the EU (European Commission, 2019b).
+This package includes goals such as requiring full recyclability or reusability of packaging (European Commission [DG ENV - Directorate C],
+2018), increased recycling quotas of packaging as well as halving food
+waste by 2050 or 2030 respectively (The European Parliament and the
+Council, 2018). In Austria, only 25% of plastic packaging is currently
+recycled (Altstoff Recycling Austria AG, 2018), meaning that this must
+be approximately doubled by 2030 to fulﬁll the mandatory quota of 55%.
+As a possible solution, in addition to increasing the recyclability of
+plastic packaging, a general reduction of plastic is highly discussed.
+Such a reduction has further gained fresh prominence due to increasing
+public disdain concerning plastic. This has been addressed by several
+Austrian food retailers, who declared the reduction of plastic packaging
+in their mission statements (HOFER, 2018; REWE Group, 2018; SPAR,
+2019). Furthermore, the reduction of plastic packaging by 20% to 25%
+was ofﬁcially declared a goal of the Austrian government in 2018
+(Bundeskanzleramt, Bundesministerium Öffentlicher Dienst und Sport,
+Bundesministerium Nachhaltigkeit und Tourimus, 2018). However, environmental beneﬁts of reducing the quantity of plastic packaging could
+even lead to greater environmental impacts when it is substituted by
+other materials such as paper, glass or metal (Pilz et al., 2010). Furthermore, a reduction or substitution of plastic packaging could increase the
+generation of food loss and waste (FLW) (Pauer et al., 2019; Wohner
+et al., 2019a). While much research has been carried out on the evaluation of direct environmental impacts of packaging by conducting life
+cycle assessments (LCA), there is still very little scientiﬁc understanding
+of indirect effects (Molina-Besch et al., 2018; Wohner et al., 2019a).
+
+Since protecting food is in fact the main function of packaging
+(Lindh et al., 2016; Pauer et al., 2019), sustainability evaluations of
+packaging should not be carried out without considering its impact
+on the ﬁlling good and thus of holistic evaluations of food together
+with its associated packaging (food-packaging systems) (Pauer
+et al., 2019). With 14% of food being lost between post-harvest and
+retail level (FAO, 2019) together with older estimates of 30% being
+lost across the whole supply chain (Gustavsson et al., 2011), it is
+clear however that FLW and therefore indirect effects of packaging
+are a pressing concern. Several authors already focus on assessing
+FLW by using LCA (Beretta and Hellweg, 2019; Scherhaufer et al.,
+2018), with an increasing number of authors integrating FLW into
+the LCA of packaging (Molina-Besch et al., 2018). Among other aspects, this includes (i) FLW related to packaging being difﬁcult to
+empty (Meurer et al., 2017; Williams et al., 2012; Williams and
+Wikström, 2011; Wohner et al., 2019b), (ii) calculation of breakeven rates between the volume of packaging material and FLW
+(Bacenetti et al., 2018; Yokokawa et al., 2018) or (iii) modelling the
+quantity of FLW based on shelf life (Conte et al., 2015).
+According to Pauer et al. (2019), evaluations of food-packaging systems should include direct and indirect environmental effects, in addition to circularity assessments, yet without proposing a combined
+evaluation method. Niero and Kalbar (2019) already combined direct
+environmental effects (LCA results) of packaging and circularity metrics
+using multi-criteria decision analysis (MCDA). In context of this research, however, we argue that circularity parameters such as recycled
+content or recycling quotas may affect LCA results, thus violating the
+rules of using only independent attributes in MCDA (Belton and
+Stewart, 2003).
+In summary, the aim of the present paper is to analyze packagingrelated FLW of food-packaging systems in order to integrate it into environmental and economic assessments. Against this background, a
+case study on tomato ketchup is conducted. Emptiability is quantiﬁed,
+which is then integrated into LCA and life cycle costing (LCC) of the
+products. Finally, the most sustainable product is identiﬁed by using
+multi-criteria decision analysis (MCDA).
+
+Fig. 1. Ketchup products chosen as illustrative examples. a) Conventional ketchup, produced in Austria, 450 g indicated ﬁlling quantity, 29.99 g colored polypropylene (PP) bottle with
+10.81 g colored PP cap, 0.28 g multilayer seal (assuming a composition of 52% polyethylene, 25% polyethylene terephthalate, 17% adhesive and 6% aluminum) and 0.97 g PP labels.
+172 g tomatoes per 100 g ketchup. Sales price: 1.99 € (PP-450-CONV). b) Organic ketchup, produced in Austria, 380 g indicated ﬁlling quantity, 22.30 g clear transparent PP bottle
+with 4.36 g colored PP cap, 0.29 g multilayer seal and 0.63 g PP labels. Sales price: 2.99 € (PP-380-ORG). c) Organic ketchup, produced in the Czech Republic, 550 g indicated ﬁlling quantity,
+30.96 g clear transparent PP bottle with 9.79 g colored PP cap, 0.32 g multilayer seal and 1.27 g paper labels. 210 g tomatoes per 100 g ketchup. Sales price: 1.99 € (PP-550-ORG). d) Organic
+ketchup, produced in Italy, 480 g indicated ﬁlling quantity, 236.61 g ﬂint packaging glass with 4.88 g tinplate screw cap and 1.29 g paper labels. 225 g tomatoes per 100 g ketchup. Sales
+price: 1.45 € (GL-480-ORG).
+
+B. Wohner et al. / Science of the Total Environment 738 (2020) 139846
+
+2. Materials and methods
+In this section, we ﬁrst present the case study. Based on this, selected
+criteria and their quantiﬁcation is discussed. Finally, the selection and
+calculation of a suitable method for the sustainability evaluation is
+presented.
+
+3
+
+recycled content was assumed for plastic packaging and 40% for ﬂint
+glass bottles (European Commission, 2019a). Transport distances between the packaging manufacturers to the ketchup production site
+were assumed to be (i) 230 km by truck, (ii) 280 km by train and (iii)
+87 km by ship for plastic bottles. For glass bottles a transport of
+(i) 350 km by truck, (ii) 39 km by train and (iii) 87 km by ship was chosen (European Commission, 2017).
+
+2.1. Case study: tomato ketchup
+Tomato ketchup was chosen as a case study. Ketchup is made from
+fresh tomatoes or tomato puree, sugar and/or sweetener, spices and
+seasoning, salt and vinegar. The ﬁnal product must have a minimum
+of 28% dry mass (Bundesministerium für Arbeit, Soziales, Gesundheit
+und Konsumentenschutz, 2015). In Austria, 3.8 kg of ketchup is consumed per capita and year (Statista GmbH, 2019).
+The following products of different brands were purchased at various supermarket chains (Fig. 1):
+
+2.2. Life cycle assessment
+Life cycle assessment is a well-known method to assess environmental impacts across the life cycle of a product, frequently used in
+food and food packaging studies (Fraval et al., 2019). LCA for this article
+was based on ISO 14040 (ISO, 2006a) with additional guidance from the
+Product Environmental Footprint (PEF) (European Commission, 2017),
+which is being currently developed by the European Commission. In
+contrast to ISO 14040, the PEF guidance includes stricter recommendations. For this study, the PEF guidance was used for:
+• Selection of life cycle impact categories
+• Identiﬁcation of the most relevant life cycle impact categories
+• Default transport distances
+• Allocation regarding input and output of secondary materials
+Calculations were performed using OpenLCA and the Ecoinvent 3.5
+database. LCA for the case study was limited to secondary data only.
+This type of LCA method can be considered as ‘streamlined LCA’,
+which has the beneﬁt of reducing the expenditure of time and resources
+(Speck et al., 2015).
+2.2.1. Functional unit, reference ﬂow and system boundaries
+The functional unit (FU) was deﬁned as ‘consumption of 3.8 kg
+ketchup’. This led to different reference ﬂows for the examined products, determined by the loss of ketchup due to poor emptiability. As
+an example, if 50% of food loss and waste (FLW) occurs at the consumer,
+all environmental impacts up to the point of loss are doubled
+(Wikström et al., 2014). System boundaries and the resulting presented
+life cycle stages include:
+• Packaging: Raw materials, manufacturing of glass and plastic bottles,
+transport of empty bottles to the ketchup production site, disposal
+of packaging
+• Ketchup processing: Cultivation of tomatoes and sugar, thermal and
+electrical energy used in the production of ketchup
+• Transport of the ﬁnal product to an Austrian supermarket
+• Transport of the ﬁnal product from the supermarket to the home of
+the consumer
+• Food loss and waste: Calculated as the difference between provisioned and consumed ketchup
+2.2.2. Life cycle inventory of packaging manufacturing
+Ketchup bottles were ﬁrst emptied (see Section 2.2.8) before the
+packaging was disassembled and weighed. Packaging manufacturing
+was then modelled using Ecoinvent datasets, taking the respective
+datasets for the raw materials and their manufacturing processes. No
+
+2.2.3. Life cycle inventory of agricultural production
+For the life cycle inventory of ketchup, the quantity of tomatoes used
+in processing was taken from the label. From this, the quantity of added
+sugar was calculated after subtracting the stated sugar content from the
+sugar contained in the tomatoes, assuming a sugar content of 2.6% and a
+water content of 95% of the average fruit (USDA, 2019). Among the examined products were ones of organic and conventional agriculture. Organic farming is often associated with reduced farm inputs and higher
+soil carbon sequestration, therefore reducing environmental impacts
+compared to conventional agriculture. However, there is an ongoing debate concerning the actual sustainability of organic agriculture, since
+this agricultural practice often leads to lower yields, which increases
+greenhouse gas emissions in some cases (Smith et al., 2019). Regarding
+tomatoes, organic agriculture may have lower (He et al., 2016; Ronga
+et al., 2019) or higher yields (Stanhill, 1990), which in turn leads to
+lower (He et al., 2016) or higher (Ronga et al., 2019; Vermeulen and
+CJM, 2011) environmental impacts compared to conventional tomatoes.
+Moreover, comparative LCA studies of organic and conventional agriculture are not always able to capture the differences (Meier et al., 2015).
+For this paper, it was assumed that organic agriculture is a beneﬁcial
+concerning sustainability due to it having multiple ecological and social
+beneﬁts, such as greater biodiversity and fewer potential negative effects on human health (Shennan et al., 2017). Nonetheless, there is no
+Ecoinvent dataset available for organic tomatoes. Since the impact of organic agriculture could not be considered in the LCA, it was included as
+an additional criterion. Quantiﬁcation of organic agriculture was carried
+out by assigning a value of ‘1’ for products of organic, and a value of ‘0’
+for products of conventional agriculture. Other ingredients of tomato
+ketchup such as vinegar and spices were excluded from the analysis
+due to their small and unknown quantities.
+2.2.4. Life cycle inventory of ketchup processing
+In the manufacturing process of ketchup, tomatoes are heated with
+steam to up to 99 °C (Amón et al., 2015). Thermal energy consumption
+of this process was calculated as the product of the latent heat of vaporization of water at 100 °C (2.26 MJ/kg) and the volume of water needed
+to be evaporated to achieve the ﬁnal water content of the respective
+ketchup. This water content was estimated as the difference between
+100% and the sum of carbohydrates, fat, protein and assumed average
+ash content of 3% (Sharoba et al., 2005). It was assumed that waste
+heat is not recovered (Amón et al., 2015). The electricity consumption
+of ketchup manufacturing was taken from existing literature
+(Andersson et al., 1998). Country-speciﬁc electricity mixes and transport distances to Austria were considered, with a modal split of 75%
+lorry and 25% freight train (eurostat, 2019b) (eurostat, 2019b) for international transports. The following distances for the transport of the ﬁnal
+products between productions sites and Austrian retail were estimated:
+• Ketchup produced in Austria: 200 km
+• Ketchup produced in the Czech Republic: 375 km
+• Ketchup produced in Italy: 950 km
+2.2.5. Transports of ﬁnal products
+The transport of the ﬁnal products between the supermarket and the
+home of the consumer was assumed to be 5 km, of which 62% were allocated to a passenger car with a trunk of load of 200 l, 5% to a van and
+33% were not allocated (Castellani et al., 2018; European Commission,
+
+4
+
+B. Wohner et al. / Science of the Total Environment 738 (2020) 139846
+
+2019a). As a result, the distribution of 1 l ketchup is associated with
+0.0155 km driven by passenger car.
+A summary of data concerning the modelled foreground system is
+presented in Table 1.
+2.2.6. Selection of impact categories
+Initially, all 16 impact categories recommended by PEF (Castellani
+et al., 2018) were calculated. Then, the PEF guidance was followed for
+the selection of the most relevant impact categories.
+First, all impact categories were normalized, meaning that their
+magnitude of relative to a reference information (ISO, 2006b) (in the
+context of PEF the impacts of an average world citizen per year) were
+calculated. Next, the normalized values were weighted using the values
+provided by the PEF guidance. Accordingly, the three toxicity impact
+categories shall not be used for benchmarking with assigned weights
+of 0%, since their methodology is not yet considered as robust enough.
+Finally, the most relevant impact categories were identiﬁed based on
+the ones that contribute at least 80% to the total sum (European Commission, 2017). Relevant impact categories were the same for all products. This is also true for their order of contribution except for GL-480ORG, where the ranks of particulate matter and acidiﬁcation are
+swapped (Table 2).
+Consequently, results of the most relevant impact categories per
+functional unit are used as criteria in the MCDA. Normalized and
+weighted results were only used for the procedure of selecting the
+most relevant impact categories. Results of all impact categories, their
+respective contribution to the total, as well as normalization and
+weighting factors are listed in the supplementary material.
+2.2.7. End-of-life and allocations
+The use of recycled content and the disposal of the packaging was
+modelled according to the Circular Footprint Formula listed in the PEF
+guidance (European Commission, 2017). Energy savings of 2.5% per
+10% recycled content are assumed for the production of glass bottles
+(Stettler et al., 2016). Life cycle inventory data of plastic recycling processes in Austria was taken from literature (van Eygen et al., 2018b),
+with quality factors of recyclate of 1.00 for glass and metal (European
+Commission, 2019a), as well as 0.67 for polypropylene (calculated as
+the average ratio of market prices between September 2018 and 2019
+(plasticker et al., 2019)).
+For this article, it was assumed that PP bottles contaminated with
+ketchup can be recycled. However, this might not be true since ketchup
+residues may affect the sorting and/or recycling process as has been
+shown for PET bottles (Boesveld, 2011). It was assumed that all PP bottles consist of 5% by weight of ethylene vinyl alcohol (Hedenqvist,
+2018), which still allows the bottle to be recycled (FH Campus Wien,
+2019). Consequently, the only non-recyclable packaging components
+were multilayer seals and paper labels.
+Recycling rates in Austria are 14% for polypropylene bottles (van
+Eygen et al., 2018a), 84% for glass and 86% for metal packaging
+(eurostat, 2019c). Polypropylene caps are currently not recycled in
+Austria (van Eygen et al., 2018a). Due to landﬁll restrictions in Austria
+(Bundesministerium für Land- und Forstwirtschaft, Umwelt und
+Wasserwirtschaft, 2008), only non-recycled quantities of metal and
+glass packaging were assumed to be landﬁlled, while non-recycled plastic packaging was assumed to be incinerated.
+2.2.8. Indirect environmental effects due to FLW
+Quantifying packaging-related FLW is challenging (Wohner et al.,
+2019a) and therefore often omitted in studies of food-packaging systems (Molina-Besch et al., 2018). In a previous study we proposed a
+method for testing dairy products on their ‘technical emptiability’ and
+its integration in LCA studies (Wohner et al., 2019b) as a possibility to
+measure packaging-related FLW. For the present case study, not only
+technical but also practical emptiability was tested. Finally, the results
+
+of practical emptiability were taken to calculate the respective reference
+ﬂows of the investigated products associated with the functional unit.
+Practical emptiability simulates an average emptying behavior by
+the consumer. For plastic bottles, ﬁrst the bottles were shaken three
+times and squeezed until air was released. Next, the bottles were
+swiveled and then squeezed again until air was released. This step
+was repeated three times. Glass bottles were shaken three times and
+then held upside down for 2 min. Subsequently, the bottles were shaken
+three times and then held upside for 1 min.
+Technical emptiability represents the best possible emptying procedure without damaging the packaging. For this, both glass and plastic
+bottles including their caps were scraped with a dedicated ketchup
+spoon (length of 24.5 cm) after practical emptiability tests.
+Finally, the emptiability index was expressed as the ratio of ketchup
+left in the bottle to the original ﬁlling quantity. Testing was performed at
+room temperature (22 °C ± 1). Based on previous studies, a sample size
+of 6 was taken to assure signiﬁcant results (Meurer et al., 2017; Wohner
+et al., 2019b).
+2.3. Economic assessment
+Life cycle costing is an approach often used for the economic evaluation of a product. ‘Conventional’ LCC represents the historic practice of
+economic assessments, which includes costs associated with a product
+and which are generally presented only from one, the producer's or
+consumer's, perspective (Hunkeler et al., 2008). Further, conventional
+LCC is often performed not all along the entire supply chain, often excluding End-of-Life operations. In contrast, ‘environmental LCC’ is performed alongside LCA, using the same system boundaries and models
+and thus covering the whole life cycle of a product. Moreover, by including the full life cycle, environmental LCC enables the economic evaluation of a product from a system's perspective. Therefore, according to
+Hunkeler et al. (2008), environmental LCC should be the approach of
+choice for sustainability assessments. Hence, the economic evaluation
+in this paper is conducted taking the ‘value added’ approach (VA). Generally, the revenues (R) for selling a product are higher than its production costs (C) (Heijungs et al., 2013), resulting in a margin which is
+referred to as “added value”, given in a monetary unit, in this study
+Euro (€).
+VA ¼ R−C
+Consequently, the total life cycle cost is the “sum of all value added
+over the life cycle” (Moreau and Weidema, 2015). Since environmental
+impacts are already covered by the LCA, their associated costs are not included in VA, as this would be considered as double-counting.
+In this paper, VA is calculated following the same principles as for
+the LCA. Therefore, the ﬁnal VA result is the sum of value added by the
+production and disposal of ketchup, its packaging and all related transport, with additional consideration of the ﬁnal sales price. This can be
+expressed as follows:
+VATotal ¼ VAIN −C IN þ VAEN −C EN þ VAPA −C PA þ VATR −C TR þ RPU −C PU
+þ VAEoL
+where:
+• VATotal: Total VA of the respective product
+• VAIN: VA of agricultural production of ingredients (tomatoes and
+sugar) (calculated as the total of the difference between costs for producing and revenues of selling tomatoes or sugar, and the VA for all
+upstream processes)
+• CIN: Costs to the ketchup producer for purchasing ingredients
+• VAEN: VA of thermal and electrical energy production (calculated as
+the total of the difference between costs for producing and revenues
+of selling energy, and the VA for all upstream processes)
+• CEN: Costs to the ketchup producer for purchasing energy
+
+B. Wohner et al. / Science of the Total Environment 738 (2020) 139846
+
+5
+
+Table 1
+Summary of data for modelling the foreground system. Abbreviations for products represent (i) the packaging material as polypropylene (PP) or glass (GL), (ii) the content of bottles of
+380, 450, 480 or 550 g and (iii) if the ketchup is a product of conventional (CNV) or organic (ORG) agriculture. Data are given per kg produced and distributed ketchup. Remaining abbreviations represent: PP, polypropylene; vkm, vehicle-kilometer; tkm, ton-kilometer.
+
+Ingredients
+Energy consumption for processing
+Packaging
+
+Transport from manufacturer to retail
+Transport from retail to consumer
+
+Tomatoes
+Added sugar
+Electricity
+Thermal energy (steam)
+PP bottle (blow moulded)
+Glass bottle
+PP cap (injection moulded)
+Tinplate cap
+Multilayer seal
+PP label
+Paper label
+Lorry
+Freight train
+Passenger car
+Van
+
+Unit
+
+PP-450-CNV
+
+PP-380-ORG
+
+PP-550-ORG
+
+GL-480-ORG
+
+kg
+kg
+MJ
+MJ
+g
+g
+g
+g
+g
+g
+g
+tkm
+tkm
+vkm
+tkm
+
+1.72
+0.14
+0.38
+2.34
+66.50
+458.84
+23.97
+0
+0.62
+2.15
+0
+0.22
+0
+0.014
+0.0001
+
+2.85
+0.15
+0.38
+4.82
+59.17
+0
+11.57
+0
+0.77
+1.67
+0
+0.21
+0
+0.019
+0.0001
+
+2.10
+0.09
+0.38
+2.97
+55.60
+0
+17.58
+0
+0.57
+0
+2.28
+0.30
+0.10
+0.014
+0.0001
+
+2.25
+0.16
+0.38
+3.62
+0
+0
+0
+9.46
+0
+0
+2.50
+1.03
+0.37
+0.014
+0.0002
+
+• VAPA: VA of packaging production (calculated as the total of the difference between costs for producing and revenues for selling packaging,
+and the VA for all underlying processes)
+• CPA: Costs to the ketchup producer for purchasing packaging
+• VATR: VA of transports (calculated as the total of difference between
+costs and revenues for providing transport, and the VA for all upstream processes)
+• CTR: Costs to the ketchup producer for the transport of products
+• RPU: Revenue to the ketchup producer for selling ketchup to the consumer
+• CPU: Costs to the consumer for purchasing ketchup from the producer
+• VAEOL: VA of disposal of ketchup and packaging (calculated as the total
+of the difference between costs and revenues of recycling or incineration of ketchup or packaging, and the VA for all upstream processes)
+For the calculation, default values available in the Ecoinvent 3.5 database version of OpenLCA were taken (Ciroth, 2016a). In OpenLCA,
+prices already contained but hidden in several Ecoinvent datasets
+were made visible by the software publisher, with information on
+costs added to further datasets (Ciroth, 2016b). Similar to the conducted
+LCA, a major limitation is that possible differences between organic and
+conventional tomatoes could not be considered due to a lack of data in
+Ecoinvent.
+2.4. Multi-criteria decision analysis
+2.4.1. Selection and calculation
+The examined products show different results between LCA impact
+categories, as well as between LCA and VA results in general. Hence,
+the need for a method to decision making tool arises, able to solve
+
+multi-dimensional issues. In this context, multi-criteria decision analysis methods are increasingly used to identify the best possible solution
+out of several alternatives (Wątróbski et al., 2019a). Based on the listed
+criteria, a suitable MCDA method was deﬁned as being able to (i) take
+different weights into account, (ii) compare criteria on a quantitative
+scale and (iii) generate a ranking. Using the MCDA tool (Wątróbski
+et al., 2019b), TOPSIS (Hwang et al., 1993) was identiﬁed as a method
+meeting these requirements. The following terms are deﬁned for better
+readability and are frequently used in MCDA:
+• Alternative: Several predetermined, limited and independent alternatives. For this study, these are the four examined products (Alinezhad
+and Khalili 2019).
+• Criterion: A particular perspective according to which alternatives
+may be compared (Belton and Stewart, 2003). In the context of this
+study, these are comprised of the six chosen LCA impact categories
+and the VA.
+• Attribute: a “quantitative or qualitative measure of performance associated with a particular criterion” (Belton and Stewart, 2003), which
+can be either beneﬁcial (with the goal of maximization) or nonbeneﬁcial (with the goal of minimization). In this study, the attributes
+are the results of VA and the chosen LCA impact categories, with the
+former considered as being beneﬁcial, and the latter as being nonbeneﬁcial.
+• Normalization: Converting attributes into non-dimensional form to
+allow their aggregation into a ﬁnal score (Jahan and Edwards, 2015;
+Vafaei et al., 2016)
+The general calculation steps of TOPSIS can be summarized as follows (ÇELEN, 2014; Hwang et al., 1993; Kumar et al., 2017):
+
+Table 2
+Most relevant life cycle impact categories, in descending order of their relevance.
+Impact category
+
+Indicator
+
+Unit
+
+Life cycle impact assessment method
+
+Climate change (CC)
+Resource use, fossils (FRD)
+Water use (WU)
+
+Radiative forcing as Global Warming Potential (GWP100)
+Abiotic resource depletion – fossil fuels (ADP-fossil)
+User deprivation potential (deprivation-weighted water
+consumption)
+Fraction of nutrients reaching freshwater end compartment (P)
+
+kg CO2eq
+MJ
+m3 worldeq
+
+IPCC 2013 (IPCC, 2013)
+CML 2002 (Bruijn et al., 2004)
+Available Water Remaining (AWARE) (UNEP,
+2016)
+EUTREND model (Goedkoop et al., 2013)
+
+Accumulated Exceedance (AE)
+Impact on human health
+
+mol H + eq
+Disease
+incidence
+
+Eutrophication, freshwater
+(FEU)
+Acidiﬁcation (AC)
+Particulate matter (PM)
+
+kg Peq
+
+Accumulated Exceedance (Posch et al., 2008)
+PM method (UNEP, 2016)
+
+6
+
+B. Wohner et al. / Science of the Total Environment 738 (2020) 139846
+
+1. Creation of a decision matrix
+ 
+X ¼ xij mxn
+consisting of m alternatives (A1, A2, …, Am) and n criteria (C1, C2, …, Cn),
+with the intersection of each alternative and criteria given as xij.
+2. Normalization of the decision matrix:
+xij
+r ij ¼ qﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+m
+∑k¼1 x2kj
+where i = 1, 2, …, m and j = 1, 2, …, n
+3. Calculation of the weighted normalized decision matrix by multiplication of the normalized matrix with the attribute's weights (wj):
+vij ¼ w j  r ij ;
+Wj
+j = 1, 2, …, n
+n
+∑i¼1 W i
+4. Determination of worst alternative Aw (or negative ideal solution)
+and best alternative Ab (or positive ideal solution):
+
+i = 1, 2, …, m and j = 1, 2, …, nwhere w j ¼
+
+Aw ¼
+
+
+
+
+
+
+max vij ji ¼ 1; 2; …; m j j∈J − i; h minðvij j i ¼ 1; 2; …; mÞj j∈J þ
+
+
+≡ vwj j ¼ 1; 2; …; n
+
+Ab ¼
+
+
+
+
+
+
+min vij ji ¼ 1; 2; …; m j j∈ J − i; h maxðvij j i ¼ 1; 2; …; mÞj j∈J þ
+
+
+≡ vbj j ¼ 1; 2; …; n;
+
+where for beneﬁcial attributes:
+
+2.4.2. Determination of weights
+Determination of criteria weights is equally crucial and controversial
+since there is an abundant number of methods regarding this procedure
+which all produce different results and thus considerably inﬂuence the
+outcome of an MCDA. Such methods can be classiﬁed either (i) a priori,
+where weights are determined before data is collected, or (ii) a
+posteriori, were the determination of weights occurs after data collection. While a priori weights are generally elicited by expert interviews
+or questionnaires, a posteriori weights are calculated based on the collected data for each alternative (Kao, 2010).
+For this paper, three weighting sets were calculated and used for
+TOPSIS, namely (i) equal weighting, (ii) Criteria Importance through
+Intercriteria Correlation (CRITIC) (Diakoulaki et al., 1995) and (iii) entropy (Li et al., 2011), similar to a sustainability assessment of biodiesel
+(Anwar et al., 2019).
+2.4.2.1. Equal weighting. Equal weighting is the simplest type of
+weighting method, in which each criterion is given the same importance. In this study, 8 criteria were selected, which results in a weight
+(wj) of 12.5% per criteria.
+wj ¼
+
+1
+8
+
+2.4.2.2. Weights of criteria using CRITIC. Calculating weights using CRITIC
+is performed by characterizing each vector by its standard deviation and
+a subsequent construction of a symmetric matrix with linear correlation
+coefﬁcients between the vectors (Alinezhad and Khalili 2019).
+First, the decision matrix is normalized as follows:
+xij ¼
+
+r ij −r −
+i
+−
+rþ
+i −r i
+
+xij ¼
+
+r ij −rþ
+i
+þ;
+r−
+i −r i
+
+J þ ¼ f j ¼ 1; 2; …; n j j;
+and for non-beneﬁcial attributes:
+
+where i = 1, …, m and j = 1, …, n and xij representing the normalized
+value for alternative i and attribute j, with
+
+J − ¼ f j ¼ 1; 2; …; n j j
+
+rþ
+i ¼ maxðr 1 ; r 2 ; …; r m Þ
+r−
+i ¼ minðr 1 ; r 2 ; …; r m Þ
+
+5. Calculation of the Euclidean distance of each alternative to the worst
+(diw) and best solution (dib):
+vﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+uX
+u n 
+2
+diw ¼ t
+vij −vwj
+j¼1
+
+vﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+uX
+u n 
+2
+dib ¼ t
+vij −vbj
+j¼1
+
+Then, the correlation coefﬁcient between attributes is calculated as
+follows:
+
+m 
+∑i¼1 xij −x j ðxik −xk Þ
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+ρjk ¼ q
+
+
+2
+m
+m
+∑i¼1 xij −x j ∑i¼1 ðxik −xk Þ2:
+with x j and xk representing the mean of jth and kth attributes, calculated
+as
+xj ¼
+
+X
+1 n
+x
+n j¼1 ij
+
+xk ¼
+
+n
+1X
+x ;
+n k¼1 ik
+
+where i = 1, 2, …, m
+6. Calculation of the relative closeness (CCi) of each alternative to the
+ideal solution:
+CC i ¼
+
+diw
+diw þ dib
+
+7. Ranking of the alternatives according to CCi (i = 1, 2, …, m)
+Individual calculation steps of TOPSIS for the case study are listed in
+the supplementary material.
+
+where i = 1, 2, …, m.
+After that, the standard deviation of each attribute is calculated as
+vﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+u
+n 
+u 1 X
+
+x −x j 2;
+σj ¼ t
+n−1 j¼1 ij
+where i = 1, …, m.
+
+B. Wohner et al. / Science of the Total Environment 738 (2020) 139846
+35.00%
+
+Next, the index (C) is calculated as:
+Cj ¼ σ j
+
+n
+X
+
+7
+
+30.00%
+
+1−ρjk
+
+k¼1
+25.00%
+
+Cj
+w j ¼ Pn
+
+j¼1 C j
+
+2.4.2.3. Weights of criteria using entropy. First, the decision matrix is normalized as follows:
+r ij ¼
+
+r ij
+m
+
+∑i¼1 r ij
+
+;
+
+where j = 1, 2, …, n andr ij is the normalized value of the decision matrix.
+Then, the degree of entropy is determined:
+Ej ¼ −
+
+m
+1 X
+r ij ln r ij ;
+ln m i¼1
+
+where j = 1, 2, …, n and 0 b Ej b 1.
+Next, the deviation rate is calculated by:
+d j ¼ 1−E j ;
+where j = 1, 2, …, n.
+Finally, weights of attributes are derived by:
+wj ¼
+
+Emptiability index
+
+Finally, the weight of attributes is derived by:
+20.00%
+
+15.00%
+
+10.00%
+
+5.00%
+
+0.00%
+Practical emptiability
+Technical emptiability
+
+PP-450-CNV
+20.47%
+7.08%
+
+PP-380-ORG
+28.80%
+6.70%
+
+Practical emptiability
+
+PP-550-ORG
+13.12%
+5.12%
+
+GL-480-ORG
+3.85%
+3.37%
+
+Technical emptiability
+
+Fig. 2. Emptiability results of examined ketchup products. Bars represent the mean, while
+error bars are 95% conﬁdence intervals (n = 6). Abbreviations for products represent
+(i) the packaging material as polypropylene (PP) or glass (GL), (ii) the content of bottles
+of 380, 450 or 550 g and (iii) if the ketchup is a product of conventional (CNV) or
+organic (ORG) agriculture.
+
+of variances), after testing for normality with Shapiro Wilk tests. All statistical tests were performed with the software ‘Jamovi’ (version 1.1.7)
+(The jamovi project, 2019) and can be found in the supplementary
+material.
+
+dj
+n
+
+∑ j¼1 d j
+
+3. Results and discussion
+3.1. Emptiability
+Practical emptiability of the examined bottles ranges from 3.85% (±
+0.41) to 28.80% (±3.30), while this can be substantially reduced to between 3.37% (±0.29) and 7.08% (±0.61) when a spoon is used (‘technical emptiability’) (Fig. 2). Variability was calculated as 95% conﬁdence
+intervals.
+In previous studies, the emptiability index of ketchup was reported
+as 0.5% to 26% (Andersson et al., 1998) in PP bottles and 30% to 52%
+(Boesveld, 2011) in PET bottles, which shows that the quantity of
+ketchup remaining in the package can even be higher.
+From the ﬁgure above (Fig. 2), it is apparent that the product in a
+glass bottle (GL-480-ORG) has the best emptiability. In contrast, PP380-ORG has the poorest. Important to emphasize is that emptiability
+is a function of both product and packaging, thus not allowing the generalization of glass being better than plastic packaging, since the products in different packages were not identical. Emptiability is mainly
+inﬂuenced by the packaging geometry, the surface tension of food and
+packaging, and particularly by the viscosity of food (Schmidt, 2011). Besides processing conditions, viscosity of ketchup increases with its tomato content. Since the product with the highest tomato content
+yielded the worst emptiability, this may result in being one of the
+major drivers of FLW. One major limitation here is that the portioning
+behavior of the products could not be considered. With the glass bottle,
+dosing may be more difﬁcult than with the plastic bottles. This could
+lead to the consumer emptying more ketchup than required which
+may ultimately result in disposing of it.
+Statistical analysis was performed using one-way ANOVA (Fisher's
+with Tukey post hoc test for samples with equality of variances and
+Welch's with Games-Howell post hoc test for samples without equality
+
+3.2. LCA results
+Climate change results of all products (Fig. 3a) range from 5.66 to
+9.16 kg CO2eq per functional unit (FU) respectively. Packaging is responsible for 24% to 26% of the total for PP-450-CNV, PP-550-ORG and GL480-ORG, but only 12% for PP-380-ORG due to its high tomato content
+and poor emptiability (Fig. 3a-f). In other impact categories, plastic
+packaging contributes 7% to 13% and glass packaging 29% to 31% to
+the overall result. Obviously, direct environmental impacts of glass
+packaging are associated with greater environmental impacts than plastic bottles, which is well in line with results of other LCA studies (Boesen
+et al., 2019; Humbert et al., 2009; Niero and Kalbar, 2019). Nonetheless,
+this is compensated for by its good emptiability.
+Concerning the total LCA results, the most inﬂuential factors are
+FLW, the tomato content and the resulting thermal energy required
+for water vaporization. Regarding water use, cultivation of tomatoes is
+almost solely responsible for environmental impacts. Taken together,
+production and loss of food is substantially more relevant than its associated packaging concerning environmental impacts. By contrast, transport is of relatively low importance. One interesting outcome is that LCA
+results of PP-550-ORG are better than PP-450-CNV, which would not be
+the case if FLW would have been excluded. This ﬁnding underlines the
+value of quantifying and integrating packaging-related FLW into life
+cycle assessments.
+Detailed LCA results and results of the remaining calculated impact
+categories are listed in the supplementary material.
+3.3. Value added results
+Value added results for the investigated products (Fig. 4) show a
+similar picture to that of the LCA results with the important difference
+that here, higher values are considered as beneﬁcial. Therefore, VA results are in fact diametrically opposed to most of the impact categories
+of the performed LCA. This arises mostly from the effect that a greater
+material intensity leads to more value added along the supply chain,
+
+8
+
+B. Wohner et al. / Science of the Total Environment 738 (2020) 139846
+
+a
+
+b
+
+Climate change
+1.00E+01
+
+Resource use, fossils
+1.50E+02
+
+9.16E+00
+
+1.37E+02
+
+1.25E+02
+7.50E+00
+
+6.54E+00
+1.00E+02
+
+5.66E+00
+MJ/FU
+
+kg CO2eq/FU
+
+6.15E+00
+5.00E+00
+
+9.65E+01
+
+9.40E+01
+8.62E+01
+
+7.50E+01
+5.00E+01
+
+2.50E+00
+
+2.50E+01
+0.00E+00
+
+0.00E+00
+
+PP-450-CNV PP-380-ORG PP-550-ORG GL-480-ORG
+
+PP-450-CNV PP-380-ORG PP-550-ORG GL-480-ORG
+
+c
+
+d
+
+Water use
+
+2.50E+01
+
+Eutrophicaon, freshwater
+2.50E-03
+
+2.15E+01
+
+2.11E-03
+
+2.00E+01
+
+2.00E-03
+
+1.50E+01
+
+1.50E-03
+
+1.30E+01
+
+1.28E+01
+
+1.29E+01
+
+1.00E+01
+
+kg Peq/FU
+
+m³/FU
+
+1.58E-03
+
+5.00E+00
+
+1.40E-03
+1.26E-03
+
+1.00E-03
+
+5.00E-04
+
+0.00E+00
+
+0.00E+00
+PP-450-CNV PP-380-ORG PP-550-ORG GL-480-ORG
+
+f
+
+PP-450-CNV PP-380-ORG PP-550-ORG GL-480-ORG
+
+g
+
+Acidiﬁcaon
+
+Parculate maer
+5.00E-07
+
+7.00E-02
+
+4.72E-07
+4.51E-07
+
+6.06E-02
+6.00E-02
+4.00E-07
+4.95E-02
+
+4.00E-02
+
+3.90E-02
+3.54E-02
+
+3.00E-02
+
+[disease incidence/FU]
+
+mol H+eq/FU
+
+5.00E-02
+3.02E-07
+3.00E-07
+
+2.82E-07
+
+2.00E-07
+
+2.00E-02
+1.00E-07
+1.00E-02
+
+0.00E+00
+
+0.00E+00
+PP-450-CNV PP-380-ORG PP-550-ORG GL-480-ORG
+
+PP-450-CNV PP-380-ORG PP-550-ORG GL-480-ORG
+
+Fig. 3. Life cycle assessment results of most relevant impact categories for ketchup. Abbreviations for products represent (i) the packaging material as polypropylene (PP) or glass (GL), (ii)
+the content of bottles of 380, 450, 480 or 550 g and (iii) if the ketchup is a product of conventional (CNV) or organic (ORG) agriculture.
+
+which contradicts the goal of eco-economic decoupling (European
+Commission, 2011).
+Consequently, since the sales price of a product is higher than its
+production costs, poorer emptiability also leads to a greater VA result.
+For PP-380-ORG, this is particularly clear, since it has the highest tomato
+content as well as the poorest emptiability. Furthermore, the calculated
+margin regarding the sales price for this product is substantially greater
+
+compared to the others. This is conﬁrmed by other studies indicating
+that smaller packages generally generate higher revenues than larger
+ones (Yonezawa and Richards, 2016).
+In contrast, GL-480-ORG, is not only the one with the lowest sales
+price per kg, but also the one with the best emptiability, leading to the
+worst VA results in comparison. Using conventional LCC and taking
+the consumer's perspective, the results would be exactly the other
+
+B. Wohner et al. / Science of the Total Environment 738 (2020) 139846
+
+9
+
+Value Added
+50.00
+42.78
+40.00
+30.00
+
+27.08
+23.69
+
+20.00
+
+20.15
+
+17.83
+
+17.39
+13.02
+
+€/FU
+
+10.00
+
+11.67
+
+9.85
+
+7.02
+3.61
+0.82
+
+0.00
+-2.05
+
+-4.32
+
+-0.43
+
+-10.00
+
+-12.20
+
+-10.69
+-13.58
+
+-16.77
+
+-20.00
+-30.00
+
+-30.15
+-40.00
+PP-450-CNV
+
+PP-380-ORG
+
+PP-550-ORG
+
+Provision of original quanty
+
+Provision of FLW-related quanty
+
+Purchase of FLW-related quanty
+
+SUM
+
+GL-480-ORG
+
+Purchase of original quanty
+
+Fig. 4. Value added results. Original quantity is 3.8 kg of ketchup, while the quantity due to food loss and waste (FLW) is generated by the respective emptiability of the products.
+Abbreviations for products represent (i) the packaging material as polypropylene (PP) or glass (GL), (ii) the content of bottles of 380, 450, 480 or 550 g and (iii) if the ketchup is a
+product of conventional (CNV) or organic (ORG) agriculture.
+
+way around. Costs to the consumer for eating 3.8 kg ketchup would be
+42.35 € for PP-380-ORG, but only 11.12 € for GL-480-ORG. In turn,
+from the manufacturer's point of view, a higher loss would be preferable
+as the quantity sold would increase. As Wood and Hertwich (2013)
+point out, life cycle costing results should generally be maximized
+from society's perspective to generate economic growth but minimized
+from an individual's perspective to save costs. Consequently, we agree
+with Heijungs et al. (2013) who raised the question: “What do we in
+fact want to learn from life cycle costing”?
+We conclude that taking a system's perspective is more relevant in
+the context of sustainability assessments than taking an individual's
+perspective. Thus, despite its limitations, we still consider VA as a suitable method for performing environmental LCC together with LCA.
+Nonetheless, ff this debate is to be moved forward, methods portraying
+a broader economic scope should be developed. Previous research has
+already demonstrated how not only economic growth, but also characteristics such as consumer satisfaction, business diversity or long-term
+investments could be considered in new methods concerning life cycle
+costing (Neugebauer et al., 2016).
+3.4. Sustainability evaluation using TOPSIS
+After determining LCA and VA results, the decision matrix for TOPSIS
+was created (Table 3).
+Next, weights were calculated based on the approaches of equal
+weighting, CRITIC and entropy (Table 4) described in Section 2.4.2.
+Using CRITIC, VA and organic agriculture are given more, LCA results
+less weight compared to equal or entropy weights.
+Finally, after following the calculation steps laid out in Section 2.4.1,
+the ﬁnal closeness values using TOPSIS were determined, with the most
+sustainable food-packaging system being the one closest to ‘1.00’
+(Fig. 5).
+Closeness values of the products differ greatly depending on the chosen weighting set. Nonetheless, PP-550-ORG performs best concerning
+all three weighting sets, which is followed by GL-480-ORG. The most
+striking observation is the difference in performance of PP-380-ORG
+
+and PP-450-CNV, which is the consequence of the higher importance
+of LCA results in the entropy and organic agriculture in the CRITIC
+weighting set. As discussed in Section 3.3, VA increases with material intensity and FLW. If TOPSIS were calculated with life cycle costs from the
+consumer's perspective, this would have a positive impact on the results
+of GL-480-ORG and a negative impact on PP-380-ORG.
+Since the study was limited to the use of secondary data, generalization of these results is limited. Furthermore, these results are only applicable to Austria, due to recycling rates of packaging and costs of these
+products are only viable for this country. Depending on the country of
+marketing, the evaluation could change substantially. Furthermore,
+the difference of organic and conventional agriculture could not be captured in the calculation of LCA and VA, which however was addressed
+by considering it as an additional criterion in the MCDA.
+4. Conclusions
+The main aim of this study was to combine environmental and economic assessments of food-packaging systems, including and putting
+the focus on indirect effects of food loss. Historically, most LCA studies
+of packaging did not consider FLW (Molina-Besch et al., 2018), predominantly due its quantiﬁcation being challenging (Wohner et al., 2019a).
+In this study, FLW was quantiﬁed by testing the emptiability of products, which was then integrated into the LCA and VA calculations of
+the examined products. As a result, environmental impacts increased,
+and more surprisingly, also the value added to the economy, which is,
+however, inherent in the respective method (Wood and Hertwich,
+2013).
+A further limitation is the exclusion of criteria of taste or quality. A point could be made that PP-380-ORG is the product with
+the highest tomato content and thus the one with the highest
+quality. However, this is highly subjective and would have to be
+the subject of sensory testing which was outwith the scope of
+this study.
+We conclude and agree with authors of similar previous studies
+that TOPSIS assists in overcoming the limitations inherent in LCA
+
+10
+
+B. Wohner et al. / Science of the Total Environment 738 (2020) 139846
+
+Table 3
+Decision matrix of TOPSIS for case study. Abbreviations for products represent (i) the packaging material as polypropylene (PP) or glass (GL), (ii) the content of bottles of 380, 450, 480 or
+550 g and (iii) if the ketchup is a product of conventional (CNV) or organic (ORG) agriculture.
+Abbreviations for criteria represent, beneﬁcial (B) or non-beneﬁcial (NB): CC (climate change), FRD (resource use, fossils), WU (water use), FEU (Eutrophication, freshwater), AC (acidiﬁcation), PM (Particulate matter), and VA (Value Added).
+
+LCA
+
+Type of
+criterion
+
+Unit
+
+PP-450-CNV
+
+PP-380-ORG
+
+PP-550-ORG
+
+GL-480ORG
+
+CC
+
+NB
+
+kg CO2eq/FU
+
+5.97E+00
+
+9.16E+00
+
+5.66E+00
+
+6.54E+00
+
+FRD
+
+NB
+
+MJ/FU
+
+9.40E+01
+
+1.37E+02
+
+8.62E+01
+
+9.65E+01
+
+WU
+
+NB
+
+m³eq/FU
+
+1.23E+01
+
+2.15E+01
+
+1.28E+01
+
+1.29E+01
+
+FEU
+
+NB
+
+kg Peq/FU
+
+1.40E-03
+
+2.11E-03
+
+1.26E-03
+
+1.58E-03
+
+AC
+
+NB
+
+mol H+eq/FU
+
+3.90E-02
+
+6.06E-02
+
+3.54E-02
+
+4.95E-02
+
+3.02E-07
+
+4.72E-07
+
+2.82E-07
+
+4.51E-07
+
+PM
+
+NB
+
+disease
+incidence/FU
+
+Organic
+agriculture
+
+B
+
+yes (1) / no (0)
+
+0
+
+1
+
+1
+
+1
+
+Value added
+
+B
+
+€/FU
+
+13.02
+
+17.83
+
+11.67
+
+9.85
+
+Table 4
+Weights of criteria, calculated using equal weighting (‘EQUAL’), CRITIC and entropy. Abbreviations for criteria represent: CC (climate change), FRD (resource use, fossils), WU
+(water use), FEU (eutrophication, freshwater), AC (acidiﬁcation), PM (particulate matter),
+and VA (value added).
+Category
+
+Criteria
+
+Equal
+
+Critic
+
+Entropy
+
+Life cycle assessment
+
+CC
+FOSSILS
+WATER
+FW_EUTROPH
+FW_ACID
+RESP
+Yes/no
+VA
+
+12.5%
+12.5%
+12.5%
+12.5%
+12.5%
+12.5%
+12.5%
+12.5%
+
+6.8%
+7.5%
+8.4%
+6.8%
+8.0%
+15.2%
+32.2%
+15.2%
+
+14.4%
+13.9%
+17.3%
+14.3%
+14.2%
+13.3%
+7.5%
+5.1%
+
+Organic agriculture
+Economic assessment
+
+studies (Maxim, 2014; Niero and Kalbar, 2019), such as only considering environmental performance, while excluding assessments of
+other sustainability dimensions (Zimek et al., 2019) or compliance
+with environmental regulations (Levy, 2017). The proposed
+
+sustainability assessment of food-packaging systems can solve
+multi-dimensional issues, particularly of conﬂicting sustainability
+goals. TOPSIS provides a single score and therefore an easy to understand indication of the best possible solution. However, it is
+not without its limitations. TOPSIS does not provide a ‘ﬁnal word’
+since the selection of criteria and weights strongly inﬂuence the results, again shown in this study. Furthermore, sustainability may be
+considered as a social construct and, arguably, weighting sets
+should then only be determined subjectively (Mollayoseﬁ et al.,
+2019). While this may be a beneﬁt due to it being highly adaptable
+to the preferences of one decision maker, it is then challenging to
+compare the results of one such study to those of others (Maxim,
+2014). A natural progression of this work would be to apply this
+method to an increasing number of different food-packaging systems. Furthermore, future studies could incorporate social life
+cycle assessments to depict all three pillars of sustainability. Additionally, the economic assessment could be enhanced by developing
+environmental LCC methods which cover a more extensive scope of
+economic sustainability. Finally, while admittedly challenging, a
+greater focus on quantifying FLW besides emptiability and the integration into such assessments would produce a better and broader
+insight into the sustainability of food-packaging systems.
+CRediT authorship contribution statement
+
+Ideal soluon = 1.00
+1.00
+
+0.90
+0.85
+0.79
+
+0.77
+
+0.77
+
+0.75
+0.65
+
+0.63
+
+0.50
+
+0.65
+
+0.50 0.49
+
+Bernhard Wohner:Conceptualization, Formal analysis, Validation,
+Writing - original draft, Writing - review & editing, Visualization.
+Viktoria Helene Gabriel:Conceptualization, Writing - review &
+editing.Barbara Krenn:Conceptualization, Formal analysis.Victoria
+Krauter:Conceptualization, Validation, Writing - review & editing, Supervision.Manfred Tacker:Conceptualization, Validation, Resources,
+Writing - review & editing, Supervision.
+
+0.33
+
+Declaration of competing interest
+
+0.23
+
+0.25
+
+0.00
+Weights: Equal
+PP-380-ORG
+
+Weights: CRITIC
+PP-450-CNV
+
+PP-550-ORG
+
+Weights: Entropy
+GL-480-ORG
+
+Fig. 5. Relative closeness values of products. Abbreviations for products represent (i) the
+packaging material as polypropylene (PP) or glass (GL), (ii) the content of bottles of
+380, 450, 480 or 550 g and (iii) if the ketchup is a product of conventional (CNV) or
+organic (ORG) agriculture.
+
+The authors declare that they have no known competing ﬁnancial
+interests or personal relationships that could have appeared to inﬂuence the work reported in this paper.
+Acknowledgments
+Reinhard Zeilinger assisted with the statistical analysis. Vivienne
+Nieuwenhuizen created ﬁgures. Mary Wallis provided comments on
+the manuscript.
+
+B. Wohner et al. / Science of the Total Environment 738 (2020) 139846
+
+Funding
+This research did not receive any speciﬁc grant from funding agencies in the public, commercial, or not-for-proﬁt sectors.
+Appendix A. Supplementary data
+Supplementary data to this article can be found online at https://doi.
+org/10.1016/j.scitotenv.2020.139846.
+References
+Alinezhad, A., Khalili, J., 2019. CRITIC method. In: Alinezhad, A., Khalili, J. (Eds.), New
+Methods and Applications in Multiple Attribute Decision Making (MADM). Springer
+International Publishing, Cham, pp. 199–203.
+Altstoff Recycling Austria AG, 2018. Transparenzbericht 2018: Die Zukunft der
+Kreislaufwirtschaft. Austria, Vienna.
+Amón, R., Maulhardt, M., Wong, T., Kazama, D., Simmons, C.W., 2015. Waste heat and
+water recovery opportunities in California tomato paste processing. Appl. Therm.
+Eng. 78, 525–532.
+Andersson, K., Ohlsson, T., Olsson, P., 1998. Screening life cycle assessment (LCA) of tomato ketchup: a case study. J. Clean. Prod. 6 (3–4), 277–288.
+Anwar, M., Rasul, M.G., Ashwath, N., 2019. The efﬁcacy of multiple-criteria design matrix
+for biodiesel feedstock selection. Energy Convers. Manag. 198, 111790.
+Bacenetti, J., Cavaliere, A., Falcone, G., Giovenzana, V., Banterle, A., Guidetti, R., 2018. Shelf
+life extension as solution for environmental impact mitigation: a case study for bakery products. Sci. Total Environ. 627, 997–1007.
+Belton, V., Stewart, T.J., 2003. Multiple Criteria Decision Analysis: An Integrated Approach.
+2nd ed. Kluwer Acad. Publ, Boston, Mass.
+Beretta, C., Hellweg, S., 2019. Potential environmental beneﬁts from food waste prevention in the food service sector. Resour. Conserv. Recycl. 147, 169–178. http://www.
+sciencedirect.com/science/article/pii/S0921344919301284.
+Boesen, S., Bey, N., Niero, M., 2019. Environmental sustainability of liquid food packaging:
+is there a gap between Danish consumers’ perception and learnings from life cycle assessment? J. Clean. Prod. 210, 1193–1206.
+Boesveld, E., 2011. The Recycling of Heinz PET Packaging in Europe. Bachelor thesis. Enschede, Netherlands. https://essay.utwente.nl/62202/4/Verslag_Els_Boesveld.pdf,
+Accessed date: 7 November 2019.
+Bruijn, H., Duin, R., Huijbregts, M.A.J., Guinee, J.B., Gorree, M., Heijungs, R., et al., 2004.
+Handbook on Life Cycle Assessment: Operational Guide to the ISO Standards. Kluwer
+Academic Publishers, Dordrecht.
+Bundeskanzleramt,
+Bundesministerium
+Öffentlicher
+Dienst
+und
+Sport,
+Bundesministerium Nachhaltigkeit und Tourimus, 2018. Maßnahmen der
+österreichischen Bundesregierung zur Reduktion von Plastikabfällen in Österreich.
+38/18.
+Bundesministerium für Arbeit, Soziales, Gesundheit und Konsumentenschutz, 2015.
+Österreichisches Lebensmittelhandbuch. Codexkapitel/B 24/Gemüse und
+Gemüsedauerwaren.
+Bundesministerium für Land- und Forstwirtschaft, Umwelt und Wasserwirtschaft, 2008.
+Bundesrecht konsolidiert: Gesamte Rechtsvorschrift für Deponieverordnung 2008,
+Fassung vom 08.11.2019: DVO 2008.
+Castellani, V., Diaconu, E., Fazio, S., Sala, S., Schau, E.M., Secchi, M., et al., 2018. Supporting
+Information to the Characterisation Factors of Recommended EF Life Cycle Impact Assessment Methods: New Methods and Differences with ILCD. Publications Ofﬁce of
+the European Union, Luxembourg.
+ÇELEN, A., 2014. Comparative analysis of normalization procedures in TOPSIS method:
+with an application to Turkish deposit banking market. Informatica 24 (2), 185–208.
+Ciroth, A., 2016a. Life Cycle Costing and Calculation of Value Added in openLCA. https://
+www.openlca.org/wp-content/uploads/2016/08/Life-Cycle-Costing-in-openLCA.pdf,
+Accessed date: 15 April 2020.
+Ciroth, A., 2016b. Life Cycle Costing in openLCA 1.5 with Ecoinvent 3.2 Extended. https://
+www.openlca.org/wp-content/uploads/2016/08/Webinar-Life-Cycle-Costing-inopenLCA-1.5-with-ecoinvent-3.2-extended.pdf, Accessed date: 14 May 2020.
+Conte, A., Cappelletti, G.M., Nicoletti, G.M., Russo, C., Del Nobile, M.A., 2015. Environmental implications of food loss probability in packaging design. Food Research International (Ottawa, Ont.) 78, 11–17.
+Diakoulaki, D., Mavrotas, G., Papayannakis, L., 1995. Determining objective weights in
+multiple criteria problems: the critic method. Comput. Oper. Res. 22 (7), 763–770.
+European Commission, 2011. Communication from the Commission to the European Parliament, the Council, the European Economic and Social Commitee and the Committee of the Regions: Roadmap to a Resource Efﬁcient Europe. European Commission,
+Brussels.
+European Commission, 2017. PEFCR Guidance Document: Guidance for the Development
+of Product Environmental Footprint Category Rules (PEFCRSs). version 6.3. http://ec.
+europa.eu/environment/eussd/smgp/pdf/PEFCR_guidance_v6.3.pdf, Accessed date:
+17 April 2019.
+European Commission, 2019a. Product Environmental Footprint Guidance: Annex C – List
+of Default Values for A, R1, R2, R3 and Qs/Qp. https://eplca.jrc.ec.europa.eu/
+permalink/Annex_C_Transition_CFF.xlsx, Accessed date: 29 April 2020.
+European Commission, 2019b. Circular Economy: Implementation of the Circular Economy Action Plan. https://ec.europa.eu/environment/circular-economy/index_en.
+htm, Accessed date: 11 December 2019.
+
+11
+
+European Commission (DG ENV - Directorate C), 2018. A European Strategy for Plastics in
+a Circular Economy: Communication from the Commission to the European Parliament. the Council, the European Economic and Social Committee of the Regions,
+Brussels, Belgium.
+eurostat, 2019a. Circular Economy in the EU: Record Recycling Rates and Use of Recycled
+Materials in the EU. https://ec.europa.eu/eurostat/documents/2995521/9629294/804032019-BP-EN.pdf/295c2302-4ed1-45b9-af86-96d1bbb7acb1, Accessed date: 7
+January 2020.
+eurostat, 2019b. Freight Transport Statistics - Modal Split - Statistics Explained. https://ec.
+europa.eu/eurostat/statistics-explained/index.php?title=Freight_transport_statistics_-_modal_split#Modal_split_in_the_EU, Accessed date: 2 December 2019.
+eurostat, 2019c. Statistics | Eurostat: Recycling Rates for Packaging Waste. https://ec.europa.eu/eurostat/databrowser/view/ten00063/default/table?lang=en, Accessed
+date: 7 November 2019.
+van Eygen, E., Laner, D., Fellner, J., 2018a. Circular economy of plastic packaging: current
+practice and perspectives in Austria. Waste Management (New York, N.Y.) 72, 55–64.
+van Eygen, E., Laner, D., Fellner, J., 2018b. Integrating high-resolution material ﬂow data
+into the environmental assessment of waste management system scenarios: the
+case of plastic packaging in Austria. Environmental Science & Technology 52 (19),
+10934–10945.
+FAO, 2019. The State of Food and Agriculture 2019: Moving Forward on Food Loss and
+Waste Reduction. Rome. .
+FH Campus Wien, 2019. Circular Packaging Design Guideline: Design Recommendations
+for Recyclable Packaging. https://www.fh-campuswien.ac.at/ﬁleadmin/redakteure/
+Veranstaltungen/Circular_Packaging_Day/FH-Campus-Wien_Circular-Packaging-Design-Guideline_V02.pdf, Accessed date: 8 November 2019.
+Fraval, S., van Middelaar, C.E., Ridoutt, B.G., Opio, C., 2019. Life cycle assessment of food
+products. Encyclopedia of Food Security and Sustainability. Elsevier, pp. 488–496.
+Goedkoop, M., Heijungs, R., Huijbregts, M., An, D.S., Jaap, S., vZ, Rosalie, 2013. ReCiPE
+2008: A Life Cycle Impact Assessment Method which Comprises Harmonised Category Indicators at the Midpoint and the Endpoint Level.
+Gustavsson, J., Cederberg, C., Sonesson, U., 2011. Global Food Losses and Food Waste: Extent, Causes and Prevention; Study Conducted for the International Congress Save
+Food! At Interpack 2011, [16–17 May], Düsseldorf, Germany. Rome, Food and Agriculture Organization of the United Nations.
+He, X., Qiao, Y., Liu, Y., Dendler, L., Yin, C., Martin, F., 2016. Environmental impact assessment of organic and conventional tomato production in urban greenhouses of Beijing
+city, China. J. Clean. Prod. 134, 251–258.
+Hedenqvist, M.S., 2018. Barrier packaging materials. In: Hedenqvist, M. (Ed.), Handbook
+of Environmental Degradation of Materials. Elsevier, pp. 559–581.
+Heijungs, R., Settanni, E., Guinée, J., 2013. Toward a computational structure for life cycle
+sustainability analysis: unifying LCA and LCC. Int. J. Life Cycle Assess. 18 (9),
+1722–1733.
+HOFER, 2018. Medieninformation: HOFER packt aus: Diskonter startet Offensive zur
+Reduktion von Verpackungsmüll. https://www.hofer.at/de/unternehmen/presse/
+presseaussendungen/projekt-2020/verpackungsmission/, Accessed date: 7 November 2019.
+Humbert, S., Rossi, V., Margni, M., Jolliet, O., Loerincik, Y., 2009. Life cycle assessment of
+two baby food packaging alternatives: glass jars vs. plastic pots. Int. J. Life Cycle Assess. 14 (2), 95–106.
+Hunkeler, D., Lichtenvort, K., Rebitzer, G., 2008. Environmental Life Cycle Costing. CRC
+Press, Hoboken.
+Hwang, C.-L., Lai, Y.-J., Liu, T.-Y., 1993. A new approach for multiple objective decision
+making. Comput. Oper. Res. 20 (8), 889–899.
+IPCC, 2013. Climate Change 2013: The Physical Science Basis: Contribution of Working
+Group I to the Fifth Assessment Report of the Intergovernmental Panel on Climate
+Change. Cambridge University Press, Cambridge.
+ISO (Ed.), 2006a. Environmental management — Life cycle assessment — Requirements
+and guidelines: 14040:2006(en), 2006th ed. ISO.
+ISO (Ed.), 2006b. Environmental Management — Life Cycle Assessment — Requirements
+and Guidelines: 14044:2006, 2006th ed. ISO. (13.020.10).
+Jahan, A., Edwards, K.L., 2015. A state-of-the-art survey on the inﬂuence of normalization
+techniques in ranking: improving the materials selection process in engineering design. Materials & Design (1980–2015) 65, 335–342.
+Kao, C., 2010. Weight determination for consistently ranking alternatives in multiple
+criteria decision analysis. Appl. Math. Model. 34 (7), 1779–1787.
+Kumar, A., Sah, B., Singh, A.R., Deng, Y., He, X., Kumar, P., et al., 2017. A review of multi
+criteria decision making (MCDM) towards sustainable renewable energy development. Renew. Sust. Energ. Rev. 69, 596–609.
+Levy, M., 2017. Life cycle analysis: strengths and limitations of LCA. Encyclopedia of Sustainable Technologies. Elsevier, pp. 233–236.
+Li, X., Wang, K., Liu, L., Xin, J., Yang, H., Gao, C., 2011. Application of the entropy weight and
+TOPSIS method in safety evaluation of coal mines. Procedia Engineering 26,
+2085–2091.
+Lindh, H., Williams, H., Olsson, A., Wikström, F., 2016. Elucidating the indirect contributions of packaging to sustainable development: a terminology of packaging functions
+and features. Packag. Technol. Sci. 29 (4–5), 225–246.
+Maxim, A., 2014. Sustainability assessment of electricity generation technologies using
+weighted multi-criteria decision analysis. Energy Policy 65, 284–297.
+Meier, M.S., Stoessel, F., Jungbluth, N., Juraske, R., Schader, C., Stolze, M., 2015. Environmental impacts of organic and conventional agricultural products—are the differences captured by life cycle assessment? J. Environ. Manag. 149, 193–208.
+Meurer, I.R., Lange, C.C., Hungaro, H.M., Valenzuela Bell, M.J., de Carvalho dos Anjos, V.,
+Antonio de Sá Silva, C., et al., 2017. Quantiﬁcation of whole ultra high temperature
+UHT milk waste as a function of packages type and design. J. Clean. Prod. 153,
+483–490.
+
+12
+
+B. Wohner et al. / Science of the Total Environment 738 (2020) 139846
+
+Molina-Besch, K., Wikström, F., Williams, H., 2018. The environmental impact of packaging in food supply chains—does life cycle assessment of food provide the full picture?
+Int. J. Life Cycle Assess. 21, 492 Part 3.
+Mollayoseﬁ, M.M., Hayati, B., Pishbahar, E., Nematian, J., 2019. Selecting weighting methodologies for evaluating agricultural sustainability in Iran. Proceedings of the Institution of Civil Engineers - Engineering Sustainability 172 (4), 207–217.
+Moreau, V., Weidema, B.P., 2015. The computational structure of environmental life cycle
+costing. Int. J. Life Cycle Assess. 20 (10), 1359–1363.
+Neugebauer, S., Forin, S., Finkbeiner, M., 2016. From life cycle costing to economic life
+cycle assessment—introducing an economic impact pathway. Sustainability 8 (5),
+428.
+Niero, M., Kalbar, P.P., 2019. Coupling material circularity indicators and life cycle based
+indicators: a proposal to advance the assessment of circular economy strategies at
+the product level. Resour. Conserv. Recycl. 140, 305–312.
+Pauer, E., Wohner, B., Heinrich, V., Tacker, M., 2019. Assessing the environmental sustainability of food packaging: an extended life cycle assessment including packagingrelated food losses and waste and circularity assessment. Sustainability 11 (3), 925.
+Pilz H, Brandt B, Fehringer R. The Impact of Plastics on Life Cycle Energy Consumption and
+Greenhouse Gas Emissions in Europe: Summary Report, 2010. https://www.
+plasticseurope.org/application/ﬁles/9015/1310/4686/september-2010-the-impactof-plastic.pdf (accessed April 15, 2020).
+plasticker, Markt, Preise, 2019. https://plasticker.de/preise/preise_monat_single.php,
+Accessed date: 7 November 2019.
+Posch, M., Seppälä, J., Hettelingh, J.-P., Johansson, M., Margni, M., Jolliet, O., 2008. The role
+of atmospheric dispersion models and ecosystem sensitivity in the determination of
+characterisation factors for acidifying and eutrophying emissions in LCIA. Int. J. Life
+Cycle Assess. 13 (6), 477–486. https://link.springer.com/content/pdf/10.1007/
+s11367-008-0025-9.pdf.
+REWE Group, 2018. REWE International AG will “Raus aus Plastik”: BILLA, MERKUR,
+PENNY und ADEG starten großangelegte Initiative für umweltfreundliche
+Verpackungen. https://www.rewe-group.at/de/newsroom/pressemitteilungen/riag1817-Raus-aus-Plastik, Accessed date: 7 November 2019 ).
+Ronga, D., Gallingani, T., Zaccardelli, M., Perrone, D., Francia, E., Milc, J., et al., 2019. Carbon
+footprint and energetic analysis of tomato production in the organic vs the conventional cropping systems in southern Italy. J. Clean. Prod. 220, 836–845.
+Scherhaufer, S., Moates, G., Hartikainen, H., Waldron, K., Obersteiner, G., 2018. Environmental impacts of food waste in Europe. Waste Manag. 77, 98–113.
+Schmidt, M.C., 2011. Untersuchung und Verbesserung des Entleerungsverhaltens von
+Füllgut-Verpackungssystemen. Dissertation. Universität Stuttgart, Stuttgart.
+Sharoba, A.M., Senge, B., El-Mansy, H.A., Bahlol, H.E., Blochwitz, R., 2005. Chemical, sensory and rheological properties of some commercial German and Egyptian tomato
+ketchups. Eur. Food Res. Technol. 220 (2), 142–151.
+Shennan, C., Krupnik, T.J., Baird, G., Cohen, H., Forbush, K., Lovell, R.J., et al., 2017. Organic
+and conventional agriculture: a useful framing? Annu. Rev. Environ. Resour. 42 (1),
+317–346.
+Smith, L.G., Kirk, G.J.D., Jones, P.J., Williams, A.G., 2019. The greenhouse gas impacts of
+converting food production in England and Wales to organic methods. Nat. Commun.
+10 (1), 4641.
+SPAR, 2019. Gemeinsam Plastik sparen mit Spar. https://www.spar.at/nachhaltigkeit/
+produkte/verpackungen, Accessed date: 7 November 2019.
+Speck, R., Selke, S., Auras, R., Fitzsimmons, J., 2015. Choice of life cycle assessment software can impact packaging system decisions. Packag. Technol. Sci. 28 (7), 579–588.
+Stanhill, G., 1990. The comparative productivity of organic agriculture. Agric. Ecosyst. Environ. 30 (1–2), 1–26.
+Statista GmbH, 2019. Ketchup - Österreich | Statista Marktprognose. https://de.statista.
+com/outlook/40070100/128/ketchup/oesterreich, Accessed date: 24 October 2019.
+
+Stettler, C., Rüttimann, S., Kägi, T., 2016. Ökobilanz Verwertungen von Altglas ökologischer Nutzen der Sammlung von Verpackungsglas: Grundlagenbericht für
+Empfehlungen zum Verteilschlüssel der vorgezogenen Entsorgungsgebühr (VEG).
+https://carbotech.ch/cms/wp-content/uploads/%C3%96kobilanz_Verwertung_von_
+Altglas_de.pdf, Accessed date: 7 November 2019.
+The European Parliament and the Council, 2018. Directive (EU) 2018/851 of the European
+Parliament and of the Council of 30 May 2018 amending Directive 2008/98/EC on
+waste: EU 2018/851.
+The jamovi project. jamovi, 2019. https://www.jamovi.org/ (accessed November 15,
+2019).
+UNEP, 2016. Global guidance for life cycle impact assessment indicators. https://www.
+lifecycleinitiative.org/download/5746/, Accessed date: 9 March 2020.
+USDA, 2019. FoodData central: tomatoes, red, ripe, raw, year round average. https://fdc.
+nal.usda.gov/fdc-app.html#/food-details/170457/nutrients, Accessed date: 29 October 2019.
+Vafaei, N., Ribeiro, R.A., Camarinha-Matos, L.M., 2016. Normalization techniques for multicriteria decision making: analytical hierarchy process case study. In: CamarinhaMatos, L.M., Falcão, A.J., Vafaei, N., Najdi, S. (Eds.), Technological Innovation for
+Cyber-Physical Systems. Springer International Publishing, Cham, pp. 261–269.
+Vermeulen PCM, van der Lans CJM. Combined heat and power (CHP) as a possible
+method for reduction of the Co2 Footprint Of Organic Greenhouse Horticulture. In:
+Dorais M, Bishop SD, Meijer RJM. Proceedings of the First International Conference
+on Organic Greenhouse Horticulture; Bleiswijk, The Netherlands, October 11–14,
+2010: International Society for Horticultural Science; International Conference on Organic Greenhouse Horticulture. Leuven: Secretariat of ISHS Int. Soc. for Horticultural
+Science; 2011.
+Wątróbski, J., Jankowski, J., Ziemba, P., Karczmarczyk, A., Zioło, M., 2019a. Generalised
+framework for multi-criteria method selection. Omega 86, 107–124.
+Wątróbski, J., Jankowski, J., Ziemba, P., Karczmarczyk, A., Zioło, M., 2019b. MCDA method
+selection tool: An innovative tool for selecting MCDA method tailored to the decision
+problem. http://mcda.it/.
+Wikström, F., Williams, H., Verghese, K., Clune, S., 2014. The inﬂuence of packaging attributes on consumer behaviour in food-packaging life cycle assessment studies - a
+neglected topic. J. Clean. Prod. 73, 100–108.
+Williams, H., Wikström, F., 2011. Environmental impact of packaging and food losses in a
+life cycle perspective: a comparative analysis of ﬁve food items. J. Clean. Prod. 19 (1),
+43–48.
+Williams, H., Wikström, F., Otterbring, T., Löfgren, M., Gustafsson, A., 2012. Reasons for
+household food waste with special attention to packaging. J. Clean. Prod. 24, 141–148.
+de Wit, M., Hoogzaad, J., Ramkumar, S., Friedl, H., Douma, A., 2018. The Circularity Gap Report: An Analysis of the Circular State of the Global Economy. https://bfc732f7-80e94ba1-b429-7f76cf51627b.ﬁlesusr.com/ugd/ad6e59_
+733a71635ad946bc9902dbdc52217018.pdf, Accessed date: 11 December 2019.
+Wohner, B., Pauer, E., Heinrich, V., Tacker, M., 2019a. Packaging-related food losses and
+waste: an overview of drivers and issues. Sustainability 11 (1).
+Wohner, B., Schwarzinger, N., Gürlich, U., Heinrich, V., Tacker, M., 2019b. Technical
+emptiability of dairy product packaging and its environmental implications in
+Austria. PeerJ 7 (12), e7578.
+Wood, R., Hertwich, E.G., 2013. Economic modelling and indicators in life cycle sustainability assessment. Int. J. Life Cycle Assess. 18 (9), 1710–1721.
+Yokokawa, N., Kikuchi-Uehara, E., Sugiyama, H., Hirao, M., 2018. Framework for analyzing
+the effects of packaging on food loss reduction by considering consumer behavior.
+J. Clean. Prod. 174, 26–34.
+Yonezawa, K., Richards, T.J., 2016. Competitive package size decisions. J. Retail. 92 (4),
+445–469.
+Zimek, M., Schober, A., Mair, C., Baumgartner, R.J., Stern, T., Füllsack, M., 2019. The third
+wave of LCA as the “decade of consolidation”. Sustainability 11 (12), 3283.
+
+

@@ -1,0 +1,337 @@
+{
+  "summary": {
+    "generatedAt": "2026-04-20T20:09:15.115Z",
+    "batchName": "food-research-process-2026-04-20",
+    "target": "sourcedoc",
+    "targetLabel": "SourceDoc",
+    "apply": true,
+    "minConfidence": "low",
+    "selected": 8,
+    "promotable": 8,
+    "skipped": 0,
+    "conflicts": 0,
+    "wouldCreate": 0,
+    "wouldUpdate": 8,
+    "created": 0,
+    "updated": 8,
+    "artifactChecks": {
+      "importedRowsInSummary": 225,
+      "batchDocumentsInDb": 225,
+      "promotionSummaryTargetCount": 126
+    },
+    "reasonCounts": {
+      "document-already-linked-to-sourcedoc": 8
+    },
+    "outputs": {
+      "csv": "research/intake/food-research-process-2026-04-20/promotion-preview-sourcedoc.csv",
+      "json": "research/intake/food-research-process-2026-04-20/promotion-preview-sourcedoc.json",
+      "md": "research/intake/food-research-process-2026-04-20/promotion-preview-sourcedoc.md"
+    }
+  },
+  "decisions": [
+    {
+      "target": "SourceDoc",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Efficiency of a novel “Food to waste to food” system including anaerobic digestion of food waste and cultivation of vegetables on digestate in a bubble-insulated greenhouse - ScienceDirect.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/3604b45fb6-efficiency-of-a-novel-food-to-waste-to-food-system-including-anaerobic-digestion-of-food-waste-and-cultivation-of-vegetables-on-digestate-in-a-bubble-insulated-greenhouse-sciencedirect.pdf",
+      "filename": "Efficiency of a novel “Food to waste to food” system including anaerobic digestion of food waste and cultivation of vegetables on digestate in a bubble-insulated greenhouse - ScienceDirect.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfjpo0012zo0dxzhu3e7s",
+      "documentTitle": "Efficiency of a novel “Food to waste to food” system including anaerobic digestion of food waste and cultivation of vegetables on digestate in a bubble-insulated greenhouse - ScienceDirect",
+      "promotedTitle": "Efficiency of a novel “Food to waste to food” system including anaerobic digestion of food waste and cultivation of vegetables on digestate in a bubble-insulated greenhouse - ScienceDirect",
+      "typedId": "src-food-3604b45fb661",
+      "currentTargetLinks": [
+        "SourceDoc:src-food-3604b45fb661"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "src-food-3604b45fb661",
+      "reasonCodes": [
+        "document-already-linked-to-sourcedoc"
+      ],
+      "reasonSummary": "document-already-linked-to-sourcedoc",
+      "payloadPreview": {
+        "id": "src-food-3604b45fb661",
+        "filename": "Efficiency of a novel “Food to waste to food” system including anaerobic digestion of food waste and cultivation of vegetables on digestate in a bubble-insulated greenhouse - ScienceDirect.pdf",
+        "title": "Efficiency of a novel “Food to waste to food” system including anaerobic digestion of food waste and cultivation of vegetables on digestate in a bubble-insulated greenhouse - ScienceDirect",
+        "author": null,
+        "year": null,
+        "sourceType": "pdf-document",
+        "description": "Promoted from 04_Food_Waste_And_Circularity in food-research-process-2026-04-20.",
+        "relevance": "Source-material signals lead this recommendation: title/filename references ScienceDirect; title is formatted like a web or page capture; review metadata typed_layer_candidate=report-or-source.",
+        "url": null,
+        "isDuplicate": false,
+        "doi": null,
+        "publisher": null,
+        "documentId": "cmo7cfjpo0012zo0dxzhu3e7s"
+      }
+    },
+    {
+      "target": "SourceDoc",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/approval insect novel food - Food Safety - European Commission.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/8831ac4193-approval-insect-novel-food-food-safety-european-commission.pdf",
+      "filename": "approval insect novel food - Food Safety - European Commission.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfjz5001nzo0dxp7i8u7o",
+      "documentTitle": "approval insect novel food - Food Safety - European Commission",
+      "promotedTitle": "approval insect novel food - Food Safety - European Commission",
+      "typedId": "src-food-8831ac419319",
+      "currentTargetLinks": [
+        "SourceDoc:src-food-8831ac419319"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "src-food-8831ac419319",
+      "reasonCodes": [
+        "document-already-linked-to-sourcedoc"
+      ],
+      "reasonSummary": "document-already-linked-to-sourcedoc",
+      "payloadPreview": {
+        "id": "src-food-8831ac419319",
+        "filename": "approval insect novel food - Food Safety - European Commission.pdf",
+        "title": "approval insect novel food - Food Safety - European Commission",
+        "author": null,
+        "year": null,
+        "sourceType": "pdf-document",
+        "description": "Promoted from 05_Foodtech_Alt_Protein_And_Innovation in food-research-process-2026-04-20.",
+        "relevance": "Source-material signals lead this recommendation: title/filename references the European Commission; title is formatted like a web or page capture; review metadata typed_layer_candidate=report-or-source.",
+        "url": null,
+        "isDuplicate": false,
+        "doi": null,
+        "publisher": null,
+        "documentId": "cmo7cfjz5001nzo0dxp7i8u7o"
+      }
+    },
+    {
+      "target": "SourceDoc",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/BioMar _ Powered by Partnership. Driven by Innovation_.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/095360a751-biomar-powered-by-partnership-driven-by-innovation.pdf",
+      "filename": "BioMar _ Powered by Partnership. Driven by Innovation_.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjzl001ozo0d1nkiunsa",
+      "documentTitle": "BioMar | Powered by Partnership. Driven by Innovation.",
+      "promotedTitle": "BioMar | Powered by Partnership. Driven by Innovation.",
+      "typedId": "src-food-095360a751fe",
+      "currentTargetLinks": [
+        "SourceDoc:src-food-095360a751fe"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "src-food-095360a751fe",
+      "reasonCodes": [
+        "document-already-linked-to-sourcedoc"
+      ],
+      "reasonSummary": "document-already-linked-to-sourcedoc",
+      "payloadPreview": {
+        "id": "src-food-095360a751fe",
+        "filename": "BioMar _ Powered by Partnership. Driven by Innovation_.pdf",
+        "title": "BioMar | Powered by Partnership. Driven by Innovation.",
+        "author": null,
+        "year": null,
+        "sourceType": "pdf-document",
+        "description": "Promoted from 05_Foodtech_Alt_Protein_And_Innovation in food-research-process-2026-04-20.",
+        "relevance": "Source-material signals lead this recommendation: title is formatted like a web or page capture; review metadata typed_layer_candidate=report-or-source.",
+        "url": null,
+        "isDuplicate": false,
+        "doi": null,
+        "publisher": null,
+        "documentId": "cmo7cfjzl001ozo0d1nkiunsa"
+      }
+    },
+    {
+      "target": "SourceDoc",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Enifer - Ingredients for a sustainable food chain.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/e1477dd45a-enifer-ingredients-for-a-sustainable-food-chain.pdf",
+      "filename": "Enifer - Ingredients for a sustainable food chain.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfk0u001rzo0d66z7p5ub",
+      "documentTitle": "Enifer - Ingredients for a sustainable food chain",
+      "promotedTitle": "Enifer - Ingredients for a sustainable food chain",
+      "typedId": "src-food-e1477dd45a8a",
+      "currentTargetLinks": [
+        "SourceDoc:src-food-e1477dd45a8a"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "src-food-e1477dd45a8a",
+      "reasonCodes": [
+        "document-already-linked-to-sourcedoc"
+      ],
+      "reasonSummary": "document-already-linked-to-sourcedoc",
+      "payloadPreview": {
+        "id": "src-food-e1477dd45a8a",
+        "filename": "Enifer - Ingredients for a sustainable food chain.pdf",
+        "title": "Enifer - Ingredients for a sustainable food chain",
+        "author": null,
+        "year": null,
+        "sourceType": "pdf-document",
+        "description": "Promoted from 05_Foodtech_Alt_Protein_And_Innovation in food-research-process-2026-04-20.",
+        "relevance": "Source-material signals lead this recommendation: title is formatted like a web or page capture; review metadata typed_layer_candidate=report-or-source.",
+        "url": null,
+        "isDuplicate": false,
+        "doi": null,
+        "publisher": null,
+        "documentId": "cmo7cfk0u001rzo0d66z7p5ub"
+      }
+    },
+    {
+      "target": "SourceDoc",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Hailia - Enabling the Blue Food Revolution.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/8fda4db5c8-hailia-enabling-the-blue-food-revolution.pdf",
+      "filename": "Hailia - Enabling the Blue Food Revolution.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfk2z001wzo0djipxmbwm",
+      "documentTitle": "Hailia - Enabling the Blue Food Revolution",
+      "promotedTitle": "Hailia - Enabling the Blue Food Revolution",
+      "typedId": "src-food-8fda4db5c862",
+      "currentTargetLinks": [
+        "SourceDoc:src-food-8fda4db5c862"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "src-food-8fda4db5c862",
+      "reasonCodes": [
+        "document-already-linked-to-sourcedoc"
+      ],
+      "reasonSummary": "document-already-linked-to-sourcedoc",
+      "payloadPreview": {
+        "id": "src-food-8fda4db5c862",
+        "filename": "Hailia - Enabling the Blue Food Revolution.pdf",
+        "title": "Hailia - Enabling the Blue Food Revolution",
+        "author": null,
+        "year": null,
+        "sourceType": "pdf-document",
+        "description": "Promoted from 05_Foodtech_Alt_Protein_And_Innovation in food-research-process-2026-04-20.",
+        "relevance": "Source-material signals lead this recommendation: title is formatted like a web or page capture; review metadata typed_layer_candidate=report-or-source.",
+        "url": null,
+        "isDuplicate": false,
+        "doi": null,
+        "publisher": null,
+        "documentId": "cmo7cfk2z001wzo0djipxmbwm"
+      }
+    },
+    {
+      "target": "SourceDoc",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/The Nordic alternative protein research ecosystem - GFI Europe.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/559ac48dbd-the-nordic-alternative-protein-research-ecosystem-gfi-europe.pdf",
+      "filename": "The Nordic alternative protein research ecosystem - GFI Europe.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkb5002dzo0dh41fydid",
+      "documentTitle": "The Nordic alternative protein research ecosystem - GFI Europe",
+      "promotedTitle": "The Nordic alternative protein research ecosystem - GFI Europe",
+      "typedId": "src-food-559ac48dbd62",
+      "currentTargetLinks": [
+        "SourceDoc:src-food-559ac48dbd62"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "src-food-559ac48dbd62",
+      "reasonCodes": [
+        "document-already-linked-to-sourcedoc"
+      ],
+      "reasonSummary": "document-already-linked-to-sourcedoc",
+      "payloadPreview": {
+        "id": "src-food-559ac48dbd62",
+        "filename": "The Nordic alternative protein research ecosystem - GFI Europe.pdf",
+        "title": "The Nordic alternative protein research ecosystem - GFI Europe",
+        "author": null,
+        "year": null,
+        "sourceType": "pdf-document",
+        "description": "Promoted from 05_Foodtech_Alt_Protein_And_Innovation in food-research-process-2026-04-20.",
+        "relevance": "Source-material signals lead this recommendation: title/filename references GFI Europe; title is formatted like a web or page capture; review metadata typed_layer_candidate=report-or-source.",
+        "url": null,
+        "isDuplicate": false,
+        "doi": null,
+        "publisher": null,
+        "documentId": "cmo7cfkb5002dzo0dh41fydid"
+      }
+    },
+    {
+      "target": "SourceDoc",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/1-s2.0-S2772801325000028-main.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/4481d7002c-1-s2-0-s2772801325000028-main.pdf",
+      "filename": "1-s2.0-S2772801325000028-main.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfkt6002xzo0dhp5x1wgm",
+      "documentTitle": "Willingness to pay for lettuce produced with fish sludge and human waste: The role of food neophobia",
+      "promotedTitle": "Willingness to pay for lettuce produced with fish sludge and human waste: The role of food neophobia",
+      "typedId": "src-food-4481d7002ca6",
+      "currentTargetLinks": [
+        "SourceDoc:src-food-4481d7002ca6"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "src-food-4481d7002ca6",
+      "reasonCodes": [
+        "document-already-linked-to-sourcedoc"
+      ],
+      "reasonSummary": "document-already-linked-to-sourcedoc",
+      "payloadPreview": {
+        "id": "src-food-4481d7002ca6",
+        "filename": "1-s2.0-S2772801325000028-main.pdf",
+        "title": "Willingness to pay for lettuce produced with fish sludge and human waste: The role of food neophobia",
+        "author": null,
+        "year": null,
+        "sourceType": "academic-source",
+        "description": "Promoted from 07_Academic_Research_And_Theses in food-research-process-2026-04-20.",
+        "relevance": "Source-material signals lead this recommendation: academic folder defaults to source material unless thesis/report is explicit.",
+        "url": null,
+        "isDuplicate": false,
+        "doi": null,
+        "publisher": null,
+        "documentId": "cmo7cfkt6002xzo0dhp5x1wgm"
+      }
+    },
+    {
+      "target": "SourceDoc",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/energies-18-04093.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/1abac3892b-energies-18-04093.pdf",
+      "filename": "energies-18-04093.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfl6p003jzo0d52izhnr2",
+      "documentTitle": "Cascade Processing of Agricultural, Forest, and Marine Waste Biomass for Sustainable Production of Food, Feed, Biopolymers, and Bioenergy",
+      "promotedTitle": "Cascade Processing of Agricultural, Forest, and Marine Waste Biomass for Sustainable Production of Food, Feed, Biopolymers, and Bioenergy",
+      "typedId": "src-food-1abac3892b01",
+      "currentTargetLinks": [
+        "SourceDoc:src-food-1abac3892b01"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "src-food-1abac3892b01",
+      "reasonCodes": [
+        "document-already-linked-to-sourcedoc"
+      ],
+      "reasonSummary": "document-already-linked-to-sourcedoc",
+      "payloadPreview": {
+        "id": "src-food-1abac3892b01",
+        "filename": "energies-18-04093.pdf",
+        "title": "Cascade Processing of Agricultural, Forest, and Marine Waste Biomass for Sustainable Production of Food, Feed, Biopolymers, and Bioenergy",
+        "author": null,
+        "year": null,
+        "sourceType": "academic-source",
+        "description": "Promoted from 07_Academic_Research_And_Theses in food-research-process-2026-04-20.",
+        "relevance": "Source-material signals lead this recommendation: academic folder defaults to source material unless thesis/report is explicit.",
+        "url": null,
+        "isDuplicate": false,
+        "doi": null,
+        "publisher": null,
+        "documentId": "cmo7cfl6p003jzo0d52izhnr2"
+      }
+    }
+  ]
+}

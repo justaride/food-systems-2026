@@ -1,0 +1,1788 @@
+Science of the Total Environment 653 (2019) 908–919
+
+Contents lists available at ScienceDirect
+
+Science of the Total Environment
+journal homepage: www.elsevier.com/locate/scitotenv
+
+Review
+
+Assessing the role of CAP for more sustainable and healthier food systems
+in Europe: A literature review
+Recanati F. a,⁎, Maughan C. b, Pedrotti M. c,d, Dembska K. e, Antonelli M. e,f
+a
+
+Dipartimento di Elettronica, Informazione e Bioingegneria, Politecnico di Milano, Italy
+Coventry University, Centre for Agroecology, Water and Resilience, United Kingdom
+Edmund Mach Foundation, Department of Food Quality and Nutrition, Italy
+d
+Wageningen University, Food Quality and Design, the Netherlands
+e
+Barilla Center for Food & Nutrition Foundation, Italy
+f
+Dipartimento Scienze Sociali, Politiche e Cognitive, Università di Siena, Italy
+b
+c
+
+H I G H L I G H T S
+
+G R A P H I C A L
+
+A B S T R A C T
+
+• A number of EU food systems show unsustainable production and unhealthy
+consumption patterns.
+• The nutritional EU crisis calls for aligned
+agricultural, nutrition and health goals.
+• Integration of CAP environmental targets with other sectoral policies is
+needed.
+• CAP does not currently support a diversity in farming perspectives in EU.
+• An integrated Common Agri-food Policy
+is key to achieve a sustainable EU food
+system.
+
+a r t i c l e
+
+i n f o
+
+Article history:
+Received 8 June 2018
+Received in revised form 25 October 2018
+Accepted 27 October 2018
+Available online 30 October 2018
+Editor: Damia Barcelo
+Keywords:
+Common Agricultural Policy
+European Union
+Nutrition
+Environment
+Rural livelihoods
+SDGs
+
+a b s t r a c t
+Today, the European food system is characterized by unhealthy dietary trends, environmentally unsustainable production, and a dependency on an ageing farming population. The ongoing reform of the Common
+Agricultural Policy (CAP) represents an opportunity to redress these issues. This literature review highlights
+trends in how academic and grey literature have received CAP attempts in addressing the (i) environmental
+issues, (ii) nutritional outcomes, and (iii) rural livelihoods. Additionally, future policy and research directions relating to the CAP have been identiﬁed from the selected literature. The reviewed literature varies
+in approach and perspective. In particular, since the environment and rural development are already part
+of the CAP, the reviewed studies analyze and propose improvements to existing mechanisms. While for nutrition, the reviewed studies assessed possible policy strategies for integrating this sphere within the CAP,
+highlighting both the complexity of this task as well as its potential beneﬁts. Despite these differences, a
+clear commonality emerged from the policy recommendations: the CAP should promote the European
+Union (EU) policy integration and multi-disciplinary and participatory research as key strategies to meet
+food system sustainability targets.
+© 2018 The Authors. Published by Elsevier B.V. This is an open access article under the CC BY-NC-ND license (http://
+creativecommons.org/licenses/by-nc-nd/4.0/).
+
+⁎ Corresponding author.
+E-mail address: francesca.recanati@gmail.com (F. Recanati).
+
+https://doi.org/10.1016/j.scitotenv.2018.10.377
+0048-9697/© 2018 The Authors. Published by Elsevier B.V. This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+F. Recanati et al. / Science of the Total Environment 653 (2019) 908–919
+
+909
+
+Contents
+1.
+2.
+3.
+
+Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Methodology . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Nutrition. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.1.
+The EU nutritional challenges . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.2.
+Integration of health and nutrition into the CAP: examples and suggestions from the literature . . . . . . . . . . .
+4.
+The environment . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.1.
+The environmental dimension of CAP . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2.
+EU agriculture towards environmental sustainability: CAP trends and future directions from the literature . . . . . .
+5.
+Farmers and rural development . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5.1.
+Farmer livelihoods and rural development in the CAP . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5.2.
+CAP towards an inclusive and diverse farmers' population: current issues and CAP future directions from the literature
+5.2.1.
+Young farmers. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5.2.2.
+New entrants . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5.2.3.
+Small-scale farmers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5.2.4.
+Women farmers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6.
+Discussion: future policy and research directions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Appendix A.
+Supplementary data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+1. Introduction
+The European Union (EU) agri-food sector is among the major
+drivers of negative environmental externalities. The sector accounts
+for more than 10% of the total greenhouse gas emissions in the EU-28
+(EEA, 2018), it is among the major contributors to water (EEA, 2012;
+Eurostat, 2009) and soil depletion (Eurostat, 2015), as well as biodiversity loss (EEA, 2015, 2017). Agri-food production in the EU also relies on
+a rapidly ageing (78% is older than 44 and 31% older than 65; EC, 2017a)
+and majority-male farming population (women account for less than
+32% of the entire workforce; Eurostat, 2017). In consumption terms, despite increased citizen awareness of nutrition, food quality and related
+health beneﬁts (EC, 2017b; Solazzo et al., 2016), the EU is currently
+experiencing a negative nutritional transition (Alexandratos, 2006),
+with marked increases in nutrition-related diseases and public health
+costs (Eurostat, 2018).
+These problems have not gone unnoticed at the EU-level. Numerous
+policy instruments have been introduced and developed in the attempt
+to mitigate their effects, from the General Food Law Regulation to the
+Water Framework Directive (WFD) and, of course, the Common Agricultural Policy (CAP). Since its creation in 1962 (EEC, 1962), CAP objectives have steadily evolved to respond to EU society changes and needs,
+providing a central and connecting role among different food-systems
+dimensions, such as environmental protection and support for rural development (see IFPRI, 2018; Kuhmonen, 2018, for a storyline of the
+CAP). In particular, three reforms have played a central role in shaping
+the strategic direction of the CAP. Firstly, the 1992 reform, in line with
+the principle of sustainable development launched by the Rio Earth
+Summit, began incentivizing ‘environmentally compatible’ farming
+practices through direct payments. Secondly, the Fischler Reform in
+2003 consolidated the central role of food quality, environmental protection, animal health and welfare, and rural development in the EU agriculture by introducing the cross compliance concept (Brady et al.,
+2009; Swinnen, 2010). Thirdly, the 2013 reform increased the direct
+support to producers to respond to long-term objectives reﬂecting the
+three dimensions of sustainability (EC, 2013a): viable food production,
+balanced rural development, and sustainable natural resources management and climate action (Barnes et al., 2016; EC, 2013a). After this
+last reform, a public consultation was launched in 2017 to investigate
+how the CAP could be further modernised and simpliﬁed. The consultation results underlined the importance of adopting a wider perspective
+in order to tackle urgent societal challenges (EC, 2017a), which have
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+909
+909
+910
+910
+910
+911
+911
+912
+913
+913
+914
+914
+914
+914
+914
+915
+916
+916
+916
+
+been formalized into nine objectives for the 2021–2027 CAP (EC,
+2018a). These objectives include (i) to tackle environmental pressures
+and climate change, (ii) to foster rural development and farmers position in the value chain, and (iii) to address new societal demands regarding health, nutrition, food waste and animal welfare (EC, 2017a,
+2018a). These objectives attempt to align the CAP to the global agenda
+on sustainable development (EC, 2016a, 2017c,d; Gregersen et al.,
+2016), in which food systems have been identiﬁed as one of the “six
+transformations necessary to achieve the Sustainable Development
+Goals (SDGs)” (IIASA, 2018). However, an integrated policy approach
+tackling the food system as a whole (Foran et al., 2014; Garnett, 2011;
+IFPRI, 2018; James and Friel, 2015; Tendall et al., 2015; Zurek et al.,
+2017) remains underdeveloped at the EU level (European Union's
+Group of Chief Scientiﬁc Advisors and EC, 2018). Nevertheless, the
+2020 CAP reform can represent an ideal opportunity to improve the policy integration required to reﬂect “the multifunctional role farming
+plays in the diversity of landscapes, food products and cultural and natural heritage throughout the Community” (EC, 2006) and to lead the
+transition towards more sustainable food systems as advocated by the
+international community and the global Agenda (BCFN, 2017; EC,
+2011a, 2014, 2016b, 2017a,c, 2018b; EC and EP, 2017; IFPRI, 2018;
+Rogge and Reichardt, 2016).
+Given this context, this paper is intended to investigate the viability
+of these aspirations towards whole food system sustainability. In particular, this literature review aims at highlighting trends in the way the
+CAP has been received in the academic and grey literature, particularly
+with regards to its attempts to address current challenges relating to
+the (i) environment, (ii) nutrition, and (iii) rural livelihoods. In addition
+to this, we attempt to identify further trends across this literature
+pointing to likely future policy and research directions relating to the
+CAP. After a brief description of the review methodology, we present
+the results of the literature review structured in three core sections,
+each one dedicated to one of these three themes. A ﬁnal section draws
+some conclusions and points to possible future research and policy
+options.
+2. Methodology
+Based on the last public consultation (EC, 2017a) and on the literature on the SDGs and sustainable food systems (e.g., Garnett, 2011;
+IIASA, 2018), a list of research terms including “Common Agricultural
+Policy”, “nutrition”, “health”, “food policy”, “non-communicable
+
+910
+
+F. Recanati et al. / Science of the Total Environment 653 (2019) 908–919
+
+disease”, “healthy diet”, “environment”, and “farmers” has been selected
+to carry out the literature review. As for scientiﬁc databases, Scopus,
+ScienceDirect, PubMed, GoogleScholar and Wiley were used. The research was restricted to the period 2013–2018, i.e., consequent to the
+last CAP reform, but some earlier articles cited in the selected list that
+were deemed particularly relevant were also reviewed. To complete
+the picture with relevant grey literature, qualifying documents published by EU and international agencies (e.g., European Commission,
+WHO, FAO) were considered. After a ﬁrst screening phase focused on titles, abstracts and key words, we excluded a number of documents
+which a) did not consider the most recent round of CAP reforms and
+their impacts, and b) did not make any recommendations for future policy and research directions. For the issue of farmer livelihoods, a further
+set of keywords was applied due to the vast number of results returned.
+Further rationale for this decision plus the key words themselves are included in Section 5. Concerning the nutrition section, due to the limited
+number of studies dealing with the relation between CAP and nutrition,
+we extended the research timeframe (i.e., from 2000). This decision
+permits an investigation of the long, but still ongoing debate around
+this topic, which was not inﬂuenced by the past CAP reforms since citizen nutrition and health are not yet integrated into the CAP.
+The whole text was then reviewed to identify relevant issues and
+gaps to be considered in the future policy and research directions for
+the CAP, and a ﬁnal selection of 165 papers has been considered. The
+reviewed literature analyses the CAP mechanisms and performances,
+and give suggestions and directions for the future CAP through both
+quantitative analysis based on mathematical models and surveys
+(e.g., Panagos et al., 2015) and policy review (e.g., Grosjean et al.,
+2018). Additional details on the review methodology are reported in
+the Supplementary materials.
+3. Nutrition
+3.1. The EU nutritional challenges
+The CAP's relationship with food provision has evolved in piecemeal,
+by including rules on food quality and safety (Schmid and Sinabell,
+2007). Despite the belief that it relates only to agriculture (Walls et al.,
+2016), the CAP was originally created to address food security and nutrition issues (Lang and Heasman, 2015). Today, policy makers have increasingly recognized food as a policy ﬁeld that requires an integrated
+approach to overcome current challenges (Barling et al., 2002; Lang
+and Ingram, 2013).
+A nutritional transition started in the 60s has set in motion dietary
+trends characterized by (i) increased consumption of meat, dairy,
+sugars, fats and energy-dense food (Alexandratos, 2006; Grigg, 1995),
+(ii) lower intake of ‘healthy’ food such as ﬁsh, fruit, vegetables, whole
+grains, nuts, pulses and seafood (Fresco and Poppe, 2016) compounded
+by processed food containing excess amounts of sugar, salt, and fats
+(Drewnowski and Popkin, 2009; Hyseni et al., 2017; Reynolds et al.,
+2014), and (iii) decline in adherence to the so-called ‘healthy diets’
+such as the ‘Mediterranean diet’ (da Silva et al., 2009; EC, 2005). These
+dietary trends have had signiﬁcant impacts on public health. In
+Europe, 30–80% of adults and more than 20% of children and adolescents suffer from overweight (WHO, 2011, 2017), among which one
+third is obese. Poor diets play a major role among the NCDs risk factors
+(WHO, 2015a), while the risk of NCDs and chronic diseases can be reduced through the adoption of healthy diets (WHO, 2015b) including
+adequate consumption of fruits and vegetables (Boeing et al., 2012;
+Dauchet et al., 2005), reduction of saturated fats, free sugars (WHO,
+2015b), salt (Mozaffarian et al., 2014) and meat (particularly of processed and red meat) (Danaei et al., 2014; Montagnese et al., 2015).
+Health problems constitute the second largest item of government expenditure for the EU-28 (Eurostat, 2018), and between 70% to 80% of
+healthcare costs are spent on NCDs (about €700 billion; EC, 2012a,b,c).
+These numbers are estimated to increase in the future.
+
+3.2. Integration of health and nutrition into the CAP: examples and suggestions from the literature
+Calls to better integrate nutrition and health into the CAP started in
+mid-1990s (Elinder et al., 2003), ﬁrstly, with a focus on the food supply
+distortion due to overproduction and high prices of fruits and vegetables (Elinder, 2005; Lang and Rayner, 2005), and secondly with emphasis on reducing obesity and other NCDs (Elinder, 2005; Hawkes, 2007;
+Pederson, 2008). Nowadays, despite the integration of nutritional aims
+in an agricultural policy remains not well understood (Elinder, 2005;
+Hawkes, 2007), mechanisms and interventions that can improve health
+outcomes at the EU national and local level have emerged from the
+present literature review (see Table 1 for a summary).
+Firstly, some authors suggest subsidies to increase the availability
+and affordability of healthy food (An, 2013; Thow et al., 2014;
+Veerman et al., 2006; Waterlander et al., 2018). The most subsidised agricultural products include beef, sugar and milk (da Silva et al., 2009),
+with surpluses being exported or becoming ingredients for high-fat
+processed food (Alexandratos, 2006). Conversely, fruit and vegetables receive the least support in relation to their EU market value, and where
+support exists, it has failed to stimulate production increases seen in
+other sectors (Eurostat, 2018). This resulted in one of the most striking effect of CAP policy: foods with high saturated fat content are more affordable for consumers than fruit and vegetables (Faculty of Public Health,
+2007). In response to this crisis, it has been argued that CAP should
+focus on rebuilding a sustainable horticulture sector, providing the foundations of a healthy food system (Alexandratos, 2006; Lang and Schoen,
+2016). As food production directly inﬂuences the food environment, contributing to healthy food availability, quality and affordability, a nutrition
+focused CAP could encourage more diverse, environmentally sustainable
+plant-based consumption patterns and ultimately promote dietary
+changes and support healthy diets (Schmidhuber, 2007). Studies estimated that increases of about 20% on fruit and vegetables subsidies
+might increase their consumption by 10% (Schmidhuber, 2007), and a reduction of fruit and vegetable prices might prevent coronary heart disease
+and ischemic stroke (Thow et al., 2010).
+That said, the relationship between agricultural subsidies and food
+accessibility remains somewhat unclear (Devlin et al., 2017). Some authors report that CAP should instead promote healthy eating by raising
+consumer prices for dairy and sugar products (Mazzocchi et al., 2009).
+However, despite some studies reported the effectiveness of taxation
+and subsidies in affecting dietary behaviour and consumption, policy
+adoption remains scarce and consumer information provision is usually
+preferred (An, 2013; Sisnowski et al., 2015). Therefore, some authors
+suggested that restrictions on advertising, public awareness campaigns
+and ﬁscal measures would be the key element in improving public
+health (Capacci et al., 2012). In general, the EU provides a wide regulatory framework of dietary related laws that could properly address
+NCDs and obesity prevention (Sisnowski et al., 2015), namely:
+(i) consumer information through nutrition labelling, (ii) health and
+nutrition claims used for marketing practices, and (iii) the nutritional
+standards of food programs like the School Milk Scheme, the School
+Fruit Scheme and the EU food distribution program (Brambila-Macias
+et al., 2011; Mazzocchi et al., 2009; Sisnowski et al., 2015; Table 1).
+The two school programs deﬁned by the Single Common Market Organization Regulation indicated a nutritionally stringent approach by excluding from EU co-ﬁnancing “unhealthy products” (i.e. products
+containing added sugar, fat, salt or sweeteners). In doing so, legislators
+attempted to integrate the economic motivations of the CAP in “stabilizing markets” while promoting healthier diets. However, the reorientation of the EU food distribution program did not follow this integration direction as it was separated out of the CAP and transformed
+into a market purchase-based program without a clear nutrition focus
+(Sisnowski et al., 2015). Besides the EU level, some initiatives for integrating food dimensions into policy have been taken at the national
+and local level (Candel and Pereira, 2017), with different outcomes
+
+F. Recanati et al. / Science of the Total Environment 653 (2019) 908–919
+
+911
+
+Table 1
+Examples of different type of policy interventions aimed at increasing public healthy eating (adaption from the classiﬁcation introduced by Mazzocchi et al. (2009) and Sisnowski et al.
+(2015)).
+Type of
+intervention
+
+Level
+
+Examples
+
+Outcome and impact
+
+References
+
+Marketing constrained in the use of health and
+nutrition claims. Weak evidence of inﬂuence on
+food consumption.
+
+(Brambila-Macias et al., 2011; Sisnowski
+et al., 2015)
+
+Success in increasing knowledge and awareness.
+Variability in effectiveness in changing nutritional
+habits
+Possible impact on healthy eating, but
+heterogeneous throughout the population.
+Possible impact on consumer awareness and on
+product reformulation by food processors.
+Only 2/3 of consumers read labels and low
+effectiveness of labels in inducing healthy food
+purchase
+
+(Ashﬁeld-Watt et al., 2007; Capacci et al.,
+2012; Pomerleau et al., 2005; Sassi et al.,
+2009)
+(Capacci et al., 2012; Ermetici et al., 2016)
+
+Possible impact on consumption in high-income
+countries.
+No documentation in developing countries.
+Possible use of income from taxation in subsidies
+to foster healthy diets.
+Effectiveness in supporting both public health and
+agriculture.
+
+(Brambila-Macias et al., 2011; Caraher and
+Cowburn, 2005; Sisnowski et al., 2015; Thow
+et al., 2010)
+
+Regulatory changes frequently incorporate
+already-existing practices (in industry).
+Need of policies to incentivize healthier
+ingredients
+
+(Hawkes et al., 2012; Sisnowski et al., 2015)
+
+Policies supporting more informed choice
+Advertising
+controls &
+marketing
+
+European,
+national
+
+Social
+marketinga
+
+European,
+national,
+local.
+National,
+local
+European,
+National
+
+Nutrition
+education
+Nutritional
+labelling
+
+Regulation on Nutrition and Health
+Claims Made on Food (1924/2006/EC);
+Ban on food advertisement aimed at
+children (Sweden and UK);
+5 A Day UK Campaign; “Every Step
+Counts – Small Changes Make the
+Difference” (Ireland)
+Nutrition education at school (Finland)
+EAT Project (Italy)
+Regulation on Provision of Food
+Information to Consumers
+(1169/2011/EU);
+Guideline Daily Amounts (EU);
+Nordic nutrition labelling scheme;
+Voluntary Front of Pack Signpost
+Nutrition Labelling Systems (UK)
+
+(Garretson and Burton, 2000; Sassi et al.,
+2009; Sisnowski et al., 2015; Variyam, 2005)
+
+Policies changing the market environment
+Fiscal measures: National
+taxes/subsidies
+
+Fat tax (Romania);
+Public health product fee (Hungary);
+Differential value-added tax regimes for
+unhealthy food products (Hungary);
+
+Regulating
+school food
+environment
+Food
+reformulation
+
+EU,
+national
+
+School Milk and School Fruit Schemes
+(EU)
+
+EU
+
+Regulation 133/2008/EC on Food
+Additives
+
+(de Sa and Lock, 2008)
+
+a
+Process by which governments try to induce voluntary positive changes in the behaviour of individuals with the use of a wide range of commercial marketing techniques (Halpern
+et al., 2004).
+
+throughout countries. For instance, since the 70s Norway has adopted
+an integrated Nutrition and Food Policy (Klepp and Forster, 1985) and
+the country recently notiﬁed a proposed ban on the marketing of unhealthy food to children (2013/9005/N) (Sisnowski et al., 2015).
+Hungary adopted in 2011 a “public health product fee” (EC, 2011b) to
+help reduce the domestic consumption of categories of food causing
+health risks. On the other hand, Denmark attempted to introduce a saturated fat tax in 2011 (2011/19/DK) but the policy was abolished within
+one year due to competing economic and political interests (Smed,
+2012; Waterlander et al., 2018).
+The discussion around the inclusion of nutritional objectives in the
+CAP has become crucial for the future of EU (James et al., 2006; WHO,
+2004), and “food policy” has become an increasingly important concept
+used to emphasize the need for integrative strategies that align different
+policies affecting food systems (Candel and Pereira, 2017). Achieving successful policy integration has always been a challenge (Peters, 2015),
+underlined by the call for a better understanding of healthy diets and
+the consequent introduction of supra-national dietary guidelines across
+EU (Walls et al., 2016). In the CAP, this is even more complicated due to
+the lack of clarity in the legal mandate to address health issues at the
+EU level and the lack of a multidisciplinary approach necessary to target
+public health goals (Lock et al., 2010; Waterlander et al., 2018).
+Overall, the reviewed literature reveals the complexity of integrating
+nutrition goals into the CAP, however, though the potential for agricultural policy interventions to improve diets remains limited, they are
+nonetheless important (Hawkes et al., 2012). The adoption of a comprehensive food chain approach in research and in planning intervention in
+the CAP could clarify the links between food system actors and phases,
+and consequently foster the transition towards healthy eating, and prevent nutrition related diseases (ibidem), but also reducing food waste
+(EC, 2017e) and environmental burdens (Fresco and Poppe, 2016).
+
+With the last open consultation, a public debate about addressing health
+and nutrition in CAP (EC, 2017a) and a debate on policy integration and
+a possible transition to a Common Food Policy has started (EC, 2016c;
+IPES-Food, 2017a; Marsden, 2016). This latter is claimed to support a
+wider food systems perspective and span different governance levels
+from EU to urban level (IPES-Food, 2017b; MUFPP, 2015). Consequently,
+the CAP 2021–2017 regulation proposal (EC, 2018a) shows ﬁrst attempts in moving towards a food system approach. In particular, it included an objective on the response of EU agriculture to new societal
+demands on food and health, and actions to promote the consumption
+of fruit and vegetables (Articles 42 and 43).
+4. The environment
+4.1. The environmental dimension of CAP
+European landscapes are dominated by agriculture, which accounts
+for almost half of the total EU land surface (Halada et al., 2011). The
+EU has often been seen as a forerunner in the implementation of environmental measures (Lafferty and Hovden, 2003; Nilsson and Persson,
+2017; Venghaus and Hake, 2018), with the ﬁrst Environmental Action
+Program dating back to the '70s (EC, 1973). Since the 1990s, the CAP
+has been repeatedly reformed in the attempt to tackle environmental issues (EC, 2017f), starting from the Environmental Policy Integration in
+1993 up to the ongoing “greening” process. During this period, the
+CAP has widened its aims from modernisation of agriculture, price stability and food accessibility (Erjavec and Erjavec, 2009; Garzon, 2006),
+to the promotion of multifunctional and sustainable agriculture, and
+rural development (Solazzo et al., 2016).
+Today the CAP addresses environmental concerns through two pillars. Pillar I includes rules and mandatory standards for all EU farmers
+
+912
+
+F. Recanati et al. / Science of the Total Environment 653 (2019) 908–919
+
+to respond to the “Polluter-Pays-Principle”1 through direct payments and
+market measures. Pillar II aims to support rural development, and responds to the “Provider-Gets-Principle”2 that involves dedicated incentives to remunerate farmers' voluntary engagement in contributing to
+environmental objectives beyond the mandatory standards (e.g., by enhancing crop diversiﬁcation, maintaining permanent grassland, and improving farm biodiversity, conserving forest; EP, 2013). Despite these
+initiatives, the EU agriculture is still among the major drivers of negative
+impacts on the environment. It causes more than 10% of the total greenhouse gas emissions in EU-28 (EEA, 2018), almost 44% of total water
+withdrawals (EEA, 2012; with higher rates in water-scarce Mediterranean countries; FAO, 2016), eutrophication risk due to fertilizer application (EEA, 2014; Eurostat, 2009), and soil erosion (Eurostat, 2015).
+Consequently, the loss of EU biodiversity has accelerated (EEA, 2015),
+making it very difﬁcult for Europe to meet the target of halting the biodiversity loss and the ecosystem services degradation by 2020 (EC, 2011a).
+The 2017 public consultation stressed the need for a stronger CAP action in addressing climate change, unsustainable management of natural
+resources (e.g., water, soil, and air), and loss of biodiversity and landscapes (EC, 2017a,g). The European Commission included these priorities
+in the regulation for the CAP 2021–2027 by dedicating three of the nine
+general objectives to these issues (EC, 2018a), in the attempt to address
+to the environmental challenges set by SDGs, the Paris agreements on climate change, and Aichi convention of biodiversity (EC, 2018b).
+
+Table 2
+CAP and the environmental challenges grouped into environmental priorities. The reported
+arguments reﬂect the three policy challenges highlighted from the literature review (1:
+systemic approach; 2: CAP coherence; 3: more diversiﬁed and practical guidelines).
+Environmental
+priority
+
+Argument
+
+References
+
+Water
+
+Agricultural productivity goals
+should be balanced with
+sustainable management of
+natural resources (1)
+Need to align the goals of
+different (environmental) EU
+policies (2)
+
+(Antonelli et al., 2017;
+Frueh-Mueller et al., 2018;
+Salmoral et al., 2017)
+
+Soil and land
+
+The actual characterization of
+(Bouma and Wösten, 2016;
+‘sustainable management’ is
+Cortignani and Dono, 2015;
+vague (3)
+Fastelli et al., 2017)
+CAP should ﬁt the needs of
+speciﬁc rural sub-areas and
+farming styles (3)
+CAP should provide
+quantitative indications to
+guide farmers' actions (3)
+CAP mechanisms might actually
+thwart wider European strategy
+and policy goals (2)
+
+Climate
+change
+
+Inconsistency between CAP
+goals and actions (e.g., EFA vs.
+rural development funds) (2)
+Incentive should integrate
+ecosystem services and
+socio-economic information (1)
+There is a weak link between
+policy objectives and policy
+action (2)
+Researchers are fundamental to
+quantify and assess agricultural
+and environmental
+performances (3)
+
+(Burrascano et al., 2016;
+Coderoni and Esposti, 2018;
+Frueh-Mueller et al., 2018;
+Solazzo et al., 2016;
+Verschuuren, 2018)
+
+Biodiversity
+
+Policy consistency and
+coordination is crucial (1,2)
+CAP needs to focus more on
+climate change mitigation and
+adaptation (1)
+There is a weak link between
+policy objectives and policy
+action (2)
+
+(Burrascano et al., 2016;
+Fischer and Wagner, 2016;
+Jakobsson and Lindborg, 2017;
+Schaller et al., 2018;
+Zinngrebe et al., 2017)
+
+All
+
+Systemic and integrated
+(Eksvärd and Marquardt, 2018;
+approach are necessary to deﬁne Venghaus and Hake, 2018)
+environmental targets and assess
+agricultural systems (1)
+CAP guidelines should reﬂect
+agriculture multi-functionality (1)
+CAP effects depend on the
+speciﬁc resources and context (3)
+
+4.2. EU agriculture towards environmental sustainability: CAP trends and
+future directions from the literature
+The reviewed literature analyses the CAP environmental mechanisms and performances. The themes resulting from the literature review are consistent with the environmental priorities underlined in
+the last CAP consultation (Table 2), and the needs to support the transition towards a more sustainable EU food system emerged from the review can be grouped into three major challenges.
+The ﬁrst challenge for the future CAP relates to the adoption of a systemic and integrated approach when deﬁning environmental targets and
+assessing agricultural practices (Creutzig, 2017; Van Grinsven et al., 2016;
+Venghaus and Hake, 2018). This multi-dimensionality is needed by both
+the multi-faceted nature of the environment and the multifunctional
+role of agriculture (Eksvärd and Marquardt, 2018), as highlighted for instance by the ecosystem services framework (TEEB, 2018). This assessment framework emerged from the various attempts to address
+environmental issues within the CAP (Bouwma et al., 2018; Fagerholm
+et al., 2016; Frueh-Mueller et al., 2018; Merckx and Pereira, 2015; Toma
+et al., 2017): alongside the provision of food and income, agriculture
+should, indeed, incorporate and develop the capacity to mitigate climate
+change, produce and use sustainable energy, protect biodiversity, preserve water and soil, and safeguard our cultural heritage (Lampkin et al.,
+2015). Scientiﬁc research on CAP should thus adopt a multi-criteria and
+systemic approach in order to detect conﬂicts and synergies between different environmental dimensions (e.g., climate change, biodiversity conservation and water and soil management), as well as identifying
+feasible trade-off solutions and strategies (Gocht et al., 2017; Jakobsson
+and Lindborg, 2015; Toma et al., 2017). These analyses could support a
+change from the “productive” to the “sustainable” hectare perspective,
+the deﬁnition of new mechanisms that go beyond individual farmers
+(Leventon et al., 2017), but also link the environmental and the socio1
+Polluter-Pays-Principle (Avoiding environmental damage): the polluter should bear the
+costs of avoiding or remedying environmental damage, i.e. if farmers should be compliant
+with mandatory national and European environmental standards at their own costs, and
+in case of non-compliance they are subject to sanctions.
+2
+Provider-Gets-Principle (Provision of environmental services) is a remunerating voluntary environmental commitments going beyond legal requirements. For the CAP it is taken
+up via agri-environment payments, which encourage farmers to sign up for environmental commitments beyond the reference level of mandatory requirements.
+
+economic spheres (e.g., with carbon emission trade or the Payment for
+Ecosystem Services; Brady et al., 2017; Fares, 2016).
+A second major challenge is the policy coherence for the purpose of
+achieving environmental sustainability. Within the CAP, some studies
+agree on the fact that there is a weak link between environmental objectives and the relative actions (Solazzo et al., 2016). For instance, according to Pe'er et al. (2017) there is a mismatch between Ecological Focus
+Areas goals and the implemented actions, since the most effective measures for conserving biodiversity are barely selected by farmers
+(Sutherland et al., 2016). Moreover, due to the lack of integrated assessment behind the deﬁnition of CAP targets, possible conﬂicts between
+the different CAP objectives are not evident to policy makers and thus
+are not properly tackled (Hernández-Morcillo et al., 2018; Ribeiro
+et al., 2016; Turpin et al., 2017; Zinngrebe et al., 2017). Besides the
+inner policy coherence, the CAP lacks harmonization with other environmental EU policies. Given the envisaged multi-functionality of agriculture and its direct relationship with the environment, CAP plays a
+
+F. Recanati et al. / Science of the Total Environment 653 (2019) 908–919
+
+central role in fostering the integration of these policies. A large amount
+of evidence now suggests that re-aligning the objectives of the different
+sectoral policies will likely result in improvements in natural resources
+management (e.g., reduction in ﬂoods, droughts, and water pollution)
+(Linnerooth-Bayer et al., 2015; Salmoral et al., 2017), in a more effective
+biodiversity conservation (Palacín and Alonso, 2018), and mitigation of
+climate change and soil erosion (Fares, 2016; Warner et al., 2017).
+The third challenge regards the EU heterogeneous territories and agricultures. In order to achieve environmental beneﬁts throughout Europe,
+the future CAP requires diversiﬁed environmental targets and actions deﬁned according to regional or context-based characteristics. For instance,
+Bouma and Wösten (2016) state that scientists should create a new narrative for major soil categories to deﬁne operational procedures to support
+both the deﬁnition of legislative targets and guidelines of management
+practices for farmers. The Farm Advisory System (FAS) emerged as indispensable to efforts to analyze and characterise EU diversity and support
+the development of ad-hoc strategies (Bouma and Wösten, 2016;
+Cortignani and Dono, 2018; Santiago-Freijanes et al., 2018).
+With the last reforms, the CAP took the ﬁrst steps in tackling this heterogeneity by giving more ﬂexibility to the Member States in designing
+strategic plans and Agro-environmental schemes (Pe'er et al., 2017).
+This ﬂexibility should be supported by practical guidelines and speciﬁc
+best practices based on scientiﬁc evidence built on quantitative,
+spatio-temporally distributed monitoring campaigns and assessments
+(Fischer and Wagner, 2016; Verschuuren, 2018). It has been argued
+that the actual environmental objectives are indeed deﬁned in a generic
+and qualitative manner, despite they are often controlled and measured
+with quantitative technical parameters at the national level (Eksvärd
+and Marquardt, 2018). This approach conﬂicts with the transboundary
+nature of environmental processes (Batáry et al., 2015; Fischer and
+Wagner, 2016), which should be addressed by adopting an “eco-agrifood systems” perspective (TEEB, 2018) and considering regions, ecoregions or ecosystems through the cooperation between countries and
+the fundamental coordination of EU (e.g., Voulvoulis et al., 2017). Additionally, CAP monitoring and assessment systems should move to evaluate long-term effects and sustainability outcomes (Fischer and
+Wagner, 2016), e.g., depending on site characteristics, it can take up to
+200 years for 1 cm of soil to form (Verheijen et al., 2009), which can
+then be eroded in only few minutes (Panagos et al., 2016). Quantitative
+and multidimensional environmental assessment and monitoring
+frameworks would support more result-driven, feasible and adequate
+targets and guidelines and would alleviate the often-unambitious nature of CAP targets (Eksvärd and Marquardt, 2018).
+
+Table 3
+CAP and the rural fabric.
+Farmer
+group
+
+Argument
+
+Young
+farmers
+
+Average age of farmers in Europe (Barnes et al., 2016; Fresco and
+too high
+Poppe, 2016; Hamilton et al.,
+2015; Kontogeorgos et al., 2015;
+Leonard et al., 2017; Zagata and
+Sutherland, 2015)
+Provision for young farmers in
+(Barnes et al., 2016; Fresco and
+CAP inadequate
+Poppe, 2016; Hamilton et al.,
+2015; Kontogeorgos et al., 2015;
+Leonard et al., 2017; New
+Economics Foundation, 2017;
+Popp and Jámbor, 2015; Zagata
+and Sutherland, 2015)
+“Young farmer problem” only
+(Fresco and Poppe, 2016)
+really a problem in speciﬁc
+countries
+“Young farmer problem” only
+(Fresco and Poppe, 2016; Popp
+really a problem for SSF
+and Jámbor, 2015)
+More young farmers needed
+(Leonard et al., 2017; New
+because greater diversity needed Economics Foundation, 2017)
+More young farmers needed
+(Barnes et al., 2016; Fresco and
+because they are more likely to
+Poppe, 2016; Leonard et al.,
+use technology and create
+2017; Raggi et al., 2013; Zagata
+economies of scale
+and Sutherland, 2015)
+CAP currently creates obstacles
+(Hennessy, 2014; Leonard et al.,
+to land transfer
+2017)
+Land access key impediment to
+(Heanue and O'Donoghue, 2014;
+Leonard et al., 2017)
+reducing average farmer age.
+It is younger and not older farmers (Leonard et al., 2017; Zagata and
+who are associated with more
+Sutherland, 2015)
+efﬁcient and effective production
+practices ‘young sole holders are
+more likely to operate
+modernised, proﬁtable farms’
+
+New
+entrants
+
+Provision for new entrants in
+CAP inadequate
+
+Land access key impediment to
+new entrants
+More new entrants needed
+because they are more likely to
+use technology and create
+economies of scale
+New entrants needed to become
+SFF
+New system of training and
+support needed for new entrants
+More people than ever studying
+agricultural courses
+
+5. Farmers and rural development
+5.1. Farmer livelihoods and rural development in the CAP
+Much like its environmental and nutritional dimensions, resilient EU
+farmer livelihoods and the rural communities they support are crucial
+for the food system transition towards sustainability. In large part, the
+introduction of the CAP's ‘second pillar’ (see Section 4.1, EU, 2013)
+was intended to ‘support rural areas of the Union [to] meet the wide
+range of economic, environmental and societal challenges of the 21st
+century’ (EP, 2018a). ‘Farmer livelihoods’ and ‘rural development’ is a
+vast and unwieldy category; as such we opted to focus on four speciﬁc
+constituents within this ﬁeld: i) young farmers, ii) new entrants, iii)
+small-scale farmers, and iv) women farmers. This decision was taken
+in order to reﬂect not only the widespread concern for these particular
+areas in the literature, but also the corresponding view that for an agriculture as diverse as the EU's, only a set of commensurately diverse
+stakeholders will be capable of effecting transitions to a healthier and
+sustainable food system (Candel and Pereira, 2017; EC, 2016c; Fresco
+and Poppe, 2016; Marsden, 2016). In the following sections, we give
+some background on these measures, before summarizing the perceived impacts on these four farmer groups (Table 3).
+
+913
+
+Small-scale
+farming
+(SSF)
+
+SFF at severe disadvantage in EU
+system
+Provision for SFF in CAP
+inadequate
+
+SSF is economically viable
+SSF lacks economies of scale to
+make them viable
+“Young farmer problem” really a
+SSF problem
+Women
+farmers
+
+Women at severe disadvantage
+in EU system
+Provision for women in CAP
+inadequate
+Prejudices about farmer identity
+are preventing development of
+women farmers
+
+References
+
+(Barnes et al., 2016;
+Kontogeorgos et al., 2015; New
+Economics Foundation, 2017;
+Popp and Jámbor, 2015)
+(Zondag et al., 2015)
+(Barnes et al., 2016; Fresco and
+Poppe, 2016; Leonard et al.,
+2017; Raggi et al., 2013; Zagata
+and Sutherland, 2015)
+(Tudge, 2016)
+(Anderson et al., 2018;
+Sutherland et al., 2013)
+(Heanue and O'Donoghue, 2014)
+(Laughton, 2017a,b; New
+Economics Foundation, 2017;
+Urgenci, 2016)
+(Laughton, 2017a,b; New
+Economics Foundation, 2017;
+Popp and Jámbor, 2015; Urgenci,
+2016)
+(ETC Group, 2009; Laughton,
+2017a,b; Urgenci, 2016)
+(Fresco and Poppe, 2016)
+(Popp and Jámbor, 2015)
+(Oedl-Wieser, 2015; Shortall,
+2015)
+(Oedl-Wieser, 2015; Shortall,
+2015)
+(Brandth, 2002; Burandt and
+Mölders, 2017)
+
+914
+
+F. Recanati et al. / Science of the Total Environment 653 (2019) 908–919
+
+5.2. CAP towards an inclusive and diverse farmers' population: current issues and CAP future directions from the literature
+5.2.1. Young farmers
+Sometimes referred to as the ‘young farmer problem’ (Barnes et al.,
+2016; Hamilton et al., 2015; Leonard et al., 2017; Zagata and
+Sutherland, 2015), the ageing population of EU farmers is widely cited
+as a concern. The average age of farmers in the EU is 51.4 (EC, 2017h);
+however, across all countries the ﬁgures vary considerably. For example,
+in Portugal, half of all farmers are older than 65, while in Germany,
+Austria and Poland less than 10% of farmers continue to work beyond
+the age of 65 (EC, 2017h). This has led a number of researchers to reframe the ‘young farmer problem’ as speciﬁc to certain countries and
+farming systems (EC, 2017h; Fresco and Poppe, 2016).
+In recent decades, CAP reforms have included some measures to address farmers' ageing. For instance, all young farmers under 40 entering
+the sector receive an additional direct payment from the ﬁrst pillar,
+which may be combined with set-up assistance under the second pillar
+(EC, 2013b; Zagata and Sutherland, 2015). Critics of these measures
+have pointed to their minimal reach. Firstly, only 12% of ‘young’ farmers
+(i.e., less than 1% of all farmers) beneﬁted from the last round
+(Kontogeorgos et al., 2015). Secondly, less than 2% of the total designated to the ﬁrst pillar of national allocations is set aside for young
+farmers (EP, 2018b). Thirdly, Early Farm Retirement Schemes have
+also been introduced to facilitate the transfer of farms into younger
+hands, though these have not met with much success (Leonard et al.,
+2017). Finally, direct payments have also been shown to powerfully inhibit land transfer by creating contradictory incentives for older
+ﬁnancially-insecure livestock farmers to retain holdings by ‘destocking’
+their land and continuing in order to be able to claim both direct payments and a state pension (Hennessy, 2014; Leonard et al., 2017).
+The limited success of these measures has been noted in many studies, especially those which see young farmers as the primary way of increasing productivity, stimulating ‘innovation’ (Kontogeorgos et al.,
+2015) and effecting technology uptake (Barnes et al., 2016; Leonard
+et al., 2017; Raggi et al., 2013; Zagata and Sutherland, 2015). Regardless,
+a sense of optimism about farmer age does exist in some quarters,
+buoyed by research suggesting that ‘enrolments for agricultural degree
+and training programmes are at an all-time high, illustrating a strong intention to pursue farming as a primary career choice’ (Heanue and
+O'Donoghue, 2014). That said, many impediments to young farmers remain: broadband connectivity in rural areas being one (EC, 2017i),
+though by far the biggest being a ‘critically low’ ‘availability of farms’
+(Leonard et al., 2017). Furthermore, efforts to decrease farmer age
+based on high-tech modernisation and productivity increases are not
+universally supported, with opposition coming from those advocating
+environmental protection, support for smaller farms and the preservation of picturesque countryside and rural cultures (EP, 2017;
+Laughton, 2017a,b; Sutherland et al., 2016).
+5.2.2. New entrants
+The issue of ‘new entrants’ to farming is very much connected to
+young farmers (Barnes et al., 2016). For instance, land access is a central
+concern: an EU study found that lack of land for rent and/or purchase
+were considered the biggest barrier to entry (Zondag et al., 2015). The
+CAP makes no speciﬁc provision for new entrants, apart from those
+made to young entrants (EU, 2013). The issue is considered to be a ‘devolved’ issue, with responsibility for setting up new entrant schemes
+falling to national (e.g. Ireland, Irish Department of Agriculture, 2017),
+or regional authorities (e.g. Scotland; Scottish Government, 2013),
+where particular grants and tax reliefs have been developed for eligible
+farmers.
+Enthusiasm for new entrants follows much the same pattern as for
+young farmers; that is, it is hoped they will bring ‘innovation’ (invariably, technologically-focused) and increases in productivity (Barnes
+et al., 2016). Contrary to this techno-modernising trend, a sizeable
+
+minority see new entrants as potential proponents of a movement towards an agroecological and ‘knowledge-intensive’, rather than an
+‘input-intensive’ agriculture (FAO, 2017). This being said, such a shift remains dependent on the development of support mechanisms which do
+not currently exist, at least not at scale; for example, funding for horizontal knowledge-exchange platforms and impartial advisory services
+tailored to the needs of small-scale and agroecological systems
+(Anderson et al., 2018; Coolsaet, 2016; Sutherland et al., 2013).
+5.2.3. Small-scale farmers
+This brings us to the issue of small-scale farming (SFF) itself - perhaps the most controversial issue in the ongoing debates around the
+CAP. The exact deﬁnition of a small farm varies, and reliable data is
+often hard to come by (ETC Group, 2009). In 2013, there were almost
+5 million very small (i.e. less than 2 ha of utilised agricultural area)
+and 4.5 million physically small (2–20 ha) holdings in the EU-28. Combined, these holdings accounted for more than 85% of EU farms and for
+more than two thirds of the labour force ‘directly working on farms’
+(Eurostat, 2017).
+In spite of these numbers (and widespread concern for the diverse
+cultures and agricultural practices they represent), the CAP has historically incentivized large-scale food production, by (among other things)
+coupling direct payments to farm area (Fairlie, 2016), continuing commitments to export subsidies (Grant, 2010), and focusing on ‘capital investment in machinery to beneﬁt from economies of scale’ (EC, 2013c).
+Unsurprisingly, support for SSF in the CAP has been minimal. In the
+2013 reform, a maximum lump sum of €1275 was made available
+through the Small Farmers Scheme, though only ﬁfteen member countries opted-in (EP, 2017). For countries that opted-out, any holding
+under 5 ha is ineligible for direct payments, often leaving the smallest
+and most vulnerable farmers without any support (Devlin et al., 2017).
+Despite the damage to rural communities and agro-ecosystems that
+some see resulting from this approach (van der Ploeg et al., 2012), the
+majority of the papers we read in this review advocate increasing the
+size of agricultural holdings in the EU. Sentiments such as ‘to maintain
+their income, farmers have to increase farm size’ (Fresco and Poppe,
+2016) and small-scale farmers do ‘not encourage efﬁcient scale’ (Popp
+and Jámbor, 2015) were commonplace. At the same time, no one
+advocates getting rid of SFF altogether; for example, Fresco and
+Poppe (2016) – despite calling for increases in scale elsewhere in their
+paper – also call for continued support for SSF.
+In many ways, SSF takes us to the heart of the CAP's widening contradictions: the CAP has become both a way of stabilizing productivity
+through incentivizing economies of scale (Barnes et al., 2016), and (in
+more recent years) a strategy of rural redevelopment often focused on
+the preservation of small-scale farming systems (EP, 2018a). To complicate matters further, some studies present compelling evidence of the
+beneﬁts of SSF, which can be overlooked in a productivist paradigm:
+for instance, high employment rates per unit area (Laughton, 2017a,
+b), the economic resilience of mixed-farming and Community Supported Agriculture (Urgenci, 2016), yield per unit area for ‘high value’,
+labour intensive crops (Laughton, 2017a,b), and evidence of stronger
+community and social networks (Glowacki-Dudka et al., 2013).
+5.2.4. Women farmers
+Finally, we move to the issue of women in EU farming, a group who
+have consistently existed at the margins of the sector (Saugeres, 2002).
+On average women's holdings tend to be signiﬁcantly smaller than
+men's, representing less than one third of farm managers (EC, 2013a).
+In 2011, agriculture provided 4% of all jobs held by women in the EU27, compared 6% of men's jobs (EC, 2013c). For young women farmers,
+the imbalance is more pronounced, with only 15% of all applications for
+support coming from women (Oedl-Wieser, 2015). Some evidence exists as well of a ‘gender pay-gap’; research done in the UK suggests
+that men farmers earn as much as a third more than women farmers
+(Farmers' Weekly, 2014).
+
+F. Recanati et al. / Science of the Total Environment 653 (2019) 908–919
+
+Like new entrants, the issue of women farmers is considered a devolved issue, and this may account somewhat for the lack of detail in
+the CAP itself. Indeed, women are mentioned only ﬁve times in 2013 reforms, and often in very vague terms: according to Shortall (2015) ‘the
+stated commitment to gender mainstream the CAP shows that it is simply rhetoric. There are no aims and objectives identiﬁed. What gender
+mainstreaming might achieve is never discussed’.
+Research on the topic was also very limited - only a handful of papers
+were found (indeed some papers outside the original search period
+were included for this reason). A number of commentators acknowledge this, claiming that such limited and disaggregated data further prevents effective evidence-based policy interventions (EC, 2012c; OedlWieser, 2015; Shortall, 2015). Alongside inadequate policy provision,
+many commentators pointed to the CAP's inability to address the structural disadvantages, which affect women farmers. For example, limited
+childcare, transport, healthcare, credit, and educational services in rural
+areas (which make accessing labour market difﬁcult for women in care
+roles) and unequal pay (EC, 2012c). Furthermore, the precise extent of
+gender bias in EU agriculture today is likely worse than the data suggests, due to the highly gendered nature of our perceptions of who
+farmers are (Brandth, 2002).
+6. Discussion: future policy and research directions
+The present literature review investigates trends in the way the CAP
+has been received in the academic and grey literature, particularly with
+regards to its attempts to address problems relating to the environment,
+nutritional outcomes, and rural livelihoods.
+Overall, 165 papers providing policy recommendations for the future directions of the CAP have been selected and reviewed. Focusing
+on the three investigated spheres, they are differently integrated in
+the CAP, and consequently, the literature we reviewed varied considerably. Environment and farmers' livelihoods are covered within the CAP
+pillars, and the reviewed studies assessed sectoral-speciﬁc mechanisms
+(e.g., support to young and/or small-scale farmers) and propose possible improvements (e.g., on how to tackle the multifaceted relationship
+between agriculture and environment). Though the CAP was originally
+intended to secure food to Europeans, in the current legislation citizens'
+nutrition and health are not explicitly addressed. In this regard, the
+reviewed literature proposes mechanisms to integrate this sphere into
+the CAP, highlighting the complexity of this process, but also its potential signiﬁcant beneﬁts for public health.
+While the literature we reviewed did vary somewhat in approach
+and perspective, there were a number of clear commonalities in policy
+recommendations.
+Firstly, in the majority of cases, the literature we reviewed called for
+maintenance of current ﬁnancial support to young farmers, new entrants, SFF and FAS (e.g., Barnes et al., 2016; Bouma and Wösten,
+2016; Cortignani and Dono, 2018; Hamilton et al., 2015; Leonard et al.,
+2017; Popp and Jámbor, 2015; Santiago-Freijanes et al., 2018), as
+well as certain speciﬁc sectoral increases (e.g., horticulture,
+e.g., Alexandratos, 2006; Lang and Schoen, 2016). In complement to
+this, there were calls for funding for better, more detailed, multidisciplinary and multi-annual data collection, based on concerns that
+current data shortfalls conceal the real extent of disadvantage, and impede more effective interventions (e.g., Fischer and Wagner, 2016;
+Laughton, 2017a,b; Oedl-Wieser, 2015; Shortall, 2015; Verschuuren,
+2018). That said, there was considerable disagreement about scale in
+EU farming: while there were some strong calls for incentivizing increases in SSF (e.g. Laughton, 2017a,b), the majority of studies advocated increases in the size of holdings (e.g. Fresco and Poppe, 2016;
+Popp and Jámbor, 2015; Barnes et al., 2016), leaving uncertain the environmental impact of such an approach.
+Secondly, better-integrated, participatory and multi-disciplinary research was advocated as a means of developing policy suited to the variety of EU environmental conditions, the diversity of farming practices
+
+915
+
+(Cortignani and Dono, 2019), and the setting of ambitious, but feasible
+targets. In particular, participatory knowledge transfer platforms were
+advocated, especially those capable of supporting the diversity of farming approaches and scales needed to meet new food-system challenges
+and to promote diversiﬁed and context-speciﬁc strategies
+(e.g., Coolsaet, 2016; Sutherland et al., 2013). Such a move would be
+timely; contrary to the industrialized, homogenized and high-input
+model of agriculture, some estimates suggest that millions of new
+farmers are needed to rebuild a sustainable small-scale farming sector
+(Tudge, 2016). Multi-disciplinary research can play a crucial role in providing evidence-based policies (IFPRI, 2018) through integrated multidimensional evaluation frameworks (e.g., Health Impact Assessments,
+the Ecosystem Services Assessment) and integrated databases (still
+lacking in the CAP, Capacci et al., 2012). These can be used to assess
+the impact of policy interventions (Lock et al., 2010) on dietary changes
+and consequent effects on public health (Dangour et al., 2013), to improve the environmental proﬁling of different agricultural systems
+throughout Europe (Niles et al., 2018), and better informing policy
+makers about cross-sectoral interactions.
+A third common aspect directly linked to the integrated and multidisciplinary research emerged from the analyzed literature. The
+reviewed publications conﬁrmed the importance of a revised approach
+to policy-making able to draw together social, environmental, food and
+agricultural policies to create ‘whole-food system’ impacts. According to
+the review outcomes, policy integration should take into account all the
+food system “actors”, from the environment to the EU citizens (Candel
+and Pereira, 2017; Peters and Pierre, 2014), and the often-competing
+perspectives and interests (Candel and Pereira, 2017; Walls et al.,
+2016). Despite numerous calls for policy integration towards a wholefood system approach, the reviewed studies only provided few concrete
+examples and suggestions on how to implement it (i.e., mechanisms to
+integrate nutrition and health in the CAP).
+Taken together, the above outcomes represent a call for the CAP to
+support the integration of conventional agricultural objectives with
+the challenge of improving nutrition and health, and the protection of
+the natural and human ecosystem on which food production depends.
+The CAP has adapted somewhat during its existence to a rapidly changing society; the next step, however, is particularly challenging due to the
+accelerating complexity of international food systems and to the growing environmental pressure. Despite the partial failure of outcomes to
+date and the complexity of EU policy cycles, steps towards the integration of different policy sectors towards a whole food system approach
+are central in existing policy debates (e.g., IPES-Food, 2017a) and the
+last steps in the CAP history (EC, 2017a, 2018a). The latter two
+attempted to consider, besides the economic and market goals, the
+three issues investigated in this review, further stressing urgency with
+which they must be addressed. We therefore join the majority of studies
+featured in this review in urging the development of CAP legislation
+aimed at ensuring access to sufﬁcient, safe, sustainable and nutritious
+food for EU citizens (for example by targeted support for small-scale
+horticulture).
+Despite the promise of these proposals, some issues remain inadequately addressed (e.g., CAP coherence to and integration with other
+EU policies, multi-disciplinary and comprehensive assessment
+methods, and the role of women in farming) or offer only incremental
+improvements on the current provision. These attempts towards a
+whole-food system approach might also face signiﬁcant budgetary limitations (EC, 2018a) and trade-offs between diverse policy objectives
+(Lusk, 2017). The precise extent of these risks is yet unknown; however,
+given the urgency of international food system crises, combined with
+the rare opportunity offered by this round of reforms, the recent proposals (EC, 2018a) represent a substantial disappointment. In these uncertain times, considerably more far-reaching measures are needed to
+achieve the kind of policy integration advocated in the majority of
+reviewed studies, let alone to redress the crises afﬂicting our vital
+agro-ecosystems.
+
+916
+
+F. Recanati et al. / Science of the Total Environment 653 (2019) 908–919
+
+Acknowledgments
+This work has been generously supported by the Barilla Center for
+Food & Nutrition Foundation.
+Appendix A. Supplementary data
+Supplementary data to this article can be found online at https://doi.
+org/10.1016/j.scitotenv.2018.10.377.
+References
+Alexandratos, N., 2006. The Mediterranean diet in a world context. Public Health Nutr. 9,
+111–117. https://doi.org/10.1079/PHN2005932.
+An, R., 2013. Effectiveness of subsidies in promoting healthy food purchases and consumption: a review of ﬁeld experiments. Public Health Nutr. 16, 1215–1228.
+https://doi.org/10.1017/S1368980012004715.
+Anderson, C., Maughan, C., Pimbert, M., 2018. Transformative agroecology learning: building consciousness, competencies and collective capacity for food sovereignty. Agric.
+Hum. Values 35. https://doi.org/10.1007/s10460-018-9894-0.
+Antonelli, M., Tamea, S., Yang, H., 2017. Intra-EU agricultural trade, virtual water ﬂows
+and policy implications. Sci. Total Environ. 587–588, 439–448. https://doi.org/
+10.1016/J.SCITOTENV.2017.02.105.
+Ashﬁeld-Watt, P., Welch, A., Godward, S., Bingham, S., 2007. Effect of a pilot community
+intervention on fruit and vegetable intakes: use of FACET (Five-a-day Community
+Evaluation Tool). Public Health Nutr. 10, 671–680. https://doi.org/10.1017/
+S1368980007382517.
+Barling, D., Lang, T., Caraher, M., 2002. Joined-up food policy? The trials of governance,
+public policy and the food system. Soc. Policy Adm. 36, 556–574. https://doi.org/
+10.1111/1467-9515.t01-1-00304.
+Barnes, A., Sutherland, L.-A., Toma, L., Matthews, K., Thomson, S., 2016. The effect of the
+Common Agricultural Policy reforms on intentions towards food production: evidence from livestock farmers. Land Use Policy 50, 548–558. https://doi.org/10.1016/
+J.LANDUSEPOL.2015.10.017.
+Batáry, P., Dicks, L.V., Kleijn, D., Sutherland, W.J., 2015. The role of agri-environment
+schemes in conservation and environmental management. Conserv. Biol. 29,
+1006–1016. https://doi.org/10.1111/cobi.12536.
+BCFN, 2017. Fixing Food: Towards a More Sustainable Food System, Written by the Economist Intelligence Unit.
+Boeing, H., Bechthold, A., Bub, A., Ellinger, S., Haller, D., Kroke, A., Leschik-Bonnet, E.,
+Müller, M.J., Oberritter, H., Schulze, M., Stehle, P., Watzl, B., 2012. Critical review: vegetables and fruit in the prevention of chronic diseases. Eur. J. Nutr. 51, 637–663.
+https://doi.org/10.1007/s00394-012-0380-y.
+Bouma, J., Wösten, J.H.M., 2016. How to characterize ‘good’ and ‘greening’ in the EU Common Agricultural Policy (CAP): the case of clay soils in the Netherlands. Soil Use
+Manag. 32, 546–552. https://doi.org/10.1111/sum.12289.
+Bouwma, I., Schleyer, C., Primmer, E., Winkler, K.J., Berry, P., Young, J., Carmen, E.,
+Špulerová, J., Bezák, P., Preda, E., Vadineanu, A., 2018. Adoption of the ecosystem services concept in EU policies. Ecosyst. Serv. 29, 213–222. https://doi.org/10.1016/J.
+ECOSER.2017.02.014.
+Brady, M., Kellermann, K., Sahrbacher, C., Jelinek, L., 2009. Impacts of decoupled agricultural support on farm structure, biodiversity and landscape mosaic: some EU results.
+J. Agric. Econ. 60, 563–585. https://doi.org/10.1111/j.1477-9552.2009.00216.x.
+Brady, M.V., Hristov, J., Sahrbacher, C., Söderberg, T., Wilhelmsson, F., 2017. Is passive
+farming a problem for agriculture in the EU? J. Agric. Econ. 68, 632–650. https://
+doi.org/10.1111/1477-9552.12224.
+Brambila-Macias, J., Shankar, B., Capacci, S., Mazzocchi, M., Perez-Cueto, F.J.A., Verbeke,
+W., Traill, W.B., 2011. Policy interventions to promote healthy eating: a review of
+what works, what does not, and what is promising. Food Nutr. Bull. 32, 365–375.
+https://doi.org/10.1177/156482651103200408.
+Brandth, B., 2002. Gender identity in European family farming: a literature review. Sociol.
+Rural. 42, 181–200. https://doi.org/10.1111/1467-9523.00210.
+Burandt, A., Mölders, T., 2017. Nature–gender relations within a social-ecological perspective on European multifunctional agriculture: the case of agrobiodiversity. Agric.
+Hum. Values 34, 955–967. https://doi.org/10.1007/s10460-016-9763-7.
+Burrascano, S., Chytrý, M., Kuemmerle, T., Giarrizzo, E., Luyssaert, S., Sabatini, F.M., Blasi,
+C., 2016. Current European policies are unlikely to jointly foster carbon sequestration
+and protect biodiversity. Biol. Conserv. 201, 370–376. https://doi.org/10.1016/J.
+BIOCON.2016.08.005.
+Candel, J.J.L., Pereira, L., 2017. Towards integrated food policy: main challenges and steps
+ahead. Environ. Sci. Pol. 73, 89–92. https://doi.org/10.1016/j.envsci.2017.04.010.
+Capacci, S., Mazzocchi, M., Shankar, B., Brambila Macias, J., Verbeke, W., Pérez-Cueto, F.J.,
+Kozioł-Kozakowska, A., Piórecka, B., Niedzwiedzka, B., D'Addesa, D., Saba, A., Turrini,
+A., Aschemann-Witzel, J., Bech-Larsen, T., Strand, M., Smillie, L., Wills, J., Traill, W.B.,
+2012. Policies to promote healthy eating in Europe: a structured review of policies
+and their effectiveness. Nutr. Rev. 70, 188–200. https://doi.org/10.1111/j.17534887.2011.00442.x.
+Caraher, M., Cowburn, G., 2005. Taxing food: implications for public health nutrition. Public Health Nutr. 8, 1242–1249. https://doi.org/10.1079/PHN2005755.
+Coderoni, S., Esposti, R., 2018. CAP payments and agricultural GHG emissions in Italy. A
+farm-level assessment. Sci. Total Environ. 627, 427–437. https://doi.org/10.1016/J.
+SCITOTENV.2018.01.197.
+
+Coolsaet, B., 2016. Towards an agroecology of knowledges: recognition, cognitive justice
+and farmers' autonomy in France. J. Rural. Stud. 47, 165–171. https://doi.org/
+10.1016/j.jrurstud.2016.07.012.
+Cortignani, R., Dono, G., 2015. Simulation of the impact of greening measures in an agricultural area of the southern Italy. Land Use Policy 48, 525–533. https://doi.org/
+10.1016/J.LANDUSEPOL.2015.06.028.
+Cortignani, R., Dono, G., 2018. Agricultural policy and climate change: an integrated assessment of the impacts on an agricultural area of Southern Italy. Environ. Sci. Pol.
+81, 26–35. https://doi.org/10.1016/J.ENVSCI.2017.12.003.
+Cortignani, R., Dono, G., 2019. CAP's environmental policy and land use in arable farms: an
+impacts assessment of greening practices changes in Italy. Sci. Total Environ. 647
+(2019), 516–524. https://doi.org/10.1016/j.scitotenv.2018.07.443.
+Creutzig, F., 2017. Govern land as a global commons. Nature 546, 28–29. https://doi.org/
+10.1038/546028a.
+da Silva, R., Bach-Faig, A., Raidó Quintana, B., Buckland, G., Vaz de Almeida, M.D., SerraMajem, L., 2009. Worldwide variation of adherence to the Mediterranean diet, in
+1961–1965 and 2000–2003. Public Health Nutr. 12, 1676. https://doi.org/10.1017/
+S1368980009990541.
+Danaei, G., Lu, Y., Farzadfar, F., Lin, J.K., 2014. Cardiovascular disease, chronic kidney disease, and diabetes mortality burden of cardiometabolic risk factors from 1980 to
+2010: a comparative risk assessment. Lancet Diabetes Endocrinol. 2, 634–647.
+https://doi.org/10.1016/S2213-8587(14)70102-0.
+Dangour, A.D., Hawkesworth, S., Shankar, B., Watson, L., Srinivasan, C.S., Morgan, E.H.,
+Haddad, L., Waage, J., 2013. Can nutrition be promoted through agriculture-led food
+price policies? A systematic review. BMJ Open 3, e002937. https://doi.org/10.1136/
+bmjopen-2013-002937.
+Dauchet, L., Amouyel, P., Dallongeville, J., 2005. Fruit and vegetable consumption and risk
+of stroke: a meta-analysis of cohort studies. Neurology 65, 1193–1197. https://doi.
+org/10.1212/01.wnl.0000180600.09719.53.
+de Sa, J., Lock, K., 2008. Will European agricultural policy for school fruit and vegetables
+improve public health? A review of school fruit and vegetable programmes. Eur.
+J. Pub. Health 18, 558–568. https://doi.org/10.1093/eurpub/ckn061.
+Devlin, S., Wheatley, H., Powell, D., Berry, C., Iles, D., Dodwell, A., Chow, H., Blaylock, J.,
+Hamer, E., Dalmeny, K., Guttal, S., Kay, S., Lang, T., Shield, P., Kwa, A., Murphy, S.,
+2017. Agricultural Subsidies in the UK After Brexit A Report Written by the New Economics Foundation.
+Drewnowski, A., Popkin, B.M., 2009. The nutrition transition: new trends in the global
+diet. Nutr. Rev. 55, 31–43. https://doi.org/10.1111/j.1753-4887.1997.tb01593.x.
+EC, 1973. Declaration of the Council of the European Communities and of the Representatives of the Governments of the Member States Meeting in the Council of 22 November 1973 on the Programme of Action of the European Communities on the
+Environment (Ofﬁcial Journal).
+EC, 2005. EU Platform for Action on Diet, Physical Activity and Health. European Commission URL:. https://ec.europa.eu/health/nutrition_physical_activity/platform_en.
+EC, 2006. 2006/144/EC: Council Decision of 20 February 2006 on Community Strategic
+Guidelines for Rural Development (Programming Period 2007 to 2013).
+EC, 2011a. Our Life Insurance, Our Natural Capital: An EU Biodiversity Strategy to 2020
+European Parliament Resolution of 20 April 2012 on Our Life Insurance, Our Natural
+Capital: An EU Biodiversity Strategy to 2020 (2011/2307(INI)). EU Law and
+Publications.
+EC, 2011b. 8/34 procedure (TRIS) database. Entry 2011/340/HU: Act No … of 2011 on the
+Public Health Product Tax 2011.
+EC, 2012a. Reﬂection process on chronic diseases interim report. URL:. https://ec.europa.
+eu/health/sites/health/ﬁles/major_chronic_diseases/docs/reﬂection_process_cd_en.
+pdf.
+EC, 2012b. The common agricultural policy at a glance. URL:. https://ec.europa.eu/info/
+food-farming-ﬁsheries/key-policies/common-agricultural-policy/cap-glance.
+EC, 2012c. Women in EU agriculture and rural areas: hard work, low proﬁle. (EU Agricultural Economic Briefs No. 7). EU Agricultural Economic Briefs.
+EC, 2013a. Agricultural policy perspectives briefs. Agriculture and Rural Development - N°
+5 Dec. 2013 - Overview of CAP Reform 2014–2020.
+EC, 2013b. Structure and dynamics of EU farms: changes, trends and policy relevance.
+URL:. https://ec.europa.eu/agriculture/sites/agriculture/ﬁles/rural-area-economics/
+briefs/pdf/09_en.pdf (EU Agric. Econ. Briefs).
+EC, 2013c. Small and large farms in the EU - statistics from the farm structure survey. URL:
+. http://ec.europa.eu/eurostat/statistics-explained/index.php/Small_and_large_
+farms_in_the_EU_-_statistics_from_the_farm_structure_survey.
+EC, 2014. A Policy Framework for Climate and Energy in the Period From 2020 to 2030.
+https://doi.org/10.1007/s13398-014-0173-7.2 https://ec.europa.eu/energy/en/
+topics/energy-strategy/2030-energy-strategy.
+EC, 2016a. FOOD 2030: Research Innovation for Tomorrow's Nutrition Food Systems.
+European Commission.
+EC, 2016b. Regulation of the European Parliament and of the Council on the Inclusion of
+Greenhouse Gas Emissions and Removals From Land Use, Land Use Change and Forestry Into the 2030 Climate and Energy Framework and Amending.
+EC, 2016c. European Economic and Social Committee - more sustainable food systems.
+URL:. https://www.eesc.europa.eu/en/our-work/opinions-information-reports/opinions/eesc-opinion-more-sustainable-food.
+EC, 2017a. The Future of Food and Farming - COM(2017) 713 Final. European Commission, Brussel.
+EC, 2017b. Consultation on Modernising and Simplifying the Common Agricultural Policy
+(CAP). Agriculture and Rural Development URL:. https://ec.europa.eu/agriculture/
+consultations/cap-modernising/2017_en.
+EC, 2017c. Next Steps for a Sustainable European Future. European Economic and Social
+Committee URL:. https://www.eesc.europa.eu/en/our-work/opinions-informationreports/opinions/next-steps-sustainable-european-future.
+
+F. Recanati et al. / Science of the Total Environment 653 (2019) 908–919
+EC, 2017d. Sustainable development in the European Union monitoring report on progress towards the SDGs in an EU context. URL:. http://ec.europa.eu/eurostat/web/
+products-statistical-books/-/KS-04-17-780 (Publications Ofﬁce of the European
+Union).
+EC, 2017e. Preparatory Study on Food Waste Across EU 27. European Environment
+Agency.
+EC, 2017f. Integrating Environmental Concerns Into the CAP. Agriculture and Rural Development URL:. https://ec.europa.eu/agriculture/envir/cap_en.
+EC, 2017g. Modernising and Simplifying the CAP Background Document Climate and Environmental Challenges Facing EU Agriculture and Rural Areas.
+EC, 2017h. Young farmers in the EU – structural and economic characteristics. EU Agricultural and Farm Economics Briefs.
+EC, 2017i. Small Farmers Scheme.
+EC, 2018a. Proposal for a Regulation of the European Parliament and of the Council Establishing Rules on Support for Strategic Plans to be Drawn Up by Member States Under
+the Common Agricultural Policy (CAP Strategic Plans) and Financed by the European
+Agricultural COM(2018) 392 Final. 2018/0216 (COD).
+EC, 2018b. The common agricultural policy (CAP) and agriculture in Europe – frequently
+asked questions. URL:. http://europa.eu/rapid/press-release_MEMO-13-631_en.htm.
+EC, EP, 2017. The New European Consensus on Development “Our World, Our Dignity,
+Our Future” Joint Statement by the Council and the Representatives of the Governments of the Member States Meeting Within the Council, the EP and the EC.
+EEA, 2012. Towards Efﬁcient Use of Water Resources in Europe - No 1/2012.
+EEA, 2014. Effects of Air Pollution on European Ecosystems|No 11/2014.
+EEA, 2015. The European Environment — State and Outlook 2015.
+EEA, 2017. Environmental Indicator Report 2017 In Support to the Monitoring of the Seventh Environment Action Programme.
+EEA, 2018. Annual European Union Greenhouse Gas Inventory 1990–2016 and Inventory
+Report 2018 (Report No 5/2018).
+EEC, 1962. Regulation No 25 on the Financing of the Common Agricultural Policy.
+European Community Council (Ofﬁcial Journal 030, 20/04/1962 P. 0991 - 0993. doi:
+Directive 95/46/EC).
+Eksvärd, K., Marquardt, K., 2018. From change to transition? Learning from environmental protection activities in Sweden. Agroecol. Sustain. Food Syst. 42, 189–209. https://
+doi.org/10.1080/21683565.2017.1373381.
+Elinder, L.S., 2005. Obesity, hunger, and agriculture: the damaging role of subsidies. BMJ
+331, 1333–1336. https://doi.org/10.1136/bmj.331.7528.1333.
+Elinder, L.S., Joossens, L., Raw, M., Andreasson, S., Lang, T., 2003. Public health aspects of
+the EU Common Agricultural Policy. Stock. Natl. Inst. Public Heal.
+EP, 2013. 1307/2013 of the European Parliament and the Council establishing rules for direct payments to farmers under support schemes within the framework of the common agricultural policy and repealing Council Regulation (EC) No 637/2008 and
+Council Regulation. Off. J. Eur. Union 347, 608–670.
+EP, 2017. Precision Agriculture in Europe - Legal, Social and Ethical Considerations.
+EP, 2018a. Second pillar of the CAP: rural development policy. EU Fact Sheets. European
+Parliament http://www.europarl.europa.eu/.
+EP, 2018b. First Pillar of the Common Agricultural Policy (CAP): II — Direct Payments to
+Farmers. Think Tank.
+Erjavec, K., Erjavec, E., 2009. Changing EU agricultural policy discourses? The discourse
+analysis of Commissioner's speeches 2000–2007. Food Policy 34, 218–226. https://
+doi.org/10.1016/J.FOODPOL.2008.10.009.
+Ermetici, F., Zelaschi, R.F., Briganti, S., Dozio, E., Gaeta, M., Ambrogi, F., Pelissero, G.,
+Tettamanti, G., Marco Corsi Romanelli, M., Carruba, M., Morricone, L., Malavazos,
+A.E., 2016. Association between a school-based intervention and adiposity outcomes
+in adolescents: the Italian “EAT” project. Obesity 24, 687–695. https://doi.org/
+10.1002/oby.21365.
+ETC Group, 2009. Who Will Feed Us? Questions about the Food and Climate Crisis.
+EU, 2013. No. 1305/2013 of the European Parliament and of the Council of 17 December
+2013 on support for rural development by the European Agricultural Fund for Rural
+Development (EAFRD) and repealing Council Regulation (EC) No. 1698/2005. Off.
+J. Eur. Union 347, 487–548.
+European Union's Group of Chief Scientiﬁc Advisors, EC, 2018. EU Authorization Processes
+of Plant Protection Products - From a Scientiﬁc Point of View. Brussel. https://doi.org/
+10.2777/238919.
+Eurostat, 2009. Agri-environmental indicator - nitrate pollution of water. URL:. http://ec.
+europa.eu/eurostat/statistics-explained/index.php?title=Agri-environmental_indicator_-_nitrate_pollution_of_water&oldid=127703&printable=yes.
+Eurostat, 2015. Agri-environmental indicator - soil erosion. URL:. http://ec.europa.eu/
+eurostat/statistics-explained/index.php/Agri-environmental_indicator_-_soil_
+erosion.
+Eurostat, 2017. Farmers in the EU - statistics. URL. http://ec.europa.eu/eurostat/statisticsexplained/index.php/Farmers_in_the_EU_-_statistics.
+Eurostat, 2018. Government expenditure on health. URL:. http://ec.europa.eu/eurostat/
+statistics-explained/index.php/Government_expenditure_on_health.
+Faculty of Public Health, 2007. The impact of the EU Common Agricultural Policy on public health a CAP on Health? A Report by the Faculty of Public Health
+Acknowledgements
+Fagerholm, N., Torralba, M., Burgess, P.J., Plieninger, T., 2016. A systematic map of ecosystem services assessments around European agroforestry. Ecol. Indic. 62, 47–65.
+https://doi.org/10.1016/J.ECOLIND.2015.11.016.
+Fairlie, S., 2016. Farming Policy After Brexit: A Report by Simon Fairlie|Molly Scott Cato
+MEP.
+FAO, 2016. AQUASTAT - FAO's Information System on Water and Agriculture.
+FAO, 2017. Building the Sustainable Food Systems of the 21st Century: The Agroecological
+Alternative. (Rome). http://www.fao.org/sustainability/en/.
+Fares, S., 2016. Five Steps for Managing Europe's Forests. pp. 7–9.
+
+917
+
+Farmers' Weekly, 2014. Pay Survey: Who Gets What in the Farm Industry. Farmers Wkly.
+Fastelli, L., Landi, C., Rovai, M., Andreoli, M., 2017. A spatial analysis of terrain features and
+farming styles in a disadvantaged area of Tuscany (Mugello): implications for the
+evaluation and the design of CAP payments. Bio-based Appl. Econ. 6, 81–114.
+https://doi.org/10.13128/bae-14625.
+Fischer, C., Wagner, C., 2016. Can agri-environmental schemes enhance non-target species? Effects of sown wildﬂower ﬁelds on the common hamster (Cricetus cricetus)
+at local and landscape scales. Biol. Conserv. 194, 168–175. https://doi.org/10.1016/J.
+BIOCON.2015.12.021.
+Foran, T., Butler, J.R.A., Williams, L.J., Wanjura, W.J., Hall, A., Carter, L., Carberry, P.S., 2014.
+Taking complexity in food systems seriously: an interdisciplinary analysis. World
+Dev. 61, 85–101. https://doi.org/10.1016/J.WORLDDEV.2014.03.023.
+Fresco, L.O., Poppe, K.J., 2016. Towards a Common Agricultural and Food Policy.
+Wageningen University & Research.
+Frueh-Mueller, A., Krippes, C., Hotes, S., Breuer, L., Koellner, T., Wolters, V., 2018. Spatial
+correlation of agri-environmental measures with high levels of ecosystem services.
+Ecol. Indic. 84, 364–370. https://doi.org/10.1016/J.ECOLIND.2017.09.008.
+Garnett, T., 2011. Where are the best opportunities for reducing greenhouse gas emissions in the food system (including the food chain)? Food Policy 36, S23–S32.
+https://doi.org/10.1016/J.FOODPOL.2010.10.010.
+Garretson, J.A., Burton, S., 2000. Effects of nutrition facts panel values, nutrition claims,
+and health claims on consumer attitudes, perceptions of disease-related risks, and
+trust. J. Public Policy Mark. 19, 213–227. https://doi.org/10.1509/
+jppm.19.2.213.17133.
+Garzon, I., 2006. Reforming the Common Agricultural Policy: History of a Paradigm
+Change. Palgrave Macmillan 978-0-230-62657-7.
+Glowacki-Dudka, M., Murray, J., Isaacs, K.P., 2013. Examining social capital within a local
+food system. Community Dev. J. 48, 75–88. https://doi.org/10.1093/cdj/bss007.
+Gocht, A., Ciaian, P., Bielza, M., Terres, J.-M., Röder, N., Himics, M., Salputra, G., 2017. EUwide economic and environmental impacts of CAP greening with high spatial and
+farm-type detail. J. Agric. Econ. 68, 651–681. https://doi.org/10.1111/14779552.12217.
+Grant, W., 2010. Policy instruments in the common agricultural policy. West Eur. Polit. 33,
+22–38. https://doi.org/10.1080/01402380903354049.
+Gregersen, C., Mackie, J., Torres, C., Entre, E., Et, P., Dans, P., Coopération, L.A., Gregersen, C.,
+Mackie, J., Torres, C., 2016. Implementation of the 2030 Agenda in the European
+Union: Constructing an EU Approach to Policy Coherence for Sustainable Development for Sustainable Development. European Centre for Development Policy
+Management.
+Grigg, D., 1995. The nutritional transition in Western Europe. J. Hist. Geogr. 21, 247–261.
+https://doi.org/10.1006/JHGE.1995.0018.
+Grosjean, G., Fuss, S., Koch, N., Bodirsky, B.L., De Cara, S., Acworth, W., 2018. Options to
+overcome the barriers to pricing European agricultural emissions. Clim. Pol. 18,
+151–169. https://doi.org/10.1080/14693062.2016.1258630.
+Halada, L., Evans, D., Romão, C., Petersen, J.-E., 2011. Which habitats of European importance depend on agricultural practices? Biodivers. Conserv. 20, 2365–2378. https://
+doi.org/10.1007/s10531-011-9989-z.
+Halpern, D., Bates, C., Mulgan, G., Aldridge, S., Beales, G., Heathﬁeld, A., 2004. Personal Responsibility and Changing Behaviour: The State of Knowledge and its Implications for
+Public Policy Prime Minister's Strategy Unit.
+Hamilton, W., Bosworth, G., Ruto, E., 2015. Entrepreneurial younger farmers and the
+“Young Farmer Problem” in England. Agric. For. 61, 61–69. https://doi.org/
+10.17707/AgricultForest.61.4.05.
+Hawkes, C., 2007. Promoting healthy diets and tackling obesity and diet-related chronic
+diseases: what are the agricultural policy levers? Food Nutr. Bull. 28, S312–S322.
+https://doi.org/10.1177/15648265070282S210.
+Hawkes, C., Friel, S., Lobstein, T., Lang, T., 2012. Linking agricultural policies with obesity
+and noncommunicable diseases: a new perspective for a globalising world. Food Policy 37, 343–353. https://doi.org/10.1016/j.foodpol.2012.02.011.
+Heanue, K., O'Donoghue, C., 2014. The Economic Returns to Formal Agricultural Education. Teagasc Rural Economy & Development Programme 978-1-84170-613-9.
+Hennessy, T., 2014. CAP 2014–2020 Tools to Enhance Family Farming: Opportunities and
+Limits.
+Agriculture
+and
+Rural
+Development
+https://doi.org/10.1017/
+CBO9781107415324.004.
+Hernández-Morcillo, M., Burgess, P., Mirck, J., Pantera, A., Plieninger, T., 2018. Scanning
+agroforestry-based solutions for climate change mitigation and adaptation in
+Europe. Environ. Sci. Pol. 80, 44–52. https://doi.org/10.1016/J.ENVSCI.2017.11.013.
+Hyseni, L., Atkinson, M., Bromley, H., Orton, L., Lloyd-Williams, F., McGill, R., Capewell, S.,
+2017. The effects of policy actions to improve population dietary patterns and prevent diet-related non-communicable diseases: scoping review. Eur. J. Clin. Nutr. 71,
+694–711. https://doi.org/10.1038/ejcn.2016.234.
+IFPRI, 2018. 2018 Global Food Policy Report. https://doi.org/10.2499/9780896292970.
+IIASA, 2018. TWI2050 - the world in 2050 (2018). Transformations to achieve the sustainable development goals. Report Prepared by the World in 2050 Initiative. Laxenburg,
+Austria.
+IPES-Food, 2017a. EU common food policy. URL:. http://www.ipes-food.org/eu-commonfood-policy.
+IPES-Food, 2017b. What Makes Urban Food Policy Happen - IPES Food.
+Irish Department of Agriculture, 2017. March - Department of Agriculture, Food & the
+Marine.
+Jakobsson, S., Lindborg, R., 2015. Governing nature by numbers — EU subsidy regulations
+do not capture the unique values of woody pastures. Biol. Conserv. 191, 1–9. https://
+doi.org/10.1016/J.BIOCON.2015.06.007.
+Jakobsson, S., Lindborg, R., 2017. The importance of trees for woody pasture bird diversity
+and effects of the European Union's tree density policy. J. Appl. Ecol. 54, 1638–1647.
+https://doi.org/10.1111/1365-2664.12871.
+
+918
+
+F. Recanati et al. / Science of the Total Environment 653 (2019) 908–919
+
+James, S.W., Friel, S., 2015. An integrated approach to identifying and characterising resilient urban food systems to promote population health in a changing climate. Public
+Health Nutr. 18, 2498–2508. https://doi.org/10.1017/S1368980015000610.
+James, W., Rigby, N., Leach, R., Kumanyika, S., Lobstein, T., Swinburn, B., 2006. Global Strategies to Prevent Childhood Obesity: Forging a Societal Plan that Works - Welcome to
+Foresight for Development.
+Klepp, K.-I., Forster, J.L., 1985. The Norwegian nutrition and food policy: an integrated policy approach to a public health problem. J. Public Health Policy 6, 447. https://doi.org/
+10.2307/3342046.
+Kontogeorgos, A., Tsampra, M., Chatzitheodoridis, F., 2015. Agricultural policy and the environment protection through the eyes of new farmers: evidence from a country of
+Southeast Europe. Procedia Econ. Financ. 19, 296–303. https://doi.org/10.1016/
+S2212-5671(15)00030-1.
+Kuhmonen, T., 2018. Systems view of future of wicked problems to be addressed by the
+Common Agricultural Policy. Land Use Policy 77, 683–695. https://doi.org/10.1016/
+J.LANDUSEPOL.2018.06.004.
+Lafferty, W., Hovden, E., 2003. Environmental policy integration: towards an analytical
+framework. Environ. Polit. 12, 1–22. https://doi.org/10.1080/09644010412331308254.
+Lampkin, N.H., Pearce, B.D., Leake, A.R., Creissen, H., Gerrard, C.L., Girling, R., Lloyd, S.,
+Padel, S., Smith, J., Smith, L.G., Vieweger, A., Wolfe, M.S., 2015. The Role of Agroecology in Sustainable Intensiﬁcation - LUPG05. Org. Res. Centre, Elm Farm Game
+Wildl. Conserv. Trust.
+Lang, T., Heasman, M., 2015. Food Wars. Routledge https://doi.org/10.4324/9781315754116.
+Lang, T., Ingram, J., 2013. Food security twists and turns. Addressing Tipping Points for
+a Precarious Future. British Accademy https://doi.org/10.5871/bacad/
+9780197265536.003.0005.
+Lang, T., Rayner, G., 2005. Obesity: a growing issue for European policy? J. Eur. Soc. Policy
+15, 301–327. https://doi.org/10.1177/0958928705057263.
+Lang, T., Schoen, V., 2016. Horticulture in the UK: Potential for Meeting Dietary Guideline
+Demands.
+Laughton, R., 2017a. A Matter of Scale: A Study of the Productivity, Financial Viability and
+Multifunctional Beneﬁts of Small Farms (20 ha and Less).
+Laughton, R., 2017b. A Matter of Scale: A Study of the Productivity, Financial Viability and
+Multifunctional Beneﬁts of Small Landworkers' Alliance and Centre for Agroecology,
+Coventry.
+Leonard, B., Kinsella, A., O'Donoghue, C., Farrell, M., Mahon, M., 2017. Policy drivers of
+farm succession and inheritance. Land Use Policy 61, 147–159. https://doi.org/
+10.1016/J.LANDUSEPOL.2016.09.006.
+Leventon, J., Schaal, T., Velten, S., Dänhardt, J., Fischer, J., Abson, D.J., Newig, J., 2017.
+Collaboration or fragmentation? Biodiversity management through the common
+agricultural policy. Land Use Policy 64, 1–12. https://doi.org/10.1016/J.
+LANDUSEPOL.2017.02.009.
+Linnerooth-Bayer, J., Dubel, A., Sendzimir, J., Hochrainer-Stigler, S., 2015. Challenges for
+mainstreaming climate change into EU ﬂood and drought policy: water retention
+measures in the Warta River Basin, Poland. Reg. Environ. Chang. 15, 1011–1023.
+https://doi.org/10.1007/s10113-014-0643-7.
+Lock, K., Smith, R.D., Dangour, A.D., Keogh-Brown, M., Pigatto, G., Hawkes, C., Fisberg, R.M.,
+Chalabi, Z., 2010. Health, agricultural, and economic effects of adoption of healthy
+diet recommendations. Lancet 376, 1699–1709. https://doi.org/10.1016/S0140-6736
+(10)61352-9.
+Lusk, J.L., 2017. Evaluating the policy proposals of the food movement. Appl. Econ.
+Perspect. Policy 39, 387–406. https://doi.org/10.1093/aepp/ppx035.
+Marsden, 2016. A Common Food and Nutrition Policy for Europe? TRANSMANGO URL:.
+https://transmango.wordpress.com/2015/10/19/commonfoodpolicy/
+Mazzocchi, M., Traill, B., Shogren, J.F., 2009. Fat Economics: Nutrition, Health, and Economic Policy. Oxford University Press.
+Merckx, T., Pereira, H.M., 2015. Reshaping agri-environmental subsidies: from marginal
+farming to large-scale rewilding. Basic Appl. Ecol. 16, 95–103. https://doi.org/
+10.1016/J.BAAE.2014.12.003.
+Montagnese, C., Santarpia, L., Buonifacio, M., Nardelli, A., Caldara, A.R., Silvestri, E.,
+Contaldo, F., Pasanisi, F., 2015. European food-based dietary guidelines: a comparison
+and update. Nutrition 31, 908–915. https://doi.org/10.1016/j.nut.2015.01.002.
+Mozaffarian, D., Fahimi, S., Singh, G.M., Micha, R., Khatibzadeh, S., Engell, R.E., Lim, S.,
+Danaei, G., Ezzati, M., Powles, J., 2014. Global sodium consumption and death from
+cardiovascular causes. N. Engl. J. Med. 371, 624–634. https://doi.org/10.1056/
+NEJMoa1304127.
+MUFPP, 2015. Home - Milan urban food policy pact. URL:. http://www.
+milanurbanfoodpolicypact.org/.
+New Economics Foundation, 2017. From Handouts to the Super-rich to a Hand-up for
+Small-scale Farmers. Glob. Justice Now.
+Niles, M.T., Ahuja, R., Barker, T., Esquivel, J., Gutterman, S., Heller, M.C., Mango, N., Portner,
+D., Raimond, R., Tirado, C., Vermeulen, S., 2018. Climate change mitigation beyond agriculture: a review of food system opportunities and implications. Renewable Agric.
+Food Syst. 33, 297–308. https://doi.org/10.1017/S1742170518000029.
+Nilsson, M., Persson, Å., 2017. Policy note: lessons from environmental policy integration
+for the implementation of the 2030 Agenda. Environ. Sci. Pol. 78, 36–39. https://doi.
+org/10.1016/J.ENVSCI.2017.09.003.
+Oedl-Wieser, T., 2015. Gender equality: a core dimension in rural development
+programmes in Austria? Gend. Place Cult. 22, 685–699. https://doi.org/10.1080/
+0966369X.2013.879103.
+Palacín, C., Alonso, J.C., 2018. Failure of EU Biodiversity Strategy in Mediterranean farmland protected areas. J. Nat. Conserv. 42, 62–66. https://doi.org/10.1016/J.
+JNC.2018.02.008.
+Panagos, P., Borrelli, P., Poesen, J., Ballabio, C., Lugato, E., Meusburger, K., Montanarella, L.,
+Alewell, C., 2015. The new assessment of soil loss by water erosion in Europe. Environ. Sci. Pol. 54, 438–447. https://doi.org/10.1016/J.ENVSCI.2015.08.012.
+
+Panagos, P., Imeson, A., Meusburger, K., Borrelli, P., Poesen, J., Alewell, C., 2016. Soil conservation in Europe: wish or reality? Land Degrad. Dev. 27, 1547–1551. https://doi.
+org/10.1002/ldr.2538.
+Pederson, 2008. EU School Fruit Scheme|Sustain.
+Pe'er, G., Zinngrebe, Y., Hauck, J., Schindler, S., Dittrich, A., Zingg, S., Tscharntke, T.,
+Oppermann, R., Sutcliffe, L.M.E., Sirami, C., Schmidt, J., Hoyer, C., Schleyer, C., Lakner,
+S., 2017. Adding some green to the greening: improving the EU's ecological focus
+areas for biodiversity and farmers. Conserv. Lett. 10, 517–530. https://doi.org/
+10.1111/conl.12333.
+Peters, G., 2015. Pursuing Horizontal Management: The Politics of Public Sector Coordination. University Press of Kansas.
+Peters, G., Pierre, J., 2014. Food policy as a wicked problem: contending with multiple demands and actors. World Food Policy 1, 2–9. https://doi.org/10.18278/wfp.1.1.1.
+Pomerleau, J., Lock, K., Knai, C., McKee, M., 2005. Interventions designed to increase adult
+fruit and vegetable intake can be effective: a systematic review of the literature.
+J. Nutr. 135, 2486–2495. https://doi.org/10.1093/jn/135.10.2486.
+Popp, J., Jámbor, A., 2015. How consistent is the new common agricultural policy with the
+challenges it faces? Soc. Econ. Cent. East. Eur. 37, 225–243. https://doi.org/10.1556/
+204.2015.37.2.5.
+Raggi, M., Sardonini, L., Viaggi, D., 2013. The effects of the Common Agricultural Policy on
+exit strategies and land re-allocation. Land Use Policy 31, 114–125. https://doi.org/
+10.1016/J.LANDUSEPOL.2011.12.009.
+Reynolds, C., Buckley, J., Weinstein, P., Boland, J., 2014. Are the dietary guidelines for meat,
+fat, fruit and vegetable consumption appropriate for environmental sustainability? A
+review of the literature. Nutrients 6, 2251–2265. https://doi.org/10.3390/nu6062251.
+Ribeiro, P.F., Santos, J.L., Santana, J., Reino, L., Beja, P., Moreira, F., 2016. An applied farming
+systems approach to infer conservation-relevant agricultural practices for agrienvironment policy design. Land Use Policy 58, 165–172. https://doi.org/10.1016/J.
+LANDUSEPOL.2016.07.018.
+Rogge, K.S., Reichardt, K., 2016. Policy mixes for sustainability transitions: an extended
+concept and framework for analysis. Res. Policy 45, 1620–1635. https://doi.org/
+10.1016/J.RESPOL.2016.04.004.
+Salmoral, G., Willaarts, B.A., Garrido, A., Guse, B., 2017. Fostering integrated land and
+water management approaches: evaluating the water footprint of a Mediterranean
+basin under different agricultural land use scenarios. Land Use Policy 61, 24–39.
+https://doi.org/10.1016/J.LANDUSEPOL.2016.09.027.
+Santiago-Freijanes, J.J., Rigueiro-Rodríguez, A., Aldrey, J.A., Moreno, G., den Herder, M.,
+Burgess, P., Mosquera-Losada, M.R., 2018. Understanding agroforestry practices in
+Europe through landscape features policy promotion. Agrofor. Syst., 1–11 https://
+doi.org/10.1007/s10457-018-0212-z.
+Sassi, F., Cecchinii, M., Lauerii, J., Chisholm, D., 2009. Improving lifestyles, tackling
+obesity: the health and economic impact of prevention strategies. OECD Health
+Working Papers (No. 48). OECD Publishing, Paris https://doi.org/10.1787/
+220087432153.
+Saugeres, L., 2002. The cultural representation of the farming landscape: masculinity,
+power and nature. J. Rural. Stud. 18, 373–384. https://doi.org/10.1016/S0743-0167
+(02)00010-4.
+Schaller, L., Targetti, S., Villanueva, A.J., Zasada, I., Kantelhardt, J., Arriaza, M., Bal, T.,
+Fedrigotti, V.B., Giray, F.H., Häfner, K., Majewski, E., Malak-Rawlikowska, A.,
+Nikolov, D., Paoli, J.-C., Piorr, A., Rodríguez-Entrena, M., Ungaro, F., Verburg,
+P.H., van Zanten, B., Viaggi, D., 2018. Agricultural landscapes, ecosystem services
+and regional competitiveness—assessing drivers and mechanisms in nine
+European case study areas. Land Use Policy 76, 735–745. https://doi.org/
+10.1016/J.LANDUSEPOL.2018.03.001.
+Schmid, E., Sinabell, F., 2007. On the choice of farm management practices after the reform of the Common Agricultural Policy in 2003. J. Environ. Manag. 82, 332–340.
+https://doi.org/10.1016/J.JENVMAN.2005.12.027.
+Schmidhuber, J., 2007. The EU diet – evolution. Evaluation and Impacts of the CAP.
+Scottish Government, 2013. New Entrants and Young Farmers. URL:. http://www.gov.
+scot/Topics/farmingrural/SRDP/RuralPriorities/Packages/NewEntrantsandYoungFa.
+Shortall, S., 2015. Gender mainstreaming and the common agricultural policy. Gend. Place
+Cult. 22, 717–730. https://doi.org/10.1080/0966369X.2014.939147.
+Sisnowski, J., Handsley, E., Street, J.M., 2015. Regulatory approaches to obesity prevention:
+a systematic overview of current laws addressing diet-related risk factors in the
+European Union and the United States. Health Policy 119, 720–731. https://doi.org/
+10.1016/j.healthpol.2015.04.013.
+Smed, S., 2012. Financial penalties on foods: the fat tax in Denmark. Nutr. Bull. 37,
+142–147. https://doi.org/10.1111/j.1467-3010.2012.01962.x.
+Solazzo, R., Donati, M., Tomasi, L., Arﬁni, F., 2016. How effective is greening policy in reducing GHG emissions from agriculture? Evidence from Italy. Sci. Total Environ.
+573, 1115–1124. https://doi.org/10.1016/J.SCITOTENV.2016.08.066.
+Sutherland, L.-A., Mills, J., Ingram, J., Burton, R.J.F., Dwyer, J., Blackstock, K., 2013. Considering the source: commercialisation and trust in agri-environmental information and
+advisory services in England. J. Environ. Manag. 118, 96–105. https://doi.org/10.1016/
+j.jenvman.2012.12.020.
+Sutherland, L.-A., Toma, L., Barnes, A.P., Matthews, K.B., Hopkins, J., 2016. Agrienvironmental diversiﬁcation: linking environmental, forestry and renewable energy
+engagement on Scottish farms. J. Rural. Stud. 47, 10–20. https://doi.org/10.1016/J.
+JRURSTUD.2016.07.011.
+Swinnen, J., 2010. The political economy of the most radical reform of the common agricultural policy. J. Int. Agric. Trade Dev. 59.
+TEEB, 2018. TEEB for Agriculture & Food: Scientiﬁc and Economic Foundations Report
+(June 2018). UN Environment, Geneva.
+Tendall, D.M., Joerin, J., Kopainsky, B., Edwards, P., Shreck, A., Le, Q.B., Kruetli, P., Grant, M.,
+Six, J., 2015. Food system resilience: deﬁning the concept. Glob. Food Sec. 6, 17–23.
+https://doi.org/10.1016/J.GFS.2015.08.001.
+
+F. Recanati et al. / Science of the Total Environment 653 (2019) 908–919
+Thow, A.M., Jan, S., Leeder, S., Swinburn, B., 2010. The effect of ﬁscal policy on diet, obesity
+and chronic disease: a systematic review. Bull. World Health Organ. 88, 609–614.
+https://doi.org/10.1590/S0042-96862010000800013.
+Thow, A.M., Downs, S., Jan, S., 2014. A systematic review of the effectiveness of food taxes
+and subsidies to improve diets: understanding the recent evidence. Nutr. Rev. 72,
+551–565. https://doi.org/10.1111/nure.12123.
+Toma, P., Miglietta, P.P., Zurlini, G., Valente, D., Petrosillo, I., 2017. A non-parametric
+bootstrap-data envelopment analysis approach for environmental policy planning
+and management of agricultural efﬁciency in EU countries. Ecol. Indic. 83, 132–143.
+https://doi.org/10.1016/J.ECOLIND.2017.07.049.
+Tudge, C., 2016. Six Steps Back to the Land. UIT Cambridge Ltd.
+Turpin, N., ten Berge, H., Grignani, C., Guzmán, G., Vanderlinden, K., Steinmann, H.-H.,
+Siebielec, G., Spiegel, A., Perret, E., Ruysschaert, G., Laguna, A., Giráldez, J.V., Werner,
+M., Raschke, I., Zavattaro, L., Costamagna, C., Schlatter, N., Berthold, H., Sandén, T.,
+Baumgarten, A., 2017. An assessment of policies affecting Sustainable Soil Management in Europe and selected member states. Land Use Policy 66, 241–249. https://
+doi.org/10.1016/J.LANDUSEPOL.2017.04.001.
+Urgenci, 2016. Overview of Community Supported Agriculture in Europe.
+van der Ploeg, J.D., Jingzhong, Y., Schneider, S., 2012. Rural development through the construction of new, nested, markets: comparative perspectives from China, Brazil and
+the European Union. J. Peasant Stud. 39, 133–173. https://doi.org/10.1080/
+03066150.2011.652619.
+Van Grinsven, H.J.M., Tiktak, A., Rougoor, C.W., 2016. Evaluation of the Dutch implementation of the nitrates directive, the water framework directive and the national emission ceilings directive. NJAS Wageningen J. Life Sci. 78, 69–84. https://doi.org/
+10.1016/J.NJAS.2016.03.010.
+Variyam, J.N., 2005. Nutrition labeling in the food-away-from-home sector: an economic
+assessment. SSRN Electron. J. https://doi.org/10.2139/ssrn.713682.
+Veerman, J.L., Barendregt, J.J., Mackenbach, J.P., 2006. The European Common Agricultural
+Policy on fruits and vegetables: exploring potential health gain from reform. Eur.
+J. Pub. Health 16, 31–35. https://doi.org/10.1093/eurpub/cki166.
+Venghaus, S., Hake, J.-F., 2018. Nexus thinking in current EU policies – the interdependencies among food, energy and water resources. Environ. Sci. Pol. https://doi.org/
+10.1016/j.envsci.2017.12.014.
+Verheijen, F.G.A., Jones, R.J.A., Rickson, R.J., Smith, C.J., 2009. Tolerable versus actual soil
+erosion rates in Europe. Earth Sci. Rev. 94, 23–38. https://doi.org/10.1016/J.
+EARSCIREV.2009.02.003.
+Verschuuren, J., 2018. Towards an EU regulatory framework for climate-smart agriculture: the example of soil carbon sequestration. Transnatl. Environ. Law, 1–22
+https://doi.org/10.1017/S2047102517000395.
+
+919
+
+Voulvoulis, N., Arpon, K.D., Giakoumis, T., 2017. The EU Water Framework Directive: from
+great expectations to problems with implementation. Sci. Total Environ. 575,
+358–366. https://doi.org/10.1016/J.SCITOTENV.2016.09.228.
+Walls, H.L., Cornelsen, L., Lock, K., Smith, R.D., 2016. How much priority is given to nutrition and health in the EU Common Agricultural Policy? Food Policy 59, 12–23.
+https://doi.org/10.1016/J.FOODPOL.2015.12.008.
+Warner, D., Tzilivakis, J., Green, A., Lewis, K., 2017. Prioritising agri-environment options
+for greenhouse gas mitigation. Int. J. Clim. Change Strategies Manage. 9, 104–122.
+https://doi.org/10.1108/IJCCSM-04-2015-0048.
+Waterlander, W.E., Ni Mhurchu, C., Eyles, H., Vandevijvere, S., Cleghorn, C., Scarborough,
+P., Swinburn, B., Seidell, J., 2018. Food futures: developing effective food systems interventions to improve public health nutrition. Agric. Syst. 160, 124–131. https://
+doi.org/10.1016/J.AGSY.2017.01.006.
+WHO, 2004. The Global Strategy on Diet, Physical Activity and Health (DPAS).
+WHO, 2011. Global Health Observatory Data Repository. World Health Statistics 2011.
+World Health Organization.
+WHO, 2015a. Fact Sheets: Noncommunicable Diseases.
+WHO, 2015b. Healthy Diet Fact Sheet N°394 Updated September 2015.
+WHO, 2017. Review of social determinants and the health divide in the WHO European
+Region. Final Report.
+Zagata, L., Sutherland, L.-A., 2015. Deconstructing the ‘young farmer problem in Europe’:
+towards a research agenda. J. Rural. Stud. 38, 39–51.
+Zinngrebe, Y., Pe'er, G., Schueler, S., Schmitt, J., Schmidt, J., Lakner, S., 2017. The EU's ecological focus areas – how experts explain farmers' choices in Germany. Land Use Policy 65, 93–108. https://doi.org/10.1016/J.LANDUSEPOL.2017.03.027.
+Zondag, M.-J., Koppert, S., Sloot Aequator Groen, P., Andreas Pauer, R., 2015. Needs of
+Young Farmers Report I of the Pilot project: Exchange Programmes for Young
+Farmers Final.
+Zurek, M., Leip, A., Kuijsten, A., Wijnands, J., Terluin, I., Shutes, L., Hebinck, A.,
+Zimmermann, A., Götz, C., Hornborg, S., van Zanten, H., Ziegler, F., Havlik, P.,
+Garrone, M., Geleijnse, M., Kuiper, M., Turrini, A., Dofkova, M., Trolle, E., Mistura, L.,
+Dubuisson, C., van't Veer, P., Achterbosch, T., Ingram, J., Brem-Wilson, J., Franklin, A.,
+Fried, J., Rodriguez, P.G., Owen, L., Saxena, L., Trenchard, L., Wright, J., 2017. Deliverable No. 1.3: Sustainability Metrics for the EU Food System: A Review Across Economic, Environmental and Social Considerations.
+
+

@@ -1,0 +1,93 @@
+{
+  "generatedAt": "2026-04-20T20:09:15.142Z",
+  "summaries": [
+    {
+      "generatedAt": "2026-04-20T20:09:15.115Z",
+      "batchName": "food-research-process-2026-04-20",
+      "target": "sourcedoc",
+      "targetLabel": "SourceDoc",
+      "apply": true,
+      "minConfidence": "low",
+      "selected": 8,
+      "promotable": 8,
+      "skipped": 0,
+      "conflicts": 0,
+      "wouldCreate": 0,
+      "wouldUpdate": 8,
+      "created": 0,
+      "updated": 8,
+      "artifactChecks": {
+        "importedRowsInSummary": 225,
+        "batchDocumentsInDb": 225,
+        "promotionSummaryTargetCount": 126
+      },
+      "reasonCounts": {
+        "document-already-linked-to-sourcedoc": 8
+      },
+      "outputs": {
+        "csv": "research/intake/food-research-process-2026-04-20/promotion-preview-sourcedoc.csv",
+        "json": "research/intake/food-research-process-2026-04-20/promotion-preview-sourcedoc.json",
+        "md": "research/intake/food-research-process-2026-04-20/promotion-preview-sourcedoc.md"
+      }
+    },
+    {
+      "generatedAt": "2026-04-20T20:09:15.134Z",
+      "batchName": "food-research-process-2026-04-20",
+      "target": "report",
+      "targetLabel": "Report",
+      "apply": true,
+      "minConfidence": "low",
+      "selected": 3,
+      "promotable": 3,
+      "skipped": 0,
+      "conflicts": 0,
+      "wouldCreate": 0,
+      "wouldUpdate": 3,
+      "created": 0,
+      "updated": 3,
+      "artifactChecks": {
+        "importedRowsInSummary": 225,
+        "batchDocumentsInDb": 225,
+        "promotionSummaryTargetCount": 71
+      },
+      "reasonCounts": {
+        "document-already-linked-to-report": 2,
+        "exact-existing-report-match": 1
+      },
+      "outputs": {
+        "csv": "research/intake/food-research-process-2026-04-20/promotion-preview-report.csv",
+        "json": "research/intake/food-research-process-2026-04-20/promotion-preview-report.json",
+        "md": "research/intake/food-research-process-2026-04-20/promotion-preview-report.md"
+      }
+    },
+    {
+      "generatedAt": "2026-04-20T20:09:15.142Z",
+      "batchName": "food-research-process-2026-04-20",
+      "target": "thesis",
+      "targetLabel": "Thesis",
+      "apply": true,
+      "minConfidence": "low",
+      "selected": 3,
+      "promotable": 3,
+      "skipped": 0,
+      "conflicts": 0,
+      "wouldCreate": 0,
+      "wouldUpdate": 3,
+      "created": 0,
+      "updated": 3,
+      "artifactChecks": {
+        "importedRowsInSummary": 225,
+        "batchDocumentsInDb": 225,
+        "promotionSummaryTargetCount": 20
+      },
+      "reasonCounts": {
+        "document-already-linked-to-thesis": 3
+      },
+      "outputs": {
+        "csv": "research/intake/food-research-process-2026-04-20/promotion-preview-thesis.csv",
+        "json": "research/intake/food-research-process-2026-04-20/promotion-preview-thesis.json",
+        "md": "research/intake/food-research-process-2026-04-20/promotion-preview-thesis.md"
+      }
+    }
+  ]
+}

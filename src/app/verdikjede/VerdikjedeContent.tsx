@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { FeedCompositionTimeseries } from '@/components/charts/FeedCompositionTimeseries'
 
 type VerdikjedeStage = {
   id: string
@@ -158,6 +159,17 @@ export function VerdikjedeContent({ stages }: { stages: VerdikjedeStage[] }) {
           })}
         </div>
       )}
+
+      <div className="space-y-3 pt-4 border-t border-stone-200">
+        <div>
+          <h2 className="text-base font-semibold text-stone-800">Forkomposisjon i norsk lakseoppdrett</h2>
+          <p className="text-xs text-stone-500 mt-1">
+            Tidsserie over fordelingen av forrastoffer (marint, vegetabilsk, novel proteiner) basert pa Nofima/FHF
+            ressursregnskap. Viser retning mot 25 % norske ravarer-malet 2034.
+          </p>
+        </div>
+        <FeedCompositionTimeseries />
+      </div>
     </div>
   )
 }

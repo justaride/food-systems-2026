@@ -1,0 +1,2935 @@
+{
+  "summary": {
+    "generatedAt": "2026-04-20T20:49:56.106Z",
+    "batchName": "food-research-process-2026-04-20",
+    "target": "report",
+    "targetLabel": "Report",
+    "apply": true,
+    "minConfidence": "low",
+    "selected": 74,
+    "promotable": 47,
+    "skipped": 27,
+    "conflicts": 0,
+    "wouldCreate": 0,
+    "wouldUpdate": 47,
+    "created": 0,
+    "updated": 47,
+    "artifactChecks": {
+      "importedRowsInSummary": 191,
+      "batchDocumentsInDb": 225,
+      "promotionSummaryTargetCount": 71
+    },
+    "reasonCounts": {
+      "document-already-linked-to-report": 47,
+      "review-action-not-import": 24,
+      "report-metadata-too-weak:confidence-below-medium+year-or-sourceUrl": 1,
+      "report-metadata-too-weak:country+confidence-below-medium": 1,
+      "unresolved-title-remediation": 1
+    },
+    "outputs": {
+      "csv": "research/intake/food-research-process-2026-04-20/promotion-preview-report.csv",
+      "json": "research/intake/food-research-process-2026-04-20/promotion-preview-report.json",
+      "md": "research/intake/food-research-process-2026-04-20/promotion-preview-report.md"
+    }
+  },
+  "decisions": [
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/2022-68-EMV-og-innovasjon-i-dagligvare-1.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/227bb60d77-2022-68-emv-og-innovasjon-i-dagligvare-1.pdf",
+      "filename": "2022-68-EMV-og-innovasjon-i-dagligvare-1.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfj8t0000zo0d3ge78urf",
+      "documentTitle": "Egne merkevarer (EMV) og innovasjon i dagligvare",
+      "promotedTitle": "Egne merkevarer (EMV) og innovasjon i dagligvare",
+      "typedId": "report-food-227bb60d773e",
+      "currentTargetLinks": [
+        "Report:report-food-227bb60d773e"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-227bb60d773e",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-227bb60d773e",
+        "title": "Egne merkevarer (EMV) og innovasjon i dagligvare",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2022",
+        "year": 2022,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=policy_report; review metadata typed_layer_candidate=report-or-source. Caution: title-remediation weak-title flags: leading_identifier; unapplied title-remediation suggestion exists but was not used for classification.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfj8t0000zo0d3ge78urf"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/20250326-salling-groups-erhvervelse-af-dele-af-coop-danmark-a.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/db15012312-20250326-salling-groups-erhvervelse-af-dele-af-coop-danmark-a.pdf",
+      "filename": "20250326-salling-groups-erhvervelse-af-dele-af-coop-danmark-a.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfj9y0001zo0dezilqvxn",
+      "documentTitle": "Salling Group A/S’ erhvervelse af dele af Coop Danmark A/S",
+      "promotedTitle": "Salling Group A/S’ erhvervelse af dele af Coop Danmark A/S",
+      "typedId": "report-food-db1501231216",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Aarsrapport-Dagligvaretilsynet-2023.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/e3f33c5a47-aarsrapport-dagligvaretilsynet-2023.pdf",
+      "filename": "Aarsrapport-Dagligvaretilsynet-2023.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfjaf0002zo0dwom3cs7i",
+      "documentTitle": "Årsrapport for Dagligvaretilsynet 2023",
+      "promotedTitle": "Årsrapport for Dagligvaretilsynet 2023",
+      "typedId": "report-food-e3f33c5a4766",
+      "currentTargetLinks": [
+        "Report:report-food-e3f33c5a4766"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-e3f33c5a4766",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-e3f33c5a4766",
+        "title": "Årsrapport for Dagligvaretilsynet 2023",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2023",
+        "year": 2023,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches arsrapport language; review metadata proposed doc_type=policy_report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjaf0002zo0dwom3cs7i"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Aarsrapport-Dagligvaretilsynet-2024.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/283dd0683b-aarsrapport-dagligvaretilsynet-2024.pdf",
+      "filename": "Aarsrapport-Dagligvaretilsynet-2024.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfjax0003zo0d9jurvy3n",
+      "documentTitle": "Årsrapport for Dagligvaretilsynet 2024",
+      "promotedTitle": "Årsrapport for Dagligvaretilsynet 2024",
+      "typedId": "report-food-283dd0683b0d",
+      "currentTargetLinks": [
+        "Report:report-food-283dd0683b0d"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-283dd0683b0d",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-283dd0683b0d",
+        "title": "Årsrapport for Dagligvaretilsynet 2024",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches arsrapport language; review metadata proposed doc_type=policy_report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjax0003zo0d9jurvy3n"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Afgangsprojekt_HD1_Analyse_af_Salling_Group_AS_og_Coop_Danmark_AS.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/9f8d0396d2-afgangsprojekt-hd1-analyse-af-salling-group-as-og-coop-danmark-as.pdf",
+      "filename": "Afgangsprojekt_HD1_Analyse_af_Salling_Group_AS_og_Coop_Danmark_AS.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjbd0004zo0do86t3d8y",
+      "documentTitle": "Afgangsprojekt HD1 Analyse af Salling Group AS og Coop Danmark AS",
+      "promotedTitle": "Afgangsprojekt HD1 Analyse af Salling Group AS og Coop Danmark AS",
+      "typedId": "report-food-9f8d0396d2dd",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/cibus_interim_report_q3_2025.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/e268bd87c1-cibus-interim-report-q3-2025.pdf",
+      "filename": "cibus_interim_report_q3_2025.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfjbu0005zo0dn3ps4lrb",
+      "documentTitle": "cibus interim report q3 2025",
+      "promotedTitle": "cibus interim report q3 2025",
+      "typedId": "report-food-e268bd87c1c4",
+      "currentTargetLinks": [
+        "Report:report-food-e268bd87c1c4"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-e268bd87c1c4",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-e268bd87c1c4",
+        "title": "cibus interim report q3 2025",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2025",
+        "year": 2025,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "se",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches interim report language; review metadata proposed doc_type=policy_report; title/filename uses report language.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjbu0005zo0dn3ps4lrb"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/cibus_nordic_annual_report_2025.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/cc26897195-cibus-nordic-annual-report-2025.pdf",
+      "filename": "cibus_nordic_annual_report_2025.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfjcf0006zo0d7chokzox",
+      "documentTitle": "cibus nordic annual report 2025",
+      "promotedTitle": "cibus nordic annual report 2025",
+      "typedId": "report-food-cc2689719568",
+      "currentTargetLinks": [
+        "Report:report-food-cc2689719568"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-cc2689719568",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-cc2689719568",
+        "title": "cibus nordic annual report 2025",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2025",
+        "year": 2025,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "nordic",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches annual report language; review metadata proposed doc_type=policy_report; title/filename uses report language.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjcf0006zo0d7chokzox"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/cibus_year-end_report_2025.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/069b10c9ac-cibus-year-end-report-2025.pdf",
+      "filename": "cibus_year-end_report_2025.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfjcw0007zo0dc7liw8d6",
+      "documentTitle": "cibus year end report 2025",
+      "promotedTitle": "cibus year end report 2025",
+      "typedId": "report-food-069b10c9ac66",
+      "currentTargetLinks": [
+        "Report:report-food-069b10c9ac66"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-069b10c9ac66",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-069b10c9ac66",
+        "title": "cibus year end report 2025",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2025",
+        "year": 2025,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "se",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches year-end report language; review metadata proposed doc_type=policy_report; title/filename uses report language.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjcw0007zo0dc7liw8d6"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvare_ Forskjeller i innkjøpspriser ytterligere redusert - Konkurransetilsynet.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/19fbdf3210-dagligvare-forskjeller-i-innkj-pspriser-ytterligere-redusert-konkurransetilsynet.pdf",
+      "filename": "Dagligvare_ Forskjeller i innkjøpspriser ytterligere redusert - Konkurransetilsynet.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjdc0008zo0d2ya4ioix",
+      "documentTitle": "Dagligvare: Forskjeller i innkjøpspriser ytterligere redusert - Konkurransetilsynet",
+      "promotedTitle": "Kartlegging av innkjopspriser 2017-2023",
+      "typedId": "report-food-19fbdf32104a",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/dagligvare_rapport.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/82be185d01-dagligvare-rapport.pdf",
+      "filename": "dagligvare_rapport.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfjdu0009zo0da3t10r85",
+      "documentTitle": "Samarbeidsklimaet i dagligvarebransjen",
+      "promotedTitle": "Samarbeidsklima-undersokelsen 2025",
+      "typedId": "report-food-82be185d01c8",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet-tildelingsbrev-2024.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/11ed41bcac-dagligvaretilsynet-tildelingsbrev-2024.pdf",
+      "filename": "Dagligvaretilsynet-tildelingsbrev-2024.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfje8000azo0dcj8bydzy",
+      "documentTitle": "Dagligvaretilsynet - tildelingsbrev for 2024",
+      "promotedTitle": "Dagligvaretilsynet - tildelingsbrev for 2024",
+      "typedId": "report-food-11ed41bcaca1",
+      "currentTargetLinks": [
+        "Report:report-food-11ed41bcaca1"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-11ed41bcaca1",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-11ed41bcaca1",
+        "title": "Dagligvaretilsynet - tildelingsbrev for 2024",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename contains tildelingsbrev language; review metadata proposed doc_type=policy_report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfje8000azo0dcj8bydzy"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet-tildelingsbrev-2025.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/7aaa0d71e1-dagligvaretilsynet-tildelingsbrev-2025.pdf",
+      "filename": "Dagligvaretilsynet-tildelingsbrev-2025.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfjel000bzo0df7vk69a5",
+      "documentTitle": "Dagligvaretilsynet - tildelingsbrev for 2025",
+      "promotedTitle": "Dagligvaretilsynet - tildelingsbrev for 2025",
+      "typedId": "report-food-7aaa0d71e1e7",
+      "currentTargetLinks": [
+        "Report:report-food-7aaa0d71e1e7"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-7aaa0d71e1e7",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-7aaa0d71e1e7",
+        "title": "Dagligvaretilsynet - tildelingsbrev for 2025",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2025",
+        "year": 2025,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename contains tildelingsbrev language; review metadata proposed doc_type=policy_report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjel000bzo0df7vk69a5"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet-tildelingsbrev-2026.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/8749cc79f9-dagligvaretilsynet-tildelingsbrev-2026.pdf",
+      "filename": "Dagligvaretilsynet-tildelingsbrev-2026.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfjez000czo0d2puzy1ee",
+      "documentTitle": "Dagligvaretilsynet - tildelingsbrev for 2026",
+      "promotedTitle": "Dagligvaretilsynet - tildelingsbrev for 2026",
+      "typedId": "report-food-8749cc79f983",
+      "currentTargetLinks": [
+        "Report:report-food-8749cc79f983"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-8749cc79f983",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-8749cc79f983",
+        "title": "Dagligvaretilsynet - tildelingsbrev for 2026",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2026",
+        "year": 2026,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename contains tildelingsbrev language; review metadata proposed doc_type=policy_report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjez000czo0d2puzy1ee"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Del-2.-Kartlegging-av-marginer-ved-bruk-av-informasjon-pa-produktniva.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/8f0116749a-del-2-kartlegging-av-marginer-ved-bruk-av-informasjon-pa-produktniva.pdf",
+      "filename": "Del-2.-Kartlegging-av-marginer-ved-bruk-av-informasjon-pa-produktniva.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjfe000dzo0dxv30snvf",
+      "documentTitle": "Del 2 Kartlegging av marginer ved bruk av informasjon pa produktniva",
+      "promotedTitle": "Del 2 Kartlegging av marginer ved bruk av informasjon pa produktniva",
+      "typedId": "report-food-8f0116749aaf",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/fretheimrodnova-etableringshindringer-var-2020_isf_mro-2.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/fe0a3ed77f-fretheimrodnova-etableringshindringer-var-2020-isf-mro-2.pdf",
+      "filename": "fretheimrodnova-etableringshindringer-var-2020_isf_mro-2.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjgo000gzo0dbp5rmh3q",
+      "documentTitle": "fretheimrodnova etableringshindringer var 2020 isf mro 2",
+      "promotedTitle": "fretheimrodnova etableringshindringer var 2020 isf mro 2",
+      "typedId": "report-food-fe0a3ed77f48",
+      "currentTargetLinks": [
+        "Report:report-food-fe0a3ed77f48"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-fe0a3ed77f48",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-fe0a3ed77f48",
+        "title": "fretheimrodnova etableringshindringer var 2020 isf mro 2",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2020",
+        "year": 2020,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=policy_report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjgo000gzo0dbp5rmh3q"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurransetilsynets-Dagligvarerapport-2024-25.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/f0fab2be69-konkurransetilsynets-dagligvarerapport-2024-25.pdf",
+      "filename": "Konkurransetilsynets-Dagligvarerapport-2024-25.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfjhf000izo0d1o8av5ar",
+      "documentTitle": "Konkurransetilsynets Dagligvarerapport 2024 25",
+      "promotedTitle": "Konkurransetilsynets Dagligvarerapport 2024 25",
+      "typedId": "report-food-f0fab2be696a",
+      "currentTargetLinks": [
+        "Report:report-food-f0fab2be696a"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-f0fab2be696a",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-f0fab2be696a",
+        "title": "Konkurransetilsynets Dagligvarerapport 2024 25",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches dagligvarerapport language; review metadata proposed doc_type=policy_report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjhf000izo0d1o8av5ar"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/NORDIC_FOOD_MARKETS.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/c76145bbb9-nordic-food-markets.pdf",
+      "filename": "NORDIC_FOOD_MARKETS.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjhu000jzo0diyadoezf",
+      "documentTitle": "543348.indd",
+      "promotedTitle": "543348.indd",
+      "typedId": "report-food-c76145bbb97b",
+      "currentTargetLinks": [],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "report-metadata-too-weak:confidence-below-medium+year-or-sourceUrl"
+      ],
+      "reasonSummary": "report-metadata-too-weak:confidence-below-medium+year-or-sourceUrl",
+      "payloadPreview": {
+        "id": "report-food-c76145bbb97b",
+        "title": "543348.indd",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": null,
+        "year": null,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "nordic",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjhu000jzo0diyadoezf"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Oslo-Economics-Konkurransen-i-dagligvaremarkedet-betydelig-bedre-enn-sitt-rykte.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/6155c0f06f-oslo-economics-konkurransen-i-dagligvaremarkedet-betydelig-bedre-enn-sitt-rykte.pdf",
+      "filename": "Oslo-Economics-Konkurransen-i-dagligvaremarkedet-betydelig-bedre-enn-sitt-rykte.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjix000mzo0d5o3b4jbe",
+      "documentTitle": "Konkurransen i dagligvare-markedet – betydelig bedre enn sitt rykte!",
+      "promotedTitle": "Konkurransen i dagligvare-markedet – betydelig bedre enn sitt rykte!",
+      "typedId": "report-food-6155c0f06fea",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Paivittaistavarakauppa-ry-2024-EN.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/aa2340aec7-paivittaistavarakauppa-ry-2024-en.pdf",
+      "filename": "Paivittaistavarakauppa-ry-2024-EN.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjjb000nzo0dwkcr7fq3",
+      "documentTitle": "Paivittaistavarakauppa ry 2024 EN",
+      "promotedTitle": "Paivittaistavarakauppa ry 2024 EN",
+      "typedId": "report-food-aa2340aec7eb",
+      "currentTargetLinks": [
+        "Report:report-food-aa2340aec7eb"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-aa2340aec7eb",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-aa2340aec7eb",
+        "title": "Paivittaistavarakauppa ry 2024 EN",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "fi",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=policy_report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjjb000nzo0dwkcr7fq3"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Paraplykjedenes-overtakelse-av-distribusjonen-i-dagligvaremarkedet.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/baf0bda563-paraplykjedenes-overtakelse-av-distribusjonen-i-dagligvaremarkedet.pdf",
+      "filename": "Paraplykjedenes-overtakelse-av-distribusjonen-i-dagligvaremarkedet.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjjq000ozo0d1ujizd6l",
+      "documentTitle": "Paraplykjedenes overtakelse av distribusjonen i dagligvaremarkedet",
+      "promotedTitle": "Paraplykjedenes overtakelse av distribusjonen i dagligvaremarkedet",
+      "typedId": "report-food-baf0bda56300",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport-marginstudie.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/02e07da260-rapport-marginstudie.pdf",
+      "filename": "Rapport-marginstudie.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfjk5000pzo0dpq6y6v1j",
+      "documentTitle": "Konkurransetilsynets marginstudie 2024: Del 1. Lønnsomhetsberegninger på virksomhetsnivå",
+      "promotedTitle": "Konkurransetilsynets marginstudie 2024: Del 1. Lønnsomhetsberegninger på virksomhetsnivå",
+      "typedId": "report-food-02e07da26046",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+samarbeidsklimaet+i+Dagligvarebransjen.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/5a1cbe46f9-rapport-om-samarbeidsklimaet-i-dagligvarebransjen.pdf",
+      "filename": "Rapport+om+samarbeidsklimaet+i+Dagligvarebransjen.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjkj000qzo0da236xu6x",
+      "documentTitle": "Rapport om samarbeidsklimaet i dagligvarebransjen 2022",
+      "promotedTitle": "Rapport om samarbeidsklimaet i dagligvarebransjen 2022",
+      "typedId": "report-food-5a1cbe46f984",
+      "currentTargetLinks": [
+        "Report:report-food-5a1cbe46f984"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-5a1cbe46f984",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-5a1cbe46f984",
+        "title": "Rapport om samarbeidsklimaet i dagligvarebransjen 2022",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2022",
+        "year": 2022,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=policy_report; title/filename uses rapport language; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjkj000qzo0da236xu6x"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+Samarbeidsklimaet+i+Dagligvarebransjen+2023.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/2bc5e2a736-rapport-om-samarbeidsklimaet-i-dagligvarebransjen-2023.pdf",
+      "filename": "Rapport+om+Samarbeidsklimaet+i+Dagligvarebransjen+2023.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjky000rzo0d4m9wdalm",
+      "documentTitle": "Samarbeidsklimaet i Dagligvarebransjen",
+      "promotedTitle": "Samarbeidsklimaet i Dagligvarebransjen",
+      "typedId": "report-food-2bc5e2a736ab",
+      "currentTargetLinks": [
+        "Report:report-food-2bc5e2a736ab"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-2bc5e2a736ab",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-2bc5e2a736ab",
+        "title": "Samarbeidsklimaet i Dagligvarebransjen",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2023",
+        "year": 2023,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=policy_report; title/filename uses rapport language; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjky000rzo0d4m9wdalm"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+samarbeidsklimaet+i+dagligvarebransjen+2024_Final_17.10.24.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/6de68c22a6-rapport-om-samarbeidsklimaet-i-dagligvarebransjen-2024-final-17-10-24.pdf",
+      "filename": "Rapport+om+samarbeidsklimaet+i+dagligvarebransjen+2024_Final_17.10.24.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjlc000szo0di04u4n3h",
+      "documentTitle": "Samarbeidsklimaet i dagligvarebransjen: Rapport fra undersøkelse blant kjeder og leverandører 2024",
+      "promotedTitle": "Samarbeidsklimaet i dagligvarebransjen: Rapport fra undersøkelse blant kjeder og leverandører 2024",
+      "typedId": "report-food-6de68c22a6f6",
+      "currentTargetLinks": [
+        "Report:report-food-6de68c22a6f6"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-6de68c22a6f6",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-6de68c22a6f6",
+        "title": "Samarbeidsklimaet i dagligvarebransjen: Rapport fra undersøkelse blant kjeder og leverandører 2024",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=policy_report; title/filename uses rapport language; review metadata typed_layer_candidate=report-or-source. Caution: title-remediation weak-title flags: truncated_source_title.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjlc000szo0di04u4n3h"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+samarbeidsklimaet+lokalmat-+og+drikke+produsenter+i+dagligvarebransjen+2025.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/5f07f685a5-rapport-om-samarbeidsklimaet-lokalmat-og-drikke-produsenter-i-dagligvarebransjen-2025.pdf",
+      "filename": "Rapport+om+samarbeidsklimaet+lokalmat-+og+drikke+produsenter+i+dagligvarebransjen+2025.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjlq000tzo0d77f6nhok",
+      "documentTitle": "Samarbeidsklimaet i Dagligvarebransjen - for mindre LOKALMAT- OG DRIKKE Produsenter",
+      "promotedTitle": "Samarbeidsklimaet i Dagligvarebransjen - for mindre LOKALMAT- OG DRIKKE Produsenter",
+      "typedId": "report-food-5f07f685a55d",
+      "currentTargetLinks": [
+        "Report:report-food-5f07f685a55d"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-5f07f685a55d",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-5f07f685a55d",
+        "title": "Samarbeidsklimaet i Dagligvarebransjen - for mindre LOKALMAT- OG DRIKKE Produsenter",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2025",
+        "year": 2025,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=policy_report; title/filename uses rapport language; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjlq000tzo0d77f6nhok"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/SAMKEPPNISEFTIRLITID_arsskyrlsla_2024_LOK_02.10.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/da6ee0591c-samkeppniseftirlitid-arsskyrlsla-2024-lok-02-10.pdf",
+      "filename": "SAMKEPPNISEFTIRLITID_arsskyrlsla_2024_LOK_02.10.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjm9000uzo0dn4cso3mh",
+      "documentTitle": "SAMKEPPNISEFTIRLITID arsskyrlsla 2024 LOK 02 10",
+      "promotedTitle": "SAMKEPPNISEFTIRLITID arsskyrlsla 2024 LOK 02 10",
+      "typedId": "report-food-da6ee0591cd2",
+      "currentTargetLinks": [
+        "Report:report-food-da6ee0591cd2"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-da6ee0591cd2",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-da6ee0591cd2",
+        "title": "SAMKEPPNISEFTIRLITID arsskyrlsla 2024 LOK 02 10",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "is",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=policy_report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjm9000uzo0dn4cso3mh"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/utredning-av-funksjonelt-og-regnskapsmessig-skille-i-verdikjeden-for-mat-og-dagligvarer.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/44fd55ef81-utredning-av-funksjonelt-og-regnskapsmessig-skille-i-verdikjeden-for-mat-og-dagligvarer.pdf",
+      "filename": "utredning-av-funksjonelt-og-regnskapsmessig-skille-i-verdikjeden-for-mat-og-dagligvarer.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjn3000wzo0dtt5136sh",
+      "documentTitle": "utredning av funksjonelt og regnskapsmessig skille i verdikjeden for mat og dagligvarer",
+      "promotedTitle": "utredning av funksjonelt og regnskapsmessig skille i verdikjeden for mat og dagligvarer",
+      "typedId": "report-food-44fd55ef811e",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Utredning-om-prisjusteringsvinduer-2023.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/f853fed352-utredning-om-prisjusteringsvinduer-2023.pdf",
+      "filename": "Utredning-om-prisjusteringsvinduer-2023.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfjni000xzo0dem45ohhr",
+      "documentTitle": "Utredning om prisjusteringsvinduer 2023",
+      "promotedTitle": "Utredning om prisjusteringsvinduer 2023",
+      "typedId": "report-food-f853fed35279",
+      "currentTargetLinks": [
+        "Report:report-food-f853fed35279"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-f853fed35279",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-f853fed35279",
+        "title": "Utredning om prisjusteringsvinduer 2023",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2023",
+        "year": 2023,
+        "sourceUrl": null,
+        "reportCategory": "offentlig",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=policy_report; title/filename uses utredning language; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "policy-governance-market",
+          "03_Policy_Governance_And_Market"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjni000xzo0dem45ohhr"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Circular economy butterfly diagram.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/6f0b71cc36-circular-economy-butterfly-diagram.pdf",
+      "filename": "Circular economy butterfly diagram.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjoc000zzo0d7523ur7q",
+      "documentTitle": "Foundation circular economy diagram_Feb2019",
+      "promotedTitle": "Foundation circular economy diagram",
+      "typedId": "report-food-6f0b71cc3648",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food Redistribution in the Nordic Region.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/20d75deeda-food-redistribution-in-the-nordic-region.pdf",
+      "filename": "Food Redistribution in the Nordic Region.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjqy0015zo0d702u1tab",
+      "documentTitle": "Food Redistribution in the Nordic Region",
+      "promotedTitle": "Food Redistribution in the Nordic Region",
+      "typedId": "report-food-20d75deedabf",
+      "currentTargetLinks": [
+        "Report:report-food-20d75deedabf"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-20d75deedabf",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-20d75deedabf",
+        "title": "Food Redistribution in the Nordic Region",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2014",
+        "year": 2014,
+        "sourceUrl": "https://www.norden.org/en/publication/food-redistribution-in-the-nordic-region",
+        "reportCategory": "sirkularitet",
+        "country": "nordic",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-waste-circularity",
+          "04_Food_Waste_And_Circularity"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjqy0015zo0d702u1tab"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food-waste-reduction-corporate-responsibility-and-national-policies-2024.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/74682c696a-food-waste-reduction-corporate-responsibility-and-national-policies-2024.pdf",
+      "filename": "Food-waste-reduction-corporate-responsibility-and-national-policies-2024.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjrp0017zo0dzs8pj88y",
+      "documentTitle": "BFJ-11-2023-0982_proof 470..485",
+      "promotedTitle": "BFJ-11-2023-0982_proof 470..485",
+      "typedId": "report-food-74682c696a44",
+      "currentTargetLinks": [],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "report-metadata-too-weak:country+confidence-below-medium"
+      ],
+      "reasonSummary": "report-metadata-too-weak:country+confidence-below-medium",
+      "payloadPreview": {
+        "id": "report-food-74682c696a44",
+        "title": "BFJ-11-2023-0982_proof 470..485",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "sirkularitet",
+        "country": null,
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Placeholder or artifact-style title with no strong typed-layer signal. Keep this row out of typed promotion until the title or metadata is remediated.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-waste-circularity",
+          "04_Food_Waste_And_Circularity"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjrp0017zo0dzs8pj88y"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Growing_vegetables_in_the_circular_econo.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/2c18f02796-growing-vegetables-in-the-circular-econo.pdf",
+      "filename": "Growing_vegetables_in_the_circular_econo.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjs20018zo0dclo5yw2y",
+      "documentTitle": "Growing vegetables in the circular econo",
+      "promotedTitle": "Growing vegetables in the circular economy; cultivation of tomatoes on green waste compost and food waste digestate",
+      "typedId": "report-food-2c18f0279639",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Norways-Food-Waste-Reduction-Governance-2022.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/fa2d4406db-norways-food-waste-reduction-governance-2022.pdf",
+      "filename": "Norways-Food-Waste-Reduction-Governance-2022.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjtn001czo0dp2lqkfcn",
+      "documentTitle": "Norway's Food Waste Reduction Governance: From Industry Self‐Regulation to Governmental Regulation?",
+      "promotedTitle": "Norway's Food Waste Reduction Governance: From Industry Self-Regulation to Governmental Regulation?",
+      "typedId": "report-food-fa2d4406dbbe",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/NPHarvest – We recover value from your wastewater.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/577e8f49cb-npharvest-we-recover-value-from-your-wastewater.pdf",
+      "filename": "NPHarvest – We recover value from your wastewater.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfju2001dzo0d4v9wt2xt",
+      "documentTitle": "NPHarvest – We recover value from your wastewater",
+      "promotedTitle": "NPHarvest – We recover value from your wastewater",
+      "typedId": "report-food-577e8f49cbf6",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31.12.23.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/54a1846535-rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31-12-23.pdf",
+      "filename": "rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31.12.23.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjv7001fzo0dkn88upjj",
+      "documentTitle": "Matsvinnutvalgets anbefalinger",
+      "promotedTitle": "Matsvinnutvalgets anbefalinger",
+      "typedId": "report-food-54a184653597",
+      "currentTargetLinks": [
+        "Report:matsvinnutvalget-2024"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "matsvinnutvalget-2024",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-54a184653597",
+        "title": "Matsvinnutvalgets anbefalinger",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": "https://www.regjeringen.no/contentassets/5a5cadf8907a4f4c94740d23d7c4c6e4/rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31.12.23.pdf",
+        "reportCategory": "sirkularitet",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename uses rapport language; review metadata proposed doc_type=report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-waste-circularity",
+          "04_Food_Waste_And_Circularity"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjv7001fzo0dkn88upjj"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Zero waste solutions in hospitality  technology alignment and agile management practices for responsible consumption and production of food.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/7977a8583e-zero-waste-solutions-in-hospitality-technology-alignment-and-agile-management-practices-for-responsible-consumption-and-production-of-food.pdf",
+      "filename": "Zero waste solutions in hospitality  technology alignment and agile management practices for responsible consumption and production of food.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjxi001kzo0dawp3fy8w",
+      "documentTitle": "Zero waste solutions in hospitality: technology alignment and agile management practices for respons",
+      "promotedTitle": "Zero waste solutions in hospitality: technology alignment and agile management practices for respons",
+      "typedId": "report-food-7977a8583e97",
+      "currentTargetLinks": [],
+      "reviewAction": "import",
+      "titleRemediationStatus": "blocked",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "unresolved-title-remediation"
+      ],
+      "reasonSummary": "unresolved-title-remediation",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/2023-Danish-Action-Plan-for-Plant-based-Foods.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/b3c4abd386-2023-danish-action-plan-for-plant-based-foods.pdf",
+      "filename": "2023-Danish-Action-Plan-for-Plant-based-Foods.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjya001lzo0dm607zlx3",
+      "documentTitle": "Danish Action Plan for Plant-based Foods",
+      "promotedTitle": "Danish Action Plan for Plant-based Foods",
+      "typedId": "report-food-b3c4abd38609",
+      "currentTargetLinks": [
+        "Report:report-food-b3c4abd38609"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-b3c4abd38609",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-b3c4abd38609",
+        "title": "Danish Action Plan for Plant-based Foods",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2023",
+        "year": 2023,
+        "sourceUrl": "https://fvm.dk/Media/638507727168382898/Danish-Action-Plan-for-Plant-based-Foods.pdf",
+        "reportCategory": "food-process-intake",
+        "country": "dk",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename uses action plan language; review metadata proposed doc_type=report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "foodtech-alt-protein",
+          "05_Foodtech_Alt_Protein_And_Innovation"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjya001lzo0dm607zlx3"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Agrifoodtech funding is flat. The real story is where it isn't_.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/6d3115f8f6-agrifoodtech-funding-is-flat-the-real-story-is-where-it-isn-t.pdf",
+      "filename": "Agrifoodtech funding is flat. The real story is where it isn't_.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjyr001mzo0db7hv0pl6",
+      "documentTitle": "Agrifoodtech funding is flat. The real story is where it isn't.",
+      "promotedTitle": "Agrifoodtech funding is flat. The real story is where it isn't.",
+      "typedId": "report-food-6d3115f8f6e5",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Foodrise_ Rising up for fair and resilient food systems.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/1280935094-foodrise-rising-up-for-fair-and-resilient-food-systems.pdf",
+      "filename": "Foodrise_ Rising up for fair and resilient food systems.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfk27001uzo0dno3xv47z",
+      "documentTitle": "Foodrise: Rising up for fair and resilient food systems",
+      "promotedTitle": "Foodrise: Rising up for fair and resilient food systems",
+      "typedId": "report-food-1280935094de",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Industry Consolidation_ 40+ Major Alternative Protein Companies Have Shut or Been Acquired in Past Year.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/7f1fc1c9f2-industry-consolidation-40-major-alternative-protein-companies-have-shut-or-been-acquired-in-past-year.pdf",
+      "filename": "Industry Consolidation_ 40+ Major Alternative Protein Companies Have Shut or Been Acquired in Past Year.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfk4c001zzo0d9bau9hx2",
+      "documentTitle": "Industry Consolidation: 40+ Major Alternative Protein Companies Have Shut or Been Acquired in Past Year",
+      "promotedTitle": "Industry Consolidation: 40+ Major Alternative Protein Companies Have Shut or Been Acquired in Past Year",
+      "typedId": "report-food-7f1fc1c9f2c9",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Plantagon's Fall_ Lessons for AgTech Innovators.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/ef3221497b-plantagon-s-fall-lessons-for-agtech-innovators.pdf",
+      "filename": "Plantagon's Fall_ Lessons for AgTech Innovators.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfk7l0026zo0d866fc3mp",
+      "documentTitle": "Plantagon's Fall: Lessons for AgTech Innovators",
+      "promotedTitle": "Plantagon's Fall: Lessons for AgTech Innovators",
+      "typedId": "report-food-ef3221497b64",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/PROMYC, mycoproteins.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/6c9ac395e8-promyc-mycoproteins.pdf",
+      "filename": "PROMYC, mycoproteins.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfk7y0027zo0d992cocl5",
+      "documentTitle": "PROMYC, mycoproteins",
+      "promotedTitle": "PROMYC, mycoproteins",
+      "typedId": "report-food-6c9ac395e8b5",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Ynsect_ how the world leader in insects ended up in receivership — ONEI.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/18fe1d39ba-ynsect-how-the-world-leader-in-insects-ended-up-in-receivership-onei.pdf",
+      "filename": "Ynsect_ how the world leader in insects ended up in receivership — ONEI.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfkc3002fzo0d7a9tsbrv",
+      "documentTitle": "Ynsect: how the world leader in insects ended up in receivership — ONEI",
+      "promotedTitle": "Ynsect: how the world leader in insects ended up in receivership — ONEI",
+      "typedId": "report-food-18fe1d39ba91",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2021 Impact Report ENG.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/72a18173d8-2021-impact-report-eng.pdf",
+      "filename": "2021 Impact Report ENG.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkdh002gzo0d54di9538",
+      "documentTitle": "2021 Impact Report ENG",
+      "promotedTitle": "2021 Impact Report ENG",
+      "typedId": "report-food-72a18173d812",
+      "currentTargetLinks": [
+        "Report:report-food-72a18173d812"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-72a18173d812",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-72a18173d812",
+        "title": "2021 Impact Report ENG",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2021",
+        "year": 2021,
+        "sourceUrl": null,
+        "reportCategory": "bransje",
+        "country": "global",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches impact report language; review metadata proposed doc_type=annual_report; review metadata typed_layer_candidate=report.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "company-and-annual-reports",
+          "06_Company_And_Annual_Reports"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkdh002gzo0d54di9538"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2022 Impact Report ENG.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/01bdfb4dbe-2022-impact-report-eng.pdf",
+      "filename": "2022 Impact Report ENG.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkf1002hzo0du6bc2ybt",
+      "documentTitle": "2022 Impact Report ENG",
+      "promotedTitle": "2022 Impact Report ENG",
+      "typedId": "report-food-01bdfb4dbebe",
+      "currentTargetLinks": [
+        "Report:report-food-01bdfb4dbebe"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-01bdfb4dbebe",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-01bdfb4dbebe",
+        "title": "2022 Impact Report ENG",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2022",
+        "year": 2022,
+        "sourceUrl": null,
+        "reportCategory": "bransje",
+        "country": "global",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches impact report language; review metadata proposed doc_type=annual_report; review metadata typed_layer_candidate=report.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "company-and-annual-reports",
+          "06_Company_And_Annual_Reports"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkf1002hzo0du6bc2ybt"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2023 Impact Report ENG-NA.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/7b0646623b-2023-impact-report-eng-na.pdf",
+      "filename": "2023 Impact Report ENG-NA.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkfk002izo0da1fnwktx",
+      "documentTitle": "2023 Impact Report ENG NA",
+      "promotedTitle": "2023 Impact Report ENG NA",
+      "typedId": "report-food-7b0646623b22",
+      "currentTargetLinks": [
+        "Report:report-food-7b0646623b22"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-7b0646623b22",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-7b0646623b22",
+        "title": "2023 Impact Report ENG NA",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2023",
+        "year": 2023,
+        "sourceUrl": null,
+        "reportCategory": "bransje",
+        "country": "global",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches impact report language; review metadata proposed doc_type=annual_report; review metadata typed_layer_candidate=report.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "company-and-annual-reports",
+          "06_Company_And_Annual_Reports"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkfk002izo0da1fnwktx"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2024 Environmental Footprint Report ENG.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/37157a71fd-2024-environmental-footprint-report-eng.pdf",
+      "filename": "2024 Environmental Footprint Report ENG.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkfy002jzo0dcpr6d3vu",
+      "documentTitle": "Environmental Footprint of the Food Saved by Too Good To Go",
+      "promotedTitle": "Environmental Footprint of the Food Saved by Too Good To Go",
+      "typedId": "report-food-37157a71fd2f",
+      "currentTargetLinks": [
+        "Report:report-food-37157a71fd2f"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-37157a71fd2f",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-37157a71fd2f",
+        "title": "Environmental Footprint of the Food Saved by Too Good To Go",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "bransje",
+        "country": "global",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=annual_report; review metadata typed_layer_candidate=report; title/filename uses report language. Caution: title-remediation weak-title flags: artifact_label.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "company-and-annual-reports",
+          "06_Company_And_Annual_Reports"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkfy002jzo0dcpr6d3vu"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2024 Impact Report - Too Good To Go - US_CA.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/4af370e451-2024-impact-report-too-good-to-go-us-ca.pdf",
+      "filename": "2024 Impact Report - Too Good To Go - US_CA.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkh3002kzo0dwn4wn8ya",
+      "documentTitle": "2024 Impact Report Too Good To Go US CA",
+      "promotedTitle": "2024 Impact Report Too Good To Go US CA",
+      "typedId": "report-food-4af370e4514e",
+      "currentTargetLinks": [
+        "Report:report-food-4af370e4514e"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-4af370e4514e",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-4af370e4514e",
+        "title": "2024 Impact Report Too Good To Go US CA",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "bransje",
+        "country": "global",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches impact report language; review metadata proposed doc_type=annual_report; review metadata typed_layer_candidate=report.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "company-and-annual-reports",
+          "06_Company_And_Annual_Reports"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkh3002kzo0dwn4wn8ya"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2025-Cargill-Annual-Report.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/beee685b89-2025-cargill-annual-report.pdf",
+      "filename": "2025-Cargill-Annual-Report.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkhi002lzo0dhkvi3wlz",
+      "documentTitle": "2025 Cargill Annual Report",
+      "promotedTitle": "2025 Cargill Annual Report",
+      "typedId": "report-food-beee685b89fb",
+      "currentTargetLinks": [
+        "Report:report-food-beee685b89fb"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-beee685b89fb",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-beee685b89fb",
+        "title": "2025 Cargill Annual Report",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2025",
+        "year": 2025,
+        "sourceUrl": null,
+        "reportCategory": "bransje",
+        "country": "us",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches annual report language; review metadata proposed doc_type=annual_report; review metadata typed_layer_candidate=report.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "company-and-annual-reports",
+          "06_Company_And_Annual_Reports"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkhi002lzo0dhkvi3wlz"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/Annual report 2024.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/7bda968b6d-annual-report-2024.pdf",
+      "filename": "Annual report 2024.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkil002mzo0d6rlz2ksy",
+      "documentTitle": "Salling Group Annual Report 2024",
+      "promotedTitle": "Salling Group Annual Report 2024",
+      "typedId": "report-food-7bda968b6db6",
+      "currentTargetLinks": [
+        "Report:report-food-7bda968b6db6"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-7bda968b6db6",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-7bda968b6db6",
+        "title": "Salling Group Annual Report 2024",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "bransje",
+        "country": "dk",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches annual report language; review metadata proposed doc_type=annual_report; review metadata typed_layer_candidate=report. Caution: title-remediation weak-title flags: generic_short_title.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "company-and-annual-reports",
+          "06_Company_And_Annual_Reports"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkil002mzo0d6rlz2ksy"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/barekraft-i-asko-2024.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/94b68068c8-barekraft-i-asko-2024.pdf",
+      "filename": "barekraft-i-asko-2024.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkjq002nzo0dgk1dz7tz",
+      "documentTitle": "barekraft i asko 2024",
+      "promotedTitle": "barekraft i asko 2024",
+      "typedId": "report-food-94b68068c89e",
+      "currentTargetLinks": [
+        "Report:report-food-94b68068c89e"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-94b68068c89e",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-94b68068c89e",
+        "title": "barekraft i asko 2024",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "bransje",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=annual_report; review metadata typed_layer_candidate=report; source folder is company-and-annual-reports.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "company-and-annual-reports",
+          "06_Company_And_Annual_Reports"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkjq002nzo0dgk1dz7tz"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/Cheffelo_Arsredovisning_Hallbarhetsrapport_2025_SE.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/408e0ce333-cheffelo-arsredovisning-hallbarhetsrapport-2025-se.pdf",
+      "filename": "Cheffelo_Arsredovisning_Hallbarhetsrapport_2025_SE.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkka002ozo0d0tk49fyo",
+      "documentTitle": "Cheffelo Arsredovisning Hallbarhetsrapport 2025 SE",
+      "promotedTitle": "Cheffelo Arsredovisning Hallbarhetsrapport 2025 SE",
+      "typedId": "report-food-408e0ce33339",
+      "currentTargetLinks": [
+        "Report:report-food-408e0ce33339"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-408e0ce33339",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-408e0ce33339",
+        "title": "Cheffelo Arsredovisning Hallbarhetsrapport 2025 SE",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2025",
+        "year": 2025,
+        "sourceUrl": null,
+        "reportCategory": "bransje",
+        "country": "se",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches arsredovisning language; review metadata proposed doc_type=annual_report; review metadata typed_layer_candidate=report.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "company-and-annual-reports",
+          "06_Company_And_Annual_Reports"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkka002ozo0d0tk49fyo"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/kesko-annual-report-2024.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/1d2541e18d-kesko-annual-report-2024.pdf",
+      "filename": "kesko-annual-report-2024.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkln002pzo0dyzdg7dbu",
+      "documentTitle": "kesko annual report 2024",
+      "promotedTitle": "kesko annual report 2024",
+      "typedId": "report-food-1d2541e18dc3",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/Matsmart-Ars-och-hallbarhetsredovisning-2024.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/d9aab84f2b-matsmart-ars-och-hallbarhetsredovisning-2024.pdf",
+      "filename": "Matsmart-Ars-och-hallbarhetsredovisning-2024.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkmo002qzo0d2lbn54i6",
+      "documentTitle": "Matsmart Ars och hallbarhetsredovisning 2024",
+      "promotedTitle": "Matsmart Ars och hallbarhetsredovisning 2024",
+      "typedId": "report-food-d9aab84f2b53",
+      "currentTargetLinks": [
+        "Report:report-food-d9aab84f2b53"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-d9aab84f2b53",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-d9aab84f2b53",
+        "title": "Matsmart Ars och hallbarhetsredovisning 2024",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "bransje",
+        "country": "se",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=annual_report; review metadata typed_layer_candidate=report; source folder is company-and-annual-reports.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "company-and-annual-reports",
+          "06_Company_And_Annual_Reports"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkmo002qzo0d2lbn54i6"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/NCE Heidner Biocluster - Norges ledende næringsklynge innen bioøkonomi og bærekraftig matproduksjon.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/b19d796b21-nce-heidner-biocluster-norges-ledende-n-ringsklynge-innen-bio-konomi-og-b-rekraftig-matproduksjon.pdf",
+      "filename": "NCE Heidner Biocluster - Norges ledende næringsklynge innen bioøkonomi og bærekraftig matproduksjon.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfknp002rzo0degmy9jfr",
+      "documentTitle": "NCE Heidner Biocluster - Norges ledende næringsklynge innen bioøkonomi og bærekraftig matproduksjon",
+      "promotedTitle": "NCE Heidner Biocluster - Norges ledende næringsklynge innen bioøkonomi og bærekraftig matproduksjon",
+      "typedId": "report-food-b19d796b217b",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/ng_ars--og-barekraftsrapport-2024.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/efd268f5c7-ng-ars-og-barekraftsrapport-2024.pdf",
+      "filename": "ng_ars--og-barekraftsrapport-2024.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkpc002szo0dmzopykjw",
+      "documentTitle": "ng ars og barekraftsrapport 2024",
+      "promotedTitle": "ng ars og barekraftsrapport 2024",
+      "typedId": "report-food-efd268f5c748",
+      "currentTargetLinks": [
+        "Report:report-food-efd268f5c748"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-efd268f5c748",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-efd268f5c748",
+        "title": "ng ars og barekraftsrapport 2024",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "bransje",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=annual_report; review metadata typed_layer_candidate=report; source folder is company-and-annual-reports.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "company-and-annual-reports",
+          "06_Company_And_Annual_Reports"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkpc002szo0dmzopykjw"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/Reitan Retail 2025_Oppslag.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/9aca785b0e-reitan-retail-2025-oppslag.pdf",
+      "filename": "Reitan Retail 2025_Oppslag.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkq2002tzo0d6lyauqqv",
+      "documentTitle": "Reitan Retail Annual- and sustainability report 2022",
+      "promotedTitle": "Reitan Retail Annual- and sustainability report 2022",
+      "typedId": "report-food-9aca785b0e5b",
+      "currentTargetLinks": [
+        "Report:report-food-9aca785b0e5b"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-9aca785b0e5b",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-9aca785b0e5b",
+        "title": "Reitan Retail Annual- and sustainability report 2022",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2022",
+        "year": 2022,
+        "sourceUrl": null,
+        "reportCategory": "bransje",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches sustainability report language; review metadata proposed doc_type=annual_report; review metadata typed_layer_candidate=report.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "company-and-annual-reports",
+          "06_Company_And_Annual_Reports"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkq2002tzo0d6lyauqqv"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/Slik får vi sunn og bærekraftig mat _ Framtiden i våre hender.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/a923b1b00b-slik-far-vi-sunn-og-b-rekraftig-mat-framtiden-i-vare-hender.pdf",
+      "filename": "Slik får vi sunn og bærekraftig mat _ Framtiden i våre hender.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkqq002uzo0dj7jwq1nj",
+      "documentTitle": "Slik får vi sunn og bærekraftig mat | Framtiden i våre hender",
+      "promotedTitle": "Slik får vi sunn og bærekraftig mat",
+      "typedId": "report-food-a923b1b00b0b",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/250221_icagruppen_annual_report_2024.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/3c4874bccf-250221-icagruppen-annual-report-2024.pdf",
+      "filename": "250221_icagruppen_annual_report_2024.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfkwp0031zo0dwwtmrlz2",
+      "documentTitle": "250221 icagruppen annual report 2024",
+      "promotedTitle": "250221 icagruppen annual report 2024",
+      "typedId": "report-food-3c4874bccfb3",
+      "currentTargetLinks": [
+        "Report:report-food-3c4874bccfb3"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-3c4874bccfb3",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-3c4874bccfb3",
+        "title": "250221 icagruppen annual report 2024",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "akademia",
+        "country": "se",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches annual report language; title/filename uses report language; review metadata proposed doc_type=report.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfkwp0031zo0dwwtmrlz2"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Aarsrapport-Daglegvaretilsynet-2022.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/8feb1b6cc6-aarsrapport-daglegvaretilsynet-2022.pdf",
+      "filename": "Aarsrapport-Daglegvaretilsynet-2022.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfky40034zo0d2xxwm5wc",
+      "documentTitle": "Årsrapport for Daglegvaretilsynet 2022",
+      "promotedTitle": "Årsrapport for Daglegvaretilsynet 2022",
+      "typedId": "report-food-8feb1b6cc69d",
+      "currentTargetLinks": [
+        "Report:report-food-8feb1b6cc69d"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-8feb1b6cc69d",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-8feb1b6cc69d",
+        "title": "Årsrapport for Daglegvaretilsynet 2022",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2022",
+        "year": 2022,
+        "sourceUrl": null,
+        "reportCategory": "akademia",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches arsrapport language; review metadata proposed doc_type=report; review metadata typed_layer_candidate=thesis-or-report.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfky40034zo0d2xxwm5wc"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cheffelo-publicerar-trading-update-for-q1-2026.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/8cbe26254c-cheffelo-publicerar-trading-update-for-q1-2026.pdf",
+      "filename": "cheffelo-publicerar-trading-update-for-q1-2026.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfl2f003dzo0dx46k54ko",
+      "documentTitle": "cheffelo publicerar trading update for q1 2026",
+      "promotedTitle": "cheffelo publicerar trading update for q1 2026",
+      "typedId": "report-food-8cbe26254c54",
+      "currentTargetLinks": [
+        "Report:report-food-8cbe26254c54"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-8cbe26254c54",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-8cbe26254c54",
+        "title": "cheffelo publicerar trading update for q1 2026",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2026",
+        "year": 2026,
+        "sourceUrl": null,
+        "reportCategory": "akademia",
+        "country": "se",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches trading update language; review metadata proposed doc_type=report; review metadata typed_layer_candidate=thesis-or-report.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfl2f003dzo0dx46k54ko"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Coop_Norge_SA_årsrapport_2024_HR_1.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/743e935f8b-coop-norge-sa-arsrapport-2024-hr-1.pdf",
+      "filename": "Coop_Norge_SA_årsrapport_2024_HR_1.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfl4d003fzo0dorcg3f6o",
+      "documentTitle": "Coop Norge SA årsrapport 2024 HR 1",
+      "promotedTitle": "Coop Norge SA årsrapport 2024 HR 1",
+      "typedId": "report-food-743e935f8b60",
+      "currentTargetLinks": [
+        "Report:report-food-743e935f8b60"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-743e935f8b60",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-743e935f8b60",
+        "title": "Coop Norge SA årsrapport 2024 HR 1",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "akademia",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches arsrapport language; review metadata proposed doc_type=report; review metadata typed_layer_candidate=thesis-or-report.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfl4d003fzo0dorcg3f6o"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/coop-danmark-aarsrapport-2024.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/00b7bf7938-coop-danmark-aarsrapport-2024.pdf",
+      "filename": "coop-danmark-aarsrapport-2024.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfl4s003gzo0dq1avtseu",
+      "documentTitle": "coop danmark aarsrapport 2024",
+      "promotedTitle": "coop danmark aarsrapport 2024",
+      "typedId": "report-food-00b7bf79388a",
+      "currentTargetLinks": [
+        "Report:report-food-00b7bf79388a"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-00b7bf79388a",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-00b7bf79388a",
+        "title": "coop danmark aarsrapport 2024",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "akademia",
+        "country": "dk",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches arsrapport language; review metadata proposed doc_type=report; review metadata typed_layer_candidate=thesis-or-report.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfl4s003gzo0dq1avtseu"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/luke-luobio_51_2025.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/faf3878182-luke-luobio-51-2025.pdf",
+      "filename": "luke-luobio_51_2025.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cflea003zzo0di2e8yzpv",
+      "documentTitle": "Robust Food Waste Management Method for Food Services (Romance): Final report",
+      "promotedTitle": "Robust Food Waste Management Method for Food Services (Romance): Final report",
+      "typedId": "report-food-faf387818241",
+      "currentTargetLinks": [
+        "Report:report-food-faf387818241"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-faf387818241",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-faf387818241",
+        "title": "Robust Food Waste Management Method for Food Services (Romance): Final report",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2025",
+        "year": 2025,
+        "sourceUrl": "http://urn.fi/URN:ISBN:978-952-419-079-4",
+        "reportCategory": "akademia",
+        "country": "fi",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename uses final report language; title/filename uses report language; review metadata proposed doc_type=report. Caution: title-remediation weak-title flags: artifact_label; unapplied title-remediation suggestion exists but was not used for classification.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cflea003zzo0di2e8yzpv"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/ng_arsrapport-2025-web.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/94fe5f0ca1-ng-arsrapport-2025-web.pdf",
+      "filename": "ng_arsrapport-2025-web.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cfljd0048zo0dc3g0gk6a",
+      "documentTitle": "NorgesGruppens årsrapport 2025",
+      "promotedTitle": "NorgesGruppens årsrapport 2025",
+      "typedId": "report-food-94fe5f0ca171",
+      "currentTargetLinks": [
+        "Report:report-food-94fe5f0ca171"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-94fe5f0ca171",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-94fe5f0ca171",
+        "title": "NorgesGruppens årsrapport 2025",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2025",
+        "year": 2025,
+        "sourceUrl": null,
+        "reportCategory": "akademia",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename matches arsrapport language; review metadata proposed doc_type=report; review metadata typed_layer_candidate=thesis-or-report. Caution: title-remediation weak-title flags: generic_short_title, truncated_source_title; unapplied title-remediation suggestion exists but was not used for classification.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfljd0048zo0dc3g0gk6a"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/SUSFOOD STRATEGIC SCENE review report 2018-final.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/ff51f35c22-susfood-strategic-scene-review-report-2018-final.pdf",
+      "filename": "SUSFOOD STRATEGIC SCENE review report 2018-final.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfm1v0056zo0d7q6ph9v3",
+      "documentTitle": "SUSFOOD Strategic Scene Review Report 2018",
+      "promotedTitle": "SUSFOOD Strategic Scene Review Report 2018",
+      "typedId": "report-food-ff51f35c229c",
+      "currentTargetLinks": [
+        "Report:report-food-ff51f35c229c"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-ff51f35c229c",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-ff51f35c229c",
+        "title": "SUSFOOD Strategic Scene Review Report 2018",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2018",
+        "year": 2018,
+        "sourceUrl": null,
+        "reportCategory": "akademia",
+        "country": "eu",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename uses report language; title/filename uses review report language; review metadata proposed doc_type=report. Caution: title-remediation weak-title flags: artifact_label; unapplied title-remediation suggestion exists but was not used for classification.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfm1v0056zo0d7q6ph9v3"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/importvern_til_godkjenning---sensurert-adobe.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/ef11d3b8fe-importvern-til-godkjenning-sensurert-adobe.pdf",
+      "filename": "importvern_til_godkjenning---sensurert-adobe.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfmbc005tzo0dsim4kp5o",
+      "documentTitle": "importvern til godkjenning sensurert adobe",
+      "promotedTitle": "Importvernets påvirkning på konsentrasjonen i leverandørleddet",
+      "typedId": "report-food-ef11d3b8fe2f",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/kvotesystemet_i_kyst_og_havfisket.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/4e30cb11bd-kvotesystemet-i-kyst-og-havfisket.pdf",
+      "filename": "kvotesystemet_i_kyst_og_havfisket.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfmce005vzo0dud9f6yut",
+      "documentTitle": "Riksrevisjonens undersøkelse av kvotesystemet i kyst- og havfisket",
+      "promotedTitle": "Riksrevisjonens undersøkelse av kvotesystemet i kyst- og havfisket",
+      "typedId": "report-food-4e30cb11bd00",
+      "currentTargetLinks": [
+        "Report:report-food-4e30cb11bd00"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-4e30cb11bd00",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-4e30cb11bd00",
+        "title": "Riksrevisjonens undersøkelse av kvotesystemet i kyst- og havfisket",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2020",
+        "year": 2020,
+        "sourceUrl": "https://www.riksrevisjonen.no/undersokelse-av-kvotesystemet-i-kyst--og-havfisket",
+        "reportCategory": "food-process-intake",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-security-agriculture-seafood",
+          "08_Food_Security_Agriculture_And_Seafood"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfmce005vzo0dud9f6yut"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/livsmedelsberedskap-for-en-ny-tid-sou-20248.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/15bc81bae0-livsmedelsberedskap-for-en-ny-tid-sou-20248.pdf",
+      "filename": "livsmedelsberedskap-for-en-ny-tid-sou-20248.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfmd9005xzo0dea3cvpa7",
+      "documentTitle": "Livsmedelsberedskap för en ny tid, SOU 2024:8",
+      "promotedTitle": "Livsmedelsberedskap för en ny tid, SOU 2024:8",
+      "typedId": "report-food-15bc81bae00c",
+      "currentTargetLinks": [
+        "Report:report-food-15bc81bae00c"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-15bc81bae00c",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-15bc81bae00c",
+        "title": "Livsmedelsberedskap för en ny tid, SOU 2024:8",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "food-process-intake",
+        "country": "se",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename contains an SOU official-report marker; review metadata proposed doc_type=report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-security-agriculture-seafood",
+          "08_Food_Security_Agriculture_And_Seafood"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfmd9005xzo0dea3cvpa7"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/matsikkerhet-og-beredskap-pa-landbruksomradet.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/169d47c9ee-matsikkerhet-og-beredskap-pa-landbruksomradet.pdf",
+      "filename": "matsikkerhet-og-beredskap-pa-landbruksomradet.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfmfc0061zo0dnwr6p03i",
+      "documentTitle": "Dokument 3:4 (2023−2024)",
+      "promotedTitle": "Dokument 3:4 (2023−2024)",
+      "typedId": "report-food-169d47c9eecb",
+      "currentTargetLinks": [
+        "Report:report-food-169d47c9eecb"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-169d47c9eecb",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-169d47c9eecb",
+        "title": "Dokument 3:4 (2023−2024)",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2023",
+        "year": 2023,
+        "sourceUrl": null,
+        "reportCategory": "food-process-intake",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename contains a Dokument 3 official-report marker; review metadata proposed doc_type=report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-security-agriculture-seafood",
+          "08_Food_Security_Agriculture_And_Seafood"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfmfc0061zo0dnwr6p03i"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Mittenzwei-mfl-2026-Scenarioanalyse-av-norsk-jordbruk-i-2050.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/a4900452f4-mittenzwei-mfl-2026-scenarioanalyse-av-norsk-jordbruk-i-2050.pdf",
+      "filename": "Mittenzwei-mfl-2026-Scenarioanalyse-av-norsk-jordbruk-i-2050.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfmg60063zo0dxhpha6wf",
+      "documentTitle": "Scenarioanalyse av norsk jordbruk i 2050 med vekt på forholdet mellom kosthold utslipp import og matproduksjon",
+      "promotedTitle": "Scenarioanalyse av norsk jordbruk i 2050 med vekt på forholdet mellom kosthold utslipp import og matproduksjon",
+      "typedId": "report-food-a4900452f44c",
+      "currentTargetLinks": [
+        "Report:report-food-a4900452f44c"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-a4900452f44c",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-a4900452f44c",
+        "title": "Scenarioanalyse av norsk jordbruk i 2050 med vekt på forholdet mellom kosthold utslipp import og matproduksjon",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2026",
+        "year": 2026,
+        "sourceUrl": "https://ruralis.no/wp-content/uploads/2026/03/r-4_26-scenarioanalyse-av-norsk-jordbruk-i-2050--k--mittenzwei-a-k--bakken-a--g-r--hjelkrem-h-m--johnsen.pdf",
+        "reportCategory": "food-process-intake",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename uses scenarioanalyse language; review metadata proposed doc_type=report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-security-agriculture-seafood",
+          "08_Food_Security_Agriculture_And_Seafood"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfmg60063zo0dxhpha6wf"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/myndighetenes-arbeid-med-fiskehelse-og-fiskevelferd-i-havbruksnaringen.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/0c52aa7abd-myndighetenes-arbeid-med-fiskehelse-og-fiskevelferd-i-havbruksnaringen.pdf",
+      "filename": "myndighetenes-arbeid-med-fiskehelse-og-fiskevelferd-i-havbruksnaringen.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfmgm0064zo0dzypr0fvo",
+      "documentTitle": "Myndighetenes arbeid med fiskehelse og fiskevelferd i havbruksnæringen",
+      "promotedTitle": "Myndighetenes arbeid med fiskehelse og fiskevelferd i havbruksnæringen",
+      "typedId": "report-food-0c52aa7abdb7",
+      "currentTargetLinks": [
+        "Report:report-food-0c52aa7abdb7"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-0c52aa7abdb7",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-0c52aa7abdb7",
+        "title": "Myndighetenes arbeid med fiskehelse og fiskevelferd i havbruksnæringen",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2023",
+        "year": 2023,
+        "sourceUrl": "https://www.riksrevisjonen.no/rapporter-mappe/no-2022-2023/myndighetenes-arbeid-med-fiskehelse-og-fiskevelferd-i-havbruksnaringen",
+        "reportCategory": "food-process-intake",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-security-agriculture-seafood",
+          "08_Food_Security_Agriculture_And_Seafood"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfmgm0064zo0dzypr0fvo"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/reduksjon-av-klimagassutslepp-fra-jordbruket.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/ec5cad6d81-reduksjon-av-klimagassutslepp-fra-jordbruket.pdf",
+      "filename": "reduksjon-av-klimagassutslepp-fra-jordbruket.pdf",
+      "confidence": "medium",
+      "documentId": "cmo7cfmhk0066zo0db8hkasw5",
+      "documentTitle": "Dokument 3:13 (2024−2025)",
+      "promotedTitle": "Dokument 3:13 (2024−2025)",
+      "typedId": "report-food-ec5cad6d81c3",
+      "currentTargetLinks": [
+        "Report:report-food-ec5cad6d81c3"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-ec5cad6d81c3",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-ec5cad6d81c3",
+        "title": "Dokument 3:13 (2024−2025)",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": null,
+        "reportCategory": "food-process-intake",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename contains a Dokument 3 official-report marker; review metadata proposed doc_type=report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-security-agriculture-seafood",
+          "08_Food_Security_Agriculture_And_Seafood"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfmhk0066zo0db8hkasw5"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/tilskudd-til-klimatiltak.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/e2645263c0-tilskudd-til-klimatiltak.pdf",
+      "filename": "tilskudd-til-klimatiltak.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfmic0068zo0dlffhi7bh",
+      "documentTitle": "Rapportert i Dokument 1 (2024 – 2025)",
+      "promotedTitle": "Revisjonsrapport for 2023 om tilskudd til klimatiltak",
+      "typedId": "report-food-e2645263c080",
+      "currentTargetLinks": [],
+      "reviewAction": "skip",
+      "titleRemediationStatus": "clear",
+      "status": "skip",
+      "operation": "none",
+      "existingId": null,
+      "reasonCodes": [
+        "review-action-not-import"
+      ],
+      "reasonSummary": "review-action-not-import",
+      "payloadPreview": null
+    }
+  ]
+}

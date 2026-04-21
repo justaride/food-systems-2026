@@ -27,21 +27,42 @@ const navGroups = [
     ],
   },
   {
-    label: 'Analyse',
+    label: 'Selskap & Eierskap',
+    items: [
+      { name: 'Eierskap', href: '/eierskap', description: 'Konsernstrukturer og eiertraer' },
+      { name: 'Relasjoner', href: '/relasjoner', description: 'Leverandørkjeder og forretningsforbindelser' },
+      { name: 'Eiendommer', href: '/eiendommer', description: 'Selskapseiendommer og lokaler' },
+      { name: 'Styremedlemmer', href: '/styremedlemmer', description: 'Kryssstyrer og nettverk' },
+    ],
+  },
+  {
+    label: 'Matsystem',
+    items: [
+      { name: 'Verdikjede', href: '/verdikjede', description: 'Nordisk verdikjedeanalyse' },
+      { name: 'Forsyningskjede', href: '/forsyningskjede', description: 'Leverandorkjeder og relasjoner' },
+      { name: 'Havbruk', href: '/havbruk', description: 'Lokaliteter og soknader (Fiskeridir)' },
+      { name: 'Subsidier', href: '/subsidier', description: 'Tilskudd per kommune, ordning og mottaker' },
+      { name: 'Sirkularitet', href: '/sirkularitet', description: 'R-stige, 10 spormal, looper og caser' },
+      { name: 'Okonomi', href: '/okonomi', description: 'Finansielle trender og sammenligning' },
+    ],
+  },
+  {
+    label: 'Nordisk',
+    items: [
+      { name: 'Sammenligning', href: '/sammenligning', description: 'Nordisk sammenligning' },
+      { name: 'Politikk', href: '/politikk', description: 'Nordisk matpolitikk-sammenligning' },
+      { name: 'Kart', href: '/kart', description: 'Butikker og kommunegrenser' },
+      { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
+    ],
+  },
+  {
+    label: 'Kunnskap',
     items: [
       { name: 'Innsikt', href: '/innsikt', description: 'Forskning, kartlegging, analyse' },
       { name: 'Forskning', href: '/forskning', description: 'Deep research-prompter' },
+      { name: 'Forskningsrunder', href: '/forskningsrunder', description: 'Food Research Process 20. april 2026' },
       { name: 'Akademia', href: '/masteroppgaver', description: 'Master- og PhD-avhandlinger' },
-      { name: 'Kart', href: '/kart', description: 'Butikker og kommunegrenser' },
-      { name: 'Sammenligning', href: '/sammenligning', description: 'Nordisk sammenligning' },
       { name: 'Graf', href: '/graf', description: 'Kunnskapsgraf og koblinger' },
-      { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
-      { name: 'Verdikjede', href: '/verdikjede', description: 'Nordisk verdikjedeanalyse' },
-      { name: 'Sirkularitet', href: '/sirkularitet', description: 'Looper, gap og aktorcaser' },
-      { name: 'Okonomi', href: '/okonomi', description: 'Finansielle trender og sammenligning' },
-      { name: 'Styremedlemmer', href: '/styremedlemmer', description: 'Kryssstyrer og nettverk' },
-      { name: 'Forsyningskjede', href: '/forsyningskjede', description: 'Leverandorkjeder og relasjoner' },
-      { name: 'Eierskap', href: '/eierskap', description: 'Konsernstrukturer og eiertraer' },
     ],
   },
   {

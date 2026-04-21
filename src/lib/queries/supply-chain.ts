@@ -1,5 +1,88 @@
 import { prisma } from '@/lib/db'
 
+type DeliveryBuyerRow = {
+  buyerId: string | null
+  buyerName: string | null
+  commodity: string
+  supplierCount: number
+  totalQuantity: number
+  unit: string
+}
+
+type DeliveryCommoditySummary = {
+  commodity: string
+  unit: string
+  totalQuantity: number
+  supplierCount: number
+  buyers: { buyerId: string | null; buyerName: string | null; quantity: number; supplierCount: number }[]
+}
+
+export type PrimaryDeliveriesData = {
+  byBuyer: DeliveryBuyerRow[]
+  byCommodity: DeliveryCommoditySummary[]
+  totalSuppliers: number
+  totalDeliveryRows: number
+}
+
+export async function getPrimaryProducerDeliveries(): Promise<PrimaryDeliveriesData> {
+  const [buyerRows, totals] = await Promise.all([
+    prisma.deliveryVolume.groupBy({
+      by: ['buyerId', 'buyerName', 'commodity', 'unit'],
+      _sum: { quantity: true },
+      _count: true,
+    }),
+    prisma.deliveryVolume.aggregate({ _count: true }),
+  ])
+
+  const distinctSuppliers = await prisma.deliveryVolume.groupBy({
+    by: ['supplierOrgNr'],
+    _count: true,
+  })
+
+  const byBuyer: DeliveryBuyerRow[] = buyerRows
+    .map(r => ({
+      buyerId: r.buyerId,
+      buyerName: r.buyerName,
+      commodity: r.commodity,
+      supplierCount: r._count,
+      totalQuantity: Number(r._sum.quantity ?? 0),
+      unit: r.unit,
+    }))
+    .filter(r => r.totalQuantity > 0)
+    .sort((a, b) => b.totalQuantity - a.totalQuantity)
+
+  const commodityMap = new Map<string, DeliveryCommoditySummary>()
+  for (const row of byBuyer) {
+    const existing = commodityMap.get(row.commodity) ?? {
+      commodity: row.commodity,
+      unit: row.unit,
+      totalQuantity: 0,
+      supplierCount: 0,
+      buyers: [],
+    }
+    existing.totalQuantity += row.totalQuantity
+    existing.supplierCount += row.supplierCount
+    existing.buyers.push({
+      buyerId: row.buyerId,
+      buyerName: row.buyerName,
+      quantity: row.totalQuantity,
+      supplierCount: row.supplierCount,
+    })
+    commodityMap.set(row.commodity, existing)
+  }
+
+  const byCommodity = Array.from(commodityMap.values())
+    .map(c => ({ ...c, buyers: c.buyers.sort((a, b) => b.quantity - a.quantity) }))
+    .sort((a, b) => b.totalQuantity - a.totalQuantity)
+
+  return {
+    byBuyer,
+    byCommodity,
+    totalSuppliers: distinctSuppliers.length,
+    totalDeliveryRows: totals._count,
+  }
+}
+
 type SupplyChainNode = {
   id: string
   label: string

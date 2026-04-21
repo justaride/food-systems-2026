@@ -1,0 +1,176 @@
+{
+  "summary": {
+    "generatedAt": "2026-04-20T20:09:15.134Z",
+    "batchName": "food-research-process-2026-04-20",
+    "target": "report",
+    "targetLabel": "Report",
+    "apply": true,
+    "minConfidence": "low",
+    "selected": 3,
+    "promotable": 3,
+    "skipped": 0,
+    "conflicts": 0,
+    "wouldCreate": 0,
+    "wouldUpdate": 3,
+    "created": 0,
+    "updated": 3,
+    "artifactChecks": {
+      "importedRowsInSummary": 225,
+      "batchDocumentsInDb": 225,
+      "promotionSummaryTargetCount": 71
+    },
+    "reasonCounts": {
+      "document-already-linked-to-report": 2,
+      "exact-existing-report-match": 1
+    },
+    "outputs": {
+      "csv": "research/intake/food-research-process-2026-04-20/promotion-preview-report.csv",
+      "json": "research/intake/food-research-process-2026-04-20/promotion-preview-report.json",
+      "md": "research/intake/food-research-process-2026-04-20/promotion-preview-report.md"
+    }
+  },
+  "decisions": [
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food Redistribution in the Nordic Region.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/20d75deeda-food-redistribution-in-the-nordic-region.pdf",
+      "filename": "Food Redistribution in the Nordic Region.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjqy0015zo0d702u1tab",
+      "documentTitle": "Food Redistribution in the Nordic Region",
+      "promotedTitle": "Food Redistribution in the Nordic Region",
+      "typedId": "report-food-20d75deedabf",
+      "currentTargetLinks": [
+        "Report:report-food-20d75deedabf"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-20d75deedabf",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-20d75deedabf",
+        "title": "Food Redistribution in the Nordic Region",
+        "fullTitle": null,
+        "author": null,
+        "institution": null,
+        "date": "2014",
+        "year": 2014,
+        "sourceUrl": "https://www.norden.org/en/publication/food-redistribution-in-the-nordic-region",
+        "reportCategory": "sirkularitet",
+        "country": "nordic",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: review metadata proposed doc_type=report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-waste-circularity",
+          "04_Food_Waste_And_Circularity"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjqy0015zo0d702u1tab"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31.12.23.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/54a1846535-rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31-12-23.pdf",
+      "filename": "rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31.12.23.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjv7001fzo0dkn88upjj",
+      "documentTitle": "rapport fra matsvinnutvalget anbefalinger til helhetlige tiltak og virkemidler 31 12 23",
+      "promotedTitle": "Matsvinnutvalgets anbefalinger",
+      "typedId": "report-food-54a184653597",
+      "currentTargetLinks": [],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "matsvinnutvalget-2024",
+      "reasonCodes": [
+        "exact-existing-report-match"
+      ],
+      "reasonSummary": "exact-existing-report-match",
+      "payloadPreview": {
+        "id": "report-food-54a184653597",
+        "title": "Matsvinnutvalgets anbefalinger",
+        "fullTitle": "rapport fra matsvinnutvalget anbefalinger til helhetlige tiltak og virkemidler 31 12 23",
+        "author": null,
+        "institution": null,
+        "date": "2024",
+        "year": 2024,
+        "sourceUrl": "https://www.regjeringen.no/contentassets/5a5cadf8907a4f4c94740d23d7c4c6e4/rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31.12.23.pdf",
+        "reportCategory": "sirkularitet",
+        "country": "no",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename uses rapport language; review metadata proposed doc_type=report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-waste-circularity",
+          "04_Food_Waste_And_Circularity"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjv7001fzo0dkn88upjj"
+      }
+    },
+    {
+      "target": "Report",
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/2023-Danish-Action-Plan-for-Plant-based-Foods.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/b3c4abd386-2023-danish-action-plan-for-plant-based-foods.pdf",
+      "filename": "2023-Danish-Action-Plan-for-Plant-based-Foods.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjya001lzo0dm607zlx3",
+      "documentTitle": "2023 Danish Action Plan for Plant based Foods",
+      "promotedTitle": "Danish Action Plan for Plant-based Foods",
+      "typedId": "report-food-b3c4abd38609",
+      "currentTargetLinks": [
+        "Report:report-food-b3c4abd38609"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "report-food-b3c4abd38609",
+      "reasonCodes": [
+        "document-already-linked-to-report"
+      ],
+      "reasonSummary": "document-already-linked-to-report",
+      "payloadPreview": {
+        "id": "report-food-b3c4abd38609",
+        "title": "Danish Action Plan for Plant-based Foods",
+        "fullTitle": "2023 Danish Action Plan for Plant based Foods",
+        "author": null,
+        "institution": null,
+        "date": "2023",
+        "year": 2023,
+        "sourceUrl": "https://fvm.dk/Media/638507727168382898/Danish-Action-Plan-for-Plant-based-Foods.pdf",
+        "reportCategory": "food-process-intake",
+        "country": "dk",
+        "keyFindings": [],
+        "recommendations": [],
+        "relevance": "Report-oriented signals lead this recommendation: title/filename uses action plan language; review metadata proposed doc_type=report; review metadata typed_layer_candidate=report-or-source.",
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "foodtech-alt-protein",
+          "05_Foodtech_Alt_Protein_And_Innovation"
+        ],
+        "doi": null,
+        "isbn": null,
+        "issn": null,
+        "publisher": null,
+        "documentId": "cmo7cfjya001lzo0dm607zlx3"
+      }
+    }
+  ]
+}

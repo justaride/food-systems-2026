@@ -1,0 +1,87 @@
+# Blackwater Nutrient Losses and Recovery Potential in the Nordic Region
+
+## Scope and calculation basis
+
+This assessment treats blackwater as the toilet stream carrying human excreta plus flush water, and quantifies its annual nutrient throughput from population-based human excretion factors. For consistency across countries, I use the excreta coefficients cited in the Swedish/Nordic literature of **11 g N**, **1.5 g P** and **3.6 g K per person per day**, which are also the same order of magnitude used in Nordic nutrient-recycling work. Population baselines are the most recent verified national figures for **1 January 2025**. All nutrient values below are expressed as **elemental N, P and K**, not as P₂O₅ or K₂O. citeturn41search0turn41search1turn36search10turn33search13turn35search1turn34search2
+
+The four countries analysed are entity["country","Norway","country in scandinavia"], entity["country","Sweden","country in scandinavia"], entity["country","Denmark","country in scandinavia"] and entity["country","Finland","nordic country"]. The purpose here is not to estimate what reaches final effluent, but the annual nutrient pool that passes through the toilet stream and is therefore, in principle, available for recovery if source-separation and suitable treatment are used. citeturn15search8turn41search0turn41search1
+
+## Annual blackwater N P K flows in Norway, Sweden, Denmark and Finland
+
+The annual nutrient flows are straightforward:
+
+**tonnes per year = population × excretion rate × 365 / 1,000,000**. citeturn41search0turn41search1
+
+| Country | Population basis | Nitrogen in blackwater (t/y) | Phosphorus in blackwater (t/y) | Potassium in blackwater (t/y) | Basis |
+|---|---:|---:|---:|---:|---|
+| Norway | 5,594,340 | 22,461 | 3,063 | 7,351 | Population 1 Jan 2025 from Statistics Norway; excretion factors as above. citeturn36search10turn41search0turn41search1 |
+| Sweden | 10,587,710 | 42,510 | 5,797 | 13,912 | Population 1 Jan 2025 from Eurostat; excretion factors as above. citeturn34search2turn41search0turn41search1 |
+| Denmark | 5,992,734 | 24,061 | 3,281 | 7,874 | Population 1 Jan 2025 from Eurostat; excretion factors as above. citeturn33search13turn41search0turn41search1 |
+| Finland | 5,635,971 | 22,628 | 3,086 | 7,406 | Population 1 Jan 2025 from Eurostat / Statistics Finland; excretion factors as above. citeturn35search1turn35search10turn41search0turn41search1 |
+| **Nordic total** | **27,810,755** | **111,660** | **15,226** | **36,543** | Sum of the four countries above. citeturn36search10turn33search13turn35search1turn34search2turn41search0turn41search1 |
+
+Two implications matter immediately. First, the phosphorus pool is modest in absolute mass compared with nitrogen, but strategically important because mineral-P supply is much tighter and more geopolitically exposed. Second, even before considering treatment efficiencies, the toilet stream in the four countries carries a blackwater nutrient pool equivalent to roughly **112 kt N**, **15.2 kt P** and **36.5 kt K** every year. citeturn41search0turn41search1
+
+## What is recovered today at the named facilities
+
+Among the named assets, only entity["organization","VEAS","wwtp utility norway"] currently recovers nutrients at clearly material scale. The systems in entity["city","Helsingborg","skane sweden"] and at entity["organization","HSY","municipal utility helsinki"] remain pilot or demo-scale in nutrient-product terms, while entity["organization","Amager Ressourcecenter","waste-to-energy copenhagen"] is, based on the public material I could verify, a residual-waste-to-energy facility rather than an operating blackwater nutrient-recovery plant. citeturn3search2turn14view0turn22search0turn22search4turn19search3turn20search6
+
+| Facility | Verified current status | Verified product/output | Estimated recovered N (t/y) | Estimated recovered P (t/y) | Estimated recovered K (t/y) | Comment |
+|---|---|---|---:|---:|---:|---|
+| VEAS, Asker | Full-scale municipal wastewater/sludge resource recovery | 45,005 t Veas-jord in 2024; 5,121 t ammonium-sulfate nitrogen solution in 2024 | **~835–949** | **~342–396** | **~34–40** | N estimated from 5,121 t ammonium-sulfate solution at 36–40% concentration plus Veas-jord nutrient declaration; P and K estimated from Veas-jord declaration. VEAS is **not** source-separated blackwater; this is recovery from mixed municipal wastewater/sludge. citeturn3search2turn6search8 |
+| Helsingborg “Three Pipes” / RecoLab | Pilot / district-scale source-separated blackwater recovery | 497 kg struvite and 629 kg ammonium sulfate generated in 2024 | **~0.16** | **~0.063** | **~0** | Very small absolute masses; product train still pilot-scale. Public project material describes the district system as roughly 1,800–2,000 people equivalent when built out. citeturn14view0turn12search2turn13search12 |
+| Amager Ressourcecenter | No verified operating blackwater nutrient-recovery line found | Public material describes combustible residual-waste treatment and waste-to-energy | **0 verified** | **0 verified** | **0 verified** | This is an inference from ARC’s own public description. Danish water-resource recovery work is documented in VARGA/BIOFOS contexts rather than at ARC itself. citeturn19search3turn20search2turn20search6 |
+| HSY / Viikinmäki | RAVITA remains demo / research phase | Demo plant at Viikinmäki; public sources do **not** report commercial annual fertiliser tonnage | **~0 commercial** | **~0 commercial** | **~0 commercial** | Current activity is best described as pilot-scale. HSY and Nordic sources state the process is still in research/demo phase; one public briefing cites an expected future output of about 700 t phosphoric acid/y at scale, equal to about 221 t elemental P/y, but that is not current commercial recovery. citeturn22search0turn22search4turn22search2turn23search3turn22search8 |
+
+The practical conclusion is stark: across the four named examples, **current verified recovery is overwhelmingly dominated by VEAS**, adding up to roughly **0.84–0.95 kt N**, **0.34–0.40 kt P** and **0.03–0.04 kt K** per year, with Helsingborg contributing only grams-to-kilos on a national balance sheet and the Finnish and Danish named examples not yet contributing material commercial nutrient tonnage from blackwater. citeturn3search2turn6search8turn14view0turn22search0turn22search4turn19search3turn20search6
+
+Set against Norway’s national blackwater pool, VEAS alone currently corresponds to roughly **3.7–4.2% of Norway’s blackwater N**, **11.2–12.9% of blackwater P** and **0.5% of blackwater K**. That asymmetry reflects the fact that the present VEAS product train is strong on ammonia capture and sludge-borne phosphorus, but not on potassium. citeturn3search2turn6search8turn36search10turn41search0turn41search1
+
+## What existing technologies can realistically recover
+
+The important distinction is between **collection technologies** and **recovery technologies**. Source-separating toilets, urine-diversion and vacuum blackwater collection are already mature enough for buildings and districts. Recovery chemistry is also mature in several niches. What is missing is scale and regulatory/market alignment, not basic technical feasibility. citeturn39search3turn20search4turn15search8
+
+| Technology | Maturity | What it captures best | Theoretical share of total blackwater N/P/K |
+|---|---|---|---|
+| Source-separating toilets and vacuum blackwater collection | Mature at building/district scale | Prevents dilution and keeps nutrients in concentrated toilet streams | Urine carries roughly **70–80% of N**, **50–65% of P** and around **70% of K** in domestic wastewater nutrient loads. As a collection strategy, source separation can therefore route the majority of N and K, and a large share of P, into recoverable streams before they are mixed with greywater. citeturn39search3turn37search18 |
+| Ammonia stripping / membrane contactor nitrogen recovery | Mature in side-streams; already seen at VEAS and in Nordic pilots | Nitrogen, usually as ammonium sulfate or similar N-product | On a **system-wide** blackwater basis, a realistic mature-rollout ceiling is about **60–75% of total N**, with little direct P or K capture. That is an inference from the dominance of urine-N in source-separated flows, combined with demonstrated side-stream ammonia recovery and high ammonium capture in blackwater digestate polishing. citeturn20search4turn3search2turn15search13 |
+| Struvite precipitation | Mature for suitable P-rich sidestreams | Phosphorus, plus a small stoichiometric share of nitrogen | Suitable streams can approach **~80–100% soluble-P capture**. But because struvite fixes N and P at a **1:1 molar ratio**, even perfect precipitation of all blackwater P would only co-recover about **6% of total blackwater N** at the excretion ratios used here, and essentially **0% K** unless separate potassium-struvite routes are added. citeturn37search5turn21search17turn41search0 |
+| Thermal hygienisation | Mature as a sanitation/compliance step | Makes solids reusable; does not selectively separate nutrients | **0% additional capture by itself.** It is an enabling step, not a nutrient-recovery mechanism. Its importance is practical and regulatory: it turns sludge/solid fractions into safer reusable products. citeturn6search8turn45search6 |
+
+A realistic high-capture configuration using **existing** technology today would combine source separation or very concentrated blackwater collection, anaerobic digestion, nitrogen recovery to ammonium sulfate, phosphorus recovery by precipitation or solids reuse, and hygienised reuse of the remaining solids. As a synthesis of the Nordic and wider literature, a defensible realistic recovery envelope is approximately **60–75% of blackwater N**, **75–90% of blackwater P**, and **65–80% of blackwater K**. citeturn39search3turn15search13turn37search5turn20search4
+
+Using that envelope, the recoverable nutrient masses look like this:
+
+| Country | Realistic recoverable N (t/y) | Realistic recoverable P (t/y) | Realistic recoverable K (t/y) | Basis |
+|---|---:|---:|---:|---|
+| Norway | 13,477–16,846 | 2,297–2,757 | 4,778–5,881 | Applied to national blackwater totals above. citeturn36search10turn41search0turn41search1turn39search3turn15search13turn37search5 |
+| Sweden | 25,506–31,882 | 4,348–5,217 | 9,043–11,130 | Applied to national blackwater totals above. citeturn34search2turn41search0turn41search1turn39search3turn15search13turn37search5 |
+| Denmark | 14,436–18,046 | 2,461–2,953 | 5,118–6,300 | Applied to national blackwater totals above. citeturn33search13turn41search0turn41search1turn39search3turn15search13turn37search5 |
+| Finland | 13,577–16,971 | 2,314–2,777 | 4,814–5,925 | Applied to national blackwater totals above. citeturn35search1turn41search0turn41search1turn39search3turn15search13turn37search5 |
+| **Nordic total** | **66,996–83,745** | **11,420–13,704** | **23,753–29,235** | Sum of the four countries. citeturn36search10turn33search13turn35search1turn34search2turn41search0turn41search1turn39search3turn15search13turn37search5 |
+
+The key strategic finding is that **phosphorus is the easiest nutrient to make geopolitically meaningful**, because the absolute Nordic P pool is smaller but the percentage that can be captured and the percentage it can cover of mineral demand are both relatively high. Nitrogen is also recoverable, but it requires much more deliberate system design and product marketing. Potassium is technically recoverable, yet today it is often left in the liquid fraction or in low-value products. citeturn37search5turn15search13turn20search4
+
+## Regulatory constraints
+
+The main European baseline is still the **Sewage Sludge Directive 86/278/EEC**, whose stated purpose is to regulate agricultural use of sewage sludge in a way that prevents harmful effects on soil, plants, animals and humans. That legacy matters because it frames sludge primarily as something to be controlled for pollution risk, not as a standardised nutrient product to be actively traded. citeturn45search0turn45search15
+
+At the same time, **Regulation (EU) 2019/1009** created a harmonised market route for EU fertilising products, but access depends on a product fitting the regulation’s categories and conformity pathway. In practice, that is much easier for clean, well-defined recovered salts than for heterogeneous sludge-derived materials. That benefits products like struvite or purified phosphates more than mixed biosolids. citeturn45search8turn45search12turn45search16
+
+In Norway, the regulatory picture is layered. Mattilsynet states that national regulations continue to govern fertilising products sold on the Norwegian market, including quality, labelling, marketing and use, while CE-marked EU fertilising products entering Norway must still follow Norwegian-specific requirements. Mattilsynet also highlights Norwegian labelling requirements and cadmium rules for phosphorus-containing products. These are not unreasonable rules, but they do raise transaction costs for novel blackwater-derived fertilisers. citeturn45search2turn45search6turn45search13
+
+The user-mentioned 2022 Norwegian rule set is also relevant. The **2022 regulation on spreading fertilising products of organic origin** focused use conditions in the field, and Norway has since tightened the complementary storage-and-use regime further: from 2025, organic fertiliser spread on open soil must generally be incorporated within 18 hours. For decentralised blackwater products, that affects logistics, equipment needs and hence economics. citeturn45search14turn45search10
+
+Finally, the technical-regulatory barrier is not only heavy metals. Recent reviews emphasise persistent concern over pathogens, pharmaceuticals, PFAS, antimicrobial resistance and other contaminants in recycled nutrient products, especially where excreta are mixed into conventional sewer/sudge systems. This is one reason source separation is attractive: it can produce cleaner, more controllable nutrient products than mixed sewage sludge routes. citeturn15search2turn19search18turn39search1
+
+## How much mineral fertiliser blackwater could displace
+
+For Norway, the comparison can be made directly against official mineral-fertiliser sales. NIBIO reports that mineral fertiliser sold to Norwegian agriculture in the 2023/2024 season contained **91,646 t N**, **7,166 t P** and **27,754 t K**. Against that denominator, Norway’s total blackwater nutrient pool of **22,461 t N**, **3,063 t P** and **7,351 t K** would equal about **24.5% of current mineral N**, **42.7% of mineral P** and **26.5% of mineral K** if every kilogram were recovered and safely used. citeturn46search1turn36search10turn41search0turn41search1
+
+A more realistic mature-technology rollout, using the recovery envelope above, would cover approximately **14.7–18.4% of Norway’s mineral N**, **32.1–38.5% of mineral P** and **17.2–21.2% of mineral K**. In other words, blackwater recovery is unlikely to replace Norwegian nitrogen fertiliser outright, but it **could become a major phosphorus-security wedge** and a meaningful secondary source of both nitrogen and potassium. citeturn46search1turn36search10turn41search0turn41search1turn39search3turn15search13turn37search5
+
+For Sweden, the strongest directly verified comparator I located is not import tonnage but **crop nutrient need**. A Swedish national study found that recycling all excreta could meet up to **75% of crop nitrogen needs** and **81% of crop phosphorus needs**, with potassium in surplus relative to crop demand in aggregate. That result is not identical to “mineral fertiliser imports”, but it shows that the blackwater/excreta resource is large enough to matter materially at national scale, especially for phosphorus. citeturn41search0turn41search1turn41search6
+
+For Denmark and Finland, I did not retrieve equally robust, directly verifiable public country-by-country nutrient-import tonnages within the source set I used here, so I do not force a weak estimate. What can be said confidently is that the **combined Nordic blackwater pool** is about **111.7 kt N**, **15.2 kt P** and **36.5 kt K** annually, and that a realistic mature-technology rollout would recover roughly **67.0–83.7 kt N**, **11.4–13.7 kt P** and **23.8–29.2 kt K**. That is large enough to be strategically relevant for Nordic fertiliser resilience, with the clearest payoff in **P substitution**. citeturn36search10turn33search13turn35search1turn34search2turn41search0turn41search1turn39search3turn15search13turn37search5
+
+The short version is this: the Nordic toilet stream already loses a nutrient resource roughly equivalent to **15 thousand tonnes of phosphorus every year**, and the technologies to recover a large share of that are already available. The current gap is not chemistry. It is rollout, regulation, product acceptance and the fact that most nutrient-rich excreta are still being diluted into mixed sewerage systems before anyone tries to recover them. citeturn20search4turn39search3turn45search6turn15search2

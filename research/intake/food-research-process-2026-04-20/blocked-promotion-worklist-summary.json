@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-04-20T18:56:11.395Z",
+  "batchName": "food-research-process-2026-04-20",
+  "totalBlocked": 0,
+  "totalsByPriorityBucket": {},
+  "totalsByRemediationTrack": {},
+  "totalsByTarget": {},
+  "totalsByStatus": {},
+  "totalsByReasonCode": {},
+  "totalsByMissingMetadata": {},
+  "highestPriorityRows": [],
+  "outputs": {
+    "csv": "research/intake/food-research-process-2026-04-20/blocked-promotion-worklist.csv",
+    "json": "research/intake/food-research-process-2026-04-20/blocked-promotion-worklist-summary.json",
+    "md": "research/intake/food-research-process-2026-04-20/BLOCKED-PROMOTION-WORKLIST.md"
+  }
+}

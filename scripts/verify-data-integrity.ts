@@ -98,6 +98,27 @@ async function checkOrphanBoardMembers() {
   if (orphans === 0) pass(`All ${members.length} board member records have valid references`)
 }
 
+async function checkOrphanActorRelationships() {
+  header('5a. Orphan ActorRelationship Records')
+  const relationships = await prisma.actorRelationship.findMany()
+  let orphans = 0
+
+  for (const r of relationships) {
+    const from = await prisma.actor.findUnique({ where: { id: r.fromActorId } })
+    if (!from) {
+      fail(`ActorRelationship ${r.id}: fromActorId "${r.fromActorId}" not found`)
+      orphans++
+    }
+    const to = await prisma.actor.findUnique({ where: { id: r.toActorId } })
+    if (!to) {
+      fail(`ActorRelationship ${r.id}: toActorId "${r.toActorId}" not found`)
+      orphans++
+    }
+  }
+
+  if (orphans === 0) pass(`All ${relationships.length} actor-relationship records have valid references`)
+}
+
 async function checkPersonProfileRoles() {
   header('5. PersonProfile Role Validation')
   const profiles = await prisma.personProfile.findMany()
@@ -176,6 +197,7 @@ async function printRecordCounts() {
     prisma.company.count(),
     prisma.companyFinancial.count(),
     prisma.actor.count(),
+    prisma.actorRelationship.count(),
     prisma.document.count(),
     prisma.thesis.count(),
     prisma.report.count(),
@@ -191,23 +213,31 @@ async function printRecordCounts() {
   ])
 
   const labels = [
-    'Company', 'CompanyFinancial', 'Actor', 'Document', 'Thesis',
-    'Report', 'SourceDoc', 'CompanyOwnership', 'CompanyProperty',
+    'Company', 'CompanyFinancial', 'Actor', 'ActorRelationship', 'Document',
+    'Thesis', 'Report', 'SourceDoc', 'CompanyOwnership', 'CompanyProperty',
     'BusinessRelationship', 'CountryMetric', 'BoardMember',
     'PersonProfile', 'Shareholder', 'Subsidy',
   ]
 
   const maxLen = Math.max(...labels.map(l => l.length))
   let total = 0
+  let emptyCount = 0
 
   for (let i = 0; i < labels.length; i++) {
     const padded = labels[i].padEnd(maxLen)
-    console.log(`  ${padded}  ${counts[i]}`)
-    total += counts[i]
+    const count = counts[i]
+    const marker = count === 0 ? '  ⚠ TOM' : ''
+    if (count === 0) emptyCount++
+    console.log(`  ${padded}  ${String(count).padStart(6)}${marker}`)
+    total += count
   }
 
-  console.log(`  ${'─'.repeat(maxLen + 8)}`)
-  console.log(`  ${'Total'.padEnd(maxLen)}  ${total}`)
+  console.log(`  ${'─'.repeat(maxLen + 10)}`)
+  console.log(`  ${'Total'.padEnd(maxLen)}  ${String(total).padStart(6)}`)
+
+  if (emptyCount > 0) {
+    console.log(`\n  ⚠ ${emptyCount} model(s) are empty — may need import run`)
+  }
 }
 
 async function checkUnprofiledInterlocks() {
@@ -307,6 +337,7 @@ async function main() {
   await checkOrphanRelationships()
   await checkOrphanProperties()
   await checkOrphanBoardMembers()
+  await checkOrphanActorRelationships()
   await checkPersonProfileRoles()
   checkCountryDataFiles()
   checkRetailerShares()

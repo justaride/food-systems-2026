@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Systems 2026 — Oppdatering 26. mars</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #292524;
+      background: #fafaf9;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1c1917, #292524);
+      color: white;
+      padding: 40px 0 36px;
+    }
+    header .org { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #34d399; margin-bottom: 6px; }
+    header h1 { font-size: 26px; font-weight: 700; margin-bottom: 4px; }
+    header .sub { font-size: 15px; color: #a8a29e; }
+    .period {
+      display: inline-block;
+      margin-top: 14px;
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.25);
+      border-radius: 16px;
+      padding: 4px 14px;
+      font-size: 12px;
+      color: #34d399;
+      font-weight: 600;
+    }
+
+    section { padding: 32px 0; }
+    section + section { border-top: 1px solid #e7e5e4; }
+    h2 { font-size: 19px; font-weight: 700; color: #1c1917; margin-bottom: 14px; }
+    h3 { font-size: 15px; font-weight: 600; color: #44403c; margin-bottom: 8px; margin-top: 20px; }
+    p, li { color: #57534e; font-size: 15px; }
+    p { margin-bottom: 12px; }
+    ul { padding-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 4px; }
+    strong { color: #292524; }
+    a { color: #059669; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Stats row */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin: 16px 0 8px;
+    }
+    .stat {
+      background: white;
+      border: 1px solid #e7e5e4;
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+    .stat-n { font-size: 28px; font-weight: 800; color: #1c1917; line-height: 1; }
+    .stat-l { font-size: 12px; color: #78716c; margin-top: 2px; }
+    .stat.green { background: #ecfdf5; border-color: #a7f3d0; }
+    .stat.green .stat-n { color: #047857; }
+
+    /* Link grid */
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .link {
+      display: block;
+      padding: 10px 14px;
+      background: white;
+      border: 1px solid #e7e5e4;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #292524;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .link:hover { border-color: #34d399; background: #ecfdf5; transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-decoration: none; }
+    .link small { display: block; font-size: 12px; color: #a8a29e; font-weight: 400; margin-top: 2px; }
+    .link.new::after { content: 'NY'; font-size: 9px; font-weight: 700; background: #059669; color: white; padding: 1px 5px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+
+    /* Tag list */
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .tag {
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .tag-green { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+    .tag-amber { background: #fffbeb; color: #d97706; border: 1px solid #fef3c7; }
+    .tag-sky { background: #f0f9ff; color: #0284c7; border: 1px solid #e0f2fe; }
+
+    /* Timeline */
+    .timeline { margin: 12px 0; }
+    .tl-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f5f5f4; }
+    .tl-dot {
+      width: 28px; height: 28px; border-radius: 50%; background: #ecfdf5; color: #047857;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+    }
+    .tl-title { font-size: 14px; font-weight: 600; color: #292524; }
+    .tl-desc { font-size: 13px; color: #78716c; }
+
+    /* Category table */
+    .cat-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0; }
+    .cat-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #a8a29e; padding: 6px 10px; border-bottom: 2px solid #e7e5e4; font-weight: 600; }
+    .cat-table td { padding: 6px 10px; border-bottom: 1px solid #f5f5f4; color: #57534e; }
+    .cat-table tr:hover { background: #fafaf9; }
+    .bar { display: inline-block; height: 6px; border-radius: 3px; background: #10b981; min-width: 4px; }
+    .bar-weak { background: #f43f5e; }
+    .bar-mid { background: #f59e0b; }
+
+    footer { background: #f5f5f4; padding: 20px 0; font-size: 12px; color: #a8a29e; text-align: center; margin-top: 8px; }
+
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .links { grid-template-columns: 1fr; }
+      .wrap { padding: 0 16px; }
+      header h1 { font-size: 22px; }
+    }
+    @media print {
+      header { padding: 20px 0; }
+      .link:hover { transform: none; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="org">Nordic Circular Hotspot &middot; Natural State</div>
+    <h1>Food Systems &mdash; Oppdatering #2</h1>
+    <div class="sub">26. mars 2026</div>
+    <div class="period">Periode: 16.&ndash;26. mars</div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- INTRO -->
+  <section>
+    <p>
+      Hei alle,
+    </p>
+    <p>
+      Her er oppdatering nummer to fra Food Systems. Det har skjedd mye siden sist &mdash;
+      de siste ti dagene har vi gått fra innledende kartlegging til en ganske
+      komplett kunnskapsbase med interaktive visualiseringer, selskapsdata og et
+      forskningsbibliotek som nå dekker det meste av det norske og nordiske
+      matlandskapet.
+    </p>
+  </section>
+
+  <!-- NØKKELTALL -->
+  <section>
+    <h2>Hva som er nytt i tall</h2>
+    <p>Alt dette er lagt til siden forrige oppdatering (16. mars):</p>
+    <div class="stats">
+      <div class="stat green">
+        <div class="stat-n">366</div>
+        <div class="stat-l">nye forskningsfiler</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">300+</div>
+        <div class="stat-l">selskaper kartlagt</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">14</div>
+        <div class="stat-l">nye sider i plattformen</div>
+      </div>
+      <div class="stat green">
+        <div class="stat-n">445+</div>
+        <div class="stat-l">eierskapsrelasjoner</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">70</div>
+        <div class="stat-l">masteroppgaver (fra 31)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">38</div>
+        <div class="stat-l">import-scripts skrevet</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HVA SOM ER GJORT -->
+  <section>
+    <h2>Hva som er gjort</h2>
+
+    <h3>Selskapskartlegging i full bredde</h3>
+    <p>
+      Vi har kartlagt hele konsernstrukturen til de store akt&oslash;rene i norsk og nordisk matsektor.
+      Alle datterselskaper, eierskap, styremedlemmer og &oslash;konomiske n&oslash;kkeltall er n&aring; i databasen:
+    </p>
+    <ul>
+      <li><strong>Dagligvare:</strong> NorgesGruppen (inkl. komplett ASKO-tre med 15 datterselskaper), Coop, Reitan</li>
+      <li><strong>Sj&oslash;mat:</strong> Mowi, SalMar, Ler&oslash;y, Austevoll/Laco</li>
+      <li><strong>Foredling/landbruk:</strong> Orkla, Nortura, TINE, Felleskj&oslash;pet</li>
+      <li><strong>Frukt/gr&oslash;nt + spesial:</strong> BAMA, Kavli (komplett konserntre)</li>
+      <li><strong>HORECA/foodservice:</strong> 13 nordiske selskaper kartlagt</li>
+    </ul>
+    <p>
+      Totalt er det n&aring; over <strong>300 selskaper</strong> med eierskapsdata,
+      og over <strong>445 eierskapsrelasjoner</strong> registrert.
+    </p>
+
+    <h3>Nye sider og visualiseringer</h3>
+    <p>
+      Plattformen har f&aring;tt 14 nye sider. De viktigste:
+    </p>
+    <div class="links">
+      <a href="https://food-systems.naturalstateproject.com/eierskap" target="_blank" class="link new">
+        Eierskap
+        <small>Konserntr&aelig;r og eierskapsstrukturer</small>
+      </a>
+      <a href="https://food-systems.naturalstateproject.com/styremedlemmer" target="_blank" class="link new">
+        Styremedlemmer
+        <small>Interlock-graf &mdash; hvem sitter i hvilke styrer</small>
+      </a>
+      <a href="https://food-systems.naturalstateproject.com/forsyningskjede" target="_blank" class="link new">
+        Forsyningskjede
+        <small>Leverand&oslash;r- og kunderelasjoner</small>
+      </a>
+      <a href="https://food-systems.naturalstateproject.com/verdikjede" target="_blank" class="link new">
+        Verdikjede
+        <small>Nordisk verdikjedeanalyse</small>
+      </a>
+      <a href="https://food-systems.naturalstateproject.com/okonomi" target="_blank" class="link new">
+        &Oslash;konomi
+        <small>Finansielle trender og selskapsdata</small>
+      </a>
+      <a href="https://food-systems.naturalstateproject.com/rapporter" target="_blank" class="link new">
+        Rapporter
+        <small>61 offentlige og bransjerapporter</small>
+      </a>
+      <a href="https://food-systems.naturalstateproject.com/aktorer" target="_blank" class="link new">
+        Akt&oslash;rer
+        <small>180+ akt&oslash;rer med prioritering og &laquo;ask&raquo;</small>
+      </a>
+      <a href="https://food-systems.naturalstateproject.com/personer" target="_blank" class="link new">
+        Personer
+        <small>N&oslash;kkelpersoner og rollehistorikk</small>
+      </a>
+      <a href="https://food-systems.naturalstateproject.com/selskap" target="_blank" class="link new">
+        Selskaper
+        <small>300+ selskaper med &oslash;konomi og eierskap</small>
+      </a>
+      <a href="https://food-systems.naturalstateproject.com/kart/no/flow" target="_blank" class="link new">
+        Matkart (flow)
+        <small>Matflyt-prototype &mdash; havner og logistikk</small>
+      </a>
+    </div>
+
+    <h3>Nordisk fordypning</h3>
+    <p>
+      Vi har g&aring;tt betydelig dypere p&aring; de andre nordiske landene:
+    </p>
+    <ul>
+      <li><strong>Sverige:</strong> ICA Gruppen, Axfood, Coop Sverige &mdash; &aring;rsrapporter og eierskap</li>
+      <li><strong>Danmark:</strong> Salling Group, Coop Danmark &mdash; inkl. Salling/Coop-oppkj&oslash;pssaken 2025</li>
+      <li><strong>Finland:</strong> S Group, Kesko &mdash; &aring;rsrapporter og markedsstruktur</li>
+      <li><strong>Island:</strong> Hagar &mdash; &aring;rsrapport og markedsanalyse</li>
+      <li>16 feilaktige nordiske selskaps-IDer (CVR, Y-tunnus, kennitala) er rettet</li>
+    </ul>
+
+    <h3>Forskningsbibliotek &mdash; stor utvidelse</h3>
+    <p>
+      Biblioteket har vokst fra noen titalls filer til <strong>298 filer i 26 kategorier</strong>.
+      St&oslash;rste bidrag:
+    </p>
+    <ul>
+      <li>Masteroppgaver utvidet fra 31 til 70 (NHH, NMBU, CBS, Aalto, Uppsala m.fl.)</li>
+      <li>13 nye b&aelig;rekraft/sirkul&aelig;r&oslash;konomi-kilder</li>
+      <li>42 nye filer i sprint 9 alene (URL-verifisering, nordisk dekning)</li>
+      <li>DOI-tilbakefylling, BibTeX-eksport og full datakvalitetsrevisjon</li>
+      <li>Beredskap (DK, SE, nordisk), HORECA, regulering og &aring;rsrapporter fra alle nordiske land</li>
+    </ul>
+
+    <h3>Evidence Pack</h3>
+    <p>
+      Vi har begynt &aring; skrive de f&oslash;rste utkastene til Evidence Pack-dokumentene
+      som skal leveres med whitepaperet:
+    </p>
+    <div class="tags">
+      <span class="tag tag-green">TG Charter</span>
+      <span class="tag tag-green">Adoption Track</span>
+      <span class="tag tag-green">Finance Note</span>
+      <span class="tag tag-amber">Decision Log (p&aring;g&aring;r)</span>
+      <span class="tag tag-amber">Commitment Map (p&aring;g&aring;r)</span>
+    </div>
+
+    <h3>Datakvalitet og verifikasjon</h3>
+    <ul>
+      <li>Full dataintegritetsjekk og URL-verifikasjon</li>
+      <li>Linking-dekning g&aring;tt fra 67,5% til 90,9% (dokument-til-entitet)</li>
+      <li>Sitasjonsfelt og DOI lagt til p&aring; alle akademiske kilder</li>
+    </ul>
+  </section>
+
+  <!-- ALLE SIDER -->
+  <section>
+    <h2>Komplett sideoversikt</h2>
+    <p>Alle sider p&aring; plattformen &mdash; klikk for &aring; &aring;pne.</p>
+
+    <h3 style="margin-top: 8px;">Oversikt</h3>
+    <div class="links">
+      <a href="https://food-systems.naturalstateproject.com/" target="_blank" class="link">Dashboard <small>Prosjektstatus, KPIer, fremdrift</small></a>
+    </div>
+
+    <h3>Intern</h3>
+    <div class="links">
+      <a href="https://food-systems.naturalstateproject.com/team" target="_blank" class="link">Team <small>Organisasjon og roller</small></a>
+      <a href="https://food-systems.naturalstateproject.com/moter" target="_blank" class="link">M&oslash;ter <small>Referater og beslutninger</small></a>
+      <a href="https://food-systems.naturalstateproject.com/kommunikasjon" target="_blank" class="link">Kommunikasjon <small>E-post og korrespondanse</small></a>
+      <a href="https://food-systems.naturalstateproject.com/metodikk" target="_blank" class="link">Metodikk <small>Ten Step Start, KPIer</small></a>
+    </div>
+
+    <h3>Utforing</h3>
+    <div class="links">
+      <a href="https://food-systems.naturalstateproject.com/oppgaver" target="_blank" class="link">Oppgaver <small>Alle prosjektoppgaver</small></a>
+      <a href="https://food-systems.naturalstateproject.com/leveranser" target="_blank" class="link">Leveranser <small>Leveranseliste og faser</small></a>
+      <a href="https://food-systems.naturalstateproject.com/tidslinje" target="_blank" class="link">Tidslinje <small>Hendelser og milep&aelig;ler</small></a>
+    </div>
+
+    <h3>Analyse</h3>
+    <div class="links">
+      <a href="https://food-systems.naturalstateproject.com/innsikt" target="_blank" class="link">Innsikt <small>Forskningsfunn og analyser</small></a>
+      <a href="https://food-systems.naturalstateproject.com/forskning" target="_blank" class="link">Forskning <small>Dybdeforsknings-prompter</small></a>
+      <a href="https://food-systems.naturalstateproject.com/masteroppgaver" target="_blank" class="link">Akademia <small>70 masteroppgaver og avhandlinger</small></a>
+      <a href="https://food-systems.naturalstateproject.com/sammenligning" target="_blank" class="link">Sammenligning <small>Nordisk komparativ analyse</small></a>
+      <a href="https://food-systems.naturalstateproject.com/graf" target="_blank" class="link">Kunnskapsgraf <small>Interaktiv graf, 8 entitetstyper</small></a>
+      <a href="https://food-systems.naturalstateproject.com/media" target="_blank" class="link">Medielandskap <small>Nordisk medieanalyse 2016&ndash;2025</small></a>
+      <a href="https://food-systems.naturalstateproject.com/verdikjede" target="_blank" class="link new">Verdikjede <small>Nordisk verdikjedeanalyse</small></a>
+      <a href="https://food-systems.naturalstateproject.com/okonomi" target="_blank" class="link new">&Oslash;konomi <small>Finansielle trender</small></a>
+      <a href="https://food-systems.naturalstateproject.com/styremedlemmer" target="_blank" class="link new">Styremedlemmer <small>Interlock-graf og styreanalyse</small></a>
+      <a href="https://food-systems.naturalstateproject.com/forsyningskjede" target="_blank" class="link new">Forsyningskjede <small>Leverand&oslash;rkjeder</small></a>
+      <a href="https://food-systems.naturalstateproject.com/eierskap" target="_blank" class="link new">Eierskap <small>Konserntr&aelig;r og eierstrukturer</small></a>
+    </div>
+
+    <h3>Kart</h3>
+    <div class="links">
+      <a href="https://food-systems.naturalstateproject.com/kart/no" target="_blank" class="link">Norge <small>Butikker, akvakultur, havner, s&aring;rbarhet</small></a>
+      <a href="https://food-systems.naturalstateproject.com/kart/se" target="_blank" class="link">Sverige</a>
+      <a href="https://food-systems.naturalstateproject.com/kart/dk" target="_blank" class="link">Danmark</a>
+      <a href="https://food-systems.naturalstateproject.com/kart/fi" target="_blank" class="link">Finland</a>
+      <a href="https://food-systems.naturalstateproject.com/kart/is" target="_blank" class="link">Island</a>
+      <a href="https://food-systems.naturalstateproject.com/kart/no/flow" target="_blank" class="link new">Matflyt-prototype <small>Havner og logistikk</small></a>
+    </div>
+
+    <h3>Bibliotek</h3>
+    <div class="links">
+      <a href="https://food-systems.naturalstateproject.com/rapporter" target="_blank" class="link new">Rapporter <small>61 offentlige rapporter</small></a>
+      <a href="https://food-systems.naturalstateproject.com/bibliotek" target="_blank" class="link">Bibliotek <small>298 forskningsdokumenter</small></a>
+      <a href="https://food-systems.naturalstateproject.com/kilder" target="_blank" class="link">Kilder <small>126 kildedokumenter</small></a>
+      <a href="https://food-systems.naturalstateproject.com/aktorer" target="_blank" class="link new">Akt&oslash;rer <small>180+ akt&oslash;rer</small></a>
+      <a href="https://food-systems.naturalstateproject.com/selskap" target="_blank" class="link new">Selskaper <small>300+ med &oslash;konomi og eierskap</small></a>
+      <a href="https://food-systems.naturalstateproject.com/personer" target="_blank" class="link new">Personer <small>N&oslash;kkelpersoner og roller</small></a>
+      <a href="https://food-systems.naturalstateproject.com/sok" target="_blank" class="link">S&oslash;k <small>Fulltekst og semantisk s&oslash;k</small></a>
+    </div>
+  </section>
+
+  <!-- FORSKNINGSBIBLIOTEK -->
+  <section>
+    <h2>Forskningsbibliotek &mdash; status per kategori</h2>
+    <table class="cat-table">
+      <thead>
+        <tr><th>Kategori</th><th>Filer</th><th>Dekning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Akademia (master, NHH, internasjonal)</td><td>131</td><td><span class="bar" style="width:131px"></span></td></tr>
+        <tr><td>Nordisk</td><td>20</td><td><span class="bar" style="width:20px"></span></td></tr>
+        <tr><td>Bransje (industri, &aring;rsrapporter)</td><td>17</td><td><span class="bar" style="width:17px"></span></td></tr>
+        <tr><td>Sirkular&oslash;konomi</td><td>16</td><td><span class="bar" style="width:16px"></span></td></tr>
+        <tr><td>Konkurransetilsynet</td><td>10</td><td><span class="bar" style="width:10px"></span></td></tr>
+        <tr><td>Forbruker</td><td>10</td><td><span class="bar" style="width:10px"></span></td></tr>
+        <tr><td>Arbeidsliv</td><td>9</td><td><span class="bar" style="width:9px"></span></td></tr>
+        <tr><td>Digital dagligvare</td><td>8</td><td><span class="bar" style="width:8px"></span></td></tr>
+        <tr><td>Dagligvaretilsynet</td><td>8</td><td><span class="bar" style="width:8px"></span></td></tr>
+        <tr><td>HORECA</td><td>7</td><td><span class="bar" style="width:7px"></span></td></tr>
+        <tr><td>Beredskap</td><td>7</td><td><span class="bar" style="width:7px"></span></td></tr>
+        <tr><td>Tenketanker</td><td>5</td><td><span class="bar bar-mid" style="width:5px"></span></td></tr>
+        <tr><td>Samisk</td><td>5</td><td><span class="bar" style="width:5px"></span></td></tr>
+        <tr><td>B&aelig;rekraft</td><td>5</td><td><span class="bar bar-mid" style="width:5px"></span></td></tr>
+        <tr><td>Stortingsdokumenter</td><td>4</td><td><span class="bar bar-mid" style="width:5px"></span></td></tr>
+        <tr><td>NOU / offentlige utredninger</td><td>4</td><td><span class="bar bar-mid" style="width:5px"></span></td></tr>
+        <tr><td>Verdikjede</td><td>3</td><td><span class="bar bar-weak" style="width:4px"></span></td></tr>
+        <tr><td>Juridisk rammeverk</td><td>3</td><td><span class="bar bar-weak" style="width:4px"></span></td></tr>
+        <tr><td>Offentlig / statsforvaltning</td><td>2</td><td><span class="bar bar-weak" style="width:4px"></span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Identifiserte gap</h3>
+    <div class="tags">
+      <span class="tag tag-amber">Verdikjede-logistikk</span>
+      <span class="tag tag-amber">Juridisk systematisering</span>
+      <span class="tag tag-amber">Regjeringsveiledninger</span>
+      <span class="tag tag-amber">Mediearchiv</span>
+      <span class="tag tag-amber">EU case-studier</span>
+    </div>
+  </section>
+
+  <!-- SPRINT-LOG -->
+  <section>
+    <h2>Sprint-logg (16.&ndash;26. mars)</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">10</div>
+        <div>
+          <div class="tl-title">Research + Evidence Pack</div>
+          <div class="tl-desc">31 nye forskningsfiler, 3 Evidence Pack-utkast, relasjonsutvidelse</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">9</div>
+        <div>
+          <div class="tl-title">Nordisk fordypning + URL-gjenoppretting</div>
+          <div class="tl-desc">42 nye forskningsfiler, URL-verifisering, nordisk kildedekning</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">8</div>
+        <div>
+          <div class="tl-title">Datakvalitet + BibTeX-eksport</div>
+          <div class="tl-desc">Sitasjonsfelter, DOI-tilbakefylling, kvalitetsrevisjon</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">7</div>
+        <div>
+          <div class="tl-title">Kritisk gjennomgang + desk research</div>
+          <div class="tl-desc">18 nye desk research-kilder, diagram-metrikk-oppdatering</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">6</div>
+        <div>
+          <div class="tl-title">B&aelig;rekraft og verifisering</div>
+          <div class="tl-desc">13 b&aelig;rekraft/sirkul&aelig;r&oslash;konomi-kilder, verifiseringsgjennomgang</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">5</div>
+        <div>
+          <div class="tl-title">Nordisk fordypning</div>
+          <div class="tl-desc">14 datterselskaper, 16 eierskap, 16 profiler p&aring; tvers av Norden</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">4</div>
+        <div>
+          <div class="tl-title">HORECA + BAMA + Kavli</div>
+          <div class="tl-desc">HORECA-styrer, BAMA og Kavli konserntr&aelig;r</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">3</div>
+        <div>
+          <div class="tl-title">Sj&oslash;mat-konsern</div>
+          <div class="tl-desc">Mowi, SalMar, Ler&oslash;y, Austevoll (+16 selskaper, 125 eierskap)</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">2</div>
+        <div>
+          <div class="tl-title">Foredling og landbruk</div>
+          <div class="tl-desc">Orkla, Nortura, TINE, Felleskj&oslash;pet (+33 selskaper, 109 eierskap)</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">1</div>
+        <div>
+          <div class="tl-title">Dagligvare-kartlegging</div>
+          <div class="tl-desc">NorgesGruppen, Coop, Reitan (+50 selskaper, 76 eierskap)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NESTE STEG -->
+  <section>
+    <h2>Videre</h2>
+    <p>Vi er n&aring; godt inne i Fase 2 (Innsikt og kartlegging). De neste ukene fokuserer vi p&aring;:</p>
+    <ul>
+      <li>Tette kunnskapsgapene &mdash; spesielt verdikjede-logistikk og juridisk rammeverk</li>
+      <li>Systemkart og identifisering av flaskehalser i verdikjeden</li>
+      <li>Aktiv aktørkontakt og commitment mapping</li>
+      <li>Concept note med partnere</li>
+      <li>Ferdigstille Evidence Pack-dokumentene</li>
+    </ul>
+    <p>
+      Leveransen (whitepaper + executive brief + roadmap) er fortsatt p&aring;
+      sporet mot juni 2026.
+    </p>
+    <p style="margin-top: 20px;">
+      Ta gjerne en titt p&aring; plattformen og gi beskjed om det er noe dere
+      savner eller vil at vi prioriterer.
+    </p>
+    <p style="margin-top: 20px;">
+      <a href="https://food-systems.naturalstateproject.com" target="_blank" style="font-weight: 600;">
+        &rarr; food-systems.naturalstateproject.com
+      </a>
+    </p>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    Food Systems 2026 &middot; NCH Transition Group &middot; Natural State
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-04-20T17:31:14.927Z",
+  "batchName": "food-research-process-2026-04-20",
+  "applyMode": false,
+  "weakTitleCount": 11,
+  "autoApplyCount": 0,
+  "dbChangedCount": 0,
+  "reviewCsvChangedCount": 0,
+  "appliedCount": 0,
+  "weakCounts": {
+    "truncated_source_title": 3,
+    "artifact_label": 4,
+    "generic_short_title": 1
+  },
+  "suggestionCounts": {
+    "pdf-metadata": 4,
+    "filename": 1,
+    "manual-review": 2,
+    "pdf-heading": 4
+  }
+}

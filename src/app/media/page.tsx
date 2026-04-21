@@ -1,7 +1,19 @@
 import { Card } from '@/components/ui/Card'
 import { SourceChip } from '@/components/ui/SourceChip'
 import { ExpandableSources } from '@/components/ui/ExpandableSources'
-import { getMediaThemes, getMediaTimeline, getMediaCountryProfiles } from '@/lib/queries/media'
+import { COUNTRY_LIST } from '@/lib/config/countries'
+import {
+  mediaInternalSources,
+  mediaScanGuidance,
+  mediaYears,
+} from '@/lib/data/media-landscape'
+import {
+  getMediaCountryProfiles,
+  getMediaEntries,
+  getMediaOutlets,
+  getMediaThemes,
+  getMediaTimeline,
+} from '@/lib/queries/media'
 import type { SourceRef } from '@/lib/types'
 
 type MediaFocusLevel = 'lav' | 'middels' | 'hoy' | 'kritisk'
@@ -12,21 +24,78 @@ type MediaTriggerMoment = {
   sources?: SourceRef[]
 }
 
-const mediaYears = [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+type CountryCardProfile = {
+  id: string
+  name: string
+  iso: string
+  dominantNarrative: string
+  summary: string
+  strongestPeriod: string
+  keyQuestion: string
+  yearlySignal: number[]
+  focusLevels: Record<string, MediaFocusLevel>
+  triggerMoments: MediaTriggerMoment[]
+  sources: SourceRef[] | null
+}
 
-const mediaScanGuidance = [
-  'Bygg faktiske mediesok per land mot 2016-2025 som neste lag oppa denne kvalitative profilen.',
-  'Kod hver omtale pa tema, trigger, tone og geografisk fokus for a skille politikk, marked og innovasjon.',
-  'Hold 2026 utenfor historikkgrafene til hele aret eller et definert delaar er lukket og sammenlignbart.',
-  'Bruk denne siden som narrativt kart, ikke som endelig mediestatistikk; den maa kalibreres mot faktiske artikkeltreff.',
-]
+type ThemeItem = {
+  id: string
+  name: string
+  description: string
+  sources: SourceRef[] | null
+}
 
-const mediaInternalSources = [
-  'research/norden/nordisk-komparativ-analyse.md',
-  'research/norden/regulatory-policy-landscape-nordic.md',
-  'research/analyse/source-scouting-2026-03-10.md',
-  'Speaker 1.md',
-]
+type CorpusCodingItem = {
+  primaryTheme: string
+  secondaryThemes: string[]
+  tone: string
+  frame: string
+  geography: string
+  actorTargets: string[]
+  confidence: number
+  triggerLabel: string | null
+  evidenceNote: string | null
+}
+
+type CorpusEntryItem = {
+  id: string
+  country: string
+  publishedYear: number
+  publishedMonth: number | null
+  publishedDay: number | null
+  datePrecision: string
+  title: string
+  summary: string
+  url: string | null
+  recordType: string
+  verificationLevel: string
+  triggerLabel: string | null
+  sourceRefs: SourceRef[] | null
+  outlet: {
+    id: string
+    name: string
+    country: string
+    outletType: string
+    url: string | null
+  }
+  sourceDoc: {
+    id: string
+    title: string | null
+    url: string | null
+  } | null
+  codings: CorpusCodingItem[]
+}
+
+type CountryCoverageRow = {
+  code: string
+  name: string
+  entryCount: number
+  outletCount: number
+  primaryCount: number
+  themeCount: number
+  latestLabel: string
+  status: 'mangler' | 'tynn' | 'arbeidsklar'
+}
 
 const focusWeight: Record<MediaFocusLevel, number> = {
   lav: 1,
@@ -54,6 +123,55 @@ const countryAccentClass: Record<string, string> = {
   SE: 'from-sky-500 via-sky-400 to-sky-200',
   DK: 'from-amber-500 via-amber-400 to-amber-200',
   FI: 'from-stone-700 via-stone-500 to-stone-300',
+  IS: 'from-indigo-500 via-indigo-400 to-cyan-200',
+}
+
+const toneClassName: Record<string, string> = {
+  kritisk: 'bg-rose-50 text-rose-700 border border-rose-200',
+  analytisk: 'bg-sky-50 text-sky-700 border border-sky-200',
+  policy: 'bg-emerald-50 text-emerald-700 border border-emerald-200',
+}
+
+const verificationClassName: Record<string, string> = {
+  primary: 'bg-stone-900 text-white border border-stone-900',
+  secondary: 'bg-stone-100 text-stone-600 border border-stone-200',
+}
+
+const coverageClassName: Record<CountryCoverageRow['status'], string> = {
+  mangler: 'bg-rose-50 text-rose-700 border border-rose-200',
+  tynn: 'bg-amber-50 text-amber-700 border border-amber-200',
+  arbeidsklar: 'bg-emerald-50 text-emerald-700 border border-emerald-200',
+}
+
+const coverageLabel: Record<CountryCoverageRow['status'], string> = {
+  mangler: 'Mangler',
+  tynn: 'Tynn',
+  arbeidsklar: 'Arbeidsklar',
+}
+
+const monthLabel = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des']
+
+function formatPublicationLabel(entry: Pick<CorpusEntryItem, 'publishedYear' | 'publishedMonth' | 'publishedDay' | 'datePrecision'>) {
+  if (entry.datePrecision === 'day' && entry.publishedMonth && entry.publishedDay) {
+    return `${String(entry.publishedDay).padStart(2, '0')}. ${monthLabel[entry.publishedMonth]} ${entry.publishedYear}`
+  }
+  if (entry.datePrecision === 'month' && entry.publishedMonth) {
+    return `${monthLabel[entry.publishedMonth]} ${entry.publishedYear}`
+  }
+  return String(entry.publishedYear)
+}
+
+function formatCountMap(items: Map<string, number>, formatter?: (value: string) => string) {
+  return [...items.entries()]
+    .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
+    .map(([value, count]) => `${formatter ? formatter(value) : value}: ${count}`)
+}
+
+function normalizeLabel(value: string) {
+  return value
+    .split('-')
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ')
 }
 
 function SignalBars({ values }: { values: number[] }) {
@@ -74,31 +192,14 @@ function SignalBars({ values }: { values: number[] }) {
   )
 }
 
-type CountryCardProfile = {
-  id: string
-  name: string
-  iso: string
-  dominantNarrative: string
-  summary: string
-  strongestPeriod: string
-  keyQuestion: string
-  yearlySignal: number[]
-  focusLevels: Record<string, MediaFocusLevel>
-  triggerMoments: MediaTriggerMoment[]
-  sources: SourceRef[] | null
-}
-
-type ThemeItem = {
-  id: string
-  name: string
-  description: string
-  sources: SourceRef[] | null
-}
-
 function CountryCard({ profile, themes }: { profile: CountryCardProfile; themes: ThemeItem[] }) {
   return (
     <div className="relative overflow-hidden rounded-2xl border border-stone-200 bg-white p-5 shadow-sm shadow-stone-900/[0.03]">
-      <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${countryAccentClass[profile.iso]}`} />
+      <div
+        className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${
+          countryAccentClass[profile.iso] ?? 'from-stone-500 via-stone-400 to-stone-200'
+        }`}
+      />
 
       <div className="flex items-start justify-between gap-3">
         <div>
@@ -148,7 +249,7 @@ function CountryCard({ profile, themes }: { profile: CountryCardProfile; themes:
           <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Viktige triggere</p>
           <div className="mt-2 space-y-2">
             {profile.triggerMoments.map(moment => (
-              <div key={`${profile.id}-${moment.year}`}>
+              <div key={`${profile.id}-${moment.year}-${moment.label}`}>
                 <div className="flex gap-3 text-sm text-stone-600">
                   <span className="font-mono text-stone-400">{moment.year}</span>
                   <span>{moment.label}</span>
@@ -156,7 +257,7 @@ function CountryCard({ profile, themes }: { profile: CountryCardProfile; themes:
                 {moment.sources && moment.sources.length > 0 && (
                   <div className="ml-12 mt-1 flex flex-wrap gap-1.5">
                     {moment.sources.map(source => (
-                      <SourceChip key={source.label} source={source} />
+                      <SourceChip key={`${moment.year}-${source.label}`} source={source} />
                     ))}
                   </div>
                 )}
@@ -175,37 +276,154 @@ function CountryCard({ profile, themes }: { profile: CountryCardProfile; themes:
   )
 }
 
+function CorpusEntryCard({ entry, themes }: { entry: CorpusEntryItem; themes: ThemeItem[] }) {
+  const coding = entry.codings[0]
+  const primaryThemeName = coding
+    ? themes.find(theme => theme.id === coding.primaryTheme)?.name ?? normalizeLabel(coding.primaryTheme)
+    : null
+
+  return (
+    <div className="rounded-2xl border border-stone-200 bg-white p-4">
+      <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-stone-400">
+        <span>{entry.country.toUpperCase()}</span>
+        <span>{formatPublicationLabel(entry)}</span>
+        <span>{normalizeLabel(entry.recordType)}</span>
+      </div>
+
+      <div className="mt-2 flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <h3 className="text-sm font-semibold leading-6 text-stone-900">
+            {entry.url ? (
+              <a href={entry.url} target="_blank" rel="noopener noreferrer" className="hover:text-stone-700">
+                {entry.title}
+              </a>
+            ) : (
+              entry.title
+            )}
+          </h3>
+          <p className="mt-1 text-xs text-stone-500">{entry.outlet.name}</p>
+        </div>
+        <span className={`badge ${verificationClassName[entry.verificationLevel] ?? verificationClassName.secondary}`}>
+          {entry.verificationLevel === 'primary' ? 'Primaer' : 'Sekundaer'}
+        </span>
+      </div>
+
+      <p className="mt-3 text-sm leading-6 text-stone-600">{entry.summary}</p>
+
+      {coding && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {primaryThemeName && <span className="badge badge-blue">{primaryThemeName}</span>}
+          <span className={`badge ${toneClassName[coding.tone] ?? focusClassName.middels}`}>{normalizeLabel(coding.tone)}</span>
+          <span className="badge badge-neutral">{normalizeLabel(coding.frame)}</span>
+          <span className="badge badge-neutral">{normalizeLabel(coding.geography)}</span>
+          <span className="badge badge-neutral">Confidence {coding.confidence}/5</span>
+        </div>
+      )}
+
+      {coding?.evidenceNote && (
+        <p className="mt-3 text-xs leading-5 text-stone-500">{coding.evidenceNote}</p>
+      )}
+
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        <SourceChip
+          source={{
+            label: entry.outlet.name,
+            url: entry.outlet.url ?? undefined,
+            note: normalizeLabel(entry.outlet.outletType),
+          }}
+        />
+        {entry.sourceDoc && (
+          <SourceChip
+            source={{
+              sourceId: entry.sourceDoc.id,
+              label: entry.sourceDoc.title ?? entry.sourceDoc.id,
+              url: entry.sourceDoc.url ?? undefined,
+            }}
+          />
+        )}
+      </div>
+
+      {entry.sourceRefs && entry.sourceRefs.length > 0 && (
+        <ExpandableSources sources={entry.sourceRefs} label="evidenskilder" />
+      )}
+    </div>
+  )
+}
+
 export default async function MediaPage() {
-  const [themes, timeline, countryProfiles] = await Promise.all([
+  const [themes, timeline, countryProfiles, outlets, entries] = await Promise.all([
     getMediaThemes(),
     getMediaTimeline(),
     getMediaCountryProfiles(),
+    getMediaOutlets(),
+    getMediaEntries(),
   ])
 
-  const typedThemes: ThemeItem[] = themes.map(t => ({
-    id: t.id,
-    name: t.name,
-    description: t.description,
-    sources: (t.sources as SourceRef[] | null),
+  const typedThemes: ThemeItem[] = themes.map(theme => ({
+    id: theme.id,
+    name: theme.name,
+    description: theme.description,
+    sources: theme.sources as SourceRef[] | null,
   }))
 
-  const typedProfiles: CountryCardProfile[] = countryProfiles.map(p => ({
-    id: p.id,
-    name: p.name,
-    iso: p.iso,
-    dominantNarrative: p.dominantNarrative,
-    summary: p.summary,
-    strongestPeriod: p.strongestPeriod,
-    keyQuestion: p.keyQuestion,
-    yearlySignal: p.yearlySignal,
-    focusLevels: p.focusLevels as Record<string, MediaFocusLevel>,
-    triggerMoments: (p.triggerMoments as unknown as MediaTriggerMoment[]),
-    sources: (p.sources as SourceRef[] | null),
+  const typedProfiles: CountryCardProfile[] = countryProfiles.map(profile => ({
+    id: profile.id,
+    name: profile.name,
+    iso: profile.iso,
+    dominantNarrative: profile.dominantNarrative,
+    summary: profile.summary,
+    strongestPeriod: profile.strongestPeriod,
+    keyQuestion: profile.keyQuestion,
+    yearlySignal: profile.yearlySignal,
+    focusLevels: profile.focusLevels as Record<string, MediaFocusLevel>,
+    triggerMoments: profile.triggerMoments as unknown as MediaTriggerMoment[],
+    sources: profile.sources as SourceRef[] | null,
   }))
 
-  const typedTimeline = timeline.map(e => ({
-    ...e,
-    sources: (e.sources as SourceRef[] | null),
+  const typedTimeline = timeline.map(entry => ({
+    ...entry,
+    sources: entry.sources as SourceRef[] | null,
+  }))
+
+  const typedEntries: CorpusEntryItem[] = entries.map(entry => ({
+    id: entry.id,
+    country: entry.country,
+    publishedYear: entry.publishedYear,
+    publishedMonth: entry.publishedMonth,
+    publishedDay: entry.publishedDay,
+    datePrecision: entry.datePrecision,
+    title: entry.title,
+    summary: entry.summary,
+    url: entry.url,
+    recordType: entry.recordType,
+    verificationLevel: entry.verificationLevel,
+    triggerLabel: entry.triggerLabel,
+    sourceRefs: entry.sourceRefs as SourceRef[] | null,
+    outlet: {
+      id: entry.outlet.id,
+      name: entry.outlet.name,
+      country: entry.outlet.country,
+      outletType: entry.outlet.outletType,
+      url: entry.outlet.url,
+    },
+    sourceDoc: entry.sourceDoc
+      ? {
+          id: entry.sourceDoc.id,
+          title: entry.sourceDoc.title,
+          url: entry.sourceDoc.url,
+        }
+      : null,
+    codings: entry.codings.map(coding => ({
+      primaryTheme: coding.primaryTheme,
+      secondaryThemes: coding.secondaryThemes,
+      tone: coding.tone,
+      frame: coding.frame,
+      geography: coding.geography,
+      actorTargets: coding.actorTargets,
+      confidence: coding.confidence,
+      triggerLabel: coding.triggerLabel,
+      evidenceNote: coding.evidenceNote,
+    })),
   }))
 
   const strongestCountry = [...typedProfiles]
@@ -231,6 +449,61 @@ export default async function MediaPage() {
     .filter(entry => entry.intensity >= 4)
     .map(entry => entry.year)
 
+  const themeCountMap = new Map<string, number>()
+  const toneCountMap = new Map<string, number>()
+  const outletTypeCountMap = new Map<string, number>()
+
+  for (const outlet of outlets) {
+    outletTypeCountMap.set(
+      outlet.outletType,
+      (outletTypeCountMap.get(outlet.outletType) ?? 0) + 1,
+    )
+  }
+
+  for (const entry of typedEntries) {
+    for (const coding of entry.codings) {
+      themeCountMap.set(coding.primaryTheme, (themeCountMap.get(coding.primaryTheme) ?? 0) + 1)
+      toneCountMap.set(coding.tone, (toneCountMap.get(coding.tone) ?? 0) + 1)
+    }
+  }
+
+  const entryYears = new Set(typedEntries.map(entry => entry.publishedYear))
+  const missingHistoricalYears = mediaYears.filter(year => !entryYears.has(year))
+  const primaryVerifiedCount = typedEntries.filter(entry => entry.verificationLevel === 'primary').length
+  const primaryVerifiedShare = typedEntries.length > 0
+    ? Math.round((primaryVerifiedCount / typedEntries.length) * 100)
+    : 0
+
+  const coverageRows: CountryCoverageRow[] = COUNTRY_LIST.map(country => {
+    const countryEntries = typedEntries.filter(entry => entry.country === country.code)
+    const uniqueOutlets = new Set(countryEntries.map(entry => entry.outlet.id))
+    const uniqueThemes = new Set(countryEntries.flatMap(entry => entry.codings.map(coding => coding.primaryTheme)))
+    const primaryCount = countryEntries.filter(entry => entry.verificationLevel === 'primary').length
+    const latestEntry = countryEntries[0]
+    const status: CountryCoverageRow['status'] =
+      countryEntries.length === 0 ? 'mangler' : countryEntries.length >= 3 ? 'arbeidsklar' : 'tynn'
+
+    return {
+      code: country.code,
+      name: country.name,
+      entryCount: countryEntries.length,
+      outletCount: uniqueOutlets.size,
+      primaryCount,
+      themeCount: uniqueThemes.size,
+      latestLabel: latestEntry ? formatPublicationLabel(latestEntry) : 'Ingen',
+      status,
+    }
+  })
+
+  const thinnestCountry = [...coverageRows].sort((left, right) => left.entryCount - right.entryCount)[0]
+  const undercoveredCountries = coverageRows.filter(row => row.entryCount < 3)
+
+  const missingPrimaryThemes = typedThemes
+    .filter(theme => !themeCountMap.has(theme.id))
+    .map(theme => theme.name)
+
+  const latestCorpusEntries = typedEntries.slice(0, 6)
+
   return (
     <div className="space-y-6">
       <div className="relative overflow-hidden rounded-[28px] border border-stone-200 bg-[linear-gradient(135deg,rgba(250,250,249,1)_0%,rgba(245,245,244,1)_48%,rgba(236,253,245,1)_100%)] p-6 sm:p-8">
@@ -243,15 +516,14 @@ export default async function MediaPage() {
             Medieoversikt for matsystemene per land, historisk spor 2016-2025
           </h1>
           <p className="mt-4 max-w-3xl text-sm leading-6 text-stone-600 sm:text-base">
-            Egen dashboardside for a lese hvordan matsystemene har blitt omtalt i offentligheten:
-            hvilke land som har hatt hoyest trykk, hvilke diskusjoner som dominerer, og hvor
-            fokus har flyttet seg fra klima og innovasjon til prispress, markedsmakt og
-            beredskap.
+            Siden leser fortsatt narrativer pa tvers av land, men viser na ogsaa et eget
+            evidenskorpus med kodede treff, outlet-typer og verifikasjonsnivaa. Dermed blir det
+            tydelig hva som er syntese, og hva som faktisk er granularisert materiale.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-stone-500">
-            Dette er en kvalitativ narrativprofil bygget fra interne researchnotater. Den skal
-            brukes som arbeidskart og kalibreres mot faktiske mediesok og artikkeltreff i neste
-            fase.
+            Den kvalitative profilen under er fortsatt et arbeidskart. Korpuset under viser
+            startpunktet for en mer etterproevbar medieanalyse med land, aar, tema, tone og
+            triggerlogikk.
           </p>
         </div>
       </div>
@@ -286,14 +558,153 @@ export default async function MediaPage() {
         </Card>
       </div>
 
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <Card className="border-stone-200 bg-white">
+          <p className="text-xs uppercase tracking-wider text-stone-400">Granulert korpus</p>
+          <p className="mt-2 text-2xl font-semibold text-stone-900">{typedEntries.length}</p>
+          <p className="mt-1 text-xs text-stone-500">Kodede media entries i v2-laget</p>
+        </Card>
+
+        <Card className="border-stone-200 bg-white">
+          <p className="text-xs uppercase tracking-wider text-stone-400">Outlets</p>
+          <p className="mt-2 text-2xl font-semibold text-stone-900">{outlets.length}</p>
+          <p className="mt-1 text-xs text-stone-500">Kilder fordelt pa myndighet, analyse og marked</p>
+        </Card>
+
+        <Card className="border-stone-200 bg-white">
+          <p className="text-xs uppercase tracking-wider text-stone-400">Primaerandel</p>
+          <p className="mt-2 text-2xl font-semibold text-stone-900">{primaryVerifiedShare}%</p>
+          <p className="mt-1 text-xs text-stone-500">{primaryVerifiedCount} av {typedEntries.length} entries er primaerkilder</p>
+        </Card>
+
+        <Card className="border-stone-200 bg-white">
+          <p className="text-xs uppercase tracking-wider text-stone-400">Tynnest dekning</p>
+          <p className="mt-2 text-2xl font-semibold text-stone-900">{thinnestCountry?.name}</p>
+          <p className="mt-1 text-xs text-stone-500">{thinnestCountry?.entryCount ?? 0} kodede entries akkurat na</p>
+        </Card>
+      </div>
+
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+        <Card title="Media evidence corpus v2">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[760px] text-sm">
+              <thead>
+                <tr className="border-b border-stone-200">
+                  <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Land</th>
+                  <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Entries</th>
+                  <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Outlets</th>
+                  <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Temaer</th>
+                  <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Primaer</th>
+                  <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Siste</th>
+                  <th className="py-3 pr-0 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {coverageRows.map(row => (
+                  <tr key={row.code} className="border-b border-stone-100 last:border-0">
+                    <td className="py-3 pr-4 font-medium text-stone-800">{row.name}</td>
+                    <td className="py-3 pr-4 text-stone-600">{row.entryCount}</td>
+                    <td className="py-3 pr-4 text-stone-600">{row.outletCount}</td>
+                    <td className="py-3 pr-4 text-stone-600">{row.themeCount}</td>
+                    <td className="py-3 pr-4 text-stone-600">{row.primaryCount}</td>
+                    <td className="py-3 pr-4 text-stone-600">{row.latestLabel}</td>
+                    <td className="py-3 pr-0">
+                      <span className={`badge ${coverageClassName[row.status]}`}>{coverageLabel[row.status]}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        <Card title="Granularitetsgap">
+          <div className="space-y-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Aar uten korpusdekning</p>
+              <p className="mt-2 text-sm leading-6 text-stone-600">
+                {missingHistoricalYears.length > 0 ? missingHistoricalYears.join(', ') : 'Ingen hull i 2016-2025-vinduet'}
+              </p>
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Temaer uten primaerkoding</p>
+              <p className="mt-2 text-sm leading-6 text-stone-600">
+                {missingPrimaryThemes.length > 0 ? missingPrimaryThemes.join(', ') : 'Alle hovedtemaer er representert'}
+              </p>
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Neste prioritering</p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {undercoveredCountries.map(country => (
+                  <span key={country.code} className={`badge ${coverageClassName[country.status]}`}>
+                    {country.name}: {country.entryCount} entries
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Outletmix</p>
+              <p className="mt-2 text-sm leading-6 text-stone-600">
+                {formatCountMap(outletTypeCountMap, normalizeLabel).join(' | ')}
+              </p>
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Tonekoding</p>
+              <p className="mt-2 text-sm leading-6 text-stone-600">
+                {formatCountMap(toneCountMap, normalizeLabel).join(' | ')}
+              </p>
+            </div>
+          </div>
+        </Card>
+      </div>
+
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+        <Card title="Siste kodede entries">
+          <div className="space-y-4">
+            {latestCorpusEntries.map(entry => (
+              <CorpusEntryCard key={entry.id} entry={entry} themes={typedThemes} />
+            ))}
+          </div>
+        </Card>
+
+        <Card title="Hva v2 gir">
+          <div className="space-y-4">
+            <div className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
+              <p className="text-sm font-semibold text-stone-800">Etterproevbar kobling mellom narrativ og evidens</p>
+              <p className="mt-2 text-sm leading-6 text-stone-600">
+                Hver entry kan spores til outlet, kilde, publiseringspresisjon, koding og verifikasjonsnivaa.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
+              <p className="text-sm font-semibold text-stone-800">Mer granular tidsserie</p>
+              <p className="mt-2 text-sm leading-6 text-stone-600">
+                Modellen skiller aar, maaned og dag, slik at vi kan bygge kvartals- og hendelsesspor uten a late som alle datoer er like presise.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
+              <p className="text-sm font-semibold text-stone-800">Bedre sammenligning pa tvers av land</p>
+              <p className="mt-2 text-sm leading-6 text-stone-600">
+                Samme koding brukes na ogsaa for Island, slik at mediaflaten ikke lenger bryter med resten av nordisk datastruktur.
+              </p>
+            </div>
+          </div>
+        </Card>
+      </div>
+
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1.3fr_0.7fr]">
         <Card title="Nordisk narrativpuls 2016-2025">
           <div className="space-y-4">
             {typedTimeline.map(entry => (
-              <div key={entry.year} className="flex gap-4 items-start">
-                <div className="shrink-0 w-20 pt-0.5">
+              <div key={entry.year} className="flex items-start gap-4">
+                <div className="w-20 shrink-0 pt-0.5">
                   <span className="text-sm font-mono font-medium text-stone-900">{entry.year}</span>
-                  <div className="flex gap-1 mt-1.5">
+                  <div className="mt-1.5 flex gap-1">
                     {Array.from({ length: 5 }).map((_, index) => (
                       <span
                         key={`${entry.year}-${index}`}
@@ -304,13 +715,13 @@ export default async function MediaPage() {
                     ))}
                   </div>
                 </div>
-                <div className="flex-1 min-w-0 pb-4 border-b border-stone-100 last:border-0">
+                <div className="min-w-0 flex-1 border-b border-stone-100 pb-4 last:border-0">
                   <p className="text-sm font-medium text-stone-800">{entry.label}</p>
                   <p className="mt-1 text-xs leading-5 text-stone-500">{entry.note}</p>
                   {entry.sources && entry.sources.length > 0 && (
                     <div className="mt-2 flex flex-wrap gap-1.5">
                       {entry.sources.map(source => (
-                        <SourceChip key={source.label} source={source} />
+                        <SourceChip key={`${entry.year}-${source.label}`} source={source} />
                       ))}
                     </div>
                   )}

@@ -1,0 +1,167 @@
+{
+  "new_cases": [
+    {
+      "name": "PeelPioneers",
+      "country": "NL",
+      "concept": "Europas største sitrusskall-fabrikk — oppgraderer avfallsskall fra juice-industrien til B2B-ingredienser (fiber, olje, d-limonen)",
+      "founded": 2017,
+      "rLevel": "R7",
+      "status": "Operativ, skalerer i Nederland, brukes som nordisk benchmark for sidestrøm-oppgradering",
+      "business_model": "B2B ingredient sales — stabil etterspørsel fra mat/kosmetikk-industri basert på pris/kvalitet, ikke storytelling",
+      "investment_eur_m": null,
+      "lesson": "B2B-ingrediens fra sidestrømmer er mer robust enn B2C: kundene bryr seg om funksjon og pris, ikke merkevare-hype. Usynlig men stabil etterspørsel."
+    },
+    {
+      "name": "Bokashi Norge / Bokashi Norden",
+      "country": "NO",
+      "concept": "Desentralisert fermentering av matavfall med melkesyrebakterier for husholdninger, borettslag og restauranter",
+      "founded": null,
+      "rLevel": "R8",
+      "status": "Operativ, lønnsom SMB, brukes i Circular Regions som skalerbar modell",
+      "business_model": "B2C: salg av utstyr/strø + kurs. B2B-piloter med restauranter. Lav CAPEX, lokal syklus.",
+      "investment_eur_m": null,
+      "lesson": "Desentraliserte, lavkost-løsninger med direkte brukerverdi (redusert renovasjon, egen kompost) kan skalere uten venture-kapital. Regulatorisk usikkerhet (varmebehandlingskrav) bremser profesjonalisering."
+    },
+    {
+      "name": "Foodsharing Copenhagen",
+      "country": "DK",
+      "concept": "Frivilligdrevet redistribuering av overskuddsmat fra butikker og produsenter til gratis utdeling",
+      "founded": 2016,
+      "rLevel": "R3",
+      "status": "600+ frivillige, 13 000+ tonn reddet mat, etablert som institusjon i København",
+      "business_model": "Non-profit, frivilligbasert. Null kapitalbehov. Verdi via aktivistisk klimaidentitet + gratis mat.",
+      "investment_eur_m": 0,
+      "lesson": "Kombinasjonen 'gratis mat + aktivistisk identitet' er en kraftig rekrutteringsmekanisme. Skalerer via sosial kapital, ikke finanskapital. Begrenset av logistikk og mattrygghet-krav."
+    },
+    {
+      "name": "Oatly okara-håndtering",
+      "country": "SE",
+      "concept": "Håndtering av havre-okara (fast restprodukt fra havremelk) — delvis suksess via fôr, men food-grade oppgradering ikke kommersialisert",
+      "founded": null,
+      "rLevel": "R7",
+      "status": "Okara går primært til dyrefôr og biogass. FoU pågår (fermentering, fiber-ingrediens) men ikke i kommersielt food-produkt ennå",
+      "business_model": "Intern kostnadsreduksjon (fôrsalg vs. avfallskostnad). Ikke ekstern revenue-driver.",
+      "investment_eur_m": null,
+      "lesson": "Selv verdens ledende plantemelk-selskap har ikke klart å oppgradere sin hovedsidestrøm til mat-ingrediens. Barrierer: tørking er energikrevende, Novel Food-regulering, konkurransepriser fra soya/myse."
+    },
+    {
+      "name": "Melta",
+      "country": "IS",
+      "concept": "Bokashi-fermentering av matavfall, produserer jordforbedringsmiddelet Moldamin. Nordic Circular Hotspot Award.",
+      "founded": null,
+      "rLevel": "R8",
+      "status": "Operativ, prisbelønt, kommersiell drift på Island",
+      "business_model": "Produktsalg (Moldamin) + avfallsmottak. Dobbel inntektsstrøm.",
+      "investment_eur_m": null,
+      "lesson": "Små øy-økonomier (Island) med kort avstand produsent→bruker og sterk lokal identitet gir gunstige betingelser for sirkulære løsninger som er vanskelige å skalere i større markeder."
+    },
+    {
+      "name": "Volare (Finnprotein Oy)",
+      "country": "FI",
+      "concept": "BSF insektprotein til fôr — en av få europeiske insektselskaper som overlever 2024-25-bølgen",
+      "founded": 2019,
+      "rLevel": "R7",
+      "status": "Aktiv, $35.8M raised, bygger produksjon i Finland",
+      "business_model": "B2B fôr-ingrediens. Differensierer seg via kostnadseffektiv produksjon og finsk energimix.",
+      "investment_eur_m": 36,
+      "lesson": "Overlever der ENORM/Ÿnsect feilet — trolig pga. lavere CAPEX-ambisjon, modulær tilnærming, og finsk energipris (billig kjernekraft/vind). Skala-ambisjonen tilpasset kapitalbasen."
+    },
+    {
+      "name": "Finnforel / Nordic Trout",
+      "country": "FI",
+      "concept": "Landbasert RAS-oppdrett (recirculating aquaculture system) med full avfallsfangst — næringsstoffer resirkuleres",
+      "founded": null,
+      "rLevel": "R8",
+      "status": "Aktiv, $259.8M Series A, stor industriell satsing",
+      "business_model": "Premium fisk + gjenvunne næringsstoffer som bi-inntekt. RAS gir kontroll over alle utslipp.",
+      "investment_eur_m": 260,
+      "lesson": "RAS lukker næringsstoff-løkken som åpne merder lekker. Høy CAPEX men forutsigbar biologi og null miljøutslipp. Relevant for norsk oppdrettsdebatt om lukket vs. åpent."
+    },
+    {
+      "name": "AX Foundation — Smart Svensk Sjömat",
+      "country": "SE",
+      "concept": "Oppgradering av underutnyttede ferskvannsfisk (braxen, sik) til kommersielle produkter: fish cakes, boquerones, farse",
+      "founded": null,
+      "rLevel": "R7",
+      "status": "Produkter lansert (Sillenbergare 2024), infrastruktur bygget for innsjøfisk-foredling",
+      "business_model": "Konsortium-modell: stiftelse tar FoU-risiko, industri tar kommersialisering. Prosjektfinansiering + partnerbidrag.",
+      "investment_eur_m": null,
+      "lesson": "Underutnyttede arter representerer 'free' biomasse — verdiskapningen ligger i foredling og markedsintroduksjon, ikke i fangst. Konsortie-modellen fordeler risiko."
+    },
+    {
+      "name": "Kernza / Knylkorn (AX Foundation pilot)",
+      "country": "SE",
+      "concept": "Flerårig kornart (intermediate wheatgrass) som bygger jord og binder karbon — pilot med pizza/brød på Kernza-mel",
+      "founded": null,
+      "rLevel": "R1",
+      "status": "Pre-kommersiell pilot, produkter testet men ikke i dagligvare ennå",
+      "business_model": "Forskningsdrevet, ingen standalone forretningsmodell. Avhengig av policy-støtte for regenerativt landbruk.",
+      "investment_eur_m": null,
+      "lesson": "Flerårige kornarter løser erosjon og karbonbinding strukturelt, men yield er fortsatt 30-50% av hvete. Krever langsiktig sortsforedling + premium-marked (spesialbrød, craft-pizza)."
+    },
+    {
+      "name": "Svensk Baljväxtfärs (AX Foundation)",
+      "country": "SE",
+      "concept": "Belgvekst-fars utviklet i konsortium, brukt i IKEAs 50/50-burger og offentlige kjøkken",
+      "founded": null,
+      "rLevel": "R2",
+      "status": "Kommersialisert via IKEA og offentlige kjøkken, svensk produksjon",
+      "business_model": "Lisens/partnerskap med IKEA Food Services. Offentlige innkjøp som volum-driver.",
+      "investment_eur_m": null,
+      "lesson": "Offentlige kjøkken og store food-service aktører (IKEA) kan gi volum-garanti som dagligvare ikke gir. 50/50-konseptet (blanding, ikke full erstatning) senker adopsjon-terskelen drastisk."
+    },
+    {
+      "name": "VermiNord",
+      "country": "NO",
+      "concept": "Vermikompostering med meitemark i norsk klima — tretrinnsprosess for organisk avfall til jordforbedringsmiddel",
+      "founded": null,
+      "rLevel": "R8",
+      "status": "Operativ, liten skala, utvikler og leverandør av vermikompost-løsninger",
+      "business_model": "Produktsalg (vermikompost) + konsulenttjenester. Lokal, lavkost.",
+      "investment_eur_m": null,
+      "lesson": "Vermikompostering gir høykvalitets jordprodukt men er klimasensitiv (frost) og har lav volumkapasitet per areal. Fungerer best som komplementær lokal løsning, ikke industriell erstatning for biogass."
+    },
+    {
+      "name": "Den Magiske Fabrikken / Greve Biogass (utvidet)",
+      "country": "NO",
+      "concept": "Biogass fra matavfall + husdyrgjødsel for >1 million innbyggere, med CO₂ til veksthus og biogjødsel til landbruk",
+      "founded": null,
+      "rLevel": "R8",
+      "status": "Full drift, nasjonal pilotstatus, 52 000+ tonn biogjødsel distribuert",
+      "business_model": "Kommunal avfallsmottak (gate fee) + biogass-salg (buss/transport) + biogjødsel til bønder + CO₂ til veksthus. Fire inntektsstrømmer.",
+      "investment_eur_m": null,
+      "lesson": "Fire-strøms-modellen (avfallsgebyr + gass + gjødsel + CO₂) gir robust økonomi. Avhengig av stabile rammevilkår (busskontrakter), trues av elektrifisering av transport."
+    }
+  ],
+  "existing_updates": [
+    {
+      "name": "Too Good To Go",
+      "action": "enrich",
+      "new_data": {
+        "status_update": "Aktiv i 20-21 land, flere store VC-runder, global markedsleder for overskuddsmat-apps",
+        "lesson_enrichment": "Two-sided plattform som løser både husholdningsøkonomi og klimanød: billig mat + konkret svinnreduksjon. Transaksjonsbasert modell gir skalerbar enhetøkonomi."
+      }
+    },
+    {
+      "name": "Matsentralen Norge",
+      "action": "enrich",
+      "new_data": {
+        "status_update": "Etablert som nasjonal institusjon, flere byer, veldedighetsdistribusjon av overskuddsmat",
+        "lesson_enrichment": "Non-profit redistribuering fungerer som sosialt sikkerhetsnett OG svinnreduksjon. Avhengig av donorlogistikk og regulatorisk aksept for datomerking."
+      }
+    },
+    {
+      "name": "AX Foundation Framtidens Fisk",
+      "action": "enrich",
+      "new_data": {
+        "status_update": "Fisk på mykoprotein-fôr lansert i Hemköp 2025. 25 aktører i konsortiet. Nordens første kommersielle salg av fisk oppdrettet på insekt/mykoprotein.",
+        "lesson_enrichment": "Konsortium-modell med 25 aktører fordeler CAPEX-risiko. Start i fôr/ingrediens-ledd der betalingsvilje og regulatorisk modenhet er høyere enn i konsumentprodukter. Stiftelsesform gir tålmodig kapital."
+      }
+    },
+    {
+      "name": "Den Magiske Fabrikken",
+      "action": "check_duplicate",
+      "note": "May already exist as 'Greve Biogass' in existing_loops or actor_cases — verify before adding"
+    }
+  ]
+}

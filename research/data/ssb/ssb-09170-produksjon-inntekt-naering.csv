@@ -1,0 +1,449 @@
+Year,NACECode,Industry,Prob,BNPB,LOKO,DRI
+1970,A64NP2X01,"Jordbruk, jakt og viltstell",5187,2818,670,1359
+1970,A64NP2X03A,Fiske og fangst,1581,1148,94,1045
+1970,A64NP2X03B,Akvakultur,0,0,0,0
+1970,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",11557,2520,1525,864
+1970,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,9333,1979,1117,803
+1970,nr2312,¬¬ Bearbeiding og konservering av fisk mv,2224,541,408,61
+1970,nr23_6,Totalt for næringer,153946,79451,43631,22481
+1970,pub2X03,"Fiske, fangst og akvakultur",1581,1148,94,1045
+1971,A64NP2X01,"Jordbruk, jakt og viltstell",5605,3136,655,1610
+1971,A64NP2X03A,Fiske og fangst,1742,1242,104,1044
+1971,A64NP2X03B,Akvakultur,10,7,2,5
+1971,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",12994,2870,1739,994
+1971,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,10246,2221,1275,888
+1971,nr2312,¬¬ Bearbeiding og konservering av fisk mv,2748,649,464,106
+1971,nr23_6,Totalt for næringer,172338,88373,50873,22096
+1971,pub2X03,"Fiske, fangst og akvakultur",1752,1249,106,1049
+1972,A64NP2X01,"Jordbruk, jakt og viltstell",5973,3311,628,1782
+1972,A64NP2X03A,Fiske og fangst,1768,1220,106,931
+1972,A64NP2X03B,Akvakultur,20,14,2,12
+1972,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",14080,3210,2031,1055
+1972,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,11324,2535,1489,1007
+1972,nr2312,¬¬ Bearbeiding og konservering av fisk mv,2756,675,542,48
+1972,nr23_6,Totalt for næringer,188466,98472,57171,24024
+1972,pub2X03,"Fiske, fangst og akvakultur",1788,1234,108,943
+1973,A64NP2X01,"Jordbruk, jakt og viltstell",6369,3470,703,1906
+1973,A64NP2X03A,Fiske og fangst,2130,1539,110,1186
+1973,A64NP2X03B,Akvakultur,21,14,3,8
+1973,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",15430,3417,2220,1036
+1973,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,12362,2662,1638,958
+1973,nr2312,¬¬ Bearbeiding og konservering av fisk mv,3068,755,582,78
+1973,nr23_6,Totalt for næringer,214059,112165,64463,28687
+1973,pub2X03,"Fiske, fangst og akvakultur",2151,1553,113,1194
+1974,A64NP2X01,"Jordbruk, jakt og viltstell",7234,3868,782,2307
+1974,A64NP2X03A,Fiske og fangst,2446,1627,122,1176
+1974,A64NP2X03B,Akvakultur,36,21,8,6
+1974,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",18187,3828,2541,1090
+1974,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,14388,2963,1875,1008
+1974,nr2312,¬¬ Bearbeiding og konservering av fisk mv,3799,865,666,82
+1974,nr23_6,Totalt for næringer,259860,131528,74195,34460
+1974,pub2X03,"Fiske, fangst og akvakultur",2482,1648,130,1182
+1975,A64NP2X01,"Jordbruk, jakt og viltstell",8321,4440,880,2833
+1975,A64NP2X03A,Fiske og fangst,2149,1223,140,703
+1975,A64NP2X03B,Akvakultur,39,12,12,-11
+1975,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",19729,4482,2873,1358
+1975,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,16129,3541,2195,1225
+1975,nr2312,¬¬ Bearbeiding og konservering av fisk mv,3600,941,678,133
+1975,nr23_6,Totalt for næringer,295835,150588,88252,36085
+1975,pub2X03,"Fiske, fangst og akvakultur",2188,1235,152,692
+1976,A64NP2X01,"Jordbruk, jakt og viltstell",9913,5338,955,3890
+1976,A64NP2X03A,Fiske og fangst,3006,1938,146,1640
+1976,A64NP2X03B,Akvakultur,83,35,17,3
+1976,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",22962,4856,3343,1268
+1976,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,18301,3653,2532,1007
+1976,nr2312,¬¬ Bearbeiding og konservering av fisk mv,4661,1203,811,261
+1976,nr23_6,Totalt for næringer,336847,171973,103130,37925
+1976,pub2X03,"Fiske, fangst og akvakultur",3089,1973,163,1643
+1977,A64NP2X01,"Jordbruk, jakt og viltstell",11705,6516,1112,5134
+1977,A64NP2X03A,Fiske og fangst,3323,2010,154,1652
+1977,A64NP2X03B,Akvakultur,105,30,21,-10
+1977,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",25973,4924,3729,1106
+1977,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,20730,3689,2820,927
+1977,nr2312,¬¬ Bearbeiding og konservering av fisk mv,5243,1235,909,179
+1977,nr23_6,Totalt for næringer,378877,193405,116996,40504
+1977,pub2X03,"Fiske, fangst og akvakultur",3428,2040,175,1642
+1978,A64NP2X01,"Jordbruk, jakt og viltstell",12917,7057,1289,5565
+1978,A64NP2X03A,Fiske og fangst,3224,1881,169,1370
+1978,A64NP2X03B,Akvakultur,171,33,33,-21
+1978,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",27494,4829,4124,771
+1978,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,22361,3529,3190,560
+1978,nr2312,¬¬ Bearbeiding og konservering av fisk mv,5133,1300,934,211
+1978,nr23_6,Totalt for næringer,413000,215158,128642,46724
+1978,pub2X03,"Fiske, fangst og akvakultur",3395,1914,202,1349
+1979,A64NP2X01,"Jordbruk, jakt og viltstell",13151,6630,1341,4936
+1979,A64NP2X03A,Fiske og fangst,3456,1975,185,1508
+1979,A64NP2X03B,Akvakultur,279,123,49,46
+1979,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",29400,5205,4294,979
+1979,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,24069,3851,3323,717
+1979,nr2312,¬¬ Bearbeiding og konservering av fisk mv,5331,1354,971,262
+1979,nr23_6,Totalt for næringer,461911,237766,134372,60041
+1979,pub2X03,"Fiske, fangst og akvakultur",3735,2098,234,1554
+1980,A64NP2X01,"Jordbruk, jakt og viltstell",14885,7474,1452,4950
+1980,A64NP2X03A,Fiske og fangst,3806,2337,207,2220
+1980,A64NP2X03B,Akvakultur,351,129,61,29
+1980,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",33515,5736,4685,1177
+1980,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,27668,4391,3654,1027
+1980,nr2312,¬¬ Bearbeiding og konservering av fisk mv,5847,1345,1031,150
+1980,nr23_6,Totalt for næringer,544463,283271,150999,83924
+1980,pub2X03,"Fiske, fangst og akvakultur",4157,2466,268,2249
+1981,A64NP2X01,"Jordbruk, jakt og viltstell",16730,8320,1563,5726
+1981,A64NP2X03A,Fiske og fangst,4326,2611,227,2765
+1981,A64NP2X03B,Akvakultur,517,168,106,16
+1981,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",38202,6497,5173,1331
+1981,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,31377,5060,4049,1159
+1981,nr2312,¬¬ Bearbeiding og konservering av fisk mv,6825,1437,1124,172
+1981,nr23_6,Totalt for næringer,622170,323212,171089,97801
+1981,pub2X03,"Fiske, fangst og akvakultur",4843,2779,333,2781
+1982,A64NP2X01,"Jordbruk, jakt og viltstell",18039,8878,1662,6941
+1982,A64NP2X03A,Fiske og fangst,4312,2695,243,2360
+1982,A64NP2X03B,Akvakultur,738,267,138,69
+1982,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",41517,7444,5633,2749
+1982,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,34442,5850,4398,2566
+1982,nr2312,¬¬ Bearbeiding og konservering av fisk mv,7075,1594,1235,183
+1982,nr23_6,Totalt for næringer,685350,358887,191024,107281
+1982,pub2X03,"Fiske, fangst og akvakultur",5050,2962,381,2429
+1983,A64NP2X01,"Jordbruk, jakt og viltstell",17982,8514,1799,5709
+1983,A64NP2X03A,Fiske og fangst,4609,2687,265,2289
+1983,A64NP2X03B,Akvakultur,1055,255,217,-40
+1983,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",44404,7950,6070,1654
+1983,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,36475,6181,4757,1402
+1983,nr2312,¬¬ Bearbeiding og konservering av fisk mv,7929,1769,1313,252
+1983,nr23_6,Totalt for næringer,753885,397880,206923,121694
+1983,pub2X03,"Fiske, fangst og akvakultur",5664,2942,482,2249
+1984,A64NP2X01,"Jordbruk, jakt og viltstell",20097,10100,1895,7048
+1984,A64NP2X03A,Fiske og fangst,4680,2840,279,2527
+1984,A64NP2X03B,Akvakultur,1405,364,277,-10
+1984,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",47892,8486,6493,1600
+1984,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,39604,6712,5111,1425
+1984,nr2312,¬¬ Bearbeiding og konservering av fisk mv,8288,1774,1382,175
+1984,nr23_6,Totalt for næringer,841749,449467,226093,147179
+1984,pub2X03,"Fiske, fangst og akvakultur",6085,3204,556,2517
+1985,A64NP2X01,"Jordbruk, jakt og viltstell",20990,10193,1959,7142
+1985,A64NP2X03A,Fiske og fangst,4920,2861,304,2571
+1985,A64NP2X03B,Akvakultur,2206,775,509,145
+1985,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",51694,9390,7011,1915
+1985,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,43224,7614,5593,1780
+1985,nr2312,¬¬ Bearbeiding og konservering av fisk mv,8470,1776,1418,135
+1985,nr23_6,Totalt for næringer,936307,493162,250740,157613
+1985,pub2X03,"Fiske, fangst og akvakultur",7126,3636,813,2716
+1986,A64NP2X01,"Jordbruk, jakt og viltstell",22779,11367,2106,7777
+1986,A64NP2X03A,Fiske og fangst,5532,3508,335,3093
+1986,A64NP2X03B,Akvakultur,2415,760,641,-69
+1986,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",57337,10224,7879,2012
+1986,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,47641,8214,6365,1761
+1986,nr2312,¬¬ Bearbeiding og konservering av fisk mv,9696,2010,1514,251
+1986,nr23_6,Totalt for næringer,977093,499319,282898,120959
+1986,pub2X03,"Fiske, fangst og akvakultur",7947,4268,976,3024
+1987,A64NP2X01,"Jordbruk, jakt og viltstell",24864,12198,2226,8361
+1987,A64NP2X03A,Fiske og fangst,6237,4060,358,3152
+1987,A64NP2X03B,Akvakultur,3239,1120,853,-97
+1987,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",62027,10926,8797,1783
+1987,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,52306,9108,7199,1889
+1987,nr2312,¬¬ Bearbeiding og konservering av fisk mv,9721,1818,1598,-106
+1987,nr23_6,Totalt for næringer,1084593,548564,318296,118847
+1987,pub2X03,"Fiske, fangst og akvakultur",9476,5180,1211,3055
+1988,A64NP2X01,"Jordbruk, jakt og viltstell",24948,11751,2343,7997
+1988,A64NP2X03A,Fiske og fangst,5405,3224,387,1710
+1988,A64NP2X03B,Akvakultur,5739,2098,1024,595
+1988,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",64963,11548,9274,1629
+1988,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,55695,9774,7696,1805
+1988,nr2312,¬¬ Bearbeiding og konservering av fisk mv,9268,1774,1578,-176
+1988,nr23_6,Totalt for næringer,1135569,578881,337887,118381
+1988,pub2X03,"Fiske, fangst og akvakultur",11144,5322,1411,2305
+1989,A64NP2X01,"Jordbruk, jakt og viltstell",26321,12829,2444,9351
+1989,A64NP2X03A,Fiske og fangst,5183,3123,394,1347
+1989,A64NP2X03B,Akvakultur,5823,1226,1086,-390
+1989,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",68123,11964,9416,2225
+1989,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,58789,10014,7860,2091
+1989,nr2312,¬¬ Bearbeiding og konservering av fisk mv,9334,1950,1556,134
+1989,nr23_6,Totalt for næringer,1196609,624949,342352,154919
+1989,pub2X03,"Fiske, fangst og akvakultur",11006,4349,1480,957
+1990,A64NP2X01,"Jordbruk, jakt og viltstell",28032,14234,2469,10949
+1990,A64NP2X03A,Fiske og fangst,5406,3199,390,1798
+1990,A64NP2X03B,Akvakultur,5006,1218,1027,-320
+1990,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",70440,11924,9696,1978
+1990,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,60830,9857,8108,1748
+1990,nr2312,¬¬ Bearbeiding og konservering av fisk mv,9610,2067,1588,230
+1990,nr23_6,Totalt for næringer,1264171,663620,355222,181491
+1990,pub2X03,"Fiske, fangst og akvakultur",10412,4417,1417,1478
+1991,A64NP2X01,"Jordbruk, jakt og viltstell",27436,13239,2417,11125
+1991,A64NP2X03A,Fiske og fangst,6399,4088,444,2530
+1991,A64NP2X03B,Akvakultur,4466,1031,878,-347
+1991,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",75351,13686,10196,2841
+1991,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,64015,11331,8459,2355
+1991,nr2312,¬¬ Bearbeiding og konservering av fisk mv,11336,2355,1737,486
+1991,nr23_6,Totalt for næringer,1316609,696285,372093,197689
+1991,pub2X03,"Fiske, fangst og akvakultur",10865,5119,1322,2183
+1992,A64NP2X01,"Jordbruk, jakt og viltstell",25916,12041,2314,10867
+1992,A64NP2X03A,Fiske og fangst,6268,3948,468,2239
+1992,A64NP2X03B,Akvakultur,4346,1005,852,-293
+1992,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",79311,16056,10536,4677
+1992,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,66684,13590,8714,4328
+1992,nr2312,¬¬ Bearbeiding og konservering av fisk mv,12627,2466,1822,349
+1992,nr23_6,Totalt for næringer,1343977,713191,386566,197341
+1992,pub2X03,"Fiske, fangst og akvakultur",10614,4953,1320,1946
+1993,A64NP2X01,"Jordbruk, jakt og viltstell",26302,12856,2490,11982
+1993,A64NP2X03A,Fiske og fangst,6279,3865,453,1837
+1993,A64NP2X03B,Akvakultur,6211,1804,814,578
+1993,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",79894,16667,11063,4514
+1993,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,66328,13867,8993,4161
+1993,nr2312,¬¬ Bearbeiding og konservering av fisk mv,13566,2800,2070,353
+1993,nr23_6,Totalt for næringer,1403966,746329,396476,216846
+1993,pub2X03,"Fiske, fangst og akvakultur",12490,5669,1267,2415
+1994,A64NP2X01,"Jordbruk, jakt og viltstell",24803,12043,2650,11358
+1994,A64NP2X03A,Fiske og fangst,7691,4928,498,2965
+1994,A64NP2X03B,Akvakultur,7987,2502,1009,1102
+1994,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",83494,16595,11797,3704
+1994,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,68124,13463,9554,3072
+1994,nr2312,¬¬ Bearbeiding og konservering av fisk mv,15370,3132,2243,632
+1994,nr23_6,Totalt for næringer,1482192,776744,416656,224166
+1994,pub2X03,"Fiske, fangst og akvakultur",15678,7430,1507,4067
+1995,A64NP2X01,"Jordbruk, jakt og viltstell",24446,11636,2741,10454
+1995,A64NP2X03A,Fiske og fangst,8430,5452,554,3609
+1995,A64NP2X03B,Akvakultur,8515,2383,1182,796
+1995,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",86284,17605,12346,4233
+1995,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,69586,14544,9944,3509
+1995,nr2312,¬¬ Bearbeiding og konservering av fisk mv,16698,3061,2402,724
+1995,nr23_6,Totalt for næringer,1580878,829224,442062,242950
+1995,pub2X03,"Fiske, fangst og akvakultur",16945,7835,1736,4405
+1996,A64NP2X01,"Jordbruk, jakt og viltstell",24863,11742,2932,10094
+1996,A64NP2X03A,Fiske og fangst,8909,5609,575,3796
+1996,A64NP2X03B,Akvakultur,8053,1395,1176,-213
+1996,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",89021,16773,13009,2867
+1996,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,71212,13224,10453,1559
+1996,nr2312,¬¬ Bearbeiding og konservering av fisk mv,17809,3549,2556,1308
+1996,nr23_6,Totalt for næringer,1723566,907982,473812,282178
+1996,pub2X03,"Fiske, fangst og akvakultur",16962,7004,1751,3583
+1997,A64NP2X01,"Jordbruk, jakt og viltstell",24676,11194,2966,9389
+1997,A64NP2X03A,Fiske og fangst,9442,5571,651,3634
+1997,A64NP2X03B,Akvakultur,9233,1948,1052,448
+1997,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",92716,17349,13652,1825
+1997,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,73367,13454,10822,1213
+1997,nr2312,¬¬ Bearbeiding og konservering av fisk mv,19349,3895,2830,612
+1997,nr23_6,Totalt for næringer,1882515,980621,513852,302264
+1997,pub2X03,"Fiske, fangst og akvakultur",18675,7519,1703,4082
+1998,A64NP2X01,"Jordbruk, jakt og viltstell",24308,10913,3105,9390
+1998,A64NP2X03A,Fiske og fangst,10766,7213,743,5134
+1998,A64NP2X03B,Akvakultur,10517,2467,1074,914
+1998,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",98973,18080,14331,1323
+1998,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,75722,13505,11316,299
+1998,nr2312,¬¬ Bearbeiding og konservering av fisk mv,23251,4575,3015,1024
+1998,nr23_6,Totalt for næringer,1973316,996172,565219,252460
+1998,pub2X03,"Fiske, fangst og akvakultur",21283,9680,1817,6048
+1999,A64NP2X01,"Jordbruk, jakt og viltstell",23565,10367,3284,8646
+1999,A64NP2X03A,Fiske og fangst,10238,6553,775,4306
+1999,A64NP2X03B,Akvakultur,11899,3477,1126,1833
+1999,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",104709,20234,15006,2500
+1999,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,81069,16255,11903,2225
+1999,nr2312,¬¬ Bearbeiding og konservering av fisk mv,23640,3979,3103,275
+1999,nr23_6,Totalt for næringer,2124016,1090685,603906,290255
+1999,pub2X03,"Fiske, fangst og akvakultur",22137,10030,1901,6139
+2000,A64NP2X01,"Jordbruk, jakt og viltstell",23108,9950,3346,8013
+2000,A64NP2X03A,Fiske og fangst,10024,5845,765,3416
+2000,A64NP2X03B,Akvakultur,15189,5687,1212,3893
+2000,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",107078,23625,15724,4876
+2000,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,82829,19146,12579,4234
+2000,nr2312,¬¬ Bearbeiding og konservering av fisk mv,24249,4479,3145,642
+2000,nr23_6,Totalt for næringer,2429141,1323917,638477,470278
+2000,pub2X03,"Fiske, fangst og akvakultur",25213,11532,1977,7309
+2001,A64NP2X01,"Jordbruk, jakt og viltstell",23254,9394,3303,7012
+2001,A64NP2X03A,Fiske og fangst,11779,7517,679,5209
+2001,A64NP2X03B,Akvakultur,10598,1678,1262,-255
+2001,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",115328,26195,16202,6933
+2001,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,89402,21148,12936,5795
+2001,nr2312,¬¬ Bearbeiding og konservering av fisk mv,25926,5047,3266,1138
+2001,nr23_6,Totalt for næringer,2552333,1378483,677273,475930
+2001,pub2X03,"Fiske, fangst og akvakultur",22377,9195,1941,4954
+2002,A64NP2X01,"Jordbruk, jakt og viltstell",23606,8919,3230,7313
+2002,A64NP2X03A,Fiske og fangst,11464,7143,663,4702
+2002,A64NP2X03B,Akvakultur,11004,983,1309,-1346
+2002,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",119748,27819,17192,7496
+2002,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,95145,23508,13848,7234
+2002,nr2312,¬¬ Bearbeiding og konservering av fisk mv,24603,4311,3344,262
+2002,nr23_6,Totalt for næringer,2566043,1376162,708749,434652
+2002,pub2X03,"Fiske, fangst og akvakultur",22468,8126,1972,3356
+2003,A64NP2X01,"Jordbruk, jakt og viltstell",24220,8951,3332,7543
+2003,A64NP2X03A,Fiske og fangst,9164,5104,570,2871
+2003,A64NP2X03B,Akvakultur,10550,951,1238,-1356
+2003,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",119008,29940,17366,8965
+2003,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,98163,25493,14222,8413
+2003,nr2312,¬¬ Bearbeiding og konservering av fisk mv,20845,4447,3144,552
+2003,nr23_6,Totalt for næringer,2651074,1438308,727346,473264
+2003,pub2X03,"Fiske, fangst og akvakultur",19714,6055,1808,1515
+2004,A64NP2X01,"Jordbruk, jakt og viltstell",24797,9771,3270,8238
+2004,A64NP2X03A,Fiske og fangst,10699,6264,521,4000
+2004,A64NP2X03B,Akvakultur,12584,2370,1239,301
+2004,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",125927,31361,17579,9755
+2004,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,102740,26046,14486,8330
+2004,nr2312,¬¬ Bearbeiding og konservering av fisk mv,23187,5315,3093,1425
+2004,nr23_6,Totalt for næringer,2894481,1591205,761783,580355
+2004,pub2X03,"Fiske, fangst og akvakultur",23283,8634,1760,4301
+2005,A64NP2X01,"Jordbruk, jakt og viltstell",24723,9214,3450,7263
+2005,A64NP2X03A,Fiske og fangst,11996,7284,512,5106
+2005,A64NP2X03B,Akvakultur,15613,4977,1320,2910
+2005,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",129997,32304,17921,10298
+2005,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,104925,26582,14998,8259
+2005,nr2312,¬¬ Bearbeiding og konservering av fisk mv,25072,5722,2923,2039
+2005,nr23_6,Totalt for næringer,3216244,1791921,808187,717681
+2005,pub2X03,"Fiske, fangst og akvakultur",27609,12261,1832,8016
+2006,A64NP2X01,"Jordbruk, jakt og viltstell",26303,10167,3704,7531
+2006,A64NP2X03A,Fiske og fangst,12020,7412,630,5352
+2006,A64NP2X03B,Akvakultur,21120,7077,1514,4835
+2006,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",135170,33916,18846,10945
+2006,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,104885,25915,15853,6723
+2006,nr2312,¬¬ Bearbeiding og konservering av fisk mv,30285,8001,2993,4222
+2006,nr23_6,Totalt for næringer,3618164,2004433,881238,833400
+2006,pub2X03,"Fiske, fangst og akvakultur",33140,14489,2144,10187
+2007,A64NP2X01,"Jordbruk, jakt og viltstell",26583,9644,3936,7114
+2007,A64NP2X03A,Fiske og fangst,12405,7507,748,5273
+2007,A64NP2X03B,Akvakultur,20507,4196,1713,1659
+2007,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",147668,33669,20156,8874
+2007,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,113524,27745,16991,6962
+2007,nr2312,¬¬ Bearbeiding og konservering av fisk mv,34144,5924,3165,1912
+2007,nr23_6,Totalt for næringer,3942964,2125827,974883,828682
+2007,pub2X03,"Fiske, fangst og akvakultur",32912,11703,2461,6932
+2008,A64NP2X01,"Jordbruk, jakt og viltstell",28789,10386,4100,7512
+2008,A64NP2X03A,Fiske og fangst,12544,7521,870,5396
+2008,A64NP2X03B,Akvakultur,21219,3839,1951,962
+2008,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",150618,32427,21112,6351
+2008,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,116752,27747,17827,5885
+2008,nr2312,¬¬ Bearbeiding og konservering av fisk mv,33866,4680,3285,466
+2008,nr23_6,Totalt for næringer,4403916,2401972,1069735,973124
+2008,pub2X03,"Fiske, fangst og akvakultur",33763,11360,2821,6358
+2009,A64NP2X01,"Jordbruk, jakt og viltstell",29528,10822,4078,7693
+2009,A64NP2X03A,Fiske og fangst,11662,6961,936,4720
+2009,A64NP2X03B,Akvakultur,27297,6845,2183,3073
+2009,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",149217,31303,21604,4203
+2009,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,113802,25778,18009,3247
+2009,nr2312,¬¬ Bearbeiding og konservering av fisk mv,35415,5525,3595,956
+2009,nr23_6,Totalt for næringer,4112837,2226967,1102392,737795
+2009,pub2X03,"Fiske, fangst og akvakultur",38959,13806,3119,7793
+2010,A64NP2X01,"Jordbruk, jakt og viltstell",30735,11450,4396,8527
+2010,A64NP2X03A,Fiske og fangst,13744,8624,1006,6468
+2010,A64NP2X03B,Akvakultur,34584,13096,2768,9153
+2010,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",151114,34647,21651,7493
+2010,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,115067,28221,17855,5789
+2010,nr2312,¬¬ Bearbeiding og konservering av fisk mv,36047,6426,3796,1704
+2010,nr23_6,Totalt for næringer,4306039,2376786,1138395,835224
+2010,pub2X03,"Fiske, fangst og akvakultur",48328,21720,3774,15621
+2011,A64NP2X01,"Jordbruk, jakt og viltstell",30511,10695,4653,7536
+2011,A64NP2X03A,Fiske og fangst,16511,10865,1101,8760
+2011,A64NP2X03B,Akvakultur,34251,8537,3052,4134
+2011,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",159301,35251,22605,6703
+2011,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,120931,28793,18555,5374
+2011,nr2312,¬¬ Bearbeiding og konservering av fisk mv,38370,6458,4050,1329
+2011,nr23_6,Totalt for næringer,4653988,2579572,1210927,942060
+2011,pub2X03,"Fiske, fangst og akvakultur",50762,19402,4153,12894
+2012,A64NP2X01,"Jordbruk, jakt og viltstell",32326,11252,4841,8100
+2012,A64NP2X03A,Fiske og fangst,14627,8761,1202,6455
+2012,A64NP2X03B,Akvakultur,35522,6043,3112,1363
+2012,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",164824,36175,24012,5821
+2012,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,127157,29383,19645,4548
+2012,nr2312,¬¬ Bearbeiding og konservering av fisk mv,37667,6792,4367,1273
+2012,nr23_6,Totalt for næringer,4938804,2745949,1292990,1001948
+2012,pub2X03,"Fiske, fangst og akvakultur",50149,14804,4314,7818
+2013,A64NP2X01,"Jordbruk, jakt og viltstell",32823,10793,4998,7687
+2013,A64NP2X03A,Fiske og fangst,13066,7411,1214,5137
+2013,A64NP2X03B,Akvakultur,45750,14619,3347,9679
+2013,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",170548,37700,24861,6140
+2013,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,130411,28939,20188,3207
+2013,nr2312,¬¬ Bearbeiding og konservering av fisk mv,40137,8761,4673,2933
+2013,nr23_6,Totalt for næringer,5151958,2851403,1368056,1006322
+2013,pub2X03,"Fiske, fangst og akvakultur",58816,22030,4561,14816
+2014,A64NP2X01,"Jordbruk, jakt og viltstell",34612,11726,5084,8432
+2014,A64NP2X03A,Fiske og fangst,14913,8866,1255,6145
+2014,A64NP2X03B,Akvakultur,50389,16673,3838,11131
+2014,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",188489,40463,25567,7900
+2014,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,139765,30649,20506,4454
+2014,nr2312,¬¬ Bearbeiding og konservering av fisk mv,48724,9814,5061,3446
+2014,nr23_6,Totalt for næringer,5344923,2918347,1423126,976997
+2014,pub2X03,"Fiske, fangst og akvakultur",65302,25539,5093,17276
+2015,A64NP2X01,"Jordbruk, jakt og viltstell",37201,13521,5259,9844
+2015,A64NP2X03A,Fiske og fangst,17482,11296,1453,8263
+2015,A64NP2X03B,Akvakultur,54456,14705,4155,8616
+2015,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",205516,41808,26180,8212
+2015,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,149270,32671,21021,5626
+2015,nr2312,¬¬ Bearbeiding og konservering av fisk mv,56246,9137,5159,2586
+2015,nr23_6,Totalt for næringer,5347063,2888741,1465639,869448
+2015,pub2X03,"Fiske, fangst og akvakultur",71938,26001,5608,16879
+2016,A64NP2X01,"Jordbruk, jakt og viltstell",38698,14338,5405,10087
+2016,A64NP2X03A,Fiske og fangst,19335,12967,1503,9802
+2016,A64NP2X03B,Akvakultur,73391,29227,4709,22427
+2016,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",227043,44364,27039,9731
+2016,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,156364,35150,21656,7345
+2016,nr2312,¬¬ Bearbeiding og konservering av fisk mv,70679,9214,5383,2386
+2016,nr23_6,Totalt for næringer,5311135,2861124,1490845,802531
+2016,pub2X03,"Fiske, fangst og akvakultur",92726,42194,6212,32229
+2017,A64NP2X01,"Jordbruk, jakt og viltstell",38662,13789,5586,9046
+2017,A64NP2X03A,Fiske og fangst,19310,12431,1568,9065
+2017,A64NP2X03B,Akvakultur,78181,30048,5420,22139
+2017,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",230412,47332,27848,11477
+2017,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,156256,35281,22164,6708
+2017,nr2312,¬¬ Bearbeiding og konservering av fisk mv,74156,12051,5684,4769
+2017,nr23_6,Totalt for næringer,5612413,3062742,1540826,934165
+2017,pub2X03,"Fiske, fangst og akvakultur",97491,42479,6988,31204
+2018,A64NP2X01,"Jordbruk, jakt og viltstell",37661,11829,5773,7221
+2018,A64NP2X03A,Fiske og fangst,21554,13521,1666,9841
+2018,A64NP2X03B,Akvakultur,81559,30386,6021,21148
+2018,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",246231,49008,28665,11600
+2018,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,164405,35348,22662,5821
+2018,nr2312,¬¬ Bearbeiding og konservering av fisk mv,81826,13660,6003,5779
+2018,nr23_6,Totalt for næringer,6058444,3304588,1617538,1064478
+2018,pub2X03,"Fiske, fangst og akvakultur",103113,43907,7687,30989
+2019,A64NP2X01,"Jordbruk, jakt og viltstell",39033,12740,5974,8617
+2019,A64NP2X03A,Fiske og fangst,22325,14055,1801,10237
+2019,A64NP2X03B,Akvakultur,87379,27492,6611,17115
+2019,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",258211,51924,29617,13023
+2019,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,169536,37144,23324,6715
+2019,nr2312,¬¬ Bearbeiding og konservering av fisk mv,88675,14780,6293,6308
+2019,nr23_6,Totalt for næringer,6231026,3334714,1709791,963342
+2019,pub2X03,"Fiske, fangst og akvakultur",109704,41547,8412,27352
+2020,A64NP2X01,"Jordbruk, jakt og viltstell",41408,14261,6069,10428
+2020,A64NP2X03A,Fiske og fangst,23520,15074,1886,10931
+2020,A64NP2X03B,Akvakultur,89055,25707,7398,13934
+2020,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",271970,51400,30124,12092
+2020,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,183281,39409,23390,9189
+2020,nr2312,¬¬ Bearbeiding og konservering av fisk mv,88689,11991,6734,2903
+2020,nr23_6,Totalt for næringer,6048018,3195302,1717410,784512
+2020,pub2X03,"Fiske, fangst og akvakultur",112575,40781,9284,24865
+2021,A64NP2X01,"Jordbruk, jakt og viltstell",44178,14925,6370,10480
+2021,A64NP2X03A,Fiske og fangst,24564,15439,1958,11486
+2021,A64NP2X03B,Akvakultur,96607,29008,8325,15706
+2021,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",291308,49050,32176,7348
+2021,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,197166,40037,24826,8430
+2021,nr2312,¬¬ Bearbeiding og konservering av fisk mv,94142,9013,7350,-1082
+2021,nr23_6,Totalt for næringer,7209413,4051026,1823167,1471980
+2021,pub2X03,"Fiske, fangst og akvakultur",121171,44447,10283,27192
+2022,A64NP2X01,"Jordbruk, jakt og viltstell",48985,16185,6783,13883
+2022,A64NP2X03A,Fiske og fangst,30195,19418,2209,14497
+2022,A64NP2X03B,Akvakultur,129993,47679,9571,32220
+2022,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",333201,53764,33525,10470
+2022,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,217850,39432,25603,7043
+2022,nr2312,¬¬ Bearbeiding og konservering av fisk mv,115351,14332,7922,3427
+2022,nr23_6,Totalt for næringer,9105030,5510086,1977308,2713422
+2022,pub2X03,"Fiske, fangst og akvakultur",160188,67097,11780,46717
+2023,A64NP2X01,"Jordbruk, jakt og viltstell",48279,13745,7158,12337
+2023,A64NP2X03A,Fiske og fangst,31625,20031,2441,14854
+2023,A64NP2X03B,Akvakultur,142296,46260,10872,28497
+2023,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",360484,58954,35535,12573
+2023,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,226547,41451,26775,7115
+2023,nr2312,¬¬ Bearbeiding og konservering av fisk mv,133937,17503,8760,5458
+2023,nr23_6,Totalt for næringer,8648130,4852002,2122968,1845050
+2023,pub2X03,"Fiske, fangst og akvakultur",173921,66291,13313,43351
+2024,A64NP2X01,"Jordbruk, jakt og viltstell",0,0,,
+2024,A64NP2X03A,Fiske og fangst,0,0,,
+2024,A64NP2X03B,Akvakultur,0,0,,
+2024,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",0,0,,
+2024,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,235274,45562,28464,9625
+2024,nr2312,¬¬ Bearbeiding og konservering av fisk mv,142108,16673,9529,3386
+2024,nr23_6,Totalt for næringer,8852568,4908169,2251709,1714278
+2024,pub2X03,"Fiske, fangst og akvakultur",176269,63421,14576,38369
+2025,A64NP2X01,"Jordbruk, jakt og viltstell",0,0,,
+2025,A64NP2X03A,Fiske og fangst,0,0,,
+2025,A64NP2X03B,Akvakultur,0,0,,
+2025,A64NP2X10_12,"Nærings-, drikkevare- og tobakksindustri",0,0,,
+2025,nr2310,¬¬ Næringsmidler u/fiskeforedling  inkl. drikkevarer og tobakk,244129,46152,29929,8617
+2025,nr2312,¬¬ Bearbeiding og konservering av fisk mv,153125,13118,10308,-1245
+2025,nr23_6,Totalt for næringer,9150398,5029177,2359282,1683591
+2025,pub2X03,"Fiske, fangst og akvakultur",186094,56890,15706,30186

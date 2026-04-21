@@ -35,8 +35,16 @@ Food Systems 2026 is a knowledge base and analysis app for Norwegian and Nordic 
 - `research`: source corpus, evidence pack, analysis, and visualizations
 - `public`: static assets
 
+## Research Rounds
+
+`/forskningsrunder` viser forskningsrunder med tilhørende innsikter, kilder, aktører og nedlastingsstatus. Aktive spor:
+- **Forskningsrunde 2026-04-20** (Food Research Process) — 8 dybderapporter: eiendom, fryktkultur, HORECA, alt-distribusjon, failed entrants, benchmarks, framstillinger, sirkulær innovasjon
+- **Sirkulær-konkurser 2023-2026** — Rest, Enorm, Mycorena, DUG, Stockeld, Hooked, Simple Feast, Infarm, Ljusgårda, Billund Aquaculture
+
+Hver runde har en egen backlog-CSV under `research/evidence-pack/` som sporer nedlastingsstatus per kilde.
+
 ## Read Next
 
 - Use [Database Schema](database.md) for model-level work
 - Use [Data Imports](data-imports.md) for import scripts and data-loading tasks
-- Use [Research Workflows](research-workflows.md) for graph queries and external-source research
+- Use [Research Workflows](research-workflows.md) for graph queries, backlog-CSV-er, og URL-manifest
