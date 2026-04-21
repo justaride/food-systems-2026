@@ -4,6 +4,11 @@ import Link from 'next/link'
 import { useDeferredValue, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import {
+  categorizeRole,
+  normalizeRoleLabel,
+  ROLE_CATEGORIES,
+} from '@/lib/role-category'
 
 type PersonRole = {
   companyId: string | null
@@ -133,12 +138,20 @@ function PersonCard({ person }: { person: PersonProfileRow }) {
       </div>
 
       <div className="mt-3 space-y-1.5">
-        {person.roles.slice(0, 3).map((role, i) => (
-          <div key={i} className="flex items-center justify-between text-xs">
-            <span className="text-stone-700 truncate mr-2">{role.companyName}</span>
-            <span className="text-stone-400 shrink-0">{role.role}</span>
-          </div>
-        ))}
+        {person.roles.slice(0, 3).map((role, i) => {
+          const meta = ROLE_CATEGORIES[categorizeRole(role.role)]
+          return (
+            <div key={i} className="flex items-center justify-between gap-2 text-xs">
+              <span className="text-stone-700 truncate">{role.companyName}</span>
+              <span
+                className={`shrink-0 px-1.5 py-0.5 rounded border text-[10px] ${meta.badgeClass}`}
+                title={normalizeRoleLabel(role.role)}
+              >
+                {meta.label}
+              </span>
+            </div>
+          )
+        })}
         {person.roles.length > 3 && (
           <p className="text-xs text-stone-400">+{person.roles.length - 3} flere</p>
         )}

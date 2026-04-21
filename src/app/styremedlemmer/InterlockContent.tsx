@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
@@ -7,6 +8,7 @@ import { InterlockGraph } from '@/components/charts/InterlockGraph'
 import type { InterlockGraphData } from '@/lib/queries/interlocks'
 import {
   categorizeRole,
+  normalizeRoleLabel,
   ROLE_CATEGORIES,
   ROLE_CATEGORY_ORDER,
   type RoleCategory,
@@ -17,12 +19,13 @@ type ViewMode = 'graph' | 'table'
 function RoleBadge({ role }: { role: string }) {
   const cat = categorizeRole(role)
   const meta = ROLE_CATEGORIES[cat]
+  const pretty = normalizeRoleLabel(role)
   return (
     <span
       className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[11px] font-medium ${meta.badgeClass}`}
-      title={meta.label}
+      title={`${meta.label}${pretty && pretty.toLowerCase() !== meta.label.toLowerCase() ? ` — ${pretty}` : ''}`}
     >
-      {role}
+      {pretty || meta.label}
     </span>
   )
 }
@@ -279,9 +282,12 @@ export function InterlockContent({ data }: { data: InterlockGraphData }) {
             {selectedPerson && (
               <Card>
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-sm font-semibold text-stone-900">
-                    {selectedPerson.personName}
-                  </h3>
+                  <Link
+                    href={`/personer/${selectedPerson.personKey}`}
+                    className="text-sm font-semibold text-emerald-700 hover:underline"
+                  >
+                    {selectedPerson.personName} &rarr;
+                  </Link>
                   <button
                     onClick={() => setSelectedNodeId(null)}
                     className="text-xs text-stone-400 hover:text-stone-600"
@@ -368,7 +374,12 @@ export function InterlockContent({ data }: { data: InterlockGraphData }) {
             .sort((a, b) => b.positions.length - a.positions.length)
             .map(person => (
               <Card key={person.personKey}>
-                <h3 className="text-sm font-semibold text-stone-900">{person.personName}</h3>
+                <Link
+                  href={`/personer/${person.personKey}`}
+                  className="text-sm font-semibold text-emerald-700 hover:underline"
+                >
+                  {person.personName}
+                </Link>
                 <p className="text-xs text-stone-400 mt-0.5 mb-3">
                   {person.positions.length} styreverv
                 </p>
