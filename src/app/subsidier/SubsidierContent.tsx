@@ -2,7 +2,13 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
+import dynamic from 'next/dynamic'
 import { Card } from '@/components/ui/Card'
+
+const KommuneChoropleth = dynamic(
+  () => import('@/components/map/KommuneChoropleth').then((m) => m.KommuneChoropleth),
+  { ssr: false, loading: () => <div className="h-[560px] w-full rounded-lg bg-stone-50 border border-stone-200 flex items-center justify-center text-sm text-stone-400">Laster kart…</div> }
+)
 
 type KommuneRow = {
   kommuneNr: string
@@ -74,7 +80,13 @@ export function SubsidierContent({
   totalRows,
   byType,
 }: Props) {
-  const [tab, setTab] = useState<'kommuner' | 'ordninger' | 'mottakere'>('kommuner')
+  const [tab, setTab] = useState<'kart' | 'kommuner' | 'ordninger' | 'mottakere'>('kart')
+
+  const kommuneData = useMemo(() => {
+    const map: Record<string, number> = {}
+    for (const k of byKommune) map[k.kommuneNr] = k.totalNok
+    return map
+  }, [byKommune])
 
   const top10Kommuner = useMemo(
     () => byKommune.slice(0, 50),
@@ -140,8 +152,8 @@ export function SubsidierContent({
       )}
 
       <Card>
-        <div className="inline-flex rounded-lg border border-stone-200 bg-white p-0.5">
-          {(['kommuner', 'ordninger', 'mottakere'] as const).map(t => (
+        <div className="inline-flex rounded-lg border border-stone-200 bg-white p-0.5 flex-wrap">
+          {(['kart', 'kommuner', 'ordninger', 'mottakere'] as const).map(t => (
             <button
               key={t}
               onClick={() => setTab(t)}
@@ -151,15 +163,32 @@ export function SubsidierContent({
                   : 'text-stone-500 hover:text-stone-800'
               }`}
             >
-              {t === 'kommuner'
-                ? `Kommuner (${byKommune.length})`
-                : t === 'ordninger'
-                  ? `Ordninger (${byScheme.length})`
-                  : `Topp mottakere (${topRecipients.length})`}
+              {t === 'kart'
+                ? 'Kommunekart'
+                : t === 'kommuner'
+                  ? `Kommuner (${byKommune.length})`
+                  : t === 'ordninger'
+                    ? `Ordninger (${byScheme.length})`
+                    : `Topp mottakere (${topRecipients.length})`}
             </button>
           ))}
         </div>
       </Card>
+
+      {tab === 'kart' && (
+        <Card title="Produksjonstilskudd per kommune (2025)">
+          <KommuneChoropleth
+            data={kommuneData}
+            valueLabel="Totalt tilskudd"
+            formatValue={(v) => `${formatNok(v)} NOK`}
+          />
+          <div className="mt-3 text-xs text-stone-400">
+            Kilde: Landbruksdirektoratet, produksjons- og avløsertilskudd 2025 (NLOD).
+            Kommuner uten data vises i grått. Kvintilgradient — mørkere grønn =
+            høyere totalsum.
+          </div>
+        </Card>
+      )}
 
       {tab === 'kommuner' && (
         <Card title="Tilskudd per kommune (topp 50)">

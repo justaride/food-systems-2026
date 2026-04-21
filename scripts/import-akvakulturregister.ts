@@ -7,26 +7,55 @@ const prisma = new PrismaClient({ adapter })
 
 const BASE = 'https://api.fiskeridir.no/pub-aqua/api/v1'
 
-type SiteConnection = {
-  legalEntity?: { openNr?: string; name?: string }
-  license?: { licenseNr?: string }
+type SiteSummary = {
+  siteId?: number
+  siteNr?: string
+  siteName?: string
+  status?: string
+  statusValue?: string
+  siteCapacity?: number
+  siteCapacityUnitType?: string
+  sitePlacement?: {
+    municipalityCode?: string
+    municipalityName?: string
+    countyCode?: string
+    countyName?: string
+  }
+  connections?: Array<{
+    openLegalEntityNr?: string
+    productionStageValue?: string
+  }>
 }
 
-type Site = {
+type SiteDetail = {
   siteId: number
-  siteNr?: number | string
+  siteNr: number
   name?: string
   placementType?: string
+  placementTypeValue?: string
   waterType?: string
+  waterTypeValue?: string
   latitude?: number
   longitude?: number
   capacity?: number
+  tempCapacity?: number
   capacityUnitType?: string
-  placement?: { municipality?: string; municipalityNo?: string; county?: string }
-  speciesTypes?: Array<{ name?: string; code?: string }>
-  speciesLimitations?: unknown
-  connections?: SiteConnection[]
-  status?: string
+  placement?: {
+    municipalityCode?: string
+    municipalityName?: string
+    countyCode?: string
+    countyName?: string
+  }
+  speciesType?: string | null
+  speciesTypeValue?: string | null
+  speciesLimitations?: Array<{ name?: string }>
+  connections?: Array<{
+    licenseNr?: string
+    openLegalEntityNr?: string
+    productionStageValue?: string
+    statusValue?: string
+  }>
+  statusValue?: string
 }
 
 async function fetchJson<T>(url: string): Promise<T> {
@@ -35,13 +64,13 @@ async function fetchJson<T>(url: string): Promise<T> {
   return (await res.json()) as T
 }
 
-async function fetchSitesByOrgNr(orgNr: string): Promise<Site[]> {
+async function fetchSitesByOrgNr(orgNr: string): Promise<SiteSummary[]> {
   const url = `${BASE}/entities/sites-by-entity-nr/${orgNr}`
   try {
-    const data = await fetchJson<Site[] | { items?: Site[] }>(url)
+    const data = await fetchJson<SiteSummary[] | { items?: SiteSummary[] }>(url)
     if (Array.isArray(data)) return data
-    if (data && Array.isArray((data as { items?: Site[] }).items)) {
-      return (data as { items: Site[] }).items
+    if (data && Array.isArray((data as { items?: SiteSummary[] }).items)) {
+      return (data as { items: SiteSummary[] }).items
     }
     return []
   } catch (err) {
@@ -50,54 +79,69 @@ async function fetchSitesByOrgNr(orgNr: string): Promise<Site[]> {
   }
 }
 
-function localityNumber(site: Site): string {
-  return String(site.siteNr ?? site.siteId)
+async function fetchSiteDetail(siteNr: string): Promise<SiteDetail | null> {
+  try {
+    return await fetchJson<SiteDetail>(`${BASE}/sites/${siteNr}`)
+  } catch {
+    return null
+  }
 }
 
-async function upsertSite(site: Site, companyId: string, source: string) {
-  const species = (site.speciesTypes ?? [])
-    .map(s => s.name || s.code)
+function localityNumber(summary: SiteSummary): string {
+  return String(summary.siteNr ?? summary.siteId)
+}
+
+async function upsertSite(
+  summary: SiteSummary,
+  detail: SiteDetail | null,
+  companyId: string,
+  source: string
+) {
+  const locNr = localityNumber(summary)
+  const species = (detail?.speciesLimitations ?? [])
+    .map(s => s?.name)
     .filter((x): x is string => Boolean(x))
-  const locNr = localityNumber(site)
+  if (detail?.speciesTypeValue) species.push(detail.speciesTypeValue)
+
+  const placement = detail?.placementTypeValue ?? summary.connections?.[0]?.productionStageValue
+  const waterType = detail?.waterTypeValue ?? null
+  const capacity = detail?.capacity ?? summary.siteCapacity ?? null
+  const capacityUnit = detail?.capacityUnitType ?? summary.siteCapacityUnitType ?? 'TN'
+  const siteName = detail?.name ?? summary.siteName ?? null
+  const municipality = detail?.placement?.municipalityName ?? summary.sitePlacement?.municipalityName
+  const municipalityNo = detail?.placement?.municipalityCode ?? summary.sitePlacement?.municipalityCode
+  const county = detail?.placement?.countyName ?? summary.sitePlacement?.countyName
+  const licenseStatus = (detail?.statusValue ?? summary.statusValue ?? summary.status ?? '').toLowerCase() || null
+
+  const payload = {
+    siteName,
+    municipality,
+    municipalityNo,
+    county,
+    country: 'NO',
+    lat: detail?.latitude ?? null,
+    lng: detail?.longitude ?? null,
+    licenseStatus,
+    placement,
+    waterType,
+    capacityTonnes: capacity ? Number(capacity) : null,
+    capacityUnit,
+    species: Array.from(new Set(species)),
+    productionTypes: Array.from(
+      new Set(
+        (summary.connections ?? [])
+          .map(c => c.productionStageValue)
+          .filter((x): x is string => Boolean(x))
+      )
+    ),
+    source,
+    metadata: { summary: JSON.parse(JSON.stringify(summary)), detail: detail ? JSON.parse(JSON.stringify(detail)) : null } as any,
+  }
+
   await prisma.aquacultureSite.upsert({
     where: { localityNumber: locNr },
-    create: {
-      localityNumber: locNr,
-      companyId,
-      siteName: site.name,
-      municipality: site.placement?.municipality,
-      municipalityNo: site.placement?.municipalityNo,
-      county: site.placement?.county,
-      country: 'NO',
-      lat: site.latitude,
-      lng: site.longitude,
-      licenseStatus: site.status?.toLowerCase(),
-      placement: site.placementType,
-      waterType: site.waterType,
-      capacityTonnes: site.capacity,
-      capacityUnit: site.capacityUnitType ?? 'MTB',
-      species,
-      productionTypes: [],
-      source,
-      metadata: { raw: JSON.parse(JSON.stringify(site)) } as any,
-    },
-    update: {
-      companyId,
-      siteName: site.name,
-      municipality: site.placement?.municipality,
-      municipalityNo: site.placement?.municipalityNo,
-      county: site.placement?.county,
-      lat: site.latitude,
-      lng: site.longitude,
-      licenseStatus: site.status?.toLowerCase(),
-      placement: site.placementType,
-      waterType: site.waterType,
-      capacityTonnes: site.capacity,
-      capacityUnit: site.capacityUnitType ?? 'MTB',
-      species,
-      source,
-      metadata: { raw: JSON.parse(JSON.stringify(site)) } as any,
-    },
+    create: { localityNumber: locNr, companyId, ...payload },
+    update: { companyId, ...payload },
   })
 }
 
@@ -127,12 +171,14 @@ async function main() {
 
     if (dryRun) continue
 
-    for (const site of sites) {
+    for (const summary of sites) {
+      const siteNr = localityNumber(summary)
+      const detail = await fetchSiteDetail(siteNr)
       try {
-        await upsertSite(site, company.id, 'Fiskeridirektoratet pub-aqua')
+        await upsertSite(summary, detail, company.id, 'Fiskeridirektoratet pub-aqua')
       } catch (err) {
         console.warn(
-          `[akvakultur] upsert failed for site ${localityNumber(site)}: ${(err as Error).message}`
+          `[akvakultur] upsert failed for site ${siteNr}: ${(err as Error).message}`
         )
       }
     }

@@ -1,9 +1,39 @@
 'use client'
 
+import Link from 'next/link'
 import { useState, useMemo } from 'react'
 import { Card } from '@/components/ui/Card'
 import { SupplyChainGraph } from '@/components/charts/SupplyChainGraph'
-import type { SupplyChainGraphData } from '@/lib/queries/supply-chain'
+import type {
+  SupplyChainGraphData,
+  PrimaryDeliveriesData,
+} from '@/lib/queries/supply-chain'
+
+const COMMODITY_LABELS: Record<string, string> = {
+  'melk-ku': 'Kumelk',
+  'melk-geit': 'Geitemelk',
+  egg: 'Egg',
+  'korn-bygg': 'Bygg',
+  'korn-havre': 'Havre',
+  'korn-hvete': 'Hvete',
+  'korn-rug': 'Rug',
+  'korn-erter': 'Erter',
+  oljefro: 'Oljefrø',
+  'slakt-storfe': 'Storfeslakt',
+  'slakt-svin': 'Svineslakt',
+  'slakt-sau': 'Sau/lam',
+  'slakt-fjorfe': 'Fjørfeslakt',
+  ull: 'Ull',
+}
+
+function formatQuantity(q: number, unit: string): string {
+  if (unit === 'liter' && q >= 1e9) return `${(q / 1e9).toFixed(2)} mrd L`
+  if (unit === 'liter' && q >= 1e6) return `${(q / 1e6).toFixed(1)} mill L`
+  if (unit === 'kg' && q >= 1e9) return `${(q / 1e9).toFixed(2)} mrd kg`
+  if (unit === 'kg' && q >= 1e6) return `${(q / 1e6).toFixed(1)} mill kg`
+  if (q >= 1e3) return `${Math.round(q / 1e3).toLocaleString('no')}k ${unit}`
+  return `${Math.round(q).toLocaleString('no')} ${unit}`
+}
 
 const STAGE_COLORS: Record<string, string> = {
   retail: '#e11d48',
@@ -43,7 +73,13 @@ const RELATIONSHIP_LABELS: Record<string, string> = {
   'joint-venture': 'Joint venture',
 }
 
-export function ForsyningskjedeContent({ data }: { data: SupplyChainGraphData }) {
+export function ForsyningskjedeContent({
+  data,
+  deliveries,
+}: {
+  data: SupplyChainGraphData
+  deliveries: PrimaryDeliveriesData
+}) {
   const [activeStages, setActiveStages] = useState<Set<string>>(() => {
     const stages = new Set<string>()
     for (const n of data.nodes) {
@@ -137,9 +173,70 @@ export function ForsyningskjedeContent({ data }: { data: SupplyChainGraphData })
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Forsyningskjede</h1>
         <p className="text-sm text-stone-500 mt-1">
-          Leverandørkjeder og forretningsrelasjoner
+          Leverandørkjeder, primærleveranser og forretningsrelasjoner
         </p>
       </div>
+
+      {deliveries.totalDeliveryRows > 0 && (
+        <Card title={`Primærleveranser — ${deliveries.totalSuppliers.toLocaleString('no')} bønder leverer til ${deliveries.byCommodity.reduce((acc, c) => acc + c.buyers.length, 0)} avtagere`}>
+          <p className="text-xs text-stone-500 mb-4">
+            Aggregert levering fra jordbruksforetak til grossister og foredlingsbedrifter
+            for melk, egg, korn, slakt og ull (Landbruksdirektoratet, siste
+            tilgjengelige år per varekategori).
+          </p>
+          <div className="space-y-4">
+            {deliveries.byCommodity.map(c => {
+              const maxQty = c.buyers[0]?.quantity ?? 1
+              const labels = COMMODITY_LABELS[c.commodity] ?? c.commodity
+              return (
+                <div key={c.commodity}>
+                  <div className="flex items-baseline justify-between mb-1.5">
+                    <div className="text-sm font-medium text-stone-800">{labels}</div>
+                    <div className="text-xs text-stone-500">
+                      {formatQuantity(c.totalQuantity, c.unit)} · {c.supplierCount.toLocaleString('no')} leverandør-relasjoner
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    {c.buyers.slice(0, 5).map(b => {
+                      const pct = (b.quantity / maxQty) * 100
+                      return (
+                        <div key={`${c.commodity}-${b.buyerId ?? b.buyerName}`} className="flex items-center gap-2 text-xs">
+                          <div className="w-40 truncate text-stone-600">
+                            {b.buyerId ? (
+                              <Link href={`/selskap/${b.buyerId}`} className="hover:text-emerald-700">
+                                {b.buyerName ?? 'Ukjent'}
+                              </Link>
+                            ) : (
+                              b.buyerName ?? 'Ukjent avtager'
+                            )}
+                          </div>
+                          <div className="flex-1 relative h-5 bg-stone-50 rounded border border-stone-100">
+                            <div
+                              className="absolute inset-y-0 left-0 bg-sky-100 border-r border-sky-400 rounded"
+                              style={{ width: `${pct}%` }}
+                            />
+                            <div className="absolute inset-0 flex items-center px-2 text-[11px] text-stone-700">
+                              <span className="tabular-nums">{formatQuantity(b.quantity, c.unit)}</span>
+                              <span className="text-stone-400 ml-2">
+                                · {b.supplierCount.toLocaleString('no')} leverandører
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+          <div className="mt-4 pt-3 border-t border-stone-100 text-xs text-stone-400">
+            Kilde: Landbruksdirektoratet leveransedata (NLOD). Merk at "leverandør-relasjoner"
+            teller foretak-år-par — ett foretak som leverer fem forskjellige korntyper
+            telles fem ganger innen korn.
+          </div>
+        </Card>
+      )}
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <Card>

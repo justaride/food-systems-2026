@@ -223,6 +223,15 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
           if (hubData) setLogisticsHubs(parseLogisticsHubs(hubData))
           if (farmData) setFarms(parseFarms(farmData))
           setIsLoading(false)
+
+          if (country === 'no') {
+            fetch('/api/aquaculture-sites')
+              .then(r => (r.ok ? r.json() : null))
+              .then((dbSites: AquacultureSite[] | null) => {
+                if (dbSites && dbSites.length > 0) setAquacultureSites(dbSites)
+              })
+              .catch(err => console.warn('DB aquaculture fetch failed, kept static:', err))
+          }
         })
         .catch(err => {
           console.error('Failed to load map data:', err)
