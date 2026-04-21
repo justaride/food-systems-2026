@@ -333,6 +333,38 @@ export const mediaCountryProfiles: MediaCountryProfile[] = [
       { label: 'FCCA — markedsdominans dagligvare', url: 'https://www.kkv.fi/en/facts-and-advice/competition-affairs/abuse-of-dominant-position/maaraava-markkina-asema-paivittaistavarakaupassa/' },
     ],
   },
+  {
+    id: 'is',
+    name: 'Island',
+    iso: 'IS',
+    dominantNarrative: 'Oeystat-saarbarhet, import og ekstrem konsentrasjon',
+    summary:
+      'Islandsk omtale samler matsikkerhet, importavhengighet og et lite, sterkt konsentrert dagligvaremarked i samme fortelling om nasjonal saarbarhet.',
+    strongestPeriod: '2024-2025',
+    keyQuestion: 'Hvor robust er et oeystatlig matsystem nar baade kornberedskap og detaljistmakt er konsentrert i faa ledd?',
+    yearlySignal: [1, 1, 1, 1, 2, 2, 2, 3, 4, 4],
+    focusLevels: {
+      beredskap: 'kritisk',
+      prispress: 'middels',
+      markedsmakt: 'hoy',
+      sirkularitet: 'lav',
+      innovasjon: 'middels',
+      regulering: 'middels',
+    },
+    triggerMoments: [
+      { year: 2024, label: 'Samkeppniseftirlitid samler markedskonsentrasjon og vertikal integrasjon i ett tydelig narrativ', sources: [
+        { label: 'Samkeppniseftirlitid rapportoversikt', url: 'https://www.samkeppni.is/urlausnir/skyrslur/' },
+        { sourceId: 'src-85', label: 'USDA GAIN Retail Foods Annual: Iceland 2024' },
+      ] },
+      { year: 2025, label: 'Melmollekrisen gjor korn og foredlingskapasitet til et konkret beredskapssporsmaal', sources: [
+        { label: 'Islands melmolle og matsuverenitet', url: 'https://www.samkeppni.is/urlausnir/skyrslur/' },
+      ] },
+    ],
+    sources: [
+      { sourceId: 'src-85', label: 'USDA GAIN Retail Foods Annual: Iceland 2024' },
+      { label: 'Samkeppniseftirlitid rapportoversikt', url: 'https://www.samkeppni.is/urlausnir/skyrslur/' },
+    ],
+  },
 ]
 
 export const mediaScanGuidance = [
@@ -346,5 +378,4 @@ export const mediaInternalSources = [
   'research/norden/nordisk-komparativ-analyse.md',
   'research/norden/regulatory-policy-landscape-nordic.md',
   'research/analyse/source-scouting-2026-03-10.md',
-  'Speaker 1.md',
 ]

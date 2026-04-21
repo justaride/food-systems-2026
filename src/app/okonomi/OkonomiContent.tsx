@@ -6,7 +6,10 @@ import { EmptyState } from '@/components/ui/EmptyState'
 import { RevenueTrendChart } from '@/components/charts/RevenueTrendChart'
 import { MarginTrendChart } from '@/components/charts/MarginTrendChart'
 import { EmployeeTrendChart } from '@/components/charts/EmployeeTrendChart'
+import { EbitdaTrendChart } from '@/components/charts/EbitdaTrendChart'
+import { EquityRatioTrendChart } from '@/components/charts/EquityRatioTrendChart'
 import type { CompanyWithFinancials } from '@/lib/queries/financials'
+import type { SubsidyAggregates } from '@/lib/queries/subsidies'
 
 const COMPANY_COLORS = [
   '#e11d48', '#2563eb', '#16a34a', '#ea580c', '#7c3aed', '#0891b2',
@@ -22,7 +25,7 @@ function getLatestRevenue(c: CompanyWithFinancials): number {
 
 function buildChartData(
   companies: CompanyWithFinancials[],
-  field: 'revenueNok' | 'operatingMargin' | 'groupEmployees',
+  field: 'revenueNok' | 'operatingMargin' | 'ebitda' | 'equityRatio' | 'groupEmployees',
   transform?: (v: number) => number
 ): Record<string, number | null>[] {
   const yearSet = new Set<number>()
@@ -44,7 +47,13 @@ function buildChartData(
   })
 }
 
-export function OkonomiContent({ companies }: { companies: CompanyWithFinancials[] }) {
+export function OkonomiContent({
+  companies,
+  subsidyAggregates,
+}: {
+  companies: CompanyWithFinancials[]
+  subsidyAggregates: SubsidyAggregates
+}) {
   const [query, setQuery] = useState('')
   const deferredQuery = useDeferredValue(query)
 
@@ -74,6 +83,8 @@ export function OkonomiContent({ companies }: { companies: CompanyWithFinancials
 
   const revenueData = buildChartData(selectedCompanies, 'revenueNok', v => v / 1e9)
   const marginData = buildChartData(selectedCompanies, 'operatingMargin')
+  const ebitdaData = buildChartData(selectedCompanies, 'ebitda', v => v / 1e9)
+  const equityRatioData = buildChartData(selectedCompanies, 'equityRatio')
   const employeeData = buildChartData(selectedCompanies, 'groupEmployees')
 
   const totalRecords = companies.reduce((sum, c) => sum + c.financials.length, 0)
@@ -188,10 +199,104 @@ export function OkonomiContent({ companies }: { companies: CompanyWithFinancials
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <RevenueTrendChart data={revenueData} companies={companyMeta} />
           <MarginTrendChart data={marginData} companies={companyMeta} />
+          <EbitdaTrendChart data={ebitdaData} companies={companyMeta} />
+          <EquityRatioTrendChart data={equityRatioData} companies={companyMeta} />
           <div className="lg:col-span-2">
             <EmployeeTrendChart data={employeeData} companies={companyMeta} />
           </div>
         </div>
+      )}
+
+      <div>
+        <h2 className="text-xl font-bold text-stone-900">Tilskudd</h2>
+        <p className="text-sm text-stone-500 mt-1">Aggregerte offentlige tilskudd per type og mottaker</p>
+      </div>
+
+      {subsidyAggregates.totalCount === 0 ? (
+        <EmptyState message="Ingen tilskuddsdata tilgjengelig" />
+      ) : (
+        <>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
+              <div className="text-xs uppercase tracking-wider text-stone-400">Tilskuddstyper</div>
+              <div className="text-2xl font-bold text-stone-900">{subsidyAggregates.byType.length}</div>
+            </div>
+            <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
+              <div className="text-xs uppercase tracking-wider text-stone-400">Tilskudd registrert</div>
+              <div className="text-2xl font-bold text-stone-900">{subsidyAggregates.totalCount}</div>
+            </div>
+            <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
+              <div className="text-xs uppercase tracking-wider text-stone-400">Mottakere (topp 10)</div>
+              <div className="text-2xl font-bold text-stone-900">{subsidyAggregates.topRecipients.length}</div>
+            </div>
+            <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
+              <div className="text-xs uppercase tracking-wider text-stone-400">Samlet belop</div>
+              <div className="text-2xl font-bold text-stone-900">
+                {subsidyAggregates.totalAmountNok > 0
+                  ? `${(subsidyAggregates.totalAmountNok / 1e6).toFixed(0)} MNOK`
+                  : '—'}
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card title="Tilskudd per type">
+              <p className="text-xs text-stone-500 mb-3">Samlet belop fordelt pa tilskuddstype</p>
+              <div className="space-y-2">
+                {subsidyAggregates.byType.map(t => {
+                  const maxAmount = subsidyAggregates.byType[0]?.totalAmountNok || 1
+                  const pct = (t.totalAmountNok / maxAmount) * 100
+                  return (
+                    <div key={t.subsidyType}>
+                      <div className="flex items-center justify-between text-xs mb-1">
+                        <span className="text-stone-700">{t.subsidyType}</span>
+                        <span className="text-stone-500 tabular-nums">
+                          {t.totalAmountNok > 0 ? `${(t.totalAmountNok / 1e6).toFixed(1)} MNOK` : '—'} ({t.count})
+                        </span>
+                      </div>
+                      <div className="h-2 rounded-full bg-stone-100 overflow-hidden">
+                        <div
+                          className="h-full bg-emerald-500"
+                          style={{ width: `${Math.max(pct, 2)}%` }}
+                        />
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </Card>
+
+            <Card title="Topp-mottakere">
+              <p className="text-xs text-stone-500 mb-3">De 10 selskapene med hoyest samlet tilskuddsbelop</p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="border-b border-stone-200">
+                      <th className="text-left py-2 text-stone-400">Selskap</th>
+                      <th className="text-right py-2 text-stone-400">Antall</th>
+                      <th className="text-right py-2 text-stone-400">Belop</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {subsidyAggregates.topRecipients.map(r => (
+                      <tr key={r.companyId} className="border-b border-stone-100">
+                        <td className="py-2 text-stone-700">
+                          <a href={`/selskap/${r.companyId}`} className="hover:underline">
+                            {r.companyName}
+                          </a>
+                        </td>
+                        <td className="text-right py-2 text-stone-700 tabular-nums">{r.count}</td>
+                        <td className="text-right py-2 text-stone-700 tabular-nums">
+                          {r.totalAmountNok > 0 ? `${(r.totalAmountNok / 1e6).toFixed(1)} MNOK` : '—'}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </Card>
+          </div>
+        </>
       )}
     </div>
   )

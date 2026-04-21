@@ -1,0 +1,370 @@
+Year,SpeciesCode,Species,Count
+1990,01,Storfe,998206
+1990,02,Mjølkekyr,339976
+1990,03,Ammekyr,8298
+1990,04,Vinterfora sauer,1029570
+1990,07,Andre storfe,649932
+1990,08,Alssvin i alt,87821
+1990,09,Slaktesvin,1115468
+1990,10,Verpehøner,3701365
+1990,13a,Kyr i alt,348274
+1990,15,Mjølkegeiter,65980
+1990,22,Slaktekyllingar,15253276
+1991,01,Storfe,1011568
+1991,02,Mjølkekyr,342398
+1991,03,Ammekyr,9447
+1991,04,Vinterfora sauer,1083145
+1991,07,Andre storfe,659723
+1991,08,Alssvin i alt,91484
+1991,09,Slaktesvin,1147186
+1991,10,Verpehøner,3681191
+1991,13a,Kyr i alt,351845
+1991,15,Mjølkegeiter,65437
+1991,22,Slaktekyllingar,16292856
+1992,01,Storfe,1007539
+1992,02,Mjølkekyr,335996
+1992,03,Ammekyr,11577
+1992,04,Vinterfora sauer,1095676
+1992,07,Andre storfe,659966
+1992,08,Alssvin i alt,87837
+1992,09,Slaktesvin,1214701
+1992,10,Verpehøner,3653248
+1992,13a,Kyr i alt,347573
+1992,15,Mjølkegeiter,62557
+1992,22,Slaktekyllingar,16850642
+1993,01,Storfe,1005739
+1993,02,Mjølkekyr,331014
+1993,03,Ammekyr,13636
+1993,04,Vinterfora sauer,1095529
+1993,07,Andre storfe,661143
+1993,08,Alssvin i alt,87456
+1993,09,Slaktesvin,1190668
+1993,10,Verpehøner,3658289
+1993,13a,Kyr i alt,344650
+1993,15,Mjølkegeiter,62425
+1993,22,Slaktekyllingar,15705005
+1994,01,Storfe,1000632
+1994,02,Mjølkekyr,324701
+1994,03,Ammekyr,16896
+1994,04,Vinterfora sauer,1119997
+1994,07,Andre storfe,659035
+1994,08,Alssvin i alt,87134
+1994,09,Slaktesvin,1189066
+1994,10,Verpehøner,3619810
+1994,13a,Kyr i alt,341597
+1994,15,Mjølkegeiter,59693
+1994,22,Slaktekyllingar,17976664
+1995,01,Storfe,1012849
+1995,02,Mjølkekyr,324417
+1995,03,Ammekyr,19705
+1995,04,Vinterfora sauer,1140519
+1995,07,Andre storfe,668727
+1995,08,Alssvin i alt,90903
+1995,09,Slaktesvin,1240949
+1995,10,Verpehøner,3550629
+1995,13a,Kyr i alt,344122
+1995,15,Mjølkegeiter,59176
+1995,22,Slaktekyllingar,19919985
+1996,01,Storfe,1027343
+1996,02,Mjølkekyr,326766
+1996,03,Ammekyr,22584
+1996,04,Vinterfora sauer,1109673
+1996,07,Andre storfe,677993
+1996,08,Alssvin i alt,91130
+1996,09,Slaktesvin,1328566
+1996,10,Verpehøner,3378176
+1996,13a,Kyr i alt,349350
+1996,15,Mjølkegeiter,58775
+1996,22,Slaktekyllingar,23230750
+1997,01,Storfe,1035738
+1997,02,Mjølkekyr,322349
+1997,03,Ammekyr,26489
+1997,04,Vinterfora sauer,1078574
+1997,07,Andre storfe,686900
+1997,08,Alssvin i alt,90118
+1997,09,Slaktesvin,1345208
+1997,10,Verpehøner,3107275
+1997,13a,Kyr i alt,348838
+1997,15,Mjølkegeiter,55541
+1997,22,Slaktekyllingar,23319780
+1998,01,Storfe,1045574
+1998,02,Mjølkekyr,322791
+1998,03,Ammekyr,29873
+1998,04,Vinterfora sauer,1102855
+1998,07,Andre storfe,692910
+1998,08,Alssvin i alt,89444
+1998,09,Slaktesvin,1378443
+1998,10,Verpehøner,3113209
+1998,13a,Kyr i alt,352664
+1998,15,Mjølkegeiter,53477
+1998,22,Slaktekyllingar,23355574
+1999,01,Storfe,1018730
+1999,02,Mjølkekyr,318047
+1999,03,Ammekyr,33705
+1999,04,Vinterfora sauer,1104906
+1999,07,Andre storfe,666978
+1999,08,Alssvin i alt,93768
+1999,09,Slaktesvin,1334788
+1999,10,Verpehøner,3216750
+1999,13a,Kyr i alt,351752
+1999,15,Mjølkegeiter,53091
+1999,22,Slaktekyllingar,27523776
+2000,01,Storfe,985746
+2000,02,Mjølkekyr,301199
+2000,03,Ammekyr,40267
+2000,04,Vinterfora sauer,1131734
+2000,07,Andre storfe,644280
+2000,08,Alssvin i alt,89961
+2000,09,Slaktesvin,1296693
+2000,10,Verpehøner,3206179
+2000,13a,Kyr i alt,341466
+2000,15,Mjølkegeiter,50859
+2000,22,Slaktekyllingar,33167031
+2002,01,Storfe,968227
+2002,02,Mjølkekyr,287427
+2002,03,Ammekyr,46522
+2002,04,Vinterfora sauer,1141485
+2002,07,Andre storfe,634278
+2002,08,Alssvin i alt,89254
+2002,09,Slaktesvin,1292571
+2002,10,Verpehøner,3117782
+2002,13a,Kyr i alt,333949
+2002,15,Mjølkegeiter,47651
+2002,22,Slaktekyllingar,32104906
+2003,01,Storfe,950452
+2003,02,Mjølkekyr,282201
+2003,03,Ammekyr,47239
+2003,04,Vinterfora sauer,1107639
+2003,07,Andre storfe,621012
+2003,08,Alssvin i alt,91947
+2003,09,Slaktesvin,1359304
+2003,10,Verpehøner,3257533
+2003,13a,Kyr i alt,329440
+2003,15,Mjølkegeiter,47114
+2003,22,Slaktekyllingar,35532987
+2004,01,Storfe,942053
+2004,02,Mjølkekyr,280091
+2004,03,Ammekyr,48378
+2004,04,Vinterfora sauer,1111513
+2004,07,Andre storfe,613584
+2004,08,Alssvin i alt,99298
+2004,09,Slaktesvin,1323169
+2004,10,Verpehøner,3392283
+2004,13a,Kyr i alt,328469
+2004,15,Mjølkegeiter,46292
+2004,22,Slaktekyllingar,36705314
+2005,01,Storfe,933281
+2005,02,Mjølkekyr,271436
+2005,03,Ammekyr,50084
+2005,04,Vinterfora sauer,1083216
+2005,07,Andre storfe,611761
+2005,08,Alssvin i alt,98567
+2005,09,Slaktesvin,1426479
+2005,10,Verpehøner,3477126
+2005,13a,Kyr i alt,321520
+2005,15,Mjølkegeiter,46066
+2005,22,Slaktekyllingar,39759182
+2006,01,Storfe,918909
+2006,02,Mjølkekyr,265171
+2006,03,Ammekyr,54974
+2006,04,Vinterfora sauer,1059139
+2006,07,Andre storfe,598764
+2006,08,Alssvin i alt,101370
+2006,09,Slaktesvin,1430954
+2006,10,Verpehøner,3339862
+2006,13a,Kyr i alt,320145
+2006,15,Mjølkegeiter,43970
+2006,22,Slaktekyllingar,41819570
+2007,01,Storfe,902470
+2007,02,Mjølkekyr,258450
+2007,03,Ammekyr,56336
+2007,04,Vinterfora sauer,1023622
+2007,07,Andre storfe,587684
+2007,08,Alssvin i alt,98016
+2007,09,Slaktesvin,1460642
+2007,10,Verpehøner,3350753
+2007,13a,Kyr i alt,314786
+2007,15,Mjølkegeiter,40403
+2007,22,Slaktekyllingar,46452282
+2008,01,Storfe,893082
+2008,02,Mjølkekyr,262090
+2008,03,Ammekyr,54641
+2008,04,Vinterfora sauer,1027076
+2008,07,Andre storfe,576351
+2008,08,Alssvin i alt,97261
+2008,09,Slaktesvin,1443668
+2008,10,Verpehøner,3600244
+2008,13a,Kyr i alt,316731
+2008,15,Mjølkegeiter,38431
+2008,22,Slaktekyllingar,50666447
+2009,01,Storfe,875932
+2009,02,Mjølkekyr,249482
+2009,03,Ammekyr,57777
+2009,04,Vinterfora sauer,1029380
+2009,07,Andre storfe,568673
+2009,08,Alssvin i alt,100125
+2009,09,Slaktesvin,1481909
+2009,10,Verpehøner,3837158
+2009,13a,Kyr i alt,307259
+2009,15,Mjølkegeiter,37439
+2009,22,Slaktekyllingar,59509831
+2010,01,Storfe,867641
+2010,02,Mjølkekyr,245001
+2010,03,Ammekyr,61527
+2010,04,Vinterfora sauer,1055223
+2010,07,Andre storfe,561113
+2010,08,Alssvin i alt,102794
+2010,09,Slaktesvin,1504978
+2010,10,Verpehøner,4050465
+2010,13a,Kyr i alt,306528
+2010,15,Mjølkegeiter,36894
+2010,22,Slaktekyllingar,56032219
+2011,01,Storfe,859845
+2011,02,Mjølkekyr,240935
+2011,03,Ammekyr,64406
+2011,04,Vinterfora sauer,1045495
+2011,07,Andre storfe,554504
+2011,08,Alssvin i alt,99005
+2011,09,Slaktesvin,1542906
+2011,10,Verpehøner,3993482
+2011,13a,Kyr i alt,305341
+2011,15,Mjølkegeiter,34785
+2011,22,Slaktekyllingar,59735824
+2012,01,Storfe,850849
+2012,02,Mjølkekyr,237569
+2012,03,Ammekyr,65631
+2012,04,Vinterfora sauer,1041119
+2012,07,Andre storfe,547649
+2012,08,Alssvin i alt,97695
+2012,09,Slaktesvin,1559331
+2012,10,Verpehøner,3929480
+2012,13a,Kyr i alt,303200
+2012,15,Mjølkegeiter,34120
+2012,22,Slaktekyllingar,60166465
+2013,01,Storfe,851610
+2013,02,Mjølkekyr,238801
+2013,03,Ammekyr,67542
+2013,04,Vinterfora sauer,1038263
+2013,07,Andre storfe,545267
+2013,08,Alssvin i alt,97689
+2013,09,Slaktesvin,1578676
+2013,10,Verpehøner,4125028
+2013,13a,Kyr i alt,306343
+2013,15,Mjølkegeiter,32834
+2013,22,Slaktekyllingar,62795548
+2014,01,Storfe,832983
+2014,02,Mjølkekyr,229664
+2014,03,Ammekyr,68759
+2014,04,Vinterfora sauer,1032143
+2014,07,Andre storfe,534560
+2014,08,Alssvin i alt,97093
+2014,09,Slaktesvin,1561847
+2014,10,Verpehøner,4265416
+2014,13a,Kyr i alt,298423
+2014,15,Mjølkegeiter,29747
+2014,22,Slaktekyllingar,70564787
+2015,01,Storfe,835151
+2015,02,Mjølkekyr,228445
+2015,03,Ammekyr,71944
+2015,04,Vinterfora sauer,1058303
+2015,07,Andre storfe,534762
+2015,08,Alssvin i alt,93765
+2015,09,Slaktesvin,1551753
+2015,10,Verpehøner,4412612
+2015,13a,Kyr i alt,300389
+2015,15,Mjølkegeiter,31407
+2015,22,Slaktekyllingar,73907760
+2016,01,Storfe,848262
+2016,02,Mjølkekyr,226784
+2016,03,Ammekyr,76180
+2016,04,Vinterfora sauer,1095518
+2016,07,Andre storfe,545298
+2016,08,Alssvin i alt,92623
+2016,09,Slaktesvin,1567833
+2016,10,Verpehøner,4390581
+2016,13a,Kyr i alt,302964
+2016,15,Mjølkegeiter,33551
+2016,22,Slaktekyllingar,63310792
+2017,01,Storfe,865099
+2017,02,Mjølkekyr,221330
+2017,03,Ammekyr,83129
+2017,04,Vinterfora sauer,1123732
+2017,07,Andre storfe,560640
+2017,08,Alssvin i alt,89148
+2017,09,Slaktesvin,1608062
+2017,10,Verpehøner,4355435
+2017,13a,Kyr i alt,304459
+2017,15,Mjølkegeiter,34338
+2017,22,Slaktekyllingar,65516879
+2018,01,Storfe,877388
+2018,02,Mjølkekyr,218613
+2018,03,Ammekyr,91168
+2018,04,Vinterfora sauer,1008230
+2018,07,Andre storfe,567607
+2018,08,Alssvin i alt,88802
+2018,10,Verpehøner,4405798
+2018,13a,Kyr i alt,309781
+2018,15,Mjølkegeiter,36170
+2019,01,Storfe,862550
+2019,02,Mjølkekyr,215069
+2019,03,Ammekyr,92451
+2019,04,Vinterfora sauer,936203
+2019,07,Andre storfe,555030
+2019,08,Alssvin i alt,83476
+2019,10,Verpehøner,3998341
+2019,13a,Kyr i alt,307520
+2019,15,Mjølkegeiter,36355
+2020,01,Storfe,876776
+2020,02,Mjølkekyr,207855
+2020,03,Ammekyr,98221
+2020,04,Vinterfora sauer,947499
+2020,07,Andre storfe,570700
+2020,08,Alssvin i alt,77404
+2020,10,Verpehøner,4107831
+2020,13a,Kyr i alt,306076
+2020,15,Mjølkegeiter,35723
+2021,01,Storfe,882968
+2021,02,Mjølkekyr,212629
+2021,03,Ammekyr,104444
+2021,04,Vinterfora sauer,944347
+2021,07,Andre storfe,565895
+2021,08,Alssvin i alt,75200
+2021,10,Verpehøner,4163101
+2021,13a,Kyr i alt,317073
+2021,15,Mjølkegeiter,35915
+2022,01,Storfe,893771
+2022,02,Mjølkekyr,211058
+2022,03,Ammekyr,108532
+2022,04,Vinterfora sauer,928234
+2022,07,Andre storfe,574181
+2022,08,Alssvin i alt,72248
+2022,10,Verpehøner,4135095
+2022,13a,Kyr i alt,319590
+2022,15,Mjølkegeiter,35472
+2023,01,Storfe,881320
+2023,02,Mjølkekyr,202876
+2023,03,Ammekyr,108424
+2023,04,Vinterfora sauer,909914
+2023,07,Andre storfe,570020
+2023,08,Alssvin i alt,70847
+2023,10,Verpehøner,4088541
+2023,13a,Kyr i alt,311300
+2023,15,Mjølkegeiter,34474
+2024,01,Storfe,851697
+2024,02,Mjølkekyr,202771
+2024,03,Ammekyr,106337
+2024,04,Vinterfora sauer,889615
+2024,07,Andre storfe,542589
+2024,08,Alssvin i alt,68209
+2024,10,Verpehøner,4082751
+2024,13a,Kyr i alt,309108
+2024,15,Mjølkegeiter,33938
+2025,01,Storfe,844004
+2025,02,Mjølkekyr,208064
+2025,03,Ammekyr,105109
+2025,04,Vinterfora sauer,885908
+2025,07,Andre storfe,530831
+2025,08,Alssvin i alt,64332
+2025,10,Verpehøner,4316664
+2025,13a,Kyr i alt,313173
+2025,15,Mjølkegeiter,32646

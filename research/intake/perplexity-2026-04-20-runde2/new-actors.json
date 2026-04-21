@@ -1,0 +1,33 @@
+{
+  "generated": "2026-04-20",
+  "source": "Perplexity Runde 2 — P07, P16, P17, P18 (fôr, stiftelser, insektindustri)",
+  "description": "New actors identified in Runde 2 research: insect protein, alternative protein, foundations, feed producers",
+  "actors": [
+    {"name": "Volare", "country": "FI", "sector": "insect_protein", "description": "BSF insect protein producer, commercial plant in Hyvinkaa, Volare-01 under construction in Pori, offtake with Skretting.", "status": "scaling", "funding_eur": 26000000},
+    {"name": "ENORM BioFactory", "country": "DK", "sector": "insect_protein", "description": "BSF factory in Flemming, planned 11000 t/yr, bankrupt Oct 2025 after environmental/financial issues.", "status": "bankrupt", "funding_eur": 50000000},
+    {"name": "Protix", "country": "NL", "sector": "insect_protein", "description": "Commercial-scale BSF producer, global market leader for European aquafeed sector.", "status": "active", "funding_eur": 50000000},
+    {"name": "InnovaFeed", "country": "FR", "sector": "insect_protein", "description": "Industrial BSF co-located with starch plants, partner in Norwegian Millennial Salmon project.", "status": "scaling", "funding_eur": 200000000},
+    {"name": "Pronofa", "country": "NO", "sector": "insect_protein", "description": "Norwegian BSF pilot plant from Q1 2022.", "status": "pilot", "funding_eur": null},
+    {"name": "InvertaPro", "country": "NO", "sector": "insect_protein", "description": "Early-stage Norwegian startup: insect-based fish feed from organic waste.", "status": "pilot", "funding_eur": null},
+    {"name": "Norinsect", "country": "NO", "sector": "insect_protein", "description": "Small-scale Norwegian BSF producing protein for feed and organic fertilizer.", "status": "active", "funding_eur": null},
+    {"name": "Entomass", "country": "DK", "sector": "insect_protein", "description": "Danish BSF and mealworm company, feed/food B2B.", "status": "active", "funding_eur": null},
+    {"name": "Insectum", "country": "DK", "sector": "insect_protein", "description": "Danish BSF/mealworm for feed and food.", "status": "active", "funding_eur": null},
+    {"name": "Enifer", "country": "FI", "sector": "alternative_protein", "description": "PEKILO mycoprotein, building 3000 t/yr factory in Kirkkonummi from industrial side streams.", "status": "scaling", "funding_eur": 36000000},
+    {"name": "Mycorena", "country": "SE", "sector": "alternative_protein", "description": "Mycoprotein (Promyc), bankrupt July 2024, assets acquired by Belgian Naplasol.", "status": "bankrupt", "funding_eur": null},
+    {"name": "Calysta", "country": "US", "sector": "alternative_protein", "description": "Methanotroph gas fermentation, FeedKind SCP approved in EU as fishmeal replacement.", "status": "active", "funding_eur": null},
+    {"name": "MicroHarvest", "country": "DE", "sector": "alternative_protein", "description": "Bacterial SCP via rapid fermentation, building modular pilot plants.", "status": "pilot", "funding_eur": null},
+    {"name": "Nordic SeaFarm", "country": "SE", "sector": "feed", "description": "Macroalgae cultivator on Sweden's west coast for food, bioplastics and feed research.", "status": "active", "funding_eur": null},
+    {"name": "Seaweed Solutions", "country": "NO", "sector": "feed", "description": "Norwegian macroalgae producer in Trondelag for feed and food.", "status": "active", "funding_eur": null},
+    {"name": "Ocean Rainforest", "country": "FO", "sector": "feed", "description": "Offshore macroalgae producer on Faroe Islands for feed and food.", "status": "active", "funding_eur": null},
+    {"name": "Kaffe Bueno", "country": "DK", "sector": "biotech", "description": "Biorefinery for spent coffee grounds, EIC-funded, 500-1500 t/yr capacity.", "status": "scaling", "funding_eur": null},
+    {"name": "Axfoundation", "country": "SE", "sector": "foundation", "description": "Framtidens foder program with SLU and 25 partners for alternative feed.", "status": "active", "funding_eur": null},
+    {"name": "Mistra", "country": "SE", "sector": "foundation", "description": "Mistra Food Futures 2020-2029 for food system transformation.", "status": "active", "funding_eur": null},
+    {"name": "EAT Foundation", "country": "NO", "sector": "foundation", "description": "Behind EAT-Lancet Commission, announced wind-down in 2026.", "status": "bankrupt", "funding_eur": null},
+    {"name": "Ferd Sosiale Entreprenorer", "country": "NO", "sector": "foundation", "description": "Impact investor in sustainable food, marine proteins, regenerative agriculture.", "status": "active", "funding_eur": null},
+    {"name": "Kavlifondet", "country": "NO", "sector": "foundation", "description": "Owns Kavli Group, funding food waste projects incl. 40000 free meals/month.", "status": "active", "funding_eur": null},
+    {"name": "Sitra", "country": "FI", "sector": "foundation", "description": "Finnish future fund, circular economy program with regional food system pilots.", "status": "active", "funding_eur": null},
+    {"name": "Felleskjopet Forutvikling", "country": "NO", "sector": "feed", "description": "Norwegian coop feed development arm working on alternative feed ingredients.", "status": "active", "funding_eur": null},
+    {"name": "Borregaard", "country": "NO", "sector": "biotech", "description": "Norwegian biorefinery, relevant to wood-based yeast SCP for aquafeed.", "status": "active", "funding_eur": null},
+    {"name": "Alltech Fennoaqua", "country": "FI", "sector": "aquaculture", "description": "Finnish aquafeed company, partner with Volare on 150-tonne insect-fed trout pilot.", "status": "active", "funding_eur": null}
+  ]
+}

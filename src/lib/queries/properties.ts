@@ -31,3 +31,18 @@ export async function getPropertiesGeoJSON() {
     })),
   }
 }
+
+export async function getCompanyProperties() {
+  return prisma.companyProperty.findMany({
+    include: {
+      company: { select: { id: true, name: true } },
+      tenantCompany: { select: { id: true, name: true } },
+    },
+    orderBy: [
+      { company: { name: 'asc' } },
+      { propertyType: 'asc' },
+    ],
+  })
+}
+
+export type CompanyPropertyRow = Awaited<ReturnType<typeof getCompanyProperties>>[number]

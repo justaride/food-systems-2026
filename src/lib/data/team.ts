@@ -5,14 +5,14 @@ export const team: TeamMember[] = [
     id: 'gabriel',
     name: 'Gabriel Freeman',
     role: 'lead',
-    title: 'Prosjektmedarbeider, Food Systems TG',
+    title: 'Data & Plattform, Food Systems TG',
     organization: 'Natural State',
   },
   {
     id: 'cathrine',
     name: 'Cathrine Barth',
     role: 'lead',
-    title: 'Prosjektmedarbeider, Food Systems TG',
+    title: 'Fagleder Food Systems TG',
     organization: 'Natural State',
   },
   {
@@ -32,8 +32,15 @@ export const team: TeamMember[] = [
   {
     id: 'jan-thomas',
     name: 'Jan Thomas Odegard',
+    role: 'project-leader',
+    title: 'Prosjektleder Cities TG',
+    organization: 'Natural State',
+  },
+  {
+    id: 'thea',
+    name: 'Thea Martinsen',
     role: 'team',
-    title: 'Tidl. prosjektleder (stor soknad)',
+    title: 'Prosjektstotte (20%), kode 195/196',
     organization: 'Natural State',
   },
   {

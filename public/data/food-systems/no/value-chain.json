@@ -182,5 +182,98 @@
     { "name": "Bransjeavtale matsvinn", "year": 2017, "type": "voluntary", "target": "50% reduction by 2030" },
     { "name": "Kildesortering matavfall", "year": 2023, "type": "mandatory" },
     { "name": "PFAS-forbud emballasje", "year": 2026, "date": "2026-08-12", "type": "regulation" }
-  ]
+  ],
+  "food_waste_by_category": {
+    "description": "Food waste estimates per category and value chain step (Nordic average, 2022-2024). Order-of-magnitude estimates based on NORSUS, Matvett, Nordic Council, LUKE.",
+    "categories": [
+      {
+        "id": "meat",
+        "name": "Kjøtt (rødt + hvitt)",
+        "production_mt_nordic": 3.0,
+        "waste_by_step": {
+          "primary": { "pct": "2-4", "kt_yr": "60-120", "main_cause": "Dødelighet før slakt, kassert slakt, kvalitetsavvik" },
+          "processing": { "pct": "3-5", "kt_yr": "90-150", "main_cause": "Trimmings, utgåtte produkter, feilproduksjon" },
+          "distribution": { "pct": "2-4", "kt_yr": "60-120", "main_cause": "Datoutløp, skade i butikk" },
+          "horeca": { "pct": "4-7", "kt_yr": "120-210", "main_cause": "Bufféter, porsjonsrester, overproduksjon" },
+          "household": { "pct": "3-5", "kt_yr": "90-150", "main_cause": "Datomerking-forvirring, overinnkjøp, rester" }
+        },
+        "biggest_loss_step": "horeca",
+        "climate_impact_note": "Lavt volum relativt sett men høyest CO2e per kg kastet mat"
+      },
+      {
+        "id": "dairy",
+        "name": "Meieri",
+        "production_mt_nordic": 11.0,
+        "waste_by_step": {
+          "primary": { "pct": "1-3", "kt_yr": "110-330", "main_cause": "Kassert melk, logistikkproblemer, kvalitetsfeil" },
+          "processing": { "pct": "2-4", "kt_yr": "220-440", "main_cause": "Produksjonstap, feilbatcher, avløpstap" },
+          "distribution": { "pct": "2-4", "kt_yr": "220-440", "main_cause": "Kort holdbarhet, bredt sortiment, datoutløp" },
+          "horeca": { "pct": "3-5", "kt_yr": "330-550", "main_cause": "Frokostbufféter, kaffe-/meieriservering" },
+          "household": { "pct": "5-8", "kt_yr": "550-880", "main_cause": "Best-før tolket som absolutt, store pakningsstørrelser" }
+        },
+        "biggest_loss_step": "household",
+        "climate_impact_note": "Flytende meieri blant de største kategoriene i norsk husholdningssvinn (ca. 15% av volumet)"
+      },
+      {
+        "id": "fruit_veg",
+        "name": "Frukt/grønt",
+        "production_mt_nordic": 7.0,
+        "waste_by_step": {
+          "primary": { "pct": "10-20", "kt_yr": "700-1400", "main_cause": "Feltrester, estetisk sortering, markedsstandarder" },
+          "processing": { "pct": "5-10", "kt_yr": "350-700", "main_cause": "Sorteringsavslag, prosessrester, skade ved pakking" },
+          "distribution": { "pct": "5-10", "kt_yr": "350-700", "main_cause": "Høyt svinn i fersk kategori, særlig bær og salat" },
+          "horeca": { "pct": "5-10", "kt_yr": "350-700", "main_cause": "Salatbufféter, garnityr, overproduksjon" },
+          "household": { "pct": "10-15", "kt_yr": "700-1050", "main_cause": "Kort holdbarhet, kampanjekjøp, lav planlegging" }
+        },
+        "biggest_loss_step": "primary",
+        "climate_impact_note": "Høyest volum-tap totalt i Norden; primærleddet har størst absolutt svinn pga. estetikk-krav"
+      },
+      {
+        "id": "seafood",
+        "name": "Sjømat (oppdrett + villfangst)",
+        "production_mt_nordic": 4.0,
+        "waste_by_step": {
+          "primary": { "pct": "5-10", "kt_yr": "200-400", "main_cause": "Utkast, håndteringstap, kvalitetskrav, logistikk til landing" },
+          "processing": { "pct": "5-8", "kt_yr": "200-320", "main_cause": "Spiselig svinn i filetering/videreforedling, sidestrømmer" },
+          "distribution": { "pct": "3-5", "kt_yr": "120-200", "main_cause": "Ferskvaredisk, uforutsigbar etterspørsel, holdbarhet" },
+          "horeca": { "pct": "5-8", "kt_yr": "200-320", "main_cause": "Buffet-tallerkenrester, produksjonssvinn i kjøkken" },
+          "household": { "pct": "3-5", "kt_yr": "120-200", "main_cause": "Usikkerhet om tilberedning og holdbarhet" }
+        },
+        "biggest_loss_step": "primary",
+        "climate_impact_note": "Betydelige men dårlig dokumenterte svinnstrømmer; høy verdi per kg kastet"
+      },
+      {
+        "id": "grain",
+        "name": "Korn (til mat)",
+        "production_mt_nordic": 10.0,
+        "waste_by_step": {
+          "primary": { "pct": "3-7", "kt_yr": "300-700", "main_cause": "Felt- og lagringstap, nedklassifisering fra mat til fôr" },
+          "processing": { "pct": "2-4", "kt_yr": "200-400", "main_cause": "Prosess- og lagerstap, feilbakst, usolgt produksjon" },
+          "distribution": { "pct": "2-4", "kt_yr": "200-400", "main_cause": "Usolgt brød, retur fra butikk, datoutløp" },
+          "horeca": { "pct": "3-6", "kt_yr": "300-600", "main_cause": "Brødbufféter, smørbrød, tallerkenrester" },
+          "household": { "pct": "8-12", "kt_yr": "800-1200", "main_cause": "Lav enhetspris, overkjøp, preferanse for ferskt brød daglig" }
+        },
+        "biggest_loss_step": "household",
+        "climate_impact_note": "Brød/bakervarer er største enkeltkategori i spiselig husholdningssvinn i Norden (ca. 20% av volumet)"
+      }
+    ],
+    "summary": {
+      "biggest_volume_loss": "Frukt/grønt i primærproduksjon (700-1400 kt/yr nordisk)",
+      "biggest_climate_loss": "Kjøtt og sjømat i husholdninger og servering (lavt volum, høy CO2e/kg)",
+      "biggest_reduction_potential": "Husholdninger samlet (35-80 kg/person/yr, kun -5% redusert vs -21% i dagligvare)",
+      "total_nordic_food_waste_estimate_mt": "3.5-5.0",
+      "norway_total_food_waste_2023_tonnes": 451600,
+      "norway_per_capita_kg": 82.3,
+      "norway_reduction_since_2015_pct": -24
+    },
+    "sources": [
+      "Matsvinnutvalget 2023",
+      "NORSUS/Matvett 2024",
+      "Nordic Council Food Waste Monitoring (TemaNord 2021:504)",
+      "LUKE Finland 2023",
+      "Eurostat food waste 2022",
+      "Miljødirektoratet 2024",
+      "Animalia Kjøttets tilstand 2025"
+    ]
+  }
 }

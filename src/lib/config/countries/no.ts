@@ -53,6 +53,7 @@ export const norwayConfig: CountryConfig = {
     processing: 'processing_plants.geojson',
     ports: 'ports.geojson',
     logistics: 'logistics_hubs.geojson',
+    farms: 'farms.geojson',
   },
   dataSources: [
     {

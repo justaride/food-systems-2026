@@ -1,0 +1,377 @@
+{
+  "generated": "2026-04-20",
+  "description": "Nordic nutrient flow analysis (N, P, K) — imports, losses, and recovery potential per country",
+  "methodology": "Material Flow Analysis (MFA) based on NIBIO, SSB, Norsk Vann, Frontiers P-MFA studies (Hamilton et al. 2023), HSY Finland, Svenskt Vatten, DTU Environment. Cross-validated with P27 (avlopsanlegg) and P29 (gjodselimport) from Perplexity Runde 2, 20.04.26. Order-of-magnitude estimates, not official statistics.",
+  "countries": {
+    "NO": {
+      "population_m": 5.5,
+      "imports": {
+        "mineral_n_kt_yr": 120,
+        "mineral_p_kt_yr": 15,
+        "mineral_k_kt_yr": 25,
+        "soya_protein_n_kt_yr": 96,
+        "fishmeal_n_kt_yr": 31.5,
+        "soya_protein_p_kt_yr": 11.2,
+        "fishmeal_p_kt_yr": 7.0,
+        "total_imported_n_kt_yr": 247,
+        "total_imported_p_kt_yr": 33
+      },
+      "losses": {
+        "aquaculture_to_fjord": {
+          "n_kt_yr": 40,
+          "p_kt_yr": 8,
+          "k_kt_yr": null,
+          "note": "Frontiers P-MFA (Hamilton 2023): 80-90% of feed-P ends as discharge; N-loss ~35-45 kt/yr as dissolved ammonium/urea and particulate organic N"
+        },
+        "svartvann_to_sea": {
+          "n_kt_yr": 24.8,
+          "p_kt_yr": 3.3,
+          "k_kt_yr": 5.5,
+          "note": "Population-based: 4.5 kg N, 0.6 kg P, 1.0 kg K per person/yr (Jenssen & Skjelhaugen 1994, confirmed by recent Nordic estimates). SSB reports net P-discharge after treatment at 1.48 kt/yr and N at 19.5 kt/yr"
+        },
+        "husdyr_to_environment": {
+          "n_kt_yr": 25,
+          "p_kt_yr": 3,
+          "k_kt_yr": null,
+          "note": "NIBIO/Miljodirektoratet: total husdyrgjodsel ~80-90 kt N/yr, 20-40% lost as NH3 to air and nitrate runoff. P-loss 10-20% of husdyrgjodsel-P via erosion and drainage"
+        },
+        "matavfall_to_incineration": {
+          "n_kt_yr": 7,
+          "p_kt_yr": 1.5,
+          "k_kt_yr": null,
+          "note": "NORSUS matsvinn ~417 kt/yr (2020); assuming 2-3% N and 0.3-0.5% P in mixed food waste sent to incineration"
+        }
+      },
+      "loss_summary": {
+        "total_n_loss_kt_yr": 91.5,
+        "total_p_loss_kt_yr": 14
+      },
+      "recovery_potential": {
+        "svartvann_n_low_kt_yr": 2.5,
+        "svartvann_n_high_kt_yr": 5.0,
+        "svartvann_p_low_kt_yr": 0.66,
+        "svartvann_p_high_kt_yr": 0.99,
+        "svartvann_k_low_kt_yr": 0.275,
+        "svartvann_k_high_kt_yr": 0.55,
+        "all_streams_n_recoverable_kt_yr": 64,
+        "all_streams_p_recoverable_kt_yr": 9.8,
+        "total_recoverable_pct_of_import_n": "25-30%",
+        "total_recoverable_pct_of_import_p": "30%",
+        "svartvann_pct_of_mineral_n": "10-15%",
+        "svartvann_pct_of_mineral_p": "20-30%",
+        "note": "70% technical recovery factor applied to total loss streams (ambitious but feasible on 20-30yr horizon). Svartvann alone can replace 10-15% of mineral-N and 20-30% of mineral-P"
+      },
+      "reference_facilities": [
+        {
+          "name": "VEAS Asker",
+          "type": "wastewater",
+          "population_served": 800000,
+          "n_removed_t_yr": 2000,
+          "p_removed_t_yr": 300,
+          "p_recovered_t_yr": 275,
+          "n_recovered_t_yr": 750,
+          "technology": "Chemical P-removal, biogas, slam to agriculture/landscaping. >90% P-removal from influent"
+        }
+      ],
+      "sources": [
+        "NIBIO gjodselundersokelse 2018",
+        "SSB avlopsstatistikk 2022 (RAPP2023-50)",
+        "Frontiers P-MFA Hamilton et al. 2023",
+        "Norsk Vann / Vannspeilet 4-2022",
+        "NORSUS matsvinntall 2020",
+        "Miljodirektoratet M846",
+        "Jenssen & Skjelhaugen 1994 (excretion rates)"
+      ]
+    },
+    "SE": {
+      "population_m": 10.6,
+      "imports": {
+        "mineral_n_kt_yr": null,
+        "mineral_p_kt_yr": null,
+        "mineral_k_kt_yr": null,
+        "note": "Swedish MFA studies (SLU/RISE) show per-hectare N/P-use comparable to Norway. Full excreta recovery could cover 75% of national N-demand and 81% of P-demand"
+      },
+      "losses": {
+        "aquaculture_to_fjord": {
+          "n_kt_yr": null,
+          "p_kt_yr": null,
+          "k_kt_yr": null,
+          "note": "Swedish aquaculture is small-scale compared to Norway; losses negligible at national level"
+        },
+        "svartvann_to_sea": {
+          "n_kt_yr": 47.7,
+          "p_kt_yr": 6.4,
+          "k_kt_yr": 10.6,
+          "note": "Population-based: 10.6M x 4.5/0.6/1.0 kg per person/yr"
+        },
+        "husdyr_to_environment": {
+          "n_kt_yr": null,
+          "p_kt_yr": null,
+          "k_kt_yr": null,
+          "note": "Data not quantified in source material"
+        },
+        "matavfall_to_incineration": {
+          "n_kt_yr": null,
+          "p_kt_yr": null,
+          "k_kt_yr": null,
+          "note": "Data not quantified in source material"
+        }
+      },
+      "recovery_potential": {
+        "svartvann_n_low_kt_yr": 4.77,
+        "svartvann_n_high_kt_yr": 9.54,
+        "svartvann_p_low_kt_yr": 1.27,
+        "svartvann_p_high_kt_yr": 1.91,
+        "svartvann_k_low_kt_yr": 0.53,
+        "svartvann_k_high_kt_yr": 1.06,
+        "total_recoverable_pct_of_import_n": null,
+        "total_recoverable_pct_of_import_p": null,
+        "note": "DiVA LCA study shows full excreta recovery could cover 75% of SE national N-need and 81% of P-need, and overdeck K-need. Realistic short-term: 10-20% N, 20-30% P recovery from svartvann"
+      },
+      "reference_facilities": [
+        {
+          "name": "Helsingborg RecoLab (H+ Three Pipes)",
+          "type": "source-separating sanitation",
+          "population_served": null,
+          "p_recovered_t_yr": null,
+          "n_recovered_t_yr": null,
+          "technology": "Separate collection of svartvann/gravann/matavfall; anaerobic digestion, ammonia stripping, struvite precipitation. P-recovery >80-90%, N-recovery 50-70% demonstrated"
+        }
+      ],
+      "sources": [
+        "DiVA LCA study (diva2:1341163) on Swedish excreta recovery",
+        "SLU/RISE MFA studies on Swedish agriculture",
+        "Jenssen & Skjelhaugen 1994 (excretion rates)",
+        "Helsingborg RecoLab evaluation (SLU pub 126484)"
+      ]
+    },
+    "DK": {
+      "population_m": 5.9,
+      "imports": {
+        "mineral_n_kt_yr": null,
+        "mineral_p_kt_yr": null,
+        "mineral_k_kt_yr": null,
+        "note": "Denmark has strict N/P-balance requirements in agriculture (Baltic Sea Action Plan). High utilization of husdyrgjodsel."
+      },
+      "losses": {
+        "aquaculture_to_fjord": {
+          "n_kt_yr": null,
+          "p_kt_yr": null,
+          "k_kt_yr": null,
+          "note": "Danish aquaculture relatively small; strict regulation"
+        },
+        "svartvann_to_sea": {
+          "n_kt_yr": 26.6,
+          "p_kt_yr": 3.5,
+          "k_kt_yr": 5.9,
+          "note": "Population-based: 5.9M x 4.5/0.6/1.0 kg per person/yr"
+        },
+        "husdyr_to_environment": {
+          "n_kt_yr": null,
+          "p_kt_yr": null,
+          "k_kt_yr": null,
+          "note": "Denmark has highest husdyr-N utilization in Norden due to strict regulation, but still significant losses"
+        },
+        "matavfall_to_incineration": {
+          "n_kt_yr": null,
+          "p_kt_yr": null,
+          "k_kt_yr": null,
+          "note": "Denmark has extensive biogas infrastructure (175 plants, 8100 GWh/yr) reducing incineration losses"
+        }
+      },
+      "recovery_potential": {
+        "svartvann_n_low_kt_yr": 2.66,
+        "svartvann_n_high_kt_yr": 5.31,
+        "svartvann_p_low_kt_yr": 0.71,
+        "svartvann_p_high_kt_yr": 1.06,
+        "svartvann_k_low_kt_yr": 0.30,
+        "svartvann_k_high_kt_yr": 0.59,
+        "total_recoverable_pct_of_import_n": null,
+        "total_recoverable_pct_of_import_p": null,
+        "note": "Danish practice: 70-90% of P in wastewater ends in slam spread on agricultural land. N-recovery 20-40% via biogjodsel/slam. Multiple fullskala struvite plants operational"
+      },
+      "reference_facilities": [
+        {
+          "name": "Aaby Renseanlegg (Aarhus)",
+          "type": "wastewater + struvite",
+          "population_served": null,
+          "p_recovered_t_yr": null,
+          "n_recovered_t_yr": null,
+          "technology": "PhosphorCare fullskala struvite precipitation; P recovered as struvite fertilizer"
+        },
+        {
+          "name": "Herning struvite plant",
+          "type": "wastewater + struvite",
+          "population_served": null,
+          "p_recovered_t_yr": null,
+          "n_recovered_t_yr": null,
+          "technology": "Fullskala struvite recovery from reject water"
+        }
+      ],
+      "sources": [
+        "DTU Environment MFA studies",
+        "Danish Export whitepaper on wastewater",
+        "Academia.edu: P-recycling comparative study (two Danish cities)",
+        "Baltic Sea Action Plan",
+        "Jenssen & Skjelhaugen 1994 (excretion rates)"
+      ]
+    },
+    "FI": {
+      "population_m": 5.6,
+      "imports": {
+        "mineral_n_kt_yr": 152,
+        "mineral_p_kt_yr": 11,
+        "mineral_k_kt_yr": null,
+        "note": "HSY reports: annual inorganic fertilizer use in Finland ~152 kt N and ~11 kt P"
+      },
+      "losses": {
+        "aquaculture_to_fjord": {
+          "n_kt_yr": null,
+          "p_kt_yr": null,
+          "k_kt_yr": null,
+          "note": "Finnish aquaculture small relative to Norway"
+        },
+        "svartvann_to_sea": {
+          "n_kt_yr": 25.2,
+          "p_kt_yr": 3.4,
+          "k_kt_yr": 5.6,
+          "note": "Population-based: 5.6M x 4.5/0.6/1.0 kg per person/yr"
+        },
+        "husdyr_to_environment": {
+          "n_kt_yr": null,
+          "p_kt_yr": null,
+          "k_kt_yr": null,
+          "note": "Data not quantified in source material"
+        },
+        "matavfall_to_incineration": {
+          "n_kt_yr": null,
+          "p_kt_yr": null,
+          "k_kt_yr": null,
+          "note": "Data not quantified in source material"
+        }
+      },
+      "recovery_potential": {
+        "svartvann_n_low_kt_yr": 2.52,
+        "svartvann_n_high_kt_yr": 5.04,
+        "svartvann_p_low_kt_yr": 0.67,
+        "svartvann_p_high_kt_yr": 1.01,
+        "svartvann_k_low_kt_yr": 0.28,
+        "svartvann_k_high_kt_yr": 0.56,
+        "total_recoverable_pct_of_import_n": "8-10%",
+        "total_recoverable_pct_of_import_p": "20-25%",
+        "note": "HSY (Helsinki region) already recovers 966 t N/yr and 862 t P/yr via recycled products. HSY P-recovery alone covers ~7-8% of national mineral-P use. National scaling could reach 20-25% of P-demand"
+      },
+      "reference_facilities": [
+        {
+          "name": "HSY Viikinmaki",
+          "type": "wastewater",
+          "population_served": null,
+          "n_recovered_t_yr": 966,
+          "p_recovered_t_yr": 862,
+          "technology": "Biological N and P removal, sludge digestion, drying, composting. Composted slam used as soil product. ~4-5% of P and 34-40% of N remains in treated effluent"
+        }
+      ],
+      "sources": [
+        "HSY Environmental Information / Circular Economy report 2022",
+        "Helda/Helsinki University: Finnish wastewater nutrient study",
+        "Jenssen & Skjelhaugen 1994 (excretion rates)"
+      ]
+    }
+  },
+  "nordic_summary": {
+    "total_svartvann_n_kt_yr": 124.3,
+    "total_svartvann_p_kt_yr": 16.6,
+    "total_svartvann_k_kt_yr": 27.6,
+    "total_population_m": 27.6,
+    "excretion_rates_kg_person_yr": {
+      "n": 4.5,
+      "p": 0.6,
+      "k": 1.0
+    },
+    "recovery_potential_short_term": {
+      "n_pct_of_svartvann": "10-20%",
+      "p_pct_of_svartvann": "20-30%",
+      "k_pct_of_svartvann": "5-10%"
+    },
+    "recovery_potential_long_term": {
+      "n_pct_of_svartvann": "30-40%",
+      "p_pct_of_svartvann": "50-80%",
+      "k_pct_of_svartvann": "80-90%"
+    },
+    "key_insight": "30-50% of imported N/P/K could theoretically be replaced by recovered nutrients from aquaculture, wastewater, and food waste streams. Norway alone loses ~91.5 kt N and ~14 kt P/yr across all streams, of which ~64 kt N and ~10 kt P are technically recoverable with maturing technology."
+  },
+  "technologies": [
+    {
+      "name": "Ammonia stripping",
+      "target": "N",
+      "maturity": "commercial",
+      "recovery_pct": "70-90%",
+      "cost_eur_per_t": null,
+      "note": "Used in Helsingborg RecoLab and multiple Nordic pilot plants. Produces ammoniumsulfat for direct use as N-fertilizer. Requires high pH and concentrated streams"
+    },
+    {
+      "name": "Struvite precipitation (MgNH4PO4)",
+      "target": "P+N",
+      "maturity": "commercial",
+      "recovery_pct": "80-90%",
+      "cost_eur_per_t": null,
+      "note": "Multiple fullskala plants in Denmark (Aaby, Herning). Produces slow-release fertilizer from reject water with high P-concentrations. Also captures some N and Mg"
+    },
+    {
+      "name": "Source-separating toilets (urinsortering)",
+      "target": "N+P+K",
+      "maturity": "pilot",
+      "recovery_pct": "85-95%",
+      "cost_eur_per_t": null,
+      "note": "Demonstrated at Helsingborg H+ / RecoLab. Vacuum toilets + separate piping. Challenge is building/network infrastructure, not technology per se. Swedish LCA shows potential to cover 75% of national N-need"
+    },
+    {
+      "name": "Biological N and P removal (activated sludge)",
+      "target": "N+P",
+      "maturity": "mature",
+      "recovery_pct": "50-80%",
+      "cost_eur_per_t": null,
+      "note": "Standard in Nordic wastewater treatment. Removes 70-90% P and 50-80% N from influent. P ends in slam; N largely lost as N2 via denitrification unless combined with stripping"
+    },
+    {
+      "name": "Chemical P-precipitation (Fe/Al)",
+      "target": "P",
+      "maturity": "mature",
+      "recovery_pct": "90-95%",
+      "cost_eur_per_t": null,
+      "note": "Very mature and widespread in Nordic countries. P ends in slam with limited plant-availability. VEAS uses this approach with >90% P-removal"
+    },
+    {
+      "name": "Thermal hydrolysis / pasteurization",
+      "target": "pathogen_removal",
+      "maturity": "mature",
+      "recovery_pct": null,
+      "cost_eur_per_t": null,
+      "note": "Enabling technology for safe land-application of slam/biogjodsel. Does not affect N/P quantity but is prerequisite for agricultural use"
+    },
+    {
+      "name": "IMTA (Integrated Multi-Trophic Aquaculture)",
+      "target": "N+P",
+      "maturity": "pilot",
+      "recovery_pct": "20-40%",
+      "cost_eur_per_t": null,
+      "note": "Blue mussels, kelp (tare) capture dissolved N/P from salmon cage effluent. Technical recovery 30-60% of P and 20-40% of N from aquaculture discharges assessed as feasible by 2030-2040"
+    },
+    {
+      "name": "Biogas + digestate (anaerob utraatning)",
+      "target": "N+P+K",
+      "maturity": "commercial",
+      "recovery_pct": "60-80%",
+      "cost_eur_per_t": null,
+      "note": "Mature in Denmark (175 plants). Converts food waste and manure to biogas + digestate-fertilizer. Majority of N/P/K retained in digestate if spread on land. Logistical rather than technical barriers limit scale"
+    },
+    {
+      "name": "P-recovery from mono-incinerated sludge ash",
+      "target": "P",
+      "maturity": "emerging",
+      "recovery_pct": "80-90%",
+      "cost_eur_per_t": null,
+      "note": "Under evaluation in EU sludge directive revision. Higher short-term agronomic P-efficiency than direct slam application. Requires dedicated mono-incineration infrastructure"
+    }
+  ]
+}

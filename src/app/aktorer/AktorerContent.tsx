@@ -99,15 +99,18 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
   const [typeFilter, setTypeFilter] = useState('alle')
   const [priorityFilter, setPriorityFilter] = useState('alle')
   const [stanceFilter, setStanceFilter] = useState('alle')
+  const [themeFilter, setThemeFilter] = useState('alle')
   const deferredQuery = useDeferredValue(query)
 
   const actorTypes = [...new Set(actors.map(actor => actor.actorType))].sort()
   const stances = [...new Set(actors.map(actor => actor.currentStance).filter(Boolean))].sort() as string[]
+  const allThemeTags = [...new Set(actors.flatMap(a => a.themeTags ?? []))].sort()
 
   const filteredActors = actors.filter(actor => {
     if (typeFilter !== 'alle' && actor.actorType !== typeFilter) return false
     if (priorityFilter !== 'alle' && actor.priorityTier !== priorityFilter) return false
     if (stanceFilter !== 'alle' && actor.currentStance !== stanceFilter) return false
+    if (themeFilter !== 'alle' && !actor.themeTags?.includes(themeFilter)) return false
 
     if (!deferredQuery.trim()) return true
 
@@ -212,6 +215,18 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
                 {stances.map(stance => (
                   <option key={stance} value={stance}>
                     {STANCE_LABELS[stance] ?? stance}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={themeFilter}
+                onChange={(event) => setThemeFilter(event.target.value)}
+                className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
+              >
+                <option value="alle">Tema: Alle</option>
+                {allThemeTags.map(tag => (
+                  <option key={tag} value={tag}>
+                    {tag}
                   </option>
                 ))}
               </select>

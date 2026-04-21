@@ -12,7 +12,7 @@ const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
 const RESEARCH_DIR = path.resolve(__dirname, '../research')
-const EVIDENCE_BACKLOG_PATH = path.join(RESEARCH_DIR, 'evidence-pack/download-backlog-2026-03-18.csv')
+const EVIDENCE_PACK_DIR = path.join(RESEARCH_DIR, 'evidence-pack')
 
 type ResearchFile = {
   fullPath: string
@@ -376,7 +376,14 @@ const SUPPLEMENTAL_PDF_MATCHES: Record<string, SupplementalPdfMatch> = {
   },
 
   // ── Tenketank ──
-  'evidence-pack/tenketank/fivh-etikk-2025.pdf': { reportId: 'fivh-etikk-2025' },
+  'evidence-pack/tenketank/norsus-matvett-kartleggingsrapport-matbransjen-undervisning-omsorg-forbrukerleddet-or48-21.pdf': {
+    title: 'Kartleggingsrapport for matbransjen, undervisning- og omsorgssektoren og forbrukerleddet',
+    author: 'NORSUS / Matvett',
+    year: 2021,
+    country: 'no',
+    documentType: 'report',
+    tags: ['food-waste', 'norway', 'norsus', 'matvett'],
+  },
   'evidence-pack/tenketank/stockholm-resilience-2019.pdf': { reportId: 'stockholm-resilience-2019' },
 }
 
@@ -505,32 +512,38 @@ function parseCsv(content: string): string[][] {
 
 function loadEvidenceBacklog(): Map<string, EvidenceBacklogRow> {
   const byPath = new Map<string, EvidenceBacklogRow>()
-  if (!fs.existsSync(EVIDENCE_BACKLOG_PATH)) return byPath
+  if (!fs.existsSync(EVIDENCE_PACK_DIR)) return byPath
 
-  const csv = fs.readFileSync(EVIDENCE_BACKLOG_PATH, 'utf-8')
-  const [header, ...rows] = parseCsv(csv)
-  const index = Object.fromEntries(header.map((name, idx) => [name, idx]))
+  const backlogFiles = fs.readdirSync(EVIDENCE_PACK_DIR)
+    .filter((name) => /^download-backlog.*\.csv$/i.test(name))
+    .sort()
 
-  for (const values of rows) {
-    const row: EvidenceBacklogRow = {
-      priority: values[index.priority] ?? '',
-      status: values[index.status] ?? '',
-      country: values[index.country] ?? '',
-      theme: values[index.theme] ?? '',
-      docType: values[index.doc_type] ?? '',
-      institution: values[index.institution] ?? '',
-      title: values[index.title] ?? '',
-      year: values[index.year] ?? '',
-      url: values[index.url] ?? '',
-      urlType: values[index.url_type] ?? '',
-      currentLocalStatus: values[index.current_local_status] ?? '',
-      targetPath: values[index.target_path] ?? '',
-      nextAction: values[index.next_action] ?? '',
-      sourceBasis: values[index.source_basis] ?? '',
-    }
+  for (const backlogFile of backlogFiles) {
+    const csv = fs.readFileSync(path.join(EVIDENCE_PACK_DIR, backlogFile), 'utf-8')
+    const [header, ...rows] = parseCsv(csv)
+    const index = Object.fromEntries(header.map((name, idx) => [name, idx]))
 
-    for (const target of row.targetPath.split('|').map(part => part.trim()).filter(Boolean)) {
-      byPath.set(normalizeResearchRelativePath(target), row)
+    for (const values of rows) {
+      const row: EvidenceBacklogRow = {
+        priority: values[index.priority] ?? '',
+        status: values[index.status] ?? '',
+        country: values[index.country] ?? '',
+        theme: values[index.theme] ?? '',
+        docType: values[index.doc_type] ?? '',
+        institution: values[index.institution] ?? '',
+        title: values[index.title] ?? '',
+        year: values[index.year] ?? '',
+        url: values[index.url] ?? '',
+        urlType: values[index.url_type] ?? '',
+        currentLocalStatus: values[index.current_local_status] ?? '',
+        targetPath: values[index.target_path] ?? '',
+        nextAction: values[index.next_action] ?? '',
+        sourceBasis: values[index.source_basis] ?? '',
+      }
+
+      for (const target of row.targetPath.split('|').map(part => part.trim()).filter(Boolean)) {
+        byPath.set(normalizeResearchRelativePath(target), row)
+      }
     }
   }
 

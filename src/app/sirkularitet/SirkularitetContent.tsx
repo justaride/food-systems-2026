@@ -1,8 +1,16 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { RLadderMatrix } from '@/components/charts/RLadderMatrix'
+import { RLadderMaturityOverview } from '@/components/charts/RLadderMaturityOverview'
+import { R9KpiCatalog } from '@/components/charts/R9KpiCatalog'
+import { NutrientFlowsView } from '@/components/charts/NutrientFlowsView'
+import { circularityQuestions, type CircularityQuestion, type QuestionStatus } from '@/lib/data/circularity-questions'
+import { CIRCULARITY_ACTOR_MAP } from '@/lib/data/circularity-actor-map'
+import { rLadderById } from '@/lib/data/r-ladder'
 
 type Loop = {
   id: string
@@ -10,6 +18,7 @@ type Loop = {
   country: string
   maturity: string
   trl: number
+  rLevel?: string
   volume: string
   value_chain_step: string[]
   flow: string
@@ -17,18 +26,21 @@ type Loop = {
   policy_support: string
   theme: string
   sources: string[]
+  nordic_transferable?: boolean
 }
 
 type Gap = {
   id: string
   name: string
   country: string
+  rLevel?: string
   potential_volume: string
   barrier: string
   policy_lever: string
   comparable_solution: string
   theme: string
   sources: string[]
+  value_chain_step?: string[]
 }
 
 type ActorCase = {
@@ -36,13 +48,15 @@ type ActorCase = {
   country: string
   concept: string
   founded?: number | null
+  rLevel?: string
   status?: string
   bankrupt?: string
   cause?: string
   lesson: string
-  invested_eur_m?: number
+  invested_eur_m?: number | null
   business_model?: string
-  investment_eur_m?: number
+  ownership?: string
+  value_chain_step?: string[]
 }
 
 type CircularityData = {
@@ -89,11 +103,31 @@ const COUNTRY_FLAGS: Record<string, string> = {
   nordic: 'Norden',
 }
 
-type Tab = 'loops' | 'gaps' | 'actors'
+type Tab = 'matrix' | 'maturity' | 'kpi' | 'questions' | 'loops' | 'gaps' | 'actors' | 'naeringsflyt'
+
+const QUESTION_STATUS_LABEL: Record<QuestionStatus, string> = {
+  open: 'apen',
+  'in-research': 'under utredning',
+  answered: 'besvart',
+  parked: 'parkert',
+}
+
+const QUESTION_STATUS_COLOR: Record<QuestionStatus, string> = {
+  open: 'bg-amber-50 text-amber-700 border-amber-200',
+  'in-research': 'bg-blue-50 text-blue-700 border-blue-200',
+  answered: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  parked: 'bg-stone-100 text-stone-600 border-stone-200',
+}
+
+const GAP_REAL_LABEL: Record<CircularityQuestion['isRealGap'], string> = {
+  yes: 'reelt hull',
+  no: 'ikke hull',
+  unclear: 'usikkert',
+}
 
 export function SirkularitetContent() {
   const [data, setData] = useState<CircularityData | null>(null)
-  const [tab, setTab] = useState<Tab>('loops')
+  const [tab, setTab] = useState<Tab>('matrix')
   const [themeFilter, setThemeFilter] = useState<string | null>(null)
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
 
@@ -112,6 +146,57 @@ export function SirkularitetContent() {
       return next
     })
   }
+
+  const matrixItems = useMemo(() => {
+    if (!data) return []
+    const items: {
+      id: string
+      name: string
+      country: string
+      kind: 'loop' | 'gap' | 'success' | 'failure'
+      rLevel?: string
+      valueChainSteps: string[]
+      detail?: string
+    }[] = []
+    for (const l of data.existing_loops) {
+      items.push({
+        id: l.id,
+        name: l.name,
+        country: l.country,
+        kind: 'loop',
+        rLevel: l.rLevel,
+        valueChainSteps: l.value_chain_step,
+        detail: l.volume,
+      })
+    }
+    for (const g of data.gaps) {
+      items.push({
+        id: g.id,
+        name: g.name,
+        country: g.country,
+        kind: 'gap',
+        rLevel: g.rLevel,
+        valueChainSteps: g.value_chain_step ?? [],
+        detail: g.potential_volume,
+      })
+    }
+    const addCase = (c: ActorCase, kind: 'success' | 'failure') => {
+      items.push({
+        id: c.name,
+        name: c.name,
+        country: c.country,
+        kind,
+        rLevel: c.rLevel,
+        valueChainSteps: c.value_chain_step ?? [],
+        detail: c.status ?? c.cause,
+      })
+    }
+    data.actor_cases.success.forEach((c) => addCase(c, 'success'))
+    data.additional_success.forEach((c) => addCase(c, 'success'))
+    data.actor_cases.failure.forEach((c) => addCase(c, 'failure'))
+    data.additional_failure.forEach((c) => addCase(c, 'failure'))
+    return items
+  }, [data])
 
   if (!data) {
     return (
@@ -148,7 +233,7 @@ export function SirkularitetContent() {
       </div>
 
       <div className="flex gap-2 flex-wrap">
-        {(['loops', 'gaps', 'actors'] as Tab[]).map((t) => (
+        {(['matrix', 'maturity', 'kpi', 'questions', 'loops', 'gaps', 'actors', 'naeringsflyt'] as Tab[]).map((t) => (
           <button
             key={t}
             type="button"
@@ -159,14 +244,178 @@ export function SirkularitetContent() {
                 : 'bg-white text-stone-600 border-stone-200 hover:border-stone-400'
             }`}
           >
+            {t === 'matrix' && `R-stige x verdikjede`}
+            {t === 'maturity' && `R-stige modenhet`}
+            {t === 'kpi' && `KPI-katalog`}
+            {t === 'questions' && `10 sirkularitetsspormal (${circularityQuestions.length})`}
             {t === 'loops' && `Eksisterende looper (${data.existing_loops.length})`}
             {t === 'gaps' && `Gap og muligheter (${data.gaps.length})`}
             {t === 'actors' && `Aktorcaser (${allSuccess.length + allFailure.length})`}
+            {t === 'naeringsflyt' && `Naeringsflyt N/P/K`}
           </button>
         ))}
       </div>
 
-      {tab !== 'actors' && (
+      {tab === 'matrix' && (
+        <div className="space-y-4">
+          <Card className="bg-stone-50 border-stone-200">
+            <p className="text-xs text-stone-600 leading-relaxed">
+              R-stigen (Potting et al. 2017) rangerer sirkulare strategier fra mest til minst sirkular.
+              Matrisen viser hvor nordiske initiativer sitter per verdikjedeledd.
+              <span className="font-medium text-stone-800"> Tomme celler = uutnyttede muligheter.</span>
+              Klikk en celle for a se hvilke initiativer som er plassert der.
+            </p>
+          </Card>
+          <RLadderMatrix items={matrixItems} />
+        </div>
+      )}
+
+      {tab === 'maturity' && <RLadderMaturityOverview />}
+
+      {tab === 'kpi' && <R9KpiCatalog />}
+
+      {tab === 'naeringsflyt' && <NutrientFlowsView />}
+
+      {tab === 'questions' && (
+        <div className="space-y-4">
+          <Card className="bg-stone-50 border-stone-200">
+            <p className="text-xs text-stone-600 leading-relaxed">
+              10 ankersporsmal for sirkulaer omstilling i nordisk matsystem. Hvert sporsmal kobler R-nivaer,
+              verdikjedeledd og konkrete suksess-/fiasko-caser. Rammeverk etablert i mote JT-Gabriel 20.04.26.
+              <span className="font-medium text-stone-800"> Disse er utkast</span> — skal fylles ut lopende og oppdateres etter JTs bidrag.
+            </p>
+          </Card>
+          <div className="space-y-2">
+            {circularityQuestions.map((q) => (
+              <Card key={q.id} className="!p-0">
+                <button
+                  type="button"
+                  className="w-full text-left px-4 py-3 flex items-start gap-3"
+                  onClick={() => toggle(`q-${q.id}`)}
+                >
+                  <svg
+                    className={`w-3.5 h-3.5 text-stone-400 shrink-0 mt-1 transition-transform ${
+                      expandedIds.has(`q-${q.id}`) ? 'rotate-90' : ''
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-[10px] font-semibold text-stone-400">#{q.number}</span>
+                      <h3 className="text-sm font-semibold text-stone-800">{q.question}</h3>
+                    </div>
+                    <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
+                      <span className={`text-[10px] px-1.5 py-0.5 rounded border ${QUESTION_STATUS_COLOR[q.status]}`}>
+                        {QUESTION_STATUS_LABEL[q.status]}
+                      </span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded border bg-white text-stone-600 border-stone-200">
+                        {GAP_REAL_LABEL[q.isRealGap]}
+                      </span>
+                      {q.rLevels.map((r) => (
+                        <span
+                          key={r}
+                          className={`text-[10px] px-1.5 py-0.5 rounded border ${rLadderById[r].color} ${rLadderById[r].border}`}
+                        >
+                          {r}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </button>
+                {expandedIds.has(`q-${q.id}`) && (
+                  <div className="px-4 pb-4 border-t border-stone-100">
+                    <div className="mt-3 space-y-3">
+                      <div>
+                        <p className="text-xs font-medium text-stone-500 mb-1">Kontekst</p>
+                        <p className="text-sm text-stone-700">{q.context}</p>
+                      </div>
+                      {q.note && (
+                        <div className="bg-amber-50 border border-amber-200 rounded-lg p-2">
+                          <p className="text-xs text-amber-800">{q.note}</p>
+                        </div>
+                      )}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div>
+                          <p className="text-xs font-medium text-stone-500 mb-1">Forsokte losninger</p>
+                          <ul className="text-xs text-stone-700 space-y-0.5 list-disc list-inside">
+                            {q.attemptedSolutions.map((s) => (
+                              <li key={s}>{s}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-stone-500 mb-1">Barrierer</p>
+                          <ul className="text-xs text-stone-700 space-y-0.5 list-disc list-inside">
+                            {q.barriers.map((b) => (
+                              <li key={b}>{b}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div>
+                          <p className="text-xs font-medium text-emerald-700 mb-1">Suksess-caser</p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {q.successCases.length === 0 ? (
+                              <span className="text-xs text-stone-400">Ingen registrert</span>
+                            ) : (
+                              q.successCases.map((c) => (
+                                <span
+                                  key={c}
+                                  className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200"
+                                >
+                                  {c}
+                                </span>
+                              ))
+                            )}
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-rose-700 mb-1">Fiasko-caser</p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {q.failureCases.length === 0 ? (
+                              <span className="text-xs text-stone-400">Ingen registrert</span>
+                            ) : (
+                              q.failureCases.map((c) => (
+                                <span
+                                  key={c}
+                                  className="text-[10px] px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200"
+                                >
+                                  {c}
+                                </span>
+                              ))
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-xs font-medium text-stone-500 mb-1">Evidensreferanser</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {q.evidenceRefs.map((r) => (
+                            <span
+                              key={r}
+                              className="text-[10px] px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 border border-stone-200 font-mono"
+                            >
+                              {r}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </Card>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {(tab === 'loops' || tab === 'gaps') && (
         <div className="flex gap-1.5 flex-wrap">
           <button
             type="button"
@@ -221,11 +470,18 @@ export function SirkularitetContent() {
                   </svg>
 
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="text-sm font-semibold text-stone-800">{loop.name}</h3>
                       <span className={`text-[10px] px-1.5 py-0.5 rounded border ${MATURITY_COLORS[loop.maturity] ?? 'bg-stone-100 text-stone-600 border-stone-200'}`}>
                         {loop.maturity}
                       </span>
+                      {loop.rLevel && rLadderById[loop.rLevel as keyof typeof rLadderById] && (
+                        <span
+                          className={`text-[10px] px-1.5 py-0.5 rounded border ${rLadderById[loop.rLevel as keyof typeof rLadderById].color} ${rLadderById[loop.rLevel as keyof typeof rLadderById].border}`}
+                        >
+                          {loop.rLevel} {rLadderById[loop.rLevel as keyof typeof rLadderById].nameNo}
+                        </span>
+                      )}
                     </div>
                     <p className="text-xs text-stone-400 mt-0.5">
                       {COUNTRY_FLAGS[loop.country] ?? loop.country} &middot; {loop.volume}
@@ -248,11 +504,25 @@ export function SirkularitetContent() {
                         <div>
                           <p className="text-xs font-medium text-stone-500 mb-1">Aktorer</p>
                           <div className="flex flex-wrap gap-1.5">
-                            {loop.actors.map((a) => (
-                              <span key={a} className="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200">
-                                {a}
-                              </span>
-                            ))}
+                            {loop.actors.map((a) => {
+                              const mapping = CIRCULARITY_ACTOR_MAP[a]
+                              if (mapping) {
+                                return (
+                                  <Link
+                                    key={a}
+                                    href={mapping.href}
+                                    className="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200 hover:underline cursor-pointer"
+                                  >
+                                    {a}
+                                  </Link>
+                                )
+                              }
+                              return (
+                                <span key={a} className="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200">
+                                  {a}
+                                </span>
+                              )
+                            })}
                           </div>
                         </div>
                         <div>
@@ -304,7 +574,16 @@ export function SirkularitetContent() {
                   </svg>
 
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-semibold text-stone-800">{gap.name}</h3>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-sm font-semibold text-stone-800">{gap.name}</h3>
+                      {gap.rLevel && rLadderById[gap.rLevel as keyof typeof rLadderById] && (
+                        <span
+                          className={`text-[10px] px-1.5 py-0.5 rounded border ${rLadderById[gap.rLevel as keyof typeof rLadderById].color} ${rLadderById[gap.rLevel as keyof typeof rLadderById].border}`}
+                        >
+                          {gap.rLevel}
+                        </span>
+                      )}
+                    </div>
                     <p className="text-xs text-stone-400 mt-0.5">
                       {COUNTRY_FLAGS[gap.country] ?? gap.country} &middot; {gap.potential_volume}
                     </p>
@@ -363,11 +642,28 @@ export function SirkularitetContent() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-sm font-semibold text-stone-800">{actor.name}</h3>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        {CIRCULARITY_ACTOR_MAP[actor.name] ? (
+                          <Link
+                            href={CIRCULARITY_ACTOR_MAP[actor.name].href}
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-sm font-semibold text-stone-800 hover:underline cursor-pointer"
+                          >
+                            {actor.name}
+                          </Link>
+                        ) : (
+                          <h3 className="text-sm font-semibold text-stone-800">{actor.name}</h3>
+                        )}
                         <span className="text-[10px] px-1.5 py-0.5 rounded border bg-emerald-50 text-emerald-700 border-emerald-200">
                           {COUNTRY_FLAGS[actor.country] ?? actor.country}
                         </span>
+                        {actor.rLevel && rLadderById[actor.rLevel as keyof typeof rLadderById] && (
+                          <span
+                            className={`text-[10px] px-1.5 py-0.5 rounded border ${rLadderById[actor.rLevel as keyof typeof rLadderById].color} ${rLadderById[actor.rLevel as keyof typeof rLadderById].border}`}
+                          >
+                            {actor.rLevel}
+                          </span>
+                        )}
                       </div>
                       <p className="text-xs text-stone-400 mt-0.5">{actor.concept}</p>
                     </div>
@@ -415,11 +711,28 @@ export function SirkularitetContent() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-sm font-semibold text-stone-800">{actor.name}</h3>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        {CIRCULARITY_ACTOR_MAP[actor.name] ? (
+                          <Link
+                            href={CIRCULARITY_ACTOR_MAP[actor.name].href}
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-sm font-semibold text-stone-800 hover:underline cursor-pointer"
+                          >
+                            {actor.name}
+                          </Link>
+                        ) : (
+                          <h3 className="text-sm font-semibold text-stone-800">{actor.name}</h3>
+                        )}
                         <span className="text-[10px] px-1.5 py-0.5 rounded border bg-rose-50 text-rose-700 border-rose-200">
                           {COUNTRY_FLAGS[actor.country] ?? actor.country}
                         </span>
+                        {actor.rLevel && rLadderById[actor.rLevel as keyof typeof rLadderById] && (
+                          <span
+                            className={`text-[10px] px-1.5 py-0.5 rounded border ${rLadderById[actor.rLevel as keyof typeof rLadderById].color} ${rLadderById[actor.rLevel as keyof typeof rLadderById].border}`}
+                          >
+                            {actor.rLevel}
+                          </span>
+                        )}
                         {actor.bankrupt && (
                           <span className="text-[10px] px-1.5 py-0.5 rounded border bg-rose-50 text-rose-700 border-rose-200">
                             konkurs {actor.bankrupt}

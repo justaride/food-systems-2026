@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-04-20T14:14:15.675Z",
+  "sourceDir": "Food Research Process 20.04.26",
+  "reviewCsv": "research/intake/food-research-process-2026-04-20/review.csv",
+  "totalReviewRows": 250,
+  "exactDuplicateCount": 14,
+  "countsByFolder": {
+    "00_Working_Files": 19,
+    "01_Data_And_Archives": 6,
+    "03_Policy_Governance_And_Market": 34,
+    "04_Food_Waste_And_Circularity": 23,
+    "05_Foodtech_Alt_Protein_And_Innovation": 31,
+    "06_Company_And_Annual_Reports": 15,
+    "07_Academic_Research_And_Theses": 102,
+    "08_Food_Security_Agriculture_And_Seafood": 20
+  },
+  "countsByAction": {
+    "hold": 25,
+    "review": 225
+  },
+  "countsByExt": {
+    ".docx": 8,
+    ".md": 9,
+    ".pdf": 226,
+    ".numbers": 1,
+    ".zip": 4,
+    ".xml": 1,
+    ".xlsx": 1
+  },
+  "exactDuplicates": [
+    "Food Research Process 20.04.26/99_Exact_Duplicates/2023-Danish-Action-Plan-for-Plant-based-Foods (1).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/Årsrapport+Dagligvaretilsynet+2024 (1).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/Årsrapport+Dagligvaretilsynet+2024 (2).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/Årsrapport+for+Daglegvaretilsynet+2022. (1).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/Årsrapport_Dagligvaretilsynet+2023 (1).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/FULLTEXT02 (1).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/HDR___Afgangsprojekt___Gruppe_25 (1).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/Reitan Retail 2025_Oppslag (1).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/Susanne_Helen_Gangstøe_Masteroppgave (1).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/Utredning-om-prisjusteringsvinduer-2023 (1).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/about-oecd-environmental-performance-reviews-brochure-2022-web (1).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/coop-danmark-aarsrapport-2024 (1).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/dagligvare_rapport (1).pdf",
+    "Food Research Process 20.04.26/99_Exact_Duplicates/dagligvare_rapport (2).pdf"
+  ]
+}

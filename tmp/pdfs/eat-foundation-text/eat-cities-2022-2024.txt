@@ -1,0 +1,629 @@
+EAT Cities
+SPRING 2022
+
+Executive Summary
+
+EAT Cities is a guiding framework for the period 2022–2024 focusing on the commitment and
+contribution of EAT to urban food systems. It creates a strong narrative for change, clearly
+setting out the relationship between EAT’s scientific foundation and its engagement capacity,
+moving from an output-oriented approach to one that is more outcome and impact-oriented.
+
+This framework is intended to help build internal coherence and understanding across the
+organization, identify priorities, and inform on whether and how to pursue new opportunities.
+We will use the framework to refine and align on the focus and scope of EAT’s cities work and
+ambitions – i.e., viewing urban areas as systems, with local governments as an anchor;
+focusing on dietary shifts, while considering urban-rural linkages as the backbone of urban
+food systems.
+
+EAT Cities envisions making healthy and sustainable food the default choice for all city
+dwellers, by advocating for the role cities play in global food systems transformation, promoting
+the adoption of evidence-based and multi-stakeholder approaches in urban food systems
+activities, and testing such approaches in a diversity of cities and urban areas. In doing so, we
+will work through three core functions: knowledge, action, and communication and
+engagement. We will also build on synergies across EAT’s four strategic programs: 1) Solidify
+knowledge; 2) Driving Dietary Shifts Globally and Nationally; 3) Food Economics and Finance;
+and 4) Cities and Urban Diets (where our cities projects are grounded).
+
+This document describes how our various cities-focused projects and approaches build on the
+three core functions and link to EAT’s other three programs under the Food Forward
+Consoritum umbrella. In particular, we position the City Guide to a Planetary Health Diet project
+as a way to translate the EAT-Lancet science to on-the-ground action; collaboration around
+the C40 Good Food Cities Declaration as a way to strengthen ambition and advocate for the
+role of cities in food systems transformation; and the EU-funded FoodSHIFT 2030 and Food
+Trails projects as ways to further develop and share good practices and mobilize multi-
+stakeholder communities, for example. The geographic focus is on Europe, particularly the
+Nordic region, for in-depth work with individual cities; our consultation, dialogue, and higher-
+level knowledge sharing and advocacy activities have a global scope.
+
+Through a clear strategic framework, key partnerships, and a renewed approach to our cities
+work, we can effectively contribute to solving the complex and persistent challenges within the
+global food system.
+EAT Cities
+
+
+
+Contents
+1.   Adding an urban “lens” to food systems ............................................................................. 3
+
+2.   Cities as critical agents and arenas for change .................................................................. 4
+
+3.   EAT Cities: Three levers for change ................................................................................... 5
+
+     Science translation for cities: From global to local knowledge ........................................... 7
+
+     Dialogue and visibility: Raising the voice of cities in the policy arena ............................... 9
+
+     Actions and interventions for urban food systems transformation ................................... 10
+
+4.   Who do we work with? ...................................................................................................... 11
+
+5.   How do we do it? ............................................................................................................... 12
+
+6.   Conclusion & Recommendations ...................................................................................... 13
+
+
+
+
+                                                                                                                                      2
+EAT Cities
+
+
+1.        Adding an urban “lens” to food systems
+
+EAT Cities aims to make healthy and sustainable food the default choice for all city dwellers.
+We work to support cities and urban areas in adopting food system solutions that will help
+address their most pressing challenges, while enhancing climate resilience, reducing
+environmental impact, and improving health equity.
+
+Today, urban areas are home to over half the world’s population, with this number expected
+to increase to 68 percent by 2050.1 City leaders, all the way from local authorities to community
+shakers, face the huge test of ensuring that healthy, tasty, and sustainable food is accessible
+to all residents.
+
+Urban food systems are especially challenging because of the complexity of urban
+environments, the diversity of the populations they serve, and the uniqueness of the
+geographical and socio-economic characteristics that have shaped them over time. The
+causes and effects behind these complexities are important to address within food systems
+interventions and New Urban Agenda. Yet, the challenge of shifting to sustainable and healthy
+consumption particularly stands out, as highlighted by the EAT-Lancet Commission in 2019.
+
+                      Why we need to address food consumption in cities
+    Urban diets                                    Impact
+    • Cities already consume more than half of • Climate: Food is the biggest source of
+       all food produced in the world. By 2050,       consumption-based emissions in the
+       it is estimated that 80 percent of all food    world’s megacities, representing 13
+       consumption will take place in urban           percent of total emissions. If no action is
+               2
+       areas.                                         taken, this figure could rise to 28 percent
+    • While there is greater choice and year-         by 2050.4
+       round availability of fresh food in cities, • Environment: 40 percent of the world’s
+       there is often an abundance of                 cropland is located within 20 km of
+       processed and ultra-processed foods.           cities.5
+       Also, there are diverse food outlets, e.g., • Resilience: Since cities cannot produce
+       supermarkets, restaurants, and fast-food       all the food needed to sustain their
+       takeaways.                                     populations, supplies must continually be
+    • Increasingly,      undernutrition,     over-    brought in from outside. This stress
+       nutrition and micronutrient deficiencies       increases cities’ vulnerability to supply
+       are simultaneously present in cities,          chain shocks, as witnessed in 2020 with
+       particularly in low- and middle-income         the COVID-19 pandemic.
+       countries, as well as the consequent
+       increase in diet-related NCDs.3
+
+
+
+
+1
+ United Nations, Department of Economic and Social Affairs, Population Division (2019). World Population
+Prospects 2019: Highlights (ST/ESA/SER.A/423).
+2 Ellen MacArthur Foundation (2019). Cities and Circular Economy for Food
+3
+ Global Panel (2017). Urban diets and nutrition: Trends, challenges and opportunities for policy action. Policy
+Brief No. 9. London, UK: Global Panel on Agriculture and Food Systems for Nutrition.
+4 C40 Cities, Arup, and University of Leeds (2019). The Future of Urban Consumption in a 1.5° World: Headline
+
+Report.
+5
+  Thebo, A. L., Drechsel, P., Lambin, E. F., & Nelson, K. L. (2017). A global, spatially-explicit assessment of
+irrigated croplands influenced by urban wastewater flows. Environmental Research Letters, 12(7), 074008.
+                                                                                                                  3
+EAT Cities
+
+
+2.        Cities as critical agents and arenas for change
+
+Cities and urban areas have the unique agency to spark positive transformation across the
+food value chain (including beyond their jurisdiction) and to demonstrate innovative leadership
+in areas where national governments have been less progressive – a potential further
+highlighted by cities’ rapid and effective response to COVID-19, as local governments and
+community leaders joined forces to assist the most vulnerable.6 Achieving global food systems
+transformation will depend on shaping healthy and sustainable food consumption patterns in
+cities and towns.
+
+    Box 1. What does EAT mean by “cities”?
+
+    Several definitions of what constitutes a city or an urban area are in use, with significant
+    variations between countries.7 All cities are unique and vary considerably in terms of
+    geography, size (land area), population (and population density), economic system, cultural
+    characteristics, and administrative or local government arrangements.
+
+    EAT’s definition of cities includes:
+    • The physical environment of an urban area;
+    • The range of populations living in or seeking their livelihoods within that urban area,
+       defined by age group, cultural background, vulnerability or economic status, and
+       geographical location, among others; and
+    • The governing authority given the mandate to manage the affairs of the area.
+
+    As a global organization, our definition of cities considers the geographical, cultural, and
+    administrative context of the cities we engage with. In practice, what we refer to as a city will
+    be determined using a place-based approach to encompass all these considerations.
+
+
+
+This framework and EAT’s cities-oriented projects are inextricably informed by and aligned
+with the EAT-Lancet Commission’s recommendations for a Planetary Health Diet. EAT’s
+existing cities work supports a range of activities including the global Food Systems Network,
+delivered in partnership with C40 Cities; high-level international engagements such as the UN
+Food Systems Summit; European-level projects addressing citizen-driven innovation in cities
+and integrated policy approaches; and city-specific science translation and technical
+assistance, starting in Copenhagen.
+
+EAT envisions a comprehensive multi-year urban food program that will enable us to
+uniquely contribute to food systems transformation. The program will capitalize on synergies
+with Children Eating Well (CHEW), our science translation work with the Shifting Urban Diets
+project, and our role with the EU H2020 projects FoodSHIFT 2030 and Food Trails.
+
+
+
+
+6
+  EAT (2020). Cities Are Joining Forces in the Fight Against COVID-19. Available at: https://eatforum.org/learn-
+and-discover/cities-are-joining-forces-in-the-fight-against-covid-19/
+7
+  Moreno, E. L. (2017). Concepts, definitions and data sources for the study of urbanization: the 2030 Agenda
+for Sustainable Development. United Nations Expert Group Meeting on Sustainable Cities, Human Mobility and
+International Migration. UN Secretariat, NY.
+                                                                                                                 4
+EAT Cities
+
+Funding will need to be secured to sustain this portfolio, securing additional resources to create
+and develop added value areas identified by this framework. While offering a holistic package
+for investment, the multiple yet interconnected components of our cities work open possibilities
+for modular funding – e.g., for one specific area (or several areas) of focus rather than the
+entire package.
+
+EAT fundamentally believes in the potential for cities and urban areas to help shape a healthier,
+more diverse, and resilient global food system. The EAT-Lancet brief for cities provides a
+series of recommended actions to produce urban food differently, change procurement and
+distribution practices, address food loss and waste, and strengthen food systems governance.8
+This document therefore sets forth three levers to support these types of local-level
+actions as well as to help integrate an urban “lens” into EAT’s wider programmatic
+work.
+
+
+
+3. EAT Cities: Three levers for change
+
+EAT Cities envisions making healthy and sustainable food the default choice for all city
+dwellers. We aim to:
+   1. Advocate for the critical role cities and urban areas play in global food systems
+       transformation.
+   2. Promote the adoption of evidence-based, multi-stakeholder approaches in urban food
+       system activities, leveraging EAT’s engagement capacity with the scientific, policy, and
+       business communities.
+   3. Test our approach in a diversity of cities and urban areas.
+
+EAT Cities aligns with EAT’s dynamic three-way framework for change across knowledge,
+communication and engagement, and action. The levers overlap and are mutually reinforcing,
+i.e., how we achieve results in one lever depends on and has implications for the others. New
+knowledge provides direction and an evidence base for change. Innovative engagement with
+actors across the science, policy, and business communities amplifies messages and creates
+alliances. Partnerships inspired through engagement and informed by knowledge enable
+action, leading to change and impact at scale (see Image 1). All projects should work through
+at least two of the three levers.
+
+
+
+
+                                Knowledge                Action Communication
+                                                                & Engagement
+
+
+
+
+                                       Image 1. The EAT Cities approach
+
+
+
+8 See EAT-Lancet brief for cities: https://eatforum.org/lancet-commission/cities/
+
+                                                                                                5
+EAT Cities
+
+
+
+In implementing this framework, the knowledge and communication and engagement levers
+will set the foundation for activating the action lever, while remaining a constant throughout
+EAT’s cities work (see Image 2).
+
+This strategic framework will be implemented over the period 2022–2024, based on global and
+organizational milestones that will require a review of the current direction. This includes the
+completion of the EU H2020 projects FoodSHIFT 2030 and Food Trails within the cities
+portfolio; the release of the Food Systems Economics Comission, Blue Food Assessment, and
+EAT-Lancet 2.0 reports, establishing a new knowledge and evidence base against which to
+review this framework; and the symbolic mid-point of the Agenda 2030 in 2025.
+
+EAT Cities, 2022–2024
+
+
+
+
+                       Image 2. Implementation process for EAT Cities
+
+
+
+
+                                                                                              6
+EAT Cities
+
+
+
+EAT’s 4 strategic programs
+
+   1.   Solidify knowledge
+   2.   Driving Dietary Shifts Globally and Nationally
+   3.   Shifting Food Finance / Food Economics and Finance
+   4.   Good Food Cities / Cities and Urban Diets
+
+ Strategic program        Solidifying knowledge
+                             • Translating EAT-Lancet scientific knowledge to city
+                                 context & action
+                             • SBTs for cities (part of City Guide to a Planetary Health
+                                 Diet)
+ Related cities work         • EAT-Lancet 2.0 urban chapter
+
+ Anchor function          Knowledge
+
+ Strategic program        Shifting diets globally and natinonally
+                             • City Guide to a Planetary Health Diet: food environment
+                                 & public kitchen interventions; scaling the impact of
+                                 Shifting Urban Diets (2019-2021 predecessor)
+                             • Engagement with C40 Food Systems Network & Good
+ Related cities work             Food Cities Declaration
+
+ Anchor function          Action; Communication & Engagement
+
+ Strategic program        Food economics and finance
+                             • Food Trails (work package with finance relevance)
+ Related cities work         • FoodSHIFT (assessing the benefits; job creation)
+
+ Anchor function          Action; Communication & Engagement
+
+ Strategic program        Cities and urban diets
+                              • City Guide to a Planetary Health Diet (building on
+                                 Shifting Urban Diets)
+                              • C40 Food Systems Network & Good Food Cities
+                                 Declaration
+                              • FoodSHIFT2030
+                              • Food Trails
+                              • Toolkit from City Guide to a Planetary Health Diet
+                                 project; tool to compare city procurement against EAT-
+ Related cities work             Lancet Planetary Health Diet
+
+ Anchor function          Action; Communication & Engagement
+
+
+
+
+                                                                                           7
+EAT Cities
+
+
+Science translation for cities: From global to local knowledge
+
+ Framework area &            Knowledge; Solidifying Knowledge
+ EAT program in
+ addition to Cities and
+ Urban Diets
+ Goal                        To equip cities and urban areas with the scientific evidence
+                             provided by the EAT-Lancet Commission to inform their food-
+                             related goals, strategies, policies, and activities.
+ Level of action             City & city-region level
+ Stakeholders                Research & academia partners (PIK, WRI, and potentially the
+ involved                    SBTN and SRC), local governments, and businesses
+ Identified projects         Shifting Urban Diets (SBT), City Guide to a Planetary Health Diet,
+                             C40 Food Systems Network
+ Implementation              2022 and beyond
+
+This first lever focuses on enabling cities and urban areas to use the scientific evidence
+provided by the EAT-Lancet Commission to inform their food-related goals, strategies, policies,
+and activities. By “science translation”, we refer to a two-fold approach of 1) helping our target
+stakeholders understand the latest science on healthy and sustainable food systems, and 2)
+mobilizing our network of experts to provide the technical support needed to concretize actions
+– including helping to set science-based targets (SBTs) for urban food systems, grounded in
+policy and operationalized in interventions.
+
+To do this, we will work with city officials (to understand the local context and priorities and
+identify relevant data) and the research community (to conduct the technical work and data
+analysis). Other potential actors that would be relevant to this work include businesses and
+community leaders on the ground, who can help gather local data and knowledge.
+
+The technical translation of the EAT-Lancet Commission’s report should be conducted in a
+way that responds to context-specific priorities and contributes to progressing the city’s
+agenda, while considering the urban-rural interface in the context of food procurement,
+production, shortening supply chains, and strengthening rural livelihoods. Specifically, EAT’s
+role will be to:
+    • Add a holistic perspective to the technical landscape to ensure that both health and
+         sustainability are taken into account when measuring the impact of current and future
+         urban food systems.
+    • Connect the scientific community with local governments and other relevant actors, to
+         enable an improved understanding of the urban context and policy landscape.
+    • Mobilize technical assistance to develop, implement, and share tools and
+         methodologies for monitoring urban food systems change.
+
+The SBT methodology developed under the Shifting Urban Diets project (2019-2021) has
+served as a starting point to activate this first lever while setting an example for others to follow,
+including the development of SBTs for cities by the Science-Based Targets Network (SBTN).
+EAT can mobilize its science and implementing partners to take this approach to other settings
+and fill remaining gaps in regards to human health and biodiversity, and this cities work can
+also exchange knowledge with EAT’s SBTs for business activities. More broadly, EAT will also
+
+
+                                                                                                    8
+EAT Cities
+
+build on existing relationships with knowledge sharing networks, such as the C40 Food
+Systems Network, to disseminate and scale new knowledge generated to strategic groups.
+
+
+
+Dialogue and visibility: Raising the voice of cities in the policy arena
+
+ Framework area &            Communication and Engagement; Driving Dietary Shifts Globally
+ EAT program in              and Nationally
+ addition to Cities and
+ Urban Diets
+ Goal                        To raise the urban food systems agenda in dialogue with various
+                             sectors and across governance levels, enabling alignment
+                             towards a common global food agenda.
+ Level of action             Global level
+ Stakeholders                All, with a particular focus on local governments, businesses, and
+ involved                    civil society
+ Identified projects         C40 Food Systems Network, City Guide to a Planetary Health
+                             Diet, FoodSHIFT 2030, Food Trails (WP7); UNICEF and Cities
+                             Changing Diabetes collaboration (potential to activate these
+                             relationships; not currently formal projects)
+ Implementation              2022 and beyond
+
+EAT dialogues and convening platforms are something we do best, and where partners find
+particular value. As an “honest broker,” EAT has a strong track record of gathering local and
+national-level government representatives, academics, farmers, and business leaders around
+the same table. Multiple EAT Stockholm Food Forums and the virtual platform EAT@Home
+bear witness to this ability to convene diverse actors, make them face hard truths, and uncover
+underlying issues – all with a touch of flair. This lever will continue to build on EAT’s
+engagement capacity in order the raise the urban food systems agenda with various sectors
+and governance levels. Ultimately, the goal is to secure alignment towards a common global
+food agenda – recognizing that city-level action is key for achieving global change.
+
+In true EAT fashion, engagements will take many shapes and forms. At the global level,
+featuring city-level actions at EAT Forums and high-level events will raise the visibility of cities,
+while helping city officials acquire the mandate and resources needed to locally drive progress
+and build capacity. Including city representatives in events can, for example, yield dialogue
+between influential mayors, agribusiness, and national government representatives –
+important connections that would otherwise be unlikely. EAT will continuously scope
+opportunities to raise the voice of cities in dialogues and multilateral processes, including in
+the follow-up to the UN Food Systems Summit and leading up to COP27 and COP28.
+
+At the subnational level, EAT’s partnership with C40 and growing relationships with individual
+cities such as Copenhagen, Oslo, and Milan, give us an important opportunity to engage with
+mayors, city officials, and practitioners. The benefit of this type of engagement is the
+opportunity to learn and collect insights that can be amplified from the ground up across EAT’s
+engagements.
+
+With a sharpened urban food systems focus, and an elevated “cities track” at all EAT Forums
+and other EAT-curated events, EAT can facilitate linkages between actors that, in turn, support
+all three levers contained within this framework. EAT’s role in engagements will be to:
+                                                                                                   9
+EAT Cities
+
+   •   Broker interaction between stakeholders, sparking debate and enabling collaboration
+       that can spur into action.
+   •   Harness opportunities to promote urban-focused content in our communications and
+       events, under the narrative of “cities as agents and arenas for change for achieving
+       global food systems transformation”.
+   •   Use high-profile events and other platforms to place a spotlight on local leadership
+       (including government, business, and civil society) and generate endorsement and
+       actions from the highest level of food systems governance.
+
+
+
+Actions and interventions for urban food systems transformation
+
+ Framework area &           Action; Driving Dietary Shifts Globally and Nationally
+ EAT program in
+ addition to Cities and
+ Urban Diets
+ Goal                       To support cities and key actors in developing and implementing
+                            actions to improve their urban food systems.
+ Level of action            City & neighborhood level
+ Stakeholders               All, with a particular focus on partners with implementing capacity
+ involved                   in-country (e.g., C40, UNICEF, Gehl, Danone, and Novo
+                            Nordisk), as well as community leaders and civil society
+ Identified projects        City Guide to a Planetary Health Diet (food environments, public
+                            kitchens), UNFSS follow-up, C40 Food Systems Network
+ Implementation             2022 - 2024
+
+This lever aims to support cities and urban areas to design and implement tangible actions
+and interventions to improve food systems at the city- or neighborhood-scale. Lessons learned
+from the work with the C40 Food Systems Network and the Shifting Urban Diets project have
+revealed different types of actions that cities and urban areas can take to transform their food
+systems.
+
+Deploying strategic interventions for systems transformation opens opportunities to tap into
+thematic issues and city priorities as entry points. For some cities, the emphasis might be on
+improving food procurement policies, while in others, there may be a need to boost urban
+agriculture to improve food security and nutrition. Different cities have different needs and EAT
+acknowledges the importance of tailored messaging and reponses for strategic action.
+
+In this space, EAT will play a convening role to:
+    • Enhance opportunities to pilot methods and mobilize partners and other relevant
+         stakeholders to co-design and implement urban food system interventions, while
+         ensuring compliance with the EAT-Lancet recommendations.
+    • Ensure representation from a diversity of stakeholders in multi-stakeholder programs,
+         including local-level leadership, city departments, different levels of government,
+         technical actors, business actors, and civil society organizations.
+    • Disseminate food systems action through urban networks, communications, and digital
+         and in-person convenings, including actions resulting from EAT-led projects with
+         individual cities, such as the Shifting Urban Diets project.
+
+
+                                                                                              10
+EAT Cities
+
+
+4. Objectives and targets of the Cities and Urban Diets program
+
+ Objectives and targets – measurable outcomes
+     •   Around 100 cities have developed EAT-Lancet aligned science-based targets
+         (SBTs) and created healthy and sustainable food environments
+     •   EAT publishes a robust action toolkit to help urban practioners implement the
+         three methods developed in the Shifting Urban Diets project
+     •   Urban food systems are elevated in the global agenda, e.g. in climate COPs
+     •   Financial and non-financial resources are mobilized for cities to implement food
+         system interventions and deliver on their commitments such as the C40 Good
+         Food Cities Declaration
+
+
+
+5. Who do we work with?
+
+EAT works at the intersection of science, business, policy, and community to deliver a vision
+for healthy and sustainable diets and food systems. Through our work, we have identified
+which actors influence how urban food is produced, transported, exchanged, disposed of, and
+consumed. This, in addition to the myriad of actors that make up urban systems, have led to
+the following prioritization of stakeholder groups to engage with in implementing projects and
+other initiatives related to EAT Cities.
+
+HIGH INTEREST – HIGH POWER (COLLABORATE)
+
+Research and academia – EAT’s science foundation makes research and academic
+institutions a top priority to engage with to support science translation efforts at the city level,
+including the development of science-based targets and research components for specific
+projects in relation to dietary shifts and food environments.
+
+Local authorities and their associations – In addition to individual city governments, this
+stakeholder group comprises local government associations and international city networks.
+Local governments are the key actor governing urban systems. Outreach to local governments
+is activated by EAT’s implementing partners, specifically networks such as C40 Cities and the
+Milan Urban Food Policy Pact, as well as through city-specific initiatives, as in the case of the
+Shifting Urban Diets project.
+
+Urban practitioners and their associations – Individual professionals and urban practices,
+operating within a local government, academia or the business sector, have in-depth
+understanding of and major influence over the built environment. This group includes urban
+planners, public health professionals, landscape designers, and environmental scientists,
+among others. Their associations are also a valuable resource to mobilize the technical
+capacity and know-how of urban practitioners at the national, regional, and global level.
+
+MEDIUM INTEREST – HIGH POWER (KEEP SATISFIED)
+
+International organizations – International organizations, including UN agencies, set global
+standards and norms and can mobilize governments, businesses, and civil society around food
+systems action, most recently exemplified by the 2021 UN Food Systems Summit process.
+
+                                                                                                 11
+EAT Cities
+
+EAT Cities will continue to draw from existing partnerships at an organizational level, such as
+the partnership with UNICEF, and continue to scope opportunities to enter in new
+collaborations.
+
+Businesses – Businesses, particularly food retail and SMEs, are a key actor influencing the
+food offer and demand in urban areas. EAT Cities will tap into the capacity of the business
+sector and activate its potential through alliances with individual partners and business leaders
+and by leveraging networks, such as the SUN Business Network.
+
+HIGH INTEREST – LOW POWER (KEEP INFORMED)
+
+Civil society organizations and non-profits – These groups play a critical role given their
+technical expertise, their proximity to and representation of vulnerable communities, and their
+increasing prescence in urban settings. EAT Cities will reach out to civil society and non-profit
+organizations, with particular emphasis on engaging citizens and youth as change agents, in
+order to build advocacy and spark debate around the development of inclusive urban food
+policies and interventions.
+
+ Box 2. Mapping Stakeholders
+
+ An internal stakeholder mapping exercise has been initiated to begin tracing relevant actors,
+ as well as resources readily available to develop actions at a local and/or global scale. This
+ ongoing exercise aims to help EAT Cities stay updated in regards to developments in the
+ field; to navigate the wide range of institutions and other actors working in this area; and to
+ avoid duplication in our work by having an up-to-date overview.
+
+ A related exercise is to develop a set of criteria to guide the selection of cities with which
+ EAT works. We seek to collaborate with cities that have demonstrated commitment to food
+ systems transformation and are aligned with EAT’s vision of a Planetary Health Diet for all.
+ The current EAT Cities framework focuses on Europe, particularly the Nordic region, for in-
+ depth work with individual cities, though activities such as consultations and broader
+ engagements can take on a global scope.
+
+
+
+
+6. How do we do it?
+
+A common thread across all three levers is EAT’s capacity to act as a convening platform,
+creating dialogue and propelling collaborations among different stakeholder groups. Therefore,
+EAT can support its knowledge and implementation partners, including international
+organizations, businesses, youth advocates and urban design firms, to enrol in novel
+partnership models to test and scale new forms of interventions within cities.
+
+Multi-stakeholder engagement can support alignment between different levels of policy and
+decision-making, i.e., between national, regional, and local governments. Locally, engaging
+multiple municipal departments in a single city can help improve policy coherence and align
+efforts across sectors. A number of cities and partners in our network have expressed interest
+in these types of multi-sectoral dialogues and partnerships.
+
+
+
+                                                                                              12
+EAT Cities
+
+Our theory of change
+
+The theory of change for EAT Cities follows EAT’s wider objectives and distils the three
+framework areas to the local level. Within this framework, the three levers are illustrated as
+essential pathways for achieving outputs that can in turn result generate outcomes and impact.
+
+
+
+
+                         Image 3. The EAT Cities Theory of Change.
+
+
+7. Conclusion & Recommendations
+
+EAT intends to support cities and urban areas in developing integrated policies, strategies,
+and pilot projects, grounded in the latest science on healthy and sustainable food systems.
+Through cross-cutting partnerships, EAT is well-placed to offer insights and play the role of
+“matchmaker”, linking organizations, aligning knowledge and tools, and connecting cross-
+sectoral efforts. This framework will strengthen the scope of EAT Cities, in order to fill current
+research gaps, promote key actor involvement in high-profile events, and explore opportunities
+for city-level engagement in solution design.
+
+
+                                                                                               13
+EAT Cities
+
+Operationalizing this framework will require a deeper commitment to EAT’s holistic approach
+to partnerships – embarking on innovative collaboration models with urban practitioners, local
+governments, businesses, and other key stakeholders across the food value chain. It will
+require pilots in key cities, combined with methods and tools that allow for scaling globally.
+Supporting action at the local level will also have to be orchestrated to build mutually reinforcing
+momentum at the global level – in line with the outcomes of the 2021 UN Food Systems
+Summit.
+
+
+
+
+                                                                                                 14
+

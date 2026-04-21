@@ -1,0 +1,177 @@
+{
+  "summary": {
+    "generatedAt": "2026-04-20T20:09:15.142Z",
+    "batchName": "food-research-process-2026-04-20",
+    "target": "thesis",
+    "targetLabel": "Thesis",
+    "apply": true,
+    "minConfidence": "low",
+    "selected": 3,
+    "promotable": 3,
+    "skipped": 0,
+    "conflicts": 0,
+    "wouldCreate": 0,
+    "wouldUpdate": 3,
+    "created": 0,
+    "updated": 3,
+    "artifactChecks": {
+      "importedRowsInSummary": 225,
+      "batchDocumentsInDb": 225,
+      "promotionSummaryTargetCount": 20
+    },
+    "reasonCounts": {
+      "document-already-linked-to-thesis": 3
+    },
+    "outputs": {
+      "csv": "research/intake/food-research-process-2026-04-20/promotion-preview-thesis.csv",
+      "json": "research/intake/food-research-process-2026-04-20/promotion-preview-thesis.json",
+      "md": "research/intake/food-research-process-2026-04-20/promotion-preview-thesis.md"
+    }
+  },
+  "decisions": [
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Resource-Recovery-surplus-bread-thesis.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/49a5e899db-resource-recovery-surplus-bread-thesis.pdf",
+      "filename": "Resource-Recovery-surplus-bread-thesis.pdf",
+      "confidence": "low",
+      "documentId": "cmo7cfjvp001gzo0de8n9rsaa",
+      "documentTitle": "Prevention and valorisation of surplus bread at the supplier–retailer interface",
+      "promotedTitle": "Prevention and valorisation of surplus bread at the supplier–retailer interface",
+      "typedId": "thesis-food-49a5e899db68",
+      "currentTargetLinks": [
+        "Thesis:thesis-food-49a5e899db68"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "thesis-food-49a5e899db68",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-49a5e899db68",
+        "authors": "Pedro Luz Brancoli",
+        "institution": "University of Boras, Faculty of Textiles, Engineering and Business",
+        "year": 2021,
+        "title": "Prevention and valorisation of surplus bread at the supplier-retailer interface",
+        "titleNo": null,
+        "url": "https://urn.kb.se/resolve?urn=urn:nbn:se:hb:diva-26454",
+        "synthesis": "Doktoravhandlingen kvantifiserer svensk brodsvinn og viser at take-back-avtaler mellom bakeri og retail er en sentral driver for overproduksjon og svinn. Den finner ogsa at forebygging, donasjon og dyrefor gir bedre miljoresultater enn anaerob nedbrytning og forbrenning.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "food-waste-circularity",
+          "04_Food_Waste_And_Circularity"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cfjvp001gzo0de8n9rsaa"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Master's Thesis_Mäkelä_Mika.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/fc018a0d7b-master-s-thesis-makela-mika.pdf",
+      "filename": "Master's Thesis_Mäkelä_Mika.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cflgz0045zo0dy3s79u8f",
+      "documentTitle": "Master's Thesis Mäkelä Mika",
+      "promotedTitle": "Master's Thesis Mäkelä Mika",
+      "typedId": "thesis-food-fc018a0d7be7",
+      "currentTargetLinks": [
+        "Thesis:makela-2023"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "makela-2023",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-fc018a0d7be7",
+        "authors": "Mika Makela",
+        "institution": "Lappeenranta-Lahti University of Technology LUT",
+        "year": 2023,
+        "title": "Managing waste in food supply chains with supply chain collaboration and integration",
+        "titleNo": null,
+        "url": "https://urn.fi/URN:NBN:fi-fe2023052245722",
+        "synthesis": "Kvalitativ fler-case-studie av seks finske matbedrifter om hvordan leverandor-detaljist-samarbeid kan redusere matsvinn. Konkluderer med at samarbeid og integrasjon hjelper, men at effekten avhenger av koordinering pa tvers av hele kjeden.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cflgz0045zo0dy3s79u8f"
+      }
+    },
+    {
+      "target": "Thesis",
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Paola_Federica_Albizzati_thesis.pdf",
+      "importFilePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/56c9607251-paola-federica-albizzati-thesis.pdf",
+      "filename": "Paola_Federica_Albizzati_thesis.pdf",
+      "confidence": "high",
+      "documentId": "cmo7cflqr004lzo0d694jzmo3",
+      "documentTitle": "Paola Federica Albizzati thesis",
+      "promotedTitle": "Paola Federica Albizzati thesis",
+      "typedId": "thesis-food-56c96072511e",
+      "currentTargetLinks": [
+        "Thesis:albizzati-phd-2021"
+      ],
+      "reviewAction": "import",
+      "titleRemediationStatus": "clear",
+      "status": "updated",
+      "operation": "update",
+      "existingId": "albizzati-phd-2021",
+      "reasonCodes": [
+        "document-already-linked-to-thesis"
+      ],
+      "reasonSummary": "document-already-linked-to-thesis",
+      "payloadPreview": {
+        "id": "thesis-food-56c96072511e",
+        "authors": "Paola Federica Albizzati",
+        "institution": "Technical University of Denmark (DTU)",
+        "year": 2021,
+        "title": "Sustainability Assessment of Food Waste Management",
+        "titleNo": null,
+        "url": "https://orbit.dtu.dk/en/publications/sustainability-assessment-of-food-waste-management",
+        "synthesis": "PhD-avhandling som vurderer 21 matsvinnsveier med livslops- og baerekraftsanalyse. Viser at forebygging er klart best, og at redistribusjon og dyrefor normalt kommer bedre ut enn energiutnyttelse, forbrenning og deponi.",
+        "keyFindings": [],
+        "tags": [
+          "batch:food-research-process-2026-04-20",
+          "academic-research",
+          "07_Academic_Research_And_Theses"
+        ],
+        "takeaways": [],
+        "method": null,
+        "awardWinning": false,
+        "degree": "master",
+        "doi": null,
+        "isbn": null,
+        "publisher": null,
+        "accessDate": null,
+        "documentId": "cmo7cflqr004lzo0d694jzmo3"
+      }
+    }
+  ]
+}

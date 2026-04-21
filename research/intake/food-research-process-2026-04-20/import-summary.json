@@ -1,0 +1,1156 @@
+{
+  "generatedAt": "2026-04-20T20:47:26.315Z",
+  "dryRun": false,
+  "reviewCsv": "research/intake/food-research-process-2026-04-20/review.csv",
+  "selected": 191,
+  "imported": 191,
+  "skipped": 0,
+  "records": [
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/2022-68-EMV-og-innovasjon-i-dagligvare-1.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/227bb60d77-2022-68-emv-og-innovasjon-i-dagligvare-1.pdf",
+      "title": "Egne merkevarer (EMV) og innovasjon i dagligvare",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Aarsrapport-Dagligvaretilsynet-2023.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/e3f33c5a47-aarsrapport-dagligvaretilsynet-2023.pdf",
+      "title": "Årsrapport for Dagligvaretilsynet 2023",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Aarsrapport-Dagligvaretilsynet-2024.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/283dd0683b-aarsrapport-dagligvaretilsynet-2024.pdf",
+      "title": "Årsrapport for Dagligvaretilsynet 2024",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/cibus_interim_report_q3_2025.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/e268bd87c1-cibus-interim-report-q3-2025.pdf",
+      "title": "cibus interim report q3 2025",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/cibus_nordic_annual_report_2025.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/cc26897195-cibus-nordic-annual-report-2025.pdf",
+      "title": "cibus nordic annual report 2025",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/cibus_year-end_report_2025.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/069b10c9ac-cibus-year-end-report-2025.pdf",
+      "title": "cibus year end report 2025",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet-tildelingsbrev-2024.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/11ed41bcac-dagligvaretilsynet-tildelingsbrev-2024.pdf",
+      "title": "Dagligvaretilsynet - tildelingsbrev for 2024",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet-tildelingsbrev-2025.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/7aaa0d71e1-dagligvaretilsynet-tildelingsbrev-2025.pdf",
+      "title": "Dagligvaretilsynet - tildelingsbrev for 2025",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet-tildelingsbrev-2026.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/8749cc79f9-dagligvaretilsynet-tildelingsbrev-2026.pdf",
+      "title": "Dagligvaretilsynet - tildelingsbrev for 2026",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Effekter-av-innkjopssamarbeid-i-det-norske-dagligvaremarkedet-masteroppgave-2015.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/bef4051e02-effekter-av-innkjopssamarbeid-i-det-norske-dagligvaremarkedet-masteroppgave-2015.pdf",
+      "title": "Microsoft Word - Masteroppgave revidert 3.docx",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Forbyr praksis som motvirker konkurranse i dagligvaremarkedet - regjeringen.no.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/f93b8ffb56-forbyr-praksis-som-motvirker-konkurranse-i-dagligvaremarkedet-regjeringen-no.pdf",
+      "title": "Forbyr praksis som motvirker konkurranse i dagligvaremarkedet - regjeringen.no",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/fretheimrodnova-etableringshindringer-var-2020_isf_mro-2.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/fe0a3ed77f-fretheimrodnova-etableringshindringer-var-2020-isf-mro-2.pdf",
+      "title": "fretheimrodnova etableringshindringer var 2020 isf mro 2",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/fréttatilkynning-hagar-4f-2024-25-ensk.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/7ff714786c-frettatilkynning-hagar-4f-2024-25-ensk.pdf",
+      "title": "Hagar PLC: Management Report 2024/25 and Fourth-Quarter Results",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurransetilsynets-Dagligvarerapport-2024-25.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/f0fab2be69-konkurransetilsynets-dagligvarerapport-2024-25.pdf",
+      "title": "Konkurransetilsynets Dagligvarerapport 2024 25",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/NORDIC_FOOD_MARKETS.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/c76145bbb9-nordic-food-markets.pdf",
+      "title": "543348.indd",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Ny rapport om krav til åpenhet i dagligvarebransjen - regjeringen.no.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/5f481fd61e-ny-rapport-om-krav-til-apenhet-i-dagligvarebransjen-regjeringen-no.pdf",
+      "title": "Ny rapport om krav til åpenhet i dagligvarebransjen - regjeringen.no",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Nye tiltak for bedre konkurranse i dagligvarebransjen - regjeringen.no.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/cc43df6788-nye-tiltak-for-bedre-konkurranse-i-dagligvarebransjen-regjeringen-no.pdf",
+      "title": "Nye tiltak for bedre konkurranse i dagligvarebransjen - regjeringen.no",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Paivittaistavarakauppa-ry-2024-EN.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/aa2340aec7-paivittaistavarakauppa-ry-2024-en.pdf",
+      "title": "Paivittaistavarakauppa ry 2024 EN",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+samarbeidsklimaet+i+Dagligvarebransjen.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/5a1cbe46f9-rapport-om-samarbeidsklimaet-i-dagligvarebransjen.pdf",
+      "title": "Rapport om samarbeidsklimaet i dagligvarebransjen 2022",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+Samarbeidsklimaet+i+Dagligvarebransjen+2023.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/2bc5e2a736-rapport-om-samarbeidsklimaet-i-dagligvarebransjen-2023.pdf",
+      "title": "Samarbeidsklimaet i Dagligvarebransjen",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+samarbeidsklimaet+i+dagligvarebransjen+2024_Final_17.10.24.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/6de68c22a6-rapport-om-samarbeidsklimaet-i-dagligvarebransjen-2024-final-17-10-24.pdf",
+      "title": "Samarbeidsklimaet i dagligvarebransjen: Rapport fra undersøkelse blant kjeder og leverandører 2024",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+samarbeidsklimaet+lokalmat-+og+drikke+produsenter+i+dagligvarebransjen+2025.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/5f07f685a5-rapport-om-samarbeidsklimaet-lokalmat-og-drikke-produsenter-i-dagligvarebransjen-2025.pdf",
+      "title": "Samarbeidsklimaet i Dagligvarebransjen - for mindre LOKALMAT- OG DRIKKE Produsenter",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/SAMKEPPNISEFTIRLITID_arsskyrlsla_2024_LOK_02.10.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/da6ee0591c-samkeppniseftirlitid-arsskyrlsla-2024-lok-02-10.pdf",
+      "title": "SAMKEPPNISEFTIRLITID arsskyrlsla 2024 LOK 02 10",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Svak konkurranse – som fortjent - Civita.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/357f64eccf-svak-konkurranse-som-fortjent-civita.pdf",
+      "title": "Svak konkurranse – som fortjent - Civita",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/03_Policy_Governance_And_Market/Utredning-om-prisjusteringsvinduer-2023.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/03-policy-governance-and-market/f853fed352-utredning-om-prisjusteringsvinduer-2023.pdf",
+      "title": "Utredning om prisjusteringsvinduer 2023",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/100 millioner brød har blitt kastet siden… _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/742d30b62e-100-millioner-br-d-har-blitt-kastet-siden-framtiden-i-vare-hender.pdf",
+      "title": "100 millioner brød har blitt kastet siden… | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Consumer food waste prevention - Food Safety - European Commission.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/a96beaeb90-consumer-food-waste-prevention-food-safety-european-commission.pdf",
+      "title": "Consumer food waste prevention - Food Safety - European Commission",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Det er mye penger å tjene på matsvinn _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/350c203a5c-det-er-mye-penger-a-tjene-pa-matsvinn-framtiden-i-vare-hender.pdf",
+      "title": "Det er mye penger å tjene på matsvinn | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Efficiency of a novel “Food to waste to food” system including anaerobic digestion of food waste and cultivation of vegetables on digestate in a bubble-insulated greenhouse - ScienceDirect.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/3604b45fb6-efficiency-of-a-novel-food-to-waste-to-food-system-including-anaerobic-digestion-of-food-waste-and-cultivation-of-vegetables-on-digestate-in-a-bubble-insulated-greenhouse-sciencedirect.pdf",
+      "title": "Efficiency of a novel “Food to waste to food” system including anaerobic digestion of food waste and cultivation of vegetables on digestate in a bubble-insulated greenhouse - ScienceDirect",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Endelig er matsvinnloven her! _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/417f05987a-endelig-er-matsvinnloven-her-framtiden-i-vare-hender.pdf",
+      "title": "Endelig er matsvinnloven her! | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/EU actions against food waste - Food Safety - European Commission.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/ed00c3362c-eu-actions-against-food-waste-food-safety-european-commission.pdf",
+      "title": "EU actions against food waste - Food Safety - European Commission",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food Redistribution in the Nordic Region.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/20d75deeda-food-redistribution-in-the-nordic-region.pdf",
+      "title": "Food Redistribution in the Nordic Region",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food Waste - Food Safety - European Commission.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/7b93e3b48a-food-waste-food-safety-european-commission.pdf",
+      "title": "Food Waste - Food Safety - European Commission",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food-waste-reduction-corporate-responsibility-and-national-policies-2024.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/74682c696a-food-waste-reduction-corporate-responsibility-and-national-policies-2024.pdf",
+      "title": "BFJ-11-2023-0982_proof 470..485",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Home - Foodsharing Copenhagen.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/b0edf55520-home-foodsharing-copenhagen.pdf",
+      "title": "Home - Foodsharing Copenhagen",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Home • PeelPioneers.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/7aca637a95-home-peelpioneers.pdf",
+      "title": "Home • PeelPioneers",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Lokaverkefni_ _Predicting Household Food Waste Reduction_ An exploratory study comparing and contrasting the Theory of Planned Behavior and Value Belief Norm theory_ _ Skemman.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/68a9d3818c-lokaverkefni-predicting-household-food-waste-reduction-an-exploratory-study-comparing-and-contrasting-the-theory-of-planned-behavior-and-value-belief-norm-theory-skemman.pdf",
+      "title": "Lokaverkefni: \"Predicting Household Food Waste Reduction: An exploratory study comparing and contrasting the Theory of Planned Behavior and Value Belief Norm theory\" | Skemman",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Policy commitment_ Reducing food waste for a green Nordic Region _ Nordic cooperation.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/17957bbc99-policy-commitment-reducing-food-waste-for-a-green-nordic-region-nordic-cooperation.pdf",
+      "title": "Policy commitment: Reducing food waste for a green Nordic Region | Nordic cooperation",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31.12.23.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/54a1846535-rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31-12-23.pdf",
+      "title": "Matsvinnutvalgets anbefalinger",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Resource-Recovery-surplus-bread-thesis.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/49a5e899db-resource-recovery-surplus-bread-thesis.pdf",
+      "title": "Prevention and valorisation of surplus bread at the supplier–retailer interface",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Response of food waste anaerobic digestion to the dimensions of micron-biochar under 30 g VS_L organic loading rate_ Focus on gas production and microbial community structure - ScienceDirect.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/523403f117-response-of-food-waste-anaerobic-digestion-to-the-dimensions-of-micron-biochar-under-30-g-vs-l-organic-loading-rate-focus-on-gas-production-and-microbial-community-structure-sciencedirect.pdf",
+      "title": "Response of food waste anaerobic digestion to the dimensions of micron-biochar under 30 g VS/L organic loading rate: Focus on gas production and microbial community structure - ScienceDirect",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Revised Waste Framework Directive enters into force - Environment.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/39bb397c35-revised-waste-framework-directive-enters-into-force-environment.pdf",
+      "title": "Revised Waste Framework Directive enters into force - Environment",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Vi har et enormt skjult matsvinn _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/0cc262717a-vi-har-et-enormt-skjult-matsvinn-framtiden-i-vare-hender.pdf",
+      "title": "Vi har et enormt skjult matsvinn | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Zero waste solutions in hospitality  technology alignment and agile management practices for responsible consumption and production of food.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/04-food-waste-and-circularity/7977a8583e-zero-waste-solutions-in-hospitality-technology-alignment-and-agile-management-practices-for-responsible-consumption-and-production-of-food.pdf",
+      "title": "Zero waste solutions in hospitality: technology alignment and agile management practices for respons",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/2023-Danish-Action-Plan-for-Plant-based-Foods.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/b3c4abd386-2023-danish-action-plan-for-plant-based-foods.pdf",
+      "title": "Danish Action Plan for Plant-based Foods",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/approval insect novel food - Food Safety - European Commission.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/8831ac4193-approval-insect-novel-food-food-safety-european-commission.pdf",
+      "title": "approval insect novel food - Food Safety - European Commission",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/BioMar _ Powered by Partnership. Driven by Innovation_.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/095360a751-biomar-powered-by-partnership-driven-by-innovation.pdf",
+      "title": "BioMar | Powered by Partnership. Driven by Innovation.",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Danish insect ag firm ENORM declared bankrupt.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/ec96af6ae7-danish-insect-ag-firm-enorm-declared-bankrupt.pdf",
+      "title": "Danish insect ag firm ENORM declared bankrupt",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/DUG Foodtech Declared Bankrupt, Assets Now Open for Acquisition - vegconomist - the vegan business magazine.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/cf6f2af13e-dug-foodtech-declared-bankrupt-assets-now-open-for-acquisition-vegconomist-the-vegan-business-magazine.pdf",
+      "title": "DUG Foodtech Declared Bankrupt, Assets Now Open for Acquisition - vegconomist - the vegan business magazine",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Enifer - Ingredients for a sustainable food chain.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/e1477dd45a-enifer-ingredients-for-a-sustainable-food-chain.pdf",
+      "title": "Enifer - Ingredients for a sustainable food chain",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Enorm - larvae for green development of the agricultural and food industry.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/73959f8202-enorm-larvae-for-green-development-of-the-agricultural-and-food-industry.pdf",
+      "title": "Enorm - larvae for green development of the agricultural and food industry",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Five reasons why vertical farming is still the future, despite all the recent business failures.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/23359212ae-five-reasons-why-vertical-farming-is-still-the-future-despite-all-the-recent-business-failures.pdf",
+      "title": "Five reasons why vertical farming is still the future, despite all the recent business failures",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/French insect protein producer Ÿnsect enters judicial liquidation _ PetfoodIndustry.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/4181e010b6-french-insect-protein-producer-ynsect-enters-judicial-liquidation-petfoodindustry.pdf",
+      "title": "French insect protein producer Ÿnsect enters judicial liquidation | PetfoodIndustry",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Hailia - Enabling the Blue Food Revolution.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/8fda4db5c8-hailia-enabling-the-blue-food-revolution.pdf",
+      "title": "Hailia - Enabling the Blue Food Revolution",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Hooked Foods - Enkelt, Gott & Näringsrikt. 100% Veganskt såklart, för allas bästa!.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/a3cb60c976-hooked-foods-enkelt-gott-naringsrikt-100-veganskt-saklart-for-allas-basta.pdf",
+      "title": "Hooked Foods - Enkelt, Gott & Näringsrikt. 100% Veganskt såklart, för allas bästa!",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Hooked Foods files for bankruptcy after seven-year push to crack plant-based seafood _ PPTI News.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/9f669f688d-hooked-foods-files-for-bankruptcy-after-seven-year-push-to-crack-plant-based-seafood-ppti-news.pdf",
+      "title": "Hooked Foods files for bankruptcy after seven-year push to crack plant-based seafood | PPTI News",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Infarm closes Copenhagen operations amid ongoing ‘strategy shift’.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/6b70cd3a75-infarm-closes-copenhagen-operations-amid-ongoing-strategy-shift.pdf",
+      "title": "Infarm closes Copenhagen operations amid ongoing ‘strategy shift’",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Insect producer seeks reconstruction in the face of bankruptcy _ The Fish Site.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/7dff9e2bef-insect-producer-seeks-reconstruction-in-the-face-of-bankruptcy-the-fish-site.pdf",
+      "title": "Insect producer seeks reconstruction in the face of bankruptcy | The Fish Site",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Lessons from vertical farming bankruptcies, layoffs, and closures in 2023.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/66a7e4f526-lessons-from-vertical-farming-bankruptcies-layoffs-and-closures-in-2023.pdf",
+      "title": "Lessons from vertical farming bankruptcies, layoffs, and closures in 2023",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Mycoprotein Producer Mycorena’s Bankruptcy_ Setback or Fresh Start_.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/1bc93c7e05-mycoprotein-producer-mycorena-s-bankruptcy-setback-or-fresh-start.pdf",
+      "title": "Mycoprotein Producer Mycorena’s Bankruptcy: Setback or Fresh Start?",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Mycorena Files for Bankruptcy, Seeks New Ownership to Continue Pioneering Mycoprotein Ingredients - vegconomist - the vegan business magazine.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/480ff1d656-mycorena-files-for-bankruptcy-seeks-new-ownership-to-continue-pioneering-mycoprotein-ingredients-vegconomist-the-vegan-business-magazine.pdf",
+      "title": "Mycorena Files for Bankruptcy, Seeks New Ownership to Continue Pioneering Mycoprotein Ingredients - vegconomist - the vegan business magazine",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Naplasol acquires Mycorena to boost the mycelium and alt-protein market - Tech.eu.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/f51cbae9c5-naplasol-acquires-mycorena-to-boost-the-mycelium-and-alt-protein-market-tech-eu.pdf",
+      "title": "Naplasol acquires Mycorena to boost the mycelium and alt-protein market - Tech.eu",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Protix - Join the future of food today.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/53aba822a6-protix-join-the-future-of-food-today.pdf",
+      "title": "Protix - Join the future of food today",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Stockeld Dreamery Shuts Down, Citing a Decline in the Plant-Based Category - vegconomist - the vegan business magazine.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/4f4994d86f-stockeld-dreamery-shuts-down-citing-a-decline-in-the-plant-based-category-vegconomist-the-vegan-business-magazine.pdf",
+      "title": "Stockeld Dreamery Shuts Down, Citing a Decline in the Plant-Based Category - vegconomist - the vegan business magazine",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Sweden's Hooked Foods Closes Down After Seven Years of Operations - vegconomist - the vegan business magazine.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/082f2937bd-sweden-s-hooked-foods-closes-down-after-seven-years-of-operations-vegconomist-the-vegan-business-magazine.pdf",
+      "title": "Sweden's Hooked Foods Closes Down After Seven Years of Operations - vegconomist - the vegan business magazine",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Swedish foodtech startup restructures through acquisition after bankruptcy filing - ArcticStartup.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/62db8399fd-swedish-foodtech-startup-restructures-through-acquisition-after-bankruptcy-filing-arcticstartup.pdf",
+      "title": "Swedish foodtech startup restructures through acquisition after bankruptcy filing - ArcticStartup",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Swedish vertical farming company Plantagon International bankrupt.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/0dc83513b4-swedish-vertical-farming-company-plantagon-international-bankrupt.pdf",
+      "title": "Swedish vertical farming company Plantagon International bankrupt",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/The Nordic alternative protein research ecosystem - GFI Europe.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/559ac48dbd-the-nordic-alternative-protein-research-ecosystem-gfi-europe.pdf",
+      "title": "The Nordic alternative protein research ecosystem - GFI Europe",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Vegan Cheese Startup Stockeld Dreamery Shuts As Plant-Based Decline Foils Funding Plans.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/05-foodtech-alt-protein-and-innovation/28730e1058-vegan-cheese-startup-stockeld-dreamery-shuts-as-plant-based-decline-foils-funding-plans.pdf",
+      "title": "Vegan Cheese Startup Stockeld Dreamery Shuts As Plant-Based Decline Foils Funding Plans",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2021 Impact Report ENG.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/72a18173d8-2021-impact-report-eng.pdf",
+      "title": "2021 Impact Report ENG",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2022 Impact Report ENG.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/01bdfb4dbe-2022-impact-report-eng.pdf",
+      "title": "2022 Impact Report ENG",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2023 Impact Report ENG-NA.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/7b0646623b-2023-impact-report-eng-na.pdf",
+      "title": "2023 Impact Report ENG NA",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2024 Environmental Footprint Report ENG.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/37157a71fd-2024-environmental-footprint-report-eng.pdf",
+      "title": "Environmental Footprint of the Food Saved by Too Good To Go",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2024 Impact Report - Too Good To Go - US_CA.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/4af370e451-2024-impact-report-too-good-to-go-us-ca.pdf",
+      "title": "2024 Impact Report Too Good To Go US CA",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/2025-Cargill-Annual-Report.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/beee685b89-2025-cargill-annual-report.pdf",
+      "title": "2025 Cargill Annual Report",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/Annual report 2024.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/7bda968b6d-annual-report-2024.pdf",
+      "title": "Salling Group Annual Report 2024",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/barekraft-i-asko-2024.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/94b68068c8-barekraft-i-asko-2024.pdf",
+      "title": "barekraft i asko 2024",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/Cheffelo_Arsredovisning_Hallbarhetsrapport_2025_SE.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/408e0ce333-cheffelo-arsredovisning-hallbarhetsrapport-2025-se.pdf",
+      "title": "Cheffelo Arsredovisning Hallbarhetsrapport 2025 SE",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/Matsmart-Ars-och-hallbarhetsredovisning-2024.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/d9aab84f2b-matsmart-ars-och-hallbarhetsredovisning-2024.pdf",
+      "title": "Matsmart Ars och hallbarhetsredovisning 2024",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/ng_ars--og-barekraftsrapport-2024.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/efd268f5c7-ng-ars-og-barekraftsrapport-2024.pdf",
+      "title": "ng ars og barekraftsrapport 2024",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/06_Company_And_Annual_Reports/Reitan Retail 2025_Oppslag.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/06-company-and-annual-reports/9aca785b0e-reitan-retail-2025-oppslag.pdf",
+      "title": "Reitan Retail Annual- and sustainability report 2022",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/“Resilience Science Must-Knows”_ Landmark report shows how decision-makers can manage global crises - Stockholm Resilience Centre.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/a485999866-resilience-science-must-knows-landmark-report-shows-how-decision-makers-can-manage-global-crises-stockholm-resilience-centre.pdf",
+      "title": "“Resilience Science Must-Knows”: Landmark report shows how decision-makers can manage global crises - Stockholm Resilience Centre",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/1-s2.0-S0959378025000019-main.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/833e96081e-1-s2-0-s0959378025000019-main.pdf",
+      "title": "Environmental impacts and food loss and waste in the U.S. aquatic food system",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/1-s2.0-S2772801325000028-main.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/4481d7002c-1-s2-0-s2772801325000028-main.pdf",
+      "title": "Willingness to pay for lettuce produced with fish sludge and human waste: The role of food neophobia",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/1-s2.0-S2949750726000040-main.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/f7cdfc25a0-1-s2-0-s2949750726000040-main.pdf",
+      "title": "Regionalized composition analysis of Norwegian residual waste and its implications for recycling, emission accounting, and food waste avoidance",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/1-s2.0-S3050835525000087-main.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/8553635de7-1-s2-0-s3050835525000087-main.pdf",
+      "title": "Too good to waste! Short-term and long-term effects of a leftover meals intervention program on household dinner food waste reduction",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/1-s2.0-S305083552600001X-main.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/7e1efe8911-1-s2-0-s305083552600001x-main.pdf",
+      "title": "Impact of food retail market power on small food producers in Sweden: Challenges and opportunities",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/250221_icagruppen_annual_report_2024.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/3c4874bccf-250221-icagruppen-annual-report-2024.pdf",
+      "title": "250221 icagruppen annual report 2024",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/978-952-03-2923-5.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/62e3dc1040-978-952-03-2923-5.pdf",
+      "title": "Enacting a Circular Economy: A multi-sited ethnography on food waste practices in Finnish supermarkets, households and biogas plants",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Aarsrapport-Daglegvaretilsynet-2022.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/8feb1b6cc6-aarsrapport-daglegvaretilsynet-2022.pdf",
+      "title": "Årsrapport for Daglegvaretilsynet 2022",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/about-oecd-environmental-performance-reviews-brochure-2022-web.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/596c3048e4-about-oecd-environmental-performance-reviews-brochure-2022-web.pdf",
+      "title": "OECD Environmental Performance Reviews",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/adlers_s_220222.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/ecc1e56f94-adlers-s-220222.pdf",
+      "title": "adlers s 220222",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Bama og Coop må slutte å motarbeide frukt-… _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/453da8163d-bama-og-coop-ma-slutte-a-motarbeide-frukt-framtiden-i-vare-hender.pdf",
+      "title": "Bama og Coop må slutte å motarbeide frukt-… | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Bilgic2025tht_VoR.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/f2e9e64b95-bilgic2025tht-vor.pdf",
+      "title": "untitled",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_2.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/e627428c94-cellar-1fefebb0-1b4e-11ee-806b-01aa75ed71a1-0001-02-doc-2.pdf",
+      "title": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 2",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_3.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/b2260530c2-cellar-1fefebb0-1b4e-11ee-806b-01aa75ed71a1-0001-02-doc-3.pdf",
+      "title": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 3",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_4.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/4c1e829dd6-cellar-1fefebb0-1b4e-11ee-806b-01aa75ed71a1-0001-02-doc-4.pdf",
+      "title": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 4",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_5.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/e36f2878e9-cellar-1fefebb0-1b4e-11ee-806b-01aa75ed71a1-0001-02-doc-5.pdf",
+      "title": "cellar 1fefebb0 1b4e 11ee 806b 01aa75ed71a1 0001 02 DOC 5",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/cheffelo-publicerar-trading-update-for-q1-2026.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/8cbe26254c-cheffelo-publicerar-trading-update-for-q1-2026.pdf",
+      "title": "cheffelo publicerar trading update for q1 2026",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Chen_Q_et_al_2021.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/8bef9b1b2d-chen-q-et-al-2021.pdf",
+      "title": "Jukuri, open repository of the Natural Resources Institute Finland (Luke)",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Coop_Norge_SA_årsrapport_2024_HR_1.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/743e935f8b-coop-norge-sa-arsrapport-2024-hr-1.pdf",
+      "title": "Coop Norge SA årsrapport 2024 HR 1",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/coop-danmark-aarsrapport-2024.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/00b7bf7938-coop-danmark-aarsrapport-2024.pdf",
+      "title": "coop danmark aarsrapport 2024",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/drager-og-vagene.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/5439ddcd60-drager-og-vagene.pdf",
+      "title": "drager og vagene",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Dynamics-in-the-Swedish-Grocery-Retail-Industry.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/f11446f179-dynamics-in-the-swedish-grocery-retail-industry.pdf",
+      "title": "Dynamics in the Swedish Grocery Retail Industry",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/energies-18-04093.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/1abac3892b-energies-18-04093.pdf",
+      "title": "Cascade Processing of Agricultural, Forest, and Marine Waste Biomass for Sustainable Production of Food, Feed, Biopolymers, and Bioenergy",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/etmv-toimintakertomus-2023-liitteineen.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/f40fd2d166-etmv-toimintakertomus-2023-liitteineen.pdf",
+      "title": "Elintarvikemarkkinavaltuutetun toimintakertomus 2023",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Falasconi_etal_2025_Sustainability_Who_cleans.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/76ed8c3c05-falasconi-etal-2025-sustainability-who-cleans.pdf",
+      "title": "Who Cleans the Plate? Quantity and Type of Food Waste in 78 Primary Schools’ Canteens in Italy",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Food-for-Thought-Green-Public-Procurement-and-Organic-Food.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/3b38896e73-food-for-thought-green-public-procurement-and-organic-food.pdf",
+      "title": "Kappa 21-09-29.pdf",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Framtiden i våre hender åpner matbutikk! _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/4aa258327f-framtiden-i-vare-hender-apner-matbutikk-framtiden-i-vare-hender.pdf",
+      "title": "Framtiden i våre hender åpner matbutikk! | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Gapet i klimapolitikken _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/8e6cce65c4-gapet-i-klimapolitikken-framtiden-i-vare-hender.pdf",
+      "title": "Gapet i klimapolitikken | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/h_khandaker_210712.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/31d14da08d-h-khandaker-210712.pdf",
+      "title": "h khandaker 210712",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/HDR_Afgangsprojekt_maj_2024.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/28bf4892a6-hdr-afgangsprojekt-maj-2024.pdf",
+      "title": "Rema 1000: Nøglen til succes på det danske detailmarked",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Hybrid-Supply-Chain-Models-in-Swedish-Grocery-Retail.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/5c1b2fbf7c-hybrid-supply-chain-models-in-swedish-grocery-retail.pdf",
+      "title": "Hybrid Supply Chain Models in Swedish Grocery Retail: Balancing Cost Drivers, Environmental Sustainability and Social Responsibility",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/inns-202122-322s.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/1650c2b0ee-inns-202122-322s.pdf",
+      "title": "Innstilling",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/JRC92892_qms_h08_lcind_deliverable5_final_20141125.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/552e2eaa36-jrc92892-qms-h08-lcind-deliverable5-final-20141125.pdf",
+      "title": "Indicators and targets for the reduction of the environmental impact of EU consumption: Basket-of-products indicators and prototype targets for the reduction of environmental impact of EU consumption (Deliverable 5)",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Learning-for-Crisis-Uppsala-County-Food-Security.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/4013aa0611-learning-for-crisis-uppsala-county-food-security.pdf",
+      "title": "Learning for Crisis Uppsala County Food Security",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/luke_luobio_53_2020.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/7f7bf560aa-luke-luobio-53-2020.pdf",
+      "title": "luke luobio 53 2020",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/luke-luobio_51_2025.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/faf3878182-luke-luobio-51-2025.pdf",
+      "title": "Robust Food Waste Management Method for Food Services (Romance): Final report",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/luke-luobio_83_2023.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/90699587a7-luke-luobio-83-2023.pdf",
+      "title": "Perspectives on sustainable food systems and their development in Northern Ostrobothnia, Finland",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/MASTER-EMILIAEPOSITO-.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/3a4005a27b-master-emiliaeposito.pdf",
+      "title": "Microsoft Word - MASTER2022.docx",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Master's Thesis Peppi Segersven.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/930f5a92fd-master-s-thesis-peppi-segersven.pdf",
+      "title": "Master's Thesis Peppi Segersven",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Master's Thesis_Mäkelä_Mika.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/fc018a0d7b-master-s-thesis-makela-mika.pdf",
+      "title": "Master's Thesis Mäkelä Mika",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/masteroppgave__mats_b._simonsen.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/67557def0c-masteroppgave-mats-b-simonsen.pdf",
+      "title": "masteroppgave mats b simonsen",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Meningsbryteren _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/6fc48af859-meningsbryteren-framtiden-i-vare-hender.pdf",
+      "title": "Meningsbryteren | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/ng_arsrapport-2025-web.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/94fe5f0ca1-ng-arsrapport-2025-web.pdf",
+      "title": "NorgesGruppens årsrapport 2025",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/nikolaev-g-20230724.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/8a721f53f5-nikolaev-g-20230724.pdf",
+      "title": "nikolaev g 20230724",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/nilsen_paulsen_pass-through-av-ravarepriser-for-kakao--og-kaffeprodukter.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/ed9b074159-nilsen-paulsen-pass-through-av-ravarepriser-for-kakao-og-kaffeprodukter.pdf",
+      "title": "nilsen paulsen pass through av ravarepriser for kakao og kaffeprodukter",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/no.ntnu_inspera_238079456_47063854.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/cd7da97b95-no-ntnu-inspera-238079456-47063854.pdf",
+      "title": "no ntnu inspera 238079456 47063854",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/nord2020-048.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/d56f3e1262-nord2020-048.pdf",
+      "title": "nord2020 048",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/nord2024-007.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/d760f6d960-nord2024-007.pdf",
+      "title": "Policy tools for sustainable and healthy eating: Enabling a food transition in the Nordic countries",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/nord2024-034.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/8047a53676-nord2024-034.pdf",
+      "title": "Breaking Barriers: Empowering Effective Food Waste Solutions in the Nordic Countries",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Nordic-Bankruptcy-Statistics-Report-2024.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/6ed19eb947-nordic-bankruptcy-statistics-report-2024.pdf",
+      "title": "Nordic Bankruptcy Statistics Report 2024",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Nordmenn vil spise sunnere og mer… _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/d107d66482-nordmenn-vil-spise-sunnere-og-mer-framtiden-i-vare-hender.pdf",
+      "title": "Nordmenn vil spise sunnere og mer… | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/nou201120110004000dddpdfs.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/e1b7b88166-nou201120110004000dddpdfs.pdf",
+      "title": "NOU 2011: 4",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/nou201320130006000dddpdfs.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/5d5899f3d0-nou201320130006000dddpdfs.pdf",
+      "title": "NOU 2013: 6",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Ny forskning viser at vi kan mangedoble… _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/cdacc160ba-ny-forskning-viser-at-vi-kan-mangedoble-framtiden-i-vare-hender.pdf",
+      "title": "Ny forskning viser at vi kan mangedoble… | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/OrriJohannsson FoodSecurity Final.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/b79d544a10-orrijohannsson-foodsecurity-final.pdf",
+      "title": "Food Security in Iceland: Present Vulnerabilities, Possible Solutions",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Paola_Federica_Albizzati_thesis.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/56c9607251-paola-federica-albizzati-thesis.pdf",
+      "title": "Paola Federica Albizzati thesis",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/PhD_Thesis_Nina_N_rgaard_S_rensen_print_final.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/7a19be6dbe-phd-thesis-nina-n-rgaard-s-rensen-print-final.pdf",
+      "title": "Organic food conversion in Danish public kitchens: The effects of the Danish Organic Action Plan 2020 on organic public procurement and wellbeing at work",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Philippe_Schuler.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/24019b4bb7-philippe-schuler.pdf",
+      "title": "Food Loss and Waste in the Fresh Potato Supply Chain of Denmark",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Plantefonden_Handlingsplan_2026.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/14f3159fc4-plantefonden-handlingsplan-2026.pdf",
+      "title": "Plantefonden Handlingsplan 2026",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Politics-you-can-Eat-Sodertalje-Food-Supply-Strategy.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/cad8412daf-politics-you-can-eat-sodertalje-food-supply-strategy.pdf",
+      "title": "Degree Project in Energy and Environment Izabella Ståhl",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/prp201920200033000dddpdfs.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/478d318ab4-prp201920200033000dddpdfs.pdf",
+      "title": "Prop. 33 L (2019–2020)",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/prp202520260004000dddpdfs.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/e7750afc0c-prp202520260004000dddpdfs.pdf",
+      "title": "Prop. 4 L (2025–2026)",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/rapport_2024-4.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/607be50112-rapport-2024-4.pdf",
+      "title": "Dagligvaruhandelns etablering i kommunerna. Konkurrensverkets rapport 2024:4.",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/rapport_2024-5.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/532ee47fed-rapport-2024-5.pdf",
+      "title": "Konkurrensverkets genomlysning av livsmedelsbranschen 2023–2024. Konkurrensverkets rapport 2024:5.",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/rapport-gront-rammeverk-ng-2023.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/deba26a373-rapport-gront-rammeverk-ng-2023.pdf",
+      "title": "Grønt rammeverk 2022",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/rapport-gront-rammeverk-ng-2024.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/17c6130688-rapport-gront-rammeverk-ng-2024.pdf",
+      "title": "Grønt rammeverk 2024",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/rapport-gront-rammeverk-ng-2025.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/555036e080-rapport-gront-rammeverk-ng-2025.pdf",
+      "title": "Grønt rammeverk 2024",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/SLU Future Food _ slu.se.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/7a7f915a41-slu-future-food-slu-se.pdf",
+      "title": "SLU Future Food | slu.se",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/SRC_Report Nordic Food Systems_ June 2019 adapted.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/dc5f1fd3d3-src-report-nordic-food-systems-june-2019-adapted.pdf",
+      "title": "Stockholm Resilience Centre Report March 2019",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/stm202420250004000dddpdfs.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/7bcf401938-stm202420250004000dddpdfs.pdf",
+      "title": "Meld. St. 4 (2024–2025)",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/stm202420250025000dddpdfs.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/bed97de081-stm202420250025000dddpdfs.pdf",
+      "title": "Meld. St. 25 (2024–2025)",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/sturen-f-230831.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/db6c2ae574-sturen-f-230831.pdf",
+      "title": "sturen f 230831",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/sundin-n-20240612.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/03b5512ff4-sundin-n-20240612.pdf",
+      "title": "sundin n 20240612",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Sundqvist_Henna_Accessible_Summary_03_05_2025.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/f3a699aee7-sundqvist-henna-accessible-summary-03-05-2025.pdf",
+      "title": "Navigating a Transformative Governance Maze",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/SUSFOOD STRATEGIC SCENE review report 2018-final.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/ff51f35c22-susfood-strategic-scene-review-report-2018-final.pdf",
+      "title": "SUSFOOD Strategic Scene Review Report 2018",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00459.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/05349d6868-sustainability-18-00459.pdf",
+      "title": "Green Consumption Value, Attitude Toward Food, and Brand Evangelism for Farm-to-Table Foods in the Context of Green Food Tourism",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00475-v2.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/41ce2f9c4c-sustainability-18-00475-v2.pdf",
+      "title": "Upcycled Apple Pomace as an Innovative Ingredient in High-Moisture Meat Analogs: Sustainable Valorization for Food Production",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00495-v3.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/95b50c7728-sustainability-18-00495-v3.pdf",
+      "title": "From Pixels to Plates: Exploring AI Stimuli and Digital Engagement in Reducing Food Waste Behavior in Lithuania Among Generation Z and Y",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00530-v3.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/9e0b6a9669-sustainability-18-00530-v3.pdf",
+      "title": "Innovative Preservation Technologies and Supply Chain Optimization for Reducing Meat Loss and Waste: Current Advances, Challenges, and Future Perspectives",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00543-v2.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/eed83154c0-sustainability-18-00543-v2.pdf",
+      "title": "Bread and Bakery Products: Cultural Importance, Consumption, Purchase Patterns, and Household Waste During Ramadanin Constantine, Algeria",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00545.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/8deea1532a-sustainability-18-00545.pdf",
+      "title": "Intangible Capital and Sustainable Development: A Nonparametric Dynamic Analysis",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00546.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/a315849f9d-sustainability-18-00546.pdf",
+      "title": "Research on the Impact of Command-and-Control Environmental Regulations on Green Innovation of Agricultural-Related Enterprises",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00548.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/862c19d4a1-sustainability-18-00548.pdf",
+      "title": "Enhancing Microbial Biodegradation of PPCPs in Wastewater via Natural Self-Purification in a Novel Constructed Wetland System",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00549-v2.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/0fe9799f49-sustainability-18-00549-v2.pdf",
+      "title": "Valorizing Rice Husk Waste as a Biosorbent with Gamma-Induced Surface Modification for Enhanced Heavy-Metal Adsorption",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00551-v2.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/9bf9d62e75-sustainability-18-00551-v2.pdf",
+      "title": "Financial Structure, Technological Innovation, and Environmental Pressure in the European Union: Evidencefrom a PMG Panel ARDL Model",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/temanord2021-504.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/f798e6260d-temanord2021-504.pdf",
+      "title": "temanord2021 504",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Til bøndene fra staten_ Er du sikker på at… _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/ca7d33d167-til-b-ndene-fra-staten-er-du-sikker-pa-at-framtiden-i-vare-hender.pdf",
+      "title": "Til bøndene fra staten: Er du sikker på at… | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/tjostheim--hasle_offentlig-versjon.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/b2ba1d428f-tjostheim-hasle-offentlig-versjon.pdf",
+      "title": "tjostheim hasle offentlig versjon",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/URN_NBN_fi_jyu-202404243036.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/5ac4298e94-urn-nbn-fi-jyu-202404243036.pdf",
+      "title": "Väitöskirjapohja",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/V2024-4-Offentlig-versjon-Coop-Norge-SA-Norgesgruppen-ASA-Rema-1000-AS-–-palegg-om-opphor-av-overtredelse-.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/30ffb8293a-v2024-4-offentlig-versjon-coop-norge-sa-norgesgruppen-asa-rema-1000-as-palegg-om-opphor-av-overtredelse.pdf",
+      "title": "Vedtak V2024-4 – offentlig versjon – Coop Norge SA/Norgesgruppen ASA/Rema 1000 AS – pålegg om opphør av overtredelse",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/Virkninger-av-kostholdstiltak_Menon-Economics-2006.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/c0ce48f675-virkninger-av-kostholdstiltak-menon-economics-2006.pdf",
+      "title": "Virkninger av kostholdstiltak Menon Economics 2006",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/07_Academic_Research_And_Theses/virksomhetsanalysenorgessjomatrad.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/07-academic-research-and-theses/d7dd528ae9-virksomhetsanalysenorgessjomatrad.pdf",
+      "title": "virksomhetsanalysenorgessjomatrad",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Billund Aquaculture _ Bankruptcy _ Factsheet 201509.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/f67beadf32-billund-aquaculture-bankruptcy-factsheet-201509.pdf",
+      "title": "Billund Aquaculture | Bankruptcy | Factsheet 201509",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Billund Aquaculture to declare bankruptcy amid financial challenges - RASTECH MagazineRASTECH Magazine.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/d41699f43b-billund-aquaculture-to-declare-bankruptcy-amid-financial-challenges-rastech-magazinerastech-magazine.pdf",
+      "title": "Billund Aquaculture to declare bankruptcy amid financial challenges - RASTECH MagazineRASTECH Magazine",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Forsiden - NCCE.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/3392a53576-forsiden-ncce.pdf",
+      "title": "Forsiden - NCCE",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Ikkje lett å bli klok på sjølvforsyning - Nibio.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/73e577ffb7-ikkje-lett-a-bli-klok-pa-sj-lvforsyning-nibio.pdf",
+      "title": "Ikkje lett å bli klok på sjølvforsyning - Nibio",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Klimakrisen presser norske bønder _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/328a258340-klimakrisen-presser-norske-b-nder-framtiden-i-vare-hender.pdf",
+      "title": "Klimakrisen presser norske bønder | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/kvotesystemet_i_kyst_og_havfisket.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/4e30cb11bd-kvotesystemet-i-kyst-og-havfisket.pdf",
+      "title": "Riksrevisjonens undersøkelse av kvotesystemet i kyst- og havfisket",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Lite kunnskap om hva laksen spiser _ Nofima.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/66ffa02868-lite-kunnskap-om-hva-laksen-spiser-nofima.pdf",
+      "title": "Lite kunnskap om hva laksen spiser | Nofima",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/livsmedelsberedskap-for-en-ny-tid-sou-20248.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/15bc81bae0-livsmedelsberedskap-for-en-ny-tid-sou-20248.pdf",
+      "title": "Livsmedelsberedskap för en ny tid, SOU 2024:8",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Mat og produksjon - Norsk Bonde- og Småbrukarlag _ Norsk Bonde- og Småbrukarlag.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/1d1cfb1ad8-mat-og-produksjon-norsk-bonde-og-smabrukarlag-norsk-bonde-og-smabrukarlag.pdf",
+      "title": "Mat og produksjon - Norsk Bonde- og Småbrukarlag | Norsk Bonde- og Småbrukarlag",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Matkjedene skviser bonden _ Framtiden i våre hender.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/94590aefd6-matkjedene-skviser-bonden-framtiden-i-vare-hender.pdf",
+      "title": "Matkjedene skviser bonden | Framtiden i våre hender",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/matsikkerhet-og-beredskap-pa-landbruksomradet.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/169d47c9ee-matsikkerhet-og-beredskap-pa-landbruksomradet.pdf",
+      "title": "Dokument 3:4 (2023−2024)",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Milepæl for norsk beredskap - regjeringen.no.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/c7b3c07dc1-milep-l-for-norsk-beredskap-regjeringen-no.pdf",
+      "title": "Milepæl for norsk beredskap - regjeringen.no",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Mittenzwei-mfl-2026-Scenarioanalyse-av-norsk-jordbruk-i-2050.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/a4900452f4-mittenzwei-mfl-2026-scenarioanalyse-av-norsk-jordbruk-i-2050.pdf",
+      "title": "Scenarioanalyse av norsk jordbruk i 2050 med vekt på forholdet mellom kosthold utslipp import og matproduksjon",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/myndighetenes-arbeid-med-fiskehelse-og-fiskevelferd-i-havbruksnaringen.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/0c52aa7abd-myndighetenes-arbeid-med-fiskehelse-og-fiskevelferd-i-havbruksnaringen.pdf",
+      "title": "Myndighetenes arbeid med fiskehelse og fiskevelferd i havbruksnæringen",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Norsk sjømatnæring – fra subsidiesluk til pengemaskin _ Nofima.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/ab3fb6d769-norsk-sj-matn-ring-fra-subsidiesluk-til-pengemaskin-nofima.pdf",
+      "title": "Norsk sjømatnæring – fra subsidiesluk til pengemaskin | Nofima",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/reduksjon-av-klimagassutslepp-fra-jordbruket.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/ec5cad6d81-reduksjon-av-klimagassutslepp-fra-jordbruket.pdf",
+      "title": "Dokument 3:13 (2024−2025)",
+      "status": "imported"
+    },
+    {
+      "sourcePath": "Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Security of supply in Finland - Huoltovarmuuskeskus.pdf",
+      "filePath": "incoming/food-research-process-2026-04-20/08-food-security-agriculture-and-seafood/61a0352570-security-of-supply-in-finland-huoltovarmuuskeskus.pdf",
+      "title": "Security of supply in Finland - Huoltovarmuuskeskus",
+      "status": "imported"
+    }
+  ]
+}

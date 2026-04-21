@@ -9,12 +9,12 @@ export const evidencePack: EvidenceDoc[] = [
   {
     id: 'decision-log',
     name: 'Decision Log',
-    status: 'ikke-startet',
+    status: 'utkast',
   },
   {
     id: 'commitment-map',
     name: 'Commitment Map',
-    status: 'ikke-startet',
+    status: 'utkast',
   },
   {
     id: 'pilot-brief',

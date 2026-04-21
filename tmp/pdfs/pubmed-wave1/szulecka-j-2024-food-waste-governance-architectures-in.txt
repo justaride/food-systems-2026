@@ -1,0 +1,1080 @@
+RESEARCH ARTICLE
+www.global-challenges.com
+
+Food Waste Governance Architectures in Europe: Actors,
+Steering Modes, and Harmonization Trends
+Julia Szulecka,* Carrie Bradshaw,* and Ludovica Principato*
+handling and storage, processing and
+packaging, distribution, and ﬁnally – consumption) and their interactions. Typical causes of food waste and loss diﬀer
+within the stages of the food value chain
+and further depend on economic development, climate, culture, diet, or popular
+food products. For agricultural production, typical causes are spillage and quality standards, agricultural policies, and labor costs. For post-harvest handling it is
+also spillages, degradation, interruptions,
+and food produce damage. Processing,
+packaging, and transport bring degradation, market rejections and spillage. In
+distribution, food waste is caused by legal
+restrictions and aesthetic requirements.
+At the consumption stage, typical causes
+are poor planning, oversized portions,
+lack of awareness and understanding of
+date marking, and bulk purchases.[1] The
+problem cannot be solved with mere incremental change and cannot be fully
+addressed by the actors individually; it
+requires system-level reductions and collaboration within the
+food value chains, and targets have emerged as a fundamental
+governance tool at the international, regional, and national level
+to galvanize action for food waste prevention.
+Importantly, Sustainable Development Goal (SDG) Target 12.3
+provides that per capita global food waste at retail and consumer levels should be halved by 2030, with reductions in
+food losses along production and supply chains (including postharvest losses).[2] Although there is a broad consensus to prevent
+food waste in line with the SDG 12.3 target, and legally binding
+targets are also expected, e.g., at the European Union level,[3] the
+work toward fulﬁllment of the goal indicates a considerable variation among countries, sectors, and stages in the value chain. The
+common framework of the so-called waste hierarchy model deﬁnes preferred (prevention and reduction of waste) and less preferred (recycling, recovery, and disposal) waste governance strategies but does not deﬁne any concrete governance tools and actors
+responsibilities.[4]
+The food waste problem “has made a signiﬁcant climb on
+governance agendas since 2010”[5] and this is equally visible in
+macro-targets and in the layers of regional and (sub)national
+regulation. However, it is often claimed that because of ad-hoc,
+fragmented governance arrangements, and limited ambition, national eﬀorts are insuﬃcient to meet the global target.[6–10]
+Meanwhile, the discussion of food waste reduction governance
+is often one-dimensional, focused on the mere presence of food
+
+The scale of food waste across Europe is alarming, and its reduction is
+becoming an important public policy and governance issue. Sustainable
+Development Goal Target 12.3 constitutes a global attempt to galvanize
+system-level reductions. In response, layers of varied regulation and
+governance at regional and national levels have emerged. This paper studies
+the types of governance architectures visible across Europe, what policy
+interventions they bring, and whether responses to the food waste challenge
+are converging. It looks at four leading food waste jurisdictions—France,
+England, Norway, and Italy—and investigates the hidden realities obscured by
+the simplistic division of legislative/top-down versus voluntary/bottom-up
+approaches. It applies a governance matrix to understand the variety of food
+waste “steering modes”, exploring both the extent to which a regime is
+hierarchical and/or non-hierarchical and why. Notably, the paper also
+identiﬁes some general tendencies in food waste governance, including
+legislative threats, challenges in distributing responsibility across the actors,
+focus on “low hanging fruits”, and an overall harmonization of policy
+responses in a neoliberal paradigm, with redistribution often pursued as a
+panacea for the food waste crisis.
+
+1. Introduction
+Food waste is receiving increasing attention in both scholarship
+and policy circles. Its root causes can be linked to concrete stages
+in the food supply chain (agricultural production, post-harvest
+
+J. Szulecka
+Norwegian Institute for Water Research (NIVA)
+Økernveien 94, Oslo 0579, Norway
+E-mail: julia.szulecka@niva.no
+C. Bradshaw
+University of Leeds
+Leeds LS2 9JT, UK
+E-mail: c.j.bradshaw@leeds.ac.uk
+L. Principato
+Department of Business Economics
+Roma Tre University
+Via Silvio D’Amico, 77, Rome 00145, Italy
+E-mail: ludovica.principato@uniroma3.it
+The ORCID identiﬁcation number(s) for the author(s) of this article
+can be found under https://doi.org/10.1002/gch2.202300265
+© 2024 The Author(s). Global Challenges published by Wiley-VCH
+GmbH. This is an open access article under the terms of the Creative
+Commons Attribution License, which permits use, distribution and
+reproduction in any medium, provided the original work is properly cited.
+
+DOI: 10.1002/gch2.202300265
+
+Global Challenges. 2024, 8, 2300265
+
+2300265 (1 of 11)
+
+© 2024 The Author(s). Global Challenges published by Wiley-VCH GmbH
+
+www.advancedsciencenews.com
+
+www.global-challenges.com
+
+waste reduction laws, and countries that introduced them are depicted as more ambitious and receive signiﬁcant attention as apparent frontrunners. In the media, the ﬁrst European food waste
+laws were dubbed as “a war on waste”, “groundbreaking” and
+bringing “a revolution”.[11–13] This overly simplistic characterization creates a dichotomy between food waste laws versus their absence. Little attention is paid to more complex dynamics and to
+what governance architectures actually emerge in diﬀerent countries to address food waste.
+In response, this paper investigates food waste governance
+by applying a two-dimensional framework to both the type of
+interventions adopted, and the regimes that produce them, to
+capture the variety of food waste reduction governance architectures. Crucially, it explores both the extent to which a governance architecture is top-down (“hierarchical”) and/or bottom-up
+(“non-hierarchical”), but also analyses the actor constellations—
+explicitly or implicitly—in play across the “public-private” divide/continuum. We ask what are the types of governance architectures visible across Europe, what policy interventions do they bring and
+are responses to the food waste challenge converging?
+We use a two-dimensional framework drawing from Hall
+(2011) for a comparative case study analysis of four countries
+which are often discussed in the food waste reduction and prevention literature as examples of apparently diﬀerent approaches.
+France and Italy are widely considered paragons of a “topdown” approach because of the explicit food waste laws they
+introduced,[14] in contrast to the so-called “voluntary” approaches
+in the UK and Norway.[15] Our structured comparative analysis
+shows the extent to which the emergent food waste reduction
+governance architectures are divergent, but also in which terms
+they seem to be increasingly aligning and harmonizing over time.
+Further, we provide a Discussion section, reﬂecting on the different governance architectures, hidden similarities, and some
+common trends in food waste reduction governance.
+The paper identiﬁes important similarities across cases that
+are often categorized as divergent in approaches (France and England, as well as Norway and Italy). At the same time, we note some
+general tendencies in food waste governance, including legislative threats, challenges in distributing responsibility across the
+actors, focus on “low hanging fruits”, and an overall harmonization of responses in a neoliberal paradigm, with redistribution
+often pursued as a panacea for the food waste crisis.
+
+2. Theory and Method
+2.1. Governing Food Waste: Steering Modes and Actor
+Constellations
+Capturing the variety of responses to the food waste problem and
+regulatory measures adopted as attempts to reach the SDG target
+requires a framework that goes beyond the legislation/no legislation dichotomy. For this, we draw on governance scholarship.
+Governance is a “way of organizing collective action”,[16] by
+means of mobilizing various actors and organizing their eﬀective
+interaction, creating the conditions for taking binding decisions,
+and expanding the set of actors involved in decision-making to
+increase not only eﬀectiveness but also legitimacy. The result is
+“a system of co-production of norms and public goods where the
+co-producers are diﬀerent kinds of actors”.[17] Consequently, we
+
+Global Challenges. 2024, 8, 2300265
+
+2300265 (2 of 11)
+
+can distinguish speciﬁc governance architectures, that is the structures, processes, and mechanisms that guide decision-making,
+accountability, and control within an organization or system.[18]
+What is important for our analysis is the way governance
+theory approaches the frontier between the public and private
+sectors.[19] The move beyond traditional top-down and centralized steering logically spawns a “hybridization of modes of control that allow the production of fragmented and multidimensional order within the state, by the state, without the state, and
+beyond the state”.[20] Governance scholarship looks at how states
+lose the capacity for direct control, replacing it with a capacity
+to inﬂuence actors’ behaviour by using a number of less direct
+forms of intervention.[21,22]
+Strict distinctions between state and non-state governing are
+rare and diﬃcult, as states delegate power and such delegation
+can have many forms, from specialist governmental agencies to
+ceding competences and resources to local governments. It can
+also mean engaging with other actors, as well as with public and
+private entities exchanging and blending resources.[21]
+Food waste could seem like a straightforward problem, with
+relatively stable value chains and concurring, identiﬁable market
+failures. Many causes are very tangible and depend on unforeseen weather shocks, costs related to reducing food waste (at several food chain stages), pricing of external eﬀects related to food
+waste or good information access. Moreover, there is a universal agreement among actors that wasting food is wrong (morally,
+economically, and environmentally). A closer look, however, reveals a more “wicked” problem as a range of diﬀerent actors,
+and institutions with diverse underlying perspectives drive food
+waste prevention and reduction tools.[23] More ambitious reductions are therefore increasingly perceived as a wicked problem
+with increased scope and complexity requiring new governance
+approaches.
+In a highly complex society with problems extending across
+scales and/or borders, central actors—governments—are often
+unable to obtain the knowledge required to form eﬀective instruments of intervention, making centralized and hierarchical
+steering extremely diﬃcult or downright impossible. Public actors are “unable to muster the knowledge required to shape
+eﬀective instruments of intervention” and need to depend on
+broader expertise and knowledge[24] but also on implementation
+and enforcement.[25] Thus, many governments encourage other
+actors to address environmental problems voluntarily.[26–28] Selfgoverning capacity of decentralized actors is mostly welcome in
+complex and wicked problems,[29] where it is diﬃcult to agree on
+means, deﬁnitions, and evaluation frameworks.[30] We can distinguish three potential drivers of self-regulation: where industrial actors try to prevent governmental intervention with selfregulatory actions to forestall the legislative threat, where social
+pressures and anticipated consumer behavior push for certain
+corporate behavior or from the company’s own values and motivation that something must be done.[9,31–33]
+Preventing food waste brings public and private sectors together to transfer ideas and develop innovative solutions.[34]
+However, self-governing spaces are not automatically eﬀective
+and eﬃcient, and they also create accountability problems.[35]
+Public meta-governance should strike the right balance between
+over-regulation and under-regulation of self-governing actors.
+The ﬁrst diminishes motivation, and reduces ownership feeling
+
+© 2024 The Author(s). Global Challenges published by Wiley-VCH GmbH
+
+www.advancedsciencenews.com
+
+www.global-challenges.com
+
+Figure 1. Governance architecture typology (authors’ own elaboration adapted from Hall 2011).
+
+and creativity. The second might lead to avoiding conﬂicts, promoting the status quo or the lowest common denominator.[36]
+
+2.2. Conceptual Framework, Methodology and Data
+Non-legislative responses to food waste constitute a heterogenous category, and on the other hand, food waste laws can be
+constructed in very diﬀerent ways and engage key actors in the
+sector and along food value chains, a variety which has to be categorized more accurately to enable learning across cases and overall, increase the chances to meet the SDG target.
+Understanding that contemporary public policy and responses
+to wicked problems such as food waste cannot be reduced to
+the distinction between direct state response (in the form of
+legislation) or lack thereof, we propose a two-dimensional matrix
+of governance architectures. We identify two dimensions with
+actors across the public and private spectrum and steering
+modes with more hierarchical or non-hierarchical regimes
+(see Figure 1).
+Those two dimensions have been elaborated by Hall,[37] in order to demonstrate and better understand the variety of governance architectures, initially applied to study tourism policies.
+The resulting four ideal-typical constellations contain elements
+widely applied in governance studies. Hierarchies, markets, and
+networks have been presented as three typical modes of coordination already by Frances et al.,[38] while Pierre and Peters[39] added
+the fourth category of community.
+Each ideal type has some inherent characteristics and promotes diﬀerent policy instruments. Hierarchies strongly distinguish between the public and private policy space, use command
+and control and hierarchical relationships. Policymakers, legislators, and central government are key actors. Markets see
+market mechanisms as eﬃcient and just regulation and assume
+consumers as rational actors can make good decisions, based
+primarily on price signals. Here bargaining takes place between
+
+Global Challenges. 2024, 8, 2300265
+
+2300265 (3 of 11)
+
+producers and consumers and the policy arena is dominated by
+economic actors who can take the lead and engage in voluntary
+norm-setting if that is consistent with their interests. Networks,
+on the other hand, facilitate coordination between public and
+private actors, bring more policy bargaining and negotiations
+with diﬀerent stakeholder groups, with public actors in the lead.
+Finally, Communities bring more civic spirit into governance
+processes and a “grassroots” scale, where communities govern
+with minimal state involvement, in a bottom-up and largely
+voluntary manner.
+We apply this conceptual framework to a comparative analysis of four country case studies. Our case selection is driven by
+the regulatory context and national engagement in food waste
+work and represents the frontrunners in top-down food waste
+reduction governance (Italy and France with the ﬁrst European
+food waste laws) and bottom-up approaches to food waste governance (the United Kingdom, UK, more speciﬁcally England,[40]
+and Norway with most established voluntary agreements on food
+waste). All case study countries are internationally perceived as
+leaders in food waste interventions,[5,9,14] even before the issue
+has been oﬃcially addressed by the SDG and European Union
+(EU) policy agendas.
+For each case, we provide (i) a brief historical sketch of the evolution of food waste governance, followed by the two-dimensional
+analysis, where (ii) steering modes discuss to what extent the hierarchies and hierarchical relationships and arrangements are discernable and (iii) to analyze actors’ constellations we map key actors
+involved in food waste reduction work. In the last category (iv) focus areas of food waste governance architecture are discussed. Casestudy analysis draws on the relevant primary food waste law and
+policy documents analysis, a desktop review of academic scholarship, and grey literature, together with data gathered from the
+“Building REsponsibility And Developing Innovative Strategies
+For Tackling Food Waste” (BREAD) project, which included background interviews with food waste experts and stakeholder workshops.
+
+© 2024 The Author(s). Global Challenges published by Wiley-VCH GmbH
+
+www.advancedsciencenews.com
+
+www.global-challenges.com
+
+3. Analysis
+3.1. France
+3.1.1. Historical Development
+France has had an active tax policy encouraging food donations
+since the 1980s. Tax incentives started with food businesses but
+were later extended to farmers, processors, and logistic operators.
+The 2013 National Pact against Food Waste[41,42] was followed by
+two major laws: the Garot Law from 2016 and the Egalim Law
+from 2018. The former is known as the ﬁrst European law on food
+waste and notable for obligating certain retailers (supermarkets
+of more than 400m2 ) to sign agreements with food redistribution
+charities to donate surplus food and prohibiting the deliberate destruction of food still ﬁt for human consumption. Further legal
+measures from 2018 and 2020 require the food industry to measure the amount of food they waste.[42]
+
+3.1.2. Steering Modes
+France is often presented as illustrating a hierarchical or “topdown” governance approach, exempliﬁed by the ongoing and extensive use of legislation and regulation. The Garot Law is sometimes described as the world’s ﬁrst “punitive” food waste law[43]
+to adopt formally strong and binding language.[42] “Command
+and control” style regulation is deployed, with possible sanctions
+for non-compliance with obligations such as those to enter into
+donation agreements, oﬀer doggy bags and improve donations,
+together with a ban on the deliberate destruction of surplus food.
+However, while widely reported as banning supermarket
+food waste[44] and implementing a “mandatory donation”
+requirement,[45] there is no requirement to donate any minimum
+quantities/proportions of food (in contrast to a similar approach
+adopted in California); sanctions have as yet been levied; and
+there is no capacity in any case for monitoring compliance.[42,46]
+The Garot Law thus promotes the social expectation of donating
+food, rather than requiring it,[41] adopting a “suasive” approach
+relying on “symbolic messaging and voluntary engagement”.[42]
+Furthermore, the (not-so-mandatory) donation obligation may be
+less signiﬁcant for donations than relatively high tax incentives
+(60% capped at 0.05% of annual turnover), without which supermarkets would likely send surplus to anaerobic digestion.[41,47,48]
+A reliance on pricing mechanisms is more typically associated
+with hierarchy through markets, with the below analysis of actor
+constellations further demonstrating how the French approach
+is somewhat mischaracterized in the literature as the “top-down”
+exemplar.
+
+agrifood, retail, and food service sectors.[42,45] Notably however,
+the outcome of these multistakeholder processes was state intervention.
+That said, France falls between diﬀerent governance approaches. By “increasing the capacity of the market”, the Garot
+Law provides a policy arena for private economic actors to tackle
+food waste through a more market-oriented approach. For example, the Garot Law “transformed” surplus food into a resource
+and thus created business opportunities for a new category of private actors: new for-proﬁt start-ups which are increasingly inhabiting a sector previously populated by non-proﬁt charities.[49] Furthermore, while state regulation of food waste is typically associated with a focus on the public or common good, the French approach has actually institutionalized a narrative “that prioritizes
+proﬁt over social equity”.[50] Moreover, a variety of campaigns
+have sought to place responsibility on consumers for food waste
+(rather than broader structures),[42] further emphasising the role
+of market actors.
+Furthermore, France appears to target sectors of the supply
+chain individually. The Garot Law initially targeted retailers,[51]
+or more speciﬁcally, retail-level food waste, which may be somewhat misplaced given the relatively small quantities produced at
+this stage.[52] While these obligations have since been extended
+to caterers, food businesses and wholesale traders, this approach
+represents a relatively narrow understanding of retail responsibility for food waste, given supermarkets are indirectly responsible
+for food waste that arises elsewhere in the supply chain, through,
+e.g., purchasing agreements (upstream) or marketing campaigns
+(downstream).[47,53] The Garot Law instead puts responsibilities on retailers only for the waste they generate in retail. Notably, retailers dominated the pre-legislative policy discussion and
+blocked potentially more transformative intervention.[42]
+
+3.1.4. Focus Areas of Food Waste Governance Architecture
+The French approach primarily targets the re-use/redistribution
+of surplus food. It has thus been widely criticized as treating
+the symptoms rather than root causes of food waste,[42,49,52,54,55]
+and potentially exacerbating challenges relating to overproduction by perpetuating a norm of abundance while incentivizing
+retailers to shift food waste elsewhere in the supply chain.[42,56,57]
+Approaches that ensure retailer responsibility for food waste implies the need for holistic interventions that prioritize “strong”
+prevention at all stages of the supply chain and address power
+imbalances in the supply chain.[54,58] However, despite the recent EU Directive on unfair trading practices (UTPs – practices
+that grossly deviate from good commercial conduct)[59] and alternatives to retailer-driven food systems, French policies such as
+mandatory measurement have started to support such alternatives in only marginal ways.[42]
+
+3.1.3. Key Actors
+The extensive use of law and regulation places the state at the center of food waste governance in France. However, collaborative,
+multi-stakeholder workshops alongside a variety of grassroots activities have also played a signiﬁcant role, with a variety of actors, including environmental non-proﬁts, consumer organizations, food assistance organizations, and representatives of the
+
+Global Challenges. 2024, 8, 2300265
+
+2300265 (4 of 11)
+
+3.2. Italy
+3.2.1. Historical Development
+Coordinated action against food waste in Italy started with the
+Good Samaritan Law, passed in 2003. It encouraged restaurant
+
+© 2024 The Author(s). Global Challenges published by Wiley-VCH GmbH
+
+www.advancedsciencenews.com
+
+www.global-challenges.com
+
+owners to donate uneaten food and debureaucratized food donations, simplifying procedures for non-proﬁt organizations working on food redistribution. In 2011 the “Zero Waste Charter” was
+established, an agreement signed by 800 Italian municipalities
+to implement active policies aimed at reducing food waste at the
+local and municipal level.[60] In 2013, the Ministry of the Environment and the Protection of the Territory and the Sea launched
+the National Waste Prevention Program opening the door to the
+ﬁrst national Food Loss and Waste Prevention Plan, also known
+as PINPAS, published in 2014. The plan highlights ten priority
+measures to reduce food waste at diﬀerent level of the food supply chain, with a special emphasis on surplus donations.[61]
+Finally, with the Gadda Law from 2016, Italy became the second European country after France to implement a legislative system to address the problem of food loss and waste. Through its 18
+articles, it regulates diﬀerent areas of application to reduce food
+waste, favoring the transformation and redistribution of food surpluses along the entire food supply chain, implementing policies to promote the reuse and recycling of food waste, and supporting research, information, and awareness-raising activities.
+It created the National Table for Combating Food Waste, a coordination group in charge of presenting policy proposals, supervising monitoring and evaluation activities, and improving practices. The new measures had a quick eﬀect of increased food donations by 30% in the following year.
+
+Gadda Law simpliﬁes the donation procedure to boost the number of donors,[68] thereby primarily involving food industry and
+supply chain agreements. Furthermore, municipalities have also
+been given an important role. They have the authority to give a local waste tax reduction incentive to retailers that donate, and they
+oversee encouraging the use of doggy bags in restaurants. Finally,
+given the focus on awareness-raising campaigns to encourage the
+prevention of food waste, consumers are also central.
+
+3.2.4. Focus Areas of Food Waste Governance Architecture
+While Italy is the exemplar of the top-down legislative approach
+to food waste, the resulting governance arrangement is creating
+food waste reduction networks engaging a large variety of actors.
+It can be observed that food donation is a key issue in the food
+waste prevention governance, with procedural, ﬁscal, and sanitary measures that encourage food donations.
+At the national level, since the Gadda Law aims at encouraging
+the donation and redistribution of food surpluses, the Italian food
+waste governance focuses on “weak” waste prevention and reuse
+of products, with a speciﬁc focus on redistribution.[69] Regional
+action and most of the initiatives at the local and city level are also
+mostly targeting food redistribution.[69]
+
+3.3. England
+3.2.2. Steering Modes
+3.3.1. Historical Development
+Although its approach is considered as a top-down one, the
+Gadda Law does not include mandatory obligations or punitive
+sanctions, but it is rooted in voluntary agreements that involve
+diﬀerent stakeholders. A similar approach is also used at the Italian regional level, where most regions have committed to adopting their own legislation with a focus on promoting food surplus
+distribution and reducing food waste.[62] At a local level, cities
+have proven to be key actors in preventing food waste as a result of
+successful policies and initiatives to combat it.[63] By acting on an
+urban scale, cities can combine the regulatory approach with the
+administrative one, adopting multi-level and multi-sector policies. Indeed, the prevention of food waste requires a variety of
+initiatives that involve various local public authorities, such as
+cities, provinces, and other actors including citizens, school canteens, non-governmental organizations, retailers, food markets,
+and restaurants.[64–67]
+An example of urban food policy adopted in Italy is the international Milan Urban Food Policy Pact, an agreement signed by
+160 cities around the world that binds the authorities of the cities
+to collaborate to create sustainable food systems, ensure that everyone has access to nutritious meals, protect biodiversity, and
+combat food loss and waste.
+
+3.2.3. Key actors
+Concerning the public and private actors involved, the Gadda Law
+mainly targets authorities, food industry, end consumers, and
+non-governmental organizations (NGOs). Indeed, by ﬁlling up
+some of the holes left by the previous “Good Samaritan” law, the
+
+Global Challenges. 2024, 8, 2300265
+
+2300265 (5 of 11)
+
+Food waste emerged as a policy issue in 2000 and has since
+worked its way up the agenda.[56] 2005 saw the signing of the
+Courtauld Commitment, the world’s ﬁrst voluntary agreement
+to tackle food waste. Later in 2007, government identiﬁed food
+waste as a “priority waste stream”,[70] and the ﬁrst “large-scale”
+interventions to tackle food waste commenced, centered around
+the “Love Food Hate Waste” campaign.[71] Courtauld has since
+expanded in scope, and now provides a series of non-binding targets aligned with SDG 12.3, alongside the Food Waste Reduction
+Roadmap’s “Target Measure Act” approach.[72] In 2018, the Government also proposed several hierarchical measures, including
+mandatory reporting and reduction targets.[58] However, at the
+time of writing, these are yet to be implemented, and it remains
+to be seen whether England will move away from the markets
+approach outlined below.
+
+3.3.2. Steering Modes
+England represents a hierarchical approach to food waste
+governance through markets rather than state intervention.
+Bradshaw[58] demonstrates how government “stepped back”
+from food waste, with regulation as a last resort “hollowing out”
+the governance space,[58] see also.[73] Instead, government argued
+that a more sustainable economy “can and should be delivered
+with limited government intervention as industry responds to the
+clear business case” for waste prevention.[74]
+Market approaches typically involve the privatization/corporatization of state functions and the use of voluntary
+
+© 2024 The Author(s). Global Challenges published by Wiley-VCH GmbH
+
+www.advancedsciencenews.com
+
+www.global-challenges.com
+
+instruments. In England, this is most obviously illustrated by
+outsourcing the administration of voluntary eﬀorts to the Waste
+and Resources Action Programme (WRAP).[58] Another example
+is the increasing reliance on third sector/charitable organizations to redistribute surplus food, in turn shifting burdens for
+preventing waste away from the state.[58,75] WRAP has relied in
+Courtauld on creating a “pre-competitive” space to support collaboration between private actors, suggesting an aspiration of a
+non-hierarchical network approach. However, evidence suggests
+that competition has “crept in” to these spaces, undermining
+collaboration and highlighting the overall dominance of the
+market.[76,77]
+
+campaigns,[56,85] the state is more interventionist with respect
+to waste management activities such as treatment and disposal. Nonetheless, this is done in a manner consistent with
+the markets approach, with pricing mechanisms—such as a
+landﬁll tax and subsidies for anaerobic digestion (turning food
+waste in to biofuels)—supporting landﬁll diversion.[70,86] Evidence suggests these incentives hamper surplus food redistribution eﬀorts.[87–89] While levels of surplus food redistribution
+have increased through grant funding to the third sector,[90]
+measures more explicitly tackling overproduction are yet to
+materialize.[58,91]
+
+3.4. Norway
+3.3.3. Key Actors
+3.4.1. Historical Development
+Market approaches typically emphasize private business actors, as
+well as consumers, with the state playing a secondary overseeing
+role. In the UK however, the most signiﬁcant actor is arguably
+WRAP. WRAP was established by government as a not-for-proﬁt
+company to promote sustainable resource use, and it was later
+registered as a charity.[56,78] It is WRAP, not a government department or regulator, that administers the Courtauld Commitments
+and undertakes several associated quasi-regulatory/state activities. These include convening working groups, producing written
+guidance, and distributing public funding. WRAP is widely regarded as “instrumental” in raising the proﬁle of food waste,[56,76]
+with “unanimity” as to the critical role WRAP has played as a
+trusted and neutral intermediary.[79,80]
+This approach does nonetheless emphasize the role of private actors (rather than the state) in preventing food waste
+via the “business case”, with clear hallmarks of a markets approach. For example, a central strand of WRAP’s activity is working with major retailers to prevent food waste in households,
+where much food is wasted.[71] This reﬂects government policy seeking to enroll retailers as “surrogate regulators” of food
+waste,[70] see, e.g.,[81] with retailers expected (but not required)
+to take the lead in preventing food waste upstream in the supply chain, supported by a range of guides and processes provided
+by WRAP.[72,76] While levels of retail waste are relatively low,[56]
+government policy increasingly encourages third sector organizations to redistribute this surplus, and in a markets fashion, instructs civil society organizations to “think like a business” (i.e.,
+that non-proﬁt organizations should act according to a market
+logic).[74]
+Seeking to mobilize consumer behavior around household
+food waste prevention has also been central. However, the construction of food waste as an “end-of-pipe” consumer problem
+has been criticized as disproportionately “blaming” individuals
+for a structural problem while also distracting from the need to
+prevent waste upstream,[82–84] particularly on farms.[58,56]
+
+3.3.4. Focus Areas of Food Waste Governance Architecture
+While England is the exemplar of the voluntary approach to
+food waste prevention, with considerable energy diverted to
+surplus food redistribution together with preventing household food waste through soft initiatives such as information
+
+Global Challenges. 2024, 8, 2300265
+
+2300265 (6 of 11)
+
+Food waste became a policy issue in Norway after 2008, when the
+food-retailing sector identiﬁed it as a pressing problem.[10] However, prior to 2010, when the ForMat project, the ﬁrst systematic
+attempt to tackle food waste, was launched, no national statistics on food waste existed.[9,92] Since 2012, ForMat was administered by Matvett AS, a non-proﬁt multi-stakeholder hub, working
+with the business sector, ﬁve ministries, and the research institute NORSUS (previously known as Østfoldforskning). In 2015,
+food sector companies signed an Agreement of Intent to reduce
+food waste,[93] followed by the Industry Agreement on the reduction of food waste signed in 2017 by a dozen industry organizations and several ministries.[94] At the time of writing, just over
+100 companies have joined the voluntary agreement. NGOs have
+also been increasingly active in shaping food waste governance.
+The organization Future in our Hands started launching educational campaigns and pressing for increased industry ambition in
+2012. Another NGO, Food Banks Norway, started working on surplus food redistribution.[9] Companies can request value added
+tax refunds for donated food products, but the same rule also applies to all discarded food.
+
+3.4.2. Steering Modes
+Current food waste governance in Norway is non-hierarchical,
+which is very much in line with Norway’s public policy traditions
+that see a strong commitment to subsidiarity, decentralized decision making, local governance, and a strong collaboration between civil society, private business and labor organizations, with
+state institutions in an auxiliary role.[95]
+The examples of France and Italy opened the space for policy
+learning. As of mid-2024, there are no penalties for not meeting the targets and the Industry Agreement can be terminated
+with one month’s notice. Some companies struggle to reach the
+Agreement’s targets, while others met them long before or introduced their own thresholds. For almost ten years the “shadow
+of hierarchy”, that is the looming threat of governmental regulation, was cast over the Norwegian food waste governance. It was
+anticipated that, if the Industry Agreement does not deliver or
+appears to focus only on low hanging fruit, the state will likely
+step in with mandated self-regulation or direct regulation.[9] If,
+on the contrary, the Agreement proved a success, the government
+
+© 2024 The Author(s). Global Challenges published by Wiley-VCH GmbH
+
+www.advancedsciencenews.com
+
+www.global-challenges.com
+
+might scale up the Agreement’s provisions to cover the entire industry. Following the September 2021 general election, the incoming Labor-Centre government announced its dedication to
+a Food Waste Law.[96] Finally in early 2023 a special committee
+got the mandate to ﬁnd measures that can halve food waste. The
+committee did not recommend one particular food waste law, but
+pointed to 35 measures, where some could constitute food waste
+legislation.[97]
+3.4.3. Key Actors
+Norway’s approach stands out due to the centrality of the food industry, i.e., the current food waste reduction governance framework, built around the Industry Agreement, relies on private
+actors.[10] Public actors are, however, becoming increasingly active.
+At this stage, industry is still the main driver of the process and
+controls self-regulation, but outside pressure underlines expectations of particular outcomes for this voluntary process. Here,
+a central role of Matvett AS can be observed in its role of a
+secretariat of the special committee. However, the committee is
+broadly composed of representatives from the food value chain,
+the municipal sector, consumer, and environmental organizations as well as research environments.
+State agencies are taking over some food waste reduction
+tasks, including a system for industry reporting, building national statistics, reporting to the EU, producing reports, inﬂuencing consumer behavior, supporting donation, and involving
+other public sector actors.[94] At the same time, the state has been
+withdrawing ﬁnancial support for industrial food waste reduction
+work and seemingly sees this as the burden for the industry.
+3.4.4. Focus Areas of Food Waste Governance Architecture
+The Industry Agreement lists eighteen measures that need to be
+undertaken by industry and authorities. Signiﬁcant emphasis is
+put on data gathering and coordination so most of the measures
+listed cannot be classiﬁed according to the level of intervention.
+It can be noted that the agreement shows some general directions of food waste reduction work and responsibilities. It can
+therefore give actors ﬂexibility in shaping reduction measures,
+but can also easily hamper ambition and promote inaction. The
+measures listed are rarely concrete. Several are dedicated to prevention, re-use, and recovery and they imply collaboration (food
+industry and authorities, food industry and NGOs, authorities
+and consumers, authorities, food industry and NGOs). Interestingly, prevention is listed in the consumer context, while there is
+an emphasis on re-use and donations for the industry. In practice, the industry elaborated its own pyramid where preference
+is given to selling at full price, followed by discount selling and
+donation.[92] More ambitious measures dedicated to “strong prevention” by tackling overproduction, food waste on farms, or systemic failures are still lacking and the new recommendations
+largely rely on voluntarism. They suggest among others that the
+Industry Agreement needs to be strengthened and expanded and
+businesses should carry out risk assessments and implement tailored measures to avoid food waste in their own business and
+across the value chain, including toward the consumer.
+
+Global Challenges. 2024, 8, 2300265
+
+2300265 (7 of 11)
+
+4. Discussion
+By exploring the case studies focusing on two dimensions of governance architectures (steering modes and actors), we reveal both
+distinguishing features and similarities that in turn challenge assumptions around food waste reduction governance. Our analysis shows that the typical one-dimensional distinction between
+“state driven” on the one hand, and “voluntary” approaches to
+food waste governance on the other, can be challenged.
+Contrary to the law versus no law distinction, which would
+see France and Italy in one category, we ﬁnd that Italy and Norway have adopted less hierarchical governance approaches than
+France and England (see Figure 2). However, while the French
+and English approaches to food waste are typically presented as
+diametrically opposed (legislative v. voluntary), our analysis reveals this as a false dichotomy. For example, France’s legislative
+“top-down” approach bears hallmarks of markets more obviously
+associated with England’s voluntary “business case” approach.
+While France has adopted a circular economy approach to redistribution, reconﬁguring the sector to attract private parties,
+England has oﬀered funding directly to third sector charities.
+However, the French approach appears to have some diﬀerent
+focus areas, with tax incentives applying to food donation. This
+contrasts with England’s marketized approach to waste management through subsidies for anaerobic digestion that in turn have
+harmed redistribution. While the circular economy approach in
+England has been criticized as promoting a narrative of “the more
+waste, the better”,[87,98] for the reasons given above, the French
+approach might be criticized for promoting “the more surplus,
+the better” (Table 1).
+An analysis of actors is also revealing. England for example has
+“outsourced” food waste administration to WRAP, in receipt of
+signiﬁcant (though dwindling) public funding that in turn provides ﬁnancial support to third sector redistribution organizations. WRAP provides a quasi-public institutional presence that
+does not appear to be mirrored in France or Italy, where a clearer
+role for public actors might be expected. Interestingly in Italy, it
+is the cities (i.e., municipal level authorities) that show the ambition to become food waste governance hubs (e.g., Milan).[63]
+However, WRAP is under-conceptualized and underresearched, both from a governance perspective and as a
+food waste intervention in and of itself. A comparison between
+WRAP in the UK and Matvett in Norway is also instructive of
+further research that might be carried out in this area, raising
+related questions around accountability and legitimacy. Both
+Matvett and WRAP were fundamental in opening the public
+debate on food waste and are national “hubs” of expertise and
+inﬂuence. However, they are both potentially constrained by
+their funding settlements. Most of WRAP’s income is from
+UK governments[78,90] and is potentially limited in its ability to
+engage in a robust public dialogue with government about food
+waste policy. Matvett in turn may be limited in growing further
+and in its ability to question levels of industry ambition given it
+is heavily reliant on the Norwegian food industry for funding.
+While there is emphasis on retailers in France, England, and
+Norway, the construction of retailer responsibility for food waste
+appears to diﬀer. For example, under the French Garot Law, the
+responsibility of retailers is primarily for food waste within their
+own operations. In contrast, retailers in the UK are increasingly
+
+© 2024 The Author(s). Global Challenges published by Wiley-VCH GmbH
+
+www.advancedsciencenews.com
+
+www.global-challenges.com
+
+Figure 2. Country cases, governance approaches, and key policy documents (own elaboration).
+
+mobilized as surrogate regulators of waste elsewhere in the supply chain, and in Norway, some retailers are also starting to raise
+consumer awareness on food waste. While the ability of retailers to drive meaningful change in the absence of legislative measures has been doubted,[58,88,99,100] this broader conceptualisation
+of their role in food waste prevention is more in-keeping with
+calls for distributing responsibility for food waste along the supply chain.[80]
+At the same time, while household waste levels have understandably driven an interest in changing consumer behavior,
+there is limited activity across all four cases to tackle “strong” pre-
+
+vention with problems related to overproduction, including on
+farms or general product abundance. Arguably, this relates to the
+structural limitations of housing food waste law and policy within
+frameworks on waste, as opposed to food and agriculture,[87]
+conﬁrming Messner’s “prevention paradox” that describes a proclaimed focus on preventing and a working focus on managing
+food waste.[101]
+Emphasis is increasingly placed, particularly in the grey literature, on legislative support for food redistribution, especially
+“Good Samaritan” Laws and tax incentives.[102] The Norwegian
+case shows that even when the state oﬀers tax exemptions for
+
+Table 1. Food waste governance architectures: Summary of comparative case study analysis.
+Binding law
+
+France
+
+England
+
+Norway
+
+Italy
+
+Yes
+
+No
+
+No
+
+Yes
+
+Key elements of food waste
+reduction policy
+
+Extensive use of food waste
+legislation and regulation
+
+Outsourcing the
+administration of voluntary
+eﬀorts to WRAP
+
+Steering modes
+
+Hierarchies – a “hard”
+legislative approach via the
+state
+
+Clear privatization of
+governance and hierarchy
+through markets
+
+Non-hierarchical communities
+emerging around
+self-regulation initiatives
+
+Non-hierarchical public-private
+networks across scales, with
+strong involvement of
+municipal authorities
+
+Key actors
+
+State actors, market actors, big
+initial emphasis on retailers
+
+WRAP through the Courtauld
+Commitments
+
+Matvett AS and food industry
+companies, ministries,
+NGOs
+
+National authorities, industry,
+NGOs, important role of
+municipal authorities
+
+Focus of governance
+architecture
+
+re-use/ redistribution of
+surplus food
+
+surplus food redistribution
+together with preventing
+household food waste
+through soft initiatives
+
+work with the food industry,
+support for food
+redistribution
+
+special emphasis on surplus
+donations
+
+General trends
+
+legislative turn (laws and legislative “threats”)
+focus on “low hanging fruits”,
+a neoliberal paradigm (large emphasis on redistribution and new business models)
+
+Industry Agreement on the
+reduction of food waste
+
+Hierarchical
+
+Global Challenges. 2024, 8, 2300265
+
+2300265 (8 of 11)
+
+National Food Loss and Waste
+Prevention Plan, PINPAS,
+National Table for
+Combating Food Waste,
+laws for food donation
+
+Non-hierarchical
+
+© 2024 The Author(s). Global Challenges published by Wiley-VCH GmbH
+
+www.advancedsciencenews.com
+
+www.global-challenges.com
+
+donated food, the systemic approach fails, as the same scheme
+is used for food thrown away, treating food waste prevention and
+food waste management equally. While Italy’s Good Samaritan
+Law has been held up an example of best practice,[103] seeking to
+encourage for-proﬁt private actors to donate surplus food through
+liability protections (see, e.g.,[104,105] ) and publicly-funded tax
+breaks[52,106] is not uncontroversial. Similarly, while the EU
+(and England and Norway) shift toward legal obligations to
+measure and report on food waste, it should be remembered that
+measurement itself is no guarantee of preventative actions.[107]
+
+Conﬂict of Interest
+The authors declare no conﬂict of interest.
+
+5. Conclusion
+Since the governance of food waste is a relatively new ﬁeld for
+policymakers, policy implementation and data availability for
+national contexts is, comparatively in size and scope, severely
+limited.[5] Our analysis of four leading food waste jurisdictions—
+France, England, Norway, and Italy—unpacks the hidden realities
+obscured by the simplistic division of legislative versus voluntary
+approaches. For example, while France is typically presented as
+the archetypically legislative food waste regime, it has many markets governance features, and Italy’s legislative interventions are
+rooted in non-hierarchal voluntarism.
+While we were to some extent able to place the case studies
+within the governance approaches matrix based on Hall 2011,[37]
+which adds nuance to the way emergent food waste reduction
+governance architectures can be categorized and divided (see
+Figure 2), there are also several uniting general tendencies visible in all studied cases.[108]
+First, there is some evidence of a “legislative turn”. For example, in the hitherto “non-intervention” approaches of England
+and Norway, policy discussions underway imply a greater role for
+the state. It is also worth noting that many of the French policy
+initiatives aimed at providing guidelines and incentives were initially classiﬁed as voluntary but later mandated. It can also be
+noted that the legislative threat is a powerful governance tool for
+mobilizing the actors in more ambitious food waste prevention
+and food waste laws may be very diverse in their scope, emphasis
+and execution. Food waste governance should be seen as an experimentalist policy arena practiced at the national level, and inherently linked to local food production, climate, lifestyles, food
+habits and norms.[10]
+Second, we note that food waste prevention work starts with
+picking “low hanging fruits”. Quick eﬀects were initially seen
+with relatively simple interventions targeting both business actors and consumers. As the ambition (and costs) of food waste
+prevention begin to bite in the run up to SDG 12.3 deadline,
+more conﬂicts emerge, particularly given concerns that powerful
+actors, especially retailers, have been central in shaping the limited obligations in France[42] and England.[58] Policymakers need
+to show more strength enforcing policies against the interests of
+powerful agents if food waste reduction targets are to be achieved.
+Finally, an overall harmonization of responses and convergence in a “neoliberal” paradigm, with redistribution and emphasis on business innovation and ﬁnding new proﬁt-generating
+activities often pursued as a panacea for the food waste crisis, is
+highly visible in all studied cases. We note that even community
+organizations in food waste redistribution start to indirectly contribute to the neoliberal governance model.[109]
+
+Global Challenges. 2024, 8, 2300265
+
+While vested economic interests may present a barrier to the
+passing of eﬀective laws, care should also be taken to design legislation that tackles the root causes (rather than symptoms) of food
+waste, including overproduction. This highlights the ongoing European priority for mandatory food waste measurement from
+farm-to-fork alongside legislation that targets prevention within
+the broader context of the food system.
+
+2300265 (9 of 11)
+
+Data Availability Statement
+Data sharing is not applicable to this article as no new data were created
+or analyzed in this study.
+
+Keywords
+food waste governance, food waste law, reduction targets, SDG, voluntary
+agreements
+Received: September 4, 2023
+Revised: June 4, 2024
+Published online: August 8, 2024
+
+[1] V. S. M. Magalhães, L. M. D. F. Ferreira, C. Silva, Sustainable Production and Consumption 2021, 28, 1580.
+[2] SDG. 17 Sustainable Development Goals (SDGs) of the 2030.
+Agenda for sustainable development 2015
+[3] European Commission, About Food Waste 2024
+[4] E. Papargyropoulou, R. Lozano, J. K. Steinberger, N. Wright, J.
+Cleaner Prod. 2014, 76, 106.
+[5] T. Gumbert, T. Gumbert, in Responsibility in Environmental Governance: Unwrapping the Global Food Waste Dilemma, Springer International Publishing, Berlin 2022, 119.
+[6] B. Garske, K. Heyl, F. Ekardt, L. M. Weber, W. Gradzka, Land 2020,
+9, 231.
+[7] M. Eriksson, C. Malefors, P. Callewaert, H. Hartikainen, O.
+Pietiläinen, I. Strid, Resources, Conservation & Recycling: X 2019, 4,
+100021.
+[8] Feedback EU, Why the EU needs to adopt ambitious legally binding
+food waste reduction targets 2022.
+[9] J. Szulecka, N. Strøm-Andersen, Scandinavian Political Studies 2022,
+45, 86.
+[10] J. Szulecka, N. Strøm-Andersen, L. Scordato, E. Skrivervik, in From
+Waste to Value Valorisation Pathways for Organic Waste Streams in
+Circular Bioeconomies (Eds: A. Klitkou, A. M. Fevolden, M. Capasso),
+Routledge, London 2019
+[11] E. Bryant, France battles food waste by way of law, https://www.dw.
+com/en/france-battles-food-waste-by-law/a-19148931 (accessed:
+April 2016)
+[12] R. Casey, France’s war on waste makes it the world’s most sustainable country, https://www.weforum.org/agenda/2017/12/franceswar-on-waste-makes-it-most-food-sustainable-country/
+(accessed: December 2017)
+[13] M. Roy, Food waste in Italy to be slashed by revolutionary
+new law, https://www.newfoodmagazine.com/news/26045/foodwaste-italy-law-fao/ (accessed: August 2016)
+
+© 2024 The Author(s). Global Challenges published by Wiley-VCH GmbH
+
+www.advancedsciencenews.com
+
+www.global-challenges.com
+
+[14] L. G. Vaqué, European Food and Feed Law Review 2017, 12, 224.
+[15] Refresh Policy Working Group, Voluntary Agreements as
+a policy instrument for food waste reduction, https://eurefresh.org/sites/default/ﬁles/MINUTES_REFRESH-PolicyWorking-Group-on-VAs.pdf (accessed: June 2018)
+[16] E. H. Klijn, A. Van Buuren, J. Edelenbos, in The Oxford Handbook of
+Governance (Ed: D. Levi-Faur), Oxford University Press, New York,
+2012, p. 294.
+[17] S. Bartolini, in New Modes of Governance in Europe: Governing in the
+Shadow of Hierarchy (Eds: A. Héritier, M. Rhodes), Palgrave Macmillan UK, London 2011, p. 1.
+[18] F. Biermann, P. Pattberg, H. van Asselt, F. Zelli, Global Environmental
+Politics 2009, 9, 14.
+[19] J. Tosun, E. L. Saad, J. Glückler, A. Irigoyen Rios, R. Lehmann, Global
+Challenges 2023, 7, 2300012.
+[20] D. Levi-Faur, in The Oxford Handbook of Governance, Oxford University Press, New York 2012.
+[21] B. G. Peters, P. J. G. W. Government?, Journal of Public Administration
+Research and Theory 1998, 8, 223.
+[22] M. Asaduzzaman, P. Virtanen, in Global Encyclopedia of Public Administration, Public Policy, and Governance (Ed: A. Farazmand), Springer International Publishing, Berlin, 2018, pp. 2907–
+2919.
+[23] E. Närvänen, N. Mesiranta, M. Mattila, A. Heikkinen, Food Waste
+Management: Solving the Wicked Problem 2020.
+[24] J. Richardson, The Oxford Handbook of Governance (Ed: D. LeviFaur), Oxford University Press, New York 2012, pp. 311.
+[25] A. Héritier, S. Eckert, Journal of Public Policy 2008, 28, 113.
+[26] T. A. Börzel, in New Modes of Governance in Europe: Governing in the
+Shadow of Hierarchy (Ed: A. Héritier, M. Rhodes), Palgrave Macmillan UK, London, 2011, pp. 75–103.
+[27] A. Héritier, D. Lehmkuhl, in New Modes of Governance in Europe:
+Governing in the Shadow of Hierarchy (Eds: A. Héritier, M. Rhodes),
+Palgrave Macmillan UK, London, 2011, pp. 48–74.
+[28] J. van der Heijden, Environmental Politics 2012, 21, 486.
+[29] T. Bernauer, L. M. Schaﬀer, in The Oxford Handbook of Governance
+(Ed: D. Levi-Faur), Oxford University Press, Oxford 2012.
+[30] H. W. J. Rittel, M. M. Webber, Policy Sciences 1973, 4, 155.
+[31] B. G. King, Administrative Science Quarterly 2008, 53, 395.
+[32] J. G. March, J. P. Olsen, in The Oxford Handbook of Political Science
+(Ed: R. E. Goodin), Oxford University Press, Oxford 2011.
+[33] J. Maxwell, T. Lyon, S. Hackett, Journal of Law & Economics 2000, 43,
+583.
+[34] H. A. Nissen, M. R. Evald, A. H. Clarke, Industrial Marketing Management 2014, 43, 473.
+[35] J. E. Klausen, M. Winsvold, Journal of Public Policy 2021, 41, 161.
+[36] E. Sørensen, The Oxford Handbook of Governance (Ed: D. Levi-Faur),
+Oxford University Press, New York 2012.
+[37] C. M. Hall, Journal of Sustainable Tourism 2011, 19, 437.
+[38] J. Frances, R. Levačić, J. Mitchell, G. Thomson, Markets, Hierarchies
+and Networks: The Coordination of Social Life, Sage Publications, London 1991.
+[39] J. Pierre, B. G. Peters, Governance, politics and the state, Bloomsbury
+Publishing, New York 2020.
+[40] There are divergent approaches to food waste in the other devolved
+UK nations.
+[41] M. Mourad, S. Finn, Opinion | France’s Ban on Food Waste Three
+Years Later 2019
+[42] M. Mourad, in Food Loss and Waste Policy: From Theory to Practice,
+1st ed. (Ed: S. Busetti, N. Pace), Routledge, New York, 2022.
+[43] L. Gore-Langton, France’s food waste ban: One year on,
+https://www.foodnavigator.com/Article/2017/03/24/France-sfood-waste-ban-One-year-on (accessed: October 2022).
+[44] A. Chrisaﬁs, French law forbids food waste by supermarkets 2016.
+
+Global Challenges. 2024, 8, 2300265
+
+2300265 (10 of 11)
+
+[45] L. B. Eubanks, William & Mary Environmental Law and Policy Review
+2019, 43, 667.
+[46] European Court of Auditors, Combating Food Waste: an opportunity for the EU to improve the resource-eﬃciency of the food supply
+chain 2016.
+[47] M. Mourad, J. Cleaner Prod. 2016, 126, 461.
+[48] M. Tatum, How France is leading the way on food waste,
+https://www.thegrocer.co.uk/food-waste/how-france-is-leadingthe-way-on-food-waste/536447.article (accessed: May 2016)
+[49] S. Leipold, K. Weldner, M. Hohl, Ecological Economics 2021, 187,
+107086.
+[50] S. Leipold, K. Weldner, M. Hohl, Three narratives about food waste
+and their social impact 2021.
+[51] K. Walsh, Indiana Journal of Law and Social Equality 2018, 6, 7.
+[52] C. Giordano, L. Falasconi, C. Cicatiello, B. Pancino, J. Cleaner Prod.
+2019, 119617.
+[53] E. Colbert, Causes of food waste in international supply chains, Rockefeller Foundation, London 2017.
+[54] WWF-WRAP. Halving Food Loss and Waste in the EU by 2030: The
+Major Steps Needed to Accelerate Progress 2020.
+[55] B. Redlingshöfer, S. Barles, H. Weisz, Resour., Conserv. Recycl. 2020,
+156, 104723.
+[56] S. D. Porter, in Routledge Handbook of Food Waste, 1st ed. (Eds: C.
+Reynolds, T. Soma, C. Spring, J. Lazell), Routledge, London 2020.
+[57] M. V. Gooch, B. Dent, A. S. Felfel, L. Vanclief, P. Whitehead,
+Food Waste: Aligning Government and Industry Within
+Value
+Chain
+Solutions,
+http://vcm-international.com/wpcontent/uploads/2016/10/Food-Waste-Aligning-Governmentand-Industry-VCMI-Oct-4-2016.pdf (accessed: October 2016).
+[58] C. Bradshaw, Legal stud 2020, 40, 321.
+[59] J. S. Taylor, J. Parﬁtt, D. Jarosz, Regulating the Role of Unfair Trading
+Practices in Food Waste, https://eu-refresh.org/regulating-roleunfair-trading-practices-food-waste-generation.html
+(accessed:
+July 2024).
+[60] Last Minute Market. Carta zero spreco. https://www.
+lastminutemarket.it/casi-studio/campagna-spreco-zero
+(accessed: July 2024).
+[61] PINPAS. Piano Nazionale di Prevenzione degli Sprechi Alimentari. Le azioni prioritarie per la lotta allo spreco, https:
+//www.mase.gov.it/sites/default/ﬁles/archivio_immagini/Galletti/
+Comunicati/PINPAS%2010%20MISURE%20PRIORITARIE%205%
+20GIUGNO%202014.pdf (accessed: July 2024).
+[62] P. Azzurro, S. Gaiani, M. Vittuari, Italy – Country report on national
+food waste policy, https://www.eu-fusions.org/phocadownload/
+country-report/FUSIONS%20IT%20Country%20Report%2030.06.
+pdf (accessed: 2016).
+[63] D. Fattibene, F. Recanati, K. Dembska, M. Antonelli, Resources 2020,
+9, 99.
+[64] E. Dansero, D. Marino, G. Mazzocchi, Y. Nicolarea, Lo Spazio Delle
+Politiche Locali del Cibo: Temi, Esperienze e Prospettive, Rete delle
+Politiche Locali del Cibo, https://www.crea.gov.it/web/politichee-bioeconomia/-/lo-spazio-delle-politiche-locali-del-cibo-temiesperienze-prospettive (accessed: November 2020).
+[65] D. Fattibene, “Wise Cities” in the Mediterranean? Challenges of Urban Sustainability, Barcelona, Barcelona Centre for International Affairs (CIDOB), Eckart Woertz 2018, 187.
+[66] C. Giordano, L. Falasconi, M. Boschini, A. Segrè, Detecting Drivers
+of Household Food Waste in Italy: Methodological Assessment
+of a Diary Study, https://www.researchgate.net/publication/
+323396992_Detecting_drivers_of _household_food_waste_in_
+Italy_methodological_assessment_of _a_diary_study
+(accessed:
+September 2016).
+[67] L. Michelini, L. Principato, G. Iasevoli, Ecological Economics 2018,
+145, 205.
+
+© 2024 The Author(s). Global Challenges published by Wiley-VCH GmbH
+
+www.advancedsciencenews.com
+
+www.global-challenges.com
+
+[68] G. Berti, C. Giordano, M. Mininni, Agriculture 2021, 11, 249.
+[69] L. Principato, Italian Food Waste Governance and Practice,
+https://www.sv.uio.no/tik/english/research/projects/bread/
+publications/bread-report-on-italian-food-waste-governance-and.html (accessed: January 2023)
+[70] Defra. Waste Strategy for England 2007. Cm 7086, 2007.
+[71] WRAP. Food surplus and waste in the UK – key facts,
+https://wrap.org.uk/sites/default/ﬁles/2021-10/food-%20surplusand-%20waste-in-the-%20uk-key-facts-oct-21.pdf
+(accessed:
+October 2021).
+[72] IGD, WRAP. Target. Measure. Act, The Food Waste Reduction
+Roadmap Toolkit. WRAP 2018.
+[73] D. McCarthy, P. Morling, Using Regulation as a Last Resort: Assessing the Performance of Voluntary Approaches, http://ww2.rspb.org.
+uk/Images/usingregulation_tcm9-408677.pdf (accessed: November 2015).
+[74] H. M. Government, Prevention is better than cure: The role of waste
+prevention in moving to a more resource eﬃcient economy, Crown
+Copyright, London 2013.
+[75] J. L. Midgley, Journal of Environmental Planning and Management
+2014, 57, 1872.
+[76] A. D. Pringle, Overproduction in England’s Retail Food Chain: A
+Challenge for the Regulation of Food Waste Ph.D. Thesis, University
+of York, UK 2021.
+[77] E. Salo, Voluntary agreements for the achievement of sustainable
+development goals : Dutch Green Deals and WRAP agreements,
+https://jyx.jyu.ﬁ/handle/123456789/52151 (accessed: November
+2016).
+[78] WRAP, What we do | WRAP, https://wrap.org.uk/what-we-do (accessed: April 2022)
+[79] S. Piras, L. García Herrero, S. Burgos, F. Colin, M. Gheoldus, C.
+Ledoux, J. Parﬁtt, D. Jarosz, M. Vittuari, Unfair Trading Practice Regulation and Voluntary Agreements Targeting Food Waste: a policy
+assessment in select EU Member States. REFRESH 2018.
+[80] D. Welch, J. Swaﬃeld, D. Evans, Journal of Consumer Culture 2021,
+21, 236.
+[81] Waste Strategy 2000 for England and Wales – (Part 1), Department
+of the Environment, Transport and the Regions, Crown Copyright,
+London 2000.
+[82] D. Evans, Critical Public Health, Vol. 21, Taylor and Franis, London
+2011, pp. 429–440.
+[83] D. Evans, Food Waste: Home Consumption, Material Culture and Everyday Life, Bloomsbury Academic, London 2014, p. 160.
+[84] C. Alexander, N. Gregson, Z. Gille, in The Handbook of Food Research
+(Eds: A. Murcott, W. Belasco, P. Jackson), Bloomsbury Academic,
+London 2013.
+[85] WRAP, The Courtauld Commitment Annual Report - Shaping a
+sustainable recovery, https://wrap.org.uk/sites/default/ﬁles/202107/WRAP-Courtauld-Commitment-Annual-Report-2021.pdf (accessed: July 2021).
+
+Global Challenges. 2024, 8, 2300265
+
+2300265 (11 of 11)
+
+[86] Anaerobic Digestion Strategy and Action Plan, Crown Copyright, London 2011.
+[87] C. Bradshaw, J Environmental Law 2018, 30, 311.
+[88] J. Swaﬃeld, D. Evans, D. Welch, Geoforum 2018, 89, 43.
+[89] S. T. Karki, A. C. T. Bennett, J. L. Mishra, Industrial Marketing Management 2021, 93, 563.
+[90] WRAP, Surplus food redistribution in the UK 2015–2020,
+https://wrap.org.uk/sites/default/ﬁles/2021-06/WRAP-Surplusfood-redistribution-in-the-UK-2015-2020.pdf (accessed: October
+2021).
+[91] J. Midgley, in Routledge Handbook of Food Waste, 1st ed. (Eds:
+C. Reynolds, T. Soma, C. Spring, J. Lazell), Routledge, London
+2020.
+[92] A. Stensgård, O. J. Hanssen, Food Waste in Norway 2015. Status
+and Trends 2009–15 2015.
+[93] Regjeringen, Intensjonsavtale om reduksjon i matsvinn,
+https://www.regjeringen.no/contentassets/e54f030bda3f488d8a29
+5cd0078c4fcb/matsvinn.pdf (accessed: July 2015).
+[94] Regjeringen, Industry agreement on reduction of food waste 2017.
+[95] I. M. Hagen, European Company Law 2011, 8, 83.
+[96] FIVH. Ja til matkastelov, 2021.
+[97] Matvett. 35 klare anbefalinger fra matsvinnutvalget, 2023.
+[98] J. Hultman, H. Corvellec, Environment and Planning A 2012, 44,
+2413.
+[99] B. Devin, C. Richards, Journal of Business Ethics 2018, 150, 199.
+[100] C. W. Young, S. V. Russell, C. A. Robinson, P. K. Chintakayala, Business Strategy and the Environment 2018, 27, 1.
+[101] R. Messner, C. Richards, H. Johnson, Agriculture and Human Values
+2020;37.
+[102] J. S. Beckmann, M. Shapiro, S. Angel, M. Eigen, UK Recommendations: Food Donation Law and Policy, The Global
+Food Donation Policy Atlas, https://www.foodbanking.org/wpcontent/uploads/2021/04/UK-Recs-v2.pdf (accessed: September
+2021).
+[103] H. E. J. Bos-Brouwers, V. Graf, L. Aramyan, B. Oberc, Food redistribution in the EU – Mapping and analysis of existing regulatory
+and policy measures impacting food redistribution from EU Member States 2020.
+[104] S. Munger, Vermont Journal of Environmental Law 2018, 19,
+64.
+[105] J. D. Lohnes, Agriculture and Human Values, Springer, Berlin 2020.
+[106] S. Franco, C. Cicatiello, Waste Manage. 2021, 121, 286.
+[107] M. Eriksson, C. Malefors, P. Callewaert, H. Hartikainen, O.
+Pietiläinen, I. Strid, Resources, Conservation & Recycling: X 2019, 4,
+100021.
+[108] We thank one of the anonymous reviewers for inspiring us to think
+along these lines and notice the implicit harmonization of food
+waste governance across cases.
+[109] D. N. Warshawsky, Cities 2015, 49, 26.
+
+© 2024 The Author(s). Global Challenges published by Wiley-VCH GmbH
+
+

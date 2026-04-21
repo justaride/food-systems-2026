@@ -4,6 +4,8 @@ export type FinancialRecord = {
   year: number
   revenueNok: number | null
   operatingMargin: number | null
+  ebitda: number | null
+  equityRatio: number | null
   groupEmployees: number | null
 }
 
@@ -31,6 +33,8 @@ export async function getFinancialTrends(): Promise<CompanyWithFinancials[]> {
           year: true,
           revenueNok: true,
           operatingMargin: true,
+          ebitda: true,
+          equityRatio: true,
           groupEmployees: true,
         },
       },
@@ -44,6 +48,8 @@ export async function getFinancialTrends(): Promise<CompanyWithFinancials[]> {
       year: f.year,
       revenueNok: f.revenueNok ? Number(f.revenueNok) : null,
       operatingMargin: f.operatingMargin ? Number(f.operatingMargin) : null,
+      ebitda: f.ebitda ? Number(f.ebitda) : null,
+      equityRatio: f.equityRatio ? Number(f.equityRatio) : null,
       groupEmployees: f.groupEmployees,
     })),
   }))

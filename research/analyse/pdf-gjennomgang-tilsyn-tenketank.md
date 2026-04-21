@@ -1,22 +1,23 @@
 # PDF-gjennomgang: Tilsyn, tenketank og konsulentrapport
 
 Generert: 2026-04-13
+Oppdatert: 2026-04-21 (opprydding utført)
 
 ---
 
-## Duplikatflagg
+## Duplikat- og versjonsstatus
 
-| Fil A | Fil B | Status |
-|-------|-------|--------|
-| `dagligvarerapport-2024.pdf` | `dagligvarerapport-2025.pdf` | DUPLIKAT -- identisk rapport (Dagligvarerapport 2024) lagret under to filnavn |
-| `marginstudie-2024-del1.pdf` | `marginstudie-2024-del1-offisiell.pdf` | SPRAKVERSJON -- engelsk (del1) vs norsk (offisiell); samme studie |
-| `marginstudie-2025-del2.pdf` | `marginstudie-2025-del2-offisiell.pdf` | DUPLIKAT -- identisk innhold |
+| Fil A | Fil B | Status | Handling |
+|-------|-------|--------|----------|
+| `dagligvarerapport-2024.pdf` | ~~`dagligvarerapport-2025.pdf`~~ | DUPLIKAT (identisk SHA256) | Slettet 2026-04-21 |
+| `marginstudie-2024-del1.pdf` | `marginstudie-2024-del1-offisiell.pdf` | SPRAKVERSJON — engelsk (del1, 66 s.) vs norsk (offisiell, 64 s.); samme studie | Begge beholdt |
+| `marginstudie-2025-del2.pdf` | `marginstudie-2025-del2-offisiell.pdf` | NÆR-DUPLIKAT — ulik SHA, identisk tekst (7 bytes metadata-forskjell, ModDate 15. jan vs 8. jan 2025) | Begge beholdt; -offisiell er kanonisk |
 
-## Feilmerking
+## Feilmerking (resolvert)
 
-| Fil | Forventet innhold | Faktisk innhold |
-|-----|-------------------|-----------------|
-| `fivh-etikk-2025.pdf` | FIVH etikkrapport 2025 | NORSUS/Matvett matsvinnrapport 2021 (OR.48.21) |
+| Fil | Tidligere navn | Status |
+|-----|----------------|--------|
+| `norsus-matvett-kartleggingsrapport-matbransjen-undervisning-omsorg-forbrukerleddet-or48-21.pdf` | `fivh-etikk-2025.pdf` | Omdøpt 2026-04-20 — er NORSUS/Matvett matsvinnrapport 2021 (OR.48.21). FIVH etikkrapport 2025 må skaffes separat; summary finnes i `bibliotek/tenketanker/fivh-etikk-2025.md`. |
 
 ---
 
@@ -39,10 +40,6 @@ Generert: 2026-04-13
 - **Margin-/prisdata**: Prisvekst 4% i 2024 (ned fra 11,5% og 8,9% foregaende ar). Kraftig prishopp februar 2025. Markedsandeler: NorgesGruppen ~43,5%, Coop ~29,2%, Rema ~23,9%, Bunnpris ~3,3%
 - **Reguleringsverktoy**: Forskrift mot negative servitutter; importvern-reform; innkjopsprisforskrift (under vurdering); opplysningsplikt for dagligvarekonsernene; strukturkontroll (foretakssammenslutninger)
 - **Relevans**: Maktkonsentrasjon, etableringsbarrierer, prisutvikling, reguleringslandskap
-
-### 1.2 dagligvarerapport-2025.pdf
-
-- **DUPLIKAT** av dagligvarerapport-2024.pdf (se over)
 
 ### 1.3 marginstudie-2024-del1.pdf
 
@@ -86,7 +83,7 @@ Generert: 2026-04-13
 
 ### 1.6 marginstudie-2025-del2-offisiell.pdf
 
-- **DUPLIKAT** av marginstudie-2025-del2.pdf. Se 1.5.
+- **NÆR-DUPLIKAT** av marginstudie-2025-del2.pdf (se 1.5). Ulik SHA256, men identisk tekstinnhold. Forskjellen er 7 bytes metadata (ModDate 15. jan vs 8. jan 2025). `-offisiell` er den originale publiserte versjonen.
 
 ### 1.7 prisjeger-saken-2024-offentlig-versjon.pdf
 
@@ -164,14 +161,14 @@ Generert: 2026-04-13
 
 ## 2. Tenketank
 
-### 2.1 fivh-etikk-2025.pdf (FEILMERKET)
+### 2.1 norsus-matvett-kartleggingsrapport-matbransjen-undervisning-omsorg-forbrukerleddet-or48-21.pdf (TIDLIGERE FEILMERKET)
 
-- **ID**: `tenketank/fivh-etikk-2025.pdf`
+- **ID**: `tenketank/norsus-matvett-kartleggingsrapport-matbransjen-undervisning-omsorg-forbrukerleddet-or48-21.pdf`
 - **Faktisk tittel**: Kartleggingsrapport for matbransjen, undervisning- og omsorgssektoren og forbrukerleddet -- Matsvinn i Norge 2020
 - **Utgiver**: NORSUS / Matvett (IKKE FIVH)
 - **Ar**: 2021 (rapport OR.48.21, ISBN 978-82-7520-880-2)
 - **Type**: Matsvinnkartlegging
-- **Merknad**: Filen er feilmerket. Innholdet er en NORSUS/Matvett-rapport om matsvinn, ikke en FIVH-etikkrapport.
+- **Merknad**: Filen var tidligere feilmerket som `fivh-etikk-2025.pdf`. Innholdet er en NORSUS/Matvett-rapport om matsvinn, ikke en FIVH-etikkrapport.
 - **Sammendrag**: Omfattende kartlegging av matsvinn i Norge for 2020 pa tvers av hele verdikjeden. Totalt 400 000 tonn matsvinn (75 kg per innbygger per ar). Rapporten folger opp Bransjeavtalen om reduksjon av matsvinn med mal om 50% reduksjon innen 2030 (fra 2015-nivaet).
 - **Nokkelfunn**:
   1. Totalt matsvinn 2020: 400 000 tonn, ~75 kg per innbygger, klimaeffekt ~1,3 mill tonn CO2-ekv, okonomisk tap >20 mrd NOK

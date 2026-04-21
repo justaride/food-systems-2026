@@ -44,30 +44,42 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
 
       {latestFinancial && (
         <Card title="Regnskap">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Omsetning</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.revenueNok ? `${(Number(latestFinancial.revenueNok) / 1e9).toFixed(1)} mrd` : '\u2014'}
+                {latestFinancial.revenueNok ? `${(Number(latestFinancial.revenueNok) / 1e9).toFixed(1)} mrd` : '—'}
               </p>
               <p className="text-xs text-stone-400">{latestFinancial.year}</p>
             </div>
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Driftsresultat</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.operatingResult ? `${(Number(latestFinancial.operatingResult) / 1e6).toFixed(0)} MNOK` : '\u2014'}
+                {latestFinancial.operatingResult ? `${(Number(latestFinancial.operatingResult) / 1e6).toFixed(0)} MNOK` : '—'}
               </p>
             </div>
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Driftsmargin</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.operatingMargin ? `${Number(latestFinancial.operatingMargin)}%` : '\u2014'}
+                {latestFinancial.operatingMargin ? `${Number(latestFinancial.operatingMargin)}%` : '—'}
+              </p>
+            </div>
+            <div>
+              <p className="text-xs text-stone-400 uppercase tracking-wider">EBITDA</p>
+              <p className="text-lg font-bold text-stone-900">
+                {latestFinancial.ebitda ? `${(Number(latestFinancial.ebitda) / 1e6).toFixed(0)} MNOK` : '—'}
+              </p>
+            </div>
+            <div>
+              <p className="text-xs text-stone-400 uppercase tracking-wider">Egenkapitalandel</p>
+              <p className="text-lg font-bold text-stone-900">
+                {latestFinancial.equityRatio ? `${Number(latestFinancial.equityRatio)}%` : '—'}
               </p>
             </div>
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Ansatte</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.groupEmployees?.toLocaleString() ?? company.employees?.toLocaleString() ?? '\u2014'}
+                {latestFinancial.groupEmployees?.toLocaleString() ?? company.employees?.toLocaleString() ?? '—'}
               </p>
             </div>
           </div>
@@ -81,6 +93,8 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                     <th className="text-right py-2 text-stone-400">Omsetning</th>
                     <th className="text-right py-2 text-stone-400">Driftsresultat</th>
                     <th className="text-right py-2 text-stone-400">Margin</th>
+                    <th className="text-right py-2 text-stone-400">EBITDA</th>
+                    <th className="text-right py-2 text-stone-400">Egenkapital</th>
                     <th className="text-right py-2 text-stone-400">Ansatte</th>
                   </tr>
                 </thead>
@@ -89,16 +103,22 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                     <tr key={f.id} className="border-b border-stone-100">
                       <td className="py-2 text-stone-700">{f.year}</td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.revenueNok ? `${(Number(f.revenueNok) / 1e9).toFixed(1)} mrd` : '\u2014'}
+                        {f.revenueNok ? `${(Number(f.revenueNok) / 1e9).toFixed(1)} mrd` : '—'}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.operatingResult ? `${(Number(f.operatingResult) / 1e6).toFixed(0)} M` : '\u2014'}
+                        {f.operatingResult ? `${(Number(f.operatingResult) / 1e6).toFixed(0)} M` : '—'}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.operatingMargin ? `${Number(f.operatingMargin)}%` : '\u2014'}
+                        {f.operatingMargin ? `${Number(f.operatingMargin)}%` : '—'}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.groupEmployees?.toLocaleString() ?? '\u2014'}
+                        {f.ebitda ? `${(Number(f.ebitda) / 1e6).toFixed(0)} M` : '—'}
+                      </td>
+                      <td className="text-right py-2 text-stone-700 tabular-nums">
+                        {f.equityRatio ? `${Number(f.equityRatio)}%` : '—'}
+                      </td>
+                      <td className="text-right py-2 text-stone-700 tabular-nums">
+                        {f.groupEmployees?.toLocaleString() ?? '—'}
                       </td>
                     </tr>
                   ))}
@@ -176,15 +196,180 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                 {company.subsidies.map(s => (
                   <tr key={s.id} className="border-b border-stone-100">
                     <td className="py-2 text-stone-700">{s.subsidyType}</td>
-                    <td className="py-2 text-stone-700">{s.project ?? '\u2014'}</td>
+                    <td className="py-2 text-stone-700">{s.project ?? '—'}</td>
                     <td className="text-right py-2 text-stone-700 tabular-nums">
-                      {s.amountNok ? `${(Number(s.amountNok) / 1e3).toFixed(0)}k` : '\u2014'}
+                      {s.amountNok ? `${(Number(s.amountNok) / 1e3).toFixed(0)}k` : '—'}
                     </td>
-                    <td className="text-right py-2 text-stone-700">{s.year ?? '\u2014'}</td>
+                    <td className="text-right py-2 text-stone-700">{s.year ?? '—'}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+          </div>
+        </Card>
+      )}
+
+      {company.ownedProperties.length > 0 && (
+        <Card title="Eiendommer">
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-stone-200">
+                  <th className="text-left py-2 text-stone-400">Type</th>
+                  <th className="text-left py-2 text-stone-400">Adresse</th>
+                  <th className="text-left py-2 text-stone-400">Kommune</th>
+                  <th className="text-right py-2 text-stone-400">Areal</th>
+                  <th className="text-left py-2 text-stone-400">Selvleie</th>
+                  <th className="text-left py-2 text-stone-400">Leietaker</th>
+                </tr>
+              </thead>
+              <tbody>
+                {company.ownedProperties.map(p => (
+                  <tr key={p.id} className="border-b border-stone-100">
+                    <td className="py-2 text-stone-700">{p.propertyType}</td>
+                    <td className="py-2 text-stone-700">{p.address ?? '—'}</td>
+                    <td className="py-2 text-stone-700">
+                      {p.municipality ?? '—'}
+                      {p.county ? <span className="text-stone-400 ml-1">({p.county})</span> : null}
+                    </td>
+                    <td className="text-right py-2 text-stone-700 tabular-nums">
+                      {p.sqMeters ? `${p.sqMeters.toLocaleString('no')} m²` : '—'}
+                    </td>
+                    <td className="py-2 text-stone-700">{p.selfLeased ? 'Ja' : 'Nei'}</td>
+                    <td className="py-2">
+                      {p.tenantCompany ? (
+                        <Link
+                          href={`/selskap/${p.tenantCompany.id}`}
+                          className="text-rose-700 hover:underline"
+                        >
+                          {p.tenantCompany.name}
+                        </Link>
+                      ) : (
+                        <span className="text-stone-400">—</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+      )}
+
+      {(company.relationshipsFrom.length > 0 || company.relationshipsTo.length > 0) && (
+        <Card title="Forretningsrelasjoner">
+          <div className="space-y-6">
+            {company.relationshipsFrom.length > 0 && (
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-2">
+                  Utgående ({company.relationshipsFrom.length})
+                </h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-stone-200">
+                        <th className="text-left py-2 text-stone-400">Type</th>
+                        <th className="text-left py-2 text-stone-400">Motpart</th>
+                        <th className="text-left py-2 text-stone-400">Beskrivelse</th>
+                        <th className="text-right py-2 text-stone-400">Estimert verdi</th>
+                        <th className="text-left py-2 text-stone-400">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {company.relationshipsFrom.map(r => {
+                        const isSelfDealing =
+                          r.relationshipType === 'self-dealing' ||
+                          r.fromCompanyId === r.toCompanyId
+                        return (
+                          <tr key={r.id} className="border-b border-stone-100">
+                            <td className="py-2 text-stone-700">{r.relationshipType}</td>
+                            <td className="py-2">
+                              <Link
+                                href={`/selskap/${r.toCompany.id}`}
+                                className="text-emerald-700 hover:underline"
+                              >
+                                {r.toCompany.name}
+                              </Link>
+                            </td>
+                            <td className="py-2 text-stone-600">{r.description ?? '—'}</td>
+                            <td className="py-2 text-right text-stone-700 tabular-nums">
+                              {r.estimatedValue
+                                ? `${Math.round(r.estimatedValue).toLocaleString('no')} NOK`
+                                : '—'}
+                            </td>
+                            <td className="py-2">
+                              {isSelfDealing ? (
+                                <span className="text-[10px] px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200">
+                                  Selvhandel
+                                </span>
+                              ) : (
+                                <span className="text-stone-400">—</span>
+                              )}
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {company.relationshipsTo.length > 0 && (
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-2">
+                  Inngående ({company.relationshipsTo.length})
+                </h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-stone-200">
+                        <th className="text-left py-2 text-stone-400">Type</th>
+                        <th className="text-left py-2 text-stone-400">Motpart</th>
+                        <th className="text-left py-2 text-stone-400">Beskrivelse</th>
+                        <th className="text-right py-2 text-stone-400">Estimert verdi</th>
+                        <th className="text-left py-2 text-stone-400">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {company.relationshipsTo.map(r => {
+                        const isSelfDealing =
+                          r.relationshipType === 'self-dealing' ||
+                          r.fromCompanyId === r.toCompanyId
+                        return (
+                          <tr key={r.id} className="border-b border-stone-100">
+                            <td className="py-2 text-stone-700">{r.relationshipType}</td>
+                            <td className="py-2">
+                              <Link
+                                href={`/selskap/${r.fromCompany.id}`}
+                                className="text-emerald-700 hover:underline"
+                              >
+                                {r.fromCompany.name}
+                              </Link>
+                            </td>
+                            <td className="py-2 text-stone-600">{r.description ?? '—'}</td>
+                            <td className="py-2 text-right text-stone-700 tabular-nums">
+                              {r.estimatedValue
+                                ? `${Math.round(r.estimatedValue).toLocaleString('no')} NOK`
+                                : '—'}
+                            </td>
+                            <td className="py-2">
+                              {isSelfDealing ? (
+                                <span className="text-[10px] px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200">
+                                  Selvhandel
+                                </span>
+                              ) : (
+                                <span className="text-stone-400">—</span>
+                              )}
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
           </div>
         </Card>
       )}

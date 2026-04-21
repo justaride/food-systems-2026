@@ -1,0 +1,128 @@
+{
+  "generated": "2026-04-20",
+  "source": "p08-forreseptens-utvikling-tidsserie-2026-04-20.md (Perplexity Runde 2), Nofima/FHF ressursregnskap",
+  "description": "Norwegian salmon feed composition time series 2010-2025 — percentage of feed raw materials by type, total volume, and domestic vs. imported share",
+  "methodology": "Key years (2010, 2012, 2016, 2020) from Nofima/FHF resource accounts. Intermediate years interpolated. Post-2020 qualitative estimates. All values as % of total feed raw materials (dry matter basis) unless noted.",
+  "primary_sources": [
+    "Nofima/FHF prosjekt 901604: Ressursregnskap for forravarer til laks og regnbueorret",
+    "Havbrukslare.no/forresurser (2020 data)",
+    "Framtiden i vare hender: Soya i norsk for (2021)",
+    "Fiskeridirektoratet: Nokkeltall havbruk"
+  ],
+  "market_structure": {
+    "oligopoly_since": 2005,
+    "dominant_actors": [
+      {"name": "Skretting", "parent": "Nutreco"},
+      {"name": "Cargill Aqua Nutrition", "formerly": "Ewos"},
+      {"name": "BioMar"}
+    ],
+    "combined_share_pct": 88,
+    "note": "88% market share since at least 2005 (Intrafish). Mowi Feed is a smaller vertically integrated producer."
+  },
+  "timeseries": [
+    {
+      "year": 2010,
+      "fishmeal_pct": null,
+      "fish_oil_pct": null,
+      "soy_protein_concentrate_pct": null,
+      "rapeseed_oil_pct": null,
+      "sunflower_pct": null,
+      "novel_ingredients_pct": 0,
+      "total_feed_raw_materials_tonnes": null,
+      "domestic_share_pct": null,
+      "data_quality": "reference_year_in_nofima_report",
+      "note": "Nofima/FHF resource account exists for 2010 but exact values require PDF extraction"
+    },
+    {
+      "year": 2012,
+      "fishmeal_pct": null,
+      "fish_oil_pct": null,
+      "soy_protein_concentrate_pct": null,
+      "rapeseed_oil_pct": null,
+      "sunflower_pct": null,
+      "novel_ingredients_pct": 0,
+      "total_feed_raw_materials_tonnes": null,
+      "domestic_share_pct": null,
+      "data_quality": "reference_year_in_nofima_report",
+      "note": "75% land-based raw materials (vs 70% in 2010). Nofima report has detailed tables."
+    },
+    {
+      "year": 2016,
+      "fishmeal_pct": 15,
+      "fish_oil_pct": null,
+      "soy_protein_concentrate_pct": 19.0,
+      "rapeseed_oil_pct": null,
+      "sunflower_pct": null,
+      "novel_ingredients_pct": 0,
+      "total_feed_raw_materials_tonnes": 1627478,
+      "domestic_share_pct": 8,
+      "data_quality": "documented",
+      "note": "SPC largest single ingredient at 19%. Fishmeal ~15-18% range (Nofima article). 75% land-based."
+    },
+    {
+      "year": 2017,
+      "fishmeal_pct": null,
+      "fish_oil_pct": null,
+      "soy_protein_concentrate_pct": 16.0,
+      "rapeseed_oil_pct": null,
+      "sunflower_pct": null,
+      "novel_ingredients_pct": 0,
+      "total_feed_raw_materials_tonnes": null,
+      "domestic_share_pct": 8,
+      "data_quality": "single_source",
+      "note": "SPC 16% per Framtiden i vare hender/Nofima. Some SPC replaced by wheat gluten."
+    },
+    {
+      "year": 2020,
+      "fishmeal_pct": 12.1,
+      "fish_oil_pct": 10.3,
+      "soy_protein_concentrate_pct": 20.9,
+      "rapeseed_oil_pct": 18.0,
+      "sunflower_pct": 3.4,
+      "novel_ingredients_pct": 0.4,
+      "carbohydrate_pct": 12.5,
+      "micro_ingredients_pct": 4.1,
+      "other_veg_protein_pct": 18.3,
+      "total_feed_raw_materials_tonnes": 1976709,
+      "domestic_share_pct": 8,
+      "data_quality": "documented",
+      "note": "Most complete year. FHF project 901604 resource account. 92% of ingredients imported."
+    },
+    {
+      "year": 2025,
+      "fishmeal_pct": null,
+      "fish_oil_pct": null,
+      "soy_protein_concentrate_pct": 20,
+      "rapeseed_oil_pct": null,
+      "sunflower_pct": null,
+      "novel_ingredients_pct": null,
+      "total_feed_raw_materials_tonnes": null,
+      "domestic_share_pct": null,
+      "data_quality": "qualitative_estimate",
+      "note": "SPC ~20% per industry sources. FHF resource account for 2024/2025 in progress, not yet published."
+    }
+  ],
+  "origin_countries": {
+    "fishmeal": {
+      "main_producers": ["Peru", "Chile", "Danmark", "Island", "Faeroyene", "Norge"],
+      "species": "anchoveta, menhaden (SA), kolmule, lodde, brisling, tobis, makrell (N-Atlanteren)",
+      "peru_global_share_pct": 20
+    },
+    "soy_protein_concentrate": {
+      "main_suppliers": ["Brasil (~90%)", "Russland (~10%)"],
+      "certification": "Non-GMO (ProTerra), <2% of Brazilian total but nearly all volume to Norway",
+      "key_supplier": "CJ Selecta (Brasil)"
+    },
+    "rapeseed_oil": {
+      "origin": "EU/other",
+      "trend": "Dominant oil since mid-2010s, replacing fish oil"
+    }
+  },
+  "policy_targets": {
+    "domestic_share_target_pct": 25,
+    "target_year": 2034,
+    "baseline_pct": 8,
+    "baseline_year": 2020,
+    "source": "Regjeringen.no (2024)"
+  }
+}

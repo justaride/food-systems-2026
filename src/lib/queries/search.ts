@@ -190,6 +190,7 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
   }
 
   try {
+    const themeVariants = Array.from(new Set([query, query.toLowerCase(), query.toUpperCase()]))
     const actorsResult = await prisma.actor.findMany({
       where: {
         OR: [
@@ -197,7 +198,7 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
           { roleSummary: { contains: query, mode: 'insensitive' } },
           { currentRelevance: { contains: query, mode: 'insensitive' } },
           { specificAsk: { contains: query, mode: 'insensitive' } },
-          { themeTags: { has: query.toLowerCase() } },
+          { themeTags: { hasSome: themeVariants } },
         ],
       },
       take: limit,

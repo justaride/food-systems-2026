@@ -12,9 +12,9 @@ datasource db {
 // ─── Domain 1: Documents ────────────────────────────────────────────
 
 model Document {
-  id           String                          @id @default(cuid())
-  slug         String                          @unique
-  filePath     String                          @unique
+  id           String                       @id @default(cuid())
+  slug         String                       @unique
+  filePath     String                       @unique
   title        String
   author       String?
   year         Int?
@@ -25,7 +25,7 @@ model Document {
   content      String
   summary      String?
   url          String?
-  wordCount    Int                             @default(0)
+  wordCount    Int                          @default(0)
   tags         String[]
   metadata     Json?
   embedding    Unsupported("vector(1536)")?
@@ -79,8 +79,9 @@ model SourceDoc {
   documentId String?   @unique
   document   Document? @relation(fields: [documentId], references: [id])
 
-  sourceRefs SourceRef[]
-  insights   Insight[]  @relation("InsightSourceDoc")
+  sourceRefs   SourceRef[]
+  insights     Insight[]   @relation("InsightSourceDoc")
+  mediaEntries MediaEntry[]
 
   @@index([sourceType])
 }
@@ -105,7 +106,7 @@ model SourceRef {
 // ─── Domain 3: Insights ─────────────────────────────────────────────
 
 model Insight {
-  id          String  @id // ins-01..ins-42
+  id          String   @id // ins-01..ins-42
   title       String
   description String
   insightType String
@@ -115,7 +116,7 @@ model Insight {
   url         String?
   date        String
 
-  sourceDocLinks SourceDoc[] @relation("InsightSourceDoc")
+  sourceDocLinks SourceDoc[]          @relation("InsightSourceDoc")
   sourceRefs     SourceRef[]
   documentRefs   InsightDocumentRef[]
 
@@ -220,12 +221,16 @@ model Company {
   documentRefs CompanyDocumentRef[]
   actor        Actor?
 
-  parentOf           CompanyOwnership[]      @relation("ParentCompany")
-  childOf            CompanyOwnership[]      @relation("ChildCompany")
-  ownedProperties    CompanyProperty[]       @relation("PropertyOwner")
-  tenantProperties   CompanyProperty[]       @relation("PropertyTenant")
-  relationshipsFrom  BusinessRelationship[]  @relation("RelationshipFrom")
-  relationshipsTo    BusinessRelationship[]  @relation("RelationshipTo")
+  parentOf          CompanyOwnership[]       @relation("ParentCompany")
+  childOf           CompanyOwnership[]       @relation("ChildCompany")
+  ownedProperties   CompanyProperty[]        @relation("PropertyOwner")
+  tenantProperties  CompanyProperty[]        @relation("PropertyTenant")
+  relationshipsFrom BusinessRelationship[]   @relation("RelationshipFrom")
+  relationshipsTo   BusinessRelationship[]   @relation("RelationshipTo")
+  aquacultureSites  AquacultureSite[]
+  aquacultureApps   AquacultureApplication[]
+  deliveriesFrom    DeliveryVolume[]         @relation("DeliverySupplier")
+  deliveriesTo      DeliveryVolume[]         @relation("DeliveryBuyer")
 
   @@index([country])
   @@index([valueChainStage])
@@ -253,7 +258,7 @@ model Shareholder {
   companyId       String
   name            String
   ownershipPct    Decimal? @db.Decimal(5, 2)
-  shareholderType String?  // family, institutional, state, cooperative, foreign
+  shareholderType String? // family, institutional, state, cooperative, foreign
   isControlling   Boolean  @default(false)
 
   company Company @relation(fields: [companyId], references: [id])
@@ -278,17 +283,22 @@ model Subsidy {
   id          String   @id @default(cuid())
   companyId   String
   subsidyType String
+  scheme      String? // granular scheme within subsidyType (e.g. "arealtilskudd", "melkeproduksjon")
   project     String?
   amountNok   Decimal? @db.Decimal(15, 2)
   year        Int?
+  kommuneNr   String?
+  source      String?
 
   company Company @relation(fields: [companyId], references: [id])
 
   @@index([companyId])
+  @@index([scheme])
+  @@index([year])
 }
 
 model CompanyDocumentRef {
-  id         String @id @default(cuid())
+  id         String  @id @default(cuid())
   companyId  String
   documentId String
   context    String?
@@ -300,11 +310,11 @@ model CompanyDocumentRef {
 }
 
 model Actor {
-  id               String  @id
-  slug             String  @unique
+  id               String   @id
+  slug             String   @unique
   name             String
   actorType        String
-  country          String  @default("NO")
+  country          String   @default("NO")
   organizationType String?
   roleSummary      String
   currentRelevance String?
@@ -338,7 +348,7 @@ model Actor {
 }
 
 model ActorContact {
-  id           String @id @default(cuid())
+  id           String  @id @default(cuid())
   actorId      String
   name         String
   role         String?
@@ -352,7 +362,7 @@ model ActorContact {
 }
 
 model ActorDocumentRef {
-  id         String @id @default(cuid())
+  id         String  @id @default(cuid())
   actorId    String
   documentId String
   context    String?
@@ -365,7 +375,7 @@ model ActorDocumentRef {
 }
 
 model ActorRelationship {
-  id           String @id @default(cuid())
+  id           String  @id @default(cuid())
   fromActorId  String
   toActorId    String
   relationType String
@@ -388,7 +398,7 @@ model CompanyOwnership {
   parentCompanyId String
   childCompanyId  String
   ownershipPct    Float?
-  ownershipType   String    // subsidiary, joint-venture, minority-stake
+  ownershipType   String // subsidiary, joint-venture, minority-stake
   effectiveFrom   DateTime?
   effectiveTo     DateTime?
   source          String
@@ -403,21 +413,21 @@ model CompanyOwnership {
 }
 
 model CompanyProperty {
-  id             String   @id @default(cuid())
-  companyId      String
-  propertyType   String   // warehouse, retail, office, production, logistics
-  address        String?
-  municipality   String?
-  county         String?
-  country        String   @default("NO")
-  lat            Float?
-  lng            Float?
-  sqMeters       Float?
-  acquiredYear   Int?
-  selfLeased     Boolean  @default(false)
+  id              String  @id @default(cuid())
+  companyId       String
+  propertyType    String // warehouse, retail, office, production, logistics
+  address         String?
+  municipality    String?
+  county          String?
+  country         String  @default("NO")
+  lat             Float?
+  lng             Float?
+  sqMeters        Float?
+  acquiredYear    Int?
+  selfLeased      Boolean @default(false)
   tenantCompanyId String?
-  source         String?
-  metadata       Json?
+  source          String?
+  metadata        Json?
 
   company       Company  @relation("PropertyOwner", fields: [companyId], references: [id])
   tenantCompany Company? @relation("PropertyTenant", fields: [tenantCompanyId], references: [id])
@@ -432,7 +442,7 @@ model BusinessRelationship {
   id               String  @id @default(cuid())
   fromCompanyId    String
   toCompanyId      String
-  relationshipType String  // supplier, buyer, distributor, franchisor, self-dealing, joint-venture
+  relationshipType String // supplier, buyer, distributor, franchisor, self-dealing, joint-venture
   description      String?
   sector           String?
   estimatedValue   Float?
@@ -452,7 +462,7 @@ model PersonProfile {
   id           String   @id @default(cuid())
   name         String
   personKey    String   @unique
-  roles        Json[]   // {companyId, companyName, role, fromYear, toYear}
+  roles        Json[] // {companyId, companyName, role, fromYear, toYear}
   biography    String?
   linkedInUrl  String?
   photoUrl     String?
@@ -498,7 +508,7 @@ model Application {
   status   String
   budget   String
   partners String[]
-  phases   Json     // ApplicationPhase[]
+  phases   Json // ApplicationPhase[]
   scope    String
 }
 
@@ -535,7 +545,7 @@ model EvidenceDoc {
 // ─── Domain 7: Meetings & Communications ────────────────────────────
 
 model Meeting {
-  id           String     @id // meeting-1, meeting-2, etc.
+  id           String      @id // meeting-1, meeting-2, etc.
   date         String
   title        String
   participants String[]
@@ -548,14 +558,14 @@ model Meeting {
 }
 
 model Communication {
-  id      String   @id
-  title   String
-  summary String
-  commType String
-  sender  String   @map("from")
+  id         String   @id
+  title      String
+  summary    String
+  commType   String
+  sender     String   @map("from")
   recipients String[] @map("to")
-  date    String
-  tags    String[]
+  date       String
+  tags       String[]
 
   @@index([tags], type: Gin)
 }
@@ -579,12 +589,12 @@ model ResearchPrompt {
 // ─── Domain 9: Market Data ──────────────────────────────────────────
 
 model CountryMetric {
-  id         String   @id @default(cuid())
-  country    String   // no, se, dk, fi, is
-  metricType String   // selfSufficiency, margin, marketShare
-  category   String   // e.g. "Melk", "Kjøtt", "NorgesGruppen"
-  value      Decimal  @db.Decimal(10, 2)
-  unit       String?  // %, NOK, etc.
+  id         String  @id @default(cuid())
+  country    String // no, se, dk, fi, is
+  metricType String // selfSufficiency, margin, marketShare
+  category   String // e.g. "Melk", "Kjøtt", "NorgesGruppen"
+  value      Decimal @db.Decimal(10, 2)
+  unit       String? // %, NOK, etc.
   year       String
   source     String
   subtitle   String?
@@ -594,13 +604,136 @@ model CountryMetric {
   @@index([country, metricType])
 }
 
+// ─── Domain 9b: Aquaculture & Agricultural Operations ──────────────
+
+model AquacultureSite {
+  id             String  @id @default(cuid())
+  localityNumber String  @unique
+  companyId      String
+  company        Company @relation(fields: [companyId], references: [id])
+
+  siteName       String?
+  municipality   String?
+  municipalityNo String?
+  county         String?
+  country        String  @default("NO")
+  lat            Float?
+  lng            Float?
+
+  licenseStatus     String? // aktiv, paused, revoked
+  placement         String? // SJØ, HAV, LAND
+  waterType         String? // seawater, freshwater
+  capacityTonnes    Float?
+  capacityUnit      String?  @default("MTB")
+  species           String[]
+  productionTypes   String[]
+  licenseIssuedYear Int?
+
+  source    String?
+  metadata  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  healthObservations FishHealthObservation[]
+
+  @@index([companyId])
+  @@index([licenseStatus])
+  @@index([municipalityNo])
+}
+
+model FishHealthObservation {
+  id     String          @id @default(cuid())
+  siteId String
+  site   AquacultureSite @relation(fields: [siteId], references: [id])
+
+  year            Int
+  week            Int
+  observationDate DateTime?
+
+  avgAdultFemaleLice     Float?
+  avgMobileLice          Float?
+  avgStationaryLice      Float?
+  seaTemperature         Float?
+  isFallow               Boolean @default(false)
+  hasReportedLice        Boolean @default(false)
+  hasBathTreatment       Boolean @default(false)
+  hasInFeedTreatment     Boolean @default(false)
+  hasMechanicalRemoval   Boolean @default(false)
+  hasCleanerFishDeployed Boolean @default(false)
+
+  diseaseType   String?
+  diseaseStatus String?
+  diseaseNote   String?
+
+  source    String   @default("BarentsWatch")
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@unique([siteId, year, week, diseaseType])
+  @@index([siteId])
+  @@index([year, week])
+  @@index([diseaseType])
+}
+
+model AquacultureApplication {
+  id             String   @id @default(cuid())
+  applicationNo  String   @unique
+  companyId      String?
+  company        Company? @relation(fields: [companyId], references: [id])
+  applicantOrgNr String
+  applicantName  String?
+
+  applicationType String?
+  title           String?
+  status          String? // SUBMITTED, PROCESSED, WITHDRAWN, RETURNED, OTHER
+  result          String? // GRANTED, DENIED, NO_DECISION, FOLLOWS_REGULATIONS
+
+  submittedAt          DateTime?
+  createdAt            DateTime?
+  evaluationFinishedAt DateTime?
+  withdrawnAt          DateTime?
+
+  source    String   @default("Fiskeridirektoratet")
+  metadata  Json?
+  fetchedAt DateTime @default(now())
+
+  @@index([companyId])
+  @@index([applicantOrgNr])
+  @@index([status])
+}
+
+model DeliveryVolume {
+  id            String   @id @default(cuid())
+  supplierId    String
+  supplier      Company  @relation("DeliverySupplier", fields: [supplierId], references: [id])
+  supplierOrgNr String
+  buyerId       String?
+  buyer         Company? @relation("DeliveryBuyer", fields: [buyerId], references: [id])
+  buyerName     String?
+
+  commodity String // melk-ku, melk-geit, egg, korn, slakt-storfe, slakt-svin, slakt-saue, slakt-fjorfe
+  year      Int
+  quantity  Float
+  unit      String // liter, kg, tonn
+  kommuneNr String?
+
+  source    String   @default("Landbruksdirektoratet")
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@unique([supplierOrgNr, commodity, year])
+  @@index([supplierId])
+  @@index([buyerId])
+  @@index([commodity, year])
+}
+
 // ─── Domain 10: Media Landscape ─────────────────────────────────────
 
 model MediaTheme {
   id          String @id // beredskap, prispress, etc.
   name        String
   description String
-  sources     Json?  // SourceRef[]
+  sources     Json? // SourceRef[]
 }
 
 model MediaTimelineEntry {
@@ -609,13 +742,13 @@ model MediaTimelineEntry {
   intensity Int
   label     String
   note      String
-  sources   Json?  // SourceRef[]
+  sources   Json? // SourceRef[]
 
   @@unique([year])
 }
 
 model MediaCountryProfile {
-  id                String @id // no, se, dk, fi
+  id                String @id // no, se, dk, fi, is
   name              String
   iso               String
   dominantNarrative String
@@ -623,7 +756,78 @@ model MediaCountryProfile {
   strongestPeriod   String
   keyQuestion       String
   yearlySignal      Int[]
-  focusLevels       Json   // Record<MediaThemeId, MediaFocusLevel>
-  triggerMoments    Json   // MediaTriggerMoment[]
-  sources           Json?  // SourceRef[]
+  focusLevels       Json // Record<MediaThemeId, MediaFocusLevel>
+  triggerMoments    Json // MediaTriggerMoment[]
+  sources           Json? // SourceRef[]
+}
+
+// ─── Domain 11: Media Evidence Corpus ───────────────────────────────
+
+model MediaOutlet {
+  id         String @id
+  name       String
+  country    String
+  outletType String
+  language   String?
+  url        String?
+  notes      String?
+
+  entries MediaEntry[]
+
+  @@index([country])
+  @@index([outletType])
+}
+
+model MediaEntry {
+  id                String   @id
+  outletId          String
+  country           String
+  publishedYear     Int
+  publishedMonth    Int?
+  publishedDay      Int?
+  datePrecision     String
+  title             String
+  summary           String
+  url               String?  @unique
+  recordType        String
+  verificationLevel String
+  triggerLabel      String?
+  sourceDocId       String?
+  sourceRefs        Json?    // SourceRef[]
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  outlet    MediaOutlet      @relation(fields: [outletId], references: [id])
+  sourceDoc SourceDoc?       @relation(fields: [sourceDocId], references: [id])
+  codings   MediaEntryCoding[]
+
+  @@index([country, publishedYear])
+  @@index([recordType])
+  @@index([verificationLevel])
+  @@index([sourceDocId])
+}
+
+model MediaEntryCoding {
+  id              String   @id @default(cuid())
+  entryId         String
+  country         String
+  primaryTheme    String
+  secondaryThemes String[]
+  tone            String
+  frame           String
+  geography       String
+  actorTargets    String[]
+  confidence      Int
+  triggerLabel    String?
+  evidenceNote    String?
+  codedBy         String
+  createdAt       DateTime @default(now())
+
+  entry MediaEntry @relation(fields: [entryId], references: [id])
+
+  @@unique([entryId, primaryTheme, tone, frame])
+  @@index([entryId])
+  @@index([country, primaryTheme])
+  @@index([tone])
+  @@index([frame])
 }

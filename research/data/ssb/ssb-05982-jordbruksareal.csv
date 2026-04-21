@@ -1,0 +1,635 @@
+Year,CropCode,CropType,AreaDekar
+1969,01,Jordbruksareal i drift,9553335
+1969,02,Fulldyrka jord,7967909
+1969,03,Åker og hage,3383931
+1969,04a,Korn og oljevekstar til mogning,2522396
+1969,05,Kveite,38274
+1969,06,Rug,13385
+1969,07,Bygg,1847131
+1969,08,Havre,541199
+1969,08a,Blandkorn og erter til mogning,4763
+1969,09a,Oljevekstar til mogning,77645
+1969,10,Potet,326437
+1969,11,"Rotvekster til fôr, grønfôr og silovekstar",69960
+1969,11a,Grønfôr- og silovekstar,208307
+1969,12,Grønsaker på friland,51924
+1969,12a,Jordbær,12440
+1969,13a,Andre vekstar på åker og i hage,115879
+1969,13b,Brakk,76587
+1969,14,Eng til slått og beite,6169405
+1969,15,Fulldyrka eng,4583978
+1969,16,Anna eng og beite,1585427
+1979,01,Jordbruksareal i drift,9535278
+1979,02,Fulldyrka jord,8303575
+1979,03,Åker og hage,4146786
+1979,04a,Korn og oljevekstar til mogning,3252271
+1979,05,Kveite,170021
+1979,06,Rug,16855
+1979,07,Bygg,2000838
+1979,08,Havre,1006720
+1979,08a,Blandkorn og erter til mogning,4526
+1979,09a,Oljevekstar til mogning,53311
+1979,10,Potet,214013
+1979,11,"Rotvekster til fôr, grønfôr og silovekstar",29499
+1979,11a,Grønfôr- og silovekstar,290637
+1979,12,Grønsaker på friland,55218
+1979,12a,Jordbær,16439
+1979,13a,Andre vekstar på åker og i hage,182262
+1979,13b,Brakk,106447
+1979,14,Eng til slått og beite,5388492
+1979,15,Fulldyrka eng,4156789
+1979,16,Anna eng og beite,1231703
+1989,01,Jordbruksareal i drift,9910773
+1989,02,Fulldyrka jord,8817538
+1989,03,Åker og hage,4432425
+1989,04a,Korn og oljevekstar til mogning,3529803
+1989,05,Kveite,382484
+1989,06,Rug,4245
+1989,07,Bygg,1759910
+1989,08,Havre,1321950
+1989,09a,Oljevekstar til mogning,61215
+1989,10,Potet,188910
+1989,11,"Rotvekster til fôr, grønfôr og silovekstar",25726
+1989,11a,Grønfôr- og silovekstar,371611
+1989,12,Grønsaker på friland,57030
+1989,12a,Jordbær,14241
+1989,13a,Andre vekstar på åker og i hage,156089
+1989,13b,Brakk,89015
+1989,14,Eng til slått og beite,5478349
+1989,15,Fulldyrka eng,4385114
+1989,16,Anna eng og beite,1093235
+1999,01,Jordbruksareal i drift,10382466
+1999,02,Fulldyrka jord,8871235
+1999,03,Åker og hage,3994611
+1999,04a,Korn og oljevekstar til mogning,3345392
+1999,05,Kveite,515798
+1999,06,Rug,14557
+1999,06a,Rugkveite,12334
+1999,07,Bygg,1825917
+1999,08,Havre,913130
+1999,09a,Oljevekstar til mogning,63656
+1999,10,Potet,148522
+1999,11,"Rotvekster til fôr, grønfôr og silovekstar",3913
+1999,11a,Grønfôr- og silovekstar,307515
+1999,12,Grønsaker på friland,60187
+1999,12a,Jordbær,16787
+1999,13a,Andre vekstar på åker og i hage,91891
+1999,13b,Brakk,20400
+1999,14,Eng til slått og beite,6387855
+1999,15,Fulldyrka eng,4876624
+1999,16,Anna eng og beite,1511231
+1999,17,Overflatedyrka eng,295165
+1999,18,Innmarksbeite,1216066
+2000,01,Jordbruksareal i drift,10421798
+2000,02,Fulldyrka jord,8840505
+2000,03,Åker og hage,3984476
+2000,04a,Korn og oljevekstar til mogning,3363254
+2000,05,Kveite,680929
+2000,06a,Rugkveite,38317
+2000,07,Bygg,1627432
+2000,08,Havre,959346
+2000,09a,Oljevekstar til mogning,57230
+2000,10,Potet,151127
+2000,11a,Grønfôr- og silovekstar,284865
+2000,12,Grønsaker på friland,60611
+2000,12a,Jordbær,17324
+2000,13a,Andre vekstar på åker og i hage,87370
+2000,13b,Brakk,19925
+2000,14,Eng til slått og beite,6437322
+2000,15,Fulldyrka eng,4856029
+2000,16,Anna eng og beite,1581293
+2000,17,Overflatedyrka eng,289967
+2000,18,Innmarksbeite,1291326
+2001,01,Jordbruksareal i drift,10467172
+2001,02,Fulldyrka jord,8861809
+2001,03,Åker og hage,3996958
+2001,04a,Korn og oljevekstar til mogning,3389895
+2001,05,Kveite,636014
+2001,06a,Rugkveite,27564
+2001,07,Bygg,1768465
+2001,08,Havre,849081
+2001,09a,Oljevekstar til mogning,108771
+2001,10,Potet,152387
+2001,11a,Grønfôr- og silovekstar,270793
+2001,12,Grønsaker på friland,63781
+2001,12a,Jordbær,17624
+2001,13a,Andre vekstar på åker og i hage,82477
+2001,13b,Brakk,20001
+2001,14,Eng til slått og beite,6470214
+2001,15,Fulldyrka eng,4864851
+2001,16,Anna eng og beite,1605363
+2001,17,Overflatedyrka eng,282437
+2001,18,Innmarksbeite,1322926
+2002,01,Jordbruksareal i drift,10466217
+2002,02,Fulldyrka jord,8831474
+2002,03,Åker og hage,3914499
+2002,04a,Korn og oljevekstar til mogning,3378096
+2002,05,Kveite,637917
+2002,06a,Rugkveite,24066
+2002,07,Bygg,1806020
+2002,08,Havre,800163
+2002,09a,Oljevekstar til mogning,109930
+2002,10,Potet,152264
+2002,11a,Grønfôr- og silovekstar,206181
+2002,12,Grønsaker på friland,62186
+2002,12a,Jordbær,18949
+2002,13a,Andre vekstar på åker og i hage,81089
+2002,13b,Brakk,15734
+2002,14,Eng til slått og beite,6551718
+2002,15,Fulldyrka eng,4916975
+2002,16,Anna eng og beite,1634743
+2002,17,Overflatedyrka eng,280666
+2002,18,Innmarksbeite,1354077
+2003,01,Jordbruksareal i drift,10403856
+2003,02,Fulldyrka jord,8759425
+2003,03,Åker og hage,3854297
+2003,04a,Korn og oljevekstar til mogning,3342123
+2003,05,Kveite,757563
+2003,06a,Rugkveite,44580
+2003,07,Bygg,1616154
+2003,08,Havre,848462
+2003,09a,Oljevekstar til mogning,75364
+2003,10,Potet,145758
+2003,11a,Grønfôr- og silovekstar,196288
+2003,12,Grønsaker på friland,64451
+2003,12a,Jordbær,18211
+2003,13a,Andre vekstar på åker og i hage,71391
+2003,13b,Brakk,16075
+2003,14,Eng til slått og beite,6549559
+2003,15,Fulldyrka eng,4905128
+2003,16,Anna eng og beite,1644431
+2003,17,Overflatedyrka eng,273820
+2003,18,Innmarksbeite,1370611
+2004,01,Jordbruksareal i drift,10397288
+2004,02,Fulldyrka jord,8736957
+2004,03,Åker og hage,3845468
+2004,04a,Korn og oljevekstar til mogning,3351195
+2004,05,Kveite,853414
+2004,06a,Rugkveite,72368
+2004,07,Bygg,1490249
+2004,08,Havre,866627
+2004,09a,Oljevekstar til mogning,68537
+2004,10,Potet,141857
+2004,11a,Grønfôr- og silovekstar,176259
+2004,12,Grønsaker på friland,64640
+2004,12a,Jordbær,17543
+2004,13a,Andre vekstar på åker og i hage,81451
+2004,13b,Brakk,12523
+2004,14,Eng til slått og beite,6551820
+2004,15,Fulldyrka eng,4891489
+2004,16,Anna eng og beite,1660331
+2004,17,Overflatedyrka eng,269506
+2004,18,Innmarksbeite,1390825
+2005,01,Jordbruksareal i drift,10354236
+2005,02,Fulldyrka jord,8662462
+2005,03,Åker og hage,3804475
+2005,04a,Korn og oljevekstar til mogning,3319047
+2005,05,Kveite,808168
+2005,06a,Rugkveite,69400
+2005,07,Bygg,1632987
+2005,08,Havre,741557
+2005,09a,Oljevekstar til mogning,66935
+2005,10,Potet,137344
+2005,11a,Grønfôr- og silovekstar,155402
+2005,12,Grønsaker på friland,68635
+2005,12a,Jordbær,17524
+2005,13a,Andre vekstar på åker og i hage,94886
+2005,13b,Brakk,11637
+2005,14,Eng til slått og beite,6549761
+2005,15,Fulldyrka eng,4857987
+2005,16,Anna eng og beite,1691774
+2005,17,Overflatedyrka eng,267700
+2005,18,Innmarksbeite,1424074
+2006,01,Jordbruksareal i drift,10344607
+2006,02,Fulldyrka jord,8627623
+2006,03,Åker og hage,3731323
+2006,04a,Korn og oljevekstar til mogning,3246945
+2006,05,Kveite,857477
+2006,06a,Rugkveite,60583
+2006,07,Bygg,1524260
+2006,08,Havre,739486
+2006,09a,Oljevekstar til mogning,65139
+2006,10,Potet,140460
+2006,11a,Grønfôr- og silovekstar,149117
+2006,12,Grønsaker på friland,69774
+2006,12a,Jordbær,17894
+2006,13a,Andre vekstar på åker og i hage,97343
+2006,13b,Brakk,9790
+2006,14,Eng til slått og beite,6613284
+2006,15,Fulldyrka eng,4896300
+2006,16,Anna eng og beite,1716984
+2006,17,Overflatedyrka eng,261102
+2006,18,Innmarksbeite,1455882
+2007,01,Jordbruksareal i drift,10320198
+2007,02,Fulldyrka jord,8574377
+2007,03,Åker og hage,3668837
+2007,04a,Korn og oljevekstar til mogning,3181056
+2007,05,Kveite,912150
+2007,06a,Rugkveite,76302
+2007,07,Bygg,1406749
+2007,08,Havre,723853
+2007,09a,Oljevekstar til mogning,62002
+2007,10,Potet,144658
+2007,11a,Grønfôr- og silovekstar,137325
+2007,12,Grønsaker på friland,76839
+2007,12a,Jordbær,16904
+2007,13a,Andre vekstar på åker og i hage,103470
+2007,13b,Brakk,8585
+2007,14,Eng til slått og beite,6651361
+2007,15,Fulldyrka eng,4905540
+2007,16,Anna eng og beite,1745821
+2007,17,Overflatedyrka eng,253754
+2007,18,Innmarksbeite,1492067
+2008,01,Jordbruksareal i drift,10244883
+2008,02,Fulldyrka jord,8493510
+2008,03,Åker og hage,3609245
+2008,04a,Korn og oljevekstar til mogning,3138319
+2008,05,Kveite,931697
+2008,06a,Rugkveite,81694
+2008,07,Bygg,1299067
+2008,08,Havre,777747
+2008,09a,Oljevekstar til mogning,48114
+2008,10,Potet,143212
+2008,11a,Grønfôr- og silovekstar,130566
+2008,12,Grønsaker på friland,76288
+2008,12a,Jordbær,15233
+2008,13a,Andre vekstar på åker og i hage,96247
+2008,13b,Brakk,9380
+2008,14,Eng til slått og beite,6635638
+2008,15,Fulldyrka eng,4884265
+2008,16,Anna eng og beite,1751373
+2008,17,Overflatedyrka eng,243272
+2008,18,Innmarksbeite,1508101
+2009,01,Jordbruksareal i drift,10142874
+2009,02,Fulldyrka jord,8394810
+2009,03,Åker og hage,3566359
+2009,04a,Korn og oljevekstar til mogning,3104119
+2009,05,Kveite,815997
+2009,06,Rug,0
+2009,06a,Rugkveite,71221
+2009,07,Bygg,1363385
+2009,08,Havre,810310
+2009,08a,Blandkorn og erter til mogning,0
+2009,09a,Oljevekstar til mogning,43206
+2009,10,Potet,137485
+2009,11,"Rotvekster til fôr, grønfôr og silovekstar",0
+2009,11a,Grønfôr- og silovekstar,119761
+2009,12,Grønsaker på friland,72271
+2009,12a,Jordbær,14660
+2009,13a,Andre vekstar på åker og i hage,108283
+2009,13b,Brakk,9780
+2009,14,Eng til slått og beite,6576515
+2009,15,Fulldyrka eng,4828451
+2009,16,Anna eng og beite,1748064
+2009,17,Overflatedyrka eng,224545
+2009,18,Innmarksbeite,1523519
+2010,01,Jordbruksareal i drift,10059857
+2010,02,Fulldyrka jord,8301464
+2010,03,Åker og hage,3535985
+2010,04a,Korn og oljevekstar til mogning,3070702
+2010,05,Kveite,720820
+2010,06,Rug,0
+2010,06a,Rugkveite,67595
+2010,07,Bygg,1461800
+2010,08,Havre,761143
+2010,08a,Blandkorn og erter til mogning,0
+2010,09a,Oljevekstar til mogning,59344
+2010,10,Potet,132399
+2010,11,"Rotvekster til fôr, grønfôr og silovekstar",0
+2010,11a,Grønfôr- og silovekstar,119319
+2010,12,Grønsaker på friland,71220
+2010,12a,Jordbær,13907
+2010,13a,Andre vekstar på åker og i hage,117660
+2010,13b,Brakk,10778
+2010,14,Eng til slått og beite,6523872
+2010,15,Fulldyrka eng,4765479
+2010,16,Anna eng og beite,1758393
+2010,17,Overflatedyrka eng,207036
+2010,18,Innmarksbeite,1551357
+2011,01,Jordbruksareal i drift,9989187
+2011,02,Fulldyrka jord,8223637
+2011,03,Åker og hage,3476160
+2011,04a,Korn og oljevekstar til mogning,3039526
+2011,05,Kveite,738901
+2011,06,Rug,0
+2011,06a,Rugkveite,52805
+2011,07,Bygg,1479746
+2011,08,Havre,716049
+2011,08a,Blandkorn og erter til mogning,0
+2011,09a,Oljevekstar til mogning,52025
+2011,10,Potet,128963
+2011,11,"Rotvekster til fôr, grønfôr og silovekstar",0
+2011,11a,Grønfôr- og silovekstar,102117
+2011,12,Grønsaker på friland,68683
+2011,12a,Jordbær,14385
+2011,13a,Andre vekstar på åker og i hage,112178
+2011,13b,Brakk,10196
+2011,14,Eng til slått og beite,6513139
+2011,15,Fulldyrka eng,4747589
+2011,16,Anna eng og beite,1765550
+2011,17,Overflatedyrka eng,200655
+2011,18,Innmarksbeite,1564895
+2012,01,Jordbruksareal i drift,9928634
+2012,02,Fulldyrka jord,8163288
+2012,03,Åker og hage,3434259
+2012,04a,Korn og oljevekstar til mogning,2996994
+2012,05,Kveite,669825
+2012,06,Rug,0
+2012,06a,Rugkveite,14761
+2012,07,Bygg,1565346
+2012,08,Havre,692189
+2012,08a,Blandkorn og erter til mogning,0
+2012,09a,Oljevekstar til mogning,54873
+2012,10,Potet,126681
+2012,11,"Rotvekster til fôr, grønfôr og silovekstar",0
+2012,11a,Grønfôr- og silovekstar,105190
+2012,12,Grønsaker på friland,71248
+2012,12a,Jordbær,15127
+2012,13a,Andre vekstar på åker og i hage,107160
+2012,13b,Brakk,11859
+2012,14,Eng til slått og beite,6494375
+2012,15,Fulldyrka eng,4729029
+2012,16,Anna eng og beite,1765346
+2012,17,Overflatedyrka eng,201281
+2012,18,Innmarksbeite,1564065
+2013,01,Jordbruksareal i drift,9871428
+2013,02,Fulldyrka jord,8107515
+2013,03,Åker og hage,3350490
+2013,04a,Korn og oljevekstar til mogning,2895196
+2013,05,Kveite,548392
+2013,06,Rug,0
+2013,06a,Rugkveite,30144
+2013,07,Bygg,1593871
+2013,08,Havre,688166
+2013,08a,Blandkorn og erter til mogning,0
+2013,09a,Oljevekstar til mogning,34623
+2013,10,Potet,126340
+2013,11,"Rotvekster til fôr, grønfôr og silovekstar",0
+2013,11a,Grønfôr- og silovekstar,122053
+2013,12,Grønsaker på friland,70782
+2013,12a,Jordbær,15654
+2013,13a,Andre vekstar på åker og i hage,101499
+2013,13b,Brakk,18966
+2013,14,Eng til slått og beite,6520938
+2013,15,Fulldyrka eng,4757049
+2013,16,Anna eng og beite,1763889
+2013,17,Overflatedyrka eng,199525
+2013,18,Innmarksbeite,1564364
+2014,01,Jordbruksareal i drift,9867679
+2014,02,Fulldyrka jord,8111345
+2014,03,Åker og hage,3325975
+2014,04a,Korn og oljevekstar til mogning,2878465
+2014,05,Kveite,791699
+2014,06a,Rugkveite,60947
+2014,07,Bygg,1265055
+2014,08,Havre,719765
+2014,09a,Oljevekstar til mogning,40999
+2014,10,Potet,123452
+2014,11a,Grønfôr- og silovekstar,112783
+2014,12,Grønsaker på friland,75645
+2014,12a,Jordbær,16785
+2014,13a,Andre vekstar på åker og i hage,109765
+2014,13b,Brakk,9080
+2014,14,Eng til slått og beite,6541704
+2014,15,Fulldyrka eng,4785370
+2014,16,Anna eng og beite,1756334
+2014,17,Overflatedyrka eng,198514
+2014,18,Innmarksbeite,1557820
+2015,01,Jordbruksareal i drift,9860355
+2015,02,Fulldyrka jord,8101627
+2015,03,Åker og hage,3302451
+2015,04a,Korn og oljevekstar til mogning,2861953
+2015,05,Kveite,857572
+2015,06,Rug,0
+2015,06a,Rugkveite,104130
+2015,07,Bygg,1232916
+2015,08,Havre,632550
+2015,08a,Blandkorn og erter til mogning,0
+2015,09a,Oljevekstar til mogning,34785
+2015,10,Potet,118355
+2015,11,"Rotvekster til fôr, grønfôr og silovekstar",0
+2015,11a,Grønfôr- og silovekstar,99648
+2015,12,Grønsaker på friland,76768
+2015,12a,Jordbær,16352
+2015,13a,Andre vekstar på åker og i hage,117971
+2015,13b,Brakk,11404
+2015,14,Eng til slått og beite,6557904
+2015,15,Fulldyrka eng,4799176
+2015,16,Anna eng og beite,1758728
+2015,17,Overflatedyrka eng,197670
+2015,18,Innmarksbeite,1561058
+2016,01,Jordbruksareal i drift,9836608
+2016,02,Fulldyrka jord,8081580
+2016,03,Åker og hage,3331652
+2016,04a,Korn og oljevekstar til mogning,2891982
+2016,05,Kveite,667687
+2016,06a,Rugkveite,45587
+2016,07,Bygg,1375559
+2016,08,Havre,761692
+2016,09a,Oljevekstar til mogning,41457
+2016,10,Potet,119839
+2016,11a,Grønfôr- og silovekstar,90729
+2016,12,Grønsaker på friland,82907
+2016,12a,Jordbær,15456
+2016,13a,Andre vekstar på åker og i hage,121464
+2016,13b,Brakk,9275
+2016,14,Eng til slått og beite,6504956
+2016,15,Fulldyrka eng,4749928
+2016,16,Anna eng og beite,1755028
+2016,17,Overflatedyrka eng,195171
+2016,18,Innmarksbeite,1559857
+2017,01,Jordbruksareal i drift,9851116
+2017,02,Fulldyrka jord,8045062
+2017,03,Åker og hage,3318295
+2017,04a,Korn og oljevekstar til mogning,2891061
+2017,05,Kveite,757546
+2017,06a,Rugkveite,83691
+2017,07,Bygg,1348568
+2017,08,Havre,676211
+2017,09a,Oljevekstar til mogning,23119
+2017,10,Potet,117282
+2017,11a,Grønfôr- og silovekstar,95820
+2017,12,Grønsaker på friland,80926
+2017,12a,Jordbær,14657
+2017,13a,Andre vekstar på åker og i hage,113230
+2017,13b,Brakk,5319
+2017,14,Eng til slått og beite,6532821
+2017,15,Fulldyrka eng,4726767
+2017,16,Anna eng og beite,1806054
+2017,17,Overflatedyrka eng,195037
+2017,18,Innmarksbeite,1611017
+2018,01,Jordbruksareal i drift,9862802
+2018,02,Fulldyrka jord,8062827
+2018,03,Åker og hage,3275691
+2018,04a,Korn og oljevekstar til mogning,2832591
+2018,05,Kveite,586531
+2018,06a,Rugkveite,33292
+2018,07,Bygg,1479510
+2018,08,Havre,698302
+2018,09a,Oljevekstar til mogning,32758
+2018,10,Potet,116138
+2018,11a,Grønfôr- og silovekstar,110507
+2018,12,Grønsaker på friland,84179
+2018,12a,Jordbær,14161
+2018,13a,Andre vekstar på åker og i hage,112701
+2018,13b,Brakk,5414
+2018,14,Eng til slått og beite,6587111
+2018,15,Fulldyrka eng,4787136
+2018,16,Anna eng og beite,1799975
+2018,17,Overflatedyrka eng,199714
+2018,18,Innmarksbeite,1600261
+2019,01,Jordbruksareal i drift,9842540
+2019,02,Fulldyrka jord,8051462
+2019,03,Åker og hage,3226633
+2019,04a,Korn og oljevekstar til mogning,2789822
+2019,05,Kveite,803508
+2019,06a,Rugkveite,93125
+2019,07,Bygg,1304954
+2019,08,Havre,550981
+2019,09a,Oljevekstar til mogning,34284
+2019,10,Potet,116858
+2019,11a,Grønfôr- og silovekstar,108558
+2019,12,Grønsaker på friland,83657
+2019,12a,Jordbær,13337
+2019,13a,Andre vekstar på åker og i hage,107828
+2019,13b,Brakk,6573
+2019,14,Eng til slått og beite,6615904
+2019,15,Fulldyrka eng,4824829
+2019,16,Anna eng og beite,1791075
+2019,17,Overflatedyrka eng,200423
+2019,18,Innmarksbeite,1590652
+2020,01,Jordbruksareal i drift,9859618
+2020,02,Fulldyrka jord,8076626
+2020,03,Åker og hage,3270927
+2020,04a,Korn og oljevekstar til mogning,2831971
+2020,05,Kveite,676697
+2020,06,Rug,0
+2020,06a,Rugkveite,65250
+2020,07,Bygg,1392224
+2020,08,Havre,665480
+2020,08a,Blandkorn og erter til mogning,0
+2020,09a,Oljevekstar til mogning,29732
+2020,10,Potet,115064
+2020,11,"Rotvekster til fôr, grønfôr og silovekstar",0
+2020,11a,Grønfôr- og silovekstar,95106
+2020,12,Grønsaker på friland,82453
+2020,12a,Jordbær,12389
+2020,13a,Andre vekstar på åker og i hage,128732
+2020,13b,Brakk,5212
+2020,14,Eng til slått og beite,6588688
+2020,15,Fulldyrka eng,4805699
+2020,16,Anna eng og beite,1782989
+2020,17,Overflatedyrka eng,206124
+2020,18,Innmarksbeite,1576865
+2021,01,Jordbruksareal i drift,9845167
+2021,02,Fulldyrka jord,8069912
+2021,03,Åker og hage,3294951
+2021,04a,Korn og oljevekstar til mogning,2859251
+2021,05,Kveite,635927
+2021,06,Rug,0
+2021,06a,Rugkveite,83121
+2021,07,Bygg,1427448
+2021,08,Havre,685183
+2021,08a,Blandkorn og erter til mogning,0
+2021,09a,Oljevekstar til mogning,24212
+2021,10,Potet,116160
+2021,11,"Rotvekster til fôr, grønfôr og silovekstar",0
+2021,11a,Grønfôr- og silovekstar,94257
+2021,12,Grønsaker på friland,82994
+2021,12a,Jordbær,11101
+2021,13a,Andre vekstar på åker og i hage,122898
+2021,13b,Brakk,6485
+2021,14,Eng til slått og beite,6550216
+2021,15,Fulldyrka eng,4776766
+2021,16,Anna eng og beite,1773450
+2021,17,Overflatedyrka eng,208684
+2021,18,Innmarksbeite,1564766
+2022,01,Jordbruksareal i drift,9846497
+2022,02,Fulldyrka jord,8074176
+2022,03,Åker og hage,3301218
+2022,04a,Korn og oljevekstar til mogning,2839038
+2022,05,Kveite,753547
+2022,06,Rug,0
+2022,06a,Rugkveite,106411
+2022,07,Bygg,1313202
+2022,08,Havre,632012
+2022,08a,Blandkorn og erter til mogning,0
+2022,09a,Oljevekstar til mogning,30277
+2022,10,Potet,118977
+2022,11,"Rotvekster til fôr, grønfôr og silovekstar",0
+2022,11a,Grønfôr- og silovekstar,90078
+2022,12,Grønsaker på friland,84334
+2022,12a,Jordbær,9405
+2022,13a,Andre vekstar på åker og i hage,150411
+2022,13b,Brakk,7230
+2022,14,Eng til slått og beite,6545279
+2022,15,Fulldyrka eng,4774703
+2022,16,Anna eng og beite,1770576
+2022,17,Overflatedyrka eng,210347
+2022,18,Innmarksbeite,1560229
+2023,01,Jordbruksareal i drift,9843834
+2023,02,Fulldyrka jord,8077267
+2023,03,Åker og hage,3302593
+2023,04a,Korn og oljevekstar til mogning,2859482
+2023,05,Kveite,645788
+2023,06,Rug,0
+2023,06a,Rugkveite,87733
+2023,07,Bygg,1419733
+2023,08,Havre,684277
+2023,08a,Blandkorn og erter til mogning,0
+2023,09a,Oljevekstar til mogning,19294
+2023,10,Potet,115048
+2023,11,"Rotvekster til fôr, grønfôr og silovekstar",0
+2023,11a,Grønfôr- og silovekstar,81985
+2023,12,Grønsaker på friland,81157
+2023,12a,Jordbær,8914
+2023,13a,Andre vekstar på åker og i hage,148831
+2023,13b,Brakk,7176
+2023,14,Eng til slått og beite,6541241
+2023,15,Fulldyrka eng,4774674
+2023,16,Anna eng og beite,1766567
+2023,17,Overflatedyrka eng,212264
+2023,18,Innmarksbeite,1554303
+2024,01,Jordbruksareal i drift,9841363
+2024,02,Fulldyrka jord,8084817
+2024,03,Åker og hage,3298762
+2024,04a,Korn og oljevekstar til mogning,2820928
+2024,05,Kveite,592140
+2024,06,Rug,0
+2024,06a,Rugkveite,57296
+2024,07,Bygg,1455229
+2024,08,Havre,695544
+2024,08a,Blandkorn og erter til mogning,0
+2024,09a,Oljevekstar til mogning,18479
+2024,10,Potet,118675
+2024,11,"Rotvekster til fôr, grønfôr og silovekstar",0
+2024,11a,Grønfôr- og silovekstar,90268
+2024,12,Grønsaker på friland,90610
+2024,12a,Jordbær,8607
+2024,13a,Andre vekstar på åker og i hage,162130
+2024,13b,Brakk,7556
+2024,14,Eng til slått og beite,6542601
+2024,15,Fulldyrka eng,4786055
+2024,16,Anna eng og beite,1756546
+2024,17,Overflatedyrka eng,213057
+2024,18,Innmarksbeite,1543489
+2025,01,Jordbruksareal i drift,9866661
+2025,02,Fulldyrka jord,8106656
+2025,03,Åker og hage,3317741
+2025,04a,Korn og oljevekstar til mogning,2842275
+2025,05,Kveite,602882
+2025,06a,Rugkveite,35821
+2025,07,Bygg,1572039
+2025,08,Havre,602719
+2025,09a,Oljevekstar til mogning,27137
+2025,10,Potet,123099
+2025,11a,Grønfôr- og silovekstar,85859
+2025,12,Grønsaker på friland,92287
+2025,12a,Jordbær,8288
+2025,13a,Andre vekstar på åker og i hage,158855
+2025,13b,Brakk,7081
+2025,14,Eng til slått og beite,6548920
+2025,15,Fulldyrka eng,4788915
+2025,16,Anna eng og beite,1760005
+2025,17,Overflatedyrka eng,217457
+2025,18,Innmarksbeite,1542548
