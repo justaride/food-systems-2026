@@ -20,7 +20,7 @@ export type SourceRow = {
   url: string | null
   isDuplicate: boolean
   document: { id: string; slug: string; title: string } | null
-  origin: 'db' | 'backlog'
+  origin: 'db' | 'document' | 'backlog'
   downloadStatus: SourceDownloadStatus
   researchRound: BacklogRound | null
   backlogTheme: string | null
@@ -80,12 +80,14 @@ export function KilderContent({
   sources,
   rounds,
   dbCount,
+  documentCount,
   backlogOnlyCount,
   initialRoundFilter = 'all',
 }: {
   sources: SourceRow[]
   rounds: RoundOption[]
   dbCount: number
+  documentCount: number
   backlogOnlyCount: number
   initialRoundFilter?: 'all' | BacklogRound
 }) {
@@ -93,7 +95,7 @@ export function KilderContent({
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<SourceDownloadStatus | 'all'>('all')
   const [roundFilter, setRoundFilter] = useState<'all' | BacklogRound>(initialRoundFilter)
-  const [originFilter, setOriginFilter] = useState<'all' | 'db' | 'backlog'>('all')
+  const [originFilter, setOriginFilter] = useState<'all' | 'db' | 'document' | 'backlog'>('all')
 
   const filteredSources = sources.filter((src) => {
     const matchesType = filter === 'alle' || src.sourceType === filter
@@ -133,8 +135,9 @@ export function KilderContent({
           <h1 className="text-3xl font-bold text-stone-900 tracking-tight">Kunnskapsgrunnlag</h1>
           <p className="text-stone-500 mt-2 max-w-2xl">
             Full kildeoversikt for Food Systems 2026. Inkluderer både sporede kilder i databasen
-            ({dbCount}) og backlog-kilder fra {rounds.length} forskningsrunder
-            ({backlogOnlyCount} uregistrerte). Nedlastingsstatus spores via CSV-er i{' '}
+            ({dbCount}), dokumenter i biblioteket uten eget SourceDoc-lag ({documentCount}) og
+            backlog-kilder fra {rounds.length} forskningsrunder ({backlogOnlyCount} uregistrerte).
+            Nedlastingsstatus spores via CSV-er i{' '}
             <code className="text-xs bg-stone-100 px-1 rounded">research/evidence-pack/</code>.
           </p>
         </div>
@@ -146,6 +149,10 @@ export function KilderContent({
           <div className="bg-white px-4 py-2 rounded-lg border border-stone-200 shadow-sm">
             <div className="text-xs text-emerald-600 uppercase font-bold tracking-wider">Database</div>
             <div className="text-xl font-bold text-stone-900">{dbCount}</div>
+          </div>
+          <div className="bg-white px-4 py-2 rounded-lg border border-stone-200 shadow-sm">
+            <div className="text-xs text-sky-600 uppercase font-bold tracking-wider">Dokument</div>
+            <div className="text-xl font-bold text-stone-900">{documentCount}</div>
           </div>
           <div className="bg-white px-4 py-2 rounded-lg border border-stone-200 shadow-sm">
             <div className="text-xs text-amber-600 uppercase font-bold tracking-wider">Backlog-only</div>
@@ -272,7 +279,7 @@ export function KilderContent({
         </div>
         <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
           <span className="text-stone-500">Opprinnelse:</span>
-          {(['all', 'db', 'backlog'] as const).map((o) => (
+          {(['all', 'db', 'document', 'backlog'] as const).map((o) => (
             <button
               key={o}
               onClick={() => setOriginFilter(o)}
@@ -286,6 +293,8 @@ export function KilderContent({
                 ? `Alle (${sources.length})`
                 : o === 'db'
                   ? `Database (${dbCount})`
+                  : o === 'document'
+                    ? `Dokument (${documentCount})`
                   : `Backlog-only (${backlogOnlyCount})`}
             </button>
           ))}
@@ -340,6 +349,12 @@ export function KilderContent({
           )
         })}
         <span className="ml-4 inline-flex items-center gap-1.5 text-stone-500">
+          <span className="px-1.5 py-0.5 rounded bg-sky-100 text-sky-800 text-[10px] font-semibold">
+            DOKUMENT
+          </span>
+          = hentet direkte fra biblioteket, men ikke promotert til SourceDoc ennå
+        </span>
+        <span className="inline-flex items-center gap-1.5 text-stone-500">
           <span className="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px] font-semibold">
             BACKLOG
           </span>
@@ -355,7 +370,11 @@ export function KilderContent({
               <Card
                 key={src.id}
                 className={`p-6 hover:shadow-lg transition-shadow border-t-4 ${
-                  src.origin === 'backlog' ? 'border-t-amber-500' : 'border-t-emerald-500'
+                  src.origin === 'backlog'
+                    ? 'border-t-amber-500'
+                    : src.origin === 'document'
+                      ? 'border-t-sky-500'
+                      : 'border-t-emerald-500'
                 }`}
               >
                 <div className="flex justify-between items-start mb-4">
@@ -370,6 +389,11 @@ export function KilderContent({
                         BACKLOG
                       </span>
                     )}
+                    {src.origin === 'document' && (
+                      <span className="px-1.5 py-0.5 rounded bg-sky-100 text-sky-800 text-[10px] font-semibold">
+                        DOKUMENT
+                      </span>
+                    )}
                   </div>
                   <span className="text-xs font-bold text-stone-400">{src.year}</span>
                 </div>
@@ -377,18 +401,28 @@ export function KilderContent({
                   {src.title || src.filename}
                 </h3>
                 <p className="text-xs text-stone-500 mb-4 line-clamp-3">{src.description}</p>
-                <div className="pt-4 border-t border-stone-100 flex justify-between items-center">
+                <div className="pt-4 border-t border-stone-100 flex justify-between items-center gap-2">
                   <span className="text-[10px] font-mono text-stone-400 uppercase">{src.author}</span>
-                  {src.url && (
-                    <a
-                      href={src.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-emerald-600 text-xs font-bold hover:underline"
-                    >
-                      Åpne kilde →
-                    </a>
-                  )}
+                  <div className="flex items-center gap-3 text-xs font-bold">
+                    {src.document?.slug && (
+                      <Link
+                        href={`/bibliotek/${src.document.slug}`}
+                        className="text-sky-700 hover:underline"
+                      >
+                        Bibliotek →
+                      </Link>
+                    )}
+                    {src.url && (
+                      <a
+                        href={src.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-emerald-600 hover:underline"
+                      >
+                        Åpne kilde →
+                      </a>
+                    )}
+                  </div>
                 </div>
               </Card>
             )
@@ -426,7 +460,13 @@ export function KilderContent({
                       key={src.id}
                       className={`hover:bg-stone-50/50 transition-colors ${
                         src.isDuplicate ? 'opacity-40' : ''
-                      } ${src.origin === 'backlog' ? 'bg-amber-50/30' : ''}`}
+                      } ${
+                        src.origin === 'backlog'
+                          ? 'bg-amber-50/30'
+                          : src.origin === 'document'
+                            ? 'bg-sky-50/30'
+                            : ''
+                      }`}
                     >
                       <td className="px-3 py-4 align-top">
                         <span
@@ -446,6 +486,11 @@ export function KilderContent({
                           {src.origin === 'backlog' && (
                             <span className="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 text-[9px] font-semibold shrink-0">
                               BACKLOG
+                            </span>
+                          )}
+                          {src.origin === 'document' && (
+                            <span className="px-1.5 py-0.5 rounded bg-sky-100 text-sky-800 text-[9px] font-semibold shrink-0">
+                              DOKUMENT
                             </span>
                           )}
                         </div>
@@ -471,30 +516,39 @@ export function KilderContent({
                         </p>
                       </td>
                       <td className="px-6 py-4 text-right">
-                        {src.url ? (
-                          <a
-                            href={src.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-600 hover:bg-emerald-100 hover:text-emerald-700 transition-colors"
-                          >
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
+                        <div className="flex items-center justify-end gap-2">
+                          {src.document?.slug && (
+                            <Link
+                              href={`/bibliotek/${src.document.slug}`}
+                              className="inline-flex items-center rounded-full bg-sky-50 px-3 py-1 text-[11px] font-semibold text-sky-700 hover:bg-sky-100"
                             >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                              />
-                            </svg>
-                          </a>
-                        ) : (
-                          <span className="text-stone-300">—</span>
-                        )}
+                              Bibliotek
+                            </Link>
+                          )}
+                          {src.url && (
+                            <a
+                              href={src.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-600 hover:bg-emerald-100 hover:text-emerald-700 transition-colors"
+                            >
+                              <svg
+                                className="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                />
+                              </svg>
+                            </a>
+                          )}
+                          {!src.url && !src.document?.slug && <span className="text-stone-300">—</span>}
+                        </div>
                       </td>
                     </tr>
                   )

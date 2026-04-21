@@ -1,4 +1,4 @@
-import { getSources } from '@/lib/queries/sources'
+import { getSourceDocumentFallbacks, getSources } from '@/lib/queries/sources'
 import {
   loadDownloadBacklog,
   buildBacklogIndex,
@@ -51,7 +51,10 @@ export default async function KilderPage({
     ? (requestedRound as BacklogRound)
     : 'all'
 
-  const sources = await getSources()
+  const [sources, documentFallbacks] = await Promise.all([
+    getSources(),
+    getSourceDocumentFallbacks(),
+  ])
 
   const backlogsPerRound = BACKLOG_ROUNDS.map((r) => ({
     round: r.id,
@@ -115,7 +118,50 @@ export default async function KilderPage({
     }
   })
 
-  const allSources = [...enrichedFromDb, ...backlogOnly]
+  const enrichedFromDocuments: SourceRow[] = documentFallbacks.map((doc) => {
+    const match = matchSourceToBacklog(
+      {
+        filename: doc.filename,
+        url: doc.url,
+        title: doc.title,
+      },
+      backlogIndex,
+    )
+
+    return {
+      ...doc,
+      origin: 'document' as const,
+      downloadStatus: match.researchRound ? (match.status as SourceDownloadStatus) : 'downloaded',
+      researchRound: match.researchRound ?? null,
+      backlogTheme: match.backlog?.theme ?? null,
+      backlogPriority: match.backlog?.priority ?? null,
+      backlogTargetPath: match.backlog?.targetPath ?? null,
+      matchedBy: match.matchedBy ?? null,
+    }
+  })
+
+  const originRank: Record<SourceRow['origin'], number> = {
+    db: 0,
+    document: 1,
+    backlog: 2,
+  }
+
+  const parseYear = (value: string | number | null) => {
+    if (typeof value === 'number') return value
+    if (!value) return -1
+    const match = value.toString().match(/\d{4}/)
+    return match ? Number(match[0]) : -1
+  }
+
+  const allSources = [...enrichedFromDb, ...enrichedFromDocuments, ...backlogOnly].sort((a, b) => {
+    const yearDiff = parseYear(b.year) - parseYear(a.year)
+    if (yearDiff !== 0) return yearDiff
+
+    const originDiff = originRank[a.origin] - originRank[b.origin]
+    if (originDiff !== 0) return originDiff
+
+    return (a.title ?? a.filename).localeCompare(b.title ?? b.filename, 'no')
+  })
 
   const roundOptions = BACKLOG_ROUNDS.map((r) => ({
     id: r.id,
@@ -128,6 +174,7 @@ export default async function KilderPage({
       sources={allSources}
       rounds={roundOptions}
       dbCount={enrichedFromDb.length}
+      documentCount={enrichedFromDocuments.length}
       backlogOnlyCount={backlogOnly.length}
       initialRoundFilter={initialRoundFilter}
     />
