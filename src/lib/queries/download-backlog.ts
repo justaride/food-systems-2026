@@ -19,6 +19,35 @@ export type BacklogRow = {
   sourceBasis: string
 }
 
+export type BacklogRound =
+  | '2026-03-18'
+  | '2026-04-20'
+  | 'perplexity-2026-04-20'
+  | 'sirkular-konkurser-2026-04-20'
+  | 'exa-2026-04-21'
+  | 'matsvinn-2026-04-21'
+
+export const BACKLOG_ROUNDS: Array<{ id: BacklogRound; file: string; label: string }> = [
+  { id: '2026-03-18', file: 'download-backlog-2026-03-18.csv', label: 'Runde mars 2026' },
+  { id: '2026-04-20', file: 'download-backlog-2026-04-20.csv', label: 'Runde april 2026' },
+  {
+    id: 'perplexity-2026-04-20',
+    file: 'download-backlog-perplexity-kilder-2026-04-20.csv',
+    label: 'Perplexity-runde april 2026',
+  },
+  {
+    id: 'sirkular-konkurser-2026-04-20',
+    file: 'download-backlog-sirkular-konkurser-2026-04-20.csv',
+    label: 'Sirkulære konkurser april 2026',
+  },
+  { id: 'exa-2026-04-21', file: 'download-backlog-exa-2026-04-21.csv', label: 'Exa-runde april 2026' },
+  {
+    id: 'matsvinn-2026-04-21',
+    file: 'download-backlog-matsvinn-kilder-2026-04-21.csv',
+    label: 'Matsvinn-runde april 2026',
+  },
+]
+
 function parseCsv(content: string): string[][] {
   const rows: string[][] = []
   let row: string[] = []
@@ -99,6 +128,18 @@ export function loadDownloadBacklog(filename: string): BacklogRow[] {
   return result
 }
 
+export type BacklogRowWithRound = BacklogRow & { round: BacklogRound }
+
+export function loadAllBacklogs(): BacklogRowWithRound[] {
+  const out: BacklogRowWithRound[] = []
+  for (const r of BACKLOG_ROUNDS) {
+    for (const row of loadDownloadBacklog(r.file)) {
+      out.push({ ...row, round: r.id })
+    }
+  }
+  return out
+}
+
 export type BacklogSummary = {
   total: number
   downloaded: number
@@ -152,7 +193,7 @@ export type SourceDownloadStatus =
 export type MatchedSource = {
   status: SourceDownloadStatus
   backlog?: BacklogRow
-  researchRound?: '2026-03-18' | '2026-04-20'
+  researchRound?: BacklogRound
   matchedBy?: 'url' | 'filename' | 'target-basename' | 'title'
 }
 
@@ -182,27 +223,43 @@ function normalizeTitle(s: string | null | undefined): string {
   return (s ?? '')
     .toLowerCase()
     .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim()
 }
 
 export type BacklogIndex = {
-  byUrl: Map<string, { row: BacklogRow; round: '2026-03-18' | '2026-04-20' }>
-  byTargetBasename: Map<string, { row: BacklogRow; round: '2026-03-18' | '2026-04-20' }>
-  byTitle: Map<string, { row: BacklogRow; round: '2026-03-18' | '2026-04-20' }>
+  byUrl: Map<string, { row: BacklogRow; round: BacklogRound }>
+  byTargetBasename: Map<string, { row: BacklogRow; round: BacklogRound }>
+  byTitle: Map<string, { row: BacklogRow; round: BacklogRound }>
+  /** Track which entries have already been matched to a DB source (by URL). */
+  matchedUrls: Set<string>
+  matchedTitles: Set<string>
+  /** All loaded backlog rows, with round. */
+  allRows: Array<{ row: BacklogRow; round: BacklogRound }>
 }
 
-export function buildBacklogIndex(
-  marchRows: BacklogRow[],
-  aprilRows: BacklogRow[],
-): BacklogIndex {
-  const byUrl = new Map<string, { row: BacklogRow; round: '2026-03-18' | '2026-04-20' }>()
-  const byTargetBasename = new Map<string, { row: BacklogRow; round: '2026-03-18' | '2026-04-20' }>()
-  const byTitle = new Map<string, { row: BacklogRow; round: '2026-03-18' | '2026-04-20' }>()
+export function buildBacklogIndex(...rounds: Array<{ rows: BacklogRow[]; round: BacklogRound }>): BacklogIndex {
+  const byUrl = new Map<string, { row: BacklogRow; round: BacklogRound }>()
+  const byTargetBasename = new Map<string, { row: BacklogRow; round: BacklogRound }>()
+  const byTitle = new Map<string, { row: BacklogRow; round: BacklogRound }>()
+  const allRows: Array<{ row: BacklogRow; round: BacklogRound }> = []
 
-  const indexRound = (rows: BacklogRow[], round: '2026-03-18' | '2026-04-20') => {
+  const ROUND_PRIORITY: BacklogRound[] = [
+    '2026-04-20',
+    'perplexity-2026-04-20',
+    'matsvinn-2026-04-21',
+    'sirkular-konkurser-2026-04-20',
+    'exa-2026-04-21',
+    '2026-03-18',
+  ]
+  const sorted = [...rounds].sort(
+    (a, b) => ROUND_PRIORITY.indexOf(a.round) - ROUND_PRIORITY.indexOf(b.round),
+  )
+
+  for (const { rows, round } of sorted) {
     for (const row of rows) {
+      allRows.push({ row, round })
       const nu = normalizeUrl(row.url)
       if (nu && !byUrl.has(nu)) byUrl.set(nu, { row, round })
 
@@ -216,11 +273,14 @@ export function buildBacklogIndex(
     }
   }
 
-  // April indexed first so its rows win for overlapping URLs
-  indexRound(aprilRows, '2026-04-20')
-  indexRound(marchRows, '2026-03-18')
-
-  return { byUrl, byTargetBasename, byTitle }
+  return {
+    byUrl,
+    byTargetBasename,
+    byTitle,
+    matchedUrls: new Set<string>(),
+    matchedTitles: new Set<string>(),
+    allRows,
+  }
 }
 
 export function matchSourceToBacklog(
@@ -231,6 +291,9 @@ export function matchSourceToBacklog(
   if (nu) {
     const hit = index.byUrl.get(nu)
     if (hit) {
+      index.matchedUrls.add(nu)
+      const nt = normalizeTitle(hit.row.title)
+      if (nt) index.matchedTitles.add(nt)
       return {
         status: hit.row.status as SourceDownloadStatus,
         backlog: hit.row,
@@ -244,6 +307,10 @@ export function matchSourceToBacklog(
   if (fn) {
     const hit = index.byTargetBasename.get(fn)
     if (hit) {
+      const hu = normalizeUrl(hit.row.url)
+      if (hu) index.matchedUrls.add(hu)
+      const nt = normalizeTitle(hit.row.title)
+      if (nt) index.matchedTitles.add(nt)
       return {
         status: hit.row.status as SourceDownloadStatus,
         backlog: hit.row,
@@ -257,6 +324,9 @@ export function matchSourceToBacklog(
   if (nt) {
     const hit = index.byTitle.get(nt)
     if (hit) {
+      index.matchedTitles.add(nt)
+      const hu = normalizeUrl(hit.row.url)
+      if (hu) index.matchedUrls.add(hu)
       return {
         status: hit.row.status as SourceDownloadStatus,
         backlog: hit.row,
@@ -267,4 +337,27 @@ export function matchSourceToBacklog(
   }
 
   return { status: 'untracked' }
+}
+
+/**
+ * Return every backlog row that was NOT matched against a DB source. These
+ * represent evidence that exists in the research/ tree but is not yet
+ * registered in sources.ts / the database.
+ */
+export function backlogOnlyRows(
+  index: BacklogIndex,
+): Array<{ row: BacklogRow; round: BacklogRound }> {
+  const seen = new Set<string>()
+  const out: Array<{ row: BacklogRow; round: BacklogRound }> = []
+  for (const entry of index.allRows) {
+    const nu = normalizeUrl(entry.row.url)
+    const nt = normalizeTitle(entry.row.title)
+    if (nu && index.matchedUrls.has(nu)) continue
+    if (!nu && nt && index.matchedTitles.has(nt)) continue
+    const dedup = nu || nt || entry.row.targetPath
+    if (seen.has(dedup)) continue
+    seen.add(dedup)
+    out.push(entry)
+  }
+  return out
 }

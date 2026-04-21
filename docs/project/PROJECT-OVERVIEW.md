@@ -225,6 +225,12 @@ Fra samtalene og dokumentene:
 
 ---
 
+## Utviklernotat
+
+- Oppsett og bruk av databasekoblingen for Codex er dokumentert i [docs/project/POSTGRES-MCP-SETUP.md](/Users/gabrielboen/Documents/Food Systems 2026/docs/project/POSTGRES-MCP-SETUP.md:1)
+
+---
+
 ## Neste steg: Forslag til arbeidsflyt
 
 ### Fase 1: Orientering (uke 1-2)

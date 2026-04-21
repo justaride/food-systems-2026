@@ -12,7 +12,7 @@ export const kpis: KPI[] = [
     id: 'decisions-taken',
     name: 'Decisions Taken',
     description: 'Formelle beslutninger logget',
-    current: '2',
+    current: '5',
     target: '10',
   },
   {
@@ -33,7 +33,7 @@ export const kpis: KPI[] = [
     id: 'capital-mobilised',
     name: 'Capital Mobilised',
     description: 'Finansiering/investeringer utlost',
-    current: '0 NOK',
+    current: '250k NOK',
     target: '5M NOK',
   },
 ]

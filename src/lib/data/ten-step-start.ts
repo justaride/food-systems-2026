@@ -29,7 +29,7 @@ export const tenSteps: TenStep[] = [
     step: 4,
     theme: 'Mobilisering og kommunikasjon',
     output: 'Invitasjonsplan + commitment light',
-    status: 'ikke-startet',
+    status: 'pagar',
     methodology: 'Kotter (guiding coalition) + Nordic Innovation Playbooks',
     description: 'Flytt fraa "inviter mange" til "inviter rett". Kommunikasjonskonsept og nordisk fagekt (60-75 min) for felles situasjonsforstaaelse.',
   },

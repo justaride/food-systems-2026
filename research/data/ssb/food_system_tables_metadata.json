@@ -1,0 +1,47 @@
+{
+  "generated_at_utc": "2026-04-21T05:21:08.760183+00:00",
+  "tables": {
+    "03710": {
+      "table": "03710",
+      "note": "Livestock by species, national, all years",
+      "updated": "2025-05-13T06:00:00Z",
+      "label": "03710: Husdyr, etter husdyrslag, statistikkvariabel og år",
+      "row_count": 369
+    },
+    "07326": {
+      "table": "07326",
+      "note": "Aquaculture slaughtered food fish, national, quantity + value",
+      "updated": "2020-10-29T07:00:00Z",
+      "label": "07326: Akvakultur. Salg av slaktet matfisk, etter region, fiskeslag, statistikkvariabel og år",
+      "row_count": 205
+    },
+    "09170": {
+      "table": "09170",
+      "note": "Production, GDP, wages, operating result by food-system NACE",
+      "updated": "2026-02-09T07:00:00Z",
+      "label": "09170: Produksjon og inntekt, etter næring, statistikkvariabel og år",
+      "row_count": 448
+    },
+    "05982": {
+      "table": "05982",
+      "note": "Agricultural area by crop type, national, all years",
+      "updated": "2026-01-23T07:00:00Z",
+      "label": "05982: Jordbruksareal (dekar), etter vekst, statistikkvariabel og år",
+      "row_count": 634
+    },
+    "13931": {
+      "table": "13931",
+      "note": "GHG emissions (CO2eq) by source — total, agriculture, industry, fisheries",
+      "updated": "2025-11-04T07:00:00Z",
+      "label": "13931: Klimagasser AR5, etter kilde (aktivitet), energiprodukt, komponent, statistikkvariabel og år",
+      "row_count": 210
+    },
+    "11131": {
+      "table": "11131",
+      "note": "Employment by NACE industry, both genders, all statuses",
+      "updated": "2026-02-11T07:00:00Z",
+      "label": "11131: Sysselsatte (1 000 personer), etter kjønn, næring (SN2007), yrkesstatus, statistikkvariabel og år",
+      "row_count": 318
+    }
+  }
+}

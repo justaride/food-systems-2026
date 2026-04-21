@@ -20,6 +20,11 @@ import {
   mediaTimeline,
   mediaCountryProfiles,
 } from '../src/lib/data/media-landscape'
+import {
+  mediaOutlets,
+  mediaEntries,
+  mediaEntryCodings,
+} from '../src/lib/data/media-corpus'
 import { countryChartData } from '../src/lib/data/country-chart-data'
 import { reports } from '../src/lib/data/reports'
 
@@ -561,6 +566,112 @@ async function importMediaLandscape() {
   console.log(`  ${mediaCountryProfiles.length} media country profiles imported`)
 }
 
+async function importMediaCorpus() {
+  console.log('Importing media evidence corpus...')
+
+  for (const outlet of mediaOutlets) {
+    await prisma.mediaOutlet.upsert({
+      where: { id: outlet.id },
+      update: {
+        name: outlet.name,
+        country: outlet.country,
+        outletType: outlet.outletType,
+        language: outlet.language ?? null,
+        url: outlet.url ?? null,
+        notes: outlet.notes ?? null,
+      },
+      create: {
+        id: outlet.id,
+        name: outlet.name,
+        country: outlet.country,
+        outletType: outlet.outletType,
+        language: outlet.language ?? null,
+        url: outlet.url ?? null,
+        notes: outlet.notes ?? null,
+      },
+    })
+  }
+  console.log(`  ${mediaOutlets.length} media outlets imported`)
+
+  for (const entry of mediaEntries) {
+    await prisma.mediaEntry.upsert({
+      where: { id: entry.id },
+      update: {
+        outletId: entry.outletId,
+        country: entry.country,
+        publishedYear: entry.publishedYear,
+        publishedMonth: entry.publishedMonth ?? null,
+        publishedDay: entry.publishedDay ?? null,
+        datePrecision: entry.datePrecision,
+        title: entry.title,
+        summary: entry.summary,
+        url: entry.url ?? null,
+        recordType: entry.recordType,
+        verificationLevel: entry.verificationLevel,
+        triggerLabel: entry.triggerLabel ?? null,
+        sourceDocId: entry.sourceDocId ?? null,
+        sourceRefs: entry.sourceRefs ?? null,
+      },
+      create: {
+        id: entry.id,
+        outletId: entry.outletId,
+        country: entry.country,
+        publishedYear: entry.publishedYear,
+        publishedMonth: entry.publishedMonth ?? null,
+        publishedDay: entry.publishedDay ?? null,
+        datePrecision: entry.datePrecision,
+        title: entry.title,
+        summary: entry.summary,
+        url: entry.url ?? null,
+        recordType: entry.recordType,
+        verificationLevel: entry.verificationLevel,
+        triggerLabel: entry.triggerLabel ?? null,
+        sourceDocId: entry.sourceDocId ?? null,
+        sourceRefs: entry.sourceRefs ?? null,
+      },
+    })
+  }
+  console.log(`  ${mediaEntries.length} media entries imported`)
+
+  for (const coding of mediaEntryCodings) {
+    await prisma.mediaEntryCoding.upsert({
+      where: {
+        entryId_primaryTheme_tone_frame: {
+          entryId: coding.entryId,
+          primaryTheme: coding.primaryTheme,
+          tone: coding.tone,
+          frame: coding.frame,
+        },
+      },
+      update: {
+        country: coding.country,
+        secondaryThemes: coding.secondaryThemes,
+        geography: coding.geography,
+        actorTargets: coding.actorTargets,
+        confidence: coding.confidence,
+        triggerLabel: coding.triggerLabel ?? null,
+        evidenceNote: coding.evidenceNote ?? null,
+        codedBy: coding.codedBy,
+      },
+      create: {
+        entryId: coding.entryId,
+        country: coding.country,
+        primaryTheme: coding.primaryTheme,
+        secondaryThemes: coding.secondaryThemes,
+        tone: coding.tone,
+        frame: coding.frame,
+        geography: coding.geography,
+        actorTargets: coding.actorTargets,
+        confidence: coding.confidence,
+        triggerLabel: coding.triggerLabel ?? null,
+        evidenceNote: coding.evidenceNote ?? null,
+        codedBy: coding.codedBy,
+      },
+    })
+  }
+  console.log(`  ${mediaEntryCodings.length} media entry codings imported`)
+}
+
 async function importReports() {
   console.log('Importing reports...')
   for (const r of reports) {
@@ -717,6 +828,7 @@ async function main() {
   await importCommunications()
   await importResearchPrompts()
   await importMediaLandscape()
+  await importMediaCorpus()
   await importReports()
   await importCountryMetrics()
 

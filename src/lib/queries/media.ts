@@ -11,3 +11,27 @@ export async function getMediaTimeline() {
 export async function getMediaCountryProfiles() {
   return prisma.mediaCountryProfile.findMany({ orderBy: { id: 'asc' } })
 }
+
+export async function getMediaOutlets() {
+  return prisma.mediaOutlet.findMany({
+    orderBy: [{ country: 'asc' }, { name: 'asc' }],
+  })
+}
+
+export async function getMediaEntries() {
+  return prisma.mediaEntry.findMany({
+    include: {
+      outlet: true,
+      sourceDoc: true,
+      codings: {
+        orderBy: [{ createdAt: 'asc' }],
+      },
+    },
+    orderBy: [
+      { publishedYear: 'desc' },
+      { publishedMonth: 'desc' },
+      { publishedDay: 'desc' },
+      { title: 'asc' },
+    ],
+  })
+}
