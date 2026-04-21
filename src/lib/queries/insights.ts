@@ -59,7 +59,23 @@ function classifyDocumentInsightType(doc: {
 }
 
 function mapStructuredInsight(
-  insight: Awaited<ReturnType<typeof prisma.insight.findMany>>[number] & {
+  insight: {
+    id: string
+    title: string
+    description: string
+    insightType: string
+    source: string
+    phaseId: string | null
+    tags: string[]
+    url: string | null
+    date: string
+    sourceRefs: Array<{
+      id: string
+      label: string
+      url: string | null
+      note: string | null
+      sourceDocId: string | null
+    }>
     documentRefs: Array<{ document: { slug: string; title: string } }>
   },
 ): InsightRow {
