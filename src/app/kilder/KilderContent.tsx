@@ -81,16 +81,18 @@ export function KilderContent({
   rounds,
   dbCount,
   backlogOnlyCount,
+  initialRoundFilter = 'all',
 }: {
   sources: SourceRow[]
   rounds: RoundOption[]
   dbCount: number
   backlogOnlyCount: number
+  initialRoundFilter?: 'all' | BacklogRound
 }) {
   const [filter, setFilter] = useState<string>('alle')
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<SourceDownloadStatus | 'all'>('all')
-  const [roundFilter, setRoundFilter] = useState<'all' | BacklogRound>('all')
+  const [roundFilter, setRoundFilter] = useState<'all' | BacklogRound>(initialRoundFilter)
   const [originFilter, setOriginFilter] = useState<'all' | 'db' | 'backlog'>('all')
 
   const filteredSources = sources.filter((src) => {

@@ -1,31 +1,50 @@
+import { getSources } from '@/lib/queries/sources'
 import { getInsights } from '@/lib/queries/insights'
 import { prisma } from '@/lib/db'
-import { loadDownloadBacklog, summarizeBacklog } from '@/lib/queries/download-backlog'
-import { ForskningsrunderContent } from './ForskningsrunderContent'
+import {
+  BACKLOG_ROUNDS,
+  backlogOnlyRows,
+  buildBacklogIndex,
+  loadDownloadBacklog,
+  matchSourceToBacklog,
+  summarizeBacklog,
+  type BacklogRound,
+} from '@/lib/queries/download-backlog'
+import { ForskningsrunderContent, type ResearchRoundSnapshot } from './ForskningsrunderContent'
 
-const RESEARCH_ROUND_SOURCE_IDS = [
-  'src-127', 'src-128', 'src-129', 'src-130', 'src-131', 'src-132', 'src-133', 'src-134', 'src-135', 'src-136',
-  'src-137', 'src-138', 'src-139', 'src-140', 'src-141', 'src-142', 'src-143', 'src-144', 'src-145', 'src-146',
-  'src-147', 'src-148', 'src-149', 'src-150', 'src-151', 'src-152', 'src-153',
-]
+const PRIMARY_RESEARCH_ROUND: BacklogRound = '2026-04-20'
+const KONKURS_RESEARCH_ROUND: BacklogRound = 'sirkular-konkurser-2026-04-20'
 
 export default async function ForskningsrunderPage() {
-  const backlogRows = loadDownloadBacklog('download-backlog-2026-04-20.csv')
-  const backlogSummary = summarizeBacklog(backlogRows)
+  const roundInventories = BACKLOG_ROUNDS.map((round) => {
+    const rows = loadDownloadBacklog(round.file)
+    return {
+      id: round.id,
+      label: round.label,
+      rows,
+      summary: summarizeBacklog(rows),
+    }
+  })
 
-  const konkurserBacklogRows = loadDownloadBacklog('download-backlog-sirkular-konkurser-2026-04-20.csv')
-  const konkurserBacklogSummary = summarizeBacklog(konkurserBacklogRows)
+  const backlogRows =
+    roundInventories.find((round) => round.id === PRIMARY_RESEARCH_ROUND)?.rows ?? []
+  const backlogSummary =
+    roundInventories.find((round) => round.id === PRIMARY_RESEARCH_ROUND)?.summary ??
+    summarizeBacklog([])
 
-  const [insights, reports, sources, actors, companies, konkurserActors] = await Promise.all([
+  const konkurserBacklogRows =
+    roundInventories.find((round) => round.id === KONKURS_RESEARCH_ROUND)?.rows ?? []
+  const konkurserBacklogSummary =
+    roundInventories.find((round) => round.id === KONKURS_RESEARCH_ROUND)?.summary ??
+    summarizeBacklog([])
+
+  const [insights, reports, allSources, actors, companies, konkurserActors] = await Promise.all([
     getInsights({ tag: 'forskningsrunde-2026-04-20' }),
     prisma.report.findMany({
       where: { tags: { has: 'forskningsrunde-2026-04-20' } },
       orderBy: { year: 'desc' },
     }),
-    prisma.sourceDoc.findMany({
-      where: { id: { in: RESEARCH_ROUND_SOURCE_IDS } },
-      orderBy: { id: 'asc' },
-    }),
+    getSources(),
     prisma.actor.findMany({
       where: { themeTags: { has: 'forskningsrunde-2026-04-20' } },
       orderBy: { name: 'asc' },
@@ -45,8 +64,66 @@ export default async function ForskningsrunderPage() {
     }),
   ])
 
+  const backlogIndex = buildBacklogIndex(
+    ...roundInventories.map((round) => ({
+      round: round.id,
+      rows: round.rows,
+    })),
+  )
+
+  const matchedSources = allSources.map((source) => ({
+    source,
+    match: matchSourceToBacklog(
+      {
+        filename: source.filename,
+        url: source.url,
+        title: source.title,
+      },
+      backlogIndex,
+    ),
+  }))
+
+  const matchedSourceCounts = matchedSources.reduce<Partial<Record<BacklogRound, number>>>(
+    (counts, entry) => {
+      if (!entry.match.researchRound) return counts
+      counts[entry.match.researchRound] = (counts[entry.match.researchRound] ?? 0) + 1
+      return counts
+    },
+    {},
+  )
+
+  const backlogOnlyCounts = backlogOnlyRows(backlogIndex).reduce<Partial<Record<BacklogRound, number>>>(
+    (counts, entry) => {
+      counts[entry.round] = (counts[entry.round] ?? 0) + 1
+      return counts
+    },
+    {},
+  )
+
+  const sources = matchedSources
+    .filter((entry) => entry.match.researchRound === PRIMARY_RESEARCH_ROUND)
+    .map(({ source }) => ({
+      id: source.id,
+      filename: source.filename,
+      title: source.title,
+      author: source.author,
+      year: source.year,
+      description: source.description,
+      relevance: source.relevance,
+    }))
+
+  const roundSnapshots: ResearchRoundSnapshot[] = roundInventories.map((round) => ({
+    id: round.id,
+    label: round.label,
+    summary: round.summary,
+    matchedSourceCount: matchedSourceCounts[round.id] ?? 0,
+    backlogOnlyCount: backlogOnlyCounts[round.id] ?? 0,
+    detailHref: `/kilder?round=${encodeURIComponent(round.id)}`,
+  }))
+
   return (
     <ForskningsrunderContent
+      roundSnapshots={roundSnapshots}
       insights={insights}
       reports={reports}
       sources={sources}

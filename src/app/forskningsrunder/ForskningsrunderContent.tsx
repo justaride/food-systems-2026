@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { SourceChip } from '@/components/ui/SourceChip'
 import { EmptyState } from '@/components/ui/EmptyState'
-import type { BacklogRow, BacklogSummary } from '@/lib/queries/download-backlog'
+import type { BacklogRow, BacklogRound, BacklogSummary } from '@/lib/queries/download-backlog'
 
 type InsightRow = {
   id: string
@@ -66,6 +66,15 @@ type ThemeBucket = {
   tagFilters: string[]
   emoji?: string
   accent: string
+}
+
+export type ResearchRoundSnapshot = {
+  id: BacklogRound
+  label: string
+  summary: BacklogSummary
+  matchedSourceCount: number
+  backlogOnlyCount: number
+  detailHref: string
 }
 
 const themes: ThemeBucket[] = [
@@ -188,6 +197,7 @@ function statusLabel(status: string): string {
 }
 
 export function ForskningsrunderContent({
+  roundSnapshots,
   insights,
   reports,
   sources,
@@ -199,6 +209,7 @@ export function ForskningsrunderContent({
   konkurserBacklogSummary,
   konkurserActors,
 }: {
+  roundSnapshots: ResearchRoundSnapshot[]
   insights: InsightRow[]
   reports: ReportRow[]
   sources: SourceRow[]
@@ -231,6 +242,70 @@ export function ForskningsrunderContent({
           innarbeidet i evidensnotat-rammeverket.
         </p>
       </div>
+
+      <Card title="Aktive forskningsrunder" className="!p-4">
+        <p className="text-xs text-stone-500 leading-relaxed mb-3">
+          Nye backlog-runder blir synlige her sa snart CSV-ene ligger i{' '}
+          <code className="text-[10px] bg-stone-100 px-1 rounded">research/evidence-pack/</code>.
+          Den detaljerte temagjennomgangen lenger ned er fortsatt knyttet til 20. april-runden.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
+          {roundSnapshots.map((round) => {
+            const downloadPct =
+              round.summary.total > 0
+                ? Math.round((round.summary.downloaded / round.summary.total) * 100)
+                : 0
+
+            return (
+              <Link
+                key={round.id}
+                href={round.detailHref}
+                className="rounded-xl border border-stone-200 bg-white p-4 hover:bg-stone-50 transition-colors"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-sm font-semibold text-stone-800">{round.label}</h3>
+                      {round.id === '2026-04-20' && (
+                        <span className="badge-blue">Detaljseksjon under</span>
+                      )}
+                    </div>
+                    <p className="text-xs text-stone-500 mt-1">
+                      {round.summary.total} backlog-kilder · {round.matchedSourceCount} registrerte i databasen
+                    </p>
+                  </div>
+                  <div className="text-xs font-semibold text-emerald-700 shrink-0">
+                    {downloadPct}% nedlastet
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 mt-3 text-xs">
+                  <div className="rounded-lg bg-emerald-50 border border-emerald-200 p-2">
+                    <div className="font-semibold text-emerald-800">{round.summary.downloaded}</div>
+                    <div className="text-emerald-700/80">Nedlastet</div>
+                  </div>
+                  <div className="rounded-lg bg-amber-50 border border-amber-200 p-2">
+                    <div className="font-semibold text-amber-800">{round.summary.urlOnly}</div>
+                    <div className="text-amber-700/80">Kun URL</div>
+                  </div>
+                  <div className="rounded-lg bg-blue-50 border border-blue-200 p-2">
+                    <div className="font-semibold text-blue-800">{round.matchedSourceCount}</div>
+                    <div className="text-blue-700/80">DB-kilder</div>
+                  </div>
+                  <div className="rounded-lg bg-stone-50 border border-stone-200 p-2">
+                    <div className="font-semibold text-stone-800">{round.backlogOnlyCount}</div>
+                    <div className="text-stone-600">Backlog-only</div>
+                  </div>
+                </div>
+
+                <div className="mt-3 text-xs text-emerald-700 font-medium">
+                  Aapne filtrert kildevisning →
+                </div>
+              </Link>
+            )
+          })}
+        </div>
+      </Card>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {KEY_NUMBERS.map((n) => (

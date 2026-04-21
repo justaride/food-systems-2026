@@ -421,6 +421,65 @@ function walkResearchFiles(dir: string, baseDir = dir): ResearchFile[] {
   return results
 }
 
+function documentFileExists(filePath: string, activePaths: Set<string>): boolean {
+  if (!filePath.trim()) return true
+  if (activePaths.has(filePath)) return true
+
+  const repoRelativePath = path.join(process.cwd(), filePath)
+  const researchRelativePath = path.join(RESEARCH_DIR, filePath)
+  return fs.existsSync(repoRelativePath) || fs.existsSync(researchRelativePath)
+}
+
+async function pruneStaleDocuments(activePaths: Set<string>) {
+  const candidates = await prisma.document.findMany({
+    where: { filePath: { not: '' } },
+    select: { id: true, filePath: true },
+  })
+
+  const staleDocuments = candidates.filter((document) => !documentFileExists(document.filePath, activePaths))
+
+  if (staleDocuments.length === 0) {
+    console.log('\nNo stale research documents to prune')
+    return 0
+  }
+
+  const staleIds = staleDocuments.map((document) => document.id)
+
+  await prisma.$transaction([
+    prisma.documentRef.deleteMany({
+      where: {
+        OR: [{ fromId: { in: staleIds } }, { toId: { in: staleIds } }],
+      },
+    }),
+    prisma.insightDocumentRef.deleteMany({ where: { documentId: { in: staleIds } } }),
+    prisma.companyDocumentRef.deleteMany({ where: { documentId: { in: staleIds } } }),
+    prisma.actorDocumentRef.deleteMany({ where: { documentId: { in: staleIds } } }),
+    prisma.sourceDoc.updateMany({
+      where: { documentId: { in: staleIds } },
+      data: { documentId: null },
+    }),
+    prisma.thesis.updateMany({
+      where: { documentId: { in: staleIds } },
+      data: { documentId: null },
+    }),
+    prisma.report.updateMany({
+      where: { documentId: { in: staleIds } },
+      data: { documentId: null },
+    }),
+    prisma.document.deleteMany({ where: { id: { in: staleIds } } }),
+  ])
+
+  console.log(`\nPruned ${staleDocuments.length} stale research document rows`)
+  for (const document of staleDocuments.slice(0, 10)) {
+    console.log(`  Removed stale document row: ${document.filePath}`)
+  }
+  if (staleDocuments.length > 10) {
+    console.log(`  ...and ${staleDocuments.length - 10} more`)
+  }
+
+  return staleDocuments.length
+}
+
 function extractTitle(content: string): string {
   const match = content.match(/^#\s+(.+)$/m)
   return match ? match[1].trim() : 'Untitled'
@@ -1161,6 +1220,7 @@ async function main() {
   console.log('Importing research documents...\n')
 
   const files = walkResearchFiles(RESEARCH_DIR)
+  const activePaths = new Set(files.map((file) => file.relPath))
   const evidenceBacklog = loadEvidenceBacklog()
   console.log(`Found ${files.length} importable research files (${files.filter(f => f.extension === 'md').length} markdown, ${files.filter(f => f.extension === 'pdf').length} pdf)\n`)
 
@@ -1275,7 +1335,9 @@ async function main() {
     }
   }
 
-  console.log(`\nDone: ${imported} imported, ${skipped} skipped`)
+  const pruned = await pruneStaleDocuments(activePaths)
+
+  console.log(`\nDone: ${imported} imported, ${skipped} skipped, ${pruned} pruned`)
 }
 
 main()

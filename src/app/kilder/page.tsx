@@ -34,7 +34,23 @@ function mapBacklogToType(theme: string, docType: string): string {
   return 'rapport'
 }
 
-export default async function KilderPage() {
+type KilderPageSearchParams = Record<string, string | string[] | undefined>
+
+export default async function KilderPage({
+  searchParams,
+}: {
+  searchParams?: Promise<KilderPageSearchParams> | KilderPageSearchParams
+}) {
+  const resolvedSearchParams = await Promise.resolve(searchParams ?? {})
+  const requestedRound = Array.isArray(resolvedSearchParams.round)
+    ? resolvedSearchParams.round[0]
+    : resolvedSearchParams.round
+  const initialRoundFilter: 'all' | BacklogRound = BACKLOG_ROUNDS.some(
+    (round) => round.id === requestedRound,
+  )
+    ? (requestedRound as BacklogRound)
+    : 'all'
+
   const sources = await getSources()
 
   const backlogsPerRound = BACKLOG_ROUNDS.map((r) => ({
@@ -113,6 +129,7 @@ export default async function KilderPage() {
       rounds={roundOptions}
       dbCount={enrichedFromDb.length}
       backlogOnlyCount={backlogOnly.length}
+      initialRoundFilter={initialRoundFilter}
     />
   )
 }
