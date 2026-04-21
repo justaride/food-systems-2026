@@ -40,6 +40,8 @@ const navGroups = [
     items: [
       { name: 'Verdikjede', href: '/verdikjede', description: 'Nordisk verdikjedeanalyse' },
       { name: 'Forsyningskjede', href: '/forsyningskjede', description: 'Leverandorkjeder og relasjoner' },
+      { name: 'Havbruk', href: '/havbruk', description: 'Lokaliteter og soknader (Fiskeridir)' },
+      { name: 'Subsidier', href: '/subsidier', description: 'Tilskudd per kommune, ordning og mottaker' },
       { name: 'Sirkularitet', href: '/sirkularitet', description: 'R-stige, 10 spormal, looper og caser' },
       { name: 'Okonomi', href: '/okonomi', description: 'Finansielle trender og sammenligning' },
     ],
