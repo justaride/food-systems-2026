@@ -8,6 +8,7 @@ import {
   AQUACULTURE_COLORS,
   PORT_COLORS,
   PROPERTY_COLORS,
+  LOGISTICS_HUB_COLOR,
   type Store,
   type AquacultureProductionType,
   type PortType,
@@ -62,11 +63,12 @@ export default function FoodMap() {
   const desertRef = useRef<L.LayerGroup | null>(null)
   const vulnerabilityRef = useRef<L.GeoJSON | null>(null)
   const propertiesRef = useRef<L.LayerGroup | null>(null)
+  const logisticsRef = useRef<L.LayerGroup | null>(null)
 
   const {
     stores, geojson, activeLayers, activeChains, municipalities,
     aquacultureSites, processingPlants, ports, vulnerabilityScores,
-    companyProperties, setSelectedMunicipality, countryConfig,
+    companyProperties, logisticsHubs, setSelectedMunicipality, countryConfig,
   } = useMapContext()
   const [mapReady, setMapReady] = useState(false)
 
@@ -286,6 +288,44 @@ export default function FoodMap() {
       portsRef.current = null
     }
   }, [ports, activeLayers])
+
+  // Logistics hubs
+  useEffect(() => {
+    if (!mapRef.current) return
+    if (logisticsRef.current) {
+      mapRef.current.removeLayer(logisticsRef.current)
+      logisticsRef.current = null
+    }
+    if (!activeLayers.includes('logistics') || !logisticsHubs.length) return
+
+    const layer = L.layerGroup()
+    for (const hub of logisticsHubs) {
+      const size = hub.storesServed ? Math.min(6 + Math.log10(hub.storesServed) * 3, 14) : 8
+      const marker = L.circleMarker(
+        [hub.coordinates[1], hub.coordinates[0]],
+        { radius: size, fillColor: LOGISTICS_HUB_COLOR, color: '#fff', weight: 2, fillOpacity: 0.85 }
+      )
+      marker.bindPopup(`
+        <div style="min-width:200px">
+          <strong>${hub.name}</strong><br/>
+          <span style="color:${LOGISTICS_HUB_COLOR}">●</span> ${hub.owner}
+          <br/><small>Type: ${hub.type}</small>
+          ${hub.role ? `<br/><small>Rolle: ${hub.role}</small>` : ''}
+          ${hub.capacity ? `<br/><small>Kapasitet: ${hub.capacity}</small>` : ''}
+          ${hub.storesServed ? `<br/><small>Butikker betjent: ${hub.storesServed.toLocaleString()}</small>` : ''}
+          ${hub.city ? `<br/><small>${hub.city}</small>` : ''}
+        </div>
+      `)
+      marker.addTo(layer)
+    }
+    layer.addTo(mapRef.current)
+    logisticsRef.current = layer
+
+    return () => {
+      if (mapRef.current && layer) mapRef.current.removeLayer(layer)
+      logisticsRef.current = null
+    }
+  }, [logisticsHubs, activeLayers])
 
   // Food desert layer (5km radius circles)
   useEffect(() => {

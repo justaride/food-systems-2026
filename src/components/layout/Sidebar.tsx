@@ -43,6 +43,7 @@ const navGroups = [
       { name: 'Styremedlemmer', href: '/styremedlemmer', description: 'Kryssstyrer og nettverk' },
       { name: 'Forsyningskjede', href: '/forsyningskjede', description: 'Leverandorkjeder og relasjoner' },
       { name: 'Eierskap', href: '/eierskap', description: 'Konsernstrukturer og eiertraer' },
+      { name: 'Eiendommer', href: '/eiendommer', description: 'Selskapseiendommer og lokaler' },
     ],
   },
   {

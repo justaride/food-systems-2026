@@ -1,6 +1,6 @@
 export type StoreType = 'discount' | 'convenience' | 'supermarket' | 'hypermarket'
 
-export type MapLayer = 'stores' | 'boundaries' | 'aquaculture' | 'processing' | 'ports' | 'desert' | 'vulnerability' | 'properties'
+export type MapLayer = 'stores' | 'boundaries' | 'aquaculture' | 'processing' | 'ports' | 'desert' | 'vulnerability' | 'properties' | 'logistics'
 
 export type MunicipalityMetrics = {
   storeCount: number
@@ -122,3 +122,5 @@ export const PROPERTY_COLORS: Record<PropertyType, string> = {
   logistics: '#A855F7',
   office: '#6B7280',
 }
+
+export const LOGISTICS_HUB_COLOR = '#9333EA'

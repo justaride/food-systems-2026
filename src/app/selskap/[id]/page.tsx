@@ -209,6 +209,53 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
         </Card>
       )}
 
+      {company.ownedProperties.length > 0 && (
+        <Card title="Eiendommer">
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-stone-200">
+                  <th className="text-left py-2 text-stone-400">Type</th>
+                  <th className="text-left py-2 text-stone-400">Adresse</th>
+                  <th className="text-left py-2 text-stone-400">Kommune</th>
+                  <th className="text-right py-2 text-stone-400">Areal</th>
+                  <th className="text-left py-2 text-stone-400">Selvleie</th>
+                  <th className="text-left py-2 text-stone-400">Leietaker</th>
+                </tr>
+              </thead>
+              <tbody>
+                {company.ownedProperties.map(p => (
+                  <tr key={p.id} className="border-b border-stone-100">
+                    <td className="py-2 text-stone-700">{p.propertyType}</td>
+                    <td className="py-2 text-stone-700">{p.address ?? '—'}</td>
+                    <td className="py-2 text-stone-700">
+                      {p.municipality ?? '—'}
+                      {p.county ? <span className="text-stone-400 ml-1">({p.county})</span> : null}
+                    </td>
+                    <td className="text-right py-2 text-stone-700 tabular-nums">
+                      {p.sqMeters ? `${p.sqMeters.toLocaleString('no')} m²` : '—'}
+                    </td>
+                    <td className="py-2 text-stone-700">{p.selfLeased ? 'Ja' : 'Nei'}</td>
+                    <td className="py-2">
+                      {p.tenantCompany ? (
+                        <Link
+                          href={`/selskap/${p.tenantCompany.id}`}
+                          className="text-rose-700 hover:underline"
+                        >
+                          {p.tenantCompany.name}
+                        </Link>
+                      ) : (
+                        <span className="text-stone-400">—</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+      )}
+
       {company.documentRefs.length > 0 && (
         <Card title="Relaterte dokumenter">
           <div className="space-y-2">

@@ -33,6 +33,10 @@ export async function getCompanyById(id: string) {
       documentRefs: {
         include: { document: { select: { id: true, title: true, slug: true } } },
       },
+      ownedProperties: {
+        include: { tenantCompany: { select: { id: true, name: true } } },
+        orderBy: [{ propertyType: 'asc' }, { municipality: 'asc' }],
+      },
     },
   })
 }
