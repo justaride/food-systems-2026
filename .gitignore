@@ -18,13 +18,12 @@ output/
 
 /src/generated/prisma
 
-# Research binaries — track metadata/manifests, not the files themselves
-research/bibliotek/**/*.pdf
-research/arkiv-sortert/**/*.pdf
+# Research binaries — track metadata/manifests, not the files themselves.
+# Lokale PDF-er beholdes på disk; repo har bare struktur og analyse.
+research/**/*.pdf
 research/arkiv-sortert/**/*.docx
 research/arkiv-sortert/**/*.zip
 research/arkiv-sortert/**/*.xlsx
 research/arkiv-sortert/**/*.xls
 research/arkiv-sortert/**/*.numbers
-research/pdf-downloads-20-04-26/**/*.pdf
 docs/**/*.pdf
