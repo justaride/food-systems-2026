@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { RLadderMatrix } from '@/components/charts/RLadderMatrix'
@@ -8,6 +9,7 @@ import { RLadderMaturityOverview } from '@/components/charts/RLadderMaturityOver
 import { R9KpiCatalog } from '@/components/charts/R9KpiCatalog'
 import { NutrientFlowsView } from '@/components/charts/NutrientFlowsView'
 import { circularityQuestions, type CircularityQuestion, type QuestionStatus } from '@/lib/data/circularity-questions'
+import { CIRCULARITY_ACTOR_MAP } from '@/lib/data/circularity-actor-map'
 import { rLadderById } from '@/lib/data/r-ladder'
 
 type Loop = {
@@ -502,11 +504,25 @@ export function SirkularitetContent() {
                         <div>
                           <p className="text-xs font-medium text-stone-500 mb-1">Aktorer</p>
                           <div className="flex flex-wrap gap-1.5">
-                            {loop.actors.map((a) => (
-                              <span key={a} className="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200">
-                                {a}
-                              </span>
-                            ))}
+                            {loop.actors.map((a) => {
+                              const mapping = CIRCULARITY_ACTOR_MAP[a]
+                              if (mapping) {
+                                return (
+                                  <Link
+                                    key={a}
+                                    href={mapping.href}
+                                    className="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200 hover:underline cursor-pointer"
+                                  >
+                                    {a}
+                                  </Link>
+                                )
+                              }
+                              return (
+                                <span key={a} className="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200">
+                                  {a}
+                                </span>
+                              )
+                            })}
                           </div>
                         </div>
                         <div>
@@ -627,7 +643,17 @@ export function SirkularitetContent() {
                     </svg>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className="text-sm font-semibold text-stone-800">{actor.name}</h3>
+                        {CIRCULARITY_ACTOR_MAP[actor.name] ? (
+                          <Link
+                            href={CIRCULARITY_ACTOR_MAP[actor.name].href}
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-sm font-semibold text-stone-800 hover:underline cursor-pointer"
+                          >
+                            {actor.name}
+                          </Link>
+                        ) : (
+                          <h3 className="text-sm font-semibold text-stone-800">{actor.name}</h3>
+                        )}
                         <span className="text-[10px] px-1.5 py-0.5 rounded border bg-emerald-50 text-emerald-700 border-emerald-200">
                           {COUNTRY_FLAGS[actor.country] ?? actor.country}
                         </span>
@@ -686,7 +712,17 @@ export function SirkularitetContent() {
                     </svg>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className="text-sm font-semibold text-stone-800">{actor.name}</h3>
+                        {CIRCULARITY_ACTOR_MAP[actor.name] ? (
+                          <Link
+                            href={CIRCULARITY_ACTOR_MAP[actor.name].href}
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-sm font-semibold text-stone-800 hover:underline cursor-pointer"
+                          >
+                            {actor.name}
+                          </Link>
+                        ) : (
+                          <h3 className="text-sm font-semibold text-stone-800">{actor.name}</h3>
+                        )}
                         <span className="text-[10px] px-1.5 py-0.5 rounded border bg-rose-50 text-rose-700 border-rose-200">
                           {COUNTRY_FLAGS[actor.country] ?? actor.country}
                         </span>
