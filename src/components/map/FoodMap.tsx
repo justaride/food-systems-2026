@@ -9,10 +9,12 @@ import {
   PORT_COLORS,
   PROPERTY_COLORS,
   LOGISTICS_HUB_COLOR,
+  FARM_COLORS,
   type Store,
   type AquacultureProductionType,
   type PortType,
   type PropertyType,
+  type FarmType,
 } from '@/lib/map/types'
 import { getVulnerabilityColor } from '@/lib/map/vulnerability'
 
@@ -64,11 +66,12 @@ export default function FoodMap() {
   const vulnerabilityRef = useRef<L.GeoJSON | null>(null)
   const propertiesRef = useRef<L.LayerGroup | null>(null)
   const logisticsRef = useRef<L.LayerGroup | null>(null)
+  const farmsRef = useRef<L.LayerGroup | null>(null)
 
   const {
     stores, geojson, activeLayers, activeChains, municipalities,
     aquacultureSites, processingPlants, ports, vulnerabilityScores,
-    companyProperties, logisticsHubs, setSelectedMunicipality, countryConfig,
+    companyProperties, logisticsHubs, farms, setSelectedMunicipality, countryConfig,
   } = useMapContext()
   const [mapReady, setMapReady] = useState(false)
 
@@ -326,6 +329,53 @@ export default function FoodMap() {
       logisticsRef.current = null
     }
   }, [logisticsHubs, activeLayers])
+
+  // Farms (primary production)
+  useEffect(() => {
+    if (!mapRef.current) return
+    if (farmsRef.current) {
+      mapRef.current.removeLayer(farmsRef.current)
+      farmsRef.current = null
+    }
+    if (!activeLayers.includes('farms') || !farms.length) return
+
+    const farmTypeLabels: Record<FarmType, string> = {
+      grain: 'Korn',
+      vegetables: 'Grønnsaker',
+      dairy: 'Melk',
+      livestock: 'Husdyr',
+      mixed: 'Blandet',
+      other: 'Annet',
+    }
+
+    const layer = L.layerGroup()
+    for (const farm of farms) {
+      const color = FARM_COLORS[farm.type] || FARM_COLORS.other
+      const size = farm.productionArea ? Math.min(5 + Math.sqrt(farm.productionArea) * 0.4, 12) : 6
+      const muniName = municipalities[farm.municipalityCode]?.name ?? farm.municipalityCode
+      const marker = L.circleMarker(
+        [farm.coordinates[1], farm.coordinates[0]],
+        { radius: size, fillColor: color, color: '#fff', weight: 1.5, fillOpacity: 0.85 }
+      )
+      marker.bindPopup(`
+        <div style="min-width:200px">
+          <strong>${farm.id}</strong><br/>
+          <span style="color:${color}">●</span> ${farmTypeLabels[farm.type]}
+          ${muniName ? `<br/><small>Kommune: ${muniName}</small>` : ''}
+          ${farm.productionArea ? `<br/><small>Produksjonsareal: ${farm.productionArea.toLocaleString()} daa</small>` : ''}
+          ${farm.products.length ? `<br/><small>Produkter: ${farm.products.join(', ')}</small>` : ''}
+        </div>
+      `)
+      marker.addTo(layer)
+    }
+    layer.addTo(mapRef.current)
+    farmsRef.current = layer
+
+    return () => {
+      if (mapRef.current && layer) mapRef.current.removeLayer(layer)
+      farmsRef.current = null
+    }
+  }, [farms, activeLayers, municipalities])
 
   // Food desert layer (5km radius circles)
   useEffect(() => {

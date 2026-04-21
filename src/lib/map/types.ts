@@ -1,6 +1,6 @@
 export type StoreType = 'discount' | 'convenience' | 'supermarket' | 'hypermarket'
 
-export type MapLayer = 'stores' | 'boundaries' | 'aquaculture' | 'processing' | 'ports' | 'desert' | 'vulnerability' | 'properties' | 'logistics'
+export type MapLayer = 'stores' | 'boundaries' | 'aquaculture' | 'processing' | 'ports' | 'desert' | 'vulnerability' | 'properties' | 'logistics' | 'farms'
 
 export type MunicipalityMetrics = {
   storeCount: number
@@ -97,6 +97,17 @@ export type LogisticsHub = {
   coordinates: [number, number]
 }
 
+export type FarmType = 'grain' | 'vegetables' | 'dairy' | 'livestock' | 'mixed' | 'other'
+
+export type Farm = {
+  id: string
+  municipalityCode: string
+  type: FarmType
+  productionArea?: number
+  products: string[]
+  coordinates: [number, number]
+}
+
 export const AQUACULTURE_COLORS: Record<AquacultureProductionType, string> = {
   matfisk: '#0891B2',
   settefisk: '#8B5CF6',
@@ -124,3 +135,14 @@ export const PROPERTY_COLORS: Record<PropertyType, string> = {
 }
 
 export const LOGISTICS_HUB_COLOR = '#9333EA'
+
+export const FARMS_COLOR = '#65A30D'
+
+export const FARM_COLORS: Record<FarmType, string> = {
+  grain: '#CA8A04',
+  vegetables: '#65A30D',
+  dairy: '#0EA5E9',
+  livestock: '#B45309',
+  mixed: '#4D7C0F',
+  other: '#6B7280',
+}

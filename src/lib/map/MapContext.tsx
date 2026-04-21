@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, type ReactNode } from 'react'
 import type {
   Store, Municipality, MapLayer,
-  AquacultureSite, ProcessingPlant, Port, LogisticsHub, MunicipalityMetrics,
+  AquacultureSite, ProcessingPlant, Port, LogisticsHub, Farm, FarmType, MunicipalityMetrics,
 } from './types'
 import { calculateMunicipalityMetrics } from './metrics'
 import { calculateVulnerabilityScores, type VulnerabilityScore } from './vulnerability'
@@ -27,6 +27,7 @@ type MapContextType = {
   processingPlants: ProcessingPlant[]
   ports: Port[]
   logisticsHubs: LogisticsHub[]
+  farms: Farm[]
   municipalityMetrics: Record<string, MunicipalityMetrics>
   vulnerabilityScores: Record<string, VulnerabilityScore>
   companyProperties: GeoJSON.FeatureCollection | null
@@ -125,6 +126,26 @@ function parseLogisticsHubs(geojson: GeoJSON.FeatureCollection): LogisticsHub[] 
     })
 }
 
+function parseFarms(geojson: GeoJSON.FeatureCollection): Farm[] {
+  const knownTypes: FarmType[] = ['grain', 'vegetables', 'dairy', 'livestock', 'mixed', 'other']
+  return geojson.features
+    .filter(f => f.geometry.type === 'Point')
+    .map(f => {
+      const p = f.properties || {}
+      const coords = (f.geometry as GeoJSON.Point).coordinates as [number, number]
+      const rawType = String(p.type || 'other').toLowerCase()
+      const type: FarmType = (knownTypes as string[]).includes(rawType) ? (rawType as FarmType) : 'other'
+      return {
+        id: p.id || '',
+        municipalityCode: p.municipalityCode || '',
+        type,
+        productionArea: typeof p.productionArea === 'number' ? p.productionArea : undefined,
+        products: Array.isArray(p.products) ? p.products : [],
+        coordinates: coords,
+      }
+    })
+}
+
 function dataPath(country: CountryCode, file: string): string {
   return `/data/food-systems/${country}/${file}`
 }
@@ -142,6 +163,7 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
   const [processingPlants, setProcessingPlants] = useState<ProcessingPlant[]>([])
   const [ports, setPorts] = useState<Port[]>([])
   const [logisticsHubs, setLogisticsHubs] = useState<LogisticsHub[]>([])
+  const [farms, setFarms] = useState<Farm[]>([])
   const [companyProperties, setCompanyProperties] = useState<GeoJSON.FeatureCollection | null>(null)
   const [selectedMunicipality, setSelectedMunicipality] = useState<string | null>(null)
 
@@ -155,6 +177,7 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
     setProcessingPlants([])
     setPorts([])
     setLogisticsHubs([])
+    setFarms([])
     setSelectedMunicipality(null)
 
     const fetchJson = (url: string) =>
@@ -186,10 +209,11 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
         dataFiles.processing ? optionalFetch(dataPath(country, dataFiles.processing)) : Promise.resolve(null),
         dataFiles.ports ? optionalFetch(dataPath(country, dataFiles.ports)) : Promise.resolve(null),
         dataFiles.logistics ? optionalFetch(dataPath(country, dataFiles.logistics)) : Promise.resolve(null),
+        dataFiles.farms ? optionalFetch(dataPath(country, dataFiles.farms)) : Promise.resolve(null),
       ]
 
       Promise.all([...required, ...optional])
-        .then(([storesData, municipalitiesData, geojsonData, aquaData, plantData, portData, hubData]) => {
+        .then(([storesData, municipalitiesData, geojsonData, aquaData, plantData, portData, hubData, farmData]) => {
           setStores(storesData)
           setMunicipalities(municipalitiesData)
           setGeojson(geojsonData)
@@ -197,6 +221,7 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
           if (plantData) setProcessingPlants(parseProcessingPlants(plantData))
           if (portData) setPorts(parsePorts(portData))
           if (hubData) setLogisticsHubs(parseLogisticsHubs(hubData))
+          if (farmData) setFarms(parseFarms(farmData))
           setIsLoading(false)
         })
         .catch(err => {
@@ -284,6 +309,7 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
     processingPlants,
     ports,
     logisticsHubs,
+    farms,
     municipalityMetrics,
     vulnerabilityScores,
     companyProperties,
@@ -292,7 +318,7 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
   }), [
     isLoading, error, country, countryConfig, stores, municipalities, geojson,
     activeLayers, toggleLayer, activeChains, toggleChain,
-    aquacultureSites, processingPlants, ports, logisticsHubs,
+    aquacultureSites, processingPlants, ports, logisticsHubs, farms,
     municipalityMetrics, vulnerabilityScores, companyProperties, selectedMunicipality,
   ])
 

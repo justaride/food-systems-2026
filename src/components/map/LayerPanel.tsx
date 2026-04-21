@@ -17,9 +17,15 @@ const BASE_LAYER_GROUPS: LayerGroup[] = [
     ],
   },
   {
+    label: 'Primærproduksjon',
+    layers: [
+      { id: 'farms', label: 'Gårder' },
+      { id: 'aquaculture', label: 'Akvakultur' },
+    ],
+  },
+  {
     label: 'Verdikjede',
     layers: [
-      { id: 'aquaculture', label: 'Akvakultur' },
       { id: 'processing', label: 'Foredlingsanlegg' },
       { id: 'ports', label: 'Havner' },
       { id: 'logistics', label: 'Logistikkhub' },
@@ -36,13 +42,14 @@ const BASE_LAYER_GROUPS: LayerGroup[] = [
 ]
 
 export default function LayerPanel() {
-  const { activeLayers, toggleLayer, activeChains, toggleChain, stores, isLoading, aquacultureSites, processingPlants, ports, logisticsHubs, vulnerabilityScores, companyProperties, countryConfig } = useMapContext()
+  const { activeLayers, toggleLayer, activeChains, toggleChain, stores, isLoading, aquacultureSites, processingPlants, ports, logisticsHubs, farms, vulnerabilityScores, companyProperties, countryConfig } = useMapContext()
 
   const hasData: Record<string, boolean> = {
     aquaculture: aquacultureSites.length > 0,
     processing: processingPlants.length > 0,
     ports: ports.length > 0,
     logistics: logisticsHubs.length > 0,
+    farms: farms.length > 0,
     properties: (companyProperties?.features?.length ?? 0) > 0,
     vulnerability: Object.keys(vulnerabilityScores).length > 0,
   }
@@ -68,6 +75,7 @@ export default function LayerPanel() {
         {!isLoading && (
           <p className="text-xs text-stone-400 mt-1">
             {visibleCount.toLocaleString()} av {storeCount.toLocaleString()} butikker
+            {farms.length > 0 && ` · ${farms.length} gårder`}
             {aquacultureSites.length > 0 && ` · ${aquacultureSites.length} akvakultur`}
             {processingPlants.length > 0 && ` · ${processingPlants.length} anlegg`}
             {ports.length > 0 && ` · ${ports.length} havner`}
