@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
 
 type PersonRole = {
-  companyId: string
+  companyId: string | null
   companyName: string
   role: string
   fromYear: number | null

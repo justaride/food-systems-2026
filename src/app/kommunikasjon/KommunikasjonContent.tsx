@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
@@ -15,6 +16,7 @@ type CommunicationRow = {
   recipients: string[]
   date: string
   tags: string[]
+  documentSlug?: string | null
 }
 
 const typeFilters = [
@@ -53,12 +55,18 @@ export function KommunikasjonContent({ communications }: { communications: Commu
                 <StatusBadge status={item.commType} />
               </div>
               <p className="text-sm text-stone-600 leading-relaxed">{item.summary}</p>
-              <div className="flex gap-3 mt-2.5 text-xs text-stone-400">
-                <span>Fra: {item.sender}</span>
-                <span>·</span>
-                <span>Til: {formatTo(item.recipients)}</span>
-                <span>·</span>
-                <span>{item.date}</span>
+              <div className="flex flex-wrap gap-3 mt-2.5 text-xs text-stone-400">
+                {item.sender && <span>Fra: {item.sender}</span>}
+                {item.recipients.length > 0 && <span>Til: {formatTo(item.recipients)}</span>}
+                {item.date && <span>{item.date}</span>}
+                {item.documentSlug && (
+                  <Link
+                    href={`/bibliotek/${item.documentSlug}`}
+                    className="text-emerald-700 hover:underline"
+                  >
+                    Apne dokument
+                  </Link>
+                )}
               </div>
             </Card>
           ))}

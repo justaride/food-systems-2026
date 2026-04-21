@@ -1,7 +1,7 @@
 'use client'
 
 type PersonRole = {
-  companyId: string
+  companyId: string | null
   companyName: string
   role: string
   fromYear: number | null

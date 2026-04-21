@@ -4,6 +4,14 @@ import { Card } from '@/components/ui/Card'
 import { getPersonByKey } from '@/lib/queries/persons'
 import { RoleTimeline } from '@/components/charts/RoleTimeline'
 
+type PersonRole = {
+  companyId: string | null
+  companyName: string
+  role: string
+  fromYear: number | null
+  toYear: number | null
+}
+
 export default async function PersonPage({ params }: { params: Promise<{ personKey: string }> }) {
   const { personKey } = await params
   const person = await getPersonByKey(personKey)
@@ -35,12 +43,16 @@ export default async function PersonPage({ params }: { params: Promise<{ personK
       <Card title="Roller">
         <RoleTimeline roles={person.roles} />
         <div className="mt-4 space-y-2">
-          {person.roles.map((role, i) => (
+          {person.roles.map((role: PersonRole, i) => (
             <div key={i} className="flex items-center justify-between py-2 border-b border-stone-100 last:border-0">
               <div>
-                <Link href={`/selskap/${role.companyId}`} className="text-sm font-medium text-emerald-700 hover:underline">
-                  {role.companyName}
-                </Link>
+                {role.companyId ? (
+                  <Link href={`/selskap/${role.companyId}`} className="text-sm font-medium text-emerald-700 hover:underline">
+                    {role.companyName}
+                  </Link>
+                ) : (
+                  <span className="text-sm font-medium text-stone-800">{role.companyName}</span>
+                )}
                 <span className="ml-2 text-xs text-stone-400">{role.role}</span>
               </div>
               <span className="text-xs text-stone-400 tabular-nums">
