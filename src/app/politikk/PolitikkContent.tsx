@@ -1,8 +1,11 @@
 'use client'
 
+import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { COUNTRY_LIST } from '@/lib/config/countries'
 import type { CountryCode } from '@/lib/config/countries'
+import type { PolicyDocumentsByCountry } from '@/lib/queries/documents'
+import type { BacklogRowWithRound } from '@/lib/queries/download-backlog'
 
 type CountryPolicy = {
   status?: string
@@ -206,9 +209,19 @@ function longText(entry: CountryPolicy | undefined): string | null {
 
 type Props = {
   data: PolicyLandscape
+  docsByCountry: PolicyDocumentsByCountry
+  backlogByCountry: Record<string, BacklogRowWithRound[]>
 }
 
-export function PolitikkContent({ data }: Props) {
+const COUNTRY_DOC_KEYS: Array<{ code: CountryCode; key: 'no' | 'se' | 'dk' | 'fi' | 'is' }> = [
+  { code: 'no', key: 'no' },
+  { code: 'se', key: 'se' },
+  { code: 'dk', key: 'dk' },
+  { code: 'fi', key: 'fi' },
+  { code: 'is', key: 'is' },
+]
+
+export function PolitikkContent({ data, docsByCountry, backlogByCountry }: Props) {
   const policyEntries = Object.entries(data.policies)
   const eu = data.eu_framework
 
@@ -227,6 +240,76 @@ export function PolitikkContent({ data }: Props) {
           {data.generated}
         </p>
       </div>
+
+      {/* Dynamic document coverage from the DB */}
+      <Card>
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+          <h2 className="text-sm font-semibold text-stone-700">
+            Dokumentdekning i databasen
+          </h2>
+          <div className="flex gap-2 text-xs">
+            <Link
+              href="/bibliotek"
+              className="px-2 py-1 rounded border border-stone-200 bg-white hover:bg-stone-50 text-stone-700"
+            >
+              Utforsk /bibliotek →
+            </Link>
+            <Link
+              href="/kilder"
+              className="px-2 py-1 rounded border border-stone-200 bg-white hover:bg-stone-50 text-stone-700"
+            >
+              Utforsk /kilder →
+            </Link>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2">
+          {[
+            ...COUNTRY_DOC_KEYS.map(({ code, key }) => ({
+              code: code as string,
+              flag: countryMeta(code).flag,
+              name: countryMeta(code).name,
+              data: docsByCountry[key],
+            })),
+            {
+              code: 'nordic',
+              flag: '🌍',
+              name: 'Nordisk',
+              data: docsByCountry.nordic,
+            },
+            {
+              code: 'eu',
+              flag: '🇪🇺',
+              name: 'EU',
+              data: docsByCountry.eu,
+            },
+          ].map(({ code, flag, name, data: d }) => (
+            <div
+              key={code}
+              className="border border-stone-200 rounded-lg p-3 bg-white"
+            >
+              <div className="text-xs font-semibold text-stone-800 mb-1">
+                {flag} {name}
+              </div>
+              <div className="text-2xl font-bold text-stone-900 leading-none">
+                {d.total}
+              </div>
+              <div className="text-[11px] text-stone-500 mt-1">
+                totalt i DB
+              </div>
+              <div className="text-[11px] text-emerald-700 mt-0.5">
+                {d.policyRelevant} policy-relevante
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="text-[11px] text-stone-400 mt-3">
+          Tall hentet direkte fra <span className="font-mono">Document</span>-tabellen
+          (felt <span className="font-mono">country</span>). &ldquo;Policy-relevante&rdquo;
+          filtrerer på <span className="font-mono">documentType</span> (policy,
+          policy_report, legal, regulatory, decision, strategy, think-tank) eller
+          policy-tags (beredskap, selvforsyning, matsvinn, CO2, UTP, sirkulær, PFAS, biogass m.m.).
+        </p>
+      </Card>
 
       {/* Legend */}
       <Card>
@@ -581,6 +664,122 @@ export function PolitikkContent({ data }: Props) {
             </div>
           </Card>
         ))}
+      </div>
+
+      {/* Per-country related documents (DB + backlog) */}
+      <div className="space-y-4">
+        <div className="flex items-end justify-between gap-3 flex-wrap">
+          <h2 className="text-xl font-semibold text-stone-800">Relaterte dokumenter per land</h2>
+          <p className="text-xs text-stone-500 max-w-xl">
+            Policy-relevante dokumenter i databasen og uutnyttede P1/P2-kilder fra
+            forskningsbacklogen. Klikk tittel for å åpne dokumentet i{' '}
+            <Link href="/bibliotek" className="underline decoration-stone-300">
+              /bibliotek
+            </Link>
+            .
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {COUNTRY_DOC_KEYS.map(({ code, key }) => {
+            const meta = countryMeta(code)
+            const dbDocs = docsByCountry[key]
+            const backlogRows = backlogByCountry[key.toUpperCase()] ?? []
+            const backlogTop = backlogRows.slice(0, 8)
+            return (
+              <Card key={code}>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-sm font-semibold text-stone-800">
+                    {meta.flag} {meta.name}
+                  </h3>
+                  <span className="text-[11px] text-stone-500">
+                    {dbDocs.total} i DB · {dbDocs.policyRelevant} policy-relevante
+                    {backlogRows.length > 0 ? ` · ${backlogRows.length} i backlog` : ''}
+                  </span>
+                </div>
+
+                <div className="text-[11px] uppercase tracking-wider font-semibold text-stone-500 mb-1">
+                  Fra databasen
+                </div>
+                {dbDocs.samples.length === 0 ? (
+                  <p className="text-[12px] text-stone-400 italic mb-3">
+                    Ingen policy-merkede dokumenter for {meta.name} enda.
+                  </p>
+                ) : (
+                  <ul className="space-y-1.5 mb-3">
+                    {dbDocs.samples.map((doc) => (
+                      <li key={doc.id} className="text-[12px] leading-snug">
+                        <Link
+                          href={`/bibliotek/${doc.slug}`}
+                          className="text-stone-800 hover:text-emerald-800 hover:underline"
+                        >
+                          {doc.title}
+                        </Link>
+                        <span className="text-stone-400">
+                          {doc.year != null ? ` · ${doc.year}` : ''}
+                          {doc.documentType ? ` · ${doc.documentType}` : ''}
+                          {doc.author ? ` · ${doc.author}` : ''}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {dbDocs.policyRelevant > dbDocs.samples.length && (
+                  <div className="mb-3">
+                    <Link
+                      href={`/bibliotek?country=${key}`}
+                      className="text-[11px] text-emerald-700 hover:underline"
+                    >
+                      Se alle {dbDocs.policyRelevant} policy-relevante {meta.name}-dokumenter →
+                    </Link>
+                  </div>
+                )}
+
+                {backlogTop.length > 0 && (
+                  <>
+                    <div className="text-[11px] uppercase tracking-wider font-semibold text-stone-500 mb-1 mt-2">
+                      P1/P2 fra backlog
+                    </div>
+                    <ul className="space-y-1.5">
+                      {backlogTop.map((row, idx) => (
+                        <li key={`${row.round}-${idx}`} className="text-[12px] leading-snug">
+                          {row.url ? (
+                            <a
+                              href={row.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="text-stone-800 hover:text-emerald-800 hover:underline"
+                            >
+                              {row.title || '(uten tittel)'}
+                            </a>
+                          ) : (
+                            <span className="text-stone-800">{row.title || '(uten tittel)'}</span>
+                          )}
+                          <span className="text-stone-400">
+                            {row.year ? ` · ${row.year}` : ''}
+                            {` · ${row.priority}`}
+                            {row.theme ? ` · ${row.theme}` : ''}
+                            {row.institution ? ` · ${row.institution}` : ''}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    {backlogRows.length > backlogTop.length && (
+                      <div className="mt-2">
+                        <Link
+                          href="/kilder"
+                          className="text-[11px] text-emerald-700 hover:underline"
+                        >
+                          +{backlogRows.length - backlogTop.length} flere i backlog · Se /kilder →
+                        </Link>
+                      </div>
+                    )}
+                  </>
+                )}
+              </Card>
+            )
+          })}
+        </div>
       </div>
     </div>
   )

@@ -122,6 +122,9 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
       <div className="flex items-baseline justify-between">
         <div>
           <h1 className="text-2xl font-bold text-stone-900">Bibliotek</h1>
+          <p className="text-xs uppercase tracking-wider text-stone-500 mt-0.5 font-medium">
+            Dokumentleser — fulltekst og søk i nedlastede dokumenter
+          </p>
           <p className="text-sm text-stone-400 mt-1">
             {documents.length} forskningsdokumenter · {formatWordCount(totalWords)} totalt
           </p>

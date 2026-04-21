@@ -133,6 +133,9 @@ export function KilderContent({
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold text-stone-900 tracking-tight">Kunnskapsgrunnlag</h1>
+          <p className="text-xs uppercase tracking-wider text-stone-500 mt-1 font-medium">
+            Kilderegister — alle kilder som ligger til grunn for analysene
+          </p>
           <p className="text-stone-500 mt-2 max-w-2xl">
             Full kildeoversikt for Food Systems 2026. Inkluderer både sporede kilder i databasen
             ({dbCount}), dokumenter i biblioteket uten eget SourceDoc-lag ({documentCount}) og

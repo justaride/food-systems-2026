@@ -12,11 +12,107 @@ export type GraphEdge = {
   source: string
   target: string
   type: string
+  confidence?: number // 0..1 — omitted when unknown
+  sourceLabel?: string // provenance label, e.g. "brreg", "inferred", "manual"
+}
+
+export type DuplicateGroup = {
+  key: string
+  label: string
+  ids: string[]
+}
+
+export type GraphQualityReport = {
+  companyNameDuplicates: DuplicateGroup[]
+  companyOrgNrDuplicates: DuplicateGroup[]
+  personNameDuplicates: DuplicateGroup[]
+  personKeyDuplicates: DuplicateGroup[]
+  businessRelationshipDuplicates: DuplicateGroup[]
+  orphanBoardMembers: Array<{ companyId: string; companyName: string; personKey: string; personName: string }>
+  edgeConfidenceCoverage: {
+    totalEdges: number
+    withConfidence: number
+    withoutConfidence: number
+  }
 }
 
 export type GraphData = {
   nodes: GraphNode[]
   edges: GraphEdge[]
+  quality?: GraphQualityReport
+}
+
+function normalizeCompanyName(raw: string): string {
+  return raw
+    .toLowerCase()
+    .trim()
+    .replace(/\s+(as|asa|sa|ba|ans|da)\b\.?$/i, '')
+    .replace(/[.,]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function normalizePersonName(raw: string): string {
+  return raw.toLowerCase().trim().replace(/\s+/g, ' ')
+}
+
+function groupBy<T>(items: T[], keyFn: (item: T) => string | null | undefined): Map<string, T[]> {
+  const map = new Map<string, T[]>()
+  for (const item of items) {
+    const key = keyFn(item)
+    if (!key) continue
+    const bucket = map.get(key)
+    if (bucket) bucket.push(item)
+    else map.set(key, [item])
+  }
+  return map
+}
+
+/**
+ * Infer confidence for a graph edge. Returns a number 0..1 or undefined when
+ * no signal is available. We do NOT invent fake values — absent = undefined.
+ *
+ * Inputs:
+ *   - metadata.confidence (already 0..1) wins
+ *   - else map `sourceType`/`source` to bucket:
+ *       primary  → 0.95  (e.g. brreg, offentligdata, official registry)
+ *       secondary→ 0.7   (e.g. news, annual-report, press)
+ *       inferred → 0.4   (e.g. inferred, derived, heuristic)
+ */
+function inferConfidence(
+  metadata: unknown,
+  source: string | null | undefined,
+): { confidence?: number; sourceLabel?: string } {
+  const meta = metadata as { confidence?: unknown; sourceType?: unknown } | null | undefined
+  const metaConf =
+    meta && typeof meta === 'object' && 'confidence' in meta ? meta.confidence : undefined
+  if (typeof metaConf === 'number' && metaConf >= 0 && metaConf <= 1) {
+    return { confidence: metaConf, sourceLabel: source ?? undefined }
+  }
+
+  if (!source) return { sourceLabel: undefined }
+  const s = source.toLowerCase()
+  if (s.includes('brreg') || s.includes('offentligdata') || s.includes('registry') || s.includes('official')) {
+    return { confidence: 0.95, sourceLabel: source }
+  }
+  if (
+    s.includes('inferred') ||
+    s.includes('derived') ||
+    s.includes('heuristic') ||
+    s.includes('estimated')
+  ) {
+    return { confidence: 0.4, sourceLabel: source }
+  }
+  if (
+    s.includes('report') ||
+    s.includes('press') ||
+    s.includes('news') ||
+    s.includes('media') ||
+    s.includes('annual')
+  ) {
+    return { confidence: 0.7, sourceLabel: source }
+  }
+  return { sourceLabel: source }
 }
 
 export async function getDocumentGraph(id: string): Promise<GraphData> {
@@ -104,7 +200,7 @@ export async function getFullGraph(): Promise<GraphData> {
       where: { documentId: { not: null } },
       select: { id: true, title: true, tags: true, documentId: true },
     }),
-    prisma.company.findMany({ select: { id: true, name: true } }),
+    prisma.company.findMany({ select: { id: true, name: true, orgNr: true } }),
   ])
 
   let actors: Array<{ id: string; name: string; themeTags: string[]; companyId: string | null }> = []
@@ -130,18 +226,36 @@ export async function getFullGraph(): Promise<GraphData> {
     if (!isMissingPrismaTable(error, 'Actor')) throw error
   }
 
-  const [ownershipEdges, bizRelEdges, personProfiles, properties] = await Promise.all([
+  const [ownershipEdges, bizRelEdges, personProfiles, properties, boardMembers] = await Promise.all([
     prisma.companyOwnership.findMany({
-      select: { parentCompanyId: true, childCompanyId: true, ownershipType: true },
+      select: {
+        parentCompanyId: true,
+        childCompanyId: true,
+        ownershipType: true,
+        source: true,
+        metadata: true,
+      },
     }),
     prisma.businessRelationship.findMany({
-      select: { fromCompanyId: true, toCompanyId: true, relationshipType: true },
+      select: {
+        fromCompanyId: true,
+        toCompanyId: true,
+        relationshipType: true,
+        source: true,
+        metadata: true,
+      },
     }),
     prisma.personProfile.findMany({
-      select: { id: true, name: true, tags: true, roles: true },
+      select: { id: true, name: true, personKey: true, tags: true, roles: true },
     }),
     prisma.companyProperty.findMany({
-      select: { id: true, companyId: true, propertyType: true, municipality: true, selfLeased: true, tenantCompanyId: true },
+      select: { id: true, companyId: true, propertyType: true, municipality: true, selfLeased: true, tenantCompanyId: true, source: true, metadata: true },
+    }),
+    prisma.boardMember.findMany({
+      select: { id: true, companyId: true, personKey: true, personName: true, role: true },
+    }).catch((error) => {
+      if (isMissingPrismaTable(error, 'BoardMember')) return []
+      throw error
     }),
   ])
 
@@ -181,16 +295,113 @@ export async function getFullGraph(): Promise<GraphData> {
     ...theses
       .filter(t => t.documentId)
       .map(t => ({ source: t.documentId!, target: t.id, type: 'thesis-doc' })),
-    ...ownershipEdges.map(r => ({ source: r.parentCompanyId, target: r.childCompanyId, type: r.ownershipType })),
-    ...bizRelEdges.map(r => ({ source: r.fromCompanyId, target: r.toCompanyId, type: r.relationshipType })),
+    ...ownershipEdges.map((r) => {
+      const { confidence, sourceLabel } = inferConfidence(r.metadata, r.source)
+      return {
+        source: r.parentCompanyId,
+        target: r.childCompanyId,
+        type: r.ownershipType,
+        ...(confidence !== undefined ? { confidence } : {}),
+        ...(sourceLabel ? { sourceLabel } : {}),
+      }
+    }),
+    ...bizRelEdges.map((r) => {
+      const { confidence, sourceLabel } = inferConfidence(r.metadata, r.source)
+      return {
+        source: r.fromCompanyId,
+        target: r.toCompanyId,
+        type: r.relationshipType,
+        ...(confidence !== undefined ? { confidence } : {}),
+        ...(sourceLabel ? { sourceLabel } : {}),
+      }
+    }),
     ...personEdges,
-    ...properties.map(p => ({ source: p.companyId, target: p.id, type: 'owns-property' })),
+    ...properties.map((p) => {
+      const { confidence, sourceLabel } = inferConfidence(p.metadata, p.source)
+      return {
+        source: p.companyId,
+        target: p.id,
+        type: 'owns-property',
+        ...(confidence !== undefined ? { confidence } : {}),
+        ...(sourceLabel ? { sourceLabel } : {}),
+      }
+    }),
     ...properties
       .filter(p => p.tenantCompanyId)
-      .map(p => ({ source: p.tenantCompanyId!, target: p.id, type: 'leases-property' })),
+      .map((p) => {
+        const { confidence, sourceLabel } = inferConfidence(p.metadata, p.source)
+        return {
+          source: p.tenantCompanyId!,
+          target: p.id,
+          type: 'leases-property',
+          ...(confidence !== undefined ? { confidence } : {}),
+          ...(sourceLabel ? { sourceLabel } : {}),
+        }
+      }),
   ]
 
-  return { nodes, edges }
+  // ─── Quality analysis ──────────────────────────────────────────────
+  const companyNameGroups = groupBy(companies, (c) => normalizeCompanyName(c.name))
+  const companyNameDuplicates: DuplicateGroup[] = [...companyNameGroups.entries()]
+    .filter(([, v]) => v.length > 1)
+    .map(([key, v]) => ({ key, label: v[0].name, ids: v.map(c => c.id) }))
+
+  const companyOrgNrGroups = groupBy(companies, (c) => c.orgNr?.trim() || null)
+  const companyOrgNrDuplicates: DuplicateGroup[] = [...companyOrgNrGroups.entries()]
+    .filter(([, v]) => v.length > 1)
+    .map(([key, v]) => ({ key, label: `${v[0].name} (orgNr ${key})`, ids: v.map(c => c.id) }))
+
+  const personNameGroups = groupBy(personProfiles, (p) => normalizePersonName(p.name))
+  const personNameDuplicates: DuplicateGroup[] = [...personNameGroups.entries()]
+    .filter(([, v]) => v.length > 1)
+    .map(([key, v]) => ({ key, label: v[0].name, ids: v.map(p => p.id) }))
+
+  const personKeyGroups = groupBy(personProfiles, (p) => p.personKey?.trim() || null)
+  const personKeyDuplicates: DuplicateGroup[] = [...personKeyGroups.entries()]
+    .filter(([, v]) => v.length > 1)
+    .map(([key, v]) => ({ key, label: `${v[0].name} (key ${key})`, ids: v.map(p => p.id) }))
+
+  const bizRelGroups = groupBy(
+    bizRelEdges,
+    (r) => `${r.fromCompanyId}::${r.toCompanyId}::${r.relationshipType}`,
+  )
+  const businessRelationshipDuplicates: DuplicateGroup[] = [...bizRelGroups.entries()]
+    .filter(([, v]) => v.length > 1)
+    .map(([key, v]) => ({
+      key,
+      label: `${v[0].relationshipType} ${v[0].fromCompanyId} → ${v[0].toCompanyId}`,
+      ids: v.map((_, i) => `${key}#${i}`),
+    }))
+
+  // Orphan board members: boardMember.personKey has no matching PersonProfile
+  const personKeySet = new Set(personProfiles.map(p => p.personKey))
+  const companyById = new Map(companies.map(c => [c.id, c]))
+  const orphanBoardMembers = boardMembers
+    .filter((bm) => !personKeySet.has(bm.personKey))
+    .map((bm) => ({
+      companyId: bm.companyId,
+      companyName: companyById.get(bm.companyId)?.name ?? bm.companyId,
+      personKey: bm.personKey,
+      personName: bm.personName,
+    }))
+
+  const edgesWithConfidence = edges.filter((e) => typeof e.confidence === 'number').length
+
+  const quality: GraphQualityReport = {
+    companyNameDuplicates,
+    companyOrgNrDuplicates,
+    personNameDuplicates,
+    personKeyDuplicates,
+    businessRelationshipDuplicates,
+    orphanBoardMembers,
+    edgeConfidenceCoverage: {
+      totalEdges: edges.length,
+      withConfidence: edgesWithConfidence,
+      withoutConfidence: edges.length - edgesWithConfidence,
+    },
+  }
+
+  return { nodes, edges, quality }
 }
 
 export async function getRelatedEntities(id: string, type: 'document' | 'insight' | 'company' | 'actor') {

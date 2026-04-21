@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
@@ -8,7 +9,7 @@ import { MarginTrendChart } from '@/components/charts/MarginTrendChart'
 import { EmployeeTrendChart } from '@/components/charts/EmployeeTrendChart'
 import { EbitdaTrendChart } from '@/components/charts/EbitdaTrendChart'
 import { EquityRatioTrendChart } from '@/components/charts/EquityRatioTrendChart'
-import type { CompanyWithFinancials } from '@/lib/queries/financials'
+import type { CompanyWithFinancials, SubsidySumByCompany } from '@/lib/queries/financials'
 import type { SubsidyAggregates } from '@/lib/queries/subsidies'
 
 const COMPANY_COLORS = [
@@ -21,6 +22,41 @@ function getLatestRevenue(c: CompanyWithFinancials): number {
     if (c.financials[i].revenueNok !== null) return c.financials[i].revenueNok!
   }
   return 0
+}
+
+function getLatestField(
+  c: CompanyWithFinancials,
+  field: 'operatingResult' | 'operatingMargin' | 'ebitda' | 'equityRatio' | 'groupEmployees'
+): number | null {
+  for (let i = c.financials.length - 1; i >= 0; i--) {
+    const v = c.financials[i][field]
+    if (v !== null && v !== undefined) return v
+  }
+  return null
+}
+
+function getLatestYear(c: CompanyWithFinancials): number | null {
+  for (let i = c.financials.length - 1; i >= 0; i--) {
+    if (c.financials[i].revenueNok !== null) return c.financials[i].year
+  }
+  return null
+}
+
+function getRevenueYoY(c: CompanyWithFinancials): number | null {
+  const sortedDesc = [...c.financials]
+    .filter(f => f.revenueNok !== null)
+    .sort((a, b) => b.year - a.year)
+  if (sortedDesc.length < 2) return null
+  const [latest, prev] = sortedDesc
+  if (!prev.revenueNok || prev.revenueNok === 0) return null
+  return ((latest.revenueNok! - prev.revenueNok) / prev.revenueNok) * 100
+}
+
+function formatNokMillions(value: number): string {
+  if (value >= 1e9) return `${(value / 1e9).toFixed(1)} mrd`
+  if (value >= 1e6) return `${(value / 1e6).toFixed(0)} MNOK`
+  if (value > 0) return `${(value / 1e3).toFixed(0)} TNOK`
+  return '—'
 }
 
 function buildChartData(
@@ -50,9 +86,13 @@ function buildChartData(
 export function OkonomiContent({
   companies,
   subsidyAggregates,
+  subsidySumsByCompany,
+  totalCompanyCount,
 }: {
   companies: CompanyWithFinancials[]
   subsidyAggregates: SubsidyAggregates
+  subsidySumsByCompany: SubsidySumByCompany
+  totalCompanyCount: number
 }) {
   const [query, setQuery] = useState('')
   const deferredQuery = useDeferredValue(query)
@@ -92,6 +132,13 @@ export function OkonomiContent({
   const minYear = allYears.length > 0 ? Math.min(...allYears) : 0
   const maxYear = allYears.length > 0 ? Math.max(...allYears) : 0
   const latestTotalRevenue = companies.reduce((sum, c) => sum + getLatestRevenue(c), 0)
+  const companiesWithSubsidy = companies.filter(
+    c => (subsidySumsByCompany[c.id]?.totalAmountNok ?? 0) > 0
+  ).length
+  const totalSubsidySumForTrackedCompanies = companies.reduce(
+    (sum, c) => sum + (subsidySumsByCompany[c.id]?.totalAmountNok ?? 0),
+    0
+  )
 
   function toggleCompany(id: string) {
     setSelected(prev => {
@@ -117,7 +164,32 @@ export function OkonomiContent({
         <p className="text-sm text-stone-500 mt-1">Omsetning, marginer og ansatte over tid</p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+        <strong>{companies.length} selskaper</strong> har regnskapsdata i databasen
+        {totalCompanyCount > 0 ? (
+          <>
+            {' '}(av {totalCompanyCount.toLocaleString('nb-NO')} totalt registrert).{' '}
+          </>
+        ) : (
+          '. '
+        )}
+        Se{' '}
+        <Link href="/selskap" className="underline font-medium hover:text-amber-950">
+          /selskap
+        </Link>{' '}
+        for full liste,{' '}
+        <Link href="/selskap?all=1" className="underline font-medium hover:text-amber-950">
+          /selskap?all=1
+        </Link>{' '}
+        for alle {totalCompanyCount > 0 ? totalCompanyCount.toLocaleString('nb-NO') : ''} foretak,
+        eller{' '}
+        <Link href="/eierskap" className="underline font-medium hover:text-amber-950">
+          /eierskap
+        </Link>{' '}
+        for konsernstrukturer.
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
           <div className="text-xs uppercase tracking-wider text-stone-400">Selskaper</div>
           <div className="text-2xl font-bold text-stone-900">{companies.length}</div>
@@ -136,6 +208,18 @@ export function OkonomiContent({
           <div className="text-xs uppercase tracking-wider text-stone-400">Samlet omsetning</div>
           <div className="text-2xl font-bold text-stone-900">
             {(latestTotalRevenue / 1e9).toFixed(0)} mrd
+          </div>
+        </div>
+        <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
+          <div className="text-xs uppercase tracking-wider text-stone-400">Med tilskudd</div>
+          <div className="text-2xl font-bold text-stone-900">{companiesWithSubsidy}</div>
+        </div>
+        <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
+          <div className="text-xs uppercase tracking-wider text-stone-400">Tilskudd (sum)</div>
+          <div className="text-2xl font-bold text-stone-900">
+            {totalSubsidySumForTrackedCompanies > 0
+              ? `${(totalSubsidySumForTrackedCompanies / 1e6).toFixed(0)} MNOK`
+              : '—'}
           </div>
         </div>
       </div>
@@ -206,6 +290,102 @@ export function OkonomiContent({
           </div>
         </div>
       )}
+
+      <Card title="Selskaper med finansielle data">
+        <p className="text-xs text-stone-500 mb-3">
+          Siste tilgjengelige arstall per selskap. Klikk for a se full selskapsprofil. Tilskudd
+          aggregerer alle ar i databasen.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs">
+            <thead>
+              <tr className="border-b border-stone-200">
+                <th className="text-left py-2 font-medium text-stone-400">Selskap</th>
+                <th className="text-left py-2 font-medium text-stone-400">Verdikjede</th>
+                <th className="text-right py-2 font-medium text-stone-400">Siste ar</th>
+                <th className="text-right py-2 font-medium text-stone-400">Omsetning</th>
+                <th className="text-right py-2 font-medium text-stone-400">YoY</th>
+                <th className="text-right py-2 font-medium text-stone-400">Driftsmargin</th>
+                <th className="text-right py-2 font-medium text-stone-400">Driftsresultat</th>
+                <th className="text-right py-2 font-medium text-stone-400">Ansatte</th>
+                <th className="text-right py-2 font-medium text-stone-400">Tilskudd (sum)</th>
+                <th className="text-right py-2 font-medium text-stone-400">Detaljer</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[...companies]
+                .sort((a, b) => getLatestRevenue(b) - getLatestRevenue(a))
+                .map(c => {
+                  const rev = getLatestRevenue(c)
+                  const year = getLatestYear(c)
+                  const yoy = getRevenueYoY(c)
+                  const margin = getLatestField(c, 'operatingMargin')
+                  const opRes = getLatestField(c, 'operatingResult')
+                  const emp = getLatestField(c, 'groupEmployees')
+                  const sub = subsidySumsByCompany[c.id]
+                  return (
+                    <tr key={c.id} className="border-b border-stone-100 hover:bg-stone-50">
+                      <td className="py-2 text-stone-700">
+                        <Link href={`/selskap/${c.id}`} className="hover:underline font-medium">
+                          {c.name}
+                        </Link>
+                      </td>
+                      <td className="py-2 text-stone-500">{c.valueChainStage ?? '—'}</td>
+                      <td className="text-right py-2 text-stone-500 tabular-nums">
+                        {year ?? '—'}
+                      </td>
+                      <td className="text-right py-2 text-stone-700 tabular-nums">
+                        {rev > 0 ? formatNokMillions(rev) : '—'}
+                      </td>
+                      <td
+                        className={`text-right py-2 tabular-nums ${
+                          yoy === null
+                            ? 'text-stone-400'
+                            : yoy >= 0
+                              ? 'text-emerald-700'
+                              : 'text-rose-700'
+                        }`}
+                      >
+                        {yoy === null ? '—' : `${yoy >= 0 ? '+' : ''}${yoy.toFixed(1)}%`}
+                      </td>
+                      <td className="text-right py-2 text-stone-700 tabular-nums">
+                        {margin !== null ? `${margin.toFixed(1)}%` : '—'}
+                      </td>
+                      <td className="text-right py-2 text-stone-700 tabular-nums">
+                        {opRes !== null ? formatNokMillions(opRes) : '—'}
+                      </td>
+                      <td className="text-right py-2 text-stone-700 tabular-nums">
+                        {emp !== null ? emp.toLocaleString('nb-NO') : '—'}
+                      </td>
+                      <td className="text-right py-2 text-stone-700 tabular-nums">
+                        {sub && sub.totalAmountNok > 0 ? (
+                          <span title={`${sub.count} tilskudd`}>
+                            {formatNokMillions(sub.totalAmountNok)}
+                          </span>
+                        ) : (
+                          <span className="text-stone-300">—</span>
+                        )}
+                      </td>
+                      <td className="text-right py-2">
+                        <Link
+                          href={`/selskap/${c.id}`}
+                          className="text-emerald-700 hover:underline font-medium"
+                        >
+                          profil &rarr;
+                        </Link>
+                      </td>
+                    </tr>
+                  )
+                })}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-[10px] text-stone-400 mt-3">
+          YoY = prosentvis endring i omsetning mellom siste og nest siste ar med registrert
+          omsetning. Driftsresultat = operatingResult (Bronnoysund arsrapport). Tilskudd-sum
+          henter fra Subsidy-tabellen og dekker samtlige registrerte ar.
+        </p>
+      </Card>
 
       <div>
         <h2 className="text-xl font-bold text-stone-900">Tilskudd</h2>

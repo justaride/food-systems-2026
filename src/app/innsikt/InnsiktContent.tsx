@@ -61,6 +61,9 @@ export function InnsiktContent({ insights }: { insights: InsightRow[] }) {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-stone-900">Innsikt</h1>
+          <p className="text-xs uppercase tracking-wider text-stone-500 mt-0.5 font-medium">
+            Observasjoner og visualiseringer fra kildene
+          </p>
           <p className="text-sm text-stone-400 mt-1">
             {structuredCount} strukturerte innsiktsposter
             {documentFallbackCount > 0 ? ` + ${documentFallbackCount} dokumentbaserte analyser` : ''}

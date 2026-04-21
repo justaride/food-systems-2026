@@ -141,6 +141,18 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
     monitor: actors.filter(actor => (actor.powerScore ?? 0) < 4 && (actor.interestScore ?? 0) < 4).length,
   }
 
+  const topKeyPlayersPool = themeFilter !== 'alle'
+    ? actors.filter(actor => actor.themeTags?.includes(themeFilter))
+    : actors
+  const topKeyPlayers = [...topKeyPlayersPool]
+    .map(actor => ({ actor, score: (actor.powerScore ?? 0) * (actor.interestScore ?? 0) }))
+    .filter(entry => entry.score > 0)
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score
+      return a.actor.name.localeCompare(b.actor.name, 'no')
+    })
+    .slice(0, 10)
+
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -257,6 +269,55 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
           </div>
         </div>
       </Card>
+
+      {topKeyPlayers.length > 0 && (
+        <Card>
+          <div className="flex items-baseline justify-between gap-3 mb-3">
+            <div>
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-stone-700">
+                Top 10 Key Players
+              </h2>
+              <p className="text-xs text-stone-500 mt-0.5">
+                {themeFilter !== 'alle'
+                  ? `Innen tema "${themeFilter}" · rangert etter makt × interesse`
+                  : 'Samlet · rangert etter makt × interesse'}
+              </p>
+            </div>
+            <div className="text-[10px] uppercase tracking-wider text-stone-400">
+              {topKeyPlayersPool.length} aktorer i utvalget
+            </div>
+          </div>
+          <ol className="grid gap-1.5 md:grid-cols-2">
+            {topKeyPlayers.map((entry, index) => {
+              const { actor, score } = entry
+              return (
+                <li
+                  key={actor.id}
+                  className="flex items-center gap-2.5 rounded-lg border border-stone-200 bg-white px-2.5 py-1.5 hover:border-emerald-300 transition-colors"
+                >
+                  <span className="w-6 shrink-0 text-center text-xs font-semibold text-stone-400 tabular-nums">
+                    {index + 1}
+                  </span>
+                  <Link
+                    href={`/aktorer/${actor.slug}`}
+                    className="flex-1 min-w-0 text-sm font-medium text-stone-900 hover:text-emerald-700 truncate"
+                  >
+                    {actor.name}
+                  </Link>
+                  <span className="shrink-0 text-[11px] tabular-nums text-stone-500">
+                    {actor.powerScore ?? 0}×{actor.interestScore ?? 0}={score}
+                  </span>
+                  {actor.themeTags[0] && (
+                    <span className="hidden sm:inline shrink-0 text-[10px] px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 border border-stone-200 max-w-[7rem] truncate">
+                      {actor.themeTags[0]}
+                    </span>
+                  )}
+                </li>
+              )
+            })}
+          </ol>
+        </Card>
+      )}
 
       {filteredActors.length === 0 ? (
         <EmptyState message="Ingen aktorer matcher filteret" />

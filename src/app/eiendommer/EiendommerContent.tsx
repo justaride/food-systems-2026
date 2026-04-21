@@ -1,9 +1,22 @@
 'use client'
 
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
+import dynamic from 'next/dynamic'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+
+const PropertiesMap = dynamic(
+  () => import('@/components/map/PropertiesMap').then((m) => m.PropertiesMap),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-[480px] w-full rounded-lg bg-stone-50 border border-stone-200 flex items-center justify-center text-sm text-stone-400">
+        Laster kart…
+      </div>
+    ),
+  }
+)
 
 type PropertyRow = {
   id: string
@@ -63,13 +76,35 @@ export function EiendommerContent({ properties }: { properties: PropertyRow[] })
     return Array.from(map.entries()).sort((a, b) => a[1].localeCompare(b[1], 'no'))
   }, [properties])
 
-  const filtered = properties.filter(p => {
-    if (typeFilter !== 'alle' && p.propertyType !== typeFilter) return false
-    if (companyFilter !== 'alle' && p.company.id !== companyFilter) return false
-    if (selfLeasedFilter === 'ja' && !p.selfLeased) return false
-    if (selfLeasedFilter === 'nei' && p.selfLeased) return false
-    return true
-  })
+  const filtered = useMemo(() => {
+    return properties
+      .filter((p) => {
+        if (typeFilter !== 'alle' && p.propertyType !== typeFilter) return false
+        if (companyFilter !== 'alle' && p.company.id !== companyFilter) return false
+        if (selfLeasedFilter === 'ja' && !p.selfLeased) return false
+        if (selfLeasedFilter === 'nei' && p.selfLeased) return false
+        return true
+      })
+      .sort((a, b) => {
+        // acquiredYear DESC, nulls last
+        const ay = a.acquiredYear ?? -Infinity
+        const by = b.acquiredYear ?? -Infinity
+        if (by !== ay) return by - ay
+        return a.company.name.localeCompare(b.company.name, 'no')
+      })
+  }, [properties, typeFilter, companyFilter, selfLeasedFilter])
+
+  // Stable filter callback for the map — mirrors list filters so the two views stay in sync.
+  const mapFilter = useCallback(
+    (f: { propertyType: string; companyId: string; selfLeased: boolean }) => {
+      if (typeFilter !== 'alle' && f.propertyType !== typeFilter) return false
+      if (companyFilter !== 'alle' && f.companyId !== companyFilter) return false
+      if (selfLeasedFilter === 'ja' && !f.selfLeased) return false
+      if (selfLeasedFilter === 'nei' && f.selfLeased) return false
+      return true
+    },
+    [typeFilter, companyFilter, selfLeasedFilter]
+  )
 
   const stats = useMemo(() => {
     const total = filtered.length
@@ -122,6 +157,18 @@ export function EiendommerContent({ properties }: { properties: PropertyRow[] })
           </div>
         </div>
       </div>
+
+      <Card>
+        <div className="mb-3 flex items-baseline justify-between">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-stone-500">
+            Geografisk fordeling
+          </h2>
+          <span className="text-xs text-stone-400">
+            Filtre nedenfor gjelder både kart og liste
+          </span>
+        </div>
+        <PropertiesMap filter={mapFilter} />
+      </Card>
 
       <Card>
         <div className="flex flex-wrap gap-2">

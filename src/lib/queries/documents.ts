@@ -84,3 +84,135 @@ export async function getDocumentBySlug(slug: string) {
     },
   })
 }
+
+/**
+ * Document types that count as "policy-relevant" on /politikk.
+ * Keep conservative — broad enough to surface regulatory reports and
+ * white papers, narrow enough to exclude pure company annual reports
+ * and transcripts.
+ */
+export const POLICY_DOCUMENT_TYPES = [
+  'policy',
+  'policy_report',
+  'legal',
+  'regulatory',
+  'decision',
+  'strategy',
+  'think-tank',
+] as const
+
+/**
+ * Tag fragments used as a secondary signal for policy relevance when the
+ * documentType field is missing or generic ("research", "report").
+ * Case-insensitive substring match.
+ */
+const POLICY_TAG_FRAGMENTS = [
+  'beredskap',
+  'selvforsyn',
+  'matsvinn',
+  'co2',
+  'utp',
+  'policy',
+  'governance',
+  'konkurranse',
+  'competition',
+  'regulatory',
+  'sirkular',
+  'circular',
+  'pfas',
+  'emballasje',
+  'packaging',
+  'biogas',
+  'biogass',
+]
+
+type PoliticsDocSelection = {
+  id: string
+  slug: string
+  title: string
+  author: string | null
+  year: number | null
+  documentType: string | null
+  category: string | null
+  country: string | null
+  tags: string[]
+}
+
+export type PolicyDocumentsByCountry = Record<
+  'no' | 'se' | 'dk' | 'fi' | 'is' | 'nordic' | 'eu',
+  {
+    total: number
+    policyRelevant: number
+    samples: PoliticsDocSelection[]
+  }
+>
+
+/**
+ * For the /politikk page: return counts + sample policy-relevant documents
+ * per country code (lowercase values used in DB: no/se/dk/fi/is/nordic/eu).
+ *
+ * Filtering strategy:
+ *  1. Filter by country (lowercase code).
+ *  2. Include a document as "policy-relevant" if EITHER
+ *       - documentType ∈ POLICY_DOCUMENT_TYPES, OR
+ *       - any tag contains one of POLICY_TAG_FRAGMENTS.
+ *  3. Sample the most-recent N (year desc, nulls last) policy-relevant docs.
+ */
+export async function getPolicyDocumentsByCountry(opts?: {
+  samplesPerCountry?: number
+}): Promise<PolicyDocumentsByCountry> {
+  const samplesPerCountry = opts?.samplesPerCountry ?? 6
+  const countryCodes = ['no', 'se', 'dk', 'fi', 'is', 'nordic', 'eu'] as const
+
+  const result = {} as PolicyDocumentsByCountry
+  for (const code of countryCodes) {
+    // Two parallel queries: total count and policy-relevant rows.
+    const [total, rows] = await Promise.all([
+      prisma.document.count({ where: { country: code } }),
+      prisma.document.findMany({
+        where: {
+          country: code,
+          OR: [
+            { documentType: { in: [...POLICY_DOCUMENT_TYPES] } },
+            { tags: { hasSome: POLICY_TAG_FRAGMENTS } },
+          ],
+        },
+        select: {
+          id: true,
+          slug: true,
+          title: true,
+          author: true,
+          year: true,
+          documentType: true,
+          category: true,
+          country: true,
+          tags: true,
+        },
+        // Postgres orders nulls last on DESC by default (with Prisma: nulls: 'last' not supported on all drivers),
+        // so we sort manually after fetching.
+        orderBy: [{ year: 'desc' }, { title: 'asc' }],
+      }),
+    ])
+
+    // hasSome on tags matches a *tag equals* any of the provided strings — so it
+    // matches exact tags like "beredskap" / "matsvinn" etc. For broader fuzzy
+    // matching we additionally scan the returned tags client-side, but since the
+    // initial OR already surfaces anything with POLICY_DOCUMENT_TYPES, the
+    // substring pass is just a secondary filter to drop any false-positive.
+    const filtered = rows.filter((r) => {
+      const typeOk =
+        r.documentType !== null &&
+        POLICY_DOCUMENT_TYPES.includes(r.documentType as (typeof POLICY_DOCUMENT_TYPES)[number])
+      if (typeOk) return true
+      const joinedTags = r.tags.join(' ').toLowerCase()
+      return POLICY_TAG_FRAGMENTS.some((frag) => joinedTags.includes(frag))
+    })
+
+    result[code] = {
+      total,
+      policyRelevant: filtered.length,
+      samples: filtered.slice(0, samplesPerCountry),
+    }
+  }
+  return result
+}

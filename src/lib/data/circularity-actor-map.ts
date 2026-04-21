@@ -50,4 +50,8 @@ export const CIRCULARITY_ACTOR_MAP: Record<string, CircularityActorLink> = {
   'AX Foundation — Smart Svensk Sjömat': { type: 'actor', href: '/aktorer/axfoundation' },
   'Kernza / Knylkorn (AX Foundation pilot)': { type: 'actor', href: '/aktorer/axfoundation' },
   'Svensk Baljväxtfärs (AX Foundation)': { type: 'actor', href: '/aktorer/axfoundation' },
+
+  // Alias-navn (samme anlegg som allerede mappede aktører)
+  // "Den Magiske Fabrikken" er navnet på Greve Biogass sitt anlegg i Vestfold
+  'Den Magiske Fabrikken': { type: 'actor', href: '/aktorer/greve-biogass' },
 }

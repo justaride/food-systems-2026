@@ -96,6 +96,9 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Rapporter</h1>
+        <p className="text-xs uppercase tracking-wider text-stone-500 mt-0.5 font-medium">
+          Formelle rapporter — NOU, konkurransetilsyn, akademia
+        </p>
         <p className="text-sm text-stone-400 mt-1">
           {structuredCount} strukturerte rapporter
           {documentFallbackCount > 0 ? ` + ${documentFallbackCount} dokumentbaserte poster` : ''}
