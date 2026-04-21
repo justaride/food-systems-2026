@@ -4,6 +4,14 @@
 
 Gabriel Freeman og Cathrine Barth leder **Food Systems Transition Group** under Nordic Circular Hotspot (NCH). Oppdraget er å levere en **innsiktsrapport / whitepaper innen juni 2026** som forbereder grunnen for et fullskala nordisk prosjekt om sirkulære matsystemer.
 
+## Operativ status
+
+Prosjektet har nå en egen driftsnotat/runbook for deployment, prod-importer og schema-drift:
+
+- `docs/project/DEPLOYMENT-AND-DATA-OPERATIONS.md`
+
+Denne skal brukes når siden virker "mindre oppdatert" enn repoet. Hovedregelen er at grønn app-deploy alene ikke er nok i dette prosjektet; produksjonsdata og produksjonsschema må også være i sync.
+
 ---
 
 ## Tidslinje: De to søknadene
