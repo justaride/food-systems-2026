@@ -3362,7 +3362,7 @@ export const actorsSeed: ActorSeed[] = [
     slug: 'lulea-tekniska-universitet',
     name: 'Lulea tekniska universitet (LTU)',
     actorType: 'research',
-    organizationType: 'university',
+    organizationType: 'universitet',
     country: 'SE',
     website: 'https://www.ltu.se',
     roleSummary: 'Svensk universitet som utvikler AI-modell for sirkulaer matproduksjon (fra 2025) - bruker restvarme fra datasentre kombinert med mikroalger, insekter, groennsaker og fisk i lukket system modellert via deep learning.',
@@ -3429,6 +3429,19 @@ export const actorsSeed: ActorSeed[] = [
     currentRelevance: 'Dansk parallell til norsk Too Good To Go-oekosystem, men paa produktsiden.',
     priorityTier: 'p3',
     themeTags: ['upcycling', 'food-waste', 'denmark', 'retail'],
+  },
+  {
+    id: 'actor-nordic-circular-hotspot',
+    slug: 'nordic-circular-hotspot',
+    name: 'Nordic Circular Hotspot',
+    actorType: 'network',
+    organizationType: 'klynge',
+    country: 'Nordic',
+    website: 'https://nordiccircularhotspot.org',
+    roleSummary: 'Nordisk klynge og medieplattform for sirkulaer oekonomi. Utgir Circular Economy Outlook og rammesettende artikler som "Beyond the Bean" (2023) som peker paa at den nordiske oekonomien er ~6 % sirkulaer.',
+    currentRelevance: 'Primaer kilde for nordisk sirkulaer-benchmarking og offentlig-privat samarbeid paa tvers av sektorer. Siterer Island 100 % Fish og CIRCULANDIA i ramme-artikler.',
+    priorityTier: 'p2',
+    themeTags: ['network', 'circular', 'nordic', 'benchmarking', 'policy'],
   },
 
 ]

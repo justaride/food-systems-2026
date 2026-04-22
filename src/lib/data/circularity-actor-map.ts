@@ -71,4 +71,5 @@ export const CIRCULARITY_ACTOR_MAP: Record<string, CircularityActorLink> = {
   'Peter Larsen Coffee': { type: 'actor', href: '/aktorer/peter-larsen-coffee' },
   'PhosphorCare': { type: 'actor', href: '/aktorer/phosphorcare' },
   'Reduced': { type: 'actor', href: '/aktorer/reduced' },
+  'Nordic Circular Hotspot': { type: 'actor', href: '/aktorer/nordic-circular-hotspot' },
 }
