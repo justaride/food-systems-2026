@@ -26,6 +26,7 @@ export type BacklogRound =
   | 'sirkular-konkurser-2026-04-20'
   | 'exa-2026-04-21'
   | 'matsvinn-2026-04-21'
+  | 'circular-food-media-2026-04-23'
 
 export const BACKLOG_ROUNDS: Array<{ id: BacklogRound; file: string; label: string }> = [
   { id: '2026-03-18', file: 'download-backlog-2026-03-18.csv', label: 'Runde mars 2026' },
@@ -45,6 +46,11 @@ export const BACKLOG_ROUNDS: Array<{ id: BacklogRound; file: string; label: stri
     id: 'matsvinn-2026-04-21',
     file: 'download-backlog-matsvinn-kilder-2026-04-21.csv',
     label: 'Matsvinn-runde april 2026',
+  },
+  {
+    id: 'circular-food-media-2026-04-23',
+    file: 'download-backlog-circular-food-media-2026-04-23.csv',
+    label: 'Sirkulær mat media-mapping april 2026',
   },
 ]
 
