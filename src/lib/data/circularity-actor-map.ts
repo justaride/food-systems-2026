@@ -54,4 +54,21 @@ export const CIRCULARITY_ACTOR_MAP: Record<string, CircularityActorLink> = {
   // Alias-navn (samme anlegg som allerede mappede aktører)
   // "Den Magiske Fabrikken" er navnet på Greve Biogass sitt anlegg i Vestfold
   'Den Magiske Fabrikken': { type: 'actor', href: '/aktorer/greve-biogass' },
+
+  // Circular food research actors (2026-04-23)
+  'Norsoek': { type: 'actor', href: '/aktorer/norsok' },
+  'NORSOEK': { type: 'actor', href: '/aktorer/norsok' },
+  'Nutricycle': { type: 'actor', href: '/aktorer/nutricycle' },
+  'Columbi Farms': { type: 'actor', href: '/aktorer/nutricycle' },
+  'Onnest': { type: 'actor', href: '/aktorer/onnest' },
+  'RISE': { type: 'actor', href: '/aktorer/rise' },
+  'IVL': { type: 'actor', href: '/aktorer/ivl' },
+  'KTH PLENTY': { type: 'actor', href: '/aktorer/kth-plenty' },
+  'KTH PLATE': { type: 'actor', href: '/aktorer/kth-plate' },
+  'LTU': { type: 'actor', href: '/aktorer/lulea-tekniska-universitet' },
+  'Jalm&B': { type: 'actor', href: '/aktorer/jalm-b' },
+  'Circular Food Technology': { type: 'actor', href: '/aktorer/circular-food-technology' },
+  'Peter Larsen Coffee': { type: 'actor', href: '/aktorer/peter-larsen-coffee' },
+  'PhosphorCare': { type: 'actor', href: '/aktorer/phosphorcare' },
+  'Reduced': { type: 'actor', href: '/aktorer/reduced' },
 }
