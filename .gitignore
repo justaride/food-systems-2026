@@ -13,8 +13,13 @@ __pycache__/
 .kilocode/
 .playwright-cli/
 .playwright-mcp/
+.claude/scheduled_tasks.lock
 tmp/
 output/
+
+# Local session reports (not committed)
+RAPPORT-*.html
+RAPPORT-*.pdf
 
 /src/generated/prisma
 
