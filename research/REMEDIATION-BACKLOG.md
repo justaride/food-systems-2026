@@ -1,17 +1,17 @@
 # REMEDIATION BACKLOG — data-readiness Fase B
 
 > Auto-generert av `scripts/build-remediation-backlog.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T11:58:23.968Z
-> Totalt: **633** funn
+> Generert: 2026-04-27T12:12:32.014Z
+> Totalt: **389** funn
 
 ## Sammendrag per kilde × severity
 
 | Kilde | HIGH | MEDIUM | LOW | INFO |
 |---|---:|---:|---:|---:|
-| file-coverage | 1 | 376 | 201 | 0 |
+| file-coverage | 0 | 190 | 144 | 0 |
 | pdf-quality | 0 | 5 | 45 | 0 |
 | html-triage | 3 | 2 | 0 | 0 |
-| **Total** | 4 | 383 | 246 | 0 |
+| **Total** | 3 | 197 | 189 | 0 |
 
 ## Fiksgrupper (rotårsak-analyse)
 
@@ -19,11 +19,11 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 
 | Gruppe | Funn | HIGH | MEDIUM | LOW |
 |---|---:|---:|---:|---:|
-| A: stale incoming/ | 191 | 1 | 190 | 0 |
+| A: stale incoming/ | 1 | 0 | 1 | 0 |
 | B: external/ DB-only | 60 | 0 | 60 | 0 |
 | C: generated/meetings/ | 8 | 0 | 8 | 0 |
 | E: missing SourceDoc | 118 | 0 | 118 | 0 |
-| F: orphan files | 199 | 0 | 0 | 199 |
+| F: orphan files | 145 | 0 | 3 | 142 |
 | G: broken supportingSource | 1 | 0 | 0 | 1 |
 | H: duplicate Documents | 1 | 0 | 0 | 1 |
 | I: scanned PDFs (need OCR) | 5 | 0 | 5 | 0 |
@@ -70,33 +70,33 @@ URL-helse er **ikke** klassifisert ennå — kun inventarisert (173 unike, 98 % 
 
 | # | Severity | Source | Fix-gruppe | Problem | Ref |
 |---:|---|---|---|---|---|
-| 1 | HIGH | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6yo0012n60dqi8nh1te (matsvinnutvalget-2024) |
-| 2 | HIGH | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/beredskap/beredskap-island-food-stockpiles-202 |
-| 3 | HIGH | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/beredskap/beredskap-island-melmolle-2025.html |
-| 4 | HIGH | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/bransje/dlf-leverandor-2025.html |
-| 5 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6f10000n60d269y28y9 (report-food-227bb60d773e) |
-| 6 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6g30001n60dhuhguh87 (report-food-e3f33c5a4766) |
-| 7 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6gk0002n60drn30t1uq (report-food-283dd0683b0d) |
-| 8 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6h40003n60dqhyqrk6u (report-food-e268bd87c1c4) |
-| 9 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6hv0004n60duhghy9p9 (report-food-cc2689719568) |
-| 10 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6ig0005n60d8xqmk6nz (report-food-069b10c9ac66) |
-| 11 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6ix0006n60dqtsdx75u (report-food-11ed41bcaca1) |
-| 12 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6je0007n60dcn4ycklk (report-food-7aaa0d71e1e7) |
-| 13 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6ju0008n60d7cd7gos6 (report-food-8749cc79f983) |
-| 14 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6kg0009n60dew0kb9ks |
-| 15 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6kw000an60dwl5nabbt |
-| 16 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6lc000bn60dmnnbqar9 (report-food-fe0a3ed77f48) |
-| 17 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6lq000cn60dkmaqk6r0 |
-| 18 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6m5000dn60dmwyfsdxm (report-food-f0fab2be696a) |
-| 19 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6mm000en60dim12r57j |
-| 20 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6n1000fn60d7nyeiw30 |
-| 21 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6ng000gn60d0ywk9k0x |
-| 22 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6nu000hn60df51uiqcu (report-food-aa2340aec7eb) |
-| 23 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6oa000in60doqd3o1h4 (report-food-5a1cbe46f984) |
-| 24 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6oq000jn60d7f8ag0y1 (report-food-2bc5e2a736ab) |
-| 25 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6p6000kn60dicd1pfnx (report-food-6de68c22a6f6) |
-| 26 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6pl000ln60d5g38599t (report-food-5f07f685a55d) |
-| 27 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6q9000mn60dbd4dttlq (report-food-da6ee0591cd2) |
-| 28 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6qt000nn60d3xlcmfqa |
-| 29 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6rb000on60d9de8ckkr (report-food-f853fed35279) |
-| 30 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g6rz000pn60dvopqiy1s |
+| 1 | HIGH | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/beredskap/beredskap-island-food-stockpiles-202 |
+| 2 | HIGH | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/beredskap/beredskap-island-melmolle-2025.html |
+| 3 | HIGH | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/bransje/dlf-leverandor-2025.html |
+| 4 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g8860038n60d04z5mrbn |
+| 5 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpte0000vw0dusb874iw |
+| 6 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpub0001vw0dbumriqjz |
+| 7 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpug0002vw0d7f3qipql |
+| 8 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpuk0003vw0dp0j4x509 |
+| 9 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpuv0004vw0di9yc9yfo |
+| 10 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpv50005vw0d1s3y31jb |
+| 11 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpva0006vw0djj92bb5t |
+| 12 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpw70007vw0dobq4dve9 |
+| 13 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpwg0008vw0dgcha2p3a |
+| 14 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpxt0009vw0deti0bl62 |
+| 15 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpxz000avw0deqp3ryi2 |
+| 16 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpy2000bvw0dnqnyvayq |
+| 17 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpy7000cvw0dv79oyq5m |
+| 18 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpyx000dvw0dh2u2yvgs |
+| 19 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpzf000evw0d0zrrns6d |
+| 20 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpzk000fvw0dj0h1tx00 |
+| 21 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpzp000gvw0d49eo8j17 |
+| 22 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpzs000hvw0dcmw14pbg |
+| 23 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpzu000ivw0d693wscci |
+| 24 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq18000jvw0dpydr04g1 |
+| 25 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq1c000kvw0dithrr5z0 |
+| 26 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq1f000lvw0dh0opw4u4 |
+| 27 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq27000mvw0dybs8pl5r |
+| 28 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq2b000nvw0d3sono486 |
+| 29 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq2e000ovw0dr56o59bd |
+| 30 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq31000pvw0du1cdkgt1 |
