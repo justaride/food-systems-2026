@@ -1,14 +1,14 @@
 # File coverage — research/ vs DB/seed
 
 > Auto-generert av `scripts/compute-file-coverage.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T12:27:54.768Z
-> Totalt funn: **262**
+> Generert: 2026-04-27T15:59:11.463Z
+> Totalt funn: **270**
 
 ## Totals per problem
 
 | Problem | Count |
 |---|---:|
-| orphan_file | 142 |
+| orphan_file | 150 |
 | missing_file_document | 0 |
 | missing_file_sourcedoc | 118 |
 | broken_supportingsource | 1 |
@@ -21,7 +21,7 @@
 |---|---:|---:|---:|---:|---:|---:|
 | HIGH | 0 | 0 | 0 | 0 | 0 | 0 |
 | MEDIUM | 0 | 0 | 118 | 0 | 0 | 0 |
-| LOW | 142 | 0 | 0 | 1 | 0 | 1 |
+| LOW | 150 | 0 | 0 | 1 | 0 | 1 |
 
 ## Top 30 highest-severity findings
 
@@ -65,10 +65,15 @@
 | arkiv-sortert | 98 |
 | pdf-downloads-20-04-26 | 22 |
 | visualisering | 14 |
+| ocr-output | 4 |
+| DATA-READINESS-SLUTTRAPPORT.md | 1 |
 | HTML-EXTRACTION-LOG.md | 1 |
 | HTML-TRIAGE.md | 1 |
+| KI-ACCEPTANCE-TESTS.md | 1 |
+| OCR-LOG.md | 1 |
 | PDF-QUALITY.md | 1 |
 | REMEDIATION-BACKLOG.md | 1 |
+| URL-HEALTH.md | 1 |
 | URL-INVENTORY.md | 1 |
 | cathrine-ten-step-oppsummering.md | 1 |
 | external | 1 |
@@ -82,7 +87,7 @@
 
 ## Scope notes
 
-- Scanned **1121** files (.pdf, .md) under `research/`, excluding `_plans/`, `_status/`, `intake/`, and the meta/index docs at the root.
+- Scanned **1129** files (.pdf, .md) under `research/`, excluding `_plans/`, `_status/`, `intake/`, and the meta/index docs at the root.
 - Cross-referenced 1163 `Document`, 307 `SourceDoc`, and 108 seed Reports (plus their supportingSources).
 - `SourceDoc.filename` is often a bare filename (no path); the script uses a basename index over `research/` to resolve them, so a SourceDoc is only flagged when no file with that basename exists anywhere under `research/`.
 - A `Document` missing-file finding is HIGH severity if the linked seed Report/Thesis has KI-PRIORITY ≥ 4.0; otherwise MEDIUM. Documents without any seed link (e.g. raw imports) default to MEDIUM.

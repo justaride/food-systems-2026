@@ -1,7 +1,7 @@
 # KI-priority — Reports + Theses
 
 > Auto-generert av `scripts/compute-ki-priority.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T11:37:18.956Z
+> Generert: 2026-04-27T15:54:45.440Z
 > Totalt: **186** poster (108 rapporter + 78 avhandlinger)
 
 ## Score-distribusjon
