@@ -22,6 +22,8 @@
 | 4 | 16.03.2026 | [Strategisk ledergruppe Marked](Strategisk%20ledergruppe%20Marked%2016%20mars%202026.md) | Martin (org.), Einar, Gabriel, Jan Thomas, Cathrine, Thea | Zoom | `Strategisk ledergruppe Marked 16 mars 2026.md` |
 | 5 | 13.04.2026 | [Transition Groups — Kapasiteter og roller](TRANSITION%20GROUPS%20-%20M%C3%B8te%2013-04-26.md) | Kristian (org.), Einar, Gabriel, Jan Thomas, Cathrine (digitalt), Thea | Google Meet + fysisk | `TRANSITION GROUPS - Møte 13-04-26.md` |
 | 6 | 13.04.2026 | [JT + Gabriel — Arbeidsmøte](JT-GABRIEL%20-%20Arbeidsm%C3%B8te%2013-04-26.md) | Jan Thomas, Gabriel, Thea (kort) | Fysisk | `JT-GABRIEL - Arbeidsmøte 13-04-26.md` |
+| 7 | 20.04.2026 | [JT + Gabriel — R9, sirkularitetsspørsmål og fôr](docs/meetings/JT-GABRIEL%20-%20Arbeidsm%C3%B8te%2020-04-26.md) | Jan Thomas, Gabriel | Fysisk | `docs/meetings/JT-GABRIEL - Arbeidsmøte 20-04-26.md` |
+| 8 | 21.04.2026 | [Transition Groups — Mandat, scoping, aktørkartlegging og plattformstatus](docs/meetings/TRANSITION%20GROUPS%20-%20M%C3%B8te%2021-04-26.md) | Jan Thomas, Gabriel, Cathrine, Thea, Kristian m.fl. | Fysisk + digitalt | `docs/meetings/TRANSITION GROUPS - Møte 21-04-26.md` |
 
 ---
 
@@ -76,6 +78,27 @@
 - **Referanser:** Volare (Finland, insektprotein), Axe Foundation (Sverige, oppdrettsfôr)
 - **Medienarrativer per land:** DK (eksport/duopol), FI (beredskap), NO (prispress), SE (selvforsyning)
 - JT: «Sett foten ned ved verdikjedestrukturen — hvor maten flyter og hvor den kastes»
+
+### Møte 7 — 20.04.2026: R9-rammeverk, sirkularitetsspørsmål og fôr
+- **R9-rammeverk** skal brukes som teoretisk grunnlag for å vurdere sirkularitetsgrad i hvert ledd av matsystemet
+- **7–10 nøkkelspørsmål** for sirkularitet i mat skal formuleres — basert på verdikjeden og identifiserte svakheter
+- **Alternativt fôr** fortsatt et prioritert spor: nordisk matsystem kan bidra mer til husdyr- og fiskefôr
+- **AX Foundation «Framtidens Fisk»** som referansecase: bærekraftig fôrmiks med insekter, mikroproteiner og muslinger
+- **Svartvann-dimensjon:** Helsingborg-prosjektet som nordisk referanse for næringsgjenvinning
+- JT skal skrive liste over de 10 temaene han mener er viktigst
+- Gabriel jobber videre med URL-manifest, dokumenthenting og kartlegging av hva som har lykkes/feilet og hvorfor
+
+### Møte 8 — 21.04.2026: Mandat, scoping og plattformstatus
+- **Mandatmal bekreftet:** Jan Thomas integrerer mål for Food og Cities i standardmandat for transition groups
+- **Medlemskap:** Inviterte transition group-aktører blir medlemmer i Nordic Circular Hotspot gratis ut 2026
+- **Timefordeling:** Jan Thomas 30%, Cathrine 20%, Thea 20%, Gabriel 15%; timer må føres tydelig og avvik varsles
+- **10-step kobles til milepæler:** `S` = step, `M` = milepæl, `M25` = kommunikasjon; praktiske oppgaver legges i Notion
+- **Cities:** Sterkere kobling til SIDCOF, SINTEF og UiO-prosesser; transition group kan gi legitimitet og kunnskapsbidrag inn i større søknader
+- **Food:** Scope er fortsatt for bredt; gruppen må prioritere få områder med tydelig sirkularitetspotensial og finansieringsmulighet
+- **Aktørkartlegging:** Start med relasjonsbasert ringrunde og 3–5 korte dybdeintervjuer fremfor bred survey først
+- **Gabriels plattform:** Brukes som beslutningsstøtte for verdikjede, forsyningskjede, aktører, case og finansieringsmuligheter
+- **Kommunikasjon:** Thea lager struktur for kommunikasjonsplan, prosjektside og realistisk posteplan basert på NCC-format
+- **JT/Gabriel:** Food må spisses mot hvor sirkularitet faktisk kan erstatte virgin råstoff, redusere importavhengighet og løse pain points for sirkulære aktører
 
 ---
 
