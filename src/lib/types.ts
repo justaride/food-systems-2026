@@ -178,6 +178,12 @@ export type ThesisTheme =
 
 export type ThesisDegree = 'master' | 'phd'
 
+export type ThesisProvenanceType =
+  | 'external_thesis'
+  | 'working_paper'
+  | 'conference_paper'
+  | 'external_article'
+
 export type Thesis = {
   id: string
   authors: string
@@ -197,6 +203,7 @@ export type Thesis = {
   isbn?: string
   publisher?: string
   accessDate?: string
+  provenanceType?: ThesisProvenanceType
 }
 
 export type ReportCategory =
