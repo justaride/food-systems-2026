@@ -171,6 +171,24 @@ function parseYear(value: string | null | undefined): number | null {
   return match ? Number(match[0]) : null
 }
 
+async function resolveSourcePath(sourcePath: string): Promise<string | null> {
+  const candidates = [
+    path.join(ROOT, sourcePath),
+    path.join(ROOT, 'research', 'arkiv-sortert', sourcePath),
+  ]
+
+  for (const candidate of candidates) {
+    try {
+      await fs.access(candidate)
+      return candidate
+    } catch {
+      continue
+    }
+  }
+
+  return null
+}
+
 async function loadReviewRows(): Promise<ReviewRow[]> {
   const raw = await fs.readFile(REVIEW_CSV, 'utf8')
   const rows = parseCsv(raw)
@@ -242,7 +260,7 @@ async function main(): Promise<void> {
 
   try {
     for (const row of selected) {
-      const sourcePath = path.join(ROOT, row.source_path)
+      const sourcePath = await resolveSourcePath(row.source_path)
       const title = pickValue(row.final_title, row.proposed_title, row.filename) ?? row.filename
       const year = parseYear(pickValue(row.final_year, row.proposed_year))
       const country = pickValue(row.final_country, row.proposed_country)
@@ -272,6 +290,7 @@ async function main(): Promise<void> {
       }
 
       try {
+        if (!sourcePath) throw new Error(`Source file not found in root or research/arkiv-sortert: ${row.source_path}`)
         const raw = await fs.readFile(sourcePath)
 
         if (row.ext === '.md') {

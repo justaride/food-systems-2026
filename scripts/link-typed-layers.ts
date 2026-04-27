@@ -143,9 +143,7 @@ const MANUAL_REPORT_MAPPINGS: Record<string, string> = {
   'beredskap-island-melmolle-2025': 'bibliotek/beredskap/is-melmolle-krise-2025',
 }
 
-const MANUAL_THESIS_MAPPINGS: Record<string, string> = {
-  'ulsaker-phd-2018': 'bibliotek/akademia/masteroppgaver/ulsaker-phd-sammendrag',
-}
+const MANUAL_THESIS_MAPPINGS: Record<string, string> = {}
 
 async function loadDocuments(): Promise<DocRow[]> {
   return prisma.document.findMany({
