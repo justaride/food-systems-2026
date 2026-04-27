@@ -231,7 +231,7 @@ export function ForsyningskjedeContent({
             })}
           </div>
           <div className="mt-4 pt-3 border-t border-stone-100 text-xs text-stone-400">
-            Kilde: Landbruksdirektoratet leveransedata (NLOD). Merk at "leverandør-relasjoner"
+            Kilde: Landbruksdirektoratet leveransedata (NLOD). Merk at «leverandør-relasjoner»
             teller foretak-år-par — ett foretak som leverer fem forskjellige korntyper
             telles fem ganger innen korn.
           </div>

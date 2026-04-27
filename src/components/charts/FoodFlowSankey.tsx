@@ -177,6 +177,7 @@ export function FoodFlowSankey({ country = 'no' }: { country?: string }) {
   const [sources, setSources] = useState('')
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: re-show loading on country change before fetch
     setLoading(true)
     fetch(`/data/food-systems/${country}/value-chain.json`)
       .then((r) => r.json())

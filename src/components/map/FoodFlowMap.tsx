@@ -292,6 +292,7 @@ export default function FoodFlowMap() {
     let mounted = true
 
     if (country !== 'no') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: clear stale dataset when leaving NO
       setDataset(null)
       setDatasetError(null)
       return

@@ -261,6 +261,7 @@ export function NutrientFlowsView({ defaultCountry = 'NO' }: { defaultCountry?: 
   const [country, setCountry] = useState<CountryCode>(defaultCountry)
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: show loading state while fetching
     setLoading(true)
     fetch('/data/food-systems/nutrient-flows.json')
       .then((r) => {
