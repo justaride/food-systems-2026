@@ -232,6 +232,8 @@ export function SirkularitetContent() {
         </p>
       </div>
 
+      <NordicCircularityBenchmark />
+
       <div className="flex gap-2 flex-wrap">
         {(['matrix', 'maturity', 'kpi', 'questions', 'loops', 'gaps', 'actors', 'naeringsflyt'] as Tab[]).map((t) => (
           <button
@@ -770,5 +772,110 @@ export function SirkularitetContent() {
         </div>
       )}
     </div>
+  )
+}
+
+type CountryBenchmark = {
+  code: string
+  name: string
+  rate: string
+  rateNumeric: number | null
+  source: string
+  sourceUrl: string
+}
+
+const CIRCULARITY_BENCHMARKS: CountryBenchmark[] = [
+  {
+    code: 'NO',
+    name: 'Norge',
+    rate: '2.4 %',
+    rateNumeric: 2.4,
+    source: 'Circularity Gap Report Norway (2024)',
+    sourceUrl: 'https://www.circularity-gap.world/norway',
+  },
+  {
+    code: 'SE',
+    name: 'Sverige',
+    rate: '3.4 %',
+    rateNumeric: 3.4,
+    source: 'Circularity Gap Report Sweden (2024)',
+    sourceUrl: 'https://www.circularity-gap.world/sweden',
+  },
+  {
+    code: 'DK',
+    name: 'Danmark',
+    rate: 'n/a',
+    rateNumeric: null,
+    source: 'Ingen nasjonal CGR publisert — referanse: Ellen MacArthur DK 2015',
+    sourceUrl: 'https://mst.dk/media/sexld3zc/potential-for-denmark-as-a-circular-economy-2015.pdf',
+  },
+  {
+    code: 'FI',
+    name: 'Finland',
+    rate: 'n/a',
+    rateNumeric: null,
+    source: 'Ingen nasjonal CGR publisert',
+    sourceUrl: '',
+  },
+  {
+    code: 'IS',
+    name: 'Island',
+    rate: 'n/a',
+    rateNumeric: null,
+    source: 'Ingen nasjonal CGR publisert',
+    sourceUrl: '',
+  },
+  {
+    code: 'Nordic',
+    name: 'Nordisk snitt',
+    rate: '~6 %',
+    rateNumeric: 6,
+    source: 'Nordic Circular Hotspot — Beyond the Bean (2023)',
+    sourceUrl: 'https://nordiccircularhotspot.org/news/beyond-the-bean-a-nordic-perspective-on-circular-food-systems',
+  },
+]
+
+function NordicCircularityBenchmark() {
+  return (
+    <Card className="bg-white border-stone-200">
+      <div className="flex items-baseline justify-between mb-3">
+        <div>
+          <p className="text-xs font-medium text-stone-500 uppercase tracking-wide">Nordisk benchmark</p>
+          <h2 className="text-sm font-semibold text-stone-800">Sirkularitetsrate per land</h2>
+        </div>
+        <p className="text-[10px] text-stone-400">Andel materialer som returneres til okonomien</p>
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+        {CIRCULARITY_BENCHMARKS.map((b) => {
+          const isMeasured = b.rateNumeric !== null
+          return (
+            <div
+              key={b.code}
+              className={`rounded-lg border p-3 ${
+                isMeasured ? 'bg-stone-50 border-stone-200' : 'bg-stone-50/50 border-stone-100'
+              }`}
+            >
+              <p className="text-[10px] font-medium text-stone-500">{b.code} — {b.name}</p>
+              <p className={`text-xl font-bold mt-0.5 ${isMeasured ? 'text-stone-900' : 'text-stone-400'}`}>
+                {b.rate}
+              </p>
+              {b.sourceUrl ? (
+                <a
+                  href={b.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block text-[10px] text-stone-400 hover:text-stone-700 leading-tight mt-1"
+                  title={b.source}
+                >
+                  Kilde
+                </a>
+              ) : (
+                <span className="block text-[10px] text-stone-300 leading-tight mt-1">Ingen kilde</span>
+              )}
+            </div>
+          )
+        })}
+      </div>
+    </Card>
   )
 }

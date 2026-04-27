@@ -23,6 +23,7 @@
 | 5 | 13.04.2026 | [Transition Groups — Kapasiteter og roller](TRANSITION%20GROUPS%20-%20M%C3%B8te%2013-04-26.md) | Kristian (org.), Einar, Gabriel, Jan Thomas, Cathrine (digitalt), Thea | Google Meet + fysisk | `TRANSITION GROUPS - Møte 13-04-26.md` |
 | 6 | 13.04.2026 | [JT + Gabriel — Arbeidsmøte](JT-GABRIEL%20-%20Arbeidsm%C3%B8te%2013-04-26.md) | Jan Thomas, Gabriel, Thea (kort) | Fysisk | `JT-GABRIEL - Arbeidsmøte 13-04-26.md` |
 | 7 | 20.04.2026 | [JT + Gabriel — R9, sirkularitetsspørsmål og fôr](JT-GABRIEL%20-%20Arbeidsm%C3%B8te%2020-04-26.md) | Jan Thomas, Gabriel | Fysisk | `JT-GABRIEL - Arbeidsmøte 20-04-26.md` |
+| 8 | 21.04.2026 | [Transition Groups — Mandat, scoping, aktørkartlegging og plattformstatus](TRANSITION%20GROUPS%20-%20M%C3%B8te%2021-04-26.md) | Jan Thomas, Gabriel, Cathrine, Thea, Kristian m.fl. | Fysisk + digitalt | `TRANSITION GROUPS - Møte 21-04-26.md` |
 
 ---
 
@@ -93,6 +94,19 @@
 - **Potetlefser uten skall** (Sørlandet) som «reduce»-eksempel: 10–15% reduksjon i matavfall
 - JT skal skrive liste over de 10 temaene han mener er viktigst
 - Gabriel jobber videre med URL-manifest og dokumenthenting, inkl. kartlegging av hva som har lykkes/feilet og hvorfor
+
+### Møte 8 — 21.04.2026: Mandat, scoping og plattformstatus
+- **Mandatmal bekreftet:** Jan Thomas integrerer mål for Food og Cities i standardmandat for transition groups
+- **Medlemskap:** Inviterte transition group-aktører blir medlemmer i Nordic Circular Hotspot gratis ut 2026
+- **Timefordeling:** Jan Thomas 30%, Cathrine 20%, Thea 20%, Gabriel 15%; timer må føres tydelig og avvik varsles
+- **10-step kobles til milepæler:** `S` = step, `M` = milepæl, `M25` = kommunikasjon; praktiske oppgaver legges i Notion
+- **Cities:** Sterkere kobling til SIDCOF, SINTEF og UiO-prosesser; transition group kan gi legitimitet og kunnskapsbidrag inn i større søknader
+- **Food:** Scope er fortsatt for bredt; gruppen må prioritere få områder med tydelig sirkularitetspotensial og finansieringsmulighet
+- **Aktørkartlegging:** Start med relasjonsbasert ringrunde og 3–5 korte dybdeintervjuer fremfor bred survey først
+- **Første Food-aktører:** Foodstudio/Helsinki, AX Foundation, Danish Ocean Cluster, Fødevareklyngen, NMBU/Hanne, Rethink Food, 100% Fish, Royal Greenland, EcoFish Cycle/Gas2Feed m.fl.
+- **Gabriels plattform:** Brukes som beslutningsstøtte for verdikjede, forsyningskjede, aktører, case og finansieringsmuligheter; JT/Cathrine skal gi prioriteringsfeedback
+- **Kommunikasjon:** Thea lager struktur for kommunikasjonsplan, prosjektside og realistisk posteplan basert på NCC-format
+- **JT/Gabriel:** Food må spisses mot hvor sirkularitet faktisk kan erstatte virgin råstoff, redusere importavhengighet og løse pain points for sirkulære aktører
 
 ---
 

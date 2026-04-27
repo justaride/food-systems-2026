@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState, useCallback } from 'react'
+import { useRef, useEffect, useMemo, useState, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 
 const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), { ssr: false })
@@ -33,7 +33,18 @@ const NODE_COLORS = {
 export function InterlockGraph({ nodes, edges, selectedNodeId, onNodeClick }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [dimensions, setDimensions] = useState({ width: 800, height: 500 })
-  const [highlightNodes, setHighlightNodes] = useState(new Set<string>())
+
+  const highlightNodes = useMemo(() => {
+    if (!selectedNodeId) return new Set<string>()
+    const connected = new Set<string>([selectedNodeId])
+    for (const edge of edges) {
+      const src = typeof edge.source === 'string' ? edge.source : (edge.source as any).id
+      const tgt = typeof edge.target === 'string' ? edge.target : (edge.target as any).id
+      if (src === selectedNodeId) connected.add(tgt)
+      if (tgt === selectedNodeId) connected.add(src)
+    }
+    return connected
+  }, [selectedNodeId, edges])
 
   useEffect(() => {
     if (!containerRef.current) return
@@ -46,21 +57,6 @@ export function InterlockGraph({ nodes, edges, selectedNodeId, onNodeClick }: Pr
     obs.observe(containerRef.current)
     return () => obs.disconnect()
   }, [])
-
-  useEffect(() => {
-    if (!selectedNodeId) {
-      setHighlightNodes(new Set())
-      return
-    }
-    const connected = new Set<string>([selectedNodeId])
-    for (const edge of edges) {
-      const src = typeof edge.source === 'string' ? edge.source : (edge.source as any).id
-      const tgt = typeof edge.target === 'string' ? edge.target : (edge.target as any).id
-      if (src === selectedNodeId) connected.add(tgt)
-      if (tgt === selectedNodeId) connected.add(src)
-    }
-    setHighlightNodes(connected)
-  }, [selectedNodeId, edges])
 
   const handleNodeClick = useCallback((node: any) => {
     onNodeClick(node.id === selectedNodeId ? null : node.id)

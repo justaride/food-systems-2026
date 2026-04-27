@@ -7,9 +7,7 @@ import { sources } from '../src/lib/data/sources'
 import { insights } from '../src/lib/data/insights'
 import { theses } from '../src/lib/data/theses'
 import { applications } from '../src/lib/data/applications'
-import { tasks } from '../src/lib/data/tasks'
 import { kpis } from '../src/lib/data/kpis'
-import { deliverables } from '../src/lib/data/deliverables'
 import { evidencePack } from '../src/lib/data/evidence-pack'
 import { tenSteps } from '../src/lib/data/ten-step-start'
 import { meetings, type Meeting } from '../src/lib/data/meetings'
@@ -273,31 +271,6 @@ async function importApplications() {
   console.log(`  ${applications.length} applications imported`)
 }
 
-async function importTasks() {
-  console.log('Importing tasks...')
-  for (const t of tasks) {
-    await prisma.projectTask.upsert({
-      where: { id: t.id },
-      update: {
-        title: t.title,
-        source: t.source,
-        status: t.status,
-        priority: t.priority,
-        phaseId: t.phase ?? null,
-      },
-      create: {
-        id: t.id,
-        title: t.title,
-        source: t.source,
-        status: t.status,
-        priority: t.priority,
-        phaseId: t.phase ?? null,
-      },
-    })
-  }
-  console.log(`  ${tasks.length} tasks imported`)
-}
-
 async function importKPIs() {
   console.log('Importing KPIs...')
   for (const k of kpis) {
@@ -319,18 +292,6 @@ async function importKPIs() {
     })
   }
   console.log(`  ${kpis.length} KPIs imported`)
-}
-
-async function importDeliverables() {
-  console.log('Importing deliverables...')
-  for (const d of deliverables) {
-    await prisma.deliverable.upsert({
-      where: { id: d.id },
-      update: { name: d.name, deadline: d.deadline, status: d.status },
-      create: { id: d.id, name: d.name, deadline: d.deadline, status: d.status },
-    })
-  }
-  console.log(`  ${deliverables.length} deliverables imported`)
 }
 
 async function importEvidencePack() {
@@ -819,9 +780,7 @@ async function main() {
   await importInsights()
   await importTheses()
   await importApplications()
-  await importTasks()
   await importKPIs()
-  await importDeliverables()
   await importEvidencePack()
   await importTenSteps()
   await importMeetings()

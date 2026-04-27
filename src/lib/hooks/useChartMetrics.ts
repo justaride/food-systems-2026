@@ -40,6 +40,7 @@ export function useChartMetrics(country: CountryCode = 'no'): { data: ChartMetri
 
   useEffect(() => {
     if (cache.has(country)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: sync state with cache on country change
       setData(cache.get(country)!)
       setIsLoading(false)
       return

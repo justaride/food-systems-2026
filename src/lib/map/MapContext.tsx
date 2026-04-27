@@ -168,6 +168,7 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
   const [selectedMunicipality, setSelectedMunicipality] = useState<string | null>(null)
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: reset all map state on country change before re-fetch
     setIsLoading(true)
     setError(null)
     setStores([])

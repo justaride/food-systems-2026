@@ -5,9 +5,6 @@ import { PrismaPg } from '@prisma/adapter-pg'
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
-// Prisma JSON input doesn't accept Record<string, unknown>. Use any for metadata fields.
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 type CompanySeed = {
   name: string
   orgNr: string
