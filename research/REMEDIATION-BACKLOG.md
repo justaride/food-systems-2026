@@ -1,17 +1,17 @@
 # REMEDIATION BACKLOG — data-readiness Fase B
 
 > Auto-generert av `scripts/build-remediation-backlog.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T12:16:27.669Z
-> Totalt: **386** funn
+> Generert: 2026-04-27T12:27:55.164Z
+> Totalt: **317** funn
 
 ## Sammendrag per kilde × severity
 
 | Kilde | HIGH | MEDIUM | LOW | INFO |
 |---|---:|---:|---:|---:|
-| file-coverage | 0 | 187 | 144 | 0 |
+| file-coverage | 0 | 118 | 144 | 0 |
 | pdf-quality | 0 | 5 | 45 | 0 |
 | html-triage | 3 | 2 | 0 | 0 |
-| **Total** | 3 | 194 | 189 | 0 |
+| **Total** | 3 | 125 | 189 | 0 |
 
 ## Fiksgrupper (rotårsak-analyse)
 
@@ -19,9 +19,6 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 
 | Gruppe | Funn | HIGH | MEDIUM | LOW |
 |---|---:|---:|---:|---:|
-| A: stale incoming/ | 1 | 0 | 1 | 0 |
-| B: external/ DB-only | 60 | 0 | 60 | 0 |
-| C: generated/meetings/ | 8 | 0 | 8 | 0 |
 | E: missing SourceDoc | 118 | 0 | 118 | 0 |
 | F: orphan files | 142 | 0 | 0 | 142 |
 | G: broken supportingSource | 1 | 0 | 0 | 1 |
@@ -73,30 +70,30 @@ URL-helse er **ikke** klassifisert ennå — kun inventarisert (173 unike, 98 % 
 | 1 | HIGH | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/beredskap/beredskap-island-food-stockpiles-202 |
 | 2 | HIGH | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/beredskap/beredskap-island-melmolle-2025.html |
 | 3 | HIGH | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/bransje/dlf-leverandor-2025.html |
-| 4 | MEDIUM | file-coverage | A: stale incoming/ | missing_file_document | cmoh2g8860038n60d04z5mrbn |
-| 5 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpte0000vw0dusb874iw |
-| 6 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpub0001vw0dbumriqjz |
-| 7 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpug0002vw0d7f3qipql |
-| 8 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpuk0003vw0dp0j4x509 |
-| 9 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpuv0004vw0di9yc9yfo |
-| 10 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpv50005vw0d1s3y31jb |
-| 11 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpva0006vw0djj92bb5t |
-| 12 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpw70007vw0dobq4dve9 |
-| 13 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpwg0008vw0dgcha2p3a |
-| 14 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpxt0009vw0deti0bl62 |
-| 15 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpxz000avw0deqp3ryi2 |
-| 16 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpy2000bvw0dnqnyvayq |
-| 17 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpy7000cvw0dv79oyq5m |
-| 18 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpyx000dvw0dh2u2yvgs |
-| 19 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpzf000evw0d0zrrns6d |
-| 20 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpzk000fvw0dj0h1tx00 |
-| 21 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpzp000gvw0d49eo8j17 |
-| 22 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpzs000hvw0dcmw14pbg |
-| 23 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jpzu000ivw0d693wscci |
-| 24 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq18000jvw0dpydr04g1 |
-| 25 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq1c000kvw0dithrr5z0 |
-| 26 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq1f000lvw0dh0opw4u4 |
-| 27 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq27000mvw0dybs8pl5r |
-| 28 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq2b000nvw0d3sono486 |
-| 29 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq2e000ovw0dr56o59bd |
-| 30 | MEDIUM | file-coverage | B: external/ DB-only | missing_file_document | cmoh0jq31000pvw0du1cdkgt1 |
+| 4 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-1 |
+| 5 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-10 |
+| 6 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-101 |
+| 7 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-102 |
+| 8 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-103 |
+| 9 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-107 |
+| 10 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-108 |
+| 11 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-109 |
+| 12 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-110 |
+| 13 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-111 |
+| 14 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-112 |
+| 15 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-113 |
+| 16 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-114 |
+| 17 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-115 |
+| 18 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-116 |
+| 19 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-117 |
+| 20 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-118 |
+| 21 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-119 |
+| 22 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-120 |
+| 23 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-121 |
+| 24 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-123 |
+| 25 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-124 |
+| 26 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-125 |
+| 27 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-126 |
+| 28 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-136 |
+| 29 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-137 |
+| 30 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-138 |

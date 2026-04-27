@@ -62,6 +62,7 @@
     "build-remediation-backlog": "tsx scripts/build-remediation-backlog.ts",
     "remap-document-paths": "tsx scripts/remap-document-paths.ts",
     "extract-html-to-md": "tsx scripts/extract-html-to-md.ts",
+    "fix-stale-document-references": "tsx scripts/fix-stale-document-references.ts",
     "db:verify": "tsx scripts/verify-prod-counts.ts",
     "db:prod-sync": "npm run db:import:ts && npm run db:import:docs && npm run db:import:root && npm run db:import:companies && npm run db:import:ownership && npm run db:import:persons && npm run db:import:actors && npm run db:import:transcripts && npm run db:import:market && npm run db:import:session5 && npm run db:verify",
     "research:intake:food-process:preview": "tsx scripts/preview-food-research-process-intake.ts",

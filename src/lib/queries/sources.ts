@@ -5,7 +5,7 @@ import { buildExcerpt } from './document-fallbacks'
 type SourceFallbackDocument = {
   id: string
   slug: string
-  filePath: string
+  filePath: string | null
   title: string
   author: string | null
   year: number | null
@@ -178,7 +178,7 @@ export async function getSourceDocumentFallbacks() {
 
   return documents.map((doc) => ({
     id: `doc-${doc.id}`,
-    filename: path.basename(doc.filePath),
+    filename: doc.filePath ? path.basename(doc.filePath) : doc.slug,
     title: doc.title,
     author: doc.author,
     year: doc.year ?? null,

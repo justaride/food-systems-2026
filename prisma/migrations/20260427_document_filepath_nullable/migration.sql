@@ -1,0 +1,1 @@
+ALTER TABLE "Document" ALTER COLUMN "filePath" DROP NOT NULL;

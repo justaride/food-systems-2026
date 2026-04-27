@@ -14,7 +14,7 @@ datasource db {
 model Document {
   id           String                       @id @default(cuid())
   slug         String                       @unique
-  filePath     String                       @unique
+  filePath     String?                      @unique
   title        String
   author       String?
   year         Int?

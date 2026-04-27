@@ -144,8 +144,8 @@ function loadPdfCatalog(): PdfCatalogEntry[] {
     .filter((d) => d.rel && d.sha256)
 }
 
-function normalizeReferencedPath(p: string): string {
-  // Treat a few prefix variants as equivalent: research/foo, ./research/foo, foo (relative to research)
+function normalizeReferencedPath(p: string | null | undefined): string {
+  if (!p) return ''
   let s = p.replace(/^\.\//, '')
   if (s.startsWith('research/')) s = s.slice('research/'.length)
   return s
@@ -203,6 +203,7 @@ async function main(): Promise<void> {
   const docFilePathById = new Map<string, string>()
   for (const d of documents) {
     const norm = normalizeReferencedPath(d.filePath)
+    if (!norm) continue
     referenced.add(norm)
     docFilePathById.set(d.id, norm)
   }
