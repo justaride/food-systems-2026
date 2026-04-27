@@ -1,5 +1,8 @@
-# Ljusgaarda AB orgnr-oppslag og driftomlegging
-
-Kilde: https://www.allabolag.se/
-
-
+{
+  "company": "Ljusgaarda AB",
+  "lookup": "orgnr-oppslag og driftomlegging",
+  "source": "https://www.allabolag.se/",
+  "status": "placeholder",
+  "orgNr": null,
+  "note": "Original file contained only a Markdown heading and source line. No organisation number was captured."
+}

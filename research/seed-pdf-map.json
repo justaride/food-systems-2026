@@ -1,11 +1,17 @@
 {
-  "generatedAt": "2026-04-09T14:09:40.448Z",
+  "generatedAt": "2026-04-27T10:53:36.536Z",
   "theses": {
     "jacobsen-jansson-2022": {
       "pdf": "evidence-pack/akademia/jacobsen-jansson-2022-black-sheep.pdf",
       "score": 22,
       "confidence": "high",
       "why": "id-boundary+author-jacobsen+year-2022+title-black,sheep"
+    },
+    "nguyen-hartmann-2024": {
+      "pdf": "evidence-pack/akademia/nguyen-hartmann-2024.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+author-nguyen+year-2024"
     },
     "drager-vagene-2017": {
       "pdf": "evidence-pack/akademia/drager-vagene-2017.pdf",
@@ -36,6 +42,12 @@
       "score": 26,
       "confidence": "high",
       "why": "exact-id+author-skulstad+year-2024"
+    },
+    "sandanger-2012": {
+      "pdf": "evidence-pack/akademia/sandanger-2012.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+author-sandanger+year-2012"
     },
     "skjervheim-flo-2016": {
       "pdf": "evidence-pack/akademia/skjervheim-flo-2016.pdf",
@@ -79,11 +91,23 @@
       "confidence": "high",
       "why": "manual-override"
     },
+    "sundin-phd-2024": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sundin-n-20240612.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "author-sundin+year-2024"
+    },
     "lehtokunnas-phd-2023": {
       "pdf": "evidence-pack/akademia/lehtokunnas-phd-2023.pdf",
       "score": 999,
       "confidence": "high",
       "why": "manual-override"
+    },
+    "sundqvist-phd-2025": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Sundqvist_Henna_Accessible_Summary_03_05_2025.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "author-sundqvist+year-2025"
     },
     "sorensen-phd-2016": {
       "pdf": "evidence-pack/akademia/sorensen-phd-2016-danish-public-kitchens.pdf",
@@ -96,6 +120,24 @@
       "score": 999,
       "confidence": "high",
       "why": "manual-override"
+    },
+    "sigurdardottir-2017": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Lokaverkefni_ _Predicting Household Food Waste Reduction_ An exploratory study comparing and contrasting the Theory of Planned Behavior and Value Belief Norm theory_ _ Skemman.pdf",
+      "score": 11,
+      "confidence": "medium",
+      "why": "title-4tok"
+    },
+    "orlova-2019": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Lina-Orlova_Masteroppgave2019.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "author-orlova+year-2019"
+    },
+    "morken-2015": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Effekter-av-innkjopssamarbeid-i-det-norske-dagligvaremarkedet-masteroppgave-2015.pdf",
+      "score": 13,
+      "confidence": "medium",
+      "why": "year-2015+title-4tok"
     },
     "hasle-tjostheim-2024": {
       "pdf": "evidence-pack/akademia/hasle-tjostheim-2024.pdf",
@@ -145,6 +187,12 @@
       "confidence": "high",
       "why": "manual-override"
     },
+    "minkeviciute-2019": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/806685_Master_Thesis_Assessment_of_Grocery_eCommerce_in_Scandinavia_jumi18ab.pdf",
+      "score": 11,
+      "confidence": "medium",
+      "why": "title-4tok"
+    },
     "mattila-2024": {
       "pdf": "evidence-pack/akademia/mattila-2024.pdf",
       "score": 999,
@@ -157,6 +205,12 @@
       "confidence": "high",
       "why": "manual-override"
     },
+    "johannsson-2011": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/OrriJohannsson FoodSecurity Final.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "author-johannsson+title-security"
+    },
     "ortiz-cuadra-2023": {
       "pdf": "evidence-pack/akademia/ortiz-cuadra-2023.pdf",
       "score": 999,
@@ -168,6 +222,12 @@
       "score": 999,
       "confidence": "high",
       "why": "manual-override"
+    },
+    "sedwall-2025": {
+      "pdf": "evidence-pack/akademia/sedwall-2025.pdf",
+      "score": 22,
+      "confidence": "high",
+      "why": "exact-id+year-2025"
     },
     "zakeri-lei-2024": {
       "pdf": "evidence-pack/akademia/zakeri-lei-2024.pdf",
@@ -182,10 +242,10 @@
       "why": "manual-override"
     },
     "rislakki-2024": {
-      "pdf": "evidence-pack/arsrapporter/reitan-retail-2024.pdf",
-      "score": 6,
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Dynamics-in-the-Swedish-Grocery-Retail-Industry.pdf",
+      "score": 9,
       "confidence": "low",
-      "why": "year-2024+title-retail,retail"
+      "why": "title-3tok"
     },
     "rey-verge-2005": {
       "pdf": "evidence-pack/akademia/rey-verge-2005.pdf",
@@ -274,13 +334,13 @@
       "why": "id-boundary+year-2025+title-salling,coop"
     },
     "se-konkurrensverket-2024-5": {
-      "pdf": "evidence-pack/nordisk/konkurrensverket-2024-4-dagligvaruhandelns-etablering.pdf",
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurrensverket - rapport 2024 5 summary (2024).pdf",
       "score": 6,
       "confidence": "low",
       "why": "year-2024+title-konkurrensverket,2024"
     },
     "dt-samarbeidsklima-2025": {
-      "pdf": "evidence-pack/tilsyn/dagligvaretilsynet-samarbeidsklima-2025.pdf",
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+samarbeidsklimaet+lokalmat-+og+drikke+produsenter+i+dagligvarebransjen+2025.pdf",
       "score": 6,
       "confidence": "low",
       "why": "year-2025+title-samarbeidsklima,2025"
@@ -292,19 +352,19 @@
       "why": "exact-id+year-2026+title-funksjonelt,skille"
     },
     "coop-2024": {
-      "pdf": "evidence-pack/arsrapporter/coop-danmark-2024.pdf",
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Coop_Norge_SA_årsrapport_2024_HR_1.pdf",
       "score": 6,
       "confidence": "low",
       "why": "year-2024+title-coop,2024"
     },
     "norgesgruppen-2024-25": {
-      "pdf": "evidence-pack/arsrapporter/norgesgruppen-2024.pdf",
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/V2024-4-Offentlig-versjon-Coop-Norge-SA-Norgesgruppen-ASA-Rema-1000-AS-–-palegg-om-opphor-av-overtredelse-.pdf",
       "score": 6,
       "confidence": "low",
       "why": "year-2024+title-norgesgruppen,2024"
     },
     "reitan-2024-25": {
-      "pdf": "evidence-pack/arsrapporter/reitan-retail-2024.pdf",
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/V2024-4-Offentlig-versjon-Coop-Norge-SA-Norgesgruppen-ASA-Rema-1000-AS-–-palegg-om-opphor-av-overtredelse-.pdf",
       "score": 11,
       "confidence": "medium",
       "why": "year-2024+title-3tok"
@@ -494,6 +554,66 @@
       "score": 999,
       "confidence": "high",
       "why": "manual-override"
+    },
+    "pubmed-zamanzadeh-2017": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Response of food waste anaerobic digestion to the dimensions of micron-biochar under 30 g VS_L organic loading rate_ Focus on gas production and microbial community structure - ScienceDirect.pdf",
+      "score": 11,
+      "confidence": "medium",
+      "why": "title-4tok"
+    },
+    "pubmed-sigala-2025": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Policy commitment_ Reducing food waste for a green Nordic Region _ Nordic cooperation.pdf",
+      "score": 9,
+      "confidence": "low",
+      "why": "title-3tok"
+    },
+    "matsvinnutvalget-2024": {
+      "pdf": "evidence-pack/offentlig/matsvinnutvalget-2024.pdf",
+      "score": 22,
+      "confidence": "high",
+      "why": "exact-id+year-2024"
+    },
+    "pty-finnish-grocery-trade-2024": {
+      "pdf": "evidence-pack/nordisk/pty-finnish-grocery-trade-statistics-2024.pdf",
+      "score": 15,
+      "confidence": "medium",
+      "why": "year-2024+title-5tok"
+    },
+    "coop-danmark-2024": {
+      "pdf": "evidence-pack/arsrapporter/coop-danmark-2024.pdf",
+      "score": 31,
+      "confidence": "high",
+      "why": "exact-id+year-2024+title-3tok"
+    },
+    "norgesgruppen-halvarsrapport-h1-2025": {
+      "pdf": "evidence-pack/arsrapporter/norgesgruppen-halvarsrapport-2025.pdf",
+      "score": 11,
+      "confidence": "medium",
+      "why": "year-2025+title-3tok"
+    },
+    "kfst-foedevarehandelslov-evaluering-2024": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/KFST - 20241120 evaluering af foedevarehandelsloven 2024 (2024).pdf",
+      "score": 13,
+      "confidence": "medium",
+      "why": "year-2024+title-4tok"
+    },
+    "konkurrensverket-2025-5-livsmedelsutredning": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurrensverket - rapport 2025 5 (2024).pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2025+title-konkurrensverket,2025"
+    },
+    "etmv-toimintakertomus-2024": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Ruokavirasto - etmv toimintakertomus 2024 (2024).pdf",
+      "score": 18,
+      "confidence": "high",
+      "why": "id-boundary+year-2024+title-toimintakertomus,2024"
+    },
+    "dt-samarbeidsklima-2023": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet - Rapport om Samarbeidsklimaet i Dagligvarebransjen 2023 (2024).pdf",
+      "score": 11,
+      "confidence": "medium",
+      "why": "year-2023+title-3tok"
     }
   },
   "sources": {
@@ -522,10 +642,10 @@
       "why": "filename-contains+year-2025+title-2025"
     },
     "src-17": {
-      "pdf": "evidence-pack/arsrapporter/norgesgruppen-halvarsrapport-2025.pdf",
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurrensverket - rapport 2025 5 (2024).pdf",
       "score": 6,
       "confidence": "low",
-      "why": "year-2025+title-halvarsrapport,2025"
+      "why": "year-2025+title-2024,2025"
     },
     "src-19": {
       "pdf": "evidence-pack/akademia/jacobsen-jansson-2022-black-sheep.pdf",
@@ -545,11 +665,23 @@
       "confidence": "high",
       "why": "filename-exact+year-2026"
     },
+    "src-22": {
+      "pdf": "evidence-pack/akademia/nguyen-hartmann-2024.pdf",
+      "score": 27,
+      "confidence": "high",
+      "why": "filename-exact+year-2024"
+    },
     "src-23": {
       "pdf": "evidence-pack/tenketank/stockholm-resilience-2019.pdf",
       "score": 27,
       "confidence": "high",
       "why": "filename-exact+year-2019"
+    },
+    "src-25": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet - Rapport om Samarbeidsklimaet i Dagligvarebransjen 2023 (2024).pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-2023,2024"
     },
     "src-26": {
       "pdf": "evidence-pack/offentlig/meld-st-11-selvforsyning-2024.pdf",
@@ -558,16 +690,10 @@
       "why": "filename-contains+year-2024"
     },
     "src-29": {
-      "pdf": "evidence-pack/offentlig/meld-st-4-2024-2025-dagligvare.pdf",
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurrensverket - rapport 2025 5 (2024).pdf",
       "score": 6,
       "confidence": "low",
       "why": "year-2025+title-2025,2024"
-    },
-    "src-35": {
-      "pdf": "evidence-pack/tenketank/fivh-etikk-2025.pdf",
-      "score": 27,
-      "confidence": "high",
-      "why": "filename-exact+year-2025"
     },
     "src-42": {
       "pdf": "evidence-pack/tilsyn/prisjeger-saken-2024-offentlig-versjon.pdf",
@@ -588,22 +714,28 @@
       "why": "filename-exact+year-2024"
     },
     "src-53": {
-      "pdf": "evidence-pack/offentlig/meld-st-4-2024-2025-dagligvare.pdf",
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet-tildelingsbrev-2025.pdf",
       "score": 6,
       "confidence": "low",
       "why": "year-2025+title-dagligvare,2025"
     },
     "src-54": {
-      "pdf": "evidence-pack/arsrapporter/reitan-retail-2024.pdf",
-      "score": 9,
-      "confidence": "low",
-      "why": "title-3tok"
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/Reitan Retail 2025_Oppslag.pdf",
+      "score": 11,
+      "confidence": "medium",
+      "why": "year-2025+title-3tok"
     },
     "src-73": {
       "pdf": "evidence-pack/offentlig/src-73.pdf",
       "score": 999,
       "confidence": "high",
       "why": "manual-override"
+    },
+    "src-75": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Food-for-Thought-Green-Public-Procurement-and-Organic-Food.pdf",
+      "score": 9,
+      "confidence": "low",
+      "why": "title-3tok"
     },
     "src-78": {
       "pdf": "evidence-pack/nordisk/konkurrensverket-2024-4-dagligvaruhandelns-etablering.pdf",
@@ -618,7 +750,7 @@
       "why": "year-off-by-one+title-4tok"
     },
     "src-82": {
-      "pdf": "evidence-pack/offentlig/meld-st-4-2024-2025-dagligvare.pdf",
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurrensverket - rapport 2025 5 (2024).pdf",
       "score": 6,
       "confidence": "low",
       "why": "year-2025+title-2024,2025"
@@ -652,29 +784,371 @@
       "score": 29,
       "confidence": "high",
       "why": "filename-exact+year-2024+title-2024"
+    },
+    "src-135": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/00_Working_Files/Research-Report-Norges-matrevolusjon-2026.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2026+title-norges,matrevolusjon"
+    },
+    "src-136": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/00_Working_Files/Research-Report-Norges-matrevolusjon-2026.pdf",
+      "score": 11,
+      "confidence": "medium",
+      "why": "year-2026+title-3tok"
+    },
+    "src-137": {
+      "pdf": "evidence-pack/arsrapporter/norgesgruppen-halvarsrapport-2025.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2025+title-norgesgruppen,2025"
+    },
+    "src-138": {
+      "pdf": "evidence-pack/arsrapporter/reitan-retail-2024.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-reitan,2024"
+    },
+    "src-139": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Regjeringen - stm201920200033000engpdfs (2024).pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2020+title-2019,2020"
+    },
+    "src-140": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/prp202520260004000dddpdfs.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2025+title-2025,2026"
+    },
+    "src-141": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurrensverket - rapport 2025 5 (2024).pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2025+title-konkurrensverket,2025"
+    },
+    "src-142": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/KFST - 20241120 evaluering af foedevarehandelsloven 2024 (2024).pdf",
+      "score": 13,
+      "confidence": "medium",
+      "why": "year-2024+title-4tok"
+    },
+    "src-143": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Ruokavirasto - etmv toimintakertomus 2024 (2024).pdf",
+      "score": 21,
+      "confidence": "high",
+      "why": "filename-contains+year-2024+title-toimintakertomus,2024"
+    },
+    "src-144": {
+      "pdf": "evidence-pack/offentlig/meld-st-4-2024-2025-dagligvare.pdf",
+      "score": 11,
+      "confidence": "medium",
+      "why": "year-2025+title-3tok"
+    },
+    "src-145": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet-tildelingsbrev-2025.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2025+title-dagligvare,2025"
+    },
+    "src-146": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Regjeringen - arsrapport dagligvaretilsynet 2024 (2024).pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-regjeringen,2024"
+    },
+    "src-148": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/Cheffelo_Arsredovisning_Hallbarhetsrapport_2025_SE.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2025+title-cheffelo,2025"
+    },
+    "src-164": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurrensverket - rapport 2025 5 (2024).pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-2024,2025"
     }
   },
-  "orphanPdfs": [],
+  "orphanPdfs": [
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/2022-68-EMV-og-innovasjon-i-dagligvare-1.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/20250326-salling-groups-erhvervelse-af-dele-af-coop-danmark-a.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Aarsrapport-Dagligvaretilsynet-2023.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Aarsrapport-Dagligvaretilsynet-2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Afgangsprojekt_HD1_Analyse_af_Salling_Group_AS_og_Coop_Danmark_AS.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvare_ Forskjeller i innkjøpspriser ytterligere redusert - Konkurransetilsynet.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet - Dagligvaretilsynet Hringssvar om endringer i lov om god handelsskikk handheving (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet-tildelingsbrev-2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet-tildelingsbrev-2026.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Del-2.-Kartlegging-av-marginer-ved-bruk-av-informasjon-pa-produktniva.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Forbyr praksis som motvirker konkurranse i dagligvaremarkedet - regjeringen.no.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Havforskningsinstituttet - 23 2018 Framtidsrettet mat 1408 (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/KFST - fremtidens detailhandel (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurransetilsynet - Konkurransetilsynets Dagligvarerapport 2024 25 (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurransetilsynet - Konkurransetilsynets dagligvarerapport 2022 (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurransetilsynet - betaling for hylleplass (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurransetilsynets-Dagligvarerapport-2024-25.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/NORDIC_FOOD_MARKETS.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Ny rapport om krav til åpenhet i dagligvarebransjen - regjeringen.no.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Nye tiltak for bedre konkurranse i dagligvarebransjen - regjeringen.no.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Oslo-Economics-Konkurransen-i-dagligvaremarkedet-betydelig-bedre-enn-sitt-rykte.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Paivittaistavarakauppa-ry-2024-EN.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Paraplykjedenes-overtakelse-av-distribusjonen-i-dagligvaremarkedet.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+Samarbeidsklimaet+i+Dagligvarebransjen+2023.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+samarbeidsklimaet+i+Dagligvarebransjen.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport+om+samarbeidsklimaet+i+dagligvarebransjen+2024_Final_17.10.24.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Rapport-marginstudie.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Regjeringen - horingsnotat om forslag til endringer i lov om god handelsskikk (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Regjeringen - konkurransetilsynet kt tildelingsbrev for 2026 (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Regjeringen - nou201120110004000dddpdfs (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/SAMKEPPNISEFTIRLITID_arsskyrlsla_2024_LOK_02.10.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/SINTEF - l1.1 delrapport 1 kvantifisering av utslipp (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/SINTEF - rapport industriell fremstilling av norske forravarer signed (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Svak konkurranse – som fortjent - Civita.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Utredning-om-prisjusteringsvinduer-2023.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/cibus_interim_report_q3_2025.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/cibus_nordic_annual_report_2025.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/cibus_year-end_report_2025.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/dagligvare_rapport.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/fretheimrodnova-etableringshindringer-var-2020_isf_mro-2.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/fréttatilkynning-hagar-4f-2024-25-ensk.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/utredning-av-funksjonelt-og-regnskapsmessig-skille-i-verdikjeden-for-mat-og-dagligvarer.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/100 millioner brød har blitt kastet siden… _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Circular economy butterfly diagram.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Consumer food waste prevention - Food Safety - European Commission.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Det er mye penger å tjene på matsvinn _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/EU actions against food waste - Food Safety - European Commission.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Efficiency of a novel “Food to waste to food” system including anaerobic digestion of food waste and cultivation of vegetables on digestate in a bubble-insulated greenhouse - ScienceDirect.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Endelig er matsvinnloven her! _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food Redistribution in the Nordic Region.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food Waste - Food Safety - European Commission.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Food-waste-reduction-corporate-responsibility-and-national-policies-2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Growing_vegetables_in_the_circular_econo.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Home - Foodsharing Copenhagen.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Home • PeelPioneers.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/NIBIO - NIBIO POP 2020 6 43 (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/NORSUS - Mobiplast okonomiske konsekvenser av posevalg (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/NORSUS - OR 48.23 Biorest fra marine rastoffer og husdyrgjodsel (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/NPHarvest – We recover value from your wastewater.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Norways-Food-Waste-Reduction-Governance-2022.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Regjeringen - rapport co2 handtering i norsk landbasert industri frem mot 2050 (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Resource-Recovery-surplus-bread-thesis.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Revised Waste Framework Directive enters into force - Environment.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Vi har et enormt skjult matsvinn _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Zero waste solutions in hospitality  technology alignment and agile management practices for responsible consumption and production of food.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31.12.23.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/2023-Danish-Action-Plan-for-Plant-based-Foods.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Agrifoodtech funding is flat. The real story is where it isn't_.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/BioMar _ Powered by Partnership. Driven by Innovation_.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/DUG Foodtech Declared Bankrupt, Assets Now Open for Acquisition - vegconomist - the vegan business magazine.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Danish insect ag firm ENORM declared bankrupt.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Enifer - Ingredients for a sustainable food chain.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Enorm - larvae for green development of the agricultural and food industry.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Five reasons why vertical farming is still the future, despite all the recent business failures.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Foodrise_ Rising up for fair and resilient food systems.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/French insect protein producer Ÿnsect enters judicial liquidation _ PetfoodIndustry.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Hailia - Enabling the Blue Food Revolution.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Hooked Foods - Enkelt, Gott & Näringsrikt. 100% Veganskt såklart, för allas bästa!.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Hooked Foods files for bankruptcy after seven-year push to crack plant-based seafood _ PPTI News.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Industry Consolidation_ 40+ Major Alternative Protein Companies Have Shut or Been Acquired in Past Year.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Infarm closes Copenhagen operations amid ongoing ‘strategy shift’.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Insect producer seeks reconstruction in the face of bankruptcy _ The Fish Site.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Lessons from vertical farming bankruptcies, layoffs, and closures in 2023.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Mycoprotein Producer Mycorena’s Bankruptcy_ Setback or Fresh Start_.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Mycorena Files for Bankruptcy, Seeks New Ownership to Continue Pioneering Mycoprotein Ingredients - vegconomist - the vegan business magazine.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Naplasol acquires Mycorena to boost the mycelium and alt-protein market - Tech.eu.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/PROMYC, mycoproteins.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Plantagon's Fall_ Lessons for AgTech Innovators.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Protix - Join the future of food today.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Stockeld Dreamery Shuts Down, Citing a Decline in the Plant-Based Category - vegconomist - the vegan business magazine.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Sweden's Hooked Foods Closes Down After Seven Years of Operations - vegconomist - the vegan business magazine.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Swedish foodtech startup restructures through acquisition after bankruptcy filing - ArcticStartup.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Swedish vertical farming company Plantagon International bankrupt.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/The Nordic alternative protein research ecosystem - GFI Europe.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Vegan Cheese Startup Stockeld Dreamery Shuts As Plant-Based Decline Foils Funding Plans.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/Ynsect_ how the world leader in insects ended up in receivership — ONEI.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/05_Foodtech_Alt_Protein_And_Innovation/approval insect novel food - Food Safety - European Commission.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/2021 Impact Report ENG.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/2022 Impact Report ENG.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/2023 Impact Report ENG-NA.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/2024 Environmental Footprint Report ENG.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/2024 Impact Report - Too Good To Go - US_CA.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/2025-Cargill-Annual-Report.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/Annual report 2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/Matsmart-Ars-och-hallbarhetsredovisning-2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/NCE Heidner Biocluster - Norges ledende næringsklynge innen bioøkonomi og bærekraftig matproduksjon.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/Slik får vi sunn og bærekraftig mat _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/barekraft-i-asko-2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/kesko-annual-report-2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/ng_ars--og-barekraftsrapport-2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/1-s2.0-S0959378025000019-main.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/1-s2.0-S2772801325000028-main.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/1-s2.0-S2949750726000040-main.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/1-s2.0-S3050835525000087-main.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/1-s2.0-S305083552600001X-main.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/250221_icagruppen_annual_report_2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/978-952-03-2923-5.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Aarsrapport-Daglegvaretilsynet-2022.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Bama og Coop må slutte å motarbeide frukt-… _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Bilgic2025tht_VoR.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Chen_Q_et_al_2021.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Falasconi_etal_2025_Sustainability_Who_cleans.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Framtiden i våre hender åpner matbutikk! _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Gapet i klimapolitikken _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/HDR_Afgangsprojekt_maj_2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/HDR___Afgangsprojekt___Gruppe_25.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Hybrid-Supply-Chain-Models-in-Swedish-Grocery-Retail.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/JRC92892_qms_h08_lcind_deliverable5_final_20141125.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Learning-for-Crisis-Uppsala-County-Food-Security.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/MASTER-EMILIAEPOSITO-.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Marie+Hebrok.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Master's Thesis Peppi Segersven.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Master's Thesis_Mäkelä_Mika.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Meningsbryteren _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Nordic-Bankruptcy-Statistics-Report-2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Nordmenn vil spise sunnere og mer… _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Ny forskning viser at vi kan mangedoble… _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Paola_Federica_Albizzati_thesis.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/PhD_Thesis_Nina_N_rgaard_S_rensen_print_final.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Philippe_Schuler.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Plantefonden_Handlingsplan_2026.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Politics-you-can-Eat-Sodertalje-Food-Supply-Strategy.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/SLU Future Food _ slu.se.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/SRC_Report Nordic Food Systems_ June 2019 adapted.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/SUSFOOD STRATEGIC SCENE review report 2018-final.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Susanne_Helen_Gangstøe_Masteroppgave.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Til bøndene fra staten_ Er du sikker på at… _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/URN_NBN_fi_jyu-202404243036.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Virkninger-av-kostholdstiltak_Menon-Economics-2006.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/about-oecd-environmental-performance-reviews-brochure-2022-web.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/adlers_s_220222.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_2.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_3.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_4.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_5.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/cheffelo-publicerar-trading-update-for-q1-2026.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/coop-danmark-aarsrapport-2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/drager-og-vagene.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/energies-18-04093.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/etmv-toimintakertomus-2023-liitteineen.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/h_khandaker_210712.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/hse_ethesis_14678.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/inns-202122-322s.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/luke-luobio_51_2025.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/luke-luobio_83_2023.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/luke_luobio_53_2020.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/master_Duong_Linh_2025.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/masteroppgave__mats_b._simonsen.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/ng_arsrapport-2025-web.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/nikolaev-g-20230724.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/nilsen_paulsen_pass-through-av-ravarepriser-for-kakao--og-kaffeprodukter.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/no.ntnu_inspera_238079456_47063854.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/nord2020-048.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/nord2024-007.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/nord2024-034.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/nou201120110004000dddpdfs.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/nou201320130006000dddpdfs.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/pdf  MARK STEIN  PhD  24  OCT  22.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/prp201920200033000dddpdfs.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/rapport-gront-rammeverk-ng-2023.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/rapport-gront-rammeverk-ng-2024.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/rapport-gront-rammeverk-ng-2025.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/rapport_2024-4.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/rapport_2024-5.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/stm202420250004000dddpdfs.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/stm202420250025000dddpdfs.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sturen-f-230831.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00459.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00475-v2.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00495-v3.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00530-v3.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00543-v2.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00545.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00546.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00548.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00549-v2.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sustainability-18-00551-v2.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/temanord2021-504.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/thesis_food_ng_meile_uniform_pricing_public_version.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/tjostheim--hasle_offentlig-versjon.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/virksomhetsanalysenorgessjomatrad.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/“Resilience Science Must-Knows”_ Landmark report shows how decision-makers can manage global crises - Stockholm Resilience Centre.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Billund Aquaculture _ Bankruptcy _ Factsheet 201509.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Billund Aquaculture to declare bankruptcy amid financial challenges - RASTECH MagazineRASTECH Magazine.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Forsiden - NCCE.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Forskningsrådet - et samfunnsloft for barekraftig for 21nov (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Forskningsrådet - pa vei mot barekraftig for 20 grep for 2026 (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Havforskningsinstituttet - Kap 3 Miljoeffeter som folge av utslipp av loste neringssalter fra fiskeoppdrett (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Ikkje lett å bli klok på sjølvforsyning - Nibio.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Klimakrisen presser norske bønder _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Lite kunnskap om hva laksen spiser _ Nofima.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Mat og produksjon - Norsk Bonde- og Småbrukarlag _ Norsk Bonde- og Småbrukarlag.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Matkjedene skviser bonden _ Framtiden i våre hender.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Matsikkerhet-i-Norge-forsyningsberedskap-masteroppgave-2016.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Milepæl for norsk beredskap - regjeringen.no.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Mittenzwei-mfl-2026-Scenarioanalyse-av-norsk-jordbruk-i-2050.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Norsk sjømatnæring – fra subsidiesluk til pengemaskin _ Nofima.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Ruralis - aas utnyttelse av forressurser i norsk lakseoppdrett i 2020 sluttkonferanse (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/SINTEF - leveranse l2.1 effekter av organisk utslipp fra havbruk nina (2024).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Security of supply in Finland - Huoltovarmuuskeskus.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/importvern_til_godkjenning---sensurert-adobe.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/kvotesystemet_i_kyst_og_havfisket.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/livsmedelsberedskap-for-en-ny-tid-sou-20248.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/matsikkerhet-og-beredskap-pa-landbruksomradet.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/myndighetenes-arbeid-med-fiskehelse-og-fiskevelferd-i-havbruksnaringen.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/reduksjon-av-klimagassutslepp-fra-jordbruket.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/tilskudd-til-klimatiltak.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/2023-Danish-Action-Plan-for-Plant-based-Foods (1).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/Årsrapport+Dagligvaretilsynet+2024 (1).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/Årsrapport+Dagligvaretilsynet+2024 (2).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/Årsrapport+for+Daglegvaretilsynet+2022. (1).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/Årsrapport_Dagligvaretilsynet+2023 (1).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/FULLTEXT02 (1).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/HDR___Afgangsprojekt___Gruppe_25 (1).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/Reitan Retail 2025_Oppslag (1).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/Susanne_Helen_Gangstøe_Masteroppgave (1).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/Utredning-om-prisjusteringsvinduer-2023 (1).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/about-oecd-environmental-performance-reviews-brochure-2022-web (1).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/coop-danmark-aarsrapport-2024 (1).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/dagligvare_rapport (1).pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/dagligvare_rapport (2).pdf",
+    "evidence-pack/arsrapporter/norgesgruppen-2024.pdf",
+    "pdf-downloads-20-04-26/1-s2.0-S0044848617322998-main.pdf",
+    "pdf-downloads-20-04-26/1-s2.0-S0044848625013481-main.pdf",
+    "pdf-downloads-20-04-26/1-s2.0-S2451943X24000486-main.pdf",
+    "pdf-downloads-20-04-26/9789264268265-en.pdf",
+    "pdf-downloads-20-04-26/Aquaculture Nutrition - 2025 - Mahmud - Exploring Protein‐Based Fishmeal Alternatives for Aquaculture Feeds in Bangladesh.pdf",
+    "pdf-downloads-20-04-26/Characteristics_and_stability_of_consumer_food-buy.pdf",
+    "pdf-downloads-20-04-26/Economic feasibility of biochar for carbon stock enhancement in Finnish agricultural soils.pdf",
+    "pdf-downloads-20-04-26/Exploring sustainable alternatives in aquaculture feeding_ The role of insects - ScienceDirect.pdf",
+    "pdf-downloads-20-04-26/Insect-based livestock feeds are unlikely to become economically viable in the near future - ScienceDirect.pdf",
+    "pdf-downloads-20-04-26/Reviews in Aquaculture - 2018 - Nogales‐Mérida - Insect meals in fish nutrition.pdf",
+    "pdf-downloads-20-04-26/What does it take to close the loop_ Lessons from a successful citrus waste valorisation business _ British Food Journal _ Emerald Publishing.pdf",
+    "pdf-downloads-20-04-26/brochure-utp-directive_en.pdf",
+    "pdf-downloads-20-04-26/brt-2023-chapter-4-compliance-implementation-and-preparing-proposals_en.pdf",
+    "pdf-downloads-20-04-26/fphys-13-1028992.pdf",
+    "pdf-downloads-20-04-26/ijfd.8.1.61_Hagolani_Albov.pdf",
+    "pdf-downloads-20-04-26/main.pdf",
+    "pdf-downloads-20-04-26/nl-20200417-029.pdf",
+    "pdf-downloads-20-04-26/no.ntnu_inspera_142433913_96959685.pdf",
+    "pdf-downloads-20-04-26/qmr-06-2020-0073.pdf",
+    "pdf-downloads-20-04-26/sf-20260417-0601.pdf",
+    "pdf-downloads-20-04-26/stm201920200027000dddpdfs.pdf",
+    "pdf-downloads-20-04-26/sustainability-13-10471-v2.pdf"
+  ],
   "seedWithoutPdf": {
     "theses": [
-      "nguyen-hartmann-2024",
       "barbakken-hausken-2006",
-      "sandanger-2012",
       "kronqvist-2010",
       "halseth-phd-2024",
       "hebrok-phd-2020",
       "eriksson-phd-2015",
       "albizzati-phd-2021",
-      "sundin-phd-2024",
-      "sundqvist-phd-2025",
       "esposito-2022",
       "deljanin-2015",
       "burgherr-2019",
-      "sigurdardottir-2017",
       "stein-2022",
       "steien-2016",
-      "orlova-2019",
-      "morken-2015",
       "simonsen-2017",
       "granlund-lindskog-2024",
       "sandbraaten-2023",
@@ -687,15 +1161,19 @@
       "paschen-eriksen-2014",
       "storm-teigland-2017",
       "schuler-2017",
-      "minkeviciute-2019",
       "nielsen-andersen-2016",
       "syroegina-2016",
-      "johannsson-2011",
       "naess-2024",
-      "sedwall-2025",
       "hagan-2025",
       "segersven-2024",
-      "lund-beijer-2026"
+      "lund-beijer-2026",
+      "desilva-2023",
+      "slu-house-crickets-2025",
+      "bojo-2023",
+      "mirza-2016",
+      "van-straten-2025",
+      "bueso-bordils-2021",
+      "nmbu-circular-vegetables-2022"
     ],
     "reports": [
       "matsystemutvalget-2026",
@@ -732,7 +1210,20 @@
       "oversikt-sirkularitet-dyp",
       "oversikt-tenketanker-ngo",
       "oversikt-akademia-dyp-research",
-      "oversikt-nordisk-avhandlingsregister"
+      "oversikt-nordisk-avhandlingsregister",
+      "pubmed-van-der-fels-klerx-2024",
+      "pubmed-van-leeuwen-2024",
+      "pubmed-hiis-2024",
+      "pubmed-recanati-2019",
+      "pubmed-szulecka-2024",
+      "pubmed-javourez-2021",
+      "pubmed-wohner-2020",
+      "van-zanten-circularity-2023",
+      "plantefonden-projects-2023-2025",
+      "kbh-food-strategy-madhus",
+      "motiva-food-procurement-2026",
+      "arla-farmahead-check-2024",
+      "sodertaelje-diet-green-planet"
     ],
     "sources": [
       "src-1",
@@ -748,9 +1239,7 @@
       "src-13",
       "src-16",
       "src-18",
-      "src-22",
       "src-24",
-      "src-25",
       "src-27",
       "src-28",
       "src-30",
@@ -758,6 +1247,7 @@
       "src-32",
       "src-33",
       "src-34",
+      "src-35",
       "src-36",
       "src-37",
       "src-38",
@@ -791,7 +1281,6 @@
       "src-71",
       "src-72",
       "src-74",
-      "src-75",
       "src-76",
       "src-77",
       "src-80",
@@ -834,7 +1323,31 @@
       "src-123",
       "src-124",
       "src-125",
-      "src-126"
+      "src-126",
+      "src-127",
+      "src-128",
+      "src-129",
+      "src-130",
+      "src-131",
+      "src-132",
+      "src-133",
+      "src-134",
+      "src-147",
+      "src-149",
+      "src-150",
+      "src-151",
+      "src-152",
+      "src-153",
+      "src-154",
+      "src-155",
+      "src-156",
+      "src-157",
+      "src-158",
+      "src-159",
+      "src-160",
+      "src-161",
+      "src-162",
+      "src-163"
     ]
   }
 }

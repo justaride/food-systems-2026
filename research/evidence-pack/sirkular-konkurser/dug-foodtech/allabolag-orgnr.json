@@ -1,5 +1,8 @@
-# DUG Foodtech AB orgnr-oppslag
-
-Kilde: https://www.allabolag.se/
-
-
+{
+  "company": "DUG Foodtech AB",
+  "lookup": "orgnr-oppslag",
+  "source": "https://www.allabolag.se/",
+  "status": "placeholder",
+  "orgNr": null,
+  "note": "Original file contained only a Markdown heading and source line. No organisation number was captured."
+}

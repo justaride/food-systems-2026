@@ -1,30 +1,30 @@
 # Nedlastings-kø — manglende originaldokumenter
 
 > AUTO-GENERERT av `scripts/build-download-queue.ts` — ikke rediger manuelt.
-> Generert: 2026-04-09T13:36:08.528Z
+> Generert: 2026-04-27T10:53:48.543Z
 
 Dette er kilder vi **vet om** via seed-filer, backlog-CSV, PubMed-manifest og MD-frontmatter, men som mangler lokal PDF. Duplisert på URL og sortert etter prioritet.
 
 ## Sammendrag
 
-**Totalt:** 186 unike URL-er
+**Totalt:** 212 unike URL-er
 
 | Prioritet | Antall |
 |---|---:|
-| P1 (plattform-kjerne) | 57 |
-| P2 (evidens/sitater) | 33 |
-| P3 (MD-frontmatter) | 96 |
+| P1 (plattform-kjerne) | 74 |
+| P2 (evidens/sitater) | 44 |
+| P3 (MD-frontmatter) | 94 |
 
 | Kilde | Antall |
 |---|---:|
-| md-scrape | 96 |
+| md-scrape | 94 |
+| reports.ts | 37 |
+| sources.ts | 37 |
 | theses.ts | 36 |
-| sources.ts | 26 |
-| reports.ts | 20 |
 | pubmed-wave1 | 7 |
 | backlog-csv | 1 |
 
-## P1 — 57
+## P1 — 74
 
 | ID | Kilde | Tittel | År | URL-type | Access | Target |
 |---|---|---|---|---|---|---|
@@ -36,12 +36,14 @@ Dette er kilder vi **vet om** via seed-filer, backlog-CSV, PubMed-manifest og MD
 | `is-markedsstruktur-2024` | reports.ts | Island — Markedskonsentrasjon og vertikal integrasjon | 2024 | landing_page | unknown | `research/evidence-pack/konkurransetilsyn/is-markedsstruktur-2024.pdf` |
 | `asko-infrastruktur-2025` | reports.ts | ASKO — Infrastruktur og Logistikkmakt | 2025 | landing_page | unknown | `research/evidence-pack/bransje/asko-infrastruktur-2025.pdf` |
 | `dagligvarerapporten-2025` | reports.ts | Dagligvarerapporten 2025 | 2025 | landing_page | unknown | `research/evidence-pack/bransje/dagligvarerapporten-2025.pdf` |
+| `dlf-leverandor-2025` | reports.ts | DLF leverandorposisjoner 2025 | 2025 | landing_page | unknown | `research/evidence-pack/bransje/dlf-leverandor-2025.pdf` |
 | `nbs-systemkritikk` | reports.ts | NBS — Systemkritikk | 2025 | landing_page | unknown | `research/evidence-pack/bransje/nbs-systemkritikk.pdf` |
 | `menon-emv-innovasjon` | reports.ts | Menon — EMV og Innovasjon | 2022 | direct_pdf | unknown | `research/evidence-pack/konsulentrapport/menon-emv-innovasjon.pdf` |
 | `soa-emv-2023` | reports.ts | SOA — EMV og Vertikal integrasjon | 2023 | direct_pdf | unknown | `research/evidence-pack/konsulentrapport/soa-emv-2023.pdf` |
 | `civita-manifest-debatt` | reports.ts | Civita vs. Manifest — Matmaktdebatten | 2023 | landing_page | unknown | `research/evidence-pack/tenketank/civita-manifest-debatt.pdf` |
 | `norden-policy-2024` | reports.ts | Nordisk Ministerraad — Policyverktoey 2024 | 2024 | landing_page | unknown | `research/evidence-pack/tenketank/norden-policy-2024.pdf` |
 | `beredskap-finsk-modell-hvk` | reports.ts | Finsk matberedskap — HVK-modellen | 2024 | landing_page | unknown | `research/evidence-pack/beredskap/beredskap-finsk-modell-hvk.pdf` |
+| `beredskap-island-melmolle-2025` | reports.ts | Islands melmolle og matsuverenitet | 2025 | landing_page | unknown | `research/evidence-pack/beredskap/beredskap-island-melmolle-2025.pdf` |
 | `beredskap-nibio-selvforsyning-metode` | reports.ts | NIBIO: Metode for selvforsyningsberegning | 2024 | direct_pdf | unknown | `research/evidence-pack/beredskap/beredskap-nibio-selvforsyning-metode.pdf` |
 | `sirkularitet-definisjoner-wur-emf` | reports.ts | Sirkulaer okonomi i matsystemer — definisjoner | 2023 | landing_page | unknown | `research/evidence-pack/sirkularitet/sirkularitet-definisjoner-wur-emf.pdf` |
 | `juridisk-eiendomsmakt-lokal-konkurranse` | reports.ts | Eiendomsmakt og lokal konkurranse | 2024 | landing_page | unknown | `research/evidence-pack/juridisk/juridisk-eiendomsmakt-lokal-konkurranse.pdf` |
@@ -49,26 +51,36 @@ Dette er kilder vi **vet om** via seed-filer, backlog-CSV, PubMed-manifest og MD
 | `akademia-sifo-retail-media-2025` | reports.ts | SIFO: Retail media og forbrukermakt | 2025 | landing_page | unknown | `research/evidence-pack/akademia/akademia-sifo-retail-media-2025.pdf` |
 | `akademia-nhh-butikkstruktur-2024` | reports.ts | NHH: Butikkstruktur og lokal konkurranse | 2024 | landing_page | unknown | `research/evidence-pack/akademia/akademia-nhh-butikkstruktur-2024.pdf` |
 | `akademia-uib-kjopermakt` | reports.ts | UiB: Kjoepermakt i nordisk dagligvare | 2024 | landing_page | unknown | `research/evidence-pack/akademia/akademia-uib-kjopermakt.pdf` |
-| `nguyen-hartmann-2024` | theses.ts | Restrictive covenants in the Norwegian grocery market: an empirical study | 2024 | landing_page | open | `research/evidence-pack/akademia/nguyen-hartmann-2024.pdf` |
+| `oversikt-bransje-statistikk-beredskap` | reports.ts | Bransjestatistikk og beredskapstall | 2024 | landing_page | unknown | `research/evidence-pack/oversikt/oversikt-bransje-statistikk-beredskap.pdf` |
+| `oversikt-akademia-dyp-research` | reports.ts | Akademisk forskning paa nordisk dagligvare — oversikt | 2025 | landing_page | unknown | `research/evidence-pack/oversikt/oversikt-akademia-dyp-research.pdf` |
+| `pubmed-van-der-fels-klerx-2024` | reports.ts | Framework for evaluation of food safety in circular food systems | 2024 | doi | unknown | `research/evidence-pack/akademia/pubmed-van-der-fels-klerx-2024.pdf` |
+| `pubmed-van-leeuwen-2024` | reports.ts | A novel approach to identify knowledge gaps on food safety in circular food systems | 2024 | doi | unknown | `research/evidence-pack/akademia/pubmed-van-leeuwen-2024.pdf` |
+| `pubmed-hiis-2024` | reports.ts | Unlocking bacterial potential to reduce farmland N2O emissions | 2024 | doi | unknown | `research/evidence-pack/akademia/pubmed-hiis-2024.pdf` |
+| `pubmed-recanati-2019` | reports.ts | Assessing the role of CAP for more sustainable and healthier food systems in Europe | 2019 | doi | unknown | `research/evidence-pack/akademia/pubmed-recanati-2019.pdf` |
+| `pubmed-szulecka-2024` | reports.ts | Food waste governance architectures in four European countries | 2024 | doi | unknown | `research/evidence-pack/akademia/pubmed-szulecka-2024.pdf` |
+| `pubmed-javourez-2021` | reports.ts | Waste-to-nutrition: a review of current and emerging conversion pathways | 2021 | doi | unknown | `research/evidence-pack/akademia/pubmed-javourez-2021.pdf` |
+| `pubmed-wohner-2020` | reports.ts | Environmental and economic assessment of food-packaging systems with a focus on food waste | 2020 | doi | unknown | `research/evidence-pack/akademia/pubmed-wohner-2020.pdf` |
+| `van-zanten-circularity-2023` | reports.ts | Circularity in Europe strengthens the sustainability of the global food system | 2023 | landing_page | unknown | `research/evidence-pack/akademia/van-zanten-circularity-2023.pdf` |
+| `plantefonden-projects-2023-2025` | reports.ts | Plantefonden — projekter og bevillinger 2023-2025 | 2025 | landing_page | unknown | `research/evidence-pack/bransje/plantefonden-projects-2023-2025.pdf` |
+| `kbh-food-strategy-madhus` | reports.ts | Koebenhavns Madhus — maaltidstrategi og status | 2025 | landing_page | unknown | `research/evidence-pack/bransje/kbh-food-strategy-madhus.pdf` |
+| `motiva-food-procurement-2026` | reports.ts | Guide for Responsible Procurement of Food (Motiva, januar 2026) | 2026 | landing_page | unknown | `research/evidence-pack/offentlig/motiva-food-procurement-2026.pdf` |
+| `arla-farmahead-check-2024` | reports.ts | Arla FarmAhead Check — Sustainability Incentive Model 2024 | 2024 | landing_page | unknown | `research/evidence-pack/bransje/arla-farmahead-check-2024.pdf` |
+| `sodertaelje-diet-green-planet` | reports.ts | Soedertaelje — Diet for a Green Planet | 2023 | landing_page | unknown | `research/evidence-pack/akademia/sodertaelje-diet-green-planet.pdf` |
 | `barbakken-hausken-2006` | theses.ts | Det norske dagligvaremarkedet: relasjoner mellom detaljist og produsent | 2006 | landing_page | open | `research/evidence-pack/akademia/barbakken-hausken-2006.pdf` |
-| `sandanger-2012` | theses.ts | Horisontal konkurranse i dagligvaremarkedet: Bruken av egne merkevarer | 2012 | landing_page | open | `research/evidence-pack/akademia/sandanger-2012.pdf` |
 | `kronqvist-2010` | theses.ts | Consumer-owned retail cooperative in duopoly with horizontally differentiated goods | 2010 | landing_page | open | `research/evidence-pack/akademia/kronqvist-2010.pdf` |
+| `halseth-phd-2024` | theses.ts | Competition and Grocery Retail Formats: Empirical Evidence from a Horizontal Acquisition in Norway | 2024 | direct_pdf | open | `research/evidence-pack/akademia/halseth-phd-2024.pdf` |
 | `hebrok-phd-2020` | theses.ts | Food Waste: A practice-oriented design for sustainability approach | 2020 | landing_page | open | `research/evidence-pack/akademia/hebrok-phd-2020.pdf` |
 | `eriksson-phd-2015` | theses.ts | Supermarket food waste: Prevention and management | 2015 | landing_page | open | `research/evidence-pack/akademia/eriksson-phd-2015.pdf` |
 | `albizzati-phd-2021` | theses.ts | Sustainability Assessment of Food Waste Management | 2021 | landing_page | open | `research/evidence-pack/akademia/albizzati-phd-2021.pdf` |
-| `sundin-phd-2024` | theses.ts | Sustainability of food waste prevention through food consumption | 2024 | landing_page | open | `research/evidence-pack/akademia/sundin-phd-2024.pdf` |
-| `sundqvist-phd-2025` | theses.ts | Navigating a Transformative Governance Maze | 2025 | landing_page | open | `research/evidence-pack/akademia/sundqvist-phd-2025.pdf` |
 | `esposito-2022` | theses.ts | Nar matsvinn blir et politikkomrade | 2022 | landing_page | open | `research/evidence-pack/akademia/esposito-2022.pdf` |
 | `deljanin-2015` | theses.ts | Market's imperfections — Building a concerned market for food waste | 2015 | direct_pdf | open | `research/evidence-pack/akademia/deljanin-2015.pdf` |
 | `burgherr-2019` | theses.ts | Food waste in Reykjavik — comparison 2015 vs 2018 | 2019 | landing_page | open | `research/evidence-pack/akademia/burgherr-2019.pdf` |
-| `sigurdardottir-2017` | theses.ts | Predicting Household Food Waste Reduction | 2017 | landing_page | open | `research/evidence-pack/akademia/sigurdardottir-2017.pdf` |
 | `stein-2022` | theses.ts | Sustainable food procurement in public catering: UK vs DK/SE | 2022 | landing_page | open | `research/evidence-pack/akademia/stein-2022.pdf` |
 | `steien-2016` | theses.ts | Matsikkerhet i Norge — er forsyningsberedskapen tilstrekkelig? | 2016 | landing_page | open | `research/evidence-pack/akademia/steien-2016.pdf` |
-| `orlova-2019` | theses.ts | Kan et forbud mot prisdiskriminering fremme etablering av nettaktorer i dagligvaremarkedet? | 2019 | landing_page | open | `research/evidence-pack/akademia/orlova-2019.pdf` |
-| `morken-2015` | theses.ts | Effekter av innkjopssamarbeid i det norske dagligvaremarkedet | 2015 | landing_page | open | `research/evidence-pack/akademia/morken-2015.pdf` |
 | `simonsen-2017` | theses.ts | Digitaliseringen av norsk dagligvarehandel | 2017 | landing_page | open | `research/evidence-pack/akademia/simonsen-2017.pdf` |
 | `granlund-lindskog-2024` | theses.ts | The Status of Operational Technology Cybersecurity within The Norwegian Food Supply Sector | 2024 | landing_page | open | `research/evidence-pack/akademia/granlund-lindskog-2024.pdf` |
 | `sandbraaten-2023` | theses.ts | Hvordan kan Norge vri matkonsumet gronnere? | 2023 | landing_page | open | `research/evidence-pack/akademia/sandbraaten-2023.pdf` |
+| `tallaksen-2022` | theses.ts | Mot baerekraftige kostholdsendringer | 2022 | landing_page | open | `research/evidence-pack/akademia/tallaksen-2022.pdf` |
 | `vangelsten-2017` | theses.ts | Mot et baerekraftig norsk matsystem: Effekt pa selvforsyningsgrad og norsk jordbruk ved redusert konsum av kjott | 2017 | landing_page | open | `research/evidence-pack/akademia/vangelsten-2017.pdf` |
 | `moe-2018` | theses.ts | Alternative Food Networks — the Case of CSA in Norway | 2018 | landing_page | open | `research/evidence-pack/akademia/moe-2018.pdf` |
 | `jevne-schiotz-2021` | theses.ts | Digitaliseringsstrategier for alternative matsystemer, med utgangspunkt i REKO-ringen | 2021 | landing_page | open | `research/evidence-pack/akademia/jevne-schiotz-2021.pdf` |
@@ -77,16 +89,21 @@ Dette er kilder vi **vet om** via seed-filer, backlog-CSV, PubMed-manifest og MD
 | `paschen-eriksen-2014` | theses.ts | Matpolitikk i Norge — fremdeles norsk? Norsk forvaltnings arbeid med politikkutvikling innenfor EOS | 2014 | landing_page | open | `research/evidence-pack/akademia/paschen-eriksen-2014.pdf` |
 | `storm-teigland-2017` | theses.ts | The Business of Food Waste: A Case Study of REMA 1000 | 2017 | landing_page | open | `research/evidence-pack/akademia/storm-teigland-2017.pdf` |
 | `schuler-2017` | theses.ts | Food Loss and Waste in the Fresh Potato Supply Chain of Denmark | 2017 | landing_page | open | `research/evidence-pack/akademia/schuler-2017.pdf` |
-| `minkeviciute-2019` | theses.ts | Assessment of Grocery eCommerce in Scandinavia | 2019 | landing_page | open | `research/evidence-pack/akademia/minkeviciute-2019.pdf` |
 | `nielsen-andersen-2016` | theses.ts | Danish Grocery Retail: Does Preference Structure Influence the Perception of Price and Quality? | 2016 | landing_page | open | `research/evidence-pack/akademia/nielsen-andersen-2016.pdf` |
 | `syroegina-2016` | theses.ts | Retailer\'s role in reducing food waste: Case study of Finnish retailers | 2016 | landing_page | open | `research/evidence-pack/akademia/syroegina-2016.pdf` |
-| `johannsson-2011` | theses.ts | Food Security in Iceland: Present Vulnerabilities, Possible Solutions | 2011 | direct_pdf | open | `research/evidence-pack/akademia/johannsson-2011.pdf` |
-| `sedwall-2025` | theses.ts | Hybrid Supply Chain Models in Swedish Grocery Retail | 2025 | direct_pdf | open | `research/evidence-pack/akademia/sedwall-2025.pdf` |
+| `naess-2024` | theses.ts | To-rolle-plattformer og egne merkevarer: en analyse av konkurranse- og velferdseffekter | 2024 | landing_page | open | `research/evidence-pack/akademia/naess-2024.pdf` |
 | `hagan-2025` | theses.ts | The Impact of Food Loss and Waste Reduction Practices on Consumer Grocery Store Choice | 2025 | landing_page | open | `research/evidence-pack/akademia/hagan-2025.pdf` |
 | `segersven-2024` | theses.ts | Development of risk management and resilience of supply chains in Finnish food industry companies post-COVID-19 | 2024 | landing_page | open | `research/evidence-pack/akademia/segersven-2024.pdf` |
 | `lund-beijer-2026` | theses.ts | Impact of food retail market power on small food producers in Sweden: Challenges and opportunities | 2026 | landing_page | open | `research/evidence-pack/akademia/lund-beijer-2026.pdf` |
+| `desilva-2023` | theses.ts | Circular value creation in the Swedish seafood processing industry | 2023 | landing_page | open | `research/evidence-pack/akademia/desilva-2023.pdf` |
+| `slu-house-crickets-2025` | theses.ts | Integrating house crickets in circular food systems | 2025 | landing_page | open | `research/evidence-pack/akademia/slu-house-crickets-2025.pdf` |
+| `bojo-2023` | theses.ts | Circular food systems: a content and discourse analysis | 2023 | direct_pdf | open | `research/evidence-pack/akademia/bojo-2023.pdf` |
+| `mirza-2016` | theses.ts | Circular economy in the food and retail industry: a case study of ICA | 2016 | direct_pdf | open | `research/evidence-pack/akademia/mirza-2016.pdf` |
+| `van-straten-2025` | theses.ts | Circular business models in Finnish food companies | 2025 | direct_pdf | open | `research/evidence-pack/akademia/van-straten-2025.pdf` |
+| `bueso-bordils-2021` | theses.ts | Circular economy mapping on Bornholm island | 2021 | direct_pdf | open | `research/evidence-pack/akademia/bueso-bordils-2021.pdf` |
+| `nmbu-circular-vegetables-2022` | theses.ts | Barriers and drivers to a circular economy for vegetables in the Norwegian food sector | 2022 | landing_page | open | `research/evidence-pack/akademia/nmbu-circular-vegetables-2022.pdf` |
 
-## P2 — 33
+## P2 — 44
 
 | ID | Kilde | Tittel | År | URL-type | Access | Target |
 |---|---|---|---|---|---|---|
@@ -100,14 +117,13 @@ Dette er kilder vi **vet om** via seed-filer, backlog-CSV, PubMed-manifest og MD
 | `src-13` | sources.ts | Foreslår nye hovedmål for inntektsmåling og analyserer primærprodusentens kår. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-13.pdf` |
 | `src-16` | sources.ts | Kritisk analyse av systemets sårbarhet og manglende kriseplanlegging. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-16.pdf` |
 | `src-18` | sources.ts | Samvirkemodellens resultater og vekst for Extra. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-18.pdf` |
-| `src-22` | sources.ts | Dokumenterer etableringshindringer gjennom strategisk bruk av eiendom. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-22.pdf` |
 | `src-24` | sources.ts | Regulering av markedsmakt med automatisk dominans-presumsjon over 30%. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-24.pdf` |
-| `src-25` | sources.ts | Analyse av inflasjon og markedsmakt i det svenske matmarkedet. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-25.pdf` |
 | `src-27` | sources.ts | Status for regjeringens 10-punktsplan for dagligvarebransjen. |  | unknown | unknown | `research/evidence-pack/offentlig/src-27.pdf` |
 | `src-30` | sources.ts | Dokumenterer infrastruktur og logistikkens rolle i verdikjeden. |  | unknown | unknown | `research/evidence-pack/offentlig/src-30.pdf` |
 | `src-31` | sources.ts | Metodisk grunnlag for å vurdere matsikkerhet i energi og volum. |  | unknown | unknown | `research/evidence-pack/offentlig/src-31.pdf` |
 | `src-32` | sources.ts | Kvantifiserer ressurstap i hele verdikjeden. |  | unknown | unknown | `research/evidence-pack/offentlig/src-32.pdf` |
 | `src-33` | sources.ts | Dokumenterer Norges prisposisjon sammenlignet med EU. |  | unknown | unknown | `research/evidence-pack/offentlig/src-33.pdf` |
+| `src-35` | sources.ts | Sosial bærekraft og etisk handel i matsystemet. |  | unknown | unknown | `research/evidence-pack/offentlig/src-35.pdf` |
 | `src-36` | sources.ts | Status for nye regulatoriske verktøy for å tøyle markedsmakt. |  | unknown | unknown | `research/evidence-pack/offentlig/src-36.pdf` |
 | `src-37` | sources.ts | Vurderer EMVs effekt på konkurranse og innovasjonstakt. |  | unknown | unknown | `research/evidence-pack/offentlig/src-37.pdf` |
 | `src-38` | sources.ts | Teoretisk rammeverk for kjøpermakt og forbrukervelferd. |  | unknown | unknown | `research/evidence-pack/offentlig/src-38.pdf` |
@@ -119,12 +135,24 @@ Dette er kilder vi **vet om** via seed-filer, backlog-CSV, PubMed-manifest og MD
 | `src-63` | sources.ts | Bedriftsdata for 14 norske mataktorer: org.nr, eierstruktur, aksjonaerer, styrer, regnskap, tilskudd, IP. Basert paa brr |  | landing_page | unknown | `research/evidence-pack/offentlig/src-63.pdf` |
 | `src-65` | sources.ts | 10 primaerkilder: NOU 2013:6, Meld. St. 9/11/4, Prop. 33 L, markedsetterforskning, lov om god handelsskikk, konkurransel |  | landing_page | unknown | `research/evidence-pack/offentlig/src-65.pdf` |
 | `src-72` | sources.ts | Wageningen-rammeverk med 4 operative prinsipper for sirkulaere matsystemer og biomassehierarki. |  | doi | unknown | `research/evidence-pack/offentlig/src-72.pdf` |
-| `src-73` | sources.ts | Nature Food-artikkel som modellerer europeisk sirkularitet og viser at CFS reduserer globalt arealbruk 71% og GHG 29%. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-73.pdf` |
 | `src-74` | sources.ts | Oppdatert planetaert referansekoshold med sterkere vekt paa regenerativt landbruk og sirkulaer biomasse. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-74.pdf` |
 | `src-80` | sources.ts | 7-domene komposittindeks for food access i UK. Kombinerer GIS, kvalitet og oekonomi. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-80.pdf` |
 | `src-94` | sources.ts | Dokumenterer 500 000+ tonn smaapelagisk fisk fra Vest-Afrika til EU aarlig, inkl. norsk laksenaering. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-94.pdf` |
+| `src-147` | sources.ts | Norsk lokalmat 2025: NOK 13,55 mrd totalt, NOK 938m direkte salg, Bondens Marked NOK 76,4m. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-147.pdf` |
+| `src-149` | sources.ts | Koebenhavns matstrategi — grunnlag for Madhus-modellen (87,8% oekologisk, 70k maaltider/dag). |  | landing_page | unknown | `research/evidence-pack/offentlig/src-149.pdf` |
+| `src-150` | sources.ts | Finsk nasjonal veileder for ansvarlig matinnkjoep i offentlig sektor. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-150.pdf` |
+| `src-154` | sources.ts | Campusforsok ved Turku som reduserte plateavfall med 30 % gjennom kampanjer og kompostering av kjokkenavfall (7,5 m³/aar |  | landing_page | unknown | `research/evidence-pack/offentlig/src-154.pdf` |
+| `src-155` | sources.ts | Rammeverk for nested sirkularitet analysert paa tre finske landbruksregioner: husdyr dominerer naeringsflyt; internasjon |  | landing_page | unknown | `research/evidence-pack/offentlig/src-155.pdf` |
+| `src-156` | sources.ts | System-dynamikk-modell for den norske hvitfiskverdikjeden med scenarier for teknologi, forbrukeratferd og regulering. |  | landing_page | unknown | `research/evidence-pack/offentlig/src-156.pdf` |
+| `src-157` | sources.ts | Fosforutslipp fra norsk akvakultur doblet 2005-2021; utnyttelsesgrad bare 19 %. Fytase, IMTA og slaminnsamling kan redus |  | landing_page | unknown | `research/evidence-pack/offentlig/src-157.pdf` |
+| `src-158` | sources.ts | Rapport som viser at 56 % av husholdningers og 79 % av retail/horeca sitt matsvinn i Danmark er unngaaelig. Mulig bespar |  | direct_pdf | unknown | `research/evidence-pack/offentlig/src-158.pdf` |
+| `src-159` | sources.ts | LCA-basert kvantifisering av 716 000 tonn unngaaelig matsvinn i Danmark: husholdning 36 %, grossist/retail 23 %, prosess |  | direct_pdf | unknown | `research/evidence-pack/offentlig/src-159.pdf` |
+| `src-160` | sources.ts | Produktivitet og distribusjon har forbedret seg i svensk matverdikjede, men markedskonsentrasjon, ujevn forhandlingsstyr |  | direct_pdf | unknown | `research/evidence-pack/offentlig/src-160.pdf` |
+| `src-161` | sources.ts | Syntese av 8 sirkulaer-muligheter i Norden. To gjelder mat: prediktiv styring for etterspurselsprognose/logistikk og dig |  | landing_page | unknown | `research/evidence-pack/offentlig/src-161.pdf` |
+| `src-162` | sources.ts | Policy-rapport som prioriterer avfallsforebygging fremfor resirkulering. Framhever Too Good To Go (NO) og ResQ (FI) som  |  | direct_pdf | unknown | `research/evidence-pack/offentlig/src-162.pdf` |
+| `src-163` | sources.ts | 35-45 % av fisk spises typisk globalt; 100 % Fish-initiativet i Island naaet ~90 % utnyttelse via kollagen og biprodukte |  | direct_pdf | unknown | `research/evidence-pack/offentlig/src-163.pdf` |
 
-## P3 — 96
+## P3 — 94
 
 | ID | Kilde | Tittel | År | URL-type | Access | Target |
 |---|---|---|---|---|---|---|
@@ -158,6 +186,7 @@ Dette er kilder vi **vet om** via seed-filer, backlog-CSV, PubMed-manifest og MD
 | `bibliotek/akademia/masteroppgaver/ortiz-cuadra-2023` | md-scrape | Sammendrag: Ortiz Cuadra (Uppsala University, 2023) - Learning for Crisis og lokal matproduksjon |  | landing_page | unknown | `` |
 | `bibliotek/akademia/masteroppgaver/paschen-eriksen-2014` | md-scrape | Sammendrag: Paschen-Eriksen (UiA, 2014) - Matpolitikk i Norge |  | landing_page | unknown | `` |
 | `bibliotek/akademia/masteroppgaver/rislakki-2024` | md-scrape | Sammendrag: Rislakki (JYU, 2024) — Planetary Health Diet i finsk dagligvare |  | direct_pdf | unknown | `` |
+| `bibliotek/akademia/masteroppgaver/sandanger-2012` | md-scrape | Sammendrag: Sandanger (NHH, 2012) — EMV og horisontal konkurranse |  | landing_page | unknown | `` |
 | `bibliotek/akademia/masteroppgaver/sandbraaten-2023` | md-scrape | Sammendrag: Sandbraaten (UiO, 2023) - Hvordan kan Norge vri matkonsumet gronnere? |  | landing_page | unknown | `` |
 | `bibliotek/akademia/masteroppgaver/sedwall-bjerne-grandin-2025` | md-scrape | Sammendrag: Sedwall, Bjerne & Grandin (JIBS, 2025) — Hybride forsyningskjeder i svensk dagligvare |  | landing_page | unknown | `` |
 | `bibliotek/akademia/masteroppgaver/selmani-forre-2023` | md-scrape | Sammendrag: Selmani & Førre (NHH, 2023) — Hvorfor mislyktes Lidl i Norge? |  | direct_pdf | unknown | `` |
@@ -189,15 +218,8 @@ Dette er kilder vi **vet om** via seed-filer, backlog-CSV, PubMed-manifest og MD
 | `bibliotek/akademia/nmbu/nmbu-greenplantfood-protein-2024` | md-scrape | GreenPlantFood og FoodProFuture: Plantebasert Protein fra Norske Avlinger |  | landing_page | unknown | `` |
 | `bibliotek/akademia/nmbu/nmbu-sustainable-food-systems-arena` | md-scrape | NMBU Sustainability Arena: Sustainable Food Systems |  | landing_page | unknown | `` |
 | `bibliotek/akademia/nmbu/smart-landbruk-digitalisering-2024` | md-scrape | Digitaliserer norsk matproduksjon — Smart landbruk og grønn innovasjon |  | landing_page | unknown | `` |
-| `bibliotek/akademia/pubmed/hiis-eg-2024-unlocking-bacterial-potential-to-reduce` | md-scrape | Unlocking bacterial potential to reduce farmland N2O emissions |  | doi | unknown | `` |
-| `bibliotek/akademia/pubmed/javourez-u-2021-waste-to-nutrition-a-review` | md-scrape | Waste-to-nutrition: a review of current and emerging conversion pathways |  | doi | unknown | `` |
 | `bibliotek/akademia/pubmed/parra-lopez-c-2026-enabling-the-circular-food-economy` | md-scrape | Enabling the Circular Food Economy Through Industry 4.0: A Review of Applications, Challenges, and Policies in the Europ |  | doi | unknown | `` |
-| `bibliotek/akademia/pubmed/recanati-f-2019-assessing-the-role-of-cap` | md-scrape | Assessing the role of CAP for more sustainable and healthier food systems in Europe: A literature review |  | doi | unknown | `` |
 | `bibliotek/akademia/pubmed/sigala-eg-2025-reducing-food-waste-in-the` | md-scrape | Reducing food waste in the HORECA sector using AI-based waste-tracking devices |  | doi | unknown | `` |
-| `bibliotek/akademia/pubmed/szulecka-j-2024-food-waste-governance-architectures-in` | md-scrape | Food Waste Governance Architectures in Europe: Actors, Steering Modes, and Harmonization Trends |  | doi | unknown | `` |
-| `bibliotek/akademia/pubmed/van-der-fels-klerx-hj-2024-framework-for-evaluation-of-food` | md-scrape | Framework for evaluation of food safety in the circular food system |  | doi | unknown | `` |
-| `bibliotek/akademia/pubmed/van-leeuwen-spj-2024-a-novel-approach-to-identify` | md-scrape | A novel approach to identify critical knowledge gaps for food safety in circular food systems |  | doi | unknown | `` |
-| `bibliotek/akademia/pubmed/wohner-b-2020-environmental-and-economic-assessment-of` | md-scrape | Environmental and economic assessment of food-packaging systems with a focus on food waste. Case study on tomato ketchup |  | doi | unknown | `` |
 | `bibliotek/akademia/pubmed/zamanzadeh-m-2017-biogas-production-from-food-waste` | md-scrape | Biogas production from food waste via co-digestion and digestion- effects on performance and microbial ecology |  | doi | unknown | `` |
 | `bibliotek/akademia/sifo/alfnes-schjoll-fordelsprogram-prisstatistikk-2025` | md-scrape | Fordelsprogrammer i Dagligvare: Effekter på Prisstatistikk og Digitale Skiller |  | landing_page | unknown | `` |
 | `bibliotek/akademia/sifo/referansebudsjettet-matutgifter-2025` | md-scrape | SIFOs referansebudsjett 2025 — Matutgifter og forbruksvekst |  | landing_page | unknown | `` |
@@ -208,8 +230,12 @@ Dette er kilder vi **vet om** via seed-filer, backlog-CSV, PubMed-manifest og MD
 | `bibliotek/digital-dagligvare/digital-ekskludering-mattilgang` | md-scrape | Sammendrag: Digital ekskludering og mattilgang |  | direct_pdf | unknown | `` |
 | `bibliotek/forbruker/forbrukeratferd-prisbevissthet` | md-scrape | Sammendrag: Forbrukeratferd og prisbevissthet i dagligvaremarkedet |  | landing_page | unknown | `` |
 | `bibliotek/forbruker/lojalitetsprogrammer-prisdata` | md-scrape | Sammendrag: Lojalitetsprogrammer og prisdata |  | landing_page | unknown | `` |
+| `bibliotek/forskningsrunde-2026-04-20/alternative-distribusjonskanaler-norden-2026-04-20` | md-scrape | Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |  | landing_page | unknown | `` |
+| `bibliotek/forskningsrunde-2026-04-20/eiendomsmakt-dagligvaremarkedet-norden-2026-04-20` | md-scrape | Eiendomsmakt i dagligvaremarkedet i Norge og Norden |  | direct_pdf | unknown | `` |
+| `bibliotek/forskningsrunde-2026-04-20/evidensnotat-2026-04-20` | md-scrape | Evidensnotat for Food Systems 2026 |  | direct_pdf | unknown | `` |
+| `bibliotek/forskningsrunde-2026-04-20/makt-fryktkultur-enforcement-2026-04-20` | md-scrape | Makt, fryktkultur og svak enforcement i norsk og nordisk dagligvare |  | direct_pdf | unknown | `` |
+| `bibliotek/forskningsrunde-2026-04-20/nordisk-horeca-offentlige-maaltider-2026-04-20` | md-scrape | Nordisk analyse av HORECA, offentlige måltider og institusjonelle innkjøp i matsystemet |  | direct_pdf | unknown | `` |
 | `bibliotek/konkurransetilsyn-konsulent` | md-scrape | Konkurransemyndigheter og konsulentrapporter — Kildebibliotek |  | direct_pdf | unknown | `` |
-| `bibliotek/konkurransetilsynet/dagligvarerapport-2022` | md-scrape | Sammendrag: Konkurransetilsynets dagligvarerapport 2022 |  | direct_pdf | unknown | `` |
 | `bibliotek/konkurransetilsynet/dagligvarerapport-2023` | md-scrape | Sammendrag: Konkurransetilsynets dagligvarerapport 2023 |  | direct_pdf | unknown | `` |
 | `bibliotek/konkurransetilsynet/dagligvarerapport-2024` | md-scrape | Sammendrag: Konkurransetilsynets Dagligvarerapport 2024 |  | direct_pdf | unknown | `` |
 | `bibliotek/konkurransetilsynet/marginstudie-2025-del2` | md-scrape | Sammendrag: Konkurransetilsynets Marginstudie Del 2 (2025) |  | direct_pdf | unknown | `` |

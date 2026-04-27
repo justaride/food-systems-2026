@@ -1,5 +1,8 @@
-# Stockeld Dreamery AB orgnr-oppslag & wind-down
-
-Kilde: https://www.allabolag.se/
-
-
+{
+  "company": "Stockeld Dreamery AB",
+  "lookup": "orgnr-oppslag og wind-down",
+  "source": "https://www.allabolag.se/",
+  "status": "placeholder",
+  "orgNr": null,
+  "note": "Original file contained only a Markdown heading and source line. No organisation number was captured."
+}
