@@ -1,144 +1,512 @@
 import 'dotenv/config'
-import { PrismaClient } from '../src/generated/prisma/client'
-import { PrismaPg } from '@prisma/adapter-pg'
+import { readFileSync, writeFileSync, existsSync } from 'fs'
+import { join } from 'path'
 
-const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
-const prisma = new PrismaClient({ adapter })
+type Classification =
+  | 'ok'
+  | 'redirect'
+  | 'dead'
+  | 'blocked'
+  | 'paywalled'
+  | 'timeout'
+  | 'server_error'
+  | 'other'
 
-type UrlResult = {
-  url: string
+type CheckResult = {
   status: number | string
+  finalUrl?: string
+  ms: number
+}
+
+type UrlRecord = {
+  url: string
   source: string
+  source_priority: number | null
 }
 
-async function collectUrls(): Promise<{ url: string; source: string }[]> {
-  const seen = new Map<string, string>()
-
-  const theses = await prisma.thesis.findMany({
-    where: { url: { not: '' } },
-    select: { id: true, url: true },
-  })
-  for (const t of theses) {
-    if (!seen.has(t.url)) seen.set(t.url, `thesis:${t.id}`)
-  }
-
-  const reports = await prisma.report.findMany({
-    where: { sourceUrl: { not: null } },
-    select: { id: true, sourceUrl: true },
-  })
-  for (const r of reports) {
-    if (r.sourceUrl && !seen.has(r.sourceUrl)) seen.set(r.sourceUrl, `report:${r.id}`)
-  }
-
-  const sources = await prisma.sourceDoc.findMany({
-    where: { url: { not: null }, isDuplicate: false },
-    select: { id: true, url: true },
-  })
-  for (const s of sources) {
-    if (s.url && !seen.has(s.url)) seen.set(s.url, `source:${s.id}`)
-  }
-
-  const docs = await prisma.document.findMany({
-    where: { url: { not: null } },
-    select: { slug: true, url: true },
-  })
-  for (const d of docs) {
-    if (d.url && !seen.has(d.url)) seen.set(d.url, `document:${d.slug}`)
-  }
-
-  return [...seen.entries()].map(([url, source]) => ({ url, source }))
+type HealthRow = UrlRecord & {
+  status: number | string
+  classification: Classification
+  final_url: string
+  ms: number
 }
 
-async function checkUrl(url: string): Promise<{ status: number | string }> {
-  const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), 10000)
+const RATE_LIMIT_MS = 1000 // 1 req/sec to be polite
+const REQUEST_TIMEOUT_MS = 10000
+const MAX_REDIRECT_HOPS = 5
 
-  try {
-    const res = await fetch(url, {
-      method: 'HEAD',
-      signal: controller.signal,
-      headers: { 'User-Agent': 'FoodSystems2026-LinkChecker/1.0' },
-      redirect: 'manual',
-    })
-    clearTimeout(timeout)
+function csvEscape(value: string): string {
+  return `"${String(value).replace(/"/g, '""')}"`
+}
 
-    if (res.status === 405) {
-      const controller2 = new AbortController()
-      const timeout2 = setTimeout(() => controller2.abort(), 10000)
-      try {
-        const res2 = await fetch(url, {
-          method: 'GET',
-          signal: controller2.signal,
-          headers: { 'User-Agent': 'FoodSystems2026-LinkChecker/1.0' },
-          redirect: 'manual',
-        })
-        clearTimeout(timeout2)
-        return { status: res2.status }
-      } catch (e) {
-        clearTimeout(timeout2)
-        if ((e as Error).name === 'AbortError') return { status: 'timeout' }
-        return { status: `error: ${(e as Error).message}` }
+/**
+ * Parse a tiny subset of CSV — fields can be quoted with `"` and contain
+ * commas inside quotes. This matches what `inventory-urls.ts` writes.
+ */
+function parseCsvLine(line: string): string[] {
+  const out: string[] = []
+  let buf = ''
+  let inQuotes = false
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i]
+    if (inQuotes) {
+      if (c === '"' && line[i + 1] === '"') {
+        buf += '"'
+        i++
+      } else if (c === '"') {
+        inQuotes = false
+      } else {
+        buf += c
+      }
+    } else {
+      if (c === ',') {
+        out.push(buf)
+        buf = ''
+      } else if (c === '"') {
+        inQuotes = true
+      } else {
+        buf += c
       }
     }
-
-    return { status: res.status }
-  } catch (e) {
-    clearTimeout(timeout)
-    if ((e as Error).name === 'AbortError') return { status: 'timeout' }
-    return { status: `error: ${(e as Error).message}` }
   }
+  out.push(buf)
+  return out
+}
+
+/**
+ * Load URL-INVENTORY.csv produced by `scripts/inventory-urls.ts`. Each row is
+ * a (url, source_type, source_id, source_priority, ...) occurrence; we
+ * deduplicate by URL and keep the highest-priority source per URL.
+ */
+function loadInventory(root: string): UrlRecord[] {
+  const path = join(root, 'research', 'URL-INVENTORY.csv')
+  if (!existsSync(path)) return []
+  const raw = readFileSync(path, 'utf-8')
+  const lines = raw.split('\n').filter((l) => l.length > 0)
+  if (lines.length < 2) return []
+
+  // header: url,source_type,source_id,source_priority,domain,protocol
+  const seen = new Map<string, UrlRecord>()
+  for (let i = 1; i < lines.length; i++) {
+    const parts = parseCsvLine(lines[i])
+    if (parts.length < 4) continue
+    const url = parts[0]
+    const sourceType = parts[1]
+    const sourceId = parts[2]
+    const priorityStr = parts[3]
+    const priority = priorityStr ? parseFloat(priorityStr) : NaN
+    const source = `${sourceType}:${sourceId}`
+    const priorityVal = Number.isFinite(priority) ? priority : null
+
+    const existing = seen.get(url)
+    if (!existing) {
+      seen.set(url, { url, source, source_priority: priorityVal })
+    } else {
+      // Keep highest-priority source
+      const existingPri = existing.source_priority ?? -Infinity
+      const newPri = priorityVal ?? -Infinity
+      if (newPri > existingPri) {
+        seen.set(url, { url, source, source_priority: priorityVal })
+      }
+    }
+  }
+  return [...seen.values()]
+}
+
+/**
+ * Issue HEAD (with GET fallback for 405/403) and follow redirects manually so
+ * we can record the final URL. Returns the final status, finalUrl when
+ * different, and total elapsed time.
+ */
+async function checkUrl(url: string): Promise<CheckResult> {
+  const start = Date.now()
+  let current = url
+  let lastStatus: number | string = 0
+  let didFallback = false
+
+  for (let hop = 0; hop < MAX_REDIRECT_HOPS; hop++) {
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
+
+    try {
+      const method = didFallback ? 'GET' : 'HEAD'
+      const res = await fetch(current, {
+        method,
+        signal: controller.signal,
+        headers: { 'User-Agent': 'FoodSystems2026-LinkChecker/1.0' },
+        redirect: 'manual',
+      })
+      clearTimeout(timeout)
+      lastStatus = res.status
+
+      // Some servers reject HEAD with 405/403 — retry once with GET
+      if ((res.status === 405 || res.status === 403) && !didFallback) {
+        didFallback = true
+        continue
+      }
+
+      // 3xx — follow if Location is present
+      if (res.status >= 300 && res.status < 400) {
+        const loc = res.headers.get('location')
+        if (!loc) {
+          // 3xx without Location — treat as terminal redirect
+          return { status: res.status, finalUrl: current, ms: Date.now() - start }
+        }
+        try {
+          current = new URL(loc, current).toString()
+        } catch {
+          return { status: res.status, finalUrl: current, ms: Date.now() - start }
+        }
+        didFallback = false // reset for new URL
+        continue
+      }
+
+      // 2xx, 4xx, 5xx — terminal
+      return {
+        status: res.status,
+        finalUrl: current === url ? undefined : current,
+        ms: Date.now() - start,
+      }
+    } catch (e) {
+      clearTimeout(timeout)
+      if ((e as Error).name === 'AbortError') {
+        return { status: 'timeout', ms: Date.now() - start }
+      }
+      // undici wraps the real error in `.cause` — surface its code/message so
+      // the classifier can recognise ENOTFOUND/ECONNREFUSED/etc.
+      const err = e as Error & { cause?: { code?: string; message?: string } }
+      const causeCode = err.cause?.code
+      const causeMsg = err.cause?.message
+      const detail = causeCode || causeMsg || err.message || String(e)
+      return { status: `error: ${detail}`, ms: Date.now() - start }
+    }
+  }
+
+  // Exceeded max redirect hops
+  return {
+    status: lastStatus,
+    finalUrl: current === url ? undefined : current,
+    ms: Date.now() - start,
+  }
+}
+
+function classify(status: number | string): Classification {
+  if (typeof status === 'string') {
+    if (status === 'timeout') return 'timeout'
+    // network error: ECONNREFUSED, ENOTFOUND, getaddrinfo etc → dead
+    const lc = status.toLowerCase()
+    if (
+      lc.includes('refused') ||
+      lc.includes('enotfound') ||
+      lc.includes('getaddrinfo') ||
+      lc.includes('ehostunreach') ||
+      lc.includes('econnreset')
+    ) {
+      return 'dead'
+    }
+    if (lc.includes('etimedout') || lc.includes('uND_ERR_CONNECT_TIMEOUT'.toLowerCase())) {
+      return 'timeout'
+    }
+    return 'other'
+  }
+  if (status === 200) return 'ok'
+  if (status >= 300 && status < 400) return 'redirect'
+  if (status === 403 || status === 451) return 'blocked'
+  if (status === 404 || status === 410) return 'dead'
+  if (status >= 500 && status < 600) return 'server_error'
+  return 'other'
+}
+
+function distribution(rows: HealthRow[]): Record<Classification, number> {
+  const counts: Record<Classification, number> = {
+    ok: 0,
+    redirect: 0,
+    dead: 0,
+    blocked: 0,
+    paywalled: 0,
+    timeout: 0,
+    server_error: 0,
+    other: 0,
+  }
+  for (const r of rows) counts[r.classification]++
+  return counts
+}
+
+function writeCsv(root: string, rows: HealthRow[]): void {
+  const header = 'url,status,classification,final_url,source,source_priority,ms'
+  const lines = [header]
+  for (const r of rows) {
+    lines.push(
+      [
+        csvEscape(r.url),
+        String(r.status),
+        r.classification,
+        r.final_url ? csvEscape(r.final_url) : '',
+        r.source,
+        r.source_priority !== null ? r.source_priority.toFixed(1) : '',
+        String(r.ms),
+      ].join(','),
+    )
+  }
+  writeFileSync(join(root, 'research', 'URL-HEALTH.csv'), lines.join('\n') + '\n')
+}
+
+function writeMd(root: string, rows: HealthRow[], elapsedMs: number): void {
+  const counts = distribution(rows)
+  const total = rows.length
+
+  const dead = rows
+    .filter((r) => r.classification === 'dead')
+    .sort((a, b) => (b.source_priority ?? 0) - (a.source_priority ?? 0))
+
+  const redirects = rows
+    .filter((r) => r.classification === 'redirect' && r.final_url && r.final_url !== r.url)
+    .sort((a, b) => (b.source_priority ?? 0) - (a.source_priority ?? 0))
+
+  const blocked = rows.filter((r) => r.classification === 'blocked')
+  const timeouts = rows.filter((r) => r.classification === 'timeout')
+  const serverErrors = rows.filter((r) => r.classification === 'server_error')
+  const others = rows.filter((r) => r.classification === 'other')
+
+  const order: Classification[] = [
+    'ok',
+    'redirect',
+    'dead',
+    'blocked',
+    'paywalled',
+    'timeout',
+    'server_error',
+    'other',
+  ]
+
+  const lines: string[] = [
+    '# URL Health — Food Systems 2026',
+    '',
+    '> Auto-generert av `scripts/check-urls.ts` — ikke rediger manuelt.',
+    `> Generert: ${new Date().toISOString()}`,
+    `> Totalt sjekket: **${total}** unike URL-er`,
+    `> Skanntid: **${(elapsedMs / 1000).toFixed(1)}s** (rate-limit ${RATE_LIMIT_MS}ms/req)`,
+    '',
+    '## Distribusjon per klassifikasjon',
+    '',
+    '| classification | antall | %  |',
+    '|---|---:|---:|',
+    ...order.map((c) => {
+      const n = counts[c]
+      const pct = total > 0 ? ((n / total) * 100).toFixed(1) : '0.0'
+      return `| ${c} | ${n} | ${pct}% |`
+    }),
+    '',
+    '## Klassifikasjons-regler',
+    '',
+    '- **ok**: HTTP 200',
+    '- **redirect**: HTTP 3xx (Location-feltet fulgt manuelt opp til 5 hopp)',
+    '- **dead**: HTTP 404 / 410, eller nettverksfeil (ENOTFOUND, ECONNREFUSED, ECONNRESET, EHOSTUNREACH)',
+    '- **blocked**: HTTP 403 / 451 (etter retry med GET-fallback)',
+    '- **paywalled**: TODO — krever innholdsanalyse, ikke implementert (alltid 0 i denne kjøringen)',
+    '- **timeout**: ingen respons innen 10s',
+    '- **server_error**: HTTP 5xx',
+    '- **other**: alt annet (1xx, 2xx ikke 200, 4xx ikke 403/404/410/451)',
+    '',
+  ]
+
+  if (dead.length > 0) {
+    lines.push(
+      '## Dead URLs (404 / 410 / nettverksfeil)',
+      '',
+      '| priority | source | status | url |',
+      '|---|---|---|---|',
+      ...dead.map(
+        (r) =>
+          `| ${r.source_priority?.toFixed(1) ?? ''} | ${r.source} | ${r.status} | ${r.url} |`,
+      ),
+      '',
+    )
+  }
+
+  if (redirects.length > 0) {
+    const highPri = redirects.filter((r) => (r.source_priority ?? 0) >= 4.0)
+    lines.push(
+      '## Redirects med endret final_url (alle)',
+      '',
+      `Totalt: ${redirects.length}, hvorav ${highPri.length} med priority >= 4.0.`,
+      '',
+      '| priority | source | status | url -> final_url |',
+      '|---|---|---|---|',
+      ...redirects
+        .slice(0, 50)
+        .map(
+          (r) =>
+            `| ${r.source_priority?.toFixed(1) ?? ''} | ${r.source} | ${r.status} | ${r.url} -> ${r.final_url} |`,
+        ),
+      '',
+    )
+    if (redirects.length > 50) {
+      lines.push(`...og ${redirects.length - 50} flere — se URL-HEALTH.csv.`, '')
+    }
+  }
+
+  if (blocked.length > 0) {
+    lines.push(
+      '## Blocked (403 / 451)',
+      '',
+      '| priority | source | status | url |',
+      '|---|---|---|---|',
+      ...blocked
+        .sort((a, b) => (b.source_priority ?? 0) - (a.source_priority ?? 0))
+        .map(
+          (r) =>
+            `| ${r.source_priority?.toFixed(1) ?? ''} | ${r.source} | ${r.status} | ${r.url} |`,
+        ),
+      '',
+    )
+  }
+
+  if (timeouts.length > 0) {
+    lines.push(
+      '## Timeouts',
+      '',
+      '| priority | source | url |',
+      '|---|---|---|',
+      ...timeouts
+        .sort((a, b) => (b.source_priority ?? 0) - (a.source_priority ?? 0))
+        .map(
+          (r) =>
+            `| ${r.source_priority?.toFixed(1) ?? ''} | ${r.source} | ${r.url} |`,
+        ),
+      '',
+    )
+  }
+
+  if (serverErrors.length > 0) {
+    lines.push(
+      '## Server errors (5xx)',
+      '',
+      '| priority | source | status | url |',
+      '|---|---|---|---|',
+      ...serverErrors.map(
+        (r) =>
+          `| ${r.source_priority?.toFixed(1) ?? ''} | ${r.source} | ${r.status} | ${r.url} |`,
+      ),
+      '',
+    )
+  }
+
+  if (others.length > 0) {
+    lines.push(
+      '## Other / uklassifisert',
+      '',
+      '| priority | source | status | url |',
+      '|---|---|---|---|',
+      ...others.map(
+        (r) =>
+          `| ${r.source_priority?.toFixed(1) ?? ''} | ${r.source} | ${r.status} | ${r.url} |`,
+      ),
+      '',
+    )
+  }
+
+  lines.push(
+    '## Notater',
+    '',
+    '- URL-listen leses fra `research/URL-INVENTORY.csv` (deduplisert per URL, høyeste source_priority beholdes).',
+    '- HEAD brukes først; GET-fallback ved 403/405. Redirect (3xx) følges manuelt opp til 5 hopp for å fange `final_url`.',
+    '- `paywalled` er ikke implementert i denne versjonen — krever innholdsanalyse av 200-respons. TODO.',
+    '- Rate-limit: 1 req/sek for å være høflig mot kildene. Tidsavbrudd: 10s per request.',
+    '- Bruk `tsx scripts/check-urls.ts --csv-only` for å undertrykke per-URL konsoll-logging.',
+    '- ENOTFOUND mot `brage.unit.no`-aliaser (`openaccess.nhh.no`, `nmbu.brage.unit.no`, `uia.brage.unit.no`, `oda.oslomet.no`, `nibio.brage.unit.no`) skyldes at canonical-domenet `brage.unit.no` ikke resolverer for øyeblikket — dette kan være transient DNS, men er flagget som `dead` her fordi URL-en ikke kan brukes i RAG-pipelinen før det fikses.',
+  )
+
+  writeFileSync(join(root, 'research', 'URL-HEALTH.md'), lines.join('\n') + '\n')
 }
 
 async function main() {
-  console.log('URL Health Check — Food Systems 2026\n')
+  const args = process.argv.slice(2)
+  const csvOnly = args.includes('--csv-only')
 
-  const urls = await collectUrls()
-  console.log(`Found ${urls.length} unique URLs to check\n`)
+  const root = process.cwd()
+  const records = loadInventory(root)
 
-  const results: UrlResult[] = []
+  if (records.length === 0) {
+    console.error(
+      'No URLs found in research/URL-INVENTORY.csv. Run `npm run inventory-urls` first.',
+    )
+    process.exit(1)
+  }
 
-  for (let i = 0; i < urls.length; i++) {
-    const { url, source } = urls[i]
-    const { status } = await checkUrl(url)
-    results.push({ url, status, source })
-    if ((i + 1) % 10 === 0) {
-      console.log(`  Checked ${i + 1}/${urls.length}...`)
+  if (!csvOnly) {
+    console.log('URL Health Check — Food Systems 2026\n')
+    console.log(`Loaded ${records.length} unique URLs from research/URL-INVENTORY.csv\n`)
+  }
+
+  const startTime = Date.now()
+  const rows: HealthRow[] = []
+
+  for (let i = 0; i < records.length; i++) {
+    const rec = records[i]
+    const { status, finalUrl, ms } = await checkUrl(rec.url)
+    const cls = classify(status)
+    rows.push({
+      ...rec,
+      status,
+      classification: cls,
+      final_url: finalUrl ?? '',
+      ms,
+    })
+
+    if (!csvOnly) {
+      const tag =
+        cls === 'ok'
+          ? 'OK   '
+          : cls === 'redirect'
+            ? 'REDIR'
+            : cls === 'dead'
+              ? 'DEAD '
+              : cls === 'blocked'
+                ? 'BLOCK'
+                : cls === 'timeout'
+                  ? 'TIMOT'
+                  : cls === 'server_error'
+                    ? '5xx  '
+                    : 'OTHR '
+      console.log(
+        `  [${String(i + 1).padStart(3, ' ')}/${records.length}] ${tag} ${String(status).padEnd(7, ' ')} ${ms}ms  ${rec.url}`,
+      )
+    } else if ((i + 1) % 25 === 0) {
+      console.log(`  Checked ${i + 1}/${records.length}...`)
+    }
+
+    // Rate-limit: skip on last iteration
+    if (i < records.length - 1) {
+      await new Promise((resolve) => setTimeout(resolve, RATE_LIMIT_MS))
     }
   }
 
-  const ok = results.filter(r => r.status === 200)
-  const redirects = results.filter(r => typeof r.status === 'number' && r.status >= 300 && r.status < 400)
-  const forbidden = results.filter(r => r.status === 403)
-  const notFound = results.filter(r => r.status === 404)
-  const errors = results.filter(r => typeof r.status === 'string')
-  const other = results.filter(
-    r => typeof r.status === 'number' && ![200, 403, 404].includes(r.status as number) && ((r.status as number) < 300 || (r.status as number) >= 400)
-  )
+  const elapsedMs = Date.now() - startTime
+  writeCsv(root, rows)
+  writeMd(root, rows, elapsedMs)
+
+  const counts = distribution(rows)
 
   console.log('\n' + '='.repeat(60))
   console.log('  URL Health Check Results')
   console.log('='.repeat(60))
-  console.log(`  ✓ OK (200): ${ok.length}`)
-  console.log(`  → Redirects (3xx): ${redirects.length}`)
-  console.log(`  ⚠ Forbidden (403): ${forbidden.length}`)
-  console.log(`  ✗ Not Found (404): ${notFound.length}`)
-  console.log(`  ✗ Errors: ${errors.length}`)
-  if (other.length) console.log(`  ? Other: ${other.length}`)
-
-  if (notFound.length) {
-    console.log('\n--- Not Found (404) ---')
-    for (const r of notFound) {
-      console.log(`  ${r.source}: ${r.url}`)
-    }
-  }
-  if (errors.length) {
-    console.log('\n--- Errors ---')
-    for (const r of errors) {
-      console.log(`  ${r.source}: ${r.url} (${r.status})`)
-    }
-  }
-
-  await prisma.$disconnect()
+  console.log(`  Total checked:   ${rows.length}`)
+  console.log(`  Elapsed:         ${(elapsedMs / 1000).toFixed(1)}s`)
+  console.log('')
+  console.log(`  ok            : ${counts.ok}`)
+  console.log(`  redirect      : ${counts.redirect}`)
+  console.log(`  dead          : ${counts.dead}`)
+  console.log(`  blocked       : ${counts.blocked}`)
+  console.log(`  paywalled     : ${counts.paywalled} (TODO — not implemented)`)
+  console.log(`  timeout       : ${counts.timeout}`)
+  console.log(`  server_error  : ${counts.server_error}`)
+  console.log(`  other         : ${counts.other}`)
+  console.log('')
+  console.log('  Output: research/URL-HEALTH.csv + research/URL-HEALTH.md')
 }
 
-main().catch(console.error)
+main().catch((e) => {
+  console.error(e)
+  process.exit(1)
+})
