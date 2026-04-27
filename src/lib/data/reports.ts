@@ -511,6 +511,16 @@ export const reports: Report[] = [
     relevance: 'Beviser at Norge faktisk har lavere marginer i butikkleddet enn baade Sverige og Finland. Underbygger tesen om at de hoye norske prisene ligger i leddene for butikken.',
     tags: ['ica', 'axfood', 'kesko', 'norden', 'marginer', 'prisnivaa'],
     publisher: 'Diverse (ICA, Axfood, Kesko)',
+    provenanceType: 'composite_source',
+    supportingSources: [
+      { label: 'ICA Gruppen Annual Report 2024', reportId: 'ica-gruppen-annual-report-2024' },
+      { label: 'Axfood Annual and Sustainability Report 2024', reportId: 'axfood-annual-report-2024' },
+      { label: 'Kesko Annual Report 2024', reportId: 'kesko-annual-report-2024' },
+      {
+        label: 'Lokalt sammenstillingsnotat',
+        documentPath: 'research/bibliotek/bransje/arsrapporter/nordisk-sammenligning-2024.md',
+      },
+    ],
   },
   {
     id: 'norgesgruppen-2024-25',
@@ -568,6 +578,21 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Beviser at kjedene er saarbare for spesialiserte konsepter som ikke trenger aa baere kostnaden ved ferskvaredisker eller fryselagre.',
     tags: ['normal', 'europris', 'verdibutikker', 'kategori-killere', 'lonnsomhetspress'],
+    provenanceType: 'composite_source',
+    supportingSources: [
+      {
+        label: 'Normal Norge regnskapstall',
+        url: 'https://haku.vainu.com/company/normal-norge-as-omsetning-og-finansiell/NO917019738/bedriftsinformasjon',
+      },
+      {
+        label: 'Europris Annual Report 2025',
+        url: 'https://financialreports.eu/filings/europris/annual-report/2026/32982811/',
+      },
+      {
+        label: 'Lokalt sammenstillingsnotat',
+        documentPath: 'research/bibliotek/bransje/arsrapporter/verdibutikker-utfordrere.md',
+      },
+    ],
   },
   {
     id: 'asko-infrastruktur-2025',
@@ -610,9 +635,11 @@ export const reports: Report[] = [
   },
   {
     id: 'dlf-leverandor-2025',
-    title: 'DLF Leverandorperspektivet 2025',
+    title: 'DLF leverandorposisjoner 2025',
+    fullTitle: 'DLF-posisjoner om leverandormakt, EMV og god handelsskikk 2025',
     institution: 'DLF',
     year: 2025,
+    sourceUrl: 'https://www.dlf.no/dagligvaretilsynet-legges-ned-konkurransetilsynet-far-mer-ansvar/',
     reportCategory: 'bransje',
     country: 'NO',
     keyFindings: [
@@ -628,6 +655,25 @@ export const reports: Report[] = [
     relevance: 'Gir innsiden av forhandlingsrommet. DLF-perspektivet forklarer hvorfor vareutvalget i Norge er mer begrenset enn i nabolandene.',
     tags: ['dlf', 'leverandorer', 'maktbalanse', 'emv', 'god-handelsskikk', 'innovasjon'],
     publisher: 'DLF',
+    provenanceType: 'composite_source',
+    supportingSources: [
+      {
+        label: 'Regjeringen høring om håndheving av lov om god handelsskikk',
+        url: 'https://www.regjeringen.no/no/dokumenter/horing-av-forslag-til-endringer-i-lov-om-god-handelsskikk-i-dagligvarekjeden-handheving/id3088084/',
+      },
+      {
+        label: 'Regjeringen høring om presiseringer i god handelsskikk-standarden',
+        url: 'https://www.regjeringen.no/no/dokumenter/horing-av-forslag-til-endringer-i-lov-om-god-handelsskikk-presiseringer-i-god-handelsskikk-standarden-mv/id3101536/',
+      },
+      {
+        label: 'Lokalt HTML-snapshot av DLF-kilden',
+        documentPath: 'research/evidence-pack/bransje/dlf-leverandor-2025.html',
+      },
+      {
+        label: 'Lokalt DLF-notat',
+        documentPath: 'research/bibliotek/bransje/organisasjoner/dlf-leverandør-2025.md',
+      },
+    ],
   },
   {
     id: 'merkevarer-historie',
@@ -644,6 +690,13 @@ export const reports: Report[] = [
     recommendations: [],
     relevance: 'Viser at selv Norges storste industriaktorer opererer i konstant forsvarsmodus mot de tre dagligvaregrupperingene.',
     tags: ['orkla', 'tine', 'emv', 'merkevarer', 'grandiosa', 'mottaksplikt'],
+    provenanceType: 'internal_synthesis',
+    supportingSources: [
+      {
+        label: 'Lokalt historikknotat',
+        documentPath: 'research/bibliotek/bransje/organisasjoner/merkevarer-historie.md',
+      },
+    ],
   },
   {
     id: 'nbs-systemkritikk',
@@ -850,15 +903,16 @@ export const reports: Report[] = [
     id: 'beredskap-island-melmolle-2025',
     title: 'Islands melmolle og matsuverenitet',
     fullTitle: 'Islands eneste melmolle: Saerbarhet og matsikkerhet paa oeystat',
-    institution: 'Islands regjering / Samkeppniseftirlitid',
+    institution: 'Kornax / Iceland Review / RUV',
     year: 2025,
+    sourceUrl: 'https://www.icelandreview.com/news/icelands-only-flour-mill-set-to-be-scrapped/',
     reportCategory: 'beredskap',
     country: 'IS',
     keyFindings: [
-      'Island har kun én melmolle — et kritisk saarbarhetspunkt for matsikkerheten',
-      'Importavhengigheten er hoeyest i Norden for korn og mel',
+      'Island hadde kun én industriell melmolle, Kornax, som i 2025 var ventet demontert etter tap av lokaler',
+      'Uten innenlandsk maling blir Island mer avhengig av importert ferdig mel med kortere holdbarhet enn hele korn',
       'Geotermisk energi gir Island unikt fortrinn i veksthusproduksjon',
-      'Fiskeri og meieri er de eneste sektorene med reell selvforsyning',
+      'Universitetsforskere peker paa behov for beredskapslagre og bedre planer for kritisk matinfrastruktur',
     ],
     recommendations: [
       'Diversifisere melproduksjon eller sikre strategiske lagre',
@@ -866,7 +920,26 @@ export const reports: Report[] = [
     ],
     relevance: 'Illustrerer ekstremtilfellet av nordisk saerbarhet — relevant for aa forstaa hele spekteret av matberedskap.',
     tags: ['beredskap', 'island', 'melmolle', 'saerbarhet', 'geotermisk'],
-    publisher: 'Islands regjering / Samkeppniseftirlitid',
+    publisher: 'Iceland Review / RUV',
+    provenanceType: 'external_article',
+    supportingSources: [
+      {
+        label: 'Iceland Review om beredskapsmat og University of Iceland',
+        url: 'https://www.icelandreview.com/news/iceland-needs-emergency-food-stockpiles-say-university-researchers/',
+      },
+      {
+        label: 'Lokalt HTML-snapshot av Kornax-kilden',
+        documentPath: 'research/evidence-pack/beredskap/beredskap-island-melmolle-2025.html',
+      },
+      {
+        label: 'Lokalt HTML-snapshot av beredskapsmat-kilden',
+        documentPath: 'research/evidence-pack/beredskap/beredskap-island-food-stockpiles-2025.html',
+      },
+      {
+        label: 'Lokalt beredskapsnotat',
+        documentPath: 'research/bibliotek/beredskap/is-melmolle-krise-2025.md',
+      },
+    ],
   },
   {
     id: 'beredskap-nibio-selvforsyning-2026',
@@ -1175,6 +1248,7 @@ export const reports: Report[] = [
     relevance: 'Grunnlagsstatistikk som underbygger hele whitepaperet.',
     tags: ['oversikt', 'statistikk', 'markedsandeler', 'beredskap', 'hhi'],
     publisher: 'Diverse kilder (Nielsen, SSB, dagligvaretilsynet)',
+    sourceUrl: 'https://www.virke.no/bransjeomrade/dagligvare/',
   },
   {
     id: 'oversikt-nordisk-mat-tenkere',
@@ -1196,6 +1270,13 @@ export const reports: Report[] = [
     relevance: 'Identifiserer hvem som former matpolitisk tenkning i Norden — viktig for disseminering.',
     tags: ['oversikt', 'nettverk', 'forskere', 'paaverkere', 'kartlegging'],
     publisher: 'Egenkartlegging',
+    provenanceType: 'internal_synthesis',
+    supportingSources: [
+      {
+        label: 'Lokalt nettverkskart',
+        documentPath: 'research/bibliotek/nordisk-mat-tenkere.md',
+      },
+    ],
   },
   {
     id: 'oversikt-nordisk-matmakt-historikk',
@@ -1214,6 +1295,13 @@ export const reports: Report[] = [
     relevance: 'Historisk kontekst som viser at konsentrasjon er en nordisk trend, ikke norsk saerfenomen.',
     tags: ['oversikt', 'historikk', 'konsentrasjon', 'nordisk', 'tidslinje'],
     publisher: 'Egenkartlegging / diverse kilder',
+    provenanceType: 'internal_synthesis',
+    supportingSources: [
+      {
+        label: 'Lokalt historikknotat',
+        documentPath: 'research/bibliotek/nordisk-matmakt-historikk.md',
+      },
+    ],
   },
   {
     id: 'oversikt-nou-stortingsdok-juridisk',
@@ -1233,6 +1321,17 @@ export const reports: Report[] = [
     relevance: 'Oversikt over det regulatoriske landskapet — avgjorende for aa forstaa hva som er forsoekt og hva som mangler.',
     tags: ['oversikt', 'nou', 'stortinget', 'regulering', 'dagligvaretilsynet'],
     publisher: 'Stortinget / regjeringen',
+    provenanceType: 'internal_register',
+    supportingSources: [
+      {
+        label: 'Lokalt juridisk register',
+        documentPath: 'research/bibliotek/nou-stortingsdok-juridisk.md',
+      },
+      {
+        label: 'NOU 2013:6 God handelsskikk i dagligvarekjeden',
+        url: 'https://www.regjeringen.no/no/dokumenter/nou-2013-6/id725309/',
+      },
+    ],
   },
   {
     id: 'oversikt-offentlig-rapportlogg',
@@ -1252,6 +1351,13 @@ export const reports: Report[] = [
     relevance: 'Meta-oversikt som viser omfanget av utredningsarbeid — og gapet mellom analyse og handling.',
     tags: ['oversikt', 'rapportlogg', 'offentlig', 'kronologisk', 'metaanalyse'],
     publisher: 'Diverse offentlige instanser',
+    provenanceType: 'internal_register',
+    supportingSources: [
+      {
+        label: 'Lokalt offentlig rapportregister',
+        documentPath: 'research/bibliotek/offentlig-rapportlogg-prioritert.md',
+      },
+    ],
   },
   {
     id: 'oversikt-sirkularitet-dyp',
@@ -1273,6 +1379,21 @@ export const reports: Report[] = [
     relevance: 'Dypanalyse av sirkulaeritets-dimensjonen som supplerer det overfladiske matsvinnfokuset.',
     tags: ['oversikt', 'sirkularitet', 'biogass', 'emballasje', 'nordisk'],
     publisher: 'Egenkartlegging / nordiske kilder',
+    provenanceType: 'internal_synthesis',
+    supportingSources: [
+      {
+        label: 'Lokalt dypnotat',
+        documentPath: 'research/bibliotek/sirkularitet-dyp.md',
+      },
+      {
+        label: 'Matvett matsvinnstatus 2024',
+        url: 'https://www.matvett.no/bransje/aktuelt/24-prosent-reduksjon-i-matsvinnet-i-norge',
+      },
+      {
+        label: 'Biogassplattformen',
+        url: 'https://biogassnorge.no/wp-content/uploads/2025/04/Biogassplattformen.pdf',
+      },
+    ],
   },
   {
     id: 'oversikt-tenketanker-ngo',
@@ -1294,6 +1415,13 @@ export const reports: Report[] = [
     relevance: 'Kartlegger landskapet NCH opererer i og identifiserer alliansemuligheter.',
     tags: ['oversikt', 'tenketanker', 'ngo', 'forbrukerraad', 'bondelaget'],
     publisher: 'Egenkartlegging',
+    provenanceType: 'internal_synthesis',
+    supportingSources: [
+      {
+        label: 'Lokalt landskapsnotat',
+        documentPath: 'research/bibliotek/tenketanker-ngo.md',
+      },
+    ],
   },
   {
     id: 'oversikt-akademia-dyp-research',
@@ -1315,6 +1443,7 @@ export const reports: Report[] = [
     relevance: 'Kartlegger hvem som forsker paa hva — viktig for akademisk forankring av whitepaperet.',
     tags: ['oversikt', 'akademia', 'nhh', 'sifo', 'slu', 'forskningsmiljoer'],
     publisher: 'Egenkartlegging',
+    sourceUrl: 'https://press.nordicopenaccess.no/index.php/noasp/catalog/book/93',
   },
   {
     id: 'oversikt-nordisk-avhandlingsregister',
@@ -1336,6 +1465,13 @@ export const reports: Report[] = [
     relevance: 'Systematiserer det akademiske grunnlaget og identifiserer kunnskapshull.',
     tags: ['oversikt', 'avhandlinger', 'register', 'master', 'phd', 'nordisk'],
     publisher: 'Egenkartlegging',
+    provenanceType: 'internal_register',
+    supportingSources: [
+      {
+        label: 'Lokalt avhandlingsregister',
+        documentPath: 'research/bibliotek/akademia/nordisk-avhandlingsregister.md',
+      },
+    ],
   },
 
   // ═══ Nordiske årsrapporter (import 2026-04) ═════════════════════════
@@ -1364,6 +1500,7 @@ export const reports: Report[] = [
     relevance: 'ASKO er grossistleddet i NorgesGruppen og sentral for å forstå logistikk- og bærekraftsarbeid i norsk dagligvare.',
     tags: ['bransje', 'arsrapport', 'asko', 'norgesgruppen', 'barekraft', 'logistikk'],
     publisher: 'ASKO Norge AS',
+    sourceUrl: 'https://asko.no/globalassets/om-asko/miljo/barekraft-i-asko-2024.pdf',
   },
   {
     id: 'axfood-annual-report-2024',
@@ -1395,6 +1532,7 @@ export const reports: Report[] = [
     relevance: 'En av tre store svenske dagligvarekonsern. Viktig for komparativ nordisk analyse av marginer, EMV og markedsstruktur.',
     tags: ['bransje', 'arsrapport', 'axfood', 'sverige', 'nordisk'],
     publisher: 'Axfood AB',
+    sourceUrl: 'https://www.axfood.com/investors/reports-and-presentations/annual-and-sustainability-report-2024/',
   },
   {
     id: 'coop-norge-2024',
@@ -1424,6 +1562,7 @@ export const reports: Report[] = [
     relevance: 'Coop er en av fire paraplykjeder i norsk dagligvare og eneste forbrukereide aktør. Sentral for maktanalyse.',
     tags: ['bransje', 'arsrapport', 'coop', 'dagligvare', 'forbrukereid'],
     publisher: 'Coop Norge SA',
+    sourceUrl: 'https://www.coop.no/om-coop/virksomheten/arsrapport',
   },
   {
     id: 'hagar-2024-25',
@@ -1455,6 +1594,7 @@ export const reports: Report[] = [
     relevance: 'Hagar er det største dagligvarekonsernet på Island (Bónus, Hagkaup). Viktig for islandsk nordisk komparasjon.',
     tags: ['bransje', 'arsrapport', 'hagar', 'island', 'nordisk'],
     publisher: 'Hagar hf.',
+    sourceUrl: 'https://www.hagar.is/media/fgpfwir5/fr%C3%A9ttatilkynning-hagar-4f-2024-25-ensk.pdf',
   },
   {
     id: 'ica-gruppen-annual-report-2024',
@@ -1485,6 +1625,7 @@ export const reports: Report[] = [
     relevance: 'Markedsledende dagligvarekonsern i Sverige. Grunnlag for komparativ nordisk analyse.',
     tags: ['bransje', 'arsrapport', 'ica', 'sverige', 'nordisk'],
     publisher: 'ICA Gruppen AB',
+    sourceUrl: 'https://www.icagrupp.se/en/archive/press-archive/2025/ica-gruppen-publishes-annual-report-for-2024/',
   },
   {
     id: 'kesko-annual-report-2024',
@@ -1515,6 +1656,7 @@ export const reports: Report[] = [
     relevance: 'Kesko (K-ruoka/K-market) er en av to store finske dagligvarekonsern. Sentral for nordisk komparasjon.',
     tags: ['bransje', 'arsrapport', 'kesko', 'finland', 'nordisk'],
     publisher: 'Kesko Oyj',
+    sourceUrl: 'https://www.kesko.fi/annual-reports',
   },
   {
     id: 'salling-group-2024',
@@ -1545,6 +1687,7 @@ export const reports: Report[] = [
     relevance: 'Største dagligvarekonsern i Danmark (Netto, føtex, Bilka). Nylig omstridt erhvervelse av Coop Danmark-butikker 2025.',
     tags: ['bransje', 'arsrapport', 'salling', 'danmark', 'nordisk'],
     publisher: 'Salling Group A/S',
+    sourceUrl: 'https://sallinggroup.com/en/publications',
   },
 
   // ═══ Nordiske konkurranse- og tilsynssaker ══════════════════════════
@@ -1574,6 +1717,7 @@ export const reports: Report[] = [
     relevance: 'Det islandske konkurransetilsynets årsrapport. Viktig for komparativ nordisk konkurransetilsyn-analyse.',
     tags: ['konkurransetilsyn', 'arsrapport', 'island', 'nordisk', 'fusjonskontroll', 'konsentrasjon'],
     publisher: 'Samkeppniseftirlitið',
+    sourceUrl: 'https://www.samkeppni.is/urlausnir/skyrslur/4-2025/',
   },
   {
     id: 'dk-salling-coop-decision-2025',
@@ -1596,6 +1740,7 @@ export const reports: Report[] = [
     relevance: 'Dansk konkurranseavgjørelse om Salling Group kjøpte deler av Coop Danmark. Stor presedens for nordisk dagligvarekonsentrasjon.',
     tags: ['juridisk', 'konkurransetilsyn', 'salling', 'coop', 'danmark', 'fusjon'],
     publisher: 'Konkurrence- og Forbrugerstyrelsen',
+    sourceUrl: 'https://kfst.dk/konkurrenceforhold/afgoerelser/afgoerelser-paa-konkurrenceomraadet/raads-og-styrelsesafgoerelser/2025/20250326-salling-group-dele-af-coop-danmark',
   },
   {
     id: 'salling-coop-danmark-2025',
@@ -1614,6 +1759,7 @@ export const reports: Report[] = [
     relevance: 'Supplerende analyse til den danske konkurranseavgjørelsen om Salling/Coop-fusjonen.',
     tags: ['juridisk', 'analyse', 'salling', 'coop', 'danmark'],
     publisher: 'Aalborg Universitet',
+    sourceUrl: 'https://projekter.aau.dk/projekter/files/783577089/Afgangsprojekt_HD1_Analyse_af_Salling_Group_AS_og_Coop_Danmark_AS.pdf',
   },
   {
     id: 'konkurrensverket-summary-2024',
@@ -1648,6 +1794,7 @@ export const reports: Report[] = [
     relevance: 'Svenske konkurransetilsynets sammendrag 2024. Komparativt grunnlag for norsk dagligvaretilsyn.',
     tags: ['konkurransetilsyn', 'sverige', 'nordisk', 'sammendrag', 'utp', 'fusjonskontroll', 'konsentrasjon', 'private-label', 'etableringsbarrierer'],
     publisher: 'Konkurrensverket',
+    sourceUrl: 'https://www.konkurrensverket.se/informationsmaterial/rapportlista/konkurrensverkets-genomlysning-av-livsmedelsbranschen-20232024/',
   },
 
   // ═══ Nordisk politikk og beredskap ═══════════════════════════════════
@@ -1680,6 +1827,7 @@ export const reports: Report[] = [
     relevance: 'Finsk tilsvarighet til norsk Dagligvaretilsynet. Viktig for nordisk komparasjon av UTP-håndhevelse.',
     tags: ['offentlig', 'ombudsman', 'finland', 'utp', 'nordisk', 'betalingsfrister', 'kostnadsindekser'],
     publisher: 'Elintarvikemarkkinavaltuutettu',
+    sourceUrl: 'https://www.ruokavirasto.fi/globalassets/etmv/etmv-toimintakertomus-2023-liitteineen.pdf',
   },
   {
     id: 'finland-food2030',
@@ -1709,6 +1857,7 @@ export const reports: Report[] = [
     relevance: 'Finsk matstrategi mot 2030. Komparativt grunnlag for norsk matsystemutvalget.',
     tags: ['offentlig', 'strategi', 'finland', 'matsystem', 'nordisk'],
     publisher: 'Finnish Government',
+    sourceUrl: 'https://mmm.fi/documents/1410837/1923148/lopullinen03032017ruoka2030_en.pdf/d7e44e69-7993-4d47-a5ba-58c393bbac28/lopullinen03032017ruoka2030_en.pdf',
   },
   {
     id: 'karlstad-declaration-2024',
@@ -1734,6 +1883,8 @@ export const reports: Report[] = [
     relevance: 'Nord 2024:023 biosfærereservat-guide. Indirekte relevant for matsystem via lokal bærekraftig produksjon og bevaring av kulturlandskap.',
     tags: ['offentlig', 'nordisk', 'unesco', 'biosfaere', 'baerekraft'],
     publisher: 'Nordic Council of Ministers',
+    sourceUrl: 'https://pub.norden.org/nord2024-023/about-this-publication.html',
+    doi: '10.6027/nord2024-023',
   },
   {
     id: 'nordic-food-alert-2025',
@@ -1757,6 +1908,8 @@ export const reports: Report[] = [
     relevance: 'Mismatch mellom ID og faktisk PDF-innhold. Dokumentet er ikke relevant for matsystem og bør revideres i seed-data.',
     tags: ['offentlig', 'nordisk', 'arkitektur', 'baerekraft', 'mismatch-id'],
     publisher: 'Nordic Council of Ministers',
+    sourceUrl: 'https://pub.norden.org/nord2025-010/about-this-publication.html',
+    doi: '10.6027/nord2025-010',
   },
 
   // ═══ Norsk tilsyn og offentlig (import 2026-04) ══════════════════════
@@ -1786,6 +1939,7 @@ export const reports: Report[] = [
     relevance: 'Første årsrapport fra Dagligvaretilsynet etter opprettelsen 2021. Historisk baseline for tilsynsarbeidet.',
     tags: ['konkurransetilsyn', 'arsrapport', 'dagligvaretilsynet', 'handelsskikk'],
     publisher: 'Dagligvaretilsynet',
+    sourceUrl: 'https://www.dagligvaretilsynet.no/rapporter-og-strategi',
   },
   {
     id: 'dagligvaretilsynet-aarsrapport-2022',
@@ -1817,6 +1971,7 @@ export const reports: Report[] = [
     relevance: 'Dagligvaretilsynets årsrapport 2022. Dokumenterer andre driftsår og tilsynsprioriteringer.',
     tags: ['konkurransetilsyn', 'arsrapport', 'dagligvaretilsynet', 'handelsskikk'],
     publisher: 'Dagligvaretilsynet',
+    sourceUrl: 'https://www.dagligvaretilsynet.no/rapporter-og-strategi',
   },
   {
     id: 'dagligvaretilsynet-aarsrapport-2023',
@@ -1846,6 +2001,7 @@ export const reports: Report[] = [
     relevance: 'Dagligvaretilsynets årsrapport 2023. Dokumenterer håndhevelsesarbeidet og saksstatistikk.',
     tags: ['konkurransetilsyn', 'arsrapport', 'dagligvaretilsynet', 'handelsskikk'],
     publisher: 'Dagligvaretilsynet',
+    sourceUrl: 'https://www.dagligvaretilsynet.no/rapporter-og-strategi',
   },
   {
     id: 'dagligvaretilsynet-aarsrapport-2024',
@@ -1877,6 +2033,7 @@ export const reports: Report[] = [
     relevance: 'Dagligvaretilsynets årsrapport 2024. Seneste tilsynsrapport med oppdatert saksstatistikk.',
     tags: ['konkurransetilsyn', 'arsrapport', 'dagligvaretilsynet', 'handelsskikk', 'joint-marketing', 'delisting', 'utp'],
     publisher: 'Dagligvaretilsynet',
+    sourceUrl: 'https://www.dagligvaretilsynet.no/rapporter-og-strategi',
   },
   {
     id: 'emv-kartlegging-2023',
@@ -1896,6 +2053,7 @@ export const reports: Report[] = [
     relevance: 'Offentlig kartlegging av EMV-andel i norsk dagligvare. Kjernereferanse for EMV-debatten.',
     tags: ['offentlig', 'emv', 'kartlegging', 'dagligvare', 'vertikal-integrasjon'],
     publisher: 'Samfunnsøkonomisk analyse AS',
+    sourceUrl: 'https://www.regjeringen.no/contentassets/41847427caa14feb8b8578af3d6d45bc/r15-2023-kartlegging-av-egne-merkevarer-og-vertikal-integrasjon-i-dagligvaremarkedet.pdf',
   },
   {
     id: 'eu-utp-report-2024',
@@ -1919,6 +2077,7 @@ export const reports: Report[] = [
     relevance: 'EU-kommisjonens rapport om implementering av UTP-direktivet. Rammeverk for norsk lov om god handelsskikk.',
     tags: ['offentlig', 'utp', 'eu', 'handelsskikk', 'direktiv'],
     publisher: 'European Commission',
+    sourceUrl: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52024DC0176',
   },
   {
     id: 'eu-utp-staff-working-doc-2024',
@@ -1940,6 +2099,7 @@ export const reports: Report[] = [
     relevance: 'Teknisk vedlegg til EU UTP-rapporten 2024. Detaljert grunnlag for direktivrevisjon.',
     tags: ['offentlig', 'utp', 'eu', 'handelsskikk', 'arbeidsdokument'],
     publisher: 'European Commission',
+    sourceUrl: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52024SC0106',
   },
   {
     id: 'nou-2013-6-god-handelsskikk',
@@ -1988,6 +2148,19 @@ export const reports: Report[] = [
     relevance: 'AgriAnalyses årlige analyse av hvor stor andel av forbrukerkronen som går til primærprodusenten. Nøkkeltall for verdikjededebatten.',
     tags: ['bransje', 'agrianalyse', 'bondens-andel', 'verdikjede', 'primaerprodusent', 'blokkert-html'],
     publisher: 'AgriAnalyse',
+    provenanceType: 'blocked_source',
+    supportingSources: [
+      {
+        label: 'AgriAnalyse publikasjoner 2025',
+        url: 'https://www.agrianalyse.no/publikasjoner/category856.html?span=01.01.2025-31.12.2025',
+        note: 'Tittelen ble ikke funnet i 2025-arkivet ved kontroll 2026-04-27.',
+      },
+      {
+        label: 'Lokal blokkert PDF-kandidat',
+        documentPath: 'research/evidence-pack/akademia/agrianalyse-bondens-andel-2025.pdf',
+        note: 'Filen er registrert som HTML feil-lagret som PDF og skal ikke brukes i analyse.',
+      },
+    ],
   },
 
   // ═══ PubMed-artikler (akademia) ═════════════════════════════════════
@@ -2010,6 +2183,8 @@ export const reports: Report[] = [
     relevance: 'Grunnleggende rammeverk for a vurdere matsikkerhet i sirkulaere systemer. Relevant for norsk sirkularitetspolitikk.',
     tags: ['sirkularitet', 'mattrygghet', 'verdikjede', 'rammeverk'],
     publisher: 'npj Science of Food',
+    sourceUrl: 'https://doi.org/10.1038/s41538-024-00276-9',
+    doi: '10.1038/s41538-024-00276-9',
   },
   {
     id: 'pubmed-van-leeuwen-2024',
@@ -2029,6 +2204,8 @@ export const reports: Report[] = [
     relevance: 'Komplementaer til van der Fels-Klerx (2024). Identifiserer konkrete kunnskapshull for sirkulaer matproduksjon.',
     tags: ['sirkularitet', 'mattrygghet', 'HACCP', 'kunnskapshull'],
     publisher: 'npj Science of Food',
+    sourceUrl: 'https://doi.org/10.1038/s41538-024-00265-y',
+    doi: '10.1038/s41538-024-00265-y',
   },
   {
     id: 'pubmed-zamanzadeh-2017',
@@ -2048,6 +2225,8 @@ export const reports: Report[] = [
     relevance: 'Norsk grunnforskning pa biogass fra matavfall. Relevant for verdikjede-sirkularitet og ASKO/Coop biogassatsing.',
     tags: ['sirkularitet', 'matsvinn', 'bioenergi', 'verdikjede'],
     publisher: 'Scientific Reports (Nature)',
+    sourceUrl: 'https://doi.org/10.1038/s41598-017-15784-w',
+    doi: '10.1038/s41598-017-15784-w',
   },
   {
     id: 'pubmed-hiis-2024',
@@ -2067,6 +2246,8 @@ export const reports: Report[] = [
     relevance: 'Banebrytende norsk forskning publisert i Nature. Direkte relevant for klimagassreduksjon i norsk jordbruk.',
     tags: ['klima', 'jordbruk', 'innovasjon', 'sirkularitet'],
     publisher: 'Nature (Vol. 630)',
+    sourceUrl: 'https://doi.org/10.1038/s41586-024-07464-3',
+    doi: '10.1038/s41586-024-07464-3',
   },
   {
     id: 'pubmed-recanati-2019',
@@ -2086,6 +2267,8 @@ export const reports: Report[] = [
     relevance: 'Systematisk oversikt over EU-landbrukspolitikk. Bakgrunn for nordisk komparativ analyse av matpolitikk.',
     tags: ['governance', 'baerekraft', 'EU', 'politikk'],
     publisher: 'Science of the Total Environment',
+    sourceUrl: 'https://doi.org/10.1016/j.scitotenv.2018.10.377',
+    doi: '10.1016/j.scitotenv.2018.10.377',
   },
   {
     id: 'pubmed-szulecka-2024',
@@ -2105,6 +2288,8 @@ export const reports: Report[] = [
     relevance: 'Direkte relevant for norsk matsvinnpolitikk. Dokumenterer Norges rolle som governance-modell i Europa.',
     tags: ['governance', 'matsvinn', 'komparativ', 'regulering'],
     publisher: 'Global Challenges',
+    sourceUrl: 'https://doi.org/10.1002/gch2.202300265',
+    doi: '10.1002/gch2.202300265',
   },
   {
     id: 'pubmed-javourez-2021',
@@ -2123,6 +2308,8 @@ export const reports: Report[] = [
     relevance: 'Omfattende oversikt over waste-to-nutrition-teknologier. Relevant for norsk sirkularitetsstrategi.',
     tags: ['sirkularitet', 'matsvinn', 'innovasjon', 'proteinskifte'],
     publisher: 'Elsevier',
+    sourceUrl: 'https://doi.org/10.1016/j.biotechadv.2021.107857',
+    doi: '10.1016/j.biotechadv.2021.107857',
   },
   {
     id: 'pubmed-sigala-2025',
@@ -2142,6 +2329,8 @@ export const reports: Report[] = [
     relevance: 'Norsk studie med konkrete resultater for AI-basert matsvinnsreduksjon. Direkte relevant for HORECA-analyse.',
     tags: ['matsvinn', 'HORECA', 'AI', 'digital', 'verdikjede'],
     publisher: 'Waste Management',
+    sourceUrl: 'https://doi.org/10.1016/j.wasman.2025.02.044',
+    doi: '10.1016/j.wasman.2025.02.044',
   },
   {
     id: 'pubmed-wohner-2020',
@@ -2161,6 +2350,8 @@ export const reports: Report[] = [
     relevance: 'Viser at emballasjevalg har direkte innvirkning pa matsvinn. Relevant for emballasjepolitikk i dagligvare.',
     tags: ['matsvinn', 'emballasje', 'LCA', 'baerekraft'],
     publisher: 'Science of the Total Environment',
+    sourceUrl: 'https://doi.org/10.1016/j.scitotenv.2020.139846',
+    doi: '10.1016/j.scitotenv.2020.139846',
   },
 
   // ═══ Manglende rapporter (identifisert i gjennomgang 2026-04-14) ════
@@ -2187,6 +2378,7 @@ export const reports: Report[] = [
     relevance: 'Sentral for matsvinnpolitikk og regulering. Matkastelov-forslaget kan endre spillereglene for dagligvarekjedene.',
     tags: ['matsvinn', 'regulering', 'governance', 'lovforslag'],
     publisher: 'Regjeringen',
+    sourceUrl: 'https://www.regjeringen.no/contentassets/5a5cadf8907a4f4c94740d23d7c4c6e4/rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31.12.23.pdf',
   },
   {
     id: 'van-zanten-circularity-2023',
@@ -2206,6 +2398,8 @@ export const reports: Report[] = [
     relevance: 'Sterk biofysisk modell for sirkulaere matsystemer pa EU-niva. Gir kvantitativ backing for sirkularitetsargumenter.',
     tags: ['sirkularitet', 'EU', 'baerekraft', 'modellering', 'arealbruk'],
     publisher: 'Nature Food',
+    sourceUrl: 'https://www.nature.com/articles/s43016-023-00734-9',
+    doi: '10.1038/s43016-023-00734-9',
   },
   {
     id: 'pty-finnish-grocery-trade-2024',
@@ -2224,6 +2418,7 @@ export const reports: Report[] = [
     relevance: 'Noyaktig markedsdata for finsk dagligvare. Grunnlag for nordisk komparativ analyse av konsentrasjon.',
     tags: ['markedskonsentrasjon', 'Finland', 'dagligvare', 'nordisk-komparativ'],
     publisher: 'PTY',
+    sourceUrl: 'https://www.pty.fi/wp-content/uploads/2024/06/Paivittaistavarakauppa-ry-2024-EN.pdf',
   },
   {
     id: 'coop-danmark-2024',
@@ -2242,6 +2437,7 @@ export const reports: Report[] = [
     relevance: 'Dokumenterer opplosningen av Coop Danmark. Sentral for Salling/Coop-fusjonsanalysen og nordisk kooperativ-sammenligning.',
     tags: ['markedskonsentrasjon', 'Danmark', 'kooperativ', 'fusjon', 'nordisk-komparativ'],
     publisher: 'Coop Danmark',
+    sourceUrl: 'https://coop.dk/media/vvwp2bdy/coop-danmark-aarsrapport-2024.pdf',
   },
   {
     id: 'norgesgruppen-halvarsrapport-h1-2025',
@@ -2260,6 +2456,7 @@ export const reports: Report[] = [
     relevance: 'Ferske tall fra Norges storste dagligvareaktorer. Oppdaterer finansiell posisjon fra arsrapporten 2024.',
     tags: ['markedskonsentrasjon', 'NorgesGruppen', 'dagligvare', 'finansiell'],
     publisher: 'NorgesGruppen ASA',
+    sourceUrl: 'https://www.norgesgruppen.no/finans/finans-hjem/rapporter/',
   },
 
   // ═══ Forskningsrunde 2026-04-20: regulatoriske, benchmark og Nordisk komparativ ═══
@@ -2284,6 +2481,7 @@ export const reports: Report[] = [
     relevance: 'Dansk parallell til norsk handhevingsgap. Viser at bredere UTP-lovgivning ikke automatisk gir flere saker naar avhengighet er hoy.',
     tags: ['nordisk-komparativ', 'UTP', 'Danmark', 'handheving', 'foedevarehandelsloven', 'forskningsrunde-2026-04-20'],
     publisher: 'Konkurrence- og Forbrugerstyrelsen',
+    sourceUrl: 'https://kfst.dk/media/3wxbfqqe/20241120-evaluering-af-foedevarehandelsloven-2024.pdf',
   },
   {
     id: 'konkurrensverket-2025-5-livsmedelsutredning',
@@ -2305,6 +2503,7 @@ export const reports: Report[] = [
     relevance: 'Svensk analog til norsk utredning. Begge jurisdictioner viser at markedsstruktur begrenser handhevingseffekten uavhengig av lovens bredde.',
     tags: ['nordisk-komparativ', 'UTP', 'Sverige', 'eiendom', 'Konkurrensverket', 'forskningsrunde-2026-04-20'],
     publisher: 'Konkurrensverket',
+    sourceUrl: 'https://www.konkurrensverket.se/konkurrens/samlad-kunskap-om-konkurrens/genomlysning-av-livsmedelsbranschen/',
   },
   {
     id: 'etmv-toimintakertomus-2024',
@@ -2326,6 +2525,7 @@ export const reports: Report[] = [
     relevance: 'Finsk tilsynspraksis for mat-UTP. Sektorsspesifikke funn relevant for nordisk komparativ analyse.',
     tags: ['nordisk-komparativ', 'UTP', 'Finland', 'ETMV', 'Food-Market-Ombudsman', 'forskningsrunde-2026-04-20'],
     publisher: 'Ruokavirasto',
+    sourceUrl: 'https://www.ruokavirasto.fi/globalassets/etmv/etmv-toimintakertomus-2024.pdf',
   },
   {
     id: 'dt-samarbeidsklima-2023',
@@ -2347,6 +2547,7 @@ export const reports: Report[] = [
     relevance: 'Grunnlagsdata for hvorfor handhevingsstatistikken er lav til tross for utbredt praksis. Brukes i Prop. 4 L (2025-2026).',
     tags: ['Dagligvaretilsynet', 'fryktkultur', 'leverandoerer', 'forskningsrunde-2026-04-20'],
     publisher: 'Dagligvaretilsynet',
+    sourceUrl: 'https://www.dagligvaretilsynet.no/rapporter-og-strategi',
   },
   {
     id: 'plantefonden-projects-2023-2025',
@@ -2367,6 +2568,7 @@ export const reports: Report[] = [
     relevance: 'Demonstrerer at dedikert offentlig kapital kan akselerere protein-skifte. Direkte relevant for norsk Raavareloefte og matsystemutvalget.',
     tags: ['benchmark', 'plantebasert', 'protein', 'Danmark', 'finansiering', 'forskningsrunde-2026-04-20'],
     publisher: 'Plantefonden',
+    sourceUrl: 'https://plantefonden.dk/',
   },
   {
     id: 'kbh-food-strategy-madhus',
@@ -2389,6 +2591,7 @@ export const reports: Report[] = [
     relevance: 'Globalt referansepunkt for offentlig maaltidstransformasjon. Viser at prosentmaal oppnaas ved opplaering, menyendringer og svinnreduksjon — ikke hoyere budsjett.',
     tags: ['benchmark', 'HORECA', 'offentlige-maaltider', 'oekologisk', 'Koebenhavn', 'forskningsrunde-2026-04-20'],
     publisher: 'Koebenhavns Madhus',
+    sourceUrl: 'https://maaltider.kk.dk/for-koebenhavnere/mad-og-maaltidsstrategi',
   },
   {
     id: 'motiva-food-procurement-2026',
@@ -2409,6 +2612,7 @@ export const reports: Report[] = [
     relevance: 'Praktisk benchmark for hvordan norsk 30%-klimavekt kan operasjonaliseres i offentlige innkjoep.',
     tags: ['benchmark', 'offentlige-innkjoep', 'Finland', 'Motiva', 'forskningsrunde-2026-04-20'],
     publisher: 'Motiva',
+    sourceUrl: 'https://www.motiva.fi/en/databank/guide-for-the-responsible-procurement-of-food-recommendations-for-requirements-and-evaluation-criteria/',
   },
   {
     id: 'arla-farmahead-check-2024',
@@ -2427,6 +2631,7 @@ export const reports: Report[] = [
     relevance: 'Privat sektor parallell til offentlige procurement-incentiver. Modell for Tine/Q-Meieriene-skala sirkulaer-incentiver.',
     tags: ['benchmark', 'Arla', 'samvirke', 'klimafotavtrykk', 'melk', 'forskningsrunde-2026-04-20'],
     publisher: 'Arla Foods',
+    sourceUrl: 'https://www.arla.com/sustainability/',
   },
   {
     id: 'sodertaelje-diet-green-planet',
@@ -2447,5 +2652,6 @@ export const reports: Report[] = [
     relevance: 'Svensk parallell til Koebenhavn. Viser at menyomlegging og svinnreduksjon kan finansiere hver krone.',
     tags: ['benchmark', 'HORECA', 'offentlige-maaltider', 'Sverige', 'forskningsrunde-2026-04-20'],
     publisher: 'Soedertaelje Kommun',
+    sourceUrl: 'https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1915414',
   },
 ]

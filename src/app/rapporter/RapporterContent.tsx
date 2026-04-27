@@ -21,8 +21,26 @@ type ReportRow = {
   recommendations: string[]
   relevance: string
   tags: string[]
+  provenanceType: ReportProvenanceType | null
+  supportingSources: ReportSupportingSource[]
   documentSlug: string | null
   origin: 'structured' | 'document'
+}
+
+type ReportProvenanceType =
+  | 'external_report'
+  | 'external_article'
+  | 'internal_synthesis'
+  | 'internal_register'
+  | 'composite_source'
+  | 'blocked_source'
+
+type ReportSupportingSource = {
+  label: string
+  url?: string
+  reportId?: string
+  documentPath?: string
+  note?: string
 }
 
 type ReportCategory =
@@ -56,6 +74,24 @@ const CATEGORY_COLORS: Record<ReportCategory, string> = {
   beredskap: 'bg-sky-50 text-sky-700 border-sky-200',
   sirkularitet: 'bg-emerald-50 text-emerald-700 border-emerald-200',
   oversikt: 'bg-stone-50 text-stone-600 border-stone-200',
+}
+
+const PROVENANCE_LABELS: Record<ReportProvenanceType, string> = {
+  external_report: 'Ekstern rapport',
+  external_article: 'Artikkel',
+  internal_synthesis: 'Intern syntese',
+  internal_register: 'Internt register',
+  composite_source: 'Kompositt',
+  blocked_source: 'Blokkert kilde',
+}
+
+const PROVENANCE_COLORS: Record<ReportProvenanceType, string> = {
+  external_report: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  external_article: 'bg-cyan-50 text-cyan-700 border-cyan-200',
+  internal_synthesis: 'bg-stone-50 text-stone-600 border-stone-200',
+  internal_register: 'bg-slate-50 text-slate-600 border-slate-200',
+  composite_source: 'bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200',
+  blocked_source: 'bg-rose-50 text-rose-700 border-rose-200',
 }
 
 export function RapporterContent({ reports }: { reports: ReportRow[] }) {
@@ -133,8 +169,8 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
                   </svg>
 
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <h3 className="text-sm font-semibold text-stone-800 truncate">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="min-w-0 text-sm font-semibold text-stone-800 truncate">
                         {report.title}
                       </h3>
                       <span className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded border font-medium ${CATEGORY_COLORS[cat] ?? 'bg-stone-50 text-stone-500 border-stone-200'}`}>
@@ -143,6 +179,11 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
                       {report.origin === 'document' && (
                         <span className="shrink-0 text-[10px] px-1.5 py-0.5 rounded border font-medium bg-emerald-50 text-emerald-700 border-emerald-200">
                           Dokument
+                        </span>
+                      )}
+                      {report.provenanceType && (
+                        <span className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded border font-medium ${PROVENANCE_COLORS[report.provenanceType]}`}>
+                          {PROVENANCE_LABELS[report.provenanceType]}
                         </span>
                       )}
                     </div>
@@ -222,6 +263,33 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
                           >
                             Les kilde {'\u2192'}
                           </a>
+                        </div>
+                      )}
+
+                      {report.supportingSources.length > 0 && (
+                        <div>
+                          <p className="text-xs font-medium text-stone-500 mb-1.5">Underlagskilder</p>
+                          <ul className="space-y-1">
+                            {report.supportingSources.map((source, i) => (
+                              <li key={`${source.label}-${i}`} className="text-xs text-stone-500 break-words">
+                                {source.url ? (
+                                  <a
+                                    href={source.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-stone-600 hover:text-stone-800 underline underline-offset-2"
+                                  >
+                                    {source.label}
+                                  </a>
+                                ) : (
+                                  <span className="text-stone-600">{source.label}</span>
+                                )}
+                                {source.reportId && <span> · report:{source.reportId}</span>}
+                                {source.documentPath && <span className="break-all"> · {source.documentPath}</span>}
+                                {source.note && <span> · {source.note}</span>}
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       )}
 

@@ -187,12 +187,15 @@ model Report {
   isbn            String?
   issn            String?
   publisher       String?
+  provenanceType  String?
+  supportingSources Json?
 
   documentId String?   @unique
   document   Document? @relation(fields: [documentId], references: [id])
 
   @@index([reportCategory])
   @@index([country])
+  @@index([provenanceType])
   @@index([tags], type: Gin)
 }
 

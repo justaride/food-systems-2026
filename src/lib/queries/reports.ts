@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/db'
+import type { ReportProvenanceType, ReportSupportingSource } from '@/lib/types'
 import {
   buildExcerpt,
   buildSentenceList,
@@ -28,8 +29,56 @@ type ReportRow = {
   recommendations: string[]
   relevance: string
   tags: string[]
+  provenanceType: ReportProvenanceType | null
+  supportingSources: ReportSupportingSource[]
   documentSlug: string | null
   origin: 'structured' | 'document'
+}
+
+const reportProvenanceTypes = new Set<ReportProvenanceType>([
+  'external_report',
+  'external_article',
+  'internal_synthesis',
+  'internal_register',
+  'composite_source',
+  'blocked_source',
+])
+
+function parseProvenanceType(value: string | null): ReportProvenanceType | null {
+  if (!value) return null
+  return reportProvenanceTypes.has(value as ReportProvenanceType) ? (value as ReportProvenanceType) : null
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value && typeof value === 'object' && !Array.isArray(value))
+}
+
+function optionalString(value: unknown) {
+  return typeof value === 'string' && value.trim().length > 0 ? value.trim() : undefined
+}
+
+function parseSupportingSources(value: unknown): ReportSupportingSource[] {
+  if (!Array.isArray(value)) return []
+
+  return value.flatMap((entry) => {
+    if (!isRecord(entry)) return []
+
+    const label = optionalString(entry.label)
+    if (!label) return []
+
+    const url = optionalString(entry.url)
+    const reportId = optionalString(entry.reportId)
+    const documentPath = optionalString(entry.documentPath)
+    const note = optionalString(entry.note)
+
+    return {
+      label,
+      ...(url ? { url } : {}),
+      ...(reportId ? { reportId } : {}),
+      ...(documentPath ? { documentPath } : {}),
+      ...(note ? { note } : {}),
+    }
+  })
 }
 
 function isReportLikeTitle(title: string) {
@@ -141,6 +190,8 @@ function mapStructuredReport(report: Awaited<ReturnType<typeof prisma.report.fin
         : buildRecommendations(documentSummary, documentContent),
     relevance: report.relevance || buildExcerpt(documentSummary, documentContent, 220),
     tags: report.tags.length > 0 ? report.tags : report.document?.tags ?? [],
+    provenanceType: parseProvenanceType(report.provenanceType),
+    supportingSources: parseSupportingSources(report.supportingSources),
     documentSlug: report.document?.slug ?? null,
     origin: 'structured',
   }
@@ -175,6 +226,8 @@ function mapFallbackDocument(doc: {
     recommendations: buildRecommendations(doc.summary, doc.content),
     relevance: buildReportRelevance(doc),
     tags: [...new Set([...doc.tags, 'dokumentbasert'])],
+    provenanceType: null,
+    supportingSources: [],
     documentSlug: doc.slug,
     origin: 'document',
   }

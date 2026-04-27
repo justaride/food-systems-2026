@@ -204,6 +204,22 @@ export type ReportCategory =
   | 'konsulentrapport' | 'akademia' | 'tenketank'
   | 'juridisk' | 'beredskap' | 'sirkularitet' | 'oversikt'
 
+export type ReportProvenanceType =
+  | 'external_report'
+  | 'external_article'
+  | 'internal_synthesis'
+  | 'internal_register'
+  | 'composite_source'
+  | 'blocked_source'
+
+export type ReportSupportingSource = {
+  label: string
+  url?: string
+  reportId?: string
+  documentPath?: string
+  note?: string
+}
+
 export type Report = {
   id: string
   title: string
@@ -223,6 +239,8 @@ export type Report = {
   isbn?: string
   issn?: string
   publisher?: string
+  provenanceType?: ReportProvenanceType
+  supportingSources?: ReportSupportingSource[]
 }
 
 export type CommType = 'epost' | 'melding' | 'brev'

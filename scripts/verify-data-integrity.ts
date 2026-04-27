@@ -3,6 +3,8 @@ import { existsSync, readFileSync } from 'fs'
 import { join } from 'path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { reports as seedReports } from '../src/lib/data/reports'
+import type { Report, ReportSupportingSource } from '../src/lib/types'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -22,6 +24,31 @@ function pass(msg: string) {
 function fail(msg: string) {
   errorCount++
   console.log(`  ✗ ${msg}`)
+}
+
+function warn(msg: string) {
+  console.log(`  ! ${msg}`)
+}
+
+const seedReportsById = new Map(seedReports.map(report => [report.id, report]))
+
+function supportingSourceIsResolvable(source: ReportSupportingSource) {
+  if (source.url) return true
+
+  if (source.reportId) {
+    const report = seedReportsById.get(source.reportId)
+    return Boolean(report?.sourceUrl)
+  }
+
+  if (source.documentPath) {
+    return existsSync(join(process.cwd(), source.documentPath))
+  }
+
+  return false
+}
+
+function hasResolvableSupportingSource(report: Report) {
+  return report.supportingSources?.some(supportingSourceIsResolvable) ?? false
 }
 
 async function checkOrphanOwnerships() {
@@ -293,13 +320,57 @@ async function checkThesisMissingUrls() {
 
 async function checkReportMissingUrls() {
   header('11. Report Missing URLs')
-  const reports = await prisma.report.findMany({ where: { sourceUrl: null } })
-  if (reports.length === 0) {
-    pass('All reports have source URLs')
+  const reports = await prisma.report.findMany({
+    where: { sourceUrl: null },
+    select: { id: true, title: true },
+  })
+
+  const unresolved: typeof reports = []
+  const classified: Array<{ id: string; title: string; provenanceType: string }> = []
+
+  for (const report of reports) {
+    const seedReport = seedReportsById.get(report.id)
+
+    if (seedReport?.sourceUrl) {
+      unresolved.push(report)
+      continue
+    }
+
+    if (!seedReport?.provenanceType) {
+      unresolved.push(report)
+      continue
+    }
+
+    if (seedReport.provenanceType === 'external_report' || seedReport.provenanceType === 'external_article') {
+      unresolved.push(report)
+      continue
+    }
+
+    if (!hasResolvableSupportingSource(seedReport)) {
+      unresolved.push(report)
+      continue
+    }
+
+    classified.push({
+      id: report.id,
+      title: report.title,
+      provenanceType: seedReport.provenanceType,
+    })
+  }
+
+  if (unresolved.length === 0) {
+    pass('All external reports have source URLs or explicit provenance classification')
   } else {
-    fail(`${reports.length} reports have no source URL:`)
-    for (const r of reports) {
+    fail(`${unresolved.length} reports still need a source URL or provenance classification:`)
+    for (const r of unresolved) {
       console.log(`    - ${r.id} (${r.title.slice(0, 50)})`)
+    }
+  }
+
+  if (classified.length > 0) {
+    warn(`${classified.length} reports intentionally have no single source URL:`)
+    for (const r of classified) {
+      console.log(`    - ${r.id} [${r.provenanceType}] (${r.title.slice(0, 50)})`)
     }
   }
 }

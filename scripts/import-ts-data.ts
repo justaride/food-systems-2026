@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import { PrismaClient } from '../src/generated/prisma/client'
+import { Prisma, PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { phases } from '../src/lib/data/phases'
 import { team } from '../src/lib/data/team'
@@ -25,6 +25,7 @@ import {
 } from '../src/lib/data/media-corpus'
 import { countryChartData } from '../src/lib/data/country-chart-data'
 import { reports } from '../src/lib/data/reports'
+import type { ReportSupportingSource } from '../src/lib/types'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -633,9 +634,23 @@ async function importMediaCorpus() {
   console.log(`  ${mediaEntryCodings.length} media entry codings imported`)
 }
 
+function normalizeSupportingSources(sources: ReportSupportingSource[] | undefined) {
+  if (!sources || sources.length === 0) return Prisma.DbNull
+
+  return sources.map((source) => ({
+    label: source.label,
+    ...(source.url ? { url: source.url } : {}),
+    ...(source.reportId ? { reportId: source.reportId } : {}),
+    ...(source.documentPath ? { documentPath: source.documentPath } : {}),
+    ...(source.note ? { note: source.note } : {}),
+  })) satisfies Prisma.InputJsonValue
+}
+
 async function importReports() {
   console.log('Importing reports...')
   for (const r of reports) {
+    const supportingSources = normalizeSupportingSources(r.supportingSources)
+
     await prisma.report.upsert({
       where: { id: r.id },
       update: {
@@ -656,6 +671,8 @@ async function importReports() {
         isbn: r.isbn ?? null,
         issn: r.issn ?? null,
         publisher: r.publisher ?? null,
+        provenanceType: r.provenanceType ?? null,
+        supportingSources,
       },
       create: {
         id: r.id,
@@ -676,6 +693,8 @@ async function importReports() {
         isbn: r.isbn ?? null,
         issn: r.issn ?? null,
         publisher: r.publisher ?? null,
+        provenanceType: r.provenanceType ?? null,
+        supportingSources,
       },
     })
   }
