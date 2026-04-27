@@ -55,6 +55,8 @@
     "db:check-urls": "tsx scripts/check-urls.ts",
     "db:audit": "tsx scripts/verify-data-integrity.ts",
     "compute-ki-priority": "tsx scripts/compute-ki-priority.ts",
+    "compute-file-coverage": "tsx scripts/compute-file-coverage.ts",
+    "inventory-urls": "tsx scripts/inventory-urls.ts",
     "db:verify": "tsx scripts/verify-prod-counts.ts",
     "db:prod-sync": "npm run db:import:ts && npm run db:import:docs && npm run db:import:root && npm run db:import:companies && npm run db:import:ownership && npm run db:import:persons && npm run db:import:actors && npm run db:import:transcripts && npm run db:import:market && npm run db:import:session5 && npm run db:verify",
     "research:intake:food-process:preview": "tsx scripts/preview-food-research-process-intake.ts",
