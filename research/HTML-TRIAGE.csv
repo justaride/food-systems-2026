@@ -1,0 +1,6 @@
+path,classification,word_count,has_md_companion,referenced_in_seed,severity,action
+"cathrine-ten-step-oppsummering.html",needs-md-extraction,1028,no,no,MEDIUM,"Extract clean Markdown for KI use (not yet referenced)"
+"evidence-pack/beredskap/beredskap-island-food-stockpiles-2025.html",needs-md-extraction,962,no,yes,HIGH,"Extract clean Markdown for KI use (referenced in seed)"
+"evidence-pack/beredskap/beredskap-island-melmolle-2025.html",needs-md-extraction,964,no,yes,HIGH,"Extract clean Markdown for KI use (referenced in seed)"
+"evidence-pack/bransje/dlf-leverandor-2025.html",needs-md-extraction,498,no,yes,HIGH,"Extract clean Markdown for KI use (referenced in seed)"
+"statusrapport-mars-2026.html",needs-md-extraction,824,no,no,MEDIUM,"Extract clean Markdown for KI use (not yet referenced)"
