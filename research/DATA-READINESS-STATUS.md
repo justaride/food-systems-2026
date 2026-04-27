@@ -92,6 +92,24 @@ Mål-arkitekturen er optimalisert for følgende KI-bruk, i prioritert rekkefølg
   - `internal_synthesis` / `internal_register` → kan brukes som bakgrunn, ikke siteres som primærkilde
   - `blocked_source` → ekskluderes fra KI-svar (eller vises kun med advarsel)
 
+## Fase B-status (parallell undersøkelse)
+
+Ferdig 2026-04-27. Fire parallelle inventeringer + konsolidert backlog:
+
+| Inventering | Verktøy | Resultat |
+|---|---|---|
+| URL-helse | `inventory-urls.ts` | 173 unike URL-er, 98 % HTTPS, 98 % på prioritet ≥ 4.0 — full HTTP-sjekk gjenstår |
+| Fildekning | `compute-file-coverage.ts` | 578 funn (1 HIGH, 376 MEDIUM, 201 LOW) |
+| PDF-kvalitet | `check-pdf-quality.ts` | 50 problemer (5 scanned, 44 low-text, 1 oversized) av 398 PDFer |
+| HTML-triage | `triage-html.ts` | 5 HTML-er, alle trenger MD-ekstraksjon (3 HIGH, 2 MEDIUM) |
+| Konsolidering | `build-remediation-backlog.ts` | 633 funn i `REMEDIATION-BACKLOG.csv` med fiksgrupper |
+
+**Rotårsak-analyse:** 376 MEDIUM-funnene er dominert av tre systematiske mønstre:
+
+- Gruppe A (191): stale `incoming/food-research-process-2026-04-20/` paths — filer finnes på `arkiv-sortert/`, kun path-remap trengs
+- Gruppe B (60): `external/`-paths uten lokal fil — DB-only, policy-beslutning trengs
+- Gruppe C (8): `generated/meetings/` slettede filer — gjenskape eller slett DB-rader
+
 ## Neste fase fra denne baselinen
 
 1. **Definér KI-bruksprofil** — RAG/Q&A, tematisk analyse, sammendrag, utforskende søk? Påvirker IA-regler og hvilke felt som er obligatoriske
