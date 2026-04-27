@@ -1,17 +1,17 @@
 # REMEDIATION BACKLOG — data-readiness Fase B
 
 > Auto-generert av `scripts/build-remediation-backlog.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T12:12:32.014Z
-> Totalt: **389** funn
+> Generert: 2026-04-27T12:16:27.669Z
+> Totalt: **386** funn
 
 ## Sammendrag per kilde × severity
 
 | Kilde | HIGH | MEDIUM | LOW | INFO |
 |---|---:|---:|---:|---:|
-| file-coverage | 0 | 190 | 144 | 0 |
+| file-coverage | 0 | 187 | 144 | 0 |
 | pdf-quality | 0 | 5 | 45 | 0 |
 | html-triage | 3 | 2 | 0 | 0 |
-| **Total** | 3 | 197 | 189 | 0 |
+| **Total** | 3 | 194 | 189 | 0 |
 
 ## Fiksgrupper (rotårsak-analyse)
 
@@ -23,7 +23,7 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 | B: external/ DB-only | 60 | 0 | 60 | 0 |
 | C: generated/meetings/ | 8 | 0 | 8 | 0 |
 | E: missing SourceDoc | 118 | 0 | 118 | 0 |
-| F: orphan files | 145 | 0 | 3 | 142 |
+| F: orphan files | 142 | 0 | 0 | 142 |
 | G: broken supportingSource | 1 | 0 | 0 | 1 |
 | H: duplicate Documents | 1 | 0 | 0 | 1 |
 | I: scanned PDFs (need OCR) | 5 | 0 | 5 | 0 |

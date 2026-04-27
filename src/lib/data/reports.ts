@@ -670,6 +670,10 @@ export const reports: Report[] = [
         documentPath: 'research/evidence-pack/bransje/dlf-leverandor-2025.html',
       },
       {
+        label: 'Ekstrahert MD av DLF-kilden',
+        documentPath: 'research/evidence-pack/bransje/dlf-leverandor-2025.md',
+      },
+      {
         label: 'Lokalt DLF-notat',
         documentPath: 'research/bibliotek/bransje/organisasjoner/dlf-leverandør-2025.md',
       },
@@ -932,8 +936,16 @@ export const reports: Report[] = [
         documentPath: 'research/evidence-pack/beredskap/beredskap-island-melmolle-2025.html',
       },
       {
+        label: 'Ekstrahert MD av Kornax-kilden',
+        documentPath: 'research/evidence-pack/beredskap/beredskap-island-melmolle-2025.md',
+      },
+      {
         label: 'Lokalt HTML-snapshot av beredskapsmat-kilden',
         documentPath: 'research/evidence-pack/beredskap/beredskap-island-food-stockpiles-2025.html',
+      },
+      {
+        label: 'Ekstrahert MD av beredskapsmat-kilden',
+        documentPath: 'research/evidence-pack/beredskap/beredskap-island-food-stockpiles-2025.md',
       },
       {
         label: 'Lokalt beredskapsnotat',
