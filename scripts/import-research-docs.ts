@@ -708,6 +708,15 @@ function humanizeFilename(relPath: string): string {
     .trim()
 }
 
+function lookupOcrCompanion(relPath: string): string | null {
+  const ocrFileName = relPath.replaceAll(path.sep, '__').replace(/\.[^.]+$/, '.md')
+  const ocrPath = path.join(process.cwd(), 'research', 'ocr-output', ocrFileName)
+  if (fs.existsSync(ocrPath)) {
+    return fs.readFileSync(ocrPath, 'utf-8')
+  }
+  return null
+}
+
 function derivePdfTitle(
   relPath: string,
   backlogRow: EvidenceBacklogRow | undefined,
@@ -1275,6 +1284,12 @@ async function main() {
         tags = pdfRecord.tags
         url = pdfRecord.url
         metadata = pdfRecord.metadata
+      }
+
+      const ocrCompanion = lookupOcrCompanion(file.relPath)
+      if (ocrCompanion) {
+        content = `${content}\n\n--- OCR-extracted text ---\n\n${ocrCompanion}`
+        wordCount = content.split(/\s+/).filter(Boolean).length
       }
 
       await prisma.document.upsert({
