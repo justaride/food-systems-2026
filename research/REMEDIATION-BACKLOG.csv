@@ -2,6 +2,34 @@ source,ref,entity_type,problem,severity,fix_group,priority,suggested_action
 html-triage,evidence-pack/beredskap/beredskap-island-food-stockpiles-2025.html,HTML,needs-md-extraction,HIGH,N: needs MD extraction,,Extract clean Markdown for KI use (referenced in seed)
 html-triage,evidence-pack/beredskap/beredskap-island-melmolle-2025.html,HTML,needs-md-extraction,HIGH,N: needs MD extraction,,Extract clean Markdown for KI use (referenced in seed)
 html-triage,evidence-pack/bransje/dlf-leverandor-2025.html,HTML,needs-md-extraction,HIGH,N: needs MD extraction,,Extract clean Markdown for KI use (referenced in seed)
+url-health,https://beccle.no/files/2020/01/Susanne_Helen_Gangstoe_Masteroppgave.pdf,URL,dead,HIGH,P: dead URLs,4.5,dead (HTTP 404) — source thesis:gangstoe-2019; verify URL
+url-health,https://nibio.brage.unit.no/nibio-xmlui/bitstream/handle/11250/3105805/NIBIO_RAPPORT_2023_9_137.pdf,URL,dead,HIGH,P: dead URLs,5.0,dead (HTTP error: ENOTFOUND) — source report_canonical:beredskap-nibio-selvforsyning-metode; verify URL
+url-health,https://nmbu.brage.unit.no/nmbu-xmlui/handle/11250/2569075,URL,dead,HIGH,P: dead URLs,5.0,dead (HTTP error: ENOTFOUND) — source thesis:moe-2018; verify URL
+url-health,https://nmbu.brage.unit.no/nmbu-xmlui/handle/11250/2788657,URL,dead,HIGH,P: dead URLs,5.0,dead (HTTP error: ENOTFOUND) — source thesis:jevne-schiotz-2021; verify URL
+url-health,https://nordopen.nord.no/nord-xmlui/handle/11250/2491452,URL,dead,HIGH,P: dead URLs,5.0,dead (HTTP 404) — source thesis:vangelsten-2017; verify URL
+url-health,https://oda.oslomet.no/oda-xmlui/handle/11250/3101983,URL,dead,HIGH,P: dead URLs,5.0,dead (HTTP error: ENOTFOUND) — source thesis:handlykken-2023; verify URL
+url-health,https://openaccess.nhh.no/nhh-xmlui/handle/11250/166778,URL,dead,HIGH,P: dead URLs,4.5,dead (HTTP error: ENOTFOUND) — source thesis:sandanger-2012; verify URL
+url-health,https://openaccess.nhh.no/nhh-xmlui/handle/11250/167473,URL,dead,HIGH,P: dead URLs,4.5,dead (HTTP error: ENOTFOUND) — source thesis:barbakken-hausken-2006; verify URL
+url-health,https://openaccess.nhh.no/nhh-xmlui/handle/11250/3051794,URL,dead,HIGH,P: dead URLs,5.0,dead (HTTP error: ENOTFOUND) — source thesis:jacobsen-jansson-2022; verify URL
+url-health,https://openaccess.nhh.no/nhh-xmlui/handle/11250/3158950,URL,dead,HIGH,P: dead URLs,5.0,dead (HTTP error: ENOTFOUND) — source thesis:nguyen-hartmann-2024; verify URL
+url-health,https://trace.tennessee.edu/cgi/viewcontent.cgi?article=14738&context=utk_gradthes,URL,dead,HIGH,P: dead URLs,5.0,dead (HTTP 404) — source thesis:hagan-2025; verify URL
+url-health,https://uia.brage.unit.no/uia-xmlui/handle/11250/276369,URL,dead,HIGH,P: dead URLs,4.5,dead (HTTP error: ENOTFOUND) — source thesis:paschen-eriksen-2014; verify URL
+url-health,https://uia.brage.unit.no/uia-xmlui/handle/11250/3008873,URL,dead,HIGH,P: dead URLs,5.0,dead (HTTP error: ENOTFOUND) — source thesis:tallaksen-2022; verify URL
+url-health,https://www.regjeringen.no/no/dokumenter/nou-2013-6/id723782/,URL,dead,HIGH,P: dead URLs,5.0,dead (HTTP 404) — source report_canonical:nou-2013-6-god-handelsskikk; verify URL
+url-health,https://www.uib.no/en/persons/Tommy.Gabrielsen,URL,dead,HIGH,P: dead URLs,5.0,dead (HTTP 404) — source report_canonical:akademia-uib-kjopermakt; follow redirect to https://www4.uib.no/en/find-employees/Tommy.Gabrielsen
+url-health,https://doi.org/10.1002/gch2.202300265,URL,blocked,HIGH,Q: blocked URLs (403/451),5.0,blocked (HTTP 403) — source report_canonical:pubmed-szulecka-2024; follow redirect to https://onlinelibrary.wiley.com/doi/10.1002/gch2.202300265
+url-health,https://salford-repository.worktribe.com/output/1322952/sustainable-food-procurement-in-public-catering-comparison-of-the-uk-with-denmark-sweden,URL,blocked,HIGH,Q: blocked URLs (403/451),5.0,blocked (HTTP 403) — source thesis:stein-2022; verify URL
+url-health,https://skemman.is/bitstream/1946/7794/3/OrriJohannsson%20FoodSecurity%20Final.pdf,URL,blocked,HIGH,Q: blocked URLs (403/451),4.5,blocked (HTTP 403) — source thesis:johannsson-2011; verify URL
+url-health,https://skemman.is/handle/1946/26754,URL,blocked,HIGH,Q: blocked URLs (403/451),4.5,blocked (HTTP 403) — source thesis:sigurdardottir-2017; verify URL
+url-health,https://skemman.is/handle/1946/32307,URL,blocked,HIGH,Q: blocked URLs (403/451),4.5,blocked (HTTP 403) — source thesis:burgherr-2019; verify URL
+url-health,https://www.konkurrensverket.se/informationsmaterial/rapportlista/konkurrensverkets-genomlysning-av-livsmedelsbranschen-20232024/,URL,blocked,HIGH,Q: blocked URLs (403/451),5.0,blocked (HTTP 403) — source report_canonical:se-konkurrensverket-2024-5; verify URL
+url-health,https://www.konkurrensverket.se/konkurrens/samlad-kunskap-om-konkurrens/genomlysning-av-livsmedelsbranschen/,URL,blocked,HIGH,Q: blocked URLs (403/451),5.0,blocked (HTTP 403) — source report_canonical:konkurrensverket-2025-5-livsmedelsutredning; verify URL
+url-health,https://haku.vainu.com/company/normal-norge-as-omsetning-og-finansiell/NO917019738/bedriftsinformasjon,URL,timeout,HIGH,R: timeout URLs,4.5,timeout (HTTP error: ETIMEDOUT) — source report_supporting:verdibutikker-utfordrere; verify URL
+url-health,https://stud.epsilon.slu.se/17609/,URL,timeout,HIGH,R: timeout URLs,5.0,timeout (HTTP error: ETIMEDOUT) — source thesis:adlers-2022; verify URL
+url-health,https://www.kkv.fi/en/facts-and-advice/competition-affairs/abuse-of-dominant-position/maaraava-markkina-asema-paivittaistavarakaupassa/,URL,server_error,HIGH,S: server-error URLs,5.0,server_error (HTTP 500) — source report_canonical:kkv-fi-4a-dominans; verify URL
+url-health,https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52024DC0176,URL,other,HIGH,T: other URL issues,5.0,other (HTTP 202) — source report_canonical:eu-utp-report-2024; verify URL
+url-health,https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52024SC0106,URL,other,HIGH,T: other URL issues,5.0,other (HTTP 202) — source report_canonical:eu-utp-staff-working-doc-2024; verify URL
+url-health,https://www.diva-portal.org/smash/get/diva2:2041632/FULLTEXT01.pdf,URL,other,HIGH,T: other URL issues,5.0,other (HTTP 429) — source thesis:van-straten-2025; verify URL
 file-coverage,src-1,SourceDoc,missing_file_sourcedoc,MEDIUM,E: missing SourceDoc,,"Restore file at ""Just now (12.Revise-Gab) Nordic Circular Food systems - V.2.md"" or update SourceDoc.filename to actual location"
 file-coverage,src-10,SourceDoc,missing_file_sourcedoc,MEDIUM,E: missing SourceDoc,,"Restore file at ""Natural State Mail - DROFTING TG.pdf"" or update SourceDoc.filename to actual location"
 file-coverage,src-101,SourceDoc,missing_file_sourcedoc,MEDIUM,E: missing SourceDoc,,"Restore file at ""coffee-forest-prd.md"" or update SourceDoc.filename to actual location"

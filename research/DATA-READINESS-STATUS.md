@@ -112,18 +112,45 @@ Ferdig 2026-04-27. Fire parallelle inventeringer + konsolidert backlog:
 
 ## Fase C-status (kanonisering)
 
-Underveis 2026-04-27.
+Komplett 2026-04-27.
 
 | Subtask | Status | Resultat |
 |---|---|---|
-| Gruppe A: stale incoming/ → SHA-mapped paths | ✓ Ferdig | 190 av 191 Documents oppdatert (1 manual review). Total funn: 578 → 334 (-244) |
-| Gruppe N: HTML→MD-ekstraksjon (5 snapshots) | ✓ Ferdig | Pandoc 3.8.2.1, 251–1023 ord per fil. 3 referert fra seed |
-| Original: provenance til Thesis/Document/SourceDoc (#6) | Pending | Inneholder Fase B-funn for taxonomi |
-| Original: semantisk dedup (~0.92 embedding) | Pending | Etter IA-utvidelse |
-| Gruppe I: scanned PDFs (OCR) | Pending | 5 PDF-er, beslutning trengs |
-| Gruppe C: generated/meetings policy | Pending | Slett DB-rader vs gjenskape |
-| Gruppe B: external/ DB-only policy | Pending | Beholde med null filePath, eller download? |
-| Follow-up: link MD-er fra Report.supportingSources | Pending | 3 referrerte MDer + 2 unreferenced
+| Gruppe A: stale incoming/ → SHA-mapped paths | ✓ Ferdig | 190 av 191 Documents oppdatert (1 manual review) |
+| Gruppe N: HTML→MD-ekstraksjon (5 snapshots) | ✓ Ferdig | Pandoc 3.8.2.1, 251–1023 ord per fil |
+| MD-linking til Report.supportingSources | ✓ Ferdig | 3 referrerte MDer linket; 2 unreferenced (project status) |
+| Gruppe B/C policy (94 Documents) | ✓ Ferdig | Schema-migrasjon + 25 prefix-fixed + 13 demoted + 56 nulled. 0 data lost |
+| Gruppe I: OCR for scanned PDFs | ✓ Ferdig | 2 Documents kraftig forbedret (47→8034, 81→30606 ord). Idempotent via OCR-companion-filer |
+| #6: provenance til Thesis/Document/SourceDoc | ✓ Type-scaffolding | ThesisProvenanceType lagt til; Document/SourceDoc utsatt — eksisterende felt diskriminerer godt |
+| Original: semantisk dedup (~0.92 embedding) | Utsatt | Krever embeddings-API-nøkkel; Document.embedding feltet tomt for 0 av 1163 |
+
+## Fase D-status (validering)
+
+Komplett 2026-04-27.
+
+| Subtask | Status | Output |
+|---|---|---|
+| Sluttrapport | ✓ Ferdig | `research/DATA-READINESS-SLUTTRAPPORT.md` |
+| KI-aksept-tester | ✓ Ferdig | 10 starter-tester i `research/KI-ACCEPTANCE-TESTS.md` (bruker justerer) |
+| URL-helse-batch | ✓ Ferdig | 173 URLer sjekket: 145 ok, 15 dead, 7 blocked, 6 andre. Detaljer i `research/URL-HEALTH.md` |
+| Månedlig auto-revisjon | ✓ Schedulert | Routine `trig_018MyacxvMxDw1Zs9k6XFJMM` kjører 1. i hver måned 02:00 UTC |
+
+## REMEDIATION-BACKLOG (etter all Fase B+C-arbeid)
+
+Total: **345 funn** (31 HIGH, 125 MEDIUM, 189 LOW). HIGH-severity domineres av URL-helse-funn (alle på prioritet ≥4.5):
+
+| Fix-gruppe | HIGH | MEDIUM | LOW | Kommentar |
+|---|---:|---:|---:|---|
+| P: dead URLs | 15 | 0 | 0 | Top: nibio.brage.unit.no DNS, uib.no/persons, regjeringen.no NOU 2013:6 |
+| Q: blocked URLs (403/451) | 7 | 0 | 0 | Manuell verifisering |
+| T: other URL issues | 3 | 0 | 0 | eur-lex 202, diva-portal 429 rate-limit |
+| R: timeout URLs | 2 | 0 | 0 | Tregt server-respons |
+| S: server-error URLs | 1 | 0 | 0 | 5xx |
+| N: needs MD extraction | 3 | 2 | 0 | Allerede ekstraherte; 3 HIGH er linket |
+| F: orphan files | 0 | 0 | 142 | arkiv-sortert/ rå-arkiv (akseptabelt) |
+| E: missing SourceDoc | 0 | 118 | 0 | Innhold i DB; manuell review trengs |
+| J: low-text PDFs | 0 | 0 | 44 | Document.content har sannsynligvis tekst |
+| Andre | 0 | 5 | 3 | OCR-kandidater, duplicates, oversized |
 
 ## Neste fase fra denne baselinen
 

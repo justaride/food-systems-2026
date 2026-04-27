@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
 
 type BacklogRow = {
-  source: 'file-coverage' | 'pdf-quality' | 'html-triage'
+  source: 'file-coverage' | 'pdf-quality' | 'html-triage' | 'url-health'
   ref: string
   entity_type: string
   problem: string
@@ -78,6 +78,14 @@ function classifyFixGroup(source: string, problem: string, ref: string, action: 
     if (problem === 'needs-md-extraction') return 'N: needs MD extraction'
     return 'O: other HTML issues'
   }
+  if (source === 'url-health') {
+    if (problem === 'dead') return 'P: dead URLs'
+    if (problem === 'blocked') return 'Q: blocked URLs (403/451)'
+    if (problem === 'timeout') return 'R: timeout URLs'
+    if (problem === 'server_error') return 'S: server-error URLs'
+    if (problem === 'other') return 'T: other URL issues'
+    return 'U: misc URL'
+  }
   return 'Z: ungrouped'
 }
 
@@ -128,6 +136,28 @@ function main(): void {
     })
   }
 
+  try {
+    const uh = parseCsv(readFileSync(join(root, 'research', 'URL-HEALTH.csv'), 'utf-8'))
+    for (const r of uh) {
+      if (r.classification === 'ok' || r.classification === 'redirect') continue
+      const priority = parseFloat(r.source_priority || '0')
+      const severity: BacklogRow['severity'] =
+        priority >= 4.5 ? 'HIGH' : priority >= 3 ? 'MEDIUM' : 'LOW'
+      rows.push({
+        source: 'url-health',
+        ref: r.url,
+        entity_type: 'URL',
+        problem: r.classification,
+        severity,
+        suggested_action: `${r.classification} (HTTP ${r.status}) — source ${r.source}; ${r.final_url ? 'follow redirect to ' + r.final_url : 'verify URL'}`,
+        priority: r.source_priority || '',
+        fix_group: classifyFixGroup('url-health', r.classification, r.url, ''),
+      })
+    }
+  } catch {
+    // URL-HEALTH.csv not yet generated; skip silently
+  }
+
   const sevOrder: Record<string, number> = { HIGH: 0, MEDIUM: 1, LOW: 2, INFO: 3 }
   rows.sort((a, b) => {
     const sa = sevOrder[a.severity] ?? 4
@@ -162,6 +192,7 @@ function main(): void {
     'file-coverage': { HIGH: 0, MEDIUM: 0, LOW: 0, INFO: 0 },
     'pdf-quality': { HIGH: 0, MEDIUM: 0, LOW: 0, INFO: 0 },
     'html-triage': { HIGH: 0, MEDIUM: 0, LOW: 0, INFO: 0 },
+    'url-health': { HIGH: 0, MEDIUM: 0, LOW: 0, INFO: 0 },
   }
   const groupCounts: Record<string, { HIGH: number; MEDIUM: number; LOW: number; total: number }> = {}
   for (const r of rows) {

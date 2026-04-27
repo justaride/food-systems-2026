@@ -1,8 +1,8 @@
 # REMEDIATION BACKLOG — data-readiness Fase B
 
 > Auto-generert av `scripts/build-remediation-backlog.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T12:27:55.164Z
-> Totalt: **317** funn
+> Generert: 2026-04-27T13:03:06.570Z
+> Totalt: **345** funn
 
 ## Sammendrag per kilde × severity
 
@@ -11,7 +11,8 @@
 | file-coverage | 0 | 118 | 144 | 0 |
 | pdf-quality | 0 | 5 | 45 | 0 |
 | html-triage | 3 | 2 | 0 | 0 |
-| **Total** | 3 | 125 | 189 | 0 |
+| url-health | 28 | 0 | 0 | 0 |
+| **Total** | 31 | 125 | 189 | 0 |
 
 ## Fiksgrupper (rotårsak-analyse)
 
@@ -27,6 +28,11 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 | J: low-text PDFs | 44 | 0 | 0 | 44 |
 | K: oversized PDFs | 1 | 0 | 0 | 1 |
 | N: needs MD extraction | 5 | 3 | 2 | 0 |
+| P: dead URLs | 15 | 15 | 0 | 0 |
+| Q: blocked URLs (403/451) | 7 | 7 | 0 | 0 |
+| R: timeout URLs | 2 | 2 | 0 | 0 |
+| S: server-error URLs | 1 | 1 | 0 | 0 |
+| T: other URL issues | 3 | 3 | 0 | 0 |
 
 ### Gruppe A: stale `incoming/food-research-process-2026-04-20/` paths
 
@@ -70,30 +76,30 @@ URL-helse er **ikke** klassifisert ennå — kun inventarisert (173 unike, 98 % 
 | 1 | HIGH | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/beredskap/beredskap-island-food-stockpiles-202 |
 | 2 | HIGH | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/beredskap/beredskap-island-melmolle-2025.html |
 | 3 | HIGH | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/bransje/dlf-leverandor-2025.html |
-| 4 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-1 |
-| 5 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-10 |
-| 6 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-101 |
-| 7 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-102 |
-| 8 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-103 |
-| 9 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-107 |
-| 10 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-108 |
-| 11 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-109 |
-| 12 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-110 |
-| 13 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-111 |
-| 14 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-112 |
-| 15 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-113 |
-| 16 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-114 |
-| 17 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-115 |
-| 18 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-116 |
-| 19 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-117 |
-| 20 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-118 |
-| 21 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-119 |
-| 22 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-120 |
-| 23 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-121 |
-| 24 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-123 |
-| 25 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-124 |
-| 26 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-125 |
-| 27 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-126 |
-| 28 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-136 |
-| 29 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-137 |
-| 30 | MEDIUM | file-coverage | E: missing SourceDoc | missing_file_sourcedoc | src-138 |
+| 4 | HIGH | url-health | P: dead URLs | dead | https://beccle.no/files/2020/01/Susanne_Helen_Gangstoe_Maste |
+| 5 | HIGH | url-health | P: dead URLs | dead | https://nibio.brage.unit.no/nibio-xmlui/bitstream/handle/112 |
+| 6 | HIGH | url-health | P: dead URLs | dead | https://nmbu.brage.unit.no/nmbu-xmlui/handle/11250/2569075 |
+| 7 | HIGH | url-health | P: dead URLs | dead | https://nmbu.brage.unit.no/nmbu-xmlui/handle/11250/2788657 |
+| 8 | HIGH | url-health | P: dead URLs | dead | https://nordopen.nord.no/nord-xmlui/handle/11250/2491452 |
+| 9 | HIGH | url-health | P: dead URLs | dead | https://oda.oslomet.no/oda-xmlui/handle/11250/3101983 |
+| 10 | HIGH | url-health | P: dead URLs | dead | https://openaccess.nhh.no/nhh-xmlui/handle/11250/166778 |
+| 11 | HIGH | url-health | P: dead URLs | dead | https://openaccess.nhh.no/nhh-xmlui/handle/11250/167473 |
+| 12 | HIGH | url-health | P: dead URLs | dead | https://openaccess.nhh.no/nhh-xmlui/handle/11250/3051794 |
+| 13 | HIGH | url-health | P: dead URLs | dead | https://openaccess.nhh.no/nhh-xmlui/handle/11250/3158950 |
+| 14 | HIGH | url-health | P: dead URLs | dead | https://trace.tennessee.edu/cgi/viewcontent.cgi?article=1473 |
+| 15 | HIGH | url-health | P: dead URLs | dead | https://uia.brage.unit.no/uia-xmlui/handle/11250/276369 |
+| 16 | HIGH | url-health | P: dead URLs | dead | https://uia.brage.unit.no/uia-xmlui/handle/11250/3008873 |
+| 17 | HIGH | url-health | P: dead URLs | dead | https://www.regjeringen.no/no/dokumenter/nou-2013-6/id723782 |
+| 18 | HIGH | url-health | P: dead URLs | dead | https://www.uib.no/en/persons/Tommy.Gabrielsen |
+| 19 | HIGH | url-health | Q: blocked URLs (403/451) | blocked | https://doi.org/10.1002/gch2.202300265 |
+| 20 | HIGH | url-health | Q: blocked URLs (403/451) | blocked | https://salford-repository.worktribe.com/output/1322952/sust |
+| 21 | HIGH | url-health | Q: blocked URLs (403/451) | blocked | https://skemman.is/bitstream/1946/7794/3/OrriJohannsson%20Fo |
+| 22 | HIGH | url-health | Q: blocked URLs (403/451) | blocked | https://skemman.is/handle/1946/26754 |
+| 23 | HIGH | url-health | Q: blocked URLs (403/451) | blocked | https://skemman.is/handle/1946/32307 |
+| 24 | HIGH | url-health | Q: blocked URLs (403/451) | blocked | https://www.konkurrensverket.se/informationsmaterial/rapport |
+| 25 | HIGH | url-health | Q: blocked URLs (403/451) | blocked | https://www.konkurrensverket.se/konkurrens/samlad-kunskap-om |
+| 26 | HIGH | url-health | R: timeout URLs | timeout | https://haku.vainu.com/company/normal-norge-as-omsetning-og- |
+| 27 | HIGH | url-health | R: timeout URLs | timeout | https://stud.epsilon.slu.se/17609/ |
+| 28 | HIGH | url-health | S: server-error URLs | server_error | https://www.kkv.fi/en/facts-and-advice/competition-affairs/a |
+| 29 | HIGH | url-health | T: other URL issues | other | https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A |
+| 30 | HIGH | url-health | T: other URL issues | other | https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A |
