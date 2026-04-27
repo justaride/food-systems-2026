@@ -110,6 +110,21 @@ Ferdig 2026-04-27. Fire parallelle inventeringer + konsolidert backlog:
 - Gruppe B (60): `external/`-paths uten lokal fil — DB-only, policy-beslutning trengs
 - Gruppe C (8): `generated/meetings/` slettede filer — gjenskape eller slett DB-rader
 
+## Fase C-status (kanonisering)
+
+Underveis 2026-04-27.
+
+| Subtask | Status | Resultat |
+|---|---|---|
+| Gruppe A: stale incoming/ → SHA-mapped paths | ✓ Ferdig | 190 av 191 Documents oppdatert (1 manual review). Total funn: 578 → 334 (-244) |
+| Gruppe N: HTML→MD-ekstraksjon (5 snapshots) | ✓ Ferdig | Pandoc 3.8.2.1, 251–1023 ord per fil. 3 referert fra seed |
+| Original: provenance til Thesis/Document/SourceDoc (#6) | Pending | Inneholder Fase B-funn for taxonomi |
+| Original: semantisk dedup (~0.92 embedding) | Pending | Etter IA-utvidelse |
+| Gruppe I: scanned PDFs (OCR) | Pending | 5 PDF-er, beslutning trengs |
+| Gruppe C: generated/meetings policy | Pending | Slett DB-rader vs gjenskape |
+| Gruppe B: external/ DB-only policy | Pending | Beholde med null filePath, eller download? |
+| Follow-up: link MD-er fra Report.supportingSources | Pending | 3 referrerte MDer + 2 unreferenced
+
 ## Neste fase fra denne baselinen
 
 1. **Definér KI-bruksprofil** — RAG/Q&A, tematisk analyse, sammendrag, utforskende søk? Påvirker IA-regler og hvilke felt som er obligatoriske
