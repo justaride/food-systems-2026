@@ -70,6 +70,28 @@ Detaljert vurdering per case: [REPORT-SOURCEURL-GAP-13.md](REPORT-SOURCEURL-GAP-
 
 - `20260427_report_provenance` — applikert lokalt og i repo
 
+## KI-bruksprofil (låst 2026-04-27)
+
+Mål-arkitekturen er optimalisert for følgende KI-bruk, i prioritert rekkefølge:
+
+| Prioritet | Bruksprofil | Eksempel-spørsmål |
+|---|---|---|
+| **1 (primær)** | RAG / citation Q&A | "Hva sier kildene om EMV-konsentrasjon?" |
+| **2 (sekundær)** | Tematisk analyse | "Hovedstrømninger i nordisk matpolitikk?" |
+| **3 (gratis)** | Aktør-/relasjonsspørring | "Reitan-systemets styreverv?" |
+
+**Konsekvenser for IA:**
+
+- **Chunk-level provenance** kreves — ikke nok å vite hvilket dokument; må kunne sitere ned til avsnitt/seksjon
+- **Embeddings** beregnes på chunk-nivå (kortere tekstbiter, ikke hele dokumenter)
+- **Tags + kategorier** må være konsistente og dekkende — KI-prioritering har høy ROI
+- **Sitatevennlig output**: hver chunk må kunne kobles tilbake til original kilde + sidetall hvis tilgjengelig
+- **Provenance-type** styrer KI-bruksregler:
+  - `external_report` / `external_article` → kan siteres direkte
+  - `composite_source` → må flagges som sammenstilling (gi underlagskilder også)
+  - `internal_synthesis` / `internal_register` → kan brukes som bakgrunn, ikke siteres som primærkilde
+  - `blocked_source` → ekskluderes fra KI-svar (eller vises kun med advarsel)
+
 ## Neste fase fra denne baselinen
 
 1. **Definér KI-bruksprofil** — RAG/Q&A, tematisk analyse, sammendrag, utforskende søk? Påvirker IA-regler og hvilke felt som er obligatoriske
