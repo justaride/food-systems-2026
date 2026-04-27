@@ -150,7 +150,7 @@ export function ForsyningskjedeContent({
   )
 
   const nodeById = useMemo(() => {
-    const map = new Map<string, typeof data.nodes[0]>()
+    const map = new Map<string, SupplyChainGraphData['nodes'][0]>()
     for (const n of data.nodes) map.set(n.id, n)
     return map
   }, [data.nodes])
