@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "compute-metrics": "tsx scripts/compute-chart-metrics.ts --country=all",
-    "build": "prisma generate && npm run compute-metrics && next build",
+    "build": "tsx scripts/write-version.ts && prisma generate && npm run compute-metrics && next build",
     "start": "next start",
     "lint": "eslint",
     "db:generate": "prisma generate",
