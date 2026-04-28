@@ -3,14 +3,18 @@ import { mkdirSync, writeFileSync } from 'fs'
 import { dirname } from 'path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { canonicalPersonKey } from '../src/lib/person-key.ts'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
+// Oppdatert 2026-04-28 etter dedupe-person-keys --commit. For tidligere tall, se
+// scripts/dedupe-person-keys.ts (1573 personer / 2592 roller / 618 interlocking
+// ble redusert til 1486 / 2472 / 592 etter merge av navnesplitt-grupper).
 const EXPECTED_PAGE_COUNTS = {
-  persons: 1573,
-  roles: 2592,
-  interlocking: 618,
+  persons: 1486,
+  roles: 2472,
+  interlocking: 592,
 }
 
 const REPORT_PATH = 'docs/project/mandates/personer-underlagskontroll-food-tg-2026-04-28.md'
@@ -48,15 +52,10 @@ type StoredRoleIssue = {
   reason: string
 }
 
-function normalizePersonKey(name: string): string {
-  return name
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z ]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
-}
+// Etter dedup (2026-04-28) er audit-skriptets forventede personKey identisk
+// med canonicalPersonKey, slik at ActorContact/Meeting/Communication-navn
+// matcher pageKeys riktig.
+const normalizePersonKey = canonicalPersonKey
 
 function loosePersonKey(name: string): string {
   return name

@@ -155,6 +155,14 @@ export function ForsyningskjedeContent({
     return map
   }, [data.nodes])
 
+  const selfDealingEdges = useMemo(
+    () =>
+      data.edges.filter(
+        e => e.relationshipType === 'self-dealing' || e.source === e.target
+      ),
+    [data.edges]
+  )
+
   const valueChainStages = useMemo(() => {
     const stages = new Set<string>()
     for (const n of data.nodes) {
@@ -256,6 +264,61 @@ export function ForsyningskjedeContent({
           </Card>
         ))}
       </div>
+
+      {selfDealingEdges.length > 0 && (
+        <Card title={`Selvhandel — ${selfDealingEdges.length} interne handelsrelasjoner`}>
+          <p className="text-xs text-stone-500 mb-3">
+            Selskaper som handler med egne datter- eller søsterselskaper. Indikator
+            på intern markedsmakt og potensiell profittforskyvning innen konsernet.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-stone-200 text-left">
+                  <th className="py-2 pr-3 text-stone-400 font-medium">Fra</th>
+                  <th className="py-2 pr-3 text-stone-400 font-medium">Til</th>
+                  <th className="py-2 pr-3 text-stone-400 font-medium">Type</th>
+                  <th className="py-2 pr-3 text-stone-400 font-medium">Sektor</th>
+                  <th className="py-2 text-stone-400 font-medium">Beskrivelse</th>
+                </tr>
+              </thead>
+              <tbody>
+                {selfDealingEdges.map((e, i) => {
+                  const from = nodeById.get(e.source)
+                  const to = nodeById.get(e.target)
+                  return (
+                    <tr key={i} className="border-b border-stone-100 align-top">
+                      <td className="py-2 pr-3">
+                        <Link
+                          href={`/selskap/${e.source}`}
+                          className="font-medium text-stone-800 hover:text-emerald-700"
+                        >
+                          {from?.label ?? e.source}
+                        </Link>
+                      </td>
+                      <td className="py-2 pr-3">
+                        <Link
+                          href={`/selskap/${e.target}`}
+                          className="font-medium text-stone-800 hover:text-emerald-700"
+                        >
+                          {to?.label ?? e.target}
+                        </Link>
+                      </td>
+                      <td className="py-2 pr-3">
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200">
+                          {RELATIONSHIP_LABELS[e.relationshipType] ?? e.relationshipType}
+                        </span>
+                      </td>
+                      <td className="py-2 pr-3 text-stone-600">{e.sector ?? '—'}</td>
+                      <td className="py-2 text-stone-600">{e.description ?? '—'}</td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+      )}
 
       <div className="flex flex-wrap gap-2">
         {valueChainStages.map(stage => (

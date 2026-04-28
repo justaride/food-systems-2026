@@ -1,34 +1,34 @@
 {
-  "generatedAt": "2026-04-28T12:59:30.523Z",
+  "generatedAt": "2026-04-28T15:14:52.788Z",
   "expectedPageCounts": {
-    "persons": 1573,
-    "roles": 2592,
-    "interlocking": 618
+    "persons": 1486,
+    "roles": 2472,
+    "interlocking": 592
   },
   "pageCounts": {
-    "persons": 1573,
-    "roles": 2592,
-    "interlocking": 618
+    "persons": 1486,
+    "roles": 2472,
+    "interlocking": 592
   },
   "rawCounts": {
-    "personProfile": 1354,
-    "boardMember": 1696,
-    "uniqueBoardPersons": 1332,
+    "personProfile": 1307,
+    "boardMember": 1654,
+    "uniqueBoardPersons": 1286,
     "actorContact": 17,
     "meeting": 8,
     "communication": 0
   },
   "coverage": {
-    "profileAndBoard": 1113,
-    "profileOnly": 241,
-    "boardOnly": 219,
-    "fallbackOnlyInterlocking": 0,
+    "profileAndBoard": 1107,
+    "profileOnly": 200,
+    "boardOnly": 179,
+    "fallbackOnlyInterlocking": 1,
     "detailCoverage": {
       "biography": 80,
       "linkedInUrl": 0,
       "photoUrl": 0,
-      "affiliations": 1250,
-      "tags": 1573
+      "affiliations": 1249,
+      "tags": 1486
     }
   },
   "gates": {
@@ -43,7 +43,7 @@
     "missingBoardRolesByDisplay": [],
     "missingBoardRolesByCompanyId": [
       {
-        "personKey": "anne-berit-lset",
+        "personKey": "anne-berit-loset",
         "personName": "Anne Berit Løset",
         "companyId": "cmmpayrg5000s190dd4kfuuf0",
         "companyName": "TINE SA",
@@ -52,26 +52,26 @@
       {
         "personKey": "anne-polden",
         "personName": "Anne Polden",
-        "companyId": "cmmpayrfu000o190dsc4qrecj",
+        "companyId": "cmmpayrg5000s190dd4kfuuf0",
         "companyName": "TINE SA",
         "role": "styremedlem"
       },
       {
         "personKey": "annika-marie-sigfrid",
         "personName": "Annika Marie Sigfrid",
-        "companyId": "cmmpayrf5000a190dt7bu8tdg",
+        "companyId": "cmmxw484o0011p80d8ra3tkn6",
         "companyName": "Reitan Retail AS",
         "role": "styremedlem"
       },
       {
         "personKey": "are-dragesund",
         "personName": "Are Dragesund",
-        "companyId": "cmmpayrgn001b190dybx7h4bl",
+        "companyId": "cmmxw487f0052p80d9oskgl7d",
         "companyName": "Lerøy Seafood Group ASA",
         "role": "styremedlem"
       },
       {
-        "personKey": "arne-mgster",
+        "personKey": "arne-mogster",
         "personName": "Arne Møgster",
         "companyId": "cmmxw487f0052p80d9oskgl7d",
         "companyName": "Lerøy Seafood Group ASA",
@@ -101,14 +101,14 @@
       {
         "personKey": "bjarne-egil-kristiansen",
         "personName": "Bjarne Egil Kristiansen",
-        "companyId": "cmmpayrgn001b190dybx7h4bl",
+        "companyId": "cmmxw487f0052p80d9oskgl7d",
         "companyName": "Lerøy Seafood Group ASA",
         "role": "styremedlem"
       },
       {
-        "personKey": "bjrn-vikmo",
+        "personKey": "bjorn-vikmo",
         "personName": "Bjørn Vik-Mo",
-        "companyId": "cmmxw483t000fp80djern4zju",
+        "companyId": "cmmpayrew0005190d8floygxb",
         "companyName": "Coop Norge SA",
         "role": "styremedlem"
       },
@@ -122,21 +122,21 @@
       {
         "personKey": "cecilie-myhre",
         "personName": "Cecilie Myhre",
-        "companyId": "cmmpayrg7000v190dld9vwx8g",
+        "companyId": "cmmpayrdp0000190d1vvypoy8",
         "companyName": "NorgesGruppen ASA",
         "role": "styremedlem"
       },
       {
         "personKey": "didrik-oskar-munch",
         "personName": "Didrik Oskar Munch",
-        "companyId": "cmmxw487f0052p80d9oskgl7d",
+        "companyId": "cmmpayrgn001b190dybx7h4bl",
         "companyName": "Lerøy Seafood Group ASA",
         "role": "styremedlem"
       },
       {
         "personKey": "dina-thune",
         "personName": "Dina Thune",
-        "companyId": "cmmpayrh5001n190dqum2t3kw",
+        "companyId": "cmmxw48800066p80defymnjc2",
         "companyName": "ASKO Norge AS",
         "role": "styremedlem"
       },
@@ -148,7 +148,7 @@
         "role": "styremedlem"
       },
       {
-        "personKey": "elin-johanne-aarvik",
+        "personKey": "elin-johanne-arvik",
         "personName": "Elin Johanne Aarvik",
         "companyId": "cmmpayrfu000o190dsc4qrecj",
         "companyName": "TINE SA",
@@ -157,7 +157,7 @@
       {
         "personKey": "elin-viken",
         "personName": "Elin Viken",
-        "companyId": "cmmpayrew0005190d8floygxb",
+        "companyId": "cmmxw483t000fp80djern4zju",
         "companyName": "Coop Norge SA",
         "role": "styremedlem"
       },
@@ -176,9 +176,9 @@
         "role": "styremedlem"
       },
       {
-        "personKey": "geir-olav-sundb",
+        "personKey": "geir-olav-sundbo",
         "personName": "Geir Olav Sundbø",
-        "companyId": "cmmpayrgr001e190d9ab6n2y3",
+        "companyId": "cmmxw487m005fp80duuood3yc",
         "companyName": "Yara International ASA",
         "role": "styremedlem"
       },
@@ -190,30 +190,30 @@
         "role": "styremedlem"
       },
       {
-        "personKey": "guri-strvold",
+        "personKey": "guri-storvold",
         "personName": "Guri Størvold",
-        "companyId": "cmmpayrg7000v190dld9vwx8g",
+        "companyId": "cmmpayrdp0000190d1vvypoy8",
         "companyName": "NorgesGruppen ASA",
         "role": "styremedlem"
       },
       {
-        "personKey": "gustav-witze",
+        "personKey": "gustav-witzo",
         "personName": "Gustav Witzøe",
-        "companyId": "cmmpayrgj0017190d32fix1hx",
+        "companyId": "cmmxw4875004rp80dkc2ll1ti",
         "companyName": "SalMar ASA",
         "role": "styreleder"
       },
       {
-        "personKey": "gril-johnsen",
+        "personKey": "goril-johnsen",
         "personName": "Gøril Johnsen",
-        "companyId": "cmmxw483t000fp80djern4zju",
+        "companyId": "cmmpayrew0005190d8floygxb",
         "companyName": "Coop Norge SA",
         "role": "styremedlem"
       },
       {
         "personKey": "hans-olav-minsas",
         "personName": "Hans Olav Minsås",
-        "companyId": "cmmpayrg5000s190dd4kfuuf0",
+        "companyId": "cmmpayrfu000o190dsc4qrecj",
         "companyName": "TINE SA",
         "role": "styremedlem"
       },
@@ -227,7 +227,7 @@
       {
         "personKey": "hilde-vatne",
         "personName": "Hilde Vatne",
-        "companyId": "cmmpayrg7000v190dld9vwx8g",
+        "companyId": "cmmpayrdp0000190d1vvypoy8",
         "companyName": "NorgesGruppen ASA",
         "role": "styremedlem"
       },
@@ -255,12 +255,12 @@
       {
         "personKey": "jan-magne-borgen",
         "personName": "Jan Magne Borgen",
-        "companyId": "cmmpayrdp0000190d1vvypoy8",
+        "companyId": "cmmpayrg7000v190dld9vwx8g",
         "companyName": "NorgesGruppen ASA",
         "role": "styremedlem"
       },
       {
-        "personKey": "jan-paul-bjrky",
+        "personKey": "jan-paul-bjorkoy",
         "personName": "Jan Paul Bjørkøy",
         "companyId": "cmmxw48800066p80defymnjc2",
         "companyName": "ASKO Norge AS",
@@ -269,14 +269,14 @@
       {
         "personKey": "jannicke-hilland",
         "personName": "Jannicke Hilland",
-        "companyId": "cmmpayrgr001e190d9ab6n2y3",
+        "companyId": "cmmxw487m005fp80duuood3yc",
         "companyName": "Yara International ASA",
         "role": "styremedlem"
       },
       {
         "personKey": "johan-johannson",
         "personName": "Johan Johannson",
-        "companyId": "cmmpayrdp0000190d1vvypoy8",
+        "companyId": "cmmpayrg7000v190dld9vwx8g",
         "companyName": "NorgesGruppen ASA",
         "role": "styreleder"
       },
@@ -295,16 +295,16 @@
         "role": "styremedlem"
       },
       {
-        "personKey": "karoline-mgster",
+        "personKey": "karoline-mogster",
         "personName": "Karoline Møgster",
-        "companyId": "cmmxw487f0052p80d9oskgl7d",
+        "companyId": "cmmpayrgn001b190dybx7h4bl",
         "companyName": "Lerøy Seafood Group ASA",
         "role": "styremedlem"
       },
       {
-        "personKey": "katrine-lundstrm",
+        "personKey": "katrine-lundstrom",
         "personName": "Katrine Lundstrøm",
-        "companyId": "cmmpayrew0005190d8floygxb",
+        "companyId": "cmmxw483t000fp80djern4zju",
         "companyName": "Coop Norge SA",
         "role": "styremedlem"
       },
@@ -318,12 +318,12 @@
       {
         "personKey": "kristine-stranne",
         "personName": "Kristine Stranne",
-        "companyId": "cmmpayrh5001n190dqum2t3kw",
+        "companyId": "cmmxw48800066p80defymnjc2",
         "companyName": "ASKO Norge AS",
         "role": "styremedlem"
       },
       {
-        "personKey": "kare-ivar-stormoen",
+        "personKey": "kare-ivar-stormon",
         "personName": "Kåre Ivar Stormoen",
         "companyId": "cmmpayrg5000s190dd4kfuuf0",
         "companyName": "TINE SA",
@@ -332,14 +332,14 @@
       {
         "personKey": "lars-arve-jakobsen",
         "personName": "Lars Arve Jakobsen",
-        "companyId": "cmmpayrew0005190d8floygxb",
+        "companyId": "cmmxw483t000fp80djern4zju",
         "companyName": "Coop Norge SA",
         "role": "styremedlem"
       },
       {
         "personKey": "leif-inge-nordhammer",
         "personName": "Leif Inge Nordhammer",
-        "companyId": "cmmxw4875004rp80dkc2ll1ti",
+        "companyId": "cmmpayrgj0017190d32fix1hx",
         "companyName": "SalMar ASA",
         "role": "styremedlem"
       },
@@ -374,7 +374,7 @@
       {
         "personKey": "liv-gisele-marchand",
         "personName": "Liv Gisele Marchand",
-        "companyId": "cmmpayrdp0000190d1vvypoy8",
+        "companyId": "cmmpayrg7000v190dld9vwx8g",
         "companyName": "NorgesGruppen ASA",
         "role": "styremedlem"
       },
@@ -388,7 +388,7 @@
       {
         "personKey": "margrethe-hauge",
         "personName": "Margrethe Hauge",
-        "companyId": "cmmpayrgj0017190d32fix1hx",
+        "companyId": "cmmxw4875004rp80dkc2ll1ti",
         "companyName": "SalMar ASA",
         "role": "styremedlem"
       },
@@ -402,26 +402,26 @@
       {
         "personKey": "mats-gunnar-knudsen",
         "personName": "Mats Gunnar Knudsen",
-        "companyId": "cmmpayrdp0000190d1vvypoy8",
+        "companyId": "cmmpayrg7000v190dld9vwx8g",
         "companyName": "NorgesGruppen ASA",
         "role": "styremedlem"
       },
       {
         "personKey": "morten-loktu",
         "personName": "Morten Loktu",
-        "companyId": "cmmpayrgj0017190d32fix1hx",
+        "companyId": "cmmxw4875004rp80dkc2ll1ti",
         "companyName": "SalMar ASA",
         "role": "styremedlem"
       },
       {
-        "personKey": "ragnhild-himyr",
+        "personKey": "ragnhild-hoimyr",
         "personName": "Ragnhild Høimyr",
         "companyId": "cmmpayrgr001e190d9ab6n2y3",
         "companyName": "Yara International ASA",
         "role": "styremedlem"
       },
       {
-        "personKey": "rolf-yvind-thune",
+        "personKey": "rolf-oyvind-thune",
         "personName": "Rolf Øyvind Thune",
         "companyId": "cmmpayrfu000o190dsc4qrecj",
         "companyName": "TINE SA",
@@ -430,21 +430,21 @@
       {
         "personKey": "runar-hollevik",
         "personName": "Runar Hollevik",
-        "companyId": "cmmxw48800066p80defymnjc2",
+        "companyId": "cmmpayrh5001n190dqum2t3kw",
         "companyName": "ASKO Norge AS",
         "role": "styreleder"
       },
       {
         "personKey": "runar-leite",
         "personName": "Runar Leite",
-        "companyId": "cmmxw483t000fp80djern4zju",
+        "companyId": "cmmpayrew0005190d8floygxb",
         "companyName": "Coop Norge SA",
         "role": "styreleder"
       },
       {
         "personKey": "rune-asle-bratteberg",
         "personName": "Rune Asle Bratteberg",
-        "companyId": "cmmxw487m005fp80duuood3yc",
+        "companyId": "cmmpayrgr001e190d9ab6n2y3",
         "companyName": "Yara International ASA",
         "role": "styremedlem"
       },
@@ -465,35 +465,35 @@
       {
         "personKey": "siv-elisabeth-skard",
         "personName": "Siv Elisabeth Skard",
-        "companyId": "cmmxw484o0011p80d8ra3tkn6",
+        "companyId": "cmmpayrf5000a190dt7bu8tdg",
         "companyName": "Reitan Retail AS",
         "role": "styremedlem"
       },
       {
         "personKey": "stig-arne-stensen",
         "personName": "Stig Arne Stensen",
-        "companyId": "cmmxw4875004rp80dkc2ll1ti",
+        "companyId": "cmmpayrgj0017190d32fix1hx",
         "companyName": "SalMar ASA",
         "role": "styremedlem"
       },
       {
-        "personKey": "stine-beate-rdberg",
+        "personKey": "stine-beate-rodberg",
         "personName": "Stine Beate Rødberg",
-        "companyId": "cmmpayrew0005190d8floygxb",
+        "companyId": "cmmxw483t000fp80djern4zju",
         "companyName": "Coop Norge SA",
         "role": "styremedlem"
       },
       {
         "personKey": "tina-elizabeth-lawton",
         "personName": "Tina Elizabeth Lawton",
-        "companyId": "cmmpayrgr001e190d9ab6n2y3",
+        "companyId": "cmmxw487m005fp80duuood3yc",
         "companyName": "Yara International ASA",
         "role": "styremedlem"
       },
       {
         "personKey": "tor-arne-johansen",
         "personName": "Tor Arne Johansen",
-        "companyId": "cmmpayrg5000s190dd4kfuuf0",
+        "companyId": "cmmpayrfu000o190dsc4qrecj",
         "companyName": "TINE SA",
         "role": "styremedlem"
       },
@@ -514,7 +514,7 @@
       {
         "personKey": "trond-berger",
         "personName": "Trond Berger",
-        "companyId": "cmmxw487m005fp80duuood3yc",
+        "companyId": "cmmpayrgr001e190d9ab6n2y3",
         "companyName": "Yara International ASA",
         "role": "styreleder"
       },
@@ -526,23 +526,23 @@
         "role": "styremedlem"
       },
       {
-        "personKey": "rjan-svanevik",
+        "personKey": "orjan-svanevik",
         "personName": "Ørjan Svanevik",
-        "companyId": "cmmpayrdp0000190d1vvypoy8",
+        "companyId": "cmmpayrg7000v190dld9vwx8g",
         "companyName": "NorgesGruppen ASA",
         "role": "styremedlem"
       },
       {
-        "personKey": "ystein-berg",
+        "personKey": "oystein-berg",
         "personName": "Øystein Berg",
-        "companyId": "cmmpayrew0005190d8floygxb",
+        "companyId": "cmmxw483t000fp80djern4zju",
         "companyName": "Coop Norge SA",
         "role": "styremedlem"
       }
     ],
     "boardRoleCompanyIdMismatches": [
       {
-        "personKey": "anne-berit-lset",
+        "personKey": "anne-berit-loset",
         "personName": "Anne Berit Løset",
         "companyName": "TINE SA",
         "boardCompanyId": "cmmpayrg5000s190dd4kfuuf0",
@@ -554,536 +554,14 @@
         "personKey": "anne-polden",
         "personName": "Anne Polden",
         "companyName": "TINE SA",
-        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
-        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
+        "boardCompanyId": "cmmpayrg5000s190dd4kfuuf0",
+        "pageCompanyId": "cmmpayrfu000o190dsc4qrecj",
         "role": "styremedlem",
         "reason": "display role exists with different companyId"
       },
       {
         "personKey": "annika-marie-sigfrid",
         "personName": "Annika Marie Sigfrid",
-        "companyName": "Reitan Retail AS",
-        "boardCompanyId": "cmmpayrf5000a190dt7bu8tdg",
-        "pageCompanyId": "cmmxw484o0011p80d8ra3tkn6",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "are-dragesund",
-        "personName": "Are Dragesund",
-        "companyName": "Lerøy Seafood Group ASA",
-        "boardCompanyId": "cmmpayrgn001b190dybx7h4bl",
-        "pageCompanyId": "cmmxw487f0052p80d9oskgl7d",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "arne-mgster",
-        "personName": "Arne Møgster",
-        "companyName": "Lerøy Seafood Group ASA",
-        "boardCompanyId": "cmmxw487f0052p80d9oskgl7d",
-        "pageCompanyId": "cmmpayrgn001b190dybx7h4bl",
-        "role": "styreleder",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "arnhild-holstad",
-        "personName": "Arnhild Holstad",
-        "companyName": "SalMar ASA",
-        "boardCompanyId": "cmmxw4875004rp80dkc2ll1ti",
-        "pageCompanyId": "cmmpayrgj0017190d32fix1hx",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "arthur-salte",
-        "personName": "Arthur Salte",
-        "companyName": "TINE SA",
-        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
-        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "asgeir-pollestad",
-        "personName": "Asgeir Pollestad",
-        "companyName": "TINE SA",
-        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
-        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "bjarne-egil-kristiansen",
-        "personName": "Bjarne Egil Kristiansen",
-        "companyName": "Lerøy Seafood Group ASA",
-        "boardCompanyId": "cmmpayrgn001b190dybx7h4bl",
-        "pageCompanyId": "cmmxw487f0052p80d9oskgl7d",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "bjrn-vikmo",
-        "personName": "Bjørn Vik-Mo",
-        "companyName": "Coop Norge SA",
-        "boardCompanyId": "cmmxw483t000fp80djern4zju",
-        "pageCompanyId": "cmmpayrew0005190d8floygxb",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "britt-kathrine-drivenes",
-        "personName": "Britt Kathrine Drivenes",
-        "companyName": "Lerøy Seafood Group ASA",
-        "boardCompanyId": "cmmxw487f0052p80d9oskgl7d",
-        "pageCompanyId": "cmmpayrgn001b190dybx7h4bl",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "cecilie-myhre",
-        "personName": "Cecilie Myhre",
-        "companyName": "NorgesGruppen ASA",
-        "boardCompanyId": "cmmpayrg7000v190dld9vwx8g",
-        "pageCompanyId": "cmmpayrdp0000190d1vvypoy8",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "didrik-oskar-munch",
-        "personName": "Didrik Oskar Munch",
-        "companyName": "Lerøy Seafood Group ASA",
-        "boardCompanyId": "cmmxw487f0052p80d9oskgl7d",
-        "pageCompanyId": "cmmpayrgn001b190dybx7h4bl",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "dina-thune",
-        "personName": "Dina Thune",
-        "companyName": "ASKO Norge AS",
-        "boardCompanyId": "cmmpayrh5001n190dqum2t3kw",
-        "pageCompanyId": "cmmxw48800066p80defymnjc2",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "eilert-hanoa",
-        "personName": "Eilert Hanoa",
-        "companyName": "Reitan Retail AS",
-        "boardCompanyId": "cmmpayrf5000a190dt7bu8tdg",
-        "pageCompanyId": "cmmxw484o0011p80d8ra3tkn6",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "elin-johanne-aarvik",
-        "personName": "Elin Johanne Aarvik",
-        "companyName": "TINE SA",
-        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
-        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "elin-viken",
-        "personName": "Elin Viken",
-        "companyName": "Coop Norge SA",
-        "boardCompanyId": "cmmpayrew0005190d8floygxb",
-        "pageCompanyId": "cmmxw483t000fp80djern4zju",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "eva-safrine-aspvik",
-        "personName": "Eva Safrine Aspvik",
-        "companyName": "Yara International ASA",
-        "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
-        "pageCompanyId": "cmmxw487m005fp80duuood3yc",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "filip-lorentzen",
-        "personName": "Filip Lorentzen",
-        "companyName": "NorgesGruppen ASA",
-        "boardCompanyId": "cmmpayrdp0000190d1vvypoy8",
-        "pageCompanyId": "cmmpayrg7000v190dld9vwx8g",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "geir-olav-sundb",
-        "personName": "Geir Olav Sundbø",
-        "companyName": "Yara International ASA",
-        "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
-        "pageCompanyId": "cmmxw487m005fp80duuood3yc",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "grete-ovanger",
-        "personName": "Grete Ovanger",
-        "companyName": "ASKO Norge AS",
-        "boardCompanyId": "cmmpayrh5001n190dqum2t3kw",
-        "pageCompanyId": "cmmxw48800066p80defymnjc2",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "guri-strvold",
-        "personName": "Guri Størvold",
-        "companyName": "NorgesGruppen ASA",
-        "boardCompanyId": "cmmpayrg7000v190dld9vwx8g",
-        "pageCompanyId": "cmmpayrdp0000190d1vvypoy8",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "gustav-witze",
-        "personName": "Gustav Witzøe",
-        "companyName": "SalMar ASA",
-        "boardCompanyId": "cmmpayrgj0017190d32fix1hx",
-        "pageCompanyId": "cmmxw4875004rp80dkc2ll1ti",
-        "role": "styreleder",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "gril-johnsen",
-        "personName": "Gøril Johnsen",
-        "companyName": "Coop Norge SA",
-        "boardCompanyId": "cmmxw483t000fp80djern4zju",
-        "pageCompanyId": "cmmpayrew0005190d8floygxb",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "hans-olav-minsas",
-        "personName": "Hans Olav Minsås",
-        "companyName": "TINE SA",
-        "boardCompanyId": "cmmpayrg5000s190dd4kfuuf0",
-        "pageCompanyId": "cmmpayrfu000o190dsc4qrecj",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "harald-lauritz-thorstein",
-        "personName": "Harald Lauritz Thorstein",
-        "companyName": "Yara International ASA",
-        "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
-        "pageCompanyId": "cmmxw487m005fp80duuood3yc",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "hilde-vatne",
-        "personName": "Hilde Vatne",
-        "companyName": "NorgesGruppen ASA",
-        "boardCompanyId": "cmmpayrg7000v190dld9vwx8g",
-        "pageCompanyId": "cmmpayrdp0000190d1vvypoy8",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "ingunn-helene-ruud",
-        "personName": "Ingunn Helene Ruud",
-        "companyName": "TINE SA",
-        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
-        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "ingvild-kindlihagen",
-        "personName": "Ingvild Kindlihagen",
-        "companyName": "SalMar ASA",
-        "boardCompanyId": "cmmpayrgj0017190d32fix1hx",
-        "pageCompanyId": "cmmxw4875004rp80dkc2ll1ti",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "jais-stampe-li-valeur",
-        "personName": "Jais Stampe Li Valeur",
-        "companyName": "Yara International ASA",
-        "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
-        "pageCompanyId": "cmmxw487m005fp80duuood3yc",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "jan-magne-borgen",
-        "personName": "Jan Magne Borgen",
-        "companyName": "NorgesGruppen ASA",
-        "boardCompanyId": "cmmpayrdp0000190d1vvypoy8",
-        "pageCompanyId": "cmmpayrg7000v190dld9vwx8g",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "jan-paul-bjrky",
-        "personName": "Jan Paul Bjørkøy",
-        "companyName": "ASKO Norge AS",
-        "boardCompanyId": "cmmxw48800066p80defymnjc2",
-        "pageCompanyId": "cmmpayrh5001n190dqum2t3kw",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "jannicke-hilland",
-        "personName": "Jannicke Hilland",
-        "companyName": "Yara International ASA",
-        "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
-        "pageCompanyId": "cmmxw487m005fp80duuood3yc",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "johan-johannson",
-        "personName": "Johan Johannson",
-        "companyName": "NorgesGruppen ASA",
-        "boardCompanyId": "cmmpayrdp0000190d1vvypoy8",
-        "pageCompanyId": "cmmpayrg7000v190dld9vwx8g",
-        "role": "styreleder",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "johan-martin-andreassen",
-        "personName": "Johan Martin Andreassen",
-        "companyName": "Coop Norge SA",
-        "boardCompanyId": "cmmpayrew0005190d8floygxb",
-        "pageCompanyId": "cmmxw483t000fp80djern4zju",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "john-gabriel-thuestad",
-        "personName": "John Gabriel Thuestad",
-        "companyName": "Yara International ASA",
-        "boardCompanyId": "cmmxw487m005fp80duuood3yc",
-        "pageCompanyId": "cmmpayrgr001e190d9ab6n2y3",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "karoline-mgster",
-        "personName": "Karoline Møgster",
-        "companyName": "Lerøy Seafood Group ASA",
-        "boardCompanyId": "cmmxw487f0052p80d9oskgl7d",
-        "pageCompanyId": "cmmpayrgn001b190dybx7h4bl",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "katrine-lundstrm",
-        "personName": "Katrine Lundstrøm",
-        "companyName": "Coop Norge SA",
-        "boardCompanyId": "cmmpayrew0005190d8floygxb",
-        "pageCompanyId": "cmmxw483t000fp80djern4zju",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "knut-hartvig-johannson",
-        "personName": "Knut Hartvig Johannson",
-        "companyName": "ASKO Norge AS",
-        "boardCompanyId": "cmmxw48800066p80defymnjc2",
-        "pageCompanyId": "cmmpayrh5001n190dqum2t3kw",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "kristine-stranne",
-        "personName": "Kristine Stranne",
-        "companyName": "ASKO Norge AS",
-        "boardCompanyId": "cmmpayrh5001n190dqum2t3kw",
-        "pageCompanyId": "cmmxw48800066p80defymnjc2",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "kare-ivar-stormoen",
-        "personName": "Kåre Ivar Stormoen",
-        "companyName": "TINE SA",
-        "boardCompanyId": "cmmpayrg5000s190dd4kfuuf0",
-        "pageCompanyId": "cmmpayrfu000o190dsc4qrecj",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "lars-arve-jakobsen",
-        "personName": "Lars Arve Jakobsen",
-        "companyName": "Coop Norge SA",
-        "boardCompanyId": "cmmpayrew0005190d8floygxb",
-        "pageCompanyId": "cmmxw483t000fp80djern4zju",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "leif-inge-nordhammer",
-        "personName": "Leif Inge Nordhammer",
-        "companyName": "SalMar ASA",
-        "boardCompanyId": "cmmxw4875004rp80dkc2ll1ti",
-        "pageCompanyId": "cmmpayrgj0017190d32fix1hx",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "linda-cathrine-helleland",
-        "personName": "Linda Cathrine Helleland",
-        "companyName": "Reitan Retail AS",
-        "boardCompanyId": "cmmpayrf5000a190dt7bu8tdg",
-        "pageCompanyId": "cmmxw484o0011p80d8ra3tkn6",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "linda-pedersen",
-        "personName": "Linda Pedersen",
-        "companyName": "Lerøy Seafood Group ASA",
-        "boardCompanyId": "cmmxw487f0052p80d9oskgl7d",
-        "pageCompanyId": "cmmpayrgn001b190dybx7h4bl",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "lise-renee-skarpas",
-        "personName": "Lise Renee Skarpås",
-        "companyName": "Coop Norge SA",
-        "boardCompanyId": "cmmpayrew0005190d8floygxb",
-        "pageCompanyId": "cmmxw483t000fp80djern4zju",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "lise-skreddernes",
-        "personName": "Lise Skreddernes",
-        "companyName": "TINE SA",
-        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
-        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "liv-gisele-marchand",
-        "personName": "Liv Gisele Marchand",
-        "companyName": "NorgesGruppen ASA",
-        "boardCompanyId": "cmmpayrdp0000190d1vvypoy8",
-        "pageCompanyId": "cmmpayrg7000v190dld9vwx8g",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "magnus-reitan",
-        "personName": "Magnus Reitan",
-        "companyName": "Reitan Retail AS",
-        "boardCompanyId": "cmmpayrf5000a190dt7bu8tdg",
-        "pageCompanyId": "cmmxw484o0011p80d8ra3tkn6",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "margrethe-hauge",
-        "personName": "Margrethe Hauge",
-        "companyName": "SalMar ASA",
-        "boardCompanyId": "cmmpayrgj0017190d32fix1hx",
-        "pageCompanyId": "cmmxw4875004rp80dkc2ll1ti",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "martine-steinsholt",
-        "personName": "Martine Steinsholt",
-        "companyName": "NorgesGruppen ASA",
-        "boardCompanyId": "cmmpayrg7000v190dld9vwx8g",
-        "pageCompanyId": "cmmpayrdp0000190d1vvypoy8",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "mats-gunnar-knudsen",
-        "personName": "Mats Gunnar Knudsen",
-        "companyName": "NorgesGruppen ASA",
-        "boardCompanyId": "cmmpayrdp0000190d1vvypoy8",
-        "pageCompanyId": "cmmpayrg7000v190dld9vwx8g",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "morten-loktu",
-        "personName": "Morten Loktu",
-        "companyName": "SalMar ASA",
-        "boardCompanyId": "cmmpayrgj0017190d32fix1hx",
-        "pageCompanyId": "cmmxw4875004rp80dkc2ll1ti",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "ragnhild-himyr",
-        "personName": "Ragnhild Høimyr",
-        "companyName": "Yara International ASA",
-        "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
-        "pageCompanyId": "cmmxw487m005fp80duuood3yc",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "rolf-yvind-thune",
-        "personName": "Rolf Øyvind Thune",
-        "companyName": "TINE SA",
-        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
-        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
-        "role": "styreleder",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "runar-hollevik",
-        "personName": "Runar Hollevik",
-        "companyName": "ASKO Norge AS",
-        "boardCompanyId": "cmmxw48800066p80defymnjc2",
-        "pageCompanyId": "cmmpayrh5001n190dqum2t3kw",
-        "role": "styreleder",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "runar-leite",
-        "personName": "Runar Leite",
-        "companyName": "Coop Norge SA",
-        "boardCompanyId": "cmmxw483t000fp80djern4zju",
-        "pageCompanyId": "cmmpayrew0005190d8floygxb",
-        "role": "styreleder",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "rune-asle-bratteberg",
-        "personName": "Rune Asle Bratteberg",
-        "companyName": "Yara International ASA",
-        "boardCompanyId": "cmmxw487m005fp80duuood3yc",
-        "pageCompanyId": "cmmpayrgr001e190d9ab6n2y3",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "rune-bjerke",
-        "personName": "Rune Bjerke",
-        "companyName": "Reitan Retail AS",
-        "boardCompanyId": "cmmpayrf5000a190dt7bu8tdg",
-        "pageCompanyId": "cmmxw484o0011p80d8ra3tkn6",
-        "role": "styreleder",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "silje-elin-butt",
-        "personName": "Silje Elin Butt",
-        "companyName": "Lerøy Seafood Group ASA",
-        "boardCompanyId": "cmmxw487f0052p80d9oskgl7d",
-        "pageCompanyId": "cmmpayrgn001b190dybx7h4bl",
-        "role": "styremedlem",
-        "reason": "display role exists with different companyId"
-      },
-      {
-        "personKey": "siv-elisabeth-skard",
-        "personName": "Siv Elisabeth Skard",
         "companyName": "Reitan Retail AS",
         "boardCompanyId": "cmmxw484o0011p80d8ra3tkn6",
         "pageCompanyId": "cmmpayrf5000a190dt7bu8tdg",
@@ -1091,8 +569,26 @@
         "reason": "display role exists with different companyId"
       },
       {
-        "personKey": "stig-arne-stensen",
-        "personName": "Stig Arne Stensen",
+        "personKey": "are-dragesund",
+        "personName": "Are Dragesund",
+        "companyName": "Lerøy Seafood Group ASA",
+        "boardCompanyId": "cmmxw487f0052p80d9oskgl7d",
+        "pageCompanyId": "cmmpayrgn001b190dybx7h4bl",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "arne-mogster",
+        "personName": "Arne Møgster",
+        "companyName": "Lerøy Seafood Group ASA",
+        "boardCompanyId": "cmmxw487f0052p80d9oskgl7d",
+        "pageCompanyId": "cmmpayrgn001b190dybx7h4bl",
+        "role": "styreleder",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "arnhild-holstad",
+        "personName": "Arnhild Holstad",
         "companyName": "SalMar ASA",
         "boardCompanyId": "cmmxw4875004rp80dkc2ll1ti",
         "pageCompanyId": "cmmpayrgj0017190d32fix1hx",
@@ -1100,8 +596,35 @@
         "reason": "display role exists with different companyId"
       },
       {
-        "personKey": "stine-beate-rdberg",
-        "personName": "Stine Beate Rødberg",
+        "personKey": "arthur-salte",
+        "personName": "Arthur Salte",
+        "companyName": "TINE SA",
+        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
+        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "asgeir-pollestad",
+        "personName": "Asgeir Pollestad",
+        "companyName": "TINE SA",
+        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
+        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "bjarne-egil-kristiansen",
+        "personName": "Bjarne Egil Kristiansen",
+        "companyName": "Lerøy Seafood Group ASA",
+        "boardCompanyId": "cmmxw487f0052p80d9oskgl7d",
+        "pageCompanyId": "cmmpayrgn001b190dybx7h4bl",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "bjorn-vikmo",
+        "personName": "Bjørn Vik-Mo",
         "companyName": "Coop Norge SA",
         "boardCompanyId": "cmmpayrew0005190d8floygxb",
         "pageCompanyId": "cmmxw483t000fp80djern4zju",
@@ -1109,8 +632,71 @@
         "reason": "display role exists with different companyId"
       },
       {
-        "personKey": "tina-elizabeth-lawton",
-        "personName": "Tina Elizabeth Lawton",
+        "personKey": "britt-kathrine-drivenes",
+        "personName": "Britt Kathrine Drivenes",
+        "companyName": "Lerøy Seafood Group ASA",
+        "boardCompanyId": "cmmxw487f0052p80d9oskgl7d",
+        "pageCompanyId": "cmmpayrgn001b190dybx7h4bl",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "cecilie-myhre",
+        "personName": "Cecilie Myhre",
+        "companyName": "NorgesGruppen ASA",
+        "boardCompanyId": "cmmpayrdp0000190d1vvypoy8",
+        "pageCompanyId": "cmmpayrg7000v190dld9vwx8g",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "didrik-oskar-munch",
+        "personName": "Didrik Oskar Munch",
+        "companyName": "Lerøy Seafood Group ASA",
+        "boardCompanyId": "cmmpayrgn001b190dybx7h4bl",
+        "pageCompanyId": "cmmxw487f0052p80d9oskgl7d",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "dina-thune",
+        "personName": "Dina Thune",
+        "companyName": "ASKO Norge AS",
+        "boardCompanyId": "cmmxw48800066p80defymnjc2",
+        "pageCompanyId": "cmmpayrh5001n190dqum2t3kw",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "eilert-hanoa",
+        "personName": "Eilert Hanoa",
+        "companyName": "Reitan Retail AS",
+        "boardCompanyId": "cmmpayrf5000a190dt7bu8tdg",
+        "pageCompanyId": "cmmxw484o0011p80d8ra3tkn6",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "elin-johanne-arvik",
+        "personName": "Elin Johanne Aarvik",
+        "companyName": "TINE SA",
+        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
+        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "elin-viken",
+        "personName": "Elin Viken",
+        "companyName": "Coop Norge SA",
+        "boardCompanyId": "cmmxw483t000fp80djern4zju",
+        "pageCompanyId": "cmmpayrew0005190d8floygxb",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "eva-safrine-aspvik",
+        "personName": "Eva Safrine Aspvik",
         "companyName": "Yara International ASA",
         "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
         "pageCompanyId": "cmmxw487m005fp80duuood3yc",
@@ -1118,11 +704,425 @@
         "reason": "display role exists with different companyId"
       },
       {
-        "personKey": "tor-arne-johansen",
-        "personName": "Tor Arne Johansen",
+        "personKey": "filip-lorentzen",
+        "personName": "Filip Lorentzen",
+        "companyName": "NorgesGruppen ASA",
+        "boardCompanyId": "cmmpayrdp0000190d1vvypoy8",
+        "pageCompanyId": "cmmpayrg7000v190dld9vwx8g",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "geir-olav-sundbo",
+        "personName": "Geir Olav Sundbø",
+        "companyName": "Yara International ASA",
+        "boardCompanyId": "cmmxw487m005fp80duuood3yc",
+        "pageCompanyId": "cmmpayrgr001e190d9ab6n2y3",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "grete-ovanger",
+        "personName": "Grete Ovanger",
+        "companyName": "ASKO Norge AS",
+        "boardCompanyId": "cmmpayrh5001n190dqum2t3kw",
+        "pageCompanyId": "cmmxw48800066p80defymnjc2",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "guri-storvold",
+        "personName": "Guri Størvold",
+        "companyName": "NorgesGruppen ASA",
+        "boardCompanyId": "cmmpayrdp0000190d1vvypoy8",
+        "pageCompanyId": "cmmpayrg7000v190dld9vwx8g",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "gustav-witzo",
+        "personName": "Gustav Witzøe",
+        "companyName": "SalMar ASA",
+        "boardCompanyId": "cmmxw4875004rp80dkc2ll1ti",
+        "pageCompanyId": "cmmpayrgj0017190d32fix1hx",
+        "role": "styreleder",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "goril-johnsen",
+        "personName": "Gøril Johnsen",
+        "companyName": "Coop Norge SA",
+        "boardCompanyId": "cmmpayrew0005190d8floygxb",
+        "pageCompanyId": "cmmxw483t000fp80djern4zju",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "hans-olav-minsas",
+        "personName": "Hans Olav Minsås",
+        "companyName": "TINE SA",
+        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
+        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "harald-lauritz-thorstein",
+        "personName": "Harald Lauritz Thorstein",
+        "companyName": "Yara International ASA",
+        "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
+        "pageCompanyId": "cmmxw487m005fp80duuood3yc",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "hilde-vatne",
+        "personName": "Hilde Vatne",
+        "companyName": "NorgesGruppen ASA",
+        "boardCompanyId": "cmmpayrdp0000190d1vvypoy8",
+        "pageCompanyId": "cmmpayrg7000v190dld9vwx8g",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "ingunn-helene-ruud",
+        "personName": "Ingunn Helene Ruud",
+        "companyName": "TINE SA",
+        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
+        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "ingvild-kindlihagen",
+        "personName": "Ingvild Kindlihagen",
+        "companyName": "SalMar ASA",
+        "boardCompanyId": "cmmpayrgj0017190d32fix1hx",
+        "pageCompanyId": "cmmxw4875004rp80dkc2ll1ti",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "jais-stampe-li-valeur",
+        "personName": "Jais Stampe Li Valeur",
+        "companyName": "Yara International ASA",
+        "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
+        "pageCompanyId": "cmmxw487m005fp80duuood3yc",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "jan-magne-borgen",
+        "personName": "Jan Magne Borgen",
+        "companyName": "NorgesGruppen ASA",
+        "boardCompanyId": "cmmpayrg7000v190dld9vwx8g",
+        "pageCompanyId": "cmmpayrdp0000190d1vvypoy8",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "jan-paul-bjorkoy",
+        "personName": "Jan Paul Bjørkøy",
+        "companyName": "ASKO Norge AS",
+        "boardCompanyId": "cmmxw48800066p80defymnjc2",
+        "pageCompanyId": "cmmpayrh5001n190dqum2t3kw",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "jannicke-hilland",
+        "personName": "Jannicke Hilland",
+        "companyName": "Yara International ASA",
+        "boardCompanyId": "cmmxw487m005fp80duuood3yc",
+        "pageCompanyId": "cmmpayrgr001e190d9ab6n2y3",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "johan-johannson",
+        "personName": "Johan Johannson",
+        "companyName": "NorgesGruppen ASA",
+        "boardCompanyId": "cmmpayrg7000v190dld9vwx8g",
+        "pageCompanyId": "cmmpayrdp0000190d1vvypoy8",
+        "role": "styreleder",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "johan-martin-andreassen",
+        "personName": "Johan Martin Andreassen",
+        "companyName": "Coop Norge SA",
+        "boardCompanyId": "cmmpayrew0005190d8floygxb",
+        "pageCompanyId": "cmmxw483t000fp80djern4zju",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "john-gabriel-thuestad",
+        "personName": "John Gabriel Thuestad",
+        "companyName": "Yara International ASA",
+        "boardCompanyId": "cmmxw487m005fp80duuood3yc",
+        "pageCompanyId": "cmmpayrgr001e190d9ab6n2y3",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "karoline-mogster",
+        "personName": "Karoline Møgster",
+        "companyName": "Lerøy Seafood Group ASA",
+        "boardCompanyId": "cmmpayrgn001b190dybx7h4bl",
+        "pageCompanyId": "cmmxw487f0052p80d9oskgl7d",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "katrine-lundstrom",
+        "personName": "Katrine Lundstrøm",
+        "companyName": "Coop Norge SA",
+        "boardCompanyId": "cmmxw483t000fp80djern4zju",
+        "pageCompanyId": "cmmpayrew0005190d8floygxb",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "knut-hartvig-johannson",
+        "personName": "Knut Hartvig Johannson",
+        "companyName": "ASKO Norge AS",
+        "boardCompanyId": "cmmxw48800066p80defymnjc2",
+        "pageCompanyId": "cmmpayrh5001n190dqum2t3kw",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "kristine-stranne",
+        "personName": "Kristine Stranne",
+        "companyName": "ASKO Norge AS",
+        "boardCompanyId": "cmmxw48800066p80defymnjc2",
+        "pageCompanyId": "cmmpayrh5001n190dqum2t3kw",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "kare-ivar-stormon",
+        "personName": "Kåre Ivar Stormoen",
         "companyName": "TINE SA",
         "boardCompanyId": "cmmpayrg5000s190dd4kfuuf0",
         "pageCompanyId": "cmmpayrfu000o190dsc4qrecj",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "lars-arve-jakobsen",
+        "personName": "Lars Arve Jakobsen",
+        "companyName": "Coop Norge SA",
+        "boardCompanyId": "cmmxw483t000fp80djern4zju",
+        "pageCompanyId": "cmmpayrew0005190d8floygxb",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "leif-inge-nordhammer",
+        "personName": "Leif Inge Nordhammer",
+        "companyName": "SalMar ASA",
+        "boardCompanyId": "cmmpayrgj0017190d32fix1hx",
+        "pageCompanyId": "cmmxw4875004rp80dkc2ll1ti",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "linda-cathrine-helleland",
+        "personName": "Linda Cathrine Helleland",
+        "companyName": "Reitan Retail AS",
+        "boardCompanyId": "cmmpayrf5000a190dt7bu8tdg",
+        "pageCompanyId": "cmmxw484o0011p80d8ra3tkn6",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "linda-pedersen",
+        "personName": "Linda Pedersen",
+        "companyName": "Lerøy Seafood Group ASA",
+        "boardCompanyId": "cmmxw487f0052p80d9oskgl7d",
+        "pageCompanyId": "cmmpayrgn001b190dybx7h4bl",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "lise-renee-skarpas",
+        "personName": "Lise Renee Skarpås",
+        "companyName": "Coop Norge SA",
+        "boardCompanyId": "cmmpayrew0005190d8floygxb",
+        "pageCompanyId": "cmmxw483t000fp80djern4zju",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "lise-skreddernes",
+        "personName": "Lise Skreddernes",
+        "companyName": "TINE SA",
+        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
+        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "liv-gisele-marchand",
+        "personName": "Liv Gisele Marchand",
+        "companyName": "NorgesGruppen ASA",
+        "boardCompanyId": "cmmpayrg7000v190dld9vwx8g",
+        "pageCompanyId": "cmmpayrdp0000190d1vvypoy8",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "magnus-reitan",
+        "personName": "Magnus Reitan",
+        "companyName": "Reitan Retail AS",
+        "boardCompanyId": "cmmpayrf5000a190dt7bu8tdg",
+        "pageCompanyId": "cmmxw484o0011p80d8ra3tkn6",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "margrethe-hauge",
+        "personName": "Margrethe Hauge",
+        "companyName": "SalMar ASA",
+        "boardCompanyId": "cmmxw4875004rp80dkc2ll1ti",
+        "pageCompanyId": "cmmpayrgj0017190d32fix1hx",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "martine-steinsholt",
+        "personName": "Martine Steinsholt",
+        "companyName": "NorgesGruppen ASA",
+        "boardCompanyId": "cmmpayrg7000v190dld9vwx8g",
+        "pageCompanyId": "cmmpayrdp0000190d1vvypoy8",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "mats-gunnar-knudsen",
+        "personName": "Mats Gunnar Knudsen",
+        "companyName": "NorgesGruppen ASA",
+        "boardCompanyId": "cmmpayrg7000v190dld9vwx8g",
+        "pageCompanyId": "cmmpayrdp0000190d1vvypoy8",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "morten-loktu",
+        "personName": "Morten Loktu",
+        "companyName": "SalMar ASA",
+        "boardCompanyId": "cmmxw4875004rp80dkc2ll1ti",
+        "pageCompanyId": "cmmpayrgj0017190d32fix1hx",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "ragnhild-hoimyr",
+        "personName": "Ragnhild Høimyr",
+        "companyName": "Yara International ASA",
+        "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
+        "pageCompanyId": "cmmxw487m005fp80duuood3yc",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "rolf-oyvind-thune",
+        "personName": "Rolf Øyvind Thune",
+        "companyName": "TINE SA",
+        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
+        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
+        "role": "styreleder",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "runar-hollevik",
+        "personName": "Runar Hollevik",
+        "companyName": "ASKO Norge AS",
+        "boardCompanyId": "cmmpayrh5001n190dqum2t3kw",
+        "pageCompanyId": "cmmxw48800066p80defymnjc2",
+        "role": "styreleder",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "runar-leite",
+        "personName": "Runar Leite",
+        "companyName": "Coop Norge SA",
+        "boardCompanyId": "cmmpayrew0005190d8floygxb",
+        "pageCompanyId": "cmmxw483t000fp80djern4zju",
+        "role": "styreleder",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "rune-asle-bratteberg",
+        "personName": "Rune Asle Bratteberg",
+        "companyName": "Yara International ASA",
+        "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
+        "pageCompanyId": "cmmxw487m005fp80duuood3yc",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "rune-bjerke",
+        "personName": "Rune Bjerke",
+        "companyName": "Reitan Retail AS",
+        "boardCompanyId": "cmmpayrf5000a190dt7bu8tdg",
+        "pageCompanyId": "cmmxw484o0011p80d8ra3tkn6",
+        "role": "styreleder",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "silje-elin-butt",
+        "personName": "Silje Elin Butt",
+        "companyName": "Lerøy Seafood Group ASA",
+        "boardCompanyId": "cmmxw487f0052p80d9oskgl7d",
+        "pageCompanyId": "cmmpayrgn001b190dybx7h4bl",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "siv-elisabeth-skard",
+        "personName": "Siv Elisabeth Skard",
+        "companyName": "Reitan Retail AS",
+        "boardCompanyId": "cmmpayrf5000a190dt7bu8tdg",
+        "pageCompanyId": "cmmxw484o0011p80d8ra3tkn6",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "stig-arne-stensen",
+        "personName": "Stig Arne Stensen",
+        "companyName": "SalMar ASA",
+        "boardCompanyId": "cmmpayrgj0017190d32fix1hx",
+        "pageCompanyId": "cmmxw4875004rp80dkc2ll1ti",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "stine-beate-rodberg",
+        "personName": "Stine Beate Rødberg",
+        "companyName": "Coop Norge SA",
+        "boardCompanyId": "cmmxw483t000fp80djern4zju",
+        "pageCompanyId": "cmmpayrew0005190d8floygxb",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "tina-elizabeth-lawton",
+        "personName": "Tina Elizabeth Lawton",
+        "companyName": "Yara International ASA",
+        "boardCompanyId": "cmmxw487m005fp80duuood3yc",
+        "pageCompanyId": "cmmpayrgr001e190d9ab6n2y3",
+        "role": "styremedlem",
+        "reason": "display role exists with different companyId"
+      },
+      {
+        "personKey": "tor-arne-johansen",
+        "personName": "Tor Arne Johansen",
+        "companyName": "TINE SA",
+        "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
+        "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
         "role": "styremedlem",
         "reason": "display role exists with different companyId"
       },
@@ -1148,8 +1148,8 @@
         "personKey": "trond-berger",
         "personName": "Trond Berger",
         "companyName": "Yara International ASA",
-        "boardCompanyId": "cmmxw487m005fp80duuood3yc",
-        "pageCompanyId": "cmmpayrgr001e190d9ab6n2y3",
+        "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
+        "pageCompanyId": "cmmxw487m005fp80duuood3yc",
         "role": "styreleder",
         "reason": "display role exists with different companyId"
       },
@@ -1163,20 +1163,20 @@
         "reason": "display role exists with different companyId"
       },
       {
-        "personKey": "rjan-svanevik",
+        "personKey": "orjan-svanevik",
         "personName": "Ørjan Svanevik",
         "companyName": "NorgesGruppen ASA",
-        "boardCompanyId": "cmmpayrdp0000190d1vvypoy8",
-        "pageCompanyId": "cmmpayrg7000v190dld9vwx8g",
+        "boardCompanyId": "cmmpayrg7000v190dld9vwx8g",
+        "pageCompanyId": "cmmpayrdp0000190d1vvypoy8",
         "role": "styremedlem",
         "reason": "display role exists with different companyId"
       },
       {
-        "personKey": "ystein-berg",
+        "personKey": "oystein-berg",
         "personName": "Øystein Berg",
         "companyName": "Coop Norge SA",
-        "boardCompanyId": "cmmpayrew0005190d8floygxb",
-        "pageCompanyId": "cmmxw483t000fp80djern4zju",
+        "boardCompanyId": "cmmxw483t000fp80djern4zju",
+        "pageCompanyId": "cmmpayrew0005190d8floygxb",
         "role": "styremedlem",
         "reason": "display role exists with different companyId"
       }
@@ -1186,7 +1186,7 @@
         "companyName": "TINE SA",
         "pageCompanyId": "cmmpayrg5000s190dd4kfuuf0",
         "boardCompanyId": "cmmpayrfu000o190dsc4qrecj",
-        "count": 7
+        "count": 8
       },
       {
         "companyName": "Lerøy Seafood Group ASA",
@@ -1196,21 +1196,27 @@
       },
       {
         "companyName": "Coop Norge SA",
-        "pageCompanyId": "cmmxw483t000fp80djern4zju",
-        "boardCompanyId": "cmmpayrew0005190d8floygxb",
-        "count": 7
+        "pageCompanyId": "cmmpayrew0005190d8floygxb",
+        "boardCompanyId": "cmmxw483t000fp80djern4zju",
+        "count": 6
       },
       {
         "companyName": "Yara International ASA",
         "pageCompanyId": "cmmxw487m005fp80duuood3yc",
         "boardCompanyId": "cmmpayrgr001e190d9ab6n2y3",
-        "count": 7
+        "count": 6
       },
       {
         "companyName": "NorgesGruppen ASA",
-        "pageCompanyId": "cmmpayrg7000v190dld9vwx8g",
-        "boardCompanyId": "cmmpayrdp0000190d1vvypoy8",
+        "pageCompanyId": "cmmpayrdp0000190d1vvypoy8",
+        "boardCompanyId": "cmmpayrg7000v190dld9vwx8g",
         "count": 6
+      },
+      {
+        "companyName": "Coop Norge SA",
+        "pageCompanyId": "cmmxw483t000fp80djern4zju",
+        "boardCompanyId": "cmmpayrew0005190d8floygxb",
+        "count": 5
       },
       {
         "companyName": "Reitan Retail AS",
@@ -1219,57 +1225,51 @@
         "count": 5
       },
       {
-        "companyName": "TINE SA",
-        "pageCompanyId": "cmmpayrfu000o190dsc4qrecj",
-        "boardCompanyId": "cmmpayrg5000s190dd4kfuuf0",
-        "count": 4
-      },
-      {
-        "companyName": "Coop Norge SA",
-        "pageCompanyId": "cmmpayrew0005190d8floygxb",
-        "boardCompanyId": "cmmxw483t000fp80djern4zju",
-        "count": 4
-      },
-      {
-        "companyName": "NorgesGruppen ASA",
-        "pageCompanyId": "cmmpayrdp0000190d1vvypoy8",
-        "boardCompanyId": "cmmpayrg7000v190dld9vwx8g",
-        "count": 4
-      },
-      {
-        "companyName": "SalMar ASA",
-        "pageCompanyId": "cmmxw4875004rp80dkc2ll1ti",
-        "boardCompanyId": "cmmpayrgj0017190d32fix1hx",
-        "count": 4
-      },
-      {
         "companyName": "Yara International ASA",
         "pageCompanyId": "cmmpayrgr001e190d9ab6n2y3",
         "boardCompanyId": "cmmxw487m005fp80duuood3yc",
-        "count": 4
+        "count": 5
       },
       {
         "companyName": "SalMar ASA",
         "pageCompanyId": "cmmpayrgj0017190d32fix1hx",
         "boardCompanyId": "cmmxw4875004rp80dkc2ll1ti",
-        "count": 3
+        "count": 4
       },
       {
-        "companyName": "ASKO Norge AS",
-        "pageCompanyId": "cmmxw48800066p80defymnjc2",
-        "boardCompanyId": "cmmpayrh5001n190dqum2t3kw",
-        "count": 3
+        "companyName": "NorgesGruppen ASA",
+        "pageCompanyId": "cmmpayrg7000v190dld9vwx8g",
+        "boardCompanyId": "cmmpayrdp0000190d1vvypoy8",
+        "count": 4
       },
       {
         "companyName": "ASKO Norge AS",
         "pageCompanyId": "cmmpayrh5001n190dqum2t3kw",
         "boardCompanyId": "cmmxw48800066p80defymnjc2",
+        "count": 4
+      },
+      {
+        "companyName": "TINE SA",
+        "pageCompanyId": "cmmpayrfu000o190dsc4qrecj",
+        "boardCompanyId": "cmmpayrg5000s190dd4kfuuf0",
+        "count": 3
+      },
+      {
+        "companyName": "SalMar ASA",
+        "pageCompanyId": "cmmxw4875004rp80dkc2ll1ti",
+        "boardCompanyId": "cmmpayrgj0017190d32fix1hx",
         "count": 3
       },
       {
         "companyName": "Lerøy Seafood Group ASA",
         "pageCompanyId": "cmmxw487f0052p80d9oskgl7d",
         "boardCompanyId": "cmmpayrgn001b190dybx7h4bl",
+        "count": 2
+      },
+      {
+        "companyName": "ASKO Norge AS",
+        "pageCompanyId": "cmmxw48800066p80defymnjc2",
+        "boardCompanyId": "cmmpayrh5001n190dqum2t3kw",
         "count": 2
       },
       {
@@ -1306,20 +1306,20 @@
         "role": "markedsdirektor"
       },
       {
-        "personKey": "anne-jdahl-skuterud",
+        "personKey": "anne-jodahl-skuterud",
         "personName": "Anne Jødahl Skuterud",
         "companyName": "Norsk Landbrukssamvirke",
         "role": "styreleder"
       },
       {
-        "personKey": "arne-moegster",
-        "personName": "Arne Moegster",
+        "personKey": "arne-mogster",
+        "personName": "Arne Møgster",
         "companyName": "Leroey Seafood Group ASA",
         "role": "Styreleder"
       },
       {
-        "personKey": "arne-moegster",
-        "personName": "Arne Moegster",
+        "personKey": "arne-mogster",
+        "personName": "Arne Møgster",
         "companyName": "Austevoll Seafood ASA",
         "role": "CEO (Daglig leder)"
       },
@@ -1360,22 +1360,16 @@
         "role": "Bestyrelsesformand"
       },
       {
-        "personKey": "bjrn-gimming",
+        "personKey": "bjorn-gimming",
         "personName": "Bjørn Gimming",
         "companyName": "Norges Bondelag",
         "role": "leder"
       },
       {
-        "personKey": "carlfredrik-langaardbjor",
-        "personName": "Carl-Fredrik Langaard-Bjor",
+        "personKey": "carlfredrik-langardbjor",
+        "personName": "Carl-Fredrik Langård-Bjor",
         "companyName": "ISS Facility Services AS",
         "role": "Administrerende direktoer"
-      },
-      {
-        "personKey": "carlfredrik-langaardbjor",
-        "personName": "Carl-Fredrik Langaard-Bjor",
-        "companyName": "ISS Facility Services AS",
-        "role": "Styreleder"
       },
       {
         "personKey": "caroline-berg",
@@ -1444,18 +1438,6 @@
         "role": "nestleder styret"
       },
       {
-        "personKey": "goeril-johnsen",
-        "personName": "Goeril Johnsen",
-        "companyName": "Coop Norge SA",
-        "role": "Styremedlem"
-      },
-      {
-        "personKey": "goeril-johnsen",
-        "personName": "Goeril Johnsen",
-        "companyName": "Coop Oest SA",
-        "role": "CEO (Daglig leder)"
-      },
-      {
         "personKey": "grete-ovanger",
         "personName": "Grete Ovanger",
         "companyName": "ASKO Norge AS",
@@ -1492,22 +1474,28 @@
         "role": "CEO"
       },
       {
-        "personKey": "gustav-witzoee",
+        "personKey": "gustav-witzoe",
         "personName": "Gustav Witzoee",
         "companyName": "SalMar ASA",
         "role": "Styreleder"
       },
       {
-        "personKey": "gustav-witzoee",
+        "personKey": "gustav-witzoe",
         "personName": "Gustav Witzoee",
         "companyName": "Kverva AS",
         "role": "Grunnlegger/Eier"
       },
       {
-        "personKey": "gustav-witze",
+        "personKey": "gustav-witzo",
         "personName": "Gustav Witzøe",
         "companyName": "BEWI AS",
         "role": "medgrunder og adm. dir."
+      },
+      {
+        "personKey": "goril-johnsen",
+        "personName": "Gøril Johnsen",
+        "companyName": "Coop Oest SA",
+        "role": "CEO (Daglig leder)"
       },
       {
         "personKey": "hannu-krook",
@@ -1516,14 +1504,14 @@
         "role": "CEO"
       },
       {
-        "personKey": "helge-moegster",
-        "personName": "Helge Moegster",
+        "personKey": "helge-mogster",
+        "personName": "Helge Møgster",
         "companyName": "Austevoll Seafood ASA",
         "role": "Styremedlem / Grunnlegger"
       },
       {
-        "personKey": "helge-moegster",
-        "personName": "Helge Moegster",
+        "personKey": "helge-mogster",
+        "personName": "Helge Møgster",
         "companyName": "Laco AS",
         "role": "Grunnlegger / Eier"
       },
@@ -1624,7 +1612,7 @@
         "role": "Storaksjonaer (74.4% via familie)"
       },
       {
-        "personKey": "kristian-nergaard",
+        "personKey": "kristian-nergard",
         "personName": "Kristian Nergaard",
         "companyName": "BAMA Gruppen AS",
         "role": "Styreleder"
@@ -1846,12 +1834,6 @@
         "role": "Styreleder (enestyre)"
       },
       {
-        "personKey": "oerjan-svanevik",
-        "personName": "Oerjan Svanevik",
-        "companyName": "Mowi ASA",
-        "role": "Styreleder"
-      },
-      {
         "personKey": "ole-robert-reitan",
         "personName": "Ole Robert Reitan",
         "companyName": "Britannia Hotel AS",
@@ -1864,31 +1846,7 @@
         "role": "styremedlem"
       },
       {
-        "personKey": "oyvind-andersen",
-        "personName": "Oyvind Andersen",
-        "companyName": "Bakehuset AS",
-        "role": "Styreleder"
-      },
-      {
-        "personKey": "oyvind-andersen",
-        "personName": "Oyvind Andersen",
-        "companyName": "Unil AS",
-        "role": "Styreleder"
-      },
-      {
-        "personKey": "oyvind-andersen",
-        "personName": "Oyvind Andersen",
-        "companyName": "Kiwi Norge AS",
-        "role": "Styremedlem"
-      },
-      {
-        "personKey": "oyvind-andersen",
-        "personName": "Oyvind Andersen",
-        "companyName": "Joh. Johannson Kaffe AS",
-        "role": "Styremedlem"
-      },
-      {
-        "personKey": "petter-haas-brubakk",
+        "personKey": "petter-has-brubakk",
         "personName": "Petter Haas Brubakk",
         "companyName": "NHO Mat og Drikke",
         "role": "administrerende direktør"
@@ -2020,20 +1978,8 @@
         "role": "leder"
       },
       {
-        "personKey": "tor-roenhovde",
-        "personName": "Tor Roenhovde",
-        "companyName": "Compass Group Norge AS",
-        "role": "Styreleder"
-      },
-      {
-        "personKey": "tor-roenhovde",
-        "personName": "Tor Roenhovde",
-        "companyName": "4Service Gruppen AS",
-        "role": "Styreleder"
-      },
-      {
         "personKey": "torbjorn-skei",
-        "personName": "Torbjorn Skei",
+        "personName": "Torbjørn Skei",
         "companyName": "Coop Midt-Norge SA",
         "role": "CEO (Daglig leder)"
       },
@@ -2096,14 +2042,102 @@
         "personName": "Yngve Haldorsen",
         "companyName": "Coop Nord SA",
         "role": "CEO (Daglig leder)"
+      },
+      {
+        "personKey": "orjan-svanevik",
+        "personName": "Ørjan Svanevik",
+        "companyName": "Mowi ASA",
+        "role": "Styreleder"
+      },
+      {
+        "personKey": "oyvind-andersen",
+        "personName": "Øyvind Andersen",
+        "companyName": "Bakehuset AS",
+        "role": "Styreleder"
+      },
+      {
+        "personKey": "oyvind-andersen",
+        "personName": "Øyvind Andersen",
+        "companyName": "Unil AS",
+        "role": "Styreleder"
       }
     ],
     "profileBoardNameMismatches": [
+      {
+        "personKey": "aleksander-jorgenrud",
+        "profileName": "Aleksander Jørgenrud",
+        "boardNames": [
+          "Aleksander Jorgenrud"
+        ]
+      },
+      {
+        "personKey": "bjarte-royrvik",
+        "profileName": "Bjarte Røyrvik",
+        "boardNames": [
+          "Bjarte Royrvik"
+        ]
+      },
+      {
+        "personKey": "bjorn-gulden",
+        "profileName": "Bjorn Gulden",
+        "boardNames": [
+          "Bjørn Gulden"
+        ]
+      },
+      {
+        "personKey": "bjorn-roald-mikkelsen",
+        "profileName": "Bjørn Roald Mikkelsen",
+        "boardNames": [
+          "Bjorn Roald Mikkelsen"
+        ]
+      },
+      {
+        "personKey": "bjorn-tore-skaug",
+        "profileName": "Bjørn Tore Skaug",
+        "boardNames": [
+          "Bjorn Tore Skaug"
+        ]
+      },
+      {
+        "personKey": "erik-glimsjotvinnereim",
+        "profileName": "Erik Glimsjø-Tvinnereim",
+        "boardNames": [
+          "Erik Glimsjo-Tvinnereim"
+        ]
+      },
       {
         "personKey": "geir-arvik",
         "profileName": "Geir Årvik",
         "boardNames": [
           "Geir Arvik"
+        ]
+      },
+      {
+        "personKey": "hilde-forland",
+        "profileName": "Hilde Førland",
+        "boardNames": [
+          "Hilde Forland"
+        ]
+      },
+      {
+        "personKey": "inge-hilde-kitterod",
+        "profileName": "Inge Hilde Kitterød",
+        "boardNames": [
+          "Inge Hilde Kitterod"
+        ]
+      },
+      {
+        "personKey": "ingerlene-saetra",
+        "profileName": "Inger-Lene Sætra",
+        "boardNames": [
+          "Inger-Lene Saetra"
+        ]
+      },
+      {
+        "personKey": "ivar-jorgen-bjoner",
+        "profileName": "Ivar Jørgen Bjoner",
+        "boardNames": [
+          "Ivar Jorgen Bjoner"
         ]
       },
       {
@@ -2121,10 +2155,52 @@
         ]
       },
       {
+        "personKey": "lotte-fosbaek-danielsen",
+        "profileName": "Lotte Fosbæk Danielsen",
+        "boardNames": [
+          "Lotte Fosbaek Danielsen"
+        ]
+      },
+      {
+        "personKey": "marte-grotan",
+        "profileName": "Marte Grøtan",
+        "boardNames": [
+          "Marte Grotan"
+        ]
+      },
+      {
+        "personKey": "merete-lokse",
+        "profileName": "Merete Løkse",
+        "boardNames": [
+          "Merete Lokse"
+        ]
+      },
+      {
         "personKey": "nina-jonsson",
         "profileName": "Nina Jonsson",
         "boardNames": [
           "Nina Jönsson"
+        ]
+      },
+      {
+        "personKey": "olehenrik-hjartoy",
+        "profileName": "Ole-Henrik Hjartøy",
+        "boardNames": [
+          "Ole-Henrik Hjartoy"
+        ]
+      },
+      {
+        "personKey": "siri-bjorkum",
+        "profileName": "Siri Bjørkum",
+        "boardNames": [
+          "Siri Bjorkum"
+        ]
+      },
+      {
+        "personKey": "thor-skov-jorgensen",
+        "profileName": "Thor Skov Jorgensen",
+        "boardNames": [
+          "Thor Skov Jørgensen"
         ]
       },
       {
@@ -2135,1233 +2211,7 @@
         ]
       }
     ],
-    "possibleNameSplits": [
-      {
-        "key": "arne-mogster",
-        "persons": [
-          {
-            "personKey": "arne-moegster",
-            "name": "Arne Moegster",
-            "roles": 2
-          },
-          {
-            "personKey": "arne-mgster",
-            "name": "Arne Møgster",
-            "roles": 3
-          },
-          {
-            "personKey": "arne-m-gster",
-            "name": "Arne Møgster",
-            "roles": 7
-          }
-        ]
-      },
-      {
-        "key": "bjorn-strand",
-        "persons": [
-          {
-            "personKey": "bjoern-strand",
-            "name": "Bjoern Strand",
-            "roles": 1
-          },
-          {
-            "personKey": "bj-rn-strand",
-            "name": "Bjørn Strand",
-            "roles": 11
-          },
-          {
-            "personKey": "bjrn-strand",
-            "name": "Bjørn Strand",
-            "roles": 11
-          }
-        ]
-      },
-      {
-        "key": "carlfredrik-langardbjor",
-        "persons": [
-          {
-            "personKey": "carl-fredrik-langard-bjor",
-            "name": "Carl-Fredrik Langård-Bjor",
-            "roles": 4
-          },
-          {
-            "personKey": "carlfredrik-langardbjor",
-            "name": "Carl-Fredrik Langård-Bjor",
-            "roles": 2
-          },
-          {
-            "personKey": "carlfredrik-langaardbjor",
-            "name": "Carl-Fredrik Langaard-Bjor",
-            "roles": 3
-          }
-        ]
-      },
-      {
-        "key": "ingjald-sorhoy",
-        "persons": [
-          {
-            "personKey": "ingjald-sorhoey",
-            "name": "Ingjald Sorhoey",
-            "roles": 1
-          },
-          {
-            "personKey": "ingjald-s-rh-y",
-            "name": "Ingjald Sørhøy",
-            "roles": 2
-          },
-          {
-            "personKey": "ingjald-srhy",
-            "name": "Ingjald Sørhøy",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "stein-rommerud",
-        "persons": [
-          {
-            "personKey": "stein-rommerud",
-            "name": "Stein Rommerud",
-            "roles": 1
-          },
-          {
-            "personKey": "stein-r-mmerud",
-            "name": "Stein Rømmerud",
-            "roles": 3
-          },
-          {
-            "personKey": "stein-rmmerud",
-            "name": "Stein Rømmerud",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "stig-borger-bratlie",
-        "persons": [
-          {
-            "personKey": "stig-boerger-bratlie",
-            "name": "Stig Boerger Bratlie",
-            "roles": 1
-          },
-          {
-            "personKey": "stig-b-rger-bratlie",
-            "name": "Stig Børger Bratlie",
-            "roles": 10
-          },
-          {
-            "personKey": "stig-brger-bratlie",
-            "name": "Stig Børger Bratlie",
-            "roles": 6
-          }
-        ]
-      },
-      {
-        "key": "tor-ronhovde",
-        "persons": [
-          {
-            "personKey": "tor-roenhovde",
-            "name": "Tor Roenhovde",
-            "roles": 2
-          },
-          {
-            "personKey": "tor-r-nhovde",
-            "name": "Tor Rønhovde",
-            "roles": 4
-          },
-          {
-            "personKey": "tor-rnhovde",
-            "name": "Tor Rønhovde",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "trond-fredrik-mellingsaeter",
-        "persons": [
-          {
-            "personKey": "trond-fredrik-mellingsaeter",
-            "name": "Trond Fredrik Mellingsaeter",
-            "roles": 2
-          },
-          {
-            "personKey": "trond-fredrik-mellings-ter",
-            "name": "Trond Fredrik Mellingsæter",
-            "roles": 4
-          },
-          {
-            "personKey": "trond-fredrik-mellingster",
-            "name": "Trond Fredrik Mellingsæter",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "aleksander-jorgenrud",
-        "persons": [
-          {
-            "personKey": "aleksander-jorgenrud",
-            "name": "Aleksander Jorgenrud",
-            "roles": 1
-          },
-          {
-            "personKey": "aleksander-j-rgenrud",
-            "name": "Aleksander Jørgenrud",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "anbjorn-oglend",
-        "persons": [
-          {
-            "personKey": "anbj-rn-glend",
-            "name": "Anbjørn Øglend",
-            "roles": 3
-          },
-          {
-            "personKey": "anbjrn-glend",
-            "name": "Anbjørn Øglend",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "annamaria-linnea-carnemark",
-        "persons": [
-          {
-            "personKey": "anna-maria-linnea-carnemark",
-            "name": "Anna-Maria Linnea Carnemark",
-            "roles": 2
-          },
-          {
-            "personKey": "annamaria-linnea-carnemark",
-            "name": "Anna-Maria Linnea Carnemark",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "anne-berit-loset",
-        "persons": [
-          {
-            "personKey": "anne-berit-lset",
-            "name": "Anne Berit Løset",
-            "roles": 1
-          },
-          {
-            "personKey": "anne-berit-l-set",
-            "name": "Anne Berit Løset",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "anne-jodahl-skuterud",
-        "persons": [
-          {
-            "personKey": "anne-j-dahl-skuterud",
-            "name": "Anne Jødahl Skuterud",
-            "roles": 1
-          },
-          {
-            "personKey": "anne-jdahl-skuterud",
-            "name": "Anne Jødahl Skuterud",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "arttupekka-vikstrom",
-        "persons": [
-          {
-            "personKey": "arttupekka-vikstrom",
-            "name": "Arttu-Pekka Vikstrom",
-            "roles": 2
-          },
-          {
-            "personKey": "arttu-pekka-vikstrom",
-            "name": "Arttu-Pekka Vikström",
-            "roles": 4
-          }
-        ]
-      },
-      {
-        "key": "bjarte-royrvik",
-        "persons": [
-          {
-            "personKey": "bjarte-royrvik",
-            "name": "Bjarte Royrvik",
-            "roles": 1
-          },
-          {
-            "personKey": "bjarte-r-yrvik",
-            "name": "Bjarte Røyrvik",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "bjorn-gulden",
-        "persons": [
-          {
-            "personKey": "bjorn-gulden",
-            "name": "Bjorn Gulden",
-            "roles": 1
-          },
-          {
-            "personKey": "bjrn-gulden",
-            "name": "Bjørn Gulden",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "bjorn-roald-mikkelsen",
-        "persons": [
-          {
-            "personKey": "bjorn-roald-mikkelsen",
-            "name": "Bjorn Roald Mikkelsen",
-            "roles": 1
-          },
-          {
-            "personKey": "bj-rn-roald-mikkelsen",
-            "name": "Bjørn Roald Mikkelsen",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "bjorn-tore-skaug",
-        "persons": [
-          {
-            "personKey": "bjorn-tore-skaug",
-            "name": "Bjorn Tore Skaug",
-            "roles": 1
-          },
-          {
-            "personKey": "bj-rn-tore-skaug",
-            "name": "Bjørn Tore Skaug",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "bjorn-ole-juulhansen",
-        "persons": [
-          {
-            "personKey": "bj-rn-ole-juul-hansen",
-            "name": "Bjørn Ole Juul-Hansen",
-            "roles": 3
-          },
-          {
-            "personKey": "bjrn-ole-juulhansen",
-            "name": "Bjørn Ole Juul-Hansen",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "bjorn-vikmo",
-        "persons": [
-          {
-            "personKey": "bjrn-vikmo",
-            "name": "Bjørn Vik-Mo",
-            "roles": 1
-          },
-          {
-            "personKey": "bj-rn-vik-mo",
-            "name": "Bjørn Vik-Mo",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "camilla-varhaug-soberg",
-        "persons": [
-          {
-            "personKey": "camilla-varhaug-s-berg",
-            "name": "Camilla Varhaug Søberg",
-            "roles": 3
-          },
-          {
-            "personKey": "camilla-varhaug-sberg",
-            "name": "Camilla Varhaug Søberg",
-            "roles": 3
-          }
-        ]
-      },
-      {
-        "key": "christian-forland",
-        "persons": [
-          {
-            "personKey": "christian-frland",
-            "name": "Christian Førland",
-            "roles": 1
-          },
-          {
-            "personKey": "christian-f-rland",
-            "name": "Christian Førland",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "emma-maria-elisabeth-bjorke",
-        "persons": [
-          {
-            "personKey": "emma-maria-elisabeth-bjrke",
-            "name": "Emma Maria Elisabeth Bjørke",
-            "roles": 1
-          },
-          {
-            "personKey": "emma-maria-elisabeth-bj-rke",
-            "name": "Emma Maria Elisabeth Bjørke",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "erik-glimsjotvinnereim",
-        "persons": [
-          {
-            "personKey": "erik-glimsjotvinnereim",
-            "name": "Erik Glimsjo-Tvinnereim",
-            "roles": 1
-          },
-          {
-            "personKey": "erik-glimsj-tvinnereim",
-            "name": "Erik Glimsjø-Tvinnereim",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "erlend-ronning",
-        "persons": [
-          {
-            "personKey": "erlend-rnning",
-            "name": "Erlend Rønning",
-            "roles": 1
-          },
-          {
-            "personKey": "erlend-r-nning",
-            "name": "Erlend Rønning",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "frank-gjoran-fandin",
-        "persons": [
-          {
-            "personKey": "frank-gjran-fandin",
-            "name": "Frank Gjøran Fandin",
-            "roles": 1
-          },
-          {
-            "personKey": "frank-gj-ran-fandin",
-            "name": "Frank Gjøran Fandin",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "geirove-makestad",
-        "persons": [
-          {
-            "personKey": "geir-ove-makestad",
-            "name": "Geir-Ove Måkestad",
-            "roles": 1
-          },
-          {
-            "personKey": "geirove-maakestad",
-            "name": "Geir-Ove Maakestad",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "goril-johnsen",
-        "persons": [
-          {
-            "personKey": "goeril-johnsen",
-            "name": "Goeril Johnsen",
-            "roles": 2
-          },
-          {
-            "personKey": "gril-johnsen",
-            "name": "Gøril Johnsen",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "guri-storvold",
-        "persons": [
-          {
-            "personKey": "guri-strvold",
-            "name": "Guri Størvold",
-            "roles": 1
-          },
-          {
-            "personKey": "guri-st-rvold",
-            "name": "Guri Størvold",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "gustav-witzo",
-        "persons": [
-          {
-            "personKey": "gustav-witze",
-            "name": "Gustav Witzøe",
-            "roles": 4
-          },
-          {
-            "personKey": "gustav-witz-e",
-            "name": "Gustav Witzøe",
-            "roles": 5
-          }
-        ]
-      },
-      {
-        "key": "helge-einar-gjon",
-        "persons": [
-          {
-            "personKey": "helge-einar-gjen",
-            "name": "Helge Einar Gjøen",
-            "roles": 1
-          },
-          {
-            "personKey": "helge-einar-gj-en",
-            "name": "Helge Einar Gjøen",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "helge-mogster",
-        "persons": [
-          {
-            "personKey": "helge-moegster",
-            "name": "Helge Moegster",
-            "roles": 2
-          },
-          {
-            "personKey": "helge-mgster",
-            "name": "Helge Møgster",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "henning-kolbjorn-beltestad",
-        "persons": [
-          {
-            "personKey": "henning-kolbjrn-beltestad",
-            "name": "Henning Kolbjørn Beltestad",
-            "roles": 2
-          },
-          {
-            "personKey": "henning-kolbj-rn-beltestad",
-            "name": "Henning Kolbjørn Beltestad",
-            "roles": 3
-          }
-        ]
-      },
-      {
-        "key": "hilde-forland",
-        "persons": [
-          {
-            "personKey": "hilde-forland",
-            "name": "Hilde Forland",
-            "roles": 1
-          },
-          {
-            "personKey": "hilde-f-rland",
-            "name": "Hilde Førland",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "inge-hilde-kitterod",
-        "persons": [
-          {
-            "personKey": "inge-hilde-kitterod",
-            "name": "Inge Hilde Kitterod",
-            "roles": 1
-          },
-          {
-            "personKey": "inge-hilde-kitter-d",
-            "name": "Inge Hilde Kitterød",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "ingerlene-saetra",
-        "persons": [
-          {
-            "personKey": "ingerlene-saetra",
-            "name": "Inger-Lene Saetra",
-            "roles": 1
-          },
-          {
-            "personKey": "inger-lene-s-tra",
-            "name": "Inger-Lene Sætra",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "ivar-jorgen-bjoner",
-        "persons": [
-          {
-            "personKey": "ivar-jorgen-bjoner",
-            "name": "Ivar Jorgen Bjoner",
-            "roles": 1
-          },
-          {
-            "personKey": "ivar-j-rgen-bjoner",
-            "name": "Ivar Jørgen Bjoner",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "jan-paul-bjorkoy",
-        "persons": [
-          {
-            "personKey": "jan-paul-bjrky",
-            "name": "Jan Paul Bjørkøy",
-            "roles": 1
-          },
-          {
-            "personKey": "jan-paul-bj-rk-y",
-            "name": "Jan Paul Bjørkøy",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "jostein-hestoy",
-        "persons": [
-          {
-            "personKey": "jostein-hesty",
-            "name": "Jostein Hestøy",
-            "roles": 1
-          },
-          {
-            "personKey": "jostein-hest-y",
-            "name": "Jostein Hestøy",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "karen-valbekmo-selvag",
-        "persons": [
-          {
-            "personKey": "karen-valbekmo-selvag",
-            "name": "Karen Valbekmo Selvåg",
-            "roles": 1
-          },
-          {
-            "personKey": "karen-valbekmo-selvaag",
-            "name": "Karen Valbekmo Selvaag",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "karoline-mogster",
-        "persons": [
-          {
-            "personKey": "karoline-m-gster",
-            "name": "Karoline Møgster",
-            "roles": 2
-          },
-          {
-            "personKey": "karoline-mgster",
-            "name": "Karoline Møgster",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "katrine-lundstrom",
-        "persons": [
-          {
-            "personKey": "katrine-lundstrm",
-            "name": "Katrine Lundstrøm",
-            "roles": 1
-          },
-          {
-            "personKey": "katrine-lundstr-m",
-            "name": "Katrine Lundstrøm",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "kjersti-helen-hobol",
-        "persons": [
-          {
-            "personKey": "kjersti-helen-hobol",
-            "name": "Kjersti Helen Hobol",
-            "roles": 1
-          },
-          {
-            "personKey": "kjersti-helen-hobl",
-            "name": "Kjersti Helen Hobøl",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "knut-bjornsson-kjosnes",
-        "persons": [
-          {
-            "personKey": "knut-bj-rnsson-kj-snes",
-            "name": "Knut Bjørnsson Kjøsnes",
-            "roles": 4
-          },
-          {
-            "personKey": "knut-bjrnsson-kjsnes",
-            "name": "Knut Bjørnsson Kjøsnes",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "levard-olsenhagen",
-        "persons": [
-          {
-            "personKey": "levard-olsenhagen",
-            "name": "Levard Olsen-Hagen",
-            "roles": 1
-          },
-          {
-            "personKey": "levard-olsen-hagen",
-            "name": "Levard Olsen-Hagen",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "lill-maren-mogster",
-        "persons": [
-          {
-            "personKey": "lill-maren-m-gster",
-            "name": "Lill Maren Møgster",
-            "roles": 2
-          },
-          {
-            "personKey": "lill-maren-mgster",
-            "name": "Lill Maren Møgster",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "lisbet-karin-naero",
-        "persons": [
-          {
-            "personKey": "lisbet-karin-nr",
-            "name": "Lisbet Karin Nærø",
-            "roles": 1
-          },
-          {
-            "personKey": "lisbet-karin-n-r",
-            "name": "Lisbet Karin Nærø",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "lotte-fosbaek-danielsen",
-        "persons": [
-          {
-            "personKey": "lotte-fosbaek-danielsen",
-            "name": "Lotte Fosbaek Danielsen",
-            "roles": 1
-          },
-          {
-            "personKey": "lotte-fosb-k-danielsen",
-            "name": "Lotte Fosbæk Danielsen",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "maria-sysenybraten",
-        "persons": [
-          {
-            "personKey": "maria-syse-nybraaten",
-            "name": "Maria Syse-Nybraaten",
-            "roles": 5
-          },
-          {
-            "personKey": "maria-sysenybraaten",
-            "name": "Maria Syse-Nybraaten",
-            "roles": 3
-          }
-        ]
-      },
-      {
-        "key": "marte-grotan",
-        "persons": [
-          {
-            "personKey": "marte-grotan",
-            "name": "Marte Grotan",
-            "roles": 1
-          },
-          {
-            "personKey": "marte-gr-tan",
-            "name": "Marte Grøtan",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "marte-helene-solvsberg",
-        "persons": [
-          {
-            "personKey": "marte-helene-s-lvsberg",
-            "name": "Marte Helene Sølvsberg",
-            "roles": 2
-          },
-          {
-            "personKey": "marte-helene-slvsberg",
-            "name": "Marte Helene Sølvsberg",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "martin-gjolme",
-        "persons": [
-          {
-            "personKey": "martin-gjlme",
-            "name": "Martin Gjølme",
-            "roles": 1
-          },
-          {
-            "personKey": "martin-gj-lme",
-            "name": "Martin Gjølme",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "martin-maeland",
-        "persons": [
-          {
-            "personKey": "martin-mland",
-            "name": "Martin Mæland",
-            "roles": 1
-          },
-          {
-            "personKey": "martin-m-land",
-            "name": "Martin Mæland",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "mayhelen-holme",
-        "persons": [
-          {
-            "personKey": "mayhelen-holme",
-            "name": "May-Helen Holme",
-            "roles": 2
-          },
-          {
-            "personKey": "may-helen-holme",
-            "name": "May-Helen Holme",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "merete-lokse",
-        "persons": [
-          {
-            "personKey": "merete-lokse",
-            "name": "Merete Lokse",
-            "roles": 1
-          },
-          {
-            "personKey": "merete-l-kse",
-            "name": "Merete Løkse",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "monica-odegard",
-        "persons": [
-          {
-            "personKey": "monica-odegaard",
-            "name": "Monica Odegaard",
-            "roles": 2
-          },
-          {
-            "personKey": "monica-degaard",
-            "name": "Monica Ødegaard",
-            "roles": 3
-          }
-        ]
-      },
-      {
-        "key": "nina-brendsrudandersen",
-        "persons": [
-          {
-            "personKey": "nina-brendsrud-andersen",
-            "name": "Nina Brendsrud-Andersen",
-            "roles": 3
-          },
-          {
-            "personKey": "nina-brendsrudandersen",
-            "name": "Nina Brendsrud-Andersen",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "oddoyvind-makestad",
-        "persons": [
-          {
-            "personKey": "oddoeyvind-maakestad",
-            "name": "Odd-Oeyvind Maakestad",
-            "roles": 1
-          },
-          {
-            "personKey": "odd-yvind-makestad",
-            "name": "Odd-Øyvind Måkestad",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "orjan-svanevik",
-        "persons": [
-          {
-            "personKey": "oerjan-svanevik",
-            "name": "Oerjan Svanevik",
-            "roles": 1
-          },
-          {
-            "personKey": "rjan-svanevik",
-            "name": "Ørjan Svanevik",
-            "roles": 3
-          }
-        ]
-      },
-      {
-        "key": "olehenrik-hjartoy",
-        "persons": [
-          {
-            "personKey": "olehenrik-hjartoy",
-            "name": "Ole-Henrik Hjartoy",
-            "roles": 1
-          },
-          {
-            "personKey": "ole-henrik-hjart-y",
-            "name": "Ole-Henrik Hjartøy",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "oyvind-andersen",
-        "persons": [
-          {
-            "personKey": "oyvind-andersen",
-            "name": "Oyvind Andersen",
-            "roles": 4
-          },
-          {
-            "personKey": "yvind-andersen",
-            "name": "Øyvind Andersen",
-            "roles": 8
-          }
-        ]
-      },
-      {
-        "key": "oyvind-andreas-torpp",
-        "persons": [
-          {
-            "personKey": "oyvind-andreas-torpp",
-            "name": "Oyvind Andreas Torpp",
-            "roles": 1
-          },
-          {
-            "personKey": "yvind-andreas-torpp",
-            "name": "Øyvind Andreas Torpp",
-            "roles": 3
-          }
-        ]
-      },
-      {
-        "key": "petterborre-furberg",
-        "persons": [
-          {
-            "personKey": "petter-b-rre-furberg",
-            "name": "Petter-Børre Furberg",
-            "roles": 2
-          },
-          {
-            "personKey": "petterbrre-furberg",
-            "name": "Petter-Børre Furberg",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "renate-strandmann-kaldhussaeter",
-        "persons": [
-          {
-            "personKey": "renate-strandmann-kaldhuss-ter",
-            "name": "Renate Strandmann Kaldhussæter",
-            "roles": 3
-          },
-          {
-            "personKey": "renate-strandmann-kaldhusster",
-            "name": "Renate Strandmann Kaldhussæter",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "rune-kvamsoy",
-        "persons": [
-          {
-            "personKey": "rune-kvamsoey",
-            "name": "Rune Kvamsoey",
-            "roles": 1
-          },
-          {
-            "personKey": "rune-kvams-y",
-            "name": "Rune Kvamsøy",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "rune-rodbotten",
-        "persons": [
-          {
-            "personKey": "rune-rdbotten",
-            "name": "Rune Rødbotten",
-            "roles": 1
-          },
-          {
-            "personKey": "rune-r-dbotten",
-            "name": "Rune Rødbotten",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "sigbjorn-aurland",
-        "persons": [
-          {
-            "personKey": "sigbjrn-aurland",
-            "name": "Sigbjørn Aurland",
-            "roles": 1
-          },
-          {
-            "personKey": "sigbj-rn-aurland",
-            "name": "Sigbjørn Aurland",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "siri-bjorkum",
-        "persons": [
-          {
-            "personKey": "siri-bjorkum",
-            "name": "Siri Bjorkum",
-            "roles": 1
-          },
-          {
-            "personKey": "siri-bj-rkum",
-            "name": "Siri Bjørkum",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "stine-beate-rodberg",
-        "persons": [
-          {
-            "personKey": "stine-beate-rdberg",
-            "name": "Stine Beate Rødberg",
-            "roles": 1
-          },
-          {
-            "personKey": "stine-beate-r-dberg",
-            "name": "Stine Beate Rødberg",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "soren-brinck",
-        "persons": [
-          {
-            "personKey": "sren-brinck",
-            "name": "Søren Brinck",
-            "roles": 1
-          },
-          {
-            "personKey": "s-ren-brinck",
-            "name": "Søren Brinck",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "thor-skov-jorgensen",
-        "persons": [
-          {
-            "personKey": "thor-skov-jorgensen",
-            "name": "Thor Skov Jorgensen",
-            "roles": 1
-          },
-          {
-            "personKey": "thor-skov-jrgensen",
-            "name": "Thor Skov Jørgensen",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "tone-margrethe-hakedal",
-        "persons": [
-          {
-            "personKey": "tone-margrethe-hakedal",
-            "name": "Tone Margrethe Håkedal",
-            "roles": 1
-          },
-          {
-            "personKey": "tone-margrethe-haakedal",
-            "name": "Tone Margrethe Haakedal",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "toneberit-lintho",
-        "persons": [
-          {
-            "personKey": "toneberit-lintho",
-            "name": "Tone-Berit Lintho",
-            "roles": 1
-          },
-          {
-            "personKey": "tone-berit-lintho",
-            "name": "Tone-Berit Lintho",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "toringe-makestad",
-        "persons": [
-          {
-            "personKey": "tor-inge-makestad",
-            "name": "Tor-Inge Måkestad",
-            "roles": 1
-          },
-          {
-            "personKey": "toringe-maakestad",
-            "name": "Tor-Inge Maakestad",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "torivar-ingebrigtsen",
-        "persons": [
-          {
-            "personKey": "torivar-ingebrigtsen",
-            "name": "Tor-Ivar Ingebrigtsen",
-            "roles": 1
-          },
-          {
-            "personKey": "tor-ivar-ingebrigtsen",
-            "name": "Tor-Ivar Ingebrigtsen",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "torbjorn-skei",
-        "persons": [
-          {
-            "personKey": "torbjorn-skei",
-            "name": "Torbjorn Skei",
-            "roles": 1
-          },
-          {
-            "personKey": "torbj-rn-skei",
-            "name": "Torbjørn Skei",
-            "roles": 2
-          }
-        ]
-      },
-      {
-        "key": "torbjorg-kylland",
-        "persons": [
-          {
-            "personKey": "torbjrg-kylland",
-            "name": "Torbjørg Kylland",
-            "roles": 1
-          },
-          {
-            "personKey": "torbj-rg-kylland",
-            "name": "Torbjørg Kylland",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "trine-graneolsen",
-        "persons": [
-          {
-            "personKey": "trine-grane-olsen",
-            "name": "Trine Grane-Olsen",
-            "roles": 1
-          },
-          {
-            "personKey": "trine-graneolsen",
-            "name": "Trine Grane-Olsen",
-            "roles": 1
-          }
-        ]
-      },
-      {
-        "key": "trine-saervoll",
-        "persons": [
-          {
-            "personKey": "trine-s-rvoll",
-            "name": "Trine Særvoll",
-            "roles": 3
-          },
-          {
-            "personKey": "trine-srvoll",
-            "name": "Trine Særvoll",
-            "roles": 2
-          }
-        ]
-      }
-    ],
+    "possibleNameSplits": [],
     "interlockingDetailGaps": [
       {
         "personKey": "ole-robert-reitan",
@@ -3394,7 +2244,7 @@
         ]
       },
       {
-        "personKey": "bj-rn-strand",
+        "personKey": "bjorn-strand",
         "name": "Bjørn Strand",
         "roles": 11,
         "missingBiography": true,
@@ -3408,18 +2258,7 @@
         ]
       },
       {
-        "personKey": "bjrn-strand",
-        "name": "Bjørn Strand",
-        "roles": 11,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
-        ]
-      },
-      {
-        "personKey": "stig-b-rger-bratlie",
+        "personKey": "stig-borger-bratlie",
         "name": "Stig Børger Bratlie",
         "roles": 10,
         "missingBiography": true,
@@ -3465,38 +2304,6 @@
         ]
       },
       {
-        "personKey": "yvind-andersen",
-        "name": "Øyvind Andersen",
-        "roles": 8,
-        "missingBiography": true,
-        "missingAffiliations": false,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "brreg-role",
-          "interlocking-director",
-          "styremedlem",
-          "styrets-leder"
-        ]
-      },
-      {
-        "personKey": "arne-m-gster",
-        "name": "Arne Møgster",
-        "roles": 7,
-        "missingBiography": true,
-        "missingAffiliations": false,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "brreg-role",
-          "daglig-leder",
-          "interlocking-director",
-          "styremedlem",
-          "styrets-leder",
-          "varamedlem"
-        ]
-      },
-      {
         "personKey": "kenneth-hamnes",
         "name": "Kenneth Hamnes",
         "roles": 7,
@@ -3512,7 +2319,7 @@
         ]
       },
       {
-        "personKey": "istein-brevig-pjaaka",
+        "personKey": "oistein-brevig-pjaka",
         "name": "Øistein Brevig Pjaaka",
         "roles": 7,
         "missingBiography": true,
@@ -3599,7 +2406,7 @@
         ]
       },
       {
-        "personKey": "karen-moseb-haukeland",
+        "personKey": "karen-mosebo-haukeland",
         "name": "Karen Mosebø Haukeland",
         "roles": 6,
         "missingBiography": true,
@@ -3627,7 +2434,7 @@
         ]
       },
       {
-        "personKey": "kristine-aasheim",
+        "personKey": "kristine-asheim",
         "name": "Kristine Aasheim",
         "roles": 6,
         "missingBiography": true,
@@ -3638,17 +2445,6 @@
           "brreg-role",
           "daglig-leder",
           "interlocking-director"
-        ]
-      },
-      {
-        "personKey": "stig-brger-bratlie",
-        "name": "Stig Børger Bratlie",
-        "roles": 6,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
         ]
       },
       {
@@ -3710,21 +2506,7 @@
         ]
       },
       {
-        "personKey": "gustav-witz-e",
-        "name": "Gustav Witzøe",
-        "roles": 5,
-        "missingBiography": true,
-        "missingAffiliations": false,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "brreg-role",
-          "interlocking-director",
-          "styrets-leder"
-        ]
-      },
-      {
-        "personKey": "maria-syse-nybraaten",
+        "personKey": "maria-sysenybraten",
         "name": "Maria Syse-Nybraaten",
         "roles": 5,
         "missingBiography": true,
@@ -3813,7 +2595,7 @@
         ]
       },
       {
-        "personKey": "rjan-mortveit-tveiten",
+        "personKey": "orjan-mortveit-tveiten",
         "name": "Ørjan Mortveit Tveiten",
         "roles": 5,
         "missingBiography": true,
@@ -3874,7 +2656,7 @@
         ]
       },
       {
-        "personKey": "annichen-elisabeth-haaland-fladager",
+        "personKey": "annichen-elisabeth-haland-fladager",
         "name": "Annichen Elisabeth Haaland Fladager",
         "roles": 4,
         "missingBiography": true,
@@ -3888,8 +2670,8 @@
         ]
       },
       {
-        "personKey": "arttu-pekka-vikstrom",
-        "name": "Arttu-Pekka Vikström",
+        "personKey": "arttupekka-vikstrom",
+        "name": "Arttu-Pekka Vikstrom",
         "roles": 4,
         "missingBiography": true,
         "missingAffiliations": false,
@@ -3917,7 +2699,7 @@
         ]
       },
       {
-        "personKey": "asgeir-naalsund",
+        "personKey": "asgeir-nalsund",
         "name": "Asgeir Naalsund",
         "roles": 4,
         "missingBiography": true,
@@ -3977,21 +2759,6 @@
         ]
       },
       {
-        "personKey": "carl-fredrik-langard-bjor",
-        "name": "Carl-Fredrik Langård-Bjor",
-        "roles": 4,
-        "missingBiography": true,
-        "missingAffiliations": false,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "brreg-role",
-          "daglig-leder",
-          "interlocking-director",
-          "styrets-leder"
-        ]
-      },
-      {
         "personKey": "einar-risnes",
         "name": "Einar Risnes",
         "roles": 4,
@@ -4006,21 +2773,6 @@
         ]
       },
       {
-        "personKey": "gustav-witze",
-        "name": "Gustav Witzøe",
-        "roles": 4,
-        "missingBiography": false,
-        "missingAffiliations": true,
-        "tags": [
-          "aquaculture",
-          "auto-detected",
-          "board-member",
-          "family-owner",
-          "founder",
-          "seafood"
-        ]
-      },
-      {
         "personKey": "hans-petter-olsen",
         "name": "Hans Petter Olsen",
         "roles": 4,
@@ -4032,6 +2784,21 @@
           "brreg-role",
           "daglig-leder",
           "interlocking-director"
+        ]
+      },
+      {
+        "personKey": "henning-kolbjorn-beltestad",
+        "name": "Henning Kolbjørn Beltestad",
+        "roles": 4,
+        "missingBiography": true,
+        "missingAffiliations": false,
+        "tags": [
+          "auto-detected",
+          "board-member",
+          "brreg-role",
+          "daglig-leder",
+          "interlocking-director",
+          "styremedlem"
         ]
       },
       {
@@ -4065,7 +2832,7 @@
         ]
       },
       {
-        "personKey": "knut-bj-rnsson-kj-snes",
+        "personKey": "knut-bjornsson-kjosnes",
         "name": "Knut Bjørnsson Kjøsnes",
         "roles": 4,
         "missingBiography": true,
@@ -4106,19 +2873,6 @@
           "daglig-leder",
           "interlocking-director",
           "styrets-leder"
-        ]
-      },
-      {
-        "personKey": "oyvind-andersen",
-        "name": "Oyvind Andersen",
-        "roles": 4,
-        "missingBiography": false,
-        "missingAffiliations": true,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "interlocking-director",
-          "norgesgruppen"
         ]
       },
       {
@@ -4166,20 +2920,6 @@
         ]
       },
       {
-        "personKey": "tor-r-nhovde",
-        "name": "Tor Rønhovde",
-        "roles": 4,
-        "missingBiography": true,
-        "missingAffiliations": false,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "brreg-role",
-          "interlocking-director",
-          "styrets-leder"
-        ]
-      },
-      {
         "personKey": "torgeir-johan-svae",
         "name": "Torgeir Johan Svae",
         "roles": 4,
@@ -4195,7 +2935,7 @@
         ]
       },
       {
-        "personKey": "trond-fredrik-mellings-ter",
+        "personKey": "trond-fredrik-mellingsaeter",
         "name": "Trond Fredrik Mellingsæter",
         "roles": 4,
         "missingBiography": true,
@@ -4254,7 +2994,7 @@
         ]
       },
       {
-        "personKey": "anbj-rn-glend",
+        "personKey": "anbjorn-oglend",
         "name": "Anbjørn Øglend",
         "roles": 3,
         "missingBiography": true,
@@ -4299,18 +3039,6 @@
         ]
       },
       {
-        "personKey": "arne-mgster",
-        "name": "Arne Møgster",
-        "roles": 3,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "interlocking-director"
-        ]
-      },
-      {
         "personKey": "audun-stensvold",
         "name": "Audun Stensvold",
         "roles": 3,
@@ -4325,7 +3053,7 @@
         ]
       },
       {
-        "personKey": "bj-rn-ole-juul-hansen",
+        "personKey": "bjorn-ole-juulhansen",
         "name": "Bjørn Ole Juul-Hansen",
         "roles": 3,
         "missingBiography": true,
@@ -4354,7 +3082,7 @@
         ]
       },
       {
-        "personKey": "camilla-varhaug-s-berg",
+        "personKey": "camilla-varhaug-soberg",
         "name": "Camilla Varhaug Søberg",
         "roles": 3,
         "missingBiography": true,
@@ -4365,33 +3093,6 @@
           "brreg-role",
           "interlocking-director",
           "styremedlem"
-        ]
-      },
-      {
-        "personKey": "camilla-varhaug-sberg",
-        "name": "Camilla Varhaug Søberg",
-        "roles": 3,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
-        ]
-      },
-      {
-        "personKey": "carlfredrik-langaardbjor",
-        "name": "Carl-Fredrik Langaard-Bjor",
-        "roles": 3,
-        "missingBiography": false,
-        "missingAffiliations": true,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "daglig-leder",
-          "horeca",
-          "interlocking-director",
-          "iss",
-          "styreleder"
         ]
       },
       {
@@ -4467,7 +3168,7 @@
         ]
       },
       {
-        "personKey": "g-ril-havrevold-joys-johnsen",
+        "personKey": "goril-havrevold-joys-johnsen",
         "name": "Gøril Havrevold Joys Johnsen",
         "roles": 3,
         "missingBiography": true,
@@ -4510,7 +3211,7 @@
         ]
       },
       {
-        "personKey": "helge-arvid-m-gster",
+        "personKey": "helge-arvid-mogster",
         "name": "Helge Arvid Møgster",
         "roles": 3,
         "missingBiography": true,
@@ -4524,6 +3225,23 @@
         ]
       },
       {
+        "personKey": "helge-mogster",
+        "name": "Helge Møgster",
+        "roles": 3,
+        "missingBiography": false,
+        "missingAffiliations": true,
+        "tags": [
+          "austevoll",
+          "auto-detected",
+          "board-member",
+          "grunnlegger",
+          "laco",
+          "leroey",
+          "moegster",
+          "sjoemat"
+        ]
+      },
+      {
         "personKey": "henning-beltestad",
         "name": "Henning Beltestad",
         "roles": 3,
@@ -4532,21 +3250,6 @@
         "tags": [
           "seafood",
           "aquaculture"
-        ]
-      },
-      {
-        "personKey": "henning-kolbj-rn-beltestad",
-        "name": "Henning Kolbjørn Beltestad",
-        "roles": 3,
-        "missingBiography": true,
-        "missingAffiliations": false,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "brreg-role",
-          "daglig-leder",
-          "interlocking-director",
-          "styremedlem"
         ]
       },
       {
@@ -4609,7 +3312,7 @@
         ]
       },
       {
-        "personKey": "joachim-rang-andersen",
+        "personKey": "joachim-rango-andersen",
         "name": "Joachim Rangø Andersen",
         "roles": 3,
         "missingBiography": true,
@@ -4669,7 +3372,7 @@
         ]
       },
       {
-        "personKey": "ken-are-bod-stlid",
+        "personKey": "ken-are-bod-ostlid",
         "name": "Ken Are Bod Østlid",
         "roles": 3,
         "missingBiography": true,
@@ -4744,18 +3447,7 @@
         ]
       },
       {
-        "personKey": "maria-sysenybraaten",
-        "name": "Maria Syse-Nybraaten",
-        "roles": 3,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
-        ]
-      },
-      {
-        "personKey": "monica-degaard",
+        "personKey": "monica-odegard",
         "name": "Monica Ødegaard",
         "roles": 3,
         "missingBiography": true,
@@ -4769,7 +3461,7 @@
         ]
       },
       {
-        "personKey": "nina-brendsrud-andersen",
+        "personKey": "nina-brendsrudandersen",
         "name": "Nina Brendsrud-Andersen",
         "roles": 3,
         "missingBiography": true,
@@ -4812,7 +3504,7 @@
         ]
       },
       {
-        "personKey": "per-harald-vab",
+        "personKey": "per-harald-vabo",
         "name": "Per Harald Vabø",
         "roles": 3,
         "missingBiography": true,
@@ -4827,7 +3519,7 @@
         ]
       },
       {
-        "personKey": "petter-ivar-haas-brubakk",
+        "personKey": "petter-ivar-has-brubakk",
         "name": "Petter Ivar Haas Brubakk",
         "roles": 3,
         "missingBiography": true,
@@ -4867,7 +3559,7 @@
         ]
       },
       {
-        "personKey": "renate-strandmann-kaldhuss-ter",
+        "personKey": "renate-strandmann-kaldhussaeter",
         "name": "Renate Strandmann Kaldhussæter",
         "roles": 3,
         "missingBiography": true,
@@ -4912,7 +3604,7 @@
         ]
       },
       {
-        "personKey": "rolf-yvind-thune",
+        "personKey": "rolf-oyvind-thune",
         "name": "Rolf Øyvind Thune",
         "roles": 3,
         "missingBiography": false,
@@ -4940,7 +3632,7 @@
         ]
       },
       {
-        "personKey": "signe-bunkholt-s-ter",
+        "personKey": "signe-bunkholt-saeter",
         "name": "Signe Bunkholt Sæter",
         "roles": 3,
         "missingBiography": true,
@@ -4953,7 +3645,7 @@
         ]
       },
       {
-        "personKey": "stein-r-mmerud",
+        "personKey": "stein-rommerud",
         "name": "Stein Rømmerud",
         "roles": 3,
         "missingBiography": true,
@@ -5012,7 +3704,7 @@
         ]
       },
       {
-        "personKey": "trine-s-rvoll",
+        "personKey": "trine-saervoll",
         "name": "Trine Særvoll",
         "roles": 3,
         "missingBiography": true,
@@ -5084,7 +3776,7 @@
         ]
       },
       {
-        "personKey": "wenche-wahlstr-m-l-vland",
+        "personKey": "wenche-wahlstrom-lovland",
         "name": "Wenche Wahlstrøm Løvland",
         "roles": 3,
         "missingBiography": true,
@@ -5098,22 +3790,7 @@
         ]
       },
       {
-        "personKey": "rjan-svanevik",
-        "name": "Ørjan Svanevik",
-        "roles": 3,
-        "missingBiography": true,
-        "missingAffiliations": false,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "brreg-role",
-          "interlocking-director",
-          "styremedlem",
-          "styrets-leder"
-        ]
-      },
-      {
-        "personKey": "ydis-nese-haavi",
+        "personKey": "oydis-nese-havi",
         "name": "Øydis Nese Haavi",
         "roles": 3,
         "missingBiography": true,
@@ -5127,7 +3804,7 @@
         ]
       },
       {
-        "personKey": "yvind-andreas-torpp",
+        "personKey": "oyvind-andreas-torpp",
         "name": "Øyvind Andreas Torpp",
         "roles": 3,
         "missingBiography": true,
@@ -5142,7 +3819,7 @@
         ]
       },
       {
-        "personKey": "yvind-oaland",
+        "personKey": "oyvind-oaland",
         "name": "Øyvind Oaland",
         "roles": 3,
         "missingBiography": true,
@@ -5157,7 +3834,7 @@
         ]
       },
       {
-        "personKey": "adelajda-irena-biernat-aas",
+        "personKey": "adelajda-irena-biernatas",
         "name": "Adelajda Irena Biernat-Aas",
         "roles": 2,
         "missingBiography": true,
@@ -5222,17 +3899,6 @@
         ]
       },
       {
-        "personKey": "anbjrn-glend",
-        "name": "Anbjørn Øglend",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
-        ]
-      },
-      {
         "personKey": "anders-christian-guttormsen",
         "name": "Anders Christian Guttormsen",
         "roles": 2,
@@ -5272,7 +3938,7 @@
         ]
       },
       {
-        "personKey": "anders-klaastad-gasemyr",
+        "personKey": "anders-klastad-gasemyr",
         "name": "Anders Klaastad Gåsemyr",
         "roles": 2,
         "missingBiography": true,
@@ -5298,7 +3964,7 @@
         ]
       },
       {
-        "personKey": "andreas-norst-aaserud",
+        "personKey": "andreas-norsto-aserud",
         "name": "Andreas Norstø Aaserud",
         "roles": 2,
         "missingBiography": true,
@@ -5311,7 +3977,7 @@
         ]
       },
       {
-        "personKey": "andreas-s-raa",
+        "personKey": "andreas-sora",
         "name": "Andreas Søraa",
         "roles": 2,
         "missingBiography": true,
@@ -5388,7 +4054,7 @@
         ]
       },
       {
-        "personKey": "ann-kristin-strand",
+        "personKey": "annkristin-strand",
         "name": "Ann-Kristin Strand",
         "roles": 2,
         "missingBiography": true,
@@ -5401,7 +4067,7 @@
         ]
       },
       {
-        "personKey": "anna-maria-linnea-carnemark",
+        "personKey": "annamaria-linnea-carnemark",
         "name": "Anna-Maria Linnea Carnemark",
         "roles": 2,
         "missingBiography": true,
@@ -5410,23 +4076,12 @@
           "auto-detected",
           "board-member",
           "brreg-role",
-          "daglig-leder"
-        ]
-      },
-      {
-        "personKey": "annamaria-linnea-carnemark",
-        "name": "Anna-Maria Linnea Carnemark",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "auto-detected",
-          "board-member",
+          "daglig-leder",
           "interlocking-director"
         ]
       },
       {
-        "personKey": "anne-eriksdatter-bj-rnebye-vik",
+        "personKey": "anne-eriksdatter-bjornebye-vik",
         "name": "Anne Eriksdatter Bjørnebye Vik",
         "roles": 2,
         "missingBiography": true,
@@ -5452,7 +4107,7 @@
         ]
       },
       {
-        "personKey": "anne-kristine-n-ss",
+        "personKey": "anne-kristine-naess",
         "name": "Anne Kristine Næss",
         "roles": 2,
         "missingBiography": true,
@@ -5491,7 +4146,7 @@
         ]
       },
       {
-        "personKey": "anne-siri-h-iland",
+        "personKey": "anne-siri-hoiland",
         "name": "Anne Siri Høiland",
         "roles": 2,
         "missingBiography": true,
@@ -5504,7 +4159,7 @@
         ]
       },
       {
-        "personKey": "anne-vab-dingstad",
+        "personKey": "anne-vabo-dingstad",
         "name": "Anne Vabø Dingstad",
         "roles": 2,
         "missingBiography": true,
@@ -5517,7 +4172,7 @@
         ]
       },
       {
-        "personKey": "anne-grete-furst-haugen",
+        "personKey": "annegrete-furst-haugen",
         "name": "Anne-Grete Fürst Haugen",
         "roles": 2,
         "missingBiography": true,
@@ -5541,7 +4196,7 @@
         ]
       },
       {
-        "personKey": "arild-str-m",
+        "personKey": "arild-strom",
         "name": "Arild Strøm",
         "roles": 2,
         "missingBiography": true,
@@ -5554,7 +4209,7 @@
         ]
       },
       {
-        "personKey": "arild-s-rlien",
+        "personKey": "arild-sorlien",
         "name": "Arild Sørlien",
         "roles": 2,
         "missingBiography": true,
@@ -5564,21 +4219,6 @@
           "board-member",
           "brreg-role",
           "daglig-leder"
-        ]
-      },
-      {
-        "personKey": "arne-moegster",
-        "name": "Arne Moegster",
-        "roles": 2,
-        "missingBiography": false,
-        "missingAffiliations": true,
-        "tags": [
-          "leroey",
-          "austevoll",
-          "moegster",
-          "interlocking-director",
-          "styreleder",
-          "ceo"
         ]
       },
       {
@@ -5592,18 +4232,6 @@
           "board-member",
           "brreg-role",
           "varamedlem"
-        ]
-      },
-      {
-        "personKey": "arttupekka-vikstrom",
-        "name": "Arttu-Pekka Vikstrom",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "interlocking-director"
         ]
       },
       {
@@ -5633,7 +4261,7 @@
         ]
       },
       {
-        "personKey": "astrid-s-yland-gr-dem",
+        "personKey": "astrid-soyland-grodem",
         "name": "Astrid Søyland Grødem",
         "roles": 2,
         "missingBiography": true,
@@ -5659,7 +4287,7 @@
         ]
       },
       {
-        "personKey": "audun-l-hre",
+        "personKey": "audun-lohre",
         "name": "Audun Løhre",
         "roles": 2,
         "missingBiography": true,
@@ -5750,7 +4378,7 @@
         ]
       },
       {
-        "personKey": "berthe-lise-mengshoel",
+        "personKey": "berthe-lise-mengshol",
         "name": "Berthe Lise Mengshoel",
         "roles": 2,
         "missingBiography": true,
@@ -5790,7 +4418,7 @@
         ]
       },
       {
-        "personKey": "bjarte-r-yrvik",
+        "personKey": "bjarte-royrvik",
         "name": "Bjarte Røyrvik",
         "roles": 2,
         "missingBiography": true,
@@ -5803,7 +4431,22 @@
         ]
       },
       {
-        "personKey": "bj-rg-solfrid-aase",
+        "personKey": "bjorn-gulden",
+        "name": "Bjorn Gulden",
+        "roles": 2,
+        "missingBiography": false,
+        "missingAffiliations": true,
+        "tags": [
+          "auto-detected",
+          "board-member",
+          "denmark",
+          "interlocking-director",
+          "salling",
+          "styreleder"
+        ]
+      },
+      {
+        "personKey": "bjorg-solfrid-ase",
         "name": "Bjørg Solfrid Aase",
         "roles": 2,
         "missingBiography": true,
@@ -5816,7 +4459,7 @@
         ]
       },
       {
-        "personKey": "bj-rge-andre-gretland",
+        "personKey": "bjorge-andre-gretland",
         "name": "Bjørge Andre Gretland",
         "roles": 2,
         "missingBiography": true,
@@ -5829,7 +4472,7 @@
         ]
       },
       {
-        "personKey": "bj-rn-arve-ofstad",
+        "personKey": "bjorn-arve-ofstad",
         "name": "Bjørn Arve Ofstad",
         "roles": 2,
         "missingBiography": true,
@@ -5842,7 +4485,7 @@
         ]
       },
       {
-        "personKey": "bj-rn-gresdahl",
+        "personKey": "bjorn-gresdahl",
         "name": "Bjørn Gresdahl",
         "roles": 2,
         "missingBiography": true,
@@ -5855,7 +4498,7 @@
         ]
       },
       {
-        "personKey": "bj-rn-jarle-rn-r-berg-larsen",
+        "personKey": "bjorn-jarle-orno-roberglarsen",
         "name": "Bjørn Jarle Ørnø Røberg-Larsen",
         "roles": 2,
         "missingBiography": true,
@@ -5868,7 +4511,7 @@
         ]
       },
       {
-        "personKey": "bj-rn-kare-grude",
+        "personKey": "bjorn-kare-grude",
         "name": "Bjørn Kåre Grude",
         "roles": 2,
         "missingBiography": true,
@@ -5881,7 +4524,7 @@
         ]
       },
       {
-        "personKey": "bj-rn-oddvar-stabbetorp",
+        "personKey": "bjorn-oddvar-stabbetorp",
         "name": "Bjørn Oddvar Stabbetorp",
         "roles": 2,
         "missingBiography": true,
@@ -5894,18 +4537,7 @@
         ]
       },
       {
-        "personKey": "bjrn-ole-juulhansen",
-        "name": "Bjørn Ole Juul-Hansen",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
-        ]
-      },
-      {
-        "personKey": "bj-rn-roald-mikkelsen",
+        "personKey": "bjorn-roald-mikkelsen",
         "name": "Bjørn Roald Mikkelsen",
         "roles": 2,
         "missingBiography": true,
@@ -5918,7 +4550,7 @@
         ]
       },
       {
-        "personKey": "britt-r-ed-lohne",
+        "personKey": "britt-rod-lohne",
         "name": "Britt Røed Lohne",
         "roles": 2,
         "missingBiography": true,
@@ -5970,7 +4602,7 @@
         ]
       },
       {
-        "personKey": "b-rge-soleng",
+        "personKey": "borge-soleng",
         "name": "Børge Soleng",
         "roles": 2,
         "missingBiography": true,
@@ -6047,7 +4679,7 @@
         ]
       },
       {
-        "personKey": "carl-fredrik-iuell-bergan",
+        "personKey": "carlfredrik-iuell-bergan",
         "name": "Carl-Fredrik Iuell Bergan",
         "roles": 2,
         "missingBiography": true,
@@ -6057,17 +4689,6 @@
           "board-member",
           "brreg-role",
           "styremedlem"
-        ]
-      },
-      {
-        "personKey": "carlfredrik-langardbjor",
-        "name": "Carl-Fredrik Langård-Bjor",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
         ]
       },
       {
@@ -6100,7 +4721,7 @@
         ]
       },
       {
-        "personKey": "caroline-wang-gierl-ff",
+        "personKey": "caroline-wang-gierloff",
         "name": "Caroline Wang Gierløff",
         "roles": 2,
         "missingBiography": true,
@@ -6152,7 +4773,7 @@
         ]
       },
       {
-        "personKey": "christian-krogh-gangs-y",
+        "personKey": "christian-krogh-gangsoy",
         "name": "Christian Krogh Gangsøy",
         "roles": 2,
         "missingBiography": true,
@@ -6191,7 +4812,7 @@
         ]
       },
       {
-        "personKey": "christine-bakke-aas-steiro",
+        "personKey": "christine-bakkeas-steiro",
         "name": "Christine Bakke-Aas Steiro",
         "roles": 2,
         "missingBiography": true,
@@ -6217,7 +4838,7 @@
         ]
       },
       {
-        "personKey": "cornelis-floor-saarloos",
+        "personKey": "cornelis-floor-sarloos",
         "name": "Cornelis Floor Saarloos",
         "roles": 2,
         "missingBiography": true,
@@ -6256,7 +4877,7 @@
         ]
       },
       {
-        "personKey": "daniel-dj-nne-lund",
+        "personKey": "daniel-djonne-lund",
         "name": "Daniel Djønne Lund",
         "roles": 2,
         "missingBiography": true,
@@ -6282,7 +4903,7 @@
         ]
       },
       {
-        "personKey": "david-konrad-abramowski-aurtande",
+        "personKey": "davidkonrad-abramowski-aurtande",
         "name": "David-Konrad Abramowski Aurtande",
         "roles": 2,
         "missingBiography": true,
@@ -6295,7 +4916,7 @@
         ]
       },
       {
-        "personKey": "dina-gjers-yen-rolstad-thune",
+        "personKey": "dina-gjersoyen-rolstad-thune",
         "name": "Dina Gjersøyen Rolstad Thune",
         "roles": 2,
         "missingBiography": true,
@@ -6320,7 +4941,7 @@
         ]
       },
       {
-        "personKey": "edel-anita-westhagen-fladset",
+        "personKey": "edelanita-westhagenfladset",
         "name": "Edel-Anita Westhagen-Fladset",
         "roles": 2,
         "missingBiography": true,
@@ -6346,7 +4967,7 @@
         ]
       },
       {
-        "personKey": "eirik-dr-nen-melingen",
+        "personKey": "eirik-dronen-melingen",
         "name": "Eirik Drønen Melingen",
         "roles": 2,
         "missingBiography": true,
@@ -6385,7 +5006,7 @@
         ]
       },
       {
-        "personKey": "eli-haga-bauer",
+        "personKey": "eli-hagabauer",
         "name": "Eli Haga-Bauer",
         "roles": 2,
         "missingBiography": true,
@@ -6437,7 +5058,7 @@
         ]
       },
       {
-        "personKey": "elisabeth-agneta-linden-moen",
+        "personKey": "elisabeth-agneta-linden-mon",
         "name": "Elisabeth Agneta Lindén Moen",
         "roles": 2,
         "missingBiography": true,
@@ -6478,7 +5099,7 @@
         ]
       },
       {
-        "personKey": "erik-norberg-aanonsen",
+        "personKey": "erik-norberg-anonsen",
         "name": "Erik Norberg Aanonsen",
         "roles": 2,
         "missingBiography": true,
@@ -6517,7 +5138,7 @@
         ]
       },
       {
-        "personKey": "erlend-s-bakk-wiggen",
+        "personKey": "erlend-sobakk-wiggen",
         "name": "Erlend Søbakk Wiggen",
         "roles": 2,
         "missingBiography": true,
@@ -6582,7 +5203,7 @@
         ]
       },
       {
-        "personKey": "even-andre-ien-kleppen",
+        "personKey": "even-andre-oien-kleppen",
         "name": "Even Andre Øien Kleppen",
         "roles": 2,
         "missingBiography": true,
@@ -6755,7 +5376,7 @@
         ]
       },
       {
-        "personKey": "gerd-ingebj-rg-havsten-lysholm",
+        "personKey": "gerd-ingebjorg-havsten-lysholm",
         "name": "Gerd Ingebjørg Havsten Lysholm",
         "roles": 2,
         "missingBiography": true,
@@ -6778,18 +5399,6 @@
           "board-member",
           "brreg-role",
           "daglig-leder"
-        ]
-      },
-      {
-        "personKey": "goeril-johnsen",
-        "name": "Goeril Johnsen",
-        "roles": 2,
-        "missingBiography": false,
-        "missingAffiliations": true,
-        "tags": [
-          "coop",
-          "cooperative-governance",
-          "interlocking-director"
         ]
       },
       {
@@ -6832,7 +5441,7 @@
         ]
       },
       {
-        "personKey": "gustav-witzoee",
+        "personKey": "gustav-witzoe",
         "name": "Gustav Witzoee",
         "roles": 2,
         "missingBiography": false,
@@ -6846,7 +5455,7 @@
         ]
       },
       {
-        "personKey": "g-ran-raknem",
+        "personKey": "goran-raknem",
         "name": "Gøran Raknem",
         "roles": 2,
         "missingBiography": true,
@@ -6856,6 +5465,20 @@
           "board-member",
           "brreg-role",
           "varamedlem"
+        ]
+      },
+      {
+        "personKey": "goril-johnsen",
+        "name": "Gøril Johnsen",
+        "roles": 2,
+        "missingBiography": false,
+        "missingAffiliations": true,
+        "tags": [
+          "auto-detected",
+          "board-member",
+          "coop",
+          "cooperative-governance",
+          "interlocking-director"
         ]
       },
       {
@@ -6872,7 +5495,7 @@
         ]
       },
       {
-        "personKey": "hanne-olsen-t-rseth",
+        "personKey": "hanne-olsen-torseth",
         "name": "Hanne Olsen Tørseth",
         "roles": 2,
         "missingBiography": true,
@@ -6927,7 +5550,7 @@
         ]
       },
       {
-        "personKey": "hans-ole-s-tra-erikstein",
+        "personKey": "hansole-saetra-erikstein",
         "name": "Hans-Ole Sætra Erikstein",
         "roles": 2,
         "missingBiography": true,
@@ -6941,7 +5564,7 @@
         ]
       },
       {
-        "personKey": "hans-petter-haugen",
+        "personKey": "hanspetter-haugen",
         "name": "Hans-Petter Haugen",
         "roles": 2,
         "missingBiography": true,
@@ -7045,7 +5668,7 @@
         ]
       },
       {
-        "personKey": "hege-iren-frisvold-s-rh-y",
+        "personKey": "hege-iren-frisvold-sorhoy",
         "name": "Hege Iren Frisvold Sørhøy",
         "roles": 2,
         "missingBiography": true,
@@ -7058,7 +5681,7 @@
         ]
       },
       {
-        "personKey": "hege-lundgaard",
+        "personKey": "hege-lundgard",
         "name": "Hege Lundgaard",
         "roles": 2,
         "missingBiography": true,
@@ -7084,7 +5707,7 @@
         ]
       },
       {
-        "personKey": "heidi-gaaren",
+        "personKey": "heidi-garen",
         "name": "Heidi Gaaren",
         "roles": 2,
         "missingBiography": true,
@@ -7123,21 +5746,6 @@
         ]
       },
       {
-        "personKey": "helge-moegster",
-        "name": "Helge Moegster",
-        "roles": 2,
-        "missingBiography": false,
-        "missingAffiliations": true,
-        "tags": [
-          "austevoll",
-          "laco",
-          "moegster",
-          "grunnlegger",
-          "sjoemat",
-          "leroey"
-        ]
-      },
-      {
         "personKey": "helge-orten",
         "name": "Helge Orten",
         "roles": 2,
@@ -7148,18 +5756,6 @@
           "board-member",
           "brreg-role",
           "styrets-leder"
-        ]
-      },
-      {
-        "personKey": "henning-kolbjrn-beltestad",
-        "name": "Henning Kolbjørn Beltestad",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "interlocking-director"
         ]
       },
       {
@@ -7189,7 +5785,7 @@
         ]
       },
       {
-        "personKey": "hilde-f-rland",
+        "personKey": "hilde-forland",
         "name": "Hilde Førland",
         "roles": 2,
         "missingBiography": true,
@@ -7242,7 +5838,7 @@
         ]
       },
       {
-        "personKey": "havard-wallstad-hamansen",
+        "personKey": "havard-wallstadhamansen",
         "name": "Håvard Wallstad-Hamansen",
         "roles": 2,
         "missingBiography": true,
@@ -7268,7 +5864,7 @@
         ]
       },
       {
-        "personKey": "inge-hilde-kitter-d",
+        "personKey": "inge-hilde-kitterod",
         "name": "Inge Hilde Kitterød",
         "roles": 2,
         "missingBiography": true,
@@ -7294,7 +5890,7 @@
         ]
       },
       {
-        "personKey": "ingjald-s-rh-y",
+        "personKey": "ingjald-sorhoy",
         "name": "Ingjald Sørhøy",
         "roles": 2,
         "missingBiography": true,
@@ -7308,18 +5904,7 @@
         ]
       },
       {
-        "personKey": "ingjald-srhy",
-        "name": "Ingjald Sørhøy",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
-        ]
-      },
-      {
-        "personKey": "ingrid-gaarder-harsheim",
+        "personKey": "ingrid-garder-harsheim",
         "name": "Ingrid Gaarder Harsheim",
         "roles": 2,
         "missingBiography": true,
@@ -7504,7 +6089,7 @@
         ]
       },
       {
-        "personKey": "jan-erik-eikeland",
+        "personKey": "janerik-eikeland",
         "name": "Jan-Erik Eikeland",
         "roles": 2,
         "missingBiography": true,
@@ -7517,7 +6102,7 @@
         ]
       },
       {
-        "personKey": "jan-inge-s-tre",
+        "personKey": "janinge-saetre",
         "name": "Jan-Inge Sætre",
         "roles": 2,
         "missingBiography": true,
@@ -7530,7 +6115,7 @@
         ]
       },
       {
-        "personKey": "jan-ivar-alsen",
+        "personKey": "janivar-alsen",
         "name": "Jan-Ivar Alsén",
         "roles": 2,
         "missingBiography": true,
@@ -7556,7 +6141,7 @@
         ]
       },
       {
-        "personKey": "jarle-ygarden",
+        "personKey": "jarle-oygarden",
         "name": "Jarle Øygarden",
         "roles": 2,
         "missingBiography": true,
@@ -7702,7 +6287,7 @@
         ]
       },
       {
-        "personKey": "johnny-degard",
+        "personKey": "johnny-odegard",
         "name": "Johnny Ødegård",
         "roles": 2,
         "missingBiography": true,
@@ -7715,7 +6300,7 @@
         ]
       },
       {
-        "personKey": "jon-gr-nsberg",
+        "personKey": "jon-gronsberg",
         "name": "Jon Grønsberg",
         "roles": 2,
         "missingBiography": true,
@@ -7728,7 +6313,7 @@
         ]
       },
       {
-        "personKey": "jon-erik-andersgaard",
+        "personKey": "jonerik-andersgard",
         "name": "Jon-Erik Andersgaard",
         "roles": 2,
         "missingBiography": true,
@@ -7806,7 +6391,7 @@
         ]
       },
       {
-        "personKey": "j-rn-arvid-endresen",
+        "personKey": "jorn-arvid-endresen",
         "name": "Jørn Arvid Endresen",
         "roles": 2,
         "missingBiography": true,
@@ -7884,7 +6469,7 @@
         ]
       },
       {
-        "personKey": "kari-lj-kjel",
+        "personKey": "kari-ljokjel",
         "name": "Kari Ljøkjel",
         "roles": 2,
         "missingBiography": true,
@@ -7910,7 +6495,7 @@
         ]
       },
       {
-        "personKey": "kari-ann-lien-eide",
+        "personKey": "kariann-lien-eide",
         "name": "Kari-Ann Lien Eide",
         "roles": 2,
         "missingBiography": true,
@@ -7923,7 +6508,7 @@
         ]
       },
       {
-        "personKey": "karin-marie-r-hne",
+        "personKey": "karin-marie-rohne",
         "name": "Karin Marie Røhne",
         "roles": 2,
         "missingBiography": true,
@@ -7975,7 +6560,7 @@
         ]
       },
       {
-        "personKey": "karoline-m-gster",
+        "personKey": "karoline-mogster",
         "name": "Karoline Møgster",
         "roles": 2,
         "missingBiography": true,
@@ -7984,6 +6569,7 @@
           "auto-detected",
           "board-member",
           "brreg-role",
+          "interlocking-director",
           "styremedlem"
         ]
       },
@@ -8040,7 +6626,7 @@
         ]
       },
       {
-        "personKey": "ken-vanhoegaerden",
+        "personKey": "ken-vanhogaerden",
         "name": "Ken Vanhoegaerden",
         "roles": 2,
         "missingBiography": true,
@@ -8129,7 +6715,7 @@
         ]
       },
       {
-        "personKey": "kjell-ivar-borghans-karlsen",
+        "personKey": "kjellivar-borghans-karlsen",
         "name": "Kjell-Ivar Borghans Karlsen",
         "roles": 2,
         "missingBiography": true,
@@ -8139,6 +6725,18 @@
           "board-member",
           "brreg-role",
           "varamedlem"
+        ]
+      },
+      {
+        "personKey": "kjersti-helen-hobol",
+        "name": "Kjersti Helen Hobol",
+        "roles": 2,
+        "missingBiography": true,
+        "missingAffiliations": true,
+        "tags": [
+          "auto-detected",
+          "board-member",
+          "interlocking-director"
         ]
       },
       {
@@ -8181,17 +6779,6 @@
         ]
       },
       {
-        "personKey": "knut-bjrnsson-kjsnes",
-        "name": "Knut Bjørnsson Kjøsnes",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
-        ]
-      },
-      {
         "personKey": "knut-erik-sebulonsen",
         "name": "Knut Erik Sebulonsen",
         "roles": 2,
@@ -8231,7 +6818,7 @@
         ]
       },
       {
-        "personKey": "knut-andreas-kran",
+        "personKey": "knutandreas-kran",
         "name": "Knut-Andreas Kran",
         "roles": 2,
         "missingBiography": true,
@@ -8270,7 +6857,7 @@
         ]
       },
       {
-        "personKey": "kristin-muri-m-ller",
+        "personKey": "kristin-muri-moller",
         "name": "Kristin Muri Møller",
         "roles": 2,
         "missingBiography": true,
@@ -8309,7 +6896,7 @@
         ]
       },
       {
-        "personKey": "kurt-einar-karlsen",
+        "personKey": "kurteinar-karlsen",
         "name": "Kurt-Einar Karlsen",
         "roles": 2,
         "missingBiography": true,
@@ -8336,7 +6923,7 @@
         ]
       },
       {
-        "personKey": "lars-almstr-m-moger",
+        "personKey": "lars-almstrom-moger",
         "name": "Lars Almstrøm Moger",
         "roles": 2,
         "missingBiography": true,
@@ -8375,7 +6962,7 @@
         ]
       },
       {
-        "personKey": "lars-aashammer",
+        "personKey": "lars-ashammer",
         "name": "Lars Aashammer",
         "roles": 2,
         "missingBiography": true,
@@ -8454,7 +7041,7 @@
         ]
       },
       {
-        "personKey": "levard-olsen-hagen",
+        "personKey": "levard-olsenhagen",
         "name": "Levard Olsen-Hagen",
         "roles": 2,
         "missingBiography": true,
@@ -8463,6 +7050,7 @@
           "auto-detected",
           "board-member",
           "brreg-role",
+          "interlocking-director",
           "styrets-leder"
         ]
       },
@@ -8480,7 +7068,7 @@
         ]
       },
       {
-        "personKey": "lill-maren-m-gster",
+        "personKey": "lill-maren-mogster",
         "name": "Lill Maren Møgster",
         "roles": 2,
         "missingBiography": true,
@@ -8489,19 +7077,8 @@
           "auto-detected",
           "board-member",
           "brreg-role",
+          "interlocking-director",
           "styremedlem"
-        ]
-      },
-      {
-        "personKey": "lill-maren-mgster",
-        "name": "Lill Maren Møgster",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "interlocking-director"
         ]
       },
       {
@@ -8543,7 +7120,7 @@
         ]
       },
       {
-        "personKey": "line-cecilie-gr-neng",
+        "personKey": "line-cecilie-groneng",
         "name": "Line Cecilie Grøneng",
         "roles": 2,
         "missingBiography": true,
@@ -8556,7 +7133,7 @@
         ]
       },
       {
-        "personKey": "line-margrethe-aarnes",
+        "personKey": "line-margrethe-arnes",
         "name": "Line Margrethe Aarnes",
         "roles": 2,
         "missingBiography": true,
@@ -8567,7 +7144,7 @@
         ]
       },
       {
-        "personKey": "lisa-j-rgensen",
+        "personKey": "lisa-jorgensen",
         "name": "Lisa Jørgensen",
         "roles": 2,
         "missingBiography": true,
@@ -8646,7 +7223,7 @@
         ]
       },
       {
-        "personKey": "marianne-sporst-l",
+        "personKey": "marianne-sporstol",
         "name": "Marianne Sporstøl",
         "roles": 2,
         "missingBiography": true,
@@ -8672,7 +7249,7 @@
         ]
       },
       {
-        "personKey": "marianne-degaard-ribe",
+        "personKey": "marianne-odegard-ribe",
         "name": "Marianne Ødegaard Ribe",
         "roles": 2,
         "missingBiography": true,
@@ -8699,7 +7276,7 @@
         ]
       },
       {
-        "personKey": "marit-kaarstad-dahl",
+        "personKey": "marit-karstad-dahl",
         "name": "Marit Kaarstad Dahl",
         "roles": 2,
         "missingBiography": true,
@@ -8712,7 +7289,7 @@
         ]
       },
       {
-        "personKey": "marius-de-haas",
+        "personKey": "marius-de-has",
         "name": "Marius De Haas",
         "roles": 2,
         "missingBiography": true,
@@ -8739,7 +7316,7 @@
         ]
       },
       {
-        "personKey": "marius-t-ften-bakstad",
+        "personKey": "marius-toften-bakstad",
         "name": "Marius Tøften Bakstad",
         "roles": 2,
         "missingBiography": true,
@@ -8765,7 +7342,7 @@
         ]
       },
       {
-        "personKey": "marte-helene-s-lvsberg",
+        "personKey": "marte-helene-solvsberg",
         "name": "Marte Helene Sølvsberg",
         "roles": 2,
         "missingBiography": true,
@@ -8779,18 +7356,7 @@
         ]
       },
       {
-        "personKey": "marte-helene-slvsberg",
-        "name": "Marte Helene Sølvsberg",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
-        ]
-      },
-      {
-        "personKey": "marte-kaarb-mathisen",
+        "personKey": "marte-karbo-mathisen",
         "name": "Marte Kaarbø Mathisen",
         "roles": 2,
         "missingBiography": true,
@@ -8829,7 +7395,7 @@
         ]
       },
       {
-        "personKey": "martine-stenersen-bj-rnstad-malterud",
+        "personKey": "martine-stenersen-bjornstad-malterud",
         "name": "Martine Stenersen Bjørnstad Malterud",
         "roles": 2,
         "missingBiography": true,
@@ -8896,11 +7462,13 @@
         "name": "May-Helen Holme",
         "roles": 2,
         "missingBiography": true,
-        "missingAffiliations": true,
+        "missingAffiliations": false,
         "tags": [
           "auto-detected",
           "board-member",
-          "interlocking-director"
+          "brreg-role",
+          "interlocking-director",
+          "styremedlem"
         ]
       },
       {
@@ -8982,7 +7550,7 @@
         ]
       },
       {
-        "personKey": "michael-haaning",
+        "personKey": "michael-haning",
         "name": "Michael Haaning",
         "roles": 2,
         "missingBiography": true,
@@ -9021,7 +7589,7 @@
         ]
       },
       {
-        "personKey": "miroslav-bobas-tomic",
+        "personKey": "miroslav-bobastomic",
         "name": "Miroslav Bobas-Tomic",
         "roles": 2,
         "missingBiography": true,
@@ -9034,7 +7602,7 @@
         ]
       },
       {
-        "personKey": "mona-irene-tr-ber-schmidt",
+        "personKey": "mona-irene-trober-schmidt",
         "name": "Mona Irene Trøber Schmidt",
         "roles": 2,
         "missingBiography": true,
@@ -9047,7 +7615,7 @@
         ]
       },
       {
-        "personKey": "mona-lisa-vermo-andreassen",
+        "personKey": "mona-lisa-overmo-andreassen",
         "name": "Mona Lisa Øvermo Andreassen",
         "roles": 2,
         "missingBiography": true,
@@ -9060,7 +7628,7 @@
         ]
       },
       {
-        "personKey": "monica-l-kkum-aasen",
+        "personKey": "monica-lokkum-asen",
         "name": "Monica Løkkum Aasen",
         "roles": 2,
         "missingBiography": true,
@@ -9073,19 +7641,7 @@
         ]
       },
       {
-        "personKey": "monica-odegaard",
-        "name": "Monica Odegaard",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "interlocking-director"
-        ]
-      },
-      {
-        "personKey": "morten-egen-s-fj-reide",
+        "personKey": "morten-egenaes-fjaereide",
         "name": "Morten Egenæs Fjæreide",
         "roles": 2,
         "missingBiography": true,
@@ -9098,7 +7654,7 @@
         ]
       },
       {
-        "personKey": "morten-aa-djupvik",
+        "personKey": "morten-a-djupvik",
         "name": "Morten Aa Djupvik",
         "roles": 2,
         "missingBiography": true,
@@ -9124,7 +7680,7 @@
         ]
       },
       {
-        "personKey": "niels-klaape",
+        "personKey": "niels-klape",
         "name": "Niels Klaape",
         "roles": 2,
         "missingBiography": true,
@@ -9164,7 +7720,7 @@
         ]
       },
       {
-        "personKey": "nils-s-yland-sandmo",
+        "personKey": "nils-soyland-sandmo",
         "name": "Nils Søyland Sandmo",
         "roles": 2,
         "missingBiography": true,
@@ -9177,19 +7733,7 @@
         ]
       },
       {
-        "personKey": "nina-brendsrudandersen",
-        "name": "Nina Brendsrud-Andersen",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "interlocking-director"
-        ]
-      },
-      {
-        "personKey": "nina-skj-rli",
+        "personKey": "nina-skjaerli",
         "name": "Nina Skjærli",
         "roles": 2,
         "missingBiography": true,
@@ -9215,7 +7759,7 @@
         ]
       },
       {
-        "personKey": "nina-aasum",
+        "personKey": "nina-asum",
         "name": "Nina Aasum",
         "roles": 2,
         "missingBiography": true,
@@ -9228,7 +7772,7 @@
         ]
       },
       {
-        "personKey": "odd-eilert-ingil",
+        "personKey": "odd-eilert-ingilae",
         "name": "Odd Eilert Ingilæ",
         "roles": 2,
         "missingBiography": true,
@@ -9295,7 +7839,7 @@
         ]
       },
       {
-        "personKey": "ole-henrik-hjart-y",
+        "personKey": "olehenrik-hjartoy",
         "name": "Ole-Henrik Hjartøy",
         "roles": 2,
         "missingBiography": true,
@@ -9334,7 +7878,7 @@
         ]
       },
       {
-        "personKey": "paul-espen-haukedal",
+        "personKey": "paulespen-haukedal",
         "name": "Paul-Espen Haukedal",
         "roles": 2,
         "missingBiography": true,
@@ -9347,7 +7891,7 @@
         ]
       },
       {
-        "personKey": "per-christian-wahl-schj-lberg",
+        "personKey": "per-christian-wahl-schjolberg",
         "name": "Per Christian Wahl Schjølberg",
         "roles": 2,
         "missingBiography": true,
@@ -9373,7 +7917,7 @@
         ]
       },
       {
-        "personKey": "per-ivar-selb-k",
+        "personKey": "per-ivar-selbaek",
         "name": "Per Ivar Selbæk",
         "roles": 2,
         "missingBiography": true,
@@ -9386,7 +7930,7 @@
         ]
       },
       {
-        "personKey": "per-ola-dr-pping",
+        "personKey": "per-ola-dropping",
         "name": "Per Ola Drøpping",
         "roles": 2,
         "missingBiography": true,
@@ -9425,7 +7969,7 @@
         ]
       },
       {
-        "personKey": "per-hugo-mathisen",
+        "personKey": "perhugo-mathisen",
         "name": "Per-Hugo Mathisen",
         "roles": 2,
         "missingBiography": true,
@@ -9490,7 +8034,7 @@
         ]
       },
       {
-        "personKey": "petter-b-rre-furberg",
+        "personKey": "petterborre-furberg",
         "name": "Petter-Børre Furberg",
         "roles": 2,
         "missingBiography": true,
@@ -9499,7 +8043,8 @@
           "auto-detected",
           "board-member",
           "brreg-role",
-          "daglig-leder"
+          "daglig-leder",
+          "interlocking-director"
         ]
       },
       {
@@ -9555,7 +8100,7 @@
         ]
       },
       {
-        "personKey": "ragna-kyrkjeb",
+        "personKey": "ragna-kyrkjebo",
         "name": "Ragna Kyrkjebø",
         "roles": 2,
         "missingBiography": true,
@@ -9568,7 +8113,7 @@
         ]
       },
       {
-        "personKey": "ragnhild-badst-grebstad",
+        "personKey": "ragnhild-badsto-grebstad",
         "name": "Ragnhild Bådstø Grebstad",
         "roles": 2,
         "missingBiography": true,
@@ -9594,7 +8139,7 @@
         ]
       },
       {
-        "personKey": "randi-tuvr-nningen",
+        "personKey": "randi-tuvronningen",
         "name": "Randi Tuvrønningen",
         "roles": 2,
         "missingBiography": true,
@@ -9620,7 +8165,7 @@
         ]
       },
       {
-        "personKey": "rannveig-b-rresen-krane",
+        "personKey": "rannveig-borresen-krane",
         "name": "Rannveig Børresen Krane",
         "roles": 2,
         "missingBiography": true,
@@ -9633,7 +8178,7 @@
         ]
       },
       {
-        "personKey": "rasmus-nordb",
+        "personKey": "rasmus-nordbo",
         "name": "Rasmus Nordbø",
         "roles": 2,
         "missingBiography": true,
@@ -9643,17 +8188,6 @@
           "board-member",
           "brreg-role",
           "styrets-leder"
-        ]
-      },
-      {
-        "personKey": "renate-strandmann-kaldhusster",
-        "name": "Renate Strandmann Kaldhussæter",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
         ]
       },
       {
@@ -9683,7 +8217,7 @@
         ]
       },
       {
-        "personKey": "rita-annette-sjulsen-aarnes",
+        "personKey": "rita-annette-sjulsenarnes",
         "name": "Rita Annette Sjulsen-Aarnes",
         "roles": 2,
         "missingBiography": true,
@@ -9787,7 +8321,7 @@
         ]
       },
       {
-        "personKey": "ronny-johnsr-d",
+        "personKey": "ronny-johnsrod",
         "name": "Ronny Johnsrød",
         "roles": 2,
         "missingBiography": true,
@@ -9853,7 +8387,7 @@
         ]
       },
       {
-        "personKey": "rune-asbj-rn-valle-skjelvan",
+        "personKey": "rune-asbjorn-valle-skjelvan",
         "name": "Rune Asbjørn Valle Skjelvan",
         "roles": 2,
         "missingBiography": true,
@@ -9932,7 +8466,7 @@
         ]
       },
       {
-        "personKey": "sander-riv-aslesen",
+        "personKey": "sander-rivo-aslesen",
         "name": "Sander Rivø Aslesen",
         "roles": 2,
         "missingBiography": true,
@@ -10022,7 +8556,7 @@
         ]
       },
       {
-        "personKey": "sigmund-anders-r-eggen",
+        "personKey": "sigmund-anders-roggen",
         "name": "Sigmund Anders Røeggen",
         "roles": 2,
         "missingBiography": true,
@@ -10048,7 +8582,7 @@
         ]
       },
       {
-        "personKey": "signe-ster",
+        "personKey": "signe-saeter",
         "name": "Signe Sæter",
         "roles": 2,
         "missingBiography": true,
@@ -10074,7 +8608,7 @@
         ]
       },
       {
-        "personKey": "silje-tr-an-paulsen",
+        "personKey": "silje-troan-paulsen",
         "name": "Silje Trøan Paulsen",
         "roles": 2,
         "missingBiography": true,
@@ -10113,7 +8647,7 @@
         ]
       },
       {
-        "personKey": "sissel-bilstad-neraasen",
+        "personKey": "sissel-bilstad-nerasen",
         "name": "Sissel Bilstad Neraasen",
         "roles": 2,
         "missingBiography": true,
@@ -10139,7 +8673,7 @@
         ]
       },
       {
-        "personKey": "sivert-magne-sletteb",
+        "personKey": "sivert-magne-slettebo",
         "name": "Sivert Magne Slettebø",
         "roles": 2,
         "missingBiography": true,
@@ -10217,17 +8751,6 @@
         ]
       },
       {
-        "personKey": "stein-rmmerud",
-        "name": "Stein Rømmerud",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
-        ]
-      },
-      {
         "personKey": "stian-berntsen",
         "name": "Stian Berntsen",
         "roles": 2,
@@ -10241,7 +8764,7 @@
         ]
       },
       {
-        "personKey": "stian-doksr-d",
+        "personKey": "stian-doksrod",
         "name": "Stian Doksrød",
         "roles": 2,
         "missingBiography": true,
@@ -10293,7 +8816,7 @@
         ]
       },
       {
-        "personKey": "stig-g-ran-nilsen",
+        "personKey": "stiggoran-nilsen",
         "name": "Stig-Gøran Nilsen",
         "roles": 2,
         "missingBiography": true,
@@ -10320,7 +8843,7 @@
         ]
       },
       {
-        "personKey": "stine-s-ther",
+        "personKey": "stine-saether",
         "name": "Stine Sæther",
         "roles": 2,
         "missingBiography": true,
@@ -10412,7 +8935,7 @@
         ]
       },
       {
-        "personKey": "s-ren-brinck",
+        "personKey": "soren-brinck",
         "name": "Søren Brinck",
         "roles": 2,
         "missingBiography": true,
@@ -10421,11 +8944,12 @@
           "auto-detected",
           "board-member",
           "brreg-role",
+          "interlocking-director",
           "styrets-leder"
         ]
       },
       {
-        "personKey": "terje-flaatrud",
+        "personKey": "terje-flatrud",
         "name": "Terje Flaatrud",
         "roles": 2,
         "missingBiography": true,
@@ -10570,7 +9094,7 @@
         ]
       },
       {
-        "personKey": "tina-yas",
+        "personKey": "tina-oyas",
         "name": "Tina Øyås",
         "roles": 2,
         "missingBiography": true,
@@ -10596,7 +9120,7 @@
         ]
       },
       {
-        "personKey": "tolle-hoel-slotn-s",
+        "personKey": "tolle-hol-slotnaes",
         "name": "Tolle Hoel Slotnæs",
         "roles": 2,
         "missingBiography": true,
@@ -10674,7 +9198,7 @@
         ]
       },
       {
-        "personKey": "tommy-neverdahl-nordb",
+        "personKey": "tommy-neverdahl-nordbo",
         "name": "Tommy Neverdahl Nordbø",
         "roles": 2,
         "missingBiography": true,
@@ -10687,7 +9211,7 @@
         ]
       },
       {
-        "personKey": "tommy-torgersen-sand",
+        "personKey": "tommy-torgersen-sando",
         "name": "Tommy Torgersen Sandø",
         "roles": 2,
         "missingBiography": true,
@@ -10726,7 +9250,7 @@
         ]
       },
       {
-        "personKey": "tor-egil-bj-rsland",
+        "personKey": "tor-egil-bjorsland",
         "name": "Tor Egil Bjørsland",
         "roles": 2,
         "missingBiography": true,
@@ -10765,34 +9289,7 @@
         ]
       },
       {
-        "personKey": "tor-roenhovde",
-        "name": "Tor Roenhovde",
-        "roles": 2,
-        "missingBiography": false,
-        "missingAffiliations": true,
-        "tags": [
-          "4service",
-          "auto-detected",
-          "board-member",
-          "compass-group",
-          "horeca",
-          "interlocking-director",
-          "styreleder"
-        ]
-      },
-      {
-        "personKey": "tor-rnhovde",
-        "name": "Tor Rønhovde",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
-        ]
-      },
-      {
-        "personKey": "tor-ivar-ingebrigtsen",
+        "personKey": "torivar-ingebrigtsen",
         "name": "Tor-Ivar Ingebrigtsen",
         "roles": 2,
         "missingBiography": true,
@@ -10801,11 +9298,12 @@
           "auto-detected",
           "board-member",
           "brreg-role",
+          "interlocking-director",
           "styremedlem"
         ]
       },
       {
-        "personKey": "torbj-rn-nordhaug",
+        "personKey": "torbjorn-nordhaug",
         "name": "Torbjørn Nordhaug",
         "roles": 2,
         "missingBiography": true,
@@ -10818,20 +9316,7 @@
         ]
       },
       {
-        "personKey": "torbj-rn-skei",
-        "name": "Torbjørn Skei",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": false,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "brreg-role",
-          "daglig-leder"
-        ]
-      },
-      {
-        "personKey": "torgeir-l-ftingsmo",
+        "personKey": "torgeir-loftingsmo",
         "name": "Torgeir Løftingsmo",
         "roles": 2,
         "missingBiography": true,
@@ -10854,17 +9339,6 @@
           "board-member",
           "brreg-role",
           "styrets-leder"
-        ]
-      },
-      {
-        "personKey": "trine-srvoll",
-        "name": "Trine Særvoll",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
         ]
       },
       {
@@ -10893,7 +9367,7 @@
         ]
       },
       {
-        "personKey": "trond-erik-solstad-nilsen",
+        "personKey": "trond-erik-solstadnilsen",
         "name": "Trond Erik Solstad-Nilsen",
         "roles": 2,
         "missingBiography": true,
@@ -10903,29 +9377,6 @@
           "board-member",
           "brreg-role",
           "varamedlem"
-        ]
-      },
-      {
-        "personKey": "trond-fredrik-mellingsaeter",
-        "name": "Trond Fredrik Mellingsaeter",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "auto-detected",
-          "board-member",
-          "interlocking-director"
-        ]
-      },
-      {
-        "personKey": "trond-fredrik-mellingster",
-        "name": "Trond Fredrik Mellingsæter",
-        "roles": 2,
-        "missingBiography": true,
-        "missingAffiliations": true,
-        "tags": [
-          "interlocking-director",
-          "auto-detected"
         ]
       },
       {
@@ -10942,7 +9393,7 @@
         ]
       },
       {
-        "personKey": "trond-aas",
+        "personKey": "trond-as",
         "name": "Trond Aas",
         "roles": 2,
         "missingBiography": true,
@@ -10981,7 +9432,7 @@
         ]
       },
       {
-        "personKey": "t-rres-fossmark",
+        "personKey": "torres-fossmark",
         "name": "Tørres Fossmark",
         "roles": 2,
         "missingBiography": true,
@@ -10994,7 +9445,7 @@
         ]
       },
       {
-        "personKey": "unn-merete-gr-nvold-nikolaisen",
+        "personKey": "unn-merete-gronvold-nikolaisen",
         "name": "Unn Merete Grønvold Nikolaisen",
         "roles": 2,
         "missingBiography": true,
@@ -11098,7 +9549,7 @@
         ]
       },
       {
-        "personKey": "rjan-halnes",
+        "personKey": "orjan-halnes",
         "name": "Ørjan Halnes",
         "roles": 2,
         "missingBiography": true,
@@ -11111,7 +9562,7 @@
         ]
       },
       {
-        "personKey": "ystein-halvorsen",
+        "personKey": "oystein-halvorsen",
         "name": "Øystein Halvorsen",
         "roles": 2,
         "missingBiography": true,
@@ -11124,7 +9575,7 @@
         ]
       },
       {
-        "personKey": "ystein-heide-arildsen",
+        "personKey": "oystein-heide-arildsen",
         "name": "Øystein Heide Arildsen",
         "roles": 2,
         "missingBiography": true,
@@ -11137,7 +9588,7 @@
         ]
       },
       {
-        "personKey": "ystein-h-steland-sundby",
+        "personKey": "oystein-hosteland-sundby",
         "name": "Øystein Høsteland Sundby",
         "roles": 2,
         "missingBiography": true,
@@ -11150,7 +9601,7 @@
         ]
       },
       {
-        "personKey": "ystein-smage",
+        "personKey": "oystein-smage",
         "name": "Øystein Småge",
         "roles": 2,
         "missingBiography": true,
@@ -11163,7 +9614,7 @@
         ]
       },
       {
-        "personKey": "yvind-ramm",
+        "personKey": "oyvind-ramm",
         "name": "Øyvind Ramm",
         "roles": 2,
         "missingBiography": true,
@@ -11176,7 +9627,7 @@
         ]
       },
       {
-        "personKey": "age-andre-br-mnes",
+        "personKey": "age-andre-bromnes",
         "name": "Åge Andre Brømnes",
         "roles": 2,
         "missingBiography": true,
@@ -11205,7 +9656,7 @@
         "role": "Leder digitalisering",
         "organization": "NCE Heidner Biocluster",
         "actorId": "actor-heidner-biocluster",
-        "personKey": "anja-loekken-stokke",
+        "personKey": "anja-lokken-stokke",
         "looseKey": "anja-lokken-stokke"
       },
       {
@@ -11223,7 +9674,7 @@
         "role": "Leder",
         "organization": "NCE Heidner Biocluster",
         "actorId": "actor-heidner-biocluster",
-        "personKey": "gurill-narum-mediaa",
+        "personKey": "gurill-narum-media",
         "looseKey": "gurill-narum-media"
       },
       {
@@ -11313,7 +9764,7 @@
         "role": "statsraad",
         "organization": null,
         "actorId": "actor-lmd",
-        "personKey": "nils-kristen-sandtroen",
+        "personKey": "nils-kristen-sandtron",
         "looseKey": "nils-kristen-sandtron"
       },
       {

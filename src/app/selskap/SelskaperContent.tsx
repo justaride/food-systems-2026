@@ -55,12 +55,14 @@ function formatRevenue(n: number | null) {
 export function SelskaperContent({
   companies,
   includeAll,
+  initialStages = [],
 }: {
   companies: CompanyRow[]
   includeAll: boolean
+  initialStages?: string[]
 }) {
   const [query, setQuery] = useState('')
-  const [stageFilter, setStageFilter] = useState('alle')
+  const [stageFilter, setStageFilter] = useState(initialStages[0] ?? 'alle')
   const [ownershipFilter, setOwnershipFilter] = useState('alle')
   const deferredQuery = useDeferredValue(query)
 

@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useMemo, useState, useCallback } from 'react'
 import dynamic from 'next/dynamic'
+import { SECTORS, type SectorKey } from '@/lib/sector'
 
 const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), { ssr: false })
 
@@ -10,6 +11,7 @@ type InterlockNode = {
   label: string
   type: 'company' | 'person'
   val: number
+  sector?: SectorKey
 }
 
 type InterlockEdge = {
@@ -25,10 +27,7 @@ type Props = {
   onNodeClick: (nodeId: string | null) => void
 }
 
-const NODE_COLORS = {
-  company: '#e11d48',
-  person: '#2563eb',
-} as const
+const PERSON_COLOR = '#2563eb'
 
 export function InterlockGraph({ nodes, edges, selectedNodeId, onNodeClick }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -79,7 +78,9 @@ export function InterlockGraph({ nodes, edges, selectedNodeId, onNodeClick }: Pr
         nodeVal={(node: any) => node.val}
         nodeColor={(node: any) => {
           if (hasSelection && !highlightNodes.has(node.id)) return '#d6d3d1'
-          return NODE_COLORS[node.type as keyof typeof NODE_COLORS] ?? '#78716c'
+          if (node.type === 'person') return PERSON_COLOR
+          const sector = (node.sector ?? 'unknown') as SectorKey
+          return SECTORS[sector]?.nodeColor ?? SECTORS.unknown.nodeColor
         }}
         linkColor={() => '#e7e5e4'}
         linkWidth={(link: any) => {

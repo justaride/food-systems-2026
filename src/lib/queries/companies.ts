@@ -152,6 +152,10 @@ export async function getCompanyById(id: string) {
           include: { tenantCompany: { select: { id: true, name: true } } },
           orderBy: [{ propertyType: 'asc' }, { municipality: 'asc' }],
         },
+        tenantProperties: {
+          include: { company: { select: { id: true, name: true } } },
+          orderBy: [{ propertyType: 'asc' }, { municipality: 'asc' }],
+        },
         relationshipsFrom: {
           include: {
             toCompany: { select: { id: true, name: true } },
@@ -190,6 +194,16 @@ export async function getCompanyById(id: string) {
         sqMeters: number | null
         selfLeased: boolean
         tenantCompany: { id: string; name: string } | null
+      }>,
+      tenantProperties: [] as Array<{
+        id: string
+        propertyType: string
+        address: string | null
+        municipality: string | null
+        county: string | null
+        sqMeters: number | null
+        selfLeased: boolean
+        company: { id: string; name: string }
       }>,
       relationshipsFrom: [] as Array<{
         id: string
