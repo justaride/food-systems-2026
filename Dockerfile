@@ -7,13 +7,14 @@ RUN npm ci
 
 FROM base AS builder
 WORKDIR /app
+COPY .git .git
 COPY --from=deps /app/node_modules ./node_modules
 COPY package.json package-lock.json* next.config.ts postcss.config.mjs tailwind.config.ts tsconfig.json prisma.config.ts ./
 COPY prisma ./prisma
 COPY public ./public
 COPY scripts ./scripts
 COPY src ./src
-RUN npm run build
+RUN apk add --no-cache git && npm run build
 
 FROM base AS runner
 WORKDIR /app

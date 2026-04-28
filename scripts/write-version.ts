@@ -25,7 +25,9 @@ function tryGit(args: string): string {
 
 const sha =
   tryGit('rev-parse HEAD') ||
+  process.env.SOURCE_COMMIT ||
   process.env.COOLIFY_GIT_COMMIT_SHA ||
+  process.env.COMMIT_SHA ||
   process.env.GIT_SHA ||
   'unknown'
 
@@ -33,7 +35,10 @@ const branchRaw = tryGit('rev-parse --abbrev-ref HEAD')
 const branch =
   branchRaw && branchRaw !== 'HEAD'
     ? branchRaw
-    : process.env.COOLIFY_GIT_BRANCH || process.env.GIT_BRANCH || 'unknown'
+    : process.env.SOURCE_BRANCH ||
+      process.env.COOLIFY_GIT_BRANCH ||
+      process.env.GIT_BRANCH ||
+      'unknown'
 
 const version = {
   sha,
