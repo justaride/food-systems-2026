@@ -22,6 +22,7 @@ RAPPORT-*.html
 RAPPORT-*.pdf
 
 /src/generated/prisma
+/src/generated/version.json
 
 # Research binaries — track metadata/manifests, not the files themselves.
 # Lokale PDF-er beholdes på disk; repo har bare struktur og analyse.
