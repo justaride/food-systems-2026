@@ -17,9 +17,16 @@ Denne mappen samler styringsdokumenter for Food Systems Transition Group og tilh
 | `track-brief-a-feed-import.md` | Sporbrief A | Utkast | Sirkulært fôr og importavhengighet — beslutningsklar brief. |
 | `track-brief-b-sidestreams-nutrients.md` | Sporbrief B | Utkast | Sidestrømmer, matsvinnkvalitet og næringsstoffløkker. |
 | `track-brief-c-adoption.md` | Sporbrief C | Utkast | Adoption mechanisms for circular food. |
-| `actor-validation-pack-food-tg.md` | Aktørpakke | Utkast | Aktørliste, ask, intervjuguide, outreach-logg. |
-| `decision-memo-food-tg-scope.md` | Decision memo | Utkast | Anbefaling om scope, første aktører og neste sprint. |
-| `food-tg-insight-pack-v0.1.md` | Insight Pack v0.1 syntese | Utkast | 5-8 sider hovedfunn, usikkerheter og anbefalt scope. |
+| `decision-memo-food-tg-scope-v0.3.md` | Decision memo | Aktiv v0.3 | Anbefalt A+B/C-scope, valideringssprint og stoppsignaler. |
+| `insight-pack-outline-food-tg-v0.2.md` | Insight Pack-disposisjon | Aktiv v0.2 | Storyline, slide-rekkefølge og trygg/utrygg formulering per hovedclaim. |
+| `brief-jan-thomas-cathrine-food-tg-runde-4.md` | Møtebrief | Klar til bruk | Kort beslutnings- og samtalegrunnlag etter runde 4. |
+| `opportunity-radar-food-tg-v0.1.md` | Opportunity radar | Aktiv v0.1 | Prioriterer validerbare muligheter, claims, stoppsignaler og neste handling. |
+| `primary-check-queue-food-tg-v0.1.md` | Primary-check-kø | Aktiv v0.1 | Skiller regulatoriske og datamessige sjekkpunkter fra aktørvalidering. |
+| `actor-validation-pack-food-tg-v0.1.md` | Aktørpakke | Aktiv v0.1 | Aktørliste, spørsmålsbank, intervjulogikk og valideringsgrenser. |
+| `actor-outreach-food-tg-v0.1.md` | Outreach-pakke | Utkast | Klarere tekst for første kontakt og møtebooking. |
+| `claim-strength-report-food-tg-v0.1.md` | Claim strength report | Aktiv v0.1 | Samlet styrke-/risikovurdering av claims før ekstern bruk. |
+| `research-synthesis-food-tg-v0.1.md` | Research synthesis | Aktiv v0.1 | Intern syntese av funn, usikkerheter og anbefalt scope. |
+| `analysefabrikk-food-tg-arbeidsprosess-2026-04-28.md` | Analysefabrikk | Aktiv prosesslogg | Forklarer rundevis arbeidsform, handoffs, mini-verifikasjon og merge-logikk. |
 
 Primære kryssreferanser:
 
@@ -27,4 +34,5 @@ Primære kryssreferanser:
 - `docs/meetings/MØTEOVERSIKT.md` og rotfilen `MØTEOVERSIKT.md` peker til disse dokumentene i samlet møte- og dokumentoversikt.
 - `docs/project/PROJECT-OVERVIEW.md` og rotfilen `PROJECT-OVERVIEW.md` beskriver prosjektkontekst, kontrakt og leveranser.
 - `docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md` er nå styringsnotatet for status mot mandat og videre arbeidsplan.
-- `docs/project/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md` beskriver den operative innsiktsprosessen, verktøyene og arbeidsproduktene som trengs for Insight Pack v0.1.
+- `docs/project/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md` beskriver den operative innsiktsprosessen, verktøyene og arbeidsproduktene som trengs for Insight Pack-disposisjon og beslutningsnotat.
+- `docs/project/mandates/analysefabrikk-handoffs/` inneholder worker-handoffs, mini-verifikasjon og master merge for runde 2-4.

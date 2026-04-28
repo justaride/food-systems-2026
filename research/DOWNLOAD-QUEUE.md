@@ -1,17 +1,17 @@
 # Nedlastings-kø — manglende originaldokumenter
 
 > AUTO-GENERERT av `scripts/build-download-queue.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T10:53:48.543Z
+> Generert: 2026-04-28T13:01:31.518Z
 
 Dette er kilder vi **vet om** via seed-filer, backlog-CSV, PubMed-manifest og MD-frontmatter, men som mangler lokal PDF. Duplisert på URL og sortert etter prioritet.
 
 ## Sammendrag
 
-**Totalt:** 212 unike URL-er
+**Totalt:** 210 unike URL-er
 
 | Prioritet | Antall |
 |---|---:|
-| P1 (plattform-kjerne) | 74 |
+| P1 (plattform-kjerne) | 72 |
 | P2 (evidens/sitater) | 44 |
 | P3 (MD-frontmatter) | 94 |
 
@@ -20,11 +20,11 @@ Dette er kilder vi **vet om** via seed-filer, backlog-CSV, PubMed-manifest og MD
 | md-scrape | 94 |
 | reports.ts | 37 |
 | sources.ts | 37 |
-| theses.ts | 36 |
+| theses.ts | 34 |
 | pubmed-wave1 | 7 |
 | backlog-csv | 1 |
 
-## P1 — 74
+## P1 — 72
 
 | ID | Kilde | Tittel | År | URL-type | Access | Target |
 |---|---|---|---|---|---|---|
@@ -69,9 +69,7 @@ Dette er kilder vi **vet om** via seed-filer, backlog-CSV, PubMed-manifest og MD
 | `barbakken-hausken-2006` | theses.ts | Det norske dagligvaremarkedet: relasjoner mellom detaljist og produsent | 2006 | landing_page | open | `research/evidence-pack/akademia/barbakken-hausken-2006.pdf` |
 | `kronqvist-2010` | theses.ts | Consumer-owned retail cooperative in duopoly with horizontally differentiated goods | 2010 | landing_page | open | `research/evidence-pack/akademia/kronqvist-2010.pdf` |
 | `halseth-phd-2024` | theses.ts | Competition and Grocery Retail Formats: Empirical Evidence from a Horizontal Acquisition in Norway | 2024 | direct_pdf | open | `research/evidence-pack/akademia/halseth-phd-2024.pdf` |
-| `hebrok-phd-2020` | theses.ts | Food Waste: A practice-oriented design for sustainability approach | 2020 | landing_page | open | `research/evidence-pack/akademia/hebrok-phd-2020.pdf` |
 | `eriksson-phd-2015` | theses.ts | Supermarket food waste: Prevention and management | 2015 | landing_page | open | `research/evidence-pack/akademia/eriksson-phd-2015.pdf` |
-| `albizzati-phd-2021` | theses.ts | Sustainability Assessment of Food Waste Management | 2021 | landing_page | open | `research/evidence-pack/akademia/albizzati-phd-2021.pdf` |
 | `esposito-2022` | theses.ts | Nar matsvinn blir et politikkomrade | 2022 | landing_page | open | `research/evidence-pack/akademia/esposito-2022.pdf` |
 | `deljanin-2015` | theses.ts | Market's imperfections — Building a concerned market for food waste | 2015 | direct_pdf | open | `research/evidence-pack/akademia/deljanin-2015.pdf` |
 | `burgherr-2019` | theses.ts | Food waste in Reykjavik — comparison 2015 vs 2018 | 2019 | landing_page | open | `research/evidence-pack/akademia/burgherr-2019.pdf` |

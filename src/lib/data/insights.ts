@@ -1679,4 +1679,79 @@ export const insights: Insight[] = [
       'Syntese fra 10 nordisk-internasjonale benchmarks: case som faktisk har flyttet praksis/policy/kapital kombinerer tre motorer: (1) demand (innkjoep/pris/regulering) — Garot-loven, 30%-regelen, Koebenhavn maaltidsprogram; (2) operational (opplaering/data/logistikk) — Koebenhavns Madhus-opplaering, PeelPioneers logistikk, FarmAhead-data; (3) finance (tilskudd/fond/kontrakter) — Plantefonden, Agrain-kapital, PNAE-budsjett. Policy og markedsmodeller utfyller — Soer-Korea+Frankrike viser regulering virker naar det gjoer praksis obligatorisk; TGTG+REKO viser marked virker naar det gjoer praksis enkel+attraktiv.',
     tags: ['benchmark', 'transformasjon', 'policy-design', 'forskningsrunde-2026-04-20'],
   },
+  {
+    id: 'ins-food-tg-01',
+    title: 'Food TG bor snevres til Spor A+B, med C som gate',
+    type: 'analyse',
+    source: 'Food TG runde 4 syntese',
+    phase: 'fase-2',
+    date: '2026-04-28',
+    description:
+      'Runde 4 gir nok grunnlag til aa snevre Food TG til Spor A (for, import og sporbarhet) og Spor B (sidestroemmer, matsvinnkvalitet og ressurslooper), mens Spor C brukes som tverrgaende adoption-, regelverks- og datagate. Dette er et internt scopevalg, ikke et eksternt pilotloefte.',
+    tags: ['food-tg', 'mandat', 'scope', 'spor-a', 'spor-b', 'spor-c', 'runde-4'],
+    sources: [
+      { label: 'Decision memo Food TG scope v0.3', note: 'docs/project/mandates/decision-memo-food-tg-scope-v0.3.md' },
+      { label: 'Research synthesis Food TG v0.1', note: 'docs/project/mandates/research-synthesis-food-tg-v0.1.md' },
+    ],
+  },
+  {
+    id: 'ins-food-tg-02',
+    title: 'EUDR/sporbarhet er sterkest som datadriver, ikke som norsk konklusjon',
+    type: 'funn',
+    source: 'Food TG runde 4 syntese',
+    phase: 'fase-2',
+    date: '2026-04-28',
+    description:
+      'EUDR og sporbarhet gir et tydelig A-spor for datakrav rundt soya og relevante avledede produkter, men norsk/EOS-gjennomforing, varekodebruk og metode maa primary-checkes for ekstern bruk. Funnet skal derfor holdes som needs-primary-check.',
+    tags: ['food-tg', 'eudr', 'sporbarhet', 'for', 'import', 'needs-primary-check'],
+    sources: [
+      { label: 'Primary-check queue Food TG v0.1', note: 'docs/project/mandates/primary-check-queue-food-tg-v0.1.md' },
+      { label: 'Evidence matrix Food TG', note: 'EV-A-021' },
+    ],
+  },
+  {
+    id: 'ins-food-tg-03',
+    title: 'Matsvinnkvalitet er raskere adoption-kandidat enn fysisk prosessering',
+    type: 'analyse',
+    source: 'Food TG runde 4 syntese',
+    phase: 'fase-2',
+    date: '2026-04-28',
+    description:
+      'Quality windows i butikk/HORECA kan bli en raskere adoption- eller fallback-kandidat enn okara/BSG dersom partner kan dele baseline, kategori, tidsvindu og rutineendring. Dette er fortsatt hypotese og needs-actor-validation; maaltider reddet er ikke effektbevis alene.',
+    tags: ['food-tg', 'matsvinn', 'adoption', 'horeca', 'needs-actor-validation'],
+    sources: [
+      { label: 'Opportunity radar Food TG v0.1', note: 'docs/project/mandates/opportunity-radar-food-tg-v0.1.md' },
+      { label: 'Claim register Food TG', note: 'CL-B-022, CL-C-012' },
+    ],
+  },
+  {
+    id: 'ins-food-tg-04',
+    title: 'Okara/BSG er teknisk benchmark med klare gates',
+    type: 'kartlegging',
+    source: 'Food TG runde 4 syntese',
+    phase: 'fase-2',
+    date: '2026-04-28',
+    description:
+      'Okara/BSG er konkrete tekniske benchmark for B-sporet fordi svenske case viser krav til fukt, holdbarhet, mikrobiologi, stabilisering, logistikk og marked. Det er ikke pilotklart uten norsk/nordisk volum, matgrad, Novel Food-avklaring, hygieneport og off-taker.',
+    tags: ['food-tg', 'okara', 'bsg', 'sidestroem', 'benchmark', 'needs-actor-validation'],
+    sources: [
+      { label: 'Track brief B', note: 'docs/project/mandates/track-brief-b-sidestreams-nutrients.md' },
+      { label: 'Evidence matrix Food TG', note: 'EV-B-018, EV-B-019' },
+    ],
+  },
+  {
+    id: 'ins-food-tg-05',
+    title: 'Claim-status maa styre alle uttak fra Food TG',
+    type: 'notat',
+    source: 'Food TG runde 4 syntese',
+    phase: 'fase-2',
+    date: '2026-04-28',
+    description:
+      'Runde 4 etablerer en arbeidsregel: sterke interne claims kan brukes i beslutning, medium/lave claims maa knyttes til sjekkpunkt, og ingen claims skal markeres Validert eksternt uten dokumentert respons med dato, kontakt, rolle, kildegrunnlag og bruksrett.',
+    tags: ['food-tg', 'claim-status', 'evidens', 'validering', 'statusdisiplin'],
+    sources: [
+      { label: 'Claim strength report Food TG v0.1', note: 'docs/project/mandates/claim-strength-report-food-tg-v0.1.md' },
+      { label: 'Actor validation pack Food TG v0.1', note: 'docs/project/mandates/actor-validation-pack-food-tg-v0.1.md' },
+    ],
+  },
 ]

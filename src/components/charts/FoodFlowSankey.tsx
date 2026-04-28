@@ -222,7 +222,7 @@ export function FoodFlowSankey({ country = 'no' }: { country?: string }) {
       <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Matflyt {label} (2024-estimat)</h3>
       <p className="text-xs text-stone-400 mb-3">Produksjon, import og eksport i 1000 tonn</p>
       <div className="h-[320px]">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
           <Sankey
             data={data}
             nodeWidth={10}

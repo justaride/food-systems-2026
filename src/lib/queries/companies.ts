@@ -15,6 +15,7 @@ async function runCompanyQuery(opts: {
     { financials: { some: {} } },
     { boardMembers: { some: {} } },
     { shareholders: { some: {} } },
+    { documentRefs: { some: {} } },
   ]
 
   const extendedOr = useExtendedRelations

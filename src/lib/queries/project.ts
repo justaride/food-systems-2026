@@ -19,10 +19,41 @@ function logProjectFallback(dataset: string, error: unknown) {
   console.warn(`[project-query] Falling back to static ${dataset} data`, error)
 }
 
+function canonicalValueMatches(rowValue: unknown, canonicalValue: unknown): boolean {
+  if (typeof canonicalValue === 'object' && canonicalValue !== null) {
+    return JSON.stringify(rowValue) === JSON.stringify(canonicalValue)
+  }
+
+  return rowValue === canonicalValue
+}
+
+function rowMatchesCanonical<T extends object>(row: T | undefined, canonical: T): boolean {
+  if (!row) return false
+
+  return Object.entries(canonical as Record<string, unknown>).every(([key, canonicalValue]) => (
+    canonicalValueMatches((row as Record<string, unknown>)[key], canonicalValue)
+  ))
+}
+
+function getFreshCanonicalRows<T extends object, K extends string | number>(
+  rows: T[],
+  canonicalRows: T[],
+  getKey: (row: T) => K,
+): T[] {
+  const rowsById = new Map(rows.map(row => [getKey(row), row]))
+  const hasCurrentCanonicalRows = canonicalRows.every(canonical => (
+    rowMatchesCanonical(rowsById.get(getKey(canonical)), canonical)
+  ))
+
+  if (!hasCurrentCanonicalRows) return canonicalRows
+
+  return canonicalRows.map(canonical => rowsById.get(getKey(canonical)) ?? canonical)
+}
+
 export async function getPhases(): Promise<Phase[]> {
   try {
     const rows = await prisma.phase.findMany({ orderBy: { id: 'asc' } })
-    return rows as unknown as Phase[]
+    return getFreshCanonicalRows(rows as unknown as Phase[], fallbackPhases, row => row.id)
   } catch (error) {
     if (!isPrismaDataUnavailable(error)) throw error
     logProjectFallback('phases', error)
@@ -58,7 +89,7 @@ export async function getKpis(): Promise<KPI[]> {
 export async function getTenSteps(): Promise<TenStep[]> {
   try {
     const rows = await prisma.tenStep.findMany({ orderBy: { step: 'asc' } })
-    return rows as unknown as TenStep[]
+    return getFreshCanonicalRows(rows as unknown as TenStep[], fallbackTenSteps, row => row.step)
   } catch (error) {
     if (!isPrismaDataUnavailable(error)) throw error
     logProjectFallback('ten steps', error)
@@ -69,7 +100,7 @@ export async function getTenSteps(): Promise<TenStep[]> {
 export async function getEvidenceDocs(): Promise<EvidenceDoc[]> {
   try {
     const rows = await prisma.evidenceDoc.findMany({ orderBy: { id: 'asc' } })
-    return rows as unknown as EvidenceDoc[]
+    return getFreshCanonicalRows(rows as unknown as EvidenceDoc[], fallbackEvidencePack, row => row.id)
   } catch (error) {
     if (!isPrismaDataUnavailable(error)) throw error
     logProjectFallback('evidence docs', error)

@@ -71,7 +71,7 @@ export default async function MetodikkPage() {
         </div>
       </Card>
 
-      <Card title="Evidence Pack (8 dokumenter)">
+      <Card title={`Evidence Pack (${evidencePack.length} dokumenter)`}>
         <div className="space-y-2">
           {evidencePack.map((doc, i) => (
             <div

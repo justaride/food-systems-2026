@@ -4,9 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
-import type { BacklogRound } from '@/lib/queries/download-backlog'
-
-type SourceDownloadStatus = 'downloaded' | 'url_only' | 'missing_metadata_only' | 'untracked'
+import type { BacklogRound, SourceDownloadStatus } from '@/lib/queries/download-backlog'
 
 export type SourceRow = {
   id: string
@@ -55,25 +53,72 @@ const typeLabels: Record<string, string> = {
   initiativ: 'Initiativ',
 }
 
-const statusLabels: Record<SourceDownloadStatus | 'all', string> = {
-  all: 'Alle statuser',
-  downloaded: 'Nedlastet',
-  url_only: 'Kun URL',
-  missing_metadata_only: 'Mangler metadata',
-  untracked: 'Ikke sporet',
+const statusUi: Record<
+  SourceDownloadStatus,
+  {
+    label: string
+    shortLabel: string
+    dotClassName: string
+    countClassName: string
+    activeClassName: string
+    inactiveClassName: string
+  }
+> = {
+  downloaded: {
+    label: 'Nedlastet lokalt',
+    shortLabel: 'Nedlastet',
+    dotClassName: 'bg-emerald-500',
+    countClassName: 'text-emerald-800',
+    activeClassName: 'border-emerald-500 bg-emerald-50 ring-2 ring-emerald-200',
+    inactiveClassName: 'border-emerald-200 bg-emerald-50/40 hover:bg-emerald-50',
+  },
+  exa_fetched: {
+    label: 'Hentet med Exa',
+    shortLabel: 'Exa-hentet',
+    dotClassName: 'bg-sky-500',
+    countClassName: 'text-sky-800',
+    activeClassName: 'border-sky-500 bg-sky-50 ring-2 ring-sky-200',
+    inactiveClassName: 'border-sky-200 bg-sky-50/40 hover:bg-sky-50',
+  },
+  requires_manual: {
+    label: 'Krever manuell nedlasting',
+    shortLabel: 'Manuell',
+    dotClassName: 'bg-violet-500',
+    countClassName: 'text-violet-800',
+    activeClassName: 'border-violet-500 bg-violet-50 ring-2 ring-violet-200',
+    inactiveClassName: 'border-violet-200 bg-violet-50/40 hover:bg-violet-50',
+  },
+  url_only: {
+    label: 'Kun URL registrert',
+    shortLabel: 'Kun URL',
+    dotClassName: 'bg-amber-500',
+    countClassName: 'text-amber-800',
+    activeClassName: 'border-amber-500 bg-amber-50 ring-2 ring-amber-200',
+    inactiveClassName: 'border-amber-200 bg-amber-50/40 hover:bg-amber-50',
+  },
+  missing_metadata_only: {
+    label: 'Mangler metadata',
+    shortLabel: 'Mangler metadata',
+    dotClassName: 'bg-rose-500',
+    countClassName: 'text-rose-800',
+    activeClassName: 'border-rose-500 bg-rose-50 ring-2 ring-rose-200',
+    inactiveClassName: 'border-rose-200 bg-rose-50/40 hover:bg-rose-50',
+  },
+  untracked: {
+    label: 'Ikke sporet i backlog',
+    shortLabel: 'Ikke i backlog',
+    dotClassName: 'bg-stone-300',
+    countClassName: 'text-stone-800',
+    activeClassName: 'border-stone-500 bg-stone-50 ring-2 ring-stone-300',
+    inactiveClassName: 'border-stone-200 bg-stone-50/40 hover:bg-stone-50',
+  },
 }
 
+const sourceDownloadStatuses = Object.keys(statusUi) as SourceDownloadStatus[]
+
 function statusDot(status: SourceDownloadStatus): { className: string; label: string } {
-  switch (status) {
-    case 'downloaded':
-      return { className: 'bg-emerald-500', label: 'Nedlastet lokalt' }
-    case 'url_only':
-      return { className: 'bg-amber-500', label: 'Kun URL registrert' }
-    case 'missing_metadata_only':
-      return { className: 'bg-rose-500', label: 'Mangler metadata' }
-    case 'untracked':
-      return { className: 'bg-stone-300', label: 'Ikke sporet i backlog' }
-  }
+  const config = statusUi[status] ?? statusUi.untracked
+  return { className: config.dotClassName, label: config.label }
 }
 
 export function KilderContent({
@@ -113,12 +158,12 @@ export function KilderContent({
     return matchesType && matchesStatus && matchesRound && matchesOrigin && matchesSearch
   })
 
-  const statusStats = {
-    downloaded: sources.filter((s) => s.downloadStatus === 'downloaded').length,
-    urlOnly: sources.filter((s) => s.downloadStatus === 'url_only').length,
-    missingMetadata: sources.filter((s) => s.downloadStatus === 'missing_metadata_only').length,
-    untracked: sources.filter((s) => s.downloadStatus === 'untracked').length,
-  }
+  const statusStats = Object.fromEntries(
+    sourceDownloadStatuses.map((status) => [
+      status,
+      sources.filter((s) => s.downloadStatus === status).length,
+    ]),
+  ) as Record<SourceDownloadStatus, number>
 
   const stats = {
     total: sources.length,
@@ -218,67 +263,27 @@ export function KilderContent({
             Nullstill
           </button>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-          <button
-            onClick={() => setStatusFilter(statusFilter === 'downloaded' ? 'all' : 'downloaded')}
-            className={`text-left rounded-lg border p-3 transition-colors ${
-              statusFilter === 'downloaded'
-                ? 'border-emerald-500 bg-emerald-50 ring-2 ring-emerald-200'
-                : 'border-emerald-200 bg-emerald-50/40 hover:bg-emerald-50'
-            }`}
-          >
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <div className="text-lg font-bold text-emerald-800">{statusStats.downloaded}</div>
-            </div>
-            <div className="text-[11px] text-emerald-700 mt-0.5">Nedlastet lokalt</div>
-          </button>
-          <button
-            onClick={() => setStatusFilter(statusFilter === 'url_only' ? 'all' : 'url_only')}
-            className={`text-left rounded-lg border p-3 transition-colors ${
-              statusFilter === 'url_only'
-                ? 'border-amber-500 bg-amber-50 ring-2 ring-amber-200'
-                : 'border-amber-200 bg-amber-50/40 hover:bg-amber-50'
-            }`}
-          >
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-500"></span>
-              <div className="text-lg font-bold text-amber-800">{statusStats.urlOnly}</div>
-            </div>
-            <div className="text-[11px] text-amber-700 mt-0.5">Kun URL</div>
-          </button>
-          <button
-            onClick={() =>
-              setStatusFilter(
-                statusFilter === 'missing_metadata_only' ? 'all' : 'missing_metadata_only',
-              )
-            }
-            className={`text-left rounded-lg border p-3 transition-colors ${
-              statusFilter === 'missing_metadata_only'
-                ? 'border-rose-500 bg-rose-50 ring-2 ring-rose-200'
-                : 'border-rose-200 bg-rose-50/40 hover:bg-rose-50'
-            }`}
-          >
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-rose-500"></span>
-              <div className="text-lg font-bold text-rose-800">{statusStats.missingMetadata}</div>
-            </div>
-            <div className="text-[11px] text-rose-700 mt-0.5">Mangler metadata</div>
-          </button>
-          <button
-            onClick={() => setStatusFilter(statusFilter === 'untracked' ? 'all' : 'untracked')}
-            className={`text-left rounded-lg border p-3 transition-colors ${
-              statusFilter === 'untracked'
-                ? 'border-stone-500 bg-stone-50 ring-2 ring-stone-300'
-                : 'border-stone-200 bg-stone-50/40 hover:bg-stone-50'
-            }`}
-          >
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-stone-400"></span>
-              <div className="text-lg font-bold text-stone-800">{statusStats.untracked}</div>
-            </div>
-            <div className="text-[11px] text-stone-600 mt-0.5">Ikke i backlog</div>
-          </button>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+          {sourceDownloadStatuses.map((status) => {
+            const config = statusUi[status]
+            return (
+              <button
+                key={status}
+                onClick={() => setStatusFilter(statusFilter === status ? 'all' : status)}
+                className={`text-left rounded-lg border p-3 transition-colors ${
+                  statusFilter === status ? config.activeClassName : config.inactiveClassName
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <span className={`w-2 h-2 rounded-full ${config.dotClassName}`}></span>
+                  <div className={`text-lg font-bold ${config.countClassName}`}>
+                    {statusStats[status]}
+                  </div>
+                </div>
+                <div className="text-[11px] text-stone-700 mt-0.5">{config.shortLabel}</div>
+              </button>
+            )
+          })}
         </div>
         <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
           <span className="text-stone-500">Opprinnelse:</span>
@@ -341,13 +346,12 @@ export function KilderContent({
       {/* Status legend */}
       <div className="flex items-center gap-4 text-xs text-stone-600 flex-wrap">
         <span className="font-semibold">Status:</span>
-        {(Object.keys(statusLabels) as (SourceDownloadStatus | 'all')[]).map((s) => {
-          if (s === 'all') return null
+        {sourceDownloadStatuses.map((s) => {
           const dot = statusDot(s)
           return (
             <span key={s} className="inline-flex items-center gap-1.5">
               <span className={`w-2 h-2 rounded-full ${dot.className}`} />
-              {statusLabels[s]}
+              {statusUi[s].shortLabel}
             </span>
           )
         })}

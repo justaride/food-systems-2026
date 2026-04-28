@@ -5,8 +5,8 @@ import {
   matchSourceToBacklog,
   backlogOnlyRows,
   BACKLOG_ROUNDS,
+  normalizeSourceDownloadStatus,
   type BacklogRound,
-  type SourceDownloadStatus,
 } from '@/lib/queries/download-backlog'
 import { KilderContent, type SourceRow } from './KilderContent'
 
@@ -84,7 +84,7 @@ export default async function KilderPage({
       isDuplicate: src.isDuplicate,
       document: src.document,
       origin: 'db' as const,
-      downloadStatus: match.status as SourceDownloadStatus,
+      downloadStatus: match.status,
       researchRound: match.researchRound ?? null,
       backlogTheme: match.backlog?.theme ?? null,
       backlogPriority: match.backlog?.priority ?? null,
@@ -109,7 +109,7 @@ export default async function KilderPage({
       isDuplicate: false,
       document: null,
       origin: 'backlog' as const,
-      downloadStatus: row.status as SourceDownloadStatus,
+      downloadStatus: normalizeSourceDownloadStatus(row.status),
       researchRound: round,
       backlogTheme: row.theme || null,
       backlogPriority: row.priority || null,
@@ -131,7 +131,7 @@ export default async function KilderPage({
     return {
       ...doc,
       origin: 'document' as const,
-      downloadStatus: match.researchRound ? (match.status as SourceDownloadStatus) : 'downloaded',
+      downloadStatus: match.researchRound ? match.status : 'downloaded',
       researchRound: match.researchRound ?? null,
       backlogTheme: match.backlog?.theme ?? null,
       backlogPriority: match.backlog?.priority ?? null,

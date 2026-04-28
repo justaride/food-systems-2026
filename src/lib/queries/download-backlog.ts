@@ -146,22 +146,73 @@ export function loadAllBacklogs(): BacklogRowWithRound[] {
   return out
 }
 
+export type SourceDownloadStatus =
+  | 'downloaded'
+  | 'exa_fetched'
+  | 'requires_manual'
+  | 'url_only'
+  | 'missing_metadata_only'
+  | 'untracked'
+
+type BacklogStatusCounts = {
+  total: number
+  downloaded: number
+  exaFetched: number
+  requiresManual: number
+  urlOnly: number
+  missingMetadata: number
+}
+
 export type BacklogSummary = {
   total: number
   downloaded: number
+  exaFetched: number
+  requiresManual: number
   urlOnly: number
   missingMetadata: number
-  byTheme: Record<
-    string,
-    { total: number; downloaded: number; urlOnly: number; missingMetadata: number }
-  >
+  byTheme: Record<string, BacklogStatusCounts>
   byPriority: Record<string, number>
+}
+
+function emptyBacklogStatusCounts(): BacklogStatusCounts {
+  return {
+    total: 0,
+    downloaded: 0,
+    exaFetched: 0,
+    requiresManual: 0,
+    urlOnly: 0,
+    missingMetadata: 0,
+  }
+}
+
+function applyStatusCount(target: BacklogStatusCounts, status: string | null | undefined) {
+  switch (normalizeSourceDownloadStatus(status)) {
+    case 'downloaded':
+      target.downloaded++
+      break
+    case 'exa_fetched':
+      target.exaFetched++
+      break
+    case 'requires_manual':
+      target.requiresManual++
+      break
+    case 'url_only':
+      target.urlOnly++
+      break
+    case 'missing_metadata_only':
+      target.missingMetadata++
+      break
+    case 'untracked':
+      break
+  }
 }
 
 export function summarizeBacklog(rows: BacklogRow[]): BacklogSummary {
   const summary: BacklogSummary = {
     total: rows.length,
     downloaded: 0,
+    exaFetched: 0,
+    requiresManual: 0,
     urlOnly: 0,
     missingMetadata: 0,
     byTheme: {},
@@ -169,18 +220,14 @@ export function summarizeBacklog(rows: BacklogRow[]): BacklogSummary {
   }
 
   for (const r of rows) {
-    if (r.status === 'downloaded') summary.downloaded++
-    else if (r.status === 'url_only') summary.urlOnly++
-    else if (r.status === 'missing_metadata_only') summary.missingMetadata++
+    applyStatusCount(summary, r.status)
 
     const theme = r.theme || 'other'
     if (!summary.byTheme[theme]) {
-      summary.byTheme[theme] = { total: 0, downloaded: 0, urlOnly: 0, missingMetadata: 0 }
+      summary.byTheme[theme] = emptyBacklogStatusCounts()
     }
     summary.byTheme[theme].total++
-    if (r.status === 'downloaded') summary.byTheme[theme].downloaded++
-    else if (r.status === 'url_only') summary.byTheme[theme].urlOnly++
-    else if (r.status === 'missing_metadata_only') summary.byTheme[theme].missingMetadata++
+    applyStatusCount(summary.byTheme[theme], r.status)
 
     summary.byPriority[r.priority] = (summary.byPriority[r.priority] ?? 0) + 1
   }
@@ -189,12 +236,6 @@ export function summarizeBacklog(rows: BacklogRow[]): BacklogSummary {
 }
 
 // ═══ Source -> Backlog matching ═══
-
-export type SourceDownloadStatus =
-  | 'downloaded'
-  | 'url_only'
-  | 'missing_metadata_only'
-  | 'untracked'
 
 export type MatchedSource = {
   status: SourceDownloadStatus
@@ -232,6 +273,19 @@ function normalizeTitle(s: string | null | undefined): string {
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim()
+}
+
+export function normalizeSourceDownloadStatus(status: string | null | undefined): SourceDownloadStatus {
+  switch (status) {
+    case 'downloaded':
+    case 'exa_fetched':
+    case 'requires_manual':
+    case 'url_only':
+    case 'missing_metadata_only':
+      return status
+    default:
+      return 'untracked'
+  }
 }
 
 export type BacklogIndex = {
@@ -301,7 +355,7 @@ export function matchSourceToBacklog(
       const nt = normalizeTitle(hit.row.title)
       if (nt) index.matchedTitles.add(nt)
       return {
-        status: hit.row.status as SourceDownloadStatus,
+        status: normalizeSourceDownloadStatus(hit.row.status),
         backlog: hit.row,
         researchRound: hit.round,
         matchedBy: 'url',
@@ -318,7 +372,7 @@ export function matchSourceToBacklog(
       const nt = normalizeTitle(hit.row.title)
       if (nt) index.matchedTitles.add(nt)
       return {
-        status: hit.row.status as SourceDownloadStatus,
+        status: normalizeSourceDownloadStatus(hit.row.status),
         backlog: hit.row,
         researchRound: hit.round,
         matchedBy: 'filename',
@@ -334,7 +388,7 @@ export function matchSourceToBacklog(
       const hu = normalizeUrl(hit.row.url)
       if (hu) index.matchedUrls.add(hu)
       return {
-        status: hit.row.status as SourceDownloadStatus,
+        status: normalizeSourceDownloadStatus(hit.row.status),
         backlog: hit.row,
         researchRound: hit.round,
         matchedBy: 'title',

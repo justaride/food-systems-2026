@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-04-28T13:07:03.688Z",
+  "input": "research/_status/person-high-priority-review-2026-04-28.csv",
+  "allowedDecisions": [
+    "add_person_profile",
+    "add_actor_contact",
+    "add_both",
+    "keep_actor_contact",
+    "exclude",
+    "needs_source_check",
+    "defer"
+  ],
+  "readyForImportBatch": false,
+  "summary": {
+    "rows": 33,
+    "blankDecisions": 33,
+    "invalidDecisions": 0,
+    "warnings": 0,
+    "readyPersonProfileRows": 0,
+    "readyActorContactRows": 0
+  },
+  "decisionCounts": {
+    "<blank>": 33
+  },
+  "readyPersonProfiles": [],
+  "readyActorContacts": [],
+  "issues": []
+}

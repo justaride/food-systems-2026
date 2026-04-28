@@ -96,7 +96,7 @@ export function SelskaperContent({
           <p className="text-sm text-stone-500 mt-1 max-w-3xl">
             {includeAll
               ? `Viser alle ${companies.length.toLocaleString('no')} registrerte selskaper (inkl. jordbruksforetak fra subsidieregisteret).`
-              : `Viser ${companies.length} kartlagte selskaper med regnskap, styre, eierskap, eiendom, relasjoner eller aktørkobling.`}
+              : `Viser ${companies.length} kartlagte selskaper med regnskap, styre, eierskap, underlagskobling, eiendom, relasjoner eller aktørkobling.`}
           </p>
         </div>
         <div className="flex gap-2">

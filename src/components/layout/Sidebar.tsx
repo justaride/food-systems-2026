@@ -15,6 +15,7 @@ const navGroups = [
       { name: 'Team', href: '/team', description: 'Medlemmer og roller' },
       { name: 'Moter', href: '/moter', description: 'Motesammendrag og referater' },
       { name: 'Kommunikasjon', href: '/kommunikasjon', description: 'E-post og korrespondanse' },
+      { name: 'Mandat', href: '/mandat', description: 'Food TG scope, claims og validering' },
       { name: 'Metodikk', href: '/metodikk', description: 'Ten Step, KPIs og deep research-prompter' },
       { name: 'Tidslinje', href: '/tidslinje', description: 'Faser og soknader' },
     ],

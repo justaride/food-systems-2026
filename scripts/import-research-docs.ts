@@ -79,9 +79,15 @@ const SUPPLEMENTAL_PDF_MATCHES: Record<string, SupplementalPdfMatch> = {
     tags: ['agrianalyse', 'jordbruk', 'matpriser'],
     note: 'Lokal fil er en HTML-placeholder fra en stale getfile-lenke. AgriAnalyse sitt 2025-arkiv viser Notat 1-3, men ingen offentlig PDF for "Bondens andel av matkronen".',
   },
+  'arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Paola_Federica_Albizzati_thesis.pdf': {
+    thesisId: 'albizzati-phd-2021',
+  },
   'evidence-pack/akademia/drager-vagene-2017.pdf': { thesisId: 'drager-vagene-2017' },
   'evidence-pack/akademia/fretheim-rodnova-2020.pdf': { thesisId: 'fretheim-rodnova-2020' },
   'evidence-pack/akademia/gangstoe-2019-uib.pdf': { thesisId: 'gangstoe-2019' },
+  'arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Marie+Hebrok.pdf': {
+    thesisId: 'hebrok-phd-2020',
+  },
   'evidence-pack/akademia/huynh-mortensen-2025.pdf': { thesisId: 'huynh-mortensen-2025' },
   'evidence-pack/akademia/jacobsen-jansson-2022-black-sheep.pdf': {
     thesisId: 'jacobsen-jansson-2022',
@@ -89,6 +95,7 @@ const SUPPLEMENTAL_PDF_MATCHES: Record<string, SupplementalPdfMatch> = {
   },
   'evidence-pack/akademia/martens-norum-2020.pdf': { thesisId: 'martens-norum-2020' },
   'evidence-pack/akademia/meile-2020.pdf': { thesisId: 'meile-2020' },
+  'evidence-pack/akademia/nguyen-hartmann-2024.pdf': { thesisId: 'nguyen-hartmann-2024' },
   'evidence-pack/akademia/nilsen-paulsen-2025.pdf': { thesisId: 'nilsen-paulsen-2025' },
   'evidence-pack/akademia/rey-verge-2005.pdf': {
     title: 'Rey & Verge 2005',
@@ -106,6 +113,12 @@ const SUPPLEMENTAL_PDF_MATCHES: Record<string, SupplementalPdfMatch> = {
   'evidence-pack/akademia/skjervheim-flo-2016.pdf': { thesisId: 'skjervheim-flo-2016' },
   'evidence-pack/akademia/skulstad-svensson-2024.pdf': { thesisId: 'skulstad-svensson-2024' },
   'evidence-pack/akademia/sorensen-phd-2016-danish-public-kitchens.pdf': { thesisId: 'sorensen-phd-2016' },
+  'arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sundin-n-20240612.pdf': {
+    thesisId: 'sundin-phd-2024',
+  },
+  'arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Sundqvist_Henna_Accessible_Summary_03_05_2025.pdf': {
+    thesisId: 'sundqvist-phd-2025',
+  },
   'evidence-pack/akademia/ulsaker-phd-thesis.pdf': { thesisId: 'ulsaker-phd-2016' },
   'evidence-pack/nordisk/finland-food2030.pdf': {
     title: 'Ruoka2030: Maukasta, kotimaista, kilpailukykyista',

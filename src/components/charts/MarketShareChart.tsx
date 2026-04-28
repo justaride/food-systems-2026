@@ -35,7 +35,7 @@ export function MarketShareChart({ country = 'no' }: { country?: string }) {
       <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Markedsandel ({year})</h3>
       <p className="text-xs text-stone-400 mb-3">Omsetning etter konsepttype</p>
       <div className="h-[220px]">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
           <PieChart>
             <Pie
               data={data}
