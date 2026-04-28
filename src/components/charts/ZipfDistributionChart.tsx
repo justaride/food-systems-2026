@@ -35,7 +35,7 @@ export function ZipfDistributionChart({ country = 'no' }: { country?: string }) 
         R&sup2; = {rSquared} &middot; Helling = {slope} &middot; {isZipf ? 'Støtter' : 'Avviker fra'} Zipfs lov
       </p>
       <div className="h-[220px]">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
           <ScatterChart margin={{ top: 5, right: 10, bottom: 20, left: 5 }}>
             <XAxis
               dataKey="logRank"

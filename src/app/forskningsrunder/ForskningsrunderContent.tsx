@@ -6,7 +6,14 @@ import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { SourceChip } from '@/components/ui/SourceChip'
 import { EmptyState } from '@/components/ui/EmptyState'
-import type { BacklogRow, BacklogRound, BacklogSummary } from '@/lib/queries/download-backlog'
+import type {
+  BacklogRow,
+  BacklogRound,
+  BacklogSummary,
+  SourceDownloadStatus,
+} from '@/lib/queries/download-backlog'
+
+type BacklogStatusFilter = Exclude<SourceDownloadStatus, 'untracked'>
 
 type InsightRow = {
   id: string
@@ -182,8 +189,18 @@ const THEME_LABELS: Record<string, string> = {
   benchmark: 'Benchmark-case',
 }
 
+const backlogStatusFilters: BacklogStatusFilter[] = [
+  'downloaded',
+  'exa_fetched',
+  'requires_manual',
+  'url_only',
+  'missing_metadata_only',
+]
+
 function statusBadge(status: string) {
   if (status === 'downloaded') return 'bg-emerald-50 text-emerald-700 border-emerald-200'
+  if (status === 'exa_fetched') return 'bg-sky-50 text-sky-700 border-sky-200'
+  if (status === 'requires_manual') return 'bg-purple-50 text-purple-700 border-purple-200'
   if (status === 'url_only') return 'bg-amber-50 text-amber-700 border-amber-200'
   if (status === 'missing_metadata_only') return 'bg-rose-50 text-rose-700 border-rose-200'
   return 'bg-stone-50 text-stone-600 border-stone-200'
@@ -191,6 +208,8 @@ function statusBadge(status: string) {
 
 function statusLabel(status: string): string {
   if (status === 'downloaded') return 'Nedlastet'
+  if (status === 'exa_fetched') return 'Exa-hentet'
+  if (status === 'requires_manual') return 'Manuell'
   if (status === 'url_only') return 'Kun URL'
   if (status === 'missing_metadata_only') return 'Mangler metadata'
   return status
@@ -222,7 +241,7 @@ export function ForskningsrunderContent({
   konkurserActors: ActorRow[]
 }) {
   const [expandedTheme, setExpandedTheme] = useState<string | null>(null)
-  const [backlogFilter, setBacklogFilter] = useState<'all' | 'downloaded' | 'url_only' | 'missing_metadata_only'>('all')
+  const [backlogFilter, setBacklogFilter] = useState<'all' | BacklogStatusFilter>('all')
   const [backlogTheme, setBacklogTheme] = useState<string>('all')
   const buckets = bucketInsightsByTheme(insights)
   const unbucketed = insights.filter((i) => !buckets.some((b) => b.insights.some((x) => x.id === i.id)))
@@ -341,10 +360,18 @@ export function ForskningsrunderContent({
           Sporer alle {backlogSummary.total} underliggende kilder sitert i forskningsrunden.
           Basis: <code className="text-[10px] bg-stone-100 px-1 rounded">research/evidence-pack/download-backlog-2026-04-20.csv</code>.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-2 mb-4">
           <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-3">
             <div className="text-lg font-bold text-emerald-800">{backlogSummary.downloaded}</div>
             <div className="text-[11px] text-emerald-700 mt-0.5">Nedlastet lokalt</div>
+          </div>
+          <div className="rounded-lg border border-sky-200 bg-sky-50 p-3">
+            <div className="text-lg font-bold text-sky-800">{backlogSummary.exaFetched}</div>
+            <div className="text-[11px] text-sky-700 mt-0.5">Exa-hentet</div>
+          </div>
+          <div className="rounded-lg border border-purple-200 bg-purple-50 p-3">
+            <div className="text-lg font-bold text-purple-800">{backlogSummary.requiresManual}</div>
+            <div className="text-[11px] text-purple-700 mt-0.5">Manuell kontroll</div>
           </div>
           <div className="rounded-lg border border-amber-200 bg-amber-50 p-3">
             <div className="text-lg font-bold text-amber-800">{backlogSummary.urlOnly}</div>
@@ -368,6 +395,8 @@ export function ForskningsrunderContent({
                 <tr className="text-stone-500 border-b border-stone-200">
                   <th className="text-left py-1.5 pr-2 font-medium">Tema</th>
                   <th className="text-right py-1.5 px-2 font-medium text-emerald-700">Ned.</th>
+                  <th className="text-right py-1.5 px-2 font-medium text-sky-700">Exa</th>
+                  <th className="text-right py-1.5 px-2 font-medium text-purple-700">Man.</th>
                   <th className="text-right py-1.5 px-2 font-medium text-amber-700">URL</th>
                   <th className="text-right py-1.5 px-2 font-medium text-rose-700">Mangler</th>
                   <th className="text-right py-1.5 pl-2 font-medium">Totalt</th>
@@ -381,6 +410,8 @@ export function ForskningsrunderContent({
                     <tr key={theme} className="border-b border-stone-100">
                       <td className="py-1.5 pr-2 text-stone-700">{THEME_LABELS[theme] ?? theme}</td>
                       <td className="py-1.5 px-2 text-right text-emerald-700">{stats.downloaded}</td>
+                      <td className="py-1.5 px-2 text-right text-sky-700">{stats.exaFetched}</td>
+                      <td className="py-1.5 px-2 text-right text-purple-700">{stats.requiresManual}</td>
                       <td className="py-1.5 px-2 text-right text-amber-700">{stats.urlOnly}</td>
                       <td className="py-1.5 px-2 text-right text-rose-700">{stats.missingMetadata}</td>
                       <td className="py-1.5 pl-2 text-right text-stone-600">{stats.total}</td>
@@ -402,7 +433,7 @@ export function ForskningsrunderContent({
 
         <div className="flex flex-wrap items-center gap-2 mb-3 text-xs">
           <span className="text-stone-500">Filter:</span>
-          {(['all', 'downloaded', 'url_only', 'missing_metadata_only'] as const).map((f) => (
+          {(['all', ...backlogStatusFilters] as const).map((f) => (
             <button
               key={f}
               onClick={() => setBacklogFilter(f)}
@@ -484,8 +515,9 @@ export function ForskningsrunderContent({
           <strong>Neste steg for full kontroll:</strong> url_only-kilder trenger systematisk nedlastning til{' '}
           <code className="text-[10px] bg-stone-100 px-1 rounded">research/evidence-pack/[tema]/</code>. Oppdater
           deretter status fra <code className="text-[10px] bg-stone-100 px-1 rounded">url_only</code> til{' '}
-          <code className="text-[10px] bg-stone-100 px-1 rounded">downloaded</code> i CSV-filen. Metadata-only-rader
-          krever kildesoek for aa lokalisere faktisk URL.
+          <code className="text-[10px] bg-stone-100 px-1 rounded">downloaded</code> i CSV-filen. Exa-hentede og
+          manuelle rader maa vurderes separat foer de regnes som lokalt sikret. Metadata-only-rader krever
+          kildesoek for aa lokalisere faktisk URL.
         </div>
       </Card>
 
@@ -655,10 +687,18 @@ export function ForskningsrunderContent({
           Sporer {konkurserBacklogSummary.total} kilder til sirkulær-konkurs-casene.
           Basis: <code className="text-[10px] bg-stone-100 px-1 rounded">research/evidence-pack/download-backlog-sirkular-konkurser-2026-04-20.csv</code>.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-2 mb-3">
           <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-3">
             <div className="text-lg font-bold text-emerald-800">{konkurserBacklogSummary.downloaded}</div>
             <div className="text-[11px] text-emerald-700 mt-0.5">Nedlastet</div>
+          </div>
+          <div className="rounded-lg border border-sky-200 bg-sky-50 p-3">
+            <div className="text-lg font-bold text-sky-800">{konkurserBacklogSummary.exaFetched}</div>
+            <div className="text-[11px] text-sky-700 mt-0.5">Exa-hentet</div>
+          </div>
+          <div className="rounded-lg border border-purple-200 bg-purple-50 p-3">
+            <div className="text-lg font-bold text-purple-800">{konkurserBacklogSummary.requiresManual}</div>
+            <div className="text-[11px] text-purple-700 mt-0.5">Manuell</div>
           </div>
           <div className="rounded-lg border border-amber-200 bg-amber-50 p-3">
             <div className="text-lg font-bold text-amber-800">{konkurserBacklogSummary.urlOnly}</div>

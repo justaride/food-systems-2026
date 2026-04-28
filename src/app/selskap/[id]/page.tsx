@@ -5,15 +5,21 @@ import { StatusBadge } from '@/components/ui/StatusBadge'
 import { getCompanyById } from '@/lib/queries/companies'
 import { getCompanyTreeIds } from '@/lib/queries/ownership'
 import { getPersonKeysWithProfiles } from '@/lib/queries/persons'
+import { getInterlockCountsForCompany } from '@/lib/queries/interlocks'
+import { CompanyPropertiesPanel } from './CompanyPropertiesPanel'
 
 export default async function SelskapPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const [company, treeIds, profileKeys] = await Promise.all([
+  const [company, treeIds, profileKeys, interlockCounts] = await Promise.all([
     getCompanyById(id),
     getCompanyTreeIds(),
     getPersonKeysWithProfiles(),
+    getInterlockCountsForCompany(id),
   ])
   if (!company) return notFound()
+  const interlockingMemberCount = company.boardMembers.filter(
+    m => (interlockCounts.get(m.personKey) ?? 0) > 0,
+  ).length
   const isInTree = treeIds.has(company.id)
 
   const latestFinancial = company.financials[0]
@@ -158,24 +164,49 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
 
       {company.boardMembers.length > 0 && (
         <Card title="Styre">
+          {interlockingMemberCount > 0 && (
+            <div className="mb-3 flex items-center justify-between rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs">
+              <span className="text-amber-900">
+                <strong>{interlockingMemberCount}</strong> av {company.boardMembers.length} har styreverv i andre selskaper
+              </span>
+              <Link
+                href={`/styremedlemmer?company=${company.id}`}
+                className="font-medium text-amber-900 hover:underline"
+              >
+                Vis i kryssstyre-grafen &rarr;
+              </Link>
+            </div>
+          )}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {company.boardMembers.map(m => (
-              <div key={m.id} className="flex items-center gap-3 p-3 rounded-lg border border-stone-200 bg-stone-50/50">
-                <div className="w-8 h-8 rounded-full bg-stone-100 border border-stone-200 flex items-center justify-center text-xs font-bold text-stone-500">
-                  {m.personName.split(' ').map(n => n[0]).join('')}
-                </div>
-                <div>
-                  {profileKeys.has(m.personKey) ? (
-                    <Link href={`/personer/${m.personKey}`} className="text-sm font-medium text-emerald-700 hover:underline">
-                      {m.personName}
+            {company.boardMembers.map(m => {
+              const otherVerv = interlockCounts.get(m.personKey) ?? 0
+              return (
+                <div key={m.id} className="flex items-center gap-3 p-3 rounded-lg border border-stone-200 bg-stone-50/50">
+                  <div className="w-8 h-8 rounded-full bg-stone-100 border border-stone-200 flex items-center justify-center text-xs font-bold text-stone-500">
+                    {m.personName.split(' ').map(n => n[0]).join('')}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    {profileKeys.has(m.personKey) ? (
+                      <Link href={`/personer/${m.personKey}`} className="text-sm font-medium text-emerald-700 hover:underline">
+                        {m.personName}
+                      </Link>
+                    ) : (
+                      <p className="text-sm font-medium text-stone-800">{m.personName}</p>
+                    )}
+                    <p className="text-xs text-stone-400">{m.role}</p>
+                  </div>
+                  {otherVerv > 0 && (
+                    <Link
+                      href={`/styremedlemmer?company=${company.id}&person=${m.personKey}`}
+                      className="shrink-0 px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-200 text-[10px] font-medium hover:bg-amber-200"
+                      title={`${otherVerv} andre styreverv`}
+                    >
+                      +{otherVerv}
                     </Link>
-                  ) : (
-                    <p className="text-sm font-medium text-stone-800">{m.personName}</p>
                   )}
-                  <p className="text-xs text-stone-400">{m.role}</p>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </Card>
       )}
@@ -209,50 +240,12 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
         </Card>
       )}
 
-      {company.ownedProperties.length > 0 && (
+      {(company.ownedProperties.length > 0 || company.tenantProperties.length > 0) && (
         <Card title="Eiendommer">
-          <div className="overflow-x-auto">
-            <table className="w-full text-xs">
-              <thead>
-                <tr className="border-b border-stone-200">
-                  <th className="text-left py-2 text-stone-400">Type</th>
-                  <th className="text-left py-2 text-stone-400">Adresse</th>
-                  <th className="text-left py-2 text-stone-400">Kommune</th>
-                  <th className="text-right py-2 text-stone-400">Areal</th>
-                  <th className="text-left py-2 text-stone-400">Selvleie</th>
-                  <th className="text-left py-2 text-stone-400">Leietaker</th>
-                </tr>
-              </thead>
-              <tbody>
-                {company.ownedProperties.map(p => (
-                  <tr key={p.id} className="border-b border-stone-100">
-                    <td className="py-2 text-stone-700">{p.propertyType}</td>
-                    <td className="py-2 text-stone-700">{p.address ?? '—'}</td>
-                    <td className="py-2 text-stone-700">
-                      {p.municipality ?? '—'}
-                      {p.county ? <span className="text-stone-400 ml-1">({p.county})</span> : null}
-                    </td>
-                    <td className="text-right py-2 text-stone-700 tabular-nums">
-                      {p.sqMeters ? `${p.sqMeters.toLocaleString('no')} m²` : '—'}
-                    </td>
-                    <td className="py-2 text-stone-700">{p.selfLeased ? 'Ja' : 'Nei'}</td>
-                    <td className="py-2">
-                      {p.tenantCompany ? (
-                        <Link
-                          href={`/selskap/${p.tenantCompany.id}`}
-                          className="text-rose-700 hover:underline"
-                        >
-                          {p.tenantCompany.name}
-                        </Link>
-                      ) : (
-                        <span className="text-stone-400">—</span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <CompanyPropertiesPanel
+            owned={company.ownedProperties}
+            tenant={company.tenantProperties}
+          />
         </Card>
       )}
 

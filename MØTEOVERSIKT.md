@@ -109,7 +109,11 @@
 | NCH 2025-søknaden (innvilget) | Finnes | `Natural State AS Mail - Fwd_ NCH_ application 2025 # adjusted.pdf` |
 | NI 2024-søknaden (avslått) | Finnes | `Just now (12.Revise-Gab) Nordic Circular Food systems - V.2.md` |
 | Cathrines drøftingsdokument (jan 2026) | Finnes | `2026 1401 DRØFTING TRANSITION GROUPS.pdf` |
-| Transition Group overview working doc | Finnes | `2026 TRANSITION GROUP OVERVIES WORKING DOC.pdf` |
+| Mandate for Transition Group - Circular Food | Finnes | `docs/project/mandates/mandate-for-transition-group-food-2026-04-21.pdf` |
+| Detaljoversikt for Food-mandatet | Finnes | `docs/project/mandates/food-transition-group-mandate-2026-04-21.md` |
+| Transition Group overview working doc | Finnes | `docs/project/mandates/transition-group-overview-working-doc-2026.pdf` |
+| Statusanalyse og arbeidsplan mot mandat | Finnes | `docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md` |
+| Detaljert innsiktsprosess og verktøyplan | Finnes | `docs/project/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md` |
 | Oslo Innovasjonsprogram-søknad | Finnes | `1. Food system_ Oslo Innovasjons program 2025.md` |
 | Prosjektoversikt | Finnes | `PROJECT-OVERVIEW.md` |
 | Ten-step start v2.0 | Finnes (i PROJECT-OVERVIEW) | Steg 1–10 med outputs definert |
@@ -123,7 +127,7 @@
 
 ---
 
-## Status per 13.04.2026
+## Status per 27.04.2026
 
 ### Gjort
 - Prosjektoversikt og filkart (`PROJECT-OVERVIEW.md`)
@@ -131,11 +135,12 @@
 - Omgivelseskartlegging påbegynt (Gabriel)
 - Ten-step start v2.0 definert (Cathrine/PROJECT-OVERVIEW)
 - Deep research-plan (`DEEP-RESEARCH-PLAN.md`)
-- 6 møter gjennomført og dokumentert
+- 8 møter gjennomført og dokumentert
+- Food-mandat importert som PDF og strukturert detaljoversikt (`docs/project/mandates/`)
 
 ### Ikke gjort
 - Ingen eksterne partnere kontaktet
-- Mandat for transition groups ikke definert
+- Food-mandatet har åpne felt: godkjenningsdato, reviewdato, geografisk minstekrav, chair/co-chair, komplett medlemsliste, annex og Notion-workplan
 - Ingen workshops gjennomført
 - Ingen roadmap påbegynt
 - Ingen presentasjon laget for Nordic Innovation

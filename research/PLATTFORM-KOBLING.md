@@ -1,8 +1,8 @@
 # Plattform-kobling — seed ↔ arkiv
 
 > AUTO-GENERERT av `scripts/audit-platform-linkage.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T10:53:42.210Z
-> Basert på: `seed-pdf-map.json` (generert 2026-04-27T10:53:36.536Z)
+> Generert: 2026-04-28T13:01:31.005Z
+> Basert på: `seed-pdf-map.json` (generert 2026-04-28T13:01:23.072Z)
 
 Denne rapporten kobler seed-entries i `src/lib/data/{theses,reports,sources}.ts` mot faktiske filer i `research/`. PDF-kobling leses fra den kanoniske mappen `seed-pdf-map.json` (generert av `build-seed-pdf-map.ts`). MD-kobling utledes via filnavn/id-heuristikk.
 
@@ -10,11 +10,11 @@ Denne rapporten kobler seed-entries i `src/lib/data/{theses,reports,sources}.ts`
 
 | Type | Total | Lokal PDF | Lokal MD | Ingen match |
 |---|---:|---:|---:|---:|
-| Theses | 78 | 42 | 62 | 10 |
-| Reports | 108 | 60 | 34 | 34 |
+| Theses | 78 | 44 | 62 | 10 |
+| Reports | 108 | 60 | 35 | 33 |
 | SourceDocs | 164 | 42 | 6 | 122 |
 
-**Foreldreløse PDF-er:** 264 (se seksjon 4)
+**Foreldreløse PDF-er:** 262 (se seksjon 4)
 
 ## 1. Theses → lokal fil (78)
 
@@ -37,11 +37,11 @@ Denne rapporten kobler seed-entries i `src/lib/data/{theses,reports,sources}.ts`
 | `nilsen-paulsen-2025` | Pass-through av ravarepriser for kakao- og kaffeprodukter | Nilsen & Paulsen | ✓ | `evidence-pack/akademia/nilsen-paulsen-2025.pdf` | `bibliotek/akademia/masteroppgaver/nilsen-paulsen-2025.md` | high |
 | `halseth-phd-2024` | Competition and Grocery Retail Formats: Empirical Evidence from a Horizontal Acquisition in Norway | Halseth | ✓ | — | `bibliotek/akademia/masteroppgaver/halseth-phd-2024.md` | none |
 | `ulsaker-phd-2016` | On Vertical Restraints: Essays in Industrial Organzation | Ulsaker | ✓ | `evidence-pack/akademia/ulsaker-phd-thesis.pdf` | — | high |
-| `hebrok-phd-2020` | Food Waste: A practice-oriented design for sustainability approach | Hebrok | ✓ | — | `bibliotek/akademia/masteroppgaver/hebrok-phd-2020.md` | none |
+| `hebrok-phd-2020` | Food Waste: A practice-oriented design for sustainability approach | Hebrok | ✓ | `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Marie+Hebrok.pdf` | `bibliotek/akademia/masteroppgaver/hebrok-phd-2020.md` | high |
 | `eriksson-phd-2015` | Supermarket food waste: Prevention and management | Eriksson | ✓ | — | `bibliotek/akademia/masteroppgaver/eriksson-phd-2015.md` | none |
-| `albizzati-phd-2021` | Sustainability Assessment of Food Waste Management | Albizzati | ✓ | — | `bibliotek/akademia/masteroppgaver/albizzati-phd-2021.md` | none |
+| `albizzati-phd-2021` | Sustainability Assessment of Food Waste Management | Albizzati | ✓ | `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Paola_Federica_Albizzati_thesis.pdf` | `bibliotek/akademia/masteroppgaver/albizzati-phd-2021.md` | high |
 | `brancoli-phd-2021` | Prevention and valorisation of surplus bread | Brancoli | ✓ | `evidence-pack/akademia/brancoli-phd-2021.pdf` | `bibliotek/akademia/masteroppgaver/brancoli-phd-2021.md` | high |
-| `sundin-phd-2024` | Sustainability of food waste prevention through food consumption | Sundin | ✓ | `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sundin-n-20240612.pdf` | `bibliotek/akademia/masteroppgaver/sundin-phd-2024.md` | low |
+| `sundin-phd-2024` | Sustainability of food waste prevention through food consumption | Sundin | ✓ | `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sundin-n-20240612.pdf` | `bibliotek/akademia/masteroppgaver/sundin-phd-2024.md` | high |
 | `lehtokunnas-phd-2023` | Enacting a Circular Economy | Lehtokunnas | ✓ | `evidence-pack/akademia/lehtokunnas-phd-2023.pdf` | `bibliotek/akademia/masteroppgaver/lehtokunnas-phd-2023.md` | high |
 | `sundqvist-phd-2025` | Navigating a Transformative Governance Maze | Sundqvist | ✓ | `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Sundqvist_Henna_Accessible_Summary_03_05_2025.pdf` | `bibliotek/akademia/masteroppgaver/sundqvist-phd-2025.md` | low |
 | `sorensen-phd-2016` | Organic food conversion in Danish public kitchens | Sorensen | ✓ | `evidence-pack/akademia/sorensen-phd-2016-danish-public-kitchens.pdf` | `bibliotek/akademia/masteroppgaver/sorensen-phd-2016.md` | high |
@@ -142,7 +142,7 @@ Denne rapporten kobler seed-entries i `src/lib/data/{theses,reports,sources}.ts`
 | `norden-policy-2024` | Nordisk Ministerraad — Policyverktoey 2024 | Nordisk Ministerraad | ✓ | — | `bibliotek/tenketanker/norden-policy-2024.md` | none |
 | `stockholm-resilience-2019` | Stockholm Resilience Centre — Nordic Food Systems | Stockholm Resilience Centre | ✓ | `evidence-pack/tenketank/stockholm-resilience-2019.pdf` | `bibliotek/tenketanker/stockholm-resilience-2019.md` | high |
 | `beredskap-finsk-modell-hvk` | Finsk matberedskap — HVK-modellen | Huoltovarmuuskeskus (HVK) | ✓ | — | — | none |
-| `beredskap-island-melmolle-2025` | Islands melmolle og matsuverenitet | Kornax / Iceland Review / RUV | ✓ | — | — | none |
+| `beredskap-island-melmolle-2025` | Islands melmolle og matsuverenitet | Kornax / Iceland Review / RUV | ✓ | — | `evidence-pack/beredskap/beredskap-island-melmolle-2025.md` | none |
 | `beredskap-nibio-selvforsyning-2026` | NIBIO: Norsk selvforsyningsgrad 2026 | NIBIO (Norsk institutt for biookonomi) | ✓ | `evidence-pack/offentlig/nibio-selvforsyning-2026.pdf` | `bibliotek/beredskap/nibio-selvforsyning-2026.md` | low |
 | `beredskap-nibio-selvforsyning-metode` | NIBIO: Metode for selvforsyningsberegning | NIBIO (Norsk institutt for biookonomi) | ✓ | — | — | none |
 | `sirkularitet-matsvinn-2024` | Matsvinn i Norden — status 2024 | Nordisk Ministerraad | ✓ | `evidence-pack/offentlig/matsvinnutvalget-2024.pdf` | — | low |
@@ -381,7 +381,7 @@ Denne rapporten kobler seed-entries i `src/lib/data/{theses,reports,sources}.ts`
 | `src-163` | 35-45 % av fisk spises typisk globalt; 100 % Fish-initiativet i Island naaet ~90 % utnyttelse via kollagen og biprodukter. Fem-trinns klynge | iceland-ocean-cluster-seafood-circular-2022.pdf | ✓ | — | — | none |
 | `src-164` | Handlingsplan som understreker okt sirkulaer ressursutnyttelse i matverdikjeden og oppdatert regelverk for rest-raavarer. | regjeringen-handlingsplan-sirkulaer-okonomi-2024-2025.pdf | ✓ | `arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurrensverket - rapport 2025 5 (2024).pdf` | — | low |
 
-## 4. Foreldreløse PDF-er (264)
+## 4. Foreldreløse PDF-er (262)
 
 PDF-filer i `research/` som ikke er koblet til noen seed-entry. Kandidater for innlegging i `src/lib/data/{reports,theses}.ts` eller eksklusjon via `seed-pdf-map.overrides.json`.
 
@@ -515,14 +515,12 @@ PDF-filer i `research/` som ikke er koblet til noen seed-entry. Kandidater for i
 - `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/JRC92892_qms_h08_lcind_deliverable5_final_20141125.pdf`
 - `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Learning-for-Crisis-Uppsala-County-Food-Security.pdf`
 - `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/MASTER-EMILIAEPOSITO-.pdf`
-- `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Marie+Hebrok.pdf`
 - `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Master's Thesis Peppi Segersven.pdf`
 - `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Master's Thesis_Mäkelä_Mika.pdf`
 - `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Meningsbryteren _ Framtiden i våre hender.pdf`
 - `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Nordic-Bankruptcy-Statistics-Report-2024.pdf`
 - `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Nordmenn vil spise sunnere og mer… _ Framtiden i våre hender.pdf`
 - `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Ny forskning viser at vi kan mangedoble… _ Framtiden i våre hender.pdf`
-- `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Paola_Federica_Albizzati_thesis.pdf`
 - `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/PhD_Thesis_Nina_N_rgaard_S_rensen_print_final.pdf`
 - `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Philippe_Schuler.pdf`
 - `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Plantefonden_Handlingsplan_2026.pdf`

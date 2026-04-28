@@ -1,7 +1,7 @@
 # REMEDIATION BACKLOG — data-readiness Fase B
 
 > Auto-generert av `scripts/build-remediation-backlog.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T13:03:06.570Z
+> Generert: 2026-04-27T15:56:39.778Z
 > Totalt: **345** funn
 
 ## Sammendrag per kilde × severity

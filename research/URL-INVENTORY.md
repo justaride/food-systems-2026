@@ -1,7 +1,7 @@
 # URL Inventory — Food Systems 2026
 
 > Auto-generert av `scripts/inventory-urls.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T11:43:13.371Z
+> Generert: 2026-04-27T15:54:58.620Z
 > Totalt: **184** URL-forekomster, **173** unike URL-er
 
 ## Distribusjon per source_type

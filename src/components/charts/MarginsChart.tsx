@@ -36,7 +36,7 @@ export function MarginsChart({ country = 'no' }: { country?: string }) {
       <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Fortjenestemarginer ({margins.year})</h3>
       <p className="text-xs text-stone-400 mb-3">Drifts-/resultatmargin, dagligvare vs. leverandører</p>
       <div className="h-[220px]">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
           <BarChart
             data={data}
             margin={{ top: 0, right: 16, left: 0, bottom: 0 }}

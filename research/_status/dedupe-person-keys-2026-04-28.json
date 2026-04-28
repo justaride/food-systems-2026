@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-04-28T15:14:42.730Z",
+  "mode": "commit",
+  "limit": null,
+  "counts": {
+    "personProfileLoaded": 1307,
+    "boardMemberLoaded": 1696,
+    "groupsTotal": 0,
+    "groupsRunInThisPass": 0,
+    "groupsWithMultipleSourceKeys": 0,
+    "profileLosersDeleted": 0,
+    "profileWinnersUpdated": 0,
+    "boardMembersRekeyed": 0,
+    "boardTripletDuplicatesDeleted": 42
+  },
+  "actions": []
+}

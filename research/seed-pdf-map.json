@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-27T10:53:36.536Z",
+  "generatedAt": "2026-04-28T13:01:23.072Z",
   "theses": {
     "jacobsen-jansson-2022": {
       "pdf": "evidence-pack/akademia/jacobsen-jansson-2022-black-sheep.pdf",
@@ -85,6 +85,18 @@
       "confidence": "high",
       "why": "manual-override"
     },
+    "hebrok-phd-2020": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Marie+Hebrok.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
+    "albizzati-phd-2021": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Paola_Federica_Albizzati_thesis.pdf",
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
+    },
     "brancoli-phd-2021": {
       "pdf": "evidence-pack/akademia/brancoli-phd-2021.pdf",
       "score": 999,
@@ -93,9 +105,9 @@
     },
     "sundin-phd-2024": {
       "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/sundin-n-20240612.pdf",
-      "score": 6,
-      "confidence": "low",
-      "why": "author-sundin+year-2024"
+      "score": 999,
+      "confidence": "high",
+      "why": "manual-override"
     },
     "lehtokunnas-phd-2023": {
       "pdf": "evidence-pack/akademia/lehtokunnas-phd-2023.pdf",
@@ -1001,14 +1013,12 @@
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/JRC92892_qms_h08_lcind_deliverable5_final_20141125.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Learning-for-Crisis-Uppsala-County-Food-Security.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/MASTER-EMILIAEPOSITO-.pdf",
-    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Marie+Hebrok.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Master's Thesis Peppi Segersven.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Master's Thesis_Mäkelä_Mika.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Meningsbryteren _ Framtiden i våre hender.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Nordic-Bankruptcy-Statistics-Report-2024.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Nordmenn vil spise sunnere og mer… _ Framtiden i våre hender.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Ny forskning viser at vi kan mangedoble… _ Framtiden i våre hender.pdf",
-    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Paola_Federica_Albizzati_thesis.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/PhD_Thesis_Nina_N_rgaard_S_rensen_print_final.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Philippe_Schuler.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/Plantefonden_Handlingsplan_2026.pdf",
@@ -1141,9 +1151,7 @@
       "barbakken-hausken-2006",
       "kronqvist-2010",
       "halseth-phd-2024",
-      "hebrok-phd-2020",
       "eriksson-phd-2015",
-      "albizzati-phd-2021",
       "esposito-2022",
       "deljanin-2015",
       "burgherr-2019",

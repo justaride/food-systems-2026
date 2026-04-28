@@ -15,6 +15,7 @@ const navGroups = [
       { name: 'Team', href: '/team', description: 'Medlemmer og roller' },
       { name: 'Moter', href: '/moter', description: 'Motesammendrag og referater' },
       { name: 'Kommunikasjon', href: '/kommunikasjon', description: 'E-post og korrespondanse' },
+      { name: 'Mandat', href: '/mandat', description: 'Food TG scope, claims og validering' },
       { name: 'Metodikk', href: '/metodikk', description: 'Ten Step, KPIs og deep research-prompter' },
       { name: 'Tidslinje', href: '/tidslinje', description: 'Faser og soknader' },
     ],
@@ -23,7 +24,6 @@ const navGroups = [
     label: 'Selskap & Eierskap',
     items: [
       { name: 'Eierskap', href: '/eierskap', description: 'Konsernstrukturer og eiertraer' },
-      { name: 'Relasjoner', href: '/relasjoner', description: 'Leverandørkjeder og forretningsforbindelser' },
       { name: 'Eiendommer', href: '/eiendommer', description: 'Selskapseiendommer og lokaler' },
       { name: 'Styremedlemmer', href: '/styremedlemmer', description: 'Kryssstyrer og nettverk' },
     ],
@@ -32,7 +32,7 @@ const navGroups = [
     label: 'Matsystem',
     items: [
       { name: 'Verdikjede', href: '/verdikjede', description: 'Nordisk verdikjedeanalyse' },
-      { name: 'Forsyningskjede', href: '/forsyningskjede', description: 'Leverandorkjeder og relasjoner' },
+      { name: 'Forsyningskjede', href: '/forsyningskjede', description: 'Leverandorrelasjoner, primaerleveranser og selvhandel' },
       { name: 'Havbruk', href: '/havbruk', description: 'Lokaliteter og soknader (Fiskeridir)' },
       { name: 'Subsidier', href: '/subsidier', description: 'Tilskudd per kommune, ordning og mottaker' },
       { name: 'Sirkularitet', href: '/sirkularitet', description: 'R-stige, 10 spormal, looper og caser' },

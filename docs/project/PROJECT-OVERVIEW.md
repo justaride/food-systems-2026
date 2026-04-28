@@ -166,7 +166,11 @@ Fra Cathrines drøftingsdokument (jan 2026) - oppdatert modell for transition gr
 | `Speaker 1 (1).md` | Transkripsjon | Lengre samtale om strategi, data, verdikjeder, transition groups, nordisk merverdi | **Strategisk innsikt** - cascading, HORECA, data, power law |
 | `Untitled document.md` | Duplikat | Samme som 9. mars-notater med ekstra kontekst | Redundant |
 | `2026 1401 DRØFTING TRANSITION GROUPS.pdf` | Strategidok | Cathrines 20-siders drøfting: TG-metodikk, governance, branding, tjenester | **Metodisk rammeverk** for hele arbeidet |
-| `2026 TRANSITION GROUP OVERVIEW WORKING DOC.pdf` | Arbeidsdok | Revidert 10-step start, vurderingskriterier, felles prosesser | **Operasjonell mal** |
+| `docs/project/mandates/transition-group-overview-working-doc-2026.pdf` | Arbeidsdok | Revidert 10-step start, vurderingskriterier, felles prosesser | **Operasjonell mal** |
+| `docs/project/mandates/mandate-for-transition-group-food-2026-04-21.pdf` | Mandat | Food Transition Group-mandat: purpose, objectives, governance, members og workplan | **Styringsdokument** |
+| `docs/project/mandates/food-transition-group-mandate-2026-04-21.md` | Detaljoversikt | Strukturert oversikt over mandatet, åpne felt og kontrolliste | **Detaljkontroll** |
+| `docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md` | Statusanalyse + arbeidsplan | Sammenholder utført arbeid, innsiktsgrunnlag, mandatmål, gap og videre sprintplan | **Operativ styring** |
+| `docs/project/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md` | Innsiktsarbeidsplan | Detaljert prosess, verktøy, output, kvalitetskriterier og 10-dagers plan for Food TG Insight Pack v0.1 | **Operativ innsiktsstyring** |
 | `Natural State Mail - NCH application 2025.pdf` | E-post | Martin videresender NCH 2025-søknaden (Michel Bajuk justert) | **Referanse** - søknaden som ble innvilget |
 | `Natural State Mail - DRØFTING TG.pdf` | E-post | Cathrine deler drøftingsdokumentet med Gabriel | **Kontekst** |
 | `1. Food system_ Oslo Innovasjons program 2025 (1).md` | Duplikat | Kopi av Oslo-søknaden | Redundant |

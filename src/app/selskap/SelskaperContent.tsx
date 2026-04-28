@@ -55,12 +55,14 @@ function formatRevenue(n: number | null) {
 export function SelskaperContent({
   companies,
   includeAll,
+  initialStages = [],
 }: {
   companies: CompanyRow[]
   includeAll: boolean
+  initialStages?: string[]
 }) {
   const [query, setQuery] = useState('')
-  const [stageFilter, setStageFilter] = useState('alle')
+  const [stageFilter, setStageFilter] = useState(initialStages[0] ?? 'alle')
   const [ownershipFilter, setOwnershipFilter] = useState('alle')
   const deferredQuery = useDeferredValue(query)
 
@@ -96,7 +98,7 @@ export function SelskaperContent({
           <p className="text-sm text-stone-500 mt-1 max-w-3xl">
             {includeAll
               ? `Viser alle ${companies.length.toLocaleString('no')} registrerte selskaper (inkl. jordbruksforetak fra subsidieregisteret).`
-              : `Viser ${companies.length} kartlagte selskaper med regnskap, styre, eierskap, eiendom, relasjoner eller aktørkobling.`}
+              : `Viser ${companies.length} kartlagte selskaper med regnskap, styre, eierskap, underlagskobling, eiendom, relasjoner eller aktørkobling.`}
           </p>
         </div>
         <div className="flex gap-2">

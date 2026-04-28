@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { canonicalPersonKey } from '../src/lib/person-key.ts'
 
 const BRREG_BASE_URL = 'https://data.brreg.no/enhetsregisteret/api'
 const DEFAULT_HEADERS = {
@@ -319,9 +320,10 @@ function yearFromDate(date?: string | null): number | null {
   return Number.isFinite(year) ? year : null
 }
 
-function normalizePersonKey(name: string): string {
-  return normalizeText(name).replace(/\s+/g, '-')
-}
+// Bruker canonical key fra src/lib/person-key.ts som handterer ae/oe/aa
+// konsistent og forhindrer at "Bjorn" og "Bjoern" og ASCII-stripping ender pa
+// ulike noklder.
+const normalizePersonKey = canonicalPersonKey
 
 function buildPersonName(person?: BrregRolePerson | null): string | null {
   if (!person?.navn) return null

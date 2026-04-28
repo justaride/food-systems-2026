@@ -66,7 +66,8 @@ function mergeRoles(primary: PersonRole[], secondary: PersonRole[]): PersonRole[
     }
 
     merged.set(key, {
-      companyId: existing.companyId ?? role.companyId,
+      // BoardMember fallback can carry the current company id when stored profile roles are stale.
+      companyId: role.companyId ?? existing.companyId,
       companyName: existing.companyName || role.companyName,
       role: existing.role || role.role,
       fromYear: existing.fromYear ?? role.fromYear,

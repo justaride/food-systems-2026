@@ -1,20 +1,40 @@
 'use client'
 
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { FilterChips } from '@/components/ui/FilterChips'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { SourceChip } from '@/components/ui/SourceChip'
-import { SelfSufficiencyChart } from '@/components/charts/SelfSufficiencyChart'
-import { MarginsChart } from '@/components/charts/MarginsChart'
-import { MarketShareChart } from '@/components/charts/MarketShareChart'
-import { LorenzCurveChart } from '@/components/charts/LorenzCurveChart'
-import { ZipfDistributionChart } from '@/components/charts/ZipfDistributionChart'
-import { FoodFlowSankey } from '@/components/charts/FoodFlowSankey'
 import { ParentCompanyChart } from '@/components/charts/ParentCompanyChart'
 import { COUNTRY_LIST, type CountryCode } from '@/lib/config/countries'
+
+const SelfSufficiencyChart = dynamic(
+  () => import('@/components/charts/SelfSufficiencyChart').then((mod) => mod.SelfSufficiencyChart),
+  { ssr: false },
+)
+const MarginsChart = dynamic(
+  () => import('@/components/charts/MarginsChart').then((mod) => mod.MarginsChart),
+  { ssr: false },
+)
+const MarketShareChart = dynamic(
+  () => import('@/components/charts/MarketShareChart').then((mod) => mod.MarketShareChart),
+  { ssr: false },
+)
+const LorenzCurveChart = dynamic(
+  () => import('@/components/charts/LorenzCurveChart').then((mod) => mod.LorenzCurveChart),
+  { ssr: false },
+)
+const ZipfDistributionChart = dynamic(
+  () => import('@/components/charts/ZipfDistributionChart').then((mod) => mod.ZipfDistributionChart),
+  { ssr: false },
+)
+const FoodFlowSankey = dynamic(
+  () => import('@/components/charts/FoodFlowSankey').then((mod) => mod.FoodFlowSankey),
+  { ssr: false },
+)
 
 type InsightRow = {
   id: string
