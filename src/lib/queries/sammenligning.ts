@@ -142,10 +142,125 @@ async function readJson<T>(relPath: string): Promise<T | null> {
   }
 }
 
-export async function getSammenligningData(): Promise<SammenligningData> {
-  // Implementeres i Task 2
-  return {
-    generatedAt: new Date().toISOString(),
-    countries: { no: null, se: null, dk: null, fi: null, is: null },
+function findStep(steps: ValueChainJson['steps'], id: string) {
+  return steps.find(s => s.id === id) ?? null
+}
+
+function buildCountry(
+  code: CountryCode,
+  vc: ValueChainJson | null,
+  cm: ChartMetricsJson | null,
+): CountrySammenligning | null {
+  if (!vc) return null
+
+  const primary = findStep(vc.steps, 'primary')
+  const seafood = findStep(vc.steps, 'seafood')
+  const processing = findStep(vc.steps, 'processing')
+  const distribution = findStep(vc.steps, 'distribution')
+  const retail = findStep(vc.steps, 'retail')
+  const horeca = findStep(vc.steps, 'horeca')
+  const household = findStep(vc.steps, 'household')
+  const waste = findStep(vc.steps, 'waste')
+
+  // Suppress unused-variable warnings for steps not yet referenced in return
+  void distribution
+  void horeca
+
+  const sumImports = vc.steps.reduce((s, x) => s + (x.import_tonnes ?? 0), 0) || null
+  const sumImportValue = vc.steps.reduce((s, x) => s + (x.import_value_bn ?? 0), 0) || null
+  const sumExports = vc.steps.reduce((s, x) => s + (x.export_tonnes ?? 0), 0) || null
+  const sumExportValue = vc.steps.reduce((s, x) => s + (x.export_value_bn ?? 0), 0) || null
+
+  const valueAdded: Record<string, number | null> = {}
+  const co2e: Record<string, number | null> = {}
+  for (const s of vc.steps) {
+    valueAdded[s.id] = s.value_added_bn ?? null
+    co2e[s.id] = s.co2e_mt ?? null
   }
+
+  const retailFormat = retail?.retail_format ?? null
+  const formatMix = retailFormat
+    ? {
+        discount: retailFormat.discount_pct ?? 0,
+        supermarket: retailFormat.supermarket_pct ?? 0,
+        convenience: retailFormat.convenience_pct ?? 0,
+      }
+    : null
+
+  const totalWastePerCapita = waste?.waste_per_capita_kg
+    ?? (waste?.waste_tonnes && vc.population
+        ? Math.round((waste.waste_tonnes * 1000) / vc.population)
+        : null)
+
+  return {
+    code,
+    population: vc.population,
+    market: {
+      hhi: cm?.parentCompany?.parentHHI ?? null,
+      cr3: cm?.parentCompany?.parentCR3 ?? null,
+      gini: cm?.lorenzCurve?.gini ?? null,
+      totalStores: cm?.totalStores ?? null,
+      emvSharePct: processing?.emv_share_pct ?? null,
+      retailFormatMix: formatMix,
+      parents: cm?.parentCompany?.data?.map(p => ({ name: p.name, sharePct: p.share })) ?? [],
+      sourceYear: vc.year ?? null,
+    },
+    preparedness: {
+      selfSufficiencyCaloricPct: vc.selfSufficiency?.caloric_pct ?? null,
+      selfSufficiencyTargetPct: vc.selfSufficiency?.target_pct ?? null,
+      selfSufficiencyTargetYear: vc.selfSufficiency?.target_year ?? null,
+      importTonnes: sumImports,
+      importValueBn: sumImportValue,
+      exportTonnes: sumExports,
+      exportValueBn: sumExportValue,
+      feedImportPct: primary?.feed_import_pct ?? null,
+      grainReserveMonths: primary?.grain_reserve_months ?? null,
+      sourceYear: vc.year ?? null,
+    },
+    valueChain: {
+      primaryVolumeTonnes: primary?.volume_tonnes ?? null,
+      seafoodExportValueBn: seafood?.export_value_bn ?? null,
+      processingTurnoverBn: processing?.turnover_bn ?? processing?.production_value_bn ?? null,
+      employmentByNace: {
+        nace01: primary?.employment?.agriculture_nace01 ?? null,
+        nace03: seafood?.employment?.fisheries_aquaculture_nace03 ?? null,
+        nace10: processing?.employment?.food_manufacturing_nace10 ?? null,
+        nace11: processing?.employment?.beverages_nace11 ?? null,
+      },
+      valueAddedByStep: valueAdded,
+      co2ePerStep: co2e,
+      sourceYear: vc.year ?? null,
+    },
+    circularity: {
+      totalWastePerCapitaKg: totalWastePerCapita,
+      householdWastePerCapitaKg: household?.waste_per_capita_kg ?? null,
+      wasteReductionSince2015Pct: waste?.waste_reduction_since_2015_pct ?? null,
+      biogasGwh: waste?.circularity?.biogas_gwh ?? null,
+      biogasTargetGwh: waste?.circularity?.biogas_target_gwh ?? null,
+      biogasPlants: waste?.circularity?.biogas_plants ?? null,
+      depositReturnRatePct: retail?.deposit_return_rate_pct ?? household?.deposit_return_rate_pct ?? null,
+      foodWasteByCategory: vc.food_waste_by_category?.categories ?? null,
+      sourceYear: vc.year ?? null,
+    },
+    policies: (vc.key_policies ?? []).map(p => ({
+      name: p.name,
+      year: p.year,
+      type: p.type,
+      target: p.target ?? null,
+    })),
+  }
+}
+
+export async function getSammenligningData(): Promise<SammenligningData> {
+  const entries = await Promise.all(
+    COUNTRY_CODES.map(async (code) => {
+      const [vc, cm] = await Promise.all([
+        readJson<ValueChainJson>(`${code}/value-chain.json`),
+        readJson<ChartMetricsJson>(`${code}/chart-metrics.json`),
+      ])
+      return [code, buildCountry(code, vc, cm)] as const
+    })
+  )
+  const countries = Object.fromEntries(entries) as Record<CountryCode, CountrySammenligning | null>
+  return { generatedAt: new Date().toISOString(), countries }
 }
