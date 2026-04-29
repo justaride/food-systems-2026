@@ -3,6 +3,7 @@ import { BolkSection } from '@/components/sammenligning/BolkSection'
 import { ChartCard } from '@/components/sammenligning/ChartCard'
 import { ComparisonTable } from '@/components/sammenligning/ComparisonTable'
 import { KeyTakeaway } from '@/components/sammenligning/KeyTakeaway'
+import { PolicyTimeline } from '@/components/sammenligning/PolicyTimeline'
 import { COUNTRY_LIST } from '@/lib/config/countries'
 import type { CountryCode } from '@/lib/config/countries'
 import type { SammenligningData, CountrySammenligning } from '@/lib/queries/sammenligning'
@@ -274,14 +275,43 @@ export function SammenligningContent({ data }: Props) {
           />
         )
       })()}
-      <BolkSection
-        number={5}
-        title="Politikk & regulering"
-        question="Hvordan styres systemet ulikt?"
-        narrative=""
-        charts={null}
-        seeAlso={[{ href: '/politikk', label: 'Politikk' }]}
-      />
+      {(() => {
+        const flat = COUNTRY_LIST.flatMap(c =>
+          (data.countries[c.code]?.policies ?? []).map(p => ({ country: c.code, ...p }))
+        )
+
+        return (
+          <BolkSection
+            number={5}
+            title="Politikk & regulering"
+            question="Hvordan styres systemet ulikt?"
+            narrative="Norden konvergerer på matsvinn, biogass og emballasje, men i ulikt tempo og med ulike virkemidler — fra bransjeavtaler til bindende lov."
+            takeaway={
+              <KeyTakeaway
+                headline="2015–2030 — bransjeavtale → matsvinnlov → PFAS-forbud"
+                subline="Politikkmiks varierer per land"
+              />
+            }
+            charts={<div className="md:col-span-2"><PolicyTimeline policies={flat} /></div>}
+            table={
+              <ComparisonTable
+                caption="Antall registrerte tiltak per land"
+                rows={[
+                  {
+                    label: 'Lover',
+                    values: Object.fromEntries(COUNTRY_LIST.map(c => [c.code, (data.countries[c.code]?.policies ?? []).filter(p => p.type === 'law').length])) as Record<CountryCode, number>,
+                  },
+                  {
+                    label: 'Frivillige avtaler',
+                    values: Object.fromEntries(COUNTRY_LIST.map(c => [c.code, (data.countries[c.code]?.policies ?? []).filter(p => p.type === 'voluntary').length])) as Record<CountryCode, number>,
+                  },
+                ]}
+              />
+            }
+            seeAlso={[{ href: '/politikk', label: 'Politikk' }]}
+          />
+        )
+      })()}
 
       <footer className="mt-16 pt-6 border-t border-stone-200 text-xs text-stone-500">
         <p>Sist generert: {new Date(data.generatedAt).toLocaleDateString('nb-NO')}</p>
