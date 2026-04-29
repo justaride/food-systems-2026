@@ -170,17 +170,69 @@ export function SammenligningContent({ data }: Props) {
           />
         )
       })()}
-      <BolkSection
-        number={3}
-        title="Verdikjedevolum & verdiskaping"
-        question="Hvor mye produseres, og hvem tjener pengene?"
-        narrative=""
-        charts={null}
-        seeAlso={[
-          { href: '/verdikjede', label: 'Verdikjede' },
-          { href: '/havbruk', label: 'Havbruk' },
-        ]}
-      />
+      {(() => {
+        const vol = rowsFor(data, c => c.valueChain.primaryVolumeTonnes)
+        const seafood = rowsFor(data, c => c.valueChain.seafoodExportValueBn)
+        const turnover = rowsFor(data, c => c.valueChain.processingTurnoverBn)
+        const empNace10 = rowsFor(data, c => c.valueChain.employmentByNace.nace10)
+        const co2eRetail = rowsFor(data, c => c.valueChain.co2ePerStep.retail ?? null)
+
+        const noProd = (() => {
+          const v = data.countries.no?.valueChain.valueAddedByStep ?? {}
+          return Object.values(v).reduce<number>((s, x) => s + (x ?? 0), 0)
+        })()
+
+        return (
+          <BolkSection
+            number={3}
+            title="Verdikjedevolum & verdiskaping"
+            question="Hvor mye produseres, og hvem tjener pengene?"
+            narrative={`Norsk matsystem produserer rundt ${noProd.toFixed(0)} mrd NOK i samlet verdiskaping; sjømateksporten alene er flerfoldig over landbrukets bidrag.`}
+            takeaway={
+              <KeyTakeaway
+                headline={`${noProd.toFixed(0)} mrd NOK total verdiskaping (NO)`}
+                subline="Sum value-added per ledd"
+              />
+            }
+            charts={
+              <>
+                <ChartCard
+                  title="Primærvolum"
+                  description="Råvarer i tonn"
+                  unit="tonn"
+                  rows={vol}
+                  perCapitaEnabled
+                  perCapitaUnit="tonn/innb"
+                />
+                <ChartCard title="Sjømat eksport-verdi" unit="mrd" rows={seafood} />
+                <ChartCard title="Foredlings-omsetning" unit="mrd" rows={turnover} />
+                <ChartCard title="Sysselsetting matforedling (NACE 10)" rows={empNace10} />
+                <ChartCard
+                  title="CO₂e — detaljhandel"
+                  description="Tonn CO₂-ekvivalenter (mt). Kun NO har data per ledd."
+                  unit="mt"
+                  rows={co2eRetail}
+                />
+              </>
+            }
+            table={
+              <ComparisonTable
+                caption="Value-added per ledd (mrd, NO referanse)"
+                rows={['primary', 'seafood', 'processing', 'distribution', 'retail', 'horeca'].map(step => ({
+                  label: step,
+                  values: Object.fromEntries(
+                    COUNTRY_LIST.map(c => [c.code, data.countries[c.code]?.valueChain.valueAddedByStep[step] ?? null])
+                  ) as Record<CountryCode, number | null>,
+                }))}
+              />
+            }
+            seeAlso={[
+              { href: '/verdikjede', label: 'Verdikjede' },
+              { href: '/havbruk', label: 'Havbruk' },
+            ]}
+          />
+        )
+      })()}
       <BolkSection
         number={4}
         title="Sirkularitet & matsvinn"
