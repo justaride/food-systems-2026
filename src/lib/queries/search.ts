@@ -1,5 +1,9 @@
 import { prisma } from '@/lib/db'
-import { semanticSearch } from './semantic-search'
+import {
+  SemanticSearchUnavailableError,
+  semanticSearch,
+  type SemanticSearchStatus,
+} from './semantic-search'
 import { isMissingPrismaTable } from './prisma-errors'
 
 export type SearchMode = 'keyword' | 'semantic' | 'hybrid'
@@ -14,21 +18,41 @@ export type SearchResult = {
   relevance?: number
 }
 
+export type SearchWarning = {
+  code: 'semantic-unavailable' | 'semantic-error'
+  message: string
+}
+
+export type SearchExecution = {
+  requestedMode: SearchMode
+  executedMode: SearchMode
+  fallback: boolean
+  warnings: SearchWarning[]
+  capabilities: {
+    semantic?: SemanticSearchStatus
+  }
+  results: SearchResult[]
+}
+
 export async function unifiedSearch(query: string, limit = 20, mode: SearchMode = 'keyword'): Promise<SearchResult[]> {
+  const execution = await searchWithDiagnostics(query, limit, mode)
+  return execution.results
+}
+
+export async function searchWithDiagnostics(query: string, limit = 20, mode: SearchMode = 'keyword'): Promise<SearchExecution> {
   if (mode === 'semantic') {
     try {
       const results = await semanticSearch(query, limit)
-      return results.map(r => ({
-        type: 'document' as const,
-        id: r.id,
-        title: r.title,
-        excerpt: r.excerpt,
-        tags: r.tags,
-        url: `/bibliotek/${r.slug}`,
-        relevance: 1 - r.distance,
-      }))
-    } catch {
-      return keywordSearch(query, limit)
+      return {
+        requestedMode: mode,
+        executedMode: 'semantic',
+        fallback: false,
+        warnings: [],
+        capabilities: {},
+        results: mapSemanticResults(results),
+      }
+    } catch (error) {
+      return fallbackToKeyword(query, limit, mode, error)
     }
   }
 
@@ -36,17 +60,7 @@ export async function unifiedSearch(query: string, limit = 20, mode: SearchMode 
     try {
       const [keyword, semantic] = await Promise.all([
         keywordSearch(query, limit),
-        semanticSearch(query, limit).then(results =>
-          results.map(r => ({
-            type: 'document' as const,
-            id: r.id,
-            title: r.title,
-            excerpt: r.excerpt,
-            tags: r.tags,
-            url: `/bibliotek/${r.slug}`,
-            relevance: 1 - r.distance,
-          }))
-        ),
+        semanticSearch(query, limit).then(mapSemanticResults),
       ])
       const seen = new Set<string>()
       const merged: SearchResult[] = []
@@ -57,13 +71,91 @@ export async function unifiedSearch(query: string, limit = 20, mode: SearchMode 
           merged.push(r)
         }
       }
-      return merged.slice(0, limit)
-    } catch {
-      return keywordSearch(query, limit)
+      return {
+        requestedMode: mode,
+        executedMode: 'hybrid',
+        fallback: false,
+        warnings: [],
+        capabilities: {},
+        results: merged.slice(0, limit),
+      }
+    } catch (error) {
+      return fallbackToKeyword(query, limit, mode, error)
     }
   }
 
-  return keywordSearch(query, limit)
+  return {
+    requestedMode: mode,
+    executedMode: 'keyword',
+    fallback: false,
+    warnings: [],
+    capabilities: {},
+    results: await keywordSearch(query, limit),
+  }
+}
+
+function mapSemanticResults(results: Awaited<ReturnType<typeof semanticSearch>>): SearchResult[] {
+  return results.map(r => ({
+    type: 'document' as const,
+    id: r.id,
+    title: r.title,
+    excerpt: r.excerpt,
+    tags: r.tags,
+    url: `/bibliotek/${r.slug}`,
+    relevance: 1 - r.distance,
+  }))
+}
+
+async function fallbackToKeyword(query: string, limit: number, mode: SearchMode, error: unknown): Promise<SearchExecution> {
+  const semanticStatus = semanticStatusFromError(error)
+  const warning = semanticWarning(mode, semanticStatus)
+
+  return {
+    requestedMode: mode,
+    executedMode: 'keyword',
+    fallback: true,
+    warnings: [warning],
+    capabilities: {
+      ...(semanticStatus ? { semantic: semanticStatus } : {}),
+    },
+    results: await keywordSearch(query, limit),
+  }
+}
+
+function semanticStatusFromError(error: unknown): SemanticSearchStatus | undefined {
+  if (error instanceof SemanticSearchUnavailableError) return error.status
+
+  const maybeError = error as { status?: unknown } | null
+  if (maybeError?.status && typeof maybeError.status === 'object') {
+    return maybeError.status as SemanticSearchStatus
+  }
+
+  return undefined
+}
+
+function semanticWarning(mode: SearchMode, status: SemanticSearchStatus | undefined): SearchWarning {
+  if (!status) {
+    return {
+      code: 'semantic-error',
+      message: `${mode === 'hybrid' ? 'Hybrid' : 'Semantisk'} søk feilet. Viser nøkkelordstreff i stedet.`,
+    }
+  }
+
+  const embeddingCount = typeof status.embeddedDocuments === 'number' && typeof status.totalDocuments === 'number'
+    ? ` (${status.embeddedDocuments} av ${status.totalDocuments} dokumenter har embeddings)`
+    : ''
+  const reason = status.reason === 'missing-openai-key'
+    ? 'OPENAI_API_KEY mangler'
+    : status.reason === 'missing-document-embeddings'
+      ? `dokument-embeddings mangler${embeddingCount}`
+      : status.reason === 'missing-openai-key-and-document-embeddings'
+        ? `OPENAI_API_KEY mangler og dokument-embeddings mangler${embeddingCount}`
+        : 'statussjekken feilet'
+
+  return {
+    code: 'semantic-unavailable',
+    message: `${mode === 'hybrid' ? 'Hybrid' : 'Semantisk'} søk er ikke klart: ${reason}. Viser nøkkelordstreff i stedet.`,
+  }
 }
 
 function interleaveByType(results: SearchResult[], cap: number): SearchResult[] {
@@ -85,16 +177,64 @@ function interleaveByType(results: SearchResult[], cap: number): SearchResult[] 
   return out
 }
 
+function tokenizeSearchQuery(query: string): string[] {
+  const tokens = query
+    .toLowerCase()
+    .match(/[\p{L}\p{N}][\p{L}\p{N}-]{1,}/gu) ?? []
+
+  return Array.from(new Set(tokens)).slice(0, 6)
+}
+
+function buildSearchValues(query: string): string[] {
+  const trimmed = query.trim()
+  return Array.from(new Set([trimmed, ...tokenizeSearchQuery(trimmed)].filter(Boolean))).slice(0, 7)
+}
+
+function buildArraySearchValues(values: string[]): string[] {
+  const variants = new Set<string>()
+  for (const value of values) {
+    variants.add(value)
+    variants.add(value.toLowerCase())
+    variants.add(value.toUpperCase())
+  }
+  return [...variants]
+}
+
+function scoreSearchResult(result: SearchResult, query: string): number {
+  const normalizedQuery = query.trim().toLowerCase()
+  const tokens = tokenizeSearchQuery(query)
+  const title = result.title.toLowerCase()
+  const excerpt = result.excerpt.toLowerCase()
+  const tags = (result.tags ?? []).map(tag => tag.toLowerCase())
+  let score = 0
+
+  if (title === normalizedQuery) score += 100
+  if (title.startsWith(normalizedQuery)) score += 70
+  if (title.includes(normalizedQuery)) score += 50
+  if (excerpt.includes(normalizedQuery)) score += 20
+  if (tags.includes(normalizedQuery)) score += 40
+
+  for (const token of tokens) {
+    if (title.includes(token)) score += 12
+    if (excerpt.includes(token)) score += 4
+    if (tags.includes(token)) score += 8
+  }
+
+  return score
+}
+
 async function keywordSearch(query: string, limit: number): Promise<SearchResult[]> {
   const results: SearchResult[] = []
   const perTypeLimit = Math.max(5, Math.ceil(limit / 4))
+  const searchValues = buildSearchValues(query)
+  const arraySearchValues = buildArraySearchValues(searchValues)
 
   const documents = await prisma.document.findMany({
     where: {
-      OR: [
-        { title: { contains: query, mode: 'insensitive' } },
-        { content: { contains: query, mode: 'insensitive' } },
-      ],
+      OR: searchValues.flatMap(value => [
+        { title: { contains: value, mode: 'insensitive' as const } },
+        { content: { contains: value, mode: 'insensitive' as const } },
+      ]),
     },
     select: { id: true, title: true, content: true, summary: true, tags: true, slug: true },
     take: perTypeLimit,
@@ -125,9 +265,11 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
   const insightsResult = await prisma.insight.findMany({
     where: {
       OR: [
-        { title: { contains: query, mode: 'insensitive' } },
-        { description: { contains: query, mode: 'insensitive' } },
-        { tags: { has: query.toLowerCase() } },
+        ...searchValues.flatMap(value => [
+          { title: { contains: value, mode: 'insensitive' as const } },
+          { description: { contains: value, mode: 'insensitive' as const } },
+        ]),
+        { tags: { hasSome: arraySearchValues } },
       ],
     },
     take: perTypeLimit,
@@ -146,11 +288,11 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
 
   const sourcesResult = await prisma.sourceDoc.findMany({
     where: {
-      OR: [
-        { title: { contains: query, mode: 'insensitive' } },
-        { description: { contains: query, mode: 'insensitive' } },
-        { filename: { contains: query, mode: 'insensitive' } },
-      ],
+      OR: searchValues.flatMap(value => [
+        { title: { contains: value, mode: 'insensitive' as const } },
+        { description: { contains: value, mode: 'insensitive' as const } },
+        { filename: { contains: value, mode: 'insensitive' as const } },
+      ]),
     },
     take: perTypeLimit,
   })
@@ -168,9 +310,11 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
   const thesesResult = await prisma.thesis.findMany({
     where: {
       OR: [
-        { title: { contains: query, mode: 'insensitive' } },
-        { synthesis: { contains: query, mode: 'insensitive' } },
-        { tags: { has: query.toLowerCase() } },
+        ...searchValues.flatMap(value => [
+          { title: { contains: value, mode: 'insensitive' as const } },
+          { synthesis: { contains: value, mode: 'insensitive' as const } },
+        ]),
+        { tags: { hasSome: arraySearchValues } },
       ],
     },
     take: perTypeLimit,
@@ -189,11 +333,11 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
 
   const companiesResult = await prisma.company.findMany({
     where: {
-      OR: [
-        { name: { contains: query, mode: 'insensitive' } },
-        { naceDescription: { contains: query, mode: 'insensitive' } },
-        { valueChainStage: { contains: query, mode: 'insensitive' } },
-      ],
+      OR: searchValues.flatMap(value => [
+        { name: { contains: value, mode: 'insensitive' as const } },
+        { naceDescription: { contains: value, mode: 'insensitive' as const } },
+        { valueChainStage: { contains: value, mode: 'insensitive' as const } },
+      ]),
     },
     take: perTypeLimit,
   })
@@ -209,15 +353,16 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
   }
 
   try {
-    const themeVariants = Array.from(new Set([query, query.toLowerCase(), query.toUpperCase()]))
     const actorsResult = await prisma.actor.findMany({
       where: {
         OR: [
-          { name: { contains: query, mode: 'insensitive' } },
-          { roleSummary: { contains: query, mode: 'insensitive' } },
-          { currentRelevance: { contains: query, mode: 'insensitive' } },
-          { specificAsk: { contains: query, mode: 'insensitive' } },
-          { themeTags: { hasSome: themeVariants } },
+          ...searchValues.flatMap(value => [
+            { name: { contains: value, mode: 'insensitive' as const } },
+            { roleSummary: { contains: value, mode: 'insensitive' as const } },
+            { currentRelevance: { contains: value, mode: 'insensitive' as const } },
+            { specificAsk: { contains: value, mode: 'insensitive' as const } },
+          ]),
+          { themeTags: { hasSome: arraySearchValues } },
         ],
       },
       take: perTypeLimit,
@@ -241,11 +386,13 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
     const relationshipsResult = await prisma.businessRelationship.findMany({
       where: {
         OR: [
-          { description: { contains: query, mode: 'insensitive' } },
-          { sector: { contains: query, mode: 'insensitive' } },
-          { relationshipType: { contains: query, mode: 'insensitive' } },
-          { fromCompany: { name: { contains: query, mode: 'insensitive' } } },
-          { toCompany: { name: { contains: query, mode: 'insensitive' } } },
+          ...searchValues.flatMap(value => [
+            { description: { contains: value, mode: 'insensitive' as const } },
+            { sector: { contains: value, mode: 'insensitive' as const } },
+            { relationshipType: { contains: value, mode: 'insensitive' as const } },
+            { fromCompany: { name: { contains: value, mode: 'insensitive' as const } } },
+            { toCompany: { name: { contains: value, mode: 'insensitive' as const } } },
+          ]),
         ],
       },
       include: {
@@ -261,7 +408,7 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
         id: rel.id,
         title: `${rel.fromCompany.name} → ${rel.toCompany.name}`,
         excerpt: `${rel.relationshipType}${rel.sector ? ` — ${rel.sector}` : ''}${rel.description ? ` — ${rel.description}` : ''}`,
-        url: `/relasjoner#${rel.id}`,
+        url: `/forsyningskjede?relationship=${encodeURIComponent(rel.id)}`,
       })
     }
   } catch (error) {
@@ -272,11 +419,13 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
     const propertiesResult = await prisma.companyProperty.findMany({
       where: {
         OR: [
-          { address: { contains: query, mode: 'insensitive' } },
-          { municipality: { contains: query, mode: 'insensitive' } },
-          { county: { contains: query, mode: 'insensitive' } },
-          { propertyType: { contains: query, mode: 'insensitive' } },
-          { company: { name: { contains: query, mode: 'insensitive' } } },
+          ...searchValues.flatMap(value => [
+            { address: { contains: value, mode: 'insensitive' as const } },
+            { municipality: { contains: value, mode: 'insensitive' as const } },
+            { county: { contains: value, mode: 'insensitive' as const } },
+            { propertyType: { contains: value, mode: 'insensitive' as const } },
+            { company: { name: { contains: value, mode: 'insensitive' as const } } },
+          ]),
         ],
       },
       include: {
@@ -303,10 +452,12 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
     const personsResult = await prisma.personProfile.findMany({
       where: {
         OR: [
-          { name: { contains: query, mode: 'insensitive' } },
-          { biography: { contains: query, mode: 'insensitive' } },
-          { affiliations: { has: query } },
-          { tags: { has: query.toLowerCase() } },
+          ...searchValues.flatMap(value => [
+            { name: { contains: value, mode: 'insensitive' as const } },
+            { biography: { contains: value, mode: 'insensitive' as const } },
+          ]),
+          { affiliations: { hasSome: arraySearchValues } },
+          { tags: { hasSome: arraySearchValues } },
         ],
       },
       take: perTypeLimit,
@@ -332,5 +483,8 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
     if (!isMissingPrismaTable(error, 'PersonProfile')) throw error
   }
 
-  return interleaveByType(results, limit)
+  return interleaveByType(
+    results.sort((a, b) => scoreSearchResult(b, query) - scoreSearchResult(a, query)),
+    limit,
+  )
 }

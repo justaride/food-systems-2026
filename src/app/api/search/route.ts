@@ -1,11 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { unifiedSearch, type SearchMode } from '@/lib/queries/search'
+import { searchWithDiagnostics, type SearchMode } from '@/lib/queries/search'
+import { isPrismaDataUnavailable } from '@/lib/queries/prisma-errors'
 
 const VALID_MODES: SearchMode[] = ['keyword', 'semantic', 'hybrid']
+const DEFAULT_LIMIT = 20
+const MAX_LIMIT = 100
+
+function parseLimit(value: string | null) {
+  const parsed = Number(value ?? DEFAULT_LIMIT)
+  if (!Number.isFinite(parsed)) return DEFAULT_LIMIT
+  return Math.min(MAX_LIMIT, Math.max(1, Math.floor(parsed)))
+}
 
 export async function GET(request: NextRequest) {
   const q = request.nextUrl.searchParams.get('q')
-  const limit = Number(request.nextUrl.searchParams.get('limit') ?? 20)
+  const limit = parseLimit(request.nextUrl.searchParams.get('limit'))
   const modeParam = request.nextUrl.searchParams.get('mode') ?? 'keyword'
   const mode = VALID_MODES.includes(modeParam as SearchMode) ? (modeParam as SearchMode) : 'keyword'
 
@@ -13,6 +22,25 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Query must be at least 2 characters' }, { status: 400 })
   }
 
-  const results = await unifiedSearch(q, limit, mode)
-  return NextResponse.json({ query: q, mode, count: results.length, results })
+  try {
+    const execution = await searchWithDiagnostics(q, limit, mode)
+    return NextResponse.json({
+      query: q,
+      requestedMode: execution.requestedMode,
+      mode: execution.executedMode,
+      executedMode: execution.executedMode,
+      fallback: execution.fallback,
+      warnings: execution.warnings,
+      capabilities: execution.capabilities,
+      count: execution.results.length,
+      results: execution.results,
+    })
+  } catch (error) {
+    console.error('[search-api] Search failed', error)
+    const status = isPrismaDataUnavailable(error) ? 503 : 500
+    return NextResponse.json(
+      { error: 'Search is unavailable right now', code: 'SEARCH_UNAVAILABLE' },
+      { status },
+    )
+  }
 }

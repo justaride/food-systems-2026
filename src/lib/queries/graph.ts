@@ -6,6 +6,7 @@ export type GraphNode = {
   label: string
   type: 'document' | 'insight' | 'thesis' | 'company' | 'source' | 'actor' | 'person' | 'property'
   tags?: string[]
+  href?: string
 }
 
 export type GraphEdge = {
@@ -120,10 +121,11 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
     where: { id },
     select: {
       id: true,
+      slug: true,
       title: true,
       tags: true,
-      refsFrom: { include: { to: { select: { id: true, title: true, tags: true } } } },
-      refsTo: { include: { from: { select: { id: true, title: true, tags: true } } } },
+      refsFrom: { include: { to: { select: { id: true, slug: true, title: true, tags: true } } } },
+      refsTo: { include: { from: { select: { id: true, slug: true, title: true, tags: true } } } },
       insightDocumentRefs: { include: { insight: { select: { id: true, title: true, tags: true } } } },
       companyDocumentRefs: { include: { company: { select: { id: true, name: true } } } },
     },
@@ -132,14 +134,20 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
   if (!doc) return { nodes: [], edges: [] }
 
   const nodes: GraphNode[] = [
-    { id: doc.id, label: doc.title, type: 'document', tags: doc.tags },
+    { id: doc.id, label: doc.title, type: 'document', tags: doc.tags, href: `/bibliotek/${doc.slug}` },
   ]
   const edges: GraphEdge[] = []
   const seen = new Set<string>([doc.id])
 
   for (const ref of doc.refsFrom) {
     if (!seen.has(ref.to.id)) {
-      nodes.push({ id: ref.to.id, label: ref.to.title, type: 'document', tags: ref.to.tags })
+      nodes.push({
+        id: ref.to.id,
+        label: ref.to.title,
+        type: 'document',
+        tags: ref.to.tags,
+        href: `/bibliotek/${ref.to.slug}`,
+      })
       seen.add(ref.to.id)
     }
     edges.push({ source: doc.id, target: ref.to.id, type: ref.refType })
@@ -147,7 +155,13 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
 
   for (const ref of doc.refsTo) {
     if (!seen.has(ref.from.id)) {
-      nodes.push({ id: ref.from.id, label: ref.from.title, type: 'document', tags: ref.from.tags })
+      nodes.push({
+        id: ref.from.id,
+        label: ref.from.title,
+        type: 'document',
+        tags: ref.from.tags,
+        href: `/bibliotek/${ref.from.slug}`,
+      })
       seen.add(ref.from.id)
     }
     edges.push({ source: ref.from.id, target: doc.id, type: ref.refType })
@@ -155,7 +169,13 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
 
   for (const ref of doc.insightDocumentRefs) {
     if (!seen.has(ref.insight.id)) {
-      nodes.push({ id: ref.insight.id, label: ref.insight.title, type: 'insight', tags: ref.insight.tags })
+      nodes.push({
+        id: ref.insight.id,
+        label: ref.insight.title,
+        type: 'insight',
+        tags: ref.insight.tags,
+        href: `/innsikt#${ref.insight.id}`,
+      })
       seen.add(ref.insight.id)
     }
     edges.push({ source: doc.id, target: ref.insight.id, type: 'insight-ref' })
@@ -163,7 +183,7 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
 
   for (const ref of doc.companyDocumentRefs) {
     if (!seen.has(ref.company.id)) {
-      nodes.push({ id: ref.company.id, label: ref.company.name, type: 'company' })
+      nodes.push({ id: ref.company.id, label: ref.company.name, type: 'company', href: `/selskap/${ref.company.id}` })
       seen.add(ref.company.id)
     }
     edges.push({ source: doc.id, target: ref.company.id, type: 'company-ref' })
@@ -172,12 +192,18 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
   try {
     const actorRefs = await prisma.actorDocumentRef.findMany({
       where: { documentId: id },
-      include: { actor: { select: { id: true, name: true, themeTags: true } } },
+      include: { actor: { select: { id: true, slug: true, name: true, themeTags: true } } },
     })
 
     for (const ref of actorRefs) {
       if (!seen.has(ref.actor.id)) {
-        nodes.push({ id: ref.actor.id, label: ref.actor.name, type: 'actor', tags: ref.actor.themeTags })
+        nodes.push({
+          id: ref.actor.id,
+          label: ref.actor.name,
+          type: 'actor',
+          tags: ref.actor.themeTags,
+          href: `/aktorer/${ref.actor.slug}`,
+        })
         seen.add(ref.actor.id)
       }
       edges.push({ source: doc.id, target: ref.actor.id, type: 'actor-ref' })
@@ -191,7 +217,7 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
 
 export async function getFullGraph(): Promise<GraphData> {
   const [docs, docRefs, insightRefs, companyRefs, insights, theses, companies] = await Promise.all([
-    prisma.document.findMany({ select: { id: true, title: true, tags: true } }),
+    prisma.document.findMany({ select: { id: true, slug: true, title: true, tags: true } }),
     prisma.documentRef.findMany({ select: { fromId: true, toId: true, refType: true } }),
     prisma.insightDocumentRef.findMany({ select: { insightId: true, documentId: true } }),
     prisma.companyDocumentRef.findMany({ select: { companyId: true, documentId: true } }),
@@ -203,7 +229,7 @@ export async function getFullGraph(): Promise<GraphData> {
     prisma.company.findMany({ select: { id: true, name: true, orgNr: true } }),
   ])
 
-  let actors: Array<{ id: string; name: string; themeTags: string[]; companyId: string | null }> = []
+  let actors: Array<{ id: string; slug: string; name: string; themeTags: string[]; companyId: string | null }> = []
   let actorRefs: Array<{ actorId: string; documentId: string }> = []
   let actorRelationships: Array<{ fromActorId: string; toActorId: string; relationType: string }> = []
 
@@ -212,6 +238,7 @@ export async function getFullGraph(): Promise<GraphData> {
       prisma.actor.findMany({
         select: {
           id: true,
+          slug: true,
           name: true,
           themeTags: true,
           companyId: true,
@@ -262,17 +289,48 @@ export async function getFullGraph(): Promise<GraphData> {
   const companyIdSet = new Set(companies.map(c => c.id))
 
   const nodes: GraphNode[] = [
-    ...docs.map(d => ({ id: d.id, label: d.title, type: 'document' as const, tags: d.tags })),
-    ...insights.map(i => ({ id: i.id, label: i.title, type: 'insight' as const, tags: i.tags })),
-    ...theses.map(t => ({ id: t.id, label: t.title, type: 'thesis' as const, tags: t.tags })),
-    ...companies.map(c => ({ id: c.id, label: c.name, type: 'company' as const })),
-    ...actors.map(a => ({ id: a.id, label: a.name, type: 'actor' as const, tags: a.themeTags })),
-    ...personProfiles.map(p => ({ id: p.id, label: p.name, type: 'person' as const, tags: p.tags })),
+    ...docs.map(d => ({
+      id: d.id,
+      label: d.title,
+      type: 'document' as const,
+      tags: d.tags,
+      href: `/bibliotek/${d.slug}`,
+    })),
+    ...insights.map(i => ({
+      id: i.id,
+      label: i.title,
+      type: 'insight' as const,
+      tags: i.tags,
+      href: `/innsikt#${i.id}`,
+    })),
+    ...theses.map(t => ({
+      id: t.id,
+      label: t.title,
+      type: 'thesis' as const,
+      tags: t.tags,
+      href: `/masteroppgaver#${t.id}`,
+    })),
+    ...companies.map(c => ({ id: c.id, label: c.name, type: 'company' as const, href: `/selskap/${c.id}` })),
+    ...actors.map(a => ({
+      id: a.id,
+      label: a.name,
+      type: 'actor' as const,
+      tags: a.themeTags,
+      href: `/aktorer/${a.slug}`,
+    })),
+    ...personProfiles.map(p => ({
+      id: p.id,
+      label: p.name,
+      type: 'person' as const,
+      tags: p.tags,
+      href: `/personer/${encodeURIComponent(p.personKey)}`,
+    })),
     ...properties.map(p => ({
       id: p.id,
       label: `${p.propertyType}${p.municipality ? ` (${p.municipality})` : ''}`,
       type: 'property' as const,
       tags: [p.propertyType, ...(p.selfLeased ? ['self-leased'] : [])],
+      href: `/eiendommer#${p.id}`,
     })),
   ]
 

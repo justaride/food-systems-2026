@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useMemo } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
 import { SupplyChainGraph } from '@/components/charts/SupplyChainGraph'
 import type {
@@ -110,6 +111,8 @@ export function ForsyningskjedeContent({
   deliveries: PrimaryDeliveriesData
   quality: SupplyChainDataQuality
 }) {
+  const searchParams = useSearchParams()
+  const selectedRelationshipId = searchParams.get('relationship')
   const [activeStages, setActiveStages] = useState<Set<string>>(() => {
     const stages = new Set<string>()
     for (const n of data.nodes) {
@@ -122,7 +125,12 @@ export function ForsyningskjedeContent({
     () => new Set(Object.keys(data.stats.byType))
   )
 
-  const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null)
+  const relationshipSelectedNodeId = useMemo(() => {
+    if (!selectedRelationshipId) return null
+    return data.edges.find(e => e.id === selectedRelationshipId)?.target ?? null
+  }, [data.edges, selectedRelationshipId])
+  const [selectedNodeOverride, setSelectedNodeOverride] = useState<string | null | undefined>(undefined)
+  const selectedNodeId = selectedNodeOverride !== undefined ? selectedNodeOverride : relationshipSelectedNodeId
 
   const toggleStage = (stage: string) => {
     setActiveStages(prev => {
@@ -315,11 +323,17 @@ export function ForsyningskjedeContent({
                 </tr>
               </thead>
               <tbody>
-                {selfDealingEdges.map((e, i) => {
-                  const from = nodeById.get(e.source)
-                  const to = nodeById.get(e.target)
-                  return (
-                    <tr key={i} className="border-b border-stone-100 align-top">
+                    {selfDealingEdges.map((e) => {
+                      const from = nodeById.get(e.source)
+                      const to = nodeById.get(e.target)
+                      return (
+                    <tr
+                      key={e.id}
+                      id={`relationship-${e.id}`}
+                      className={`border-b border-stone-100 align-top ${
+                        selectedRelationshipId === e.id ? 'bg-amber-50' : ''
+                      }`}
+                    >
                       <td className="py-2 pr-3">
                         <Link
                           href={`/selskap/${e.source}`}
@@ -399,7 +413,7 @@ export function ForsyningskjedeContent({
           stageColors={STAGE_COLORS}
           relationshipColors={RELATIONSHIP_COLORS}
           selectedNodeId={selectedNodeId}
-          onNodeClick={setSelectedNodeId}
+          onNodeClick={setSelectedNodeOverride}
         />
 
         {selectedNode && (
@@ -430,10 +444,15 @@ export function ForsyningskjedeContent({
                     Innkommende ({selectedInbound.length})
                   </p>
                   <ul className="space-y-1.5">
-                    {selectedInbound.map((e, i) => {
+                    {selectedInbound.map((e) => {
                       const from = nodeById.get(e.source)
                       return (
-                        <li key={i} className="text-xs text-stone-600 flex items-start gap-2">
+                        <li
+                          key={e.id}
+                          className={`text-xs text-stone-600 flex items-start gap-2 ${
+                            selectedRelationshipId === e.id ? 'font-semibold' : ''
+                          }`}
+                        >
                           <span
                             className="w-2 h-2 rounded-full shrink-0 mt-0.5"
                             style={{ backgroundColor: RELATIONSHIP_COLORS[e.relationshipType] ?? '#78716c' }}
@@ -460,10 +479,15 @@ export function ForsyningskjedeContent({
                     Utgående ({selectedOutbound.length})
                   </p>
                   <ul className="space-y-1.5">
-                    {selectedOutbound.map((e, i) => {
+                    {selectedOutbound.map((e) => {
                       const to = nodeById.get(e.target)
                       return (
-                        <li key={i} className="text-xs text-stone-600 flex items-start gap-2">
+                        <li
+                          key={e.id}
+                          className={`text-xs text-stone-600 flex items-start gap-2 ${
+                            selectedRelationshipId === e.id ? 'font-semibold' : ''
+                          }`}
+                        >
                           <span
                             className="w-2 h-2 rounded-full shrink-0 mt-0.5"
                             style={{ backgroundColor: RELATIONSHIP_COLORS[e.relationshipType] ?? '#78716c' }}

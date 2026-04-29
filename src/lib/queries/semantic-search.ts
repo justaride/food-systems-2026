@@ -1,6 +1,26 @@
 import pgvector from 'pgvector'
 import { prisma } from '@/lib/db'
 
+export type SemanticSearchStatus = {
+  available: boolean
+  hasOpenAiKey: boolean
+  totalDocuments: number | null
+  embeddedDocuments: number | null
+  reason?: 'missing-openai-key' | 'missing-document-embeddings' | 'missing-openai-key-and-document-embeddings' | 'status-check-failed'
+}
+
+export class SemanticSearchUnavailableError extends Error {
+  code = 'SEMANTIC_SEARCH_UNAVAILABLE'
+
+  constructor(
+    message: string,
+    public readonly status: SemanticSearchStatus,
+  ) {
+    super(message)
+    this.name = 'SemanticSearchUnavailableError'
+  }
+}
+
 type SemanticResult = {
   id: string
   slug: string
@@ -10,14 +30,56 @@ type SemanticResult = {
   distance: number
 }
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY
+export async function getSemanticSearchStatus(): Promise<SemanticSearchStatus> {
+  const hasOpenAiKey = Boolean(process.env.OPENAI_API_KEY?.trim())
+
+  try {
+    const [counts] = await prisma.$queryRaw<Array<{ total: number; embedded: number }>>`
+      SELECT COUNT(*)::int AS total, COUNT(embedding)::int AS embedded
+      FROM "Document"
+    `
+
+    const totalDocuments = counts?.total ?? 0
+    const embeddedDocuments = counts?.embedded ?? 0
+    const hasEmbeddings = embeddedDocuments > 0
+
+    if (hasOpenAiKey && hasEmbeddings) {
+      return { available: true, hasOpenAiKey, totalDocuments, embeddedDocuments }
+    }
+
+    return {
+      available: false,
+      hasOpenAiKey,
+      totalDocuments,
+      embeddedDocuments,
+      reason: !hasOpenAiKey && !hasEmbeddings
+        ? 'missing-openai-key-and-document-embeddings'
+        : !hasOpenAiKey
+          ? 'missing-openai-key'
+          : 'missing-document-embeddings',
+    }
+  } catch {
+    return {
+      available: false,
+      hasOpenAiKey,
+      totalDocuments: null,
+      embeddedDocuments: null,
+      reason: 'status-check-failed',
+    }
+  }
+}
 
 async function getQueryEmbedding(query: string): Promise<number[]> {
-  if (!OPENAI_API_KEY) throw new Error('OPENAI_API_KEY not set')
+  const openAiApiKey = process.env.OPENAI_API_KEY?.trim()
+  if (!openAiApiKey) {
+    const status = await getSemanticSearchStatus()
+    throw new SemanticSearchUnavailableError('OPENAI_API_KEY is not configured', status)
+  }
+
   const res = await fetch('https://api.openai.com/v1/embeddings', {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${OPENAI_API_KEY}`,
+      'Authorization': `Bearer ${openAiApiKey}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -31,6 +93,11 @@ async function getQueryEmbedding(query: string): Promise<number[]> {
 }
 
 export async function semanticSearch(query: string, limit = 10): Promise<SemanticResult[]> {
+  const status = await getSemanticSearchStatus()
+  if (!status.available) {
+    throw new SemanticSearchUnavailableError('Semantic search is not configured', status)
+  }
+
   const embedding = await getQueryEmbedding(query)
   const vector = pgvector.toSql(embedding)
 

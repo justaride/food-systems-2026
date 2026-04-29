@@ -3,22 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useMapContext } from '@/lib/map/MapContext'
-
-type FlowRecord = {
-  source: string
-  target: string
-  value: number
-  label?: string
-  note?: string
-}
-
-type FlowDataset = {
-  country: string
-  title: string
-  description: string
-  unit: string
-  flows: FlowRecord[]
-}
+import type { FlowDataset, FlowEvidenceStatus } from '@/lib/map/types'
 
 type FlowNode = {
   id: string
@@ -125,6 +110,47 @@ function kindStyles(kind: FlowNode['kind']) {
   return kind === 'port'
     ? { ring: 'stroke-sky-500', core: 'fill-sky-500', halo: '#0EA5E9' }
     : { ring: 'stroke-emerald-500', core: 'fill-emerald-500', halo: '#10B981' }
+}
+
+const EVIDENCE_LABELS: Record<FlowEvidenceStatus, string> = {
+  observed: 'Observert',
+  estimated: 'Estimert',
+  proxy: 'Proxy',
+  illustrative: 'Illustrativ',
+}
+
+const EVIDENCE_CLASSES: Record<FlowEvidenceStatus, string> = {
+  observed: 'border-emerald-200 bg-emerald-50 text-emerald-700',
+  estimated: 'border-sky-200 bg-sky-50 text-sky-700',
+  proxy: 'border-amber-200 bg-amber-50 text-amber-800',
+  illustrative: 'border-rose-200 bg-rose-50 text-rose-700',
+}
+
+const READINESS_LABELS: Record<string, string> = {
+  prototype: 'Prototype',
+  internal: 'Intern analyse',
+  'decision-ready': 'Beslutningsklar',
+}
+
+function evidenceStatusLabel(status: FlowEvidenceStatus | undefined) {
+  return EVIDENCE_LABELS[status ?? 'illustrative']
+}
+
+function evidenceStatusClass(status: FlowEvidenceStatus | undefined) {
+  return EVIDENCE_CLASSES[status ?? 'illustrative']
+}
+
+function EvidencePill({ status }: { status: FlowEvidenceStatus | undefined }) {
+  return (
+    <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-semibold ${evidenceStatusClass(status)}`}>
+      {evidenceStatusLabel(status)}
+    </span>
+  )
+}
+
+function formatFlowToken(value: string | undefined) {
+  if (!value) return 'ukjent'
+  return value.replace(/[-_]/g, ' ')
 }
 
 function estimateLabelWidth(node: Pick<FlowNode, 'name' | 'label' | 'kind'>) {
@@ -398,6 +424,15 @@ export default function FoodFlowMap() {
   const labelPlacements = useMemo(() => layoutLabels(nodePositions), [nodePositions])
 
   const selectedCountryName = countryConfig?.name ?? 'Norge'
+  const dominantEvidenceStatus = dataset?.status?.overallEvidenceStatus ?? 'illustrative'
+  const evidenceCounts = useMemo(() => {
+    const counts: Partial<Record<FlowEvidenceStatus, number>> = {}
+    for (const flow of dataset?.flows ?? []) {
+      const status = flow.observedOrEstimated ?? dominantEvidenceStatus
+      counts[status] = (counts[status] ?? 0) + 1
+    }
+    return counts
+  }, [dataset?.flows, dominantEvidenceStatus])
 
   if (isLoading) {
     return (
@@ -479,8 +514,19 @@ export default function FoodFlowMap() {
               </h1>
               <p className="max-w-3xl text-sm leading-6 text-stone-600">
                 {dataset.description} Edges and node positions are hand-curated from public Norwegian port and logistics hub IDs.
-                Volumes are illustrative, not observed tonnage.
+                Values are visual weights, not observed tonnage, value or shipment count.
               </p>
+              <div className="flex flex-wrap gap-2">
+                <EvidencePill status={dominantEvidenceStatus} />
+                <span className="inline-flex items-center rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5 text-[10px] font-semibold text-stone-600">
+                  {dataset.unit === 'index' ? 'Indeks, ikke tonn' : dataset.unit}
+                </span>
+                {dataset.decisionReadiness ? (
+                  <span className="inline-flex items-center rounded-full border border-stone-200 bg-white px-2 py-0.5 text-[10px] font-semibold text-stone-600">
+                    {READINESS_LABELS[dataset.decisionReadiness] ?? dataset.decisionReadiness}
+                  </span>
+                ) : null}
+              </div>
             </div>
             <div className="flex flex-wrap gap-2 text-xs">
               <span className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1.5 font-medium text-stone-600">
@@ -552,6 +598,8 @@ export default function FoodFlowMap() {
                   <title>
                     {edge.source.name} → {edge.target.name}
                     {edge.label ? ` · ${edge.label}` : ''}
+                    {edge.observedOrEstimated ? ` · ${evidenceStatusLabel(edge.observedOrEstimated)}` : ''}
+                    {edge.commodityGroup ? ` · ${edge.commodityGroup}` : ''}
                     {edge.note ? ` · ${edge.note}` : ''}
                   </title>
                 </path>
@@ -656,7 +704,7 @@ export default function FoodFlowMap() {
                 Logistikkhub
               </span>
               <span className="ml-auto text-stone-500">
-                Syntetiske kanter basert på norske node-ID-er
+                Illustrative kanter basert på norske node-ID-er
               </span>
             </div>
           </div>
@@ -667,6 +715,45 @@ export default function FoodFlowMap() {
               <p className="text-sm leading-6 text-stone-600">
                 Edge-listen er liten med vilje. Den viser hvordan en senere `flowmap.gl`-integrasjon kan brukes for å sammenligne havn til hub-strømmer.
               </p>
+              <div className="flex flex-wrap gap-2 pt-1">
+                <EvidencePill status={dominantEvidenceStatus} />
+                <span className="rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5 text-[10px] font-semibold text-stone-600">
+                  {dataset.schemaVersion ?? 'schema ukjent'}
+                </span>
+                {dataset.lastUpdated ? (
+                  <span className="rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5 text-[10px] font-semibold text-stone-600">
+                    Verifisert {dataset.lastUpdated}
+                  </span>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="mt-4 rounded-2xl border border-rose-200 bg-rose-50/70 p-3">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-rose-700">
+                    Datastatus
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-rose-950">
+                    Ikke bruk som volumfasit
+                  </p>
+                </div>
+                <span className="rounded-full border border-white/70 bg-white px-2.5 py-1 text-xs font-semibold text-rose-700">
+                  {evidenceCounts.illustrative ?? 0}/{dataset.flows.length} illustrative
+                </span>
+              </div>
+              <p className="mt-2 text-xs leading-5 text-rose-900">
+                {dataset.methodology ?? 'Ingen metodebeskrivelse registrert.'}
+              </p>
+              {dataset.status?.limitations?.length ? (
+                <div className="mt-3 space-y-1">
+                  {dataset.status.limitations.slice(0, 3).map(limitation => (
+                    <p key={limitation} className="text-xs leading-5 text-rose-800">
+                      - {limitation}
+                    </p>
+                  ))}
+                </div>
+              ) : null}
             </div>
 
             <div className="mt-4 space-y-3">
@@ -684,6 +771,15 @@ export default function FoodFlowMap() {
                         <p className="text-xs text-stone-500">
                           {edge.source.label} → {edge.target.name}
                         </p>
+                        <div className="mt-2 flex flex-wrap gap-1.5">
+                          <EvidencePill status={edge.observedOrEstimated} />
+                          <span className="rounded-full border border-stone-200 bg-white px-2 py-0.5 text-[10px] font-medium text-stone-500">
+                            {formatFlowToken(edge.commodityGroup)}
+                          </span>
+                          <span className="rounded-full border border-stone-200 bg-white px-2 py-0.5 text-[10px] font-medium text-stone-500">
+                            {formatFlowToken(edge.flowType)}
+                          </span>
+                        </div>
                       </div>
                       <div className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-stone-700">
                         {formatValue(edge.value)} {dataset.unit}
@@ -699,6 +795,20 @@ export default function FoodFlowMap() {
               <p className="mt-2 leading-6">
                 {dataset.flows.length} kuraterte kanter fra offentlige norske node-ID-er. Dette er et prototypegrunnlag, ikke en målserie.
               </p>
+              {dataset.status?.nextDataNeeds?.length ? (
+                <div className="mt-3 rounded-2xl border border-stone-200 bg-stone-50 p-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
+                    Neste databehov
+                  </p>
+                  <div className="mt-2 space-y-1">
+                    {dataset.status.nextDataNeeds.slice(0, 3).map(need => (
+                      <p key={need} className="text-xs leading-5 text-stone-600">
+                        - {need}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
               <p className="mt-3 text-xs uppercase tracking-[0.16em] text-stone-400">
                 {dataset.country}
               </p>

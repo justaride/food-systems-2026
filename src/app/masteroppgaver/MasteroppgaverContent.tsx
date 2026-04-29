@@ -20,6 +20,7 @@ type ThesisRow = {
   method: string | null
   awardWinning: boolean
   degree: string
+  documentId: string | null
 }
 
 type ThesisTheme =
@@ -81,8 +82,15 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
 
   const masterCount = theses.filter(t => t.degree === 'master').length
   const phdCount = theses.filter(t => t.degree === 'phd').length
-  const awardCount = theses.filter(t => t.awardWinning).length
   const institutionCount = new Set(theses.map(t => t.institution)).size
+  const documentLinkedCount = theses.filter(t => Boolean(t.documentId)).length
+  const missingDocumentCount = theses.length - documentLinkedCount
+  const analysisReadyCount = theses.filter(t =>
+    Boolean(t.synthesis?.trim()) &&
+    t.keyFindings.length > 0 &&
+    t.takeaways.length > 0 &&
+    Boolean(t.method?.trim())
+  ).length
 
   const years = theses.map(t => t.year).filter(y => Number.isFinite(y))
   const yearMin = years.length ? Math.min(...years) : null
@@ -95,6 +103,10 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
   const topThemes = [...themeCounts.entries()]
     .sort((a, b) => b[1] - a[1])
     .slice(0, 6)
+  const focusThemes = topThemes
+    .filter(([theme]) => theme !== 'nordisk')
+    .slice(0, 4)
+    .map(([theme]) => themeLabels[theme as ThesisTheme] ?? theme.toLowerCase())
 
   const institutionCounts = new Map<string, number>()
   theses.forEach(t => {
@@ -143,7 +155,7 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Akademia</h1>
         <p className="text-xs uppercase tracking-wider text-stone-500 mt-0.5 font-medium">
-          Syntese fra nordiske master- og doktoravhandlinger om matsystemer
+          Nordisk avhandlings- og forskningslag for Food TG
         </p>
       </div>
 
@@ -152,43 +164,59 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
           <div className="space-y-5">
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               <div className="bg-stone-50 px-4 py-3 rounded-lg border border-stone-200">
-                <div className="text-xs uppercase tracking-wider text-stone-400">Avhandlinger</div>
+                <div className="text-xs uppercase tracking-wider text-stone-400">Registrert</div>
                 <div className="text-2xl font-bold text-stone-900">{theses.length}</div>
                 <div className="text-xs text-stone-500 mt-0.5">{masterCount} master {'·'} {phdCount} PhD</div>
               </div>
               <div className="bg-stone-50 px-4 py-3 rounded-lg border border-stone-200">
-                <div className="text-xs uppercase tracking-wider text-stone-400">Institusjoner</div>
-                <div className="text-2xl font-bold text-stone-900">{institutionCount}</div>
-                <div className="text-xs text-stone-500 mt-0.5">nordiske universiteter</div>
+                <div className="text-xs uppercase tracking-wider text-stone-400">Analyseklare</div>
+                <div className="text-2xl font-bold text-stone-900">{analysisReadyCount}</div>
+                <div className="text-xs text-stone-500 mt-0.5">med syntese, funn og uttak</div>
+              </div>
+              <div className="bg-stone-50 px-4 py-3 rounded-lg border border-stone-200">
+                <div className="text-xs uppercase tracking-wider text-stone-400">Dokumentkoblet</div>
+                <div className="text-2xl font-bold text-stone-900">{documentLinkedCount}</div>
+                <div className="text-xs text-stone-500 mt-0.5">
+                  {missingDocumentCount === 0 ? 'alle har documentId' : `${missingDocumentCount} gjenstar`}
+                </div>
               </div>
               <div className="bg-stone-50 px-4 py-3 rounded-lg border border-stone-200">
                 <div className="text-xs uppercase tracking-wider text-stone-400">Tidsrom</div>
                 <div className="text-2xl font-bold text-stone-900">
                   {yearMin !== null && yearMax !== null ? `${yearMin}${'–'}${yearMax}` : '—'}
                 </div>
-                <div className="text-xs text-stone-500 mt-0.5">
-                  {yearMin !== null && yearMax !== null ? `${yearMax - yearMin + 1} ar med forskning` : ''}
-                </div>
-              </div>
-              <div className="bg-stone-50 px-4 py-3 rounded-lg border border-stone-200">
-                <div className="text-xs uppercase tracking-wider text-stone-400">Prisvinnende</div>
-                <div className="text-2xl font-bold text-stone-900">{awardCount}</div>
-                <div className="text-xs text-stone-500 mt-0.5">utmerkelser</div>
+                <div className="text-xs text-stone-500 mt-0.5">{institutionCount} institusjoner</div>
               </div>
             </div>
 
-            <div>
-              <p className="text-xs uppercase tracking-wider text-stone-500 mb-1.5 font-medium">Overordnet bilde</p>
-              <p className="text-sm text-stone-700 leading-relaxed">
-                Korpuset dekker hele verdikjeden {'—'} fra konkurransedynamikk og markedsmakt i dagligvare til
-                matsvinn, sirkulaer okonomi og baerekraft. Tre hovedmonstre gar igjen:{' '}
-                <strong className="text-stone-900">norsk dagligvare har konsentrert struktur men marginer pa nordisk niva</strong>{' '}
-                (myten om unormalt hoy lonnsomhet avkreftes);{' '}
-                <strong className="text-stone-900">etableringshindringer er strukturelle</strong>{' '}
-                (servitutter, EMV-andeler og leverandorrelasjoner skaper barrierer som krever regulering); og{' '}
-                <strong className="text-stone-900">sirkularitet og matsvinn er voksende felter</strong>{' '}
-                der nordisk samarbeid gir empirisk grunnlag for konkrete tiltak.
-              </p>
+            <div className="border-t border-stone-200 pt-4">
+              <p className="text-xs uppercase tracking-wider text-stone-500 mb-2 font-medium">Overordnet status</p>
+              <div className="grid gap-4 lg:grid-cols-3">
+                <div>
+                  <p className="text-sm font-semibold text-stone-900">Dataen er strukturert, men ikke helt lukket</p>
+                  <p className="text-sm text-stone-700 leading-relaxed mt-1">
+                    Alle registrerte arbeider har kortsyntese, nokkelfunn, uttak og metode. Det som fortsatt gjenstar
+                    i datalaget er hovedsakelig dokumentkobling for {missingDocumentCount} rader og kontroll av noen
+                    PDF-/arkivhull.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-stone-900">Innsikten peker mot B og C</p>
+                  <p className="text-sm text-stone-700 leading-relaxed mt-1">
+                    Tyngden ligger i {focusThemes.length ? focusThemes.join(', ') : 'matsvinn, verdikjede og marked'}.
+                    Det gjor akademialaget sterkest som evidensbank for matsvinn/sidestroemmer, adoption,
+                    offentlig innkjop, governance og markedsmakt som skaleringsbarriere.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-stone-900">Brukes som intern beslutningsstotte</p>
+                  <p className="text-sm text-stone-700 leading-relaxed mt-1">
+                    Avhandlingene kan brukes til a prioritere claims og valideringsspor. Funn som skal ut i dialog
+                    eller eksterne leveranser bor fortsatt holdes pa intern status til primaerkilde- eller
+                    aktoervalidering er gjort.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">

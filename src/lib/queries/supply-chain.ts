@@ -93,6 +93,7 @@ type SupplyChainNode = {
 }
 
 type SupplyChainEdge = {
+  id: string
   source: string
   target: string
   relationshipType: string
@@ -611,6 +612,7 @@ export async function getSupplyChainGraph(): Promise<SupplyChainGraphData> {
   const edges: SupplyChainEdge[] = relationships.map(r => {
     byType[r.relationshipType] = (byType[r.relationshipType] ?? 0) + 1
     return {
+      id: r.id,
       source: r.fromCompanyId,
       target: r.toCompanyId,
       relationshipType: r.relationshipType,

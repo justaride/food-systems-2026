@@ -97,6 +97,58 @@ export type LogisticsHub = {
   coordinates: [number, number]
 }
 
+export type FlowEvidenceStatus = 'observed' | 'estimated' | 'proxy' | 'illustrative'
+
+export type FlowConfidence = 'high' | 'medium' | 'low'
+
+export type FlowType =
+  | 'production'
+  | 'import'
+  | 'export'
+  | 'processing'
+  | 'distribution'
+  | 'retail'
+  | 'foodservice'
+  | 'household'
+  | 'waste'
+  | 'circular_return'
+
+export type FlowRecord = {
+  source: string
+  target: string
+  value: number
+  label?: string
+  note?: string
+  commodityGroup?: string
+  flowType?: FlowType
+  observedOrEstimated?: FlowEvidenceStatus
+  confidence?: FlowConfidence
+  year?: number
+  frequency?: string
+  sourceRef?: string
+  lastVerified?: string
+}
+
+export type FlowDatasetStatus = {
+  overallEvidenceStatus: FlowEvidenceStatus
+  coverage: string
+  limitations: string[]
+  nextDataNeeds: string[]
+}
+
+export type FlowDataset = {
+  country: string
+  title: string
+  description: string
+  unit: string
+  schemaVersion?: string
+  lastUpdated?: string
+  decisionReadiness?: 'prototype' | 'internal' | 'decision-ready'
+  methodology?: string
+  status?: FlowDatasetStatus
+  flows: FlowRecord[]
+}
+
 export type FarmType = 'grain' | 'vegetables' | 'dairy' | 'livestock' | 'mixed' | 'other'
 
 export type Farm = {

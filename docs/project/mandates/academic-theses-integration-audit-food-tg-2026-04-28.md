@@ -28,9 +28,9 @@ Status per 2026-04-28:
 |---|---:|---|
 | Nordisk register | 70 master/PhD i `nordisk-avhandlingsregister.md` | God bruttoliste og tematisk dekning. |
 | Lokale thesis-notater | 74 filer i `research/bibliotek/akademia/masteroppgaver/` | Godt som kunnskapsbibliotek; de fleste har metode/relevans, men ujevn mal. |
-| App/DB-struktur | 79 Thesis-rader i Prisma etter duplikatsletting, 64 master + 15 PhD | Sterk strukturert oversikt; de 7 svake `thesis-food-*` importduplikatene er slettet 2026-04-28. |
-| Dokumentkobling | 64 av 79 Thesis-rader har `documentId` | Brukbart, men 15 bør kobles eller lukkes som reelle hull. |
-| Syntesefelt | 79/79 har `synthesis`, `keyFindings`, `takeaways` og `method` | De svake partial-importene er fjernet. |
+| App/DB-struktur | 78 Thesis-rader i Prisma etter duplikatsletting, 64 master + 14 PhD | Sterk strukturert oversikt; de 7 svake `thesis-food-*` importduplikatene er slettet 2026-04-28, og Ulsaker-duplikatet `ulsaker-phd-2018` er slettet 2026-04-29. |
+| Dokumentkobling | 63 av 78 Thesis-rader har `documentId` | Brukbart, men 15 bør kobles eller lukkes som reelle hull. |
+| Syntesefelt | 78/78 har `synthesis`, `keyFindings`, `takeaways` og `method` | De svake partial-importene er fjernet. |
 | Food TG evidence matrix | 15 thesis/PhD-kilder er eksplisitt promotert til EV-rader etter fortsettelsen 2026-04-28 | Hovedgapet er redusert: corpus er nå bedre omsatt til claims, men dokumentkobling og ekstern validering gjenstår. |
 
 Arbeidsdiagnose: Avhandlingene fungerer godt som **Akademia-/bibliotekslag**, men bare noen få er blitt **beslutningsklare Food TG-kilder**. Neste steg er derfor ikke mer bred innsamling, men promotering av utvalgte avhandlinger til source cards, EV-rader, claim-koblinger og valideringsspørsmål.
@@ -69,19 +69,19 @@ Dette gir god dekning av Food TGs bakgrunnsspørsmål, men registeret er en brut
 - `method`
 - tags for tema som `matsvinn`, `sirkulaer`, `offentlig-innkjop`, `beredskap`, `verdikjede`, `konsentrasjon`, `makt`, `prising`
 
-Live DB etter duplikatrydding 2026-04-28:
+Live DB etter duplikatrydding 2026-04-28/29:
 
 | Metrikk | Antall |
 |---|---:|
-| Thesis-rader totalt | 79 |
+| Thesis-rader totalt | 78 |
 | Master | 64 |
-| PhD | 15 |
-| Med `documentId` | 64 |
+| PhD | 14 |
+| Med `documentId` | 63 |
 | Uten `documentId` | 15 |
-| Med `synthesis` | 79 |
-| Med `keyFindings` | 79 |
-| Med `takeaways` | 79 |
-| Med `method` | 79 |
+| Med `synthesis` | 78 |
+| Med `keyFindings` | 78 |
+| Med `takeaways` | 78 |
+| Med `method` | 78 |
 
 Dette betyr at **majoriteten er lest på sammendrags-/analysenivå** og allerede er strukturert nok til å bli brukt i appen.
 
@@ -128,7 +128,7 @@ Runde-4-syntesen peker mot **Spor A + Spor B, med Spor C som adoption-/regelverk
 
 ## 4. PhD-status
 
-PhD-laget er særlig viktig fordi det har høyere evidensvekt enn masteroppgavene. Live DB har 15 PhD-rader.
+PhD-laget er særlig viktig fordi det har høyere evidensvekt enn masteroppgavene. Live DB har 14 PhD-rader etter Ulsaker-duplikatrydding 2026-04-29.
 
 | PhD | Relevans | Status |
 |---|---|---|
@@ -142,7 +142,7 @@ PhD-laget er særlig viktig fordi det har høyere evidensvekt enn masteroppgaven
 | Sørensen 2016 | C: organic public procurement/public kitchens | Promotert til EV-C-018. |
 | Lindström 2021 | C: green public procurement and organic food | Promotert til EV-C-019. |
 | Stein 2022 | C: sustainable food procurement UK vs DK/SE | Studert/lokal PDF, ikke EV-promotert. |
-| Ulsaker 2016/2018 | C/market gate: vertical restraints, grocery competition | Promotert til EV-C-022. |
+| Ulsaker 2016 | C/market gate: vertical restraints, grocery competition | Promotert til EV-C-022. |
 | Halseth 2024 | C/market gate: Coop/ICA acquisition and format competition | Promotert til EV-C-021. |
 | Rey & Vergé 2005 | C/market theory: vertical restraints | Studert/PDF, men bør være teori-/bakgrunnskilde. |
 | SLU house crickets 2025 | A/B: circular protein/frass | Promotert til EV-B-024, men mangler fortsatt lokal PDF-/dokumentspeiling. |
@@ -154,10 +154,10 @@ PhD-laget er særlig viktig fordi det har høyere evidensvekt enn masteroppgaven
 Det er avvik mellom statisk seed og live DB:
 
 - `src/lib/data/theses.ts`: 78 Thesis-poster.
-- Live Prisma etter duplikatrydding: 79 Thesis-poster.
+- Live Prisma etter duplikatrydding: 78 Thesis-poster.
 - `research/KI-PRIORITY.md`: 78 thesis-poster i prioriteringsgrunnlaget.
 
-Dette tyder på at senere importer tidligere la til ekstra Thesis-rader uten at seedfil og KI-prioritering var fullt samkjørt. De 7 kjente `thesis-food-*` partial-importene ble slettet 2026-04-28.
+Tidligere importer la inn ekstra Thesis-rader uten at seedfil og KI-prioritering var fullt samkjørt. De 7 kjente `thesis-food-*` partial-importene ble slettet 2026-04-28. Et ekstra Ulsaker-duplikat (`ulsaker-phd-2018`) ble slettet 2026-04-29 etter guard-sjekk; MD-dokumentet er bevart som `source-file`-relasjon til canonical `ulsaker-phd-2016`.
 
 ### 5.2 Partial-importerte duplikater
 
@@ -209,7 +209,7 @@ Extraction-pass 2026-04-28 har laget source cards/EV-rader for prioriterte avhan
 | Kilde | Hvorfor |
 |---|---|
 | Halseth 2024 | Promotert til SRC-C-022 / EV-C-021. |
-| Ulsaker 2016/2018 | Promotert til SRC-C-023 / EV-C-022. |
+| Ulsaker 2016 | Promotert til SRC-C-023 / EV-C-022. |
 | Nguyen & Hartmann 2024 | Promotert til SRC-C-024 / EV-C-023. |
 | Martens & Norum 2020 | Promotert til SRC-C-025 / EV-C-024. |
 | Skjervheim/Flo 2016 | Promotert til SRC-C-026 / EV-C-025. |
@@ -224,7 +224,7 @@ Extraction-pass 2026-04-28 har laget source cards/EV-rader for prioriterte avhan
 
 ## 7. Anbefalt arbeidsrekkefølge
 
-1. Ferdig 2026-04-28: Rydd `thesis-food-*` duplikatene i Prisma.
+1. Ferdig 2026-04-28/29: Rydd `thesis-food-*` duplikatene og Ulsaker-duplikatet i Prisma.
 2. Koble `documentId` for prioriterte avhandlinger som allerede har lokal PDF/MD.
 3. Ferdig 2026-04-28: Lag 12-15 source cards med samme mal som `underlagsgjennomgang`.
 4. Ferdig 2026-04-28: Legg nye EV-rader inn i `evidence-matrix-food-tg.md`.

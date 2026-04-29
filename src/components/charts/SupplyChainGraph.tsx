@@ -13,6 +13,7 @@ type SupplyChainNode = {
 }
 
 type SupplyChainEdge = {
+  id: string
   source: string
   target: string
   relationshipType: string

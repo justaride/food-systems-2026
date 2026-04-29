@@ -37,6 +37,7 @@ Teknisk sjekk:
 - `npx tsc --noEmit --pretty false` passerte.
 - `npm run db:generate` ble kjørt fordi Prisma Client manglet lokalt.
 - DB-sletting utført etter eksplisitt godkjenning 2026-04-28: 7 `thesis-food-*` duplicate rows ble slettet etter guard-sjekk.
+- DB-sletting utført etter eksplisitt godkjenning 2026-04-29: stale `ulsaker-phd-2018` ble slettet etter guard-sjekk mot canonical `ulsaker-phd-2016`; MD-dokumentet ble beholdt via `DocumentRef` med `source-file`.
 
 ## 2. Live DB-observasjoner
 
@@ -71,11 +72,12 @@ Etter sletting:
 |---|---:|
 | Slettede duplicate rows | 7 |
 | Gjenværende `thesis-food-*` rows | 0 |
-| Thesis-rader totalt | 79 |
+| Ekstra Ulsaker-duplikat slettet 2026-04-29 | 1 |
+| Thesis-rader totalt | 78 |
 | Master | 64 |
-| PhD | 15 |
-| Thesis med `documentId` | 64 |
-| Thesis med `keyFindings`, `takeaways` og `method` | 79 |
+| PhD | 14 |
+| Thesis med `documentId` | 63 |
+| Thesis med `keyFindings`, `takeaways` og `method` | 78 |
 
 ## 4. Konkrete neste operasjoner
 
@@ -83,6 +85,7 @@ Etter sletting:
 |---|---|---|
 | Kjør kontrollert dokumentimport/linking etter ny `scripts/import-research-docs.ts` mapping | Lav/moderat | Gjør dette først. Importen bør koble Albizzati og lage/oppdatere PDF-relasjoner for Hebrok, Sundin, Sundqvist og Nguyen. |
 | Slett 7 `thesis-food-*` duplicate rows | Utført | Ferdig 2026-04-28 etter guard-sjekk; canonical IDs beholdt. |
+| Slett stale Ulsaker-duplikat | Utført | Ferdig 2026-04-29 etter guard-sjekk; `ulsaker-phd-2016` beholdt som canonical og MD-dokumentet er relatert til canonical PDF-dokument. |
 | Last ned/lukk PDF-gap for `halseth-phd-2024` og `slu-house-crickets-2025` | Lav, men krever nett/manuell kilde | Kjør som egen kildeinnhenting; disse er fortsatt reelle hull i lokal PDF-dekning. |
 | Re-kjør `research/PLATTFORM-KOBLING.md` og `research/DOWNLOAD-QUEUE.md` etter DB/linking | Lav | Brukes som sluttkontroll. |
 

@@ -26,8 +26,8 @@ const SPECS: CommoditySpec[] = [
   {
     dataset: 'leveransedata-melk',
     unit: 'liter',
-    buyerOrgNr: '948158340',
-    buyerName: 'Tine SA',
+    buyerOrgNr: '947942638',
+    buyerName: 'TINE SA',
     orgNrColumn: 'orgnr',
     nameColumn: 'navn',
     kommuneColumn: 'komnr',
@@ -164,6 +164,20 @@ async function ensureCompany(orgNr: string, name: string, kommuneNr: string | nu
   })
 }
 
+function extractKommuneNr(metadata: unknown): string | null {
+  if (!metadata || typeof metadata !== 'object' || Array.isArray(metadata)) return null
+
+  const record = metadata as Record<string, unknown>
+  const raw = record.kommuneNr ?? record.komnr
+  if (typeof raw === 'number' && Number.isInteger(raw)) {
+    return raw.toString().padStart(4, '0')
+  }
+  if (typeof raw !== 'string') return null
+
+  const digits = raw.replace(/\D/g, '')
+  return digits.length === 4 ? digits : null
+}
+
 type Aggregate = {
   name: string
   kommuneNr: string | null
@@ -216,6 +230,7 @@ async function importDataset(spec: CommoditySpec, year: number, dryRun: boolean,
     }
 
     const supplier = await ensureCompany(supplierOrgNr, agg.name, agg.kommuneNr)
+    const kommuneNr = agg.kommuneNr ?? extractKommuneNr(supplier.metadata)
 
     for (const [commodity, qty] of commodities) {
       await prisma.deliveryVolume.upsert({
@@ -235,12 +250,12 @@ async function importDataset(spec: CommoditySpec, year: number, dryRun: boolean,
           year,
           quantity: qty,
           unit: spec.unit,
-          kommuneNr: agg.kommuneNr,
+          kommuneNr,
           source: 'Landbruksdirektoratet',
         },
         update: {
           quantity: qty,
-          kommuneNr: agg.kommuneNr,
+          kommuneNr,
           buyerId: buyer?.id,
           buyerName: spec.buyerName,
         },
