@@ -139,8 +139,28 @@ export const countryChartData: Record<CountryCode, CountryChartDataSet> = {
     },
   },
   is: {
-    selfSufficiency: { data: [], year: '', source: '', subtitle: '' },
+    selfSufficiency: {
+      data: [
+        { name: 'Sjávarafurðir', value: 100 },
+        { name: 'Mjólk', value: 99 },
+        { name: 'Kjöt', value: 95 },
+        { name: 'Egg', value: 95 },
+        { name: 'Grænmeti', value: 43 },
+        { name: 'Korn', value: 1 },
+      ],
+      year: '2023',
+      source: 'Hagstofa Íslands / Bændasamtök Íslands',
+      subtitle: 'Hlutfall innlendrar framleiðslu af heildarneyslu',
+    },
     margins: null,
-    marketShare: null,
+    marketShare: {
+      data: [
+        { name: 'Lágvöruverð (Bónus/Krónan)', value: 56 },
+        { name: 'Stórmarkaðir (Hagkaup/Nettó)', value: 30 },
+        { name: 'Nærverslun (10-11/Iceland)', value: 14 },
+      ],
+      year: '2024',
+      source: 'Samkeppniseftirlitið / Hagar markedsdata 2024',
+    },
   },
 }

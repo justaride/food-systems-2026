@@ -55,7 +55,7 @@ export const tenSteps: TenStep[] = [
     output: '2-5 pilotforslag + owner map',
     status: 'pagar',
     methodology: 'Ellen MacArthur / IDEO Circular Design Guide + Cambridge CE',
-    description: 'Velg faa, skarpe pilotar. Krav: tydelig problemtrykk, maalbar effekt innan 90 dagar, delbar metode, gjenbrukbar data, partnarskap paa tvers. Prioriteringsfilter: Effekt, Gjennomfoerbarheit, Reproduserbarheit, Datatilgang, Eier.',
+    description: 'Velg faa, skarpe pilotar. Krav: tydelig problemtrykk, maalbar effekt innan 90 dagar, delbar metode, gjenbrukbar data, partnarskap paa tvers. Runde 4 (apr 2026): foreloepig scope = Spor A+B med C som tverrgaaende adoption-/regelverks-/datagate. 10-dagers valideringssprint mot P1-aktorer (Landbruksdir, Miljodir, SSB/Tolletaten, Denofa, Skretting, NMBU, Mattilsynet, Matvett, Too Good To Go) foer pilotcommitment. Statusdisiplin: internt-trygt / needs-primary-check / needs-actor-validation / benchmark / hypotese. Prioriteringsfilter: Effekt, Gjennomfoerbarheit, Reproduserbarheit, Datatilgang, Eier.',
   },
   {
     step: 8,
