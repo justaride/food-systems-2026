@@ -146,6 +146,11 @@ function findStep(steps: ValueChainJson['steps'], id: string) {
   return steps.find(s => s.id === id) ?? null
 }
 
+function sumOrNull(values: Array<number | null | undefined>): number | null {
+  const present = values.filter((v): v is number => v != null)
+  return present.length ? present.reduce((a, b) => a + b, 0) : null
+}
+
 function buildCountry(
   code: CountryCode,
   vc: ValueChainJson | null,
@@ -156,20 +161,14 @@ function buildCountry(
   const primary = findStep(vc.steps, 'primary')
   const seafood = findStep(vc.steps, 'seafood')
   const processing = findStep(vc.steps, 'processing')
-  const distribution = findStep(vc.steps, 'distribution')
   const retail = findStep(vc.steps, 'retail')
-  const horeca = findStep(vc.steps, 'horeca')
   const household = findStep(vc.steps, 'household')
   const waste = findStep(vc.steps, 'waste')
 
-  // Suppress unused-variable warnings for steps not yet referenced in return
-  void distribution
-  void horeca
-
-  const sumImports = vc.steps.reduce((s, x) => s + (x.import_tonnes ?? 0), 0) || null
-  const sumImportValue = vc.steps.reduce((s, x) => s + (x.import_value_bn ?? 0), 0) || null
-  const sumExports = vc.steps.reduce((s, x) => s + (x.export_tonnes ?? 0), 0) || null
-  const sumExportValue = vc.steps.reduce((s, x) => s + (x.export_value_bn ?? 0), 0) || null
+  const sumImports = sumOrNull(vc.steps.map(x => x.import_tonnes))
+  const sumImportValue = sumOrNull(vc.steps.map(x => x.import_value_bn))
+  const sumExports = sumOrNull(vc.steps.map(x => x.export_tonnes))
+  const sumExportValue = sumOrNull(vc.steps.map(x => x.export_value_bn))
 
   const valueAdded: Record<string, number | null> = {}
   const co2e: Record<string, number | null> = {}
