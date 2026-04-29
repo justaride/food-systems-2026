@@ -94,14 +94,82 @@ export function SammenligningContent({ data }: Props) {
           />
         )
       })()}
-      <BolkSection
-        number={2}
-        title="Selvforsyning & beredskap"
-        question="Hvor sårbar er hvert land for import-stopp?"
-        narrative=""
-        charts={null}
-        seeAlso={[{ href: '/forsyningskjede', label: 'Forsyningskjede' }]}
-      />
+      {(() => {
+        const ss = rowsFor(data, c => c.preparedness.selfSufficiencyCaloricPct)
+        const importTon = rowsFor(data, c => c.preparedness.importTonnes)
+        const exportTon = rowsFor(data, c => c.preparedness.exportTonnes)
+        const feed = rowsFor(data, c => c.preparedness.feedImportPct)
+        const reserve = rowsFor(data, c => c.preparedness.grainReserveMonths)
+
+        const dk = data.countries.dk?.preparedness.selfSufficiencyCaloricPct
+        const no = data.countries.no?.preparedness.selfSufficiencyCaloricPct
+
+        return (
+          <BolkSection
+            number={2}
+            title="Selvforsyning & beredskap"
+            question="Hvor sårbar er hvert land for import-stopp?"
+            narrative="Selvforsyningsgraden spenner fra ~47 % (NO) til ~300 % (DK). Finland skiller seg ut med 9 måneders kornreserve via HVK-modellen — de andre landene har minimale strategiske lagre."
+            takeaway={
+              <KeyTakeaway
+                headline={`${dk ?? '—'} % DK vs ${no ?? '—'} % NO`}
+                subline="Kalori-basert selvforsyning"
+              />
+            }
+            charts={
+              <>
+                <ChartCard title="Selvforsyning (kalori)" unit="%" rows={ss} />
+                <ChartCard
+                  title="Total import"
+                  description="Tonn (per capita aktiverbar)"
+                  unit="tonn"
+                  rows={importTon}
+                  perCapitaEnabled
+                  perCapitaUnit="tonn/innb"
+                />
+                <ChartCard
+                  title="Total eksport"
+                  unit="tonn"
+                  rows={exportTon}
+                  perCapitaEnabled
+                  perCapitaUnit="tonn/innb"
+                />
+                <ChartCard title="Fôr-import-andel" unit="%" rows={feed} />
+                <ChartCard
+                  title="Kornreserve (måneder)"
+                  description="Strategisk lager"
+                  unit="mnd"
+                  rows={reserve}
+                />
+              </>
+            }
+            table={
+              <ComparisonTable
+                caption="Selvforsyning, mål og reservetid"
+                rows={[
+                  {
+                    label: 'Kalori-SS (%)',
+                    values: Object.fromEntries(COUNTRY_LIST.map(c => [c.code, data.countries[c.code]?.preparedness.selfSufficiencyCaloricPct ?? null])) as Record<CountryCode, number | null>,
+                  },
+                  {
+                    label: 'Mål (%)',
+                    values: Object.fromEntries(COUNTRY_LIST.map(c => [c.code, data.countries[c.code]?.preparedness.selfSufficiencyTargetPct ?? null])) as Record<CountryCode, number | null>,
+                  },
+                  {
+                    label: 'Mål-år',
+                    values: Object.fromEntries(COUNTRY_LIST.map(c => [c.code, data.countries[c.code]?.preparedness.selfSufficiencyTargetYear ?? null])) as Record<CountryCode, number | null>,
+                  },
+                  {
+                    label: 'Kornreserve (mnd)',
+                    values: Object.fromEntries(COUNTRY_LIST.map(c => [c.code, data.countries[c.code]?.preparedness.grainReserveMonths ?? null])) as Record<CountryCode, number | null>,
+                  },
+                ]}
+              />
+            }
+            seeAlso={[{ href: '/forsyningskjede', label: 'Forsyningskjede' }]}
+          />
+        )
+      })()}
       <BolkSection
         number={3}
         title="Verdikjedevolum & verdiskaping"
