@@ -192,6 +192,9 @@ const TARGET_VALUE_CHAIN_STEPS = [
   'waste',
 ]
 
+const FOOD_SYSTEMS_DATA_ROOT = path.join(process.cwd(), 'public', 'data', 'food-systems')
+const NORDIC_DATA_ROOT = path.join(process.cwd(), 'research', 'data', 'nordic')
+
 function pct(numerator: number, denominator: number): number {
   if (denominator === 0) return 100
   return Math.round((numerator / denominator) * 1000) / 10
@@ -203,18 +206,18 @@ function metricStatus(percent: number, warnBelow = 95, errorBelow = 80): Quality
   return 'ok'
 }
 
-async function readJsonFile<T = any>(relativePath: string): Promise<T | null> {
+async function readFoodSystemsJson<T = any>(...segments: string[]): Promise<T | null> {
   try {
-    const text = await readFile(path.join(process.cwd(), relativePath), 'utf8')
+    const text = await readFile(path.join(FOOD_SYSTEMS_DATA_ROOT, ...segments), 'utf8')
     return JSON.parse(text) as T
   } catch {
     return null
   }
 }
 
-async function countCsvRows(relativePath: string): Promise<number | null> {
+async function countNordicCsvRows(...segments: string[]): Promise<number | null> {
   try {
-    const text = await readFile(path.join(process.cwd(), relativePath), 'utf8')
+    const text = await readFile(path.join(NORDIC_DATA_ROOT, ...segments), 'utf8')
     const trimmed = text.trim()
     if (!trimmed) return 0
     return Math.max(0, trimmed.split(/\r?\n/).length - 1)
@@ -223,8 +226,8 @@ async function countCsvRows(relativePath: string): Promise<number | null> {
   }
 }
 
-async function countJsonRecords(relativePath: string): Promise<number | null> {
-  const data = await readJsonFile<Record<string, unknown>>(relativePath)
+async function countFoodSystemsJsonRecords(...segments: string[]): Promise<number | null> {
+  const data = await readFoodSystemsJson<Record<string, unknown>>(...segments)
   if (!data) return null
   if (Array.isArray(data)) return data.length
   if (Array.isArray(data.features)) return data.features.length
@@ -248,7 +251,7 @@ async function getValueChainInventory(): Promise<ValueChainInventoryRow[]> {
   const countries = ['no', 'se', 'dk', 'fi', 'is']
   const rows = await Promise.all(
     countries.map(async country => {
-      const data = await readJsonFile<{
+      const data = await readFoodSystemsJson<{
         year?: number
         selfSufficiency?: { caloric_pct?: number }
         steps?: Array<{
@@ -258,7 +261,7 @@ async function getValueChainInventory(): Promise<ValueChainInventoryRow[]> {
           waste_tonnes?: number | null
           total_waste_tonnes?: number | null
         }>
-      }>(`public/data/food-systems/${country}/value-chain.json`)
+      }>(country, 'value-chain.json')
 
       const steps = data?.steps ?? []
       const stepIds = new Set(steps.map(step => step.id))
@@ -362,17 +365,17 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
       _count: { _all: true },
     }),
     getValueChainInventory(),
-    countCsvRows('research/data/nordic/trade-groups/normalized/trade_groups_imports_annual_panel.csv'),
-    countCsvRows('research/data/nordic/core-series/prices_hicp_food_monthly.csv'),
-    countCsvRows('research/data/nordic/core-series/trade_monthly_first_panel.csv'),
-    countCsvRows('research/data/nordic/core-series/production_annual_first_panel.csv'),
-    countJsonRecords('public/data/food-systems/feed-composition-timeseries.json'),
-    countJsonRecords('public/data/food-systems/logistics_hubs.geojson'),
-    countJsonRecords('public/data/food-systems/processing_plants.geojson'),
-    countJsonRecords('public/data/food-systems/ports.geojson'),
-    countJsonRecords('public/data/food-systems/aquaculture_sites.geojson'),
-    countJsonRecords('public/data/food-systems/circularity-loops.json'),
-    countJsonRecords('public/data/food-systems/nutrient-flows.json'),
+    countNordicCsvRows('trade-groups', 'normalized', 'trade_groups_imports_annual_panel.csv'),
+    countNordicCsvRows('core-series', 'prices_hicp_food_monthly.csv'),
+    countNordicCsvRows('core-series', 'trade_monthly_first_panel.csv'),
+    countNordicCsvRows('core-series', 'production_annual_first_panel.csv'),
+    countFoodSystemsJsonRecords('feed-composition-timeseries.json'),
+    countFoodSystemsJsonRecords('logistics_hubs.geojson'),
+    countFoodSystemsJsonRecords('processing_plants.geojson'),
+    countFoodSystemsJsonRecords('ports.geojson'),
+    countFoodSystemsJsonRecords('aquaculture_sites.geojson'),
+    countFoodSystemsJsonRecords('circularity-loops.json'),
+    countFoodSystemsJsonRecords('nutrient-flows.json'),
   ])
 
   const stageCoverage = companyStages
