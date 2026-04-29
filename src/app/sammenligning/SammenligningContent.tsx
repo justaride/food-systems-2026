@@ -233,14 +233,47 @@ export function SammenligningContent({ data }: Props) {
           />
         )
       })()}
-      <BolkSection
-        number={4}
-        title="Sirkularitet & matsvinn"
-        question="Hvor langt er hvert land i sirkulær omstilling?"
-        narrative=""
-        charts={null}
-        seeAlso={[{ href: '/sirkularitet', label: 'Sirkularitet' }]}
-      />
+      {(() => {
+        const totalWaste = rowsFor(data, c => c.circularity.totalWastePerCapitaKg)
+        const houseWaste = rowsFor(data, c => c.circularity.householdWastePerCapitaKg)
+        const reduction = rowsFor(data, c => c.circularity.wasteReductionSince2015Pct)
+        const biogas = rowsFor(data, c => c.circularity.biogasGwh)
+        const plants = rowsFor(data, c => c.circularity.biogasPlants)
+        const deposit = rowsFor(data, c => c.circularity.depositReturnRatePct)
+
+        const noReduction = data.countries.no?.circularity.wasteReductionSince2015Pct
+
+        return (
+          <BolkSection
+            number={4}
+            title="Sirkularitet & matsvinn"
+            question="Hvor langt er hvert land i sirkulær omstilling?"
+            narrative="Norge har redusert matsvinn betydelig siden 2015, og pant-returrate over 90 % er Nordens høyeste. Biogass-utbygging varierer kraftig per innbygger."
+            takeaway={
+              <KeyTakeaway
+                headline={`${noReduction !== null && noReduction !== undefined ? `${noReduction > 0 ? '−' : ''}${Math.abs(noReduction)}` : '—'} % matsvinn-reduksjon NO siden 2015`}
+              />
+            }
+            charts={
+              <>
+                <ChartCard title="Total svinn (kg/capita)" unit="kg" rows={totalWaste} />
+                <ChartCard title="Husholdningssvinn (kg/capita)" unit="kg" rows={houseWaste} />
+                <ChartCard title="Svinn-reduksjon siden 2015" unit="%" rows={reduction} />
+                <ChartCard
+                  title="Biogass-produksjon"
+                  unit="GWh"
+                  rows={biogas}
+                  perCapitaEnabled
+                  perCapitaUnit="GWh/innb"
+                />
+                <ChartCard title="Biogass-anlegg" rows={plants} />
+                <ChartCard title="Pant-returrate" unit="%" rows={deposit} />
+              </>
+            }
+            seeAlso={[{ href: '/sirkularitet', label: 'Sirkularitet' }]}
+          />
+        )
+      })()}
       <BolkSection
         number={5}
         title="Politikk & regulering"
