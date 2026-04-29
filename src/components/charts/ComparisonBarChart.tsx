@@ -8,18 +8,19 @@ type ComparisonBarChartProps = {
   data: Array<{ country: string; flag: string; value: number; label?: string }>
   unit?: string
   description?: string
+  bare?: boolean
 }
 
-export function ComparisonBarChart({ title, data, unit, description }: ComparisonBarChartProps) {
+export function ComparisonBarChart({ title, data, unit, description, bare }: ComparisonBarChartProps) {
   const chartData = data.map(d => ({
     ...d,
     name: `${d.flag} ${d.country}`,
     displayValue: d.label ?? `${d.value}${unit ? ` ${unit}` : ''}`,
   }))
 
-  return (
-    <Card>
-      <h3 className="text-sm font-semibold text-stone-700 mb-0.5">{title}</h3>
+  const inner = (
+    <>
+      {title && <h3 className="text-sm font-semibold text-stone-700 mb-0.5">{title}</h3>}
       {description && <p className="text-xs text-stone-400 mb-3">{description}</p>}
       <div className="h-[200px]">
         <ResponsiveContainer width="100%" height="100%">
@@ -34,7 +35,11 @@ export function ComparisonBarChart({ title, data, unit, description }: Compariso
               tickLine={false}
             />
             <Tooltip
-              formatter={(value) => [`${value}${unit ? ` ${unit}` : ''}`, title]}
+              formatter={(value, _name, props) => {
+                const lbl = (props as { payload?: { label?: string } } | undefined)?.payload?.label
+                if (lbl === '—' || lbl === '-') return ['Ingen data', title || '']
+                return [`${value}${unit ? ` ${unit}` : ''}`, title || '']
+              }}
               contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e7e5e4' }}
             />
             <Bar dataKey="value" radius={[0, 4, 4, 0]} barSize={28}>
@@ -50,6 +55,8 @@ export function ComparisonBarChart({ title, data, unit, description }: Compariso
           </BarChart>
         </ResponsiveContainer>
       </div>
-    </Card>
+    </>
   )
+
+  return bare ? <>{inner}</> : <Card>{inner}</Card>
 }
