@@ -225,11 +225,22 @@ Alle datapunkter hentes fra eksisterende kilder — ingen nye importskript, inge
 
 IS er allerede i kildedataene. Det som mangler markeres som data-gap, ikke skjules.
 
-## Testing
+## Verifisering
 
-- **Snapshot-test** av `getSammenligningData()` mot fixede JSON-fixtures for å fange regressjoner i datalag.
-- **Visuell røyktest** ved manuell verifisering: alle 5 bolker rendres, IS er synlig i alle charts, data-gap-badges vises korrekt for CO₂e og kornreserve, info-popover fungerer, per-capita-toggle re-renderer charts.
-- **Type-coverage**: `SammenligningData` og `CountrySammenligning` skal ikke ha `any`-felter. `unknown` med narrowing er OK.
+Prosjektet har per i dag ingen test-runner (ingen vitest/jest/scripts). Vi følger eksisterende konvensjon og verifiserer via:
+
+- **`npm run lint`** — ESLint passerer.
+- **`npm run build`** — inkluderer Prisma generate + chart-metrics-compute + Next.js typecheck/bygg. Skal passere uten warnings i ny kode.
+- **Type-stramning**: `SammenligningData` og `CountrySammenligning` skal ikke ha `any`-felter. `unknown` med narrowing er OK.
+- **Manuell røyktest** med `npm run dev`:
+  - Alle 5 bolker rendres uten "Laster data..."-flicker.
+  - Island er synlig i alle charts og tabellrader.
+  - Data-gap-badges vises korrekt for CO₂e (SE/DK/FI/IS) og kornreserve (alle utenom FI).
+  - `InfoPopover` viser år + kilde per chart.
+  - `PerCapitaToggle` re-renderer chartet med normaliserte verdier.
+  - "Se også"-lenker per bolk navigerer til riktig temaside.
+
+Å innføre en test-runner faller utenfor scope og kan vurderes i egen sesjon.
 
 ## Implementeringsrekkefølge (kort skisse)
 
