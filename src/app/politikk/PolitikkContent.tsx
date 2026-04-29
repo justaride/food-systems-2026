@@ -6,6 +6,7 @@ import { COUNTRY_LIST } from '@/lib/config/countries'
 import type { CountryCode } from '@/lib/config/countries'
 import type { PolicyDocumentsByCountry } from '@/lib/queries/documents'
 import type { BacklogRowWithRound } from '@/lib/queries/download-backlog'
+import { MatsvinnProgressChart } from '@/components/charts/MatsvinnProgressChart'
 
 type CountryPolicy = {
   status?: string
@@ -13,13 +14,19 @@ type CountryPolicy = {
   details?: string
   source?: string
   notes?: string
+  last_verified?: string
+  documentSlug?: string
+  in_force?: boolean
+  in_force_status?: string
   target_pct?: number | string | null
   baseline?: number
   progress?: string
   scope?: string
   rate_dkk_per_tonne?: number
   rate_2035_dkk?: number
-  green_area_fund_dkk_m?: number
+  effective_rate_2030_dkk?: number
+  effective_rate_2035_dkk?: number
+  green_area_fund_dkk_bn?: number
   green_area_targets?: string
   instrument?: string
   predictability?: string
@@ -34,6 +41,11 @@ type CountryPolicy = {
   gap_pp?: number
   strategic_reserve?: string
   strategic_reserve_months?: number
+  strategic_reserve_months_current?: number
+  strategic_reserve_months_target?: number
+  strategic_reserve_target_tonnes?: number
+  strategic_reserve_target_year?: number
+  kornax_mill_status?: string
   model?: string
   pant_return_pct?: number
   epr_system?: string
@@ -86,12 +98,78 @@ type EuFramework = {
 
 export type PolicyLandscape = {
   generated: string
+  last_verified?: string
   description: string
   policies: Record<string, PolicyEntry>
   eu_framework: EuFramework
 }
 
-type StatusTone = 'vedtatt' | 'frivillig' | 'bindende' | 'minimal' | 'ingen' | 'aktiv' | 'ingen-data'
+export type PolicyTimeseries = {
+  generated: string
+  description: string
+  food_waste_per_capita_kg: {
+    label: string
+    unit: string
+    source: string
+    series: Array<{ country: string; data: Array<{ year: number; value: number }> }>
+  }
+  food_waste_norway_total_tonnes: {
+    label: string
+    unit: string
+    source: string
+    target_2030_baseline_2015_pct: number
+    data: Array<{
+      year: number
+      total: number
+      household: number
+      industry: number
+      retail: number
+      horeca: number
+      agriculture: number
+    }>
+  }
+  food_waste_norway_reduction_pct: {
+    label: string
+    unit: string
+    source: string
+    target_2030_pct: number
+    interim_2025_pct_industry_horeca: number
+    data: Array<{
+      sector: string
+      y2020: number
+      y2022: number
+      y2024: number
+      y2025_target: number | null
+    }>
+  }
+  biogas_production_gwh: {
+    label: string
+    unit: string
+    source: string
+    data: Array<{
+      country: string
+      current: number
+      target: number | null
+      target_year: number | null
+      share_of_gas_pct?: number
+    }>
+  }
+  self_sufficiency_caloric_pct: {
+    label: string
+    unit: string
+    source: string
+    data: Array<{
+      country: string
+      current: number
+      target: number | null
+      target_year: number | null
+      gap_pp: number | null
+      note?: string
+    }>
+  }
+}
+
+type StatusTone = 'vedtatt' | 'frivillig' | 'bindende' | 'minimal' | 'ingen' | 'aktiv' | 'ingen-data' | 'ikke-eu'
 
 type StatusStyle = {
   tone: StatusTone
@@ -102,6 +180,13 @@ type StatusStyle = {
 }
 
 const STATUS_STYLES: Record<StatusTone, StatusStyle> = {
+  'ikke-eu': {
+    tone: 'ikke-eu',
+    bg: 'bg-stone-50',
+    text: 'text-stone-500',
+    border: 'border-stone-200',
+    label: 'Ikke EU-regulert',
+  },
   vedtatt: {
     tone: 'vedtatt',
     bg: 'bg-emerald-50',
@@ -183,12 +268,21 @@ function deriveStatus(entry: CountryPolicy | undefined): StatusTone {
 function summarizeCell(entry: CountryPolicy | undefined): string {
   if (!entry) return '—'
   const parts: string[] = []
-  if (entry.year != null) parts.push(`${entry.year}`)
+  if (entry.year != null) {
+    parts.push(entry.in_force === false ? `${entry.year} (ikke i kraft)` : `${entry.year}`)
+  }
   if (entry.target_pct != null) parts.push(`Mal: ${entry.target_pct}%`)
   if (entry.production_gwh != null) parts.push(`${entry.production_gwh} GWh`)
   if (entry.target_gwh != null) parts.push(`Mal: ${entry.target_gwh} GWh`)
   if (entry.caloric_pct != null) parts.push(`${entry.caloric_pct}%`)
-  if (entry.rate_dkk_per_tonne != null) parts.push(`${entry.rate_dkk_per_tonne} DKK/t`)
+  if (entry.rate_dkk_per_tonne != null) {
+    const eff = entry.effective_rate_2030_dkk
+    parts.push(eff != null ? `${entry.rate_dkk_per_tonne} DKK/t (eff. ${eff})` : `${entry.rate_dkk_per_tonne} DKK/t`)
+  }
+  if (entry.strategic_reserve_months_current != null) {
+    const tgt = entry.strategic_reserve_months_target
+    parts.push(tgt != null ? `${entry.strategic_reserve_months_current}→${tgt} mnd` : `${entry.strategic_reserve_months_current} mnd lager`)
+  }
   if (entry.pant_return_pct != null) parts.push(`Pant ${entry.pant_return_pct}%`)
   if (entry.scope) parts.push(entry.scope)
   if (entry.instrument && parts.length < 2) parts.push(entry.instrument)
@@ -209,6 +303,7 @@ function longText(entry: CountryPolicy | undefined): string | null {
 
 type Props = {
   data: PolicyLandscape
+  timeseries: PolicyTimeseries
   docsByCountry: PolicyDocumentsByCountry
   backlogByCountry: Record<string, BacklogRowWithRound[]>
 }
@@ -221,7 +316,7 @@ const COUNTRY_DOC_KEYS: Array<{ code: CountryCode; key: 'no' | 'se' | 'dk' | 'fi
   { code: 'is', key: 'is' },
 ]
 
-export function PolitikkContent({ data, docsByCountry, backlogByCountry }: Props) {
+export function PolitikkContent({ data, timeseries, docsByCountry, backlogByCountry }: Props) {
   const policyEntries = Object.entries(data.policies)
   const eu = data.eu_framework
 
@@ -238,6 +333,7 @@ export function PolitikkContent({ data, docsByCountry, backlogByCountry }: Props
         <p className="text-xs text-stone-400 mt-2">
           Datasett: <span className="font-mono">policy-landscape.json</span> · Generert{' '}
           {data.generated}
+          {data.last_verified && <> · Verifisert {data.last_verified}</>}
         </p>
       </div>
 
@@ -316,7 +412,7 @@ export function PolitikkContent({ data, docsByCountry, backlogByCountry }: Props
         <h2 className="text-sm font-semibold text-stone-700 mb-3">Forklaring</h2>
         <div className="flex flex-wrap gap-2">
           {(
-            ['vedtatt', 'bindende', 'aktiv', 'frivillig', 'minimal', 'ingen', 'ingen-data'] as StatusTone[]
+            ['vedtatt', 'bindende', 'aktiv', 'frivillig', 'minimal', 'ingen', 'ikke-eu', 'ingen-data'] as StatusTone[]
           ).map(tone => {
             const s = STATUS_STYLES[tone]
             return (
@@ -473,10 +569,10 @@ export function PolitikkContent({ data, docsByCountry, backlogByCountry }: Props
                   <td className="py-2 px-1">
                     {(() => {
                       const cell = entry.EU
-                      const status = deriveStatus(cell)
+                      const status: StatusTone = cell ? deriveStatus(cell) : 'ikke-eu'
                       const style = STATUS_STYLES[status]
-                      const summary = summarizeCell(cell)
-                      const long = longText(cell)
+                      const summary = cell ? summarizeCell(cell) : ''
+                      const long = cell ? longText(cell) : null
                       return (
                         <div
                           className={`rounded border px-2 py-1.5 ${style.bg} ${style.text} ${style.border}`}
@@ -497,6 +593,117 @@ export function PolitikkContent({ data, docsByCountry, backlogByCountry }: Props
             </tbody>
           </table>
         </div>
+      </Card>
+
+      {/* Matsvinn time series + progress vs target */}
+      <Card>
+        <div className="flex flex-wrap items-baseline justify-between gap-2 mb-3">
+          <h2 className="text-sm font-semibold text-stone-700">
+            Matsvinn-progresjon — Norge mot 2030-mål
+          </h2>
+          <span className="text-[11px] text-stone-400">
+            Bransjeavtalen 2017 · Mål 50% reduksjon (2015–2030)
+          </span>
+        </div>
+        <MatsvinnProgressChart
+          norwayTotal={timeseries.food_waste_norway_total_tonnes}
+          reductions={timeseries.food_waste_norway_reduction_pct}
+        />
+        <p className="text-[11px] text-stone-500 mt-3">
+          Kilde: {timeseries.food_waste_norway_total_tonnes.source}.
+          Per-capita-utviklingen viser 24% reduksjon, men totalvolumet har økt grunnet
+          befolkningsvekst. Industri/dagligvare/storhusholdning har nådd interim-målet
+          for 2025 (-30% per capita); husholdning og jordbruk ligger langt etter.
+        </p>
+      </Card>
+
+      {/* Biogas + selvforsyning summary */}
+      <Card>
+        <h2 className="text-sm font-semibold text-stone-700 mb-3">
+          Biogass-produksjon og selvforsyning — gap til mål
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <div className="text-xs font-semibold text-stone-700 mb-2">
+              Biogass (GWh/år) — nåværende vs. 2030-mål
+            </div>
+            <div className="space-y-2">
+              {timeseries.biogas_production_gwh.data.map(d => {
+                const meta = COUNTRY_LIST.find(c => c.code === d.country.toLowerCase())
+                if (!meta) return null
+                const pct = d.target ? Math.min(100, Math.round((d.current / d.target) * 100)) : null
+                return (
+                  <div key={d.country}>
+                    <div className="flex items-baseline justify-between text-[11px]">
+                      <span className="font-medium text-stone-700">
+                        {meta.flag} {meta.name}
+                      </span>
+                      <span className="text-stone-500 tabular-nums">
+                        {d.current.toLocaleString('no-NO')}
+                        {d.target ? ` / ${d.target.toLocaleString('no-NO')} GWh` : ' GWh'}
+                        {pct != null ? ` (${pct}%)` : ''}
+                      </span>
+                    </div>
+                    {d.target && (
+                      <div className="h-1.5 bg-stone-100 rounded mt-1 overflow-hidden">
+                        <div
+                          className={`h-full ${
+                            pct! >= 80 ? 'bg-emerald-500' : pct! >= 30 ? 'bg-amber-500' : 'bg-rose-500'
+                          }`}
+                          style={{ width: `${pct}%` }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+          <div>
+            <div className="text-xs font-semibold text-stone-700 mb-2">
+              Kalorisk selvforsyning (%) — gap til mål eller status
+            </div>
+            <div className="space-y-2">
+              {timeseries.self_sufficiency_caloric_pct.data.map(d => {
+                const meta = COUNTRY_LIST.find(c => c.code === d.country.toLowerCase())
+                if (!meta) return null
+                const display = d.current
+                const pct = d.target ? Math.min(100, Math.round((display / d.target) * 100)) : null
+                return (
+                  <div key={d.country}>
+                    <div className="flex items-baseline justify-between text-[11px]">
+                      <span className="font-medium text-stone-700">
+                        {meta.flag} {meta.name}
+                      </span>
+                      <span className="text-stone-500 tabular-nums">
+                        {display}%
+                        {d.target ? ` / mål ${d.target}% (${d.target_year})` : ''}
+                        {d.gap_pp != null ? ` · gap ${d.gap_pp} pp` : ''}
+                      </span>
+                    </div>
+                    <div className="h-1.5 bg-stone-100 rounded mt-1 overflow-hidden">
+                      <div
+                        className={`h-full ${
+                          (pct ?? display) >= 80
+                            ? 'bg-emerald-500'
+                            : (pct ?? display) >= 50
+                              ? 'bg-amber-500'
+                              : 'bg-rose-500'
+                        }`}
+                        style={{ width: `${Math.min(100, pct ?? display)}%` }}
+                      />
+                    </div>
+                    {d.note && <div className="text-[10px] text-stone-400 mt-0.5 italic">{d.note}</div>}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+        <p className="text-[11px] text-stone-500 mt-3">
+          Kilder: {timeseries.biogas_production_gwh.source} ·{' '}
+          {timeseries.self_sufficiency_caloric_pct.source}
+        </p>
       </Card>
 
       {/* Per-policy detail blocks */}
@@ -532,6 +739,14 @@ export function PolitikkContent({ data, docsByCountry, backlogByCountry }: Props
                           <div>
                             <span className="text-stone-500">Ar: </span>
                             {cell.year}
+                            {cell.in_force === false && (
+                              <span className="ml-1 text-amber-700 font-semibold">(ikke i kraft)</span>
+                            )}
+                          </div>
+                        )}
+                        {cell.in_force_status && (
+                          <div className="text-amber-800 text-[10.5px] font-medium">
+                            {cell.in_force_status}
                           </div>
                         )}
                         {cell.target_pct != null && (
@@ -564,6 +779,33 @@ export function PolitikkContent({ data, docsByCountry, backlogByCountry }: Props
                             <span className="text-stone-500">Sats: </span>
                             {cell.rate_dkk_per_tonne} DKK/tonn
                             {cell.rate_2035_dkk ? ` (${cell.rate_2035_dkk} i 2035)` : ''}
+                          </div>
+                        )}
+                        {cell.effective_rate_2030_dkk != null && (
+                          <div>
+                            <span className="text-stone-500">Effektiv (etter fradrag): </span>
+                            {cell.effective_rate_2030_dkk} DKK/tonn
+                            {cell.effective_rate_2035_dkk
+                              ? ` (${cell.effective_rate_2035_dkk} i 2035)`
+                              : ''}
+                          </div>
+                        )}
+                        {cell.strategic_reserve_months_current != null && (
+                          <div>
+                            <span className="text-stone-500">Kornlager: </span>
+                            {cell.strategic_reserve_months_current} mnd
+                            {cell.strategic_reserve_months_target
+                              ? ` → mål ${cell.strategic_reserve_months_target} mnd`
+                              : ''}
+                          </div>
+                        )}
+                        {cell.strategic_reserve_target_tonnes != null && (
+                          <div>
+                            <span className="text-stone-500">Beredskapslager: </span>
+                            {cell.strategic_reserve_target_tonnes.toLocaleString('no-NO')} t mathvete
+                            {cell.strategic_reserve_target_year
+                              ? ` innen ${cell.strategic_reserve_target_year}`
+                              : ''}
                           </div>
                         )}
                         {cell.instrument && (
@@ -600,9 +842,34 @@ export function PolitikkContent({ data, docsByCountry, backlogByCountry }: Props
                             {cell.notes}
                           </div>
                         )}
+                        {cell.documentSlug && (
+                          <div className="text-[10px] pt-1">
+                            <Link
+                              href={`/bibliotek/${cell.documentSlug}`}
+                              className="text-emerald-700 hover:underline"
+                            >
+                              Se i /bibliotek →
+                            </Link>
+                          </div>
+                        )}
                         {cell.source && (
-                          <div className="text-[10px] text-stone-400 pt-1">
-                            Kilde: {cell.source}
+                          <div className="text-[10px] text-stone-400 pt-1 break-all">
+                            Kilde:{' '}
+                            {cell.source.startsWith('http') ? (
+                              <a
+                                href={cell.source}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-stone-500 hover:text-emerald-800 hover:underline"
+                              >
+                                {new URL(cell.source).hostname.replace('www.', '')}
+                              </a>
+                            ) : (
+                              cell.source
+                            )}
+                            {cell.last_verified && (
+                              <span className="text-stone-400 ml-1">· verif. {cell.last_verified}</span>
+                            )}
                           </div>
                         )}
                       </div>
@@ -653,9 +920,34 @@ export function PolitikkContent({ data, docsByCountry, backlogByCountry }: Props
                         {entry.EU.notes}
                       </div>
                     )}
+                    {entry.EU.documentSlug && (
+                      <div className="text-[10px] pt-1">
+                        <Link
+                          href={`/bibliotek/${entry.EU.documentSlug}`}
+                          className="text-emerald-700 hover:underline"
+                        >
+                          Se i /bibliotek →
+                        </Link>
+                      </div>
+                    )}
                     {entry.EU.source && (
-                      <div className="text-[10px] text-stone-400 pt-1">
-                        Kilde: {entry.EU.source}
+                      <div className="text-[10px] text-stone-400 pt-1 break-all">
+                        Kilde:{' '}
+                        {entry.EU.source.startsWith('http') ? (
+                          <a
+                            href={entry.EU.source}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-stone-500 hover:text-emerald-800 hover:underline"
+                          >
+                            {new URL(entry.EU.source).hostname.replace('www.', '')}
+                          </a>
+                        ) : (
+                          entry.EU.source
+                        )}
+                        {entry.EU.last_verified && (
+                          <span className="text-stone-400 ml-1">· verif. {entry.EU.last_verified}</span>
+                        )}
                       </div>
                     )}
                   </div>

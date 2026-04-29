@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
-import { PolitikkContent, type PolicyLandscape } from './PolitikkContent'
+import {
+  PolitikkContent,
+  type PolicyLandscape,
+  type PolicyTimeseries,
+} from './PolitikkContent'
 import { getPolicyDocumentsByCountry } from '@/lib/queries/documents'
 import {
   loadAllBacklogs,
@@ -52,15 +56,13 @@ function filterPolicyBacklogByCountry(rows: BacklogRowWithRound[]) {
 }
 
 export default async function PolitikkPage() {
-  const jsonPath = path.join(
-    process.cwd(),
-    'public',
-    'data',
-    'food-systems',
-    'policy-landscape.json'
-  )
-  const raw = readFileSync(jsonPath, 'utf-8')
-  const data = JSON.parse(raw) as PolicyLandscape
+  const baseDir = path.join(process.cwd(), 'public', 'data', 'food-systems')
+  const data = JSON.parse(
+    readFileSync(path.join(baseDir, 'policy-landscape.json'), 'utf-8')
+  ) as PolicyLandscape
+  const timeseries = JSON.parse(
+    readFileSync(path.join(baseDir, 'policy-timeseries.json'), 'utf-8')
+  ) as PolicyTimeseries
 
   // Live document counts + samples per country.
   const docsByCountry = await getPolicyDocumentsByCountry({ samplesPerCountry: 6 })
@@ -71,6 +73,7 @@ export default async function PolitikkPage() {
   return (
     <PolitikkContent
       data={data}
+      timeseries={timeseries}
       docsByCountry={docsByCountry}
       backlogByCountry={backlogByCountry}
     />
