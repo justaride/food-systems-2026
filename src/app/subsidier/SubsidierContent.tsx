@@ -82,6 +82,9 @@ export function SubsidierContent({
 }: Props) {
   const [tab, setTab] = useState<'kart' | 'kommuner' | 'ordninger' | 'mottakere'>('kart')
 
+  const hasProduksjonstilskudd =
+    byKommune.length > 0 || byScheme.length > 0 || topRecipients.length > 0
+
   const kommuneData = useMemo(() => {
     const map: Record<string, number> = {}
     for (const k of byKommune) map[k.kommuneNr] = k.totalNok
@@ -148,6 +151,23 @@ export function SubsidierContent({
           klassifisert som jordbruksforetak (`valueChainStage ≠ production`). Dette
           kan indikere samvirkeforetak, foredlingsbedrifter eller mangelfull orgnr-metadata
           som bør følges opp manuelt.
+        </div>
+      )}
+
+      {!hasProduksjonstilskudd && (
+        <div className="rounded-lg border border-orange-200 bg-orange-50 px-5 py-4 text-sm text-orange-900 space-y-2">
+          <div className="font-semibold">Produksjonstilskudd-data ikke importert</div>
+          <p>
+            Tabellen <code className="px-1.5 py-0.5 rounded bg-white/70 text-xs font-mono">Subsidy</code> mangler rader med
+            <code className="px-1.5 py-0.5 rounded bg-white/70 text-xs font-mono">subsidyType=&apos;produksjonstilskudd&apos;</code>.
+            Det forklarer hvorfor kommune-, ordnings- og mottakeraggregatene er tomme.
+            Beløpet «Totalt utbetalt» over inneholder kun øvrige subsidier ({byType.length} type
+            {byType.length === 1 ? '' : 'r'}).
+          </p>
+          <p className="text-xs text-orange-800">
+            Kjør i prod-container: <code className="px-1.5 py-0.5 rounded bg-white/70 font-mono">npm run db:import:produksjonstilskudd</code>{' '}
+            (henter ~180k rader fra Landbruksdirektoratet, NLOD).
+          </p>
         </div>
       )}
 
