@@ -1,0 +1,103 @@
+{
+  "generatedAt": "2026-04-29T02:09:59.091Z",
+  "results": [
+    {
+      "id": "no-nhh-price-knowledge-2025",
+      "url": "https://www.nhh.no/en/nhh-bulletin/article-archive/2025/august/large-gap-in-consumers-knowledge-of-grocery-prices/",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "title": "Do informed consumers pay less? | NHH",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/no-nhh-price-knowledge-2025.md"
+    },
+    {
+      "id": "no-norsus-matsvinn-2024",
+      "url": "https://norsus.no/prosjekt/matsvinn-2024/",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Matsvinn 2024 - Norsus",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/no-norsus-matsvinn-2024.md"
+    },
+    {
+      "id": "no-nofima-upcycled-2025",
+      "url": "https://nofima.com/publication/2372571/",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "title": "A Perspective of Upcycled Food by Norwegian Consumers: The Meaning Without the Word - Nofima",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/no-nofima-upcycled-2025.md"
+    },
+    {
+      "id": "se-rise-circular-food-2025",
+      "url": "https://www.ri.se/en/system-innovation/circular-transition/project/circular-food-in-practice-collaboration-for",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Circular food in practice: Collaboration for sustainable public meals | RISE",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/se-rise-circular-food-2025.md"
+    },
+    {
+      "id": "se-ivl-focuse-2025",
+      "url": "https://www.ivl.se/english/ivl/our-offer/research-projects/food/food-production-and-provisioning-through-circular-urban-systems-in-european-cities.html",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "title": "Food production and provisioning through Circular Urban Systems in European Cities - IVL.se",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/se-ivl-focuse-2025.md"
+    },
+    {
+      "id": "dk-dansk-erhverv-food-prices-2024",
+      "url": "https://www.danskerhverv.dk/politik-og-analyser/analyser/2024/december/stigende-fodevarepriser-er-ikke-lig--profit-for-dagligvarekaderne/",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "title": "Stigende f&#xF8;devarepriser er ikke lig profit for dagligvarek&#xE6;derne",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/dk-dansk-erhverv-food-prices-2024.md"
+    },
+    {
+      "id": "fi-kesko-price-cuts-2025",
+      "url": "https://www.kesko.fi/en/media/news-and-releases/news/2025/k-group-grocery-stores-cut-prices-on-over-1200-products--kesko-and-k-retailers-invest-nearly-50-million-in-price-reductions/",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "title": "K Group grocery stores cut prices on over 1,200 products – Kesko and K-retailers invest nearly €50 million in price reductions",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/fi-kesko-price-cuts-2025.md"
+    },
+    {
+      "id": "fi-kesko-market-share-2024",
+      "url": "https://www.kesko.fi/en/media/blogs/investor-blogs-and-podcasts/2025/gt-market-share/",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "title": "IR Blog: Market share decline for K Group grocery stores slowed down in 2024",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/fi-kesko-market-share-2024.md"
+    },
+    {
+      "id": "is-bifrost-retail-sector",
+      "url": "https://www.bifrost.is/media/1/skra_0016984.pdf",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/is-bifrost-retail-sector.md",
+      "title": "The structure of the retail sector in Iceland"
+    },
+    {
+      "id": "is-usda-exporter-guide-2023",
+      "url": "https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Iceland+Exporter+Guide_The+Hague_Iceland_IC2023-0009.pdf",
+      "status": "failed",
+      "httpStatus": 500,
+      "contentType": "application/json; charset=utf-8",
+      "reason": "http_500"
+    },
+    {
+      "id": "nordic-matsentralen-reports-2024",
+      "url": "https://www.matsentralen.no/rapporter",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "title": "Rapporter - Matsentralen Norge",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/nordic-matsentralen-reports-2024.md"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-04-29T02:10:44.489Z",
+  "results": [
+    {
+      "id": "no-kt-dagligvare-hub-2026",
+      "url": "https://konkurransetilsynet.no/dagligvare/",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Dagligvare - Konkurransetilsynet",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/no-kt-dagligvare-hub-2026.md"
+    },
+    {
+      "id": "no-e24-nho-uenighet-2026",
+      "url": "https://e24.no/naeringsliv/i/ExbwQa/uenighet-om-dagligvare-i-nho-systemet",
+      "status": "skipped",
+      "reason": "high_paywall_manual_only"
+    },
+    {
+      "id": "fi-kesko-market-share-2025",
+      "url": "https://www.kesko.fi/en/media/news-and-releases/investor-news/2026/k-group-market-share-in-grocery-trade-took-an-upturn-in-the-latter-half-of-2025--full-year-market-share-33.5/",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "title": "K Group market share in grocery trade took an upturn in the latter half of 2025 – full-year market share 33.5%",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/fi-kesko-market-share-2025.md"
+    }
+  ]
+}
