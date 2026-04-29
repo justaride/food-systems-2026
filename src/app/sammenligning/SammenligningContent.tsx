@@ -251,9 +251,13 @@ export function SammenligningContent({ data }: Props) {
             question="Hvor langt er hvert land i sirkulær omstilling?"
             narrative="Norge har redusert matsvinn betydelig siden 2015, og pant-returrate over 90 % er Nordens høyeste. Biogass-utbygging varierer kraftig per innbygger."
             takeaway={
-              <KeyTakeaway
-                headline={`${noReduction !== null && noReduction !== undefined ? `${noReduction > 0 ? '−' : ''}${Math.abs(noReduction)}` : '—'} % matsvinn-reduksjon NO siden 2015`}
-              />
+              noReduction !== null && noReduction !== undefined ? (
+                <KeyTakeaway
+                  headline={`${Math.abs(noReduction)} % ${noReduction < 0 ? 'reduksjon' : 'økning'} i matsvinn (NO, siden 2015)`}
+                />
+              ) : (
+                <KeyTakeaway headline="Matsvinn-reduksjon NO: data mangler" />
+              )
             }
             charts={
               <>
