@@ -17,6 +17,7 @@ COPY prisma ./prisma
 COPY public ./public
 COPY scripts ./scripts
 COPY src ./src
+COPY research/evidence-pack/*.csv ./research/evidence-pack/
 ARG DATABASE_URL
 RUN npm run build && npx prisma db push
 
@@ -26,6 +27,7 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/research ./research
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 RUN rm -f .env
