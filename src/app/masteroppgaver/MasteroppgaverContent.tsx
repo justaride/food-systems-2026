@@ -81,6 +81,28 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
 
   const masterCount = theses.filter(t => t.degree === 'master').length
   const phdCount = theses.filter(t => t.degree === 'phd').length
+  const awardCount = theses.filter(t => t.awardWinning).length
+  const institutionCount = new Set(theses.map(t => t.institution)).size
+
+  const years = theses.map(t => t.year).filter(y => Number.isFinite(y))
+  const yearMin = years.length ? Math.min(...years) : null
+  const yearMax = years.length ? Math.max(...years) : null
+
+  const themeCounts = new Map<string, number>()
+  theses.forEach(t => t.tags.forEach(tag => {
+    themeCounts.set(tag, (themeCounts.get(tag) ?? 0) + 1)
+  }))
+  const topThemes = [...themeCounts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 6)
+
+  const institutionCounts = new Map<string, number>()
+  theses.forEach(t => {
+    institutionCounts.set(t.institution, (institutionCounts.get(t.institution) ?? 0) + 1)
+  })
+  const topInstitutions = [...institutionCounts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
 
   const degreeFilters = [
     { label: `Alle (${theses.length})`, value: 'alle' },
@@ -120,10 +142,86 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Akademia</h1>
-        <p className="text-sm text-stone-400 mt-1">
-          Syntese og stikkord fra {theses.length} analyserte avhandlinger — {masterCount} master, {phdCount} PhD
+        <p className="text-xs uppercase tracking-wider text-stone-500 mt-0.5 font-medium">
+          Syntese fra nordiske master- og doktoravhandlinger om matsystemer
         </p>
       </div>
+
+      {theses.length > 0 && (
+        <Card>
+          <div className="space-y-5">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <div className="bg-stone-50 px-4 py-3 rounded-lg border border-stone-200">
+                <div className="text-xs uppercase tracking-wider text-stone-400">Avhandlinger</div>
+                <div className="text-2xl font-bold text-stone-900">{theses.length}</div>
+                <div className="text-xs text-stone-500 mt-0.5">{masterCount} master {'·'} {phdCount} PhD</div>
+              </div>
+              <div className="bg-stone-50 px-4 py-3 rounded-lg border border-stone-200">
+                <div className="text-xs uppercase tracking-wider text-stone-400">Institusjoner</div>
+                <div className="text-2xl font-bold text-stone-900">{institutionCount}</div>
+                <div className="text-xs text-stone-500 mt-0.5">nordiske universiteter</div>
+              </div>
+              <div className="bg-stone-50 px-4 py-3 rounded-lg border border-stone-200">
+                <div className="text-xs uppercase tracking-wider text-stone-400">Tidsrom</div>
+                <div className="text-2xl font-bold text-stone-900">
+                  {yearMin !== null && yearMax !== null ? `${yearMin}${'–'}${yearMax}` : '—'}
+                </div>
+                <div className="text-xs text-stone-500 mt-0.5">
+                  {yearMin !== null && yearMax !== null ? `${yearMax - yearMin + 1} ar med forskning` : ''}
+                </div>
+              </div>
+              <div className="bg-stone-50 px-4 py-3 rounded-lg border border-stone-200">
+                <div className="text-xs uppercase tracking-wider text-stone-400">Prisvinnende</div>
+                <div className="text-2xl font-bold text-stone-900">{awardCount}</div>
+                <div className="text-xs text-stone-500 mt-0.5">utmerkelser</div>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-wider text-stone-500 mb-1.5 font-medium">Overordnet bilde</p>
+              <p className="text-sm text-stone-700 leading-relaxed">
+                Korpuset dekker hele verdikjeden {'—'} fra konkurransedynamikk og markedsmakt i dagligvare til
+                matsvinn, sirkulaer okonomi og baerekraft. Tre hovedmonstre gar igjen:{' '}
+                <strong className="text-stone-900">norsk dagligvare har konsentrert struktur men marginer pa nordisk niva</strong>{' '}
+                (myten om unormalt hoy lonnsomhet avkreftes);{' '}
+                <strong className="text-stone-900">etableringshindringer er strukturelle</strong>{' '}
+                (servitutter, EMV-andeler og leverandorrelasjoner skaper barrierer som krever regulering); og{' '}
+                <strong className="text-stone-900">sirkularitet og matsvinn er voksende felter</strong>{' '}
+                der nordisk samarbeid gir empirisk grunnlag for konkrete tiltak.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <p className="text-xs uppercase tracking-wider text-stone-500 mb-1.5 font-medium">Mest forskede temaer</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {topThemes.map(([theme, count]) => (
+                    <span
+                      key={theme}
+                      className={`text-[11px] px-2 py-0.5 rounded border ${THEME_COLORS[theme as ThesisTheme] ?? 'bg-stone-50 text-stone-500 border-stone-200'}`}
+                    >
+                      {themeLabels[theme as ThesisTheme] ?? theme} <span className="opacity-60">({count})</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-wider text-stone-500 mb-1.5 font-medium">Toneangivende institusjoner</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {topInstitutions.map(([inst, count]) => (
+                    <span
+                      key={inst}
+                      className="text-[11px] px-2 py-0.5 rounded bg-stone-50 text-stone-700 border border-stone-200"
+                    >
+                      {inst} <span className="opacity-60">({count})</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+      )}
 
       <div className="space-y-2">
         <FilterChips items={degreeFilters} defaultValue="alle" onChange={(v) => { setDegreeFilter(v); setThemeFilter('alle') }} />

@@ -1,10 +1,11 @@
 {
-  "generated": "2026-04-14",
+  "generated": "2026-04-29",
+  "last_verified": "2026-04-29",
   "description": "Nordic food circularity policy comparison across 5 countries + EU",
   "policies": {
     "food_waste_law": {
       "label": "Matsvinnlov / lovfestet matsvinnreduksjon",
-      "NO": { "status": "enacted", "year": 2026, "details": "Matsvinnloven: aktsomhetsplikt, prisreduksjonsplikt, donasjonsplikt. Nordens forste lovfestede matsvinnreduksjon", "source": "Regjeringen.no" },
+      "NO": { "status": "enacted", "year": 2025, "in_force": false, "in_force_status": "Vedtatt 20.06.2025, ikke i kraft før forskrifter er ferdige", "details": "Lov om forebygging og reduksjon av matsvinn (matsvinnloven), Lov 2025-06-20-103. Aktsomhetsplikt, prisreduksjonsplikt, donasjonsplikt. Mattilsynet leverte høringsutkast forskrifter 1. mars 2026; ikrafttredelse forventes når forskrifter er ferdigstilt i løpet av 2026.", "source": "https://lovdata.no/dokument/LTI/lov/2025-06-20-103" },
       "SE": { "status": "voluntary", "details": "Livsmedelsverket frivillig mal. Ingen lovfestet matsvinnlov", "source": "Livsmedelsverket" },
       "DK": { "status": "voluntary", "details": "Together Against Food Waste. Frivillig bransjeavtale", "source": "fvm.dk" },
       "FI": { "status": "voluntary", "details": "Luke-koordinert frivillig mal", "source": "Luke" },
@@ -32,7 +33,7 @@
       "label": "CO2-avgift pa landbruk",
       "NO": { "status": "none", "notes": "Landbruket er fritatt fra CO2-avgift" },
       "SE": { "status": "none", "notes": "Diskuteres" },
-      "DK": { "status": "enacted", "year": 2030, "rate_dkk_per_tonne": 300, "rate_2035_dkk": 750, "details": "Verdens forste CO2-avgift pa biologiske utslipp. Inkluderer metan og lystgass fra husdyr", "green_area_fund_dkk_m": 43, "green_area_targets": "250,000 ha skog + 140,000 ha myr", "source": "Skatteministeriet" },
+      "DK": { "status": "enacted", "year": 2030, "rate_dkk_per_tonne": 300, "rate_2035_dkk": 750, "effective_rate_2030_dkk": 120, "effective_rate_2035_dkk": 300, "details": "Verdens første CO2-avgift på biologiske utslipp (metan/lystgass fra husdyr). Headline-sats 300 DKK/tonn (2030) → 750 (2035), MEN 60% basisfradrag gir effektiv kost ~120 DKK/tonn (2030) og ~300 (2035). Del av Grøn Trepartsaftale (juni 2024).", "green_area_fund_dkk_bn": 43, "green_area_targets": "250.000 ha skog + 140.000 ha våtmark/myr — finansiert av 43 mrd DKK fond (~5,8 mrd EUR)", "source": "https://www.skm.dk/aktuelt/presse/pressemeddelelser/2024/jun/historisk-aftale-om-groen-omstilling-af-dansk-landbrug/" },
       "FI": { "status": "none" },
       "IS": { "status": "none" }
     },
@@ -46,11 +47,11 @@
     },
     "self_sufficiency_policy": {
       "label": "Selvforsyningspolitikk",
-      "NO": { "caloric_pct": 47, "target_pct": 50, "target_year": 2030, "gap_pp": 3, "strategic_reserve": "No formal grain reserve", "notes": "Would be ~100% if seafood export counted" },
+      "NO": { "caloric_pct": 47, "target_pct": 50, "target_year": 2030, "gap_pp": 3, "strategic_reserve": "Beredskapslagring av matkorn gjeninnført 2023; mål 82.500 tonn mathvete innen 2029 (~3 mnd forbruk for bakeri/industri/husholdning). Statlig eierskap, 15.000 t/år oppbygging, 25-årskontrakter med private møller (Norgesmøllene AS m.fl.). Avviklet 2003.", "strategic_reserve_target_tonnes": 82500, "strategic_reserve_target_year": 2029, "notes": "Bruttoselvforsyning ~93% inkl. fiskeeksport (NIBIO 2024); kalorisk korrigert for fôrimport ~47%.", "source": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/82-500-tonn-matkorn-pa-lager-innen-2029--i-mal-med-kontrakter" },
       "SE": { "caloric_pct": 50, "target_pct": null, "notes": "SOU 2024:8 livsmedelsberedskap. No formal target but active review" },
       "DK": { "caloric_pct": 300, "notes": "Net exporter. Agriculture = ~25% of export value" },
-      "FI": { "caloric_pct": 80, "strategic_reserve_months": 9, "model": "HVK (Huoltovarmuuskeskus)", "notes": "Gold standard in Nordics. 9-month grain reserve" },
-      "IS": { "caloric_pct": null, "notes": "Limited data. High for seafood, very low for grains/produce" }
+      "FI": { "caloric_pct": 80, "strategic_reserve_months_current": 6, "strategic_reserve_months_target": 8.5, "model": "HVK (Huoltovarmuuskeskus / NESA)", "notes": "Nordens 'gullstandard' for beredskap. Lovpålagt minimum 6 mnd kornlager (Decree on Security of Supply); pågående utvidelse til ~8,5 mnd via ekstrainnkjøp av havre/hvete/bygg (~2,5 mnd ekstra forbruk). PPP-modell via 'pools'.", "source": "https://www.huoltovarmuuskeskus.fi/en/a/national-emergency-supply-agency-boosting-finlands-emergency-grain-stockpiles" },
+      "IS": { "caloric_pct": 53, "notes": "~100% selvforsyning kjøtt/meieri/sjømat, men korn ~1% og lavt på grønnsaker. Kornax-mølla i Reykjavík (eneste innenlandske kornmølle) ble demontert 1. april 2025 etter at Faxaflóahafnir sa opp leieavtalen og relokalisering til Grundartangi ble avslått. Island er nå avhengig av importert ferdigmalt mel med kortere holdbarhet — svekker mulighet for strategisk kornlagring.", "kornax_mill_status": "Demontert april 2025", "source": "https://www.icelandreview.com/business/iceland-loses-only-grain-mill/" }
     },
     "packaging_regulation": {
       "label": "Emballasjeregulering",
@@ -80,6 +81,49 @@
       "DK": { "status": "Voluntary (Together Against Food Waste)" },
       "FI": { "status": "Voluntary (Luke-koordinert)" },
       "IS": { "status": "Matarsoun-initiativ" }
+    },
+    "utp_law": {
+      "label": "UTP-direktivet (2019/633) — implementering",
+      "NO": { "status": "enacted", "year": 2021, "details": "Lov om god handelsskikk i dagligvarekjeden (gjeldende fra 2021-01-01). Håndheves av Dagligvaretilsynet, men foreslås nedlagt 2026 og oppgaver overført til Konkurransetilsynet (statsbudsjett 2026).", "instrument": "Lov om god handelsskikk", "source": "https://lovdata.no/dokument/NL/lov/2020-06-17-78", "last_verified": "2026-04-29" },
+      "SE": { "status": "enacted", "year": 2021, "details": "Lag (2021:579) om förbud mot otillbörliga handelsmetoder vid köp av jordbruks- och livsmedelsprodukter (gjeldende 2021-11-01). Håndheves av Konkurrensverket. Sanksjonsgebyr opptil 1% av årsomsetning. Første nordiske UTP-bot: SEK 5M på Everfresh (Dole) okt. 2023 for >30-dagers betalingsfrist.", "instrument": "UTP-loven 2021", "source": "https://www.konkurrensverket.se/en/utp/", "last_verified": "2026-04-29" },
+      "DK": { "status": "enacted", "year": 2021, "details": "Lov om urimelige handelsmetoder i landbrugs- og fødevareforsyningskæden. Håndheves av KFST. Anonym tip-portal som dekker UTP.", "instrument": "Fødevarehandelsloven", "source": "https://en.kfst.dk/utp", "last_verified": "2026-04-29" },
+      "FI": { "status": "enacted", "year": 2021, "details": "Elintarvikemarkkinalaki (Food Market Act, 1121/2018) endret 2021 for å implementere UTP-direktivet. Håndheves av Elintarvikemarkkinavaltuutettu (Matmarkedsombudet). Tvangsmulkt-modell via Markedsdomstolen.", "instrument": "Elintarvikemarkkinalaki", "source": "https://www.finlex.fi/fi/laki/ajantasa/2018/20181121", "last_verified": "2026-04-29" },
+      "IS": { "status": "enacted", "year": 2026, "details": "EØS-tilpasset implementering 2026. Samkeppniseftirlitið (ICA) som primær håndhever; nytt grenseoverskridende tip-system 2026.", "source": "https://www.samkeppni.is/", "last_verified": "2026-04-29" },
+      "EU": { "status": "binding", "year": 2019, "regulation": "Direktiv 2019/633", "details": "EU-direktiv som krever minimum harmonisering av regler mot urimelige handelsmetoder i matforsyningskjeden. Implementeringsfrist 2021-05-01. Evaluert desember 2025 — Kommisjonen vurderer revisjon.", "source": "https://eur-lex.europa.eu/eli/dir/2019/633/oj", "last_verified": "2026-04-29" }
+    },
+    "competition_threshold_food": {
+      "label": "Markedsmakts-terskel (dagligvare)",
+      "NO": { "status": "voluntary", "details": "Case-by-case dominansvurdering. Konkurransetilsynet fikk i 2025 ny markedsetterforskningstjeneste som kan ilegge strukturelle tiltak uten å bevise lovbrudd. Topp 3 (NorgesGruppen 48%, Coop 27%, Reitan 18%) = ~95% av markedet.", "instrument": "Konkurranseloven (case-by-case)", "source": "https://konkurransetilsynet.no/", "last_verified": "2026-04-29" },
+      "SE": { "status": "voluntary", "details": "Generell dominansvurdering uten sektorspesifikk terskel. Topp 3 (ICA 36%, Coop 19%, Axfood 24%) = ~80%. Government-utredning 2025 om 'notification obligations' for store aktører i konsentrerte næringer.", "instrument": "Konkurrenslagen", "source": "https://www.konkurrensverket.se/", "last_verified": "2026-04-29" },
+      "DK": { "status": "voluntary", "details": "Generell dominansvurdering. KFST har 'call-in'-rett ved kombinert omsetning >50 mill. DKK. Topp 5 (Salling, Coop DK, Dagrofa, Reitan, Lidl) = ~95%.", "instrument": "Konkurrenceloven + call-in", "source": "https://www.kfst.dk/", "last_verified": "2026-04-29" },
+      "FI": { "status": "binding", "year": 2014, "details": "Konkurranseloven §4a (2014): 30% nasjonal markedsandel = automatisk dominans-presumpsjon. Aktivt anvendt mot S-Group (~46%) og Kesko (~36%). EUR 600.000 bot på Valio okt. 2024 for fusjonsvilkårsbrudd.", "instrument": "Kilpailulaki §4a (30%-terskel)", "target_pct": 30, "source": "https://www.finlex.fi/fi/laki/ajantasa/2011/20110948", "last_verified": "2026-04-29" },
+      "IS": { "status": "voluntary", "details": "Generell dominansvurdering. ICA overvåker de 3 største aktørene. Marked dominert av Hagar (~45%) og Festi (~35%).", "instrument": "Samkeppnislög", "source": "https://www.samkeppni.is/", "last_verified": "2026-04-29" }
+    },
+    "recent_competition_enforcement": {
+      "label": "Nylig håndheving (2024–2025)",
+      "NO": { "status": "enacted", "year": 2024, "details": "NOK 4,9 mrd (~EUR 420M) bot på NorgesGruppen, Coop og Rema 1000 (aug. 2024) for 'prishunter'-saken — deling av butikkpriser siden 2011. Desember 2024: Stortinget vedtok markedsetterforskningstjeneste i Konkurranseloven (i kraft 1.7.2025).", "rate_dkk_per_tonne": null, "source": "https://konkurransetilsynet.no/anticompetitive-practices-may-have-led-to-higher-grocery-prices/?lang=en", "last_verified": "2026-04-29" },
+      "SE": { "status": "enacted", "year": 2024, "details": "Axfood/City Gross-fusjon godkjent okt. 2024 (Axfood 20.5% + City Gross 3.7%). Sektoreksamen 2024:5 fant risiko for utilstrekkelig konkurranse. SEK 5M Everfresh-UTP-bot 2023 (første nordiske).", "source": "https://www.konkurrensverket.se/en/news/axfood-allowed-to-acquire-city-gross/", "last_verified": "2026-04-29" },
+      "DK": { "status": "enacted", "year": 2025, "details": "Salling Group godkjent for 33 av 35 ønskede Coop-butikker (mars 2025), to ekskludert i Taastrup/Slagelse. KFST-møte mars 2025 om prisalgoritmer hos store kjeder.", "source": "https://en.kfst.dk/nyheder/kfst/english/decisions/2025/20250326-salling-group-acquires-33-stores-from-coop-danmark", "last_verified": "2026-04-29" },
+      "FI": { "status": "enacted", "year": 2024, "details": "EUR 600.000 bot på Valio (okt. 2024, Markedsdomstolen) for brudd på fusjonsvilkår fra Heinon Tukku-oppkjøp. Section 4a aktivt anvendt på S-Group og Kesko.", "source": "https://www.kkv.fi/", "last_verified": "2026-04-29" },
+      "IS": { "status": "voluntary", "details": "Ikke noe stort offentlig håndhevingstilfelle 2024–2025. ICA-prioritet på matmarked.", "source": "https://www.samkeppni.is/", "last_verified": "2026-04-29" }
+    },
+    "agricultural_support_regime": {
+      "label": "Jordbruksstøtteregime",
+      "NO": { "status": "enacted", "details": "Jordbruksavtalen — årlige forhandlinger mellom staten og faglagene (Bondelaget/Småbrukarlaget). Sterkt tollvern via EØS-art. 19. OECD PSE 2025: ~59% av brutto inntekt fra støtte (blant verdens høyeste).", "instrument": "Jordbruksavtalen + tollvern", "target_pct": 59, "source": "https://www.regjeringen.no/no/tema/mat-fiske-og-landbruk/landbruk/innsikt/jordbruksavtalen/id87614/", "last_verified": "2026-04-29" },
+      "SE": { "status": "enacted", "year": 2023, "details": "EU-CAP 2023–2027 + Livsmedelsstrategi 2.0 (2025). Mål: øke innenlandsk produksjon, styrke konkurranseevne, matvareberedskap. Investeringsfremme via Business Sweden.", "instrument": "CAP + Livsmedelsstrategi 2.0", "source": "https://www.regeringen.se/livsmedelsstrategin", "last_verified": "2026-04-29" },
+      "DK": { "status": "enacted", "year": 2024, "details": "EU-CAP + Grøn Trepartsaftale (juni 2024): 43 mrd DKK fond for arealbruk, CO2-avgift fra 2030, 250.000 ha skog + 140.000 ha våtmark. Verdens første klimaavgift på landbruk.", "instrument": "CAP + Grøn Trepartsaftale", "source": "https://www.skm.dk/aktuelt/presse/pressemeddelelser/2024/jun/historisk-aftale-om-groen-omstilling-af-dansk-landbrug/", "last_verified": "2026-04-29" },
+      "FI": { "status": "enacted", "details": "EU-CAP + Food2030-strategi (Maa- ja metsätalousministeriö). Selvforsynt på pork/poultry; ~80% beef. Strategi: bærekraftig og etisk innenlandsk produksjon innen 2030.", "instrument": "CAP + Food2030", "source": "https://mmm.fi/en/food/strategies-and-programmes", "last_verified": "2026-04-29" },
+      "IS": { "status": "enacted", "details": "Nasjonal jordbruksstøtte uavhengig av EU-CAP. Búnaðarsamningur (avtale stat–landbruk). Begrenset arealgrunnlag styrer prioriteringene.", "instrument": "Búnaðarsamningur", "source": "https://www.stjornarradid.is/", "last_verified": "2026-04-29" },
+      "EU": { "status": "binding", "year": 2023, "regulation": "CAP 2023–2027", "details": "Felles landbrukspolitikk 2023–2027. Fokus på 'Strategic Autonomy' og indre markedets stabilitet snarere enn nasjonal selvforsyning per medlemsland. ~387 mrd EUR over perioden.", "source": "https://agriculture.ec.europa.eu/common-agricultural-policy/cap-overview/cap-2023-27_en", "last_verified": "2026-04-29" }
+    },
+    "food_vat_rate": {
+      "label": "MVA-sats matvarer",
+      "NO": { "status": "enacted", "target_pct": 15, "details": "15% redusert sats på matvarer (standard 25%). Diskutert hevet til full sats — politisk omstridt.", "instrument": "Merverdiavgiftsloven §5-2", "source": "https://www.skatteetaten.no/", "last_verified": "2026-04-29" },
+      "SE": { "status": "enacted", "year": 2026, "target_pct": 6, "details": "MIDLERTIDIG redusert fra 12% til 6% fra 1. april 2026 til 31. desember 2027 (vedtatt 25.02.2026). Standard 25%. Tiltak mot vedvarende høy matprisinflasjon.", "instrument": "Mervärdesskattelagen — temporær reduksjon", "in_force": true, "in_force_status": "I kraft fra 2026-04-01 (varighet til 2027-12-31)", "source": "https://www.skatteverket.se/", "last_verified": "2026-04-29" },
+      "DK": { "status": "minimal", "target_pct": 25, "details": "Ingen redusert sats på mat. Standard 25% — én av de mest stive MVA-systemene i EU. Politisk debattert men ikke vedtatt redusert sats.", "instrument": "Momsloven (ingen reduksjon)", "source": "https://skat.dk/", "last_verified": "2026-04-29" },
+      "FI": { "status": "enacted", "target_pct": 14, "details": "14% på næringsmidler, dyrefor, restaurant og catering (standard 25,5% fra 1.9.2024).", "instrument": "Arvonlisäverolaki", "source": "https://www.vero.fi/", "last_verified": "2026-04-29" },
+      "IS": { "status": "enacted", "target_pct": 11, "details": "11% redusert sats på matvarer for menneskelig konsum (standard 24%).", "instrument": "Lög um virðisaukaskatt", "source": "https://www.skatturinn.is/", "last_verified": "2026-04-29" },
+      "EU": { "status": "binding", "details": "Ingen felles EU-sats. MVA-direktivet (2006/112/EC) tillater medlemsland reduserte satser på næringsmidler. Reform 2022 ga økt fleksibilitet for medlemslandene.", "source": "https://eur-lex.europa.eu/eli/dir/2006/112/oj", "last_verified": "2026-04-29" }
     }
   },
   "eu_framework": {

@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-04-29T02:10:36.826Z",
+  "results": [
+    {
+      "id": "se-smartbuilt-gottsunda-2024",
+      "url": "https://smartbuilt.se/in-english/projects/value-chains-and-business-models/circular-food-system-in-gottsunda/",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "title": "Circular food system in Gottsunda Center &#x2013; From food waste to sustainable profitability - Smart Built",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/se-smartbuilt-gottsunda-2024.md"
+    },
+    {
+      "id": "dk-newfood-amcor-crisp-2025",
+      "url": "https://www.newfoodmagazine.com/news/amcor-backs-danish-circular-food-packaging-recycling-project/850273.article",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "title": "Amcor backs Danish circular food packaging recycling project | News | New Food",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/dk-newfood-amcor-crisp-2025.md"
+    },
+    {
+      "id": "fi-mdpi-turku-circular-campus-2021",
+      "url": "https://www.mdpi.com/2071-1050/13/11/6231",
+      "status": "failed",
+      "httpStatus": 403,
+      "contentType": "text/html",
+      "reason": "http_403",
+      "poison": "blocked_403"
+    },
+    {
+      "id": "is-geothermal-geofood-2020",
+      "url": "https://geothermie-schweiz.ch/geothermal-energy-for-circular-food-production/",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Geothermal energy for circular food production - Geothermie-Schweiz",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/is-geothermal-geofood-2020.md"
+    },
+    {
+      "id": "is-novia-local-food-2024",
+      "url": "https://novialia.novia.fi/bloggar/bioekonomi/local-food-and-fibres-in-iceland-more-than-smelly-shark-and-sweaters",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "title": "Local food and fibres in Iceland: more than smelly shark and sweaters &raquo; Novialia",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/is-novia-local-food-2024.md"
+    },
+    {
+      "id": "nordic-circular-households-pilot-2024",
+      "url": "https://www.circularhouseholds.eu/circular-food-pilot/",
+      "status": "saved",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "title": "CARE Circular Food Pilot | Reducing Food Waste Together",
+      "snapshotPath": "/Users/gabrielboen/Documents/Food Systems 2026/research/bibliotek/media/snapshots/nordic-circular-households-pilot-2024.md"
+    }
+  ]
+}

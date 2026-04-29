@@ -1,462 +1,347 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-import { Card } from '@/components/ui/Card'
+import Link from 'next/link'
+import { BolkSection } from '@/components/sammenligning/BolkSection'
+import { ChartCard } from '@/components/sammenligning/ChartCard'
+import { ComparisonTable } from '@/components/sammenligning/ComparisonTable'
+import { KeyTakeaway } from '@/components/sammenligning/KeyTakeaway'
+import { PolicyTimeline } from '@/components/sammenligning/PolicyTimeline'
 import { COUNTRY_LIST } from '@/lib/config/countries'
-import { useChartMetrics } from '@/lib/hooks/useChartMetrics'
-import { ComparisonBarChart } from '@/components/charts/ComparisonBarChart'
 import type { CountryCode } from '@/lib/config/countries'
-import type { CountryChartDataSet } from '@/lib/queries/country-metrics'
+import type { SammenligningData, CountrySammenligning } from '@/lib/queries/sammenligning'
 
-type SammenligningContentProps = {
-  countryChartData: Record<string, CountryChartDataSet | null>
-}
+type Props = { data: SammenligningData }
 
-const CHART_COUNTRIES = ['no', 'se', 'dk', 'fi'] as const
-const countries = COUNTRY_LIST.filter(c => (CHART_COUNTRIES as readonly string[]).includes(c.code))
-
-type ValueChainData = {
-  country: string
-  steps: Array<{
-    id: string
-    waste_tonnes?: number | null
-    waste_per_capita_kg?: number | null
-    circularity?: {
-      biogas_gwh?: number | null
-      biogas_target_gwh?: number | null
-      biogas_plants?: number | null
-    } | null
-    breakdown?: {
-      grain_tonnes?: number | null
-      [key: string]: unknown
-    } | null
-    emv_share_pct?: number | null
-    employees?: number | null
-    co2e_mt?: number | null
-    production_value_bn?: number | null
-    employment?: {
-      agriculture_nace01?: number | null
-      food_manufacturing_nace10?: number | null
-      beverages_nace11?: number | null
-      fisheries_aquaculture_nace03?: number | null
-    } | null
-  }>
-  selfSufficiency?: { caloric_pct?: number | null }
-  population?: number
-}
-
-const EMV_FALLBACK_PCT: Record<string, number> = {
-  no: 33,
-  dk: 35,
-}
-
-function useValueChainData() {
-  const [data, setData] = useState<Record<string, ValueChainData | null>>({})
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    Promise.all(
-      CHART_COUNTRIES.map((code) =>
-        fetch(`/data/food-systems/${code}/value-chain.json`)
-          .then((r) => r.json())
-          .then((d: ValueChainData) => [code, d] as const)
-          .catch(() => [code, null] as const)
-      )
-    ).then((results) => {
-      setData(Object.fromEntries(results))
-      setLoading(false)
-    })
-  }, [])
-
-  return { data, loading }
-}
-
-const CALORIE_KEYS = ['Kalorier', 'Kalorit']
-
-function getSelfSufficiency(code: CountryCode, data: Record<string, CountryChartDataSet | null>): number {
-  const entries = data[code]?.selfSufficiency?.data ?? []
-  const match = entries.find(e => CALORIE_KEYS.includes(e.name))
-  return match?.value ?? 0
-}
-
-function getCR3(data: Array<{ value: number }>): number {
-  return data
-    .sort((a, b) => b.value - a.value)
-    .slice(0, 3)
-    .reduce((sum, d) => sum + d.value, 0)
-}
-
-export function SammenligningContent({ countryChartData }: SammenligningContentProps) {
-  const no = useChartMetrics('no')
-  const se = useChartMetrics('se')
-  const dk = useChartMetrics('dk')
-  const fi = useChartMetrics('fi')
-
-  const allMetrics = { no, se, dk, fi }
-  const isLoading = no.isLoading || se.isLoading || dk.isLoading || fi.isLoading
-  const allLoaded = no.data && se.data && dk.data && fi.data
-  const vc = useValueChainData()
-
-  if (isLoading || !allLoaded) {
-    return (
-      <div className="space-y-6">
-        <div>
-          <h1 className="text-2xl font-bold text-stone-900">Sammenligning</h1>
-          <p className="text-sm text-stone-500 mt-1">Nordisk matmarked pa tvers av land</p>
-        </div>
-        <div className="py-12 text-center text-sm text-stone-400">Laster data...</div>
-      </div>
-    )
-  }
-
-  const metricsMap = {
-    no: no.data!,
-    se: se.data!,
-    dk: dk.data!,
-    fi: fi.data!,
-  }
-
-  const hhiData = countries.map(c => ({
-    country: c.name,
-    flag: c.flag,
-    value: metricsMap[c.code as keyof typeof metricsMap].parentCompany.parentHHI,
-  }))
-
-  const cr3Data = countries.map(c => {
-    const cr3 = getCR3([...metricsMap[c.code as keyof typeof metricsMap].parentCompany.data])
+function rowsFor<T>(
+  data: SammenligningData,
+  pick: (c: CountrySammenligning) => T | null,
+): Array<{ country: string; flag: string; value: T | null; population: number; code: CountryCode }> {
+  return COUNTRY_LIST.map(c => {
+    const country = data.countries[c.code]
     return {
       country: c.name,
       flag: c.flag,
-      value: Math.round(cr3 * 10) / 10,
-      label: `${(Math.round(cr3 * 10) / 10).toFixed(1)}%`,
+      value: country ? pick(country) : null,
+      population: country?.population ?? 0,
+      code: c.code,
     }
   })
+}
 
-  const giniData = countries.map(c => {
-    const gini = metricsMap[c.code as keyof typeof metricsMap].lorenzCurve.gini
-    return {
-      country: c.name,
-      flag: c.flag,
-      value: Math.round(gini * 1000) / 1000,
-      label: (Math.round(gini * 1000) / 1000).toFixed(3),
-    }
-  })
-
-  const selfSuffData = countries.map(c => ({
-    country: c.name,
-    flag: c.flag,
-    value: getSelfSufficiency(c.code, countryChartData),
-    label: `${getSelfSufficiency(c.code, countryChartData)}%`,
-  }))
-
-  const storeData = countries.map(c => ({
-    country: c.name,
-    flag: c.flag,
-    value: metricsMap[c.code as keyof typeof metricsMap].totalStores,
-  }))
-
+export function SammenligningContent({ data }: Props) {
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-stone-900">Sammenligning</h1>
-        <p className="text-sm text-stone-500 mt-1">Nordisk matmarked pa tvers av land</p>
-      </div>
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      <header className="mb-10">
+        <h1 className="text-3xl font-semibold text-stone-800">Nordisk sammenligning</h1>
+        <p className="text-sm text-stone-500 mt-2 max-w-2xl">
+          Markedsmakt, beredskap, verdikjede, sirkularitet og politikk på tvers av Norge, Sverige, Danmark, Finland og Island.
+        </p>
+        <p className="text-xs text-stone-400 mt-2">
+          Kilder og metode: <Link href="/metodikk" className="text-emerald-700 hover:underline">/metodikk</Link>
+        </p>
+      </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <ComparisonBarChart
-          title="HHI per land"
-          data={hhiData}
-          description="Herfindahl-Hirschman Index for eierkonsentrasjon"
-        />
-        <ComparisonBarChart
-          title="CR3 per land"
-          data={cr3Data}
-          unit="%"
-          description="Markedsandel for de 3 storste aktorene"
-        />
-        <ComparisonBarChart
-          title="Gini per land"
-          data={giniData}
-          description="Gini-koeffisient for butikkfordeling"
-        />
-        <ComparisonBarChart
-          title="Selvforsyningsgrad"
-          data={selfSuffData}
-          unit="%"
-          description="Kaloribasert selvforsyning"
-        />
-        <ComparisonBarChart
-          title="Antall butikker"
-          data={storeData}
-          description="Totalt antall dagligvarebutikker"
-        />
+      {(() => {
+        const hhi = rowsFor(data, c => c.market.hhi)
+        const cr3 = rowsFor(data, c => c.market.cr3)
+        const gini = rowsFor(data, c => c.market.gini)
+        const stores = rowsFor(data, c => c.market.totalStores)
+        const emv = rowsFor(data, c => c.market.emvSharePct)
+        const formatRows = COUNTRY_LIST.map(c => {
+          const m = data.countries[c.code]?.market.retailFormatMix
+          return { country: c.name, flag: c.flag, value: m ? m.discount : null, population: 0, code: c.code }
+        })
 
-        {!vc.loading && (() => {
-          const biogasData = countries.map(c => {
-            const wasteStep = vc.data[c.code]?.steps?.find(s => s.id === 'waste')
-            const gwh = wasteStep?.circularity?.biogas_gwh ?? 0
-            return { country: c.name, flag: c.flag, value: gwh, label: `${gwh} GWh` }
-          })
+        const hhiNo = data.countries.no?.market.hhi
+        const hhiDk = data.countries.dk?.market.hhi
 
-          const wasteData = countries.map(c => {
-            const wasteStep = vc.data[c.code]?.steps?.find(s => s.id === 'waste')
-            const kg = (wasteStep as Record<string, number> | undefined)?.waste_per_capita_kg ?? 0
-            return { country: c.name, flag: c.flag, value: kg, label: `${kg} kg` }
-          })
-
-          const vcSelfSuff = countries.map(c => {
-            const pct = vc.data[c.code]?.selfSufficiency?.caloric_pct ?? 0
-            return { country: c.name, flag: c.flag, value: Math.min(pct, 150), label: `${pct}%` }
-          })
-
-          const biogasPlantsData = countries.map(c => {
-            const wasteStep = vc.data[c.code]?.steps?.find(s => s.id === 'waste')
-            const plants = wasteStep?.circularity?.biogas_plants ?? 0
-            return {
-              country: c.name,
-              flag: c.flag,
-              value: plants,
-              label: plants > 0 ? `${plants}` : '—',
+        return (
+          <BolkSection
+            number={1}
+            title="Markedsstruktur & makt"
+            question="Hvor konsentrert er nordisk dagligvare?"
+            narrative="Norge har Nordens mest konsentrerte dagligvaremarked. HHI rundt 3445 ligger godt over Danmarks 2157 og signaliserer høy markedsmakt hos få aktører."
+            takeaway={
+              <KeyTakeaway
+                headline={`HHI ${hhiNo ?? '—'} (NO høyest) vs ${hhiDk ?? '—'} (DK lavest)`}
+                subline="Herfindahl-Hirschman-indeks for dagligvarekjeder"
+              />
             }
-          })
-
-          const grainData = countries.map(c => {
-            const primary = vc.data[c.code]?.steps?.find(s => s.id === 'primary')
-            const tonnes = primary?.breakdown?.grain_tonnes ?? 0
-            return {
-              country: c.name,
-              flag: c.flag,
-              value: tonnes,
-              label: tonnes > 0 ? `${Math.round(tonnes / 1000).toLocaleString('no')} kt` : '—',
+            charts={
+              <>
+                <ChartCard title="HHI" description="Markedskonsentrasjon" rows={hhi} source="Konsentrasjons-data fra konkurranse­myndigheter og selskapsrapporter" />
+                <ChartCard title="CR3" description="Topp 3 markedsandel" unit="%" rows={cr3} />
+                <ChartCard title="Gini-koeffisient" description="Ulikhet i butikkstørrelse" rows={gini} />
+                <ChartCard title="Antall butikker" rows={stores} />
+                <ChartCard title="EMV-andel foredling" unit="%" rows={emv} />
+                <ChartCard title="Discount-andel av detaljhandel" unit="%" rows={formatRows} description="Andel av butikker som er lavpris" />
+              </>
             }
-          })
-
-          const emvData = countries.map(c => {
-            const processing = vc.data[c.code]?.steps?.find(s => s.id === 'processing')
-            const pct = processing?.emv_share_pct ?? EMV_FALLBACK_PCT[c.code] ?? 0
-            return {
-              country: c.name,
-              flag: c.flag,
-              value: pct,
-              label: pct > 0 ? `${pct}%` : '—',
+            table={
+              <ComparisonTable
+                caption="Største parent-aktører per land"
+                rows={[
+                  {
+                    label: 'Topp 3 parents',
+                    values: Object.fromEntries(
+                      COUNTRY_LIST.map(c => {
+                        const parents = data.countries[c.code]?.market.parents ?? []
+                        return [c.code, parents.slice(0, 3).map(p => `${p.name} (${p.sharePct}%)`).join(', ') || null]
+                      })
+                    ) as Record<CountryCode, string | null>,
+                  },
+                ]}
+              />
             }
-          })
+            seeAlso={[{ href: '/eierskap', label: 'Eierskap' }]}
+          />
+        )
+      })()}
+      {(() => {
+        const ss = rowsFor(data, c => c.preparedness.selfSufficiencyCaloricPct)
+        const importTon = rowsFor(data, c => c.preparedness.importTonnes)
+        const exportTon = rowsFor(data, c => c.preparedness.exportTonnes)
+        const feed = rowsFor(data, c => c.preparedness.feedImportPct)
+        const reserve = rowsFor(data, c => c.preparedness.grainReserveMonths)
 
-          const householdWasteData = countries.map(c => {
-            const household = vc.data[c.code]?.steps?.find(s => s.id === 'household')
-            const kg = (household as Record<string, number> | undefined)?.waste_per_capita_kg ?? 0
-            return {
-              country: c.name,
-              flag: c.flag,
-              value: kg,
-              label: kg > 0 ? `${kg} kg` : '—',
+        const dk = data.countries.dk?.preparedness.selfSufficiencyCaloricPct
+        const no = data.countries.no?.preparedness.selfSufficiencyCaloricPct
+
+        return (
+          <BolkSection
+            number={2}
+            title="Selvforsyning & beredskap"
+            question="Hvor sårbar er hvert land for import-stopp?"
+            narrative="Selvforsyningsgraden spenner fra ~47 % (NO) til ~300 % (DK). Finland skiller seg ut med 9 måneders kornreserve via HVK-modellen — de andre landene har minimale strategiske lagre."
+            takeaway={
+              <KeyTakeaway
+                headline={`${dk ?? '—'} % DK vs ${no ?? '—'} % NO`}
+                subline="Kalori-basert selvforsyning"
+              />
             }
-          })
-
-          const co2Data = countries.map(c => {
-            const steps = vc.data[c.code]?.steps ?? []
-            const total = steps.reduce((sum, s) => sum + (typeof s.co2e_mt === 'number' ? s.co2e_mt : 0), 0)
-            const rounded = Math.round(total * 10) / 10
-            return {
-              country: c.name,
-              flag: c.flag,
-              value: rounded,
-              label: rounded > 0 ? `${rounded.toFixed(1)} Mt` : '—',
+            charts={
+              <>
+                <ChartCard title="Selvforsyning (kalori)" unit="%" rows={ss} />
+                <ChartCard
+                  title="Total import"
+                  description="Tonn (per capita aktiverbar)"
+                  unit="tonn"
+                  rows={importTon}
+                  perCapitaEnabled
+                  perCapitaUnit="tonn/innb"
+                />
+                <ChartCard
+                  title="Total eksport"
+                  unit="tonn"
+                  rows={exportTon}
+                  perCapitaEnabled
+                  perCapitaUnit="tonn/innb"
+                />
+                <ChartCard title="Fôr-import-andel" unit="%" rows={feed} />
+                <ChartCard
+                  title="Kornreserve (måneder)"
+                  description="Strategisk lager"
+                  unit="mnd"
+                  rows={reserve}
+                />
+              </>
             }
-          })
+            table={
+              <ComparisonTable
+                caption="Selvforsyning, mål og reservetid"
+                rows={[
+                  {
+                    label: 'Kalori-SS (%)',
+                    values: Object.fromEntries(COUNTRY_LIST.map(c => [c.code, data.countries[c.code]?.preparedness.selfSufficiencyCaloricPct ?? null])) as Record<CountryCode, number | null>,
+                  },
+                  {
+                    label: 'Mål (%)',
+                    values: Object.fromEntries(COUNTRY_LIST.map(c => [c.code, data.countries[c.code]?.preparedness.selfSufficiencyTargetPct ?? null])) as Record<CountryCode, number | null>,
+                  },
+                  {
+                    label: 'Mål-år',
+                    values: Object.fromEntries(COUNTRY_LIST.map(c => [c.code, data.countries[c.code]?.preparedness.selfSufficiencyTargetYear ?? null])) as Record<CountryCode, number | null>,
+                  },
+                  {
+                    label: 'Kornreserve (mnd)',
+                    values: Object.fromEntries(COUNTRY_LIST.map(c => [c.code, data.countries[c.code]?.preparedness.grainReserveMonths ?? null])) as Record<CountryCode, number | null>,
+                  },
+                ]}
+              />
+            }
+            seeAlso={[{ href: '/forsyningskjede', label: 'Forsyningskjede' }]}
+          />
+        )
+      })()}
+      {(() => {
+        const vol = rowsFor(data, c => c.valueChain.primaryVolumeTonnes)
+        const seafood = rowsFor(data, c => c.valueChain.seafoodExportValueBn)
+        const turnover = rowsFor(data, c => c.valueChain.processingTurnoverBn)
+        const empNace10 = rowsFor(data, c => c.valueChain.employmentByNace.nace10)
+        const co2eRetail = rowsFor(data, c => c.valueChain.co2ePerStep.retail ?? null)
 
-          return (
-            <>
-              <ComparisonBarChart
-                title="Biogassproduksjon"
-                data={biogasData}
-                unit="GWh"
-                description="Arlig biogassproduksjon fra matavfall og manure"
-              />
-              <ComparisonBarChart
-                title="Matsvinn per innbygger"
-                data={wasteData}
-                unit="kg"
-                description="Totalt matsvinn per capita (alle verdikjedeledd)"
-              />
-              <ComparisonBarChart
-                title="Selvforsyningsgrad (verdikjede)"
-                data={vcSelfSuff}
-                unit="%"
-                description="Kaloribasert selvforsyning fra verdikjededata"
-              />
-              <ComparisonBarChart
-                title="Biogassanlegg"
-                data={biogasPlantsData}
-                description="Antall biogassanlegg i drift"
-              />
-              <ComparisonBarChart
-                title="Kornproduksjon"
-                data={grainData}
-                unit="kt"
-                description="Arlig kornproduksjon (tusen tonn, alle sorter)"
-              />
-              <ComparisonBarChart
-                title="EMV-andel i foredling"
-                data={emvData}
-                unit="%"
-                description="Egen merkevare som andel av næringsmiddel (DK/NO er estimat fra bransjenotater)"
-              />
-              <ComparisonBarChart
-                title="Husholdningsmatsvinn per capita"
-                data={householdWasteData}
-                unit="kg"
-                description="Matsvinn fra husholdninger (kg per innbygger per ar)"
-              />
-              <ComparisonBarChart
-                title="CO2e fra verdikjeden"
-                data={co2Data}
-                unit="Mt CO2e"
-                description="Sum rapporterte utslipp pr. ledd (kun land med tall, f.eks. NO)"
-              />
-            </>
-          )
-        })()}
+        const noProd = (() => {
+          const v = data.countries.no?.valueChain.valueAddedByStep ?? {}
+          return Object.values(v).reduce<number>((s, x) => s + (x ?? 0), 0)
+        })()
 
-        <Card>
-          <h3 className="text-sm font-semibold text-stone-700 mb-3">Oppsummeringstabell</h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-xs">
-              <thead>
-                <tr className="border-b border-stone-200">
-                  <th className="text-left py-2 pr-3 text-stone-500 font-medium" />
-                  {countries.map(c => (
-                    <th key={c.code} className="text-right py-2 px-2 text-stone-700 font-semibold">
-                      {c.flag} {c.name}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-stone-100">
-                <tr>
-                  <td className="py-2 pr-3 text-stone-500">Butikker</td>
-                  {countries.map(c => (
-                    <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
-                      {metricsMap[c.code as keyof typeof metricsMap].totalStores.toLocaleString()}
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <td className="py-2 pr-3 text-stone-500">HHI</td>
-                  {countries.map(c => (
-                    <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
-                      {metricsMap[c.code as keyof typeof metricsMap].parentCompany.parentHHI.toLocaleString()}
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <td className="py-2 pr-3 text-stone-500">CR3</td>
-                  {countries.map(c => {
-                    const cr3 = getCR3([...metricsMap[c.code as keyof typeof metricsMap].parentCompany.data])
-                    return (
-                      <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
-                        {(Math.round(cr3 * 10) / 10).toFixed(1)}%
-                      </td>
-                    )
-                  })}
-                </tr>
-                <tr>
-                  <td className="py-2 pr-3 text-stone-500">Gini</td>
-                  {countries.map(c => (
-                    <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
-                      {metricsMap[c.code as keyof typeof metricsMap].lorenzCurve.gini.toFixed(3)}
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  <td className="py-2 pr-3 text-stone-500">Selvforsyning</td>
-                  {countries.map(c => (
-                    <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
-                      {getSelfSufficiency(c.code, countryChartData)}%
-                    </td>
-                  ))}
-                </tr>
-                {!vc.loading && (
-                  <>
-                    <tr>
-                      <td className="py-2 pr-3 text-stone-500">Biogass (GWh)</td>
-                      {countries.map(c => {
-                        const wasteStep = vc.data[c.code]?.steps?.find(s => s.id === 'waste')
-                        const gwh = wasteStep?.circularity?.biogas_gwh ?? 0
-                        return (
-                          <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
-                            {gwh.toLocaleString()}
-                          </td>
-                        )
-                      })}
-                    </tr>
-                    <tr>
-                      <td className="py-2 pr-3 text-stone-500">Biogassanlegg</td>
-                      {countries.map(c => {
-                        const wasteStep = vc.data[c.code]?.steps?.find(s => s.id === 'waste')
-                        const plants = wasteStep?.circularity?.biogas_plants ?? null
-                        return (
-                          <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
-                            {plants == null ? '—' : plants.toLocaleString()}
-                          </td>
-                        )
-                      })}
-                    </tr>
-                    <tr>
-                      <td className="py-2 pr-3 text-stone-500">Kornproduksjon (kt)</td>
-                      {countries.map(c => {
-                        const primary = vc.data[c.code]?.steps?.find(s => s.id === 'primary')
-                        const tonnes = primary?.breakdown?.grain_tonnes ?? null
-                        return (
-                          <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
-                            {tonnes == null ? '—' : Math.round(tonnes / 1000).toLocaleString('no')}
-                          </td>
-                        )
-                      })}
-                    </tr>
-                    <tr>
-                      <td className="py-2 pr-3 text-stone-500">EMV-andel</td>
-                      {countries.map(c => {
-                        const processing = vc.data[c.code]?.steps?.find(s => s.id === 'processing')
-                        const pct = processing?.emv_share_pct ?? EMV_FALLBACK_PCT[c.code] ?? null
-                        return (
-                          <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
-                            {pct == null ? '—' : `${pct}%`}
-                          </td>
-                        )
-                      })}
-                    </tr>
-                    <tr>
-                      <td className="py-2 pr-3 text-stone-500">Husholdningssvinn/capita</td>
-                      {countries.map(c => {
-                        const household = vc.data[c.code]?.steps?.find(s => s.id === 'household')
-                        const kg = (household as Record<string, number> | undefined)?.waste_per_capita_kg ?? null
-                        return (
-                          <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
-                            {kg == null ? '—' : `${kg} kg`}
-                          </td>
-                        )
-                      })}
-                    </tr>
-                    <tr>
-                      <td className="py-2 pr-3 text-stone-500">Matsvinn totalt/capita</td>
-                      {countries.map(c => {
-                        const wasteStep = vc.data[c.code]?.steps?.find(s => s.id === 'waste')
-                        const kg = (wasteStep as Record<string, number> | undefined)?.waste_per_capita_kg ?? null
-                        return (
-                          <td key={c.code} className="text-right py-2 px-2 text-stone-700 tabular-nums">
-                            {kg == null ? '—' : `${kg} kg`}
-                          </td>
-                        )
-                      })}
-                    </tr>
-                  </>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </Card>
-      </div>
+        return (
+          <BolkSection
+            number={3}
+            title="Verdikjedevolum & verdiskaping"
+            question="Hvor mye produseres, og hvem tjener pengene?"
+            narrative={`Norsk matsystem produserer rundt ${noProd.toFixed(0)} mrd NOK i samlet verdiskaping; sjømateksporten alene er flerfoldig over landbrukets bidrag.`}
+            takeaway={
+              <KeyTakeaway
+                headline={`${noProd.toFixed(0)} mrd NOK total verdiskaping (NO)`}
+                subline="Sum value-added per ledd"
+              />
+            }
+            charts={
+              <>
+                <ChartCard
+                  title="Primærvolum"
+                  description="Råvarer i tonn"
+                  unit="tonn"
+                  rows={vol}
+                  perCapitaEnabled
+                  perCapitaUnit="tonn/innb"
+                />
+                <ChartCard title="Sjømat eksport-verdi" unit="mrd" rows={seafood} />
+                <ChartCard title="Foredlings-omsetning" unit="mrd" rows={turnover} />
+                <ChartCard title="Sysselsetting matforedling (NACE 10)" rows={empNace10} />
+                <ChartCard
+                  title="CO₂e — detaljhandel"
+                  description="Tonn CO₂-ekvivalenter (mt). Kun NO har data per ledd."
+                  unit="mt"
+                  rows={co2eRetail}
+                />
+              </>
+            }
+            table={
+              <ComparisonTable
+                caption="Value-added per ledd (mrd, NO referanse)"
+                rows={['primary', 'seafood', 'processing', 'distribution', 'retail', 'horeca'].map(step => ({
+                  label: step,
+                  values: Object.fromEntries(
+                    COUNTRY_LIST.map(c => [c.code, data.countries[c.code]?.valueChain.valueAddedByStep[step] ?? null])
+                  ) as Record<CountryCode, number | null>,
+                }))}
+              />
+            }
+            seeAlso={[
+              { href: '/verdikjede', label: 'Verdikjede' },
+              { href: '/havbruk', label: 'Havbruk' },
+            ]}
+          />
+        )
+      })()}
+      {(() => {
+        const totalWaste = rowsFor(data, c => c.circularity.totalWastePerCapitaKg)
+        const houseWaste = rowsFor(data, c => c.circularity.householdWastePerCapitaKg)
+        const reduction = rowsFor(data, c => c.circularity.wasteReductionSince2015Pct)
+        const biogas = rowsFor(data, c => c.circularity.biogasGwh)
+        const plants = rowsFor(data, c => c.circularity.biogasPlants)
+        const deposit = rowsFor(data, c => c.circularity.depositReturnRatePct)
+
+        const noReduction = data.countries.no?.circularity.wasteReductionSince2015Pct
+
+        const wasteCategoryRows = COUNTRY_LIST
+          .map(c => data.countries[c.code]?.circularity.foodWasteByCategory)
+          .find(cats => cats && cats.length > 0)
+          ?.map(cat => ({
+            label: cat.name,
+            values: Object.fromEntries(
+              COUNTRY_LIST.map(c => {
+                const countryCats = data.countries[c.code]?.circularity.foodWasteByCategory
+                const match = countryCats?.find(x => x.id === cat.id)
+                const v = match?.productionMtNordic ?? null
+                return [c.code, v !== null ? `${v} Mt` : null]
+              }),
+            ) as Partial<Record<CountryCode, string | null>>,
+          })) ?? []
+
+        return (
+          <BolkSection
+            number={4}
+            title="Sirkularitet & matsvinn"
+            question="Hvor langt er hvert land i sirkulær omstilling?"
+            narrative="Norge har redusert matsvinn betydelig siden 2015, og pant-returrate over 90 % er Nordens høyeste. Biogass-utbygging varierer kraftig per innbygger."
+            takeaway={
+              noReduction !== null && noReduction !== undefined ? (
+                <KeyTakeaway
+                  headline={`${Math.abs(noReduction)} % ${noReduction < 0 ? 'reduksjon' : 'økning'} i matsvinn (NO, siden 2015)`}
+                />
+              ) : (
+                <KeyTakeaway headline="Matsvinn-reduksjon NO: data mangler" />
+              )
+            }
+            charts={
+              <>
+                <ChartCard title="Total svinn (kg/capita)" unit="kg" rows={totalWaste} />
+                <ChartCard title="Husholdningssvinn (kg/capita)" unit="kg" rows={houseWaste} />
+                <ChartCard title="Svinn-reduksjon siden 2015" unit="%" rows={reduction} />
+                <ChartCard
+                  title="Biogass-produksjon"
+                  unit="GWh"
+                  rows={biogas}
+                  perCapitaEnabled
+                  perCapitaUnit="GWh/innb"
+                />
+                <ChartCard title="Biogass-anlegg" rows={plants} />
+                <ChartCard title="Pant-returrate" unit="%" rows={deposit} />
+              </>
+            }
+            table={wasteCategoryRows.length > 0 ? (
+              <ComparisonTable
+                caption="Matsvinn per kategori — produksjonsvolum (Mt, nordisk estimat per land der data finnes)"
+                rows={wasteCategoryRows}
+              />
+            ) : undefined}
+            seeAlso={[{ href: '/sirkularitet', label: 'Sirkularitet' }]}
+          />
+        )
+      })()}
+      {(() => {
+        const flat = COUNTRY_LIST.flatMap(c =>
+          (data.countries[c.code]?.policies ?? []).map(p => ({ country: c.code, ...p }))
+        )
+
+        return (
+          <BolkSection
+            number={5}
+            title="Politikk & regulering"
+            question="Hvordan styres systemet ulikt?"
+            narrative="Norden konvergerer på matsvinn, biogass og emballasje, men i ulikt tempo og med ulike virkemidler — fra bransjeavtaler til bindende lov."
+            takeaway={
+              <KeyTakeaway
+                headline="2015–2030 — bransjeavtale → matsvinnlov → PFAS-forbud"
+                subline="Politikkmiks varierer per land"
+              />
+            }
+            charts={<div className="md:col-span-2"><PolicyTimeline policies={flat} /></div>}
+            table={
+              <ComparisonTable
+                caption="Antall registrerte tiltak per land"
+                rows={[
+                  {
+                    label: 'Lover',
+                    values: Object.fromEntries(COUNTRY_LIST.map(c => [c.code, (data.countries[c.code]?.policies ?? []).filter(p => p.type === 'law').length])) as Record<CountryCode, number>,
+                  },
+                  {
+                    label: 'Frivillige avtaler',
+                    values: Object.fromEntries(COUNTRY_LIST.map(c => [c.code, (data.countries[c.code]?.policies ?? []).filter(p => p.type === 'voluntary').length])) as Record<CountryCode, number>,
+                  },
+                ]}
+              />
+            }
+            seeAlso={[{ href: '/politikk', label: 'Politikk' }]}
+          />
+        )
+      })()}
+
+      <footer className="mt-16 pt-6 border-t border-stone-200 text-xs text-stone-500">
+        <p>Sist generert: {new Date(data.generatedAt).toLocaleDateString('nb-NO')}</p>
+        <p className="mt-1">Datagrunnlag har ujevn dekning på tvers av land — manglende verdier vises som «—» med varsel-badge.</p>
+      </footer>
     </div>
   )
 }

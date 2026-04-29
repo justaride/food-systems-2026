@@ -33,3 +33,6 @@ research/arkiv-sortert/**/*.xlsx
 research/arkiv-sortert/**/*.xls
 research/arkiv-sortert/**/*.numbers
 docs/**/*.pdf
+
+# Git worktrees
+.worktrees/

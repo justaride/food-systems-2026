@@ -7,6 +7,7 @@ import { SupplyChainGraph } from '@/components/charts/SupplyChainGraph'
 import type {
   SupplyChainGraphData,
   PrimaryDeliveriesData,
+  SupplyChainDataQuality,
 } from '@/lib/queries/supply-chain'
 
 const COMMODITY_LABELS: Record<string, string> = {
@@ -73,12 +74,41 @@ const RELATIONSHIP_LABELS: Record<string, string> = {
   'joint-venture': 'Joint venture',
 }
 
+const QUALITY_STATUS_CLASSES: Record<string, string> = {
+  ok: 'border-emerald-200 bg-emerald-50 text-emerald-800',
+  info: 'border-sky-200 bg-sky-50 text-sky-800',
+  warn: 'border-amber-200 bg-amber-50 text-amber-800',
+  error: 'border-rose-200 bg-rose-50 text-rose-800',
+}
+
+const READINESS_LABELS: Record<string, string> = {
+  'klar-na': 'Klar nå',
+  'klar-med-forbehold': 'Klar med forbehold',
+  staging: 'Staging',
+}
+
+const QUALITY_LABELS: Record<string, string> = {
+  high: 'høy',
+  medium: 'middels',
+  low: 'lav',
+}
+
+function formatCount(n: number): string {
+  return Math.round(n).toLocaleString('no')
+}
+
+function formatPercent(n: number): string {
+  return `${n.toLocaleString('no', { maximumFractionDigits: 1 })}%`
+}
+
 export function ForsyningskjedeContent({
   data,
   deliveries,
+  quality,
 }: {
   data: SupplyChainGraphData
   deliveries: PrimaryDeliveriesData
+  quality: SupplyChainDataQuality
 }) {
   const [activeStages, setActiveStages] = useState<Set<string>>(() => {
     const stages = new Set<string>()
@@ -184,6 +214,8 @@ export function ForsyningskjedeContent({
           Leverandørkjeder, primærleveranser og forretningsrelasjoner
         </p>
       </div>
+
+      <SupplyChainQualityPanel quality={quality} />
 
       {deliveries.totalDeliveryRows > 0 && (
         <Card title={`Primærleveranser — ${deliveries.totalSuppliers.toLocaleString('no')} bønder leverer til ${deliveries.byCommodity.reduce((acc, c) => acc + c.buyers.length, 0)} avtagere`}>
@@ -464,6 +496,217 @@ export function ForsyningskjedeContent({
         <span>{filteredNodes.length} selskaper</span>
         <span>{filteredEdges.length} relasjoner</span>
       </div>
+    </div>
+  )
+}
+
+function SupplyChainQualityPanel({ quality }: { quality: SupplyChainDataQuality }) {
+  const topStageRows = quality.stageCoverage.slice(0, 8)
+  const linkedDeliveryRows = quality.deliveryCommodities.filter(
+    row => row.missingBuyerRows > 0 || row.missingKommuneRows > 0
+  )
+
+  return (
+    <Card title={`Datakvalitet og neste datainntak — score ${quality.qualityScore}/100`}>
+      <div className="space-y-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          {quality.metrics.slice(0, 4).map(metric => (
+            <QualityMetricBox key={metric.id} metric={metric} />
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
+          <div className="xl:col-span-2">
+            <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
+              Auditfunn
+            </h4>
+            <ul className="space-y-1.5">
+              {quality.findings.map(finding => (
+                <li key={finding} className="text-xs text-stone-600 flex gap-2">
+                  <span className="text-stone-300 shrink-0">{'—'}</span>
+                  <span>{finding}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
+              Selskaper per ledd
+            </h4>
+            <div className="space-y-1.5">
+              {topStageRows.map(row => (
+                <div key={row.stage} className="flex items-center gap-2 text-xs">
+                  <span className="w-24 truncate text-stone-500">
+                    {STAGE_LABELS[row.stage] ?? row.stage}
+                  </span>
+                  <div className="flex-1 h-1.5 rounded bg-stone-100 overflow-hidden">
+                    <div
+                      className="h-full bg-emerald-500"
+                      style={{
+                        width: `${Math.max(
+                          2,
+                          (row.count / Math.max(1, quality.stageCoverage[0]?.count ?? 1)) * 100
+                        )}%`,
+                      }}
+                    />
+                  </div>
+                  <span className="w-14 text-right tabular-nums text-stone-600">
+                    {formatCount(row.count)}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
+          <div>
+            <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
+              Leveransedata: feltkvalitet
+            </h4>
+            {linkedDeliveryRows.length > 0 ? (
+              <div className="overflow-x-auto rounded-md border border-stone-200">
+                <table className="w-full text-xs">
+                  <thead className="bg-stone-50">
+                    <tr className="text-left text-stone-400">
+                      <th className="py-2 px-2 font-medium">Vare</th>
+                      <th className="py-2 px-2 font-medium">År</th>
+                      <th className="py-2 px-2 font-medium text-right">Rader</th>
+                      <th className="py-2 px-2 font-medium text-right">Mangler buyerId</th>
+                      <th className="py-2 px-2 font-medium text-right">Mangler kommune</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {linkedDeliveryRows.map(row => (
+                      <tr key={`${row.commodity}-${row.year}`} className="border-t border-stone-100">
+                        <td className="py-2 px-2 text-stone-700">
+                          {COMMODITY_LABELS[row.commodity] ?? row.commodity}
+                        </td>
+                        <td className="py-2 px-2 text-stone-500">{row.year}</td>
+                        <td className="py-2 px-2 text-right tabular-nums text-stone-600">
+                          {formatCount(row.rows)}
+                        </td>
+                        <td className="py-2 px-2 text-right tabular-nums text-stone-600">
+                          {formatCount(row.missingBuyerRows)}
+                        </td>
+                        <td className="py-2 px-2 text-right tabular-nums text-stone-600">
+                          {formatCount(row.missingKommuneRows)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <p className="text-xs text-stone-500">Ingen feltgap i leveransedata oppdaget.</p>
+            )}
+          </div>
+
+          <div>
+            <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
+              Nordisk value-chain-dekning
+            </h4>
+            <div className="overflow-x-auto rounded-md border border-stone-200">
+              <table className="w-full text-xs">
+                <thead className="bg-stone-50">
+                  <tr className="text-left text-stone-400">
+                    <th className="py-2 px-2 font-medium">Land</th>
+                    <th className="py-2 px-2 font-medium text-right">Ledd</th>
+                    <th className="py-2 px-2 font-medium text-right">Dekning</th>
+                    <th className="py-2 px-2 font-medium">Mangler</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {quality.valueChainInventory.map(row => (
+                    <tr key={row.country} className="border-t border-stone-100 align-top">
+                      <td className="py-2 px-2 font-medium text-stone-700">{row.country}</td>
+                      <td className="py-2 px-2 text-right tabular-nums text-stone-600">
+                        {row.stepCount}
+                      </td>
+                      <td className="py-2 px-2 text-right tabular-nums text-stone-600">
+                        {formatPercent(row.targetStepCoveragePct)}
+                      </td>
+                      <td className="py-2 px-2 text-stone-500">
+                        {row.missingTargetSteps.length > 0
+                          ? row.missingTargetSteps.join(', ')
+                          : '—'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
+            Prosjektdata som bør inn her
+          </h4>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+            {quality.projectDataCandidates.map(candidate => (
+              <div
+                key={candidate.id}
+                className="rounded-md border border-stone-200 bg-white p-3"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-semibold text-stone-800">{candidate.title}</p>
+                    <p className="text-[11px] text-stone-400 mt-0.5 font-mono">
+                      {candidate.path}
+                    </p>
+                  </div>
+                  <div className="flex flex-col items-end gap-1 shrink-0">
+                    <span className="text-[10px] px-1.5 py-0.5 rounded border bg-stone-50 text-stone-600 border-stone-200">
+                      {READINESS_LABELS[candidate.readiness] ?? candidate.readiness}
+                    </span>
+                    <span className="text-[10px] text-stone-400">
+                      kvalitet: {QUALITY_LABELS[candidate.quality] ?? candidate.quality}
+                    </span>
+                  </div>
+                </div>
+                <p className="text-xs text-stone-600 mt-2">{candidate.why}</p>
+                <p className="text-xs text-stone-500 mt-1">
+                  <span className="font-medium text-stone-600">Bruk:</span> {candidate.integration}
+                </p>
+                <p className="text-[11px] text-stone-400 mt-2">{candidate.records}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="pt-3 border-t border-stone-100 flex flex-wrap gap-2">
+          {quality.metrics.slice(4).map(metric => (
+            <span
+              key={metric.id}
+              className={`text-[10px] px-2 py-1 rounded border ${QUALITY_STATUS_CLASSES[metric.status]}`}
+            >
+              {metric.label}: {metric.percent != null ? formatPercent(metric.percent) : formatCount(metric.value)}
+            </span>
+          ))}
+          {quality.relationshipTypes.map(row => (
+            <span
+              key={row.type}
+              className="text-[10px] px-2 py-1 rounded border border-stone-200 bg-stone-50 text-stone-600"
+            >
+              {RELATIONSHIP_LABELS[row.type] ?? row.type}: {formatCount(row.count)}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Card>
+  )
+}
+
+function QualityMetricBox({ metric }: { metric: SupplyChainDataQuality['metrics'][0] }) {
+  return (
+    <div className={`rounded-md border p-3 ${QUALITY_STATUS_CLASSES[metric.status]}`}>
+      <p className="text-[10px] uppercase tracking-wider opacity-80">{metric.label}</p>
+      <p className="text-xl font-bold mt-1">
+        {metric.percent != null ? formatPercent(metric.percent) : formatCount(metric.value)}
+      </p>
+      <p className="text-[10px] mt-0.5 opacity-75">{metric.detail}</p>
     </div>
   )
 }

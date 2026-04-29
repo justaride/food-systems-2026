@@ -1,0 +1,67 @@
+{
+  "generated": "2026-04-29",
+  "description": "Tidsserier for nordiske matsystem-politikkmål — matsvinn (kg/capita og %-reduksjon), biogass og selvforsyning. Komplementerer policy-landscape.json.",
+  "food_waste_per_capita_kg": {
+    "label": "Matsvinn per innbygger (kg/år)",
+    "unit": "kg/capita",
+    "source": "Matvett, Naturvårdsverket, Miljøstyrelsen, Luke / Eurostat (kompilert fra matsvinn-tidsserier-norden.md, NORSUS, ForMat)",
+    "series": [
+      { "country": "NO", "data": [{ "year": 2020, "value": 72 }, { "year": 2022, "value": 73 }, { "year": 2024, "value": 73.4 }] },
+      { "country": "SE", "data": [{ "year": 2020, "value": 83 }, { "year": 2022, "value": 84 }, { "year": 2024, "value": 85 }] },
+      { "country": "DK", "data": [{ "year": 2020, "value": 72 }, { "year": 2022, "value": 73 }, { "year": 2024, "value": 74 }] },
+      { "country": "FI", "data": [{ "year": 2020, "value": 66 }, { "year": 2022, "value": 67 }, { "year": 2024, "value": 68 }] }
+    ]
+  },
+  "food_waste_norway_total_tonnes": {
+    "label": "Norsk matsvinn totalt (tonn/år)",
+    "unit": "tonn",
+    "source": "Matvett ForMat, NORSUS, SSB, Miljødirektoratet",
+    "target_2030_baseline_2015_pct": 50,
+    "data": [
+      { "year": 2015, "total": 355000, "household": 183000, "industry": 72000, "retail": 44000, "horeca": 33000, "agriculture": 23000 },
+      { "year": 2019, "total": 380000, "household": 198000, "industry": 76000, "retail": 47000, "horeca": 34000, "agriculture": 25000 },
+      { "year": 2020, "total": 389000, "household": 206000, "industry": 78000, "retail": 48000, "horeca": 32000, "agriculture": 25000 },
+      { "year": 2022, "total": 400000, "household": 213000, "industry": 79000, "retail": 49000, "horeca": 33000, "agriculture": 26000 },
+      { "year": 2024, "total": 407100, "household": 215000, "industry": 80000, "retail": 50000, "horeca": 35000, "agriculture": 27000 }
+    ]
+  },
+  "food_waste_norway_reduction_pct": {
+    "label": "Norsk matsvinn-reduksjon per sektor (% per capita fra 2015-baseline)",
+    "unit": "%",
+    "source": "Matvett 'Slik var matsvinnåret 2024' (mars 2026)",
+    "target_2030_pct": -50,
+    "interim_2025_pct_industry_horeca": -30,
+    "data": [
+      { "sector": "Dagligvare", "y2020": -15, "y2022": -18, "y2024": -42, "y2025_target": -30 },
+      { "sector": "Matindustri", "y2020": -8, "y2022": -10, "y2024": -31, "y2025_target": -30 },
+      { "sector": "Storhusholdning", "y2020": -5, "y2022": -8, "y2024": -31, "y2025_target": -30 },
+      { "sector": "Husholdninger", "y2020": -2, "y2022": -3, "y2024": -5, "y2025_target": null },
+      { "sector": "Jordbruk", "y2020": -3, "y2022": -4, "y2024": -5, "y2025_target": null },
+      { "sector": "Totalt eks. jordbruk", "y2020": -7, "y2022": -10, "y2024": -24, "y2025_target": null }
+    ]
+  },
+  "biogas_production_gwh": {
+    "label": "Biogass-produksjon fra matavfall + husdyrgjødsel (GWh/år)",
+    "unit": "GWh",
+    "source": "IEA Bioenergy Country Reports + nasjonale energidirektorat (2024-tall)",
+    "data": [
+      { "country": "NO", "current": 470, "target": 5500, "target_year": 2030 },
+      { "country": "SE", "current": 2000, "target": 7000, "target_year": 2030 },
+      { "country": "DK", "current": 8100, "target": 10000, "target_year": 2030, "share_of_gas_pct": 41 },
+      { "country": "FI", "current": 930, "target": 4000, "target_year": 2030 },
+      { "country": "IS", "current": 0, "target": null, "target_year": null }
+    ]
+  },
+  "self_sufficiency_caloric_pct": {
+    "label": "Kalorisk selvforsyningsgrad",
+    "unit": "%",
+    "source": "NIBIO, Luke, Jordbruksverket, Danish Agriculture & Food Council",
+    "data": [
+      { "country": "NO", "current": 47, "target": 50, "target_year": 2030, "gap_pp": 3 },
+      { "country": "SE", "current": 50, "target": null, "target_year": null, "gap_pp": null },
+      { "country": "DK", "current": 300, "target": null, "target_year": null, "gap_pp": null, "note": "Brutto inkl. eksportfôr; netto ~150%" },
+      { "country": "FI", "current": 80, "target": null, "target_year": null, "gap_pp": null },
+      { "country": "IS", "current": 53, "target": null, "target_year": null, "gap_pp": null }
+    ]
+  }
+}
