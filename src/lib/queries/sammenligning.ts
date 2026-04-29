@@ -63,7 +63,14 @@ type ValueChainJson = {
   }>
   food_waste_by_category?: {
     description?: string
-    categories?: Record<string, Record<string, number | null>>
+    categories?: Array<{
+      id: string
+      name: string
+      production_mt_nordic?: number | null
+      waste_by_step?: Record<string, { pct?: string | number | null; kt_yr?: string | number | null; main_cause?: string | null } | null>
+      biggest_loss_step?: string | null
+      climate_impact_note?: string | null
+    }>
     summary?: string
     sources?: string[]
   } | null
@@ -121,7 +128,12 @@ export type CountrySammenligning = {
     biogasTargetGwh: number | null
     biogasPlants: number | null
     depositReturnRatePct: number | null
-    foodWasteByCategory: Record<string, Record<string, number | null>> | null
+    foodWasteByCategory: Array<{
+      id: string
+      name: string
+      productionMtNordic: number | null
+      biggestLossStep: string | null
+    }> | null
     sourceYear: number | null
   }
   policies: Array<{ name: string; year: number; type: string; target: string | null }>
@@ -238,7 +250,14 @@ function buildCountry(
       biogasTargetGwh: waste?.circularity?.biogas_target_gwh ?? null,
       biogasPlants: waste?.circularity?.biogas_plants ?? null,
       depositReturnRatePct: retail?.deposit_return_rate_pct ?? household?.deposit_return_rate_pct ?? null,
-      foodWasteByCategory: vc.food_waste_by_category?.categories ?? null,
+      foodWasteByCategory: vc.food_waste_by_category?.categories
+        ? vc.food_waste_by_category.categories.map(c => ({
+            id: c.id,
+            name: c.name,
+            productionMtNordic: typeof c.production_mt_nordic === 'number' ? c.production_mt_nordic : null,
+            biggestLossStep: c.biggest_loss_step ?? null,
+          }))
+        : null,
       sourceYear: vc.year ?? null,
     },
     policies: (vc.key_policies ?? []).map(p => ({

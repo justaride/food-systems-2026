@@ -244,6 +244,21 @@ export function SammenligningContent({ data }: Props) {
 
         const noReduction = data.countries.no?.circularity.wasteReductionSince2015Pct
 
+        const wasteCategoryRows = COUNTRY_LIST
+          .map(c => data.countries[c.code]?.circularity.foodWasteByCategory)
+          .find(cats => cats && cats.length > 0)
+          ?.map(cat => ({
+            label: cat.name,
+            values: Object.fromEntries(
+              COUNTRY_LIST.map(c => {
+                const countryCats = data.countries[c.code]?.circularity.foodWasteByCategory
+                const match = countryCats?.find(x => x.id === cat.id)
+                const v = match?.productionMtNordic ?? null
+                return [c.code, v !== null ? `${v} Mt` : null]
+              }),
+            ) as Partial<Record<CountryCode, string | null>>,
+          })) ?? []
+
         return (
           <BolkSection
             number={4}
@@ -275,6 +290,12 @@ export function SammenligningContent({ data }: Props) {
                 <ChartCard title="Pant-returrate" unit="%" rows={deposit} />
               </>
             }
+            table={wasteCategoryRows.length > 0 ? (
+              <ComparisonTable
+                caption="Matsvinn per kategori — produksjonsvolum (Mt, nordisk estimat per land der data finnes)"
+                rows={wasteCategoryRows}
+              />
+            ) : undefined}
             seeAlso={[{ href: '/sirkularitet', label: 'Sirkularitet' }]}
           />
         )
