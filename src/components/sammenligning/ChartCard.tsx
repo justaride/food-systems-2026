@@ -67,7 +67,7 @@ export function ChartCard({
           <DataGapBadge missing={missing} total={rows.length} />
         </div>
       </div>
-      <ComparisonBarChart title="" data={data} unit={activeUnit} />
+      <ComparisonBarChart title="" data={data} unit={activeUnit} bare />
     </Card>
   )
 }
