@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Date: Wed, 29 Apr 2026 18:20:21 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+documentFoundCount: 75
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Server: Europa
+Connection: keep-alive
+Set-Cookie: cookie-sticky-cls=1777486822.553.20689.248383|591e6f652d536e0eaafd008b55861664; Expires=Wed, 29-Apr-26 19:20:21 GMT; Max-Age=3600; Path=/; Secure; HttpOnly
+Set-Cookie: TNTSESSIONID=UT_aeHiykq2-OcPr15Pg33RYDx5iKRCECjDb3Spu-uuDnwJ3k5V-!983739456!1145551554; path=/tracesnt; secure; HttpOnly
+

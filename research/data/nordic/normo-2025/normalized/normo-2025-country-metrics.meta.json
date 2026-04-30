@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-04-29T19:28:41.853019+00:00",
+  "source_title": "NORMO 2025: Nordic Monitoring of Diet, Physical Activity and Overweight 2014-2024",
+  "source_url": "https://pub.norden.org/nord2025-026/",
+  "source_appendix_url": "https://pub.norden.org/nord2025-026/files/6901cfeb41491_appendix-6-data-tables-for-figures.xlsx",
+  "raw_file": "research/data/nordic/normo-2025/raw/appendix-6-data-tables-for-figures.xlsx",
+  "row_count": 55,
+  "countries": [
+    "dk",
+    "fi",
+    "is",
+    "no",
+    "se"
+  ],
+  "sheets_used": [
+    "Adults - Body",
+    "Children - Body",
+    "Adults - Diet"
+  ],
+  "scope": "Selected country metrics for adults diet frequency and adult/child overweight-obesity outcomes. Does not include alcohol, activity, tobacco, or full child diet tables.",
+  "db_target": "CountryMetric"
+}

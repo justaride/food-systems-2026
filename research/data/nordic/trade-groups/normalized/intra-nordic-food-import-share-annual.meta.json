@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-04-29T18:42:54.155Z",
+  "owner": "Food Systems 2026",
+  "output_file": "research/data/nordic/trade-groups/normalized/intra-nordic-food-import-share-annual.csv",
+  "status": "all_five_countries_partner_panel",
+  "countries": [
+    "DK",
+    "FI",
+    "IS",
+    "NO",
+    "SE"
+  ],
+  "missing_countries": [],
+  "source_raw_files": [
+    "research/data/nordic/trade-groups/raw-json/dk-food-group-imports-by-partner-monthly.json",
+    "research/data/nordic/trade-groups/raw-json/fi-food-group-imports-by-partner-monthly.json",
+    "research/data/nordic/trade-groups/normalized/is-intra-nordic-food-import-share-annual.csv",
+    "research/data/nordic/trade-groups/raw-json/no-food-group-imports-by-partner-annual.json",
+    "research/data/nordic/trade-groups/raw-json/se-food-group-imports-by-partner-annual.json"
+  ],
+  "compatibility_note": "Canonical all-country panel for Nordic Vision 2030 indicator 2.5.2 proxy work.",
+  "notes": [
+    "DK and FI are partner-specific refetches from official API endpoints.",
+    "FI endpoint was updated from the old local registry path to the current Luke PXWeb discontinued-statistics path under maa/zzz_lak.",
+    "NO Nordic partner values are refetched from SSB 08801; NO total import values are reused from the existing all-country SSB 08801 annual extract.",
+    "SE is fetched from SCB ImpTotalKNAr using CN two-digit groups and the explicit TOT trading-partner total.",
+    "IS is derived from existing Statistics Iceland raw JSON-stat response and limited to complete years through 2025 in the merged all-country file.",
+    "Use shares within each reporting country; source units and classifications differ across countries."
+  ]
+}

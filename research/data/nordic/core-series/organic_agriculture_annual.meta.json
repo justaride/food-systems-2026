@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-04-29T00:00:00+02:00",
+  "owner": "Food Systems 2026",
+  "output_file": "research/data/nordic/core-series/organic_agriculture_annual.csv",
+  "metric": "Organic agricultural area and share of utilised agricultural area",
+  "primary_source": {
+    "name": "Eurostat",
+    "dataset_or_table_id": "ORG_CROPAR",
+    "dataset_label": "Organic crop area by agricultural production methods and crops",
+    "source_updated_at": "2026-03-31",
+    "retrieved_at": "2026-04-29",
+    "filters": {
+      "freq": "A",
+      "unit": [
+        "HA",
+        "PC_UAA"
+      ],
+      "crops": "UAAXK0000",
+      "agprdmet": "TOTAL",
+      "geo": [
+        "DK",
+        "FI",
+        "SE",
+        "IS",
+        "NO"
+      ]
+    },
+    "urls": [
+      "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/org_cropar?format=JSON&lang=en&freq=A&unit=PC_UAA&geo=NO&geo=SE&geo=DK&geo=FI&geo=IS&time=2023",
+      "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/org_cropar?format=JSON&lang=en&freq=A&unit=HA&geo=NO&geo=SE&geo=DK&geo=FI&geo=IS&time=2023",
+      "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/org_cropar?format=JSON&lang=en&freq=A&unit=PC_UAA&geo=NO&geo=SE&geo=DK&geo=FI&geo=IS&time=2024",
+      "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/org_cropar?format=JSON&lang=en&freq=A&unit=HA&geo=NO&geo=SE&geo=DK&geo=FI&geo=IS&time=2024"
+    ]
+  },
+  "quality_notes": [
+    "2023 is the latest near-complete comparable Eurostat cross-country year for DK, FI, SE and NO in this checked extract.",
+    "2024 is partial: Eurostat returned FI and SE only for this country set.",
+    "Finland carries Eurostat status d, meaning definition differs; keep visible in downstream use.",
+    "Iceland is retained as a local estimate and must remain needs_primary_check until a primary Icelandic or Eurostat-equivalent series is found."
+  ],
+  "downstream_files": [
+    "research/norden/verdikjede/01-primaerproduksjon.md",
+    "public/data/food-systems/no/value-chain.json",
+    "public/data/food-systems/se/value-chain.json",
+    "public/data/food-systems/dk/value-chain.json",
+    "public/data/food-systems/fi/value-chain.json",
+    "public/data/food-systems/is/value-chain.json",
+    "src/lib/data/verdikjede.ts",
+    "src/lib/data/circularity-questions.ts"
+  ],
+  "known_gaps": []
+}

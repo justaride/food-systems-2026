@@ -1,0 +1,20 @@
+country,retrieved_at,source,metric,value,unit,scope,notes
+IS,2026-04-29,TRACES NT organic-operator public API,issued_organic_operator_certificates,59,certificates,current Iceland records with status ISSUED,Unique operator names in issued extract: 59
+IS,2026-04-29,TRACES NT organic-operator public API,unique_issued_organic_operator_names,59,operator_names,current Iceland records with status ISSUED,No duplicate operator names in issued extract.
+IS,2026-04-29,TRACES NT organic-operator public API,total_public_organic_operator_certificate_records,75,certificate_records,current Iceland public statuses ISSUED/SUSPENDED/WITHDRAWN/EXPIRED,EXPIRED:4; ISSUED:59; WITHDRAWN:12
+IS,2026-04-29,TRACES NT organic-operator public API,status_expired_records,4,certificate_records,current Iceland public certificate statuses,Status count from public statuses extract.
+IS,2026-04-29,TRACES NT organic-operator public API,status_issued_records,59,certificate_records,current Iceland public certificate statuses,Status count from public statuses extract.
+IS,2026-04-29,TRACES NT organic-operator public API,status_withdrawn_records,12,certificate_records,current Iceland public certificate statuses,Status count from public statuses extract.
+IS,2026-04-29,TRACES NT organic-operator public API,activity__import,12,activity_mentions,activities on issued Iceland certificates,Activity mentions are not mutually exclusive by certificate.
+IS,2026-04-29,TRACES NT organic-operator public API,activity_distribution_placing_on_the_market,31,activity_mentions,activities on issued Iceland certificates,Activity mentions are not mutually exclusive by certificate.
+IS,2026-04-29,TRACES NT organic-operator public API,activity_export,1,activity_mentions,activities on issued Iceland certificates,Activity mentions are not mutually exclusive by certificate.
+IS,2026-04-29,TRACES NT organic-operator public API,activity_preparation,24,activity_mentions,activities on issued Iceland certificates,Activity mentions are not mutually exclusive by certificate.
+IS,2026-04-29,TRACES NT organic-operator public API,activity_production,29,activity_mentions,activities on issued Iceland certificates,Activity mentions are not mutually exclusive by certificate.
+IS,2026-04-29,TRACES NT organic-operator public API,activity_storing,30,activity_mentions,activities on issued Iceland certificates,Activity mentions are not mutually exclusive by certificate.
+IS,2026-04-29,TRACES NT organic-operator public API,category_ALGAE_AND_UNPROCESSED_AQUACULTURE_PRODUCTS,8,category_mentions,product categories on issued Iceland certificates,Category mentions are not mutually exclusive by certificate.
+IS,2026-04-29,TRACES NT organic-operator public API,category_FEED,6,category_mentions,product categories on issued Iceland certificates,Category mentions are not mutually exclusive by certificate.
+IS,2026-04-29,TRACES NT organic-operator public API,category_LIVESTOCK_AND_UNPROCESSED_LIVESTOCK_PRODUCTS,10,category_mentions,product categories on issued Iceland certificates,Category mentions are not mutually exclusive by certificate.
+IS,2026-04-29,TRACES NT organic-operator public API,category_OTHER_PRODUCTS_NOT_COVERED_BY_PREVIOUS_CATEGORIES,4,category_mentions,product categories on issued Iceland certificates,Category mentions are not mutually exclusive by certificate.
+IS,2026-04-29,TRACES NT organic-operator public API,category_PROCESSED_AGRICULTURAL_PRODUCTS_INCLUDING_AQUACULTURE_FOR_USE_AS_FOOD,38,category_mentions,product categories on issued Iceland certificates,Category mentions are not mutually exclusive by certificate.
+IS,2026-04-29,TRACES NT organic-operator public API,category_UNPROCESSED_PLANT_PRODUCTS_INCLUDING_SEEDS,25,category_mentions,product categories on issued Iceland certificates,Category mentions are not mutually exclusive by certificate.
+IS,2026-04-29,TRACES NT organic-operator public API,category_WINE,7,category_mentions,product categories on issued Iceland certificates,Category mentions are not mutually exclusive by certificate.

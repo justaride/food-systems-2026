@@ -1,0 +1,172 @@
+{
+  "generated_at": "2026-04-29T21:11:22+02:00",
+  "task": "organic_nordic_evidence_pack_integration",
+  "staging_file": "research/data/nordic/core-series/_staging/organic_integration_candidates_2026-04-29.csv",
+  "integrated_files": [
+    "research/data/nordic/core-series/organic_market_retail_annual.csv",
+    "research/data/nordic/core-series/organic_control_operators_annual.csv",
+    "research/data/nordic/core-series/organic_public_procurement_annual.csv",
+    "research/data/nordic/core-series/organic_policy_targets.csv",
+    "research/data/nordic/core-series/organic_selected_production_annual.csv",
+    "research/data/nordic/core-series/organic_selected_trade_annual.csv"
+  ],
+  "csv_validation": {
+    "organic_agriculture_annual.csv": {
+      "rows": 7,
+      "columns": 12,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "organic_market_retail_annual.csv": {
+      "rows": 14,
+      "columns": 17,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "organic_control_operators_annual.csv": {
+      "rows": 22,
+      "columns": 17,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "organic_public_procurement_annual.csv": {
+      "rows": 8,
+      "columns": 17,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "organic_policy_targets.csv": {
+      "rows": 3,
+      "columns": 17,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "organic_selected_production_annual.csv": {
+      "rows": 13,
+      "columns": 17,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "organic_selected_trade_annual.csv": {
+      "rows": 1,
+      "columns": 17,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "_staging/organic_integration_candidates_2026-04-29.csv": {
+      "rows": 86,
+      "columns": 18,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "exports/document_manifest.csv": {
+      "rows": 50,
+      "columns": 13,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "exports/download_inventory.csv": {
+      "rows": 52,
+      "columns": 7,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "exports/organic_key_indicators_extracted.csv": {
+      "rows": 100,
+      "columns": 11,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "exports/organic_document_quality_audit.csv": {
+      "rows": 15,
+      "columns": 7,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "exports/organic_actor_source_map.csv": {
+      "rows": 20,
+      "columns": 8,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "exports/is_traces_organic_operator_issued_2026.csv": {
+      "rows": 59,
+      "columns": 12,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "exports/is_traces_organic_operator_summary_2026.csv": {
+      "rows": 19,
+      "columns": 8,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "exports/is_hagstofa_agriculture_pxweb_catalog_2026-04-29.csv": {
+      "rows": 26,
+      "columns": 9,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "exports/is_lifraent_island_map_entries_2026-04-29.csv": {
+      "rows": 23,
+      "columns": 6,
+      "badRows": 0,
+      "duplicateRows": 0
+    },
+    "research/norden/okologisk-source-queue-2026-04-29.csv": {
+      "rows": 30,
+      "columns": 9,
+      "badRows": 0,
+      "duplicateRows": 0
+    }
+  },
+  "json_validation": {
+    "series_manifest": "parsed_ok",
+    "traces_issued_json": "parsed_ok",
+    "traces_public_statuses_json": "parsed_ok",
+    "lifraent_wp_rest_json": "parsed_ok",
+    "meta_files_parsed": 7
+  },
+  "gates": [
+    {
+      "gate": "norway_2025_full_pdf",
+      "status": "closed",
+      "reason": "Official Landbruksdirektoratet report PDF downloaded via short filarkiv URL, extracted with pdftotext, and used for Norway 2025 indicator rows."
+    },
+    {
+      "gate": "iceland_operator_register",
+      "status": "closed_for_current_register",
+      "reason": "Tún register page downloaded; TRACES public API extracted 59 issued Iceland certificate records and 75 public status records on 2026-04-29."
+    },
+    {
+      "gate": "iceland_area_market",
+      "status": "open_confirmed_gap",
+      "reason": "EEA provides historical organic UAA share for 2012-2020 and the action plan provides a 2040 target. Hagstofa/PxWeb agriculture catalog (26 tables), Statistics Iceland agriculture/news pages and Lífrænt Ísland homepage were checked on 2026-04-29 without finding a current organic area or market series."
+    },
+    {
+      "gate": "iceland_actor_map",
+      "status": "closed_for_actor_context",
+      "reason": "Lífrænt Ísland homepage/WP API downloaded; embedded map exported with 23 producer/actor entries. This is actor context, not an official operator-count, area or market series."
+    },
+    {
+      "gate": "sweden_ekomatcentrum_year_reconciliation",
+      "status": "partly_closed_source_identity_resolved",
+      "reason": "Ambiguous Ekomatcentrum/Ekologiska marknadsrapport PDF is no longer used as the only public-procurement source. Ekomatsligan 2024 page is used for 2023 share/value; EMC marknadsrapport 2023 PDF is used for 2022 share; Ekomatligan 2025 was checked and is an event page, not a published statistics report."
+    },
+    {
+      "gate": "runtime_binding",
+      "status": "not_started",
+      "reason": "New core-series files are data-layer only; UI/runtime should only consume them after it handles import_status and comparability flags."
+    },
+    {
+      "gate": "sweden_krav_individual_reports",
+      "status": "closed_light_analysis",
+      "reason": "KRAV Effektrapport 2025 and all seven Ekobarometer PDFs listed on the KRAV page were downloaded, text-extracted and lightly analyzed. 2024 KRAV-specific metrics and 2022 municipal public-procurement shares were staged with private-certifier flags."
+    },
+    {
+      "gate": "sweden_public_procurement_scope",
+      "status": "open_but_flagged",
+      "reason": "Swedish public procurement rows now keep municipal KRAV/organic shares, public-sector value shares, meal/volume statements and institution-specific shares separate. External use still requires scope-specific wording."
+    }
+  ]
+}

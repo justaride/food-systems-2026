@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-04-29T21:11:22+02:00",
+  "owner": "Food Systems 2026",
+  "output_file": "research/data/nordic/core-series/organic_control_operators_annual.csv",
+  "series_family": "organic_control_operator_and_system_indicators",
+  "description": "Selected annual organic control/operator metrics plus reference rows for control-system roles.",
+  "source_evidence_pack": "research/evidence-pack/okologisk-norden-2026-04-29",
+  "source_export": "research/evidence-pack/okologisk-norden-2026-04-29/exports/organic_key_indicators_extracted.csv",
+  "staging_file": "research/data/nordic/core-series/_staging/organic_integration_candidates_2026-04-29.csv",
+  "rows": 22,
+  "schema": [
+    "country",
+    "year",
+    "metric",
+    "value",
+    "unit",
+    "scope",
+    "source_name",
+    "source_owner",
+    "source_type",
+    "source_url",
+    "source_file",
+    "source_ref",
+    "retrieved_at",
+    "quality_flag",
+    "import_status",
+    "comparability",
+    "notes"
+  ],
+  "quality_rules": [
+    "Keep import_status visible in all downstream use.",
+    "Rows marked staged_needs_reconciliation_or_precision_note require table-level review before external publication.",
+    "Sector and survey rows are usable for internal analysis with source-type flags, but should not be presented as neutral official statistics."
+  ],
+  "known_gaps": [
+    "Iceland area and market series remain needs_primary_check; operator register and 2040 policy target are separately sourced.",
+    "KRAV rows are private-label metrics and must not be merged with official all-organic operator/area statistics.",
+    "Okologisk Norge, NORSOK and Luomuinstituutti are not yet integrated."
+  ]
+}

@@ -1,0 +1,980 @@
+Økologisk Landsforening   Årsrapport 2025
+Agro Food Park 26, 1.     Godkendt på foreningens generalforsamling,
+8200 Aarhus N             den 6. marts 2026
+CVR-nr. 13038139
+
+
+                          Marianne Fløe Hestbjerg og Jens Krogh
+                          Dirigenter
+                                     1
+Økologisk Landsforening | Indhold
+
+
+
+
+Indhold
+
+Foreningsoplysninger                 2
+
+Ledelsespåtegning                    3
+
+Den uafhængige revisors påtegning    4
+
+Ledelsesberetning                    7
+
+Resultatopgørelse for 2025          10
+
+Balance pr. 31.12.2025              11
+
+Noter                               13
+
+Anvendt regnskabspraksis            20
+Økologisk Landsforening | Foreningsoplysninger      2
+
+
+
+
+Foreningsoplysninger
+Forening
+Økologisk Landsforening
+Agro Food Park 26, 1.
+8200 Aarhus N
+
+
+CVR-nr.: 13038139
+Hjemsted: Aarhus
+Regnskabsår: 01.01.2025 - 31.12.2025
+Hjemmeside: www.okologi.dk
+
+
+Bestyrelse
+Michael Hansen Kjerkegaard, forperson
+Jonas Engberg, næstforperson
+Solvejg Horst Petersen
+Henrik Jessen
+Johanne Baden Schimming
+Claus Bindslev
+
+
+Ledelsen
+Rasmus Prehn, adm. direktør
+
+Revisor
+Deloitte Statsautoriseret Revisionspartnerselskab
+Papirfabrikken 26
+8600 Silkeborg
+Økologisk Landsforening | Ledelsespåtegning                                                                            3
+
+
+
+
+Ledelsespåtegning
+Bestyrelsen og direktionen har dags dato behandlet og godkendt årsrapporten for regnskabsåret 01.01.2025 -
+31.12.2025 for Økologisk Landsforening.
+
+
+Årsrapporten aﬂægges i overensstemmelse med årsregnskabsloven.
+
+
+Det er vores opfattelse, at årsregnskabet giver et retvisende billede af foreningens aktiver og passiver, ﬁnansielle
+stilling samt resultatet.
+
+Samtidig er det vores opfattelse, at ledelsesberetningen indeholder en retvisende redegørelse for de forhold,
+beretningen omhandler.
+
+Årsrapporten indstilles til generalforsamlingens godkendelse.
+
+Aarhus, den 2. marts 2026
+
+
+Ledelsen
+
+
+
+
+Rasmus Prehn
+adm. direktør
+
+
+Bestyrelse
+
+
+
+
+ Michael Hansen Kjerkegaard                        Jonas Engberg                             Solvejg Horst Petersen
+ forperson                                         næstforperson
+
+
+
+ Henrik Jessen                                     Johanne Baden Schimming                   Claus Bindslev
+Økologisk Landsforening | Den uafhængige revisors påtegning                                                           4
+
+
+
+
+Den uafhængige revisors påtegning
+Til medlemmerne i Økologisk Landsforening
+
+
+Konklusion
+Vi har revideret årsregnskabet for Økologisk Landsforening for regnskabsåret 01.01.2025 - 31.12.2025, der
+omfatter resultatopgørelse, balance, egenkapitalopgørelse, og noter, herunder anvendt regnskabspraksis og
+særlige speciﬁkationer. Årsregnskabet udarbejdes efter årsregnskabsloven.
+
+Det er vores opfattelse, at årsregnskabet giver et retvisende billede af foreningens aktiver, passiver og
+ﬁnansielle stilling pr. 31.12.2025 samt af resultatet af foreningens aktiviteter for regnskabsåret 01.01.2025 -
+31.12.2025 i overensstemmelse med årsregnskabsloven.
+
+
+Grundlag for konklusion
+Vi har udført vores revision i overensstemmelse med internationale standarder om revision og de yderligere krav,
+der er gældende i Danmark. Vores ansvar ifølge disse standarder og krav er nærmere beskrevet i revisionspå-
+tegningens afsnit ”Revisors ansvar for revisionen af årsregnskabet”. Vi er uafhængige af foreningen i overens-
+stemmelse med International Ethics Standards Board for Accountants’ internationale retningslinjer for revisorers
+etiske adfærd (IESBA Code) og de yderligere etiske krav, der er gældende i Danmark, ligesom vi har opfyldt vores
+øvrige etiske forpligtelser i henhold til disse krav og IESBA Code. Det er vores opfattelse, at det opnåede revisi-
+onsbevis er tilstrækkeligt og egnet som grundlag for vores konklusion.
+
+
+Ledelsens ansvar for årsregnskabet
+Ledelsen har ansvaret for udarbejdelsen af et årsregnskab, der giver et retvisende billede i overensstemmelse
+med årsregnskabsloven. Ledelsen har endvidere ansvaret for den interne kontrol, som ledelsen anser for nød-
+vendig for at udarbejde et årsregnskab uden væsentlig fejlinformation, uanset om denne skyldes besvigelserel-
+ler fejl.
+
+
+Ved udarbejdelsen af årsregnskabet er ledelsen ansvarlig for at vurdere foreningens evne til at fortsætte driften,
+at oplyse om forhold vedrørende fortsat drift, hvor dette er relevant, samt at udarbejde årsregnskabet på
+grundlag af regnskabsprincippet om fortsat drift, medmindre ledelsen enten har til hensigt at likvidere forenin-
+gen, indstille driften eller ikke har andet realistisk alternativ end at gøre dette.
+
+
+Revisors ansvar for revisionen af årsregnskabet
+Vores mål er at opnå høj grad af sikkerhed for, om årsregnskabet som helhed er uden væsentlig fejlinformation,
+uanset om denne skyldes besvigelser eller fejl, og at afgive en revisionspåtegning med en konklusion. Høj grad af
+sikkerhed er et højt niveau af sikkerhed, men er ikke en garanti for, at en revision, der udføres i overensstem-
+melse med internationale standarder om revision og de yderligere krav, der er gældende i Danmark, altid vil af-
+dække væsentlig fejlinformation, når sådan ﬁndes. Fejlinformation kan opstå som følge af besvigelser eller fejl
+og kan betragtes som væsentlige, hvis det med rimelighed kan forventes, at de enkeltvis eller samlet har
+indﬂydelse på de økonomiske beslutninger, som regnskabsbrugerne træﬀer på grundlag af årsregnskabet.
+
+
+Som led i en revision, der udføres i overensstemmelse med internationale standarder om revision og de yderli-
+gere krav, der er gældende i Danmark, foretager vi faglige vurderinger og opretholder professionel skepsisun-
+der revisionen. Herudover:
+Økologisk Landsforening | Den uafhængige revisors påtegning                                                         5
+
+
+
+
+   Identiﬁcerer og vurderer vi risikoen for væsentlig fejlinformation i årsregnskabet, uanset om denne skyldes
+   besvigelser eller fejl, udformer og udfører revisionshandlinger som reaktion på disse risici samt opnår re-
+   visionsbevis, der er tilstrækkeligt og egnet til at danne grundlag for vores konklusion. Risikoen for ikke at
+   opdage væsentlig fejlinformation forårsaget af besvigelser er højere end ved væsentlig fejlinformation for-
+   årsaget af fejl, idet besvigelser kan omfatte sammensværgelser, dokumentfalsk, bevidste udeladelser, vild-
+   ledning eller tilsidesættelse af intern kontrol.
+   Opnår vi forståelse af den interne kontrol med relevans for revisionen for at kunne udforme revisionshandlin-
+   ger, der er passende efter omstændighederne, men ikke for at kunne udtrykke en konklusion om eﬀektiviteten
+   af foreningens interne kontrol.
+   Tager vi stilling til, om den regnskabspraksis, som er anvendt af ledelsen, er passende, samt om de
+   regnskabsmæssige skøn og tilknyttede oplysninger, som ledelsen har udarbejdet, er rimelige.
+   Konkluderer vi, om ledelsens udarbejdelse af årsregnskabet på grundlag af regnskabsprincippet om fortsat
+   drift er passende, samt om der på grundlag af det opnåede revisionsbevis er væsentlig usikkerhed forbundet
+   med begivenheder eller forhold, der kan skabe betydelig tvivl om foreningens evne til at fortsætte driften.
+   Hvis vi konkluderer, at der er en væsentlig usikkerhed, skal vi i vores revisionspåtegning gøre opmærksom på
+   oplysninger herom i årsregnskabet eller, hvis sådanne oplysninger ikke er tilstrækkelige, modiﬁcere vores
+   konklusion. Vores konklusioner er baseret på det revisionsbevis, der er opnået frem til datoen for vores revi-
+   sionspåtegning. Fremtidige begivenheder eller forhold kan dog medføre, at foreningen ikke længere kan
+   fortsætte driften.
+   Tager vi stilling til den samlede præsentation, struktur og indhold af årsregnskabet, herunder noteoplysningerne,
+   samt om årsregnskabet afspejler de underliggende transaktioner og begivenheder på en sådan måde, at der gi-
+   ves et retvisende billede heraf.
+
+
+Vi kommunikerer med den øverste ledelse om bl.a. det planlagte omfang og den tidsmæssige placering af
+revisionen samt betydelige revisionsmæssige observationer, herunder eventuelle betydelige mangler i intern
+kontrol, som vi identiﬁcerer under revisionen.
+
+
+Udtalelse om ledelsesberetningen
+Ledelsen er ansvarlig for ledelsesberetningen.
+
+
+Vores konklusion om årsregnskabet omfatter ikke ledelsesberetningen, og vi udtrykker ingen form for
+konklusion med sikkerhed om ledelsesberetningen.
+
+
+I tilknytning til vores revision af årsregnskabet er det vores ansvar at læse ledelsesberetningen og i den for-
+bindelse overveje, om ledelsesberetningen er væsentligt inkonsistent med årsregnskabet eller vores viden
+opnået ved revisionen eller på anden måde synes at indeholde væsentlig fejlinformation.
+
+
+Vores ansvar er herudover at overveje, om ledelsesberetningen indeholder krævede oplysninger i henhold til
+årsregnskabsloven.
+Økologisk Landsforening | Den uafhængige revisors påtegning                                                6
+
+
+
+
+Baseret på det udførte arbejde er det vores opfattelse, at ledelsesberetningen er i overensstemmelse med
+årsregnskabet og er udarbejdet i overensstemmelse med kravene i årsregnskabsloven. Vi har ikke fundet
+væsentlig fejlinformation i ledelsesberetningen.
+
+
+Silkeborg, den 2. marts 2026
+
+
+Deloitte
+Statsautoriseret Revisionspartnerselskab
+CVR-nr. 33963556
+
+
+
+
+Tonny Hummelgaard Knudsen
+Statsautoriseret revisor
+MNE-nr. mne28661
+Økologisk Landsforening | Ledelsesberetning                                                                           7
+
+
+
+
+Ledelsesberetning
+Foreningens vision
+En verden, der tænker og handler økologisk – til glæde for mennesker, dyr og vores jord.
+
+Foreningsmission
+Vi baner vejen for mere og bedre økologi – med nye løsninger, samarbejde og markant interessevaretagelse.
+
+Hovedaktivitet
+Foreningens hovedaktivitet er at sikre den fortsatte udvikling af økologisk fødevareproduktion frem mod de økologi-
+ske målsætninger, som er beskrevet i IFOAMS’ principper for økologisk jordbrug samt foreningens mission og vision.
+Det sker såvel i udviklingsarbejdet under projektporteføljen, i de kommercielle aktiviteter, i det politiske arbejde som
+i foreningens kommunikation for at styrke økologiens troværdighed.
+
+
+Udvikling i foreningens aktiviteter og økonomi
+I marts 2025 tiltrådte foreningens nye direktør med mange nye tanker og ambitioner for foreningens udvikling og
+virke. I den første periode var direktøren derfor primært optaget af den vigtige opgave at møde medlemmer, virk-
+somheder, organisationer og presse for derved at øge kendskab til og revitalisere foreningens udtryk. Der var dog
+også behov for fokus på organisationen.
+
+
+Ved indgangen til 2025 var der gode takter i opbygning af partnerskab mellem Økologisk Landsforening og flere regi-
+oner om konceptet Grønne Hospitalskøkkener. På trods af politisk velvilje i tre af fem regioner, stod det i april klart,
+at det ikke var realistisk at indgå en aftale som forudsat; i alle tilfælde ikke før efter årets regionsrådsvalg henholdsvis
+den kommende reform af regioner. Der er opbygget væsentlige erfaringer på partnerskabsområdet, og disse forven-
+tes at danne et godt grundlag til fremtidige dialoger om partnerskab – med de nye regioner eller andre aktører.
+
+
+I erkendelse af ovenstående kombineret med det faktum, at foreningens projektaktivitet i 2025 var mindre end til-
+fældet var året før, måtte der i foråret udvises rettidig omhu i forhold til foreningens økonomi, og syv medarbejdere
+blev derfor opsagt, ligesom der blev foretaget en organisatorisk tilpasning.
+
+
+I august 2025 kulminerede en lang indsats med konceptudvikling, fundraising og detailplanlægning af det økologiske
+topmøde Organic Summit 2025, hvor mere end 400 deltagere fra 40 lande deltog i et miks af blandt andre producen-
+ter, organisationer, detailhandel og politikere med henblik på at sætte fokus på udvikling af økologien. I løbet af top-
+mødet blev der formuleret og vedtaget et charter med aktionspunkter til indfrielse af det politisk fastsatte mål om
+25% økologi i 2030. Charteret blev overrakt til finansministeren som repræsentant for regeringen på et tidspunkt,
+hvor Danmark netop have overtaget formandskabet i EU. Topmødet blev en realitet, da det lykkedes at få midler fra
+såvel sponsorer, fonde og trepartsministeriet, ligesom der blev etableret en gruppe af hostpartnere med ejerskab til
+topmødet. Partnerne arbejder videre med udbredelse af charteret.
+
+
+Foreningslivet har fået fornyet fokus i årets løb. Dels har der i repræsentantskabet været rigtig gode og væsentlige
+drøftelser af centrale (fag-)politiske problemstillinger og udfordringer, der skal tages stilling til som forening, ligesom
+der tales om ambitioner for økologi. Dels er der introduceret klyngemøder, der skal sikre højere grad af tværfaglig
+koordinering mellem fagudvalgene.
+
+
+I efteråret afholdt Økologisk Landsforening et medlemsmøde, hvor trepartsministeren gav indlæg og modtog
+spørgsmål. Det var et meget velbesøgt arrangement og med god feedback.
+Økologisk Landsforening | Ledelsesberetning                                                                           8
+
+
+
+
+Der er besluttet strategisk fokus på hvervning af flere medlemmer i foreningen og i første omgang særligt på private
+medlemmer. I denne forbindelse planlægges i det kommende år et antal begivenheder rundt i landet, hvor med-
+lemmer kan deltage og få en oplevelse med økologi. Der er lagt en plan for strategiperiodens varighed, hvor særlige
+rekrutteringsindsatsområder på de enkelte medlemsgrupper indgår.
+
+
+Politisk er der over året arbejdet på en lang række felter, hvor påvirkning af konkret udmøntning af treparten i ret-
+ning af mere økologi skal fremhæves, ligesom der med forsøgsordningen med skolemad er fokus på at få økologi ind
+i ordningen i kommunerne. I slutningen af året har der været - og er fortsat – politisk røre ift. mulig differentiering af
+moms, hvor foreningen arbejder for prioritering af momsfritagelse eller evt. momsreduktion på økologiske varer. I
+forbindelse med finanslovsforhandlingerne lykkedes det at få sikret finansiering af Innovationscenter for Økologisk
+Landbrug frem til 2030.
+
+
+Kommunikativt er der fortsat fokus på foreningens tre strategiske mærkesager: Sunde måltider, Gode dyreliv og
+Frugtbar jord. Parallelt hermed har vi tilrettet vores presseindsats, så vi i højere grad kommunikerer ift. aktuelle em-
+ner, der rører sig i tiden, frem for en fastlagt plan. Konkret har dette skift udvirket en stigning på mere end 30% pres-
+seomtaler i 2025 sammenlignet med 2024.
+
+
+Omsætning
+Økologisk Landsforenings omsatte i 2025 for 50,4 mio.kr. Omsætningen har været stigende de seneste par år. Såle-
+des er der realiseret en stigning fra 2023 til 2025 på 3,6 mio.kr. svarende til 7,7%, mens udviklingen fra 2024 til 2025
+udgør en stigning på 3,3 mio.kr. eller 7,1%. Omsætningsfremgangen i de to forgangne år har primært relateret sig til
+to faktorer: finansiering via sponsorater mv. til det økologisk topmøde, Organic Summit 2025, og afhændelse af va-
+remærket Økodag.
+
+
+Omsætning (t.kr.)                        2023           %          2024             %           2025             %
+Kontingentindbetaling                   5.999         12,9        4.985           10,6         4.802            9,5
+Aktivitetstilskud                      30.259         65,2       31.129           66,1        29.199           57,9
+Salg, tjenesteydelser mv                9.632         20,7        8.898           18,9         8.164           16,2
+Andet                                     930          1,1        2.072            4,4         8.238           16,3
+I alt                                  46.820         100        47.083           100         50.403           100
+
+
+Igangværende projekter
+Økologisk Landsforening har i 2025 haft bevilling til og eksekveret 18 programaktiviteter/projekter og har desuden
+været underleverandører i en lang række projektaktiviteter med andre projektejere. Der er tale om en bred porteføl-
+je af aktiviteter såvel i forhold til emneområder som målgrupper for aktiviteterne, og for dem alle gælder, at der er
+leveret gode faglige resultater.
+
+
+Med de 18 gennemførte projekter i foreningens eget regi og de projekter, hvor Økologisk Landsforening er partnere,
+udgør den samlede projektportefølje i 2025 et aktivitetstilskud på i alt 29,2 mio.kr. eller 58% af årets samlede om-
+sætning på 50,3 mio.kr.
+
+
+Årets fem største projektaktiviteter andrager 12,7 mio.kr. og dermed 44% af den samlede portefølje. Det største en-
+keltstående er projektet ’ESFROMA II’, der er foreningens programaktivitet i Østafrika og bevilliget gennem Civilsam-
+fund i udvikling (CISU). I 2025 andrager denne aktivitet 3,1 mio.kr., hvilket udgør 11% af årets aktivitetstilskud.
+Økologisk Landsforening | Ledelsesberetning                                                                         9
+
+
+
+
+Til sammenligning udgør de største ti projekter i alt 21,4 mio.kr. svarende til 73% af aktivitetstilskuddet. Øvrige pro-
+jekter udgør tilsammen 7,8 mio.kr. eller 27%.
+
+
+Projekt                                                   t.kr.     %-andel
+ESFROMA II 2025                                           3.072        11%
+Økologisk vækst og udvikling i dagligvarehandlen          2.980        10%
+Biofach 2025                                              2.290          8%
+35-års jubilæumskampagne for ø-mærket                     2.220          8%
+Det Økologiske Spisemærke                                 2.168          7%
+Top-fem                                                 12.730         44%
+Mere grønt til Foodservice i DACH 2025                    2.122          7%
+Økologisk vækst og udvikling i foodservice 2025           1.997          7%
+Danmark som foregangsland for økologisk afsætning         1.600          5%
+RIWAH 2025                                                1.523          5%
+Økologi på Fødevareuddannelser                            1.391          5%
+Top-ti                                                  21.363         73%
+Øvrige projekter                                          7.835        27%
+I alt                                                   29.199          100
+
+
+Kapacitetsomkostninger
+Medarbejderantallet i Økologisk Landsforening har i 2025 gennemsnitligt været 35,9 ansatte, opgjort som årsværk ef-
+ter ATP-metoden, hvilket er en reduktion på 3,7 medarbejder i forhold til 2024.
+
+
+De samlede personaleomkostninger udgør 22,6 mio.kr., hvilket er en reduktion på 1,8 mio.kr. i forhold til 2024 og
+dermed et fald på 7,5%.
+
+
+Kapacitetsomkostninger i øvrigt andrager 3,3 mio.kr. og dermed en stigning i forhold til 2024 på 0,6 mio.kr. eller
+21,7%. Stigningen modsvarer effekten i 2024 af tilbageførte tab vedr. ældre projektaktivitet og omkostningen er der-
+med tilbage på niveauet fra 2023.
+
+Disponering af årets resultat
+Årets resultat på 4.713.566 kr. tilskrives kapitalkontoen, hvorefter egenkapitalen udgør 12,074 mio.kr.
+
+Salget af Økodag og det positive resultat i 2025 har givet Økologisk Landsforening mulighed for at investere i et nyt
+signaturbærende event, der sætter økologi og fællesskab i fokus. Opbygningen er igangsat og vil ske gradvist, hvilket i
+de kommende år vil kunne påvirke egenkapitalen.
+
+Usikkerhed vedrørende indregning og måling
+Foreningens udviklingsprojekter relaterer sig til opbygning af signaturevent med fokus på økologi og fællesskab.
+Værdien af udviklingsprojekter er naturligt behæftet med en vis grad af usikkerhed, da værdien baserer sig på frem-
+tidig indtjening og udvikling i foreningen.
+
+
+Begivenheder efter regnskabsårets afslutning
+Foreningen har efter balancedagen afhændet sin andel af Økologirådgivning Danmark ApS, hvorved der realiseres et
+provenu. Der er fra balancedagen og frem til i dag ikke indtrådt andre forhold, som forrykker vurderingen af årsrap-
+porten.
+Økologisk Landsforening | Resultatopgørelse for 2025                                    10
+
+
+
+
+Resultatopgørelse for 2025
+                                                                      2025           2024
+                                                        Note            kr.            kr.
+Medlemskontingenter                                        2     4.802.353      4.984.743
+Gaver, sponsor mv.                                         3     3.802.936      1.784.926
+Aktivitetstilskud (projekter)                                   29.198.574     31.129.057
+Salgsindtægter mv.                                         4     7.700.622      3.687.850
+Projektindtægter                                           5     4.463.573      5.209.705
+Lønrefusion                                                        435.441        287.699
+Indtægter i alt                                                 50.403.499     47.083.980
+
+
+
+
+Projektomkostninger                                        7   (17.314.700)   (19.116.578)
+Løn og personaleomkostninger                               8   (21.412.335)   (22.837.311)
+Bestyrelseshonorar                                         9      (735.633)      (945.718)
+Lokaleomkostninger                                        10      (971.835)      (921.776)
+Andre eksterne omkostninger                               11    (3.228.152)    (2.736.946)
+Vareforbrug                                                6    (1.972.067)      (847.915)
+Af- og nedskrivninger                                             (144.500)       (42.985)
+Omkostninger i alt                                             (45.779.222)   (47.449.229)
+
+Resultat før ﬁnansielle poster                                   4.624.277      (365.249)
+
+
+
+Finansielle indtægter                                               36.086        106.176
+Finansielle omkostninger                                          (108.604)      (276.647)
+Resultat før kapitalinteresser                                   4.551.759      (535.720)
+
+
+Indtægter af kapitalandele i associerede virksomheder              161.807        240.886
+Resultat af kapitalinteresser                                      161.807        240.886
+Årets resultat før skat                                          4.713.566      (294.834)
+
+
+Skat af årets resultat                                                   0              0
+Årets resultat                                                   4.713.566      (294.834)
+
+
+Forslag til resultatdisponering
+Overført til egenkapital                                         4.713.566       (294.834)
+Resultatdisponering                                              4.713.566      (294.834)
+Økologisk Landsforening | Balance pr. 31.12.2025                             11
+
+
+
+
+Balance pr. 31.12.2025
+Aktiver
+                                                               2025         2024
+                                                   Note          kr.          kr.
+Hjemmeside                                                  246.014      390.514
+Udviklingsprojekter under udførelse                  12     189.481               0
+Immaterielle anlægsaktiver                                  435.495      390.514
+
+
+
+Kapitalandele i associerede virksomheder             13      28.773       28.773
+Deposita                                                    351.792      351.792
+Andre værdipapirer og kapitalandele                  14     678.443      665.934
+Finansielle anlægsaktiver i alt                            1.059.008    1.046.499
+
+
+Anlægsaktiver i alt                                        1.494.503    1.437.013
+
+
+Handelsvarer                                                 25.450       16.076
+
+
+Tilgodehavender fra salg og tjenesteydelser                3.010.547    2.025.590
+Tilgodehavende tilskud                                     5.586.707    8.482.259
+Andre tilgodehavender                                15     116.833      286.934
+Tilgodehavende skat                                          35.525       52.103
+Periodeafgrænsningsposter                                   318.060      315.294
+Igangværende projekter                               16     946.957     1.277.847
+Tilgodehavender i alt                                     10.014.629   12.440.027
+
+
+Likvide beholdninger                                      10.905.242    5.294.530
+
+
+Omsætningsaktiver i alt                                   20.945.321   17.750.633
+
+
+Aktiver                                                   22.439.824   19.187.646
+Økologisk Landsforening | Balance pr. 31.12.2025                               12
+
+
+
+
+Passiver
+                                                               2025         2024
+                                                   Note          kr.          kr.
+Egenkapital                                               11.926.146    7.360.375
+Reserve for udviklingsprojekter                             147.795            0
+Egenkapital                                          17   12.073.941    7.360.375
+
+
+Andre hensatte forpligtelser                                      0      701.488
+Hensættelser                                                      0      701.488
+
+
+Anden gæld                                           18    2.628.881    2.525.991
+Langfristet gæld                                           2.628.881    2.525.991
+
+
+
+Bankgæld                                                       2.777        2.326
+Leverandør af varer og tjenesteydelser                     1.928.919    2.291.757
+Forudbetalte tilskud                                       3.891.626    4.133.345
+Igangværende projekter                               16     443.145      320.185
+Anden gæld                                           19    1.470.535    1.852.179
+Kortfristet gæld                                           7.737.002    8.599.792
+
+
+Gæld i alt                                                10.365.883   11.125.783
+
+
+Passiver                                                  22.439.824   19.187.646
+
+
+
+Eventualaktiver                                      20
+Andre ikke-indregnede forpligtelser                  21
+Pantsætninger og sikkerhedsstillelser                22
+Mellemregnskaber over projekter med CISU             23
+Økologisk Landsforening | Noter                                                                                13
+
+
+
+
+Noter
+1 Begivenheder efter balancedagen
+Foreningen har efter balancedagen afhændet sin andel af Økologirådgivning Danmark ApS, hvorved der realise-
+res et provenu. Der er fra balancedagen og frem til i dag ikke indtrådt andre forhold, som forrykker vurderingen
+af årsrapporten.
+
+
+
+2 Medlemskontingenter
+                                                                                           2025            2024
+                                                                                             kr.             kr.
+Landmænd                                                                              1.865.219        1.629.728
+Personlige medlemmer                                                                    487.689         521.978
+Øko-venner                                                                              206.500         235.305
+Virksomheder og professionelle køkkener                                               2.167.485        2.517.857
+Kontingent                                                                               75.460           79.875
+                                                                                      4.802.353        4.984.743
+
+
+3 Gaver, sponsor mv.
+                                                                                           2025            2024
+                                                                                             kr.             kr.
+Gavebidrag og sponsorering                                                            3.526.439        1.497.951
+Tips og Lotto                                                                           166.007         178.002
+Distributionstilskud                                                                    110.490         108.973
+                                                                                      3.802.936        1.784.926
+
+
+4 Salgsindtægter mv.
+                                                                                           2025            2024
+                                                                                             kr.             kr.
+Konsulentindtægter                                                                      135.000         164.628
+Diverse indtægter                                                                     4.222.595         180.971
+Annonce og informationsmateriale, salg                                                  275.919         341.668
+Abonnementer                                                                            176.204         130.584
+Business Cases, indtægter                                                               482.268         306.395
+Salg af ydelser & timer                                                               2.408.636        2.563.604
+                                                                                      7.700.622        3.687.850
+
+
+5 Projektindtægter
+                                                                                           2025            2024
+                                                                                             kr.             kr.
+Salg af materialer (viderefakturering)                                                   32.800           34.645
+Deltagerbetaling                                                                        877.251         980.976
+Overheads                                                                             3.553.522        4.194.084
+                                                                                      4.463.573        5.209.705
+Økologisk Landsforening | Noter                          14
+
+
+
+
+6 Vareforbrug
+                                         2025         2024
+                                           kr.          kr.
+Trykning af avis og magasin           152.606      166.998
+Konsulentarbejde                     1.777.800     641.483
+Business Cases, udgifter               32.055       33.854
+Varekøb - informationsmateriale          9.606        5.580
+                                     1.972.067     847.915
+
+7 Projektomkostninger
+                                         2025         2024
+                                           kr.          kr.
+Konsulentbistand                     3.533.686    5.431.597
+Materialer                           8.381.939    7.617.542
+Mødeudgifter                          650.062      612.648
+Rejser                                885.802      966.761
+Andre omkostninger                   3.863.211    4.488.030
+                                    17.314.700   19.116.578
+
+
+8 Løn og personaleomkostninger
+                                         2025         2024
+                                           kr.          kr.
+Løn inkl. pension                   21.765.773   22.850.741
+Regulering, feriepengehensættelse    (353.438)     (13.430)
+                                    21.412.335   22.837.311
+
+
+Gennemsnitligt antal ansatte               36          40
+
+
+9 Bestyrelseshonorar
+                                         2025         2024
+                                           kr.          kr.
+Honorar, forpersoner                  523.823      549.300
+Honorar, udvalg                       111.810      296.418
+Honorar, øvrig bestyrelse             100.000      100.000
+                                      735.633      945.718
+Økologisk Landsforening | Noter                                                                        15
+
+
+
+
+10 Lokaleomkostninger
+                                                                                        2025        2024
+                                                                                          kr.         kr.
+El, vand og varme                                                                     44.571      89.811
+Reparation og vedligeholdelse                                                          4.444           0
+Husleje                                                                             1.039.101    948.246
+Huslejeindtægt                                                                      (116.281)   (116.281)
+                                                                                     971.835     921.776
+
+11 Andre eksterne omkostninger
+                                                                                        2025        2024
+                                                                                          kr.         kr.
+Annoncer og reklame                                                                   26.656       2.651
+Fotokopiering                                                                         34.587      34.983
+Kørsels/rejseudgifter                                                                217.874     143.037
+Mindre nyanskaffelser                                                                  1.622       7.710
+Kontorartikler                                                                         7.501      18.021
+Telefon, internet mv.                                                                 62.169      70.928
+Porto og gebyrer                                                                     371.593     326.555
+Forsikringer                                                                         122.448     114.165
+Faglitteratur                                                                          3.550       4.455
+Kontingenter                                                                         156.367     135.496
+It-udstyr mv.                                                                        915.970     824.844
+Advokatmæssig assistance                                                                   0     (24.300)
+Honorar til revisor                                                                  100.900      91.400
+Mødeudgifter                                                                          58.524      63.509
+Tab på debitorer/mellemregninger                                                     (66.088)   (463.373)
+Generalforsamling                                                                    327.449     430.333
+Bestyrelse/udvalg, aktiviteter                                                       112.983      71.052
+Repræsentation                                                                         2.285       2.958
+Øvrige personaleomkostninger                                                         679.760     802.437
+Rejseomkostninger, folkevalgte                                                        51.518      59.129
+Medlemskampagne                                                                       40.484      20.956
+                                                                                    3.228.152   2.736.946
+
+
+
+12 Udviklingsprojekter under udførelse
+Foreningen udvikler opbygning af signaturevent med fokus på økologi og fællesskab
+Økologisk Landsforening | Noter                                                                              16
+
+
+
+
+13 Kapitalandele i associerede virksomheder
+                                                                                         2025         2024
+                                                                                           kr.          kr.
+Anparter i ØkologiRådgivning Danmark ApS, nom. 25.000 kr.                              28.773       28.773
+                                                                                       28.773       28.773
+
+Foreningen ejer 50% af Innovationscenter for Økologisk Landbrug P/S med bogført værdi på 0 kr.
+
+
+
+
+14 Andre værdipapirer og kapitalandele
+                                                                                         2025          2024
+                                                                                           kr.           kr.
+Andelsbevis - Merkur                                                                  240.803       228.294
+Aktier Dansk Økojord A/S                                                              437.640       437.640
+                                                                                      678.443       665.934
+
+
+
+
+15 Andre tilgodehavender
+                                                                                         2025          2024
+                                                                                           kr.           kr.
+Moms og afgifter                                                                            0       285.310
+Andre tilgodehavender                                                                 116.833         1.624
+                                                                                      116.833      286.934
+
+
+
+16 Igangværende projekter
+                                                                                         2025          2024
+                                                                                           kr.           kr.
+Igangværende projekter                                                              6.431.181     5.775.519
+Acontofaktureringer og tilskud                                                     (5.927.369)   (4.817.857)
+Overført til forpligtelser                                                            443.145       320.185
+                                                                                      946.957     1.277.847
+
+
+
+17 Egenkapital
+
+                                                                                 Reserve for
+                                                                                 udviklings-
+                                                               Egenkapital        projekter         I alt
+                                                                       kr.               kr.           kr.
+Egenkapital primo                                                7.360.375                  0      7.360.375
+Overført til reserver                                             (147.795)          147.795                  0
+Årets resultat                                                   4.713.566                  0      4.713.566
+Egenkapital ultimo                                              11.926.146           147.795      12.073.941
+Økologisk Landsforening | Noter                                                                                      17
+
+
+
+
+18 Langfristet gæld
+                                                                                                2025              2024
+                                                                                                  kr.               kr.
+Feriepengeforpligtelse                                                                     2.628.881         2.525.991
+                                                                                           2.628.881         2.525.991
+
+
+Heraf forfalder 2.418 t.kr. vedrørende feriepengeforpligtelsen efter 5 år.
+
+
+19 Anden gæld
+                                                                                                2025              2024
+                                                                                                  kr.               kr.
+Personalekasse mv.                                                                            25.096            40.168
+Feriepengeforpligtelse                                                                       866.349         1.373.464
+Merværdiafgfit                                                                               303.861                  0
+Skyldig afspadsering, netto                                                                  245.633           237.962
+Skyldige feriepenge                                                                               985             1.339
+Skyldig ATP-bidrag                                                                            28.611            35.937
+Skyldig løn                                                                                         0          163.309
+                                                                                           1.470.535         1.852.179
+
+
+
+20 Eventualaktiver
+Foreningen har pr. 31.12.2025 et skatteaktiv på ca. 1,6 mio.kr. som følge af skattemæssige underskud.
+Foreningen forventer ikke at kunne udnytte det skattemæssige underskud inden for 5 år, hvorfor skatteaktivet ikke
+er aktiveret i årsrapporten.
+
+
+21 Andre ikke-indregnede forpligtelser
+Ikke-indregnede leje og leasingforpligtelser
+Der er indgået lejekontrakt for lejemål i Agro Food Park med en årlig leje på 1.060 t.kr. inkl. fællesomkostninger. Le-
+jemålet er uopsigeligt i 48 mdr. Derudover er der i tillæg til lejekontrakten indgået aftale vedr. finansiering af indret-
+ning af lejede lokaler med en årlig betaling på 20 t.kr. Restløbetid udgør 3 år.
+
+
+22 Pantsætninger og sikkerhedsstillelser
+Til sikkerhed for bankengagement, der på balancedagen udgør et indestående, er der afgivet fordringspant på 7,9
+mio.kr.
+Økologisk Landsforening | Noter               18
+
+
+
+
+23 Mellemregnskaber over projekter med CISU
+Økologisk Landsforening | Noter   19
+Økologisk Landsforening | Anvendt regnskabspraksis                                                                 20
+
+
+
+
+Anvendt regnskabspraksis
+Årsregnskabet er aﬂagt i overensstemmelse med årsregnskabslovens bestemmelser for regnskabsklasse A med til-
+valg af enkelte bestemmelser fra regnskabsklasse B og C.
+
+Udformningen af resultatopgørelsen, balancen og noterne er tilpasset foreningens særlige forhold. Årsregnskabet er
+aﬂagt efter samme regnskabspraksis som sidste år.
+
+Generelt om indregning og måling
+Aktiver indregnes i balancen, når det som følge af en tidligere begivenhed er sandsynligt, at fremtidige
+økonomiske fordele vil tilﬂyde foreningen, og aktivets værdi kan måles pålideligt.
+
+Forpligtelser indregnes i balancen, når foreningen som følge af en tidligere begivenhed har en retlig eller faktisk for-
+pligtelse, og det er sandsynligt, at fremtidige økonomiske fordele vil fragå foreningen, og forpligtelsens værdi kan
+måles pålideligt.
+
+
+Ved første indregning måles aktiver og forpligtelser til kostpris. Måling efter første indregning sker som beskrevet for
+hver enkelt regnskabspost nedenfor.
+
+
+Ved indregning og måling tages hensyn til forudsigelige risici og tab, der fremkommer, inden årsrapporten aﬂægges,
+og som be- eller afkræfter forhold, der eksisterede på balancedagen.
+
+
+I resultatopgørelsen indregnes indtægter, i takt med at de indtjenes, mens omkostninger indregnes med de beløb,
+der vedrører regnskabsåret.
+
+Resultatopgørelsen
+Aktivitetstilskud
+Årets tilskud vedrører aftalte projekter. Der foretages indregning ud fra projektstadiet og ud fra afholdte udgifter
+i regnskabsåret under hensyntagen til de modtagne bevillinger. Der er således indtægtsført tilskud svarende til af-
+holdte projektudgifter, herunder lønninger i forhold til projektets aktuelle stadie.
+
+Medlemskontingenter
+Medlemsbidrag og salgsindtægter indregnes i resultatopgørelsen, når levering og risikoovergang til køber har fundet
+sted. Nettoomsætning indregnes eksklusive moms, afgifter og rabatter i forbindelse med salget og måles til dags-
+værdien af det fastsatte vederlag.
+
+Gaver
+Gaver indregnes når foreningen har modtaget endelig bekræftelse herpå og eventuelle betingelser for gavens
+anvendelse er opfyldt.
+
+Omkostninger
+Omkostninger indregnes med de beløb, der vedrører regnskabsåret.
+
+
+Vareforbrug omfatter regnskabsårets vareforbrug målt til kostpris, reguleret for sædvanlige lagernedskrivninger. Pro-
+jektomkostninger indeholder bl.a. projektudgifterne, hvortil der opnås tilskud.
+Økologisk Landsforening | Anvendt regnskabspraksis                                                               21
+
+
+
+
+Personaleomkostninger omfatter løn og gager såvel som omkostninger til social sikring, pensioner o.l. for forenin-
+gens medarbejdere.
+
+
+Administrations- og lokaleomkostninger omfatter omkostninger, der vedrører foreningens primære aktiviteter,
+herunder lokaleomkostninger, kontorholdsomkostninger mv.
+
+Af- og nedskrivninger
+Af- og nedskrivninger af immaterielle anlægsaktiver består af regnskabsårets af- og nedskrivninger og af gevinster og
+tab ved salg af immaterielle anlægsaktiver.
+
+Finansielle indtægter
+Finansielle indtægter består af renteindtægter, samt urealiserede som realiserede kursreguleringer mv. med det be-
+løb, der vedrører regnskabsåret.
+
+
+Finansielle omkostninger
+Finansielle omkostninger består af renteomkostninger, samt urealiserede som realiserede kursreguleringer mv. med
+det beløb, der vedrører regnskabsåret.
+
+
+Indtægter af kapitalandele i associerede virksomheder
+Indtægter af kapitalandele i associerede virksomheder omfatter de i regnskabsåret modtagne udbytter o.l. fra de
+enkelte associerede virksomheder.
+
+Skat
+Årets skat, som består af årets aktuelle skat, indregnes i resultatopgørelsen med den del, der kan henføres til årets
+resultat, og direkte på egenkapitalen med den del, der kan henføres til posteringer direkte på egenkapitalen.
+
+
+Aktuelle skatteforpligtelser eller tilgodehavende aktuel skat indregnes i balancen opgjort som beregnet skat af årets
+skattepligtige indkomst, reguleret for betalt aconto skat.
+
+
+Udskudt skat indregnes af alle midlertidige forskelle mellem regnskabsmæssige og skattemæssige værdier af aktiver
+og forpligtelser.
+
+
+Udskudte skatteaktiver, herunder skatteværdien af fremførselsberettigede skattemæssige underskud, indregnes i
+balancen med den værdi, aktivet forventes at kunne realiseres til, enten ved modregning i udskudte skatteforpligtel-
+ser eller som nettoskatteaktiver.
+
+Balancen
+Immaterielle anlægsaktiver
+Immaterielle anlægsaktiver omfatter igangværende udviklingsprojekter og hjemmeside.
+
+
+Udviklingsprojekter vedrørende processer, der er klart definerede og identificerbare, hvor den tekniske udnyttelses-
+grad, tilstrækkelige ressourcer og et potentielt fremtidigt marked eller udviklingsmulighed i foreningen kan påvises,
+og hvor det er hensigten at markedsføre eller anvende den pågældende proces, indregnes som immaterielle aktiver.
+Ved indregning af udviklingsprojekter, som immaterielle aktiver bindes et beløb svarende til de afholdte omkostnin-
+ger med fradrag af udskudt skat på egenkapitalen under reserve for udviklingsomkostninger, der nedbringes i takt
+med af – og nedskrivninger på udviklingsprojekterne.
+
+
+Hjemmeside måles til kostpris med fradrag af akkumulerede afskrivninger.
+
+
+Kostprisen omfatter anskaﬀelsesprisen, omkostninger direkte tilknyttet anskaﬀelsen og omkostninger til klargøring
+af aktivet indtil det tidspunkt, hvor aktivet er klar til at blive taget i brug.
+Økologisk Landsforening | Anvendt regnskabspraksis                                                                22
+
+
+
+
+Afskrivningsgrundlaget er kostpris med fradrag af forventet restværdi efter afsluttet brugstid. Der foretages
+lineære afskrivninger baseret på følgende vurdering af aktivernes forventede brugstider:
+
+
+Hjemmeside                                                                                                      3 år
+
+
+Forventede brugstider og restværdier revurderes årligt.
+
+
+Materielle anlægsaktiver nedskrives til genindvindingsværdi, hvis denne er lavere end den regnskabsmæssige
+værdi.
+
+Finansielle anlægsaktiver
+Finansielle anlægsaktiver omfatter børsnoterede værdipapirer, der måles til dagsværdi (børskurs) på balancedagen.
+Unoterede minoritetsaktier måles til kostpris.
+
+
+Kapitalandele i associerede virksomheder indregnes og måles til kostpris. Kapitalandelene nedskrives til genindvin-
+dingsværdi, hvis denne er lavere end den regnskabsmæssige værdi.
+
+Varebeholdninger
+Varebeholdninger måles til kostpris, opgjort efter FIFO-metoden, eller nettorealisationsværdi, hvis denne er lavere.
+Kostprisen omfatter anskaﬀelsesprisen med tillæg af hjemtagelsesomkostninger.
+
+
+Nettorealisationsværdi for varebeholdninger opgøres som forventet salgspris med fradrag af
+færdiggørelsesomkostninger og omkostninger, der skal afholdes for at eﬀektuere salget.
+
+Tilgodehavender
+Tilgodehavender måles til amortiseret kostpris, der sædvanligvis svarer til nominel værdi, med fradrag af
+nedskrivninger til imødegåelse af forventede tab.
+
+
+Igangværende projekter måles til salgsværdien af de på balancedagen afholdte omkostninger.
+
+
+Salgsværdien måles på baggrund af de afholdte omkostninger, herunder også interne lønudgifter og overhead og de
+samlede modtagne forudbetalinger.
+
+
+Hvis salgsværdien af et igangværende projekt ikke kan opgøres pålideligt, måles salgsværdien til de medgåede om-
+kostninger eller til nettorealisationsværdien, hvis denne er lavere.
+
+
+Det enkelte igangværende projekt indregnes i balancedagen under tilgodehavender eller gældsforpligtelser,
+afhængigt af om nettoværdien, der er opgjort som salgsværdien med fradrag af modtagne forudbetalinger,
+er positiv eller negativ.
+
+Periodeafgrænsningsposter
+Periodeafgrænsningsposter indregnet under aktiver omfatter afholdte omkostninger, der vedrører efterfølgende
+regnskabsår. Periodeafgrænsningsposter måles til kostpris.
+
+Likvide beholdninger
+Likvide beholdninger omfatter bankindeståender.
+Økologisk Landsforening | Anvendt regnskabspraksis                                                                 23
+
+
+
+
+Andre hensatte forpligtelser
+Andre hensatte forpligtelser indregnes i balancen, når der på balancedagen er en retlig eller faktisk forpligtelse, som
+er et resultat af en tidligere begivenhed, og det er sandsynligt, at afviklingen heraf vil medføre et træk på de økono-
+miske resurser. Det er en forudsætning, at der kan foretages en pålidelig beløbsmæssig måling af forpligtelsen.
+
+
+Andre hensatte forpligtelser indregnes og måles som det bedste skøn over de omkostninger, der er nødvendige for
+på balancedagen at afvikle forpligtelserne. Hensatte forpligtelser med forventet forfaldstid ud over et år fra balance-
+dagen måles til tilbagediskonteret værdi.
+
+Andre ﬁnansielle forpligtelser
+Andre finansielle forpligtelser, der består af gæld til leverandører, modtagne forudbetalinger samt anden gæld måles
+til amortiseret kostpris, der sædvanligvis svarer til nominel værdi.
+
