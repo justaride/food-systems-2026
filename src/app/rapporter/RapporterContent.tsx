@@ -141,6 +141,29 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
         </p>
       </div>
 
+      <div className="rounded-lg border border-emerald-200 bg-emerald-50/70 p-4">
+        <p className="text-sm font-semibold text-emerald-900">Egen statisk rapport</p>
+        <p className="text-xs text-emerald-700 mt-1">
+          Denne rapporten ligger utenfor det vanlige database-basertede rapportutvalget.
+        </p>
+        <div className="mt-2 flex flex-wrap gap-3 text-sm">
+          <Link
+            href="/rapporter/nordisk-sirkularitetsrapport-2026-05"
+            className="inline-flex text-emerald-900 underline underline-offset-2 hover:text-emerald-950"
+          >
+            Se nordisk sirkularitetsrapport 2026-05 (HTML)
+          </Link>
+          <a
+            href="/reports/nordisk-sirkularitetsrapport-2026-05.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex text-emerald-900 underline underline-offset-2 hover:text-emerald-950"
+          >
+            Last ned PDF
+          </a>
+        </div>
+      </div>
+
       <FilterChips items={categoryFilters} defaultValue="alle" onChange={setCategoryFilter} />
 
       {filtered.length === 0 ? (
