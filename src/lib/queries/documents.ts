@@ -81,6 +81,34 @@ export async function getDocumentBySlug(slug: string) {
       report: true,
       refsFrom: { include: { to: { select: { id: true, title: true, slug: true } } } },
       refsTo: { include: { from: { select: { id: true, title: true, slug: true } } } },
+      insightDocumentRefs: {
+        include: {
+          insight: { select: { id: true, title: true, insightType: true, tags: true } },
+        },
+        orderBy: { insight: { title: 'asc' } },
+      },
+      companyDocumentRefs: {
+        include: {
+          company: {
+            select: {
+              id: true,
+              name: true,
+              valueChainStage: true,
+              ownershipType: true,
+              actor: {
+                select: { id: true, slug: true, name: true, actorType: true, themeTags: true },
+              },
+            },
+          },
+        },
+        orderBy: { company: { name: 'asc' } },
+      },
+      actorDocumentRefs: {
+        include: {
+          actor: { select: { id: true, slug: true, name: true, actorType: true, themeTags: true } },
+        },
+        orderBy: { actor: { name: 'asc' } },
+      },
     },
   })
 }

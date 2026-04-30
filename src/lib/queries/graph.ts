@@ -15,6 +15,7 @@ export type GraphEdge = {
   type: string
   confidence?: number // 0..1 — omitted when unknown
   sourceLabel?: string // provenance label, e.g. "brreg", "inferred", "manual"
+  href?: string
 }
 
 export type DuplicateGroup = {
@@ -265,6 +266,7 @@ export async function getFullGraph(): Promise<GraphData> {
     }),
     prisma.businessRelationship.findMany({
       select: {
+        id: true,
         fromCompanyId: true,
         toCompanyId: true,
         relationshipType: true,
@@ -371,6 +373,7 @@ export async function getFullGraph(): Promise<GraphData> {
         type: r.relationshipType,
         ...(confidence !== undefined ? { confidence } : {}),
         ...(sourceLabel ? { sourceLabel } : {}),
+        href: `/forsyningskjede?relationship=${encodeURIComponent(r.id)}`,
       }
     }),
     ...personEdges,

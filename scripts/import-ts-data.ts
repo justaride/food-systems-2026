@@ -24,6 +24,7 @@ import {
   mediaEntryCodings,
 } from '../src/lib/data/media-corpus'
 import { countryChartData } from '../src/lib/data/country-chart-data'
+import { sustainabilityCountryMetrics } from '../src/lib/data/sustainability-country-metrics'
 import { reports } from '../src/lib/data/reports'
 import type { ReportSupportingSource } from '../src/lib/types'
 
@@ -367,50 +368,48 @@ async function importMeetings() {
       }
     }
 
-    await prisma.document.upsert({
-      where: { filePath: document.filePath },
-      update: {
-        slug: document.slug,
-        title: m.title,
-        author: m.participants.join(', '),
-        year: document.year,
-        documentType: 'meeting-summary',
-        category: 'meetings',
-        subcategory: 'generated',
-        country: null,
-        content: document.content,
-        summary: m.summary,
-        wordCount: document.wordCount,
-        tags: ['meeting', 'meeting-summary', m.id],
-        metadata: {
-          meetingId: m.id,
-          source: m.source,
-          participants: m.participants,
-          generatedFrom: 'src/lib/data/meetings.ts',
-        },
+    const documentData = {
+      slug: document.slug,
+      filePath: document.filePath,
+      title: m.title,
+      author: m.participants.join(', '),
+      year: document.year,
+      documentType: 'meeting-summary',
+      category: 'meetings',
+      subcategory: 'generated',
+      country: null,
+      content: document.content,
+      summary: m.summary,
+      wordCount: document.wordCount,
+      tags: ['meeting', 'meeting-summary', m.id],
+      metadata: {
+        meetingId: m.id,
+        source: m.source,
+        participants: m.participants,
+        generatedFrom: 'src/lib/data/meetings.ts',
       },
-      create: {
-        slug: document.slug,
-        filePath: document.filePath,
-        title: m.title,
-        author: m.participants.join(', '),
-        year: document.year,
-        documentType: 'meeting-summary',
-        category: 'meetings',
-        subcategory: 'generated',
-        country: null,
-        content: document.content,
-        summary: m.summary,
-        wordCount: document.wordCount,
-        tags: ['meeting', 'meeting-summary', m.id],
-        metadata: {
-          meetingId: m.id,
-          source: m.source,
-          participants: m.participants,
-          generatedFrom: 'src/lib/data/meetings.ts',
-        },
+    }
+
+    const existingDocument = await prisma.document.findFirst({
+      where: {
+        OR: [
+          { filePath: document.filePath },
+          { slug: document.slug },
+        ],
       },
+      select: { id: true },
     })
+
+    if (existingDocument) {
+      await prisma.document.update({
+        where: { id: existingDocument.id },
+        data: documentData,
+      })
+    } else {
+      await prisma.document.create({
+        data: documentData,
+      })
+    }
   }
   console.log(`  ${meetings.length} meetings imported`)
 }
@@ -787,6 +786,39 @@ async function importCountryMetrics() {
       }
     }
   }
+
+  for (const metric of sustainabilityCountryMetrics) {
+    await prisma.countryMetric.upsert({
+      where: {
+        country_metricType_category_year: {
+          country: metric.country,
+          metricType: metric.metricType,
+          category: metric.category,
+          year: metric.year,
+        },
+      },
+      update: {
+        value: metric.value,
+        unit: metric.unit,
+        source: metric.source,
+        subtitle: metric.subtitle ?? null,
+        metadata: metric.metadata ?? Prisma.JsonNull,
+      },
+      create: {
+        country: metric.country,
+        metricType: metric.metricType,
+        category: metric.category,
+        value: metric.value,
+        unit: metric.unit,
+        year: metric.year,
+        source: metric.source,
+        subtitle: metric.subtitle ?? null,
+        metadata: metric.metadata ?? Prisma.JsonNull,
+      },
+    })
+    count++
+  }
+
   console.log(`  ${count} country metrics imported`)
 }
 

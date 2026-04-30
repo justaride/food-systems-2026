@@ -238,7 +238,7 @@ export const circularityQuestions: CircularityQuestion[] = [
     id: 'q-regenerativt',
     number: 9,
     question:
-      'Hvorfor ligger Norge pa 5 % okologisk mens Sverige leder (20 %) — og hva drev skiftet i Danmark (CO2-avgift pa kjott)?',
+      'Hvorfor ligger Norge pa 4,7 % okologisk mens Sverige leder (18,4 % i Eurostat 2023; forelopig 16,7 % i 2024) — og hva drev skiftet i Danmark?',
     context:
       'Regenerativ omstilling stanger mot investeringsrisiko hos bonder. Danmark innforer verdens forste CO2-avgift pa kjottproduksjon 2030.',
     rLevels: ['R1'],
@@ -248,7 +248,7 @@ export const circularityQuestions: CircularityQuestion[] = [
       'Arla/Lantmannen pilotprogrammer',
       'DK CO2-avgift (2030)',
     ],
-    successCases: ['SE (20 % okologisk)', 'Agreena'],
+    successCases: ['SE (18,4 % okologisk areal i Eurostat 2023)', 'Agreena'],
     failureCases: [],
     barriers: [
       'Investeringsrisiko for bonder',

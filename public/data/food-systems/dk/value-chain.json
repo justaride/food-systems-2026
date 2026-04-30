@@ -18,13 +18,45 @@
         "pork_tonnes": 1700000,
         "dairy_tonnes": 5600000,
         "grain_tonnes": 9000000,
+        "organic_area_ha": 298939,
+        "organic_share_pct": 11.41,
+        "organic_year": 2023,
+        "organic_source": "Eurostat ORG_CROPAR",
+        "organic_quality_flag": "primary_api",
+        "organic_notes": "Latest comparable Eurostat value for Denmark in checked extract; no 2024 value returned.",
         "notes": "Denmark is Europe's largest pork exporter. 62% of land is agricultural."
       },
       "import_tonnes": null,
       "export_tonnes": null,
       "waste_tonnes": null,
       "co2e_mt": null,
-      "sources": ["DST", "Landbrug & Fødevarer"]
+      "sources": ["DST", "Landbrug & Fødevarer", "organic_agriculture_annual.csv"]
+    },
+    {
+      "name": "Sjømat",
+      "id": "seafood",
+      "volume_tonnes": null,
+      "trade": {
+        "export_value_bn_dkk": 32,
+        "import_value_bn_dkk": 23,
+        "year": 2024
+      },
+      "key_actors": [
+        "Royal Greenland",
+        "Espersen",
+        "FF Skagen",
+        "TripleNine Group",
+        "Sæby Fiskeindustri"
+      ],
+      "notes": "Denmark functions as a Nordic and EU seafood processing and trade hub. Hirtshals and Skagen are key logistics nodes; Danish processors import raw material from Norway, Iceland, Greenland and the Faroe Islands for EU-market processing and re-export.",
+      "data_quality_flag": "local_research_needs_primary_check",
+      "last_verified": "2026-04-29",
+      "confidence": "low",
+      "method_note": "Backfilled from local Nordic value-chain notes and normalized fish/seafood trade CSV to close structural 8/8 coverage. Use as a research placeholder until Danish fisheries/trade sources and company reports are primary-checked.",
+      "sources": [
+        "research/norden/verdikjede/07-sjoemat.md",
+        "research/data/nordic/trade-groups/normalized/dk-trade-group-fish-seafood.csv"
+      ]
     },
     {
       "name": "Foredling",

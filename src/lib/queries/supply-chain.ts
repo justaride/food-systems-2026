@@ -169,6 +169,157 @@ type ProjectDataCandidate = {
   integration: string
 }
 
+type ImportGroupShare = {
+  groupCode: string
+  groupLabel: string
+  sharePct: number
+  value: number
+  unit: string
+  previousSharePct: number | null
+  deltaPctPoints: number | null
+}
+
+type ImportCountryProfile = {
+  country: string
+  latestYear: number
+  rowCount: number
+  totalValue: number
+  unit: string
+  sourceName: string
+  coverage: string
+  comparability: string
+  groups: ImportGroupShare[]
+}
+
+export type ImportVulnerabilityData = {
+  sourcePath: string
+  rowCount: number
+  countries: ImportCountryProfile[]
+  notes: string[]
+}
+
+type CircularLoopRecord = {
+  id: string
+  name: string
+  country: string
+  maturity?: string
+  trl?: number
+  rLevel?: string
+  volume?: string
+  theme: string
+  sources?: string[]
+  nordic_transferable?: boolean
+}
+
+type CircularGapRecord = {
+  id: string
+  name: string
+  country: string
+  rLevel?: string
+  potential_volume?: string
+  barrier?: string
+  policy_lever?: string
+  theme: string
+  sources?: string[]
+}
+
+type CircularActorCase = {
+  name: string
+  country: string
+  concept?: string
+  status?: string
+  cause?: string
+  lesson?: string
+  rLevel?: string
+}
+
+type CircularityLoopsJson = {
+  generated?: string
+  existing_loops?: CircularLoopRecord[]
+  gaps?: CircularGapRecord[]
+  actor_cases?: {
+    success?: CircularActorCase[]
+    failure?: CircularActorCase[]
+  }
+  additional_success?: CircularActorCase[]
+  additional_failure?: CircularActorCase[]
+}
+
+type NutrientFlowsJson = {
+  countries?: Record<string, unknown>
+  technologies?: unknown[]
+}
+
+type CircularThemeRow = {
+  theme: string
+  loopCount: number
+  gapCount: number
+}
+
+type CircularFlowItem = {
+  id: string
+  name: string
+  country: string
+  theme: string
+  rLevel?: string
+  status?: string
+  detail?: string
+}
+
+export type CircularReturnFlowData = {
+  sourcePaths: string[]
+  generated?: string
+  counts: {
+    loops: number
+    gaps: number
+    successCases: number
+    failureCases: number
+    nutrientCountries: number
+    nutrientTechnologies: number
+  }
+  themes: CircularThemeRow[]
+  priorityLoops: CircularFlowItem[]
+  priorityGaps: CircularFlowItem[]
+  actorCases: {
+    success: CircularFlowItem[]
+    failure: CircularFlowItem[]
+  }
+}
+
+type GeoFeature = {
+  properties?: Record<string, unknown>
+}
+
+type GeoJson = {
+  features?: GeoFeature[]
+}
+
+type InfrastructureGroup = {
+  label: string
+  count: number
+}
+
+type InfrastructureExample = {
+  name: string
+  detail: string
+  metric?: string
+}
+
+type InfrastructureLayer = {
+  id: string
+  label: string
+  path: string
+  count: number
+  status: 'ready' | 'staging'
+  groups: InfrastructureGroup[]
+  examples: InfrastructureExample[]
+}
+
+export type InfrastructureData = {
+  layers: InfrastructureLayer[]
+  notes: string[]
+}
+
 export type SupplyChainDataQuality = {
   generatedAt: string
   qualityScore: number
@@ -194,6 +345,8 @@ const TARGET_VALUE_CHAIN_STEPS = [
 
 const FOOD_SYSTEMS_DATA_ROOT = path.join(process.cwd(), 'public', 'data', 'food-systems')
 const NORDIC_DATA_ROOT = path.join(process.cwd(), 'research', 'data', 'nordic')
+const IMPORT_PANEL_PATH = ['trade-groups', 'normalized', 'trade-group-imports-annual.csv']
+const COUNTRY_ORDER = ['NO', 'SE', 'DK', 'FI', 'IS']
 
 function pct(numerator: number, denominator: number): number {
   if (denominator === 0) return 100
@@ -224,6 +377,50 @@ async function countNordicCsvRows(...segments: string[]): Promise<number | null>
   } catch {
     return null
   }
+}
+
+function parseCsvLine(line: string): string[] {
+  const values: string[] = []
+  let current = ''
+  let inQuotes = false
+
+  for (let i = 0; i < line.length; i += 1) {
+    const char = line[i]
+    const next = line[i + 1]
+
+    if (char === '"' && inQuotes && next === '"') {
+      current += '"'
+      i += 1
+      continue
+    }
+
+    if (char === '"') {
+      inQuotes = !inQuotes
+      continue
+    }
+
+    if (char === ',' && !inQuotes) {
+      values.push(current)
+      current = ''
+      continue
+    }
+
+    current += char
+  }
+
+  values.push(current)
+  return values
+}
+
+async function readNordicCsvRecords(...segments: string[]): Promise<Record<string, string>[]> {
+  const text = await readFile(path.join(NORDIC_DATA_ROOT, ...segments), 'utf8')
+  const lines = text.trim().split(/\r?\n/)
+  const header = parseCsvLine(lines[0] ?? '')
+
+  return lines.slice(1).map(line => {
+    const values = parseCsvLine(line)
+    return Object.fromEntries(header.map((key, index) => [key, values[index] ?? '']))
+  })
 }
 
 async function countFoodSystemsJsonRecords(...segments: string[]): Promise<number | null> {
@@ -365,7 +562,7 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
       _count: { _all: true },
     }),
     getValueChainInventory(),
-    countNordicCsvRows('trade-groups', 'normalized', 'trade_groups_imports_annual_panel.csv'),
+    countNordicCsvRows(...IMPORT_PANEL_PATH),
     countNordicCsvRows('core-series', 'prices_hicp_food_monthly.csv'),
     countNordicCsvRows('core-series', 'trade_monthly_first_panel.csv'),
     countNordicCsvRows('core-series', 'production_annual_first_panel.csv'),
@@ -513,7 +710,7 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
     {
       id: 'trade-groups',
       title: 'Importpanel per varegruppe',
-      path: 'research/data/nordic/trade-groups/normalized/trade_groups_imports_annual_panel.csv',
+      path: 'research/data/nordic/trade-groups/normalized/trade-group-imports-annual.csv',
       records: recordLabel(tradeGroupAnnualRows, 'rader'),
       readiness: 'klar-med-forbehold',
       quality: 'medium',
@@ -579,6 +776,299 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
     valueChainInventory,
     projectDataCandidates,
     findings,
+  }
+}
+
+export async function getImportVulnerabilityData(): Promise<ImportVulnerabilityData> {
+  const rows = await readNordicCsvRecords(...IMPORT_PANEL_PATH)
+  const rowsByCountry = new Map<string, Record<string, string>[]>()
+
+  for (const row of rows) {
+    const country = row.country
+    if (!country) continue
+
+    const countryRows = rowsByCountry.get(country) ?? []
+    countryRows.push(row)
+    rowsByCountry.set(country, countryRows)
+  }
+
+  const countries = Array.from(rowsByCountry.entries())
+    .map(([country, countryRows]) => {
+      const latestYear = Math.max(...countryRows.map(row => Number(row.period)).filter(Number.isFinite))
+      const previousYear = Math.max(
+        ...countryRows
+          .map(row => Number(row.period))
+          .filter(year => Number.isFinite(year) && year < latestYear)
+      )
+      const latestRows = countryRows.filter(row => Number(row.period) === latestYear)
+      const previousRows = countryRows.filter(row => Number(row.period) === previousYear)
+      const previousByGroup = new Map(
+        previousRows.map(row => [
+          row.commodity_group,
+          Number(row.share_of_selected_food_basket) * 100,
+        ])
+      )
+
+      const groups = latestRows
+        .map(row => {
+          const sharePct = Number(row.share_of_selected_food_basket) * 100
+          const previousSharePct = previousByGroup.get(row.commodity_group) ?? null
+          return {
+            groupCode: row.commodity_group,
+            groupLabel: row.commodity_group_label,
+            sharePct,
+            value: Number(row.value),
+            unit: row.unit,
+            previousSharePct,
+            deltaPctPoints: previousSharePct == null ? null : sharePct - previousSharePct,
+          }
+        })
+        .sort((a, b) => b.sharePct - a.sharePct)
+
+      return {
+        country,
+        latestYear,
+        rowCount: countryRows.length,
+        totalValue: Number(latestRows[0]?.selected_food_basket_total ?? 0),
+        unit: latestRows[0]?.unit ?? '',
+        sourceName: latestRows[0]?.source_name ?? '',
+        coverage: latestRows[0]?.coverage ?? '',
+        comparability: latestRows[0]?.comparability ?? '',
+        groups,
+      }
+    })
+    .sort((a, b) => {
+      const countryA = COUNTRY_ORDER.indexOf(a.country)
+      const countryB = COUNTRY_ORDER.indexOf(b.country)
+      return (countryA === -1 ? 99 : countryA) - (countryB === -1 ? 99 : countryB)
+    })
+
+  return {
+    sourcePath: `research/data/nordic/${IMPORT_PANEL_PATH.join('/')}`,
+    rowCount: rows.length,
+    countries,
+    notes: [
+      'Bred importproxy per matvaregruppe; sterkest for sammensetning og utvikling innen hvert land.',
+      'Kilder, valuta og klassifikasjoner varierer, så absolutte nivåer skal ikke leses som direkte landrangering.',
+      'Panelet viser importandel av valgt food-basket, ikke total selvforsyning eller fysisk varevolum.',
+    ],
+  }
+}
+
+export async function getCircularReturnFlowData(): Promise<CircularReturnFlowData> {
+  const [circularity, nutrientFlows] = await Promise.all([
+    readFoodSystemsJson<CircularityLoopsJson>('circularity-loops.json'),
+    readFoodSystemsJson<NutrientFlowsJson>('nutrient-flows.json'),
+  ])
+
+  const loops = circularity?.existing_loops ?? []
+  const gaps = circularity?.gaps ?? []
+  const successCases = [
+    ...(circularity?.actor_cases?.success ?? []),
+    ...(circularity?.additional_success ?? []),
+  ]
+  const failureCases = [
+    ...(circularity?.actor_cases?.failure ?? []),
+    ...(circularity?.additional_failure ?? []),
+  ]
+
+  const themeMap = new Map<string, CircularThemeRow>()
+  const ensureTheme = (theme: string) => {
+    const row = themeMap.get(theme) ?? { theme, loopCount: 0, gapCount: 0 }
+    themeMap.set(theme, row)
+    return row
+  }
+
+  for (const loop of loops) ensureTheme(loop.theme).loopCount += 1
+  for (const gap of gaps) ensureTheme(gap.theme).gapCount += 1
+
+  const priorityLoops = loops
+    .filter(loop => loop.nordic_transferable || (loop.trl ?? 0) >= 7)
+    .sort((a, b) => (b.trl ?? 0) - (a.trl ?? 0))
+    .slice(0, 6)
+    .map(loop => ({
+      id: loop.id,
+      name: loop.name,
+      country: loop.country,
+      theme: loop.theme,
+      rLevel: loop.rLevel,
+      status: loop.maturity,
+      detail: loop.volume,
+    }))
+
+  const priorityGaps = gaps
+    .slice()
+    .sort((a, b) => (b.sources?.length ?? 0) - (a.sources?.length ?? 0))
+    .slice(0, 6)
+    .map(gap => ({
+      id: gap.id,
+      name: gap.name,
+      country: gap.country,
+      theme: gap.theme,
+      rLevel: gap.rLevel,
+      status: gap.policy_lever,
+      detail: gap.potential_volume ?? gap.barrier,
+    }))
+
+  const mapActorCase = (item: CircularActorCase): CircularFlowItem => ({
+    id: item.name,
+    name: item.name,
+    country: item.country,
+    theme: item.rLevel ?? 'case',
+    rLevel: item.rLevel,
+    status: item.status ?? item.cause,
+    detail: item.concept ?? item.lesson,
+  })
+
+  return {
+    sourcePaths: [
+      'public/data/food-systems/circularity-loops.json',
+      'public/data/food-systems/nutrient-flows.json',
+    ],
+    generated: circularity?.generated,
+    counts: {
+      loops: loops.length,
+      gaps: gaps.length,
+      successCases: successCases.length,
+      failureCases: failureCases.length,
+      nutrientCountries: Object.keys(nutrientFlows?.countries ?? {}).length,
+      nutrientTechnologies: nutrientFlows?.technologies?.length ?? 0,
+    },
+    themes: Array.from(themeMap.values())
+      .sort((a, b) => (b.loopCount + b.gapCount) - (a.loopCount + a.gapCount))
+      .slice(0, 8),
+    priorityLoops,
+    priorityGaps,
+    actorCases: {
+      success: successCases.slice(0, 4).map(mapActorCase),
+      failure: failureCases.slice(0, 4).map(mapActorCase),
+    },
+  }
+}
+
+function groupGeoFeatures(features: GeoFeature[], property: string): InfrastructureGroup[] {
+  const counts = new Map<string, number>()
+  for (const feature of features) {
+    const value = feature.properties?.[property]
+    const label = typeof value === 'string' || typeof value === 'number' ? String(value) : 'ukjent'
+    counts.set(label, (counts.get(label) ?? 0) + 1)
+  }
+
+  return Array.from(counts.entries())
+    .map(([label, count]) => ({ label, count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 6)
+}
+
+function pickGeoExamples(features: GeoFeature[], layerId: string): InfrastructureExample[] {
+  return features
+    .slice(0, 5)
+    .map(feature => {
+      const props = feature.properties ?? {}
+
+      if (layerId === 'logistics') {
+        return {
+          name: String(props.name ?? props.id ?? 'Ukjent hub'),
+          detail: [props.owner, props.type, props.city].filter(Boolean).join(' · '),
+          metric: props.storesServed ? `${props.storesServed} butikker` : String(props.capacity ?? ''),
+        }
+      }
+
+      if (layerId === 'processing') {
+        return {
+          name: String(props.name ?? props.id ?? 'Ukjent anlegg'),
+          detail: [props.company, props.type].filter(Boolean).join(' · '),
+          metric: props.employees ? `${props.employees} ansatte` : String(props.capacity ?? ''),
+        }
+      }
+
+      if (layerId === 'ports') {
+        return {
+          name: String(props.name ?? props.id ?? 'Ukjent havn'),
+          detail: [props.type, props.region].filter(Boolean).join(' · '),
+          metric: props.annualTonnage ? `${Number(props.annualTonnage).toLocaleString('no')} tonn/år` : '',
+        }
+      }
+
+      if (layerId === 'aquaculture') {
+        return {
+          name: String(props.navn ?? props.loknr ?? 'Ukjent lokalitet'),
+          detail: [props.fylke, props.kommune, props.plassering].filter(Boolean).join(' · '),
+          metric: props.kapasitet_lok ? `${Number(props.kapasitet_lok).toLocaleString('no')} ${props.kapasitet_unittype ?? ''}` : '',
+        }
+      }
+
+      return {
+        name: String(props.name ?? props.id ?? 'Ukjent punkt'),
+        detail: [props.type, props.municipalityCode].filter(Boolean).join(' · '),
+        metric: props.productionArea ? `${props.productionArea} daa` : '',
+      }
+    })
+}
+
+export async function getInfrastructureData(): Promise<InfrastructureData> {
+  const layerSpecs = [
+    {
+      id: 'logistics',
+      label: 'Logistikkhubber',
+      path: 'logistics_hubs.geojson',
+      groupProperty: 'type',
+      status: 'ready' as const,
+    },
+    {
+      id: 'processing',
+      label: 'Foredlingsanlegg',
+      path: 'processing_plants.geojson',
+      groupProperty: 'type',
+      status: 'ready' as const,
+    },
+    {
+      id: 'ports',
+      label: 'Havner',
+      path: 'ports.geojson',
+      groupProperty: 'type',
+      status: 'ready' as const,
+    },
+    {
+      id: 'aquaculture',
+      label: 'Akvakulturlokaliteter',
+      path: 'aquaculture_sites.geojson',
+      groupProperty: 'fylke',
+      status: 'staging' as const,
+    },
+    {
+      id: 'farms',
+      label: 'Eksempelgårder',
+      path: 'farms.geojson',
+      groupProperty: 'type',
+      status: 'staging' as const,
+    },
+  ]
+
+  const layers = await Promise.all(
+    layerSpecs.map(async spec => {
+      const data = await readFoodSystemsJson<GeoJson>(spec.path)
+      const features = data?.features ?? []
+
+      return {
+        id: spec.id,
+        label: spec.label,
+        path: `public/data/food-systems/${spec.path}`,
+        count: features.length,
+        status: spec.status,
+        groups: groupGeoFeatures(features, spec.groupProperty),
+        examples: pickGeoExamples(features, spec.id),
+      }
+    })
+  )
+
+  return {
+    layers,
+    notes: [
+      'GeoJSON-lagene er romlige arbeidslag for flaskehals- og infrastrukturvisning.',
+      'Akvakultur-GeoJSON er ikke samme paritetsgrunnlag som prod-tabellen i Gate C og skal ikke brukes som row-count-fasit.',
+      'Kobling til selskap, kommune og kilde-ID må harmoniseres før kartlaget blir beslutningsdata.',
+    ],
   }
 }
 

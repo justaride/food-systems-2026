@@ -4,9 +4,9 @@
   "population": 390000,
   "currency": "ISK",
   "selfSufficiency": {
-    "caloric_pct": null,
-    "notes": "Data limited. High fish consumption (83.8 kg/capita, ~3x Norway). Import dependent for most non-seafood products.",
-    "source": "Hagstofa Íslands"
+    "caloric_pct": 53,
+    "notes": "Data limited. High fish consumption (83.8 kg/capita, ~3x Norway). Near self-sufficient in fish, dairy and meat, but highly import dependent for grain and most non-seafood products.",
+    "source": "Hagstofa Íslands, policy-landscape.json"
   },
   "steps": [
     {
@@ -14,17 +14,77 @@
       "id": "primary",
       "volume_tonnes": null,
       "breakdown": {
+        "organic_area_ha": 6400,
+        "organic_share_pct": 0.4,
+        "organic_year": 2023,
+        "organic_source": "Food Systems 2026 research note",
+        "organic_quality_flag": "needs_primary_check",
+        "organic_notes": "Local estimate retained for Nordic completeness. EEA 2025 provides historical organic UAA share for 2012-2020 only, while TRACES confirms current operator certificates; Iceland area/market remains needs_primary_check.",
         "notes": "Sheep farming and dairy significant. Geothermal greenhouses (tomatoes, cucumbers) are unique to Iceland. Fish is dominant sector."
       },
-      "sources": ["Hagstofa Íslands"]
+      "sources": [
+        "Hagstofa Íslands",
+        "organic_agriculture_annual.csv"
+      ]
     },
     {
       "name": "Sjømat",
       "id": "seafood",
       "volume_tonnes": null,
       "notes": "World's most technologically advanced whitefish processing (Marel technology). Key export sector. Samherji is largest company.",
-      "key_actors": ["Samherji", "Marel"],
-      "sources": ["verdikjede.ts"]
+      "key_actors": [
+        "Samherji",
+        "Marel"
+      ],
+      "sources": [
+        "verdikjede.ts",
+        "research/norden/verdikjede/07-sjoemat.md"
+      ]
+    },
+    {
+      "name": "Foredling",
+      "id": "processing",
+      "volume_tonnes": null,
+      "key_actors": [
+        "Samherji hf",
+        "Brim hf",
+        "Vísir hf",
+        "Skinney-Thinganes",
+        "MS Iceland Dairies",
+        "SS Sláturfélag Suðurlands",
+        "Ölgerðin"
+      ],
+      "notes": "Food processing is split between a globally advanced seafood-processing cluster and a small domestic food industry. Local research notes describe Iceland as having the highest seafood processing degree in the Nordics, with about 60% of fish processed domestically, while non-seafood food industry statistics remain limited.",
+      "data_quality_flag": "local_research_needs_primary_check",
+      "last_verified": "2026-04-29",
+      "confidence": "low",
+      "method_note": "Backfilled from local Nordic value-chain notes to close structural 8/8 coverage. Actor list and processing-share claim need primary confirmation from Icelandic statistics, company reports, or sector sources before validated use.",
+      "sources": [
+        "research/norden/verdikjede/07-sjoemat.md",
+        "research/norden/verdikjede/02-foredling.md"
+      ]
+    },
+    {
+      "name": "Distribusjon/grossist",
+      "id": "distribution",
+      "volume_tonnes": null,
+      "key_actors": [
+        "Aðföng (Hagar)",
+        "Bakkinn vöruhótel (Festi/Krónan)",
+        "Samkaup",
+        "Garri ehf",
+        "Innnes",
+        "Reykjavík harbour"
+      ],
+      "notes": "Small island market concentrated around Reykjavík. Grocery distribution is highly integrated through Hagar/Aðföng, Festi/Bakkinn and Samkaup, while Garri and Innnes are important HoReCa/import wholesalers. Reykjavík is the main food import harbour.",
+      "data_quality_flag": "local_research_needs_primary_check",
+      "last_verified": "2026-04-29",
+      "confidence": "low",
+      "method_note": "Backfilled from local Nordic distribution and HoReCa notes to close structural 8/8 coverage. Distribution ownership, logistics roles, and harbour relevance need primary confirmation before import into relationship graph.",
+      "sources": [
+        "research/norden/verdikjede/03-distribusjon-logistikk.md",
+        "research/norden/verdikjede/05-horeca.md"
+      ]
     },
     {
       "name": "Detaljhandel",
@@ -33,7 +93,49 @@
         "notes": "Hagar dominates. 80% of consumers report competition problems.",
         "dominant_actor": "Hagar"
       },
-      "sources": ["chart-metrics.json"]
+      "sources": [
+        "chart-metrics.json"
+      ]
+    },
+    {
+      "name": "HoReCa",
+      "id": "horeca",
+      "volume_tonnes": null,
+      "key_actors": [
+        "Garri ehf",
+        "Innnes",
+        "Aðföng",
+        "tourism-linked restaurants and hotels"
+      ],
+      "notes": "HoReCa is disproportionately important because tourism drives demand. Local research estimates 800-1,000 restaurants and roughly 40-45% of total food consumption through HoReCa/foodservice channels, but tonnage and waste data remain unverified.",
+      "waste_tonnes": null,
+      "data_quality_flag": "local_research_needs_primary_check",
+      "last_verified": "2026-04-29",
+      "confidence": "low",
+      "method_note": "Backfilled from local Nordic HoReCa notes to close structural 8/8 coverage. Restaurant-count, channel-share, tonnage and waste claims must be checked against Icelandic tourism/foodservice statistics or sector reports.",
+      "sources": [
+        "research/norden/verdikjede/05-horeca.md"
+      ]
+    },
+    {
+      "name": "Husholdning",
+      "id": "household",
+      "volume_tonnes": null,
+      "waste_tonnes": null,
+      "consumption": {
+        "fish_kg_per_capita": 83.8,
+        "food_spend_share_pct": 13.2,
+        "organic_share_pct_estimate": 1.5
+      },
+      "notes": "Household consumption is marked by very high fish intake, high food prices and import dependency. Rural access is more constrained than in the larger Nordic countries because distribution is centralized around Reykjavík.",
+      "data_quality_flag": "local_research_needs_primary_check",
+      "last_verified": "2026-04-29",
+      "confidence": "low",
+      "method_note": "Backfilled from local Nordic consumption and waste notes to close structural 8/8 coverage. Fish consumption, food-spend share and organic-share estimate require primary confirmation before country comparison.",
+      "sources": [
+        "research/norden/verdikjede/08-forbruk.md",
+        "research/norden/verdikjede/06-matsvinn-sirkulaer.md"
+      ]
     },
     {
       "name": "Avfall/sirkularitet",
@@ -45,12 +147,21 @@
         "mandatory_food_waste_sorting": "2023, 4 fractions",
         "no_national_food_waste_strategy": true
       },
-      "sources": ["SA-02"]
+      "sources": [
+        "SA-02"
+      ]
     }
   ],
   "key_policies": [
-    { "name": "Kildesortering 4 fraksjoner", "year": 2023, "type": "mandatory" },
-    { "name": "Matarsoun-initiativ", "type": "voluntary" }
+    {
+      "name": "Kildesortering 4 fraksjoner",
+      "year": 2023,
+      "type": "mandatory"
+    },
+    {
+      "name": "Matarsoun-initiativ",
+      "type": "voluntary"
+    }
   ],
-  "data_quality": "Low. Significant gaps across all value chain steps. Priority for data harvest."
+  "data_quality": "Medium-low. Structural step coverage is now 8/8 after local research backfill, but volume fields and primary verification are still missing for several Iceland-specific steps."
 }

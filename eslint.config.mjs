@@ -6,6 +6,7 @@ const config = [
       '.next/**',
       'node_modules/**',
       'node_modules.old.*/**',
+      '.worktrees/**',
       'src/generated/**',
       'public/**',
       'research/**',

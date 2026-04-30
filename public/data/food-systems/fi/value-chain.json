@@ -27,13 +27,45 @@
         "grain_self_sufficiency_pct": "113-140",
         "grain_self_sufficiency_notes": "Net exporter of cereals",
         "farm_count_trend": "-40% since 2010",
+        "organic_area_ha": 304551,
+        "organic_share_pct": 13.49,
+        "organic_year": 2024,
+        "organic_source": "Eurostat ORG_CROPAR",
+        "organic_quality_flag": "primary_api_definition_diff",
+        "organic_notes": "Latest Eurostat value; status d means definition differs. Comparable 2023 panel value was 13.52% / 306,348 ha.",
         "notes": "Oat production particularly strong. Finland is world's largest per-capita oat producer."
       },
       "import_tonnes": null,
       "export_tonnes": null,
       "waste_tonnes": null,
       "co2e_mt": null,
-      "sources": ["Luke (Naturresursinstitutet)", "stat.fi PxWeb"]
+      "sources": ["Luke (Naturresursinstitutet)", "stat.fi PxWeb", "organic_agriculture_annual.csv"]
+    },
+    {
+      "name": "Sjømat",
+      "id": "seafood",
+      "volume_tonnes": null,
+      "trade": {
+        "export_value_bn_eur": 0.3,
+        "import_value_m_eur": 560,
+        "year": 2024
+      },
+      "key_actors": [
+        "Kalaneuvos",
+        "Kalajakala",
+        "Apetit Kala",
+        "Hätälä",
+        "Nordic Trout"
+      ],
+      "notes": "Finland has fragmented coastal and inland fisheries plus a processing sector built around trout, herring, imported salmon and lake fish. A major share of commercial Baltic herring goes to fishmeal or feed rather than human consumption.",
+      "data_quality_flag": "local_research_needs_primary_check",
+      "last_verified": "2026-04-29",
+      "confidence": "low",
+      "method_note": "Backfilled from local Nordic value-chain notes and normalized fish/seafood trade CSV to close structural 8/8 coverage. Use as a research placeholder until Finnish fisheries/trade sources and company reports are primary-checked.",
+      "sources": [
+        "research/norden/verdikjede/07-sjoemat.md",
+        "research/data/nordic/trade-groups/normalized/fi-trade-group-fish-seafood.csv"
+      ]
     },
     {
       "name": "Foredling",

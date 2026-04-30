@@ -20,14 +20,44 @@
         "barley_tonnes": 1500000,
         "oats_tonnes": 900000,
         "rye_rapeseed_other_tonnes": 1200000,
-        "organic_share_pct": 20.2,
-        "organic_notes": "Highest organic farmland share in Nordics"
+        "organic_area_ha": 495568,
+        "organic_share_pct": 16.66,
+        "organic_year": 2024,
+        "organic_source": "Eurostat ORG_CROPAR",
+        "organic_quality_flag": "primary_api",
+        "organic_notes": "Latest Eurostat value. Comparable 2023 panel value was 18.44% / 549,941 ha; Sweden remains highest among Nordic countries with checked Eurostat values."
       },
       "import_tonnes": null,
       "export_tonnes": null,
       "waste_tonnes": null,
       "co2e_mt": null,
-      "sources": ["SCB", "Jordbruksverket", "SCB PxWeb"]
+      "sources": ["SCB", "Jordbruksverket", "SCB PxWeb", "organic_agriculture_annual.csv"]
+    },
+    {
+      "name": "Sjømat",
+      "id": "seafood",
+      "volume_tonnes": null,
+      "trade": {
+        "import_value_bn_sek": 61.8,
+        "export_value_bn_sek": 14,
+        "net_import_value_bn_sek": 48,
+        "year": 2024
+      },
+      "key_actors": [
+        "Abba Seafood",
+        "Leröy Smögen Seafood",
+        "Lysekils Havsdelikatesser",
+        "Feldthusen"
+      ],
+      "notes": "Sweden is mainly a seafood importer and processor for the domestic market. Norwegian salmon is the largest import category; local catch is constrained by Baltic Sea stock and governance challenges.",
+      "data_quality_flag": "local_research_needs_primary_check",
+      "last_verified": "2026-04-29",
+      "confidence": "low",
+      "method_note": "Backfilled from local Nordic value-chain notes and normalized fish/seafood trade CSV to close structural 8/8 coverage. Do not treat as primary-validated until official trade/fisheries sources and actor reports are checked.",
+      "sources": [
+        "research/norden/verdikjede/07-sjoemat.md",
+        "research/data/nordic/trade-groups/normalized/se-trade-group-fish-seafood.csv"
+      ]
     },
     {
       "name": "Foredling",

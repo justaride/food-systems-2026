@@ -17,10 +17,94 @@ const OLD_ORGNRS = [
   '929094636',
 ]
 
-async function main() {
-  console.log('Cleaning up old company records with wrong orgNrs...\n')
+const args = process.argv.slice(2)
+const apply = args.includes('--apply')
+const requestedOrgNrs = args
+  .filter(arg => arg.startsWith('--orgnr='))
+  .flatMap(arg => arg.replace('--orgnr=', '').split(','))
+  .map(orgNr => orgNr.trim())
+  .filter(Boolean)
+const targetOrgNrs = requestedOrgNrs.length > 0 ? requestedOrgNrs : OLD_ORGNRS
 
-  for (const orgNr of OLD_ORGNRS) {
+type DeletePlan = {
+  companyDocumentRefs: number
+  subsidies: number
+  boardMembers: number
+  shareholders: number
+  financials: number
+  ownedProperties: number
+  ownershipRelations: number
+  businessRelationships: number
+  tenantPropertyRefs: number
+  actor: {
+    id: string
+    documentRefs: number
+    contacts: number
+    relationships: number
+  } | null
+}
+
+async function getDeletePlan(companyId: string): Promise<DeletePlan> {
+  const actor = await prisma.actor.findUnique({
+    where: { companyId },
+    select: { id: true },
+  })
+
+  return {
+    companyDocumentRefs: await prisma.companyDocumentRef.count({ where: { companyId } }),
+    subsidies: await prisma.subsidy.count({ where: { companyId } }),
+    boardMembers: await prisma.boardMember.count({ where: { companyId } }),
+    shareholders: await prisma.shareholder.count({ where: { companyId } }),
+    financials: await prisma.companyFinancial.count({ where: { companyId } }),
+    ownedProperties: await prisma.companyProperty.count({ where: { companyId } }),
+    ownershipRelations: await prisma.companyOwnership.count({
+      where: { OR: [{ parentCompanyId: companyId }, { childCompanyId: companyId }] },
+    }),
+    businessRelationships: await prisma.businessRelationship.count({
+      where: { OR: [{ fromCompanyId: companyId }, { toCompanyId: companyId }] },
+    }),
+    tenantPropertyRefs: await prisma.companyProperty.count({ where: { tenantCompanyId: companyId } }),
+    actor: actor
+      ? {
+          id: actor.id,
+          documentRefs: await prisma.actorDocumentRef.count({ where: { actorId: actor.id } }),
+          contacts: await prisma.actorContact.count({ where: { actorId: actor.id } }),
+          relationships: await prisma.actorRelationship.count({
+            where: { OR: [{ fromActorId: actor.id }, { toActorId: actor.id }] },
+          }),
+        }
+      : null,
+  }
+}
+
+function printDeletePlan(plan: DeletePlan) {
+  console.log(`    companyDocumentRefs: ${plan.companyDocumentRefs}`)
+  console.log(`    subsidies: ${plan.subsidies}`)
+  console.log(`    boardMembers: ${plan.boardMembers}`)
+  console.log(`    shareholders: ${plan.shareholders}`)
+  console.log(`    financials: ${plan.financials}`)
+  console.log(`    ownedProperties: ${plan.ownedProperties}`)
+  console.log(`    ownershipRelations: ${plan.ownershipRelations}`)
+  console.log(`    businessRelationships: ${plan.businessRelationships}`)
+  console.log(`    tenantPropertyRefs to null: ${plan.tenantPropertyRefs}`)
+  if (plan.actor) {
+    console.log(`    actor: ${plan.actor.id}`)
+    console.log(`    actorDocumentRefs: ${plan.actor.documentRefs}`)
+    console.log(`    actorContacts: ${plan.actor.contacts}`)
+    console.log(`    actorRelationships: ${plan.actor.relationships}`)
+  }
+}
+
+async function main() {
+  console.log(`${apply ? 'APPLY' : 'DRY-RUN'} cleanup for old company records with wrong orgNrs`)
+  console.log(`Targets: ${targetOrgNrs.join(', ')}`)
+  if (!apply) {
+    console.log('No writes will be performed. Re-run with --apply to delete.\n')
+  } else {
+    console.log('Writes enabled by --apply.\n')
+  }
+
+  for (const orgNr of targetOrgNrs) {
     const company = await prisma.company.findUnique({
       where: { orgNr },
       select: { id: true, name: true },
@@ -32,6 +116,13 @@ async function main() {
     }
 
     console.log(`  ${orgNr} — ${company.name} (${company.id})`)
+    const plan = await getDeletePlan(company.id)
+    printDeletePlan(plan)
+
+    if (!apply) {
+      console.log('    dry-run only')
+      continue
+    }
 
     await prisma.companyDocumentRef.deleteMany({ where: { companyId: company.id } })
     await prisma.subsidy.deleteMany({ where: { companyId: company.id } })
@@ -49,14 +140,13 @@ async function main() {
       where: { tenantCompanyId: company.id },
       data: { tenantCompanyId: null },
     })
-    const actor = await prisma.actor.findUnique({ where: { companyId: company.id } })
-    if (actor) {
-      await prisma.actorDocumentRef.deleteMany({ where: { actorId: actor.id } })
-      await prisma.actorContact.deleteMany({ where: { actorId: actor.id } })
+    if (plan.actor) {
+      await prisma.actorDocumentRef.deleteMany({ where: { actorId: plan.actor.id } })
+      await prisma.actorContact.deleteMany({ where: { actorId: plan.actor.id } })
       await prisma.actorRelationship.deleteMany({
-        where: { OR: [{ fromActorId: actor.id }, { toActorId: actor.id }] },
+        where: { OR: [{ fromActorId: plan.actor.id }, { toActorId: plan.actor.id }] },
       })
-      await prisma.actor.delete({ where: { id: actor.id } })
+      await prisma.actor.delete({ where: { id: plan.actor.id } })
     }
     await prisma.company.delete({ where: { id: company.id } })
     console.log(`    ✓ deleted`)

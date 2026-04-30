@@ -60,27 +60,39 @@ const SPECS: CommoditySpec[] = [
     valueGroups: [
       {
         commodity: 'korn-bygg',
-        sumColumns: ['bygg_for_kg', 'bygg_sakorn_kg'],
+        sumColumns: ['bygg', 'bygg_for', 'bygg_for_kg', 'bygg_sakorn', 'bygg_sakorn_kg'],
       },
       {
         commodity: 'korn-havre',
-        sumColumns: ['havre_for_kg', 'havre_sakorn_kg'],
+        sumColumns: ['havre', 'havre_for', 'havre_for_kg', 'havre_sakorn', 'havre_sakorn_kg'],
       },
       {
         commodity: 'korn-hvete',
-        sumColumns: ['hvete_for_kg', 'hvete_mat_kg', 'hvete_sakorn_kg'],
+        sumColumns: ['hvete_for', 'hvete_for_kg', 'hvete_mat', 'hvete_mat_kg', 'hvete_sakorn', 'hvete_sakorn_kg'],
       },
       {
         commodity: 'korn-rug',
-        sumColumns: ['rug_for_kg', 'rug_mat_kg', 'rug_sakorn_kg', 'rughvete_for_kg', 'rughvete_sakorn_kg'],
+        sumColumns: [
+          'rug_for',
+          'rug_for_kg',
+          'rug_mat',
+          'rug_mat_kg',
+          'rug_sakorn',
+          'rug_sakorn_kg',
+          'rughvete',
+          'rughvete_for',
+          'rughvete_for_kg',
+          'rughvete_sakorn',
+          'rughvete_sakorn_kg',
+        ],
       },
       {
         commodity: 'korn-erter',
-        sumColumns: ['erter_for_kg', 'erter_sakorn_kg'],
+        sumColumns: ['erter', 'erter_for', 'erter_for_kg', 'erter_sakorn', 'erter_sakorn_kg'],
       },
       {
         commodity: 'oljefro',
-        sumColumns: ['oljefro_kg', 'oljefro_sakorn_kg'],
+        sumColumns: ['oljefro', 'oljefro_kg', 'oljefro_sakorn', 'oljefro_sakorn_kg'],
       },
     ],
   },
