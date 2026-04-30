@@ -4,11 +4,14 @@ import { ChartCard } from '@/components/sammenligning/ChartCard'
 import { ComparisonTable } from '@/components/sammenligning/ComparisonTable'
 import { KeyTakeaway } from '@/components/sammenligning/KeyTakeaway'
 import { PolicyTimeline } from '@/components/sammenligning/PolicyTimeline'
+import { ChartFrame } from '@/components/visualization/ChartFrame'
+import { NoMarketShareTimeseries } from '@/components/charts/NoMarketShareTimeseries'
 import { COUNTRY_LIST } from '@/lib/config/countries'
 import type { CountryCode } from '@/lib/config/countries'
 import type { SammenligningData, CountrySammenligning } from '@/lib/queries/sammenligning'
+import type { NoMarketShareTimeSeries } from '@/lib/queries/market-share'
 
-type Props = { data: SammenligningData }
+type Props = { data: SammenligningData; noMarketShare: NoMarketShareTimeSeries }
 
 function rowsFor<T>(
   data: SammenligningData,
@@ -26,7 +29,7 @@ function rowsFor<T>(
   })
 }
 
-export function SammenligningContent({ data }: Props) {
+export function SammenligningContent({ data, noMarketShare }: Props) {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <header className="mb-10">
@@ -95,6 +98,18 @@ export function SammenligningContent({ data }: Props) {
           />
         )
       })()}
+
+      {noMarketShare.rows.length > 0 && (
+        <div className="my-6">
+          <ChartFrame
+            title="Norge: utvikling i markedsandeler 2020–2024"
+            contract={noMarketShare.contract}
+          >
+            <NoMarketShareTimeseries rows={noMarketShare.rows} />
+          </ChartFrame>
+        </div>
+      )}
+
       {(() => {
         const ss = rowsFor(data, c => c.preparedness.selfSufficiencyCaloricPct)
         const importTon = rowsFor(data, c => c.preparedness.importTonnes)
