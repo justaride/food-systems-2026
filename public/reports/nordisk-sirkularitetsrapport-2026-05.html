@@ -1,0 +1,1390 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nordisk sirkularitetsrapport v1.2 — 5 fokusområder for transition-gruppa (mai 2026)</title>
+<style>
+  :root{
+    --content-width: min(1060px, 94vw);
+    --emerald-50:#ecfdf5; --emerald-100:#d1fae5; --emerald-200:#a7f3d0;
+    --emerald-500:#10b981; --emerald-600:#059669; --emerald-700:#047857;
+    --emerald-800:#065f46; --emerald-900:#064e3b;
+    --stone-50:#fafaf9; --stone-100:#f5f5f4; --stone-200:#e7e5e4;
+    --stone-300:#d6d3d1; --stone-400:#a8a29e; --stone-500:#78716c;
+    --stone-600:#57534e; --stone-700:#44403c; --stone-800:#292524;
+    --stone-900:#1c1917;
+    --amber-50:#fffbeb; --amber-100:#fef3c7; --amber-300:#fcd34d; --amber-700:#b45309;
+    --rose-50:#fff1f2; --rose-100:#ffe4e6; --rose-300:#fda4af; --rose-700:#be123c;
+    --sky-50:#f0f9ff; --sky-100:#e0f2fe; --sky-300:#7dd3fc; --sky-700:#0369a1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0; scroll-behavior:smooth}
+  body{
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color:var(--stone-800); background:
+      radial-gradient(1400px 500px at 10% -20%, rgba(16,185,129,.08), transparent 45%),
+      radial-gradient(1200px 480px at 90% -18%, rgba(125,211,252,.1), transparent 50%),
+      var(--stone-50);
+    line-height:1.7;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:var(--emerald-700); text-decoration:none; transition:color .2s ease}
+  a:hover{color:var(--emerald-900); text-decoration:underline}
+  .wrap{max-width:var(--content-width); margin:0 auto; padding:0 24px}
+
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,.94); backdrop-filter:saturate(180%) blur(8px);
+    border-bottom:1px solid var(--stone-200);
+    box-shadow:0 6px 20px rgba(28,25,23,.04);
+  }
+  .topbar-inner{display:flex; align-items:center; gap:18px; padding:10px 20px; max-width:var(--content-width); margin:0 auto}
+  .brand{font-weight:700; color:var(--emerald-800); font-size:14px; letter-spacing:.02em}
+  .brand small{color:var(--stone-500); font-weight:500}
+  .nav{display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12px; color:var(--stone-600); margin-left:auto}
+  .nav a{color:var(--stone-600)}
+  .nav a:hover{color:var(--emerald-700)}
+
+  .hero{
+    background:linear-gradient(135deg,#ecfdf5 0%, #f0fdfa 60%, #f5f5f4 100%);
+    border-bottom:1px solid var(--stone-200);
+    padding:64px 0 52px;
+  }
+  .eyebrow{color:var(--emerald-700); font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:600}
+  .hero h1{font-size:42px; line-height:1.1; margin:10px 0 14px; color:var(--stone-900); letter-spacing:-.02em; max-width:880px}
+  .hero p.lead{font-size:18px; color:var(--stone-600); max-width:820px; margin:0 0 24px}
+  .meta{display:flex; flex-wrap:wrap; gap:14px 24px; font-size:13px; color:var(--stone-700)}
+  .meta b{color:var(--stone-900); font-weight:600}
+
+  section{padding:56px 0; border-bottom:1px solid var(--stone-200)}
+  section.alt{background:#fff}
+  section[id]{scroll-margin-top:74px}
+  section h2{
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--emerald-700);
+    font-weight:700; margin:0 0 8px;
+  }
+  section h3.title{font-size:28px; line-height:1.2; color:var(--stone-900); margin:0 0 18px; letter-spacing:-.01em}
+  section p.lead{font-size:16px; color:var(--stone-600); max-width:820px; margin:0 0 24px}
+  section h4{font-size:18px; color:var(--stone-900); margin:24px 0 8px}
+
+  .metric-grid{
+    display:grid; gap:12px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    margin:18px 0 20px;
+  }
+  .metric-card{
+    background:#fff;
+    border:1px solid var(--stone-200);
+    border-radius:12px;
+    padding:12px 14px;
+    position:relative;
+    overflow:hidden;
+  }
+  .metric-card:before{
+    content:""; position:absolute; inset:0 0 auto 0; height:4px; background:var(--emerald-300);
+  }
+  .metric-card.rose:before{background:var(--rose-300)}
+  .metric-card.amber:before{background:var(--amber-300)}
+  .metric-card.sky:before{background:var(--sky-300)}
+  .metric-value{
+    font-size:32px; line-height:1; font-weight:800; letter-spacing:-.01em;
+    color:var(--emerald-800); font-variant-numeric:tabular-nums;
+  }
+  .metric-card.rose .metric-value{color:var(--rose-700)}
+  .metric-card.amber .metric-value{color:var(--amber-700)}
+  .metric-card.sky .metric-value{color:var(--sky-700)}
+  .metric-label{
+    margin:4px 0 5px; font-size:11px; color:var(--stone-600);
+    text-transform:uppercase; letter-spacing:.08em; font-weight:700;
+  }
+  .metric-note{
+    font-size:12px; color:var(--stone-600); margin:0;
+  }
+  .signal-grid{
+    display:grid; gap:10px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    margin:16px 0;
+  }
+  .signal-card{
+    border:1px solid var(--stone-200); border-radius:10px; padding:10px 12px;
+    background:linear-gradient(180deg, #fff, var(--stone-50));
+    box-shadow:0 1px 8px rgba(28,25,23,.04);
+  }
+  .signal-label{
+    color:var(--emerald-700); font-size:11px; text-transform:uppercase;
+    letter-spacing:.08em; font-weight:700; margin-bottom:4px;
+  }
+  .signal-value{
+    font-size:28px; font-weight:800; line-height:1; letter-spacing:-.01em;
+    color:var(--stone-900); margin-bottom:4px;
+  }
+  .signal-note{
+    margin:0; color:var(--stone-600); font-size:12px; line-height:1.45;
+  }
+
+  .card{
+    background:#fff; border:1px solid var(--stone-200); border-radius:12px; padding:20px;
+    box-shadow:0 2px 18px rgba(28,25,23,.03);
+  }
+  .card.alt{background:var(--stone-50)}
+  .card.amber{background:var(--amber-50); border-color:var(--amber-300)}
+  .card.rose{background:var(--rose-50); border-color:var(--rose-300)}
+  .card.emerald{background:var(--emerald-50); border-color:var(--emerald-200)}
+  .card.sky{background:var(--sky-50); border-color:var(--sky-300)}
+
+  .grid{display:grid; gap:14px}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:780px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+  .table-wrap{
+    background:#fff; border:1px solid var(--stone-200); border-radius:12px; margin:8px 0 24px; overflow:auto;
+    box-shadow:0 2px 18px rgba(28,25,23,.03);
+  }
+  .table-wrap table{margin:0}
+  table{width:100%; min-width:700px; border-collapse:collapse; font-size:13px; margin:0}
+  th,td{text-align:left; padding:10px; border-bottom:1px solid var(--stone-200); vertical-align:top}
+  thead th{
+    background:var(--stone-100); font-weight:600; color:var(--stone-700);
+    font-size:12px; letter-spacing:.02em; position:sticky; top:0; z-index:2;
+  }
+  tbody tr:nth-child(even){background:var(--stone-50)}
+  tbody tr:hover td{background:#eefcf5}
+  td.num{text-align:right; font-variant-numeric:tabular-nums}
+  td.score{text-align:center; font-weight:700; color:var(--stone-900)}
+  .table-caption{
+    display:block; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--stone-600); font-weight:700;
+    padding:8px 12px 6px; border-bottom:1px solid var(--stone-200); background:#fff;
+  }
+  .table-wrap th:first-child,
+  .table-wrap td:first-child{
+    position:sticky; left:0; z-index:3;
+  }
+  .table-wrap thead th:first-child{background:var(--stone-100)}
+  .table-wrap tbody tr:nth-child(even) td:first-child{background:var(--stone-50)}
+  .table-wrap tbody tr:nth-child(odd) td:first-child{background:#fff}
+
+  .heat-1{background:#fef2f2; color:#7f1d1d}
+  .heat-2{background:#fff7ed; color:#9a3412}
+  .heat-3{background:var(--stone-50); color:var(--stone-700)}
+  .heat-4{background:#ecfdf5; color:#065f46}
+  .heat-5{background:#a7f3d0; color:#064e3b; font-weight:700}
+
+  .focus{
+    background:#fff; border:1px solid var(--stone-200); border-radius:12px; padding:24px; margin-bottom:16px;
+    border-left:4px solid var(--emerald-500);
+  }
+
+  .viz-block{
+    background:#fff; border:1px solid var(--stone-200); border-radius:10px; padding:14px 16px; margin:10px 0 22px;
+  }
+  .viz-title{
+    margin:0 0 10px; color:var(--stone-700); font-size:11px; text-transform:uppercase; letter-spacing:.08em; font-weight:700;
+  }
+  .viz-note{
+    margin-top:8px; font-size:12px; color:var(--stone-600);
+  }
+  .heat-legend{
+    display:flex; flex-wrap:wrap; gap:8px 14px; font-size:12px; color:var(--stone-600);
+  }
+  .heat-legend .item{display:flex; align-items:center; gap:6px}
+  .heat-legend .swatch{
+    width:18px; height:12px; border:1px solid var(--stone-200); border-radius:3px; display:inline-block;
+  }
+  .heat-legend .swatch.h1{background:#fef2f2}
+  .heat-legend .swatch.h2{background:#fff7ed}
+  .heat-legend .swatch.h3{background:var(--stone-50)}
+  .heat-legend .swatch.h4{background:#ecfdf5}
+  .heat-legend .swatch.h5{background:#a7f3d0}
+
+  .score-composition{
+    background:#fff; border:1px solid var(--stone-200); border-radius:12px; padding:16px; margin:10px 0 18px;
+  }
+  .stack-row{
+    display:grid; grid-template-columns:210px 1fr 54px; gap:10px; align-items:center; margin:8px 0;
+  }
+  .stack-label{font-size:12px; color:var(--stone-700)}
+  .stack-bar{
+    height:14px; border-radius:999px; overflow:hidden; display:flex; border:1px solid var(--stone-200); background:var(--stone-100);
+  }
+  .seg-data{background:var(--emerald-500)}
+  .seg-politisk{background:var(--sky-300)}
+  .seg-nordic{background:var(--amber-300)}
+  .seg-fit{background:var(--rose-300)}
+  .stack-total{
+    text-align:right; font-size:12px; color:var(--stone-600); font-variant-numeric:tabular-nums;
+  }
+  .stack-legend{
+    display:flex; flex-wrap:wrap; gap:8px 14px; margin-top:12px; font-size:12px; color:var(--stone-600);
+  }
+  .stack-legend .item{display:flex; align-items:center; gap:6px}
+  .stack-legend .dot{
+    width:10px; height:10px; border-radius:3px; display:inline-block; border:1px solid rgba(0,0,0,.08);
+  }
+
+  .kpi-viz{
+    background:#fff; border:1px solid var(--stone-200); border-radius:12px; padding:16px; margin:12px 0 20px;
+  }
+  .kpi-row{
+    display:grid; grid-template-columns:240px 1fr; gap:12px; align-items:center; margin:10px 0;
+  }
+  .kpi-name{font-size:12px; color:var(--stone-700)}
+  .kpi-meta{
+    display:flex; gap:10px; flex-wrap:wrap; font-size:11px; color:var(--stone-600); margin-bottom:4px;
+  }
+  .kpi-track{
+    position:relative; height:20px;
+  }
+  .kpi-track .rail{
+    position:absolute; inset:7px 0; background:var(--stone-100); border:1px solid var(--stone-200); border-radius:999px;
+  }
+  .kpi-track .change{
+    position:absolute; top:9px; height:4px; background:var(--emerald-600); border-radius:999px;
+  }
+  .kpi-track.up .change{
+    left:var(--from); width:calc(var(--to) - var(--from));
+  }
+  .kpi-track.down .change{
+    left:var(--to); width:calc(var(--from) - var(--to));
+  }
+  .kpi-track .dot{
+    position:absolute; top:3px; width:14px; height:14px; border-radius:99px; border:2px solid #fff; box-shadow:0 0 0 1px var(--stone-300);
+  }
+  .kpi-track .from{left:calc(var(--from) - 7px); background:var(--stone-500)}
+  .kpi-track .to{left:calc(var(--to) - 7px); background:var(--emerald-600)}
+
+  .cd-overview{
+    background:#fff; border:1px solid var(--stone-200); border-radius:12px; padding:14px 16px; margin:0 0 18px;
+  }
+  .cd-row{
+    display:grid; grid-template-columns:56px 1fr 100px; gap:10px; align-items:center; margin:6px 0;
+    font-size:12px; color:var(--stone-700);
+  }
+  .cd-bar{
+    height:12px; border-radius:999px; background:var(--stone-100); border:1px solid var(--stone-200); overflow:hidden;
+  }
+  .cd-fill{height:100%; display:block}
+  .cd-fill.fundamental{background:var(--rose-300)}
+  .cd-fill.betydelig{background:var(--amber-300)}
+
+  .status-viz{
+    background:#fff; border:1px solid var(--stone-200); border-radius:12px; padding:16px; margin:8px 0 20px;
+  }
+  .status-summary{
+    display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-bottom:12px;
+  }
+  .status-box{
+    border:1px solid var(--stone-200); border-radius:8px; padding:10px 12px; font-size:12px; background:var(--stone-50);
+  }
+  .status-box b{display:block; font-size:18px; line-height:1.1; color:var(--stone-900); margin-bottom:2px}
+  .status-rows{display:grid; gap:8px}
+  .status-row{
+    display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; font-size:12px;
+    border-top:1px dashed var(--stone-200); padding-top:8px;
+  }
+  .status-row:first-child{border-top:0; padding-top:0}
+  .status-pill{
+    display:inline-block; padding:2px 8px; border-radius:999px; border:1px solid var(--stone-200);
+    font-size:11px; font-weight:600;
+  }
+  .status-pill.lukket{background:var(--emerald-100); color:var(--emerald-800); border-color:var(--emerald-200)}
+  .status-pill.delvis{background:var(--amber-100); color:var(--amber-700); border-color:var(--amber-300)}
+  .status-pill.gap{background:var(--rose-100); color:var(--rose-700); border-color:var(--rose-300)}
+  .status-meter{
+    margin:0 0 12px; height:9px; border-radius:999px; overflow:hidden;
+    border:1px solid var(--stone-200); background:var(--stone-100); display:flex;
+  }
+  .status-meter .segment{
+    height:100%;
+  }
+  .status-meter .segment.closed{background:var(--emerald-300); width:62.5%}
+  .status-meter .segment.delvis{background:var(--amber-300); width:12.5%}
+  .status-meter .segment.gap{background:var(--rose-300); width:25%}
+  .status-meter-legend{
+    display:flex; flex-wrap:wrap; gap:8px 14px; margin:0 0 8px; font-size:11px; color:var(--stone-600);
+  }
+  .status-meter-legend .item{display:flex; align-items:center; gap:6px}
+  .status-meter-legend .swatch{
+    width:10px; height:10px; border-radius:3px; border:1px solid var(--stone-200); display:inline-block;
+  }
+  .status-meter-legend .swatch.closed{background:var(--emerald-300)}
+  .status-meter-legend .swatch.delvis{background:var(--amber-300)}
+  .status-meter-legend .swatch.gap{background:var(--rose-300)}
+
+  @media (max-width:780px){
+    .stack-row{grid-template-columns:1fr; gap:6px}
+    .stack-total{text-align:left}
+    .kpi-row{grid-template-columns:1fr}
+    .cd-row{grid-template-columns:48px 1fr 82px}
+    .status-summary{grid-template-columns:1fr}
+  }
+
+  .pill{
+    display:inline-block; padding:2px 8px; border-radius:99px; font-size:11px; font-weight:600;
+    background:var(--stone-100); color:var(--stone-700); border:1px solid var(--stone-200);
+  }
+  .pill.emerald{background:var(--emerald-100); color:var(--emerald-800); border-color:var(--emerald-200)}
+  .pill.amber{background:var(--amber-100); color:var(--amber-700); border-color:var(--amber-300)}
+  .pill.rose{background:var(--rose-100); color:var(--rose-700); border-color:var(--rose-300)}
+
+  .dissonance{
+    background:#fff; border:1px solid var(--stone-200); border-radius:12px; padding:22px; margin-bottom:18px;
+    border-left:4px solid var(--rose-300);
+  }
+  .dissonance h4{font-size:16px; margin:0 0 8px; color:var(--stone-900)}
+  .dissonance .row{display:grid; grid-template-columns:120px 1fr; gap:8px 16px; font-size:14px; margin-top:8px}
+  .dissonance .row .k{color:var(--stone-500); font-size:11px; text-transform:uppercase; letter-spacing:.06em; padding-top:3px}
+  .dissonance .gap-pill{display:inline-block; padding:1px 8px; border-radius:99px; font-size:11px; font-weight:600}
+  .gap-fundamental{background:var(--rose-100); color:var(--rose-700)}
+  .gap-betydelig{background:var(--amber-100); color:var(--amber-700)}
+  .gap-marginal{background:var(--stone-100); color:var(--stone-600)}
+
+  .focus .head{display:flex; gap:14px; align-items:baseline; margin-bottom:6px; flex-wrap:wrap}
+  .focus .rank{font-size:13px; font-weight:700; color:var(--emerald-700)}
+  .focus h4{font-size:18px; margin:0; color:var(--stone-900)}
+  .focus .scoreboard{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; font-size:12px; color:var(--stone-600)}
+  .focus .scoreboard span{background:var(--stone-100); padding:2px 8px; border-radius:6px}
+
+  details.substans{
+    margin-top:14px; padding:14px 16px; background:var(--stone-50);
+    border:1px solid var(--stone-200); border-radius:8px; font-size:13px; overflow-x:auto;
+  }
+  details.substans summary{
+    cursor:pointer; color:var(--emerald-700); font-weight:600;
+    font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+  }
+  details.substans summary:hover{color:var(--emerald-800)}
+  details.substans[open] summary{margin-bottom:10px}
+  details.substans h5{
+    font-size:13px; margin:14px 0 6px; color:var(--stone-900);
+    font-weight:700; letter-spacing:.02em;
+  }
+  details.substans h5:first-of-type{margin-top:4px}
+  details.substans table{
+    font-size:12px; margin:4px 0 8px; min-width:620px;
+  }
+  details.substans table th{background:var(--stone-100); font-size:11px; padding:6px 8px}
+  details.substans table td{padding:6px 8px}
+  details.substans ul, details.substans ol{margin:6px 0 10px; padding-left:20px}
+  details.substans li{margin:4px 0}
+
+  ul{margin:8px 0 16px; padding-left:22px}
+  ul li{margin:6px 0}
+  ol{margin:8px 0 16px; padding-left:22px}
+
+  .footer-note{font-size:12px; color:var(--stone-500); margin-top:8px; font-style:italic}
+  .src{font-size:11px; color:var(--stone-500)}
+
+  @media print {
+    .topbar, .nav { display:none }
+    section { page-break-inside: avoid; padding:32px 0 }
+    body { background:#fff }
+    .hero { background:#fff; padding:32px 0 }
+  }
+
+  @media (max-width:980px){
+    .topbar-inner{padding:10px 14px}
+    .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .signal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+
+  @media (max-width:780px){
+    .stack-row{grid-template-columns:1fr; gap:6px}
+    .stack-total{text-align:left}
+    .kpi-row{grid-template-columns:1fr}
+    .cd-row{grid-template-columns:48px 1fr 82px}
+    .status-summary{grid-template-columns:1fr}
+    .metric-value{font-size:28px}
+    .hero h1{font-size:32px}
+    section h3.title{font-size:24px}
+    .focus .head{gap:8px}
+  }
+
+  @media (max-width:540px){
+    .metric-grid{grid-template-columns:1fr}
+    .signal-grid{grid-template-columns:1fr}
+    .table-wrap{border-radius:8px}
+    .topbar, section{padding-top:8px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Food Systems 2026 <small>· Nordisk sirkularitetsrapport v1.2 (mai 2026)</small></div>
+    <div class="nav">
+      <a href="#sammendrag">Sammendrag</a>
+      <a href="#foregangsomrader">Foregangsområder</a>
+      <a href="#dissonans">Dissonance</a>
+      <a href="#laring">Tverr-nordisk</a>
+      <a href="#tg">Fokusområder TG</a>
+      <a href="#vision">Vision 2030</a>
+      <a href="#datagaps">Datagaps</a>
+      <a href="#metode">Metode</a>
+      <a href="#selvkritikk">Selvkritikk</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Til transition-gruppa for nordisk matsystem</div>
+    <h1>Nordisk sirkularitet — fra "alle gjør noe" til "hvem leder hva"</h1>
+    <p class="lead">
+      En kort substansrapport om hvor de nordiske landene faktisk ligger på sirkularitet i matsystemet —
+      ikke en kvantitativ datadump, men en analyse av <em>hvor retorikk og data spriker</em>,
+      <em>hvilke virkemiddel-modeller kan kopieres</em>, og <em>hva transition-gruppa bør prioritere</em>.
+    </p>
+
+    <div style="margin-top:18px;padding:14px 18px;background:rgba(255,255,255,.6);border:1px solid var(--emerald-200);border-radius:10px;font-size:13px;max-width:820px">
+      <div style="color:var(--emerald-700);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:6px">Nytt i v1.2 (siden v1.1, samme dato)</div>
+      <ul style="margin:4px 0 0;padding-left:20px;line-height:1.55">
+        <li><b>87 påstander auditert</b> mot primærkilder (Phase 1) → 6 hoved-flagg styrket; HHI 96,6%-feilen rettet (skal være CR3 96,6%, HHI 3445).</li>
+        <li><b>CD-3 verifisert</b> (Phase 2) — Bosselmann, Frandsen &amp; Andrade de Sá, IFRO Documentation no. 1, 2025; akvakultur ikke i EUDR Annex I; NO Stortingsproposisjon ikke vedtatt pr 30.04.</li>
+        <li><b>Vision 2030-gap delvis lukket</b> (Phase 3-4) — forbruksbasert matfotavtrykk + HELCOM eutrofiering + ICES/JRN-AFWG fiskebestander.</li>
+        <li><b>Subsidier per land</b> (Phase 5) — sammenlignbar tabell første gang; FI har mest differensiert øko-rate (3,7x for grønnsaker), DK ligger UNDER EU-min på eco-schemes.</li>
+        <li><b>Foregangsområde 1-5 utbygget</b> (Phase 6) — institusjonelt ansvar per land + hindre + tre konkrete første-skritt + utfallsmål 2027 i kollapset «Substansutbygging»-blokk per område.</li>
+        <li><b>Selvkritikk-seksjon</b> (Phase 7, ny §9) — 7 kvalitetsflagg (NO-overrepresentasjon, IS-data-svakhet, narrativ-vri, m.fl.).</li>
+        <li><b>T3 plattform-merverdi</b> (Phase 8) — strukturell-konseptuell + aktørnær + temporal i 4/7 CD-cases mot generisk LLM-svar.</li>
+      </ul>
+    </div>
+    <div class="metric-grid">
+      <article class="metric-card">
+        <div class="metric-value">87</div>
+        <div class="metric-label">påstander auditert</div>
+        <p class="metric-note">59% er primærkilde, 28% sekundær; 14% avvikshistorikk er svakt underbygget.</p>
+      </article>
+      <article class="metric-card rose">
+        <div class="metric-value">7</div>
+        <div class="metric-label">dissonans-cases</div>
+        <p class="metric-note">Spennet går fra "narrativ-styrke" til "datastyrt avvik" — 1 fundamental + 6 betydelige.</p>
+      </article>
+      <article class="metric-card emerald">
+        <div class="metric-value">5</div>
+        <div class="metric-label">land i kjernen</div>
+        <p class="metric-note">NO, SE, DK, FI og IS med egne styrker innen ulike sirkularitetsledd.</p>
+      </article>
+      <article class="metric-card sky">
+        <div class="metric-value">8</div>
+        <div class="metric-label">tema i score-matrix</div>
+        <p class="metric-note">Fra importert fôr til beredskap. Funnene sorteres temamessig, ikke bare sektorvis.</p>
+      </article>
+      <article class="metric-card amber">
+        <div class="metric-value">3445</div>
+        <div class="metric-label">HHI NO dagligvarer</div>
+        <p class="metric-note">Verdens høyeste konsentrasjon i nordisk matdistribusjon — strukturell flaskehals.</p>
+      </article>
+      <article class="metric-card">
+        <div class="metric-value">3,7x</div>
+        <div class="metric-label">FI-økorate differensiert</div>
+        <p class="metric-note">Signalerer at virkemiddel-differensiering slår gjennom sterkere enn utjevning alene.</p>
+      </article>
+    </div>
+    <div class="signal-grid">
+      <article class="signal-card">
+        <div class="signal-label">Hvor langt spriker retorikken?</div>
+        <div class="signal-value">8%</div>
+        <p class="signal-note">7 av 87 auditert påstander ligger i dissonance. Det betyr omtrent 1 av 12 som trenger justert budskap før politiske beslutninger.</p>
+      </article>
+      <article class="signal-card">
+        <div class="signal-label">Hvor stor er den strukturelle flaskehalsen?</div>
+        <div class="signal-value">3445</div>
+        <p class="signal-note">HHI på 3445, kombinert med CR3 på 96,6%, gjør konkurranse-effekt knyttet til sirkulær omstilling vanskeligere enn mange landspolitiske justeringer kan kompensere for alene.</p>
+      </article>
+      <article class="signal-card">
+        <div class="signal-label">Hvor mye er faktisk differensiert støtte?</div>
+        <div class="signal-value">3,7x</div>
+        <p class="signal-note">FI øko-rater viser at differensiert støtte gir større signal-effekt enn jevn uansett om man tror på markedsmekanismer eller tilskuddsstyring.</p>
+      </article>
+    </div>
+    <div class="meta">
+      <div><b>Versjon:</b> v1.2</div>
+      <div><b>Dato:</b> 2026-04-30</div>
+      <div><b>Eier:</b> Gabriel B Freeman</div>
+      <div><b>Bestiller:</b> Jan Thomas (samtale 29.04)</div>
+      <div><b>Datagrunnlag:</b> Food Systems 2026-plattformen + 8 tematiske dypdykk + 5 v1.1-verifiseringer + 8 v1.2-faser</div>
+      <div><b>Kildestandard:</b> APA7-light (originalkilde + URL + dato)</div>
+    </div>
+  </div>
+</div>
+
+<!-- §1 SAMMENDRAG -->
+<section id="sammendrag" class="alt">
+  <div class="wrap">
+    <h2>§1 Sammendrag</h2>
+    <h3 class="title">Fem konklusjoner — og det vi ikke vet</h3>
+
+    <div class="grid grid-2">
+      <div class="card emerald">
+        <div class="eyebrow" style="color:var(--emerald-700)">5 fokusområder for TG</div>
+        <ol style="margin-top:8px">
+          <li><b>Importert fôr & alternative proteiner</b> — kopier FI-modell (Solar Foods, Enifer)</li>
+          <li><b>Matsvinn — fra måling til kvalitet</b> — harmonisert nordisk metode først</li>
+          <li><b>Strukturell konkurranse-terskel</b> — FI 30%-regel som nordisk standard</li>
+          <li><b>Biogass — DK-modellen</b> — 20-års feed-in tariff</li>
+          <li><b>Økologisk — vri narrativet</b> — fra etterspørsel til tilbudsside i NO</li>
+        </ol>
+      </div>
+      <div class="card rose">
+        <div class="eyebrow" style="color:var(--rose-700)">7 cognitive dissonance-cases</div>
+        <ol style="margin-top:8px;font-size:13px">
+          <li><b>NO øko er tilbud-flaskehals</b> — ikke etterspørsel</li>
+          <li><b>NO selvforsyning er regnskapsfiksjon</b> uten kraftfôr-korreksjon</li>
+          <li><b>DK kan kun fysisk spore 6%</b> av soya-importen</li>
+          <li><b>NOK 4,9 mrd bot endret ikke</b> NO konsentrasjonsstruktur</li>
+          <li><b>NO utnytter 89% restråstoff — kun 7% blir mat</b></li>
+          <li><b>SE øko-leder bygger på fallende tall</b> (-39% melk siden 2021)</li>
+          <li><b>FI-DK 6x matsvinn-forskjell</b> kan være måleinstrument</li>
+        </ol>
+      </div>
+    </div>
+
+    <h4>Hovedfunn</h4>
+    <ul>
+      <li><b>Hver land har én styrke ingen andre matcher.</b> DK biogass (8 100 GWh, 17x NO) + offentlig øko (København 85% i 2024, peak 90% i 2015); FI alternative proteiner (USD 390M VC) + matsvinn (22 kg/cap) + 30%-regel; NO matsvinnreduksjon i detaljhandel (-42%) + marin biomasse-volum; SE skolemåltids-tradisjon (siden 1948); IS 100% Fish-program (cod-utnyttelse 45→90%).</li>
+      <li><b>Foregangs-status er virkemiddel-spesifikk, ikke generell.</b> Ingen land scorer 5/5 på alle dimensjoner. Forklaringene er institusjonelle (DK 20-års FiT, FI HVK-pools, FI Konkurranseloven §4a, SE/FI 80-årig skolemåltid-tradisjon).</li>
+      <li><b>Norge har dypest gap mellom retorikk og data.</b> 4 av 7 dissonance-cases. Selvforsyning, øko-narrativ, konkurranse-håndheving og fiskeutnyttelse alle har påstander som ikke holder data-test.</li>
+      <li><b>Sverige er IKKE lengre nordisk øko-leder i markedet.</b> UAA-andel 16,7% er lagging-indikator. DK 11,6% retail value share + foodservice +13% er den eneste vekstbanen.</li>
+      <li><b>Vi komplementerer Nordic Vision 2030 — vi erstatter den ikke.</b> Vår merverdi: landsspesifikk + verdikjedespesifikk + aktørnær forklaring på hvorfor brede mål lykkes eller stopper.</li>
+    </ul>
+
+    <h4>Det vi ikke vet — eksplisitt liste (oppdatert v1.2 etter A1-A5 + Phase 1-8)</h4>
+    <ul>
+      <li>✅ <b>FI fôr i melkeproduksjon</b> — verifisert (v1.1 A1): Valio (~80% av FI melkemarked) faset ut <em>soya</em> 2018-2019, erstattet med europeisk rapsmel. Ikke "selvforsyning" — FI total plante-protein-selvforsyning er 15% (Luke, 2021).</li>
+      <li>🔴 <b>Regenerativt landbruk i Norden</b> (v1.1 A3): ingen konsensus-definisjon eksisterer. Axfoundation/Svenskt Sigill 2022-prosessen endte uten bindende standard. FI BSAG Carbon Action har ~100 gårder dokumentert; NO/SE/DK/IS har spredte piloter. Vi kan ikke gi sammenlignbar arealdekning.</li>
+      <li>🔴 <b>NO offentlig innkjøp øko-andel</b> (v1.1 A4): bekreftet at <em>aggregert nasjonal statistikk ikke eksisterer</em> (verifisert mot DFØ og Debio 2026-04-30). Dette er selv et funn — NO er Nordens minst-målte offentlige matinnkjøp.</li>
+      <li>🟢 <b>Subsidier per land</b> — lukket (v1.2 Phase 5): NO 28,8 mrd NOK + PSE 40-49% (OECD 2025); SE/DK/FI/IS sammenlignbar tabell etablert. Strukturen fundamental forskjellig (NO/IS vs EU CAP).</li>
+      <li>🟢 <b>Nordisk soya-laundering-hypotese</b> (v1.1 A5 + v1.2 Phase 2): nedgradert til "EU-norsk asymmetri". Laks ikke i EUDR Annex I (verifisert via EUR-Lex). IFRO/KU 2025 = Bosselmann, Frandsen &amp; Andrade de Sá (IFRO Documentation no. 1, 29.09.2025). NO Stortingsproposisjon ikke vedtatt pr 30.04.2026; soya OG storfekjøtt unntatt fra EØS-implementering.</li>
+      <li>🟢 <b>Forbruksbasert matfotavtrykk per land</b> — delvis lukket (v1.2 Phase 3): NO 13 t CO2eq/cap (2020, Miljødirektoratet, &gt;60% utenlands); SE &lt;6, DK/FI ~8 t/cap (Otto et al. 2022). IS-data svak.</li>
+      <li>🟢 <b>Marine indikatorer</b> — lukket (v1.2 Phase 4): HELCOM HOLAS 3 (okt 2023): "no or very few improvements" 2016-2021. JRN-AFWG 2024: NEA cod SSB forventet under Bpa fra 2025, lavest 2027. ICES suspenderte russisk deltagelse mars 2022.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- §2 FOREGANGSOMRADER PER LAND -->
+<section id="foregangsomrader">
+  <div class="wrap">
+    <h2>§2 Foregangsområder per land</h2>
+    <h3 class="title">Cross-tab: hvem leder hva, hvem henger etter</h3>
+    <p class="lead">
+      Skåring 1-5 per (land × tema), <em>relativt innen Norden</em>. Score 1 = svakest;
+      5 = sterkest. Hvert tema har en tydelig leder; ingen land scorer 5 på alle.
+    </p>
+
+    <div class="table-wrap">
+    <span class="table-caption">Tabell 2.1 – Relativ skåring per land og tema (1–5)</span>
+    <table class="heatmap">
+      <thead>
+        <tr>
+          <th>Tema</th><th class="score">NO</th><th class="score">SE</th>
+          <th class="score">DK</th><th class="score">FI</th><th class="score">IS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>A. Importert fôr (lav avhengighet)</td><td class="score heat-1">1</td><td class="score heat-3">3</td><td class="score heat-2">2</td><td class="score heat-4">4</td><td class="score heat-3">3</td></tr>
+        <tr><td>B. Matsvinn (lav per cap + reell trend)</td><td class="score heat-4">4</td><td class="score heat-2">2</td><td class="score heat-1">1</td><td class="score heat-5">5</td><td class="score heat-3">n/a</td></tr>
+        <tr><td>C. Biogass (kapasitet + ambisjon)</td><td class="score heat-1">1</td><td class="score heat-3">3</td><td class="score heat-5">5</td><td class="score heat-3">3</td><td class="score heat-1">1</td></tr>
+        <tr><td>D. Økologisk (markedstrend, ikke UAA)</td><td class="score heat-4">4</td><td class="score heat-2">2</td><td class="score heat-5">5</td><td class="score heat-2">2</td><td class="score heat-1">1</td></tr>
+        <tr><td>E. Fiskeutnyttelse (høyverdi, ikke %)</td><td class="score heat-3">3</td><td class="score heat-1">1</td><td class="score heat-4">4</td><td class="score heat-1">1</td><td class="score heat-5">5</td></tr>
+        <tr><td>F. Off. innkjøp + skolemåltid</td><td class="score heat-1">1</td><td class="score heat-3">3</td><td class="score heat-5">5</td><td class="score heat-4">4</td><td class="score heat-1">1</td></tr>
+        <tr><td>G. Markedsmakt (lav konsentrasjon + sterk regulering)</td><td class="score heat-3">3</td><td class="score heat-2">2</td><td class="score heat-4">4</td><td class="score heat-5">5</td><td class="score heat-2">2</td></tr>
+        <tr><td>H. Beredskap (institusjonell)</td><td class="score heat-2">2</td><td class="score heat-2">2</td><td class="score heat-5">5</td><td class="score heat-5">5</td><td class="score heat-1">1</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="viz-block">
+      <p class="viz-title">Heatmap-legend for skåring 1-5</p>
+      <div class="heat-legend">
+        <span class="item"><span class="swatch h1"></span>1 = svakest</span>
+        <span class="item"><span class="swatch h2"></span>2 = lav</span>
+        <span class="item"><span class="swatch h3"></span>3 = midt</span>
+        <span class="item"><span class="swatch h4"></span>4 = sterk</span>
+        <span class="item"><span class="swatch h5"></span>5 = sterkest</span>
+      </div>
+      <div class="viz-note">Skalaen er relativ innen Norden per tema, ikke absolutt på tvers av alle tema.</div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:18px">
+      <div class="card">
+        <h4>🇳🇴 Norge — sterk på matsvinn-trend, svakest på fôrimport og institusjonelt etterspørselsside</h4>
+        <p><b>Styrker:</b> Matsvinnreduksjon -24% siden 2015 (detaljhandel -42%, mat-/serveringsbransjen har nådd 2025-mål -31%); marin biomasse-volum (1,094 mill t restråstoff); NOK 4,9 mrd-bot på de tre store er nordisk milepæl.</p>
+        <p><b>Svakheter:</b> 92% av fiskefôr importert; HHI 3445 (CR3 96,6% — verdens mest konsentrerte); ingen universell skolemåltidsordning; kraftfôr-korrigert selvforsyning faller mot 35%.</p>
+      </div>
+      <div class="card">
+        <h4>🇸🇪 Sverige — UAA-leder med fallende marked</h4>
+        <p><b>Styrker:</b> Universell gratis skolemåltid siden 1948; UAA-andel 16,66% (høyest i Norden); rekordkornhøst 2025 (6,4 mill t); SOU 2024:8 omfattende beredskaps-review.</p>
+        <p><b>Svakheter:</b> Øko-melk -39% siden 2021; øko-egg laveste siden 2010; offentlig sektor falt fra 37% (2022) til 34,2% (2023); HORECA-matsvinn økt 73→104 kt (2018-2023).</p>
+      </div>
+      <div class="card">
+        <h4>🇩🇰 Danmark — institusjonell modenhet, eksport-paradoks</h4>
+        <p><b>Styrker:</b> 8 100 GWh biogass (41% av gassforbruk); CO2-avgift jordbruk fra 2030; København 85% øko i offentlige kjøkken (2024) etter peak 90% i 2015; retail øko 11,6% (verdens høyeste); Salling Group halvert butikk-matsvinn 2,8→1,8% på 9 år.</p>
+        <p><b>Svakheter:</b> Matsvinn 139 kg/cap (høyest i Norden, eksport-effekt); 1,2-1,7 mill t soyamel-import med kun 6% fysisk sporbarhet; CO2-avgift har 60% basisfradrag.</p>
+      </div>
+      <div class="card">
+        <h4>🇫🇮 Finland — institusjonell konsistens, tilbakegang i øko-marked</h4>
+        <p><b>Styrker:</b> HVK kornberedskap (mål 9 mnd totalt, 8,5 mnd ekstrainnkjøp); Konkurranseloven §4a 30%-regel; Solar Foods/Enifer + USD 390M VC; husholdningsmatsvinn 22 kg/cap; selvforsyning 80%; verdens største per-cap havreprodusent.</p>
+        <p><b>Svakheter:</b> Øko-grocery-salg -5% (2024); torvmyr-paradoks (11% areal = 50%+ jordbruksklimagass).</p>
+      </div>
+      <div class="card">
+        <h4>🇮🇸 Island — fiskeutnyttelse-leder, beredskap-svekkelse</h4>
+        <p><b>Styrker:</b> 100% Fish-programmet (cod-utnyttelse 45→90%); Marel-teknologi global ledende; geotermiske drivhus (lokal grønnsak).</p>
+        <p><b>Svakheter:</b> UAA-andel 0,4% (laveste i Norden); ingen biogass; ingen nasjonal matsvinn-strategi; <b>Kornax-mølla demontert april 2025</b> = kritisk beredskaps-svekkelse.</p>
+      </div>
+      <div class="card alt">
+        <h4>Datakvalitet-flagg</h4>
+        <p><b>IS</b> har systematisk svakere datadekning. Vi har eksplisitt brukt <span class="pill amber">needs_primary_check</span> der relevant. Kornax-tap (2025) er bekreftet via Iceland Review. Andre IS-tall bør valideres mot Hagstofa Íslands før ekstern publisering.</p>
+        <p><b>NO</b> har dypest data men også dypest dissonance — speiler at vi kjenner NO best, ikke at NO har flest paradokser.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §3 COGNITIVE DISSONANCE -->
+<section id="dissonans" class="alt">
+  <div class="wrap">
+    <h2>§3 Cognitive dissonance — politikk vs data</h2>
+    <h3 class="title">Syv cases der retorikk og virkelighet skiller lag</h3>
+    <p class="lead">
+      Hver case følger struktur: <b>politisk påstand → motstandsdata → gap-størrelse →
+      tolkning → implikasjon for transition-gruppa</b>. Kilder finnes i appendiks.
+    </p>
+
+    <div class="cd-overview">
+      <p class="viz-title">CD-intensitet (fundamental vs betydelig gap)</p>
+      <div class="cd-row"><span>CD-1</span><span class="cd-bar"><span class="cd-fill fundamental" style="width:100%"></span></span><span>Fundamental</span></div>
+      <div class="cd-row"><span>CD-2</span><span class="cd-bar"><span class="cd-fill fundamental" style="width:100%"></span></span><span>Fundamental</span></div>
+      <div class="cd-row"><span>CD-3</span><span class="cd-bar"><span class="cd-fill betydelig" style="width:70%"></span></span><span>Betydelig</span></div>
+      <div class="cd-row"><span>CD-4</span><span class="cd-bar"><span class="cd-fill fundamental" style="width:100%"></span></span><span>Fundamental</span></div>
+      <div class="cd-row"><span>CD-5</span><span class="cd-bar"><span class="cd-fill betydelig" style="width:70%"></span></span><span>Betydelig</span></div>
+      <div class="cd-row"><span>CD-6</span><span class="cd-bar"><span class="cd-fill betydelig" style="width:70%"></span></span><span>Betydelig</span></div>
+      <div class="cd-row"><span>CD-7</span><span class="cd-bar"><span class="cd-fill betydelig" style="width:70%"></span></span><span>Betydelig</span></div>
+    </div>
+
+    <div class="dissonance">
+      <h4>CD-1 · NO øko er asymmetrisk tilbud-/etterspørsels-marked</h4>
+      <div class="row"><div class="k">Politisk påstand</div><div>"Lav norsk øko-andel skyldes lav forbrukeretterspørsel."</div></div>
+      <div class="row"><div class="k">Motstandsdata</div><div>Landbruksdirektoratet (2026, kap. 2) skriver ordrett: <em>«Det var ikke nok økologisk melk til å dekke etterspørselen. Norsk melkeråvare avkortet derfor leveranser av økologisk melk i store deler av 2025.»</em> Anvendelsesgrad: melk 80%, egg 88%, fjørfekjøtt 100%. Dagligvare-omsetning vokste +17,6% (NOK 4,3 mrd), non-grocery +13,9% (Landbruksdirektoratet, 2026, kap. 7). Samtidig: firfota kjøtt anvendelsesgrad 41% (overskudd), frukt/grønt har <em>«produksjon større enn etterspørselen»</em> (1,6% andel).</div></div>
+      <div class="row"><div class="k">Gap-størrelse</div><div><span class="gap-pill gap-fundamental">Fundamental</span></div></div>
+      <div class="row"><div class="k">Tolkning</div><div>NO øko-marked er ikke ett marked. Husdyr med kort produksjonssyklus (melk, egg, fjørfe) har <b>tilbudsbarriere</b>; firfota kjøtt og grønt har <b>avsetnings-problem</b>. Forbruker-narrativet er feil for de første, riktig for de siste.</div></div>
+      <div class="row"><div class="k">Implikasjon</div><div><b>Differensiert virkemiddel-design</b>: omstillingsstøtte rettet mot melk/egg/fjørfe (åpenbar markedsetterspørsel); forbrukerkampanjer + offentlig innkjøp rettet mot firfota kjøtt og grønt (der avsetning er problemet).</div></div>
+    </div>
+
+    <div class="dissonance">
+      <h4>CD-2 · NO selvforsyning er regnskapsfiksjon</h4>
+      <div class="row"><div class="k">Politisk påstand</div><div>"Norge har 47% kalorisk selvforsyning, mål 50% innen 2030."</div></div>
+      <div class="row"><div class="k">Motstandsdata</div><div>NIBIO 2024 forel.: <b>35% korrigert for kraftfôrimport</b> vs 45% ukorrigert. Kraftfôr økt 1,6→2 mill t (2000-2014). 92% av fiskefôr-ingredienser importert (Nofima 2020). 80% av kjøttproduksjon avhenger av importert soya/mais.</div></div>
+      <div class="row"><div class="k">Gap-størrelse</div><div><span class="gap-pill gap-fundamental">Fundamental</span></div></div>
+      <div class="row"><div class="k">Tolkning</div><div>Selvforsyningsbegrepet er metodologisk omstridt. Når "norsk kjøtt" er 80% avhengig av brasiliansk soya, er det importavhengig produksjon på norsk territorium.</div></div>
+      <div class="row"><div class="k">Implikasjon</div><div>Bruttoselvforsyning <b>korrigert for kraftfôr</b> som primær KPI. Kommuniserer reell nasjonal sårbarhet og kobler direkte til import-fôr-sporet.</div></div>
+    </div>
+
+    <div class="dissonance">
+      <h4>CD-3 · DK kan kun fysisk spore 6% av soya-importen — og NO unntar seg fra EUDR</h4>
+      <div class="row"><div class="k">Politisk påstand</div><div>"DK soya er sertifisert avskogingsfri."</div></div>
+      <div class="row"><div class="k">Motstandsdata</div><div>Bosselmann, Frandsen &amp; Andrade de Sá (2025), <em>IFRO Documentation no. 1, 2025</em>, KU: <b>kun 6% av sertifisert soya importert til DK er fysisk sporbar</b>; ~94% kreditt-/massebalansesertifisert uten fysisk garanti. EUDR fastsetter DDS-plikt for store aktører fra 30.12.2026 (etter ett-års forsinkelse vedtatt 17-19.12.2025; Regulation EU 2023/1115). Akvakultur er ikke i Annex I. Norge har unntatt <em>både soya og storfekjøtt</em> fra EØS-implementering (Klima- og miljødep., 2025; Landbruksdirektoratet, 2026, oppdatert 27.03.2026); Stortingsproposisjon planlagt fremmet våren 2026 — ikke vedtatt pr 30.04.2026.</div></div>
+      <div class="row"><div class="k">Gap-størrelse</div><div><span class="gap-pill gap-betydelig">Betydelig</span> <span class="footer-note" style="font-size:11px">(nedgradert fra v1.0 etter teknisk validering)</span></div></div>
+      <div class="row"><div class="k">Tolkning</div><div>DK-bearbeidere må uansett oppgradere til 100% sporing for EU-marked etter 30.12.2026. Hovedproblemet er <b>ikke</b> "soya-laundering" — laks er ikke i EUDR Annex I, og Denofa er ProTerra-sertifisert siden 2009. Reell problematikk: <b>EU-norsk asymmetri</b>. NO posisjonerer seg utenfor EUs avskogingsregime mens 92% av fiskefôr-ingredienser er importert. Risikoen er fragmentert leverandørmarked (kundekrav-arbitrasje fra EU-detaljhandel via private standarder, ikke regulatorisk laundering) og politisk-symbolsk eksponering.</div></div>
+      <div class="row"><div class="k">Implikasjon</div><div>TG bør vurdere om NO bør re-evaluere EUDR-soya-unntaket av <b>forhandlingstaktiske</b> heller enn miljømessige grunner. NO som eneste nordiske land utenfor EUDR-systemet er en politisk posisjon, ikke en datalønnsom posisjon.</div></div>
+    </div>
+
+    <div class="dissonance">
+      <h4>CD-4 · NOK 4,9 mrd bot endret ikke konsentrasjonsstrukturen</h4>
+      <div class="row"><div class="k">Politisk påstand</div><div>"Norge har Nordens sterkeste konkurransehåndheving (NOK 4,9 mrd-bot 2024 + ny markedsetterforskningstjeneste 2025)."</div></div>
+      <div class="row"><div class="k">Motstandsdata</div><div>HHI 3445 fortsatt høyest i Norden. CR3 96,6%. Strukturen uendret etter sanksjon. Restriktive eiendomsklausuler stopper nye aktører (Nguyen/Hartmann 2024). EMV-vekst gir kjedene egne merkevarer. FI 30%-regel er forebyggende; NO har ingen tilsvarende strukturell terskel.</div></div>
+      <div class="row"><div class="k">Gap-størrelse</div><div><span class="gap-pill gap-fundamental">Fundamental</span></div></div>
+      <div class="row"><div class="k">Tolkning</div><div>Reaktiv straff endrer ikke struktur. Sirkulære leverandører møter usynlig murer i et 96%-marked.</div></div>
+      <div class="row"><div class="k">Implikasjon</div><div>Norsk versjon av FI 30%-regel + tvunget eiendomsklausul-revisjon, ikke bare større bøter.</div></div>
+    </div>
+
+    <div class="dissonance">
+      <h4>CD-5 · NO utnytter 89% av marint restråstoff — kun 7% blir mat</h4>
+      <div class="row"><div class="k">Politisk påstand</div><div>"Norge er nordisk leder på sjømat-sirkularitet — vi utnytter restråstoffet."</div></div>
+      <div class="row"><div class="k">Motstandsdata</div><div>SINTEF/FHF 2024: 1 094 kt tilgjengelig, 976 kt utnyttet (89%) — men <b>kun ~70 kt humant konsum (7%)</b>, 312 kt fôr (32%), 94 kt biogass/energi. Skalldyr 71% IKKE utnyttet. Hvitfisk havgående flåte: 57% restråstoff dumpes til havs. K2/dødfisk 123,8 kt går til biogass/forbrenning.</div></div>
+      <div class="row"><div class="k">Gap-størrelse</div><div><span class="gap-pill gap-betydelig">Betydelig</span></div></div>
+      <div class="row"><div class="k">Tolkning</div><div>"Utnyttet" ≠ "høyverdi". Sirkularitet betinger ressursverdi-trapp, ikke bare bruksgrad.</div></div>
+      <div class="row"><div class="k">Implikasjon</div><div>Sirkularitets-KPI splittes i "utnyttelse" og "høyverdi-utnyttelse". IS 100% Fish-programmet er beste benchmark.</div></div>
+    </div>
+
+    <div class="dissonance">
+      <h4>CD-6 · SE øko-leder bygger på fallende tall</h4>
+      <div class="row"><div class="k">Politisk påstand</div><div>"Sverige er nordisk leder på øko (16,7% UAA)."</div></div>
+      <div class="row"><div class="k">Motstandsdata</div><div>Øko-melk levert til meierier <b>-39% siden 2021-peak</b> (295 200 t i 2024). Øko-egg 13% (laveste siden 2010). Total øko-mat-salg -1,5% (2024). Offentlig sektor falt fra 37% (2022) til 34,2% (2023).</div></div>
+      <div class="row"><div class="k">Gap-størrelse</div><div><span class="gap-pill gap-betydelig">Betydelig</span></div></div>
+      <div class="row"><div class="k">Tolkning</div><div>UAA er lagging-indikator. Marked er leading. SE er i strukturell tilbakegang på øko, samtidig som DK vokser i alle markedssegmenter.</div></div>
+      <div class="row"><div class="k">Implikasjon</div><div>TG må kvalifisere "foregangsland" med markedstrend. DK 11,6% retail value share + foodservice +13% er den eneste vekstbanen.</div></div>
+    </div>
+
+    <div class="dissonance">
+      <h4>CD-7 · 6x matsvinn-forskjell mellom FI og DK kan være måleinstrument</h4>
+      <div class="row"><div class="k">Politisk påstand</div><div>"Alle nordiske land jobber mot SDG 12.3 (50% reduksjon innen 2030)."</div></div>
+      <div class="row"><div class="k">Motstandsdata</div><div>FI husholdning 22 kg/cap. DK 41 kg/cap. DK total 139 kg/cap. SE 84 kg/cap, total 880 000 t — STAGNERT siden 2020. SE HORECA økt fra 73 000 t (2018) til 104 000 t (2023). FI-estimater varierer 400-641 kt avhengig av metode.</div></div>
+      <div class="row"><div class="k">Gap-størrelse</div><div><span class="gap-pill gap-betydelig">Betydelig</span></div></div>
+      <div class="row"><div class="k">Tolkning</div><div>Definisjonsforskjeller forklarer mye av variasjonen. DK høye tall reflekterer matprosessindustri (eksportert mat blir DK-svinn). SE-stagnasjon er reell.</div></div>
+      <div class="row"><div class="k">Implikasjon</div><div><b>Nordisk samarbeid på MÅLEMETODE før REDUKSJONSMÅL</b> kan være TGs viktigste leveranse.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- §4 TVERR-NORDISK LARING -->
+<section id="laring">
+  <div class="wrap">
+    <h2>§4 Tverr-nordisk læring</h2>
+    <h3 class="title">Hvem leder, hvem henger etter — og hva kan kopieres</h3>
+
+    <div class="table-wrap">
+    <span class="table-caption">Tabell 4.1 – Kopiforeldre og hindre etter tema</span>
+    <table class="cross-copy">
+      <thead><tr><th>Tema</th><th>Leder</th><th>Henger etter</th><th>Mekanismen som skiller</th></tr></thead>
+      <tbody>
+        <tr><td>Importert fôr</td><td>FI (alt-protein)</td><td>NO (92% import)</td><td>Risikovillig kapital + EFSA-strategi</td></tr>
+        <tr><td>Matsvinn-trend</td><td>NO (-24% siden 2015)</td><td>SE (stagnerer siden 2020)</td><td>Bransjeavtale-modell</td></tr>
+        <tr><td>Biogass</td><td>DK (8 100 GWh, 41% av gass)</td><td>NO (470 GWh, 17x lavere)</td><td>20-års feed-in tariff</td></tr>
+        <tr><td>Økologisk-marked</td><td>DK (11,6% retail)</td><td>NO/FI (~2%)</td><td>Foodservice + offentlig innkjøp</td></tr>
+        <tr><td>Fiskeutnyttelse-høyverdi</td><td>IS (90% cod til mat)</td><td>NO (7% restråstoff til mat)</td><td>100% Fish-program + Marel-teknologi</td></tr>
+        <tr><td>Off. innkjøp</td><td>DK København (84%)</td><td>NO (ingen ordning)</td><td>Politisk forpliktelse siden 1946-1948</td></tr>
+        <tr><td>Markedsmakt-regulering</td><td>FI (30%-regel)</td><td>NO (case-by-case)</td><td>Forebyggende lovgivning</td></tr>
+        <tr><td>Beredskap</td><td>FI (HVK 9 mnd-mål)</td><td>IS (Kornax-tap 2025)</td><td>Lov + PPP-pools</td></tr>
+        <tr><td>Subsidie-differensiering</td><td>FI (3,7x øko-rate vegetables vs basic)</td><td>NO (flat produksjonstilskudd)</td><td>EU AECM + eco-scheme-struktur</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h4>Seks konkrete kopibare modeller</h4>
+    <ol>
+      <li><b>DK 20-års feed-in tariff biogass</b> → NO Bionova-erstatning. 175 anlegg + 41% av gassforbruket i DK.</li>
+      <li><b>FI Konkurranseloven §4a 30%-regel</b> → NO konkurranselov. Forebyggende; aktivt anvendt mot S-Group og Kesko.</li>
+      <li><b>DK København 85% øko offentlig (2024, peak 90% i 2015)</b> → NO-kommuner med universell skolemåltid-ordning. Krever kjøkkenpersonell-opplæring (Sørensen 2016) — ~1 000 kjøkken og 70 000 daglige måltider er målestokken som gjorde det mulig.</li>
+      <li><b>Salling Group butikk-matsvinn-modell</b> → NO-kjeder med pålagt rapportering. 2,8% → 1,8% på 9 år.</li>
+      <li><b>IS 100% Fish-program + Marel-tek</b> → NO hvitfiskflåte. Landings-incentiv kan løfte 30+ kt restråstoff til høyverdi.</li>
+      <li><b>FI HVK PPP-pools beredskap</b> → Felles nordisk kornlager (norsk volum + dansk eksportkapasitet + finsk kompetanse).</li>
+      <li><b>FI differensiert øko-rate-struktur</b> (v1.2 Phase 5) → NO produksjonstilskudd-revisjon. Norsk omstillings-tilskudd kunne følge FI-modellen: 1,5x basisrate for melk/egg/fjørfe (flaskehals-produkter); 0,5-1x for firfota kjøtt og grønt (overskudd-produkter). Direkte oppfølger til CD-1.</li>
+    </ol>
+
+    <h4>Politisk sekvensering</h4>
+    <div class="grid grid-3">
+      <div class="card emerald">
+        <div class="eyebrow" style="color:var(--emerald-700)">Lett først</div>
+        <ul style="margin-top:8px">
+          <li>Nordisk matsvinn-måleharmonisering</li>
+          <li>Felles beredskapslager (FI-modell)</li>
+          <li>Kjøkkenpersonell-opplæring offentlig innkjøp</li>
+        </ul>
+      </div>
+      <div class="card amber">
+        <div class="eyebrow" style="color:var(--amber-700)">Middels</div>
+        <ul style="margin-top:8px">
+          <li>NO 20-års biogass-FiT</li>
+          <li>Universell norsk skolemåltid med øko-mål</li>
+          <li>Sirkularitets-KPI splitt (utnyttelse vs høyverdi)</li>
+        </ul>
+      </div>
+      <div class="card rose">
+        <div class="eyebrow" style="color:var(--rose-700)">Vanskelig</div>
+        <ul style="margin-top:8px">
+          <li>NO 30%-regel + eiendomsklausul-revisjon</li>
+          <li>NO EUDR-soya re-implementering</li>
+          <li>Bruttoselvforsyning korrigert for kraftfôr som primær KPI</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §5 FOKUSOMRADER FOR TG -->
+<section id="tg" class="alt">
+  <div class="wrap">
+    <h2>§5 Fem fokusområder for transition-gruppa</h2>
+    <h3 class="title">Rangert etter dataforankring × politisk gjennomførbarhet × Nordic-samarbeidspotensial × TG-mandate-fit</h3>
+
+    <div class="score-composition">
+      <p class="viz-title">Score-komposisjon per fokusområde (0-12)</p>
+      <div class="stack-row">
+        <div class="stack-label">1. Importert fôr</div>
+        <div class="stack-bar">
+          <span class="seg-data" style="width:25%"></span><span class="seg-politisk" style="width:16.67%"></span><span class="seg-nordic" style="width:25%"></span><span class="seg-fit" style="width:25%"></span>
+        </div>
+        <div class="stack-total">11/12</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label">2. Matsvinn</div>
+        <div class="stack-bar">
+          <span class="seg-data" style="width:16.67%"></span><span class="seg-politisk" style="width:25%"></span><span class="seg-nordic" style="width:25%"></span><span class="seg-fit" style="width:25%"></span>
+        </div>
+        <div class="stack-total">11/12</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label">3. Konkurranse-terskel</div>
+        <div class="stack-bar">
+          <span class="seg-data" style="width:25%"></span><span class="seg-politisk" style="width:16.67%"></span><span class="seg-nordic" style="width:25%"></span><span class="seg-fit" style="width:25%"></span>
+        </div>
+        <div class="stack-total">11/12</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label">4. Biogass</div>
+        <div class="stack-bar">
+          <span class="seg-data" style="width:25%"></span><span class="seg-politisk" style="width:16.67%"></span><span class="seg-nordic" style="width:25%"></span><span class="seg-fit" style="width:16.67%"></span>
+        </div>
+        <div class="stack-total">10/12</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label">5. Økologisk</div>
+        <div class="stack-bar">
+          <span class="seg-data" style="width:25%"></span><span class="seg-politisk" style="width:25%"></span><span class="seg-nordic" style="width:16.67%"></span><span class="seg-fit" style="width:16.67%"></span>
+        </div>
+        <div class="stack-total">10/12</div>
+      </div>
+      <div class="stack-legend">
+        <span class="item"><span class="dot" style="background:var(--emerald-500)"></span>Data</span>
+        <span class="item"><span class="dot" style="background:var(--sky-300)"></span>Politisk</span>
+        <span class="item"><span class="dot" style="background:var(--amber-300)"></span>Nordic</span>
+        <span class="item"><span class="dot" style="background:var(--rose-300)"></span>TG-fit</span>
+      </div>
+    </div>
+
+    <div class="kpi-viz">
+      <p class="viz-title">KPI-retning: baseline 2026 → mål 2027</p>
+      <div class="kpi-row">
+        <div class="kpi-name">Alt-protein pilotanlegg ≥100 t/år (Norden)</div>
+        <div>
+          <div class="kpi-meta"><span>Baseline: 1</span><span>Mål: 3</span></div>
+          <div class="kpi-track up" style="--from:20%; --to:60%">
+            <span class="rail"></span><span class="change"></span><span class="dot from"></span><span class="dot to"></span>
+          </div>
+        </div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-name">Land med NSMM 1.0-rapportering</div>
+        <div>
+          <div class="kpi-meta"><span>Baseline: 0</span><span>Mål: 5</span></div>
+          <div class="kpi-track up" style="--from:4%; --to:96%">
+            <span class="rail"></span><span class="change"></span><span class="dot from"></span><span class="dot to"></span>
+          </div>
+        </div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-name">NO biogass-produksjon (GWh)</div>
+        <div>
+          <div class="kpi-meta"><span>Baseline: 470</span><span>Mål: 600</span></div>
+          <div class="kpi-track up" style="--from:47%; --to:60%">
+            <span class="rail"></span><span class="change"></span><span class="dot from"></span><span class="dot to"></span>
+          </div>
+        </div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-name">NO øko-melk av leveranser</div>
+        <div>
+          <div class="kpi-meta"><span>Baseline: 4,3%</span><span>Mål: 5,5%</span></div>
+          <div class="kpi-track up" style="--from:43%; --to:55%">
+            <span class="rail"></span><span class="change"></span><span class="dot from"></span><span class="dot to"></span>
+          </div>
+        </div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-name">DK matsvinn per cap (kg)</div>
+        <div>
+          <div class="kpi-meta"><span>Baseline: 139</span><span>Mål: 125</span></div>
+          <div class="kpi-track down" style="--from:65%; --to:42%">
+            <span class="rail"></span><span class="change"></span><span class="dot from"></span><span class="dot to"></span>
+          </div>
+        </div>
+      </div>
+      <div class="viz-note">Skalaene er KPI-spesifikke per rad, og brukes for å vise retning og størrelsesorden på endring.</div>
+    </div>
+
+    <div class="focus">
+      <div class="head"><span class="rank">FOREGANGSOMRÅDE 1</span><h4>Importert fôr & alternative proteiner</h4><span class="pill emerald">Score 11/12</span></div>
+      <p>Norden står i komplementære posisjoner. Norge har <em>aktørdata</em> som indikerer FCR 1,15 hos de fire dominerende fôrprodusentene (Skretting, BioMar, Mowi Feed, Cargill — ikke industri-snitt) og er 92% importavhengig (Nofima 2020, fra fire-aktørs-utvalg). Danmark er Europas matkjøkken men kan kun fysisk spore 6% av sertifisert soya (Bosselmann, Frandsen &amp; Andrade de Sá, 2025, <em>IFRO Documentation no. 1</em>). Finland har bygget Nordens sterkeste alternativ-protein-økosystem (USD 390M VC, Solar Foods, Enifer) <b>kombinert med Valios kooperative soya-fase-ut</b> i melkefôret 2018-2019. Sverige tester mykoprotein-fôret fisk. Island er hovedleverandør av marin fôr-råstoff.</p>
+      <p><b>FI-eksempelet presisert (v1.1):</b> Valio (~80% av FI melkemarked) faset ut <em>soya</em> fra fôret til melkekyr i 2018-2019, og erstattet det med europeisk rapsmel. Dette er en avskogingsfri-konvertering, ikke selvforsyning: rapsmel har ~10% innenlandsk-andel og FI total plante-protein-selvforsyning er 15% (Luke, 2021). Vedtaket var markedsdrevet via Valios bærekraftsstrategi, ikke politisk regulering. NO mangler tilsvarende dominerende kooperativ-aktør på fôrkjøp.</p>
+      <p><b>Første handling:</b> Nordisk samarbeid om alternativ-protein-godkjenning (felles EFSA-linje), åpen sporbarhets-database for soya på tvers av nordiske markeder, NO/IS hvitfiskflåte-pilot for restråstoff til fiskemel-substitusjon, og <b>utforske kooperativ-modell for norsk fôrkjede</b> som strukturell parallell til Valio-mekanismen.</p>
+      <div class="scoreboard"><span>Data: 3</span><span>Politisk: 2</span><span>Nordic: 3</span><span>TG-fit: 3</span></div>
+
+      <details class="substans">
+        <summary>Substansutbygging v1.2 — institusjonelt ansvar, hindre, første-skritt, KPI 2027</summary>
+        <h5>Hvem leder per land</h5>
+        <table>
+          <thead><tr><th>Land</th><th>Hovedaktør</th><th>Rolle</th></tr></thead>
+          <tbody>
+            <tr><td>🇫🇮 FI</td><td>Solar Foods + Enifer + Valio</td><td>Industri-leder + kooperativ-pilot (Solar Foods Factory 01: 160 t/yr; Enifer EFSA okt 2024)</td></tr>
+            <tr><td>🇩🇰 DK</td><td>Aarhus Universitet (DCA) + Mejeriforeningen</td><td>Forskning + meieri-koordinering (Arla Climate Check)</td></tr>
+            <tr><td>🇳🇴 NO</td><td>NMBU + Nofima + Skretting/BioMar/Mowi Feed</td><td>Forskning + privat aktør-marked (ingen dominerende kooperativ)</td></tr>
+            <tr><td>🇸🇪 SE</td><td>SLU + Mycorena</td><td>Forskning + alt-protein-startup (Promyc-fôr-pilot)</td></tr>
+            <tr><td>🇮🇸 IS</td><td>Matís + Marel</td><td>Marin biomasse + global teknologi-eksport</td></tr>
+          </tbody>
+        </table>
+        <h5>Politiske/regulatoriske hindre</h5>
+        <ul>
+          <li><b>EFSA Novel Food-godkjenning er flaskehals.</b> Solar Foods ventet 4+ år; per protein-kandidat kreves egen søknad (~EUR 1M kostnad).</li>
+          <li><b>NO EUDR-soya-unntak skaper regulatorisk klyft.</b> Norske fôrprodusenter slipper DDS-plikt mens EU-konkurrenter har det fra 30.12.2026.</li>
+          <li><b>Manglende kooperativ-aktør i NO fôrkjede.</b> Felleskjøpet er ikke parallell til Valios markedsdominans (~80% av FI-melkemarked).</li>
+        </ul>
+        <h5>Tre konkrete første-skritt</h5>
+        <ol>
+          <li><b>Felles nordisk EFSA-fast-track-protokoll.</b> NMR + nasjonale mattrygghetsmyndigheter utvikler felles dossier-mal for Novel Food-søknader. Reduser per-protein-kostnad fra ~EUR 1M til ~EUR 200 000.</li>
+          <li><b>Nordisk soya-sporbarhets-database.</b> Bygges på IFRO-metode (Bosselmann et al., 2025); pilot for NO/IS-fiskefôr 2026-2027.</li>
+          <li><b>Kooperativ-pilot for norsk fôrkjede.</b> Norsk Landbrukssamvirke + TINE + Nortura: 5-årsavtale om alternativ-proteinandel i melkeku-fôr (Valio-modell). Mål: 30% protein-erstatning innen 2030.</li>
+        </ol>
+        <h5>Utfallsmål 2027 (KPI)</h5>
+        <table>
+          <thead><tr><th>KPI</th><th>Baseline 2026</th><th>Mål 2027</th></tr></thead>
+          <tbody>
+            <tr><td>Nordiske alt-proteiner med EFSA-godkjenning</td><td>2 (Solar Foods, Enifer)</td><td>4</td></tr>
+            <tr><td>NO fiskefôr soya-andel</td><td>~25% (Nofima 2020)</td><td>22% (-3 pp)</td></tr>
+            <tr><td>Alt-protein-pilotanlegg ≥100 t/år (Norden)</td><td>1</td><td>3</td></tr>
+            <tr><td>NO offentlig FoU for alt-protein</td><td>&lt;NOK 100M</td><td>&gt;NOK 250M kumulativt</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
+
+    <div class="focus">
+      <div class="head"><span class="rank">FOREGANGSOMRÅDE 2</span><h4>Matsvinn — fra måling til kvalitet</h4><span class="pill emerald">Score 11/12</span></div>
+      <p>Nordens 6x forskjell i husholdningsmatsvinn (FI 22, NO 42, DK 41, SE 35 kg/cap) skyldes like mye målemetode som faktisk svinn. Norge har vist at frivillig bransjeavtale leverer i ledd den dekker (-42% detaljhandel, -31% serveringsbransje), men feiler der den ikke når (husholdning -5%, primærleddet ekskludert). Salling Group har på 9 år halvert butikk-matsvinn fra 2,8% til 1,8% — blant Europas beste detaljhandel-tall.</p>
+      <p><b>Første handling:</b> Harmonisert nordisk måling før mål, og pålagt rapportering på kjedenivå (à la Salling Group-detaljnivå). Bruk WFD 2025-baseline (2021-2023) som koordineringspunkt.</p>
+      <div class="scoreboard"><span>Data: 2</span><span>Politisk: 3</span><span>Nordic: 3</span><span>TG-fit: 3</span></div>
+
+      <details class="substans">
+        <summary>Substansutbygging v1.2 — institusjonelt ansvar, hindre, første-skritt, KPI 2027</summary>
+        <h5>Hvem leder per land</h5>
+        <table>
+          <thead><tr><th>Land</th><th>Hovedaktør</th><th>Rolle</th></tr></thead>
+          <tbody>
+            <tr><td>🇫🇮 FI</td><td>Luke + Sitra</td><td>Måling + sirkulær-økonomi (22 kg/cap; Circular Economy Roadmap)</td></tr>
+            <tr><td>🇩🇰 DK</td><td>Stop Spild Af Mad + DTU + Salling Group</td><td>NGO + forskning + privat (Selina Juul; Salling 2,8→1,8% over 9 år)</td></tr>
+            <tr><td>🇳🇴 NO</td><td>Matvett AS + NORSUS + bransjeavtale-konsortium</td><td>Måling + bransjeavtale-håndhevelse (-42% detaljhandel)</td></tr>
+            <tr><td>🇸🇪 SE</td><td>Naturvårdsverket + IVL + Livsmedelsverket</td><td>Statlig måling + forskning (HORECA 73→104 kt indikerer feilende styring)</td></tr>
+            <tr><td>🇮🇸 IS</td><td>Umhverfisstofnun + Matís</td><td>Begrenset matsvinn-data; ingen nasjonal strategi</td></tr>
+          </tbody>
+        </table>
+        <h5>Politiske/regulatoriske hindre</h5>
+        <ul>
+          <li><b>Definisjonsforskjeller forklarer 6x-variasjonen.</b> DK regner med matprosessindustri (eksportert mat blir DK-svinn); FI regner husholdning isolert. Sammenligning er misvisende uten harmonisering.</li>
+          <li><b>NO bransjeavtale dekker bare detaljhandel + servering.</b> Husholdningssvinn (-5%) henger etter; primærledd ikke inkludert.</li>
+          <li><b>Foretak rapporterer aggregert, ikke butikk-nivå.</b> Salling-tallene er bedrifts-snitt; pålagt butikknivå-rapportering er reell barriere.</li>
+        </ul>
+        <h5>Tre konkrete første-skritt</h5>
+        <ol>
+          <li><b>Nordisk Standard for Matsvinn-Måling (NSMM 1.0).</b> NMR-finansiert prosjekt 2026 H2: harmoniser definisjoner, metode og rapporteringsfrekvens. Bruk WFD 2025-baseline som forankring.</li>
+          <li><b>Salling-modell-replikasjon i nordisk detaljhandel.</b> Norgesgruppen + Coop NO + Reitan Retail + ICA SE + Kesko FI deltar i felles peer-benchmarking 2026-2027.</li>
+          <li><b>Matsvinn-måling i offentlig innkjøp.</b> Alle nordiske kommuner med &gt;50 000 innb. innkjøper måler kjøkkensvinn ukentlig fra 2026.</li>
+        </ol>
+        <h5>Utfallsmål 2027 (KPI)</h5>
+        <table>
+          <thead><tr><th>KPI</th><th>Baseline 2026</th><th>Mål 2027</th></tr></thead>
+          <tbody>
+            <tr><td>Land som rapporterer etter NSMM 1.0</td><td>0</td><td>5</td></tr>
+            <tr><td>NO bransjeavtale-svinn detaljhandel</td><td>-42% (vs 2015)</td><td>-50%</td></tr>
+            <tr><td>SE matsvinn total</td><td>880 kt</td><td>792 kt (-10%)</td></tr>
+            <tr><td>DK matsvinn per cap</td><td>139 kg</td><td>125 kg (-10%)</td></tr>
+            <tr><td>FI matsvinn 22 kg/cap</td><td>22 kg</td><td>Stabilt</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
+
+    <div class="focus">
+      <div class="head"><span class="rank">FOREGANGSOMRÅDE 3</span><h4>Strukturell konkurranse-terskel</h4><span class="pill emerald">Score 11/12</span></div>
+      <p>Norge har Nordens mest aggressive konkurransehåndheving (NOK 4,9 mrd bot 2024, ny markedsetterforskningstjeneste 2025) — i verdens mest konsentrerte dagligvaremarked (HHI 3445, CR3 96,6%). Reaktiv straff endrer ikke strukturen. Finland har siden 2014 hatt en unik regel: 30% nasjonal markedsandel utløser automatisk dominans-presumpsjon (Konkurranseloven §4a) — aktivt anvendt mot S-Group og Kesko.</p>
+      <p><b>Første handling:</b> Nordisk harmonisering av strukturell terskel etter FI-modell, kombinert med DK call-in-rett og tvunget eiendomsklausul-revisjon. Sirkulære leverandører får dermed felles nordisk markedsadgang.</p>
+      <div class="scoreboard"><span>Data: 3</span><span>Politisk: 2</span><span>Nordic: 3</span><span>TG-fit: 3</span></div>
+
+      <details class="substans">
+        <summary>Substansutbygging v1.2 — institusjonelt ansvar, hindre, første-skritt, KPI 2027</summary>
+        <h5>Hvem leder per land</h5>
+        <table>
+          <thead><tr><th>Land</th><th>Hovedaktør</th><th>Rolle</th></tr></thead>
+          <tbody>
+            <tr><td>🇫🇮 FI</td><td>Kilpailu- ja kuluttajavirasto (KKV)</td><td>Konkurransetilsyn med 30%-regel (Konkurranseloven §4a, Finlex 20110948)</td></tr>
+            <tr><td>🇩🇰 DK</td><td>Konkurrence- og Forbrugerstyrelsen</td><td>Tilsyn med call-in-rett; sektorundersøgelse dagligvarer</td></tr>
+            <tr><td>🇳🇴 NO</td><td>Konkurransetilsynet</td><td>Reaktiv håndhevelse (NOK 4,9 mrd-bot 2024); ingen strukturell terskel</td></tr>
+            <tr><td>🇸🇪 SE</td><td>Konkurrensverket</td><td>Sektorovervåkning; mindre konsentrert marked enn NO</td></tr>
+            <tr><td>🇮🇸 IS</td><td>Samkeppniseftirlitið</td><td>Begrenset kapasitet; konkurranse mest fra Costco-import</td></tr>
+          </tbody>
+        </table>
+        <h5>Politiske/regulatoriske hindre</h5>
+        <ul>
+          <li><b>NO konkurranselov mangler strukturell terskel.</b> Loven fra 2004 håndterer atferds-misbruk, ikke struktur. NOK 4,9 mrd-bot gjelder informasjonsdeling — ikke konsentrasjon.</li>
+          <li><b>Restriktive eiendomsklausuler stopper nye aktører</b> (Nguyen &amp; Hartmann, 2024, NHH masteravhandling). Lidl/Aldi har ikke kommet inn i Norge fordi kjedene blokkerer egnede tomter.</li>
+          <li><b>Politisk vilje for strukturell terskel er lav i NO.</b> Regjeringer på begge sider har valgt atferds-tilsyn over strukturell terskel; FI-modellen krever stor lovendring.</li>
+        </ul>
+        <h5>Tre konkrete første-skritt</h5>
+        <ol>
+          <li><b>NMR-rapport: nordisk strukturell konkurranse-baseline 2026.</b> NO HHI 3445 vs SE ~1500 vs DK ~1700 vs FI ~1400 vs IS ~3000 — gir politisk pressure for at NO er ekstrem.</li>
+          <li><b>NO Stortingsmelding om dagligvaremarked-struktur 2027.</b> Lovendringspakke: FI-inspirert dominans-presumpsjon + tvunget eiendomsklausul-revisjon + DK call-in-rett.</li>
+          <li><b>Pilot for sirkulære leverandører i nordisk dagligvaremarked.</b> NMR + nasjonale konkurransetilsyn etablerer "Sirkulær-listing"-protokoll: kjedene rapporterer antall sirkulære leverandører på hyllene.</li>
+        </ol>
+        <h5>Utfallsmål 2027 (KPI)</h5>
+        <table>
+          <thead><tr><th>KPI</th><th>Baseline 2026</th><th>Mål 2027</th></tr></thead>
+          <tbody>
+            <tr><td>NO HHI dagligvarer</td><td>3445</td><td>Ingen endring forventet på 18 mnd; KPI-baseline etablert</td></tr>
+            <tr><td>Land med strukturell terskel</td><td>1 (FI)</td><td>1 (FI) — NO Stortingsmelding 2027 fremlagt</td></tr>
+            <tr><td>Sirkulære leverandører nordisk dagligvare</td><td>Ikke målt</td><td>Etablert baseline 2027 H1</td></tr>
+            <tr><td>Eiendomsklausul-revisjon NO</td><td>Ikke gjennomført</td><td>Foreslått i Stortingsmelding</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
+
+    <div class="focus">
+      <div class="head"><span class="rank">FOREGANGSOMRÅDE 4</span><h4>Biogass — DK-modellen som nordisk standard</h4><span class="pill emerald">Score 10/12</span></div>
+      <p>Danmarks 8 100 GWh biogassproduksjon (41% av nasjonalt gassforbruk, mål 100% i 2030) er ikke teknisk overlegen — den er institusjonelt overlegen. DKs 20-års feed-in tariff har skapt 175 anlegg på husdyrgjødsel-input. Norge har 17x mindre kapasitet med tilsvarende biomasse-grunnlag. Bionova (fra 2023) er prosjektgrants — ikke 20-års forutsigbarhet.</p>
+      <p><b>Første handling:</b> Kopier DK feed-in-modellen til nordisk standard (15-20 års forpliktelse), og test en norsk-dansk oppdrettsavfall-til-landbruk-pilot på 100 000 t-skala (Hirtshals-Skagen → Jylland-akse).</p>
+      <div class="scoreboard"><span>Data: 3</span><span>Politisk: 2</span><span>Nordic: 3</span><span>TG-fit: 2</span></div>
+
+      <details class="substans">
+        <summary>Substansutbygging v1.2 — institusjonelt ansvar, hindre, første-skritt, KPI 2027</summary>
+        <h5>Hvem leder per land</h5>
+        <table>
+          <thead><tr><th>Land</th><th>Hovedaktør</th><th>Rolle</th></tr></thead>
+          <tbody>
+            <tr><td>🇩🇰 DK</td><td>Energistyrelsen + Biogas Danmark + Nature Energy</td><td>Statlig + bransje + privat (175 anlegg, 8 100 GWh, 41% av gassforbruk)</td></tr>
+            <tr><td>🇳🇴 NO</td><td>Enova + Bionova + NORSUS</td><td>Tilskudd + forskning (470 GWh — 17x lavere enn DK)</td></tr>
+            <tr><td>🇸🇪 SE</td><td>Energimyndigheten + Avfall Sverige</td><td>Statlig + bransje (~3 000 GWh; husholdning kompostering vs biogass)</td></tr>
+            <tr><td>🇫🇮 FI</td><td>Sitra + Energiateollisuus</td><td>Sirkulær-økonomi + bransje (mest fra avløpsslam)</td></tr>
+            <tr><td>🇮🇸 IS</td><td>Sorpa + Orka náttúrunnar</td><td>Begrenset biogass; fokus på geotermisk energi</td></tr>
+          </tbody>
+        </table>
+        <h5>Politiske/regulatoriske hindre</h5>
+        <ul>
+          <li><b>NO mangler 20-års forutsigbarhet i biogass-tilskudd.</b> Bionova (fra 2023) er prosjekt-grants, ikke feed-in tariff. DK-modellen krever lovfestet 20-års tariff.</li>
+          <li><b>NO grid-tilkobling for biogass er vanskelig.</b> Gassnett begrenset til Sør-Norge; nordlige anlegg må produsere lokal elektrisitet eller transportgass.</li>
+          <li><b>Norsk landbrukspolitikk koordineres ikke med energipolitikk.</b> Landbruksdirektoratet og Olje- og energidepartementet har ingen felles biogass-strategi.</li>
+        </ul>
+        <h5>Tre konkrete første-skritt</h5>
+        <ol>
+          <li><b>NO Bionova-evaluering 2026 H2 + foreslå 20-års FiT som etterfølger.</b> Olje- og energidepartementet + Landbruksdirektoratet erstatte prosjekt-grants med 20-års feed-in-tariff på biogass fra husdyrgjødsel.</li>
+          <li><b>Norsk-dansk pilot på oppdrettsavfall-til-landbruk.</b> Hirtshals-Skagen → Jylland: 100 000 t-skala oppdrettsavfall fra norsk lakseslakting til danske biogass-anlegg via container-transport. Kontraktsforhandlet 2026 H1.</li>
+          <li><b>Felles nordisk biogass-database.</b> NMR-finansiert per anlegg-data (kapasitet, feedstock, output, FiT) på tvers av 5 land. Gir politisk grunnlag for 20-års modell-overføring.</li>
+        </ol>
+        <h5>Utfallsmål 2027 (KPI)</h5>
+        <table>
+          <thead><tr><th>KPI</th><th>Baseline 2026</th><th>Mål 2027</th></tr></thead>
+          <tbody>
+            <tr><td>NO biogass-produksjon</td><td>470 GWh</td><td>600 GWh (+28%)</td></tr>
+            <tr><td>Norsk-dansk oppdrettsavfall-pilot</td><td>0 t</td><td>100 kt</td></tr>
+            <tr><td>NO 20-års FiT</td><td>Ikke vedtatt</td><td>Stortingsmelding fremlagt</td></tr>
+            <tr><td>NO biogass-anlegg på husdyrgjødsel</td><td>&lt;30</td><td>40</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
+
+    <div class="focus">
+      <div class="head"><span class="rank">FOREGANGSOMRÅDE 5</span><h4>Økologisk — vri narrativet fra etterspørsel til tilbud</h4><span class="pill emerald">Score 10/12</span></div>
+      <p>Den vanlige fortellingen om at Norge ligger lavest på øko fordi forbrukerne ikke vil ha det er feil. Landbruksdirektoratet 2025 sier eksplisitt at det ikke er nok øko-melk for å møte etterspørselen (80% utnyttelse), øko-egg er på 88%, grocery-salg vokser +17,6% per år. Sverige har høyest UAA-andel (16,7%) men marked faller -1,5%/år; offentlig sektor falt fra 37% til 34,2% på ett år. Danmark er den eneste nordiske vekstbanen — 11,6% retail value share, +13% foodservice (2023).</p>
+      <p><b>Første handling:</b> Norsk omstillingsstøtte til øko-melk og øko-egg-produksjon, kopier DK København-modellen for offentlig innkjøp. Universell skolemåltidsordning (à la SE 1948 / FI 1946) med bindende øko-mål skaper stabilt volum-marked.</p>
+      <div class="scoreboard"><span>Data: 3</span><span>Politisk: 3</span><span>Nordic: 2</span><span>TG-fit: 2</span></div>
+
+      <details class="substans">
+        <summary>Substansutbygging v1.2 — institusjonelt ansvar, hindre, første-skritt, KPI 2027</summary>
+        <h5>Hvem leder per land</h5>
+        <table>
+          <thead><tr><th>Land</th><th>Hovedaktør</th><th>Rolle</th></tr></thead>
+          <tbody>
+            <tr><td>🇩🇰 DK</td><td>Økologisk Landsforening + Mejeriforeningen + København kommune</td><td>11,6% retail; København 85% (peak 90% i 2015); foodservice +13%</td></tr>
+            <tr><td>🇸🇪 SE</td><td>Jordbruksverket + Ekomatcentrum + KRAV</td><td>UAA 16,7%; øko-melk -39% siden 2021; off. sektor 37→34,2%</td></tr>
+            <tr><td>🇳🇴 NO</td><td>Landbruksdirektoratet + Debio + Norsk Landbrukssamvirke</td><td>Anvendelsesgrad melk 80%, egg 88%; UAA 4,66%</td></tr>
+            <tr><td>🇫🇮 FI</td><td>Pro Luomu + Maatalousministeriö</td><td>UAA 14,5%; grocery -5%</td></tr>
+            <tr><td>🇮🇸 IS</td><td>Tún + Landbúnaðarháskólinn</td><td>UAA 0,4% (laveste i Norden)</td></tr>
+          </tbody>
+        </table>
+        <h5>Politiske/regulatoriske hindre</h5>
+        <ul>
+          <li><b>NO øko-jordbruksavtale skiller ikke melk fra grønt.</b> Felles "økologisk-mål" brukes på alle produkter, men markedssignal er motsatt for melk (overskudds-etterspørsel) og grønt (overskudd-tilbud). Differensiert virkemiddel-design krever differensiert mål.</li>
+          <li><b>Offentlig innkjøp i NO mangler øko-mål.</b> DFØ-veileder anbefaler bærekraftig innkjøp, men aggregert nasjonal øko-andel måles ikke. Bekreftet manglende statistikk via DFØ + Debio (2026-04-30).</li>
+          <li><b>SE øko-marked tilbakegang er strukturell.</b> Jordbruksverket 2025: melkeprodusenter forlater øko grunnet pris-press; tilbakekonvertering til konvensjonell øker.</li>
+        </ul>
+        <h5>Tre konkrete første-skritt</h5>
+        <ol>
+          <li><b>NO differensiert øko-omstilling 2026 H2.</b> Landbruksdirektoratet + Norges Bondelag fremmer jordbruksavtale-tillegg: 1,5x omstillingstilskudd til melk + egg + fjørfekjøtt-øko-konvertering; 0,5x til grønt + firfota-kjøtt.</li>
+          <li><b>København-modell-replikasjon i nordiske storbyer.</b> Oslo + Bergen + Stockholm + Göteborg + Helsinki + Tampere etablerer "Nordic Public Kitchens for Sustainable Food"-nettverk 2026 H1. Mål: 30% øko innen 2027.</li>
+          <li><b>Universell norsk skolemåltidsordning med øko-mål.</b> NHO/Bondelaget/Forbrukerrådet/MDG-koalisjon forhandler frem proposisjon 2027. Inspirasjon: SE 1948 (gratis universell) og FI 1946.</li>
+        </ol>
+        <h5>Utfallsmål 2027 (KPI)</h5>
+        <table>
+          <thead><tr><th>KPI</th><th>Baseline 2026</th><th>Mål 2027</th></tr></thead>
+          <tbody>
+            <tr><td>NO øko-melk produksjon</td><td>4,3% av leveranser</td><td>5,5% (kvotert opp fra etterspørsel-side)</td></tr>
+            <tr><td>NO øko-grocery-vekst YoY</td><td>+17,6% (2024)</td><td>Holde +15%</td></tr>
+            <tr><td>Nordiske storbyer i Public Kitchens-nettverk</td><td>1 (København)</td><td>6</td></tr>
+            <tr><td>NO Stortingsmelding skolemåltid</td><td>Ikke fremmet</td><td>Konsultasjon + utkast 2027 H2</td></tr>
+            <tr><td>SE øko-melk-trend</td><td>-39% siden 2021</td><td>Stabilisering — null endring 2026-27</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
+
+    <p class="footer-note">Tre tilleggsområder med score 8-9/12 nevnes i §4 og er kandidater for transition-gruppa å vurdere som sekundær: Offentlig innkjøp (10), Fiskeutnyttelse til høyverdi (9), Beredskap-FI-modell (8). <b>v1.2-tillegg:</b> hver av de fem foregangsområdene er nå utbygd med institusjonelt ansvar per land, regulatoriske hindre, tre konkrete første-skritt, og utfallsmål 2027 (KPI). Klikk «Substansutbygging v1.2»-banneret for hver fokusområde.</p>
+  </div>
+</section>
+
+<!-- §6 AVGRENSNING MOT VISION 2030 -->
+<section id="vision">
+  <div class="wrap">
+    <h2>§6 Avgrensning mot Nordic Vision 2030</h2>
+    <h3 class="title">Hvor vi komplementerer NMR — og hvor vi ikke</h3>
+
+    <div class="grid grid-3">
+      <div class="card emerald">
+        <h4 style="margin-top:0">Vi har sterk dekning</h4>
+        <ul style="margin-top:8px;font-size:13px">
+          <li>1.4.2 Organic agricultural land share</li>
+          <li>2.5.2 Imports from Nordic countries</li>
+          <li>1.1.1 Territorial GHG emissions (partial)</li>
+          <li>1.3.2 Municipal waste recycling (partial)</li>
+          <li>3.1.2 Self-rated health (NORMO/NNR-proxy)</li>
+        </ul>
+      </div>
+      <div class="card sky">
+        <h4 style="margin-top:0">Vi supplementerer NMR</h4>
+        <ul style="margin-top:8px;font-size:13px">
+          <li>HICP matpris per land</li>
+          <li>Matvaregruppeimport (per kategori)</li>
+          <li>Selvforsyning (kraftfôr-korrigert)</li>
+          <li>HHI og retailer share</li>
+          <li>Matsvinn per ledd, per land</li>
+          <li>Private label / EMV</li>
+          <li>Verdikjede-flaskehalser</li>
+          <li>Subsidier per land + struktur (v1.2)</li>
+        </ul>
+      </div>
+      <div class="card amber">
+        <h4 style="margin-top:0">Vi har gap mot NMR</h4>
+        <ul style="margin-top:8px;font-size:13px">
+          <li>1.1.2 Consumption-based GHG <span class="pill emerald" style="font-size:10px">delvis lukket v1.2</span></li>
+          <li>1.3.1 Material footprint</li>
+          <li>1.5.2 Baltic Sea eutrophication <span class="pill emerald" style="font-size:10px">lukket v1.2</span></li>
+          <li>1.5.3 Arctic/Barents fish stocks <span class="pill emerald" style="font-size:10px">lukket v1.2</span></li>
+          <li>1.4.3 Agricultural bird index</li>
+          <li>2.2.2 Bioeconomy employment</li>
+          <li>3.3.2 Food affordability</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin-top:18px">
+      <b>Vår merverdi:</b> landsspesifikk + verdikjedespesifikk + aktørnær forklaring på <em>hvorfor</em> brede Vision-mål lykkes eller stopper. Vi erstatter ikke aggregat-monitorering — vi forklarer den. Markedsstruktur (HHI, EMV, eierskonsentrasjon) er Vision 2030s blindspot og vår største merverdi.
+    </p>
+  </div>
+</section>
+
+<!-- §7 DATAGAPS OG NESTE SKRITT -->
+<section id="datagaps" class="alt">
+  <div class="wrap">
+    <h2>§7 Datagaps og neste skritt</h2>
+    <h3 class="title">Eksplisitt liste over hva vi ikke vet</h3>
+
+    <div class="status-viz">
+      <p class="viz-title">Statusmatrise for datagaps (v1.2)</p>
+      <div class="status-summary">
+        <div class="status-box"><b>5</b>Lukket / reformulert</div>
+        <div class="status-box"><b>1</b>Delvis lukket</div>
+        <div class="status-box"><b>2</b>Datagap avdekket</div>
+      </div>
+      <div class="status-meter" aria-hidden="true">
+        <span class="segment closed"></span>
+        <span class="segment delvis"></span>
+        <span class="segment gap"></span>
+      </div>
+      <div class="status-meter-legend">
+        <span class="item"><span class="swatch closed"></span>5/8 lukket eller reformulert</span>
+        <span class="item"><span class="swatch delvis"></span>1/8 delvis lukket</span>
+        <span class="item"><span class="swatch gap"></span>2/8 datagap avdekket</span>
+      </div>
+      <div class="status-rows">
+        <div class="status-row"><span>FI fôr i melkeproduksjon</span><span class="status-pill lukket">Lukket</span></div>
+        <div class="status-row"><span>Regenerativt landbruk per land</span><span class="status-pill gap">Datagap</span></div>
+        <div class="status-row"><span>NO offentlig innkjøp øko-andel</span><span class="status-pill gap">Datagap</span></div>
+        <div class="status-row"><span>Subsidier per land</span><span class="status-pill lukket">Lukket</span></div>
+        <div class="status-row"><span>Nordisk soya-hypotese</span><span class="status-pill lukket">Reformulert</span></div>
+        <div class="status-row"><span>Forbruksbasert matfotavtrykk</span><span class="status-pill delvis">Delvis</span></div>
+        <div class="status-row"><span>Eutrofieringsbelastning Østersjøen</span><span class="status-pill lukket">Lukket</span></div>
+        <div class="status-row"><span>Nordic fish stock status</span><span class="status-pill lukket">Lukket</span></div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <span class="table-caption">Tabell 7.1 – Datagaps status, funn og kilder</span>
+      <table>
+        <thead><tr><th>Gap</th><th>Status v1.1</th><th>Funn / kilde</th></tr></thead>
+        <tbody>
+          <tr><td><b>FI fôr i melkeproduksjon</b></td><td><span class="pill emerald">Lukket</span></td><td>Valio (~80% av FI melkemarked) faset ut soya 2018-2019, erstattet med europeisk rapsmel. Ikke "selvforsyning" — FI total plante-protein 15% (Luke, 2021). Markedsdrevet, ikke lov.</td></tr>
+          <tr><td>Regenerativt landbruk per land</td><td><span class="pill rose">Datagap avdekket</span></td><td>Ingen konsensus-definisjon i Norden. Axfoundation/Svenskt Sigill 2022 endte uten standard. FI BSAG Carbon Action ~100 gårder. Sammenlignbar arealdekning ikke mulig.</td></tr>
+          <tr><td>NO offentlig innkjøp øko-andel</td><td><span class="pill rose">Datagap avdekket</span></td><td>Bekreftet ikke-eksisterende aggregert statistikk (DFØ + Debio, 2026-04-30). NO er Nordens minst-målte off. matinnkjøp.</td></tr>
+          <tr><td>Subsidier per land</td><td><span class="pill emerald">Lukket (v1.2 Phase 5)</span></td><td>NO 28,8 mrd NOK total (PSE 40-49%, OECD 2025); SE 12 mrd SEK; DK 7,1 mrd DKK (eco-schemes 20% — UNDER EU-min 25%); FI €700-800M (rate-differensiering 3,7x for grønnsaker); IS 18-22 mrd ISK. NO/IS utenfor EU CAP. NO mangler differensiering mellom flaskehals-produkter (melk/egg) og overskudds-produkter (CD-1-implikasjon).</td></tr>
+          <tr><td>Nordisk soya-laundering-hypotese</td><td><span class="pill emerald">Reformulert</span></td><td>Nedgradert til "EU-norsk asymmetri". Laks ikke i EUDR Annex I; Denofa ProTerra-sertifisert siden 2009. Reell risiko: kundekrav-arbitrasje fra EU-detaljhandel, ikke regulatorisk laundering.</td></tr>
+          <tr><td>Forbruksbasert matfotavtrykk per land</td><td><span class="pill emerald">Delvis lukket (v1.2 Phase 3)</span></td><td>NO 13 t CO2eq/cap (2020, Miljødirektoratet, &gt;60% utenlands); SE &lt;6, DK/FI ~8 t/cap (Otto et al. 2022, IOPscience). Mat-spesifikk dekomposisjon estimert 25-30%; full Eurostat-oppdatering 2022-2024 venter. IS data svak (krever Hagstofa).</td></tr>
+          <tr><td>Eutrofieringsbelastning Østersjøen</td><td><span class="pill emerald">Lukket (v1.2 Phase 4)</span></td><td>HELCOM HOLAS 3 (okt 2023, 2016-2021): "no or very few improvements". NO/IS ikke HELCOM-medlemmer. DK landbruk er hovedkilde til Western Baltic nitrogen-tilførsel; CO2-avgift fra 2030 forventes å redusere bidrag.</td></tr>
+          <tr><td>Nordic fish stock status — Arktis/Barents</td><td><span class="pill emerald">Lukket (v1.2 Phase 4)</span></td><td>JRN-AFWG 2024: NEA cod-kvote 453 427 t (2024); SSB forventet under Bpa fra 2025, lavest 2027. ICES suspenderte russisk deltagelse mars 2022; assessment nå utenfor ICES.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Neste skritt</h4>
+    <ol>
+      <li>✅ <b>T3 ekstern-vs-intern diff</b> gjennomført (v1.2 Phase 8) — plattform-merverdi i 4/7 CD-cases via aktørnær spesifisitet + temporal oppdatering + strukturell-konseptuell merverdi. Se §8 "T3-merverdi".</li>
+      <li><b>1-siders teaser til Jan Thomas</b> for sjekkpunkt 1 (5 fokusområder + 2 dissonance-cases) — skrevet, ikke sendt; krever bruker-godkjenning.</li>
+      <li><b>Workshop med Cathrine</b> — del rapport-utkastet direkte når bruker godkjenner ekstern lansering.</li>
+      <li><b>v1.3-utvikling</b> (hvis videre research-budsjett tillates): regenerativ-konsensus-nordisk-prosess (A3-gap), NO offentlig innkjøp-pålagt rapportering (A4-gap), full Eurostat consumption footprint 2022-2024 (lukker resten av 1.1.2), IS-validering mot Hagstofa Íslands.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- §8 METODE -->
+<section id="metode">
+  <div class="wrap">
+    <h2>§8 Metode</h2>
+    <h3 class="title">Hvordan rapporten ble laget</h3>
+
+    <p class="lead">
+      Rapporten kombinerer Food Systems 2026-plattformens datagrunnlag med en strukturert
+      "innsiktsmotor" (T1-T5) for å generere observasjoner prosessen ikke ville sett uten teknikkanvendelse.
+    </p>
+
+    <h4>Fem faser</h4>
+    <ol>
+      <li><b>Baseline-konsolidering</b> — ~120 facts per (land × tema × metrikk) fra public/data/food-systems, Eurostat, claim-register-food-tg, dossiers, policy-landscape.</li>
+      <li><b>Tematiske dypdykk</b> — 8 batches, hver med 3-5 verifiserte påstander per land + kontraster + dissonance-kandidat + uventet kobling.</li>
+      <li><b>Innsiktsmotor T1-T5</b> — cross-tab-matrise, AI-flagging av motsigelser, ekstern-vs-intern diff (åpen), auto-genererte spørsmål, negativ-rom mot Vision 2030.</li>
+      <li><b>Syntese</b> — utvalg av 7 dissonance-cases fra 12 motsigelser, score-rangering av 8 foregangsområder.</li>
+      <li><b>Skriving</b> — denne rapporten + MD-appendiks med full evidens.</li>
+    </ol>
+
+    <h4>Datakvalitetsflagg</h4>
+    <ul>
+      <li><span class="pill emerald">primary_api</span> — Eurostat, SSB, SCB, stat.fi direkte</li>
+      <li><span class="pill emerald">primary_report</span> — sitat fra primærkilde-rapport</li>
+      <li><span class="pill">primary_estimate</span> — estimat med metode-note</li>
+      <li><span class="pill">actor_data</span> — enkelt aktør, ikke bransjesnitt</li>
+      <li><span class="pill amber">needs_primary_check</span> — lokal forskningsnotat, ikke verifisert</li>
+    </ul>
+
+    <h4>Forbehold</h4>
+    <ul>
+      <li>NO har dypest data; IS svakest — det speiler vår kjennskap, ikke nødvendigvis virkeligheten.</li>
+      <li>Cognitive dissonance-cases er per definisjon kontroversielle. De er bygget på datagrunnlag, men tolkningene kan diskuteres.</li>
+      <li>Foregangsområde-score (0-12) er disiplineringsverktøy, ikke matematisk fasit.</li>
+      <li>"Soya-laundering"-hypotesen er nedgradert i v1.1 til "EU-norsk asymmetri" etter teknisk validering (A5).</li>
+    </ul>
+
+    <h4>v1.0 → v1.1 endringslogg</h4>
+    <ul>
+      <li>✅ <b>A1 (FI fôr):</b> Verifisert at Valio faset ut soya 2018-2019 (markedsdrevet, ikke politisk). Foregangsområde 1 reformulert.</li>
+      <li>✅ <b>A2 (NO øko-melk):</b> Eksakt sitat verifisert mot Landbruksdirektoratet (2026, kap. 2). CD-1 styrket og nyansert som "asymmetrisk marked".</li>
+      <li>🔴 <b>A3 (Regenerativt):</b> Datagap avdekket — ingen konsensus-definisjon i Norden.</li>
+      <li>🔴 <b>A4 (NO offentlig innkjøp):</b> Datagap avdekket — ingen aggregert nasjonal statistikk eksisterer.</li>
+      <li>🟢 <b>A5 (Soya-laundering):</b> Hypotese nedgradert. Laks ikke i EUDR Annex I. Reformulert til "EU-norsk asymmetri".</li>
+      <li>🟡 <b>A6/A7 (Vision 2030 gap):</b> Forbruksbasert matfotavtrykk + marine indikatorer deferred til v1.2.</li>
+      <li>📚 Kildestandard APA7-light innført gjennom rapporten.</li>
+    </ul>
+
+    <h4>v1.1 → v1.2 endringslogg</h4>
+    <ul>
+      <li>✅ <b>Phase 1 — Claim-audit:</b> 87 påstander auditert; 59% direkte primær, 28% sekundær, 14% svake. 6 hoved-🔴-flagg (K1-K7) identifisert; flere lukket gjennom Phase 2-5.</li>
+      <li>✅ <b>Phase 2 — Tre primærsjekker fra A5:</b> IFRO/KU 2025 verifisert (Bosselmann, Frandsen &amp; Andrade de Sá, IFRO Documentation no. 1). EUR-Lex Annex I bekreftet (akvakultur ikke inkludert). Stortingsproposisjon-status: ikke vedtatt; soya OG storfekjøtt unntatt.</li>
+      <li>✅ <b>Phase 3 — Forbruksbasert matfotavtrykk:</b> Delvis lukket. NO 13 t CO2eq/cap (Miljødir. 2024); SE &lt;6, DK/FI ~8 t/cap (Otto et al. 2022).</li>
+      <li>✅ <b>Phase 4 — Marine indikatorer:</b> Lukket. HELCOM HOLAS 3 + JRN-AFWG 2024 NEA cod 453 427 t-kvote, SSB-bekymring 2025-2027.</li>
+      <li>✅ <b>Phase 5 — Subsidier per land:</b> Lukket. NO 28,8 mrd NOK + PSE 40-49%; SE 12 mrd SEK; DK 7,1 mrd DKK; FI €700-800M; IS 18-22 mrd ISK. NO/IS utenfor EU CAP.</li>
+      <li>✅ <b>Phase 6 — Substansutbygging Foregangsområde 1-5:</b> Per område: institusjonelt ansvar per land + hindre + tre konkrete første-skritt + utfallsmål 2027. Se "Substansutbygging v1.2"-banner i §5.</li>
+      <li>✅ <b>Phase 7 — Selvkritikk-seksjon:</b> Ny §9 med syv kvalitetsflagg (SK-1 til SK-7) og operativ veiledning til kritisk leser.</li>
+      <li>✅ <b>Phase 8 — T3 ekstern-vs-intern diff:</b> Plattform-merverdi demonstrert i 4 av 7 CD-cases via aktørnær spesifisitet + temporal oppdatering + strukturell-konseptuell merverdi.</li>
+      <li>🔧 <b>Konsistens-fix:</b> "HHI 96,6%" → "HHI 3445 (CR3 96,6%)"; FI HVK-mål standardisert som 9 mnd totalt; FCR 1,15 kontekstualisert som aktørdata; København 84% → 85% (2024) + peak-info; CD-3 referanse oppdatert med eksakt Bosselmann-citation.</li>
+    </ul>
+
+    <h4>T3-merverdi (v1.2 Phase 8)</h4>
+    <p>Plattformens merverdi er primært <b>strukturell-konseptuell</b> (skille-konsepter et frittstående LLM ikke har: "tilbud-flaskehals vs etterspørsel", "lagging vs leading-indikator", "utnyttelse vs høyverdi-utnyttelse"), <b>aktørnær</b> (spesifikke aktørnavn med kilde: Bosselmann, Nguyen/Hartmann, S-Group, Lidl/Aldi-blokkering), og <b>temporal</b> (2024-2026-tall). Plattformen forfekter motsigelser mot etablerte narrativ i 4 av 7 CD-cases (CD-1, CD-4, CD-6, CD-7-implikasjon). Plattformens svakhet er i kjente fagdebatter (CD-2 selvforsyning) og EU-nivå-mønstre der LLM har god default-narrativ.</p>
+    <p style="font-size:13px"><b>TG-anbefaling:</b> Plattform-rapporten brukes som "andre lag" sjekk mot generisk LLM-svar — først LLM-overblikk for kontekst, deretter plattform-validering for motsigelser, eksakte tall, og aktør-spesifikke implikasjoner.</p>
+
+    <h4>Appendiks</h4>
+    <p>Full evidensgrunnlag, kildelenker, score-matriser og research-notater finnes i:</p>
+    <ul>
+      <li><code>research/norden/sirkularitet-sprint-2026-05/nordisk-circularity-baseline-v0.3.json</code> — ~120 facts</li>
+      <li><code>research/norden/sirkularitet-sprint-2026-05/batch-01-importert-for.md</code> til <code>batch-08-beredskap-selvforsyning.md</code></li>
+      <li><code>research/norden/sirkularitet-sprint-2026-05/innsiktsmotor.md</code> — T1-T5 utput</li>
+      <li><code>research/norden/sirkularitet-sprint-2026-05/syntese-fase-4.md</code> — dissonance + foregangsområde-utvalg</li>
+      <li><code>research/norden/sirkularitet-sprint-2026-05/v1.1-plan-og-kildestandard.md</code> — APA7-light-standard</li>
+      <li><code>research/v1-1/A1-fi-for-fase-ut.md</code> til <code>A5-soya-laundering-hypotese.md</code> — v1.1-research</li>
+      <li><code>docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md</code> — formatert appendiks med kildebibliotek</li>
+    </ul>
+
+    <p class="footer-note">
+      Rapporten er Gabriel B Freemans analyse på oppdrag fra Jan Thomas (samtale 29.04.2026) for nordisk transition-gruppe matsystem.
+      Alle påstander har sporbar kildelenke i appendiks. Bruk fritt — krediter Food Systems 2026.
+    </p>
+  </div>
+</section>
+
+<!-- §9 SELVKRITIKK -->
+<section id="selvkritikk" class="alt">
+  <div class="wrap">
+    <h2>§9 Selvkritikk</h2>
+    <h3 class="title">Hva rapporten ikke klarer å si — og hva en kritisk leser bør gjøre</h3>
+    <p class="lead">
+      Rapporten har syv distinkte kvalitetsflagg-svakheter. Vi anerkjenner dem her, eksplisitt,
+      slik at de ikke kan brukes som overraskelses-argumenter mot rapportens funn.
+      Selvkritikk skal være <em>operativ, ikke beklagende</em>: hvert punkt sier hva en
+      kritisk leser bør gjøre med svakheten.
+    </p>
+
+    <div class="card amber">
+      <h4>SK-1 · Norge er overrepresentert i dissonance-casene</h4>
+      <p>4 av 7 CD-cases gjelder NO eksplisitt (CD-1, CD-2, CD-4, CD-5); en femte (CD-3) har NO som co-aktør via EUDR-asymmetri. Vi finner flere motsigelser i NO fordi vi ser flere lag av NO-data, ikke fordi NO har flest paradokser. Andre nordiske land kan ha tilsvarende motsigelser vi ikke kan dokumentere.</p>
+      <p><b>Hva en kritisk leser bør gjøre:</b> Behandle dissonance-listen som "kjente NO-paradokser + en håndfull andre", ikke som "alle nordiske paradokser". For SE/FI/DK/IS bør konklusjoner kalibreres mot at vi har 1-2 cases hver der vi sannsynligvis ville hatt flere med dypere data.</p>
+    </div>
+
+    <div class="card amber">
+      <h4>SK-2 · Island har systematisk tynnere datadekning</h4>
+      <p>Av de 8 (land × tema)-cellene i §2-tabellen har Island "n/a" på matsvinn, score 1 på flere indikatorer, og rapporten erkjenner at Hagstofa-validering ikke er gjort. IS har mindre publisert engelsk-/skandinavisk-språklig data og strukturelle særpreg som ikke matcher kontinental-nordiske kategoriseringer.</p>
+      <p><b>Hva en kritisk leser bør gjøre:</b> Ikke konkludere at IS er "svakest" på en gitt indikator basert på rapportens tall. IS-tallene må valideres mot Hagstofa Íslands og Matvælastofnun før ekstern beslutningstaking. IS er sannsynligvis sterkere på enkelte sirkularitetsdimensjoner enn rapporten gjenspeiler (geotermisk drivhus, skreisporing, mindre matsvinn-volum gitt 380k populasjon).</p>
+    </div>
+
+    <div class="card amber">
+      <h4>SK-3 · Ingen ekstern validering (T3 diff) er gjort</h4>
+      <p>T3-diff (rapportens påstander mot frittstående LLM uten plattform-data) er deferred til v1.2 Phase 8. Vi har lukket A1-A5 (interne validerings-spørsmål) først fordi A1-A5-risikoen var større for at graverende feil skulle ha sneket seg inn. T3 demonstrerer plattform-merverdi men er metodologisk sekundær til faktasjekking.</p>
+      <p><b>Hva en kritisk leser bør gjøre:</b> Hvis rapporten brukes i transition-gruppa-beslutning, kjør stikkprøver: ta 5 påstander, spør ChatGPT/Perplexity uten plattform-kontekst, og sammenlign. NO-spesifikke detaljer (eksakte aktørnavn, %-tall fra norske kilder) er rapportens sterkeste; tolkning og policy-implikasjoner må vurderes uavhengig.</p>
+    </div>
+
+    <div class="card rose">
+      <h4>SK-4 · Vi vrir narrativ — eksplisitt</h4>
+      <p>Tre påstander motsier etablerte narrativ: CD-1 (NO øko = tilbud-flaskehals, ikke etterspørsel); CD-4 (NOK 4,9 mrd-bot endret ikke konsentrasjonsstrukturen); CD-6 (Sverige er ikke lenger nordisk øko-leder i markedet). Bestillingen var "hvor retorikk og data spriker?" — det vil si: vi er invitert til å være polemiske. Innsiktsmotor T2 (motsigelses-flagging) er designet for å løfte fram nettopp slike sprik. Det betyr at rapporten er <b>systematisk biased mot å finne dissonance</b>, ikke konsensus.</p>
+      <p><b>Hva en kritisk leser bør gjøre:</b> Anerkjenne at rapporten er en moteksempel-samling, ikke et balansert oversiktsbilde. En komplementær rapport om "hva fungerer i Norden" ville sett annerledes ut og vært komplementær, ikke motstridende.</p>
+    </div>
+
+    <div class="card amber">
+      <h4>SK-5 · Score-systemet (1-5 og 0-12) er subjektivt</h4>
+      <p>§2-cross-tab og §5-foregangsområde-score er disiplineringsverktøy — konsekvent-vurderte ranking-vekter relativt mellom de 5 landene. Det finnes ingen omforent metodologi for å score "matsystem-sirkularitet" i Norden; Eurostat, OECD og Nordregio bruker ulike rammeverk.</p>
+      <p><b>Hva en kritisk leser bør gjøre:</b> Bruk score som "leder/midten/etterhenger"-kategori (1-2/3/4-5), ikke som eksakte tall. Foregangsområde-score (10-12 av 12) skal leses som "alle 5 områder er kvalifiserte" — ikke "område 1 er marginalt bedre enn område 5".</p>
+    </div>
+
+    <div class="card emerald">
+      <h4>SK-6 · v1.1 nedgraderte CD-3 — det betyr at v1.0 var teknisk for sterk</h4>
+      <p>I v1.0 ble CD-3 formulert som "soya-laundering-hypotese" med implisitt "fundamental gap". I v1.1 ble den nedgradert til "betydelig gap" og reformulert som "EU-norsk asymmetri" basert på A5-validering. Tre tekniske svekkelser ble dokumentert: laks ikke i EUDR Annex I, ikke-sporbar DK-soya kan ikke plasseres på EU-marked etter 30.12.2026, Denofa er ProTerra-sertifisert siden 2009. v1.2 verifiserte alle tre primærsjekker fra A5 — formuleringen holder.</p>
+      <p><b>Hva en kritisk leser bør gjøre:</b> Anerkjenne at retting underveis er et kvalitetsstempel, ikke en svekkelse. Men: hvis v1.0 ble distribuert til andre lesere før v1.1-rettingen, har de fått en for-skarp formulering. v1.0 og v1.1 bør ikke siteres; v1.2 er gjeldende.</p>
+    </div>
+
+    <div class="card amber">
+      <h4>SK-7 · IFRO/KU 2025 PDF er identifisert men ikke fysisk lastet (sandbox-restriksjon)</h4>
+      <p>v1.2 Phase 2 verifiserte tre primærsjekker: IFRO/KU-rapport (Bosselmann, Frandsen &amp; Andrade de Sá, 2025, <em>IFRO Documentation no. 1</em>), EUR-Lex Annex I, Stortingsproposisjon-status. PDF-rapporten er identifisert (curis.ku.dk) men sandbox tillater ikke direktelasting; analyse bygger på pressemelding-sitat.</p>
+      <p><b>Hva en kritisk leser bør gjøre:</b> Ved sitering av "6%"-tallet, bruk pressemeldings-sitatet direkte ("kun 6 procent af den certificerede soja, der importeres til Danmark, er fysisk sporbar"). Dette er et primært-pressemeldings-sitat, ikke et tabell-sitat. Hvis transition-gruppa krever full sidetall-referanse, må rapporten lastes manuelt fra <a href="https://curis.ku.dk/ws/portalfiles/portal/471376644/IFRO_Documentation_2025_01.pdf">curis.ku.dk PDF</a>.</p>
+    </div>
+
+    <h4>Tre kontroversielle påstander vi forsvarer eksplisitt</h4>
+    <ol>
+      <li><b>CD-1 (NO øko = tilbud-flaskehals).</b> Vi har eksakt sitat fra Landbruksdirektoratet (2026, kap. 2). Vi forsvarer dette mot etterspørsel-narrativet uten reservasjon.</li>
+      <li><b>CD-4 (NOK 4,9 mrd-bot endret ikke konsentrasjonsstrukturen).</b> HHI-data er offentlig (HHI 3445, CR3 96,6%). Strukturen er ikke endret. Vi forsvarer at reaktiv straff ikke er strukturløsning.</li>
+      <li><b>CD-3 (EU-norsk asymmetri).</b> Etter Phase 2-validering forsvarer vi at NO-soya-unntaket er en politisk-symbolsk eksponering, ikke en regulatorisk laundering. Konsekvensene er reelle, men teknisk mer presise enn v1.0 antydet.</li>
+    </ol>
+
+    <h4>Hva selvkritikk IKKE betyr</h4>
+    <p>Vi anerkjenner svakhetene over, men insisterer på at rapportens hoved-funn — fem fokusområder, syv dissonance-cases, foregangsområde-score — er forsvarlige som beslutningsstøtte. Selvkritikken er en <em>kalibrerings-veiledning</em>, ikke en avveiing av rapportens samlede gyldighet.</p>
+  </div>
+</section>
+
+</body>
+</html>
