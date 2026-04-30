@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
 import { getActorBySlug } from '@/lib/queries/actors'
+import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
 
 const STANCE_LABELS: Record<string, string> = {
   champion: 'Champion',
@@ -88,6 +89,52 @@ export default async function ActorDetailPage({
           <div className="text-xs text-stone-500">Kildekoblinger</div>
         </Card>
       </div>
+
+      <EntityNeighborhood
+        groups={[
+          {
+            label: 'Utgående aktørrelasjoner',
+            items: actor.relationshipsFrom.map(relation => ({
+              label: relation.toActor.name,
+              href: `/aktorer/${relation.toActor.slug}`,
+              meta: relation.note ?? relation.toActor.actorType,
+              badge: relation.relationType,
+            })),
+            emptyText: 'Ingen utgående aktørrelasjoner registrert.',
+          },
+          {
+            label: 'Inngående aktørrelasjoner',
+            items: actor.relationshipsTo.map(relation => ({
+              label: relation.fromActor.name,
+              href: `/aktorer/${relation.fromActor.slug}`,
+              meta: relation.note ?? relation.fromActor.actorType,
+              badge: relation.relationType,
+            })),
+            emptyText: 'Ingen inngående aktørrelasjoner registrert.',
+          },
+          {
+            label: 'Dokumentkoblinger',
+            items: actor.documentRefs.map(ref => ({
+              label: ref.document.title,
+              href: `/bibliotek/${ref.document.slug}`,
+              meta: ref.context ?? ref.document.category ?? 'actor-ref',
+            })),
+            emptyText: 'Ingen dokumentkoblinger registrert.',
+          },
+          {
+            label: 'Koblet selskap',
+            items: actor.company
+              ? [{
+                  label: actor.company.name,
+                  href: `/selskap/${actor.company.id}`,
+                  meta: actor.company.valueChainStage ?? 'selskap',
+                  badge: actor.company.ownershipType ?? undefined,
+                }]
+              : [],
+            emptyText: 'Ingen selskapskobling registrert.',
+          },
+        ]}
+      />
 
       <div className="grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
         <Card title="Commitment Snapshot">
@@ -257,4 +304,3 @@ export default async function ActorDetailPage({
     </div>
   )
 }
-

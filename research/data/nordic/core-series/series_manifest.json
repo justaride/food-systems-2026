@@ -1,17 +1,33 @@
 {
-  "generated_at": "2026-03-11T17:32:02.258190+00:00",
+  "generated_at": "2026-04-29T00:00:00+02:00",
   "dependency": "research/data/fetch_nordic_registry_metadata.py",
   "metadata_dir": "research/data/nordic/registry-metadata",
   "output_dir": "research/data/nordic/core-series",
   "files": {
     "prices": "research/data/nordic/core-series/prices_hicp_food_monthly.csv",
     "trade": "research/data/nordic/core-series/trade_monthly_first_panel.csv",
-    "production": "research/data/nordic/core-series/production_annual_first_panel.csv"
+    "production": "research/data/nordic/core-series/production_annual_first_panel.csv",
+    "organic_agriculture": "research/data/nordic/core-series/organic_agriculture_annual.csv",
+    "organic_integration_candidates": "research/data/nordic/core-series/_staging/organic_integration_candidates_2026-04-29.csv",
+    "organic_market_retail_annual": "research/data/nordic/core-series/organic_market_retail_annual.csv",
+    "organic_control_operators_annual": "research/data/nordic/core-series/organic_control_operators_annual.csv",
+    "organic_public_procurement_annual": "research/data/nordic/core-series/organic_public_procurement_annual.csv",
+    "organic_policy_targets": "research/data/nordic/core-series/organic_policy_targets.csv",
+    "organic_selected_production_annual": "research/data/nordic/core-series/organic_selected_production_annual.csv",
+    "organic_selected_trade_annual": "research/data/nordic/core-series/organic_selected_trade_annual.csv"
   },
   "rows": {
     "prices": 660,
     "trade": 1134,
-    "production": 65
+    "production": 65,
+    "organic_agriculture": 7,
+    "organic_integration_candidates": 86,
+    "organic_market_retail_annual": 14,
+    "organic_control_operators_annual": 22,
+    "organic_public_procurement_annual": 8,
+    "organic_policy_targets": 3,
+    "organic_selected_production_annual": 13,
+    "organic_selected_trade_annual": 1
   },
   "series_manifest": [
     {
@@ -127,11 +143,136 @@
       "rows": 16,
       "raw_file": "research/data/nordic/core-series/raw/production_is_beef_annual.json",
       "notes": "Annual beef production in tonnes."
+    },
+    {
+      "theme": "production",
+      "series_family": "organic_agriculture_area_share",
+      "output_file": "research/data/nordic/core-series/organic_agriculture_annual.csv",
+      "metadata_file": "research/data/nordic/core-series/organic_agriculture_annual.meta.json",
+      "source_name": "Eurostat organic crop area by agricultural production methods and crops",
+      "dataset_or_table_id": "ORG_CROPAR",
+      "rows": 7,
+      "countries": [
+        "DK",
+        "FI",
+        "IS",
+        "NO",
+        "SE"
+      ],
+      "notes": "Canonical organic agriculture area/share series. DK/FI/SE/NO use Eurostat where available; IS is retained as needs-primary-check local estimate, with EEA 2012-2020 historical share staged separately."
+    },
+    {
+      "theme": "organic",
+      "series_family": "organic_market_retail_and_channel_indicators",
+      "output_file": "research/data/nordic/core-series/organic_market_retail_annual.csv",
+      "metadata_file": "research/data/nordic/core-series/organic_market_retail_annual.meta.json",
+      "source_name": "Food Systems 2026 organic Nordic evidence pack",
+      "dataset_or_table_id": "okologisk-norden-2026-04-29",
+      "rows": 14,
+      "countries": [
+        "DK",
+        "FI",
+        "NO",
+        "SE"
+      ],
+      "notes": "Selected annual organic market indicators from national/sector sources, including retail value/share and explicitly flagged channel metrics."
+    },
+    {
+      "theme": "organic",
+      "series_family": "organic_control_operator_and_system_indicators",
+      "output_file": "research/data/nordic/core-series/organic_control_operators_annual.csv",
+      "metadata_file": "research/data/nordic/core-series/organic_control_operators_annual.meta.json",
+      "source_name": "Food Systems 2026 organic Nordic evidence pack",
+      "dataset_or_table_id": "okologisk-norden-2026-04-29",
+      "rows": 22,
+      "countries": [
+        "DK",
+        "FI",
+        "IS",
+        "NO",
+        "SE"
+      ],
+      "notes": "Selected annual organic control/operator metrics plus reference rows for control-system roles. Iceland now includes TRACES current public certificate-status rows in addition to ESA 2023 official-controls context. Sweden now includes KRAV private-label rows that must not be mixed with all-organic official statistics."
+    },
+    {
+      "theme": "organic",
+      "series_family": "organic_public_kitchen_and_procurement_indicators",
+      "output_file": "research/data/nordic/core-series/organic_public_procurement_annual.csv",
+      "metadata_file": "research/data/nordic/core-series/organic_public_procurement_annual.meta.json",
+      "source_name": "Food Systems 2026 organic Nordic evidence pack",
+      "dataset_or_table_id": "okologisk-norden-2026-04-29",
+      "rows": 8,
+      "countries": [
+        "FI",
+        "SE"
+      ],
+      "notes": "Selected annual public kitchen/procurement indicators. Metrics are not directly comparable unless scope/unit match; Sweden includes separate municipal KRAV/organic shares and public-sector value-share/value rows."
+    },
+    {
+      "theme": "organic",
+      "series_family": "organic_policy_target_and_instrument_indicators",
+      "output_file": "research/data/nordic/core-series/organic_policy_targets.csv",
+      "metadata_file": "research/data/nordic/core-series/organic_policy_targets.meta.json",
+      "source_name": "Food Systems 2026 organic Nordic evidence pack",
+      "dataset_or_table_id": "okologisk-norden-2026-04-29",
+      "rows": 3,
+      "countries": [
+        "IS",
+        "NO"
+      ],
+      "notes": "Selected organic policy target/instrument indicators, including target and policy-finance rows. Iceland 2040 organic-area target added from the August 2024 action plan."
+    },
+    {
+      "theme": "organic",
+      "series_family": "organic_selected_production_indicators",
+      "output_file": "research/data/nordic/core-series/organic_selected_production_annual.csv",
+      "metadata_file": "research/data/nordic/core-series/organic_selected_production_annual.meta.json",
+      "source_name": "Food Systems 2026 organic Nordic evidence pack",
+      "dataset_or_table_id": "okologisk-norden-2026-04-29",
+      "rows": 13,
+      "countries": [
+        "FI",
+        "NO",
+        "SE"
+      ],
+      "notes": "Selected product-specific organic production indicators. This is not a total organic production series."
+    },
+    {
+      "theme": "organic",
+      "series_family": "organic_selected_trade_indicators",
+      "output_file": "research/data/nordic/core-series/organic_selected_trade_annual.csv",
+      "metadata_file": "research/data/nordic/core-series/organic_selected_trade_annual.meta.json",
+      "source_name": "Food Systems 2026 organic Nordic evidence pack",
+      "dataset_or_table_id": "okologisk-norden-2026-04-29",
+      "rows": 1,
+      "countries": [
+        "DK"
+      ],
+      "notes": "Selected organic trade indicators extracted from sector reports."
+    },
+    {
+      "theme": "organic",
+      "series_family": "organic_integration_candidates",
+      "output_file": "research/data/nordic/core-series/_staging/organic_integration_candidates_2026-04-29.csv",
+      "source_name": "Food Systems 2026 organic Nordic evidence pack",
+      "dataset_or_table_id": "okologisk-norden-2026-04-29",
+      "rows": 86,
+      "countries": [
+        "DK",
+        "FI",
+        "IS",
+        "NO",
+        "Nordic",
+        "SE"
+      ],
+      "notes": "Staging register preserving all extracted indicators, source metadata, target file, import status and comparability flags. Includes Iceland Tún/TRACES, EEA historical share, 2040 policy target additions, KRAV private-label metrics and reconciled Ekomatcentrum public-procurement rows."
     }
   ],
   "notes": [
     "Prices use Eurostat HICP food as the first cross-country comparable monthly backbone.",
     "Trade mixes total-goods monthly series with Finland's ready monthly agri-food series, so trade comparability is partial.",
-    "Production contains one directly comparable oats-quantity subgroup (FI/NO/SE) and documented fallbacks for DK and IS."
+    "Production contains one directly comparable oats-quantity subgroup (FI/NO/SE) and documented fallbacks for DK and IS.",
+    "Organic agriculture uses Eurostat ORG_CROPAR as primary source; 2024 coverage is partial and Iceland area/market remain needs_primary_check, though EEA historical share and TRACES current operator certificates are now staged.",
+    "Organic evidence-pack integration adds staged market, control, public kitchen, policy, selected production and selected trade series with explicit quality flags; Norway 2025 rows now use the official Landbruksdirektoratet PDF where extracted, and Sweden KRAV/Ekomatcentrum rows are included with private-label and scope-separation flags."
   ]
 }

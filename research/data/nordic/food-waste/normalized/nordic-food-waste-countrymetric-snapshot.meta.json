@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-04-29T19:38:08.579Z",
+  "source": "CountryMetric runtime DB",
+  "rowCount": 47,
+  "coverage": {
+    "dk": {
+      "count": 2,
+      "latestPerCapita": {
+        "year": "2022",
+        "value": "73",
+        "unit": "kg/capita",
+        "source": "Miljøstyrelsen 2023"
+      },
+      "hasTotalTonnage": false,
+      "hasStageBreakdown": false,
+      "latestYear": 2022
+    },
+    "fi": {
+      "count": 2,
+      "latestPerCapita": {
+        "year": "2022",
+        "value": "101",
+        "unit": "kg/capita",
+        "source": "LUKE/Eurostat 2023"
+      },
+      "hasTotalTonnage": false,
+      "hasStageBreakdown": false,
+      "latestYear": 2022
+    },
+    "is": {
+      "count": 3,
+      "latestPerCapita": {
+        "year": "2024",
+        "value": "84",
+        "unit": "kg/capita",
+        "source": "Umhverfisstofnun 2025 est."
+      },
+      "hasTotalTonnage": false,
+      "hasStageBreakdown": false,
+      "latestYear": 2024
+    },
+    "no": {
+      "count": 30,
+      "latestPerCapita": {
+        "year": "2024",
+        "value": "82",
+        "unit": "kg/capita",
+        "source": "Matvett 2025 est."
+      },
+      "hasTotalTonnage": true,
+      "hasStageBreakdown": true,
+      "latestYear": 2024
+    },
+    "se": {
+      "count": 10,
+      "latestPerCapita": {
+        "year": "2022",
+        "value": "127",
+        "unit": "kg/capita",
+        "source": "Naturvårdsverket 2023"
+      },
+      "hasTotalTonnage": false,
+      "hasStageBreakdown": true,
+      "latestYear": 2025
+    }
+  },
+  "scope": "Snapshot of existing foodWaste and foodWastePerCapita CountryMetric rows for Nordic Vision 2030 coverage/gap analysis."
+}

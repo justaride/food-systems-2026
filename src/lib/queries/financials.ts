@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/db'
+import { financialAmountToNok } from '@/lib/queries/financial-units'
 
 export type FinancialRecord = {
   year: number
@@ -8,6 +9,7 @@ export type FinancialRecord = {
   ebitda: number | null
   equityRatio: number | null
   groupEmployees: number | null
+  source: string | null
 }
 
 export type CompanyWithFinancials = {
@@ -38,6 +40,7 @@ export async function getFinancialTrends(): Promise<CompanyWithFinancials[]> {
           ebitda: true,
           equityRatio: true,
           groupEmployees: true,
+          source: true,
         },
       },
     },
@@ -48,17 +51,19 @@ export async function getFinancialTrends(): Promise<CompanyWithFinancials[]> {
     ...c,
     financials: c.financials.map(f => ({
       year: f.year,
-      revenueNok: f.revenueNok ? Number(f.revenueNok) : null,
-      operatingResult: f.operatingResult ? Number(f.operatingResult) : null,
-      operatingMargin: f.operatingMargin ? Number(f.operatingMargin) : null,
-      ebitda: f.ebitda ? Number(f.ebitda) : null,
-      equityRatio: f.equityRatio ? Number(f.equityRatio) : null,
+      revenueNok: financialAmountToNok(f.revenueNok, f.source),
+      operatingResult: financialAmountToNok(f.operatingResult, f.source),
+      operatingMargin: f.operatingMargin != null ? Number(f.operatingMargin) : null,
+      ebitda: financialAmountToNok(f.ebitda, f.source),
+      equityRatio: f.equityRatio != null ? Number(f.equityRatio) : null,
       groupEmployees: f.groupEmployees,
+      source: f.source,
     })),
   }))
 }
 
 export type SubsidySumByCompany = Record<string, { totalAmountNok: number; count: number }>
+export type SubsidySumsByCompanyYear = Record<string, Record<number, { totalAmountNok: number; count: number }>>
 
 export async function getSubsidySumsByCompany(): Promise<SubsidySumByCompany> {
   const rows = await prisma.subsidy.groupBy({
@@ -72,6 +77,26 @@ export async function getSubsidySumsByCompany(): Promise<SubsidySumByCompany> {
     map[r.companyId] = {
       totalAmountNok: r._sum.amountNok ? Number(r._sum.amountNok) : 0,
       count: r._count._all,
+    }
+  }
+  return map
+}
+
+export async function getSubsidySumsByCompanyYear(): Promise<SubsidySumsByCompanyYear> {
+  const rows = await prisma.subsidy.groupBy({
+    by: ['companyId', 'year'],
+    where: { year: { not: null } },
+    _sum: { amountNok: true },
+    _count: { _all: true },
+  })
+
+  const map: SubsidySumsByCompanyYear = {}
+  for (const row of rows) {
+    if (row.year === null) continue
+    if (!map[row.companyId]) map[row.companyId] = {}
+    map[row.companyId][row.year] = {
+      totalAmountNok: row._sum.amountNok ? Number(row._sum.amountNok) : 0,
+      count: row._count._all,
     }
   }
   return map

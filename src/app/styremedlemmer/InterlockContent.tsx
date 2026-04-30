@@ -17,6 +17,23 @@ import { SECTORS, SECTOR_ORDER, type SectorKey } from '@/lib/sector'
 
 type ViewMode = 'graph' | 'table'
 
+type InterlockPerson = InterlockGraphData['persons'][number]
+type InterlockCompanyMetric = InterlockGraphData['companyMetrics'][number]
+
+type CompanyInterlockScore = {
+  companyId: string
+  companyName: string
+  sector: SectorKey
+  interlockPersons: number
+  crossSectorPersons: number
+  connectedCompanies: number
+  interlockScore: number
+  latestRevenueNok: number | null
+  latestRevenueYear: number | null
+  subsidyTotalNok: number
+  ownershipLinkCount: number
+}
+
 function SectorDot({ sector }: { sector: SectorKey }) {
   const meta = SECTORS[sector]
   return (
@@ -42,6 +59,79 @@ function RoleBadge({ role }: { role: string }) {
   )
 }
 
+function ScorePill({ score }: { score: number }) {
+  return (
+    <span className="inline-flex min-w-8 justify-center rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5 text-[11px] font-semibold tabular-nums text-stone-800">
+      {score}
+    </span>
+  )
+}
+
+function formatNok(value: number | null): string {
+  if (value == null || value <= 0) return '—'
+  if (value >= 1e9) return `${(value / 1e9).toFixed(1)} mrd`
+  if (value >= 1e6) return `${(value / 1e6).toFixed(0)} MNOK`
+  if (value >= 1e3) return `${Math.round(value / 1e3).toLocaleString('no')}k`
+  return Math.round(value).toLocaleString('no')
+}
+
+function getCompanyInterlockScores(
+  persons: InterlockPerson[],
+  companyMetricsById: Map<string, InterlockCompanyMetric>
+): CompanyInterlockScore[] {
+  const byCompany = new Map<string, {
+    companyName: string
+    sector: SectorKey
+    personKeys: Set<string>
+    crossSectorPersonKeys: Set<string>
+    connectedCompanyIds: Set<string>
+  }>()
+
+  for (const person of persons) {
+    const uniquePositions = [...new Map(person.positions.map(pos => [pos.companyId, pos])).values()]
+    const personCompanyIds = new Set(uniquePositions.map(pos => pos.companyId))
+
+    for (const pos of uniquePositions) {
+      const entry = byCompany.get(pos.companyId) ?? {
+        companyName: pos.companyName,
+        sector: pos.sector,
+        personKeys: new Set<string>(),
+        crossSectorPersonKeys: new Set<string>(),
+        connectedCompanyIds: new Set<string>(),
+      }
+
+      entry.personKeys.add(person.personKey)
+      if (person.sectors.length > 1) entry.crossSectorPersonKeys.add(person.personKey)
+      for (const companyId of personCompanyIds) {
+        if (companyId !== pos.companyId) entry.connectedCompanyIds.add(companyId)
+      }
+      byCompany.set(pos.companyId, entry)
+    }
+  }
+
+  return [...byCompany.entries()]
+    .map(([companyId, entry]) => {
+      const metrics = companyMetricsById.get(companyId)
+      return {
+        companyId,
+        companyName: entry.companyName,
+        sector: entry.sector,
+        interlockPersons: entry.personKeys.size,
+        crossSectorPersons: entry.crossSectorPersonKeys.size,
+        connectedCompanies: entry.connectedCompanyIds.size,
+        interlockScore:
+          entry.personKeys.size +
+          entry.connectedCompanyIds.size +
+          entry.crossSectorPersonKeys.size * 2,
+        latestRevenueNok: metrics?.latestRevenueNok ?? null,
+        latestRevenueYear: metrics?.latestRevenueYear ?? null,
+        subsidyTotalNok: metrics?.subsidyTotalNok ?? 0,
+        ownershipLinkCount: metrics?.ownershipLinkCount ?? 0,
+      }
+    })
+    .sort((a, b) => b.interlockScore - a.interlockScore || a.companyName.localeCompare(b.companyName, 'nb'))
+}
+
 export function InterlockContent({
   data,
   initialSelection = null,
@@ -56,6 +146,10 @@ export function InterlockContent({
   const [sectorFilter, setSectorFilter] = useState<Set<SectorKey>>(new Set())
   const [crossSectorOnly, setCrossSectorOnly] = useState(false)
   const deferredQuery = useDeferredValue(query)
+  const companyMetricsById = useMemo(
+    () => new Map(data.companyMetrics.map(metric => [metric.companyId, metric])),
+    [data.companyMetrics]
+  )
 
   // Count available role categories in the dataset (used to hide empty
   // checkboxes).
@@ -153,6 +247,24 @@ export function InterlockContent({
     }
   }, [filteredPersons])
 
+  const filteredCompanyScores = useMemo(
+    () => getCompanyInterlockScores(filteredPersons, companyMetricsById),
+    [filteredPersons, companyMetricsById]
+  )
+
+  const topPersonScores = useMemo(
+    () => filteredPersons
+      .slice()
+      .sort((a, b) => b.interlockScore - a.interlockScore || a.personName.localeCompare(b.personName, 'nb'))
+      .slice(0, 8),
+    [filteredPersons]
+  )
+
+  const topCompanyScores = useMemo(
+    () => filteredCompanyScores.slice(0, 8),
+    [filteredCompanyScores]
+  )
+
   // Filtered graph: only keep person nodes in filtered set and the companies
   // they touch; drop orphan company nodes.
   const filteredGraph = useMemo(() => {
@@ -187,6 +299,9 @@ export function InterlockContent({
         const sector = companyNode?.sector
         return { companyId, companyName, persons: personsAtCompany, sector }
       })()
+    : null
+  const selectedCompanyScore = selectedCompany
+    ? filteredCompanyScores.find(company => company.companyId === selectedCompany.companyId)
     : null
 
   const toggleRole = (role: RoleCategory) => {
@@ -229,7 +344,7 @@ export function InterlockContent({
         </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         <Card>
           <p className="text-[10px] text-stone-400 uppercase tracking-wider">Unike personer</p>
           <p className="text-xl font-bold text-stone-900 mt-1">
@@ -266,6 +381,24 @@ export function InterlockContent({
           </p>
           <p className="text-[10px] text-stone-400 mt-0.5">verv i 2+ sektorer</p>
         </Card>
+        <Card>
+          <p className="text-[10px] text-stone-400 uppercase tracking-wider">Topp personscore</p>
+          <p className="text-xl font-bold text-stone-900 mt-1">
+            {topPersonScores[0]?.interlockScore.toLocaleString('no') ?? '—'}
+          </p>
+          <p className="text-[10px] text-stone-400 mt-0.5 truncate">
+            {topPersonScores[0]?.personName ?? 'ingen treff'}
+          </p>
+        </Card>
+        <Card>
+          <p className="text-[10px] text-stone-400 uppercase tracking-wider">Topp selskapsscore</p>
+          <p className="text-xl font-bold text-stone-900 mt-1">
+            {topCompanyScores[0]?.interlockScore.toLocaleString('no') ?? '—'}
+          </p>
+          <p className="text-[10px] text-stone-400 mt-0.5 truncate">
+            {topCompanyScores[0]?.companyName ?? 'ingen treff'}
+          </p>
+        </Card>
       </div>
 
       <Card>
@@ -280,6 +413,115 @@ export function InterlockContent({
                 </span>
               )}
             </p>
+          </div>
+        </div>
+      </Card>
+
+      <Card title="Interlock-score">
+        <p className="mb-4 text-xs leading-5 text-stone-500">
+          Personscore summerer unike selskaper, ekstra roller og to poeng per ekstra sektor.
+          Selskapsscore summerer krysspersoner, andre selskaper de binder til og kryssektorbonus.
+          Økonomi, tilskudd og eierskap vises som kontekst ved siden av scoren, men inngår
+          ikke i scoreformelen. Scoren er et internt prioriteringssignal for videre maktanalyse,
+          ikke ekstern validering.
+        </p>
+        <dl className="mb-4 grid gap-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-950 md:grid-cols-4">
+          <div>
+            <dt className="font-semibold uppercase tracking-wider text-amber-700">Metodestatus</dt>
+            <dd className="mt-1 leading-5">Internt prioriteringssignal</dd>
+          </div>
+          <div>
+            <dt className="font-semibold uppercase tracking-wider text-amber-700">Ekstern bruk</dt>
+            <dd className="mt-1 leading-5">Ikke validert maktindikator</dd>
+          </div>
+          <div>
+            <dt className="font-semibold uppercase tracking-wider text-amber-700">Kontekstdata</dt>
+            <dd className="mt-1 leading-5">Omsetning, tilskudd og eierlenker vektes ikke</dd>
+          </div>
+          <div>
+            <dt className="font-semibold uppercase tracking-wider text-amber-700">Neste gate</dt>
+            <dd className="mt-1 leading-5">Rolleharmonisering og aktørvalidering</dd>
+          </div>
+        </dl>
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+          <div className="overflow-x-auto">
+            <p className="mb-2 text-[10px] uppercase tracking-wider text-stone-400">Personer</p>
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-stone-200 text-left">
+                  <th className="py-2 pr-3 font-medium text-stone-400">Score</th>
+                  <th className="py-2 pr-3 font-medium text-stone-400">Person</th>
+                  <th className="py-2 pr-3 text-right font-medium text-stone-400">Selskaper</th>
+                  <th className="py-2 pr-3 text-right font-medium text-stone-400">Sektorer</th>
+                </tr>
+              </thead>
+              <tbody>
+                {topPersonScores.map(person => (
+                  <tr key={person.personKey} className="border-b border-stone-100">
+                    <td className="py-2 pr-3"><ScorePill score={person.interlockScore} /></td>
+                    <td className="py-2 pr-3">
+                      <Link
+                        href={`/personer/${person.personKey}`}
+                        className="font-medium text-emerald-700 hover:underline"
+                      >
+                        {person.personName}
+                      </Link>
+                    </td>
+                    <td className="py-2 pr-3 text-right tabular-nums text-stone-700">
+                      {person.companyCount}
+                    </td>
+                    <td className="py-2 pr-3 text-right tabular-nums text-stone-700">
+                      {person.sectorCount}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="overflow-x-auto">
+            <p className="mb-2 text-[10px] uppercase tracking-wider text-stone-400">Selskaper</p>
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-stone-200 text-left">
+                  <th className="py-2 pr-3 font-medium text-stone-400">Score</th>
+                  <th className="py-2 pr-3 font-medium text-stone-400">Selskap</th>
+                  <th className="py-2 pr-3 text-right font-medium text-stone-400">Personer</th>
+                  <th className="py-2 pr-3 text-right font-medium text-stone-400">Koblinger</th>
+                  <th className="py-2 pr-3 text-right font-medium text-stone-400">Omsetning</th>
+                  <th className="py-2 pr-3 text-right font-medium text-stone-400">Tilskudd</th>
+                </tr>
+              </thead>
+              <tbody>
+                {topCompanyScores.map(company => (
+                  <tr key={company.companyId} className="border-b border-stone-100">
+                    <td className="py-2 pr-3"><ScorePill score={company.interlockScore} /></td>
+                    <td className="py-2 pr-3">
+                      <Link
+                        href={`/selskap/${company.companyId}#styre`}
+                        className="font-medium text-emerald-700 hover:underline"
+                      >
+                        <SectorDot sector={company.sector} />
+                        {company.companyName}
+                      </Link>
+                    </td>
+                    <td className="py-2 pr-3 text-right tabular-nums text-stone-700">
+                      {company.interlockPersons}
+                    </td>
+                    <td className="py-2 pr-3 text-right tabular-nums text-stone-700">
+                      {company.connectedCompanies}
+                    </td>
+                    <td className="py-2 pr-3 text-right tabular-nums text-stone-700">
+                      <span title={company.latestRevenueYear ? `Siste regnskapsår ${company.latestRevenueYear}` : undefined}>
+                        {formatNok(company.latestRevenueNok)}
+                      </span>
+                    </td>
+                    <td className="py-2 pr-3 text-right tabular-nums text-stone-700">
+                      {formatNok(company.subsidyTotalNok)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </Card>
@@ -428,6 +670,9 @@ export function InterlockContent({
                 </div>
                 <p className="text-xs text-stone-400 mb-3">
                   {selectedPerson.positions.length} styreverv
+                  <span className="ml-2">
+                    score {selectedPerson.interlockScore}
+                  </span>
                   {selectedPerson.sectors.length > 1 && (
                     <span className="ml-2 px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-200 text-[10px] font-medium">
                       Kryssektor
@@ -470,7 +715,34 @@ export function InterlockContent({
                 )}
                 <p className="text-xs text-stone-400 mb-3">
                   {selectedCompany.persons.length} kryssstyremedlemmer
+                  {selectedCompanyScore && (
+                    <span className="ml-2">
+                      score {selectedCompanyScore.interlockScore}
+                    </span>
+                  )}
                 </p>
+                {selectedCompanyScore && (
+                  <div className="mb-3 grid grid-cols-3 gap-2 text-xs">
+                    <div className="rounded border border-stone-200 bg-stone-50 px-2 py-1.5">
+                      <p className="text-[10px] uppercase tracking-wider text-stone-400">Omsetning</p>
+                      <p className="mt-0.5 font-semibold tabular-nums text-stone-800">
+                        {formatNok(selectedCompanyScore.latestRevenueNok)}
+                      </p>
+                    </div>
+                    <div className="rounded border border-stone-200 bg-stone-50 px-2 py-1.5">
+                      <p className="text-[10px] uppercase tracking-wider text-stone-400">Tilskudd</p>
+                      <p className="mt-0.5 font-semibold tabular-nums text-stone-800">
+                        {formatNok(selectedCompanyScore.subsidyTotalNok)}
+                      </p>
+                    </div>
+                    <div className="rounded border border-stone-200 bg-stone-50 px-2 py-1.5">
+                      <p className="text-[10px] uppercase tracking-wider text-stone-400">Eierlenker</p>
+                      <p className="mt-0.5 font-semibold tabular-nums text-stone-800">
+                        {selectedCompanyScore.ownershipLinkCount}
+                      </p>
+                    </div>
+                  </div>
+                )}
                 <div className="space-y-2">
                   {selectedCompany.persons.map(person => {
                     const pos = person.positions.find(
@@ -531,15 +803,18 @@ export function InterlockContent({
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {filteredPersons
             .slice()
-            .sort((a, b) => b.positions.length - a.positions.length)
+            .sort((a, b) => b.interlockScore - a.interlockScore || b.positions.length - a.positions.length)
             .map(person => (
               <Card key={person.personKey}>
-                <Link
-                  href={`/personer/${person.personKey}`}
-                  className="text-sm font-semibold text-emerald-700 hover:underline"
-                >
-                  {person.personName}
-                </Link>
+                <div className="flex items-start justify-between gap-3">
+                  <Link
+                    href={`/personer/${person.personKey}`}
+                    className="text-sm font-semibold text-emerald-700 hover:underline"
+                  >
+                    {person.personName}
+                  </Link>
+                  <ScorePill score={person.interlockScore} />
+                </div>
                 <p className="text-xs text-stone-400 mt-0.5 mb-3">
                   {person.positions.length} styreverv
                   {person.sectors.length > 1 && (

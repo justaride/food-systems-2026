@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
+import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
 import { getPersonByKey } from '@/lib/queries/persons'
 import { RoleTimeline } from '@/components/charts/RoleTimeline'
 import {
@@ -96,6 +97,29 @@ export default async function PersonPage({ params }: { params: Promise<{ personK
           </p>
         </Card>
       ) : null}
+
+      <EntityNeighborhood
+        groups={[
+          {
+            label: 'Selskapsroller',
+            items: person.roles.map(role => ({
+              label: role.companyName,
+              href: role.companyId ? `/selskap/${role.companyId}` : undefined,
+              meta: normalizeRoleLabel(role.role),
+              badge: ROLE_CATEGORIES[categorizeRole(role.role)].label,
+            })),
+            emptyText: 'Ingen selskapsroller registrert.',
+          },
+          {
+            label: 'Tilknytninger',
+            items: person.affiliations.map(affiliation => ({
+              label: affiliation,
+              meta: 'affiliation',
+            })),
+            emptyText: 'Ingen tilknytninger registrert.',
+          },
+        ]}
+      />
 
       <Card title="Roller">
         <RoleTimeline roles={person.roles} />

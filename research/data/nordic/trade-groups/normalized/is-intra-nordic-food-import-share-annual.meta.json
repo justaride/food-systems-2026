@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-04-29T00:00:00+02:00",
+  "owner": "Food Systems 2026",
+  "output_file": "research/data/nordic/trade-groups/normalized/is-intra-nordic-food-import-share-annual.csv",
+  "status": "partial_is_only_from_existing_raw",
+  "metric": "Iceland imports from Nordic partner countries as share of selected food-group imports",
+  "source": {
+    "name": "Statistics Iceland imports by SITC and countries",
+    "dataset_or_table_id": "UTA06201.px",
+    "raw_file": "research/data/nordic/trade-groups/raw-json/is-food-group-imports-monthly.json",
+    "dimensions": ["SITC", "Country", "Month", "Unit"]
+  },
+  "scope": {
+    "reporting_country": "IS",
+    "flow": "imports",
+    "commodity_groups": ["meat", "dairy_eggs", "fish_seafood", "cereals", "fruit_veg", "fats_oils"],
+    "nordic_core_partner_codes": ["DK", "FI", "NO", "SE"],
+    "nordic_extended_partner_codes": ["AX", "DK", "FI", "FO", "GL", "NO", "SE"]
+  },
+  "method": [
+    "Flattened existing JSON-stat response by SITC, partner country and month.",
+    "Mapped SITC 01,02,03,04,05 directly to food groups and summed SITC 41,42,43 as fats_oils.",
+    "Aggregated monthly values to annual values by commodity group.",
+    "Added selected_food_basket rows as totals across the six selected groups."
+  ],
+  "quality_notes": [
+    "This file covers Iceland only because the existing Iceland raw response already includes partner country.",
+    "The broader all-country intra-Nordic indicator needs new partner-specific pulls for DK/FI and a source hunt or endpoint change for NO/SE.",
+    "2026 is a partial year in the source extract; use 2024 or 2025 for complete-year analysis unless the partial-year status is explicit.",
+    "Values use Statistics Iceland source units and should be used for shares, not cross-country value comparisons."
+  ]
+}

@@ -17,14 +17,14 @@ export const verdikjedeStages: VerdikjedeStage[] = [
     title: 'Primaerproduksjon',
     subtitle: 'Jordbruk, husdyrhold og planteproduksjon',
     summary:
-      'Nordisk primaerproduksjon preges av konsolidering (2-3 % faerre bruk per ar), sterk kooperativ organisering og klimavolatilitet. Danmark dominerer volummessig med over 300 % selvforsyning, mens Norge har lavest areal (3 % av landareal) og lavest selvforsyningsgrad (47 %). Sverige leder pa oekologisk andel (20,2 %). Alle land opplever rask nedgang i antall bruk og oekning i gardsstorrelse. Kornberedskap er tilbake pa agendaen etter Ukraina-krigen.',
+      'Nordisk primaerproduksjon preges av konsolidering (2-3 % faerre bruk per ar), sterk kooperativ organisering og klimavolatilitet. Danmark dominerer volummessig med over 300 % selvforsyning, mens Norge har lavest areal (3 % av landareal) og lavest selvforsyningsgrad (47 %). Sverige leder pa oekologisk andel (18,4 % av UAA i Eurostat 2023; forelopig 16,7 % i 2024). Alle land opplever rask nedgang i antall bruk og oekning i gardsstorrelse. Kornberedskap er tilbake pa agendaen etter Ukraina-krigen.',
     keyPoints: [
       'Danmark har 62 % av landarealet til jordbruk — hoeyest i Norden og blant de hoeyeste i Europa',
       'Norges kornavlinger i 2023 var dårligste pa 50+ ar grunnet ekstremvaeret Hans',
       'Finland opprettholder 9 maaneders strategisk kornlager — gullstandarden i Norden',
       'Sverige oppnadde rekordhhoest korn i 2025 (6,4 mill. tonn) — stor arlig volatilitet',
       'Kooperativene (Arla, Danish Crown, TINE, Valio, Lantmannen) kontrollerer primaerleddet i alle land',
-      'Oekologisk stagnasjon: fokus skifter fra oekologisk til lokalprodusert og baerekraftig',
+      'Oekologisk stagnasjon: Sverige falt fra 18,4 % oekoandel i 2023 til forelopig 16,7 % i 2024; Island-data er needs-primary-check',
     ],
     countries: ['NO', 'SE', 'DK', 'FI', 'IS'],
     keyActors: [

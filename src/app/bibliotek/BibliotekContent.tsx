@@ -210,9 +210,9 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
                     </div>
                     {doc.tags.length > 0 && (
                       <div className="flex gap-1 mt-1.5 flex-wrap">
-                        {doc.tags.map(tag => (
+                        {doc.tags.map((tag, index) => (
                           <span
-                            key={tag}
+                            key={`${doc.id}-${tag}-${index}`}
                             className="text-[10px] px-1.5 py-0.5 rounded bg-stone-100 text-stone-500 border border-stone-200"
                           >
                             {tag}

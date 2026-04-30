@@ -19,6 +19,7 @@ type GraphEdge = {
   type: string
   confidence?: number
   sourceLabel?: string
+  href?: string
 }
 
 type Props = {
@@ -35,6 +36,17 @@ const NODE_COLORS: Record<string, string> = {
   actor: '#0f766e',
   person: '#6d28d9',
   property: '#ca8a04',
+}
+
+const NODE_LABELS: Record<string, string> = {
+  document: 'Dokument',
+  insight: 'Innsikt',
+  thesis: 'Akademia',
+  company: 'Selskap',
+  source: 'Kilde',
+  actor: 'Aktør',
+  person: 'Person',
+  property: 'Eiendom',
 }
 
 const NODE_SIZES: Record<string, number> = {
@@ -58,24 +70,87 @@ const DEFAULT_NODE_TYPES = ['document', 'insight', 'thesis', 'company', 'source'
 type GraphPreset = {
   id: string
   label: string
+  description: string
   nodeTypes: string[]
   edgeTypes?: string[]
   showIsolated: boolean
+  matchRules?: GraphPresetMatchRule[]
+  includeMatchedNeighbors?: boolean
 }
 
+type GraphPresetMatchRule = {
+  field: 'label' | 'tag' | 'href'
+  mode: 'exact' | 'includes'
+  values: string[]
+}
+
+const FOOD_TG_MATCH_RULES: GraphPresetMatchRule[] = [
+  {
+    field: 'tag',
+    mode: 'exact',
+    values: [
+      'food-tg',
+      'food tg',
+      'nch',
+      'nch-contract',
+      'mandat',
+      'mandate',
+      'transition-group',
+      'transition-groups',
+    ],
+  },
+  {
+    field: 'href',
+    mode: 'includes',
+    values: [
+      'food-tg',
+      'nch-contract',
+      'transition-group',
+      'transition-groups',
+      'root-9-mars-2026-food',
+      'root-2026-transition-group',
+      'mandate-for-transition-group-food',
+    ],
+  },
+  {
+    field: 'label',
+    mode: 'includes',
+    values: [
+      'food tg',
+      'food systems transition group',
+      'circular food transition group',
+      'transition group food',
+      'transition group overview',
+      'transition groups',
+      'nch transition',
+    ],
+  },
+]
+
 const GRAPH_PRESETS: GraphPreset[] = [
-  { id: 'connected', label: 'Koblet', nodeTypes: DEFAULT_NODE_TYPES, showIsolated: false },
-  { id: 'evidence', label: 'Dokument/innsikt', nodeTypes: ['document', 'insight', 'thesis', 'source'], showIsolated: false },
-  { id: 'company', label: 'Selskap/eierskap', nodeTypes: ['company', 'person', 'property', 'actor'], showIsolated: false },
-  { id: 'actors', label: 'Aktør', nodeTypes: ['actor', 'company', 'document'], showIsolated: false },
+  { id: 'connected', label: 'Koblet', description: 'Alt som faktisk har minst én synlig relasjon.', nodeTypes: DEFAULT_NODE_TYPES, showIsolated: false },
+  { id: 'evidence', label: 'Dokument/innsikt', description: 'Kilde-, dokument- og innsiktsnabolag.', nodeTypes: ['document', 'insight', 'thesis', 'source'], showIsolated: false },
+  { id: 'company', label: 'Selskap/eierskap', description: 'Selskap, personer, aktører og eiendommer.', nodeTypes: ['company', 'person', 'property', 'actor'], showIsolated: false },
+  { id: 'actors', label: 'Aktør', description: 'Aktører, selskapskoblinger og dokumentgrunnlag.', nodeTypes: ['actor', 'company', 'document'], showIsolated: false },
   {
     id: 'supply',
     label: 'Forsyning',
+    description: 'Forretningsrelasjoner, eiendom og forsyningsroller.',
     nodeTypes: ['company', 'property'],
     edgeTypes: ['supplier', 'buyer', 'distributor', 'franchisor', 'self-dealing', 'joint-venture', 'owns-property', 'leases-property'],
     showIsolated: false,
   },
-  { id: 'all', label: 'Alle', nodeTypes: DEFAULT_NODE_TYPES, showIsolated: true },
+  {
+    id: 'food-tg',
+    label: 'Food TG',
+    description: 'Regelbasert Food TG-nabolag: eksplisitte tag-, rute- og tittelsignaler pluss direkte naboer.',
+    nodeTypes: DEFAULT_NODE_TYPES,
+    edgeTypes: ['insight-ref', 'actor-ref', 'company-ref', 'supports', 'references', 'cites'],
+    showIsolated: false,
+    matchRules: FOOD_TG_MATCH_RULES,
+    includeMatchedNeighbors: true,
+  },
+  { id: 'all', label: 'Alle koblede', description: 'Alle nodetyper som har minst én relasjon i grafdatasettet.', nodeTypes: DEFAULT_NODE_TYPES, showIsolated: true },
 ]
 
 function edgeEndpointId(endpoint: unknown): string {
@@ -87,8 +162,34 @@ function edgeEndpointId(endpoint: unknown): string {
   return ''
 }
 
+function normalizeSignal(value: string): string {
+  return value.toLowerCase().replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim()
+}
+
+function nodeMatchesRule(node: GraphNode, rule: GraphPresetMatchRule): boolean {
+  const values =
+    rule.field === 'tag'
+      ? (node.tags ?? [])
+      : rule.field === 'href'
+        ? [node.href ?? '']
+        : [node.label]
+
+  const normalizedNeedles = rule.values.map(normalizeSignal)
+  return values.some((value) => {
+    const normalizedValue = normalizeSignal(value)
+    if (!normalizedValue) return false
+    if (rule.mode === 'exact') return normalizedNeedles.includes(normalizedValue)
+    return normalizedNeedles.some((needle) => normalizedValue.includes(needle))
+  })
+}
+
+function nodeMatchesPresetRules(node: GraphNode, rules: GraphPresetMatchRule[]): boolean {
+  return rules.some((rule) => nodeMatchesRule(node, rule))
+}
+
 export function KnowledgeGraph({ nodes, edges }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const graphRef = useRef<any>(null)
   const [dimensions, setDimensions] = useState({ width: 800, height: 500 })
   const [activeTypes, setActiveTypes] = useState<Set<string>>(
     new Set(DEFAULT_NODE_TYPES)
@@ -182,6 +283,29 @@ export function KnowledgeGraph({ nodes, edges }: Props) {
     return typeFilteredNodeIds.has(src) && typeFilteredNodeIds.has(tgt) && activeEdgeTypes.has(e.type)
   }), [edges, typeFilteredNodeIds, activeEdgeTypes])
 
+  const activePresetDetails = GRAPH_PRESETS.find((preset) => preset.id === activePreset)
+
+  const presetFilteredNodeIds = useMemo(() => {
+    const rules = activePresetDetails?.matchRules
+    if (!rules || rules.length === 0) return null
+
+    const ids = new Set<string>()
+    for (const node of typeFilteredNodes) {
+      if (nodeMatchesPresetRules(node, rules)) ids.add(node.id)
+    }
+
+    if (activePresetDetails?.includeMatchedNeighbors) {
+      for (const edge of typeAndEdgeFilteredEdges) {
+        const src = edgeEndpointId(edge.source)
+        const tgt = edgeEndpointId(edge.target)
+        if (ids.has(src)) ids.add(tgt)
+        if (ids.has(tgt)) ids.add(src)
+      }
+    }
+
+    return ids
+  }, [activePresetDetails, typeFilteredNodes, typeAndEdgeFilteredEdges])
+
   const degreeById = useMemo(() => {
     const counts = new Map<string, number>()
     for (const e of typeAndEdgeFilteredEdges) {
@@ -193,10 +317,13 @@ export function KnowledgeGraph({ nodes, edges }: Props) {
     return counts
   }, [typeAndEdgeFilteredEdges])
 
-  const candidateNodes = useMemo(
-    () => showIsolated ? typeFilteredNodes : typeFilteredNodes.filter(n => (degreeById.get(n.id) ?? 0) > 0),
-    [showIsolated, typeFilteredNodes, degreeById]
-  )
+  const candidateNodes = useMemo(() => {
+    const presetNodes = presetFilteredNodeIds
+      ? typeFilteredNodes.filter(n => presetFilteredNodeIds.has(n.id))
+      : typeFilteredNodes
+
+    return showIsolated ? presetNodes : presetNodes.filter(n => (degreeById.get(n.id) ?? 0) > 0)
+  }, [showIsolated, typeFilteredNodes, degreeById, presetFilteredNodeIds])
 
   const normalizedSearch = search.trim().toLowerCase()
   const searchMatches = useMemo(() => {
@@ -248,6 +375,7 @@ export function KnowledgeGraph({ nodes, edges }: Props) {
   const graphData = useMemo(() => ({
     nodes: limitedNodes.map(n => ({
       ...n,
+      degree: degreeById.get(n.id) ?? 0,
       val: Math.max(NODE_SIZES[n.type] ?? 5, Math.min(16, (degreeById.get(n.id) ?? 1) + 3)),
     })),
     links: filteredEdges.map(e => ({ ...e })),
@@ -279,16 +407,60 @@ export function KnowledgeGraph({ nodes, edges }: Props) {
     setShowIsolated(prev => !prev)
   }, [])
 
+  const searchResults = useMemo(() => {
+    if (!searchMatches) return []
+    return candidateNodes
+      .filter((node) => searchMatches.has(node.id))
+      .sort((a, b) => {
+        const degreeDiff = (degreeById.get(b.id) ?? 0) - (degreeById.get(a.id) ?? 0)
+        if (degreeDiff !== 0) return degreeDiff
+        return a.label.localeCompare(b.label, 'no')
+      })
+      .slice(0, 12)
+  }, [candidateNodes, degreeById, searchMatches])
+
+  const topConnectedNodes = useMemo(
+    () =>
+      [...candidateNodes]
+        .sort((a, b) => (degreeById.get(b.id) ?? 0) - (degreeById.get(a.id) ?? 0))
+        .slice(0, 8),
+    [candidateNodes, degreeById],
+  )
+
+  const focusNode = useCallback((nodeId: string) => {
+    setSelectedNodeId(nodeId)
+    window.setTimeout(() => {
+      const node = graphData.nodes.find((n) => n.id === nodeId) as { x?: number; y?: number } | undefined
+      if (
+        node &&
+        typeof node.x === 'number' &&
+        typeof node.y === 'number' &&
+        graphRef.current
+      ) {
+        graphRef.current.centerAt(node.x, node.y, 650)
+        graphRef.current.zoom(2.4, 650)
+      }
+    }, 80)
+  }, [graphData.nodes])
+
+  const zoomToFit = useCallback(() => {
+    graphRef.current?.zoomToFit?.(650, 40)
+  }, [])
+
   const renderEdgeRow = (edge: GraphEdge, direction: 'in' | 'out', index: number) => {
     const otherId = direction === 'in' ? edgeEndpointId(edge.source) : edgeEndpointId(edge.target)
     const other = nodeById.get(otherId)
     return (
-      <li key={`${direction}-${edge.type}-${otherId}-${index}`} className="text-xs text-stone-600">
+      <li key={`${direction}-${edge.type}-${otherId}-${index}`} className="rounded-md border border-stone-100 bg-stone-50/70 p-2 text-xs text-stone-600">
         <div className="flex items-start justify-between gap-2">
-          <span className="min-w-0">
+          <button
+            type="button"
+            onClick={() => focusNode(otherId)}
+            className="min-w-0 text-left hover:text-stone-950"
+          >
             <span className="font-medium text-stone-800">{other?.label ?? otherId}</span>
             <span className="text-stone-400"> · {edge.type}</span>
-          </span>
+          </button>
           {typeof edge.confidence === 'number' && (
             <span className="text-[10px] text-stone-400 tabular-nums shrink-0">
               {Math.round(edge.confidence * 100)}%
@@ -296,65 +468,91 @@ export function KnowledgeGraph({ nodes, edges }: Props) {
           )}
         </div>
         {edge.sourceLabel && <div className="text-[10px] text-stone-400 truncate">{edge.sourceLabel}</div>}
+        {edge.href && (
+          <a href={edge.href} className="mt-1 inline-block text-[11px] font-medium text-emerald-700 hover:text-emerald-800">
+            Åpne relasjon i forsyningskjeden
+          </a>
+        )}
       </li>
     )
   }
 
   return (
-    <div className="space-y-3">
-      <div className="flex flex-col gap-3">
+    <div className="grid gap-3 xl:grid-cols-[300px_minmax(0,1fr)_340px]">
+      <aside className="min-w-0 space-y-4 rounded-lg border border-stone-200 bg-stone-50/70 p-3 xl:max-h-[calc(100vh-11rem)] xl:overflow-y-auto">
         <div>
-          <p className="text-[10px] uppercase tracking-wider text-stone-400 mb-1">Visning</p>
-          <div className="flex flex-wrap gap-1.5">
+          <p className="text-[10px] font-semibold uppercase tracking-wider text-stone-400">Visning</p>
+          <div className="mt-2 grid grid-cols-2 gap-1.5">
             {GRAPH_PRESETS.map((preset) => (
               <button
                 key={preset.id}
                 onClick={() => applyPreset(preset)}
-                className={`px-2.5 py-1 rounded text-[11px] font-medium border transition-colors ${
+                className={`rounded-md border px-2.5 py-2 text-left text-[11px] font-medium transition-colors ${
                   activePreset === preset.id
                     ? 'bg-stone-900 border-stone-900 text-white'
                     : 'bg-white border-stone-300 text-stone-600 hover:bg-stone-50'
                 }`}
+                title={preset.description}
               >
                 {preset.label}
               </button>
             ))}
-            {activePreset === 'custom' && (
-              <span className="px-2.5 py-1 rounded text-[11px] font-medium border border-amber-200 bg-amber-50 text-amber-700">
-                Egendefinert
-              </span>
-            )}
-            <button
-              onClick={toggleShowIsolated}
-              className={`px-2.5 py-1 rounded text-[11px] font-medium border transition-colors ${
-                showIsolated
-                  ? 'bg-white border-stone-300 text-stone-600'
-                  : 'bg-stone-100 border-stone-200 text-stone-400 line-through'
-              }`}
-            >
-              Isolerte noder
-            </button>
           </div>
+          <p className="mt-2 text-xs leading-5 text-stone-500">
+            {activePreset === 'custom' ? 'Egendefinert filter.' : activePresetDetails?.description}
+          </p>
         </div>
 
-        <div className="flex flex-wrap gap-2 items-center">
+        <div>
+          <label htmlFor="knowledge-graph-search" className="text-[10px] font-semibold uppercase tracking-wider text-stone-400">
+            Søk
+          </label>
           <input
+            id="knowledge-graph-search"
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Søk i noder (navn, tittel)…"
-            className="flex-1 min-w-[220px] max-w-md px-3 py-1.5 text-sm border border-stone-300 rounded-md bg-white text-stone-700 placeholder:text-stone-400 focus:outline-none focus:ring-1 focus:ring-stone-500"
+            className="mt-2 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm text-stone-700 placeholder:text-stone-400 focus:outline-none focus:ring-1 focus:ring-stone-500"
           />
-          {searchMatches && (
-            <span className="text-xs text-stone-500">
-              {searchMatches.size} treff
-            </span>
+          {searchMatches && searchResults.length > 0 && (
+            <div className="mt-2 space-y-1">
+              {searchResults.map((node) => (
+                <button
+                  key={node.id}
+                  type="button"
+                  onClick={() => focusNode(node.id)}
+                  className="flex w-full items-start justify-between gap-2 rounded-md px-2 py-1.5 text-left text-xs text-stone-600 hover:bg-white hover:text-stone-950"
+                >
+                  <span className="min-w-0 truncate">{node.label}</span>
+                  <span className="shrink-0 text-[10px] text-stone-400">{degreeById.get(node.id) ?? 0}</span>
+                </button>
+              ))}
+              {searchMatches.size > searchResults.length && (
+                <p className="px-2 text-[11px] text-stone-400">
+                  {searchMatches.size - searchResults.length} flere treff i grafen.
+                </p>
+              )}
+            </div>
           )}
         </div>
 
         <div>
-          <p className="text-[10px] uppercase tracking-wider text-stone-400 mb-1">Nodetyper</p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex items-center justify-between gap-2">
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-stone-400">Nodetyper</p>
+            <button
+              type="button"
+              onClick={toggleShowIsolated}
+              className={`rounded border px-2 py-0.5 text-[10px] font-medium transition-colors ${
+                showIsolated
+                  ? 'border-amber-200 bg-amber-50 text-amber-700'
+                  : 'border-stone-200 bg-white text-stone-500'
+              }`}
+            >
+              {showIsolated ? 'Med isolerte' : 'Skjuler isolerte'}
+            </button>
+          </div>
+          <div className="mt-2 space-y-1">
             {Object.entries(NODE_COLORS).map(([type, color]) => {
               const count = typeCounts.get(type) ?? 0
               if (count === 0) return null
@@ -362,17 +560,20 @@ export function KnowledgeGraph({ nodes, edges }: Props) {
                 <button
                   key={type}
                   onClick={() => toggleType(type)}
-                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border transition-all ${
+                  className={`flex w-full items-center justify-between gap-2 rounded-md border px-2.5 py-1.5 text-xs font-medium transition-all ${
                     activeTypes.has(type)
                       ? 'bg-white border-stone-300 text-stone-700'
                       : 'bg-stone-100 border-stone-200 text-stone-400'
                   }`}
                 >
-                  <span
-                    className="w-2.5 h-2.5 rounded-full"
-                    style={{ backgroundColor: activeTypes.has(type) ? color : '#d6d3d1' }}
-                  />
-                  {type} ({count})
+                  <span className="flex min-w-0 items-center gap-2">
+                    <span
+                      className="h-2.5 w-2.5 rounded-full"
+                      style={{ backgroundColor: activeTypes.has(type) ? color : '#d6d3d1' }}
+                    />
+                    <span>{NODE_LABELS[type] ?? type}</span>
+                  </span>
+                  <span className="tabular-nums text-stone-400">{count.toLocaleString('no')}</span>
                 </button>
               )
             })}
@@ -381,8 +582,8 @@ export function KnowledgeGraph({ nodes, edges }: Props) {
 
         {allEdgeTypes.length > 0 && (
           <div>
-            <p className="text-[10px] uppercase tracking-wider text-stone-400 mb-1">Kanttyper</p>
-            <div className="flex flex-wrap gap-1.5">
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-stone-400">Kanttyper</p>
+            <div className="mt-2 flex max-h-56 flex-wrap gap-1.5 overflow-y-auto pr-1">
               {allEdgeTypes.map((type) => {
                 const active = activeEdgeTypes.has(type)
                 const count = edgeTypeCounts.get(type) ?? 0
@@ -405,29 +606,52 @@ export function KnowledgeGraph({ nodes, edges }: Props) {
           </div>
         )}
 
-        <div className="flex flex-wrap items-center gap-3 text-[11px] text-stone-500">
-          <span className="uppercase tracking-wider text-stone-400 text-[10px]">Konfidens</span>
-          <span className="flex items-center gap-1.5">
-            <span className="inline-block h-[3px] w-6 bg-stone-600 rounded" />
-            primær (≥ 0.9)
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="inline-block h-[2px] w-6 bg-stone-500 rounded opacity-70" />
-            sekundær (0.6–0.9)
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="inline-block h-[1px] w-6 bg-stone-400 rounded opacity-40" />
-            utledet (&lt; 0.6)
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="inline-block h-[1px] w-6 bg-stone-300 rounded border-t border-dashed border-stone-400" />
-            ukjent
-          </span>
+        <div className="rounded-md border border-stone-200 bg-white p-3 text-[11px] text-stone-500">
+          <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-stone-400">Konfidens</p>
+          <div className="space-y-1.5">
+            <span className="flex items-center gap-2">
+              <span className="inline-block h-[3px] w-7 rounded bg-stone-600" />
+              primær (≥ 0.9)
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="inline-block h-[2px] w-7 rounded bg-stone-500 opacity-70" />
+              sekundær (0.6–0.9)
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="inline-block h-[1px] w-7 rounded bg-stone-400 opacity-40" />
+              utledet (&lt; 0.6)
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="inline-block h-[1px] w-7 rounded border-t border-dashed border-stone-400 bg-stone-300" />
+              ukjent
+            </span>
+          </div>
         </div>
-      </div>
+      </aside>
 
-      <div ref={containerRef} className="rounded-xl border border-stone-200 bg-white overflow-hidden" style={{ height: 500 }}>
+      <section className="min-w-0 rounded-lg border border-stone-200 bg-white">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-100 px-3 py-2">
+          <div className="flex flex-wrap gap-3 text-xs text-stone-500">
+            <span><strong className="text-stone-900">{limitedNodes.length.toLocaleString('no')}</strong> noder</span>
+            {candidateNodes.length !== limitedNodes.length && <span>av {candidateNodes.length.toLocaleString('no')} etter filter</span>}
+            <span><strong className="text-stone-900">{filteredEdges.length.toLocaleString('no')}</strong> kanter</span>
+            {!showIsolated && (
+              <span>{(typeFilteredNodes.length - candidateNodes.length).toLocaleString('no')} isolerte skjult</span>
+            )}
+            {searchMatches && <span>{searchMatches.size.toLocaleString('no')} søketreff</span>}
+          </div>
+          <button
+            type="button"
+            onClick={zoomToFit}
+            className="rounded-md border border-stone-200 bg-stone-50 px-2.5 py-1 text-xs font-medium text-stone-600 hover:bg-stone-100"
+          >
+            Tilpass
+          </button>
+        </div>
+
+        <div ref={containerRef} className="h-[620px] overflow-hidden bg-stone-50 xl:h-[calc(100vh-14rem)] xl:min-h-[640px] xl:max-h-[900px]">
         <ForceGraph2D
+          ref={graphRef}
           width={dimensions.width}
           height={dimensions.height}
           graphData={graphData}
@@ -471,26 +695,40 @@ export function KnowledgeGraph({ nodes, edges }: Props) {
           linkLineDash={(link: any) =>
             typeof link.confidence === 'number' ? null : [2, 2]
           }
-          backgroundColor="#fafaf9"
+          backgroundColor="#f7f7f4"
           cooldownTicks={100}
-          onNodeClick={(node: any) => setSelectedNodeId(node.id === selectedNodeId ? null : node.id)}
+          onNodeClick={(node: any) => {
+            if (node.id === selectedNodeId) setSelectedNodeId(null)
+            else focusNode(node.id)
+          }}
           onBackgroundClick={() => setSelectedNodeId(null)}
+          minZoom={0.35}
+          maxZoom={6}
           nodeCanvasObjectMode={() => 'after'}
-          nodeCanvasObject={(node: any, ctx) => {
+          nodeCanvasObject={(node: any, ctx, globalScale) => {
             const rawLabel = (node.label ?? '') as string
-            const label = rawLabel.length > 20 ? rawLabel.slice(0, 20) + '...' : rawLabel
+            const degree = node.degree ?? 0
             const isHit = !!searchMatches && searchMatches.has(node.id)
+            const isSelected = node.id === selectedNodeId
+            const isNeighbor = !!selectedConnectedIds && selectedConnectedIds.has(node.id)
+            const shouldLabel = isHit || isSelected || (selectedConnectedIds ? isNeighbor : degree >= 8 || globalScale > 1.35)
+            if (!shouldLabel) return
+            const labelMax = isSelected || isHit ? 34 : 22
+            const label = rawLabel.length > labelMax ? rawLabel.slice(0, labelMax) + '...' : rawLabel
             const dimmed = selectedConnectedIds && !selectedConnectedIds.has(node.id)
-            ctx.font = isHit ? 'bold 3.4px sans-serif' : '3px sans-serif'
+            const fontSize = Math.max(2.7, 4 / globalScale)
+            ctx.font = `${isHit || isSelected ? 'bold ' : ''}${fontSize}px sans-serif`
             ctx.textAlign = 'center'
             ctx.fillStyle = dimmed ? '#d6d3d1' : isHit ? '#b45309' : '#57534e'
             ctx.fillText(label, node.x, node.y + 6)
           }}
         />
       </div>
+      </section>
 
-      {selectedNode && (
-        <div className="rounded-lg border border-stone-200 bg-white p-4">
+      <aside className="min-w-0 rounded-lg border border-stone-200 bg-stone-50/70 p-3 xl:max-h-[calc(100vh-11rem)] xl:overflow-y-auto">
+        {selectedNode ? (
+          <div className="rounded-lg border border-stone-200 bg-white p-4">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="min-w-0">
               <div className="flex items-center gap-2">
@@ -521,7 +759,7 @@ export function KnowledgeGraph({ nodes, edges }: Props) {
             <div>
               <p className="text-[10px] uppercase tracking-wider text-stone-400 mb-2">Innkommende ({selectedInbound.length})</p>
               {selectedInbound.length > 0 ? (
-                <ul className="space-y-2 max-h-44 overflow-y-auto">
+                <ul className="space-y-2 max-h-72 overflow-y-auto">
                   {selectedInbound.slice(0, 30).map((edge, index) => renderEdgeRow(edge, 'in', index))}
                 </ul>
               ) : (
@@ -531,7 +769,7 @@ export function KnowledgeGraph({ nodes, edges }: Props) {
             <div>
               <p className="text-[10px] uppercase tracking-wider text-stone-400 mb-2">Utgående ({selectedOutbound.length})</p>
               {selectedOutbound.length > 0 ? (
-                <ul className="space-y-2 max-h-44 overflow-y-auto">
+                <ul className="space-y-2 max-h-72 overflow-y-auto">
                   {selectedOutbound.slice(0, 30).map((edge, index) => renderEdgeRow(edge, 'out', index))}
                 </ul>
               ) : (
@@ -540,14 +778,34 @@ export function KnowledgeGraph({ nodes, edges }: Props) {
             </div>
           </div>
         </div>
-      )}
-
-      <div className="flex flex-wrap gap-4 text-xs text-stone-400 px-1">
-        <span>{limitedNodes.length} noder</span>
-        {candidateNodes.length !== limitedNodes.length && <span>av {candidateNodes.length} etter filter</span>}
-        <span>{filteredEdges.length} kanter</span>
-        {searchMatches && <span>{searchMatches.size} søketreff</span>}
-      </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="rounded-lg border border-stone-200 bg-white p-4">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-stone-400">Inspektør</p>
+              <h3 className="mt-2 text-sm font-semibold text-stone-900">Velg en node i grafen</h3>
+              <p className="mt-2 text-xs leading-5 text-stone-500">
+                Klikk på en node for innkommende/utgående relasjoner, konfidens og direkte lenke til riktig side.
+              </p>
+            </div>
+            <div className="rounded-lg border border-stone-200 bg-white p-4">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-stone-400">Mest koblet i visningen</p>
+              <div className="mt-2 space-y-1">
+                {topConnectedNodes.map((node) => (
+                  <button
+                    key={node.id}
+                    type="button"
+                    onClick={() => focusNode(node.id)}
+                    className="flex w-full items-center justify-between gap-2 rounded-md px-2 py-1.5 text-left text-xs text-stone-600 hover:bg-stone-50 hover:text-stone-950"
+                  >
+                    <span className="min-w-0 truncate">{node.label}</span>
+                    <span className="shrink-0 text-[10px] text-stone-400">{degreeById.get(node.id) ?? 0}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </aside>
     </div>
   )
 }

@@ -1,0 +1,60 @@
+id,lane,owner,due_window,artifact_path,next_action,acceptance_gate
+A1,hovedoppgave,Codex research + Gabriel,Critical path uke 3,research/evidence-pack/gap-cards/A1-scope3-dagligvare-2026-04.md,Bygg felles Scope 3-tabell for NorgesGruppen/ASKO Coop og Reitan med basisår og kategoriavgrensning,Kildepakke + komparabilitetstabell + tydelig partnerrequest
+A2,hovedoppgave,Codex research,Critical path uke 3,research/evidence-pack/gap-cards/A2-husholdningsmatsvinn-drivere-2026-04.md,Kartlegg drivere for husholdningsmatsvinn og skille 2023/2024 datagrunnlag,Evidence card med NORSUS/Matvett/SIFO/NMBU-kilder og metodeforbehold
+A3,hovedoppgave,Codex research,Critical path uke 3,research/evidence-pack/gap-cards/A3-marint-restraastoff-2026-04.md,Kryssjekk volum og destinasjon mot Fiskeridirektoratet RUBIN/SINTEF/Nofima,Evidence card + verdikjedekart + unresolved datapunkter
+A4,hurtig-plukk,Codex research,Uke 1,research/evidence-pack/gap-cards/A4-biogass-anlegg-virkemidler-2026-04.md,Samle produksjon potensial anlegg og virkemiddelhistorikk for Norge/DK/SE,Primærkilder eller bransjekilder + tabell over tall og forbehold
+A5,bredding,Codex research,Uke 4,research/evidence-pack/gap-cards/A5-forimport-balanser-2026-04.md,Kartlegg soya mais og fiskemel-balansen i kraftfôr og akvafôr,Evidence card + klar datakilde for import/innenlandsk andel
+A6,hurtig-plukk,Codex research,Uke 1,research/evidence-pack/gap-cards/A6-plast-matemballasje-2026-04.md,Hent emballasjestatistikk per kategori fra Grønt Punkt/Miljødirektoratet/PPWR,Evidence card med kategori- og definisjonsgrense
+A7,hurtig-plukk,Codex research,Uke 1,research/evidence-pack/gap-cards/A7-klimakur-framdrift-2026-04.md,Kartlegg framdrift på Klimakur 2030 matsystemtiltak per 2024-2026,Tabell med tiltak potensial status og kilde
+A8,bredding,Codex research,Fase 2,research/evidence-pack/gap-cards/A8-horeca-klimaregnskap-2026-04.md,Samle foodservice/HORECA klimadata og avgrensning,Evidence card eller parkert med begrunnelse
+A9,modellbygging,Codex research,Fase 2,research/evidence-pack/gap-cards/A9-produkt-lca-database-2026-04.md,Kartlegg eksisterende norske/internasjonale LCA-databaser og gap til 500-1000 produkter,Metodenotat med lisens/databruksvurdering
+B1,leveranseblokkering,Gabriel + Cathrine + Einar,Uke 2,docs/project/mandates/tg-charter-food-2026.md,Fullfør TG-charter og suksesskriterier,Godkjent charter eller eksplisitt beslutningslogg
+B2,leveranseblokkering,Gabriel + Cathrine + Einar,Uke 2,docs/project/mandates/stakeholder-commitment-map-food-2026.md,Fullfør stakeholder map med ask per aktør,Kart med prioritet owner og neste kontaktpunkt
+B3,leveranseblokkering,Gabriel + Cathrine,Uke 2,research/norden/partner-validation-pack-food-2026.md,Send valideringspakke til DK/SE/FI-kontakter,Partnerpakke sendt + svar logget eller status pending
+B4,bredding,Gabriel + Cathrine,Uke 2-4,research/interviews/interview-plan-food-tg-2026-04.md,Planlegg 4-5 intervjuer for frykt-kultur Nordstad NMBU KT NCH,Intervjuguide + kontaktstatus
+B5,bredding,Food TG,Uke 4,docs/project/mandates/pilot-concepts-food-2026.md,Utvikle 2-5 scoped pilots,Minst to pilot briefs med scope owner og evidensbehov
+B6,modellbygging,Gabriel + Cathrine,Uke 3,docs/project/mandates/adoption-track-note-food-2026.md,Skriv adopsjonsnotat på anskaffelse standarder og virkemidler,1-side note med kilder og anbefaling
+B7,bredding,Martin/Einar,Fase 2,docs/project/mandates/finance-note-food-2026.md,Kartlegg finansieringslandskap for NIB/EIB/Nordic Innovation,Finansnotat eller eksplisitt fase 2-parkering
+B8,bredding,Food TG,Fase 2,docs/project/mandates/roadmap-food-2026-2029.md,Lag 1-3 års roadmap etter strategiske beslutninger,Roadmap med milepæler og eiere
+B9,bredding,TG-sekretær,Uke 1-4,docs/project/mandates/decision-log-food-tg.md,Hold decision log løpende oppdatert,Alle beslutninger datert med owner og konsekvens
+B10,hurtig-plukk,Codex GIS/data,Uke 1,research/evidence-pack/gap-cards/B10-municipal-hhi-2026-04.md,Bruk persistet store-count-proxy og avklar Finland/Island-geometri eller eksplisitt nordisk avgrensning,CSV + metodebeslutning; full lukking krever ev. omsetningsbasert kommune-HHI
+B11,hurtig-plukk,Codex research,Uke 1,research/evidence-pack/gap-cards/B11-omsetningsandeler-tidsserie-2026-04.md,Utvid 2020-2024-serien bakover til minst 2017 hvis sammenlignbare kilder finnes,2020-2024 CSV + backlog; full lukking krever 2017-2019 eller eksplisitt avgrensning
+B12,hurtig-plukk,Codex research,Uke 1,research/evidence-pack/gap-cards/B12-ppp-prisnivaa-norden-2026-04.md,Hent PPP/prisnivådata og skille nivå fra indeks,Evidence card med landserie og metode
+C1,hovedoppgave,Codex research,Uke 3,research/evidence-pack/gap-cards/C1-r0-refuse-kpi-2026-04.md,Foreslå operativ R0 KPI for nordisk mat,Indikatordefinisjon + mulige datakilder
+C2,hovedoppgave,Codex research,Uke 3,research/evidence-pack/gap-cards/C2-r1-rethink-kpi-2026-04.md,Foreslå operativ R1 KPI for produkt/meny/innkjøpsdesign,Indikatordefinisjon + kildebegrensning
+C3,indikatorutvikling,Codex research,Fase 2,research/evidence-pack/gap-cards/C3-r4-emballasje-repair-kpi-2026-04.md,Kartlegg reparasjonsgrad for transportemballasje,KPI-notat eller parkert
+C4,indikatorutvikling,Codex research,Uke 3,research/evidence-pack/gap-cards/C4-r5-r6-sidestream-kpi-2026-04.md,Definer KPI for sidestrøm oppgradert til humant konsum,KPI-notat med datamuligheter
+C5,hovedoppgave,Codex research,Uke 3,research/evidence-pack/gap-cards/C5-nordic-nutrient-budget-2026-04.md,Bygg første Nordic Nutrient Budget/MFA-notat,Modellnotat med antakelser og kildegrunnlag
+C6,hovedoppgave,Codex research,Uke 3,research/evidence-pack/gap-cards/C6-oppdrett-naeringsstofftap-2026-04.md,Kartlegg N/P/K-tap fra oppdrett og fangstmuligheter,Evidence card + kildehierarki
+C7,bredding,Codex research,Fase 2,research/evidence-pack/gap-cards/C7-svartvann-np-2026-04.md,Kartlegg svartvann N/P og gjenvinningsgrad,Evidence card eller modellinput
+C8,bredding,Codex research,Fase 2,research/evidence-pack/gap-cards/C8-husdyrgjodsel-n-tap-2026-04.md,Kartlegg husdyrgjødsel-N tap og tiltak,Evidence card eller modellinput
+C9,indikatorutvikling,Codex research,Uke 3,research/evidence-pack/gap-cards/C9-mikroplast-biorest-2026-04.md,Kartlegg biorest mikroplastregelverk og målegrenser,KPI/regulatorisk notat
+C10,modellbygging,Codex research,Fase 2,research/evidence-pack/gap-cards/C10-havre-okara-2026-04.md,Kartlegg okara-volum og kommersiell kjede,Evidence card med skaleringsforbehold
+C11,modellbygging,Codex research,Fase 2,research/evidence-pack/gap-cards/C11-potetskall-2026-04.md,Kartlegg potetskallvolum og anvendelser,Evidence card
+C12,modellbygging,Codex research,Fase 2,research/evidence-pack/gap-cards/C12-bryggerimask-2026-04.md,Kartlegg bryggerimask volum og verdikjede,Evidence card
+C13,modellbygging,Codex research,Fase 2,research/evidence-pack/gap-cards/C13-pomace-rapskake-gjaerrester-2026-04.md,Kartlegg tre øvrige sidestrømmer,Evidence card
+G-01,intake-promotering,Codex research ops,Uke 2,research/intake/food-research-process-2026-04-20/CONTROL-REPORT.md,Avklar hold/title/promotion for side-stream-rader,Ny kontrollrapport uten blokker for ønskede rader
+G-02,intake-promotering,Codex research ops,Uke 2,research/intake/food-research-process-2026-04-20/CONTROL-REPORT.md,Avklar hold/title/promotion for nutrient-loop-rader,Ny kontrollrapport uten blokker for ønskede rader
+G-03,intake-promotering,Codex research ops,Uke 2,research/intake/food-research-process-2026-04-20/CONTROL-REPORT.md,Avklar hold/title/promotion for alternative-feed-rader,Ny kontrollrapport uten blokker for ønskede rader
+G-04,intake-promotering,Codex research ops,Uke 2,research/intake/food-research-process-2026-04-20/CONTROL-REPORT.md,Avklar hold/title/promotion for fermentation-scale-rader,Ny kontrollrapport uten blokker for ønskede rader
+E1,ekstern-validering,Gabriel + Cathrine,Uke 2-4,research/interviews/interview-anonymous-supplier-food-2026.md,Finne og intervjue anonym leverandør/produsent,Direkte sitat eller status blokkert
+E2,ekstern-validering,Gabriel + Cathrine,Uke 2-4,research/interviews/interview-anders-nordstad-food-2026.md,Kontakte Anders Nordstad om infrastrukturtesen,Svar/sitat eller pending-status
+E3,ekstern-validering,Gabriel + Cathrine,Uke 2-4,research/interviews/interview-nmbu-food-systems-2026.md,Kontakte NMBU-akademiker om systemdynamikk,Svar/sitat eller pending-status
+E4,ekstern-validering,Gabriel + Cathrine,Uke 2-4,research/interviews/interview-konkurransetilsynet-food-2026.md,Be om bakgrunnssamtale med Konkurransetilsynet,Svar/sitat eller offentlig avklaring
+E5,ekstern-validering,Gabriel + Cathrine,Uke 2,research/norden/partner-validation-sweden-2026.md,Send svensk valideringspakke til Michel Bajuk,Korrigert/annotert svensk data eller pending
+E6,ekstern-validering,Gabriel + Cathrine,Uke 2,research/norden/partner-validation-denmark-2026.md,Send dansk valideringspakke til Betina Simonsen,Korrigert/annotert dansk data eller pending
+E7,ekstern-validering,Codex research + partner,Uke 4,research/evidence-pack/gap-cards/E7-finland-4a-enforcement-2026-04.md,Kartlegg finsk paragraf 4a håndheving utover Valio,Evidence card + ev. partnerrequest
+F1,bredding,Codex research,Fase 2,research/evidence-pack/gap-cards/F1-underernaering-eldreomsorg-2026-04.md,Kartlegg underernæring 2022-2026 og kommunal variasjon,Evidence card eller parkert
+F2,bredding,Codex research,Fase 2,research/evidence-pack/gap-cards/F2-matusikkerhet-fies-2026-04.md,Kartlegg FIES/matusikkerhet i Norge,Evidence card eller parkert
+F3,modellbygging,Codex research,Fase 2,research/evidence-pack/gap-cards/F3-skolemaaltid-cost-benefit-2026-04.md,Kartlegg norsk skolemåltid kost/nytte,Evidence card eller modellnotat
+F4,bredding,Codex research,Fase 2,research/evidence-pack/gap-cards/F4-matpris-lavinntekt-2026-04.md,Kartlegg matpriseffekt på lavinntektsgrupper,Evidence card eller parkert
+F5,modellbygging,Codex research,Fase 2,research/evidence-pack/gap-cards/F5-matlevering-bud-arbeidsforhold-2026-04.md,Kartlegg arbeidsforhold Wolt/Foodora,Evidence card eller parkert
+G1,modellbygging,Codex research,Uke 3,research/evidence-pack/gap-cards/G1-matsystem-mfa-2026-04.md,Definer helhetlig matsystem-MFA scope,Modellnotat med datakilder og hull
+G2,modellbygging,Codex research,Uke 3,research/evidence-pack/gap-cards/G2-matsvinn-definisjon-norden-2026-04.md,Kartlegg nordisk matsvinnharmonisering,Evidence card med definisjonsmatrise
+G3,hurtig-plukk,Codex research,Uke 1,research/evidence-pack/gap-cards/G3-selvforsyning-sjomatjustert-2026-04.md,Beregn eller kildefest sjømateksport-justert selvforsyning,Evidence card med metode
+G4,bredding,Codex research,Fase 2,research/evidence-pack/gap-cards/G4-csddd-eudr-norsk-matsektor-2026-04.md,Kartlegg CSDDD/EUDR implementering hos norske importører,Evidence card eller parkert
+G5,bredding,Codex research,Fase 2,research/evidence-pack/gap-cards/G5-kornlager-beredskap-2026-04.md,Kartlegg framdrift mot 82 500 tonn kornlager,Evidence card eller parkert
+G6,bredding,Codex research,Fase 2,research/evidence-pack/gap-cards/G6-klimarisiko-landbruk-2026-04.md,Kartlegg klimascenarioer norsk landbruk,Evidence card eller parkert
+G7,modellbygging,Codex research,Fase 2,research/evidence-pack/gap-cards/G7-internasjonale-benchmarks-2026-04.md,Kartlegg benchmarks utover Norden,Evidence card med relevansvurdering
+G8,bredding,Codex research,Fase 2,research/evidence-pack/gap-cards/G8-samisk-matsystem-2026-04.md,Kartlegg samisk matsystem/reindrift/tradisjonskunnskap,Evidence card eller parkert
+G9,bredding,Codex research,Fase 2,research/evidence-pack/gap-cards/G9-karbonbinding-landbruksjord-2026-04.md,Kartlegg karbonbinding i norsk landbruksjord,Evidence card eller parkert

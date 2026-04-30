@@ -1,0 +1,1731 @@
+                Ruokaviraston raportti
+
+
+
+
+Luonnonmukaisen tuotannon valvontaraportti
+                  2024
+                                Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+
+Päiväys:                               28.04.2025
+                                       ”VASU-raportointi vuodelta 2024”
+Asianumero:
+                                        (329/00.01.02.00.01/2025)
+                                       Ruokavirasto
+
+Linja, osasto ja/tai yksikkö:          Elintarvikelinja, ELITA, KETU
+
+Hyväksyjä:                             Tiina Lapveteläinen
+
+Laatija/laatijat:                      Ruokavirasto Luomujaosto
+Lisätietoja:                           Marja Ylätalo
+                                                  Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+SISÄLLYSLUETTELO
+
+
+JOHDANTO................................................................................................................................................4
+1 YLEISARVIO LUOMUVALVONNASTA .......................................................................................................4
+2 TARKASTUKSET JA MUUT VALVONTATOIMET.........................................................................................6
+   2.1 Valvottavien toimijoiden määrä ..............................................................................................................6
+   2.2 Luomuelintarvikkeita valmistavien toimijoiden alueellinen jakauma .....................................................7
+   2.3 Toiminnan tarkastukset...........................................................................................................................9
+      2.3.1 Ennalta ilmoittamatta tehdyt tarkastukset....................................................................................10
+       2.3.2 Tuonti- ja sisämarkkinatuotteiden valvonta ..................................................................................11
+   2.4 Näytteenotto.........................................................................................................................................11
+      2.4.1 Suomen tekemät OFIS ilmoitukset luomutuotteissa havaituista poikkeamista.............................14
+   2.5 Poikkeusluvat ........................................................................................................................................14
+3. TOIMIJOIDEN TOIMINNAN SÄÄDÖSTENMUKAISUUS ...........................................................................15
+   3.1 Kasvintuotanto ......................................................................................................................................15
+      3.1.1 Kasvintuotannossa todetut poikkeamat ja niiden merkitys sekä toimijoille annetut toimenpiteet
+      ................................................................................................................................................................15
+       3.1.2 Poikkeusluvat kasvintuotannossa ..................................................................................................15
+   3.2 Eläintuotanto.........................................................................................................................................16
+      3.2.1 Eläintuotannossa todetut poikkeamat, toimijoille määrätyt toimenpiteet ja
+      korjaamistoimenpiteiden varmistaminen...............................................................................................16
+       3.2.2 Poikkeusluvat eläintuotannossa ....................................................................................................17
+   3.3 Elintarviketuotanto................................................................................................................................18
+      3.3.1 Elintarviketoiminnassa todetut poikkeamat ja niiden merkitys sekä toimijoille kohdennetut
+      toimenpiteet ...........................................................................................................................................18
+   3.4 Vähittäiskaupat .....................................................................................................................................21
+   3.5 Rehujen valmistus .................................................................................................................................22
+   3.6. Lisäysaineiston pakkaaminen ...............................................................................................................23
+   3.7 Valviran suorittama luonnonmukaisen tuotannon valvonta.................................................................23
+   3.8 Luonnonmukaisten elintarvikkeiden markkinavalvonta .......................................................................23
+4 TOIMIJOIDEN SÄÄDÖSTEN TUNTEMISEN VARMISTAMINEN..................................................................24
+   4.1 Valvonnan vuosikysymyksellä mitattiin toimijoiden säädösten tunteminen ........................................25
+   4.2 Luomuvalvontaan liittymiskehotukset ..................................................................................................26
+5 VALVONNAN TEHOKKUUDEN JA YHDENMUKAISUUDEN VARMISTAMINEN ..........................................26
+   5.1 Annettu koulutus valvonnan yhdenmukaisuuden varmistamiseksi ......................................................26
+   5.2 Tarkastussovelluksen kehittäminen valvonnan yhdenmukaisuuden varmistamiseksi .........................27
+   5.3 Paikallisten ELY-keskusten luomuvalvonnan yhdenmukaisuuden varmistaminen ...............................27
+6 AUDITOINNIT JA MUU SAATU PALAUTE................................................................................................28
+   6.1 Ruokaviraston sisäinen auditointi .........................................................................................................28
+   6.2 Luomuvalvontajärjestelmän ulkoinen arviointi.....................................................................................28
+   6.3 ELY-keskuksen toiminnan arviointi ja ohjaus ........................................................................................28
+   6.4 Valtuutettujen tarkastajien työn ohjaus- arviointi ................................................................................28
+   6.5 Asiakaspalautteet ..................................................................................................................................29
+                                           Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+7 VALVONNAN RESURSSIT.......................................................................................................................30
+  7.1 Valvontaviranomaisten henkilöresurssit ...............................................................................................30
+  7.2 Valvonnan kustannukset ja kustannustehokkuus .................................................................................31
+8 MUUTOKSET SEURAAVIEN VUOSIEN VALVONTAAN..............................................................................33
+   8.1 Lainsäädännön toimeenpano ja lainsäädäntömuutoksista johtuvat toimenpiteet ..............................34
+   8.2 Luomuvalvontaprosessin tietojärjestelmäkehitys.................................................................................34
+9 LUOMUTUOTTEIDEN VIENNIN EDISTÄMINEN .......................................................................................35
+                         Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+
+JOHDANTO
+
+       Luonnonmukainen tuotanto eli luomu on tuotantotapa, johon saa viitata
+       maataloustuotteissa, rehuissa, elintarvikkeissa ja alkoholijuomissa vain silloin, kun
+       tuotantotapaa koskevia säännöksiä on noudatettu. Luomulle on koko EU:n alueella yhteiset
+       säädökset, joita sovelletaan myös EU:n ulkopuolelta tuotaviin tuotteisiin. Luomutuotteiden
+       tuotantoa ja tuotteiden alkuperää valvotaan läpi koko tuotantoketjun, jotta kuluttaja voi
+       luottaa tuotteiden aitouteen.
+
+       Ruokavirastolla on luomuvalvonnassa sekä toimivaltaisen että valvontaa ohjaavan
+       viranomaisen tehtäviä. Tämä raportti kattaa sekä toimivaltaisen viranomaisen tehtävät
+       (tarkastaminen, sertifiointi ja lupapäätökset) sekä ohjatut tehtävät (ELY-keskusten ja kuntien
+       toimeenpanemat luomuvalvontatehtävät). Raportti sisältää myös Tullin, sekä sosiaali- ja
+       terveysalan lupa ja valvontavirasto Valviran luomuvalvonnan tulokset.
+
+       Raportti ei koske Ahvenanmaan maakuntahallituksen tehtäviä luomuvalvonnassa.
+
+
+
+1 YLEISARVIO LUOMUVALVONNASTA
+
+       Luonnonmukaisen tuotannon valvonta toteutui säädösten edellyttämässä laajuudessa.
+       Sertifioituja luomutuotannon toimijoita on 5398, joista 3986 ovat alkutuottajia ja 585
+       pakkaamattomien elintarvikkeiden vähittäiskauppoja. Muut toimijat ovat jakeluketjussa
+       toimivia rehun, lisäysaineiston tai elintarvikkeiden valmistajia, tukkukauppoja ja varastoja.
+       Valvontajärjestelmää ylläpitävät seitsemäntoista tarkastusviranomaista.
+
+       Aikaisempien vuosien tapaan ELY-keskusten kanssa käytiin ELY-kohtaiset
+       tilannekuvakeskustelut, joissa kunkin ELY-keskuksen luomuvalvonnan toimeenpanoa
+       verrattiin valtakunnan tasoon. Pääpaino oli ELY-keskusten sisäisten menettelyiden
+       tarkastelussa ja niiden toimintojen yhdenmukaistamisessa. Raportointivuoden
+       valvontasuunnitelmat toteutuivat nyt tasaisemmin kuin aiempina vuosina ja kaikki ELY-
+       keskukset saivat valvontavuoden valmiiksi vuoden 2024 aikana.
+
+       Valtuutettuihin luomutarkastajiin kohdistui 35 ohjaus- ja arviointikäyntiä. Tehtyjen käyntien
+       perusteella voidaan todeta tarkastajien vahvan, pitkän kokemuksen kautta saadun
+       osaamisen ja ammattimaisesti asiakkaan kohtaamisen vaikuttavan tarkastusten selkeyteen.
+       Erityisesti tarkastajien hyvä paikallistuntemus tiloista ja alueista nopeutti tarkastuksia.
+
+       Vuoden 2024 aikana kerättiin aiempaa tarkempaa tietoa sertifioitujen vähittäiskauppojen
+       vastaanottotarkastusten toteuttamistavoista ja niihin liittyvistä ohjeistuksista
+       vastaanottotarkastusten toteutusten riittävyyden arvioimiseksi luomuvalvonnan
+       näkökulmasta. Vähittäiskaupat toimivat suurilta osin luomusäädösten mukaisesti.
+
+
+
+
+                                             4 (38)
+                   Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+Luomuvalvonnan ottamien näytteiden analysointi sekä Ruokaviraston toteuttama muu
+monitorointi ei antanut aihetta epäillä, että luomutuotannossa käytettäisi muita kuin
+sallittuja tuotteita ja aineita. Ainoastaan yhdestä viljatuotteesta tehtiin löydös, josta
+kuitenkaan seurantanäytteenoton jälkeen ei todettu torjunta-aineita. Vähittäiskauppojen
+osalta löydös tehtiin yhdestä sitruunanäytteestä.
+
+
+Suomen luomutoimijat toimivat pääsääntöisesti luomusäädösten mukaisesti.
+Valvontatoimien tulosten perusteella yli 99 % kaikista sertifioiduista toimijoista noudatti
+tuotonnon ehtoja. Havaitut poikkeamat ja niiden syyt vaihtelevat johtuen mm. valvonnan
+painopisteistä ja tarkastuksen ajankohdasta. Todettujen poikkeamien ja niiden määrän
+muutoksille ei siten ole yksiselitteistä syytä. Luomuvalvonta on luonteeltaan asiakirjojen ja
+kirjanpidon jälkitarkastamista, mikä näkyy myös todetuissa poikkeamissa.
+Elintarvikevalmistajien ja -tukkujen haasteena on lukuisten kirjausten muistaminen, mm.
+taseen, tuotantokirjanpidon, laskujen ja lähetteiden osalta. Myös kasvinviljelyssä yli puolet
+poikkeamista liittyi dokumentointiin eli lohkomuistiinpanoihin, varastokirjanpitoon ja
+luomusuunnitelmiin. Eläintuotannossa toistuvat poikkeamat liittyivät paitsi muistiinpanoihin
+myös eläinten ulkoiluun, ulkotiloihin ja eläinsuojiin.
+
+Sekä kasvintuotannossa että eläintuotannossa merkittävien, eli markkinointikieltoihin
+johtaneiden poikkeamien määrä kasvoi edellisestä vuodesta. Syytä kasvulle kasvintuotannon
+osalta selittää osaltaan luvattoman tavanomaisen lisäysaineiston käyttö, joita oli kolme kpl
+enemmän kuin edeltävänä vuonna (5->8). Eläintuotannossa markkinointikieltoja
+määrällisesti annettiin eniten ulkoiluun, eläinten ruokintaan ja eläinsuojiin liittyen 12
+kappaletta yhteensä 22 markkinointikiellosta. Kasvua todetuille poikkeamille selittää
+osaltaan tarkastusajankohdan vaihtelu ja kohdennettu lisävalvonta.
+Luomuelintarvikevalvonnassa annettiin tuote-eräkohtaisia markkinointikieltoja yhteensä 8
+kappaletta, mikä oli puolestaan vähän enemmän kuin edellisenä tarkastuskautena.
+
+Tarkastuksen yhteydessä toteutetun selvityksen mukaan toimijat ovat pääosin tyytyväisiä
+Ruokaviraston uuteen lainsäädäntöön, muutoksiin ja oppaisiin liittyvän tiedotuksen
+onnistumiseen ja ohjaukseen: 11 % alkutuotannon toimijoista, 7 % elintarviketoimijoista ja 1
+% vähittäiskaupoista kokevat tyytymättömyyttä.
+
+
+
+Taulukko 1. Vaikuttavuuden tunnusluvut luomutuotannossa.
+
+ MARKKINOINTIKIELTOJA SAANEIDEN
+                                                      2022           2023          2024
+ %-OSUUS TOIMIJOISTA
+
+ Kasvintuotanto                                       0,4            0,5           0,6
+ Eläintuotanto                                        1,5            0,7           2,2
+ Rehunvalmistus ja maahantuonti                       2,4 (1 kpl)    2,4 (1 kpl)   0
+ Elintarvikkeiden valmistus ja maahantuonti           0,8            0,7           1,3
+ Vähittäiskauppa                                                     0             0
+ Alkoholijuomien valmistus ja myynti                  0              0             0
+
+
+
+                                       5 (38)
+                              Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+
+2 TARKASTUKSET JA MUUT VALVONTATOIMET
+
+           Luomuvalvonta toteutetaan lainsäädännön edellyttämässä laajuudessa ja monivuotista
+           kansallista valvontasuunnitelmaa noudattaen. Tämä tarkoittaa, että kaikkien toimijoiden
+           toiminta tarkastetaan fyysisesti vuosittain, pois lukien riskiperusteisesti valitut kohteet,
+           joiden säädösten noudattaminen todennettiin muulla kuin fyysisellä tarkastuksella.
+
+           Vuositarkastusten lisäksi tehdään ylimääräisiä tarkastuksia vähintään 10 %:lle toimijoista.
+           Ylimääräisistä tarkastuskohteista 70 % valitaan riskiperusteisesti ja 30 % valitaan
+           satunnaisesti. Suunnitelman mukaan kymmenesosa kaikista tarkastuksista oli tarkoitus tehdä
+           ilman etukäteistä ilmoitusta toimijalle.
+
+           Luomuvalvonnan näytteenottosuunnitelman mukaisten näytteiden vähimmäismäärä on 5 %
+           toimijoiden lukumäärästä.
+
+           Valvontaviranomaiset voivat antaa luvan poiketa luomutuotannon ehdoista tietyissä
+           tilanteissa. Poikkeuslupahakemukset käsitellään ja ratkaistaan tapauskohtaisesti.
+
+
+
+2.1 Valvottavien toimijoiden määrä
+
+           Luomuviljelijöiden ja muiden luomualkutuotantoa harjoittavien toimijoiden määrä vuoden
+           2024 lopussa oli 3980 kpl, joista maatiloja 3917 kpl. Uusia toimijoita aloitti 37 toimijaa, joista
+           10 oli uusia eläintiloja. Vuonna 2024 valvonnasta vastaavasti poistui 161 tilaa, joista 41 kpl oli
+           eläintiloja. Eläintiloja vuonna 2024 oli yhteensä 1011 kpl.
+
+          Luonnonmukaista keruutuotantoa alkutuotannon osalta harjoitti 60 toimijaa (vuonna 2023
+          66 toimijaa). Luomukeruutuotanto ala oli yhteensä 6,92 miljoonaa hehtaaria (vuonna 2023
+          6,92 milj. ha). Toimijoista viisi oli ns. luomukeruualueen selvittäjiä, eli toimijoita, joiden
+          pääasiallinen luomuvalvottu toiminta ei liity tuotteiden keräämiseen vaan omistustaustaltaan
+          moninaisten (esimerkiksi kunnat, yhteismetsät ja Metsähallitus) ja laajuudeltaan suurten
+          keruualueiden luomiseen ja ylläpitoon tuotteiden keräämistä harjoittavien toimijoiden
+          käyttöä varten.
+
+          Luomuelintarviketuotannon valvontaan liittyi 26 uutta toimijaa ja valvonnasta poistui 54
+          toimijaa. Luomuelintarviketoimijoiden lukumäärä laski hivenen edellisestä valvontavuodesta.
+          Valvontakohteiden lukumäärä vuoden lopussa oli 631. Valvontakohteista 19 kpl oli
+          inaktiivista (eli 612 tarkastettavaa valvontakohdetta).
+
+          Ruokaviraston luomuvalvonnassa olevien vähittäiskauppojen määrä 585 kpl pysyi lähes
+          saman kuin edellisenä valvontavuonna. Valvontaan liittyi 28 vähittäiskauppaa, joiden
+
+
+
+
+                                                  6 (38)
+                      Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+pakkaamattomien luomutuotteiden liikevaihto ylitti 20 000 €/vuosi. Valvonnasta poistui 26
+vähittäiskauppaa.
+
+Ruokaviraston verkkosivuilla julkaistaan tilastoja luomutuotannosta, osoitteessa
+https://www.ruokavirasto.fi/viljelijat/luomumaatilat/tilastot-ja-tietohaut/.
+
+
+Taulukko 2. Valvottavien luomutoimijoiden tai valvontakohteiden määrät vuosina 2022 –
+2024.
+                                                           2022         2023         2024
+
+ Luomutoimijoita                                           6335         5604         5398
+ Luomualkutuotanto *                                       4 818        4140         3986
+ - joista valvottuja luomueläintiloja                      1 145        1039         1017
+ - uusia toimijoita                                        148          72           37
+ Luomuelintarviketoimijat/ -valvontakohteet **             765          681          631
+ - joista uusia toimijoita                                 24           29           26
+ Sertifioitavat vähittäiskaupat                            555          584          585
+ - joista uusia                                            555          34           28
+ Luomurehutoimijat                                         41           41           40
+ - joista uusia toimijoita                                 3            2            1
+ Luomusiemenpakkaamot                                      34           33           31
+ - joista uusia toimijoita                                 1            0            0
+ Luomualkoholitoimijat                                     122          125          125
+ (vuoden lopussa)
+ - joista uusia toimijoita                                 8            3            7
+
+* Maatilojen lisäksi luvussa ovat mukana myös toimijat, joilla on ainoastaan kasvihuone-, sienimö- tai
+hunajantuotantoa.
+** Jalostajat ja tukut. Luvussa ovat mukana alihankintatoimijat.
+
+
+
+
+                                          7 (38)
+                             Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+2.2 Luomuelintarvikkeita valmistavien toimijoiden alueellinen jakauma
+           Kuvassa 1 on esitetty luomuelintarvikejalostajien jakauma ELY-keskusalueittain ja kuvassa 2
+           vastaavasti maatiloilla tehtävä elintarvikkeiden valmistus ELY-keskusalueittain.
+           Elintarvikkeiden jalostuksella tarkoitetaan monimutkaisempaa, esim. useampaa raaka-
+           ainetta sisältävän elintarvikkeen prosessointia ja elintarvikkeiden valmistuksella
+           yksinkertaisempaa elintarvikkeen valmistusta, esim. raasteet, yrttisekoitukset, myslit, soseet.
+
+           Uuden luomulain myötä kaikkea elintarvikkeiden jalostusta valvoo Ruokavirasto, esim.
+           kuumennus on tällaista toimintaa. Tämän seurauksena vuoden 2023 aikana osa Ely-
+           keskusten valvonnassa olleista maatilavalmistajista siirtyi Ruokaviraston luomuvalvontaan.
+           Tämä näkyy kuvassa 2 selvänä pudotuksena ELY-keskusten valvomien elintarvikevalmistajien
+           määrässä vuoden 2022 ja 2023 välillä. Kuvissa 1 ja 2 on nähtävissä, että sekä
+           elintarvikejalostajien, että maatilavalmistajien määrä on edelleen vuonna 2024 hiukan
+           laskenut yleisen markkinatilanteen vuoksi.
+
+
+
+
+           Kuva 1. Ruokaviraston valvonnassa olevat luomuelintarvikejalostajat ELY-keskuksittain
+           vuosina 2022 - 2024.
+
+
+
+
+                                                 8 (38)
+                            Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+
+          Kuva 2. ELY-keskusten valvonnassa olevat luomuelintarvikevalmistajat ELY-keskuksittain
+          vuosina 2022–2024.
+
+
+
+
+2.3 Toiminnan tarkastukset
+
+          Valvontajärjestelmään liittyneiden toimijoiden toiminta tarkastetaan vuoden aikana
+          vähintään kerran. Säännösten noudattamisen todentamiseen kuuluu paikalla tehtävä
+          fyysinen tarkastus, paitsi jos toiminnan ja edellisten vuosien valvontatulosten arvioinnin
+          perusteella on hyvin epätodennäköistä, että toimija jättää säännöksiä noudattamatta. Osa
+          nk. vähäriskisten toimijoiden valvonta toteutettiin uudella menettelyllä (jäljempänä
+          vuosivarmennus), jossa toimijalta edellytetään kirjalliseen kyselyyn vastaaminen
+          määräajassa. Vuositarkastusten lisäksi tehdään 10 % lisätarkastuksia. ELY-keskukset
+          myönsivät 4053 kpl luomusertifikaatteja – vastaava luku oli Ruokavirastossa 1217 kpl.
+          Kymmenesosa kaikista toimijoihin kohdennettavista valvontatoimista tulee tehdä ennalta
+          ilmoittamatta. Valvontatoimiksi Ruokavirasto katsoo vuositarkastukset, ylimääräiset
+          tarkastukset ja näytteenoton.
+
+
+
+
+                                                9 (38)
+                                              Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+Taulukko 3. Toteutuneet tarkastukset ja otetut näytteet 2024 tarkastuslaitoksittain.
+                        Toimija                            Paikan päällä tehtävät tarkastukset
+                        lukumäärä         Vaatimusten-
+ Tarkastus-             (valvontakohde)   mukaisuuden
+                                          tarkastaminen.
+
+ viranomainen                                                                                                    Ennalta
+                                          fyysinen ja      Vuotuiset fyysiset      Ylimääräiset   Tarkastukset   ilmoittamattomat              Näyte-
+                                          etätarkastus*    tarkastukset           tarkastukset    yhteensä       tarkastukset       Näytteet   löydökset
+
+
+ FI-EKO-101             367               357              288                    34              322            32                 19         0
+ FI-EKO-102             411               410              410                    43              453            49                 22         0
+ FI-EKO-103             162               161              161                    14              175            29                 9          0
+ FI-EKO-104             246               245              245                    26              271            53                 12         0
+ FI-EKO-105             458               456              385                    42              427            59                 24         0
+ FI-EKO-106             233               235              235                    16              251            27                 12         0
+ FI-EKO-107             184               181              145                    19              164            31                 10         0
+ FI-EKO-108             264               260              260                    22              282            36                 13         0
+ FI-EKO-109             260               258              258                    22              280            36                 14         0
+ FI-EKO-110             148               148              148                    15              163            27                 7          0
+ FI-EKO-111             413               413              323                    36              359            53                 21         0
+ FI-EKO-112             359               353              352                    39              391            80                 19         0
+ FI-EKO-113             383               384              316                    37              353            63                 20         0
+ FI-EKO-114             61                60               50                     6               56             7                  3          0
+ FI-EKO-115             37                38               38                     4               42             4                  2          0
+ FI-EKO-201             1273              1266             1203                   124             1327           147                72         2
+ - Elintarvike          612               606              557                    64              621            59                 33         1
+ - Vähittäiskauppa      585               584              571                    58              629            79                 30         1
+ - Rehu                 40                40               39                     2               41             2                  7          0
+ - Siemen               31                31               31                     0               31             7                  2          0
+ Keruuselvittäjät       5                 5                5                      0               5              0                  0          0
+ FI-EKO-301             125               116              109                    0               109            13                 9          1
+ Tulli                                                                                                                              290        5
+*Sisältää vuositarkastukset, vuosivarmennukset ja ensimmäiset tarkastukset
+
+
+          2.3.1 Ennalta ilmoittamatta tehdyt tarkastukset
+
+                     Säädösvaatimus on, että 10 % kaikista toimijoihin kohdennettavista valvontatoimista tulee
+                     tehdä ennalta ilmoittamatta. Valvontatoimiksi Ruokavirasto katsoo vuositarkastukset,
+                     ylimääräiset tarkastukset ja näytteenoton. Ennalta ilmoittamattomien tarkastusten määrät
+                     on esitetty taulukossa 4.
+
+                     Elintarvikevalvonnassa ohjattiin tarkastajia tekemään 10 % kaikista tarkastuksista ennalta
+                     ilmoittamatta. Ylimääräisiksi tarkastuskohteiksi valittiin kohteita sekä satunnaisesti että
+                     riskiperusteisesti - esimerkiksi sellaisia kohteita, joilla on aiemmilla tarkastuksilla havaittu
+                     lukuisia poikkeamia toiminnassa tai joiden toiminta on monimuotoista. Ylimääräiset
+
+
+                                                                      10 (38)
+                      Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+tarkastukset tehtiin pääsääntöisesti ennalta ilmoittamatta, samoin kuin näytteenotto.
+Yhteensä elintarvikekohteille yritettiin tehdä 59 tarkastusta ennalta ilmoittamatta eli 9,5 %:a
+kaikista tehdyistä tarkastuksista (59/621). Lisäksi näytteitä otettiin 33 kpl pääsääntöisesti
+ennalta ilmoittamatta. Vähittäiskauppoihin tehtiin ennalta ilmoittamatta tarkastuksia 79 kpl
+eli 12,6 % (79/629) tehdyistä paikan päällä tehtävistä tarkastuksista.
+
+Myös alkutuotannossa ennalta ilmoittamatta tehtäviä tarkastuksia ohjattiin tekemään
+kaikissa toimijaan kohdistuvissa tarkastuskäynneissä. Eniten ennalta ilmoittamattomia
+käyntejä tehtiin ylimääräisissä tarkastuksissa. Elintarvikevalvonnan tavoin tarkastuskohteiksi
+valittiin sekä riskiperusteisesti että satunnaisesti toimijan toiminnan luonne
+(monimuotoisuus) ja aikaisempi valvontahistoria huomioiden. Luomurehutarkastuksista 5 %
+tehtiin ylimääräisinä ja ennalta ilmoittamattomina. Nämä tarkastuskohteet valittiin osittain
+riskiperusteisesti ja osittain satunnaisesti.
+
+Taulukko 4. Ennalta ilmoittamattomien tarkastusten lukumäärät 2024.
+                                                     Ennalta ilmoittamattomien
+                                                     tarkastusten lkm
+ Alkutuotanto, yhteensä                              586
+ - vuositarkastuksia                                 210
+ - ylimääräisiä tarkastuksia                         376
+ - kotieläintiloilla, tt + ylim                      221
+ Elintarviketoiminta, yhteensä                       59
+ - vuositarkastuksia                                 28
+ - ylimääräisiä tarkastuksia                         31
+ Vähittäiskauppa, yhteensä                           79
+ - vuositarkastuksia                                 35
+ - ylimääräisiä tarkastuksia                         44
+ Siemenpakkaamo                                      7
+ Rehualan toimijat                                   2
+ Alkoholijuomat/Valvira                              13
+
+
+Viranomaiset ja tarkastajat onnistuivat tekemään säädösmukaisen osuuden valvontatoimista
+ennalta ilmoittamatta. Haasteeksi on kuitenkin tunnistettu, että iso osa alkutuotannon
+toimijoista eivät ilman ennakkovaroitusta ole tavoitettavissa, koska he ovat tilan ulkopuolella
+töissä. Jakeluketjun muissa yrityksissä ennalta ilmoittamatonta tarkastusta vaikeuttaa
+etätyön yleistyminen. Tällöin ei ole itsestään selvää, että toimijan tavoittaa
+valvontakohteessa. Maatilojen osalta 168 käyntiä, jotka koski 215 tarkastusta ja
+elintarviketoimijoilla 27 tarkastusta lykättiin, koska toimijaa tai hänen edustajaansa ei
+tavoitettu.
+
+
+
+
+                                         11 (38)
+                              Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+    2.3.2 Tuonti- ja sisämarkkinatuotteiden valvonta
+
+            Tulli valvoo kohdennetusti luomuelintarvikkeiden tuontia ja sisämarkkinakauppaa. Valvonta
+            kohdistuu luomutuotteiden määräystenmukaisuuteen koostumuksen, asiakirjojen ja
+            pakkausmerkintöjen osalta. Valvonta toimeenpannaan yksittäisten tuontierien
+            näytteenotolla. Tulli valvoi kaikkiaan 290 elintarvikkeen luomumääräystenmukaisuutta.
+            Luomurehuja ei näytteenottoon tullut vuonna 2024 ollenkaan.
+
+
+
+2.4 Näytteenotto
+
+            Luomuvalvonnan näytteitä otettiin vuonna 2024 sekä Ruokaviraston että ELY-keskusten
+            valvontaan kuuluvien toimijoiden tuotteista taulukon 5 mukaisesti. Teollisten luomurehujen
+            näytteet otettiin rehujen valmistuksen valvonnan ja markkinavalvonnan yhteydessä.
+            Ruokaviraston eläinlääkejäämien valvontaohjelma otti oman suunnitelmansa mukaisesti
+            eläinperäisiä luomunäytteitä ja torjunta-ainejäämien valvontaohjelma kasviperäisiä
+            luomunäytteitä, ja luomuvalvonta hyödynsi tuloksia valvonnassaan. Taulukossa 5 esitetään
+            vuoden 2024 näytteenottosuunnitelman mukaiset näytteet (suunniteltu lkm.) sekä
+            toteutuneet näytteet (toteutunut lkm.).
+
+           Alkutuottajien näytteitä saatiin 281 kpl, joka vastaa 7 % toimijoiden määrästä. Näistä 35 kpl,
+           oli eläinlääkejäämien valvontaohjelman näytteitä ja 5 kpl torjunta-ainejäämien
+           valvontaohjelman näytteitä. Elintarviketoimijoiden näytteitä saatiin yhtä näytettä vajaa
+           suunniteltu määrä eli 33 kpl.
+
+           ELY-keskusten kasvinperäisistä ja torjunta-ainejäämien valvontaohjelman näytteistä
+           analysoitiin torjunta-ainejäämiä monijäämäanalyysillä. Eläinperäisistä näytteistä (maito,
+           kananmuna, hunaja) analysoitiin hormoneita ja lääkeaineita. Jalostetuista elintarvikkeista
+           analysoitiin torjunta-ainejäämien lisäksi tarpeen mukaan lisäaineita sekä muuntogeenisiä
+           ainesosia. Luomurehuista analysoitiin pestisidijäämiä ja muuntogeenisiä ainesosia.
+
+           Alkutuotannon näytteenotossa ei tehty yhtään löydöstä. Elintarvikenäytteiden osalta löytyi
+           klormekvattia yhdestä viljatuotteesta, täysjyväruisleivästä. Seurantanäytteenotossa raaka-
+           ainetoimittajan näytteistä ei löytynyt torjunta-aineita. Kyseinen leipäerä oli ehditty kuluttaa
+           ennen analyysitulosten saamista. Korjaavana toimenpiteenä toimija sai kehotuksen korjata
+           vastaanottotarkastusmenettelyt ja jäljitettävyysseuranta menettelyt. Vähittäiskaupan
+           näytteiden osalta löytyi yhdestä sitruunanäytteestä pyraklostrobiinia, etofenproksia ja tau-
+           fluvalinaattia.
+
+
+
+
+                                                 12 (38)
+                     Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+Taulukko 5. Luomuvalvonnan suunnitellut ja toteutuneet näytemäärät v. 2024.
+ Näyteryhmä                                    Suunniteltu         Toteutunut lkm.
+                                               lkm.
+ Vilja varastoista                             38                  37
+ Vilja maatiloilta                             122                 160
+ Peruna, kasvikset, marjat ja hedelmät         10                  5
+ Öljykasvit                                    5                   1
+ Elintarvikkeet tilalla                        5                   2
+ Hunaja                                        0                   1
+ Eläinlääkejäämävalvonnan näytteet             40                  35
+ yht
+ - Maito*                                      10                  1
+ - Sika*                                       5                   0
+ - Nauta*                                      13                  17
+ - Siipikarja*                                 2                   0
+ - Lammas/vuohi*                               0                   6
+ - Kananmuna*                                  5                   8
+ - Hunaja*                                     5                   3
+ Torjunta-ainejäämävalvonnan                   15                  5
+ näytteet, kasviksia 10 ja 2 viljaa
+ Alkutuotannon näytteet yht.                   275                 281
+ - joista ELY-keskusten ottamia yht.           180                 206
+ Elintarvikkeet teollisuudessa                 34                  33
+ Vähittäiskauppa                               30                  30
+ Lisäysaineisto                                2                   2
+ Teolliset luomurehut                          6                   7
+ Alkoholituotteet                              7                   9
+ Tulli                                         300                 290
+* Eläinlääkejäämävalvontaohjelman eläinperäiset luomunäytteet
+
+Luomurehujen näytteenoton painopisteenä oli vuonna 2024 pestisidijäämien ja
+muuntogeenisten tuotantopanosten valvonta luomurehuissa. Tarkoitus oli ottaa yhteensä
+kuusi näytettä, määrä vastaa 15 % valvonnassa olevien luomurehutoimijoiden määrästä.
+Näytteitä otettiin seitsemän. Kaikki näytteet otettiin rehujen valmistajilta kotimaisen
+valmistuksen valvonnassa. Lisäksi muun rehuvalvonnan yhteydessä luomurehuista tai
+luomuun soveltuvista rehuista otettiin viranomaisnäytteitä yhteensä 32 eri rehuerästä.
+Näytteistä tutkittiin mm. ravitsemuksellista koostumusta, hygieniaa ja kielletyn eläinperäisen
+ainekset esiintymistä sekä muita rehujen haitallisia ja kiellettyjä aineita, kuten
+mykotoksiineja, haitallisia typpiyhdisteitä sekä dioksiini-, PCB- ja PFAS-yhdisteitä.
+Rehuvalvonnan ottamien luomurehunäytteiden tulokset raportoidaan rehuvalvonnan Avoin
+tieto -portaalissa.
+
+
+
+
+                                        13 (38)
+                             Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+           Valviran vuoden 2024 näytteenotossa oli mukana yhteensä 9 luomualkoholijuomaa, joista
+           rypäleviinejä 8 ja yksi sake. Yhdestä tuotteesta löytyi torjunta-ainejäämiä ja siihen liittyvät
+           hallinnollinen toimenpide siirtyi vuodelle 2025. Kaikkien näytteiden rikkidioksidipitoisuudet
+           (SO2) alittivat luomulainsäädännössä sallitut maksimiarvot.
+
+           Tulli hylkäsi noin 2 % luomuelintarvikkeista luomumääräysten vastaisina. Lisäksi
+           luomuelintarvikkeissa esiintyi samoja elintarvikemääräysten vastaisuuksia kuin
+           tavanomaisesti tuotetuissa tuotteissa, kuten mykotoksiineja tai puutteellisia
+           pakkausmerkintöjä. Luomumääräysten vastaisina hylättiin kaikkiaan 5 elintarviketta torjunta-
+           ainejäämien vuoksi: kaksi taatelierää, kaksi teetä ja yksi ravintolisä. Näistä teet olivat
+           sisämarkkinakaupan tuotteita eli ostettu toisista jäsenmaista ja taatelit ja ravintolisät EU:n
+           ulkopuolelta. Elintarvikemääräysten vastaisina hylättiin pakkausmerkintöjen vuoksi luomuna
+           markkinoituja alkoholittomia viinin kaltaisia juomia ja luomumakeispatukoita.
+
+           Lisäksi Tulli valvoo 3.maa rajalla tehostetusti Komission ohjeistuksen (Guidelines on
+           additional official controls of organic farming) mukaisesti tiettyjä tuontituotteita. Vuonna
+           2024 ei valvottavaksi tullut yhtään tuotetta tästä tuoteryhmästä.
+
+
+
+    2.4.1 Suomen tekemät OFIS ilmoitukset luomutuotteissa havaituista poikkeamista
+
+           Ofis ilmoituksia tehtiin EU:n yhteiseen luomuvalvonnan ilmoitusjärjestelmään
+           sisämarkkinakaupan osalta 2 kappaletta torjunta-aineista (tee), 1 GMO-löydös (tofu/soija)
+           sekä 1 jatkoselvityspyyntö koskien väärää markkinointia. Kolmasmaa tuonnin osalta
+           ilmoituksia tehtiin 2 kpl Tullin tekemistä torjunta-ainelöydöksistä (taateli ja ravintolisä).
+           Tehtyjen löydösten osalta kukin tuoja sai kiellon markkinoida tuotteita eteenpäin
+           luonnonmukaisina.
+
+
+
+2.5 Poikkeusluvat
+
+           ELY-keskukset ja Ruokavirasto voivat tapauskohtaisesti sallia tai antaa luvan poiketa
+           luomutuotannon ehdoista tietyissä tilanteissa. Käsiteltyjen lupahakemusten määrät esitetään
+           taulukossa 6. Poikkeuslupien merkitys luomutuotannossa kuvataan tarkemmin kappaleessa
+           3.
+
+           Asiointipalvelu Toukossa luomutoimijan on mahdollista jättää sähköisesti eräkohtainen
+           lupahakemus tavanomaisen lisäysaineiston käyttöön. Lisäysaineistoon liittyviä
+           poikkeuslupien (210 kpl) määrä väheni 39 prosenttia vuoteen 2023 verrattuna. Luvista 60
+           prosenttia haettiin sähköisen asiointipalvelun kautta.
+
+
+
+
+                                                14 (38)
+                              Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+            ELY-keskukset voivat myöntää toimija – ja eräkohtaisen luvan käyttää tavanomaista
+            lisäysaineistoa luomutuotannossa. Tämän lisäksi Ruokavirasto voi antaa yleisen luvan käyttää
+            tavanomaista lisäysaineistoa luomutuotannossa. Ruokavirasto päivitti tätä lupaa 9 kertaa.
+
+            Taulukko 6. Lupahakemukset poiketa luomutuotannon ehdoista vuosina 2022 – 2024.
+                                                                           2022     2023        2024
+            POIKKEUSLUPAHAKEMUS
+
+            Kasvintuotannon luvat                                          704      503         299
+             - Rinnakkaisviljely                                           24       12          13
+             - Siirtymävaiheen lyhentäminen                                181      147         76
+             - Tavanomaisen lisäysaineiston käyttö, eräkohtainen           499      344         210
+               lupa
+
+            Eläintuotannon luvat                                           351      288         188
+            Lupa käyttää tavanomaista rehua eläintuotannossa               38       44          23
+            Lupa käyttää tavanomaista ainesosaa elintarvikkeessa           2        0           0
+            (Ainesosalupa)
+            Kaikki luvat yhteensä                                          1096     835         511
+
+
+
+3. TOIMIJOIDEN TOIMINNAN SÄÄDÖSTENMUKAISUUS
+
+3.1 Kasvintuotanto
+
+    3.1.1 Kasvintuotannossa todetut poikkeamat ja niiden merkitys sekä toimijoille annetut toimenpiteet
+
+            Kasvintuotannossa todettujen poikkeamien määrä pysyi edellisen vuoden tasolla.
+            Toimijoiden lukumäärään suhteutettuna poikkeamia havaittiin 7,4 prosentilla toimijoista (7,6
+            % vuonna 2023).
+
+            Eniten poikkeamia aiheuttivat dokumentointi, tavanomaisen lisäysaineiston luvaton käyttö ja
+            puutteet maanhoidossa ja viljelykierrossa. Poikkeamista yli puolet eli 55 prosenttia liittyi
+            dokumentointiin eli lohkomuistiinpanoihin, varastokirjanpitoon ja luomusuunnitelmiin.
+            (Taulukko 7a)
+
+            Luvattoman tavanomaisesti tuotetun lisäysaineiston käyttöön liittyvät poikkeamien
+            väheneminen jatkui edelleen, samoin maan hoitoon ja viljelykiertoihin liittyvät poikkeamat.
+
+            Poikkeamista yleisimmin annettu toimenpide on huomautus (83 %), mikä osuus ei juurikaan
+            ole muuttunut vuosien varrella. Vuonna 2024 korjauskehotusten osuus
+            poikkeamatapauksissa oli 8 prosenttia ja markkinointikieltojen 9 prosenttia.
+
+
+
+
+                                                 15 (38)
+                                   Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+             Vakavien, eli markkinointikieltoihin johtaneiden, poikkeamien määrä (22 kpl) yli
+             kaksinkertaistui vuoteen 2023 verrattuna. Kasvua oli erityisesti luvattoman tavanomaisen
+             lisäysaineiston käytössä (5 -> 8 kpl).
+
+
+             Taulukko 7a. Kasvintuotannossa havaitut poikkeamat ja valvontaviranomaisen toimenpiteet
+             poikkeaman johdosta.
+               Kasvintuotanto                  lkm      %             toimenpide       toimenpide     Toimenpide
+                                                        toimijoista   huomautus, lkm   kehotus, lkm   kielto, lkm
+               Luomusuunnitelma                70       1,8           61               8              1
+               Lohkomuistiinpanot tai          89       2,3           76               8              5
+               luomukirjanpito
+               Muuntogeenisten                 0        0,0           0                0              0
+               organismien käyttö
+               Rinnakkaisviljely               6        0,2           3                1              2
+               Tavanomaisen                    46       1,2           38               0              8
+               lisäysaineiston käyttö
+               Maan hoito tai viljelykierto    32       0,8           25               5              2
+               Kielletyn lannoitteen käyttö    0        0,0           0                0              0
+               tai varastointi
+               Lannan käsittely tai käyttö     10       0,3           10               0              0
+               Kielletyn kasvinsuojelu-        3        0,1           1                0              2
+               aineen käyttö tai varastointi
+               Tuotteiden varastointi,         5        0,1           4                1              0
+               jalostus tai kuljetus
+               Tuotteiden merkinnät            6        0,2           6                0              0
+               Muut                            23       0,6           19               2              2
+               Yhteensä 2024                   290      7,4           243              25             22
+               Yhteensä 2023                   310      7,6           256              45             9
+               Yhteensä 2022                   410      8,6           364              29             17
+
+
+
+3.1.2 Poikkeusluvat kasvintuotannossa
+
+             Yleisimmän lupatyypin, tavanomaisen lisäysaineiston käytön eräkohtaisten lupien, määrä
+             väheni viidettä vuotta peräkkäinen. Vuonna 2024 lupia haki vain viisi prosenttia
+             luomuviljelijöistä (Taulukko 6). Jatkuva väheneminen on tulosta lisääntyneestä sertifioidun
+             luomukylvösiemenen tarjonnasta markkinoilla, mutta toisaalta lisääntyneestä tilan oman eli
+             TOS-siemenen käytöstä. Myös vuonna 2023 käyttöön otettu kansallisen luettelon
+             järjestelmä, eli luettelo kasvilajeista ja lisäysaineistosta, jolle ELY-keskuksen ei ole
+             mahdollista myöntää eräkohtaisia lupia käyttää tavanomaista lisäysaineistoa, on
+             osoittautunut tehokkaaksi tavaksi kannustaa lisäämään luomulisäysaineiston tarjontaa ja
+             käyttöä.
+
+             Siirtymävaiheen lyhentämistä haki 76 viljelijää, eli puolet vähemmän kuin vuonna 2023.
+             Vähentyminen liittyy suurimmalta osin uusien luomutilojen pieneen määrään vuonna 2024.
+
+
+                                                      16 (38)
+                              Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+
+3.2 Eläintuotanto
+
+    3.2.1 Eläintuotannossa todetut poikkeamat, toimijoille määrätyt toimenpiteet ja
+    korjaamistoimenpiteiden varmistaminen
+
+           Eläintuotannon valvonnassa markkinointikieltoja annettiin tuotanto- ja ylimääräisten
+           tarkastusten perusteella 22, mikä on viisitoista tapausta edellisvuotta enemmän (Taulukko
+           7b). Markkinointikielloista 32 % johtui ulkoilussa todetuista poikkeamista. Muun syyn (5)
+           perusteella annetuista markkinointikielloista osa oli eläinsuojelutarkastuksissa havaittuja
+           vakavia säädösten noudattamatta jättämisiä, osa johtui luomuvaroaikojen päättymisen
+           noudattamatta jättämisestä.
+
+           Ennen markkinointikiellon antamista tiloilla on tehty usein uusintatarkastus ennen lopullisen
+           päätöksen antamista. Näin on selvitetty, onko esim. ulkoilutusta koskevat puutteet korjattu.
+           Annettujen seuraamusten osalta ELY-keskukset ohjeistavat tarkastajaa kiinnittämään
+           huomiota todettuihin poikkeamiin ja kirjaamaan tarkastuspöytäkirjaan poikkeaman
+           korjaaminen. Annetut markkinointikiellot jakautuivat kahdeksan ELY-keskuksen alueelle.
+
+           Kirjallisia huomautuksia annettiin 72 kpl, jotka painottuivat ulkoiluun (18), ruokintaan (13),
+           eläinsuojat/ulkoilutilat (13) ja muistiinpanoihin (13). Kehotuksia annettiin yhteensä 8, jotka
+           painottuivat ruokintaan (4) ja ulkoiluun (3).
+
+           Ulkoiluun liittyvää poikkeamaa selittää osaltaan edellisen vuoden tapaan havainto
+           luonnonmukaisessa tuotannossa todettu tilakoon ja eläinmäärän kasvu, joka saattaa asettaa
+           haasteita eläinten hyvälle ja tehokkaalle laidunnukselle. Mahdollisten riskien arviointi
+           ulkoilun suhteen tulee pohtia ja ratkaisut suunnitella ja kuvata yksityiskohtaisesti
+           eläintenhoitosuunnitelmassa.
+
+           Seuraamusten syyt vaihtelevat vuosittain valtakunnallisesti satunnaisesti johtuen mm.
+           valvonnan painopisteistä ja tarkastuksen ajankohdasta. Todettujen poikkeamien
+           kokonaismäärä nousi korkeammaksi kuin edellisenä vuonna 2023 ja oli myös korkeampi kuin
+           vuonna 2022. ELY-keskusten tekemien havaintojen mukaan osa poikkeamista johtuu osittain
+           siitä, että tarkastus on tehty ennalta ilmoittamatta, jolloin tarvittavia asiakirjoja ei ole ollut
+           nähtävillä (muistiinpanot). Osassa poikkeamista toimijan väsyminen ja taloudellinen tilanne
+           ovat myös selittäviä tekijöitä. Myös toimijoiden tiedon puute selittää osaa poikkeamista,
+           vaikka tietoa on saatavilla monen eri lähteen kautta.
+
+
+
+
+                                                 17 (38)
+                         Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+3.2.2 Poikkeusluvat eläintuotannossa
+
+       Vuonna 2024 ELY-keskusten toimivallassa oli seitsemän eläintuotannon poikkeusluvan
+       käsittely, mm. poikkeusluvat tavanomaisten jalostuseläinten hankintaan. Ruokavirasto
+       vastasi hätätilanteita ja tavanomaisen valkuaisen käyttöä yksimahaisille koskevien
+       poikkeuslupien käsittelystä.
+
+       ELY-keskukset myönsivät eläintuotannon poikkeuslupia yhteensä 188 kpl (Taulukko 6).
+       Näistä 150 poikkeuslupaa myönnettiin tavanomaisten jalostuseläinten hankintaan, 25
+       eläinten sarvien poistamiseen ja 7 sarven aiheen tuhoamiseen eli nupouttamiseen.
+
+       Poikkeuslupia naaras- ja urospuolisten jalostuseläinten hankintaan tavanomaisesta
+       tuotannosta myönnettiin yhteensä 150 kappaletta, mukaan lukien ns. korotetulla prosentilla
+       myönnetyt poikkeusluvat. Eniten ELY-keskusten käsittelemiä poikkeuslupia tavanomaisten
+       jalostuseläinten hankintaan oli Pohjois-Pohjanmaan (28 kpl), Etelä-Pohjanmaan (18 kpl) ja
+       Varsinais-Suomen (18 kpl) ELY-keskusten alueilla. Tavanomaisten jalostuseläinten
+       hankintalupien suuri määrä viittaa siihen, että toimijoiden käytössä olevassa, uudessa
+       luomueläinrekisterissä ei ole hakuhetkellä ollut toimijan tuotantoon soveltuvia eläimiä
+       laadullisesti ja määrällisesti riittävästi. Osa eläinmäärän lisäämisestä voidaan joissain
+       tilanteissa toteuttaa perustuen omaan tuotantoon.
+       Yhdelle toimijalle myönnettiin poikkeuslupa tavanomaisten jalostuseläinten hankintaan
+       poikkeuksellisen kuolleisuuden seurauksena.
+
+       Tavanomaisten untuvikkojen hankintaan ELY-keskukset myönsivät yhteensä kuusi
+       poikkeuslupaa. Vuoden 2024 alussa lupa pitää nautoja kytkettynä, ns. parsinavettalupa, oli
+       kahdeksalla toimijalla. Vuonna 2024 ei tämän osalta ole haettu yhtään uutta poikkeuslupaa.
+       Yksimahaisten ulkoilualueen siirtymävaiheen lyhentämiseen ei myönnetty yhtään
+       poikkeuslupaa.
+
+       Ruokavirasto myönsi 21 poikkeuslupaa käyttää tavanomaista valkuaista nuorelle siipikarjalle,
+       mikä on noin puolet vähemmän kuin vuonna 2023. Yleisimmin nuorelle siipikarjalle käytetty
+       tavanomainen valkuaisrehu oli maissigluteeni. Kaksi toimijaa sai poikkeusluvan tavanomaisen
+       karkearehun käyttöön poikkeuksellisen kuivuuden takia.
+
+       Luomumehiläistuotantoon ei myönnetty yhtään poikkeuslupaa.
+
+       Uuden asetuksen soveltamisen alussa vuonna 2022 vastaavien poikkeuslupien määrät olivat
+       korkeampia (yhteensä 351 kpl).
+
+
+
+
+                                            18 (38)
+                                Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+           Taulukko 7 b. Eläintuotannossa havaitut poikkeamat ja valvontaviranomaisen toimenpiteet.
+            Eläintuotanto                           lkm      % toimijoista   toimenpide toimenpide Toimenpide
+                                                                             huomautus kehotus     kielto
+            Eläinten alkuperä                       4        0,4             3          0          1
+            Siirtymävaihe                           3        0,3             0          0          3
+            Ruokinta                                21       2,1             13         4          4
+            Eläinsuoja/ulkoilutilat                 14       1,4             13         0          1
+            Ulkoilu                                 28       2,8             18         3          7
+            Muistiinpanot tai luomukirjanpito       14       1,4             13         0          1
+            Tuotteiden jalostus                     3        0,3             3          0          0
+            Muut                                    15       1,5             9          1          5
+            Yhteensä 2024                           102      10,1            72         8          22
+            Yhteensä 2023                           70       6,7             53         10         7
+            Yhteensä 2022                           103      9,0             78         8          17
+
+
+
+3.3 Elintarviketuotanto
+
+    3.3.1 Elintarviketoiminnassa todetut poikkeamat ja niiden merkitys sekä toimijoille kohdennetut
+    toimenpiteet
+
+            Elintarviketoimijoiden 612 aktiiviseen valvontakohteeseen tehtiin 606
+            vaatimustenmukaisuuden tarkastamista, joista säännösten noudattaminen todennettiin
+            ilman paikan päällä tehtävää fyysistä tarkastusta 36 valvontakohteessa. Tarkastamatta
+            jätettiin eroavia valvontakohteita sekä valvontakohteita, joiden luomutuotanto on
+            keskeytynyt. Suunnitelluista 64 ylimääräisestä tarkastuksesta toteutui kaikki. Kaikille
+            toimijoille myönnettiin luomusertifikaatti komission ylläpitämässä Traces-järjestelmässä
+            vuoden 2024 aikana.
+
+            Luomuelintarvikevalvonnassa annettiin tarkastusten perusteella yhden tai useamman
+            poikkeaman sisältäviä huomautuksia ja kehotuksia yhteensä 168, jotka kohdistuivat 154
+            valvontakohteeseen (Taulukko 7 c). Noin neljäsosalla toimijoista todettiin poikkeamia
+            toiminnassa.
+
+
+
+
+                                                   19 (38)
+                    Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+Taulukko 7 c. Elintarviketuotannossa havaitut poikkeamat ja valvontaviranomaisen
+toimenpiteet poikkeaman johdosta.
+ Elintarvikkeet             todettujen     % osuus     toimenpide     toimenpide   Toimenpide
+ Poikkeaman syy             poikkeamien    valvonta-   huomautus      kehotus      kielto
+                            lkm            kohteista
+ Hankinta
+                            15             2,4         15             2
+
+ Jalostus                   12             1,9         12             0            7
+ Jäljitettävyys             13             2           11             2
+ Kirjanpito                 50             7,9         44             6
+ Pakkaaminen                4              0,6         4              0
+ Pakkausmerkinnät           32             5           29             3
+ Varastointi                19             3           18             1
+ Muut                       72             11,4        71             1
+ Tuonti                     3              0,5         3              0            1
+ Torjunta-aine löydös       -              -           -              -
+ Toimenpiteitä              230            ---         207            15           8
+ yhteensä 2024
+ Valvontakohteiden lkm ja   154            24,4*       --             --           --
+ %-osuus joilla todettu
+ poikkeama 2024
+ Valvontakohteiden lkm ja   182            26,7**
+ %-osuus joilla todettu
+ poikkeama 2023
+*valvontakohteiden kokonaismäärästä (631, v. 2024), ** valvontakohteiden kokonaismäärästä (681, v
+2023)
+
+
+Luomuelintarviketarkastuksilla havaitaan tyypillisesti useampi poikkeama samalla
+valvontakohteella. Tästä seuraa, että yksittäisten huomautusten ja kehotusten lukumäärä on
+suurempi kuin varsinaisten valvontakohteille tehtyjen huomautus- ja kehotusilmoitusten
+lukumäärä.
+
+Vuoden 2023 tapaan paljon huomautuksia ja kehotuksia annettiin kirjapidon puutteista,
+50:ssä kohteessa. Myös varastointiin ja pakkausmerkintöihin liittyvistä virheistä annettiin
+huomautuksia ja kehotuksia. Huomautusten ja kehotusten kokonaismäärä oli pienempi kuin
+edellisenä tarkastusvuonna. Poikkeamista johtuvia markkinointikieltoja annettiin 8 kpl eli 1,3
+%:lle valvontakohteista. Valvonnasta erottamiseen johtaneita poikkeamia ei ollut.
+
+Luomuelintarviketoimijat toimivat pääsääntöisesti luomusäädösten mukaisesti, kehotuksia ja
+markkinointikieltoja on vähän suhteessa valvottujen kohteiden lukumäärään. Haasteena
+luomuvalvontajärjestelmässä toimijoille on lukuisten kirjausten muistaminen, mm. taseen,
+tuotantokirjanpidon, laskujen ja lähetteiden osalta. Nämä ovat kuitenkin EU:n
+luomuasetuksesta tulevia vaatimuksia ja ainoa tapa osoittaa luomutarkastajalle jälkikäteen,
+että EU:n luomuasetusta on noudatettu toimijan toiminnassa. Luomutoimijoiden tulee
+kiinnittää huomiota luomutuotannon kirjausten tekemiseen oikea-aikaisesti.
+
+
+
+
+                                       20 (38)
+                             Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+           Luomuelintarvikevalvonnassa annettiin tuote-eräkohtaisia markkinointikieltoja yhteensä 8
+           kappaletta eli vähän enemmän kuin edellisenä tarkastuskautena. Markkinointikiellon
+           noudattamista valvottiin kaikissa kohteissa uusintatarkastuksin. Neljä markkinointikieltoa
+           annettiin siksi, että toimija oli käyttänyt tavanomaista ainesosaa, kaksi markkinointikieltoa
+           annettiin, koska toimija oli käyttänyt luomutuotannossa kiellettyä lisäainetta, yksi
+           markkinointikieltoa annettiin, koska toimija oli käyttänyt luomutuotannossa kiellettyä
+           hivenainetta ja yksi markkinointikielto annettiin, koska luomutuontierä oli tullattu
+           tavanomaisena.
+
+
+
+
+3.4 Vähittäiskaupat
+
+           Ruokaviraston luomuvalvontaan ja sertifioinnin piiriin kuuluminen koskee vähittäiskauppoja,
+           joiden vuotuinen liikevaihto pakkaamattomien luonnonmukaisten tuotteiden myynnin osalta
+           on yli 20 000 euroa. Vuoden 2024 lopussa Ruokaviraston luomuvalvonnassa oli 585
+           vähittäiskauppaa. Uusia samana vuonna sertifioinnin piiriin tulleita vähittäiskauppoja oli 28
+           kpl ja 26 vähittäiskauppaa erosi Ruokaviraston luomuvalvonnasta. Vähittäiskauppoihin
+           tehtiin tarkastuskäyntejä 629 kpl, joista 58 oli ylimääräisiä tarkastuksia.
+
+           Vähittäiskaupoissa havaittujen poikkeamien tilastoinnin aloitus siirrettiin edellisenä
+           valvontavuonna aloitettavaksi vasta vuoden 2024 alusta. Vuoden 2024 aikana kerättiin lisäksi
+           tarkempaa tietoa sertifioitujen vähittäiskauppojen vastaanottotarkastusten
+           toteuttamistavoista ja niihin liittyvistä ohjeistuksista vastaanottotarkastusten toteutusten
+           riittävyyden arvioimiseksi luomuvalvonnan näkökulmasta. Vähittäiskaupoille lähetettiin
+           keväällä 2024 ohjauskirje vastaanottotarkastusten kuntoon saattamiseksi. Lisäksi
+           vastaanottotarkastusten toteutumisen arviointi päätettiin siirtää vuodelle 2025.
+
+           Vähittäiskaupoille annettiin tarkastusten perusteella huomautuksia yhteensä 226 havaitun
+           poikkeaman perusteella (Taulukko 7 d). Noin kolmanneksella vähittäiskaupoista todettiin
+           poikkeamia toiminnassa.
+
+
+
+
+                                                21 (38)
+                     Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+Taulukko 7 d. Vähittäiskaupoissa havaitut poikkeamat ja valvontaviranomaisen toimenpiteet
+poikkeamien johdosta.
+ Elintarvikkeet        Todettujen       %-osuus         Toimenpide     Toimenpide   Toimenpide
+ Poikkeaman syy        poikkeamien      valvonta-       huomautus      kehotus      kielto
+                       lkm              kohteista
+
+ Hankinta
+                       10               1,4 %           10
+
+ Jalostus              2                0,3 %           2
+ Jäljitettävyys        3                0,7 %           3
+ Kirjanpito            136              21,5 %          136
+ Pakkaaminen           0                0               0
+ Pakkausmerkinnät      0                0               0
+ Varastointi           22               3,8 %           22
+ Muut                  53               8,9 %           53
+ Tuonti                0                0               0
+ Torjunta-aine         -                -
+ löydös
+ Toimenpiteitä         226                              226
+ yhteensä 2024
+ Valvontakohteiden     183              31,3*
+ (toimipaikkojen)
+ lkm ja %-osuus
+ joilla todettu
+ poikkeama 2024
+*valvontakohteiden kokonaismäärästä (585, v. 2024),
+
+Vähittäiskauppojen tarkastuksilla havaitaan välillä useampi poikkeama samalla
+valvontakohteella. Tästä seuraa, että kaikkiaan todettujen virheiden lukumäärä on suurempi
+kuin varsinaisten valvontakohteille tehtyjen huomautusilmoitusten lukumäärä. Selkeästi
+eniten virheistä annettiin huomautuksia kirjanpidon osalta 60,2 % (136/226) ja suurin osa
+niistä koski tasekirjanpitoa. Myös hankintaan, varastointiin, jäljitettävyyteen, jalostukseen
+sekä muihin syihin (esim. puutteet luomusuunnitelmassa) liittyvistä virheistä annettiin
+huomautuksia. Vähittäiskaupat toimivat kuitenkin suurelta osin luomusäädösten mukaisesti.
+
+
+
+
+                                        22 (38)
+                               Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+3.5 Rehujen valmistus
+
+           Luomurehutoimijoiden tarkastuksilla todettiin yhteensä 26 poikkeamaa. Poikkeamia oli
+           hieman vähemmän kuin edellisvuonna (27 poikkeamaa vuonna 2023).
+
+           Poikkeamia todettiin 18 tarkastuksella, mikä vastaa reilua kolmannesta kaikista
+           luomurehupuolen tarkastuskäynneistä. Yhdellä tarkastuksella voidaan todeta yksi tai
+           useampi poikkeama. Luomurehupuolella huomautus ja kehotus ovat sama asia eli
+           poikkeama. Lisäksi annetaan tarpeen mukaan kehitysehdotuksia, jotka eivät ole toimijaa
+           velvoittavia.
+
+           Poikkeamien jakauma aihealueittain oli tasainen. Todetuista poikkeamista 20 oli lieviä ja
+           kohtalaisia 4. Kirjanpito ja jäljitettävyys olivat luomurehujen valvonnan painopistealueena
+           vuoden 2024 tarkastuksilla.
+
+           Taulukko 7 d. Rehunvalmistuksessa havaitut poikkeamat ja valvontaviranomaisen
+           toimenpiteet.
+                                               lkm             % osuus       Toimenpide   Toimenpide   Toimenpide
+           Rehujen valmistus
+                                                               toimijoista   huomautus    Kehotus      kielto
+           Asiakirjaselvitys/sertifikaatti     11              28            11           0            0
+           Kirjanpito ja jäljitettävyys        4               10            4            0            0
+           Laadunvarmistus                     3               8             3            0            0
+           Merkinnät                           5               13            5            0            0
+           Yhteensä 2024                       24                            24           0            0
+
+
+
+3.6. Lisäysaineiston pakkaaminen
+
+           Luomusiemenpakkaamojen (31 kpl) valvonnassa annettiin yksi huomautus puuttuvista
+           asiakirjoista mm. alihankintasopimuksen puuttumisesta. Luomusiemenpakkaamovalvonnasta
+           poistui vuoden 2024 aikana kaksi toimijaa.
+
+           Luomutarkastusten lisäksi pakkaamoiden toimintaa valvotaan siemenlain (600/2019)
+           perusteella. Vanhojen pakkaamoiden osalta tarkastus tulee tehdä vähintään kerran
+           kymmenen vuoden aikana. Kaikkiaan Suomen noin 130 siemenpakkaamosta kuuluu
+           luomuvalvontaan noin joka neljäs.
+
+
+
+
+                                                     23 (38)
+                             Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+3.7 Valviran suorittama luonnonmukaisen tuotannon valvonta
+
+          Valviran luonnonmukaisen tuotannon valvontajärjestelmään kuului vuoden 2024 alussa 125
+          yritystä, joista 20 alkoholijuomien valmistajia ja 105 alkoholijuomien tukkumyyjää. Vuoden
+          2024 lopussa valvontajärjestelmään kuului 124 yritystä, joista 17 alkoholijuomien valmistajia
+          ja 107 alkoholijuomien tukkumyyjää. Toimijoista 45 on kirjautunut EU:n Traces NT-
+          järjestelmään luomutuotteiden maahantuojana.
+
+          Tarkastuksilla huomautettiin neljää valmistajaa (4/20 toimijaa -> 30%) ja 14 tukkua (14/105
+          toimijaa ->12%). Huomautukset liittyivät puuttuviin ja vanhentuneisiin dokumentteihin tai
+          puutteisiin kirjanpidossa ja luomumerkinnöissä. Luomutuotteille ei annettu
+          markkinointikieltoja vuonna 2024.
+
+
+
+
+3.8 Luonnonmukaisten elintarvikkeiden markkinavalvonta
+
+          Vähittäiskaupoissa tehdään luonnonmukaisten tuotteiden markkinavalvontaa joka kolmas
+          vuosi. Vuonna 2024 kuntien elintarvikevalvojat tarkastivat luomutuotteiden merkintöjä ja
+          luomutuotteiden aitoutta Oivatarkastuksilla 216 kertaa. Vähittäiskauppojen luomun
+          markkinavalvonnassa on olennaista varmentua, ettei kuluttajaa johdeta harhaan ja että
+          myytävät tuotteet ovat valvottuja luomutuotteita. Luonnonmukaiset tuotteet eivät saa olla
+          sijoitettuna kaupassa harhaanjohtavasti niin, että tuotteet voisivat vaihtua tai tavanomaista
+          voisi luulla luonnonmukaisesti tuotetuksi.
+
+          Taulukko 8 a. Luomuelintarvikkeiden markkinavalvonnan tarkastukset 2022-2024.
+                                                              2022             2023   2024
+
+           Tarkastuksien lkm. yhteensä                        253              254    216
+
+
+          Luonnonmukaisten tuotteiden markkinavalvonnassa havaittiin puutteita (B ja C) 6,5 %
+          tarkastuksista. Poikkeamia todettiin eniten edellisten vuosien tapaan luomutuotteiden
+          sijoittelussa. Tuotteet oli sijoitettu joko liian lähelle tavanomaisia tuotteita tai tavanomaisia
+          tuotteita oli luomulle merkityillä alueilla. Kaikissa tapauksissa valvojat ohjasivat sijoittamaan
+          tuotteet niin, että sijoittelu ei olisi harhaanjohtavaa ja että se vastaa luomuasetuksen
+          vaatimuksia.
+
+
+
+
+                                                24 (38)
+                               Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+          Taulukko 8 b. Markkinavalvonnan tulokset vuosina 2022–2024.
+           Tulokset asteikolla             Toimenpiteet                 2022     2023   2024
+
+           A. Kaikkia ehtoja               Ei toimenpiteitä             91       90,9   93,5
+           noudatettu
+
+           B. Pieni epäkohta               Ohjausta ja neuvontaa        7        7,5    6,0
+
+           C. Harhaanjohtava               Kehotus korjata              2        1,2    0,5
+           toiminta                        määräajassa
+
+           D. Vakavasti                    Pakkotoimi tai kielto,       0        0,4    0
+           harhaanjohtava toiminta         epäkohta on korjattava
+                                           välittömästi
+
+
+
+
+4 TOIMIJOIDEN SÄÄDÖSTEN TUNTEMISEN VARMISTAMINEN
+
+          Luomuasetuksen ja täytäntöönpanoasetusten säädökset toimijan toiminnan
+          vähimmäisvaatimuksista sovelletaan sellaisinaan. Ruokavirasto on säädösten pohjalta
+          laatinut ohjeet tuotannon ehdoista. Ohjeissa Ruokavirasto antaa näkemyksensä siitä, miten
+          säädöksiä tulisi soveltaa. Niiden tarkoituksena on helpottaa ja varmistaa säädösten
+          tunteminen. Ohje on jaettu kahteentoista osaan eri kohderyhmille kohdennettuna. Yhteiset
+          ohjeet, ohjeet valvonnasta ja maksuista koskee kaikkia toimijoita.
+
+          Ohjeet on julkaistu sivulla https://www.ruokavirasto.fi/tietoa-meista/asiointi/oppaat-ja-
+          lomakkeet/yritykset/luomun-lomakkeet-ja-ohjeet/.
+
+
+
+4.1 Valvonnan vuosikysymyksellä mitattiin toimijoiden säädösten tunteminen
+
+
+          Ruokavirastossa on sovittu yhteiset, vuosittaisella tuotantotarkastuksella esitettävät,
+          vuosikysymykset kaikille luomutoimijoille. Ruokavirasto päätti kohdentaa toimijoille
+          esitettävän vuosikysymyksen Ruokaviraston ohjeiden ja internet-sivujen arviointiin.
+
+          Luomuvalvonnan yhteisen vuosikysymyksen osalta olimme vuonna 2024 uuden 2-
+          vuotiskauden toisessa valvontavuodessa. Ensimmäisenä tarkastusvuonna (2023) kysymys
+          kohdistui siihen, onko Ruokaviraston tiedottaminen ja ohjeet tavoittaneet toimijan ja toisena
+          vuonna (2024), onko toimija korjannut toimintaansa muuttuneiden ohjeiden mukaiseksi.
+
+          Valtuutettuja tarkastajia pyydettiin toimijoiden tarkastuksilla antamaan kokonaisarvio, onko
+          toimija tietoinen lainsäädäntömuutoksista ja onko toimija päivittänyt luomusuunnitelman
+          uusien vaatimusten mukaiseksi seuraavin kysymyksin:
+
+
+
+                                                  25 (38)
+                   Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+
+     1. Onko toimija huomannut muuttaa/korjata toimintaansa uuden lainsäädännön
+        myötä?
+     2. Onko toimija löytänyt/saanut ohjeet viranomaiselta tai tarkastajalta, mitä korjauksia
+        toimintaan tulee tehdä?
+     3. Onko toimija päivittänyt luomusuunnitelman uusien vaatimusten mukaiseksi?
+
+Toimijoiden ”kyllä”-vastausten perusteella ohjeiden saavutettavuutta arvioitiin vuoden 2024
+seuraavasti:
+
+A – tiedotus on onnistunut: Toimija vastasi ”kyllä” kaikkiin kolmeen kysymykseen, eli toimija
+koki saaneensa riittävästi tietoa lainsäädäntömuutoksista ja uusista ohjeista.
+Luomusuunnitelma on päivitetty uusien vaatimusten mukaiseksi.
+B – tiedotuksessa on ollut puutteellista: Toimija vastasi ”kyllä” kahteen kysymykseen.
+C – tiedotus on ollut puutteellista: Toimija vastasi ”kyllä” yhteen kysymykseen, eli toimijan
+tiedonsaannissa oli merkittäviä puutteita.
+D – tiedotus on epäonnistunut: Toimija ei vastannut ”kyllä” yhteenkään kysymykseen, eli
+toimija ei ollut saanut mitään tietoa muutoksista.
+
+Taulukko 9. Arviot Ruokaviraston uuteen lainsäädäntöön, muutoksiin ja oppaisiin liittyvän
+tiedotuksen onnistumisesta.
+                         Ruokavirasto          Ruokavirasto          ELY-keskukset
+                         (elintarviketoimijat) (vähittäiskaupat)
+ A                       56,4 %                   79,4 %             46,5 %
+ B                       30,9 %                   14,6 %             39,5 %
+ C                       5,8 %                    1,0 %              9,1 %
+ D                       0,9 %                    0%                 1,5 %
+ Yhteensä                94,0 %                   95,0 %             96,6 %
+ ei vastausta            6,0 %                    5,0 %              3,4 %
+
+Johtopäätöksenä voi todeta, että noin 87 prosenttia (arviot A+B) elintarviketoimijoista, joilta
+vastaus saatiin, oli tyytyväisiä Ruokaviraston ohjeistukseen ja ohjeiden tavoitettavuuteen ja
+noin 7 prosenttia (arviot C+D) tyytymättömiä, vastaamatta jätti 6 % toimijoista. Vastaavasti
+94 % (arviot A+B) vähittäiskaupoista oli tyytyväisiä Ruokaviraston ohjeistukseen sekä
+ohjeiden tavoitettavuuteen ja 1 % (arviot C) oli tyytymättömiä (vastaamatta jätti 5 %
+vähittäiskaupoista). Luonnonmukaisen alkutuotannon eli ELY-keskusten valvonnassa olevien
+toimijoiden osalta tyytyväisiä oli 86 prosenttia ja tyytymättömiä 11 prosenttia toimijoista
+(taulukko 9).
+
+
+
+
+                                      26 (38)
+                            Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+4.2 Luomuvalvontaan liittymiskehotukset
+
+          Luomuvalvonnan tietoon tulee vuosittain toimijoita, jotka myyvät ja markkinoivat
+          luomutuotteita kuulumatta luomuvalvontaan. Ruokavirasto kehotti vuonna 2024 kahdeksaa
+          toimijaa liittymään luomuvalvontaan. Kaikki kahdeksan muuttivat toimintansa
+          luomuasetuksen vaatimusten mukaisiksi. Toimijoista neljä poisti kaikki luomumerkinnät
+          tuotteista, markkinoinnista ja nettisivuilta. Neljä hakeutuivat kehotuksen jälkeen valvontaan
+          ja jatkavat toimintaa sertifioituina luomutoimijoina.
+
+
+
+
+5 VALVONNAN TEHOKKUUDEN JA YHDENMUKAISUUDEN
+VARMISTAMINEN
+
+          Luomuvalvontaa kehitetään valvonnan tulosten, ulkopuolisten tahojen suorittaman
+          arvioinnin, saadun palautteen sekä ennakoitavissa olevien muutosten perusteella.
+
+
+
+5.1 Annettu koulutus valvonnan yhdenmukaisuuden varmistamiseksi
+
+          Perinteisen vuotuisen tarkastajakoulutuksen lisäksi toteutettiin Teams-
+          koulutuksia/tapaamisia aiheista, jotka ovat osoittautuneet haastaviksi valvonnassa.
+          Tapaamisten tarkoituksena oli lisätä vuorovaikutusta muiden viranomaisten kanssa sekä
+          jakaa tietoa ajankohtaisista asioista. Luomuelintarviketarkastajille ja ELY-keskusten
+          luomuasiantuntijoille järjestettiin tapaaminen kerran kuussa. Tapaamisissa käsitellyt asiat
+          tallennettiin Ruokaviraston ekstranettiin Pikantti jaettavaksi kaikille viranomaisille.
+
+
+
+5.2 Tarkastussovelluksen kehittäminen valvonnan yhdenmukaisuuden
+varmistamiseksi
+
+          Luomutarkastussovellus Luovan jatkokehittämisen keskiössä olivat lomakkeesta syntyvä
+          yhteenveto, peltokasvintuotanto lomakkeen päivitys ja uudistaminen ajantasaiseksi, sekä
+          lomakkeiden yleisen käytettävyyden ja selkeyden parantaminen. Uuden lainsäädännön
+          toimeenpanoa varten lomakkeiden päivitykset on saatu ajantasaistettua.
+
+
+
+5.3 Paikallisten ELY-keskusten luomuvalvonnan yhdenmukaisuuden varmistaminen
+
+          Pääpaino vuonna 2024 oli edellisvuoden tapaan ELY-keskusten sisäisten menettelyiden
+          tarkastelussa ja niiden toimintojen yhdenmukaistamisessa. Kaikkien ELY-keskusten kanssa
+          käytiin ELY-kohtaiset tilannekuvakeskustelut, joissa kunkin ELYn luomuvalvonnan
+          toimeenpanoa verrattiin valtakunnan tasoon. ELY-keskuksissa toiminnot jakautuvat kolmeen
+
+
+
+                                               27 (38)
+                              Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+           eri tasoon: Toiminnot, joita tehdään ELY-keskuksen ja toimijan välillä, toiminnot, joita
+           tehdään ELY-keskuksen ja valtuutetun luomutarkastajan välillä sekä toiminnot, joita tehdään
+           ELY-keskuksen sisäisissä luomuvalvontaan liittyvissä prosesseissa.
+
+           Vuonna 2024 käsittelijöiden kokonaisvahvuus ELY-keskuksessa oli 45, joista kokonaan uusia
+           oli 1. Uusille henkilöille tai tehtävässä vähän aikaa olleille käsittelijöille järjestettiin tarpeen
+           mukaan eri valvonnan osa-alueisiin liittyviä tukipalavereita teamsilla. Kaikille käsittelijöille
+           järjestettiin eri substanssiasioihin liittyviä työpajoja (mm. Luova (eläin), Touko, Traces).
+
+           Keskeisempiä toimintaa yhdenmukaistavia työkaluja vuonna 2024 olivat säännölliset kerran
+           kuukaudessa pidettävät teams-palaverit. Ruokaviraston ja ELY-keskusten yhteinen Pikantti
+           keskustelukanava oli edellisten vuosien tapaan myös aktiivisessa käytössä. Ruokavirasto
+           osallisti ELY-keskuksia vuoden 2025 toimintasuunnitelman laatimiseen.
+
+           ELY-keskuksilta kerätyn palautteen mukaan (VASU-raportit 2024) yhteydenpito eri
+           substanssiasioissa Ruokaviraston asiantuntijoiden kanssa on ollut hyvää ja vuorovaikutteista.
+           Ruokaviraston muutosneuvottelut vuonna 2024 heijastuivat ELY-keskusten toimintaan jonkin
+           verran.
+
+           Vuonna 2024 Ruokavirasto auditoi kokonaisuudessaan yhden ELY-keskuksen. Kaikille ELY-
+           keskuksille toteutettiin ensimmäistä kertaa ns. osa-auditointi. Auditoinnista enemmän
+           kohdassa 6.3.
+
+
+
+6 AUDITOINNIT JA MUU SAATU PALAUTE
+
+6.1 Ruokaviraston sisäinen auditointi
+
+           Ruokaviraston luomuvalvontaan ei kohdistunut sisäistä auditointia 2024.
+
+
+
+6.2 Luomuvalvontajärjestelmän ulkoinen arviointi
+
+           EU:n komission luomujaosto aloitti v 2023 luomutuotteiden tuontivalvontaa koskevan laajan
+           arvioinnin kirjallisella tietopyynnöllä tuontivalvonnan menettelyistä. Tätä jatkettiin
+           raportointivuonna valittujen tuontierien jäljityksillä. Ruokavirasto jäljitti komission pyynnöstä
+           yhden tuontierän lähtömaan tuottajiin sekä selvitti, oliko luomutuonnin vaatimat
+           tarkastukset suoritettu asianmukaisesti.
+
+6.3 ELY-keskuksen toiminnan arviointi ja ohjaus
+
+           Ruokaviraston luomuvalvonta auditoi kokonaisuudessaan vuoden 2024 aikana yhden ELY-
+           keskuksen (Pirkanmaan ELY-keskus) ja osittain (osa-auditointi) kaikki 15 ELY-keskusta. Osa-
+           auditointi toteutettiin pilotointina ensimmäistä kertaa syksyllä 2024.
+
+
+
+                                                  28 (38)
+                  Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+
+Osa-auditoinnissa keskityttiin kolmeen eri osa-alueeseen: Vuosittainen luomuvalvonta ml.
+tarkastajalle annettu toimeksianto (sisältö, toimitustapa), poikkeuslupien myöntäminen
+kasvintuotannossa ja resurssien määräytyminen ELY-keskuksissa.
+
+Vuosittaisen valvonnan seurannan osalta Ruokavirasto yleisesti totesi seurannan
+merkityksen ja seurannan olleen kaikilla ELY-keskuksilla tiedossa, mitä valvonnan eri osa-
+alueita tulee seurata. Suurimmalla osalla ELY-keskuksia oli käytössä taulukkopohjainen
+seuranta ei valvontatoimien osalta.
+
+Tarkastajalle toimitetun tausta-aineiston osalta ei todettu sisällöllisesti merkittäviä
+eroavaisuuksia ELY-keskusten välillä. Tausta-aineisto toimitetaan kaikissa ELY-
+keskuksissa. Sen sijaan aineiston toimitustavoissa on eroavaisuuksia eri ELY-keskusten
+välillä:
+
+   Sähköpostilla (turva, ext-sähköposti, tavallinen)
+       o Uusimaa, Satakunta, Häme, Kaakkois-Suomi, Pohjois-Karjala, Pohjois-Pohjanmaa,
+           Kainuu
+   Teams/OneDrive
+       o Satakunta, Varsinais-Suomi, Pirkanmaa, Etelä-Savo, Pohjois-Savo, Keski-Suomi,
+           Etelä-Pohjanmaa, Pohjois-Pohjanmaa, Lappi
+   Paperiposti
+       o Pohjois-Karjala (kasvukaudella), Pohjanmaa
+
+
+Poikkeuslupien myöntäminen pyydetyllä aikavälillä ja suurien siemenerien myöntöperusteet
+käsitellään ELY-keskuksissa perustellusti. Ne ELY-keskukset, joiden alueella oli haettu suuria
+siemeneriä, oli perusteet kirjoitettu myönnettyihin päätöksiin auki.
+
+Työajan kirjaamisen osalta kaikilta ELY-keskuksilta saatiin KIEKU-työajankoonti sekä tieto
+toteutettavista sijaisjärjestelyistä ELY-keskuksessa.
+
+Toimitettuihin työajankirjauksiin liittyen Ruokavirasto toteaa ELY-keskuksissa olevan
+eroavaisuuksia työajankirjaamisessa maksullisen ja maksuttoman suoritteiden osalta.
+Myös ELYissä työskentelevien asiantuntijoiden lisäksi ns. avustavien henkilöiden työajan
+kohdennuksessa on merkittäviä eroja suhteessa varsinaiseen substanssikäsittelijään.
+Työajan kohdennuksen merkityksestä on ELYittäin keskusteltu ELY-kohtaisissa
+tilannekuvakeskusteluissa 1/2025, ja saatettu asia ELY-tasolla edelleen huomioitavaksi
+luomutuotannon valvonnan toimeenpanossa vuonna 2025.
+Sijaisjärjestelyt toteutuvat kaikissa ELY-keskuksissa.
+
+
+
+
+                                     29 (38)
+                              Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+6.4 Valtuutettujen tarkastajien työn ohjaus- arviointi
+
+           Valtuutettuihin luomutarkastajiin kohdistui 35 ohjaus- ja arviointikäyntiä. Arvioinnin
+           tarkoituksena on varmistaa, että tarkastajille annettu koulutus on riittävä ja, että
+           tarkastukset suoritetaan ohjeiden mukaisesti. Samalla arvioidaan, onko tarkastusjärjestelmä
+           mahdollisemman tehokas ja, että sillä varmennetaan luomutuotannon
+           vaatimustenmukaisuus.
+
+           Ohjaus- ja arviointikäynnit kohdistuivat kasvintuotantoon (30 kpl), eläintuotantoon (9 kpl),
+           elintarviketuotantoon ja vähittäiskauppaan (4 kpl), rehuun (1 kpl) sekä siemenpakkaamoihin
+           (2 kpl). Osa alkutuotannon ohjaus- ja arviointikäynneistä tehtiin ELY-keskusten
+           luomuasiantuntijoiden toimesta.
+
+           Yhteenvetona voidaan todeta, että tarkastajat osoittivat hyvää osaamista ja tekivät usein
+           tarkastukset neuvonnallisella otteella. Heillä oli hyvä tuntemus tuotanto-ohjeista, mikä näkyi
+           tarkastustyössä, joka oli sujuvaa ja ammattimaista.
+
+           Vahvuuksiksi todettiin tarkastajan pitkä kokemus luomutuotannosta. He pystyivät
+           kohtaamaan asiakkaat myös haastavissa tilanteissa ja pitivät tarkastuksen rauhallisena ja
+           sujuvana. Erityisesti tarkastajien hyvä paikallistuntemus tiloista ja alueista nopeutti
+           tarkastuksia. He antoivat neuvonnallisia ehdotuksia ja ohjeita toimijoille, ja tarkastukset
+           vietiin läpi selkeästi ja järjestelmällisesti. Tarkastuslomakkeiden täyttäminen
+           tarkastussovelluksella Luovalla sujui hyvin. Tarkastuksen yhteenveto käytiin yleensä lopuksi
+           läpi toimijan kanssa, mikä varmisti, että kaikki tarvittavat asiat oli tarkastettu ja kirjattu
+           oikein.
+
+           Ohjaus- ja arviointikäynneillä kirjataan myös tunnistettuja kehittämiskohteita ja sekä
+           tarkastajien että valvonnan ohjaajien parannusmahdollisuuksia. Kehittämiskohteet liittyvät
+           tarkastusten läpivientiin, ajankäyttöön, kommunikointiin ja dokumentointiin.
+
+           Tarkastuksen suunnittelu, läpivienti ja ajankäytön hallinta voidaan edelleen kehittää.
+           Tarkastuksen suunnittelussa ja läpiviennissä tulisi huomioida riskiperusteisuus, erityisesti
+           jäljitettävyys- ja massatasetarkastuksessa, peltokierroksen laajuudessa ja dokumentoinnin
+           tarkastamisessa. Tuotteiden käsittely ja niihin liittyvä toiminta, kuten varastointi,
+           pakkaaminen ja merkintä, tulisi huomioida tarkastuksessa, vaikka toiminta ei juuri
+           tarkastushetkellä olisi aktiivista. Tarkastuksen ajankäyttöä tulisi suunnitella myös yllättäviä ja
+           odottamattomia tilanteita silmällä pitäen.
+
+           Massatasetarkastuksen ja jäljitettävyyden tarkastaminen ovat keskeisiä kehittämiskohteita
+           useimmille tarkastajille. Tarkastajien tulisi kerrata uudet tuotantoehdot massataseen
+           tarkastamisen osalta. Varastojen fyysinen tarkastus on tärkeä osa tarkastusta, ja tarkastajien
+           tulisi muistaa tarkastaa varastot. Tämä koskee erityisesti tilanteita, joissa toimija ilmoittaa
+           varastojen olevan tyhjiä, mutta massataseen tarkastamisessa havaitaan varastossa olevan
+           tuotteita.
+
+
+
+                                                 30 (38)
+                                   Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+               Osalle tarkastajille kirjattiin kehittämiskohteeksi yhteenvedon läpikäyminen toimijan kanssa
+               tarkastuksen lopuksi. Toimijalle tulisi selkeyttää, miksi tiettyjä asioita tarkastetaan ja miksi ne
+               ovat tärkeitä luomuvalvonnan kannalta.
+
+6.5 Asiakaspalautteet
+
+               Ruokavirasto kerää järjestelmällisesti palautetta luomuvalvonnan verkkosivujen sisällöstä ja
+               luomutarkastuksista. Lisäksi virasto saa yhteydenottoja tai palautetta luomuvalvonnasta
+               asiakkaiden puhelinsoiton tai sähköpostin kautta.
+
+Palaute verkkosivuilta
+             Verkkosivujen palautelomakkeita lähetettiin 38 kertaa. Näistä 16 kpl olivat kysymyksiä
+             esimerkiksi tuotantoehdoista, joihin palautteenantaja odotti vastausta, mutta kyseisen
+             kanavan kautta luomuvalvonta ei vastaa kysymyksiin. Verkkosivuilla on linkit Ruokaviraston
+             laatimiin ohjeisiin, joita kysyjät eivät ilmeisesti olleet löytäneet. Palautteissa etsittiin lisäksi
+             tietoa luomutuotannon ehdoista (6 kpl), linkkiä informaatioon (5 kpl), tiettyä lomaketta (5
+             kpl) sekä palvelua, jossa voi hakea luomutoimijoiden voimassa oleva sertifikaatti (3 kpl).
+
+               Ruokavirasto pyrkii kehittämään verkkosivujaan vastaamaan asiakkaiden tarpeita. Eniten
+               kehitettävää näyttää olevan sivulla, jossa on linkkejä ohjeisiin ja lomakkeisiin.
+
+Pikapalaute tarkastuksista
+
+               Maaliskuussa alkaen luomutoimija, jonka tarkastus oli tehty sähköisellä tarkastussovelluksella
+               Luova, sai tarkastuksen lopuksi linkin pikapalautekyselyyn. Kyselyyn vastasi 642 toimijaa.
+               Vastaajista yli 97 % olivat tyytyväisiä tai erittäin tyytyväisiä tarkastukseen. Tyytymättömiä tai
+               erittäin tyytymättömiä oli 21 vastaajaa.
+
+               Yleisarvion lisäksi annettiin alkutuotannon tarkastuksista 158 kpl ja elintarviketuotannon
+               tarkastuksista 36 kpl sanallista palautetta. Yhteenvetona sanallisesta palautteesta voidaan
+               todeta, että sekä alkutuotannon että elintarviketuotannon vastaajat olivat pääosin
+               tyytyväisiä tarkastusten laatuun ja hyödyllisyyteen. Pääosin positiiviset palautteet osoittavat,
+               että tarkastajat ovat onnistuneet työssään ja vastaajat ovat olleet tyytyväisiä.
+
+               Positiivisena asiana korostui tarkastajan asiantuntevuus. Tarkastaja oli asiantunteva ja
+               ymmärsi alan käytännönläheisesti, tarkastus oli sujuva ja hyödyllinen, tarkastaja toi
+               mukanaan hyödyllistä tietoa ja uusia tuulia. Parannettavaa nähtiin tarkastusten keston
+               lyhentämisessä ja byrokratian vähentämisessä. Palautteissa pyydettiin enemmän
+               ennakkoinfoa tarkastuksesta sekä joustavuutta tarkastuksen aikana. Elintarviketuotannon
+               tarkastuksissa korostui myös jatkuvuuden puute tarkastajissa, kun taas alkutuotannon
+               tarkastuksissa nettiyhteydet toisinaan aiheuttivat ongelmia.
+
+
+
+
+                                                      31 (38)
+                                 Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+Muu saatu palaute
+
+            Sähköpostilla tai puhelun kautta tulevat palautteet virasto käsittelee
+            toiminnanohjausjärjestelmässä IMS. Palautteet koskivat paitsi verkkosivuja, myös hinnaston
+            selkeyttä ja laskutuksen aikataulua. Luomuvalvonnan vientivalmiuspalvelu sai kiitosta.
+            Yhdessä palautteessa esitettiin huoli/havainto luomuehtojen vastaisesta toiminnasta.
+
+
+
+7 VALVONNAN RESURSSIT
+
+7.1 Valvontaviranomaisten henkilöresurssit
+
+            Luomuvalvontajärjestelmään liitettyjen toimijoiden, eli maatilojen ja yritysten
+            luomutuotantoon liittyvää toimintaa valvottiin valvontasuunnitelman mukaisesti, joten
+            voidaan katsoa, että valvonnan toimeenpanon resurssien riittävyydestä on huolehdittu.
+
+            Luomuvalvontaan käytettiin ELY-keskuksissa raportointivuonna ELY-keskuksissa ja
+            Ruokavirastossa 44 henkilötyövuotta (htv). Työaikaresurssista Ruokaviraston 6,8 htv ja ELY-
+            keskusten 20 htv käytettiin maksulliseen toimintaan. Maksullisen toiminnan
+            henkilöresursseissa ei ollut muutosta vuoteen 2023 verrattuna. Lisäksi Ruokavirasto osti
+            tarkastuspalveluita, joiden kustannus arvioidaan vastaavan noin 18,5 henkilötyövuotta. ELY-
+            keskusten maksuttoman toiminnan, eli neuvonnan ja ohjauksen, resurssit vähenivät.
+            (Taulukko 10a).
+
+
+
+
+            Taulukko 10 a. Luomuvalvonnan resurssit (henkilötyövuodet) vuosina 2022–2024.
+                                                                         2022      2023   2024
+             Ruokavirasto, josta                                         17,7      19,2   18,7
+             - Ruokaviraston maksullinen valvonta (htv)                  6,5       6,5    6,8
+             ELY-keskus, josta                                           33        30     25,3
+             - ELY:n maksullinen (htv)                                   19        20     19,7
+             Luomuvalvonnan kokonaistyö virastoissa (htv)                50,7      49,2   44
+             Tarkastuspalvelut (arvioitu htv)                            -         20     18,5
+
+
+
+7.2 Valvonnan kustannukset ja kustannustehokkuus
+
+            Maksullisen toiminnan kustannukset olivat 3 475 000 €, eli 3 % enemmän edelliseen vuoteen
+            verrattuna. Eniten nousivat sekä Ruokaviraston yleiskustannukset että Ruokaviraston
+            tukitoimintoinnoiksi kirjatut kustannukset. Tukitoimintojen merkittävimmät menot liittyvät
+            tietojärjestelmien ylläpitoon. Tietojärjestelmäkustannukset on huomioitu maksujen
+            kustannusvastaavuuden laskennassa vasta vuodesta 2022. Ostopalveluina teetettävien
+            tarkastusten kustannukset olivat 1,2 milj. €. Kustannus vastaa edellisvuosien tasoa.
+
+
+                                                    32 (38)
+                                 Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+
+Luomuvalvonnan maksujen kustannusvastaavuus
+            Luomuvalvonnasta peritään maksuja toimijoilta. Maksut perustuvat Maa- ja
+            metsätalousministeriön asetukseen Ruokaviraston maksullisista suoritteista.
+            Viranomaispalveluiden lisäksi Ruokavirasto tarjoaa muita maksullisia palveluja, joiden
+            maksut Ruokavirasto päättää liiketaloudellisin perustein. Ruokavirasto arvioi vuosittain
+            kattavatko luomuvalvonnan maksut kaikkia valtiolle luomuvalvonnasta aiheutuvia
+            kustannuksia. Arvioinnissa huomioidaan virastojen henkilötyön, johon on sisällytetty
+            virastojen yleiskustannukset, ja tukitoimintojen kustannukset sekä tarkastuspalveluiden
+            ostot. (Taulukko 10 b). Raportointivuonna maksujen kustannusvastaavuus oli 76 %.
+
+              Taulukko 10 b. Maksullisen luomuvalvonnan kustannukset vuosina 2022–2024, 1000 euroa.
+                                                   2022            2023            2024
+
+                  Ruokavirasto                     837             917             1111
+                  - joista tukitoimintoja          ei eritelty     (480)           (557)
+                  Osto/tarkastuspalvelut           1294            1 105           1 110
+
+                  ELY- keskus                      1208            1253            1253
+
+                  Yhteensä                         3 339           3 274           3 475
+
+
+
+Luomuvalvonnan tehokkuus
+            Luomuvalvonnan resurssien käytön tehokkuutta on mitattu vertaamalla luomuvalvonnan
+            suoritteiden lukumäärää käytettyihin työtunteihin ja muihin kustannuksiin. Mittari
+            suoritteiden lkm./kokonaistyöpanos kertoo koko toiminnan tehokkuuden kehityksestä.
+            Suoritteiden määrä per henkilötyövuosi oli 159 suoritetta/htv. Tämä on alempi kuin
+            edellisinä vuosina ja viittaa tehokkuuden laskuun. ELY-keskusten suoritteiden lukumäärän
+            lasku johtuu siitä, että noin 900 toimijaa lopetti luomutuotannon vuosina 2022 ja 2023.
+            Luomuvalvontaan käytetyt henkilöresurssit eivät vähentyneet vastaavasti. Tämä voi johtua
+            työaikakirjausten tarkennuksista sekä haasteellisten valvontatapausten yleistymisestä.
+
+              Ruokaviraston maksullisen luomutoiminnan kustannukset henkilötyövuotta kohden nousivat
+              myös. Koko viraston tuottavuus laski toimintavuonna 10,1 prosenttia edellisvuoden tasosta.
+
+              Taulukossa 10 c maksullisen toiminnan tehokkuutta ilmaistaan mm. kustannuksena per
+              suorite. Raportointivuonna luku oli 496 €/suorite. Suoritteiksi lasketaan valvonnan,
+              tarkastusten ja näytteenoton perustella tehtäviä ratkaisuja, päätöksiä ja lupia. Suoritteet
+              eivät ole keskenään yhteismitallisia, työläimmät ovat näytteet, tarkastukset ja
+              vientisertifikaatit.
+
+
+
+
+                                                    33 (38)
+                         Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+Taulukko 10 c. Luomuvalvonnan resurssit ja tehokkuus vuosina 2022–2024.
+                                                            2022             2023    2024
+MITTARI
+
+Suoritteita (kpl) joista                                    8785             8132    6999
+- ELY                                                       6364             6113    5022
+- Ruokavirasto                                              2189             1989    1977
+           joista näytteet ELY ja Ruokavirasto             232              234     270
+Luomuvalvonnan työpanos *(htv)                              50,7             49,2    44
+Suorite (kpl)/työpanos (htv)                                173              165     159
+Maksullinen toiminnan kustannus €/suorite                   380              403     496
+kpl
+*sisältää maksullisen ja maksuttoman toiminnan sekä virastojen yleishallinnon htv.
+
+Kustannus per suorite on noussut vasta viimeiset kolme vuotta, ennen sitä mittarin arvo
+pysyi pitkään 300 €/suorite molemmin puolin (Kuva 3). Kolmen viimeisen vuoden
+kustannusten nousuun on todennäköisesti monta syytä. Osaksi syy liittyy tukitoimintojen
+kustannuksiin. Näihin lasketaan luomuvalvonnan osuus yhteiskustannuksista sekä poistoista
+ja koroista. Vuodesta 2022 lähtien Ruokaviraston tukitoimintoihin on myös kirjattu osa
+tietojärjestelmien ylläpitokustannuksista. ELY-keskusten käyttämät henkilötyövuodet eivät
+ole vähentyneet, vaikka suoritteiden lukumäärä on vähentynyt viidenneksellä kahden
+vuoden takaisesta tasosta. Kuten yllä on todettu, tämä voi johtua työaikakirjausten
+tarkennuksista sekä haasteellisten valvontatapausten yleistymisestä.
+
+
+
+                              Kustannus per suorite
+ 600
+
+ 500
+
+ 400
+
+ 300
+
+ 200
+
+ 100
+
+   0
+           2015   2016     2017   2018   2019    2020   2021   2022   2023    2024
+
+
+Kuva 3. Maksullisen toiminnan kustannukset per suorite vuosina 2015 -2024.
+
+
+
+
+                                            34 (38)
+                         Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+8 MUUTOKSET SEURAAVIEN VUOSIEN VALVONTAAN
+
+       Luomuvalvontaa kehitetään raporttivuoden tulosten, mahdollisen arvioinnin, saadun
+       palautteen, lainsäädännön sekä muiden ennakoitavissa olevien muutosten perusteella.
+
+       Kuudessa luomun alkutuotantoa valvovassa ELY-keskuksessa aloitettiin vuonna 2023
+       harvennetun tarkastuksen eli vuosivarmennuksen pilottikokeilu ja tavoitteena oli tämän
+       toimintatavan laajentaminen kaikkiin ELY-keskuksiin vuodesta 2025 alkaen. Ruokavirasto
+       aloitti luomuelintarvikkeiden valvonnan osalta tämän toimintatavan vuonna 2023 ja tarjosi
+       90 elintarviketuotannon toimijalle mahdollisuuden tarkastusten korvaamiseen
+       vuosivarmennuksella. Vastaava vuosivarmennusmenettely otetaan käyttöön myös
+       vähittäiskauppapuolella vuonna 2025. Vuosivarmennusmenettelyä kehitetään edelleen ja
+       sen jatkolaajentamista myös muihin tuotantosuuntiin (mm. pakkaamo, pelkät
+       mehiläistoimijat ja keruuselvittäjät) selvitellään vuonna 2025.
+
+       Toimintavan yhtenäinen soveltaminen edellyttää sähköistä järjestelmää erityisesti
+       vuosivarmennuksiin tarvittavan tiedon keräämiseen sekä toiminnan kokonaisvaltaiseen
+       sujumiseen. Salli-hankkeessa tätä tarvetta onkin jo huomioitu aloittamalla vuoden 2023
+       aikana palvelumuotoilu harvennetun tarkastuksen eli vuosivarmennuksen sähköisen
+       asioinnin määrittelyjen osalta. Määrittelyitä jatketaan siten, että vuosivarmennusta voidaan
+       asteittain laajentaa myös muihin tuotantosuuntiin.
+
+       ELY-keskusten laatimat valvontasuunnitelmat toteutuvat pääsääntöisesti hyvin. Ruokavirasto
+       seuraa ELY-keskusten valvontasuunnitelmien toteutumista jaksoittain yhdenmukaisen
+       toiminnan varmistamiseksi, jotta kaikille toimijoille saatetaan ratkaisu toimijaan
+       kohdistetusta valvonnasta saman kalenterivuoden aikana kuin tarkastus on tehty. Samoin
+       Ruokavirasto edelleen seuraa ELY-keskusten työaikakirjauksia, jotta nähdään työajan
+       kirjaamisen tarkkuus ja yhdenmukaisuus ELY-keskusten välillä. Seurantaa tehdään erityisesti
+       maksullisen toiminnan kohdentamisella niiden tehtävien osalta, joissa tuotto saa olla
+       alijäämäinen.
+
+       ELY-keskusten luomukäsittelijöiden substanssiosaamista varmistetaan tarjoamalla koulutusta
+       erilaisten verkkokoulutusalustojen kautta (esim. Pinja).
+
+       Painopisteinä luomulainsäädännön ja yleisen valvonta-asetuksen noudattamisen
+       todentamisessa edelleen valvonnan riskiperusteisuus ja toimivuus, viestintä, tiedonkulku
+       viranomaisten ja tarkastuslaitosten välillä ja ohjeistuksen selkeys ja korjaavien
+       toimenpiteiden seuranta. Vuoden 2025 aikana tehdään myös erinäisiä muutostöitä mm.
+       rekistereihin, lomakkeisiin ja ohjeisiin tulevaan aluehallintouudistukseen liittyen.
+
+
+
+
+                                            35 (38)
+                             Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+
+8.1 Lainsäädännön toimeenpano ja lainsäädäntömuutoksista johtuvat toimenpiteet
+
+
+           Ruokaviraston on toimivaltaisena viranomaisena esitettävä yhteinen kansallinen luettelo
+           toimenpiteistä, joihin valvontaviranomaisten on ryhdyttävä, kun kyseessä on epäilty tai
+           vahvistettu säännösten noudattamatta jättäminen. Kansallinen luettelo poikkeamien
+           luokittelusta ja eri luokkia vastaavista toimenpiteistä on laadittu, ja sitä täydennetään
+           luettelolla säännösten noudattamatta jättämistapauksista ja viittauksilla asianomaisiin
+           sääntöihin.
+
+
+
+8.2 Luomuvalvontaprosessin tietojärjestelmäkehitys
+
+           Luomuvalvonnan tietojärjestelmäkehitystä edistetään Salli-hankeen kautta, missä tekninen
+           toteutus tapahtuu asiointipalvelu Toukossa. Salli-hanke ajoittuu vuosille 2022–2025. Salli-
+           hankkeessa luomuvalvonnan osalta saadaan mahdollistettua lisää toimijoiden sähköistä
+           asiointia uusien sähköisten lomakkeiden kautta. Vuonna 2024 on jatkettu edelleen toimijan
+           aloitusilmoituksien, eläintuotanto ml mehiläistuotanto sekä elintarviketuotanto ml.
+           vähittäiskauppa, ja harvennetun tarkastuksen vuosivarmennuksen määrittelyitä.
+           Toukokuusta 2024 Toukon asiointipalvelussa toimijoilla oli käytössä sähköinen
+           peltokasvintuotannon aloitusilmoituslomake, mikä vähentää paperityötä ja näin nopeuttaa
+           valvontaan liittymisprosessia.
+
+           Tarkastussovellus Luovassa pyritään edelleen parantamaan sovelluksen käytettävyyttä
+           saatujen käyttökokemusten perusteella. Tulevia kehitettäviä asioita ovat lomakkeisiin tulevat
+           tarvittavat päivitykset, lomakkeesta syntyvän yhteenvedon päivittäminen erityisesti
+           alkutuotannon osalta sekä ensimmäisen tarkastuksen välilehti elintarviketuotannon
+           tarkastuslomakkeille.
+
+
+
+9 LUOMUTUOTTEIDEN VIENNIN EDISTÄMINEN
+
+          Ruokaviraston luomuvalvonta myöntää luomuviejille toimijakohtaisia ja eräkohtaisia
+          vientisertifikaatteja vientimaan tätä vaatiessa. Toimijakohtaisessa vientisertifikaatissa
+          kerrotaan mitkä toimijan luomutoiminnot ja tuoteryhmät ovat luomuvalvonnan tarkastamia
+          ja valvottuja. Toimijakohtaisia vientisertifikaatteja käytetään sekä sisämarkkinakaupassa että
+          EU:n ulkopuolisessa viennissä. Näitä vientisertifikaatteja myönnettiin 24 kpl vuonna 2024.
+
+          Ruokaviraston luomuvalvonta auditoi yhden luomuvalvontaan kuuluvan toimijan
+          vientivalmiusohjelmassa vuonna 2024. Auditoinnissa ei havaittu poikkeamia toimijan
+          vientitoiminnassa. Vientiauditoinnissa tarkastetaan vientituotteiden hankinta, jäljitettävyys,
+          tuotteiden koostumusvaatimukset ja valmistusprosessit. Lisäksi auditoinnissa tarkastetaan
+          toimijan luomukirjapitoa vientituotteiden osalta. Toimijat valmistautuvat vientiauditointiin
+
+
+
+
+                                                36 (38)
+                  Luonnonmukaisen tuotannon valvontaraportti 2024
+
+
+heille etukäteen annettujen ohjeiden mukaisesti. Vientiauditointi toteutetaan
+asiakirjatarkastuksena.
+
+Eräkohtaisessa vientisertifikaatissa luomuvalvonta vakuuttaa, että kyseinen vientierä on EU
+luomusäädösten mukainen. Sertifikaatti myönnetään erille, jotka viedään EU:n ulkopuolelle.
+Ennen todistuksen myöntämistä luomuvalvonta tarkastaa vientierän luomutuotteen
+jäljitettävyyden, tuotantoprosessin, erän kaupalliset asiakirjat ja kuljetusasiakirjat.
+Säännöllisesti ja useita vientieriä vuodessa vievä yritys voi hakea Ruokaviraston
+vientivalmiusohjelman asiakkaaksi. Tällöin toimijan vientitoiminnat tarkastetaan erillisessä
+vientiauditoinnissa. Vientivalmiusohjelmaan kuului 6 toimijaa vuonna 2024.
+
+
+Eräkohtaisia vientisertifikaatteja myönnettiin yhteensä 260 kpl ja kohdemaita oli 17 kpl
+vuonna 2024. Lukumäärällisesti eniten sertifikaatteja myönnettiin Kiinaan (54 kpl) ja
+Malesiaan (39 kpl). Sertifikaatteja kirjoitettiin seuraaville tuoteryhmille: viljavalmisteet,
+tärkkelystuotteet, maitotuotteet, hedelmävalmisteet, makeiset, marjavalmisteet, mahla ja
+luonnonvaraiset keruutuotteet.
+
+Taulukko 11. Luomuvalvonnan vientisertifikaatit (kpl).
+                                         2022            2023       2024
+ VIENTISERTIFIKAATIT
+
+ Elintarvikkeet                          260             195        284
+ Rehut
+ Sertifikaatit yhteensä                  260             195        284
+
+
+
+
+                                     37 (38)
+                                          Tämä asiakirja on laadittu ja allekirjoitettu sähköisesti.
+                                          Dokumentet har satts upp och undertecknats elektroniskt.
+                                          This document has been digitally prepared and signed.
+
+
+
+
+Yksikönjohtaja TIINA    LAPVETELÄINEN
+   Affecto.DigitalSigner.SignaturePage
+Hyväksytty 29.4.2025
+
+
+
+Jaostopäällikkö MARJA YLÄTALO
+Esitelty 29.4.2025
+
+
+
+
+    Ruokavirasto                 Livsmedelsverket                      Finnish Food Authority
+    PL 100, 00027 RUOKAVIRASTO   PB 100, 00027 LIVSMEDELSVERKET        P.O. Box 100, FI-00027 FINNISH FOOD AUTHORITY, FINLAND
+    Puh. 029 530 0400 (vaihde)   Tfn 029 530 0400 (växel)              Tel. +358 29 530 0400 (switchboard)
+    ruokavirasto.fi              livsmedelsverket.fi                   foodauthority.fi
+    Y-tunnus: 2911686-7          FO-nummer: 2911686-7                  Business ID: 2911686-7
+

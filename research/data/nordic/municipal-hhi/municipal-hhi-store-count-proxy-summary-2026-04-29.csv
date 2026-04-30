@@ -1,0 +1,6 @@
+country_code,country_name,stores_total,assigned_store_points,unassigned_store_points,municipalities_total,municipalities_with_stores,municipalities_store_count_ge_3,high_hhi_ge_2500_store_count_ge_3,median_hhi_store_count_ge_3,data_quality
+no,Norge,3849,3849,0,357,357,287,287,4275,ok
+se,Sverige,5049,5049,0,290,290,283,258,3299,ok
+dk,Danmark,3869,3855,14,98,98,98,30,2305,ok_with_14_unassigned_store_points
+fi,Finland,2860,1703,1157,320,247,160,152,3469,weak_geometry_coverage
+is,Island,243,203,40,65,36,17,17,3750,indicative_osm_coverage

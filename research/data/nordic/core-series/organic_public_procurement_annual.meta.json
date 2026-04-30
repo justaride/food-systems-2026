@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-04-29T21:11:22+02:00",
+  "owner": "Food Systems 2026",
+  "output_file": "research/data/nordic/core-series/organic_public_procurement_annual.csv",
+  "series_family": "organic_public_kitchen_and_procurement_indicators",
+  "description": "Selected annual public kitchen/procurement indicators. Metrics are not directly comparable unless scope/unit match.",
+  "source_evidence_pack": "research/evidence-pack/okologisk-norden-2026-04-29",
+  "source_export": "research/evidence-pack/okologisk-norden-2026-04-29/exports/organic_key_indicators_extracted.csv",
+  "staging_file": "research/data/nordic/core-series/_staging/organic_integration_candidates_2026-04-29.csv",
+  "rows": 8,
+  "schema": [
+    "country",
+    "year",
+    "metric",
+    "value",
+    "unit",
+    "scope",
+    "source_name",
+    "source_owner",
+    "source_type",
+    "source_url",
+    "source_file",
+    "source_ref",
+    "retrieved_at",
+    "quality_flag",
+    "import_status",
+    "comparability",
+    "notes"
+  ],
+  "quality_rules": [
+    "Keep import_status visible in all downstream use.",
+    "Rows marked staged_needs_reconciliation_or_precision_note require table-level review before external publication.",
+    "Sector and survey rows are usable for internal analysis with source-type flags, but should not be presented as neutral official statistics."
+  ],
+  "known_gaps": [
+    "Swedish rows mix public-sector value share, municipal share and KRAV-label share; metric/scope must be shown in downstream use.",
+    "Ekomatligan 2025 was checked but is an event/program page, not a statistics report.",
+    "Nordic public-kitchen metrics are not directly comparable until unit/scope are harmonized."
+  ]
+}

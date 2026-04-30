@@ -1,0 +1,1131 @@
+country_code,country_name,municipality_code,municipality_name,population,area_km2,method,total_stores,parent_hhi_store_count_proxy,top_parent,top_parent_store_share_pct,stores_per_10000_population,unknown_parent_store_count,parent_counts,assigned_country_store_points,unassigned_country_store_points,data_quality
+no,Norge,0301,Oslo,717710,426,store_count_proxy,377,3865,NorgesGruppen,55.4,5.3,0,NorgesGruppen:209|Reitangruppen:76|Coop Norge:71|Bunnpris AS:21,3849,0,ok
+no,Norge,1101,Eigersund,15221,387,store_count_proxy,11,3719,NorgesGruppen,45.5,7.2,0,NorgesGruppen:5|Coop Norge:4|Reitangruppen:2,3849,0,ok
+no,Norge,1103,Stavanger,149048,256,store_count_proxy,89,3314,NorgesGruppen,42.7,6,0,NorgesGruppen:38|Coop Norge:29|Reitangruppen:18|Bunnpris AS:4,3849,0,ok
+no,Norge,1106,Haugesund,38292,68,store_count_proxy,23,3573,NorgesGruppen,52.2,6,0,NorgesGruppen:12|Coop Norge:5|Reitangruppen:4|Bunnpris AS:2,3849,0,ok
+no,Norge,1108,Sandnes,83702,944,store_count_proxy,42,3231,NorgesGruppen,38.1,5,0,NorgesGruppen:16|Reitangruppen:13|Coop Norge:12|Bunnpris AS:1,3849,0,ok
+no,Norge,1111,Sokndal,3347,267,store_count_proxy,3,5556,NorgesGruppen,66.7,9,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,1112,Lund,3226,354,store_count_proxy,3,5556,Coop Norge,66.7,9.3,0,Coop Norge:2|NorgesGruppen:1,3849,0,ok
+no,Norge,1114,Bjerkreim,2892,577,store_count_proxy,2,10000,Coop Norge,100,6.9,0,Coop Norge:2,3849,0,ok
+no,Norge,1119,Hå,19827,248,store_count_proxy,11,3719,Coop Norge,45.5,5.5,0,Coop Norge:5|NorgesGruppen:4|Reitangruppen:2,3849,0,ok
+no,Norge,1120,Klepp,20900,102,store_count_proxy,18,4136,Coop Norge,55.6,8.6,0,Coop Norge:10|NorgesGruppen:5|Reitangruppen:3,3849,0,ok
+no,Norge,1121,Time,19910,171,store_count_proxy,6,3889,Coop Norge,50,3,0,Coop Norge:3|NorgesGruppen:2|Reitangruppen:1,3849,0,ok
+no,Norge,1122,Gjesdal,12362,558,store_count_proxy,8,3438,NorgesGruppen,37.5,6.5,0,NorgesGruppen:3|Coop Norge:3|Reitangruppen:2,3849,0,ok
+no,Norge,1124,Sola,28685,69,store_count_proxy,16,3047,NorgesGruppen,37.5,5.6,0,NorgesGruppen:6|Coop Norge:5|Reitangruppen:4|Bunnpris AS:1,3849,0,ok
+no,Norge,1127,Randaberg,11742,24,store_count_proxy,6,2778,Reitangruppen,33.3,5.1,0,Reitangruppen:2|Coop Norge:2|NorgesGruppen:1|Bunnpris AS:1,3849,0,ok
+no,Norge,1130,Strand,13703,235,store_count_proxy,9,3086,Coop Norge,44.4,6.6,0,Coop Norge:4|Reitangruppen:2|NorgesGruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,1133,Hjelmeland,2643,948,store_count_proxy,6,5000,NorgesGruppen,50,22.7,0,NorgesGruppen:3|Coop Norge:3,3849,0,ok
+no,Norge,1134,Suldal,3889,1582,store_count_proxy,8,4688,NorgesGruppen,62.5,20.6,0,NorgesGruppen:5|Coop Norge:2|Bunnpris AS:1,3849,0,ok
+no,Norge,1135,Sauda,4572,508,store_count_proxy,3,3333,Bunnpris AS,33.3,6.6,0,Bunnpris AS:1|NorgesGruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,1144,Kvitsøy,544,6,store_count_proxy,1,10000,Coop Norge,100,18.4,0,Coop Norge:1,3849,0,ok
+no,Norge,1145,Bokn,883,45,store_count_proxy,1,10000,Coop Norge,100,11.3,0,Coop Norge:1,3849,0,ok
+no,Norge,1146,Tysvær,11570,400,store_count_proxy,8,6250,NorgesGruppen,75,6.9,0,NorgesGruppen:6|Coop Norge:2,3849,0,ok
+no,Norge,1149,Karmøy,43306,220,store_count_proxy,28,3546,Coop Norge,39.3,6.5,0,Coop Norge:11|NorgesGruppen:11|Reitangruppen:6,3849,0,ok
+no,Norge,1151,Utsira,215,6,store_count_proxy,1,10000,NorgesGruppen,100,46.5,0,NorgesGruppen:1,3849,0,ok
+no,Norge,1160,Vindafjord,8938,599,store_count_proxy,11,5372,NorgesGruppen,63.6,12.3,0,NorgesGruppen:7|Coop Norge:4,3849,0,ok
+no,Norge,1505,Kristiansund,24404,86,store_count_proxy,20,3100,Bunnpris AS,45,8.2,0,Bunnpris AS:9|NorgesGruppen:5|Reitangruppen:3|Coop Norge:3,3849,0,ok
+no,Norge,1506,Molde,32816,1435,store_count_proxy,29,2889,NorgesGruppen,37.9,8.8,0,NorgesGruppen:11|Coop Norge:8|Bunnpris AS:7|Reitangruppen:3,3849,0,ok
+no,Norge,1508,Ålesund,58509,353,store_count_proxy,42,3696,NorgesGruppen,54.8,7.2,0,NorgesGruppen:23|Bunnpris AS:7|Reitangruppen:7|Coop Norge:5,3849,0,ok
+no,Norge,1511,Vanylven,3026,365,store_count_proxy,7,5918,NorgesGruppen,71.4,23.1,0,NorgesGruppen:5|Coop Norge:2,3849,0,ok
+no,Norge,1514,Sande,2438,90,store_count_proxy,5,5200,Coop Norge,60,20.5,0,Coop Norge:3|NorgesGruppen:2,3849,0,ok
+no,Norge,1515,Herøy,8968,118,store_count_proxy,6,5000,NorgesGruppen,66.7,6.7,0,NorgesGruppen:4|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,1516,Ulstein,8861,95,store_count_proxy,6,3333,NorgesGruppen,50,6.8,0,NorgesGruppen:3|Coop Norge:1|Bunnpris AS:1|Reitangruppen:1,3849,0,ok
+no,Norge,1517,Hareid,5322,77,store_count_proxy,3,3333,Bunnpris AS,33.3,5.6,0,Bunnpris AS:1|NorgesGruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,1520,Ørsta,10958,650,store_count_proxy,10,5200,NorgesGruppen,70,9.1,0,NorgesGruppen:7|Reitangruppen:1|Coop Norge:1|Bunnpris AS:1,3849,0,ok
+no,Norge,1525,Stranda,4348,845,store_count_proxy,6,5000,NorgesGruppen,66.7,13.8,0,NorgesGruppen:4|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,1528,Sykkylven,7617,329,store_count_proxy,7,3061,NorgesGruppen,42.9,9.2,0,NorgesGruppen:3|Bunnpris AS:2|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,1531,Sula,9720,57,store_count_proxy,7,4286,NorgesGruppen,57.1,7.2,0,NorgesGruppen:4|Bunnpris AS:2|Reitangruppen:1,3849,0,ok
+no,Norge,1532,Giske,8691,40,store_count_proxy,6,5000,NorgesGruppen,66.7,6.9,0,NorgesGruppen:4|Bunnpris AS:1|Reitangruppen:1,3849,0,ok
+no,Norge,1535,Vestnes,7147,399,store_count_proxy,8,4375,NorgesGruppen,62.5,11.2,0,NorgesGruppen:5|Coop Norge:1|Reitangruppen:1|Bunnpris AS:1,3849,0,ok
+no,Norge,1539,Rauma,7299,1390,store_count_proxy,10,3400,NorgesGruppen,50,13.7,0,NorgesGruppen:5|Bunnpris AS:2|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,1547,Aukra,3678,61,store_count_proxy,3,3333,Coop Norge,33.3,8.2,0,Coop Norge:1|NorgesGruppen:1|Bunnpris AS:1,3849,0,ok
+no,Norge,1554,Averøy,5955,173,store_count_proxy,7,3061,NorgesGruppen,42.9,11.8,0,NorgesGruppen:3|Coop Norge:2|Reitangruppen:1|Bunnpris AS:1,3849,0,ok
+no,Norge,1557,Gjemnes,2700,371,store_count_proxy,3,5556,Bunnpris AS,66.7,11.1,0,Bunnpris AS:2|NorgesGruppen:1,3849,0,ok
+no,Norge,1560,Tingvoll,3041,322,store_count_proxy,5,4400,NorgesGruppen,60,16.4,0,NorgesGruppen:3|Bunnpris AS:1|Coop Norge:1,3849,0,ok
+no,Norge,1563,Sunndal,7227,1648,store_count_proxy,6,3333,NorgesGruppen,50,8.3,0,NorgesGruppen:3|Bunnpris AS:1|Reitangruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,1566,Surnadal,5953,1315,store_count_proxy,7,3061,NorgesGruppen,42.9,11.8,0,NorgesGruppen:3|Coop Norge:2|Bunnpris AS:1|Reitangruppen:1,3849,0,ok
+no,Norge,1573,Smøla,2159,261,store_count_proxy,5,3600,Coop Norge,40,23.2,0,Coop Norge:2|NorgesGruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,1576,Aure,3408,622,store_count_proxy,7,4286,Coop Norge,57.1,20.5,0,Coop Norge:4|NorgesGruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,1577,Volda,11093,834,store_count_proxy,14,3367,Coop Norge,42.9,12.6,0,Coop Norge:6|NorgesGruppen:5|Reitangruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,1578,Fjord,2492,1144,store_count_proxy,6,3889,NorgesGruppen,50,24.1,0,NorgesGruppen:3|Coop Norge:2|Bunnpris AS:1,3849,0,ok
+no,Norge,1579,Hustadvika,13437,508,store_count_proxy,14,3367,Coop Norge,50,10.4,0,Coop Norge:7|Bunnpris AS:3|Reitangruppen:2|NorgesGruppen:2,3849,0,ok
+no,Norge,1580,Haram,9357,254,store_count_proxy,12,3472,Coop Norge,50,12.8,0,Coop Norge:6|NorgesGruppen:3|Bunnpris AS:2|Reitangruppen:1,3849,0,ok
+no,Norge,1804,Bodø,53712,1311,store_count_proxy,42,3231,Coop Norge,38.1,7.8,0,Coop Norge:16|NorgesGruppen:16|Reitangruppen:7|Bunnpris AS:3,3849,0,ok
+no,Norge,1806,Narvik,21580,3195,store_count_proxy,20,2850,Coop Norge,35,9.3,0,Coop Norge:7|Reitangruppen:6|NorgesGruppen:5|Bunnpris AS:2,3849,0,ok
+no,Norge,1811,Bindal,1399,1192,store_count_proxy,3,5556,Coop Norge,66.7,21.4,0,Coop Norge:2|NorgesGruppen:1,3849,0,ok
+no,Norge,1812,Sømna,1976,192,store_count_proxy,2,10000,Coop Norge,100,10.1,0,Coop Norge:2,3849,0,ok
+no,Norge,1813,Brønnøy,7826,999,store_count_proxy,8,3438,Coop Norge,50,10.2,0,Coop Norge:4|NorgesGruppen:2|Bunnpris AS:1|Reitangruppen:1,3849,0,ok
+no,Norge,1815,Vega,1208,163,store_count_proxy,2,5000,Coop Norge,50,16.6,0,Coop Norge:1|NorgesGruppen:1,3849,0,ok
+no,Norge,1816,Vevelstad,480,516,store_count_proxy,2,5000,Coop Norge,50,41.7,0,Coop Norge:1|NorgesGruppen:1,3849,0,ok
+no,Norge,1818,Herøy,1842,64,store_count_proxy,4,5000,NorgesGruppen,50,21.7,0,NorgesGruppen:2|Coop Norge:2,3849,0,ok
+no,Norge,1820,Alstahaug,7421,187,store_count_proxy,7,2653,Reitangruppen,28.6,9.4,0,Reitangruppen:2|NorgesGruppen:2|Coop Norge:2|Bunnpris AS:1,3849,0,ok
+no,Norge,1822,Leirfjord,2352,451,store_count_proxy,2,5000,Coop Norge,50,8.5,0,Coop Norge:1|Bunnpris AS:1,3849,0,ok
+no,Norge,1824,Vefsn,13469,1838,store_count_proxy,11,2562,Reitangruppen,27.3,8.2,0,Reitangruppen:3|NorgesGruppen:3|Bunnpris AS:3|Coop Norge:2,3849,0,ok
+no,Norge,1825,Grane,1447,1881,store_count_proxy,1,10000,Coop Norge,100,6.9,0,Coop Norge:1,3849,0,ok
+no,Norge,1826,Aarborte - Hattfjelldal,1284,2411,store_count_proxy,2,5000,Bunnpris AS,50,15.6,0,Bunnpris AS:1|Coop Norge:1,3849,0,ok
+no,Norge,1827,Dønna,1427,186,store_count_proxy,3,5556,NorgesGruppen,66.7,21,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,1828,Nesna,1808,181,store_count_proxy,2,5000,Coop Norge,50,11.1,0,Coop Norge:1|NorgesGruppen:1,3849,0,ok
+no,Norge,1832,Hemnes,4485,1430,store_count_proxy,4,10000,Coop Norge,100,8.9,0,Coop Norge:4,3849,0,ok
+no,Norge,1833,Rana,25994,4203,store_count_proxy,19,2687,Coop Norge,36.8,7.3,0,Coop Norge:7|Bunnpris AS:4|Reitangruppen:4|NorgesGruppen:4,3849,0,ok
+no,Norge,1834,Lurøy,1886,258,store_count_proxy,6,10000,NorgesGruppen,100,31.8,0,NorgesGruppen:6,3849,0,ok
+no,Norge,1835,Træna,442,16,store_count_proxy,1,10000,NorgesGruppen,100,22.6,0,NorgesGruppen:1,3849,0,ok
+no,Norge,1836,Rødøy,1139,686,store_count_proxy,5,6800,NorgesGruppen,80,43.9,0,NorgesGruppen:4|Bunnpris AS:1,3849,0,ok
+no,Norge,1837,Meløy,6180,798,store_count_proxy,9,4074,Coop Norge,44.4,14.6,0,Coop Norge:4|NorgesGruppen:4|Reitangruppen:1,3849,0,ok
+no,Norge,1838,Gildeskål,1958,622,store_count_proxy,5,5200,NorgesGruppen,60,25.5,0,NorgesGruppen:3|Coop Norge:2,3849,0,ok
+no,Norge,1839,Beiarn,1062,1179,store_count_proxy,1,10000,Coop Norge,100,9.4,0,Coop Norge:1,3849,0,ok
+no,Norge,1840,Saltdal,4880,2084,store_count_proxy,4,3750,Coop Norge,50,8.2,0,Coop Norge:2|Reitangruppen:1|NorgesGruppen:1,3849,0,ok
+no,Norge,1841,Fauske - Fuossko,9827,1107,store_count_proxy,9,3827,Coop Norge,55.6,9.2,0,Coop Norge:5|Reitangruppen:2|NorgesGruppen:1|Bunnpris AS:1,3849,0,ok
+no,Norge,1845,Sørfold,1858,1471,store_count_proxy,2,5000,Coop Norge,50,10.8,0,Coop Norge:1|NorgesGruppen:1,3849,0,ok
+no,Norge,1848,Steigen,2672,964,store_count_proxy,6,3889,Coop Norge,50,22.5,0,Coop Norge:3|NorgesGruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,1851,Lødingen,2060,508,store_count_proxy,4,3750,NorgesGruppen,50,19.4,0,NorgesGruppen:2|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,1853,Evenes - Evenášši,1330,241,store_count_proxy,2,5000,Bunnpris AS,50,15,0,Bunnpris AS:1|NorgesGruppen:1,3849,0,ok
+no,Norge,1856,Røst,460,10,store_count_proxy,1,10000,NorgesGruppen,100,21.7,0,NorgesGruppen:1,3849,0,ok
+no,Norge,1857,Værøy,683,19,store_count_proxy,1,10000,Coop Norge,100,14.6,0,Coop Norge:1,3849,0,ok
+no,Norge,1859,Flakstad,1229,169,store_count_proxy,1,10000,Bunnpris AS,100,8.1,0,Bunnpris AS:1,3849,0,ok
+no,Norge,1860,Vestvågøy,11619,407,store_count_proxy,13,2663,NorgesGruppen,30.8,11.2,0,NorgesGruppen:4|Bunnpris AS:4|Coop Norge:3|Reitangruppen:2,3849,0,ok
+no,Norge,1865,Vågan,9793,460,store_count_proxy,11,3223,NorgesGruppen,45.5,11.2,0,NorgesGruppen:5|Coop Norge:3|Reitangruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,1866,Hadsel,8236,551,store_count_proxy,6,3889,Coop Norge,50,7.3,0,Coop Norge:3|Reitangruppen:2|NorgesGruppen:1,3849,0,ok
+no,Norge,1867,Bø,2634,235,store_count_proxy,3,5556,NorgesGruppen,66.7,11.4,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,1868,Øksnes,4569,311,store_count_proxy,3,3333,Reitangruppen,33.3,6.6,0,Reitangruppen:1|Bunnpris AS:1|Coop Norge:1,3849,0,ok
+no,Norge,1870,Sortland - Suortá,10618,697,store_count_proxy,9,2840,NorgesGruppen,33.3,8.5,0,NorgesGruppen:3|Coop Norge:3|Reitangruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,1871,Andøy,4553,617,store_count_proxy,9,2840,NorgesGruppen,33.3,19.8,0,NorgesGruppen:3|Coop Norge:3|Bunnpris AS:2|Reitangruppen:1,3849,0,ok
+no,Norge,1874,Moskenes,954,110,store_count_proxy,3,5556,NorgesGruppen,66.7,31.4,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,1875,Hábmer - Hamarøy,2729,1838,store_count_proxy,5,6800,NorgesGruppen,80,18.3,0,NorgesGruppen:4|Reitangruppen:1,3849,0,ok
+no,Norge,3101,Halden,31935,595,store_count_proxy,18,3580,NorgesGruppen,44.4,5.6,0,NorgesGruppen:8|Reitangruppen:6|Coop Norge:4,3849,0,ok
+no,Norge,3103,Moss,52051,128,store_count_proxy,28,3750,NorgesGruppen,53.6,5.4,0,NorgesGruppen:15|Reitangruppen:7|Coop Norge:4|Bunnpris AS:2,3849,0,ok
+no,Norge,3105,Sarpsborg,59771,370,store_count_proxy,26,3402,NorgesGruppen,38.5,4.3,0,NorgesGruppen:10|Coop Norge:9|Reitangruppen:7,3849,0,ok
+no,Norge,3107,Fredrikstad,85230,284,store_count_proxy,47,3708,NorgesGruppen,48.9,5.5,0,NorgesGruppen:23|Coop Norge:13|Reitangruppen:11,3849,0,ok
+no,Norge,3110,Hvaler,4787,90,store_count_proxy,6,3333,NorgesGruppen,50,12.5,0,NorgesGruppen:3|Coop Norge:1|Bunnpris AS:1|Reitangruppen:1,3849,0,ok
+no,Norge,3112,Råde,7883,105,store_count_proxy,2,5000,Reitangruppen,50,2.5,0,Reitangruppen:1|NorgesGruppen:1,3849,0,ok
+no,Norge,3114,Våler,6145,239,store_count_proxy,4,10000,NorgesGruppen,100,6.5,0,NorgesGruppen:4,3849,0,ok
+no,Norge,3116,Skiptvet,3919,93,store_count_proxy,3,5556,NorgesGruppen,66.7,7.7,0,NorgesGruppen:2|Reitangruppen:1,3849,0,ok
+no,Norge,3118,Indre Østfold,47006,755,store_count_proxy,29,3175,NorgesGruppen,44.8,6.2,0,NorgesGruppen:13|Reitangruppen:8|Coop Norge:5|Bunnpris AS:3,3849,0,ok
+no,Norge,3120,Rakkestad,8420,421,store_count_proxy,5,3600,Reitangruppen,40,5.9,0,Reitangruppen:2|Coop Norge:2|NorgesGruppen:1,3849,0,ok
+no,Norge,3122,Marker,3658,368,store_count_proxy,2,5000,Reitangruppen,50,5.5,0,Reitangruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,3124,Aremark,1347,282,store_count_proxy,1,10000,NorgesGruppen,100,7.4,0,NorgesGruppen:1,3849,0,ok
+no,Norge,3201,Bærum,130921,189,store_count_proxy,61,4346,NorgesGruppen,59,4.7,0,NorgesGruppen:36|Coop Norge:16|Reitangruppen:8|Bunnpris AS:1,3849,0,ok
+no,Norge,3203,Asker,98815,364,store_count_proxy,48,3898,NorgesGruppen,54.2,4.9,0,NorgesGruppen:26|Coop Norge:11|Reitangruppen:10|Bunnpris AS:1,3849,0,ok
+no,Norge,3205,Lillestrøm,94201,410,store_count_proxy,44,3564,NorgesGruppen,50,4.7,0,NorgesGruppen:22|Coop Norge:11|Reitangruppen:9|Bunnpris AS:2,3849,0,ok
+no,Norge,3207,Nordre Follo,63560,196,store_count_proxy,26,3817,NorgesGruppen,50,4.1,0,NorgesGruppen:13|Coop Norge:8|Reitangruppen:5,3849,0,ok
+no,Norge,3209,Ullensaker,43814,250,store_count_proxy,21,4195,NorgesGruppen,57.1,4.8,0,NorgesGruppen:12|Coop Norge:5|Reitangruppen:4,3849,0,ok
+no,Norge,3212,Nesodden,20521,61,store_count_proxy,9,4074,NorgesGruppen,55.6,4.4,0,NorgesGruppen:5|Coop Norge:2|Reitangruppen:2,3849,0,ok
+no,Norge,3214,Frogn,16244,85,store_count_proxy,9,5062,NorgesGruppen,66.7,5.5,0,NorgesGruppen:6|Reitangruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,3216,Vestby,19493,134,store_count_proxy,8,3438,NorgesGruppen,37.5,4.1,0,NorgesGruppen:3|Reitangruppen:3|Coop Norge:2,3849,0,ok
+no,Norge,3218,Ås,22005,101,store_count_proxy,12,3472,Coop Norge,41.7,5.5,0,Coop Norge:5|NorgesGruppen:4|Reitangruppen:3,3849,0,ok
+no,Norge,3220,Enebakk,11482,195,store_count_proxy,5,4400,NorgesGruppen,60,4.4,0,NorgesGruppen:3|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,3222,Lørenskog,48188,67,store_count_proxy,15,3067,NorgesGruppen,40,3.1,0,NorgesGruppen:6|Coop Norge:4|Reitangruppen:4|Bunnpris AS:1,3849,0,ok
+no,Norge,3224,Rælingen,20099,56,store_count_proxy,7,4286,NorgesGruppen,57.1,3.5,0,NorgesGruppen:4|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,3226,Aurskog-Høland,18058,1053,store_count_proxy,12,3750,NorgesGruppen,50,6.6,0,NorgesGruppen:6|Coop Norge:3|Reitangruppen:3,3849,0,ok
+no,Norge,3228,Nes,24645,612,store_count_proxy,14,3571,NorgesGruppen,50,5.7,0,NorgesGruppen:7|Coop Norge:4|Reitangruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,3230,Gjerdrum,7398,82,store_count_proxy,2,5000,Coop Norge,50,2.7,0,Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,3232,Nittedal,25882,179,store_count_proxy,10,2600,Coop Norge,30,3.9,0,Coop Norge:3|NorgesGruppen:3|Bunnpris AS:2|Reitangruppen:2,3849,0,ok
+no,Norge,3234,Lunner,9357,272,store_count_proxy,7,4286,NorgesGruppen,57.1,7.5,0,NorgesGruppen:4|Reitangruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,3236,Jevnaker,7037,194,store_count_proxy,3,3333,NorgesGruppen,33.3,4.3,0,NorgesGruppen:1|Reitangruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,3238,Nannestad,16126,324,store_count_proxy,7,3469,NorgesGruppen,42.9,4.3,0,NorgesGruppen:3|Reitangruppen:2|Coop Norge:2,3849,0,ok
+no,Norge,3240,Eidsvoll,27916,386,store_count_proxy,12,3750,Coop Norge,41.7,4.3,0,Coop Norge:5|NorgesGruppen:5|Reitangruppen:2,3849,0,ok
+no,Norge,3242,Hurdal,3041,261,store_count_proxy,2,5000,NorgesGruppen,50,6.6,0,NorgesGruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,3301,Drammen,104487,305,store_count_proxy,51,4648,NorgesGruppen,62.7,4.9,0,NorgesGruppen:32|Reitangruppen:11|Coop Norge:8,3849,0,ok
+no,Norge,3303,Kongsberg,28848,754,store_count_proxy,18,5617,NorgesGruppen,72.2,6.2,0,NorgesGruppen:13|Coop Norge:3|Reitangruppen:2,3849,0,ok
+no,Norge,3305,Ringerike,31581,1422,store_count_proxy,17,3702,Coop Norge,41.2,5.4,0,Coop Norge:7|NorgesGruppen:7|Reitangruppen:3,3849,0,ok
+no,Norge,3310,Hole,6989,135,store_count_proxy,4,6250,NorgesGruppen,75,5.7,0,NorgesGruppen:3|Reitangruppen:1,3849,0,ok
+no,Norge,3312,Lier,28470,282,store_count_proxy,13,4556,NorgesGruppen,61.5,4.6,0,NorgesGruppen:8|Coop Norge:3|Reitangruppen:2,3849,0,ok
+no,Norge,3314,Øvre Eiker,20779,418,store_count_proxy,14,3980,NorgesGruppen,57.1,6.7,0,NorgesGruppen:8|Coop Norge:3|Reitangruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,3316,Modum,14665,463,store_count_proxy,10,4400,NorgesGruppen,60,6.8,0,NorgesGruppen:6|Coop Norge:2|Reitangruppen:2,3849,0,ok
+no,Norge,3318,Krødsherad,2241,340,store_count_proxy,2,5000,NorgesGruppen,50,8.9,0,NorgesGruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,3320,Flå,1115,671,store_count_proxy,2,5000,NorgesGruppen,50,17.9,0,NorgesGruppen:1|Reitangruppen:1,3849,0,ok
+no,Norge,3322,Nesbyen,3301,772,store_count_proxy,4,6250,NorgesGruppen,75,12.1,0,NorgesGruppen:3|Reitangruppen:1,3849,0,ok
+no,Norge,3324,Gol,4986,514,store_count_proxy,5,4400,NorgesGruppen,60,10,0,NorgesGruppen:3|Reitangruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,3326,Hemsedal,2666,712,store_count_proxy,4,6250,NorgesGruppen,75,15,0,NorgesGruppen:3|Coop Norge:1,3849,0,ok
+no,Norge,3328,Ål,5007,1081,store_count_proxy,4,6250,NorgesGruppen,75,8,0,NorgesGruppen:3|Reitangruppen:1,3849,0,ok
+no,Norge,3330,Hol,4496,1653,store_count_proxy,8,5938,NorgesGruppen,75,17.8,0,NorgesGruppen:6|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,3332,Sigdal,3526,811,store_count_proxy,3,5556,NorgesGruppen,66.7,8.5,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,3334,Flesberg,2781,538,store_count_proxy,4,6250,NorgesGruppen,75,14.4,0,NorgesGruppen:3|Reitangruppen:1,3849,0,ok
+no,Norge,3336,Rollag,1395,430,store_count_proxy,2,5000,Coop Norge,50,14.3,0,Coop Norge:1|NorgesGruppen:1,3849,0,ok
+no,Norge,3338,Nore og Uvdal,2486,2266,store_count_proxy,6,7222,NorgesGruppen,83.3,24.1,0,NorgesGruppen:5|Coop Norge:1,3849,0,ok
+no,Norge,3401,Kongsvinger,18058,953,store_count_proxy,14,3469,NorgesGruppen,50,7.8,0,NorgesGruppen:7|Coop Norge:3|Reitangruppen:3|Bunnpris AS:1,3849,0,ok
+no,Norge,3403,Hamar,32879,338,store_count_proxy,22,4752,NorgesGruppen,63.6,6.7,0,NorgesGruppen:14|Reitangruppen:5|Coop Norge:3,3849,0,ok
+no,Norge,3405,Lillehammer,28768,451,store_count_proxy,17,4740,NorgesGruppen,58.8,5.9,0,NorgesGruppen:10|Reitangruppen:6|Coop Norge:1,3849,0,ok
+no,Norge,3407,Gjøvik,30903,629,store_count_proxy,19,3463,NorgesGruppen,42.1,6.1,0,NorgesGruppen:8|Coop Norge:6|Reitangruppen:5,3849,0,ok
+no,Norge,3411,Ringsaker,35612,1123,store_count_proxy,23,4480,NorgesGruppen,60.9,6.5,0,NorgesGruppen:14|Reitangruppen:5|Coop Norge:4,3849,0,ok
+no,Norge,3412,Løten,7929,362,store_count_proxy,6,5000,NorgesGruppen,66.7,7.6,0,NorgesGruppen:4|Reitangruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,3413,Stange,21605,641,store_count_proxy,14,3571,NorgesGruppen,50,6.5,0,NorgesGruppen:7|Coop Norge:4|Reitangruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,3414,Nord-Odal,4992,475,store_count_proxy,4,6250,NorgesGruppen,75,8,0,NorgesGruppen:3|Coop Norge:1,3849,0,ok
+no,Norge,3415,Sør-Odal,8112,479,store_count_proxy,5,4400,NorgesGruppen,60,6.2,0,NorgesGruppen:3|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,3416,Eidskog,6040,603,store_count_proxy,3,5556,NorgesGruppen,66.7,5,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,3417,Grue,4532,777,store_count_proxy,3,5556,NorgesGruppen,66.7,6.6,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,3418,Åsnes,7339,1004,store_count_proxy,6,3889,NorgesGruppen,50,8.2,0,NorgesGruppen:3|Reitangruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,3419,Våler,3615,678,store_count_proxy,2,10000,NorgesGruppen,100,5.5,0,NorgesGruppen:2,3849,0,ok
+no,Norge,3420,Elverum,21761,1209,store_count_proxy,15,4400,NorgesGruppen,60,6.9,0,NorgesGruppen:9|Coop Norge:3|Reitangruppen:3,3849,0,ok
+no,Norge,3421,Trysil,6566,2941,store_count_proxy,12,5972,NorgesGruppen,75,18.3,0,NorgesGruppen:9|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,3422,Åmot,4289,1293,store_count_proxy,6,3889,NorgesGruppen,50,14,0,NorgesGruppen:3|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,3423,Stor-Elvdal,2276,2127,store_count_proxy,6,7222,NorgesGruppen,83.3,26.4,0,NorgesGruppen:5|Coop Norge:1,3849,0,ok
+no,Norge,3424,Rendalen,1837,3061,store_count_proxy,3,5556,NorgesGruppen,66.7,16.3,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,3425,Engerdal,1361,1916,store_count_proxy,4,6250,NorgesGruppen,75,29.4,0,NorgesGruppen:3|Coop Norge:1,3849,0,ok
+no,Norge,3426,Tolga,1604,1097,store_count_proxy,2,10000,Coop Norge,100,12.5,0,Coop Norge:2,3849,0,ok
+no,Norge,3427,Tynset,5692,1822,store_count_proxy,6,3889,NorgesGruppen,50,10.5,0,NorgesGruppen:3|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,3428,Alvdal,2526,919,store_count_proxy,2,5000,Coop Norge,50,7.9,0,Coop Norge:1|NorgesGruppen:1,3849,0,ok
+no,Norge,3429,Folldal,1532,1260,store_count_proxy,3,5556,NorgesGruppen,66.7,19.6,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,3430,Os,1891,1007,store_count_proxy,3,10000,NorgesGruppen,100,15.9,0,NorgesGruppen:3,3849,0,ok
+no,Norge,3431,Dovre,2503,1349,store_count_proxy,4,3750,Coop Norge,50,16,0,Coop Norge:2|NorgesGruppen:1|Bunnpris AS:1,3849,0,ok
+no,Norge,3432,Lesja,1983,2167,store_count_proxy,4,5000,NorgesGruppen,50,20.2,0,NorgesGruppen:2|Bunnpris AS:2,3849,0,ok
+no,Norge,3433,Skjåk,2141,1965,store_count_proxy,4,5000,Coop Norge,50,18.7,0,Coop Norge:2|Bunnpris AS:2,3849,0,ok
+no,Norge,3434,Lom,2212,1887,store_count_proxy,3,5556,Coop Norge,66.7,13.6,0,Coop Norge:2|NorgesGruppen:1,3849,0,ok
+no,Norge,3435,Vågå,3531,1252,store_count_proxy,5,4400,Coop Norge,60,14.2,0,Coop Norge:3|Bunnpris AS:1|NorgesGruppen:1,3849,0,ok
+no,Norge,3436,Nord-Fron,5586,1092,store_count_proxy,7,3878,NorgesGruppen,42.9,12.5,0,NorgesGruppen:3|Coop Norge:3|Reitangruppen:1,3849,0,ok
+no,Norge,3437,Sel,5756,888,store_count_proxy,7,3878,NorgesGruppen,57.1,12.2,0,NorgesGruppen:4|Bunnpris AS:1|Reitangruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,3438,Sør-Fron,3119,712,store_count_proxy,3,5556,NorgesGruppen,66.7,9.6,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,3439,Ringebu,4413,1221,store_count_proxy,7,4286,NorgesGruppen,57.1,15.9,0,NorgesGruppen:4|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,3440,Øyer,5124,616,store_count_proxy,7,5918,NorgesGruppen,71.4,13.7,0,NorgesGruppen:5|Coop Norge:2,3849,0,ok
+no,Norge,3441,Gausdal,6177,1146,store_count_proxy,7,5510,NorgesGruppen,71.4,11.3,0,NorgesGruppen:5|Reitangruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,3442,Østre Toten,14840,485,store_count_proxy,9,3580,NorgesGruppen,44.4,6.1,0,NorgesGruppen:4|Coop Norge:3|Reitangruppen:2,3849,0,ok
+no,Norge,3443,Vestre Toten,13691,232,store_count_proxy,8,3438,NorgesGruppen,50,5.8,0,NorgesGruppen:4|Reitangruppen:2|Coop Norge:1|Bunnpris AS:1,3849,0,ok
+no,Norge,3446,Gran,13593,657,store_count_proxy,10,3800,NorgesGruppen,50,7.4,0,NorgesGruppen:5|Coop Norge:3|Reitangruppen:2,3849,0,ok
+no,Norge,3447,Søndre Land,5587,659,store_count_proxy,3,5556,NorgesGruppen,66.7,5.4,0,NorgesGruppen:2|Reitangruppen:1,3849,0,ok
+no,Norge,3448,Nordre Land,6510,920,store_count_proxy,7,5510,NorgesGruppen,71.4,10.8,0,NorgesGruppen:5|Reitangruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,3449,Sør-Aurdal,2836,1068,store_count_proxy,5,6800,NorgesGruppen,80,17.6,0,NorgesGruppen:4|Coop Norge:1,3849,0,ok
+no,Norge,3450,Etnedal,1366,443,store_count_proxy,2,10000,NorgesGruppen,100,14.6,0,NorgesGruppen:2,3849,0,ok
+no,Norge,3451,Nord-Aurdal,6562,849,store_count_proxy,9,5062,NorgesGruppen,66.7,13.7,0,NorgesGruppen:6|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,3452,Vestre Slidre,2112,415,store_count_proxy,3,5556,NorgesGruppen,66.7,14.2,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,3453,Øystre Slidre,3298,886,store_count_proxy,6,5000,NorgesGruppen,50,18.2,0,NorgesGruppen:3|Coop Norge:3,3849,0,ok
+no,Norge,3454,Vang,1645,1310,store_count_proxy,3,5556,NorgesGruppen,66.7,18.2,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,3901,Horten,27939,69,store_count_proxy,15,4400,NorgesGruppen,60,5.4,0,NorgesGruppen:9|Coop Norge:3|Reitangruppen:3,3849,0,ok
+no,Norge,3903,Holmestrand,26872,412,store_count_proxy,17,4325,NorgesGruppen,58.8,6.3,0,NorgesGruppen:10|Reitangruppen:4|Coop Norge:3,3849,0,ok
+no,Norge,3905,Tønsberg,59174,326,store_count_proxy,36,4275,NorgesGruppen,58.3,6.1,0,NorgesGruppen:21|Coop Norge:8|Reitangruppen:7,3849,0,ok
+no,Norge,3907,Sandefjord,66231,414,store_count_proxy,36,4074,NorgesGruppen,55.6,5.4,0,NorgesGruppen:20|Reitangruppen:8|Coop Norge:8,3849,0,ok
+no,Norge,3909,Larvik,48715,771,store_count_proxy,29,3674,NorgesGruppen,48.3,6,0,NorgesGruppen:14|Coop Norge:8|Reitangruppen:7,3849,0,ok
+no,Norge,3911,Færder,27501,100,store_count_proxy,9,5062,NorgesGruppen,66.7,3.3,0,NorgesGruppen:6|Reitangruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,4001,Porsgrunn,37193,161,store_count_proxy,22,4876,NorgesGruppen,63.6,5.9,0,NorgesGruppen:14|Reitangruppen:6|Coop Norge:2,3849,0,ok
+no,Norge,4003,Skien,56619,719,store_count_proxy,36,4275,NorgesGruppen,58.3,6.4,0,NorgesGruppen:21|Reitangruppen:8|Coop Norge:7,3849,0,ok
+no,Norge,4005,Notodden,13266,912,store_count_proxy,13,4556,NorgesGruppen,61.5,9.8,0,NorgesGruppen:8|Coop Norge:3|Reitangruppen:2,3849,0,ok
+no,Norge,4010,Siljan,2382,202,store_count_proxy,1,10000,Reitangruppen,100,4.2,0,Reitangruppen:1,3849,0,ok
+no,Norge,4012,Bamble,14269,282,store_count_proxy,11,4876,NorgesGruppen,63.6,7.7,0,NorgesGruppen:7|Coop Norge:3|Reitangruppen:1,3849,0,ok
+no,Norge,4014,Kragerø,10445,289,store_count_proxy,9,4074,NorgesGruppen,55.6,8.6,0,NorgesGruppen:5|Coop Norge:2|Reitangruppen:2,3849,0,ok
+no,Norge,4016,Drangedal,4086,995,store_count_proxy,6,3889,Coop Norge,50,14.7,0,Coop Norge:3|NorgesGruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,4018,Nome,6539,385,store_count_proxy,5,5200,NorgesGruppen,60,7.6,0,NorgesGruppen:3|Coop Norge:2,3849,0,ok
+no,Norge,4020,Midt-Telemark,10904,487,store_count_proxy,9,4074,NorgesGruppen,55.6,8.3,0,NorgesGruppen:5|Reitangruppen:2|Coop Norge:2,3849,0,ok
+no,Norge,4022,Seljord,2979,669,store_count_proxy,4,3750,NorgesGruppen,50,13.4,0,NorgesGruppen:2|Reitangruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,4024,Hjartdal,1630,737,store_count_proxy,3,10000,NorgesGruppen,100,18.4,0,NorgesGruppen:3,3849,0,ok
+no,Norge,4026,Tinn,5533,1848,store_count_proxy,7,7551,NorgesGruppen,85.7,12.7,0,NorgesGruppen:6|Reitangruppen:1,3849,0,ok
+no,Norge,4028,Kviteseid,2458,623,store_count_proxy,2,10000,NorgesGruppen,100,8.1,0,NorgesGruppen:2,3849,0,ok
+no,Norge,4030,Nissedal,1471,786,store_count_proxy,3,5556,NorgesGruppen,66.7,20.4,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,4032,Fyresdal,1256,1107,store_count_proxy,2,10000,NorgesGruppen,100,15.9,0,NorgesGruppen:2,3849,0,ok
+no,Norge,4034,Tokke,2212,905,store_count_proxy,4,6250,NorgesGruppen,75,18.1,0,NorgesGruppen:3|Coop Norge:1,3849,0,ok
+no,Norge,4036,Vinje,3851,2725,store_count_proxy,7,5918,NorgesGruppen,71.4,18.2,0,NorgesGruppen:5|Coop Norge:2,3849,0,ok
+no,Norge,4201,Risør,6825,179,store_count_proxy,8,3750,NorgesGruppen,50,11.7,0,NorgesGruppen:4|Reitangruppen:2|Coop Norge:2,3849,0,ok
+no,Norge,4202,Grimstad,24969,272,store_count_proxy,18,3889,NorgesGruppen,55.6,7.2,0,NorgesGruppen:10|Coop Norge:4|Reitangruppen:3|Bunnpris AS:1,3849,0,ok
+no,Norge,4203,Arendal,46355,255,store_count_proxy,34,3149,NorgesGruppen,44.1,7.3,0,NorgesGruppen:15|Coop Norge:9|Reitangruppen:7|Bunnpris AS:3,3849,0,ok
+no,Norge,4204,Kristiansand,116986,610,store_count_proxy,75,3625,NorgesGruppen,49.3,6.4,0,NorgesGruppen:37|Coop Norge:21|Reitangruppen:15|Bunnpris AS:2,3849,0,ok
+no,Norge,4205,Lindesnes,23690,883,store_count_proxy,19,3906,NorgesGruppen,52.6,8,0,NorgesGruppen:10|Coop Norge:5|Reitangruppen:4,3849,0,ok
+no,Norge,4206,Farsund,9876,252,store_count_proxy,8,3750,NorgesGruppen,50,8.1,0,NorgesGruppen:4|Reitangruppen:2|Coop Norge:2,3849,0,ok
+no,Norge,4207,Flekkefjord,9279,482,store_count_proxy,10,4200,NorgesGruppen,50,10.8,0,NorgesGruppen:5|Coop Norge:4|Reitangruppen:1,3849,0,ok
+no,Norge,4211,Gjerstad,2444,308,store_count_proxy,3,3333,Coop Norge,33.3,12.3,0,Coop Norge:1|Reitangruppen:1|NorgesGruppen:1,3849,0,ok
+no,Norge,4212,Vegårshei,2268,322,store_count_proxy,1,10000,NorgesGruppen,100,4.4,0,NorgesGruppen:1,3849,0,ok
+no,Norge,4213,Tvedestrand,6323,204,store_count_proxy,8,4688,NorgesGruppen,62.5,12.7,0,NorgesGruppen:5|Reitangruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,4214,Froland,6236,601,store_count_proxy,4,6250,NorgesGruppen,75,6.4,0,NorgesGruppen:3|Reitangruppen:1,3849,0,ok
+no,Norge,4215,Lillesand,11523,180,store_count_proxy,8,5938,NorgesGruppen,75,6.9,0,NorgesGruppen:6|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,4216,Birkenes,5480,596,store_count_proxy,3,5556,NorgesGruppen,66.7,5.5,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,4217,Åmli,1802,1058,store_count_proxy,2,5000,Coop Norge,50,11.1,0,Coop Norge:1|NorgesGruppen:1,3849,0,ok
+no,Norge,4218,Iveland,1380,246,store_count_proxy,3,10000,NorgesGruppen,100,21.7,0,NorgesGruppen:3,3849,0,ok
+no,Norge,4219,Evje og Hornnes,3967,549,store_count_proxy,5,4400,NorgesGruppen,60,12.6,0,NorgesGruppen:3|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,4220,Bygland,1180,1150,store_count_proxy,4,5000,Coop Norge,50,33.9,0,Coop Norge:2|NorgesGruppen:2,3849,0,ok
+no,Norge,4221,Valle,1205,1130,store_count_proxy,3,5556,Coop Norge,66.7,24.9,0,Coop Norge:2|NorgesGruppen:1,3849,0,ok
+no,Norge,4222,Bykle,1011,1254,store_count_proxy,4,3750,Coop Norge,50,39.6,0,Coop Norge:2|NorgesGruppen:1|Reitangruppen:1,3849,0,ok
+no,Norge,4223,Vennesla,15452,362,store_count_proxy,16,4688,NorgesGruppen,62.5,10.4,0,NorgesGruppen:10|Coop Norge:4|Reitangruppen:2,3849,0,ok
+no,Norge,4224,Åseral,923,797,store_count_proxy,2,5000,Coop Norge,50,21.7,0,Coop Norge:1|NorgesGruppen:1,3849,0,ok
+no,Norge,4225,Lyngdal,10835,606,store_count_proxy,8,4688,NorgesGruppen,62.5,7.4,0,NorgesGruppen:5|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,4226,Hægebostad,1776,424,store_count_proxy,3,3333,Coop Norge,33.3,16.9,0,Coop Norge:1|Bunnpris AS:1|NorgesGruppen:1,3849,0,ok
+no,Norge,4227,Kvinesdal,6192,887,store_count_proxy,5,4400,Coop Norge,60,8.1,0,Coop Norge:3|NorgesGruppen:1|Reitangruppen:1,3849,0,ok
+no,Norge,4228,Sirdal,1873,1373,store_count_proxy,5,6800,NorgesGruppen,80,26.7,0,NorgesGruppen:4|Coop Norge:1,3849,0,ok
+no,Norge,4601,Bergen,291940,445,store_count_proxy,177,3012,NorgesGruppen,42.4,6.1,0,NorgesGruppen:75|Reitangruppen:46|Coop Norge:36|Bunnpris AS:20,3849,0,ok
+no,Norge,4602,Kinn,17349,763,store_count_proxy,20,4200,NorgesGruppen,60,11.5,0,NorgesGruppen:12|Reitangruppen:4|Bunnpris AS:2|Coop Norge:2,3849,0,ok
+no,Norge,4611,Etne,4072,691,store_count_proxy,5,3600,NorgesGruppen,40,12.3,0,NorgesGruppen:2|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,4612,Sveio,5742,224,store_count_proxy,3,5556,NorgesGruppen,66.7,5.2,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,4613,Bømlo,12268,235,store_count_proxy,9,5062,NorgesGruppen,66.7,7.3,0,NorgesGruppen:6|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,4614,Stord,19287,137,store_count_proxy,15,4489,NorgesGruppen,60,7.8,0,NorgesGruppen:9|Reitangruppen:4|Coop Norge:2,3849,0,ok
+no,Norge,4615,Fitjar,3203,135,store_count_proxy,2,5000,NorgesGruppen,50,6.2,0,NorgesGruppen:1|Reitangruppen:1,3849,0,ok
+no,Norge,4616,Tysnes,2922,245,store_count_proxy,6,5000,NorgesGruppen,66.7,20.5,0,NorgesGruppen:4|Coop Norge:1|Bunnpris AS:1,3849,0,ok
+no,Norge,4617,Kvinnherad,13089,1042,store_count_proxy,17,5294,NorgesGruppen,70.6,13,0,NorgesGruppen:12|Bunnpris AS:2|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,4618,Ullensvang,11017,2963,store_count_proxy,14,3367,NorgesGruppen,50,12.7,0,NorgesGruppen:7|Coop Norge:3|Reitangruppen:2|Bunnpris AS:2,3849,0,ok
+no,Norge,4619,Eidfjord,968,1389,store_count_proxy,2,5000,NorgesGruppen,50,20.7,0,NorgesGruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,4620,Ulvik,1089,663,store_count_proxy,1,10000,Coop Norge,100,9.2,0,Coop Norge:1,3849,0,ok
+no,Norge,4621,Voss,16471,1958,store_count_proxy,15,3778,NorgesGruppen,53.3,9.1,0,NorgesGruppen:8|Coop Norge:4|Reitangruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,4622,Kvam,8496,580,store_count_proxy,9,4321,Coop Norge,55.6,10.6,0,Coop Norge:5|NorgesGruppen:3|Reitangruppen:1,3849,0,ok
+no,Norge,4623,Samnanger,2502,257,store_count_proxy,2,10000,NorgesGruppen,100,8,0,NorgesGruppen:2,3849,0,ok
+no,Norge,4624,Bjørnafjorden,26080,487,store_count_proxy,21,5374,NorgesGruppen,71.4,8.1,0,NorgesGruppen:15|Coop Norge:2|Bunnpris AS:2|Reitangruppen:2,3849,0,ok
+no,Norge,4625,Austevoll,5300,114,store_count_proxy,7,4286,NorgesGruppen,57.1,13.2,0,NorgesGruppen:4|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,4626,Øygarden,39768,300,store_count_proxy,18,3889,NorgesGruppen,55.6,4.5,0,NorgesGruppen:10|Reitangruppen:4|Bunnpris AS:3|Coop Norge:1,3849,0,ok
+no,Norge,4627,Askøy,30145,94,store_count_proxy,16,4453,NorgesGruppen,62.5,5.3,0,NorgesGruppen:10|Reitangruppen:3|Coop Norge:2|Bunnpris AS:1,3849,0,ok
+no,Norge,4628,Vaksdal,3852,682,store_count_proxy,5,5200,Coop Norge,60,13,0,Coop Norge:3|NorgesGruppen:2,3849,0,ok
+no,Norge,4629,Modalen,384,379,store_count_proxy,2,10000,Coop Norge,100,52.1,0,Coop Norge:2,3849,0,ok
+no,Norge,4630,Osterøy,8200,244,store_count_proxy,7,4286,NorgesGruppen,57.1,8.5,0,NorgesGruppen:4|Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,4631,Alver,29986,651,store_count_proxy,23,3913,NorgesGruppen,56.5,7.7,0,NorgesGruppen:13|Reitangruppen:5|Bunnpris AS:3|Coop Norge:2,3849,0,ok
+no,Norge,4632,Austrheim,2881,57,store_count_proxy,3,3333,Coop Norge,33.3,10.4,0,Coop Norge:1|NorgesGruppen:1|Reitangruppen:1,3849,0,ok
+no,Norge,4633,Fedje,519,9,store_count_proxy,1,10000,NorgesGruppen,100,19.3,0,NorgesGruppen:1,3849,0,ok
+no,Norge,4634,Masfjorden,1694,509,store_count_proxy,4,10000,NorgesGruppen,100,23.6,0,NorgesGruppen:4,3849,0,ok
+no,Norge,4635,Gulen,2234,577,store_count_proxy,5,6800,NorgesGruppen,80,22.4,0,NorgesGruppen:4|Bunnpris AS:1,3849,0,ok
+no,Norge,4636,Solund,750,219,store_count_proxy,2,10000,NorgesGruppen,100,26.7,0,NorgesGruppen:2,3849,0,ok
+no,Norge,4637,Hyllestad,1268,248,store_count_proxy,2,5000,NorgesGruppen,50,15.8,0,NorgesGruppen:1|Bunnpris AS:1,3849,0,ok
+no,Norge,4638,Høyanger,3879,928,store_count_proxy,6,5000,NorgesGruppen,66.7,15.5,0,NorgesGruppen:4|Bunnpris AS:1|Coop Norge:1,3849,0,ok
+no,Norge,4639,Vik,2551,795,store_count_proxy,5,5200,NorgesGruppen,60,19.6,0,NorgesGruppen:3|Coop Norge:2,3849,0,ok
+no,Norge,4640,Sogndal,12319,1229,store_count_proxy,11,3719,Coop Norge,45.5,8.9,0,Coop Norge:5|NorgesGruppen:4|Reitangruppen:2,3849,0,ok
+no,Norge,4641,Aurland,1800,1376,store_count_proxy,4,6250,NorgesGruppen,75,22.2,0,NorgesGruppen:3|Coop Norge:1,3849,0,ok
+no,Norge,4642,Lærdal,2160,1275,store_count_proxy,4,6250,NorgesGruppen,75,18.5,0,NorgesGruppen:3|Coop Norge:1,3849,0,ok
+no,Norge,4643,Årdal,5239,930,store_count_proxy,5,2800,NorgesGruppen,40,9.5,0,NorgesGruppen:2|Reitangruppen:1|Coop Norge:1|Bunnpris AS:1,3849,0,ok
+no,Norge,4644,Luster,5371,2597,store_count_proxy,7,5918,NorgesGruppen,71.4,13,0,NorgesGruppen:5|Coop Norge:2,3849,0,ok
+no,Norge,4645,Askvoll,2986,313,store_count_proxy,7,7551,NorgesGruppen,85.7,23.4,0,NorgesGruppen:6|Coop Norge:1,3849,0,ok
+no,Norge,4646,Fjaler,2869,390,store_count_proxy,6,7222,NorgesGruppen,83.3,20.9,0,NorgesGruppen:5|Coop Norge:1,3849,0,ok
+no,Norge,4647,Sunnfjord,22450,2065,store_count_proxy,21,3469,NorgesGruppen,47.6,9.4,0,NorgesGruppen:10|Coop Norge:6|Reitangruppen:4|Bunnpris AS:1,3849,0,ok
+no,Norge,4648,Bremanger,3392,786,store_count_proxy,7,7551,NorgesGruppen,85.7,20.6,0,NorgesGruppen:6|Coop Norge:1,3849,0,ok
+no,Norge,4649,Stad,9610,695,store_count_proxy,10,2600,Bunnpris AS,30,10.4,0,Bunnpris AS:3|NorgesGruppen:3|Coop Norge:2|Reitangruppen:2,3849,0,ok
+no,Norge,4650,Gloppen,5926,963,store_count_proxy,6,3333,Coop Norge,50,10.1,0,Coop Norge:3|Reitangruppen:1|Bunnpris AS:1|NorgesGruppen:1,3849,0,ok
+no,Norge,4651,Stryn,7271,1326,store_count_proxy,12,3194,NorgesGruppen,41.7,16.5,0,NorgesGruppen:5|Coop Norge:4|Bunnpris AS:2|Reitangruppen:1,3849,0,ok
+no,Norge,5001,Trondheim - Tråante,214565,496,store_count_proxy,120,2579,Reitangruppen,29.2,5.6,0,Reitangruppen:35|Bunnpris AS:32|Coop Norge:32|NorgesGruppen:21,3849,0,ok
+no,Norge,5006,Steinkjer,24032,1937,store_count_proxy,18,3148,Coop Norge,44.4,7.5,0,Coop Norge:8|NorgesGruppen:5|Reitangruppen:3|Bunnpris AS:2,3849,0,ok
+no,Norge,5007,Namsos - Nåavmesjenjaelmie,15083,1998,store_count_proxy,14,3776,Coop Norge,50,9.3,0,Coop Norge:7|NorgesGruppen:4|Reitangruppen:3,3849,0,ok
+no,Norge,5014,Frøya,5453,230,store_count_proxy,8,5938,Coop Norge,75,14.7,0,Coop Norge:6|NorgesGruppen:1|Reitangruppen:1,3849,0,ok
+no,Norge,5020,Osen,898,370,store_count_proxy,2,5000,Coop Norge,50,22.3,0,Coop Norge:1|NorgesGruppen:1,3849,0,ok
+no,Norge,5021,Oppdal,7389,2201,store_count_proxy,7,3878,NorgesGruppen,57.1,9.5,0,NorgesGruppen:4|Coop Norge:1|Bunnpris AS:1|Reitangruppen:1,3849,0,ok
+no,Norge,5022,Rennebu,2484,924,store_count_proxy,4,3750,NorgesGruppen,50,16.1,0,NorgesGruppen:2|Reitangruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,5025,Rosse - Røros,5685,1756,store_count_proxy,6,5000,Coop Norge,66.7,10.6,0,Coop Norge:4|Reitangruppen:1|NorgesGruppen:1,3849,0,ok
+no,Norge,5026,Holtålen,2035,1171,store_count_proxy,2,10000,Coop Norge,100,9.8,0,Coop Norge:2,3849,0,ok
+no,Norge,5027,Midtre Gauldal,6140,1803,store_count_proxy,6,5000,Coop Norge,66.7,9.8,0,Coop Norge:4|NorgesGruppen:1|Reitangruppen:1,3849,0,ok
+no,Norge,5028,Melhus,17560,653,store_count_proxy,9,6543,Coop Norge,77.8,5.1,0,Coop Norge:7|Reitangruppen:2,3849,0,ok
+no,Norge,5029,Skaun,8484,213,store_count_proxy,4,6250,Coop Norge,75,4.7,0,Coop Norge:3|NorgesGruppen:1,3849,0,ok
+no,Norge,5031,Malvik,14783,162,store_count_proxy,8,3438,Reitangruppen,50,5.4,0,Reitangruppen:4|Coop Norge:2|Bunnpris AS:1|NorgesGruppen:1,3849,0,ok
+no,Norge,5032,Selbu,4216,1140,store_count_proxy,3,5556,NorgesGruppen,66.7,7.1,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,5033,Tydal,773,1217,store_count_proxy,2,5000,Coop Norge,50,25.9,0,Coop Norge:1|NorgesGruppen:1,3849,0,ok
+no,Norge,5034,Meråker,2454,1188,store_count_proxy,2,5000,Coop Norge,50,8.1,0,Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,5035,Stjørdal,24717,913,store_count_proxy,11,3554,Coop Norge,45.5,4.5,0,Coop Norge:5|NorgesGruppen:3|Reitangruppen:3,3849,0,ok
+no,Norge,5036,Frosta,2645,74,store_count_proxy,2,5000,Coop Norge,50,7.6,0,Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,5037,Levanger,20574,610,store_count_proxy,16,3047,Coop Norge,43.8,7.8,0,Coop Norge:7|NorgesGruppen:4|Bunnpris AS:3|Reitangruppen:2,3849,0,ok
+no,Norge,5038,Verdal,15193,1475,store_count_proxy,9,3333,Coop Norge,44.4,5.9,0,Coop Norge:4|Reitangruppen:3|Bunnpris AS:1|NorgesGruppen:1,3849,0,ok
+no,Norge,5041,Snåase - Snåsa,2114,2146,store_count_proxy,2,10000,Coop Norge,100,9.5,0,Coop Norge:2,3849,0,ok
+no,Norge,5042,Lierne,1301,2630,store_count_proxy,3,10000,NorgesGruppen,100,23.1,0,NorgesGruppen:3,3849,0,ok
+no,Norge,5043,Raarvihke - Røyrvik,423,1330,store_count_proxy,1,10000,NorgesGruppen,100,23.6,0,NorgesGruppen:1,3849,0,ok
+no,Norge,5044,Namsskogan,810,1353,store_count_proxy,3,5556,NorgesGruppen,66.7,37,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,5045,Grong,2322,1095,store_count_proxy,3,5556,Coop Norge,66.7,12.9,0,Coop Norge:2|Reitangruppen:1,3849,0,ok
+no,Norge,5046,Høylandet,1222,703,store_count_proxy,1,10000,Coop Norge,100,8.2,0,Coop Norge:1,3849,0,ok
+no,Norge,5047,Overhalla,3924,689,store_count_proxy,2,10000,NorgesGruppen,100,5.1,0,NorgesGruppen:2,3849,0,ok
+no,Norge,5049,Flatanger,1116,434,store_count_proxy,3,5556,NorgesGruppen,66.7,26.9,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,5052,Leka,604,108,store_count_proxy,2,5000,NorgesGruppen,50,33.1,0,NorgesGruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,5053,Inderøy,6938,351,store_count_proxy,6,5000,Coop Norge,66.7,8.6,0,Coop Norge:4|Bunnpris AS:1|Reitangruppen:1,3849,0,ok
+no,Norge,5054,Indre Fosen,10023,1030,store_count_proxy,11,4380,Coop Norge,54.5,11,0,Coop Norge:6|NorgesGruppen:4|Reitangruppen:1,3849,0,ok
+no,Norge,5055,Heim,6093,980,store_count_proxy,6,2778,Coop Norge,33.3,9.8,0,Coop Norge:2|Bunnpris AS:2|Reitangruppen:1|NorgesGruppen:1,3849,0,ok
+no,Norge,5056,Hitra,5323,715,store_count_proxy,8,3438,NorgesGruppen,50,15,0,NorgesGruppen:4|Reitangruppen:2|Bunnpris AS:1|Coop Norge:1,3849,0,ok
+no,Norge,5057,Ørland,10522,429,store_count_proxy,11,3884,Coop Norge,54.5,10.5,0,Coop Norge:6|Reitangruppen:3|Bunnpris AS:1|NorgesGruppen:1,3849,0,ok
+no,Norge,5058,Åfjord,4339,1251,store_count_proxy,7,3878,Coop Norge,42.9,16.1,0,Coop Norge:3|NorgesGruppen:3|Reitangruppen:1,3849,0,ok
+no,Norge,5059,Orkland,18793,1818,store_count_proxy,17,4048,Coop Norge,58.8,9,0,Coop Norge:10|NorgesGruppen:3|Bunnpris AS:2|Reitangruppen:2,3849,0,ok
+no,Norge,5060,Nærøysund,9968,1286,store_count_proxy,11,3719,Coop Norge,45.5,11,0,Coop Norge:5|NorgesGruppen:4|Reitangruppen:2,3849,0,ok
+no,Norge,5061,Rindal,1958,612,store_count_proxy,3,5556,Coop Norge,66.7,15.3,0,Coop Norge:2|Bunnpris AS:1,3849,0,ok
+no,Norge,5501,Tromsø,78745,2472,store_count_proxy,46,4036,NorgesGruppen,50,5.8,0,NorgesGruppen:23|Coop Norge:17|Reitangruppen:6,3849,0,ok
+no,Norge,5503,Harstad - Hárstták,25056,428,store_count_proxy,20,3400,NorgesGruppen,50,8,0,NorgesGruppen:10|Reitangruppen:4|Coop Norge:4|Bunnpris AS:2,3849,0,ok
+no,Norge,5510,Kvæfjord,2845,497,store_count_proxy,2,5000,NorgesGruppen,50,7,0,NorgesGruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,5512,Dielddanuorri - Tjeldsund,4281,775,store_count_proxy,4,2500,Bunnpris AS,25,9.3,0,Bunnpris AS:1|NorgesGruppen:1|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,5514,Ibestad,1311,234,store_count_proxy,2,10000,NorgesGruppen,100,15.3,0,NorgesGruppen:2,3849,0,ok
+no,Norge,5516,Gratangen,1070,306,store_count_proxy,2,10000,NorgesGruppen,100,18.7,0,NorgesGruppen:2,3849,0,ok
+no,Norge,5518,Loabák - Lavangen,986,296,store_count_proxy,1,10000,Coop Norge,100,10.1,0,Coop Norge:1,3849,0,ok
+no,Norge,5520,Bardu,3986,2514,store_count_proxy,3,3333,Coop Norge,33.3,7.5,0,Coop Norge:1|Reitangruppen:1|Bunnpris AS:1,3849,0,ok
+no,Norge,5522,Salangen,2069,438,store_count_proxy,2,5000,Coop Norge,50,9.7,0,Coop Norge:1|Bunnpris AS:1,3849,0,ok
+no,Norge,5524,Målselv,6714,3203,store_count_proxy,8,4063,NorgesGruppen,50,11.9,0,NorgesGruppen:4|Coop Norge:3|Reitangruppen:1,3849,0,ok
+no,Norge,5526,Sørreisa,3485,347,store_count_proxy,2,5000,Reitangruppen,50,5.7,0,Reitangruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,5528,Dyrøy,1073,277,store_count_proxy,2,10000,Coop Norge,100,18.6,0,Coop Norge:2,3849,0,ok
+no,Norge,5530,Senja,14894,1861,store_count_proxy,17,5433,NorgesGruppen,70.6,11.4,0,NorgesGruppen:12|Coop Norge:3|Reitangruppen:2,3849,0,ok
+no,Norge,5532,Balsfjord,5571,1440,store_count_proxy,7,3061,Coop Norge,42.9,12.6,0,Coop Norge:3|NorgesGruppen:2|Reitangruppen:1|Bunnpris AS:1,3849,0,ok
+no,Norge,5534,Karlsøy,2237,1051,store_count_proxy,6,10000,NorgesGruppen,100,26.8,0,NorgesGruppen:6,3849,0,ok
+no,Norge,5536,Lyngen,2743,795,store_count_proxy,3,5556,NorgesGruppen,66.7,10.9,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,5538,Storfjord - Omasvuotna - Omasvuono,1825,1477,store_count_proxy,2,5000,Coop Norge,50,11,0,Coop Norge:1|NorgesGruppen:1,3849,0,ok
+no,Norge,5540,Gáivuotna - Kåfjord - Kaivuono,1974,950,store_count_proxy,5,5200,Coop Norge,60,25.3,0,Coop Norge:3|NorgesGruppen:2,3849,0,ok
+no,Norge,5542,Skjervøy,2794,465,store_count_proxy,3,3333,Coop Norge,33.3,10.7,0,Coop Norge:1|NorgesGruppen:1|Bunnpris AS:1,3849,0,ok
+no,Norge,5544,Nordreisa - Ráisa - Raisi,4794,3334,store_count_proxy,3,3333,NorgesGruppen,33.3,6.3,0,NorgesGruppen:1|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,5546,Kvænangen,1157,2008,store_count_proxy,2,5000,Coop Norge,50,17.3,0,Coop Norge:1|NorgesGruppen:1,3849,0,ok
+no,Norge,5601,Alta,21708,3651,store_count_proxy,18,3333,Coop Norge,44.4,8.3,0,Coop Norge:8|NorgesGruppen:6|Reitangruppen:2|Bunnpris AS:2,3849,0,ok
+no,Norge,5603,Hammerfest - Hámmerfeasta,11338,2558,store_count_proxy,12,3194,Coop Norge,41.7,10.6,0,Coop Norge:5|NorgesGruppen:4|Reitangruppen:2|Bunnpris AS:1,3849,0,ok
+no,Norge,5605,Sør-Varanger,10063,3459,store_count_proxy,8,4063,NorgesGruppen,50,7.9,0,NorgesGruppen:4|Coop Norge:3|Reitangruppen:1,3849,0,ok
+no,Norge,5607,Vadsø,5807,1233,store_count_proxy,4,3750,NorgesGruppen,50,6.9,0,NorgesGruppen:2|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,5610,Kárášjohka - Karasjok,2565,5211,store_count_proxy,2,5000,Coop Norge,50,7.8,0,Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,5612,Guovdageaidnu - Kautokeino,2848,8967,store_count_proxy,3,3333,Reitangruppen,33.3,10.5,0,Reitangruppen:1|NorgesGruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,5614,Loppa,864,671,store_count_proxy,2,5000,NorgesGruppen,50,23.1,0,NorgesGruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,5616,Hasvik,979,534,store_count_proxy,3,5556,NorgesGruppen,66.7,30.6,0,NorgesGruppen:2|Coop Norge:1,3849,0,ok
+no,Norge,5618,Måsøy,1113,1068,store_count_proxy,4,6250,NorgesGruppen,75,35.9,0,NorgesGruppen:3|Coop Norge:1,3849,0,ok
+no,Norge,5620,Nordkapp,2951,892,store_count_proxy,4,3750,NorgesGruppen,50,13.6,0,NorgesGruppen:2|Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,5622,Porsanger - Porsángu - Porsanki,3889,4641,store_count_proxy,6,3889,Coop Norge,50,15.4,0,Coop Norge:3|NorgesGruppen:2|Reitangruppen:1,3849,0,ok
+no,Norge,5624,Lebesby,1215,3231,store_count_proxy,4,6250,NorgesGruppen,75,32.9,0,NorgesGruppen:3|Coop Norge:1,3849,0,ok
+no,Norge,5626,Gamvik,1070,1355,store_count_proxy,3,5556,Coop Norge,66.7,28,0,Coop Norge:2|NorgesGruppen:1,3849,0,ok
+no,Norge,5628,Deatnu - Tana,2807,3833,store_count_proxy,2,5000,Reitangruppen,50,7.1,0,Reitangruppen:1|Coop Norge:1,3849,0,ok
+no,Norge,5630,Berlevåg,892,1083,store_count_proxy,1,10000,NorgesGruppen,100,11.2,0,NorgesGruppen:1,3849,0,ok
+no,Norge,5632,Båtsfjord,2113,1417,store_count_proxy,2,5000,Coop Norge,50,9.5,0,Coop Norge:1|Reitangruppen:1,3849,0,ok
+no,Norge,5634,Vardø,1972,585,store_count_proxy,2,5000,Reitangruppen,50,10.1,0,Reitangruppen:1|NorgesGruppen:1,3849,0,ok
+no,Norge,5636,Unjárga - Nesseby,859,1365,store_count_proxy,1,10000,Coop Norge,100,11.6,0,Coop Norge:1,3849,0,ok
+se,Sverige,0114,Upplands Väsby,46907,75,store_count_proxy,14,2551,Unknown,35.7,3,5,Unknown:5|ICA Gruppen:4|Coop Sverige:2|Axfood:2|Lidl:1,5049,0,ok
+se,Sverige,0115,Vallentuna,34494,360,store_count_proxy,10,4200,Unknown,50,2.9,5,Unknown:5|ICA Gruppen:4|Lidl:1,5049,0,ok
+se,Sverige,0117,Österåker,46849,310,store_count_proxy,19,3629,Unknown,52.6,4.1,10,Unknown:10|ICA Gruppen:5|Coop Sverige:2|Lidl:1|Axfood:1,5049,0,ok
+se,Sverige,0120,Värmdö,47127,440,store_count_proxy,28,4082,Unknown,60.7,5.9,17,Unknown:17|Coop Sverige:4|ICA Gruppen:3|Axfood:2|Lidl:1|Bergendahls:1,5049,0,ok
+se,Sverige,0123,Järfälla,81562,54,store_count_proxy,31,3548,Unknown,54.8,3.8,17,Unknown:17|ICA Gruppen:4|Axfood:4|Coop Sverige:4|Lidl:2,5049,0,ok
+se,Sverige,0125,Ekerö,28710,173,store_count_proxy,9,3580,Unknown,44.4,3.1,4,Unknown:4|ICA Gruppen:3|Coop Sverige:2,5049,0,ok
+se,Sverige,0126,Huddinge,100669,198,store_count_proxy,31,2529,Unknown,35.5,3.1,11,Unknown:11|ICA Gruppen:8|Axfood:7|Coop Sverige:2|Lidl:2|Bergendahls:1,5049,0,ok
+se,Sverige,0127,Botkyrka,114010,60,store_count_proxy,24,3194,Unknown,45.8,2.1,11,Unknown:11|ICA Gruppen:6|Axfood:5|Lidl:1|Coop Sverige:1,5049,0,ok
+se,Sverige,0128,Salem,48788,229,store_count_proxy,3,3333,ICA Gruppen,33.3,0.6,1,ICA Gruppen:1|Coop Sverige:1|Unknown:1,5049,0,ok
+se,Sverige,0136,Haninge,30034,290,store_count_proxy,37,3178,Unknown,48.6,12.3,18,Unknown:18|ICA Gruppen:7|Axfood:6|Coop Sverige:5|Lidl:1,5049,0,ok
+se,Sverige,0138,Tyresö,50186,69,store_count_proxy,12,2222,Coop Sverige,25,2.4,2,Coop Sverige:3|ICA Gruppen:3|Axfood:3|Unknown:2|Lidl:1,5049,0,ok
+se,Sverige,0139,Upplands-Bro,42571,163,store_count_proxy,16,2422,Unknown,37.5,3.8,6,Unknown:6|Axfood:3|Coop Sverige:3|ICA Gruppen:2|Lidl:2,5049,0,ok
+se,Sverige,0140,Nykvarn,73170,57,store_count_proxy,1,10000,ICA Gruppen,100,0.1,0,ICA Gruppen:1,5049,0,ok
+se,Sverige,0160,Täby,46812,67,store_count_proxy,24,2882,Unknown,37.5,5.1,9,Unknown:9|ICA Gruppen:8|Axfood:4|Lidl:2|Coop Sverige:1,5049,0,ok
+se,Sverige,0162,Danderyd,40003,67,store_count_proxy,14,2857,ICA Gruppen,35.7,3.5,5,ICA Gruppen:5|Unknown:5|Coop Sverige:2|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,0163,Sollentuna,104636,30,store_count_proxy,31,3299,Unknown,51.6,3,16,Unknown:16|ICA Gruppen:6|Axfood:4|Coop Sverige:2|Lidl:2|Bergendahls:1,5049,0,ok
+se,Sverige,0180,Stockholm,978770,187,store_count_proxy,512,3980,Unknown,59,5.2,302,Unknown:302|ICA Gruppen:83|Coop Sverige:61|Axfood:46|Lidl:20,5049,0,ok
+se,Sverige,0181,Södertälje,99030,525,store_count_proxy,42,3050,Unknown,47.6,4.2,20,Unknown:20|ICA Gruppen:7|Axfood:7|Coop Sverige:6|Lidl:2,5049,0,ok
+se,Sverige,0182,Nacka,111776,172,store_count_proxy,27,2510,Axfood,33.3,2.4,6,Axfood:9|ICA Gruppen:7|Unknown:6|Coop Sverige:4|Lidl:1,5049,0,ok
+se,Sverige,0183,Sundbyberg,70839,155,store_count_proxy,23,3762,Unknown,56.5,3.2,13,Unknown:13|Axfood:4|ICA Gruppen:3|Lidl:2|Coop Sverige:1,5049,0,ok
+se,Sverige,0184,Solna,72606,159,store_count_proxy,42,3186,Unknown,47.6,5.8,20,Unknown:20|Axfood:9|ICA Gruppen:8|Coop Sverige:4|Lidl:1,5049,0,ok
+se,Sverige,0186,Lidingö,27867,530,store_count_proxy,15,2711,ICA Gruppen,40,5.4,4,ICA Gruppen:6|Unknown:4|Axfood:2|Coop Sverige:2|Lidl:1,5049,0,ok
+se,Sverige,0187,Vaxholm,12183,141,store_count_proxy,5,2800,ICA Gruppen,40,4.1,1,ICA Gruppen:2|Coop Sverige:1|Axfood:1|Unknown:1,5049,0,ok
+se,Sverige,0188,Norrtälje,18193,679,store_count_proxy,34,3149,ICA Gruppen,38.2,18.7,13,ICA Gruppen:13|Unknown:13|Coop Sverige:4|Axfood:3|Lidl:1,5049,0,ok
+se,Sverige,0191,Sigtuna,11773,409,store_count_proxy,19,3850,Unknown,57.9,16.1,11,Unknown:11|ICA Gruppen:3|Axfood:2|Lidl:2|Coop Sverige:1,5049,0,ok
+se,Sverige,0192,Nynäshamn,17082,1752,store_count_proxy,11,2893,Unknown,45.5,6.4,5,Unknown:5|ICA Gruppen:2|Coop Sverige:2|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,0305,Håbo,41091,23,store_count_proxy,7,2653,Unknown,42.9,1.7,3,Unknown:3|Lidl:1|Axfood:1|Coop Sverige:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,0319,Älvkarleby,11620,604,store_count_proxy,3,5556,Coop Sverige,66.7,2.6,0,Coop Sverige:2|Axfood:1,5049,0,ok
+se,Sverige,0330,Knivsta,49671,474,store_count_proxy,4,2500,ICA Gruppen,25,0.8,1,ICA Gruppen:1|Axfood:1|Unknown:1|Coop Sverige:1,5049,0,ok
+se,Sverige,0331,Heby,20277,279,store_count_proxy,9,3086,ICA Gruppen,44.4,4.4,2,ICA Gruppen:4|Unknown:2|Coop Sverige:2|Axfood:1,5049,0,ok
+se,Sverige,0360,Tierp,50580,406,store_count_proxy,11,3554,ICA Gruppen,54.5,2.2,1,ICA Gruppen:6|Coop Sverige:2|Unknown:1|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,0380,Uppsala,41858,2285,store_count_proxy,96,3064,Unknown,46.9,22.9,45,Unknown:45|ICA Gruppen:23|Axfood:13|Coop Sverige:9|Lidl:4|Bergendahls:2,5049,0,ok
+se,Sverige,0381,Enköping,72580,1175,store_count_proxy,13,2781,Unknown,38.5,1.8,5,Unknown:5|ICA Gruppen:4|Axfood:2|Coop Sverige:1|Lidl:1,5049,0,ok
+se,Sverige,0382,Östhammar,68646,1062,store_count_proxy,15,3067,ICA Gruppen,40,2.2,4,ICA Gruppen:6|Coop Sverige:4|Unknown:4|Axfood:1,5049,0,ok
+se,Sverige,0428,Vingåker,14089,1215,store_count_proxy,6,3889,Unknown,50,4.3,3,Unknown:3|Coop Sverige:2|ICA Gruppen:1,5049,0,ok
+se,Sverige,0461,Gnesta,68115,1228,store_count_proxy,5,4400,ICA Gruppen,60,0.7,0,ICA Gruppen:3|Axfood:1|Coop Sverige:1,5049,0,ok
+se,Sverige,0480,Nyköping,140820,1607,store_count_proxy,26,2544,Unknown,38.5,1.8,10,Unknown:10|ICA Gruppen:6|Axfood:5|Coop Sverige:3|Bergendahls:1|Lidl:1,5049,0,ok
+se,Sverige,0481,Oxelösund,42085,1094,store_count_proxy,5,2800,Unknown,40,1.2,2,Unknown:2|ICA Gruppen:1|Axfood:1|Coop Sverige:1,5049,0,ok
+se,Sverige,0482,Flen,37547,449,store_count_proxy,10,2800,Coop Sverige,30,2.7,3,Coop Sverige:3|Unknown:3|Axfood:3|ICA Gruppen:1,5049,0,ok
+se,Sverige,0483,Katrineholm,41260,1299,store_count_proxy,16,2422,Unknown,31.3,3.9,5,Unknown:5|Coop Sverige:4|ICA Gruppen:4|Axfood:2|Lidl:1,5049,0,ok
+se,Sverige,0484,Eskilstuna,26453,584,store_count_proxy,33,2231,ICA Gruppen,30.3,12.5,8,ICA Gruppen:10|Unknown:8|Coop Sverige:7|Axfood:5|Lidl:2|Bergendahls:1,5049,0,ok
+se,Sverige,0486,Strängnäs,28700,1491,store_count_proxy,15,2622,ICA Gruppen,33.3,5.2,5,ICA Gruppen:5|Unknown:5|Axfood:2|Coop Sverige:2|Lidl:1,5049,0,ok
+se,Sverige,0488,Trosa,23970,1466,store_count_proxy,5,3600,ICA Gruppen,40,2.1,0,ICA Gruppen:2|Axfood:2|Coop Sverige:1,5049,0,ok
+se,Sverige,0509,Ödeshög,13684,918,store_count_proxy,3,5556,Unknown,66.7,2.2,2,Unknown:2|ICA Gruppen:1,5049,0,ok
+se,Sverige,0512,Ydre,16044,1335,store_count_proxy,5,4400,Unknown,60,3.1,3,Unknown:3|Axfood:1|Coop Sverige:1,5049,0,ok
+se,Sverige,0513,Kinda,12027,1478,store_count_proxy,9,3333,ICA Gruppen,44.4,7.5,3,ICA Gruppen:4|Unknown:3|Coop Sverige:1|Axfood:1,5049,0,ok
+se,Sverige,0560,Boxholm,28310,3471,store_count_proxy,4,3750,Unknown,50,1.4,2,Unknown:2|Coop Sverige:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,0561,Åtvidaberg,12750,1780,store_count_proxy,5,3600,ICA Gruppen,40,3.9,2,ICA Gruppen:2|Unknown:2|Axfood:1,5049,0,ok
+se,Sverige,0562,Finspång,12470,5496,store_count_proxy,9,2840,Coop Sverige,44.4,7.2,1,Coop Sverige:4|Axfood:2|Lidl:1|Unknown:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,0563,Valdemarsvik,7570,7279,store_count_proxy,7,3878,Unknown,42.9,9.2,3,Unknown:3|ICA Gruppen:3|Axfood:1,5049,0,ok
+se,Sverige,0580,Linköping,144210,1382,store_count_proxy,72,3083,Unknown,45.8,5,33,Unknown:33|ICA Gruppen:18|Axfood:12|Coop Sverige:6|Bergendahls:2|Lidl:1,5049,0,ok
+se,Sverige,0581,Norrköping,55920,876,store_count_proxy,67,2702,Unknown,41.8,12,28,Unknown:28|ICA Gruppen:13|Coop Sverige:13|Axfood:9|Lidl:3|Bergendahls:1,5049,0,ok
+se,Sverige,0582,Söderköping,38940,1604,store_count_proxy,8,4063,Unknown,50,2.1,4,Unknown:4|Axfood:3|ICA Gruppen:1,5049,0,ok
+se,Sverige,0583,Motala,57160,1766,store_count_proxy,20,2800,ICA Gruppen,35,3.5,5,ICA Gruppen:7|Axfood:6|Unknown:5|Lidl:1|Coop Sverige:1,5049,0,ok
+se,Sverige,0584,Vadstena,11810,776,store_count_proxy,5,3600,Unknown,40,4.2,2,Unknown:2|Axfood:2|Coop Sverige:1,5049,0,ok
+se,Sverige,0586,Mjölby,11060,1431,store_count_proxy,11,2562,Axfood,36.4,9.9,3,Axfood:4|Unknown:3|ICA Gruppen:2|Coop Sverige:1|Lidl:1,5049,0,ok
+se,Sverige,0604,Aneby,29150,750,store_count_proxy,2,5000,ICA Gruppen,50,0.7,0,ICA Gruppen:1|Coop Sverige:1,5049,0,ok
+se,Sverige,0617,Gnosjö,14690,5420,store_count_proxy,5,2800,ICA Gruppen,40,3.4,1,ICA Gruppen:2|Unknown:1|Axfood:1|Coop Sverige:1,5049,0,ok
+se,Sverige,0642,Mullsjö,10540,1883,store_count_proxy,4,3750,Coop Sverige,50,3.8,0,Coop Sverige:2|Axfood:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,0643,Habo,7810,1295,store_count_proxy,5,2800,Unknown,40,6.4,2,Unknown:2|ICA Gruppen:1|Coop Sverige:1|Axfood:1,5049,0,ok
+se,Sverige,0662,Gislaved,11470,2347,store_count_proxy,13,2899,Axfood,30.8,11.3,0,Axfood:4|ICA Gruppen:4|Coop Sverige:4|Lidl:1,5049,0,ok
+se,Sverige,0665,Vaggeryd,25080,2946,store_count_proxy,4,3750,ICA Gruppen,50,1.6,1,ICA Gruppen:2|Axfood:1|Unknown:1,5049,0,ok
+se,Sverige,0680,Jönköping,96780,1131,store_count_proxy,50,2264,Coop Sverige,28,5.2,11,Coop Sverige:14|ICA Gruppen:12|Unknown:11|Axfood:10|Lidl:2|Bergendahls:1,5049,0,ok
+se,Sverige,0682,Nässjö,57170,1423,store_count_proxy,9,2346,ICA Gruppen,33.3,1.6,2,ICA Gruppen:3|Coop Sverige:2|Unknown:2|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,0683,Värnamo,23680,828,store_count_proxy,16,2344,ICA Gruppen,31.3,6.8,5,ICA Gruppen:5|Unknown:5|Axfood:2|Coop Sverige:2|Bergendahls:1|Lidl:1,5049,0,ok
+se,Sverige,0684,Sävsjö,12820,1074,store_count_proxy,6,3333,Axfood,50,4.7,1,Axfood:3|Unknown:1|Coop Sverige:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,0685,Vetlanda,10170,1241,store_count_proxy,13,2781,ICA Gruppen,38.5,12.8,4,ICA Gruppen:5|Unknown:4|Coop Sverige:2|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,0686,Eksjö,14050,884,store_count_proxy,9,2346,ICA Gruppen,33.3,6.4,2,ICA Gruppen:3|Unknown:2|Coop Sverige:2|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,0687,Tranås,13920,1217,store_count_proxy,7,2245,ICA Gruppen,28.6,5,1,ICA Gruppen:2|Axfood:2|Unknown:1|Coop Sverige:1|Lidl:1,5049,0,ok
+se,Sverige,0760,Uppvidinge,15240,2018,store_count_proxy,8,4063,ICA Gruppen,50,5.2,3,ICA Gruppen:4|Unknown:3|Coop Sverige:1,5049,0,ok
+se,Sverige,0761,Lessebo,13180,780,store_count_proxy,9,4074,Unknown,55.6,6.8,5,Unknown:5|Coop Sverige:2|ICA Gruppen:2,5049,0,ok
+se,Sverige,0763,Tingsryd,13490,1120,store_count_proxy,9,3580,Unknown,44.4,6.7,4,Unknown:4|ICA Gruppen:3|Axfood:2,5049,0,ok
+se,Sverige,0764,Alvesta,8430,1227,store_count_proxy,12,3611,ICA Gruppen,41.7,14.2,5,ICA Gruppen:5|Unknown:5|Coop Sverige:1|Axfood:1,5049,0,ok
+se,Sverige,0765,Älmhult,7880,773,store_count_proxy,10,3200,Unknown,50,12.7,5,Unknown:5|ICA Gruppen:2|Coop Sverige:1|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,0767,Markaryd,18700,2181,store_count_proxy,9,3580,Unknown,44.4,4.8,4,Unknown:4|Coop Sverige:3|ICA Gruppen:2,5049,0,ok
+se,Sverige,0780,Växjö,65090,1556,store_count_proxy,50,3864,Unknown,58,7.7,29,Unknown:29|ICA Gruppen:9|Coop Sverige:5|Axfood:3|Lidl:3|Bergendahls:1,5049,0,ok
+se,Sverige,0781,Ljungby,38650,1478,store_count_proxy,13,2663,Unknown,38.5,3.4,5,Unknown:5|ICA Gruppen:4|Coop Sverige:1|Bergendahls:1|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,0821,Högsby,9550,2010,store_count_proxy,7,3061,Axfood,42.9,7.3,1,Axfood:3|Coop Sverige:2|Unknown:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,0834,Torsås,7360,2208,store_count_proxy,8,3438,Unknown,50,10.9,4,Unknown:4|ICA Gruppen:2|Coop Sverige:1|Axfood:1,5049,0,ok
+se,Sverige,0840,Mörbylånga,23370,4098,store_count_proxy,10,3000,Unknown,40,4.3,4,Unknown:4|ICA Gruppen:3|Coop Sverige:2|Axfood:1,5049,0,ok
+se,Sverige,0860,Hultsfred,7820,1730,store_count_proxy,13,3018,Unknown,38.5,16.6,5,Unknown:5|Coop Sverige:4|ICA Gruppen:3|Axfood:1,5049,0,ok
+se,Sverige,0861,Mönsterås,17250,2399,store_count_proxy,7,3469,Coop Sverige,42.9,4.1,2,Coop Sverige:3|ICA Gruppen:2|Unknown:2,5049,0,ok
+se,Sverige,0862,Emmaboda,15710,1641,store_count_proxy,9,3333,Unknown,44.4,5.7,4,Unknown:4|ICA Gruppen:3|Coop Sverige:1|Axfood:1,5049,0,ok
+se,Sverige,0880,Kalmar,37190,1781,store_count_proxy,40,3538,Unknown,52.5,10.8,21,Unknown:21|ICA Gruppen:10|Coop Sverige:4|Axfood:2|Lidl:2|Bergendahls:1,5049,0,ok
+se,Sverige,0881,Nybro,7630,1049,store_count_proxy,11,3554,Unknown,54.5,14.4,6,Unknown:6|Coop Sverige:2|Axfood:1|Lidl:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,0882,Oskarshamn,12190,1709,store_count_proxy,13,3609,Coop Sverige,53.8,10.7,1,Coop Sverige:7|ICA Gruppen:3|Unknown:1|Lidl:1|Axfood:1,5049,0,ok
+se,Sverige,0883,Västervik,63560,1781,store_count_proxy,25,3184,Unknown,48,3.9,12,Unknown:12|Coop Sverige:6|Axfood:3|ICA Gruppen:3|Lidl:1,5049,0,ok
+se,Sverige,0884,Vimmerby,13060,1058,store_count_proxy,10,4600,ICA Gruppen,60,7.7,3,ICA Gruppen:6|Unknown:3|Coop Sverige:1,5049,0,ok
+se,Sverige,0885,Borgholm,11660,1131,store_count_proxy,13,5148,ICA Gruppen,69.2,11.1,2,ICA Gruppen:9|Unknown:2|Coop Sverige:1|Axfood:1,5049,0,ok
+se,Sverige,0980,Gotland,24440,3147,store_count_proxy,35,3273,ICA Gruppen,45.7,14.3,6,ICA Gruppen:16|Coop Sverige:10|Unknown:6|Axfood:3,5049,0,ok
+se,Sverige,1060,Olofström,15720,514,store_count_proxy,8,3438,Unknown,50,5.1,4,Unknown:4|ICA Gruppen:2|Lidl:1|Axfood:1,5049,0,ok
+se,Sverige,1080,Karlskrona,47490,561,store_count_proxy,46,3412,Unknown,52.2,9.7,24,Unknown:24|ICA Gruppen:10|Axfood:5|Coop Sverige:4|Lidl:2|Bergendahls:1,5049,0,ok
+se,Sverige,1081,Ronneby,16610,371,store_count_proxy,20,4150,Unknown,60,12,12,Unknown:12|ICA Gruppen:4|Coop Sverige:2|Lidl:1|Axfood:1,5049,0,ok
+se,Sverige,1082,Karlshamn,45980,536,store_count_proxy,21,3061,Unknown,47.6,4.6,10,Unknown:10|Coop Sverige:5|ICA Gruppen:2|Axfood:2|Bergendahls:1|Lidl:1,5049,0,ok
+se,Sverige,1083,Sölvesborg,16420,418,store_count_proxy,11,4545,Unknown,63.6,6.7,7,Unknown:7|Coop Sverige:2|ICA Gruppen:1|Axfood:1,5049,0,ok
+se,Sverige,1214,Svalöv,12710,427,store_count_proxy,6,3889,ICA Gruppen,50,4.7,2,ICA Gruppen:3|Unknown:2|Coop Sverige:1,5049,0,ok
+se,Sverige,1230,Staffanstorp,25260,561,store_count_proxy,9,1852,Axfood,22.2,3.6,2,Axfood:2|Unknown:2|Coop Sverige:2|ICA Gruppen:1|Lidl:1|Bergendahls:1,5049,0,ok
+se,Sverige,1231,Burlöv,25190,323,store_count_proxy,11,2066,Unknown,27.3,4.4,3,Unknown:3|Coop Sverige:3|ICA Gruppen:2|Lidl:1|Axfood:1|Bergendahls:1,5049,0,ok
+se,Sverige,1233,Vellinge,11070,313,store_count_proxy,12,4306,Unknown,50,10.8,6,Unknown:6|ICA Gruppen:5|Coop Sverige:1,5049,0,ok
+se,Sverige,1256,Östra Göinge,16930,261,store_count_proxy,8,3750,Unknown,50,4.7,4,Unknown:4|Coop Sverige:2|ICA Gruppen:2,5049,0,ok
+se,Sverige,1257,Örkelljunga,14540,198,store_count_proxy,4,3750,ICA Gruppen,50,2.8,1,ICA Gruppen:2|Unknown:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1260,Bjuv,18050,236,store_count_proxy,4,3750,ICA Gruppen,50,2.2,1,ICA Gruppen:2|Coop Sverige:1|Unknown:1,5049,0,ok
+se,Sverige,1261,Kävlinge,22330,398,store_count_proxy,14,3878,Unknown,57.1,6.3,8,Unknown:8|ICA Gruppen:3|Axfood:1|Lidl:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1262,Lomma,40630,422,store_count_proxy,9,2346,ICA Gruppen,33.3,2.2,2,ICA Gruppen:3|Coop Sverige:2|Unknown:2|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,1263,Svedala,15130,131,store_count_proxy,8,2813,Unknown,37.5,5.3,3,Unknown:3|ICA Gruppen:2|Coop Sverige:2|Axfood:1,5049,0,ok
+se,Sverige,1264,Skurup,12550,163,store_count_proxy,5,3600,ICA Gruppen,40,4,0,ICA Gruppen:2|Coop Sverige:2|Axfood:1,5049,0,ok
+se,Sverige,1265,Sjöbo,13440,388,store_count_proxy,9,3827,ICA Gruppen,55.6,6.7,2,ICA Gruppen:5|Unknown:2|Coop Sverige:1|Axfood:1,5049,0,ok
+se,Sverige,1266,Hörby,14130,217,store_count_proxy,11,3719,Unknown,54.5,7.8,6,Unknown:6|ICA Gruppen:2|Coop Sverige:2|Axfood:1,5049,0,ok
+se,Sverige,1267,Höör,7920,195,store_count_proxy,7,2245,Unknown,28.6,8.8,2,Unknown:2|Coop Sverige:2|ICA Gruppen:1|Bergendahls:1|Lidl:1,5049,0,ok
+se,Sverige,1270,Tomelilla,18470,316,store_count_proxy,10,4200,Unknown,60,5.4,6,Unknown:6|ICA Gruppen:2|Lidl:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1272,Bromölla,14710,264,store_count_proxy,5,2800,Unknown,40,3.4,2,Unknown:2|Axfood:1|ICA Gruppen:1|Lidl:1,5049,0,ok
+se,Sverige,1273,Osby,22810,395,store_count_proxy,12,3750,Unknown,50,5.3,6,Unknown:6|ICA Gruppen:3|Coop Sverige:3,5049,0,ok
+se,Sverige,1275,Perstorp,10640,278,store_count_proxy,3,3333,Unknown,33.3,2.8,1,Unknown:1|ICA Gruppen:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1276,Klippan,12240,339,store_count_proxy,7,3469,ICA Gruppen,42.9,5.7,2,ICA Gruppen:3|Unknown:2|Axfood:2,5049,0,ok
+se,Sverige,1277,Åstorp,8210,183,store_count_proxy,8,2500,Unknown,37.5,9.7,3,Unknown:3|ICA Gruppen:2|Bergendahls:1|Lidl:1|Axfood:1,5049,0,ok
+se,Sverige,1278,Båstad,10920,267,store_count_proxy,9,4074,ICA Gruppen,44.4,8.2,4,ICA Gruppen:4|Unknown:4|Axfood:1,5049,0,ok
+se,Sverige,1280,Malmö,350647,149,store_count_proxy,191,4286,Unknown,62.3,5.4,119,Unknown:119|ICA Gruppen:28|Coop Sverige:20|Axfood:15|Lidl:8|Bergendahls:1,5049,0,ok
+se,Sverige,1281,Lund,48105,44,store_count_proxy,55,3005,Unknown,45.5,11.4,25,Unknown:25|ICA Gruppen:12|Coop Sverige:10|Axfood:6|Lidl:2,5049,0,ok
+se,Sverige,1282,Landskrona,32650,81,store_count_proxy,20,2900,Unknown,45,6.1,9,Unknown:9|ICA Gruppen:5|Coop Sverige:2|Axfood:2|Bergendahls:1|Lidl:1,5049,0,ok
+se,Sverige,1283,Helsingborg,116850,194,store_count_proxy,62,3241,Unknown,50,5.3,31,Unknown:31|ICA Gruppen:13|Axfood:8|Coop Sverige:6|Lidl:4,5049,0,ok
+se,Sverige,1284,Höganäs,26560,107,store_count_proxy,9,2840,ICA Gruppen,44.4,3.4,2,ICA Gruppen:4|Unknown:2|Bergendahls:1|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,1285,Eslöv,24250,219,store_count_proxy,17,3080,Unknown,47.1,7,8,Unknown:8|ICA Gruppen:4|Axfood:2|Coop Sverige:2|Lidl:1,5049,0,ok
+se,Sverige,1286,Ystad,14960,149,store_count_proxy,17,3426,Unknown,52.9,11.4,9,Unknown:9|ICA Gruppen:3|Axfood:2|Coop Sverige:2|Lidl:1,5049,0,ok
+se,Sverige,1287,Trelleborg,18640,113,store_count_proxy,17,2249,Unknown,29.4,9.1,5,Unknown:5|ICA Gruppen:5|Coop Sverige:3|Axfood:2|Lidl:1|Bergendahls:1,5049,0,ok
+se,Sverige,1290,Kristianstad,25430,260,store_count_proxy,55,4830,Unknown,67.3,21.6,37,Unknown:37|ICA Gruppen:7|Coop Sverige:5|Axfood:4|Lidl:1|Bergendahls:1,5049,0,ok
+se,Sverige,1291,Simrishamn,18710,290,store_count_proxy,11,3884,ICA Gruppen,54.5,5.9,3,ICA Gruppen:6|Unknown:3|Axfood:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1292,Ängelholm,47550,313,store_count_proxy,15,3511,ICA Gruppen,53.3,3.2,3,ICA Gruppen:8|Unknown:3|Coop Sverige:2|Lidl:1|Axfood:1,5049,0,ok
+se,Sverige,1293,Hässleholm,18190,264,store_count_proxy,32,3887,Unknown,56.3,17.6,18,Unknown:18|ICA Gruppen:8|Axfood:2|Coop Sverige:2|Lidl:1|Bergendahls:1,5049,0,ok
+se,Sverige,1315,Hylte,17060,1302,store_count_proxy,6,3889,Coop Sverige,50,3.5,1,Coop Sverige:3|ICA Gruppen:2|Unknown:1,5049,0,ok
+se,Sverige,1380,Halmstad,71380,962,store_count_proxy,42,2653,Unknown,42.9,5.9,18,Unknown:18|Axfood:7|Coop Sverige:7|ICA Gruppen:6|Lidl:3|Bergendahls:1,5049,0,ok
+se,Sverige,1381,Laholm,31100,618,store_count_proxy,14,3061,ICA Gruppen,42.9,4.5,4,ICA Gruppen:6|Unknown:4|Axfood:2|Coop Sverige:2,5049,0,ok
+se,Sverige,1382,Falkenberg,32370,528,store_count_proxy,20,2450,Unknown,35,6.2,7,Unknown:7|Axfood:4|Coop Sverige:4|ICA Gruppen:4|Lidl:1,5049,0,ok
+se,Sverige,1383,Varberg,14750,1200,store_count_proxy,27,3032,ICA Gruppen,44.4,18.3,6,ICA Gruppen:12|Unknown:6|Axfood:5|Coop Sverige:4,5049,0,ok
+se,Sverige,1384,Kungsbacka,20310,949,store_count_proxy,21,2608,Axfood,38.1,10.3,5,Axfood:8|Unknown:5|ICA Gruppen:4|Coop Sverige:3|Lidl:1,5049,0,ok
+se,Sverige,1401,Härryda,45370,479,store_count_proxy,15,2800,Unknown,40,3.3,6,Unknown:6|ICA Gruppen:4|Axfood:3|Coop Sverige:1|Lidl:1,5049,0,ok
+se,Sverige,1402,Partille,61010,711,store_count_proxy,12,2361,Unknown,33.3,2,4,Unknown:4|ICA Gruppen:3|Axfood:2|Coop Sverige:2|Lidl:1,5049,0,ok
+se,Sverige,1407,Öckerö,68940,501,store_count_proxy,11,3554,ICA Gruppen,45.5,1.6,4,ICA Gruppen:5|Unknown:4|Axfood:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1415,Stenungsund,23690,604,store_count_proxy,12,3472,Unknown,50,5.1,6,Unknown:6|ICA Gruppen:3|Axfood:2|Coop Sverige:1,5049,0,ok
+se,Sverige,1419,Tjörn,40100,514,store_count_proxy,10,4600,ICA Gruppen,60,2.5,3,ICA Gruppen:6|Unknown:3|Axfood:1,5049,0,ok
+se,Sverige,1421,Orust,14380,1437,store_count_proxy,15,3600,Unknown,40,10.4,6,Unknown:6|Axfood:6|ICA Gruppen:3,5049,0,ok
+se,Sverige,1427,Sotenäs,10180,728,store_count_proxy,8,4063,Coop Sverige,50,7.9,1,Coop Sverige:4|ICA Gruppen:3|Unknown:1,5049,0,ok
+se,Sverige,1430,Munkedal,11980,1040,store_count_proxy,9,3333,ICA Gruppen,44.4,7.5,3,ICA Gruppen:4|Unknown:3|Coop Sverige:1|Axfood:1,5049,0,ok
+se,Sverige,1435,Tanum,10080,1321,store_count_proxy,10,3400,ICA Gruppen,40,9.9,3,ICA Gruppen:4|Unknown:3|Coop Sverige:3,5049,0,ok
+se,Sverige,1438,Dals-Ed,14150,843,store_count_proxy,4,3750,Axfood,50,2.8,1,Axfood:2|Coop Sverige:1|Unknown:1,5049,0,ok
+se,Sverige,1439,Färgelanda,9400,744,store_count_proxy,5,3600,Coop Sverige,40,5.3,2,Coop Sverige:2|Unknown:2|ICA Gruppen:1,5049,0,ok
+se,Sverige,1440,Ale,58270,646,store_count_proxy,12,2222,ICA Gruppen,25,2.1,3,ICA Gruppen:3|Coop Sverige:3|Unknown:3|Axfood:2|Lidl:1,5049,0,ok
+se,Sverige,1441,Lerum,24570,780,store_count_proxy,12,2639,ICA Gruppen,33.3,4.9,4,ICA Gruppen:4|Unknown:4|Axfood:2|Coop Sverige:1|Lidl:1,5049,0,ok
+se,Sverige,1442,Vårgårda,15460,741,store_count_proxy,3,3333,Coop Sverige,33.3,1.9,0,Coop Sverige:1|Axfood:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,1443,Bollebygd,8520,466,store_count_proxy,5,3600,Axfood,40,5.9,2,Axfood:2|Unknown:2|ICA Gruppen:1,5049,0,ok
+se,Sverige,1444,Grästorp,22000,430,store_count_proxy,1,10000,Axfood,100,0.5,0,Axfood:1,5049,0,ok
+se,Sverige,1445,Essunga,14090,1130,store_count_proxy,8,5938,Unknown,75,5.7,6,Unknown:6|Axfood:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,1446,Karlsborg,22890,671,store_count_proxy,8,3125,ICA Gruppen,37.5,3.5,3,ICA Gruppen:3|Unknown:3|Axfood:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1447,Gullspång,15330,602,store_count_proxy,2,10000,ICA Gruppen,100,1.3,0,ICA Gruppen:2,5049,0,ok
+se,Sverige,1452,Tranemo,14380,621,store_count_proxy,6,5000,ICA Gruppen,66.7,4.2,1,ICA Gruppen:4|Axfood:1|Unknown:1,5049,0,ok
+se,Sverige,1460,Bengtsfors,12150,680,store_count_proxy,9,2840,ICA Gruppen,33.3,7.4,3,ICA Gruppen:3|Unknown:3|Coop Sverige:2|Axfood:1,5049,0,ok
+se,Sverige,1461,Mellerud,27640,671,store_count_proxy,8,2500,Axfood,25,2.9,2,Axfood:2|Unknown:2|Coop Sverige:2|ICA Gruppen:2,5049,0,ok
+se,Sverige,1462,Lilla Edet,53240,485,store_count_proxy,7,5918,Unknown,71.4,1.3,5,Unknown:5|ICA Gruppen:2,5049,0,ok
+se,Sverige,1463,Mark,42580,352,store_count_proxy,17,2388,ICA Gruppen,29.4,4,5,ICA Gruppen:5|Unknown:5|Axfood:3|Coop Sverige:3|Lidl:1,5049,0,ok
+se,Sverige,1465,Svenljunga,10700,450,store_count_proxy,7,2653,Axfood,28.6,6.5,2,Axfood:2|Unknown:2|ICA Gruppen:2|Coop Sverige:1,5049,0,ok
+se,Sverige,1466,Herrljunga,9190,613,store_count_proxy,6,2778,Axfood,33.3,6.5,1,Axfood:2|ICA Gruppen:2|Coop Sverige:1|Unknown:1,5049,0,ok
+se,Sverige,1470,Vara,10860,539,store_count_proxy,9,3333,ICA Gruppen,44.4,8.3,1,ICA Gruppen:4|Axfood:3|Unknown:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1471,Götene,579281,450,store_count_proxy,5,2800,Coop Sverige,40,0.1,1,Coop Sverige:2|ICA Gruppen:1|Axfood:1|Unknown:1,5049,0,ok
+se,Sverige,1472,Tibro,10640,495,store_count_proxy,6,3889,Unknown,50,5.6,3,Unknown:3|ICA Gruppen:2|Coop Sverige:1,5049,0,ok
+se,Sverige,1473,Töreboda,23400,299,store_count_proxy,9,3086,Unknown,44.4,3.8,4,Unknown:4|Axfood:2|Coop Sverige:2|ICA Gruppen:1,5049,0,ok
+se,Sverige,1480,Göteborg,587549,450,store_count_proxy,272,3566,Unknown,54,4.6,147,Unknown:147|Axfood:49|ICA Gruppen:40|Coop Sverige:26|Lidl:10,5049,0,ok
+se,Sverige,1481,Mölndal,105264,274,store_count_proxy,28,4515,Unknown,64.3,2.7,18,Unknown:18|Coop Sverige:4|ICA Gruppen:3|Axfood:2|Lidl:1,5049,0,ok
+se,Sverige,1482,Kungälv,68230,330,store_count_proxy,22,3099,Unknown,45.5,3.2,10,Unknown:10|Axfood:6|ICA Gruppen:3|Coop Sverige:2|Bergendahls:1,5049,0,ok
+se,Sverige,1484,Lysekil,43490,298,store_count_proxy,9,3333,ICA Gruppen,33.3,2.1,3,ICA Gruppen:3|Coop Sverige:3|Unknown:3,5049,0,ok
+se,Sverige,1485,Uddevalla,56260,356,store_count_proxy,25,2736,Unknown,44,4.4,11,Unknown:11|ICA Gruppen:5|Coop Sverige:4|Axfood:2|Lidl:2|Bergendahls:1,5049,0,ok
+se,Sverige,1486,Strömstad,22950,253,store_count_proxy,19,5734,Unknown,73.7,8.3,14,Unknown:14|ICA Gruppen:3|Axfood:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1487,Vänersborg,34190,305,store_count_proxy,16,2969,Unknown,43.8,4.7,7,Unknown:7|Axfood:4|ICA Gruppen:3|Lidl:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1488,Trollhättan,69190,362,store_count_proxy,21,2154,Coop Sverige,28.6,3,2,Coop Sverige:6|Axfood:5|ICA Gruppen:5|Unknown:2|Lidl:2|Bergendahls:1,5049,0,ok
+se,Sverige,1489,Alingsås,46390,445,store_count_proxy,12,2778,ICA Gruppen,41.7,2.6,2,ICA Gruppen:5|Axfood:3|Unknown:2|Coop Sverige:1|Lidl:1,5049,0,ok
+se,Sverige,1490,Borås,42280,683,store_count_proxy,36,2886,Unknown,38.9,8.5,14,Unknown:14|ICA Gruppen:12|Coop Sverige:5|Axfood:2|Lidl:2|Bergendahls:1,5049,0,ok
+se,Sverige,1491,Ulricehamn,21300,459,store_count_proxy,10,2800,ICA Gruppen,40,4.7,3,ICA Gruppen:4|Unknown:3|Lidl:1|Coop Sverige:1|Axfood:1,5049,0,ok
+se,Sverige,1492,Åmål,10720,407,store_count_proxy,7,2653,Coop Sverige,28.6,6.5,2,Coop Sverige:2|Unknown:2|Axfood:2|ICA Gruppen:1,5049,0,ok
+se,Sverige,1493,Mariestad,53650,692,store_count_proxy,16,3750,Unknown,56.3,3,9,Unknown:9|Coop Sverige:3|ICA Gruppen:2|Lidl:1|Axfood:1,5049,0,ok
+se,Sverige,1494,Lidköping,10930,485,store_count_proxy,15,2444,ICA Gruppen,33.3,13.7,4,ICA Gruppen:5|Unknown:4|Coop Sverige:3|Axfood:2|Lidl:1,5049,0,ok
+se,Sverige,1495,Skara,55530,378,store_count_proxy,8,2500,Unknown,37.5,1.4,3,Unknown:3|ICA Gruppen:2|Axfood:1|Bergendahls:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1496,Skövde,42910,464,store_count_proxy,29,3080,Unknown,44.8,6.8,13,Unknown:13|ICA Gruppen:8|Axfood:4|Coop Sverige:3|Lidl:1,5049,0,ok
+se,Sverige,1497,Hjo,27690,492,store_count_proxy,5,4400,Unknown,60,1.8,3,Unknown:3|ICA Gruppen:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1498,Tidaholm,33170,413,store_count_proxy,4,2500,Unknown,25,1.2,1,Unknown:1|Axfood:1|Coop Sverige:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,1499,Falköping,20770,467,store_count_proxy,14,2857,Unknown,35.7,6.7,5,Unknown:5|ICA Gruppen:5|Axfood:2|Coop Sverige:1|Lidl:1,5049,0,ok
+se,Sverige,1715,Kil,8120,2076,store_count_proxy,6,2778,Unknown,33.3,7.4,2,Unknown:2|Coop Sverige:2|Axfood:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,1730,Eda,8360,3036,store_count_proxy,13,3964,Unknown,53.8,15.6,7,Unknown:7|Coop Sverige:4|Lidl:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,1737,Torsby,11420,1568,store_count_proxy,16,4297,Unknown,56.3,14,9,Unknown:9|ICA Gruppen:5|Coop Sverige:2,5049,0,ok
+se,Sverige,1760,Storfors,25040,5360,store_count_proxy,3,3333,Unknown,33.3,1.2,1,Unknown:1|ICA Gruppen:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1761,Hammarö,13470,2755,store_count_proxy,5,3600,Unknown,40,3.7,2,Unknown:2|ICA Gruppen:2|Coop Sverige:1,5049,0,ok
+se,Sverige,1762,Munkfors,11250,2403,store_count_proxy,2,5000,Unknown,50,1.8,1,Unknown:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,1763,Forshaga,24050,2133,store_count_proxy,5,5200,Coop Sverige,60,2.1,0,Coop Sverige:3|ICA Gruppen:2,5049,0,ok
+se,Sverige,1764,Grums,5850,3564,store_count_proxy,4,2500,ICA Gruppen,25,6.8,1,ICA Gruppen:1|Axfood:1|Coop Sverige:1|Unknown:1,5049,0,ok
+se,Sverige,1765,Årjäng,5820,3030,store_count_proxy,8,5313,Unknown,62.5,13.7,5,Unknown:5|ICA Gruppen:3,5049,0,ok
+se,Sverige,1766,Sunne,7300,2223,store_count_proxy,9,4074,Unknown,55.6,12.3,5,Unknown:5|Coop Sverige:2|ICA Gruppen:2,5049,0,ok
+se,Sverige,1780,Karlstad,28380,2260,store_count_proxy,48,2908,Unknown,39.6,16.9,19,Unknown:19|Coop Sverige:14|ICA Gruppen:10|Axfood:3|Lidl:2,5049,0,ok
+se,Sverige,1781,Kristinehamn,63560,2143,store_count_proxy,13,2781,Unknown,38.5,2,5,Unknown:5|ICA Gruppen:4|Axfood:2|Coop Sverige:1|Lidl:1,5049,0,ok
+se,Sverige,1782,Filipstad,12810,1745,store_count_proxy,10,4200,Unknown,60,7.8,6,Unknown:6|Coop Sverige:2|Lidl:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,1783,Hagfors,8500,2449,store_count_proxy,13,5148,Unknown,69.2,15.3,9,Unknown:9|ICA Gruppen:2|Coop Sverige:1|Lidl:1,5049,0,ok
+se,Sverige,1784,Arvika,14610,1503,store_count_proxy,16,3516,Unknown,43.8,11,7,Unknown:7|ICA Gruppen:6|Coop Sverige:2|Lidl:1,5049,0,ok
+se,Sverige,1785,Säffle,59870,2223,store_count_proxy,12,2361,ICA Gruppen,33.3,2,3,ICA Gruppen:4|Unknown:3|Coop Sverige:2|Axfood:2|Lidl:1,5049,0,ok
+se,Sverige,1814,Lekeberg,7510,6800,store_count_proxy,3,5556,ICA Gruppen,66.7,4,0,ICA Gruppen:2|Coop Sverige:1,5049,0,ok
+se,Sverige,1860,Laxå,15260,3543,store_count_proxy,5,3600,Unknown,40,3.3,2,Unknown:2|ICA Gruppen:2|Coop Sverige:1,5049,0,ok
+se,Sverige,1861,Hallsberg,8250,4463,store_count_proxy,7,2653,ICA Gruppen,28.6,8.5,2,ICA Gruppen:2|Unknown:2|Coop Sverige:2|Lidl:1,5049,0,ok
+se,Sverige,1862,Degerfors,12640,3085,store_count_proxy,3,5556,ICA Gruppen,66.7,2.4,1,ICA Gruppen:2|Unknown:1,5049,0,ok
+se,Sverige,1863,Hällefors,5630,3295,store_count_proxy,7,4286,Unknown,57.1,12.4,4,Unknown:4|ICA Gruppen:2|Axfood:1,5049,0,ok
+se,Sverige,1864,Ljusnarsberg,8690,2785,store_count_proxy,1,10000,ICA Gruppen,100,1.2,0,ICA Gruppen:1,5049,0,ok
+se,Sverige,1880,Örebro,63479,4259,store_count_proxy,53,2795,Unknown,41.5,8.3,22,Unknown:22|ICA Gruppen:13|Axfood:8|Coop Sverige:8|Lidl:2,5049,0,ok
+se,Sverige,1881,Kumla,14450,1846,store_count_proxy,8,3438,Unknown,50,5.5,4,Unknown:4|ICA Gruppen:2|Lidl:1|Axfood:1,5049,0,ok
+se,Sverige,1882,Askersund,8820,2361,store_count_proxy,8,2813,ICA Gruppen,37.5,9.1,2,ICA Gruppen:3|Unknown:2|Coop Sverige:2|Axfood:1,5049,0,ok
+se,Sverige,1883,Karlskoga,15220,3268,store_count_proxy,10,2600,Coop Sverige,40,6.6,1,Coop Sverige:4|Lidl:2|ICA Gruppen:2|Axfood:1|Unknown:1,5049,0,ok
+se,Sverige,1884,Nora,7320,4338,store_count_proxy,11,4545,Unknown,63.6,15,7,Unknown:7|ICA Gruppen:2|Axfood:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1885,Lindesberg,7520,6427,store_count_proxy,16,3203,Unknown,43.8,21.3,7,Unknown:7|Axfood:4|ICA Gruppen:4|Lidl:1,5049,0,ok
+se,Sverige,1904,Skinnskatteberg,7280,4351,store_count_proxy,5,4400,Axfood,60,6.9,0,Axfood:3|Coop Sverige:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,1907,Surahammar,18460,3599,store_count_proxy,7,2653,Coop Sverige,28.6,3.8,2,Coop Sverige:2|Unknown:2|Axfood:2|ICA Gruppen:1,5049,0,ok
+se,Sverige,1960,Kungsör,7040,2821,store_count_proxy,4,3750,Unknown,50,5.7,2,Unknown:2|Coop Sverige:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,1961,Hallstahammar,5500,8012,store_count_proxy,5,2800,Unknown,40,9.1,2,Unknown:2|Axfood:1|Lidl:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,1962,Norberg,20660,7848,store_count_proxy,4,3750,Unknown,50,1.9,2,Unknown:2|ICA Gruppen:1|Coop Sverige:1,5049,0,ok
+se,Sverige,1980,Västerås,8560,3447,store_count_proxy,49,2428,Unknown,32.7,57.2,16,Unknown:16|ICA Gruppen:15|Coop Sverige:7|Axfood:6|Lidl:4|Bergendahls:1,5049,0,ok
+se,Sverige,1981,Sala,6270,4359,store_count_proxy,8,2813,Unknown,37.5,12.8,3,Unknown:3|Axfood:2|ICA Gruppen:2|Coop Sverige:1,5049,0,ok
+se,Sverige,1982,Fagersta,6860,2655,store_count_proxy,7,2245,Coop Sverige,28.6,10.2,1,Coop Sverige:2|ICA Gruppen:2|Axfood:1|Lidl:1|Unknown:1,5049,0,ok
+se,Sverige,1983,Köping,5380,3398,store_count_proxy,8,2813,ICA Gruppen,37.5,14.9,0,ICA Gruppen:3|Axfood:2|Coop Sverige:2|Lidl:1,5049,0,ok
+se,Sverige,1984,Arboga,15150,4188,store_count_proxy,9,2840,ICA Gruppen,44.4,5.9,2,ICA Gruppen:4|Unknown:2|Lidl:1|Axfood:1|Coop Sverige:1,5049,0,ok
+se,Sverige,2021,Vansbro,7290,6789,store_count_proxy,6,2778,Unknown,33.3,8.2,2,Unknown:2|Axfood:2|ICA Gruppen:1|Coop Sverige:1,5049,0,ok
+se,Sverige,2023,Malung-Sälen,7140,6513,store_count_proxy,21,3107,ICA Gruppen,38.1,29.4,8,ICA Gruppen:8|Unknown:8|Coop Sverige:2|Axfood:2|Lidl:1,5049,0,ok
+se,Sverige,2026,Gagnef,6370,5244,store_count_proxy,7,3878,ICA Gruppen,57.1,11,1,ICA Gruppen:4|Axfood:1|Coop Sverige:1|Unknown:1,5049,0,ok
+se,Sverige,2029,Leksand,3380,3076,store_count_proxy,10,3000,Unknown,40,29.6,4,Unknown:4|Axfood:3|ICA Gruppen:2|Coop Sverige:1,5049,0,ok
+se,Sverige,2031,Rättvik,18940,10598,store_count_proxy,8,3125,Axfood,37.5,4.2,3,Axfood:3|Unknown:3|ICA Gruppen:1|Coop Sverige:1,5049,0,ok
+se,Sverige,2034,Orsa,3450,4112,store_count_proxy,6,2778,Unknown,33.3,17.4,2,Unknown:2|ICA Gruppen:2|Axfood:1|Coop Sverige:1,5049,0,ok
+se,Sverige,2039,Älvdalen,5310,2773,store_count_proxy,13,3728,Unknown,53.8,24.5,7,Unknown:7|ICA Gruppen:3|Coop Sverige:2|Axfood:1,5049,0,ok
+se,Sverige,2061,Smedjebacken,7260,5461,store_count_proxy,4,3750,ICA Gruppen,50,5.5,1,ICA Gruppen:2|Unknown:1|Coop Sverige:1,5049,0,ok
+se,Sverige,2062,Mora,10050,4709,store_count_proxy,10,3000,Unknown,40,10,4,Unknown:4|ICA Gruppen:3|Axfood:2|Coop Sverige:1,5049,0,ok
+se,Sverige,2080,Falun,12740,5424,store_count_proxy,24,2292,Unknown,33.3,18.8,8,Unknown:8|Coop Sverige:5|Axfood:5|ICA Gruppen:4|Bergendahls:1|Lidl:1,5049,0,ok
+se,Sverige,2081,Borlänge,71620,7426,store_count_proxy,19,2853,ICA Gruppen,36.8,2.7,6,ICA Gruppen:7|Unknown:6|Axfood:4|Lidl:1|Coop Sverige:1,5049,0,ok
+se,Sverige,2082,Säter,7430,2928,store_count_proxy,7,3061,Unknown,42.9,9.4,3,Unknown:3|ICA Gruppen:2|Coop Sverige:1|Axfood:1,5049,0,ok
+se,Sverige,2083,Hedemora,8360,3300,store_count_proxy,9,2840,ICA Gruppen,33.3,10.8,3,ICA Gruppen:3|Unknown:3|Axfood:2|Lidl:1,5049,0,ok
+se,Sverige,2084,Avesta,19680,7900,store_count_proxy,11,2562,Unknown,36.4,5.6,4,Unknown:4|ICA Gruppen:3|Axfood:2|Lidl:1|Coop Sverige:1,5049,0,ok
+se,Sverige,2085,Ludvika,56470,5940,store_count_proxy,13,2544,Coop Sverige,38.5,2.3,2,Coop Sverige:5|ICA Gruppen:3|Axfood:2|Unknown:2|Lidl:1,5049,0,ok
+se,Sverige,2101,Ockelbo,4790,4265,store_count_proxy,6,5000,Unknown,66.7,12.5,4,Unknown:4|ICA Gruppen:1|Axfood:1,5049,0,ok
+se,Sverige,2104,Hofors,6990,11267,store_count_proxy,7,3061,Unknown,42.9,10,3,Unknown:3|ICA Gruppen:2|Coop Sverige:1|Lidl:1,5049,0,ok
+se,Sverige,2121,Ovanåker,10090,5454,store_count_proxy,8,3438,ICA Gruppen,50,7.9,2,ICA Gruppen:4|Unknown:2|Coop Sverige:1|Axfood:1,5049,0,ok
+se,Sverige,2132,Nordanstig,5010,6174,store_count_proxy,10,4600,Unknown,60,20,6,Unknown:6|ICA Gruppen:3|Coop Sverige:1,5049,0,ok
+se,Sverige,2161,Ljusdal,6200,3440,store_count_proxy,11,2893,Unknown,36.4,17.7,4,Unknown:4|ICA Gruppen:4|Coop Sverige:1|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,2180,Gävle,16280,7939,store_count_proxy,46,2561,Unknown,34.8,28.3,16,Unknown:16|ICA Gruppen:12|Coop Sverige:11|Axfood:4|Lidl:2|Bergendahls:1,5049,0,ok
+se,Sverige,2181,Sandviken,9220,14244,store_count_proxy,25,3216,Unknown,48,27.1,12,Unknown:12|ICA Gruppen:6|Coop Sverige:4|Axfood:2|Lidl:1,5049,0,ok
+se,Sverige,2182,Söderhamn,3950,4990,store_count_proxy,15,2178,ICA Gruppen,26.7,38,4,ICA Gruppen:4|Unknown:4|Axfood:3|Coop Sverige:2|Lidl:2,5049,0,ok
+se,Sverige,2183,Bollnäs,4870,9391,store_count_proxy,12,2639,Unknown,33.3,24.6,4,Unknown:4|ICA Gruppen:4|Coop Sverige:2|Lidl:1|Axfood:1,5049,0,ok
+se,Sverige,2184,Hudiksvall,8790,9536,store_count_proxy,18,2901,ICA Gruppen,44.4,20.5,4,ICA Gruppen:8|Unknown:4|Axfood:3|Coop Sverige:2|Lidl:1,5049,0,ok
+se,Sverige,2260,Ånge,14880,5463,store_count_proxy,7,3469,Coop Sverige,42.9,4.7,2,Coop Sverige:3|Unknown:2|ICA Gruppen:2,5049,0,ok
+se,Sverige,2262,Timrå,6410,4979,store_count_proxy,11,3058,Unknown,45.5,17.2,5,Unknown:5|ICA Gruppen:3|Coop Sverige:1|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,2280,Härnösand,59230,8140,store_count_proxy,13,2544,Unknown,38.5,2.2,5,Unknown:5|Coop Sverige:3|Axfood:2|ICA Gruppen:2|Lidl:1,5049,0,ok
+se,Sverige,2281,Sundsvall,77840,5116,store_count_proxy,56,4075,Unknown,58.9,7.2,33,Unknown:33|ICA Gruppen:12|Coop Sverige:5|Axfood:4|Lidl:2,5049,0,ok
+se,Sverige,2282,Kramfors,7470,2543,store_count_proxy,16,3672,Unknown,50,21.4,8,Unknown:8|ICA Gruppen:5|Coop Sverige:2|Axfood:1,5049,0,ok
+se,Sverige,2283,Sollefteå,9460,3405,store_count_proxy,13,3728,ICA Gruppen,53.8,13.7,3,ICA Gruppen:7|Unknown:3|Coop Sverige:2|Lidl:1,5049,0,ok
+se,Sverige,2284,Örnsköldsvik,26610,4301,store_count_proxy,34,2924,Unknown,41.2,12.8,14,Unknown:14|ICA Gruppen:10|Coop Sverige:5|Axfood:4|Lidl:1,5049,0,ok
+se,Sverige,2303,Ragunda,3250,4389,store_count_proxy,5,4400,ICA Gruppen,60,15.4,1,ICA Gruppen:3|Coop Sverige:1|Unknown:1,5049,0,ok
+se,Sverige,2305,Bräcke,2640,4299,store_count_proxy,5,6800,ICA Gruppen,80,18.9,0,ICA Gruppen:4|Coop Sverige:1,5049,0,ok
+se,Sverige,2309,Krokom,15280,5041,store_count_proxy,10,4200,ICA Gruppen,50,6.5,4,ICA Gruppen:5|Unknown:4|Axfood:1,5049,0,ok
+se,Sverige,2313,Strömsund,8180,8069,store_count_proxy,11,6860,ICA Gruppen,81.8,13.4,1,ICA Gruppen:9|Coop Sverige:1|Unknown:1,5049,0,ok
+se,Sverige,2321,Åre,4580,6308,store_count_proxy,18,4506,ICA Gruppen,61.1,39.3,4,ICA Gruppen:11|Unknown:4|Coop Sverige:3,5049,0,ok
+se,Sverige,2326,Berg,1930,3221,store_count_proxy,7,4286,ICA Gruppen,57.1,36.3,1,ICA Gruppen:4|Axfood:2|Unknown:1,5049,0,ok
+se,Sverige,2361,Härjedalen,3700,6296,store_count_proxy,20,4200,Unknown,50,54.1,10,Unknown:10|ICA Gruppen:8|Coop Sverige:2,5049,0,ok
+se,Sverige,2380,Östersund,19830,12197,store_count_proxy,26,3669,ICA Gruppen,53.8,13.1,5,ICA Gruppen:14|Coop Sverige:5|Unknown:5|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,2401,Nordmaling,5040,2510,store_count_proxy,4,3750,ICA Gruppen,50,7.9,1,ICA Gruppen:2|Unknown:1|Coop Sverige:1,5049,0,ok
+se,Sverige,2403,Bjurholm,2280,3088,store_count_proxy,4,6250,ICA Gruppen,75,17.5,0,ICA Gruppen:3|Coop Sverige:1,5049,0,ok
+se,Sverige,2404,Vindeln,8260,5076,store_count_proxy,7,3061,ICA Gruppen,42.9,8.5,1,ICA Gruppen:3|Axfood:2|Unknown:1|Coop Sverige:1,5049,0,ok
+se,Sverige,2409,Robertsfors,2970,3424,store_count_proxy,4,5000,Coop Sverige,50,13.5,0,Coop Sverige:2|ICA Gruppen:2,5049,0,ok
+se,Sverige,2417,Norsjö,6750,5506,store_count_proxy,5,5200,Unknown,60,7.4,3,Unknown:3|ICA Gruppen:2,5049,0,ok
+se,Sverige,2418,Malå,7170,3136,store_count_proxy,2,5000,Coop Sverige,50,2.8,0,Coop Sverige:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,2421,Storuman,3830,6293,store_count_proxy,6,3889,Coop Sverige,50,15.7,1,Coop Sverige:3|ICA Gruppen:2|Unknown:1,5049,0,ok
+se,Sverige,2422,Sorsele,2610,3658,store_count_proxy,5,3600,ICA Gruppen,40,19.2,2,ICA Gruppen:2|Unknown:2|Coop Sverige:1,5049,0,ok
+se,Sverige,2425,Dorotea,7470,3127,store_count_proxy,7,5102,ICA Gruppen,57.1,9.4,3,ICA Gruppen:4|Unknown:3,5049,0,ok
+se,Sverige,2460,Vännäs,3400,5143,store_count_proxy,3,5556,Coop Sverige,66.7,8.8,0,Coop Sverige:2|ICA Gruppen:1,5049,0,ok
+se,Sverige,2462,Vilhelmina,5680,8263,store_count_proxy,9,3333,Unknown,44.4,15.8,4,Unknown:4|Coop Sverige:3|Axfood:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,2463,Åsele,6460,2697,store_count_proxy,4,2500,Axfood,25,6.2,1,Axfood:1|Unknown:1|Coop Sverige:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,2480,Umeå,78549,19447,store_count_proxy,59,2956,Unknown,35.6,7.5,21,Unknown:21|ICA Gruppen:21|Coop Sverige:11|Axfood:5|Lidl:1,5049,0,ok
+se,Sverige,2481,Lycksele,4430,4725,store_count_proxy,8,3438,ICA Gruppen,50,18.1,2,ICA Gruppen:4|Unknown:2|Coop Sverige:1|Axfood:1,5049,0,ok
+se,Sverige,2482,Skellefteå,5850,3161,store_count_proxy,29,2556,ICA Gruppen,31,49.6,6,ICA Gruppen:9|Coop Sverige:9|Unknown:6|Axfood:4|Lidl:1,5049,0,ok
+se,Sverige,2505,Arvidsjaur,2710,3430,store_count_proxy,5,3600,ICA Gruppen,40,18.5,2,ICA Gruppen:2|Unknown:2|Coop Sverige:1,5049,0,ok
+se,Sverige,2506,Arjeplog,2560,3310,store_count_proxy,6,3889,Unknown,50,23.4,3,Unknown:3|ICA Gruppen:2|Coop Sverige:1,5049,0,ok
+se,Sverige,2510,Jokkmokk,6740,3242,store_count_proxy,9,5062,Unknown,66.7,13.4,6,Unknown:6|Coop Sverige:2|ICA Gruppen:1,5049,0,ok
+se,Sverige,2513,Överkalix,3690,3064,store_count_proxy,3,3333,Unknown,33.3,8.1,1,Unknown:1|Coop Sverige:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,2514,Kalix,3440,2831,store_count_proxy,11,3223,ICA Gruppen,45.5,32,3,ICA Gruppen:5|Unknown:3|Coop Sverige:2|Axfood:1,5049,0,ok
+se,Sverige,2518,Övertorneå,2930,2943,store_count_proxy,6,3889,Unknown,50,20.5,3,Unknown:3|ICA Gruppen:2|Coop Sverige:1,5049,0,ok
+se,Sverige,2521,Pajala,8400,5139,store_count_proxy,11,3554,ICA Gruppen,45.5,13.1,4,ICA Gruppen:5|Unknown:4|Axfood:1|Coop Sverige:1,5049,0,ok
+se,Sverige,2523,Gällivare,18620,5171,store_count_proxy,10,3000,Unknown,40,5.4,4,Unknown:4|Coop Sverige:3|ICA Gruppen:2|Axfood:1,5049,0,ok
+se,Sverige,2560,Älvsbyn,3790,3139,store_count_proxy,4,2500,Axfood,25,10.6,1,Axfood:1|Coop Sverige:1|Unknown:1|ICA Gruppen:1,5049,0,ok
+se,Sverige,2580,Luleå,45570,5513,store_count_proxy,27,2730,ICA Gruppen,33.3,5.9,7,ICA Gruppen:9|Coop Sverige:8|Unknown:7|Axfood:2|Lidl:1,5049,0,ok
+se,Sverige,2581,Piteå,9510,7071,store_count_proxy,29,3532,ICA Gruppen,48.3,30.5,6,ICA Gruppen:14|Coop Sverige:8|Unknown:6|Axfood:1,5049,0,ok
+se,Sverige,2582,Boden,4200,3152,store_count_proxy,11,2562,Coop Sverige,36.4,26.2,2,Coop Sverige:4|ICA Gruppen:3|Unknown:2|Axfood:1|Lidl:1,5049,0,ok
+se,Sverige,2583,Haparanda,10930,6612,store_count_proxy,8,4688,Unknown,62.5,7.3,5,Unknown:5|ICA Gruppen:2|Coop Sverige:1,5049,0,ok
+se,Sverige,2584,Kiruna,32900,15477,store_count_proxy,25,3120,Unknown,44,7.6,11,Unknown:11|Coop Sverige:7|ICA Gruppen:4|Axfood:3,5049,0,ok
+dk,Danmark,0101,København,653674,88,store_count_proxy,505,3261,Unknown,50.7,7.7,256,Unknown:256|Salling Group:106|Coop Danmark:66|Dagrofa:30|Reitangruppen:27|Lidl:20,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0147,Frederiksberg,104410,9,store_count_proxy,60,2572,Unknown,40,5.7,24,Unknown:24|Salling Group:15|Coop Danmark:8|Dagrofa:6|Reitangruppen:4|Lidl:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0151,Ballerup,49640,34,store_count_proxy,29,2319,Unknown,31,5.8,9,Unknown:9|Salling Group:9|Reitangruppen:4|Dagrofa:3|Lidl:2|Coop Danmark:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0153,Brøndby,35450,20,store_count_proxy,25,3088,Unknown,48,7.1,12,Unknown:12|Salling Group:4|Coop Danmark:4|Reitangruppen:4|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0155,Dragør,14240,18,store_count_proxy,8,4063,Unknown,50,5.6,4,Unknown:4|Salling Group:3|Coop Danmark:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0157,Gentofte,75750,26,store_count_proxy,35,2310,Coop Danmark,28.6,4.6,8,Coop Danmark:10|Salling Group:9|Unknown:8|Dagrofa:6|Reitangruppen:1|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0159,Gladsaxe,69980,25,store_count_proxy,34,2301,Unknown,35.3,4.9,12,Unknown:12|Salling Group:8|Coop Danmark:6|Dagrofa:3|Reitangruppen:3|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0161,Glostrup,23270,13,store_count_proxy,17,1903,Salling Group,23.5,7.3,4,Salling Group:4|Unknown:4|Dagrofa:3|Reitangruppen:3|Coop Danmark:2|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0163,Herlev,28710,12,store_count_proxy,24,4340,Unknown,58.3,8.4,14,Unknown:14|Salling Group:7|Coop Danmark:2|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0165,Albertslund,28130,23,store_count_proxy,20,3550,Unknown,55,7.1,11,Unknown:11|Coop Danmark:3|Salling Group:3|Reitangruppen:1|Dagrofa:1|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0167,Hvidovre,53890,22,store_count_proxy,29,2224,Unknown,34.5,5.4,10,Unknown:10|Salling Group:7|Coop Danmark:4|Lidl:3|Reitangruppen:3|Dagrofa:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0169,Høje-Taastrup,50870,78,store_count_proxy,25,2672,Unknown,40,4.9,10,Unknown:10|Coop Danmark:6|Salling Group:5|Reitangruppen:2|Lidl:1|Dagrofa:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0173,Lyngby-Taarbæk,56210,39,store_count_proxy,36,2608,Unknown,33.3,6.4,12,Unknown:12|Salling Group:11|Coop Danmark:8|Dagrofa:2|Lidl:2|Reitangruppen:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0175,Rødovre,40230,12,store_count_proxy,22,2190,Salling Group,31.8,5.5,4,Salling Group:7|Unknown:4|Coop Danmark:4|Dagrofa:4|Reitangruppen:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0183,Ishøj,23440,26,store_count_proxy,13,2544,Salling Group,30.8,5.5,4,Salling Group:4|Unknown:4|Dagrofa:3|Reitangruppen:1|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0185,Tårnby,43740,65,store_count_proxy,49,3878,Unknown,59.2,11.2,29,Unknown:29|Salling Group:6|Coop Danmark:5|Dagrofa:4|Lidl:3|Reitangruppen:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0187,Vallensbæk,16770,9,store_count_proxy,11,2893,Unknown,45.5,6.6,5,Unknown:5|Coop Danmark:2|Salling Group:2|Reitangruppen:1|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0190,Furesø,41650,57,store_count_proxy,17,2042,Coop Danmark,23.5,4.1,3,Coop Danmark:4|Salling Group:4|Reitangruppen:4|Unknown:3|Dagrofa:1|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0201,Allerød,26200,68,store_count_proxy,11,2231,Salling Group,36.4,4.2,1,Salling Group:4|Coop Danmark:2|Reitangruppen:2|Dagrofa:1|Unknown:1|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0210,Fredensborg,41530,113,store_count_proxy,13,3018,Salling Group,46.2,3.1,1,Salling Group:6|Coop Danmark:3|Reitangruppen:2|Unknown:1|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0217,Helsingør,63930,121,store_count_proxy,32,2148,Unknown,28.1,5,9,Unknown:9|Coop Danmark:8|Salling Group:7|Dagrofa:4|Reitangruppen:3|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0219,Hillerød,53510,215,store_count_proxy,29,2224,Salling Group,31,5.4,8,Salling Group:9|Unknown:8|Coop Danmark:4|Reitangruppen:4|Lidl:3|Dagrofa:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0223,Hørsholm,25310,31,store_count_proxy,10,2600,Salling Group,40,4,2,Salling Group:4|Dagrofa:2|Unknown:2|Reitangruppen:1|Coop Danmark:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0230,Rudersdal,57050,73,store_count_proxy,26,2189,Salling Group,26.9,4.6,4,Salling Group:7|Coop Danmark:7|Dagrofa:5|Unknown:4|Reitangruppen:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0240,Egedal,44960,125,store_count_proxy,20,3000,Unknown,45,4.4,9,Unknown:9|Salling Group:5|Coop Danmark:3|Reitangruppen:2|Dagrofa:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0250,Frederikssund,46150,249,store_count_proxy,33,2433,Coop Danmark,33.3,7.2,9,Coop Danmark:11|Unknown:9|Salling Group:7|Dagrofa:3|Reitangruppen:2|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0253,Greve,50380,60,store_count_proxy,28,2245,Salling Group,32.1,5.6,8,Salling Group:9|Unknown:8|Dagrofa:3|Lidl:3|Coop Danmark:3|Reitangruppen:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0259,Køge,62170,256,store_count_proxy,36,2562,Unknown,30.6,5.8,11,Unknown:11|Coop Danmark:10|Salling Group:10|Reitangruppen:3|Lidl:1|Dagrofa:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0260,Halsnæs,31670,122,store_count_proxy,17,2249,Salling Group,29.4,5.4,2,Salling Group:5|Coop Danmark:5|Dagrofa:3|Unknown:2|Lidl:1|Reitangruppen:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0265,Roskilde,89170,212,store_count_proxy,48,2005,Unknown,29.2,5.4,14,Unknown:14|Coop Danmark:11|Salling Group:8|Dagrofa:6|Reitangruppen:6|Lidl:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0269,Solrød,23430,40,store_count_proxy,10,2000,Salling Group,30,4.3,2,Salling Group:3|Unknown:2|Coop Danmark:2|Dagrofa:1|Lidl:1|Reitangruppen:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0270,Gribskov,41850,279,store_count_proxy,26,2278,Salling Group,34.6,6.2,6,Salling Group:9|Unknown:6|Coop Danmark:4|Reitangruppen:4|Dagrofa:2|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0306,Odsherred,33040,355,store_count_proxy,28,2704,Coop Danmark,39.3,8.5,8,Coop Danmark:11|Unknown:8|Reitangruppen:4|Salling Group:3|Lidl:1|Dagrofa:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0316,Holbæk,72390,579,store_count_proxy,46,2287,Coop Danmark,30.4,6.4,11,Coop Danmark:14|Salling Group:11|Unknown:11|Reitangruppen:6|Dagrofa:3|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0320,Faxe,37100,405,store_count_proxy,21,2063,Coop Danmark,28.6,5.7,5,Coop Danmark:6|Unknown:5|Salling Group:4|Reitangruppen:3|Dagrofa:2|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0326,Kalundborg,49820,604,store_count_proxy,34,2751,Coop Danmark,38.2,6.8,11,Coop Danmark:13|Unknown:11|Reitangruppen:3|Dagrofa:3|Salling Group:3|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0329,Ringsted,35140,295,store_count_proxy,19,2244,Coop Danmark,31.6,5.4,3,Coop Danmark:6|Salling Group:4|Reitangruppen:4|Unknown:3|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0330,Slagelse,79320,567,store_count_proxy,54,1845,Salling Group,24.1,6.8,12,Salling Group:13|Unknown:12|Coop Danmark:9|Dagrofa:8|Reitangruppen:8|Lidl:4,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0336,Stevns,23130,250,store_count_proxy,13,2308,Unknown,30.8,5.6,4,Unknown:4|Dagrofa:3|Coop Danmark:3|Salling Group:2|Reitangruppen:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0340,Sorø,30260,310,store_count_proxy,18,2160,Coop Danmark,27.8,5.9,5,Coop Danmark:5|Unknown:5|Salling Group:3|Reitangruppen:3|Dagrofa:1|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0350,Lejre,28340,239,store_count_proxy,16,2188,Unknown,31.3,5.6,5,Unknown:5|Salling Group:3|Reitangruppen:3|Coop Danmark:3|Dagrofa:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0360,Lolland,41960,892,store_count_proxy,38,2382,Unknown,39.5,9.1,15,Unknown:15|Coop Danmark:7|Dagrofa:6|Reitangruppen:4|Salling Group:3|Lidl:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0370,Næstved,84600,684,store_count_proxy,45,1951,Salling Group,24.4,5.3,9,Salling Group:11|Coop Danmark:10|Unknown:9|Reitangruppen:8|Dagrofa:5|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0376,Guldborgsund,60210,907,store_count_proxy,49,1945,Unknown,24.5,8.1,12,Unknown:12|Coop Danmark:11|Dagrofa:9|Salling Group:9|Reitangruppen:6|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0390,Vordingborg,46730,621,store_count_proxy,34,2024,Coop Danmark,29.4,7.3,8,Coop Danmark:10|Unknown:8|Reitangruppen:5|Salling Group:5|Dagrofa:4|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0400,Bornholm,39270,588,store_count_proxy,37,2520,Coop Danmark,37.8,9.4,10,Coop Danmark:14|Unknown:10|Dagrofa:5|Salling Group:4|Reitangruppen:2|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0410,Middelfart,39160,300,store_count_proxy,26,2633,Coop Danmark,38.5,6.6,5,Coop Danmark:10|Reitangruppen:6|Unknown:5|Salling Group:4|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0420,Assens,41520,512,store_count_proxy,29,2081,Unknown,27.6,7,8,Unknown:8|Coop Danmark:6|Dagrofa:5|Salling Group:5|Reitangruppen:5,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0430,Faaborg-Midtfyn,51920,634,store_count_proxy,34,2215,Coop Danmark,32.4,6.5,7,Coop Danmark:11|Dagrofa:8|Unknown:7|Salling Group:3|Reitangruppen:3|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0440,Kerteminde,24050,207,store_count_proxy,17,2111,Unknown,29.4,7.1,5,Unknown:5|Dagrofa:3|Coop Danmark:3|Salling Group:3|Reitangruppen:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0450,Nyborg,36410,277,store_count_proxy,24,2153,Unknown,33.3,6.6,8,Unknown:8|Salling Group:5|Coop Danmark:4|Dagrofa:3|Reitangruppen:3|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0461,Odense,205978,304,store_count_proxy,125,2305,Unknown,35.2,6.1,44,Unknown:44|Salling Group:29|Coop Danmark:20|Reitangruppen:18|Dagrofa:8|Lidl:6,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0479,Svendborg,59040,416,store_count_proxy,44,2273,Unknown,29.5,7.5,13,Unknown:13|Coop Danmark:13|Dagrofa:7|Salling Group:6|Reitangruppen:4|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0480,Nordfyns,30130,451,store_count_proxy,18,2099,Coop Danmark,33.3,6,2,Coop Danmark:6|Dagrofa:3|Salling Group:3|Reitangruppen:3|Unknown:2|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0482,Langeland,12240,284,store_count_proxy,14,2857,Unknown,35.7,11.4,5,Unknown:5|Coop Danmark:5|Dagrofa:2|Salling Group:1|Reitangruppen:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0492,Ærø,6040,91,store_count_proxy,5,3600,Unknown,40,8.3,2,Unknown:2|Coop Danmark:2|Salling Group:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0510,Haderslev,57520,814,store_count_proxy,36,2176,Unknown,33.3,6.3,12,Unknown:12|Dagrofa:8|Reitangruppen:6|Salling Group:5|Coop Danmark:3|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0530,Billund,26910,536,store_count_proxy,20,2150,Coop Danmark,30,7.4,5,Coop Danmark:6|Unknown:5|Dagrofa:4|Reitangruppen:2|Salling Group:2|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0540,Sønderborg,74050,497,store_count_proxy,43,2331,Coop Danmark,34.9,5.8,10,Coop Danmark:15|Unknown:10|Salling Group:8|Reitangruppen:5|Dagrofa:4|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0550,Tønder,37220,1284,store_count_proxy,28,2857,Coop Danmark,42.9,7.5,6,Coop Danmark:12|Dagrofa:6|Unknown:6|Salling Group:2|Reitangruppen:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0561,Esbjerg,116032,742,store_count_proxy,82,1975,Unknown,28,7.1,23,Unknown:23|Coop Danmark:17|Salling Group:15|Dagrofa:13|Reitangruppen:10|Lidl:4,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0563,Fanø,3430,56,store_count_proxy,4,3750,Dagrofa,50,11.7,1,Dagrofa:2|Unknown:1|Coop Danmark:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0573,Varde,50950,1240,store_count_proxy,46,2514,Coop Danmark,37,9,12,Coop Danmark:17|Unknown:12|Dagrofa:8|Salling Group:5|Reitangruppen:3|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0575,Vejen,43320,814,store_count_proxy,31,2487,Unknown,32.3,7.2,10,Unknown:10|Coop Danmark:10|Dagrofa:5|Salling Group:3|Reitangruppen:2|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0580,Aabenraa,60170,940,store_count_proxy,35,2245,Unknown,34.3,5.8,12,Unknown:12|Coop Danmark:8|Reitangruppen:5|Salling Group:5|Dagrofa:4|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0607,Fredericia,52130,135,store_count_proxy,27,1907,Unknown,25.9,5.2,7,Unknown:7|Salling Group:6|Coop Danmark:5|Dagrofa:4|Reitangruppen:3|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0615,Horsens,92910,520,store_count_proxy,57,2065,Coop Danmark,26.3,6.1,14,Coop Danmark:15|Unknown:14|Salling Group:12|Reitangruppen:9|Dagrofa:4|Lidl:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0621,Kolding,94280,604,store_count_proxy,55,2013,Unknown,27.3,5.8,15,Unknown:15|Coop Danmark:13|Salling Group:10|Reitangruppen:9|Dagrofa:5|Lidl:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0630,Vejle,118970,1068,store_count_proxy,73,2257,Coop Danmark,30.1,6.1,21,Coop Danmark:22|Unknown:21|Salling Group:12|Reitangruppen:10|Dagrofa:5|Lidl:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0657,Herning,91350,1323,store_count_proxy,54,1982,Unknown,25.9,5.9,14,Unknown:14|Dagrofa:11|Coop Danmark:11|Reitangruppen:10|Salling Group:6|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0661,Holstebro,59250,793,store_count_proxy,35,2131,Unknown,34.3,5.9,12,Unknown:12|Coop Danmark:6|Reitangruppen:6|Dagrofa:5|Salling Group:4|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0665,Lemvig,19730,1075,store_count_proxy,22,3306,Unknown,50,11.2,11,Unknown:11|Dagrofa:5|Coop Danmark:3|Reitangruppen:2|Salling Group:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0671,Struer,21260,246,store_count_proxy,17,2457,Unknown,35.3,8,6,Unknown:6|Dagrofa:5|Coop Danmark:2|Reitangruppen:2|Salling Group:1|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0706,Syddjurs,43530,693,store_count_proxy,34,2491,Coop Danmark,38.2,7.8,6,Coop Danmark:13|Dagrofa:7|Unknown:6|Salling Group:5|Reitangruppen:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0707,Norddjurs,37220,724,store_count_proxy,37,2535,Coop Danmark,35.1,9.9,11,Coop Danmark:13|Unknown:11|Dagrofa:6|Reitangruppen:4|Salling Group:2|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0710,Favrskov,49440,543,store_count_proxy,19,2410,Coop Danmark,31.6,3.8,5,Coop Danmark:6|Unknown:5|Salling Group:4|Reitangruppen:3|Dagrofa:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0727,Odder,23780,225,store_count_proxy,14,2449,Unknown,35.7,5.9,5,Unknown:5|Coop Danmark:4|Salling Group:2|Reitangruppen:1|Lidl:1|Dagrofa:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0730,Randers,99590,748,store_count_proxy,54,2051,Unknown,24.1,5.4,13,Unknown:13|Coop Danmark:12|Salling Group:12|Reitangruppen:11|Dagrofa:4|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0740,Silkeborg,95890,854,store_count_proxy,61,2314,Unknown,34.4,6.4,21,Unknown:21|Coop Danmark:16|Reitangruppen:9|Dagrofa:7|Salling Group:5|Lidl:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0741,Samsø,3700,114,store_count_proxy,6,3889,Coop Danmark,50,16.2,2,Coop Danmark:3|Unknown:2|Salling Group:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0746,Skanderborg,62490,416,store_count_proxy,36,2500,Coop Danmark,36.1,5.8,10,Coop Danmark:13|Unknown:10|Salling Group:6|Dagrofa:3|Reitangruppen:3|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0751,Aarhus,352751,468,store_count_proxy,191,2203,Unknown,31.9,5.4,61,Unknown:61|Salling Group:45|Coop Danmark:35|Reitangruppen:29|Dagrofa:12|Lidl:9,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0756,Ikast-Brande,41640,737,store_count_proxy,25,1840,Coop Danmark,24,6,4,Coop Danmark:6|Dagrofa:5|Reitangruppen:5|Unknown:4|Salling Group:3|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0760,Ringkøbing-Skjern,57260,1489,store_count_proxy,52,2345,Unknown,34.6,9.1,18,Unknown:18|Coop Danmark:12|Dagrofa:11|Salling Group:5|Reitangruppen:4|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0766,Hedensted,47200,551,store_count_proxy,29,2200,Unknown,27.6,6.1,8,Unknown:8|Coop Danmark:8|Dagrofa:6|Salling Group:4|Reitangruppen:2|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0773,Morsø,20160,366,store_count_proxy,20,2950,Unknown,45,9.9,9,Unknown:9|Dagrofa:5|Coop Danmark:3|Reitangruppen:1|Lidl:1|Salling Group:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0779,Skive,46470,687,store_count_proxy,35,2392,Coop Danmark,34.3,7.5,9,Coop Danmark:12|Unknown:9|Dagrofa:7|Reitangruppen:3|Salling Group:3|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0787,Thisted,44130,1073,store_count_proxy,43,2461,Dagrofa,37.2,9.7,11,Dagrofa:16|Unknown:11|Coop Danmark:7|Reitangruppen:4|Salling Group:3|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0791,Viborg,100320,1409,store_count_proxy,65,2052,Unknown,27.7,6.5,18,Unknown:18|Dagrofa:15|Coop Danmark:14|Reitangruppen:8|Salling Group:7|Lidl:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0810,Brønderslev,36450,633,store_count_proxy,22,1942,Coop Danmark,22.7,6,5,Coop Danmark:5|Unknown:5|Dagrofa:5|Salling Group:3|Reitangruppen:3|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0813,Frederikshavn,60720,649,store_count_proxy,49,2012,Unknown,30.6,8.1,15,Unknown:15|Coop Danmark:10|Dagrofa:8|Salling Group:7|Reitangruppen:6|Lidl:3,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0820,Vesthimmerlands,36870,769,store_count_proxy,29,2342,Unknown,31,7.9,9,Unknown:9|Coop Danmark:9|Reitangruppen:4|Dagrofa:3|Salling Group:3|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0825,Læsø,1780,114,store_count_proxy,3,5556,Coop Danmark,66.7,16.9,0,Coop Danmark:2|Dagrofa:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0840,Rebild,30790,623,store_count_proxy,20,2450,Unknown,35,6.5,7,Unknown:7|Dagrofa:5|Coop Danmark:4|Salling Group:2|Reitangruppen:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0846,Mariagerfjord,43310,724,store_count_proxy,26,1953,Coop Danmark,26.9,6,3,Coop Danmark:7|Dagrofa:6|Salling Group:5|Unknown:3|Reitangruppen:3|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0849,Jammerbugt,38730,864,store_count_proxy,36,2238,Unknown,27.8,9.3,10,Unknown:10|Dagrofa:10|Coop Danmark:8|Reitangruppen:4|Salling Group:3|Lidl:1,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0851,Aalborg,217075,1137,store_count_proxy,145,2188,Unknown,33.8,6.7,49,Unknown:49|Coop Danmark:31|Salling Group:23|Reitangruppen:19|Dagrofa:18|Lidl:5,3855,14,ok_with_14_unassigned_store_points
+dk,Danmark,0860,Hjørring,65010,930,store_count_proxy,53,2310,Unknown,32.1,8.2,17,Unknown:17|Coop Danmark:15|Dagrofa:9|Salling Group:5|Reitangruppen:5|Lidl:2,3855,14,ok_with_14_unassigned_store_points
+fi,Finland,005,Alajärvi,9680,1047,store_count_proxy,9,2346,Unknown,33.3,9.3,3,Unknown:3|Kesko:2|S-Group:2|Lidl:1|Tokmanni Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,009,Alavieska,2520,141,store_count_proxy,1,10000,S-Group,100,4,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,010,Alavus,11470,899,store_count_proxy,7,3469,Unknown,42.9,6.1,3,Unknown:3|S-Group:2|Kesko:2,1703,1157,weak_geometry_coverage
+fi,Finland,016,Asikkala,7800,565,store_count_proxy,3,5556,Kesko,66.7,3.8,0,Kesko:2|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,018,Askola,5210,213,store_count_proxy,2,10000,S-Group,100,3.8,0,S-Group:2,1703,1157,weak_geometry_coverage
+fi,Finland,019,Aura,4100,95,store_count_proxy,2,5000,Kesko,50,4.9,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,020,Akaa,16640,293,store_count_proxy,6,2778,S-Group,33.3,3.6,1,S-Group:2|Kesko:2|Unknown:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,035,Brändö,460,108,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,043,Eckerö,970,108,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,046,Enonkoski,1340,328,store_count_proxy,1,10000,S-Group,100,7.5,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,047,Enontekiö,1870,8391,store_count_proxy,4,5000,Kesko,50,21.4,2,Kesko:2|Unknown:2,1703,1157,weak_geometry_coverage
+fi,Finland,049,Espoo,299013,312,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,050,Eura,11720,610,store_count_proxy,6,5556,Kesko,66.7,5.1,0,Kesko:4|S-Group:2,1703,1157,weak_geometry_coverage
+fi,Finland,051,Eurajoki,9100,362,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,052,Evijärvi,2370,353,store_count_proxy,1,10000,S-Group,100,4.2,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,060,Finström,2560,123,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,061,Forssa,17150,249,store_count_proxy,8,2813,S-Group,37.5,4.7,2,S-Group:3|Unknown:2|Kesko:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,062,Föglö,540,135,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,065,Geta,490,84,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,069,Haapajärvi,6730,557,store_count_proxy,4,2500,Unknown,25,5.9,1,Unknown:1|Tokmanni Group:1|Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,071,Haapavesi,6440,1048,store_count_proxy,3,3333,Kesko,33.3,4.7,0,Kesko:1|S-Group:1|Tokmanni Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,072,Hailuoto,1010,199,store_count_proxy,2,5000,Kesko,50,19.8,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,074,Halsua,1120,422,store_count_proxy,1,10000,Kesko,100,8.9,0,Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,075,Hamina,20250,609,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,076,Hammarland,1570,138,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,077,Hankasalmi,4970,464,store_count_proxy,3,3333,Kesko,33.3,6,1,Kesko:1|Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,078,Hanko,8340,117,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,079,Harjavalta,6810,127,store_count_proxy,3,3333,Kesko,33.3,4.4,0,Kesko:1|Lidl:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,081,Hartola,2840,586,store_count_proxy,5,6800,Unknown,80,17.6,4,Unknown:4|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,082,Hattula,10050,353,store_count_proxy,3,3333,S-Group,33.3,3,1,S-Group:1|Unknown:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,086,Hausjärvi,8960,366,store_count_proxy,3,5556,S-Group,66.7,3.3,0,S-Group:2|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,090,Heinävesi,3220,1280,store_count_proxy,3,5556,Kesko,66.7,9.3,0,Kesko:2|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,091,Helsinki,658864,214,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,092,Vantaa,243244,238,store_count_proxy,104,2807,Kesko,33.7,4.3,27,Kesko:35|S-Group:31|Unknown:27|Lidl:11,1703,1157,weak_geometry_coverage
+fi,Finland,097,Hirvensalmi,2130,463,store_count_proxy,1,10000,S-Group,100,4.7,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,098,Hollola,24640,143,store_count_proxy,8,2813,Unknown,37.5,3.2,3,Unknown:3|Kesko:2|S-Group:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,099,Honkajoki,1560,337,store_count_proxy,2,10000,Unknown,100,12.8,2,Unknown:2,1703,1157,weak_geometry_coverage
+fi,Finland,102,Huittinen,9850,510,store_count_proxy,7,3061,Unknown,42.9,7.1,3,Unknown:3|Kesko:2|S-Group:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,103,Humppila,2260,181,store_count_proxy,1,10000,S-Group,100,4.4,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,105,Hyrynsalmi,2160,1326,store_count_proxy,2,5000,Kesko,50,9.3,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,106,Hyvinkää,47070,323,store_count_proxy,15,4489,Kesko,60,3.2,0,Kesko:9|S-Group:4|Lidl:2,1703,1157,weak_geometry_coverage
+fi,Finland,108,Hämeenkyrö,10490,463,store_count_proxy,4,5000,S-Group,50,3.8,0,S-Group:2|Kesko:2,1703,1157,weak_geometry_coverage
+fi,Finland,109,Hämeenlinna,68011,1786,store_count_proxy,38,2895,Unknown,31.6,5.6,12,Unknown:12|Kesko:12|S-Group:11|Lidl:3,1703,1157,weak_geometry_coverage
+fi,Finland,111,Heinola,18460,684,store_count_proxy,13,3018,S-Group,38.5,7,4,S-Group:5|Unknown:4|Kesko:3|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,139,Ii,10090,1553,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,140,Iisalmi,21080,763,store_count_proxy,9,2346,Kesko,33.3,4.3,1,Kesko:3|Lidl:2|S-Group:2|Tokmanni Group:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,142,Iitti,6420,454,store_count_proxy,8,5938,Unknown,75,12.5,6,Unknown:6|Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,143,Ikaalinen,6830,754,store_count_proxy,4,3750,Kesko,50,5.9,0,Kesko:2|Lidl:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,145,Ilmajoki,11870,577,store_count_proxy,4,3750,S-Group,50,3.4,1,S-Group:2|Kesko:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,146,Ilomantsi,4880,2849,store_count_proxy,3,3333,Kesko,33.3,6.1,1,Kesko:1|Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,148,Inari,7300,17334,store_count_proxy,10,3800,Kesko,50,13.7,3,Kesko:5|Unknown:3|S-Group:2,1703,1157,weak_geometry_coverage
+fi,Finland,149,Inkoo,5570,348,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,151,Isojoki,2000,363,store_count_proxy,1,10000,Kesko,100,5,0,Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,152,Isokyrö,4530,357,store_count_proxy,1,10000,S-Group,100,2.2,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,153,Imatra,26060,191,store_count_proxy,18,2901,Kesko,38.9,6.9,5,Kesko:7|Unknown:5|S-Group:4|Lidl:2,1703,1157,weak_geometry_coverage
+fi,Finland,164,Jalasjärvi,7170,507,store_count_proxy,4,2500,S-Group,25,5.6,1,S-Group:1|Unknown:1|Tokmanni Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,165,Janakkala,16230,582,store_count_proxy,7,3061,Kesko,42.9,4.3,1,Kesko:3|S-Group:2|Unknown:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,167,Joensuu,78430,2382,store_count_proxy,45,3669,S-Group,48.9,5.7,5,S-Group:22|Kesko:15|Unknown:5|Lidl:3,1703,1157,weak_geometry_coverage
+fi,Finland,169,Jokioinen,5480,181,store_count_proxy,1,10000,S-Group,100,1.8,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,170,Jomala,5260,142,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,171,Joroinen,4790,599,store_count_proxy,2,5000,Unknown,50,4.2,1,Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,172,Joutsa,4150,827,store_count_proxy,4,3750,Unknown,50,9.6,2,Unknown:2|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,174,Juankoski,4360,846,store_count_proxy,2,5000,Unknown,50,4.6,1,Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,176,Juuka,4500,1846,store_count_proxy,2,5000,S-Group,50,4.4,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,177,Juupajoki,1830,261,store_count_proxy,1,10000,S-Group,100,5.5,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,178,Juva,5590,1112,store_count_proxy,5,4400,Unknown,60,8.9,3,Unknown:3|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,179,Jyväskylä,145602,1171,store_count_proxy,62,3148,Kesko,45.2,4.3,12,Kesko:28|S-Group:16|Unknown:12|Lidl:5|Minimani:1,1703,1157,weak_geometry_coverage
+fi,Finland,181,Jämijärvi,1810,285,store_count_proxy,2,5000,Unknown,50,11,1,Unknown:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,182,Jämsä,20530,1624,store_count_proxy,12,3056,Kesko,41.7,5.8,3,Kesko:5|Unknown:3|S-Group:3|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,186,Järvenpää,44870,38,store_count_proxy,16,4297,Kesko,56.3,3.6,0,Kesko:9|S-Group:5|Lidl:2,1703,1157,weak_geometry_coverage
+fi,Finland,202,Kaarina,34390,154,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,204,Kaavi,2810,717,store_count_proxy,2,5000,S-Group,50,7.1,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,205,Kajaani,35820,2264,store_count_proxy,16,3984,S-Group,50,4.5,1,S-Group:8|Kesko:6|Unknown:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,208,Kalajoki,12540,840,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,211,Kangasala,32480,870,store_count_proxy,12,3472,Kesko,50,3.7,2,Kesko:6|S-Group:3|Unknown:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,213,Kangasniemi,5200,1132,store_count_proxy,2,5000,Kesko,50,3.8,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,214,Kankaanpää,10950,573,store_count_proxy,5,2000,Unknown,20,4.6,1,Unknown:1|Lidl:1|Kesko:1|Tokmanni Group:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,216,Kannonkoski,1330,365,store_count_proxy,2,5000,S-Group,50,15,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,217,Kannus,5350,461,store_count_proxy,5,4400,Unknown,60,9.3,3,Unknown:3|S-Group:1|Tokmanni Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,218,Karijoki,1260,190,store_count_proxy,1,10000,S-Group,100,7.9,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,224,Karkkila,8960,243,store_count_proxy,5,3600,Kesko,40,5.6,0,Kesko:2|S-Group:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,226,Karstula,3940,891,store_count_proxy,2,5000,Unknown,50,5.1,1,Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,230,Karvia,2290,299,store_count_proxy,3,3333,Kesko,33.3,13.1,1,Kesko:1|S-Group:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,231,Kaskinen,1160,10,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,232,Kauhajoki,12790,1299,store_count_proxy,5,2000,S-Group,20,3.9,1,S-Group:1|Kesko:1|Unknown:1|Tokmanni Group:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,233,Kauhava,15970,1312,store_count_proxy,12,2361,S-Group,33.3,7.5,3,S-Group:4|Unknown:3|Kesko:2|Tokmanni Group:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,235,Kauniainen,10320,6,store_count_proxy,4,6250,S-Group,75,3.9,0,S-Group:3|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,236,Kaustinen,4150,384,store_count_proxy,3,3333,S-Group,33.3,7.2,0,S-Group:1|Kesko:1|Tokmanni Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,239,Keitele,2190,586,store_count_proxy,1,10000,S-Group,100,4.6,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,240,Kemi,20810,95,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,241,Keminmaa,7870,644,store_count_proxy,5,4400,Kesko,60,6.4,1,Kesko:3|Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,244,Kempele,18240,73,store_count_proxy,5,3600,S-Group,40,2.7,0,S-Group:2|Kesko:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,245,Kerava,37640,31,store_count_proxy,18,3025,S-Group,33.3,4.8,5,S-Group:6|Kesko:6|Unknown:5|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,249,Keuruu,9330,1260,store_count_proxy,7,3061,Unknown,42.9,7.5,3,Unknown:3|S-Group:2|Kesko:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,250,Kihniö,1820,470,store_count_proxy,1,10000,Kesko,100,5.5,0,Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,256,Kinnula,1470,466,store_count_proxy,2,5000,Kesko,50,13.6,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,257,Kirkkonummi,40760,366,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,260,Kitee,9810,1157,store_count_proxy,4,5000,Kesko,50,4.1,0,Kesko:2|S-Group:2,1703,1157,weak_geometry_coverage
+fi,Finland,261,Kittilä,6680,8263,store_count_proxy,5,3600,S-Group,40,7.5,1,S-Group:2|Kesko:2|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,263,Kiuruvesi,7640,1302,store_count_proxy,5,4400,Unknown,60,6.5,3,Unknown:3|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,265,Kivijärvi,1100,537,store_count_proxy,1,10000,Unknown,100,9.1,1,Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,271,Kokemäki,7180,482,store_count_proxy,4,2500,Unknown,25,5.6,1,Unknown:1|Lidl:1|Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,272,Kokkola,48380,2073,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,273,Kolari,3720,2617,store_count_proxy,5,4400,Kesko,60,13.4,1,Kesko:3|S-Group:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,275,Konnevesi,2690,475,store_count_proxy,2,5000,S-Group,50,7.4,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,276,Kontiolahti,15120,628,store_count_proxy,4,3750,S-Group,50,2.6,1,S-Group:2|Unknown:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,280,Korsnäs,1740,225,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,283,Hämeenkoski,2000,178,store_count_proxy,2,5000,S-Group,50,10,1,S-Group:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,284,Koski Tl,2280,196,store_count_proxy,2,5000,S-Group,50,8.8,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,285,Kotka,51230,271,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,286,Kouvola,81760,2558,store_count_proxy,48,3151,S-Group,43.8,5.9,10,S-Group:21|Kesko:13|Unknown:10|Lidl:4,1703,1157,weak_geometry_coverage
+fi,Finland,287,Kristiinankaupunki,6420,854,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,288,Kruunupyy,6520,716,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,290,Kuhmo,7890,5458,store_count_proxy,4,5000,Kesko,50,5.1,0,Kesko:2|S-Group:2,1703,1157,weak_geometry_coverage
+fi,Finland,291,Kuhmoinen,2160,644,store_count_proxy,2,5000,S-Group,50,9.3,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,295,Kumlinge,310,99,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,297,Kuopio,122784,1597,store_count_proxy,55,3369,Kesko,41.8,4.5,9,Kesko:23|S-Group:20|Unknown:9|Lidl:3,1703,1157,weak_geometry_coverage
+fi,Finland,300,Kuortane,3530,461,store_count_proxy,2,5000,Kesko,50,5.7,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,301,Kurikka,20580,951,store_count_proxy,8,2813,Kesko,37.5,3.9,2,Kesko:3|S-Group:2|Unknown:2|Tokmanni Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,304,Kustavi,860,175,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,305,Kuusamo,14700,5809,store_count_proxy,10,4200,Kesko,50,6.8,0,Kesko:5|S-Group:4|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,309,Outokumpu,6740,250,store_count_proxy,4,3750,Kesko,50,5.9,1,Kesko:2|S-Group:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,312,Kyyjärvi,1280,449,store_count_proxy,1,10000,S-Group,100,7.8,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,316,Kärkölä,4300,226,store_count_proxy,1,10000,S-Group,100,2.3,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,317,Kärsämäki,2440,605,store_count_proxy,2,5000,Kesko,50,8.2,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,318,Kökar,230,54,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,319,Köyliö,2600,203,store_count_proxy,1,10000,S-Group,100,3.8,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,320,Kemijärvi,7340,3932,store_count_proxy,6,2778,Unknown,33.3,8.2,2,Unknown:2|Kesko:2|Lidl:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,322,Kemiönsaari,6790,573,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,398,Lahti,120651,135,store_count_proxy,40,3313,S-Group,42.5,3.3,6,S-Group:17|Kesko:14|Unknown:6|Lidl:3,1703,1157,weak_geometry_coverage
+fi,Finland,399,Laihia,8000,399,store_count_proxy,4,2500,Unknown,25,5,1,Unknown:1|Kesko:1|S-Group:1|Tokmanni Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,400,Laitila,8530,332,store_count_proxy,3,3333,S-Group,33.3,3.5,1,S-Group:1|Unknown:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,402,Lapinlahti,9180,644,store_count_proxy,3,5556,S-Group,66.7,3.3,0,S-Group:2|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,403,Lappajärvi,2840,367,store_count_proxy,2,5000,S-Group,50,7,1,S-Group:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,405,Lappeenranta,73750,1722,store_count_proxy,36,3349,Kesko,44.4,4.9,5,Kesko:16|S-Group:12|Unknown:5|Lidl:3,1703,1157,weak_geometry_coverage
+fi,Finland,407,Lapinjärvi,2650,352,store_count_proxy,2,5000,Unknown,50,7.5,1,Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,408,Lapua,14320,741,store_count_proxy,10,2600,Unknown,40,7,4,Unknown:4|Kesko:2|S-Group:2|Tokmanni Group:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,410,Laukaa,19120,646,store_count_proxy,6,3889,Kesko,50,3.1,0,Kesko:3|S-Group:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,413,Lavia,1720,348,store_count_proxy,1,10000,S-Group,100,5.8,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,416,Lemi,3230,231,store_count_proxy,2,5000,S-Group,50,6.2,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,417,Lemland,2020,113,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,418,Lempäälä,24010,112,store_count_proxy,12,2361,Kesko,33.3,5,2,Kesko:4|S-Group:3|Unknown:2|Lidl:2|Minimani:1,1703,1157,weak_geometry_coverage
+fi,Finland,420,Leppävirta,9770,1298,store_count_proxy,5,2800,Kesko,40,5.1,1,Kesko:2|Unknown:1|Lidl:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,421,Lestijärvi,700,474,store_count_proxy,1,10000,S-Group,100,14.3,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,422,Lieksa,10650,4069,store_count_proxy,7,3061,Kesko,42.9,6.6,1,Kesko:3|S-Group:2|Unknown:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,423,Lieto,20590,153,store_count_proxy,5,4400,Kesko,60,2.4,0,Kesko:3|S-Group:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,425,Liminka,10800,400,store_count_proxy,6,3333,Unknown,50,5.6,3,Unknown:3|S-Group:1|Kesko:1|Tokmanni Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,426,Liperi,12090,1158,store_count_proxy,7,3469,S-Group,42.9,5.8,2,S-Group:3|Kesko:2|Unknown:2,1703,1157,weak_geometry_coverage
+fi,Finland,430,Loimaa,15600,679,store_count_proxy,10,4200,Kesko,60,6.4,1,Kesko:6|S-Group:2|Lidl:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,433,Loppi,8240,407,store_count_proxy,5,3600,Kesko,40,6.1,1,Kesko:2|S-Group:2|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,434,Loviisa,15070,908,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,435,Luhanka,650,211,store_count_proxy,1,10000,Unknown,100,15.4,1,Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,436,Lumijoki,2130,243,store_count_proxy,1,10000,S-Group,100,4.7,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,438,Lumparland,400,17,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,440,Luoto,5420,82,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,441,Luumäki,4520,752,store_count_proxy,4,3750,S-Group,50,8.8,1,S-Group:2|Kesko:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,442,Luvia,3250,184,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,444,Lohja,47350,328,store_count_proxy,22,3719,S-Group,50,4.6,3,S-Group:11|Kesko:7|Unknown:3|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,445,Parainen,15380,612,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,475,Maalahti,5480,500,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,476,Maaninka,3450,434,store_count_proxy,2,5000,Kesko,50,5.8,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,478,Maarianhamina,11680,21,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,480,Marttila,1970,163,store_count_proxy,1,10000,S-Group,100,5.1,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,481,Masku,10260,134,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,483,Merijärvi,1010,271,store_count_proxy,1,10000,S-Group,100,9.9,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,484,Merikarvia,2920,755,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,489,Miehikkälä,1810,433,store_count_proxy,1,10000,S-Group,100,5.5,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,491,Mikkeli,51580,2416,store_count_proxy,30,3333,S-Group,46.7,5.8,6,S-Group:14|Kesko:8|Unknown:6|Lidl:2,1703,1157,weak_geometry_coverage
+fi,Finland,494,Muhos,9070,636,store_count_proxy,5,2800,S-Group,40,5.5,1,S-Group:2|Kesko:1|Unknown:1|Tokmanni Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,495,Multia,1530,640,store_count_proxy,1,10000,S-Group,100,6.5,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,498,Muonio,2280,2038,store_count_proxy,2,5000,Kesko,50,8.8,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,499,Mustasaari,19540,912,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,500,Muurame,10450,142,store_count_proxy,5,2800,Kesko,40,4.8,1,Kesko:2|S-Group:1|Lidl:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,503,Mynämäki,8370,300,store_count_proxy,3,3333,Kesko,33.3,3.6,1,Kesko:1|S-Group:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,504,Myrskylä,1910,200,store_count_proxy,1,10000,S-Group,100,5.2,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,505,Mäntsälä,21520,582,store_count_proxy,7,3878,Kesko,57.1,3.3,1,Kesko:4|Unknown:1|Lidl:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,507,Mäntyharju,5680,1230,store_count_proxy,6,5000,Unknown,66.7,10.6,4,Unknown:4|Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,508,Mänttä-Vilppula,9570,615,store_count_proxy,5,6800,Kesko,80,5.2,0,Kesko:4|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,529,Naantali,19830,312,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,531,Nakkila,5480,205,store_count_proxy,1,10000,Kesko,100,1.8,0,Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,532,Nastola,14440,363,store_count_proxy,7,3878,S-Group,57.1,4.8,1,S-Group:4|Unknown:1|Lidl:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,535,Nivala,10430,535,store_count_proxy,4,2500,Lidl,25,3.8,0,Lidl:1|Tokmanni Group:1|Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,536,Nokia,36740,289,store_count_proxy,11,3884,Kesko,54.5,3,1,Kesko:6|S-Group:3|Unknown:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,538,Nousiainen,4600,193,store_count_proxy,1,10000,S-Group,100,2.2,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,541,Nurmes,7050,3728,store_count_proxy,5,3600,S-Group,40,7.1,1,S-Group:2|Kesko:2|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,543,Nurmijärvi,44540,362,store_count_proxy,14,3980,Kesko,50,3.1,0,Kesko:7|S-Group:5|Lidl:2,1703,1157,weak_geometry_coverage
+fi,Finland,545,Närpiö,9370,571,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,560,Orimattila,16280,561,store_count_proxy,5,3600,Kesko,40,3.1,0,Kesko:2|S-Group:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,561,Oripää,1340,120,store_count_proxy,1,10000,Kesko,100,7.5,0,Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,562,Orivesi,8840,831,store_count_proxy,7,3469,Unknown,42.9,7.9,3,Unknown:3|Kesko:2|S-Group:2,1703,1157,weak_geometry_coverage
+fi,Finland,563,Oulainen,7110,497,store_count_proxy,4,3750,S-Group,50,5.6,0,S-Group:2|Tokmanni Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,564,Oulu,209648,3817,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,576,Padasjoki,2900,561,store_count_proxy,2,5000,Unknown,50,6.9,1,Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,577,Paimio,10820,223,store_count_proxy,4,2500,Unknown,25,3.7,1,Unknown:1|Kesko:1|S-Group:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,578,Paltamo,3110,929,store_count_proxy,3,3333,Unknown,33.3,9.6,1,Unknown:1|Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,580,Parikkala,4540,1118,store_count_proxy,5,4400,S-Group,60,11,1,S-Group:3|Kesko:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,581,Parkano,6380,851,store_count_proxy,4,2500,Tokmanni Group,25,6.3,1,Tokmanni Group:1|Unknown:1|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,583,Pelkosenniemi,910,1881,store_count_proxy,2,10000,Kesko,100,22,0,Kesko:2,1703,1157,weak_geometry_coverage
+fi,Finland,584,Perho,2480,747,store_count_proxy,2,5000,S-Group,50,8.1,1,S-Group:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,588,Pertunmaa,1630,314,store_count_proxy,3,5556,Unknown,66.7,18.4,2,Unknown:2|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,592,Petäjävesi,3600,508,store_count_proxy,3,3333,Unknown,33.3,8.3,1,Unknown:1|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,593,Pieksämäki,17680,1299,store_count_proxy,9,3333,S-Group,44.4,5.1,1,S-Group:4|Kesko:3|Lidl:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,595,Pielavesi,4230,1233,store_count_proxy,2,5000,Kesko,50,4.7,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,598,Pietarsaari,19120,97,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,599,Pedersören kunta,10820,801,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,601,Pihtipudas,3800,849,store_count_proxy,4,3750,Unknown,50,10.5,2,Unknown:2|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,604,Pirkkala,19960,81,store_count_proxy,9,2840,Kesko,33.3,4.5,2,Kesko:3|S-Group:3|Unknown:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,607,Polvijärvi,4050,1068,store_count_proxy,2,5000,S-Group,50,4.9,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,608,Pomarkku,2070,358,store_count_proxy,2,5000,S-Group,50,9.7,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,609,Pori,83720,834,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,611,Pornainen,5420,153,store_count_proxy,2,5000,Kesko,50,3.7,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,614,Posio,3230,3040,store_count_proxy,2,5000,S-Group,50,6.2,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,615,Pudasjärvi,7740,5635,store_count_proxy,5,4400,Unknown,60,6.5,3,Unknown:3|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,616,Pukkila,1910,142,store_count_proxy,1,10000,S-Group,100,5.2,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,619,Punkalaidun,2850,407,store_count_proxy,1,10000,Kesko,100,3.5,0,Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,620,Puolanka,2570,2467,store_count_proxy,2,5000,S-Group,50,7.8,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,623,Puumala,2200,781,store_count_proxy,3,5556,S-Group,66.7,13.6,0,S-Group:2|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,624,Pyhtää,5070,291,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,625,Pyhäjoki,2970,298,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,626,Pyhäjärvi,4570,1175,store_count_proxy,4,2500,Kesko,25,8.8,1,Kesko:1|Unknown:1|Tokmanni Group:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,630,Pyhäntä,1490,810,store_count_proxy,2,5000,Kesko,50,13.4,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,631,Pyhäranta,1930,194,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,635,Pälkäne,6600,563,store_count_proxy,5,3600,Kesko,40,7.6,2,Kesko:2|Unknown:2|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,636,Pöytyä,8410,528,store_count_proxy,5,4400,S-Group,60,5.9,1,S-Group:3|Kesko:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,638,Porvoo,55270,654,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,678,Raahe,24270,271,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,680,Raisio,24360,49,store_count_proxy,8,2813,Kesko,37.5,3.3,2,Kesko:3|S-Group:2|Unknown:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,681,Rantasalmi,3480,594,store_count_proxy,3,3333,S-Group,33.3,8.6,1,S-Group:1|Unknown:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,683,Ranua,3480,3696,store_count_proxy,2,5000,Kesko,50,5.7,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,684,Rauma,39270,495,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,686,Rautalampi,3010,636,store_count_proxy,3,5556,Unknown,66.7,10,2,Unknown:2|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,687,Rautavaara,1420,1138,store_count_proxy,1,10000,S-Group,100,7,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,689,Rautjärvi,3140,355,store_count_proxy,3,3333,S-Group,33.3,9.6,1,S-Group:1|Unknown:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,691,Reisjärvi,2530,472,store_count_proxy,2,5000,Kesko,50,7.9,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,694,Riihimäki,28610,122,store_count_proxy,15,3778,Kesko,53.3,5.2,1,Kesko:8|S-Group:4|Lidl:2|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,697,Ristijärvi,1210,872,store_count_proxy,2,5000,Unknown,50,16.5,1,Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,698,Rovaniemi,64445,8017,store_count_proxy,29,4388,Kesko,62.1,4.5,2,Kesko:18|S-Group:6|Unknown:2|Lidl:2|Minimani:1,1703,1157,weak_geometry_coverage
+fi,Finland,700,Ruokolahti,4820,908,store_count_proxy,4,3750,Unknown,50,8.3,2,Unknown:2|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,702,Ruovesi,4280,754,store_count_proxy,4,6250,Kesko,75,9.3,0,Kesko:3|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,704,Rusko,6490,77,store_count_proxy,3,3333,Kesko,33.3,4.6,1,Kesko:1|S-Group:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,707,Rääkkylä,2050,504,store_count_proxy,2,5000,Unknown,50,9.8,1,Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,710,Raasepori,28350,701,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,729,Saarijärvi,9150,1409,store_count_proxy,7,2245,Kesko,28.6,7.7,2,Kesko:2|Unknown:2|Tokmanni Group:1|Lidl:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,732,Salla,3190,5872,store_count_proxy,2,5000,S-Group,50,6.3,1,S-Group:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,734,Salo,51140,2168,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,736,Saltvik,1870,152,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,738,Sauvo,2950,171,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,739,Savitaipale,3310,502,store_count_proxy,3,5556,Kesko,66.7,9.1,1,Kesko:2|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,740,Savonlinna,32770,1987,store_count_proxy,21,3333,Kesko,42.9,6.4,4,Kesko:9|S-Group:7|Unknown:4|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,742,Savukoski,990,6440,store_count_proxy,1,10000,Kesko,100,10.1,0,Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,743,Seinäjoki,64543,1469,store_count_proxy,24,3611,S-Group,45.8,3.7,1,S-Group:11|Kesko:9|Lidl:2|Tokmanni Group:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,746,Sievi,5150,813,store_count_proxy,2,5000,Kesko,50,3.9,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,747,Siikainen,1340,504,store_count_proxy,1,10000,Kesko,100,7.5,0,Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,748,Siikajoki,5100,965,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,749,Siilinjärvi,21860,398,store_count_proxy,6,2778,Kesko,33.3,2.7,0,Kesko:2|S-Group:2|Lidl:1|Tokmanni Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,751,Simo,3030,897,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,753,Sipoo,22590,339,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,755,Siuntio,6360,233,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,758,Sodankylä,8260,12415,store_count_proxy,8,3438,Unknown,50,9.7,4,Unknown:4|Kesko:2|Lidl:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,759,Soini,2030,558,store_count_proxy,1,10000,S-Group,100,4.9,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,761,Somero,8550,602,store_count_proxy,4,3750,Kesko,50,4.7,0,Kesko:2|Lidl:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,762,Sonkajärvi,3550,895,store_count_proxy,2,5000,Kesko,50,5.6,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,765,Sotkamo,9810,2681,store_count_proxy,5,3600,Kesko,40,5.1,0,Kesko:2|S-Group:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,766,Sottunga,110,28,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,768,Sulkava,2260,591,store_count_proxy,3,3333,Kesko,33.3,13.3,1,Kesko:1|Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,771,Sund,1030,103,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,777,Suomussalmi,7440,5337,store_count_proxy,8,4063,Unknown,50,10.8,4,Unknown:4|Kesko:3|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,778,Suonenjoki,6830,593,store_count_proxy,4,3750,Kesko,50,5.9,1,Kesko:2|Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,781,Sysmä,3610,670,store_count_proxy,3,3333,Unknown,33.3,8.3,1,Unknown:1|Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,783,Säkylä,6780,254,store_count_proxy,2,5000,S-Group,50,2.9,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,785,Vaala,2860,1365,store_count_proxy,3,3333,Unknown,33.3,10.5,1,Unknown:1|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,790,Sastamala,24490,1556,store_count_proxy,13,3728,Kesko,53.8,5.3,2,Kesko:7|S-Group:3|Unknown:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,791,Siikalatva,5320,2946,store_count_proxy,8,4063,S-Group,50,15,1,S-Group:4|Kesko:3|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,831,Taipalsaari,4610,373,store_count_proxy,3,3333,Unknown,33.3,6.5,1,Unknown:1|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,832,Taivalkoski,3710,2564,store_count_proxy,3,3333,Unknown,33.3,8.1,1,Unknown:1|Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,833,Taivassalo,1600,56,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,834,Tammela,5940,419,store_count_proxy,3,3333,S-Group,33.3,5.1,1,S-Group:1|Kesko:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,837,Tampere,244315,525,store_count_proxy,127,3164,Kesko,44.9,5.2,27,Kesko:57|S-Group:32|Unknown:27|Lidl:10|Minimani:1,1703,1157,weak_geometry_coverage
+fi,Finland,838,Tarvasjoki,1790,113,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,844,Tervo,1470,393,store_count_proxy,3,5556,S-Group,66.7,20.4,0,S-Group:2|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,845,Tervola,2830,1514,store_count_proxy,3,3333,S-Group,33.3,10.6,1,S-Group:1|Kesko:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,846,Teuva,5200,492,store_count_proxy,4,3750,Unknown,50,7.7,2,Unknown:2|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,848,Tohmajärvi,4220,823,store_count_proxy,3,3333,Unknown,33.3,7.1,1,Unknown:1|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,849,Toholampi,3100,401,store_count_proxy,3,3333,Unknown,33.3,9.7,1,Unknown:1|S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,850,Toivakka,2420,258,store_count_proxy,2,5000,Kesko,50,8.3,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,851,Tornio,21350,1085,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,853,Turku,195301,246,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,854,Pello,3100,1863,store_count_proxy,4,3750,Kesko,50,12.9,1,Kesko:2|S-Group:1|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,857,Tuusniemi,2320,514,store_count_proxy,3,3333,Unknown,33.3,12.9,1,Unknown:1|Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,858,Tuusula,39700,220,store_count_proxy,14,3367,Kesko,42.9,3.5,1,Kesko:6|S-Group:5|Lidl:2|Unknown:1,1703,1157,weak_geometry_coverage
+fi,Finland,859,Tyrnävä,7330,422,store_count_proxy,2,5000,Kesko,50,2.7,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,886,Ulvila,12510,361,store_count_proxy,5,3600,S-Group,40,4,0,S-Group:2|Kesko:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,887,Urjala,4770,445,store_count_proxy,3,5556,Kesko,66.7,6.3,0,Kesko:2|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,889,Utajärvi,2550,1642,store_count_proxy,2,5000,S-Group,50,7.8,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,890,Utsjoki,1210,5373,store_count_proxy,4,5000,Kesko,50,33.1,2,Kesko:2|Unknown:2,1703,1157,weak_geometry_coverage
+fi,Finland,892,Uurainen,3960,348,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,893,Uusikaarlepyy,7250,722,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,895,Uusikaupunki,15120,498,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,905,Vaasa,67636,394,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,908,Valkeakoski,21090,271,store_count_proxy,10,3400,Kesko,50,4.7,2,Kesko:5|S-Group:2|Unknown:2|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,911,Valtimo,2020,850,store_count_proxy,1,10000,S-Group,100,5,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,915,Varkaus,20660,524,store_count_proxy,11,3554,Kesko,45.5,5.3,1,Kesko:5|S-Group:4|Unknown:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,918,Vehmaa,2170,135,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,921,Vesanto,2010,424,store_count_proxy,1,10000,S-Group,100,5,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,922,Vesilahti,4570,308,store_count_proxy,3,5556,Kesko,66.7,6.6,0,Kesko:2|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,924,Veteli,3020,476,store_count_proxy,2,10000,S-Group,100,6.6,0,S-Group:2,1703,1157,weak_geometry_coverage
+fi,Finland,925,Vieremä,3260,893,store_count_proxy,2,5000,S-Group,50,6.1,0,S-Group:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,927,Vihti,30070,568,store_count_proxy,11,4380,Kesko,54.5,3.7,0,Kesko:6|S-Group:4|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,931,Viitasaari,5890,1303,store_count_proxy,4,2500,Kesko,25,6.8,1,Kesko:1|Unknown:1|Lidl:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,934,Vimpeli,2740,332,store_count_proxy,2,5000,Kesko,50,7.3,0,Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,935,Virolahti,3110,348,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,936,Virrat,6420,1162,store_count_proxy,3,3333,Kesko,33.3,4.7,1,Kesko:1|Unknown:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,941,Vårdö,420,101,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,946,Vöyri,6100,770,store_count_proxy,0,,,,0,0,,1703,1157,weak_geometry_coverage
+fi,Finland,976,Ylitornio,3870,2127,store_count_proxy,3,3333,Unknown,33.3,7.8,1,Unknown:1|Kesko:1|S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,977,Ylivieska,15160,557,store_count_proxy,7,3061,S-Group,42.9,4.6,0,S-Group:3|Kesko:2|Tokmanni Group:1|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,980,Ylöjärvi,34350,389,store_count_proxy,18,3025,Kesko,33.3,5.2,6,Kesko:6|Unknown:6|S-Group:5|Lidl:1,1703,1157,weak_geometry_coverage
+fi,Finland,981,Ypäjä,2350,175,store_count_proxy,1,10000,S-Group,100,4.3,0,S-Group:1,1703,1157,weak_geometry_coverage
+fi,Finland,989,Ähtäri,5700,836,store_count_proxy,4,3750,S-Group,50,7,1,S-Group:2|Unknown:1|Kesko:1,1703,1157,weak_geometry_coverage
+fi,Finland,992,Äänekoski,18910,847,store_count_proxy,10,2400,Kesko,30,5.3,2,Kesko:3|S-Group:3|Unknown:2|Lidl:1|Tokmanni Group:1,1703,1157,weak_geometry_coverage
+is,Island,0000,Reykjavík,140000,273,store_count_proxy,83,3114,Unknown,45.8,5.9,38,Unknown:38|Hagar:18|Samkaup:16|Festi:11,203,40,indicative_osm_coverage
+is,Island,1000,Kópavogur,40000,80,store_count_proxy,17,2664,Unknown,35.3,4.3,6,Unknown:6|Hagar:4|Festi:4|Samkaup:3,203,40,indicative_osm_coverage
+is,Island,1100,Seltjarnarnes,4900,2,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,1300,Garðabær,19000,71,store_count_proxy,3,3333,Hagar,33.3,1.6,0,Hagar:1|Festi:1|Samkaup:1,203,40,indicative_osm_coverage
+is,Island,1400,Hafnarfjörður,31000,143,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,1604,Mosfellsbær,13000,187,store_count_proxy,8,2813,Hagar,37.5,6.2,2,Hagar:3|Festi:2|Unknown:2|Samkaup:1,203,40,indicative_osm_coverage
+is,Island,2000,Reykjanesbær,21000,132,store_count_proxy,11,2893,Samkaup,36.4,5.2,3,Samkaup:4|Hagar:3|Unknown:3|Festi:1,203,40,indicative_osm_coverage
+is,Island,2300,Grindavíkurbær,3500,423,store_count_proxy,2,5000,Samkaup,50,5.7,1,Samkaup:1|Unknown:1,203,40,indicative_osm_coverage
+is,Island,2503,Sveitarfélagið Vogar,1300,171,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,2506,Suðurnesjabær,3000,69,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,3000,Akraneskaupstaður,7800,11,store_count_proxy,5,2800,Unknown,40,6.4,2,Unknown:2|Hagar:1|Festi:1|Samkaup:1,203,40,indicative_osm_coverage
+is,Island,3506,Skorradalshreppur,170,361,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,3511,Hvalfjarðarsveit,1000,622,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,3609,Borgarbyggð,3800,3709,store_count_proxy,1,10000,Unknown,100,2.6,1,Unknown:1,203,40,indicative_osm_coverage
+is,Island,3710,Grundarfjarðarbær,900,164,store_count_proxy,1,10000,Festi,100,11.1,0,Festi:1,203,40,indicative_osm_coverage
+is,Island,3714,Snæfellsbær,1700,574,store_count_proxy,3,5556,Unknown,66.7,17.6,2,Unknown:2|Festi:1,203,40,indicative_osm_coverage
+is,Island,3811,Eyja- og Miklaholtshreppur,120,503,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,4100,Bolungarvíkurkaupstaður,900,62,store_count_proxy,4,3750,Unknown,50,44.4,2,Unknown:2|Hagar:1|Festi:1,203,40,indicative_osm_coverage
+is,Island,4200,Ísafjarðarbær,3700,2493,store_count_proxy,4,3750,Unknown,50,10.8,2,Unknown:2|Festi:1|Samkaup:1,203,40,indicative_osm_coverage
+is,Island,4502,Reykhólahreppur,300,1498,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,4604,Tálknafjarðarhreppur,290,571,store_count_proxy,1,10000,Unknown,100,34.5,1,Unknown:1,203,40,indicative_osm_coverage
+is,Island,4607,Vesturbyggð,1000,1093,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,4803,Súðavíkurhreppur,200,511,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,4901,Árneshreppur,40,1079,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,4902,Kaldrananeshreppur,100,242,store_count_proxy,1,10000,Samkaup,100,100,0,Samkaup:1,203,40,indicative_osm_coverage
+is,Island,4911,Strandabyggð,500,1565,store_count_proxy,1,10000,Unknown,100,20,1,Unknown:1,203,40,indicative_osm_coverage
+is,Island,5200,Sveitarfélagið Skagafjörður,4300,4175,store_count_proxy,4,10000,Unknown,100,9.3,4,Unknown:4,203,40,indicative_osm_coverage
+is,Island,5508,Húnaþing vestra,1100,2539,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,5604,Blönduósbær,900,301,store_count_proxy,2,5000,Festi,50,22.2,1,Festi:1|Unknown:1,203,40,indicative_osm_coverage
+is,Island,5609,Sveitarfélagið Skagaströnd,500,194,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,5706,Akrahreppur,280,1009,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,6000,Akureyrarkaupstaður,19600,138,store_count_proxy,12,2917,Hagar,33.3,6.1,3,Hagar:4|Samkaup:4|Unknown:3|Festi:1,203,40,indicative_osm_coverage
+is,Island,6100,Norðurþing,2800,3541,store_count_proxy,1,10000,Unknown,100,3.6,1,Unknown:1,203,40,indicative_osm_coverage
+is,Island,6250,Fjallabyggð,1800,506,store_count_proxy,2,5000,Festi,50,11.1,1,Festi:1|Unknown:1,203,40,indicative_osm_coverage
+is,Island,6400,Dalvíkurbyggð,1900,255,store_count_proxy,1,10000,Festi,100,5.3,0,Festi:1,203,40,indicative_osm_coverage
+is,Island,6513,Eyjafjarðarsveit,1600,3103,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,6601,Grýtubakkahreppur,300,188,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,6602,Svalbarðsstrandarhreppur,400,242,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,6607,Hörgársveit,500,1119,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,6611,Svalbarðshreppur,120,1089,store_count_proxy,1,10000,Samkaup,100,83.3,0,Samkaup:1,203,40,indicative_osm_coverage
+is,Island,6612,Grýtubakkahreppur,130,295,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,6706,Þingeyjarsveit,1000,5050,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,6709,Skútustaðahreppur,400,3273,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,7000,Seyðisfjörður,700,264,store_count_proxy,1,10000,Festi,100,14.3,0,Festi:1,203,40,indicative_osm_coverage
+is,Island,7300,Fljótsdalshérað,3400,8884,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,7502,Fljótsdalshreppur,200,1390,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,7505,Borgarfjarðarhreppur,120,356,store_count_proxy,1,10000,Unknown,100,83.3,1,Unknown:1,203,40,indicative_osm_coverage
+is,Island,7509,Breiðdalshreppur,200,1397,store_count_proxy,3,5556,Festi,66.7,150,1,Festi:2|Unknown:1,203,40,indicative_osm_coverage
+is,Island,7613,Djúpavogshreppur,460,1016,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,7617,Fjarðabyggð,5000,4672,store_count_proxy,5,5200,Festi,60,10,2,Festi:3|Unknown:2,203,40,indicative_osm_coverage
+is,Island,7620,Sveitarfélagið Hornafjörður,2200,7072,store_count_proxy,1,10000,Samkaup,100,4.5,0,Samkaup:1,203,40,indicative_osm_coverage
+is,Island,7708,Vopnafjarðarhreppur,700,1208,store_count_proxy,1,10000,Unknown,100,14.3,1,Unknown:1,203,40,indicative_osm_coverage
+is,Island,7709,Langanesbyggð,400,1441,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,8000,Vestmannaeyjabær,4500,16,store_count_proxy,2,5000,Festi,50,4.4,0,Festi:1|Hagar:1,203,40,indicative_osm_coverage
+is,Island,8200,Sveitarfélagið Árborg,10000,109,store_count_proxy,7,3061,Samkaup,42.9,7,2,Samkaup:3|Unknown:2|Festi:1|Hagar:1,203,40,indicative_osm_coverage
+is,Island,8508,Mýrdalshreppur,600,677,store_count_proxy,1,10000,Festi,100,16.7,0,Festi:1,203,40,indicative_osm_coverage
+is,Island,8509,Skaftárhreppur,400,5206,store_count_proxy,4,10000,Unknown,100,100,4,Unknown:4,203,40,indicative_osm_coverage
+is,Island,8610,Ásahreppur,220,1073,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,8613,Rangárþing eystra,1900,1447,store_count_proxy,1,10000,Unknown,100,5.3,1,Unknown:1,203,40,indicative_osm_coverage
+is,Island,8614,Rangárþing ytra,1800,1308,store_count_proxy,4,5000,Festi,50,22.2,2,Festi:2|Unknown:2,203,40,indicative_osm_coverage
+is,Island,8710,Hrunamannahreppur,1200,1380,store_count_proxy,3,5556,Samkaup,66.7,25,1,Samkaup:2|Unknown:1,203,40,indicative_osm_coverage
+is,Island,8716,Flóahreppur,1200,574,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,8717,Skeiða- og Gnúpverjahreppur,600,1293,store_count_proxy,1,10000,Unknown,100,16.7,1,Unknown:1,203,40,indicative_osm_coverage
+is,Island,8720,Bláskógabyggð,2000,4160,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage
+is,Island,8722,Grímsnes- og Grafningshreppur,600,454,store_count_proxy,0,,,,0,0,,203,40,indicative_osm_coverage

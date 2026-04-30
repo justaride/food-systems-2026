@@ -2,9 +2,10 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getDocumentBySlug } from '@/lib/queries/documents'
 import { Card } from '@/components/ui/Card'
+import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
 
 type Props = {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string[] }>
 }
 
 function formatWordCount(n: number): string {
@@ -13,13 +14,44 @@ function formatWordCount(n: number): string {
 }
 
 export default async function DocumentDetailPage({ params }: Props) {
-  const { slug } = await params
+  const { slug: slugParts } = await params
+  const slug = slugParts.join('/')
   const doc = await getDocumentBySlug(slug)
 
   if (!doc) notFound()
 
   const hasRefs = doc.refsFrom.length > 0 || doc.refsTo.length > 0
   const meta = [doc.author, doc.year, doc.documentType, doc.country].filter(Boolean)
+  const actorItemsByHref = new Map<
+    string,
+    { label: string; href: string; meta?: string; badge?: string }
+  >()
+
+  for (const ref of doc.actorDocumentRefs) {
+    actorItemsByHref.set(`/aktorer/${ref.actor.slug}`, {
+      label: ref.actor.name,
+      href: `/aktorer/${ref.actor.slug}`,
+      meta: ref.context ?? ref.actor.actorType,
+      badge: ref.actor.themeTags[0],
+    })
+  }
+
+  for (const ref of doc.companyDocumentRefs) {
+    const actor = ref.company.actor
+    if (!actor) continue
+
+    const href = `/aktorer/${actor.slug}`
+    if (actorItemsByHref.has(href)) continue
+
+    actorItemsByHref.set(href, {
+      label: actor.name,
+      href,
+      meta: `via ${ref.company.name}${ref.context ? ` · ${ref.context}` : ''}`,
+      badge: actor.themeTags[0] ?? actor.actorType,
+    })
+  }
+
+  const actorItems = [...actorItemsByHref.values()]
 
   return (
     <div className="space-y-6">
@@ -45,9 +77,9 @@ export default async function DocumentDetailPage({ params }: Props) {
 
       {doc.tags.length > 0 && (
         <div className="flex gap-1.5 flex-wrap">
-          {doc.tags.map(tag => (
+          {doc.tags.map((tag, index) => (
             <span
-              key={tag}
+              key={`${doc.id}-${tag}-${index}`}
               className="text-xs px-2 py-0.5 rounded-full bg-stone-100 text-stone-500 border border-stone-200"
             >
               {tag}
@@ -61,6 +93,60 @@ export default async function DocumentDetailPage({ params }: Props) {
           <p className="text-sm text-stone-700 leading-relaxed">{doc.summary}</p>
         </Card>
       )}
+
+      <EntityNeighborhood
+        groups={[
+          {
+            label: 'Refererer til',
+            items: doc.refsFrom
+              .filter(ref => ref.to)
+              .map(ref => ({
+                label: ref.to.title,
+                href: `/bibliotek/${ref.to.slug}`,
+                meta: ref.refType,
+                badge: 'utgående',
+              })),
+            emptyText: 'Ingen utgående dokumentreferanser.',
+          },
+          {
+            label: 'Referert av',
+            items: doc.refsTo
+              .filter(ref => ref.from)
+              .map(ref => ({
+                label: ref.from.title,
+                href: `/bibliotek/${ref.from.slug}`,
+                meta: ref.refType,
+                badge: 'inngående',
+              })),
+            emptyText: 'Ingen inngående dokumentreferanser.',
+          },
+          {
+            label: 'Innsikter',
+            items: doc.insightDocumentRefs.map(ref => ({
+              label: ref.insight.title,
+              href: `/innsikt#${ref.insight.id}`,
+              meta: ref.relevance,
+              badge: ref.insight.insightType,
+            })),
+            emptyText: 'Ingen innsiktskoblinger registrert.',
+          },
+          {
+            label: 'Selskaper',
+            items: doc.companyDocumentRefs.map(ref => ({
+              label: ref.company.name,
+              href: `/selskap/${ref.company.id}`,
+              meta: ref.context ?? ref.company.valueChainStage ?? 'company-ref',
+              badge: ref.company.ownershipType ?? undefined,
+            })),
+            emptyText: 'Ingen selskapskoblinger registrert.',
+          },
+          {
+            label: 'Aktører',
+            items: actorItems,
+            emptyText: 'Ingen aktørkoblinger registrert.',
+          },
+        ]}
+      />
 
       <Card title="Fulltekst">
         <div className="max-h-[600px] overflow-y-auto rounded-lg bg-stone-50 border border-stone-200 p-4">

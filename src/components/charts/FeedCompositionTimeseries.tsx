@@ -15,6 +15,7 @@ import {
 import { Card } from '@/components/ui/Card'
 import { ChartSource } from '@/components/ui/ChartSource'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
 
 type TimeseriesRow = {
   year: number
@@ -173,19 +174,28 @@ export function FeedCompositionTimeseries() {
     )
   }
 
-  const { policy_targets, origin_countries, primary_sources, market_structure, source } = data
+  const { policy_targets, origin_countries, primary_sources, market_structure } = data
 
   return (
     <Card>
       <div className="flex items-start justify-between gap-3 mb-0.5">
-        <h3 className="text-sm font-semibold text-stone-700">
-          Fôrsammensetning norsk laks (2010–2025)
-        </h3>
-        {market_structure?.combined_share_pct != null && (
-          <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-100 text-stone-600 whitespace-nowrap">
-            {market_structure.combined_share_pct}% oligopol
-          </span>
-        )}
+        <div>
+          <h3 className="text-sm font-semibold text-stone-700">
+            Fôrsammensetning norsk laks (2010–2025)
+          </h3>
+          <div className="mt-1 flex flex-wrap items-center gap-2">
+            <EvidenceStatusBadge
+              status="estimated"
+              prefix="Datastatus"
+              detail="Tidsserien blander dokumenterte år, interpolerte mellomår og post-2020-estimat."
+            />
+            {market_structure?.combined_share_pct != null && (
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-100 text-stone-600 whitespace-nowrap">
+                {market_structure.combined_share_pct}% oligopol
+              </span>
+            )}
+          </div>
+        </div>
       </div>
       <p className="text-xs text-stone-400 mb-3">
         Andel av totalvolum råvarer (tørrstoff), dokumenterte år
@@ -325,7 +335,7 @@ export function FeedCompositionTimeseries() {
         )}
       </div>
 
-      <ChartSource source={`Kilde: ${source}`} />
+      <ChartSource source={`Kilder: ${primary_sources.slice(0, 3).join('; ')}. Arbeidsdatasett: feed-composition-timeseries.json.`} />
     </Card>
   )
 }

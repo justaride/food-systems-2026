@@ -26,6 +26,24 @@ Central reference for all data files in `public/data/food-systems/`.
 - **Updated**: 2024
 - **Limitations**: Some categories aggregated across HS codes.
 
+## {country}/value-chain.json
+
+- **Records**: Country value-chain baseline by stage, including primary production volumes and organic agriculture fields (`organic_area_ha`, `organic_share_pct`, `organic_year`, `organic_quality_flag`)
+- **Source**: Country-specific value-chain notes plus `research/data/nordic/core-series/organic_agriculture_annual.csv`
+- **Reproduce**: Eurostat `ORG_CROPAR` with `unit=HA` and `unit=PC_UAA`, `crops=UAAXK0000`, `agprdmet=TOTAL`, `geo=DK/FI/SE/NO`; Iceland is a local estimate until primary-checked. EEA historical Iceland share 2012-2020 is staged separately and does not replace the current estimate. Hagstofa/PxWeb agriculture catalog was checked on 2026-04-29 and did not expose an organic area/market series.
+- **Updated**: Organic fields refreshed 2026-04-29 from Eurostat source update 2026-03-31
+- **Limitations**: 2024 Eurostat coverage is partial (FI/SE only in checked extract). Iceland organic area/market fields are still flagged `needs_primary_check`; TRACES now covers current Iceland operator certificates, not area.
+
+## Nordic organic evidence-pack core series
+
+- **Records**: Staged organic market, control/operator, public kitchen, policy, selected production and selected trade indicators for Nordic comparison
+- **Source**: `research/evidence-pack/okologisk-norden-2026-04-29/`, with split series in `research/data/nordic/core-series/`
+- **Files**: `organic_market_retail_annual.csv`, `organic_control_operators_annual.csv`, `organic_public_procurement_annual.csv`, `organic_policy_targets.csv`, `organic_selected_production_annual.csv`, `organic_selected_trade_annual.csv`
+- **Staging**: `research/data/nordic/core-series/_staging/organic_integration_candidates_2026-04-29.csv`
+- **Reproduce**: Start from `research/evidence-pack/okologisk-norden-2026-04-29/exports/organic_key_indicators_extracted.csv`; preserve `quality_flag`, `import_status`, `comparability`, source URL and source reference on every row
+- **Updated**: 2026-04-29
+- **Limitations**: These series supplement, but do not replace, the Eurostat `organic_agriculture_annual.csv` backbone. Norway 2025 rows now use the downloaded Landbruksdirektoratet report PDF where extracted. Iceland now has Tún/TRACES current operator-certificate rows, Hagstofa/PxWeb gap documentation, a Lífrænt Ísland actor-map extract and a 2040 policy target, but area/market remains `needs_primary_check`. Sweden now includes KRAV private-label rows and Ekomatcentrum/KRAV public-procurement rows; downstream views must keep official statistics, private-label metrics, municipal shares, public-sector value shares and meal/volume context separate. Sector, survey and public kitchen rows are not directly comparable unless metric, unit and scope match.
+
 ## stores.json
 
 - **Records**: 3,849 grocery store locations

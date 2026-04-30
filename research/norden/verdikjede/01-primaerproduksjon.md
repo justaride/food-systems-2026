@@ -19,7 +19,7 @@
 | **Melkeproduksjon (mill. l)** | ~1 500 | ~2 800 | ~5 700 | ~2 170 | ~156 |
 | **Kjøttproduksjon totalt (1000 t)** | ~355* | ~560 | ~1 900* | ~390 | ~31 |
 | **Eggproduksjon (1000 t)** | ~68* | ~110* | ~85* | ~75 | ~4* |
-| **Økologisk andel (areal)** | 4,6 % | 20,2 % | 11,4 % | 14,4 % | 0,4 % |
+| **Økologisk andel (areal)** | 4,7 % | 18,4 % | 11,4 % | 13,5 % | 0,4 %* |
 | **Sysselsetting primærprod.** | ~43 000* | ~177 600 | ~55 000* | ~60 000* | ~4 700* |
 | **Selvforsyningsgrad** | ~47 % | ~50 % | >300 % | ~80 % | ~53 % |
 
@@ -92,7 +92,7 @@ Rogaland alene står for ca. 20 % av norsk melkeproduksjon og en stor andel av s
 
 ### 1.5 Økologisk andel
 
-- Økologisk areal: ~41 100 ha (4,2 % av totalt jordbruksareal) (Kilde: SSB 2023)
+- Økologisk areal: 45 870 ha (4,66 % av totalt jordbruksareal) (Kilde: Eurostat ORG_CROPAR 2023, hentet 2026-04-29)
 - Andelen har vært stabil/svakt synkende siden 2019
 - Norge ligger lavest blant de skandinaviske landene
 
@@ -184,10 +184,10 @@ Skåne er Sveriges «kornkammer» — flatere landskap, lengre vekstsesong og mi
 
 ### 2.5 Økologisk andel
 
-- Økologisk areal: ~610 500 ha (20,2 % av jordbruksarealet) (Kilde: EEA 2023)
+- Økologisk areal: 549 941 ha (18,44 % av jordbruksarealet) (Kilde: Eurostat ORG_CROPAR 2023, hentet 2026-04-29)
 - Sverige har den høyeste økologiske andelen i Norden
 - Regjeringens mål: 30 % økologisk jordbruksareal innen 2030
-- Trend: Veksten har avtatt de siste årene pga. fallende forbruketterspørsel etter økologisk, inflasjon og økt fokus på «närproducerat» fremfor «ekologiskt»
+- Trend: Veksten har avtatt de siste årene pga. fallende forbruketterspørsel etter økologisk, inflasjon og økt fokus på «närproducerat» fremfor «ekologiskt». Eurostat har foreløpig 2024-tall for Sverige på 495 568 ha / 16,66 %.
 
 ### 2.6 Trender 2020–2025
 
@@ -277,7 +277,7 @@ Jylland dominerer dansk husdyrproduksjon. Svineproduksjonen er tungt konsentrert
 
 ### 3.5 Økologisk andel
 
-- Økologisk areal: ~304 000 ha (11,4 % av jordbruksarealet) (Kilde: EEA/Statista 2023)
+- Økologisk areal: 298 939 ha (11,41 % av jordbruksarealet) (Kilde: Eurostat ORG_CROPAR 2023, hentet 2026-04-29)
 - Danmark har den høyeste økologiske markedsandelen i verden: 11,8 % av totalt matvarekonsum er økologisk
 - Etter jevn vekst 2015–2021 har det økologiske arealet stagnert/svakt falt i 2022–2023 pga. lavere forbruketterspørsel og inflasjon
 
@@ -369,7 +369,7 @@ Storfekjøttproduksjonen er høyest i Sør-Østerbotten, Nord-Østerbotten og No
 
 ### 4.5 Økologisk andel
 
-- Økologisk areal: ~311 500 ha (14,4 % av jordbruksarealet) (Kilde: Statista/Luke 2023)
+- Økologisk areal: 306 348 ha (13,52 % av jordbruksarealet) (Kilde: Eurostat ORG_CROPAR 2023, hentet 2026-04-29; Eurostat status: definisjon avviker)
 - Finland har den nest høyeste økologiske andelen i Norden etter Sverige
 - Økologisk kjøttproduksjon: 4,4 mill. kg, hvorav storfe utgjør ~80 %
 - Gjennomsnittlig størrelse på økologisk gård er noe større enn konvensjonelle bruk
@@ -453,7 +453,7 @@ Over 90 % av Islands jordbruksareal er grasmark brukt til fôrproduksjon. Geoter
 
 ### 5.5 Økologisk andel
 
-- Økologisk areal: ~6 440 ha (0,4 % av jordbruksarealet) (Kilde: EEA)
+- Økologisk areal: ~6 400 ha (0,4 % av jordbruksarealet) (lokalt estimat; trenger primærsjekk)
 - Island har den laveste økologiske andelen i Norden
 - Sektoren er liten men voksende
 - Islands bønder fremhever at konvensjonelt islandsk jordbruk allerede er svært lavintensivt (lite sprøytemidler, antibiotikafritt)
@@ -530,11 +530,13 @@ Over 90 % av Islands jordbruksareal er grasmark brukt til fôrproduksjon. Geoter
 
 | Rang | Land | Andel (%) | Areal (ha) |
 | :--- | :--- | :--- | :--- |
-| 1 | **Sverige** | 20,2 % | 610 500 |
-| 2 | Finland | 14,4 % | 311 500 |
-| 3 | Danmark | 11,4 % | 304 000 |
-| 4 | Norge | 4,6 % | 45 100 |
-| 5 | Island | 0,4 % | 6 400 |
+| 1 | **Sverige** | 18,44 % | 549 941 |
+| 2 | Finland | 13,52 % | 306 348 |
+| 3 | Danmark | 11,41 % | 298 939 |
+| 4 | Norge | 4,66 % | 45 870 |
+| 5 | Island | 0,4 %* | 6 400* |
+
+**Datakontroll:** DK/FI/SE/NO er nå harmonisert mot Eurostat `ORG_CROPAR` (2023, hentet 2026-04-29; Eurostat source update 2026-03-31). Finland har Eurostat-status `d` («definition differs») og bør flagges i sammenlikninger. Island er ikke verifisert i Eurostat-uttrekket for 2022–2024 og beholdes derfor som lokalt estimat med `needs_primary_check`. Canonical dataserie: `research/data/nordic/core-series/organic_agriculture_annual.csv`.
 
 ### 6.4 Samvirkestruktur — fellestrekk
 
@@ -558,7 +560,7 @@ Alle nordiske land har en sterk samvirketradisjon i primærproduksjonen. Koopera
 
 3. **Beredskap og selvforsyning:** Etter Ukraina-krigen har alle nordiske land økt fokus på matsikkerhet. Finland er ledende (9 måneders kornlager), Norge bygger opp (mål 82 500 t), Danmark og Sverige diskuterer i EU-kontekst.
 
-4. **Økologisk stagnasjon:** Etter år med vekst har etterspørselen etter økologisk mat stagnert i 2022–2025. Fokus skifter mot «lokalprodusert» og «bærekraftig» uten økologisk sertifisering.
+4. **Økologisk stagnasjon:** Etter år med vekst har etterspørselen etter økologisk mat stagnert i 2022–2025. Eurostat viser fall i svensk økoandel fra 18,44 % i 2023 til foreløpig 16,66 % i 2024, mens Finland ligger rundt 13,5 %. Fokus skifter mot «lokalprodusert» og «bærekraftig» uten økologisk sertifisering.
 
 5. **Svinekjøtt under press:** Danmarks svineindustri krymper (–20 % i 2023). CO₂-avgift fra 2030 vil akselerere omstillingen. Sverige og Finland har stabil, men begrenset produksjon.
 

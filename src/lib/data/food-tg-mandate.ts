@@ -1,3 +1,5 @@
+import type { EvidenceStatus } from '@/lib/visualization/types'
+
 export type FoodTgTrack = 'A' | 'B' | 'C'
 
 export type FoodTgValidationStatus =
@@ -6,6 +8,10 @@ export type FoodTgValidationStatus =
   | 'needs-actor-validation'
   | 'benchmark'
   | 'hypotese'
+
+export type FoodTgClaimStrength = 'sterk-intern' | 'moderat' | 'benchmark' | 'hypotese'
+
+export type FoodTgValidationLaneId = 'utfort-internt' | 'needs-primary-check' | 'needs-actor-validation' | 'validert-eksternt'
 
 export type FoodTgOpportunity = {
   rank: number
@@ -35,9 +41,12 @@ export type FoodTgSprintItem = {
 
 export type FoodTgClaimCard = {
   id: string
+  claimId: string
   track: FoodTgTrack
   title: string
+  strength: FoodTgClaimStrength
   status: FoodTgValidationStatus
+  nextAction: string
   useNow: string
   needs: string
 }
@@ -51,6 +60,41 @@ export type FoodTgDocument = {
   use: string
 }
 
+export type FoodTgMandateSummary = {
+  title: string
+  date: string
+  decisionDate: string
+  evidenceStatus: EvidenceStatus
+  evidenceStatusNote: string
+  scope: string
+  recommendation: string
+  decisionRule: string
+  externalValidation: string
+}
+
+export type FoodTgTrackStatusCard = {
+  track: FoodTgTrack
+  title: string
+  status: string
+  readyNow: string
+  checkFirst: string
+  nextAction: string
+}
+
+export type FoodTgValidationLane = {
+  id: FoodTgValidationLaneId
+  title: string
+  description: string
+  items: string[]
+}
+
+export const foodTgClaimStrengthLabels: Record<FoodTgClaimStrength, string> = {
+  'sterk-intern': 'Høy internt',
+  moderat: 'Moderat',
+  benchmark: 'Benchmark',
+  hypotese: 'Hypotese',
+}
+
 export const foodTgStatusLabels: Record<FoodTgValidationStatus, string> = {
   'internt-trygt': 'Internt trygt',
   'needs-primary-check': 'Needs primary-check',
@@ -59,10 +103,19 @@ export const foodTgStatusLabels: Record<FoodTgValidationStatus, string> = {
   hypotese: 'Hypotese',
 }
 
-export const foodTgMandateSummary = {
+export const foodTgValidationLaneLabels: Record<FoodTgValidationLaneId, string> = {
+  'utfort-internt': 'Utført internt',
+  'needs-primary-check': 'Needs primary-check',
+  'needs-actor-validation': 'Needs actor-validation',
+  'validert-eksternt': 'Validert eksternt',
+}
+
+export const foodTgMandateSummary: FoodTgMandateSummary = {
   title: 'Food TG mandat og validering',
   date: '2026-04-28',
   decisionDate: '2026-05-05',
+  evidenceStatus: 'proxy',
+  evidenceStatusNote: 'Internt styringssignal fra claim-, queue- og mandate-dokumenter. Ikke ekstern validering.',
   scope: 'Forelopig scope: Spor A+B, med C som tverrgaende adoption-, regelverks- og datagate.',
   recommendation:
     'Beslutt en 10 arbeidsdagers valideringssprint for pilotcommitment. Ingen claims lofter status for primary-check eller actor-validation er dokumentert.',
@@ -111,6 +164,33 @@ export const foodTgDecisionDocuments: FoodTgDocument[] = [
     status: 'koe',
     path: 'docs/project/mandates/actor-validation-pack-food-tg-v0.1.md',
     use: 'Gir sporsmal, prioritering og responslogikk for P1/P2-aktorer.',
+  },
+]
+
+export const foodTgTrackStatusCards: FoodTgTrackStatusCard[] = [
+  {
+    track: 'A',
+    title: 'Fôr, import og sporbarhet',
+    status: 'Hovedspor med valideringsgate',
+    readyNow: 'Sterkt som strategisk scoping for datakrav, importavhengighet og sporbarhet.',
+    checkFirst: 'EUDR-Norge, HS/SSB-metode, fôraktørdata, modenhet, kost, LCA og kjøperkrav.',
+    nextAction: 'Kjør primary-check mot Landbruksdirektoratet, Miljødirektoratet og SSB/Tolletaten, deretter actor-check mot fôraktører.',
+  },
+  {
+    track: 'B',
+    title: 'Sidestrømmer og matsvinnkvalitet',
+    status: 'Hovedspor-kandidat med streng valideringsgate',
+    readyNow: 'Sterkt som casebank og benchmark for rene prosess-sidestrømmer, matsvinnkvalitet og nutrient loops.',
+    checkFirst: 'Råvareeier, matgrad, hygiene, stabilisering, off-taker, baseline, kategori og kontrafaktisk.',
+    nextAction: 'Velg ett avgrenset go/no-go-case og test om lov, logistikk, data og kjøper kan dokumenteres raskt.',
+  },
+  {
+    track: 'C',
+    title: 'Adoption, regelverk og governance',
+    status: 'Tverrgående gate, ikke selvstendig hovedspor nå',
+    readyNow: 'Sterkt som beslutningsfilter for A og B: lov, kjøper, dataeier, drift og governance.',
+    checkFirst: 'Aktorbekreftelse, dataeier, styringsarena og om claims kan løftes uten å blande intern og ekstern validering.',
+    nextAction: 'Legg C-gate inn i alle kandidatkort og bruk den som stoppsignal før pilotcommitment.',
   },
 ]
 
@@ -256,52 +336,97 @@ export const foodTgValidationSprint: FoodTgSprintItem[] = [
   },
 ]
 
+export const foodTgValidationLanes: FoodTgValidationLane[] = [
+  {
+    id: 'utfort-internt',
+    title: foodTgValidationLaneLabels['utfort-internt'],
+    description: 'Intern analyse er strukturert nok til å styre neste valg, men er ikke ekstern validering.',
+    items: ['CL-A-020', 'CL-C-014'],
+  },
+  {
+    id: 'needs-primary-check',
+    title: foodTgValidationLaneLabels['needs-primary-check'],
+    description: 'Metode, regulatoriske forhold eller primærdatakilder må sjekkes før claim kan løftes.',
+    items: ['EUDR-Norge', 'HS/SSB-metode', 'produksjons- og fôrdata'],
+  },
+  {
+    id: 'needs-actor-validation',
+    title: foodTgValidationLaneLabels['needs-actor-validation'],
+    description: 'Aktører må bekrefte modenhet, data, kjøperkrav, praktisk gjennomføring eller stoppsignal.',
+    items: ['Denofa/Skretting', 'Mattilsynet/fagekspert', 'Matvett/Too Good To Go', 'dagligvare/HORECA'],
+  },
+  {
+    id: 'validert-eksternt',
+    title: foodTgValidationLaneLabels['validert-eksternt'],
+    description: 'Ingen claims er validert eksternt per 2026-04-28.',
+    items: [],
+  },
+]
+
 export const foodTgClaimBoard: FoodTgClaimCard[] = [
   {
     id: 'A-scope',
+    claimId: 'CL-A-020',
     track: 'A',
     title: 'Spor A er sterkt som strategisk scoping, ikke som substitusjonsbevis.',
+    strength: 'moderat',
     status: 'internt-trygt',
+    nextAction: 'Kjør primary-check for EUDR/HS og actor-check for fôraktører.',
     useNow: 'Bruk som intern retning for for, import, sporbarhet og datakrav.',
     needs: 'Primary-check for EUDR/HS og actor-check for foraktorer.',
   },
   {
     id: 'A-feed-protein',
+    claimId: 'CL-A-021',
     track: 'A',
     title: 'Alternative forproteiner er et roadmap-spor hvis modenhet og kjoperkrav bekreftes.',
+    strength: 'hypotese',
     status: 'hypotese',
+    nextAction: 'Avklar om sporet er roadmap, FoU-benchmark eller senere pilotkandidat.',
     useNow: 'Formuler som mulighet med gates, ikke som pilotklart case.',
     needs: 'Kost, LCA, volum, regelverk, tilgjengelighet og kjoperkrav.',
   },
   {
     id: 'B-sidestreams',
+    claimId: 'CL-B-021',
     track: 'B',
     title: 'Rene prosess-sidestroemmer kan testes forst hvis hygiene, stabilisering og kjoper finnes.',
+    strength: 'moderat',
     status: 'benchmark',
+    nextAction: 'Kartlegg ett avgrenset råvarecase med hygieneport, stabilisering og off-taker.',
     useNow: 'Bruk okara/BSG som teknisk benchmark og betinget kandidat.',
     needs: 'Norsk/nordisk volum, matgrad, Novel Food, holdbarhet og off-taker.',
   },
   {
     id: 'B-food-waste-quality',
+    claimId: 'CL-B-022',
     track: 'B',
     title: 'Matsvinnkvalitet kan vaere rask adoption-kandidat hvis partnerdata finnes.',
+    strength: 'sterk-intern',
     status: 'hypotese',
+    nextAction: 'Teste om partnerdata finnes for quality-window-kart og minimum pilotdesign.',
     useNow: 'Hold som parallell fallback/adoption-kandidat.',
     needs: 'Baseline, kategori, tidsvindu, rutineendring og kontrafaktisk.',
   },
   {
     id: 'B-benchmarks',
+    claimId: 'CL-B-023',
     track: 'B',
     title: 'Marint restrastoff og nutrient loops er laering, ikke forste lettvekts-pilot.',
+    strength: 'benchmark',
     status: 'benchmark',
+    nextAction: 'Behold som benchmark til systemgrense, marked og sammenlignbare KPI-er er klare.',
     useNow: 'Bruk som benchmark for fraksjoner, hoyverdi, N/P/K og governance.',
     needs: 'Systemgrense, produktstatus, marked, massebalanse og sammenlignbare KPI-er.',
   },
   {
     id: 'C-gate',
+    claimId: 'CL-C-014',
     track: 'C',
     title: 'Ingen A/B-kandidat bor ga videre uten lov, kjoper, data, drift og governance.',
+    strength: 'sterk-intern',
     status: 'internt-trygt',
+    nextAction: 'Bruk C-gate som obligatorisk stoppsignal i alle kandidatkort.',
     useNow: 'Bruk C som gate pa tvers av alle kandidatkort.',
     needs: 'Aktorbekreftelse og tydelig dataeier for hvert case.',
   },

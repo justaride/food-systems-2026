@@ -20,6 +20,15 @@ output/
 # Local session reports (not committed)
 RAPPORT-*.html
 RAPPORT-*.pdf
+STATUS-*.html
+datagap-rapport-*.html
+baerekraft-*.html
+graf-canvas-*.jpeg
+graf-canvas-*.png
+
+# Playwright test artifacts
+test-results/
+.claude/scheduled_tasks*.lock
 
 /src/generated/prisma
 /src/generated/version.json
@@ -36,3 +45,4 @@ docs/**/*.pdf
 
 # Git worktrees
 .worktrees/
+.superpowers/

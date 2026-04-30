@@ -1,0 +1,799 @@
+Brussels, 14 February 2025
+Case No: 91801
+Document No: 1516140
+
+
+
+
+                  Report from the EFTA Surveillance Authority
+
+
+               on the overall operation of official controls of the
+
+
+                              Food and Veterinary Area in
+
+
+                                    Iceland and Norway
+
+
+                                              2023
+
+
+
+
+                                ESA Food and Veterinary Unit
+
+
+
+
+            Avenue des Arts 19H, B-1000 Brussels, tel: +32 2 286 18 11, www.eftasurv.int
+Page 2
+
+
+
+
+                                     Executive Summary
+This report describes the overall outcome of the EFTA Surveillance Authority (ESA)’s
+control activities in 2023 in the areas of food and feed safety, animal health and animal
+welfare, plant protection products and organic production (‘food and veterinary area’). It
+also summarizes the official controls carried out by the national competent authorities in
+Iceland and Norway.
+The national competent authorities in Iceland and Norway are responsible for carrying
+out official controls to verify that operators along the food and feed chain comply with
+EEA law, and for taking appropriate enforcement measures in cases of non-compliances.
+Both States submitted the required annual reports on the implementation of their official
+controls to ESA for 2023.
+The annual reports submitted by the states, show that official controls in Iceland and
+Norway were carried out in accordance with their respective multi-annual national control
+plans. ESA notes a marked improvement in the information provided in the annual
+reports. However, data is missing for some sections, with inconsistencies also identified
+in the information provided from different sectors. This impacts the possibilities for data
+comparisons and decreases the value of the conclusions that can be drawn on the
+overall outcome of the controls.
+ESA carries out its own controls, including audits and desk-based analyses, to verify the
+application of the EEA legislation in Iceland and Norway in the food and veterinary area
+and the effectiveness of their national control systems. ESA issues recommendations to
+the States when identifying systemic shortcomings in official controls and control
+systems.
+In 2023, ESA's controls confirmed that Iceland and Norway have established systems to
+monitor and enforce EEA law and that they have, with few exceptions, incorporated and
+applied the relevant EEA rules. ESA systematically follows-up all open recommendations
+and engages in continuous communication with the Iceland and Norway to monitor
+progress on the implementation of corrective actions to address the recommendations.
+In 2023, a review of recommendations issued by ESA since 2010 revealed certain
+recurring issues. This indicates some systematic weaknesses in the control systems that
+have not been sufficiently addressed. In response to these findings, ESA held
+workshops in both Iceland and Norway to provide guidance on effectively addressing
+recommendations through corrective actions.
+If Iceland or Norway fail to provide adequate assurances that satisfactory actions have
+been implemented in a timely manner, ESA may decide to initiate infringement
+procedures. In 2023, ESA closed an infringement case against Norway concerning
+import controls after Norway made the necessary legislative and administrative changes
+to comply with EEA rules.
+Based on the information reported by Iceland and Norway and ESA’s own controls, ESA
+concludes that, overall, the two States have established and functioning control systems
+that are generally effective in ensuring compliance with EEA rules in the food and
+veterinary area.
+
+
+
+
+            Avenue des Arts 19H, B-1000 Brussels, tel: +32 2 286 18 11, www.eftasurv.int
+Page 3
+
+
+
+INTRODUCTION .............................................................................................................. 4
+PART I: ESA’S CONTROL ACTIVIES IN ICELAND AND NORWAY IN 2023 ................. 5
+1      AUDITS AND CONTROLS........................................................................................ 5
+    1.1        Audit on official controls related to Avian Influenza and Newcastle disease ...... 5
+    1.2        Desk-based analysis of residue monitoring plans .............................................. 6
+    1.3    Desk-based analysis of controls on organic production and labelling of organic
+    products ........................................................................................................................ 7
+    1.4        Fact finding study on welfare of farmed fish ...................................................... 7
+2      ENTRY OF ANIMALS AND GOODS INTO THE EEA ............................................... 7
+    2.1        Desk-based analysis on the re-designation of border control posts ................... 8
+    2.2        Changes to border control posts in the EEA EFTA States ................................. 8
+3      FOLLOW-UP ACTIVITIES ........................................................................................ 9
+    3.1        General review audits in Iceland and Norway .................................................... 9
+    3.2   Desk-based analyses on horizontal issues related to official controls and
+    workshops on how to address ESA’s recommendations. .............................................. 9
+    3.3        Infringement procedures ................................................................................. 10
+PART II: OFFICIAL CONTROLS CARRIED OUT BY ICELAND AND NORWAY IN 2023
+   11
+4      ANNUAL REPORTS ON OFFICIAL CONTROLS ................................................... 11
+    4.1     Performance of the official control systems and measures taken to ensure the
+    effective operation of the multi-annual national control plan (MANCP) ........................ 12
+       4.1.1      Iceland ........................................................................................................ 12
+       4.1.2      Norway ........................................................................................................ 13
+PART III: OVERALL FUNCTIONING OF THE CONTROL SYSTEM IN ICELAND AND
+NORWAY ....................................................................................................................... 15
+ANNEX 1 – LIST OF ABBREVIATIONS AND TERMS .................................................. 16
+Page 4
+
+
+
+INTRODUCTION
+
+The responsibility to implement and enforce EEA legislation in the food and veterinary area1
+lies with Iceland and Norway. National competent authorities must monitor and verify,
+through the organisation of official controls and, where necessary, by appropriate
+enforcement actions, that operators comply with relevant EEA requirements.
+Since 2020, Iceland and Norway have annually reported the results of their official controls
+using an electronic format harmonised for the entire EEA.
+The EFTA Surveillance Authority (ESA) carries out controls to verify the implementation
+and application of EEA legislation in Iceland and Norway. These controls are carried out in
+the areas of food and feed safety, animal health and animal welfare, plant protection
+products, organic production and the functioning of national control systems and the
+responsible competent authorities.
+ESA also monitors the transposition of EEA rules into national law in Norway and Iceland.
+283 EU acts were incorporated into the EEA Agreement in the food and veterinary field in
+2023. ESA publishes bi-annually a Scoreboard that measures the EEA EFTA States
+performance in transposing EEA rules on time.
+Audits are carried out to verify the incorporation and application of EEA rules in the food
+and veterinary area and to assess the effectiveness of the implementation of official
+controls performed by the national competent authorities. ESA publishes the final reports
+from audits, including any plan for corrective actions provided by the national competent
+authorities to address ESA’s recommendations for identified shortcomings
+www.eftasurv.int.
+Desk-based analyses are controls based on documentary reviews only. Certain desk-
+based analyses are specifically required by EEA legislation, and ESA will assess relevant
+documents to verify compliance of Iceland and Norway with the EEA requirements. ESA
+also uses desk-based analyses to assess the current situation in certain areas or sectors.
+
+Fact-finding studies do not focus on compliance with existing EEA legislation. The aim is
+to gather information on national arrangements in a specific area or sector, e.g. identifying
+best practices in areas not covered by EEA legislation. Depending on the objectives,
+information gathered during fact finding studies might be published in an overview report.
+
+ESA systematically follows up on recommendations issued following audits, and can, when
+necessary, initiate infringement proceedings for incorrect application or implementation of
+EEA rules.
+
+The abbreviations used in this report are listed in Annex 1.
+For an overview of legislation referred to in this report please see Annex 2.
+
+
+
+
+1
+  EEA legislation in the food and veterinary area includes food and food safety, feed and feed safety, animal health and
+welfare requirements, animal by-products and derived products, requirements for the placing on the market and use of plant
+protection products and the sustainable use of pesticides, organic production and the labelling of organic products.
+Page 5
+
+
+
+Part I: ESA’s CONTROL ACTIVIES IN ICELAND AND NORWAY IN 2023
+
+The EFTA Surveillance Authority’s Delegated Decision No 271/21/COL2 sets out the
+priorities for ESA’s control programme for the period 2022 to 2026 (control programme).
+The criteria for prioritisation include inter alia identified risks through e.g., the Rapid Alert
+System for Food and Feed (RASFF) or the Animal Disease Information System (ADIS),
+emerging risks such as food or feed crisis or animal disease outbreaks, the relevance of a
+sector, the outcome of ESA’s previous controls, as well as Iceland and Norway’s
+performance addressing shortcomings identified and the relevant priorities set by the
+European Commission in its control programme3.
+
+ESA established its work programme for 2023 in the food and veterinary area in line with
+the priorities set out in the control programme. ESA’s work programme was discussed with
+the two states at a meeting on 27 September 2022 before being finalised and sent to
+Iceland and Norway on 17 November 2022. The work programme for 2023 was published
+on ESA’s website shortly thereafter4.
+The following sections provide a summary of ESA’s control activities in 2023 in the
+prioritised areas, as well as of the overall functioning of the control systems in Iceland and
+Norway.
+ESA’s control activities in 2023 for Iceland and Norway are listed in Figure 1.
+
+
+                                                          Iceland                                   Norway
+
+    Audit                                                                                               1
+
+    Desk-based analysis                                       3                                         3
+
+    Fact-finding study                                                                                  1
+
+    General review audit                                      1                                         1
+
+    Border Control Post                                                                                 1
+    verification
+
+    Workshops                                                 1                                         1
+Figure 1: ESA's control activities in 2023 by type and State
+
+
+
+1       AUDITS AND CONTROLS
+
+1.1       Audit on official controls related to Avian Influenza and Newcastle disease
+In recent years, several epizootic waves of highly pathogenic avian influenza (HPAI) have
+had a major impact on the domestic poultry sector across Europe where they have caused
+significant direct and indirect economic and societal costs.
+
+
+2
+   EFTA Surveillance Authority Delegated Decision No 271/21/COL of 3 December 2021 establishing a multiannual
+programme of controls for the period 2022-2026 to be carried out in Iceland and Norway to verify application of EEA legislation
+in the food and veterinary area (OJ L 43, 24.2.2022, p. 87-92).
+3
+ Commission Implementing Decision (EU) 2020/1550 of 23 October 2020 establishing the multiannual programme of controls
+for the period 2021-2025 to be carried out by Commission experts in the Member States to verify the application of Union
+agri-food chain legislation (OJ L 354, 26.10.2020, p 9-18).
+4
+    The EFTA Surveillance Authority's work programme in the Food and Veterinary Area 2023
+Page 6
+
+
+
+During the 2020-2021 epizootic in Europe, migratory wild birds were instrumental in the
+transmission of the HPAI virus to the poultry population. Since 2021, Norway has notified
+an increasing number of confirmed HPAI cases, mainly in wild birds.
+ESA carried out an audit to Norway in 2023 to verify compliance with the applicable EEA
+animal health legislation governing the control of HPAI and Newcastle disease (ND).
+The scope of the audit included:
+          The implementation of the applicable contingency plans;
+          The outbreaks of HPAI and ND in poultry and captive birds and confirmations of
+           HPAI in wild birds, that occurred in Norway between 2020 - 2023;
+          Animal health conditions governing the production chain for poultry;
+          The effectiveness of the measures taken in the affected poultry and captive bird
+           populations and when there is a suspicion and confirmation in wild birds;
+          All levels of the national and regional administrations involved in the planning and
+           application of prevention, surveillance and control measures for HPAI and ND;
+          The operation of the official laboratory designated to carry out analyses, tests and
+           diagnoses to detect and / or confirm the presence of HPAI and ND.
+ESA found that contingency plans are in place which describe what the competent Authority
+does in the event of an outbreak of a listed disease, though the plans do not include all the
+information required to launch a rapid response. Notwithstanding, the competent authority
+successfully managed the disease outbreaks between 2021 – 2023.
+Laboratory capacity provides the competent authority with a rapid diagnostic service for
+suspect cases in commercial poultry holdings though delays occurred with other poultry
+and wild birds. In addition, the laboratory provides significant scientific and technical
+assistance to the competent authority related to disease control measures.
+
+1.2       Desk-based analysis of residue monitoring plans
+The production process of animals and primary products of animal origin shall be monitored
+for the purpose of detecting the presence of residues of veterinary medicinal products,
+pesticides and contaminants in live animals and animal products.
+ESA carried out a desk-based analysis of Iceland and Norway’s residue monitoring plans
+for 2023 to verify that they complied with the requirements laid down in the relevant EEA
+legislation:
+          Provide for detection of groups of relevant residues or substances according to type
+           of animal;
+          Specify the measures for detection of the presence of relevant substances in live
+           animals, their excrement and body fluids and in animal tissues and products such
+           as meat, milk, eggs and honey; and
+          Comply with relevant sampling rules and levels.
+
+
+ESA found that Iceland and Norway’s 2023 residue monitoring control plans mainly met
+the requirements of the relevant EEA legislation. On 15 December 2023, ESA shared
+written summaries of the assessments with the two States, highlighting areas for
+improvement in the 2024 controls.
+Page 7
+
+
+
+1.3   Desk-based analysis of controls on organic production and labelling of organic
+      products
+Iceland and Norway reported as required on the official controls on organic production and
+labelling of organic products carried out in 2023. ESA reviewed the information provided
+against the criteria and minimum targets set out for the controls in the relevant EEA
+legislation.
+Iceland has delegated official controls on organic production to a single control body
+(Vottunarstofan Tun), except import controls for organic products which rests with the Food
+and Veterinary Authority (MAST). There are 55 operators certified as organic in Iceland.
+ESA notes that all registered operators received a control visit in 2023, and that Iceland
+was very close to meeting the minimum control frequencies for the risk-based additional
+controls and unannounced controls. However, the number of samples taken in 2023 was
+insufficient and did not meet the minimum target. Iceland submitted all required information
+in the report for 2023, but ESA found that better contextual information would have
+facilitated the overall assessment on the performance of the controls. Iceland reported that,
+overall, the level of compliance of certified operators in 2023 was similar to previous years,
+and irregularities detected did not give rise to any suspicions of fraudulent activities.
+Norway has delegated official controls on organic production to a single control body
+(DEBIO), except import controls for organic products which rests with the Norwegian Food
+Safety Authority (NFSA). There are 3020 operators certified as organic in Norway.
+ESA appreciated the detailed information provided to describe the supervision of the
+control body by the competent authority (NFSA). Norway also reported that all registered
+operators had received an annual control visit. However, the number of additional risk-
+based controls and unannounced controls in 2023 was far below the minimum frequencies.
+Norway reported lack of resources as the reason for missing the targets, and informed that
+measures had been implemented to ensure that all minimum control frequencies would be
+reached in 2024.
+ESA finds that controls on organic production are mostly carried out as required in Iceland
+and Norway, however, the States need to ensure that the minimum targets for additional
+risk-based controls, unannounced controls and sampling are met. Overall, the information
+provided by Iceland and Norway indicates a good level of compliance for the sector in both
+States.
+
+1.4   Fact finding study on welfare of farmed fish
+In May and June 2023, ESA carried out a fact-finding study to Norway on welfare of farmed
+fish which was scheduled in cooperation with the Directorate General for Health and Food
+Safety (DG SANTE) of the European Commission, and in agreement with the Norwegian
+competent authorities. The study was part of a project to provide an overview of the
+commercial farmed fish sector in the EEA, and specifically on the animal welfare aspects
+related to it. Information gathered during the study will be published in an overview report
+prepared by the European Commission, together with information from the other EU
+Member states included in the project.
+
+
+2     ENTRY OF ANIMALS AND GOODS INTO THE EEA
+EEA States shall designate border control posts for the purpose of performing official
+controls on certain products coming from countries outside the EEA. ESA verifies that
+designated border control posts meet the minimum requirements set out in EEA law.
+Page 8
+
+
+
+2.1     Desk-based analysis on the re-designation of border control posts
+Regulation (EU) 2017/625 on official controls (the OCR)5, was incorporated into the EEA
+Agreement on 27 December 2019 and entered into force on 7 March 2020. In order to
+comply with the OCR, border inspection posts (BIPs) approved under the previous legal
+framework had to be re-assessed and re-designated, as relevant.
+The EEA States could re-designate existing BIPs as border control posts (BCPs) or control
+points (CPs), provided that they complied with the minimum requirements referred to in
+Article 64 of the OCR and those laid down in Commission Implementing Regulation (EU)
+2019/1014. It was the responsibility of the EEA States to ensure that any BIPs re-
+designated as BCPs or CPs fulfilled these requirements.
+The main objective of the desk-based analysis was to:
+        1. Review the re-designation process in Iceland and Norway to verify that the border
+           control posts (BCPs) and control posts (CPs) designated by the national
+           competent authorities under the OCR, complied with the minimum requirements
+           for BCPs (including inspection centres) laid down in the applicable EEA legislation;
+        2. Evaluate the need for a possible control visit by ESA to verify compliance of the
+           re-designated BCPs and other control facilities, and to define the scope of the
+           potential control visit/s.
+ESA found that Iceland and Norway had carried out the re-designation in a thorough
+manner. BCPs had been audited by the national authorities and the decision of re-
+designation was based on the outcome of the audits or control visits. Both countries have
+a good system of internal audits to monitor the compliance of the BCPs and inspection
+centres.
+
+2.2     Changes to border control posts in the EEA EFTA States
+Regulation (EU) 2017/625, the OCR, lays down provisions for the designation of (Article
+59) and the suspension of the designation of (Article 63) border control posts (BCPs).
+Iceland and Norway must notify ESA before designating a new BCP or when there are any
+substantial changes planned for an existing BCP. Based on the information provided by
+the States, ESA verifies that the proposed BCP complies with the minimum requirements.
+In 2023, Norway designated one new BCP in Haugesund.
+The information received from Norway was assessed against the requirements for border
+control posts laid down in Regulation (EU) 2017/625, in particular Article 64 thereof, and
+Implementing Regulation (EU) 2019/1014, in particular Articles 3, 4, 6 and 8 thereof.
+ESA concluded that the designation of the new BCP was dependent upon the favourable
+outcome of an on-site control by ESA. The on-site audit was carried out in January 2023.
+Following minor improvements at the BCP facilities, Norway confirmed the designation of
+the new BCP in Haugesund on 17 February 2023.
+
+
+
+
+5
+  Regulation (EU) 2017/625 of the European Parliament and of the Council of 15 March 2017 on official controls and other
+official activities performed to ensure the application of food and feed law, rules on animal health and welfare, plant health
+and plant protection products, amending Regulations (EC) No 999/2001, (EC) No 396/2005, (EC) No 1069/2009, (EC) No
+1107/2009, (EU) No 1151/2012, (EU) No 652/2014, (EU) 2016/429 and (EU) 2016/2031 of the European Parliament and of
+the Council, Council Regulations (EC) No 1/2005 and (EC) No 1099/2009 and Council Directives 98/58/EC, 1999/74/EC,
+2007/43/EC, 2008/119/EC and 2008/120/EC, and repealing Regulations (EC) No 854/2004 and (EC) No 882/2004 of the
+European Parliament and of the Council, Council Directives 89/608/EEC, 89/662/EEC, 90/425/EEC, 91/496/EEC, 96/23/EC,
+96/93/EC and 97/78/EC and Council Decision 92/438/EEC (Official Controls Regulation), as amended and adapted to the
+EEA Agreement.
+Page 9
+
+
+
+3       FOLLOW-UP ACTIVITIES
+ESA carries out desk-based analysis and follow up audits, including on-site verification, to
+verify that Iceland and Norway take appropriate follow-up measures to remedy any specific
+or systematic shortcomings identified by ESA’s controls. ESA will also initiate infringement
+proceedings for non-implementation or incorrect application of EEA law where necessary.
+
+3.1       General review audits in Iceland and Norway
+In 2023, ESA carried out General review audits in both Iceland and Norway. The objective
+and scope of the audits was to review and assess the progress made by Iceland and
+Norway in addressing recommendations made by ESA in audits carried out between
+January 2018 and November 2022.
+The Country Profiles6 of both States, which summarise the latest information on how the
+national control systems for food and feed safety, animal health and welfare are organised,
+were updated in relation to the general review audits. Part 2 of the Country Profile provides
+an overview of the status of the corrective actions taken by the States to address the
+recommendations made by ESA and is updated annually based on information received
+from the States.
+ESA found that both countries had made progress in addressing ESA’s recommendations.
+However, limited progress was observed in addressing the recommendations in certain
+sectors. Figure 2 provides and overview of the progress made by the two States in
+addressing the recommendations issued by ESA following the audits carried out between
+2018 – 2022.
+
+
+                               Necessary       Acceptable          Insufficient           Total
+                              action taken -   progress is        progress has
+                                  closed       being made          been made
+
+    Iceland                           52           30                    6                  88
+
+    Norway                            21           33                                       54
+Figure 2: Number and status of recommendations from ESA’s audits carried out in Iceland and Norway from
+January 2018-November 2022
+
+
+
+ESA’s audits have over the years identified several horizontal weaknesses in both
+countries’ official control systems, and found certain overarching weak links in the official
+control systems that need to be further addressed by the competent authorities involved.
+For example, actions taken so far have not always been sufficient to ensure effectiveness
+of the official controls and adequate enforcement when non-compliances are detected.
+
+
+
+3.2       Desk-based analyses on horizontal issues related to official controls and
+          workshops on how to address ESA’s recommendations.
+Since 2010, ESA’s audits have included assessments of horizontal provisions in the OCR
+applicable to the control systems in Iceland and Norway. In 2023, desk-based analyses of
+all recommendations issued between 2010 and 2022 were conducted to identify any
+pattern or systematic weaknesses in the control systems in Iceland and Norway.
+
+
+6
+    Country profiles for Iceland and Norway
+Page 10
+
+
+
+The outcome of the desk-based analyses confirmed that several horizontal
+recommendations have been repeatedly issued to the two States. This indicates that the
+corrective actions notified by the national competent authorities to ESA have not been
+sufficient to address the issues horizontally across the control systems.
+In light of the outcome of the desk-based analyses, ESA conducted workshops both in
+Iceland and Norway titled ‘How to address ESA’s recommendations’. The workshops were
+prepared in co-operation with the Directorate General for Health and Food Safety (DG
+SANTE) of the European Commission and hosted by the Icelandic and Norwegian
+authorities.
+Objectives of the workshop were to:
+      1. Outline ESA’s audit procedures focussing on ways the EEA EFTA States can
+         effectively address recommendations through corrective actions;
+      2. Discuss the evidence required to give assurance that suitable actions have been
+         taken;
+      3. Discuss methodologies to ensure that recommendations related to provisions of the
+         OCR applicable to the entire control system are addressed horizontally across all
+         sectors; and,
+      4. Provide a forum for exchange and discussion with relevant staff of the competent
+         authorities about ESA’s audits.
+
+3.3     Infringement procedures
+ESA systematically follows up all open recommendations and engages in continuous
+communication with Iceland and Norway to monitor progress on the implementation of
+corrective actions by the two States. If Iceland or Norway fail to provide adequate
+assurances that satisfactory actions are implemented in a timely manner, ESA may decide
+to initiate infringement proceedings.
+On 18 October 2023, ESA adopted Decision No 143/23/COL7 to close infringement
+proceedings towards Norway for the incorrect application of import controls on products of
+animal origin in transit and/or in transshipment, and customs approved treatment of these
+products from third countries. ESA sent a letter of formal notice to Norway on 29 September
+2021. Subsequently, Norway put in place new legislation and changed administrative
+practices to address the shortcomings identified by ESA. Following an assessment of the
+information provided by the Norwegian authorities, ESA concluded that the necessary
+steps had been taken to fulfil the requirements of EEA law and there were, therefore, no
+grounds to pursue the case further.
+
+
+
+
+7
+  EFTA Surveillance Authority Decision No 143/23/COL of 18 October 2023 closing an own initiative case regarding the
+incorrect application by Norway of certain requirements concerning official controls of consignments in transit and/or
+transhipment and the customs-approved treatment or use of consignments from third countries.
+Page 11
+
+
+
+Part II: OFFICIAL CONTROLS CARRIED OUT BY ICELAND AND
+   NORWAY IN 2023
+Food and feed production and distribution spans a broad range of sectors and business
+activities. Correspondingly, the official controls carried out by the national authorities cover
+a vast array of areas, including farming, food service, food production and food distribution.
+Official controls are carried out to ensure that operators comply with relevant EEA
+requirements and maintain high standards of food and feed safety and animal health and
+welfare throughout the food chain.
+Figure 3 shows the number of registered and approved establishments reported to be
+operating in the food chain area in Iceland and Norway in 2023 and 2022, and the number
+of official controls carried out by the national authorities for each year. The overall number
+of controls reported is significantly lower for 2023 compared to 2022, mainly because of
+fewer controls reported by Norway. The information reported on the number of non-
+compliances and enforcement actions taken was incomplete and therefore not comparable
+and not included in the overview table.
+
+
+                Year                     Number of registered and                     Number of official
+                                                approved                             controls performed
+                                         operators/establishments
+
+                2023                                  102 552                                 15 259
+
+                2022                                  103 631                                 23 148
+Figure 3: Number of businesses in the food chain field in the EEA EFTA States and the number of official
+controls carried out in 2023 and 2022.
+
+
+
+4    Annual reports on official controls
+According to Article 113(1) of Regulation (EU) 2017/625, the EEA States are required to
+submit annual reports for control activities carried out and the implementation of their multi-
+annual national control plans (MANCPs). These annual reports are submitted digitally
+through a standard model form that is set out in the Annex to Regulation (EU) 2019/7238.
+A guidance document has been prepared by the European commission on how to fill in the
+standard model form9.
+The aim of the annual reports is to provide an overview of the official controls carried out
+in the food chain area in the EEA States and to facilitate the collection and transmission of
+comparable data and the compilation of such data in statistics representative for the EEA
+EFTA States.
+Iceland and Norway submit annual reports on the official controls carried out in the food
+chain sectors that fall under the scope of the EEA Agreement. Official controls on plant
+health and genetically modified food and feed are outside the scope of the EEA Agreement.
+
+
+
+
+8
+  Commission Implementing Regulation (EU) 2019/723 of 2 May 2019 laying down rules for the application of Regulation
+(EU) 2017/625 of the European Parliament and of the Council as regards the standard model form to be used in the annual
+reports submitted by Member States, as amended and adapted to the EEA Agreement.
+9
+  Commission Notice on a guidance document on how to fill in the standard model form in the Annex to Commission
+Implementing Regulation (EU) 2019/723 laying down rules for the application of Regulation (EU) 2017/625 of the European
+Parliament and of the Council as regards the standard model form to be used in the annual reports submitted by Member
+States (52021XC0301; OJ C 71, 1.3.2021, p. 1).
+Page 12
+
+
+
+Furthermore, only certain rules concerning animal health and animal welfare are applicable
+to Iceland10.
+Norway submitted its annual report for 2023 before the deadline of 31 August 2024 and
+Iceland submitted its report for 2023 on 13 September 2024.
+ESA notes that, overall, there has been steady improvement by Iceland and Norway of the
+information provided in the annual reports. Both States have supplied detailed and
+informative content for some sections of their respective reports. Iceland has provided a
+comprehensive account of the overall level of compliance of the control system and the
+measures taken to ensure the effective operation of the MANCP. Norway has provided
+detailed information on the official controls and the overall level of compliance in the fields
+of animal health and animal welfare and on specific control projects.
+However, ESA observes that both States had sections with missing information and that
+not all sections were completed in line with the template requirements. Iceland noted that
+necessary information was not received from all local competent authorities, while Norway
+reported that not all required data could be retrieved from the IT system currently in place.
+ESA emphasizes that Iceland and Norway need to ensure that they have access to, and
+can retrieve, the necessary information to allow for the submission of complete and
+consistent data in the required format. Furthermore, ESA notes that the consistency of the
+information provided for the different sectors could be improved.
+
+4.1       Performance of the official control systems and measures taken to ensure the
+          effective operation of the multi-annual national control plan (MANCP)
+Both Iceland and Norway have in place multi-annual national control plans and had set
+control priorities for 2023.
+ESA observes that Regulations (EU) 2022/93111 and (EU) 2022/93212, which set out
+minimum control frequencies and uniform practical arrangements for official controls of
+contaminants in food, only became applicable under the EEA Agreement as of 29 April
+2023. The provisions requiring the submission of annual control plans had therefore not
+entered into force before the submission deadline of 31 March. Consequently, they are not
+reflected on in this report.
+
+4.1.1       Iceland
+4.1.1.1 MANCP and general overview
+Iceland reported that the MANCP for 2023-2025 had been finalised in 2022 and published
+in the beginning of 2023.
+Iceland noted that ongoing organisational changes at the Food and Veterinary Authority
+(MAST) had continued to have an impact on official control activities in 2023, but in the
+long term they were expected to improve the efficiency of official controls.
+Iceland informed that the same six performance indicators for official controls had been set
+for 2023 as in previous years, three for the central competent authority and three for the
+local competent authorities. As a result, there is comparable data available of the
+performance indicators over a period of several years.
+
+10
+     See paragraph 2 of the Introductory part of Chapter I of Annex I to the EEA Agreement.
+11
+   Commission Delegated Regulation (EU) 2022/931 of 23 March 2022 supplementing Regulation (EU) 2017/625 of the
+European Parliament and of the Council by laying down rules for the performance of official controls as regards contaminants
+in food, incorporated into the EEA Agreement by Decision of the EEA Joint Committee No 78/2023 of 28 April 2023.
+12
+   Commission Implementing Regulation (EU) 2022/932 of 9 June 2022 on uniform practical arrangements for the
+performance of official controls as regards contaminants in food, on specific additional content of multi-annual national control
+plans and specific additional arrangements for their preparation, incorporated into the EEA Agreement by Decision of the
+EEA Joint Committee No 78/2023 of 28 April 2023.
+Page 13
+
+
+
+For the central competent authority, the targets for 2023 were:
+   1. 100% of planned controls carried out in primary production, food and feed
+      establishments.
+   2. At least 90% of control records closed and sent to food business operators within 7
+      working days.
+   3. More than 50% of regular controls in food and feed establishments shall be
+      performed without prior notice.
+
+
+For the local competent authorities, the targets for 2023 were:
+   1. 100% of planned controls shall be carried out in food establishments.
+   2. All control records shall be closed within 14 days after the deadline for operators to
+      appeal against decisions expires.
+   3. More than 75% of controls shall be performed without prior notice.
+
+
+Iceland reported improvements since 2022 in the performance of reaching some of the set
+targets, while others had been impacted by employee turnover and structural changes. The
+ongoing structural changes had a positive impact on the official controls in
+slaughterhouses, for fishery products and for feed hygiene and animal by-products, while
+in other sectors there is still room for improvement. The evaluation of the performance to
+meet the targets set for the local competent authorities is impacted by missing data from
+the local authorities. This weakens the conclusions that can be drawn on the outcomes of
+the official controls.
+
+
+4.1.1.2 Control projects and control priorities
+In addition to the regular official controls, Iceland reported on five targeted control projects
+that were ongoing in 2023:
+    1. Glazing and water added to food.
+        Four out of 15 establishments inspected as part of the control project had to amend
+        their food labelling. All relevant establishments had taken the required action
+        before the end of 2023. The project will continue in 2024.
+    2. Animal welfare in beef farming.
+    3. Animal welfare both during catching and handling of hens and during slaughter.
+       The project will continue in 2024.
+    4. The use of antibiotics. The project will continue in 2024 and 2025.
+    5. Animal welfare at the time of slaughter.
+        The project revealed certain shortcoming in stunning equipment and/or lairage
+        management which have subsequently been addressed and rectified.
+Page 14
+
+
+
+4.1.2    Norway
+4.1.2.1 MANCP and general overview
+Norway reported that the multi-annual national control plan had been updated on 1
+September 2023 to reflect the reorganisation of the Norwegian Food Safety Authority
+(NFSA), and changes made to the procedures of preparing control plans. A new strategic
+compass for the NFSA was also included. Norway informed that the aim was to have official
+controls and other control activities more realistically planned based on available resources
+and competences. The purpose was also to be clearer about the overall priorities and goals
+of the official controls and to focus resources on the areas where there are challenges
+which could have a negative impact on human, animal or plant health, animal welfare or
+the environment.
+
+
+4.1.2.2 Control projects and control priorities
+Norway reported on the following control projects and control priorities for 2023:
+    1.    Food safety: Norway reports that it has focused on food business operators’
+          HACCP-based procedures and hygiene practice. Compliance at slaughterhouses
+          has been identified as one of the prioritized areas. New guidance material for
+          inspections in slaughterhouses has been produced and is being rolled out for use
+          in inspections during 2023/2024.
+    2.    Fish health and welfare: Norway has focused on checking compliance concerning
+          fish health and fish welfare, with a total of 630 official controls performed. A total
+          of 1408 grow-out farms and 259 juvenile production premises were inspected.
+          Norway reports one or more non-compliances in 139 cases, and that 93 of the
+          cases resulted in administrative actions. The measures consisted of, among other
+          things, compulsory fines and orders to change internal routines and equipment.
+    3.    Farms with chronically poor animal welfare: Norway reports that farms with
+          chronically poor animal welfare, has been the focus area the last few years. The
+          farms are not limited to specific categories of animals, but the focus area applies
+          horizontally to all animals. The requirements in question concern feed, water, the
+          treatment of sick and injured animals, and the general care of the animals. Based
+          on the experience from the official control, Norway made an action plan to tackle
+          the identified challenges. Norway reports that the action plan has helped them
+          attain its goals the past few years.
+    4.    Use of pesticides by professional users near drinking water sources: Norway
+          reports that a total of 25 inspections were conducted at farms close to drinking
+          water sources. Although the overall compliance level was satisfactory, some non-
+          compliances were identified. These concern record-keeping, the duty to reduce
+          the risk of water contamination, and storage, dosage and disposal of pesticides.
+          Norway finds that professional pesticide users struggle with the labels on plant
+          protection products, leading to incorrect use.
+    5.    Fraudulent and deceptive practices: Norway reports on two targeted campaigns
+          as well as an on-going emphasis on import control in this field.
+          The first campaign focused on illegal use of additives and use of non-approved
+          additives in fresh /frozen tuna. The second campaign aimed at farmed fish that
+          have wounds, deformities, serious treatment errors or other defects. Norway
+          reports that it filed three police notifications concerning food and food safety in
+          2023.
+          Norway reports an ongoing emphasis on controlling import of dogs and cat, which
+          follows the Norwegian participation in an EU Coordinated Control Project on
+Page 15
+
+
+
+            pets13. Norway reports that it has identified irregularities and deceptive practices
+            which have been notified in the Rapid Alert System for Food and Feed (iRASFF)14.
+            Some of the cases have also been notified to the Norwegian National Authority for
+            Investigation and Prosecution of Economic and Environmental Crime. Norway
+            reports that it filed 13 police notifications concerning animal health in 2023.
+
+
+
+PART III: OVERALL FUNCTIONING OF THE CONTROL SYSTEM IN ICELAND
+AND NORWAY
+
+
+ESA has verified that both Iceland and Norway have established and functioning control
+systems that ensure the application of relevant EEA requirements. The national competent
+authorities in both countries have carried out official controls in accordance with their
+respective multi-annual national control plans and have submitted the required annual
+reports to ESA.
+ESA has noted a marked improvement in the information provided in the annual reports
+submitted by Iceland and Norway, however, there are some areas with room for
+improvement. The annual reports from both States had missing data and inconsistencies
+in the information provided. This impacts ESA’s possibilities to draw comprehensive
+conclusions on the official controls carried out by the States and to provide an overview of
+the controls performed in the EEA EFTA States. ESA's own controls, including audits and
+desk-based analyses, have also identified certain recurring issues and systematic
+weaknesses in the control systems that have not been sufficiently addressed. ESA
+continues to work closely with Iceland and Norway to ensure that identified shortcomings
+are addressed and rectified.
+Overall, ESA concludes that the control systems in Iceland and Norway are generally
+effective in ensuring compliance with EEA rules in the food and veterinary area.
+
+
+
+
+13
+   Article 112 of Regulation (EU) 2017/625 on official controls empowers the Commission to adopt coordinated
+plans organised on an ad hoc basis. These coordinated control programmes are adopted to better understand the extent of
+malpractices or fraudulent practices in a certain sector. They rely on harmonised sampling and methods of analysis to be
+implemented by all the participating countries, for a limited period, so that the results can be properly evaluated.
+14
+   The Rapid Alert System for Food and Feed (iRASFF) is system that was established to ensure the rapid exchange of
+information between EEA States to support swift reaction by control authorities in cases of risks to public health resulting
+from the agri-food chain. The platform supports the work of the Alert and Cooperation Network (ACN) which is made up of
+members from all the EEA states and facilitates the exchange of administrative information and cooperation on official
+controls in the agri-food chain.
+Page 16
+
+
+
+ANNEX 1 – LIST OF ABBREVIATIONS AND TERMS
+ADIS                Animal Disease Information System
+
+BCP                 Border Control Post
+
+CA                  Competent Authority
+
+CCA                 Central Competent Authority
+
+Control programme   ESA’s multiannual control programme for the period 2022 to 2026
+
+EEA                 European Economic Area
+
+EEA Agreement       Agreement on the European Economic Area
+
+ESA                 EFTA Surveillance Authority
+
+EU                  European Union
+
+FBO                 Food business operator
+
+IC                  Inspection Center
+
+LCA                 Local competent authorities
+
+MANCP               Single integrated multi annual national control plan
+
+MAST                The Icelandic Food and Veterinary Authority
+
+MRL                 Maximum residue limit
+
+NAP                 National Action Plan
+
+NFSA                Norwegian Food Safety Authority
+
+OCR                 Regulation (EU) 2017/625 of the European Parliament and of the Council of
+                    15 March 2017 on official controls and other official activities performed to
+                    ensure the application of food and feed law, rules on animal health and welfare,
+                    plant health and plant protection products (Official Controls Regulation)
+
+RASFF               Rapid Alert System for Food and Feed
+
+Work programme      ESA’s annual work programme
+                    in the food and veterinary area
+

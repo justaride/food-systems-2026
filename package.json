@@ -57,6 +57,7 @@
     "db:fix:nordic-orgnr": "tsx scripts/fix-nordic-orgnr.ts",
     "db:check-urls": "tsx scripts/check-urls.ts",
     "db:audit": "tsx scripts/verify-data-integrity.ts",
+    "graph:audit": "node --import=tsx -r dotenv/config scripts/audit-knowledge-graph.ts",
     "compute-ki-priority": "tsx scripts/compute-ki-priority.ts",
     "compute-file-coverage": "tsx scripts/compute-file-coverage.ts",
     "inventory-urls": "tsx scripts/inventory-urls.ts",

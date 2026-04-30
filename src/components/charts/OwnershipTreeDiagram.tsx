@@ -37,12 +37,16 @@ function buildAdjacency(tree: OwnershipTree): Map<string, string[]> {
   return adj
 }
 
-function computeSubtreeWidth(nodeId: string, adj: Map<string, string[]>): number {
+function computeSubtreeWidth(nodeId: string, adj: Map<string, string[]>, path = new Set<string>()): number {
+  if (path.has(nodeId)) return 0
+  const nextPath = new Set(path)
+  nextPath.add(nodeId)
+
   const children = adj.get(nodeId) ?? []
   if (children.length === 0) return NODE_WIDTH + NODE_GAP_X
   let total = 0
   for (const child of children) {
-    total += computeSubtreeWidth(child, adj)
+    total += computeSubtreeWidth(child, adj, nextPath)
   }
   return Math.max(total, NODE_WIDTH + NODE_GAP_X)
 }
@@ -51,10 +55,14 @@ function layoutTree(tree: OwnershipTree): LayoutNode[] {
   const adj = buildAdjacency(tree)
   const nodeMap = new Map(tree.nodes.map(n => [n.id, n]))
   const layoutNodes: LayoutNode[] = []
+  const placed = new Set<string>()
 
   function layout(nodeId: string, x: number, y: number) {
+    // Ownership imports can form DAGs; render shared companies once and keep all parent edges.
+    if (placed.has(nodeId)) return
     const node = nodeMap.get(nodeId)
     if (!node) return
+    placed.add(nodeId)
 
     const children = adj.get(nodeId) ?? []
     const subtreeWidth = computeSubtreeWidth(nodeId, adj)
@@ -112,7 +120,7 @@ export function OwnershipTreeDiagram({ tree }: Props) {
   const svgHeight = maxY + 20
 
   const edgeElements: React.ReactNode[] = []
-  for (const edge of tree.edges) {
+  for (const [edgeIndex, edge] of tree.edges.entries()) {
     const parent = nodeById.get(edge.parentId)
     const child = nodeById.get(edge.childId)
     if (!parent || !child) continue
@@ -126,7 +134,7 @@ export function OwnershipTreeDiagram({ tree }: Props) {
     const dasharray = edgeStrokeDasharray(edge.ownershipType)
 
     edgeElements.push(
-      <g key={`${edge.parentId}-${edge.childId}`}>
+      <g key={`${edge.parentId}-${edge.childId}-${edgeIndex}`}>
         <path
           d={`M ${parentCx} ${parentBy} V ${midY} H ${childCx} V ${childTy}`}
           fill="none"

@@ -21,16 +21,52 @@ export default async function GrafPage() {
     return acc
   }, {})
 
+  const nodeIds = new Set(nodes.map((node) => node.id))
+  const degreeById = new Map<string, number>()
+  let brokenEdges = 0
+  for (const edge of edges) {
+    if (!nodeIds.has(edge.source) || !nodeIds.has(edge.target)) brokenEdges += 1
+    degreeById.set(edge.source, (degreeById.get(edge.source) ?? 0) + 1)
+    degreeById.set(edge.target, (degreeById.get(edge.target) ?? 0) + 1)
+  }
+  const interactiveNodes = nodes.filter((node) => (degreeById.get(node.id) ?? 0) > 0)
+  const interactiveNodeIds = new Set(interactiveNodes.map((node) => node.id))
+  const interactiveEdges = edges.filter(
+    (edge) => interactiveNodeIds.has(edge.source) && interactiveNodeIds.has(edge.target),
+  )
+  const connectedNodes = interactiveNodes.length
+  const isolatedNodes = nodes.length - connectedNodes
+  const confidencePct =
+    quality && quality.edgeConfidenceCoverage.totalEdges > 0
+      ? Math.round(
+          (quality.edgeConfidenceCoverage.withConfidence /
+            quality.edgeConfidenceCoverage.totalEdges) *
+            1000,
+        ) / 10
+      : 0
+
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-stone-900">Kunnskapsgraf</h1>
-        <p className="text-sm text-stone-400 mt-1">
-          Kryssreferanser mellom dokumenter, innsikt, masteroppgaver, selskaper og aktorer
-        </p>
+    <div className="space-y-5 lg:w-[calc(100vw-14rem-4rem)] lg:max-w-none">
+      <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
+        <div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
+            Relasjonsmotor
+          </p>
+          <h1 className="mt-1 text-3xl font-bold text-stone-950">Kunnskapsgraf</h1>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-stone-500">
+            Fullformat arbeidsflate for koblinger mellom dokumenter, innsikt, masteroppgaver,
+            selskaper, aktører, personer og eiendommer.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 xl:min-w-[560px]">
+          <StatusTile label="Koblede noder" value={connectedNodes.toLocaleString('no')} tone="ok" />
+          <StatusTile label="Isolerte noder" value={isolatedNodes.toLocaleString('no')} tone="warn" />
+          <StatusTile label="Brutte kanter" value={brokenEdges.toLocaleString('no')} tone={brokenEdges > 0 ? 'error' : 'ok'} />
+          <StatusTile label="Konfidens" value={`${confidencePct}%`} tone={confidencePct >= 70 ? 'ok' : 'warn'} />
+        </div>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4 xl:grid-cols-8">
         {Object.entries(typeCounts).map(([type, count]) => (
           <Card key={type}>
             <p className="text-[10px] text-stone-400 uppercase tracking-wider">{type}</p>
@@ -43,11 +79,43 @@ export default async function GrafPage() {
         </Card>
       </div>
 
-      {quality && <DataQualityPanel quality={quality} />}
+      <section className="rounded-xl border border-stone-200 bg-white p-3 shadow-sm shadow-stone-900/[0.03]">
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2 px-1 text-xs text-stone-500">
+          <span>
+            Interaktiv flate viser {interactiveNodes.length.toLocaleString('no')} koblede noder.
+          </span>
+          <span>
+            {isolatedNodes.toLocaleString('no')} isolerte registerrader holdes utenfor canvas for ytelse og lesbarhet.
+          </span>
+        </div>
+        <KnowledgeGraph nodes={interactiveNodes} edges={interactiveEdges} />
+      </section>
 
-      <Card title="Interaktiv graf">
-        <KnowledgeGraph nodes={nodes} edges={edges} />
-      </Card>
+      {quality && <DataQualityPanel quality={quality} />}
+    </div>
+  )
+}
+
+function StatusTile({
+  label,
+  value,
+  tone,
+}: {
+  label: string
+  value: string
+  tone: 'ok' | 'warn' | 'error'
+}) {
+  const toneClass =
+    tone === 'error'
+      ? 'border-rose-200 bg-rose-50 text-rose-700'
+      : tone === 'warn'
+        ? 'border-amber-200 bg-amber-50 text-amber-700'
+        : 'border-emerald-200 bg-emerald-50 text-emerald-700'
+
+  return (
+    <div className={`rounded-lg border px-3 py-2 ${toneClass}`}>
+      <p className="text-[10px] font-semibold uppercase tracking-wider opacity-70">{label}</p>
+      <p className="mt-1 text-lg font-bold tabular-nums">{value}</p>
     </div>
   )
 }
@@ -73,8 +141,8 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
       ? Math.round(
           (quality.edgeConfidenceCoverage.withConfidence /
             quality.edgeConfidenceCoverage.totalEdges) *
-            100,
-        )
+            1000,
+        ) / 10
       : 0
 
   return (

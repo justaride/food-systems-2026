@@ -5,24 +5,45 @@ import { StatusBadge } from '@/components/ui/StatusBadge'
 import { getCompanyById } from '@/lib/queries/companies'
 import { getCompanyTreeIds } from '@/lib/queries/ownership'
 import { getPersonKeysWithProfiles } from '@/lib/queries/persons'
-import { getInterlockCountsForCompany } from '@/lib/queries/interlocks'
+import { getInterlockSummaryForCompany } from '@/lib/queries/interlocks'
+import { financialAmountToNok } from '@/lib/queries/financial-units'
 import { CompanyPropertiesPanel } from './CompanyPropertiesPanel'
+import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
+
+function formatNokBillions(value: number | null): string {
+  return value != null ? `${(value / 1e9).toFixed(1)} mrd` : '—'
+}
+
+function formatNokMillions(value: number | null): string {
+  return value != null ? `${(value / 1e6).toFixed(0)} MNOK` : '—'
+}
+
+function formatPct(value: unknown): string {
+  return value != null ? `${Number(value)}%` : '—'
+}
 
 export default async function SelskapPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const [company, treeIds, profileKeys, interlockCounts] = await Promise.all([
+  const [company, treeIds, profileKeys, interlockSummary] = await Promise.all([
     getCompanyById(id),
     getCompanyTreeIds(),
     getPersonKeysWithProfiles(),
-    getInterlockCountsForCompany(id),
+    getInterlockSummaryForCompany(id),
   ])
   if (!company) return notFound()
-  const interlockingMemberCount = company.boardMembers.filter(
-    m => (interlockCounts.get(m.personKey) ?? 0) > 0,
-  ).length
+  const memberScoreByKey = new Map(
+    interlockSummary.memberScores.map(member => [member.personKey, member])
+  )
+  const interlockingMemberCount = interlockSummary.interlockingMembers
   const isInTree = treeIds.has(company.id)
 
   const latestFinancial = company.financials[0]
+  const latestRevenueNok = financialAmountToNok(latestFinancial?.revenueNok, latestFinancial?.source)
+  const latestOperatingResultNok = financialAmountToNok(
+    latestFinancial?.operatingResult,
+    latestFinancial?.source
+  )
+  const latestEbitdaNok = financialAmountToNok(latestFinancial?.ebitda, latestFinancial?.source)
 
   return (
     <div className="space-y-6">
@@ -48,38 +69,86 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
         )}
       </div>
 
+      <EntityNeighborhood
+        groups={[
+          {
+            label: 'Utgående relasjoner',
+            items: company.relationshipsFrom.map(r => ({
+              label: r.toCompany.name,
+              href: `/selskap/${r.toCompany.id}`,
+              meta: r.description ?? r.relationshipType,
+              badge: r.relationshipType,
+              detailHref: `/forsyningskjede?relationship=${encodeURIComponent(r.id)}`,
+              detailLabel: 'Vis i forsyningskjeden',
+            })),
+            emptyText: 'Ingen utgående relasjoner registrert.',
+          },
+          {
+            label: 'Inngående relasjoner',
+            items: company.relationshipsTo.map(r => ({
+              label: r.fromCompany.name,
+              href: `/selskap/${r.fromCompany.id}`,
+              meta: r.description ?? r.relationshipType,
+              badge: r.relationshipType,
+              detailHref: `/forsyningskjede?relationship=${encodeURIComponent(r.id)}`,
+              detailLabel: 'Vis i forsyningskjeden',
+            })),
+            emptyText: 'Ingen inngående relasjoner registrert.',
+          },
+          {
+            label: 'Dokumentkoblinger',
+            items: company.documentRefs.map(ref => ({
+              label: ref.document.title,
+              href: `/bibliotek/${ref.document.slug}`,
+              meta: ref.context ?? 'company-ref',
+            })),
+            emptyText: 'Ingen dokumentkoblinger registrert.',
+          },
+          {
+            label: 'Styrepersoner',
+            items: company.boardMembers.map(member => ({
+              label: member.personName,
+              href: profileKeys.has(member.personKey) ? `/personer/${member.personKey}` : undefined,
+              meta: member.role,
+              badge: (memberScoreByKey.get(member.personKey)?.otherCompanyCount ?? 0) > 0 ? 'kryssverv' : undefined,
+            })),
+            emptyText: 'Ingen styrepersoner registrert.',
+          },
+        ]}
+      />
+
       {latestFinancial && (
         <Card title="Regnskap">
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Omsetning</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.revenueNok ? `${(Number(latestFinancial.revenueNok) / 1e9).toFixed(1)} mrd` : '—'}
+                {formatNokBillions(latestRevenueNok)}
               </p>
               <p className="text-xs text-stone-400">{latestFinancial.year}</p>
             </div>
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Driftsresultat</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.operatingResult ? `${(Number(latestFinancial.operatingResult) / 1e6).toFixed(0)} MNOK` : '—'}
+                {formatNokMillions(latestOperatingResultNok)}
               </p>
             </div>
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Driftsmargin</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.operatingMargin ? `${Number(latestFinancial.operatingMargin)}%` : '—'}
+                {formatPct(latestFinancial.operatingMargin)}
               </p>
             </div>
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">EBITDA</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.ebitda ? `${(Number(latestFinancial.ebitda) / 1e6).toFixed(0)} MNOK` : '—'}
+                {formatNokMillions(latestEbitdaNok)}
               </p>
             </div>
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Egenkapitalandel</p>
               <p className="text-lg font-bold text-stone-900">
-                {latestFinancial.equityRatio ? `${Number(latestFinancial.equityRatio)}%` : '—'}
+                {formatPct(latestFinancial.equityRatio)}
               </p>
             </div>
             <div>
@@ -105,29 +174,34 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                   </tr>
                 </thead>
                 <tbody>
-                  {company.financials.map(f => (
-                    <tr key={f.id} className="border-b border-stone-100">
-                      <td className="py-2 text-stone-700">{f.year}</td>
-                      <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.revenueNok ? `${(Number(f.revenueNok) / 1e9).toFixed(1)} mrd` : '—'}
-                      </td>
-                      <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.operatingResult ? `${(Number(f.operatingResult) / 1e6).toFixed(0)} M` : '—'}
-                      </td>
-                      <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.operatingMargin ? `${Number(f.operatingMargin)}%` : '—'}
-                      </td>
-                      <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.ebitda ? `${(Number(f.ebitda) / 1e6).toFixed(0)} M` : '—'}
-                      </td>
-                      <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.equityRatio ? `${Number(f.equityRatio)}%` : '—'}
-                      </td>
-                      <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {f.groupEmployees?.toLocaleString() ?? '—'}
-                      </td>
-                    </tr>
-                  ))}
+                  {company.financials.map(f => {
+                    const revenueNok = financialAmountToNok(f.revenueNok, f.source)
+                    const operatingResultNok = financialAmountToNok(f.operatingResult, f.source)
+                    const ebitdaNok = financialAmountToNok(f.ebitda, f.source)
+                    return (
+                      <tr key={f.id} className="border-b border-stone-100">
+                        <td className="py-2 text-stone-700">{f.year}</td>
+                        <td className="text-right py-2 text-stone-700 tabular-nums">
+                          {formatNokBillions(revenueNok)}
+                        </td>
+                        <td className="text-right py-2 text-stone-700 tabular-nums">
+                          {formatNokMillions(operatingResultNok)}
+                        </td>
+                        <td className="text-right py-2 text-stone-700 tabular-nums">
+                          {formatPct(f.operatingMargin)}
+                        </td>
+                        <td className="text-right py-2 text-stone-700 tabular-nums">
+                          {formatNokMillions(ebitdaNok)}
+                        </td>
+                        <td className="text-right py-2 text-stone-700 tabular-nums">
+                          {formatPct(f.equityRatio)}
+                        </td>
+                        <td className="text-right py-2 text-stone-700 tabular-nums">
+                          {f.groupEmployees?.toLocaleString() ?? '—'}
+                        </td>
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
             </div>
@@ -136,7 +210,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
       )}
 
       {company.shareholders.length > 0 && (
-        <Card title="Aksjonaerer">
+        <Card id="eierskap" title="Aksjonaerer">
           <div className="space-y-2">
             {company.shareholders.map(s => (
               <div key={s.id} className="flex items-center justify-between py-2 border-b border-stone-100 last:border-0">
@@ -163,11 +237,19 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
       )}
 
       {company.boardMembers.length > 0 && (
-        <Card title="Styre">
+        <Card id="styre" title="Styre">
           {interlockingMemberCount > 0 && (
             <div className="mb-3 flex items-center justify-between rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs">
               <span className="text-amber-900">
-                <strong>{interlockingMemberCount}</strong> av {company.boardMembers.length} har styreverv i andre selskaper
+                <strong>{interlockingMemberCount}</strong> av {company.boardMembers.length} har styreverv i andre selskaper.
+                <span className="ml-2 font-medium">
+                  Interlock-score {interlockSummary.interlockScore}
+                </span>
+                {interlockSummary.connectedCompanies > 0 && (
+                  <span className="ml-2 text-amber-800">
+                    Binder til {interlockSummary.connectedCompanies} selskaper
+                  </span>
+                )}
               </span>
               <Link
                 href={`/styremedlemmer?company=${company.id}`}
@@ -179,7 +261,8 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
           )}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {company.boardMembers.map(m => {
-              const otherVerv = interlockCounts.get(m.personKey) ?? 0
+              const memberScore = memberScoreByKey.get(m.personKey)
+              const otherVerv = memberScore?.otherCompanyCount ?? 0
               return (
                 <div key={m.id} className="flex items-center gap-3 p-3 rounded-lg border border-stone-200 bg-stone-50/50">
                   <div className="w-8 h-8 rounded-full bg-stone-100 border border-stone-200 flex items-center justify-center text-xs font-bold text-stone-500">
@@ -193,7 +276,12 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                     ) : (
                       <p className="text-sm font-medium text-stone-800">{m.personName}</p>
                     )}
-                    <p className="text-xs text-stone-400">{m.role}</p>
+                    <p className="text-xs text-stone-400">
+                      {m.role}
+                      {memberScore && (
+                        <span className="ml-2">score {memberScore.interlockScore}</span>
+                      )}
+                    </p>
                   </div>
                   {otherVerv > 0 && (
                     <Link
@@ -212,7 +300,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
       )}
 
       {company.subsidies.length > 0 && (
-        <Card title="Tilskudd">
+        <Card id="subsidier" title="Tilskudd">
           <div className="overflow-x-auto">
             <table className="w-full text-xs">
               <thead>

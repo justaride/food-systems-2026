@@ -18,6 +18,12 @@
         "grain_area_dekar": 2802400,
         "grain_tonnes": 1183800,
         "grain_notes": "SSB discontinued grain yield table. Estimated from area x ~420 kg/dekar",
+        "organic_area_ha": 45870,
+        "organic_share_pct": 4.66,
+        "organic_year": 2023,
+        "organic_source": "Eurostat ORG_CROPAR",
+        "organic_quality_flag": "primary_api",
+        "organic_notes": "Latest comparable Eurostat value for Norway in checked extract.",
         "meat_tonnes": 356786,
         "meat_breakdown": {
           "pork": 128159,
@@ -59,7 +65,7 @@
       "co2e_mt": 4.4,
       "production_value_bn": 68.9,
       "value_added_bn": 28.0,
-      "sources": ["SSB", "SSB 09171", "trade_volumes_2024.json", "NORSUS"]
+      "sources": ["SSB", "SSB 09171", "trade_volumes_2024.json", "NORSUS", "organic_agriculture_annual.csv"]
     },
     {
       "name": "Sjømat",

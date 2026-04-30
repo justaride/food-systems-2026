@@ -7,6 +7,9 @@ const prisma = new PrismaClient({ adapter })
 
 const BASE = 'https://api.fiskeridir.no/pub-aqua/api/v1'
 
+let requestDelayMs = 0
+let maxRetries = 3
+
 type SiteSummary = {
   siteId?: number
   siteNr?: string
@@ -58,10 +61,37 @@ type SiteDetail = {
   statusValue?: string
 }
 
+function sleep(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+function retryDelay(res: Response, attempt: number) {
+  const retryAfter = res.headers.get('retry-after')
+  if (retryAfter) {
+    const seconds = Number(retryAfter)
+    if (Number.isFinite(seconds) && seconds > 0) return seconds * 1000
+  }
+  return Math.min(30_000, 1000 * 2 ** attempt)
+}
+
 async function fetchJson<T>(url: string): Promise<T> {
-  const res = await fetch(url, { headers: { Accept: 'application/json' } })
-  if (!res.ok) throw new Error(`fetch ${url} -> ${res.status}`)
-  return (await res.json()) as T
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    if (requestDelayMs > 0) await sleep(requestDelayMs)
+
+    const res = await fetch(url, { headers: { Accept: 'application/json' } })
+    if (res.ok) return (await res.json()) as T
+
+    if (res.status === 429 && attempt < maxRetries) {
+      const waitMs = retryDelay(res, attempt)
+      console.warn(`[akvakultur] rate limited, retrying in ${waitMs}ms: ${url}`)
+      await sleep(waitMs)
+      continue
+    }
+
+    throw new Error(`fetch ${url} -> ${res.status}`)
+  }
+
+  throw new Error(`fetch ${url} -> retry exhausted`)
 }
 
 async function fetchSitesByOrgNr(orgNr: string): Promise<SiteSummary[]> {
@@ -149,14 +179,33 @@ async function main() {
   const dryRun = process.argv.includes('--dry-run')
   const stageArg = process.argv.find(a => a.startsWith('--stage='))
   const stage = stageArg ? stageArg.split('=')[1] : 'seafood'
+  const orgArg = process.argv.find(a => a.startsWith('--org-nr='))
+  const orgFilter = orgArg
+    ? new Set(
+        orgArg
+          .split('=')[1]
+          .split(',')
+          .map(orgNr => orgNr.replace(/\D/g, ''))
+          .filter(Boolean)
+      )
+    : null
+  const delayArg = process.argv.find(a => a.startsWith('--delay-ms='))
+  requestDelayMs = delayArg ? parseInt(delayArg.split('=')[1], 10) : 0
+  if (!Number.isFinite(requestDelayMs) || requestDelayMs < 0) requestDelayMs = 0
+  const retryArg = process.argv.find(a => a.startsWith('--max-retries='))
+  maxRetries = retryArg ? parseInt(retryArg.split('=')[1], 10) : 3
+  if (!Number.isFinite(maxRetries) || maxRetries < 0) maxRetries = 3
 
-  const seafoodCompanies = await prisma.company.findMany({
+  const allCompanies = await prisma.company.findMany({
     where: { valueChainStage: stage, country: 'NO' },
     select: { id: true, orgNr: true, name: true },
   })
+  const seafoodCompanies = orgFilter
+    ? allCompanies.filter(company => orgFilter.has(company.orgNr))
+    : allCompanies
 
   console.log(
-    `[akvakultur] pulling sites for ${seafoodCompanies.length} companies (stage=${stage})${dryRun ? ' (DRY RUN)' : ''}`
+    `[akvakultur] pulling sites for ${seafoodCompanies.length} companies (stage=${stage})${orgFilter ? ', org-filtered' : ''}${requestDelayMs ? `, delay=${requestDelayMs}ms` : ''}${dryRun ? ' (DRY RUN)' : ''}`
   )
 
   let totalSites = 0

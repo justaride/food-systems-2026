@@ -14,6 +14,7 @@ import {
 import { Card } from '@/components/ui/Card'
 import { ChartSource } from '@/components/ui/ChartSource'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
 
 type Nutrient = 'n' | 'p' | 'k'
 type CountryCode = 'NO' | 'SE' | 'DK' | 'FI' | 'IS'
@@ -325,6 +326,13 @@ export function NutrientFlowsView({ defaultCountry = 'NO' }: { defaultCountry?: 
           <h3 className="text-sm font-semibold text-stone-700 mb-0.5">
             Næringsstoff-flyt (N, P, K) – {COUNTRY_LABELS[country]}
           </h3>
+          <div className="mb-2">
+            <EvidenceStatusBadge
+              status="estimated"
+              prefix="Datastatus"
+              detail="Størrelsesordensestimater fra MFA-kilder, ikke offisiell komplett statistikk."
+            />
+          </div>
           <p className="text-xs text-stone-500">
             Import, tap til miljø og teknisk gjenvinningspotensial. Kt per år (kilotonn).
           </p>
@@ -387,7 +395,7 @@ export function NutrientFlowsView({ defaultCountry = 'NO' }: { defaultCountry?: 
       <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50/60 px-3 py-2 text-[11px] leading-relaxed text-amber-900">
         <strong className="font-semibold">Metodikk:</strong>{' '}
         Material Flow Analysis (MFA) basert på NIBIO, SSB, Norsk Vann, Hamilton et al. (2023), HSY Finland,
-        Svenskt Vatten og DTU Environment. Kryssvalidert mot P27 (avløpsanlegg) og P29 (gjødselimport) fra Perplexity Runde 2 (20.04.26).{' '}
+        Svenskt Vatten og DTU Environment.{' '}
         <em>Tall er størrelsesordensestimater (order-of-magnitude), ikke offisiell statistikk.</em>
       </div>
 

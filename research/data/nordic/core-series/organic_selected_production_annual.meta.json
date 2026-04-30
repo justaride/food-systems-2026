@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-04-29T00:00:00+02:00",
+  "owner": "Food Systems 2026",
+  "output_file": "research/data/nordic/core-series/organic_selected_production_annual.csv",
+  "series_family": "organic_selected_production_indicators",
+  "description": "Selected product-specific organic production indicators. This is not a total organic production series.",
+  "source_evidence_pack": "research/evidence-pack/okologisk-norden-2026-04-29",
+  "source_export": "research/evidence-pack/okologisk-norden-2026-04-29/exports/organic_key_indicators_extracted.csv",
+  "staging_file": "research/data/nordic/core-series/_staging/organic_integration_candidates_2026-04-29.csv",
+  "rows": 13,
+  "schema": [
+    "country",
+    "year",
+    "metric",
+    "value",
+    "unit",
+    "scope",
+    "source_name",
+    "source_owner",
+    "source_type",
+    "source_url",
+    "source_file",
+    "source_ref",
+    "retrieved_at",
+    "quality_flag",
+    "import_status",
+    "comparability",
+    "notes"
+  ],
+  "quality_rules": [
+    "Keep import_status visible in all downstream use.",
+    "Rows marked staged_needs_reconciliation_or_precision_note require table-level review before external publication.",
+    "Sector and survey rows are usable for internal analysis with source-type flags, but should not be presented as neutral official statistics."
+  ],
+  "known_gaps": [
+    "Iceland area and market series remain needs_primary_check.",
+    "KRAV individual reports, Okologisk Norge, NORSOK and Luomuinstituutti are not yet integrated.",
+    "Ekomatcentrum 2024 file has a title/year mismatch and is excluded from these split core-series until reconciled."
+  ]
+}
