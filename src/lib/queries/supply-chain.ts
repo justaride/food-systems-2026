@@ -413,7 +413,12 @@ function parseCsvLine(line: string): string[] {
 }
 
 async function readNordicCsvRecords(...segments: string[]): Promise<Record<string, string>[]> {
-  const text = await readFile(path.join(NORDIC_DATA_ROOT, ...segments), 'utf8')
+  let text: string
+  try {
+    text = await readFile(path.join(NORDIC_DATA_ROOT, ...segments), 'utf8')
+  } catch {
+    return []
+  }
   const lines = text.trim().split(/\r?\n/)
   const header = parseCsvLine(lines[0] ?? '')
 
