@@ -18,6 +18,8 @@ COPY public ./public
 COPY scripts ./scripts
 COPY src ./src
 COPY research/evidence-pack/*.csv ./research/evidence-pack/
+COPY research/data/nordic/core-series/ ./research/data/nordic/core-series/
+COPY research/data/nordic/trade-groups/normalized/ ./research/data/nordic/trade-groups/normalized/
 ARG DATABASE_URL
 RUN npm run build && npx prisma db push
 
