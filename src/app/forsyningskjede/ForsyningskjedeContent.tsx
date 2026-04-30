@@ -5,10 +5,18 @@ import { useState, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
 import { SupplyChainGraph } from '@/components/charts/SupplyChainGraph'
+import { FeedCompositionTimeseries } from '@/components/charts/FeedCompositionTimeseries'
+import { NutrientFlowsView } from '@/components/charts/NutrientFlowsView'
+import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
+import { ChartFrame } from '@/components/visualization/ChartFrame'
+import { DataQualityStrip } from '@/components/visualization/DataQualityStrip'
 import type {
   SupplyChainGraphData,
   PrimaryDeliveriesData,
   SupplyChainDataQuality,
+  ImportVulnerabilityData,
+  CircularReturnFlowData,
+  InfrastructureData,
 } from '@/lib/queries/supply-chain'
 
 const COMMODITY_LABELS: Record<string, string> = {
@@ -75,6 +83,59 @@ const RELATIONSHIP_LABELS: Record<string, string> = {
   'joint-venture': 'Joint venture',
 }
 
+const IMPORT_GROUP_LABELS: Record<string, string> = {
+  cereals: 'Korn',
+  dairy_eggs: 'Meieri/egg',
+  fats_oils: 'Fett/oljer',
+  fish_seafood: 'Fisk/sjømat',
+  fruit_veg: 'Frukt/grønt',
+  meat: 'Kjøtt',
+}
+
+const IMPORT_GROUP_COLORS: Record<string, string> = {
+  cereals: '#ca8a04',
+  dairy_eggs: '#2563eb',
+  fats_oils: '#7c3aed',
+  fish_seafood: '#0891b2',
+  fruit_veg: '#16a34a',
+  meat: '#dc2626',
+}
+
+const COUNTRY_LABELS: Record<string, string> = {
+  NO: 'Norge',
+  SE: 'Sverige',
+  DK: 'Danmark',
+  FI: 'Finland',
+  IS: 'Island',
+}
+
+const CIRCULAR_THEME_LABELS: Record<string, string> = {
+  akademia_skala: 'Akademia-skala',
+  alger_spillvarme: 'Alger/spillvarme',
+  alt_protein: 'Alt. protein',
+  alternativt_for: 'Alternativt fôr',
+  biogass: 'Biogass',
+  biorest: 'Biorest',
+  direktehandel: 'Direktehandel',
+  feed: 'Fôr',
+  fiskeslam: 'Fiskeslam',
+  importavhengighet: 'Importavhengighet',
+  insekt_protein: 'Insektprotein',
+  matsvinn: 'Matsvinn',
+  measurement: 'Måling',
+  nutrient_loop: 'Næringsloop',
+  regenerativt_landbruk: 'Regenerativt',
+  sidestream: 'Sidestrøm',
+}
+
+const SECTION_LINKS = [
+  { href: '#primaerflyt', label: 'Primærflyt' },
+  { href: '#maktrelasjoner', label: 'Maktrelasjoner' },
+  { href: '#import-saarbarhet', label: 'Import og sårbarhet' },
+  { href: '#infrastruktur', label: 'Infrastruktur' },
+  { href: '#returstrommer', label: 'Returstrømmer' },
+]
+
 const QUALITY_STATUS_CLASSES: Record<string, string> = {
   ok: 'border-emerald-200 bg-emerald-50 text-emerald-800',
   info: 'border-sky-200 bg-sky-50 text-sky-800',
@@ -102,14 +163,29 @@ function formatPercent(n: number): string {
   return `${n.toLocaleString('no', { maximumFractionDigits: 1 })}%`
 }
 
+function formatDeltaPctPoints(n: number | null): string {
+  if (n == null || !Number.isFinite(n)) return 'ny'
+  return `${n >= 0 ? '+' : ''}${n.toLocaleString('no', { maximumFractionDigits: 1 })} pp`
+}
+
+function getBuyerKey(buyer: { buyerId: string | null; buyerName: string | null }): string {
+  return buyer.buyerId ?? buyer.buyerName ?? 'ukjent'
+}
+
 export function ForsyningskjedeContent({
   data,
   deliveries,
   quality,
+  importVulnerability,
+  circularReturnFlows,
+  infrastructure,
 }: {
   data: SupplyChainGraphData
   deliveries: PrimaryDeliveriesData
   quality: SupplyChainDataQuality
+  importVulnerability: ImportVulnerabilityData
+  circularReturnFlows: CircularReturnFlowData
+  infrastructure: InfrastructureData
 }) {
   const searchParams = useSearchParams()
   const selectedRelationshipId = searchParams.get('relationship')
@@ -214,6 +290,69 @@ export function ForsyningskjedeContent({
     [data.stats.byType]
   )
 
+  const concentrationRows = useMemo(
+    () =>
+      deliveries.byCommodity
+        .map(commodity => {
+          const topBuyer = commodity.buyers[0]
+          const topThreeQuantity = commodity.buyers
+            .slice(0, 3)
+            .reduce((sum, buyer) => sum + buyer.quantity, 0)
+
+          return {
+            commodity: commodity.commodity,
+            label: COMMODITY_LABELS[commodity.commodity] ?? commodity.commodity,
+            unit: commodity.unit,
+            totalQuantity: commodity.totalQuantity,
+            supplierCount: commodity.supplierCount,
+            topBuyerName: topBuyer?.buyerName ?? 'Ukjent avtager',
+            topBuyerShare: commodity.totalQuantity > 0 && topBuyer
+              ? (topBuyer.quantity / commodity.totalQuantity) * 100
+              : 0,
+            topThreeShare: commodity.totalQuantity > 0
+              ? (topThreeQuantity / commodity.totalQuantity) * 100
+              : 0,
+          }
+        })
+        .sort((a, b) => b.topBuyerShare - a.topBuyerShare),
+    [deliveries.byCommodity]
+  )
+
+  const heatmap = useMemo(() => {
+    const buyerScores = new Map<string, { label: string; score: number }>()
+
+    for (const commodity of deliveries.byCommodity) {
+      for (const buyer of commodity.buyers.slice(0, 6)) {
+        const key = getBuyerKey(buyer)
+        const current = buyerScores.get(key) ?? { label: buyer.buyerName ?? 'Ukjent avtager', score: 0 }
+        current.score += commodity.totalQuantity > 0 ? buyer.quantity / commodity.totalQuantity : 0
+        buyerScores.set(key, current)
+      }
+    }
+
+    const columns = Array.from(buyerScores.entries())
+      .map(([key, value]) => ({ key, ...value }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 7)
+
+    const rows = deliveries.byCommodity.slice(0, 12).map(commodity => {
+      const buyerShares = new Map(
+        commodity.buyers.map(buyer => [
+          getBuyerKey(buyer),
+          commodity.totalQuantity > 0 ? (buyer.quantity / commodity.totalQuantity) * 100 : 0,
+        ])
+      )
+
+      return {
+        commodity: commodity.commodity,
+        label: COMMODITY_LABELS[commodity.commodity] ?? commodity.commodity,
+        cells: columns.map(column => buyerShares.get(column.key) ?? 0),
+      }
+    })
+
+    return { columns, rows }
+  }, [deliveries.byCommodity])
+
   return (
     <div className="space-y-6">
       <div>
@@ -223,9 +362,130 @@ export function ForsyningskjedeContent({
         </p>
       </div>
 
+      <DataQualityStrip
+        items={[
+          {
+            label: 'Leveranser',
+            value: formatCount(deliveries.totalDeliveryRows),
+            status: 'observed',
+            detail: 'Importerte primærleveranser fra Landbruksdirektoratet.',
+            description: `rader fra ${formatCount(deliveries.totalSuppliers)} produsent-orgnr`,
+          },
+          {
+            label: 'Relasjoner',
+            value: formatCount(data.stats.totalRelationships),
+            status: 'proxy',
+            detail: 'Kuraterte og kildebelagte relasjoner, ikke en komplett måling av vareflyt.',
+            description: `relasjoner mellom ${formatCount(data.stats.companiesInvolved)} selskaper`,
+          },
+          {
+            label: 'Kandidater',
+            value: formatCount(quality.projectDataCandidates.length),
+            status: 'illustrative',
+            detail: 'Import, infrastruktur og returstrømmer holdes adskilt til metode og dekning er ferdig merket.',
+            description: 'datasett vurderes for neste seksjoner',
+          },
+        ]}
+      />
+
       <SupplyChainQualityPanel quality={quality} />
 
-      {deliveries.totalDeliveryRows > 0 && (
+      <nav className="flex flex-wrap gap-2 border-y border-stone-200 py-3" aria-label="Forsyningskjede-seksjoner">
+        {SECTION_LINKS.map(link => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="rounded-md border border-stone-200 bg-white px-2.5 py-1 text-xs font-medium text-stone-600 hover:border-emerald-300 hover:text-emerald-700"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <section id="primaerflyt" className="scroll-mt-6 space-y-4">
+        <SectionHeader
+          title="Primærflyt"
+          description="Observerte leveranser fra primærprodusenter, lest per varegruppe og avtakertype."
+        />
+
+        {concentrationRows.length > 0 && (
+          <Card title="Kjøperkonsentrasjon per varegruppe">
+            <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)] gap-5">
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="border-b border-stone-200 text-left text-stone-400">
+                      <th className="py-2 pr-3 font-medium">Vare</th>
+                      <th className="py-2 pr-3 font-medium">Største avtager</th>
+                      <th className="py-2 pr-3 font-medium text-right">Topp 1</th>
+                      <th className="py-2 pr-3 font-medium text-right">Topp 3</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {concentrationRows.slice(0, 10).map(row => (
+                      <tr key={row.commodity} className="border-b border-stone-100">
+                        <td className="py-2 pr-3 font-medium text-stone-800">{row.label}</td>
+                        <td className="py-2 pr-3 text-stone-600">{row.topBuyerName}</td>
+                        <td className="py-2 pr-3 text-right tabular-nums text-stone-700">
+                          {formatPercent(row.topBuyerShare)}
+                        </td>
+                        <td className="py-2 pr-3 text-right tabular-nums text-stone-700">
+                          {formatPercent(row.topThreeShare)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[680px] text-xs">
+                  <thead>
+                    <tr className="border-b border-stone-200 text-left text-stone-400">
+                      <th className="py-2 pr-2 font-medium">Vare</th>
+                      {heatmap.columns.map(column => (
+                        <th key={column.key} className="py-2 px-1 font-medium">
+                          <span className="block max-w-24 truncate" title={column.label}>
+                            {column.label}
+                          </span>
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {heatmap.rows.map(row => (
+                      <tr key={row.commodity} className="border-b border-stone-100">
+                        <td className="py-1.5 pr-2 font-medium text-stone-700">{row.label}</td>
+                        {row.cells.map((share, index) => {
+                          const intensity = Math.min(0.85, Math.max(0.06, share / 70))
+                          return (
+                            <td key={`${row.commodity}-${heatmap.columns[index]?.key}`} className="py-1.5 px-1">
+                              <div
+                                className="h-7 rounded border border-white text-center text-[11px] leading-7 tabular-nums"
+                                style={{
+                                  backgroundColor: `rgba(14, 165, 233, ${intensity})`,
+                                  color: share >= 35 ? '#ffffff' : '#1c1917',
+                                }}
+                                title={`${row.label} til ${heatmap.columns[index]?.label}: ${formatPercent(share)}`}
+                              >
+                                {share > 0 ? formatPercent(share) : '0%'}
+                              </div>
+                            </td>
+                          )
+                        })}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="mt-4 pt-3 border-t border-stone-100 text-xs text-stone-400">
+              Cellene viser andel av total mengde innen hver varegruppe. Andeler summeres ikke på tvers av liter og kg.
+            </div>
+          </Card>
+        )}
+
+        {deliveries.totalDeliveryRows > 0 && (
         <Card title={`Primærleveranser — ${deliveries.totalSuppliers.toLocaleString('no')} bønder leverer til ${deliveries.byCommodity.reduce((acc, c) => acc + c.buyers.length, 0)} avtagere`}>
           <p className="text-xs text-stone-500 mb-4">
             Aggregert levering fra jordbruksforetak til grossister og foredlingsbedrifter
@@ -284,7 +544,23 @@ export function ForsyningskjedeContent({
             telles fem ganger innen korn.
           </div>
         </Card>
-      )}
+        )}
+      </section>
+
+      <section id="import-saarbarhet" className="scroll-mt-6 space-y-4">
+        <SectionHeader
+          title="Import og sårbarhet"
+          description="Bred nordisk importproxy per matvaregruppe og fôrråvarer som sårbarhetslag, ikke observert totalflyt."
+        />
+        <ImportVulnerabilityPanel importVulnerability={importVulnerability} />
+        <FeedCompositionTimeseries />
+      </section>
+
+      <section id="maktrelasjoner" className="scroll-mt-6 space-y-4">
+        <SectionHeader
+          title="Maktrelasjoner"
+          description="Kuraterte forretningsrelasjoner som peker på eierskap, selvhandel, distribusjon og leverandørmakt."
+        />
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <Card>
@@ -519,6 +795,350 @@ export function ForsyningskjedeContent({
       <div className="flex gap-4 text-xs text-stone-400 px-1">
         <span>{filteredNodes.length} selskaper</span>
         <span>{filteredEdges.length} relasjoner</span>
+      </div>
+      </section>
+
+      <section id="infrastruktur" className="scroll-mt-6">
+        <div className="space-y-4">
+          <SectionHeader
+            title="Infrastruktur"
+            description="Romlige arbeidslag for hubber, anlegg, havner, gårder og akvakultur. Brukes til flaskehals- og kartanalyse, ikke som komplett prod-paritet."
+          />
+          <InfrastructurePanel infrastructure={infrastructure} />
+        </div>
+      </section>
+
+      <section id="returstrommer" className="scroll-mt-6">
+        <div className="space-y-4">
+          <SectionHeader
+            title="Returstrømmer"
+            description="Sirkulære looper, gap og næringsstrømmer som viser hvor sidestrømmer kan kobles tilbake i systemet."
+          />
+          <CircularReturnFlowPanel circularReturnFlows={circularReturnFlows} />
+          <NutrientFlowsView />
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function SectionHeader({ title, description }: { title: string; description: string }) {
+  return (
+    <div>
+      <h2 className="text-lg font-semibold text-stone-900">{title}</h2>
+      <p className="mt-1 text-sm text-stone-500">{description}</p>
+    </div>
+  )
+}
+
+function InfrastructurePanel({ infrastructure }: { infrastructure: InfrastructureData }) {
+  return (
+    <ChartFrame
+      title="Infrastruktur og romlige noder"
+      contract={{
+        question: 'Hvor ligger de romlige flaskehals- og koblingspunktene i forsyningskjeden?',
+        unit: 'GeoJSON-punkter per arbeidslag',
+        period: 'arbeidsdatasett 2026-04-29',
+        evidenceStatus: 'illustrative',
+        sourceRefs: infrastructure.layers.map(layer => ({
+          label: layer.label,
+          path: layer.path,
+        })),
+        coverageNote: 'Romlige arbeidslag med ulik koblingsgrad. Akvakultur-GeoJSON er ikke samme paritetsgrunnlag som prod-tabellen i Gate C.',
+      }}
+    >
+      <div className="space-y-5">
+        <div className="text-xs text-stone-500">
+          {formatCount(infrastructure.layers.reduce((sum, layer) => sum + layer.count, 0))} punkter på tvers av lag.
+        </div>
+
+        <div className="grid grid-cols-1 xl:grid-cols-5 gap-3">
+          {infrastructure.layers.map(layer => (
+            <div key={layer.id} className="rounded-md border border-stone-200 bg-white p-3">
+              <div className="flex items-start justify-between gap-2">
+                <div>
+                  <p className="text-sm font-semibold text-stone-900">{layer.label}</p>
+                  <p className="mt-0.5 text-[11px] text-stone-400">{layer.path}</p>
+                </div>
+                <span className={`rounded border px-1.5 py-0.5 text-[10px] ${
+                  layer.status === 'ready'
+                    ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
+                    : 'border-amber-200 bg-amber-50 text-amber-800'
+                }`}>
+                  {layer.status === 'ready' ? 'klar' : 'staging'}
+                </span>
+              </div>
+              <p className="mt-3 text-2xl font-semibold tabular-nums text-stone-900">
+                {formatCount(layer.count)}
+              </p>
+              <div className="mt-3 space-y-1.5">
+                {layer.groups.slice(0, 4).map(group => (
+                  <div key={`${layer.id}-${group.label}`} className="flex items-center justify-between gap-2 text-[11px]">
+                    <span className="truncate text-stone-500">{group.label}</span>
+                    <span className="tabular-nums text-stone-700">{formatCount(group.count)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          {infrastructure.layers.slice(0, 4).map(layer => (
+            <div key={`${layer.id}-examples`} className="rounded-md border border-stone-200 bg-stone-50 p-3">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-stone-600">{layer.label}: eksempler</h4>
+              <div className="mt-2 space-y-2">
+                {layer.examples.slice(0, 3).map(example => (
+                  <div key={`${layer.id}-${example.name}`} className="rounded border border-stone-200 bg-white p-2">
+                    <div className="flex items-start justify-between gap-3">
+                      <p className="text-sm font-medium text-stone-800">{example.name}</p>
+                      {example.metric && (
+                        <span className="shrink-0 text-[11px] tabular-nums text-stone-500">{example.metric}</span>
+                      )}
+                    </div>
+                    {example.detail && <p className="mt-0.5 text-xs text-stone-500">{example.detail}</p>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 border-t border-stone-100 pt-3">
+          {infrastructure.notes.map(note => (
+            <p key={note} className="text-xs text-stone-500">{note}</p>
+          ))}
+        </div>
+      </div>
+    </ChartFrame>
+  )
+}
+
+function ImportVulnerabilityPanel({ importVulnerability }: { importVulnerability: ImportVulnerabilityData }) {
+  return (
+    <ChartFrame
+      title={`Importproxy — ${importVulnerability.countries.length} land / ${formatCount(importVulnerability.rowCount)} rader`}
+      contract={{
+        question: 'Hvilke brede matvaregrupper dominerer importkurven i hvert nordisk land?',
+        unit: 'andel av valgt food-basket',
+        period: 'siste tilgjengelige år per land',
+        evidenceStatus: 'proxy',
+        sourceRefs: [{ label: 'Nordic trade groups annual panel', path: importVulnerability.sourcePath }],
+        coverageNote: 'Bred importproxy per matvaregruppe; egnet for andeler innen land, ikke absolutte landrangeringer.',
+      }}
+    >
+      <div className="space-y-5">
+        <div className="grid grid-cols-1 xl:grid-cols-5 gap-3">
+          {importVulnerability.countries.map(country => {
+            const topGroup = country.groups[0]
+            return (
+              <div key={country.country} className="rounded-md border border-stone-200 bg-white p-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-semibold text-stone-900">
+                      {COUNTRY_LABELS[country.country] ?? country.country}
+                    </p>
+                    <p className="text-[11px] text-stone-400">
+                      {country.latestYear} · {country.sourceName}
+                    </p>
+                  </div>
+                  <span className="rounded border border-stone-200 bg-stone-50 px-1.5 py-0.5 text-[10px] text-stone-500">
+                    {country.country}
+                  </span>
+                </div>
+
+                {topGroup && (
+                  <div className="mt-3 rounded-md bg-stone-50 p-2">
+                    <p className="text-[10px] uppercase tracking-wider text-stone-400">Største importgruppe</p>
+                    <p className="mt-1 text-sm font-semibold text-stone-800">
+                      {IMPORT_GROUP_LABELS[topGroup.groupCode] ?? topGroup.groupLabel}
+                    </p>
+                    <p className="text-xl font-bold text-stone-900 tabular-nums">
+                      {formatPercent(topGroup.sharePct)}
+                    </p>
+                  </div>
+                )}
+
+                <div className="mt-3 space-y-2">
+                  {country.groups.map(group => {
+                    const color = IMPORT_GROUP_COLORS[group.groupCode] ?? '#78716c'
+                    return (
+                      <div key={group.groupCode}>
+                        <div className="mb-1 flex items-center justify-between gap-2 text-[11px]">
+                          <span className="truncate text-stone-600">
+                            {IMPORT_GROUP_LABELS[group.groupCode] ?? group.groupLabel}
+                          </span>
+                          <span className="shrink-0 tabular-nums text-stone-500">
+                            {formatPercent(group.sharePct)}
+                          </span>
+                        </div>
+                        <div className="h-2 rounded bg-stone-100">
+                          <div
+                            className="h-2 rounded"
+                            style={{ width: `${Math.min(100, group.sharePct)}%`, backgroundColor: color }}
+                          />
+                        </div>
+                        <p className="mt-0.5 text-[10px] text-stone-400">
+                          {formatDeltaPctPoints(group.deltaPctPoints)} fra forrige år
+                        </p>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 border-t border-stone-100 pt-3">
+          {importVulnerability.notes.map(note => (
+            <p key={note} className="text-xs text-stone-500">{note}</p>
+          ))}
+        </div>
+      </div>
+    </ChartFrame>
+  )
+}
+
+function CircularReturnFlowPanel({ circularReturnFlows }: { circularReturnFlows: CircularReturnFlowData }) {
+  const maxThemeCount = Math.max(
+    1,
+    ...circularReturnFlows.themes.map(theme => theme.loopCount + theme.gapCount)
+  )
+
+  return (
+    <ChartFrame
+      title="Returstrømmer og sirkulære gap"
+      contract={{
+        question: 'Hvor finnes etablerte sirkulære looper, åpne gap og læringscase i matsystemet?',
+        unit: 'kuraterte looper, gap og case',
+        period: circularReturnFlows.generated ?? 'arbeidsdatasett',
+        evidenceStatus: 'proxy',
+        sourceRefs: circularReturnFlows.sourcePaths.map(path => ({ label: path.split('/').at(-1) ?? path, path })),
+        coverageNote: 'Kuraterte case-, gap- og størrelsesordensdata. Ikke komplett observasjon av alle sidestrømmer.',
+      }}
+    >
+      <div className="space-y-5">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-3">
+          <ReturnFlowStat label="Looptabell" value={circularReturnFlows.counts.loops} />
+          <ReturnFlowStat label="Gap" value={circularReturnFlows.counts.gaps} />
+          <ReturnFlowStat label="Suksesscase" value={circularReturnFlows.counts.successCases} />
+          <ReturnFlowStat label="Feilcase" value={circularReturnFlows.counts.failureCases} />
+          <ReturnFlowStat label="N/P/K-land" value={circularReturnFlows.counts.nutrientCountries} />
+          <ReturnFlowStat label="Teknologier" value={circularReturnFlows.counts.nutrientTechnologies} />
+        </div>
+
+        <div className="grid grid-cols-1 xl:grid-cols-[0.9fr_1.1fr] gap-5">
+          <div>
+            <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
+              Temadekning
+            </h4>
+            <div className="space-y-2">
+              {circularReturnFlows.themes.map(theme => {
+                const total = theme.loopCount + theme.gapCount
+                return (
+                  <div key={theme.theme}>
+                    <div className="mb-1 flex items-center justify-between gap-2 text-xs">
+                      <span className="font-medium text-stone-700">
+                        {CIRCULAR_THEME_LABELS[theme.theme] ?? theme.theme}
+                      </span>
+                      <span className="tabular-nums text-stone-500">
+                        {theme.loopCount} looper / {theme.gapCount} gap
+                      </span>
+                    </div>
+                    <div className="flex h-2 overflow-hidden rounded bg-stone-100">
+                      <div
+                        className="bg-emerald-500"
+                        style={{ width: `${(theme.loopCount / maxThemeCount) * 100}%` }}
+                      />
+                      <div
+                        className="bg-amber-500"
+                        style={{ width: `${(theme.gapCount / maxThemeCount) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+            <div className="mt-3 flex gap-4 text-[11px] text-stone-500">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-sm bg-emerald-500" /> eksisterende loop
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-sm bg-amber-500" /> åpent gap
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <ReturnFlowList title="Skalerbare looper" items={circularReturnFlows.priorityLoops} tone="loop" />
+            <ReturnFlowList title="Åpne gap" items={circularReturnFlows.priorityGaps} tone="gap" />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 border-t border-stone-100 pt-4">
+          <ReturnFlowList title="Suksesscase" items={circularReturnFlows.actorCases.success} tone="loop" compact />
+          <ReturnFlowList title="Feilcase" items={circularReturnFlows.actorCases.failure} tone="gap" compact />
+        </div>
+      </div>
+    </ChartFrame>
+  )
+}
+
+function ReturnFlowStat({ label, value }: { label: string; value: number }) {
+  return (
+    <div className="rounded-md border border-stone-200 bg-stone-50 p-3">
+      <p className="text-[10px] uppercase tracking-wider text-stone-400">{label}</p>
+      <p className="mt-1 text-xl font-semibold tabular-nums text-stone-900">{formatCount(value)}</p>
+    </div>
+  )
+}
+
+function ReturnFlowList({
+  title,
+  items,
+  tone,
+  compact = false,
+}: {
+  title: string
+  items: CircularReturnFlowData['priorityLoops']
+  tone: 'loop' | 'gap'
+  compact?: boolean
+}) {
+  const toneClass = tone === 'loop'
+    ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
+    : 'border-amber-200 bg-amber-50 text-amber-800'
+
+  return (
+    <div>
+      <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">{title}</h4>
+      <div className="space-y-2">
+        {items.map(item => (
+          <div key={`${title}-${item.id}`} className="rounded-md border border-stone-200 bg-white p-3">
+            <div className="flex items-start justify-between gap-2">
+              <p className="text-sm font-semibold text-stone-800">{item.name}</p>
+              <span className={`shrink-0 rounded border px-1.5 py-0.5 text-[10px] ${toneClass}`}>
+                {item.country}
+              </span>
+            </div>
+            <div className="mt-1 flex flex-wrap gap-1.5">
+              <span className="rounded border border-stone-200 bg-stone-50 px-1.5 py-0.5 text-[10px] text-stone-500">
+                {CIRCULAR_THEME_LABELS[item.theme] ?? item.theme}
+              </span>
+              {item.rLevel && (
+                <span className="rounded border border-stone-200 bg-stone-50 px-1.5 py-0.5 text-[10px] text-stone-500">
+                  {item.rLevel}
+                </span>
+              )}
+            </div>
+            {item.detail && !compact && (
+              <p className="mt-2 text-xs text-stone-600">{item.detail}</p>
+            )}
+            {item.status && (
+              <p className="mt-1 text-[11px] text-stone-400">{item.status}</p>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   )

@@ -1,15 +1,21 @@
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
+import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
 import {
   foodTgClaimBoard,
+  foodTgClaimStrengthLabels,
   foodTgDecisionDocuments,
   foodTgMandateSummary,
   foodTgOpportunityRadar,
   foodTgStatusLabels,
   foodTgStopSignals,
+  foodTgTrackStatusCards,
+  foodTgValidationLanes,
   foodTgValidationSprint,
+  type FoodTgClaimStrength,
   type FoodTgSprintItem,
   type FoodTgTrack,
+  type FoodTgValidationLaneId,
   type FoodTgValidationStatus,
 } from '@/lib/data/food-tg-mandate'
 
@@ -25,6 +31,20 @@ const statusStyles: Record<FoodTgValidationStatus, string> = {
   'needs-actor-validation': 'bg-amber-50 text-amber-700 border-amber-200',
   benchmark: 'bg-violet-50 text-violet-700 border-violet-200',
   hypotese: 'bg-stone-100 text-stone-600 border-stone-200',
+}
+
+const claimStrengthStyles: Record<FoodTgClaimStrength, string> = {
+  'sterk-intern': 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  moderat: 'bg-sky-50 text-sky-700 border-sky-200',
+  benchmark: 'bg-violet-50 text-violet-700 border-violet-200',
+  hypotese: 'bg-stone-100 text-stone-600 border-stone-200',
+}
+
+const validationLaneStyles: Record<FoodTgValidationLaneId, string> = {
+  'utfort-internt': 'bg-emerald-50 text-emerald-800 border-emerald-200',
+  'needs-primary-check': 'bg-sky-50 text-sky-800 border-sky-200',
+  'needs-actor-validation': 'bg-amber-50 text-amber-900 border-amber-200',
+  'validert-eksternt': 'bg-stone-50 text-stone-600 border-stone-200',
 }
 
 const documentStatusStyles: Record<string, string> = {
@@ -45,6 +65,14 @@ function StatusPill({ status }: { status: FoodTgValidationStatus }) {
   return (
     <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium ${statusStyles[status]}`}>
       {foodTgStatusLabels[status]}
+    </span>
+  )
+}
+
+function ClaimStrengthPill({ strength }: { strength: FoodTgClaimStrength }) {
+  return (
+    <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium ${claimStrengthStyles[strength]}`}>
+      Styrke: {foodTgClaimStrengthLabels[strength]}
     </span>
   )
 }
@@ -97,6 +125,13 @@ export function MandatContent() {
             <h1 className="mt-1 text-2xl font-bold text-stone-900">{foodTgMandateSummary.title}</h1>
             <p className="mt-2 text-sm leading-relaxed text-stone-600">{foodTgMandateSummary.scope}</p>
             <p className="mt-2 text-sm leading-relaxed text-stone-600">{foodTgMandateSummary.recommendation}</p>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <EvidenceStatusBadge
+                status={foodTgMandateSummary.evidenceStatus}
+                detail={foodTgMandateSummary.evidenceStatusNote}
+              />
+              <p className="text-xs leading-relaxed text-stone-500">{foodTgMandateSummary.evidenceStatusNote}</p>
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-2 text-sm lg:w-72">
             <div className="rounded-lg border border-stone-200 bg-stone-50 p-3">
@@ -124,6 +159,47 @@ export function MandatContent() {
           </div>
         ))}
       </div>
+
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        {foodTgTrackStatusCards.map((track) => (
+          <section key={track.track} className="rounded-xl border border-stone-200 bg-white p-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <TrackPill track={track.track} />
+              <span className="text-xs font-medium text-stone-500">{track.status}</span>
+            </div>
+            <h2 className="mt-3 text-sm font-semibold text-stone-900">{track.title}</h2>
+            <p className="mt-2 text-sm leading-relaxed text-stone-600">{track.readyNow}</p>
+            <div className="mt-3 rounded-lg border border-stone-200 bg-stone-50 p-3">
+              <p className="text-[10px] uppercase tracking-wider text-stone-400">Må sjekkes først</p>
+              <p className="mt-1 text-sm leading-relaxed text-stone-700">{track.checkFirst}</p>
+            </div>
+            <p className="mt-3 text-xs leading-relaxed text-stone-500">Neste handling: {track.nextAction}</p>
+          </section>
+        ))}
+      </div>
+
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-stone-700">Minimum valideringslaner</h2>
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
+          {foodTgValidationLanes.map((lane) => (
+            <section key={lane.id} className={`rounded-lg border p-3 ${validationLaneStyles[lane.id]}`}>
+              <p className="text-sm font-semibold">{lane.title}</p>
+              <p className="mt-1 text-xs leading-relaxed opacity-85">{lane.description}</p>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {lane.items.length ? (
+                  lane.items.map((item) => (
+                    <span key={item} className="rounded border border-current/20 bg-white/60 px-1.5 py-0.5 text-[11px]">
+                      {item}
+                    </span>
+                  ))
+                ) : (
+                  <span className="rounded border border-current/20 bg-white/60 px-1.5 py-0.5 text-[11px]">0 claims</span>
+                )}
+              </div>
+            </section>
+          ))}
+        </div>
+      </section>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.2fr_0.8fr]">
         <Card title="Beslutningsgrunnlag">
@@ -232,11 +308,13 @@ export function MandatContent() {
               <div key={claim.id} className="border-b border-stone-100 pb-3 last:border-0 last:pb-0">
                 <div className="flex flex-wrap items-center gap-2">
                   <TrackPill track={claim.track} />
+                  <ClaimStrengthPill strength={claim.strength} />
                   <StatusPill status={claim.status} />
-                  <span className="text-xs font-mono text-stone-400">{claim.id}</span>
+                  <span className="text-xs font-mono text-stone-400">{claim.claimId}</span>
                 </div>
                 <p className="mt-2 text-sm font-semibold text-stone-800">{claim.title}</p>
                 <p className="mt-1 text-sm text-stone-600">{claim.useNow}</p>
+                <p className="mt-1 text-xs text-stone-500">Neste handling: {claim.nextAction}</p>
                 <p className="mt-1 text-xs text-stone-500">Ma avklares: {claim.needs}</p>
               </div>
             ))}
