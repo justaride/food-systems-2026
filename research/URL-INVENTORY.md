@@ -1,15 +1,15 @@
 # URL Inventory — Food Systems 2026
 
 > Auto-generert av `scripts/inventory-urls.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T15:54:58.620Z
-> Totalt: **184** URL-forekomster, **173** unike URL-er
+> Generert: 2026-05-01T02:21:24.194Z
+> Totalt: **209** URL-forekomster, **198** unike URL-er
 
 ## Distribusjon per source_type
 
 | source_type | antall |
 |---|---:|
-| report_canonical | 97 |
-| report_supporting | 9 |
+| report_canonical | 118 |
+| report_supporting | 13 |
 | thesis | 78 |
 | sourcedoc | 0 |
 | document | 0 |
@@ -18,7 +18,7 @@
 
 | protocol | antall |
 |---|---:|
-| https | 181 |
+| https | 206 |
 | http | 3 |
 | other | 0 |
 
@@ -27,11 +27,11 @@
 | # | domain | antall |
 |---:|---|---:|
 | 1 | regjeringen.no | 15 |
-| 2 | nhh.no | 11 |
-| 3 | doi.org | 9 |
+| 2 | doi.org | 11 |
+| 3 | nhh.no | 11 |
 | 4 | konkurransetilsynet.no | 7 |
 | 5 | dagligvaretilsynet.no | 6 |
-| 6 | pub.norden.org | 4 |
+| 6 | pub.norden.org | 5 |
 | 7 | projekter.aau.dk | 4 |
 | 8 | diva-portal.org | 4 |
 | 9 | openaccess.nhh.no | 4 |
@@ -39,29 +39,29 @@
 | 11 | research.cbs.dk | 4 |
 | 12 | kfst.dk | 3 |
 | 13 | konkurrensverket.se | 3 |
-| 14 | aaltodoc.aalto.fi | 3 |
-| 15 | pub.epsilon.slu.se | 3 |
-| 16 | bora.uib.no | 3 |
-| 17 | skemman.is | 3 |
-| 18 | uu.diva-portal.org | 3 |
-| 19 | samkeppni.is | 2 |
-| 20 | coop.no | 2 |
-| 21 | norgesgruppen.no | 2 |
-| 22 | asko.no | 2 |
-| 23 | virke.no | 2 |
-| 24 | icelandreview.com | 2 |
-| 25 | uib.no | 2 |
-| 26 | ruokavirasto.fi | 2 |
-| 27 | eur-lex.europa.eu | 2 |
-| 28 | beccle.no | 2 |
-| 29 | hdl.handle.net | 2 |
-| 30 | orbit.dtu.dk | 2 |
+| 14 | norden.org | 3 |
+| 15 | valio.com | 3 |
+| 16 | aaltodoc.aalto.fi | 3 |
+| 17 | pub.epsilon.slu.se | 3 |
+| 18 | bora.uib.no | 3 |
+| 19 | skemman.is | 3 |
+| 20 | uu.diva-portal.org | 3 |
+| 21 | samkeppni.is | 2 |
+| 22 | coop.no | 2 |
+| 23 | norgesgruppen.no | 2 |
+| 24 | asko.no | 2 |
+| 25 | virke.no | 2 |
+| 26 | pmc.ncbi.nlm.nih.gov | 2 |
+| 27 | icelandreview.com | 2 |
+| 28 | uib.no | 2 |
+| 29 | ruokavirasto.fi | 2 |
+| 30 | eur-lex.europa.eu | 2 |
 
 ## KI-prioritet
 
 | Klasse | antall |
 |---|---:|
-| URL-forekomster med priority >= 4.0 | 180 |
+| URL-forekomster med priority >= 4.0 | 205 |
 | URL-forekomster med priority < 4.0 eller ukjent | 4 |
 
 ## Eksempler — topp-prioritet (>= 4.5)
