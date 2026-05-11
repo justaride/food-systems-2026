@@ -47,7 +47,7 @@ export const mediaOutlets: MediaOutletSeed[] = [
   {
     id: 'no-konkurransetilsynet',
     name: 'Konkurransetilsynet',
-    country: 'no',
+    country: 'NO',
     outletType: 'competition-authority',
     language: 'no',
     url: 'https://konkurransetilsynet.no',
@@ -56,7 +56,7 @@ export const mediaOutlets: MediaOutletSeed[] = [
   {
     id: 'no-regjeringen',
     name: 'Regjeringen',
-    country: 'no',
+    country: 'NO',
     outletType: 'government',
     language: 'no',
     url: 'https://www.regjeringen.no',
@@ -64,7 +64,7 @@ export const mediaOutlets: MediaOutletSeed[] = [
   {
     id: 'se-konkurrensverket',
     name: 'Konkurrensverket',
-    country: 'se',
+    country: 'SE',
     outletType: 'competition-authority',
     language: 'sv',
     url: 'https://www.konkurrensverket.se',
@@ -72,7 +72,7 @@ export const mediaOutlets: MediaOutletSeed[] = [
   {
     id: 'dk-kfst',
     name: 'Konkurrence- og Forbrugerstyrelsen',
-    country: 'dk',
+    country: 'DK',
     outletType: 'competition-authority',
     language: 'da',
     url: 'https://en.kfst.dk',
@@ -80,7 +80,7 @@ export const mediaOutlets: MediaOutletSeed[] = [
   {
     id: 'fi-kkv',
     name: 'Finnish Competition and Consumer Authority',
-    country: 'fi',
+    country: 'FI',
     outletType: 'competition-authority',
     language: 'en',
     url: 'https://www.kkv.fi/en/',
@@ -88,7 +88,7 @@ export const mediaOutlets: MediaOutletSeed[] = [
   {
     id: 'fi-roschier',
     name: 'Roschier',
-    country: 'fi',
+    country: 'FI',
     outletType: 'legal-analysis',
     language: 'en',
     url: 'https://www.roschier.com',
@@ -97,7 +97,7 @@ export const mediaOutlets: MediaOutletSeed[] = [
   {
     id: 'is-samkeppni',
     name: 'Samkeppniseftirlitid',
-    country: 'is',
+    country: 'IS',
     outletType: 'competition-authority',
     language: 'is',
     url: 'https://www.samkeppni.is/en',
@@ -105,7 +105,7 @@ export const mediaOutlets: MediaOutletSeed[] = [
   {
     id: 'global-usda-fas',
     name: 'USDA Foreign Agricultural Service',
-    country: 'is',
+    country: 'IS',
     outletType: 'market-report',
     language: 'en',
     url: 'https://www.fas.usda.gov',
@@ -117,7 +117,7 @@ export const mediaEntries: MediaEntrySeed[] = [
   {
     id: 'entry-no-price-hunter-2024',
     outletId: 'no-konkurransetilsynet',
-    country: 'no',
+    country: 'NO',
     publishedYear: 2024,
     publishedMonth: 8,
     publishedDay: 21,
@@ -137,7 +137,7 @@ export const mediaEntries: MediaEntrySeed[] = [
   {
     id: 'entry-no-margin-study-2025',
     outletId: 'no-konkurransetilsynet',
-    country: 'no',
+    country: 'NO',
     publishedYear: 2025,
     publishedMonth: 1,
     datePrecision: 'month',
@@ -156,7 +156,7 @@ export const mediaEntries: MediaEntrySeed[] = [
   {
     id: 'entry-no-totalberedskap-2025',
     outletId: 'no-regjeringen',
-    country: 'no',
+    country: 'NO',
     publishedYear: 2025,
     publishedMonth: 1,
     datePrecision: 'month',
@@ -175,7 +175,7 @@ export const mediaEntries: MediaEntrySeed[] = [
   {
     id: 'entry-se-food-inquiry-2024',
     outletId: 'se-konkurrensverket',
-    country: 'se',
+    country: 'SE',
     publishedYear: 2024,
     datePrecision: 'year',
     title: 'Konkurrensverkets genomlysning av livsmedelsbranschen 2023-2024',
@@ -193,7 +193,7 @@ export const mediaEntries: MediaEntrySeed[] = [
   {
     id: 'entry-se-axfood-city-gross-2024',
     outletId: 'se-konkurrensverket',
-    country: 'se',
+    country: 'SE',
     publishedYear: 2024,
     publishedMonth: 10,
     datePrecision: 'month',
@@ -211,7 +211,7 @@ export const mediaEntries: MediaEntrySeed[] = [
   {
     id: 'entry-dk-salling-coop-2025',
     outletId: 'dk-kfst',
-    country: 'dk',
+    country: 'DK',
     publishedYear: 2025,
     publishedMonth: 3,
     publishedDay: 26,
@@ -230,7 +230,7 @@ export const mediaEntries: MediaEntrySeed[] = [
   {
     id: 'entry-fi-30-percent-rule-2014',
     outletId: 'fi-kkv',
-    country: 'fi',
+    country: 'FI',
     publishedYear: 2014,
     publishedMonth: 1,
     publishedDay: 1,
@@ -250,7 +250,7 @@ export const mediaEntries: MediaEntrySeed[] = [
   {
     id: 'entry-fi-food-market-act-2021',
     outletId: 'fi-roschier',
-    country: 'fi',
+    country: 'FI',
     publishedYear: 2021,
     datePrecision: 'year',
     title: 'Reform of trading practices in the grocery sector: proposed amendments to the Finnish Food Market Act',
@@ -267,7 +267,7 @@ export const mediaEntries: MediaEntrySeed[] = [
   {
     id: 'entry-is-market-concentration-2024',
     outletId: 'is-samkeppni',
-    country: 'is',
+    country: 'IS',
     publishedYear: 2024,
     datePrecision: 'year',
     title: 'Island - Markedskonsentrasjon og vertikal integrasjon',
@@ -284,7 +284,7 @@ export const mediaEntries: MediaEntrySeed[] = [
   {
     id: 'entry-is-usda-retail-foods-2024',
     outletId: 'global-usda-fas',
-    country: 'is',
+    country: 'IS',
     publishedYear: 2024,
     datePrecision: 'year',
     title: 'USDA GAIN Retail Foods Annual: Iceland 2024',
@@ -303,7 +303,7 @@ export const mediaEntries: MediaEntrySeed[] = [
 export const mediaEntryCodings: MediaEntryCodingSeed[] = [
   {
     entryId: 'entry-no-price-hunter-2024',
-    country: 'no',
+    country: 'NO',
     primaryTheme: 'markedsmakt',
     secondaryThemes: ['prispress', 'regulering'],
     tone: 'kritisk',
@@ -317,7 +317,7 @@ export const mediaEntryCodings: MediaEntryCodingSeed[] = [
   },
   {
     entryId: 'entry-no-margin-study-2025',
-    country: 'no',
+    country: 'NO',
     primaryTheme: 'markedsmakt',
     secondaryThemes: ['prispress'],
     tone: 'analytisk',
@@ -331,7 +331,7 @@ export const mediaEntryCodings: MediaEntryCodingSeed[] = [
   },
   {
     entryId: 'entry-no-totalberedskap-2025',
-    country: 'no',
+    country: 'NO',
     primaryTheme: 'beredskap',
     secondaryThemes: ['regulering'],
     tone: 'policy',
@@ -345,7 +345,7 @@ export const mediaEntryCodings: MediaEntryCodingSeed[] = [
   },
   {
     entryId: 'entry-se-food-inquiry-2024',
-    country: 'se',
+    country: 'SE',
     primaryTheme: 'markedsmakt',
     secondaryThemes: ['prispress', 'regulering'],
     tone: 'analytisk',
@@ -359,7 +359,7 @@ export const mediaEntryCodings: MediaEntryCodingSeed[] = [
   },
   {
     entryId: 'entry-se-axfood-city-gross-2024',
-    country: 'se',
+    country: 'SE',
     primaryTheme: 'markedsmakt',
     secondaryThemes: ['regulering'],
     tone: 'policy',
@@ -373,7 +373,7 @@ export const mediaEntryCodings: MediaEntryCodingSeed[] = [
   },
   {
     entryId: 'entry-dk-salling-coop-2025',
-    country: 'dk',
+    country: 'DK',
     primaryTheme: 'regulering',
     secondaryThemes: ['markedsmakt'],
     tone: 'policy',
@@ -387,7 +387,7 @@ export const mediaEntryCodings: MediaEntryCodingSeed[] = [
   },
   {
     entryId: 'entry-fi-30-percent-rule-2014',
-    country: 'fi',
+    country: 'FI',
     primaryTheme: 'regulering',
     secondaryThemes: ['markedsmakt'],
     tone: 'policy',
@@ -401,7 +401,7 @@ export const mediaEntryCodings: MediaEntryCodingSeed[] = [
   },
   {
     entryId: 'entry-fi-food-market-act-2021',
-    country: 'fi',
+    country: 'FI',
     primaryTheme: 'regulering',
     secondaryThemes: ['markedsmakt', 'beredskap'],
     tone: 'analytisk',
@@ -415,7 +415,7 @@ export const mediaEntryCodings: MediaEntryCodingSeed[] = [
   },
   {
     entryId: 'entry-is-market-concentration-2024',
-    country: 'is',
+    country: 'IS',
     primaryTheme: 'markedsmakt',
     secondaryThemes: ['prispress', 'regulering'],
     tone: 'kritisk',
@@ -429,7 +429,7 @@ export const mediaEntryCodings: MediaEntryCodingSeed[] = [
   },
   {
     entryId: 'entry-is-usda-retail-foods-2024',
-    country: 'is',
+    country: 'IS',
     primaryTheme: 'markedsmakt',
     secondaryThemes: ['innovasjon'],
     tone: 'analytisk',

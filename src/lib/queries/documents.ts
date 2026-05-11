@@ -121,7 +121,7 @@ export async function getDocumentBySlug(slug: string) {
  */
 export const POLICY_DOCUMENT_TYPES = [
   'policy',
-  'policy_report',
+  'policy-report',
   'legal',
   'regulatory',
   'decision',
@@ -177,15 +177,30 @@ export type PolicyDocumentsByCountry = Record<
 
 /**
  * For the /politikk page: return counts + sample policy-relevant documents
- * per country code (lowercase values used in DB: no/se/dk/fi/is/nordic/eu).
+ * per country code. Frontend keys are lowercase (no/se/dk/fi/is/nordic/eu),
+ * DB-canonical values are uppercase ISO + 'Nordic' / 'Global' — normalized
+ * 2026-05-11. Translation happens at this boundary.
  *
  * Filtering strategy:
- *  1. Filter by country (lowercase code).
+ *  1. Filter by country (DB-uppercase code).
  *  2. Include a document as "policy-relevant" if EITHER
  *       - documentType ∈ POLICY_DOCUMENT_TYPES, OR
  *       - any tag contains one of POLICY_TAG_FRAGMENTS.
  *  3. Sample the most-recent N (year desc, nulls last) policy-relevant docs.
  */
+const DOC_COUNTRY_DB_VALUE: Record<
+  'no' | 'se' | 'dk' | 'fi' | 'is' | 'nordic' | 'eu',
+  string
+> = {
+  no: 'NO',
+  se: 'SE',
+  dk: 'DK',
+  fi: 'FI',
+  is: 'IS',
+  nordic: 'Nordic',
+  eu: 'EU',
+}
+
 export async function getPolicyDocumentsByCountry(opts?: {
   samplesPerCountry?: number
 }): Promise<PolicyDocumentsByCountry> {
@@ -194,12 +209,13 @@ export async function getPolicyDocumentsByCountry(opts?: {
 
   const result = {} as PolicyDocumentsByCountry
   for (const code of countryCodes) {
+    const dbValue = DOC_COUNTRY_DB_VALUE[code]
     // Two parallel queries: total count and policy-relevant rows.
     const [total, rows] = await Promise.all([
-      prisma.document.count({ where: { country: code } }),
+      prisma.document.count({ where: { country: dbValue } }),
       prisma.document.findMany({
         where: {
-          country: code,
+          country: dbValue,
           OR: [
             { documentType: { in: [...POLICY_DOCUMENT_TYPES] } },
             { tags: { hasSome: POLICY_TAG_FRAGMENTS } },
