@@ -12,10 +12,7 @@
 --   4. Topp-5 kandidater per insight, klassifiser confidence: high (>15), medium (>8), low
 --
 -- Stille bekreft: ingen DB-endringer, kun lesing.
-
-\pset format unaligned
-\pset fieldsep ','
-\pset tuples_only off
+-- Bruk psql --csv flagget for ren CSV output.
 
 WITH unlinked AS (
   SELECT id, title, description, tags
