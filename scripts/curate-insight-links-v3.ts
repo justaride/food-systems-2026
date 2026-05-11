@@ -122,12 +122,35 @@ function main() {
     const candidates = [...byDoc.values()].sort((a, b) => b.rank - a.rank)
 
     let chosen: Row | null = null
+    // Tier 1: rank >= 15, overlap >= 1
     for (const r of candidates) {
       if (isMetaDoc(r.docTitle)) continue
       if (r.rank < 15) break
       if (titleOverlap(r.insightTitle, r.docTitle) < 1) continue
       chosen = r
       break
+    }
+    // Tier 2 fallback: rank 8–15, overlap >= 2 (stricter overlap compensates lower rank)
+    if (!chosen) {
+      for (const r of candidates) {
+        if (isMetaDoc(r.docTitle)) continue
+        if (r.rank >= 15) continue
+        if (r.rank < 8) break
+        if (titleOverlap(r.insightTitle, r.docTitle) < 2) continue
+        chosen = r
+        break
+      }
+    }
+    // Tier 3 fallback: rank 5–8, overlap >= 3 (very strict overlap, very low rank)
+    if (!chosen) {
+      for (const r of candidates) {
+        if (isMetaDoc(r.docTitle)) continue
+        if (r.rank >= 8) continue
+        if (r.rank < 5) break
+        if (titleOverlap(r.insightTitle, r.docTitle) < 3) continue
+        chosen = r
+        break
+      }
     }
 
     if (chosen) {
