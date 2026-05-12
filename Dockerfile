@@ -22,11 +22,17 @@ COPY public ./public
 COPY scripts ./scripts
 COPY src ./src
 COPY research/evidence-pack/*.csv ./research/evidence-pack/
+# Kun text/ + exports/ trengs av migrasjons-importer; downloads/ er ~70MB PDFer
+COPY research/evidence-pack/okologisk-norden-2026-04-29/text/ ./research/evidence-pack/okologisk-norden-2026-04-29/text/
+COPY research/evidence-pack/okologisk-norden-2026-04-29/exports/ ./research/evidence-pack/okologisk-norden-2026-04-29/exports/
+COPY research/_status/ ./research/_status/
 COPY research/data/nordic/core-series/ ./research/data/nordic/core-series/
 COPY research/data/nordic/trade-groups/normalized/ ./research/data/nordic/trade-groups/normalized/
 COPY research/data/nordic/market-share/ ./research/data/nordic/market-share/
 ARG DATABASE_URL
-RUN npm run build && npx prisma db push
+# psql kreves av run-prod-migrations.ts; alpine ships uten det
+RUN apk add --no-cache postgresql-client
+RUN npm run build && npx prisma db push && npx tsx scripts/run-prod-migrations.ts
 
 FROM base AS runner
 WORKDIR /app
