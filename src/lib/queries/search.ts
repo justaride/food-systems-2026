@@ -229,15 +229,19 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
   const searchValues = buildSearchValues(query)
   const arraySearchValues = buildArraySearchValues(searchValues)
 
-  const documents = await prisma.document.findMany({
-    where: {
-      OR: searchValues.flatMap(value => [
-        { title: { contains: value, mode: 'insensitive' as const } },
-        { content: { contains: value, mode: 'insensitive' as const } },
-      ]),
-    },
-    select: { id: true, title: true, content: true, summary: true, tags: true, slug: true },
-    take: perTypeLimit,
+  // FTS-first for Document — uses tsvector + GIN index for ranked relevance.
+  // Falls back to ILIKE on syntax errors (e.g. unclosed quotes in user input).
+  const documents = await ftsDocumentSearch(query, perTypeLimit).catch(async () => {
+    return prisma.document.findMany({
+      where: {
+        OR: searchValues.flatMap(value => [
+          { title: { contains: value, mode: 'insensitive' as const } },
+          { content: { contains: value, mode: 'insensitive' as const } },
+        ]),
+      },
+      select: { id: true, title: true, content: true, summary: true, tags: true, slug: true },
+      take: perTypeLimit,
+    })
   })
 
   for (const doc of documents) {
@@ -262,18 +266,20 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
     })
   }
 
-  const insightsResult = await prisma.insight.findMany({
-    where: {
-      OR: [
-        ...searchValues.flatMap(value => [
-          { title: { contains: value, mode: 'insensitive' as const } },
-          { description: { contains: value, mode: 'insensitive' as const } },
-        ]),
-        { tags: { hasSome: arraySearchValues } },
-      ],
-    },
-    take: perTypeLimit,
-  })
+  const insightsResult = await ftsInsightSearch(query, perTypeLimit).catch(async () =>
+    prisma.insight.findMany({
+      where: {
+        OR: [
+          ...searchValues.flatMap(value => [
+            { title: { contains: value, mode: 'insensitive' as const } },
+            { description: { contains: value, mode: 'insensitive' as const } },
+          ]),
+          { tags: { hasSome: arraySearchValues } },
+        ],
+      },
+      take: perTypeLimit,
+    }),
+  )
 
   for (const ins of insightsResult) {
     results.push({
@@ -307,18 +313,20 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
     })
   }
 
-  const thesesResult = await prisma.thesis.findMany({
-    where: {
-      OR: [
-        ...searchValues.flatMap(value => [
-          { title: { contains: value, mode: 'insensitive' as const } },
-          { synthesis: { contains: value, mode: 'insensitive' as const } },
-        ]),
-        { tags: { hasSome: arraySearchValues } },
-      ],
-    },
-    take: perTypeLimit,
-  })
+  const thesesResult = await ftsThesisSearch(query, perTypeLimit).catch(async () =>
+    prisma.thesis.findMany({
+      where: {
+        OR: [
+          ...searchValues.flatMap(value => [
+            { title: { contains: value, mode: 'insensitive' as const } },
+            { synthesis: { contains: value, mode: 'insensitive' as const } },
+          ]),
+          { tags: { hasSome: arraySearchValues } },
+        ],
+      },
+      take: perTypeLimit,
+    }),
+  )
 
   for (const t of thesesResult) {
     results.push({
@@ -487,4 +495,49 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
     results.sort((a, b) => scoreSearchResult(b, query) - scoreSearchResult(a, query)),
     limit,
   )
+}
+
+// ─── Postgres FTS layer (added 2026-05-11) ───────────────────────────────────
+// Uses the search_vector tsvector generated columns + GIN indexes added in the
+// same migration. Returns the same shape as the prior Prisma .findMany() calls
+// so consumer mapping code in keywordSearch() stays untouched.
+//
+// websearch_to_tsquery is forgiving with operators (AND, OR, "phrase", -negation)
+// and tolerates fragments better than plainto_tsquery. Errors here propagate to
+// callers which fall back to ILIKE.
+
+async function ftsDocumentSearch(query: string, limit: number): Promise<
+  Array<{ id: string; title: string; content: string; summary: string | null; tags: string[]; slug: string }>
+> {
+  return prisma.$queryRaw`
+    SELECT id, title, content, summary, tags, slug
+    FROM "Document"
+    WHERE search_vector @@ websearch_to_tsquery('norwegian', ${query})
+    ORDER BY ts_rank(search_vector, websearch_to_tsquery('norwegian', ${query})) DESC
+    LIMIT ${limit}
+  `
+}
+
+async function ftsInsightSearch(query: string, limit: number): Promise<
+  Array<{ id: string; title: string; description: string; tags: string[] }>
+> {
+  return prisma.$queryRaw`
+    SELECT id, title, description, tags
+    FROM "Insight"
+    WHERE search_vector @@ websearch_to_tsquery('norwegian', ${query})
+    ORDER BY ts_rank(search_vector, websearch_to_tsquery('norwegian', ${query})) DESC
+    LIMIT ${limit}
+  `
+}
+
+async function ftsThesisSearch(query: string, limit: number): Promise<
+  Array<{ id: string; title: string; synthesis: string; tags: string[]; url: string }>
+> {
+  return prisma.$queryRaw`
+    SELECT id, title, synthesis, tags, url
+    FROM "Thesis"
+    WHERE search_vector @@ websearch_to_tsquery('norwegian', ${query})
+    ORDER BY ts_rank(search_vector, websearch_to_tsquery('norwegian', ${query})) DESC
+    LIMIT ${limit}
+  `
 }

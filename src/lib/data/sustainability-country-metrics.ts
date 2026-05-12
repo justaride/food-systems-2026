@@ -13,64 +13,64 @@ export type SustainabilityCountryMetric = {
 const normo2025RawWorkbook = 'research/data/nordic/normo-2025/raw/appendix-6-data-tables-for-figures.xlsx'
 
 const normo2025HealthRows = [
-  ['dk', 'adultsObesity', 18.3845, '%', 'Adults aged 18-65 with obesity', '18-65', 'Adults - Body', 'obese'],
-  ['fi', 'adultsObesity', 24.2495, '%', 'Adults aged 18-65 with obesity', '18-65', 'Adults - Body', 'obese'],
-  ['is', 'adultsObesity', 27.4726, '%', 'Adults aged 18-65 with obesity', '18-65', 'Adults - Body', 'obese'],
-  ['no', 'adultsObesity', 16.189, '%', 'Adults aged 18-65 with obesity', '18-65', 'Adults - Body', 'obese'],
-  ['se', 'adultsObesity', 14.5505, '%', 'Adults aged 18-65 with obesity', '18-65', 'Adults - Body', 'obese'],
-  ['dk', 'adultsOverweightOrObesity', 46.6636, '%', 'Adults aged 18-65 with overweight or obesity', '18-65', 'Adults - Body', 'overweight + obese'],
-  ['fi', 'adultsOverweightOrObesity', 60.4902, '%', 'Adults aged 18-65 with overweight or obesity', '18-65', 'Adults - Body', 'overweight + obese'],
-  ['is', 'adultsOverweightOrObesity', 69.6748, '%', 'Adults aged 18-65 with overweight or obesity', '18-65', 'Adults - Body', 'overweight + obese'],
-  ['no', 'adultsOverweightOrObesity', 52.5282, '%', 'Adults aged 18-65 with overweight or obesity', '18-65', 'Adults - Body', 'overweight + obese'],
-  ['se', 'adultsOverweightOrObesity', 50.6604, '%', 'Adults aged 18-65 with overweight or obesity', '18-65', 'Adults - Body', 'overweight + obese'],
-  ['dk', 'childrenObesity', 5.477, '%', 'Children aged 7-12 with obesity', '7-12', 'Children - Body', 'obese'],
-  ['fi', 'childrenObesity', 5.0159, '%', 'Children aged 7-12 with obesity', '7-12', 'Children - Body', 'obese'],
-  ['is', 'childrenObesity', 6.3775, '%', 'Children aged 7-12 with obesity', '7-12', 'Children - Body', 'obese'],
-  ['no', 'childrenObesity', 1.9198, '%', 'Children aged 7-12 with obesity', '7-12', 'Children - Body', 'obese'],
-  ['se', 'childrenObesity', 2.1585, '%', 'Children aged 7-12 with obesity', '7-12', 'Children - Body', 'obese'],
-  ['dk', 'childrenOverweightOrObesity', 20.1287, '%', 'Children aged 7-12 with overweight or obesity', '7-12', 'Children - Body', 'overweight + obese'],
-  ['fi', 'childrenOverweightOrObesity', 18.8255, '%', 'Children aged 7-12 with overweight or obesity', '7-12', 'Children - Body', 'overweight + obese'],
-  ['is', 'childrenOverweightOrObesity', 25.9254, '%', 'Children aged 7-12 with overweight or obesity', '7-12', 'Children - Body', 'overweight + obese'],
-  ['no', 'childrenOverweightOrObesity', 16.0027, '%', 'Children aged 7-12 with overweight or obesity', '7-12', 'Children - Body', 'overweight + obese'],
-  ['se', 'childrenOverweightOrObesity', 15.4211, '%', 'Children aged 7-12 with overweight or obesity', '7-12', 'Children - Body', 'overweight + obese'],
+  ['DK', 'adultsObesity', 18.3845, '%', 'Adults aged 18-65 with obesity', '18-65', 'Adults - Body', 'obese'],
+  ['FI', 'adultsObesity', 24.2495, '%', 'Adults aged 18-65 with obesity', '18-65', 'Adults - Body', 'obese'],
+  ['IS', 'adultsObesity', 27.4726, '%', 'Adults aged 18-65 with obesity', '18-65', 'Adults - Body', 'obese'],
+  ['NO', 'adultsObesity', 16.189, '%', 'Adults aged 18-65 with obesity', '18-65', 'Adults - Body', 'obese'],
+  ['SE', 'adultsObesity', 14.5505, '%', 'Adults aged 18-65 with obesity', '18-65', 'Adults - Body', 'obese'],
+  ['DK', 'adultsOverweightOrObesity', 46.6636, '%', 'Adults aged 18-65 with overweight or obesity', '18-65', 'Adults - Body', 'overweight + obese'],
+  ['FI', 'adultsOverweightOrObesity', 60.4902, '%', 'Adults aged 18-65 with overweight or obesity', '18-65', 'Adults - Body', 'overweight + obese'],
+  ['IS', 'adultsOverweightOrObesity', 69.6748, '%', 'Adults aged 18-65 with overweight or obesity', '18-65', 'Adults - Body', 'overweight + obese'],
+  ['NO', 'adultsOverweightOrObesity', 52.5282, '%', 'Adults aged 18-65 with overweight or obesity', '18-65', 'Adults - Body', 'overweight + obese'],
+  ['SE', 'adultsOverweightOrObesity', 50.6604, '%', 'Adults aged 18-65 with overweight or obesity', '18-65', 'Adults - Body', 'overweight + obese'],
+  ['DK', 'childrenObesity', 5.477, '%', 'Children aged 7-12 with obesity', '7-12', 'Children - Body', 'obese'],
+  ['FI', 'childrenObesity', 5.0159, '%', 'Children aged 7-12 with obesity', '7-12', 'Children - Body', 'obese'],
+  ['IS', 'childrenObesity', 6.3775, '%', 'Children aged 7-12 with obesity', '7-12', 'Children - Body', 'obese'],
+  ['NO', 'childrenObesity', 1.9198, '%', 'Children aged 7-12 with obesity', '7-12', 'Children - Body', 'obese'],
+  ['SE', 'childrenObesity', 2.1585, '%', 'Children aged 7-12 with obesity', '7-12', 'Children - Body', 'obese'],
+  ['DK', 'childrenOverweightOrObesity', 20.1287, '%', 'Children aged 7-12 with overweight or obesity', '7-12', 'Children - Body', 'overweight + obese'],
+  ['FI', 'childrenOverweightOrObesity', 18.8255, '%', 'Children aged 7-12 with overweight or obesity', '7-12', 'Children - Body', 'overweight + obese'],
+  ['IS', 'childrenOverweightOrObesity', 25.9254, '%', 'Children aged 7-12 with overweight or obesity', '7-12', 'Children - Body', 'overweight + obese'],
+  ['NO', 'childrenOverweightOrObesity', 16.0027, '%', 'Children aged 7-12 with overweight or obesity', '7-12', 'Children - Body', 'overweight + obese'],
+  ['SE', 'childrenOverweightOrObesity', 15.4211, '%', 'Children aged 7-12 with overweight or obesity', '7-12', 'Children - Body', 'overweight + obese'],
 ] as const
 
 const normo2025DietRows = [
-  ['dk', 'adultsDairyTimesPerDay', 1.6928, 'times/day', 'Adults dairy consumption frequency', 'dairytotal_day', 1.6002, 1.7853, 2.103],
-  ['fi', 'adultsDairyTimesPerDay', 2.8498, 'times/day', 'Adults dairy consumption frequency', 'dairytotal_day', 2.663, 3.0365, 2.103],
-  ['is', 'adultsDairyTimesPerDay', 2.0174, 'times/day', 'Adults dairy consumption frequency', 'dairytotal_day', 1.8873, 2.1475, 2.103],
-  ['no', 'adultsDairyTimesPerDay', 1.8928, 'times/day', 'Adults dairy consumption frequency', 'dairytotal_day', 1.7899, 1.9957, 2.103],
-  ['se', 'adultsDairyTimesPerDay', 2.0613, 'times/day', 'Adults dairy consumption frequency', 'dairytotal_day', 1.9152, 2.2074, 2.103],
-  ['dk', 'adultsDiscretionaryDrinksTimesPerWeek', 6.5232, 'times/week', 'Adults discretionary drinks consumption frequency', 'discretionarydrinkplustotal_week', 5.8426, 7.2039, 5.6456],
-  ['fi', 'adultsDiscretionaryDrinksTimesPerWeek', 3.5132, 'times/week', 'Adults discretionary drinks consumption frequency', 'discretionarydrinkplustotal_week', 3.0844, 3.9419, 5.6456],
-  ['is', 'adultsDiscretionaryDrinksTimesPerWeek', 7.9333, 'times/week', 'Adults discretionary drinks consumption frequency', 'discretionarydrinkplustotal_week', 7.0886, 8.7781, 5.6456],
-  ['no', 'adultsDiscretionaryDrinksTimesPerWeek', 6.4036, 'times/week', 'Adults discretionary drinks consumption frequency', 'discretionarydrinkplustotal_week', 5.6028, 7.2045, 5.6456],
-  ['se', 'adultsDiscretionaryDrinksTimesPerWeek', 3.8572, 'times/week', 'Adults discretionary drinks consumption frequency', 'discretionarydrinkplustotal_week', 3.0853, 4.629, 5.6456],
-  ['dk', 'adultsDiscretionaryFoodsTimesPerWeek', 4.8238, 'times/week', 'Adults discretionary foods consumption frequency', 'discretionaryfoodtotal_week', 4.5314, 5.1162, 3.982],
-  ['fi', 'adultsDiscretionaryFoodsTimesPerWeek', 3.5987, 'times/week', 'Adults discretionary foods consumption frequency', 'discretionaryfoodtotal_week', 3.3137, 3.8837, 3.982],
-  ['is', 'adultsDiscretionaryFoodsTimesPerWeek', 4.7021, 'times/week', 'Adults discretionary foods consumption frequency', 'discretionaryfoodtotal_week', 4.3308, 5.0733, 3.982],
-  ['no', 'adultsDiscretionaryFoodsTimesPerWeek', 3.1768, 'times/week', 'Adults discretionary foods consumption frequency', 'discretionaryfoodtotal_week', 2.9681, 3.3856, 3.982],
-  ['se', 'adultsDiscretionaryFoodsTimesPerWeek', 3.6048, 'times/week', 'Adults discretionary foods consumption frequency', 'discretionaryfoodtotal_week', 3.2144, 3.9952, 3.982],
-  ['dk', 'adultsFishTimesPerWeek', 1.6174, 'times/week', 'Adults fish consumption frequency', 'fishtotal_week', 1.4962, 1.7387, 1.6313],
-  ['fi', 'adultsFishTimesPerWeek', 1.1725, 'times/week', 'Adults fish consumption frequency', 'fishtotal_week', 1.0946, 1.2505, 1.6313],
-  ['is', 'adultsFishTimesPerWeek', 1.7789, 'times/week', 'Adults fish consumption frequency', 'fishtotal_week', 1.6777, 1.8802, 1.6313],
-  ['no', 'adultsFishTimesPerWeek', 2.2871, 'times/week', 'Adults fish consumption frequency', 'fishtotal_week', 2.142, 2.4321, 1.6313],
-  ['se', 'adultsFishTimesPerWeek', 1.3041, 'times/week', 'Adults fish consumption frequency', 'fishtotal_week', 1.1662, 1.442, 1.6313],
-  ['dk', 'adultsFruitVegetablesTimesPerDay', 2.1003, 'times/day', 'Adults fruit and vegetable consumption frequency', 'fruitveg_day', 1.9815, 2.2192, 2.1526],
-  ['fi', 'adultsFruitVegetablesTimesPerDay', 2.5148, 'times/day', 'Adults fruit and vegetable consumption frequency', 'fruitveg_day', 2.3755, 2.654, 2.1526],
-  ['is', 'adultsFruitVegetablesTimesPerDay', 1.8535, 'times/day', 'Adults fruit and vegetable consumption frequency', 'fruitveg_day', 1.7278, 1.9792, 2.1526],
-  ['no', 'adultsFruitVegetablesTimesPerDay', 2.1502, 'times/day', 'Adults fruit and vegetable consumption frequency', 'fruitveg_day', 2.0335, 2.2669, 2.1526],
-  ['se', 'adultsFruitVegetablesTimesPerDay', 2.1422, 'times/day', 'Adults fruit and vegetable consumption frequency', 'fruitveg_day', 2.0273, 2.2571, 2.1526],
-  ['dk', 'adultsMeatTimesPerWeek', 7.1096, 'times/week', 'Adults meat consumption frequency', 'meattotal_week', 6.7741, 7.445, 5.9996],
-  ['fi', 'adultsMeatTimesPerWeek', 6.9717, 'times/week', 'Adults meat consumption frequency', 'meattotal_week', 6.571, 7.3724, 5.9996],
-  ['is', 'adultsMeatTimesPerWeek', 4.9864, 'times/week', 'Adults meat consumption frequency', 'meattotal_week', 4.7018, 5.271, 5.9996],
-  ['no', 'adultsMeatTimesPerWeek', 5.7042, 'times/week', 'Adults meat consumption frequency', 'meattotal_week', 5.3756, 6.0329, 5.9996],
-  ['se', 'adultsMeatTimesPerWeek', 5.2209, 'times/week', 'Adults meat consumption frequency', 'meattotal_week', 4.9366, 5.5053, 5.9996],
-  ['dk', 'adultsWholeGrainBreadSlicesPerDay', 2.7652, 'slices/day', 'Adults whole grain bread consumption frequency', 'totalbrownbreadtotal_day', 2.572, 2.9584, 2.349],
-  ['fi', 'adultsWholeGrainBreadSlicesPerDay', 2.8124, 'slices/day', 'Adults whole grain bread consumption frequency', 'totalbrownbreadtotal_day', 2.6294, 2.9954, 2.349],
-  ['is', 'adultsWholeGrainBreadSlicesPerDay', 1.1103, 'slices/day', 'Adults whole grain bread consumption frequency', 'totalbrownbreadtotal_day', 1.0154, 1.2051, 2.349],
-  ['no', 'adultsWholeGrainBreadSlicesPerDay', 3.4422, 'slices/day', 'Adults whole grain bread consumption frequency', 'totalbrownbreadtotal_day', 3.2214, 3.6631, 2.349],
-  ['se', 'adultsWholeGrainBreadSlicesPerDay', 1.6122, 'slices/day', 'Adults whole grain bread consumption frequency', 'totalbrownbreadtotal_day', 1.4396, 1.7847, 2.349],
+  ['DK', 'adultsDairyTimesPerDay', 1.6928, 'times/day', 'Adults dairy consumption frequency', 'dairytotal_day', 1.6002, 1.7853, 2.103],
+  ['FI', 'adultsDairyTimesPerDay', 2.8498, 'times/day', 'Adults dairy consumption frequency', 'dairytotal_day', 2.663, 3.0365, 2.103],
+  ['IS', 'adultsDairyTimesPerDay', 2.0174, 'times/day', 'Adults dairy consumption frequency', 'dairytotal_day', 1.8873, 2.1475, 2.103],
+  ['NO', 'adultsDairyTimesPerDay', 1.8928, 'times/day', 'Adults dairy consumption frequency', 'dairytotal_day', 1.7899, 1.9957, 2.103],
+  ['SE', 'adultsDairyTimesPerDay', 2.0613, 'times/day', 'Adults dairy consumption frequency', 'dairytotal_day', 1.9152, 2.2074, 2.103],
+  ['DK', 'adultsDiscretionaryDrinksTimesPerWeek', 6.5232, 'times/week', 'Adults discretionary drinks consumption frequency', 'discretionarydrinkplustotal_week', 5.8426, 7.2039, 5.6456],
+  ['FI', 'adultsDiscretionaryDrinksTimesPerWeek', 3.5132, 'times/week', 'Adults discretionary drinks consumption frequency', 'discretionarydrinkplustotal_week', 3.0844, 3.9419, 5.6456],
+  ['IS', 'adultsDiscretionaryDrinksTimesPerWeek', 7.9333, 'times/week', 'Adults discretionary drinks consumption frequency', 'discretionarydrinkplustotal_week', 7.0886, 8.7781, 5.6456],
+  ['NO', 'adultsDiscretionaryDrinksTimesPerWeek', 6.4036, 'times/week', 'Adults discretionary drinks consumption frequency', 'discretionarydrinkplustotal_week', 5.6028, 7.2045, 5.6456],
+  ['SE', 'adultsDiscretionaryDrinksTimesPerWeek', 3.8572, 'times/week', 'Adults discretionary drinks consumption frequency', 'discretionarydrinkplustotal_week', 3.0853, 4.629, 5.6456],
+  ['DK', 'adultsDiscretionaryFoodsTimesPerWeek', 4.8238, 'times/week', 'Adults discretionary foods consumption frequency', 'discretionaryfoodtotal_week', 4.5314, 5.1162, 3.982],
+  ['FI', 'adultsDiscretionaryFoodsTimesPerWeek', 3.5987, 'times/week', 'Adults discretionary foods consumption frequency', 'discretionaryfoodtotal_week', 3.3137, 3.8837, 3.982],
+  ['IS', 'adultsDiscretionaryFoodsTimesPerWeek', 4.7021, 'times/week', 'Adults discretionary foods consumption frequency', 'discretionaryfoodtotal_week', 4.3308, 5.0733, 3.982],
+  ['NO', 'adultsDiscretionaryFoodsTimesPerWeek', 3.1768, 'times/week', 'Adults discretionary foods consumption frequency', 'discretionaryfoodtotal_week', 2.9681, 3.3856, 3.982],
+  ['SE', 'adultsDiscretionaryFoodsTimesPerWeek', 3.6048, 'times/week', 'Adults discretionary foods consumption frequency', 'discretionaryfoodtotal_week', 3.2144, 3.9952, 3.982],
+  ['DK', 'adultsFishTimesPerWeek', 1.6174, 'times/week', 'Adults fish consumption frequency', 'fishtotal_week', 1.4962, 1.7387, 1.6313],
+  ['FI', 'adultsFishTimesPerWeek', 1.1725, 'times/week', 'Adults fish consumption frequency', 'fishtotal_week', 1.0946, 1.2505, 1.6313],
+  ['IS', 'adultsFishTimesPerWeek', 1.7789, 'times/week', 'Adults fish consumption frequency', 'fishtotal_week', 1.6777, 1.8802, 1.6313],
+  ['NO', 'adultsFishTimesPerWeek', 2.2871, 'times/week', 'Adults fish consumption frequency', 'fishtotal_week', 2.142, 2.4321, 1.6313],
+  ['SE', 'adultsFishTimesPerWeek', 1.3041, 'times/week', 'Adults fish consumption frequency', 'fishtotal_week', 1.1662, 1.442, 1.6313],
+  ['DK', 'adultsFruitVegetablesTimesPerDay', 2.1003, 'times/day', 'Adults fruit and vegetable consumption frequency', 'fruitveg_day', 1.9815, 2.2192, 2.1526],
+  ['FI', 'adultsFruitVegetablesTimesPerDay', 2.5148, 'times/day', 'Adults fruit and vegetable consumption frequency', 'fruitveg_day', 2.3755, 2.654, 2.1526],
+  ['IS', 'adultsFruitVegetablesTimesPerDay', 1.8535, 'times/day', 'Adults fruit and vegetable consumption frequency', 'fruitveg_day', 1.7278, 1.9792, 2.1526],
+  ['NO', 'adultsFruitVegetablesTimesPerDay', 2.1502, 'times/day', 'Adults fruit and vegetable consumption frequency', 'fruitveg_day', 2.0335, 2.2669, 2.1526],
+  ['SE', 'adultsFruitVegetablesTimesPerDay', 2.1422, 'times/day', 'Adults fruit and vegetable consumption frequency', 'fruitveg_day', 2.0273, 2.2571, 2.1526],
+  ['DK', 'adultsMeatTimesPerWeek', 7.1096, 'times/week', 'Adults meat consumption frequency', 'meattotal_week', 6.7741, 7.445, 5.9996],
+  ['FI', 'adultsMeatTimesPerWeek', 6.9717, 'times/week', 'Adults meat consumption frequency', 'meattotal_week', 6.571, 7.3724, 5.9996],
+  ['IS', 'adultsMeatTimesPerWeek', 4.9864, 'times/week', 'Adults meat consumption frequency', 'meattotal_week', 4.7018, 5.271, 5.9996],
+  ['NO', 'adultsMeatTimesPerWeek', 5.7042, 'times/week', 'Adults meat consumption frequency', 'meattotal_week', 5.3756, 6.0329, 5.9996],
+  ['SE', 'adultsMeatTimesPerWeek', 5.2209, 'times/week', 'Adults meat consumption frequency', 'meattotal_week', 4.9366, 5.5053, 5.9996],
+  ['DK', 'adultsWholeGrainBreadSlicesPerDay', 2.7652, 'slices/day', 'Adults whole grain bread consumption frequency', 'totalbrownbreadtotal_day', 2.572, 2.9584, 2.349],
+  ['FI', 'adultsWholeGrainBreadSlicesPerDay', 2.8124, 'slices/day', 'Adults whole grain bread consumption frequency', 'totalbrownbreadtotal_day', 2.6294, 2.9954, 2.349],
+  ['IS', 'adultsWholeGrainBreadSlicesPerDay', 1.1103, 'slices/day', 'Adults whole grain bread consumption frequency', 'totalbrownbreadtotal_day', 1.0154, 1.2051, 2.349],
+  ['NO', 'adultsWholeGrainBreadSlicesPerDay', 3.4422, 'slices/day', 'Adults whole grain bread consumption frequency', 'totalbrownbreadtotal_day', 3.2214, 3.6631, 2.349],
+  ['SE', 'adultsWholeGrainBreadSlicesPerDay', 1.6122, 'slices/day', 'Adults whole grain bread consumption frequency', 'totalbrownbreadtotal_day', 1.4396, 1.7847, 2.349],
 ] as const
 
 const normo2025CountryMetrics: SustainabilityCountryMetric[] = [
@@ -121,7 +121,7 @@ const normo2025CountryMetrics: SustainabilityCountryMetric[] = [
 
 export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
   {
-    country: 'nordic',
+    country: 'Nordic',
     metricType: 'dietGuideline',
     category: 'redMeatUpperLimit',
     value: 350,
@@ -137,7 +137,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'nordic',
+    country: 'Nordic',
     metricType: 'dietGuideline',
     category: 'fruitVegetablesLowerTarget',
     value: 500,
@@ -154,7 +154,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'nordic',
+    country: 'Nordic',
     metricType: 'healthOutcome',
     category: 'adultsOverweightOrObesity',
     value: 56,
@@ -171,7 +171,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'nordic',
+    country: 'Nordic',
     metricType: 'healthOutcome',
     category: 'childrenOverweightOrObesity',
     value: 19,
@@ -188,7 +188,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
   },
   ...normo2025CountryMetrics,
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'policyIndicator',
     category: 'agricultureCO2TaxLivestock2030',
     value: 300,
@@ -203,7 +203,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'policyIndicator',
     category: 'agricultureCO2TaxLivestock2035',
     value: 750,
@@ -218,7 +218,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'policyIndicator',
     category: 'agricultureCO2TaxCompensationShare',
     value: 60,
@@ -232,7 +232,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'climateTarget',
     category: 'expectedAgricultureEmissionReduction2030',
     value: 1.8,
@@ -246,7 +246,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'biogas',
     category: 'gasGridBiogasDelivery',
     value: 649,
@@ -262,7 +262,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'biogas',
     category: 'distributedGasBiogasShare',
     value: 38,
@@ -277,7 +277,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'biogas',
     category: 'gasGridConnectedBiogasPlants',
     value: 57,
@@ -292,7 +292,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'biogas',
     category: 'avoidedCO2FromBiogas',
     value: 1.47,
@@ -306,7 +306,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'feedImport',
     category: 'soybeanMealImport2024',
     value: 1197409.5,
@@ -322,7 +322,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'feedImport',
     category: 'soybeanMealImport2023',
     value: 1428195.2,
@@ -337,7 +337,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'feedImport',
     category: 'animalFeedShareOfSoyImports',
     value: 90,
@@ -352,7 +352,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'feedImport',
     category: 'soybeanMealShareOfSoyImports',
     value: 95,
@@ -367,7 +367,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'feedImportTraceability',
     category: 'physicallySegregatedCertifiedSoyShare',
     value: 6,
@@ -382,7 +382,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'feedImportTraceability',
     category: 'certifiedOrVerifiedSoyImportShare',
     value: 53,
@@ -398,7 +398,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'feedImportClimate',
     category: 'soybeanMealClimateFootprintBestAvailableOrigin2023',
     value: 2.077037,
@@ -415,7 +415,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'feedImportClimate',
     category: 'soybeanMealClimateFootprintEudrScenario2023',
     value: 1.844515,
@@ -433,7 +433,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'feedImportClimate',
     category: 'soybeanMealClimateFootprintDcfScenario2023',
     value: 1.46037,
@@ -451,7 +451,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'feedImportClimate',
     category: 'highRiskDcfEmissionReductionPotential',
     value: 54,
@@ -466,7 +466,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'biogasScenario',
     category: 'totalGasConsumptionBiogasShareInclDirectDeliveries',
     value: 45,
@@ -481,7 +481,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'biogasScenario',
     category: 'frozenPolicyProduction2030',
     value: 40,
@@ -496,7 +496,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'biogasScenario',
     category: 'greenPolicyProduction2035',
     value: 60,
@@ -511,7 +511,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'biogasScenario',
     category: 'greenPolicyNetClimateEffect2035',
     value: 4.5,
@@ -528,7 +528,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'biogasScenario',
     category: 'greenPolicyPhosphorusRecycling2030',
     value: 37500,
@@ -547,7 +547,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'biogasScenario',
     category: 'greenPolicyReducedNitrogenLeaching2030',
     value: 1500,
@@ -563,7 +563,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'agricultureGHG',
     category: 'totalAgricultureGHG',
     value: 11.3,
@@ -578,7 +578,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'agricultureGHG',
     category: 'reportedAgricultureMachineryHeatingGHG',
     value: 6.9,
@@ -592,7 +592,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'agricultureGHG',
     category: 'reportedAgricultureMachineryHeatingShare',
     value: 15,
@@ -606,7 +606,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'agricultureGHG',
     category: 'agricultureLULUCFNetEmissions',
     value: 4.4,
@@ -620,7 +620,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'agricultureGHG',
     category: 'organogenicAgriculturalLandShare',
     value: 39,
@@ -634,7 +634,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'agricultureGHG',
     category: 'entericFermentationShare',
     value: 29,
@@ -648,7 +648,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'agricultureGHG',
     category: 'organogenicAndEntericShare',
     value: 68,
@@ -662,7 +662,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'agricultureGHG',
     category: 'totalAgricultureGHGReductionSince1990',
     value: 7.2,
@@ -676,7 +676,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodWaste',
     category: 'retailAndConsumerStageTotal',
     value: 880000,
@@ -691,7 +691,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodWaste',
     category: 'retailAndConsumerStagePerCapita',
     value: 84,
@@ -705,7 +705,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodWaste',
     category: 'householdShareRetailConsumerStage',
     value: 72,
@@ -718,7 +718,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodWaste',
     category: 'retailDistributionShareRetailConsumerStage',
     value: 13,
@@ -731,7 +731,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodWaste',
     category: 'restaurantsPublicMealsShareRetailConsumerStage',
     value: 15,
@@ -744,7 +744,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodWaste',
     category: 'householdAvoidableFoodWastePerCapita',
     value: 16,
@@ -758,7 +758,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodWaste',
     category: 'householdOtherFoodWastePerCapita',
     value: 45,
@@ -772,7 +772,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodWaste',
     category: 'nationalPerCapitaReductionTarget2025',
     value: 20,
@@ -787,7 +787,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodConsumption',
     category: 'vegetablesTotalConsumption',
     value: 81.3,
@@ -801,7 +801,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodConsumption',
     category: 'fruitAndBerriesTotalConsumption',
     value: 80.2,
@@ -815,7 +815,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodConsumption',
     category: 'freshFrozenMeatDirectConsumption',
     value: 50.7,
@@ -829,7 +829,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodConsumption',
     category: 'meatTotalConsumption',
     value: 80.5,
@@ -844,7 +844,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodConsumption',
     category: 'poultryTotalConsumption',
     value: 24.1,
@@ -858,7 +858,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodConsumption',
     category: 'drinkingMilkTotalConsumption',
     value: 60.4,
@@ -874,7 +874,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodConsumption',
     category: 'cheeseTotalConsumption',
     value: 21.1,
@@ -890,7 +890,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodConsumption',
     category: 'softDrinksDirectConsumption',
     value: 112.3,
@@ -906,7 +906,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'foodConsumption',
     category: 'chocolateConfectioneryDirectConsumption',
     value: 16.2,
@@ -922,7 +922,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'nutritionSupply',
     category: 'energySupply',
     value: 3100,
@@ -938,7 +938,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'agricultureGHG',
     category: 'organicAgriculturalSoilsEmissionShareLower',
     value: 50,
@@ -952,7 +952,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'agricultureGHG',
     category: 'organicAgriculturalSoilsEmissionShareUpper',
     value: 60,
@@ -966,7 +966,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'landUse',
     category: 'organicAgriculturalSoilsAreaShare',
     value: 10,
@@ -980,7 +980,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'peatlandMitigation',
     category: 'environmentalPathwayReductionShare2050',
     value: 28,
@@ -995,7 +995,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'peatlandMitigation',
     category: 'environmentalPathwayReductionVolume2050',
     value: 2.2,
@@ -1009,7 +1009,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'peatlandMitigation',
     category: 'productionPathwayReductionShare2050',
     value: 17,
@@ -1024,7 +1024,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'peatlandMitigation',
     category: 'productionPathwayReductionVolume2050',
     value: 1.3,
@@ -1038,7 +1038,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'peatlandMitigation',
     category: 'environmentalPathwayCostLower',
     value: 22,
@@ -1052,7 +1052,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'peatlandMitigation',
     category: 'environmentalPathwayCostUpper',
     value: 28,
@@ -1066,7 +1066,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'peatlandMitigation',
     category: 'productionPathwayCostLower',
     value: 31,
@@ -1080,7 +1080,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'peatlandMitigation',
     category: 'productionPathwayCostUpper',
     value: 38,
@@ -1094,7 +1094,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogas',
     category: 'productionActual',
     value: 3359,
@@ -1109,7 +1109,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogas',
     category: 'consumptionActual',
     value: 3046,
@@ -1125,7 +1125,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogas',
     category: 'flaredBiogas',
     value: 313,
@@ -1142,7 +1142,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogas',
     category: 'onFarmAgriculturalWasteProductionChange',
     value: 14,
@@ -1156,7 +1156,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogasPotential',
     category: 'technicalEconomicPotential',
     value: 10,
@@ -1171,7 +1171,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogasPotential',
     category: 'biomassFeedstockPotential',
     value: 25,
@@ -1186,7 +1186,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogasPipeline',
     category: 'plannedAndUnderConstructionInvestments',
     value: 52,
@@ -1201,7 +1201,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogasPipeline',
     category: 'plannedCapacity',
     value: 1.2,
@@ -1215,7 +1215,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogasPipeline',
     category: 'plannedInvestmentValue',
     value: 650,
@@ -1230,7 +1230,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogasPipeline',
     category: 'plannedSidestreamProcessing',
     value: 2.7,
@@ -1245,7 +1245,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogasForecast',
     category: 'domesticProduction2030',
     value: 3,
@@ -1259,7 +1259,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogasForecast',
     category: 'domesticProduction2035',
     value: 5,
@@ -1273,7 +1273,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'biogasForecast',
     category: 'domesticProduction2040',
     value: 7,
@@ -1287,7 +1287,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'companyClimate',
     category: 'valioMilkChainEmissionReductionNoRemovals',
     value: 21,
@@ -1302,7 +1302,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'companyClimate',
     category: 'valioMilkChainEmissionReductionWithCarbonFarmingRemovals',
     value: 25,
@@ -1317,7 +1317,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'companyScale',
     category: 'valioDairyFarms',
     value: 3200,
@@ -1331,7 +1331,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'companyScale',
     category: 'valioAnnualMilkCollection',
     value: 1700,
@@ -1345,7 +1345,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'companyClimate',
     category: 'valioCarboCalculatorFarms',
     value: 2200,
@@ -1361,7 +1361,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'companyClimate',
     category: 'valioRegenerativeFarmingArea',
     value: 130000,
@@ -1376,7 +1376,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'companyCircularity',
     category: 'valioFarmManureBiogasTarget2035',
     value: 2,
@@ -1391,7 +1391,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'organicAgriculture',
     category: 'organicAreaHa',
     value: 298939,
@@ -1411,7 +1411,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'organicAgriculture',
     category: 'organicShareUaaPct',
     value: 11.41,
@@ -1431,7 +1431,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'organicAgriculture',
     category: 'organicAreaHa',
     value: 306348,
@@ -1452,7 +1452,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'organicAgriculture',
     category: 'organicShareUaaPct',
     value: 13.52,
@@ -1473,7 +1473,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'organicAgriculture',
     category: 'organicAreaHa',
     value: 304551,
@@ -1494,7 +1494,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'organicAgriculture',
     category: 'organicShareUaaPct',
     value: 13.49,
@@ -1515,7 +1515,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'organicAgriculture',
     category: 'organicAreaHa',
     value: 549941,
@@ -1535,7 +1535,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'organicAgriculture',
     category: 'organicShareUaaPct',
     value: 18.44,
@@ -1555,7 +1555,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'organicAgriculture',
     category: 'organicAreaHa',
     value: 495568,
@@ -1576,7 +1576,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'organicAgriculture',
     category: 'organicShareUaaPct',
     value: 16.66,
@@ -1597,7 +1597,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'no',
+    country: 'NO',
     metricType: 'organicAgriculture',
     category: 'organicAreaHa',
     value: 45870,
@@ -1617,7 +1617,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'no',
+    country: 'NO',
     metricType: 'organicAgriculture',
     category: 'organicShareUaaPct',
     value: 4.66,
@@ -1637,7 +1637,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'intraNordicImportShare',
     category: 'selectedFoodBasketNordicCoreShare',
     value: 18.2425,
@@ -1659,7 +1659,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'dk',
+    country: 'DK',
     metricType: 'intraNordicImportShare',
     category: 'selectedFoodBasketNordicExtendedShare',
     value: 26.6599,
@@ -1681,7 +1681,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'intraNordicImportShare',
     category: 'selectedFoodBasketNordicCoreShare',
     value: 27.0475,
@@ -1704,7 +1704,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'fi',
+    country: 'FI',
     metricType: 'intraNordicImportShare',
     category: 'selectedFoodBasketNordicExtendedShare',
     value: 27.0781,
@@ -1727,7 +1727,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'is',
+    country: 'IS',
     metricType: 'intraNordicImportShare',
     category: 'selectedFoodBasketNordicCoreShare',
     value: 15.5305,
@@ -1749,7 +1749,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'is',
+    country: 'IS',
     metricType: 'intraNordicImportShare',
     category: 'selectedFoodBasketNordicExtendedShare',
     value: 17.3504,
@@ -1771,7 +1771,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'no',
+    country: 'NO',
     metricType: 'intraNordicImportShare',
     category: 'selectedFoodBasketNordicCoreShare',
     value: 14.202,
@@ -1794,7 +1794,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'no',
+    country: 'NO',
     metricType: 'intraNordicImportShare',
     category: 'selectedFoodBasketNordicExtendedShare',
     value: 16.107,
@@ -1817,7 +1817,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'intraNordicImportShare',
     category: 'selectedFoodBasketNordicCoreShare',
     value: 56.8052,
@@ -1839,7 +1839,7 @@ export const sustainabilityCountryMetrics: SustainabilityCountryMetric[] = [
     },
   },
   {
-    country: 'se',
+    country: 'SE',
     metricType: 'intraNordicImportShare',
     category: 'selectedFoodBasketNordicExtendedShare',
     value: 56.8114,

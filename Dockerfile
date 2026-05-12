@@ -9,8 +9,12 @@ FROM base AS builder
 WORKDIR /app
 ARG SOURCE_COMMIT=unknown
 ARG SOURCE_BRANCH=unknown
+ARG COOLIFY_GIT_COMMIT_SHA=
+ARG COOLIFY_GIT_BRANCH=
 ENV SOURCE_COMMIT=$SOURCE_COMMIT
 ENV SOURCE_BRANCH=$SOURCE_BRANCH
+ENV COOLIFY_GIT_COMMIT_SHA=$COOLIFY_GIT_COMMIT_SHA
+ENV COOLIFY_GIT_BRANCH=$COOLIFY_GIT_BRANCH
 COPY --from=deps /app/node_modules ./node_modules
 COPY package.json package-lock.json* next.config.ts postcss.config.mjs tailwind.config.ts tsconfig.json prisma.config.ts ./
 COPY prisma ./prisma

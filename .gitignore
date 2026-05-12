@@ -46,3 +46,9 @@ docs/**/*.pdf
 # Git worktrees
 .worktrees/
 .superpowers/
+
+# macOS Finder-duplikater ("File 2.ext"); aldri kommit disse
+* 2.*
+
+# Stale node_modules-katalog fra npm-reset
+node_modules.old*/
