@@ -30,9 +30,11 @@ COPY research/data/nordic/core-series/ ./research/data/nordic/core-series/
 COPY research/data/nordic/trade-groups/normalized/ ./research/data/nordic/trade-groups/normalized/
 COPY research/data/nordic/market-share/ ./research/data/nordic/market-share/
 ARG DATABASE_URL
-# psql kreves av run-prod-migrations.ts; alpine ships uten det
-RUN apk add --no-cache postgresql-client
-RUN npm run build && npx prisma db push && npx tsx scripts/run-prod-migrations.ts
+# Migration step (FTS + country-norm + imports) flyttet ut av build-tid pga
+# transient DB-tilkoblingsfeil under bygg (P1001 fra l0s8o8oo00...:5432).
+# Schema-sync via prisma db push beholdes; data-migrasjoner kjøres separat
+# via scripts/run-prod-migrations.ts mot prod-DB med pålitelig nettverk.
+RUN npm run build && npx prisma db push
 
 FROM base AS runner
 WORKDIR /app
