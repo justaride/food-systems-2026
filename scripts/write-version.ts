@@ -23,10 +23,17 @@ function tryGit(args: string): string {
   }
 }
 
+// Priority order:
+//   1. git rev-parse — best when .git is available
+//   2. Coolify's auto-injected vars — refleksjons-trygt under deploy
+//   3. Generic SOURCE_COMMIT — fallback for manual builds; OBS: Coolify-
+//      brukere som manuelt setter SOURCE_COMMIT i app-env vil overstyre
+//      auto-injected verdi. Sjekk Coolify-env-tabellen hvis SHA blir
+//      stale på prod (jf. /api/version-bug 2026-04-30 → 2026-05-12).
 const sha =
   tryGit('rev-parse HEAD') ||
-  process.env.SOURCE_COMMIT ||
   process.env.COOLIFY_GIT_COMMIT_SHA ||
+  process.env.SOURCE_COMMIT ||
   process.env.COMMIT_SHA ||
   process.env.GIT_SHA ||
   'unknown'
@@ -35,8 +42,8 @@ const branchRaw = tryGit('rev-parse --abbrev-ref HEAD')
 const branch =
   branchRaw && branchRaw !== 'HEAD'
     ? branchRaw
-    : process.env.SOURCE_BRANCH ||
-      process.env.COOLIFY_GIT_BRANCH ||
+    : process.env.COOLIFY_GIT_BRANCH ||
+      process.env.SOURCE_BRANCH ||
       process.env.GIT_BRANCH ||
       'unknown'
 
