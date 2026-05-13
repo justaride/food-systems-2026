@@ -29,6 +29,10 @@ model Document {
   tags         String[]
   metadata     Json?
   embedding    Unsupported("vector(1536)")?
+  // search_vector: FTS-kolonne lagt til via raw SQL (scripts/add-postgres-fts.sql)
+  // GENERATED ALWAYS AS (...) STORED — Prisma kan ikke uttrykke dette, men
+  // erklæring her hindrer `prisma db push` fra å droppe kolonnen.
+  search_vector Unsupported("tsvector")?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -115,6 +119,8 @@ model Insight {
   tags        String[]
   url         String?
   date        String
+  // search_vector: FTS-kolonne, se Document.search_vector
+  search_vector Unsupported("tsvector")?
 
   sourceDocLinks SourceDoc[]          @relation("InsightSourceDoc")
   sourceRefs     SourceRef[]
@@ -161,6 +167,8 @@ model Thesis {
 
   documentId String?   @unique
   document   Document? @relation(fields: [documentId], references: [id])
+  // search_vector: FTS-kolonne, se Document.search_vector
+  search_vector Unsupported("tsvector")?
 
   @@index([institution])
   @@index([tags], type: Gin)
@@ -192,6 +200,8 @@ model Report {
 
   documentId String?   @unique
   document   Document? @relation(fields: [documentId], references: [id])
+  // search_vector: FTS-kolonne, se Document.search_vector
+  search_vector Unsupported("tsvector")?
 
   @@index([reportCategory])
   @@index([country])
