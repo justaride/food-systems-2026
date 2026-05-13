@@ -39,12 +39,23 @@ RUN npm run build && npx prisma db push
 FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
+# Install psql + curl mens vi fortsatt er root, så post_deployment_command
+# kan kjøre psql / curl uten å bytte tilbake fra nextjs-bruker.
+RUN apk add --no-cache postgresql-client curl
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/research ./research
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# Migrasjons-skript + tsconfig + prisma-schema kopieres så
+# post_deployment_command kan kjøre `npx tsx scripts/run-prod-migrations.ts`
+# uten å trenge en separat build-tids migration eller SSH-tilgang.
+# tsx hentes on-the-fly via `npx --yes tsx` ved første kjøring.
+COPY --from=builder --chown=nextjs:nodejs /app/scripts ./scripts
+COPY --from=builder --chown=nextjs:nodejs /app/tsconfig.json ./tsconfig.json
+COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
+COPY --from=builder --chown=nextjs:nodejs /app/src/generated/prisma ./src/generated/prisma
 RUN rm -f .env
 USER nextjs
 EXPOSE 3000
