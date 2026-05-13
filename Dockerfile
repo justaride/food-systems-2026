@@ -34,7 +34,7 @@ ARG DATABASE_URL
 # transient DB-tilkoblingsfeil under bygg (P1001 fra l0s8o8oo00...:5432).
 # Schema-sync via prisma db push beholdes; data-migrasjoner kjøres separat
 # via scripts/run-prod-migrations.ts mot prod-DB med pålitelig nettverk.
-RUN npm run build && npx prisma db push
+RUN npm run build
 
 FROM base AS runner
 WORKDIR /app
