@@ -1,0 +1,89 @@
+name: Coolify DB Health Watcher
+
+# Poller Coolify API hvert 5. minutt for å sjekke at
+# food-systems-pgvector-db er running:healthy. Hvis ikke,
+# feiler workflow → GitHub sender e-post til repo-eier.
+#
+# Krever repository secrets (allerede satt fra forrige sesjon):
+#   COOLIFY_API_TOKEN
+#   COOLIFY_BASE_URL
+#   COOLIFY_APP_UUID
+#   (optional) CF_ACCESS_CLIENT_ID/SECRET — verifiserer også /api/version
+#
+# DB UUID er hardkodet siden den er stabil:
+#   food-systems-pgvector-db: l0s8o8oo00c8gossw0gksswk
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # hvert 5. minutt
+  workflow_dispatch:
+
+env:
+  DB_UUID: l0s8o8oo00c8gossw0gksswk
+  APP_DOMAIN: food-systems.naturalstateproject.com
+
+jobs:
+  check-db-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check DB status via Coolify API
+        id: db
+        env:
+          TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+          BASE: ${{ secrets.COOLIFY_BASE_URL }}
+        run: |
+          response=$(curl -sS -m 10 -H "Authorization: Bearer $TOKEN" "$BASE/api/v1/databases/$DB_UUID")
+          status=$(echo "$response" | python3 -c "
+          import sys, json
+          try:
+            d = json.load(sys.stdin)
+            print(d.get('status', 'unknown'))
+          except: print('parse-error')
+          ")
+          last_online=$(echo "$response" | python3 -c "
+          import sys, json
+          try:
+            d = json.load(sys.stdin)
+            print(d.get('last_online_at', '?'))
+          except: print('?')
+          ")
+          echo "DB status: $status"
+          echo "Last online: $last_online"
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          echo "last_online=$last_online" >> "$GITHUB_OUTPUT"
+
+      - name: Verify app is responding
+        id: app
+        env:
+          CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          http_code=$(curl -sS -m 10 -o /dev/null -w "%{http_code}" \
+            -H "CF-Access-Client-Id: $CF_ID" \
+            -H "CF-Access-Client-Secret: $CF_SECRET" \
+            "https://$APP_DOMAIN/api/data-status")
+          echo "App /api/data-status: HTTP $http_code"
+          echo "http_code=$http_code" >> "$GITHUB_OUTPUT"
+
+      - name: Auto-restart DB if exited
+        if: contains(steps.db.outputs.status, 'exited')
+        env:
+          TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+          BASE: ${{ secrets.COOLIFY_BASE_URL }}
+        run: |
+          echo "::warning::DB is ${{ steps.db.outputs.status }} — attempting auto-restart"
+          curl -sS -X POST -H "Authorization: Bearer $TOKEN" "$BASE/api/v1/databases/$DB_UUID/restart"
+          echo ""
+          sleep 30
+          new_status=$(curl -sS -m 10 -H "Authorization: Bearer $TOKEN" "$BASE/api/v1/databases/$DB_UUID" | python3 -c "import sys,json; print(json.load(sys.stdin).get('status','?'))")
+          echo "Status after restart: $new_status"
+
+      - name: Fail if unhealthy or unreachable
+        if: |
+          !contains(steps.db.outputs.status, 'healthy') ||
+          steps.app.outputs.http_code != '200'
+        run: |
+          echo "::error::DB status: ${{ steps.db.outputs.status }} (last_online: ${{ steps.db.outputs.last_online }})"
+          echo "::error::App HTTP: ${{ steps.app.outputs.http_code }}"
+          exit 1
