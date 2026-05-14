@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { join } from 'path'
+import { parseCsvRecords } from '../src/lib/csv'
 
 type Classification =
   | 'ok'
@@ -40,40 +41,6 @@ function csvEscape(value: string): string {
 }
 
 /**
- * Parse a tiny subset of CSV — fields can be quoted with `"` and contain
- * commas inside quotes. This matches what `inventory-urls.ts` writes.
- */
-function parseCsvLine(line: string): string[] {
-  const out: string[] = []
-  let buf = ''
-  let inQuotes = false
-  for (let i = 0; i < line.length; i++) {
-    const c = line[i]
-    if (inQuotes) {
-      if (c === '"' && line[i + 1] === '"') {
-        buf += '"'
-        i++
-      } else if (c === '"') {
-        inQuotes = false
-      } else {
-        buf += c
-      }
-    } else {
-      if (c === ',') {
-        out.push(buf)
-        buf = ''
-      } else if (c === '"') {
-        inQuotes = true
-      } else {
-        buf += c
-      }
-    }
-  }
-  out.push(buf)
-  return out
-}
-
-/**
  * Load URL-INVENTORY.csv produced by `scripts/inventory-urls.ts`. Each row is
  * a (url, source_type, source_id, source_priority, ...) occurrence; we
  * deduplicate by URL and keep the highest-priority source per URL.
@@ -82,18 +49,15 @@ function loadInventory(root: string): UrlRecord[] {
   const path = join(root, 'research', 'URL-INVENTORY.csv')
   if (!existsSync(path)) return []
   const raw = readFileSync(path, 'utf-8')
-  const lines = raw.split('\n').filter((l) => l.length > 0)
-  if (lines.length < 2) return []
+  const records = parseCsvRecords(raw)
 
-  // header: url,source_type,source_id,source_priority,domain,protocol
   const seen = new Map<string, UrlRecord>()
-  for (let i = 1; i < lines.length; i++) {
-    const parts = parseCsvLine(lines[i])
-    if (parts.length < 4) continue
-    const url = parts[0]
-    const sourceType = parts[1]
-    const sourceId = parts[2]
-    const priorityStr = parts[3]
+  for (const record of records) {
+    const url = record.url
+    if (!url) continue
+    const sourceType = record.source_type
+    const sourceId = record.source_id
+    const priorityStr = record.source_priority
     const priority = priorityStr ? parseFloat(priorityStr) : NaN
     const source = `${sourceType}:${sourceId}`
     const priorityVal = Number.isFinite(priority) ? priority : null

@@ -1,4 +1,6 @@
 import { prisma } from '@/lib/db'
+import { parseCsvRecords } from '@/lib/csv'
+import { displayLaneFromReviewStatus, type ValueChainDisplayLane } from '@/lib/supply-chain-status'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
@@ -156,6 +158,9 @@ type ValueChainInventoryRow = {
   missingVolumeSteps: string[]
   missingWasteSteps: string[]
   selfSufficiencyPct: number | null
+  displayLane: ValueChainDisplayLane
+  reviewStatus: string
+  statusNote: string | null
 }
 
 type ProjectDataCandidate = {
@@ -345,6 +350,12 @@ const TARGET_VALUE_CHAIN_STEPS = [
 
 const FOOD_SYSTEMS_DATA_ROOT = path.join(process.cwd(), 'public', 'data', 'food-systems')
 const NORDIC_DATA_ROOT = path.join(process.cwd(), 'research', 'data', 'nordic')
+const COVERAGE_LEDGER_PATH = path.join(
+  process.cwd(),
+  'docs',
+  'project',
+  'forsyningskjede-nordic-coverage-ledger-2026-04-29.csv',
+)
 const IMPORT_PANEL_PATH = ['trade-groups', 'normalized', 'trade-group-imports-annual.csv']
 const COUNTRY_ORDER = ['NO', 'SE', 'DK', 'FI', 'IS']
 
@@ -379,39 +390,6 @@ async function countNordicCsvRows(...segments: string[]): Promise<number | null>
   }
 }
 
-function parseCsvLine(line: string): string[] {
-  const values: string[] = []
-  let current = ''
-  let inQuotes = false
-
-  for (let i = 0; i < line.length; i += 1) {
-    const char = line[i]
-    const next = line[i + 1]
-
-    if (char === '"' && inQuotes && next === '"') {
-      current += '"'
-      i += 1
-      continue
-    }
-
-    if (char === '"') {
-      inQuotes = !inQuotes
-      continue
-    }
-
-    if (char === ',' && !inQuotes) {
-      values.push(current)
-      current = ''
-      continue
-    }
-
-    current += char
-  }
-
-  values.push(current)
-  return values
-}
-
 async function readNordicCsvRecords(...segments: string[]): Promise<Record<string, string>[]> {
   let text: string
   try {
@@ -419,13 +397,21 @@ async function readNordicCsvRecords(...segments: string[]): Promise<Record<strin
   } catch {
     return []
   }
-  const lines = text.trim().split(/\r?\n/)
-  const header = parseCsvLine(lines[0] ?? '')
+  return parseCsvRecords(text)
+}
 
-  return lines.slice(1).map(line => {
-    const values = parseCsvLine(line)
-    return Object.fromEntries(header.map((key, index) => [key, values[index] ?? '']))
-  })
+async function readValueChainStepLedger(): Promise<Map<string, Record<string, string>>> {
+  try {
+    const text = await readFile(COVERAGE_LEDGER_PATH, 'utf8')
+    const rows = parseCsvRecords(text)
+    return new Map(
+      rows
+        .filter(row => row.domain === 'value_chain' && row.subdomain === 'steps')
+        .map(row => [row.country.toUpperCase(), row]),
+    )
+  } catch {
+    return new Map()
+  }
 }
 
 async function countFoodSystemsJsonRecords(...segments: string[]): Promise<number | null> {
@@ -451,8 +437,10 @@ async function countFoodSystemsJsonRecords(...segments: string[]): Promise<numbe
 
 async function getValueChainInventory(): Promise<ValueChainInventoryRow[]> {
   const countries = ['no', 'se', 'dk', 'fi', 'is']
+  const ledgerByCountry = await readValueChainStepLedger()
   const rows = await Promise.all(
     countries.map(async country => {
+      const ledgerRow = ledgerByCountry.get(country.toUpperCase())
       const data = await readFoodSystemsJson<{
         year?: number
         selfSufficiency?: { caloric_pct?: number }
@@ -486,6 +474,9 @@ async function getValueChainInventory(): Promise<ValueChainInventoryRow[]> {
         missingVolumeSteps,
         missingWasteSteps,
         selfSufficiencyPct: data?.selfSufficiency?.caloric_pct ?? null,
+        displayLane: displayLaneFromReviewStatus(ledgerRow?.review_status),
+        reviewStatus: ledgerRow?.review_status ?? 'missing',
+        statusNote: ledgerRow?.notes ?? null,
       }
     })
   )

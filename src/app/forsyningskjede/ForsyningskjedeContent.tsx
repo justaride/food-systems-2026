@@ -10,6 +10,7 @@ import { NutrientFlowsView } from '@/components/charts/NutrientFlowsView'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
 import { ChartFrame } from '@/components/visualization/ChartFrame'
 import { DataQualityStrip } from '@/components/visualization/DataQualityStrip'
+import { valueChainFieldGapLabel } from '@/lib/supply-chain-status'
 import type {
   SupplyChainGraphData,
   PrimaryDeliveriesData,
@@ -153,6 +154,22 @@ const QUALITY_LABELS: Record<string, string> = {
   high: 'høy',
   medium: 'middels',
   low: 'lav',
+}
+
+const VALUE_CHAIN_LANE_LABELS: Record<string, string> = {
+  validated: 'Validert',
+  primary_snapshot: 'Primærsnapshot',
+  proxy_model: 'Proxy/modell',
+  local_research_needs_primary_check: 'Må primærsjekkes',
+  missing: 'Mangler',
+}
+
+const VALUE_CHAIN_LANE_CLASSES: Record<string, string> = {
+  validated: 'border-emerald-200 bg-emerald-50 text-emerald-800',
+  primary_snapshot: 'border-sky-200 bg-sky-50 text-sky-800',
+  proxy_model: 'border-amber-200 bg-amber-50 text-amber-800',
+  local_research_needs_primary_check: 'border-orange-200 bg-orange-50 text-orange-800',
+  missing: 'border-rose-200 bg-rose-50 text-rose-800',
 }
 
 function formatCount(n: number): string {
@@ -1258,6 +1275,8 @@ function SupplyChainQualityPanel({ quality }: { quality: SupplyChainDataQuality 
                     <th className="py-2 px-2 font-medium">Land</th>
                     <th className="py-2 px-2 font-medium text-right">Ledd</th>
                     <th className="py-2 px-2 font-medium text-right">Dekning</th>
+                    <th className="py-2 px-2 font-medium">Status</th>
+                    <th className="py-2 px-2 font-medium">Feltgap</th>
                     <th className="py-2 px-2 font-medium">Mangler</th>
                   </tr>
                 </thead>
@@ -1270,6 +1289,29 @@ function SupplyChainQualityPanel({ quality }: { quality: SupplyChainDataQuality 
                       </td>
                       <td className="py-2 px-2 text-right tabular-nums text-stone-600">
                         {formatPercent(row.targetStepCoveragePct)}
+                      </td>
+                      <td className="py-2 px-2">
+                        <span
+                          className={`inline-flex rounded border px-1.5 py-0.5 text-[10px] font-medium ${
+                            VALUE_CHAIN_LANE_CLASSES[row.displayLane] ?? VALUE_CHAIN_LANE_CLASSES.missing
+                          }`}
+                          title={[row.reviewStatus, row.statusNote].filter(Boolean).join(' — ')}
+                        >
+                          {VALUE_CHAIN_LANE_LABELS[row.displayLane] ?? row.displayLane}
+                        </span>
+                      </td>
+                      <td
+                        className="py-2 px-2 text-stone-500"
+                        title={[
+                          row.missingVolumeSteps.length > 0
+                            ? `Volum: ${row.missingVolumeSteps.join(', ')}`
+                            : null,
+                          row.missingWasteSteps.length > 0
+                            ? `Avfall: ${row.missingWasteSteps.join(', ')}`
+                            : null,
+                        ].filter(Boolean).join(' — ')}
+                      >
+                        {valueChainFieldGapLabel(row.missingVolumeSteps, row.missingWasteSteps)}
                       </td>
                       <td className="py-2 px-2 text-stone-500">
                         {row.missingTargetSteps.length > 0

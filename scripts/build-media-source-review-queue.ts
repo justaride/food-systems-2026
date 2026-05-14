@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { parseCsvRecords } from '../src/lib/csv'
 
 type Candidate = Record<string, string>
 
@@ -31,53 +32,6 @@ const outputHeaders = [
   'notes',
 ]
 
-function parseCsv(text: string) {
-  const rows: string[][] = []
-  let row: string[] = []
-  let cell = ''
-  let inQuotes = false
-
-  for (let index = 0; index < text.length; index += 1) {
-    const char = text[index]
-    const next = text[index + 1]
-
-    if (char === '"' && inQuotes && next === '"') {
-      cell += '"'
-      index += 1
-      continue
-    }
-
-    if (char === '"') {
-      inQuotes = !inQuotes
-      continue
-    }
-
-    if (char === ',' && !inQuotes) {
-      row.push(cell)
-      cell = ''
-      continue
-    }
-
-    if ((char === '\n' || char === '\r') && !inQuotes) {
-      if (char === '\r' && next === '\n') index += 1
-      row.push(cell)
-      if (row.some(value => value.trim().length > 0)) rows.push(row)
-      row = []
-      cell = ''
-      continue
-    }
-
-    cell += char
-  }
-
-  if (cell.length > 0 || row.length > 0) {
-    row.push(cell)
-    if (row.some(value => value.trim().length > 0)) rows.push(row)
-  }
-
-  return rows
-}
-
 function slugify(value: string) {
   return value
     .toLowerCase()
@@ -93,11 +47,9 @@ function csvEscape(value: string | number) {
 }
 
 function loadCandidates() {
-  const [headers, ...rows] = parseCsv(readFileSync(candidatePath, 'utf8'))
-  if (!headers) throw new Error(`No CSV headers found in ${candidatePath}`)
-  return rows.map(row =>
-    Object.fromEntries(headers.map((header, index) => [header, row[index] ?? ''])),
-  ) as Candidate[]
+  const rows = parseCsvRecords(readFileSync(candidatePath, 'utf8'))
+  if (rows.length === 0) throw new Error(`No CSV rows found in ${candidatePath}`)
+  return rows as Candidate[]
 }
 
 function inferVerificationLevel(row: Candidate) {

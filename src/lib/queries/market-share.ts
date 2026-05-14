@@ -1,5 +1,6 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+import { parseCsvRecords } from '@/lib/csv'
 import type { VisualizationDataContract } from '@/lib/visualization/types'
 
 const NORDIC_DATA_ROOT = path.join(process.cwd(), 'research', 'data', 'nordic')
@@ -23,39 +24,6 @@ export type NoMarketShareTimeSeries = {
   contract: VisualizationDataContract
 }
 
-function parseCsvLine(line: string): string[] {
-  const values: string[] = []
-  let current = ''
-  let inQuotes = false
-
-  for (let i = 0; i < line.length; i += 1) {
-    const char = line[i]
-    const next = line[i + 1]
-
-    if (char === '"' && inQuotes && next === '"') {
-      current += '"'
-      i += 1
-      continue
-    }
-
-    if (char === '"') {
-      inQuotes = !inQuotes
-      continue
-    }
-
-    if (char === ',' && !inQuotes) {
-      values.push(current)
-      current = ''
-      continue
-    }
-
-    current += char
-  }
-
-  values.push(current)
-  return values
-}
-
 async function readMarketShareCsv(): Promise<NoMarketShareRow[]> {
   let text: string
   try {
@@ -63,27 +31,20 @@ async function readMarketShareCsv(): Promise<NoMarketShareRow[]> {
   } catch {
     return []
   }
-  const lines = text.trim().split(/\r?\n/)
-  if (lines.length < 2) return []
-  const header = parseCsvLine(lines[0])
-  const idx = (key: string) => header.indexOf(key)
-
-  return lines.slice(1).flatMap(line => {
-    const values = parseCsvLine(line)
-    if (values.length < header.length) return []
-    const year = Number(values[idx('year')])
+  return parseCsvRecords(text).flatMap(record => {
+    const year = Number(record.year)
     if (!Number.isFinite(year)) return []
     return [{
       year,
-      norgesgruppen: Number(values[idx('norgesgruppen_pct')]),
-      coop: Number(values[idx('coop_pct')]),
-      rema: Number(values[idx('rema_pct')]),
-      bunnpris: Number(values[idx('bunnpris_pct')]),
-      cr3: Number(values[idx('cr3_pct')]),
-      hhi: Number(values[idx('hhi_revenue_share')]),
-      sourceMethod: values[idx('source_method')] ?? '',
-      sourceNote: values[idx('source_note')] ?? '',
-      sourceUrl: values[idx('source_url')] ?? '',
+      norgesgruppen: Number(record.norgesgruppen_pct),
+      coop: Number(record.coop_pct),
+      rema: Number(record.rema_pct),
+      bunnpris: Number(record.bunnpris_pct),
+      cr3: Number(record.cr3_pct),
+      hhi: Number(record.hhi_revenue_share),
+      sourceMethod: record.source_method ?? '',
+      sourceNote: record.source_note ?? '',
+      sourceUrl: record.source_url ?? '',
     }]
   })
 }
