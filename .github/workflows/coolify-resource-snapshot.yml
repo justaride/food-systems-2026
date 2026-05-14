@@ -1,0 +1,153 @@
+name: Coolify Resource Snapshot
+
+# Daglig snapshot av alle Coolify-ressurser på Hetzner-host'en.
+# Skriver til research/_status/coolify-snapshots/{date}.json
+# Hvis state-endringer siden forrige snapshot → fail workflow med
+# diff-info så GitHub sender e-post.
+#
+# Formål: bygg tidsserie for D-beslutning (DB-isolering vs ikke).
+# Etter 7+ dager har vi data til å se om food-systems-pgvector-db
+# er stabilt healthy eller om host-pressure skaper gjentakelser.
+#
+# Krever secrets fra forrige session-oppsett:
+#   COOLIFY_API_TOKEN, COOLIFY_BASE_URL
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # daglig kl 06:00 UTC
+  workflow_dispatch:
+
+env:
+  SERVER_UUID: jgo40o4os80ssock0ck0ockg
+  SNAPSHOT_DIR: research/_status/coolify-snapshots
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch resources from Coolify API
+        id: fetch
+        env:
+          TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+          BASE: ${{ secrets.COOLIFY_BASE_URL }}
+        run: |
+          mkdir -p "$SNAPSHOT_DIR"
+          DATE=$(date -u +%Y-%m-%d)
+          SNAPSHOT_FILE="$SNAPSHOT_DIR/$DATE.json"
+
+          curl -sS -m 30 -H "Authorization: Bearer $TOKEN" \
+            "$BASE/api/v1/servers/$SERVER_UUID/resources" \
+            > /tmp/raw.json
+
+          python3 -c "
+          import json, sys
+          from datetime import datetime, timezone
+          with open('/tmp/raw.json') as f:
+              raw = json.load(f)
+          # Normaliser til kun feltene som er stabile/relevante for trend
+          snapshot = {
+              'fetchedAt': datetime.now(timezone.utc).isoformat(),
+              'serverUuid': '$SERVER_UUID',
+              'totalResources': len(raw),
+              'byStatus': {},
+              'byType': {},
+              'resources': [],
+          }
+          for r in raw:
+              status = r.get('status', 'unknown')
+              rtype = r.get('type', 'unknown')
+              snapshot['byStatus'][status] = snapshot['byStatus'].get(status, 0) + 1
+              snapshot['byType'][rtype] = snapshot['byType'].get(rtype, 0) + 1
+              snapshot['resources'].append({
+                  'uuid': r.get('uuid','?')[:10],
+                  'name': r.get('name','?'),
+                  'type': rtype,
+                  'status': status,
+              })
+          # Sort for deterministic diffs
+          snapshot['resources'].sort(key=lambda x: (x['type'], x['name']))
+          with open('$SNAPSHOT_FILE','w') as f:
+              json.dump(snapshot, f, indent=2, sort_keys=True)
+          print(f'Wrote $SNAPSHOT_FILE with {snapshot[\"totalResources\"]} resources')
+          print('Status distribution:', json.dumps(snapshot['byStatus'], indent=2))
+          "
+          echo "snapshot_file=$SNAPSHOT_FILE" >> "$GITHUB_OUTPUT"
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+
+      - name: Diff vs forrige snapshot
+        id: diff
+        run: |
+          DIR="$SNAPSHOT_DIR"
+          CURRENT="${{ steps.fetch.outputs.snapshot_file }}"
+
+          # Finn forrige snapshot (excluding today's)
+          PREV=$(ls -1 "$DIR"/*.json 2>/dev/null | grep -v "$(basename "$CURRENT")" | sort | tail -1)
+
+          if [ -z "$PREV" ]; then
+            echo "first_snapshot=true" >> "$GITHUB_OUTPUT"
+            echo "Første snapshot — ingen diff å gjøre"
+            exit 0
+          fi
+
+          echo "Comparing $PREV → $CURRENT"
+
+          # Bruk Python til å sammenligne resource-state
+          python3 <<PYEOF
+          import json
+          with open("$PREV") as f: prev = json.load(f)
+          with open("$CURRENT") as f: cur = json.load(f)
+
+          prev_by_uuid = {r['uuid']: r for r in prev.get('resources', [])}
+          cur_by_uuid = {r['uuid']: r for r in cur.get('resources', [])}
+
+          added = [r for u, r in cur_by_uuid.items() if u not in prev_by_uuid]
+          removed = [r for u, r in prev_by_uuid.items() if u not in cur_by_uuid]
+          changed = []
+          for u, r in cur_by_uuid.items():
+              if u in prev_by_uuid and prev_by_uuid[u]['status'] != r['status']:
+                  changed.append({
+                      'name': r['name'],
+                      'type': r['type'],
+                      'from': prev_by_uuid[u]['status'],
+                      'to': r['status'],
+                  })
+
+          if not added and not removed and not changed:
+              print('✓ Ingen endringer siden forrige snapshot')
+              exit(0)
+
+          print('=== ENDRINGER OPPDAGET ===')
+          if added: print(f'Lagt til ({len(added)}):'); [print(f'  + {r["type"]}/{r["name"]} [{r["status"]}]') for r in added]
+          if removed: print(f'Fjernet ({len(removed)}):'); [print(f'  - {r["type"]}/{r["name"]}') for r in removed]
+          if changed: print(f'Status-endringer ({len(changed)}):'); [print(f'  ~ {c["type"]}/{c["name"]}: {c["from"]} → {c["to"]}') for c in changed]
+
+          # Flag food-systems-* spesielt
+          fs_issues = [c for c in changed if 'food-systems' in c['name'].lower() and 'healthy' not in c['to']]
+          if fs_issues:
+              print()
+              print('::warning::food-systems status-endringer (krever oppmerksomhet):')
+              for c in fs_issues:
+                  print(f"  {c['type']}/{c['name']}: {c['from']} → {c['to']}")
+          PYEOF
+          echo "diff_done=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit snapshot
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          CHANGES=$(git status --porcelain "$SNAPSHOT_DIR" | wc -l)
+          if [ "$CHANGES" -eq 0 ]; then
+            echo "Ingen endringer i snapshot-fil — skip commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$SNAPSHOT_DIR"
+          git commit -m "chore(snapshot): Coolify resource state ${{ steps.fetch.outputs.date }}"
+          git push
