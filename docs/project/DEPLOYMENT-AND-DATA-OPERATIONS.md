@@ -217,12 +217,13 @@ Eksempel fra 2026-04-21:
 
 ### 1. Schema-endringer er ikke godt nok operasjonalisert
 
-Repoet bruker en idempotent "additiv SQL"-stil for schema-endringer. Fra 21. april 2026 finnes to migrasjoner i `prisma/migrations/`:
+Repoet bruker en idempotent "additiv SQL"-stil for schema-endringer. Fra 5. mai 2026 finnes tre migrasjoner i `prisma/migrations/`:
 
 - `20260421_media_evidence_corpus/migration.sql` — MediaOutlet / MediaEntry / MediaEntryCoding (med `CREATE TABLE IF NOT EXISTS`)
 - `20260421_subsidy_nullable_columns/migration.sql` — nullable kolonner på `Subsidy` (med `ALTER TABLE … ADD COLUMN IF NOT EXISTS`)
+- `20260505_db_optimization_p0/migration.sql` — additive P0-indekser for Document embedding, trigram-søk og `Subsidy.subsidyType` (med `CREATE INDEX IF NOT EXISTS`)
 
-Begge er skrevet idempotent, så de kan kjøres trygt flere ganger. De er foreløpig ikke satt opp til å kjøre gjennom `prisma migrate deploy` som en del av deployen, men kan kjøres mot prod med `psql` eller importeres manuelt før `prisma db push`.
+Alle tre er skrevet idempotent, så de kan kjøres trygt flere ganger. De er foreløpig ikke satt opp til å kjøre gjennom `prisma migrate deploy` som en del av deployen, men kan kjøres mot prod med `psql` eller importeres manuelt før `prisma db push`.
 
 Det betyr fortsatt:
 
