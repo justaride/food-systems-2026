@@ -1,0 +1,266 @@
+{
+  "metadata": {
+    "name": "Nordisk sirkularitetsbaseline",
+    "version": "v0.3",
+    "generated": "2026-04-30",
+    "supersedes": "v0.2",
+    "owner": "Gabriel",
+    "purpose": "Konsolidert datafundament — Fase 1 final. Integrert med claim-register-food-tg.md (CL-A/B/C-IDer), dossier-b-marine, dossier-b-process-sidestreams, policy-landscape.json, organic_market_retail_annual.csv, og Nordic Vision 2030 indicator-map. ~120 facts, 6 land + EU, 9 tema. 8 cognitive dissonance-kandidater, 6 datagaps, full Vision 2030 alignment-matrise.",
+    "countries": ["NO", "SE", "DK", "FI", "IS", "EU"],
+    "themes": [
+      "import-feed",
+      "food-waste",
+      "circular-fertilizer-biogas",
+      "organic-agriculture",
+      "fish-utilization",
+      "school-meals-public-procurement",
+      "market-power",
+      "self-sufficiency-preparedness",
+      "regulatory-eu-eudr",
+      "carbon-tax-agriculture",
+      "alternative-proteins"
+    ]
+  },
+  "facts": [
+    {"country": "NO", "theme": "self-sufficiency-preparedness", "metric": "self_sufficiency_caloric_pct", "value": 47, "year": 2024, "source": "Regjeringen, Jordbruksoppgjøret 2024", "quality": "primary_report", "claim_ref": "CL-A-016", "note": "Mål 50% innen 2030. NIBIO 2024 forel.: 35% korrigert for kraftfôrimport, 45% ukorrigert. Faller — kraftfôrforbruk økt 1,6→2 mill t (2000-2014)."},
+    {"country": "NO", "theme": "self-sufficiency-preparedness", "metric": "strategic_grain_reserve_target_tonnes", "value": 82500, "year": 2029, "source": "Landbruksdirektoratet", "quality": "primary_report", "note": "Beredskapslagring av matkorn gjeninnført 2023; mål innen 2029 (~3 mnd forbruk for bakeri/industri/husholdning). Statlig eierskap, 25-årskontrakter med Norgesmøllene m.fl. Avviklet 2003."},
+    {"country": "SE", "theme": "self-sufficiency-preparedness", "metric": "self_sufficiency_caloric_pct", "value": 50, "year": 2024, "source": "Jordbruksverket, SOU 2024:8", "quality": "primary_report", "note": "Ingen formelt mål, men aktiv revisjon."},
+    {"country": "DK", "theme": "self-sufficiency-preparedness", "metric": "self_sufficiency_caloric_pct", "value": 300, "year": 2024, "source": "DST, Landbrug & Fødevarer", "quality": "primary_report", "note": "Netto-eksportør. ~25% av eksportverdi fra landbruk."},
+    {"country": "FI", "theme": "self-sufficiency-preparedness", "metric": "strategic_grain_reserve_months_current", "value": 6, "year": 2024, "source": "HVK (Huoltovarmuuskeskus)", "quality": "primary_report", "note": "Lovpålagt minimum 6 mnd. Pågående utvidelse til 8,5 mnd via ekstrainnkjøp. PPP-modell via 'pools'."},
+    {"country": "FI", "theme": "self-sufficiency-preparedness", "metric": "strategic_grain_reserve_months_target", "value": 8.5, "year": null, "source": "HVK", "quality": "primary_report"},
+    {"country": "FI", "theme": "self-sufficiency-preparedness", "metric": "self_sufficiency_caloric_pct", "value": 80, "year": 2024, "source": "Luke", "quality": "primary_report"},
+    {"country": "IS", "theme": "self-sufficiency-preparedness", "metric": "self_sufficiency_caloric_pct", "value": 53, "year": 2024, "source": "Hagstofa Íslands", "quality": "secondary"},
+    {"country": "IS", "theme": "self-sufficiency-preparedness", "metric": "kornax_mill_status", "value": "demontert", "year": 2025, "source": "Iceland Review", "quality": "primary_report", "note": "Kornax-mølla i Reykjavík (eneste innenlandske kornmølle) demontert 1. april 2025. Faxaflóahafnir sa opp leieavtalen, relokalisering avslått. Island nå avhengig av importert ferdigmalt mel — SVEKKER mulighet for strategisk kornlagring. Kritisk beredskapsendring."},
+
+    {"country": "NO", "theme": "organic-agriculture", "metric": "organic_uaa_share_pct", "value": 4.66, "year": 2023, "source": "Eurostat ORG_CROPAR", "quality": "primary_api", "note": "Areal: 45 870 ha. Lavest i Norden."},
+    {"country": "SE", "theme": "organic-agriculture", "metric": "organic_uaa_share_pct", "value": 16.66, "year": 2024, "source": "Eurostat ORG_CROPAR", "quality": "primary_api", "note": "Areal: 495 568 ha. Høyest i Norden."},
+    {"country": "DK", "theme": "organic-agriculture", "metric": "organic_uaa_share_pct", "value": 11.41, "year": 2023, "source": "Eurostat ORG_CROPAR", "quality": "primary_api"},
+    {"country": "FI", "theme": "organic-agriculture", "metric": "organic_uaa_share_pct", "value": 13.49, "year": 2024, "source": "Eurostat ORG_CROPAR", "quality": "definition_diff"},
+    {"country": "IS", "theme": "organic-agriculture", "metric": "organic_uaa_share_pct", "value": 0.4, "year": 2023, "source": "FoodSystems2026 research note", "quality": "needs_primary_check"},
+
+    {"country": "NO", "theme": "organic-agriculture", "metric": "organic_milk_utilization_pct", "value": 80, "year": 2025, "source": "Landbruksdirektoratet", "quality": "primary_report", "note": "KRITISK: rapporten sier 'ikke nok øko-melk for å møte etterspørselen'. 35 mill liter solgt til meierier — RECORD. Etterspørsel > tilbud."},
+    {"country": "NO", "theme": "organic-agriculture", "metric": "organic_egg_utilization_pct", "value": 88, "year": 2025, "source": "Landbruksdirektoratet", "quality": "primary_report"},
+    {"country": "NO", "theme": "organic-agriculture", "metric": "organic_meat_four_legged_utilization_pct", "value": 41, "year": 2025, "source": "Landbruksdirektoratet", "quality": "primary_report", "note": "Kun 41% — kontrast til melk (80%) og egg (88%)."},
+    {"country": "NO", "theme": "organic-agriculture", "metric": "organic_grocery_sales_value_nok_bn", "value": 4.3, "year": 2025, "source": "Landbruksdirektoratet", "quality": "primary_report", "note": "+17,6% YoY. Non-grocery sales +13,9% (foodservice/Bondens marked/bakerier). Grocery share stable ~2%."},
+    {"country": "NO", "theme": "organic-agriculture", "metric": "organic_fruit_veg_market_share_pct", "value": 1.6, "year": 2025, "source": "Landbruksdirektoratet", "quality": "primary_report", "note": "Lavt nivå. Potet ned, åkergrønnsaker opp."},
+
+    {"country": "DK", "theme": "organic-agriculture", "metric": "organic_retail_sales_value_dkk_bn", "value": 16, "year": 2024, "source": "Organic Market Report 2025 (Organic Denmark / Statistics Denmark)", "quality": "primary_report", "note": "Retail value share: 11,6% — verdens høyeste. Volume +2% YoY."},
+    {"country": "DK", "theme": "organic-agriculture", "metric": "organic_retail_market_share_value_pct", "value": 11.6, "year": 2024, "source": "Statistics Denmark via Organic Denmark", "quality": "primary_report", "note": "Verdens høyeste retail øko-andel."},
+    {"country": "DK", "theme": "organic-agriculture", "metric": "organic_foodservice_sales_value_dkk_bn", "value": 3.7, "year": 2024, "source": "Organic Denmark", "quality": "primary_report", "note": "Vekst fra DKK 3,0 mrd (2022) → 3,4 (2023) → 3,7 (2024). +13% i 2023."},
+
+    {"country": "SE", "theme": "organic-agriculture", "metric": "organic_milk_delivered_tonnes", "value": 295200, "year": 2024, "source": "Jordbruksverket", "quality": "primary_api", "note": "-18% fra 2023, -39% fra 2021-peak."},
+    {"country": "SE", "theme": "organic-agriculture", "metric": "organic_food_sales_value_yoy_pct", "value": -1.5, "year": 2024, "source": "Ekologiska Årsrapporten 2024", "quality": "secondary", "note": "Total øko-matsalg falt -1,5%. Andel falt i alle kanaler."},
+    {"country": "SE", "theme": "organic-agriculture", "metric": "organic_egg_share_pct", "value": 13, "year": 2024, "source": "Jordbruksverket", "quality": "primary_api", "note": "Laveste siden 2010."},
+
+    {"country": "FI", "theme": "organic-agriculture", "metric": "organic_grocery_sales_value_eur_m", "value": 335, "year": 2024, "source": "Pro Luomu", "quality": "secondary", "note": "-5% YoY. Grocery share ~1,8%."},
+
+    {"country": "DK", "theme": "school-meals-public-procurement", "metric": "public_kitchen_organic_share_copenhagen_pct", "value": 84, "year": 2024, "source": "verdikjede.ts DK", "quality": "secondary", "note": "København 900 offentlige kjøkken. Verdens høyeste for storby."},
+    {"country": "FI", "theme": "school-meals-public-procurement", "metric": "public_kitchens_using_organic_daily_pct", "value": 63, "year": 2024, "source": "Pro Luomu", "quality": "secondary"},
+    {"country": "FI", "theme": "school-meals-public-procurement", "metric": "organic_school_milk_share_pct", "value": 28, "year": "2023-2024", "source": "Pro Luomu", "quality": "secondary", "note": "3,1 mill liter."},
+    {"country": "SE", "theme": "school-meals-public-procurement", "metric": "public_sector_organic_purchase_share_pct", "value": 34.2, "year": 2023, "source": "Ekomatcentrum, Ekomatsligan 2024", "quality": "primary_report", "note": "FALT fra 37% (2022). -2,8 pp på ett år."},
+    {"country": "SE", "theme": "school-meals-public-procurement", "metric": "public_sector_organic_purchase_value_sek_bn", "value": 4.3, "year": 2023, "source": "Ekomatcentrum 2024", "quality": "primary_report", "note": "Av total SEK 12,5 mrd off. matinnkjøp."},
+    {"country": "SE", "theme": "school-meals-public-procurement", "metric": "free_school_meals_since", "value": 1948, "year": 1948, "source": "verdikjede.ts SE", "quality": "primary_report"},
+    {"country": "FI", "theme": "school-meals-public-procurement", "metric": "free_school_meals_since", "value": 1946, "year": 1946, "source": "verdikjede.ts FI", "quality": "primary_report", "note": "Verdens eldste universelle skolemåltidsystem."},
+    {"country": "NO", "theme": "school-meals-public-procurement", "metric": "free_school_meals_since", "value": null, "year": null, "source": "ingen nasjonal ordning", "quality": "primary_report", "note": "Norge har IKKE universell ordning."},
+
+    {"country": "NO", "theme": "circular-fertilizer-biogas", "metric": "biogas_production_gwh", "value": 470, "year": 2024, "source": "NORSUS, IEA Bioenergy", "quality": "primary_estimate", "claim_ref": "CL-B-019", "note": "40 anlegg. 17x lavere enn DK. Bionova nytt instrument fra 2023."},
+    {"country": "SE", "theme": "circular-fertilizer-biogas", "metric": "biogas_production_gwh", "value": 2395, "year": 2024, "source": "Energigas Sverige", "quality": "primary_report", "claim_ref": "CL-B-019", "note": "330 anlegg. SE bruker mer matavfall + slam som input."},
+    {"country": "DK", "theme": "circular-fertilizer-biogas", "metric": "biogas_production_gwh", "value": 8100, "year": 2024, "source": "IEA Bioenergy DK 2024", "quality": "primary_report", "claim_ref": "CL-B-019", "note": "175 anlegg, 41% av gassforbruket. Husdyrgjødsel hovedinput (40% meieri + 30% svin). Mål 100% grønn gass innen 2030. 20-årig feed-in tariff. Kalundborg-symbiosen."},
+    {"country": "FI", "theme": "circular-fertilizer-biogas", "metric": "biogas_production_gwh", "value": 1000, "year": 2024, "source": "Finnish Biocycle/Biogas Association", "quality": "primary_estimate", "claim_ref": "CL-B-019", "note": "52 anlegg under bygging — 650 mill EUR investering. Potensial 10 TWh innen 2040."},
+    {"country": "IS", "theme": "circular-fertilizer-biogas", "metric": "biogas_production_gwh", "value": 0, "year": 2024, "source": "SA-02", "quality": "primary_report", "note": "Ingen signifikant produksjon."},
+
+    {"country": "NO", "theme": "food-waste", "metric": "food_waste_total_tonnes", "value": 407100, "year": 2024, "source": "Matvett+NORSUS (uten jordbruk)", "quality": "primary_report", "claim_ref": "CL-B-017", "note": "73,4 kg/cap. -24% siden 2015. Klimaavtrykk -28%, økonomisk tap -30%. Mat-/serveringsbransjen har nådd 2025-delmålet (-31%); husholdninger -18%."},
+    {"country": "SE", "theme": "food-waste", "metric": "food_waste_total_tonnes", "value": 880000, "year": 2024, "source": "Naturvårdsverket", "quality": "primary_report", "claim_ref": "CL-B-018", "note": "84 kg/cap. SAMME nivå som 2020 — STAGNASJON."},
+    {"country": "SE", "theme": "food-waste", "metric": "horeca_waste_tonnes", "value": 104000, "year": 2023, "source": "IVL via CL-B-018", "quality": "primary_report", "note": "Økt fra 73 000 t (2018) — restaurantsektor beveger seg motsatt vei."},
+    {"country": "DK", "theme": "food-waste", "metric": "food_waste_total_tonnes", "value": 814000, "year": 2024, "source": "DST", "quality": "primary_report", "note": "139 kg/cap — HØYEST i Norden (matprosessindustri-effekt)."},
+    {"country": "DK", "theme": "food-waste", "metric": "salling_group_retail_waste_pct", "value": 1.8, "year": 2024, "source": "Salling Group bærekraftsrapport 2024", "quality": "primary_report", "claim_ref": "CL-B-020", "note": "Ned fra 2,8% (2015) — halvert på 9 år. Blant Europas beste detaljhandel-tall."},
+    {"country": "FI", "theme": "food-waste", "metric": "food_waste_total_tonnes", "value": 520000, "year": 2024, "source": "Luke, stat.fi", "quality": "definition_diff", "note": "Husholdning 22 kg/cap — LAVEST i Norden."},
+    {"country": "IS", "theme": "food-waste", "metric": "food_waste_total_tonnes", "value": null, "year": null, "source": "ingen nasjonal strategi", "quality": "needs_primary_check"},
+
+    {"country": "NO", "theme": "market-power", "metric": "retail_hhi", "value": 3445, "year": 2024, "source": "Dagligvaretilsynet", "quality": "primary_report", "note": "CR3 96,6%. Mest konsentrert i Norden."},
+    {"country": "NO", "theme": "market-power", "metric": "competition_fine_2024_nok_bn", "value": 4.9, "year": 2024, "source": "Konkurransetilsynet", "quality": "primary_report", "note": "Bot på NorgesGruppen, Coop, REMA 1000 (aug. 2024) — 'prishunter'-saken (deling av butikkpriser siden 2011). EUR ~420M."},
+    {"country": "SE", "theme": "market-power", "metric": "retail_hhi", "value": 3300, "year": 2024, "source": "Konkurrensverket", "quality": "primary_report"},
+    {"country": "DK", "theme": "market-power", "metric": "retail_hhi", "value": 2500, "year": 2024, "source": "KFST", "quality": "primary_report", "note": "Lavest HHI i Norden."},
+    {"country": "FI", "theme": "market-power", "metric": "retail_hhi", "value": 3600, "year": 2024, "source": "KKV, PTY", "quality": "primary_report", "note": "Høyest HHI."},
+    {"country": "FI", "theme": "market-power", "metric": "competition_law_30pct_dominance_threshold", "value": "true", "year": 2014, "source": "Kilpailulaki §4a", "quality": "primary_report", "note": "30% nasjonal markedsandel = automatisk dominans-presumpsjon. UNIK i Norden. Aktivt brukt mot S-Group og Kesko. EUR 600 000 bot på Valio okt 2024."},
+    {"country": "IS", "theme": "market-power", "metric": "retail_hhi", "value": 3400, "year": 2024, "source": "nordisk-markedsstruktur-data-2026.md", "quality": "primary_report"},
+
+    {"country": "NO", "theme": "import-feed", "metric": "fish_feed_imported_share_pct", "value": 92, "year": 2020, "source": "Nofima 2020", "quality": "primary_report", "note": "Bransjedata fra 4 store fôraktører. Novel ingredients 0,4% av volum."},
+    {"country": "NO", "theme": "import-feed", "metric": "aquaculture_feed_total_tonnes", "value": 2185945, "year": 2024, "source": "Fiskeridirektoratet, Nøkkeltall 2024 tabell 43", "quality": "primary_report"},
+    {"country": "NO", "theme": "import-feed", "metric": "soybean_imports_tonnes", "value": 347191, "year": 2024, "source": "SSB 08801", "quality": "primary_api", "note": "2025: 399 330 t. Brasil hovedopprinnelse."},
+    {"country": "NO", "theme": "import-feed", "metric": "fishmeal_imports_tonnes", "value": 217991, "year": 2024, "source": "SSB 08801", "quality": "primary_api", "note": "Island 81 947 t hovedopprinnelse. DK 75 554 t."},
+    {"country": "NO", "theme": "import-feed", "metric": "skretting_spc_share_pct", "value": 16.6, "year": 2024, "source": "Skretting Impact Report 2024", "quality": "actor_data"},
+    {"country": "NO", "theme": "import-feed", "metric": "salmon_fcr", "value": 1.15, "year": 2024, "source": "Skretting/BioMar/Mowi", "quality": "primary_estimate", "claim_ref": "CL-A-015", "note": "Verdens beste FCR. ~90% vegetabilsk proteinandel hvor SPC fra Brasil dominerer. Avskogingsfri-sertifisering (2021) løser direkte avskoging, men IKKE ILUC. ILUC-PARADOKSET: effektivitet per kg protein er verdensledende, men substitusjonen marint→vegetabilsk har EKSPORTERT miljøbelastningen til soyaarealet."},
+
+    {"country": "DK", "theme": "import-feed", "metric": "soybean_meal_imports_million_tonnes_range", "value": "1.2-1.7", "year": 2024, "source": "IFRO/KU 2025", "quality": "primary_report", "claim_ref": "CL-A-014", "note": "KRITISK: kun 6% er FYSISK SPORBAR. ~94% er kreditt-/massebalansesertifisert uten fysisk garanti for avskogings-/konverteringsfri opprinnelse. Sourcing fra DCF-områder kan kutte 54% av utslippene fra brasiliansk soya."},
+
+    {"country": "FI", "theme": "import-feed", "metric": "milk_production_imported_feed_phase_out", "value": null, "year": null, "source": "Jan Thomas-samtale 2026-04-29", "quality": "needs_primary_check", "note": "ÅPENT GAP: må verifiseres med Luke/Valio/MMM."},
+
+    {"country": "EU", "theme": "regulatory-eu-eudr", "metric": "eudr_application_date_large_operators", "value": "2026-12-30", "year": 2026, "source": "EUR-Lex 2025/2650", "quality": "primary_report"},
+    {"country": "NO", "theme": "regulatory-eu-eudr", "metric": "eudr_soya_in_eea_implementation", "value": "false", "year": 2026, "source": "Regjeringen.no, høring 2026-01-09", "quality": "primary_report", "claim_ref": "CL-C-011", "note": "Soya er IKKE foreslått innlemmet i delvis norsk EØS-gjennomføring. Bare tre/kaffe/gummi innlemmet."},
+    {"country": "NO", "theme": "regulatory-eu-eudr", "metric": "eudr_dds_traces_status", "value": "blocked_pending_eea", "year": 2026, "source": "Landbruksdirektoratet FAQ", "quality": "primary_report", "note": "Norge/Island/Liechtenstein kan ikke registrere DDS i Traces før EØS-innlemmelse er klar."},
+
+    {"country": "NO", "theme": "carbon-tax-agriculture", "metric": "co2_tax_agriculture_status", "value": "fritatt", "year": 2024, "source": "policy-landscape.json", "quality": "primary_report", "note": "Landbruket er fritatt fra CO2-avgift. Kontrast til DK."},
+    {"country": "DK", "theme": "carbon-tax-agriculture", "metric": "co2_tax_2030_dkk_per_tonne_headline", "value": 300, "year": 2030, "source": "Skatteministeriet, Grøn Trepartsaftale juni 2024", "quality": "primary_report", "claim_ref": "CL-C-017", "note": "VERDENS FØRSTE nasjonale CO2-avgift på biologiske utslipp (metan/lystgass fra husdyr). Headline 300 DKK/t (2030) → 750 (2035). MEN 60% basisfradrag gir EFFEKTIV kost ~120 DKK/t (2030) → 300 (2035). Green Land Fund 43 mrd DKK = 5,8 mrd EUR. 250 000 ha skog + 140 000 ha tilbakevæting. 23 lokale trepartsgrupper."},
+    {"country": "SE", "theme": "carbon-tax-agriculture", "metric": "co2_tax_agriculture_status", "value": "diskuteres", "year": 2024, "source": "policy-landscape.json", "quality": "primary_report", "claim_ref": "CL-C-018", "note": "Riksrevisionens granskning 2025: mangler styrmedel for ~68% av jordbrukets totale klimagassutslipp (organogen jord + drøvtygger-fordøyelse 2023). Livsmedelsstrategin 2.0 kritisert for å nedprioritere klima."},
+    {"country": "FI", "theme": "carbon-tax-agriculture", "metric": "co2_tax_agriculture_status", "value": "ingen", "year": 2024, "source": "policy-landscape.json", "quality": "primary_report", "note": "FI har imidlertid stort torvmyr-problem: 11% av jordbruksareal = 50%+ av jordbrukets klimagassutslipp (8,2 Mt CO2-ekv/år). Tilbakevæting kostnadseffektiv (-4 til 45 EUR/t CO2), men CAP-subsidier gir motsatt insentiv. CL-B-024."},
+
+    {"country": "FI", "theme": "alternative-proteins", "metric": "solar_foods_capacity_tonnes_yr", "value": 160, "year": 2024, "source": "Solar Foods", "quality": "primary_report", "note": "Factory 01 operativ. Solein-protein. EU pending."},
+    {"country": "FI", "theme": "alternative-proteins", "metric": "enifer_funding_eur_m", "value": 36, "year": 2024, "source": "Enifer", "quality": "primary_report", "note": "PEKILO-protein. EFSA-søknad okt 2024."},
+    {"country": "FI", "theme": "alternative-proteins", "metric": "agrifoodtech_vc_2024_usd_m", "value": 390, "year": 2024, "source": "policy-landscape.json", "quality": "primary_report", "note": "Finland 8. globalt i agrifoodtech VC."},
+    {"country": "DK", "theme": "alternative-proteins", "metric": "enorm_bankruptcy", "value": "true", "year": 2025, "source": "policy-landscape.json", "quality": "primary_report", "note": "ENORM-konkurs okt 2025 + Ÿnsect (FR) likvidasjon des 2025 = chilling-effekt på sektoren."},
+    {"country": "EU", "theme": "alternative-proteins", "metric": "efsa_approved_insect_species", "value": 7, "year": 2025, "source": "EU Q1 2025", "quality": "primary_report"},
+
+    {"country": "NO", "theme": "fish-utilization", "metric": "marine_residual_total_tonnes", "value": 1094000, "year": 2024, "source": "SINTEF/FHF Analyse marint restråstoff 2024", "quality": "primary_report", "note": "976 kt utnyttet (89%), 118 kt ikke utnyttet."},
+    {"country": "NO", "theme": "fish-utilization", "metric": "marine_residual_to_human_consumption_kt", "value": 70, "year": 2024, "source": "SINTEF/FHF 2024", "quality": "primary_estimate", "note": "Av 976 kt utnyttet: ~70 kt humant konsum, 312 kt fôr, 94 kt biogass/energi."},
+    {"country": "NO", "theme": "fish-utilization", "metric": "whitefish_residual_unutilized_kt", "value": 69, "year": 2024, "source": "SINTEF/FHF 2024", "quality": "primary_report", "note": "Hvitfisk: 245/176/69 kt. Havgående flåte hovedgap: 110 kt oppstått, 47 utnyttet, 63 ikke utnyttet."},
+    {"country": "NO", "theme": "fish-utilization", "metric": "salmon_residual_unutilized_kt", "value": 34, "year": 2024, "source": "SINTEF/FHF 2024", "quality": "primary_report", "note": "Laksefisk: 543/509/34 kt. Fritt blod 34,3 kt — i liten grad utnyttet."},
+    {"country": "NO", "theme": "fish-utilization", "metric": "shellfish_residual_unutilized_kt", "value": 15, "year": 2024, "source": "SINTEF/FHF 2024", "quality": "primary_report", "note": "Skalldyr: 21/5,6/15 kt — STØRSTE relativ-gap (71% IKKE utnyttet)."},
+    {"country": "NO", "theme": "fish-utilization", "metric": "k2_dead_fish_tonnes", "value": 123800, "year": 2024, "source": "SINTEF/FHF 2024", "quality": "primary_report", "note": "Kategori 2/dødfisk. 'Utnyttet' = biogass/energi/forbrenning, IKKE matsirkularitet."},
+    {"country": "IS", "theme": "fish-utilization", "metric": "fish_utilization_rate_cod_pct", "value": 90, "year": 2024, "source": "Icelandic Ocean Cluster", "quality": "secondary", "note": "100% Fish-programmet økte utnyttelse 45→90%. Marel-teknologi global ledende."},
+    {"country": "IS", "theme": "fish-utilization", "metric": "fish_consumption_kg_per_capita", "value": 83.8, "year": 2024, "source": "Hagstofa Íslands", "quality": "primary_estimate"},
+    {"country": "DK", "theme": "fish-utilization", "metric": "fishmeal_share_of_eu_production_pct", "value": "35-50", "year": 2024, "source": "EUMOFA 2025", "quality": "primary_report", "note": "DK = 35-50% av EU fiskemel-produksjon. EU totalt 370-520 kt/år."},
+
+    {"country": "SE", "theme": "import-feed", "metric": "okara_volume_tonnes_yr", "value": 25000, "year": 2024, "source": "Axfoundation/Over & Oat", "quality": "primary_report", "note": "0,2 liter pressrest per liter havredrikk."},
+    {"country": "SE", "theme": "import-feed", "metric": "bsg_volume_tonnes_yr", "value": 80000, "year": 2024, "source": "RISE Brewed & Renewed", "quality": "primary_report", "note": "180 g per liter øl. 70-80% fukt — krever stabilisering."},
+
+    {"country": "NO", "theme": "regulatory-eu-eudr", "metric": "matkasteloven_status", "value": "vedtatt_ikke_i_kraft", "year": 2025, "source": "Lov 2025-06-20-103", "quality": "primary_report", "claim_ref": "CL-C-016", "note": "Matsvinnloven vedtatt 20.06.2025. Ikke i kraft før forskrifter er ferdige (forventet 2026). Aktsomhetsplikt, prisreduksjonsplikt, donasjonsplikt. Mattilsynet leverte høringsutkast 1. mars 2026."},
+    {"country": "NO", "theme": "import-feed", "metric": "agricultural_pse_pct", "value": 59, "year": 2025, "source": "OECD PSE 2025", "quality": "primary_report", "note": "Producer Support Estimate ~59% av brutto inntekt fra støtte. Blant verdens høyeste."},
+
+    {"country": "NO", "theme": "food-waste", "metric": "matsentralen_redistributed_share_pct", "value": 3, "year": 2024, "source": "src/lib/data/insights.ts", "quality": "secondary", "note": "Kun 3% av kassert spiselig mat redistribuert."},
+
+    {"country": "SE", "theme": "regulatory-eu-eudr", "metric": "food_vat_temporary_reduction_pct", "value": 6, "year": 2026, "source": "Skatteverket, vedtatt 25.02.2026", "quality": "primary_report", "note": "Midlertidig reduksjon fra 12% til 6% fra 1. april 2026 til 31. desember 2027. Mot vedvarende matprisinflasjon."},
+
+    {"country": "EU", "theme": "food-waste", "metric": "wfd_2025_binding_targets", "value": "10pct_industry_30pct_retail_household", "year": 2030, "source": "EU WFD 2025", "quality": "primary_report", "note": "I kraft oktober 2025. Baseline 2021-2023. Donasjonsforpliktelse for økonomiske operatører."}
+  ],
+
+  "cognitive_dissonance_candidates": [
+    {
+      "id": "CD-NO-organic-demand",
+      "headline": "Norske bønder kan ikke produsere nok øko-melk og egg for etterspørselen — direkte motsatt av populærnarrativ",
+      "country": "NO",
+      "theme": "organic-agriculture",
+      "claim_political": "Lav norsk øko-andel skyldes lav forbrukeretterspørsel",
+      "claim_data": "Landbruksdirektoratet 2025: 80% øko-melk-utnyttelse + 88% øko-egg-utnyttelse + 'ikke nok øko-melk for å møte etterspørselen' + grocery sales +17,6% YoY (NOK 4,3 mrd) + non-grocery +13,9%. Samtidig faller øko-andel UAA på 4,66% (laveste i Norden).",
+      "gap_size": "fundamental",
+      "interpretation": "Tilbudet er flaskehalsen. Etterspørselen vokser. Markedet sender prissignal som tilbudssiden ikke responderer på.",
+      "implication": "TG-anbefaling: virkemidler mot PRODUKSJONSSIDEN (omstillingsstøtte, langsiktige kontrakter), ikke forbrukerkampanjer."
+    },
+    {
+      "id": "CD-NO-fcr-iluc-paradox",
+      "headline": "Norsk laksefôr er verdens mest effektive — og eksporterer miljøbelastningen til Brasil",
+      "country": "NO",
+      "theme": "import-feed",
+      "claim_political": "Norsk lakseoppdrett har verdens beste FCR (1,15) og avskogingsfri sertifisert SPC",
+      "claim_data": "92% av fôr-ingredienser importert (Nofima 2020). 90% vegetabilsk proteinandel hvor SPC fra Brasil dominerer. Avskogingsfri sertifisering fra 2021 dekker ikke ILUC (indirect land use change). 347 191 t soyabønner importert til NO 2024 (SSB).",
+      "gap_size": "betydelig",
+      "interpretation": "FCR er per-kg-effektivitet i Norge. ILUC-fotavtrykk er per-kg-effekt i Sør-Amerika. To forskjellige regnskap.",
+      "implication": "TG-anbefaling: alternative proteiner (FI-modellen Solar Foods/Enifer) er ILUC-løsning, ikke bare FCR-marginalforbedring."
+    },
+    {
+      "id": "CD-DK-soya-traceability",
+      "headline": "Danmark er Europas matkjøkken — men kan ikke spore 94% av soya-importen fysisk",
+      "country": "DK",
+      "theme": "import-feed",
+      "claim_political": "DK soya er sertifisert avskogingsfri",
+      "claim_data": "IFRO/KU 2025: 1,2-1,7 mill t/år, kun 6% FYSISK sporbar. ~94% er kreditt-/massebalansesertifisert. DCF-områder kunne kutte 54% av utslippene fra brasiliansk soya.",
+      "gap_size": "fundamental",
+      "interpretation": "Sertifisering ≠ fysisk sporing. EUDR vil tvinge fram fysisk sporing, men ikke i Norge.",
+      "implication": "Nordisk samarbeid på SOYA-SPORING gir umiddelbar læring: DK-data viser hvor stort gapet er, NO unngår problemet ved å ikke implementere EUDR."
+    },
+    {
+      "id": "CD-NO-EUDR-gap",
+      "headline": "Mens EU strammer inn på avskoging, lar Norge soya stå utenfor",
+      "country": "NO",
+      "theme": "regulatory-eu-eudr",
+      "claim_political": "EUDR vil sikre avskogingsfri sporing av nordisk fôr-soya",
+      "claim_data": "Regjeringen 2026-01-09: soya er IKKE inkludert i delvis EØS-gjennomføring (kun tre, kaffe, gummi). 92% av norsk fiskefôr importert. Norge/Island/Liechtenstein kan ikke registrere DDS i Traces før EØS-innlemmelse.",
+      "gap_size": "betydelig",
+      "interpretation": "NO posisjonerer seg utenfor EUs avskogingsregime for sin viktigste fôrråvare.",
+      "implication": "Risiko for at NO blir 'soya-laundering' for EU-eksponerte verdikjeder. Politisk valg, ikke implementeringsforsinkelse."
+    },
+    {
+      "id": "CD-SE-organic-trend",
+      "headline": "Sveriges økologiske 'nordisk lederskap' bygger på fallende tall",
+      "country": "SE",
+      "theme": "organic-agriculture",
+      "claim_political": "Sverige er nordisk leder på øko (16,7% UAA — riktig)",
+      "claim_data": "Øko-melk -39% siden 2021-peak (295 200 t i 2024). Øko-egg 13% (laveste siden 2010). Total øko-mat-salg -1,5% i 2024. Offentlig sektor falt fra 37% (2022) til 34,2% (2023). Areal-andel høy, men volumer og marked retraherer.",
+      "gap_size": "betydelig",
+      "interpretation": "UAA er lagging-indikator. Marked er leading. SE er i strukturell tilbakegang på øko.",
+      "implication": "TG må kvalifisere SE som 'foregangsland' med markedstrend. DK 11,6% retail-andel og +13% foodservice-vekst gir bedre dansk benchmark."
+    },
+    {
+      "id": "CD-NO-matsvinn-asymmetri",
+      "headline": "Norsk bransjeavtale matsvinn virker — bare der den treffer",
+      "country": "NO",
+      "theme": "food-waste",
+      "claim_political": "Norge nær matsvinn-2030-målet (50% reduksjon)",
+      "claim_data": "Total -24% siden 2015 (uten jordbruk). Mat-/serveringsbransje -31% (har nådd 2025-delmål). Husholdninger -18% (ifølge CL-B-017). Detaljhandel -42%. Matsentralen redistribuerer kun 3%.",
+      "gap_size": "marginal-til-betydelig",
+      "interpretation": "Frivillig avtale dekker ledd den treffer. Husholdninger henger etter, primærleddet er ikke inkludert i det hele tatt.",
+      "implication": "Matsvinnloven 2025 gjør avtalen til lov, men dekker fortsatt ikke primærleddet. TG kan peke på bredere nordisk modell."
+    },
+    {
+      "id": "CD-FI-DK-foodwaste-paradox",
+      "headline": "FI og DK har 6x forskjell i matsvinn — er det reelt eller bare måling?",
+      "country": "tverr-nordisk",
+      "theme": "food-waste",
+      "claim_political": "Alle nordiske land jobber mot SDG 12.3",
+      "claim_data": "FI husholdning 22 kg/cap. DK 41 kg/cap. DK total 139 kg/cap. SE 84 kg/cap, total 880 000 t — STAGNERT siden 2020. SE HORECA økt fra 73 000 t (2018) til 104 000 t (2023). FI-estimater varierer 400-641 kt avhengig av metode.",
+      "gap_size": "betydelig",
+      "interpretation": "Definisjonsforskjeller forklarer mye av variasjonen. DK høye tall reflekterer matprosessindustri. SE-stagnasjon er reell.",
+      "implication": "Nordic samarbeid på MÅLEMETODE før REDUKSJONSMÅL. Kan være TG sin viktigste leveranse."
+    },
+    {
+      "id": "CD-DK-co2-tax-effective-rate",
+      "headline": "Verdens første klima-jordbruksavgift har 60% rabatt — hva blir igjen?",
+      "country": "DK",
+      "theme": "carbon-tax-agriculture",
+      "claim_political": "DK Grøn Trepartsaftale: 300 DKK/t CO2 (2030) → 750 (2035) — verdens mest progressive jordbruksklimatiltak",
+      "claim_data": "60% basisfradrag = effektiv kost ~120 DKK/t (2030) → 300 (2035). Concito/WRI har kritisert dette som undergraving av strukturell omstilling. Green Land Fund 43 mrd DKK kompensasjon. SE har INGEN avgift; NO landbruk fritatt.",
+      "gap_size": "marginal-til-betydelig",
+      "interpretation": "Headline-radikalt, effektivt mer moderat. Trepartsmodell er trolig viktigere enn satsen — 23 lokale grupper.",
+      "implication": "Trepartsmodellen er direkte relevant for norsk Bransjeavtale-tradisjon. TG bør se på STYRINGSMODELL, ikke avgiftsnivå."
+    }
+  ],
+
+  "vision_2030_alignment": {
+    "purpose": "Hvor Food Systems 2026 KOMPLETTERER vs DUPLISERER Nordic Vision 2030 indikatorer (NMR PolitikNord 2021:723, 45 indikatorer i 3 fokusområder)",
+    "strong_db_match": [
+      {"nmr_id": "1.4.2", "label": "Organic agricultural land share", "fs2026_field": "CountryMetric.organicAgriculture", "status": "db_integrated", "note": "Bruk 2023 som sammenlignbar baseline; IS holdes som needs_primary_check"},
+      {"nmr_id": "2.5.2", "label": "Imports from Nordic countries", "fs2026_field": "CountryMetric.intraNordicImportShare", "status": "db_integrated"},
+      {"nmr_id": "1.1.1", "label": "Territorial GHG emissions", "fs2026_field": "CountryMetric.ghgEmissions", "status": "partial", "note": "Sterkest for NO; mangler harmonisert landbruks-/matsvinn-spesifikk fordeling per land"},
+      {"nmr_id": "1.3.2", "label": "Municipal waste recycling rate", "fs2026_field": "matsvinn-notater", "status": "partial", "note": "Matsvinn per-cap dekket DK/FI/IS/NO/SE; samlet leddvis matsvinn for DK/FI/IS er gap"},
+      {"nmr_id": "3.1.2", "label": "Self-rated health (kosthold-proxy)", "fs2026_field": "NORMO 2025 + NNR 2023", "status": "supplementary_proxy", "note": "57 CountryMetric-rader for adult diet frequency og adult/child overweight-obesity"}
+    ],
+    "fs2026_supplements_nmr": [
+      {"label": "HICP matpris per land", "rationale": "Husholdninger og mattilgang"},
+      {"label": "Matvaregruppeimport", "rationale": "Importavhengighet per kategori"},
+      {"label": "Selvforsyning per land", "rationale": "Beredskap og resilient matsystem"},
+      {"label": "HHI og retailer share", "rationale": "Markedsstruktur — IKKE direkte i NMR"},
+      {"label": "Matsvinn per capita per ledd", "rationale": "Avfallsforebygging på finere granularitet"},
+      {"label": "Private label / EMV", "rationale": "Makt, sortiment, konkurranse"},
+      {"label": "Verdikjede-flaskehalser", "rationale": "Forklarer hvorfor brede mål stopper"}
+    ],
+    "fs2026_gap_vs_nmr": [
+      {"nmr_id": "1.1.2", "label": "Consumption-based GHG emissions", "criticality": "high", "next_action": "Finn forbruksbasert matfotavtrykk og koble til import/forbruk"},
+      {"nmr_id": "1.3.1", "label": "Material footprint per inhabitant", "criticality": "medium", "next_action": "Hent og koble til mat, emballasje, forbruk"},
+      {"nmr_id": "1.5.2", "label": "Baltic Sea eutrophication load", "criticality": "high", "next_action": "Bygg nutrient-loop datapakke for N/P/avrenning"},
+      {"nmr_id": "1.5.3", "label": "Arctic and Barents fish stock status", "criticality": "high", "next_action": "Lag akvatisk matsystempakke"},
+      {"nmr_id": "1.4.3", "label": "Agricultural landscape bird index", "criticality": "low", "next_action": "Biodiversitetsproxy"},
+      {"nmr_id": "2.2.2", "label": "Circular/bioeconomy employment share", "criticality": "medium", "next_action": "Sysselsetting i sirkulær økonomi/bioøkonomi"},
+      {"nmr_id": "3.3.2", "label": "Risk of poverty / food affordability", "criticality": "medium", "next_action": "Food affordability-data"}
+    ],
+    "report_implication": "Rapportens §6 (Avgrensning mot Nordic Vision 2030) bør (a) anerkjenne 5 indikatorer hvor vi har sterk DB-dekning, (b) løfte fram 7 supplementsindikatorer som NMR ikke har god dekning på, (c) eksplisitt liste 7 gap der vi må erkjenne svakhet."
+  },
+
+  "data_gaps_remaining": [
+    {"gap": "FI fase-ut av importert fôr i melkeproduksjon", "criticality": "high", "potential_sources": ["Luke", "Valio", "MMM"]},
+    {"gap": "Regenerativt landbruk per land (distinkt fra øko)", "criticality": "medium"},
+    {"gap": "Biodiversitetsproxy for jordbruk", "criticality": "low"},
+    {"gap": "Forbruksbasert matfotavtrykk per land", "criticality": "high"},
+    {"gap": "Eutrofieringsbelastning Østersjøen", "criticality": "high"},
+    {"gap": "Nordic fish stock status — Arktis/Barents", "criticality": "high"}
+  ]
+}
