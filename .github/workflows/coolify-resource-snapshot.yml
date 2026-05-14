@@ -141,7 +141,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if git diff --quiet "$SNAPSHOT_DIR"; then
+          CHANGES=$(git status --porcelain "$SNAPSHOT_DIR" | wc -l)
+          if [ "$CHANGES" -eq 0 ]; then
             echo "Ingen endringer i snapshot-fil — skip commit"
             exit 0
           fi
