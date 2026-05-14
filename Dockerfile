@@ -30,10 +30,13 @@ COPY research/data/nordic/core-series/ ./research/data/nordic/core-series/
 COPY research/data/nordic/trade-groups/normalized/ ./research/data/nordic/trade-groups/normalized/
 COPY research/data/nordic/market-share/ ./research/data/nordic/market-share/
 ARG DATABASE_URL
-# Migration step (FTS + country-norm + imports) flyttet ut av build-tid pga
-# transient DB-tilkoblingsfeil under bygg (P1001 fra l0s8o8oo00...:5432).
-# Schema-sync via prisma db push beholdes; data-migrasjoner kjøres separat
-# via scripts/run-prod-migrations.ts mot prod-DB med pålitelig nettverk.
+# Schema-sync (prisma db push) er fjernet pga inkompatibilitet med STORED
+# GENERATED-kolonner (search_vector). Prisma kan ikke uttrykke disse, og
+# selv med Unsupported(tsvector) prøver db push å ALTER dem.
+#
+# All DB-skjema-administrasjon gjøres nå manuelt via psql i
+# post_deployment_command (scripts/add-postgres-fts.sql,
+# scripts/normalize-document-categories.sql osv).
 RUN npm run build
 
 FROM base AS runner

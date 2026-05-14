@@ -15,7 +15,7 @@ SELECT s.id, s."insightId", d.id, s.relevance
 FROM _stage_refs_by_slug s
 JOIN "Document" d ON d.slug = s.document_slug
 JOIN "Insight" i ON i.id = s."insightId"
-ON CONFLICT ("insightId", "documentId") DO NOTHING;
+ON CONFLICT DO NOTHING;
 
 \echo Step 3: Verifiser
 SELECT 'InsightDocumentRef totalt' as t, count(*) FROM "InsightDocumentRef"

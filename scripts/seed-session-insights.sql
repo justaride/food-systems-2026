@@ -32,7 +32,7 @@ FROM (VALUES
 ) AS s("insightId", relevance)
 JOIN "Document" d ON d.slug = 'incoming-incoming-food-research-process-2026-04-20-04-food-waste-and-circularity-20d75deeda-food-redistribution-in-the-nordic-region-pdf'
 WHERE EXISTS (SELECT 1 FROM "Insight" i WHERE i.id = s."insightId")
-ON CONFLICT ("insightId", "documentId") DO NOTHING;
+ON CONFLICT DO NOTHING;
 
 \echo === Re-kjør slug-baserte refs nå når ins-food-tg-* er på plass ===
 CREATE TEMP TABLE _stage_refs_slug (
@@ -46,7 +46,7 @@ SELECT s.id, s."insightId", d.id, s.relevance
 FROM _stage_refs_slug s
 JOIN "Document" d ON d.slug = s.document_slug
 JOIN "Insight" i ON i.id = s."insightId"
-ON CONFLICT ("insightId", "documentId") DO NOTHING;
+ON CONFLICT DO NOTHING;
 
 \echo === Final-verifisering ===
 SELECT 'Insight totalt' as t, count(*) FROM "Insight"

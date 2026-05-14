@@ -20,7 +20,6 @@ ON CONFLICT (slug) DO NOTHING;
 -- Re-link de 2 refs som peker på denne slugen
 INSERT INTO "InsightDocumentRef" (id, "insightId", "documentId", relevance)
 SELECT
-  -- generer ny cuid-like id (postgres-natively via gen_random_uuid)
   'food-redist-' || ROW_NUMBER() OVER (),
   s."insightId",
   d.id,
@@ -31,7 +30,7 @@ FROM (VALUES
 ) AS s("insightId", relevance)
 JOIN "Document" d ON d.slug = 'incoming-incoming-food-research-process-2026-04-20-04-food-waste-and-circularity-20d75deeda-food-redistribution-in-the-nordic-region-pdf'
 WHERE EXISTS (SELECT 1 FROM "Insight" i WHERE i.id = s."insightId")
-ON CONFLICT ("insightId", "documentId") DO NOTHING;
+ON CONFLICT DO NOTHING;
 
 \echo === Verifiser ===
 SELECT 'Document finnes' as t, count(*) FROM "Document"
