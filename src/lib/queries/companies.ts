@@ -228,30 +228,42 @@ export async function getCompanyById(id: string) {
 }
 
 export async function getInterlockingDirectorates() {
-  const allMembers = await prisma.boardMember.findMany({
-    include: { company: { select: { id: true, name: true } } },
+  const interlockKeys = await prisma.boardMember.groupBy({
+    by: ['personKey'],
+    _count: { personKey: true },
+    having: { personKey: { _count: { gt: 1 } } },
   })
 
-  const byKey = new Map<string, typeof allMembers>()
-  for (const m of allMembers) {
+  if (interlockKeys.length === 0) return []
+
+  const members = await prisma.boardMember.findMany({
+    where: { personKey: { in: interlockKeys.map((k) => k.personKey) } },
+    select: {
+      personKey: true,
+      personName: true,
+      role: true,
+      company: { select: { id: true, name: true } },
+    },
+  })
+
+  const byKey = new Map<string, typeof members>()
+  for (const m of members) {
     const existing = byKey.get(m.personKey) ?? []
     existing.push(m)
     byKey.set(m.personKey, existing)
   }
 
   const interlocks = []
-  for (const [personKey, members] of byKey) {
-    if (members.length > 1) {
-      interlocks.push({
-        personKey,
-        personName: members[0].personName,
-        positions: members.map((m) => ({
-          companyId: m.company.id,
-          companyName: m.company.name,
-          role: m.role,
-        })),
-      })
-    }
+  for (const [personKey, list] of byKey) {
+    interlocks.push({
+      personKey,
+      personName: list[0].personName,
+      positions: list.map((m) => ({
+        companyId: m.company.id,
+        companyName: m.company.name,
+        role: m.role,
+      })),
+    })
   }
 
   return interlocks

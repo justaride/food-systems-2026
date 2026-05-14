@@ -109,9 +109,21 @@ function mergeProfileRows(
   }
 }
 
+const PERSON_PROFILE_SELECT = {
+  id: true,
+  name: true,
+  personKey: true,
+  roles: true,
+  biography: true,
+  linkedInUrl: true,
+  affiliations: true,
+  tags: true,
+} as const
+
 async function loadStoredProfiles(): Promise<PersonProfileRow[]> {
   try {
     const profiles = await prisma.personProfile.findMany({
+      select: PERSON_PROFILE_SELECT,
       orderBy: { name: 'asc' },
     })
 
@@ -129,6 +141,7 @@ async function loadStoredProfileByKey(personKey: string): Promise<PersonProfileR
   try {
     const profile = await prisma.personProfile.findUnique({
       where: { personKey },
+      select: PERSON_PROFILE_SELECT,
     })
 
     if (!profile) return null
@@ -219,13 +232,18 @@ export async function getPersonByKey(personKey: string): Promise<PersonProfileRo
 }
 
 export async function getPersonKeysWithProfiles(): Promise<Set<string>> {
-  const [profiles, fallbackProfiles] = await Promise.all([
-    loadStoredProfiles(),
-    buildFallbackProfilesFromBoardMembers(),
-  ])
+  const profileKeys = prisma.personProfile
+    .findMany({ select: { personKey: true } })
+    .then((rows) => rows.map((r) => r.personKey))
+    .catch((error) => {
+      if (isMissingPrismaTable(error, 'PersonProfile')) return [] as string[]
+      throw error
+    })
 
-  return new Set([
-    ...profiles.map((profile) => profile.personKey),
-    ...fallbackProfiles.map((profile) => profile.personKey),
-  ])
+  const boardKeys = prisma.boardMember
+    .findMany({ select: { personKey: true }, distinct: ['personKey'] })
+    .then((rows) => rows.map((r) => r.personKey))
+
+  const [stored, board] = await Promise.all([profileKeys, boardKeys])
+  return new Set([...stored, ...board])
 }
