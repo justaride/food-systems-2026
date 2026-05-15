@@ -9,6 +9,8 @@ Status: analyseklar metode for prisnivaa, ikke prisvekst
 For B12 brukes Eurostat price level index som hovedserie:
 
 - dataset: `nordic-eurostat-food-price-levels-annual`
+- Eurostat API dataset: `prc_ppp_ind`
+- API-filter: `freq=A`, `na_item=PLI_EU27_2020`, `ppp_cat=A0101`, `geo=DK,FI,IS,NO,SE`, `sinceTimePeriod=2015`, `untilTimePeriod=2024`
 - lokal kilde: `research/data/nordic/prices/normalized/nordic-eurostat-food-price-levels-annual.csv`
 - maaletall: `value`
 - indikator: `PLI_EU27_2020`
@@ -76,6 +78,12 @@ Begge kan brukes, men ikke som samme rad i samme serie uten forklaring. Anbefalt
 - bruk SSB 2024 som kontrollpunkt/note
 - ikke bland SSB 2024 inn i tidsserien
 
+Offisiell locator for kontrollpunktet:
+
+- SSB, `Comparison of price levels in Europe`, selected figures table 2: `Price level indices for some goods- and service groups. EU27=100`.
+- StatBank table `14682`: `VarerTjen=A0101 Food and non-alcoholic beverages`; `Land=NO,SE,DK,FI,IS`; `ContentsCode=PLI Price level indices (EU27=100)`; `Tid=2024` for control snapshot.
+- SSB 14682 / Eurostat `prc_ppp_ind_1` `A0101` returns non-null values for 2022-2024 only in this control family. The historical 2015-2024 panel uses Eurostat `prc_ppp_ind`, not SSB 14682.
+
 ## Kvalitetsstatus
 
 | Felt | Verdi |
@@ -86,10 +94,11 @@ Begge kan brukes, men ikke som samme rad i samme serie uten forklaring. Anbefalt
 | `comparability_flag` | `directly_comparable` |
 | `promotion_status` | `promoted_analysis` |
 | `allowed_surfaces` | `research+analysis+report` |
-| `ki_usage_rule` | `cite_with_underlying_sources` |
+| `ki_usage_rule` | `warn_user` |
 
 ## Neste handling
 
 1. Oppdater B12-gapkortet til aa peke til metodenotat og panel.
 2. Dersom data skal inn i UI, legg metodekort som skiller prisnivaa fra prisvekst.
-3. Dersom data skal inn i KI-svar, legg locator/chunk for Eurostat/SSB-kilden i source-to-claim-ledger.
+3. Dersom data skal inn i KI-svar, lagre full Eurostat API-query/response eller derived extract checksum foer `promoted_ki`.
+4. Ikke bland `prc_ppp_ind` COICOP1999-serien for 2015-2024 med SSB/`prc_ppp_ind_1` COICOP2018-kontrollrader.

@@ -1,6 +1,6 @@
 # B12 - PPP og prisnivå: Norden
 
-Status: analyseklar med metodeforbehold
+Status: promoted_analysis med metodeforbehold
 Gap-ID: B12
 Lane: hurtig-plukk
 Dato: 2026-04-29
@@ -66,11 +66,14 @@ Metodebeslutning:
 - SSB/Eurostat 2024-tabellen brukes som kontrollpunkt/note.
 - HICP/KPI holdes separat som prisvekstspor.
 
-Kvalitetsstatus:
+Kvalitetsstatus etter locator-lasing:
 
-- `promotion_status=staged_analysis`
+- `promotion_status=promoted_analysis`
 - `evidence_status=primary_snapshot`
 - `method_status=official_statistical_extract`
 - `comparability_flag=directly_comparable`
+- `source_to_claim=STC-029`
+- `ki_usage_rule=warn_user`
+- Eurostat `prc_ppp_ind` er hovedserie for 2015-2024; SSB 14682 / Eurostat `prc_ppp_ind_1` brukes bare som 2024-kontrollfamilie.
 
-Kortet kan brukes i analyse og rapportutkast med metodeforbehold. Det skal ikke promoteres til KI-sitering før ekstern Eurostat/SSB-locator er låst i source-to-claim-ledger.
+Kortet kan brukes i analyse og rapportutkast med metodeforbehold. Det skal ikke promoteres til KI-sitering uten varsel før full Eurostat API-response eller avledet extract-checksum er lagret.
