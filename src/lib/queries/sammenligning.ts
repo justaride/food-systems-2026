@@ -47,6 +47,11 @@ type ValueChainJson = {
       supermarket_pct?: number | null
       convenience_pct?: number | null
     } | null
+    format_share?: {
+      discount_pct?: number | null
+      supermarket_pct?: number | null
+      convenience_pct?: number | null
+    } | null
     circularity?: {
       biogas_gwh?: number | null
       biogas_target_gwh?: number | null
@@ -79,9 +84,8 @@ type ValueChainJson = {
 type ChartMetricsJson = {
   totalStores?: number | null
   parentCompany?: {
-    data?: Array<{ name: string; share: number }>
+    data?: Array<{ id?: string; label?: string; name?: string; value: number; count?: number; color?: string }>
     parentHHI?: number | null
-    parentCR3?: number | null
   } | null
   lorenzCurve?: { gini?: number | null } | null
 }
@@ -189,7 +193,7 @@ function buildCountry(
     co2e[s.id] = s.co2e_mt ?? null
   }
 
-  const retailFormat = retail?.retail_format ?? null
+  const retailFormat = retail?.format_share ?? retail?.retail_format ?? null
   const formatMix = retailFormat
     ? {
         discount: retailFormat.discount_pct ?? 0,
@@ -208,12 +212,18 @@ function buildCountry(
     population: vc.population,
     market: {
       hhi: cm?.parentCompany?.parentHHI ?? null,
-      cr3: cm?.parentCompany?.parentCR3 ?? null,
+      cr3: cm?.parentCompany?.data?.length
+        ? Math.round(cm.parentCompany.data
+            .map(p => p.value)
+            .sort((a, b) => b - a)
+            .slice(0, 3)
+            .reduce((sum, v) => sum + v, 0) * 10) / 10
+        : null,
       gini: cm?.lorenzCurve?.gini ?? null,
       totalStores: cm?.totalStores ?? null,
       emvSharePct: processing?.emv_share_pct ?? null,
       retailFormatMix: formatMix,
-      parents: cm?.parentCompany?.data?.map(p => ({ name: p.name, sharePct: p.share })) ?? [],
+      parents: cm?.parentCompany?.data?.map(p => ({ name: p.label ?? p.name ?? p.id ?? '', sharePct: p.value })) ?? [],
       sourceYear: vc.year ?? null,
     },
     preparedness: {
