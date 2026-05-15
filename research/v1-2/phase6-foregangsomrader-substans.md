@@ -57,7 +57,7 @@ For hvert av rapportens 5 foregangsområder gir vi nå:
 | Land | Hovedaktør | Rolle | Relevant referanse |
 |---|---|---|---|
 | 🇫🇮 FI | Luke + Sitra + Wasteless World | Måling + sirkulær-økonomi | Luke 22 kg/cap; Sitra Circular Economy Roadmap |
-| 🇩🇰 DK | Stop Spild Af Mad + DTU + Salling Group | NGO + forskning + privat | Selina Juul; DTU Sustain; Salling 2,8→1,8% |
+| 🇩🇰 DK | Stop Spild Af Mad + DTU + Salling Group | NGO + forskning + privat | Selina Juul; DTU Sustain; Salling 2,8% baseline 2015 → 1,8% i 2024 (-34,8%) |
 | 🇳🇴 NO | Matvett AS + NORSUS + bransjeavtale-konsortium | Måling + bransjeavtale | Matvett+NORSUS 2024; Bransjeavtalen 2017 |
 | 🇸🇪 SE | Naturvårdsverket + IVL + Livsmedelsverket | Statlig måling + forskning | SE 84 kg/cap; HORECA 73→104 kt |
 | 🇮🇸 IS | Umhverfisstofnun + Matís | Tilsyn + matkjede | Begrenset matsvinn-data; ingen nasjonal strategi |
@@ -67,7 +67,7 @@ For hvert av rapportens 5 foregangsområder gir vi nå:
 1. **Definisjonsforskjeller forklarer mye av 6x-variasjonen** mellom FI (22 kg/cap) og DK (139 kg/cap). DK regner med matprosessindustri (eksportert mat blir DK-svinn); FI regner husholdning isolert. Uten harmonisert metode er sammenligning misvisende.
 2. **Norsk bransjeavtale dekker bare detaljhandel + servering** — primærleddet og husholdning er ikke inkludert. -42% i detaljhandel og -31% i serveringsbransjen er reelle, men husholdningssvinn (-5%) henger etter.
 3. **EU Waste Framework Directive 2025-baseline** fastsetter felles målestandard, men medlemsland implementerer ulikt. Norge er ikke EU-medlem og kan velge avvikende metode.
-4. **Foretak rapporterer aggregert, ikke butikk-nivå.** Salling Groups halvering 2,8→1,8% er bedrifts-snitt; sammenliknbare butikknivå-data finnes ikke i åpne kilder. Pålagt rapportering til kjede-nivå er reell barriere.
+4. **Foretak rapporterer aggregert, ikke butikk-nivå.** Salling Groups reduksjon fra 2,8% baseline 2015 til 1,8% i 2024 er konsern-/formatrapportering med scope-note, ikke dokumentert halvering eller butikknivådata. Sammenliknbare butikknivå-data finnes ikke i åpne kilder. Pålagt rapportering til kjede-nivå er reell barriere.
 
 ### (c) Tre konkrete første-skritt
 

@@ -1,6 +1,6 @@
 # G3 - Selvforsyningsgrad: sjømatjustert metode
 
-Status: initial evidence card, metodeavklaring nødvendig
+Status: staged method card, proxy eksportenergi-input opprettet, sluttresultat sperret
 Gap-ID: G3
 Lane: hurtig-plukk
 Dato: 2026-04-29
@@ -57,3 +57,36 @@ Kildeanker lokalt:
 ## Akseptansegate
 
 Kortet kan oppgraderes til integrerbart når vi har én valgt hovedindikator, ett scenario for sjømateksport, og en tydelig note som forklarer hvorfor 34,9 prosent, 41,3 prosent, 47 prosent og "nær 100 prosent med fisk" ikke er samme mål.
+
+## Oppdatering 2026-05-15
+
+Metodevalg er nå låst i `research/_plans/self-sufficiency-seafood-adjusted-method-note-2026-05-15.md`:
+
+- Hovedanker: NIBIO `Totalt inkl. fisk`, `Nøkkeltall`, celler `AB5=41,3` og `AB6=34,9`.
+- Scenariofamilie: energi-/kaloribasert retensjon av sjømateksport.
+- Scenarioantakelser: 0, 25 og 50 prosent av sjømateksportens energi hypotetisk holdt i Norge.
+- Fiskefôrkorreksjon: ikke inkludert før fiskefôrråvarer og metodebeslutning er låst.
+
+CSV er oppdatert med scenario-spesifikasjoner:
+
+- `research/data/nordic/self-sufficiency/self-sufficiency-seafood-adjusted-scenarios-2026-05-15.csv`
+
+Dette lukker metodebeslutningen, men ikke resultatberegningen. Neste datagate er å hente sjømateksport 2024 med art-/produktmiks og omregne til energi med dokumentert spiselig andel.
+
+## Proxy-input 2026-05-15
+
+Første beregningsinput er opprettet:
+
+- `research/data/nordic/self-sufficiency/no-seafood-export-energy-inputs-2024.csv`
+
+Panelet bruker Sjømatrådets 2024-årsoppsummering for hovedvolumene og Matvaretabellen for energifaktorer. Det gir en toppart-/produktproxy på 2 785,216 Tcal sjømateksportenergi og retensjonsproxyer på 696,304 Tcal (25 prosent) og 1 392,608 Tcal (50 prosent).
+
+## Denominator-kandidat 2026-05-15
+
+Foreloepig denominator er opprettet:
+
+- `research/data/nordic/self-sufficiency/no-food-energy-denominator-candidate-2024.csv`
+
+Helsedirektoratet 2025 oppgir 2024 engros energi i matforsyningsstatistikken til `11,1 MJ/person/dag`. Med SSB start-/sluttbefolkning for 2024 gir dette en mean-population proxy på `5 572 271,5` personer og en denominator-kandidat på `5 395,807 Tcal/år`.
+
+Status forblir `exclude`/ikke rapportklar: sjømatproxyen dekker ikke full 2,8 mill. tonn eksportvolum, produktmiks er ufullstendig, spiselig yield er delvis proxy, og denominator må omtales som engros matforsyning heller enn faktisk energiinntak.

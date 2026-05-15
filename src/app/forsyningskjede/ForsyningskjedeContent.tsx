@@ -397,10 +397,10 @@ export function ForsyningskjedeContent({
       <DataQualityStrip
         items={[
           {
-            label: 'Leveranser',
+            label: 'Leveranser (NO)',
             value: formatCount(deliveries.totalDeliveryRows),
             status: 'observed',
-            detail: 'Importerte primærleveranser fra Landbruksdirektoratet.',
+            detail: 'Norge-observert lag fra Landbruksdirektoratet. Skal ikke generaliseres til SE/DK/FI/IS.',
             description: `rader fra ${formatCount(deliveries.totalSuppliers)} produsent-orgnr`,
           },
           {
@@ -436,8 +436,8 @@ export function ForsyningskjedeContent({
 
       <section id="primaerflyt" className="scroll-mt-6 space-y-4">
         <SectionHeader
-          title="Primærflyt"
-          description="Observerte leveranser fra primærprodusenter, lest per varegruppe og avtakertype."
+          title="Primærflyt (Norge)"
+          description="Observerte leveranser fra norske primærprodusenter via Landbruksdirektoratet — ikke et nordisk lag. Lest per varegruppe og avtakertype."
         />
 
         {concentrationRows.length > 0 && (
@@ -520,9 +520,9 @@ export function ForsyningskjedeContent({
         {deliveries.totalDeliveryRows > 0 && (
         <Card title={`Primærleveranser — ${deliveries.totalSuppliers.toLocaleString('no')} bønder leverer til ${deliveries.byCommodity.reduce((acc, c) => acc + c.buyers.length, 0)} avtagere`}>
           <p className="text-xs text-stone-500 mb-4">
-            Aggregert levering fra jordbruksforetak til grossister og foredlingsbedrifter
+            Norge-observert: aggregert levering fra norske jordbruksforetak til grossister og foredlingsbedrifter
             for melk, egg, korn, slakt og ull (Landbruksdirektoratet, siste
-            tilgjengelige år per varekategori).
+            tilgjengelige år per varekategori). Tabellen har ikke ekvivalente serier for SE/DK/FI/IS og skal ikke leses som nordisk paritet.
           </p>
           <div className="space-y-4">
             {deliveries.byCommodity.map(c => {

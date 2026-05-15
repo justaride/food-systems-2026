@@ -9,11 +9,11 @@ export const insights: Insight[] = [
     phase: 'fase-1',
     date: '2026-03-09',
     description:
-      'Norges selvforsyningsgrad for matvarer ligger rundt 45%, noe som gjor landet sarbart for forstyrrelser i globale forsyningskjeder.',
+      'NIBIOs 2024-regneark viser 41,3% selvforsyningsgrad for totalt inkl. fisk og 34,9% korrigert for importert kraftfor til husdyrproduksjon. Tallene maa ikke blandes med sjoemateksport-scenario eller eldre 47%-formuleringer.',
     tags: ['selvforsyning', 'Norge'],
     sources: [
       { sourceId: 'src-26', label: 'Meld. St. 11 selvforsyning', url: 'https://www.regjeringen.no/no/dokumenter/meld-st-11-20232024/id3033241/', note: '50 %-maal innen 2030' },
-      { sourceId: 'src-31', label: 'NIBIO sjolvforsyningsgrad', url: 'nibio.no', note: 'Metodisk grunnlag for beredskapsdebatt' },
+      { sourceId: 'src-31', label: 'NIBIO selvforsyningsgrad', url: 'https://www.nibio.no/tema/landbruksokonomi/selvforsyningsgrad-og-engrosforbruk', note: '2024 celler AB5=41,3 og AB6=34,9; G3 scenario maa holdes separat' },
     ],
   },
   {
@@ -451,13 +451,13 @@ export const insights: Insight[] = [
   },
   {
     id: 'ins-33',
-    title: 'Selvforsyningsgrad kollapset: 41,6% til 34,9% paa ett aar',
+    title: 'Selvforsyningsgrad: 41,3% ukorrigert og 34,9% forkorrigert i 2024',
     type: 'funn',
     source: 'Beredskapskilder',
     phase: 'fase-1',
     date: '2026-03-13',
     description:
-      'Norges forkorrigerte selvforsyningsgrad falt fra 41,6% til 34,9% mellom 2023 og 2024 — et dramatisk fall mot det politiske maalet paa 50%. Kjottimport oekte 45%. Finland har 8,5 maaneders kornlager; Norge har null statlige matlagre.',
+      'NIBIOs 2024-celler for Totalt inkl. fisk viser 41,3% selvforsyningsgrad 1 og 34,9% selvforsyningsgrad 2, der sistnevnte er korrigert for importert kraftfor til husdyrproduksjon. Bruk 50%-maalet bare sammen med metodeforbehold og ikke som sjoematjustert fasitt.',
     tags: ['selvforsyning', 'beredskap', 'matsikkerhet', 'norge'],
     sources: [
       { sourceId: 'src-67', label: 'Bransje-statistikk-beredskap', note: 'NIBIO, SSB, NESA/HVK' },
