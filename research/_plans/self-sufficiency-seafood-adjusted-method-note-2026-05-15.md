@@ -2,7 +2,7 @@
 
 Dato: 2026-05-15  
 Gap: G3  
-Status: NIBIO 2024-rader cellelokalisert, sjømat-scenarioformel låst, eksportenergi mangler
+Status: NIBIO 2024-rader cellelokalisert, sjømat-scenarioformel låst, proxy eksportenergi-input opprettet, sluttresultat sperret
 
 ## Beslutning
 
@@ -21,6 +21,32 @@ Scenariofamilien for `seafood_export_adjusted_scenario` er nå valgt som et ener
 - `seafood_export_retention_50pct`
 
 Dette er scenario-spesifikasjoner, ikke beregnede selvforsyningsprosenter. Resultatfelt skal først fylles når sjømateksport er omregnet til energi med eksplisitt art-/produktmiks, spiselig andel og kilde.
+
+## Proxy-input 2026-05-15
+
+Et første proxy-panel er opprettet for å teste beregningskjeden:
+
+- `research/data/nordic/self-sufficiency/no-seafood-export-energy-inputs-2024.csv`
+
+Panelet bruker Norges sjømatråds 2024-årsoppsummering for eksportvolum per hovedart/-produkt og Matvaretabellen for energi per 100 g spiselig del. Det dekker 2 183 197 tonn av total eksport på om lag 2,8 mill. tonn og summerer til 2 785,216 Tcal som proxy. 25 og 50 prosent retensjon gir henholdsvis 696,304 og 1 392,608 Tcal.
+
+Dette er ikke et sluttresultat fordi:
+
+- produktmiks er ikke fullstendig splittet
+- spiselig andel er delvis proxy
+- tørkede/saltede produkter bruker foreløpig rå torsk som energiproxy
+- eksportenergi er bare koblet til en foreløpig engros-denominator kandidat
+- importert fiskefôr er fortsatt ikke korrigert
+
+## Denominator-kandidat 2026-05-15
+
+Et foreløpig denominator-panel er opprettet:
+
+- `research/data/nordic/self-sufficiency/no-food-energy-denominator-candidate-2024.csv`
+
+Kandidaten bruker Helsedirektoratets `Utviklingen i norsk kosthold 2025`, kapittel 5/tabell 7: 2024 matforsyningsstatistikk på engrosnivå er `11,1 MJ/person/dag`. Dette er kombinert med SSB-befolkning ved start og slutt av 2024 (`5 550 203` og `5 594 340`) som mean-population proxy (`5 572 271,5`). Beregnet denominator er `5 395,807 Tcal/år`.
+
+Status: `warn_user`, ikke sluttresultat. Den må omtales som engros matforsyning, ikke faktisk energiinntak. Den erstatter likevel forrige åpne denominator-gate og gjør neste G3-gate mer presis: full sjømat-produktmiks og yield/energifaktor er nå hovedblocker.
 
 ## Lokale verdier som kan brukes internt
 
@@ -81,8 +107,8 @@ Start med energi/kalorier, ikke kg, fordi NIBIO-metoden er energibasert. Kjør d
 | `official_unadjusted_total_incl_fish` | NIBIO/engrosforbruk uten fôrkorrigering | cell_locator_locked |
 | `official_feed_corrected_total_incl_fish` | fôrkorrigert selvforsyning inkl. fisk; husdyrkraftfôr korrigert | cell_locator_locked |
 | `seafood_export_retention_0pct` | kontrollscenario uten tilbakeholdt sjømateksport | scenario_formula_locked |
-| `seafood_export_retention_25pct` | moderat beredskapsretensjon | scenario_formula_locked |
-| `seafood_export_retention_50pct` | høy beredskapsretensjon | scenario_formula_locked |
+| `seafood_export_retention_25pct` | moderat beredskapsretensjon | scenario_formula_locked; proxy_energy_input_created; denominator_candidate_created |
+| `seafood_export_retention_50pct` | høy beredskapsretensjon | scenario_formula_locked; proxy_energy_input_created; denominator_candidate_created |
 
 ## Stop-regel
 
@@ -90,7 +116,7 @@ Ikke bruk formuleringer som "nesten selvforsynt med fisk" eller "sjømatjustert 
 
 ## Neste handling
 
-1. Hent sjømateksport 2024 fra SSB/Fiskeridirektoratet/Sjømatrådet med art-/produktmiks.
-2. Omregn eksporten til energi med dokumentert spiselig andel og energifaktor.
-3. Beregn output for 0/25/50 prosent retensjon i `research/data/nordic/self-sufficiency/self-sufficiency-seafood-adjusted-scenarios-2026-05-15.csv`.
-4. Revider eldre app-/policytekst som blander 34,9, 41,3, 47 og fiskebasert "naer 100".
+1. Erstatt proxy-panelet med full Sjømatrådet/SSB produktmiks eller dokumenter hvorfor toppartspanel er tilstrekkelig.
+2. Lås spiselig andel og energi for tørket/saltet/foredlet produktform.
+3. Avklar om engros-denominator (`11,1 MJ/person/dag`) er riktig denominator for scenarioet eller om NIBIO/Helsedirektoratet har et bedre direkte uttrekk.
+4. Beregn output for 0/25/50 prosent retensjon i `research/data/nordic/self-sufficiency/self-sufficiency-seafood-adjusted-scenarios-2026-05-15.csv` først etter at full sjømat-produktmiks/yield er låst.

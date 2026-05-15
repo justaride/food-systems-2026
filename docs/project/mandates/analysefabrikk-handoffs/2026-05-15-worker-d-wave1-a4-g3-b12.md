@@ -11,8 +11,8 @@ Dette handoffet var akseptansegate foer videre arbeid. Gjeldende status etter vi
 
 - B12: gapkort patchet, Eurostat PLI valgt som hovedserie, SSB 14682 brukt som kontrollpunkt, `promotion_status=promoted_analysis`, `ki_usage_rule=warn_user`.
 - A4: primære produksjonsankre og derived comparison panel er opprettet for NO/DK/SE/FI; status er `staged_analysis`, ikke KI-promotert.
-- G3: NIBIO Engrosforbruk `Nøkkeltall` celler `AB5=41.3` og `AB6=34.9` er laast; seafood-adjusted scenarioformel er laast som energi-/kaloribasert 0/25/50 prosent retensjon av sjømateksport. Resultatverdier mangler eksportenergi.
-- Videre arbeid boer starte med G3 sjømateksport-energiuttrekk eller A4 reviewer-aksept av DK gas-system scope.
+- G3: NIBIO Engrosforbruk `Nøkkeltall` celler `AB5=41.3` og `AB6=34.9` er laast; seafood-adjusted scenarioformel er laast som energi-/kaloribasert 0/25/50 prosent retensjon av sjømateksport. Et foreloepig top-species eksportenergi-input og en engros-denominator-kandidat er opprettet, men G3 er fortsatt `exclude` og skal ikke brukes som endelig selvforsyningsresultat.
+- Videre arbeid boer starte med G3 full produktmiks/yield eller A4 reviewer-aksept av DK gas-system scope.
 
 ## Scope
 
@@ -30,7 +30,7 @@ Dette handoffet var akseptansegate foer videre arbeid. Gjeldende status etter vi
 2. Alle tre kan lukkes innen samme uke hvis kilder bekreftes og én tabell/formel velges.
 3. B12 har høyest definisjonsrisiko (PPP vs PLI vs CPI). G3 har høyest scope-risiko (hvilke fôrimport telles, hvilken bakerske brukes). A4 har lavest definisjonsrisiko, men flest enkeltdatapunkter å samle.
 4. ACT-002 og ACT-011 (B12) viser i activation queue at andre workers allerede har laget metodenotat og 50-rads Eurostat PLI annual panel. Dette må lenkes til B12 gap-card og evidence-pack.
-5. ACT-009 (A4) og ACT-010 (G3) er fortsatt `initial-card` og krever første arbeidsbatch.
+5. ACT-009 (A4) er loeftet til `staged_analysis`; ACT-010 (G3) er `denominator_candidate_created` og krever full produktmiks + yield før resultatpromotering.
 
 ## Akseptansegate per gap
 
@@ -58,13 +58,15 @@ Metoderisiko å varsle eksplisitt:
 
 | Artefakt | Krav | Status |
 |---|---|---|
-| Valgt primærindikator | Én låst formel (energi vs vekt, fôrkorrigert vs ikke) | mangler |
-| Sjømateksport-scenario | CSV med minst to scenarioer (f.eks. behold 50 pct sjømateksport, fortrenge X kalorier innenlands) | mangler |
-| Metodenote | Forklaring av forskjellen mellom 34.9 pct, 41.3 pct, 47 pct og nær 100 pct med fisk | mangler |
-| NIBIO Engrosforbruk | Last ned tidsserie 1999-2024 lokalt | mangler |
+| Valgt primærindikator | Én låst formel (energi vs vekt, fôrkorrigert vs ikke) | levert som energi/kcal-scenario |
+| Sjømateksport-scenario | CSV med minst to scenarioer (f.eks. behold 50 pct sjømateksport, fortrenge X kalorier innenlands) | proxy_input_levert; resultat mangler full produktmiks/yield |
+| Metodenote | Forklaring av forskjellen mellom 34.9 pct, 41.3 pct, 47 pct og nær 100 pct med fisk | levert |
+| NIBIO Engrosforbruk | Last ned tidsserie 1999-2024 lokalt | delvis via locked `Nøkkeltall` celler AB5/AB6 |
 | Evidence-cards | NIBIO 2024-metodikk; NIBIO fôrimportkorreksjon; Helsedirektoratet konsumbaseline | delvis |
+| Eksportenergi-input | Produkt-/artsfordelt energiinput for norsk sjømateksport | foreloepig top-species proxy; `exclude` |
+| Innenlands denominator | Matenergi-/konsumgrunnlag for prosentberegning | denominator-kandidat levert; engros matforsyning ikke faktisk inntak |
 
-Akseptansegate i én setning: Kortet løftes når én valgt primærindikator, ett sjømateksport-scenario og en metodenote som forklarer hvorfor de fire selvforsyningstallene ikke er samme måltall, alle er levert.
+Akseptansegate i én setning: Kortet løftes når én valgt primærindikator, ett sjømateksport-scenario, full/akseptert eksportenergi-input, denominator og en metodenote som forklarer hvorfor de fire selvforsyningstallene ikke er samme måltall, alle er levert.
 
 Metoderisiko å varsle eksplisitt:
 - Blande fôrkorrigert og ufôrkorrigert tall
@@ -101,16 +103,16 @@ Metoderisiko å varsle eksplisitt:
 
 | Gap | Anbefalt status etter dette handoffet |
 |---|---|
-| A4 | forbli `initial-card` til artefakter levert; oppdater ACT-009 next_action med eksplisitt artefaktliste |
-| G3 | forbli `initial-card` til artefakter levert; oppdater ACT-010 next_action med formel + scenario-spec |
+| A4 | `staged_analysis`; ikke KI-promotert før reviewer har akseptert scope og eventuelle anleggs-/virkemiddelutvidelser |
+| G3 | forbli `exclude`/ikke resultatpromotert til full produktmiks/yield er levert; ACT-010 er `denominator_candidate_created` |
 | B12 | `panel_created` → `staged_analysis` så snart gap-card patches med pekere til ACT-002 og ACT-011 outputs |
 
 ## Neste handling
 
 For Wave 1-eier (Codex wave1 worker):
 
-1. B12 raskest til mål: patch evidence-card med pekere til panel og method-note. Anslag: under én uke.
-2. G3 før A4: G3 har færre artefakter å levere (3-4 mot 4+ for A4), og lukker mer kritisk overclaim-risiko (selvforsyning misforstås lett).
+1. B12 vedlikehold: behold `warn_user` til full Eurostat-response/checksum og QA-avstemming er låst.
+2. G3 neste: erstatt foreloepig top-species proxy med full produktmiks eller dokumentert dekningsregel, og lås spiselig yield/energifaktor før prosentresultat beregnes.
 3. A4 sist i Wave 1: data-tung men metoderiskoen er lavere.
 
 For QA (DQ-010):
