@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
+import { ResearchEvidenceBadge } from '@/components/visualization/ResearchEvidenceBadge'
+import type { ResearchEvidenceStatus } from '@/lib/visualization/types'
 
 type BolkSectionProps = {
   number: number
@@ -10,14 +12,36 @@ type BolkSectionProps = {
   charts: React.ReactNode
   table?: React.ReactNode
   seeAlso: Array<{ href: string; label: string }>
+  researchStatus?: ResearchEvidenceStatus
+  researchStatusDetail?: string
 }
 
-export function BolkSection({ number, title, question, narrative, takeaway, charts, table, seeAlso }: BolkSectionProps) {
+export function BolkSection({
+  number,
+  title,
+  question,
+  narrative,
+  takeaway,
+  charts,
+  table,
+  seeAlso,
+  researchStatus,
+  researchStatusDetail,
+}: BolkSectionProps) {
   return (
     <section className="mb-12">
       <header className="mb-4">
         <p className="text-[10px] uppercase tracking-wider text-stone-400">Bolk {number}</p>
-        <h2 className="text-2xl font-semibold text-stone-800">{title}</h2>
+        <div className="flex flex-wrap items-baseline gap-2 mt-0.5">
+          <h2 className="text-2xl font-semibold text-stone-800">{title}</h2>
+          {researchStatus && (
+            <ResearchEvidenceBadge
+              status={researchStatus}
+              prefix="Researchstatus"
+              detail={researchStatusDetail}
+            />
+          )}
+        </div>
         <p className="text-sm text-stone-500 mt-1 italic">{question}</p>
         <p className="text-sm text-stone-700 mt-2 max-w-3xl">{narrative}</p>
       </header>

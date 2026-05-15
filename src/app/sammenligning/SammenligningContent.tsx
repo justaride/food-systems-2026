@@ -62,6 +62,8 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
             title="Markedsstruktur & makt"
             question="Hvor konsentrert er nordisk dagligvare?"
             narrative="Norge har Nordens mest konsentrerte dagligvaremarked. HHI rundt 3445 ligger godt over Danmarks 2157 og signaliserer høy markedsmakt hos få aktører."
+            researchStatus="primary_snapshot"
+            researchStatusDetail="NO-HHI er kuratert primaerdata; nordisk sammenligning bruker delvis butikkantall-proxy og krever omsetnings-HHI for full paritet (B11 gap)."
             takeaway={
               <KeyTakeaway
                 headline={`HHI ${hhiNo ?? '—'} (NO høyest) vs ${hhiDk ?? '—'} (DK lavest)`}
@@ -125,11 +127,13 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
             number={2}
             title="Selvforsyning & beredskap"
             question="Hvor sårbar er hvert land for import-stopp?"
-            narrative="Selvforsyningsgraden spenner fra ~47 % (NO) til ~300 % (DK). Finland skiller seg ut med 9 måneders kornreserve via HVK-modellen — de andre landene har minimale strategiske lagre."
+            narrative="NIBIO 2024 oppgir 41,3 % selvforsyningsgrad for Norge totalt inkl. fisk og 34,9 % korrigert for importert kraftfor. Danmark ligger rundt ~300 %. Finland skiller seg ut med 9 måneders kornreserve via HVK-modellen — de andre landene har minimale strategiske lagre."
+            researchStatus="primary_snapshot"
+            researchStatusDetail="NIBIO Engrosforbruk 2024 (EV-A-022) er primaerkilden for NO; nordisk sammenligning krever felles definisjonsbaseline og er ikke ferdig harmonisert."
             takeaway={
               <KeyTakeaway
                 headline={`${dk ?? '—'} % DK vs ${no ?? '—'} % NO`}
-                subline="Kalori-basert selvforsyning"
+                subline="Kalori-basert selvforsyning (NIBIO 2024: NO 41,3% / 34,9% forkorrigert)"
               />
             }
             charts={
@@ -204,6 +208,8 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
             title="Verdikjedevolum & verdiskaping"
             question="Hvor mye produseres, og hvem tjener pengene?"
             narrative={`Norsk matsystem produserer rundt ${noProd.toFixed(0)} mrd NOK i samlet verdiskaping; sjømateksporten alene er flerfoldig over landbrukets bidrag.`}
+            researchStatus="local_research_needs_primary_check"
+            researchStatusDetail="NO value-added er kurert; nordisk paritet er ikke harmonisert. CO2e per ledd er kun NO; SE/DK/FI/IS sjømat-eksportverdi mangler primaersjekk."
             takeaway={
               <KeyTakeaway
                 headline={`${noProd.toFixed(0)} mrd NOK total verdiskaping (NO)`}
@@ -279,7 +285,9 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
             number={4}
             title="Sirkularitet & matsvinn"
             question="Hvor langt er hvert land i sirkulær omstilling?"
-            narrative="Norge har redusert matsvinn betydelig siden 2015, og pant-returrate over 90 % er Nordens høyeste. Biogass-utbygging varierer kraftig per innbygger."
+            narrative="Norge har redusert matsvinn betydelig siden 2015 (per Matvett/NORSUS tidsserie), og pant-returrate over 90 % er Nordens høyeste. Biogass-utbygging varierer kraftig per innbygger og har ulike scope-grenser per land."
+            researchStatus="primary_snapshot"
+            researchStatusDetail="Matsvinn-tall er primaerkilder (EV-B-025/026); biogass-sammenligning bruker scoped panel STC-030 med eksplisitt DK gas-system og NO industry-scope. Nutrient-flows og bypass-strommer er proxy_model."
             takeaway={
               noReduction !== null && noReduction !== undefined ? (
                 <KeyTakeaway
@@ -325,7 +333,9 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
             number={5}
             title="Politikk & regulering"
             question="Hvordan styres systemet ulikt?"
-            narrative="Norden konvergerer på matsvinn, biogass og emballasje, men i ulikt tempo og med ulike virkemidler — fra bransjeavtaler til bindende lov."
+            narrative="Norden konvergerer på matsvinn, biogass og emballasje, men i ulikt tempo og med ulike virkemidler — fra bransjeavtaler til bindende lov. Norges matsvinnlov (LOV-2025-06-20-103), Danmarks Klimaaftale 2024 og Sveriges styringsgap (RiR 2025) er sentrale referansepunkter."
+            researchStatus="primary_snapshot"
+            researchStatusDetail="EV-C-026 matsvinnloven, EV-C-027 Klimaaftalen og EV-C-028 Riksrevisionen er primaerkilder med URL/paragraf-locator. Norsk handelsskikklov (EV-C-013) overforer til Konkurransetilsynet 2026-04-30."
             takeaway={
               <KeyTakeaway
                 headline="2015–2030 — bransjeavtale → matsvinnlov → PFAS-forbud"
