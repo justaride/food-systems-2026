@@ -1,4 +1,7 @@
 import { prisma } from '@/lib/db'
+import { parseCsvRecords } from '@/lib/csv'
+import { displayLaneFromReviewStatus, type ValueChainDisplayLane } from '@/lib/supply-chain-status'
+import { isPrismaDataUnavailable } from './prisma-errors'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
@@ -27,67 +30,84 @@ export type PrimaryDeliveriesData = {
 }
 
 export async function getPrimaryProducerDeliveries(): Promise<PrimaryDeliveriesData> {
-  const [buyerRows, totals] = await Promise.all([
-    prisma.deliveryVolume.groupBy({
-      by: ['buyerId', 'buyerName', 'commodity', 'unit'],
-      _sum: { quantity: true },
+  try {
+    const [buyerRows, totals] = await Promise.all([
+      prisma.deliveryVolume.groupBy({
+        by: ['buyerId', 'buyerName', 'commodity', 'unit'],
+        _sum: { quantity: true },
+        _count: true,
+      }),
+      prisma.deliveryVolume.aggregate({ _count: true }),
+    ])
+
+    const distinctSuppliers = await prisma.deliveryVolume.groupBy({
+      by: ['supplierOrgNr'],
       _count: true,
-    }),
-    prisma.deliveryVolume.aggregate({ _count: true }),
-  ])
-
-  const distinctSuppliers = await prisma.deliveryVolume.groupBy({
-    by: ['supplierOrgNr'],
-    _count: true,
-  })
-
-  const byBuyer: DeliveryBuyerRow[] = buyerRows
-    .map(r => ({
-      buyerId: r.buyerId,
-      buyerName: r.buyerName,
-      commodity: r.commodity,
-      supplierCount: r._count,
-      totalQuantity: Number(r._sum.quantity ?? 0),
-      unit: r.unit,
-    }))
-    .filter(r => r.totalQuantity > 0)
-    .sort((a, b) => b.totalQuantity - a.totalQuantity)
-
-  const commodityMap = new Map<string, DeliveryCommoditySummary>()
-  for (const row of byBuyer) {
-    const existing = commodityMap.get(row.commodity) ?? {
-      commodity: row.commodity,
-      unit: row.unit,
-      totalQuantity: 0,
-      supplierCount: 0,
-      buyers: [],
-    }
-    existing.totalQuantity += row.totalQuantity
-    existing.supplierCount += row.supplierCount
-    existing.buyers.push({
-      buyerId: row.buyerId,
-      buyerName: row.buyerName,
-      quantity: row.totalQuantity,
-      supplierCount: row.supplierCount,
     })
-    commodityMap.set(row.commodity, existing)
-  }
 
-  const byCommodity = Array.from(commodityMap.values())
-    .map(c => ({ ...c, buyers: c.buyers.sort((a, b) => b.quantity - a.quantity) }))
-    .sort((a, b) => b.totalQuantity - a.totalQuantity)
+    const byBuyer: DeliveryBuyerRow[] = buyerRows
+      .map(r => ({
+        buyerId: r.buyerId,
+        buyerName: r.buyerName,
+        commodity: r.commodity,
+        supplierCount: r._count,
+        totalQuantity: Number(r._sum.quantity ?? 0),
+        unit: r.unit,
+      }))
+      .filter(r => r.totalQuantity > 0)
+      .sort((a, b) => b.totalQuantity - a.totalQuantity)
 
-  return {
-    byBuyer,
-    byCommodity,
-    totalSuppliers: distinctSuppliers.length,
-    totalDeliveryRows: totals._count,
+    const commodityMap = new Map<string, DeliveryCommoditySummary>()
+    for (const row of byBuyer) {
+      const existing = commodityMap.get(row.commodity) ?? {
+        commodity: row.commodity,
+        unit: row.unit,
+        totalQuantity: 0,
+        supplierCount: 0,
+        buyers: [],
+      }
+      existing.totalQuantity += row.totalQuantity
+      existing.supplierCount += row.supplierCount
+      existing.buyers.push({
+        buyerId: row.buyerId,
+        buyerName: row.buyerName,
+        quantity: row.totalQuantity,
+        supplierCount: row.supplierCount,
+      })
+      commodityMap.set(row.commodity, existing)
+    }
+
+    const byCommodity = Array.from(commodityMap.values())
+      .map(c => ({ ...c, buyers: c.buyers.sort((a, b) => b.quantity - a.quantity) }))
+      .sort((a, b) => b.totalQuantity - a.totalQuantity)
+
+    return {
+      byBuyer,
+      byCommodity,
+      totalSuppliers: distinctSuppliers.length,
+      totalDeliveryRows: totals._count,
+    }
+  } catch (error) {
+    if (!isPrismaDataUnavailable(error)) throw error
+    return {
+      byBuyer: [],
+      byCommodity: [],
+      totalSuppliers: 0,
+      totalDeliveryRows: 0,
+    }
   }
 }
 
 type SupplyChainNode = {
   id: string
   label: string
+  valueChainStage: string | null
+  country: string
+}
+
+type SupplyChainCompanySelection = {
+  id: string
+  name: string
   valueChainStage: string | null
   country: string
 }
@@ -156,6 +176,9 @@ type ValueChainInventoryRow = {
   missingVolumeSteps: string[]
   missingWasteSteps: string[]
   selfSufficiencyPct: number | null
+  displayLane: ValueChainDisplayLane
+  reviewStatus: string
+  statusNote: string | null
 }
 
 type ProjectDataCandidate = {
@@ -345,6 +368,12 @@ const TARGET_VALUE_CHAIN_STEPS = [
 
 const FOOD_SYSTEMS_DATA_ROOT = path.join(process.cwd(), 'public', 'data', 'food-systems')
 const NORDIC_DATA_ROOT = path.join(process.cwd(), 'research', 'data', 'nordic')
+const COVERAGE_LEDGER_PATH = path.join(
+  process.cwd(),
+  'docs',
+  'project',
+  'forsyningskjede-nordic-coverage-ledger-2026-04-29.csv',
+)
 const IMPORT_PANEL_PATH = ['trade-groups', 'normalized', 'trade-group-imports-annual.csv']
 const COUNTRY_ORDER = ['NO', 'SE', 'DK', 'FI', 'IS']
 
@@ -379,39 +408,6 @@ async function countNordicCsvRows(...segments: string[]): Promise<number | null>
   }
 }
 
-function parseCsvLine(line: string): string[] {
-  const values: string[] = []
-  let current = ''
-  let inQuotes = false
-
-  for (let i = 0; i < line.length; i += 1) {
-    const char = line[i]
-    const next = line[i + 1]
-
-    if (char === '"' && inQuotes && next === '"') {
-      current += '"'
-      i += 1
-      continue
-    }
-
-    if (char === '"') {
-      inQuotes = !inQuotes
-      continue
-    }
-
-    if (char === ',' && !inQuotes) {
-      values.push(current)
-      current = ''
-      continue
-    }
-
-    current += char
-  }
-
-  values.push(current)
-  return values
-}
-
 async function readNordicCsvRecords(...segments: string[]): Promise<Record<string, string>[]> {
   let text: string
   try {
@@ -419,13 +415,21 @@ async function readNordicCsvRecords(...segments: string[]): Promise<Record<strin
   } catch {
     return []
   }
-  const lines = text.trim().split(/\r?\n/)
-  const header = parseCsvLine(lines[0] ?? '')
+  return parseCsvRecords(text)
+}
 
-  return lines.slice(1).map(line => {
-    const values = parseCsvLine(line)
-    return Object.fromEntries(header.map((key, index) => [key, values[index] ?? '']))
-  })
+async function readValueChainStepLedger(): Promise<Map<string, Record<string, string>>> {
+  try {
+    const text = await readFile(COVERAGE_LEDGER_PATH, 'utf8')
+    const rows = parseCsvRecords(text)
+    return new Map(
+      rows
+        .filter(row => row.domain === 'value_chain' && row.subdomain === 'steps')
+        .map(row => [row.country.toUpperCase(), row]),
+    )
+  } catch {
+    return new Map()
+  }
 }
 
 async function countFoodSystemsJsonRecords(...segments: string[]): Promise<number | null> {
@@ -451,8 +455,10 @@ async function countFoodSystemsJsonRecords(...segments: string[]): Promise<numbe
 
 async function getValueChainInventory(): Promise<ValueChainInventoryRow[]> {
   const countries = ['no', 'se', 'dk', 'fi', 'is']
+  const ledgerByCountry = await readValueChainStepLedger()
   const rows = await Promise.all(
     countries.map(async country => {
+      const ledgerRow = ledgerByCountry.get(country.toUpperCase())
       const data = await readFoodSystemsJson<{
         year?: number
         selfSufficiency?: { caloric_pct?: number }
@@ -486,6 +492,9 @@ async function getValueChainInventory(): Promise<ValueChainInventoryRow[]> {
         missingVolumeSteps,
         missingWasteSteps,
         selfSufficiencyPct: data?.selfSufficiency?.caloric_pct ?? null,
+        displayLane: displayLaneFromReviewStatus(ledgerRow?.review_status),
+        reviewStatus: ledgerRow?.review_status ?? 'missing',
+        statusNote: ledgerRow?.notes ?? null,
       }
     })
   )
@@ -498,7 +507,210 @@ function recordLabel(count: number | null, unit: string): string {
   return `${count.toLocaleString('no')} ${unit}`
 }
 
+async function getSupplyChainDataQualityFallback(): Promise<SupplyChainDataQuality> {
+  const [
+    valueChainInventory,
+    tradeGroupAnnualRows,
+    corePriceRows,
+    coreTradeRows,
+    coreProductionRows,
+    feedTimeseriesRows,
+    logisticsHubRows,
+    processingPlantRows,
+    portRows,
+    aquacultureSiteRows,
+    circularityRows,
+    nutrientRows,
+  ] = await Promise.all([
+    getValueChainInventory(),
+    countNordicCsvRows(...IMPORT_PANEL_PATH),
+    countNordicCsvRows('core-series', 'prices_hicp_food_monthly.csv'),
+    countNordicCsvRows('core-series', 'trade_monthly_first_panel.csv'),
+    countNordicCsvRows('core-series', 'production_annual_first_panel.csv'),
+    countFoodSystemsJsonRecords('feed-composition-timeseries.json'),
+    countFoodSystemsJsonRecords('logistics_hubs.geojson'),
+    countFoodSystemsJsonRecords('processing_plants.geojson'),
+    countFoodSystemsJsonRecords('ports.geojson'),
+    countFoodSystemsJsonRecords('aquaculture_sites.geojson'),
+    countFoodSystemsJsonRecords('circularity-loops.json'),
+    countFoodSystemsJsonRecords('nutrient-flows.json'),
+  ])
+
+  const valueChainCoverage =
+    valueChainInventory.length > 0
+      ? Math.round(
+          valueChainInventory.reduce((sum, row) => sum + row.targetStepCoveragePct, 0) /
+            valueChainInventory.length
+        )
+      : 0
+
+  const metrics: SupplyChainQualityMetric[] = [
+    {
+      id: 'db-relationships',
+      label: 'DB-relasjoner tilgjengelig',
+      value: 0,
+      denominator: 1,
+      percent: 0,
+      detail: 'Prisma/DB er ikke tilgjengelig; viser bare lokale filer og statuspanel.',
+      status: 'error',
+    },
+    {
+      id: 'value-chain-files',
+      label: 'Nordisk ledddekning',
+      value: valueChainInventory.reduce(
+        (sum, row) => sum + (TARGET_VALUE_CHAIN_STEPS.length - row.missingTargetSteps.length),
+        0
+      ),
+      denominator: valueChainInventory.length * TARGET_VALUE_CHAIN_STEPS.length,
+      percent: valueChainCoverage,
+      detail: '8 mål-ledd per land i value-chain.json',
+      status: metricStatus(valueChainCoverage, 85, 65),
+    },
+  ]
+
+  return {
+    generatedAt: new Date().toISOString(),
+    qualityScore: Math.round(metrics.reduce((sum, metric) => sum + (metric.percent ?? 0), 0) / metrics.length),
+    metrics,
+    stageCoverage: [],
+    relationshipTypes: [],
+    deliveryCommodities: [],
+    valueChainInventory,
+    projectDataCandidates: [
+      {
+        id: 'value-chain-json',
+        title: 'Nordiske value-chain-filer',
+        path: 'public/data/food-systems/{no,se,dk,fi,is}/value-chain.json',
+        records: `${valueChainInventory.length} land / ${valueChainInventory.reduce((sum, row) => sum + row.stepCount, 0)} ledd`,
+        readiness: 'klar-med-forbehold',
+        quality: 'medium',
+        why: 'Gir landvis selvforsyning, ledd, waste, policy og kildelister selv når DB ikke er tilgjengelig.',
+        integration: 'Brukes som nordisk dekningspanel og gapliste, ikke som direkte relasjonsgraf.',
+      },
+      {
+        id: 'trade-groups',
+        title: 'Importpanel per varegruppe',
+        path: 'research/data/nordic/trade-groups/normalized/trade-group-imports-annual.csv',
+        records: recordLabel(tradeGroupAnnualRows, 'rader'),
+        readiness: 'klar-med-forbehold',
+        quality: 'medium',
+        why: 'Synliggjør importavhengighet for korn, kjøtt, fisk/sjømat, meieri/egg, frukt/grønt og fett/oljer.',
+        integration: 'Legg inn som egen import-sårbarhetsstripe med tydelig nivå-/klassifikasjonsforbehold.',
+      },
+      {
+        id: 'core-series',
+        title: 'Kjerne-serier for pris, handel og produksjon',
+        path: 'research/data/nordic/core-series/',
+        records: `${recordLabel(corePriceRows, 'prisrader')}, ${recordLabel(coreTradeRows, 'handelsrader')}, ${recordLabel(coreProductionRows, 'produksjonsrader')}`,
+        readiness: 'klar-med-forbehold',
+        quality: 'medium',
+        why: 'Gir tidsdimensjon for prispress, handelsbevegelse og produksjonsvolatilitet.',
+        integration: 'Bruk som trendpanel ved siden av grafen, med indeks/level-skille bevart.',
+      },
+      {
+        id: 'geo-assets',
+        title: 'Romlige noder: hubber, anlegg, havner og akvakultur',
+        path: 'public/data/food-systems/*.geojson',
+        records: `${recordLabel(logisticsHubRows, 'hubber')}, ${recordLabel(processingPlantRows, 'anlegg')}, ${recordLabel(portRows, 'havner')}, ${recordLabel(aquacultureSiteRows, 'akvalokaliteter')}`,
+        readiness: 'staging',
+        quality: 'medium',
+        why: 'Forsyningskjede-grafen mangler geografisk flaskehals- og infrastrukturvisning.',
+        integration: 'Koble som kart-/infrastrukturpanel etter ID- og kildefelt er harmonisert.',
+      },
+      {
+        id: 'feed-composition',
+        title: 'Fôrkomposisjon og opprinnelse',
+        path: 'public/data/food-systems/feed-composition-timeseries.json',
+        records: recordLabel(feedTimeseriesRows, 'tidsseriepunkter'),
+        readiness: 'klar-na',
+        quality: 'high',
+        why: 'Direkte relevant for innsatsvarer, importert fôrråvare og Food TG-spor A.',
+        integration: 'Løft inn som sårbarhetsmodul for sjømat/fôr, koblet til Skretting, BioMar, Cargill og Mowi.',
+      },
+      {
+        id: 'circular-flows',
+        title: 'Sirkulære looper og næringsstrømmer',
+        path: 'public/data/food-systems/circularity-loops.json + nutrient-flows.json',
+        records: `${recordLabel(circularityRows, 'loop-/case-rader')}, ${recordLabel(nutrientRows, 'nutrient-rader')}`,
+        readiness: 'staging',
+        quality: 'medium',
+        why: 'Dekker returstrømmer som dagens forsyningskjede-graf nesten ikke viser.',
+        integration: 'Bruk som egen “retur- og sidestrøm”-seksjon med benchmark/statusmerking.',
+      },
+    ],
+    findings: [
+      'Prisma/DB er ikke tilgjengelig i denne kjøringen; DB-baserte relasjoner og leveranser er derfor ikke lastet.',
+      `Nordiske value-chain-filer dekker ${valueChainInventory.reduce((sum, row) => sum + row.stepCount, 0)} ledd og vises fortsatt fra lokale JSON-/CSV-kilder.`,
+      'Fôrkomposisjon, importpanel og geografiske hubber kan fortsatt vurderes som lokale kandidatdata.',
+    ],
+  }
+}
+
 export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQuality> {
+  let dbInputs: [
+    number,
+    number,
+    number,
+    { valueChainStage: string | null; _count: { _all: number } }[],
+    { relationshipType: string; _count: { _all: number } }[],
+    { commodity: string; year: number; unit: string; _sum: { quantity: unknown }; _count: { _all: number } }[],
+    { commodity: string; _count: { _all: number } }[],
+    { commodity: string; _count: { _all: number } }[],
+    number,
+    number,
+    number,
+    number,
+    number,
+    { supplierOrgNr: string; _count: { _all: number } }[],
+  ]
+
+  try {
+    dbInputs = await Promise.all([
+      prisma.company.count(),
+      prisma.businessRelationship.count(),
+      prisma.deliveryVolume.count(),
+      prisma.company.groupBy({
+        by: ['valueChainStage'],
+        _count: { _all: true },
+      }),
+      prisma.businessRelationship.groupBy({
+        by: ['relationshipType'],
+        _count: { _all: true },
+      }),
+      prisma.deliveryVolume.groupBy({
+        by: ['commodity', 'year', 'unit'],
+        _sum: { quantity: true },
+        _count: { _all: true },
+      }),
+      prisma.deliveryVolume.groupBy({
+        by: ['commodity'],
+        where: { buyerId: null },
+        _count: { _all: true },
+      }),
+      prisma.deliveryVolume.groupBy({
+        by: ['commodity'],
+        where: { kommuneNr: null },
+        _count: { _all: true },
+      }),
+      prisma.businessRelationship.count({
+        where: { OR: [{ source: null }, { source: '' }] },
+      }),
+      prisma.businessRelationship.count({
+        where: { OR: [{ description: null }, { description: '' }] },
+      }),
+      prisma.deliveryVolume.count({ where: { buyerId: null } }),
+      prisma.deliveryVolume.count({ where: { kommuneNr: null } }),
+      prisma.deliveryVolume.count({ where: { quantity: { lte: 0 } } }),
+      prisma.deliveryVolume.groupBy({
+        by: ['supplierOrgNr'],
+        _count: { _all: true },
+      }),
+    ])
+  } catch (error) {
+    if (!isPrismaDataUnavailable(error)) throw error
+    return getSupplyChainDataQualityFallback()
+  }
+
   const [
     totalCompanies,
     totalRelationships,
@@ -514,6 +726,9 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
     deliveryMissingKommune,
     zeroDelivery,
     distinctSuppliers,
+  ] = dbInputs
+
+  const [
     valueChainInventory,
     tradeGroupAnnualRows,
     corePriceRows,
@@ -527,45 +742,6 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
     circularityRows,
     nutrientRows,
   ] = await Promise.all([
-    prisma.company.count(),
-    prisma.businessRelationship.count(),
-    prisma.deliveryVolume.count(),
-    prisma.company.groupBy({
-      by: ['valueChainStage'],
-      _count: { _all: true },
-    }),
-    prisma.businessRelationship.groupBy({
-      by: ['relationshipType'],
-      _count: { _all: true },
-    }),
-    prisma.deliveryVolume.groupBy({
-      by: ['commodity', 'year', 'unit'],
-      _sum: { quantity: true },
-      _count: { _all: true },
-    }),
-    prisma.deliveryVolume.groupBy({
-      by: ['commodity'],
-      where: { buyerId: null },
-      _count: { _all: true },
-    }),
-    prisma.deliveryVolume.groupBy({
-      by: ['commodity'],
-      where: { kommuneNr: null },
-      _count: { _all: true },
-    }),
-    prisma.businessRelationship.count({
-      where: { OR: [{ source: null }, { source: '' }] },
-    }),
-    prisma.businessRelationship.count({
-      where: { OR: [{ description: null }, { description: '' }] },
-    }),
-    prisma.deliveryVolume.count({ where: { buyerId: null } }),
-    prisma.deliveryVolume.count({ where: { kommuneNr: null } }),
-    prisma.deliveryVolume.count({ where: { quantity: { lte: 0 } } }),
-    prisma.deliveryVolume.groupBy({
-      by: ['supplierOrgNr'],
-      _count: { _all: true },
-    }),
     getValueChainInventory(),
     countNordicCsvRows(...IMPORT_PANEL_PATH),
     countNordicCsvRows('core-series', 'prices_hicp_food_monthly.csv'),
@@ -1078,12 +1254,36 @@ export async function getInfrastructureData(): Promise<InfrastructureData> {
 }
 
 export async function getSupplyChainGraph(): Promise<SupplyChainGraphData> {
-  const relationships = await prisma.businessRelationship.findMany({
-    include: {
-      fromCompany: { select: { id: true, name: true, valueChainStage: true, country: true } },
-      toCompany: { select: { id: true, name: true, valueChainStage: true, country: true } },
-    },
-  })
+  let relationships: Array<{
+    id: string
+    fromCompanyId: string
+    toCompanyId: string
+    relationshipType: string
+    description: string | null
+    sector: string | null
+    estimatedValue: number | null
+    fromCompany: SupplyChainCompanySelection
+    toCompany: SupplyChainCompanySelection
+  }>
+  try {
+    relationships = await prisma.businessRelationship.findMany({
+      include: {
+        fromCompany: { select: { id: true, name: true, valueChainStage: true, country: true } },
+        toCompany: { select: { id: true, name: true, valueChainStage: true, country: true } },
+      },
+    })
+  } catch (error) {
+    if (!isPrismaDataUnavailable(error)) throw error
+    return {
+      nodes: [],
+      edges: [],
+      stats: {
+        totalRelationships: 0,
+        companiesInvolved: 0,
+        byType: {},
+      },
+    }
+  }
 
   const companyMap = new Map<string, SupplyChainNode>()
 

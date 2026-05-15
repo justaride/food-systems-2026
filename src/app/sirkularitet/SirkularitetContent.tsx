@@ -1,5 +1,6 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
@@ -7,10 +8,17 @@ import { EmptyState } from '@/components/ui/EmptyState'
 import { RLadderMatrix } from '@/components/charts/RLadderMatrix'
 import { RLadderMaturityOverview } from '@/components/charts/RLadderMaturityOverview'
 import { R9KpiCatalog } from '@/components/charts/R9KpiCatalog'
-import { NutrientFlowsView } from '@/components/charts/NutrientFlowsView'
 import { circularityQuestions, type CircularityQuestion, type QuestionStatus } from '@/lib/data/circularity-questions'
 import { CIRCULARITY_ACTOR_MAP } from '@/lib/data/circularity-actor-map'
 import { rLadderById } from '@/lib/data/r-ladder'
+
+const NutrientFlowsView = dynamic(
+  () => import('@/components/charts/NutrientFlowsView').then(mod => mod.NutrientFlowsView),
+  {
+    ssr: false,
+    loading: () => <div className="h-[420px]" aria-hidden="true" />,
+  }
+)
 
 type Loop = {
   id: string

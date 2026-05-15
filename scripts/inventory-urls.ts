@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
 import { reports } from '../src/lib/data/reports'
 import { theses } from '../src/lib/data/theses'
+import { parseCsvRecords } from '../src/lib/csv'
 
 type SourceType =
   | 'report_canonical'
@@ -34,13 +35,9 @@ function loadKiPriority(root: string): Map<string, number> {
   } catch {
     return map
   }
-  const lines = raw.split('\n').filter((l) => l.trim().length > 0)
-  // header: type,id,score,year,category,provenance,hasUrl,title,signals
-  for (let i = 1; i < lines.length; i++) {
-    const parts = lines[i].split(',')
-    if (parts.length < 3) continue
-    const id = parts[1]
-    const score = parseFloat(parts[2])
+  for (const row of parseCsvRecords(raw)) {
+    const id = row.id
+    const score = parseFloat(row.score)
     if (!Number.isNaN(score)) map.set(id, score)
   }
   return map

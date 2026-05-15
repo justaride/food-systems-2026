@@ -1,20 +1,37 @@
 'use client'
 
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
-import { RevenueTrendChart } from '@/components/charts/RevenueTrendChart'
-import { MarginTrendChart } from '@/components/charts/MarginTrendChart'
-import { EmployeeTrendChart } from '@/components/charts/EmployeeTrendChart'
-import { EbitdaTrendChart } from '@/components/charts/EbitdaTrendChart'
-import { EquityRatioTrendChart } from '@/components/charts/EquityRatioTrendChart'
 import type {
   CompanyWithFinancials,
   SubsidySumByCompany,
   SubsidySumsByCompanyYear,
 } from '@/lib/queries/financials'
 import type { SubsidyAggregates } from '@/lib/queries/subsidies'
+
+const RevenueTrendChart = dynamic(
+  () => import('@/components/charts/RevenueTrendChart').then(mod => mod.RevenueTrendChart),
+  { ssr: false, loading: () => <div className="h-[280px]" aria-hidden="true" /> }
+)
+const MarginTrendChart = dynamic(
+  () => import('@/components/charts/MarginTrendChart').then(mod => mod.MarginTrendChart),
+  { ssr: false, loading: () => <div className="h-[280px]" aria-hidden="true" /> }
+)
+const EmployeeTrendChart = dynamic(
+  () => import('@/components/charts/EmployeeTrendChart').then(mod => mod.EmployeeTrendChart),
+  { ssr: false, loading: () => <div className="h-[320px]" aria-hidden="true" /> }
+)
+const EbitdaTrendChart = dynamic(
+  () => import('@/components/charts/EbitdaTrendChart').then(mod => mod.EbitdaTrendChart),
+  { ssr: false, loading: () => <div className="h-[280px]" aria-hidden="true" /> }
+)
+const EquityRatioTrendChart = dynamic(
+  () => import('@/components/charts/EquityRatioTrendChart').then(mod => mod.EquityRatioTrendChart),
+  { ssr: false, loading: () => <div className="h-[280px]" aria-hidden="true" /> }
+)
 
 const COMPANY_COLORS = [
   '#e11d48', '#2563eb', '#16a34a', '#ea580c', '#7c3aed', '#0891b2',

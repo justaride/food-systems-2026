@@ -30,6 +30,7 @@ import {
 } from 'fs'
 import { tmpdir } from 'os'
 import { dirname, join, relative } from 'path'
+import { parseCsvRecords } from '../src/lib/csv'
 
 const ROOT = process.cwd()
 const RESEARCH_DIR = join(ROOT, 'research')
@@ -61,57 +62,18 @@ type TriageRow = {
 }
 
 function parseCsv(text: string): TriageRow[] {
-  // Triage CSV is well-formed with quoted fields containing commas; we parse
-  // it manually instead of pulling in a dependency.
-  const rows: TriageRow[] = []
-  const lines = text.split(/\r?\n/).filter((l) => l.length > 0)
-  if (lines.length < 2) return rows
-  for (let i = 1; i < lines.length; i++) {
-    const fields = parseCsvLine(lines[i])
-    if (fields.length < 7) continue
-    rows.push({
-      path: fields[0],
-      classification: fields[1],
-      wordCount: parseInt(fields[2], 10) || 0,
-      hasMdCompanion: fields[3],
-      referencedInSeed: fields[4],
-      severity: fields[5],
-      action: fields[6],
-    })
-  }
-  return rows
-}
-
-function parseCsvLine(line: string): string[] {
-  const out: string[] = []
-  let cur = ''
-  let inQuotes = false
-  for (let i = 0; i < line.length; i++) {
-    const ch = line[i]
-    if (inQuotes) {
-      if (ch === '"') {
-        if (line[i + 1] === '"') {
-          cur += '"'
-          i++
-        } else {
-          inQuotes = false
-        }
-      } else {
-        cur += ch
-      }
-    } else {
-      if (ch === ',') {
-        out.push(cur)
-        cur = ''
-      } else if (ch === '"') {
-        inQuotes = true
-      } else {
-        cur += ch
-      }
-    }
-  }
-  out.push(cur)
-  return out
+  return parseCsvRecords(text).flatMap(record => {
+    if (!record.path) return []
+    return [{
+      path: record.path,
+      classification: record.classification,
+      wordCount: parseInt(record.word_count, 10) || 0,
+      hasMdCompanion: record.has_md_companion,
+      referencedInSeed: record.referenced_in_seed,
+      severity: record.severity,
+      action: record.action,
+    }]
+  })
 }
 
 // ===== Pandoc detection =======================================================

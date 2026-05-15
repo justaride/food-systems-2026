@@ -14,6 +14,7 @@ import { basename, join, resolve } from 'path'
 import { tmpdir } from 'os'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { parseCsvRecords } from '../src/lib/csv'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -56,56 +57,23 @@ type Outcome = {
   pages: number
 }
 
-function parseCsvLine(line: string): string[] {
-  const fields: string[] = []
-  let current = ''
-  let inQuotes = false
-  for (let i = 0; i < line.length; i++) {
-    const ch = line[i]
-    if (inQuotes) {
-      if (ch === '"') {
-        if (line[i + 1] === '"') {
-          current += '"'
-          i++
-        } else {
-          inQuotes = false
-        }
-      } else {
-        current += ch
-      }
-    } else {
-      if (ch === ',') {
-        fields.push(current)
-        current = ''
-      } else if (ch === '"') {
-        inQuotes = true
-      } else {
-        current += ch
-      }
-    }
-  }
-  fields.push(current)
-  return fields
-}
-
 function loadScannedRows(): CsvRow[] {
   if (!existsSync(QUALITY_CSV)) {
     throw new Error(`PDF-QUALITY.csv not found at ${QUALITY_CSV}`)
   }
-  const lines = readFileSync(QUALITY_CSV, 'utf-8').split('\n').filter(l => l.length > 0)
+  const records = parseCsvRecords(readFileSync(QUALITY_CSV, 'utf-8'))
   const rows: CsvRow[] = []
-  for (let i = 1; i < lines.length; i++) {
-    const f = parseCsvLine(lines[i])
-    if (f.length < 8) continue
+  for (const record of records) {
+    if (!record.path) continue
     const row: CsvRow = {
-      path: f[0],
-      classification: f[1],
-      fileSizeKb: Number(f[2]) || 0,
-      wordCount: Number(f[3]) || 0,
-      wordDensity: Number(f[4]) || 0,
-      severity: f[5],
-      action: f[6],
-      notes: f[7],
+      path: record.path,
+      classification: record.classification,
+      fileSizeKb: Number(record.file_size_kb) || 0,
+      wordCount: Number(record.word_count) || 0,
+      wordDensity: Number(record.word_density) || 0,
+      severity: record.severity,
+      action: record.action,
+      notes: record.notes,
     }
     if (row.classification === 'scanned') rows.push(row)
   }

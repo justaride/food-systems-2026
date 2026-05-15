@@ -5,8 +5,15 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
-import { FeedCompositionTimeseries } from '@/components/charts/FeedCompositionTimeseries'
 import type { StageEnrichment, VerdikjedeOverview } from '@/lib/queries/verdikjede'
+
+const FeedCompositionTimeseries = dynamic(
+  () => import('@/components/charts/FeedCompositionTimeseries').then(mod => mod.FeedCompositionTimeseries),
+  {
+    ssr: false,
+    loading: () => <div className="h-[360px]" aria-hidden="true" />,
+  }
+)
 
 const FoodFlowSankey = dynamic(
   () => import('@/components/charts/FoodFlowSankey').then((mod) => mod.FoodFlowSankey),

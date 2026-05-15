@@ -1,11 +1,19 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { useState } from 'react'
-import { ComparisonBarChart } from '@/components/charts/ComparisonBarChart'
 import { Card } from '@/components/ui/Card'
 import { DataGapBadge } from './DataGapBadge'
 import { InfoPopover } from './InfoPopover'
 import { PerCapitaToggle } from './PerCapitaToggle'
+
+const ComparisonBarChart = dynamic(
+  () => import('@/components/charts/ComparisonBarChart').then(mod => mod.ComparisonBarChart),
+  {
+    ssr: false,
+    loading: () => <div className="h-[200px]" aria-hidden="true" />,
+  }
+)
 
 type CountryRow = {
   country: string

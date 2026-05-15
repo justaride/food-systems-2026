@@ -23,7 +23,7 @@ export function ComparisonBarChart({ title, data, unit, description, bare }: Com
       {title && <h3 className="text-sm font-semibold text-stone-700 mb-0.5">{title}</h3>}
       {description && <p className="text-xs text-stone-400 mb-3">{description}</p>}
       <div className="h-[200px]">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 360, height: 200 }}>
           <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 60, left: 80, bottom: 5 }}>
             <XAxis type="number" hide />
             <YAxis

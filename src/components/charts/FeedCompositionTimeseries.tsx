@@ -202,7 +202,7 @@ export function FeedCompositionTimeseries() {
       </p>
 
       <div className="h-[280px]">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 720, height: 320 }}>
           <AreaChart data={chartData} margin={{ top: 8, right: 16, left: 0, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e7e5e4" />
             <XAxis

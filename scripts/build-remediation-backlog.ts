@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
+import { parseCsvRecords } from '../src/lib/csv'
 
 type BacklogRow = {
   source: 'file-coverage' | 'pdf-quality' | 'html-triage' | 'url-health'
@@ -12,41 +13,8 @@ type BacklogRow = {
   fix_group: string
 }
 
-function parseCsvLine(line: string): string[] {
-  const cells: string[] = []
-  let current = ''
-  let inQuotes = false
-  for (let i = 0; i < line.length; i++) {
-    const c = line[i]
-    if (c === '"') {
-      if (inQuotes && line[i + 1] === '"') {
-        current += '"'
-        i++
-      } else {
-        inQuotes = !inQuotes
-      }
-    } else if (c === ',' && !inQuotes) {
-      cells.push(current)
-      current = ''
-    } else {
-      current += c
-    }
-  }
-  cells.push(current)
-  return cells
-}
-
 function parseCsv(content: string): Record<string, string>[] {
-  const lines = content.trim().split('\n')
-  const headers = parseCsvLine(lines[0])
-  return lines.slice(1).map((line) => {
-    const cells = parseCsvLine(line)
-    const row: Record<string, string> = {}
-    headers.forEach((h, i) => {
-      row[h] = cells[i] ?? ''
-    })
-    return row
-  })
+  return parseCsvRecords(content)
 }
 
 function csvEscape(value: string): string {

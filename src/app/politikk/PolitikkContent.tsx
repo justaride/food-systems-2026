@@ -1,12 +1,20 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { COUNTRY_LIST } from '@/lib/config/countries'
 import type { CountryCode } from '@/lib/config/countries'
 import type { PolicyDocumentsByCountry } from '@/lib/queries/documents'
 import type { BacklogRowWithRound } from '@/lib/queries/download-backlog'
-import { MatsvinnProgressChart } from '@/components/charts/MatsvinnProgressChart'
+
+const MatsvinnProgressChart = dynamic(
+  () => import('@/components/charts/MatsvinnProgressChart').then(mod => mod.MatsvinnProgressChart),
+  {
+    ssr: false,
+    loading: () => <div className="h-[720px]" aria-hidden="true" />,
+  }
+)
 
 type CountryPolicy = {
   status?: string

@@ -215,7 +215,7 @@ function NutrientBarChart({
       <h4 className="text-xs font-semibold text-stone-700 mb-1">{label.long}</h4>
       <p className="text-[10px] text-stone-400 mb-2">Strømmer i kt per år</p>
       <div className="h-[260px]">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 420, height: 260 }}>
           <BarChart
             data={chartData}
             layout="vertical"
