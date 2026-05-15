@@ -29,7 +29,7 @@ export function EmployeeTrendChart({ data, companies }: EmployeeTrendChartProps)
   return (
     <Card title="Ansatte">
       <p className="text-xs text-stone-500 mb-3">Antall konsernansatte over tid</p>
-      <ResponsiveContainer width="100%" height={320}>
+      <ResponsiveContainer width="100%" height={320} initialDimension={{ width: 640, height: 320 }}>
         <BarChart data={data} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e7e5e4" />
           <XAxis

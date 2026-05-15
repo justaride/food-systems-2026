@@ -30,7 +30,7 @@ export function MarginTrendChart({ data, companies }: MarginTrendChartProps) {
   return (
     <Card title="Driftsmargin">
       <p className="text-xs text-stone-500 mb-3">Driftsmargin i prosent over tid</p>
-      <ResponsiveContainer width="100%" height={280}>
+      <ResponsiveContainer width="100%" height={280} initialDimension={{ width: 640, height: 280 }}>
         <LineChart data={data} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e7e5e4" />
           <XAxis

@@ -76,7 +76,7 @@ export function MatsvinnProgressChart({ norwayTotal, reductions }: Props) {
           per-capita har sunket 24%.
         </div>
         <div className="h-[230px]">
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 640, height: 260 }}>
             <LineChart data={lineData} margin={{ top: 8, right: 16, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7e5e4" />
               <XAxis dataKey="year" fontSize={11} tick={{ fill: '#78716c' }} />
@@ -122,7 +122,7 @@ export function MatsvinnProgressChart({ norwayTotal, reductions }: Props) {
           Stiplet linje = -50% (2030-mål). Dagligvare og industri har nådd interim-mål -30% (2025).
         </div>
         <div className="h-[230px]">
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 640, height: 360 }}>
             <BarChart
               data={barData}
               layout="vertical"

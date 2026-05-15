@@ -37,7 +37,7 @@ export function LorenzCurveChart({ country = 'no' }: { country?: string }) {
       <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Lorenz-kurve (butikktilgang)</h3>
       <p className="text-xs text-stone-400 mb-3">Gini = {gini} &middot; {gini < 0.3 ? 'Lav' : gini < 0.5 ? 'Moderat' : 'Høy'} ulikhet i butikktetthet</p>
       <div className="h-[220px]">
-        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 360, height: 260 }}>
           <AreaChart data={data} margin={{ top: 5, right: 10, bottom: 5, left: 0 }}>
             <XAxis
               dataKey="popShare"

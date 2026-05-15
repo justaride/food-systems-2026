@@ -1,12 +1,11 @@
 'use client'
 
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { useState, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
 import { SupplyChainGraph } from '@/components/charts/SupplyChainGraph'
-import { FeedCompositionTimeseries } from '@/components/charts/FeedCompositionTimeseries'
-import { NutrientFlowsView } from '@/components/charts/NutrientFlowsView'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
 import { ChartFrame } from '@/components/visualization/ChartFrame'
 import { DataQualityStrip } from '@/components/visualization/DataQualityStrip'
@@ -19,6 +18,22 @@ import type {
   CircularReturnFlowData,
   InfrastructureData,
 } from '@/lib/queries/supply-chain'
+
+const FeedCompositionTimeseries = dynamic(
+  () => import('@/components/charts/FeedCompositionTimeseries').then(mod => mod.FeedCompositionTimeseries),
+  {
+    ssr: false,
+    loading: () => <div className="h-[360px]" aria-hidden="true" />,
+  }
+)
+
+const NutrientFlowsView = dynamic(
+  () => import('@/components/charts/NutrientFlowsView').then(mod => mod.NutrientFlowsView),
+  {
+    ssr: false,
+    loading: () => <div className="h-[420px]" aria-hidden="true" />,
+  }
+)
 
 const COMMODITY_LABELS: Record<string, string> = {
   'melk-ku': 'Kumelk',

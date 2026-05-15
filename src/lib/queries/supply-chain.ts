@@ -105,6 +105,13 @@ type SupplyChainNode = {
   country: string
 }
 
+type SupplyChainCompanySelection = {
+  id: string
+  name: string
+  valueChainStage: string | null
+  country: string
+}
+
 type SupplyChainEdge = {
   id: string
   source: string
@@ -1255,8 +1262,8 @@ export async function getSupplyChainGraph(): Promise<SupplyChainGraphData> {
     description: string | null
     sector: string | null
     estimatedValue: number | null
-    fromCompany: SupplyChainNode
-    toCompany: SupplyChainNode
+    fromCompany: SupplyChainCompanySelection
+    toCompany: SupplyChainCompanySelection
   }>
   try {
     relationships = await prisma.businessRelationship.findMany({

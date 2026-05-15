@@ -41,7 +41,7 @@ export function NoMarketShareTimeseries({ rows }: Props) {
 
   return (
     <div>
-      <ResponsiveContainer width="100%" height={260}>
+      <ResponsiveContainer width="100%" height={260} initialDimension={{ width: 720, height: 260 }}>
         <LineChart data={rows} margin={{ top: 8, right: 16, bottom: 8, left: 8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e7e5e4" />
           <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#78716c' }} />

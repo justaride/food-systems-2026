@@ -5,7 +5,7 @@ import { ComparisonTable } from '@/components/sammenligning/ComparisonTable'
 import { KeyTakeaway } from '@/components/sammenligning/KeyTakeaway'
 import { PolicyTimeline } from '@/components/sammenligning/PolicyTimeline'
 import { ChartFrame } from '@/components/visualization/ChartFrame'
-import { NoMarketShareTimeseries } from '@/components/charts/NoMarketShareTimeseries'
+import { NoMarketShareTimeseriesDynamic } from '@/components/charts/NoMarketShareTimeseriesDynamic'
 import { COUNTRY_LIST } from '@/lib/config/countries'
 import type { CountryCode } from '@/lib/config/countries'
 import type { SammenligningData, CountrySammenligning } from '@/lib/queries/sammenligning'
@@ -105,7 +105,7 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
             title="Norge: utvikling i markedsandeler 2020–2024"
             contract={noMarketShare.contract}
           >
-            <NoMarketShareTimeseries rows={noMarketShare.rows} />
+              <NoMarketShareTimeseriesDynamic rows={noMarketShare.rows} />
           </ChartFrame>
         </div>
       )}

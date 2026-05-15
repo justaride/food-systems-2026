@@ -97,7 +97,7 @@ export function InsightTimeline({ insights }: { insights: InsightRow[] }) {
       <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Innsikt over tid</h3>
       <p className="text-xs text-stone-400 mb-3">Antall registrerte innsikter per måned, fordelt på fase</p>
       <div className="h-[220px]">
-        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 640, height: 220 }}>
           <BarChart data={data} margin={{ top: 0, right: 16, left: 0, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e7e5e4" />
             <XAxis

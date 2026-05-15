@@ -11,10 +11,13 @@ import { SourceChip } from '@/components/ui/SourceChip'
 import { InsightGlossary } from '@/components/ui/InsightGlossary'
 import { ParentCompanyChart } from '@/components/charts/ParentCompanyChart'
 import { InsightTypeDonut } from '@/components/charts/InsightTypeDonut'
-import { InsightTimeline } from '@/components/charts/InsightTimeline'
 import { InsightTagBar } from '@/components/charts/InsightTagBar'
 import { COUNTRY_LIST, type CountryCode } from '@/lib/config/countries'
 
+const InsightTimeline = dynamic(
+  () => import('@/components/charts/InsightTimeline').then((mod) => mod.InsightTimeline),
+  { ssr: false },
+)
 const SelfSufficiencyChart = dynamic(
   () => import('@/components/charts/SelfSufficiencyChart').then((mod) => mod.SelfSufficiencyChart),
   { ssr: false },
