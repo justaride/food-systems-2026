@@ -7,6 +7,7 @@ import { useSearchParams } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
 import { SupplyChainGraph } from '@/components/charts/SupplyChainGraph'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
+import { ResearchEvidenceBadge } from '@/components/visualization/ResearchEvidenceBadge'
 import { ChartFrame } from '@/components/visualization/ChartFrame'
 import { DataQualityStrip } from '@/components/visualization/DataQualityStrip'
 import { getResearchEvidenceStatusConfig } from '@/lib/visualization/status'
@@ -438,6 +439,8 @@ export function ForsyningskjedeContent({
         <SectionHeader
           title="Primærflyt (Norge)"
           description="Observerte leveranser fra norske primærprodusenter via Landbruksdirektoratet — ikke et nordisk lag. Lest per varegruppe og avtakertype."
+          researchStatus="validated"
+          researchStatusDetail="DeliveryVolume er Norge-observert register-data (Landbruksdirektoratet); SE/DK/FI/IS har ingen ekvivalent serie."
         />
 
         {concentrationRows.length > 0 && (
@@ -583,6 +586,8 @@ export function ForsyningskjedeContent({
         <SectionHeader
           title="Import og sårbarhet"
           description="Bred nordisk importproxy per matvaregruppe og fôrråvarer som sårbarhetslag, ikke observert totalflyt."
+          researchStatus="proxy_model"
+          researchStatusDetail="Annual import panel finnes for alle nordiske land; monthly NO er documented gap. Brukes som sårbarhetslag, ikke totalflyt."
         />
         <ImportVulnerabilityPanel importVulnerability={importVulnerability} />
         <FeedCompositionTimeseries />
@@ -592,6 +597,8 @@ export function ForsyningskjedeContent({
         <SectionHeader
           title="Maktrelasjoner"
           description="Kuraterte forretningsrelasjoner som peker på eierskap, selvhandel, distribusjon og leverandørmakt."
+          researchStatus="proxy_model"
+          researchStatusDetail="BusinessRelationship-grafen er kuratert og kildebelagt, men ikke en komplett måling av nordisk vareflyt. NO har dypest dekning."
         />
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -835,6 +842,8 @@ export function ForsyningskjedeContent({
           <SectionHeader
             title="Infrastruktur"
             description="Romlige arbeidslag for hubber, anlegg, havner, gårder og akvakultur. Brukes til flaskehals- og kartanalyse, ikke som komplett prod-paritet."
+            researchStatus="primary_snapshot"
+            researchStatusDetail="NO har dedikerte geo-filer for farms/aquaculture/plants/ports/hubs; SE/DK/FI/IS har kun municipalities + stores. Per-land nodemerking trengs for full nordisk paritet."
           />
           <InfrastructurePanel infrastructure={infrastructure} />
         </div>
@@ -845,6 +854,8 @@ export function ForsyningskjedeContent({
           <SectionHeader
             title="Returstrømmer"
             description="Sirkulære looper, gap og næringsstrømmer som viser hvor sidestrømmer kan kobles tilbake i systemet."
+            researchStatus="proxy_model"
+            researchStatusDetail="circularity-loops og nutrient-flows er modellert per MS-004. Skal ikke promoteres som validert primaerstatistikk uten metodenotat."
           />
           <CircularReturnFlowPanel circularReturnFlows={circularReturnFlows} />
           <NutrientFlowsView />
@@ -854,10 +865,29 @@ export function ForsyningskjedeContent({
   )
 }
 
-function SectionHeader({ title, description }: { title: string; description: string }) {
+function SectionHeader({
+  title,
+  description,
+  researchStatus,
+  researchStatusDetail,
+}: {
+  title: string
+  description: string
+  researchStatus?: ResearchEvidenceStatus
+  researchStatusDetail?: string
+}) {
   return (
     <div>
-      <h2 className="text-lg font-semibold text-stone-900">{title}</h2>
+      <div className="flex flex-wrap items-baseline gap-2">
+        <h2 className="text-lg font-semibold text-stone-900">{title}</h2>
+        {researchStatus && (
+          <ResearchEvidenceBadge
+            status={researchStatus}
+            prefix="Researchstatus"
+            detail={researchStatusDetail}
+          />
+        )}
+      </div>
       <p className="mt-1 text-sm text-stone-500">{description}</p>
     </div>
   )
