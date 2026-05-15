@@ -1,5 +1,12 @@
 export type EvidenceStatus = 'observed' | 'estimated' | 'proxy' | 'illustrative'
 
+export type ResearchEvidenceStatus =
+  | 'validated'
+  | 'primary_snapshot'
+  | 'proxy_model'
+  | 'local_research_needs_primary_check'
+  | 'missing'
+
 export type VisualizationSourceRef = {
   label: string
   href?: string
