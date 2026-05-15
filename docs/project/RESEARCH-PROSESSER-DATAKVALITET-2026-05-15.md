@@ -36,12 +36,34 @@ Hovedregelen er:
 
 | Prioritet | Artefakt | Formaal |
 |---|---|---|
-| P0 | `docs/project/DATAKVALITET-SKJEMA-CSV-JSON-DB-2026-05-15.md` | Kanonisk feltstandard og enum-verdier for CSV, JSON og DB-promotering. |
-| P0 | `research/_plans/research-dispatch-ledger-2026-05-15.csv` | Hovedko for subagents/workers: scope, inputfiler, output, gate, status og eier. |
-| P0 | `research/_plans/source-to-claim-ledger-2026-05-15.csv` | Kobler `source_id -> document/report -> locator/chunk -> evidence_id -> claim_id`. |
-| P1 | `research/_plans/data-quality-baseline-2026-05-15.csv` | Foer/etter-status for DB-counts, gapstatus, country coverage og importbatcher. |
-| P1 | `research/_plans/research-activation-queue-2026-05-15.csv` | Samler kilder fra registry/backlog/importkoer inn i ett promoteringsloep. |
-| P1 | `research/_plans/model-spec-ledger-2026-05-15.csv` | Modellspesifikasjon for Scope 3, MFA/nutrients, sidestreams, matsvinn, konkurranse og beredskap. |
+| P0 | `docs/project/DATAKVALITET-SKJEMA-CSV-JSON-DB-2026-05-15.md` | Opprettet; kanonisk feltstandard og enum-verdier for CSV, JSON og DB-promotering. |
+| P0 | `research/_plans/research-dispatch-ledger-2026-05-15.csv` | Opprettet; hovedko for subagents/workers: scope, inputfiler, output, gate, status og eier. |
+| P0 | `research/_plans/source-to-claim-ledger-2026-05-15.csv` | Opprettet; kobler `source_id -> document/report -> locator/chunk -> evidence_id -> claim_id`. |
+| P1 | `research/_plans/data-quality-baseline-2026-05-15.csv` | Opprettet; foer/etter-status for DB-counts, gapstatus, country coverage og importbatcher. |
+| P1 | `research/_plans/research-activation-queue-2026-05-15.csv` | Opprettet; samler kilder fra registry/backlog/importkoer inn i ett promoteringsloep. |
+| P1 | `research/_plans/model-spec-ledger-2026-05-15.csv` | Opprettet; modellspesifikasjon for Scope 3, MFA/nutrients, sidestreams, matsvinn, konkurranse og beredskap. |
+
+## Status etter iverksettelse 2026-05-15
+
+Fase 0 er operativ: kvalitetsskjema, dispatch ledger, source-to-claim ledger, data-quality baseline, activation queue og model-spec ledger finnes. Arbeidet skal derfor fortsette med lukking av konkrete gates, ikke med ny strukturbygging.
+
+Gjeldende prioritet:
+
+1. Hold B12 som `promoted_analysis`, men ikke `promoted_ki` foer full API-response eller checksum er lagret.
+2. Hold A4 som `staged_analysis` til DK gas-system scope er reviewer-akseptert eller svekket.
+3. Hold G3 som `exclude` til HS-til-energi/yield-review, manuell HS-review-koe og `1504`/`230120` scope er lukket.
+4. Start A7/A6/B11 foerst etter at A4/G3/B12 har oppdatert gate-status i activation queue.
+
+G3 har egne nye arbeidsartefakter:
+
+| Artefakt | Status | Neste gate |
+|---|---|---|
+| `research/data/nordic/self-sufficiency/no-seafood-export-product-mix-ssb-hs-2024.csv` | opprettet | scope-review for fiskeolje/fiskemel |
+| `research/data/nordic/self-sufficiency/no-seafood-hs-energy-yield-mapping-candidate-2024.csv` | opprettet | proxy-yield og produktform-review |
+| `research/data/nordic/self-sufficiency/no-seafood-hs-manual-review-2024.csv` | opprettet | ni HS-rader maa lukkes eller permanent ekskluderes |
+| `research/data/nordic/self-sufficiency/no-seafood-hs-scope-decisions-2024.csv` | opprettet | core scope er laast for `1504` og `230120`; optional feed/oil scenario er ikke opprettet |
+| `research/data/nordic/self-sufficiency/no-seafood-hs-yield-review-2024.csv` | opprettet | P0/P1 proxy-yield-rader maa reviewes foer resultatpromotering |
+| `research/data/nordic/self-sufficiency/no-food-energy-denominator-candidate-2024.csv` | opprettet | denominatorbeslutning: engros matforsyning eller bedre NIBIO/Helsedirektoratet-uttrekk |
 
 ## Minimum datakvalitetsskjema
 
@@ -189,11 +211,11 @@ Maal: etablere felles skjema, ko og baseline foer mer import.
 
 Arbeid:
 
-1. Opprett `DATAKVALITET-SKJEMA-CSV-JSON-DB-2026-05-15.md`.
-2. Opprett `research-dispatch-ledger-2026-05-15.csv`.
-3. Opprett `source-to-claim-ledger-2026-05-15.csv`.
-4. Kjoer baseline paa eksisterende gap, PCQ, source registry, coverage ledger og DB-counts.
-5. Merk eksisterende proxyer, interne synteser og blocked sources tydelig.
+1. `DATAKVALITET-SKJEMA-CSV-JSON-DB-2026-05-15.md` er opprettet.
+2. `research-dispatch-ledger-2026-05-15.csv` er opprettet.
+3. `source-to-claim-ledger-2026-05-15.csv` er opprettet.
+4. Baseline paa eksisterende gap, PCQ, source registry, coverage ledger og DB-counts er startet i `research/_plans/data-quality-baseline-2026-05-15.csv`.
+5. Proxyer, interne synteser og blocked sources skal fortsatt merkes fortloepende naar rader promoteres.
 
 Gate:
 
@@ -361,11 +383,11 @@ Alle subagents skal levere dette minimumsformatet:
 
 ## Neste sikre blokk
 
-1. Opprett `DATAKVALITET-SKJEMA-CSV-JSON-DB-2026-05-15.md`.
-2. Opprett `research-dispatch-ledger-2026-05-15.csv` med seks worker-spor og QA-spor.
-3. Opprett `source-to-claim-ledger-2026-05-15.csv` med tomt skjema og 10-20 foerste claims fra eksisterende rapport/UI.
-4. Kjoer lokal baseline paa eksisterende gap-/source-/PCQ-filer.
-5. Start Boelge 1 med A4, G3 og B12 foerst.
+1. Kjoer G3 Gate 2 review: proxy-yield for store HS-rader, manuell HS-review-koe og scope for fiskeolje/fiskemel.
+2. Kjoer A4 reviewer-aksept: avgjoer om DK gas-system scope kan bli staaende i staged analysis eller maa svekkes.
+3. Lag full B12 API-response/checksum-artefakt foer eventuell `promoted_ki`.
+4. Oppdater ACT-009, ACT-010 og ACT-011 etter gateutfall.
+5. Start A7/A6/B11 foerst naar Boelge 1-gatene over er lukket eller eksplisitt parkert.
 
 ## Stop-regler
 

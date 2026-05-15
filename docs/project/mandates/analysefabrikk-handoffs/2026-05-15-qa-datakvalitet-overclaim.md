@@ -12,7 +12,7 @@ Dette dokumentet er et QA-spot-check fra et tidligere steg samme dag. Etter vide
 - `STC-028` er ikke lenger `needs_new_ev`; `EV-B-027` er opprettet fra `research/evidence-pack/arsrapporter/salling-group-2024.pdf`.
 - `CL-B-020` er korrigert: Salling Group viser 2,8 % baseline 2015 til 1,8 % i 2024, dvs. -34,8 % mot baseline, ikke en halvering.
 - B12-gapkortet er patchet og loeftet til `promoted_analysis` med `ki_usage_rule=warn_user`.
-- A4 er loeftet til `staged_analysis` via scoped production panel; G3 har NIBIO-celler laast, scenarioformel laast for 0/25/50 prosent sjømateksport-retensjon, et foreloepig top-species eksportenergi-input (`research/data/nordic/self-sufficiency/no-seafood-export-energy-inputs-2024.csv`) og en engros-denominator-kandidat (`research/data/nordic/self-sufficiency/no-food-energy-denominator-candidate-2024.csv`). G3 er fortsatt `exclude`/ikke rapportklar til full produktmiks og yield er laast.
+- A4 er loeftet til `staged_analysis` via scoped production panel; G3 har NIBIO-celler laast, scenarioformel laast for 0/25/50 prosent sjømateksport-retensjon, SSB-HS produktmiks-kandidat, HS-til-energi/yield-kandidat, manuell HS-review-kø, scopebeslutning, yield-review-kø og engros-denominator-kandidat. G3 er fortsatt `exclude`/ikke rapportklar før proxy-yield og manuell-review-rader er lukket.
 - Tallene under i opprinnelig QA-seksjon er derfor historisk snapshot, ikke gjeldende status.
 
 ## Scope
@@ -35,7 +35,7 @@ Filer reviewet:
 3. 6 nye EV-rader (EV-A-022, EV-B-025, EV-B-026, EV-C-026, EV-C-027, EV-C-028) er lagt til evidence-matrix og er konsistent referert fra STC-ledger.
 4. PCQ-FS-NO-002 overclaim-guard er live i UI (`/forsyningskjede`).
 5. B12-gap er nær lukking via ACT-002 metodenote og ACT-011 Eurostat PLI-panel.
-6. G3 har nå metode-, proxy-input og denominator-kandidat, men trenger full produktmiks/yield før sjømatjustert selvforsyningsresultat kan beregnes/promoteres.
+6. G3 har nå metode-, SSB-HS produktmiks, HS-til-energi/yield-kandidat, manuell HS-review-kø, scopebeslutning, yield-review-kø og denominator-kandidat, men trenger review av yield/proxy og de ni manuelle radene før sjømatjustert selvforsyningsresultat kan beregnes/promoteres.
 
 ## Verifikasjon per artefakt
 
@@ -99,7 +99,7 @@ Verdivurdering: Baseline reflekterer faktisk filtilstand og PCQ-aggregering. Ing
 Handoff `docs/project/mandates/analysefabrikk-handoffs/2026-05-15-worker-d-wave1-a4-g3-b12.md` definerer eksplisitt "done means..." per gap.
 
 - A4 acceptance: scoped NO/DK/SE/FI production panel er levert og A4 er loeftet til `staged_analysis`; full anleggsregister-/virkemiddelutvidelse gjenstår før eventuell bredere KI-promotering.
-- G3 acceptance: krever låst formel + scenario + metodenote + Engrosforbruk + eksportenergi + denominator. EV-A-022 er opprettet med cell_locator (AB5/AB6), scenario/metodenote er låst, et top-species eksportenergi-proxyinput er opprettet, og en engros-denominator-kandidat er opprettet. Full produktmiks/yield gjenstår.
+- G3 acceptance: krever låst formel + scenario + metodenote + Engrosforbruk + eksportenergi + denominator. EV-A-022 er opprettet med cell_locator (AB5/AB6), scenario/metodenote er låst, SSB-HS produktmiks-kandidat er opprettet, HS-til-energi/yield-kandidat er opprettet, manuell HS-review-kø er opprettet, scopebeslutning og yield-review-kø er opprettet, og en engros-denominator-kandidat er opprettet. Yield-review og manuelle rader gjenstår.
 - B12 acceptance: krever låst serie + kontroll-avstemming + metodenote + patch til gap-card. ACT-002 og ACT-011 outputs eksisterer; B12 er nærmest lukking.
 
 ## Identifiserte avvik og flagg
@@ -137,7 +137,7 @@ Ingen overclaim-risiko identifisert blant promoterte rader. UI-overclaim-guard e
 
 ## Neste handling for QA
 
-1. Verifiser at ACT-010 (G3) ikke promoteres videre før proxy-input er erstattet/akseptert med full produktmiks og låst spiselig yield/energifaktor.
+1. Verifiser at ACT-010 (G3) ikke promoteres videre før proxy-yield er reviewet, de ni manuell-review-radene er lukket og `1504`/`230120`-scope er eksplisitt avklart.
 2. Spot-sjekk Codex-workers som leverer STC-024 subclaim split — sørg for at hver substrat-subclaim har egen sikkerhets-/regulatorisk-locator.
 3. Følg opp STC-028 Salling Group: hente primaerkilde eller markere som permanent backlog hvis ikke tilgjengelig.
 4. Verifiser at B12 gap-card patches innen denne uken med pekere til ACT-002 og ACT-011.

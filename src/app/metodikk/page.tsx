@@ -61,7 +61,7 @@ export default async function MetodikkPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Metodikk</h1>
-        <p className="text-sm text-stone-400 mt-1">Ten Step Start v2.0, mandat og validering, KPIs, Evidence Pack og deep research-prompter</p>
+        <p className="text-sm text-stone-400 mt-1">Ten-Step Methodology v2.1 (NCH/JT Tallinn 2026-05-06 + Food-TG overlay), mandat og validering, KPIs, Evidence Pack og deep research-prompter</p>
       </div>
 
       <Card>
@@ -138,7 +138,7 @@ export default async function MetodikkPage() {
         </div>
       </Card>
 
-      <Card title="Ten Step Start v2.0">
+      <Card title="Ten-Step Methodology v2.1">
         <div className="space-y-2">
           {tenSteps.map(step => (
             <StepCard key={step.step} step={step} />

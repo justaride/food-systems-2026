@@ -127,7 +127,7 @@ export default async function OversiktPage() {
       </Card>
 
       <Card>
-        <h3 className="text-sm font-semibold text-stone-700 mb-3">Ten Step Start v2.0</h3>
+        <h3 className="text-sm font-semibold text-stone-700 mb-3">Ten-Step Methodology v2.1</h3>
         <div className="flex gap-1">
           {tenSteps.map(step => (
             <div
