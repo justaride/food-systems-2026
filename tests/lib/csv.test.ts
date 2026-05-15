@@ -25,6 +25,12 @@ describe('csv parser', () => {
     ])
   })
 
+  it('preserves snake_case headers used by generated research CSVs', () => {
+    assert.deepEqual(parseCsvRecords('path,word_count,has_md_companion\nresearch/a.html,125,no'), [
+      { path: 'research/a.html', word_count: '125', has_md_companion: 'no' },
+    ])
+  })
+
   it('keeps line breaks inside quoted fields', () => {
     assert.deepEqual(parseCsvRows('id,notes\nSRC-1,"first line\nsecond line"\nSRC-2,ok'), [
       ['id', 'notes'],

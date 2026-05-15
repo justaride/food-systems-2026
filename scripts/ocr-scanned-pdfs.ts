@@ -68,9 +68,9 @@ function loadScannedRows(): CsvRow[] {
     const row: CsvRow = {
       path: record.path,
       classification: record.classification,
-      fileSizeKb: Number(record.fileSizeKb) || 0,
-      wordCount: Number(record.wordCount) || 0,
-      wordDensity: Number(record.wordDensity) || 0,
+      fileSizeKb: Number(record.file_size_kb) || 0,
+      wordCount: Number(record.word_count) || 0,
+      wordDensity: Number(record.word_density) || 0,
       severity: record.severity,
       action: record.action,
       notes: record.notes,

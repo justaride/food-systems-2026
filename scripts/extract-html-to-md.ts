@@ -67,9 +67,9 @@ function parseCsv(text: string): TriageRow[] {
     return [{
       path: record.path,
       classification: record.classification,
-      wordCount: parseInt(record.wordCount, 10) || 0,
-      hasMdCompanion: record.hasMdCompanion,
-      referencedInSeed: record.referencedInSeed,
+      wordCount: parseInt(record.word_count, 10) || 0,
+      hasMdCompanion: record.has_md_companion,
+      referencedInSeed: record.referenced_in_seed,
       severity: record.severity,
       action: record.action,
     }]
