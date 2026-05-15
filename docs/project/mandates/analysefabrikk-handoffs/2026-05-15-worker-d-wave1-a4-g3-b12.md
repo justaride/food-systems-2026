@@ -11,8 +11,8 @@ Dette handoffet var akseptansegate foer videre arbeid. Gjeldende status etter vi
 
 - B12: gapkort patchet, Eurostat PLI valgt som hovedserie, SSB 14682 brukt som kontrollpunkt, `promotion_status=promoted_analysis`, `ki_usage_rule=warn_user`.
 - A4: primære produksjonsankre og derived comparison panel er opprettet for NO/DK/SE/FI; status er `staged_analysis`, ikke KI-promotert.
-- G3: NIBIO Engrosforbruk `Nøkkeltall` celler `AB5=41.3` og `AB6=34.9` er laast; seafood-adjusted scenario er fortsatt `method_decision_needed`.
-- Videre arbeid boer starte med G3 scenarioformel eller A4 reviewer-aksept av DK gas-system scope.
+- G3: NIBIO Engrosforbruk `Nøkkeltall` celler `AB5=41.3` og `AB6=34.9` er laast; seafood-adjusted scenarioformel er laast som energi-/kaloribasert 0/25/50 prosent retensjon av sjømateksport. Resultatverdier mangler eksportenergi.
+- Videre arbeid boer starte med G3 sjømateksport-energiuttrekk eller A4 reviewer-aksept av DK gas-system scope.
 
 ## Scope
 

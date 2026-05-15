@@ -12,7 +12,7 @@ Dette dokumentet er et QA-spot-check fra et tidligere steg samme dag. Etter vide
 - `STC-028` er ikke lenger `needs_new_ev`; `EV-B-027` er opprettet fra `research/evidence-pack/arsrapporter/salling-group-2024.pdf`.
 - `CL-B-020` er korrigert: Salling Group viser 2,8 % baseline 2015 til 1,8 % i 2024, dvs. -34,8 % mot baseline, ikke en halvering.
 - B12-gapkortet er patchet og loeftet til `promoted_analysis` med `ki_usage_rule=warn_user`.
-- A4 er loeftet til `staged_analysis` via scoped production panel; G3 har NIBIO-celler laast, men seafood-adjusted scenario er fortsatt metodegap.
+- A4 er loeftet til `staged_analysis` via scoped production panel; G3 har NIBIO-celler laast og scenarioformel laast for 0/25/50 prosent sjømateksport-retensjon, men eksportenergi mangler foer resultatberegning.
 - Tallene under i opprinnelig QA-seksjon er derfor historisk snapshot, ikke gjeldende status.
 
 ## Scope

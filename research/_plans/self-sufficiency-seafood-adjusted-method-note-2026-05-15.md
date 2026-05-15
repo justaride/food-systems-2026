@@ -2,7 +2,7 @@
 
 Dato: 2026-05-15  
 Gap: G3  
-Status: NIBIO 2024-rader cellelokalisert, sjømat-scenario ikke ferdig
+Status: NIBIO 2024-rader cellelokalisert, sjømat-scenarioformel låst, eksportenergi mangler
 
 ## Beslutning
 
@@ -13,6 +13,14 @@ G3 skal ikke lukkes med ett tall. Selvforsyning skal deles i minst tre indikator
 3. `seafood_export_adjusted_scenario`
 
 De tre svarer paa ulike spoersmaal og skal ikke presenteres som samme maal.
+
+Scenariofamilien for `seafood_export_adjusted_scenario` er nå valgt som et energi-/kaloribasert retensjonsscenario:
+
+- `seafood_export_retention_0pct`
+- `seafood_export_retention_25pct`
+- `seafood_export_retention_50pct`
+
+Dette er scenario-spesifikasjoner, ikke beregnede selvforsyningsprosenter. Resultatfelt skal først fylles når sjømateksport er omregnet til energi med eksplisitt art-/produktmiks, spiselig andel og kilde.
 
 ## Lokale verdier som kan brukes internt
 
@@ -44,13 +52,13 @@ Merk: radgruppen er `Totalt inkl. fisk`. Den fôrkorrigerte raden korrigerer for
 
 ## Metodekrav
 
-Foer scenarioet kan fylles med tall maa vi velge:
+Valgte metodebeslutninger:
 
-- om matmengde maales i kg, energi eller protein
-- om sjømat behandles som innenlandsk tilgjengelig mat, eksportvare eller beredskapsreserve
-- om importert fiskefôr skal korrigeres
-- hvilke eksportandeler som hypotetisk holdes i Norge
-- hvordan import/eksport av jordbruksmat og sjømat holdes atskilt
+- Matmengde måles i energi/kalorier, ikke kg.
+- Sjømat behandles som en hypotetisk beredskapsreserve bare i scenarioet, ikke i offisiell selvforsyningsgrad.
+- Importert fiskefôr korrigeres ikke i første scenario.
+- Eksportandeler som hypotetisk holdes i Norge settes til 0, 25 og 50 prosent.
+- Import/eksport av jordbruksmat og sjømat holdes atskilt i kildelaget.
 
 Anbefalt startformel for scenario:
 
@@ -64,7 +72,7 @@ retained_seafood_export_energy =
   seafood_export_energy * retention_assumption_pct
 ```
 
-Start med energi/kalorier, ikke kg, fordi NIBIO-metoden er energibasert. Kjør minst tre retensjonsantakelser: 0 prosent, 25 prosent og 50 prosent av sjømateksport holdt tilbake i Norge i en krise. Ikke korriger for importert fiskefôr i første scenario før fiskefôrråvarer og metodebeslutning er låst.
+Start med energi/kalorier, ikke kg, fordi NIBIO-metoden er energibasert. Kjør de tre retensjonsantakelsene over som scenarioer for sjømateksport holdt tilbake i Norge i en krise. Ikke korriger for importert fiskefôr i første scenario før fiskefôrråvarer og metodebeslutning er låst.
 
 ## Foreloepige indikatorer
 
@@ -72,7 +80,9 @@ Start med energi/kalorier, ikke kg, fordi NIBIO-metoden er energibasert. Kjør m
 |---|---|---|
 | `official_unadjusted_total_incl_fish` | NIBIO/engrosforbruk uten fôrkorrigering | cell_locator_locked |
 | `official_feed_corrected_total_incl_fish` | fôrkorrigert selvforsyning inkl. fisk; husdyrkraftfôr korrigert | cell_locator_locked |
-| `seafood_export_adjusted_scenario` | beredskapsscenario for sjømatjustering | method_decision_needed |
+| `seafood_export_retention_0pct` | kontrollscenario uten tilbakeholdt sjømateksport | scenario_formula_locked |
+| `seafood_export_retention_25pct` | moderat beredskapsretensjon | scenario_formula_locked |
+| `seafood_export_retention_50pct` | høy beredskapsretensjon | scenario_formula_locked |
 
 ## Stop-regel
 
@@ -80,7 +90,7 @@ Ikke bruk formuleringer som "nesten selvforsynt med fisk" eller "sjømatjustert 
 
 ## Neste handling
 
-1. Hent eller laas NIBIO-regneark for engrosforbruk 1999-2024.
-2. Velg energi- eller kg-basert scenario.
-3. Fyll `research/data/nordic/self-sufficiency/self-sufficiency-seafood-adjusted-scenarios-2026-05-15.csv`.
+1. Hent sjømateksport 2024 fra SSB/Fiskeridirektoratet/Sjømatrådet med art-/produktmiks.
+2. Omregn eksporten til energi med dokumentert spiselig andel og energifaktor.
+3. Beregn output for 0/25/50 prosent retensjon i `research/data/nordic/self-sufficiency/self-sufficiency-seafood-adjusted-scenarios-2026-05-15.csv`.
 4. Revider eldre app-/policytekst som blander 34,9, 41,3, 47 og fiskebasert "naer 100".

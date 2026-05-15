@@ -4,10 +4,12 @@
   "population": 5550000,
   "currency": "NOK",
   "selfSufficiency": {
-    "caloric_pct": 47,
+    "caloric_pct": 41.3,
+    "feed_corrected_pct": 34.9,
     "target_pct": 50,
     "target_year": 2030,
-    "source": "Regjeringen, Jordbruksoppgjøret 2024"
+    "source": "NIBIO Engrosforbruk per innbygger 1999-2024, Nøkkeltall AB5/AB6",
+    "notes": "Totalt inkl. fisk. 34,9 % er korrigert for importert kraftfôr til husdyrproduksjon, ikke fiskefôr. Sjømateksport-justert scenario må beregnes separat."
   },
   "steps": [
     {

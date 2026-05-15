@@ -1,6 +1,6 @@
 # G3 - Selvforsyningsgrad: sjømatjustert metode
 
-Status: initial evidence card, metodeavklaring nødvendig
+Status: staged method card, eksportenergi mangler
 Gap-ID: G3
 Lane: hurtig-plukk
 Dato: 2026-04-29
@@ -57,3 +57,18 @@ Kildeanker lokalt:
 ## Akseptansegate
 
 Kortet kan oppgraderes til integrerbart når vi har én valgt hovedindikator, ett scenario for sjømateksport, og en tydelig note som forklarer hvorfor 34,9 prosent, 41,3 prosent, 47 prosent og "nær 100 prosent med fisk" ikke er samme mål.
+
+## Oppdatering 2026-05-15
+
+Metodevalg er nå låst i `research/_plans/self-sufficiency-seafood-adjusted-method-note-2026-05-15.md`:
+
+- Hovedanker: NIBIO `Totalt inkl. fisk`, `Nøkkeltall`, celler `AB5=41,3` og `AB6=34,9`.
+- Scenariofamilie: energi-/kaloribasert retensjon av sjømateksport.
+- Scenarioantakelser: 0, 25 og 50 prosent av sjømateksportens energi hypotetisk holdt i Norge.
+- Fiskefôrkorreksjon: ikke inkludert før fiskefôrråvarer og metodebeslutning er låst.
+
+CSV er oppdatert med scenario-spesifikasjoner:
+
+- `research/data/nordic/self-sufficiency/self-sufficiency-seafood-adjusted-scenarios-2026-05-15.csv`
+
+Dette lukker metodebeslutningen, men ikke resultatberegningen. Neste datagate er å hente sjømateksport 2024 med art-/produktmiks og omregne til energi med dokumentert spiselig andel.

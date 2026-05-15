@@ -261,7 +261,7 @@ export const meetings: Meeting[] = [
       'Referanser: Volare (Finland, soldatfluer til protein), Axe Foundation (Sverige, barekraftig oppdrettsfor)',
       'NMBU 10-ars prosjekt pa alternativt for uten kommersialisering — typisk akademia-gap',
       'Soya-import til fiskefor til avfall er en gigantisk ubrukt ressurssyklus',
-      'Norge ~100% selvforsynt hvis fiskeeksport regnes inn (97% av oppdrettsfisk eksporteres)',
+      'Arbeidshypotese fra møtet: sjømateksport kan gi et beredskapsscenario, men er ikke offisiell selvforsyningsgrad og må beregnes som separat energi-/retensjonsmodell',
       'Medienarrativer: DK (eksport/duopol/klima), FI (beredskap/regulert duopol), NO (prispress/duopol), SE (selvforsyning/butikkstruktur)',
       'Skala er det egentlige hullet — mange smaskalalosninger finnes, ingen skalerer',
       'JT: sett foten ned ved verdikjedestrukturen — hvor maten flyter og hvor den kastes',
