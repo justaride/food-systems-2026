@@ -46,7 +46,45 @@ Et foreløpig denominator-panel er opprettet:
 
 Kandidaten bruker Helsedirektoratets `Utviklingen i norsk kosthold 2025`, kapittel 5/tabell 7: 2024 matforsyningsstatistikk på engrosnivå er `11,1 MJ/person/dag`. Dette er kombinert med SSB-befolkning ved start og slutt av 2024 (`5 550 203` og `5 594 340`) som mean-population proxy (`5 572 271,5`). Beregnet denominator er `5 395,807 Tcal/år`.
 
-Status: `warn_user`, ikke sluttresultat. Den må omtales som engros matforsyning, ikke faktisk energiinntak. Den erstatter likevel forrige åpne denominator-gate og gjør neste G3-gate mer presis: full sjømat-produktmiks og yield/energifaktor er nå hovedblocker.
+Status: `warn_user`, ikke sluttresultat. Den må omtales som engros matforsyning, ikke faktisk energiinntak. Den erstatter likevel forrige åpne denominator-gate og gjør neste G3-gate mer presis: HS-til-energi/yield-mapping er nå hovedblocker.
+
+## SSB-HS produktmiks 2026-05-15
+
+Et første primærstatistisk produktmiksuttrekk er opprettet:
+
+- `research/data/nordic/self-sufficiency/no-seafood-export-product-mix-ssb-hs-2024.csv`
+
+Uttrekket bruker SSB tabell `08801` for eksport 2024, `Mengde 1 (M1)`, summert over alle land for HS-familiene `03`, `1504`, `1604`, `1605` og `230120`. Valgte sjømatrelaterte HS-familier summerer til `2 589 296 tonn`.
+
+Foreloepig scopefordeling:
+
+| Scope | Tonn 2024 | G3-bruk |
+|---|---:|---|
+| hel/sløyd fisk og skalldyr | 1 862 431,964 | må mappes til art + spiselig andel |
+| filet/fiskekjøtt | 343 155,770 | må mappes til produktform + energifaktor |
+| prosessert/konservert fisk | 102 763,078 | trenger produktspesifikk energi/yield |
+| spiselige biprodukter/rogn | 57 220,444 | må vurderes separat |
+| fiskeolje | 105 185,395 | scopebeslutning; ikke direkte matenergi før end use er låst |
+| fiskemel/pellets utjenlig til menneskeføde | 99 633,442 | ekskluder fra direkte matenergi med mindre feed/oil-scenario legges til |
+| prepared seafood | 16 924,890 | trenger energimapping |
+| manuell review | 1 981,017 | må klassifiseres før eventuell bruk |
+
+Dette erstatter ikke energiberegningen. Det flytter neste blocker fra "hent produktmiks" til "map HS-radene til art, produktform, spiselig yield og energifaktor".
+
+## HS-til-energi/yield-kandidat 2026-05-15
+
+Et første HS-til-energi/yield-panel er opprettet:
+
+- `research/data/nordic/self-sufficiency/no-seafood-hs-energy-yield-mapping-candidate-2024.csv`
+- `research/data/nordic/self-sufficiency/no-seafood-hs-manual-review-2024.csv`
+- `research/data/nordic/self-sufficiency/no-seafood-hs-scope-decisions-2024.csv`
+- `research/data/nordic/self-sufficiency/no-seafood-hs-yield-review-2024.csv`
+
+Panelet mapper `2 309 198,600 tonn` av HS-produktmiksen til art, produktform, Matvaretabellen-energifaktor og foreløpig spiselig yield. Kandidatenergien summerer til `3 203,326 Tcal`. 25 og 50 prosent retensjon gir henholdsvis `800,832 Tcal` og `1 601,663 Tcal`, tilsvarende ca. `14,842` og `29,683` prosent av engros-denominator-kandidaten (`5 395,807 Tcal/år`).
+
+Status: `exclude`. Panelet ekskluderer `203 769,019 tonn` fiskeolje og non-food fiskemel fra direkte matenergi og lar `52 560,981 tonn` stå til manuell review. De ni åpne HS-radene er skilt ut i egen review-kø, med alle rader fortsatt `exclude` til byprodukt-/organmiks, edible meal-produktmiks eller permanent ekskludering er metodegodkjent. Flere store rader bruker proxy-yield, særlig laks/ørret, makrellsesong, lodde som sild-proxy, mindre arter mappet via proxy og tørket/saltet produktform.
+
+Scope-beslutning for core G3 er nå eksplisitt: HS `1504` fiskeoljer og HS `230120` non-food fiskemel/pellets holdes utenfor direkte matenergi. To rader som labeles `egnet til menneskeføde` (`03057900`, `03099000`) er flyttet fra scope-exclusion til manuell review. Proxy-yield-reviewen viser at `1 780 683,461 tonn` og `2 728,075 Tcal` av kandidatenergien fortsatt bygger på proxyvalg som må reviewes før resultatpromotering.
 
 ## Lokale verdier som kan brukes internt
 
@@ -107,8 +145,8 @@ Start med energi/kalorier, ikke kg, fordi NIBIO-metoden er energibasert. Kjør d
 | `official_unadjusted_total_incl_fish` | NIBIO/engrosforbruk uten fôrkorrigering | cell_locator_locked |
 | `official_feed_corrected_total_incl_fish` | fôrkorrigert selvforsyning inkl. fisk; husdyrkraftfôr korrigert | cell_locator_locked |
 | `seafood_export_retention_0pct` | kontrollscenario uten tilbakeholdt sjømateksport | scenario_formula_locked |
-| `seafood_export_retention_25pct` | moderat beredskapsretensjon | scenario_formula_locked; proxy_energy_input_created; denominator_candidate_created |
-| `seafood_export_retention_50pct` | høy beredskapsretensjon | scenario_formula_locked; proxy_energy_input_created; denominator_candidate_created |
+| `seafood_export_retention_25pct` | moderat beredskapsretensjon | scenario_formula_locked; hs_energy_mapping_candidate_created; denominator_candidate_created |
+| `seafood_export_retention_50pct` | høy beredskapsretensjon | scenario_formula_locked; hs_energy_mapping_candidate_created; denominator_candidate_created |
 
 ## Stop-regel
 
@@ -116,7 +154,7 @@ Ikke bruk formuleringer som "nesten selvforsynt med fisk" eller "sjømatjustert 
 
 ## Neste handling
 
-1. Erstatt proxy-panelet med full Sjømatrådet/SSB produktmiks eller dokumenter hvorfor toppartspanel er tilstrekkelig.
-2. Lås spiselig andel og energi for tørket/saltet/foredlet produktform.
+1. Review `research/data/nordic/self-sufficiency/no-seafood-hs-yield-review-2024.csv`: lås spiselig andel for laks/ørret, makrellsesong, tørket/saltet produktform og lodde-proxy.
+2. Lukk review-køen i `research/data/nordic/self-sufficiency/no-seafood-hs-manual-review-2024.csv` eller dokumenter permanent ekskludering for de `52 560,981 tonn`.
 3. Avklar om engros-denominator (`11,1 MJ/person/dag`) er riktig denominator for scenarioet eller om NIBIO/Helsedirektoratet har et bedre direkte uttrekk.
-4. Beregn output for 0/25/50 prosent retensjon i `research/data/nordic/self-sufficiency/self-sufficiency-seafood-adjusted-scenarios-2026-05-15.csv` først etter at full sjømat-produktmiks/yield er låst.
+4. Beregn output for 0/25/50 prosent retensjon i `research/data/nordic/self-sufficiency/self-sufficiency-seafood-adjusted-scenarios-2026-05-15.csv` først etter at HS-til-energi/yield-mapping er låst.

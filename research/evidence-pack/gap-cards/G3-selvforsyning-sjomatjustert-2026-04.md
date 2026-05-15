@@ -89,4 +89,29 @@ Foreloepig denominator er opprettet:
 
 Helsedirektoratet 2025 oppgir 2024 engros energi i matforsyningsstatistikken til `11,1 MJ/person/dag`. Med SSB start-/sluttbefolkning for 2024 gir dette en mean-population proxy på `5 572 271,5` personer og en denominator-kandidat på `5 395,807 Tcal/år`.
 
-Status forblir `exclude`/ikke rapportklar: sjømatproxyen dekker ikke full 2,8 mill. tonn eksportvolum, produktmiks er ufullstendig, spiselig yield er delvis proxy, og denominator må omtales som engros matforsyning heller enn faktisk energiinntak.
+Status forblir `exclude`/ikke rapportklar: top-species energiinputet er fortsatt bare et testgrunnlag, spiselig yield er delvis proxy, og denominator må omtales som engros matforsyning heller enn faktisk energiinntak.
+
+## SSB-HS produktmiks 2026-05-15
+
+Primærstatistisk produktmiksuttrekk er opprettet:
+
+- `research/data/nordic/self-sufficiency/no-seafood-export-product-mix-ssb-hs-2024.csv`
+
+Uttrekket summerer SSB tabell `08801` for eksport 2024 over HS `03`, `1504`, `1604`, `1605` og `230120`. Valgt sjømatrelatert HS-scope gir `2 589 296 tonn`, inkludert `105 185,395 tonn` fiskeolje og `99 633,442 tonn` fiskemel/pellets som ikke skal behandles som direkte matenergi uten egen scopebeslutning.
+
+Neste blocker er ikke lenger å finne produktmiks, men å mappe HS-radene til art, produktform, spiselig yield og Matvaretabellen-/annen energifaktor. G3 forblir `exclude`.
+
+## HS-til-energi/yield-kandidat 2026-05-15
+
+Første energimapping er opprettet:
+
+- `research/data/nordic/self-sufficiency/no-seafood-hs-energy-yield-mapping-candidate-2024.csv`
+- `research/data/nordic/self-sufficiency/no-seafood-hs-manual-review-2024.csv`
+- `research/data/nordic/self-sufficiency/no-seafood-hs-scope-decisions-2024.csv`
+- `research/data/nordic/self-sufficiency/no-seafood-hs-yield-review-2024.csv`
+
+Panelet mapper `2 309 198,600 tonn` til kandidatenergi og summerer til `3 203,326 Tcal`. Retensjonskandidater er `800,832 Tcal` ved 25 prosent og `1 601,663 Tcal` ved 50 prosent. Mot engros-denominator-kandidaten (`5 395,807 Tcal/år`) tilsvarer dette ca. `14,842` og `29,683` prosentpoeng brutto tillegg i scenario-testen.
+
+Status forblir `exclude`: `203 769,019 tonn` fiskeolje og non-food fiskemel er holdt utenfor direkte matenergi, `52 560,981 tonn` krever manuell review, og flere yield-/produktformvalg er fortsatt proxy. De ni manuelle HS-radene er nå skilt ut i egen kø med `exclude` på hver rad til byprodukt-/organmiks, edible meal-produktmiks eller permanent ekskludering er metodegodkjent.
+
+Core scope er strammet: `1504` fiskeoljer og `230120` non-food fiskemel/pellets er eksplisitt ekskludert fra direkte matenergi, mens `03057900` og `03099000` er flyttet til manuell review fordi SSB-labelene sier `egnet til menneskeføde`. Proxy-yield-reviewen viser at `2 728,075 Tcal` av kandidatenergien fortsatt krever review før G3 kan løftes fra `exclude`.
