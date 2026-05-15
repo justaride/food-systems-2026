@@ -9,6 +9,8 @@ import { SupplyChainGraph } from '@/components/charts/SupplyChainGraph'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
 import { ChartFrame } from '@/components/visualization/ChartFrame'
 import { DataQualityStrip } from '@/components/visualization/DataQualityStrip'
+import { getResearchEvidenceStatusConfig } from '@/lib/visualization/status'
+import type { ResearchEvidenceStatus } from '@/lib/visualization/types'
 import { valueChainFieldGapLabel } from '@/lib/supply-chain-status'
 import type {
   SupplyChainGraphData,
@@ -171,20 +173,18 @@ const QUALITY_LABELS: Record<string, string> = {
   low: 'lav',
 }
 
-const VALUE_CHAIN_LANE_LABELS: Record<string, string> = {
-  validated: 'Validert',
-  primary_snapshot: 'Primærsnapshot',
-  proxy_model: 'Proxy/modell',
-  local_research_needs_primary_check: 'Må primærsjekkes',
-  missing: 'Mangler',
-}
-
-const VALUE_CHAIN_LANE_CLASSES: Record<string, string> = {
-  validated: 'border-emerald-200 bg-emerald-50 text-emerald-800',
-  primary_snapshot: 'border-sky-200 bg-sky-50 text-sky-800',
-  proxy_model: 'border-amber-200 bg-amber-50 text-amber-800',
-  local_research_needs_primary_check: 'border-orange-200 bg-orange-50 text-orange-800',
-  missing: 'border-rose-200 bg-rose-50 text-rose-800',
+function getLaneConfig(lane: string) {
+  const fallback = getResearchEvidenceStatusConfig('missing')
+  const valid: ResearchEvidenceStatus[] = [
+    'validated',
+    'primary_snapshot',
+    'proxy_model',
+    'local_research_needs_primary_check',
+    'missing',
+  ]
+  return valid.includes(lane as ResearchEvidenceStatus)
+    ? getResearchEvidenceStatusConfig(lane as ResearchEvidenceStatus)
+    : fallback
 }
 
 function formatCount(n: number): string {
@@ -1307,12 +1307,10 @@ function SupplyChainQualityPanel({ quality }: { quality: SupplyChainDataQuality 
                       </td>
                       <td className="py-2 px-2">
                         <span
-                          className={`inline-flex rounded border px-1.5 py-0.5 text-[10px] font-medium ${
-                            VALUE_CHAIN_LANE_CLASSES[row.displayLane] ?? VALUE_CHAIN_LANE_CLASSES.missing
-                          }`}
-                          title={[row.reviewStatus, row.statusNote].filter(Boolean).join(' — ')}
+                          className={`inline-flex rounded border px-1.5 py-0.5 text-[10px] font-medium ${getLaneConfig(row.displayLane).className}`}
+                          title={[row.reviewStatus, row.statusNote].filter(Boolean).join(' — ') || getLaneConfig(row.displayLane).description}
                         >
-                          {VALUE_CHAIN_LANE_LABELS[row.displayLane] ?? row.displayLane}
+                          {getLaneConfig(row.displayLane).label}
                         </span>
                       </td>
                       <td

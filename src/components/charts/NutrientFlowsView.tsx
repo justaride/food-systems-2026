@@ -15,6 +15,7 @@ import { Card } from '@/components/ui/Card'
 import { ChartSource } from '@/components/ui/ChartSource'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
+import { ResearchEvidenceBadge } from '@/components/visualization/ResearchEvidenceBadge'
 
 type Nutrient = 'n' | 'p' | 'k'
 type CountryCode = 'NO' | 'SE' | 'DK' | 'FI' | 'IS'
@@ -326,11 +327,16 @@ export function NutrientFlowsView({ defaultCountry = 'NO' }: { defaultCountry?: 
           <h3 className="text-sm font-semibold text-stone-700 mb-0.5">
             Næringsstoff-flyt (N, P, K) – {COUNTRY_LABELS[country]}
           </h3>
-          <div className="mb-2">
+          <div className="mb-2 flex flex-wrap gap-1.5">
             <EvidenceStatusBadge
               status="estimated"
               prefix="Datastatus"
               detail="Størrelsesordensestimater fra MFA-kilder, ikke offisiell komplett statistikk."
+            />
+            <ResearchEvidenceBadge
+              status="proxy_model"
+              prefix="Researchstatus"
+              detail="MS-004 nutrient flow model. Brukes analytisk med metodeforbehold, ikke som observert primaerstatistikk."
             />
           </div>
           <p className="text-xs text-stone-500">
