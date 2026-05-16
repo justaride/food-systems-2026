@@ -7,6 +7,7 @@ import { sources } from '../src/lib/data/sources'
 import { insights } from '../src/lib/data/insights'
 import { theses } from '../src/lib/data/theses'
 import { applications } from '../src/lib/data/applications'
+import { deliverables } from '../src/lib/data/deliverables'
 import { kpis } from '../src/lib/data/kpis'
 import { evidencePack } from '../src/lib/data/evidence-pack'
 import { tenSteps } from '../src/lib/data/ten-step-start'
@@ -271,6 +272,27 @@ async function importApplications() {
     })
   }
   console.log(`  ${applications.length} applications imported`)
+}
+
+async function importDeliverables() {
+  console.log('Importing deliverables...')
+  for (const d of deliverables) {
+    await prisma.deliverable.upsert({
+      where: { id: d.id },
+      update: {
+        name: d.name,
+        deadline: d.deadline,
+        status: d.status,
+      },
+      create: {
+        id: d.id,
+        name: d.name,
+        deadline: d.deadline,
+        status: d.status,
+      },
+    })
+  }
+  console.log(`  ${deliverables.length} deliverables imported`)
 }
 
 async function importKPIs() {
@@ -831,6 +853,7 @@ async function main() {
   await importInsights()
   await importTheses()
   await importApplications()
+  await importDeliverables()
   await importKPIs()
   await importEvidencePack()
   await importTenSteps()
