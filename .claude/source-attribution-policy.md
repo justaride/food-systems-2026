@@ -126,6 +126,25 @@ Wayback er normalt ikke nødvendig når:
 - lokal PDF/JSON/HTML-kopi med SHA-256 er tilstrekkelig og lisensmessig forsvarlig
 - kilden er et internt forskningskonstrukt med dokumentert beslutningsnotat
 
+## Git og rå evidensfiler
+
+Git-repoet skal bære metadata, manifests, tekstuttrekk, URL-er, access dates og SHA-256. Store rådokumenter skal ligge i lokal eller ekstern artifact storage.
+
+Nye PR-er skal ikke legge til:
+
+- `research/**/*.pdf`
+- `docs/**/*.pdf`
+- `research/evidence-pack/registry-sources/**/documents/**`
+- tracked filer på 50 MB eller mer
+
+Guardrail:
+
+```bash
+npm run audit:research-artifacts -- --base=origin/main
+```
+
+Denne sjekken blokkerer nye råfiler i branch-diffen og tracked filer over størrelsesgrensen, men lar eksisterende legacy-PDFer under grensen forbli inntil egen migrering til artifact storage.
+
 ## Legacy-regler
 
 Eksisterende fritekstverdier i `source`-felt kan beholdes midlertidig, men skal klassifiseres og ryddes gradvis.

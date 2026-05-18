@@ -22,6 +22,7 @@ Denne statusen gjelder worktree `akademisk-kildehandtering-fase0`, etter første
 | Insight citation transition | `Insight.sourceLabel` og `primaryCitationId` lagt til additivt; legacy `source` beholdes |
 | Import helper | `scripts/lib/import-helpers.ts` validerer citation, bygger stabil citation-id og skriver `FieldCitation` idempotent |
 | Source-string guard | `npm run audit:source-strings` etablert med baseline og ny-funn-blokkering |
+| Research artifact guard | `npm run audit:research-artifacts -- --base=origin/main` etablert for å blokkere nye PDF/rå registerdokumenter og tracked filer på 50 MB eller mer |
 | Registry backfill | 10 Brønnøysund entity snapshots og 23 rolle-snapshots lagret med SHA-256 |
 | Pilot citations | 119 `Company` field citations, 890 `BoardMember` field citations og 19 `PersonProfile` role field citations opprettet |
 | Finans-kildekontroll | `research/company-financial-citation-proposals-2026-05-18.csv` laget med 14 lokale årsrapportkandidater for manuell verdi-/sidetabellkontroll |
@@ -112,6 +113,7 @@ Denne statusen gjelder worktree `akademisk-kildehandtering-fase0`, etter første
 | `npm run audit:citation-application-packet` | ✓ 26 rader; 0 blocked, 0 conditional, 22 applied, 4 registry queue |
 | `DOTENV_CONFIG_PATH=../../.env npm run db:audit` | ✓ 221320 records; referensiell integritet passerte; CompanyFinancial-dekning 151/151; Shareholder FieldCitation-dekning 35/83 |
 | `DOTENV_CONFIG_PATH=../../.env npm run audit:source-strings -- --baseline research/source-string-taxonomy-baseline.csv --fail-on-new-action-needed` | ✓ 378 taxonomy rows; 365 action-needed baseline rows; 0 nye action-needed rows |
+| `npm run audit:research-artifacts -- --base=origin/main` | ✓ 312 added paths og 2590 tracked files sjekket; 0 brudd; 0 tracked filer over 50 MB |
 | `DOTENV_CONFIG_PATH=../../.env npx prisma migrate status` | ✓ database schema up to date, 12 migrations |
 | `npm run build` | ✓ Next.js production build passerte |
 
