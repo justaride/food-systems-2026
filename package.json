@@ -63,6 +63,7 @@
     "audit:company-financial-citation-proposals": "tsx scripts/propose-company-financial-citations.ts",
     "audit:citation-application-packet": "tsx scripts/preflight-citation-application-packet.ts",
     "audit:research-artifacts": "tsx scripts/audit-research-artifacts.ts",
+    "audit:source-coverage-gaps": "tsx scripts/export-source-coverage-gaps.ts",
     "db:apply:conditional-financial-citations": "tsx scripts/apply-conditional-financial-citations.ts",
     "db:apply:conditional-shareholder-citations": "tsx scripts/apply-conditional-shareholder-citations.ts",
     "db:check-urls": "tsx scripts/check-urls.ts",
