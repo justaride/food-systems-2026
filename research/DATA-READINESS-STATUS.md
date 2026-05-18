@@ -41,6 +41,9 @@ Denne statusen gjelder worktree `akademisk-kildehandtering-fase0`, etter første
 | Reitan shareholder normalization | `SH-REITAN-2024` anvendt lokalt: direkte eier `REITAN AS` 100% valgt for `Shareholder`, familie-kontrollag beholdt i citation notes, og field citations opprettet |
 | Axfood shareholder normalization | `SH-AXFOOD-2024` anvendt lokalt: top shareholder-rader korrigert til årsrapportens navn/prosenter og field citations opprettet |
 | Coop Danmark shareholder split | `SH-COOP-DK-2024` anvendt lokalt: 100%-raden splittet til `OK a.m.b.a.` 50.82% og `Coop amba` 49.18% med field citations |
+| Coop Norge shareholder source | `SH-COOP-NO-2024` anvendt lokalt: samvirkelagseierskap normalisert til kildens ordlyd og field-citert |
+| Salling Group shareholder source | `SH-SALLING-2024` anvendt lokalt: 100% Salling Foundations fra årsrapporten og field-citert |
+| REMA 1000 Norge/Danmark shareholder source | `SH-REMA-NO-2024` og `SH-REMA-DK-2024` anvendt lokalt fra Reitan Retails investment-in-subsidiaries note |
 | ICA shareholder normalization | `SH-ICA-2024` anvendt lokalt: share-only eierprosenter oppdatert, `ICA retailers` opprettet, vote shares beholdt i citation notes, og field citations opprettet |
 | Axfood financial FX normalization | `CF-AXFOOD-2024` anvendt lokalt: NOK MNOK-verdier beregnet med Norges Bank 2024 SEK/NOK annual average og field citations opprettet |
 | ICA financial FX normalization | `CF-ICA-2024` anvendt lokalt: NOK MNOK-verdier beregnet med Norges Bank 2024 SEK/NOK annual average og field citations opprettet |
@@ -98,10 +101,10 @@ Denne statusen gjelder worktree `akademisk-kildehandtering-fase0`, etter første
 | Hagar historical FX reconciliation rows | 4 |
 | Hagar shareholder snapshot rows | 20 |
 | Nordic registry acquisition rows | 8 |
-| Source coverage gap rows | 276 |
+| Source coverage gap rows | 272 |
 | Source coverage gap rows - BoardMember | 150 |
 | Source coverage gap rows - PersonProfile roles | 78 |
-| Source coverage gap rows - Shareholder | 48 |
+| Source coverage gap rows - Shareholder | 44 |
 | Denmark CVR/Virk detailed manifest rows | 118 |
 | Finland/Iceland registry trace rows | 14 |
 | Sweden Bolagsverket detailed queue rows | 6 |
@@ -117,10 +120,10 @@ Denne statusen gjelder worktree `akademisk-kildehandtering-fase0`, etter første
 | `npm test` | ✓ 92 tester passerte etter Hagar historical financial-idempotens |
 | `npm run lint` | ✓ ingen lint-feil |
 | `npm run audit:citation-application-packet` | ✓ 26 rader; 0 blocked, 0 conditional, 22 applied, 4 registry queue |
-| `DOTENV_CONFIG_PATH=../../.env npm run db:audit` | ✓ 221320 records; referensiell integritet passerte; CompanyFinancial-dekning 151/151; Shareholder FieldCitation-dekning 35/83 |
+| `DOTENV_CONFIG_PATH=../../.env npm run db:audit` | ✓ 221320 records; referensiell integritet passerte; CompanyFinancial-dekning 151/151; Shareholder FieldCitation-dekning 39/83 |
 | `DOTENV_CONFIG_PATH=../../.env npm run audit:source-strings -- --baseline research/source-string-taxonomy-baseline.csv --fail-on-new-action-needed` | ✓ 378 taxonomy rows; 365 action-needed baseline rows; 0 nye action-needed rows |
 | `npm run audit:research-artifacts -- --base=origin/main` | ✓ 312 added paths og 2590 tracked files sjekket; 0 brudd; 0 tracked filer over 50 MB |
-| `DOTENV_CONFIG_PATH=../../.env npm run audit:source-coverage-gaps -- --output=research/source-coverage-gaps-2026-05-18.csv` | ✓ 276 gap-rader eksportert; 150 BoardMember, 78 PersonProfileRole, 48 Shareholder |
+| `DOTENV_CONFIG_PATH=../../.env npm run audit:source-coverage-gaps -- --output=research/source-coverage-gaps-2026-05-18.csv` | ✓ 272 gap-rader eksportert; 150 BoardMember, 78 PersonProfileRole, 44 Shareholder |
 | `DOTENV_CONFIG_PATH=../../.env npx prisma migrate status` | ✓ database schema up to date, 12 migrations |
 | `npm run build` | ✓ Next.js production build passerte |
 
@@ -150,11 +153,12 @@ I tillegg står 106 nordiske styre-/lederroller igjen som manual-only inntil sve
 
 ### Source coverage closure attempt etter gap-eksport
 
-Gap-eksporten etter commit `d76e109` viser 276 gjenværende rader. Etterpå ble tre automatiske/idempotente lukkeveier testet:
+Gap-eksporten etter commit `d76e109` viste 276 gjenværende rader. Etterpå ble tre automatiske/idempotente lukkeveier testet:
 
 - Brønnøysund role backfill dry-run for 19 norske selskaper: 56 nåværende roller matchet, 44 rader matchet ikke. Disse 44 er de norske BoardMember-restene og bør ikke auto-appliseres uten historisk/manuell kilde.
 - PersonProfile role backfill dry-run: 19 planlagte koblinger, 78 skipped (`no_match=44`, `unsupported_role=34`). Dette bekrefter at de 78 restene ikke kan maskinkobles trygt fra eksisterende BoardMember-citations.
 - Conditional Shareholder decisions `SH-BAMA-2024`, `SH-NG-2024`, `SH-KESKO-2024`, `SH-REITAN-2024`, `SH-AXFOOD-2024`, `SH-COOP-DK-2024`, `SH-ICA-2024`, `SH-HAGAR-2026` ble dry-runnet og kjørt idempotent med `--apply`; netto coverage-endring var 0 fordi disse allerede lå i den 35/83-dekningen.
+- Nye annual-report decisions `SH-COOP-NO-2024`, `SH-SALLING-2024`, `SH-REMA-NO-2024` og `SH-REMA-DK-2024` ble dry-runnet, applisert og verifisert. Dette reduserte Shareholder-gap fra 48 til 44 og økte Shareholder-dekning fra 35/83 til 39/83.
 
 Detaljer og neste kø ligger i `research/source-coverage-gap-closure-attempts-2026-05-18.md`.
 

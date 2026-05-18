@@ -149,7 +149,6 @@ BoardMember,cmp8xyxis0010ywvmshwila1v,,cmp8xyxim000wywvmmto53yhr,BioMar AS,Paddy
 BoardMember,cmp8xyxiu0013ywvmwbhu1ar3,,cmp8xyxit0011ywvm8qm4kgzk,Grilstad AS,Anders Grilstad,anders-grilstad,styreleder,,,NO,937070632,,bronnoysund_role_or_entity_snapshot,missing_board_member_field_citation
 BoardMember,cmp8xyxiv0015ywvmnph1opou,,cmp8xyxit0011ywvm8qm4kgzk,Grilstad AS,Anne Marit Panengstuen,anne-marit-panengstuen,styremedlem,,,NO,937070632,,bronnoysund_role_or_entity_snapshot,missing_board_member_field_citation
 BoardMember,cmp8xyxiv0014ywvmwfwds7vv,,cmp8xyxit0011ywvm8qm4kgzk,Grilstad AS,Jørgen Wiig,jrgen-wiig,CEO,,,NO,937070632,,bronnoysund_role_or_entity_snapshot,missing_board_member_field_citation
-Shareholder,cmp8xyt19000pxrvmdu4xy47y,,cmp8xyt0w000jxrvm0iavgyro,Coop Norge SA,,,,"Samvirkelagene (1,9 mill. medlemmer)",100,NO,936560288,data.brreg.no/enhetsregisteret,bronnoysund_role_or_entity_snapshot,missing_shareholder_field_citation
 Shareholder,cmp8xyt2c001txrvmzkbfu8pf,,cmp8xyt25001nxrvm5fopu1xb,Orkla ASA,,,,Stein Erik Hagen (Canica),25.1,NO,910747711,data.brreg.no/enhetsregisteret,bronnoysund_role_or_entity_snapshot,missing_shareholder_field_citation
 Shareholder,cmp8xyt2q002bxrvmldcpqakt,,cmp8xyt2l0025xrvmxuh0939x,Nortura SA,,,,17 000 bønder,100,NO,938752648,data.brreg.no/enhetsregisteret,bronnoysund_role_or_entity_snapshot,missing_shareholder_field_citation
 Shareholder,cmp8xyt3s003dxrvm2j0qjmem,,cmp8xyt3l0037xrvmpzlb3lbw,TINE SA,,,,8 600 melkebønder,100,NO,947942638,data.brreg.no/enhetsregisteret,bronnoysund_role_or_entity_snapshot,missing_shareholder_field_citation
@@ -168,7 +167,6 @@ Shareholder,cmp8xytb2009fxrvmx92aktn0,,cmp8xytas0098xrvm1x6bwwrf,Nofima AS,,,,St
 Shareholder,cmp8xytbf009txrvmlj9zduql,,cmp8xytb8009pxrvmjdg1chp6,Austevoll Seafood ASA,,,,Laco AS (Møgster-familien),52.7,NO,929975200,,bronnoysund_role_or_entity_snapshot,missing_shareholder_field_citation
 Shareholder,cmp8xytbi009yxrvm6j5y7mm7,,cmp8xytbh009xxrvmwf5gnlcp,Kavli Holding AS,,,,O. Kavli og Knut Kavlis Allmennyttige Fond,100,NO,913344162,,bronnoysund_role_or_entity_snapshot,missing_shareholder_field_citation
 Shareholder,cmp8xytbr00a3xrvmys5ubo6h,,cmp8xytbp00a2xrvmgp9lh2h2,Unil AS,,,,NorgesGruppen ASA,100,NO,885316522,,bronnoysund_role_or_entity_snapshot,missing_shareholder_field_citation
-Shareholder,cmp8xytbw00a7xrvmx3m0lim6,,cmp8xytbv00a6xrvmi8ugubkz,REMA 1000 Norge AS,,,,Reitan Retail AS,100,NO,982254604,data.brreg.no/enhetsregisteret,bronnoysund_role_or_entity_snapshot,missing_shareholder_field_citation
 Shareholder,cmp8xytbz00abxrvmbfj6hh24,,cmp8xytby00aaxrvm3h2n1eb4,NTS ASA,,,,SalMar ASA (100% etter fusjon),100,NO,952587687,,bronnoysund_role_or_entity_snapshot,missing_shareholder_field_citation
 Shareholder,cmp8xytc000adxrvmon0wnbft,,cmp8xytbz00acxrvmjbj3td65,Nova Sea AS,,,,Mowi ASA,95,NO,961056268,,bronnoysund_role_or_entity_snapshot,missing_shareholder_field_citation
 Shareholder,cmp8xytc200afxrvm23684ra0,,cmp8xytc100aexrvm71qkugy8,Orkla Food Ingredients AS,,,,Orkla ASA,60,NO,911161419,,bronnoysund_role_or_entity_snapshot,missing_shareholder_field_citation
@@ -177,8 +175,6 @@ Shareholder,cmp8xytc500aixrvmvcwubq3z,,cmp8xytc400ahxrvm6dhey2fh,Lilleborg AS,,,
 Shareholder,cmp8xytc700akxrvm18ar2clw,,cmp8xytc600ajxrvm9rqvviqe,City Gross Sverige AB,,,,Axfood AB (100% etter oppkjøp),100,SE,SE-556448-4498,,bolagsverket_manual_or_api,missing_shareholder_field_citation
 Shareholder,cmp8xytd700bsxrvmoo04zhvb,,cmp8xytcz00bmxrvmeajnuf9t,Coop Sverige AB,,,,Kooperativa Förbundet (KF) / 26 konsumentföreningar,100,SE,SE-702001-3469,,bolagsverket_manual_or_api,missing_shareholder_field_citation
 Shareholder,cmp8xytdk00c8xrvm9n7dyyw9,,cmp8xytdd00c2xrvmg4yblf40,Lidl Sverige KB,,,,"Schwarz Group (Lidl Stiftung & Co. KG, Tyskland)",100,SE,SE-969697-6594,,bolagsverket_manual_or_api,missing_shareholder_field_citation
-Shareholder,cmp8xytdw00ckxrvmqapp9v5b,,cmp8xytdq00cexrvmnyah62ph,Salling Group A/S,,,,Købmand Herman Sallings Fond,100,DK,DK-35954716,,cvr_credentials_or_browser,missing_shareholder_field_citation
-Shareholder,cmp8xyten00dgxrvmf4qxww8g,,cmp8xytef00daxrvm80gdkpkl,REMA 1000 A/S,,,,Reitan Retail AS (Norge),100,DK,DK-14705627,,cvr_credentials_or_browser,missing_shareholder_field_citation
 Shareholder,cmp8xytex00dvxrvmr8y48na1,,cmp8xyter00doxrvm206trvnu,Dagrofa A/S,,,,KFI Erhvervsdrivende Fond,42,DK,DK-38714295,,cvr_credentials_or_browser,missing_shareholder_field_citation
 Shareholder,cmp8xytex00duxrvmfpoaxnfk,,cmp8xyter00doxrvm206trvnu,Dagrofa A/S,,,,NorgesGruppen ASA (Norge),48.9,DK,DK-38714295,,cvr_credentials_or_browser,missing_shareholder_field_citation
 Shareholder,cmp8xytey00dwxrvmumf3vny6,,cmp8xyter00doxrvm206trvnu,Dagrofa A/S,,,,Selvstændige købmænd,9.1,DK,DK-38714295,,cvr_credentials_or_browser,missing_shareholder_field_citation

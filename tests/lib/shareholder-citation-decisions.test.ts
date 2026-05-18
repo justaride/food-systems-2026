@@ -4,11 +4,15 @@ import {
   AXFOOD_2024_SHAREHOLDER_DECISION,
   BAMA_2024_SHAREHOLDER_DECISION,
   COOP_DANMARK_2024_SHAREHOLDER_DECISION,
+  COOP_NORGE_2024_SHAREHOLDER_DECISION,
   HAGAR_2026_SHAREHOLDER_DECISION,
   ICA_GRUPPEN_2024_SHAREHOLDER_DECISION,
   KESKO_2024_SHAREHOLDER_DECISION,
   NORGESGRUPPEN_2024_SHAREHOLDER_DECISION,
+  REMA_1000_DANMARK_2024_SHAREHOLDER_DECISION,
+  REMA_1000_NORGE_2024_SHAREHOLDER_DECISION,
   REITAN_RETAIL_2024_SHAREHOLDER_DECISION,
+  SALLING_GROUP_2024_SHAREHOLDER_DECISION,
   buildShareholderNormalizationPlan,
   buildShareholderSourceCitation,
   buildShareholderUpdateData,
@@ -262,6 +266,78 @@ describe('shareholder citation decisions', () => {
       isControlling: create.isControlling,
     })), [
       { name: 'Coop amba', ownershipPct: '49.18', shareholderType: 'cooperative', isControlling: false },
+    ])
+  })
+
+  it('plans Coop Norge cooperative ownership from the annual report', () => {
+    const plan = buildShareholderNormalizationPlan(COOP_NORGE_2024_SHAREHOLDER_DECISION, [
+      { id: 'sh-coop-no', name: 'Samvirkelagene (1,9 mill. medlemmer)', ownershipPct: '100.00', shareholderType: 'cooperative', isControlling: true },
+    ])
+
+    assert.deepEqual(plan.issues, [])
+    assert.deepEqual(plan.updates.map(update => ({
+      id: update.id,
+      fromName: update.fromName,
+      toName: update.toName,
+      ownershipPct: update.ownershipPct,
+      shareholderType: update.shareholderType,
+      isControlling: update.isControlling,
+    })), [
+      {
+        id: 'sh-coop-no',
+        fromName: 'Samvirkelagene (1,9 mill. medlemmer)',
+        toName: 'Samvirkelagene',
+        ownershipPct: '100',
+        shareholderType: 'cooperative',
+        isControlling: true,
+      },
+    ])
+  })
+
+  it('plans Salling Group foundation ownership from the annual report', () => {
+    const plan = buildShareholderNormalizationPlan(SALLING_GROUP_2024_SHAREHOLDER_DECISION, [
+      { id: 'sh-salling', name: 'Købmand Herman Sallings Fond', ownershipPct: '100.00', shareholderType: 'foundation', isControlling: true },
+    ])
+
+    assert.deepEqual(plan.issues, [])
+    assert.deepEqual(plan.updates.map(update => ({
+      id: update.id,
+      fromName: update.fromName,
+      toName: update.toName,
+      ownershipPct: update.ownershipPct,
+    })), [
+      {
+        id: 'sh-salling',
+        fromName: 'Købmand Herman Sallings Fond',
+        toName: 'Salling Foundations',
+        ownershipPct: '100',
+      },
+    ])
+  })
+
+  it('plans REMA 1000 subsidiary ownership from the Reitan Retail annual report', () => {
+    const norwegianPlan = buildShareholderNormalizationPlan(REMA_1000_NORGE_2024_SHAREHOLDER_DECISION, [
+      { id: 'sh-rema-no', name: 'Reitan Retail AS', ownershipPct: '100.00', shareholderType: 'institutional', isControlling: true },
+    ])
+    const danishPlan = buildShareholderNormalizationPlan(REMA_1000_DANMARK_2024_SHAREHOLDER_DECISION, [
+      { id: 'sh-rema-dk', name: 'Reitan Retail AS (Norge)', ownershipPct: '100.00', shareholderType: 'institutional', isControlling: true },
+    ])
+
+    assert.deepEqual(norwegianPlan.issues, [])
+    assert.deepEqual(danishPlan.issues, [])
+    assert.deepEqual(norwegianPlan.updates.map(update => ({
+      id: update.id,
+      toName: update.toName,
+      ownershipPct: update.ownershipPct,
+    })), [
+      { id: 'sh-rema-no', toName: 'Reitan Retail AS', ownershipPct: '100' },
+    ])
+    assert.deepEqual(danishPlan.updates.map(update => ({
+      id: update.id,
+      toName: update.toName,
+      ownershipPct: update.ownershipPct,
+    })), [
+      { id: 'sh-rema-dk', toName: 'Reitan Retail AS', ownershipPct: '100' },
     ])
   })
 

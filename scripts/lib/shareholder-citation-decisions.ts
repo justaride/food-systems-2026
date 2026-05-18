@@ -269,6 +269,94 @@ export const COOP_DANMARK_2024_SHAREHOLDER_DECISION: ShareholderNormalizationDec
   ],
 }
 
+export const COOP_NORGE_2024_SHAREHOLDER_DECISION: ShareholderNormalizationDecision = {
+  actionId: 'SH-COOP-NO-2024',
+  companyName: 'Coop Norge SA',
+  accessedAt: '2026-05-18',
+  sourceUrl: 'https://www.coop.no/om-coop/aarsrapporter',
+  localPath: 'research/evidence-pack/arsrapporter/text/coop-norge-2024.txt',
+  citationText: 'Coop Norge SA. (2024). Års- og bærekraftsrapport 2024, samvirkeeierskap.',
+  citationNotes: 'Verifies that Coop Norge SA is the joint organization owned by the cooperative societies that are also members. Local text references: lines 128-151, 176-180 and 242.',
+  confidence: 95,
+  sourceBasis: 'annual_report_2024',
+  targets: [
+    {
+      expectedCurrentName: 'Samvirkelagene (1,9 mill. medlemmer)',
+      expectedCurrentPct: '100',
+      sourceName: 'Samvirkelagene',
+      ownershipPct: '100',
+      shareholderType: 'cooperative',
+      isControlling: true,
+    },
+  ],
+}
+
+export const SALLING_GROUP_2024_SHAREHOLDER_DECISION: ShareholderNormalizationDecision = {
+  actionId: 'SH-SALLING-2024',
+  companyName: 'Salling Group A/S',
+  accessedAt: '2026-05-18',
+  sourceUrl: 'https://sallinggroup.com/en/publications',
+  localPath: 'research/evidence-pack/arsrapporter/text/salling-group-2024.txt',
+  citationText: 'Salling Group A/S. (2024). Annual Report 2024, ownership.',
+  citationNotes: 'Verifies that Salling Group is 100% owned by the Salling Foundations. Local text references: lines 534-544 and 555-562. The DB row is normalized from the single-foundation shorthand to the source wording.',
+  confidence: 95,
+  sourceBasis: 'annual_report_2024',
+  targets: [
+    {
+      expectedCurrentName: 'Købmand Herman Sallings Fond',
+      expectedCurrentPct: '100',
+      sourceName: 'Salling Foundations',
+      ownershipPct: '100',
+      shareholderType: 'foundation',
+      isControlling: true,
+    },
+  ],
+}
+
+export const REMA_1000_NORGE_2024_SHAREHOLDER_DECISION: ShareholderNormalizationDecision = {
+  actionId: 'SH-REMA-NO-2024',
+  companyName: 'REMA 1000 Norge AS',
+  accessedAt: '2026-05-18',
+  sourceUrl: 'https://www.reitanretail.no/en/about/reports',
+  localPath: 'research/evidence-pack/arsrapporter/text/reitan-retail-2024.txt',
+  citationText: 'Reitan Retail AS. (2024). Annual and sustainability report 2024, investments in subsidiaries.',
+  citationNotes: 'Verifies REMA 1000 Norge AS as a 100% owned subsidiary in the Reitan Retail parent-company investment note. Local text reference: lines 8984-8992.',
+  confidence: 95,
+  sourceBasis: 'annual_report_2024',
+  targets: [
+    {
+      expectedCurrentName: 'Reitan Retail AS',
+      expectedCurrentPct: '100',
+      sourceName: 'Reitan Retail AS',
+      ownershipPct: '100',
+      shareholderType: 'institutional',
+      isControlling: true,
+    },
+  ],
+}
+
+export const REMA_1000_DANMARK_2024_SHAREHOLDER_DECISION: ShareholderNormalizationDecision = {
+  actionId: 'SH-REMA-DK-2024',
+  companyName: 'REMA 1000 A/S',
+  accessedAt: '2026-05-18',
+  sourceUrl: 'https://www.reitanretail.no/en/about/reports',
+  localPath: 'research/evidence-pack/arsrapporter/text/reitan-retail-2024.txt',
+  citationText: 'Reitan Retail AS. (2024). Annual and sustainability report 2024, investments in subsidiaries.',
+  citationNotes: 'Verifies REMA 1000 Danmark A/S as a 100% owned subsidiary in the Reitan Retail parent-company investment note. Local text reference: lines 8984-8992.',
+  confidence: 95,
+  sourceBasis: 'annual_report_2024',
+  targets: [
+    {
+      expectedCurrentName: 'Reitan Retail AS (Norge)',
+      expectedCurrentPct: '100',
+      sourceName: 'Reitan Retail AS',
+      ownershipPct: '100',
+      shareholderType: 'institutional',
+      isControlling: true,
+    },
+  ],
+}
+
 export const ICA_GRUPPEN_2024_SHAREHOLDER_DECISION: ShareholderNormalizationDecision = {
   actionId: 'SH-ICA-2024',
   companyName: 'ICA Gruppen AB',

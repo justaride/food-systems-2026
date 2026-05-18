@@ -18,8 +18,8 @@ Result:
 |---|---:|
 | BoardMember | 150 |
 | PersonProfileRole | 78 |
-| Shareholder | 48 |
-| Total | 276 |
+| Shareholder | 44 |
+| Total | 272 |
 
 ## Remaining gaps by entity and country
 
@@ -33,8 +33,8 @@ Result:
 | PersonProfileRole:unknown | 46 |
 | PersonProfileRole:NO | 29 |
 | PersonProfileRole:DK | 3 |
-| Shareholder:NO | 33 |
-| Shareholder:DK | 5 |
+| Shareholder:NO | 31 |
+| Shareholder:DK | 3 |
 | Shareholder:FI | 4 |
 | Shareholder:IS | 3 |
 | Shareholder:SE | 3 |
@@ -43,9 +43,9 @@ Result:
 
 | Recommended path | Gap rows |
 |---|---:|
-| bronnoysund_role_or_entity_snapshot | 106 |
+| bronnoysund_role_or_entity_snapshot | 104 |
 | manual_source_review | 46 |
-| cvr_credentials_or_browser | 39 |
+| cvr_credentials_or_browser | 37 |
 | bolagsverket_manual_or_api | 37 |
 | prh_virre_interactive_or_paid | 26 |
 | skatturinn_interactive_download | 22 |
@@ -131,6 +131,33 @@ Interpretation:
 
 The existing modelled shareholder decisions were already represented in the current coverage baseline. The remaining 48 shareholder gaps are outside those decisions and need new primary-source decisions or manual source acquisition.
 
+## Attempt 4: New annual-report Shareholder decisions from local text extracts
+
+Commands:
+
+```bash
+for action in SH-COOP-NO-2024 SH-SALLING-2024 SH-REMA-NO-2024 SH-REMA-DK-2024; do
+  DOTENV_CONFIG_PATH=../../.env npm run db:apply:conditional-shareholder-citations -- --dry-run --action=$action
+done
+
+for action in SH-COOP-NO-2024 SH-SALLING-2024 SH-REMA-NO-2024 SH-REMA-DK-2024; do
+  DOTENV_CONFIG_PATH=../../.env npm run db:apply:conditional-shareholder-citations -- --apply --action=$action
+done
+```
+
+Result:
+
+| Action | Source | Applied updates |
+|---|---|---:|
+| SH-COOP-NO-2024 | Coop Norge 2024 annual report text, lines 128-151, 176-180 and 242 | 1 |
+| SH-SALLING-2024 | Salling Group 2024 annual report text, lines 534-544 and 555-562 | 1 |
+| SH-REMA-NO-2024 | Reitan Retail 2024 annual report text, lines 8984-8992 | 1 |
+| SH-REMA-DK-2024 | Reitan Retail 2024 annual report text, lines 8984-8992 | 1 |
+
+Interpretation:
+
+Four shareholder rows moved from gap queue to field-cited coverage. `Shareholder` coverage is now 39/83 (47.0%), and the gap export now has 44 `Shareholder` rows instead of 48.
+
 ## Verification after attempts
 
 Command:
@@ -147,11 +174,11 @@ Result:
 | CompanyFinancial coverage | 151/151 (100.0%) |
 | BoardMember coverage | 178/328 (54.3%) |
 | PersonProfile role coverage | 19/97 (19.6%) |
-| Shareholder coverage | 35/83 (42.2%) |
+| Shareholder coverage | 39/83 (47.0%) |
 
 ## Next work queue
 
-1. Create new source decisions for the 48 remaining shareholder rows. Start with existing local annual-report text where available: Coop Norge, Salling Group, Reitan Retail, ASKO/NorgesGruppen-related rows and Hagar/Festi/Samkaup where official shareholder pages or annual reports exist.
+1. Create new source decisions for the 44 remaining shareholder rows. Start with existing local annual-report text where available: ASKO/NorgesGruppen-related rows, public-company annual reports and Hagar/Festi/Samkaup where official shareholder pages or annual reports exist.
 2. For the 44 Norwegian BoardMember no-match rows, decide whether the row is historical/stale or whether another official source verifies it.
 3. For SE/DK/FI/IS BoardMember gaps, use `research/nordic-registry-source-acquisition-queue-2026-05-18.csv` and the country-specific registry research files before creating `FieldCitation` rows.
 4. For PersonProfile roles, only attach citations when the role can be uniquely tied to a sourced BoardMember row or a direct person/company source. Unsupported broad roles should remain uncited or be converted to less assertive profile metadata.
