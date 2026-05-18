@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo, useCallback, useRef } from 'react'
+import { useState, useMemo, useCallback, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
@@ -30,6 +30,43 @@ type ExpandedDocument = DocumentRow & {
   refsTo: DocumentRef[]
 }
 
+type SearchMode = 'local' | 'fts' | 'semantic'
+
+type SearchWarning = {
+  code: 'semantic-unavailable' | 'semantic-error'
+  message: string
+}
+
+type ApiSearchResult = {
+  type: string
+  id: string
+  title: string
+  excerpt: string
+  url?: string | null
+  tags?: string[]
+  relevance?: number
+}
+
+type SearchApiResponse = {
+  results?: ApiSearchResult[]
+  warnings?: SearchWarning[]
+  executedMode?: 'keyword' | 'semantic' | 'hybrid'
+  fallback?: boolean
+  error?: string
+}
+
+const MODE_LABELS: Record<SearchMode, string> = {
+  local: 'Rask',
+  fts: 'FTS',
+  semantic: 'Semantisk',
+}
+
+const MODE_DESCRIPTIONS: Record<SearchMode, string> = {
+  local: 'Filtrer pre-lastede dokumenter på tittel/forfatter/sammendrag/tags',
+  fts: 'Postgres fulltekst-rangert søk i hele dokumentinnholdet',
+  semantic: 'Vektor-likhet via OpenAI embeddings (faller tilbake til FTS hvis ikke klart)',
+}
+
 function highlightText(text: string, query: string) {
   if (!query.trim()) return text
   const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -55,6 +92,7 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
   const [typeFilter, setTypeFilter] = useState('alle')
   const [categoryFilter, setCategoryFilter] = useState('alle')
   const [countryFilter, setCountryFilter] = useState('alle')
+  const [searchMode, setSearchMode] = useState<SearchMode>('local')
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
   const [loadedDocs, setLoadedDocs] = useState<Map<string, ExpandedDocument>>(new Map())
   const [loadingIds, setLoadingIds] = useState<Set<string>>(new Set())
@@ -62,11 +100,64 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
   const searchTimeout = useRef<ReturnType<typeof setTimeout>>(undefined)
   const [debouncedSearch, setDebouncedSearch] = useState('')
 
+  // API search state (only populated when searchMode !== 'local')
+  const [apiResults, setApiResults] = useState<ApiSearchResult[]>([])
+  const [apiWarnings, setApiWarnings] = useState<SearchWarning[]>([])
+  const [apiExecutedMode, setApiExecutedMode] = useState<string | null>(null)
+  const [apiLoading, setApiLoading] = useState(false)
+  const [apiError, setApiError] = useState<string | null>(null)
+
   const handleSearch = useCallback((value: string) => {
     setSearch(value)
     if (searchTimeout.current) clearTimeout(searchTimeout.current)
     searchTimeout.current = setTimeout(() => setDebouncedSearch(value), 200)
   }, [])
+
+  // Server-side search effect: only when in fts/semantic mode with a real query
+  useEffect(() => {
+    if (searchMode === 'local') {
+      setApiResults([])
+      setApiWarnings([])
+      setApiExecutedMode(null)
+      setApiError(null)
+      return
+    }
+    if (debouncedSearch.trim().length < 2) {
+      setApiResults([])
+      setApiWarnings([])
+      setApiExecutedMode(null)
+      setApiError(null)
+      return
+    }
+    const requestedApiMode = searchMode === 'fts' ? 'keyword' : 'semantic'
+    let cancelled = false
+    setApiLoading(true)
+    setApiError(null)
+    fetch(`/api/search?q=${encodeURIComponent(debouncedSearch)}&limit=50&mode=${requestedApiMode}`)
+      .then(async (res) => {
+        const data = (await res.json()) as SearchApiResponse
+        if (!res.ok) throw new Error(data.error ?? 'Søk er utilgjengelig akkurat nå')
+        if (cancelled) return
+        // Filter to document results only — /bibliotek viser ikke aktører/selskaper
+        const docResults = (data.results ?? []).filter((r) => r.type === 'document')
+        setApiResults(docResults)
+        setApiWarnings(data.warnings ?? [])
+        setApiExecutedMode(data.executedMode ?? null)
+      })
+      .catch((err) => {
+        if (cancelled) return
+        setApiResults([])
+        setApiWarnings([])
+        setApiExecutedMode(null)
+        setApiError(err instanceof Error ? err.message : 'Søk er utilgjengelig akkurat nå')
+      })
+      .finally(() => {
+        if (!cancelled) setApiLoading(false)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [debouncedSearch, searchMode])
 
   const types = useMemo(() => uniqueSorted(documents.map(d => d.documentType)), [documents])
   const categories = useMemo(() => uniqueSorted(documents.map(d => d.category)), [documents])
@@ -136,15 +227,38 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
           type="text"
           value={search}
           onChange={e => handleSearch(e.target.value)}
-          placeholder="Sok i dokumenter..."
+          placeholder={searchMode === 'local' ? 'Sok i dokumenter...' : 'Sok i hele dokumentinnholdet...'}
           className="w-full px-3 py-2 text-sm border border-stone-200 rounded-lg bg-white text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-300"
         />
 
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex gap-2 flex-wrap items-center">
+          <div className="inline-flex rounded-lg border border-stone-200 bg-white p-0.5" role="group" aria-label="Søkemodus">
+            {(['local', 'fts', 'semantic'] as SearchMode[]).map((m) => {
+              const active = searchMode === m
+              return (
+                <button
+                  key={m}
+                  type="button"
+                  onClick={() => setSearchMode(m)}
+                  title={MODE_DESCRIPTIONS[m]}
+                  className={`text-xs px-2.5 py-1 rounded-md transition-colors ${
+                    active
+                      ? 'bg-stone-900 text-white'
+                      : 'text-stone-600 hover:bg-stone-100'
+                  }`}
+                  aria-pressed={active}
+                >
+                  {MODE_LABELS[m]}
+                </button>
+              )
+            })}
+          </div>
+
           <select
             value={typeFilter}
             onChange={e => setTypeFilter(e.target.value)}
-            className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
+            disabled={searchMode !== 'local'}
+            className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <option value="alle">Type: Alle</option>
             {types.map(t => <option key={t} value={t}>{t}</option>)}
@@ -153,7 +267,8 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
           <select
             value={categoryFilter}
             onChange={e => setCategoryFilter(e.target.value)}
-            className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
+            disabled={searchMode !== 'local'}
+            className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <option value="alle">Kategori: Alle</option>
             {categories.map(c => <option key={c} value={c}>{c}</option>)}
@@ -162,15 +277,37 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
           <select
             value={countryFilter}
             onChange={e => setCountryFilter(e.target.value)}
-            className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
+            disabled={searchMode !== 'local'}
+            className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <option value="alle">Land: Alle</option>
             {countries.map(c => <option key={c} value={c}>{c}</option>)}
           </select>
         </div>
+
+        {searchMode !== 'local' && apiWarnings.length > 0 && (
+          <div className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
+            {apiWarnings.map((w, i) => (
+              <p key={i}>{w.message}</p>
+            ))}
+          </div>
+        )}
+        {searchMode !== 'local' && apiError && (
+          <div className="rounded-lg border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-800">
+            {apiError}
+          </div>
+        )}
       </div>
 
-      {filtered.length === 0 ? (
+      {searchMode !== 'local' ? (
+        <ApiResultsView
+          query={debouncedSearch}
+          results={apiResults}
+          loading={apiLoading}
+          executedMode={apiExecutedMode}
+          requestedMode={searchMode}
+        />
+      ) : filtered.length === 0 ? (
         <EmptyState message="Ingen dokumenter matcher filteret" />
       ) : (
         <div className="space-y-2">
@@ -302,6 +439,77 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
           })}
         </div>
       )}
+    </div>
+  )
+}
+
+type ApiResultsViewProps = {
+  query: string
+  results: ApiSearchResult[]
+  loading: boolean
+  executedMode: string | null
+  requestedMode: SearchMode
+}
+
+function ApiResultsView({ query, results, loading, executedMode, requestedMode }: ApiResultsViewProps) {
+  if (query.trim().length < 2) {
+    return (
+      <EmptyState message="Skriv minst 2 tegn for å søke serverside" />
+    )
+  }
+  if (loading) {
+    return (
+      <div className="py-8 text-center text-sm text-stone-400">Søker...</div>
+    )
+  }
+  if (results.length === 0) {
+    return (
+      <EmptyState message={`Ingen dokumenter matcher "${query}"`} />
+    )
+  }
+  const wasFallback = requestedMode === 'semantic' && executedMode !== 'semantic'
+  return (
+    <div className="space-y-2">
+      <p className="text-xs text-stone-400">
+        {results.length} dokumenter
+        {executedMode && <span> · søkemodus: <span className="font-medium text-stone-600">{executedMode}</span>{wasFallback && <span className="text-amber-600"> (fallback)</span>}</span>}
+      </p>
+      {results.map((r) => (
+        <Card key={r.id} className="!p-0">
+          <Link
+            href={r.url ?? '#'}
+            className="block px-4 py-3 hover:bg-stone-50 transition-colors"
+          >
+            <div className="flex items-start gap-3">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-sm font-semibold text-stone-800">{r.title}</h3>
+                {r.excerpt && (
+                  <p className="text-xs text-stone-500 mt-1 leading-relaxed line-clamp-3">
+                    {r.excerpt}
+                  </p>
+                )}
+                {r.tags && r.tags.length > 0 && (
+                  <div className="flex gap-1 mt-1.5 flex-wrap">
+                    {r.tags.slice(0, 6).map((tag, i) => (
+                      <span
+                        key={`${r.id}-${tag}-${i}`}
+                        className="text-[10px] px-1.5 py-0.5 rounded bg-stone-100 text-stone-500 border border-stone-200"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+              {typeof r.relevance === 'number' && (
+                <span className="text-xs text-stone-400 shrink-0 mt-1" title="Relevans (1.0 = perfekt match)">
+                  {r.relevance.toFixed(2)}
+                </span>
+              )}
+            </div>
+          </Link>
+        </Card>
+      ))}
     </div>
   )
 }
