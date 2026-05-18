@@ -1774,4 +1774,17 @@ export const sources: SourceDoc[] = [
     description: 'Samarbeidsprogram for fiskeri, akvakultur, jordbruk, mat og skogbruk som konkretiserer Vision 2030 for matsystemnaere sektorer.',
     relevance: 'Mest direkte NMR-kilde for aa koble Food Systems 2026 til Vision 2030 innen mat, biooekonomi, resiliens og ressursbruk.',
   },
+  {
+    id: 'src-170',
+    filename: 'wur-elbersen-agri-residues-2022.pdf',
+    title: 'Identifying and implementing circular applications of agri-residues',
+    author: 'Wolter Elbersen, Anton Schultze-Jena, Siemen van Berkum, Just Dengerink, Maria Naranjo-Barrantes, Elisabeth Obeng',
+    year: 2022,
+    type: 'rapport',
+    url: 'https://doi.org/10.18174/563389',
+    doi: '10.18174/563389',
+    publisher: 'Wageningen Food & Biobased Research',
+    description: 'Wageningen-rapport som beskriver et circular evaluation framework for aa vurdere agri-residue applications etter circularity, socio-economic impact, environmental impact og implementability.',
+    relevance: 'Sterk metodekilde for B-sidestream og C-adoption: hjelper TG-arbeidet aa skille teknisk ressursmulighet fra implementerbar, dokumenterbar sirkulaer anvendelse.',
+  },
 ]

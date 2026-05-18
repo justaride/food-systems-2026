@@ -106,6 +106,7 @@ Phase 1.1-script ble kjørt før shortlisting:
 | SRC-B-030 | research/bibliotek/akademia/masteroppgaver/sundin-phd-2024.md | primær | B-sidestream, baseline, C-adoption | PhD som kvantifiserer husholdningsmatsvinn og klimaeffekt; nyttig for å unngå overclaiming av matsvinnreduksjon uten kostholdsendring. |
 | SRC-B-031 | src/lib/data/theses.ts (`slu-house-crickets-2025`) og https://pub.epsilon.slu.se/id/document/20453027 | primær | A-feed, B-sidestream, policy | SLU-avhandling om hus-sirisser i sirkulære matsystemer: crop residues til protein og frass-gjødsel. Lokal PDF-/dokumentspeiling mangler fortsatt. |
 | SRC-B-032 | Matvett/NORSUS faktaark om matsvinn i Norge 2024 (sektorvise + samlet); https://www.matvett.no/uploads/documents/Faktaark-om-matsvinn-i-Norge-2024-alle-sektorer.pdf og https://norsus.no/wp-content/uploads/7.-OR.27.25-Faktark-om-matsvinn-i-Norge-2024-1.pdf | primær | B-sidestream, baseline, C-adoption | Matvett+NORSUS-faktaark for 2024-året: 407 100 tonn totalt matsvinn, 73,4 kg/innbygger, 24 % reduksjon siden 2015 (uten jordbruk), sektorvise tall for matindustri, grossist, dagligvare, KBS, restaurant og husholdninger. Klimaavtrykk -28 %, økonomisk tap -30 %. |
+| SRC-B-035 | research/evidence-pack/akademia/wur-elbersen-agri-residues-2022.pdf og https://doi.org/10.18174/563389 | primær | B-sidestream, C-adoption, methodology | Wageningen Food & Biobased Research-rapport som gir et circular evaluation framework for agri-residues. Nyttig metodekilde for å score sirkularitet, miljø, samfunnsøkonomi og implementerbarhet før sidestrømmer løftes til pilotclaim. |
 
 ### Spor C — Adoption mechanisms
 
@@ -211,6 +212,7 @@ Phase 1.1-script ble kjørt før shortlisting:
 | SRC-A-018 | NIBIO bærekraft-utredning er primærkilde, men eksakt kapittel-/sidehenvisning (eks. tall for fôrkjedeavhengighet, gjødseleffektivitet) må sjekkes mot brage-PDF før sitering. | Gabriel | 30.04 |
 | SRC-A-019 | IFRO/KU soya-rapport 2025 — verifiser den 6 %-fysisk-sporbare-andelen mot publisert tabell og krysslås opp mot RTRS/ProTerra-sertifiseringsmodellene før sterk EUDR-claim. | Gabriel | 30.04 |
 | SRC-B-032 | Matvett+NORSUS-faktaark for 2024 er primær, men sektorvise nedgangstall (kjøttvarer -62,5 %, ost -62 %) må sjekkes mot full rapport før de brukes som hovedclaims. | Gabriel | 30.04 |
+| SRC-B-035 | Wageningen-rammeverket er sterkt som metodekilde, men case-eksemplene er Ghana, Costa Rica og Nederland. Overføring til nordiske sidestrømmer krever lokal råvare-, regelverks- og aktørvalidering. | Gabriel | 15.05 |
 | SRC-C-027 | Riksrevisionens granskning er primær for Sverige, men direkte overføring til norsk policy-debatt krever tydelig avgrensning (CAP-kontekst, organogen jord-andel, etappmål). | Gabriel | 30.04 |
 | SRC-C-028 | Concito Q&A er sekundær — primærkilden er Klimaaftalen for landbruget (juni 2024) + den utvidede politiske avtalen (november 2024). Bruk Concito som tolkningshjelp, ikke som hovedhjemmel. | Gabriel | 30.04 |
 | SRC-C-029 | Danske Green Tripartite-claims må primærsjekkes mot Klimaaftalen og november-implementeringsavtalen før KI/report; bruk ikke Concito alene som hjemmel. | Gabriel | 15.05 |
