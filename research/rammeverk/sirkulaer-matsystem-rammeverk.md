@@ -201,7 +201,126 @@ Bygg nordisk matberedskap basert på sirkulære prinsipper. Finlands HVK-modell 
 
 ---
 
-## 9. Syntese — Konvergenspunkter mellom rammeverkene
+## 9. Operativt prosjekt-evalueringsverktøy (Wageningen Circular Evaluation Framework)
+
+**Kilde:** Elbersen, W., Schultze-Jena, A., van Berkum, S., Dengerink, J., Naranjo-Barrantes, M., & Obeng, E. (2022). *Identifying and implementing circular applications of agri-residues: A circular evaluation framework for assessing impacts and circularity of different agri-residue applications*. Wageningen Food & Biobased Research, Report 2247. DOI: [10.18174/563389](https://doi.org/10.18174/563389).
+
+De foregående rammeverkene (1–8) er **strategiske og normative** — de fastsetter prinsipper for hva sirkulære matsystemer bør være. Wageningen 2022 fyller gapet **operativt**: et kvantifiserbart multikriterie-verktøy for å skåre alternative anvendelser av agri-rester mot status quo. Verktøyet er utviklet for nederlandske landbruksrådgivere, men er case-uavhengig og direkte anvendbart på nordiske aktører og verdikjeder.
+
+### 9.1 16-indikator-rammeverket
+
+Fire domener × fire indikatorer = 16 indikatorer. Alle skåres på en skala fra **−2 (mye verre)** til **+2 (mye bedre)** relativt til status quo (= 0). Indikatorene er **fleksible** — de kan splittes, slås sammen eller erstattes per case (f.eks. *vannkvalitet* eller *luftkvalitet* separat).
+
+| Domene | Indikator | Spørsmål |
+|---|---|---|
+| **Sirkularitet** | Functionality used | Bevares biomassens funksjonalitet (mat > fôr > materialer > energi)? |
+| | Biomass utilization efficiency | Hvor stor andel av rest-strømmen utnyttes faktisk? |
+| | Possibility of reuse | Kan produktet brukes på nytt etter første anvendelse? |
+| | Land sparing | Frigjør prosessen areal som ellers ville vært nødvendig? |
+| **Sosio-økonomisk** | Value added | Skaper prosessen ny økonomisk verdi fra avfall? |
+| | Profitability | Er prosessen lønnsom uten subsidier? |
+| | Job creation | Skapes nye arbeidsplasser? |
+| | Rural development | Styrker prosessen distriktsøkonomien? |
+| **Miljø** | GHG mitigation | Reduserer prosessen klimagassutslipp? |
+| | Soil quality | Bedres eller forringes jordhelsen? |
+| | Biodiversity | Bedres eller forringes biologisk mangfold? |
+| | Water/air quality | Bedres vann- eller luftkvalitet? |
+| **Implementerbarhet** | Technology development | Er nødvendig teknologi tilgjengelig? |
+| | Infrastructure | Er fysisk infrastruktur og forretningsnettverk på plass? |
+| | Enabling policy | Støtter gjeldende politikk endringen? |
+| | Regulations, subsidies, standards | Er regulering, tilskudd og standarder kompatible? |
+
+Resultatene visualiseres som et **spider-diagram med 4 fargekvadranter** (sirkularitet/sosio-økonomisk/miljø/implementerbarhet), hvor blå linje = status quo (alle nuller) og oransje = foreslått alternativ.
+
+### 9.2 Kvantifisering av sirkularitet — kaskadeprinsippet
+
+Wageningen formaliserer **kaskadebruk av biomasse** i tre lag:
+
+**(a) Moermans stige** (PBL Policy Brief 2016, nederlandsk nasjonal standard):
+
+| Nivå | Anvendelse |
+|---|---|
+| 1 (best) | Prevention |
+| 2 | Use for human food |
+| 3 | Conversion to human food |
+| 4 | Animal feed |
+| 5 | Raw materials for industry |
+| 6 | Fertilizer via co-fermentation |
+| 7 | Fertilizer via composting |
+| 8 | Sustainable energy production |
+| 9 | Burning as waste |
+| 10 (verst) | Landfill |
+
+**(b) Kaskademodell for biprodukter** (generalisert fra Höglmeier 2015 og Spijker et al. 2020) — 5 funksjonalitetsnivåer (0–4) per biprodukt, hvor høyere nivå bevarer mer av kildens funksjonalitet. Effektivitet modifiserer: 10 % effektivitet på et høyt nivå kan tape mot 90 % effektivitet på et mellomnivå.
+
+**(c) Komponentbasert hierarki** — kritisk innsikt: *hver komponent (protein, fett, fiber, karbohydrat, fosfat, kalium) har sin egen kaskadeorden*. Protein scorer høyt som mat, lavere som fôr, lavere som N-gjødsel; fosfat scorer høyest som gjødsel fordi det er en endelig ressurs. Vekting (Elbersen et al. 2022, Tabell 3):
+
+| Komponent | Relativ verdi |
+|---|---|
+| Fosfat | +++++ |
+| Protein, fett, kalium | +++ |
+| Fiber, stivelse/sukker | + |
+
+Dette løser et problem WUR/NMR-prinsippene har: de sier *hva* som er bedre, men ikke *hvor mye* bedre i målbar form.
+
+### 9.3 Beslutningstre
+
+Wageningen-rapporten leverer et beslutningstre i seks trinn:
+
+1. **Problem eller mulighet?** Identifiser at status quo har en svakhet (forurensning, tap, ny markedssjanse).
+2. **Foreligger alternativ?** Hvis nei → identifiser en. Hvis ja → gå videre.
+3. **Sammenlign mot status quo.** Velg relevante indikatorer fra de 16; samle data per indikator.
+4. **Multicriterie-skåring.** Skår på −2 til +2 med kort begrunnelse per indikator.
+5. **Tilfredsstillende?** Hvis nei → identifiser nytt alternativ (tilbake til trinn 2).
+6. **Implementerbarhetshindre?** Adresser teknologi/finansiering/regulering/infrastruktur før implementering.
+
+### 9.4 Hovedinnsikter fra de fire casene
+
+Rapporten anvender rammeverket på fire caser. Sentrale lærdommer:
+
+| Case | Kjernepoeng |
+|---|---|
+| Husholdningskompost (Accra, Ghana) | Sterk implementerbarhet + offentlig-privat partnerskap kan kompensere for lav profitability (−2) |
+| Ananas-biogass (Costa Rica) | Sterke miljøgevinster (+2 × 3) blokkeres fullstendig av regulatoriske hindre (−2 × 4): el-lagring forbudt, monopolistisk el-kjøper |
+| Sukkerroeblader → protein (NL, Royal Cosun) | **Paradoks:** Nederlandsk gjødslingsregulering hindrer at bønder kan kompensere for proteinet som tas ut → sirkulær verdiskaping skader jordhelse |
+| Potetjuice → protein (NL, Avebe) | Klassisk «stick & carrot»: regjeringen kombinerte trussel om subsidiestopp med betinget forskningsstøtte |
+
+**Sanders' åtte-trinns historikk** (Annex 1, Sanders 1993): *Ignore → Hide → Wait → Cure → Dilute → Transform → Prevent → Improve*. De fleste agri-residue-strømmer ligger fortsatt på trinn 1–4. Bare trinn 6–8 er kompatible med bærekraft.
+
+### 9.5 Relevans for nordisk kontekst og Food Systems 2026
+
+**Komplementaritet med eksisterende rammeverk:**
+- Bygger på Ellen MacArthur Foundations tre prinsipper (seksjon 2) som eksplisitt utgangspunkt.
+- Operasjonaliserer WUR 4 prinsipper (seksjon 1) på case-nivå.
+- Tilbyr målbar metrikk for NMR-pilarene *Upgrade* og *Circulate* (seksjon 3).
+- Implementerbarhets-domenet kobler direkte til NKJ-intervensjon #9 (maktasymmetrier) og #12 (kriseberedskap) — sirkularitet uten støttende regulering forblir teoretisk.
+
+**Norske/nordiske analoger til Wageningen-casene:**
+
+| Wageningen-case | Nordisk analog |
+|---|---|
+| Sukkerroeblader → protein (Royal Cosun) | Foods of Norway (gress → Rubisco), erteprotein, tareekstrakt |
+| Potetjuice → protein (Avebe) | Myse → isolat (TINE/Q), restprodukter fra Lerøy/Mowi |
+| Husholdningskompost (ACARP Ghana) | Norske biogassanlegg (Lindum, Vestfold), HSY Helsinki biorest |
+| Ananas-rester (Costa Rica) | Skogsrester, fiskeavfall, krabbeskall — alle blokkert av ulike implementerbarhets-flaskehalser |
+
+**Anvendelse i platformen:** 16-indikator-rammeverket egner seg som datamodell for `CircularityAssessment` knyttet til `Actor` / `SupplyChain` / `ResidueFlow`, visualisert som radar-diagram. Decision tree (9.3) kan implementeres som UI-flyt for en `/sirkularitet/evaluator`-side. Eksterne referansedata for biomasse-sammensetning: **Feedipedia** ([feedipedia.org](https://www.feedipedia.org)) og **Phyllis** ([phyllis.nl](https://phyllis.nl)).
+
+### 9.6 Begrensninger og forbehold
+
+| Svakhet | Implikasjon for nordisk anvendelse |
+|---|---|
+| Relativ skala (mot status quo), ikke absolutt | Vanskelig å sammenligne *på tvers* av kjeder uten normering |
+| Subjektiv ekspertskåring | Krever obligatorisk rationale-felt for å være reviderbart |
+| Ingen monetær LCA (€/tonn CO₂e, ROI) | Komplementer med EMF ROSI eller TEEB for økonomisk dybde |
+| Implementerbarhet er backwards-looking | Vi trenger en *policy readiness*-score som er fremoverlent |
+| Antar «food over feed over materials over energy» | Kontestert i nordisk kontekst: høyverdig fôr (laks, gris) kan score over marginal direkte matanvendelse |
+| Komponent-vekting er heuristikk, ikke vitenskap | Tabell 3-skåringen er forfatternes vurdering — bør behandles som referansepunkt, ikke fasit |
+| Ingen tidsdimensjon | En 10-årig pilot må vurderes annerledes enn etablert teknologi |
+
+---
+
+## 10. Syntese — Konvergenspunkter mellom rammeverkene
 
 Alle rammeverkene konvergerer på følgende prinsipper:
 
@@ -216,9 +335,15 @@ Alle rammeverkene konvergerer på følgende prinsipper:
 ## Kilder
 
 - De Boer, I.J.M. & Van Ittersum, M.K. (2018). Circularity in agricultural production. *Animal*, 12(s2), s252–s261.
+- Elbersen, W., Schultze-Jena, A., van Berkum, S., Dengerink, J., Naranjo-Barrantes, M. & Obeng, E. (2022). *Identifying and implementing circular applications of agri-residues: A circular evaluation framework*. Wageningen Food & Biobased Research, Report 2247. DOI: 10.18174/563389.
 - Ellen MacArthur Foundation (2019). Cities and Circular Economy for Food.
+- Höglmeier, K., Steubing, B., Weber-Blaschke, G. & Richter, K. (2015). LCA-based optimization of wood utilization under special consideration of a cascading use of wood. *Journal of Environmental Management*, 152, 158–170.
+- Jarre, M. et al. (2020). Transforming the bio-based sector towards a circular economy — What can we learn from wood cascading? *Forest Policy and Economics*, 110, 101872.
 - Nordisk Ministerråd (2021). Nordic Bioeconomy Programme.
 - NKJ (2024). White Paper on Nordic Food System Transformation.
+- PBL Policy Brief (2016). *Voedsel voor de circulaire economie* (Ladder van Moerman).
+- Sanders, J.P.M. (1993). Coping with agricultural waste problems in an economic way. *Contaminated Soil '93*, 1511–1517.
+- Spijker, J., Elbersen, W., Vural Gursel, I. & Lerink, B. (2020). *Marktverkenning biomassareststromen hout uit landschap*. Wageningen.
 - Stockholm Resilience Centre (2023). Food System Boundaries.
 - European Commission (2020). Farm to Fork Strategy.
 - JRC (2025). Sustainable Public Procurement — Green Criteria for Food & Catering.

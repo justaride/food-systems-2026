@@ -8,7 +8,7 @@ import { ChartFrame } from '@/components/visualization/ChartFrame'
 import { NoMarketShareTimeseriesDynamic } from '@/components/charts/NoMarketShareTimeseriesDynamic'
 import { COUNTRY_LIST } from '@/lib/config/countries'
 import type { CountryCode } from '@/lib/config/countries'
-import type { SammenligningData, CountrySammenligning } from '@/lib/queries/sammenligning'
+import type { SammenligningData, CountrySammenligning, DataPointMeta } from '@/lib/queries/sammenligning'
 import type { NoMarketShareTimeSeries } from '@/lib/queries/market-share'
 
 type Props = { data: SammenligningData; noMarketShare: NoMarketShareTimeSeries }
@@ -16,7 +16,8 @@ type Props = { data: SammenligningData; noMarketShare: NoMarketShareTimeSeries }
 function rowsFor<T>(
   data: SammenligningData,
   pick: (c: CountrySammenligning) => T | null,
-): Array<{ country: string; flag: string; value: T | null; population: number; code: CountryCode }> {
+  pickMeta?: (c: CountrySammenligning) => DataPointMeta | undefined,
+): Array<{ country: string; flag: string; value: T | null; population: number; code: CountryCode; meta?: DataPointMeta }> {
   return COUNTRY_LIST.map(c => {
     const country = data.countries[c.code]
     return {
@@ -25,6 +26,7 @@ function rowsFor<T>(
       value: country ? pick(country) : null,
       population: country?.population ?? 0,
       code: c.code,
+      meta: country && pickMeta ? pickMeta(country) : undefined,
     }
   })
 }
@@ -43,14 +45,22 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
       </header>
 
       {(() => {
-        const hhi = rowsFor(data, c => c.market.hhi)
-        const cr3 = rowsFor(data, c => c.market.cr3)
-        const gini = rowsFor(data, c => c.market.gini)
-        const stores = rowsFor(data, c => c.market.totalStores)
-        const emv = rowsFor(data, c => c.market.emvSharePct)
+        const hhi = rowsFor(data, c => c.market.hhi, c => c.meta.market.hhi)
+        const cr3 = rowsFor(data, c => c.market.cr3, c => c.meta.market.cr3)
+        const gini = rowsFor(data, c => c.market.gini, c => c.meta.market.gini)
+        const stores = rowsFor(data, c => c.market.totalStores, c => c.meta.market.totalStores)
+        const emv = rowsFor(data, c => c.market.emvSharePct, c => c.meta.market.emvSharePct)
         const formatRows = COUNTRY_LIST.map(c => {
-          const m = data.countries[c.code]?.market.retailFormatMix
-          return { country: c.name, flag: c.flag, value: m ? m.discount : null, population: 0, code: c.code }
+          const country = data.countries[c.code]
+          const m = country?.market.retailFormatMix
+          return {
+            country: c.name,
+            flag: c.flag,
+            value: m ? m.discount : null,
+            population: 0,
+            code: c.code,
+            meta: country?.meta.market.retailFormatMix,
+          }
         })
 
         const hhiNo = data.countries.no?.market.hhi
@@ -72,12 +82,49 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
             }
             charts={
               <>
-                <ChartCard title="HHI" description="Markedskonsentrasjon" rows={hhi} source="Konsentrasjons-data fra konkurranse­myndigheter og selskapsrapporter" />
-                <ChartCard title="CR3" description="Topp 3 markedsandel" unit="%" rows={cr3} />
-                <ChartCard title="Gini-koeffisient" description="Ulikhet i butikkstørrelse" rows={gini} />
-                <ChartCard title="Antall butikker" rows={stores} />
-                <ChartCard title="EMV-andel foredling" unit="%" rows={emv} />
-                <ChartCard title="Discount-andel av detaljhandel" unit="%" rows={formatRows} description="Andel av butikker som er lavpris" />
+                <ChartCard
+                  title="HHI"
+                  description="Markedskonsentrasjon — Herfindahl-Hirschman-indeks"
+                  rows={hhi}
+                  year={2024}
+                  sources={['chart-metrics.json (derivert fra stores.json)', 'Konkurransetilsynet/Konkurrensverket/KFST/KKV']}
+                />
+                <ChartCard
+                  title="CR3"
+                  description="Topp 3 markedsandel"
+                  unit="%"
+                  rows={cr3}
+                  year={2024}
+                  sources={['chart-metrics.json', 'Nasjonale konkurransetilsyn']}
+                />
+                <ChartCard
+                  title="Gini-koeffisient"
+                  description="Ulikhet i butikkstørrelse (derivert)"
+                  rows={gini}
+                  year={2024}
+                  sources={['chart-metrics.json (derivert fra municipalities.json + stores.json)']}
+                />
+                <ChartCard
+                  title="Antall butikker"
+                  rows={stores}
+                  year={2024}
+                  sources={['stores.json (OpenStreetMap + brand-attribution)', 'Nasjonale konkurransetilsyn']}
+                />
+                <ChartCard
+                  title="EMV-andel foredling"
+                  unit="%"
+                  rows={emv}
+                  year={2024}
+                  sources={['SCB PxWeb (SE)', 'PTY (FI)', 'DLF (NO)', 'value-chain.json processing.emv_share_pct']}
+                />
+                <ChartCard
+                  title="Discount-andel av detaljhandel"
+                  unit="%"
+                  rows={formatRows}
+                  description="Andel av butikker som er lavpris"
+                  year={2024}
+                  sources={['value-chain.json retail.format_share / retail.retail_format', 'NielsenIQ']}
+                />
               </>
             }
             table={
@@ -113,11 +160,11 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
       )}
 
       {(() => {
-        const ss = rowsFor(data, c => c.preparedness.selfSufficiencyCaloricPct)
-        const importTon = rowsFor(data, c => c.preparedness.importTonnes)
-        const exportTon = rowsFor(data, c => c.preparedness.exportTonnes)
-        const feed = rowsFor(data, c => c.preparedness.feedImportPct)
-        const reserve = rowsFor(data, c => c.preparedness.grainReserveMonths)
+        const ss = rowsFor(data, c => c.preparedness.selfSufficiencyCaloricPct, c => c.meta.preparedness.selfSufficiencyCaloricPct)
+        const importTon = rowsFor(data, c => c.preparedness.importTonnes, c => c.meta.preparedness.importTonnes)
+        const exportTon = rowsFor(data, c => c.preparedness.exportTonnes, c => c.meta.preparedness.exportTonnes)
+        const feed = rowsFor(data, c => c.preparedness.feedImportPct, c => c.meta.preparedness.feedImportPct)
+        const reserve = rowsFor(data, c => c.preparedness.grainReserveMonths, c => c.meta.preparedness.grainReserveMonths)
 
         const dk = data.countries.dk?.preparedness.selfSufficiencyCaloricPct
         const no = data.countries.no?.preparedness.selfSufficiencyCaloricPct
@@ -138,7 +185,13 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
             }
             charts={
               <>
-                <ChartCard title="Selvforsyning (kalori)" unit="%" rows={ss} />
+                <ChartCard
+                  title="Selvforsyning (kalori)"
+                  unit="%"
+                  rows={ss}
+                  year={2024}
+                  sources={['NIBIO Engrosforbruk AB5/AB6 (NO)', 'Jordbruksverket + SOU 2024:8 (SE)', 'DST + Landbrug & Fødevarer (DK)', 'Luke (FI)', 'Hagstofa Íslands (IS)']}
+                />
                 <ChartCard
                   title="Total import"
                   description="Tonn (per capita aktiverbar)"
@@ -146,6 +199,8 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
                   rows={importTon}
                   perCapitaEnabled
                   perCapitaUnit="tonn/innb"
+                  year={2024}
+                  sources={['SSB 08799 (NO)', 'Eurostat ext_lt_intertrd (SE/DK/FI)']}
                 />
                 <ChartCard
                   title="Total eksport"
@@ -153,13 +208,23 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
                   rows={exportTon}
                   perCapitaEnabled
                   perCapitaUnit="tonn/innb"
+                  year={2024}
+                  sources={['SSB 08799 (NO)', 'Sjømatrådet (NO sjømat)', 'Eurostat ext_lt_intertrd (SE/DK/FI)']}
                 />
-                <ChartCard title="Fôr-import-andel" unit="%" rows={feed} />
+                <ChartCard
+                  title="Fôr-import-andel"
+                  unit="%"
+                  rows={feed}
+                  year={2024}
+                  sources={['Sjømatrådet (NO sjømat 92%)', 'NIBIO (NO husdyr ~70%)', 'LRF (SE)', 'Landbrug & Fødevarer (DK)']}
+                />
                 <ChartCard
                   title="Kornreserve (måneder)"
                   description="Strategisk lager"
                   unit="mnd"
                   rows={reserve}
+                  year={2024}
+                  sources={['Huoltovarmuuskeskus / HVK (FI 9 mnd)', 'NO avviklet 2003 — SE under reetablering, DK/IS ingen']}
                 />
               </>
             }
@@ -191,11 +256,11 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
         )
       })()}
       {(() => {
-        const vol = rowsFor(data, c => c.valueChain.primaryVolumeTonnes)
-        const seafood = rowsFor(data, c => c.valueChain.seafoodExportValueBn)
-        const turnover = rowsFor(data, c => c.valueChain.processingTurnoverBn)
-        const empNace10 = rowsFor(data, c => c.valueChain.employmentByNace.nace10)
-        const co2eRetail = rowsFor(data, c => c.valueChain.co2ePerStep.retail ?? null)
+        const vol = rowsFor(data, c => c.valueChain.primaryVolumeTonnes, c => c.meta.valueChain.primaryVolumeTonnes)
+        const seafood = rowsFor(data, c => c.valueChain.seafoodExportValueBn, c => c.meta.valueChain.seafoodExportValueBn)
+        const turnover = rowsFor(data, c => c.valueChain.processingTurnoverBn, c => c.meta.valueChain.processingTurnoverBn)
+        const empNace10 = rowsFor(data, c => c.valueChain.employmentByNace.nace10, c => c.meta.valueChain.employmentNace10)
+        const co2eRetail = rowsFor(data, c => c.valueChain.co2ePerStep.retail ?? null, c => c.meta.valueChain.co2ePerStep)
 
         const noProd = (() => {
           const v = data.countries.no?.valueChain.valueAddedByStep ?? {}
@@ -225,15 +290,36 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
                   rows={vol}
                   perCapitaEnabled
                   perCapitaUnit="tonn/innb"
+                  year={2024}
+                  sources={['SSB 09171 (NO)', 'DST (DK aggregert kjøtt+meieri+korn)', 'Verifisering: Eurostat apro_cpsh1, FAO STAT']}
                 />
-                <ChartCard title="Sjømat eksport-verdi" unit="mrd" rows={seafood} />
-                <ChartCard title="Foredlings-omsetning" unit="mrd" rows={turnover} />
-                <ChartCard title="Sysselsetting matforedling (NACE 10)" rows={empNace10} />
+                <ChartCard
+                  title="Sjømat eksport-verdi"
+                  unit="mrd lok"
+                  rows={seafood}
+                  year={2024}
+                  sources={['Sjømatrådet (NO)', 'value-chain.json seafood.trade (SE/DK/FI lokal research)', 'Verifisering: Eurostat DS-018995, UN Comtrade']}
+                />
+                <ChartCard
+                  title="Foredlings-omsetning"
+                  unit="mrd lok"
+                  rows={turnover}
+                  year={2024}
+                  sources={['SSB 13470 (NO)', 'SCB PxWeb (SE)', 'DST (DK)', 'stat.fi PxWeb (FI)', 'Verifisering: Eurostat sbs_na_ind_r2']}
+                />
+                <ChartCard
+                  title="Sysselsetting matforedling (NACE 10)"
+                  rows={empNace10}
+                  year={2024}
+                  sources={['SSB 09171 (NO)', 'Verifisering: Eurostat lfsa_egan22d, OECD STAN']}
+                />
                 <ChartCard
                   title="CO₂e — detaljhandel"
-                  description="Tonn CO₂-ekvivalenter (mt). Kun NO har data per ledd."
+                  description="Tonn CO₂-ekvivalenter (mt). Kun NO har data per ledd (NORSUS-modell)."
                   unit="mt"
                   rows={co2eRetail}
+                  year={2024}
+                  sources={['NORSUS LCA 2021 (NO)', 'Verifisering: Naturvårdsverket scope 1+2+3 (SE), DCE Aarhus (DK)']}
                 />
               </>
             }
@@ -256,12 +342,12 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
         )
       })()}
       {(() => {
-        const totalWaste = rowsFor(data, c => c.circularity.totalWastePerCapitaKg)
-        const houseWaste = rowsFor(data, c => c.circularity.householdWastePerCapitaKg)
-        const reduction = rowsFor(data, c => c.circularity.wasteReductionSince2015Pct)
-        const biogas = rowsFor(data, c => c.circularity.biogasGwh)
-        const plants = rowsFor(data, c => c.circularity.biogasPlants)
-        const deposit = rowsFor(data, c => c.circularity.depositReturnRatePct)
+        const totalWaste = rowsFor(data, c => c.circularity.totalWastePerCapitaKg, c => c.meta.circularity.totalWastePerCapitaKg)
+        const houseWaste = rowsFor(data, c => c.circularity.householdWastePerCapitaKg, c => c.meta.circularity.householdWastePerCapitaKg)
+        const reduction = rowsFor(data, c => c.circularity.wasteReductionSince2015Pct, c => c.meta.circularity.wasteReductionSince2015Pct)
+        const biogas = rowsFor(data, c => c.circularity.biogasGwh, c => c.meta.circularity.biogasGwh)
+        const plants = rowsFor(data, c => c.circularity.biogasPlants, c => c.meta.circularity.biogasPlants)
+        const deposit = rowsFor(data, c => c.circularity.depositReturnRatePct, c => c.meta.circularity.depositReturnRatePct)
 
         const noReduction = data.countries.no?.circularity.wasteReductionSince2015Pct
 
@@ -299,18 +385,49 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
             }
             charts={
               <>
-                <ChartCard title="Total svinn (kg/capita)" unit="kg" rows={totalWaste} />
-                <ChartCard title="Husholdningssvinn (kg/capita)" unit="kg" rows={houseWaste} />
-                <ChartCard title="Svinn-reduksjon siden 2015" unit="%" rows={reduction} />
+                <ChartCard
+                  title="Total svinn (kg/capita)"
+                  unit="kg"
+                  rows={totalWaste}
+                  year={2024}
+                  sources={['NORSUS/Matvett (NO)', 'Naturvårdsverket Rapport 7176 (SE)', 'DST (DK)', 'Luke (FI)', 'Verifisering: Eurostat env_wasfw, TemaNord 2021:504']}
+                />
+                <ChartCard
+                  title="Husholdningssvinn (kg/capita)"
+                  unit="kg"
+                  rows={houseWaste}
+                  year={2024}
+                  sources={['NORSUS (NO)', 'Naturvårdsverket (SE)', 'DST (DK)', 'Luke (FI)', 'Verifisering: UNEP Food Waste Index 2024']}
+                />
+                <ChartCard
+                  title="Svinn-reduksjon siden 2015"
+                  unit="%"
+                  rows={reduction}
+                  year={2024}
+                  sources={['NORSUS/Matvett tidsserie (NO -24% baseline 2015→2024)', 'Bransjeavtalen rapportering']}
+                />
                 <ChartCard
                   title="Biogass-produksjon"
                   unit="GWh"
                   rows={biogas}
                   perCapitaEnabled
                   perCapitaUnit="GWh/innb"
+                  year={2024}
+                  sources={['IEA Bioenergy NO/SE/DK 2024', 'Biogas Outlook 2025 (DK)', 'Luke (FI)', 'Verifisering: EU EurObservER barometer']}
                 />
-                <ChartCard title="Biogass-anlegg" rows={plants} />
-                <ChartCard title="Pant-returrate" unit="%" rows={deposit} />
+                <ChartCard
+                  title="Biogass-anlegg"
+                  rows={plants}
+                  year={2024}
+                  sources={['IEA Bioenergy nasjonale rapporter 2024']}
+                />
+                <ChartCard
+                  title="Pant-returrate"
+                  unit="%"
+                  rows={deposit}
+                  year={2024}
+                  sources={['Infinitum (NO 92.3%)', 'Pantamera (SE 87%)', 'Dansk Retursystem (DK ~93%)', 'Palpa (FI ~94%)', 'Endurvinnslan (IS ~85%) — DK/FI/IS ennå ikke i JSON']}
+                />
               </>
             }
             table={wasteCategoryRows.length > 0 ? (

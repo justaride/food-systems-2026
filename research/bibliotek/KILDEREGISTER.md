@@ -634,6 +634,10 @@ Primærkilder identifisert og lastet ned fra 15 Perplexity-dybderapporter (makt,
 
 *   van Zanten et al. (2023). *Circularity in Europe strengthens the sustainability of global food systems*. Nature Food.
 *   WUR CiFoS-modell — sirkulære matsystemer.
+*   **Elbersen, W., Schultze-Jena, A., van Berkum, S., Dengerink, J., Naranjo-Barrantes, M. & Obeng, E. (2022).** *Identifying and implementing circular applications of agri-residues: A circular evaluation framework for assessing impacts and circularity of different agri-residue applications*. Wageningen Food & Biobased Research, Report 2247. DOI: [10.18174/563389](https://doi.org/10.18174/563389). `[lokal PDF]` — Operativt 16-indikator-rammeverk × 4 domener (sirkularitet/sosio-økonomisk/miljø/implementerbarhet), skåring −2 til +2 mot status quo, decision tree og spider-diagram. Fire case-studier (Accra-kompost, Costa Rica-ananas, Royal Cosun sukkerroeblader, Avebe potetjuice). Bygger på Ladder van Moerman (PBL 2016), Höglmeier 2015 og Spijker 2020 (kaskadebruk). Operasjonaliserer WUR-prinsippene på prosjektnivå. Integrert i `research/rammeverk/sirkulaer-matsystem-rammeverk.md` § 9 (2026-05-15).
+*   Spijker, J., Elbersen, W., Vural Gursel, I. & Lerink, B. (2020). *Marktverkenning biomassareststromen hout uit landschap*. Wageningen Food & Biobased Research. — Kaskademodell for tre (5 nivåer), grunnlag for Elbersen 2022.
+*   Höglmeier, K., Steubing, B., Weber-Blaschke, G. & Richter, K. (2015). LCA-based optimization of wood utilization under special consideration of a cascading use of wood. *Journal of Environmental Management*, 152, 158–170.
+*   PBL Policy Brief (2016). *Voedsel voor de circulaire economie* — Ladder van Moerman, nederlandsk nasjonal standard for matavfall-hierarkiet (10 nivåer fra Prevention til Landfill).
 *   NMBU Foods of Norway (SFI, PI: M. Øverland) — nye fôrkilder fra bioressurser.
 *   SLU Future Food platform og EPOK Centre for Organic Food.
 *   Mistra Food Futures (2020–2029). mistrafoodfutures.se.
@@ -748,5 +752,5 @@ Kilder kartlagt 21. april 2026. Dekker hele verdikjeden fra jordbruk til forbruk
 *   Nofima. *FoodProFuture / Forbrukere i et bærekraftig norsk matsystem*. 26 partnere. nofima.com/projects/sustainable-eaters/
 
 ---
-**Sist oppdatert:** 21. april 2026
+**Sist oppdatert:** 15. mai 2026 (Wageningen Circular Evaluation Framework lagt til § 12.4)
 **Ansvarlig:** Food Systems 2026 Research Team
