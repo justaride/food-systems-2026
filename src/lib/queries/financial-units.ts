@@ -6,6 +6,8 @@ export function isMillionNokFinancialSource(source: string | null | undefined): 
   return (
     normalized.includes('Årsrapport') ||
     normalized.includes('Årsresultat') ||
+    /annual report/i.test(normalized) ||
+    /research\/evidence-pack\/arsrapporter\//i.test(normalized) ||
     /^Estimat\b/i.test(normalized)
   )
 }

@@ -1,0 +1,543 @@
+{
+  "_links": {
+    "enhet": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/964118191"
+    },
+    "self": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/964118191/roller"
+    }
+  },
+  "rollegrupper": [
+    {
+      "roller": [
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1971-03-18",
+            "navn": {
+              "etternavn": "Vindheim",
+              "fornavn": "Ivan"
+            }
+          },
+          "rekkefolge": 0,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/DAGL"
+              }
+            },
+            "beskrivelse": "Daglig leder",
+            "kode": "DAGL"
+          }
+        }
+      ],
+      "sistEndret": "2019-11-20",
+      "type": {
+        "_links": {
+          "self": {
+            "href": "https://data.brreg.no/enhetsregisteret/api/roller/rollegruppetyper/DAGL"
+          }
+        },
+        "beskrivelse": "Daglig leder",
+        "kode": "DAGL"
+      }
+    },
+    {
+      "roller": [
+        {
+          "avregistrert": true,
+          "fratraadt": true,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1966-01-07",
+            "navn": {
+              "etternavn": "Svanevik",
+              "fornavn": "Ørjan"
+            }
+          },
+          "rekkefolge": 0,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/LEDE"
+              }
+            },
+            "beskrivelse": "Styrets leder",
+            "kode": "LEDE"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1952-07-12",
+            "navn": {
+              "etternavn": "Teksum",
+              "fornavn": "Leif"
+            }
+          },
+          "rekkefolge": 1,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/MEDL"
+              }
+            },
+            "beskrivelse": "Styremedlem",
+            "kode": "MEDL"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1980-12-23",
+            "navn": {
+              "etternavn": "Strand",
+              "fornavn": "Peder"
+            }
+          },
+          "rekkefolge": 2,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/MEDL"
+              }
+            },
+            "beskrivelse": "Styremedlem",
+            "kode": "MEDL"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1963-03-10",
+            "navn": {
+              "etternavn": "Nærø",
+              "fornavn": "Lisbet Karin"
+            }
+          },
+          "rekkefolge": 3,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/MEDL"
+              }
+            },
+            "beskrivelse": "Styremedlem",
+            "kode": "MEDL"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1961-04-06",
+            "navn": {
+              "etternavn": "Hobøl",
+              "fornavn": "Kjersti Helen",
+              "mellomnavn": "Krokeide"
+            }
+          },
+          "rekkefolge": 4,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/MEDL"
+              }
+            },
+            "beskrivelse": "Styremedlem",
+            "kode": "MEDL"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1974-08-22",
+            "navn": {
+              "etternavn": "Olaisen",
+              "fornavn": "Aino Kristin",
+              "mellomnavn": "Lindal"
+            }
+          },
+          "rekkefolge": 5,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/MEDL"
+              }
+            },
+            "beskrivelse": "Styremedlem",
+            "kode": "MEDL"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1983-09-29",
+            "navn": {
+              "etternavn": "Fredriksen",
+              "fornavn": "Kathrine",
+              "mellomnavn": "Astrup"
+            }
+          },
+          "rekkefolge": 6,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/MEDL"
+              }
+            },
+            "beskrivelse": "Styremedlem",
+            "kode": "MEDL"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1980-04-04",
+            "navn": {
+              "etternavn": "Kallbekken",
+              "fornavn": "Eivind"
+            }
+          },
+          "rekkefolge": 7,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/MEDL"
+              }
+            },
+            "beskrivelse": "Styremedlem",
+            "kode": "MEDL"
+          },
+          "valgtAv": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/representanter/AREP"
+              }
+            },
+            "beskrivelse": "Representant for de ansatte",
+            "kode": "AREP"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1968-03-24",
+            "navn": {
+              "etternavn": "Johansen",
+              "fornavn": "John Olav"
+            }
+          },
+          "rekkefolge": 8,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/MEDL"
+              }
+            },
+            "beskrivelse": "Styremedlem",
+            "kode": "MEDL"
+          },
+          "valgtAv": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/representanter/AREP"
+              }
+            },
+            "beskrivelse": "Representant for de ansatte",
+            "kode": "AREP"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1987-06-15",
+            "navn": {
+              "etternavn": "Utnes",
+              "fornavn": "Marit",
+              "mellomnavn": "Øvergård"
+            }
+          },
+          "rekkefolge": 9,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/MEDL"
+              }
+            },
+            "beskrivelse": "Styremedlem",
+            "kode": "MEDL"
+          },
+          "valgtAv": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/representanter/AREP"
+              }
+            },
+            "beskrivelse": "Representant for de ansatte",
+            "kode": "AREP"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1970-05-03",
+            "navn": {
+              "etternavn": "Viga",
+              "fornavn": "Magnar"
+            }
+          },
+          "rekkefolge": 10,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/VARA"
+              }
+            },
+            "beskrivelse": "Varamedlem",
+            "kode": "VARA"
+          },
+          "valgtAv": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/representanter/AREP"
+              }
+            },
+            "beskrivelse": "Representant for de ansatte",
+            "kode": "AREP"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1982-06-07",
+            "navn": {
+              "etternavn": "Kupen",
+              "fornavn": "Nina",
+              "mellomnavn": "Johansen"
+            }
+          },
+          "rekkefolge": 11,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/VARA"
+              }
+            },
+            "beskrivelse": "Varamedlem",
+            "kode": "VARA"
+          },
+          "valgtAv": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/representanter/AREP"
+              }
+            },
+            "beskrivelse": "Representant for de ansatte",
+            "kode": "AREP"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1993-06-10",
+            "navn": {
+              "etternavn": "Harsvik",
+              "fornavn": "Maiken"
+            }
+          },
+          "rekkefolge": 12,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/VARA"
+              }
+            },
+            "beskrivelse": "Varamedlem",
+            "kode": "VARA"
+          },
+          "valgtAv": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/representanter/AREP"
+              }
+            },
+            "beskrivelse": "Representant for de ansatte",
+            "kode": "AREP"
+          }
+        }
+      ],
+      "sistEndret": "2026-03-01",
+      "type": {
+        "_links": {
+          "self": {
+            "href": "https://data.brreg.no/enhetsregisteret/api/roller/rollegruppetyper/STYR"
+          }
+        },
+        "beskrivelse": "Styre",
+        "kode": "STYR"
+      }
+    },
+    {
+      "roller": [
+        {
+          "avregistrert": false,
+          "enhet": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/enheter/976389387"
+              }
+            },
+            "erSlettet": false,
+            "godkjenningsstatus": "Godkjent revisjonsforetak",
+            "navn": [
+              "ERNST & YOUNG AS"
+            ],
+            "organisasjonsform": {
+              "_links": {
+                "self": {
+                  "href": "https://data.brreg.no/enhetsregisteret/api/organisasjonsformer/AS"
+                }
+              },
+              "beskrivelse": "Aksjeselskap",
+              "kode": "AS"
+            },
+            "organisasjonsnummer": "976389387"
+          },
+          "fratraadt": false,
+          "rekkefolge": 0,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/REVI"
+              }
+            },
+            "beskrivelse": "Revisor",
+            "kode": "REVI"
+          }
+        }
+      ],
+      "sistEndret": "2003-10-17",
+      "type": {
+        "_links": {
+          "self": {
+            "href": "https://data.brreg.no/enhetsregisteret/api/roller/rollegruppetyper/REVI"
+          }
+        },
+        "beskrivelse": "Revisor",
+        "kode": "REVI"
+      }
+    },
+    {
+      "roller": [
+        {
+          "avregistrert": false,
+          "enhet": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/enheter/930069299"
+              }
+            },
+            "erSlettet": false,
+            "godkjenningsstatus": "Godkjent regnskapsforetak",
+            "navn": [
+              "PROGRESSO AS"
+            ],
+            "organisasjonsform": {
+              "_links": {
+                "self": {
+                  "href": "https://data.brreg.no/enhetsregisteret/api/organisasjonsformer/AS"
+                }
+              },
+              "beskrivelse": "Aksjeselskap",
+              "kode": "AS"
+            },
+            "organisasjonsnummer": "930069299"
+          },
+          "fratraadt": false,
+          "rekkefolge": 0,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/REGN"
+              }
+            },
+            "beskrivelse": "Regnskapsfører",
+            "kode": "REGN"
+          }
+        },
+        {
+          "avregistrert": false,
+          "enhet": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/enheter/983338917"
+              }
+            },
+            "erSlettet": false,
+            "godkjenningsstatus": "Godkjent regnskapsforetak",
+            "navn": [
+              "AZETS INSIGHT AS"
+            ],
+            "organisasjonsform": {
+              "_links": {
+                "self": {
+                  "href": "https://data.brreg.no/enhetsregisteret/api/organisasjonsformer/AS"
+                }
+              },
+              "beskrivelse": "Aksjeselskap",
+              "kode": "AS"
+            },
+            "organisasjonsnummer": "983338917"
+          },
+          "fratraadt": false,
+          "rekkefolge": 1,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/REGN"
+              }
+            },
+            "beskrivelse": "Regnskapsfører",
+            "kode": "REGN"
+          }
+        }
+      ],
+      "sistEndret": "2023-01-04",
+      "type": {
+        "_links": {
+          "self": {
+            "href": "https://data.brreg.no/enhetsregisteret/api/roller/rollegruppetyper/REGN"
+          }
+        },
+        "beskrivelse": "Regnskapsfører",
+        "kode": "REGN"
+      }
+    }
+  ]
+}

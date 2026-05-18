@@ -1,0 +1,19 @@
+GET https://datacvr.virk.dk/data/visenhed?enhedstype=virksomhed&id=26259495&language=da
+HTTP_STATUS 200
+FINAL_URL https://datacvr.virk.dk/data/visenhed?enhedstype=virksomhed&id=26259495&language=da
+
+Date: Mon, 18 May 2026 17:14:38 GMT
+Content-Type: text/html;charset=ISO-8859-1
+Transfer-Encoding: chunked
+Connection: close
+Server: cloudflare
+Strict-Transport-Security: max-age=63072000;
+X-Content-Type-Options: nosniff
+Set-Cookie: S9SESSIONID=5B77941F152E7CD02FE231EC915DAE2E.node3; Path=/; Secure; HttpOnly; SameSite=None
+Vary: Origin,Accept-Encoding,Access-Control-Request-Method,Access-Control-Request-Headers
+Last-Modified: Mon, 20 Apr 2026 09:05:12 GMT
+Cache-Control: no-store
+cf-cache-status: DYNAMIC
+Content-Language: en-DK
+CF-RAY: 9fdc7fd69b2e712b-OSL
+alt-svc: h3=":443"; ma=86400

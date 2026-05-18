@@ -1,0 +1,11 @@
+POST http://distribution.virk.dk/registreringstekster/registreringstekst/_search
+HTTP_STATUS 401
+FINAL_URL http://distribution.virk.dk/registreringstekster/registreringstekst/_search
+REQUEST_BODY {"query":{"term":{"cvrNummer":26259495}},"size":3}
+
+Content-Type: text/html
+Date: Mon, 18 May 2026 17:14:39 GMT
+Server: nginx
+WWW-Authenticate: Basic realm="Beskyttet adgang"
+Content-Length: 172
+Connection: Close

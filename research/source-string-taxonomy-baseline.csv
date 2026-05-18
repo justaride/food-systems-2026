@@ -1,0 +1,379 @@
+row_type,model,field,source_value,record_count,class_name,needs_action,reason
+source_value,Subsidy,source,Landbruksdirektoratet,179310,registry_label_without_locator,yes,"Registry/API label lacks URL, access date, or local snapshot path"
+source_value,DeliveryVolume,source,Landbruksdirektoratet,60310,registry_label_without_locator,yes,"Registry/API label lacks URL, access date, or local snapshot path"
+source_value,CountryMetric,source,NORMO 2025,57,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,AquacultureSite,source,Fiskeridirektoratet pub-aqua,50,registry_label_without_locator,yes,"Registry/API label lacks URL, access date, or local snapshot path"
+source_value,BusinessRelationship,source,Bransjedata,16,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Nielsen/Dagligvarehandelen,15,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,NielsenIQ/bransjeanalyse est.,15,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Verdikjede-kartlegging,15,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Beregnet fra markedsandeler,13,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Eurostat ORG_CROPAR,12,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Luke peat soils roadmap 2024,11,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Årsrapport 2020,10,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Årsrapport 2021,10,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Årsrapport 2022,10,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Årsrapport 2023,10,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,IFRO Documentation 2025/01,10,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Totalkalkylen/SSB,10,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Årsrapport 2024,9,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Suomen Biokierto ja Biokaasu ry 2024,9,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,AquacultureApplication,source,Fiskeridirektoratet aqua-portal,8,registry_label_without_locator,yes,"Registry/API label lacks URL, access date, or local snapshot path"
+source_value,CountryMetric,source,Naturvardsverket Livsmedelsavfall 2024,8,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Riksrevisionen RiR 2025:24,8,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Valio Sustainability Report 2024,7,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Forskningsbibliotek,7,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Estimat basert på bransjedata,6,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Biogas Outlook 2024,6,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Danmarks Statistik/Landbrug & Fødevarer,6,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Hagstofa Íslands / Bændasamtök Íslands,6,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Jordbruksverket,6,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Jordbruksverket Livsmedelskonsumtion 2024,6,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Konkurrence- og Forbrugerstyrelsen 2023,6,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Konkurrence- og Forbrugerstyrelsen 2025,6,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Luke/Ruokavirasto,6,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,SSB/Landbruksdirektoratet,6,registry_label_without_locator,yes,"Registry/API label lacks URL, access date, or local snapshot path"
+source_value,Insight,source,Forskningsrunde 2026-04-20 / Benchmark-rapport,6,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Perplexity-research sjomatfor,6,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,ForMat 2016,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Hagstofa Íslands 2023,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Konkurrensverket 2023,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Konkurrensverket 2025,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Matvett/SSB 2018,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Matvett/SSB 2021,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Matvett/SSB 2023,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Matvett/SSB 2025 est.,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Samkeppniseftirlitið 2023,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Samkeppniseftirlitið 2025,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Totalkalkylen/SSB est.,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Bedriftskartlegging,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Food TG runde 4 syntese,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,HORECA-kartlegging 2026,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Perplexity-research markedsstruktur,5,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,BioMar,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,Sjømatrådet,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Estimat basert på ASKO-selskapene samlet,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Aftale om Groent Danmark,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,"Årsrapporter 2024, Konkurransetilsynet verdikjedestudie",4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,DLF/HUI Research marknadsdata 2024,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,DST/Dansk Erhverv markedsdata 2024,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Evida Biogasstatus 2024,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Jordbruksverket Livsmedelskonsumtion av animalier 2024,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Konkurransetilsynet 2021,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Konkurransetilsynet 2022,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Konkurransetilsynet 2023,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Konkurransetilsynet 2024,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Konkurransetilsynet 2025,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,PTY/NielsenIQ 2023,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,PTY/NielsenIQ 2025,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,PTY/Päivittäistavarakauppa ry markkina-analyysi 2024,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,SSB Arealstatistikk,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Statistics Finland Energy supply and consumption 2024,4,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Bronnoysund/offentligdata MCP,4,registry_label_without_locator,yes,"Registry/API label lacks URL, access date, or local snapshot path"
+source_value,BusinessRelationship,source,Bransjeavtalen 2017-2030,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,Matsentralen Årsrapport 2024,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,TGTG Partnerliste 2024,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Konkurransetilsynet/bransjeanalyse,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Miljødirektoratet 2020,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Miljødirektoratet 2023,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Miljødirektoratet 2025 est.,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Samkeppniseftirlitið / Hagar markedsdata 2024,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,SSB/Landbruksdirektoratet markedsdata 2024,3,registry_label_without_locator,yes,"Registry/API label lacks URL, access date, or local snapshot path"
+source_value,Insight,source,9. mars-motet,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Forskningsrunde 2026-04-20 / Eiendomsmakt-rapport,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Forskningsrunde 2026-04-20 / HORECA-analyse,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,"Forskningsrunde 2026-04-20 / Makt, fryktkultur og enforcement",3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Perplexity-research avhandlinger,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Perplexity-research food access,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Perplexity-research sirkulaert,3,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,Årsrapport 2024,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Regnskap 2024,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyOwnership,source,Brønnøysund,2,registry_label_without_locator,yes,"Registry/API label lacks URL, access date, or local snapshot path"
+source_value,CountryMetric,source,Luke agri-food foreign trade partner refetch,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Naturvårdsverket 2023,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,NielsenIQ/Dagligvarehandelen,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,NielsenIQ/Dagligvarehandelen est.,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Nordic Nutrition Recommendations 2023,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,SCB ImpTotalKNAr partner refetch,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,SSB 08801 partner refetch,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,SSB/NIBIO Landskogtakseringen,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,SSB/Sjømatrådet,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,StatBank SITC2R4 partner refetch,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Statistics Iceland UTA06201 partner extract,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Forskningsrunde 2026-04-20 / Alternative distribusjonskanaler,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Forskningsrunde 2026-04-20 / Failed-entrants-rapport,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Governance-arkitektur-analyse 2026,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Kryssegment-analyse,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Perplexity-research offentlige rapporter,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Sirkularitet-research,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Tenketanker/NGO,2,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,BAMA,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,BAMA/NorgesGruppen,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,Felleskjøpet,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,gartnerhallen.no,1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,BusinessRelationship,source,KFST beslutning 26. mars 2025,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,KKV FCCA 2024 / PTY,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,Konkurrensverket Rapport 2024:5,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,Lantmannen.com,1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,BusinessRelationship,source,mn24.no,1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,BusinessRelationship,source,Mowi Industry Handbook,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,Nofima Prosjektoversikt,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,NorgesGruppen/Dagrofa samarbeidsavtale,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,Norsk Kylling/Reitan,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,Reitan årsrapport,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,BusinessRelationship,source,Reitan Retail Årsrapport 2024,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Årsrapport 2020 (EUR 3 760M, kurs ~10.7)",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Årsrapport 2020 (USD 11.6B, kurs ~9.4)",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Årsrapport 2021 (EUR 4 630M, kurs ~10.2)",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Årsrapport 2021 (USD 16.6B, kurs ~8.6)",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Årsrapport 2022 (EUR 5 478M, kurs ~10.1)",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Årsrapport 2022 (USD 24.1B, kurs ~9.6)",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Årsrapport 2023 (EUR 5 500M, kurs ~11.4)",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Årsrapport 2023 (USD 15.6B, kurs ~10.5)",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Årsrapport 2024 (EUR 5 599M, kurs ~11.4)",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Årsrapport 2024 (USD 13.9B, kurs ~10.7)",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Årsresultat 2024,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Austevoll Seafood Årsrapport 2022,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Austevoll Seafood Årsrapport 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Austevoll Seafood Årsrapport 2024,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Axfood Årsredovisning 2020. SEK 53.5B, 1 SEK ≈ 0.97 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Axfood Årsredovisning 2021. SEK 55.8B, 1 SEK ≈ 0.97 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Axfood Årsredovisning 2022. SEK 63.0B, 1 SEK ≈ 0.98 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Axfood Årsredovisning 2023. SEK 67.4B, 1 SEK ≈ 1.00 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Axfood Year-End Report 2024. SEK 84.1B, 1 SEK ≈ 1.00 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Coop Danmark Årsrapport 2020. DKK 38B, 1 DKK ≈ 1.42 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Coop Danmark Årsrapport 2021. DKK 39B, 1 DKK ≈ 1.43 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Coop Danmark Årsrapport 2022. DKK 41B, 1 DKK ≈ 1.48 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Coop Danmark Årsrapport 2023. DKK 32B, 1 DKK ≈ 1.54 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Coop Danmark Årsrapport 2024. DKK 33.6B, 1 DKK ≈ 1.55 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Coop Sverige/KF Årsredovisning 2020. SEK 38.5B, 1 SEK ≈ 0.97 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Coop Sverige/KF Årsredovisning 2021. SEK 39.2B, 1 SEK ≈ 0.97 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Coop Sverige/KF Årsredovisning 2022. SEK 40.8B, 1 SEK ≈ 0.98 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Coop Sverige/KF Årsredovisning 2023. SEK 42.5B, 1 SEK ≈ 1.00 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Coop Sverige/KF Årsredovisning 2024. ~SEK 48.3B (combined coops), 1 SEK ≈ 1.00 NOK. SEK 2.7B operating loss.",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Dagrofa Årsrapport 2020. DKK 14B, 1 DKK ≈ 1.42 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Dagrofa Årsrapport 2021. DKK 15B, 1 DKK ≈ 1.43 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Dagrofa Årsrapport 2022. DKK 16B, 1 DKK ≈ 1.48 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Dagrofa Årsrapport 2023. DKK 17B, 1 DKK ≈ 1.54 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Dagrofa Corporate Presentation 2024. DKK ~20B, 1 DKK ≈ 1.55 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat basert på markedsandel ~30%. ISK ~42.5B, 1 ISK ≈ 0.08 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat basert på Reitan Retail årsrapport + markedsandel 14%. DKK ~26B, 1 DKK ≈ 1.55 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ~SEK 3.9B, 1 SEK ≈ 0.97 NOK. Markedsandel ~4.5%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ~SEK 4.2B, 1 SEK ≈ 0.97 NOK. Markedsandel ~4.8%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ~SEK 4.9B, 1 SEK ≈ 0.98 NOK. Markedsandel ~5.2%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ~SEK 5.3B, 1 SEK ≈ 1.00 NOK. Markedsandel ~5.8%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ~SEK 5.9B (USD 555M), 1 SEK ≈ 1.00 NOK. Schwarz Group annual report.",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. DKK 20B, 1 DKK ≈ 1.42 NOK. Markedsandel ~12%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. DKK 22B, 1 DKK ≈ 1.43 NOK. Markedsandel ~13%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. DKK 24B, 1 DKK ≈ 1.48 NOK. Markedsandel ~14%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. DKK 25B, 1 DKK ≈ 1.54 NOK. Markedsandel ~14%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. EUR ~1.6B, 1 EUR ≈ 10.7 NOK. Markedsandel ~8%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. EUR ~1.7B, 1 EUR ≈ 10.2 NOK. Markedsandel ~8.5%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. EUR ~1.99B, 1 EUR ≈ 11.5 NOK. Statista/Lidl Finland.",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. EUR ~1.9B, 1 EUR ≈ 10.1 NOK. Markedsandel ~9%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. EUR ~1.9B, 1 EUR ≈ 11.4 NOK. Markedsandel ~9.2%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ISK ~40B, 1 ISK ≈ 0.070 NOK. Markedsandel ~28%",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ISK ~42B, 1 ISK ≈ 0.072 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ISK ~42B, 1 ISK ≈ 0.077 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ISK ~48B, 1 ISK ≈ 0.073 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ISK ~50B, 1 ISK ≈ 0.070 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ISK ~53B, 1 ISK ≈ 0.072 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ISK ~59B, 1 ISK ≈ 0.073 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ISK ~60B (inkl. Lyfja fra juli 2024), 1 ISK ≈ 0.08 NOK. Festi Q4 2024.",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Estimat. ISK ~65B, 1 ISK ≈ 0.077 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"ICA Gruppen Årsrapport 2020. SEK 121.7B, 1 SEK ≈ 0.97 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"ICA Gruppen Årsrapport 2021. SEK 125.8B, 1 SEK ≈ 0.97 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"ICA Gruppen Årsrapport 2022. SEK 137.8B, 1 SEK ≈ 0.98 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"ICA Gruppen Årsrapport 2023. SEK 142.7B, 1 SEK ≈ 1.00 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"ICA Gruppen Årsrapport 2024. SEK 157.2B, 1 SEK ≈ 1.00 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Kesko Annual Report 2024. EUR 11.92B, 1 EUR ≈ 11.5 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Kesko vuosikertomus 2020. EUR 10.7B, 1 EUR ≈ 10.7 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Kesko vuosikertomus 2021. EUR 11.3B, 1 EUR ≈ 10.2 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Kesko vuosikertomus 2022. EUR 12.1B, 1 EUR ≈ 10.1 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Kesko vuosikertomus 2023. EUR 11.4B, 1 EUR ≈ 11.4 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Nofima Årsrapport 2020,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Nofima Årsrapport 2021,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Nofima Årsrapport 2022,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Nofima Årsrapport 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Proff.no 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,Proff.no 2024,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Salling Group Annual Report 2024. DKK 72.2B, 1 DKK ≈ 1.55 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Salling Group Årsrapport 2020. DKK 58B, 1 DKK ≈ 1.42 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Salling Group Årsrapport 2021. DKK 60B, 1 DKK ≈ 1.43 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Salling Group Årsrapport 2022. DKK 66B, 1 DKK ≈ 1.48 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"Salling Group Årsrapport 2023. DKK 70B, 1 DKK ≈ 1.54 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"SOK Financial Statements Bulletin 2024. EUR 14.3B (retail sales), 1 EUR ≈ 11.5 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"SOK tilinpäätös 2020. EUR 12.3B, 1 EUR ≈ 10.7 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"SOK tilinpäätös 2021. EUR 13.1B, 1 EUR ≈ 10.2 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"SOK tilinpäätös 2022. EUR 13.7B, 1 EUR ≈ 10.1 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyFinancial,source,"SOK tilinpäätös 2023. EUR 14.3B, 1 EUR ≈ 11.4 NOK",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyOwnership,source,Austevoll Seafood årsrapport 2024,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyOwnership,source,Axfood Pressrelease 2024-10-29,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyOwnership,source,Brønnøysund/Årsrapport,1,registry_label_without_locator,yes,"Registry/API label lacks URL, access date, or local snapshot path"
+source_value,CompanyOwnership,source,Mowi Borsmeld. jan 2025 / GlobeNewswire,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyOwnership,source,NorgesGruppen Credit Report 2025 / Dagrofa corporate presentation,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyOwnership,source,Orkla Pressrelease 2024-04-17,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyOwnership,source,Orkla Pressrelease 2024-06,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyOwnership,source,proff.no (via REMA 1000 Norge AS),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyOwnership,source,Reitan Retail årsrapport 2024,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyOwnership,source,SalMar Borsmeld. 2022-12,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CompanyProperty,source,asko.no (ASKO Drammen),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,asko.no (ASKO Helgeland),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,asko.no (ASKO Innlandet),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,asko.no (ASKO Midt-Norge),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,asko.no (ASKO Molde),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,asko.no (ASKO Nord),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,asko.no (ASKO Nordvest),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,asko.no (ASKO Oslofjord),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,asko.no (ASKO Øst),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,asko.no (ASKO Rogaland),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,asko.no (ASKO Sør),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,asko.no (ASKO Vest),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,asko.no (Sentrallager),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,axfood.se (Huvudkontor),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,bama.no (Liertoppen hovedterminal),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,bama.no (Regionterminal Bergen),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,bama.no (Regionterminal Trondheim),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,BioMar.com (Avaldsnes fôrfabrikk),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,BioMar.com (Myre fôrfabrikk),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,Brønnøysund,1,registry_label_without_locator,yes,"Registry/API label lacks URL, access date, or local snapshot path"
+source_value,CompanyProperty,source,coop.dk (Hovedkontor),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,coop.no (CLOG Gardermoen),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,coop.no (Regionlager Bergen),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,coop.no (Regionlager Heimdal),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,coop.no (Regionlager Stavanger),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,coop.no (Regionlager Tromsø),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,coop.se (Huvudkontor),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,dagrofa.dk (Hovedkontor),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,felleskjopet.no (Kambo fôrfabrikk),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,felleskjopet.no (Steinkjer fôrfabrikk),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,felleskjopet.no (Vaksdal fôrfabrikk),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,festi.is (Höfuðstöðvar),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,grilstad.no (Brumunddal),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,grilstad.no (Ranheim),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,grilstad.no (Stavanger),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,grilstad.no (Stranda),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,hagar.is (Höfuðstöðvar),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,icagruppen.se (Huvudkontor),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,kesko.fi (Pääkonttori),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,leroy.no (Bergen prosessering),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,leroy.no (Stord prosessering),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,lidl.fi (Pääkonttori),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,lidl.se (Svenskt huvudkontor),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,mowi.com (Eggesbønes),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,mowi.com (Hovedkontor Bergen),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,mowi.com (Ryfisk),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,mowi.com (Ulvan),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,nortura.no (Elverum),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,nortura.no (Forus),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,nortura.no (Hærland),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,nortura.no (Karasjok),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,nortura.no (Målselv),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,nortura.no (Malvik),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,nortura.no (Rudshøgda),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,nortura.no (Tønsberg),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,orkla.no (Hovedkontor),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,orkla.no (Sætre Ørsta),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,orkla.no (Stabburet Rygge),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,"proff.no (Distribunal Bergen, Hylkje)",1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,"proff.no (Distribunal Østlandet, Vinterbro)",1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,proff.no (Distribunal Stavanger),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,proff.no (Distribunal Tromsø),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,"proff.no (Distribunal Trondheim, Tiller)",1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,proff.no (Moss fabrikk),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,proff.no (Orkanger),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,proff.no (Oslo kverneri),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,proff.no (Støren),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,rema1000.dk (Hovedkontor),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,rfrg.no (Hovedkontor),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,s-ryhma.fi (Pääkonttori),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,sallinggroup.com (Hovedkontor),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,salmar.no (InnovaMar),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,salmar.no (Vikenco),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,samkaup.is (Höfuðstöðvar),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,skretting.com (Averøy fôrfabrikk),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,skretting.com (Stavanger fôrfabrikk),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,skretting.com (Stokmarknes fôrfabrikk),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,tine.no (TINE Brumunddal),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,tine.no (TINE Meieriet Bergen),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,tine.no (TINE Meieriet Oslo),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,tine.no (TINE Meieriet Trondheim),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,tine.no (TINE Sandnessjøen),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,tine.no (TINE Tana),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,tine.no (TINE Tretten),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,yara.com (Global Headquarters),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CompanyProperty,source,yara.com (Porsgrunn fabrikk),1,domain_only,yes,Bare domain or domain label without a source URL
+source_value,CountryMetric,source,Bransjeanalyse/Sjømatrådet,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,DagligVaruNytt/NielsenIQ est.,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Energistyrelsen 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,ForMat/Eurostat 2016,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Jordbruksverket 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Landbrug & Fødevarer 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,LUKE 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,LUKE/Eurostat 2021,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,LUKE/Eurostat 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Matvett 2025 est.,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Matvett/Eurostat 2018,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Matvett/Eurostat 2021,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Matvett/Eurostat 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Miljøstyrelsen 2021,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Miljøstyrelsen 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Naturvårdsverket 2021,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,PTY/NielsenIQ est.,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Regjeringen R15-2023 / NielsenIQ,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Retail Institute Scandinavia est.,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Samkeppniseftirlitið est.,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,SSB/Sjømatrådet est.,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Tilastokeskus 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Umhverfisstofnun 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Umhverfisstofnun 2025 est.,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Umhverfisstofnun/Eurostat 2021,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,CountryMetric,source,Umhverfisstofnun/Eurostat 2023,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Beredskapskilder,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Broennoeysundregistrene / NorgesGruppen aarsregnskap,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Cathrine Barth / EU-regelverk,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Cathrine Barth / LinkedIn,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Cathrine Barth / NCH discussion deck,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Cathrine Barth / NMBU-intervju,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Cathrine Barth / Nordisk ministerraad,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Cathrine Barth / Standard Norge,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Forskningsrunde 2026-04-20 / Evidensnotat,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,"Forskningsrunde 2026-04-20 / Framstillinger av mat, makt og beredskap",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Forskningsrunde 2026-04-20 / HORECA og benchmark-case,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Forskningsrunde 2026-04-20 / Makt og fryktkultur,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Forskningsrunde 2026-04-20 / Norges matrevolusjon-compass,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Forskningsrunde 2026-04-20 / Syntese,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Future of Food Foundation 2024,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Konkurransetilsynet,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Konkurransetilsynet/konsulenter,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Konkurransetilsynets Dagligvarerapport 2017-2024,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,"Matvett/NORSUS 2024, Naturvaardsverket 2024",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,"Matvett/NORSUS OR.27.25, Eurostat, Konkurransetilsynet",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,NHH FOOD,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Nordisk regulatorisk komparativ 2026,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,NOU/stortingsdokumenter,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,"REKO-ring Wikipedia, ATL.nu, EkoNu.fi",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,SIFO/OsloMet,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,SIFO/OsloMet 2024,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,Sirkularitetsanalyse 2026,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,"Strom & Halseth, NHH 2023",1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Insight,source,University of Copenhagen 2021,1,free_text,yes,Free-text source label needs manual taxonomy review
+source_value,Subsidy,source,,1,missing,yes,Missing source value
+source_value,CompanyFinancial,source,research/evidence-pack/arsrapporter/hagar-historical/text/hagar-2020-21-annual-report.txt,1,local_path_or_file,no,Local file path or filename is present
+source_value,CompanyFinancial,source,research/evidence-pack/arsrapporter/hagar-historical/text/hagar-2021-22-annual-report.txt,1,local_path_or_file,no,Local file path or filename is present
+source_value,CompanyFinancial,source,research/evidence-pack/arsrapporter/hagar-historical/text/hagar-2022-23-annual-report.txt,1,local_path_or_file,no,Local file path or filename is present
+source_value,CompanyFinancial,source,research/evidence-pack/arsrapporter/hagar-historical/text/hagar-2023-24-annual-report.txt,1,local_path_or_file,no,Local file path or filename is present
+source_value,CompanyFinancial,source,research/evidence-pack/arsrapporter/text/hagar-2024-25.txt,1,local_path_or_file,no,Local file path or filename is present
+source_value,Meeting,source,"9, mars 2026 FOOD.md",1,local_path_or_file,no,Local file path or filename is present
+source_value,Meeting,source,JT-GABRIEL - Arbeidsmøte 13-04-26.md,1,local_path_or_file,no,Local file path or filename is present
+source_value,Meeting,source,JT-GABRIEL - Arbeidsmøte 20-04-26.md,1,local_path_or_file,no,Local file path or filename is present
+source_value,Meeting,source,Speaker 1 (1).md,1,local_path_or_file,no,Local file path or filename is present
+source_value,Meeting,source,Speaker 1.md,1,local_path_or_file,no,Local file path or filename is present
+source_value,Meeting,source,Strategisk ledergruppe Marked 16 mars 2026.md,1,local_path_or_file,no,Local file path or filename is present
+source_value,Meeting,source,TRANSITION GROUPS - Møte 13-04-26.md,1,local_path_or_file,no,Local file path or filename is present
+source_value,Meeting,source,TRANSITION GROUPS - Møte 21-04-26.md,1,local_path_or_file,no,Local file path or filename is present
+model_without_source_field,Company,,,38976,missing,yes,Model has registry and identity facts but no SourceCitation/FieldCitation coverage yet
+model_without_source_field,Shareholder,,,83,missing,yes,Ownership facts have no source field or FieldCitation coverage yet
+model_without_source_field,BoardMember,,,328,missing,yes,Role facts have no source field or FieldCitation coverage yet
+model_without_source_field,PersonProfile,,,35,missing,yes,Profile and role-array facts rely on metadata/JSON without FieldCitation coverage yet
+model_without_source_field,Actor,,,201,missing,yes,Actor profile facts rely on metadata/document links without FieldCitation coverage yet

@@ -1,0 +1,144 @@
+{
+  "_links": {
+    "enhet": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/932256134"
+    },
+    "self": {
+      "href": "https://data.brreg.no/enhetsregisteret/api/enheter/932256134/roller"
+    }
+  },
+  "rollegrupper": [
+    {
+      "roller": [
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1973-12-03",
+            "navn": {
+              "etternavn": "Knüppel",
+              "fornavn": "Andre Rolf"
+            }
+          },
+          "rekkefolge": 0,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/LEDE"
+              }
+            },
+            "beskrivelse": "Styrets leder",
+            "kode": "LEDE"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1985-07-05",
+            "navn": {
+              "etternavn": "Bergan",
+              "fornavn": "Carl-Fredrik",
+              "mellomnavn": "Iuell"
+            }
+          },
+          "rekkefolge": 1,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/MEDL"
+              }
+            },
+            "beskrivelse": "Styremedlem",
+            "kode": "MEDL"
+          }
+        },
+        {
+          "avregistrert": false,
+          "fratraadt": false,
+          "person": {
+            "erDoed": false,
+            "fodselsdato": "1993-12-22",
+            "navn": {
+              "etternavn": "Manne",
+              "fornavn": "Sara Elisabet",
+              "mellomnavn": "Ip"
+            }
+          },
+          "rekkefolge": 2,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/MEDL"
+              }
+            },
+            "beskrivelse": "Styremedlem",
+            "kode": "MEDL"
+          }
+        }
+      ],
+      "sistEndret": "2025-03-18",
+      "type": {
+        "_links": {
+          "self": {
+            "href": "https://data.brreg.no/enhetsregisteret/api/roller/rollegruppetyper/STYR"
+          }
+        },
+        "beskrivelse": "Styre",
+        "kode": "STYR"
+      }
+    },
+    {
+      "roller": [
+        {
+          "avregistrert": false,
+          "enhet": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/enheter/976389387"
+              }
+            },
+            "erSlettet": false,
+            "godkjenningsstatus": "Godkjent revisjonsforetak",
+            "navn": [
+              "ERNST & YOUNG AS"
+            ],
+            "organisasjonsform": {
+              "_links": {
+                "self": {
+                  "href": "https://data.brreg.no/enhetsregisteret/api/organisasjonsformer/AS"
+                }
+              },
+              "beskrivelse": "Aksjeselskap",
+              "kode": "AS"
+            },
+            "organisasjonsnummer": "976389387"
+          },
+          "fratraadt": false,
+          "rekkefolge": 0,
+          "type": {
+            "_links": {
+              "self": {
+                "href": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper/REVI"
+              }
+            },
+            "beskrivelse": "Revisor",
+            "kode": "REVI"
+          }
+        }
+      ],
+      "sistEndret": "2026-02-09",
+      "type": {
+        "_links": {
+          "self": {
+            "href": "https://data.brreg.no/enhetsregisteret/api/roller/rollegruppetyper/REVI"
+          }
+        },
+        "beskrivelse": "Revisor",
+        "kode": "REVI"
+      }
+    }
+  ]
+}

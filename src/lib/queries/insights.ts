@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/db'
+import { normalizeInsightCitationFields } from '@/lib/insight-citations'
 import {
   buildDocumentDate,
   buildExcerpt,
@@ -19,6 +20,8 @@ type InsightRow = {
   description: string
   insightType: string
   source: string
+  sourceLabel: string
+  primaryCitationId: string | null
   phaseId: string | null
   tags: string[]
   url: string | null
@@ -65,6 +68,8 @@ function mapStructuredInsight(
     description: string
     insightType: string
     source: string
+    sourceLabel: string | null
+    primaryCitationId: string | null
     phaseId: string | null
     tags: string[]
     url: string | null
@@ -80,9 +85,11 @@ function mapStructuredInsight(
   },
 ): InsightRow {
   const primaryDocument = insight.documentRefs[0]?.document ?? null
+  const citationFields = normalizeInsightCitationFields(insight)
 
   return {
     ...insight,
+    ...citationFields,
     phaseId: insight.phaseId ?? null,
     url: insight.url ?? null,
     sourceRefs: insight.sourceRefs.map((source) => ({
@@ -116,6 +123,8 @@ function mapFallbackDocument(doc: {
     description: buildExcerpt(doc.summary, doc.content, 260),
     insightType: classifyDocumentInsightType(doc),
     source: doc.author ?? doc.category ?? 'Dokumentbibliotek',
+    sourceLabel: doc.author ?? doc.category ?? 'Dokumentbibliotek',
+    primaryCitationId: null,
     phaseId: null,
     tags: [...new Set([...doc.tags, 'dokumentbasert'])].slice(0, 8),
     url: doc.url ?? null,

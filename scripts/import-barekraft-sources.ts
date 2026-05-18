@@ -3,6 +3,8 @@ import { readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { buildBarekraftDocumentCitation } from './lib/barekraft-citations'
+import { upsertWithCitation } from './lib/import-helpers'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -90,8 +92,8 @@ async function main() {
     const content = readFileSync(filePath, 'utf-8')
     const wordCount = content.split(/\s+/).filter(Boolean).length
 
-    const sourcDoc = await prisma.sourceDoc.findUnique({ where: { id: entry.sourceId } })
-    if (!sourcDoc) {
+    const sourceDoc = await prisma.sourceDoc.findUnique({ where: { id: entry.sourceId } })
+    if (!sourceDoc) {
       console.log(`  SKIP ${entry.sourceId}: SourceDoc not found in DB (run import-ts-data first)`)
       skipped++
       continue
@@ -101,20 +103,21 @@ async function main() {
     const docFilePath = `research/external/${entry.dir}/${entry.file}`
     const country = extractCountry(content)
     const tags = extractTags(entry.sourceId, content)
+    const citation = buildBarekraftDocumentCitation(sourceDoc, docFilePath)
 
-    const doc = await prisma.document.upsert({
+    const doc = await upsertWithCitation(prisma, 'Document', db => db.document.upsert({
       where: { filePath: docFilePath },
       update: {
         slug,
-        title: sourcDoc.title ?? entry.file.replace(/\.md$/, ''),
-        author: sourcDoc.author ?? 'Bærekraft Kartlegging Prosjekt',
-        year: sourcDoc.year ? Number(sourcDoc.year) : 2025,
+        title: sourceDoc.title ?? entry.file.replace(/\.md$/, ''),
+        author: sourceDoc.author ?? 'Bærekraft Kartlegging Prosjekt',
+        year: sourceDoc.year ? Number(sourceDoc.year) : 2025,
         documentType: 'analysis',
         category: 'external',
         subcategory: entry.dir === 'circular-cities' ? 'circular-cities' : 'barekraft-kartlegging',
         country,
         content,
-        summary: sourcDoc.description,
+        summary: sourceDoc.description,
         wordCount,
         tags,
         metadata: {
@@ -127,15 +130,15 @@ async function main() {
       create: {
         slug,
         filePath: docFilePath,
-        title: sourcDoc.title ?? entry.file.replace(/\.md$/, ''),
-        author: sourcDoc.author ?? 'Bærekraft Kartlegging Prosjekt',
-        year: sourcDoc.year ? Number(sourcDoc.year) : 2025,
+        title: sourceDoc.title ?? entry.file.replace(/\.md$/, ''),
+        author: sourceDoc.author ?? 'Bærekraft Kartlegging Prosjekt',
+        year: sourceDoc.year ? Number(sourceDoc.year) : 2025,
         documentType: 'analysis',
         category: 'external',
         subcategory: entry.dir === 'circular-cities' ? 'circular-cities' : 'barekraft-kartlegging',
         country,
         content,
-        summary: sourcDoc.description,
+        summary: sourceDoc.description,
         wordCount,
         tags,
         metadata: {
@@ -145,7 +148,7 @@ async function main() {
           availabilityStatus: 'full-text',
         },
       },
-    })
+    }), citation)
 
     await prisma.sourceDoc.update({
       where: { id: entry.sourceId },

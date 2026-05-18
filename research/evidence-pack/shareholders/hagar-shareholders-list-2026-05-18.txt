@@ -1,0 +1,28 @@
+Shareholders List - Hagar
+Last updated - 14. May 2026
+
+Rank | Owner | Number of shares | Percentage
+1. Gildi - lífeyrissjóður | 179.893.219 | 16.26%
+2. Lífeyrissjóður verzlunarmanna | 136.912.404 | 12.37%
+3. Lífeyrissj.starfsm.rík. A-deild | 125.387.598 | 11.33%
+4. Brú Lífeyrissjóður starfs sveit | 92.625.404 | 8.37%
+5. Kaldbakur ehf. | 90.000.000 | 8.13%
+6. Birta lífeyrissjóður | 71.842.636 | 6.49%
+7. Festa - lífeyrissjóður | 46.149.169 | 4.17%
+8. Stapi lífeyrissjóður | 32.760.917 | 2.96%
+9. Söfnunarsjóður lífeyrisréttinda | 26.304.824 | 2.38%
+10. Almenni-Lífsverk lífeyrissjóður | 26.267.240 | 2.37%
+11. Lífeyrissj.starfsm.rík. B-deild | 19.779.633 | 1.79%
+12. Hagar hf. | 17.767.034 | 1.61%
+13. Brú R deild | 15.973.187 | 1.44%
+14. Vanguard Total International S | 14.021.015 | 1.27%
+15. Vanguard Emerging Markets Stock | 13.244.702 | 1.20%
+16. Folketrygdfondet | 11.348.278 | 1.03%
+17. Stefnir - Innlend hlutabréf hs. | 10.446.970 | 0.94%
+18. Sp/F NM Holding | 9.177.019 | 0.83%
+19. Frjálsi lífeyrissjóðurinn | 8.624.995 | 0.78%
+20. Vanguard Fiduciary Trust Compa | 7.149.122 | 0.65%
+
+Source: https://www.hagar.is/en/investors/shareholders-information/shareholders-list/
+Local HTML: research/evidence-pack/shareholders/hagar-shareholders-list-2026-05-18.html
+SHA-256: b4f95654f9b3d86f5b084053b47ee203070a975e22259ce04f305e45712ce01f

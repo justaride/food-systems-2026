@@ -27,6 +27,7 @@ import {
 import { countryChartData } from '../src/lib/data/country-chart-data'
 import { sustainabilityCountryMetrics } from '../src/lib/data/sustainability-country-metrics'
 import { reports } from '../src/lib/data/reports'
+import { normalizeInsightCitationFields } from '../src/lib/insight-citations'
 import type { ReportSupportingSource } from '../src/lib/types'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
@@ -145,13 +146,17 @@ async function importSources() {
 async function importInsights() {
   console.log('Importing insights...')
   for (const i of insights) {
+    const citationFields = normalizeInsightCitationFields(i)
+
     await prisma.insight.upsert({
       where: { id: i.id },
       update: {
         title: i.title,
         description: i.description,
         insightType: i.type,
-        source: i.source,
+        source: citationFields.source,
+        sourceLabel: citationFields.sourceLabel,
+        primaryCitationId: citationFields.primaryCitationId,
         phaseId: i.phase ?? null,
         tags: i.tags ?? [],
         url: i.url ?? null,
@@ -162,7 +167,9 @@ async function importInsights() {
         title: i.title,
         description: i.description,
         insightType: i.type,
-        source: i.source,
+        source: citationFields.source,
+        sourceLabel: citationFields.sourceLabel,
+        primaryCitationId: citationFields.primaryCitationId,
         phaseId: i.phase ?? null,
         tags: i.tags ?? [],
         url: i.url ?? null,

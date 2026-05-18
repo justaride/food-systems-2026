@@ -1,0 +1,750 @@
+
+
+
+	<!doctype html>
+	<!-- page: 21.01.2026, 11:41:03 -->
+	<html lang='sv' data-pageid="reference:I5xLvaEeC">
+		<head>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+				<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; ">
+			
+		<script id="fetch-payload">
+			
+
+			(function() {
+				var xhr = new XMLHttpRequest();
+				var payloadUrl = "/prh2-app/payload.html";
+				const payloadPromise = new Promise(function (resolve, reject) {
+					if (typeof stato === "undefined") window.stato = {};
+
+					if (window.navigator.userAgent.indexOf("Trident/7.0") > -1) {
+						(function(self, undefined) {function Call(t,l){var n=arguments.length>2?arguments[2]:[];if(!1===IsCallable(t))throw new TypeError(Object.prototype.toString.call(t)+"is not a function.");return t.apply(l,n)}function CreateMethodProperty(e,r,t){var a={value:t,writable:!0,enumerable:!1,configurable:!0};Object.defineProperty(e,r,a)}function Get(n,t){return n[t]}function HasOwnProperty(r,t){return Object.prototype.hasOwnProperty.call(r,t)}function IsCallable(n){return"function"==typeof n}function SameValueNonNumber(e,n){return e===n}function ToInteger(n){var i=Number(n);return isNaN(i)?0:1/i===Infinity||1/i==-Infinity||i===Infinity||i===-Infinity?i:(i<0?-1:1)*Math.floor(Math.abs(i))}function ToLength(n){var t=ToInteger(n);return t<=0?0:Math.min(t,Math.pow(2,53)-1)}function ToObject(e){if(null===e||e===undefined)throw TypeError();return Object(e)}function GetV(t,e){return ToObject(t)[e]}function GetMethod(e,n){var r=GetV(e,n);if(null===r||r===undefined)return undefined;if(!1===IsCallable(r))throw new TypeError("Method not callable: "+n);return r}function Type(e){switch(typeof e){case"undefined":return"undefined";case"boolean":return"boolean";case"number":return"number";case"string":return"string";case"symbol":return"symbol";default:return null===e?"null":"Symbol"in self&&(e instanceof self.Symbol||e.constructor===self.Symbol)?"symbol":"object"}}function OrdinaryToPrimitive(r,t){if("string"===t)var e=["toString","valueOf"];else e=["valueOf","toString"];for(var i=0;i<e.length;++i){var n=e[i],a=Get(r,n);if(IsCallable(a)){var o=Call(a,r);if("object"!==Type(o))return o}}throw new TypeError("Cannot convert to primitive.")}function SameValueZero(n,e){return Type(n)===Type(e)&&("number"===Type(n)?!(!isNaN(n)||!isNaN(e))||(1/n===Infinity&&1/e==-Infinity||(1/n==-Infinity&&1/e===Infinity||n===e)):SameValueNonNumber(n,e))}function ToPrimitive(e){var t=arguments.length>1?arguments[1]:undefined;if("object"===Type(e)){if(arguments.length<2)var i="default";else t===String?i="string":t===Number&&(i="number");var r="function"==typeof self.Symbol&&"symbol"==typeof self.Symbol.toPrimitive?GetMethod(e,self.Symbol.toPrimitive):undefined;if(r!==undefined){var n=Call(r,e,[i]);if("object"!==Type(n))return n;throw new TypeError("Cannot convert exotic object to primitive.")}return"default"===i&&(i="number"),OrdinaryToPrimitive(e,i)}return e}function ToString(t){switch(Type(t)){case"symbol":throw new TypeError("Cannot convert a Symbol value to a string");case"object":return ToString(ToPrimitive(t,String));default:return String(t)}}function ToPropertyKey(r){var i=ToPrimitive(r,String);return"symbol"===Type(i)?i:ToString(i)}CreateMethodProperty(Array.prototype,"includes",function e(r){"use strict";var t=ToObject(this),o=ToLength(Get(t,"length"));if(0===o)return!1;var n=ToInteger(arguments[1]);if(n>=0)var a=n;else(a=o+n)<0&&(a=0);for(;a<o;){var i=Get(t,ToString(a));if(SameValueZero(r,i))return!0;a+=1}return!1});!function(){function e(e,t){if(!e)throw new Error("Not enough arguments");var n;if("createEvent"in document){n=document.createEvent("Event");var o=!(!t||t.bubbles===undefined)&&t.bubbles,i=!(!t||t.cancelable===undefined)&&t.cancelable;return n.initEvent(e,o,i),n}return n=document.createEventObject(),n.type=e,n.bubbles=!(!t||t.bubbles===undefined)&&t.bubbles,n.cancelable=!(!t||t.cancelable===undefined)&&t.cancelable,n}var t={click:1,dblclick:1,keyup:1,keypress:1,keydown:1,mousedown:1,mouseup:1,mousemove:1,mouseover:1,mouseenter:1,mouseleave:1,mouseout:1,storage:1,storagecommit:1,textinput:1};if("undefined"!=typeof document&&"undefined"!=typeof window){var n=window.Event&&window.Event.prototype||null;e.NONE=0,e.CAPTURING_PHASE=1,e.AT_TARGET=2,e.BUBBLING_PHASE=3,window.Event=Window.prototype.Event=e,n&&Object.defineProperty(window.Event,"prototype",{configurable:!1,enumerable:!1,writable:!0,value:n}),"createEvent"in document||(window.addEventListener=Window.prototype.addEventListener=Document.prototype.addEventListener=Element.prototype.addEventListener=function o(){var e=this,n=arguments[0],o=arguments[1];if(e===window&&n in t)throw new Error("In IE8 the event: "+n+" is not available on the window object. Please see https://github.com/Financial-Times/polyfill-service/issues/317 for more information.");e._events||(e._events={}),e._events[n]||(e._events[n]=function(t){var n,o=e._events[t.type].list,i=o.slice(),r=-1,c=i.length;for(t.preventDefault=function a(){!1!==t.cancelable&&(t.returnValue=!1)},t.stopPropagation=function l(){t.cancelBubble=!0},t.stopImmediatePropagation=function s(){t.cancelBubble=!0,t.cancelImmediate=!0},t.currentTarget=e,t.relatedTarget=t.fromElement||null,t.target=t.target||t.srcElement||e,t.timeStamp=(new Date).getTime(),t.clientX&&(t.pageX=t.clientX+document.documentElement.scrollLeft,t.pageY=t.clientY+document.documentElement.scrollTop);++r<c&&!t.cancelImmediate;)r in i&&(n=i[r],o.includes(n)&&"function"==typeof n&&n.call(e,t))},e._events[n].list=[],e.attachEvent&&e.attachEvent("on"+n,e._events[n])),e._events[n].list.push(o)},window.removeEventListener=Window.prototype.removeEventListener=Document.prototype.removeEventListener=Element.prototype.removeEventListener=function i(){var e,t=this,n=arguments[0],o=arguments[1];t._events&&t._events[n]&&t._events[n].list&&-1!==(e=t._events[n].list.indexOf(o))&&(t._events[n].list.splice(e,1),t._events[n].list.length||(t.detachEvent&&t.detachEvent("on"+n,t._events[n]),delete t._events[n]))},window.dispatchEvent=Window.prototype.dispatchEvent=Document.prototype.dispatchEvent=Element.prototype.dispatchEvent=function r(e){if(!arguments.length)throw new Error("Not enough arguments");if(!e||"string"!=typeof e.type)throw new Error("DOM Events Exception 0");var t=this,n=e.type;try{if(!e.bubbles){e.cancelBubble=!0;var o=function(e){e.cancelBubble=!0,(t||window).detachEvent("on"+n,o)};this.attachEvent("on"+n,o)}this.fireEvent("on"+n,e)}catch(i){e.target=t;do{e.currentTarget=t,"_events"in t&&"function"==typeof t._events[n]&&t._events[n].call(t,e),"function"==typeof t["on"+n]&&t["on"+n].call(t,e),t=9===t.nodeType?t.parentWindow:t.parentNode}while(t&&!e.cancelBubble)}return!0},document.attachEvent("onreadystatechange",function(){"complete"===document.readyState&&document.dispatchEvent(new e("DOMContentLoaded",{bubbles:!0}))}))}}();!function(){var e=Object.getOwnPropertyDescriptor,t=function(){try{return 1===Object.defineProperty(document.createElement("div"),"one",{get:function(){return 1}}).one}catch(e){return!1}},r={}.toString,n="".split;CreateMethodProperty(Object,"getOwnPropertyDescriptor",function c(o,i){var a=ToObject(o);a=("string"===Type(a)||a instanceof String)&&"[object String]"==r.call(o)?n.call(o,""):Object(o);var u=ToPropertyKey(i);if(t)try{return e(a,u)}catch(l){}if(HasOwnProperty(a,u))return{enumerable:!0,configurable:!0,writable:!0,value:a[u]}})}();!function(){"use strict";function e(e,t){if(!e.childNodes.length)return[];switch(e.nodeType){case Node.DOCUMENT_NODE:return f.call(e,t);case Node.DOCUMENT_FRAGMENT_NODE:return h.call(e,t);default:return s.call(e,t)}}var t="undefined"==typeof HTMLTemplateElement,o=!(document.createDocumentFragment().cloneNode()instanceof DocumentFragment),n=!1;/Trident/.test(navigator.userAgent)&&function(){function e(e,t){if(e instanceof DocumentFragment)for(var n;n=e.firstChild;)o.call(this,n,t);else o.call(this,e,t);return e}n=!0;var t=Node.prototype.cloneNode;Node.prototype.cloneNode=function i(e){var o=t.call(this,e);return this instanceof DocumentFragment&&(o.__proto__=DocumentFragment.prototype),o},DocumentFragment.prototype.querySelectorAll=HTMLElement.prototype.querySelectorAll,DocumentFragment.prototype.querySelector=HTMLElement.prototype.querySelector,Object.defineProperties(DocumentFragment.prototype,{nodeType:{get:function(){return Node.DOCUMENT_FRAGMENT_NODE},configurable:!0},localName:{get:function(){return undefined},configurable:!0},nodeName:{get:function(){return"#document-fragment"},configurable:!0}});var o=Node.prototype.insertBefore;Node.prototype.insertBefore=e;var r=Node.prototype.appendChild;Node.prototype.appendChild=function p(t){return t instanceof DocumentFragment?e.call(this,t,null):r.call(this,t),t};var c=Node.prototype.removeChild,a=Node.prototype.replaceChild;Node.prototype.replaceChild=function u(t,o){return t instanceof DocumentFragment?(e.call(this,t,o),c.call(this,o)):a.call(this,t,o),o},Document.prototype.createDocumentFragment=function d(){var e=this.createElement("df");return e.__proto__=DocumentFragment.prototype,e};var l=Document.prototype.importNode;Document.prototype.importNode=function m(e,t){t=t||!1;var o=l.call(this,e,t);return e instanceof DocumentFragment&&(o.__proto__=DocumentFragment.prototype),o}}();var r=Node.prototype.cloneNode,c=Document.prototype.createElement,a=Document.prototype.importNode,l=Node.prototype.removeChild,i=Node.prototype.appendChild,p=Node.prototype.replaceChild,u=DOMParser.prototype.parseFromString,d=Object.getOwnPropertyDescriptor(window.HTMLElement.prototype,"innerHTML")||{get:function(){return this.innerHTML},set:function(e){this.innerHTML=e}},m=Object.getOwnPropertyDescriptor(window.Node.prototype,"childNodes")||{get:function(){return this.childNodes}},s=Element.prototype.querySelectorAll,f=Document.prototype.querySelectorAll,h=DocumentFragment.prototype.querySelectorAll,y=function(){if(!t){var e=document.createElement("template"),n=document.createElement("template");n.content.appendChild(document.createElement("div")),e.content.appendChild(n);var r=e.cloneNode(!0);return 0===r.content.childNodes.length||0===r.content.firstChild.content.childNodes.length||o}}(),N=function(){};if(t){var g=document.implementation.createHTMLDocument("template"),v=!0,D=document.createElement("style");D.textContent="template{display:none;}";var E=document.head;E.insertBefore(D,E.firstElementChild),N.prototype=Object.create(HTMLElement.prototype);var b=!document.createElement("div").hasOwnProperty("innerHTML");N.decorate=function(e){if(!e.content&&e.namespaceURI===document.documentElement.namespaceURI){e.content=g.createDocumentFragment();for(var t;t=e.firstChild;)i.call(e.content,t);if(b)e.__proto__=N.prototype;else if(e.cloneNode=function(e){return N._cloneNode(this,e)},v)try{C(e),_(e)}catch(o){v=!1}N.bootstrap(e.content)}};var T={option:["select"],thead:["table"],col:["colgroup","table"],tr:["tbody","table"],th:["tr","tbody","table"],td:["tr","tbody","table"]},M=function(e){return(/<([a-z][^/\0>\x20\t\r\n\f]+)/i.exec(e)||["",""])[1].toLowerCase()},C=function k(e){Object.defineProperty(e,"innerHTML",{get:function(){return q(this)},set:function(e){var t=T[M(e)];if(t)for(var o=0;o<t.length;o++)e="<"+t[o]+">"+e+"</"+t[o]+">";for(g.body.innerHTML=e,N.bootstrap(g);this.content.firstChild;)l.call(this.content,this.content.firstChild);var n=g.body;if(t)for(var r=0;r<t.length;r++)n=n.lastChild;for(;n.firstChild;)i.call(this.content,n.firstChild)},configurable:!0})},_=function B(e){Object.defineProperty(e,"outerHTML",{get:function(){return"<template>"+this.innerHTML+"</template>"},set:function(e){if(!this.parentNode)throw new Error("Failed to set the 'outerHTML' property on 'Element': This element has no parent node.");g.body.innerHTML=e;for(var t=this.ownerDocument.createDocumentFragment();g.body.firstChild;)i.call(t,g.body.firstChild);p.call(this.parentNode,t,this)},configurable:!0})};C(N.prototype),_(N.prototype),N.bootstrap=function G(t){for(var o,n=e(t,"template"),r=0,c=n.length;r<c&&(o=n[r]);r++)N.decorate(o)},document.addEventListener("DOMContentLoaded",function(){N.bootstrap(document)}),Document.prototype.createElement=function z(){var e=c.apply(this,arguments);return"template"===e.localName&&N.decorate(e),e},DOMParser.prototype.parseFromString=function(){var e=u.apply(this,arguments);return N.bootstrap(e),e},Object.defineProperty(HTMLElement.prototype,"innerHTML",{get:function(){return q(this)},set:function(e){d.set.call(this,e),N.bootstrap(this)},configurable:!0,enumerable:!0});var F=/[&\u00A0"]/g,L=/[&\u00A0<>]/g,O=function(e){switch(e){case"&":return"&amp;";case"<":return"&lt;";case">":return"&gt;";case'"':return"&quot;";case" ":return"&nbsp;"}},w=function(e){return e.replace(F,O)},H=function(e){return e.replace(L,O)},A=function(e){for(var t={},o=0;o<e.length;o++)t[e[o]]=!0;return t},x=A(["area","base","br","col","command","embed","hr","img","input","keygen","link","meta","param","source","track","wbr"]),S=A(["style","script","xmp","iframe","noembed","noframes","plaintext","noscript"]),j=function(e,t,o){switch(e.nodeType){case Node.ELEMENT_NODE:for(var n,r=e.localName,c="<"+r,a=e.attributes,l=0;n=a[l];l++)c+=" "+n.name+'="'+w(n.value)+'"';return c+=">",x[r]?c:c+q(e,o)+"</"+r+">";case Node.TEXT_NODE:var i=e.data;return t&&S[t.localName]?i:H(i);case Node.COMMENT_NODE:return"\x3c!--"+e.data+"--\x3e";default:throw window.console.error(e),new Error("not implemented")}},q=function(e,t){"template"===e.localName&&(e=e.content);for(var o,n="",r=t?t(e):m.get.call(e),c=0,a=r.length;c<a&&(o=r[c]);c++)n+=j(o,e,t);return n}}if(t||y){N._cloneNode=function X(e,t){var o=r.call(e,!1);return this.decorate&&this.decorate(o),t&&(i.call(o.content,r.call(e.content,!0)),P(o.content,e.content)),o};var P=function J(t,o){if(o.querySelectorAll){var n=e(o,"template");if(0!==n.length)for(var r,c,a=e(t,"template"),l=0,i=a.length;l<i;l++)c=n[l],r=a[l],N&&N.decorate&&N.decorate(c),p.call(r.parentNode,R.call(c,!0),r)}},U=function K(t){for(var o,n,r=e(t,'script:not([type]),script[type="application/javascript"],script[type="text/javascript"]'),a=0;a<r.length;a++){n=r[a],o=c.call(document,"script"),o.textContent=n.textContent;for(var l,i=n.attributes,u=0;u<i.length;u++)l=i[u],o.setAttribute(l.name,l.value);p.call(n.parentNode,o,n)}},R=Node.prototype.cloneNode=function Q(e){var t;if(!n&&o&&this instanceof DocumentFragment){if(!e)return this.ownerDocument.createDocumentFragment();t=I.call(this.ownerDocument,this,!0)}else t=this.nodeType===Node.ELEMENT_NODE&&"template"===this.localName&&this.namespaceURI==document.documentElement.namespaceURI?N._cloneNode(this,e):r.call(this,e);return e&&P(t,this),t},I=Document.prototype.importNode=function V(e,t){if(t=t||!1,"template"===e.localName)return N._cloneNode(e,t);var o=a.call(this,e,t);return t&&(P(o,e),U(o)),o}}t&&(window.HTMLTemplateElement=N)}();})('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+						!function(t){function e(){}function n(t,e){return function(){t.apply(e,arguments)}}function o(t){if("object"!=typeof this)throw new TypeError("Promises must be constructed via new");if("function"!=typeof t)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=void 0,this._deferreds=[],a(t,this)}function r(t,e){for(;3===t._state;)t=t._value;return 0===t._state?void t._deferreds.push(e):(t._handled=!0,void l(function(){var n=1===t._state?e.onFulfilled:e.onRejected;if(null===n)return void(1===t._state?i:u)(e.promise,t._value);var o;try{o=n(t._value)}catch(r){return void u(e.promise,r)}i(e.promise,o)}))}function i(t,e){try{if(e===t)throw new TypeError("A promise cannot be resolved with itself.");if(e&&("object"==typeof e||"function"==typeof e)){var r=e.then;if(e instanceof o)return t._state=3,t._value=e,void f(t);if("function"==typeof r)return void a(n(r,e),t)}t._state=1,t._value=e,f(t)}catch(i){u(t,i)}}function u(t,e){t._state=2,t._value=e,f(t)}function f(t){2===t._state&&0===t._deferreds.length&&setTimeout(function(){t._handled||o._onUnhandledRejection(t._value)},1);for(var e=0,n=t._deferreds.length;n>e;e++)r(t,t._deferreds[e]);t._deferreds=null}function c(t,e,n){this.onFulfilled="function"==typeof t?t:null,this.onRejected="function"==typeof e?e:null,this.promise=n}function a(t,e){var n=!1;try{t(function(t){n||(n=!0,i(e,t))},function(t){n||(n=!0,u(e,t))})}catch(o){if(n)return;n=!0,u(e,o)}}var s=setTimeout,l="function"==typeof setImmediate&&setImmediate||function(t){s(t,1)},d=Array.isArray||function(t){return"[object Array]"===Object.prototype.toString.call(t)};o.prototype["catch"]=function(t){return this.then(null,t)},o.prototype.then=function(t,n){var i=new o(e);return r(this,new c(t,n,i)),i},o.all=function(){var t=Array.prototype.slice.call(1===arguments.length&&d(arguments[0])?arguments[0]:arguments);return new o(function(e,n){function o(i,u){try{if(u&&("object"==typeof u||"function"==typeof u)){var f=u.then;if("function"==typeof f)return void f.call(u,function(t){o(i,t)},n)}t[i]=u,0===--r&&e(t)}catch(c){n(c)}}if(0===t.length)return e([]);for(var r=t.length,i=0;i<t.length;i++)o(i,t[i])})},o.resolve=function(t){return t&&"object"==typeof t&&t.constructor===o?t:new o(function(e){e(t)})},o.reject=function(t){return new o(function(e,n){n(t)})},o.race=function(t){return new o(function(e,n){for(var o=0,r=t.length;r>o;o++)t[o].then(e,n)})},o._setImmediateFn=function(t){l=t},o._onUnhandledRejection=function(t){console.warn("Possible Unhandled Promise Rejection:",t)},"undefined"!=typeof module&&module.exports?module.exports=o:t.Promise||(t.Promise=o)}(this);
+					}
+
+
+					xhr.open("GET", payloadUrl, true);
+
+					xhr.onload = function (e) {
+						if (xhr.status === 404) console.error("Payload 404: not found");
+						else resolve(xhr.responseText);
+					};
+
+					xhr.onerror = function (e) {
+						console.error(e, xhr.statusText);
+						reject("Payload could not be fetched");
+					}
+
+					xhr.send(null);
+				});
+
+				payloadPromise.then(function(payloadResponse) {
+					if (document.querySelector("body")) return payloadSuccess(payloadResponse);
+					document.addEventListener('DOMContentLoaded', payloadSuccess.bind(this, payloadResponse));
+				}).catch(function(e) {
+					console.error("Payload Error >>", e);
+				})
+
+				function payloadSuccess(payloadResponse) {
+					try {
+						if (window.startRetry) console.warn("payload retry start")
+						window.payloadNode = document.createElement("div");
+						payloadNode.innerHTML = payloadResponse;
+
+						const firstHeadElement = document.head.firstElementChild;
+						const payloadScripts = payloadNode.querySelectorAll("script");
+						for (var index = 0; index < payloadScripts.length; index++) {
+							const node = payloadScripts[index];
+							let script = document.createElement('script');
+							script.text = node.innerHTML;
+							if (node.getAttribute("module")) script.setAttribute("module", node.getAttribute("module"));
+							if (node.getAttribute("id")) script.setAttribute("id", node.getAttribute("id"));
+							document.head.appendChild(script);
+						}
+
+						window.statoDOMContentLoaded = true;
+						document.dispatchEvent(new CustomEvent("statoDOMContentLoaded", {}));
+						document.querySelector("html").classList.add("dom-ready");
+						document.querySelector("#fetch-payload").remove();
+
+						if (window.startRetry) console.warn("payload retry successful")
+					}
+					catch(e) {
+						console.error("payload execution crashed", e);
+						if (window.startRetry !== true) {
+							window.startRetry = true;
+							xhr.open("GET", payloadUrl + "?cache="+new Date().getTime(), false);
+							xhr.onload = function() { payloadSuccess.call(this, xhr.responseText) };
+							xhr.send(null);
+						}
+					}
+				}
+			})();
+		</script>
+		<script async src="/prh2-app/payload-scripts.js"></script>
+	
+
+
+
+	<title>PRH - Informationstjänsten Virre | PRH</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+			<meta name="theme-color" content="#ffffff" />
+			<meta name="msapplication-navbutton-color" content="#ffffff" />
+		
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="mobile-web-app-capable" content="yes">
+	
+
+			<script>document.querySelector('head').setAttribute('timestamp', Date.now())</script>
+			
+
+	<script class="parent-script" id="stato-vars">
+	try {
+		
+
+
+
+		window.pagelinks = {
+			"NavigationTitle": "Informationstjänsten Virre",
+			"reference": "reference:I5xLvaEeC",
+			"cardpath": "/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka",
+			"pubstatus": "true",
+			"publicurl": "/sv/foretagochsammanslutningar/tietopalvelut/virre.html",
+			"systemtype": "prh2.sisaltosivu",
+			"cmsbasehref": "https://www.prh.fi",
+			"basehref": "/sv/",
+			"currentVersion": "Publish(20260121114102)"
+		};
+
+		window.startPath = "/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka";
+		window.startVersion =  "Publish(20260121114102)";
+		window.startParseMode =  "VIEW";
+		window.startChannel = "public";
+		window.csrfsalt = "";
+		window.currentcardexport = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiID8+PFN0YXRvIFZlcnNpb249IjguMCI+CjxDYXJkIFN0eWxlPSJwcmgyLnNpc2FsdG9zaXZ1IiBOYW1lPSJrYXRrYS15cmVrYSIgSWQ9IkRmTDVRcXR2SSIgVHlwZT0iMSI+PEV4dHJhRGF0YT48S2V5PnB1Yk5hbWU8L0tleT48VmFsdWU+dmlycmU8L1ZhbHVlPjwvRXh0cmFEYXRhPjxFeHRyYURhdGE+PEtleT5UaW1lQ3JlYXRlZDwvS2V5PjxWYWx1ZT4xNjY0NDQ0NjQyODQzPC9WYWx1ZT48L0V4dHJhRGF0YT48RXh0cmFEYXRhPjxLZXk+VGltZU1vZGlmaWVkPC9LZXk+PFZhbHVlPjE3Njg5ODY0OTU4MzM8L1ZhbHVlPjwvRXh0cmFEYXRhPjxFeHRyYURhdGE+PEtleT5DcmVhdG9yPC9LZXk+PFZhbHVlPmFkbWluPC9WYWx1ZT48L0V4dHJhRGF0YT48RXh0cmFEYXRhPjxLZXk+TW9kaWZpZXI8L0tleT48VmFsdWU+YWRtaW48L1ZhbHVlPjwvRXh0cmFEYXRhPjxWZXJzaW9uIFN0YXR1cz0iMiIgQmVnaW49IjE3Njg5ODg0NjIwNjkiIE5hbWU9IlB1Ymxpc2goMjAyNjAxMjExMTQxMDIpIiBJZD0iWUwwMjMwcmthIiBDdXJyZW50PSIxIiBFbmQ9Ijk5OTk5OTk5OTk5OTk5OTgiPjxMYW5ndWFnZSBDb2RlPSJkZWZhdWx0Ij48Um93PjxLZXk+Q01TLlNob3dJbk5hdmlnYXRpb248L0tleT48VmFsdWU+dHJ1ZTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8xL2lkPC9LZXk+PFZhbHVlPmlkSUdVQ0dQZXdKPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+dmFzZW48L0tleT48VmFsdWU+PC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzIvZGF0YS9pbnRlcm5hbDwvS2V5PjxWYWx1ZT50cnVlPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzEvZGF0YS9yZWZlcmVuY2U8L0tleT48VmFsdWU+cmVmZXJlbmNlOm9CejRuZVdpNDwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9kYXRhVHlwZTwvS2V5PjxWYWx1ZT5zdHJ1Y3R1cmVkRGF0YTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PnNpaXJ0b2Fpa2E8L0tleT48VmFsdWU+MTY3MDM5ODY4ODkwMTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PnNpaXJ0bzwvS2V5PjxWYWx1ZT50cnVlPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzQvaWQ8L0tleT48VmFsdWU+aWRJR1VDR1Bld008L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMC9kYXRhL3N0YXRvZWxlbWVudDwvS2V5PjxWYWx1ZT50cnVlPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Q01TLk5vUm9ib3RzPC9LZXk+PFZhbHVlPmZhbHNlPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Q01TLlB1Ymxpc2hlZC5FcG9jaDwvS2V5PjxWYWx1ZT4xNzY4OTg4NDYyNDUxPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Q01TLkxvY2subG9ja0R1cmF0aW9uPC9LZXk+PFZhbHVlPjM2MDAwMDA8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzIvZWxlbWVudDwvS2V5PjxWYWx1ZT5wcmgyL2VkaXRvci90ZXh0PC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+a2llbGlwb2xrdS5lbi1saW5rLXVybDwvS2V5PjxWYWx1ZT5odHRwczovL3d3dy5wcmguZmkvZW4vY29tcGFuaWVzYW5kb3JnYW5pc2F0aW9ucy90aWV0b3BhbHZlbHV0L3ZpcnJlLmh0bWw8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzIvZGF0YVR5cGU8L0tleT48VmFsdWU+c3RydWN0dXJlZERhdGE8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5DTVMuTW9kaWZpZWQuRXBvY2g8L0tleT48VmFsdWU+MTc2ODk4ODQ2MjMyNjwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8zL2RhdGE8L0tleT48VmFsdWU+PC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+VmVyc2lvblN0YXJ0VGltZTwvS2V5PjxWYWx1ZT4xNzY4OTg4NDYyMzMzPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzMvZGF0YS9zdGF0b2VsZW1lbnQ8L0tleT48VmFsdWU+dHJ1ZTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PkNNUy5Mb2NrLmxvY2tFeHBpcmU8L0tleT48VmFsdWU+MTc2ODk5MDA5MzA1MzwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8zL2RhdGEvaW50ZXJuYWw8L0tleT48VmFsdWU+dHJ1ZTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PkNNUy5Mb2NrLmxvY2tTdGFydERhdGVUaW1lPC9LZXk+PFZhbHVlPjIxLjAxLjIwMjYsIDExOjA4OjEzPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzQvZWxlbWVudDwvS2V5PjxWYWx1ZT5saW5rPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzQvZGF0YS90ZXh0PC9LZXk+PFZhbHVlPkFudsOkbmRuaW5ncy0gb2NoIMO2dmVybMOldGVsc2V2aWxsa29yPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzEvZGF0YS9zdGF0b2VsZW1lbnQ8L0tleT48VmFsdWU+dHJ1ZTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNoYW5uZWw8L0tleT48VmFsdWU+YWRtaW48L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMC9kYXRhL2hyZWY8L0tleT48VmFsdWU+aHR0cHM6Ly92aXJyZS5wcmguZmkvbm92dXMvaG9tZT91c2VyTGFuZz1zdjwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PkNNUy5Nb2RpZmllZC5Vc2VyPC9LZXk+PFZhbHVlPmthYXNhcGU8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5DTVMuTG9jay5sb2NrU3RhcnQ8L0tleT48VmFsdWU+MTc2ODk4NjQ5MzA1MzwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy80L2RhdGEvdHlwZTwvS2V5PjxWYWx1ZT5saW5rPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL05fb3JkZXI8L0tleT48VmFsdWU+MTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PkNNUy5Mb2NrLnVzZXI8L0tleT48VmFsdWU+a2Fhc2FwZTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5Pm9pa2VhL2RhdGFUeXBlPC9LZXk+PFZhbHVlPnN0cnVjdHVyZWREYXRhPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzQvZGF0YS9yZWZlcmVuY2U8L0tleT48VmFsdWU+cmVmZXJlbmNlOkkybHpwT2hyWTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8wL2RhdGE8L0tleT48VmFsdWU+PC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18yPC9LZXk+PFZhbHVlPjwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8xL2RhdGEvaW50ZXJuYWw8L0tleT48VmFsdWU+dHJ1ZTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmtpZWxpcG9sa3UuZW4tbGluay1yZWZlcmVuY2U8L0tleT48VmFsdWU+cmVmZXJlbmNlOnlBZ3NsVjZUYzwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMTwvS2V5PjxWYWx1ZT48L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvNDwvS2V5PjxWYWx1ZT48L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvNC9kYXRhL2ludGVybmFsPC9LZXk+PFZhbHVlPnRydWU8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMzwvS2V5PjxWYWx1ZT48L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMjwvS2V5PjxWYWx1ZT48L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMTwvS2V5PjxWYWx1ZT48L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMDwvS2V5PjxWYWx1ZT48L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvNC9kYXRhL3N0YXRvZWxlbWVudDwvS2V5PjxWYWx1ZT50cnVlPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzIvaWQ8L0tleT48VmFsdWU+aWRJR1VDR1Bld0s8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMi9kYXRhL3RleHQ8L0tleT48VmFsdWU+QW52aXNuaW5nYXI8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzIvTl9vcmRlcjwvS2V5PjxWYWx1ZT4yPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+TmF2aWdhdGlvblRpdGxlPC9LZXk+PFZhbHVlPkluZm9ybWF0aW9uc3Rqw6Ruc3RlbiBWaXJyZTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdHJ1Y3R1cmVkRGF0YTwvS2V5PjxWYWx1ZT5beyZxdW90O2VsZW1lbnQmcXVvdDs6JnF1b3Q7cCZxdW90OywmcXVvdDtkYXRhJnF1b3Q7Olt7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDsjdGV4dCZxdW90OywmcXVvdDtkYXRhJnF1b3Q7OiZxdW90O1ZpYSBpbmZvcm1hdGlvbnN0asOkbnN0ZW4gVmlycmUgZsOlciBkdSBlbmtlbHQgdGlsbGfDpW5nIHRpbGwgb2ZmaWNpZWxsYSByZWdpc3RlcnVwcGdpZnRlciBvbSBmw7ZyZXRhZywgc3RpZnRlbHNlciBvY2ggZsO2cmV0YWdzaW50ZWNrbmluZ2FyLiAmcXVvdDt9LHsmcXVvdDtlbGVtZW50JnF1b3Q7OiZxdW90O2JyJnF1b3Q7fV19LHsmcXVvdDtlbGVtZW50JnF1b3Q7OiZxdW90O3AmcXVvdDssJnF1b3Q7ZGF0YSZxdW90OzpbeyZxdW90O2VsZW1lbnQmcXVvdDs6JnF1b3Q7I3RleHQmcXVvdDssJnF1b3Q7ZGF0YSZxdW90OzomcXVvdDsgR3J1bmR1cHBnaWZ0ZXJuYSBvY2ggZWxla3Ryb25pc2thIGhhbmRlbHNyZWdpc3RlcnV0ZHJhZyDDpHIgZ3JhdGlzLiBEdSBiZXRhbGFyIGJva3NsdXQsIMO2dmVyc2F0dGEgdXRkcmFnLCBvcmdhbmlzYXRpb25zcmVnbGVyIChib2xhZ3NvcmRuaW5nYXIsIGJvbGFnc2F2dGFsIGVsbGVyIHN0YWRnYXIpIG9jaCDDtnZyaWdhIHByb2R1a3RlciBtZWQgbsOkdGJhbmtza29kZXIgZWxsZXIga3JlZGl0a29ydC4gJnF1b3Q7fSx7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDticiZxdW90O31dfSx7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDtwJnF1b3Q7LCZxdW90O2RhdGEmcXVvdDs6W3smcXVvdDtlbGVtZW50JnF1b3Q7OiZxdW90OyN0ZXh0JnF1b3Q7LCZxdW90O2RhdGEmcXVvdDs6JnF1b3Q7IER1IGthbiBvY2tzw6UgZsO2bGphIGhhbmRsw6RnZ25pbmdlbiBhdiBhbm3DpGxuaW5nYXIgZ2Vub20gYXR0IHPDtmthIGluZm9ybWF0aW9uIG9tIGRlcmFzIGhhbmRsw6RnZ25pbmcgb2NoIGJlc2x1dC4mcXVvdDt9XX0seyZxdW90O2VsZW1lbnQmcXVvdDs6JnF1b3Q7cCZxdW90OywmcXVvdDtkYXRhJnF1b3Q7Olt7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDsjdGV4dCZxdW90OywmcXVvdDtkYXRhJnF1b3Q7OiZxdW90OyBPbSBkdSBvZnRhIGJlaMO2dmVyIHRpbGxnw6VuZyB0aWxsIHJlZ2lzdGVydXBwZ2lmdGVyLCBrYW4gZHUgcmVnaXN0cmVyYSBkaWcgaSB0asOkbnN0ZW4gZWxsZXIgYmxpIGF2dGFsc2t1bmQuICZxdW90O31dfSx7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDtoMiZxdW90OywmcXVvdDtkYXRhJnF1b3Q7Olt7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDsjdGV4dCZxdW90OywmcXVvdDtkYXRhJnF1b3Q7OiZxdW90OyBCb2tzbHV0IGkgVmlycmUmcXVvdDt9XSwmcXVvdDthdHRyaWJ1dGVzJnF1b3Q7OnsmcXVvdDtpZCZxdW90OzomcXVvdDstYm9rc2x1dC1pLXZpcnJlJnF1b3Q7fX0seyZxdW90O2VsZW1lbnQmcXVvdDs6JnF1b3Q7cCZxdW90OywmcXVvdDtkYXRhJnF1b3Q7Olt7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDsjdGV4dCZxdW90OywmcXVvdDtkYXRhJnF1b3Q7OiZxdW90OyBGw7ZyZXRhZ2V0cyBib2tzbHV0c3VwcGdpZnRlciDDpHIgb2ZmZW50bGlnYS4gRHUga2FuIGvDtnBhIGJva3NsdXQgaSB0asOkbnN0ZW4gVmlycmUuJnF1b3Q7fV19LHsmcXVvdDtlbGVtZW50JnF1b3Q7OiZxdW90O3AmcXVvdDssJnF1b3Q7ZGF0YSZxdW90OzpbeyZxdW90O2VsZW1lbnQmcXVvdDs6JnF1b3Q7I3RleHQmcXVvdDssJnF1b3Q7ZGF0YSZxdW90OzomcXVvdDsgRsO2cmV0YWdldHMgYm9rc2x1dCBpbm5laMOlbGxlciBkZSBoYW5kbGluZ2FyIHNvbSBmw7ZyZXRhZ2V0IGhhciBsw6RtbmF0IGluIHRpbGwgaGFuZGVsc3JlZ2lzdHJldC4gT2JzZXJ2ZXJhIGF0dCBkZXQga2FuIGZpbm5hcyBicmlzdGVyIGkgYm9rc2x1dGV0LiZxdW90O31dfSx7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDtwJnF1b3Q7LCZxdW90O2RhdGEmcXVvdDs6W3smcXVvdDtlbGVtZW50JnF1b3Q7OiZxdW90O2VsZW1lbnQmcXVvdDssJnF1b3Q7ZGF0YWlkJnF1b3Q7OiZxdW90O2lkSUdVQ0dQZWdCJnF1b3Q7fSx7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDticiZxdW90O31dfSx7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDtwJnF1b3Q7LCZxdW90O2RhdGEmcXVvdDs6W3smcXVvdDtlbGVtZW50JnF1b3Q7OiZxdW90OyN0ZXh0JnF1b3Q7LCZxdW90O2RhdGEmcXVvdDs6JnF1b3Q7IEzDpHMgbWVyIG9tIFZpcnJlOiZxdW90O31dfSx7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDt1bCZxdW90OywmcXVvdDtkYXRhJnF1b3Q7Olt7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDtsaSZxdW90OywmcXVvdDtkYXRhJnF1b3Q7Olt7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDtlbGVtZW50JnF1b3Q7LCZxdW90O2RhdGFpZCZxdW90OzomcXVvdDtpZElHVUNHUGV3SiZxdW90O31dfSx7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDtsaSZxdW90OywmcXVvdDtkYXRhJnF1b3Q7Olt7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDtlbGVtZW50JnF1b3Q7LCZxdW90O2RhdGFpZCZxdW90OzomcXVvdDtpZElHVUNHUGV3SyZxdW90O31dfSx7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDtsaSZxdW90OywmcXVvdDtkYXRhJnF1b3Q7Olt7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDtlbGVtZW50JnF1b3Q7LCZxdW90O2RhdGFpZCZxdW90OzomcXVvdDtpZElHVUNHUGV3TCZxdW90O31dfSx7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDtsaSZxdW90OywmcXVvdDtkYXRhJnF1b3Q7Olt7JnF1b3Q7ZWxlbWVudCZxdW90OzomcXVvdDtlbGVtZW50JnF1b3Q7LCZxdW90O2RhdGFpZCZxdW90OzomcXVvdDtpZElHVUNHUGV3TSZxdW90O30seyZxdW90O2VsZW1lbnQmcXVvdDs6JnF1b3Q7YnImcXVvdDt9XX1dfV08L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5DTVMuRmlyc3RUaW1lUHVibGlzaGVkLlVzZXI8L0tleT48VmFsdWU+b2xzb25hbjwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PkNNUy5WZXJzaW9uLk5hbWU8L0tleT48VmFsdWU+SnVsa2Fpc3R1ICgyMS4wMS4yMDI2LGtsbyAxMTo0MSk8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMi9kYXRhL3R5cGU8L0tleT48VmFsdWU+bGluazwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8yL2RhdGEvc3RhdG9lbGVtZW50PC9LZXk+PFZhbHVlPnRydWU8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMC9lbGVtZW50PC9LZXk+PFZhbHVlPmxpbms8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5DTVMuU3RhdHVzPC9LZXk+PFZhbHVlPnB1Ymxpc2hlZDwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5Pm9pa2VhPC9LZXk+PFZhbHVlPjwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PkNNUy5Mb2NrLmxvY2tFeHBpcmVEYXRlVGltZTwvS2V5PjxWYWx1ZT4yMS4wMS4yMDI2LCAxMjowODoxMzwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9ibG9jazwvS2V5PjxWYWx1ZT50ZXh0PC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Tl9vcmRlcjwvS2V5PjxWYWx1ZT4zPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Q01TLlB1Ymxpc2hlZC5Vc2VyPC9LZXk+PFZhbHVlPmthYXNhcGU8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5fU1RBVE9fVkVSU0lPTl9JRF88L0tleT48VmFsdWU+U1R6TU9DUGg2PC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzMvZGF0YS90ZXh0PC9LZXk+PFZhbHVlPlByaXNsaXN0YTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8xL2VsZW1lbnQ8L0tleT48VmFsdWU+bGluazwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PkNNUy5DcmVhdGVkLkVwb2NoPC9LZXk+PFZhbHVlPjEwNDg4MDI0MDAwMDA8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMi9kYXRhPC9LZXk+PFZhbHVlPjwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PnZhc2VuL2Jsb2NrPC9LZXk+PFZhbHVlPnN1bmVkaXRvcjwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8zL2RhdGEvdHlwZTwvS2V5PjxWYWx1ZT5saW5rPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzQvZGF0YS9ocmVmPC9LZXk+PFZhbHVlPmh0dHBzOi8vd3d3LnByaC5maS9zdi9rYXVwcGFyZWtpc3RlcmkvdGlldG9wYWx2ZWx1dC92aXJyZS92aXJyZV9hbnZhbmRuaW5nc3ZpbGxrb3IuaHRtbDwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5Pm9pa2VhL2Jsb2NrPC9LZXk+PFZhbHVlPnN1bmVkaXRvcjwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PkNNUy5wdWJsaXNoU2NoZWR1bGUuRXBvY2g8L0tleT48VmFsdWU+MTc2ODk4ODQ2MjA2OTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9lbGVtZW50PC9LZXk+PFZhbHVlPnByaDIvZWRpdG9yL3RleHQ8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMi9lbGVtZW50PC9LZXk+PFZhbHVlPmxpbms8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT52YXNlbi9kYXRhVHlwZTwvS2V5PjxWYWx1ZT5zdHJ1Y3R1cmVkRGF0YTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQ8L0tleT48VmFsdWU+PC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzEvZGF0YS90ZXh0PC9LZXk+PFZhbHVlPlJlZ2lzdHJlcmEgZGlnIGVsbGVyIGJsaSBhdnRhbHNrdW5kPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18yL2Jsb2NrPC9LZXk+PFZhbHVlPnRleHQ8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMC9pZDwvS2V5PjxWYWx1ZT5pZElHVUNHUGVnQjwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8xL2RhdGEvdHlwZTwvS2V5PjxWYWx1ZT5saW5rPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+cGFhb3RzaWtrbzwvS2V5PjxWYWx1ZT5JbsKtZm9ywq1tYcKtdGlvbnPCrXRqw6Ruc8KtdGVuIFZpcsKtcmU8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMy9pZDwvS2V5PjxWYWx1ZT5pZElHVUNHUGV3TDwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8yL2RhdGEvaHJlZjwvS2V5PjxWYWx1ZT5odHRwczovL3d3dy5wcmguZmkvc3Yva2F1cHBhcmVraXN0ZXJpL3RpZXRvcGFsdmVsdXQvdmlycmUvdmlycmVfYW52aXNuaW5nYXIuaHRtbDwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8zL2VsZW1lbnQ8L0tleT48VmFsdWU+bGluazwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmtpZWxpcG9sa3UuZW4tbGluay10aXRsZTwvS2V5PjxWYWx1ZT5QUkggLSAgVmlycmUgSW5mb3JtYXRpb24gU2VydmljZTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PkNNUy5CZWdpblRpbWUuRXBvY2g8L0tleT48VmFsdWU+MTc2ODk4ODQ2MjA2OTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy80L2RhdGE8L0tleT48VmFsdWU+PC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Q01TLnB1Ymxpc2hTY2hlZHVsZS5Vc2VyPC9LZXk+PFZhbHVlPmthYXNhcGU8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5DTVMuTm9JbmRleDwvS2V5PjxWYWx1ZT5mYWxzZTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmtpZWxpcG9sa3UuZW4tbGluay1pbnRlcm5hbDwvS2V5PjxWYWx1ZT50cnVlPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzMvZGF0YS9yZWZlcmVuY2U8L0tleT48VmFsdWU+cmVmZXJlbmNlOkk1YlViMzAzUTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8wL2RhdGEvZXh0ZXJuYWw8L0tleT48VmFsdWU+b248L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMy9kYXRhL2hyZWY8L0tleT48VmFsdWU+aHR0cHM6Ly93d3cucHJoLmZpL3N2L2thdXBwYXJla2lzdGVyaS90aWV0b3BhbHZlbHV0L3ZpcnJlL3ZpcnJlX3ByaXNsaXN0YS5odG1sPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Q01TLlByZXZpb3VzVmVyc2lvbjwvS2V5PjxWYWx1ZT5QdWJsaXNoKDIwMjYwMTIxMTEwODEwKTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvZWRpdG9yVHlwZTwvS2V5PjxWYWx1ZT5mb3JtPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+c3RhdGljUHVibGlzaDwvS2V5PjxWYWx1ZT5mYWxzZTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8xL2RhdGE8L0tleT48VmFsdWU+PC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Q01TLkZpcnN0VGltZVB1Ymxpc2hlZC5FcG9jaDwvS2V5PjxWYWx1ZT4xMTk3NjQyMjkyNzg1PC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzIvZGF0YS9yZWZlcmVuY2U8L0tleT48VmFsdWU+cmVmZXJlbmNlOkkyampNY3FzODwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8wL2RhdGEvdGV4dDwvS2V5PjxWYWx1ZT5Hw6UgdGlsbCB0asOkbnN0ZW4gVmlycmUuPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Q01TLnB1Yk5hbWU8L0tleT48VmFsdWU+dmlycmU8L1ZhbHVlPjwvUm93PjxSb3c+PEtleT5DTVMuTG9jay5zdGF0dXM8L0tleT48VmFsdWU+dHJ1ZTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmtpZWxpcG9sa3UuZW48L0tleT48VmFsdWU+L2NoYW5uZWxzL3B1YmxpYy93d3cvcHJoMi9lbi9pbmRleC9rYXVwcGFyZWtpc3RlcmkvdGlldG9wYWx2ZWx1dC92aXJyZTwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PkNNUy5TaG93SW5TaXRlbWFwPC9LZXk+PFZhbHVlPmZhbHNlPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzPC9LZXk+PFZhbHVlPjwvVmFsdWU+PC9Sb3c+PFJvdz48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy8wL2RhdGEvdHlwZTwvS2V5PjxWYWx1ZT5saW5rPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+Y29udGVudC9ibG9ja18xL3N1YmVsZW1lbnRzLzEvZGF0YS9ocmVmPC9LZXk+PFZhbHVlPmh0dHBzOi8vd3d3LnByaC5maS9zdi9rYXVwcGFyZWtpc3RlcmkvdGlldG9wYWx2ZWx1dC92aXJyZS9yZWdpc3RyZXJhX2RpZ19lbGxlcl9ibGlfYXZ0YWxza3VuZC5odG1sPC9WYWx1ZT48L1Jvdz48Um93PjxLZXk+a2llbGlwb2xrdS5lbi1saW5rLWNhcmRwYXRoPC9LZXk+PFZhbHVlPi9jaGFubmVscy9wdWJsaWMvd3d3L3ByaDIvZW4vaW5kZXgveXJpdHlrc2V0amF5aHRlaXNvdC90aWV0b3BhbHZlbHV0L3ZpcnJlPC9WYWx1ZT48L1Jvdz48L0xhbmd1YWdlPjwvVmVyc2lvbj48L0NhcmQ+CjxSZWZlcmVuY2VzPjxSZWZlcmVuY2U+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMS9kYXRhL3JlZmVyZW5jZTwvS2V5PjxGcm9tPi9jaGFubmVscy9wdWJsaWMvd3d3L3ByaDIvc3YvaW5kZXgveXJpdHlrc2V0amF5aHRlaXNvdC90aWV0b3BhbHZlbHV0L2thdGthLXlyZWthPC9Gcm9tPjxUbz4vY2hhbm5lbHMvcHVibGljL3d3dy9wcmgyL3N2L2luZGV4L3lyaXR5a3NldGpheWh0ZWlzb3QvdGlldG9wYWx2ZWx1dC9rYXRrYS15cmVrYS9yZWdpc3RyZXJhX2RpZ19lbGxlcl9ibGlfYXZ0YWxza3VuZDwvVG8+PFZlcnNpb24+UHVibGlzaCgyMDI2MDEyMTExNDEwMik8L1ZlcnNpb24+PC9SZWZlcmVuY2U+PFJlZmVyZW5jZT48S2V5PmNvbnRlbnQvYmxvY2tfMS9zdWJlbGVtZW50cy80L2RhdGEvcmVmZXJlbmNlPC9LZXk+PEZyb20+L2NoYW5uZWxzL3B1YmxpYy93d3cvcHJoMi9zdi9pbmRleC95cml0eWtzZXRqYXlodGVpc290L3RpZXRvcGFsdmVsdXQva2F0a2EteXJla2E8L0Zyb20+PFRvPi9jaGFubmVscy9wdWJsaWMvd3d3L3ByaDIvc3YvaW5kZXgveXJpdHlrc2V0amF5aHRlaXNvdC90aWV0b3BhbHZlbHV0L2thdGthLXlyZWthL3ZpcnJlX2FudmFuZG5pbmdzdmlsbGtvcjwvVG8+PFZlcnNpb24+UHVibGlzaCgyMDI2MDEyMTExNDEwMik8L1ZlcnNpb24+PC9SZWZlcmVuY2U+PFJlZmVyZW5jZT48S2V5PmtpZWxpcG9sa3UuZW4tbGluay1yZWZlcmVuY2U8L0tleT48RnJvbT4vY2hhbm5lbHMvcHVibGljL3d3dy9wcmgyL3N2L2luZGV4L3lyaXR5a3NldGpheWh0ZWlzb3QvdGlldG9wYWx2ZWx1dC9rYXRrYS15cmVrYTwvRnJvbT48VG8+L2NoYW5uZWxzL3B1YmxpYy93d3cvcHJoMi9lbi9pbmRleC95cml0eWtzZXRqYXlodGVpc290L3RpZXRvcGFsdmVsdXQvdmlycmU8L1RvPjxWZXJzaW9uPlB1Ymxpc2goMjAyNjAxMjExMTQxMDIpPC9WZXJzaW9uPjwvUmVmZXJlbmNlPjxSZWZlcmVuY2U+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMy9kYXRhL3JlZmVyZW5jZTwvS2V5PjxGcm9tPi9jaGFubmVscy9wdWJsaWMvd3d3L3ByaDIvc3YvaW5kZXgveXJpdHlrc2V0amF5aHRlaXNvdC90aWV0b3BhbHZlbHV0L2thdGthLXlyZWthPC9Gcm9tPjxUbz4vY2hhbm5lbHMvcHVibGljL3d3dy9wcmgyL3N2L2luZGV4L3lyaXR5a3NldGpheWh0ZWlzb3QvdGlldG9wYWx2ZWx1dC9rYXRrYS15cmVrYS92aXJyZV9wcmlzbGlzdGE8L1RvPjxWZXJzaW9uPlB1Ymxpc2goMjAyNjAxMjExMTQxMDIpPC9WZXJzaW9uPjwvUmVmZXJlbmNlPjxSZWZlcmVuY2U+PEtleT5jb250ZW50L2Jsb2NrXzEvc3ViZWxlbWVudHMvMi9kYXRhL3JlZmVyZW5jZTwvS2V5PjxGcm9tPi9jaGFubmVscy9wdWJsaWMvd3d3L3ByaDIvc3YvaW5kZXgveXJpdHlrc2V0amF5aHRlaXNvdC90aWV0b3BhbHZlbHV0L2thdGthLXlyZWthPC9Gcm9tPjxUbz4vY2hhbm5lbHMvcHVibGljL3d3dy9wcmgyL3N2L2luZGV4L3lyaXR5a3NldGpheWh0ZWlzb3QvdGlldG9wYWx2ZWx1dC9rYXRrYS15cmVrYS92aXJyZV9hbnZpc25pbmdhcjwvVG8+PFZlcnNpb24+UHVibGlzaCgyMDI2MDEyMTExNDEwMik8L1ZlcnNpb24+PC9SZWZlcmVuY2U+PC9SZWZlcmVuY2VzPjwvU3RhdG8+";
+		
+
+		function parentWebComponentsReady() {
+			if ("content" in document.createElement('template') !== true) {
+				console.debug("POLYFILL CHECKS", {
+					"<template> ok": "content" in document.createElement('template'),
+					"customElement.define ok": typeof customElements === 'object',
+					"document.registerElement ok": typeof document.registerElement === 'function',
+					"Polymer lib": typeof Polymer === 'function',
+					"dom-ready & IE": (stato.browser.isIE === true && stato.browser.isEdge === false && jq("html").is(".dom-ready"))
+				});
+			}
+
+			window.removeEventListener('WebComponentsReady', parentWebComponentsReady, false);
+			if (stato.importqueue.length > 0) stato.importqueue = {};
+			if (stato.getrequest("StaticPagePublish") != "true") {
+				
+			}
+			
+
+		try{
+			
+				//setTimeout(function () {
+					if (stato.cardpath == '/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka') {
+						stato.addEventSourceListener({id: "eventsource", url: "//www.prh.fi/eventsource/NGy8fpjwS",reconnecting:false});
+						stato.log("addattiin eventsource //www.prh.fi/eventsource/NGy8fpjwS");
+					}
+			//	}, 7500);
+			
+			
+		}
+		catch(e){
+			console.error("addEventSourceListener >>",e, "url:", '//www.prh.fi/eventsource/NGy8fpjwS');
+		}
+		
+	
+
+
+		};
+	}
+	catch(err) {
+		console.error("stato.parent stato-vars", err);
+	}
+	</script>
+
+
+	<style id="fouc">
+		html {
+			font-display: swap;
+		}
+
+		html[data-pageid].is-blink:not(.stato-near-ready):not(.stato-ready) {
+			content-visibility: hidden !important;
+		}
+
+		
+		html[data-pageid].is-blink .statoelement[component]:not([stato-resolved]),
+		html[data-pageid].is-blink stato-column:not([stato-resolved]),
+		html[data-pageid].is-blink:not(.stato-ready) {
+			content-visibility: hidden;
+			display: inline-block;
+		}
+
+		
+		html[data-pageid]:not(.is-blink) .statoelement[component]:not([stato-resolved]),
+		html[data-pageid]:not(.is-blink) stato-column:not([stato-resolved]),
+		html[data-pageid]:not(.is-blink):not(.stato-ready) {
+			visibility: hidden !important;
+		}
+
+		
+		html[data-pageid]:not(.stato-ready) {
+			contain-intrinsic-size: 100vw 100vh;
+		}
+
+		
+		.statoelement[component][stato-resolved],
+		stato-column[stato-resolved],
+		html[data-pageid].stato-ready {
+			/* Pois toistaiseksi */
+			/* contain: style; */
+		}
+	</style>
+<link rel="shortcut icon" href="/lib/prh/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="72x72" href="/lib/prh/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/lib/prh/images/apple-touch-icon-retina.png" />
+
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" type="text/css" rel="stylesheet" />
+        <link href="https://customer.cludo.com/assets/3263/13786/cludo-search.min.css" type="text/css" rel="stylesheet" />
+
+        <script id="oc-start-up" async data-oc-service="869d04c6-105b-43ee-9176-187f9caf283b-120-E8DF165FD975083535804434CFC276D605204165" data-main="https://occhat.elisa.fi/chatserver//Scripts/oc-chat" src="https://occhat.elisa.fi/chatserver//Scripts/oc-chat-v2.js" data-oc-language="fi_FI"></script>
+
+		</head>
+		<body class="public-channel">
+			
+	<div class="s-loader" style="display: none;">
+		<div class="loader-outer"></div><div class="loader-inner"></div>
+      <p id="s-loader-sr-only" aria-live="assertive" aria-busy="false" class="sr-only"></p>
+	</div>
+
+
+
+	
+	<stato-app id="sigma-ds-app">
+		
+
+
+<stato-frameset class="statoelement stato-frameset "
+	element="stato/frameset"
+	data-element="stato/frameset"
+	id="sigma-ds-frameset"
+	data-listenerpath=",stato/frameset,"
+	
+	cardreference="reference:I5xLvaEeC"
+	
+		data-fullpath="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka"
+		data-version="Publish(20260121114102)"
+	importurl="/webcomponents/stato/frameset.html"
+				nativecomponent
+				serverparsed
+			component
+			servertag
+
+			url="/element.html.stx"
+				admin="false"
+				executepath="/modulesbase/elements/stato/frameset"
+				data-parsemode="VIEW">
+	
+			<stato-frame id="content-header" data-section="default" data-listenerpath=",frames," data-id="content-header" data-view="prh2.header">
+                
+                
+            
+
+
+
+<prh2-header class="statoelement prh2-header "
+	element="prh2/header"
+	data-element="prh2/header"
+	id="idYLGSkIdcK"
+	data-listenerpath=",prh2/header,/article,/editable,"
+	
+	cardreference="reference:I5xLvaEeC"
+	
+		data-fullpath="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka"
+		data-version="Publish(20260121114102)"
+	importurl="/webcomponents/prh2/header.html"
+				nativecomponent
+				
+			component
+			servertag
+
+			url="/element.html.stx"
+				admin="false"
+				executepath="/modulesbase/elements/prh2/header"
+				data-parsemode="VIEW">
+	
+		<template class="elementparams">ewogICJ0cmltIiA6ICJ0cnVlIiwKICAiaW1wb3J0cGF0aCIgOiAiL3dlYmNvbXBvbmVudHMvcHJoMi9oZWFkZXIiLAogICJlbGVtZW50LmxvYWQiIDogImNsaWVudCIsCiAgImVsZW1lbnRfbW9kZSIgOiAiIiwKICAiZWxlbWVudC5wYXRoIiA6ICJwcmgyL2hlYWRlciIsCiAgImxpc3RlbmVycGF0aCIgOiAiL2FydGljbGUsL2VkaXRhYmxlIiwKICAiSU5TVEFOQ0VJRCIgOiAiWUxHUkVydkttIiwKICAiZXR1c2l2dWxpbmtraSIgOiAiL3N2L2luZGV4Lmh0bWwiLAogICJlbGVtZW50IiA6ICJwcmgyL2hlYWRlciIsCiAgImRhdGFfbGlzdGVuZXJzIiA6ICJwcmgyL2hlYWRlciwvYXJ0aWNsZSwvZWRpdGFibGUiLAogICJzZWN0aW9uIiA6ICJkZWZhdWx0IiwKICAiZWxlbWVudC5vbmxvYWQiIDogImNsaWVudCIsCiAgImNoYW5uZWwubGFuZ3VhZ2UiIDogInN2IiwKICAic2tpbiIgOiAiaGVhZGVyLmh0bWwiLAogICJjYXJkY2hhbm5lbCIgOiAicHVibGljIiwKICAiZWxlbWVudC44IiA6ICJ0cnVlIiwKICAiZWxlbWVudC42IiA6ICJmYWxzZSIsCiAgImVsZW1lbnQuNSIgOiAiZmFsc2UiLAogICJoYWlyaW9rb3J0dGkiIDogInlyaXR5a3NldGpheWh0ZWlzb3QiLAogICJ1cmxleGVjdXRlcGF0aCIgOiAiL2NoYW5uZWxzL3B1YmxpYy93d3cvcHJoMi9zdi9pbmRleC95cml0eWtzZXRqYXlodGVpc290L3RpZXRvcGFsdmVsdXQva2F0a2EteXJla2EiLAogICJlbGVtZW50LmxpbmsiIDogIi9lbGVtZW50Lmh0bWwuc3R4IiwKICAiVUlEIiA6ICJpZFlMR1NrSWRjSyIsCiAgImVsZW1lbnQubW9kZSIgOiAiZWxlbWVudCIsCiAgImVsZW1lbnQubGFuZ3VhZ2UiIDogImZpIiwKICAiZWxlbWVudC5wdWJsaWNsaW5rIiA6ICIvZWxlbWVudC5odG1sLnN0eCIsCiAgIkdVSUQiIDogIiIsCiAgImNzcyIgOiAiY3NzL2hlYWRlci5jc3MiLAogICJ2aWV3dXJsIiA6ICIvYmluL2dldC92aWQvTkd5ckh5SFY2LkRmTnV0ZG52Mi5DcHh5ZVRMNVkiLAogICJlbGVtZW50X3BhdGgiIDogInByaDIvaGVhZGVyIiwKICAiQ1VSUkVOVFBBVEgiIDogIi9zdGF0by9mcmFtZXNldC9zdGF0by9mcmFtZXNldC9wcmgyL2hlYWRlci9wcmgyL2hlYWRlci8iLAogICJvaWtvcG9sa3VsYWhkZSIgOiAiL2NoYW5uZWxzL3B1YmxpYy93d3cvcHJoMi9zdi9pbmRleC95cml0eWtzZXRqYXlodGVpc290L3RpZXRvcGFsdmVsdXQiLAogICJzaXZ1c3RvIiA6ICJwcmgyIiwKICAiZWRpdHVybCIgOiAiL2Jpbi9nZXQvdmVkL05HeXJIeUhWNi5EZk51dGRudjIuQ3B4eWVUTDVZIiwKICAicHVibGljdXJsIiA6ICIvZWxlbWVudC5odG1sLnN0eCIsCiAgImVsZW1lbnQuY29tcG9uZW50IiA6ICJ0cnVlIiwKICAiIiA6ICIiCn0=</template>
+	
+<!-- framesetin root -->
+
+</prh2-header>
+
+
+
+</stato-frame><stato-frame id="content" data-section="default" data-listenerpath=",frames," data-id="content" data-view="prh2.sisaltosivu">
+	<main id="main-content" class="container">
+		<div class="main-wrapper">
+			
+
+
+<prh2-murupolku class="statoelement prh2-murupolku murupolku"
+	element="prh2/murupolku"
+	data-element="prh2/murupolku"
+	id="idYLGiRzZRk"
+	data-listenerpath=",prh2/murupolku,"
+	
+	cardreference="reference:I5xLvaEeC"
+	
+		data-fullpath="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka"
+		data-version="Publish(20260121114102)"
+	importurl="/webcomponents/prh2/murupolku.html"
+				nativecomponent
+				
+			component
+			servertag
+
+			url="/element.html.stx"
+				admin="false"
+				executepath="/modulesbase/elements/prh2/murupolku"
+				data-parsemode="VIEW">
+	
+		<template class="elementparams">ewogICJlbGVtZW50X21vZGUiIDogIiIsCiAgImVsZW1lbnQiIDogInByaDIvbXVydXBvbGt1IiwKICAiZWxlbWVudC5jb21wb25lbnQiIDogInRydWUiLAogICJlbGVtZW50X3BhdGgiIDogInByaDIvbXVydXBvbGt1IiwKICAiZWxlbWVudC5vbmxvYWQiIDogImNsaWVudCIsCiAgImVsZW1lbnQuOCIgOiAidHJ1ZSIsCiAgImVsZW1lbnQuNiIgOiAiZmFsc2UiLAogICJlbGVtZW50LjUiIDogImZhbHNlIiwKICAic2VjdGlvbiIgOiAiZGVmYXVsdCIsCiAgImVsZW1lbnQucHVibGljbGluayIgOiAiL2VsZW1lbnQuaHRtbC5zdHgiLAogICJpbXBvcnRwYXRoIiA6ICIvd2ViY29tcG9uZW50cy9wcmgyL211cnVwb2xrdSIsCiAgIlVJRCIgOiAiaWRZTEdpUnpaUmsiLAogICJjc3MiIDogImNzcy9tdXJ1cG9sa3UuY3NzIiwKICAiZGF0YV9saXN0ZW5lcnMiIDogInByaDIvbXVydXBvbGt1IiwKICAiY2xhc3MiIDogIm11cnVwb2xrdSIsCiAgImNhcmRjaGFubmVsIiA6ICJwdWJsaWMiLAogICJDVVJSRU5UUEFUSCIgOiAiL3N0YXRvL2ZyYW1lc2V0L3N0YXRvL2ZyYW1lc2V0L3ByaDIvbXVydXBvbGt1L3ByaDIvbXVydXBvbGt1LyIsCiAgInVybGV4ZWN1dGVwYXRoIiA6ICIvY2hhbm5lbHMvcHVibGljL3d3dy9wcmgyL3N2L2luZGV4L3lyaXR5a3NldGpheWh0ZWlzb3QvdGlldG9wYWx2ZWx1dC9rYXRrYS15cmVrYSIsCiAgImVsZW1lbnQubGluayIgOiAiL2VsZW1lbnQuaHRtbC5zdHgiLAogICJza2luIiA6ICJtdXJ1cG9sa3UuaHRtbCIsCiAgImVsZW1lbnQubG9hZCIgOiAiY2xpZW50IiwKICAidHJpbSIgOiAidHJ1ZSIsCiAgImNoYW5uZWwubGFuZ3VhZ2UiIDogInN2IiwKICAiSU5TVEFOQ0VJRCIgOiAiWUxHZ3VxYWlLIiwKICAiZWxlbWVudC5tb2RlIiA6ICJlbGVtZW50IiwKICAic2l2dXN0byIgOiAicHJoMiIsCiAgImVsZW1lbnQubGFuZ3VhZ2UiIDogImZpIiwKICAiZWxlbWVudC5wYXRoIiA6ICJwcmgyL211cnVwb2xrdSIsCiAgInB1YmxpY3VybCIgOiAiL2VsZW1lbnQuaHRtbC5zdHgiLAogICJlZGl0dXJsIiA6ICIvYmluL2dldC92ZWQvTkd5ckh5SFY2LkRmTnV0ZG52Mi5DcHh5ZVRMNVkiLAogICIiIDogIiIsCiAgInZpZXd1cmwiIDogIi9iaW4vZ2V0L3ZpZC9OR3lySHlIVjYuRGZOdXRkbnYyLkNweHllVEw1WSIsCiAgIkdVSUQiIDogIiIKfQ==</template>
+	
+<!-- framesetin root -->
+
+</prh2-murupolku>
+
+
+
+
+			<div class="row prh-sisalto-wrapper">
+				<section aria-labelledby="paaotsikko" class="col-lg-8 order-1 order-lg-2 prh-sisaltoalue">
+					
+
+
+<prh2-paaotsikko id="idYLGvGy5K8" element="prh2/paaotsikko" class="statoelement statocomponent prh2-paaotsikko " data-listenerpath=",/article,/editable," component="true" nativecomponent="true" staticcomponent="true"  cardreference="reference:I5xLvaEeC" stato-resolved="true" servertag="true">
+
+    <h1 id="paaotsikko" class="hyphenate-all" autofocus>In&shy;for&shy;ma&shy;tions&shy;tj&auml;ns&shy;ten Vir&shy;re</h1>
+
+
+		</prh2-paaotsikko>
+
+
+
+
+
+<prh2-viewer id="idYLH3HRqt2" element="prh2/viewer" class="statoelement statocomponent prh2-viewer content-viewer " data-listenerpath=",/editable," component="true" nativecomponent="true" staticcomponent="true" importurl="/webcomponents/prh2/viewer.html" cardreference="reference:I5xLvaEeC" stato-resolved="true" servertag="true">
+
+
+
+	<div class="viewer-block">
+	<div class="content-editor block">
+
+
+<prh2-viewer-text id="idYLHGTQrX2" element="prh2/viewer/text" class="statoelement statocomponent prh2-viewer-text content-viewer se-component __se__tag " data-listenerpath=",/editable," component="true" nativecomponent="true" staticcomponent="true"  cardreference="reference:I5xLvaEeC" stato-resolved="true" servertag="true">
+
+
+<p >Via informationstjänsten Virre får du enkelt tillgång till officiella registeruppgifter om företag, stiftelser och företagsinteckningar. <br></p>
+<p > Grunduppgifterna och elektroniska handelsregisterutdrag är gratis. Du betalar bokslut, översatta utdrag, organisationsregler (bolagsordningar, bolagsavtal eller stadgar) och övriga produkter med nätbankskoder eller kreditkort. <br></p>
+<p > Du kan också följa handläggningen av anmälningar genom att söka information om deras handläggning och beslut.</p>
+<p > Om du ofta behöver tillgång till registeruppgifter, kan du registrera dig i tjänsten eller bli avtalskund. </p>
+<h2  id="-bokslut-i-virre"> Bokslut i Virre</h2>
+<p > Företagets bokslutsuppgifter är offentliga. Du kan köpa bokslut i tjänsten Virre.</p>
+<p > Företagets bokslut innehåller de handlingar som företaget har lämnat in till handelsregistret. Observera att det kan finnas brister i bokslutet.</p>
+<p ><a target="_blank"  href="https://virre.prh.fi/novus/home?userLang=sv" >G&aring; till tj&auml;nsten Virre.<span class="sr-only">Avautuu uuteen välilehteen</span></a><br></p>
+<p > Läs mer om Virre:</p>
+<ul ><li ><a  href="/sv/foretagochsammanslutningar/tietopalvelut/virre/registrera_dig_eller_bli_avtalskund.html" data-action="loadview" data-channel="public" data-parsemode="VIEW" data-frame="content" reload="" data-path="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka/registrera_dig_eller_bli_avtalskund" data-anchor="">Registrera dig eller bli avtalskund</a></li><li ><a  href="/sv/foretagochsammanslutningar/tietopalvelut/virre/virre_anvisningar.html" data-action="loadview" data-channel="public" data-parsemode="VIEW" data-frame="content" reload="" data-path="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka/virre_anvisningar" data-anchor="">Anvisningar</a></li><li ><a  href="/sv/foretagochsammanslutningar/tietopalvelut/virre/virre_prislista.html" data-action="loadview" data-channel="public" data-parsemode="VIEW" data-frame="content" reload="" data-path="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka/virre_prislista" data-anchor="">Prislista</a></li><li ><a  href="/sv/foretagochsammanslutningar/tietopalvelut/virre/virre_anvandningsvillkor.html" data-action="loadview" data-channel="public" data-parsemode="VIEW" data-frame="content" reload="" data-path="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka/virre_anvandningsvillkor" data-anchor="">Anv&auml;ndnings- och &ouml;verl&aring;telsevillkor</a><br></li></ul>
+
+
+
+
+		</prh2-viewer-text>
+
+
+</div>
+	</div>
+
+
+	
+
+	<div class="viewer-block">
+	<div class="content-editor block">
+
+
+<prh2-viewer-text id="idYLIb4Ibum" element="prh2/viewer/text" class="statoelement statocomponent prh2-viewer-text content-viewer se-component __se__tag " data-listenerpath=",/editable," component="true" nativecomponent="true" staticcomponent="true"  cardreference="reference:I5xLvaEeC" stato-resolved="true" servertag="true">
+
+
+
+
+
+
+
+		</prh2-viewer-text>
+
+
+</div>
+	</div>
+
+
+	
+
+
+
+
+
+		</prh2-viewer>
+
+
+
+
+						<div class="row">
+							<div class="col-lg-6 col-md-12">
+								
+
+
+<prh2-viewer-text id="idYLIn6DDCG" element="prh2/viewer/text" class="statoelement statocomponent prh2-viewer-text content-viewer se-component __se__tag " data-listenerpath=",/editable," component="true" nativecomponent="true" staticcomponent="true"  cardreference="reference:I5xLvaEeC" stato-resolved="true" servertag="true">
+
+
+
+
+
+
+
+		</prh2-viewer-text>
+
+
+
+							</div>
+							<div class="col-lg-6 col-md-12">
+								
+
+
+<prh2-viewer-text id="idYLIyH5Xgq" element="prh2/viewer/text" class="statoelement statocomponent prh2-viewer-text content-viewer se-component __se__tag " data-listenerpath=",/editable," component="true" nativecomponent="true" staticcomponent="true"  cardreference="reference:I5xLvaEeC" stato-resolved="true" servertag="true">
+
+
+
+
+
+
+
+		</prh2-viewer-text>
+
+
+
+							</div>
+						</div>
+						
+
+
+<prh2-paivitystieto id="idYLJ991jcK" element="prh2/paivitystieto" class="statoelement statocomponent prh2-paivitystieto "  component="true" nativecomponent="true" staticcomponent="true"  cardreference="reference:I5xLvaEeC" stato-resolved="true" servertag="true">
+
+
+<footer>
+    <a href="javascript:window.print()" class="d-print-none">Utskriftsversion</a>
+
+	Uppdaterad 21.01.2026
+</footer>
+		</prh2-paivitystieto>
+
+
+
+						<div class="sivubannerit">
+							
+
+
+<prh2-sisaltosivu-julkinen-sivubanneri class="statoelement prh2-sisaltosivu-julkinen-sivubanneri "
+	element="prh2/sisaltosivu/julkinen/sivubanneri"
+	data-element="prh2/sisaltosivu/julkinen/sivubanneri"
+	id="idYLJQalyMm"
+	data-listenerpath=",prh2/sisaltosivu/julkinen/sivubanneri,"
+	
+	cardreference="reference:I5xLvaEeC"
+	
+		data-fullpath="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka"
+		data-version="Publish(20260121114102)"
+	importurl="/webcomponents/prh2/sisaltosivu/julkinen/sivubanneri.html"
+				nativecomponent
+				
+			component
+			servertag
+
+			url="/element.html.stx"
+				admin="false"
+				executepath="/modulesbase/elements/prh2/sisaltosivu/julkinen/sivubanneri"
+				data-parsemode="VIEW">
+	
+		<template class="elementparams">ewogICJlbGVtZW50IiA6ICJwcmgyL3Npc2FsdG9zaXZ1L2p1bGtpbmVuL3NpdnViYW5uZXJpIiwKICAiZWxlbWVudF9tb2RlIiA6ICIiLAogICJlbGVtZW50LmNvbXBvbmVudCIgOiAidHJ1ZSIsCiAgImVsZW1lbnRfcGF0aCIgOiAicHJoMi9zaXNhbHRvc2l2dS9qdWxraW5lbi9zaXZ1YmFubmVyaSIsCiAgImVsZW1lbnQub25sb2FkIiA6ICJjbGllbnQiLAogICJlbGVtZW50LjgiIDogInRydWUiLAogICJlbGVtZW50LjYiIDogImZhbHNlIiwKICAiZWxlbWVudC41IiA6ICJmYWxzZSIsCiAgInNlY3Rpb24iIDogImRlZmF1bHQiLAogICJlbGVtZW50LnB1YmxpY2xpbmsiIDogIi9lbGVtZW50Lmh0bWwuc3R4IiwKICAiaW1wb3J0cGF0aCIgOiAiL3dlYmNvbXBvbmVudHMvcHJoMi9zaXNhbHRvc2l2dS9qdWxraW5lbi9zaXZ1YmFubmVyaSIsCiAgIlVJRCIgOiAiaWRZTEpRYWx5TW0iLAogICJjc3MiIDogImNzcy9zaXZ1YmFubmVyaS5jc3MiLAogICJkYXRhX2xpc3RlbmVycyIgOiAicHJoMi9zaXNhbHRvc2l2dS9qdWxraW5lbi9zaXZ1YmFubmVyaSIsCiAgImNhcmRjaGFubmVsIiA6ICJwdWJsaWMiLAogICJDVVJSRU5UUEFUSCIgOiAiL3N0YXRvL2ZyYW1lc2V0L3N0YXRvL2ZyYW1lc2V0L3ByaDIvc2lzYWx0b3NpdnUvanVsa2luZW4vc2l2dWJhbm5lcmkvcHJoMi9zaXNhbHRvc2l2dS9qdWxraW5lbi9zaXZ1YmFubmVyaS8iLAogICJlbGVtZW50LmxpbmsiIDogIi9lbGVtZW50Lmh0bWwuc3R4IiwKICAidXJsZXhlY3V0ZXBhdGgiIDogIi9jaGFubmVscy9wdWJsaWMvd3d3L3ByaDIvc3YvaW5kZXgveXJpdHlrc2V0amF5aHRlaXNvdC90aWV0b3BhbHZlbHV0L2thdGthLXlyZWthIiwKICAic2tpbiIgOiAic2l2dWJhbm5lcmkuaHRtbCIsCiAgImVsZW1lbnQubG9hZCIgOiAiY2xpZW50IiwKICAidHJpbSIgOiAidHJ1ZSIsCiAgImNoYW5uZWwubGFuZ3VhZ2UiIDogInN2IiwKICAiZWxlbWVudC5tb2RlIiA6ICJlbGVtZW50IiwKICAiSU5TVEFOQ0VJRCIgOiAiWUxKUDFXUE5jIiwKICAiZmllbGRuYW1lIiA6ICJzaXZ1YmFubmVyaSIsCiAgImVsZW1lbnQubGFuZ3VhZ2UiIDogImZpIiwKICAiZWxlbWVudC5wYXRoIiA6ICJwcmgyL3Npc2FsdG9zaXZ1L2p1bGtpbmVuL3NpdnViYW5uZXJpIiwKICAiZWRpdHVybCIgOiAiL2Jpbi9nZXQvdmVkL05HeXJIeUhWNi5EZk51dGRudjIuQ3B4eWVUTDVZIiwKICAicHVibGljdXJsIiA6ICIvZWxlbWVudC5odG1sLnN0eCIsCiAgIiIgOiAiIiwKICAiR1VJRCIgOiAiIiwKICAidmlld3VybCIgOiAiL2Jpbi9nZXQvdmlkL05HeXJIeUhWNi5EZk51dGRudjIuQ3B4eWVUTDVZIgp9</template>
+	
+<!-- framesetin root -->
+
+</prh2-sisaltosivu-julkinen-sivubanneri>
+
+
+
+						</div>
+					
+
+				</section>
+
+				<aside class="d-none d-lg-block col-lg-4 order-2 order-lg-1 prh-sivupalkki">
+					
+
+
+<prh2-sisaltosivu-sivunavigaatio class="statoelement prh2-sisaltosivu-sivunavigaatio "
+	element="prh2/sisaltosivu/sivunavigaatio"
+	data-element="prh2/sisaltosivu/sivunavigaatio"
+	id="idYLJdNGVg4"
+	data-listenerpath=",prh2/sisaltosivu/sivunavigaatio,"
+	
+	cardreference="reference:I5xLvaEeC"
+	
+		data-fullpath="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka"
+		data-version="Publish(20260121114102)"
+	importurl="/webcomponents/prh2/sisaltosivu/sivunavigaatio.html"
+				nativecomponent
+				
+			component
+			servertag
+
+			url="/element.html.stx"
+				admin="false"
+				executepath="/modulesbase/elements/prh2/sisaltosivu/sivunavigaatio"
+				data-parsemode="VIEW">
+	
+		<template class="elementparams">ewogICJlbGVtZW50IiA6ICJwcmgyL3Npc2FsdG9zaXZ1L3NpdnVuYXZpZ2FhdGlvIiwKICAiZWxlbWVudF9tb2RlIiA6ICIiLAogICJlbGVtZW50LmNvbXBvbmVudCIgOiAidHJ1ZSIsCiAgImVsZW1lbnQub25sb2FkIiA6ICJjbGllbnQiLAogICJlbGVtZW50X3BhdGgiIDogInByaDIvc2lzYWx0b3NpdnUvc2l2dW5hdmlnYWF0aW8iLAogICJlbGVtZW50LjgiIDogInRydWUiLAogICJlbGVtZW50LjYiIDogImZhbHNlIiwKICAiZWxlbWVudC41IiA6ICJmYWxzZSIsCiAgImNhY2hlcGF0aCIgOiAiL3ByaDIvc2lzYWx0b25hdmlnYWF0aW8iLAogICJzZWN0aW9uIiA6ICJkZWZhdWx0IiwKICAiZWxlbWVudC5wdWJsaWNsaW5rIiA6ICIvZWxlbWVudC5odG1sLnN0eCIsCiAgImltcG9ydHBhdGgiIDogIi93ZWJjb21wb25lbnRzL3ByaDIvc2lzYWx0b3NpdnUvc2l2dW5hdmlnYWF0aW8iLAogICJVSUQiIDogImlkWUxKZE5HVmc0IiwKICAiY3NzIiA6ICJjc3Mvc2l2dW5hdmlnYWF0aW8uY3NzIiwKICAiZGF0YV9saXN0ZW5lcnMiIDogInByaDIvc2lzYWx0b3NpdnUvc2l2dW5hdmlnYWF0aW8iLAogICJjYXJkY2hhbm5lbCIgOiAicHVibGljIiwKICAic2VydmljZXVybCIgOiAiL2FwaS9wcmgyL2xpc3RhYXNpdnVuYXZpZ2FhdGlvLnNydiIsCiAgIkNVUlJFTlRQQVRIIiA6ICIvc3RhdG8vZnJhbWVzZXQvc3RhdG8vZnJhbWVzZXQvcHJoMi9zaXNhbHRvc2l2dS9zaXZ1bmF2aWdhYXRpby9wcmgyL3Npc2FsdG9zaXZ1L3NpdnVuYXZpZ2FhdGlvLyIsCiAgInVybGV4ZWN1dGVwYXRoIiA6ICIvY2hhbm5lbHMvcHVibGljL3d3dy9wcmgyL3N2L2luZGV4L3lyaXR5a3NldGpheWh0ZWlzb3QvdGlldG9wYWx2ZWx1dC9rYXRrYS15cmVrYSIsCiAgImVsZW1lbnQubGluayIgOiAiL2VsZW1lbnQuaHRtbC5zdHgiLAogICJza2luIiA6ICJzaXZ1bmF2aWdhYXRpby5odG1sIiwKICAiZWxlbWVudC5sb2FkIiA6ICJjbGllbnQiLAogICJ0cmltIiA6ICJ0cnVlIiwKICAiSU5TVEFOQ0VJRCIgOiAiWUxKYllvc1dTIiwKICAiY2hhbm5lbC5sYW5ndWFnZSIgOiAic3YiLAogICJlbGVtZW50Lm1vZGUiIDogImVsZW1lbnQiLAogICJlbGVtZW50LnBhdGgiIDogInByaDIvc2lzYWx0b3NpdnUvc2l2dW5hdmlnYWF0aW8iLAogICJlbGVtZW50Lmxhbmd1YWdlIiA6ICJmaSIsCiAgImVkaXR1cmwiIDogIi9iaW4vZ2V0L3ZlZC9OR3lySHlIVjYuRGZOdXRkbnYyLkNweHllVEw1WSIsCiAgInB1YmxpY3VybCIgOiAiL2VsZW1lbnQuaHRtbC5zdHgiLAogICIiIDogIiIsCiAgIkdVSUQiIDogIiIsCiAgInZpZXd1cmwiIDogIi9iaW4vZ2V0L3ZpZC9OR3lySHlIVjYuRGZOdXRkbnYyLkNweHllVEw1WSIsCiAgInNlcnZpY2UiIDogInByaDIvbGlzdGFhc2l2dW5hdmlnYWF0aW8iCn0=</template>
+	
+<!-- framesetin root -->
+
+</prh2-sisaltosivu-sivunavigaatio>
+
+
+
+					<hr aria-hidden="true">
+
+					
+							
+						
+
+
+<prh2-sisaltosivu-julkinen-oikopolut class="statoelement prh2-sisaltosivu-julkinen-oikopolut "
+	element="prh2/sisaltosivu/julkinen/oikopolut"
+	data-element="prh2/sisaltosivu/julkinen/oikopolut"
+	id="idYLJv0TEtY"
+	data-listenerpath=",prh2/sisaltosivu/julkinen/oikopolut,"
+	
+	cardreference="reference:I5xLvaEeC"
+	
+		data-fullpath="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka"
+		data-version="Publish(20260121114102)"
+	importurl="/webcomponents/prh2/sisaltosivu/julkinen/oikopolut.html"
+				nativecomponent
+				
+			component
+			servertag
+
+			url="/element.html.stx"
+				admin="false"
+				executepath="/modulesbase/elements/prh2/sisaltosivu/julkinen/oikopolut"
+				data-parsemode="VIEW">
+	
+		<template class="elementparams">ewogICJlbGVtZW50IiA6ICJwcmgyL3Npc2FsdG9zaXZ1L2p1bGtpbmVuL29pa29wb2x1dCIsCiAgImVsZW1lbnRfbW9kZSIgOiAiIiwKICAiZWxlbWVudC5jb21wb25lbnQiIDogInRydWUiLAogICJvaWtvcG9sa3VsYWhkZSIgOiAiL2NoYW5uZWxzL3B1YmxpYy93d3cvcHJoMi9zdi9pbmRleC95cml0eWtzZXRqYXlodGVpc290L3RpZXRvcGFsdmVsdXQiLAogICJlbGVtZW50X3BhdGgiIDogInByaDIvc2lzYWx0b3NpdnUvanVsa2luZW4vb2lrb3BvbHV0IiwKICAiZWxlbWVudC5vbmxvYWQiIDogImNsaWVudCIsCiAgImVsZW1lbnQuOCIgOiAidHJ1ZSIsCiAgImVsZW1lbnQuNiIgOiAiZmFsc2UiLAogICJlbGVtZW50LjUiIDogImZhbHNlIiwKICAic2VjdGlvbiIgOiAiZGVmYXVsdCIsCiAgImVsZW1lbnQucHVibGljbGluayIgOiAiL2VsZW1lbnQuaHRtbC5zdHgiLAogICJpbXBvcnRwYXRoIiA6ICIvd2ViY29tcG9uZW50cy9wcmgyL3Npc2FsdG9zaXZ1L2p1bGtpbmVuL29pa29wb2x1dCIsCiAgIlVJRCIgOiAiaWRZTEp2MFRFdFkiLAogICJjc3MiIDogImNzcy9vaWtvcG9sdXQuY3NzIiwKICAiZGF0YV9saXN0ZW5lcnMiIDogInByaDIvc2lzYWx0b3NpdnUvanVsa2luZW4vb2lrb3BvbHV0IiwKICAiY2FyZGNoYW5uZWwiIDogInB1YmxpYyIsCiAgIkNVUlJFTlRQQVRIIiA6ICIvc3RhdG8vZnJhbWVzZXQvc3RhdG8vZnJhbWVzZXQvcHJoMi9zaXNhbHRvc2l2dS9qdWxraW5lbi9vaWtvcG9sdXQvcHJoMi9zaXNhbHRvc2l2dS9qdWxraW5lbi9vaWtvcG9sdXQvIiwKICAiZWxlbWVudC5saW5rIiA6ICIvZWxlbWVudC5odG1sLnN0eCIsCiAgInVybGV4ZWN1dGVwYXRoIiA6ICIvY2hhbm5lbHMvcHVibGljL3d3dy9wcmgyL3N2L2luZGV4L3lyaXR5a3NldGpheWh0ZWlzb3QvdGlldG9wYWx2ZWx1dC9rYXRrYS15cmVrYSIsCiAgInNraW4iIDogIm9pa29wb2x1dC5odG1sIiwKICAiZWxlbWVudC5sb2FkIiA6ICJjbGllbnQiLAogICJ0cmltIiA6ICJ0cnVlIiwKICAiY2hhbm5lbC5sYW5ndWFnZSIgOiAic3YiLAogICJlbGVtZW50Lm1vZGUiIDogImVsZW1lbnQiLAogICJJTlNUQU5DRUlEIiA6ICJZTEp0UFcwZXkiLAogICJlbGVtZW50Lmxhbmd1YWdlIiA6ICJmaSIsCiAgImVsZW1lbnQucGF0aCIgOiAicHJoMi9zaXNhbHRvc2l2dS9qdWxraW5lbi9vaWtvcG9sdXQiLAogICJlZGl0dXJsIiA6ICIvYmluL2dldC92ZWQvTkd5ckh5SFY2LkRmTnV0ZG52Mi5DcHh5ZVRMNVkiLAogICJwdWJsaWN1cmwiIDogIi9lbGVtZW50Lmh0bWwuc3R4IiwKICAiIiA6ICIiLAogICJHVUlEIiA6ICIiLAogICJ2aWV3dXJsIiA6ICIvYmluL2dldC92aWQvTkd5ckh5SFY2LkRmTnV0ZG52Mi5DcHh5ZVRMNVkiCn0=</template>
+	
+<!-- framesetin root -->
+
+</prh2-sisaltosivu-julkinen-oikopolut>
+
+
+
+
+
+<prh2-sisaltosivu-julkinen-sivubanneri class="statoelement prh2-sisaltosivu-julkinen-sivubanneri "
+	element="prh2/sisaltosivu/julkinen/sivubanneri"
+	data-element="prh2/sisaltosivu/julkinen/sivubanneri"
+	id="idYLK6mU9H2"
+	data-listenerpath=",prh2/sisaltosivu/julkinen/sivubanneri,"
+	
+	cardreference="reference:I5xLvaEeC"
+	
+		data-fullpath="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka"
+		data-version="Publish(20260121114102)"
+	importurl="/webcomponents/prh2/sisaltosivu/julkinen/sivubanneri.html"
+				nativecomponent
+				
+			component
+			servertag
+
+			url="/element.html.stx"
+				admin="false"
+				executepath="/modulesbase/elements/prh2/sisaltosivu/julkinen/sivubanneri"
+				data-parsemode="VIEW">
+	
+		<template class="elementparams">ewogICJlbGVtZW50X21vZGUiIDogIiIsCiAgImVsZW1lbnQiIDogInByaDIvc2lzYWx0b3NpdnUvanVsa2luZW4vc2l2dWJhbm5lcmkiLAogICJlbGVtZW50LmNvbXBvbmVudCIgOiAidHJ1ZSIsCiAgImVsZW1lbnRfcGF0aCIgOiAicHJoMi9zaXNhbHRvc2l2dS9qdWxraW5lbi9zaXZ1YmFubmVyaSIsCiAgImVsZW1lbnQub25sb2FkIiA6ICJjbGllbnQiLAogICJlbGVtZW50LjgiIDogInRydWUiLAogICJlbGVtZW50LjYiIDogImZhbHNlIiwKICAiZWxlbWVudC41IiA6ICJmYWxzZSIsCiAgInNlY3Rpb24iIDogImRlZmF1bHQiLAogICJlbGVtZW50LnB1YmxpY2xpbmsiIDogIi9lbGVtZW50Lmh0bWwuc3R4IiwKICAiaW1wb3J0cGF0aCIgOiAiL3dlYmNvbXBvbmVudHMvcHJoMi9zaXNhbHRvc2l2dS9qdWxraW5lbi9zaXZ1YmFubmVyaSIsCiAgIlVJRCIgOiAiaWRZTEs2bVU5SDIiLAogICJjc3MiIDogImNzcy9zaXZ1YmFubmVyaS5jc3MiLAogICJsYWhkZXBvbGt1IiA6ICIvY2hhbm5lbHMvcHVibGljL3d3dy9wcmgyL3N2L2luZGV4L3lyaXR5a3NldGpheWh0ZWlzb3QvdGlldG9wYWx2ZWx1dCIsCiAgImRhdGFfbGlzdGVuZXJzIiA6ICJwcmgyL3Npc2FsdG9zaXZ1L2p1bGtpbmVuL3NpdnViYW5uZXJpIiwKICAiY2FyZGNoYW5uZWwiIDogInB1YmxpYyIsCiAgIkNVUlJFTlRQQVRIIiA6ICIvc3RhdG8vZnJhbWVzZXQvc3RhdG8vZnJhbWVzZXQvcHJoMi9zaXNhbHRvc2l2dS9qdWxraW5lbi9zaXZ1YmFubmVyaS9wcmgyL3Npc2FsdG9zaXZ1L2p1bGtpbmVuL3NpdnViYW5uZXJpLyIsCiAgInVybGV4ZWN1dGVwYXRoIiA6ICIvY2hhbm5lbHMvcHVibGljL3d3dy9wcmgyL3N2L2luZGV4L3lyaXR5a3NldGpheWh0ZWlzb3QvdGlldG9wYWx2ZWx1dC9rYXRrYS15cmVrYSIsCiAgImVsZW1lbnQubGluayIgOiAiL2VsZW1lbnQuaHRtbC5zdHgiLAogICJza2luIiA6ICJzaXZ1YmFubmVyaS5odG1sIiwKICAiZWxlbWVudC5sb2FkIiA6ICJjbGllbnQiLAogICJ0cmltIiA6ICJ0cnVlIiwKICAiY2hhbm5lbC5sYW5ndWFnZSIgOiAic3YiLAogICJJTlNUQU5DRUlEIiA6ICJZTEs1NmRReGciLAogICJlbGVtZW50Lm1vZGUiIDogImVsZW1lbnQiLAogICJmaWVsZG5hbWUiIDogInNpdnViYW5uZXJpIiwKICAiZWxlbWVudC5sYW5ndWFnZSIgOiAiZmkiLAogICJlbGVtZW50LnBhdGgiIDogInByaDIvc2lzYWx0b3NpdnUvanVsa2luZW4vc2l2dWJhbm5lcmkiLAogICJwdWJsaWN1cmwiIDogIi9lbGVtZW50Lmh0bWwuc3R4IiwKICAiZWRpdHVybCIgOiAiL2Jpbi9nZXQvdmVkL05HeXJIeUhWNi5EZk51dGRudjIuQ3B4eWVUTDVZIiwKICAiIiA6ICIiLAogICJ2aWV3dXJsIiA6ICIvYmluL2dldC92aWQvTkd5ckh5SFY2LkRmTnV0ZG52Mi5DcHh5ZVRMNVkiLAogICJHVUlEIiA6ICIiCn0=</template>
+	
+<!-- framesetin root -->
+
+</prh2-sisaltosivu-julkinen-sivubanneri>
+
+
+
+
+				</aside>
+			</div>
+		</div>
+
+
+	</main>
+	
+		<span id="hairiokortti" style="display:none !important">yrityksetjayhteisot</span>
+		
+
+	<style>
+		#traderegisterchatbutton {display: none;}
+		#ocChat-widget-container {display: none;}
+	</style>
+
+	
+
+</stato-frame><stato-frame id="content-footer" data-section="default" data-listenerpath=",frames," data-id="content-footer" data-view="prh2.footer">
+
+
+<prh2-footer class="statoelement prh2-footer "
+	element="prh2/footer"
+	data-element="prh2/footer"
+	id="idYLKToWD3U"
+	data-listenerpath=",prh2/footer,"
+	
+	cardreference="reference:I5xLvaEeC"
+	
+		data-fullpath="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka"
+		data-version="Publish(20260121114102)"
+	importurl="/webcomponents/prh2/footer.html"
+				nativecomponent
+				
+			component
+			servertag
+
+			url="/element.html.stx"
+				admin="false"
+				executepath="/modulesbase/elements/prh2/footer"
+				data-parsemode="VIEW">
+	
+		<template class="elementparams">ewogICJlbGVtZW50IiA6ICJwcmgyL2Zvb3RlciIsCiAgImVsZW1lbnRfbW9kZSIgOiAiIiwKICAiZWxlbWVudC5jYWNoZS5jYWNoZXBhdGgiIDogIi9wcmgyL2Zvb3Rlci9zdiIsCiAgImVsZW1lbnQuY29tcG9uZW50IiA6ICJ0cnVlIiwKICAiZWxlbWVudC5vbmxvYWQiIDogImNsaWVudCIsCiAgImVsZW1lbnRfcGF0aCIgOiAicHJoMi9mb290ZXIiLAogICJlbGVtZW50LjgiIDogInRydWUiLAogICJlbGVtZW50LjYiIDogImZhbHNlIiwKICAiZWxlbWVudC41IiA6ICJmYWxzZSIsCiAgInNlY3Rpb24iIDogImRlZmF1bHQiLAogICJlbGVtZW50LnB1YmxpY2xpbmsiIDogIi9lbGVtZW50Lmh0bWwuc3R4IiwKICAiaW1wb3J0cGF0aCIgOiAiL3dlYmNvbXBvbmVudHMvcHJoMi9mb290ZXIiLAogICJVSUQiIDogImlkWUxLVG9XRDNVIiwKICAiZXR1c2l2dWxpbmtraSIgOiAiL3N2L2luZGV4Lmh0bWwiLAogICJjc3MiIDogImNzcy9mb290ZXIuY3NzIiwKICAiZGF0YV9saXN0ZW5lcnMiIDogInByaDIvZm9vdGVyIiwKICAiY2FyZGNoYW5uZWwiIDogInB1YmxpYyIsCiAgIkNVUlJFTlRQQVRIIiA6ICIvc3RhdG8vZnJhbWVzZXQvc3RhdG8vZnJhbWVzZXQvcHJoMi9mb290ZXIvcHJoMi9mb290ZXIvIiwKICAiZWxlbWVudC5saW5rIiA6ICIvZWxlbWVudC5odG1sLnN0eCIsCiAgInVybGV4ZWN1dGVwYXRoIiA6ICIvY2hhbm5lbHMvcHVibGljL3d3dy9wcmgyL3N2L2luZGV4L3lyaXR5a3NldGpheWh0ZWlzb3QvdGlldG9wYWx2ZWx1dC9rYXRrYS15cmVrYSIsCiAgInNraW4iIDogImZvb3Rlci5odG1sIiwKICAiZWxlbWVudC5sb2FkIiA6ICJjbGllbnQiLAogICJ0cmltIiA6ICJ0cnVlIiwKICAiSU5TVEFOQ0VJRCIgOiAiWUxLU0hWSDFRIiwKICAiY2hhbm5lbC5sYW5ndWFnZSIgOiAic3YiLAogICJlbGVtZW50Lm1vZGUiIDogImVsZW1lbnQiLAogICJlbGVtZW50LmNhY2hlIiA6ICJmYWxzZSIsCiAgImVsZW1lbnQucGF0aCIgOiAicHJoMi9mb290ZXIiLAogICJlbGVtZW50Lmxhbmd1YWdlIiA6ICJmaSIsCiAgImVkaXR1cmwiIDogIi9iaW4vZ2V0L3ZlZC9OR3lySHlIVjYuRGZOdXRkbnYyLkNweHllVEw1WSIsCiAgInB1YmxpY3VybCIgOiAiL2VsZW1lbnQuaHRtbC5zdHgiLAogICIiIDogIiIsCiAgIkdVSUQiIDogIiIsCiAgInZpZXd1cmwiIDogIi9iaW4vZ2V0L3ZpZC9OR3lySHlIVjYuRGZOdXRkbnYyLkNweHllVEw1WSIKfQ==</template>
+	
+<!-- framesetin root -->
+
+</prh2-footer>
+
+
+
+
+
+<prh2-footer-evastescriptit class="statoelement prh2-footer-evastescriptit "
+	element="prh2/footer/evastescriptit"
+	data-element="prh2/footer/evastescriptit"
+	id="idYLLO4BYMm"
+	data-listenerpath=",prh2/footer/evastescriptit,/cookies,"
+	
+	cardreference="reference:I5xLvaEeC"
+	
+		data-fullpath="/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka"
+		data-version="Publish(20260121114102)"
+	importurl="/webcomponents/prh2/footer/evastescriptit.html"
+				nativecomponent
+				
+			component
+			servertag
+
+			url="/element.html.stx"
+				admin="false"
+				executepath="/modulesbase/elements/prh2/footer/evastescriptit"
+				data-parsemode="VIEW">
+	
+		<template class="elementparams">ewogICJ0cmltIiA6ICJ0cnVlIiwKICAiY29va2llcy5zbm9vcC5kZXNjIiA6ICJTbm9vcCBzZXVyYW50YWV2w6RzdGUiLAogICJjb29raWVzLm1hdG9tby5pZCIgOiAiIiwKICAiY29va2llcy5lbGlzYS5kZXNjIiA6ICJFbGlzYSBjaGF0IC1ldsOkc3RlIiwKICAiaW1wb3J0cGF0aCIgOiAiL3dlYmNvbXBvbmVudHMvcHJoMi9mb290ZXIvZXZhc3Rlc2NyaXB0aXQiLAogICJjb29raWVzLmVsaXNhLmlkIiA6ICIiLAogICJlbGVtZW50LmxvYWQiIDogImNsaWVudCIsCiAgImNvb2tpZXMuc25vb3AubGFiZWwiIDogIlNub29wIiwKICAiZWxlbWVudF9tb2RlIiA6ICIiLAogICJlbGVtZW50LnBhdGgiIDogInByaDIvZm9vdGVyL2V2YXN0ZXNjcmlwdGl0IiwKICAib3B0aW9uYWxDb29raWVzIiA6ICJuZXRhLG1hdG9tbyxzbm9vcCxlbGlzYSIsCiAgImxpc3RlbmVycGF0aCIgOiAiL2Nvb2tpZXMiLAogICJJTlNUQU5DRUlEIiA6ICJZTEtnUENFOEsiLAogICJkYXRhX2xpc3RlbmVycyIgOiAicHJoMi9mb290ZXIvZXZhc3Rlc2NyaXB0aXQsL2Nvb2tpZXMiLAogICJzZWN0aW9uIiA6ICJkZWZhdWx0IiwKICAiZWxlbWVudC5vbmxvYWQiIDogIm5vbmUiLAogICJza2luIiA6ICIvdG9vbHMvZWxlbWVudHMvZWxlbWVudC9za2lucy9odG1sL2VsZW1lbnQuaHRtbCIsCiAgImNoYW5uZWwubGFuZ3VhZ2UiIDogInN2IiwKICAiY29va2llcy5lbGlzYS5sYWJlbCIgOiAiRWxpc2EiLAogICJjYXJkY2hhbm5lbCIgOiAicHVibGljIiwKICAiZWxlbWVudC42IiA6ICJmYWxzZSIsCiAgImVsZW1lbnQuNSIgOiAiZmFsc2UiLAogICJ1cmxleGVjdXRlcGF0aCIgOiAiL2NoYW5uZWxzL3B1YmxpYy93d3cvcHJoMi9zdi9pbmRleC95cml0eWtzZXRqYXlodGVpc290L3RpZXRvcGFsdmVsdXQva2F0a2EteXJla2EiLAogICJlbGVtZW50LmxpbmsiIDogIi9lbGVtZW50Lmh0bWwuc3R4IiwKICAiVUlEIiA6ICJpZFlMTE80QllNbSIsCiAgImNvb2tpZXMubWF0b21vLmxhYmVsIiA6ICJNYXRvbW8iLAogICJlbGVtZW50Lm1vZGUiIDogImVsZW1lbnQiLAogICJjb29raWVzLnNub29wLmlkIiA6ICIiLAogICJjb29raWVzLmVsaXNhLmxvY2FsU3RvcmFnZUtleSIgOiAiY29va2llLWVsaXNhIiwKICAiZWxlbWVudC5sYW5ndWFnZSIgOiAiZmkiLAogICJjb29raWVzLnNub29wLmxvY2FsU3RvcmFnZUtleSIgOiAiY29va2llLXNub29wIiwKICAiZWxlbWVudC5wdWJsaWNsaW5rIiA6ICIvZWxlbWVudC5odG1sLnN0eCIsCiAgIkdVSUQiIDogIiIsCiAgIm5heXRhbWF0b21vIiA6ICIiLAogICJ2aWV3dXJsIiA6ICIvYmluL2dldC92aWQvTkd5ckh5SFY2LkRmTnV0ZG52Mi5DcHh5ZVRMNVkiLAogICJlbGVtZW50X3BhdGgiIDogInByaDIvZm9vdGVyL2V2YXN0ZXNjcmlwdGl0IiwKICAiY29va2llcy5tYXRvbW8ubG9jYWxTdG9yYWdlS2V5IiA6ICJjb29raWUtbWF0b21vIiwKICAiQ1VSUkVOVFBBVEgiIDogIi9zdGF0by9mcmFtZXNldC9zdGF0by9mcmFtZXNldC9wcmgyL2Zvb3Rlci9ldmFzdGVzY3JpcHRpdC9wcmgyL2Zvb3Rlci9ldmFzdGVzY3JpcHRpdC8iLAogICJlZGl0dXJsIiA6ICIvYmluL2dldC92ZWQvTkd5ckh5SFY2LkRmTnV0ZG52Mi5DcHh5ZVRMNVkiLAogICJwdWJsaWN1cmwiIDogIi9lbGVtZW50Lmh0bWwuc3R4IiwKICAiZWxlbWVudC5jb21wb25lbnQiIDogInRydWUiLAogICJjb29raWVzLm1hdG9tby5kZXNjIiA6ICJNYXRvbW8gc2V1cmFudGFldsOkc3RlIiwKICAiIiA6ICIiLAogICJ5bXBhcmlzdG8iIDogInByb2QiCn0=</template>
+	
+<!-- framesetin root -->
+
+</prh2-footer-evastescriptit>
+
+
+
+
+		<script type="text/javascript" src="https://customer.cludo.com/scripts/bundles/search-script.min.js"></script>
+
+	</stato-frame>
+
+		
+</stato-frameset>
+
+
+
+	</stato-app>
+
+
+
+<script type="text/javascript"><!--
+try {
+	if(typeof navigator.sendBeacon == 'function'){
+		var netatimestamp = new Date().getTime();
+		window.addEventListener('beforeunload',function(){
+			const notAnon = window.state.userlogin && window.state.userlogin.length > 0;
+			const hasAccepted = stato.get_fix(stato.localStorage.getItem("cookie-neta"));
+			if (notAnon || hasAccepted) {
+				var u = "/neta.html.stx";
+				var d = {
+					NetaPath: "/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka",NetaUserId: "",
+					NetaSiteName: "prh2",NetaReferer: escape(document.referrer),
+					t: new Date().getTime(),
+					w: window.screen.availWidth,
+					h: window.screen.availHeight,
+					cardtype: window.state.cardObj.getType()
+				}
+
+				var netadata = new FormData();
+				netadata.set('json',JSON.stringify(d));
+				netadata.set('t',netatimestamp)
+				netadata.set('w',window.screen.availWidth);
+				netadata.set('h',window.screen.availHeight);
+				netadata.set('NetaPath',d.NetaPath);
+				netadata.set('cardtype',window.state.cardObj.getType());
+
+				console.debug("neta >> beforeunload sendBeacon >", u, JSON.stringify(d));
+				var netares = navigator.sendBeacon(u,netadata);
+			}
+		});
+	} else {
+		const notAnon = window.state.userlogin && window.state.userlogin.length > 0;
+		const hasAccepted = stato.get_fix(stato.localStorage.getItem("cookie-neta"));
+		if (notAnon || hasAccepted) {
+			var netanode = document.createElement("img");
+			netanode.setAttribute('height', '0');
+			netanode.setAttribute('width', '0');
+			netanode.setAttribute('alt', '');
+			netanode.setAttribute('title', '');
+			netanode.setAttribute('src', '/neta.html.stx?NetaImage=true&amp;NetaPath=/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka&amp;NetaUserId=&amp;NetaSiteName=prh2&amp;NetaReferer="+escape(document.referrer) + "&amp;t=" + new Date().getTime() +"&amp;w="+window.screen.availWidth+"&amp;h="+window.screen.availHeight+"\"');
+			document.body.appendChild(netanode);
+		}
+	}
+}
+catch(e) {
+	console.error("Neta skin error", e);
+}
+// -->
+</script><noscript><div><img style="height:0" alt="" title="" src="/neta.html.stx?NetaPath=/channels/public/www/prh2/sv/index/yrityksetjayhteisot/tietopalvelut/katka-yreka&amp;NetaUserId=&amp;NetaSiteName=prh2&amp;NetaReferer=NOSCRIPT" /></div></noscript>
+
+
+
+		</body>
+	</html>
+
+
+
+
+

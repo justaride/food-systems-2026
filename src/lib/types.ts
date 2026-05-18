@@ -127,6 +127,8 @@ export type Insight = {
   description: string
   type: InsightType
   source: string
+  sourceLabel?: string
+  primaryCitationId?: string
   phase?: PhaseId
   tags?: string[]
   url?: string

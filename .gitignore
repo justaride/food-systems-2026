@@ -41,6 +41,7 @@ research/arkiv-sortert/**/*.zip
 research/arkiv-sortert/**/*.xlsx
 research/arkiv-sortert/**/*.xls
 research/arkiv-sortert/**/*.numbers
+research/evidence-pack/registry-sources/**/documents/
 docs/**/*.pdf
 
 # Git worktrees

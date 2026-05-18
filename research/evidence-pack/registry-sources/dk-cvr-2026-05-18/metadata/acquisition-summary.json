@@ -1,0 +1,70 @@
+{
+  "access_date": "2026-05-18",
+  "generated_at_utc": "2026-05-18T17:15:44.623658+00:00",
+  "companies": [
+    {
+      "slug": "coop-danmark-as",
+      "name": "Coop Danmark A/S",
+      "cvr": 26259495
+    },
+    {
+      "slug": "salling-group-as",
+      "name": "Salling Group A/S",
+      "cvr": 35954716
+    }
+  ],
+  "manifest_rows": 118,
+  "status_counts": {
+    "200": 104,
+    "403": 10,
+    "401": 4
+  },
+  "document_counts": {
+    "Coop Danmark A/S (26259495)": 39,
+    "Salling Group A/S (35954716)": 58
+  },
+  "frontend_json_endpoints": [
+    {
+      "company": "Coop Danmark A/S",
+      "label": "coop-danmark-as-hentVirksomhed",
+      "status": "403",
+      "local_path": "research/evidence-pack/registry-sources/dk-cvr-2026-05-18/raw/coop-danmark-as-hentVirksomhed.html",
+      "notes": "Cookie-sequenced after public CVR UI landing; Cloudflare challenge / JS-gated in this environment"
+    },
+    {
+      "company": "Coop Danmark A/S",
+      "label": "coop-danmark-as-hentAktiveEjerforhold",
+      "status": "403",
+      "local_path": "research/evidence-pack/registry-sources/dk-cvr-2026-05-18/raw/coop-danmark-as-hentAktiveEjerforhold.html",
+      "notes": "Cookie-sequenced after public CVR UI landing; Cloudflare challenge / JS-gated in this environment"
+    },
+    {
+      "company": "Coop Danmark A/S",
+      "label": "coop-danmark-as-hentOphoerteEjerforhold",
+      "status": "403",
+      "local_path": "research/evidence-pack/registry-sources/dk-cvr-2026-05-18/raw/coop-danmark-as-hentOphoerteEjerforhold.html",
+      "notes": "Cookie-sequenced after public CVR UI landing; Cloudflare challenge / JS-gated in this environment"
+    },
+    {
+      "company": "Salling Group A/S",
+      "label": "salling-group-as-hentVirksomhed",
+      "status": "403",
+      "local_path": "research/evidence-pack/registry-sources/dk-cvr-2026-05-18/raw/salling-group-as-hentVirksomhed.html",
+      "notes": "Cookie-sequenced after public CVR UI landing; Cloudflare challenge / JS-gated in this environment"
+    },
+    {
+      "company": "Salling Group A/S",
+      "label": "salling-group-as-hentAktiveEjerforhold",
+      "status": "403",
+      "local_path": "research/evidence-pack/registry-sources/dk-cvr-2026-05-18/raw/salling-group-as-hentAktiveEjerforhold.html",
+      "notes": "Cookie-sequenced after public CVR UI landing; Cloudflare challenge / JS-gated in this environment"
+    },
+    {
+      "company": "Salling Group A/S",
+      "label": "salling-group-as-hentOphoerteEjerforhold",
+      "status": "403",
+      "local_path": "research/evidence-pack/registry-sources/dk-cvr-2026-05-18/raw/salling-group-as-hentOphoerteEjerforhold.html",
+      "notes": "Cookie-sequenced after public CVR UI landing; Cloudflare challenge / JS-gated in this environment"
+    }
+  ]
+}

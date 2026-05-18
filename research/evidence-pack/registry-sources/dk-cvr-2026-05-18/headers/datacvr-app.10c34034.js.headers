@@ -1,0 +1,18 @@
+GET https://datacvr.virk.dk/js/app.10c34034.js
+HTTP_STATUS 200
+FINAL_URL https://datacvr.virk.dk/js/app.10c34034.js
+
+Date: Mon, 18 May 2026 17:16:56 GMT
+Content-Type: text/javascript
+Transfer-Encoding: chunked
+Connection: close
+Server: cloudflare
+Strict-Transport-Security: max-age=63072000;
+X-Content-Type-Options: nosniff
+Set-Cookie: S9SESSIONID=A430F357C94CAA255B8BC24D98374FDD.node2; Path=/; Secure; HttpOnly; SameSite=None
+Vary: Origin,Accept-Encoding,Access-Control-Request-Method,Access-Control-Request-Headers
+Last-Modified: Mon, 20 Apr 2026 09:05:12 GMT
+Cache-Control: no-store
+cf-cache-status: BYPASS
+CF-RAY: 9fdc8335cc57a0f0-OSL
+alt-svc: h3=":443"; ma=86400

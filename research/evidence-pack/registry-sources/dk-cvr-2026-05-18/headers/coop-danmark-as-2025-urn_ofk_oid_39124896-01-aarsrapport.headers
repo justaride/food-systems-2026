@@ -1,0 +1,14 @@
+GET http://regnskaber.virk.dk/59495262/amNsb3VkczovLzAzLzEwLzE0L2JkLzdiL2M3ZWYtNDFjOS04NWM2LWVlNWY2YzIwNDNjMg.xml
+HTTP_STATUS 200
+FINAL_URL http://regnskaber.virk.dk/59495262/amNsb3VkczovLzAzLzEwLzE0L2JkLzdiL2M3ZWYtNDFjOS04NWM2LWVlNWY2YzIwNDNjMg.xml
+
+x-amz-id-2: FWxJ6vDK+G/zUtkhiM+mtV74/sjuE696SpyPfEndnveSmT80cn44UqZhdPpvrdz7MVilIny3gOdAtFbWtDV7IDOyRMOY2Iad
+x-amz-request-id: GDJ3HDW3411AEF6K
+Date: Mon, 18 May 2026 17:14:40 GMT
+Content-Encoding: gzip
+Last-Modified: Mon, 27 Apr 2026 11:11:49 GMT
+ETag: "98f0c5f99997ab489373f86a600055fd"
+Content-Type: text/xml
+Content-Length: 53905
+Server: AmazonS3
+Connection: close

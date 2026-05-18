@@ -1,0 +1,21 @@
+HTTP/1.1 200 OK
+Date: Mon, 18 May 2026 15:23:59 GMT
+X-HystrixLog: 
+Powered-By: Eplica CMS 3
+Last-Modified: Mon, 18 May 2026 15:23:59 GMT
+Expires: Mon, 18 May 2026 15:23:59 GMT
+X-UA-Compatible: IE=Edge
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: frame-ancestors 'self'
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, must-revalidate, max-age=0
+Content-Type: text/html;charset=UTF-8
+Content-Language: is
+vary: accept-encoding
+Set-Cookie: JSESSIONID=2202E6FAA156C56598B36A332BC26164; Path=/; Secure; HttpOnly
+Set-Cookie: eplicaWebVisitor=-162246665; Version=1; Comment="Re-Authentication purposes only"; HttpOnly
+Strict-Transport-Security: max-age=31557600
+Set-Cookie: TS01cfb2ed=0105e25a4cd1eccb2b8d7666a59faadf3279c471197b14eb8d90496524ef31f73e1736e29ce1634e34e016614346126d1111f13745e795a66a215457a9450b85f8860b4269bca5ba9cc0a6543292c48dbfa7c16829; Path=/; Domain=.skatturinn.is
+Transfer-Encoding: chunked
+

@@ -1,0 +1,11 @@
+POST http://distribution.virk.dk/offentliggoerelser/_search
+HTTP_STATUS 200
+FINAL_URL http://distribution.virk.dk/offentliggoerelser/_search
+REQUEST_BODY {"query":{"term":{"cvrNummer":26259495}},"size":100,"sort":[{"offentliggoerelsesTidspunkt":{"order":"desc"}}]}
+
+access-control-allow-credentials: true
+Content-Type: application/json; charset=UTF-8
+Date: Mon, 18 May 2026 17:14:39 GMT
+Server: nginx
+Content-Length: 21501
+Connection: Close

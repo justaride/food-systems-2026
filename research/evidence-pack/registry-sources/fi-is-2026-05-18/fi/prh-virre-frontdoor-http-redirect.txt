@@ -1,0 +1,18 @@
+HTTP/2 302 
+server: nginx
+date: Mon, 18 May 2026 17:16:58 GMT
+content-length: 0
+strict-transport-security: max-age=31536000; includeSubDomains
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type: nosniff
+content-security-policy: default-src 'self'; script-src 'self' https://ajax.googleapis.com 'nonce-0b8cbb34-ba9b-4245-98d1-2f9f00b8517e' 'sha256-sa2ydJuPHQT70Kr8ZDJaq1wS0fzFddrCKPJVrdtB+WQ=' 'sha256-9IFz0ivIBHrul/oUGMnent9LiI2u8vkdjHiQ3CQxbFk='; style-src 'self' https://ajax.googleapis.com 'unsafe-inline';frame-src 'self' https://auth.prh.fi; img-src 'self' data:
+set-cookie: JSESSIONID=C6D6B8889F885D7858E39269F7A0585A; Path=/novus; HttpOnly; Secure
+set-cookie: portallocale=en; Secure
+cache-control: no-store
+location: https://virre.prh.fi/novus/home?execution=e1s1
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+permissions-policy: interest-cohort=()
+set-cookie: VIRRELBSRV=virre1|agtJj; path=/
+

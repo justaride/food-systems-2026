@@ -1,0 +1,2 @@
+URL: https://api.bolagsverket.se/hamta-arsredovisningsinformation/v1.3/arendestatus/5560482837
+ERROR: SSLError: [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:2711)

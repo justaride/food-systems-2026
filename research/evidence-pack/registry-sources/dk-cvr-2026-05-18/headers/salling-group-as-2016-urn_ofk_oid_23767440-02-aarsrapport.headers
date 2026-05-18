@@ -1,0 +1,14 @@
+GET http://regnskaber.virk.dk/61745953/ZG9rdW1lbnRsYWdlcjovLzAzL2I0LzQ4L2JjLzdmLzYzMjUtNDVjYi1hNjcwLTQ0ZTc2ZGJlOTAzYQ.pdf
+HTTP_STATUS 200
+FINAL_URL http://regnskaber.virk.dk/61745953/ZG9rdW1lbnRsYWdlcjovLzAzL2I0LzQ4L2JjLzdmLzYzMjUtNDVjYi1hNjcwLTQ0ZTc2ZGJlOTAzYQ.pdf
+
+x-amz-id-2: 2Bk21BZ/POxZviv7f6AubORteG/3RkCiGIcK6vb7fw4I/kx47tC1ISrVl53eFJSw5bJQSKOpPuU=
+x-amz-request-id: FBDGWVW2H3D8FQVZ
+Date: Mon, 18 May 2026 17:15:32 GMT
+Content-Encoding: gzip
+Last-Modified: Tue, 27 Mar 2018 16:35:55 GMT
+ETag: "12a25bbe360b678e79cb9617ca882b5f"
+Content-Type: application/pdf
+Content-Length: 5432842
+Server: AmazonS3
+Connection: close

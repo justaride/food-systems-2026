@@ -4,6 +4,11 @@ import { join } from 'path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { reports as seedReports } from '../src/lib/data/reports'
+import {
+  describeCoverageCheck,
+  describeFieldCitationTargetValidation,
+  getFieldCitationTargetTableEntries,
+} from '../src/lib/source-coverage-audit'
 import type { Report, ReportSupportingSource } from '../src/lib/types'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
@@ -28,6 +33,80 @@ function fail(msg: string) {
 
 function warn(msg: string) {
   console.log(`  ! ${msg}`)
+}
+
+function info(msg: string) {
+  console.log(`  - ${msg}`)
+}
+
+function quoteIdentifier(identifier: string) {
+  return `"${identifier.replace(/"/g, '""')}"`
+}
+
+async function tableExists(tableName: string) {
+  const rows = await prisma.$queryRaw<Array<{ exists: boolean }>>`
+    SELECT EXISTS (
+      SELECT 1
+      FROM information_schema.tables
+      WHERE table_schema = current_schema()
+        AND table_name = ${tableName}
+    ) AS "exists"
+  `
+  return rows[0]?.exists ?? false
+}
+
+async function columnExists(tableName: string, columnName: string) {
+  const rows = await prisma.$queryRaw<Array<{ exists: boolean }>>`
+    SELECT EXISTS (
+      SELECT 1
+      FROM information_schema.columns
+      WHERE table_schema = current_schema()
+        AND table_name = ${tableName}
+        AND column_name = ${columnName}
+    ) AS "exists"
+  `
+  return rows[0]?.exists ?? false
+}
+
+async function countRows(tableName: string) {
+  const rows = await prisma.$queryRawUnsafe<Array<{ count: bigint }>>(
+    `SELECT COUNT(*)::bigint AS count FROM ${quoteIdentifier(tableName)}`,
+  )
+  return Number(rows[0]?.count ?? 0)
+}
+
+async function countNonEmptyText(tableName: string, columnName: string) {
+  const rows = await prisma.$queryRawUnsafe<Array<{ count: bigint }>>(
+    `SELECT COUNT(*)::bigint AS count FROM ${quoteIdentifier(tableName)} WHERE NULLIF(TRIM(${quoteIdentifier(columnName)}::text), '') IS NOT NULL`,
+  )
+  return Number(rows[0]?.count ?? 0)
+}
+
+async function countFieldCitationCoverage(entityType: string) {
+  const rows = await prisma.$queryRaw<Array<{ count: bigint }>>`
+    SELECT COUNT(DISTINCT "entityId")::bigint AS count
+    FROM "FieldCitation"
+    WHERE "entityType" = ${entityType}
+  `
+  return Number(rows[0]?.count ?? 0)
+}
+
+async function countPersonProfileRoles() {
+  const rows = await prisma.$queryRaw<Array<{ count: bigint }>>`
+    SELECT COALESCE(SUM(COALESCE(array_length("roles", 1), 0)), 0)::bigint AS count
+    FROM "PersonProfile"
+  `
+  return Number(rows[0]?.count ?? 0)
+}
+
+async function countPersonProfileRoleCitationCoverage() {
+  const rows = await prisma.$queryRaw<Array<{ count: bigint }>>`
+    SELECT COUNT(DISTINCT ("entityId", "fieldPath"))::bigint AS count
+    FROM "FieldCitation"
+    WHERE "entityType" = 'PersonProfile'
+      AND "fieldPath" LIKE 'roles[%'
+  `
+  return Number(rows[0]?.count ?? 0)
 }
 
 const seedReportsById = new Map(seedReports.map(report => [report.id, report]))
@@ -400,6 +479,118 @@ async function checkDOICoverage() {
   pass(`Reports: ${reportsWithPub}/${totalReports} (${rPubPct}%) have publisher`)
 }
 
+async function validateFieldCitationTargets(fieldCitationTableExists: boolean) {
+  const status = describeFieldCitationTargetValidation(fieldCitationTableExists)
+
+  if (!fieldCitationTableExists) {
+    info(status.message)
+    return
+  }
+
+  const targetTables = new Map(getFieldCitationTargetTableEntries())
+
+  let invalidTargets = 0
+  for (const [entityType, tableName] of targetTables) {
+    const rows = await prisma.$queryRawUnsafe<Array<{ count: bigint }>>(
+      `SELECT COUNT(*)::bigint AS count
+       FROM "FieldCitation" fc
+       WHERE fc."entityType" = $1
+         AND NOT EXISTS (
+           SELECT 1 FROM ${quoteIdentifier(tableName)} target WHERE target.id = fc."entityId"
+         )`,
+      entityType,
+    )
+    const count = Number(rows[0]?.count ?? 0)
+    if (count > 0) {
+      fail(`FieldCitation has ${count} invalid ${entityType} target(s)`)
+      invalidTargets += count
+    }
+  }
+
+  const unknownRows = await prisma.$queryRaw<Array<{ entityType: string; count: bigint }>>`
+    SELECT "entityType", COUNT(*)::bigint AS count
+    FROM "FieldCitation"
+    GROUP BY "entityType"
+  `
+  const unknownTypes = unknownRows.filter(row => !targetTables.has(row.entityType))
+  for (const row of unknownTypes) {
+    warn(`FieldCitation entityType "${row.entityType}" is not in the audit target map (${Number(row.count)} row(s))`)
+  }
+
+  if (invalidTargets === 0) pass('All mapped FieldCitation targets resolve to existing rows')
+}
+
+async function checkSourceCoverageAndCitationTargets() {
+  header('13. Source Coverage Baseline')
+
+  const fieldCitationTableExists = await tableExists('FieldCitation')
+  const companyConstructFieldExists = await columnExists('Company', 'isResearchConstruct')
+  const companyFinancialSourceFieldExists = await columnExists('CompanyFinancial', 'source')
+
+  const companyFinancialTotal = await countRows('CompanyFinancial')
+  const companyFinancialLegacyCovered = companyFinancialSourceFieldExists
+    ? await countNonEmptyText('CompanyFinancial', 'source')
+    : 0
+  const companyFinancialCitationCovered = fieldCitationTableExists
+    ? await countFieldCitationCoverage('CompanyFinancial')
+    : 0
+
+  const checks = [
+    describeCoverageCheck({
+      model: 'CompanyFinancial',
+      total: companyFinancialTotal,
+      covered: Math.max(companyFinancialLegacyCovered, companyFinancialCitationCovered),
+      requirement: 'CompanyFinancial med FieldCitation eller legacy source-felt',
+      implemented: companyFinancialSourceFieldExists || fieldCitationTableExists,
+      blocker: 'CompanyFinancial.source and FieldCitation missing',
+    }),
+    describeCoverageCheck({
+      model: 'BoardMember',
+      total: await countRows('BoardMember'),
+      covered: fieldCitationTableExists ? await countFieldCitationCoverage('BoardMember') : 0,
+      requirement: 'BoardMember med SourceCitation/FieldCitation-dekning',
+      implemented: fieldCitationTableExists,
+      blocker: 'FieldCitation table missing',
+    }),
+    describeCoverageCheck({
+      model: 'Company',
+      total: await countRows('Company'),
+      covered: companyConstructFieldExists ? await countRows('Company') : 0,
+      requirement: 'Company med isResearchConstruct eksplisitt satt',
+      implemented: companyConstructFieldExists,
+      blocker: 'Company.isResearchConstruct column missing',
+    }),
+    describeCoverageCheck({
+      model: 'PersonProfile',
+      total: await countPersonProfileRoles(),
+      covered: fieldCitationTableExists ? await countPersonProfileRoleCitationCoverage() : 0,
+      requirement: 'PersonProfile roles[] med FieldCitation',
+      implemented: fieldCitationTableExists,
+      blocker: 'FieldCitation table missing',
+    }),
+    describeCoverageCheck({
+      model: 'Shareholder',
+      total: await countRows('Shareholder'),
+      covered: fieldCitationTableExists ? await countFieldCitationCoverage('Shareholder') : 0,
+      requirement: 'Shareholder med FieldCitation-dekning',
+      implemented: fieldCitationTableExists,
+      blocker: 'FieldCitation table missing',
+    }),
+  ]
+
+  for (const check of checks) {
+    if (check.severity === 'ok') {
+      pass(check.message)
+    } else if (check.severity === 'not_implemented') {
+      info(check.message)
+    } else {
+      warn(check.message)
+    }
+  }
+
+  await validateFieldCitationTargets(fieldCitationTableExists)
+}
+
 async function main() {
   console.log('Food Systems 2026 — Data Integrity Check')
   console.log(`Run at: ${new Date().toISOString()}`)
@@ -417,6 +608,7 @@ async function main() {
   await checkThesisMissingUrls()
   await checkReportMissingUrls()
   await checkDOICoverage()
+  await checkSourceCoverageAndCitationTargets()
 
   header('Summary')
   if (errorCount > 0) {

@@ -42,6 +42,68 @@ main()
 - Prefer Prisma upserts so imports stay idempotent
 - For company entities, check [Company Registry](company-registry.md) before adding new records
 
+## Source Attribution Requirements
+
+New imports must follow [Source Attribution Policy](source-attribution-policy.md). The canonical pattern is:
+
+1. Create or update the entity with a Prisma upsert.
+2. Create or update one `SourceCitation` with `sourceClass`, `citationText`, `accessedAt`, and at least one locator (`url`, `localPath`, `sourceDocId`, or `documentId`) unless the source is an `internal_construct`.
+3. Link the citation to the whole record or exact field with `FieldCitation`.
+4. Set verification metadata only when the source actually proves the field being written.
+
+Use `scripts/lib/import-helpers.ts` for new DB-writing import paths:
+
+```typescript
+await upsertWithCitation(
+  prisma,
+  'Company',
+  tx => tx.company.upsert({
+    where: { orgNr: item.orgNr },
+    update: item.companyData,
+    create: item.companyData,
+  }),
+  {
+    sourceClass: 'registry_snapshot',
+    citationText: item.citationText,
+    url: item.url,
+    localPath: item.localPath,
+    accessedAt: item.accessedAt,
+    contentHash: item.sha256,
+    captureMethod: 'api_snapshot',
+    verificationStatus: 'machine_verified',
+    confidence: 95,
+  },
+  ['legalForm', 'naceCode', 'employees', 'registryVerifiedAt'],
+)
+```
+
+Rules for common source classes:
+
+- `registry_snapshot`: use raw API/PDF/HTML snapshots saved under `research/evidence-pack/` with SHA-256 when possible.
+- `primary`: use original reports, annual accounts, government decisions, regulations, or official datasets.
+- `secondary`: use analysis/media only for claims the secondary source actually supports.
+- `synthesis` and `internal_construct`: must explain the project-side method and should link to a document or local research note.
+- `legacy_unsourced`: transition state only. Do not introduce it in new imports.
+
+Do not use Brønnøysund entity snapshots for revenue or EBITDA unless the exact values are present in the response. Use annual reports, Regnskapsregisteret extracts, OffentligData financial statements, Proff where legally available, or another explicit accounting source.
+
+For citation application packets generated from manual source checks, run the fail-closed preflight before any DB mutation:
+
+```bash
+npm run audit:citation-application-packet
+npm run audit:citation-application-packet -- --approve-action=SH-BAMA-2024
+```
+
+The packet gate treats `apply_allowed=no` as a hard stop. If a blocked action ID is passed to `--approve-action`, the command exits non-zero and lists the refused approval. `conditional` only means "eligible for the next implementation step after the named value/name/model decision"; it does not override the source-attribution policy.
+
+After import changes, run:
+
+```bash
+npm test
+npm run db:audit
+npm run audit:source-strings -- --baseline research/source-string-taxonomy-baseline.csv --fail-on-new-action-needed
+```
+
 ## Import Script Inventory
 
 | Script | Models | npm command |
