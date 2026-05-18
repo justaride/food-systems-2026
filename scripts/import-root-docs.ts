@@ -30,7 +30,7 @@ const ROOT_DOCS: RootDocConfig[] = [
     year: 2024,
     documentType: 'application',
     category: 'project',
-    country: 'nordic',
+    country: 'Nordic',
     tags: ['soknad', 'nordic-innovation', 'ni-2024', 'project'],
   },
   {
@@ -41,7 +41,7 @@ const ROOT_DOCS: RootDocConfig[] = [
     year: 2025,
     documentType: 'application',
     category: 'project',
-    country: 'no',
+    country: 'NO',
     tags: ['soknad', 'oslo', 'innovasjonsprogram', 'project'],
   },
   {
@@ -52,7 +52,7 @@ const ROOT_DOCS: RootDocConfig[] = [
     year: 2026,
     documentType: 'meeting-note',
     category: 'meetings',
-    country: 'no',
+    country: 'NO',
     tags: ['meeting', 'aksjonspunkter', 'nch', 'project'],
   },
   {
@@ -63,7 +63,7 @@ const ROOT_DOCS: RootDocConfig[] = [
     year: 2026,
     documentType: 'transcript',
     category: 'meetings',
-    country: 'no',
+    country: 'NO',
     tags: ['transkripsjon', 'strategi', 'verdikjede', 'project'],
   },
   {
@@ -74,7 +74,7 @@ const ROOT_DOCS: RootDocConfig[] = [
     year: 2026,
     documentType: 'transcript',
     category: 'meetings',
-    country: 'no',
+    country: 'NO',
     tags: ['transkripsjon', 'oppstart', 'project'],
   },
   {
@@ -85,7 +85,7 @@ const ROOT_DOCS: RootDocConfig[] = [
     year: 2026,
     documentType: 'meeting-note',
     category: 'meetings',
-    country: 'no',
+    country: 'NO',
     tags: ['meeting', 'duplikat', 'project'],
   },
   {
@@ -96,7 +96,7 @@ const ROOT_DOCS: RootDocConfig[] = [
     year: 2026,
     documentType: 'strategy',
     category: 'project',
-    country: 'no',
+    country: 'NO',
     tags: ['strategi', 'transition-groups', 'metodikk', 'governance', 'project'],
   },
   {
@@ -107,7 +107,7 @@ const ROOT_DOCS: RootDocConfig[] = [
     year: 2026,
     documentType: 'strategy',
     category: 'project',
-    country: 'nordic',
+    country: 'Nordic',
     tags: ['10-step', 'transition-groups', 'arbeidsdokument', 'project'],
   },
   {
@@ -118,7 +118,7 @@ const ROOT_DOCS: RootDocConfig[] = [
     year: 2025,
     documentType: 'correspondence',
     category: 'project',
-    country: 'nordic',
+    country: 'Nordic',
     tags: ['epost', 'nch', 'soknad', 'project'],
   },
   {
@@ -129,7 +129,7 @@ const ROOT_DOCS: RootDocConfig[] = [
     year: 2026,
     documentType: 'correspondence',
     category: 'project',
-    country: 'no',
+    country: 'NO',
     tags: ['epost', 'transition-groups', 'project'],
   },
   {
@@ -140,7 +140,7 @@ const ROOT_DOCS: RootDocConfig[] = [
     year: 2025,
     documentType: 'application',
     category: 'project',
-    country: 'no',
+    country: 'NO',
     tags: ['soknad', 'oslo', 'duplikat', 'project'],
   },
 ]
