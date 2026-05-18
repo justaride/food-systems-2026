@@ -1,9 +1,11 @@
 ---
 tittel: Handover til neste sesjon — neste steg: Insight Pack v0.1 syntese
-status: Aktiv handover
+status: Superseded av HANDOVER-NESTE-SESJON-2026-05-18.md
 eier: Gabriel
 sist_oppdatert: 2026-05-11
-neste_handling: Start ny sesjon med "Bygg Insight Pack v0.1 — bruk denne handover-noten som startpunkt"
+superseded_av: docs/project/HANDOVER-NESTE-SESJON-2026-05-18.md
+superseded_dato: 2026-05-18
+neste_handling: Bruk 2026-05-18-versjonen — denne beholdes som historisk kontekst
 relaterte_filer:
   - docs/project/mandates/plan-for-tg-food-2026-05-11.md
   - docs/project/mandates/nordic-coverage-gap-analysis-2026-05-11.md
