@@ -3,6 +3,8 @@ tittel: Food TG Insight Pack v0.1
 status: Utført internt
 eier: Gabriel
 sist_oppdatert: 2026-05-18
+endringslogg:
+  - 2026-05-18 EUDR-soya-narrativ skjerpet etter PCQ-C-001 funn — norsk forskriftsutkast 2025-08-19 ekskluderer eksplisitt soya fra norsk virkeområde. §3 Spor A funn 3, §3 Spor C funn 4, §4 CL-C-011-rad og §5 sprint-prioritet oppdatert.
 neste_handling: Brukes som pre-read for scope-beslutning og valideringssprint før pilotcommitment. Ingen statusløft til "Validert eksternt" før aktørrespons er dokumentert.
 relaterte_filer:
   - docs/project/mandates/tg-charter-food-2026.md
@@ -75,7 +77,7 @@ relaterte_filer:
 
 1. **Teknisk mulighet finnes, kommersiell skala ikke dokumentert.** Metanotroft bakterieprotein kan teknisk erstatte en betydelig del av soyaproteinkonsentrat i laksefôr uten negative effekter på vekst, fôrutnyttelse eller helse i forsøk (EV-A-001, CL-A-001). Gjærprotein og encelleprotein er relevante FoU-spor; modenhet, kost, LCA og regulatorisk aksept må sjekkes.
 2. **Fôrbaseline finnes som flere datalag — må ikke blandes.** Fiskeridirektoratet/Sjømat Norge: 2 185 945 tonn oppdrettsfôr 2024 (oppdrett totalt, ikke laks). Denofa: ~450 000 tonn soyabønner årlig (actor-tall). Skretting: 16,6 % SPC i egen fôrsammensetning 2024 (actor-data, ikke bransjesnitt) (EV-A-017, EV-A-018, EV-A-019).
-3. **EUDR er EU-scope; norsk/EØS-status må primærsjekkes.** EU-kommisjonens kilde støtter soya-scope og frister, men norsk/EØS-innlemmelse, varekoder (`210610`, `23099040`), DDS/Traces/EORI og praktiske krav til norske aktører ligger i primary-check queue (EV-C-007, EV-C-017, CL-C-011).
+3. **EUDR primary-checked 2026-05-18: norsk-domestisk soya er IKKE omfattet.** EU-kommisjonens kilde støtter soya-scope og frister for varer omsatt i EU. Norsk forskriftsutkast 2025-08-19 (Landbruksdirektoratet, høringsfrist 2025-09-30, ikrafttredelse 2026-01-01) ekskluderer eksplisitt soya fra norsk virkeområde: *"For råvarekategorien soya innlemmes ingen varetyper"*. Norske aktører som eksporterer soyaprodukter til EU er fortsatt under EU-scope og må møte EU-importørenes DDS-krav. Innlemmet i Norge: tre, kaffe, gummi (alle), kakao (de fleste), oljepalme + storfe hud/skinn (noen). Varekoder (`210610`, `23099040`), Traces/DDS-praksis hos norske EU-eksportører og endelig forskriftstekst etter høring (Q4 2025 / Q1 2026) gjenstår (EV-C-007, EV-C-017, CL-C-011 skjerpet; PCQ-C-001 lukket på myndighetsside).
 4. **Insektprotein på sidestrømmer er regelverksbundet.** Kategori 3 er nødvendig men ikke tilstrekkelig; kjøkken-/matavfall, gjødsel og slam kan ikke brukes som pilotklare substrater under dagens hovedregel. Substratvalg er en juridisk gate, ikke kun teknologivalg (EV-A-013, EV-A-015, CL-A-005, CL-A-011, CL-A-021).
 5. **Axfoundation/Framtidens foder er benchmark, ikke kopierbar pilot.** Læringsverdi for prosjektmodell, finansiering og partnerstruktur; ikke nordisk effektbevis (EV-A-010, CL-A-012).
 
@@ -96,7 +98,7 @@ Detaljer: `track-brief-b-sidestreams-nutrients.md`, `dossier-b-process-sidestrea
 1. **Adoption er samspill, ikke teknologipush.** Sirkulær mat realiseres når regulering, håndheving og markedsstruktur trekker i samme retning. Norske kilder om dagligvarestruktur, lov om god handelsskikk og konkurransetilsyn styrker dette (EV-C-001, EV-C-013, EV-C-015, CL-C-001).
 2. **UTP/handelsskikk-håndhevelsen er i overføring.** Dagligvaretilsynet → Konkurransetilsynet 2026-04-30. Praksiseffekt for nye sirkulære leverandører må valideres etter overføringen (EV-C-004, EV-C-013, EV-C-014, CL-C-005, CL-C-006).
 3. **Offentlig innkjøp er potensiell etterspørselsmotor — ikke validert.** DFØ/Anskaffelser.no gir primærgrunnlag, men operativ kapasitet hos kjøkken, kontrakter og leverandører må testes (EV-C-002, EV-C-016, CL-C-002).
-4. **EUDR + PPWR + datakrav skaper sporbarhetspress.** EUDR for soya/fôr; PPWR for emballasje, gjenbruk, matkontakt. Norsk/EØS-ikrafttredelse må behandles som egen juridisk sjekk (EV-C-006, EV-C-007, CL-C-010, CL-C-011).
+4. **EUDR + PPWR + datakrav skaper sporbarhetspress.** EUDR påvirker norske EU-eksportører av soyaprodukter (EU-scope), men IKKE innenlandsk norsk soyabruk per forskriftsutkast 2025-08-19; PPWR for emballasje, gjenbruk, matkontakt. PPWR-ikrafttredelse i Norge må behandles som egen juridisk sjekk (EV-C-006, EV-C-007, CL-C-010, CL-C-011 skjerpet).
 5. **KPI-disiplin er minimumsgate.** Definisjon, år, geografi, enhet, kilde, dataeier, frekvens og systemgrense må være på plass før KPI-er brukes som effektmål eller sammenligning på tvers av actor-tall, svenske benchmark og norsk baseline (EV-A-017, EV-A-018, EV-B-018, EV-B-019, EV-B-020, EV-C-011, CL-C-015).
 
 Detaljer: `track-brief-c-adoption.md` + `dypdykk-4e-adoption-markedsmakt-innkjop-governance-2026-04-28.md`.
@@ -117,7 +119,7 @@ Disse gapene er flagget som eksterne handlinger i `HANDOVER-NESTE-SESJON-2026-05
 |---|---|---|---|---|
 | CL-A-001 / CL-A-002 | A | Encelleprotein/gjærprotein modent nok som A-roadmap-spor | NMBU/Foods of Norway + fôraktør | A-roadmap blir FoU-benchmark, ikke pilotvei |
 | CL-A-005 / CL-A-011 / CL-A-021 | A | Sidestrøm-substrater til insektprotein lovlig i nordisk pilot | Mattilsynet + juridisk EU/EØS-sjekk | Pilot A2 må parkeres eller redesignes |
-| CL-C-011 | A/C | EUDR praktiseres i Norge/EØS slik EU-scope tilsier | Landbruksdirektoratet + Miljødirektoratet | Compliance-arbeid forskyves; sterke Norge-claims må trekkes |
+| CL-C-011 | A/C | Endelig norsk forskriftstekst beholder soya-eksklusjonen etter høring; DDS/Traces-praksis hos norske EU-eksportører | Landbruksdirektoratet + Miljødirektoratet + Denofa/Skretting/Sjømat Norge | Hvis soya likevel innlemmes i endelig forskrift: norsk innenlandsk soya-bruk blir EUDR-pliktig fra 2026-01-01 |
 | CL-A-013 | A | Volare/Finnprotein har kapasitet og kundestatus for skalering | Volare/Finnprotein + kunder | A2-pilotalternativ svekkes; benchmark kan stå |
 | CL-B-014 / CL-B-021 | B | Okara/BSG er pilotklart som matgrade/ingredient før biogass | Råvareeier + Mattilsynet/fagekspert + off-taker | B1 blir benchmark/hypotese, ikke kandidat |
 | CL-B-022 / CL-C-012 | B/C | Matsvinnkvalitet i butikk/HORECA testbar med rutineendring | Matvett + Too Good To Go + dagligvare/HORECA | B2 mister adoption-vinkel; effekt kan ikke claimes |
@@ -141,7 +143,7 @@ Full liste i `claim-register-food-tg.md` og styrkevurdering i `claim-strength-re
 
 | # | Avklaring | Første kontakter | Output |
 |---:|---|---|---|
-| 1 | EUDR/fôrdata: EU vs Norge/EØS, varekoder, actor-data | Landbruksdirektoratet, Miljødirektoratet, SSB/Tolletaten, Denofa, Skretting, Sjømat Norge | Trygg/utrygg formuleringstabell + datalagkart |
+| 1 | EUDR/fôrdata: bekreft endelig forskriftstekst etter høring; aktørvalidér DDS/Traces-praksis hos norske EU-eksportører; soya-eksklusjon i norsk virkeområde er primary-checked 2026-05-18 | Landbruksdirektoratet, Miljødirektoratet, SSB/Tolletaten, Denofa, Skretting, Sjømat Norge | Trygg/utrygg formuleringstabell (EU-eksport vs innenlandsk) + datalagkart |
 | 2 | Alternative fôrproteiner som A-roadmap | NMBU/Foods of Norway, BioMar/Skretting/Cargill/Mowi Feed, Mattilsynet | Scopingnotat: roadmap, FoU-benchmark eller senere pilot |
 | 3 | Okara/BSG som teknisk B-kandidat | Plantedrikkprodusent (Oatly/Green Dairy/Fazer/Valio), bryggeri, RISE/Axfoundation, Mattilsynet, off-taker | Kandidatkort med go/no-go på råvare, hygiene, stabilisering, kjøper |
 | 4 | Matsvinnkvalitet som adoption-kandidat | Matvett, Too Good To Go, Matsentralen, dagligvare/HORECA/offentlig kjøkken | Quality-window-kart + minimum pilotdesign hvis data finnes |
