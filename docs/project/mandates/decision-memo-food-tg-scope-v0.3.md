@@ -49,7 +49,7 @@ Sekundært: KPI-/datastandard og offentlig innkjøp brukes som gates. Marint res
 | Tema | Trygg bruk nå | Statusmerking |
 |---|---|---|
 | Scope | Food TG bør snevres inn til A+B, med C som adoption-, regelverks- og datagate. | Intern beslutningsanbefaling |
-| EUDR | EUDR gjør soya til EU-sporbarhets- og compliance-tema. Norsk/EØS-status og praktisk betydning for norske aktører må formuleres separat. | EU-primærkilde + `needs-primary-check` Norge/EØS |
+| EUDR | EUDR gjør soya til EU-sporbarhets- og compliance-tema for varer omsatt i EU. Norsk forskriftsutkast 2025-08-19 ekskluderer eksplisitt soya fra norsk virkeområde: innenlandsk norsk soyaimport og -fôrproduksjon er IKKE EUDR-pliktig. Norske aktører som eksporterer soyaprodukter til EU er fortsatt omfattet av EU-scope. | EU-primærkilde + norsk forskriftsutkast (PCQ-C-001 lukket 2026-05-18); endelig forskriftstekst etter høring må verifiseres |
 | Fôr/import | SSB 08801, Fiskeridirektoratet/Sjømat Norge, Denofa og Skretting kan brukes som ulike datalag. | Skille primærstatistikk, actor-data og benchmark |
 | Alternative fôrproteiner | Relevant A-scope og roadmap-hypotese. | Hypotese + `needs-actor-validation` |
 | Okara/BSG | Svenske benchmark og betinget B-kandidat. | Benchmark + `needs-actor-validation` |
@@ -62,7 +62,7 @@ Sekundært: KPI-/datastandard og offentlig innkjøp brukes som gates. Marint res
 
 | Tema | Må vente på | Ikke bruk som |
 |---|---|---|
-| EUDR Norge/EØS | Primærsjekk mot myndigheter, høring/rettsstatus, varekoder, DDS/Traces/EORI og aktørpraksis. | Direkte norsk soya-plikt. |
+| EUDR Norge/EØS | Endelig forskriftstekst etter høring (Q4 2025 / Q1 2026) for å bekrefte at soya-eksklusjonen fra utkastet blir værende; DDS/Traces/EORI-praksis hos norske EU-eksportører. | Påstand om at norsk innenlandsk soyabruk faller inn under EUDR (utkastet eksluderer eksplisitt soya). |
 | Fôrdata | SSB/Tolletaten, fôraktører og metode for SPC, prepared fish feed, artsfordeling og råvareandel. | Laksefôrvolum, SPC-total eller substitusjonseffekt uten metode. |
 | Denofa/Skretting | Sitatsjekk, år, enhet, geografi, bruksrett og forklaring av datagrunnlag. | Bransjesnitt. |
 | Alternative fôrproteiner | Modenhet, kost, LCA, råvaretilgang, regulatorisk vei, kjøperkrav og industripartner. | Kommersiell modenhet eller pilotvolum. |
@@ -98,7 +98,7 @@ Ingen status løftes til `Validert eksternt` før respons er dokumentert med dat
 
 Stopp ekstern effektfortelling, pilotcommitment eller statusløft hvis ett av disse gjelder:
 
-1. EUDR omtales som direkte norsk soya-plikt uten avklart norsk/EØS-status.
+1. EUDR omtales som direkte norsk soya-plikt — norsk forskriftsutkast 2025-08-19 ekskluderer eksplisitt soya. Bruk «EU-eksport-compliance for norske aktører» når EUDR brukes, ikke «norsk soya-plikt».
 2. `210610`, `23099040`, SPC, prepared fish feed eller laksefôr blandes uten metode.
 3. Denofa eller Skretting brukes som bransjesnitt.
 4. Okara/BSG mangler råvareeier, hygiene-/regelverkssvar, stabiliseringslogikk eller off-taker.
