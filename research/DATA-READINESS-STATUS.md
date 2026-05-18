@@ -23,6 +23,7 @@ Denne statusen gjelder worktree `akademisk-kildehandtering-fase0`, etter første
 | Import helper | `scripts/lib/import-helpers.ts` validerer citation, bygger stabil citation-id og skriver `FieldCitation` idempotent |
 | Source-string guard | `npm run audit:source-strings` etablert med baseline og ny-funn-blokkering |
 | Research artifact guard | `npm run audit:research-artifacts -- --base=origin/main` etablert for å blokkere nye PDF/rå registerdokumenter og tracked filer på 50 MB eller mer |
+| Source coverage gap export | `npm run audit:source-coverage-gaps` etablert og `research/source-coverage-gaps-2026-05-18.csv` generert som konkret restkø |
 | Registry backfill | 10 Brønnøysund entity snapshots og 23 rolle-snapshots lagret med SHA-256 |
 | Pilot citations | 119 `Company` field citations, 890 `BoardMember` field citations og 19 `PersonProfile` role field citations opprettet |
 | Finans-kildekontroll | `research/company-financial-citation-proposals-2026-05-18.csv` laget med 14 lokale årsrapportkandidater for manuell verdi-/sidetabellkontroll |
@@ -54,6 +55,7 @@ Denne statusen gjelder worktree `akademisk-kildehandtering-fase0`, etter første
 | Hagar historical financial values | `CF-HAGAR-2020` til `CF-HAGAR-2023` anvendt lokalt: offisielle Hagar-årsrapporter 2020/21-2023/24, Norges Bank fiscal-period ISK/NOK FX og 36 nye field citations |
 | Hagar historical source archive | `research/evidence-pack/arsrapporter/hagar-historical/`, `research/hagar-historical-financial-sources-2026-05-18.*` og `research/hagar-historical-fx-reconciliation-2026-05-18.*` opprettet/verifisert |
 | Nordic registry detail pass | Sverige/Bolagsverket API-dokumentasjon, Danmark/Virk offentlige dokumenter, Finland/Kesko PRH open-data og Island/Hagar Skatturinn lookup er arkivert i egne SE/DK/FI/IS research-filer |
+| Source coverage closure attempts | `research/source-coverage-gap-closure-attempts-2026-05-18.md` dokumenterer Brønnøysund, PersonProfile og shareholder-idempotenspass etter gap-eksporten |
 
 ### Verifiserte tall
 
@@ -96,6 +98,10 @@ Denne statusen gjelder worktree `akademisk-kildehandtering-fase0`, etter første
 | Hagar historical FX reconciliation rows | 4 |
 | Hagar shareholder snapshot rows | 20 |
 | Nordic registry acquisition rows | 8 |
+| Source coverage gap rows | 276 |
+| Source coverage gap rows - BoardMember | 150 |
+| Source coverage gap rows - PersonProfile roles | 78 |
+| Source coverage gap rows - Shareholder | 48 |
 | Denmark CVR/Virk detailed manifest rows | 118 |
 | Finland/Iceland registry trace rows | 14 |
 | Sweden Bolagsverket detailed queue rows | 6 |
@@ -114,6 +120,7 @@ Denne statusen gjelder worktree `akademisk-kildehandtering-fase0`, etter første
 | `DOTENV_CONFIG_PATH=../../.env npm run db:audit` | ✓ 221320 records; referensiell integritet passerte; CompanyFinancial-dekning 151/151; Shareholder FieldCitation-dekning 35/83 |
 | `DOTENV_CONFIG_PATH=../../.env npm run audit:source-strings -- --baseline research/source-string-taxonomy-baseline.csv --fail-on-new-action-needed` | ✓ 378 taxonomy rows; 365 action-needed baseline rows; 0 nye action-needed rows |
 | `npm run audit:research-artifacts -- --base=origin/main` | ✓ 312 added paths og 2590 tracked files sjekket; 0 brudd; 0 tracked filer over 50 MB |
+| `DOTENV_CONFIG_PATH=../../.env npm run audit:source-coverage-gaps -- --output=research/source-coverage-gaps-2026-05-18.csv` | ✓ 276 gap-rader eksportert; 150 BoardMember, 78 PersonProfileRole, 48 Shareholder |
 | `DOTENV_CONFIG_PATH=../../.env npx prisma migrate status` | ✓ database schema up to date, 12 migrations |
 | `npm run build` | ✓ Next.js production build passerte |
 
@@ -140,6 +147,16 @@ Brønnøysund-rollebackfillen matchet 178 rader maskinelt. 44 norske Brønnøysu
 - Unil, REMA Distribusjon Norge, Lantmännen Cerealia, Kavli Holding, Grilstad, BioMar, Gartnerhallen, Cermaq Norway og Norsk Kylling hadde ingen sikre rolle-treff i denne passeringen
 
 I tillegg står 106 nordiske styre-/lederroller igjen som manual-only inntil svenske, danske, finske og islandske rolle-/foretaksregistre kobles inn.
+
+### Source coverage closure attempt etter gap-eksport
+
+Gap-eksporten etter commit `d76e109` viser 276 gjenværende rader. Etterpå ble tre automatiske/idempotente lukkeveier testet:
+
+- Brønnøysund role backfill dry-run for 19 norske selskaper: 56 nåværende roller matchet, 44 rader matchet ikke. Disse 44 er de norske BoardMember-restene og bør ikke auto-appliseres uten historisk/manuell kilde.
+- PersonProfile role backfill dry-run: 19 planlagte koblinger, 78 skipped (`no_match=44`, `unsupported_role=34`). Dette bekrefter at de 78 restene ikke kan maskinkobles trygt fra eksisterende BoardMember-citations.
+- Conditional Shareholder decisions `SH-BAMA-2024`, `SH-NG-2024`, `SH-KESKO-2024`, `SH-REITAN-2024`, `SH-AXFOOD-2024`, `SH-COOP-DK-2024`, `SH-ICA-2024`, `SH-HAGAR-2026` ble dry-runnet og kjørt idempotent med `--apply`; netto coverage-endring var 0 fordi disse allerede lå i den 35/83-dekningen.
+
+Detaljer og neste kø ligger i `research/source-coverage-gap-closure-attempts-2026-05-18.md`.
 
 ## Grønne sjekker
 
