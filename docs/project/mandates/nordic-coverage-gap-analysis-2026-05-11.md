@@ -36,6 +36,28 @@ relaterte_filer:
 
 > **Bunnlinje:** Dagens "Nordisk" status er **3 svake gap-områder × 4 land = 12 røde celler**. Det er ikke holdbart for ekstern lansering.
 
+### Progresjon 2026-05-18 — 6 kilder registrert (gap-tetting runde 1)
+
+Følgende kilder er **registrert** i `src/lib/data/sources.ts` (src-171 til src-176) men ikke ennå Document-ingested. Tetter de mest kritiske gapene i §2:
+
+| Gap (§2) | Kilde | src-ID | Status |
+|---|---|---|---|
+| 🔴 #1 DK adopsjon | KFST Salling-Coop afgørelse 2025-03-26 | src-171 | registered |
+| 🔴 #1 DK adopsjon | KFST OK-Coop afgørelse 2024-06-26 | src-172 | registered |
+| 🔴 #3 FI selvforsyning | Luke Food Balance Sheet 2024 | src-173 | registered (datasett) |
+| 🔴 #3 FI selvforsyning + beredskap | NESA Food and Water 2030 | src-174 | registered |
+| 🔴 #2 SE sirkulært fôr | SLU Karimi et al. (2019) vinasse-fungi | src-175 | registered |
+| 🟡 SE adopsjon/policy | Jordbruksverket Livsmedelsstrategi Rapport 2024:3 | src-176 | registered |
+
+**Gjenstår per gap-celle:**
+- DK adopsjon: 0 → 2 registrert (gap fra "0 docs" til "2 url-only"). Mål: 10+.
+- FI selvforsyning: 0 → 2 registrert. Mål: 5+. 
+- SE sirkulært fôr: 0 → 1 registrert. Mål: 3+. SEGES, RISE, Jordbruksverket "Cirkulär foderråvaror"-rapport står igjen.
+- DK sirkulært fôr: 0. Mål: 3+. SEGES Innovation, DTU Aqua, GUDP står igjen.
+- IS sirkulært fôr: 0. Mål: 2+. MAST, Háskóli Íslands, 100% Fish står igjen.
+
+**Neste runde-prioritet:** DK SEGES + DTU Aqua, IS MAST + 100% Fish, klimarådet.dk + folketinget.dk (krever whitelist-utvidelse for fetch).
+
 ---
 
 ## 2. Topp 5 prioriterte gap (Q4 2026-relevans)
