@@ -25,8 +25,11 @@ export type CountryChartDataSet = {
 }
 
 export async function getCountryChartData(country: string): Promise<CountryChartDataSet> {
+  // Frontend kan sende lowercase landkode ('no'), men DB-konvensjon er uppercase
+  // ISO ('NO'). Normaliser her så caller ikke trenger å bry seg.
+  const dbCountry = country.length === 2 ? country.toUpperCase() : country
   const metrics = await prisma.countryMetric.findMany({
-    where: { country },
+    where: { country: dbCountry },
     orderBy: { category: 'asc' },
   })
 

@@ -303,10 +303,13 @@ async function main() {
   let imported = 0
 
   for (const m of metrics) {
+    // DB-konvensjon er uppercase ISO ('NO', 'SE', ...) — kildedata her er
+    // lowercase, så normaliseres ved upsert. Se fix-country-metric-uppercase.ts.
+    const country = m.country.toUpperCase()
     await prisma.countryMetric.upsert({
       where: {
         country_metricType_category_year: {
-          country: m.country,
+          country,
           metricType: m.metricType,
           category: m.category,
           year: m.year,
@@ -319,7 +322,7 @@ async function main() {
         subtitle: m.subtitle,
       },
       create: {
-        country: m.country,
+        country,
         metricType: m.metricType,
         category: m.category,
         value: m.value,
