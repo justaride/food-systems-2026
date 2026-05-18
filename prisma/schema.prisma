@@ -603,7 +603,7 @@ model ResearchPrompt {
 
 model CountryMetric {
   id         String  @id @default(cuid())
-  country    String // no, se, dk, fi, is
+  country    String // DB-canonical uppercase ISO: NO, SE, DK, FI, IS, Nordic, EU
   metricType String // selfSufficiency, margin, marketShare
   category   String // e.g. "Melk", "Kjøtt", "NorgesGruppen"
   value      Decimal @db.Decimal(10, 2)

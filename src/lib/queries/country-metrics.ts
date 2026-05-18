@@ -1,5 +1,17 @@
 import { prisma } from '@/lib/db'
 
+// DB-canonical landkoder for CountryMetric.country. Holdes synkronisert med
+// MAPPING i scripts/fix-country-metric-uppercase.ts.
+const DB_COUNTRY_MAPPING: Record<string, string> = {
+  no: 'NO',
+  se: 'SE',
+  dk: 'DK',
+  fi: 'FI',
+  is: 'IS',
+  eu: 'EU',
+  nordic: 'Nordic',
+}
+
 type SelfSufficiencyEntry = { name: string; value: number }
 type MarginEntry = { name: string; margin: number }
 type MarketShareEntry = { name: string; value: number }
@@ -25,8 +37,12 @@ export type CountryChartDataSet = {
 }
 
 export async function getCountryChartData(country: string): Promise<CountryChartDataSet> {
+  // Frontend kan sende lowercase landkode ('no', 'nordic'), men DB-konvensjon er
+  // uppercase ISO ('NO', 'Nordic'). Normaliser her så caller ikke trenger å bry seg.
+  // Ukjente verdier sendes uendret videre — Postgres-query returnerer 0 rader.
+  const dbCountry = DB_COUNTRY_MAPPING[country.toLowerCase()] ?? country
   const metrics = await prisma.countryMetric.findMany({
-    where: { country },
+    where: { country: dbCountry },
     orderBy: { category: 'asc' },
   })
 

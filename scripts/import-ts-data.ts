@@ -726,7 +726,10 @@ async function importCountryMetrics() {
   console.log('Importing country metrics...')
   let count = 0
 
-  for (const [country, data] of Object.entries(countryChartData)) {
+  for (const [countryKey, data] of Object.entries(countryChartData)) {
+    // countryChartData har lowercase frontend-keys, men DB-konvensjon er
+    // uppercase ISO. Se fix-country-metric-uppercase.ts.
+    const country = countryKey.toUpperCase()
     const ss = data.selfSufficiency
     for (const entry of ss.data) {
       await prisma.countryMetric.upsert({
