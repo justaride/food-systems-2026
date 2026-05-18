@@ -30,12 +30,7 @@ type ExpandedDocument = DocumentRow & {
   refsTo: DocumentRef[]
 }
 
-type SearchMode = 'local' | 'fts' | 'semantic'
-
-type SearchWarning = {
-  code: 'semantic-unavailable' | 'semantic-error'
-  message: string
-}
+type SearchMode = 'local' | 'fts'
 
 type ApiSearchResult = {
   type: string
@@ -49,22 +44,17 @@ type ApiSearchResult = {
 
 type SearchApiResponse = {
   results?: ApiSearchResult[]
-  warnings?: SearchWarning[]
-  executedMode?: 'keyword' | 'semantic' | 'hybrid'
-  fallback?: boolean
   error?: string
 }
 
 const MODE_LABELS: Record<SearchMode, string> = {
   local: 'Rask',
   fts: 'FTS',
-  semantic: 'Semantisk',
 }
 
 const MODE_DESCRIPTIONS: Record<SearchMode, string> = {
   local: 'Filtrer pre-lastede dokumenter på tittel/forfatter/sammendrag/tags',
   fts: 'Postgres fulltekst-rangert søk i hele dokumentinnholdet',
-  semantic: 'Vektor-likhet via OpenAI embeddings (faller tilbake til FTS hvis ikke klart)',
 }
 
 function highlightText(text: string, query: string) {
@@ -102,8 +92,6 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
 
   // API search state (only populated when searchMode !== 'local')
   const [apiResults, setApiResults] = useState<ApiSearchResult[]>([])
-  const [apiWarnings, setApiWarnings] = useState<SearchWarning[]>([])
-  const [apiExecutedMode, setApiExecutedMode] = useState<string | null>(null)
   const [apiLoading, setApiLoading] = useState(false)
   const [apiError, setApiError] = useState<string | null>(null)
 
@@ -113,27 +101,22 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
     searchTimeout.current = setTimeout(() => setDebouncedSearch(value), 200)
   }, [])
 
-  // Server-side search effect: only when in fts/semantic mode with a real query
+  // Server-side FTS-søk: kun når searchMode='fts' med en reell query
   useEffect(() => {
     if (searchMode === 'local') {
       setApiResults([])
-      setApiWarnings([])
-      setApiExecutedMode(null)
       setApiError(null)
       return
     }
     if (debouncedSearch.trim().length < 2) {
       setApiResults([])
-      setApiWarnings([])
-      setApiExecutedMode(null)
       setApiError(null)
       return
     }
-    const requestedApiMode = searchMode === 'fts' ? 'keyword' : 'semantic'
     let cancelled = false
     setApiLoading(true)
     setApiError(null)
-    fetch(`/api/search?q=${encodeURIComponent(debouncedSearch)}&limit=50&mode=${requestedApiMode}`)
+    fetch(`/api/search?q=${encodeURIComponent(debouncedSearch)}&limit=50&mode=keyword`)
       .then(async (res) => {
         const data = (await res.json()) as SearchApiResponse
         if (!res.ok) throw new Error(data.error ?? 'Søk er utilgjengelig akkurat nå')
@@ -141,14 +124,10 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
         // Filter to document results only — /bibliotek viser ikke aktører/selskaper
         const docResults = (data.results ?? []).filter((r) => r.type === 'document')
         setApiResults(docResults)
-        setApiWarnings(data.warnings ?? [])
-        setApiExecutedMode(data.executedMode ?? null)
       })
       .catch((err) => {
         if (cancelled) return
         setApiResults([])
-        setApiWarnings([])
-        setApiExecutedMode(null)
         setApiError(err instanceof Error ? err.message : 'Søk er utilgjengelig akkurat nå')
       })
       .finally(() => {
@@ -233,7 +212,7 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
 
         <div className="flex gap-2 flex-wrap items-center">
           <div className="inline-flex rounded-lg border border-stone-200 bg-white p-0.5" role="group" aria-label="Søkemodus">
-            {(['local', 'fts', 'semantic'] as SearchMode[]).map((m) => {
+            {(['local', 'fts'] as SearchMode[]).map((m) => {
               const active = searchMode === m
               return (
                 <button
@@ -285,13 +264,6 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
           </select>
         </div>
 
-        {searchMode !== 'local' && apiWarnings.length > 0 && (
-          <div className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
-            {apiWarnings.map((w, i) => (
-              <p key={i}>{w.message}</p>
-            ))}
-          </div>
-        )}
         {searchMode !== 'local' && apiError && (
           <div className="rounded-lg border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-800">
             {apiError}
@@ -304,8 +276,6 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
           query={debouncedSearch}
           results={apiResults}
           loading={apiLoading}
-          executedMode={apiExecutedMode}
-          requestedMode={searchMode}
         />
       ) : filtered.length === 0 ? (
         <EmptyState message="Ingen dokumenter matcher filteret" />
@@ -447,11 +417,9 @@ type ApiResultsViewProps = {
   query: string
   results: ApiSearchResult[]
   loading: boolean
-  executedMode: string | null
-  requestedMode: SearchMode
 }
 
-function ApiResultsView({ query, results, loading, executedMode, requestedMode }: ApiResultsViewProps) {
+function ApiResultsView({ query, results, loading }: ApiResultsViewProps) {
   if (query.trim().length < 2) {
     return (
       <EmptyState message="Skriv minst 2 tegn for å søke serverside" />
@@ -467,12 +435,10 @@ function ApiResultsView({ query, results, loading, executedMode, requestedMode }
       <EmptyState message={`Ingen dokumenter matcher "${query}"`} />
     )
   }
-  const wasFallback = requestedMode === 'semantic' && executedMode !== 'semantic'
   return (
     <div className="space-y-2">
       <p className="text-xs text-stone-400">
         {results.length} dokumenter
-        {executedMode && <span> · søkemodus: <span className="font-medium text-stone-600">{executedMode}</span>{wasFallback && <span className="text-amber-600"> (fallback)</span>}</span>}
       </p>
       {results.map((r) => (
         <Card key={r.id} className="!p-0">
