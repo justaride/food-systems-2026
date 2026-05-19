@@ -2,6 +2,7 @@ import { Card } from '@/components/ui/Card'
 import { SourceChip } from '@/components/ui/SourceChip'
 import { ExpandableSources } from '@/components/ui/ExpandableSources'
 import { COUNTRY_LIST } from '@/lib/config/countries'
+import { mediaCountryMatches } from '@/lib/media-country'
 import {
   mediaInternalSources,
   mediaScanGuidance,
@@ -475,7 +476,7 @@ export default async function MediaPage() {
     : 0
 
   const coverageRows: CountryCoverageRow[] = COUNTRY_LIST.map(country => {
-    const countryEntries = typedEntries.filter(entry => entry.country === country.code)
+    const countryEntries = typedEntries.filter(entry => mediaCountryMatches(entry.country, country.code))
     const uniqueOutlets = new Set(countryEntries.map(entry => entry.outlet.id))
     const uniqueThemes = new Set(countryEntries.flatMap(entry => entry.codings.map(coding => coding.primaryTheme)))
     const primaryCount = countryEntries.filter(entry => entry.verificationLevel === 'primary').length

@@ -147,7 +147,7 @@ export async function getDataStatus(db: DataStatusDb) {
 
   const pages: Record<string, CountStatus> = {
     subsidier: buildCountStatus(actual('subsidiesProduksjon'), 100, error('subsidiesProduksjon')),
-    havbruk: buildCountStatus(actual('aquacultureSites'), 100, error('aquacultureSites')),
+    havbruk: buildCountStatus(actual('aquacultureSites'), 50, error('aquacultureSites')),
     forsyningskjede: buildCountStatus(actual('deliveryVolumes'), 1, error('deliveryVolumes')),
   }
 

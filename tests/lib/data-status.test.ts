@@ -57,4 +57,33 @@ describe('data status helpers', () => {
     assert.equal(status.tableErrors.meetings, 'P1001 database unavailable')
     assert.equal(status.tables.meetings, null)
   })
+
+  it('treats the current curated havbruk site import as enough for the havbruk page gate', async () => {
+    const count = (value: number) => ({ count: async () => value })
+    const status = await getDataStatus({
+      subsidy: count(179310),
+      aquacultureSite: count(50),
+      aquacultureApplication: count(8),
+      fishHealthObservation: count(0),
+      deliveryVolume: count(60310),
+      businessRelationship: count(50),
+      company: count(38976),
+      phase: count(4),
+      teamMember: count(9),
+      kPI: count(5),
+      tenStep: count(10),
+      evidenceDoc: count(18),
+      application: count(3),
+      insight: count(122),
+      meeting: count(8),
+      communication: count(0),
+      document: count(1063),
+      actor: count(201),
+      personProfile: count(371),
+    })
+
+    assert.equal(status.pages.havbruk.ok, true)
+    assert.equal(status.pages.havbruk.minRequired, 50)
+    assert.equal(status.ok, true)
+  })
 })
