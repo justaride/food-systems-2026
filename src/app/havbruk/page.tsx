@@ -30,6 +30,7 @@ export default async function HavbrukPage() {
     licenseStatus: s.licenseStatus,
     placement: s.placement,
     capacityTonnes: s.capacityTonnes ? Number(s.capacityTonnes) : null,
+    capacityUnit: s.capacityUnit,
     species: s.species,
     company: s.company,
   }))

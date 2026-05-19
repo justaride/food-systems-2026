@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "tsx scripts/write-version.ts && next dev",
     "compute-metrics": "tsx scripts/compute-chart-metrics.ts --country=all",
     "build": "tsx scripts/write-version.ts && prisma generate && npm run compute-metrics && next build",
     "start": "next start",

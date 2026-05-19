@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { formatAquacultureCapacity } from '@/lib/aquaculture-capacity'
 
 type SiteRow = {
   id: string
@@ -17,6 +18,7 @@ type SiteRow = {
   licenseStatus: string | null
   placement: string | null
   capacityTonnes: number | null
+  capacityUnit: string | null
   species: string[]
   company: { id: string; name: string; orgNr: string; valueChainStage: string | null }
 }
@@ -48,11 +50,6 @@ type Props = {
   totalCapacityTonnes: number
   totalApplications: number
   companyStats: CompanyStat[]
-}
-
-function formatTonnes(t: number | null) {
-  if (t == null || t === 0) return '—'
-  return `${Math.round(t).toLocaleString('no')} tonn`
 }
 
 function formatStatusBadge(status: string | null) {
@@ -260,7 +257,7 @@ export function HavbrukContent({
                       Kommune
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
-                      MTB
+                      Kapasitet
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
                       Art
@@ -302,7 +299,7 @@ export function HavbrukContent({
                           ) : null}
                         </td>
                         <td className="py-2.5 pr-4 text-right tabular-nums text-stone-700">
-                          {formatTonnes(s.capacityTonnes)}
+                          {formatAquacultureCapacity(s.capacityTonnes, s.capacityUnit)}
                         </td>
                         <td className="py-2.5 pr-4 text-stone-600 text-xs">
                           {s.species.length > 0 ? s.species.join(', ') : '—'}
@@ -447,7 +444,7 @@ export function HavbrukContent({
                       {op.siteCount.toLocaleString('no')}
                     </td>
                     <td className="py-2.5 pr-4 text-right tabular-nums text-stone-700">
-                      {formatTonnes(op.capacityTonnes)}
+                      {formatAquacultureCapacity(op.capacityTonnes, 'TN')}
                     </td>
                     <td className="py-2.5 pr-4 text-right tabular-nums text-stone-500">
                       {totalSites > 0
