@@ -4,6 +4,10 @@ import { join, relative, sep } from 'path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { reports as seedReports } from '../src/lib/data/reports'
+import {
+  candidateLocalFilePaths,
+  normalizeLocalFileLocator,
+} from '../src/lib/local-file-locator'
 
 type Severity = 'HIGH' | 'MEDIUM' | 'LOW'
 
@@ -145,10 +149,15 @@ function loadPdfCatalog(): PdfCatalogEntry[] {
 }
 
 function normalizeReferencedPath(p: string | null | undefined): string {
-  if (!p) return ''
-  let s = p.replace(/^\.\//, '')
+  const locator = normalizeLocalFileLocator(p)
+  if (!locator) return ''
+  let s = locator
   if (s.startsWith('research/')) s = s.slice('research/'.length)
   return s
+}
+
+function localFileExists(p: string | null | undefined): boolean {
+  return candidateLocalFilePaths(p, ROOT).some((path) => existsSync(path))
 }
 
 async function main(): Promise<void> {
@@ -167,7 +176,7 @@ async function main(): Promise<void> {
     select: { id: true, slug: true, filePath: true, title: true },
   })
   const sourceDocs = await prisma.sourceDoc.findMany({
-    select: { id: true, filename: true, title: true, isDuplicate: true },
+    select: { id: true, filename: true, title: true, isDuplicate: true, documentId: true },
   })
   const reportRows = await prisma.report.findMany({
     select: { id: true, title: true, sourceUrl: true, documentId: true },
@@ -244,12 +253,7 @@ async function main(): Promise<void> {
 
   // 4. Document.filePath -> on-disk check.
   for (const d of documents) {
-    const norm = normalizeReferencedPath(d.filePath)
-    const abs = join(ROOT, 'research', norm)
-    if (existsSync(abs)) continue
-    // Also check the original path may already be relative to repo root (some imports do that).
-    const altAbs = join(ROOT, d.filePath.replace(/^\.\//, ''))
-    if (existsSync(altAbs)) continue
+    if (localFileExists(d.filePath)) continue
     // Map Document -> linked Report/Thesis -> KI-PRIORITY.
     const seedId = seedIdByDocumentId.get(d.id) ?? null
     const score = seedId ? (priorityById.get(seedId) ?? null) : null
@@ -267,11 +271,12 @@ async function main(): Promise<void> {
   // SourceDocs store only the bare filename).
   for (const s of sourceDocs) {
     if (s.isDuplicate) continue
+    if (s.documentId) {
+      const linkedDocumentPath = docFilePathById.get(s.documentId)
+      if (localFileExists(linkedDocumentPath)) continue
+    }
     const norm = normalizeReferencedPath(s.filename)
-    const abs = join(ROOT, 'research', norm)
-    if (existsSync(abs)) continue
-    const altAbs = join(ROOT, s.filename.replace(/^\.\//, ''))
-    if (existsSync(altAbs)) continue
+    if (localFileExists(s.filename)) continue
     const base = norm.split(sep).pop() ?? norm
     const baseMatches = basenameIndex.get(base) ?? []
     if (baseMatches.length > 0) continue
@@ -289,11 +294,7 @@ async function main(): Promise<void> {
   for (const r of seedReports) {
     for (const sup of r.supportingSources ?? []) {
       if (!sup.documentPath) continue
-      const norm = normalizeReferencedPath(sup.documentPath)
-      const abs = join(ROOT, 'research', norm)
-      if (existsSync(abs)) continue
-      const altAbs = join(ROOT, sup.documentPath.replace(/^\.\//, ''))
-      if (existsSync(altAbs)) continue
+      if (localFileExists(sup.documentPath)) continue
       const score = priorityById.get(r.id) ?? null
       findings.push({
         ref: `${r.id}::${sup.label}`,
@@ -313,8 +314,7 @@ async function main(): Promise<void> {
     const hasResolvableSupport = (r.supportingSources ?? []).some((sup) => {
       if (sup.url) return true
       if (sup.documentPath) {
-        const abs = join(ROOT, 'research', normalizeReferencedPath(sup.documentPath))
-        return existsSync(abs)
+        return localFileExists(sup.documentPath)
       }
       return false
     })

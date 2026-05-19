@@ -2,8 +2,14 @@ import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { canonicalPersonKey } from '../src/lib/person-key.ts'
+import {
+  boardMemberPersonRoleKey,
+  boardMemberNamesAreCompatible,
+  groupBoardMembersByPersonRole,
+} from '../src/lib/brreg-board-member-provenance.ts'
 
 const BRREG_BASE_URL = 'https://data.brreg.no/enhetsregisteret/api'
+const BRREG_ROLES_SOURCE_LABEL = 'Brønnøysundregistrene roller i virksomheten'
 const DEFAULT_HEADERS = {
   Accept: 'application/json',
   'User-Agent': 'food-systems-2026-offentligdata-enrichment/0.1.0',
@@ -256,6 +262,10 @@ async function fetchJson<T>(path: string, query?: Record<string, string | number
   }
 }
 
+function brregRolesUrl(orgNr: string): string {
+  return `${BRREG_BASE_URL}/enheter/${encodeURIComponent(orgNr)}/roller`
+}
+
 function normalizeText(input: string): string {
   return input
     .toLowerCase()
@@ -494,14 +504,22 @@ function summarizeCandidates(candidates: SearchCandidate[]): ActorMatchResult['c
   }))
 }
 
-async function upsertBoardMembers(companyId: string, companyName: string, roleGroups: BrregRoleGroup[], dryRun: boolean): Promise<number> {
+async function upsertBoardMembers(
+  companyId: string,
+  companyName: string,
+  activeOrgNr: string,
+  roleGroups: BrregRoleGroup[],
+  dryRun: boolean,
+  syncedAt: Date,
+): Promise<number> {
   const existing = await prisma.boardMember.findMany({
     where: { companyId },
-    select: { personKey: true, role: true },
+    select: { id: true, personKey: true, personName: true, role: true },
   })
-  const existingKeys = new Set(existing.map(member => `${member.personKey}|${member.role}`))
+  const existingByKey = groupBoardMembersByPersonRole(existing)
 
   let inserted = 0
+  let verified = 0
   for (const group of roleGroups) {
     const groupCode = group.type?.kode
     for (const role of group.roller ?? []) {
@@ -511,11 +529,33 @@ async function upsertBoardMembers(companyId: string, companyName: string, roleGr
       if (!mappedRole) continue
 
       const personKey = normalizePersonKey(personName)
-      const dedupeKey = `${personKey}|${mappedRole}`
-      if (existingKeys.has(dedupeKey)) continue
+      const dedupeKey = boardMemberPersonRoleKey(personKey, mappedRole)
+      const existingMembersById = new Map(
+        (existingByKey.get(dedupeKey) ?? []).map(member => [member.id, member]),
+      )
+      for (const member of existing) {
+        if (member.role !== mappedRole) continue
+        if (!boardMemberNamesAreCompatible(member.personName, personName)) continue
+        existingMembersById.set(member.id, member)
+      }
+      const existingMembers = [...existingMembersById.values()]
+      if (existingMembers.length > 0) {
+        verified += existingMembers.length
+        if (!dryRun) {
+          await prisma.boardMember.updateMany({
+            where: { id: { in: existingMembers.map(member => member.id) } },
+            data: {
+              source: BRREG_ROLES_SOURCE_LABEL,
+              sourceUrl: brregRolesUrl(activeOrgNr),
+              verifiedAt: syncedAt,
+            },
+          })
+        }
+        continue
+      }
 
       inserted += 1
-      existingKeys.add(dedupeKey)
+      verified += 1
 
       if (!dryRun) {
         await prisma.boardMember.create({
@@ -524,6 +564,9 @@ async function upsertBoardMembers(companyId: string, companyName: string, roleGr
             personName,
             role: mappedRole,
             personKey,
+            source: BRREG_ROLES_SOURCE_LABEL,
+            sourceUrl: brregRolesUrl(activeOrgNr),
+            verifiedAt: syncedAt,
           },
         })
       }
@@ -533,8 +576,11 @@ async function upsertBoardMembers(companyId: string, companyName: string, roleGr
   if (inserted > 0) {
     console.log(`    Added ${inserted} BRREG board role(s) for ${companyName}`)
   }
+  if (verified > 0) {
+    console.log(`    Verified ${verified} BRREG board role source(s) for ${companyName}`)
+  }
 
-  return inserted
+  return verified
 }
 
 async function upsertPersonProfiles(companyId: string, companyName: string, roleGroups: BrregRoleGroup[], dryRun: boolean): Promise<number> {
@@ -616,6 +662,7 @@ async function enrichCompanies(options: CliOptions): Promise<void> {
     try {
       const resolved = await resolveEntityFromRegistry(company.orgNr, company.name)
       const activeOrgNr = resolved.resolvedOrgNr
+      const syncedAt = new Date()
 
       if (resolved.matchedByName && activeOrgNr !== company.orgNr) {
         const conflict = await prisma.company.findUnique({
@@ -695,7 +742,7 @@ async function enrichCompanies(options: CliOptions): Promise<void> {
         })
       }
 
-      await upsertBoardMembers(company.id, company.name, roleGroups, options.dryRun)
+      await upsertBoardMembers(company.id, company.name, activeOrgNr, roleGroups, options.dryRun, syncedAt)
       await upsertPersonProfiles(company.id, company.name, roleGroups, options.dryRun)
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error)

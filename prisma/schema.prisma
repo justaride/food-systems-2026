@@ -273,6 +273,9 @@ model Shareholder {
   ownershipPct    Decimal? @db.Decimal(5, 2)
   shareholderType String? // family, institutional, state, cooperative, foreign
   isControlling   Boolean  @default(false)
+  source          String?
+  sourceUrl       String?
+  verifiedAt      DateTime?
 
   company Company @relation(fields: [companyId], references: [id])
 
@@ -280,11 +283,14 @@ model Shareholder {
 }
 
 model BoardMember {
-  id         String @id @default(cuid())
+  id         String    @id @default(cuid())
   companyId  String
   personName String
   role       String // styreleder, nestleder, styremedlem, CEO, CFO
   personKey  String // normalized name for interlocking detection
+  source     String?
+  sourceUrl  String?
+  verifiedAt DateTime?
 
   company Company @relation(fields: [companyId], references: [id])
 

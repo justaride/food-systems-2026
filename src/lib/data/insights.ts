@@ -716,7 +716,7 @@ export const insights: Insight[] = [
       'Drangar hf. ble dannet desember 2024 gjennom fusjon av Samkaup, Heimkaup og Orkan med samlet omsetning ISK 75 milliarder (~20% markedsandel). Island gaar fra 5 til 3 aktorer.',
     tags: ['Island', 'fusjon', 'konsolidering', 'Drangar'],
     sources: [
-      { sourceId: 'src-85', label: 'USDA GAIN Iceland 2024' },
+      { sourceId: 'src-85', label: 'USDA GAIN Iceland Exporter Guide' },
     ],
   },
   {

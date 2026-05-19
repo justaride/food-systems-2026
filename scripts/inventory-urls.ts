@@ -1,26 +1,18 @@
+import 'dotenv/config'
 import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
+import { PrismaPg } from '@prisma/adapter-pg'
+import { PrismaClient } from '../src/generated/prisma/client'
 import { reports } from '../src/lib/data/reports'
 import { theses } from '../src/lib/data/theses'
 import { parseCsvRecords } from '../src/lib/csv'
-
-type SourceType =
-  | 'report_canonical'
-  | 'report_supporting'
-  | 'thesis'
-  | 'sourcedoc'
-  | 'document'
-
-type Protocol = 'http' | 'https' | 'other'
-
-type UrlRow = {
-  url: string
-  source_type: SourceType
-  source_id: string
-  source_priority: number | null
-  domain: string
-  protocol: Protocol
-}
+import {
+  collectDatabaseUrlRows,
+  collectTypedUrlRows,
+  type Protocol,
+  type SourceType,
+  type UrlRow,
+} from '../src/lib/source-url-inventory'
 
 function csvEscape(value: string): string {
   return `"${value.replace(/"/g, '""')}"`
@@ -43,87 +35,47 @@ function loadKiPriority(root: string): Map<string, number> {
   return map
 }
 
-function parseUrl(raw: string): { domain: string; protocol: Protocol } | null {
-  const trimmed = raw.trim()
-  if (!trimmed) return null
+async function collectDbRows(priorityMap: Map<string, number>): Promise<UrlRow[]> {
+  const connectionString = process.env.DATABASE_URL
+  if (!connectionString) {
+    console.warn('DATABASE_URL is not set; skipping DB-backed Document/SourceDoc URL inventory')
+    return []
+  }
+
+  const adapter = new PrismaPg({ connectionString })
+  const prisma = new PrismaClient({ adapter })
+
   try {
-    const u = new URL(trimmed)
-    const proto = u.protocol.replace(':', '').toLowerCase()
-    let protocol: Protocol = 'other'
-    if (proto === 'http') protocol = 'http'
-    else if (proto === 'https') protocol = 'https'
-    const domain = u.hostname.toLowerCase().replace(/^www\./, '')
-    return { domain, protocol }
-  } catch {
-    return null
+    const [documents, sourceDocs] = await Promise.all([
+      prisma.document.findMany({
+        where: { url: { not: null } },
+        select: { id: true, slug: true, url: true },
+      }),
+      prisma.sourceDoc.findMany({
+        where: { url: { not: null } },
+        select: { id: true, url: true },
+      }),
+    ])
+
+    return collectDatabaseUrlRows({ documents, sourceDocs, priorityMap })
+  } finally {
+    await prisma.$disconnect()
   }
 }
 
-function collectRows(priorityMap: Map<string, number>): UrlRow[] {
-  const rows: UrlRow[] = []
+async function collectRows(priorityMap: Map<string, number>, includeDb: boolean): Promise<UrlRow[]> {
+  const rows = collectTypedUrlRows({ reports, theses, priorityMap })
+  if (!includeDb) return rows
 
-  // 1. Report.sourceUrl (canonical)
-  for (const r of reports) {
-    if (r.sourceUrl && r.sourceUrl.trim()) {
-      const parsed = parseUrl(r.sourceUrl)
-      if (parsed) {
-        rows.push({
-          url: r.sourceUrl.trim(),
-          source_type: 'report_canonical',
-          source_id: r.id,
-          source_priority: priorityMap.get(r.id) ?? null,
-          domain: parsed.domain,
-          protocol: parsed.protocol,
-        })
-      }
-    }
-  }
-
-  // 2. Report.supportingSources[].url
-  for (const r of reports) {
-    if (!r.supportingSources) continue
-    for (const s of r.supportingSources) {
-      if (!s.url || !s.url.trim()) continue
-      const parsed = parseUrl(s.url)
-      if (!parsed) continue
-      rows.push({
-        url: s.url.trim(),
-        source_type: 'report_supporting',
-        source_id: r.id,
-        source_priority: priorityMap.get(r.id) ?? null,
-        domain: parsed.domain,
-        protocol: parsed.protocol,
-      })
-    }
-  }
-
-  // 3. Thesis.url
-  for (const t of theses) {
-    if (!t.url || !t.url.trim()) continue
-    const parsed = parseUrl(t.url)
-    if (!parsed) continue
-    rows.push({
-      url: t.url.trim(),
-      source_type: 'thesis',
-      source_id: t.id,
-      source_priority: priorityMap.get(t.id) ?? null,
-      domain: parsed.domain,
-      protocol: parsed.protocol,
-    })
-  }
-
-  // 4. SourceDoc — schema HAS `url String?`, but no seed/typed data file is
-  //    imported into this script (DB-only). Skipped here; left as a note.
-  // 5. Document — same situation: schema has `url String?` but content is
-  //    materialized at DB-import time. Skipped here; left as a note.
-
-  return rows
+  const dbRows = await collectDbRows(priorityMap)
+  return [...rows, ...dbRows]
 }
 
-function main(): void {
+async function main(): Promise<void> {
+  const includeDb = !process.argv.slice(2).includes('--no-db')
   const root = process.cwd()
   const priorityMap = loadKiPriority(root)
-  const rows = collectRows(priorityMap)
+  const rows = await collectRows(priorityMap, includeDb)
 
   // CSV (one row per URL occurrence — same URL may appear multiple times)
   const csvLines = [
@@ -235,7 +187,7 @@ function main(): void {
     '',
     '- `Report.sourceUrl` (kanonisk) og `Report.supportingSources[].url` er hentet fra `src/lib/data/reports.ts`.',
     '- `Thesis.url` er hentet fra `src/lib/data/theses.ts`.',
-    '- `SourceDoc.url` og `Document.url` er definert i `prisma/schema.prisma`, men inventaret her er bygd kun fra typed seed-data — DB-rader krever `npm run db:audit` eller egen DB-spørring og er ikke inkludert i denne kjøringen.',
+    '- `SourceDoc.url` og `Document.url` er hentet fra databasen når `DATABASE_URL` er satt. Bruk `npm run inventory-urls -- --no-db` for typed seed-data-only inventar.',
     '- Kolonnen `source_priority` er slått opp i `research/KI-PRIORITY.csv`. Tom hvis ingen treff.',
     '- Ingen HTTP-spørringer kjøres her; rens av status håndteres av `scripts/check-urls.ts`.',
   ]
@@ -261,4 +213,7 @@ function main(): void {
   console.log('Output: research/URL-INVENTORY.csv + research/URL-INVENTORY.md')
 }
 
-main()
+main().catch((e) => {
+  console.error(e)
+  process.exit(1)
+})

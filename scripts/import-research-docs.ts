@@ -7,6 +7,8 @@ import { execFileSync } from 'child_process'
 import { theses } from '../src/lib/data/theses'
 import { reports } from '../src/lib/data/reports'
 import { sources } from '../src/lib/data/sources'
+import { extractFirstHttpUrl } from '../src/lib/url-extraction'
+import { findExactSourceDocLink } from '../src/lib/source-document-link-matches'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -17,7 +19,7 @@ const EVIDENCE_PACK_DIR = path.join(RESEARCH_DIR, 'evidence-pack')
 type ResearchFile = {
   fullPath: string
   relPath: string
-  extension: 'md' | 'pdf'
+  extension: 'md' | 'pdf' | 'csv'
 }
 
 type EvidenceBacklogRow = {
@@ -346,7 +348,10 @@ const SUPPLEMENTAL_PDF_MATCHES: Record<string, SupplementalPdfMatch> = {
   'evidence-pack/nordisk/dk-salling-coop-decision-2025.pdf': { reportId: 'dk-salling-coop-decision-2025' },
   'evidence-pack/nordisk/finland-food-market-ombudsman-2023.pdf': { reportId: 'finland-food-market-ombudsman-2023' },
   'evidence-pack/nordisk/is-samkeppni-annual-report-2024.pdf': { reportId: 'is-samkeppni-annual-report-2024' },
-  'evidence-pack/nordisk/kfst-salling-coop-2025-full.pdf': { reportId: 'kfst-salling-coop-2025' },
+  'evidence-pack/nordisk/kfst-salling-coop-2025-full.pdf': {
+    reportId: 'kfst-salling-coop-2025',
+    sourceDocId: 'src-79',
+  },
   'evidence-pack/nordisk/konkurrensverket-2024-4-dagligvaruhandelns-etablering.pdf': {
     title: 'Dagligvaruhandelns etablering - rapport 2024:4',
     author: 'Konkurrensverket',
@@ -356,6 +361,8 @@ const SUPPLEMENTAL_PDF_MATCHES: Record<string, SupplementalPdfMatch> = {
     tags: ['sweden', 'competition', 'establishment', 'grocery'],
   },
   'evidence-pack/nordisk/pty-finnish-grocery-trade-statistics-2024.pdf': {
+    reportId: 'pty-finnish-grocery-trade-2024',
+    sourceDocId: 'src-83',
     title: 'Finnish Grocery Trade Statistics 2024',
     author: 'PTY ry (Finnish Grocery Trade Association)',
     year: 2024,
@@ -369,6 +376,8 @@ const SUPPLEMENTAL_PDF_MATCHES: Record<string, SupplementalPdfMatch> = {
   'evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2022.pdf': { reportId: 'dagligvaretilsynet-aarsrapport-2022' },
   'evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2023.pdf': { reportId: 'dagligvaretilsynet-aarsrapport-2023' },
   'evidence-pack/offentlig/matsvinnutvalget-2024.pdf': {
+    reportId: 'matsvinnutvalget-2024',
+    sourceDocId: 'src-91',
     title: 'Matsvinnutvalgets rapport 2024',
     author: 'Matsvinnutvalget',
     year: 2024,
@@ -418,16 +427,19 @@ function walkResearchFiles(dir: string, baseDir = dir): ResearchFile[] {
     const fullPath = path.join(dir, entry.name)
     if (entry.isDirectory()) {
       results.push(...walkResearchFiles(fullPath, baseDir))
-    } else if (entry.name.endsWith('.md') || entry.name.endsWith('.pdf')) {
+    } else if (entry.name.endsWith('.md') || entry.name.endsWith('.pdf') || entry.name.endsWith('.csv')) {
       const relPath = path.relative(baseDir, fullPath)
       if (entry.name.endsWith('.pdf') && !relPath.startsWith(`evidence-pack${path.sep}`)) {
+        continue
+      }
+      if (entry.name.endsWith('.csv') && !findExactSourceDocLink(relPath)) {
         continue
       }
 
       results.push({
         fullPath,
         relPath,
-        extension: entry.name.endsWith('.pdf') ? 'pdf' : 'md',
+        extension: entry.name.endsWith('.pdf') ? 'pdf' : entry.name.endsWith('.csv') ? 'csv' : 'md',
       })
     }
   }
@@ -531,8 +543,8 @@ function extractMarkdownSummary(content: string): string | null {
 function extractMarkdownUrl(content: string): string | null {
   const lines = content.split('\n').slice(0, 20)
   for (const line of lines) {
-    const match = line.match(/https?:\/\/[^\s"'<>)]+/)
-    if (match) return match[0]
+    const url = extractFirstHttpUrl(line)
+    if (url) return url
   }
   return null
 }
@@ -1016,10 +1028,79 @@ function buildPdfRecord(
   }
 }
 
+function buildCsvRecord(
+  relPath: string,
+  content: string,
+): {
+  title: string
+  author: string | null
+  year: number | null
+  category: string
+  subcategory: string | null
+  country: string | null
+  summary: string
+  wordCount: number
+  documentType: string
+  tags: string[]
+  url: string | null
+  metadata: Record<string, unknown>
+} {
+  const exactSourceDocLink = findExactSourceDocLink(relPath)
+  const source = exactSourceDocLink ? sourceById.get(exactSourceDocLink.sourceDocId) : null
+  const { category, subcategory } = extractCategory(relPath)
+  const country = extractCountry(relPath)
+  const lines = content.trim() ? content.trim().split(/\r?\n/) : []
+  const dataRows = Math.max(0, lines.filter(line => line.trim() && !line.startsWith('#')).length - 1)
+  const year = source?.year != null ? extractYearFromValue(String(source.year)) : extractYearFromValue(relPath)
+  const documentType = source?.type ?? 'datasett'
+  const title = source?.title ?? path.basename(relPath, path.extname(relPath))
+  const author = source?.author ?? null
+  const summary = [
+    source?.description ?? 'CSV-inventar importert som strukturert kildedokument.',
+    `Lokal CSV: ${relPath}.`,
+    `Rader: ${dataRows}.`,
+  ].join(' ')
+  const tags = Array.from(new Set([
+    'csv',
+    'dataset',
+    category,
+    subcategory,
+    country,
+    documentType,
+    exactSourceDocLink?.sourceDocId,
+  ].filter(Boolean) as string[]))
+
+  return {
+    title,
+    author,
+    year,
+    category,
+    subcategory,
+    country,
+    summary,
+    wordCount: content.split(/\s+/).filter(Boolean).length,
+    documentType,
+    tags,
+    url: null,
+    metadata: {
+      canonicalFileType: 'csv',
+      availabilityStatus: 'fulltext',
+      localPath: relPath,
+      rowCount: dataRows,
+      structuredSource: exactSourceDocLink
+        ? {
+            sourceDocId: exactSourceDocLink.sourceDocId,
+            reason: exactSourceDocLink.reason,
+          }
+        : null,
+    },
+  }
+}
+
 async function linkStructuredRecords(opts: {
   documentId: string
   relPath: string
-  extension: 'md' | 'pdf'
+  extension: 'md' | 'pdf' | 'csv'
   title: string
   url: string | null
 }) {
@@ -1027,10 +1108,12 @@ async function linkStructuredRecords(opts: {
   const normalizedUrl = normalizeUrl(opts.url)
   const normalizedTitle = normalizeTitle(opts.title)
   const supplemental = opts.extension === 'pdf' ? getSupplementalPdfMetadata(opts.relPath) : null
+  const exactSourceDocLink = findExactSourceDocLink(opts.relPath)
+  const exactSourceDocId = supplemental?.sourceDocId ?? exactSourceDocLink?.sourceDocId ?? null
 
-  if (supplemental?.sourceDocId) {
+  if (exactSourceDocId) {
     const sourceDoc = await prisma.sourceDoc.findUnique({
-      where: { id: supplemental.sourceDocId },
+      where: { id: exactSourceDocId },
       select: { id: true, documentId: true },
     })
     if (sourceDoc) {
@@ -1098,7 +1181,7 @@ async function linkStructuredRecords(opts: {
     }
   }
 
-  if (supplemental?.sourceDocId || supplemental?.thesisId || supplemental?.reportId) {
+  if (exactSourceDocId || supplemental?.thesisId || supplemental?.reportId) {
     return
   }
 
@@ -1208,18 +1291,25 @@ async function linkStructuredRecords(opts: {
   }
 
   if (opts.extension === 'md') {
-    const matchingSource = await prisma.sourceDoc.findFirst({
-      where: {
-        filename: { contains: filename },
-        documentId: null,
-      },
+    const existingSourceDoc = await prisma.sourceDoc.findUnique({
+      where: { documentId: opts.documentId },
+      select: { id: true },
     })
-    if (matchingSource) {
-      await prisma.sourceDoc.update({
-        where: { id: matchingSource.id },
-        data: { documentId: opts.documentId },
+
+    if (!existingSourceDoc) {
+      const matchingSource = await prisma.sourceDoc.findFirst({
+        where: {
+          filename: { contains: filename },
+          documentId: null,
+        },
       })
-      console.log(`  Linked ${filename} → SourceDoc ${matchingSource.id}`)
+      if (matchingSource) {
+        await prisma.sourceDoc.update({
+          where: { id: matchingSource.id },
+          data: { documentId: opts.documentId },
+        })
+        console.log(`  Linked ${filename} → SourceDoc ${matchingSource.id}`)
+      }
     }
 
     const matchingThesis = await prisma.thesis.findFirst({
@@ -1244,7 +1334,12 @@ async function main() {
   const files = walkResearchFiles(RESEARCH_DIR)
   const activePaths = new Set(files.map((file) => file.relPath))
   const evidenceBacklog = loadEvidenceBacklog()
-  console.log(`Found ${files.length} importable research files (${files.filter(f => f.extension === 'md').length} markdown, ${files.filter(f => f.extension === 'pdf').length} pdf)\n`)
+  console.log(
+    `Found ${files.length} importable research files ` +
+      `(${files.filter(f => f.extension === 'md').length} markdown, ` +
+      `${files.filter(f => f.extension === 'pdf').length} pdf, ` +
+      `${files.filter(f => f.extension === 'csv').length} csv)\n`,
+  )
 
   let imported = 0
   let skipped = 0
@@ -1282,7 +1377,7 @@ async function main() {
           availabilityStatus: 'fulltext',
           localPath: file.relPath,
         }
-      } else {
+      } else if (file.extension === 'pdf') {
         const pdfRecord = buildPdfRecord(file.relPath, evidenceBacklog.get(file.relPath.replaceAll('\\', '/')))
         title = pdfRecord.title
         author = pdfRecord.author
@@ -1297,6 +1392,21 @@ async function main() {
         tags = pdfRecord.tags
         url = pdfRecord.url
         metadata = pdfRecord.metadata
+      } else {
+        content = fs.readFileSync(file.fullPath, 'utf-8')
+        const csvRecord = buildCsvRecord(file.relPath, content)
+        title = csvRecord.title
+        author = csvRecord.author
+        year = csvRecord.year
+        category = csvRecord.category
+        subcategory = csvRecord.subcategory
+        country = csvRecord.country
+        summary = csvRecord.summary
+        wordCount = csvRecord.wordCount
+        documentType = csvRecord.documentType
+        tags = csvRecord.tags
+        url = csvRecord.url
+        metadata = csvRecord.metadata
       }
 
       const ocrCompanion = lookupOcrCompanion(file.relPath)
