@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { resolveShareholderSourceLocator } from '../src/lib/row-source-locators'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -41,6 +42,7 @@ type CompanyData = {
     project?: string
     amountNok?: number
     year?: number
+    source?: string
   }[]
   properties?: {
     propertyType: string
@@ -449,9 +451,9 @@ const companies: CompanyData[] = [
       { year: 2024, revenueNok: 24000, operatingResult: 550, operatingMargin: 2.3, groupEmployees: 3000, source: 'Estimat basert på bransjedata' },
     ],
     shareholders: [
-      { name: 'NorgesGruppen', ownershipPct: 46, shareholderType: 'institutional', isControlling: true },
-      { name: 'REMA 1000', ownershipPct: 20, shareholderType: 'institutional', isControlling: false },
-      { name: 'Bama-familien', ownershipPct: 34, shareholderType: 'family', isControlling: false },
+      { name: 'NorgesGruppen ASA', ownershipPct: 46, shareholderType: 'institutional', isControlling: true },
+      { name: 'REMA Industrier AS', ownershipPct: 20, shareholderType: 'institutional', isControlling: false },
+      { name: 'AS Banan', ownershipPct: 34, shareholderType: 'family', isControlling: false },
     ],
     boardMembers: [
       { personName: 'Kristian Nergaard', role: 'styreleder' },
@@ -604,7 +606,14 @@ const companies: CompanyData[] = [
       { personName: 'Eva Safrine Aspvik', role: 'styremedlem' },
     ],
     subsidies: [
-      { subsidyType: 'Grønn plattform', project: 'Grønn ammoniakk Porsgrunn', amountNok: 283000000, year: 2022 },
+      {
+        subsidyType: 'Enova teknologiportefølje',
+        project: 'Grønn ammoniakk Porsgrunn',
+        amountNok: 283250000,
+        year: 2022,
+        source:
+          'https://www.mynewsdesk.com/no/enova-sf/pressreleases/yara-vil-bruke-groent-hydrogen-i-gjoedselproduksjonen-i-porsgrunn-faar-inntil-283-millioner-i-stoette-fra-enova-3151659',
+      },
     ],
   },
   {
@@ -1462,8 +1471,30 @@ function normalizePersonKey(name: string): string {
     .replace(/\s+/g, '-')
 }
 
+function shareholderProvenanceData(locator: string | null, verifiedAt: Date) {
+  if (!locator) return {}
+
+  if (locator.startsWith('document:')) {
+    return { source: locator, verifiedAt }
+  }
+
+  return {
+    source: 'Aksjonærdata: årsrapport 2024',
+    sourceUrl: locator,
+    verifiedAt,
+  }
+}
+
 async function main() {
   console.log('Importing company data...\n')
+
+  const documents = await prisma.document.findMany({
+    select: { id: true, slug: true },
+  })
+  const documentRefs = new Set(
+    documents.flatMap((document) => [document.id, document.slug].filter(Boolean) as string[]),
+  )
+  const importedAt = new Date()
 
   for (const c of [...companies, ...nordicCompanies]) {
     const company = await prisma.company.upsert({
@@ -1526,6 +1557,15 @@ async function main() {
     if (c.shareholders) {
       await prisma.shareholder.deleteMany({ where: { companyId: company.id } })
       for (const s of c.shareholders) {
+        const sourceLocator = resolveShareholderSourceLocator(
+          {
+            name: s.name,
+            ownershipPct: s.ownershipPct,
+            company: { orgNr: c.orgNr },
+          },
+          documentRefs,
+        )
+
         await prisma.shareholder.create({
           data: {
             companyId: company.id,
@@ -1533,6 +1573,7 @@ async function main() {
             ownershipPct: s.ownershipPct,
             shareholderType: s.shareholderType,
             isControlling: s.isControlling ?? false,
+            ...shareholderProvenanceData(sourceLocator, importedAt),
           },
         })
       }
@@ -1562,6 +1603,7 @@ async function main() {
             project: s.project,
             amountNok: s.amountNok,
             year: s.year,
+            source: s.source,
           },
         })
       }

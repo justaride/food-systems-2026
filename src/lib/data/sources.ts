@@ -765,6 +765,8 @@ export const sources: SourceDoc[] = [
     description: 'EUs groenne innkjoepskriterier for mat: oekologisk, lavutslipp, redusert matsvinn i offentlige kontrakter.',
     relevance: 'Operativt rammeverk for offentlig innkjoep som policy-verktoy.',
     publisher: 'European Commission Joint Research Centre',
+    url: 'https://publications.jrc.ec.europa.eu/repository/handle/JRC144579',
+    doi: '10.2760/9479564',
   },
   {
     id: 'src-76',
@@ -776,6 +778,7 @@ export const sources: SourceDoc[] = [
     description: 'Identifiserer 12 nordiske intervensjonspunkter for matsystemtransformasjon inkl. 4 pilarer.',
     relevance: 'Nordisk-spesifikt rammeverk for transformasjon.',
     publisher: 'Nordisk komite for jordbruksforskning',
+    url: 'https://nordicagriresearch.org/wp-content/uploads/2024/11/2-White-Paper-on-Nordic-Sustainable-Food-Systems.pdf',
   },
   {
     id: 'src-77',
@@ -786,6 +789,8 @@ export const sources: SourceDoc[] = [
     type: 'forskning',
     description: 'Kartlegger lokal markedskonsentrasjon i Norge paa postnummernivaet. Median HHI=1.0 (monopol).',
     relevance: 'Foerste granulare HHI-analyse av norsk dagligvare.',
+    publisher: 'Norges Handelshoyskole / CRESSE',
+    url: 'https://www.cresse.info/wp-content/uploads/2023/09/2023_ps13_pa2_Strom-Halseth.pdf',
   },
   {
     id: 'src-78',
@@ -828,6 +833,7 @@ export const sources: SourceDoc[] = [
     type: 'datasett',
     description: 'Finsk husholdningsundersoekelse: median 700m til naermeste dagligvarebutikk.',
     relevance: 'Finsk referansepunkt for food access.',
+    url: 'https://stat.fi/til/ktutk/2012/ktutk_2012_2014-05-26_tie_001_en.html',
   },
   {
     id: 'src-82',
@@ -838,6 +844,7 @@ export const sources: SourceDoc[] = [
     type: 'rapport',
     description: 'Arlig markedsandelskartlegging for svensk dagligvare.',
     relevance: 'Oppdaterte svenske markedsandeler og CR3.',
+    url: 'https://dlf.se/download/1167-E8CD2BD7C83DEB69C493BFA61DBE64A0/dagligvarukartan2024-PPT.pdf',
   },
   {
     id: 'src-83',
@@ -851,23 +858,27 @@ export const sources: SourceDoc[] = [
   },
   {
     id: 'src-84',
-    filename: 'usda-gain-denmark-2024.md',
-    title: 'USDA GAIN Retail Foods Annual: Denmark 2024',
+    filename: 'bibliotek/media/snapshots/dk-usda-gain-retail-2025.md',
+    title: 'USDA GAIN Retail Foods Annual: Denmark DA2025-0002',
     author: 'USDA Foreign Agricultural Service',
-    year: 2024,
+    year: 2025,
     type: 'rapport',
-    description: 'Dansk dagligvaremarked: Salling 36.3%, Coop 29.5%, Aldi exit.',
+    description: 'Offisiell USDA/FAS GAIN-rapport publisert i 2025 med dansk dagligvaremarked og 2024-markedsdata.',
     relevance: 'Oppdatert dansk markedsstruktur inkl. Aldi-exit.',
+    publisher: 'USDA Foreign Agricultural Service',
+    url: 'https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Retail+Foods+Annual_The+Hague_Denmark_DA2025-0002.pdf',
   },
   {
     id: 'src-85',
-    filename: 'usda-gain-iceland-2024.md',
-    title: 'USDA GAIN Retail Foods Annual: Iceland 2024',
+    filename: 'usda-gain-iceland-exporter-guide-2023.md',
+    title: 'USDA GAIN Iceland Exporter Guide',
     author: 'USDA Foreign Agricultural Service',
-    year: 2024,
+    year: 2023,
     type: 'rapport',
-    description: 'Islandsk dagligvaremarked: Hagar ~48%, Festi ~28%, Drangar-fusjon.',
-    relevance: 'Islandsk markedsstruktur og Drangar-fusjon.',
+    description: 'Offisiell USDA/FAS GAIN Exporter Guide for Island. Brukes som sekundar kryssjekk for islandsk dagligvarestruktur og Kronan/Festi-markedsdata.',
+    relevance: 'Islandsk markedsstruktur og sammenliknbare markedsandelsdata.',
+    publisher: 'USDA Foreign Agricultural Service',
+    url: 'https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Iceland+Exporter+Guide_The+Hague_Iceland_IC2023-0001.pdf',
   },
   {
     id: 'src-86',
@@ -878,6 +889,7 @@ export const sources: SourceDoc[] = [
     type: 'forskning',
     description: 'Akademisk analyse av norsk dagligvaremarked med HHI-beregning og prismekanismer.',
     relevance: 'Akademisk validering av markedskonsentrasjon.',
+    url: 'https://www.nhh.no/en/research-centres/food/food-news/2024/all-retail-sectors-are-highly-concentrated/',
   },
   {
     id: 'src-87',
@@ -950,6 +962,8 @@ export const sources: SourceDoc[] = [
     type: 'rapport',
     description: 'OECD-rapport om maalemetoder og verdsetting av matsvinn — utover SDG-maal.',
     relevance: 'Metodisk referanse for matsvinnmaaling.',
+    url: 'https://doi.org/10.1787/59cf6c95-en',
+    doi: '10.1787/59cf6c95-en',
   },
   {
     id: 'src-94',
@@ -971,6 +985,7 @@ export const sources: SourceDoc[] = [
     type: 'rapport',
     description: '123-144K tonn Vest-Afrika smaapelagisk fisk til norsk for i 2020 — 2.5-4M menneskers matforbruk.',
     relevance: 'Oppdatert kvantifisering av Vest-Afrika-konflikten.',
+    url: 'https://foodrise.org.uk/blue-empire-how-your-supermarket-salmon-is-impacting-communities-in-west-africa/',
   },
   {
     id: 'src-96',
@@ -981,6 +996,7 @@ export const sources: SourceDoc[] = [
     type: 'initiativ',
     description: 'Industriinitiativ: 0.4% → 25% nye raavarer i norsk laksefor innen 2030.',
     relevance: 'Kritisk transformasjonsvindu for norsk sjomatfor.',
+    url: 'https://bellona.no/project/ravareloftet',
   },
   {
     id: 'src-97',
@@ -991,6 +1007,7 @@ export const sources: SourceDoc[] = [
     type: 'rapport',
     description: 'Foerste kommersielle laksefor helt uten fiskemel (MicroBalance FLX).',
     relevance: 'Teknologisk gjennombrudd i forsirkularitet.',
+    url: 'https://www.skretting.com/en-es/sustainability/sustainability-reporting/',
   },
   {
     id: 'src-98',
@@ -1001,6 +1018,7 @@ export const sources: SourceDoc[] = [
     type: 'forskning',
     description: 'Nordisk forskningsprosjekt paa gjaer- og soppbasert protein fra skog- og matsidestroemmer.',
     relevance: 'Novel ingrediens med nordisk raavarebasis.',
+    url: 'https://www.nmbu.no/en/research/projects/nordicfeed',
   },
   {
     id: 'src-99',
@@ -1011,6 +1029,7 @@ export const sources: SourceDoc[] = [
     type: 'forskning',
     description: 'Norsk forskningsprosjekt: dyrke omega-3-rike alger fra industrielt CO2-utslipp for laksefor.',
     relevance: 'Sirkulaer utnyttelse av industriutslipp til forproduksjon.',
+    url: 'https://sa.uit.no/nyheter/artikkel?p_document_id=745023',
   },
   {
     id: 'src-100',
@@ -1253,7 +1272,7 @@ export const sources: SourceDoc[] = [
   },
   {
     id: 'src-124',
-    filename: '15-nordic-policy-landscape.md',
+    filename: 'external/circular-cities/15-nordic-policy-landscape.md',
     title: 'Nordisk policy-landskap (Circular Cities)',
     author: 'Circular Cities 2026 Research',
     year: 2025,
@@ -1263,7 +1282,7 @@ export const sources: SourceDoc[] = [
   },
   {
     id: 'src-125',
-    filename: '07-horizon-europe-call-analysis.md',
+    filename: 'external/circular-cities/07-horizon-europe-call-analysis.md',
     title: 'Horizon Europe-kall: Cluster 6 Food/Bioeconomy (Circular Cities)',
     author: 'Circular Cities 2026 Research',
     year: 2025,
@@ -1273,7 +1292,7 @@ export const sources: SourceDoc[] = [
   },
   {
     id: 'src-126',
-    filename: '19-nordic-added-value.md',
+    filename: 'external/circular-cities/19-nordic-added-value.md',
     title: 'Nordisk merverdi og NCH-portefølje (Circular Cities)',
     author: 'Circular Cities 2026 Research',
     year: 2025,
@@ -1574,7 +1593,7 @@ export const sources: SourceDoc[] = [
   },
   {
     id: 'src-153',
-    filename: 'forskningsrunde-2026-04-20-backlog.csv',
+    filename: 'evidence-pack/download-backlog-2026-04-20.csv',
     title: 'Download backlog for forskningsrunde 2026-04-20',
     author: 'Food Systems 2026',
     year: 2026,

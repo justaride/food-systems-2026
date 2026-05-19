@@ -11,6 +11,7 @@ type PropertyData = {
   address?: string
   municipality?: string
   county?: string
+  country?: string
   lat?: number
   lng?: number
   sqMeters?: number
@@ -242,8 +243,8 @@ const properties: PropertyData[] = [
   { companyOrgNr: '929228723', propertyType: 'warehouse', municipality: 'Sandnes', county: 'Rogaland', lat: 58.85, lng: 5.73, selfLeased: true, tenantOrgNr: '819731322', source: 'asko.no (ASKO Rogaland)' },
   { companyOrgNr: '929228723', propertyType: 'warehouse', municipality: 'Lillesand', county: 'Agder', lat: 58.25, lng: 8.38, selfLeased: true, tenantOrgNr: '819731322', source: 'asko.no (ASKO Sør)' },
   { companyOrgNr: '929228723', propertyType: 'warehouse', municipality: 'Drammen', county: 'Buskerud', lat: 59.74, lng: 10.20, selfLeased: true, tenantOrgNr: '819731322', source: 'asko.no (ASKO Drammen)' },
-  { companyOrgNr: '929228723', propertyType: 'warehouse', municipality: 'Hamar', county: 'Innlandet', lat: 60.79, lng: 11.07, selfLeased: true, tenantOrgNr: '819731322', source: 'asko.no (ASKO Innlandet)' },
-  { companyOrgNr: '929228723', propertyType: 'warehouse', municipality: 'Sarpsborg', county: 'Østfold', lat: 59.28, lng: 11.11, selfLeased: true, tenantOrgNr: '819731322', source: 'asko.no (ASKO Oslofjord)' },
+  { companyOrgNr: '929228723', propertyType: 'warehouse', address: 'Skansvegen 5', municipality: 'Ringsaker', county: 'Innlandet', lat: 60.79, lng: 11.07, selfLeased: true, tenantOrgNr: '819731322', source: 'asko.no (ASKO Hedmark)' },
+  { companyOrgNr: '929228723', propertyType: 'warehouse', address: 'Hanekleiva 76', municipality: 'Holmestrand', county: 'Vestfold', lat: 59.49, lng: 10.08, selfLeased: true, tenantOrgNr: '819731322', source: 'asko.no (ASKO Oslofjord)' },
   { companyOrgNr: '929228723', propertyType: 'warehouse', municipality: 'Ålesund', county: 'Møre og Romsdal', lat: 62.47, lng: 6.15, selfLeased: true, tenantOrgNr: '819731322', source: 'asko.no (ASKO Nordvest)' },
   { companyOrgNr: '929228723', propertyType: 'warehouse', municipality: 'Molde', county: 'Møre og Romsdal', lat: 62.74, lng: 7.16, selfLeased: true, tenantOrgNr: '819731322', source: 'asko.no (ASKO Molde)' },
   { companyOrgNr: '929228723', propertyType: 'warehouse', municipality: 'Narvik', county: 'Nordland', lat: 68.44, lng: 17.43, selfLeased: true, tenantOrgNr: '819731322', source: 'asko.no (ASKO Helgeland)' },
@@ -256,30 +257,30 @@ const properties: PropertyData[] = [
   { companyOrgNr: '894759372', propertyType: 'warehouse', municipality: 'Tromsø', county: 'Troms', lat: 69.65, lng: 18.96, source: 'proff.no (Distribunal Tromsø)' },
 
   // Coop logistics centers
-  { companyOrgNr: '936560288', propertyType: 'warehouse', address: 'Vilbergvegen 130', municipality: 'Ullensaker', county: 'Akershus', lat: 60.21, lng: 11.13, sqMeters: 52000, source: 'coop.no (CLOG Gardermoen)' },
-  { companyOrgNr: '936560288', propertyType: 'warehouse', municipality: 'Bergen', county: 'Vestland', lat: 60.38, lng: 5.33, source: 'coop.no (Regionlager Bergen)' },
-  { companyOrgNr: '936560288', propertyType: 'warehouse', municipality: 'Trondheim', county: 'Trøndelag', lat: 63.35, lng: 10.35, source: 'coop.no (Regionlager Heimdal)' },
-  { companyOrgNr: '936560288', propertyType: 'warehouse', municipality: 'Stavanger', county: 'Rogaland', lat: 58.96, lng: 5.72, source: 'coop.no (Regionlager Stavanger)' },
-  { companyOrgNr: '936560288', propertyType: 'warehouse', municipality: 'Tromsø', county: 'Troms', lat: 69.65, lng: 18.95, source: 'coop.no (Regionlager Tromsø)' },
+  { companyOrgNr: '936560288', propertyType: 'warehouse', address: 'Vilbergvegen 130', municipality: 'Ullensaker', county: 'Akershus', lat: 60.21, lng: 11.13, sqMeters: 52000, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '936560288', propertyType: 'warehouse', address: 'Lønningsflaten 22', municipality: 'Bergen', county: 'Vestland', lat: 60.38, lng: 5.33, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '936560288', propertyType: 'warehouse', address: 'Djupmyra 27A', municipality: 'Trondheim', county: 'Trøndelag', lat: 63.35, lng: 10.35, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '936560288', propertyType: 'warehouse', address: 'Nesflåtveien 4', municipality: 'Stavanger', county: 'Rogaland', lat: 58.96, lng: 5.72, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '936560288', propertyType: 'warehouse', address: 'Ringvegen 770', municipality: 'Tromsø', county: 'Troms', lat: 69.65, lng: 18.95, source: 'Brønnøysund underenheter' },
 
   // Nortura slaughterhouses/processing
-  { companyOrgNr: '938752648', propertyType: 'production', municipality: 'Ringsaker', county: 'Innlandet', lat: 60.92, lng: 10.66, source: 'nortura.no (Rudshøgda)' },
-  { companyOrgNr: '938752648', propertyType: 'production', municipality: 'Sandnes', county: 'Rogaland', lat: 58.84, lng: 5.73, source: 'nortura.no (Forus)' },
-  { companyOrgNr: '938752648', propertyType: 'production', municipality: 'Malvik', county: 'Trøndelag', lat: 63.44, lng: 10.69, source: 'nortura.no (Malvik)' },
-  { companyOrgNr: '938752648', propertyType: 'production', municipality: 'Indre Østfold', county: 'Østfold', lat: 59.58, lng: 11.38, source: 'nortura.no (Hærland)' },
-  { companyOrgNr: '938752648', propertyType: 'production', municipality: 'Tønsberg', county: 'Vestfold', lat: 59.27, lng: 10.41, source: 'nortura.no (Tønsberg)' },
-  { companyOrgNr: '938752648', propertyType: 'production', municipality: 'Elverum', county: 'Innlandet', lat: 60.88, lng: 11.56, source: 'nortura.no (Elverum)' },
-  { companyOrgNr: '938752648', propertyType: 'production', municipality: 'Karasjok', county: 'Troms og Finnmark', lat: 69.47, lng: 25.51, source: 'nortura.no (Karasjok)' },
-  { companyOrgNr: '938752648', propertyType: 'production', municipality: 'Målselv', county: 'Troms og Finnmark', lat: 68.99, lng: 18.38, source: 'nortura.no (Målselv)' },
+  { companyOrgNr: '938752648', propertyType: 'production', address: 'Leinskogen 14', municipality: 'Ringsaker', county: 'Innlandet', lat: 60.92, lng: 10.66, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '938752648', propertyType: 'production', address: 'Gamle Forusveien 50', municipality: 'Stavanger', county: 'Rogaland', lat: 58.84, lng: 5.73, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '938752648', propertyType: 'production', address: 'Stavsjøvegen 14', municipality: 'Malvik', county: 'Trøndelag', lat: 63.44, lng: 10.69, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '938752648', propertyType: 'production', address: 'Sloraveien 60', municipality: 'Indre Østfold', county: 'Østfold', lat: 59.58, lng: 11.38, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '938752648', propertyType: 'production', address: 'Åskollen 3', municipality: 'Tønsberg', county: 'Vestfold', lat: 59.27, lng: 10.41, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '938752648', propertyType: 'production', address: 'Industrigata 13', municipality: 'Elverum', county: 'Innlandet', lat: 60.88, lng: 11.56, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '938752648', propertyType: 'production', address: 'Kautokeinoveien 6', municipality: 'Karasjok', county: 'Finnmark', lat: 69.47, lng: 25.51, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '938752648', propertyType: 'production', address: 'Andslimoen', municipality: 'Målselv', county: 'Troms', lat: 68.99, lng: 18.38, source: 'Brønnøysund underenheter' },
 
   // TINE dairies
-  { companyOrgNr: '947942638', propertyType: 'production', municipality: 'Oslo', county: 'Oslo', lat: 59.93, lng: 10.77, source: 'tine.no (TINE Meieriet Oslo)' },
-  { companyOrgNr: '947942638', propertyType: 'production', municipality: 'Bergen', county: 'Vestland', lat: 60.39, lng: 5.33, source: 'tine.no (TINE Meieriet Bergen)' },
-  { companyOrgNr: '947942638', propertyType: 'production', municipality: 'Trondheim', county: 'Trøndelag', lat: 63.43, lng: 10.40, source: 'tine.no (TINE Meieriet Trondheim)' },
-  { companyOrgNr: '947942638', propertyType: 'production', municipality: 'Ringsaker', county: 'Innlandet', lat: 60.87, lng: 10.91, source: 'tine.no (TINE Brumunddal)' },
-  { companyOrgNr: '947942638', propertyType: 'production', municipality: 'Øyer', county: 'Innlandet', lat: 61.24, lng: 10.39, source: 'tine.no (TINE Tretten)' },
-  { companyOrgNr: '947942638', propertyType: 'production', municipality: 'Alstahaug', county: 'Nordland', lat: 65.86, lng: 12.38, source: 'tine.no (TINE Sandnessjøen)' },
-  { companyOrgNr: '947942638', propertyType: 'production', municipality: 'Tana', county: 'Troms og Finnmark', lat: 70.01, lng: 27.00, source: 'tine.no (TINE Tana)' },
+  { companyOrgNr: '947942638', propertyType: 'production', address: 'Bedriftsveien 7', municipality: 'Oslo', county: 'Oslo', lat: 59.93, lng: 10.77, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '947942638', propertyType: 'production', address: 'Espehaugen 18', municipality: 'Bergen', county: 'Vestland', lat: 60.39, lng: 5.33, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '947942638', propertyType: 'production', address: 'Bromstadvegen 68', municipality: 'Trondheim', county: 'Trøndelag', lat: 63.43, lng: 10.40, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '947942638', propertyType: 'production', address: 'Strandsagvegen 1', municipality: 'Ringsaker', county: 'Innlandet', lat: 60.87, lng: 10.91, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '947942638', propertyType: 'production', address: 'Musdalsvegen 34', municipality: 'Øyer', county: 'Innlandet', lat: 61.24, lng: 10.39, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '947942638', propertyType: 'production', address: 'Alstenveien 51', municipality: 'Alstahaug', county: 'Nordland', lat: 65.86, lng: 12.38, source: 'Brønnøysund underenheter' },
+  { companyOrgNr: '947942638', propertyType: 'production', address: 'Grenveien 9', municipality: 'Tana', county: 'Finnmark', lat: 70.01, lng: 27.00, source: 'Brønnøysund underenheter' },
 
   // Felleskjøpet feed mills
   { companyOrgNr: '911608103', propertyType: 'production', address: 'Møllebakken 50', municipality: 'Moss', county: 'Østfold', lat: 59.44, lng: 10.70, source: 'felleskjopet.no (Kambo fôrfabrikk)' },
@@ -326,26 +327,26 @@ const properties: PropertyData[] = [
   // ═══ Nordic company headquarters ═══
 
   // Sweden
-  { companyOrgNr: 'SE-556048-2837', propertyType: 'office', address: 'Svetsarvägen 16', municipality: 'Solna', county: 'Stockholm', lat: 59.367, lng: 18.004, source: 'icagruppen.se (Huvudkontor)' },
-  { companyOrgNr: 'SE-556542-5353', propertyType: 'office', address: 'Tegnérgatan 34', municipality: 'Stockholm', county: 'Stockholm', lat: 59.339, lng: 18.054, source: 'axfood.se (Huvudkontor)' },
-  { companyOrgNr: 'SE-702001-3469', propertyType: 'office', municipality: 'Solna', county: 'Stockholm', lat: 59.369, lng: 18.010, source: 'coop.se (Huvudkontor)' },
-  { companyOrgNr: 'SE-969697-6594', propertyType: 'office', municipality: 'Solna', county: 'Stockholm', lat: 59.364, lng: 18.005, source: 'lidl.se (Svenskt huvudkontor)' },
+  { companyOrgNr: 'SE-556048-2837', propertyType: 'office', address: 'Svetsarvägen 16', municipality: 'Solna', county: 'Stockholm', country: 'SE', lat: 59.367, lng: 18.004, source: 'icagruppen.se (Huvudkontor)' },
+  { companyOrgNr: 'SE-556542-5353', propertyType: 'office', address: 'Tegnérgatan 34', municipality: 'Stockholm', county: 'Stockholm', country: 'SE', lat: 59.339, lng: 18.054, source: 'axfood.se (Huvudkontor)' },
+  { companyOrgNr: 'SE-702001-3469', propertyType: 'office', municipality: 'Solna', county: 'Stockholm', country: 'SE', lat: 59.369, lng: 18.010, source: 'coop.se (Huvudkontor)' },
+  { companyOrgNr: 'SE-969697-6594', propertyType: 'office', municipality: 'Solna', county: 'Stockholm', country: 'SE', lat: 59.364, lng: 18.005, source: 'lidl.se (Svenskt huvudkontor)' },
 
   // Denmark
-  { companyOrgNr: 'DK-35954716', propertyType: 'office', address: 'Rosbjergvej 33', municipality: 'Brabrand', county: 'Midtjylland', lat: 56.155, lng: 10.097, source: 'sallinggroup.com (Hovedkontor)' },
-  { companyOrgNr: 'DK-26259495', propertyType: 'office', address: 'Roskildevej 65', municipality: 'Albertslund', county: 'Hovedstaden', lat: 55.656, lng: 12.356, source: 'coop.dk (Hovedkontor)' },
-  { companyOrgNr: 'DK-14705627', propertyType: 'office', municipality: 'Horsens', county: 'Midtjylland', lat: 55.862, lng: 9.850, source: 'rema1000.dk (Hovedkontor)' },
-  { companyOrgNr: 'DK-38714295', propertyType: 'office', municipality: 'Ringsted', county: 'Sjælland', lat: 55.442, lng: 11.790, source: 'dagrofa.dk (Hovedkontor)' },
+  { companyOrgNr: 'DK-35954716', propertyType: 'office', address: 'Rosbjergvej 33', municipality: 'Brabrand', county: 'Midtjylland', country: 'DK', lat: 56.155, lng: 10.097, source: 'sallinggroup.com (Hovedkontor)' },
+  { companyOrgNr: 'DK-26259495', propertyType: 'office', address: 'Roskildevej 65', municipality: 'Albertslund', county: 'Hovedstaden', country: 'DK', lat: 55.656, lng: 12.356, source: 'coop.dk (Hovedkontor)' },
+  { companyOrgNr: 'DK-14705627', propertyType: 'office', municipality: 'Horsens', county: 'Midtjylland', country: 'DK', lat: 55.862, lng: 9.850, source: 'rema1000.dk (Hovedkontor)' },
+  { companyOrgNr: 'DK-38714295', propertyType: 'office', municipality: 'Ringsted', county: 'Sjælland', country: 'DK', lat: 55.442, lng: 11.790, source: 'dagrofa.dk (Hovedkontor)' },
 
   // Finland
-  { companyOrgNr: 'FI-0116323-9', propertyType: 'office', address: 'Fleminginkatu 34', municipality: 'Helsinki', county: 'Uusimaa', lat: 60.187, lng: 24.953, source: 's-ryhma.fi (Pääkonttori)' },
-  { companyOrgNr: 'FI-0110456-8', propertyType: 'office', address: 'Satamakatu 3', municipality: 'Helsinki', county: 'Uusimaa', lat: 60.165, lng: 24.955, source: 'kesko.fi (Pääkonttori)' },
-  { companyOrgNr: 'FI-1615492-7', propertyType: 'office', municipality: 'Janakkala', county: 'Kanta-Häme', lat: 60.886, lng: 24.616, source: 'lidl.fi (Pääkonttori)' },
+  { companyOrgNr: 'FI-0116323-9', propertyType: 'office', address: 'Fleminginkatu 34', municipality: 'Helsinki', county: 'Uusimaa', country: 'FI', lat: 60.187, lng: 24.953, source: 's-ryhma.fi (Pääkonttori)' },
+  { companyOrgNr: 'FI-0110456-8', propertyType: 'office', address: 'Satamakatu 3', municipality: 'Helsinki', county: 'Uusimaa', country: 'FI', lat: 60.165, lng: 24.955, source: 'kesko.fi (Pääkonttori)' },
+  { companyOrgNr: 'FI-1615492-7', propertyType: 'office', municipality: 'Janakkala', county: 'Kanta-Häme', country: 'FI', lat: 60.886, lng: 24.616, source: 'lidl.fi (Pääkonttori)' },
 
   // Iceland
-  { companyOrgNr: 'IS-670203-2120', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', lat: 64.135, lng: -21.895, source: 'hagar.is (Höfuðstöðvar)' },
-  { companyOrgNr: 'IS-571298-3769', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', lat: 64.128, lng: -21.878, source: 'samkaup.is (Höfuðstöðvar)' },
-  { companyOrgNr: 'IS-540206-2010', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', lat: 64.140, lng: -21.910, source: 'festi.is (Höfuðstöðvar)' },
+  { companyOrgNr: 'IS-670203-2120', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', country: 'IS', lat: 64.135, lng: -21.895, source: 'hagar.is (Höfuðstöðvar)' },
+  { companyOrgNr: 'IS-571298-3769', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', country: 'IS', lat: 64.128, lng: -21.878, source: 'samkaup.is (Höfuðstöðvar)' },
+  { companyOrgNr: 'IS-540206-2010', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', country: 'IS', lat: 64.140, lng: -21.910, source: 'festi.is (Höfuðstöðvar)' },
 
   // ═══ Additional Norwegian logistics/production ═══
 
@@ -544,7 +545,7 @@ async function importProperties() {
           address: p.address,
           municipality: p.municipality,
           county: p.county,
-          country: 'NO',
+          country: p.country ?? 'NO',
           lat: p.lat,
           lng: p.lng,
           sqMeters: p.sqMeters,

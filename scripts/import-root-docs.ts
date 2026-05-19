@@ -143,6 +143,17 @@ const ROOT_DOCS: RootDocConfig[] = [
     country: 'NO',
     tags: ['soknad', 'oslo', 'duplikat', 'project'],
   },
+  {
+    sourceDocId: 'src-100',
+    filename: 'docs/meetings/Strategisk ledergruppe Marked 16 mars 2026.md',
+    title: 'Strategisk ledergruppe Marked 16. mars 2026',
+    author: null,
+    year: 2026,
+    documentType: 'transcript',
+    category: 'meetings',
+    country: 'NO',
+    tags: ['meeting', 'transkripsjon', 'marked', 'project'],
+  },
 ]
 
 function slugify(filename: string): string {

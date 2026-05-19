@@ -354,14 +354,14 @@ export const mediaCountryProfiles: MediaCountryProfile[] = [
     triggerMoments: [
       { year: 2024, label: 'Samkeppniseftirlitid samler markedskonsentrasjon og vertikal integrasjon i ett tydelig narrativ', sources: [
         { label: 'Samkeppniseftirlitid rapportoversikt', url: 'https://www.samkeppni.is/urlausnir/skyrslur/' },
-        { sourceId: 'src-85', label: 'USDA GAIN Retail Foods Annual: Iceland 2024' },
+        { sourceId: 'src-85', label: 'USDA GAIN Iceland Exporter Guide' },
       ] },
       { year: 2025, label: 'Melmollekrisen gjor korn og foredlingskapasitet til et konkret beredskapssporsmaal', sources: [
         { label: 'Islands melmolle og matsuverenitet', url: 'https://www.samkeppni.is/urlausnir/skyrslur/' },
       ] },
     ],
     sources: [
-      { sourceId: 'src-85', label: 'USDA GAIN Retail Foods Annual: Iceland 2024' },
+      { sourceId: 'src-85', label: 'USDA GAIN Iceland Exporter Guide' },
       { label: 'Samkeppniseftirlitid rapportoversikt', url: 'https://www.samkeppni.is/urlausnir/skyrslur/' },
     ],
   },

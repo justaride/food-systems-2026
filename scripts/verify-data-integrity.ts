@@ -5,11 +5,30 @@ import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { reports as seedReports } from '../src/lib/data/reports'
 import type { Report, ReportSupportingSource } from '../src/lib/types'
+import { candidateLocalFilePaths } from '../src/lib/local-file-locator'
+import {
+  sourceCoveragePct,
+  summarizeSourceRows,
+  type SourceRow,
+} from '../src/lib/source-quality-audit'
+import {
+  resolveAquacultureApplicationSourceLocator,
+  resolveAquacultureSiteSourceLocator,
+  resolveBusinessRelationshipSourceLocator,
+  resolveCompanyFinancialSourceLocator,
+  resolveCompanyOwnershipSourceLocator,
+  resolveCompanyPropertySourceLocator,
+  resolveCountryMetricSourceLocator,
+  resolveDeliveryVolumeSourceLocator,
+  resolveShareholderSourceLocator,
+  resolveSubsidySourceLocator,
+} from '../src/lib/row-source-locators'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
 let errorCount = 0
+const strictSourceAudit = process.argv.slice(2).includes('--strict-sources')
 
 function header(title: string) {
   console.log(`\n${'='.repeat(60)}`)
@@ -30,6 +49,11 @@ function warn(msg: string) {
   console.log(`  ! ${msg}`)
 }
 
+function sourceAuditIssue(msg: string) {
+  if (strictSourceAudit) fail(msg)
+  else warn(msg)
+}
+
 const seedReportsById = new Map(seedReports.map(report => [report.id, report]))
 
 function supportingSourceIsResolvable(source: ReportSupportingSource) {
@@ -41,7 +65,7 @@ function supportingSourceIsResolvable(source: ReportSupportingSource) {
   }
 
   if (source.documentPath) {
-    return existsSync(join(process.cwd(), source.documentPath))
+    return candidateLocalFilePaths(source.documentPath).some((path) => existsSync(path))
   }
 
   return false
@@ -400,6 +424,323 @@ async function checkDOICoverage() {
   pass(`Reports: ${reportsWithPub}/${totalReports} (${rPubPct}%) have publisher`)
 }
 
+function printSourceSummary(summary: ReturnType<typeof summarizeSourceRows>) {
+  const sourced = summary.directLocator + summary.resolvedLocator + summary.labelOnly
+  const locatable = summary.directLocator + summary.resolvedLocator
+  pass(
+    `${summary.label}: ${sourced}/${summary.total} (${sourceCoveragePct(
+      sourced,
+      summary.total,
+    )}) have source text; ${locatable}/${summary.total} (${sourceCoveragePct(
+      locatable,
+      summary.total,
+    )}) have direct URL/DOI/internal/resolved locator`,
+  )
+
+  if (summary.missing > 0) {
+    sourceAuditIssue(
+      `${summary.label}: ${summary.missing}/${summary.total} missing source value` +
+        (summary.examples.missing.length > 0
+          ? ` (examples: ${summary.examples.missing.join('; ')})`
+          : ''),
+    )
+  }
+
+  if (summary.labelOnly > 0) {
+    sourceAuditIssue(
+      `${summary.label}: ${summary.labelOnly}/${summary.total} source values are label-only, not direct locators` +
+        (summary.examples.labelOnly.length > 0
+          ? ` (examples: ${summary.examples.labelOnly.join('; ')})`
+          : ''),
+    )
+  }
+}
+
+function printVerifiedAtSummary(
+  label: string,
+  rows: Array<{ id: string; verifiedAt?: Date | string | null }>,
+) {
+  const verified = rows.filter((row) => Boolean(row.verifiedAt)).length
+  pass(
+    `${label}: ${verified}/${rows.length} (${sourceCoveragePct(
+      verified,
+      rows.length,
+    )}) have verifiedAt`,
+  )
+
+  const missing = rows.filter((row) => !row.verifiedAt)
+  if (missing.length > 0) {
+    sourceAuditIssue(
+      `${label}: ${missing.length}/${rows.length} missing verifiedAt` +
+        ` (examples: ${missing
+          .slice(0, 5)
+          .map((row) => row.id)
+          .join('; ')})`,
+    )
+  }
+}
+
+function fileExistsForDocumentPath(filePath: string | null): boolean {
+  return candidateLocalFilePaths(filePath).some((path) => existsSync(path))
+}
+
+async function checkSourceQualityCoverage() {
+  header('13. Source Quality Coverage')
+
+  if (strictSourceAudit) {
+    warn('Strict source gate enabled: source gaps in this section count as audit failures')
+  } else {
+    warn('Strict source gate disabled: source gaps are reported as warnings; use --strict-sources to fail on them')
+  }
+
+  const [
+    financials,
+    ownerships,
+    properties,
+    relationships,
+    subsidies,
+    countryMetrics,
+    aquacultureSites,
+    aquacultureApplications,
+    deliveryVolumes,
+    documents,
+    sourceDocs,
+    reports,
+    shareholders,
+    boardMembers,
+  ] = await Promise.all([
+    prisma.companyFinancial.findMany({
+      select: {
+        id: true,
+        companyId: true,
+        year: true,
+        source: true,
+        company: { select: { orgNr: true } },
+      },
+    }),
+    prisma.companyOwnership.findMany({
+      select: {
+        id: true,
+        source: true,
+        parentCompany: { select: { orgNr: true } },
+        childCompany: { select: { orgNr: true } },
+      },
+    }),
+    prisma.companyProperty.findMany({
+      select: {
+        id: true,
+        source: true,
+        company: { select: { orgNr: true } },
+      },
+    }),
+    prisma.businessRelationship.findMany({
+      select: {
+        id: true,
+        source: true,
+        fromCompany: { select: { orgNr: true } },
+        toCompany: { select: { orgNr: true } },
+      },
+    }),
+    prisma.subsidy.findMany({
+      select: { id: true, source: true, subsidyType: true, year: true },
+    }),
+    prisma.countryMetric.findMany({ select: { id: true, source: true, metadata: true } }),
+    prisma.aquacultureSite.findMany({ select: { id: true, localityNumber: true, source: true } }),
+    prisma.aquacultureApplication.findMany({
+      select: { id: true, applicantOrgNr: true, source: true },
+    }),
+    prisma.deliveryVolume.findMany({ select: { id: true, commodity: true, year: true, source: true } }),
+    prisma.document.findMany({
+      select: { id: true, slug: true, filePath: true, url: true },
+    }),
+    prisma.sourceDoc.findMany({
+      select: { id: true, url: true, documentId: true, isDuplicate: true },
+    }),
+    prisma.report.findMany({ select: { id: true, sourceUrl: true } }),
+    prisma.shareholder.findMany({
+      select: {
+        id: true,
+        name: true,
+        ownershipPct: true,
+        source: true,
+        sourceUrl: true,
+        verifiedAt: true,
+        company: { select: { orgNr: true } },
+      },
+    }),
+    prisma.boardMember.findMany({
+      select: { id: true, personName: true, source: true, sourceUrl: true, verifiedAt: true },
+    }),
+  ])
+
+  const reportSourceUrlById = new Map(reports.map((report) => [report.id, report.sourceUrl]))
+  const documentRefs = new Set(
+    documents.flatMap((document) => [document.id, document.slug].filter(Boolean) as string[]),
+  )
+
+  const sourceSummaries = [
+    summarizeSourceRows(
+      'CompanyFinancial.source',
+      financials.map((row): SourceRow => ({
+        id: `${row.companyId}:${row.year}`,
+        source: row.source,
+        resolvedLocator: resolveCompanyFinancialSourceLocator(row, documentRefs),
+      })),
+    ),
+    summarizeSourceRows(
+      'CompanyOwnership.source',
+      ownerships.map((row): SourceRow => ({
+        id: row.id,
+        source: row.source,
+        resolvedLocator: resolveCompanyOwnershipSourceLocator(row, documentRefs),
+      })),
+    ),
+    summarizeSourceRows(
+      'CompanyProperty.source',
+      properties.map((row): SourceRow => ({
+        id: row.id,
+        source: row.source,
+        resolvedLocator: resolveCompanyPropertySourceLocator(row),
+      })),
+    ),
+    summarizeSourceRows(
+      'BusinessRelationship.source',
+      relationships.map((row): SourceRow => ({
+        id: row.id,
+        source: row.source,
+        resolvedLocator: resolveBusinessRelationshipSourceLocator(row, documentRefs, reportSourceUrlById),
+      })),
+    ),
+    summarizeSourceRows(
+      'Subsidy.source',
+      subsidies.map((row): SourceRow => ({
+        id: row.id,
+        source: row.source,
+        resolvedLocator: resolveSubsidySourceLocator(row),
+      })),
+    ),
+    summarizeSourceRows(
+      'CountryMetric.source',
+      countryMetrics.map((row): SourceRow => ({
+        id: row.id,
+        source: row.source,
+        resolvedLocator: resolveCountryMetricSourceLocator(row, reportSourceUrlById),
+      })),
+    ),
+    summarizeSourceRows(
+      'AquacultureSite.source',
+      aquacultureSites.map((row): SourceRow => ({
+        id: row.id,
+        source: row.source,
+        resolvedLocator: resolveAquacultureSiteSourceLocator(row),
+      })),
+    ),
+    summarizeSourceRows(
+      'AquacultureApplication.source',
+      aquacultureApplications.map((row): SourceRow => ({
+        id: row.id,
+        source: row.source,
+        resolvedLocator: resolveAquacultureApplicationSourceLocator(row),
+      })),
+    ),
+    summarizeSourceRows(
+      'DeliveryVolume.source',
+      deliveryVolumes.map((row): SourceRow => ({
+        id: row.id,
+        source: row.source,
+        resolvedLocator: resolveDeliveryVolumeSourceLocator(row),
+      })),
+    ),
+    summarizeSourceRows(
+      'Shareholder.source',
+      shareholders.map((row): SourceRow => ({
+        id: `${row.id}:${row.name}`,
+        source: row.sourceUrl?.trim() || row.source,
+        resolvedLocator: resolveShareholderSourceLocator(row, documentRefs),
+      })),
+    ),
+    summarizeSourceRows(
+      'BoardMember.source',
+      boardMembers.map((row): SourceRow => ({
+        id: `${row.id}:${row.personName}`,
+        source: row.sourceUrl?.trim() || row.source,
+      })),
+    ),
+  ]
+
+  for (const summary of sourceSummaries) {
+    printSourceSummary(summary)
+  }
+
+  printVerifiedAtSummary(
+    'Shareholder.verifiedAt',
+    shareholders.map((row) => ({ id: `${row.id}:${row.name}`, verifiedAt: row.verifiedAt })),
+  )
+  printVerifiedAtSummary(
+    'BoardMember.verifiedAt',
+    boardMembers.map((row) => ({ id: `${row.id}:${row.personName}`, verifiedAt: row.verifiedAt })),
+  )
+
+  const documentsWithUrl = documents.filter((document) => Boolean(document.url?.trim())).length
+  const documentsWithResolvableFile = documents.filter((document) =>
+    fileExistsForDocumentPath(document.filePath),
+  ).length
+  const documentsWithoutUrlOrFile = documents.filter(
+    (document) => !document.url?.trim() && !fileExistsForDocumentPath(document.filePath),
+  )
+  const documentsWithMissingFilePath = documents.filter(
+    (document) => document.filePath && !fileExistsForDocumentPath(document.filePath),
+  )
+
+  pass(
+    `Document locator coverage: ${documentsWithUrl}/${documents.length} have URL; ` +
+      `${documentsWithResolvableFile}/${documents.length} have resolvable local filePath`,
+  )
+
+  if (documentsWithoutUrlOrFile.length > 0) {
+    sourceAuditIssue(
+      `Document: ${documentsWithoutUrlOrFile.length}/${documents.length} have neither URL nor resolvable local filePath` +
+        ` (examples: ${documentsWithoutUrlOrFile
+          .slice(0, 5)
+          .map((document) => document.slug)
+          .join('; ')})`,
+    )
+  }
+
+  if (documentsWithMissingFilePath.length > 0) {
+    sourceAuditIssue(
+      `Document: ${documentsWithMissingFilePath.length}/${documents.length} filePath values do not resolve locally` +
+        ` (examples: ${documentsWithMissingFilePath
+          .slice(0, 5)
+          .map((document) => `${document.slug}: ${document.filePath}`)
+          .join('; ')})`,
+    )
+  }
+
+  const activeSourceDocs = sourceDocs.filter((sourceDoc) => !sourceDoc.isDuplicate)
+  const activeSourceDocsWithUrl = activeSourceDocs.filter((sourceDoc) => Boolean(sourceDoc.url?.trim())).length
+  const activeSourceDocsWithDocument = activeSourceDocs.filter((sourceDoc) => Boolean(sourceDoc.documentId)).length
+  const activeSourceDocsWithoutLocator = activeSourceDocs.filter(
+    (sourceDoc) => !sourceDoc.url?.trim() && !sourceDoc.documentId,
+  )
+
+  pass(
+    `SourceDoc locator coverage: ${activeSourceDocsWithUrl}/${activeSourceDocs.length} active rows have URL; ` +
+      `${activeSourceDocsWithDocument}/${activeSourceDocs.length} link to Document`,
+  )
+
+  if (activeSourceDocsWithoutLocator.length > 0) {
+    sourceAuditIssue(
+      `SourceDoc: ${activeSourceDocsWithoutLocator.length}/${activeSourceDocs.length} active rows have neither URL nor linked Document` +
+        ` (examples: ${activeSourceDocsWithoutLocator
+          .slice(0, 5)
+          .map((sourceDoc) => sourceDoc.id)
+          .join('; ')})`,
+    )
+  }
+
+}
+
 async function main() {
   console.log('Food Systems 2026 — Data Integrity Check')
   console.log(`Run at: ${new Date().toISOString()}`)
@@ -417,12 +758,13 @@ async function main() {
   await checkThesisMissingUrls()
   await checkReportMissingUrls()
   await checkDOICoverage()
+  await checkSourceQualityCoverage()
 
   header('Summary')
   if (errorCount > 0) {
-    console.log(`  ${errorCount} referential integrity violation(s) found`)
+    console.log(`  ${errorCount} enforced audit violation(s) found`)
   } else {
-    console.log('  All referential integrity checks passed')
+    console.log('  All enforced integrity checks passed; review warnings above')
   }
 
   return errorCount

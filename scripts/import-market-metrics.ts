@@ -5,6 +5,21 @@ import { PrismaPg } from '@prisma/adapter-pg'
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
+const NO_RETAILER_SHARE_2020_2024_SOURCE_URL =
+  'https://konkurransetilsynet.no/wp-content/uploads/2025/04/Konkurransetilsynets-Dagligvarerapport-2024-25-1.pdf'
+
+const noRetailerShareMetadata = {
+  sourceUrl: NO_RETAILER_SHARE_2020_2024_SOURCE_URL,
+  sourceNote: 'Figure 2 / direct KT time series used in research/data/nordic/market-share/no-grocery-market-share-2020-2024.csv',
+}
+
+const FI_RETAILER_SHARE_2024_SOURCE_URL = 'https://www.pty.fi/en/finnish-grocery-trade/'
+
+const fiRetailerShare2024Metadata = {
+  sourceUrl: FI_RETAILER_SHARE_2024_SOURCE_URL,
+  sourceNote: 'Direct PTY market-share page; grocery sales include VAT, source NielsenIQ Grocery Shop Directory / Finnish Grocery Trade Association',
+}
+
 type MarketMetric = {
   country: string
   metricType: string
@@ -14,41 +29,42 @@ type MarketMetric = {
   year: string
   source: string
   subtitle?: string
+  metadata?: Record<string, unknown>
 }
 
 const metrics: MarketMetric[] = [
   // Retailer market shares 2020-2024 (Konkurransetilsynet / Dagligvarehandelen)
-  { country: 'no', metricType: 'retailerShare', category: 'NorgesGruppen', value: 44.1, unit: '%', year: '2020', source: 'Konkurransetilsynet 2021' },
-  { country: 'no', metricType: 'retailerShare', category: 'Coop', value: 29.2, unit: '%', year: '2020', source: 'Konkurransetilsynet 2021' },
-  { country: 'no', metricType: 'retailerShare', category: 'REMA 1000', value: 23.1, unit: '%', year: '2020', source: 'Konkurransetilsynet 2021' },
-  { country: 'no', metricType: 'retailerShare', category: 'Andre', value: 3.6, unit: '%', year: '2020', source: 'Konkurransetilsynet 2021' },
+  { country: 'no', metricType: 'retailerShare', category: 'NorgesGruppen', value: 44.1, unit: '%', year: '2020', source: 'Konkurransetilsynet 2021', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'Coop', value: 29.3, unit: '%', year: '2020', source: 'Konkurransetilsynet 2021', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'REMA 1000', value: 23.2, unit: '%', year: '2020', source: 'Konkurransetilsynet 2021', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'Andre', value: 3.4, unit: '%', year: '2020', source: 'Konkurransetilsynet 2021', metadata: noRetailerShareMetadata },
 
-  { country: 'no', metricType: 'retailerShare', category: 'NorgesGruppen', value: 44.1, unit: '%', year: '2021', source: 'Konkurransetilsynet 2022' },
-  { country: 'no', metricType: 'retailerShare', category: 'Coop', value: 29.3, unit: '%', year: '2021', source: 'Konkurransetilsynet 2022' },
-  { country: 'no', metricType: 'retailerShare', category: 'REMA 1000', value: 23.0, unit: '%', year: '2021', source: 'Konkurransetilsynet 2022' },
-  { country: 'no', metricType: 'retailerShare', category: 'Andre', value: 3.6, unit: '%', year: '2021', source: 'Konkurransetilsynet 2022' },
+  { country: 'no', metricType: 'retailerShare', category: 'NorgesGruppen', value: 44.0, unit: '%', year: '2021', source: 'Konkurransetilsynet 2022', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'Coop', value: 29.7, unit: '%', year: '2021', source: 'Konkurransetilsynet 2022', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'REMA 1000', value: 22.9, unit: '%', year: '2021', source: 'Konkurransetilsynet 2022', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'Andre', value: 3.4, unit: '%', year: '2021', source: 'Konkurransetilsynet 2022', metadata: noRetailerShareMetadata },
 
-  { country: 'no', metricType: 'retailerShare', category: 'NorgesGruppen', value: 44.0, unit: '%', year: '2022', source: 'Konkurransetilsynet 2023' },
-  { country: 'no', metricType: 'retailerShare', category: 'Coop', value: 29.3, unit: '%', year: '2022', source: 'Konkurransetilsynet 2023' },
-  { country: 'no', metricType: 'retailerShare', category: 'REMA 1000', value: 23.2, unit: '%', year: '2022', source: 'Konkurransetilsynet 2023' },
-  { country: 'no', metricType: 'retailerShare', category: 'Andre', value: 3.5, unit: '%', year: '2022', source: 'Konkurransetilsynet 2023' },
+  { country: 'no', metricType: 'retailerShare', category: 'NorgesGruppen', value: 43.3, unit: '%', year: '2022', source: 'Konkurransetilsynet 2023', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'Coop', value: 29.6, unit: '%', year: '2022', source: 'Konkurransetilsynet 2023', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'REMA 1000', value: 23.6, unit: '%', year: '2022', source: 'Konkurransetilsynet 2023', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'Andre', value: 3.5, unit: '%', year: '2022', source: 'Konkurransetilsynet 2023', metadata: noRetailerShareMetadata },
 
-  { country: 'no', metricType: 'retailerShare', category: 'NorgesGruppen', value: 43.8, unit: '%', year: '2023', source: 'Konkurransetilsynet 2024' },
-  { country: 'no', metricType: 'retailerShare', category: 'Coop', value: 29.4, unit: '%', year: '2023', source: 'Konkurransetilsynet 2024' },
-  { country: 'no', metricType: 'retailerShare', category: 'REMA 1000', value: 23.5, unit: '%', year: '2023', source: 'Konkurransetilsynet 2024' },
-  { country: 'no', metricType: 'retailerShare', category: 'Andre', value: 3.3, unit: '%', year: '2023', source: 'Konkurransetilsynet 2024' },
+  { country: 'no', metricType: 'retailerShare', category: 'NorgesGruppen', value: 43.7, unit: '%', year: '2023', source: 'Konkurransetilsynet 2024', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'Coop', value: 29.1, unit: '%', year: '2023', source: 'Konkurransetilsynet 2024', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'REMA 1000', value: 23.9, unit: '%', year: '2023', source: 'Konkurransetilsynet 2024', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'Andre', value: 3.4, unit: '%', year: '2023', source: 'Konkurransetilsynet 2024', metadata: noRetailerShareMetadata },
 
-  { country: 'no', metricType: 'retailerShare', category: 'NorgesGruppen', value: 44.1, unit: '%', year: '2024', source: 'Konkurransetilsynet 2025' },
-  { country: 'no', metricType: 'retailerShare', category: 'Coop', value: 29.2, unit: '%', year: '2024', source: 'Konkurransetilsynet 2025' },
-  { country: 'no', metricType: 'retailerShare', category: 'REMA 1000', value: 23.5, unit: '%', year: '2024', source: 'Konkurransetilsynet 2025' },
-  { country: 'no', metricType: 'retailerShare', category: 'Andre', value: 3.2, unit: '%', year: '2024', source: 'Konkurransetilsynet 2025' },
+  { country: 'no', metricType: 'retailerShare', category: 'NorgesGruppen', value: 43.5, unit: '%', year: '2024', source: 'Konkurransetilsynet 2025', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'Coop', value: 29.2, unit: '%', year: '2024', source: 'Konkurransetilsynet 2025', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'REMA 1000', value: 23.9, unit: '%', year: '2024', source: 'Konkurransetilsynet 2025', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'retailerShare', category: 'Andre', value: 3.3, unit: '%', year: '2024', source: 'Konkurransetilsynet 2025', metadata: noRetailerShareMetadata },
 
   // HHI (Herfindahl-Hirschman Index) 2020-2024
-  { country: 'no', metricType: 'hhi', category: 'dagligvare', value: 3344, unit: 'index', year: '2020', source: 'Beregnet fra markedsandeler', subtitle: '44.1² + 29.2² + 23.1² + 3.6²' },
-  { country: 'no', metricType: 'hhi', category: 'dagligvare', value: 3345, unit: 'index', year: '2021', source: 'Beregnet fra markedsandeler', subtitle: '44.1² + 29.3² + 23.0² + 3.6²' },
-  { country: 'no', metricType: 'hhi', category: 'dagligvare', value: 3345, unit: 'index', year: '2022', source: 'Beregnet fra markedsandeler', subtitle: '44.0² + 29.3² + 23.2² + 3.5²' },
-  { country: 'no', metricType: 'hhi', category: 'dagligvare', value: 3346, unit: 'index', year: '2023', source: 'Beregnet fra markedsandeler', subtitle: '43.8² + 29.4² + 23.5² + 3.3²' },
-  { country: 'no', metricType: 'hhi', category: 'dagligvare', value: 3360, unit: 'index', year: '2024', source: 'Beregnet fra markedsandeler', subtitle: '44.1² + 29.2² + 23.5² + 3.2²' },
+  { country: 'no', metricType: 'hhi', category: 'dagligvare', value: 3353, unit: 'index', year: '2020', source: 'Beregnet fra markedsandeler', subtitle: '44.1² + 29.3² + 23.2² + 3.4²', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'hhi', category: 'dagligvare', value: 3354, unit: 'index', year: '2021', source: 'Beregnet fra markedsandeler', subtitle: '44.0² + 29.7² + 22.9² + 3.4²', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'hhi', category: 'dagligvare', value: 3320, unit: 'index', year: '2022', source: 'Beregnet fra markedsandeler', subtitle: '43.3² + 29.6² + 23.6² + 3.5²', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'hhi', category: 'dagligvare', value: 3339, unit: 'index', year: '2023', source: 'Beregnet fra markedsandeler', subtitle: '43.7² + 29.1² + 23.9² + 3.4²', metadata: noRetailerShareMetadata },
+  { country: 'no', metricType: 'hhi', category: 'dagligvare', value: 3327, unit: 'index', year: '2024', source: 'Beregnet fra markedsandeler', subtitle: '43.5² + 29.2² + 23.9² + 3.3²', metadata: noRetailerShareMetadata },
 
   // Segment shares 2020-2024 (Lavpris, Supermarked, Nærbutikk)
   { country: 'no', metricType: 'segmentShare', category: 'Lavpris', value: 59.5, unit: '%', year: '2020', source: 'Nielsen/Dagligvarehandelen' },
@@ -185,16 +201,16 @@ const metrics: MarketMetric[] = [
   { country: 'dk', metricType: 'retailerShare', category: 'Andre', value: 4.0, unit: '%', year: '2024', source: 'Konkurrence- og Forbrugerstyrelsen 2025' },
 
   // Finland 2024 (PTY / NielsenIQ)
-  { country: 'fi', metricType: 'retailerShare', category: 'S Group', value: 48.8, unit: '%', year: '2024', source: 'PTY/NielsenIQ 2025' },
-  { country: 'fi', metricType: 'retailerShare', category: 'K Group (Kesko)', value: 33.7, unit: '%', year: '2024', source: 'PTY/NielsenIQ 2025' },
-  { country: 'fi', metricType: 'retailerShare', category: 'Lidl FI', value: 9.4, unit: '%', year: '2024', source: 'PTY/NielsenIQ 2025' },
-  { country: 'fi', metricType: 'retailerShare', category: 'Andre', value: 8.1, unit: '%', year: '2024', source: 'PTY/NielsenIQ 2025' },
+  { country: 'fi', metricType: 'retailerShare', category: 'S Group', value: 48.8, unit: '%', year: '2024', source: 'PTY/NielsenIQ 2025', metadata: fiRetailerShare2024Metadata },
+  { country: 'fi', metricType: 'retailerShare', category: 'K Group (Kesko)', value: 33.7, unit: '%', year: '2024', source: 'PTY/NielsenIQ 2025', metadata: fiRetailerShare2024Metadata },
+  { country: 'fi', metricType: 'retailerShare', category: 'Lidl FI', value: 9.4, unit: '%', year: '2024', source: 'PTY/NielsenIQ 2025', metadata: fiRetailerShare2024Metadata },
+  { country: 'fi', metricType: 'retailerShare', category: 'Andre', value: 8.1, unit: '%', year: '2024', source: 'PTY/NielsenIQ 2025', metadata: fiRetailerShare2024Metadata },
 
   // ═══ Nordic HHI values 2024 (for cross-country comparison) ═══
 
   { country: 'se', metricType: 'hhi', category: 'dagligvare', value: 3339, unit: 'index', year: '2024', source: 'Beregnet fra markedsandeler', subtitle: '49.9² + 24.0² + 14.2² + 6.4² + 5.5²' },
   { country: 'dk', metricType: 'hhi', category: 'dagligvare', value: 2642, unit: 'index', year: '2024', source: 'Beregnet fra markedsandeler', subtitle: '35.0² + 28.0² + 24.0² + 5.0² + 4.0² + 4.0²' },
-  { country: 'fi', metricType: 'hhi', category: 'dagligvare', value: 3671, unit: 'index', year: '2024', source: 'Beregnet fra markedsandeler', subtitle: '48.8² + 33.7² + 9.4² + 8.1²' },
+  { country: 'fi', metricType: 'hhi', category: 'dagligvare', value: 3671, unit: 'index', year: '2024', source: 'Beregnet fra markedsandeler', subtitle: '48.8² + 33.7² + 9.4² + 8.1²', metadata: fiRetailerShare2024Metadata },
 
   // ═══ HHI by product category, Norway 2024 ═══
 
@@ -320,6 +336,7 @@ async function main() {
         unit: m.unit,
         source: m.source,
         subtitle: m.subtitle,
+        metadata: m.metadata ?? undefined,
       },
       create: {
         country,
@@ -330,6 +347,7 @@ async function main() {
         year: m.year,
         source: m.source,
         subtitle: m.subtitle,
+        metadata: m.metadata,
       },
     })
 

@@ -38,7 +38,7 @@ function extractYear(value: string): number | null {
 }
 
 function buildMeetingDocument(meeting: Meeting) {
-  const filePath = `generated/meetings/${meeting.id}.md`
+  const filePath = `src/lib/data/meetings.ts#${meeting.id}`
   const slug = `meeting-${meeting.id}`
   const relatedSources = (meeting.sources ?? []).map(source => {
     const detailParts = [source.note, source.url].filter(Boolean)
