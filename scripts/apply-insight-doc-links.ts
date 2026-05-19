@@ -12,14 +12,15 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { resolveReviewDocumentId } from '../src/lib/insight-doc-link-review'
 
-const REPO = '/Users/gabrielboen/Documents/Food Systems 2026'
+const REPO = process.cwd()
 const CSV_PATH = join(REPO, 'research/_status/insight-doc-link-candidates-2026-05-11.csv')
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
-type Row = { insightId: string; docId: string; rank: number; decision: string }
+type Row = { insightId: string; docId: string; docTitle: string; rank: number; decision: string }
 
 function parseCsv(text: string): Row[] {
   const lines = text.split('\n').filter(l => l.trim().length > 0)
@@ -38,6 +39,7 @@ function parseCsv(text: string): Row[] {
     out.push({
       insightId: fields[0],
       docId: fields[2],
+      docTitle: fields[3],
       rank: Number(fields[4]),
       decision: fields[6].trim().toLowerCase(),
     })
@@ -60,11 +62,23 @@ async function main() {
     return
   }
 
+  const documents = await prisma.document.findMany({
+    select: { id: true, title: true },
+  })
+
   let inserted = 0
   let skipped = 0
   for (const row of accepted) {
+    const documentId = resolveReviewDocumentId(row, documents)
+    if (!documentId) {
+      console.log(`  skip missing/ambiguous document: ${row.insightId} -> ${row.docId} (${row.docTitle})`)
+      skipped++
+      continue
+    }
+
     if (dryRun) {
-      console.log(`  would insert: ${row.insightId} → ${row.docId} (rank ${row.rank})`)
+      const remapped = documentId === row.docId ? '' : ` remapped from ${row.docId}`
+      console.log(`  would insert: ${row.insightId} → ${documentId} (rank ${row.rank})${remapped}`)
       inserted++
       continue
     }
@@ -75,7 +89,7 @@ async function main() {
         row.rank > 8 ? 'supporting' :
         'related'
       await prisma.insightDocumentRef.create({
-        data: { insightId: row.insightId, documentId: row.docId, relevance },
+        data: { insightId: row.insightId, documentId, relevance },
       })
       inserted++
     } catch (e: unknown) {

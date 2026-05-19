@@ -20,6 +20,11 @@ const fiRetailerShare2024Metadata = {
   sourceNote: 'Direct PTY market-share page; grocery sales include VAT, source NielsenIQ Grocery Shop Directory / Finnish Grocery Trade Association',
 }
 
+const FORMAT_2016_FOOD_WASTE_REPORT_URL =
+  'https://www.matvett.no/uploads/documents/ForMat-rapport-2016.-Sluttrapport.pdf'
+const MATVETT_2018_FOOD_WASTE_REPORT_URL =
+  'https://www.matvett.no/uploads/documents/OR.28.18-Edible-food-waste-in-Norway-Report-on-key-figures-2015-2017.pdf'
+
 type MarketMetric = {
   country: string
   metricType: string
@@ -88,17 +93,18 @@ const metrics: MarketMetric[] = [
   { country: 'no', metricType: 'segmentShare', category: 'Nærbutikk', value: 8.3, unit: '%', year: '2024', source: 'Nielsen/Dagligvarehandelen' },
 
   // --- Food waste by sector (tonnes), Norway (Matvett/ForMat/SSB) ---
-  { country: 'no', metricType: 'foodWaste', category: 'Husholdninger', value: 350000, unit: 'tonn', year: '2015', source: 'ForMat 2016' },
-  { country: 'no', metricType: 'foodWaste', category: 'Dagligvare', value: 90000, unit: 'tonn', year: '2015', source: 'ForMat 2016' },
-  { country: 'no', metricType: 'foodWaste', category: 'Matindustri', value: 120000, unit: 'tonn', year: '2015', source: 'ForMat 2016' },
-  { country: 'no', metricType: 'foodWaste', category: 'Jordbruk', value: 15000, unit: 'tonn', year: '2015', source: 'ForMat 2016' },
-  { country: 'no', metricType: 'foodWaste', category: 'Totalt', value: 575000, unit: 'tonn', year: '2015', source: 'ForMat 2016' },
+  { country: 'no', metricType: 'foodWaste', category: 'Husholdninger', value: 217480, unit: 'tonn', year: '2015', source: FORMAT_2016_FOOD_WASTE_REPORT_URL },
+  { country: 'no', metricType: 'foodWaste', category: 'Dagligvare', value: 60177, unit: 'tonn', year: '2015', source: FORMAT_2016_FOOD_WASTE_REPORT_URL },
+  { country: 'no', metricType: 'foodWaste', category: 'Matindustri', value: 74404, unit: 'tonn', year: '2015', source: FORMAT_2016_FOOD_WASTE_REPORT_URL },
+  { country: 'no', metricType: 'foodWaste', category: 'Grossist', value: 3067, unit: 'tonn', year: '2015', source: FORMAT_2016_FOOD_WASTE_REPORT_URL },
+  { country: 'no', metricType: 'foodWaste', category: 'Totalt', value: 355000, unit: 'tonn', year: '2015', source: FORMAT_2016_FOOD_WASTE_REPORT_URL },
 
-  { country: 'no', metricType: 'foodWaste', category: 'Husholdninger', value: 330000, unit: 'tonn', year: '2017', source: 'Matvett/SSB 2018' },
-  { country: 'no', metricType: 'foodWaste', category: 'Dagligvare', value: 85000, unit: 'tonn', year: '2017', source: 'Matvett/SSB 2018' },
-  { country: 'no', metricType: 'foodWaste', category: 'Matindustri', value: 115000, unit: 'tonn', year: '2017', source: 'Matvett/SSB 2018' },
-  { country: 'no', metricType: 'foodWaste', category: 'Jordbruk', value: 14000, unit: 'tonn', year: '2017', source: 'Matvett/SSB 2018' },
-  { country: 'no', metricType: 'foodWaste', category: 'Totalt', value: 544000, unit: 'tonn', year: '2017', source: 'Matvett/SSB 2018' },
+  { country: 'no', metricType: 'foodWaste', category: 'Husholdninger', value: 224004, unit: 'tonn', year: '2017', source: MATVETT_2018_FOOD_WASTE_REPORT_URL },
+  { country: 'no', metricType: 'foodWaste', category: 'Dagligvare', value: 51212, unit: 'tonn', year: '2017', source: MATVETT_2018_FOOD_WASTE_REPORT_URL },
+  { country: 'no', metricType: 'foodWaste', category: 'Matindustri', value: 93897, unit: 'tonn', year: '2017', source: MATVETT_2018_FOOD_WASTE_REPORT_URL },
+  { country: 'no', metricType: 'foodWaste', category: 'Grossist', value: 5953, unit: 'tonn', year: '2017', source: MATVETT_2018_FOOD_WASTE_REPORT_URL },
+  { country: 'no', metricType: 'foodWaste', category: 'Servering', value: 9578, unit: 'tonn', year: '2017', source: MATVETT_2018_FOOD_WASTE_REPORT_URL },
+  { country: 'no', metricType: 'foodWaste', category: 'Totalt', value: 385000, unit: 'tonn', year: '2017', source: MATVETT_2018_FOOD_WASTE_REPORT_URL },
 
   { country: 'no', metricType: 'foodWaste', category: 'Husholdninger', value: 307000, unit: 'tonn', year: '2020', source: 'Matvett/SSB 2021' },
   { country: 'no', metricType: 'foodWaste', category: 'Dagligvare', value: 82000, unit: 'tonn', year: '2020', source: 'Matvett/SSB 2021' },
@@ -119,8 +125,8 @@ const metrics: MarketMetric[] = [
   { country: 'no', metricType: 'foodWaste', category: 'Totalt', value: 451000, unit: 'tonn', year: '2024', source: 'Matvett/SSB 2025 est.' },
 
   // --- Food waste per capita (kg/capita), Nordic comparison ---
-  { country: 'no', metricType: 'foodWastePerCapita', category: 'Totalt', value: 109, unit: 'kg/capita', year: '2015', source: 'ForMat/Eurostat 2016' },
-  { country: 'no', metricType: 'foodWastePerCapita', category: 'Totalt', value: 102, unit: 'kg/capita', year: '2017', source: 'Matvett/Eurostat 2018' },
+  { country: 'no', metricType: 'foodWastePerCapita', category: 'Totalt', value: 68.7, unit: 'kg/capita', year: '2015', source: FORMAT_2016_FOOD_WASTE_REPORT_URL },
+  { country: 'no', metricType: 'foodWastePerCapita', category: 'Totalt', value: 73, unit: 'kg/capita', year: '2017', source: MATVETT_2018_FOOD_WASTE_REPORT_URL },
   { country: 'no', metricType: 'foodWastePerCapita', category: 'Totalt', value: 93, unit: 'kg/capita', year: '2020', source: 'Matvett/Eurostat 2021' },
   { country: 'no', metricType: 'foodWastePerCapita', category: 'Totalt', value: 87, unit: 'kg/capita', year: '2022', source: 'Matvett/Eurostat 2023' },
   { country: 'no', metricType: 'foodWastePerCapita', category: 'Totalt', value: 82, unit: 'kg/capita', year: '2024', source: 'Matvett 2025 est.' },

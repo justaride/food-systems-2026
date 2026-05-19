@@ -4,6 +4,14 @@ export type ExistingBoardMemberForBrregMatch = {
   role: string
 }
 
+export type BoardMemberForProvenancePruning = ExistingBoardMemberForBrregMatch & {
+  source?: string | null
+  sourceUrl?: string | null
+  verifiedAt?: Date | string | null
+}
+
+export const BRREG_ROLES_SOURCE_LABEL = 'Brønnøysundregistrene roller i virksomheten'
+
 export function boardMemberPersonRoleKey(personKey: string, role: string): string {
   return `${personKey}|${role}`
 }
@@ -49,4 +57,26 @@ export function groupBoardMembersByPersonRole<T extends ExistingBoardMemberForBr
   }
 
   return grouped
+}
+
+function hasBrregRoleProvenance(member: BoardMemberForProvenancePruning): boolean {
+  return (
+    member.source === BRREG_ROLES_SOURCE_LABEL &&
+    Boolean(member.sourceUrl?.trim()) &&
+    Boolean(member.verifiedAt)
+  )
+}
+
+function isCompletelyUnverifiedSeedRow(member: BoardMemberForProvenancePruning): boolean {
+  return !member.source?.trim() && !member.sourceUrl?.trim() && !member.verifiedAt
+}
+
+export function selectUnverifiedSeedBoardMemberIdsForPruning(
+  members: BoardMemberForProvenancePruning[],
+): string[] {
+  if (!members.some(hasBrregRoleProvenance)) return []
+
+  return members
+    .filter(isCompletelyUnverifiedSeedRow)
+    .map((member) => member.id)
 }

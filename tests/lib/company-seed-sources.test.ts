@@ -3,6 +3,16 @@ import { readFileSync } from 'node:fs'
 import { describe, it } from 'node:test'
 
 describe('company seed source corrections', () => {
+  it('keeps Oda shareholder seed on the checked direct shareholder row', () => {
+    const source = readFileSync('scripts/import-company-data.ts', 'utf8')
+    const odaIndex = source.indexOf("name: 'Oda'")
+    const odaBlock = odaIndex >= 0 ? source.slice(odaIndex, odaIndex + 900) : ''
+
+    assert.ok(odaBlock, 'expected an Oda seed block')
+    assert.match(odaBlock, /name: 'AGP Advokater AS'/)
+    assert.doesNotMatch(odaBlock, /Oda Midco AS \/ Softbank, Kinnevik m\.fl\./)
+  })
+
   it('anchors Yara Green Ammonia Porsgrunn subsidy to the Enova source row', () => {
     const source = readFileSync('scripts/import-company-data.ts', 'utf8')
     const projectIndex = source.indexOf("project: 'Grønn ammoniakk Porsgrunn'")
@@ -65,5 +75,66 @@ describe('company seed source corrections', () => {
       source,
       /country: 'fi', metricType: 'hhi', category: 'dagligvare', value: 3671, unit: 'index', year: '2024', source: 'Beregnet fra markedsandeler', subtitle: '48\.8² \+ 33\.7² \+ 9\.4² \+ 8\.1²', metadata: fiRetailerShare2024Metadata/,
     )
+  })
+
+  it('keeps historical Norwegian food-waste seeds on checked report figures', () => {
+    const source = readFileSync('scripts/import-market-metrics.ts', 'utf8')
+    const foodWasteIndex = source.indexOf('Food waste by sector')
+    const foodWasteBlock =
+      foodWasteIndex >= 0 ? source.slice(foodWasteIndex, foodWasteIndex + 5200) : ''
+
+    assert.ok(foodWasteBlock, 'expected Norwegian food-waste seed block')
+    assert.match(
+      source,
+      /FORMAT_2016_FOOD_WASTE_REPORT_URL\s*=\s*'https:\/\/www\.matvett\.no\/uploads\/documents\/ForMat-rapport-2016\.-Sluttrapport\.pdf'/,
+    )
+    assert.match(
+      source,
+      /MATVETT_2018_FOOD_WASTE_REPORT_URL\s*=\s*'https:\/\/www\.matvett\.no\/uploads\/documents\/OR\.28\.18-Edible-food-waste-in-Norway-Report-on-key-figures-2015-2017\.pdf'/,
+    )
+    assert.match(
+      foodWasteBlock,
+      /category: 'Husholdninger', value: 217480, unit: 'tonn', year: '2015', source: FORMAT_2016_FOOD_WASTE_REPORT_URL/,
+    )
+    assert.match(
+      foodWasteBlock,
+      /category: 'Dagligvare', value: 60177, unit: 'tonn', year: '2015', source: FORMAT_2016_FOOD_WASTE_REPORT_URL/,
+    )
+    assert.match(
+      foodWasteBlock,
+      /category: 'Grossist', value: 3067, unit: 'tonn', year: '2015', source: FORMAT_2016_FOOD_WASTE_REPORT_URL/,
+    )
+    assert.match(
+      foodWasteBlock,
+      /category: 'Totalt', value: 355000, unit: 'tonn', year: '2015', source: FORMAT_2016_FOOD_WASTE_REPORT_URL/,
+    )
+    assert.match(
+      foodWasteBlock,
+      /category: 'Totalt', value: 68\.7, unit: 'kg\/capita', year: '2015', source: FORMAT_2016_FOOD_WASTE_REPORT_URL/,
+    )
+    assert.match(
+      foodWasteBlock,
+      /category: 'Husholdninger', value: 224004, unit: 'tonn', year: '2017', source: MATVETT_2018_FOOD_WASTE_REPORT_URL/,
+    )
+    assert.match(
+      foodWasteBlock,
+      /category: 'Dagligvare', value: 51212, unit: 'tonn', year: '2017', source: MATVETT_2018_FOOD_WASTE_REPORT_URL/,
+    )
+    assert.match(
+      foodWasteBlock,
+      /category: 'Servering', value: 9578, unit: 'tonn', year: '2017', source: MATVETT_2018_FOOD_WASTE_REPORT_URL/,
+    )
+    assert.match(
+      foodWasteBlock,
+      /category: 'Totalt', value: 385000, unit: 'tonn', year: '2017', source: MATVETT_2018_FOOD_WASTE_REPORT_URL/,
+    )
+    assert.match(
+      foodWasteBlock,
+      /category: 'Totalt', value: 73, unit: 'kg\/capita', year: '2017', source: MATVETT_2018_FOOD_WASTE_REPORT_URL/,
+    )
+    assert.doesNotMatch(foodWasteBlock, /year: '2015', source: 'ForMat 2016'/)
+    assert.doesNotMatch(foodWasteBlock, /year: '2017', source: 'Matvett\/SSB 2018'/)
+    assert.doesNotMatch(foodWasteBlock, /year: '2017', source: 'Matvett\/Eurostat 2018'/)
+    assert.doesNotMatch(foodWasteBlock, /category: 'Jordbruk', value: 1[45]000/)
   })
 })

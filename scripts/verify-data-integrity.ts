@@ -544,7 +544,17 @@ async function checkSourceQualityCoverage() {
     prisma.subsidy.findMany({
       select: { id: true, source: true, subsidyType: true, year: true },
     }),
-    prisma.countryMetric.findMany({ select: { id: true, source: true, metadata: true } }),
+    prisma.countryMetric.findMany({
+      select: {
+        id: true,
+        country: true,
+        metricType: true,
+        category: true,
+        year: true,
+        source: true,
+        metadata: true,
+      },
+    }),
     prisma.aquacultureSite.findMany({ select: { id: true, localityNumber: true, source: true } }),
     prisma.aquacultureApplication.findMany({
       select: { id: true, applicantOrgNr: true, source: true },

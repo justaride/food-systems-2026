@@ -1,0 +1,841 @@
+{
+  "generatedAt": "2026-05-19T22:29:54.630Z",
+  "totalGroups": 80,
+  "totalRows": 210,
+  "items": [
+    {
+      "label": "BusinessRelationship.source",
+      "issue": "label_only",
+      "source": "Bransjedata",
+      "count": 16,
+      "examples": [
+        "TINE SA -> Reitan Retail AS supplier",
+        "Nortura SA -> NorgesGruppen ASA supplier",
+        "Nortura SA -> Reitan Retail AS supplier",
+        "Orkla ASA -> NorgesGruppen ASA supplier",
+        "Orkla ASA -> Reitan Retail AS supplier",
+        "Yara International ASA -> Felleskjøpet Agri SA supplier",
+        "Skretting AS -> SalMar ASA supplier",
+        "Skretting AS -> Lerøy Seafood Group ASA supplier",
+        "Skretting AS -> Cermaq Norway AS supplier",
+        "TINE SA -> NorgesGruppen ASA supplier"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Nielsen/Dagligvarehandelen",
+      "count": 15,
+      "examples": [
+        "NO segmentShare Supermarked 2023",
+        "NO segmentShare Nærbutikk 2023",
+        "NO segmentShare Lavpris 2024",
+        "NO segmentShare Supermarked 2024",
+        "NO segmentShare Nærbutikk 2024",
+        "NO segmentShare Lavpris 2020",
+        "NO segmentShare Supermarked 2020",
+        "NO segmentShare Nærbutikk 2020",
+        "NO segmentShare Lavpris 2021",
+        "NO segmentShare Supermarked 2021"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "NielsenIQ/bransjeanalyse est.",
+      "count": 15,
+      "examples": [
+        "NO privateLabel NorgesGruppen 2020",
+        "NO privateLabel NorgesGruppen 2021",
+        "NO privateLabel NorgesGruppen 2022",
+        "NO privateLabel NorgesGruppen 2023",
+        "NO privateLabel NorgesGruppen 2024",
+        "NO privateLabel Coop 2020",
+        "NO privateLabel Coop 2021",
+        "NO privateLabel Coop 2022",
+        "NO privateLabel Coop 2023",
+        "NO privateLabel Coop 2024"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat basert på bransjedata",
+      "count": 6,
+      "examples": [
+        "BAMA Gruppen AS (914224314) 2024",
+        "Skretting AS (988044113) 2020",
+        "Skretting AS (988044113) 2021",
+        "Skretting AS (988044113) 2022",
+        "Skretting AS (988044113) 2023",
+        "Skretting AS (988044113) 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Danmarks Statistik/Landbrug & Fødevarer",
+      "count": 6,
+      "examples": [
+        "DK selfSufficiency Grøntsager 2023",
+        "DK selfSufficiency Kød 2023",
+        "DK selfSufficiency Kalorier 2023",
+        "DK selfSufficiency Frugt 2023",
+        "DK selfSufficiency Kartofler 2023",
+        "DK selfSufficiency Mælk 2023"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Hagstofa Íslands / Bændasamtök Íslands",
+      "count": 6,
+      "examples": [
+        "IS selfSufficiency Sjávarafurðir 2023",
+        "IS selfSufficiency Mjólk 2023",
+        "IS selfSufficiency Kjöt 2023",
+        "IS selfSufficiency Egg 2023",
+        "IS selfSufficiency Grænmeti 2023",
+        "IS selfSufficiency Korn 2023"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Jordbruksverket",
+      "count": 6,
+      "examples": [
+        "SE selfSufficiency Mjölk 2023",
+        "SE selfSufficiency Kött 2023",
+        "SE selfSufficiency Potatis 2023",
+        "SE selfSufficiency Grönsaker 2023",
+        "SE selfSufficiency Kalorier 2023",
+        "SE selfSufficiency Frukt 2023"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Konkurrence- og Forbrugerstyrelsen 2023",
+      "count": 6,
+      "examples": [
+        "DK retailerShare Salling Group 2022",
+        "DK retailerShare Coop Danmark 2022",
+        "DK retailerShare REMA 1000 DK 2022",
+        "DK retailerShare Lidl DK 2022",
+        "DK retailerShare Dagrofa 2022",
+        "DK retailerShare Andre 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Luke/Ruokavirasto",
+      "count": 6,
+      "examples": [
+        "FI selfSufficiency Maito 2023",
+        "FI selfSufficiency Liha 2023",
+        "FI selfSufficiency Perunat 2023",
+        "FI selfSufficiency Vihannekset 2023",
+        "FI selfSufficiency Kalorit 2023",
+        "FI selfSufficiency Hedelmät 2023"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "SSB/Landbruksdirektoratet",
+      "count": 6,
+      "examples": [
+        "NO selfSufficiency Melk 2023",
+        "NO selfSufficiency Kjøtt 2023",
+        "NO selfSufficiency Poteter 2023",
+        "NO selfSufficiency Grønnsaker 2023",
+        "NO selfSufficiency Kalorier 2023",
+        "NO selfSufficiency Frukt 2023"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Hagstofa Íslands 2023",
+      "count": 5,
+      "examples": [
+        "IS selfSufficiency Melk 2022",
+        "IS selfSufficiency Kjøtt (sau) 2022",
+        "IS selfSufficiency Fisk 2022",
+        "IS selfSufficiency Korn 2022",
+        "IS selfSufficiency Totalt 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Konkurrensverket 2023",
+      "count": 5,
+      "examples": [
+        "SE retailerShare ICA Gruppen 2022",
+        "SE retailerShare Axfood 2022",
+        "SE retailerShare Coop Sverige 2022",
+        "SE retailerShare Lidl 2022",
+        "SE retailerShare Andre 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Samkeppniseftirlitið 2023",
+      "count": 5,
+      "examples": [
+        "IS retailerShare Hagar (Bónus/Hagkaup) 2022",
+        "IS retailerShare Samkaup (Nettó/Krónan) 2022",
+        "IS retailerShare Festi (Krónan) 2022",
+        "IS retailerShare Costco 2022",
+        "IS retailerShare Andre 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Samkeppniseftirlitið 2025",
+      "count": 5,
+      "examples": [
+        "IS retailerShare Hagar (Bónus/Hagkaup) 2024",
+        "IS retailerShare Samkaup (Nettó/Krónan) 2024",
+        "IS retailerShare Festi (Krónan) 2024",
+        "IS retailerShare Costco 2024",
+        "IS retailerShare Andre 2024"
+      ]
+    },
+    {
+      "label": "BusinessRelationship.source",
+      "issue": "label_only",
+      "source": "BioMar",
+      "count": 4,
+      "examples": [
+        "BioMar AS -> Mowi ASA supplier",
+        "BioMar AS -> SalMar ASA supplier",
+        "BioMar AS -> Lerøy Seafood Group ASA supplier",
+        "BioMar AS -> Cermaq Norway AS supplier"
+      ]
+    },
+    {
+      "label": "BusinessRelationship.source",
+      "issue": "label_only",
+      "source": "Sjømatrådet",
+      "count": 4,
+      "examples": [
+        "SalMar ASA -> Norges Sjømatråd AS joint-venture",
+        "Lerøy Seafood Group ASA -> Norges Sjømatråd AS joint-venture",
+        "Cermaq Norway AS -> Norges Sjømatråd AS joint-venture",
+        "Mowi ASA -> Norges Sjømatråd AS joint-venture"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat basert på ASKO-selskapene samlet",
+      "count": 4,
+      "examples": [
+        "ASKO Norge AS (929228723) 2020",
+        "ASKO Norge AS (929228723) 2021",
+        "ASKO Norge AS (929228723) 2022",
+        "ASKO Norge AS (929228723) 2023"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Årsrapporter 2024, Konkurransetilsynet verdikjedestudie",
+      "count": 4,
+      "examples": [
+        "NO margin Reitan (Rema) 2024",
+        "NO margin Coop Norge 2024",
+        "NO margin NorgesGruppen 2024",
+        "NO margin Leverandører 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "DLF/HUI Research marknadsdata 2024",
+      "count": 4,
+      "examples": [
+        "SE marketShare Stormarknad 2024",
+        "SE marketShare Snabbköp 2024",
+        "SE marketShare Lågpris 2024",
+        "SE marketShare Övriga 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "DST/Dansk Erhverv markedsdata 2024",
+      "count": 4,
+      "examples": [
+        "DK marketShare Discount 2024",
+        "DK marketShare Supermarked 2024",
+        "DK marketShare Hypermarked 2024",
+        "DK marketShare Øvrige 2024"
+      ]
+    },
+    {
+      "label": "BusinessRelationship.source",
+      "issue": "label_only",
+      "source": "TGTG Partnerliste 2024",
+      "count": 3,
+      "examples": [
+        "Too Good To Go Norge AS -> NorgesGruppen ASA buyer",
+        "Too Good To Go Norge AS -> Coop Norge SA buyer",
+        "Too Good To Go Norge AS -> Reitan Retail AS buyer"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Konkurransetilsynet/bransjeanalyse",
+      "count": 3,
+      "examples": [
+        "NO hhiCategory Meieri 2024",
+        "NO hhiCategory Kjøtt (slakt) 2024",
+        "NO hhiCategory Korn og fôr 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Miljødirektoratet 2020",
+      "count": 3,
+      "examples": [
+        "NO ghgEmissions Jordbruk 2019",
+        "NO ghgEmissions Matindustri 2019",
+        "NO ghgEmissions Transport mat 2019"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Miljødirektoratet 2023",
+      "count": 3,
+      "examples": [
+        "NO ghgEmissions Jordbruk 2022",
+        "NO ghgEmissions Matindustri 2022",
+        "NO ghgEmissions Transport mat 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Miljødirektoratet 2025 est.",
+      "count": 3,
+      "examples": [
+        "NO ghgEmissions Jordbruk 2024",
+        "NO ghgEmissions Matindustri 2024",
+        "NO ghgEmissions Transport mat 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Samkeppniseftirlitið / Hagar markedsdata 2024",
+      "count": 3,
+      "examples": [
+        "IS marketShare Lágvöruverð (Bónus/Krónan) 2024",
+        "IS marketShare Stórmarkaðir (Hagkaup/Nettó) 2024",
+        "IS marketShare Nærverslun (10-11/Iceland) 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "SSB/Landbruksdirektoratet markedsdata 2024",
+      "count": 3,
+      "examples": [
+        "NO marketShare Lavpris 2024",
+        "NO marketShare Supermarked 2024",
+        "NO marketShare Nærbutikk 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "NielsenIQ/Dagligvarehandelen",
+      "count": 2,
+      "examples": [
+        "NO privateLabel Alle kjeder 2020",
+        "NO privateLabel Alle kjeder 2021"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "NielsenIQ/Dagligvarehandelen est.",
+      "count": 2,
+      "examples": [
+        "NO privateLabel Alle kjeder 2023",
+        "NO privateLabel Alle kjeder 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "SSB/NIBIO Landskogtakseringen",
+      "count": 2,
+      "examples": [
+        "NO landUse Skog 2020",
+        "NO landUse Skog 2023"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "SSB/Sjømatrådet",
+      "count": 2,
+      "examples": [
+        "NO selfSufficiency Fisk 2020",
+        "NO selfSufficiency Fisk 2022"
+      ]
+    },
+    {
+      "label": "BusinessRelationship.source",
+      "issue": "label_only",
+      "source": "KKV FCCA 2024 / PTY",
+      "count": 1,
+      "examples": [
+        "SOK (S Group) -> Kesko Oyj buyer"
+      ]
+    },
+    {
+      "label": "BusinessRelationship.source",
+      "issue": "label_only",
+      "source": "Lantmannen.com",
+      "count": 1,
+      "examples": [
+        "Lantmännen Cerealia AS -> TINE SA supplier"
+      ]
+    },
+    {
+      "label": "BusinessRelationship.source",
+      "issue": "label_only",
+      "source": "mn24.no",
+      "count": 1,
+      "examples": [
+        "Grilstad AS -> Nortura SA buyer"
+      ]
+    },
+    {
+      "label": "BusinessRelationship.source",
+      "issue": "label_only",
+      "source": "Mowi Industry Handbook",
+      "count": 1,
+      "examples": [
+        "Skretting AS -> Mowi ASA supplier"
+      ]
+    },
+    {
+      "label": "BusinessRelationship.source",
+      "issue": "label_only",
+      "source": "Nofima Prosjektoversikt",
+      "count": 1,
+      "examples": [
+        "Nofima AS -> Nortura SA supplier"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Årsrapport 2024",
+      "count": 1,
+      "examples": [
+        "ASKO Norge AS (929228723) 2024"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat basert på markedsandel ~30%. ISK ~42.5B, 1 ISK ≈ 0.08 NOK",
+      "count": 1,
+      "examples": [
+        "Samkaup hf (IS-571298-3769) 2024"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat basert på Reitan Retail årsrapport + markedsandel 14%. DKK ~26B, 1 DKK ≈ 1.55 NOK",
+      "count": 1,
+      "examples": [
+        "REMA 1000 A/S (DK-14705627) 2024"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ~SEK 3.9B, 1 SEK ≈ 0.97 NOK. Markedsandel ~4.5%",
+      "count": 1,
+      "examples": [
+        "Lidl Sverige KB (SE-969697-6594) 2020"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ~SEK 4.2B, 1 SEK ≈ 0.97 NOK. Markedsandel ~4.8%",
+      "count": 1,
+      "examples": [
+        "Lidl Sverige KB (SE-969697-6594) 2021"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ~SEK 4.9B, 1 SEK ≈ 0.98 NOK. Markedsandel ~5.2%",
+      "count": 1,
+      "examples": [
+        "Lidl Sverige KB (SE-969697-6594) 2022"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ~SEK 5.3B, 1 SEK ≈ 1.00 NOK. Markedsandel ~5.8%",
+      "count": 1,
+      "examples": [
+        "Lidl Sverige KB (SE-969697-6594) 2023"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ~SEK 5.9B (USD 555M), 1 SEK ≈ 1.00 NOK. Schwarz Group annual report.",
+      "count": 1,
+      "examples": [
+        "Lidl Sverige KB (SE-969697-6594) 2024"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. DKK 20B, 1 DKK ≈ 1.42 NOK. Markedsandel ~12%",
+      "count": 1,
+      "examples": [
+        "REMA 1000 A/S (DK-14705627) 2020"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. DKK 22B, 1 DKK ≈ 1.43 NOK. Markedsandel ~13%",
+      "count": 1,
+      "examples": [
+        "REMA 1000 A/S (DK-14705627) 2021"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. DKK 24B, 1 DKK ≈ 1.48 NOK. Markedsandel ~14%",
+      "count": 1,
+      "examples": [
+        "REMA 1000 A/S (DK-14705627) 2022"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. DKK 25B, 1 DKK ≈ 1.54 NOK. Markedsandel ~14%",
+      "count": 1,
+      "examples": [
+        "REMA 1000 A/S (DK-14705627) 2023"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. EUR ~1.6B, 1 EUR ≈ 10.7 NOK. Markedsandel ~8%",
+      "count": 1,
+      "examples": [
+        "Lidl Suomi Ky (FI-1615492-7) 2020"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. EUR ~1.7B, 1 EUR ≈ 10.2 NOK. Markedsandel ~8.5%",
+      "count": 1,
+      "examples": [
+        "Lidl Suomi Ky (FI-1615492-7) 2021"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. EUR ~1.99B, 1 EUR ≈ 11.5 NOK. Statista/Lidl Finland.",
+      "count": 1,
+      "examples": [
+        "Lidl Suomi Ky (FI-1615492-7) 2024"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. EUR ~1.9B, 1 EUR ≈ 10.1 NOK. Markedsandel ~9%",
+      "count": 1,
+      "examples": [
+        "Lidl Suomi Ky (FI-1615492-7) 2022"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. EUR ~1.9B, 1 EUR ≈ 11.4 NOK. Markedsandel ~9.2%",
+      "count": 1,
+      "examples": [
+        "Lidl Suomi Ky (FI-1615492-7) 2023"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ISK ~40B, 1 ISK ≈ 0.070 NOK. Markedsandel ~28%",
+      "count": 1,
+      "examples": [
+        "Samkaup hf (IS-571298-3769) 2020"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ISK ~42B, 1 ISK ≈ 0.072 NOK",
+      "count": 1,
+      "examples": [
+        "Samkaup hf (IS-571298-3769) 2021"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ISK ~42B, 1 ISK ≈ 0.077 NOK",
+      "count": 1,
+      "examples": [
+        "Samkaup hf (IS-571298-3769) 2023"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ISK ~48B, 1 ISK ≈ 0.073 NOK",
+      "count": 1,
+      "examples": [
+        "Samkaup hf (IS-571298-3769) 2022"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ISK ~50B, 1 ISK ≈ 0.070 NOK",
+      "count": 1,
+      "examples": [
+        "Festi hf (IS-540206-2010) 2020"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ISK ~53B, 1 ISK ≈ 0.072 NOK",
+      "count": 1,
+      "examples": [
+        "Festi hf (IS-540206-2010) 2021"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ISK ~59B, 1 ISK ≈ 0.073 NOK",
+      "count": 1,
+      "examples": [
+        "Festi hf (IS-540206-2010) 2022"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ISK ~60B (inkl. Lyfja fra juli 2024), 1 ISK ≈ 0.08 NOK. Festi Q4 2024.",
+      "count": 1,
+      "examples": [
+        "Festi hf (IS-540206-2010) 2024"
+      ]
+    },
+    {
+      "label": "CompanyFinancial.source",
+      "issue": "label_only",
+      "source": "Estimat. ISK ~65B, 1 ISK ≈ 0.077 NOK",
+      "count": 1,
+      "examples": [
+        "Festi hf (IS-540206-2010) 2023"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Bransjeanalyse/Sjømatrådet",
+      "count": 1,
+      "examples": [
+        "NO hhiCategory Sjømat (laks) 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "DagligVaruNytt/NielsenIQ est.",
+      "count": 1,
+      "examples": [
+        "SE privateLabel Alle kjeder 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Energistyrelsen 2023",
+      "count": 1,
+      "examples": [
+        "DK ghgEmissions Jordbruk 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Jordbruksverket 2023",
+      "count": 1,
+      "examples": [
+        "SE selfSufficiency Totalt 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Landbrug & Fødevarer 2023",
+      "count": 1,
+      "examples": [
+        "DK selfSufficiency Totalt 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "LUKE 2023",
+      "count": 1,
+      "examples": [
+        "FI selfSufficiency Totalt 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Miljøstyrelsen 2021",
+      "count": 1,
+      "examples": [
+        "DK foodWastePerCapita Totalt 2020"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Miljøstyrelsen 2023",
+      "count": 1,
+      "examples": [
+        "DK foodWastePerCapita Totalt 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Naturvårdsverket 2023",
+      "count": 1,
+      "examples": [
+        "SE ghgEmissions Jordbruk 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "PTY/NielsenIQ est.",
+      "count": 1,
+      "examples": [
+        "FI privateLabel Alle kjeder 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Retail Institute Scandinavia est.",
+      "count": 1,
+      "examples": [
+        "DK privateLabel Alle kjeder 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Samkeppniseftirlitið est.",
+      "count": 1,
+      "examples": [
+        "IS privateLabel Alle kjeder 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "SSB/Sjømatrådet est.",
+      "count": 1,
+      "examples": [
+        "NO selfSufficiency Fisk 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Tilastokeskus 2023",
+      "count": 1,
+      "examples": [
+        "FI ghgEmissions Jordbruk 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Umhverfisstofnun 2023",
+      "count": 1,
+      "examples": [
+        "IS ghgEmissions Jordbruk 2022"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Umhverfisstofnun 2025 est.",
+      "count": 1,
+      "examples": [
+        "IS foodWastePerCapita Totalt 2024"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Umhverfisstofnun/Eurostat 2021",
+      "count": 1,
+      "examples": [
+        "IS foodWastePerCapita Totalt 2020"
+      ]
+    },
+    {
+      "label": "CountryMetric.source",
+      "issue": "label_only",
+      "source": "Umhverfisstofnun/Eurostat 2023",
+      "count": 1,
+      "examples": [
+        "IS foodWastePerCapita Totalt 2022"
+      ]
+    }
+  ]
+}

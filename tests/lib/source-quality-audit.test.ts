@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import { describe, it } from 'node:test'
 import {
   classifySourceLocator,
@@ -51,5 +52,17 @@ describe('source quality audit helpers', () => {
     assert.equal(summary.resolvedLocator, 1)
     assert.equal(summary.labelOnly, 1)
     assert.deepEqual(summary.examples.labelOnly, ['manual-1: Årsrapport 2024'])
+  })
+
+  it('passes country metric row context into the strict source audit resolver', () => {
+    const source = readFileSync('scripts/verify-data-integrity.ts', 'utf8')
+    const countryMetricSelectIndex = source.indexOf('prisma.countryMetric.findMany')
+    const countryMetricSelectBlock =
+      countryMetricSelectIndex >= 0 ? source.slice(countryMetricSelectIndex, countryMetricSelectIndex + 320) : ''
+
+    assert.ok(countryMetricSelectBlock)
+    for (const field of ['id', 'country', 'metricType', 'category', 'year', 'source', 'metadata']) {
+      assert.match(countryMetricSelectBlock, new RegExp(`${field}:\\s*true`))
+    }
   })
 })

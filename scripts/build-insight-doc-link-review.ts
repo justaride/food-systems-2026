@@ -6,7 +6,7 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-const REPO = '/Users/gabrielboen/Documents/Food Systems 2026'
+const REPO = process.cwd()
 const CSV_PATH = join(REPO, 'research/_status/insight-doc-link-candidates-2026-05-11.csv')
 const MD_PATH = join(REPO, 'research/_status/insight-doc-link-review-2026-05-11.md')
 

@@ -6,14 +6,15 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { resolveReviewDocumentId } from '../src/lib/insight-doc-link-review'
 
-const REPO = '/Users/gabrielboen/Documents/Food Systems 2026'
+const REPO = process.cwd()
 const CSV_PATH = join(REPO, 'research/_status/insight-link-candidates-v3-2026-05-11.csv')
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
-type Row = { insightId: string; docId: string; source: string; rank: number; decision: string }
+type Row = { insightId: string; docId: string; docTitle: string; source: string; rank: number; decision: string }
 
 function parseCsv(text: string): Row[] {
   const lines = text.split('\n').filter(l => l.trim().length > 0)
@@ -31,6 +32,7 @@ function parseCsv(text: string): Row[] {
     out.push({
       insightId: fields[0],
       docId: fields[2],
+      docTitle: fields[3],
       source: fields[4],
       rank: Number(fields[5]),
       decision: fields[7].trim().toLowerCase(),
@@ -48,8 +50,19 @@ async function main() {
   console.log(`Accepted (y): ${accepted.length}`)
   if (dryRun) console.log('(DRY RUN)')
 
+  const documents = await prisma.document.findMany({
+    select: { id: true, title: true },
+  })
+
   let inserted = 0, skipped = 0
   for (const r of accepted) {
+    const documentId = resolveReviewDocumentId(r, documents)
+    if (!documentId) {
+      console.log(`SKIP missing/ambiguous document ${r.insightId} -> ${r.docId}: ${r.docTitle}`)
+      skipped++
+      continue
+    }
+
     if (dryRun) { inserted++; continue }
     try {
       const relevance =
@@ -57,7 +70,7 @@ async function main() {
         r.rank > 15 ? 'supporting' :
         'related'
       await prisma.insightDocumentRef.create({
-        data: { insightId: r.insightId, documentId: r.docId, relevance },
+        data: { insightId: r.insightId, documentId, relevance },
       })
       inserted++
     } catch (e: unknown) {

@@ -1,11 +1,13 @@
 import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { isCompanyDocumentEvidenceCandidate } from '../src/lib/company-document-linking'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
 const DRY_RUN = process.argv.includes('--dry-run')
+const DETERMINISTIC_ONLY = process.argv.includes('--deterministic-only')
 
 const DEPRECATED_ORGNRS = new Set([
   '911856655', // NorgesGruppen ASA
@@ -161,32 +163,6 @@ function categorizeContext(documentType: string | null): string {
   }
 }
 
-function isEvidenceCandidate(doc: DocumentRow): boolean {
-  const marker = normalizeSearch(`${doc.title} ${doc.filePath ?? ''}`)
-  const excludedPatterns = [
-    'arkiv indeks',
-    'archive index',
-    'research corpus audit',
-    'research missions',
-    'desk research plan',
-    'importplan',
-    'promptpack',
-    'kilderegister',
-    'plattform kobling',
-    'file coverage',
-    'pdf katalog',
-    'ki priority',
-    'remediation backlog',
-    'download queue',
-    'download backlog',
-    'data readiness',
-    'orphan review',
-    'control report',
-  ]
-
-  return !excludedPatterns.some((pattern) => marker.includes(pattern))
-}
-
 async function getTrackedCompanies(): Promise<TrackedCompany[]> {
   return prisma.$queryRaw<TrackedCompany[]>`
     select c.id, c.name, c."orgNr"
@@ -234,7 +210,10 @@ function evaluateMatch(company: TrackedCompany, doc: PreparedDocument): { reason
 }
 
 async function main() {
-  console.log(`Linking tracked companies to documents${DRY_RUN ? ' (dry run)' : ''}...\n`)
+  console.log(
+    `Linking tracked companies to documents${DRY_RUN ? ' (dry run)' : ''}` +
+      `${DETERMINISTIC_ONLY ? ' (deterministic only)' : ''}...\n`,
+  )
 
   const [companies, documentRows] = await Promise.all([
     getTrackedCompanies().then((rows) => rows.filter((company) => !DEPRECATED_ORGNRS.has(company.orgNr))),
@@ -247,7 +226,7 @@ async function main() {
     ...doc,
     titleSearch: normalizeSearch(`${doc.title} ${doc.filePath ?? ''}`),
     bodySearch: normalizeSearch(doc.content),
-  })).filter(isEvidenceCandidate)
+  })).filter(isCompanyDocumentEvidenceCandidate)
 
   const existing = await prisma.companyDocumentRef.findMany({
     select: { companyId: true, documentId: true },
@@ -265,6 +244,7 @@ async function main() {
 
       const match = evaluateMatch(company, doc)
       if (!match) continue
+      if (DETERMINISTIC_ONLY && match.strength < 3) continue
 
       candidates.push({
         companyId: company.id,

@@ -2,37 +2,134 @@ const LANDDIR_OPEN_DATA_RAW =
   'https://raw.githubusercontent.com/LandbruksdirektoratetGIT/opendata/refs/heads/main/datasets'
 
 const BRREG_ENHETSREGISTERET_API = 'https://data.brreg.no/enhetsregisteret/api'
+const BRREG_REGNSKAPSREGISTERET_REGNSKAP_API =
+  'https://data.brreg.no/regnskapsregisteret/regnskap'
 const FISKERIDIR_PUB_AQUA_API = 'https://api.fiskeridir.no/pub-aqua/api/v1'
 const FISKERIDIR_AQUA_PORTAL_API = 'https://api.fiskeridir.no/aqua-portal-api-public/api/v1'
 const SSB_EXTERNAL_TRADE_08801_API = 'https://data.ssb.no/api/v0/en/table/08801/'
+const SSB_JORDBRUKSAREAL_STATISTICS_URL =
+  'https://www.ssb.no/jord-skog-jakt-og-fiskeri/jordbruk/statistikk/gardsbruk-jordbruksareal-og-husdyr'
+const LUKE_AGRI_FOOD_FOREIGN_TRADE_API =
+  'https://statdb.luke.fi/PXWeb/api/v1/en/LUKE/maa/05%20Maataloustuotteiden%20ulkomaankauppa/Luke_maa_Ukaup_kk.px'
+const PTY_FINNISH_GROCERY_TRADE_2023_REPORT_URL =
+  'https://www.pty.fi/wp-content/uploads/2023/06/Paivittaistavarakauppa-ry-2023_EN.pdf'
+const NATURVARDSVERKET_FOOD_WASTE_STATISTICS_URL =
+  'https://www.naturvardsverket.se/data-och-statistik/avfall/avfall-mat/'
 const SCB_IMPORTS_EXPORTS_CN_API =
   'https://api.scb.se/OV0104/v1/doris/en/ssd/HA/HA0201/HA0201B/ImpExpKNTotMan'
 const STATBANK_SITC2R4_TABLEINFO_API =
   'https://api.statbank.dk/v1/tableinfo?lang=en&id=SITC2R4'
 const STATISTICS_ICELAND_UTA06201_API =
   'https://px.hagstofa.is/pxen/api/v1/en/Efnahagur/utanrikisverslun/1_voruvidskipti/01_voruskipti/UTA06201.px'
+const EUROSTAT_FOOD_WASTE_API =
+  'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/env_wasfw'
 const MATSENTRALEN_ANNUAL_REPORT_URL =
   'https://www.matsentralen.no/rapporter/arsrapport-matsentralen-norge'
+const MATVETT_NORSUS_OR36_2021_REPORT_URL =
+  'https://www.matvett.no/uploads/documents/OR.36.21-Sektorrapport-for-matbransjen-offentlig-sektor-og-husholdningsleddet.pdf'
+const MATVETT_FOOD_WASTE_REPORT_2023_URL =
+  'https://www.matvett.no/uploads/documents/Slik-var-matsvinnaret-2023.pdf'
+const MATVETT_FOOD_WASTE_REPORT_2025_URL =
+  'https://www.matvett.no/uploads/documents/Slik-var-matsvinnaret-2025.pdf'
 const BRANSJEAVTALEN_MAIN_REPORT_URL =
   'https://www.regjeringen.no/no/dokumentarkiv/regjeringen-solberg/aktuelt-regjeringen-solberg/kld/nyheter/2017/avtale-om-a-redusere-matsvinn/id2558931/'
+const AUSTEVOLL_ANNUAL_REPORT_2022_URL =
+  'https://www.auss.no/investor/news/annual-report-2022/'
+const AUSTEVOLL_ANNUAL_REPORT_2023_URL =
+  'https://www.auss.no/media/1569/annual-report-2023-austevoll-seafood-asa.pdf'
 const AUSTEVOLL_ANNUAL_REPORT_2024_URL =
   'https://auss.no/media/1627/auss-annual-report-2024-250430.pdf'
+const MOWI_ANNUAL_REPORT_2020_URL =
+  'https://mowi.com/wp-content/uploads/2021/03/Mowi_Integrated_Annual_Report_2020.pdf'
+const MOWI_ANNUAL_REPORT_2021_URL =
+  'https://mowi.com/wp-content/uploads/2022/03/Mowi_Annual_Report_2021.pdf'
+const MOWI_ANNUAL_REPORT_2022_URL =
+  'https://mowi.com/wp-content/uploads/2023/03/Mowi-Integrated-Annual-Report-2022.pdf'
+const MOWI_ANNUAL_REPORT_2023_URL =
+  'https://mowi.com/wp-content/uploads/2024/03/Mowi_Integrated_Annual_Report_2023.pdf'
 const MOWI_ANNUAL_REPORT_2024_URL =
   'https://mowi.com/wp-content/uploads/2025/03/Mowi-Integrated-Annual-Report-2024.pdf'
 const SALMAR_ANNUAL_REPORT_2024_URL =
   'https://ml-eu.globenewswire.com/Resource/Download/1da20c9a-09bb-4d58-8e81-72f7942be36f'
 const LEROY_ANNUAL_REPORT_2024_URL =
   'https://web-prod.leroyseafood.com/globalassets/02--documents/english/annual-reports/lsg-annual-report-2024.pdf'
+const YARA_ANNUAL_REPORT_2020_URL =
+  'https://www.yara.com/investor-relations/reports-and-presentations-2020/'
+const YARA_ANNUAL_REPORT_2021_URL =
+  'https://www.yara.com/siteassets/investors/057-reports-and-presentations/annual-reports/2021/yara-integrated-report-2021.pdf'
+const YARA_ANNUAL_REPORT_2022_URL =
+  'https://www.yara.com/siteassets/investors/057-reports-and-presentations/annual-reports/2022/yara-integrated-report-2022.pdf'
+const YARA_ANNUAL_REPORT_2023_URL =
+  'https://www.yara.com/siteassets/investors/057-reports-and-presentations/annual-reports/2023/yara-integrated-report-2023.pdf'
 const YARA_ANNUAL_REPORT_2024_URL =
   'https://www.yara.com/siteassets/investors/057-reports-and-presentations/annual-reports/2024/yara-integrated-report-2024.pdf'
+const NORGESGRUPPEN_ANNUAL_REPORT_2020_URL =
+  'https://www.norgesgruppen.no/globalassets/finansiell-informasjon/rapporter/2020/ars-og-barekraftsrapport-2020.pdf'
+const NORGESGRUPPEN_ANNUAL_REPORT_2021_URL =
+  'https://www.norgesgruppen.no/globalassets/ars--og-barekraftsrapport-2021.pdf'
+const NORGESGRUPPEN_ANNUAL_REPORT_2022_URL =
+  'https://www.norgesgruppen.no/globalassets/finansiell-informasjon/rapporter/2022/ng_ars--og-barekraftsrapport-2022.pdf'
+const NORGESGRUPPEN_ANNUAL_REPORT_2023_URL =
+  'https://www.norgesgruppen.no/globalassets/finansiell-informasjon/rapporter/2023/ng_ars--og-barekraftsrapport-2023.pdf'
+const COOP_NORGE_ANNUAL_REPORT_2020_URL =
+  'https://downloads.eu.ctfassets.net/69zmfo9ko3qk/7hZTKuzlxvTcHJ7cD4yDaz/ac9854bb7f9d55ad5a7add45a5a5d67f/Coop_aarsrapport_2020.pdf'
+const COOP_NORGE_ANNUAL_REPORT_2021_URL =
+  'https://assets.eu.ctfassets.net/69zmfo9ko3qk/dCzTFsTdMXSAgcHdKHJ9c/143eaf54260f63660f714fbb9d641c54/coop-norge-sa-aarsrapport-2021-lr.pdf'
+const COOP_NORGE_ANNUAL_REPORT_2022_URL =
+  'https://assets.eu.ctfassets.net/69zmfo9ko3qk/6ZLRYO8MV7IK5HADZG7bN7/be730e1b3a9872797555b5f5fbd81771/coop-norge-sa_arsrapport-2022_oppslag_lr-v2.pdf'
+const COOP_NORGE_ANNUAL_REPORT_2023_URL =
+  'https://downloads.eu.ctfassets.net/69zmfo9ko3qk/67AGJoXNUZbqoJNBklCYpd/af08885290d41fbc969f1b0379e797a4/Coop_Norge_%C3%85rs_og_b%C3%A6rekraftsrapport_2023_h%C3%B8ytoppl%C3%B8selig.pdf'
+const REITAN_RETAIL_ANNUAL_REPORT_2021_URL =
+  'https://cdn.sanity.io/files/z1voeyrb/production/8606344eb9c9bca94a349ef88b28414346964b40.pdf'
+const REITAN_RETAIL_ANNUAL_REPORT_2022_URL =
+  'https://cdn.sanity.io/files/z1voeyrb/production/4468c7db7ad29d4b695400c9cc27e756c5d1a545.pdf'
+const REITAN_RETAIL_ANNUAL_REPORT_2023_URL =
+  'https://cdn.sanity.io/files/z1voeyrb/production/ed33530339030204bf8f8e6e768645581b9dd2c0.pdf'
+const REITAN_ANNUAL_REPORT_2020_URL =
+  'https://api.reitan.no/app/uploads/2021/10/Arsrapport_2020_digital_fil.pdf'
+const ORKLA_ANNUAL_REPORT_2020_URL =
+  'https://www.orkla.com/media/press-releases/2021/orklas-annual-report-2020/'
+const ORKLA_ANNUAL_REPORT_2021_URL =
+  'https://www.orkla.com/media/press-releases/2022/orklas-annual-report-now-published-2022-03-25/'
+const ORKLA_ANNUAL_REPORT_2022_URL =
+  'https://www.orkla.com/media/press-releases/2023/orklas-annual-report-2022/'
+const ORKLA_ANNUAL_REPORT_2023_URL =
+  'https://www.orkla.com/media/press-releases/2024/orklas-annual-report-2023/'
 const ORKLA_ANNUAL_REPORT_2024_URL =
   'https://www.orkla.com/files/Documents/Governance/AGM2025/ENG/Orkla-Annual-Report-2024.pdf'
+const NORTURA_ANNUAL_REPORT_2020_URL =
+  'https://www.nortura.no/attachments/%C3%85rsmeldinger/Nortura_arsmelding_2020.pdf'
+const NORTURA_ANNUAL_REPORT_2021_URL =
+  'https://www.nortura.no/attachments/%C3%85rsmeldinger/Nortura-arsmelding-2021.pdf'
+const NORTURA_ANNUAL_REPORT_2022_URL =
+  'https://www.nortura.no/attachments/%C3%85rsmeldinger/Nortura-arsmelding-2022.pdf'
+const NORTURA_ANNUAL_REPORT_2023_URL =
+  'https://www.nortura.no/attachments/%C3%85rsmeldinger/Nortura_aarsmelding_2023.pdf'
 const NORTURA_ANNUAL_REPORT_2024_URL =
   'https://www.nortura.no/attachments/Annual-report/Nortura_annual_report_2024.pdf'
+const TINE_ANNUAL_REPORTS_URL = 'https://www.tine.no/om-tine/finansiell-informasjon'
 const TINE_ANNUAL_REPORT_2024_URL =
   'https://www.tine.no/om-tine/finansiell-informasjon/_/attachment/inline/9cea416b-a20a-4626-96ed-65bce2a82685%3A31abe1fe90c6862b897357ca6350a74a6e6b38b1/TINE%20%C3%85rsrapport%202024.pdf'
+const FELLESKJOPET_ANNUAL_REPORTS_URL =
+  'https://fka.felleskjopet.no/presse/arsrapporter/'
 const FELLESKJOPET_ANNUAL_REPORT_2024_URL =
   'https://fka.felleskjopet.no/globalassets/medlem/arsrapporter/aarsrapport_felleskjoepet_2024.pdf'
+const BAMA_ANNUAL_REPORT_2020_URL =
+  'https://www.bama.no/siteassets/bama/om-bama/arsrapport/bama_arsrapport_2020_web.pdf'
+const BAMA_ANNUAL_REPORT_2021_URL =
+  'https://www.bama.no/siteassets/bama/om-bama/arsrapport/bama-arsrapport-2021.pdf'
+const BAMA_ANNUAL_REPORT_2022_URL =
+  'https://www.bama.no/siteassets/bama/om-bama/arsrapport/bama_aarsrapport_2022_no_.pdf'
+const BAMA_ANNUAL_REPORT_2023_URL =
+  'https://www.bama.no/siteassets/bama/om-bama/arsrapport/2023/2023_bama_aarsrapport_.pdf'
+const AXFOOD_ANNUAL_REPORT_2020_URL =
+  'https://www.axfood.com/investors/reports-and-presentations/annual-and-sustainability-report-2020/'
+const AXFOOD_ANNUAL_REPORT_2021_URL =
+  'https://www.axfood.com/investors/reports-and-presentations/annual-and-sustainability-report-2021/'
+const AXFOOD_ANNUAL_REPORT_2022_URL =
+  'https://www.axfood.com/investors/reports-and-presentations/annual-and-sustainability-report-2022/'
+const AXFOOD_ANNUAL_REPORT_2023_URL =
+  'https://www.axfood.com/newsroom/press-releases/2024/02/axfood-publishes-annual-and-sustainability-report-2023/'
 const AXFOOD_CITY_GROSS_APPROVAL_URL =
   'https://www.axfood.com/newsroom/press-releases/2024/10/axfoods-acquisition-of-city-gross-approved-by-the-swedish-competition-authority/'
 const MOWI_NOVA_SEA_GLOBENEWSWIRE_URL =
@@ -43,6 +140,8 @@ const ORKLA_OFI_RHONE_COMPLETION_URL =
   'https://www.orkla.com/media/press-releases/2024/partnership-with-rhone-completed/'
 const ORKLA_LILLEBORG_SALE_URL =
   'https://www.orkla.com/media/press-releases/2024/orkla-selger-lilleborg/'
+const GARTNERHALLEN_MARKET_BALANCING_URL =
+  'https://gartnerhallen.no/nb/tema/markedsbalansering-i-grontmarkedet/'
 const MOWI_CONTACT_URL = 'https://mowi.com/no/kontakt/'
 const MOWI_CERTIFICATION_TABLE_2023_URL =
   'https://mowi.com/en/wp-content/uploads/2024/09/Mowi_Certification_Table_2023.pdf'
@@ -53,10 +152,66 @@ const YARA_CONTACT_URL = 'https://www.yara.com/contact-us/'
 const YARA_NORWAY_OPERATIONS_URL = 'https://www.yara.no/om-yara/yara-i-norge/'
 const BAMA_ANNUAL_REPORT_2024_URL =
   'https://www.bama.no/siteassets/bama/arsrapport/2024/bama-2024-no.pdf'
+const SALMAR_ANNUAL_REPORTS_URL = 'https://www.salmar.no/en/investor/annual-reports/'
 const DAGROFA_2024_RESULT_URL =
   'https://www.dagrofa.dk/artikel/dagrofa-overgaar-igen-sig-selv-med-bedste-driftsindtjening-i-nyere-tid/'
 const S_GROUP_2024_FINANCIAL_RESULTS_URL =
   'https://s-ryhma.fi/en/news/s-groups-investments-in-finland-nearly-eur-1-billi/7chnW0iL7yorOogGzyYcSa'
+const COOP_DANMARK_ANNUAL_REPORTS_URL =
+  'https://coop.dk/kontakt/pressekontakt/arsrapporter/'
+const COOP_SWEDEN_KF_ANNUAL_REPORTS_URL = 'https://kf.se/verksamhetsberattelse/'
+const BIOMAR_GROUP_STRUCTURE_URL = 'https://www.biomar.com/our-story/our-structure/our-board'
+const CERMAQ_ABOUT_URL = 'https://www.cermaq.no/om-cermaq'
+const DAGROFA_ANNUAL_REPORT_2024_URL =
+  'https://www.dagrofa.dk/wp-content/uploads/2025/03/DAGROFA_AaRSRAPPORT_2024.pdf'
+const GARTNERHALLEN_ABOUT_URL = 'https://gartnerhallen.no/en/om-gartnerhallen/'
+const LANTMANNEN_CEREALIA_AS_GLEIF_DIRECT_PARENT_URL =
+  'https://api.gleif.org/api/v1/lei-records/529900FDLL01IKOSGX88/direct-parent'
+const GRILSTAD_SHAREHOLDER_PROFF_URL =
+  'https://www.proff.no/aksjon%C3%A6rer/-/grilstad-as/937070632'
+const ODA_GROUP_AS_SHAREHOLDER_PROFF_URL =
+  'https://www.proff.no/aksjon%C3%A6rer/bedrift/oda-group-as/932256134'
+const SCHWARZ_GROUP_PROFILE_URL = 'https://gruppe.schwarz/en/who-we-are'
+const TGTG_HOLDING_ANNUAL_REPORT_2024_URL =
+  'https://regnskaber.cvrapi.dk/xhtml/99653573/amNsb3VkczovLzAzLzBhLzM1Lzc5LzEyLzQ2NTMtNGMwYi05YjEzLWU2ZjVmNmQwYWQ4Mg.pdf'
+const SAMKAUP_SKEL_H1_2025_URL =
+  'https://skel.is/en/news/interim-financial-statement-h1-2025'
+const FESTI_ANNUAL_REPORT_2024_URL =
+  'https://cdn.prod.website-files.com/67925c8eeba76aedbef33d30/67c5c9e3dcfeda989b2c5edd_Festi%20hf%20-%20A%CC%81rsreikningur%202024.pdf'
+const NOFIMA_OPENNESS_REPORT_2024_URL =
+  'https://nofima.no/wp-content/uploads/2025/06/Redegjorelse-for-aktsomhetsvurd.-etter-apenhetsloven-for-2024.pdf'
+const NORWEGIAN_SEAFOOD_COUNCIL_2024_BUSINESS_URL =
+  'https://www.seafood.no/om-norges-sjomatrad/arsmeldinger-generalforsamling-og-vedtekter/arsmelding-2024/arsberetning/virksomheten/'
+const SKRETTING_ABOUT_URL = 'https://www.skretting.com/no/dette-er-skretting/'
+const KAVLI_OPENNESS_URL = 'https://www.kavli.no/om-kavli/apenhetsloven'
+const DLF_MATVETT_URL = 'https://www.dlf.no/matvett/'
+const DAGROFA_ANNUAL_REPORTS_URL = 'https://www.dagrofa.dk/om-dagrofa/aarsrapporter/'
+const HAGAR_ANNUAL_REPORTS_URL = 'https://www.hagar.is/en/investors/overview/'
+const ICA_GRUPPEN_ANNUAL_REPORT_2020_URL = 'https://report.icagruppen.se/sv/ar2020'
+const ICA_GRUPPEN_ANNUAL_REPORT_2021_URL = 'https://report.icagruppen.se/sv/ar2021'
+const ICA_GRUPPEN_ANNUAL_REPORT_2022_URL = 'https://report.icagruppen.se/sv/ar2022'
+const ICA_GRUPPEN_ANNUAL_REPORT_2023_URL = 'https://report.icagruppen.se/sv/ar2023'
+const KESKO_ANNUAL_REPORTS_URL =
+  'https://www.kesko.fi/en/investor/financial-information-and-publications/Annual-reports/'
+const NOFIMA_ANNUAL_REPORT_2020_URL =
+  'https://nofima.no/wp-content/uploads/2021/06/Nofima-AS-Arsmelding-2020-inkl-revisjonsberetning.pdf'
+const NOFIMA_ANNUAL_REPORT_2021_URL =
+  'https://nofima.no/wp-content/uploads/2022/06/Nofima_AS_Arsmelding_2021-signert-inkl-revisjonsberetning.pdf'
+const NOFIMA_ANNUAL_REPORT_2022_URL =
+  'https://nofima.no/wp-content/uploads/2023/06/Nofima_AS_Arsmelding_2022-signert-inkl-revisjonsberetning.pdf'
+const NOFIMA_ANNUAL_REPORT_2023_URL =
+  'https://nofima.no/wp-content/uploads/2024/06/Nofima_AS_Arsmelding_2023-signert-inkl-revisjonsberetning.pdf'
+const SALLING_GROUP_PUBLICATIONS_URL = 'https://sallinggroup.com/en/publications'
+const S_GROUP_FINANCIAL_RESULTS_2020_URL =
+  'https://s-ryhma.fi/en/news/record-figures-in-supermarket-trade-helped-s-group/7twxdtvvCTZNVAqtlbWY5X'
+const S_GROUP_FINANCIAL_RESULTS_2021_URL =
+  'https://s-ryhma.fi/en/news/s-group-achieve-a-strong-profit-and-record-high-in/2GrOYx1rzOolcQ0a0VSpnm'
+const S_GROUP_FINANCIAL_RESULTS_2022_URL =
+  'https://s-ryhma.fi/en/news/recovery-of-hotels-and-restaurants-strengthened-s-/2ETcfbSRHZwoQaL6Yuj00f'
+const S_GROUP_FINANCIAL_RESULTS_2023_URL =
+  'https://s-ryhma.fi/en/news/co-op-membership-is-highly-attractive-s-groups-ope/7zX99GAIfxYlQv18PJbKhh'
+const S_GROUP_COOPERATIVE_MEMBERSHIP_URL =
+  'https://s-ryhma.fi/en/about-us/cooperative-activities-and-co-op-membership'
 const SALLING_GROUP_CONTACT_URL = 'https://www.sallinggroup.com/kontakt/'
 const COOP_DANMARK_CONTACT_URL = 'https://coop.dk/kontakt/'
 const REMA1000_DANMARK_CONTACT_URL = 'https://rema1000.dk/kontakt/'
@@ -78,6 +233,28 @@ const ASKO_ROGALAND_URL =
 const ASKO_SENTRALLAGER_TRANSPORT_URL =
   'https://asko.no/kontakt-oss/vare-asko-selskap/asko-sentrallager-og-transport-as/'
 const ASKO_VEST_URL = 'https://asko.no/kontakt-oss/vare-asko-selskap/asko-vest-as/'
+const ASKO_CONTACT_URL = 'https://asko.no/kontakt-oss/'
+const LEROY_ABOUT_URL = 'https://www.leroyseafood.com/en/about-us/about-leroy/'
+const LEROY_ANNUAL_REPORT_2020_URL =
+  'https://www.leroyseafood.com/globalassets/02--documents/english/annual-reports/annual-report-2020.pdf'
+const LEROY_ANNUAL_REPORT_2021_URL =
+  'https://www.leroyseafood.com/globalassets/02--documents/rapporter/arsrapporter/arsrapport-2021/leroy-annual-report-eng-2021.pdf'
+const LEROY_ANNUAL_REPORT_2022_URL =
+  'https://www.leroyseafood.com/globalassets/02--documents/english/annual-reports/leroy-annual-report-22-pdf240523.pdf'
+const LEROY_ANNUAL_REPORT_2023_URL =
+  'https://www.leroyseafood.com/globalassets/02--documents/english/annual-reports/annual-report-2023/'
+const ICA_GRUPPEN_CONTACT_URL = 'https://www.icagruppen.se/en/contact/?google=true'
+const AXFOOD_CONTACT_URL = 'https://www.axfood.com/contact/'
+const COOP_SWEDEN_SUPPLIER_CONTACT_URL = 'https://suppliernetwork.coop.se/contact-us'
+const LIDL_SWEDEN_COMPANY_INFO_URL = 'https://www.lidl.se/c/bolagsinformation/s10017035'
+const KESKO_CORPORATION_CONTACT_URL =
+  'https://www.kesko.fi/en/company/contacts/kesko-corporation/'
+const LIDL_FINLAND_CONTACT_URL = 'https://www.lidl.fi/c/lidl-konsernin-yhteystiedot/'
+const SAMKAUP_CONTACT_URL = 'https://www.samkaup.is/hafa-samband/'
+const ORKLA_FOODS_FACTORIES_URL = 'https://orklafoods.no/orklas-fabrikker/'
+const ORKLA_NORWAY_CONTACT_URL = 'https://www.orkla.no/kontakt-oss/'
+const ORKLA_GLOBAL_FACTORIES_URL = 'https://www.orkla.com/our-factories/'
+const REITAN_RETAIL_ABOUT_URL = 'https://www.reitanretail.no/en/about'
 
 type SubsidySourceRow = {
   source?: string | null
@@ -102,6 +279,8 @@ type AquacultureApplicationSourceRow = {
 }
 
 type CountryMetricSourceRow = {
+  country?: string | null
+  metricType?: string | null
   source?: string | null
   metadata?: unknown
 }
@@ -165,15 +344,106 @@ const COMPANY_FINANCIAL_ANNUAL_REPORT_REFS: Record<string, string> = {
 }
 
 const COMPANY_FINANCIAL_ANNUAL_REPORT_URLS: Record<string, string> = {
+  '929975200:2022': AUSTEVOLL_ANNUAL_REPORT_2022_URL,
+  '929975200:2023': AUSTEVOLL_ANNUAL_REPORT_2023_URL,
   '929975200:2024': AUSTEVOLL_ANNUAL_REPORT_2024_URL,
+  '819731322:2020': NORGESGRUPPEN_ANNUAL_REPORT_2020_URL,
+  '819731322:2021': NORGESGRUPPEN_ANNUAL_REPORT_2021_URL,
+  '819731322:2022': NORGESGRUPPEN_ANNUAL_REPORT_2022_URL,
+  '819731322:2023': NORGESGRUPPEN_ANNUAL_REPORT_2023_URL,
+  '936560288:2020': COOP_NORGE_ANNUAL_REPORT_2020_URL,
+  '936560288:2021': COOP_NORGE_ANNUAL_REPORT_2021_URL,
+  '936560288:2022': COOP_NORGE_ANNUAL_REPORT_2022_URL,
+  '936560288:2023': COOP_NORGE_ANNUAL_REPORT_2023_URL,
+  '914526647:2020': REITAN_ANNUAL_REPORT_2020_URL,
+  'DK-26259495:2020': COOP_DANMARK_ANNUAL_REPORTS_URL,
+  'DK-26259495:2021': COOP_DANMARK_ANNUAL_REPORTS_URL,
+  'DK-26259495:2022': COOP_DANMARK_ANNUAL_REPORTS_URL,
+  'DK-26259495:2023': COOP_DANMARK_ANNUAL_REPORTS_URL,
+  '914526647:2021': REITAN_RETAIL_ANNUAL_REPORT_2021_URL,
+  '914526647:2022': REITAN_RETAIL_ANNUAL_REPORT_2022_URL,
+  '914526647:2023': REITAN_RETAIL_ANNUAL_REPORT_2023_URL,
+  '964118191:2020': MOWI_ANNUAL_REPORT_2020_URL,
+  '964118191:2021': MOWI_ANNUAL_REPORT_2021_URL,
+  '964118191:2022': MOWI_ANNUAL_REPORT_2022_URL,
+  '964118191:2023': MOWI_ANNUAL_REPORT_2023_URL,
   '964118191:2024': MOWI_ANNUAL_REPORT_2024_URL,
-  '960514718:2024': SALMAR_ANNUAL_REPORT_2024_URL,
-  '975350940:2024': LEROY_ANNUAL_REPORT_2024_URL,
-  '986228608:2024': YARA_ANNUAL_REPORT_2024_URL,
+  '910747711:2020': ORKLA_ANNUAL_REPORT_2020_URL,
+  '910747711:2021': ORKLA_ANNUAL_REPORT_2021_URL,
+  '910747711:2022': ORKLA_ANNUAL_REPORT_2022_URL,
+  '910747711:2023': ORKLA_ANNUAL_REPORT_2023_URL,
   '910747711:2024': ORKLA_ANNUAL_REPORT_2024_URL,
+  '938752648:2020': NORTURA_ANNUAL_REPORT_2020_URL,
+  '938752648:2021': NORTURA_ANNUAL_REPORT_2021_URL,
+  '938752648:2022': NORTURA_ANNUAL_REPORT_2022_URL,
+  '938752648:2023': NORTURA_ANNUAL_REPORT_2023_URL,
   '938752648:2024': NORTURA_ANNUAL_REPORT_2024_URL,
+  '947942638:2020': TINE_ANNUAL_REPORTS_URL,
+  '947942638:2021': TINE_ANNUAL_REPORTS_URL,
+  '947942638:2022': TINE_ANNUAL_REPORTS_URL,
+  '947942638:2023': TINE_ANNUAL_REPORTS_URL,
   '947942638:2024': TINE_ANNUAL_REPORT_2024_URL,
+  '911608103:2020': FELLESKJOPET_ANNUAL_REPORTS_URL,
+  '911608103:2021': FELLESKJOPET_ANNUAL_REPORTS_URL,
+  '911608103:2022': FELLESKJOPET_ANNUAL_REPORTS_URL,
+  '911608103:2023': FELLESKJOPET_ANNUAL_REPORTS_URL,
   '911608103:2024': FELLESKJOPET_ANNUAL_REPORT_2024_URL,
+  '914224314:2020': BAMA_ANNUAL_REPORT_2020_URL,
+  '914224314:2021': BAMA_ANNUAL_REPORT_2021_URL,
+  '914224314:2022': BAMA_ANNUAL_REPORT_2022_URL,
+  '914224314:2023': BAMA_ANNUAL_REPORT_2023_URL,
+  '960514718:2024': SALMAR_ANNUAL_REPORT_2024_URL,
+  '960514718:2020': SALMAR_ANNUAL_REPORTS_URL,
+  '960514718:2021': SALMAR_ANNUAL_REPORTS_URL,
+  '960514718:2022': SALMAR_ANNUAL_REPORTS_URL,
+  '960514718:2023': SALMAR_ANNUAL_REPORTS_URL,
+  '975350940:2020': LEROY_ANNUAL_REPORT_2020_URL,
+  '975350940:2021': LEROY_ANNUAL_REPORT_2021_URL,
+  '975350940:2022': LEROY_ANNUAL_REPORT_2022_URL,
+  '975350940:2023': LEROY_ANNUAL_REPORT_2023_URL,
+  '975350940:2024': LEROY_ANNUAL_REPORT_2024_URL,
+  '989278835:2020': NOFIMA_ANNUAL_REPORT_2020_URL,
+  '989278835:2021': NOFIMA_ANNUAL_REPORT_2021_URL,
+  '989278835:2022': NOFIMA_ANNUAL_REPORT_2022_URL,
+  '989278835:2023': NOFIMA_ANNUAL_REPORT_2023_URL,
+  '986228608:2020': YARA_ANNUAL_REPORT_2020_URL,
+  '986228608:2021': YARA_ANNUAL_REPORT_2021_URL,
+  '986228608:2022': YARA_ANNUAL_REPORT_2022_URL,
+  '986228608:2023': YARA_ANNUAL_REPORT_2023_URL,
+  '986228608:2024': YARA_ANNUAL_REPORT_2024_URL,
+  'SE-556048-2837:2020': ICA_GRUPPEN_ANNUAL_REPORT_2020_URL,
+  'SE-556048-2837:2021': ICA_GRUPPEN_ANNUAL_REPORT_2021_URL,
+  'SE-556048-2837:2022': ICA_GRUPPEN_ANNUAL_REPORT_2022_URL,
+  'SE-556048-2837:2023': ICA_GRUPPEN_ANNUAL_REPORT_2023_URL,
+  'SE-556542-5353:2020': AXFOOD_ANNUAL_REPORT_2020_URL,
+  'SE-556542-5353:2021': AXFOOD_ANNUAL_REPORT_2021_URL,
+  'SE-556542-5353:2022': AXFOOD_ANNUAL_REPORT_2022_URL,
+  'SE-556542-5353:2023': AXFOOD_ANNUAL_REPORT_2023_URL,
+  'SE-702001-3469:2020': COOP_SWEDEN_KF_ANNUAL_REPORTS_URL,
+  'SE-702001-3469:2021': COOP_SWEDEN_KF_ANNUAL_REPORTS_URL,
+  'SE-702001-3469:2022': COOP_SWEDEN_KF_ANNUAL_REPORTS_URL,
+  'SE-702001-3469:2023': COOP_SWEDEN_KF_ANNUAL_REPORTS_URL,
+  'SE-702001-3469:2024': COOP_SWEDEN_KF_ANNUAL_REPORTS_URL,
+  'DK-38714295:2020': DAGROFA_ANNUAL_REPORTS_URL,
+  'DK-38714295:2021': DAGROFA_ANNUAL_REPORTS_URL,
+  'DK-38714295:2022': DAGROFA_ANNUAL_REPORTS_URL,
+  'DK-38714295:2023': DAGROFA_ANNUAL_REPORTS_URL,
+  'IS-670203-2120:2020': HAGAR_ANNUAL_REPORTS_URL,
+  'IS-670203-2120:2021': HAGAR_ANNUAL_REPORTS_URL,
+  'IS-670203-2120:2022': HAGAR_ANNUAL_REPORTS_URL,
+  'IS-670203-2120:2023': HAGAR_ANNUAL_REPORTS_URL,
+  'FI-0110456-8:2020': KESKO_ANNUAL_REPORTS_URL,
+  'FI-0110456-8:2021': KESKO_ANNUAL_REPORTS_URL,
+  'FI-0110456-8:2022': KESKO_ANNUAL_REPORTS_URL,
+  'FI-0110456-8:2023': KESKO_ANNUAL_REPORTS_URL,
+  'DK-35954716:2020': SALLING_GROUP_PUBLICATIONS_URL,
+  'DK-35954716:2021': SALLING_GROUP_PUBLICATIONS_URL,
+  'DK-35954716:2022': SALLING_GROUP_PUBLICATIONS_URL,
+  'DK-35954716:2023': SALLING_GROUP_PUBLICATIONS_URL,
+  'FI-0116323-9:2020': S_GROUP_FINANCIAL_RESULTS_2020_URL,
+  'FI-0116323-9:2021': S_GROUP_FINANCIAL_RESULTS_2021_URL,
+  'FI-0116323-9:2022': S_GROUP_FINANCIAL_RESULTS_2022_URL,
+  'FI-0116323-9:2023': S_GROUP_FINANCIAL_RESULTS_2023_URL,
 }
 
 const COMPANY_FINANCIAL_OFFICIAL_RESULT_LOCATORS: Array<{
@@ -200,10 +470,15 @@ const SHAREHOLDER_ANNUAL_REPORT_REFS: Record<string, string> = {
   '819731322': 'evidence-pack/arsrapporter/norgesgruppen-2024',
   '936560288': 'evidence-pack/arsrapporter/coop-norge-2024',
   '914526647': 'evidence-pack/arsrapporter/reitan-retail-2024',
+  '982254604': 'evidence-pack/arsrapporter/reitan-retail-2024',
+  '894759372': 'evidence-pack/arsrapporter/reitan-retail-2024',
+  '980411133': 'evidence-pack/arsrapporter/reitan-retail-2024',
+  '885316522': 'evidence-pack/arsrapporter/norgesgruppen-2024',
   'SE-556048-2837': 'evidence-pack/arsrapporter/ica-gruppen-annual-report-2024',
   'SE-556542-5353': 'evidence-pack/arsrapporter/axfood-annual-report-2024',
   'DK-35954716': 'evidence-pack/arsrapporter/salling-group-2024',
   'DK-26259495': 'evidence-pack/arsrapporter/coop-danmark-2024',
+  'DK-14705627': 'evidence-pack/arsrapporter/reitan-retail-2024',
   'FI-0110456-8': 'evidence-pack/arsrapporter/kesko-annual-report-2024',
   'IS-670203-2120': 'evidence-pack/arsrapporter/hagar-2024-25',
 }
@@ -231,6 +506,12 @@ const VERIFIED_SHAREHOLDER_SOURCE_LOCATORS: Array<{
     nameTokens: ['joh', 'johannson'],
     ownershipPct: 74.4,
     locator: `document:${SHAREHOLDER_ANNUAL_REPORT_REFS['819731322']}`,
+  },
+  {
+    orgNr: 'DK-14705627',
+    nameTokens: ['reitan', 'retail'],
+    ownershipPct: 100,
+    locator: `document:${SHAREHOLDER_ANNUAL_REPORT_REFS['DK-14705627']}`,
   },
   {
     orgNr: '936560288',
@@ -305,6 +586,12 @@ const VERIFIED_SHAREHOLDER_SOURCE_LOCATORS: Array<{
     locator: `document:${SHAREHOLDER_ANNUAL_REPORT_REFS['FI-0110456-8']}`,
   },
   {
+    orgNr: 'FI-0116323-9',
+    nameTokens: ['osuuskaupat'],
+    ownershipPct: 100,
+    locator: S_GROUP_COOPERATIVE_MEMBERSHIP_URL,
+  },
+  {
     orgNr: 'IS-670203-2120',
     nameTokens: ['fjarfesting'],
     ownershipPct: 29.9,
@@ -371,6 +658,138 @@ const VERIFIED_SHAREHOLDER_SOURCE_LOCATORS: Array<{
     locator: SHAREHOLDER_ANNUAL_REPORT_URLS['911608103'],
   },
   {
+    orgNr: '937843860',
+    nameTokens: ['biomar', 'group', 'schouw'],
+    ownershipPct: 100,
+    locator: BIOMAR_GROUP_STRUCTURE_URL,
+  },
+  {
+    orgNr: '961922976',
+    nameTokens: ['cermaq', 'group', 'mitsubishi'],
+    ownershipPct: 100,
+    locator: CERMAQ_ABOUT_URL,
+  },
+  {
+    orgNr: 'SE-702001-3469',
+    nameTokens: ['kooperativa', 'forbundet'],
+    ownershipPct: 100,
+    locator: COOP_SWEDEN_KF_ANNUAL_REPORTS_URL,
+  },
+  {
+    orgNr: 'DK-38714295',
+    nameTokens: ['norgesgruppen'],
+    ownershipPct: 48.9,
+    locator: DAGROFA_ANNUAL_REPORT_2024_URL,
+  },
+  {
+    orgNr: 'DK-38714295',
+    nameTokens: ['kfi', 'erhvervsdrivende', 'fond'],
+    ownershipPct: 42.5,
+    locator: DAGROFA_ANNUAL_REPORT_2024_URL,
+  },
+  {
+    orgNr: 'DK-38714295',
+    nameTokens: ['kobmaend'],
+    ownershipPct: 8.6,
+    locator: DAGROFA_ANNUAL_REPORT_2024_URL,
+  },
+  {
+    orgNr: '945958405',
+    nameTokens: ['over', '1000', 'norske', 'grontprodusenter'],
+    ownershipPct: 100,
+    locator: GARTNERHALLEN_ABOUT_URL,
+  },
+  {
+    orgNr: '937070632',
+    nameTokens: ['grilstad', 'holding'],
+    ownershipPct: 100,
+    locator: GRILSTAD_SHAREHOLDER_PROFF_URL,
+  },
+  {
+    orgNr: '932256134',
+    nameTokens: ['agp', 'advokater'],
+    ownershipPct: 100,
+    locator: ODA_GROUP_AS_SHAREHOLDER_PROFF_URL,
+  },
+  {
+    orgNr: '910629085',
+    nameTokens: ['lantmannen', 'ek', 'for'],
+    ownershipPct: 100,
+    locator: LANTMANNEN_CEREALIA_AS_GLEIF_DIRECT_PARENT_URL,
+  },
+  {
+    orgNr: '917203261',
+    nameTokens: ['too', 'good', 'to', 'go', 'holding'],
+    ownershipPct: 100,
+    locator: TGTG_HOLDING_ANNUAL_REPORT_2024_URL,
+  },
+  {
+    orgNr: '989278835',
+    nameTokens: ['naerings', 'fiskeridepartementet'],
+    ownershipPct: 56.8,
+    locator: NOFIMA_OPENNESS_REPORT_2024_URL,
+  },
+  {
+    orgNr: '989278835',
+    nameTokens: ['stiftelsen', 'landbruksforskning'],
+    ownershipPct: 33.2,
+    locator: NOFIMA_OPENNESS_REPORT_2024_URL,
+  },
+  {
+    orgNr: '988597627',
+    nameTokens: ['den', 'norske', 'stat', 'naerings', 'fiskeridepartementet'],
+    ownershipPct: 100,
+    locator: NORWEGIAN_SEAFOOD_COUNCIL_2024_BUSINESS_URL,
+  },
+  {
+    orgNr: '988044113',
+    nameTokens: ['nutreco', 'shv'],
+    ownershipPct: 100,
+    locator: SKRETTING_ABOUT_URL,
+  },
+  {
+    orgNr: '913344162',
+    nameTokens: ['kavli', 'knut', 'kavlis', 'fond'],
+    ownershipPct: 100,
+    locator: KAVLI_OPENNESS_URL,
+  },
+  {
+    orgNr: '997898397',
+    nameTokens: ['nho', 'mat', 'drikke'],
+    ownershipPct: 100,
+    locator: DLF_MATVETT_URL,
+  },
+  {
+    orgNr: 'SE-969697-6594',
+    nameTokens: ['schwarz', 'group'],
+    ownershipPct: 100,
+    locator: SCHWARZ_GROUP_PROFILE_URL,
+  },
+  {
+    orgNr: 'FI-1615492-7',
+    nameTokens: ['schwarz', 'group'],
+    ownershipPct: 100,
+    locator: SCHWARZ_GROUP_PROFILE_URL,
+  },
+  {
+    orgNr: 'IS-571298-3769',
+    nameTokens: ['drangar', 'skel', 'orkan'],
+    ownershipPct: 100,
+    locator: SAMKAUP_SKEL_H1_2025_URL,
+  },
+  {
+    orgNr: 'IS-540206-2010',
+    nameTokens: ['lifeyrissjodur', 'starfsmanna', 'rikisins'],
+    ownershipPct: 12.9,
+    locator: FESTI_ANNUAL_REPORT_2024_URL,
+  },
+  {
+    orgNr: 'IS-540206-2010',
+    nameTokens: ['lifeyrissjodur', 'verzlunarmanna'],
+    ownershipPct: 12.5,
+    locator: FESTI_ANNUAL_REPORT_2024_URL,
+  },
+  {
     orgNr: '914224314',
     nameTokens: ['norgesgruppen'],
     ownershipPct: 46,
@@ -393,6 +812,30 @@ const VERIFIED_SHAREHOLDER_SOURCE_LOCATORS: Array<{
     nameTokens: ['norgesgruppen'],
     ownershipPct: 100,
     locator: `document:${SHAREHOLDER_ANNUAL_REPORT_REFS['819731322']}`,
+  },
+  {
+    orgNr: '982254604',
+    nameTokens: ['reitan', 'retail'],
+    ownershipPct: 100,
+    locator: `document:${SHAREHOLDER_ANNUAL_REPORT_REFS['982254604']}`,
+  },
+  {
+    orgNr: '894759372',
+    nameTokens: ['reitan', 'retail'],
+    ownershipPct: 100,
+    locator: `document:${SHAREHOLDER_ANNUAL_REPORT_REFS['894759372']}`,
+  },
+  {
+    orgNr: '980411133',
+    nameTokens: ['rema', '1000', 'norge'],
+    ownershipPct: 100,
+    locator: `document:${SHAREHOLDER_ANNUAL_REPORT_REFS['980411133']}`,
+  },
+  {
+    orgNr: '885316522',
+    nameTokens: ['norgesgruppen'],
+    ownershipPct: 100,
+    locator: `document:${SHAREHOLDER_ANNUAL_REPORT_REFS['885316522']}`,
   },
   {
     orgNr: 'SE-556448-4498',
@@ -433,10 +876,28 @@ const VERIFIED_SHAREHOLDER_SOURCE_LOCATORS: Array<{
 ]
 
 const COUNTRY_METRIC_SOURCE_LABEL_LOCATORS: Record<string, string> = {
+  'Beregnet fra markedsandeler': 'source:derived-country-metric-market-shares',
+  'PTY/NielsenIQ 2023': PTY_FINNISH_GROCERY_TRADE_2023_REPORT_URL,
+  'PTY/Päivittäistavarakauppa ry markkina-analyysi 2024':
+    'document:evidence-pack/nordisk/pty-finnish-grocery-trade-statistics-2024',
+  'Regjeringen R15-2023 / NielsenIQ':
+    'document:evidence-pack/offentlig/emv-kartlegging-2023',
+  'Matvett/SSB 2021': MATVETT_NORSUS_OR36_2021_REPORT_URL,
+  'Matvett/Eurostat 2021': MATVETT_NORSUS_OR36_2021_REPORT_URL,
+  'Matvett/SSB 2023': MATVETT_FOOD_WASTE_REPORT_2023_URL,
+  'Matvett/Eurostat 2023': MATVETT_FOOD_WASTE_REPORT_2023_URL,
+  'Matvett/SSB 2025 est.': MATVETT_FOOD_WASTE_REPORT_2025_URL,
+  'Matvett 2025 est.': MATVETT_FOOD_WASTE_REPORT_2025_URL,
+  'LUKE/Eurostat 2021': EUROSTAT_FOOD_WASTE_API,
+  'LUKE/Eurostat 2023': EUROSTAT_FOOD_WASTE_API,
+  'SSB Arealstatistikk': SSB_JORDBRUKSAREAL_STATISTICS_URL,
+  'Totalkalkylen/SSB': 'document:data/ssb/totalkalkylen-2024',
+  'Totalkalkylen/SSB est.': 'document:data/ssb/totalkalkylen-2024',
   'SSB 08801 partner refetch': SSB_EXTERNAL_TRADE_08801_API,
   'SCB ImpTotalKNAr partner refetch': SCB_IMPORTS_EXPORTS_CN_API,
   'StatBank SITC2R4 partner refetch': STATBANK_SITC2R4_TABLEINFO_API,
   'Statistics Iceland UTA06201 partner extract': STATISTICS_ICELAND_UTA06201_API,
+  'Luke agri-food foreign trade partner refetch': LUKE_AGRI_FOOD_FOREIGN_TRADE_API,
   'Konkurransetilsynet 2025':
     'https://konkurransetilsynet.no/wp-content/uploads/2025/04/Konkurransetilsynets-Dagligvarerapport-2024-25.pdf',
   'Konkurrence- og Forbrugerstyrelsen 2025':
@@ -447,6 +908,10 @@ const COUNTRY_METRIC_SOURCE_LABEL_LOCATORS: Record<string, string> = {
 
 function bronnoysundSubunitUrl(orgNr: string): string {
   return `${BRREG_ENHETSREGISTERET_API}/underenheter?overordnetEnhet=${encodeURIComponent(orgNr)}`
+}
+
+function bronnoysundAnnualAccountsUrl(orgNr: string, year: number): string {
+  return `${BRREG_REGNSKAPSREGISTERET_REGNSKAP_API}/${encodeURIComponent(orgNr)}?regnskapsaar=${year}`
 }
 
 const OFFICIAL_COMPANY_PROPERTY_LOCATORS: Array<{
@@ -490,14 +955,99 @@ const OFFICIAL_COMPANY_PROPERTY_LOCATORS: Array<{
     url: FESTI_HOME_URL,
   },
   {
+    orgNr: 'IS-571298-3769',
+    sourceTokens: ['samkaup.is'],
+    url: SAMKAUP_CONTACT_URL,
+  },
+  {
     orgNr: '914224314',
     sourceTokens: ['bama.no', 'liertoppen'],
     url: BAMA_ANNUAL_REPORT_2024_URL,
   },
   {
+    orgNr: '914224314',
+    sourceTokens: ['bama.no', 'regionterminal'],
+    url: BAMA_ANNUAL_REPORT_2024_URL,
+  },
+  {
+    orgNr: '975350940',
+    sourceTokens: ['leroy.no', 'bergen'],
+    url: LEROY_ABOUT_URL,
+  },
+  {
+    orgNr: '975350940',
+    sourceTokens: ['leroy.no', 'stord'],
+    url: LEROY_ABOUT_URL,
+  },
+  {
+    orgNr: 'SE-556048-2837',
+    sourceTokens: ['icagruppen.se', 'huvudkontor'],
+    url: ICA_GRUPPEN_CONTACT_URL,
+  },
+  {
+    orgNr: 'SE-556542-5353',
+    sourceTokens: ['axfood.se', 'huvudkontor'],
+    url: AXFOOD_CONTACT_URL,
+  },
+  {
+    orgNr: 'SE-702001-3469',
+    sourceTokens: ['coop.se', 'huvudkontor'],
+    url: COOP_SWEDEN_SUPPLIER_CONTACT_URL,
+  },
+  {
+    orgNr: 'SE-969697-6594',
+    sourceTokens: ['lidl.se', 'svenskt', 'huvudkontor'],
+    url: LIDL_SWEDEN_COMPANY_INFO_URL,
+  },
+  {
+    orgNr: 'FI-0110456-8',
+    sourceTokens: ['kesko.fi', 'paakonttori'],
+    url: KESKO_CORPORATION_CONTACT_URL,
+  },
+  {
+    orgNr: 'FI-1615492-7',
+    sourceTokens: ['lidl.fi', 'paakonttori'],
+    url: LIDL_FINLAND_CONTACT_URL,
+  },
+  {
+    orgNr: '910747711',
+    sourceTokens: ['orkla.no', 'stabburet', 'rygge'],
+    url: ORKLA_FOODS_FACTORIES_URL,
+  },
+  {
+    orgNr: '910747711',
+    sourceTokens: ['orkla.no', 'saetre', 'orsta'],
+    url: ORKLA_GLOBAL_FACTORIES_URL,
+  },
+  {
+    orgNr: '910747711',
+    sourceTokens: ['orkla.no', 'hovedkontor'],
+    url: ORKLA_NORWAY_CONTACT_URL,
+  },
+  {
+    orgNr: '914526647',
+    sourceTokens: ['reitanretail.no', 'hovedkontor'],
+    url: REITAN_RETAIL_ABOUT_URL,
+  },
+  {
     orgNr: '929228723',
     sourceTokens: ['asko.no', 'sentrallager'],
     url: ASKO_SENTRALLAGER_TRANSPORT_URL,
+  },
+  {
+    orgNr: '929228723',
+    sourceTokens: ['asko.no', 'asko drammen'],
+    url: ASKO_CONTACT_URL,
+  },
+  {
+    orgNr: '929228723',
+    sourceTokens: ['asko.no', 'asko nordvest'],
+    url: ASKO_CONTACT_URL,
+  },
+  {
+    orgNr: '929228723',
+    sourceTokens: ['asko.no', 'asko helgeland'],
+    url: ASKO_CONTACT_URL,
   },
   {
     orgNr: '929228723',
@@ -620,6 +1170,11 @@ const OFFICIAL_COMPANY_PROPERTY_LOCATORS: Array<{
     url: bronnoysundSubunitUrl('894759372'),
   },
   {
+    orgNr: '894759372',
+    sourceTokens: ['proff.no', 'distribunal', 'tromso'],
+    url: bronnoysundSubunitUrl('894759372'),
+  },
+  {
     orgNr: '910629085',
     sourceTokens: ['proff.no', 'moss'],
     url: bronnoysundSubunitUrl('910629085'),
@@ -698,6 +1253,22 @@ function annualReportDocumentRefForOrgYear(
   return COMPANY_FINANCIAL_ANNUAL_REPORT_REFS[`${normalizedOrgNr}:${year}`] ?? null
 }
 
+function scopedCountryMetricSourceLocator(row: CountryMetricSourceRow): string | null {
+  const country = row.country?.trim().toUpperCase()
+  const metricType = row.metricType?.trim()
+  const source = row.source?.trim()
+
+  if (
+    country === 'SE' &&
+    metricType === 'foodWastePerCapita' &&
+    (source === 'Naturvårdsverket 2021' || source === 'Naturvårdsverket 2023')
+  ) {
+    return NATURVARDSVERKET_FOOD_WASTE_STATISTICS_URL
+  }
+
+  return null
+}
+
 function officialCompanyFinancialResultUrlForRow(row: CompanyFinancialSourceRow): string | null {
   const orgNr = row.company?.orgNr?.trim()
   const source = row.source?.trim()
@@ -713,6 +1284,21 @@ function officialCompanyFinancialResultUrlForRow(row: CompanyFinancialSourceRow)
   })
 
   return locator?.url ?? null
+}
+
+function officialNorwegianCompanyFinancialAccountsUrlForRow(
+  row: CompanyFinancialSourceRow,
+): string | null {
+  const orgNr = row.company?.orgNr?.trim()
+  const source = row.source?.trim()
+  if (!orgNr || !row.year || !source || !isNorwegianOrgNumber(orgNr)) return null
+
+  const normalized = normalizeSourceText(source)
+  if (normalized === `regnskap ${row.year}` || /^proff\.no 20\d{2}$/.test(normalized)) {
+    return bronnoysundAnnualAccountsUrl(orgNr, row.year)
+  }
+
+  return null
 }
 
 function numberFromOwnershipPct(
@@ -808,6 +1394,9 @@ export function resolveCountryMetricSourceLocator(
     }
   }
 
+  const scopedLocator = scopedCountryMetricSourceLocator(row)
+  if (scopedLocator) return scopedLocator
+
   const source = row.source?.trim()
   return source ? (COUNTRY_METRIC_SOURCE_LABEL_LOCATORS[source] ?? null) : null
 }
@@ -821,6 +1410,9 @@ export function resolveCompanyFinancialSourceLocator(
 
   const officialResultsUrl = officialCompanyFinancialResultUrlForRow(row)
   if (officialResultsUrl) return officialResultsUrl
+
+  const officialAccountsUrl = officialNorwegianCompanyFinancialAccountsUrlForRow(row)
+  if (officialAccountsUrl) return officialAccountsUrl
 
   if (!looksLikeAnnualReportSource(row.source)) return null
 
@@ -1010,6 +1602,42 @@ export function resolveBusinessRelationshipSourceLocator(
   }
 
   const normalized = normalizeSourceText(source)
+  const orgCandidates = [row.fromCompany?.orgNr, row.toCompany?.orgNr]
+
+  if (normalized.includes('bama') && orgCandidates.includes('914224314')) {
+    return BAMA_ANNUAL_REPORT_2024_URL
+  }
+
+  if (normalized.includes('felleskjopet') && orgCandidates.includes('911608103')) {
+    return FELLESKJOPET_ANNUAL_REPORT_2024_URL
+  }
+
+  if (
+    normalized.includes('gartnerhallen.no') &&
+    orgCandidates.includes('945958405') &&
+    orgCandidates.includes('914224314')
+  ) {
+    return GARTNERHALLEN_MARKET_BALANCING_URL
+  }
+
+  if (
+    normalized.includes('norgesgruppen') &&
+    normalized.includes('dagrofa') &&
+    orgCandidates.includes('819731322') &&
+    orgCandidates.includes('DK-38714295')
+  ) {
+    const documentRef = SHAREHOLDER_ANNUAL_REPORT_REFS['819731322']
+    if (documentRefs.has(documentRef)) return `document:${documentRef}`
+  }
+
+  if (
+    (normalized.includes('reitan') || normalized.includes('norsk kylling')) &&
+    orgCandidates.includes('914526647')
+  ) {
+    const documentRef = SHAREHOLDER_ANNUAL_REPORT_REFS['914526647']
+    if (documentRefs.has(documentRef)) return `document:${documentRef}`
+  }
+
   if (normalized.includes('matsentralen') && looksLikeAnnualReportSource(source)) {
     return MATSENTRALEN_ANNUAL_REPORT_URL
   }
