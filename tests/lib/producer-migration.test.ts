@@ -7,8 +7,11 @@ describe('producer separation migration', () => {
   it('creates the Producer table idempotently', () => {
     assert.match(sql, /CREATE TABLE IF NOT EXISTS "Producer"/)
   })
-  it('guards the data move so it runs once', () => {
-    assert.match(sql, /IF EXISTS \(SELECT 1 FROM "Company" WHERE "valueChainStage" = 'production'/)
+  it('migrates only genuine leaf producers, excluding companies with curated relations', () => {
+    assert.match(sql, /CREATE TEMP TABLE "_producer_migration_ids"/)
+    assert.match(sql, /"valueChainStage" = 'production'/)
+    assert.match(sql, /NOT EXISTS \(SELECT 1 FROM "CompanyOwnership"/)
+    assert.match(sql, /IF EXISTS \(SELECT 1 FROM "_producer_migration_ids"\)/)
   })
   it('copies producer rows without clobbering on re-apply', () => {
     assert.match(sql, /ON CONFLICT \("id"\) DO NOTHING/)

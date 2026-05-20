@@ -39,7 +39,10 @@ async function runCompanyQuery(opts: {
     },
   }
 
-  return prisma.company.findMany({ where, include, orderBy: { name: 'asc' } })
+  // getCompanies() returns the curated-company set (~51 rows). `take` is a hard
+  // ceiling so /selskap degrades instead of failing if Company is ever
+  // unexpectedly large (e.g. a producer-separation migration that did not apply).
+  return prisma.company.findMany({ where, include, orderBy: { name: 'asc' }, take: 2000 })
 }
 
 type NormalizedCompanyRow = CompanyQueryResult[number] & {
