@@ -359,7 +359,7 @@ model Company {
 }
 
 model Producer {
-  id           String           @id
+  id           String           @id @default(cuid())
   orgNr        String           @unique
   name         String
   country      String           @default("NO")

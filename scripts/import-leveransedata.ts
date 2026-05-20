@@ -161,18 +161,17 @@ async function fetchCsv(url: string) {
   return parseCsv(text, delim)
 }
 
-async function ensureCompany(orgNr: string, name: string, kommuneNr: string | null) {
-  const existing = await prisma.company.findUnique({ where: { orgNr } })
-  if (existing) return existing
-  return prisma.company.create({
-    data: {
+async function ensureProducer(orgNr: string, name: string, kommuneNr: string | null) {
+  return prisma.producer.upsert({
+    where: { orgNr },
+    create: {
       name,
       orgNr,
       country: 'NO',
-      valueChainStage: 'production',
-      ownershipType: 'family',
+      municipality: kommuneNr,
       metadata: { kommuneNr, source: 'Leveransedata' } as any,
     },
+    update: {},
   })
 }
 
@@ -241,7 +240,7 @@ async function importDataset(spec: CommoditySpec, year: number, dryRun: boolean,
       continue
     }
 
-    const supplier = await ensureCompany(supplierOrgNr, agg.name, agg.kommuneNr)
+    const supplier = await ensureProducer(supplierOrgNr, agg.name, agg.kommuneNr)
     const kommuneNr = agg.kommuneNr ?? extractKommuneNr(supplier.metadata)
 
     for (const [commodity, qty] of commodities) {
@@ -254,7 +253,7 @@ async function importDataset(spec: CommoditySpec, year: number, dryRun: boolean,
           },
         },
         create: {
-          supplierId: supplier.id,
+          supplierProducerId: supplier.id,
           supplierOrgNr,
           buyerId: buyer?.id,
           buyerName: spec.buyerName,
