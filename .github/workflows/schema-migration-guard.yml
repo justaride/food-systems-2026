@@ -1,0 +1,64 @@
+name: Schema migration guard
+
+# Fails a push/PR when prisma/schema.prisma changes but no new migration file
+# is added. Production schema is synced only by prisma/migrations/* (applied by
+# scripts/apply-prod-migrations.sh on deploy) — a schema change with no
+# migration silently drifts prod, which is exactly how the 38-column /
+# SourceCitation / BoardMember drift happened.
+#
+# This is a "did you remember the migration file" guard, not a correctness
+# check. To verify a DB actually matches the schema, run `npm run db:check-drift`
+# against that database.
+#
+# Escape hatch: put [skip-migration] in a commit message for schema edits that
+# genuinely need no migration (comments, formatting, generator/datasource block).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require a migration when schema.prisma changes
+        run: |
+          set -euo pipefail
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            RANGE="origin/${{ github.base_ref }}...HEAD"
+          else
+            BEFORE="${{ github.event.before }}"
+            if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+              echo "New branch / no prior commit — guard skipped."
+              exit 0
+            fi
+            RANGE="$BEFORE..${{ github.sha }}"
+          fi
+          echo "Comparing range: $RANGE"
+
+          if git log --format=%B "$RANGE" | grep -qi '\[skip-migration\]'; then
+            echo "Found [skip-migration] in a commit message — guard skipped."
+            exit 0
+          fi
+
+          if ! git diff --name-only "$RANGE" | grep -qx 'prisma/schema.prisma'; then
+            echo "prisma/schema.prisma unchanged — OK."
+            exit 0
+          fi
+
+          if git diff --name-only --diff-filter=A "$RANGE" | grep -q '^prisma/migrations/.*/migration\.sql$'; then
+            echo "schema.prisma changed and a new migration file was added — OK."
+            exit 0
+          fi
+
+          echo "::error::prisma/schema.prisma changed but no new prisma/migrations/*/migration.sql was added."
+          echo "Add an idempotent migration (see existing files under prisma/migrations/),"
+          echo "or put [skip-migration] in a commit message if this change needs no migration."
+          exit 1
