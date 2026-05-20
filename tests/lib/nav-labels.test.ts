@@ -21,3 +21,21 @@ describe('nav labels', () => {
     }
   })
 })
+
+describe('nav structure', () => {
+  it('Søk is reachable from the top group, not Bibliotek', () => {
+    const top = navGroups.find(g => !g.label)
+    assert.ok(top?.items.some(i => i.href === '/sok'), 'Søk should be in the top (unlabelled) group')
+  })
+  it('Bibliotek group no longer contains entity pages', () => {
+    const bib = navGroups.find(g => g.label === 'Bibliotek')
+    const entityHrefs = ['/selskap', '/personer', '/aktorer', '/sok']
+    for (const href of entityHrefs) {
+      assert.ok(!bib?.items.some(i => i.href === href), `${href} should not be under Bibliotek`)
+    }
+  })
+  it('has a Produsenter group with the producer register', () => {
+    const prod = navGroups.find(g => g.label === 'Produsenter & støtte')
+    assert.ok(prod?.items.some(i => i.href === '/produsenter'), 'expected /produsenter in Produsenter group')
+  })
+})

@@ -24,8 +24,11 @@ export function Sidebar() {
           {navGroups.map((group, gi) => (
             <div key={gi}>
               {group.label && (
-                <p className="px-3 mb-1 text-[10px] uppercase tracking-wider text-stone-400">
+                <p className="px-3 mb-1 text-[10px] uppercase tracking-wider text-stone-400 flex items-center gap-1.5">
                   {group.label}
+                  {group.label === 'Intern' && (
+                    <span className="rounded bg-stone-100 px-1 text-[9px] normal-case text-stone-500">internt</span>
+                  )}
                 </p>
               )}
               <ul className="space-y-0.5">
