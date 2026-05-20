@@ -77,3 +77,26 @@ BEGIN
       CHECK (("supplierId" IS NULL) <> ("supplierProducerId" IS NULL));
   END IF;
 END $$;
+
+-- 7. Pin the pre-existing Company-side FKs to RESTRICT/CASCADE so the DB
+--    matches schema.prisma's explicit onDelete (companyId/supplierId became
+--    optional). No-op when the constraint is already in that state.
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_constraint
+    WHERE conname = 'Subsidy_companyId_fkey' AND confdeltype = 'r' AND confupdtype = 'c'
+  ) THEN
+    ALTER TABLE "Subsidy" DROP CONSTRAINT IF EXISTS "Subsidy_companyId_fkey";
+    ALTER TABLE "Subsidy" ADD CONSTRAINT "Subsidy_companyId_fkey"
+      FOREIGN KEY ("companyId") REFERENCES "Company"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+  END IF;
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_constraint
+    WHERE conname = 'DeliveryVolume_supplierId_fkey' AND confdeltype = 'r' AND confupdtype = 'c'
+  ) THEN
+    ALTER TABLE "DeliveryVolume" DROP CONSTRAINT IF EXISTS "DeliveryVolume_supplierId_fkey";
+    ALTER TABLE "DeliveryVolume" ADD CONSTRAINT "DeliveryVolume_supplierId_fkey"
+      FOREIGN KEY ("supplierId") REFERENCES "Company"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+  END IF;
+END $$;
