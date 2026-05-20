@@ -68,12 +68,14 @@ export type SubsidySumsByCompanyYear = Record<string, Record<number, { totalAmou
 export async function getSubsidySumsByCompany(): Promise<SubsidySumByCompany> {
   const rows = await prisma.subsidy.groupBy({
     by: ['companyId'],
+    where: { companyId: { not: null } },
     _sum: { amountNok: true },
     _count: { _all: true },
   })
 
   const map: SubsidySumByCompany = {}
   for (const r of rows) {
+    if (r.companyId === null) continue
     map[r.companyId] = {
       totalAmountNok: r._sum.amountNok ? Number(r._sum.amountNok) : 0,
       count: r._count._all,
@@ -85,14 +87,14 @@ export async function getSubsidySumsByCompany(): Promise<SubsidySumByCompany> {
 export async function getSubsidySumsByCompanyYear(): Promise<SubsidySumsByCompanyYear> {
   const rows = await prisma.subsidy.groupBy({
     by: ['companyId', 'year'],
-    where: { year: { not: null } },
+    where: { companyId: { not: null }, year: { not: null } },
     _sum: { amountNok: true },
     _count: { _all: true },
   })
 
   const map: SubsidySumsByCompanyYear = {}
   for (const row of rows) {
-    if (row.year === null) continue
+    if (row.companyId === null || row.year === null) continue
     if (!map[row.companyId]) map[row.companyId] = {}
     map[row.companyId][row.year] = {
       totalAmountNok: row._sum.amountNok ? Number(row._sum.amountNok) : 0,
