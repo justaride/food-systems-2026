@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Card } from '@/components/ui/Card'
@@ -274,9 +273,6 @@ export function SubsidierContent({
     }
   }, [stageCoverage])
 
-  // All producer-subsidy recipients are a single 'produsent' stage — no non-farm alert needed.
-  const nonFarmRecipients: RecipientRow[] = []
-
   const topRecipientCoverage = useMemo(() => {
     const total = topRecipients.length
     const jordbruksforetakName = topRecipients.filter(r => r.name.startsWith('Jordbruksforetak ')).length
@@ -340,15 +336,6 @@ export function SubsidierContent({
           </div>
         </div>
       </div>
-
-      {nonFarmRecipients.length > 0 && (
-        <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-          <strong>Merk:</strong> {nonFarmRecipients.length} av topp-100 mottakere er ikke
-          klassifisert som jordbruksforetak (`valueChainStage ≠ production`). Dette
-          kan indikere samvirkeforetak, foredlingsbedrifter eller mangelfull orgnr-metadata
-          som bør følges opp manuelt.
-        </div>
-      )}
 
       {!hasProduksjonstilskudd && (
         <div className="rounded-lg border border-orange-200 bg-orange-50 px-5 py-4 text-sm text-orange-900 space-y-2">
