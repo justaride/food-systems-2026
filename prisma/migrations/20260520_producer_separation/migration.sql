@@ -21,15 +21,37 @@ ALTER TABLE "DeliveryVolume" ADD COLUMN IF NOT EXISTS "supplierProducerId" TEXT;
 ALTER TABLE "Subsidy"        ALTER COLUMN "companyId"  DROP NOT NULL;
 ALTER TABLE "DeliveryVolume" ALTER COLUMN "supplierId" DROP NOT NULL;
 
--- 3. One-time data move (guard skips it once producers have left Company) -
+-- 3. One-time data move ----------------------------------------------------
+-- The producer set = valueChainStage='production' companies that are genuine
+-- LEAVES: no rows in any RESTRICT-FK child table except Subsidy and
+-- DeliveryVolume.supplier (those are repointed below). A production-stage
+-- company that has curated relations (ownership, board, financials, shares,
+-- properties, business-relations, aquaculture, document refs) is NOT a farm
+-- producer (e.g. a curated indoor-farming company) — it stays in "Company",
+-- because deleting it would violate those foreign keys.
+DROP TABLE IF EXISTS "_producer_migration_ids";
+CREATE TEMP TABLE "_producer_migration_ids" AS
+SELECT c."id"
+FROM "Company" c
+WHERE c."valueChainStage" = 'production'
+  AND NOT EXISTS (SELECT 1 FROM "AquacultureSite"      x WHERE x."companyId"       = c."id")
+  AND NOT EXISTS (SELECT 1 FROM "BoardMember"          x WHERE x."companyId"       = c."id")
+  AND NOT EXISTS (SELECT 1 FROM "BusinessRelationship" x WHERE x."fromCompanyId"   = c."id" OR x."toCompanyId" = c."id")
+  AND NOT EXISTS (SELECT 1 FROM "CompanyDocumentRef"   x WHERE x."companyId"       = c."id")
+  AND NOT EXISTS (SELECT 1 FROM "CompanyFinancial"     x WHERE x."companyId"       = c."id")
+  AND NOT EXISTS (SELECT 1 FROM "CompanyOwnership"     x WHERE x."parentCompanyId" = c."id" OR x."childCompanyId" = c."id")
+  AND NOT EXISTS (SELECT 1 FROM "CompanyProperty"      x WHERE x."companyId"       = c."id")
+  AND NOT EXISTS (SELECT 1 FROM "Shareholder"          x WHERE x."companyId"       = c."id");
+
 DO $$
 BEGIN
-  IF EXISTS (SELECT 1 FROM "Company" WHERE "valueChainStage" = 'production') THEN
+  -- guard: skips once the leaf producers have left Company
+  IF EXISTS (SELECT 1 FROM "_producer_migration_ids") THEN
 
-    -- 3a. Copy producer rows into Producer (id reused verbatim).
+    -- 3a. Copy leaf producers into Producer (id reused verbatim).
     INSERT INTO "Producer" ("id", "orgNr", "name", "country", "metadata")
     SELECT "id", "orgNr", "name", "country", "metadata"
-    FROM "Company" WHERE "valueChainStage" = 'production'
+    FROM "Company" WHERE "id" IN (SELECT "id" FROM "_producer_migration_ids")
     ON CONFLICT ("id") DO NOTHING;
 
     -- 3b. Subsidy: move producer references from companyId to producerId.
@@ -42,11 +64,12 @@ BEGIN
     WHERE dv."supplierId" IS NOT NULL
       AND EXISTS (SELECT 1 FROM "Producer" p WHERE p."id" = dv."supplierId");
 
-    -- 3d. Remove migrated producers from Company.
-    DELETE FROM "Company" WHERE "valueChainStage" = 'production';
+    -- 3d. Remove migrated leaf producers from Company.
+    DELETE FROM "Company" WHERE "id" IN (SELECT "id" FROM "_producer_migration_ids");
 
   END IF;
 END $$;
+DROP TABLE IF EXISTS "_producer_migration_ids";
 
 -- 4. Indexes on the new Producer FK columns ------------------------------
 CREATE INDEX IF NOT EXISTS "Subsidy_producerId_idx" ON "Subsidy" ("producerId");
