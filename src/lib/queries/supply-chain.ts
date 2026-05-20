@@ -570,7 +570,12 @@ async function getSupplyChainDataQualityFallback(): Promise<SupplyChainDataQuali
 
   return {
     generatedAt: new Date().toISOString(),
-    qualityScore: Math.round(metrics.reduce((sum, metric) => sum + (metric.percent ?? 0), 0) / metrics.length),
+    qualityScore: (() => {
+      const scoredMetrics = metrics.filter(m => m.percent != null)
+      return scoredMetrics.length > 0
+        ? Math.round(scoredMetrics.reduce((sum, m) => sum + m.percent!, 0) / scoredMetrics.length)
+        : 0
+    })(),
     metrics,
     stageCoverage: [],
     relationshipTypes: [],
@@ -883,9 +888,10 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
     },
   ]
 
-  const qualityScore = Math.round(
-    metrics.reduce((sum, metric) => sum + (metric.percent ?? 0), 0) / metrics.length
-  )
+  const scoredMetrics = metrics.filter(m => m.percent != null)
+  const qualityScore = scoredMetrics.length > 0
+    ? Math.round(scoredMetrics.reduce((sum, m) => sum + m.percent!, 0) / scoredMetrics.length)
+    : 0
 
   const projectDataCandidates: ProjectDataCandidate[] = [
     {
