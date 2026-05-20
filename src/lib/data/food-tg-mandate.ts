@@ -296,7 +296,7 @@ export const foodTgOpportunityRadar: FoodTgOpportunity[] = [
 export const foodTgValidationSprint: FoodTgSprintItem[] = [
   {
     day: '1-2',
-    work: 'EUDR/for-data primary-check',
+    work: 'EUDR/fôr-data primary-check',
     counterparties: 'Landbruksdirektoratet, Miljødirektoratet, SSB/Tolletaten',
     question: 'Kan vi formulere EUDR og varekoder trygt?',
     output: 'Metodenotat for EUDR-Norge, HS/SSB og trygge formuleringer.',
@@ -313,7 +313,7 @@ export const foodTgValidationSprint: FoodTgSprintItem[] = [
   {
     day: '3-6',
     work: 'B-spor go/no-go',
-    counterparties: 'Mattilsynet/fagekspert, ravareeier, off-taker',
+    counterparties: 'Mattilsynet/fagekspert, råvareeier, off-taker',
     question: 'Kan ren prosess-sidestrøm modnes, eller skal den holdes som benchmark?',
     output: 'Gate-kort for okara/BSG: lov, hygiene, logistikk, kjøper og data.',
     status: ['benchmark', 'needs-actor-validation'],
