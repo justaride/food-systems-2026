@@ -412,7 +412,7 @@ export const foodTgClaimBoard: FoodTgClaimCard[] = [
     id: 'B-benchmarks',
     claimId: 'CL-B-023',
     track: 'B',
-    title: 'Marint reststoff og nutrient loops er læring, ikke første lettvekts-pilot.',
+    title: 'Marint restråstoff og nutrient loops er læring, ikke første lettvekts-pilot.',
     strength: 'benchmark',
     status: 'benchmark',
     nextAction: 'Behold som benchmark til systemgrense, marked og sammenlignbare KPI-er er klare.',
