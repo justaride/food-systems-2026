@@ -1121,3 +1121,176 @@ Per superpowers:finishing-a-development-branch, complete the merge/cleanup.
 - **Known adaptation:** the repo's tests never touch a database, so DB-facing tasks (11, 13-19) verify via SQL count assertions, `npm run build`, `db:check-drift`, and the browser smoke test rather than unit tests. File-content tests are used where the repo pattern supports them (nav, diacritics, schema, migration).
 - **Decoupling sweep:** Task 13 Step 3 greps for every consumer of the dropped `Company.subsidies` / `deliveriesFrom` relations, so the producer migration cannot leave a dangling reference in `companies.ts`, `ownership.ts`, the `/selskap` pages or `/eierskap`.
 - **Deliberate substitution (not a placeholder):** `<ORGNR_LIST>` in Task 10 is filled from Task 8's live-DB investigation; the plan instructs exactly how, or to delete the statement if no outliers exist.
+
+---
+
+# ADDENDUM (2026-05-20) — Dual-target FK design
+
+**This addendum SUPERSEDES Tasks 9, 10, 13, 15, 16 above.** Tasks 2-8, 11, 12, 14, 17-21 are unaffected.
+
+## Task 8 outcome (investigation complete)
+
+The 3 outlier rows reference two **genuine curated companies**, not farms:
+
+- **Yara International ASA** (`orgNr 986228608`, `valueChainStage='inputs'`) — recipient of **1** `Subsidy` row: a 283 MNOK Enova "Grønn ammoniakk Porsgrunn" tech grant (2022).
+- **Felleskjøpet Agri SA** (`orgNr 911608103`, `valueChainStage='inputs'`) — supplier on **2** `DeliveryVolume` rows: 2024 grain self-trade (supplier = buyer = Felleskjøpet), source Landbruksdirektoratet.
+
+Baseline counts confirmed on local DB: Company 38 976 · producers (`valueChainStage='production'`) 38 925 · Subsidy 179 311 · DeliveryVolume 60 310.
+
+**Decision (user, 2026-05-20): dual-target FKs.** `Subsidy` and `DeliveryVolume` each keep a nullable FK to `Company` and gain a nullable FK to `Producer`; exactly one is set per row. Yara and Felleskjøpet stay in `Company` (they are `valueChainStage='inputs'`, so the producer-population query naturally excludes them). **No `<ORGNR_LIST>` reclassification** — statement 3a of the original Task 10 is dropped entirely.
+
+## Task 9 (revised) — Prisma schema, dual FK
+
+`tests/lib/producer-schema.test.ts`:
+
+```ts
+import { describe, it } from 'node:test'
+import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
+
+describe('Producer schema', () => {
+  const schema = readFileSync('prisma/schema.prisma', 'utf8')
+  it('defines a Producer model', () => {
+    assert.match(schema, /model Producer \{/)
+  })
+  it('Subsidy keeps companyId and adds producerId (both optional)', () => {
+    const block = schema.slice(schema.indexOf('model Subsidy'), schema.indexOf('model Subsidy') + 800)
+    assert.match(block, /companyId\s+String\?/)
+    assert.match(block, /producerId\s+String\?/)
+    assert.match(block, /company\s+Company\?/)
+    assert.match(block, /producer\s+Producer\?/)
+  })
+  it('DeliveryVolume keeps supplier (Company) and adds supplierProducer (Producer)', () => {
+    const block = schema.slice(schema.indexOf('model DeliveryVolume'), schema.indexOf('model DeliveryVolume') + 900)
+    assert.match(block, /supplier\s+Company\?\s+@relation\("DeliverySupplier"/)
+    assert.match(block, /supplierProducer\s+Producer\?\s+@relation\("DeliverySupplierProducer"/)
+  })
+})
+```
+
+`Producer` model (add after `Company`):
+
+```prisma
+model Producer {
+  id           String           @id
+  orgNr        String           @unique
+  name         String
+  country      String           @default("NO")
+  municipality String?
+  metadata     Json?
+  subsidies    Subsidy[]
+  deliveries   DeliveryVolume[] @relation("DeliverySupplierProducer")
+
+  @@index([country])
+}
+```
+
+`Subsidy` changes: `companyId String` → `companyId String?`; add `producerId String?`; `company Company @relation(...)` → `company Company? @relation(fields: [companyId], references: [id])`; add `producer Producer? @relation(fields: [producerId], references: [id])`; add `@@index([producerId])` (keep the `companyId`, `scheme`, `year` indexes).
+
+`DeliveryVolume` changes: `supplierId String` → `supplierId String?`; add `supplierProducerId String?`; `supplier Company @relation("DeliverySupplier", ...)` → `supplier Company? @relation("DeliverySupplier", fields: [supplierId], references: [id])`; add `supplierProducer Producer? @relation("DeliverySupplierProducer", fields: [supplierProducerId], references: [id])`; add `@@index([supplierProducerId])`. `buyerId`/`buyer` and the `@@unique([supplierOrgNr, commodity, year])` are unchanged.
+
+`Company` model is **UNCHANGED** — it keeps `subsidies Subsidy[]`, `deliveriesFrom DeliveryVolume[] @relation("DeliverySupplier")`, `deliveriesTo DeliveryVolume[] @relation("DeliveryBuyer")` (Company still has 1 subsidy + 2 deliveriesFrom). The original Task 9 Step 6 (drop Company back-relations) is **dropped**.
+
+Commit message keeps the `[skip-migration]` tag.
+
+## Task 10 (revised) — idempotent migration, dual FK
+
+`prisma/migrations/20260520_producer_separation/migration.sql`:
+
+```sql
+-- Producer separation (dual-target FK). Idempotent — re-applied on every Coolify deploy.
+-- Producers move to "Producer"; Subsidy/DeliveryVolume keep their Company FK and gain a
+-- nullable Producer FK so rows referencing curated companies (Yara, Felleskjøpet) survive.
+
+CREATE TABLE IF NOT EXISTS "Producer" (
+  "id"           TEXT NOT NULL,
+  "orgNr"        TEXT NOT NULL,
+  "name"         TEXT NOT NULL,
+  "country"      TEXT NOT NULL DEFAULT 'NO',
+  "municipality" TEXT,
+  "metadata"     JSONB,
+  CONSTRAINT "Producer_pkey" PRIMARY KEY ("id")
+);
+CREATE UNIQUE INDEX IF NOT EXISTS "Producer_orgNr_key" ON "Producer" ("orgNr");
+CREATE INDEX IF NOT EXISTS "Producer_country_idx" ON "Producer" ("country");
+
+ALTER TABLE "Subsidy"        ADD COLUMN IF NOT EXISTS "producerId" TEXT;
+ALTER TABLE "DeliveryVolume" ADD COLUMN IF NOT EXISTS "supplierProducerId" TEXT;
+ALTER TABLE "Subsidy"        ALTER COLUMN "companyId"  DROP NOT NULL;
+ALTER TABLE "DeliveryVolume" ALTER COLUMN "supplierId" DROP NOT NULL;
+
+DO $$
+BEGIN
+  IF EXISTS (SELECT 1 FROM "Company" WHERE "valueChainStage" = 'production') THEN
+    INSERT INTO "Producer" ("id", "orgNr", "name", "country", "metadata")
+    SELECT "id", "orgNr", "name", "country", "metadata"
+    FROM "Company" WHERE "valueChainStage" = 'production'
+    ON CONFLICT ("id") DO NOTHING;
+
+    UPDATE "Subsidy" s SET "producerId" = s."companyId", "companyId" = NULL
+    WHERE s."companyId" IS NOT NULL
+      AND EXISTS (SELECT 1 FROM "Producer" p WHERE p."id" = s."companyId");
+
+    UPDATE "DeliveryVolume" dv SET "supplierProducerId" = dv."supplierId", "supplierId" = NULL
+    WHERE dv."supplierId" IS NOT NULL
+      AND EXISTS (SELECT 1 FROM "Producer" p WHERE p."id" = dv."supplierId");
+
+    DELETE FROM "Company" WHERE "valueChainStage" = 'production';
+  END IF;
+END $$;
+
+CREATE INDEX IF NOT EXISTS "Subsidy_producerId_idx" ON "Subsidy" ("producerId");
+CREATE INDEX IF NOT EXISTS "DeliveryVolume_supplierProducerId_idx" ON "DeliveryVolume" ("supplierProducerId");
+
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'Subsidy_producerId_fkey') THEN
+    ALTER TABLE "Subsidy" ADD CONSTRAINT "Subsidy_producerId_fkey"
+      FOREIGN KEY ("producerId") REFERENCES "Producer"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'DeliveryVolume_supplierProducerId_fkey') THEN
+    ALTER TABLE "DeliveryVolume" ADD CONSTRAINT "DeliveryVolume_supplierProducerId_fkey"
+      FOREIGN KEY ("supplierProducerId") REFERENCES "Producer"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+  END IF;
+END $$;
+```
+
+The existing `Subsidy_companyId_fkey` / `DeliveryVolume_supplierId_fkey` are **not dropped** — after the `UPDATE`s set producer references to `NULL`, the only non-NULL `companyId`/`supplierId` values point at curated companies that are NOT deleted, so those FKs stay valid. Task 11 Step 5 (`db:check-drift`) is the gate: if Prisma reports drift (e.g. an `onDelete` mismatch because `companyId`/`supplierId` became optional), add the corrective `DROP CONSTRAINT … / ADD CONSTRAINT …` DDL to this migration and re-apply until drift-clean.
+
+`tests/lib/producer-migration.test.ts`:
+
+```ts
+import { describe, it } from 'node:test'
+import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
+
+describe('producer separation migration', () => {
+  const sql = readFileSync('prisma/migrations/20260520_producer_separation/migration.sql', 'utf8')
+  it('creates the Producer table idempotently', () => {
+    assert.match(sql, /CREATE TABLE IF NOT EXISTS "Producer"/)
+  })
+  it('guards the data move so it runs once', () => {
+    assert.match(sql, /IF EXISTS \(SELECT 1 FROM "Company" WHERE "valueChainStage" = 'production'/)
+  })
+  it('copies producer rows without clobbering on re-apply', () => {
+    assert.match(sql, /ON CONFLICT \("id"\) DO NOTHING/)
+  })
+  it('keeps Subsidy.companyId and adds producerId (dual FK)', () => {
+    assert.match(sql, /ADD COLUMN IF NOT EXISTS "producerId"/)
+    assert.ok(!/DROP COLUMN[^\n]*"companyId"/.test(sql), 'companyId must NOT be dropped')
+  })
+  it('keeps DeliveryVolume.supplierId and adds supplierProducerId', () => {
+    assert.match(sql, /ADD COLUMN IF NOT EXISTS "supplierProducerId"/)
+  })
+})
+```
+
+## Task 11 expected post-migration counts (revised)
+
+`Company` 51 · `Producer` 38 925 · `Subsidy.companyId IS NOT NULL` = 1 (Yara) · `Subsidy.producerId IS NOT NULL` = 179 310 · rows with neither = 0 · `DeliveryVolume.supplierId IS NOT NULL` = 2 (Felleskjøpet) · `DeliveryVolume.supplierProducerId IS NOT NULL` = 60 308 · supplier-side rows with neither = 0.
+
+## Tasks 13, 15, 16 (revised notes)
+
+- **Task 13:** `Company` keeps its `subsidies`/`deliveriesFrom` relations, so do **NOT** remove subsidy displays from the `/selskap` pages or `/eierskap`. Task 13 reduces to: remove the obsolete chunked-paging / `includeAll` / `trackedOnly` / 55k-bind-cap logic from `getCompanies()` in `companies.ts` (Company is now ~51 rows; a single `findMany` suffices). The `[id]` page and `EierskapContent` subsidy sections stay.
+- **Task 15:** subsidy queries (`subsidies.ts`, `subsidies-agg.ts`) repoint recipient grouping/joins from `companyId`/`Company` to `producerId`/`Producer`. Filter `producerId IS NOT NULL` where a producer-recipient join is needed — the lone `companyId` subsidy (Yara's Enova grant) is legitimately excluded from the producer-subsidy aggregations on `/subsidier`.
+- **Task 16:** unchanged in intent — `prisma.company.count()` (~51) and `prisma.producer.count()` (38 925) reported separately. DeliveryVolume supplier counting now spans `supplierProducerId` (60 308) + `supplierId` (2).
