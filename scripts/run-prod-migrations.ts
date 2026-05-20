@@ -1,15 +1,17 @@
-// Kjører prod-side migrasjoner: FTS-skjema, country-normalisering,
-// okologisk-norden imports, insight-doc-curation. Idempotent — trygt å
-// kjøre flere ganger.
+// Kjører prod-side migrasjoner: Prisma-skjemamigrasjoner, FTS-skjema,
+// country-normalisering, okologisk-norden imports, insight-doc-curation.
+// Idempotent — trygt å kjøre flere ganger.
 //
-// Designet for å kjøre fra Docker build-stage som siste ledd etter
-// `prisma db push`, så prod-DB blir konsistent med kode-forventningene.
+// Kjøres som Coolify post_deployment_command. Dette er den eneste mekanismen
+// som bringer prod-DB i sync med schema.prisma: `prisma db push` /
+// `prisma migrate deploy` kjøres ikke på deploy (db push er inkompatibel med
+// STORED GENERATED search_vector-kolonner).
 //
 // Krever DATABASE_URL og at psql + tsx er tilgjengelig (vi installerer
 // postgresql-client i alpine via Dockerfile-endring).
 
 import { execSync } from 'child_process'
-import { existsSync, readFileSync } from 'fs'
+import { existsSync, readdirSync } from 'fs'
 import { join } from 'path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
@@ -31,6 +33,33 @@ function runSql(file: string, description: string): void {
   } catch (e) {
     console.error(`[migrate] FAIL ${description}: ${(e as Error).message}`)
     throw e
+  }
+}
+
+// Applies every prisma/migrations/*/migration.sql in lexical order. The
+// project does not run `prisma migrate deploy` / `prisma db push` on deploy
+// (db push is incompatible with the STORED GENERATED search_vector columns),
+// so without this step schema changes never reach production. Every committed
+// migration is authored idempotently (IF NOT EXISTS / guarded DO-blocks), so
+// re-applying the full set on each deploy is safe.
+function runPrismaMigrations(): void {
+  const migrationsDir = join(REPO, 'prisma', 'migrations')
+  if (!existsSync(migrationsDir)) {
+    console.log('[migrate] SKIP Prisma migrations: prisma/migrations ikke funnet')
+    return
+  }
+  const dirs = readdirSync(migrationsDir, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .sort()
+
+  for (const dir of dirs) {
+    const rel = join('prisma', 'migrations', dir, 'migration.sql')
+    if (!existsSync(join(REPO, rel))) {
+      console.log(`[migrate] SKIP ${dir}: migration.sql mangler`)
+      continue
+    }
+    runSql(rel, `Prisma-migrasjon ${dir}`)
   }
 }
 
@@ -56,14 +85,18 @@ async function main() {
 
   console.log('[migrate] Starting prod migrations…')
 
-  // 1. FTS-skjema (idempotent via IF NOT EXISTS)
+  // 1. Prisma-skjemamigrasjoner (idempotente — bringer prod-DB i sync med
+  //    schema.prisma; uten dette mangler nye tabeller/kolonner i prod)
+  runPrismaMigrations()
+
+  // 2. FTS-skjema (idempotent via IF NOT EXISTS)
   runSql('scripts/add-postgres-fts.sql', 'FTS schema (tsvector + GIN)')
 
-  // 2. Country/documentType normalisering (idempotent — UPDATE-statements
+  // 3. Country/documentType normalisering (idempotent — UPDATE-statements
   //    som ikke gjør noe hvis allerede normalisert)
   runSql('scripts/normalize-document-categories.sql', 'Country/documentType normalisering')
 
-  // 3. Okologisk-norden imports (idempotent via slug+filePath UNIQUE constraints)
+  // 4. Okologisk-norden imports (idempotent via slug+filePath UNIQUE constraints)
   const alreadyImported = await checkAlreadyImported('okologisk-norden-2026-04-29')
   if (alreadyImported) {
     console.log('[migrate] SKIP okologisk-norden import (allerede importert)')
@@ -80,7 +113,7 @@ async function main() {
     }
   }
 
-  // 4. Insight-doc-koblinger (apply curated CSV)
+  // 5. Insight-doc-koblinger (apply curated CSV)
   const csvPath = join(REPO, 'research/_status/insight-link-candidates-v3-2026-05-11.csv')
   if (existsSync(csvPath)) {
     console.log('[migrate] Applying insight-doc-koblinger…')
