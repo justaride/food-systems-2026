@@ -28,13 +28,46 @@ export default async function OversiktPage() {
 
   return (
     <div className="space-y-5">
+      <header className="space-y-3">
+        <h1 className="text-xl font-bold text-stone-900">Food Systems 2026</h1>
+        <p className="text-sm text-stone-600 max-w-2xl">
+          Kunnskapsbase som kartlegger selskapsstrukturer, eierskap, makt og forsyningskjeder
+          i den norske og nordiske matsektoren — underlaget for NCH-transisjonsgruppens
+          leveranse mot juni 2026.
+        </p>
+        <p className="text-sm text-stone-500">
+          Ny her?{' '}
+          <Link href="/innsikt" className="text-emerald-700 underline hover:text-emerald-800">
+            Begynn med Innsikt
+          </Link>{' '}
+          — datadrevet status på markedsstruktur, selvforsyning og funn.
+        </p>
+        <details className="rounded-lg border border-stone-200 bg-stone-50 p-3 text-sm">
+          <summary className="cursor-pointer font-medium text-stone-700">Nøkkelbegreper</summary>
+          <dl className="mt-2 space-y-1.5 text-stone-600">
+            <div><dt className="inline font-medium text-stone-800">Food TG</dt>
+              <dd className="inline"> — Food Transition Group, prosjektets arbeidsgruppe.</dd></div>
+            <div><dt className="inline font-medium text-stone-800">Ten Step</dt>
+              <dd className="inline"> — ti-stegs metodikk for å drive transisjonsgruppen.</dd></div>
+            <div><dt className="inline font-medium text-stone-800">Evidence Pack</dt>
+              <dd className="inline"> — standardsettet av leveransedokumenter.</dd></div>
+            <div><dt className="inline font-medium text-stone-800">Spor A/B/C</dt>
+              <dd className="inline"> — de tre scope-sporene: fôr/import, sidestrømmer, governance.</dd></div>
+            <div><dt className="inline font-medium text-stone-800">Claim-koder</dt>
+              <dd className="inline"> — CL = claim, EV = evidence, SRC = kilde, med spor og nummer.</dd></div>
+            <div><dt className="inline font-medium text-stone-800">Forskningsrunder</dt>
+              <dd className="inline"> — avgrensede runder med kunnskapsinnhenting.</dd></div>
+          </dl>
+        </details>
+      </header>
+
       <div className="rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100/50 border border-emerald-200 p-5">
         <div className="flex justify-between items-start">
           <div>
             <p className="text-[10px] uppercase tracking-wider text-emerald-700 mb-1">Aktiv fase</p>
-            <h1 className="text-lg font-bold text-emerald-900">
+            <h2 className="text-lg font-bold text-emerald-900">
               Fase {activePhaseIndex + 1} — {activePhase.name}
-            </h1>
+            </h2>
             <p className="text-sm text-emerald-700 mt-1">
               {activePhase.weeks} · {activePhase.items.slice(0, 2).join(', ')}
             </p>
