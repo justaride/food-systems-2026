@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { navGroups } from '@/lib/data/nav'
 
-export function Sidebar() {
+export function Sidebar({ activePhase, totalPhases }: { activePhase: number; totalPhases: number }) {
   const pathname = usePathname()
 
   return (
@@ -63,7 +63,7 @@ export function Sidebar() {
           <div className="text-xs text-stone-400 space-y-1.5">
             <div className="flex justify-between">
               <span>Fase</span>
-              <span className="text-stone-600 font-medium">1 / 4</span>
+              <span className="text-stone-600 font-medium">{activePhase} / {totalPhases}</span>
             </div>
             <div className="flex justify-between">
               <span>Frist</span>
