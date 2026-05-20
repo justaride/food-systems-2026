@@ -651,6 +651,7 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
     number,
     number,
     number,
+    number,
     { valueChainStage: string | null; _count: { _all: number } }[],
     { relationshipType: string; _count: { _all: number } }[],
     { commodity: string; year: number; unit: string; _sum: { quantity: unknown }; _count: { _all: number } }[],
@@ -667,6 +668,7 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
   try {
     dbInputs = await Promise.all([
       prisma.company.count(),
+      prisma.producer.count(),
       prisma.businessRelationship.count(),
       prisma.deliveryVolume.count(),
       prisma.company.groupBy({
@@ -712,7 +714,8 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
   }
 
   const [
-    totalCompanies,
+    totalCuratedCompanies,
+    totalProducers,
     totalRelationships,
     totalDeliveries,
     companyStages,
@@ -789,13 +792,13 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
     }))
     .sort((a, b) => b.totalQuantity - a.totalQuantity)
 
-  const knownStageCount = totalCompanies - (stageCoverage.find(row => row.stage === 'uklassifisert')?.count ?? 0)
+  const knownStageCount = totalCuratedCompanies - (stageCoverage.find(row => row.stage === 'uklassifisert')?.count ?? 0)
   const relationshipSourceCoverage = pct(totalRelationships - relMissingSource, totalRelationships)
   const relationshipDescriptionCoverage = pct(totalRelationships - relMissingDescription, totalRelationships)
   const deliveryBuyerCoverage = pct(totalDeliveries - deliveryMissingBuyer, totalDeliveries)
   const deliveryKommuneCoverage = pct(totalDeliveries - deliveryMissingKommune, totalDeliveries)
   const deliveryPositiveQuantity = pct(totalDeliveries - zeroDelivery, totalDeliveries)
-  const companyStageCoverage = pct(knownStageCount, totalCompanies)
+  const companyStageCoverage = pct(knownStageCount, totalCuratedCompanies)
   const valueChainCoverage =
     valueChainInventory.length > 0
       ? Math.round(
@@ -852,12 +855,19 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
     },
     {
       id: 'company-stage',
-      label: 'Selskaper med verdikjedeledd',
+      label: 'Kartlagte selskaper med verdikjedeledd',
       value: knownStageCount,
-      denominator: totalCompanies,
+      denominator: totalCuratedCompanies,
       percent: companyStageCoverage,
-      detail: `${totalCompanies.toLocaleString('no')} selskaper totalt`,
+      detail: `${totalCuratedCompanies.toLocaleString('no')} kartlagte selskaper (ekskl. ${totalProducers.toLocaleString('no')} primærprodusenter i register)`,
       status: metricStatus(companyStageCoverage),
+    },
+    {
+      id: 'producer-register',
+      label: 'Primærprodusenter (register)',
+      value: totalProducers,
+      detail: `${totalProducers.toLocaleString('no')} jordbruksforetak i produsentregisteret — separat fra ${totalCuratedCompanies.toLocaleString('no')} kartlagte selskaper`,
+      status: 'info' as const,
     },
     {
       id: 'value-chain-files',
@@ -942,7 +952,7 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
 
   const findings = [
     `${totalDeliveries.toLocaleString('no')} leveranser fra ${distinctSuppliers.length.toLocaleString('no')} unike produsent-orgnr er importert, men ${deliveryMissingBuyer.toLocaleString('no')} leveranser mangler buyerId-kobling.`,
-    `Relasjonsgrafen har ${totalRelationships.toLocaleString('no')} kuraterte relasjoner og full kilde-/beskrivelsesdekning, men er fortsatt tynn relativt til ${totalCompanies.toLocaleString('no')} selskaper i DB.`,
+    `Primærprodusentregisteret inneholder ${totalProducers.toLocaleString('no')} produsenter (separert fra selskapslaget). Relasjonsgrafen har ${totalRelationships.toLocaleString('no')} kuraterte relasjoner mellom ${totalCuratedCompanies.toLocaleString('no')} kartlagte selskaper.`,
     `Nordiske value-chain-filer dekker ${valueChainInventory.reduce((sum, row) => sum + row.stepCount, 0)} ledd, men Island mangler flere mål-ledd og flere land mangler volum-/waste-felt på tvers av ledd.`,
     'Fôrkomposisjon, importpanel og geografiske hubber er klare kandidatdata for neste sideutvidelse; de bør holdes adskilt som sårbarhet, infrastruktur og returstrømmer.',
   ]

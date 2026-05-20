@@ -1244,7 +1244,7 @@ function SupplyChainQualityPanel({ quality }: { quality: SupplyChainDataQuality 
 
           <div>
             <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
-              Selskaper per ledd
+              Kartlagte selskaper per ledd
             </h4>
             <div className="space-y-1.5">
               {topStageRows.map(row => (
