@@ -454,8 +454,8 @@ model Subsidy {
   verificationStatus String?
   verifiedAt         DateTime?
 
-  company  Company?  @relation(fields: [companyId], references: [id])
-  producer Producer? @relation(fields: [producerId], references: [id])
+  company  Company?  @relation(fields: [companyId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  producer Producer? @relation(fields: [producerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   @@index([companyId])
   @@index([producerId])
@@ -877,8 +877,8 @@ model DeliveryVolume {
   id                 String   @id @default(cuid())
   supplierId         String?
   supplierProducerId String?
-  supplier           Company? @relation("DeliverySupplier", fields: [supplierId], references: [id])
-  supplierProducer   Producer? @relation("DeliverySupplierProducer", fields: [supplierProducerId], references: [id])
+  supplier           Company? @relation("DeliverySupplier", fields: [supplierId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  supplierProducer   Producer? @relation("DeliverySupplierProducer", fields: [supplierProducerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   supplierOrgNr      String
   buyerId            String?
   buyer              Company? @relation("DeliveryBuyer", fields: [buyerId], references: [id])
