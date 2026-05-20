@@ -6,37 +6,13 @@ type CompanyQueryResult = Awaited<ReturnType<typeof runCompanyQuery>>
 async function runCompanyQuery(opts: {
   valueChainStage?: string
   ownershipType?: string
-  includeAll: boolean
   useExtendedRelations: boolean
 }) {
-  const { valueChainStage, ownershipType, includeAll, useExtendedRelations } = opts
-
-  const baseOr = [
-    { financials: { some: {} } },
-    { boardMembers: { some: {} } },
-    { shareholders: { some: {} } },
-    { documentRefs: { some: {} } },
-  ]
-
-  const extendedOr = useExtendedRelations
-    ? [
-        { ownedProperties: { some: {} } },
-        { tenantProperties: { some: {} } },
-        { relationshipsFrom: { some: {} } },
-        { relationshipsTo: { some: {} } },
-        { childOf: { some: {} } },
-        { parentOf: { some: {} } },
-        { aquacultureSites: { some: {} } },
-        { actor: { isNot: null } },
-      ]
-    : []
-
-  const trackedOnly = !includeAll ? { OR: [...baseOr, ...extendedOr] } : {}
+  const { valueChainStage, ownershipType, useExtendedRelations } = opts
 
   const where = {
     ...(valueChainStage && { valueChainStage }),
     ...(ownershipType && { ownershipType }),
-    ...trackedOnly,
   }
 
   const baseCount = {
@@ -63,20 +39,7 @@ async function runCompanyQuery(opts: {
     },
   }
 
-  // Prisma loads `include` relations with `WHERE id IN (...)` lists; with the
-  // full 55k+ company set this exceeds Postgres' bind-parameter cap (P2029).
-  // Fetch in fixed-size pages so each relation query stays well under it.
-  const CHUNK_SIZE = 10_000
-  const fetchPage = (skip: number) =>
-    prisma.company.findMany({ where, include, orderBy: { name: 'asc' }, skip, take: CHUNK_SIZE })
-
-  let page = await fetchPage(0)
-  const rows = [...page]
-  while (page.length === CHUNK_SIZE) {
-    page = await fetchPage(rows.length)
-    rows.push(...page)
-  }
-  return rows
+  return prisma.company.findMany({ where, include, orderBy: { name: 'asc' } })
 }
 
 type NormalizedCompanyRow = CompanyQueryResult[number] & {
@@ -106,15 +69,13 @@ function normalizeCompanyRow(row: CompanyQueryResult[number]): NormalizedCompany
 export async function getCompanies(opts?: {
   valueChainStage?: string
   ownershipType?: string
-  includeAll?: boolean
 }): Promise<NormalizedCompanyRow[]> {
-  const { valueChainStage, ownershipType, includeAll = false } = opts ?? {}
+  const { valueChainStage, ownershipType } = opts ?? {}
 
   try {
     const rows = await runCompanyQuery({
       valueChainStage,
       ownershipType,
-      includeAll,
       useExtendedRelations: true,
     })
     return rows.map(normalizeCompanyRow)
@@ -132,7 +93,6 @@ export async function getCompanies(opts?: {
       const rows = await runCompanyQuery({
         valueChainStage,
         ownershipType,
-        includeAll,
         useExtendedRelations: false,
       })
       return rows.map(normalizeCompanyRow)

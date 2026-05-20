@@ -12,7 +12,7 @@ export default async function SelskaperPage({
   const initialStages = params.stage
     ? params.stage.split(',').map(s => s.trim()).filter(Boolean)
     : []
-  const companies = await getCompanies({ includeAll })
+  const companies = await getCompanies()
 
   const rows = companies.map(c => ({
     id: c.id,
