@@ -189,7 +189,7 @@ export const foodTgTrackStatusCards: FoodTgTrackStatusCard[] = [
     title: 'Adoption, regelverk og governance',
     status: 'Tverrgående gate, ikke selvstendig hovedspor nå',
     readyNow: 'Sterkt som beslutningsfilter for A og B: lov, kjøper, dataeier, drift og governance.',
-    checkFirst: 'Aktorbekreftelse, dataeier, styringsarena og om claims kan løftes uten å blande intern og ekstern validering.',
+    checkFirst: 'Aktørbekreftelse, dataeier, styringsarena og om claims kan løftes uten å blande intern og ekstern validering.',
     nextAction: 'Legg C-gate inn i alle kandidatkort og bruk den som stoppsignal før pilotcommitment.',
   },
 ]
