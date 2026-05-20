@@ -358,6 +358,19 @@ model Company {
   @@index([orgNrFormat])
 }
 
+model Producer {
+  id           String           @id
+  orgNr        String           @unique
+  name         String
+  country      String           @default("NO")
+  municipality String?
+  metadata     Json?
+  subsidies    Subsidy[]
+  deliveries   DeliveryVolume[] @relation("DeliverySupplierProducer")
+
+  @@index([country])
+}
+
 model CompanyFinancial {
   id                 String    @id @default(cuid())
   companyId          String
@@ -429,7 +442,8 @@ model BoardMember {
 
 model Subsidy {
   id                 String    @id @default(cuid())
-  companyId          String
+  companyId          String?
+  producerId         String?
   subsidyType        String
   scheme             String? // granular scheme within subsidyType (e.g. "arealtilskudd", "melkeproduksjon")
   project            String?
@@ -440,9 +454,11 @@ model Subsidy {
   verificationStatus String?
   verifiedAt         DateTime?
 
-  company Company @relation(fields: [companyId], references: [id])
+  company  Company?  @relation(fields: [companyId], references: [id])
+  producer Producer? @relation(fields: [producerId], references: [id])
 
   @@index([companyId])
+  @@index([producerId])
   @@index([scheme])
   @@index([year])
 }
@@ -858,13 +874,15 @@ model AquacultureApplication {
 }
 
 model DeliveryVolume {
-  id            String   @id @default(cuid())
-  supplierId    String
-  supplier      Company  @relation("DeliverySupplier", fields: [supplierId], references: [id])
-  supplierOrgNr String
-  buyerId       String?
-  buyer         Company? @relation("DeliveryBuyer", fields: [buyerId], references: [id])
-  buyerName     String?
+  id                 String   @id @default(cuid())
+  supplierId         String?
+  supplierProducerId String?
+  supplier           Company? @relation("DeliverySupplier", fields: [supplierId], references: [id])
+  supplierProducer   Producer? @relation("DeliverySupplierProducer", fields: [supplierProducerId], references: [id])
+  supplierOrgNr      String
+  buyerId            String?
+  buyer              Company? @relation("DeliveryBuyer", fields: [buyerId], references: [id])
+  buyerName          String?
 
   commodity String // melk-ku, melk-geit, egg, korn, slakt-storfe, slakt-svin, slakt-saue, slakt-fjorfe
   year      Int
@@ -878,6 +896,7 @@ model DeliveryVolume {
 
   @@unique([supplierOrgNr, commodity, year])
   @@index([supplierId])
+  @@index([supplierProducerId])
   @@index([buyerId])
   @@index([commodity, year])
 }
