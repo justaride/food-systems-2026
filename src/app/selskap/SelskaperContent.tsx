@@ -54,11 +54,9 @@ function formatRevenue(n: number | null) {
 
 export function SelskaperContent({
   companies,
-  includeAll,
   initialStages = [],
 }: {
   companies: CompanyRow[]
-  includeAll: boolean
   initialStages?: string[]
 }) {
   const [query, setQuery] = useState('')
@@ -92,32 +90,11 @@ export function SelskaperContent({
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-stone-900">Selskaper</h1>
-          <p className="text-sm text-stone-500 mt-1 max-w-3xl">
-            {includeAll
-              ? `Viser alle ${companies.length.toLocaleString('no')} registrerte selskaper (inkl. jordbruksforetak fra subsidieregisteret).`
-              : `Viser ${companies.length} kartlagte selskaper med regnskap, styre, eierskap, underlagskobling, eiendom, relasjoner eller aktørkobling.`}
-          </p>
-        </div>
-        <div className="flex gap-2">
-          {includeAll ? (
-            <Link
-              href="/selskap"
-              className="text-xs px-3 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 hover:bg-stone-50"
-            >
-              Vis kun kartlagte
-            </Link>
-          ) : (
-            <Link
-              href="/selskap?all=1"
-              className="text-xs px-3 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 hover:bg-stone-50"
-            >
-              Vis alle {' '}55 000+ selskaper
-            </Link>
-          )}
-        </div>
+      <div>
+        <h1 className="text-2xl font-bold text-stone-900">Selskaper</h1>
+        <p className="text-sm text-stone-500 mt-1 max-w-3xl">
+          {`${companies.length} kartlagte selskaper med regnskap, styre, eierskap og relasjoner.`}
+        </p>
       </div>
 
       <Card>
