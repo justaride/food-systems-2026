@@ -1,14 +1,12 @@
-// Kjører prod-side migrasjoner: Prisma-skjemamigrasjoner, FTS-skjema,
+// Manuelt full-sync-verktøy: Prisma-skjemamigrasjoner, FTS-skjema,
 // country-normalisering, okologisk-norden imports, insight-doc-curation.
 // Idempotent — trygt å kjøre flere ganger.
 //
-// Kjøres som Coolify post_deployment_command. Dette er den eneste mekanismen
-// som bringer prod-DB i sync med schema.prisma: `prisma db push` /
-// `prisma migrate deploy` kjøres ikke på deploy (db push er inkompatibel med
-// STORED GENERATED search_vector-kolonner).
-//
-// Krever DATABASE_URL og at psql + tsx er tilgjengelig (vi installerer
-// postgresql-client i alpine via Dockerfile-endring).
+// MERK: Dette skriptet er IKKE deploy-hooken. Skjemasynk på deploy gjøres av
+// scripts/apply-prod-migrations.sh (ren psql, Coolify post_deployment_command),
+// fordi Next.js standalone-runner-imaget ikke kan laste Prisma-klienten.
+// Kjør dette skriptet manuelt fra et fullt dev-miljø (DATABASE_URL satt) når
+// du også vil ta data-importene, ikke bare skjemaet.
 
 import { execSync } from 'child_process'
 import { existsSync, readdirSync } from 'fs'

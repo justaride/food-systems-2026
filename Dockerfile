@@ -34,9 +34,8 @@ ARG DATABASE_URL
 # GENERATED-kolonner (search_vector). Prisma kan ikke uttrykke disse, og
 # selv med Unsupported(tsvector) prøver db push å ALTER dem.
 #
-# All DB-skjema-administrasjon gjøres nå manuelt via psql i
-# post_deployment_command (scripts/add-postgres-fts.sql,
-# scripts/normalize-document-categories.sql osv).
+# Prod-skjemaet synkes i stedet av scripts/apply-prod-migrations.sh, som
+# kjøres som Coolify post_deployment_command (se kommentar i runner-stage).
 RUN npm run build
 
 FROM base AS runner
@@ -51,10 +50,9 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/research ./research
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-# Migrasjons-skript + tsconfig + prisma-schema kopieres så
-# post_deployment_command kan kjøre `npx tsx scripts/run-prod-migrations.ts`
-# uten å trenge en separat build-tids migration eller SSH-tilgang.
-# tsx hentes on-the-fly via `npx --yes tsx` ved første kjøring.
+# scripts/ + prisma/ kopieres så Coolify post_deployment_command kan kjøre
+# `sh /app/scripts/apply-prod-migrations.sh` — påfører prisma/migrations/* mot
+# prod-DB med psql (postgresql-client installeres i runner-stage over).
 COPY --from=builder --chown=nextjs:nodejs /app/scripts ./scripts
 COPY --from=builder --chown=nextjs:nodejs /app/tsconfig.json ./tsconfig.json
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
