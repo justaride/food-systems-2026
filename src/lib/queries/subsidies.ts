@@ -7,8 +7,8 @@ export type SubsidyTypeAggregate = {
 }
 
 export type SubsidyTopRecipient = {
-  companyId: string
-  companyName: string
+  producerId: string
+  producerName: string
   totalAmountNok: number
   count: number
 }
@@ -41,26 +41,27 @@ export async function getSubsidyAggregates(): Promise<SubsidyAggregates> {
     count: r._count._all,
   }))
 
-  const byCompanyRaw = await prisma.subsidy.groupBy({
-    by: ['companyId'],
+  const byProducerRaw = await prisma.subsidy.groupBy({
+    by: ['producerId'],
+    where: { producerId: { not: null } },
     _sum: { amountNok: true },
     _count: { _all: true },
     orderBy: { _sum: { amountNok: 'desc' } },
     take: 10,
   })
 
-  const companyIds = byCompanyRaw.map(r => r.companyId)
-  const companies = companyIds.length
-    ? await prisma.company.findMany({
-        where: { id: { in: companyIds } },
+  const producerIds = byProducerRaw.map(r => r.producerId).filter((x): x is string => x !== null)
+  const producers = producerIds.length
+    ? await prisma.producer.findMany({
+        where: { id: { in: producerIds } },
         select: { id: true, name: true },
       })
     : []
-  const nameById = new Map(companies.map(c => [c.id, c.name]))
+  const nameById = new Map(producers.map(p => [p.id, p.name]))
 
-  const topRecipients: SubsidyTopRecipient[] = byCompanyRaw.map(r => ({
-    companyId: r.companyId,
-    companyName: nameById.get(r.companyId) ?? r.companyId,
+  const topRecipients: SubsidyTopRecipient[] = byProducerRaw.map(r => ({
+    producerId: r.producerId ?? '',
+    producerName: nameById.get(r.producerId ?? '') ?? r.producerId ?? '',
     totalAmountNok: r._sum.amountNok ? Number(r._sum.amountNok) : 0,
     count: r._count._all,
   }))

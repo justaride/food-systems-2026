@@ -24,8 +24,8 @@ function metadataString(meta: Record<string, unknown> | null, key: string): stri
 
 export async function getSubsidiesByKommune(subsidyType = 'produksjonstilskudd') {
   const rows = await prisma.subsidy.groupBy({
-    by: ['kommuneNr', 'companyId'],
-    where: { subsidyType, kommuneNr: { not: null } },
+    by: ['kommuneNr', 'producerId'],
+    where: { subsidyType, kommuneNr: { not: null }, producerId: { not: null } },
     _sum: { amountNok: true },
     _count: true,
   })
@@ -86,18 +86,16 @@ export async function getSubsidiesByScheme(subsidyType = 'produksjonstilskudd') 
 export type SchemeRow = Awaited<ReturnType<typeof getSubsidiesByScheme>>[number]
 
 export async function getSubsidiesBySchemeAndStage(subsidyType = 'produksjonstilskudd') {
+  // All producer-subsidy recipients are a single stage ('produsent').
+  // We group by scheme and sum across all producers per scheme.
   const rows = await prisma.subsidy.groupBy({
-    by: ['scheme', 'companyId'],
-    where: { subsidyType, scheme: { not: null } },
+    by: ['scheme', 'producerId'],
+    where: { subsidyType, scheme: { not: null }, producerId: { not: null } },
     _sum: { amountNok: true },
     _count: true,
   })
 
-  const companies = await prisma.company.findMany({
-    where: { id: { in: rows.map(r => r.companyId) } },
-    select: { id: true, valueChainStage: true },
-  })
-  const companyStages = new Map(companies.map(company => [company.id, company.valueChainStage ?? 'unknown']))
+  const STAGE = 'produsent'
 
   const cells = new Map<string, {
     scheme: string
@@ -107,16 +105,14 @@ export async function getSubsidiesBySchemeAndStage(subsidyType = 'produksjonstil
     rowCount: number
   }>()
   const schemeTotals = new Map<string, number>()
-  const stageTotals = new Map<string, number>()
 
   for (const row of rows) {
     if (!row.scheme) continue
-    const stage = companyStages.get(row.companyId) ?? 'unknown'
     const totalNok = Number(row._sum.amountNok ?? 0)
-    const key = `${row.scheme}::${stage}`
+    const key = `${row.scheme}::${STAGE}`
     const cell = cells.get(key) ?? {
       scheme: row.scheme,
-      stage,
+      stage: STAGE,
       totalNok: 0,
       recipientCount: 0,
       rowCount: 0,
@@ -126,19 +122,15 @@ export async function getSubsidiesBySchemeAndStage(subsidyType = 'produksjonstil
     cell.rowCount += row._count
     cells.set(key, cell)
     schemeTotals.set(row.scheme, (schemeTotals.get(row.scheme) ?? 0) + totalNok)
-    stageTotals.set(stage, (stageTotals.get(stage) ?? 0) + totalNok)
   }
 
   const schemes = Array.from(schemeTotals.entries())
     .sort((a, b) => b[1] - a[1])
     .map(([scheme]) => scheme)
-  const stages = Array.from(stageTotals.entries())
-    .sort((a, b) => b[1] - a[1])
-    .map(([stage]) => stage)
 
   return {
     schemes,
-    stages,
+    stages: [STAGE],
     cells: Array.from(cells.values()).sort((a, b) => b.totalNok - a.totalNok),
     maxNok: Math.max(0, ...Array.from(cells.values()).map(cell => cell.totalNok)),
   }
@@ -147,41 +139,32 @@ export async function getSubsidiesBySchemeAndStage(subsidyType = 'produksjonstil
 export type SchemeStageHeatmap = Awaited<ReturnType<typeof getSubsidiesBySchemeAndStage>>
 
 export async function getSubsidyStageCoverage(subsidyType = 'produksjonstilskudd') {
+  // All producer-subsidy recipients are a single stage ('produsent').
   const rows = await prisma.subsidy.groupBy({
-    by: ['companyId'],
-    where: { subsidyType },
+    by: ['producerId'],
+    where: { subsidyType, producerId: { not: null } },
     _sum: { amountNok: true },
     _count: true,
   })
 
-  const companies = await prisma.company.findMany({
-    where: { id: { in: rows.map(r => r.companyId) } },
-    select: { id: true, valueChainStage: true },
-  })
-  const companyStages = new Map(companies.map(company => [company.id, company.valueChainStage ?? 'unknown']))
-  const stages = new Map<string, { stage: string; recipientCount: number; rowCount: number; totalNok: number }>()
+  const STAGE = 'produsent'
+  const totalNok = rows.reduce((sum, row) => sum + Number(row._sum.amountNok ?? 0), 0)
+  const totalRows = rows.reduce((sum, row) => sum + row._count, 0)
 
-  for (const row of rows) {
-    const stage = companyStages.get(row.companyId) ?? 'unknown'
-    const current = stages.get(stage) ?? {
-      stage,
-      recipientCount: 0,
-      rowCount: 0,
-      totalNok: 0,
-    }
-    current.recipientCount += 1
-    current.rowCount += row._count
-    current.totalNok += Number(row._sum.amountNok ?? 0)
-    stages.set(stage, current)
-  }
-
-  const stageRows = Array.from(stages.values()).sort((a, b) => b.totalNok - a.totalNok)
+  const stageRows = [
+    {
+      stage: STAGE,
+      recipientCount: rows.length,
+      rowCount: totalRows,
+      totalNok,
+    },
+  ]
 
   return {
     subsidyType,
     totalRecipients: rows.length,
-    totalRows: rows.reduce((sum, row) => sum + row._count, 0),
-    totalNok: rows.reduce((sum, row) => sum + Number(row._sum.amountNok ?? 0), 0),
+    totalRows,
+    totalNok,
     stages: stageRows,
   }
 }
@@ -193,95 +176,78 @@ export async function getTopSubsidyRecipients(
   limit = 50
 ) {
   const rows = await prisma.subsidy.groupBy({
-    by: ['companyId'],
-    where: { subsidyType },
+    by: ['producerId'],
+    where: { subsidyType, producerId: { not: null } },
     _sum: { amountNok: true },
     _count: true,
     orderBy: { _sum: { amountNok: 'desc' } },
     take: limit,
   })
 
-  const companies = await prisma.company.findMany({
-    where: { id: { in: rows.map(r => r.companyId) } },
-    select: {
-      id: true,
-      name: true,
-      orgNr: true,
-      legalForm: true,
-      metadata: true,
-      valueChainStage: true,
-      _count: {
-        select: {
-          shareholders: true,
-          boardMembers: true,
-          parentOf: true,
-          childOf: true,
-        },
-      },
-    },
-  })
-  const byId = new Map(companies.map(c => [c.id, c]))
+  const producerIds = rows.map(r => r.producerId).filter((x): x is string => x !== null)
 
-  const parentOrgNrs = Array.from(new Set(
-    companies
-      .map(c => metadataString(asMetadataRecord(c.metadata), 'parentOrgNr'))
-      .filter((orgNr): orgNr is string => orgNr != null)
-  ))
-  const parentOrgCompanies = parentOrgNrs.length > 0
-    ? await prisma.company.findMany({
-        where: { orgNr: { in: parentOrgNrs } },
-        select: { orgNr: true },
+  const producers = producerIds.length
+    ? await prisma.producer.findMany({
+        where: { id: { in: producerIds } },
+        select: {
+          id: true,
+          name: true,
+          orgNr: true,
+          municipality: true,
+          metadata: true,
+          _count: {
+            select: {
+              subsidies: true,
+              deliveries: true,
+            },
+          },
+        },
       })
     : []
-  const parentCompanyOrgNrs = new Set(
-    parentOrgCompanies
-      .map(company => company.orgNr)
-      .filter((orgNr): orgNr is string => orgNr != null)
-  )
+  const byId = new Map(producers.map(p => [p.id, p]))
 
   const deliveryRows = await prisma.deliveryVolume.findMany({
-    where: { supplierId: { in: rows.map(r => r.companyId) } },
+    where: { supplierProducerId: { in: producerIds } },
     select: {
-      supplierId: true,
+      supplierProducerId: true,
       commodity: true,
     },
   })
-  const deliveryByCompany = new Map<string, { rowCount: number; commodities: Set<string> }>()
+  const deliveryByProducer = new Map<string, { rowCount: number; commodities: Set<string> }>()
   for (const delivery of deliveryRows) {
-    const current = deliveryByCompany.get(delivery.supplierId) ?? {
+    if (!delivery.supplierProducerId) continue
+    const current = deliveryByProducer.get(delivery.supplierProducerId) ?? {
       rowCount: 0,
       commodities: new Set<string>(),
     }
     current.rowCount += 1
     current.commodities.add(delivery.commodity)
-    deliveryByCompany.set(delivery.supplierId, current)
+    deliveryByProducer.set(delivery.supplierProducerId, current)
   }
 
   return rows.map(r => {
-    const c = byId.get(r.companyId)
-    const meta = asMetadataRecord(c?.metadata)
+    const id = r.producerId ?? ''
+    const p = byId.get(id)
+    const meta = asMetadataRecord(p?.metadata)
     const kommuneNr = metadataString(meta, 'kommuneNr') ?? metadataString(meta, 'komnr')
     const matrikkel = metadataString(meta, 'matrikkel')
     const parentOrgNr = metadataString(meta, 'parentOrgNr')
     const source = metadataString(meta, 'source')
-    const delivery = deliveryByCompany.get(r.companyId)
+    const delivery = deliveryByProducer.get(id)
 
     return {
-      companyId: r.companyId,
-      name: c?.name ?? 'Ukjent',
-      orgNr: c?.orgNr ?? '',
-      legalForm: c?.legalForm ?? null,
-      valueChainStage: c?.valueChainStage ?? null,
+      producerId: id,
+      name: p?.name ?? 'Ukjent',
+      orgNr: p?.orgNr ?? '',
+      municipality: p?.municipality ?? null,
       kommuneNr,
       landbruksregisterSource: source === 'Landbruksregisteret',
       matrikkel,
       parentOrgNr,
-      parentOrgNrCompanyLinked: parentOrgNr != null && parentCompanyOrgNrs.has(parentOrgNr),
       hasCoordinates: meta?.coords != null,
       deliveryRowCount: delivery?.rowCount ?? 0,
       deliveryCommodityCount: delivery?.commodities.size ?? 0,
-      ownershipLinkCount: c ? c._count.shareholders + c._count.parentOf + c._count.childOf : 0,
-      boardMemberCount: c?._count.boardMembers ?? 0,
+      subsidyCount: p?._count.subsidies ?? 0,
       schemeCount: r._count,
       totalNok: Number(r._sum.amountNok ?? 0),
     }
@@ -353,8 +319,8 @@ export async function getSubsidyDistribution(
   subsidyType = 'produksjonstilskudd'
 ): Promise<SubsidyDistribution> {
   const rows = await prisma.subsidy.groupBy({
-    by: ['companyId'],
-    where: { subsidyType },
+    by: ['producerId'],
+    where: { subsidyType, producerId: { not: null } },
     _sum: { amountNok: true },
     orderBy: { _sum: { amountNok: 'desc' } },
   })
