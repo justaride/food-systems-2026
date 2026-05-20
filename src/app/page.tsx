@@ -9,7 +9,7 @@ const FOOD_SYSTEM_KPIS: KPI[] = [
   { id: 'butikker', name: 'Butikker kartlagt', description: 'OSM-data, 14 kjeder', current: '3 849' },
   { id: 'konsentrasjon', name: 'Markedskonsentrasjon', description: 'Tre kjeder dominerer', current: '96%', target: '<80%' },
   { id: 'selvforsyning', name: 'Selvforsyningsgrad', description: 'Meld. St. 11-mål innen 2030', current: '44%', target: '50%' },
-  { id: 'matsvinn', name: 'Matsvinn', description: 'Årlig spiselig mat kastet', current: '390 000 t' },
+  { id: 'matsvinn', name: 'Matsvinn', description: 'Spiselig mat kastet i Norge årlig', current: '390 000 t' },
 ]
 
 export default async function OversiktPage() {
