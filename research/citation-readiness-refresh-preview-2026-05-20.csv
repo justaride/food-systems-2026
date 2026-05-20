@@ -1,1 +1,1 @@
-id,fromReadiness,toReadiness,citationText,sourceClass,verificationStatus,url,localPath,documentId,sourceDocId
+id,fromReadiness,toReadiness,toSourceClass,citationText,sourceClass,verificationStatus,url,localPath,documentId,sourceDocId
