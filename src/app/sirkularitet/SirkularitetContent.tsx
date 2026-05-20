@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { Citation } from '@/components/citations/Citation'
 import { RLadderMatrix } from '@/components/charts/RLadderMatrix'
 import { RLadderMaturityOverview } from '@/components/charts/RLadderMaturityOverview'
 import { R9KpiCatalog } from '@/components/charts/R9KpiCatalog'
@@ -867,19 +868,19 @@ function NordicCircularityBenchmark() {
               <p className={`text-xl font-bold mt-0.5 ${isMeasured ? 'text-stone-900' : 'text-stone-400'}`}>
                 {b.rate}
               </p>
-              {b.sourceUrl ? (
-                <a
-                  href={b.sourceUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block text-[10px] text-stone-400 hover:text-stone-700 leading-tight mt-1"
-                  title={b.source}
-                >
-                  Kilde
-                </a>
-              ) : (
-                <span className="block text-[10px] text-stone-300 leading-tight mt-1">Ingen kilde</span>
-              )}
+              <Citation
+                compact
+                className="mt-1"
+                citation={{
+                  label: b.sourceUrl ? 'Kilde' : b.source,
+                  title: b.source,
+                  url: b.sourceUrl || null,
+                  citationReadiness: b.sourceUrl ? 'citable_with_note' : 'blocked_unsourced',
+                  note: b.sourceUrl
+                    ? 'Benchmark-kilde; kontroller metodegrunnlag for direkte sitatbruk.'
+                    : 'Ingen nasjonal benchmark-kilde registrert.',
+                }}
+              />
             </div>
           )
         })}

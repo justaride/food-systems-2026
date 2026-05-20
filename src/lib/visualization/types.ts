@@ -11,6 +11,8 @@ export type VisualizationSourceRef = {
   label: string
   href?: string
   path?: string
+  citationReadiness?: 'citable_external' | 'citable_with_note' | 'internal_context' | 'blocked_unsourced'
+  note?: string
 }
 
 export type VisualizationDataContract = {

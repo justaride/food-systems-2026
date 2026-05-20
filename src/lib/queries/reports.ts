@@ -1,4 +1,9 @@
 import { prisma } from '@/lib/db'
+import type { CitationReadinessLevel } from '@/lib/citations/citation-status'
+import {
+  evaluateExternalCitationReadiness,
+  type ExternalUseExclusionReason,
+} from '@/lib/citations/citable-record-filter'
 import type { ReportProvenanceType, ReportSupportingSource } from '@/lib/types'
 import {
   buildExcerpt,
@@ -33,6 +38,11 @@ type ReportRow = {
   supportingSources: ReportSupportingSource[]
   documentSlug: string | null
   origin: 'structured' | 'document'
+  citations: ReportCitation[]
+  citationReadiness: CitationReadinessLevel | null
+  citationNote: string | null
+  externalUseAllowed: boolean
+  externalUseReason: ExternalUseExclusionReason | null
 }
 
 const reportProvenanceTypes = new Set<ReportProvenanceType>([
@@ -43,6 +53,158 @@ const reportProvenanceTypes = new Set<ReportProvenanceType>([
   'composite_source',
   'blocked_source',
 ])
+
+const sourceCitationSelect = {
+  citationText: true,
+  title: true,
+  url: true,
+  localPath: true,
+  pageRef: true,
+  accessedAt: true,
+  verifiedAt: true,
+  citationReadiness: true,
+  notes: true,
+} as const
+
+type SourceCitationRow = {
+  citationText: string
+  title: string | null
+  url: string | null
+  localPath: string | null
+  pageRef: string | null
+  accessedAt: Date | null
+  verifiedAt: Date | null
+  citationReadiness: string
+  notes: string | null
+}
+
+type ReportCitation = {
+  citationText?: string | null
+  title?: string | null
+  label?: string | null
+  url?: string | null
+  localPath?: string | null
+  pageRef?: string | null
+  accessedAt?: string | null
+  verifiedAt?: string | null
+  citationReadiness: CitationReadinessLevel
+  note?: string | null
+  notes?: string | null
+}
+
+type ReportCitationSource = {
+  id: string
+  title: string
+  sourceUrl: string | null
+  provenanceType: ReportProvenanceType | null
+  supportingSources: ReportSupportingSource[]
+  documentSlug: string | null
+  documentFilePath?: string | null
+  sourceCitations?: SourceCitationRow[]
+}
+
+function toIsoDate(value: Date | null) {
+  return value ? value.toISOString() : null
+}
+
+function mapSourceCitation(citation: SourceCitationRow): ReportCitation {
+  return {
+    citationText: citation.citationText,
+    title: citation.title,
+    url: citation.url,
+    localPath: citation.localPath,
+    pageRef: citation.pageRef,
+    accessedAt: toIsoDate(citation.accessedAt),
+    verifiedAt: toIsoDate(citation.verifiedAt),
+    citationReadiness: citation.citationReadiness as CitationReadinessLevel,
+    notes: citation.notes,
+  }
+}
+
+function buildFallbackCitation(
+  source: ReportCitationSource,
+  readiness: CitationReadinessLevel,
+  note: string | null,
+): ReportCitation {
+  return {
+    citationText: source.title,
+    title: source.title,
+    url: source.sourceUrl,
+    localPath: source.documentFilePath ?? (source.documentSlug ? `/bibliotek/${source.documentSlug}` : null),
+    citationReadiness: readiness,
+    note,
+  }
+}
+
+function buildReportCitations(source: ReportCitationSource): ReportCitation[] {
+  if (source.sourceCitations && source.sourceCitations.length > 0) {
+    return source.sourceCitations.map(mapSourceCitation)
+  }
+
+  const hasDirectSource = Boolean(source.sourceUrl || source.documentFilePath || source.documentSlug)
+
+  if (source.provenanceType === 'blocked_source') {
+    return [buildFallbackCitation(source, 'blocked_unsourced', 'Blokkert eller utilstrekkelig kildegrunnlag.')]
+  }
+
+  if (source.provenanceType === 'internal_synthesis' || source.provenanceType === 'internal_register') {
+    return [buildFallbackCitation(source, 'internal_context', 'Intern syntese/registerpost, ikke ekstern sitatkilde.')]
+  }
+
+  if (source.provenanceType === 'composite_source') {
+    if (source.supportingSources.length > 0) {
+      return source.supportingSources.map((supportingSource) => ({
+        citationText: supportingSource.label,
+        title: supportingSource.label,
+        url: supportingSource.url ?? null,
+        localPath: supportingSource.documentPath ?? null,
+        citationReadiness: supportingSource.url || supportingSource.documentPath ? 'citable_with_note' : 'internal_context',
+        note: supportingSource.note ?? 'Komposittkilde; bruk med metode-/kildeforbehold.',
+      }))
+    }
+
+    return [
+      buildFallbackCitation(
+        source,
+        hasDirectSource ? 'citable_with_note' : 'internal_context',
+        hasDirectSource ? 'Komposittkilde; bruk med metode-/kildeforbehold.' : 'Komposittpost uten direkte kilde.',
+      ),
+    ]
+  }
+
+  if (hasDirectSource) {
+    return [
+      buildFallbackCitation(
+        source,
+        'citable_with_note',
+        source.documentSlug
+          ? 'Dokumentbasert fallback; kontroller felt-/sidegrunnlag for direkte sitatbruk.'
+          : 'Kilde-URL finnes; kontroller felt-/sidegrunnlag for direkte sitatbruk.',
+      ),
+    ]
+  }
+
+  return [buildFallbackCitation(source, 'blocked_unsourced', 'Ingen ekstern kilde eller lokalt dokumentgrunnlag registrert.')]
+}
+
+function withExternalUseEvaluation<T extends Omit<ReportRow, 'citations' | 'citationReadiness' | 'citationNote' | 'externalUseAllowed' | 'externalUseReason'>>(
+  row: T,
+  citations: ReportCitation[],
+): ReportRow {
+  const evaluation = evaluateExternalCitationReadiness({ id: row.id, citations })
+  const citationNote = citations.find((citation) => citation.note || citation.notes)?.note
+    ?? citations.find((citation) => citation.note || citation.notes)?.notes
+    ?? null
+
+  return {
+    ...row,
+    citations,
+    citationReadiness: evaluation.readiness ?? citations[0]?.citationReadiness ?? null,
+    citationNote,
+    externalUseAllowed: evaluation.usable,
+    externalUseReason: evaluation.reason ?? null,
+  }
+}
 
 function parseProvenanceType(value: string | null): ReportProvenanceType | null {
   if (!value) return null
@@ -166,12 +328,24 @@ function buildRecommendations(summary: string | null, content: string) {
 }
 
 function mapStructuredReport(report: Awaited<ReturnType<typeof prisma.report.findMany>>[number] & {
-  document: { slug: string; url: string | null; summary: string | null; content: string; tags: string[] } | null
+  document: {
+    slug: string
+    url: string | null
+    filePath: string | null
+    summary: string | null
+    content: string
+    tags: string[]
+    sourceCitations: SourceCitationRow[]
+  } | null
 }): ReportRow {
   const documentSummary = report.document?.summary ?? null
   const documentContent = report.document?.content ?? ''
+  const provenanceType = parseProvenanceType(report.provenanceType)
+  const sourceUrl = report.sourceUrl ?? report.document?.url ?? null
+  const documentSlug = report.document?.slug ?? null
+  const supportingSources = parseSupportingSources(report.supportingSources)
 
-  return {
+  const row = {
     id: report.id,
     title: report.title,
     fullTitle: report.fullTitle ?? null,
@@ -179,7 +353,7 @@ function mapStructuredReport(report: Awaited<ReturnType<typeof prisma.report.fin
     institution: report.institution ?? null,
     date: report.date ?? null,
     year: report.year ?? null,
-    sourceUrl: report.sourceUrl ?? report.document?.url ?? null,
+    sourceUrl,
     reportCategory: report.reportCategory,
     country: normalizeCountryCode(report.country, 'NO'),
     keyFindings:
@@ -190,11 +364,25 @@ function mapStructuredReport(report: Awaited<ReturnType<typeof prisma.report.fin
         : buildRecommendations(documentSummary, documentContent),
     relevance: report.relevance || buildExcerpt(documentSummary, documentContent, 220),
     tags: report.tags.length > 0 ? report.tags : report.document?.tags ?? [],
-    provenanceType: parseProvenanceType(report.provenanceType),
-    supportingSources: parseSupportingSources(report.supportingSources),
-    documentSlug: report.document?.slug ?? null,
-    origin: 'structured',
+    provenanceType,
+    supportingSources,
+    documentSlug,
+    origin: 'structured' as const,
   }
+
+  return withExternalUseEvaluation(
+    row,
+    buildReportCitations({
+      id: row.id,
+      title: row.title,
+      sourceUrl,
+      provenanceType,
+      supportingSources,
+      documentSlug,
+      documentFilePath: report.document?.filePath ?? null,
+      sourceCitations: report.document?.sourceCitations ?? [],
+    }),
+  )
 }
 
 function mapFallbackDocument(doc: {
@@ -209,9 +397,12 @@ function mapFallbackDocument(doc: {
   summary: string | null
   content: string
   url: string | null
+  filePath: string | null
   tags: string[]
+  sourceCitations: SourceCitationRow[]
 }): ReportRow {
-  return {
+  const sourceUrl = doc.url ?? null
+  const row = {
     id: `doc-${doc.id}`,
     title: doc.title,
     fullTitle: null,
@@ -229,8 +420,22 @@ function mapFallbackDocument(doc: {
     provenanceType: null,
     supportingSources: [],
     documentSlug: doc.slug,
-    origin: 'document',
+    origin: 'document' as const,
   }
+
+  return withExternalUseEvaluation(
+    row,
+    buildReportCitations({
+      id: row.id,
+      title: row.title,
+      sourceUrl,
+      provenanceType: null,
+      supportingSources: [],
+      documentSlug: row.documentSlug,
+      documentFilePath: doc.filePath,
+      sourceCitations: doc.sourceCitations,
+    }),
+  )
 }
 
 function dedupeReports(rows: ReportRow[]) {
@@ -273,9 +478,14 @@ async function loadStructuredReports(opts: GetReportsOptions) {
         select: {
           slug: true,
           url: true,
+          filePath: true,
           summary: true,
           content: true,
           tags: true,
+          sourceCitations: {
+            select: sourceCitationSelect,
+            orderBy: { createdAt: 'asc' },
+          },
         },
       },
     },
@@ -316,7 +526,12 @@ async function loadFallbackReportDocuments(opts: GetReportsOptions) {
       summary: true,
       content: true,
       url: true,
+      filePath: true,
       tags: true,
+      sourceCitations: {
+        select: sourceCitationSelect,
+        orderBy: { createdAt: 'asc' },
+      },
     },
     orderBy: [{ year: 'desc' }, { title: 'asc' }],
     take: 150,

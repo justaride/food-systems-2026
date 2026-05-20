@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { FilterChips } from '@/components/ui/FilterChips'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { CitationBibliography } from '@/components/citations/CitationBibliography'
+import type { CitationViewModel } from '@/components/citations/Citation'
 
 type ReportRow = {
   id: string
@@ -25,6 +27,11 @@ type ReportRow = {
   supportingSources: ReportSupportingSource[]
   documentSlug: string | null
   origin: 'structured' | 'document'
+  citations: CitationViewModel[]
+  citationReadiness: CitationReadiness | null
+  citationNote: string | null
+  externalUseAllowed: boolean
+  externalUseReason: ExternalUseReason | null
 }
 
 type ReportProvenanceType =
@@ -42,6 +49,18 @@ type ReportSupportingSource = {
   documentPath?: string
   note?: string
 }
+
+type CitationReadiness =
+  | 'citable_external'
+  | 'citable_with_note'
+  | 'internal_context'
+  | 'blocked_unsourced'
+
+type ExternalUseReason =
+  | 'missing_citations'
+  | 'blocked_unsourced'
+  | 'internal_context'
+  | 'citable_with_note_missing_note'
 
 type ReportCategory =
   | 'nou' | 'konkurransetilsyn' | 'bransje' | 'offentlig'
@@ -92,6 +111,27 @@ const PROVENANCE_COLORS: Record<ReportProvenanceType, string> = {
   internal_register: 'bg-slate-50 text-slate-600 border-slate-200',
   composite_source: 'bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200',
   blocked_source: 'bg-rose-50 text-rose-700 border-rose-200',
+}
+
+const CITATION_READINESS_LABELS: Record<CitationReadiness, string> = {
+  citable_external: 'Siterbar',
+  citable_with_note: 'Siterbar med forbehold',
+  internal_context: 'Intern kontekst',
+  blocked_unsourced: 'Blokkert',
+}
+
+const CITATION_READINESS_COLORS: Record<CitationReadiness, string> = {
+  citable_external: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  citable_with_note: 'bg-amber-50 text-amber-800 border-amber-200',
+  internal_context: 'bg-stone-50 text-stone-600 border-stone-200',
+  blocked_unsourced: 'bg-rose-50 text-rose-700 border-rose-200',
+}
+
+const EXTERNAL_USE_REASON_LABELS: Record<ExternalUseReason, string> = {
+  missing_citations: 'mangler sitatpost',
+  blocked_unsourced: 'blokkert eller ukildet',
+  internal_context: 'intern kontekst',
+  citable_with_note_missing_note: 'forbehold mangler notat',
 }
 
 export function RapporterContent({ reports }: { reports: ReportRow[] }) {
@@ -173,6 +213,7 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
           {filtered.map(report => {
             const isExpanded = expandedIds.has(report.id)
             const cat = report.reportCategory as ReportCategory
+            const citationReadiness = report.citationReadiness
 
             return (
               <Card key={report.id} className="!p-0">
@@ -209,6 +250,11 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
                           {PROVENANCE_LABELS[report.provenanceType]}
                         </span>
                       )}
+                      {citationReadiness && (
+                        <span className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded border font-medium ${CITATION_READINESS_COLORS[citationReadiness]}`}>
+                          {CITATION_READINESS_LABELS[citationReadiness]}
+                        </span>
+                      )}
                     </div>
                     <div className="flex items-center gap-2 mt-0.5 text-xs text-stone-400">
                       {report.institution && <span>{report.institution}</span>}
@@ -223,6 +269,21 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
                 {isExpanded && (
                   <div className="px-4 pb-4 border-t border-stone-100">
                     <div className="mt-3 space-y-4">
+                      <CitationBibliography citations={report.citations} />
+
+                      {!report.externalUseAllowed && (
+                        <div className="rounded-lg border border-rose-200 bg-rose-50 p-3">
+                          <p className="text-xs font-semibold text-rose-800">Ikke klar for ekstern sitatbruk</p>
+                          <p className="mt-1 text-xs text-rose-700">
+                            Fakta- og anbefalingsfelt er skjult fordi kildegrunnlaget er markert som{' '}
+                            {report.externalUseReason
+                              ? EXTERNAL_USE_REASON_LABELS[report.externalUseReason]
+                              : 'ikke verifisert'}
+                            . Metadata og interne lenker vises for videre opprydding.
+                          </p>
+                        </div>
+                      )}
+
                       {report.fullTitle && (
                         <div>
                           <p className="text-xs font-medium text-stone-500 mb-1">Full tittel</p>
@@ -230,7 +291,7 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
                         </div>
                       )}
 
-                      {report.keyFindings.length > 0 && (
+                      {report.externalUseAllowed && report.keyFindings.length > 0 && (
                         <div>
                           <p className="text-xs font-medium text-stone-500 mb-1.5">Nokkelfunn</p>
                           <ul className="space-y-1">
@@ -244,7 +305,7 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
                         </div>
                       )}
 
-                      {report.recommendations.length > 0 && (
+                      {report.externalUseAllowed && report.recommendations.length > 0 && (
                         <div>
                           <p className="text-xs font-medium text-stone-500 mb-1.5">Anbefalinger</p>
                           <ul className="space-y-1">
@@ -258,10 +319,12 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
                         </div>
                       )}
 
-                      <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
-                        <p className="text-xs font-medium text-stone-500 mb-1">Relevans for Food Systems 2026</p>
-                        <p className="text-sm text-stone-700 leading-relaxed">{report.relevance}</p>
-                      </div>
+                      {report.externalUseAllowed && (
+                        <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
+                          <p className="text-xs font-medium text-stone-500 mb-1">Relevans for Food Systems 2026</p>
+                          <p className="text-sm text-stone-700 leading-relaxed">{report.relevance}</p>
+                        </div>
+                      )}
 
                       {report.tags.length > 0 && (
                         <div className="flex flex-wrap gap-1.5">

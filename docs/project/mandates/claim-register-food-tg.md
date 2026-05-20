@@ -32,7 +32,65 @@ Strukturert oversikt over påstander, hypoteser og beslutningsforslag som Insigh
 | Risiko hvis feil | Hva en beslutning kan bomme på |
 | Valideringsbehov | Hvem eller hva må bekrefte/avkrefte |
 | Status | Utført internt, Validert eksternt osv. |
+| citationReadiness | Canonical citation readiness: `citable_external`, `citable_with_note`, `internal_context`, `blocked_unsourced` |
+| sourceCitationIds | EV-/SRC-/SourceDoc-anker som skal brukes som kildepeker til claimet. Database-IDer skal ikke diktes opp hvis de ikke finnes i registeret. |
+| fieldCitationIds | Manuell feltlocator for claim-registeret inntil DB `FieldCitation`-ID finnes. Format: `claim-register:<Claim-ID>:paastand`. |
+| externalUse | `allowed`, `allowed_with_caveat`, `internal_only` eller `blocked` |
+| blockedReason | `none` når claimet kan brukes med riktig caveat, ellers kort grunn til at det bare er internt/blokkert |
 | Neste handling | Konkret neste steg |
+
+## External-use decision ledger
+
+Denne ledgeren er styrende for ekstern bruk av claim-registeret fra 2026-05-20.
+De opprinnelige claim-tabellene beholdes for historikk, men `Status = Utført
+internt` er ikke lenger nok til å avgjøre siterbar bruk. `sourceCitationIds`
+viser til eksisterende EV-/SRC-/SourceDoc-ankre i repoet; DB-IDer skal fylles
+inn senere bare der de faktisk finnes.
+
+| Claim-ID | citationReadiness | sourceCitationIds | fieldCitationIds | externalUse | blockedReason |
+|---|---|---|---|---|---|
+| CL-A-001 | citable_with_note | EV-A-001 | claim-register:CL-A-001:paastand | allowed_with_caveat | none |
+| CL-A-002 | citable_with_note | EV-A-001 | claim-register:CL-A-002:paastand | allowed_with_caveat | none |
+| CL-A-003 | citable_with_note | EV-A-002 | claim-register:CL-A-003:paastand | allowed_with_caveat | none |
+| CL-A-005 | citable_with_note | EV-A-003; EV-A-013; EV-A-016 | claim-register:CL-A-005:paastand | allowed_with_caveat | none |
+| CL-A-006 | citable_with_note | EV-A-004; EV-A-014 | claim-register:CL-A-006:paastand | allowed_with_caveat | none |
+| CL-A-011 | citable_with_note | EV-A-009; EV-A-013; EV-A-014; EV-A-015; EV-A-016 | claim-register:CL-A-011:paastand | allowed_with_caveat | legal interpretation needs primary-law caveat |
+| CL-A-012 | internal_context | EV-A-010 | claim-register:CL-A-012:paastand | internal_only | hypothesis benchmark needs actor or source validation |
+| CL-A-013 | internal_context | EV-A-011 | claim-register:CL-A-013:paastand | internal_only | actor dossier needs company or public-source validation |
+| CL-A-014 | citable_with_note | SRC-A-019; IFRO Documentation 2025-01 | claim-register:CL-A-014:paastand | allowed_with_caveat | none |
+| CL-A-015 | citable_with_note | EV-A-019; EV-A-021 | claim-register:CL-A-015:paastand | allowed_with_caveat | actor-specific feed data must not be generalized without caveat |
+| CL-A-016 | citable_with_note | EV-A-022 | claim-register:CL-A-016:paastand | allowed_with_caveat | none |
+| CL-A-020 | internal_context | EV-A-001; EV-A-018; EV-A-019; EV-A-020; EV-A-021; EV-A-022 | claim-register:CL-A-020:paastand | internal_only | pilotclaim needs industry and regulator validation |
+| CL-A-021 | internal_context | EV-A-003; EV-A-009; EV-A-011; EV-A-012; EV-A-013; EV-A-014; EV-A-015; EV-A-016; EV-B-006; EV-B-024 | claim-register:CL-A-021:paastand | internal_only | pilotclaim needs legal substratgate and actor validation |
+| CL-A-022 | internal_context | EV-A-010; EV-ACT-004; EV-FIN-001 | claim-register:CL-A-022:paastand | internal_only | benchmark/pilotclaim is not effect evidence |
+| CL-B-001 | citable_with_note | EV-B-001; EV-B-014 | claim-register:CL-B-001:paastand | allowed_with_caveat | internal synthesis must point back to underlying source rows |
+| CL-B-002 | citable_with_note | EV-B-002; EV-B-014; EV-B-021; EV-B-023 | claim-register:CL-B-002:paastand | allowed_with_caveat | none |
+| CL-B-008 | citable_with_note | EV-B-005; EV-B-014; EV-B-022 | claim-register:CL-B-008:paastand | allowed_with_caveat | LCA hierarchy needs fraction and system-boundary caveat |
+| CL-B-009 | citable_with_note | EV-B-006; EV-B-018; EV-B-019; EV-B-020; EV-B-022; EV-B-024; EV-C-020; EV-C-022 | claim-register:CL-B-009:paastand | allowed_with_caveat | none |
+| CL-B-011 | citable_with_note | EV-B-008 | claim-register:CL-B-011:paastand | allowed_with_caveat | concept proof only, not general system proof |
+| CL-B-014 | internal_context | EV-B-011; EV-B-018; EV-B-019 | claim-register:CL-B-014:paastand | internal_only | hypothesis needs producer volume and quality validation |
+| CL-B-016 | citable_with_note | EV-B-013; EV-B-015 | claim-register:CL-B-016:paastand | allowed_with_caveat | benchmark needs NPK and regulatory-status caveat |
+| CL-B-017 | citable_with_note | SRC-B-032; EV-B-014; EV-B-021 | claim-register:CL-B-017:paastand | allowed_with_caveat | scope excludes primary agriculture unless separately cited |
+| CL-B-018 | citable_with_note | SRC-BASE-007; SRC-BASE-009 | claim-register:CL-B-018:paastand | allowed_with_caveat | direct Naturvardsverket and IVL check required before strong external wording |
+| CL-B-019 | citable_with_note | EV-B-029 | claim-register:CL-B-019:paastand | allowed_with_caveat | country scopes and DK gas-year basis must be shown |
+| CL-B-020 | citable_with_note | EV-B-027 | claim-register:CL-B-020:paastand | allowed_with_caveat | must not be called halving |
+| CL-B-021 | internal_context | EV-B-005; EV-B-006; EV-B-011; EV-B-018; EV-B-019; EV-B-020; EV-B-022; EV-B-024; EV-C-025; EV-ACT-005 | claim-register:CL-B-021:paastand | internal_only | pilotclaim needs producer, logistics and legal validation |
+| CL-B-022 | internal_context | EV-B-002; EV-B-004; EV-B-005; EV-B-014; EV-C-010; EV-B-021; EV-B-022; EV-B-023 | claim-register:CL-B-022:paastand | internal_only | pilotclaim needs operator and KPI validation |
+| CL-B-023 | internal_context | EV-B-008; EV-B-010; EV-B-013; EV-B-015; EV-B-016; EV-B-017; EV-B-024 | claim-register:CL-B-023:paastand | internal_only | infrastructure benchmark needs NPK, legal and actor validation |
+| CL-B-024 | citable_with_note | SRC-BASE-008; SRC-BASE-009 | claim-register:CL-B-024:paastand | allowed_with_caveat | national peatland comparison needs primary-country caveat |
+| CL-C-001 | citable_with_note | EV-C-001; EV-C-013; EV-C-015; EV-B-022; EV-C-020; EV-C-021; EV-C-022; EV-C-023; EV-C-024; EV-C-025 | claim-register:CL-C-001:paastand | allowed_with_caveat | none |
+| CL-C-002 | internal_context | EV-C-002; EV-C-016; EV-C-018; EV-C-019 | claim-register:CL-C-002:paastand | internal_only | hypothesis needs procurement actor validation |
+| CL-C-004 | citable_with_note | EV-C-003 | claim-register:CL-C-004:paastand | allowed_with_caveat | policy direction is not implementation evidence |
+| CL-C-005 | citable_with_note | EV-C-004; EV-C-013 | claim-register:CL-C-005:paastand | allowed_with_caveat | legal baseline is not enforcement-effect evidence |
+| CL-C-006 | citable_with_note | EV-C-005; EV-C-013; EV-C-014; EV-C-015; EV-C-021; EV-C-022; EV-C-023 | claim-register:CL-C-006:paastand | allowed_with_caveat | enforcement and reporting-risk caveat required |
+| CL-C-010 | citable_with_note | EV-C-006; EV-C-020 | claim-register:CL-C-010:paastand | allowed_with_caveat | EEA/national implementation needs update check |
+| CL-C-011 | citable_with_note | EV-C-007; EV-A-017; EV-A-019; EV-A-021; EV-C-017; EV-C-024; EV-C-027 | claim-register:CL-C-011:paastand | allowed_with_caveat | separate EU export compliance from domestic Norwegian scope |
+| CL-C-012 | citable_with_note | EV-C-008; EV-B-014; EV-C-016 | claim-register:CL-C-012:paastand | allowed_with_caveat | governance claim needs mechanism caveat |
+| CL-C-014 | citable_with_note | EV-C-010; EV-C-014; EV-B-021; EV-C-018; EV-C-020 | claim-register:CL-C-014:paastand | allowed_with_caveat | operational-practice examples are context-specific |
+| CL-C-015 | internal_context | EV-C-011; EV-A-018; EV-A-021; EV-B-014; EV-B-016; EV-B-017; EV-B-018; EV-B-019; EV-B-020; EV-C-014; EV-C-016; EV-C-017; EV-B-023; EV-C-018; EV-C-019; EV-C-021; EV-C-023; EV-C-025 | claim-register:CL-C-015:paastand | internal_only | KPI hypothesis needs data-owner and reporting-frequency validation |
+| CL-C-016 | citable_with_note | SRC-C-031; EV-C-026 | claim-register:CL-C-016:paastand | allowed_with_caveat | operative legal duties need commencement and regulation check |
+| CL-C-017 | citable_with_note | SRC-C-028; SRC-BASE-007; EV-C-027 | claim-register:CL-C-017:paastand | allowed_with_caveat | tax-rate comparison must include bottom deduction and implementation caveat |
+| CL-C-018 | citable_with_note | SRC-C-027; EV-C-028 | claim-register:CL-C-018:paastand | allowed_with_caveat | Swedish policy-response status must be checked before strong claims |
 
 ## Claim-kategorier per spor (mål: ≥5 claims, ≥2 hypoteser per spor)
 

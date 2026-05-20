@@ -1,7 +1,7 @@
 # URL Inventory — Food Systems 2026
 
 > Auto-generert av `scripts/inventory-urls.ts` — ikke rediger manuelt.
-> Generert: 2026-05-19T08:09:34.936Z
+> Generert: 2026-05-20T02:09:50.978Z
 > Totalt: **870** URL-forekomster, **600** unike URL-er
 
 ## Distribusjon per source_type
@@ -27,27 +27,27 @@
 | # | domain | antall |
 |---:|---|---:|
 | 1 | r2cdn.perplexity.ai | 78 |
-| 2 | regjeringen.no | 53 |
-| 3 | doi.org | 47 |
+| 2 | regjeringen.no | 57 |
+| 3 | doi.org | 46 |
 | 4 | nhh.no | 39 |
 | 5 | youtube.com | 36 |
 | 6 | konkurransetilsynet.no | 29 |
-| 7 | norden.org | 20 |
-| 8 | hdl.handle.net | 18 |
-| 9 | dagligvaretilsynet.no | 17 |
-| 10 | pub.norden.org | 15 |
+| 7 | hdl.handle.net | 29 |
+| 8 | norden.org | 20 |
+| 9 | pub.norden.org | 15 |
+| 10 | dagligvaretilsynet.no | 13 |
 | 11 | projekter.aau.dk | 12 |
-| 12 | openaccess.nhh.no | 12 |
-| 13 | konkurrensverket.se | 9 |
-| 14 | research.cbs.dk | 9 |
-| 15 | kfst.dk | 8 |
-| 16 | stud.epsilon.slu.se | 8 |
+| 12 | konkurrensverket.se | 9 |
+| 13 | research.cbs.dk | 9 |
+| 14 | kfst.dk | 8 |
+| 15 | stud.epsilon.slu.se | 8 |
+| 16 | openaccess.nhh.no | 8 |
 | 17 | norgesgruppen.no | 7 |
-| 18 | eur-lex.europa.eu | 6 |
-| 19 | diva-portal.org | 6 |
-| 20 | beccle.no | 6 |
-| 21 | aaltodoc.aalto.fi | 6 |
-| 22 | pub.epsilon.slu.se | 6 |
+| 18 | pub.epsilon.slu.se | 7 |
+| 19 | eur-lex.europa.eu | 6 |
+| 20 | diva-portal.org | 6 |
+| 21 | beccle.no | 6 |
+| 22 | aaltodoc.aalto.fi | 6 |
 | 23 | uu.diva-portal.org | 6 |
 | 24 | urn.kb.se | 6 |
 | 25 | nmbu.no | 6 |

@@ -41,11 +41,11 @@ Selvkritikk skal være **operativ, ikke beklagende**. Hvert punkt:
 
 **Hva en kritisk leser bør gjøre:** Ikke konkludere at IS er "svakest" på en gitt indikator basert på rapportens tall. IS-tallene bør valideres mot Hagstofa Íslands og Matvælastofnun før de brukes i ekstern beslutningstaking. IS er sannsynligvis sterkere på enkelte sirkularitetsdimensjoner enn rapporten gjenspeiler (geotermisk drivhus, skreilangs sporbarhet, mindre matsvinn-volum gitt 380k populasjon).
 
-### SK-3 · Ingen ekstern validering er gjort
+### SK-3 · T3 er gjennomført, men er ikke ekstern validering
 
-**Faktum:** Rapporten T3 (ekstern-vs-intern diff) i innsiktsmotor.md er deferred til v1.2 Phase 8. Dette betyr at vi ikke har sammenlignet rapportens påstander mot frittstående LLM-svar uten plattform-data.
+**Faktum:** Rapportens T3 ekstern-vs-intern diff er gjennomført i v1.2 Phase 8. Det er en intern metodekontroll mot et frittstående LLM-svar uten plattform-data, ikke ekstern fagfelle- eller domenevalidering.
 
-**Hvorfor:** Vi har valgt å først lukke A1-A5 (interne validerings-spørsmål) før T3 fordi A1-A5 risikoen var større for at ufordragelige feil ville sneket seg inn. T3 demonstrerer plattform-merverdi men er metodologisk sekundær til faktasjekking.
+**Hvorfor:** T3 demonstrerer plattform-merverdi, men metoden er fortsatt sekundær til faktasjekking og primærkildekontroll. Den viser hva plattform-data tilfører et generisk LLM-svar, ikke at en ekstern ekspert har validert rapporten.
 
 **Hva en kritisk leser bør gjøre:** Hvis rapporten brukes i transition-gruppa-beslutning, kjør stikkprøver: ta 5 påstander, spør ChatGPT/Perplexity uten plattform-kontekst, og sammenlign. Hvor avviker svarene? Hvis avviket er i NO-spesifikke detaljer (eksakte aktørnavn, %-tall fra norske kilder), er rapporten sterkest. Hvis avviket er i tolkning eller policy-implikasjoner, må disse vurderes uavhengig.
 
@@ -108,8 +108,8 @@ Selvkritikk skal være **operativ, ikke beklagende**. Hvert punkt:
     </div>
 
     <div class="card amber">
-      <h4>SK-3 · Ingen ekstern validering (T3) er gjort</h4>
-      <p>Vi har ikke sammenlignet rapportens påstander mot frittstående LLM-svar uten plattform-data. Hvis rapporten brukes i TG-beslutning, kjør stikkprøver. Hvor avviker svarene? NO-spesifikke detaljer er rapportens sterkeste; tolkning og policy-implikasjoner må vurderes uavhengig.</p>
+      <h4>SK-3 · T3 er gjennomført, men er ikke ekstern validering</h4>
+      <p>T3 ekstern-vs-intern diff er gjennomført i v1.2 Phase 8. Det er en intern metodekontroll mot generisk LLM-svar, ikke ekstern fagfelle- eller domenevalidering. Hvis rapporten brukes i TG-beslutning, kjør fortsatt stikkprøver. NO-spesifikke detaljer er rapportens sterkeste; tolkning og policy-implikasjoner må vurderes uavhengig.</p>
     </div>
 
     <div class="card rose">

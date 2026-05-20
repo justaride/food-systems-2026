@@ -181,7 +181,7 @@ describe('row source locators', () => {
         { country: 'FI', metricType: 'privateLabel', source: 'PTY/NielsenIQ est.' },
         new Map(),
       ),
-      null,
+      'source:blocked-unsourced/country-metric-estimate',
     )
 
     assert.equal(
@@ -251,7 +251,7 @@ describe('row source locators', () => {
         },
         new Map(),
       ),
-      null,
+      'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/env_wasfw',
     )
 
     assert.equal(
@@ -263,7 +263,7 @@ describe('row source locators', () => {
         },
         new Map(),
       ),
-      null,
+      'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/env_wasfw',
     )
 
     assert.equal(
@@ -271,7 +271,7 @@ describe('row source locators', () => {
         { country: 'IS', metricType: 'foodWastePerCapita', source: 'Umhverfisstofnun 2025 est.' },
         new Map(),
       ),
-      null,
+      'source:blocked-unsourced/country-metric-estimate',
     )
   })
 
@@ -349,7 +349,57 @@ describe('row source locators', () => {
         },
         new Map(),
       ),
-      null,
+      'source:blocked-unsourced/country-metric-unverified-label',
+    )
+  })
+
+  it('resolves remaining strict-source country metric labels to existing official locators or blocked internal markers', () => {
+    assert.equal(
+      resolveCountryMetricSourceLocator(
+        { country: 'FI', metricType: 'selfSufficiency', source: 'Luke/Ruokavirasto' },
+        new Map(),
+      ),
+      'https://statdb.luke.fi/PXWeb/api/v1/en/LUKE/maa/02%20Ravintotase/02_Ravintotase.px',
+    )
+
+    assert.equal(
+      resolveCountryMetricSourceLocator(
+        { country: 'IS', metricType: 'retailerShare', source: 'Samkeppniseftirlitið 2025' },
+        new Map(),
+      ),
+      'https://www.samkeppni.is/urlausnir/skyrslur/4-2025/',
+    )
+
+    assert.equal(
+      resolveCountryMetricSourceLocator(
+        { country: 'NO', metricType: 'hhiCategory', source: 'Konkurransetilsynet/bransjeanalyse' },
+        new Map(),
+      ),
+      'https://konkurransetilsynet.no/wp-content/uploads/2025/04/Konkurransetilsynets-Dagligvarerapport-2024-25.pdf',
+    )
+
+    assert.equal(
+      resolveCountryMetricSourceLocator(
+        { country: 'NO', metricType: 'margin', source: 'Årsrapporter 2024, Konkurransetilsynet verdikjedestudie' },
+        new Map(),
+      ),
+      'source:derived-country-metric-margin-annual-reports-ktil',
+    )
+
+    assert.equal(
+      resolveCountryMetricSourceLocator(
+        { country: 'NO', metricType: 'privateLabel', source: 'NielsenIQ/bransjeanalyse est.' },
+        new Map(),
+      ),
+      'source:blocked-unsourced/country-metric-estimate',
+    )
+
+    assert.equal(
+      resolveCountryMetricSourceLocator(
+        { country: 'DK', metricType: 'selfSufficiency', source: 'Danmarks Statistik/Landbrug & Fødevarer' },
+        new Map(),
+      ),
+      'source:blocked-unsourced/country-metric-unverified-label',
     )
   })
 
@@ -986,7 +1036,33 @@ describe('row source locators', () => {
         },
         new Set(),
       ),
-      null,
+      'source:blocked-unsourced/company-financial-estimate',
+    )
+  })
+
+  it('marks unresolved company financial source labels as blocked internal provenance', () => {
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
+          source: 'Estimat. EUR ~1.99B, 1 EUR ≈ 11.5 NOK. Statista/Lidl Finland.',
+          year: 2024,
+          company: { orgNr: 'FI-1615492-7' },
+        },
+        new Set(),
+      ),
+      'source:blocked-unsourced/company-financial-estimate',
+    )
+
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
+          source: 'Årsrapport 2024',
+          year: 2024,
+          company: { orgNr: '929228723' },
+        },
+        new Set(),
+      ),
+      'source:blocked-unsourced/company-financial-unverified-annual-report',
     )
   })
 
@@ -2009,7 +2085,7 @@ describe('row source locators', () => {
         new Set(),
         new Map(),
       ),
-      null,
+      'source:blocked-unsourced/business-relationship-unverified-label',
     )
   })
 
@@ -2095,6 +2171,52 @@ describe('row source locators', () => {
         new Map(),
       ),
       null,
+    )
+  })
+
+  it('resolves or blocks remaining strict-source business relationship labels', () => {
+    assert.equal(
+      resolveBusinessRelationshipSourceLocator(
+        {
+          source: 'KKV FCCA 2024 / PTY',
+          fromCompany: { orgNr: 'FI-0116323-9' },
+          toCompany: { orgNr: 'FI-0110456-8' },
+        },
+        new Set(),
+        new Map([
+          [
+            'kkv-fi-4a-dominans',
+            'https://www.kkv.fi/en/facts-and-advice/competition-affairs/abuse-of-dominant-position/maaraava-markkina-asema-paivittaistavarakaupassa/',
+          ],
+        ]),
+      ),
+      'https://www.kkv.fi/en/facts-and-advice/competition-affairs/abuse-of-dominant-position/maaraava-markkina-asema-paivittaistavarakaupassa/',
+    )
+
+    assert.equal(
+      resolveBusinessRelationshipSourceLocator(
+        {
+          source: 'Bransjedata',
+          fromCompany: { orgNr: '947942638' },
+          toCompany: { orgNr: '819731322' },
+        },
+        new Set(),
+        new Map(),
+      ),
+      'source:blocked-unsourced/business-relationship-unverified-label',
+    )
+
+    assert.equal(
+      resolveBusinessRelationshipSourceLocator(
+        {
+          source: 'Mowi Industry Handbook',
+          fromCompany: { orgNr: '988044113' },
+          toCompany: { orgNr: '964118191' },
+        },
+        new Set(),
+        new Map(),
+      ),
+      'source:blocked-unsourced/business-relationship-unverified-label',
     )
   })
 })

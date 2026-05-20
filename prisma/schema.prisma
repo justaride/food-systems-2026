@@ -9,6 +9,38 @@ datasource db {
   extensions = [pg_trgm(map: "pg_trgm"), vector(map: "vector")]
 }
 
+enum SourceClass {
+  primary
+  secondary
+  dataset
+  internal_synthesis
+  media
+  unknown
+  synthesis
+  internal_construct
+  registry_snapshot
+  legacy_unsourced
+}
+
+enum VerificationStatus {
+  verified
+  partially_verified
+  needs_review
+  failed
+  unverified
+  machine_verified
+  human_verified
+  disputed
+  rejected
+}
+
+enum CitationReadiness {
+  citable_external
+  citable_with_note
+  internal_context
+  blocked_unsourced
+}
+
 // ─── Domain 1: Documents ────────────────────────────────────────────
 
 model Document {
@@ -45,6 +77,7 @@ model Document {
   insightDocumentRefs InsightDocumentRef[]
   companyDocumentRefs CompanyDocumentRef[]
   actorDocumentRefs   ActorDocumentRef[]
+  sourceCitations     SourceCitation[]
 
   @@index([category])
   @@index([country])
@@ -86,8 +119,67 @@ model SourceDoc {
   sourceRefs   SourceRef[]
   insights     Insight[]   @relation("InsightSourceDoc")
   mediaEntries MediaEntry[]
+  sourceCitations SourceCitation[]
 
   @@index([sourceType])
+}
+
+model SourceCitation {
+  id                 String             @id @default(cuid())
+  sourceClass        SourceClass        @default(unknown)
+  citationReadiness  CitationReadiness  @default(blocked_unsourced)
+  verificationStatus VerificationStatus @default(needs_review)
+  citationText       String
+  title              String?
+  publisher          String?
+  author             String?
+  year               Int?
+  url                String?
+  archivedUrl        String?
+  localPath          String?
+  fileHash           String?
+  contentHash        String?
+  hashAlgorithm      String             @default("sha256")
+  pageRef            String?
+  quote              String?
+  accessedAt         DateTime?
+  captureMethod      String             @default("manual")
+  verifiedAt         DateTime?
+  verifiedBy         String?
+  confidence         Int?
+  notes              String?
+  documentId         String?
+  sourceDocId        String?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+
+  document       Document?       @relation(fields: [documentId], references: [id], onDelete: SetNull)
+  sourceDoc      SourceDoc?      @relation(fields: [sourceDocId], references: [id], onDelete: SetNull)
+  fieldCitations FieldCitation[]
+
+  @@index([citationReadiness])
+  @@index([verificationStatus])
+  @@index([documentId])
+  @@index([sourceDocId])
+  @@index([url])
+  @@index([localPath])
+}
+
+model FieldCitation {
+  id         String   @id @default(cuid())
+  citationId String
+  entityType String
+  entityId   String
+  fieldPath  String?
+  claimText  String?
+  confidence Float?
+  createdAt  DateTime @default(now())
+
+  citation SourceCitation @relation(fields: [citationId], references: [id], onDelete: Cascade)
+
+  @@unique([citationId, entityType, entityId, fieldPath])
+  @@index([entityType, entityId])
+  @@index([fieldPath])
 }
 
 model SourceRef {

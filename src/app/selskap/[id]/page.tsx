@@ -9,6 +9,7 @@ import { getInterlockSummaryForCompany } from '@/lib/queries/interlocks'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
 import { CompanyPropertiesPanel } from './CompanyPropertiesPanel'
 import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
+import { Citation, type CitationViewModel } from '@/components/citations/Citation'
 
 function formatNokBillions(value: number | null): string {
   return value != null ? `${(value / 1e9).toFixed(1)} mrd` : '—'
@@ -20,6 +21,41 @@ function formatNokMillions(value: number | null): string {
 
 function formatPct(value: unknown): string {
   return value != null ? `${Number(value)}%` : '—'
+}
+
+function isBlockedSource(source: string | null | undefined) {
+  if (!source) return true
+  const normalized = source.toLowerCase()
+  return (
+    normalized.includes('blocked-unsourced') ||
+    normalized.includes('blocked_unsourced') ||
+    normalized.includes('legacy_unsourced') ||
+    normalized.includes('unverified-label')
+  )
+}
+
+function companyCitation(args: {
+  label: string
+  source?: string | null
+  sourceUrl?: string | null
+  verifiedAt?: Date | null
+  note: string
+}): CitationViewModel {
+  const blocked = isBlockedSource(args.source) && !args.sourceUrl
+  const hasSource = Boolean(args.source || args.sourceUrl)
+
+  return {
+    label: args.label,
+    citationText: args.source ?? args.label,
+    url: args.sourceUrl ?? null,
+    verifiedAt: args.verifiedAt ?? null,
+    citationReadiness: blocked || !hasSource
+      ? 'blocked_unsourced'
+      : args.sourceUrl && args.verifiedAt
+        ? 'citable_external'
+        : 'citable_with_note',
+    note: blocked || !hasSource ? 'Ingen verifisert ekstern kilde registrert.' : args.note,
+  }
 }
 
 export default async function SelskapPage({ params }: { params: Promise<{ id: string }> }) {
@@ -206,6 +242,16 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
               </table>
             </div>
           )}
+
+          <div className="mt-4 border-t border-stone-100 pt-3">
+            <Citation
+              citation={companyCitation({
+                label: 'Regnskapskilde',
+                source: latestFinancial.source,
+                note: 'Regnskapsrad/resolver; kontroller arsrapportfelt for ekstern sitatbruk.',
+              })}
+            />
+          </div>
         </Card>
       )}
 
@@ -219,6 +265,18 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                   {s.shareholderType && (
                     <span className="ml-2 text-xs text-stone-400">({s.shareholderType})</span>
                   )}
+                  <div className="mt-1">
+                    <Citation
+                      compact
+                      citation={companyCitation({
+                        label: 'Eierskapskilde',
+                        source: s.source,
+                        sourceUrl: s.sourceUrl,
+                        verifiedAt: s.verifiedAt,
+                        note: 'Aksjonaeropplysning med kilde-/datoavgrensning.',
+                      })}
+                    />
+                  </div>
                 </div>
                 <div className="flex items-center gap-2">
                   {s.ownershipPct && (
@@ -282,6 +340,18 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                         <span className="ml-2">score {memberScore.interlockScore}</span>
                       )}
                     </p>
+                    <div className="mt-1">
+                      <Citation
+                        compact
+                        citation={companyCitation({
+                          label: 'Styrekilde',
+                          source: m.source,
+                          sourceUrl: m.sourceUrl,
+                          verifiedAt: m.verifiedAt,
+                          note: 'Styreopplysning med kilde-/datoavgrensning.',
+                        })}
+                      />
+                    </div>
                   </div>
                   {otherVerv > 0 && (
                     <Link
@@ -354,6 +424,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                         <th className="text-left py-2 text-stone-400">Beskrivelse</th>
                         <th className="text-right py-2 text-stone-400">Estimert verdi</th>
                         <th className="text-left py-2 text-stone-400">Status</th>
+                        <th className="text-left py-2 text-stone-400">Kilde</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -387,6 +458,16 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                                 <span className="text-stone-400">—</span>
                               )}
                             </td>
+                            <td className="py-2">
+                              <Citation
+                                compact
+                                citation={companyCitation({
+                                  label: 'Relasjonskilde',
+                                  source: r.source,
+                                  note: 'Kuraterte relasjoner; kontroller metodegrunnlag for ekstern sitatbruk.',
+                                })}
+                              />
+                            </td>
                           </tr>
                         )
                       })}
@@ -410,6 +491,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                         <th className="text-left py-2 text-stone-400">Beskrivelse</th>
                         <th className="text-right py-2 text-stone-400">Estimert verdi</th>
                         <th className="text-left py-2 text-stone-400">Status</th>
+                        <th className="text-left py-2 text-stone-400">Kilde</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -442,6 +524,16 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                               ) : (
                                 <span className="text-stone-400">—</span>
                               )}
+                            </td>
+                            <td className="py-2">
+                              <Citation
+                                compact
+                                citation={companyCitation({
+                                  label: 'Relasjonskilde',
+                                  source: r.source,
+                                  note: 'Kuraterte relasjoner; kontroller metodegrunnlag for ekstern sitatbruk.',
+                                })}
+                              />
                             </td>
                           </tr>
                         )

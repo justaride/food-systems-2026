@@ -37,6 +37,29 @@ Et hvert datapunkt som vises i appen eller benyttes i juni-2026-whitepaperet ska
 
 Det skal være maskinelt umulig å importere et nytt faktum uten å oppfylle disse fire kravene.
 
+### 1.1 Canonical citation readiness fra 2026-05-20
+
+All ekstern bruk skal styres av fire canonical readiness-nivåer:
+
+| Readiness | Bruksregel |
+|---|---|
+| `citable_external` | Kan brukes eksternt uten ekstra forbehold når direkte locator, tilgangs-/verifikasjonsdato og feltkobling finnes. |
+| `citable_with_note` | Kan brukes eksternt når kilde-, metode- eller presisjonsforbehold vises sammen med claimet. |
+| `internal_context` | Kan brukes til intern analyse, struktur og hypoteser, men ikke som dokumenterende ekstern evidens. |
+| `blocked_unsourced` | Skal ikke brukes i ekstern rapportering, graf, presentasjon, eksport eller siterbart svar. |
+
+Legacy-koder fra eldre planarbeid mappes slik:
+
+| Legacy-kode | Canonical readiness |
+|---|---|
+| `db-linked` | `citable_external` når feltkoblingen og verifikasjonsmetadata er komplett; ellers `citable_with_note` |
+| `repo/static` | `citable_with_note` når lokal fil/metode er tydelig; ellers `internal_context` |
+| `internal_synthesis` / `internal-synthesis` | `internal_context` |
+| `needs-primary-check` | `blocked_unsourced` frem til primærkilde eller gjeldende URL er kontrollert |
+| `not-citable-input` | `blocked_unsourced` |
+
+Fail-closed regel: If a claim has no external-ready citation, the system must either exclude it from external output or display it as internal context. It must not silently promote internal synthesis to source evidence.
+
 ## 2. Dagens status mot akademisk standard
 
 ### 2.1 Sterkt fundament (lag 1 — dokumenter/rapporter/avhandlinger)
@@ -199,23 +222,30 @@ Mål: Gjøre verifisering og strukturert kildeføring obligatorisk på schema-ni
 enum SourceClass {
   primary
   secondary
-  synthesis
-  internal_construct
-  registry_snapshot
-  legacy_unsourced
+  dataset
+  internal_synthesis
+  media
+  unknown
 }
 
 enum VerificationStatus {
-  unverified
-  machine_verified
-  human_verified
-  disputed
-  rejected
+  verified
+  partially_verified
+  needs_review
+  failed
+}
+
+enum CitationReadiness {
+  citable_external
+  citable_with_note
+  internal_context
+  blocked_unsourced
 }
 
 model SourceCitation {
   id                 String             @id @default(cuid())
   sourceClass        SourceClass
+  citationReadiness  CitationReadiness  @default(blocked_unsourced)
   citationText       String             // formell sitering (APA-style/CSL)
   url                String?
   localPath          String?            // lokal arkivkopi i research/evidence-pack/
@@ -228,7 +258,7 @@ model SourceCitation {
   documentId         String?
   verifiedAt         DateTime?
   verifiedBy         String?
-  verificationStatus VerificationStatus @default(unverified)
+  verificationStatus VerificationStatus @default(needs_review)
   confidence         Int?               // 0-100; audit krever 0-100 hvis satt
   notes              String?
   createdAt          DateTime           @default(now())
@@ -260,7 +290,7 @@ model FieldCitation {
 }
 ```
 
-Viktig enforcement-presisering: `FieldCitation` er en polymorf kobling, så databasen kan ikke alene garantere at `entityType/entityId` peker på en faktisk rad. Derfor må `verify-data-integrity.ts` utvides til å validere alle `FieldCitation`-targets, og raw SQL CHECK/`db:audit` må håndheve at nye ikke-interne citations har minst én av `url`, `localPath`, `sourceDocId` eller `documentId`. `legacy_unsourced` er bare en overgangsstatus og skal blokkeres fra whitepaper-eksport.
+Viktig enforcement-presisering: `FieldCitation` er en polymorf kobling, så databasen kan ikke alene garantere at `entityType/entityId` peker på en faktisk rad. Derfor må `verify-data-integrity.ts` utvides til å validere alle `FieldCitation`-targets, og raw SQL CHECK/`db:audit` må håndheve at nye external-ready citations har minst én av `url`, `localPath`, `sourceDocId` eller `documentId`. Legacy-rader uten kilde skal få `citationReadiness=blocked_unsourced` og blokkeres fra whitepaper-eksport.
 
 **Migrasjon 2 — Source/verifiseringsfelt på modeller som mangler eller bare har midlertidig legacy-felt:**
 
@@ -307,7 +337,7 @@ Mål: Få eksisterende data opp på den nye standarden.
    - For hver `Company` med 9-sifret `orgNr`: hent live data fra `https://data.brreg.no/enhetsregisteret/api/enheter/{orgNr}`
    - Lagre responsen som JSON i `research/evidence-pack/bronnoysund-snapshots/{orgNr}-{YYYY-MM-DD}.json`
    - Beregn SHA-256 av JSON-en
-   - Opprett `SourceCitation` med `sourceClass=registry_snapshot`, URL, `accessedAt`, `localPath`, `contentHash`
+   - Opprett `SourceCitation` med `sourceClass=primary`, URL, `accessedAt`, `localPath`, `contentHash`
    - Knytt bare felt som faktisk finnes i Enhetsregisteret til denne citationen, f.eks. `Company.legalForm`, `Company.naceCode`, `Company.employees`, `Company.registryVerifiedAt`
    - Ikke bruk Enhetsregisteret som kilde for `CompanyFinancial.revenueNok`/EBITDA hvis verdiene ikke finnes i responsen
    - Kjør idempotent: oppdater siteringer hver kvartal
@@ -344,7 +374,7 @@ Mål: Forhindre regress. Ingen nye data uten kilde.
 
 ```typescript
 export type RequiredCitation = {
-  sourceClass: 'primary' | 'secondary' | 'synthesis' | 'internal_construct' | 'registry_snapshot'
+  sourceClass: 'primary' | 'secondary' | 'dataset' | 'internal_synthesis' | 'media' | 'unknown'
   accessedAt: string  // ISO-8601
   citationText: string
   url?: string
@@ -361,7 +391,7 @@ export async function upsertWithCitation<T>(
   prisma: PrismaClient,
   entityType: string,
   upsertFn: () => Promise<T & { id: string }>,
-  citation: RequiredCitation, // validate: at least one locator field for non-internal_construct
+  citation: RequiredCitation, // validate: at least one locator field for external-ready use
   fieldPath?: string
 ): Promise<T> {
   const entity = await upsertFn()
@@ -579,7 +609,7 @@ Foreslått ansvarsfordeling:
 |---|---|---|
 | Wayback Machine rategrenser | Middels | Batch over flere dager, fallback til archive.today |
 | Brønnøysund-API endrer felt-navn | Lav | Snapshot rå JSON, ikke kun strukturert respons |
-| Historiske data uten kildelenker er for store til å backfille manuelt | Høy | Aksepter at noen data tagges `legacy_unsourced` og ekskluderes fra whitepaper |
+| Historiske data uten kildelenker er for store til å backfille manuelt | Høy | Aksepter at noen data tagges `blocked_unsourced` og ekskluderes fra whitepaper |
 | Tidsbruk på reskriving av import-scripts | Høy | Prioriter etter datavolum og hvor data brukes i UI |
 | Forskningskonstrukter (synthetic orgNr) ekskluderes feilaktig fra rapporter | Middels | Eksplisitt opt-in i hver rapport-query (`includeResearchConstructs: false` default) |
 
