@@ -2,7 +2,8 @@
 
 ## Purpose
 
-This handoff prepares the next Codex session to implement the citable knowledge base hardening work without relying on chat history.
+This handoff prepares the next Codex session to continue the remaining quality
+work after the citable knowledge base hardening work was merged to `main`.
 
 The implementation plan is:
 
@@ -10,24 +11,29 @@ The implementation plan is:
 
 ## Current Repo State
 
-- Original working directory: `/Users/gabrielfreeman/Documents/Food Systems 2026`
-- Active implementation worktree: `/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/citable-knowledge-base-hardening-2026-05-20`
-- Original branch: `data-quality-hardening-2026-05-19`
-- Worktree branch: `citable-knowledge-base-hardening-2026-05-20`
-- HEAD at handoff creation: `72c5154 chore: harden data source quality`
-- Original remote tracking branch: `origin/data-quality-hardening-2026-05-19`
-- Implementation status: Tasks 1-15 are complete in the active worktree, and
-  the follow-on citation coverage remediation has closed the strict
-  source/citation audit blockers. The readiness queue still tracks 11 P2
-  residual report rows: one intentionally `blocked_source` report and 10
-  internal/composite reports without a single source URL.
-- Original checkout still only had the uncommitted handoff/plan files at the start of this work:
-  - `docs/superpowers/plans/2026-05-20-citable-knowledge-base-hardening.md`
-  - `research/CITABLE-KNOWLEDGE-BASE-HANDOFF-2026-05-20.md`
+- Working directory: `/Users/gabrielfreeman/Documents/Food Systems 2026`
+- Branch: `main`
+- Current synced HEAD: `a88f8f1 fix(citations): keep blocked internal markers non-external`
+- Remote tracking branch: `origin/main`
+- Merged PRs:
+  - PR #60: integrated data-quality hardening and citable knowledge-base gates
+    into `main`.
+  - PR #61: fixed post-merge handling of
+    `source:blocked-unsourced/...` internal markers so they remain internal
+    context, not external primary evidence.
+- Clean-up completed: the old citable worktree was removed, and the remote/local
+  branches `citable-knowledge-base-hardening-2026-05-20`,
+  `data-quality-hardening-2026-05-19`, and
+  `fix/internal-blocked-citation-refresh-2026-05-20` were deleted.
+- Current operating status: strict source/citation gates are green. The
+  readiness queue still tracks 11 P2 residual report rows: one intentionally
+  `blocked_source` report and 10 internal/composite/register reports without a
+  single source URL.
 
-## Important Baseline From Last Live Audit
+## Historical Baseline From Initial Live Audit
 
-Refresh these before editing, because database and generated outputs can drift.
+This is retained for context only. The final current state is in the sections
+below and in `research/CITABLE-KNOWLEDGE-BASE-STATUS.md`.
 
 - `npm test` passed with 100 tests.
 - `npm run db:audit` passed.
@@ -97,7 +103,8 @@ Backfill result:
 
 - Before apply: `SourceCitation=71`, `FieldCitation=1286`.
 - Apply created 2,544 `SourceCitation` rows and 243,018 `FieldCitation` rows.
-- After apply: `SourceCitation=2615`, `FieldCitation=244304`.
+- After apply at that checkpoint: `SourceCitation=2615`,
+  `FieldCitation=244304`.
 - Second apply was idempotent: 0 source citations and 0 field citations to
   create.
 
@@ -415,7 +422,9 @@ inventing new source URLs:
   `blocked_unsourced -> internal_context`.
 - Second apply moved 27 missing-local-only stale external rows from
   `citable_with_note -> internal_context`.
-- The refresh is now idempotent: 2,615 rows scanned, 0 updates.
+- The refresh was idempotent at that checkpoint: 2,615 rows scanned, 0
+  updates. Current `main` now scans 2,698 rows and reports 0 updates after PR
+  #61 and the final local backfill.
 - `scripts/backfill-field-citation-claim-text.ts` filled the 10 missing
   `Company.naceDescription` `FieldCitation.claimText` values from existing
   `Company` NACE values, and is now idempotent.
@@ -433,11 +442,11 @@ Latest continuation verification:
 - `npm run db:backfill:field-citation-claim-text` passed after apply with 0
   rows to update.
 - `npm run db:refresh:source-citation-readiness` passed with 0 rows to update.
-- `npm run db:audit:strict-sources` passed. Citation Coverage now reports
-  `SourceCitation=2615`, `citable_external=153`,
-  `citable_with_note=2421`, `internal_context=41`,
-  `blocked_unsourced=0`, `FieldCitation=244304`, and external blocking issues
-  `0`.
+- `npm run db:audit:strict-sources` passed. At that checkpoint, Citation
+  Coverage reported `SourceCitation=2615`, `citable_external=153`,
+  `citable_with_note=2421`, `internal_context=41`, `blocked_unsourced=0`,
+  `FieldCitation=244304`, and external blocking issues `0`. Current `main`
+  coverage is recorded in the final update below.
 - `npm run research:citation-readiness-queue` passed and wrote 11 rows: P0 0,
   P1 0, P2 11, P3 0.
 - `npm run audit:citable` passed end to end.
@@ -461,12 +470,51 @@ Current operating status:
   URL. They are not strict audit failures, but should be reviewed before any
   claim of blanket public-source completeness.
 
+## Final Main Update After PR #60 And PR #61
+
+The merged `main` branch now includes both the original citable hardening work
+and the post-merge regression fix for internal blocked source markers.
+
+Local database update after syncing `main`:
+
+- `npm run db:backfill:source-citations:apply` added 83 new
+  `SourceCitation` rows and 213 new `FieldCitation` rows from existing locators
+  only. It did not change tracked files.
+- The first strict audit after that exposed 36 newly created
+  `blocked_unsourced` source citations backing 67 field citations. Root cause:
+  internal `source:blocked-unsourced/...` markers could inherit a candidate
+  `sourceClass: primary`.
+- PR #61 fixed that behavior and extended
+  `npm run db:refresh:source-citation-readiness:apply` to repair existing rows.
+- The repair moved 36 source citations from `blocked_unsourced` to
+  `internal_context`; the follow-up dry-run reported 0 updates.
+
+Current verified local DB citation coverage:
+
+- `SourceCitation=2698`
+- `citable_external=153`
+- `citable_with_note=2433`
+- `internal_context=112`
+- `blocked_unsourced=0`
+- `FieldCitation=244517`
+- external blocking citation issues `0`
+
+Final verification on current `main`:
+
+- `npm run db:refresh:source-citation-readiness`: passed, 2,698 rows scanned,
+  0 rows to update.
+- `npm run audit:citable`: passed end to end.
+- `npm run research:citable-acceptance-pack`: passed, 7 of 12 answers
+  cite-ready and 5 fail-closed blocked.
+- `git diff --check`: passed.
+- `git status --short --branch`: `## main...origin/main`.
+
 ## Exact Restart Prompt
 
 Use this in the next session:
 
 ```text
-Vi er i /Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/citable-knowledge-base-hardening-2026-05-20. Fortsett arbeidet fra docs/superpowers/plans/2026-05-20-citable-knowledge-base-hardening.md og research/CITABLE-KNOWLEDGE-BASE-HANDOFF-2026-05-20.md. Tasks 1-15 er fullført, og strict citation coverage er nå grønn etter videre remediation. Start med å verifisere `npm run audit:citable`, og vurder deretter den gjenværende readiness-køen: 0 P0, 0 P1, 11 P2 og 0 P3. P2 består av `agrianalyse-bondens-andel-2025` som eksplisitt `blocked_source`, pluss 10 interne/composite rapporter uten én enkelt URL. Målet er høy grad av siterbar bruk av kunnskapsgrunnlaget, med fail-closed ekstern bruk: påstander/data uten kildegrunnlag skal blokkeres eller merkes intern kontekst, ikke brukes som dokumentasjon. Ikke finn opp eller inferer nye kilde-URL-er; bruk bare eksisterende repo-/database-metadata og dokumentert evidens.
+Vi er i /Users/gabrielfreeman/Documents/Food Systems 2026 på `main`, synket til origin/main etter PR #60 og PR #61. Citable knowledge-base gates er merget, strict source/citation audit er grønn, og lokal DB er oppdatert. Start med `git status --short --branch`, `npm run db:refresh:source-citation-readiness`, `npm run audit:citable`, og `npm run research:citable-acceptance-pack`. Deretter jobb gjennom det som står igjen: 11 P2 citation-readiness-queue-rader, 10 HIGH URL-health/remediation-backlog-funn, 42 MEDIUM SourceDoc-lokatorer, og graph quality-gjeld. Ikke finn opp eller inferer nye kilde-URL-er; bruk bare eksisterende repo-/database-metadata, live-verifiserte kilder eller dokumentert evidens.
 ```
 
 ## First Commands In New Session
@@ -474,18 +522,18 @@ Vi er i /Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/citable-kno
 Run:
 
 ```bash
-cd "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/citable-knowledge-base-hardening-2026-05-20"
+cd "/Users/gabrielfreeman/Documents/Food Systems 2026"
 git status --short --branch
 git log --oneline --decorate -5
-sed -n '1,120p' docs/superpowers/plans/2026-05-20-citable-knowledge-base-hardening.md
-rg -n "^## Task|^- \\[ \\]" docs/superpowers/plans/2026-05-20-citable-knowledge-base-hardening.md
 npm test
 npm run db:audit
 npm run db:audit:strict-sources
+npm run db:refresh:source-citation-readiness
 npm run audit:citable
-npm run audit:citable-reports
 npm run research:citable-acceptance-pack
 npm run graph:audit
+head -20 research/citation-readiness-queue-2026-05-20.csv
+sed -n '1,140p' research/REMEDIATION-BACKLOG.md
 ```
 
 Expected:
@@ -498,7 +546,31 @@ Expected:
 - `npm run audit:citable-reports` should pass.
 - `npm run research:citable-acceptance-pack` should pass and report 7/12
   cite-ready, 5 blocked unless acceptance criteria are intentionally changed.
-- `npm run graph:audit` should pass, but low edge confidence is a quality limitation, not proof that graph claims are externally citable.
+- `npm run graph:audit` should pass, but low edge confidence is a quality
+  limitation, not proof that graph claims are externally citable.
+- `research/citation-readiness-queue-2026-05-20.csv` should still have 11 P2
+  rows and no P0/P1 rows unless new evidence or policy decisions were added.
+
+## Next Session Work Queue
+
+Work through the remaining items in this order:
+
+1. Review the 11 P2 citation-readiness rows:
+   - keep `agrianalyse-bondens-andel-2025` excluded unless a real direct source
+     locator is found;
+   - decide whether the 10 internal/composite/register reports should stay as
+     internal context or receive explicit supporting-source bibliographies.
+2. Work the 10 HIGH URL-health findings from `research/REMEDIATION-BACKLOG.md`:
+   Civita, Salford Worktribe, Skemman, Konkurrensverket PDFs, LUT handles and
+   the URN timeout/server-error item. Live-verify before changing any URL.
+3. Work the 42 MEDIUM `missing_file_sourcedoc` findings by linking SourceDoc
+   rows to existing `Document` rows, existing files, or verified URLs.
+4. Decide a graph-quality tranche:
+   edge confidence coverage remains 0.6 percent, there are 230 duplicate
+   company-name groups, and 187 board-member graph rows without matching
+   person-profile graph nodes.
+5. Re-run the operator sequence and update this handoff/status file before
+   committing any next tranche.
 
 ## Stop Rules For Next Session
 

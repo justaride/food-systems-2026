@@ -1,8 +1,8 @@
 # Citable Knowledge Base Status
 
 Date: 2026-05-20
-Branch: `citable-knowledge-base-hardening-2026-05-20`
-Base commit: `72c5154 chore: harden data source quality`
+Branch: `main`
+Current commit: `a88f8f1 fix(citations): keep blocked internal markers non-external`
 
 ## Purpose
 
@@ -26,10 +26,49 @@ npm run research:citable-acceptance-pack
 npm run build
 ```
 
-Current note: `npm run db:audit:strict-sources` now passes after citation
-coverage remediation. The readiness queue still tracks 11 P2 residual report
-rows: one intentionally blocked report source and 10 internal/composite reports
-without a single URL. These are not strict external-citation blockers.
+Current note: PR #60 and PR #61 are merged to `main`. `npm run
+db:audit:strict-sources` now passes after citation coverage remediation and the
+post-merge internal-marker fix. The readiness queue still tracks 11 P2 residual
+report rows: one intentionally blocked report source and 10
+internal/composite/register reports without a single URL. These are not strict
+external-citation blockers.
+
+## Current Main Verification After PR #60 And PR #61
+
+This section supersedes the historical milestone counts below.
+
+| Command | Result | Notes |
+|---|---:|---|
+| `git status --short --branch` | clean | `## main...origin/main`. |
+| `npm run db:refresh:source-citation-readiness` | passed | 2,698 `SourceCitation` rows scanned, 0 rows to update. |
+| `npm run audit:citable` | passed | `db:audit`, strict `audit:citations`, citable report audit, and queue export all completed with exit 0. |
+| `npm run research:citable-acceptance-pack` | passed | Regenerated acceptance artifacts; 7 of 12 answers are cite-ready and 5 are fail-closed blocked. |
+| `git diff --check` | passed | No whitespace errors reported. |
+
+Current strict citation coverage:
+
+- `SourceCitation=2698`
+- `citable_external=153`
+- `citable_with_note=2433`
+- `internal_context=112`
+- `blocked_unsourced=0`
+- `FieldCitation=244517`
+- external blocking citation issues `0`
+
+Post-merge DB note: syncing `main` and applying the source-citation backfill
+added 83 `SourceCitation` rows and 213 `FieldCitation` rows from existing
+locators only. A follow-up strict audit found 36 internal
+`source:blocked-unsourced/...` marker citations that had been backfilled as
+primary/blocked rows. PR #61 fixed the backfill rule and refresh repair path;
+the local repair moved those 36 rows to `internal_context`.
+
+Current residual work queue:
+
+- Citation readiness queue: P0 0, P1 0, P2 11, P3 0.
+- Remediation backlog: 535 findings total: 10 HIGH URL-health findings, 65
+  MEDIUM findings, and 460 LOW findings.
+- Graph quality: technical graph audit passes, but edge-confidence coverage is
+  still 0.6 percent.
 
 ## Baseline Commands
 
@@ -66,7 +105,7 @@ from the original checkout without changing tracked source files.
 |---|---:|---|
 | `npm run db:backfill:source-citations` | passed | Dry-run wrote `research/citation-backfill-preview-2026-05-20.csv` and left counts unchanged at `SourceCitation=71`, `FieldCitation=1286`. |
 | `npm run db:backfill:source-citations:apply` | passed | Created 2,544 `SourceCitation` rows and 243,018 `FieldCitation` rows from existing locators only. |
-| second `npm run db:backfill:source-citations:apply` | passed | Idempotence check: 0 source citations and 0 field citations to create. Counts stayed at `SourceCitation=2615`, `FieldCitation=244304`. |
+| second `npm run db:backfill:source-citations:apply` | passed | Historical checkpoint idempotence check: 0 source citations and 0 field citations to create. Counts stayed at `SourceCitation=2615`, `FieldCitation=244304` before the later post-merge backfill added more rows. |
 | `npm test -- tests/lib/citation-audit.test.ts tests/lib/source-quality-audit.test.ts` | passed | Full test runner reported 131 tests passing. |
 | `npm run db:audit` | passed with warnings | New `Citation Coverage` section is present; standard mode remains non-failing. |
 | `npm run db:audit:strict-sources` | failed as expected | Now fails on 5 enforced groups: the 3 source-label groups plus citation coverage blockers. |
@@ -348,8 +387,9 @@ inventing new source URLs:
 - Second apply downgraded 27 URL-backed-but-missing-local-path stale rows from
   `citable_with_note -> internal_context`, because their only usable evidence
   was not the missing local file path.
-- The refresh is now idempotent: `npm run db:refresh:source-citation-readiness`
-  scans 2,615 rows and reports 0 updates.
+- The refresh is now idempotent on current `main`: `npm run
+  db:refresh:source-citation-readiness` scans 2,698 rows and reports 0
+  updates.
 - `scripts/backfill-field-citation-claim-text.ts` filled the 10 missing
   `Company.naceDescription` claim texts from existing `Company` values; the
   second dry-run reports 0 rows to update.
@@ -365,8 +405,8 @@ Fresh continuation verification:
 | `npm test` | passed | Full test runner reported 167 tests passing. |
 | `npm run lint` | passed | ESLint completed without reported issues. |
 | `npm run db:backfill:field-citation-claim-text` | passed | Idempotence check after apply: 0 rows scanned and 0 rows to update. |
-| `npm run db:refresh:source-citation-readiness` | passed | Idempotence check: 2,615 rows scanned, 0 rows to update. |
-| `npm run db:audit:strict-sources` | passed | Citation Coverage: `SourceCitation=2615`, `citable_external=153`, `citable_with_note=2421`, `internal_context=41`, `blocked_unsourced=0`, `FieldCitation=244304`, external blocking issues `0`. |
+| `npm run db:refresh:source-citation-readiness` | passed | Current-main idempotence check: 2,698 rows scanned, 0 rows to update. |
+| `npm run db:audit:strict-sources` | passed | Current-main Citation Coverage: `SourceCitation=2698`, `citable_external=153`, `citable_with_note=2433`, `internal_context=112`, `blocked_unsourced=0`, `FieldCitation=244517`, external blocking issues `0`. |
 | `npm run research:citation-readiness-queue` | passed | Wrote 11 rows: P0 0, P1 0, P2 11, P3 0. The `agrianalyse-bondens-andel-2025` `blocked_source` report is explicitly excluded from external evidence use and stays in P2. |
 | `npm run audit:citable` | passed | `db:audit`, strict `audit:citations`, citable report audit, and queue export all completed with exit 0. |
 | `npm run research:citable-acceptance-pack` | passed | Regenerated acceptance artifacts; 7 of 12 answers are cite-ready and 5 are blocked. |
@@ -427,7 +467,7 @@ external use.
 | `BusinessRelationship.source` | Closed in Task 8: 50 of 50 have direct, resolved, or internal blocked source locators. Unverified relationship labels are explicitly mapped to `source:blocked-unsourced/business-relationship-unverified-label`; the existing KKV 4a source label maps to the existing repo/database locator. |
 | `CountryMetric.source` | Closed in Task 8: 415 of 415 have direct, resolved, or internal blocked source locators. Known Luke, Eurostat, Miljostyrelsen, Samkeppniseftirlitid, and Konkurransetilsynet labels use existing repo/database locators; unresolved estimates and generic labels are blocked. |
 | `Strict source-gap queue` | `research/_status/strict-source-gap-queue.json` now reports 0 groups and 0 rows. |
-| `Citation Coverage` | Closed in the continuation pass: strict audit now reports 2,615 `SourceCitation` rows, 0 `blocked_unsourced` source citations, 244,304 `FieldCitation` rows, and 0 external blocking citation issues. |
+| `Citation Coverage` | Closed in the continuation and post-merge repair pass: strict audit now reports 2,698 `SourceCitation` rows, 0 `blocked_unsourced` source citations, 244,517 `FieldCitation` rows, and 0 external blocking citation issues. |
 
 The strict audit also confirmed:
 
@@ -499,6 +539,9 @@ internal context:
   P0 rows, 0 P1 rows, 11 P2 rows, and 0 P3 rows; the residual P2 set is one
   explicitly `blocked_source` report plus 10 internal/composite reports without
   a single source URL.
+- Post-merge PR #61 fixed the remaining internal-marker edge case: future
+  backfills keep `source:blocked-unsourced/...` markers as internal context, and
+  the refresh script can repair already-backfilled rows.
 - Any further backfill must use only existing locators and metadata. It must not
   invent or infer source URLs that are not already present in repo or database
   metadata.
