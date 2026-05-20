@@ -82,10 +82,7 @@ export async function getCompanies(opts?: {
   } catch (error) {
     const isMissing =
       isMissingPrismaTable(error, 'CompanyProperty') ||
-      isMissingPrismaTable(error, 'BusinessRelationship') ||
-      isMissingPrismaTable(error, 'CompanyOwnership') ||
-      isMissingPrismaTable(error, 'AquacultureSite') ||
-      isMissingPrismaTable(error, 'Actor')
+      isMissingPrismaTable(error, 'BusinessRelationship')
 
     if (!isMissing && !isPrismaDataUnavailable(error)) throw error
 
