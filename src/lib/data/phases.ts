@@ -16,7 +16,7 @@ export const phases: Phase[] = [
   {
     id: 'fase-2',
     name: 'Evidence og claims',
-    weeks: 'Phase 1-3',
+    weeks: 'Uke 1-3',
     items: [
       'Source Shortlist v0.1',
       'Evidence Matrix v0.1',
@@ -28,7 +28,7 @@ export const phases: Phase[] = [
   {
     id: 'fase-3',
     name: 'Scope og pilotvalg',
-    weeks: 'Phase 4-5',
+    weeks: 'Uke 4-5',
     items: [
       'Sporbrief A/B/C',
       'Pilotclaims for A og B',
