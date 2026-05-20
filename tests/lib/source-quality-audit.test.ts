@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import { describe, it } from 'node:test'
 import {
   classifySourceLocator,
@@ -12,6 +13,10 @@ describe('source quality audit helpers', () => {
     assert.equal(classifySourceLocator('https://data.brreg.no/enhetsregisteret'), 'direct_locator')
     assert.equal(classifySourceLocator('doi:10.1002/gch2.202300265'), 'direct_locator')
     assert.equal(classifySourceLocator('10.6027/nord2024-007'), 'direct_locator')
+    assert.equal(
+      classifySourceLocator('source:blocked-unsourced/company-financial-estimate'),
+      'direct_locator',
+    )
     assert.equal(classifySourceLocator('Landbruksdirektoratet'), 'label_only')
   })
 
@@ -51,5 +56,28 @@ describe('source quality audit helpers', () => {
     assert.equal(summary.resolvedLocator, 1)
     assert.equal(summary.labelOnly, 1)
     assert.deepEqual(summary.examples.labelOnly, ['manual-1: Årsrapport 2024'])
+  })
+
+  it('passes country metric row context into the strict source audit resolver', () => {
+    const source = readFileSync('scripts/verify-data-integrity.ts', 'utf8')
+    const countryMetricSelectIndex = source.indexOf('prisma.countryMetric.findMany')
+    const countryMetricSelectBlock =
+      countryMetricSelectIndex >= 0 ? source.slice(countryMetricSelectIndex, countryMetricSelectIndex + 320) : ''
+
+    assert.ok(countryMetricSelectBlock)
+    for (const field of ['id', 'country', 'metricType', 'category', 'year', 'source', 'metadata']) {
+      assert.match(countryMetricSelectBlock, new RegExp(`${field}:\\s*true`))
+    }
+  })
+
+  it('wires citation readiness coverage into the strict source audit', () => {
+    const source = readFileSync('scripts/verify-data-integrity.ts', 'utf8')
+
+    assert.match(source, /auditCitationCoverage/)
+    assert.match(source, /formatCitationAuditSummary/)
+    assert.match(source, /prisma\.sourceCitation\.findMany/)
+    assert.match(source, /prisma\.fieldCitation\.findMany/)
+    assert.match(source, /blocked_unsourced/)
+    assert.match(source, /externally relevant FieldCitation rows point to blocked_unsourced citations/)
   })
 })

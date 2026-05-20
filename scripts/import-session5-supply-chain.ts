@@ -119,7 +119,7 @@ const newCompanies: NewCompany[] = [
     ownershipType: 'cooperative',
     valueChainStage: 'inputs',
     shareholders: [
-      { name: '1 200 frukt- og grøntprodusenter', ownershipPct: 100, shareholderType: 'cooperative', isControlling: true },
+      { name: 'Over 1000 norske grøntprodusenter', ownershipPct: 100, shareholderType: 'cooperative', isControlling: true },
     ],
     boardMembers: [
       { personName: 'Hans Edvard Torp', role: 'styreleder' },
@@ -161,7 +161,7 @@ const newCompanies: NewCompany[] = [
     ownershipType: 'foreign',
     valueChainStage: 'processing',
     shareholders: [
-      { name: 'Lantmännen Cerealia AB (Sverige)', ownershipPct: 100, shareholderType: 'foreign', isControlling: true },
+      { name: 'Lantmännen ek för', ownershipPct: 100, shareholderType: 'cooperative', isControlling: true },
     ],
     boardMembers: [
       { personName: 'Per Olof Nyman', role: 'styreleder' },
@@ -327,8 +327,8 @@ const properties: PropertyData[] = [
   // ═══ Nordic company headquarters ═══
 
   // Sweden
-  { companyOrgNr: 'SE-556048-2837', propertyType: 'office', address: 'Svetsarvägen 16', municipality: 'Solna', county: 'Stockholm', country: 'SE', lat: 59.367, lng: 18.004, source: 'icagruppen.se (Huvudkontor)' },
-  { companyOrgNr: 'SE-556542-5353', propertyType: 'office', address: 'Tegnérgatan 34', municipality: 'Stockholm', county: 'Stockholm', country: 'SE', lat: 59.339, lng: 18.054, source: 'axfood.se (Huvudkontor)' },
+  { companyOrgNr: 'SE-556048-2837', propertyType: 'office', address: 'Kolonnvägen 20', municipality: 'Solna', county: 'Stockholm', country: 'SE', source: 'icagruppen.se (Huvudkontor)' },
+  { companyOrgNr: 'SE-556542-5353', propertyType: 'office', address: 'Solnavägen 4', municipality: 'Stockholm', county: 'Stockholm', country: 'SE', source: 'axfood.se (Huvudkontor)' },
   { companyOrgNr: 'SE-702001-3469', propertyType: 'office', municipality: 'Solna', county: 'Stockholm', country: 'SE', lat: 59.369, lng: 18.010, source: 'coop.se (Huvudkontor)' },
   { companyOrgNr: 'SE-969697-6594', propertyType: 'office', municipality: 'Solna', county: 'Stockholm', country: 'SE', lat: 59.364, lng: 18.005, source: 'lidl.se (Svenskt huvudkontor)' },
 
@@ -340,12 +340,12 @@ const properties: PropertyData[] = [
 
   // Finland
   { companyOrgNr: 'FI-0116323-9', propertyType: 'office', address: 'Fleminginkatu 34', municipality: 'Helsinki', county: 'Uusimaa', country: 'FI', lat: 60.187, lng: 24.953, source: 's-ryhma.fi (Pääkonttori)' },
-  { companyOrgNr: 'FI-0110456-8', propertyType: 'office', address: 'Satamakatu 3', municipality: 'Helsinki', county: 'Uusimaa', country: 'FI', lat: 60.165, lng: 24.955, source: 'kesko.fi (Pääkonttori)' },
+  { companyOrgNr: 'FI-0110456-8', propertyType: 'office', address: 'Työpajankatu 12', municipality: 'Helsinki', county: 'Uusimaa', country: 'FI', source: 'kesko.fi (Pääkonttori)' },
   { companyOrgNr: 'FI-1615492-7', propertyType: 'office', municipality: 'Janakkala', county: 'Kanta-Häme', country: 'FI', lat: 60.886, lng: 24.616, source: 'lidl.fi (Pääkonttori)' },
 
   // Iceland
   { companyOrgNr: 'IS-670203-2120', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', country: 'IS', lat: 64.135, lng: -21.895, source: 'hagar.is (Höfuðstöðvar)' },
-  { companyOrgNr: 'IS-571298-3769', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', country: 'IS', lat: 64.128, lng: -21.878, source: 'samkaup.is (Höfuðstöðvar)' },
+  { companyOrgNr: 'IS-571298-3769', propertyType: 'office', address: 'Krossmóa 4', municipality: 'Reykjanesbær', county: 'Suðurnes', country: 'IS', source: 'samkaup.is (Höfuðstöðvar)' },
   { companyOrgNr: 'IS-540206-2010', propertyType: 'office', municipality: 'Reykjavik', county: 'Höfuðborgarsvæðið', country: 'IS', lat: 64.140, lng: -21.910, source: 'festi.is (Höfuðstöðvar)' },
 
   // ═══ Additional Norwegian logistics/production ═══
@@ -365,16 +365,21 @@ const properties: PropertyData[] = [
   { companyOrgNr: '988044113', propertyType: 'production', municipality: 'Stokmarknes', county: 'Nordland', lat: 68.56, lng: 14.92, source: 'skretting.com (Stokmarknes fôrfabrikk)' },
 
   // Reitan Retail headquarters
-  { companyOrgNr: '914526647', propertyType: 'office', address: 'Fjordgata 68', municipality: 'Trondheim', county: 'Trøndelag', lat: 63.435, lng: 10.398, source: 'rfrg.no (Hovedkontor)' },
+  { companyOrgNr: '914526647', propertyType: 'office', address: 'Gladengveien 2', municipality: 'Oslo', county: 'Oslo', source: 'reitanretail.no (Hovedkontor)' },
 ]
 
 // ─── Ownership Records ──────────────────────────────────────────────
 
 const ownershipRecords: OwnershipRecord[] = [
   { parentOrgNr: '819731322', childOrgNr: '914224314', ownershipPct: 46, ownershipType: 'minority-stake', source: 'Brønnøysund/Årsrapport' },
-  { parentOrgNr: '914526647', childOrgNr: '894759372', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Brønnøysund' },
-  { parentOrgNr: '914526647', childOrgNr: '980411133', ownershipPct: 100, ownershipType: 'subsidiary', source: 'proff.no (via REMA 1000 Norge AS)' },
+  { parentOrgNr: '982254604', childOrgNr: '894759372', ownershipPct: 100, ownershipType: 'subsidiary', source: 'https://www.rema.no/wordpress/wp-content/uploads/2024/06/REMA-Distribusjon-AS-Redegjorelse-apenhetsloven-for-2023-28.08.2024.pdf' },
+  { parentOrgNr: '982254604', childOrgNr: '980411133', ownershipPct: 100, ownershipType: 'subsidiary', source: 'https://www.rema.no/egne-merkevarer/norsk-kylling/' },
   { parentOrgNr: '929975200', childOrgNr: '975350940', ownershipPct: 52.7, ownershipType: 'subsidiary', source: 'Austevoll Seafood årsrapport 2024' },
+]
+
+const staleOwnershipRecords: Array<Pick<OwnershipRecord, 'parentOrgNr' | 'childOrgNr'>> = [
+  { parentOrgNr: '914526647', childOrgNr: '894759372' },
+  { parentOrgNr: '914526647', childOrgNr: '980411133' },
 ]
 
 // ─── Business Relationships ─────────────────────────────────────────
@@ -568,6 +573,21 @@ async function importOwnership() {
   console.log('\nImporting Session 5 ownership records...\n')
   let imported = 0
   let skipped = 0
+
+  for (const rec of staleOwnershipRecords) {
+    const parentId = await resolveCompanyId(rec.parentOrgNr)
+    const childId = await resolveCompanyId(rec.childOrgNr)
+
+    if (!parentId || !childId) continue
+
+    const deleted = await prisma.companyOwnership.deleteMany({
+      where: { parentCompanyId: parentId, childCompanyId: childId },
+    })
+
+    if (deleted.count > 0) {
+      console.log(`  REMOVED stale ownership: ${rec.parentOrgNr} → ${rec.childOrgNr}`)
+    }
+  }
 
   for (const rec of ownershipRecords) {
     const parentId = await resolveCompanyId(rec.parentOrgNr)

@@ -1,4 +1,5 @@
 import type { VisualizationSourceRef } from '@/lib/visualization/types'
+import { Citation } from '@/components/citations/Citation'
 
 type SourceFootnoteProps = {
   sourceRefs: VisualizationSourceRef[]
@@ -9,21 +10,27 @@ export function SourceFootnote({ sourceRefs, className = '' }: SourceFootnotePro
   if (sourceRefs.length === 0) return null
 
   return (
-    <p className={`text-[10px] text-stone-400 leading-relaxed ${className}`}>
+    <div className={`text-[10px] text-stone-400 leading-relaxed ${className}`}>
       Kilder:{' '}
+      <span className="inline-flex flex-wrap gap-x-2 gap-y-1 align-baseline">
       {sourceRefs.map((source, index) => {
-        const suffix = index < sourceRefs.length - 1 ? '; ' : ''
         const label = source.path ? `${source.label} (${source.path})` : source.label
-        if (!source.href) return `${label}${suffix}`
+        const readiness = source.citationReadiness ?? (source.href || source.path ? 'citable_with_note' : 'blocked_unsourced')
         return (
-          <span key={`${source.label}-${index}`}>
-            <a href={source.href} className="hover:text-emerald-700">
-              {label}
-            </a>
-            {suffix}
-          </span>
+          <Citation
+            key={`${source.label}-${index}`}
+            compact
+            citation={{
+              label,
+              url: source.href,
+              localPath: source.path,
+              citationReadiness: readiness,
+              note: source.note ?? (readiness === 'citable_with_note' ? 'metode-/dekningsforbehold' : undefined),
+            }}
+          />
         )
       })}
-    </p>
+      </span>
+    </div>
   )
 }

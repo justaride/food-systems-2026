@@ -1,7 +1,7 @@
 # PDF-/tekstuttrekkskvalitet — research/
 
 > Auto-generert av `scripts/check-pdf-quality.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T15:56:21.660Z
+> Generert: 2026-05-20T00:50:06.950Z
 > Catalog: **399** PDFs (kilde: `research/pdf-katalog.json`)
 > Analysert: **398** | Skippet (>50 MB): **1** | Manglende fil: **0**
 > pdftotext: **tilgjengelig (Poppler)**

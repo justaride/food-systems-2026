@@ -1,7 +1,7 @@
 # OCR Output — drager-vagene-2017.pdf
 
 > Source PDF: `evidence-pack/akademia/drager-vagene-2017.pdf`
-> Generated: 2026-04-27T12:53:02.951Z
+> Generated: 2026-05-20T01:01:55.990Z
 > Tool: pdftoppm (300 dpi PNG) + tesseract -l eng+nor
 > Pages: 112 | OCR words: 30522
 

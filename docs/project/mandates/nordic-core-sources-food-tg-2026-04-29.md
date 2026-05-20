@@ -18,13 +18,36 @@ Denne listen er en styringsliste, ikke en full bibliografi. Den skiller mellom k
 
 ## Statuskoder
 
-| Status | Betydning |
-|---|---|
-| `db-linked` | Koblet til `Document` via `SourceDoc` eller `Report.documentId` i Postgres. |
-| `repo/static` | Finnes i repoet eller statisk app-data, men ikke fullstendig normalisert i DB. |
-| `internal-synthesis` | Egen analyse i repoet; brukes som struktur, ikke som primærkilde. |
-| `needs-primary-check` | Kan være relevant i brief, men krever kontroll mot primærkilde, sidetall eller gjeldende URL. |
-| `not-citable-input` | Brukes som kildejakt/hypotesegrunnlag, ikke som evidens. |
+Statusfeltet under er en eldre arbeidskode. Fra 2026-05-20 skal all ekstern bruk
+i tillegg vurderes mot `citationReadiness`: `citable_external`,
+`citable_with_note`, `internal_context` eller `blocked_unsourced`.
+
+| Status | Canonical readiness | Betydning |
+|---|---|---|
+| `db-linked` | `citable_external` når URL/lokal fil, tilgangs-/verifikasjonsdato og claim-kobling er på plass; ellers `citable_with_note` | Koblet til `Document` via `SourceDoc` eller `Report.documentId` i Postgres. |
+| `db-linked-countrymetrics` | `citable_with_note` inntil metric-feltet har eksplisitt kildekobling; `citable_external` når feltkoblingen er verifisert | Koblet til DB-data og kildefil, men må ha felt-/metodenote før tall brukes eksternt. |
+| `repo/static` | `citable_with_note` når lokal fil/metode er tydelig; ellers `internal_context` | Finnes i repoet eller statisk app-data, men ikke fullstendig normalisert i DB. |
+| `internal-synthesis` | `internal_context` | Egen analyse i repoet; brukes som struktur, ikke som primærkilde. |
+| `needs-primary-check` | `blocked_unsourced` frem til primærkilde, sidetall eller gjeldende URL er kontrollert | Kan være relevant i brief, men krever kontroll mot primærkilde, sidetall eller gjeldende URL. |
+| `not-citable-input` | `blocked_unsourced` | Brukes som kildejakt/hypotesegrunnlag, ikke som evidens. |
+
+## External-use normalization
+
+Fra 2026-05-20 er statuskodene bare routingkoder. Ekstern brieftekst må bruke
+canonical `citationReadiness` og følge disse reglene:
+
+- `db-linked` og `db-linked-countrymetrics` kan brukes eksternt bare når den
+  konkrete claimen peker til eksisterende `Report`, `SourceDoc`, `Document`,
+  feltkobling eller lokal kildefil. Hvis felt-/sidetallsnivå mangler, brukes
+  `citable_with_note`.
+- `repo/static` er `citable_with_note` når lokal fil, metode og caveat vises;
+  ellers `internal_context`.
+- `internal-synthesis` er `internal_context`; bruk det som disposisjon, ikke som
+  ekstern evidens.
+- `needs-primary-check` og `not-citable-input` er `blocked_unsourced` frem til
+  ny primær-/sekundærkilde er kontrollert.
+- NORDIC-CORE-017 remains `blocked_unsourced` for evidentiary use unless a later
+  primary verification creates a separate accepted source row.
 
 ## Kjernepakke
 

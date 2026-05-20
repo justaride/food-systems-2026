@@ -403,6 +403,8 @@ export function ForsyningskjedeContent({
             status: 'observed',
             detail: 'Norge-observert lag fra Landbruksdirektoratet. Skal ikke generaliseres til SE/DK/FI/IS.',
             description: `rader fra ${formatCount(deliveries.totalSuppliers)} produsent-orgnr`,
+            citationReadiness: 'citable_with_note',
+            citationNote: 'Primarkilde med geografisk dekningsforbehold.',
           },
           {
             label: 'Relasjoner',
@@ -410,6 +412,8 @@ export function ForsyningskjedeContent({
             status: 'proxy',
             detail: 'Kuraterte og kildebelagte relasjoner, ikke en komplett måling av vareflyt.',
             description: `relasjoner mellom ${formatCount(data.stats.companiesInvolved)} selskaper`,
+            citationReadiness: 'citable_with_note',
+            citationNote: 'Kuraterte relasjoner; bruk med metodeforbehold.',
           },
           {
             label: 'Kandidater',
@@ -417,6 +421,8 @@ export function ForsyningskjedeContent({
             status: 'illustrative',
             detail: 'Import, infrastruktur og returstrømmer holdes adskilt til metode og dekning er ferdig merket.',
             description: 'datasett vurderes for neste seksjoner',
+            citationReadiness: 'internal_context',
+            citationNote: 'Intern kandidatko, ikke ekstern sitatkilde.',
           },
         ]}
       />

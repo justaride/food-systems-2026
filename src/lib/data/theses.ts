@@ -30,7 +30,7 @@ export const theses: Thesis[] = [
     institution: 'NHH',
     year: 2022,
     title: 'Norway — the Black Sheep in the Scandinavian Grocery Industry',
-    url: 'https://openaccess.nhh.no/nhh-xmlui/handle/11250/3051794',
+    url: 'https://hdl.handle.net/11250/3051794',
     doi: 'hdl:11250/3051794',
     synthesis: 'Avkrefter myter om unormalt hoye marginer i norsk dagligvare. Norske kjeder har hoyest arbeidsproduktivitetsvekst i Norden, drevet av hoye lonnskostnader. Sentral for a nyansere debatten om lonnomhet vs. konkurranse.',
     keyFindings: [
@@ -57,7 +57,7 @@ export const theses: Thesis[] = [
     year: 2024,
     title: 'Restrictive covenants in the Norwegian grocery market: an empirical study',
     titleNo: 'Restriktive servitutter i det norske dagligvaremarkedet',
-    url: 'https://openaccess.nhh.no/nhh-xmlui/handle/11250/3158950',
+    url: 'https://hdl.handle.net/11250/3158950',
     doi: 'hdl:11250/3158950',
     synthesis: 'Gir empirisk grunnlag for at negative servitutter pa eiendom fungerer som effektive etableringshindringer. Over 500 eiendommer identifisert. Direkte relevant for lovforbudet i 2024.',
     keyFindings: [
@@ -128,7 +128,7 @@ export const theses: Thesis[] = [
     institution: 'NHH',
     year: 2006,
     title: 'Det norske dagligvaremarkedet: relasjoner mellom detaljist og produsent',
-    url: 'https://openaccess.nhh.no/nhh-xmlui/handle/11250/167473',
+    url: 'https://hdl.handle.net/11250/167473',
     synthesis: 'Tidlig dokumentasjon av maktskiftet fra produsent til detaljist. Analyserer NorgesGruppens og Coops strategier mot leverandorer. Historisk viktig for a forsta utviklingen over tid.',
     keyFindings: [
       'Dokumenterer maktskiftet fra produsent- til detaljistniva',
@@ -221,7 +221,7 @@ export const theses: Thesis[] = [
     institution: 'NHH',
     year: 2012,
     title: 'Horisontal konkurranse i dagligvaremarkedet: Bruken av egne merkevarer',
-    url: 'https://openaccess.nhh.no/nhh-xmlui/handle/11250/166778',
+    url: 'https://hdl.handle.net/11250/166778',
     synthesis: 'EMV brukes primart til a differensiere butikkonsepter, ikke for a konkurrere direkte mot merkeleverandorer. EMV-vekst reduserer sammenlignbarhet mellom kjeder og kan dempe priskonkurranse.',
     keyFindings: [
       'Hovedinsentivet for EMV er differensiering av butikkonsept',
@@ -268,7 +268,7 @@ export const theses: Thesis[] = [
     institution: 'UiB / BECCLE',
     year: 2019,
     title: 'Hemmelige kontrakter i dagligvaremarkedet',
-    url: 'https://beccle.no/files/2020/01/Susanne_Helen_Gangstoe_Masteroppgave.pdf',
+    url: 'https://beccle.no/files/2020/01/Susanne_Helen_Gangst%C3%B8e_Masteroppgave.pdf',
     synthesis: 'Analyserer hvordan kontraktsform (apen vs. hemmelig) pavirker priser. Hemmelige kontrakter gir kjedene forhandlingsfordeler fordi konkurrenter ikke kan bruke prisene som referanse.',
     keyFindings: [
       'Hemmelige grossistpriser gir kjeder forhandlingsfordeler mot leverandorer',
@@ -893,7 +893,7 @@ export const theses: Thesis[] = [
     institution: 'UiO',
     year: 2022,
     title: 'Mot baerekraftige kostholdsendringer',
-    url: 'https://uia.brage.unit.no/uia-xmlui/handle/11250/3008873',
+    url: 'https://hdl.handle.net/11250/3008873',
     synthesis: 'Kvalitativ studie av norske studenters holdninger til kjottreduksjon. Identifiserer manglende motivasjon, pris, bekvemmelighet og informasjonsoverbelastning som hovedbarrierer.',
     keyFindings: [
       'Hoyt kjottkonsum koblet til maskulinitetsnormer',
@@ -916,7 +916,7 @@ export const theses: Thesis[] = [
     institution: 'Nord Universitet',
     year: 2017,
     title: 'Mot et baerekraftig norsk matsystem: Effekt pa selvforsyningsgrad og norsk jordbruk ved redusert konsum av kjott',
-    url: 'https://nordopen.nord.no/nord-xmlui/handle/11250/2491452',
+    url: 'https://hdl.handle.net/11250/2491452',
     synthesis: 'Modellerer effekten av redusert kjottkonsum pa selvforsyningsgraden. Finner at selvforsyning kan oke fra 50% til 80% ved kjottreduksjon, fordi 90% av dyrkbar mark gar til husdyrfor.',
     keyFindings: [
       'Norsk selvforsyning kan oke fra 50% til 80% ved redusert kjottkonsum',
@@ -940,7 +940,7 @@ export const theses: Thesis[] = [
     institution: 'NMBU',
     year: 2018,
     title: 'Alternative Food Networks — the Case of CSA in Norway',
-    url: 'https://nmbu.brage.unit.no/nmbu-xmlui/handle/11250/2569075',
+    url: 'https://hdl.handle.net/11250/2569075',
     synthesis: 'Undersaker andelslandbruk (CSA) som alternativ til dominerende matsystem. Finner at CSA har potensial til a motvirke negative konsekvenser av industrielt landbruk gjennom kortere verdikjeder.',
     keyFindings: [
       'Andelslandbruk (CSA) fungerer som alternativ verdikjede utenfor paraplykjedene',
@@ -963,7 +963,7 @@ export const theses: Thesis[] = [
     institution: 'NMBU',
     year: 2021,
     title: 'Digitaliseringsstrategier for alternative matsystemer, med utgangspunkt i REKO-ringen',
-    url: 'https://nmbu.brage.unit.no/nmbu-xmlui/handle/11250/2788657',
+    url: 'https://hdl.handle.net/11250/2788657',
     synthesis: 'Undersaker hvordan REKO-ringen (direkte produsent-til-forbruker via Facebook) kan utvikles digitalt. Kort verdikjede via digitale plattformer oker interesse for lokalmat.',
     keyFindings: [
       'REKO-ringen bruker Facebook for direkte salg fra produsent til forbruker',
@@ -1010,7 +1010,7 @@ export const theses: Thesis[] = [
     institution: 'OsloMet',
     year: 2023,
     title: 'Nudging som atferdsoekonomisk virkemiddel for forbrukeratferd i dagligvare',
-    url: 'https://oda.oslomet.no/oda-xmlui/handle/11250/3101983',
+    url: 'https://hdl.handle.net/11250/3101983',
     synthesis: 'Systematisk litteraturgjennomgang av nudging i dagligvare. Nudging har positive men variable effekter, saerlig for baerekraftige og helsefremmende valg.',
     keyFindings: [
       'Nudging har positive men variable effekter pa forbrukeratferd i dagligvare',
@@ -1033,7 +1033,7 @@ export const theses: Thesis[] = [
     institution: 'UiA',
     year: 2014,
     title: 'Matpolitikk i Norge — fremdeles norsk? Norsk forvaltnings arbeid med politikkutvikling innenfor EOS',
-    url: 'https://uia.brage.unit.no/uia-xmlui/handle/11250/276369',
+    url: 'https://hdl.handle.net/11250/276369',
     synthesis: 'Undersaker i hvilken grad norsk forvaltning beholder selvstendighet i matpolitikk innenfor EOS-rammeverket. Analyserer spenningen mellom EU/EOS-regulering og nasjonal matpolitikk.',
     keyFindings: [
       'EOS-rammeverket legger betydelige foeringer pa norsk matpolitikk',
@@ -1575,7 +1575,7 @@ export const theses: Thesis[] = [
     institution: 'JYU',
     year: 2024,
     title: 'Promoting the Planetary Health Diet in Grocery Retail: Comparison of Retail Chains in Finland',
-    url: 'https://jyx.jyu.fi/bitstreams/c9740803-06d7-4578-a30e-ff576b6eb7bb/download',
+    url: 'https://urn.fi/URN:NBN:fi:jyu-202404243036',
     synthesis: 'Sammenligner hvordan Lidl, S-Group og K-Group bruker nudging for a fremme baerekraftige kostholdsvalg i finsk dagligvare.',
     keyFindings: [
       'Finske dagligvarekjeder bruker ulike strategier for a fremme planetary health diet',
@@ -1597,7 +1597,7 @@ export const theses: Thesis[] = [
     institution: 'University of Tennessee',
     year: 2025,
     title: 'The Impact of Food Loss and Waste Reduction Practices on Consumer Grocery Store Choice',
-    url: 'https://trace.tennessee.edu/cgi/viewcontent.cgi?article=14738&context=utk_gradthes',
+    url: 'https://trace.tennessee.edu/utk_gradthes/13882',
     synthesis: 'Undersoker om forbrukere velger butikk basert pa matsvinnreduksjon. Komparativt perspektiv fra USA med relevans for nordisk matsvinnpolitikk.',
     keyFindings: [
       'Matsvinnreduksjon pavirker butikkvalg hos en andel forbrukere',
@@ -1642,7 +1642,7 @@ export const theses: Thesis[] = [
     institution: 'Lund University',
     year: 2026,
     title: 'Impact of food retail market power on small food producers in Sweden: Challenges and opportunities',
-    url: 'https://www.sciencedirect.com/science/article/pii/S305083552600001X',
+    url: 'https://pub.epsilon.slu.se/39994/1/lundberg-e-et-al-20260430.pdf',
     synthesis: 'Undersøker hvordan EMV-vekst og asymmetriske maktforhold presser små svenske produsenter ut. Kvalitativ studie av tre case-selskaper i Sverige som utforsker rollen til felles forståelse og tillit for bærekraftig innkjøpspraksis.',
     keyFindings: [
       'Økende markedskonsentrasjon i dagligvarehandelen forsterker maktasymmetrier i verdikjeden',

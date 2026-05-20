@@ -117,6 +117,17 @@ function inferConfidence(
   return { sourceLabel: source }
 }
 
+function isBlockedExternalGraphSource(source: string | null | undefined) {
+  if (!source) return false
+  const normalized = source.toLowerCase()
+  return (
+    normalized.includes('blocked-unsourced') ||
+    normalized.includes('blocked_unsourced') ||
+    normalized.includes('legacy_unsourced') ||
+    normalized.includes('unverified-label')
+  )
+}
+
 export async function getDocumentGraph(id: string): Promise<GraphData> {
   const doc = await prisma.document.findUnique({
     where: { id },
@@ -289,6 +300,9 @@ export async function getFullGraph(): Promise<GraphData> {
   ])
 
   const companyIdSet = new Set(companies.map(c => c.id))
+  const publicOwnershipEdges = ownershipEdges.filter((edge) => !isBlockedExternalGraphSource(edge.source))
+  const publicBizRelEdges = bizRelEdges.filter((edge) => !isBlockedExternalGraphSource(edge.source))
+  const publicProperties = properties.filter((property) => !isBlockedExternalGraphSource(property.source))
 
   const nodes: GraphNode[] = [
     ...docs.map(d => ({
@@ -327,7 +341,7 @@ export async function getFullGraph(): Promise<GraphData> {
       tags: p.tags,
       href: `/personer/${encodeURIComponent(p.personKey)}`,
     })),
-    ...properties.map(p => ({
+    ...publicProperties.map(p => ({
       id: p.id,
       label: `${p.propertyType}${p.municipality ? ` (${p.municipality})` : ''}`,
       type: 'property' as const,
@@ -355,7 +369,7 @@ export async function getFullGraph(): Promise<GraphData> {
     ...theses
       .filter(t => t.documentId)
       .map(t => ({ source: t.documentId!, target: t.id, type: 'thesis-doc' })),
-    ...ownershipEdges.map((r) => {
+    ...publicOwnershipEdges.map((r) => {
       const { confidence, sourceLabel } = inferConfidence(r.metadata, r.source)
       return {
         source: r.parentCompanyId,
@@ -365,7 +379,7 @@ export async function getFullGraph(): Promise<GraphData> {
         ...(sourceLabel ? { sourceLabel } : {}),
       }
     }),
-    ...bizRelEdges.map((r) => {
+    ...publicBizRelEdges.map((r) => {
       const { confidence, sourceLabel } = inferConfidence(r.metadata, r.source)
       return {
         source: r.fromCompanyId,
@@ -377,7 +391,7 @@ export async function getFullGraph(): Promise<GraphData> {
       }
     }),
     ...personEdges,
-    ...properties.map((p) => {
+    ...publicProperties.map((p) => {
       const { confidence, sourceLabel } = inferConfidence(p.metadata, p.source)
       return {
         source: p.companyId,
@@ -387,7 +401,7 @@ export async function getFullGraph(): Promise<GraphData> {
         ...(sourceLabel ? { sourceLabel } : {}),
       }
     }),
-    ...properties
+    ...publicProperties
       .filter(p => p.tenantCompanyId)
       .map((p) => {
         const { confidence, sourceLabel } = inferConfidence(p.metadata, p.source)
@@ -423,7 +437,7 @@ export async function getFullGraph(): Promise<GraphData> {
     .map(([key, v]) => ({ key, label: `${v[0].name} (key ${key})`, ids: v.map(p => p.id) }))
 
   const bizRelGroups = groupBy(
-    bizRelEdges,
+    publicBizRelEdges,
     (r) => `${r.fromCompanyId}::${r.toCompanyId}::${r.relationshipType}`,
   )
   const businessRelationshipDuplicates: DuplicateGroup[] = [...bizRelGroups.entries()]

@@ -31,6 +31,40 @@ Merk: claim-register-food-tg.md er opprettet. `Støtter claim` inneholder både 
 - `Medium` — kan brukes som referanse, men må kontekstualiseres
 - `Lav` — kan vises internt, må valideres før ekstern bruk
 
+Fra 2026-05-20 er `Høy`/`Medium`/`Lav` bare eldre arbeidskoder. Ekstern bruk
+skal styres av canonical `citationReadiness`:
+
+| Eldre kode | Canonical readiness | Bruksregel |
+|---|---|---|
+| `Høy` | `citable_external` når direkte locator, tilgangs-/verifikasjonsdato og claim-kobling finnes; ellers `citable_with_note` | Kan brukes eksternt bare når kildepakken faktisk er sporbar. |
+| `Medium` | `citable_with_note` når kilde/metodeforbehold vises; ellers `internal_context` | Kan brukes som kontekst med tydelig forbehold, ikke som ubetinget dokumentasjon. |
+| `Lav` | `internal_context` eller `blocked_unsourced` | Skal ikke brukes som ekstern evidens før primær-/sekundærkilde er verifisert. |
+
+Nye eller reviderte rader bør beholde den gamle kolonnen for historisk lesbarhet,
+men må i tillegg kunne mappes til en av de fire readiness-verdiene før bruk i
+rapport, presentasjon, graf eller eksport.
+
+## External-use normalization
+
+Denne seksjonen er styrende fra 2026-05-20. Den gamle `Siterbarhet`-kolonnen er
+ikke nok alene. Internal synthesis is separated from source evidence: rader med
+`Kildetype = intern syntese` eller `uvalidert` kan brukes til struktur,
+spørsmål og gapstyring, men ikke som ekstern dokumentasjon før de peker til en
+akseptert kilde.
+
+| Evidence row type | Canonical readiness | External-use rule | Accepted source pointer |
+|---|---|---|---|
+| Primærkilde med SRC-ID, filsti/URL og claim-kobling | `citable_external` eller `citable_with_note` | Kan brukes eksternt når claimet viser kilde, år, definisjon og caveat. | `Kilde (SRC-ID + filsti)` i raden, senere DB `SourceCitation` når faktisk ID finnes. |
+| Sekundær/fagrapport med tydelig locator | `citable_with_note` | Kan brukes med metode- eller source-class caveat. | SRC-/SourceDoc-/Document-peker i raden. |
+| Intern syntese | `internal_context` | Kan strukturere analyse, men må aldri være eneste eksterne evidens. | Underliggende EV-/SRC-rader må velges før ekstern bruk. |
+| Uvalidert arbeidsnotat eller bruttoliste | `blocked_unsourced` til primærsjekk er gjort | Skal ikke brukes som ekstern evidens. | Ingen akseptert source pointer før ny primær-/sekundærkilde er koblet. |
+
+For eksterne claim i `claim-register-food-tg.md` skal `sourceCitationIds` peke
+til en EV-/SRC-/SourceDoc-rad i denne matrisen eller til en faktisk DB
+`SourceCitation`. Det er ikke tillatt å fylle inn fiktive DB-IDer. Hvis bare
+intern syntese finnes, skal claimet stå som `internal_only` eller `blocked` i
+claim-ledgeren.
+
 ## Evidens (Spor A — Sirkulært fôr og importavhengighet)
 
 | ID | Spor | Kilde (SRC-ID + filsti) | Kildetype | Hovedfunn | Støtter claim | Svekkelse/usikkerhet | Siterbarhet | Kvalitet | Neste handling |

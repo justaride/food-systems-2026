@@ -3,13 +3,13 @@ import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { canonicalPersonKey } from '../src/lib/person-key.ts'
 import {
+  BRREG_ROLES_SOURCE_LABEL,
   boardMemberPersonRoleKey,
   boardMemberNamesAreCompatible,
   groupBoardMembersByPersonRole,
 } from '../src/lib/brreg-board-member-provenance.ts'
 
 const BRREG_BASE_URL = 'https://data.brreg.no/enhetsregisteret/api'
-const BRREG_ROLES_SOURCE_LABEL = 'Brønnøysundregistrene roller i virksomheten'
 const DEFAULT_HEADERS = {
   Accept: 'application/json',
   'User-Agent': 'food-systems-2026-offentligdata-enrichment/0.1.0',

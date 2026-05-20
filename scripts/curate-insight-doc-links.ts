@@ -13,7 +13,7 @@ import { join } from 'node:path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 
-const REPO = '/Users/gabrielboen/Documents/Food Systems 2026'
+const REPO = process.cwd()
 const CSV_PATH = join(REPO, 'research/_status/insight-doc-link-candidates-2026-05-11.csv')
 
 // Excludelist: title-patterns som indikerer dokumentet er en

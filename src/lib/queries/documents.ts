@@ -1,5 +1,17 @@
 import { prisma } from '@/lib/db'
 
+const sourceCitationSelect = {
+  citationText: true,
+  title: true,
+  url: true,
+  localPath: true,
+  pageRef: true,
+  accessedAt: true,
+  verifiedAt: true,
+  citationReadiness: true,
+  notes: true,
+} as const
+
 export async function getDocuments(opts?: {
   category?: string
   country?: string
@@ -76,7 +88,18 @@ export async function getDocumentBySlug(slug: string) {
   return prisma.document.findUnique({
     where: { slug },
     include: {
-      sourceDoc: true,
+      sourceCitations: {
+        select: sourceCitationSelect,
+        orderBy: { createdAt: 'asc' },
+      },
+      sourceDoc: {
+        include: {
+          sourceCitations: {
+            select: sourceCitationSelect,
+            orderBy: { createdAt: 'asc' },
+          },
+        },
+      },
       thesis: true,
       report: true,
       refsFrom: { include: { to: { select: { id: true, title: true, slug: true } } } },
