@@ -1253,7 +1253,22 @@ BEGIN
       FOREIGN KEY ("supplierProducerId") REFERENCES "Producer"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
   END IF;
 END $$;
+
+-- Enforce the dual-FK invariant: exactly one of the two FK columns is set per row.
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'Subsidy_recipient_exactly_one') THEN
+    ALTER TABLE "Subsidy" ADD CONSTRAINT "Subsidy_recipient_exactly_one"
+      CHECK (("companyId" IS NULL) <> ("producerId" IS NULL));
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'DeliveryVolume_supplier_exactly_one') THEN
+    ALTER TABLE "DeliveryVolume" ADD CONSTRAINT "DeliveryVolume_supplier_exactly_one"
+      CHECK (("supplierId" IS NULL) <> ("supplierProducerId" IS NULL));
+  END IF;
+END $$;
 ```
+
+The two `CHECK` constraints enforce the exactly-one-of-two invariant for all future inserts (the idempotent data-move guard only fires once). Prisma's `migrate diff` does not manage bare `CHECK` constraints, so they do not register as drift in Task 11 Step 5. They are added *after* the data move so existing rows already comply. The `producer-migration.test.ts` should also assert `/Subsidy_recipient_exactly_one/` and `/DeliveryVolume_supplier_exactly_one/` are present.
 
 The existing `Subsidy_companyId_fkey` / `DeliveryVolume_supplierId_fkey` are **not dropped** — after the `UPDATE`s set producer references to `NULL`, the only non-NULL `companyId`/`supplierId` values point at curated companies that are NOT deleted, so those FKs stay valid. Task 11 Step 5 (`db:check-drift`) is the gate: if Prisma reports drift (e.g. an `onDelete` mismatch because `companyId`/`supplierId` became optional), add the corrective `DROP CONSTRAINT … / ADD CONSTRAINT …` DDL to this migration and re-apply until drift-clean.
 
