@@ -763,11 +763,9 @@ export function OkonomiContent({
                   </thead>
                   <tbody>
                     {subsidyAggregates.topRecipients.map(r => (
-                      <tr key={r.companyId} className="border-b border-stone-100">
+                      <tr key={r.producerId} className="border-b border-stone-100">
                         <td className="py-2 text-stone-700">
-                          <a href={`/selskap/${r.companyId}`} className="hover:underline">
-                            {r.companyName}
-                          </a>
+                          {r.producerName}
                         </td>
                         <td className="text-right py-2 text-stone-700 tabular-nums">{r.count}</td>
                         <td className="text-right py-2 text-stone-700 tabular-nums">

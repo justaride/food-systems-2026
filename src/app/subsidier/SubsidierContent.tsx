@@ -168,7 +168,7 @@ const KOMMUNE_METRICS: Array<{
     shortLabel: 'Per mottaker',
     valueLabel: 'NOK per mottaker',
     title: 'Produksjonstilskudd per mottaker per kommune (2025)',
-    footer: 'Total utbetaling delt på unike companyId-mottakere i kommunen.',
+    footer: 'Total utbetaling delt på unike produsentmottakere i kommunen.',
   },
   {
     key: 'nokPerInhabitant',
@@ -394,9 +394,9 @@ export function SubsidierContent({
                 />
               </div>
               <p className="mt-4 text-xs leading-5 text-stone-500">
-                Metode: hver mottaker er én{' '}
-                <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">companyId</code>
-                , og alle rader med{' '}
+                Metode: hver mottaker er én produsent (
+                <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">producerId</code>
+                ), og alle rader med{' '}
                 <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">
                   subsidyType=produksjonstilskudd
                 </code>{' '}
@@ -647,15 +647,13 @@ export function SubsidierContent({
           <Card title="Ordning x verdikjedeledd">
             <SchemeStageHeatmapView heatmap={schemeStageHeatmap} />
             <div className="mt-4 border-t border-stone-100 pt-3 text-xs leading-5 text-stone-400">
-              Metode: hver celle summerer produksjonstilskudd per ordning og
-              <code className="mx-1 rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">
-                Company.valueChainStage
-              </code>
-              etter at mottakere er gruppert per <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">companyId</code>.
+              Metode: hver celle summerer produksjonstilskudd per ordning og verdikjedeledd.
+              Produsenter tilhører primærleddet; mottakere er gruppert per{' '}
+              <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">producerId</code>.
               <code className="mx-1 rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">
                 Uklassifisert
               </code>
-              betyr manglende verdikjedeledd på selskapet, ikke egen næringskategori.
+              betyr manglende verdikjedeledd-klassifisering, ikke egen næringskategori.
             </div>
           </Card>
         </>
