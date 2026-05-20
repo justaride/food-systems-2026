@@ -1,10 +1,10 @@
 # OCR-LOG — scanned PDFs
 
 > Auto-generert av `scripts/ocr-scanned-pdfs.ts` — ikke rediger manuelt.
-> Generert: 2026-05-20T01:01:58.145Z
+> Generert: 2026-05-20T11:28:13.577Z
 > Verktøy: pdftoppm (300 dpi PNG) + tesseract -l eng+nor
 > Kilde: `research/PDF-QUALITY.csv` (filter classification=scanned)
-> Totalt prosessert: **5** | Tid: **687.4 s**
+> Totalt prosessert: **5** | Tid: **665.6 s**
 
 ## Sammendrag
 

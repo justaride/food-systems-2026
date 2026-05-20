@@ -1,18 +1,18 @@
 # REMEDIATION BACKLOG — data-readiness Fase B
 
 > Auto-generert av `scripts/build-remediation-backlog.ts` — ikke rediger manuelt.
-> Generert: 2026-05-20T10:17:24.657Z
-> Totalt: **481** funn
+> Generert: 2026-05-20T11:31:23.454Z
+> Totalt: **472** funn
 
 ## Sammendrag per kilde × severity
 
 | Kilde | HIGH | MEDIUM | LOW | INFO |
 |---|---:|---:|---:|---:|
 | file-coverage | 0 | 0 | 310 | 0 |
-| pdf-quality | 0 | 5 | 45 | 0 |
-| html-triage | 0 | 18 | 11 | 0 |
-| url-health | 5 | 0 | 87 | 0 |
-| **Total** | 5 | 23 | 453 | 0 |
+| pdf-quality | 0 | 1 | 45 | 0 |
+| html-triage | 0 | 0 | 29 | 0 |
+| url-health | 0 | 0 | 87 | 0 |
+| **Total** | 0 | 1 | 471 | 0 |
 
 ## Fiksgrupper (rotårsak-analyse)
 
@@ -23,65 +23,69 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 | F: orphan files | 308 | 0 | 0 | 308 |
 | G: broken supportingSource | 1 | 0 | 0 | 1 |
 | H: duplicate Documents | 1 | 0 | 0 | 1 |
-| I: scanned PDFs (need OCR) | 5 | 0 | 5 | 0 |
+| I: scanned PDFs (need OCR) | 1 | 0 | 1 | 0 |
 | J: low-text PDFs | 44 | 0 | 0 | 44 |
 | K: oversized PDFs | 1 | 0 | 0 | 1 |
-| N: needs MD extraction | 18 | 0 | 18 | 0 |
-| O: other HTML issues | 11 | 0 | 0 | 11 |
+| O: other HTML issues | 29 | 0 | 0 | 29 |
 | P: dead URLs | 41 | 0 | 0 | 41 |
-| Q: blocked URLs (403/451) | 49 | 5 | 0 | 44 |
+| Q: blocked URLs (403/451) | 44 | 0 | 0 | 44 |
 | T: other URL issues | 2 | 0 | 0 | 2 |
 
 ## Nåværende hovedrestanser
 
 - **SourceDoc-lokatorer:** 0 funn. Strukturerte SourceDoc-poster regnes som dekket når de har URL, DOI, koblet Document eller lokal fil.
-- **URL-helse:** 92 funn fordelt på dead/blocked/timeout/server_error/other.
+- **PDF-OCR:** 4 scannede PDF-er er lukket i `research/PDF-OCR-REVIEW.csv` fordi OCR-tekst er arkivert eller eksisterende Document-tekst allerede er dekkende; 0 review-rader traff ingen aktiv PDF-quality-rad.
+- **URL-helse:** 87 funn fordelt på dead/blocked/timeout/server_error/other.
+- **URL-review:** 5 blokkerte URL-er er lukket i `research/URL-HEALTH-REVIEW.csv` fordi de er verifisert via nettleser, citable mirror eller lokal kildepakke; 0 review-rader traff ingen aktiv URL-health-rad.
 - **Document.filePath:** 0 manglende dokumentfiler i denne kjøringen.
 - **Orphan files:** 308 repo-filer uten DB-rad. Dette er lavere prioritet så lenge de ikke er brukt i app eller rapport.
 
 ## Anbefalt rekkefølge for neste ryddeslice
 
-1. **HIGH URL-funn:** start med `report_canonical`, `thesis` og `sourcedoc` før lavprioritets `document`-URL-er. `blocked` kan være botblokkering, så bytt bare til live-verifiserte erstatnings-URL-er.
-2. **HTML-triage (Gruppe N):** konverter høyprioritets HTML-snapshots til Markdown slik at de kan indekseres og siteres.
-3. **Scannede PDF-er (Gruppe I):** OCR de 5 gjenværende MEDIUM-filene først; low-text PDF-er kan vente hvis `Document.content` allerede er dekkende.
-4. **Dead/low-priority URL-er (Gruppe P/T):** rydd bare der kilden brukes i app/rapport eller har klar ny URL.
-5. **Orphan files (Gruppe F):** vurder arkivering/sletting senere; alle Document/SourceDoc-lokatorer er grønne i denne kjøringen.
+1. **Åpne MEDIUM-funn:** håndter gjenværende `pdf-quality`-rad først. For skippede/korrupt-lignende PDF-er betyr dette re-nedlasting, erstatningskilde eller eksplisitt arkivbeslutning.
+2. **Graph enrichment:** prioriter board-member profile gaps og company-name duplicate groups; teknisk graf-integritet er allerede grønn.
+3. **Dead/low-priority URL-er (Gruppe P/T):** rydd bare der kilden brukes i app/rapport eller har klar ny URL.
+4. **Orphan files (Gruppe F):** vurder arkivering/sletting senere; alle Document/SourceDoc-lokatorer er grønne i denne kjøringen.
 
 ## URL-HEALTH status
 
 URL-helse er klassifisert fra `research/URL-HEALTH.csv`. `blocked` kan være reell botblokkering/paywall og må ikke automatisk tolkes som død kilde; `dead` og nettverksfeil krever ny URL, arkivkopi eller lokal kildepakke.
 
+Review-lukkede URL-er i `research/URL-HEALTH-REVIEW.csv` beholdes med opprinnelig kilde-URL, men tas ut av åpen backlog når det finnes eksplisitt nettleserverifikasjon, citable mirror eller lokal kildepakke. Dette er ikke det samme som å erklære CLI-sjekken grønn.
+
+Scannede PDF-er i `research/PDF-OCR-REVIEW.csv` beholdes som opprinnelige PDF-filer, men tas ut av åpen backlog når OCR-tekst på minst 100 ord er arkivert eller DB-innhold allerede er dekkende. Dette er ikke det samme som å erklære PDF-filen tekstbasert.
+
 ## Top 30 høyest prioritet
 
 | # | Severity | Source | Fix-gruppe | Problem | Ref |
 |---:|---|---|---|---|---|
-| 1 | HIGH | url-health | Q: blocked URLs (403/451) | blocked | https://civita.no/okonomi/naeringspolitikk/svak-konkurranse- |
-| 2 | HIGH | url-health | Q: blocked URLs (403/451) | blocked | https://salford-repository.worktribe.com/output/1322952/sust |
-| 3 | HIGH | url-health | Q: blocked URLs (403/451) | blocked | https://skemman.is/bitstream/1946/7794/3/OrriJohannsson%20Fo |
-| 4 | HIGH | url-health | Q: blocked URLs (403/451) | blocked | https://skemman.is/handle/1946/26754 |
-| 5 | HIGH | url-health | Q: blocked URLs (403/451) | blocked | https://skemman.is/handle/1946/32307 |
-| 6 | MEDIUM | pdf-quality | I: scanned PDFs (need OCR) | scanned | arkiv-sortert/Food Research Process 20.04.26/06_Company_And_ |
-| 7 | MEDIUM | pdf-quality | I: scanned PDFs (need OCR) | scanned | arkiv-sortert/Food Research Process 20.04.26/07_Academic_Res |
-| 8 | MEDIUM | pdf-quality | I: scanned PDFs (need OCR) | scanned | arkiv-sortert/Food Research Process 20.04.26/08_Food_Securit |
-| 9 | MEDIUM | pdf-quality | I: scanned PDFs (need OCR) | scanned | evidence-pack/akademia/drager-vagene-2017.pdf |
-| 10 | MEDIUM | pdf-quality | I: scanned PDFs (need OCR) | scanned | pdf-downloads-20-04-26/What does it take to close the loop_  |
-| 11 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/fi-prolu |
-| 12 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/fi-prolu |
-| 13 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/fi-ruoka |
-| 14 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/is-eea-a |
-| 15 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/is-hagst |
-| 16 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/is-mast- |
-| 17 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/is-stati |
-| 18 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/is-stati |
-| 19 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/is-stati |
-| 20 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/is-tun-l |
-| 21 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/no-landb |
-| 22 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekoma |
-| 23 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekoma |
-| 24 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekoma |
-| 25 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekoma |
-| 26 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekoma |
-| 27 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/se-jordb |
-| 28 | MEDIUM | html-triage | N: needs MD extraction | needs-md-extraction | evidence-pack/okologisk-norden-2026-04-29/downloads/se-jordb |
-| 29 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/00_Working_File |
+| 1 | MEDIUM | pdf-quality | I: scanned PDFs (need OCR) | scanned | arkiv-sortert/Food Research Process 20.04.26/08_Food_Securit |
+| 2 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/00_Working_File |
+| 3 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 4 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 5 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 6 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 7 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 8 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 9 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 10 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 11 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 12 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 13 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 14 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 15 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 16 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 17 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 18 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 19 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 20 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 21 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 22 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 23 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 24 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 25 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 26 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 27 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 28 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 29 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
 | 30 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |

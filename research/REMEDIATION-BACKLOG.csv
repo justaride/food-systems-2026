@@ -1,32 +1,5 @@
 source,ref,entity_type,problem,severity,fix_group,priority,suggested_action
-url-health,https://civita.no/okonomi/naeringspolitikk/svak-konkurranse-som-fortjent/,URL,blocked,HIGH,Q: blocked URLs (403/451),4.5,blocked (HTTP 403) — source report_canonical:civita-manifest-debatt; verify URL
-url-health,https://salford-repository.worktribe.com/output/1322952/sustainable-food-procurement-in-public-catering-comparison-of-the-uk-with-denmark-sweden,URL,blocked,HIGH,Q: blocked URLs (403/451),5.0,blocked (HTTP 403) — source thesis:stein-2022; verify URL
-url-health,https://skemman.is/bitstream/1946/7794/3/OrriJohannsson%20FoodSecurity%20Final.pdf,URL,blocked,HIGH,Q: blocked URLs (403/451),4.5,blocked (HTTP 403) — source thesis:johannsson-2011; verify URL
-url-health,https://skemman.is/handle/1946/26754,URL,blocked,HIGH,Q: blocked URLs (403/451),4.5,blocked (HTTP 403) — source thesis:sigurdardottir-2017; verify URL
-url-health,https://skemman.is/handle/1946/32307,URL,blocked,HIGH,Q: blocked URLs (403/451),4.5,blocked (HTTP 403) — source thesis:burgherr-2019; verify URL
-pdf-quality,arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/2021 Impact Report ENG.pdf,PDF,scanned,MEDIUM,I: scanned PDFs (need OCR),,OCR required for KI/RAG ingestion (e.g. ocrmypdf)
-pdf-quality,arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/drager-og-vagene.pdf,PDF,scanned,MEDIUM,I: scanned PDFs (need OCR),,OCR required for KI/RAG ingestion (e.g. ocrmypdf)
 pdf-quality,arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Billund Aquaculture to declare bankruptcy amid financial challenges - RASTECH MagazineRASTECH Magazine.pdf,PDF,scanned,MEDIUM,I: scanned PDFs (need OCR),,OCR required for KI/RAG ingestion (e.g. ocrmypdf)
-pdf-quality,evidence-pack/akademia/drager-vagene-2017.pdf,PDF,scanned,MEDIUM,I: scanned PDFs (need OCR),,OCR required for KI/RAG ingestion (e.g. ocrmypdf)
-pdf-quality,pdf-downloads-20-04-26/What does it take to close the loop_ Lessons from a successful citrus waste valorisation business _ British Food Journal _ Emerald Publishing.pdf,PDF,scanned,MEDIUM,I: scanned PDFs (need OCR),,OCR required for KI/RAG ingestion (e.g. ocrmypdf)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/fi-proluomu-market-2024.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/fi-proluomu-organics-in-finland.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/fi-ruokavirasto-luomuvalvonta-2024.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-eea-area-under-organic-farming-2025.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-hagstofa-sdg-2-4-1-2026.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-mast-arsskyrsla-2024.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-agriculture-2026.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-production-in-agriculture-2024-news-2026.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-production-value-agriculture-2024-news-2026.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-tun-lifraent-vottun-2026.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/no-landbruksdirektoratet-okologiske-jordbruksvarer-2025-press.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekologiska-marknadsdagen-2024-page.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekomatligan-2025-page.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekomatsligan-2024-page.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-nationella-rapporter-statistik-marknadsrapporter-2026.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-offentlig-sektor-2023-page.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-jordbruksverket-ekologisk-animalieproduktion-2024.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-jordbruksverket-ekologisk-vaxtodling-2024.html,HTML,needs-md-extraction,MEDIUM,N: needs MD extraction,,Extract clean Markdown for KI use (not yet referenced)
 file-coverage,arkiv-sortert/Food Research Process 20.04.26/00_Working_Files/Research-Report-Norges-matrevolusjon-2026.pdf,file,orphan_file,LOW,F: orphan files,,Confirm intentional archive copy; otherwise consider removal
 file-coverage,arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/2022-68-EMV-og-innovasjon-i-dagligvare-1.pdf,file,orphan_file,LOW,F: orphan files,,Confirm intentional archive copy; otherwise consider removal
 file-coverage,arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/20250326-salling-groups-erhvervelse-af-dele-af-coop-danmark-a.pdf,file,orphan_file,LOW,F: orphan files,,Confirm intentional archive copy; otherwise consider removal
@@ -386,9 +359,27 @@ html-triage,cathrine-ten-step-oppsummering.html,HTML,ok-snapshot,LOW,O: other HT
 html-triage,evidence-pack/beredskap/beredskap-island-food-stockpiles-2025.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
 html-triage,evidence-pack/beredskap/beredskap-island-melmolle-2025.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
 html-triage,evidence-pack/bransje/dlf-leverandor-2025.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/fi-proluomu-market-2024.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/fi-proluomu-organics-in-finland.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/fi-ruokavirasto-luomuvalvonta-2024.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-eea-area-under-organic-farming-2025.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-hagstofa-sdg-2-4-1-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
 html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-lifraent-island-home-2026.html,HTML,error-page,LOW,O: other HTML issues,,Investigate fetch failure; remove HTML or replace with valid snapshot
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-mast-arsskyrsla-2024.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-agriculture-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-production-in-agriculture-2024-news-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-production-value-agriculture-2024-news-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-tun-lifraent-vottun-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
 html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-tun-vottunarskra-2026-refresh.html,HTML,error-page,LOW,O: other HTML issues,,Investigate fetch failure; remove HTML or replace with valid snapshot
 html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-tun-vottunarskra-2026.html,HTML,error-page,LOW,O: other HTML issues,,Investigate fetch failure; remove HTML or replace with valid snapshot
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/no-landbruksdirektoratet-okologiske-jordbruksvarer-2025-press.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekologiska-marknadsdagen-2024-page.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekomatligan-2025-page.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekomatsligan-2024-page.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-nationella-rapporter-statistik-marknadsrapporter-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-offentlig-sektor-2023-page.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-jordbruksverket-ekologisk-animalieproduktion-2024.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
+html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-jordbruksverket-ekologisk-vaxtodling-2024.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
 html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-effektrapport-page-2026.html,HTML,navigation-only,LOW,O: other HTML issues,,Likely menu/landing page — confirm intent or remove
 html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-page-2026.html,HTML,navigation-only,LOW,O: other HTML issues,,Likely menu/landing page — confirm intent or remove
 html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-rapporter.html,HTML,navigation-only,LOW,O: other HTML issues,,Likely menu/landing page — confirm intent or remove

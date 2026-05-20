@@ -1,19 +1,32 @@
 # HTML extraction log — Fase C Group N
 
 > Auto-generert av `scripts/extract-html-to-md.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T12:11:19.795Z
-> Verktøy: **pandoc 3.8.2.1**
-> Resultat: 5 ok, 0 short, 0 error (av 5)
+> Generert: 2026-05-20T11:16:17.896Z
+> Verktøy: **regex-fallback**
+> Resultat: 17 ok, 1 short, 0 error (av 18)
 
 ## Per fil
 
 | # | Status | Words | Extractor | Source | Target | Notes |
 |---:|---|---:|---|---|---|---|
-| 1 | ok | 1023 | pandoc | research/cathrine-ten-step-oppsummering.html | research/cathrine-ten-step-oppsummering.md |  |
-| 2 | ok | 251 | pandoc | research/evidence-pack/beredskap/beredskap-island-food-stockpiles-2025.html | research/evidence-pack/beredskap/beredskap-island-food-stockpiles-2025.md |  |
-| 3 | ok | 635 | pandoc | research/evidence-pack/beredskap/beredskap-island-melmolle-2025.html | research/evidence-pack/beredskap/beredskap-island-melmolle-2025.md |  |
-| 4 | ok | 472 | pandoc | research/evidence-pack/bransje/dlf-leverandor-2025.html | research/evidence-pack/bransje/dlf-leverandor-2025.md |  |
-| 5 | ok | 822 | pandoc | research/statusrapport-mars-2026.html | research/statusrapport-mars-2026.md |  |
+| 1 | ok | 418 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/fi-proluomu-market-2024.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/fi-proluomu-market-2024.md |  |
+| 2 | ok | 954 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/fi-proluomu-organics-in-finland.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/fi-proluomu-organics-in-finland.md |  |
+| 3 | ok | 173 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/fi-ruokavirasto-luomuvalvonta-2024.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/fi-ruokavirasto-luomuvalvonta-2024.md |  |
+| 4 | ok | 291 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-eea-area-under-organic-farming-2025.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-eea-area-under-organic-farming-2025.md |  |
+| 5 | short | 50 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-hagstofa-sdg-2-4-1-2026.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-hagstofa-sdg-2-4-1-2026.md | output below 100-word floor (50) |
+| 6 | ok | 2251 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-mast-arsskyrsla-2024.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-mast-arsskyrsla-2024.md |  |
+| 7 | ok | 171 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-agriculture-2026.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-agriculture-2026.md |  |
+| 8 | ok | 187 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-production-in-agriculture-2024-news-2026.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-production-in-agriculture-2024-news-2026.md |  |
+| 9 | ok | 310 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-production-value-agriculture-2024-news-2026.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-production-value-agriculture-2024-news-2026.md |  |
+| 10 | ok | 727 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-tun-lifraent-vottun-2026.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/is-tun-lifraent-vottun-2026.md |  |
+| 11 | ok | 726 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/no-landbruksdirektoratet-okologiske-jordbruksvarer-2025-press.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/no-landbruksdirektoratet-okologiske-jordbruksvarer-2025-press.md |  |
+| 12 | ok | 336 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekologiska-marknadsdagen-2024-page.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekologiska-marknadsdagen-2024-page.md |  |
+| 13 | ok | 410 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekomatligan-2025-page.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekomatligan-2025-page.md |  |
+| 14 | ok | 800 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekomatsligan-2024-page.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekomatsligan-2024-page.md |  |
+| 15 | ok | 3695 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-nationella-rapporter-statistik-marknadsrapporter-2026.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-nationella-rapporter-statistik-marknadsrapporter-2026.md |  |
+| 16 | ok | 391 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-offentlig-sektor-2023-page.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-offentlig-sektor-2023-page.md |  |
+| 17 | ok | 2410 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-jordbruksverket-ekologisk-animalieproduktion-2024.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-jordbruksverket-ekologisk-animalieproduktion-2024.md |  |
+| 18 | ok | 2453 | regex-fallback | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-jordbruksverket-ekologisk-vaxtodling-2024.html | research/evidence-pack/okologisk-norden-2026-04-29/downloads/se-jordbruksverket-ekologisk-vaxtodling-2024.md |  |
 
 ## Notater
 

@@ -1,7 +1,7 @@
 # OCR Output — What does it take to close the loop_ Lessons from a successful citrus waste valorisation business _ British Food Journal _ Emerald Publishing.pdf
 
 > Source PDF: `pdf-downloads-20-04-26/What does it take to close the loop_ Lessons from a successful citrus waste valorisation business _ British Food Journal _ Emerald Publishing.pdf`
-> Generated: 2026-05-20T01:01:58.141Z
+> Generated: 2026-05-20T11:28:13.573Z
 > Tool: pdftoppm (300 dpi PNG) + tesseract -l eng+nor
 > Pages: 1 | OCR words: 306
 

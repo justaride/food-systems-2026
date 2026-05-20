@@ -1,0 +1,70 @@
+---
+source_html: "fi-proluomu-organics-in-finland.html"
+extracted_at: "2026-05-20T11:16:17.866Z"
+extractor: "regex-fallback"
+title: "Organics in Finland - Pro Luomu"
+---
+Key statistics on the development of organic production and consumption in Finland are collected in the annual Organics in Finland summary.
+
+**According to statistics, the year 2024 did not differ significantly from the previous year in terms of organic production, and the highlight of the year was the designation of South Savo as the EU’s best organic region. The organic market did not yet return to growth, but the decline in the number of organic farms and the area of organic farmland, which began the previous year, slowed down. The use of organic products in professional kitchens still shows a positive trend toward growth. The ‘Organics in Finland’ summary compiles public organic statistics.**
+
+## Fat-free organic milk is already being consumed in daycare centres and schools in nearly one hundred municipalities
+
+The use of organic products in public kitchens is on the rise; according to a survey conducted in 2024, as many as 63% of public kitchens reported using at least some organic product daily. The most popular organic products in public kitchens are flakes and milk. The EU supports the use of organic milk in public kitchens through increased school distribution subsidies.
+
+According to statistics from the Finnish Food Authority, a total of 3.1 million litres of fat-free organic milk were consumed in daycare centres and schools during the 2023–2024 school year. The share of organic milk out of all milk subsidized through the school distribution scheme rose to 28%. Organic milk is already being offered to children and youth in 98 municipalities. Organic vegetables also have a place in school kitchens: during the school year, 16,000 kilograms of organic vegetables were consumed, accounting for 0.8% of all vegetables subsidized through the school distribution scheme. The most commonly served organic vegetables in daycare centres and schools were organic bananas and carrots.
+
+The amount of school distribution subsidy for fat-free, vitamin D-fortified organic milk is double that of conventional milk, but for vegetables, the subsidy for organic products is not significantly higher than for conventional ones. The increased school distribution subsidy for organic products has been in place since 2017 and has significantly boosted the use of organic milk.
+
+## The organic market did not yet begin to grow
+
+In 2024, rising food prices and consumers’ confidence in their personal finances continued to have a strong impact on the organic market in the grocery retail sector. According to Pro Luomu’s estimate, organic products were sold in grocery stores for a total of €335 million, representing a 5% decrease from the previous year. Organic products accounted for approximately 1.8% of total grocery retail sales.
+
+The total value of organic sales was especially affected by the decline in sales of major organic product groups, such as milk and other dairy products, as well as fruits and vegetables. However, there were also some positive developments—for example, the market share of organic baby food rose to a record-high 25% in terms of sales value.
+
+## 13.9% of Finland’s farmland is under organic production
+
+In 2024, the area of organic farmland in Finland remained nearly the same as the previous year, totalling 309,487 hectares. A total of 143 million kilograms of organic cereals were produced, accounting for 4% of Finland’s total cereal harvest.
+
+At the regional level, the number of hectares of organic farmland did not see as steep declines as in the previous year: in six regions, the organic farmland area remained the same or increased slightly, whereas the previous year saw decreases in all regions except Lapland and Kymenlaakso. In terms of volume, the largest areas of organic farmland were in Northern Ostrobothnia (37,986 ha) and Southwest Finland (35,180 ha).
+
+The highest share of organically farmed land was once again in North Karelia, where 25% of the region’s total farmland was under organic production. In total, the share of organic farmland increased compared to the previous year in nine regions.
+
+## The size of organic farms continues to grow
+
+There were 3,995 organic farms in Finland, accounting for about 10% of all farms in the country. The regions with the most organic farms were Pirkanmaa (454), South Ostrobothnia (408), and Southwest Finland (400). The average size of organic farms continued to grow for the ninth consecutive year, reaching 77.5 hectares—significantly larger than the average size of all Finnish farms (55 ha).
+
+Different types of production and land use are distributed across various regions in Finland. The highest numbers of organic livestock farms were in Northern Ostrobothnia (108) and South Ostrobothnia (101). The largest areas for growing organic cereals (rye, wheat, barley, oats) were concentrated in Southwest Finland (8,761 ha) and Uusimaa (7,685 ha). In terms of volume, the most cultivated organic vegetable in horticultural production were organic carrots (with a harvest of about 2.5 million kilograms), with the largest production areas in Ostrobothnia (32.4 ha) and in South Savo (13.5 ha), which was also awarded as Europe’s best organic region.
+
+*The Organic in Finland 2024 compilation published by Pro Luomu summarizes the results of public organic statistics and the latest surveys of the organic sector. The information in the compilation includes: Statistics from the Finnish Food Authority and the Natural Resources Institute Finland, as well as studies and studies commissioned by Pro Luomu.*
+
+*This summary of Organic Finland 2024 has been produced by the project “Verkostoilla voimaa yhteistyöhön – Coordination in the Food Sector” funded by the Ministry of Agriculture and Forestry.*
+
+Tiedostot
+Annual statistics **
+
+- [**Organics in Finland 2024](https://proluomu.fi/wp-content/uploads/2025/06/organics.pdf)
+
+- [**Organics in Finland 2023](https://proluomu.fi/wp-content/uploads/2024/06/organics-in-finland-2023.pdf)
+
+- [**Organics in Finland 2022](https://proluomu.fi/wp-content/uploads/2023/11/organics-in-finland-2022.pdf)
+
+- [**Organics in Finland 2021](https://proluomu.fi/wp-content/uploads/2022/08/organics-in-finland-2021_.pdf)
+
+- [**Organics in Finland 2020](https://proluomu.fi/wp-content/uploads/2021/08/organics-in-finland-2020_english.pdf)
+
+- [**Organics in Finland 2019](https://proluomu.fi/wp-content/uploads/2020/10/organics-in-finland-2019_english.pdf)
+
+- [**Organics in Finland 2018](https://proluomu.fi/wp-content/uploads/2019/05/organics_in_finland_2018-1.pdf)
+
+- [**Organics in Finland 2017](https://proluomu.fi/wp-content/uploads/2018/05/organics_in_finland_2017-1.pdf)
+
+- [**Organics in Finland 2016](https://proluomu.fi/wp-content/uploads/2018/05/organics_in_finland_2016.pdf)
+
+- [**Organics in Finland 2015](https://proluomu.fi/wp-content/uploads/2018/05/organics_in_finland_2015-1.pdf)
+
+- [**Organics in Finland 2014](https://proluomu.fi/wp-content/uploads/2018/05/organics-in-finland-2014_update.pdf)
+
+Katso myös
+
+- [**Statistics in Finnish and Swedish](https://proluomu.fi/material/materiaalit/luomu-suomessa-tilastot/)

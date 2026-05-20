@@ -10,7 +10,7 @@ import {
   unlinkSync,
   writeFileSync,
 } from 'fs'
-import { basename, join, resolve } from 'path'
+import { basename, join, relative, resolve } from 'path'
 import { tmpdir } from 'os'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
@@ -24,6 +24,7 @@ const RESEARCH_DIR = join(ROOT, 'research')
 const QUALITY_CSV = join(RESEARCH_DIR, 'PDF-QUALITY.csv')
 const OCR_OUTPUT_DIR = join(RESEARCH_DIR, 'ocr-output')
 const OCR_LOG_PATH = join(RESEARCH_DIR, 'OCR-LOG.md')
+const OCR_REVIEW_CSV_PATH = join(RESEARCH_DIR, 'PDF-OCR-REVIEW.csv')
 
 const MIN_FILE_BYTES = 10 * 1024 // 10 KB — skip smaller (likely corrupt)
 const OCR_LANGS = 'eng+nor'
@@ -127,6 +128,13 @@ function countWords(text: string): number {
 
 function safeBaseName(rel: string): string {
   return rel.replace(/[\/\\]+/g, '__').replace(/\.pdf$/i, '')
+}
+
+function csvEscape(value: string): string {
+  if (value.includes(',') || value.includes('"') || value.includes('\n')) {
+    return `"${value.replace(/"/g, '""')}"`
+  }
+  return value
 }
 
 async function findDocumentByFilePath(rel: string): Promise<{
@@ -372,7 +380,24 @@ function writeOcrLog(outcomes: Outcome[], elapsedSec: number): void {
   ].join('\n')
 
   writeFileSync(OCR_LOG_PATH, md + '\n')
+  writeFileSync(
+    OCR_REVIEW_CSV_PATH,
+    [
+      'path,action,ocr_word_count,archive_path,document_id,reason',
+      ...outcomes.map(o =>
+        [
+          csvEscape(o.rel),
+          o.action,
+          String(o.ocrWordCount),
+          csvEscape(o.archivePath ? relative(ROOT, o.archivePath) : ''),
+          o.documentId ?? '',
+          csvEscape(o.reason),
+        ].join(','),
+      ),
+    ].join('\n') + '\n',
+  )
   console.log(`\nOCR-LOG written: ${OCR_LOG_PATH}`)
+  console.log(`PDF-OCR-REVIEW written: ${OCR_REVIEW_CSV_PATH}`)
 }
 
 async function main(): Promise<void> {

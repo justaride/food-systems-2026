@@ -548,12 +548,80 @@ listed work queue:
   `PersonProfile` pages, and 230 company-name duplicate groups still need
   review.
 
+## Continuation Update After Residual URL-Health Review
+
+The five remaining HIGH URL-health rows are closed as reviewed access blockers,
+not by replacing source URLs:
+
+- Added `src/lib/url-health-review.ts` and
+  `tests/lib/url-health-review.test.ts`.
+- Added `research/URL-HEALTH-REVIEW.csv` as a manual ledger for blocked URLs
+  that have explicit browser verification, a citable mirror, local evidence, or
+  a documented combination of those signals.
+- Updated `scripts/build-remediation-backlog.ts` so reviewed `blocked` URL rows
+  are removed from the open remediation backlog while the mechanical
+  `research/URL-HEALTH.csv` result remains unchanged.
+- Reviewed and closed the five former HIGH rows: Civita
+  `civita-manifest-debatt`, Salford Worktribe `stein-2022`, Skemman/OpenPolar
+  `johannsson-2011`, Skemman/AGRIS `burgherr-2019`, and
+  Skemman/Umhverfisstofnun `sigurdardottir-2017`.
+- Regenerated `research/REMEDIATION-BACKLOG.csv` and
+  `research/REMEDIATION-BACKLOG.md`. Current backlog is 476 findings: 0 HIGH,
+  23 MEDIUM, 453 LOW. URL-health open findings are now 87.
+
+Operational meaning: the original source URLs were preserved. The project no
+longer treats these five rows as open HIGH remediation blockers, but it also
+does not pretend the CLI URL checker can fetch them successfully.
+
+## Continuation Update After HTML And OCR Residual Review
+
+The MEDIUM extraction/OCR tranche is now reduced to one likely-corrupt PDF:
+
+- `npm run extract-html-to-md` wrote 18 Markdown companions for the previous
+  MEDIUM HTML `needs-md-extraction` rows. `npm run triage-html` now reports 29
+  HTML files, 0 HIGH, 0 MEDIUM, 29 LOW, and 0 `needs-md-extraction` rows.
+- `npm run ocr-scanned-pdfs` processed the five scanned PDFs. It archived OCR
+  text for four files, skipped the 1 KB RASTECH PDF as likely corrupt, updated
+  0 `Document` rows, and extracted 69,334 OCR words.
+- Added `src/lib/pdf-ocr-review.ts` and `tests/lib/pdf-ocr-review.test.ts`.
+- Updated `scripts/ocr-scanned-pdfs.ts` so future OCR runs write
+  `research/PDF-OCR-REVIEW.csv` as a structured review ledger.
+- Updated `scripts/build-remediation-backlog.ts` so scanned PDF rows with
+  usable OCR output are removed from the open remediation backlog while the
+  original PDFs remain unchanged.
+- Regenerated `research/HTML-TRIAGE.*`, `research/HTML-EXTRACTION-LOG.md`,
+  `research/OCR-LOG.md`, `research/PDF-OCR-REVIEW.csv`, and
+  `research/REMEDIATION-BACKLOG.*`. Current backlog is 472 findings: 0 HIGH,
+  1 MEDIUM, 471 LOW. The only MEDIUM row is
+  `arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/Billund Aquaculture to declare bankruptcy amid financial challenges - RASTECH MagazineRASTECH Magazine.pdf`.
+
+Operational meaning: HTML extraction work is complete for the current triage
+set. OCR text is available for the four recoverable scanned PDFs, but the
+original PDF binaries were not rewritten. The remaining MEDIUM item needs
+re-download, replacement evidence, or an explicit archive decision.
+
+Latest verification after this continuation:
+
+- `npm test` passed with 181 tests across 42 suites.
+- `npm run lint` passed.
+- `npm run db:audit:strict-sources` passed.
+- `npm run audit:citable` passed and regenerated the readiness queue with 1
+  P2 row, 0 P0, and 0 P1.
+- `npm run research:citable-acceptance-pack` passed: 7 of 12 cite-ready, 5
+  blocked.
+- `npm run graph:audit` passed: 41,072 nodes, 1,641 edges, 0 orphan
+  board-member graph rows, 187 board-member profile gaps, 230 company-name
+  duplicate groups, and 34.8 percent confidence coverage.
+- `npm run build` passed with the known worktree multiple-lockfile warning;
+  timestamp-only chart-metric diffs were cleaned afterwards.
+- `git diff --check` passed.
+
 ## Exact Restart Prompt
 
 Use this in the next session:
 
 ```text
-Vi er i /Users/gabrielfreeman/Documents/Food Systems 2026 på `main`, etter PR #60/#61 og etter committen som fullførte kvalitetspasset fra handoffen. Citable knowledge-base gates er merget, strict source/citation audit er grønn, og lokal DB er oppdatert. Kvalitetspasset reduserte citation-readiness-køen til 1 P2 (`agrianalyse-bondens-andel-2025`), SourceDoc-lokatorfunn til 0, HIGH URL-health til 5 blokkerte tilgangsfunn, og graph orphan board-member rows til 0. Start med `git status --short --branch`, `npm test`, `npm run db:audit:strict-sources`, `npm run audit:citable`, `npm run build-remediation-backlog`, og `npm run graph:audit`. Deretter jobb med 5 HIGH URL-health blockers (Civita, Salford Worktribe, Skemman x3), 18 MEDIUM HTML-to-Markdown-ekstraksjoner, 5 MEDIUM scanned-PDF/OCR-funn, og graph enrichment-gjeld (187 board-member profile gaps + 230 company-name duplicate groups). Ikke finn opp eller inferer nye kilde-URL-er; bruk bare eksisterende repo-/database-metadata, live-verifiserte kilder eller dokumentert evidens.
+Vi er i /Users/gabrielfreeman/Documents/Food Systems 2026 etter PR #60/#61, citable quality-pass committen, residual URL-health review-tranchen og HTML/OCR-restansen. Citable knowledge-base gates er merget, strict source/citation audit er grønn, og lokal DB er oppdatert. Citation-readiness-køen er 1 P2 (`agrianalyse-bondens-andel-2025`), SourceDoc-lokatorfunn er 0, HIGH URL-health er 0 etter `research/URL-HEALTH-REVIEW.csv`, HTML `needs-md-extraction` er 0 etter Markdown-companions, og remediation backlog er 472 funn: 0 HIGH, 1 MEDIUM, 471 LOW. Den eneste MEDIUM-raden er en 1 KB RASTECH PDF som `npm run ocr-scanned-pdfs` hoppet over som sannsynlig korrupt. Start med `git status --short --branch`, `npm test`, `npm run db:audit:strict-sources`, `npm run audit:citable`, `npm run build-remediation-backlog`, og `npm run graph:audit`. Deretter håndter RASTECH PDF-en med re-download/erstatningskilde/arkivbeslutning, eller fortsett graph enrichment-gjeld (187 board-member profile gaps + 230 company-name duplicate groups). Ikke finn opp eller inferer nye kilde-URL-er; bruk bare eksisterende repo-/database-metadata, live-verifiserte kilder eller dokumentert evidens.
 ```
 
 ## First Commands In New Session
@@ -597,16 +665,13 @@ Work through the remaining items in this order:
 1. Keep the remaining P2 citation-readiness row
    `agrianalyse-bondens-andel-2025` excluded unless a real direct source
    locator is found.
-2. Work the 5 remaining HIGH URL-health findings from
-   `research/REMEDIATION-BACKLOG.md`: Civita, Salford Worktribe, and Skemman
-   (`johannsson-2011`, `sigurdardottir-2017`, `burgherr-2019`). Live-verify
-   before changing any URL; blocked alone is not proof that the source is dead.
-3. Work the 23 MEDIUM remediation rows: 18 HTML-to-Markdown extractions and 5
-   scanned-PDF/OCR findings.
-4. Decide the next graph-quality tranche: 187 board-member profile gaps and 230
+2. Work the single MEDIUM remediation row: the 1 KB RASTECH PDF that OCR
+   skipped as likely corrupt. Use re-download, replacement evidence, or an
+   explicit archive decision; do not infer a source URL.
+3. Decide the next graph-quality tranche: 187 board-member profile gaps and 230
    company-name duplicate review groups remain, while graph endpoint integrity
    is clean.
-5. Re-run the operator sequence and update this handoff/status file before
+4. Re-run the operator sequence and update this handoff/status file before
    committing any next tranche.
 
 ## Stop Rules For Next Session
@@ -646,11 +711,13 @@ The third milestone is complete:
 16. Refresh stale citation readiness from existing locators, backfill missing
     field claim text, and verify that strict source/citation gates pass.
 
-Continue with the five residual blocked URL-health rows and MEDIUM extraction
-work, not strict citation remediation. The strict-source source-label groups,
-strict citation coverage blockers, SourceDoc locator queue, and board-member
-graph orphan rows are closed. The residual readiness queue is one P2
-policy/content-review item: the `agrianalyse-bondens-andel-2025`
+Continue with the single corrupt-like PDF remediation row or graph enrichment,
+not strict citation remediation, HTML extraction, OCR for the four recovered
+PDFs, or the five residual URL-health rows. The strict-source source-label
+groups, strict citation coverage blockers, SourceDoc locator queue, HIGH
+URL-health queue, HTML `needs-md-extraction` queue, four recoverable scanned
+PDF rows, and board-member graph orphan rows are closed. The residual readiness
+queue is one P2 policy/content-review item: the `agrianalyse-bondens-andel-2025`
 `blocked_source` report.
 
 ## What Counts As Ready For External Use

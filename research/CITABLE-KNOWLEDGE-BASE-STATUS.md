@@ -73,11 +73,34 @@ the local repair moved those 36 rows to `internal_context`.
 Current residual work queue:
 
 - Citation readiness queue: P0 0, P1 0, P2 1, P3 0.
-- Remediation backlog: 481 findings total: 5 HIGH URL-health findings, 23
-  MEDIUM findings, and 453 LOW findings. SourceDoc locator findings are 0.
+- Remediation backlog: 472 findings total: 0 HIGH, 1 MEDIUM finding, and
+  471 LOW findings. SourceDoc locator findings are 0. The former five HIGH
+  URL-health blockers are closed in `research/URL-HEALTH-REVIEW.csv` as
+  browser-verified tool blocks, citable mirror/local evidence cases, or both;
+  the original source URLs were not replaced. The former 18 MEDIUM
+  HTML-to-Markdown rows are closed by Markdown companions. Four of the former
+  five scanned-PDF MEDIUM rows are closed by `research/PDF-OCR-REVIEW.csv`;
+  the remaining MEDIUM row is the 1 KB RASTECH PDF that OCR skipped as likely
+  corrupt.
 - Graph quality: technical graph audit passes. Board-member graph orphans are
   0 after fallback person nodes; 187 board-member rows still lack full
   `PersonProfile` pages. Edge-confidence coverage is 34.8 percent.
+
+Continuation verification after residual URL/HTML/OCR review:
+
+- `npm test` passed with 181 tests across 42 suites.
+- `npm run lint` passed.
+- `npm run db:audit:strict-sources` passed.
+- `npm run audit:citable` passed and kept the readiness queue at P0 0, P1 0,
+  P2 1, P3 0.
+- `npm run research:citable-acceptance-pack` passed with 7 of 12 cite-ready and
+  5 blocked.
+- `npm run graph:audit` passed with 41,072 nodes, 1,641 edges, 0 orphan
+  board-member rows, 187 board-member profile gaps, and 34.8 percent edge
+  confidence coverage.
+- `npm run build` passed with the known worktree multiple-lockfile warning;
+  timestamp-only chart-metric diffs were cleaned afterwards.
+- `git diff --check` passed.
 
 ## Baseline Commands
 

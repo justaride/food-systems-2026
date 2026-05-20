@@ -1,0 +1,264 @@
+---
+source_html: "se-jordbruksverket-ekologisk-vaxtodling-2024.html"
+extracted_at: "2026-05-20T11:16:17.895Z"
+extractor: "regex-fallback"
+title: "Ekologisk växtodling 2024 - Jordbruksverket.se"
+---
+# Ekologisk växtodling 2024
+
+[Skriv ut](/om-jordbruksverket/jordbruksverkets-officiella-statistik/jordbruksverkets-statistikrapporter/statistik/2025-05-15-ekologisk-vaxtodling-2024.printable)
+
+
+
+
+
+
+Publiceringsdatum: 2025-05-15
+
+
+
+
+
+
+
+
+
+
+
+
+Referensår: 2024
+
+Produktkod: JO0114
+
+Ämnesord: Areal, Ekologiskt, Odling
+
+
+
+
+Ulf Svensson
+
+
+[036-15 50 74](tel:+4636155074)
+
+[statistik@jordbruksverket.se](mailto:statistik@jordbruksverket.se)
+
+
+
+
+
+
+
+
+
+
+
+
+- [Statistikdatabasen](http://statistik.sjv.se/PXWeb/pxweb/sv/Jordbruksverkets%20statistikdatabas/?rxid=5adf4929-f548-4f27-9bc9-78e127837625)
+
+
+
+
+
+
+
+
+## Sammanfattning
+
+Den ekologiskt brukade arealen jordbruksmark minskade med 54 500 hektar till 495 700 hektar mellan 2023 och 2024, en minskning med 10 % och den minsta arealen sedan 2012. Den ekologiska arealen har minskat under fem år i sträck och har sedan toppåret 2019 gått ner med 19 %. Innan dess ökade arealen mer eller mindre kontinuerligt under mer än tio år. Av den totala jordbruksmarken i Sverige brukades knappt 17 % ekologiskt under 2024. Den ekologiskt brukade jordbruksmarken bestod till 75 % av åkermark och till 25 % av betesmark.
+
+Arealminskningen mellan 2023 och 2024 påverkade såväl åkermarken som betesmarken och så gott som alla enskilda grödor och grödkategorier. Minskningen slog både mot omställd mark och mark under omställning till ekologisk produktion. Antalet företag med ekologiskt brukad jordbruksmark var 3 985 stycken 2024, vilket var 491 företag färre än 2023. Totalt sett har antalet företag med ekologiskt brukad jordbruksmark minskat med 30 % sedan toppåret 2019.
+
+Den i särklass största arealen ekologiskt brukad jordbruksmark låg i Västra Götalands län, men den största andelen fanns i Värmlands län, där knappt 33 % av den totala jordbruksmarken brukades ekologiskt 2024.
+
+61 % av den ekologiskt brukade åkermarken som var omställd till ekologisk produktion täcktes av slåtter- och betesvall, medan drygt 25 % täcktes av spannmål. Det innebär att 21 % av slåtter- och betesvallsarealen samt 9 % av spannmålsarealen var omställd till ekologisk produktion 2024.
+
+## Syfte
+
+Syftet med statistiken är att redovisa utvecklingen för den ekologiskt brukade jordbruksmarken i Sverige. Statistiken är i stort jämförbar med övrig officiell statistik om jordbruksmarkens användning och tjänar som underlag för utredningar, analyser och uppföljning av den ekologiskt odlade arealen samt uppföljning av politiska mål inom området.
+
+Rapporten beskriver utvecklingen i stora drag. I Jordbruksverkets statistikdatabas finns mer detaljerad information.
+
+## Ekologiskt brukad jordbruksmark
+
+### Jordbruksmark
+
+Jordbruksmark består av åkermark, betesmark och slåtteräng. Den totala arealen jordbruksmark som var omställd eller under omställning till ekologisk produktion var 495 700 hektar år 2024 (Figur A). Sedan toppåret 2019 har den ekologiska arealen minskat 5 år i sträck, totalt med 118 500 hektar vilket motsvarar 19 %. Under de två senaste åren har minskningstakten ökat betydligt och mellan 2023 och 2024 minskade arealen med 54 500 hektar, motsvarande 10 %.
+
+Andelen av den totala svenska arealen jordbruksmark som var omställd eller under omställning till ekologisk produktion under 2024 var 16,6 %, en minskning från 18,4 % året före. Sett över tid ökade andelen ekologisk mark mer eller mindre kontinuerligt från 6,9 till 20,4 % mellan 2005 och 2019. Därefter har andelen istället kontinuerligt minskat.
+
+Arealen jordbruksmark som var helt omställd till ekologisk produktion minskade med 52 000 hektar till 466 400 hektar mellan 2023 och 2024. Den omställda arealens andel av den totala ekologiska arealen var 94,1 % (resten är mark under omställning), medan andelen av den sammanlagda svenska arealen jordbruksmark var 15,6 %.
+
+Även arealen jordbruksmark under omställning till ekologisk produktion minskade mellan 2023 och 2024, till 29 300 hektar. Arealen har minskat kontinuerligt sedan 2017 och var 2024 den lägsta sedan 2006.
+
+[Förstora bilden](/images/18.2bffa287196abf7b47c267d6/1747207170233/Figur%20A.png)
+
+Figur A. Areal jordbruksmark brukad med ekologiska produktionsmetoder i hektar, år 2005–2024
+
+### Åkermark
+
+Den totala arealen åkermark som antingen var omställd eller under omställning till ekologisk produktion uppgick 2024 till 373 700 hektar eller 14,8 % av den totala arealen åkermark i Sverige. Jämfört med 2023 minskade arealen med 47 800 hektar. Minskningen påverkade både den omställda arealen, som sjönk med 44 300 hektar till 355 300 hektar, och arealen under omställning, som minskade med 3 500 hektar till 18 500 hektar.
+
+### Betesmark
+
+Den totala arealen betesmark (där slåtteräng ingår) som antingen var omställd eller under omställning till ekologisk produktion minskade mellan 2023 och 2024 med 6 700 hektar till 122 000 hektar. Det motsvarar 26,9 % av den totala arealen betesmark i Sverige.
+
+Den omställda arealen betesmark minskade med 6 % till 111 100 hektar mellan 2023 och 2024, medan arealen betesmark under omställning istället ökade med 9 %, till 10 900 hektar.
+
+## Antal företag med ekologiskt brukad jordbruksmark
+
+Totalt hade 3 985 företag någon form av ekologisk jordbruksmark under 2024, en minskning med 491 företag jämfört med 2023 och med 1 673 företag sedan toppåret 2019. Värt att notera är att antalet företag med *enbart* arealer under omställning har minskat varje år under de senaste åtta åren, från 570 företag 2016 till 65 företag 2024 (Figur B).
+
+Den genomsnittliga arealen ekologisk jordbruksmark har ökat i princip linjärt sedan 2009, från 87 till 124 hektar per företag. Under perioden 2009 till 2019 berodde det på att arealen ökade i högre takt än antalet företag, men sedan 2019 beror den ökade genomsnittsarealen snarare på att antalet företag har *minskat* i högre takt än den ekologiska arealen.
+
+[Förstora bilden](/images/18.2bffa287196abf7b47c267d7/1747207170293/Figur%20B.png)
+
+Figur B. Antal företag med ekologiskt brukad jordbruksmark, år 2009–2024
+
+## Länsfördelning
+
+Den största faktiska arealen ekologisk jordbruksmark hittade man under 2024 i Västra Götalands län, där 112 200 hektar brukades ekologiskt. Därefter följde Östergötlands och Värmlands län, med 52 600 respektive 34 700 hektar.
+
+De största *andelarna* (av den totala arealen jordbruksmark) hittade man däremot i Jämtlands och Värmlands län (Figur C). I dessa två län brukades mer än 30 % av jordbruksmarken ekologiskt. Även arealmässigt stora jordbrukslän som Västra Götalands och Östergötlands län hade stora andelar ekologiskt brukad jordbruksmark. Blekinge, Norrbottens och Skåne län hade lägst andelar ekologiskt brukad jordbruksmark. I dessa tre län brukades 7 % av jordbruksmarken ekologiskt.
+
+Andelen ekologiskt brukad jordbruksmark minskade i samtliga län utom Gotland mellan 2023 och 2024. Störst var minskningen i Dalarnas län, där andelen gick från 27,4 % under 2023 till 23,5 % under 2024.
+
+[Förstora bilden](/images/18.2bffa287196abf7b47c267d8/1747207170342/Figur%20C.png)
+
+Figur C. Andel ekologiskt brukad jordbruksmark i procent per län, 2024. Sorterat på total andel ekologisk areal.
+
+Fördelningen av åker- och betesmark på den ekologiska jordbruksmarken skiljer sig ganska påtagligt mellan länen (Figur D). I landet som helhet var 75 % av den ekologiska marken åkermark 2024. Den lägsta andelen återfanns i Gotlands län där 50 % var åkermark, medan den högsta andelen åkermark fanns i Västerbottens län där hela 95 % var åkermark.
+
+[Förstora bilden](/images/18.2bffa287196abf7b47c267d9/1747207170393/Figur%20D.png)
+
+Figur D. Fördelning av åker- och betesmark som andel av den totala ekologiskt brukade arealen jordbruksmark i respektive län 2024. Sorterat på andel åkermark.
+
+## Grödor på den omställda åkerarealen
+
+Tidigare i rapporten har vi tittat på den totala arealen ekologisk åkermark, som inkluderar både omställda arealer och arealer under omställning. I det här avsnittet ser vi enbart på de omställda arealerna.
+
+Undantaget ett fåtal arealmässigt små grödor minskade de omställda åkerarealerna för samtliga grödor och grödkategorier mellan 2023 och 2024. Bland de största grödorna var utvecklingen för raps, kategorin "ärter, åkerbönor, med mera" och vete noterbara med arealminskningar om 58 %, 28 % respektive 24 %.
+
+Den absoluta majoriteten av den ekologiskt omställda åkermarken utgjordes av slåtter- och betesvall, som tog 61,0 % av den ekologiska åkerarealen i anspråk 2024. Arealen slåtter- och betesvall låg med små variationer på i genomsnitt 256 000 hektar under åren 2020-2022 (Tablå A och Figur E). Mellan 2022 och 2023 minskade dock arealen abrupt, en minskning som fortsatte i något lägre takt mellan 2023 och 2024. Totalt sett utgjorde den ekologiskt omställda arealen 20,6 % av den totala svenska arealen med slåtter- och betesvall under 2024.
+
+[Förstora bilden](/images/18.2bffa287196abf7b47c267dc/1747207170527/Tabl%C3%A5%20A.png)
+
+Tablå A. Översikt av de största grödorna och grödgrupperna som odlades på den ekologiska åkermarken under 2024.
+
+Spannmål täckte sammanlagt 25,3 % av den ekologiskt omställda arealen åkermark. Den ekologiska spannmåls­arealen minskade med 19 700 hektar till 89 700 hektar mellan 2023 och 2024, en nästan fem gånger så hög minskningstakt som de föregående tre åren. Spannmåls­arealen bestod till 35 % av vete, 31 % av havre och till 22 % av korn (Tablå A och Figur E). Arealen för samtliga spannmålsgrödor minskade mellan 2023 och 2024. Den ekologiska spannmålsarealen utgjorde 9,0 % av den totala svenska spannmålsarealen 2024.
+
+[Förstora bilden](/images/18.2bffa287196abf7b47c267da/1747207170440/Figur%20E.png)
+
+Figur E. Helt omställd areal spannmål samt slåtter- och betesvall i hektar, år 2009–2024.
+
+Odlingen av raps och rybs, som framför allt består av höstraps, minskade påtagligt mellan 2023 och 2024, från 7 800 till 3 700 hektar. Arealen 2024 motsvarade 1,0 % av den totala omställda ekologiska åkerarealen och 3,9 % av den totala svenska arealen för odling av raps och rybs (Tablå A och Figur F).
+
+[Förstora bilden](/images/18.2bffa287196abf7b47c267db/1747207170481/Figur%20F.png)
+
+Figur F. Helt omställd åkerareal i träda eller med grönfoder, ärter och åkerbönor med mera, samt raps och rybs, år 2009–2024.
+
+## Tabeller
+
+I tabellerna nedan redovisas data för de två, alternativt tre, senaste åren.
+
+[**I vår statistikdatabas finns all statistik om ekologiskt brukad jordbruksmark.**](https://statistik.sjv.se/PXWeb/pxweb/sv/Jordbruksverkets%20statistikdatabas/Jordbruksverkets%20statistikdatabas__Ekologisk%20produktion__1%20Ekologiskt%20odlad%20jordbruksmark/)
+
+### Jordbruksmark
+
+- [Tabell 1. Areal ekologiskt brukad jordbruksmark per län, hektar](http://statistik.jordbruksverket.se/PXWeb/sq/2e9f0116-c7d2-4d16-bd63-fbed69b6cb08)
+- [Tabell 2. Andel ekologiskt brukad jordbruksmark per län, procent](http://statistik.jordbruksverket.se/PXWeb/sq/b07c1bd2-a71d-40aa-a6ab-9f2ecbdb6033)
+- [Tabell 3. Antal företag med ekologiskt brukad jordbruksmark per län](http://statistik.jordbruksverket.se/PXWeb/sq/89efa460-b444-4868-8f3f-6c4c6a53fa29)
+
+Stäng
+
+### Åkermark
+
+- [Tabell 4. Areal ekologiskt brukad åkermark, hektar](http://statistik.jordbruksverket.se/PXWeb/sq/8bd0c21c-c386-4d97-bcfd-5e9c4c434756)
+- [Tabell 5. Andel ekologiskt brukad åkermark, procent](http://statistik.jordbruksverket.se/PXWeb/sq/37e6f842-d8a7-4c06-97a7-8752217c43ee)
+- [Tabell 6. Antal företag med ekologiskt brukad åkermark](http://statistik.jordbruksverket.se/PXWeb/sq/dfdee48a-193c-4ea3-9a97-6ee24b1e1b4a)
+
+Stäng
+
+### Betesmark
+
+- [Tabell 7. Areal ekologiskt brukad betesmark, hektar](http://statistik.jordbruksverket.se/PXWeb/sq/06c82f80-251f-48b2-8dd4-d0424b309d22)
+- [Tabell 8. Andel ekologiskt brukad betesmark, procent](http://statistik.jordbruksverket.se/PXWeb/sq/82c3de1a-5a09-4c39-854c-20f86023b914)
+- [Tabell 9. Antal företag med ekologiskt brukad betesmark](http://statistik.jordbruksverket.se/PXWeb/sq/1efa61a1-88da-4b8a-86d5-418324719d30)
+
+Stäng
+
+### Omställd odling per gröda/grödgrupp
+
+- [Tabell 10. Omställd areal spannmål, hektar](http://statistik.jordbruksverket.se/PXWeb/sq/25850abc-6f8d-4190-9429-7105b77de959)
+- [Tabell 11. Omställd areal baljväxter, grönfoder samt slåtter- och betesvall, hektar](http://statistik.jordbruksverket.se/PXWeb/sq/77edfb93-f3ed-4e69-b08d-6c69243ef4d0)
+- [Tabell 12. Omställd areal potatis, sockerbetor, oljeväxter, hektar](http://statistik.jordbruksverket.se/PXWeb/sq/c6a25b85-3ff2-46b8-8deb-d85cf1ecb8f5)
+- [Tabell 13. Omställd areal energiskog, trädgårdsväxter, träda samt total åkermark, hektar](http://statistik.jordbruksverket.se/PXWeb/sq/1cca0df6-558f-4636-91c3-fa94889aac08)
+- [Tabell 14. Omställd areal betesmark, slåtteräng, skogsbete, fäbodbete och alvarbete, hektar](http://statistik.jordbruksverket.se/PXWeb/sq/8f378a9c-8166-4f6d-864e-2d5afdf451e5)
+
+Stäng
+
+## Kort om statistiken
+
+I detta avsnitt ges en kort beskrivning av statistikens omfattning, hur den tas fram och dess tillförlitlighet. En mer ingående beskrivning av hur statistiken tas fram och dess kvalitet finns i dokumenten ”Statistikens framställning” och ”Kvalitetsdeklaration”, som du hittar under rubriken ”Metod och kvalitet”.
+
+### Det här beskriver statistiken
+
+I denna rapport redovisar vi uppgifter om arealer jordbruksmark (åkermark, betesmark och slåtteräng) som brukas med ekologiska produktionsmetoder enligt EU:s regelverk. Marken ska vara kontrollerad av ett godkänt kontrollorgan. Statistiken är uppdelad på mark som är omställd till ekologisk produktion och mark som är under omställning till ekologisk produktion.
+
+Omställd mark betyder att de produkter som odlingen resulterar i får märkas och säljas på marknaden med EU:s logotyp för ekologisk produktion. Produkterna kan vid sidan av EU:s logotyp även vara märkta med andra logotyper (som KRAV eller Demeter). Arealerna i statistiken baseras dock helt på EU:s regler för ekologisk produktion och inte på några andra organisationers regler eller märkningar.
+
+Arealer som brukats med konventionella produktionsmetoder måste under en övergångsperiod, normalt två växtodlingssäsonger, brukas enligt regelverket för ekologisk produktion innan de kan godkännas som ”omställda”. Dessa arealer benämns i denna rapport som mark ”under omställning”.
+
+I denna statistik likställs ett företag med ett unikt kundnummer som finns registrerat vid ett godkänt kontrollorgan. Definitionen av ett företag skiljer sig från den som används i Jordbruksverkets statistikregister över samtliga jordbruksföretag, Lantbruksregistret, som i sin tur ligger till grund för en stor del av den övriga officiella statistiken på jordbruksområdet. Detta beskrivs mer ingående i avsnitt 5.3 i dokumentet "Kvalitetsdeklaration".
+
+### Så tar vi fram statistiken
+
+Uppgifterna som ligger till grund för statistiken samlar vi in från de kontrollorgan som kontrollerar att marken brukas enligt regelverket för ekologisk produktion. Dessa kontrollorgan är Kiwa Certification AB, HS Certifiering AB och SMAK Certifiering AB. Kontrollorganens uppgifter innehåller data om varje enskilt jordbruksföretag som bedriver ekologisk produktion. Uppgifterna granskas, bearbetas och sammanställs av Jordbruksverket. Information om hur vi tar fram statistiken finns i dokumentet "Statistikens framställning".
+
+Statistiken redovisas från år 2005. För åren 2005–2008 finns dock enbart underlag för att redovisa uppgifter om den totala ekologiskt brukade jordbruksmarken i riket fördelad på omställd mark och mark under omställning. För de fyra första åren har vi alltså inte uppgifter fördelade på län, åkermark och betesmark eller gröda. För dessa år finns inte heller uppgifter om antal företag med ekologiskt brukad jordbruksmark.
+
+### Statistikens tillförlitlighet
+
+Vår bedömning är att den population jordbruksföretag som statistiken ska omfatta överensstämmer väl med de företag som kontrollorganen levererar. Eventuella täckningsfel bedöms påverka statistiken i endast marginell omfattning.
+
+Mätfel och fel från bearbetningsprocessen förekommer. Det kan gälla fall där kontrollorganen till exempel får en felaktig uppgift om arealen av en viss gröda eller att en felaktig uppgift om grödkod läses in i kontrollorganens system. Vid granskning av data hittas regelbundet denna typ av fel och korrigeringar görs, ofta efter kontakt med kontrollorganen. Vår bedömning är att eventuella kvarstående fel inte påverkar de övergripande resultaten.
+
+Kvaliteten är beroende av detaljnivån i den presenterade statistiken. Statistiken om den totala jordbruksmarken bedöms hålla god kvalitet för riket och för länen. Fördelningarna på kommun eller enskilda grödor bedöms som mer osäkra.
+
+Mer information om statistikens tillförlitlighet finns i dokumentet "Kvalitetsdeklaration" under rubriken "Metod och kvalitet".
+
+### Bra att veta
+
+Jordbruksverkets officiella statistik om ekologisk produktion avseende år 2024 innefattar följande rapporter:
+
+- Ekologisk växtodling 2024, publicerad den 15 maj 2025 (denna rapport).
+
+- Ekologisk djurhållning 2024, publiceras den 17 juni 2025.
+
+- Skörd för ekologisk och konventionell odling 2024, publiceras den 18 juni 2025.
+
+- Ekologisk animalieproduktion 2024, publiceras den 27 juni 2025.
+
+- Statistik om ekologisk mjölkproduktion samt invägning av ekologiska ägg redovisas även månadsvis i rapporterna om den totala animalieproduktionen. Data uppdateras månadsvis i vår statistikdatabas.
+- Jordbruksverkets officiella statistik om totala arealer avseende år 2024 är publicerad i rapporten Jordbruksmarkens användning 2024. Slutlig statistik.
+- Statistik om ekologisk produktion i andra EU-länder finns i Eurostats statistikdatabas.
+
+## Metod och kvalitet
+
+- [Kvalitetsdeklaration pdf, 140.8 kB.](/download/18.2bffa287196abf7b47c267df/1747207170598/KD%20JO0114%202024-tga.pdf)
+
+- [Statistikens framställning pdf, 261.3 kB.](/download/18.2bffa287196abf7b47c267e0/1747207170635/STAF%20JO0114%202024-tga.pdf)
+
+## Summary in English
+
+This report contains statistics on Swedish organic farming areas, fully converted or under conversion, in 2024. The statistics covers arable land as well as pastures and meadows. Information on organic greenhouse cultivation is not included. The statistics are available as open data in the statistics database of the Swedish Board of Agriculture (link to "Statistikdatabasen" in the report header).
+
+The total organic area, including converted areas as well as areas under conversion, was 495 700 hectares in 2024, corresponding to 17 % of the total Swedish agricultural area. The organic area consisted of 75 % arable land and 25 % pastures and meadows.
+
+Compared with 2023, the total organic area decreased by 10 %. As of 2024 the organic area has decreased for five consecutive years, following more than a decade of more or less continuous increase. The decrease between 2023 and 2024 affected arable land as well as pastures and meadows, hitting all major crops and crop categories. Both converted areas and areas under conversion were affected to similar extents.
+
+The total number of holdings utilizing organic areas was 3 985 in 2024, a decrease by 491 holdings compared with 2023.
+
+About 61 and 25 % of the organic arable land was used for the two largest organic crop types temporary grasses and cereals, respectively.
+
+Hitta på sidan
+Tillbaka till toppen

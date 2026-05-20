@@ -1,6 +1,18 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
 import { parseCsvRecords } from '../src/lib/csv'
+import {
+  buildPdfOcrReviewMap,
+  isReviewedPdfQualityIssueOpen,
+  summarizePdfOcrReviews,
+  type PdfQualityIssueRow,
+} from '../src/lib/pdf-ocr-review'
+import {
+  buildUrlHealthReviewMap,
+  isReviewedUrlHealthIssueOpen,
+  summarizeUrlHealthReviews,
+  type UrlHealthIssueRow,
+} from '../src/lib/url-health-review'
 
 type BacklogRow = {
   source: 'file-coverage' | 'pdf-quality' | 'html-triage' | 'url-health'
@@ -60,6 +72,10 @@ function classifyFixGroup(source: string, problem: string, ref: string, action: 
 function main(): void {
   const root = process.cwd()
   const rows: BacklogRow[] = []
+  let closedReviewedPdfIssues = 0
+  let unappliedPdfReviews = 0
+  let closedReviewedUrlIssues = 0
+  let unappliedUrlReviews = 0
 
   const fc = parseCsv(readFileSync(join(root, 'research', 'FILE-COVERAGE.csv'), 'utf-8'))
   for (const r of fc) {
@@ -76,8 +92,33 @@ function main(): void {
   }
 
   const pq = parseCsv(readFileSync(join(root, 'research', 'PDF-QUALITY.csv'), 'utf-8'))
+  let pdfOcrReviewRows: Record<string, string>[] = []
+  try {
+    pdfOcrReviewRows = parseCsv(readFileSync(join(root, 'research', 'PDF-OCR-REVIEW.csv'), 'utf-8'))
+  } catch {
+    pdfOcrReviewRows = []
+  }
+  const pdfOcrReviewMap = buildPdfOcrReviewMap(pdfOcrReviewRows)
+  const pdfIssueRows: PdfQualityIssueRow[] = pq
+    .filter(r => r.classification !== 'ok')
+    .map(r => ({
+      path: r.path,
+      classification: r.classification,
+    }))
+  const pdfOcrReviewSummary = summarizePdfOcrReviews(pdfIssueRows, pdfOcrReviewMap)
+  closedReviewedPdfIssues = pdfOcrReviewSummary.closedReviewedIssues
+  unappliedPdfReviews = pdfOcrReviewSummary.unappliedReviews
+
   for (const r of pq) {
     if (r.classification === 'ok') continue
+    if (
+      !isReviewedPdfQualityIssueOpen(
+        { path: r.path, classification: r.classification },
+        pdfOcrReviewMap,
+      )
+    ) {
+      continue
+    }
     rows.push({
       source: 'pdf-quality',
       ref: r.path,
@@ -106,8 +147,33 @@ function main(): void {
 
   try {
     const uh = parseCsv(readFileSync(join(root, 'research', 'URL-HEALTH.csv'), 'utf-8'))
+    let reviewRows: Record<string, string>[] = []
+    try {
+      reviewRows = parseCsv(readFileSync(join(root, 'research', 'URL-HEALTH-REVIEW.csv'), 'utf-8'))
+    } catch {
+      reviewRows = []
+    }
+
+    const reviewMap = buildUrlHealthReviewMap(reviewRows)
+    const urlIssueRows: UrlHealthIssueRow[] = uh.map(r => ({
+      url: r.url,
+      source: r.source,
+      classification: r.classification,
+    }))
+    const reviewSummary = summarizeUrlHealthReviews(urlIssueRows, reviewMap)
+    closedReviewedUrlIssues = reviewSummary.closedReviewedIssues
+    unappliedUrlReviews = reviewSummary.unappliedReviews
+
     for (const r of uh) {
       if (r.classification === 'ok' || r.classification === 'redirect') continue
+      if (
+        !isReviewedUrlHealthIssueOpen(
+          { url: r.url, source: r.source, classification: r.classification },
+          reviewMap,
+        )
+      ) {
+        continue
+      }
       const priority = parseFloat(r.source_priority || '0')
       const severity: BacklogRow['severity'] =
         priority >= 4.5 ? 'HIGH' : priority >= 3 ? 'MEDIUM' : 'LOW'
@@ -208,21 +274,26 @@ function main(): void {
     '## Nåværende hovedrestanser',
     '',
     `- **SourceDoc-lokatorer:** ${groupCounts['E: missing SourceDoc']?.total ?? 0} funn. Strukturerte SourceDoc-poster regnes som dekket når de har URL, DOI, koblet Document eller lokal fil.`,
+    `- **PDF-OCR:** ${closedReviewedPdfIssues} scannede PDF-er er lukket i \`research/PDF-OCR-REVIEW.csv\` fordi OCR-tekst er arkivert eller eksisterende Document-tekst allerede er dekkende; ${unappliedPdfReviews} review-rader traff ingen aktiv PDF-quality-rad.`,
     `- **URL-helse:** ${(groupCounts['P: dead URLs']?.total ?? 0) + (groupCounts['Q: blocked URLs (403/451)']?.total ?? 0) + (groupCounts['R: timeout URLs']?.total ?? 0) + (groupCounts['S: server-error URLs']?.total ?? 0) + (groupCounts['T: other URL issues']?.total ?? 0)} funn fordelt på dead/blocked/timeout/server_error/other.`,
+    `- **URL-review:** ${closedReviewedUrlIssues} blokkerte URL-er er lukket i \`research/URL-HEALTH-REVIEW.csv\` fordi de er verifisert via nettleser, citable mirror eller lokal kildepakke; ${unappliedUrlReviews} review-rader traff ingen aktiv URL-health-rad.`,
     `- **Document.filePath:** ${rows.filter((r) => r.problem === 'missing_file_document').length} manglende dokumentfiler i denne kjøringen.`,
     `- **Orphan files:** ${groupCounts['F: orphan files']?.total ?? 0} repo-filer uten DB-rad. Dette er lavere prioritet så lenge de ikke er brukt i app eller rapport.`,
     '',
     '## Anbefalt rekkefølge for neste ryddeslice',
     '',
-    '1. **HIGH URL-funn:** start med `report_canonical`, `thesis` og `sourcedoc` før lavprioritets `document`-URL-er. `blocked` kan være botblokkering, så bytt bare til live-verifiserte erstatnings-URL-er.',
-    '2. **HTML-triage (Gruppe N):** konverter høyprioritets HTML-snapshots til Markdown slik at de kan indekseres og siteres.',
-    '3. **Scannede PDF-er (Gruppe I):** OCR de 5 gjenværende MEDIUM-filene først; low-text PDF-er kan vente hvis `Document.content` allerede er dekkende.',
-    '4. **Dead/low-priority URL-er (Gruppe P/T):** rydd bare der kilden brukes i app/rapport eller har klar ny URL.',
-    '5. **Orphan files (Gruppe F):** vurder arkivering/sletting senere; alle Document/SourceDoc-lokatorer er grønne i denne kjøringen.',
+    '1. **Åpne MEDIUM-funn:** håndter gjenværende `pdf-quality`-rad først. For skippede/korrupt-lignende PDF-er betyr dette re-nedlasting, erstatningskilde eller eksplisitt arkivbeslutning.',
+    '2. **Graph enrichment:** prioriter board-member profile gaps og company-name duplicate groups; teknisk graf-integritet er allerede grønn.',
+    '3. **Dead/low-priority URL-er (Gruppe P/T):** rydd bare der kilden brukes i app/rapport eller har klar ny URL.',
+    '4. **Orphan files (Gruppe F):** vurder arkivering/sletting senere; alle Document/SourceDoc-lokatorer er grønne i denne kjøringen.',
     '',
     '## URL-HEALTH status',
     '',
     'URL-helse er klassifisert fra `research/URL-HEALTH.csv`. `blocked` kan være reell botblokkering/paywall og må ikke automatisk tolkes som død kilde; `dead` og nettverksfeil krever ny URL, arkivkopi eller lokal kildepakke.',
+    '',
+    'Review-lukkede URL-er i `research/URL-HEALTH-REVIEW.csv` beholdes med opprinnelig kilde-URL, men tas ut av åpen backlog når det finnes eksplisitt nettleserverifikasjon, citable mirror eller lokal kildepakke. Dette er ikke det samme som å erklære CLI-sjekken grønn.',
+    '',
+    'Scannede PDF-er i `research/PDF-OCR-REVIEW.csv` beholdes som opprinnelige PDF-filer, men tas ut av åpen backlog når OCR-tekst på minst 100 ord er arkivert eller DB-innhold allerede er dekkende. Dette er ikke det samme som å erklære PDF-filen tekstbasert.',
     '',
     '## Top 30 høyest prioritet',
     '',

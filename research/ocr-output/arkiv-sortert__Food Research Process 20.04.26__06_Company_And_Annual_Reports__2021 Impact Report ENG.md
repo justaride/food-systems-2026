@@ -1,7 +1,7 @@
 # OCR Output — 2021 Impact Report ENG.pdf
 
 > Source PDF: `arkiv-sortert/Food Research Process 20.04.26/06_Company_And_Annual_Reports/2021 Impact Report ENG.pdf`
-> Generated: 2026-05-20T00:54:40.735Z
+> Generated: 2026-05-20T11:21:03.673Z
 > Tool: pdftoppm (300 dpi PNG) + tesseract -l eng+nor
 > Pages: 39 | OCR words: 7984
 

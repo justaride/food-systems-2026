@@ -1,7 +1,7 @@
 # OCR Output — drager-og-vagene.pdf
 
 > Source PDF: `arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/drager-og-vagene.pdf`
-> Generated: 2026-05-20T00:58:20.426Z
+> Generated: 2026-05-20T11:24:39.392Z
 > Tool: pdftoppm (300 dpi PNG) + tesseract -l eng+nor
 > Pages: 112 | OCR words: 30522
 

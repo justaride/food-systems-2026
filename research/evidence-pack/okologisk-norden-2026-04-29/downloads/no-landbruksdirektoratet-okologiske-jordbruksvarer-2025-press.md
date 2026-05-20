@@ -1,0 +1,89 @@
+---
+source_html: "no-landbruksdirektoratet-okologiske-jordbruksvarer-2025-press.html"
+extracted_at: "2026-05-20T11:16:17.883Z"
+extractor: "regex-fallback"
+title: "Mer økologisk mat - seminar hos Landbruksdirektoratet torsdag | Landbruksdirektoratet"
+---
+# Mer økologisk mat - seminar hos Landbruksdirektoratet torsdag
+
+24.3.2026 10:20:40 CET  | [Landbruksdirektoratet](/presserom/17848410/landbruksdirektoratet)  | Pressemelding
+
+Del
+
+**
+
+Produksjonen og salget av økologiske matvarer økte i 2025. Det viser Landbruksdirektoratets nye rapport om økologisk jordbruk som er bakteppe for [økoseminaret torsdag 26. mars](https://www.landbruksdirektoratet.no/nb/landbruksdirektoratets-seminarer-konferanser-og-kurs/seminar-om-okologisk-jordbruksproduksjon%20-2026).
+
+**
+
+Økologiske epler. Foto: Colourbox****
+
+Det skjer mye i markedet for økologisk mat og utviklingen varierer mye mellom de ulike produksjonene. Torsdag 26. mars arrangerer direktoratet et seminar om økologisk jordbruksproduksjon. [Seminaret arrangeres hos Landbruksdirektoratet i Oslo eller digitalt via Teams. Seminaret er gratis, så meld deg på her.](https://www.landbruksdirektoratet.no/nb/landbruksdirektoratets-seminarer-konferanser-og-kurs/seminar-om-okologisk-jordbruksproduksjon%20-2026)
+
+## Vekst i alle salgskanaler
+
+Økologiske matvarer for 4,3 milliarder kroner ble solgt i dagligvare i 2025 – en vekst på 17,6 prosent fra 2024.
+
+– Årets tall viser at markedet for økologisk mat er i vekst, og at norske forbrukere i økende grad etterspør produkter med tydelig opprinnelse og bærekraftig profil, sier Ingela Mohlin i Landbruksdirektoratet. Økologiske varer står for drøye to prosent av totalproduksjonen i Norge. Rapporten leveres som del av grunnlaget for årets jordbruksforhandlinger.
+
+## Mer korn på mindre areal
+
+Den økologiske kornproduksjonen steg med rundt sju prosent fra året før og endte på 16 100 tonn. Det er særlig mathvete som trekker opp, og matkornproduksjonen økte til rundt 2 500 tonn. Samtidig gikk det økologiske kornarealet ned med 1,7 prosent til 76 515 dekar.
+
+## Stabil melkeproduksjon
+
+Det ble levert 43,4 millioner liter økologisk melk i 2025, omtrent det samme som året før. Men salget av økologisk melk til meieriene økte kraftig og nådde 35 millioner liter, noe som er ny rekord. Det var ikke nok økologisk melk til å dekke etterspørselen.
+
+## Liten vekst i kjøtt
+
+Den totale produksjonen av økologisk kjøtt økte svakt til 3 135 tonn. Produksjonen av fjørfekjøtt økte mest, med 3,5 prosent, mens storfekjøttet holdt seg stabilt. Det er store forskjeller i hvor mye som blir solgt som økologisk vare: 90 prosent av svinekjøttet omsettes som økologisk, men bare 41 prosent av storfekjøttet.
+
+## Flere økologiske egg
+
+Produksjonen av økologiske egg lå på om lag 4 700 tonn i 2025, og 88 prosent ble solgt som økologiske. Østfold, Innlandet og Vestfold står for mesteparten av produksjonen. Produsentprisen økte, og økologiske egg ble betalt rundt 12,50 kroner mer per kilo enn konvensjonelle.
+
+## Ujevn utvikling for frukt og grønt
+
+Økologisk frukt og grønt holder seg på lavt nivå, med en markedsandel på 1,6 prosent. Salget av økologiske poteter falt ti prosent, mens økologiske grønnsaker på friland økte fem prosent. Gulrot er fortsatt største økologiske grønnsak. Prisene på økologiske grønnsaker steg. Omsetningen av økologiske epler falt kraftig på grunn av angrep av rognebærmøll.
+
+## Økte tilskudd
+
+Landbruksdirektoratet utbetalte 166,1 millioner kroner i produksjonstilskudd til økologisk jordbruk i 2025, opp 4,8 millioner fra året før. Fra 2026 innføres et nytt pristilskudd for økologisk grønt.
+
+Du får høre mer om utviklingen [på seminaret torsdag 26 mars.](https://www.landbruksdirektoratet.no/nb/landbruksdirektoratets-seminarer-konferanser-og-kurs/seminar-om-okologisk-jordbruksproduksjon%20-2026)
+
+## Nøkkelord
+
+[økologisk](/?search=%C3%B8kologisk)[økomat](/?search=%C3%B8komat)[bærekraft](/?search=b%C3%A6rekraft)[klimavennlig](/?search=klimavennlig)[sunn mat](/?search=sunn%20mat)
+
+## Kontakter
+
+## Pressevakt Pressevakten er betjent hverdager mellom kl. 08.00-15:45
+
+Tel: [400 21 171](tel:400 21 171) [presse@ldir.no](mailto:presse@ldir.no)
+
+## Om oss
+
+Landbruksdirektoratet gir faglige råd, iverksetter landbrukspolitikken og legger til rette for landbruket og matindustrien.
+
+## Følg pressemeldinger fra Landbruksdirektoratet
+
+Registrer deg med din e-postadresse under for å få de nyeste sakene fra Landbruksdirektoratet på e-post fortløpende. Du kan melde deg av når som helst.
+
+Registrer
+
+## Siste pressemeldinger fra Landbruksdirektoratet
+
+[## Prammingen av rein til sommerbeite er i gang 28.4.2026 12:38:16 CEST | Pressemelding Rundt 6 000–8 000 rein skal fraktes sjøveien i Troms og Finnmark i løpet av få uker. Vårens pramming skjer med et nytt skip.](/pressemelding/18880993/prammingen-av-rein-til-sommerbeite-er-i-gang?publisherId=17848410)
+
+[## Store lagre av poteter 22.4.2026 14:01:27 CEST | Pressemelding Landbruksdirektoratets lagertelling per 15. april 2026 viser at det fremdeles er god tilgang på norske poteter.](/pressemelding/18873985/store-lagre-av-poteter?publisherId=17848410)
+
+[## Ny nasjonal hjorteviltstrategi 20.4.2026 12:47:48 CEST | Pressemelding Landbruksdirektoratet har oversendt ny nasjonal strategi for forvaltning av hjortevilt til Landbruks- og matdepartementet. Den nye strategien skal bidra til en kunnskapsbasert forvaltning av hjorteviltet.](/pressemelding/18869969/ny-nasjonal-hjorteviltstrategi?publisherId=17848410)
+
+[## Bier og andre pollinatorer sliter 16.4.2026 13:10:21 CEST | Pressemelding Insektene som bestøver planter i jordbruket er i tilbakegang. Det har konsekvenser for naturmangfoldet og matproduksjonen. Nå vil forskere gjøre det enklere for bønder å ta vare på pollinatorene. Prosjektet er finansiert av Landbruksdirektoratet.](/pressemelding/18865430/bier-og-andre-pollinatorer-sliter?publisherId=17848410)
+
+[## Hogst første kvartal 2026 14.4.2026 08:23:44 CEST | Pressemelding Innmålt volum etter første kvartal 2026 viser at avvirkninga fortsatt er høy, og ligger litt over nivået på samme tidspunkt i fjor. Prisene for både sagtømmer og massevirke er på vei ned.](/pressemelding/18861462/hogst-forste-kvartal-2026?publisherId=17848410)
+
+I vårt presserom finner du alle våre siste pressemeldinger, kontaktpersoner, bilder, dokumenter og annen relevant informasjon om oss.
+
+[Besøk vårt presserom](/presserom/17848410/landbruksdirektoratet)
