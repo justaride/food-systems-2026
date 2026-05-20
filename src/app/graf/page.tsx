@@ -134,7 +134,8 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
     quality.personNameDuplicates.length > 0 ||
     quality.personKeyDuplicates.length > 0 ||
     quality.businessRelationshipDuplicates.length > 0 ||
-    quality.orphanBoardMembers.length > 0
+    quality.orphanBoardMembers.length > 0 ||
+    quality.boardMemberProfileGaps.length > 0
 
   const confidencePct =
     quality.edgeConfidenceCoverage.totalEdges > 0
@@ -177,10 +178,16 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
           severity={quality.businessRelationshipDuplicates.length > 0 ? 'warn' : 'ok'}
         />
         <QualityStat
-          label="Styremedlem uten PersonProfile"
+          label="Styremedlem uten profilside"
+          count={quality.boardMemberProfileGaps.length}
+          sub="fallback-node i graf"
+          severity={quality.boardMemberProfileGaps.length > 0 ? 'warn' : 'ok'}
+        />
+        <QualityStat
+          label="Styremedlem uten grafnode"
           count={quality.orphanBoardMembers.length}
           sub="manglende kant i graf"
-          severity={quality.orphanBoardMembers.length > 0 ? 'warn' : 'ok'}
+          severity={quality.orphanBoardMembers.length > 0 ? 'error' : 'ok'}
         />
         <QualityStat
           label="Kanter med konfidens"
@@ -260,6 +267,33 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
             {quality.orphanBoardMembers.length > 50 && (
               <li className="text-stone-400 italic">
                 … og {quality.orphanBoardMembers.length - 50} til
+              </li>
+            )}
+          </ul>
+        </div>
+      )}
+
+      {quality.boardMemberProfileGaps.length > 0 && (
+        <div className="mt-4">
+          <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
+            Styremedlemmer uten profilside ({quality.boardMemberProfileGaps.length})
+          </h4>
+          <ul className="text-xs text-stone-600 space-y-1 max-h-48 overflow-y-auto border border-stone-200 rounded p-2 bg-stone-50">
+            {quality.boardMemberProfileGaps.slice(0, 50).map((bm, i) => (
+              <li key={`${bm.companyId}:${bm.personKey}:${i}`} className="flex justify-between gap-2">
+                <span className="truncate">
+                  <Link href={`/selskap/${bm.companyId}`} className="text-stone-700 hover:underline">
+                    {bm.companyName}
+                  </Link>
+                  <span className="text-stone-400"> → </span>
+                  <span>{bm.personName}</span>
+                </span>
+                <span className="text-[10px] text-stone-400 font-mono shrink-0">{bm.personKey}</span>
+              </li>
+            ))}
+            {quality.boardMemberProfileGaps.length > 50 && (
+              <li className="text-stone-400 italic">
+                … og {quality.boardMemberProfileGaps.length - 50} til
               </li>
             )}
           </ul>

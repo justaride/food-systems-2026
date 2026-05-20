@@ -1,9 +1,12 @@
 import 'dotenv/config'
+import { execFile } from 'child_process'
 import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { join } from 'path'
+import { promisify } from 'util'
 import { parseCsvRecords } from '../src/lib/csv'
 import {
   classifyUrlStatus,
+  shouldAttemptUrlHealthFallback,
   type UrlHealthClassification as Classification,
 } from '../src/lib/url-health-classifier'
 
@@ -28,6 +31,7 @@ type HealthRow = UrlRecord & {
 
 const RATE_LIMIT_MS = 1000 // 1 req/sec to be polite
 const REQUEST_TIMEOUT_MS = 10000
+const CURL_FALLBACK_TIMEOUT_MS = 15000
 const MAX_REDIRECT_HOPS = 5
 const REQUEST_HEADERS = {
   // Several public archives/WAFs return false 5xx/429 responses to custom bot
@@ -37,6 +41,8 @@ const REQUEST_HEADERS = {
   Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,application/pdf,*/*;q=0.8',
   'Accept-Language': 'en-US,en;q=0.9,nb;q=0.8,no;q=0.7',
 }
+
+const execFileAsync = promisify(execFile)
 
 function csvEscape(value: string): string {
   return `"${String(value).replace(/"/g, '""')}"`
@@ -154,6 +160,66 @@ async function checkUrl(url: string): Promise<CheckResult> {
     finalUrl: current === url ? undefined : current,
     ms: Date.now() - start,
   }
+}
+
+async function checkUrlWithCurl(url: string): Promise<CheckResult | null> {
+  const start = Date.now()
+  try {
+    const { stdout } = await execFileAsync(
+      'curl',
+      [
+        '-L',
+        '-I',
+        '--max-time',
+        String(Math.ceil(CURL_FALLBACK_TIMEOUT_MS / 1000)),
+        '-A',
+        REQUEST_HEADERS['User-Agent'],
+        '-H',
+        `Accept: ${REQUEST_HEADERS.Accept}`,
+        '-H',
+        `Accept-Language: ${REQUEST_HEADERS['Accept-Language']}`,
+        '-o',
+        '/dev/null',
+        '-sS',
+        '-w',
+        '%{http_code}\t%{url_effective}',
+        url,
+      ],
+      { timeout: CURL_FALLBACK_TIMEOUT_MS },
+    )
+
+    const [statusText, finalUrl] = stdout.trim().split('\t')
+    const status = Number(statusText)
+    if (!Number.isFinite(status) || status === 0) return null
+
+    return {
+      status,
+      finalUrl: finalUrl && finalUrl !== url ? finalUrl : undefined,
+      ms: Date.now() - start,
+    }
+  } catch {
+    return null
+  }
+}
+
+async function checkUrlWithFallback(url: string): Promise<CheckResult> {
+  const primary = await checkUrl(url)
+  if (!shouldAttemptUrlHealthFallback(primary.status)) return primary
+
+  const fallback = await checkUrlWithCurl(url)
+  if (!fallback) return primary
+
+  const primaryClassification = classifyUrlStatus(primary.status)
+  const fallbackClassification = classifyUrlStatus(fallback.status)
+  if (
+    fallbackClassification === 'ok' ||
+    fallbackClassification === 'redirect' ||
+    (primaryClassification !== 'ok' && fallbackClassification !== primaryClassification)
+  ) {
+    return fallback
+  }
+
+  return primary
 }
 
 function distribution(rows: HealthRow[]): Record<Classification, number> {
@@ -383,7 +449,7 @@ async function main() {
 
   for (let i = 0; i < records.length; i++) {
     const rec = records[i]
-    const { status, finalUrl, ms } = await checkUrl(rec.url)
+    const { status, finalUrl, ms } = await checkUrlWithFallback(rec.url)
     const cls = classifyUrlStatus(status)
     rows.push({
       ...rec,

@@ -8,6 +8,7 @@ import {
   candidateLocalFilePaths,
   normalizeLocalFileLocator,
 } from '../src/lib/local-file-locator'
+import { hasSourceDocLocator } from '../src/lib/source-doc-locator'
 
 type Severity = 'HIGH' | 'MEDIUM' | 'LOW'
 
@@ -176,7 +177,15 @@ async function main(): Promise<void> {
     select: { id: true, slug: true, filePath: true, title: true },
   })
   const sourceDocs = await prisma.sourceDoc.findMany({
-    select: { id: true, filename: true, title: true, isDuplicate: true, documentId: true },
+    select: {
+      id: true,
+      filename: true,
+      title: true,
+      isDuplicate: true,
+      documentId: true,
+      url: true,
+      doi: true,
+    },
   })
   const reportRows = await prisma.report.findMany({
     select: { id: true, title: true, sourceUrl: true, documentId: true },
@@ -267,25 +276,35 @@ async function main(): Promise<void> {
     })
   }
 
-  // 5. SourceDoc.filename -> on-disk check (with basename fallback because many
-  // SourceDocs store only the bare filename).
+  // 5. SourceDoc locator check. Public URL/DOI, linked Document, or a resolvable
+  // local file all count as coverage; local filename fallback exists because many
+  // SourceDocs store only the bare filename.
   for (const s of sourceDocs) {
     if (s.isDuplicate) continue
-    if (s.documentId) {
-      const linkedDocumentPath = docFilePathById.get(s.documentId)
-      if (localFileExists(linkedDocumentPath)) continue
-    }
+    const linkedDocumentPath = s.documentId ? docFilePathById.get(s.documentId) : null
     const norm = normalizeReferencedPath(s.filename)
-    if (localFileExists(s.filename)) continue
     const base = norm.split(sep).pop() ?? norm
     const baseMatches = basenameIndex.get(base) ?? []
-    if (baseMatches.length > 0) continue
+    const hasLocalFile =
+      localFileExists(s.filename) ||
+      localFileExists(linkedDocumentPath) ||
+      baseMatches.length > 0
+    if (
+      hasSourceDocLocator({
+        url: s.url,
+        doi: s.doi,
+        documentId: s.documentId,
+        hasLocalFile,
+      })
+    ) {
+      continue
+    }
     findings.push({
       ref: s.id,
       entityType: 'SourceDoc',
       problem: 'missing_file_sourcedoc',
       severity: 'MEDIUM',
-      suggestedAction: `Restore file at "${s.filename}" or update SourceDoc.filename to actual location`,
+      suggestedAction: `Add SourceDoc.url/doi, link a Document, or restore file at "${s.filename}"`,
       priority: null,
     })
   }
@@ -464,7 +483,7 @@ async function main(): Promise<void> {
     '',
     `- Scanned **${allFiles.length}** files (.pdf, .md) under \`research/\`, excluding \`_plans/\`, \`_status/\`, \`intake/\`, and the meta/index docs at the root.`,
     `- Cross-referenced ${documents.length} \`Document\`, ${sourceDocs.length} \`SourceDoc\`, and ${seedReports.length} seed Reports (plus their supportingSources).`,
-    '- `SourceDoc.filename` is often a bare filename (no path); the script uses a basename index over `research/` to resolve them, so a SourceDoc is only flagged when no file with that basename exists anywhere under `research/`.',
+    '- `SourceDoc` locator coverage accepts URL, DOI, linked `Document`, or a resolvable local file. `SourceDoc.filename` is often a bare filename (no path); the script uses a basename index over `research/` as the local-file fallback.',
     '- A `Document` missing-file finding is HIGH severity if the linked seed Report/Thesis has KI-PRIORITY ≥ 4.0; otherwise MEDIUM. Documents without any seed link (e.g. raw imports) default to MEDIUM.',
     '- Duplicate detection groups by SHA256 from `pdf-katalog.json` and only flags groups with ≥2 distinct `Document` records.',
   ].join('\n')

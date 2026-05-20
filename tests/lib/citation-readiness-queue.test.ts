@@ -3,6 +3,7 @@ import { describe, it } from 'node:test'
 import {
   buildCitationReadinessQueue,
   formatCitationReadinessQueueCsv,
+  hasResolvedReportSourceUrlException,
   isMissingExternalVerificationMetadata,
   priorityForCitationQueueItem,
 } from '../../src/lib/citations/citation-readiness-queue'
@@ -79,6 +80,44 @@ describe('citation readiness queue helpers', () => {
         excludedFromExternalUse: true,
       }),
       'P2',
+    )
+  })
+
+  it('does not keep reviewed internal report sourceUrl exceptions in the open queue', () => {
+    assert.equal(
+      hasResolvedReportSourceUrlException({
+        provenanceType: 'internal_synthesis',
+        supportingSourceCount: 1,
+      }),
+      true,
+    )
+    assert.equal(
+      hasResolvedReportSourceUrlException({
+        provenanceType: 'internal_register',
+        supportingSourceCount: 1,
+      }),
+      true,
+    )
+    assert.equal(
+      hasResolvedReportSourceUrlException({
+        provenanceType: 'composite_source',
+        supportingSourceCount: 2,
+      }),
+      true,
+    )
+    assert.equal(
+      hasResolvedReportSourceUrlException({
+        provenanceType: 'blocked_source',
+        supportingSourceCount: 2,
+      }),
+      false,
+    )
+    assert.equal(
+      hasResolvedReportSourceUrlException({
+        provenanceType: 'internal_synthesis',
+        supportingSourceCount: 0,
+      }),
+      false,
     )
   })
 

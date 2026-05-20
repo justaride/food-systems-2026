@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/db'
+import { buildBoardMemberGraphArtifacts } from '@/lib/graph-board-members'
 import { isMissingPrismaTable } from './prisma-errors'
 
 export type GraphNode = {
@@ -31,6 +32,7 @@ export type GraphQualityReport = {
   personKeyDuplicates: DuplicateGroup[]
   businessRelationshipDuplicates: DuplicateGroup[]
   orphanBoardMembers: Array<{ companyId: string; companyName: string; personKey: string; personName: string }>
+  boardMemberProfileGaps: Array<{ companyId: string; companyName: string; personKey: string; personName: string }>
   edgeConfidenceCoverage: {
     totalEdges: number
     withConfidence: number
@@ -292,7 +294,16 @@ export async function getFullGraph(): Promise<GraphData> {
       select: { id: true, companyId: true, propertyType: true, municipality: true, selfLeased: true, tenantCompanyId: true, source: true, metadata: true },
     }),
     prisma.boardMember.findMany({
-      select: { id: true, companyId: true, personKey: true, personName: true, role: true },
+      select: {
+        id: true,
+        companyId: true,
+        personKey: true,
+        personName: true,
+        role: true,
+        source: true,
+        sourceUrl: true,
+        verifiedAt: true,
+      },
     }).catch((error) => {
       if (isMissingPrismaTable(error, 'BoardMember')) return []
       throw error
@@ -303,6 +314,13 @@ export async function getFullGraph(): Promise<GraphData> {
   const publicOwnershipEdges = ownershipEdges.filter((edge) => !isBlockedExternalGraphSource(edge.source))
   const publicBizRelEdges = bizRelEdges.filter((edge) => !isBlockedExternalGraphSource(edge.source))
   const publicProperties = properties.filter((property) => !isBlockedExternalGraphSource(property.source))
+  const companyById = new Map(companies.map(c => [c.id, c]))
+  const boardMemberGraph = buildBoardMemberGraphArtifacts({
+    boardMembers,
+    personProfiles,
+    companyIds: companyIdSet,
+    companyNamesById: new Map(companies.map((company) => [company.id, company.name])),
+  })
 
   const nodes: GraphNode[] = [
     ...docs.map(d => ({
@@ -341,6 +359,7 @@ export async function getFullGraph(): Promise<GraphData> {
       tags: p.tags,
       href: `/personer/${encodeURIComponent(p.personKey)}`,
     })),
+    ...boardMemberGraph.fallbackPersonNodes,
     ...publicProperties.map(p => ({
       id: p.id,
       label: `${p.propertyType}${p.municipality ? ` (${p.municipality})` : ''}`,
@@ -391,6 +410,7 @@ export async function getFullGraph(): Promise<GraphData> {
       }
     }),
     ...personEdges,
+    ...boardMemberGraph.edges,
     ...publicProperties.map((p) => {
       const { confidence, sourceLabel } = inferConfidence(p.metadata, p.source)
       return {
@@ -448,11 +468,11 @@ export async function getFullGraph(): Promise<GraphData> {
       ids: v.map((_, i) => `${key}#${i}`),
     }))
 
-  // Orphan board members: boardMember.personKey has no matching PersonProfile
-  const personKeySet = new Set(personProfiles.map(p => p.personKey))
-  const companyById = new Map(companies.map(c => [c.id, c]))
+  // Orphan board members: rows that still cannot be represented in the graph
+  // because their company endpoint is missing. Missing PersonProfile rows get
+  // fallback person nodes and are tracked separately as profile gaps.
   const orphanBoardMembers = boardMembers
-    .filter((bm) => !personKeySet.has(bm.personKey))
+    .filter((bm) => !companyIdSet.has(bm.companyId))
     .map((bm) => ({
       companyId: bm.companyId,
       companyName: companyById.get(bm.companyId)?.name ?? bm.companyId,
@@ -469,6 +489,7 @@ export async function getFullGraph(): Promise<GraphData> {
     personKeyDuplicates,
     businessRelationshipDuplicates,
     orphanBoardMembers,
+    boardMemberProfileGaps: boardMemberGraph.boardMemberProfileGaps,
     edgeConfidenceCoverage: {
       totalEdges: edges.length,
       withConfidence: edgesWithConfidence,

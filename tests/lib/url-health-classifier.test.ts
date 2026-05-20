@@ -1,6 +1,9 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
-import { classifyUrlStatus } from '@/lib/url-health-classifier'
+import {
+  classifyUrlStatus,
+  shouldAttemptUrlHealthFallback,
+} from '@/lib/url-health-classifier'
 
 describe('URL health classifier', () => {
   it('treats successful 2xx responses as ok for source liveness', () => {
@@ -20,5 +23,13 @@ describe('URL health classifier', () => {
     assert.equal(classifyUrlStatus('error: ENOTFOUND'), 'dead')
     assert.equal(classifyUrlStatus('timeout'), 'timeout')
     assert.equal(classifyUrlStatus('error: unexpected TLS alert'), 'other')
+  })
+
+  it('tries a secondary live check only for ambiguous or tool-sensitive failures', () => {
+    assert.equal(shouldAttemptUrlHealthFallback(403), true)
+    assert.equal(shouldAttemptUrlHealthFallback(500), true)
+    assert.equal(shouldAttemptUrlHealthFallback('timeout'), true)
+    assert.equal(shouldAttemptUrlHealthFallback(404), false)
+    assert.equal(shouldAttemptUrlHealthFallback(200), false)
   })
 })

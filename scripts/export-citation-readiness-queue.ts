@@ -6,6 +6,7 @@ import { PrismaPg } from '@prisma/adapter-pg'
 import {
   buildCitationReadinessQueue,
   formatCitationReadinessQueueCsv,
+  hasResolvedReportSourceUrlException,
   isMissingExternalVerificationMetadata,
   type CitationReadinessQueueInput,
 } from '../src/lib/citations/citation-readiness-queue'
@@ -129,7 +130,7 @@ async function main() {
     }),
     prisma.report.findMany({
       where: { sourceUrl: null },
-      select: { id: true, title: true, provenanceType: true },
+      select: { id: true, title: true, provenanceType: true, supportingSources: true },
     }),
   ])
 
@@ -228,6 +229,17 @@ async function main() {
   }
 
   for (const report of reportsWithoutUrl) {
+    if (
+      hasResolvedReportSourceUrlException({
+        provenanceType: report.provenanceType,
+        supportingSourceCount: Array.isArray(report.supportingSources)
+          ? report.supportingSources.length
+          : 0,
+      })
+    ) {
+      continue
+    }
+
     const excludedFromExternalUse = report.provenanceType === 'blocked_source'
     queueInputs.push({
       entityType: 'Report',

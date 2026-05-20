@@ -34,3 +34,13 @@ export function classifyUrlStatus(status: number | string): UrlHealthClassificat
   if (status >= 500 && status < 600) return 'server_error'
   return 'other'
 }
+
+export function shouldAttemptUrlHealthFallback(status: number | string) {
+  const classification = classifyUrlStatus(status)
+  return (
+    classification === 'blocked' ||
+    classification === 'timeout' ||
+    classification === 'server_error' ||
+    classification === 'other'
+  )
+}

@@ -13,7 +13,8 @@ The implementation plan is:
 
 - Working directory: `/Users/gabrielfreeman/Documents/Food Systems 2026`
 - Branch: `main`
-- Current synced HEAD: `a88f8f1 fix(citations): keep blocked internal markers non-external`
+- Base before current quality-pass commit:
+  `f302ab3 docs: prepare next citable quality tranche`
 - Remote tracking branch: `origin/main`
 - Merged PRs:
   - PR #60: integrated data-quality hardening and citable knowledge-base gates
@@ -26,9 +27,11 @@ The implementation plan is:
   `data-quality-hardening-2026-05-19`, and
   `fix/internal-blocked-citation-refresh-2026-05-20` were deleted.
 - Current operating status: strict source/citation gates are green. The
-  readiness queue still tracks 11 P2 residual report rows: one intentionally
-  `blocked_source` report and 10 internal/composite/register reports without a
-  single source URL.
+  readiness queue now tracks 1 P2 residual report row: the intentionally
+  `blocked_source` `agrianalyse-bondens-andel-2025` report. The 10
+  internal/composite/register reports without a single source URL are reviewed
+  sourceUrl exceptions because they have explicit `supportingSources`
+  bibliographies.
 
 ## Historical Baseline From Initial Live Audit
 
@@ -447,8 +450,8 @@ Latest continuation verification:
   `citable_with_note=2421`, `internal_context=41`, `blocked_unsourced=0`,
   `FieldCitation=244304`, and external blocking issues `0`. Current `main`
   coverage is recorded in the final update below.
-- `npm run research:citation-readiness-queue` passed and wrote 11 rows: P0 0,
-  P1 0, P2 11, P3 0.
+- `npm run research:citation-readiness-queue` passed and wrote 1 row: P0 0,
+  P1 0, P2 1, P3 0.
 - `npm run audit:citable` passed end to end.
 - `npm run research:citable-acceptance-pack` passed and still reports 7 of 12
   cite-ready answers, with 5 blocked fail-closed answers.
@@ -466,9 +469,10 @@ Current operating status:
 - The `agrianalyse-bondens-andel-2025` queue item is explicitly marked
   `blocked_source`; it is now P2 because it is excluded from external evidence
   use unless a real source locator is added later.
-- The other 10 P2 queue items are internal/composite reports without one single
-  URL. They are not strict audit failures, but should be reviewed before any
-  claim of blanket public-source completeness.
+- The other 10 former P2 queue items are internal/composite/register reports
+  without one single URL. They are not strict audit failures and no longer stay
+  in the open readiness queue because their `provenanceType` decisions and
+  `supportingSources` bibliographies are explicit.
 
 ## Final Main Update After PR #60 And PR #61
 
@@ -501,20 +505,55 @@ Current verified local DB citation coverage:
 
 Final verification on current `main`:
 
+- `npm test`: passed, 176 tests across 40 suites.
+- `npm run lint`: passed.
 - `npm run db:refresh:source-citation-readiness`: passed, 2,698 rows scanned,
   0 rows to update.
+- `npm run db:audit`: passed with documented warnings only.
+- `npm run db:audit:strict-sources`: passed.
 - `npm run audit:citable`: passed end to end.
 - `npm run research:citable-acceptance-pack`: passed, 7 of 12 answers
   cite-ready and 5 fail-closed blocked.
+- `npm run compute-file-coverage`: passed, 1,264 candidate files scanned, 310
+  findings: 0 HIGH, 0 MEDIUM, 310 LOW. SourceDoc locator findings are now 0.
+- `npm run db:check-urls -- --csv-only`: passed, 600 unique URLs checked in
+  821.0s: 506 ok, 2 redirect, 41 dead, 49 blocked, 0 timeout, 0 server_error,
+  2 other.
+- `npm run build-remediation-backlog`: passed, 481 findings: 5 HIGH, 23
+  MEDIUM, 453 LOW.
+- `npm run graph:audit`: passed, 41,072 nodes, 1,641 edges, 0 missing endpoint
+  edges, 0 duplicate node ids, 0 orphan board-member graph rows, 187
+  board-member profile gaps, and 34.8 percent confidence coverage.
+- `npm run build`: passed; build-generated timestamp-only chart-metric diffs were
+  cleaned afterwards.
 - `git diff --check`: passed.
-- `git status --short --branch`: `## main...origin/main`.
+- `git status --short --branch`: expected clean after this quality-pass commit;
+  rerun in the next session to verify no local drift.
+
+## Current Tranche Update
+
+The follow-on quality pass from this handoff is complete for the originally
+listed work queue:
+
+- Citation-readiness P2 queue remains at 1 row:
+  `agrianalyse-bondens-andel-2025`, intentionally blocked/excluded.
+- The 10 HIGH URL-health rows were rechecked with curl fallback. Five were
+  resolved as tool-sensitive false positives or transient endpoint failures;
+  five remain as real `blocked` access rows: Civita, Salford Worktribe, and
+  three Skemman thesis URLs.
+- The 42 MEDIUM SourceDoc locator rows are closed. SourceDoc coverage now
+  accepts URL, DOI, linked `Document`, or resolvable local file consistently.
+- Graph board-member orphan rows are closed by fallback person nodes.
+  Remaining graph debt is enrichment-only: 187 board-member rows lack full
+  `PersonProfile` pages, and 230 company-name duplicate groups still need
+  review.
 
 ## Exact Restart Prompt
 
 Use this in the next session:
 
 ```text
-Vi er i /Users/gabrielfreeman/Documents/Food Systems 2026 på `main`, synket til origin/main etter PR #60 og PR #61. Citable knowledge-base gates er merget, strict source/citation audit er grønn, og lokal DB er oppdatert. Start med `git status --short --branch`, `npm run db:refresh:source-citation-readiness`, `npm run audit:citable`, og `npm run research:citable-acceptance-pack`. Deretter jobb gjennom det som står igjen: 11 P2 citation-readiness-queue-rader, 10 HIGH URL-health/remediation-backlog-funn, 42 MEDIUM SourceDoc-lokatorer, og graph quality-gjeld. Ikke finn opp eller inferer nye kilde-URL-er; bruk bare eksisterende repo-/database-metadata, live-verifiserte kilder eller dokumentert evidens.
+Vi er i /Users/gabrielfreeman/Documents/Food Systems 2026 på `main`, etter PR #60/#61 og etter committen som fullførte kvalitetspasset fra handoffen. Citable knowledge-base gates er merget, strict source/citation audit er grønn, og lokal DB er oppdatert. Kvalitetspasset reduserte citation-readiness-køen til 1 P2 (`agrianalyse-bondens-andel-2025`), SourceDoc-lokatorfunn til 0, HIGH URL-health til 5 blokkerte tilgangsfunn, og graph orphan board-member rows til 0. Start med `git status --short --branch`, `npm test`, `npm run db:audit:strict-sources`, `npm run audit:citable`, `npm run build-remediation-backlog`, og `npm run graph:audit`. Deretter jobb med 5 HIGH URL-health blockers (Civita, Salford Worktribe, Skemman x3), 18 MEDIUM HTML-to-Markdown-ekstraksjoner, 5 MEDIUM scanned-PDF/OCR-funn, og graph enrichment-gjeld (187 board-member profile gaps + 230 company-name duplicate groups). Ikke finn opp eller inferer nye kilde-URL-er; bruk bare eksisterende repo-/database-metadata, live-verifiserte kilder eller dokumentert evidens.
 ```
 
 ## First Commands In New Session
@@ -546,29 +585,27 @@ Expected:
 - `npm run audit:citable-reports` should pass.
 - `npm run research:citable-acceptance-pack` should pass and report 7/12
   cite-ready, 5 blocked unless acceptance criteria are intentionally changed.
-- `npm run graph:audit` should pass, but low edge confidence is a quality
-  limitation, not proof that graph claims are externally citable.
-- `research/citation-readiness-queue-2026-05-20.csv` should still have 11 P2
-  rows and no P0/P1 rows unless new evidence or policy decisions were added.
+- `npm run graph:audit` should pass. Current expected graph audit has 0 orphan
+  board-member graph rows and 187 board-member profile gaps.
+- `research/citation-readiness-queue-2026-05-20.csv` should still have 1 P2
+  row and no P0/P1 rows unless new evidence or policy decisions were added.
 
 ## Next Session Work Queue
 
 Work through the remaining items in this order:
 
-1. Review the 11 P2 citation-readiness rows:
-   - keep `agrianalyse-bondens-andel-2025` excluded unless a real direct source
-     locator is found;
-   - decide whether the 10 internal/composite/register reports should stay as
-     internal context or receive explicit supporting-source bibliographies.
-2. Work the 10 HIGH URL-health findings from `research/REMEDIATION-BACKLOG.md`:
-   Civita, Salford Worktribe, Skemman, Konkurrensverket PDFs, LUT handles and
-   the URN timeout/server-error item. Live-verify before changing any URL.
-3. Work the 42 MEDIUM `missing_file_sourcedoc` findings by linking SourceDoc
-   rows to existing `Document` rows, existing files, or verified URLs.
-4. Decide a graph-quality tranche:
-   edge confidence coverage remains 0.6 percent, there are 230 duplicate
-   company-name groups, and 187 board-member graph rows without matching
-   person-profile graph nodes.
+1. Keep the remaining P2 citation-readiness row
+   `agrianalyse-bondens-andel-2025` excluded unless a real direct source
+   locator is found.
+2. Work the 5 remaining HIGH URL-health findings from
+   `research/REMEDIATION-BACKLOG.md`: Civita, Salford Worktribe, and Skemman
+   (`johannsson-2011`, `sigurdardottir-2017`, `burgherr-2019`). Live-verify
+   before changing any URL; blocked alone is not proof that the source is dead.
+3. Work the 23 MEDIUM remediation rows: 18 HTML-to-Markdown extractions and 5
+   scanned-PDF/OCR findings.
+4. Decide the next graph-quality tranche: 187 board-member profile gaps and 230
+   company-name duplicate review groups remain, while graph endpoint integrity
+   is clean.
 5. Re-run the operator sequence and update this handoff/status file before
    committing any next tranche.
 
@@ -609,10 +646,12 @@ The third milestone is complete:
 16. Refresh stale citation readiness from existing locators, backfill missing
     field claim text, and verify that strict source/citation gates pass.
 
-Continue with residual readiness-queue review, not strict citation remediation.
-The strict-source source-label groups and strict citation coverage blockers are
-closed. The residual queue is now a P2 policy/content-review queue: one
-`blocked_source` report and 10 internal/composite reports without a single URL.
+Continue with the five residual blocked URL-health rows and MEDIUM extraction
+work, not strict citation remediation. The strict-source source-label groups,
+strict citation coverage blockers, SourceDoc locator queue, and board-member
+graph orphan rows are closed. The residual readiness queue is one P2
+policy/content-review item: the `agrianalyse-bondens-andel-2025`
+`blocked_source` report.
 
 ## What Counts As Ready For External Use
 

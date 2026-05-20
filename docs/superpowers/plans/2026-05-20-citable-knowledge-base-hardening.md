@@ -660,7 +660,18 @@ Task 9 status on 2026-05-20:
 - `check-urls.ts` now treats all HTTP 2xx statuses as `ok` and uses a browser-like request profile to avoid false 500/429 results from public archives that reject custom bot user agents.
 - OCR processed all 5 scanned PDFs from the quality report: 4 were archived in `research/ocr-output/` and 1 1 KB RASTECH file was skipped as likely corrupt. No `Document.content` row was overwritten because no matching document needed an OCR replacement.
 - File coverage was refreshed with 0 HIGH findings: 42 `missing_file_sourcedoc` remain MEDIUM, 307 orphan files remain LOW, 1 broken supporting source remains LOW, and 1 duplicate file/separate records finding remains LOW.
-- The final remediation backlog has 535 findings: 10 HIGH, 65 MEDIUM, and 460 LOW. The remaining HIGH items are URL-health findings only: blocked/timeout/server-error checks for Civita, Salford Worktribe, Skemman, Konkurrensverket PDFs, and transient LUT/URN checks. These are documented as residual live-access blockers, not unresolved local-file blockers.
+- Follow-on quality pass update: `check-urls.ts` now uses curl fallback for
+  tool-sensitive blocked/timeout/server-error results. The refreshed URL run
+  checked 600 unique URLs: 506 ok, 2 redirect, 41 dead, 49 blocked, 0 timeout,
+  0 server_error, and 2 other.
+- Follow-on quality pass update: SourceDoc locator coverage now accepts URL,
+  DOI, linked `Document`, or resolvable local file. `npm run
+  compute-file-coverage` now reports 310 findings: 0 HIGH, 0 MEDIUM, 310 LOW;
+  `missing_file_sourcedoc` is 0.
+- The current remediation backlog has 481 findings: 5 HIGH, 23 MEDIUM, and 453
+  LOW. The remaining HIGH items are URL-health access blockers only: Civita,
+  Salford Worktribe, and three Skemman thesis URLs. These are documented as
+  residual live-access blockers, not unresolved local-file blockers.
 
 ## Task 10: Fail-Closed External Export And UI Use
 
@@ -1091,13 +1102,21 @@ Task 16 status on 2026-05-20:
 - Focused Task 16 tests passed; because the repo test script includes
   `tests/**/*.test.ts`, the latest focused command executed the full suite and
   reported 167 tests passing.
+- Final full `npm test` after the follow-on URL, SourceDoc and graph quality pass
+  reported 176 tests passing across 40 suites.
 - `npm run db:audit:strict-sources` passed with 0 external blocking citation
   issues.
-- `npm run research:citation-readiness-queue` wrote 11 rows: P0 0, P1 0, P2
-  11, P3 0.
+- `npm run research:citation-readiness-queue` wrote 1 row: P0 0, P1 0, P2
+  1, P3 0, after reviewed internal/composite/register report sourceUrl
+  exceptions with explicit `supportingSources` were removed from the open
+  queue.
 - `npm run audit:citable` passed end to end.
 - Strict source/citation coverage is no longer a commit blocker. The residual
   queue is a P2 policy/content-review queue, not a strict audit failure.
+- Follow-on graph quality pass: board-member graph orphan rows are now 0 after
+  fallback person nodes were added for board members without full
+  `PersonProfile` rows. `npm run graph:audit` reports 41,072 nodes, 1,641
+  edges, 187 board-member profile gaps, and 34.8 percent edge confidence.
 
 ## Acceptance Criteria
 

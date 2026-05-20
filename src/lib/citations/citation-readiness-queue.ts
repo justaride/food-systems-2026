@@ -44,6 +44,23 @@ export type CitationReadinessQueueRow = {
   notes: string
 }
 
+const RESOLVABLE_REPORT_SOURCE_URL_EXCEPTION_TYPES = new Set([
+  'internal_synthesis',
+  'internal_register',
+  'composite_source',
+])
+
+export function hasResolvedReportSourceUrlException(input: {
+  provenanceType?: string | null
+  supportingSourceCount?: number | null
+}) {
+  return (
+    typeof input.provenanceType === 'string' &&
+    RESOLVABLE_REPORT_SOURCE_URL_EXCEPTION_TYPES.has(input.provenanceType) &&
+    (input.supportingSourceCount ?? 0) > 0
+  )
+}
+
 function booleanText(value: boolean | undefined) {
   return value ? 'yes' : 'no'
 }

@@ -89,6 +89,7 @@ async function main() {
           personKeyDuplicateGroups: graph.quality.personKeyDuplicates.length,
           businessRelationshipDuplicateGroups: graph.quality.businessRelationshipDuplicates.length,
           orphanBoardMembers: graph.quality.orphanBoardMembers.length,
+          boardMemberProfileGaps: graph.quality.boardMemberProfileGaps.length,
           edgeConfidenceCoverage: graph.quality.edgeConfidenceCoverage,
         }
       : undefined,
@@ -97,6 +98,7 @@ async function main() {
       missingEndpointEdges: missingEdges.slice(0, 20),
       companyNameDuplicates: graph.quality?.companyNameDuplicates.slice(0, 10) ?? [],
       orphanBoardMembers: graph.quality?.orphanBoardMembers.slice(0, 10) ?? [],
+      boardMemberProfileGaps: graph.quality?.boardMemberProfileGaps.slice(0, 10) ?? [],
     },
   }
 

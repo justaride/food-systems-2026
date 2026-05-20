@@ -2,7 +2,7 @@
 
 Date: 2026-05-20
 Branch: `main`
-Current commit: `a88f8f1 fix(citations): keep blocked internal markers non-external`
+Base before current quality-pass commit: `f302ab3 docs: prepare next citable quality tranche`
 
 ## Purpose
 
@@ -28,10 +28,12 @@ npm run build
 
 Current note: PR #60 and PR #61 are merged to `main`. `npm run
 db:audit:strict-sources` now passes after citation coverage remediation and the
-post-merge internal-marker fix. The readiness queue still tracks 11 P2 residual
-report rows: one intentionally blocked report source and 10
-internal/composite/register reports without a single URL. These are not strict
-external-citation blockers.
+post-merge internal-marker fix. The readiness queue now tracks 1 P2 residual
+report row: the intentionally blocked `agrianalyse-bondens-andel-2025` source.
+The 10 internal/composite/register reports without a single URL are reviewed
+sourceUrl exceptions because they have explicit `provenanceType` and
+`supportingSources` bibliographies. These are not strict external-citation
+blockers.
 
 ## Current Main Verification After PR #60 And PR #61
 
@@ -39,10 +41,16 @@ This section supersedes the historical milestone counts below.
 
 | Command | Result | Notes |
 |---|---:|---|
-| `git status --short --branch` | clean | `## main...origin/main`. |
+| `git status --short --branch` | expected clean after commit | Branch is `main`; rerun after checkout to verify no local drift. |
+| `npm test` | passed | 176 tests passed across 40 suites. |
+| `npm run lint` | passed | ESLint completed without reported issues. |
 | `npm run db:refresh:source-citation-readiness` | passed | 2,698 `SourceCitation` rows scanned, 0 rows to update. |
+| `npm run db:audit` | passed | Enforced integrity checks passed; warnings remain documented below. |
+| `npm run db:audit:strict-sources` | passed | Strict source/citation gate exits 0. |
 | `npm run audit:citable` | passed | `db:audit`, strict `audit:citations`, citable report audit, and queue export all completed with exit 0. |
 | `npm run research:citable-acceptance-pack` | passed | Regenerated acceptance artifacts; 7 of 12 answers are cite-ready and 5 are fail-closed blocked. |
+| `npm run graph:audit` | passed | 41,072 nodes, 1,641 edges, 0 orphan board-member graph rows, 187 board-member profile gaps, 34.8 percent edge confidence. |
+| `npm run build` | passed | Prisma generation, chart metric computation, TypeScript, and Next.js production build passed; timestamp-only chart-metric diffs were cleaned afterwards. |
 | `git diff --check` | passed | No whitespace errors reported. |
 
 Current strict citation coverage:
@@ -64,11 +72,12 @@ the local repair moved those 36 rows to `internal_context`.
 
 Current residual work queue:
 
-- Citation readiness queue: P0 0, P1 0, P2 11, P3 0.
-- Remediation backlog: 535 findings total: 10 HIGH URL-health findings, 65
-  MEDIUM findings, and 460 LOW findings.
-- Graph quality: technical graph audit passes, but edge-confidence coverage is
-  still 0.6 percent.
+- Citation readiness queue: P0 0, P1 0, P2 1, P3 0.
+- Remediation backlog: 481 findings total: 5 HIGH URL-health findings, 23
+  MEDIUM findings, and 453 LOW findings. SourceDoc locator findings are 0.
+- Graph quality: technical graph audit passes. Board-member graph orphans are
+  0 after fallback person nodes; 187 board-member rows still lack full
+  `PersonProfile` pages. Edge-confidence coverage is 34.8 percent.
 
 ## Baseline Commands
 
@@ -407,10 +416,13 @@ Fresh continuation verification:
 | `npm run db:backfill:field-citation-claim-text` | passed | Idempotence check after apply: 0 rows scanned and 0 rows to update. |
 | `npm run db:refresh:source-citation-readiness` | passed | Current-main idempotence check: 2,698 rows scanned, 0 rows to update. |
 | `npm run db:audit:strict-sources` | passed | Current-main Citation Coverage: `SourceCitation=2698`, `citable_external=153`, `citable_with_note=2433`, `internal_context=112`, `blocked_unsourced=0`, `FieldCitation=244517`, external blocking issues `0`. |
-| `npm run research:citation-readiness-queue` | passed | Wrote 11 rows: P0 0, P1 0, P2 11, P3 0. The `agrianalyse-bondens-andel-2025` `blocked_source` report is explicitly excluded from external evidence use and stays in P2. |
+| `npm run research:citation-readiness-queue` | passed | Wrote 1 row: P0 0, P1 0, P2 1, P3 0. The `agrianalyse-bondens-andel-2025` `blocked_source` report is explicitly excluded from external evidence use and stays in P2. |
 | `npm run audit:citable` | passed | `db:audit`, strict `audit:citations`, citable report audit, and queue export all completed with exit 0. |
 | `npm run research:citable-acceptance-pack` | passed | Regenerated acceptance artifacts; 7 of 12 answers are cite-ready and 5 are blocked. |
-| `npm run graph:audit` | passed | Technical graph integrity passed; edge confidence coverage remains 0.6 percent. |
+| `npm run compute-file-coverage` | passed | 1,264 candidate files scanned; 310 findings: 0 HIGH, 0 MEDIUM, 310 LOW. SourceDoc locator findings are 0. |
+| `npm run db:check-urls -- --csv-only` | passed | 600 unique URLs checked in 821.0s: 506 ok, 2 redirect, 41 dead, 49 blocked, 0 timeout, 0 server_error, 2 other. |
+| `npm run build-remediation-backlog` | passed | 481 findings: 5 HIGH, 23 MEDIUM, 453 LOW. Remaining HIGH rows are blocked URL access only. |
+| `npm run graph:audit` | passed | 41,072 nodes, 1,641 edges, 0 missing endpoint edges, 0 duplicate node ids, 0 orphan board-member graph rows, 187 board-member profile gaps, and 34.8 percent confidence coverage. |
 | `npm run build` | passed | Production build passed; Next.js repeated the known multiple-lockfile/worktree-root warning. |
 | `git diff --check` | passed | No whitespace errors reported. |
 
@@ -422,18 +434,26 @@ Current citation-readiness queue:
 
 - P0: 0 rows.
 - P1: 0 rows.
-- P2: 11 rows: one intentionally blocked report source
-  (`agrianalyse-bondens-andel-2025`) plus 10 internal/composite reports with no
-  single source URL.
+- P2: 1 row: the intentionally blocked report source
+  `agrianalyse-bondens-andel-2025`.
 - P3: 0 rows.
+
+The 10 internal/composite/register report rows without a single source URL are
+now treated as reviewed sourceUrl exceptions when they have explicit
+`supportingSources`. They stay fail-closed or citable-with-note according to
+their provenance and citation evaluation, but they no longer appear in the open
+readiness queue.
 
 Recommended next tranche:
 
 1. Review whether `agrianalyse-bondens-andel-2025` should remain an explicitly
    excluded P2 report-source queue item or receive a real source locator later.
-2. Decide whether the 10 internal/composite reports without a single URL should
-   stay as P2 queue items or receive explicit supporting-source bibliographies.
-3. Re-run the full operator sequence after any content or public-surface edits.
+2. Work the 5 remaining HIGH URL-health/remediation-backlog findings with live
+   verification before changing any URL. Current HIGH rows are Civita, Salford
+   Worktribe, and three Skemman thesis URLs.
+3. Work the 23 MEDIUM non-SourceDoc remediation rows: 18 HTML-to-Markdown
+   extractions and 5 scanned-PDF/OCR issues.
+4. Re-run the full operator sequence after any content or public-surface edits.
 
 ## Schema Migration Discovery
 
@@ -477,15 +497,19 @@ The strict audit also confirmed:
 
 ## Soft Quality Risks
 
-- `graph:audit` passed technically, but graph coverage is weak: 40,885 nodes,
-  1,076 edges, 39,976 isolated nodes, and 0.6 percent edge confidence coverage.
-- 11 reports intentionally have no single source URL because they are internal
-  synthesis, internal register, composite source, or blocked source records.
+- `graph:audit` passed technically. Current graph has 41,072 nodes, 1,641
+  edges, 39,976 isolated nodes, and 34.8 percent edge confidence coverage.
+- Board-member graph orphans are closed by fallback person nodes. The remaining
+  graph enrichment debt is 187 board-member rows without full `PersonProfile`
+  pages.
+- 11 reports intentionally have no single source URL. Ten are reviewed
+  internal/composite/register exceptions with explicit supporting-source
+  bibliographies; one remains the blocked `agrianalyse-bondens-andel-2025`
+  report source.
 - DOI and persistent-ID coverage is uneven: theses 36 of 78, reports 20 of 129,
   and active sources 6 of 191.
-- `graph:audit` reports 230 duplicate company-name groups and 187 board-member
-  graph rows without matching person-profile graph nodes. This is a graph
-  quality limitation, not a failed integrity gate.
+- `graph:audit` reports 230 duplicate company-name groups. This is a review
+  queue, not a failed integrity gate; orgNr duplicate groups are 0.
 
 ## Citation Readiness Policy
 
@@ -521,8 +545,8 @@ internal context:
   URLs: known locators are mapped where already present, and unresolved labels
   are fail-closed as internal blocked source markers.
 - Task 9 file, URL, HTML and PDF evidence-risk remediation is complete for this
-  tranche. The remaining HIGH backlog items are URL live-access blockers or
-  transient URL-health failures, not missing local document files.
+  tranche. The current backlog has 5 HIGH URL live-access blockers, 23 MEDIUM
+  findings, and no SourceDoc locator findings.
 - Task 10 fail-closed public external use and visible citation state is
   complete for the current public surfaces.
 - Task 11 report-specific citable-use audit and Nordic circularity report drift
@@ -536,12 +560,17 @@ internal context:
 - Task 15 final verification and handoff is complete. The follow-on citation
   coverage remediation is also complete: strict source/citation audit now
   passes with 0 external blocking citation issues. The readiness queue has 0
-  P0 rows, 0 P1 rows, 11 P2 rows, and 0 P3 rows; the residual P2 set is one
-  explicitly `blocked_source` report plus 10 internal/composite reports without
-  a single source URL.
+  P0 rows, 0 P1 rows, 1 P2 row, and 0 P3 rows; the residual P2 set is the one
+  explicitly `blocked_source` report. Ten internal/composite/register reports
+  without a single source URL are reviewed exceptions because their
+  `supportingSources` bibliographies are explicit.
 - Post-merge PR #61 fixed the remaining internal-marker edge case: future
   backfills keep `source:blocked-unsourced/...` markers as internal context, and
   the refresh script can repair already-backfilled rows.
+- The follow-on quality tranche reduced SourceDoc locator findings from 42 to 0
+  by treating URL/DOI/Document/local-file coverage consistently, reduced HIGH
+  URL-health findings from 10 to 5 after curl fallback/live checks, and made
+  board-member graph relationships visible through fallback person nodes.
 - Any further backfill must use only existing locators and metadata. It must not
   invent or infer source URLs that are not already present in repo or database
   metadata.

@@ -1,21 +1,21 @@
 # URL Health — Food Systems 2026
 
 > Auto-generert av `scripts/check-urls.ts` — ikke rediger manuelt.
-> Generert: 2026-05-20T02:23:59.414Z
+> Generert: 2026-05-20T10:02:59.333Z
 > Totalt sjekket: **600** unike URL-er
-> Skanntid: **842.7s** (rate-limit 1000ms/req)
+> Skanntid: **821.0s** (rate-limit 1000ms/req)
 
 ## Distribusjon per klassifikasjon
 
 | classification | antall | %  |
 |---|---:|---:|
-| ok | 493 | 82.2% |
+| ok | 506 | 84.3% |
 | redirect | 2 | 0.3% |
 | dead | 41 | 6.8% |
-| blocked | 52 | 8.7% |
+| blocked | 49 | 8.2% |
 | paywalled | 0 | 0.0% |
-| timeout | 5 | 0.8% |
-| server_error | 5 | 0.8% |
+| timeout | 0 | 0.0% |
+| server_error | 0 | 0.0% |
 | other | 2 | 0.3% |
 
 ## Klassifikasjons-regler
@@ -81,17 +81,17 @@ Totalt: 2, hvorav 0 med priority >= 4.0.
 
 | priority | source | status | url -> final_url |
 |---|---|---|---|
-|  | document:bibliotek/akademia/internasjonalt/kjopermakt-teori-empiri | 302 | https://doi.org/10.1023/A:1015268420311 -> https://link.springer.com/article/10.1023/A:1015268420311?error=cookies_not_supported&code=77976cd8-8d33-44c7-88d7-cf1c34d60501 |
+|  | document:bibliotek/akademia/internasjonalt/kjopermakt-teori-empiri | 302 | https://doi.org/10.1023/A:1015268420311 -> https://link.springer.com/article/10.1023/A:1015268420311?error=cookies_not_supported&code=b4e94455-875f-4917-a2ec-6e9b1d7f8c97 |
 |  | document:bibliotek/digital-dagligvare/siste-mil-logistikk-levering | 302 | https://www.statista.com/outlook/dmo/online-food-delivery/grocery-delivery/quick-commerce/norway -> https://www.statista.com/sso/iplogin?__sso_redirect=%2Foutlook%2Fdmo%2Fonline-food-delivery%2Fgrocery-delivery%2Fquick-commerce%2Fnorway |
 
 ## Blocked (403 / 451)
 
 | priority | source | status | url |
 |---|---|---|---|
-| 5.0 | report_canonical:se-konkurrensverket-2024-5 | 403 | https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2024-5.pdf |
-| 5.0 | report_canonical:konkurrensverket-2025-5-livsmedelsutredning | 403 | https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2025-5.pdf |
 | 5.0 | thesis:stein-2022 | 403 | https://salford-repository.worktribe.com/output/1322952/sustainable-food-procurement-in-public-catering-comparison-of-the-uk-with-denmark-sweden |
 | 4.5 | report_canonical:civita-manifest-debatt | 403 | https://civita.no/okonomi/naeringspolitikk/svak-konkurranse-som-fortjent/ |
+| 4.5 | thesis:burgherr-2019 | 403 | https://skemman.is/handle/1946/32307 |
+| 4.5 | thesis:sigurdardottir-2017 | 403 | https://skemman.is/handle/1946/26754 |
 | 4.5 | thesis:johannsson-2011 | 403 | https://skemman.is/bitstream/1946/7794/3/OrriJohannsson%20FoodSecurity%20Final.pdf |
 |  | report_canonical:solutions-menu-2018 | 403 | https://www.norden.org/en/publication/solutions-menu-nordic-guide-sustainable-food-policy |
 |  | report_canonical:nnr2023-nordic-nutrition-recommendations | 403 | https://pub.norden.org/nord2023-003/ |
@@ -108,7 +108,6 @@ Totalt: 2, hvorav 0 med priority >= 4.0.
 |  | document:bibliotek/akademia/pubmed/parra-lopez-c-2026-enabling-the-circular-food-economy | 403 | https://doi.org/10.1111/1541-4337.70431 |
 |  | document:bibliotek/barekraft/sirkulaer-biookonomi-norden | 403 | https://www.norden.org/en/news/cop30-side-event-highlights-nordic-leadership-building-resilient-food-systems-and-circular |
 |  | document:bibliotek/barekraft/tnfd-naturrisiko-matsystem | 403 | https://tnfd.global/ |
-|  | document:bibliotek/media/snapshots/se-konkurrensverket-food-knowledge-2025 | 403 | https://www.konkurrensverket.se/konkurrens/samlad-kunskap-om-konkurrens/genomlysning-av-livsmedelsbranschen/ |
 |  | document:bibliotek/samisk/samisk-matsuverenitet | 403 | https://www.researchgate.net/publication/342900511_Sami_Identity_and_Traditional_Livelihood_Practices_From_Non-Indigenous_to_Indigenous_Food_Frameworks |
 |  | document:bibliotek/akademia/masteroppgaver/johannsson-2011 | 403 | https://hdl.handle.net/1946/7794 |
 |  | document:bibliotek/arbeidsliv/gig-okonomi-matleveranse | 403 | https://pub.norden.org/temanord2024-531/chapter-5-the-bitter-aftertaste-of-app-based-food-delivery.html |
@@ -118,9 +117,7 @@ Totalt: 2, hvorav 0 med priority >= 4.0.
 |  | document:regulatory/eu-farm-to-fork-strategy-2020 | 403 | https://food.ec.europa.eu/horizontal-topics/farm-fork-strategy_en |
 |  | document:regulatory/eu-fsfs-rammelov-baerekraftige-matsystemer-2023 | 403 | https://food.ec.europa.eu/horizontal-topics/farm-fork-strategy/legislative-framework_en |
 |  | document:bibliotek/forskningsrunde-2026-04-20/alternative-distribusjonskanaler-norden-2026-04-20 | 403 | https://www.emerald.com/qmr/article/24/3/341/360963/Practicing-mundane-consumer-resistance-in-the-REKO |
-|  | document:evidence-pack/nordisk/konkurrensverket-2024-4-dagligvaruhandelns-etablering | 403 | https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2024-4.pdf |
 |  | document:evidence-pack/tilsyn/dagligvarerapport-2024 | 403 | https://konkurransetilsynet.no/wp-content/uploads/2022/ |
-|  | document:evidence-pack/nordisk/konkurrensverket-summary-2024 | 403 | https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2024-5_summary.pdf |
 |  | document:bibliotek/arbeidsliv/butikkansatte-arbeidsvilkaar-norden | 403 | https://pub.norden.org/temanord2021-503/ |
 |  | document:bibliotek/forskningsrunde-2026-04-20/nordiske-internasjonale-benchmarkcase-2026-04-20 | 403 | https://www.c40.org/news/climate-action-starts-on-our-plates/ |
 |  | document:bibliotek/nordisk/cop30-nordisk-deklarasjon-matsystemer-2025 | 403 | https://www.norden.org/no/declaration/cop30-food-systems |
@@ -140,26 +137,6 @@ Totalt: 2, hvorav 0 med priority >= 4.0.
 |  | document:bibliotek/sirkularitet/waste-prevention-nordics-2025 | 403 | https://pub.norden.org/temanord2025-502/3-waste-prevention-and-reuse-policies-in-eu-and-nordic-countries.html |
 |  | sourcedoc:src-25 | 403 | https://www.konkurrensverket.se/publikationer/ |
 |  | sourcedoc:src-93 | 403 | https://doi.org/10.1787/59cf6c95-en |
-
-## Timeouts
-
-| priority | source | url |
-|---|---|---|
-| 5.0 | thesis:mattila-2024 | https://lutpub.lut.fi/handle/10024/170079 |
-| 5.0 | thesis:makela-2023 | https://lutpub.lut.fi/handle/10024/165638 |
-| 4.5 | thesis:burgherr-2019 | https://skemman.is/handle/1946/32307 |
-| 4.5 | thesis:sigurdardottir-2017 | https://skemman.is/handle/1946/26754 |
-|  | sourcedoc:src-155 | https://ui.adsabs.harvard.edu/abs/2021RCR...16405218K/abstract |
-
-## Server errors (5xx)
-
-| priority | source | status | url |
-|---|---|---|---|
-| 5.0 | thesis:segersven-2024 | 500 | https://urn.fi/URN:NBN:fi-fe2024043024001 |
-|  | document:bibliotek/media/snapshots/fi-kesko-market-share-2024 | 503 | https://www.kesko.fi/en/media/blogs/investor-blogs-and-podcasts/2025/gt-market-share/ |
-|  | document:evidence-pack/arsrapporter/kesko-annual-report-2024 | 503 | http://kesko.fi/4930ac/contentassets/2e27fbfe66fb4e97a8c683de564a73d2/kesko-annual-report-2024.pdf |
-|  | document:bibliotek/media/snapshots/fi-kesko-market-share-2025 | 503 | https://www.kesko.fi/en/media/news-and-releases/investor-news/2026/k-group-market-share-in-grocery-trade-took-an-upturn-in-the-latter-half-of-2025--full-year-market-share-33.5/ |
-|  | document:bibliotek/akademia/masteroppgaver/syroegina-2016 | 502 | https://urn.fi/URN:NBN:fi:aalto-201609083714 |
 
 ## Other / uklassifisert
 
