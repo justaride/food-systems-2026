@@ -106,4 +106,34 @@ describe('citation readiness refresh planning', () => {
       [{ id: 'missing-local-only', from: 'citable_with_note', to: 'internal_context' }],
     )
   })
+
+  it('repairs blocked internal source markers that were backfilled as primary citations', () => {
+    const plan = buildCitationReadinessRefreshPlan([
+      {
+        id: 'blocked-internal-marker',
+        citationText: 'Company financial source: Estimat basert på bransjedata',
+        citationReadiness: 'blocked_unsourced',
+        sourceClass: 'primary',
+        verificationStatus: 'needs_review',
+        notes: 'internalRef=source:blocked-unsourced/company-financial-estimate',
+      },
+    ])
+
+    assert.deepEqual(
+      plan.updates.map(update => ({
+        id: update.id,
+        from: update.fromReadiness,
+        to: update.toReadiness,
+        toSourceClass: update.toSourceClass,
+      })),
+      [
+        {
+          id: 'blocked-internal-marker',
+          from: 'blocked_unsourced',
+          to: 'internal_context',
+          toSourceClass: 'internal_synthesis',
+        },
+      ],
+    )
+  })
 })

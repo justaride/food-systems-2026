@@ -43,6 +43,7 @@ async function main() {
       sourceDocId: true,
       accessedAt: true,
       verifiedAt: true,
+      notes: true,
     },
   })
 
@@ -55,7 +56,10 @@ async function main() {
     for (const update of plan.updates) {
       await prisma.sourceCitation.update({
         where: { id: update.id },
-        data: { citationReadiness: update.toReadiness as never },
+        data: {
+          citationReadiness: update.toReadiness as never,
+          ...(update.toSourceClass ? { sourceClass: update.toSourceClass as never } : {}),
+        },
       })
     }
   }

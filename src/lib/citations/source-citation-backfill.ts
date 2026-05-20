@@ -238,8 +238,8 @@ function resolvedLocatorText(parsed: ParsedCitationLocator | null) {
 }
 
 function sourceClassFor(candidate: SourceCitationBackfillCandidate, parsed: ParsedCitationLocator) {
-  if (candidate.sourceClass) return candidate.sourceClass
   if (parsed.internalRef) return 'internal_synthesis'
+  if (candidate.sourceClass) return candidate.sourceClass
   return 'primary'
 }
 

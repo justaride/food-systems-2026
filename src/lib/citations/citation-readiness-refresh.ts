@@ -5,12 +5,14 @@ import type { SourceCitationInput } from './source-citation-contract'
 export type RefreshableSourceCitation = SourceCitationInput & {
   id: string
   citationReadiness?: string | null
+  notes?: string | null
 }
 
 export type CitationReadinessRefreshUpdate = {
   id: string
   fromReadiness: CitationReadinessLevel
   toReadiness: CitationReadinessLevel
+  toSourceClass?: string | null
   citationText?: string | null
   sourceClass?: unknown
   verificationStatus?: unknown
@@ -51,6 +53,13 @@ function hasNonLocalLocator(citation: RefreshableSourceCitation) {
   )
 }
 
+function blockedInternalSourceClass(citation: RefreshableSourceCitation) {
+  const notes = typeof citation.notes === 'string' ? citation.notes : ''
+  return notes.includes('internalRef=source:blocked-unsourced/')
+    ? 'internal_synthesis'
+    : null
+}
+
 function needsLocalOnlyDowngrade(
   citation: RefreshableSourceCitation,
   fromReadiness: CitationReadinessLevel,
@@ -75,13 +84,23 @@ export function buildCitationReadinessRefreshPlan(
 
   for (const citation of citations) {
     const fromReadiness = normalizeCitationReadiness(citation.citationReadiness)
-    const toReadiness = needsLocalOnlyDowngrade(citation, fromReadiness, options)
+    const toSourceClass = blockedInternalSourceClass(citation)
+    const normalizedCitation = toSourceClass
+      ? { ...citation, sourceClass: toSourceClass }
+      : citation
+    const localOnlyDowngrade = needsLocalOnlyDowngrade(citation, fromReadiness, options)
+    const toReadiness = localOnlyDowngrade
       ? 'internal_context'
-      : deriveCitationReadiness(citation)
+      : deriveCitationReadiness(normalizedCitation)
+    const sourceClassNeedsUpdate = Boolean(
+      toSourceClass && citation.sourceClass !== toSourceClass,
+    )
+    const readinessNeedsUpdate = fromReadiness !== toReadiness
 
     if (
-      !needsLocalOnlyDowngrade(citation, fromReadiness, options) &&
-      (fromReadiness !== 'blocked_unsourced' || toReadiness === fromReadiness)
+      !localOnlyDowngrade &&
+      !sourceClassNeedsUpdate &&
+      (fromReadiness !== 'blocked_unsourced' || !readinessNeedsUpdate)
     ) {
       skippedUnchanged += 1
       continue
@@ -91,6 +110,7 @@ export function buildCitationReadinessRefreshPlan(
       id: citation.id,
       fromReadiness,
       toReadiness,
+      toSourceClass,
       citationText: citation.citationText,
       sourceClass: citation.sourceClass,
       verificationStatus: citation.verificationStatus,
@@ -122,6 +142,7 @@ export function formatCitationReadinessRefreshCsv(updates: CitationReadinessRefr
     'id',
     'fromReadiness',
     'toReadiness',
+    'toSourceClass',
     'citationText',
     'sourceClass',
     'verificationStatus',

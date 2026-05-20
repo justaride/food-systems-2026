@@ -128,6 +128,27 @@ describe('source citation backfill helpers', () => {
     )
   })
 
+  it('keeps blocked internal source markers out of primary external citation readiness', () => {
+    const plan = buildCitationBackfillPlan([
+      {
+        entityType: 'CompanyFinancial',
+        entityId: 'financial-1',
+        fieldPath: 'source',
+        citationText: 'Company financial source: Estimat basert på bransjedata',
+        locator: 'source:blocked-unsourced/company-financial-estimate',
+        sourceClass: 'primary',
+      },
+    ])
+
+    assert.equal(plan.sourceCitationsToCreate.length, 1)
+    assert.equal(plan.sourceCitationsToCreate[0].sourceClass, 'internal_synthesis')
+    assert.equal(plan.sourceCitationsToCreate[0].citationReadiness, 'internal_context')
+    assert.equal(
+      plan.sourceCitationsToCreate[0].notes,
+      'internalRef=source:blocked-unsourced/company-financial-estimate',
+    )
+  })
+
   it('formats preview CSV with stable headers and escaped values', () => {
     const csv = formatBackfillPreviewCsv([
       {
