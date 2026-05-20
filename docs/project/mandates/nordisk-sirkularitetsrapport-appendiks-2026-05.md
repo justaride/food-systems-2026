@@ -71,7 +71,7 @@ Skåringsregel: 1 = svakest/lavest/dårligst innen Norden; 5 = sterkest. Relativ
 |---|---:|---|
 | NO | 4 | Tilbud-flaskehals melk/egg (80%/88% utnyttelse). Grocery +17,6% YoY. Marked vokser, areal lavest. |
 | SE | 2 | UAA 16,7% høyest, men marked faller -1,5% (2024). Øko-melk -39% siden 2021. |
-| DK | 5 | Retail value share 11,6% verdens høyeste. Foodservice +13% (2023). DKK 16 mrd retail. København 84% øko offentlig. |
+| DK | 5 | Retail value share 11,6% verdens høyeste. Foodservice +13% (2023). DKK 16 mrd retail. København 85% øko offentlig i 2024, peak 90% i 2015. |
 | FI | 2 | Grocery -5% YoY (2024). UAA 13,49% (definition_diff). Stabilt marked. |
 | IS | 1 | UAA 0,4% laveste i Norden. needs_primary_check. |
 
@@ -91,7 +91,7 @@ Skåringsregel: 1 = svakest/lavest/dårligst innen Norden; 5 = sterkest. Relativ
 |---|---:|---|
 | NO | 1 | INGEN universell ordning. Ingen aggregert øko-innkjøp-statistikk. Pilotforsøk fragmentert. |
 | SE | 3 | Skolemåltid siden 1948 (~SEK 7 mrd/år). Off. sektor øko falt 37→34,2% (2022→2023). |
-| DK | 5 | København 84% øko (900 kjøkken). Foodservice øko DKK 3,7 mrd (+13%). Sektor-mål 60% i mange kommuner. |
+| DK | 5 | København 85% øko i 2024 (peak 90% i 2015; ca. 900 kjøkken). Foodservice øko DKK 3,7 mrd (+13%). Sektor-mål 60% i mange kommuner. |
 | FI | 4 | Skolemåltid siden 1946 (verdens eldste). 63% off. kjøkken bruker øko daglig. 28% øko skolemelk. |
 | IS | 1 | Begrenset omfang. Datagap. |
 
@@ -245,7 +245,7 @@ Disse er kandidater for v1.1.
 Topp 3 åpne spørsmål for TG:
 1. **Hvorfor er DK biogass 17x NO når begge har stort husdyrhold?** Politisk virkemiddel-design.
 2. **Hvorfor utnytter IS 90% av cod mens NO bare 7% av restråstoff til humant konsum?** 100% Fish-modell vs ad hoc-utnyttelse.
-3. **Hvorfor er NO HHI 96,6% og samtidig OECD PSE 59%?** Stabilt politisk ekvilibrium for de aktørene som har makt.
+3. **Hvorfor er NO HHI 3445 (CR3 96,6%) og samtidig OECD PSE 59%?** Stabilt politisk ekvilibrium for de aktørene som har makt.
 
 ---
 
@@ -414,7 +414,7 @@ Falch, E., et al. (2026). Maximizing the utilization of seafood. *Review/Oversik
 
 Hebrok, M. (2020). *Husholdningsmatsvinn og hverdagspraksis* [PhD-avhandling]. Universitet i Oslo.
 
-IFRO & Københavns Universitet. (2025). *Sporbarhet av dansk soya-import: 2024-analyse*. (Krever full URL-sjekk)
+Bosselmann, A. S., Frandsen, O., & Andrade de Sá, S. (2025). *Status of Danish imports of sustainable and deforestation- and conversion-free soy* (IFRO Documentation No. 1, 2025). Institut for Fødevare- og Ressourceøkonomi, Københavns Universitet. https://curis.ku.dk/ws/portalfiles/portal/471376644/IFRO_Documentation_2025_01.pdf
 
 IPES-Food. (2018). *Beacons of Hope: Stories of food systems transformation*. http://www.ipes-food.org/_img/upload/files/BeaconsofHope.pdf
 
@@ -564,6 +564,6 @@ Rapporten er skrevet av Gabriel Boen på oppdrag fra Jan Thomas (samtale 29.04.2
 
 Metodisk styrke: omfattende databaserte påstander, T1-T5 strukturert teknikk-anvendelse, eksplisitt datagap-flagging, krysslinker til Insight Pack v0.2 og claim-register.
 
-Metodisk svakhet: NO-overrepresentasjon i dissonance-cases (4 av 7) speiler at Gabriel kjenner NO best, ikke at NO har flest paradokser. IS-data svakest. Ekstern-vs-intern diff (T3) ikke kjørt. "Soya-laundering"-hypotesen er strukturell observasjon, ikke bevist mekanisme.
+Metodisk svakhet: NO-overrepresentasjon i dissonance-cases (4 av 7) speiler at Gabriel kjenner NO best, ikke at NO har flest paradokser. IS-data svakest. T3 ekstern-vs-intern diff er gjennomført i v1.2 Phase 8, men er en intern metodekontroll mot generisk LLM-svar, ikke ekstern fagfelle- eller domenevalidering. "Soya-laundering"-hypotesen er strukturell observasjon, ikke bevist mekanisme.
 
 Rapport-format: HTML inline-CSS samme stil som STATUS-CATHRINE-THOMAS-2026-04-29.html. Egnet for nettleser-deling, presentasjon, og print.

@@ -366,7 +366,7 @@ export const reports: Report[] = [
     fullTitle: 'Kilpailulaki (Competition Act) 948/2011, Section 4a',
     institution: 'KKV',
     year: 2014,
-    sourceUrl: 'https://www.kkv.fi/en/facts-and-advice/competition-affairs/abuse-of-dominant-position/maaraava-markkina-asema-paivittaistavarakaupassa/',
+    sourceUrl: 'https://www.kkv.fi/en/current/press-releases/competition-act-provision-on-grocery-trade-became-effective-on-1st-of-january/',
     reportCategory: 'konkurransetilsyn',
     country: 'FI',
     keyFindings: [
@@ -406,7 +406,7 @@ export const reports: Report[] = [
     fullTitle: 'Konkurrensverkets genomlysning av livsmedelsbranschen 2023–2024',
     institution: 'Konkurrensverket',
     year: 2024,
-    sourceUrl: 'https://www.konkurrensverket.se/informationsmaterial/rapportlista/konkurrensverkets-genomlysning-av-livsmedelsbranschen-20232024/',
+    sourceUrl: 'https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2024-5.pdf',
     reportCategory: 'konkurransetilsyn',
     country: 'SE',
     keyFindings: [
@@ -432,7 +432,7 @@ export const reports: Report[] = [
     title: 'Samarbeidsklima-undersokelsen 2025',
     institution: 'Dagligvaretilsynet',
     year: 2025,
-    sourceUrl: 'https://www.dagligvaretilsynet.no/rapporter-og-strategi',
+    sourceUrl: 'https://www.dagligvaretilsynet.no/s/dagligvare_rapport-yn2p.pdf',
     reportCategory: 'offentlig',
     country: 'NO',
     keyFindings: [
@@ -839,7 +839,7 @@ export const reports: Report[] = [
     fullTitle: 'Policy tools for sustainable and healthy eating: Enabling a food transition in the Nordic countries',
     institution: 'Nordregio / Nordisk Ministerraad',
     year: 2024,
-    sourceUrl: 'https://pub.norden.org/nord2024-007/index.html',
+    sourceUrl: 'https://pub.norden.org/nord2024-007/nord2024-007.pdf',
     reportCategory: 'tenketank',
     keyFindings: [
       'A4-modellen: baerekraftig mat maa vaere Available, Affordable, Accessible og Attractive',
@@ -1622,7 +1622,7 @@ export const reports: Report[] = [
     author: 'NIBIO',
     institution: 'NIBIO (Norsk institutt for biookonomi)',
     year: 2024,
-    sourceUrl: 'https://nibio.brage.unit.no/nibio-xmlui/bitstream/handle/11250/3105805/NIBIO_RAPPORT_2023_9_137.pdf',
+    sourceUrl: 'https://hdl.handle.net/11250/3105805',
     reportCategory: 'beredskap',
     country: 'NO',
     keyFindings: [
@@ -1872,7 +1872,7 @@ export const reports: Report[] = [
     fullTitle: 'Buyer Power in Nordic Grocery Markets: Theory, Evidence and Policy',
     institution: 'Universitetet i Bergen',
     year: 2024,
-    sourceUrl: 'https://www.uib.no/en/persons/Tommy.Gabrielsen',
+    sourceUrl: 'https://www.uib.no/en/persons/Tommy.Staahl.Gabrielsen',
     reportCategory: 'akademia',
     country: 'NO',
     keyFindings: [
@@ -2286,7 +2286,7 @@ export const reports: Report[] = [
     relevance: 'Markedsledende dagligvarekonsern i Sverige. Grunnlag for komparativ nordisk analyse.',
     tags: ['bransje', 'arsrapport', 'ica', 'sverige', 'nordisk'],
     publisher: 'ICA Gruppen AB',
-    sourceUrl: 'https://www.icagrupp.se/en/archive/press-archive/2025/ica-gruppen-publishes-annual-report-for-2024/',
+    sourceUrl: 'https://www.icagruppen.se/globalassets/xx.-arsredovisning-2024/250221_icagruppen_annual_report_2024.pdf',
   },
   {
     id: 'kesko-annual-report-2024',
@@ -2455,7 +2455,7 @@ export const reports: Report[] = [
     relevance: 'Svenske konkurransetilsynets sammendrag 2024. Komparativt grunnlag for norsk dagligvaretilsyn.',
     tags: ['konkurransetilsyn', 'sverige', 'nordisk', 'sammendrag', 'utp', 'fusjonskontroll', 'konsentrasjon', 'private-label', 'etableringsbarrierer'],
     publisher: 'Konkurrensverket',
-    sourceUrl: 'https://www.konkurrensverket.se/informationsmaterial/rapportlista/konkurrensverkets-genomlysning-av-livsmedelsbranschen-20232024/',
+    sourceUrl: 'https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2024-5.pdf',
   },
 
   // ═══ Nordisk politikk og beredskap ═══════════════════════════════════
@@ -2544,7 +2544,7 @@ export const reports: Report[] = [
     relevance: 'Nord 2024:023 biosfærereservat-guide. Indirekte relevant for matsystem via lokal bærekraftig produksjon og bevaring av kulturlandskap.',
     tags: ['offentlig', 'nordisk', 'unesco', 'biosfaere', 'baerekraft'],
     publisher: 'Nordic Council of Ministers',
-    sourceUrl: 'https://pub.norden.org/nord2024-023/about-this-publication.html',
+    sourceUrl: 'https://pub.norden.org/nord2024-023/nord2024-023.pdf',
     doi: '10.6027/nord2024-023',
   },
   {
@@ -2569,7 +2569,7 @@ export const reports: Report[] = [
     relevance: 'Mismatch mellom ID og faktisk PDF-innhold. Dokumentet er ikke relevant for matsystem og bør revideres i seed-data.',
     tags: ['offentlig', 'nordisk', 'arkitektur', 'baerekraft', 'mismatch-id'],
     publisher: 'Nordic Council of Ministers',
-    sourceUrl: 'https://pub.norden.org/nord2025-010/about-this-publication.html',
+    sourceUrl: 'https://pub.norden.org/nord2025-010/nord2025-010.pdf',
     doi: '10.6027/nord2025-010',
   },
 
@@ -2600,7 +2600,7 @@ export const reports: Report[] = [
     relevance: 'Første årsrapport fra Dagligvaretilsynet etter opprettelsen 2021. Historisk baseline for tilsynsarbeidet.',
     tags: ['konkurransetilsyn', 'arsrapport', 'dagligvaretilsynet', 'handelsskikk'],
     publisher: 'Dagligvaretilsynet',
-    sourceUrl: 'https://www.dagligvaretilsynet.no/rapporter-og-strategi',
+    sourceUrl: 'https://www.regjeringen.no/contentassets/a9f933fc2c5c4d8aaed0a267b45a033d/dagligvaretilsynet-arsrapport-for-2022.pdf',
   },
   {
     id: 'dagligvaretilsynet-aarsrapport-2022',
@@ -2632,7 +2632,7 @@ export const reports: Report[] = [
     relevance: 'Dagligvaretilsynets årsrapport 2022. Dokumenterer andre driftsår og tilsynsprioriteringer.',
     tags: ['konkurransetilsyn', 'arsrapport', 'dagligvaretilsynet', 'handelsskikk'],
     publisher: 'Dagligvaretilsynet',
-    sourceUrl: 'https://www.dagligvaretilsynet.no/rapporter-og-strategi',
+    sourceUrl: 'https://www.regjeringen.no/contentassets/a9f933fc2c5c4d8aaed0a267b45a033d/arsrapport_dagligvaretilsynet-2023.pdf',
   },
   {
     id: 'dagligvaretilsynet-aarsrapport-2023',
@@ -2662,7 +2662,7 @@ export const reports: Report[] = [
     relevance: 'Dagligvaretilsynets årsrapport 2023. Dokumenterer håndhevelsesarbeidet og saksstatistikk.',
     tags: ['konkurransetilsyn', 'arsrapport', 'dagligvaretilsynet', 'handelsskikk'],
     publisher: 'Dagligvaretilsynet',
-    sourceUrl: 'https://www.dagligvaretilsynet.no/rapporter-og-strategi',
+    sourceUrl: 'https://www.regjeringen.no/contentassets/036ffda0c81e4b3f99456a78ec31df0e/arsrapport-dagligvaretilsynet-2024.pdf',
   },
   {
     id: 'dagligvaretilsynet-aarsrapport-2024',
@@ -2694,7 +2694,7 @@ export const reports: Report[] = [
     relevance: 'Dagligvaretilsynets årsrapport 2024. Seneste tilsynsrapport med oppdatert saksstatistikk.',
     tags: ['konkurransetilsyn', 'arsrapport', 'dagligvaretilsynet', 'handelsskikk', 'joint-marketing', 'delisting', 'utp'],
     publisher: 'Dagligvaretilsynet',
-    sourceUrl: 'https://www.dagligvaretilsynet.no/rapporter-og-strategi',
+    sourceUrl: 'https://www.regjeringen.no/contentassets/41847427caa14feb8b8578af3d6d45bc/r15-2023-kartlegging-av-egne-merkevarer-og-vertikal-integrasjon-i-dagligvaremarkedet.pdf',
   },
   {
     id: 'emv-kartlegging-2023',
@@ -2769,7 +2769,7 @@ export const reports: Report[] = [
     institution: 'Regjeringen (Handelslovutvalget)',
     year: 2013,
     date: '2013-04-30',
-    sourceUrl: 'https://www.regjeringen.no/no/dokumenter/nou-2013-6/id723782/',
+    sourceUrl: 'https://www.regjeringen.no/no/dokumenter/nou-2013-6/id725309/',
     reportCategory: 'nou',
     country: 'NO',
     keyFindings: [
@@ -2949,7 +2949,7 @@ export const reports: Report[] = [
     relevance: 'Direkte relevant for norsk matsvinnpolitikk. Dokumenterer Norges rolle som governance-modell i Europa.',
     tags: ['governance', 'matsvinn', 'komparativ', 'regulering'],
     publisher: 'Global Challenges',
-    sourceUrl: 'https://doi.org/10.1002/gch2.202300265',
+    sourceUrl: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11557508/',
     doi: '10.1002/gch2.202300265',
   },
   {
@@ -3164,7 +3164,7 @@ export const reports: Report[] = [
     relevance: 'Svensk analog til norsk utredning. Begge jurisdictioner viser at markedsstruktur begrenser handhevingseffekten uavhengig av lovens bredde.',
     tags: ['nordisk-komparativ', 'UTP', 'Sverige', 'eiendom', 'Konkurrensverket', 'forskningsrunde-2026-04-20'],
     publisher: 'Konkurrensverket',
-    sourceUrl: 'https://www.konkurrensverket.se/konkurrens/samlad-kunskap-om-konkurrens/genomlysning-av-livsmedelsbranschen/',
+    sourceUrl: 'https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2025-5.pdf',
   },
   {
     id: 'etmv-toimintakertomus-2024',
@@ -3208,7 +3208,7 @@ export const reports: Report[] = [
     relevance: 'Grunnlagsdata for hvorfor handhevingsstatistikken er lav til tross for utbredt praksis. Brukes i Prop. 4 L (2025-2026).',
     tags: ['Dagligvaretilsynet', 'fryktkultur', 'leverandoerer', 'forskningsrunde-2026-04-20'],
     publisher: 'Dagligvaretilsynet',
-    sourceUrl: 'https://www.dagligvaretilsynet.no/rapporter-og-strategi',
+    sourceUrl: 'https://www.dagligvaretilsynet.no/s/Rapport-om-Samarbeidsklimaet-i-Dagligvarebransjen-2023.pdf',
   },
   {
     id: 'plantefonden-projects-2023-2025',

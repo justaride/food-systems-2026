@@ -23,6 +23,10 @@ import {
   resolveShareholderSourceLocator,
   resolveSubsidySourceLocator,
 } from '../src/lib/row-source-locators'
+import {
+  auditCitationCoverage,
+  formatCitationAuditSummary,
+} from '../src/lib/citations/citation-audit'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -751,6 +755,95 @@ async function checkSourceQualityCoverage() {
 
 }
 
+const EXTERNALLY_RELEVANT_CITATION_ENTITIES = new Set([
+  'Report',
+  'Thesis',
+  'CountryMetric',
+  'CompanyFinancial',
+  'BusinessRelationship',
+  'CompanyOwnership',
+  'CompanyProperty',
+  'BoardMember',
+  'Shareholder',
+])
+
+async function checkCitationCoverage() {
+  header('14. Citation Coverage')
+
+  const [sourceCitations, fieldCitations] = await Promise.all([
+    prisma.sourceCitation.findMany({
+      select: {
+        id: true,
+        citationText: true,
+        citationReadiness: true,
+        verificationStatus: true,
+        url: true,
+        archivedUrl: true,
+        localPath: true,
+        documentId: true,
+        sourceDocId: true,
+        accessedAt: true,
+        verifiedAt: true,
+      },
+    }),
+    prisma.fieldCitation.findMany({
+      select: {
+        id: true,
+        citationId: true,
+        entityType: true,
+        entityId: true,
+        fieldPath: true,
+        claimText: true,
+        citation: { select: { citationReadiness: true } },
+      },
+    }),
+  ])
+
+  const summary = auditCitationCoverage(
+    {
+      sourceCitations,
+      fieldCitations: fieldCitations.map(({ citation: _citation, ...fieldCitation }) => fieldCitation),
+    },
+    { localPathExists: fileExistsForDocumentPath },
+  )
+
+  for (const line of formatCitationAuditSummary(summary).split('\n')) {
+    console.log(`  ${line}`)
+  }
+
+  const externalBlocked = fieldCitations.filter((fieldCitation) => {
+    return (
+      EXTERNALLY_RELEVANT_CITATION_ENTITIES.has(fieldCitation.entityType) &&
+      fieldCitation.citation.citationReadiness === 'blocked_unsourced'
+    )
+  })
+
+  if (externalBlocked.length > 0) {
+    sourceAuditIssue(
+      `Citation Coverage: ${externalBlocked.length}/${fieldCitations.length} externally relevant FieldCitation rows point to blocked_unsourced citations` +
+        ` (examples: ${externalBlocked
+          .slice(0, 5)
+          .map((fieldCitation) =>
+            `${fieldCitation.entityType}:${fieldCitation.entityId}:${fieldCitation.fieldPath}`,
+          )
+          .join('; ')})`,
+    )
+  }
+
+  const blockingIssues = summary.issues.filter((issue) => issue.severity === 'blocking')
+  if (blockingIssues.length > 0) {
+    sourceAuditIssue(
+      `Citation Coverage: ${blockingIssues.length} external blocking audit issue(s)` +
+        ` (examples: ${blockingIssues
+          .slice(0, 5)
+          .map((issue) => `${issue.code}:${issue.citationId ?? issue.fieldCitationId ?? 'unknown'}`)
+          .join('; ')})`,
+    )
+  } else {
+    pass('Citation audit found no external-ready locator or verification blockers')
+  }
+}
+
 async function main() {
   console.log('Food Systems 2026 — Data Integrity Check')
   console.log(`Run at: ${new Date().toISOString()}`)
@@ -769,6 +862,7 @@ async function main() {
   await checkReportMissingUrls()
   await checkDOICoverage()
   await checkSourceQualityCoverage()
+  await checkCitationCoverage()
 
   header('Summary')
   if (errorCount > 0) {

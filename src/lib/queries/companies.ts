@@ -212,6 +212,7 @@ export async function getCompanyById(id: string) {
         toCompanyId: string
         description: string | null
         estimatedValue: number | null
+        source: string | null
         toCompany: { id: string; name: string }
       }>,
       relationshipsTo: [] as Array<{
@@ -221,6 +222,7 @@ export async function getCompanyById(id: string) {
         toCompanyId: string
         description: string | null
         estimatedValue: number | null
+        source: string | null
         fromCompany: { id: string; name: string }
       }>,
     }

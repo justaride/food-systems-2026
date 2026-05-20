@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { getDocumentBySlug } from '@/lib/queries/documents'
 import { Card } from '@/components/ui/Card'
 import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
+import { Citation, type CitationViewModel } from '@/components/citations/Citation'
+import { CitationBibliography } from '@/components/citations/CitationBibliography'
 
 type Props = {
   params: Promise<{ slug: string[] }>
@@ -11,6 +13,46 @@ type Props = {
 function formatWordCount(n: number): string {
   if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, '')}k ord`
   return `${n} ord`
+}
+
+function mapSourceCitation(citation: {
+  citationText: string
+  title: string | null
+  url: string | null
+  localPath: string | null
+  pageRef: string | null
+  accessedAt: Date | null
+  verifiedAt: Date | null
+  citationReadiness: string
+  notes: string | null
+}): CitationViewModel {
+  return {
+    citationText: citation.citationText,
+    title: citation.title,
+    url: citation.url,
+    localPath: citation.localPath,
+    pageRef: citation.pageRef,
+    accessedAt: citation.accessedAt,
+    verifiedAt: citation.verifiedAt,
+    citationReadiness: citation.citationReadiness,
+    notes: citation.notes,
+  }
+}
+
+function fallbackCitation(args: {
+  label: string
+  url?: string | null
+  localPath?: string | null
+  note: string
+}): CitationViewModel {
+  const hasSource = Boolean(args.url || args.localPath)
+  return {
+    label: args.label,
+    url: args.url ?? null,
+    localPath: args.localPath ?? null,
+    citationReadiness: hasSource ? 'citable_with_note' : 'blocked_unsourced',
+    note: hasSource ? args.note : 'Ingen verifisert kildepost registrert.',
+  }
 }
 
 export default async function DocumentDetailPage({ params }: Props) {
@@ -52,6 +94,21 @@ export default async function DocumentDetailPage({ params }: Props) {
   }
 
   const actorItems = [...actorItemsByHref.values()]
+  const storedCitations = [
+    ...doc.sourceCitations.map(mapSourceCitation),
+    ...(doc.sourceDoc?.sourceCitations ?? []).map(mapSourceCitation),
+  ]
+  const documentCitations =
+    storedCitations.length > 0
+      ? storedCitations
+      : [
+          fallbackCitation({
+            label: doc.title,
+            url: doc.url,
+            localPath: doc.filePath,
+            note: 'Dokumentlenke/lokal fil finnes; kontroller sidegrunnlag for direkte sitatbruk.',
+          }),
+        ]
 
   return (
     <div className="space-y-6">
@@ -93,6 +150,8 @@ export default async function DocumentDetailPage({ params }: Props) {
           <p className="text-sm text-stone-700 leading-relaxed">{doc.summary}</p>
         </Card>
       )}
+
+      <CitationBibliography citations={documentCitations} />
 
       <EntityNeighborhood
         groups={[
@@ -225,14 +284,14 @@ export default async function DocumentDetailPage({ params }: Props) {
               </div>
             )}
             {doc.thesis.url && (
-              <a
-                href={doc.thesis.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-xs text-stone-400 hover:text-stone-600 underline underline-offset-2 mt-1"
-              >
-                Apne oppgave &rarr;
-              </a>
+              <Citation
+                className="mt-1"
+                citation={fallbackCitation({
+                  label: 'Oppgave',
+                  url: doc.thesis.url,
+                  note: 'Tilknyttet oppgavelink; kontroller sidegrunnlag for direkte sitatbruk.',
+                })}
+              />
             )}
           </div>
         </Card>
@@ -274,14 +333,14 @@ export default async function DocumentDetailPage({ params }: Props) {
               </div>
             )}
             {doc.report.sourceUrl && (
-              <a
-                href={doc.report.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-xs text-stone-400 hover:text-stone-600 underline underline-offset-2 mt-1"
-              >
-                Apne rapport &rarr;
-              </a>
+              <Citation
+                className="mt-1"
+                citation={fallbackCitation({
+                  label: 'Rapport',
+                  url: doc.report.sourceUrl,
+                  note: 'Tilknyttet rapportlink; kontroller felt-/sidegrunnlag for direkte sitatbruk.',
+                })}
+              />
             )}
           </div>
         </Card>
@@ -304,14 +363,14 @@ export default async function DocumentDetailPage({ params }: Props) {
               </div>
             )}
             {doc.sourceDoc.url && (
-              <a
-                href={doc.sourceDoc.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-xs text-stone-400 hover:text-stone-600 underline underline-offset-2 mt-1"
-              >
-                Apne kilde &rarr;
-              </a>
+              <Citation
+                className="mt-1"
+                citation={fallbackCitation({
+                  label: 'Kildedokument',
+                  url: doc.sourceDoc.url,
+                  note: 'Kildedokumentlenke; kontroller sidegrunnlag for direkte sitatbruk.',
+                })}
+              />
             )}
           </div>
         </Card>
@@ -319,17 +378,13 @@ export default async function DocumentDetailPage({ params }: Props) {
 
       {doc.url && (
         <div className="pt-2">
-          <a
-            href={doc.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-700 underline underline-offset-2 transition-colors"
-          >
-            Apne ekstern kilde
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-            </svg>
-          </a>
+          <Citation
+            citation={fallbackCitation({
+              label: 'Ekstern kilde',
+              url: doc.url,
+              note: 'Dokumentets eksterne URL; kontroller sidegrunnlag for direkte sitatbruk.',
+            })}
+          />
         </div>
       )}
     </div>

@@ -11,10 +11,14 @@ const SSB_JORDBRUKSAREAL_STATISTICS_URL =
   'https://www.ssb.no/jord-skog-jakt-og-fiskeri/jordbruk/statistikk/gardsbruk-jordbruksareal-og-husdyr'
 const LUKE_AGRI_FOOD_FOREIGN_TRADE_API =
   'https://statdb.luke.fi/PXWeb/api/v1/en/LUKE/maa/05%20Maataloustuotteiden%20ulkomaankauppa/Luke_maa_Ukaup_kk.px'
+const LUKE_FOOD_COMMODITY_BALANCE_API =
+  'https://statdb.luke.fi/PXWeb/api/v1/en/LUKE/maa/02%20Ravintotase/02_Ravintotase.px'
 const PTY_FINNISH_GROCERY_TRADE_2023_REPORT_URL =
   'https://www.pty.fi/wp-content/uploads/2023/06/Paivittaistavarakauppa-ry-2023_EN.pdf'
 const NATURVARDSVERKET_FOOD_WASTE_STATISTICS_URL =
   'https://www.naturvardsverket.se/data-och-statistik/avfall/avfall-mat/'
+const DK_WASTE_STATISTICS_AND_MAPPING_URL =
+  'https://mst.dk/erhverv/groen-produktion-og-affald/affald-og-genanvendelse/affaldshaandtering/affaldsdata-og-affaldsdatasystemet/find-affaldsstatistikker-og-kortlaegning'
 const SCB_IMPORTS_EXPORTS_CN_API =
   'https://api.scb.se/OV0104/v1/doris/en/ssd/HA/HA0201/HA0201B/ImpExpKNTotMan'
 const STATBANK_SITC2R4_TABLEINFO_API =
@@ -23,6 +27,10 @@ const STATISTICS_ICELAND_UTA06201_API =
   'https://px.hagstofa.is/pxen/api/v1/en/Efnahagur/utanrikisverslun/1_voruvidskipti/01_voruskipti/UTA06201.px'
 const EUROSTAT_FOOD_WASTE_API =
   'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/env_wasfw'
+const SAMKEPPNISEFTIRLITID_ANNUAL_REPORT_2024_URL =
+  'https://www.samkeppni.is/urlausnir/skyrslur/4-2025/'
+const KKV_FI_4A_DOMINANCE_URL =
+  'https://www.kkv.fi/en/facts-and-advice/competition-affairs/abuse-of-dominant-position/maaraava-markkina-asema-paivittaistavarakaupassa/'
 const MATSENTRALEN_ANNUAL_REPORT_URL =
   'https://www.matsentralen.no/rapporter/arsrapport-matsentralen-norge'
 const MATVETT_NORSUS_OR36_2021_REPORT_URL =
@@ -330,6 +338,17 @@ type ShareholderSourceRow = {
 
 type ReportSourceUrlMap = Pick<Map<string, string | null | undefined>, 'get'>
 type DocumentRefSet = Pick<Set<string>, 'has'>
+
+const BLOCKED_COMPANY_FINANCIAL_ESTIMATE_LOCATOR =
+  'source:blocked-unsourced/company-financial-estimate'
+const BLOCKED_COMPANY_FINANCIAL_UNVERIFIED_ANNUAL_REPORT_LOCATOR =
+  'source:blocked-unsourced/company-financial-unverified-annual-report'
+const BLOCKED_BUSINESS_RELATIONSHIP_UNVERIFIED_LABEL_LOCATOR =
+  'source:blocked-unsourced/business-relationship-unverified-label'
+const BLOCKED_COUNTRY_METRIC_ESTIMATE_LOCATOR =
+  'source:blocked-unsourced/country-metric-estimate'
+const BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR =
+  'source:blocked-unsourced/country-metric-unverified-label'
 
 const COMPANY_FINANCIAL_ANNUAL_REPORT_REFS: Record<string, string> = {
   '819731322:2024': 'evidence-pack/arsrapporter/norgesgruppen-2024',
@@ -877,6 +896,55 @@ const VERIFIED_SHAREHOLDER_SOURCE_LOCATORS: Array<{
 
 const COUNTRY_METRIC_SOURCE_LABEL_LOCATORS: Record<string, string> = {
   'Beregnet fra markedsandeler': 'source:derived-country-metric-market-shares',
+  'Årsrapporter 2024, Konkurransetilsynet verdikjedestudie':
+    'source:derived-country-metric-margin-annual-reports-ktil',
+  'Nielsen/Dagligvarehandelen': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'NielsenIQ/Dagligvarehandelen': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'NielsenIQ/Dagligvarehandelen est.': BLOCKED_COUNTRY_METRIC_ESTIMATE_LOCATOR,
+  'NielsenIQ/bransjeanalyse est.': BLOCKED_COUNTRY_METRIC_ESTIMATE_LOCATOR,
+  'Danmarks Statistik/Landbrug & Fødevarer': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Hagstofa Íslands / Bændasamtök Íslands':
+    BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Hagstofa Íslands 2023': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Jordbruksverket': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Jordbruksverket 2023': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Konkurrence- og Forbrugerstyrelsen 2023':
+    BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Konkurrensverket 2023': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Samkeppniseftirlitið 2023': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Landbrug & Fødevarer 2023': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'DLF/HUI Research marknadsdata 2024': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'DST/Dansk Erhverv markedsdata 2024': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Samkeppniseftirlitið / Hagar markedsdata 2024':
+    BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'SSB/Landbruksdirektoratet': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'SSB/Landbruksdirektoratet markedsdata 2024':
+    BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'SSB/NIBIO Landskogtakseringen': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'SSB/Sjømatrådet': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'SSB/Sjømatrådet est.': BLOCKED_COUNTRY_METRIC_ESTIMATE_LOCATOR,
+  'Konkurransetilsynet/bransjeanalyse':
+    'https://konkurransetilsynet.no/wp-content/uploads/2025/04/Konkurransetilsynets-Dagligvarerapport-2024-25.pdf',
+  'Bransjeanalyse/Sjømatrådet': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Miljødirektoratet 2020': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Miljødirektoratet 2023': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Miljødirektoratet 2025 est.': BLOCKED_COUNTRY_METRIC_ESTIMATE_LOCATOR,
+  'Miljøstyrelsen 2021': DK_WASTE_STATISTICS_AND_MAPPING_URL,
+  'Miljøstyrelsen 2023': DK_WASTE_STATISTICS_AND_MAPPING_URL,
+  'Energistyrelsen 2023': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Tilastokeskus 2023': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Naturvårdsverket 2023': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Umhverfisstofnun 2023': BLOCKED_COUNTRY_METRIC_UNVERIFIED_LABEL_LOCATOR,
+  'Umhverfisstofnun 2025 est.': BLOCKED_COUNTRY_METRIC_ESTIMATE_LOCATOR,
+  'Umhverfisstofnun/Eurostat 2021': EUROSTAT_FOOD_WASTE_API,
+  'Umhverfisstofnun/Eurostat 2023': EUROSTAT_FOOD_WASTE_API,
+  'Luke/Ruokavirasto': LUKE_FOOD_COMMODITY_BALANCE_API,
+  'LUKE 2023': LUKE_FOOD_COMMODITY_BALANCE_API,
+  'Samkeppniseftirlitið 2025': SAMKEPPNISEFTIRLITID_ANNUAL_REPORT_2024_URL,
+  'Samkeppniseftirlitið est.': BLOCKED_COUNTRY_METRIC_ESTIMATE_LOCATOR,
+  'DagligVaruNytt/NielsenIQ est.': BLOCKED_COUNTRY_METRIC_ESTIMATE_LOCATOR,
+  'PTY/NielsenIQ est.': BLOCKED_COUNTRY_METRIC_ESTIMATE_LOCATOR,
+  'Retail Institute Scandinavia est.': BLOCKED_COUNTRY_METRIC_ESTIMATE_LOCATOR,
   'PTY/NielsenIQ 2023': PTY_FINNISH_GROCERY_TRADE_2023_REPORT_URL,
   'PTY/Päivittäistavarakauppa ry markkina-analyysi 2024':
     'document:evidence-pack/nordisk/pty-finnish-grocery-trade-statistics-2024',
@@ -905,6 +973,17 @@ const COUNTRY_METRIC_SOURCE_LABEL_LOCATORS: Record<string, string> = {
   'Konkurrensverket 2025':
     'https://www.konkurrensverket.se/konkurrens/samlad-kunskap-om-konkurrens/genomlysning-av-livsmedelsbranschen/',
 }
+
+const BLOCKED_BUSINESS_RELATIONSHIP_SOURCE_LABELS = new Set([
+  'BioMar',
+  'Bransjedata',
+  'Lantmannen.com',
+  'mn24.no',
+  'Mowi Industry Handbook',
+  'Nofima Prosjektoversikt',
+  'Sjømatrådet',
+  'TGTG Partnerliste 2024',
+])
 
 function bronnoysundSubunitUrl(orgNr: string): string {
   return `${BRREG_ENHETSREGISTERET_API}/underenheter?overordnetEnhet=${encodeURIComponent(orgNr)}`
@@ -1301,6 +1380,21 @@ function officialNorwegianCompanyFinancialAccountsUrlForRow(
   return null
 }
 
+function blockedCompanyFinancialSourceLocatorForRow(row: CompanyFinancialSourceRow): string | null {
+  const orgNr = row.company?.orgNr?.trim()
+  const source = row.source?.trim()
+  if (!orgNr || !row.year || !source) return null
+
+  const normalized = normalizeSourceText(source)
+  if (normalized.includes('estimat')) return BLOCKED_COMPANY_FINANCIAL_ESTIMATE_LOCATOR
+
+  if (orgNr === '929228723' && row.year === 2024 && looksLikeAnnualReportSource(source)) {
+    return BLOCKED_COMPANY_FINANCIAL_UNVERIFIED_ANNUAL_REPORT_LOCATOR
+  }
+
+  return null
+}
+
 function numberFromOwnershipPct(
   ownershipPct: ShareholderSourceRow['ownershipPct'],
 ): number | null {
@@ -1414,12 +1508,17 @@ export function resolveCompanyFinancialSourceLocator(
   const officialAccountsUrl = officialNorwegianCompanyFinancialAccountsUrlForRow(row)
   if (officialAccountsUrl) return officialAccountsUrl
 
-  if (!looksLikeAnnualReportSource(row.source)) return null
+  if (!looksLikeAnnualReportSource(row.source)) {
+    return blockedCompanyFinancialSourceLocatorForRow(row)
+  }
 
   const documentRef = annualReportDocumentRefForOrgYear(orgNr, row.year)
   if (documentRef && documentRefs.has(documentRef)) return `document:${documentRef}`
 
-  return COMPANY_FINANCIAL_ANNUAL_REPORT_URLS[`${orgNr}:${row.year}`] ?? null
+  return (
+    COMPANY_FINANCIAL_ANNUAL_REPORT_URLS[`${orgNr}:${row.year}`] ??
+    blockedCompanyFinancialSourceLocatorForRow(row)
+  )
 }
 
 export function resolveCompanyOwnershipSourceLocator(
@@ -1652,6 +1751,14 @@ export function resolveBusinessRelationshipSourceLocator(
 
   if (normalized.includes('kfst') && normalized.includes('2025')) {
     return reportSourceUrlById.get('dk-salling-coop-decision-2025')?.trim() || null
+  }
+
+  if (normalized.includes('kkv') && normalized.includes('pty')) {
+    return reportSourceUrlById.get('kkv-fi-4a-dominans')?.trim() || KKV_FI_4A_DOMINANCE_URL
+  }
+
+  if (BLOCKED_BUSINESS_RELATIONSHIP_SOURCE_LABELS.has(source)) {
+    return BLOCKED_BUSINESS_RELATIONSHIP_UNVERIFIED_LABEL_LOCATOR
   }
 
   return null

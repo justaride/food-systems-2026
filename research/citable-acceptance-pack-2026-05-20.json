@@ -1,0 +1,480 @@
+{
+  "generatedAt": "2026-05-20",
+  "summary": {
+    "total": 12,
+    "citeReady": 7,
+    "blocked": 5,
+    "categories": {
+      "nordic_circularity": 3,
+      "market_concentration": 2,
+      "food_waste": 2,
+      "ownership_company": 2,
+      "public_subsidies": 1,
+      "library_sources": 1,
+      "graph_relationships": 1
+    }
+  },
+  "results": [
+    {
+      "id": "CA-001",
+      "category": "nordic_circularity",
+      "question": "Kan kunnskapsbasen sitere København som benchmark for offentlig økologisk innkjøp?",
+      "expectedSourceType": "municipal/public procurement source plus audited report package",
+      "requiredReadinessLevel": "citable_with_note",
+      "mustUse": [
+        "public/reports/nordisk-sirkularitetsrapport-2026-05.html",
+        "docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md"
+      ],
+      "mustNotUse": [
+        "Eldre København 84%-formulering uten 2024/peak-kontekst",
+        "Generert README-linjetall eller filstørrelse som kvalitetsbevis"
+      ],
+      "knownCaveat": "Bruk 85% i 2024 og skill det fra peak 90% i 2015; forklar at dette er procurement-benchmark, ikke generell nasjonal DK-andel.",
+      "proposedAnswer": "Ja, men bare med metodecaveat: rapportpakken kan brukes til å peke på København 85% i 2024 og peak 90% i 2015 som offentlig-kjøkkenbenchmark.",
+      "citations": [
+        {
+          "id": "nordic-circularity-report-html",
+          "title": "Nordisk sirkularitetsrapport 2026-05",
+          "locator": "public/reports/nordisk-sirkularitetsrapport-2026-05.html",
+          "sourceType": "audited report package",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Standardisert København-tall og offentlig innkjøpskontekst."
+        },
+        {
+          "id": "nordic-circularity-appendix",
+          "title": "Nordisk sirkularitetsrapport appendiks",
+          "locator": "docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md",
+          "sourceType": "appendix and evidence matrix",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Samme København-verdi og kildeavgrensning som HTML-rapporten."
+        }
+      ],
+      "status": "cite_ready",
+      "readiness": "citable_with_note",
+      "caveatRequired": true,
+      "exclusionNotes": []
+    },
+    {
+      "id": "CA-002",
+      "category": "nordic_circularity",
+      "question": "Kan T3-diffen siteres som ekstern validering av rapportens konklusjoner?",
+      "expectedSourceType": "external domain validation or named expert review",
+      "requiredReadinessLevel": "citable_external",
+      "mustUse": [
+        "research/v1-2/phase8-T3-ekstern-vs-intern-diff.md",
+        "research/v1-2/phase7-selvkritikk.md"
+      ],
+      "mustNotUse": [
+        "Språk som sier eller antyder at T3 er ekstern fagfellevalidering",
+        "LLM-diff alene som dokumentarisk tredjepartsbevis"
+      ],
+      "knownCaveat": "T3 er gjennomført, men det er en intern metodekontroll mot en generisk ekstern modellrespons, ikke ekstern validering.",
+      "proposedAnswer": "Nei. T3 kan omtales som intern metodekontroll, men skal blokkeres som ekstern validering.",
+      "citations": [
+        {
+          "id": "phase8-t3-diff",
+          "title": "Phase 8 T3 ekstern-vs-intern diff",
+          "locator": "research/v1-2/phase8-T3-ekstern-vs-intern-diff.md",
+          "sourceType": "internal method check",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Dokumenterer hva T3 faktisk sammenlignet."
+        }
+      ],
+      "blockingNotes": [
+        "Required readiness is citable_external, but available T3 material is only citable_with_note and internally generated.",
+        "No named external validator, peer review, or domain expert sign-off is present."
+      ],
+      "status": "blocked",
+      "readiness": "citable_with_note",
+      "caveatRequired": true,
+      "exclusionNotes": [
+        "Required readiness is citable_external, but available T3 material is only citable_with_note and internally generated.",
+        "No named external validator, peer review, or domain expert sign-off is present.",
+        "phase8-t3-diff: citable_with_note does not satisfy citable_external"
+      ]
+    },
+    {
+      "id": "CA-003",
+      "category": "nordic_circularity",
+      "question": "Kan cascade-logikken prioritere forebygging før biogass i sirkularitetsråd?",
+      "expectedSourceType": "audited synthesis with cited food-waste and circularity sources",
+      "requiredReadinessLevel": "citable_with_note",
+      "mustUse": [
+        "public/reports/nordisk-sirkularitetsrapport-2026-05.html",
+        "src/lib/data/circular-leverage.ts"
+      ],
+      "mustNotUse": [
+        "Teknologinøytral rangering uten avfallshierarki",
+        "Biogassvolum alene som bevis for høyest sirkularitet"
+      ],
+      "knownCaveat": "Forebygging er et prioriteringsprinsipp; tallfestede effektforhold må følges av kilde og metodeavgrensning.",
+      "proposedAnswer": "Ja, med caveat: cascade-logikken kan brukes som analytisk ramme når tallfestede effektpåstander knyttes til sine konkrete kilder.",
+      "citations": [
+        {
+          "id": "circular-leverage-data",
+          "title": "Circular leverage data model",
+          "locator": "src/lib/data/circular-leverage.ts",
+          "sourceType": "application data with cited source URLs",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Viser at matsvinnforebygging og redistribusjon skilles fra biogass/gjenvinning."
+        },
+        {
+          "id": "nordic-circularity-report-cascade",
+          "title": "Nordisk sirkularitetsrapport cascade sections",
+          "locator": "public/reports/nordisk-sirkularitetsrapport-2026-05.html",
+          "sourceType": "audited report package",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Bruker cascade-/leverage-logikk i anbefalingene."
+        }
+      ],
+      "status": "cite_ready",
+      "readiness": "citable_with_note",
+      "caveatRequired": true,
+      "exclusionNotes": []
+    },
+    {
+      "id": "CA-004",
+      "category": "market_concentration",
+      "question": "Kan vi sitere Norge som HHI 3445 og CR3 96,6% uten å blande begrepene?",
+      "expectedSourceType": "computed market concentration data plus audited report correction",
+      "requiredReadinessLevel": "citable_with_note",
+      "mustUse": [
+        "public/data/food-systems/no/chart-metrics.json",
+        "public/reports/nordisk-sirkularitetsrapport-2026-05.html"
+      ],
+      "mustNotUse": [
+        "NO HHI 96,6%",
+        "CR3 omtalt som HHI eller HHI omtalt som prosentandel"
+      ],
+      "knownCaveat": "HHI er indeks, CR3 er prosentandel. Påstanden må bruke begge etikettene eksplisitt.",
+      "proposedAnswer": "Ja, når teksten sier HHI 3445 og CR3 96,6%, og ikke presenterer CR3 som HHI.",
+      "citations": [
+        {
+          "id": "no-chart-metrics",
+          "title": "Norway food-system chart metrics",
+          "locator": "public/data/food-systems/no/chart-metrics.json",
+          "sourceType": "computed local dataset",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Inneholder beregnet parent HHI for norsk dagligvarestruktur."
+        },
+        {
+          "id": "hhi-cr3-report-correction",
+          "title": "Nordisk sirkularitetsrapport HHI/CR3 correction",
+          "locator": "public/reports/nordisk-sirkularitetsrapport-2026-05.html",
+          "sourceType": "audited report package",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Dokumenterer at tidligere HHI 96,6%-formulering er rettet."
+        }
+      ],
+      "status": "cite_ready",
+      "readiness": "citable_with_note",
+      "caveatRequired": true,
+      "exclusionNotes": []
+    },
+    {
+      "id": "CA-005",
+      "category": "market_concentration",
+      "question": "Kan Finland 30%-regelen brukes som sitatklar juridisk sammenligning?",
+      "expectedSourceType": "official legal text or verified legal database locator",
+      "requiredReadinessLevel": "citable_external",
+      "mustUse": [
+        "Official Finlex/legal locator for Konkurrenseloven §4a",
+        "research/v1-2/phase8-T3-ekstern-vs-intern-diff.md only as internal comparison note"
+      ],
+      "mustNotUse": [
+        "Intern rapporttekst alene som rettskilde",
+        "LLM-diff som juridisk fasit"
+      ],
+      "knownCaveat": "Inntil juridisk primærkilde er koblet direkte, kan regelen brukes som intern analyse, ikke som ekstern juridisk dokumentasjon.",
+      "proposedAnswer": "Blokker som ekstern juridisk påstand til offisiell lovlocator er koblet.",
+      "citations": [
+        {
+          "id": "phase8-finland-30-rule",
+          "title": "Phase 8 note on Finland 30 percent rule",
+          "locator": "research/v1-2/phase8-T3-ekstern-vs-intern-diff.md",
+          "sourceType": "internal comparison note",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Identifiserer regelen som sammenligningspunkt, men er ikke rettskilde."
+        }
+      ],
+      "blockingNotes": [
+        "Required readiness is citable_external because the claim is legal in nature.",
+        "Current acceptance input lacks an official legal locator for the statute text."
+      ],
+      "status": "blocked",
+      "readiness": "citable_with_note",
+      "caveatRequired": true,
+      "exclusionNotes": [
+        "Required readiness is citable_external because the claim is legal in nature.",
+        "Current acceptance input lacks an official legal locator for the statute text.",
+        "phase8-finland-30-rule: citable_with_note does not satisfy citable_external"
+      ]
+    },
+    {
+      "id": "CA-006",
+      "category": "food_waste",
+      "question": "Kan vi bruke FI-DK 6x matsvinn-forskjell som ekstern rangering?",
+      "expectedSourceType": "harmonized food-waste statistics with method caveat",
+      "requiredReadinessLevel": "citable_with_note",
+      "mustUse": [
+        "public/reports/nordisk-sirkularitetsrapport-2026-05.html",
+        "research/v1-2/phase8-T3-ekstern-vs-intern-diff.md"
+      ],
+      "mustNotUse": [
+        "Rangering uten måleinstrument-/definisjonsforbehold",
+        "Island-sammenligning uten Hagstofa-validering"
+      ],
+      "knownCaveat": "Rapporten sier at forskjellen kan være måleinstrument. Bruk derfor metodenote, ikke ren prestasjonsrangering.",
+      "proposedAnswer": "Ja, men bare som metodebelagt sammenligning med tydelig forbehold om målemetode.",
+      "citations": [
+        {
+          "id": "report-food-waste-6x",
+          "title": "Nordisk sirkularitetsrapport food-waste section",
+          "locator": "public/reports/nordisk-sirkularitetsrapport-2026-05.html",
+          "sourceType": "audited report package",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Presenterer 6x-forskjellen sammen med metodeforbehold."
+        },
+        {
+          "id": "phase8-food-waste-method-note",
+          "title": "Phase 8 food-waste method note",
+          "locator": "research/v1-2/phase8-T3-ekstern-vs-intern-diff.md",
+          "sourceType": "internal method check",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Bekrefter at definisjonsforskjeller er kjent og ikke unik plattforminnsikt."
+        }
+      ],
+      "status": "cite_ready",
+      "readiness": "citable_with_note",
+      "caveatRequired": true,
+      "exclusionNotes": []
+    },
+    {
+      "id": "CA-007",
+      "category": "food_waste",
+      "question": "Kan Salling Groups matsvinnreduksjon siteres som halvering?",
+      "expectedSourceType": "company or audited report source with scope note",
+      "requiredReadinessLevel": "citable_with_note",
+      "mustUse": [
+        "public/reports/nordisk-sirkularitetsrapport-2026-05.html",
+        "docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md"
+      ],
+      "mustNotUse": [
+        "Halvering",
+        "Uten scope-note om food waste percentage og baseline"
+      ],
+      "knownCaveat": "Bruk 2,8% baseline 2015 til 1,8% i 2024 (-34,8%), ikke halvering.",
+      "proposedAnswer": "Ja, men teksten må si -34,8% mot baseline og ikke omtale det som halvering.",
+      "citations": [
+        {
+          "id": "report-salling-waste",
+          "title": "Nordisk sirkularitetsrapport Salling food-waste percentage",
+          "locator": "public/reports/nordisk-sirkularitetsrapport-2026-05.html",
+          "sourceType": "audited report package",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Inneholder korrigert Salling-baseline og scope-note."
+        }
+      ],
+      "status": "cite_ready",
+      "readiness": "citable_with_note",
+      "caveatRequired": true,
+      "exclusionNotes": []
+    },
+    {
+      "id": "CA-008",
+      "category": "ownership_company",
+      "question": "Kan eierskaps- og selskapsstrukturer brukes eksternt fra selskapssidene?",
+      "expectedSourceType": "annual report, registry, transaction announcement, or verified resolver locator",
+      "requiredReadinessLevel": "citable_with_note",
+      "mustUse": [
+        "CompanyOwnership.source citations surfaced on /selskap/[id]",
+        "src/lib/row-source-locators.ts resolver mappings"
+      ],
+      "mustNotUse": [
+        "Unverified company-tree inference",
+        "Blocked source markers as if they were documentary evidence"
+      ],
+      "knownCaveat": "Use only ownership rows whose citation label resolves to annual report, registry, transaction announcement, or explicit internal-blocked marker.",
+      "proposedAnswer": "Ja for rows with verified locators and visible citation labels; unresolved labels remain internal or blocked.",
+      "citations": [
+        {
+          "id": "row-source-locators-ownership",
+          "title": "Row source locator resolver",
+          "locator": "src/lib/row-source-locators.ts",
+          "sourceType": "resolver over existing database/repo locators",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Maps ownership labels only to existing locators or explicit blocked markers."
+        },
+        {
+          "id": "company-page-citations",
+          "title": "Company page citation rendering",
+          "locator": "src/app/selskap/[id]/page.tsx",
+          "sourceType": "public surface citation gate",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Shows source readiness beside company facts."
+        }
+      ],
+      "status": "cite_ready",
+      "readiness": "citable_with_note",
+      "caveatRequired": true,
+      "exclusionNotes": []
+    },
+    {
+      "id": "CA-009",
+      "category": "ownership_company",
+      "question": "Kan grafen alene brukes som bevis for styre-/personrelasjoner?",
+      "expectedSourceType": "verified board-member row citation or official registry locator",
+      "requiredReadinessLevel": "citable_external",
+      "mustUse": [
+        "BoardMember.source with verifiedAt",
+        "PersonProfile linkage when public graph relationship is cited"
+      ],
+      "mustNotUse": [
+        "Graph edge alone without row-level source citation",
+        "Orphan board-member graph rows as proof"
+      ],
+      "knownCaveat": "Graph audit still reports orphan board-member graph rows; graph is navigation/context unless backed by row-level citation.",
+      "proposedAnswer": "Blokker graph-only use. Cite row-level BoardMember source data instead.",
+      "citations": [
+        {
+          "id": "graph-audit-quality",
+          "title": "Knowledge graph audit output",
+          "locator": "npm run graph:audit",
+          "sourceType": "technical audit output",
+          "readiness": "internal_context",
+          "supportsClaim": "Shows graph integrity passes but practical graph coverage remains limited."
+        }
+      ],
+      "blockingNotes": [
+        "Graph audit is internal quality context, not documentary evidence for a person relationship.",
+        "Required readiness is citable_external for relationship proof, but graph-only evidence is internal_context."
+      ],
+      "status": "blocked",
+      "readiness": "internal_context",
+      "caveatRequired": false,
+      "exclusionNotes": [
+        "Graph audit is internal quality context, not documentary evidence for a person relationship.",
+        "Required readiness is citable_external for relationship proof, but graph-only evidence is internal_context.",
+        "graph-audit-quality: internal_context does not satisfy citable_external"
+      ]
+    },
+    {
+      "id": "CA-010",
+      "category": "public_subsidies",
+      "question": "Kan offentlige tilskuddsrader siteres eksternt fra databasen?",
+      "expectedSourceType": "official registry/API/CSV source locator",
+      "requiredReadinessLevel": "citable_external",
+      "mustUse": [
+        "Subsidy.source resolver for Landbruksdirektoratet production subsidy rows",
+        "npm run db:audit Source Quality Coverage for Subsidy.source"
+      ],
+      "mustNotUse": [
+        "Aggregated subsidy claim without row source",
+        "Manual label-only source text"
+      ],
+      "knownCaveat": "External use should cite the row source locator and year/category, not only an aggregate in prose.",
+      "proposedAnswer": "Ja for rows that retain the official Landbruksdirektoratet locator and row context.",
+      "citations": [
+        {
+          "id": "subsidy-row-source-resolver",
+          "title": "Subsidy row-source locator resolver",
+          "locator": "src/lib/row-source-locators.ts",
+          "sourceType": "official registry locator resolver",
+          "readiness": "citable_external",
+          "supportsClaim": "Resolves production subsidy rows to official Landbruksdirektoratet sources."
+        }
+      ],
+      "status": "cite_ready",
+      "readiness": "citable_external",
+      "caveatRequired": false,
+      "exclusionNotes": []
+    },
+    {
+      "id": "CA-011",
+      "category": "library_sources",
+      "question": "Kan en bibliotekpost siteres eksternt med bare lokal PDF/tittel?",
+      "expectedSourceType": "DOI, handle, publisher URL, or verified document URL plus local file",
+      "requiredReadinessLevel": "citable_external",
+      "mustUse": [
+        "Document.url, Thesis.url, DOI, handle, or verified publisher locator",
+        "Local file path only as archive/copy support"
+      ],
+      "mustNotUse": [
+        "Local file path as eneste eksterne locator",
+        "Title-only or imported filename as source proof"
+      ],
+      "knownCaveat": "Local files are useful for archive and review, but external citations need direct public locator or persistent ID.",
+      "proposedAnswer": "Blokker title/local-file-only use until a public locator or persistent ID is present.",
+      "citations": [
+        {
+          "id": "status-library-coverage",
+          "title": "Citable knowledge base status - library locator coverage",
+          "locator": "research/CITABLE-KNOWLEDGE-BASE-STATUS.md",
+          "sourceType": "operational status report",
+          "readiness": "internal_context",
+          "supportsClaim": "Documents locator coverage and DOI/persistent-ID gaps."
+        }
+      ],
+      "blockingNotes": [
+        "A local file path alone is internal archive evidence, not an external citation locator.",
+        "Required readiness is citable_external, but title/local-file-only evidence is internal_context."
+      ],
+      "status": "blocked",
+      "readiness": "internal_context",
+      "caveatRequired": false,
+      "exclusionNotes": [
+        "A local file path alone is internal archive evidence, not an external citation locator.",
+        "Required readiness is citable_external, but title/local-file-only evidence is internal_context.",
+        "status-library-coverage: internal_context does not satisfy citable_external"
+      ]
+    },
+    {
+      "id": "CA-012",
+      "category": "graph_relationships",
+      "question": "Kan grafrelasjoner eksporteres som siterbare relasjonspåstander?",
+      "expectedSourceType": "edge with source citation, confidence, and underlying row/document locator",
+      "requiredReadinessLevel": "citable_external",
+      "mustUse": [
+        "Source-backed edge or underlying row citation",
+        "Graph audit integrity output as quality context only"
+      ],
+      "mustNotUse": [
+        "Edges without confidence/source as external evidence",
+        "Graph neighborhood visualization as proof"
+      ],
+      "knownCaveat": "Graph currently has low confidence coverage and many isolated nodes; use it for navigation unless a relationship has source-backed evidence.",
+      "proposedAnswer": "Blokker graph-edge-only citation. Export only relationships with source-backed underlying rows.",
+      "citations": [
+        {
+          "id": "graph-query-filter",
+          "title": "Public graph query source filtering",
+          "locator": "src/lib/queries/graph.ts",
+          "sourceType": "public graph adapter",
+          "readiness": "internal_context",
+          "supportsClaim": "Filters blocked markers from public graph output but does not make every edge citable."
+        },
+        {
+          "id": "graph-audit-low-confidence",
+          "title": "Knowledge graph audit",
+          "locator": "npm run graph:audit",
+          "sourceType": "technical audit output",
+          "readiness": "internal_context",
+          "supportsClaim": "Shows confidence coverage remains a quality limitation."
+        }
+      ],
+      "blockingNotes": [
+        "Required readiness is citable_external, but graph-only evidence is internal_context.",
+        "Acceptance requires a source-backed underlying row before a relationship can be cited externally."
+      ],
+      "status": "blocked",
+      "readiness": "internal_context",
+      "caveatRequired": false,
+      "exclusionNotes": [
+        "Required readiness is citable_external, but graph-only evidence is internal_context.",
+        "Acceptance requires a source-backed underlying row before a relationship can be cited externally.",
+        "graph-query-filter: internal_context does not satisfy citable_external",
+        "graph-audit-low-confidence: internal_context does not satisfy citable_external"
+      ]
+    }
+  ]
+}

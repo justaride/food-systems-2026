@@ -2,16 +2,10 @@ import 'dotenv/config'
 import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import { parseCsvRecords } from '../src/lib/csv'
-
-type Classification =
-  | 'ok'
-  | 'redirect'
-  | 'dead'
-  | 'blocked'
-  | 'paywalled'
-  | 'timeout'
-  | 'server_error'
-  | 'other'
+import {
+  classifyUrlStatus,
+  type UrlHealthClassification as Classification,
+} from '../src/lib/url-health-classifier'
 
 type CheckResult = {
   status: number | string
@@ -35,6 +29,14 @@ type HealthRow = UrlRecord & {
 const RATE_LIMIT_MS = 1000 // 1 req/sec to be polite
 const REQUEST_TIMEOUT_MS = 10000
 const MAX_REDIRECT_HOPS = 5
+const REQUEST_HEADERS = {
+  // Several public archives/WAFs return false 5xx/429 responses to custom bot
+  // user agents even when the public page is reachable in a normal browser.
+  'User-Agent':
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,application/pdf,*/*;q=0.8',
+  'Accept-Language': 'en-US,en;q=0.9,nb;q=0.8,no;q=0.7',
+}
 
 function csvEscape(value: string): string {
   return `"${String(value).replace(/"/g, '""')}"`
@@ -97,7 +99,7 @@ async function checkUrl(url: string): Promise<CheckResult> {
       const res = await fetch(current, {
         method,
         signal: controller.signal,
-        headers: { 'User-Agent': 'FoodSystems2026-LinkChecker/1.0' },
+        headers: REQUEST_HEADERS,
         redirect: 'manual',
       })
       clearTimeout(timeout)
@@ -152,33 +154,6 @@ async function checkUrl(url: string): Promise<CheckResult> {
     finalUrl: current === url ? undefined : current,
     ms: Date.now() - start,
   }
-}
-
-function classify(status: number | string): Classification {
-  if (typeof status === 'string') {
-    if (status === 'timeout') return 'timeout'
-    // network error: ECONNREFUSED, ENOTFOUND, getaddrinfo etc → dead
-    const lc = status.toLowerCase()
-    if (
-      lc.includes('refused') ||
-      lc.includes('enotfound') ||
-      lc.includes('getaddrinfo') ||
-      lc.includes('ehostunreach') ||
-      lc.includes('econnreset')
-    ) {
-      return 'dead'
-    }
-    if (lc.includes('etimedout') || lc.includes('uND_ERR_CONNECT_TIMEOUT'.toLowerCase())) {
-      return 'timeout'
-    }
-    return 'other'
-  }
-  if (status === 200) return 'ok'
-  if (status >= 300 && status < 400) return 'redirect'
-  if (status === 403 || status === 451) return 'blocked'
-  if (status === 404 || status === 410) return 'dead'
-  if (status >= 500 && status < 600) return 'server_error'
-  return 'other'
 }
 
 function distribution(rows: HealthRow[]): Record<Classification, number> {
@@ -263,14 +238,14 @@ function writeMd(root: string, rows: HealthRow[], elapsedMs: number): void {
     '',
     '## Klassifikasjons-regler',
     '',
-    '- **ok**: HTTP 200',
+    '- **ok**: HTTP 2xx',
     '- **redirect**: HTTP 3xx (Location-feltet fulgt manuelt opp til 5 hopp)',
     '- **dead**: HTTP 404 / 410, eller nettverksfeil (ENOTFOUND, ECONNREFUSED, ECONNRESET, EHOSTUNREACH)',
     '- **blocked**: HTTP 403 / 451 (etter retry med GET-fallback)',
     '- **paywalled**: TODO — krever innholdsanalyse, ikke implementert (alltid 0 i denne kjøringen)',
     '- **timeout**: ingen respons innen 10s',
     '- **server_error**: HTTP 5xx',
-    '- **other**: alt annet (1xx, 2xx ikke 200, 4xx ikke 403/404/410/451)',
+    '- **other**: alt annet (1xx, 4xx ikke 403/404/410/451)',
     '',
   ]
 
@@ -409,7 +384,7 @@ async function main() {
   for (let i = 0; i < records.length; i++) {
     const rec = records[i]
     const { status, finalUrl, ms } = await checkUrl(rec.url)
-    const cls = classify(status)
+    const cls = classifyUrlStatus(status)
     rows.push({
       ...rec,
       status,

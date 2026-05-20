@@ -25,7 +25,7 @@ Full plan: `~/.claude/plans/la-oss-lage-en-snazzy-kahan.md`
 |---|---|---|
 | **Fase 1: Baseline-konsolidering** | ✅ Ferdig | `nordisk-circularity-baseline-v0.3.json` (~120 facts) |
 | **Fase 2: 8 tematiske dypdykk** | ✅ Ferdig | `batch-01` til `batch-08` |
-| **Fase 3: Innsiktsmotor T1-T5** | ✅ Ferdig (T3 åpen) | `innsiktsmotor.md` (12 motsigelser, cross-tab, 15 spørsmål, Vision 2030-alignment) |
+| **Fase 3: Innsiktsmotor T1-T5** | ✅ Ferdig (T3 lukket i v1.2 Phase 8) | `innsiktsmotor.md` (12 motsigelser, cross-tab, 15 spørsmål, Vision 2030-alignment) |
 | **Fase 4: Cognitive dissonance + foregangsområder** | ✅ Ferdig | `syntese-fase-4.md` (7 cases, 5 fokusområder med score) |
 | **Fase 5: HTML-rapport + MD-appendiks** | ✅ Ferdig | `public/reports/nordisk-sirkularitetsrapport-2026-05.html` + `docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md` |
 
@@ -52,7 +52,7 @@ Full plan: `~/.claude/plans/la-oss-lage-en-snazzy-kahan.md`
 | **Phase 8: T3 ekstern-vs-intern diff** | ✅ | `research/v1-2/phase8-T3-ekstern-vs-intern-diff.md` + integrert i §8 |
 
 🟢 **Rapport status:** Klar for ekstern lansering (krever bruker-godkjenning før touchpoint).
-🟢 **HTML-rapport:** v1.2-merket, 914 linjer, ~76KB, 5 fokusområder med Substansutbygging-blokker, 7 CD-cases, 9 seksjoner inkl. Selvkritikk.
+🟢 **HTML-rapport:** v1.2-merket, 5 fokusområder med Substansutbygging-blokker, 7 CD-cases, 9 seksjoner inkl. Selvkritikk.
 
 ## Tidlige innsikter (allerede synlige fra v0.2-prosessen)
 
@@ -76,7 +76,7 @@ Full plan: `~/.claude/plans/la-oss-lage-en-snazzy-kahan.md`
 
 1. **FI fase-ut av importert fôr i melkeproduksjon** (kritisk — kjerneeksempel fra Jan Thomas)
 2. **Regenerativt landbruk per land** (distinkt fra øko)
-3. **NO offentlig innkjøp øko-andel** (sammenligning mot DK København 84%)
+3. **NO offentlig innkjøp øko-andel** (sammenligning mot DK København 85% i 2024, peak 90% i 2015)
 4. **Subsidier per land** (kun NO godt dekket)
 5. **IS marint restråstoff-detaljer** utover 100% Fish-programmet
 6. **Cognitive dissonance-base — politiske påstander per land** (kritisk)

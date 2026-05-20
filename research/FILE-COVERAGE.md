@@ -1,14 +1,14 @@
 # File coverage — research/ vs DB/seed
 
 > Auto-generert av `scripts/compute-file-coverage.ts` — ikke rediger manuelt.
-> Generert: 2026-05-19T08:09:56.226Z
-> Totalt funn: **348**
+> Generert: 2026-05-20T02:25:03.645Z
+> Totalt funn: **351**
 
 ## Totals per problem
 
 | Problem | Count |
 |---|---:|
-| orphan_file | 304 |
+| orphan_file | 307 |
 | missing_file_document | 0 |
 | missing_file_sourcedoc | 42 |
 | broken_supportingsource | 1 |
@@ -21,7 +21,7 @@
 |---|---:|---:|---:|---:|---:|---:|
 | HIGH | 0 | 0 | 0 | 0 | 0 | 0 |
 | MEDIUM | 0 | 0 | 42 | 0 | 0 | 0 |
-| LOW | 304 | 0 | 0 | 1 | 0 | 1 |
+| LOW | 307 | 0 | 0 | 1 | 0 | 1 |
 
 ## Top 30 highest-severity findings
 
@@ -65,7 +65,10 @@
 | arkiv-sortert | 267 |
 | pdf-downloads-20-04-26 | 22 |
 | visualisering | 14 |
+| CITABLE-KNOWLEDGE-BASE-HANDOFF-2026-05-20.md | 1 |
+| CITABLE-KNOWLEDGE-BASE-STATUS.md | 1 |
 | external | 1 |
+| perpl-17-03 | 1 |
 
 ## Severity rules
 
@@ -75,7 +78,7 @@
 
 ## Scope notes
 
-- Scanned **1260** files (.pdf, .md) under `research/`, excluding `_plans/`, `_status/`, `intake/`, and the meta/index docs at the root.
+- Scanned **1262** files (.pdf, .md) under `research/`, excluding `_plans/`, `_status/`, `intake/`, and the meta/index docs at the root.
 - Cross-referenced 1063 `Document`, 193 `SourceDoc`, and 129 seed Reports (plus their supportingSources).
 - `SourceDoc.filename` is often a bare filename (no path); the script uses a basename index over `research/` to resolve them, so a SourceDoc is only flagged when no file with that basename exists anywhere under `research/`.
 - A `Document` missing-file finding is HIGH severity if the linked seed Report/Thesis has KI-PRIORITY ≥ 4.0; otherwise MEDIUM. Documents without any seed link (e.g. raw imports) default to MEDIUM.

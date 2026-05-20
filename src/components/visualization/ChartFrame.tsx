@@ -1,5 +1,6 @@
 import { Card } from '@/components/ui/Card'
 import type { VisualizationDataContract } from '@/lib/visualization/types'
+import { evaluateExternalCitationReadiness } from '@/lib/citations/citable-record-filter'
 import { EvidenceStatusBadge } from './EvidenceStatusBadge'
 import { SourceFootnote } from './SourceFootnote'
 
@@ -11,6 +12,14 @@ type ChartFrameProps = {
 }
 
 export function ChartFrame({ title, contract, children, className = '' }: ChartFrameProps) {
+  const citationEvaluation = evaluateExternalCitationReadiness({
+    id: title,
+    citations: contract.sourceRefs.map((source) => ({
+      citationReadiness: source.citationReadiness ?? (source.href || source.path ? 'citable_with_note' : 'blocked_unsourced'),
+      note: source.note ?? contract.coverageNote ?? 'Visualiseringskilde med metode-/dekningsforbehold.',
+    })),
+  })
+
   return (
     <Card title={title} className={className}>
       <div className="mb-4 flex flex-col gap-2 border-b border-stone-100 pb-3 lg:flex-row lg:items-start lg:justify-between">
@@ -23,6 +32,8 @@ export function ChartFrame({ title, contract, children, className = '' }: ChartF
         <EvidenceStatusBadge
           status={contract.evidenceStatus}
           detail={contract.coverageNote}
+          citationReadiness={citationEvaluation.readiness ?? 'blocked_unsourced'}
+          citationNote={contract.coverageNote}
         />
       </div>
       {children}
