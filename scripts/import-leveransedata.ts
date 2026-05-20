@@ -171,7 +171,7 @@ async function ensureProducer(orgNr: string, name: string, kommuneNr: string | n
       municipality: kommuneNr,
       metadata: { kommuneNr, source: 'Leveransedata' } as any,
     },
-    update: {},
+    update: {}, // no-op: landbruksregister owns producer fields; this only anchors an id
   })
 }
 

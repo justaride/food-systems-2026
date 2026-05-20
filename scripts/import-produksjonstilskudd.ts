@@ -6,7 +6,7 @@ const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
 const DEFAULT_YEAR = 2025
-const COMPANY_BATCH_SIZE = 1000
+const PRODUCER_BATCH_SIZE = 1000
 const SUBSIDY_BATCH_SIZE = 2000
 
 const urlForYear = (year: number) =>
@@ -136,7 +136,7 @@ async function main() {
 
   const orgNrs = [...farms.keys()]
 
-  console.log(`[produksjonstilskudd] upserting ${orgNrs.length} producers`)
+  console.log(`[produksjonstilskudd] ensuring ${orgNrs.length} producers exist`)
   const newProducers = [...farms.values()].map(f => ({
     orgNr: f.orgNr,
     name: f.orgName || `Jordbruksforetak ${f.orgNr}`,
@@ -145,8 +145,13 @@ async function main() {
     metadata: { kommuneNr: f.kommuneNr, source: 'Produksjonstilskudd' } as any,
   }))
 
-  for (const batch of chunk(newProducers, COMPANY_BATCH_SIZE)) {
-    await prisma.producer.createMany({ data: batch, skipDuplicates: true })
+  // skipDuplicates deliberately does not update existing rows: import-landbruksregister.ts
+  // is the authoritative source for producer fields (name/municipality/metadata).
+  // This script only ensures producers exist so the subsidy FK can resolve.
+  let producersCreated = 0
+  for (const batch of chunk(newProducers, PRODUCER_BATCH_SIZE)) {
+    const result = await prisma.producer.createMany({ data: batch, skipDuplicates: true })
+    producersCreated += result.count
   }
 
   const orgNrToId = new Map<string, string>()
@@ -205,7 +210,7 @@ async function main() {
   }
 
   console.log(
-    `[produksjonstilskudd] done: farms=${farms.size} producersUpserted=${newProducers.length} subsidiesInserted=${inserted}`
+    `[produksjonstilskudd] done: farms=${farms.size} producersCreated=${producersCreated} producersResolved=${orgNrToId.size} subsidiesInserted=${inserted}`
   )
 }
 
