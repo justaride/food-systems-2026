@@ -68,3 +68,24 @@ ALTER TABLE "SourceDoc"
 ALTER TABLE "Subsidy"
   ADD COLUMN IF NOT EXISTS "verificationStatus" TEXT,
   ADD COLUMN IF NOT EXISTS "verifiedAt" TIMESTAMP(3);
+
+-- Indexes and the Insight->SourceCitation foreign key that accompany the
+-- columns above (names match Prisma's defaults for the schema.prisma @@index
+-- / @relation declarations).
+CREATE INDEX IF NOT EXISTS "Company_isResearchConstruct_idx" ON "Company"("isResearchConstruct");
+CREATE INDEX IF NOT EXISTS "Company_orgNrFormat_idx" ON "Company"("orgNrFormat");
+CREATE INDEX IF NOT EXISTS "CompanyFinancial_fiscalPeriodStart_fiscalPeriodEnd_idx" ON "CompanyFinancial"("fiscalPeriodStart", "fiscalPeriodEnd");
+CREATE INDEX IF NOT EXISTS "Shareholder_companyId_sourceBasis_idx" ON "Shareholder"("companyId", "sourceBasis");
+CREATE INDEX IF NOT EXISTS "SourceCitation_sourceClass_idx" ON "SourceCitation"("sourceClass");
+CREATE INDEX IF NOT EXISTS "FieldCitation_citationId_idx" ON "FieldCitation"("citationId");
+CREATE INDEX IF NOT EXISTS "Insight_primaryCitationId_idx" ON "Insight"("primaryCitationId");
+
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'Insight_primaryCitationId_fkey') THEN
+    ALTER TABLE "Insight"
+      ADD CONSTRAINT "Insight_primaryCitationId_fkey"
+      FOREIGN KEY ("primaryCitationId") REFERENCES "SourceCitation"("id")
+      ON DELETE SET NULL ON UPDATE CASCADE;
+  END IF;
+END $$;

@@ -44,23 +44,25 @@ enum CitationReadiness {
 // ─── Domain 1: Documents ────────────────────────────────────────────
 
 model Document {
-  id           String                       @id @default(cuid())
-  slug         String                       @unique
-  filePath     String?                      @unique
-  title        String
-  author       String?
-  year         Int?
-  documentType String?
-  category     String?
-  subcategory  String?
-  country      String?
-  content      String
-  summary      String?
-  url          String?
-  wordCount    Int                          @default(0)
-  tags         String[]
-  metadata     Json?
-  embedding    Unsupported("vector(1536)")?
+  id            String                       @id @default(cuid())
+  slug          String                       @unique
+  filePath      String?                      @unique
+  title         String
+  author        String?
+  year          Int?
+  documentType  String?
+  category      String?
+  subcategory   String?
+  country       String?
+  content       String
+  summary       String?
+  url           String?
+  accessedAt    DateTime?
+  archivedUrl   String?
+  wordCount     Int                          @default(0)
+  tags          String[]
+  metadata      Json?
+  embedding     Unsupported("vector(1536)")?
   // search_vector: FTS-kolonne lagt til via raw SQL (scripts/add-postgres-fts.sql)
   // GENERATED ALWAYS AS (...) STORED — Prisma kan ikke uttrykke dette, men
   // erklæring her hindrer `prisma db push` fra å droppe kolonnen.
@@ -100,7 +102,7 @@ model DocumentRef {
 // ─── Domain 2: Sources ──────────────────────────────────────────────
 
 model SourceDoc {
-  id          String  @id // src-1..src-70
+  id          String    @id // src-1..src-70
   filename    String
   title       String?
   author      String?
@@ -109,16 +111,18 @@ model SourceDoc {
   description String
   relevance   String
   url         String?
-  isDuplicate Boolean @default(false)
+  isDuplicate Boolean   @default(false)
   doi         String?
   publisher   String?
+  accessedAt  DateTime?
+  archivedUrl String?
 
   documentId String?   @unique
   document   Document? @relation(fields: [documentId], references: [id])
 
-  sourceRefs   SourceRef[]
-  insights     Insight[]   @relation("InsightSourceDoc")
-  mediaEntries MediaEntry[]
+  sourceRefs      SourceRef[]
+  insights        Insight[]        @relation("InsightSourceDoc")
+  mediaEntries    MediaEntry[]
   sourceCitations SourceCitation[]
 
   @@index([sourceType])
@@ -153,10 +157,12 @@ model SourceCitation {
   createdAt          DateTime           @default(now())
   updatedAt          DateTime           @updatedAt
 
-  document       Document?       @relation(fields: [documentId], references: [id], onDelete: SetNull)
-  sourceDoc      SourceDoc?      @relation(fields: [sourceDocId], references: [id], onDelete: SetNull)
-  fieldCitations FieldCitation[]
+  document           Document?       @relation(fields: [documentId], references: [id], onDelete: SetNull)
+  sourceDoc          SourceDoc?      @relation(fields: [sourceDocId], references: [id], onDelete: SetNull)
+  fieldCitations     FieldCitation[]
+  primaryForInsights Insight[]       @relation("InsightPrimaryCitation")
 
+  @@index([sourceClass])
   @@index([citationReadiness])
   @@index([verificationStatus])
   @@index([documentId])
@@ -178,6 +184,7 @@ model FieldCitation {
   citation SourceCitation @relation(fields: [citationId], references: [id], onDelete: Cascade)
 
   @@unique([citationId, entityType, entityId, fieldPath])
+  @@index([citationId])
   @@index([entityType, entityId])
   @@index([fieldPath])
 }
@@ -202,24 +209,28 @@ model SourceRef {
 // ─── Domain 3: Insights ─────────────────────────────────────────────
 
 model Insight {
-  id          String   @id // ins-01..ins-42
-  title       String
-  description String
-  insightType String
-  source      String
-  phaseId     String?
-  tags        String[]
-  url         String?
-  date        String
+  id                String                   @id // ins-01..ins-42
+  title             String
+  description       String
+  insightType       String
+  source            String
+  phaseId           String?
+  tags              String[]
+  url               String?
+  sourceLabel       String?
+  primaryCitationId String?
+  date              String
   // search_vector: FTS-kolonne, se Document.search_vector
-  search_vector Unsupported("tsvector")?
+  search_vector     Unsupported("tsvector")?
 
-  sourceDocLinks SourceDoc[]          @relation("InsightSourceDoc")
-  sourceRefs     SourceRef[]
-  documentRefs   InsightDocumentRef[]
+  sourceDocLinks  SourceDoc[]          @relation("InsightSourceDoc")
+  sourceRefs      SourceRef[]
+  documentRefs    InsightDocumentRef[]
+  primaryCitation SourceCitation?      @relation("InsightPrimaryCitation", fields: [primaryCitationId], references: [id], onDelete: SetNull)
 
   @@index([insightType])
   @@index([phaseId])
+  @@index([primaryCitationId])
   @@index([tags], type: Gin)
 }
 
@@ -257,8 +268,8 @@ model Thesis {
   publisher    String?
   accessDate   String?
 
-  documentId String?   @unique
-  document   Document? @relation(fields: [documentId], references: [id])
+  documentId    String?                  @unique
+  document      Document?                @relation(fields: [documentId], references: [id])
   // search_vector: FTS-kolonne, se Document.search_vector
   search_vector Unsupported("tsvector")?
 
@@ -269,29 +280,29 @@ model Thesis {
 // ─── Domain 4b: Reports ─────────────────────────────────────────────
 
 model Report {
-  id              String   @id
-  title           String
-  fullTitle       String?
-  author          String?
-  institution     String?
-  date            String?
-  year            Int?
-  sourceUrl       String?
-  reportCategory  String
-  country         String   @default("NO")
-  keyFindings     String[]
-  recommendations String[]
-  relevance       String
-  tags            String[]
-  doi             String?
-  isbn            String?
-  issn            String?
-  publisher       String?
-  provenanceType  String?
+  id                String   @id
+  title             String
+  fullTitle         String?
+  author            String?
+  institution       String?
+  date              String?
+  year              Int?
+  sourceUrl         String?
+  reportCategory    String
+  country           String   @default("NO")
+  keyFindings       String[]
+  recommendations   String[]
+  relevance         String
+  tags              String[]
+  doi               String?
+  isbn              String?
+  issn              String?
+  publisher         String?
+  provenanceType    String?
   supportingSources Json?
 
-  documentId String?   @unique
-  document   Document? @relation(fields: [documentId], references: [id])
+  documentId    String?                  @unique
+  document      Document?                @relation(fields: [documentId], references: [id])
   // search_vector: FTS-kolonne, se Document.search_vector
   search_vector Unsupported("tsvector")?
 
@@ -304,20 +315,24 @@ model Report {
 // ─── Domain 5: Companies ────────────────────────────────────────────
 
 model Company {
-  id              String  @id @default(cuid())
-  name            String
-  orgNr           String  @unique
-  legalForm       String?
-  founded         Int?
-  naceCode        String?
-  naceDescription String?
-  country         String  @default("NO")
-  hqAddress       String?
-  hqCity          String?
-  employees       Int?
-  ownershipType   String? // family, cooperative, state, foreign, listed
-  valueChainStage String? // retail, processing, seafood, inputs, logistics
-  metadata        Json?
+  id                  String    @id @default(cuid())
+  name                String
+  orgNr               String    @unique
+  legalForm           String?
+  founded             Int?
+  naceCode            String?
+  naceDescription     String?
+  country             String    @default("NO")
+  hqAddress           String?
+  hqCity              String?
+  employees           Int?
+  ownershipType       String? // family, cooperative, state, foreign, listed
+  valueChainStage     String? // retail, processing, seafood, inputs, logistics
+  metadata            Json?
+  isResearchConstruct Boolean   @default(false)
+  orgNrFormat         String    @default("bronnoysund")
+  registrySource      String?
+  registryVerifiedAt  DateTime?
 
   financials   CompanyFinancial[]
   shareholders Shareholder[]
@@ -339,50 +354,72 @@ model Company {
 
   @@index([country])
   @@index([valueChainStage])
+  @@index([isResearchConstruct])
+  @@index([orgNrFormat])
 }
 
 model CompanyFinancial {
-  id              String   @id @default(cuid())
-  companyId       String
-  year            Int
-  revenueNok      Decimal? @db.Decimal(15, 2)
-  operatingResult Decimal? @db.Decimal(15, 2)
-  operatingMargin Decimal? @db.Decimal(5, 2)
-  ebitda          Decimal? @db.Decimal(15, 2)
-  equityRatio     Decimal? @db.Decimal(5, 2)
-  groupEmployees  Int?
-  source          String?
+  id                 String    @id @default(cuid())
+  companyId          String
+  year               Int
+  revenueNok         Decimal?  @db.Decimal(15, 2)
+  operatingResult    Decimal?  @db.Decimal(15, 2)
+  operatingMargin    Decimal?  @db.Decimal(5, 2)
+  ebitda             Decimal?  @db.Decimal(15, 2)
+  equityRatio        Decimal?  @db.Decimal(5, 2)
+  groupEmployees     Int?
+  source             String?
+  fiscalYearLabel    String?
+  fiscalPeriodStart  DateTime?
+  fiscalPeriodEnd    DateTime?
+  reportingCurrency  String?
+  fxRateNokPerUnit   Decimal?  @db.Decimal(18, 8)
+  fxRateSource       String?
+  verificationStatus String?
+  verifiedAt         DateTime?
 
   company Company @relation(fields: [companyId], references: [id])
 
   @@unique([companyId, year])
+  @@index([fiscalPeriodStart, fiscalPeriodEnd])
 }
 
 model Shareholder {
-  id              String   @id @default(cuid())
-  companyId       String
-  name            String
-  ownershipPct    Decimal? @db.Decimal(5, 2)
-  shareholderType String? // family, institutional, state, cooperative, foreign
-  isControlling   Boolean  @default(false)
-  source          String?
-  sourceUrl       String?
-  verifiedAt      DateTime?
+  id                 String    @id @default(cuid())
+  companyId          String
+  name               String
+  ownershipPct       Decimal?  @db.Decimal(5, 2)
+  shareholderType    String? // family, institutional, state, cooperative, foreign
+  isControlling      Boolean   @default(false)
+  source             String?
+  sourceUrl          String?
+  verifiedAt         DateTime?
+  verificationStatus String?
+  sourceBasis        String?
+  sourceRank         Int?
+  sourceObservedAt   DateTime?
+  sourceUpdatedAt    DateTime?
+  confidence         Int?
+  shareCount         BigInt?
 
   company Company @relation(fields: [companyId], references: [id])
 
   @@index([companyId])
+  @@index([companyId, sourceBasis])
 }
 
 model BoardMember {
-  id         String    @id @default(cuid())
-  companyId  String
-  personName String
-  role       String // styreleder, nestleder, styremedlem, CEO, CFO
-  personKey  String // normalized name for interlocking detection
-  source     String?
-  sourceUrl  String?
-  verifiedAt DateTime?
+  id                 String    @id @default(cuid())
+  companyId          String
+  personName         String
+  role               String // styreleder, nestleder, styremedlem, CEO, CFO
+  personKey          String // normalized name for interlocking detection
+  source             String?
+  sourceUrl          String?
+  verifiedAt         DateTime?
+  verificationStatus String?
+  effectiveFrom      DateTime?
+  effectiveTo        DateTime?
 
   company Company @relation(fields: [companyId], references: [id])
 
@@ -391,15 +428,17 @@ model BoardMember {
 }
 
 model Subsidy {
-  id          String   @id @default(cuid())
-  companyId   String
-  subsidyType String
-  scheme      String? // granular scheme within subsidyType (e.g. "arealtilskudd", "melkeproduksjon")
-  project     String?
-  amountNok   Decimal? @db.Decimal(15, 2)
-  year        Int?
-  kommuneNr   String?
-  source      String?
+  id                 String    @id @default(cuid())
+  companyId          String
+  subsidyType        String
+  scheme             String? // granular scheme within subsidyType (e.g. "arealtilskudd", "melkeproduksjon")
+  project            String?
+  amountNok          Decimal?  @db.Decimal(15, 2)
+  year               Int?
+  kommuneNr          String?
+  source             String?
+  verificationStatus String?
+  verifiedAt         DateTime?
 
   company Company @relation(fields: [companyId], references: [id])
 
@@ -421,26 +460,28 @@ model CompanyDocumentRef {
 }
 
 model Actor {
-  id               String   @id
-  slug             String   @unique
-  name             String
-  actorType        String
-  country          String   @default("NO")
-  organizationType String?
-  roleSummary      String
-  currentRelevance String?
-  website          String?
-  currentStance    String?
-  desiredStance    String?
-  specificAsk      String?
-  priorityTier     String?
-  owner            String?
-  nextStep         String?
-  powerScore       Int?
-  interestScore    Int?
-  themeTags        String[]
-  notes            String?
-  metadata         Json?
+  id                 String    @id
+  slug               String    @unique
+  name               String
+  actorType          String
+  country            String    @default("NO")
+  organizationType   String?
+  roleSummary        String
+  currentRelevance   String?
+  website            String?
+  currentStance      String?
+  desiredStance      String?
+  specificAsk        String?
+  priorityTier       String?
+  owner              String?
+  nextStep           String?
+  powerScore         Int?
+  interestScore      Int?
+  themeTags          String[]
+  notes              String?
+  metadata           Json?
+  verificationStatus String?
+  lastVerifiedAt     DateTime?
 
   companyId String?  @unique
   company   Company? @relation(fields: [companyId], references: [id])
@@ -550,15 +591,17 @@ model CompanyProperty {
 }
 
 model BusinessRelationship {
-  id               String  @id @default(cuid())
-  fromCompanyId    String
-  toCompanyId      String
-  relationshipType String // supplier, buyer, distributor, franchisor, self-dealing, joint-venture
-  description      String?
-  sector           String?
-  estimatedValue   Float?
-  source           String?
-  metadata         Json?
+  id                 String    @id @default(cuid())
+  fromCompanyId      String
+  toCompanyId        String
+  relationshipType   String // supplier, buyer, distributor, franchisor, self-dealing, joint-venture
+  description        String?
+  sector             String?
+  estimatedValue     Float?
+  source             String?
+  metadata           Json?
+  verificationStatus String?
+  verifiedAt         DateTime?
 
   fromCompany Company @relation("RelationshipFrom", fields: [fromCompanyId], references: [id])
   toCompany   Company @relation("RelationshipTo", fields: [toCompanyId], references: [id])
@@ -570,16 +613,17 @@ model BusinessRelationship {
 }
 
 model PersonProfile {
-  id           String   @id @default(cuid())
-  name         String
-  personKey    String   @unique
-  roles        Json[] // {companyId, companyName, role, fromYear, toYear}
-  biography    String?
-  linkedInUrl  String?
-  photoUrl     String?
-  affiliations String[]
-  tags         String[]
-  metadata     Json?
+  id             String    @id @default(cuid())
+  name           String
+  personKey      String    @unique
+  roles          Json[] // {companyId, companyName, role, fromYear, toYear}
+  biography      String?
+  linkedInUrl    String?
+  photoUrl       String?
+  affiliations   String[]
+  tags           String[]
+  metadata       Json?
+  lastVerifiedAt DateTime?
 
   @@index([personKey])
   @@index([tags], type: Gin)
@@ -875,7 +919,7 @@ model MediaCountryProfile {
 // ─── Domain 11: Media Evidence Corpus ───────────────────────────────
 
 model MediaOutlet {
-  id         String @id
+  id         String  @id
   name       String
   country    String
   outletType String
@@ -904,12 +948,12 @@ model MediaEntry {
   verificationLevel String
   triggerLabel      String?
   sourceDocId       String?
-  sourceRefs        Json?    // SourceRef[]
+  sourceRefs        Json? // SourceRef[]
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
-  outlet    MediaOutlet      @relation(fields: [outletId], references: [id])
-  sourceDoc SourceDoc?       @relation(fields: [sourceDocId], references: [id])
+  outlet    MediaOutlet        @relation(fields: [outletId], references: [id])
+  sourceDoc SourceDoc?         @relation(fields: [sourceDocId], references: [id])
   codings   MediaEntryCoding[]
 
   @@index([country, publishedYear])
