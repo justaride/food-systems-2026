@@ -18,6 +18,8 @@ Denne mappen samler styringsdokumenter for Food Systems Transition Group og tilh
 | `track-brief-b-sidestreams-nutrients.md` | Sporbrief B | Utkast | Sidestrømmer, matsvinnkvalitet og næringsstoffløkker. |
 | `track-brief-c-adoption.md` | Sporbrief C | Utkast | Adoption mechanisms for circular food. |
 | `decision-memo-food-tg-scope-v0.3.md` | Decision memo | Aktiv v0.3 | Anbefalt A+B/C-scope, valideringssprint og stoppsignaler. |
+| `food-tg-detaljert-arbeidsplan-2026-05-21.md` | Detaljert arbeidsplan | Aktiv | Utførbar plan for å gå fra intern kunnskapsbase til ekstern validering, pilotbriefs, finance note og roadmap. |
+| `food-tg-baseline-freeze-2026-05-21.md` | Baseline freeze | Aktiv | Fast intern status før ekstern valideringssprint. |
 | `insight-pack-outline-food-tg-v0.2.md` | Insight Pack-disposisjon | Aktiv v0.2 | Storyline, slide-rekkefølge og trygg/utrygg formulering per hovedclaim. |
 | `brief-jan-thomas-cathrine-food-tg-runde-4.md` | Møtebrief | Klar til bruk | Kort beslutnings- og samtalegrunnlag etter runde 4. |
 | `opportunity-radar-food-tg-v0.1.md` | Opportunity radar | Aktiv v0.1 | Prioriterer validerbare muligheter, claims, stoppsignaler og neste handling. |
