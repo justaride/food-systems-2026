@@ -13,13 +13,13 @@ export function KpiCard({ kpi }: KpiCardProps) {
         <div className="mt-3 flex gap-3 text-xs">
           {kpi.current && (
             <div>
-              <span className="text-stone-400">Na: </span>
+              <span className="text-stone-400">Nå: </span>
               <span className="text-stone-700 font-medium">{kpi.current}</span>
             </div>
           )}
           {kpi.target && (
             <div>
-              <span className="text-stone-400">Mal: </span>
+              <span className="text-stone-400">Mål: </span>
               <span className="text-stone-700 font-medium">{kpi.target}</span>
             </div>
           )}

@@ -1,3 +1,4 @@
+import { cache } from 'react'
 import { prisma } from '@/lib/db'
 import { applications as fallbackApplications } from '@/lib/data/applications'
 import { evidencePack as fallbackEvidencePack } from '@/lib/data/evidence-pack'
@@ -50,7 +51,7 @@ function getFreshCanonicalRows<T extends object, K extends string | number>(
   return canonicalRows.map(canonical => rowsById.get(getKey(canonical)) ?? canonical)
 }
 
-export async function getPhases(): Promise<Phase[]> {
+export const getPhases = cache(async (): Promise<Phase[]> => {
   try {
     const rows = await prisma.phase.findMany({ orderBy: { id: 'asc' } })
     return getFreshCanonicalRows(rows as unknown as Phase[], fallbackPhases, row => row.id)
@@ -59,7 +60,7 @@ export async function getPhases(): Promise<Phase[]> {
     logProjectFallback('phases', error)
     return fallbackPhases
   }
-}
+})
 
 export async function getTeam() {
   try {

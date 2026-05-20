@@ -78,7 +78,7 @@ function ClaimStrengthPill({ strength }: { strength: FoodTgClaimStrength }) {
 }
 
 function DocumentStatus({ status }: { status: string }) {
-  const label = status === 'klar-til-bruk' ? 'Klar til bruk' : status === 'arbeidsgrunnlag' ? 'Arbeidsgrunnlag' : 'Koe'
+  const label = status === 'klar-til-bruk' ? 'Klar til bruk' : status === 'arbeidsgrunnlag' ? 'Arbeidsgrunnlag' : 'Kø'
   return (
     <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium ${documentStatusStyles[status]}`}>
       {label}
@@ -139,7 +139,7 @@ export function MandatContent() {
               <p className="mt-1 font-semibold text-stone-800">{foodTgMandateSummary.date}</p>
             </div>
             <div className="rounded-lg border border-stone-200 bg-stone-50 p-3">
-              <p className="text-[10px] uppercase tracking-wider text-stone-400">Scope-mote</p>
+              <p className="text-[10px] uppercase tracking-wider text-stone-400">Scope-møte</p>
               <p className="mt-1 font-semibold text-stone-800">{foodTgMandateSummary.decisionDate}</p>
             </div>
             <div className="col-span-2 rounded-lg border border-amber-200 bg-amber-50 p-3">
@@ -224,7 +224,7 @@ export function MandatContent() {
             <div className="rounded-lg border border-stone-200 bg-stone-50 p-3">
               <p className="text-[10px] uppercase tracking-wider text-stone-400">Neste arbeid</p>
               <p className="mt-1 text-sm font-medium text-stone-800">
-                Kjor sprinten, oppdater claim-status, og bruk resultatet til et oppdatert decision memo etter sprint.
+                Kjør sprinten, oppdater claim-status, og bruk resultatet til et oppdatert decision memo etter sprint.
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -315,7 +315,7 @@ export function MandatContent() {
                 <p className="mt-2 text-sm font-semibold text-stone-800">{claim.title}</p>
                 <p className="mt-1 text-sm text-stone-600">{claim.useNow}</p>
                 <p className="mt-1 text-xs text-stone-500">Neste handling: {claim.nextAction}</p>
-                <p className="mt-1 text-xs text-stone-500">Ma avklares: {claim.needs}</p>
+                <p className="mt-1 text-xs text-stone-500">Må avklares: {claim.needs}</p>
               </div>
             ))}
           </div>

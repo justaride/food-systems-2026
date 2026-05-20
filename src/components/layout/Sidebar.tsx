@@ -2,76 +2,9 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { navGroups } from '@/lib/data/nav'
 
-const navGroups = [
-  {
-    items: [
-      { name: 'Oversikt', href: '/', description: 'Fase, fremdrift, neste steg' },
-    ],
-  },
-  {
-    label: 'Intern',
-    items: [
-      { name: 'Team', href: '/team', description: 'Medlemmer og roller' },
-      { name: 'Moter', href: '/moter', description: 'Motesammendrag og referater' },
-      { name: 'Kommunikasjon', href: '/kommunikasjon', description: 'E-post og korrespondanse' },
-      { name: 'Mandat', href: '/mandat', description: 'Food TG scope, claims og validering' },
-      { name: 'Metodikk', href: '/metodikk', description: 'Ten Step, KPIs og deep research-prompter' },
-      { name: 'Tidslinje', href: '/tidslinje', description: 'Faser og soknader' },
-    ],
-  },
-  {
-    label: 'Selskap & Eierskap',
-    items: [
-      { name: 'Eierskap', href: '/eierskap', description: 'Konsernstrukturer og eiertraer' },
-      { name: 'Eiendommer', href: '/eiendommer', description: 'Selskapseiendommer og lokaler' },
-      { name: 'Styremedlemmer', href: '/styremedlemmer', description: 'Kryssstyrer og nettverk' },
-    ],
-  },
-  {
-    label: 'Matsystem',
-    items: [
-      { name: 'Verdikjede', href: '/verdikjede', description: 'Nordisk verdikjedeanalyse' },
-      { name: 'Forsyningskjede', href: '/forsyningskjede', description: 'Leverandorrelasjoner, primaerleveranser og selvhandel' },
-      { name: 'Havbruk', href: '/havbruk', description: 'Lokaliteter og soknader (Fiskeridir)' },
-      { name: 'Subsidier', href: '/subsidier', description: 'Tilskudd per kommune, ordning og mottaker' },
-      { name: 'Sirkularitet', href: '/sirkularitet', description: 'R-stige, 10 spormal, looper og caser' },
-      { name: 'Okonomi', href: '/okonomi', description: 'Finansielle trender og sammenligning' },
-    ],
-  },
-  {
-    label: 'Nordisk',
-    items: [
-      { name: 'Sammenligning', href: '/sammenligning', description: 'Nordisk sammenligning' },
-      { name: 'Politikk', href: '/politikk', description: 'Nordisk matpolitikk-sammenligning' },
-      { name: 'Kart', href: '/kart', description: 'Butikker og kommunegrenser' },
-      { name: 'Media', href: '/media', description: 'Medieomtale og narrativer' },
-    ],
-  },
-  {
-    label: 'Kunnskap',
-    items: [
-      { name: 'Innsikt', href: '/innsikt', description: 'Forskning, kartlegging, analyse' },
-      { name: 'Forskningsrunder', href: '/forskningsrunder', description: 'Food Research Process 20. april 2026' },
-      { name: 'Akademia', href: '/masteroppgaver', description: 'Master- og PhD-avhandlinger' },
-      { name: 'Graf', href: '/graf', description: 'Kunnskapsgraf og koblinger' },
-    ],
-  },
-  {
-    label: 'Bibliotek',
-    items: [
-      { name: 'Rapporter', href: '/rapporter', description: 'Offentlige og bransjeanalyser' },
-      { name: 'Bibliotek', href: '/bibliotek', description: 'Fulltekst forskningsdokumenter' },
-      { name: 'Kilder', href: '/kilder', description: 'Dokumenter og referanser' },
-      { name: 'Aktorer', href: '/aktorer', description: 'Prioritering, asks og relasjoner' },
-      { name: 'Selskaper', href: '/selskap', description: 'Selskapsdata og regnskap' },
-      { name: 'Personer', href: '/personer', description: 'Nokkelpersoner og roller' },
-      { name: 'Sok', href: '/sok', description: 'Sok pa tvers av alt' },
-    ],
-  },
-]
-
-export function Sidebar() {
+export function Sidebar({ activePhase, totalPhases }: { activePhase: number; totalPhases: number }) {
   const pathname = usePathname()
 
   return (
@@ -91,8 +24,11 @@ export function Sidebar() {
           {navGroups.map((group, gi) => (
             <div key={gi}>
               {group.label && (
-                <p className="px-3 mb-1 text-[10px] uppercase tracking-wider text-stone-400">
+                <p className="px-3 mb-1 text-[10px] uppercase tracking-wider text-stone-400 flex items-center gap-1.5">
                   {group.label}
+                  {group.label === 'Intern' && (
+                    <span className="rounded bg-stone-100 px-1 text-[9px] normal-case text-stone-500">internt</span>
+                  )}
                 </p>
               )}
               <ul className="space-y-0.5">
@@ -127,7 +63,7 @@ export function Sidebar() {
           <div className="text-xs text-stone-400 space-y-1.5">
             <div className="flex justify-between">
               <span>Fase</span>
-              <span className="text-stone-600 font-medium">1 / 4</span>
+              <span className="text-stone-600 font-medium">{activePhase} / {totalPhases}</span>
             </div>
             <div className="flex justify-between">
               <span>Frist</span>

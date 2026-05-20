@@ -6,7 +6,7 @@ const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
 const DEFAULT_YEAR = 2025
-const COMPANY_BATCH_SIZE = 1000
+const PRODUCER_BATCH_SIZE = 1000
 const SUBSIDY_BATCH_SIZE = 2000
 
 const urlForYear = (year: number) =>
@@ -136,43 +136,33 @@ async function main() {
 
   const orgNrs = [...farms.keys()]
 
-  console.log(`[produksjonstilskudd] looking up ${orgNrs.length} existing companies`)
-  const existingCompanies: { id: string; orgNr: string }[] = []
+  console.log(`[produksjonstilskudd] ensuring ${orgNrs.length} producers exist`)
+  const newProducers = [...farms.values()].map(f => ({
+    orgNr: f.orgNr,
+    name: f.orgName || `Jordbruksforetak ${f.orgNr}`,
+    country: 'NO',
+    municipality: f.kommuneNr || null,
+    metadata: { kommuneNr: f.kommuneNr, source: 'Produksjonstilskudd' } as any,
+  }))
+
+  // skipDuplicates deliberately does not update existing rows: import-landbruksregister.ts
+  // is the authoritative source for producer fields (name/municipality/metadata).
+  // This script only ensures producers exist so the subsidy FK can resolve.
+  let producersCreated = 0
+  for (const batch of chunk(newProducers, PRODUCER_BATCH_SIZE)) {
+    const result = await prisma.producer.createMany({ data: batch, skipDuplicates: true })
+    producersCreated += result.count
+  }
+
+  const orgNrToId = new Map<string, string>()
   for (const ids of chunk(orgNrs, 5000)) {
-    const found = await prisma.company.findMany({
+    const found = await prisma.producer.findMany({
       where: { orgNr: { in: ids } },
       select: { id: true, orgNr: true },
     })
-    existingCompanies.push(...found)
+    for (const p of found) orgNrToId.set(p.orgNr, p.id)
   }
-  const orgNrToId = new Map(existingCompanies.map(c => [c.orgNr, c.id]))
-  console.log(`[produksjonstilskudd] found ${existingCompanies.length} existing companies`)
-
-  const newCompanies = [...farms.values()]
-    .filter(f => !orgNrToId.has(f.orgNr))
-    .map(f => ({
-      name: f.orgName || `Jordbruksforetak ${f.orgNr}`,
-      orgNr: f.orgNr,
-      country: 'NO',
-      valueChainStage: 'production',
-      ownershipType: 'family',
-      metadata: { kommuneNr: f.kommuneNr, source: 'Produksjonstilskudd' } as any,
-    }))
-
-  if (newCompanies.length > 0) {
-    console.log(`[produksjonstilskudd] creating ${newCompanies.length} new companies`)
-    for (const batch of chunk(newCompanies, COMPANY_BATCH_SIZE)) {
-      await prisma.company.createMany({ data: batch, skipDuplicates: true })
-    }
-    const newOrgNrs = newCompanies.map(c => c.orgNr)
-    for (const ids of chunk(newOrgNrs, 5000)) {
-      const inserted = await prisma.company.findMany({
-        where: { orgNr: { in: ids } },
-        select: { id: true, orgNr: true },
-      })
-      for (const c of inserted) orgNrToId.set(c.orgNr, c.id)
-    }
-  }
+  console.log(`[produksjonstilskudd] resolved ${orgNrToId.size} producers`)
 
   console.log(
     `[produksjonstilskudd] deleting existing subsidies for year=${year} subsidyType=produksjonstilskudd`
@@ -184,11 +174,11 @@ async function main() {
 
   const subsidyData = subsidies
     .map(s => {
-      const companyId = orgNrToId.get(s.orgNr)
-      if (!companyId) return null
+      const producerId = orgNrToId.get(s.orgNr)
+      if (!producerId) return null
       return {
         id: s.id,
-        companyId,
+        producerId,
         subsidyType: 'produksjonstilskudd',
         scheme: s.scheme,
         amountNok: s.amount,
@@ -202,7 +192,7 @@ async function main() {
   const skippedCount = subsidies.length - subsidyData.length
   if (skippedCount > 0) {
     console.warn(
-      `[produksjonstilskudd] WARNING: ${skippedCount} subsidies skipped (companyId lookup failed)`
+      `[produksjonstilskudd] WARNING: ${skippedCount} subsidies skipped (producerId lookup failed)`
     )
   }
 
@@ -220,7 +210,7 @@ async function main() {
   }
 
   console.log(
-    `[produksjonstilskudd] done: farms=${farms.size} newCompanies=${newCompanies.length} subsidiesInserted=${inserted}`
+    `[produksjonstilskudd] done: farms=${farms.size} producersCreated=${producersCreated} producersResolved=${orgNrToId.size} subsidiesInserted=${inserted}`
   )
 }
 

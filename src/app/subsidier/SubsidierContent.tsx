@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Card } from '@/components/ui/Card'
@@ -60,21 +59,18 @@ type StageCoverageData = {
 }
 
 type RecipientRow = {
-  companyId: string
+  producerId: string
   name: string
   orgNr: string
-  legalForm: string | null
-  valueChainStage: string | null
+  municipality: string | null
   kommuneNr: string | null
   landbruksregisterSource: boolean
   matrikkel: string | null
   parentOrgNr: string | null
-  parentOrgNrCompanyLinked: boolean
   hasCoordinates: boolean
   deliveryRowCount: number
   deliveryCommodityCount: number
-  ownershipLinkCount: number
-  boardMemberCount: number
+  subsidyCount: number
   schemeCount: number
   totalNok: number
 }
@@ -139,6 +135,7 @@ const SCHEME_LABELS: Record<string, string> = {
 }
 
 const STAGE_LABELS: Record<string, string> = {
+  produsent: 'Produsent',
   production: 'Primærproduksjon',
   processing: 'Foredling',
   retail: 'Handel',
@@ -170,7 +167,7 @@ const KOMMUNE_METRICS: Array<{
     shortLabel: 'Per mottaker',
     valueLabel: 'NOK per mottaker',
     title: 'Produksjonstilskudd per mottaker per kommune (2025)',
-    footer: 'Total utbetaling delt på unike companyId-mottakere i kommunen.',
+    footer: 'Total utbetaling delt på unike produsentmottakere i kommunen.',
   },
   {
     key: 'nokPerInhabitant',
@@ -264,65 +261,39 @@ export function SubsidierContent({
   const topSchemeMax = byScheme[0]?.totalNok ?? 1
 
   const stageCoverageSummary = useMemo(() => {
-    const unknown = stageCoverage.stages.find(row => row.stage === 'unknown')
-    const production = stageCoverage.stages.find(row => row.stage === 'production')
+    // All producer-subsidy recipients are a single 'produsent' stage.
+    const produsent = stageCoverage.stages.find(row => row.stage === 'produsent')
     const dominant = stageCoverage.stages[0] ?? null
-    const withKnownStage = stageCoverage.totalRecipients - (unknown?.recipientCount ?? 0)
 
     return {
-      unknown,
-      production,
+      produsent,
       dominant,
-      withKnownStage,
+      // All recipients have a known stage ('produsent')
+      withKnownStage: stageCoverage.totalRecipients,
     }
   }, [stageCoverage])
 
-  const nonFarmRecipients = useMemo(() => {
-    const nonFarm = topRecipients.filter(r => r.valueChainStage !== 'production')
-    return nonFarm
-  }, [topRecipients])
-
   const topRecipientCoverage = useMemo(() => {
     const total = topRecipients.length
-    const withOwnership = topRecipients.filter(r => r.ownershipLinkCount > 0).length
-    const withBoard = topRecipients.filter(r => r.boardMemberCount > 0).length
-    const withOwnershipOrBoard = topRecipients.filter(
-      r => r.ownershipLinkCount > 0 || r.boardMemberCount > 0
-    ).length
-    const withStage = topRecipients.filter(r => r.valueChainStage != null).length
-    const production = topRecipients.filter(r => r.valueChainStage === 'production').length
     const jordbruksforetakName = topRecipients.filter(r => r.name.startsWith('Jordbruksforetak ')).length
-    const withLegalForm = topRecipients.filter(r => r.legalForm != null).length
     const withLandbruksregisterSource = topRecipients.filter(r => r.landbruksregisterSource).length
     const withMatrikkel = topRecipients.filter(r => r.matrikkel != null).length
     const withParentOrgNr = topRecipients.filter(r => r.parentOrgNr != null).length
-    const withParentOrgNrCompanyLink = topRecipients.filter(r => r.parentOrgNrCompanyLinked).length
     const withCoordinates = topRecipients.filter(r => r.hasCoordinates).length
     const withDeliveryFootprint = topRecipients.filter(r => r.deliveryRowCount > 0).length
     const deliveryFootprintTotalNok = topRecipients
       .filter(r => r.deliveryRowCount > 0)
       .reduce((sum, r) => sum + r.totalNok, 0)
-    const unlinkedTotalNok = topRecipients
-      .filter(r => r.ownershipLinkCount === 0 && r.boardMemberCount === 0)
-      .reduce((sum, r) => sum + r.totalNok, 0)
 
     return {
       total,
-      withOwnership,
-      withBoard,
-      withOwnershipOrBoard,
-      withStage,
-      production,
       jordbruksforetakName,
-      withLegalForm,
       withLandbruksregisterSource,
       withMatrikkel,
       withParentOrgNr,
-      withParentOrgNrCompanyLink,
       withCoordinates,
       withDeliveryFootprint,
       deliveryFootprintTotalNok,
-      unlinkedTotalNok,
     }
   }, [topRecipients])
 
@@ -365,15 +336,6 @@ export function SubsidierContent({
           </div>
         </div>
       </div>
-
-      {nonFarmRecipients.length > 0 && (
-        <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-          <strong>Merk:</strong> {nonFarmRecipients.length} av topp-100 mottakere er ikke
-          klassifisert som jordbruksforetak (`valueChainStage ≠ production`). Dette
-          kan indikere samvirkeforetak, foredlingsbedrifter eller mangelfull orgnr-metadata
-          som bør følges opp manuelt.
-        </div>
-      )}
 
       {!hasProduksjonstilskudd && (
         <div className="rounded-lg border border-orange-200 bg-orange-50 px-5 py-4 text-sm text-orange-900 space-y-2">
@@ -419,9 +381,9 @@ export function SubsidierContent({
                 />
               </div>
               <p className="mt-4 text-xs leading-5 text-stone-500">
-                Metode: hver mottaker er én{' '}
-                <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">companyId</code>
-                , og alle rader med{' '}
+                Metode: hver mottaker er én produsent (
+                <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">producerId</code>
+                ), og alle rader med{' '}
                 <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">
                   subsidyType=produksjonstilskudd
                 </code>{' '}
@@ -445,57 +407,41 @@ export function SubsidierContent({
       )}
 
       {hasProduksjonstilskudd && (
-        <Card title="Dekning for maktanalyse i topp 100">
-          <div className="grid gap-3 md:grid-cols-5">
+        <Card title="Dekning i topp 100 produsentmottakere">
+          <div className="grid gap-3 md:grid-cols-4">
             <CoverageStat
-              label="Eier/styre"
-              value={`${topRecipientCoverage.withOwnershipOrBoard}/${topRecipientCoverage.total}`}
-              sub={`${formatPercent(topRecipientCoverage.withOwnershipOrBoard, topRecipientCoverage.total)} har minst én kobling`}
-            />
-            <CoverageStat
-              label="Eierskap"
-              value={`${topRecipientCoverage.withOwnership}/${topRecipientCoverage.total}`}
-              sub="Aksjonærer eller konsernrelasjoner"
-            />
-            <CoverageStat
-              label="Styre"
-              value={`${topRecipientCoverage.withBoard}/${topRecipientCoverage.total}`}
-              sub="Registrerte styrepersoner"
-            />
-            <CoverageStat
-              label="Verdikjedeledd"
-              value={`${topRecipientCoverage.withStage}/${topRecipientCoverage.total}`}
-              sub={`${topRecipientCoverage.production} klassifisert som primærproduksjon`}
-            />
-            <CoverageStat
-              label="Foretaksmodell"
+              label="Foretaksnavn"
               value={`${topRecipientCoverage.jordbruksforetakName}/${topRecipientCoverage.total}`}
-              sub={`${topRecipientCoverage.withLegalForm}/${topRecipientCoverage.total} har legalForm`}
+              sub="Syntetiske jordbruksforetak-navn"
+            />
+            <CoverageStat
+              label="Landbruksreg."
+              value={`${topRecipientCoverage.withLandbruksregisterSource}/${topRecipientCoverage.total}`}
+              sub="Metadata merket Landbruksregisteret"
+            />
+            <CoverageStat
+              label="Parent-orgnr"
+              value={`${topRecipientCoverage.withParentOrgNr}/${topRecipientCoverage.total}`}
+              sub="Referanse til overordnet foretak"
+            />
+            <CoverageStat
+              label="Leveranser"
+              value={`${topRecipientCoverage.withDeliveryFootprint}/${topRecipientCoverage.total}`}
+              sub={`${formatNok(topRecipientCoverage.deliveryFootprintTotalNok)} NOK har leveransespor`}
             />
           </div>
-          <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900">
-            Toppmottakerlisten er beslutningsklar som fordelingsliste, men ikke som
-            makt-/styringsanalyse. I lokal snapshot mangler {topRecipientCoverage.total - topRecipientCoverage.withOwnershipOrBoard}{' '}
-            av {topRecipientCoverage.total} toppmottakere eier- eller styrekobling, og{' '}
-            {topRecipientCoverage.jordbruksforetakName} av {topRecipientCoverage.total} er syntetiske
-            jordbruksforetak-navn uten ordinær foretaksmodell. Det tilsvarer{' '}
-            {formatNok(topRecipientCoverage.unlinkedTotalNok)} NOK i topp-100-beløp uten styringsspor.
-            Neste datasteg er produsent- og personoppløsning: parent-orgnr finnes for{' '}
-            {topRecipientCoverage.withParentOrgNr}/{topRecipientCoverage.total}, men bare{' '}
-            {topRecipientCoverage.withParentOrgNrCompanyLink}/{topRecipientCoverage.total} matcher et
-            eksisterende selskap i Company-tabellen.
+          <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-xs leading-5 text-stone-600">
+            Produsentmottakere har ikke eierskap- eller styredata (det ligger på Company-nivå).
+            Toppmottakerlisten er beslutningsklar som fordelingsliste. Neste datasteg er
+            parent-orgnr-oppløsning mot Company-tabellen for å koble produsentene til
+            juridiske enheter og styringsspor.
           </div>
         </Card>
       )}
 
       {hasProduksjonstilskudd && (
         <Card title="Driftsenhet-spor i topp 100">
-          <div className="grid gap-3 md:grid-cols-5">
-            <CoverageStat
-              label="Landbruksreg."
-              value={`${topRecipientCoverage.withLandbruksregisterSource}/${topRecipientCoverage.total}`}
-              sub="Metadata merket Landbruksregisteret"
-            />
+          <div className="grid gap-3 md:grid-cols-4">
             <CoverageStat
               label="Matrikkel"
               value={`${topRecipientCoverage.withMatrikkel}/${topRecipientCoverage.total}`}
@@ -504,7 +450,7 @@ export function SubsidierContent({
             <CoverageStat
               label="Parent-orgnr"
               value={`${topRecipientCoverage.withParentOrgNr}/${topRecipientCoverage.total}`}
-              sub={`${topRecipientCoverage.withParentOrgNrCompanyLink}/${topRecipientCoverage.total} matcher Company`}
+              sub="Referanse til overordnet foretak"
             />
             <CoverageStat
               label="Koordinater"
@@ -633,34 +579,28 @@ export function SubsidierContent({
 
       {tab === 'ordninger' && (
         <>
-          <Card title="Verdikjede-dekning i produksjonstilskudd">
-            <div className="grid gap-3 md:grid-cols-4">
+          <Card title="Produsentdekning i produksjonstilskudd">
+            <div className="grid gap-3 md:grid-cols-3">
               <CoverageStat
-                label="Med stage"
-                value={`${stageCoverageSummary.withKnownStage}/${stageCoverage.totalRecipients}`}
-                sub={`${formatPercent(stageCoverageSummary.withKnownStage, stageCoverage.totalRecipients)} av unike mottakere`}
+                label="Totalt mottakere"
+                value={`${stageCoverage.totalRecipients.toLocaleString('no')}`}
+                sub={`${formatPercent(stageCoverageSummary.withKnownStage, stageCoverage.totalRecipients)} klassifisert som produsent`}
               />
               <CoverageStat
-                label="Primærproduksjon"
-                value={`${stageCoverageSummary.production?.recipientCount ?? 0}/${stageCoverage.totalRecipients}`}
-                sub={`${formatNok(stageCoverageSummary.production?.totalNok ?? 0)} NOK`}
+                label="Produsenter"
+                value={`${stageCoverageSummary.produsent?.recipientCount.toLocaleString('no') ?? 0}/${stageCoverage.totalRecipients}`}
+                sub={`${formatNok(stageCoverageSummary.produsent?.totalNok ?? 0)} NOK`}
               />
               <CoverageStat
-                label="Uklassifisert"
-                value={`${stageCoverageSummary.unknown?.recipientCount ?? 0}/${stageCoverage.totalRecipients}`}
-                sub={`${stageCoverageSummary.unknown?.rowCount ?? 0} tilskuddsrader`}
-              />
-              <CoverageStat
-                label="Dominerende"
+                label="Dominerende ledd"
                 value={stageCoverageSummary.dominant ? labelStage(stageCoverageSummary.dominant.stage) : '—'}
                 sub={`${stageCoverageSummary.dominant?.recipientCount.toLocaleString('no') ?? 0} mottakere`}
               />
             </div>
             <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-xs leading-5 text-stone-600">
-              Ordning x verdikjedeledd-heatmapet under er derfor ikke en full
-              verdikjedesammenligning. I lokal snapshot ligger alle unike
-              produksjonstilskuddsmottakere i primærproduksjon, så heatmapet viser
-              først og fremst hvordan ordningene fordeler seg innen jordbruksforetakene.
+              Alle produksjonstilskuddsmottakere er produsenter (Producer-tabell). Heatmapet
+              under viser hvordan ordningene fordeler seg innen jordbruksforetakene — ett
+              verdikjedeledd.
             </div>
           </Card>
 
@@ -694,15 +634,13 @@ export function SubsidierContent({
           <Card title="Ordning x verdikjedeledd">
             <SchemeStageHeatmapView heatmap={schemeStageHeatmap} />
             <div className="mt-4 border-t border-stone-100 pt-3 text-xs leading-5 text-stone-400">
-              Metode: hver celle summerer produksjonstilskudd per ordning og
-              <code className="mx-1 rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">
-                Company.valueChainStage
-              </code>
-              etter at mottakere er gruppert per <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">companyId</code>.
+              Metode: hver celle summerer produksjonstilskudd per ordning og verdikjedeledd.
+              Produsenter tilhører primærleddet; mottakere er gruppert per{' '}
+              <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">producerId</code>.
               <code className="mx-1 rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">
                 Uklassifisert
               </code>
-              betyr manglende verdikjedeledd på selskapet, ikke egen næringskategori.
+              betyr manglende verdikjedeledd-klassifisering, ikke egen næringskategori.
             </div>
           </Card>
         </>
@@ -743,30 +681,22 @@ export function SubsidierContent({
               <tbody>
                 {topRecipients.map((r, i) => (
                   <tr
-                    key={r.companyId}
+                    key={r.producerId}
                     className="border-b border-stone-100 hover:bg-stone-50/60"
                   >
                     <td className="py-2.5 pr-4 text-stone-400 text-xs tabular-nums">
                       {i + 1}
                     </td>
                     <td className="py-2.5 pr-4">
-                      <Link
-                        href={`/selskap/${r.companyId}`}
-                        className="font-medium text-stone-800 hover:text-emerald-700"
-                      >
+                      <span className="font-medium text-stone-800">
                         {r.name}
-                      </Link>
-                      {r.valueChainStage && r.valueChainStage !== 'production' && (
-                        <span className="ml-2 text-[10px] px-1 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200">
-                          {r.valueChainStage}
-                        </span>
-                      )}
+                      </span>
                     </td>
                     <td className="py-2.5 pr-4 text-stone-500 text-xs font-mono">
                       {r.orgNr}
                     </td>
                     <td className="py-2.5 pr-4 text-stone-500 text-xs font-mono">
-                      {r.kommuneNr ?? '—'}
+                      {r.kommuneNr ?? r.municipality ?? '—'}
                     </td>
                     <td className="py-2.5 pr-4 text-xs text-stone-500">
                       <div className="min-w-44 space-y-1">
@@ -795,39 +725,7 @@ export function SubsidierContent({
                     </td>
                     <td className="py-2.5 pr-4">
                       <div className="flex flex-wrap justify-end gap-1">
-                        <Link
-                          href={`/selskap/${r.companyId}#subsidier`}
-                          className="rounded border border-emerald-200 bg-emerald-50 px-1.5 py-0.5 text-[10px] font-medium text-emerald-800 hover:bg-emerald-100"
-                        >
-                          Selskap
-                        </Link>
-                        {r.ownershipLinkCount > 0 && (
-                          <Link
-                            href={`/selskap/${r.companyId}#eierskap`}
-                            className="rounded border border-stone-200 bg-white px-1.5 py-0.5 text-[10px] font-medium text-stone-600 hover:border-emerald-300 hover:text-emerald-700"
-                          >
-                            Eierskap {r.ownershipLinkCount}
-                          </Link>
-                        )}
-                        {r.boardMemberCount > 0 && (
-                          <>
-                            <Link
-                              href={`/selskap/${r.companyId}#styre`}
-                              className="rounded border border-stone-200 bg-white px-1.5 py-0.5 text-[10px] font-medium text-stone-600 hover:border-emerald-300 hover:text-emerald-700"
-                            >
-                              Styre {r.boardMemberCount}
-                            </Link>
-                            <Link
-                              href={`/styremedlemmer?company=${r.companyId}`}
-                              className="rounded border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[10px] font-medium text-amber-800 hover:bg-amber-100"
-                            >
-                              Kryssgraf
-                            </Link>
-                          </>
-                        )}
-                        {r.ownershipLinkCount === 0 && r.boardMemberCount === 0 && (
-                          <span className="text-[10px] text-stone-300">Ingen eier/styre</span>
-                        )}
+                        <span className="text-[10px] text-stone-300">Produsent</span>
                       </div>
                     </td>
                     <td className="py-2.5 pr-4 text-right tabular-nums text-stone-900 font-medium">

@@ -106,28 +106,27 @@ async function main() {
       continue
     }
 
-    const existing = await prisma.company.findUnique({ where: { orgNr: row.orgnr } })
+    const existing = await prisma.producer.findUnique({ where: { orgNr: row.orgnr } })
     if (existing) {
       const existingMeta =
         existing.metadata && typeof existing.metadata === 'object'
           ? (existing.metadata as Record<string, unknown>)
           : {}
-      await prisma.company.update({
+      await prisma.producer.update({
         where: { orgNr: row.orgnr },
         data: {
           metadata: { ...existingMeta, ...metaPayload } as any,
-          valueChainStage: existing.valueChainStage ?? 'production',
+          municipality: row.komnr || existing.municipality,
         },
       })
       updated++
     } else {
-      await prisma.company.create({
+      await prisma.producer.create({
         data: {
           name: `Jordbruksforetak ${row.orgnr}`,
           orgNr: row.orgnr,
           country: 'NO',
-          valueChainStage: 'production',
-          ownershipType: 'family',
+          municipality: row.komnr || null,
           metadata: metaPayload as any,
         },
       })

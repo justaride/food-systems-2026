@@ -338,7 +338,7 @@ export function InterlockContent({
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-stone-900">Kryssstyrer</h1>
+        <h1 className="text-2xl font-bold text-stone-900">Krysstyrer</h1>
         <p className="text-sm text-stone-500 mt-1">
           Personer med styreverv i flere selskaper
         </p>

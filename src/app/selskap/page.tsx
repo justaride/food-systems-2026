@@ -5,14 +5,13 @@ import { SelskaperContent } from './SelskaperContent'
 export default async function SelskaperPage({
   searchParams,
 }: {
-  searchParams: Promise<{ all?: string; stage?: string }>
+  searchParams: Promise<{ stage?: string }>
 }) {
   const params = await searchParams
-  const includeAll = params.all === '1'
   const initialStages = params.stage
     ? params.stage.split(',').map(s => s.trim()).filter(Boolean)
     : []
-  const companies = await getCompanies({ includeAll })
+  const companies = await getCompanies()
 
   const rows = companies.map(c => ({
     id: c.id,
@@ -34,5 +33,5 @@ export default async function SelskaperPage({
     relationshipCount: c._count.relationshipsFrom + c._count.relationshipsTo,
   }))
 
-  return <SelskaperContent companies={rows} includeAll={includeAll} initialStages={initialStages} />
+  return <SelskaperContent companies={rows} initialStages={initialStages} />
 }
