@@ -5,7 +5,7 @@ eier: Gabriel
 sist_oppdatert: 2026-04-29
 formaal: Operativ kildeliste for ekstern brief om nordisk situasjon i matsystemet.
 relaterte_filer:
-  - docs/project/NORDISK-MATSYSTEM-KILDESTATUS-2026-04-29.md
+  - docs/project/status/NORDISK-MATSYSTEM-KILDESTATUS-2026-04-29.md
   - docs/project/mandates/source-shortlist-food-tg.md
   - docs/project/mandates/research-dossiers/baerekraftsutfordringer-input-2026-04-28/
   - research/norden/verdikjede/10-kryss-analyse.md

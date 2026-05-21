@@ -2,7 +2,7 @@
 
 ## Formål
 
-Dette notatet lukker Fase -1a og dokumenterer Fase -1b-status i `docs/project/DATAVISUALISERING-MASTERPLAN-2026-04-29.md`: rask avklaring av hvilke datadomener som kan bygges mot prod, hvilke som bare finnes lokalt, hvilke importer som er kjørt mot prod, og hvilke faser som fortsatt må holdes tilbake til row-count-paritet er avklart.
+Dette notatet lukker Fase -1a og dokumenterer Fase -1b-status i `docs/project/plans/DATAVISUALISERING-MASTERPLAN-2026-04-29.md`: rask avklaring av hvilke datadomener som kan bygges mot prod, hvilke som bare finnes lokalt, hvilke importer som er kjørt mot prod, og hvilke faser som fortsatt må holdes tilbake til row-count-paritet er avklart.
 
 ## Kort konklusjon
 

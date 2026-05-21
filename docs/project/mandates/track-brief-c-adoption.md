@@ -11,7 +11,7 @@ relaterte_filer:
   - docs/project/mandates/track-brief-a-feed-import.md
   - docs/project/mandates/track-brief-b-sidestreams-nutrients.md
   - docs/project/mandates/decision-memo-food-tg-scope.md
-  - docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
+  - docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
 anbefaling: "Bruk Spor C som tverrgående adoption- og governance-lag for Spor A og B, ikke som selvstendig teknologispor. C skal definere valideringsgatene som avgjør om fôr- og sidestrømspiloter faktisk kan tas i bruk."
 ---
 

@@ -5,7 +5,7 @@ eier: Gabriel
 sist_oppdatert: 2026-04-29
 formaal: Rydde DB/repo-koblinger for nordiske kjerne-rapporter uten å blande trygge koblinger med review-valg.
 relaterte_filer:
-  - docs/project/NORDISK-MATSYSTEM-KILDESTATUS-2026-04-29.md
+  - docs/project/status/NORDISK-MATSYSTEM-KILDESTATUS-2026-04-29.md
   - docs/project/mandates/nordic-core-sources-food-tg-2026-04-29.md
   - scripts/link-nordic-core-sourcedocs.ts
   - scripts/cleanup-nordic-report-links.ts
@@ -152,7 +152,7 @@ Utført 2026-04-29 etter Lane A:
 
 1. `node --import=tsx -r dotenv/config scripts/cleanup-nordic-report-links.ts` returnerte `already-*`.
 2. `node --import=tsx -r dotenv/config scripts/link-nordic-core-sourcedocs.ts` returnerte `already-linked`.
-3. `docs/project/NORDISK-MATSYSTEM-KILDESTATUS-2026-04-29.md` og `docs/project/mandates/nordic-core-sources-food-tg-2026-04-29.md` er oppdatert fra `repo/static` til `db-linked` for kilder som faktisk ble endret.
+3. `docs/project/status/NORDISK-MATSYSTEM-KILDESTATUS-2026-04-29.md` og `docs/project/mandates/nordic-core-sources-food-tg-2026-04-29.md` er oppdatert fra `repo/static` til `db-linked` for kilder som faktisk ble endret.
 
 Utført 2026-04-29 etter Lane B:
 

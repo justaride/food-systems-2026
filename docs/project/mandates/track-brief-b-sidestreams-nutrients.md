@@ -9,7 +9,7 @@ relaterte_filer:
   - docs/project/mandates/claim-register-food-tg.md
   - docs/project/mandates/source-shortlist-food-tg.md
   - docs/project/mandates/decision-memo-food-tg-scope.md
-  - docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
+  - docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
 anbefaling: "Gå videre som hovedspor med streng valideringsgate: Spor B er svært mandatnært og har sterke prinsipper for kaskadebruk, men konkrete pilotvolum, caseoverførbarhet og regulatorisk handlingsrom må valideres før TG lover tiltak."
 ---
 

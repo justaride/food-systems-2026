@@ -8,9 +8,9 @@ notion_frist: 2026-05-07
 neste_handling: Avklar med JTO/Cathrine om denne planen kan pushes til Notion-tasken eller om den skal forbli intern.
 relaterte_filer:
   - docs/project/mandates/food-transition-group-mandate-2026-04-21.md
-  - docs/project/PLAN-FOOD-TG-INSIGHT-PACK-V01-2026-04-27.md
-  - docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
-  - docs/project/notion-sync-food-tg-2026-05-04.md
+  - docs/project/plans/PLAN-FOOD-TG-INSIGHT-PACK-V01-2026-04-27.md
+  - docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
+  - docs/project/reference/notion-sync-food-tg-2026-05-04.md
 ---
 
 # Plan for Transition Group — Food
@@ -77,9 +77,9 @@ Plattformen (`food-systems.naturalstateproject.com`) leverer som underlag:
 ## 7. Ressurser & dokumentasjon (lokalt)
 
 - Mandat: `docs/project/mandates/food-transition-group-mandate-2026-04-21.md`
-- Implementasjonsplan: `docs/project/PLAN-FOOD-TG-INSIGHT-PACK-V01-2026-04-27.md`
-- Statusanalyse: `docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md`
-- Notion-sync: `docs/project/notion-sync-food-tg-2026-05-04.md`
+- Implementasjonsplan: `docs/project/plans/PLAN-FOOD-TG-INSIGHT-PACK-V01-2026-04-27.md`
+- Statusanalyse: `docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md`
+- Notion-sync: `docs/project/reference/notion-sync-food-tg-2026-05-04.md`
 - Sporbriefs (utkast): `dossier-a-feed-import-eudr-triangulation.md`, `dossier-b-marine-nutrient-loops.md`, `dossier-b-process-sidestreams-okara-bsg.md`, `dypdykk-4e-adoption-markedsmakt-innkjop-governance-2026-04-28.md`
 
 ## 8. Neste handlinger (de neste 14 dagene)

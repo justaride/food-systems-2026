@@ -2,7 +2,7 @@
 
 Dato: 2026-05-15  
 Status: operativ plan  
-Bygger på: `docs/project/DATAKVALITET-FAGLIG-ANALYSE-2026-05-15.md`
+Bygger på: `docs/project/analysis/DATAKVALITET-FAGLIG-ANALYSE-2026-05-15.md`
 
 ## Kort beslutning
 
@@ -21,22 +21,22 @@ Hovedregelen er:
 
 | Rolle | Fil |
 |---|---|
-| Faglig analyse | `docs/project/DATAKVALITET-FAGLIG-ANALYSE-2026-05-15.md` |
-| Datagap og innhenting | `docs/project/DATAGAP-DATAINNHENTINGSPLAN-2026-04-29.md` |
-| Nordisk forsyningskjede-plan | `docs/project/RESEARCH-PLAN-FORSYNINGSKJEDE-NORDISK-LIKEDEKNING-2026-04-29.md` |
+| Faglig analyse | `docs/project/analysis/DATAKVALITET-FAGLIG-ANALYSE-2026-05-15.md` |
+| Datagap og innhenting | `docs/project/plans/DATAGAP-DATAINNHENTINGSPLAN-2026-04-29.md` |
+| Nordisk forsyningskjede-plan | `docs/project/plans/RESEARCH-PLAN-FORSYNINGSKJEDE-NORDISK-LIKEDEKNING-2026-04-29.md` |
 | Analysefabrikk-metode | `docs/project/mandates/analysefabrikk-food-tg-arbeidsprosess-2026-04-28.md` |
 | Gap-master | `research/_plans/gap-master-2026-04-29.csv` |
 | Gap-routing | `research/_plans/gap-master-routing-2026-04-29.csv` |
 | Source registry | `research/norden/nordic-source-registry.csv` |
 | Source import queue | `research/norden/notat-analyser-source-import-queue-2026-04-29.csv` |
 | Forsyningskjede PCQ | `research/review/forsyningskjede-primary-source-check-queue-2026-04-29.csv` |
-| Coverage ledger | `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv` |
+| Coverage ledger | `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv` |
 
 ## Nye artefakter som boer opprettes foerst
 
 | Prioritet | Artefakt | Formaal |
 |---|---|---|
-| P0 | `docs/project/DATAKVALITET-SKJEMA-CSV-JSON-DB-2026-05-15.md` | Opprettet; kanonisk feltstandard og enum-verdier for CSV, JSON og DB-promotering. |
+| P0 | `docs/project/analysis/DATAKVALITET-SKJEMA-CSV-JSON-DB-2026-05-15.md` | Opprettet; kanonisk feltstandard og enum-verdier for CSV, JSON og DB-promotering. |
 | P0 | `research/_plans/research-dispatch-ledger-2026-05-15.csv` | Opprettet; hovedko for subagents/workers: scope, inputfiler, output, gate, status og eier. |
 | P0 | `research/_plans/source-to-claim-ledger-2026-05-15.csv` | Opprettet; kobler `source_id -> document/report -> locator/chunk -> evidence_id -> claim_id`. |
 | P1 | `research/_plans/data-quality-baseline-2026-05-15.csv` | Opprettet; foer/etter-status for DB-counts, gapstatus, country coverage og importbatcher. |

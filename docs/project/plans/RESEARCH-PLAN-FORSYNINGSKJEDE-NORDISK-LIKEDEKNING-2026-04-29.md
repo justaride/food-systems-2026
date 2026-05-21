@@ -118,7 +118,7 @@ Stop-regel: Ingen tverrnasjonal graf får beslutningsklar status før alle fem l
 Varighet: 0,5-1 dag  
 Output:
 
-- `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
+- `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
 - `docs/project/forsyningskjede-country-packs/`
 - Første score per land/domene: `missing`, `source-found`, `extracted`, `normalized`, `comparable`, `validated`
 
@@ -420,7 +420,7 @@ Tverrnasjonale sammenligninger skal bruke en av tre godkjente metoder:
 
 ## 9. Foreslått tracker
 
-Fil: `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
+Fil: `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
 
 Kolonner:
 

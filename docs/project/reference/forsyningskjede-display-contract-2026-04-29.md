@@ -46,7 +46,7 @@ Each country card must show the same six rows:
 
 Primary source:
 
-- `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
+- `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
 - `public/data/food-systems/{no,se,dk,fi,is}/value-chain.json`
 - `research/review/forsyningskjede-primary-source-check-queue-2026-04-29.csv`
 
@@ -68,7 +68,7 @@ Primary source:
 
 - `research/data/nordic/trade-groups/normalized/trade-group-imports-annual.csv`
 - `research/review/forsyningskjede-import-vulnerability-cards-2026-04-29.csv`
-- `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
+- `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
 
 Visible fields:
 
@@ -149,7 +149,7 @@ Primary source:
 - `public/data/food-systems/circularity-loops.json`
 - `public/data/food-systems/nutrient-flows.json`
 - `docs/project/forsyningskjede-country-packs/{no,se,dk,fi,is}.md`
-- `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
+- `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
 
 Visible fields:
 
@@ -205,7 +205,7 @@ Do not modify `src/app/forsyningskjede/ForsyningskjedeContent.tsx`, `src/app/for
 
 ## Immediate Implementation Queue After Acceptance
 
-1. Add a small parser for `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv` and PCQ rows.
+1. Add a small parser for `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv` and PCQ rows.
 2. Add a country status DTO that computes the six country-card rows without changing canonical data.
 3. Render status lanes in `/forsyningskjede` before any new visual comparison.
 4. Add production parity display only after `series_type` is present in the view model.

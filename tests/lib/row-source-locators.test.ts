@@ -55,7 +55,6 @@ describe('row source locators', () => {
     assert.equal(
       resolveAquacultureApplicationSourceLocator({
         source: 'Fiskeridirektoratet aqua-portal',
-        applicationNo: 'SP-2026-002449',
         applicantOrgNr: '964118191',
       }),
       'https://api.fiskeridir.no/aqua-portal-api-public/api/v1/applications?applicantOrganisationNumber=964118191&page=0&size=50&sort=createdAt,desc',

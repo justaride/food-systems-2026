@@ -8,7 +8,7 @@ Gabriel Freeman og Cathrine Barth leder **Food Systems Transition Group** under 
 
 Prosjektet har nå en egen driftsnotat/runbook for deployment, prod-importer og schema-drift:
 
-- `docs/project/DEPLOYMENT-AND-DATA-OPERATIONS.md`
+- `docs/project/reference/DEPLOYMENT-AND-DATA-OPERATIONS.md`
 
 Denne skal brukes når siden virker "mindre oppdatert" enn repoet. Hovedregelen er at grønn app-deploy alene ikke er nok i dette prosjektet; produksjonsdata og produksjonsschema må også være i sync.
 
@@ -169,8 +169,8 @@ Fra Cathrines drøftingsdokument (jan 2026) - oppdatert modell for transition gr
 | `docs/project/mandates/transition-group-overview-working-doc-2026.pdf` | Arbeidsdok | Revidert 10-step start, vurderingskriterier, felles prosesser | **Operasjonell mal** |
 | `docs/project/mandates/mandate-for-transition-group-food-2026-04-21.pdf` | Mandat | Food Transition Group-mandat: purpose, objectives, governance, members og workplan | **Styringsdokument** |
 | `docs/project/mandates/food-transition-group-mandate-2026-04-21.md` | Detaljoversikt | Strukturert oversikt over mandatet, åpne felt og kontrolliste | **Detaljkontroll** |
-| `docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md` | Statusanalyse + arbeidsplan | Sammenholder utført arbeid, innsiktsgrunnlag, mandatmål, gap og videre sprintplan | **Operativ styring** |
-| `docs/project/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md` | Innsiktsarbeidsplan | Detaljert prosess, verktøy, output, kvalitetskriterier og 10-dagers plan for Food TG Insight Pack v0.1 | **Operativ innsiktsstyring** |
+| `docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md` | Statusanalyse + arbeidsplan | Sammenholder utført arbeid, innsiktsgrunnlag, mandatmål, gap og videre sprintplan | **Operativ styring** |
+| `docs/project/plans/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md` | Innsiktsarbeidsplan | Detaljert prosess, verktøy, output, kvalitetskriterier og 10-dagers plan for Food TG Insight Pack v0.1 | **Operativ innsiktsstyring** |
 | `Natural State Mail - NCH application 2025.pdf` | E-post | Martin videresender NCH 2025-søknaden (Michel Bajuk justert) | **Referanse** - søknaden som ble innvilget |
 | `Natural State Mail - DRØFTING TG.pdf` | E-post | Cathrine deler drøftingsdokumentet med Gabriel | **Kontekst** |
 | `1. Food system_ Oslo Innovasjons program 2025 (1).md` | Duplikat | Kopi av Oslo-søknaden | Redundant |
@@ -239,7 +239,7 @@ Fra samtalene og dokumentene:
 
 ## Utviklernotat
 
-- Oppsett og bruk av databasekoblingen for Codex er dokumentert i [docs/project/POSTGRES-MCP-SETUP.md](/Users/gabrielboen/Documents/Food Systems 2026/docs/project/POSTGRES-MCP-SETUP.md:1)
+- Oppsett og bruk av databasekoblingen for Codex er dokumentert i [docs/project/reference/POSTGRES-MCP-SETUP.md](/Users/gabrielboen/Documents/Food Systems 2026/docs/project/reference/POSTGRES-MCP-SETUP.md:1)
 
 ---
 

@@ -3,7 +3,7 @@
 **Dato:** 27.04.2026  
 **Status:** Operativ arbeidsplan v0.1  
 **Formål:** Beskrive hvordan innsiktsarbeidet for Food Transition Group skal gjennomføres nå: prosesser, leveranser, verktøy, kvalitetskriterier, roller og milepæler.  
-**Koblet styringsnotat:** `docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md`
+**Koblet styringsnotat:** `docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md`
 
 ## 1. Arbeidsmålet nå
 

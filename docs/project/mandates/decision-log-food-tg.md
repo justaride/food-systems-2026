@@ -6,7 +6,7 @@ sist_oppdatert: 2026-05-21
 neste_handling: Avklar scope-forespørsel med JTO/Cathrine/Einar før første P1-outreach sendes.
 relaterte_filer:
   - docs/project/mandates/food-transition-group-mandate-2026-04-21.md
-  - docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
+  - docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
   - docs/project/mandates/food-tg-scope-decision-request-2026-05-21.md
 ---
 
