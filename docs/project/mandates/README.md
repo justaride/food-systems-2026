@@ -21,6 +21,11 @@ Denne mappen samler styringsdokumenter for Food Systems Transition Group og tilh
 | `food-tg-scope-decision-request-2026-05-21.md` | Beslutningsforespørsel | Aktiv | Beslutningsklar scope-tekst og minimumsvedtak før P1-outreach. |
 | `food-tg-detaljert-arbeidsplan-2026-05-21.md` | Detaljert arbeidsplan | Aktiv | Utførbar plan for å gå fra intern kunnskapsbase til ekstern validering, pilotbriefs, finance note og roadmap. |
 | `food-tg-baseline-freeze-2026-05-21.md` | Baseline freeze | Aktiv | Fast intern status før ekstern valideringssprint. |
+| `food-tg-circular-cities-transfer-analysis-2026-05-21.md` | Søsterprosjektanalyse | Aktiv | Overfører læring fra Circular Cities til Food TGs claim-, modell- og whitepaper-kontrollag. |
+| `food-tg-claim-lock-table-2026-05.md` | Claim-lock | Aktiv | Publikasjonsfilter for hvilke Food TG-claims som kan brukes i deck, rapport, nettside og whitepaper. |
+| `food-tg-figure-model-note-audit-2026-05.md` | Figurnote-audit | Aktiv | Definerer hva Food-figurer, grafer, KPI-er og modeller viser og ikke viser. |
+| `food-tg-case-to-claim-index-2026-05.md` | Case/claim-indeks | Aktiv | Skiller benchmark, hypotese, pilotkandidat, sekundærspor og effektbevis per case. |
+| `food-tg-source-locator-risk-audit-2026-05.md` | Kilde-locator audit | Aktiv | Risikokart for high-risk tall, regelverk, aktørdata og datalag før ekstern bruk. |
 | `food-tg-validation-sprint-log-2026-05.md` | Valideringssprint-logg | Aktiv, venter scope-vedtak | Operativ logg for P1-aktørkontakt og responsstatus. |
 | `insight-pack-outline-food-tg-v0.2.md` | Insight Pack-disposisjon | Aktiv v0.2 | Storyline, slide-rekkefølge og trygg/utrygg formulering per hovedclaim. |
 | `brief-jan-thomas-cathrine-food-tg-runde-4.md` | Møtebrief | Klar til bruk | Kort beslutnings- og samtalegrunnlag etter runde 4. |
