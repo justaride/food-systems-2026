@@ -3,14 +3,14 @@ tittel: Handover til neste sesjon — neste steg: Insight Pack v0.1 syntese
 status: Superseded av HANDOVER-NESTE-SESJON-2026-05-18.md
 eier: Gabriel
 sist_oppdatert: 2026-05-11
-superseded_av: docs/project/HANDOVER-NESTE-SESJON-2026-05-18.md
+superseded_av: docs/project/status/HANDOVER-NESTE-SESJON-2026-05-18.md
 superseded_dato: 2026-05-18
 neste_handling: Bruk 2026-05-18-versjonen — denne beholdes som historisk kontekst
 relaterte_filer:
   - docs/project/mandates/plan-for-tg-food-2026-05-11.md
   - docs/project/mandates/nordic-coverage-gap-analysis-2026-05-11.md
-  - docs/project/PLAN-FOOD-TG-INSIGHT-PACK-V01-2026-04-27.md
-  - docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
+  - docs/project/plans/PLAN-FOOD-TG-INSIGHT-PACK-V01-2026-04-27.md
+  - docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
 ---
 
 # Handover — neste steg: Insight Pack v0.1
@@ -40,7 +40,7 @@ relaterte_filer:
 
 **Mål:** 5–8 siders syntese m/ 3 sporbriefs som input til JTO/Cathrines scope-beslutning. Opprinnelig frist 2026-05-08; nå overdue, men fortsatt verdifull.
 
-**Struktur (jf. `docs/project/PLAN-FOOD-TG-INSIGHT-PACK-V01-2026-04-27.md` Phase 7):**
+**Struktur (jf. `docs/project/plans/PLAN-FOOD-TG-INSIGHT-PACK-V01-2026-04-27.md` Phase 7):**
 
 1. **Executive summary** — 1 side
 2. **Spor A:** Sirkulært fôr & importavhengighet — bruk eksisterende `dossier-a-feed-import-eudr-triangulation.md`
@@ -56,7 +56,7 @@ relaterte_filer:
 Send følgende prompt:
 
 ```
-Les docs/project/HANDOVER-NESTE-SESJON-2026-05-11.md først.
+Les docs/project/status/HANDOVER-NESTE-SESJON-2026-05-11.md først.
 Bygg Insight Pack v0.1 syntese basert på dossiers i mandates/ og
 de 58 dokumentkoblede insights. Følg strukturen i PLAN-FOOD-TG-
 INSIGHT-PACK-V01-2026-04-27.md Phase 7. Lever som markdown i

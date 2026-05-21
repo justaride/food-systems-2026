@@ -4,8 +4,8 @@
 
 **Dato:** 2026-04-27
 **Status:** Operativ implementasjonsplan v1.0
-**Kilde:** `docs/project/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md`
-**Styringsnotat:** `docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md`
+**Kilde:** `docs/project/plans/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md`
+**Styringsnotat:** `docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md`
 
 **Mål:** Produsere Food TG Insight Pack v0.1 — et beslutningsklart innsiktsgrunnlag bestående av 9 markdown-leveranser i `docs/project/mandates/` — innen 08.05.2026.
 
@@ -187,7 +187,7 @@ sist_oppdatert: 2026-04-28
 neste_handling: Logg første formelle beslutning etter scope-møte 05.05
 relaterte_filer:
   - docs/project/mandates/food-transition-group-mandate-2026-04-21.md
-  - docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
+  - docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
 ---
 
 # Food TG Decision Log
@@ -259,7 +259,7 @@ sist_oppdatert: 2026-04-28
 neste_handling: Cathrine reviewer 30.04, Jan Thomas/Einar godkjenner 05.05
 relaterte_filer:
   - docs/project/mandates/food-transition-group-mandate-2026-04-21.md
-  - docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
+  - docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md
 ---
 
 # Food Transition Group Charter v0.1 (utkast)
@@ -1758,8 +1758,8 @@ git commit -m "docs(mandates): mark Insight Pack v0.1 deliverables as completed 
 
 ## Referanser
 
-- Innsiktsprosess-arbeidsplan: `docs/project/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md`
-- Status-arbeidsplan: `docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md`
+- Innsiktsprosess-arbeidsplan: `docs/project/plans/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md`
+- Status-arbeidsplan: `docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md`
 - Mandat: `docs/project/mandates/food-transition-group-mandate-2026-04-21.md`
 - Møteoversikt: `docs/meetings/MØTEOVERSIKT.md`
-- Prosjektoversikt: `docs/project/PROJECT-OVERVIEW.md`
+- Prosjektoversikt: `docs/project/reference/PROJECT-OVERVIEW.md`

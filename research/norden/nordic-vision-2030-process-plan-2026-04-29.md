@@ -30,7 +30,7 @@ Denne prosessen skal lukke det gapet gjennom en liten, kontrollert kilde- og syn
 
 | Fil | Bruk i denne prosessen |
 |---|---|
-| `docs/project/NORDISK-MATSYSTEM-KILDESTATUS-2026-04-29.md` | Overordnet status på nordiske kilder, DB-dekning og source-only kø |
+| `docs/project/status/NORDISK-MATSYSTEM-KILDESTATUS-2026-04-29.md` | Overordnet status på nordiske kilder, DB-dekning og source-only kø |
 | `research/norden/notat-analyser-kildedata-audit-2026-04-29.md` | Datagap-audit for nordiske bærekraftsnotater |
 | `research/norden/notat-analyser-source-import-queue-2026-04-29.csv` | Import-/promoteringskø for nordiske kilder |
 | `research/norden/nordic-analysis-panel-first-findings.md` | Første funn fra harmonisert nordisk datapanel |

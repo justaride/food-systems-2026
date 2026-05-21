@@ -112,8 +112,8 @@
 | Mandate for Transition Group - Circular Food | Finnes | `docs/project/mandates/mandate-for-transition-group-food-2026-04-21.pdf` |
 | Detaljoversikt for Food-mandatet | Finnes | `docs/project/mandates/food-transition-group-mandate-2026-04-21.md` |
 | Transition Group overview working doc | Finnes | `docs/project/mandates/transition-group-overview-working-doc-2026.pdf` |
-| Statusanalyse og arbeidsplan mot mandat | Finnes | `docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md` |
-| Detaljert innsiktsprosess og verktøyplan | Finnes | `docs/project/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md` |
+| Statusanalyse og arbeidsplan mot mandat | Finnes | `docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md` |
+| Detaljert innsiktsprosess og verktøyplan | Finnes | `docs/project/plans/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md` |
 | Oslo Innovasjonsprogram-søknad | Finnes | `1. Food system_ Oslo Innovasjons program 2025.md` |
 | Prosjektoversikt | Finnes | `PROJECT-OVERVIEW.md` |
 | Ten-step start v2.0 | Finnes (i PROJECT-OVERVIEW) | Steg 1–10 med outputs definert |

@@ -13,7 +13,7 @@ Disse filene følger samme skjema:
 
 Hver landpakke skal være arbeidssted for kilder, gap, claim cards og importkandidater før data flyttes inn i DB eller app. Coverage-status føres i:
 
-- `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
+- `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
 
 Review-kø for nye relasjoner føres i:
 

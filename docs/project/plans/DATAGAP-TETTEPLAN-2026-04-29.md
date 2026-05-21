@@ -7,7 +7,7 @@ Formål: gjøre gaprapporten styrbar før ny innhenting. Planen skiller mellom k
 ## Arbeidsfiler
 
 - Normalisert register: `research/_plans/gap-master-2026-04-29.csv`
-- Datainnhentingsplan: `docs/project/DATAGAP-DATAINNHENTINGSPLAN-2026-04-29.md`
+- Datainnhentingsplan: `docs/project/plans/DATAGAP-DATAINNHENTINGSPLAN-2026-04-29.md`
 - Kilderapport: `datagap-rapport-2026-04-29.html`
 - Bærekraftsrapport: `baerekraft-norsk-matsektor-2026.html`
 - Eksisterende gapkilder:

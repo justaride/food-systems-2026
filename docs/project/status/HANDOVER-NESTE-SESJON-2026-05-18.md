@@ -3,16 +3,16 @@ tittel: Handover til neste sesjon — Food TG: scope-vedtak + valideringssprint
 status: Aktiv handover
 eier: Gabriel
 sist_oppdatert: 2026-05-18
-neste_handling: Start ny sesjon med "Les docs/project/HANDOVER-NESTE-SESJON-2026-05-18.md og fortsett etter punktlisten i §Neste handlinger"
+neste_handling: Start ny sesjon med "Les docs/project/status/HANDOVER-NESTE-SESJON-2026-05-18.md og fortsett etter punktlisten i §Neste handlinger"
 relaterte_filer:
   - docs/project/mandates/food-tg-insight-pack-v0.1-2026-05-18.md
   - docs/project/mandates/decision-memo-food-tg-scope-v0.3.md
   - docs/project/mandates/claim-register-food-tg.md
   - docs/project/mandates/primary-check-queue-food-tg-v0.1.md
   - docs/project/mandates/nordic-coverage-gap-analysis-2026-05-11.md
-  - docs/project/HANDOVER-NESTE-SESJON-2026-05-11.md
-  - docs/project/PLAN-FOOD-TG-INSIGHT-PACK-V01-2026-04-27.md
-forrige_handover: docs/project/HANDOVER-NESTE-SESJON-2026-05-11.md
+  - docs/project/status/HANDOVER-NESTE-SESJON-2026-05-11.md
+  - docs/project/plans/PLAN-FOOD-TG-INSIGHT-PACK-V01-2026-04-27.md
+forrige_handover: docs/project/status/HANDOVER-NESTE-SESJON-2026-05-11.md
 ---
 
 # Handover — Food TG scope-vedtak + valideringssprint
@@ -127,7 +127,7 @@ uten PDF-quality false positives.
 
 ### P3 — /sammenligning Sprint 2-4 (fra PR #43 plan)
 
-Sprint 1-plan ligger i `docs/project/SAMMENLIGNING-KILDEKVALITET-UTVIDELSE-2026-05-15.md`. Sprint 2-4 gjenstår.
+Sprint 1-plan ligger i `docs/project/analysis/SAMMENLIGNING-KILDEKVALITET-UTVIDELSE-2026-05-15.md`. Sprint 2-4 gjenstår.
 
 **Kosmetisk follow-up fra #43-review:**
 - `statusDotClass` er duplisert mellom `ChartCard.tsx` og `InfoPopover.tsx` — hent ut til `@/lib/visualization/util.ts`
@@ -153,7 +153,7 @@ Sprint 1-plan ligger i `docs/project/SAMMENLIGNING-KILDEKVALITET-UTVIDELSE-2026-
 Send følgende prompt:
 
 ```
-Les docs/project/HANDOVER-NESTE-SESJON-2026-05-18.md først.
+Les docs/project/status/HANDOVER-NESTE-SESJON-2026-05-18.md først.
 Status i dag: scope-vedtak ennå ikke tatt, outreach ikke startet,
 EUDR-funnet er skjerpet og venter endelig forskriftstekst.
 
@@ -180,4 +180,4 @@ Disse må gjøres manuelt av Gabriel/JTO:
 
 ## Forrige handover
 
-`docs/project/HANDOVER-NESTE-SESJON-2026-05-11.md` — superseded av denne, men beholdes som historisk kontekst over hva som ble levert mellom 05-11 og 05-18.
+`docs/project/status/HANDOVER-NESTE-SESJON-2026-05-11.md` — superseded av denne, men beholdes som historisk kontekst over hva som ble levert mellom 05-11 og 05-18.

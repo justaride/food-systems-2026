@@ -4,7 +4,7 @@
 **Status:** Godkjent for implementasjonsplanlegging
 **Eier:** Gabriel Boen / JT (faglig redaktør)
 **Relaterte dokumenter:**
-- `docs/project/DATAVISUALISERING-MASTERPLAN-2026-04-29.md` (Fase 5)
+- `docs/project/plans/DATAVISUALISERING-MASTERPLAN-2026-04-29.md` (Fase 5)
 - `research/whitepaper/section-7-circular-food-systems.md`
 - `research/bibliotek/sirkularitet-dyp.md`
 

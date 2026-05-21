@@ -4,9 +4,9 @@
 
 Denne masterplanen styrer videre arbeid med datavisualisering, analyseflater og beslutningsstøtte i Food Systems 2026. Den bygger på:
 
-- `docs/project/DATAVISUALISERING-ANALYSE-2026-04-29.md`
-- `docs/project/FLOW-SIDE-STATUS-2026-04-29.md`
-- `docs/project/KUNNSKAPSGRAF-STATUS-OG-VIDERE-PLAN-2026-04-29.md`
+- `docs/project/analysis/DATAVISUALISERING-ANALYSE-2026-04-29.md`
+- `docs/project/status/FLOW-SIDE-STATUS-2026-04-29.md`
+- `docs/project/status/KUNNSKAPSGRAF-STATUS-OG-VIDERE-PLAN-2026-04-29.md`
 - eksisterende appflater: `/forsyningskjede`, `/graf`, `/subsidier`, `/sammenligning`, `/kart`, `/mandat`, `/media`, `/okonomi`, `/eierskap`, `/havbruk`, `/sirkularitet`
 
 Målet er å gjøre prosjektets data beslutningsnær: brukeren skal raskt se hva dataen viser, hvor sterk den er, hva som mangler, hvilke aktører/kilder som henger sammen, og hvilke valg som bør tas videre.
@@ -85,7 +85,7 @@ Arbeidet bør gå i denne rekkefølgen:
 
 ### Fase –1a: Datafundament hurtigavklaring
 
-Status: hurtigavklaring utført 2026-04-29. Se `docs/project/DATAVISUALISERING-PROD-DATA-STATUS-2026-04-29.md`.
+Status: hurtigavklaring utført 2026-04-29. Se `docs/project/status/DATAVISUALISERING-PROD-DATA-STATUS-2026-04-29.md`.
 
 Mål:
 
@@ -103,7 +103,7 @@ Eksisterende grunnlag:
 
 Leveranser:
 
-- Kort statusnotat i denne filen eller eget `docs/project/DATAVISUALISERING-PROD-DATA-STATUS-2026-04-29.md`.
+- Kort statusnotat i denne filen eller eget `docs/project/status/DATAVISUALISERING-PROD-DATA-STATUS-2026-04-29.md`.
 - Bekreft hvilke brancher som finnes remote og hva de endrer.
 - Bekreft om `/api/data-status` finnes i aktiv branch/prod.
 - Klassifiser domener som:
@@ -238,7 +238,7 @@ Estimert arbeid:
 
 ### Fase 0b: Utvidet kontrakt (harvest)
 
-Status: påbegynt 2026-04-29 etter Fase 1-slicene. Første `ChartFrame`-harvest er implementert og dokumentert i `docs/project/DATAVISUALISERING-CHARTFRAME-MIGRASJON-2026-04-29.md`.
+Status: påbegynt 2026-04-29 etter Fase 1-slicene. Første `ChartFrame`-harvest er implementert og dokumentert i `docs/project/plans/DATAVISUALISERING-CHARTFRAME-MIGRASJON-2026-04-29.md`.
 
 Mål:
 
@@ -1047,7 +1047,7 @@ Status 2026-04-29 kveld: Fase –1b, 0a, 0b, 1, 2, 3 første `/subsidier`-snitt 
 
 Start her:
 
-1. Les denne filen og `docs/project/DATAVISUALISERING-CHARTFRAME-MIGRASJON-2026-04-29.md`.
+1. Les denne filen og `docs/project/plans/DATAVISUALISERING-CHARTFRAME-MIGRASJON-2026-04-29.md`.
 2. Sjekk `git status --short` og skill mellom aktive visualiseringsendringer og urelaterte lokale endringer.
 3. Fortsett Fase 3 på `/subsidier`:
    - neste datasteg er produsent-/personoppløsning for toppmottakere; UI viser nå 99/100 matrikkel, 99/100 parent-orgnr, 0/100 parent-orgnr som matcher `Company`, 99/100 koordinater og 85/100 leveransefotavtrykk

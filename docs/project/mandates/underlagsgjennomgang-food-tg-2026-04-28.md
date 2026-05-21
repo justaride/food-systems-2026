@@ -13,7 +13,7 @@ relaterte_filer:
   - docs/project/mandates/track-brief-c-adoption.md
   - docs/project/mandates/decision-memo-food-tg-scope.md
   - docs/project/mandates/academic-theses-integration-audit-food-tg-2026-04-28.md
-  - docs/project/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md
+  - docs/project/plans/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md
   - research/DATA-READINESS-SLUTTRAPPORT.md
   - research/KI-PRIORITY.md
   - research/PDF-KATALOG.md

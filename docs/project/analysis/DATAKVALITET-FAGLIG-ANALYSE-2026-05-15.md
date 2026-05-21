@@ -63,7 +63,7 @@ Prosjektet har et godt kontrollapparat:
 |---|---:|---|
 | `research/_plans/gap-master-2026-04-29.csv` | 59 | Master over faglige datagap. |
 | `research/_plans/gap-master-routing-2026-04-29.csv` | 59 | Eier, neste handling og akseptansegate. |
-| `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv` | 65 | Country/domain-dekning og reviewstatus. |
+| `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv` | 65 | Country/domain-dekning og reviewstatus. |
 | `research/review/forsyningskjede-primary-source-check-queue-2026-04-29.csv` | 28 | Primærkildekontroll før import/bruk. |
 | `research/data/nordic/core-series/production_annual_first_panel.csv` | 65 | Første produksjonspanel, men med metodebegrensninger. |
 | `research/data/nordic/trade-groups/normalized/trade-group-imports-annual.csv` | 294 | Sterkere importpanel. |

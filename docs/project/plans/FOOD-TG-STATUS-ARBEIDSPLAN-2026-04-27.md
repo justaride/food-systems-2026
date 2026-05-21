@@ -2,7 +2,7 @@
 
 **Dato:** 27.04.2026  
 **Formål:** Redegjøre for hva som er gjort, hvilket innsiktsgrunnlag prosjektet har, hvordan status står mot mandatet for Circular Food Transition Group, og hvilken arbeidsplan som bør styre videre arbeid frem til roadmap/offentlig leveranse.  
-**Hovedkilder:** `docs/project/mandates/food-transition-group-mandate-2026-04-21.md`, `docs/meetings/MØTEOVERSIKT.md`, `docs/project/PROJECT-OVERVIEW.md`, `research/rammeverk/leveranseplan-wp3-food-systems.md`, `research/DATA-READINESS-SLUTTRAPPORT.md`, `research/RESEARCH-MISSIONS.md`, `research/whitepaper/gap-list.md`, `research/VERDIKJEDE-KARTLEGGING-PLAN.md`.
+**Hovedkilder:** `docs/project/mandates/food-transition-group-mandate-2026-04-21.md`, `docs/meetings/MØTEOVERSIKT.md`, `docs/project/reference/PROJECT-OVERVIEW.md`, `research/rammeverk/leveranseplan-wp3-food-systems.md`, `research/DATA-READINESS-SLUTTRAPPORT.md`, `research/RESEARCH-MISSIONS.md`, `research/whitepaper/gap-list.md`, `research/VERDIKJEDE-KARTLEGGING-PLAN.md`.
 
 ## 1. Kort konklusjon
 

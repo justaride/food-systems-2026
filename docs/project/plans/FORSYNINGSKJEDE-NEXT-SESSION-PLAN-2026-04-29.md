@@ -12,8 +12,8 @@
 
 ## Open First
 
-- `docs/project/RESEARCH-PLAN-FORSYNINGSKJEDE-NORDISK-LIKEDEKNING-2026-04-29.md`
-- `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
+- `docs/project/plans/RESEARCH-PLAN-FORSYNINGSKJEDE-NORDISK-LIKEDEKNING-2026-04-29.md`
+- `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
 - `research/review/forsyningskjede-primary-source-check-queue-2026-04-29.csv`
 - `research/review/forsyningskjede-production-primary-snapshot-2026-04-29.md`
 - `research/review/forsyningskjede-production-proxy-candidates-2026-04-29.csv`
@@ -46,7 +46,7 @@ Still not complete:
 - Create: `research/review/forsyningskjede-production-method-decision-2026-04-29.md`
 - Read: `research/review/forsyningskjede-production-series-parity-2026-04-29.csv`
 - Read: `research/review/forsyningskjede-production-proxy-candidates-2026-04-29.csv`
-- Modify after decision: `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
+- Modify after decision: `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
 
 - [x] **Step 1: Write method decision**
 
@@ -93,7 +93,7 @@ Set production method rows to `method_decision_recorded` only after the method f
 Run:
 
 ```bash
-node -e "const fs=require('fs'); const files=['docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv','research/review/forsyningskjede-primary-source-check-queue-2026-04-29.csv','research/review/forsyningskjede-production-series-parity-2026-04-29.csv','research/review/forsyningskjede-production-proxy-candidates-2026-04-29.csv']; function parse(s){const rows=[];let row=[],field='',q=false;for(let i=0;i<s.length;i++){const c=s[i],n=s[i+1];if(q){if(c==='\"'&&n==='\"'){field+='\"';i++;}else if(c==='\"'){q=false;}else field+=c;}else{if(c==='\"')q=true;else if(c===','){row.push(field);field='';}else if(c==='\n'){row.push(field);rows.push(row);row=[];field='';}else if(c==='\r'||c==='\uFEFF'){}else field+=c;}} if(field.length||row.length){row.push(field);rows.push(row);} return rows.filter(r=>!(r.length===1&&r[0]===''));} for(const f of files){const rows=parse(fs.readFileSync(f,'utf8'));const width=rows[0].length;const bad=rows.map((r,i)=>[i+1,r.length]).filter(x=>x[1]!==width); if(bad.length){console.error(f,'BAD',bad.slice(0,5)); process.exitCode=1;} else console.log(f, rows.length-1+' rows x '+width+' cols');}"
+node -e "const fs=require('fs'); const files=['docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv','research/review/forsyningskjede-primary-source-check-queue-2026-04-29.csv','research/review/forsyningskjede-production-series-parity-2026-04-29.csv','research/review/forsyningskjede-production-proxy-candidates-2026-04-29.csv']; function parse(s){const rows=[];let row=[],field='',q=false;for(let i=0;i<s.length;i++){const c=s[i],n=s[i+1];if(q){if(c==='\"'&&n==='\"'){field+='\"';i++;}else if(c==='\"'){q=false;}else field+=c;}else{if(c==='\"')q=true;else if(c===','){row.push(field);field='';}else if(c==='\n'){row.push(field);rows.push(row);row=[];field='';}else if(c==='\r'||c==='\uFEFF'){}else field+=c;}} if(field.length||row.length){row.push(field);rows.push(row);} return rows.filter(r=>!(r.length===1&&r[0]===''));} for(const f of files){const rows=parse(fs.readFileSync(f,'utf8'));const width=rows[0].length;const bad=rows.map((r,i)=>[i+1,r.length]).filter(x=>x[1]!==width); if(bad.length){console.error(f,'BAD',bad.slice(0,5)); process.exitCode=1;} else console.log(f, rows.length-1+' rows x '+width+' cols');}"
 ```
 
 Expected: all listed CSV files report consistent row and column counts.
@@ -174,8 +174,8 @@ Every `ready_for_import` relationship must have:
 ## Task 4: Define `/forsyningskjede` Display Contract
 
 **Files:**
-- Create: `docs/project/forsyningskjede-display-contract-2026-04-29.md`
-- Read: `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
+- Create: `docs/project/reference/forsyningskjede-display-contract-2026-04-29.md`
+- Read: `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
 - Later modify UI only after this contract is accepted.
 
 - [x] **Step 1: Specify visible status lanes**
@@ -207,7 +207,7 @@ Do not change UI until the display contract says exactly which files power each 
 
 **Files:**
 - Modify: `docs/project/forsyningskjede-country-packs/is.md`
-- Modify: `docs/project/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
+- Modify: `docs/project/analysis/forsyningskjede-nordic-coverage-ledger-2026-04-29.csv`
 - Possible later data files: `public/data/food-systems/circularity-loops.json`, `public/data/food-systems/nutrient-flows.json`
 
 - [ ] **Step 1: Circularity**

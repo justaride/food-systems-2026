@@ -43,7 +43,7 @@ Primære kryssreferanser:
 
 - `docs/meetings/TRANSITION GROUPS - Møte 21-04-26.md` dokumenterer møtet der mandat, scoping og plattformstatus ble avklart.
 - `docs/meetings/MØTEOVERSIKT.md` og rotfilen `MØTEOVERSIKT.md` peker til disse dokumentene i samlet møte- og dokumentoversikt.
-- `docs/project/PROJECT-OVERVIEW.md` og rotfilen `PROJECT-OVERVIEW.md` beskriver prosjektkontekst, kontrakt og leveranser.
-- `docs/project/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md` er nå styringsnotatet for status mot mandat og videre arbeidsplan.
-- `docs/project/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md` beskriver den operative innsiktsprosessen, verktøyene og arbeidsproduktene som trengs for Insight Pack-disposisjon og beslutningsnotat.
+- `docs/project/reference/PROJECT-OVERVIEW.md` og rotfilen `PROJECT-OVERVIEW.md` beskriver prosjektkontekst, kontrakt og leveranser.
+- `docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md` er nå styringsnotatet for status mot mandat og videre arbeidsplan.
+- `docs/project/plans/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md` beskriver den operative innsiktsprosessen, verktøyene og arbeidsproduktene som trengs for Insight Pack-disposisjon og beslutningsnotat.
 - `docs/project/mandates/analysefabrikk-handoffs/` inneholder worker-handoffs, mini-verifikasjon og master merge for runde 2-4.
