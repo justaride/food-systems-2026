@@ -47,6 +47,7 @@ export const navGroups: NavGroup[] = [
   ]},
   { label: 'Bibliotek', items: [
     { name: 'Rapporter', href: '/rapporter', description: 'Offentlige og bransjeanalyser' },
+    { name: 'Hvitbok', href: '/hvitbok', description: 'Leveransedokument i kapitler' },
     { name: 'Bibliotek', href: '/bibliotek', description: 'Fulltekst forskningsdokumenter' },
     { name: 'Kilder', href: '/kilder', description: 'Dokumenter og referanser' },
   ]},

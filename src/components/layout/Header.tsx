@@ -17,6 +17,7 @@ const navigation = [
   { name: 'Sammenligning', href: '/sammenligning' },
   { name: 'Verdikjede', href: '/verdikjede' },
   { name: 'Rapporter', href: '/rapporter' },
+  { name: 'Hvitbok', href: '/hvitbok' },
   { name: 'Kilder', href: '/kilder' },
   { name: 'Media', href: '/media' },
 ]

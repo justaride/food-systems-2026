@@ -21,6 +21,8 @@ COPY prisma ./prisma
 COPY public ./public
 COPY scripts ./scripts
 COPY src ./src
+# Hvitbok-kapitler leses fra disk ved kjøretid (src/lib/hvitbok/loader.ts)
+COPY content ./content
 COPY research/evidence-pack/*.csv ./research/evidence-pack/
 # Kun text/ + exports/ trengs av migrasjons-importer; downloads/ er ~70MB PDFer
 COPY research/evidence-pack/okologisk-norden-2026-04-29/text/ ./research/evidence-pack/okologisk-norden-2026-04-29/text/
@@ -47,6 +49,7 @@ RUN apk add --no-cache postgresql-client curl
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/content ./content
 COPY --from=builder --chown=nextjs:nodejs /app/research ./research
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
