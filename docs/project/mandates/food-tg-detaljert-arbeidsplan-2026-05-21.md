@@ -86,6 +86,7 @@ Disse filene er lagt inn som ekstra porter før Task 13 og Task 14. De endrer ik
 | `docs/project/mandates/food-tg-case-to-claim-index-2026-05.md` | Skille benchmark, hypotese, kandidat og effektbevis | Pilotbriefs og valideringssprint |
 | `docs/project/mandates/food-tg-source-locator-risk-audit-2026-05.md` | Locator- og kildeport for high-risk claims | Ekstern tekst og figurer |
 | `docs/project/mandates/insight-pack-outline-food-tg-v0.3.md` | Produksjonskontrakt for decision/insight pack | Task 13 decision deck outline |
+| `docs/project/mandates/food-tg-decision-pack-v0.1.md` | Intern beslutningspakke for minimumsvedtak og valideringssprint | Før kandidatkort, språkbank og eventuell P1-outreach |
 
 ## 3. Arbeidsstrømmer
 
