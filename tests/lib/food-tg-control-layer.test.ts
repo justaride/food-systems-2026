@@ -115,9 +115,84 @@ describe('Food TG control layer', () => {
   })
 
   it('defines candidate cards with minimum data, gates, stop signals, and no unsafe status lift', () => {
-    assert.deepEqual(foodTgCandidateCards.map((card) => card.id), ['A1', 'A-B', 'B1', 'B2', 'B3-C'])
+    assert.deepEqual(foodTgCandidateCards.map((card) => card.id), ['A1', 'A/B', 'B1', 'B2', 'B3', 'C-gate'])
+
+    const expectedCandidateTitles = new Map([
+      ['A1', /Alternative fôrproteiner/],
+      ['A/B', /Insektprotein/],
+      ['B1', /Okara\/BSG|Okara og BSG/],
+      ['B2', /Matsvinnkvalitet/],
+      ['B3', /Nutrient-loop/],
+      ['C-gate', /Adoption og marked/],
+    ])
+
+    const expectedCandidateAnchors = new Map([
+      [
+        'A/B',
+        {
+          claimIds: ['CL-A-021', 'CL-A-011', 'CL-B-009'],
+          evidenceIds: ['EV-A-003', 'EV-A-013', 'EV-A-014', 'EV-A-015', 'EV-A-016'],
+          sourceIds: [
+            'SRC-A-003',
+            'SRC-REG-001',
+            'SRC-REG-002',
+            'SRC-REG-003',
+            'SRC-REG-004',
+            'SRC-REG-005',
+            'SRC-REG-006',
+          ],
+        },
+      ],
+      [
+        'B1',
+        {
+          claimIds: ['CL-B-014', 'CL-B-021', 'CL-B-009'],
+          evidenceIds: ['EV-B-011', 'EV-B-018', 'EV-B-019'],
+          sourceIds: ['SRC-B-024', 'SRC-B-025', 'SRC-B-026'],
+        },
+      ],
+      [
+        'B2',
+        {
+          claimIds: ['CL-B-022', 'CL-C-012', 'CL-C-014', 'CL-C-015'],
+          evidenceIds: ['EV-B-002', 'EV-B-004', 'EV-B-014', 'EV-C-010', 'EV-C-026'],
+          sourceIds: ['SRC-B-002', 'SRC-B-004', 'SRC-B-014', 'SRC-C-010', 'SRC-C-031'],
+        },
+      ],
+      [
+        'B3',
+        {
+          claimIds: ['CL-B-023', 'CL-C-015'],
+          evidenceIds: ['EV-B-008', 'EV-B-010', 'EV-B-016', 'EV-B-017', 'EV-B-024'],
+          sourceIds: [
+            'SRC-B-008',
+            'SRC-B-010',
+            'SRC-B-018',
+            'SRC-B-019',
+            'SRC-B-020',
+            'SRC-B-021',
+            'SRC-B-022',
+            'SRC-B-023',
+            'SRC-B-031',
+          ],
+        },
+      ],
+    ])
 
     for (const card of foodTgCandidateCards) {
+      const expectedTitle = expectedCandidateTitles.get(card.id)
+      assert.ok(expectedTitle, `${card.id} is not in the case-to-claim index candidate set`)
+      assert.match(card.title, expectedTitle, `${card.id}.title does not match case-to-claim index`)
+      const expectedAnchors = expectedCandidateAnchors.get(card.id)
+      if (expectedAnchors) {
+        assert.deepEqual(card.claimIds, expectedAnchors.claimIds, `${card.id}.claimIds do not match case-to-claim index`)
+        assert.deepEqual(
+          card.evidenceIds,
+          expectedAnchors.evidenceIds,
+          `${card.id}.evidenceIds do not match case-to-claim index`,
+        )
+        assert.deepEqual(card.sourceIds, expectedAnchors.sourceIds, `${card.id}.sourceIds do not match case-to-claim index`)
+      }
       assert.ok(card.title)
       assert.ok(card.role)
       assert.ok(card.canSay)

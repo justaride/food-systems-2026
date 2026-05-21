@@ -28,7 +28,7 @@ Skal implementeres:
 - Oppdatert mandatstatus per 2026-05-21.
 - Strukturert kontrollpakke med de nye Food TG-dokumentene.
 - Beslutningsporter for scope, claim, figur, case, kilde og validering.
-- Kandidatkort for A1, A/B, B1, B2 og B3/C-gate.
+- Kandidatkort for A1, A/B, B1, B2, B3 og C-gate.
 - Reader journey-liste som viser hvordan `/mandat`, `/innsikt`, `/forsyningskjede`, `/verdikjede`, `/sirkularitet`, `/graf` og `/sammenligning` kan brukes.
 - Fail-closed tester som stopper feil statusløft.
 
@@ -139,11 +139,12 @@ Kandidatkortene i v0.2:
 
 | ID | Tittel | Rolle | Statusregel |
 |---|---|---|---|
-| `A1` | EUDR og fôrdata | Strategisk datagate | `krever-bekreftelse` til EUDR-Norge og metode er sjekket. |
-| `A-B` | Alternative fôrproteiner | Roadmap-spor | `klar-med-forbehold`, ikke pilotkandidat. |
+| `A1` | Alternative fôrproteiner | Roadmap- og FoU-spor | `hypotese`; stopper hvis fôraktører ikke kan validere modenhet eller data. |
+| `A/B` | Insektprotein på godkjente sidestrømmer | Integrert substrat- og demand-side-hypotese | `hypotese`; stopper hvis substrat ikke er lovlig eller dokumenterbart. |
 | `B1` | Okara/BSG | Teknisk sidestrømskandidat | `hypotese` eller `benchmark` til råvareeier, hygiene og off-taker finnes. |
-| `B2` | Matsvinnkvalitet | Adoption-kandidat | `klar-med-forbehold` hvis baseline, kategori og tidsvindu finnes; ellers `hypotese`. |
-| `B3-C` | C-gate | Tverrgående gate | `klar-med-forbehold`; stopper A/B uten lov, kjøper, data, drift og governance. |
+| `B2` | Matsvinnkvalitet | Adoption-kandidat | `hypotese` til baseline, kategori, tidsvindu, kontrafaktisk og dataeier finnes. |
+| `B3` | Nutrient-loop benchmark | Sekundær benchmark for læring | `sekundaerspor` eller `benchmark`; stopper hvis tung infrastruktur gjør pilot urealistisk i 2026-2027. |
+| `C-gate` | Adoption og marked | Tverrgående gate | Ikke-validert; stopper uten kjøper, dataeier, kontrakt, governance og KPI-minimum. |
 
 ### Reader journey-flate
 
