@@ -3,8 +3,8 @@ tittel: Food TG Primary-Check Queue v0.1
 status: Utført internt
 eier: Gabriel
 dato: 2026-04-28
-sist_oppdatert: 2026-05-18
-neste_handling: Kjør i prioritert rekkefølge før decision memo v0.2 bruker tall eller juridiske påstander eksternt. PCQ-C-001 + PCQ-A-001 oppdatert 2026-05-18 — se §"Runde 4 statusnotat".
+sist_oppdatert: 2026-05-21
+neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21; endelig EØS-/forskriftsstatus og aktørpraksis er fortsatt valideringsbehov.
 relaterte_filer:
   - docs/project/mandates/actor-validation-pack-food-tg-v0.1.md
   - docs/project/mandates/analysefabrikk-handoffs/2026-04-28-mini-verifikasjon-2b-2d-recovery.md
@@ -33,12 +33,12 @@ Runde 3 lukker noen deler av køen som internt kildegrunnlag, men ingen rader bl
 
 | Queue-ID | Tema | Konkret sjekk | Nåværende kilde/status | Trengs fra primærkilde | Berører | Eier | Status |
 |---|---|---|---|---|---|---|---|
-| PCQ-A-001 | Soyaimport | Hent SSB/HS-serie 2020-2025 for soyabønner, soyamel/oljekake, soyaolje og relevante fôr-/SPC-koder. | L4-notat forkastet for totalclaim; Denofa actor-tall finnes. | Definisjon, år, geografi, enhet, varekoder, importland, mengde og verdi. | SRC-A-013, EV-A-017, CL-A-020, CL-C-011 | Gabriel | needs-primary-check |
+| PCQ-A-001 | Soyaimport | Hent SSB/HS-serie 2020-2025 for soyabønner, soyamel/oljekake, soyaolje og relevante fôr-/SPC-koder. | Tidsserie kjørt mot SSB 08801 2026-05-21; L4-notat forkastet for totalclaim; Denofa actor-tall finnes separat. | Aktør-/metodevalidering for SPC, prepared feed og faktisk fôrbruk. | SRC-A-017, EV-A-021, CL-A-020, CL-C-011 | Gabriel | partly-checked; needs-actor-validation |
 | PCQ-A-002 | SPC vs soyamel | Avklar hvordan SPC registreres i handelsstatistikk og om prepared animal feed skjuler SPC-import. | Skretting actor-tall, ingen nasjonal serie. | Varekoder/metode fra SSB/Tolletaten/FIVH/fôraktør. | EV-A-019, CL-A-020 | Gabriel | needs-primary-check |
 | PCQ-A-003 | Fôraktørfordeling | Kryssjekk Skretting-data mot BioMar, Cargill, Mowi Feed og Sjømat Norge. | Skretting actor-data kan ikke være bransjeproxy. | 2024/2025 fôrsammensetning, volum, råvareandeler, opprinnelse og sertifisering per aktør. | SRC-A-015, EV-A-019, CL-A-020 | Gabriel/Cathrine | needs-actor-validation |
 | PCQ-A-004 | Laksefôrvolum | Skille oppdrettsfôr totalt fra laksefôr hvis decision memo bruker laksespesifikk formulering. | Fiskeridirektoratet tabell 43 gir oppdrettsfôr totalt. | Eventuell artsfordelt fôrserie eller eksplisitt forbehold om oppdrettsfôr. | SRC-A-014, EV-A-018, CL-A-020 | Gabriel | needs-primary-check |
 | PCQ-A-005 | Fiskemel | Hent norsk/nordisk import/bruk av fiskemel per år/land og eventuell aktørbruk. | EUMOFA gir global/EU-kontekst. | FAO/IFFO/Eurostat/SSB eller fôraktørdata med definisjon og år. | SRC-A-016, EV-A-020, CL-A-020 | Gabriel | needs-primary-check |
-| PCQ-C-001 | EUDR-Norge | Avklar norsk/EØS-innlemmelse, soya-scope, tredjelands-/eksportstatus og praktisk informasjonssystem/Traces-krav. | EU-kommisjonen gir EU-scope/frister; Landbruksdirektoratet peker på norsk prosess. | Norsk myndighetskilde/forskrift/høring/veileder med dato og scope. | SRC-C-018, EV-C-017, CL-C-011 | Gabriel | needs-primary-check |
+| PCQ-C-001 | EUDR-Norge | Avklar norsk/EØS-innlemmelse, soya-scope, tredjelands-/eksportstatus og praktisk informasjonssystem/Traces-krav. | Oppdatert 2026-05-21 mot Landbruksdirektoratet og Miljødirektoratet: ikke innlemmet i EØS/norsk rett ennå; EØS-prosess og forskrift er ikke ferdigstilt. | Endelig EØS-komitébeslutning, norsk forskrift/Lovdata, Traces/DDS/EORI-praksis og aktørpåvirkning. | SRC-C-018, EV-C-017, CL-C-011 | Gabriel | partly-checked; needs-primary-check |
 | PCQ-B-001 | Okara total | Bekreft nordisk/norsk okara-volum per produsent/anlegg. | Axfoundation/Chalmers gir svensk benchmark; L4-nordisk total avvist. | Tonn/år, tørrstoff/fukt, anlegg, år, nåværende avsetning. | SRC-B-024, SRC-B-025, EV-B-018, CL-B-014, CL-B-021 | Gabriel/Cathrine | needs-actor-validation |
 | PCQ-B-002 | Okara matgrade | Avklar hygiene, holdbarhet, stabilisering og eventuell Novel Food-/Mattilsynet-status for okara og fermentert okara. | Prosjektkilder peker på mulighet, ikke norsk lovlig pilot. | Mattilsynet/fagekspert/producer QA med krav og dokumentasjonsnivå. | EV-B-018, CL-B-009, CL-B-021 | Gabriel | needs-primary-check |
 | PCQ-B-003 | Bryggerimask volum | Bekreft norsk/nordisk BSG-volum og dagens avsetning per bryggeri/marked. | RISE gir svensk benchmark: 180 g/liter øl, 80 000 tonn/år Sverige. | Bryggeridata, volum/år, fukt, stabilisering, avsetning og logistikk. | SRC-B-026, EV-B-019, CL-B-014, CL-B-021 | Gabriel/Cathrine | needs-actor-validation |
@@ -101,3 +101,47 @@ To topp-prioritet PCQ-er er primærsjekket mot whitelistede norske myndighetskil
 |---|---|---|
 | PCQ-C-001 | Norsk soya-eksklusjon i EUDR bekreftet via forskriftsutkast 2025-08-19. | Skjerp CL-C-011: skill mellom EU-eksport-compliance (norske aktører som eksporterer) og innenlandsk norsk soya-import/bruk (ikke EUDR-pliktig). |
 | PCQ-A-001 | HS-koder identifisert for soyabønner, soyamel, soyaolje. SPC fortsatt usikker. | Tidsserieuthenting kan kjøres som SSB API-script i neste runde. |
+
+## Runde 5 statusnotat (2026-05-21)
+
+Oppdatering kjørt etter at scope-beslutning fortsatt ikke var formelt bekreftet. Dette er desk-/primærkildearbeid, ikke aktørvalidering.
+
+### PCQ-C-001 EUDR-Norge — oppdatert myndighetsstatus
+
+**Status:** Delvis sjekket mot oppdaterte direktoratssider. Ikke løftet til full closure.
+
+**Konkret funn:**
+- Landbruksdirektoratets EUDR-side, sist oppdatert 2026-05-05, sier at forordningen per i dag ikke er innlemmet i EØS-avtalen eller gjennomført i norsk rett.
+- Samme side sier at regjeringen har bestemt delvis gjennomføring av EØS-relevante deler, og at jordbruksvarer som storfekjøtt og soya holdes utenfor norsk gjennomføring fordi de faller utenfor EØS-avtalens virkeområde.
+- Miljødirektoratets statusveileder sier at tidspunkt for norsk iverksettelse ikke er avgjort, og at høringsoppsummering og endelig forskriftsutkast er til behandling hos Klima- og miljødepartementet og Landbruks- og matdepartementet.
+- Miljødirektoratet publiserte 2026-05-08 at EU-kommisjonen foreslår endringer i produktomfanget i EUDR, med høringsfrist 2026-06-01. Dette gjelder EU-produktomfang og er ikke i seg selv norsk ferdig rettsstatus.
+
+**Trygg formulering per 2026-05-21:**
+EUDR er relevant for norske aktører som eksporterer relevante varer til EU/EØS-markedet eller inngår i EU-kundekrav, men innenlandsk norsk soyaimport/-fôrbruk skal ikke omtales som norsk EUDR-pliktig før EØS-komitébeslutning, norsk forskrift og veiledning faktisk tilsier det.
+
+**Kildelenker:**
+- Landbruksdirektoratet EUDR-side: https://www.landbruksdirektoratet.no/nb/skogbruk/eus-avskogingsforordning-eudr
+- Miljødirektoratet veileder: https://www.miljodirektoratet.no/ansvarsomrader/arter-naturtyper/avskogingsforordningen/unnga-handel-med-varer-som-skader-og-odelegger-skog/
+- Miljødirektoratet status for innføring i Norge: https://www.miljodirektoratet.no/ansvarsomrader/arter-naturtyper/avskogingsforordningen/unnga-handel-med-varer-som-skader-og-odelegger-skog/informasjon-om-innforing-av-eudr-i-norge/
+- Miljødirektoratet produktomfang 2026-05-08: https://www.miljodirektoratet.no/aktuelt/fagmeldinger/2026/mai-2026/produktomfanget-i-eus-avskogingsforordning-foreslas-endret/
+
+**Gjenstår:** Lovdata/forskrift etter departementsbehandling, EØS-komitébeslutning, Traces/DDS/EORI-praksis og aktørvalidering hos Denofa/Skretting/Sjømat Norge.
+
+### PCQ-A-001 SSB 08801 tidsserie 2020-2025
+
+**Status:** Tidsserie kjørt mot SSB API 2026-05-21. SSB-datasettet var oppdatert 2026-05-15T06:00:00Z.
+
+Tall under er import, summert over alle land, `Mengde 1 (M1)` konvertert fra kg til tonn. Brukes som handelsstatistikk, ikke faktisk fôrbruk, bransjeforbruk eller substitusjonseffekt.
+
+| Gruppe | Varekoder | 2020 t | 2021 t | 2022 t | 2023 t | 2024 t | 2025 t | 2025 verdi, mill. NOK |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| Soyabønner | `12011000`, `12019010`, `12019090` | 412135 | 461363 | 308431 | 362788 | 347191 | 399330 | 2420 |
+| Soyakaker/-mel/reststoff | `23040010`, `23040090` | 33579 | 10093 | 6299 | 1953 | 4814 | 13377 | 91 |
+| Soyaolje | `15071010`, `15071090`, `15079010`, `15079090` | 8027 | 2066 | 4776 | 838 | 952 | 996 | 17 |
+| Proteinkonsentrater | `21061002`, `21061003`, `21061009` | 594 | 807 | 938 | 866 | 1505 | 2065 | 107 |
+| Prepared fish feed | `23099040` | 548307 | 519985 | 526999 | 458721 | 482654 | 501493 | 7508 |
+| Fiskemel/fiskepellets | `23012010`, `23012090` | 136714 | 173550 | 221356 | 228143 | 217991 | 245339 | 5333 |
+
+**Metodebegrensning:** SSB 08801 brukes som handelsstatistikk per varenummer, ikke som direkte bransjeforbruk. SPC kan ikke tolkes sikkert uten Tolletaten/fôraktørvalidering. Actor-data fra Denofa/Skretting holdes separat fra nasjonal importserie. `210610` er proteinkonsentrater, ikke soyaspesifikk SPC. `23099040` er fiskefôr, ikke SPC.
+
+**Gjenstår:** SPC-/prepared-feed-metode må valideres mot Tolletaten/SSB/fôraktør. Faktisk fôrbruk og aktørfordeling må valideres mot Denofa, Skretting/BioMar/Mowi Feed/Sjømat Norge.

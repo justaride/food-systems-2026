@@ -405,12 +405,14 @@ git commit -m "docs: log first food tg validation outreach"
 
 ## 11. Task 5: Primærkilde-sjekk for A og C
 
+**Status 2026-05-21:** Delvis gjennomført uten scope-vedtak. SSB 08801-tidsserie er kjørt for 2020-2025 og EUDR-status er oppdatert mot Landbruksdirektoratet/Miljødirektoratet. Aktørvalidering, Tolletaten/SSB-metode for SPC/prepared feed og endelig EØS-/forskriftsstatus gjenstår.
+
 **Files:**
 - Modify: `docs/project/mandates/primary-check-queue-food-tg-v0.1.md`
 - Modify: `docs/project/mandates/evidence-matrix-food-tg.md`
 - Modify: `docs/project/mandates/source-shortlist-food-tg.md`
 
-- [ ] **Step 1: Kjør SSB 08801-tidsserie for soya og fôrkoder**
+- [x] **Step 1: Kjør SSB 08801-tidsserie for soya og fôrkoder**
 
 Hent 2020-2025 for:
 
@@ -423,7 +425,7 @@ Hent 2020-2025 for:
 23099040 Prepared animal feed, kan skjule fiskefôr/SPC
 ```
 
-- [ ] **Step 2: Dokumenter metodebegrensning**
+- [x] **Step 2: Dokumenter metodebegrensning**
 
 I `primary-check-queue-food-tg-v0.1.md`, oppdater PCQ-A-001 og PCQ-A-002 med:
 
@@ -431,11 +433,11 @@ I `primary-check-queue-food-tg-v0.1.md`, oppdater PCQ-A-001 og PCQ-A-002 med:
 SSB 08801 brukes som handelsstatistikk per varenummer, ikke som direkte bransjeforbruk. SPC kan ikke tolkes sikkert uten Tolletaten/fôraktørvalidering. Actor-data fra Denofa/Skretting holdes separat fra nasjonal importserie.
 ```
 
-- [ ] **Step 3: Sjekk endelig EUDR/Norge-status**
+- [x] **Step 3: Sjekk endelig EUDR/Norge-status**
 
 Sjekk Landbruksdirektoratet, Miljødirektoratet og Lovdata for om forskriftsutkastet etter 2025-09-30 høring er endret. Oppdater PCQ-C-001 med dato og konklusjon.
 
-- [ ] **Step 4: Oppdater evidence matrix**
+- [x] **Step 4: Oppdater evidence matrix**
 
 Legg til eller oppdater EV-rader for:
 
@@ -448,11 +450,11 @@ Lovdata/forskrift hvis publisert
 
 Alle rader skal ha kildekvalitet, geografi, år, siterbarhet og neste handling.
 
-- [ ] **Step 5: Oppdater source shortlist**
+- [x] **Step 5: Oppdater source shortlist**
 
 Merk kildene som `primary`, `A/C`, `citable_with_note` eller `needs-primary-check` etter faktisk funn.
 
-- [ ] **Step 6: Verifiser**
+- [x] **Step 6: Verifiser**
 
 Run:
 
@@ -463,7 +465,7 @@ git diff --check
 
 Expected: metodebegrensning står eksplisitt i alle relevante dokumenter.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 Run:
 
