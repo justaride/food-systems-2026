@@ -64,6 +64,7 @@ export type FoodTgMandateSummary = {
   title: string
   date: string
   decisionDate: string
+  decisionStatus: string
   evidenceStatus: EvidenceStatus
   evidenceStatusNote: string
   scope: string
@@ -113,7 +114,8 @@ export const foodTgValidationLaneLabels: Record<FoodTgValidationLaneId, string> 
 export const foodTgMandateSummary: FoodTgMandateSummary = {
   title: 'Food TG mandat og validering',
   date: '2026-05-21',
-  decisionDate: 'Venter scope- eller minimumsvedtak',
+  decisionDate: '2026-05-21',
+  decisionStatus: 'Venter scope- eller minimumsvedtak',
   evidenceStatus: 'proxy',
   evidenceStatusNote:
     'Internt styringssignal fra decision pack, claim-lock, source-locator og validation sprint-logg. Ikke ekstern validering.',

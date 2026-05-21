@@ -18,7 +18,7 @@ export type FoodTgControlDocument = {
   status: FoodTgControlStatus
   path: string
   use: string
-  blocks: string
+  blocks: string[]
 }
 
 export type FoodTgDecisionGate = {
@@ -87,7 +87,9 @@ export const foodTgControlDocuments: FoodTgControlDocument[] = [
     status: 'venter-minimumsvedtak',
     path: 'docs/project/mandates/food-tg-decision-pack-v0.1.md',
     use: 'Samler beslutningsgrunnlaget for om Food TG kan starte en begrenset sprint.',
-    blocks: 'Stopper ekstern outreach uten minimumsvedtak og holder roadmap-språk tilbake før finans- og responsgrunnlag finnes.',
+    blocks: [
+      'Stopper ekstern outreach uten minimumsvedtak og holder roadmap-språk tilbake før finans- og responsgrunnlag finnes.',
+    ],
   },
   {
     id: 'insight-pack-outline-v03',
@@ -96,7 +98,7 @@ export const foodTgControlDocuments: FoodTgControlDocument[] = [
     status: 'klar-med-forbehold',
     path: 'docs/project/mandates/insight-pack-outline-food-tg-v0.3.md',
     use: 'Gir trygg rekkefølge for innsikt, caveat og beslutningsspørsmål i intern gjennomgang.',
-    blocks: 'Blokkerer at intern struktur brukes som ferdig publikasjonstekst uten claim- og kildeport.',
+    blocks: ['Blokkerer at intern struktur brukes som ferdig publikasjonstekst uten claim- og kildeport.'],
   },
   {
     id: 'claim-lock-2026-05',
@@ -105,7 +107,7 @@ export const foodTgControlDocuments: FoodTgControlDocument[] = [
     status: 'klar',
     path: 'docs/project/mandates/food-tg-claim-lock-table-2026-05.md',
     use: 'Styrer hvilke claims som kan brukes internt, hvilke som trenger caveat, og hvilke som må holdes igjen.',
-    blocks: 'Stopper faktastemme uten primærsjekk, aktørrespons eller dokumentert bruksrett.',
+    blocks: ['Stopper faktastemme uten primærsjekk, aktørrespons eller dokumentert bruksrett.'],
   },
   {
     id: 'figure-model-note-audit-2026-05',
@@ -114,7 +116,7 @@ export const foodTgControlDocuments: FoodTgControlDocument[] = [
     status: 'klar',
     path: 'docs/project/mandates/food-tg-figure-model-note-audit-2026-05.md',
     use: 'Kobler figurer, modeller og appflater til nødvendige fotnoter og begrensninger.',
-    blocks: 'Blokkerer graf, Sankey og KPI som effektbevis uten systemgrense, note og kildeforklaring.',
+    blocks: ['Blokkerer graf, Sankey og KPI som effektbevis uten systemgrense, note og kildeforklaring.'],
   },
   {
     id: 'case-to-claim-index-2026-05',
@@ -123,7 +125,7 @@ export const foodTgControlDocuments: FoodTgControlDocument[] = [
     status: 'klar-med-forbehold',
     path: 'docs/project/mandates/food-tg-case-to-claim-index-2026-05.md',
     use: 'Skiller benchmark, hypotese, kandidat og effektbevis for cases og spor.',
-    blocks: 'Stopper at benchmark brukes som pilotbevis før casevis råvare, eier, kjøper og systemgrense finnes.',
+    blocks: ['Stopper at benchmark brukes som pilotbevis før casevis råvare, eier, kjøper og systemgrense finnes.'],
   },
   {
     id: 'source-locator-risk-audit-2026-05',
@@ -132,7 +134,7 @@ export const foodTgControlDocuments: FoodTgControlDocument[] = [
     status: 'klar',
     path: 'docs/project/mandates/food-tg-source-locator-risk-audit-2026-05.md',
     use: 'Låser high-risk tall, regelverk og actor-data til locator, metode og risikonote.',
-    blocks: 'Stopper bruk av tall, varekoder, regelverk og actor-data uten locator og metodeforbehold.',
+    blocks: ['Stopper bruk av tall, varekoder, regelverk og actor-data uten locator og metodeforbehold.'],
   },
   {
     id: 'scope-decision-request-2026-05-21',
@@ -141,7 +143,7 @@ export const foodTgControlDocuments: FoodTgControlDocument[] = [
     status: 'venter-minimumsvedtak',
     path: 'docs/project/mandates/food-tg-scope-decision-request-2026-05-21.md',
     use: 'Ber om enten smalt minimumsvedtak eller full scope-beslutning for sprint.',
-    blocks: 'Stopper P1-outreach før skriftlig vedtak eller minimumsmandat er loggført.',
+    blocks: ['Stopper P1-outreach før skriftlig vedtak eller minimumsmandat er loggført.'],
   },
   {
     id: 'validation-sprint-log-2026-05',
@@ -150,7 +152,7 @@ export const foodTgControlDocuments: FoodTgControlDocument[] = [
     status: 'ikke-startet',
     path: 'docs/project/mandates/food-tg-validation-sprint-log-2026-05.md',
     use: 'Skal registrere aktørrespons, bruksrett, dato og claimkonsekvens etter vedtak.',
-    blocks: 'Holdes tilbake før minimumsvedtak og blokkerer statusløft uten datert respons og bruksrett.',
+    blocks: ['Holdes tilbake før minimumsvedtak og blokkerer statusløft uten datert respons og bruksrett.'],
   },
   {
     id: 'baseline-freeze-2026-05-21',
@@ -159,7 +161,7 @@ export const foodTgControlDocuments: FoodTgControlDocument[] = [
     status: 'klar-med-forbehold',
     path: 'docs/project/mandates/food-tg-baseline-freeze-2026-05-21.md',
     use: 'Fryser intern kilde- og databaseline slik at sprintfunn kan sammenlignes mot kjent utgangspunkt.',
-    blocks: 'Stopper at nye data blandes inn uten revisjonslogg, dato og endringsgrunn.',
+    blocks: ['Stopper at nye data blandes inn uten revisjonslogg, dato og endringsgrunn.'],
   },
 ]
 

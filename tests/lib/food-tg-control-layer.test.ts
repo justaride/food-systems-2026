@@ -41,7 +41,9 @@ function assertNonValidatedStatus(status: string, context: string) {
 describe('Food TG control layer', () => {
   it('keeps mandate status aligned with the 2026-05-21 decision package', () => {
     assert.equal(foodTgMandateSummary.date, '2026-05-21')
-    assert.equal(foodTgMandateSummary.decisionDate, 'Venter scope- eller minimumsvedtak')
+    assert.equal(foodTgMandateSummary.decisionDate, '2026-05-21')
+    assert.equal(foodTgMandateSummary.decisionStatus, 'Venter scope- eller minimumsvedtak')
+    assert.doesNotThrow(() => new Date(foodTgMandateSummary.decisionDate).toISOString())
     assert.match(foodTgMandateSummary.externalValidation, /Ingen claims er validert eksternt per 2026-05-21/)
 
     const externalLane = foodTgValidationLanes.find((lane) => lane.id === 'validert-eksternt')
@@ -76,7 +78,12 @@ describe('Food TG control layer', () => {
       assert.ok(doc.path.startsWith('docs/project/mandates/'))
       assert.ok(doc.path.endsWith('.md'))
       assert.ok(doc.use)
+      assert.ok(Array.isArray(doc.blocks), `${doc.id}.blocks must be an array`)
       assert.ok(doc.blocks.length > 0)
+      for (const block of doc.blocks) {
+        assert.ok(block.trim().length > 0)
+        assertNoUnsafePositiveLanguage(block, `${doc.id}.blocks`)
+      }
     }
   })
 
