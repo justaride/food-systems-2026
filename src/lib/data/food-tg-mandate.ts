@@ -112,16 +112,17 @@ export const foodTgValidationLaneLabels: Record<FoodTgValidationLaneId, string> 
 
 export const foodTgMandateSummary: FoodTgMandateSummary = {
   title: 'Food TG mandat og validering',
-  date: '2026-04-28',
-  decisionDate: '2026-05-05',
+  date: '2026-05-21',
+  decisionDate: 'Venter scope- eller minimumsvedtak',
   evidenceStatus: 'proxy',
-  evidenceStatusNote: 'Internt styringssignal fra claim-, queue- og mandate-dokumenter. Ikke ekstern validering.',
-  scope: 'Foreløpig scope: Spor A+B, med C som tverrgående adoption-, regelverks- og datagate.',
+  evidenceStatusNote:
+    'Internt styringssignal fra decision pack, claim-lock, source-locator og validation sprint-logg. Ikke ekstern validering.',
+  scope: 'Anbefalt arbeidsretning: Spor A+B, med C som tverrgående adoption-, regelverks- og datagate. Scope er ikke formelt bekreftet.',
   recommendation:
-    'Beslutt en 10 arbeidsdagers valideringssprint for pilotcommitment. Ingen claims løfter status for primary-check eller actor-validation er dokumentert.',
+    'Be om minimumsvedtak for en begrenset valideringssprint før P1-outreach, pilotbriefs eller roadmap-språk.',
   decisionRule:
-    'Valg etter sprint: modnes som konkret case, parkeres som benchmark, eller beholdes som hypotese.',
-  externalValidation: 'Ingen claims er Validert eksternt per 2026-04-28.',
+    'Etter sprint: modnes som kandidat, beholdes som roadmap, parkeres som benchmark, eller holdes tilbake hvis portene ikke åpner.',
+  externalValidation: 'Ingen claims er validert eksternt per 2026-05-21.',
 }
 
 export const foodTgDecisionDocuments: FoodTgDocument[] = [
@@ -358,7 +359,7 @@ export const foodTgValidationLanes: FoodTgValidationLane[] = [
   {
     id: 'validert-eksternt',
     title: foodTgValidationLaneLabels['validert-eksternt'],
-    description: 'Ingen claims er validert eksternt per 2026-04-28.',
+    description: 'Ingen claims er validert eksternt per 2026-05-21.',
     items: [],
   },
 ]
