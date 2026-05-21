@@ -28,6 +28,7 @@ Denne mappen samler styringsdokumenter for Food Systems Transition Group og tilh
 | `food-tg-source-locator-risk-audit-2026-05.md` | Kilde-locator audit | Aktiv | Risikokart for high-risk tall, regelverk, aktørdata og datalag før ekstern bruk. |
 | `food-tg-validation-sprint-log-2026-05.md` | Valideringssprint-logg | Aktiv, venter scope-vedtak | Operativ logg for P1-aktørkontakt og responsstatus. |
 | `insight-pack-outline-food-tg-v0.2.md` | Insight Pack-disposisjon | Aktiv v0.2 | Storyline, slide-rekkefølge og trygg/utrygg formulering per hovedclaim. |
+| `insight-pack-outline-food-tg-v0.3.md` | Decision Pack-produksjonskontrakt | Aktiv v0.3 | Seksjonsstruktur med claim-, figur-, case-, kilde- og valideringsporter før deck/whitepaper. |
 | `brief-jan-thomas-cathrine-food-tg-runde-4.md` | Møtebrief | Klar til bruk | Kort beslutnings- og samtalegrunnlag etter runde 4. |
 | `opportunity-radar-food-tg-v0.1.md` | Opportunity radar | Aktiv v0.1 | Prioriterer validerbare muligheter, claims, stoppsignaler og neste handling. |
 | `primary-check-queue-food-tg-v0.1.md` | Primary-check-kø | Aktiv v0.1 | Skiller regulatoriske og datamessige sjekkpunkter fra aktørvalidering. |

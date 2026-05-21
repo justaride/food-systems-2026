@@ -74,6 +74,19 @@ Prosjektet skal gå videre med:
 | `docs/project/mandates/food-tg-decision-deck-outline-v0.1.md` | Struktur for 10-15 slides | Task 13 |
 | `docs/project/mandates/food-tg-public-language-bank-v0.1.md` | Trygge formuleringer til ekstern bruk | Task 14 |
 
+### 2.3 Kontrollag lagt til 2026-05-21
+
+Disse filene er lagt inn som ekstra porter før Task 13 og Task 14. De endrer ikke scope-status og løfter ingen claims til `Validert eksternt`.
+
+| Fil | Rolle | Brukes før |
+|---|---|---|
+| `docs/project/mandates/food-tg-circular-cities-transfer-analysis-2026-05-21.md` | Læring fra Circular Cities om whitepaper-, modell- og claim-kontroll | Videre utvikling av Food TG kunnskapsprodukt |
+| `docs/project/mandates/food-tg-claim-lock-table-2026-05.md` | Publikasjonsfilter for claims | Decision deck, språkbank, roadmap |
+| `docs/project/mandates/food-tg-figure-model-note-audit-2026-05.md` | Figurnoter og modellbegrensninger | App-screenshots, figurer, deck |
+| `docs/project/mandates/food-tg-case-to-claim-index-2026-05.md` | Skille benchmark, hypotese, kandidat og effektbevis | Pilotbriefs og valideringssprint |
+| `docs/project/mandates/food-tg-source-locator-risk-audit-2026-05.md` | Locator- og kildeport for high-risk claims | Ekstern tekst og figurer |
+| `docs/project/mandates/insight-pack-outline-food-tg-v0.3.md` | Produksjonskontrakt for decision/insight pack | Task 13 decision deck outline |
+
 ## 3. Arbeidsstrømmer
 
 | Strøm | Eier | Output | Statusport |
