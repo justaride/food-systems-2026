@@ -26,6 +26,10 @@ baerekraft-*.html
 graf-canvas-*.jpeg
 graf-canvas-*.png
 
+# Review/QA-skjermbilder (lokale artefakter, ikke kommit)
+fs-*.png
+fresh-review-*.png
+
 # Playwright test artifacts
 test-results/
 .claude/scheduled_tasks*.lock

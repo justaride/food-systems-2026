@@ -14,6 +14,6 @@ describe('SourceDoc locator coverage', () => {
   })
 
   it('requires at least one locator signal', () => {
-    assert.equal(hasSourceDocLocator({ filename: 'missing.pdf' }), false)
+    assert.equal(hasSourceDocLocator({ filename: 'missing.pdf' } as Parameters<typeof hasSourceDocLocator>[0]), false)
   })
 })

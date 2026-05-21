@@ -14,7 +14,7 @@ describe('source citation contract', () => {
     assert.equal(hasDirectLocator({ localPath: 'research/evidence-pack/report.pdf' }), true)
     assert.equal(hasDirectLocator({ documentId: 'doc-1' }), true)
     assert.equal(hasDirectLocator({ sourceDocId: 'src-1' }), true)
-    assert.equal(hasDirectLocator({ citationText: 'Årsrapport 2024' }), false)
+    assert.equal(hasDirectLocator({ citationText: 'Årsrapport 2024' } as Parameters<typeof hasDirectLocator>[0]), false)
   })
 
   it('distinguishes local evidence from URL-only evidence', () => {
