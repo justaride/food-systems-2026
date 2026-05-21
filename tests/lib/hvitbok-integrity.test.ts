@@ -4,7 +4,7 @@ import path from 'node:path'
 import { describe, it } from 'node:test'
 import { chapters } from '../../src/lib/hvitbok/chapters'
 import { chapterEmbeds } from '../../src/lib/hvitbok/embeds'
-import { parseChapter } from '../../src/lib/hvitbok/render-chapter'
+import { parseChapter } from '../../src/lib/hvitbok/parser'
 import { readChapterMarkdown } from '../../src/lib/hvitbok/loader'
 
 const APP_DIR = path.join(process.cwd(), 'src/app')

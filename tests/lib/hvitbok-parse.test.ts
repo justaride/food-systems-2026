@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { parseChapter } from '../../src/lib/hvitbok/render-chapter'
+import { parseChapter } from '../../src/lib/hvitbok/parser'
 
 describe('hvitbok token parser', () => {
   it('returns a single markdown segment when there are no tokens', () => {
