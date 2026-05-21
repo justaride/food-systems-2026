@@ -476,12 +476,14 @@ git commit -m "docs: tighten feed import and eudr primary checks"
 
 ## 12. Task 6: Primærkilde-sjekk for B
 
+**Status 2026-05-21:** Delvis gjennomført uten scope-vedtak og uten aktørsvar. Okara/BSG er låst som benchmark/hypotese, ikke pilotbevis. Råvareeierdata og Mattilsynet/fagekspert-gate gjenstår.
+
 **Files:**
 - Modify: `docs/project/mandates/primary-check-queue-food-tg-v0.1.md`
 - Modify: `docs/project/mandates/evidence-matrix-food-tg.md`
 - Modify: `docs/project/mandates/source-shortlist-food-tg.md`
 
-- [ ] **Step 1: Lås okara/BSG som benchmark, ikke pilotbevis**
+- [x] **Step 1: Lås okara/BSG som benchmark, ikke pilotbevis**
 
 I PCQ-B-001 til PCQ-B-004, sørg for at planen sier:
 

@@ -4,7 +4,7 @@ status: Utført internt
 eier: Gabriel
 dato: 2026-04-28
 sist_oppdatert: 2026-05-21
-neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21; endelig EØS-/forskriftsstatus og aktørpraksis er fortsatt valideringsbehov.
+neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21. PCQ-B-001 til B-004 er låst som benchmark/hypotese inntil råvareeier, hygiene, stabilisering, off-taker og bruksrett er validert.
 relaterte_filer:
   - docs/project/mandates/actor-validation-pack-food-tg-v0.1.md
   - docs/project/mandates/analysefabrikk-handoffs/2026-04-28-mini-verifikasjon-2b-2d-recovery.md
@@ -39,10 +39,10 @@ Runde 3 lukker noen deler av køen som internt kildegrunnlag, men ingen rader bl
 | PCQ-A-004 | Laksefôrvolum | Skille oppdrettsfôr totalt fra laksefôr hvis decision memo bruker laksespesifikk formulering. | Fiskeridirektoratet tabell 43 gir oppdrettsfôr totalt. | Eventuell artsfordelt fôrserie eller eksplisitt forbehold om oppdrettsfôr. | SRC-A-014, EV-A-018, CL-A-020 | Gabriel | needs-primary-check |
 | PCQ-A-005 | Fiskemel | Hent norsk/nordisk import/bruk av fiskemel per år/land og eventuell aktørbruk. | EUMOFA gir global/EU-kontekst. | FAO/IFFO/Eurostat/SSB eller fôraktørdata med definisjon og år. | SRC-A-016, EV-A-020, CL-A-020 | Gabriel | needs-primary-check |
 | PCQ-C-001 | EUDR-Norge | Avklar norsk/EØS-innlemmelse, soya-scope, tredjelands-/eksportstatus og praktisk informasjonssystem/Traces-krav. | Oppdatert 2026-05-21 mot Landbruksdirektoratet og Miljødirektoratet: ikke innlemmet i EØS/norsk rett ennå; EØS-prosess og forskrift er ikke ferdigstilt. | Endelig EØS-komitébeslutning, norsk forskrift/Lovdata, Traces/DDS/EORI-praksis og aktørpåvirkning. | SRC-C-018, EV-C-017, CL-C-011 | Gabriel | partly-checked; needs-primary-check |
-| PCQ-B-001 | Okara total | Bekreft nordisk/norsk okara-volum per produsent/anlegg. | Axfoundation/Chalmers gir svensk benchmark; L4-nordisk total avvist. | Tonn/år, tørrstoff/fukt, anlegg, år, nåværende avsetning. | SRC-B-024, SRC-B-025, EV-B-018, CL-B-014, CL-B-021 | Gabriel/Cathrine | needs-actor-validation |
-| PCQ-B-002 | Okara matgrade | Avklar hygiene, holdbarhet, stabilisering og eventuell Novel Food-/Mattilsynet-status for okara og fermentert okara. | Prosjektkilder peker på mulighet, ikke norsk lovlig pilot. | Mattilsynet/fagekspert/producer QA med krav og dokumentasjonsnivå. | EV-B-018, CL-B-009, CL-B-021 | Gabriel | needs-primary-check |
-| PCQ-B-003 | Bryggerimask volum | Bekreft norsk/nordisk BSG-volum og dagens avsetning per bryggeri/marked. | RISE gir svensk benchmark: 180 g/liter øl, 80 000 tonn/år Sverige. | Bryggeridata, volum/år, fukt, stabilisering, avsetning og logistikk. | SRC-B-026, EV-B-019, CL-B-014, CL-B-021 | Gabriel/Cathrine | needs-actor-validation |
-| PCQ-B-004 | Bryggerimask matgrade | Avklar mikrobiologi, tørking/fermentering, prosesskrav og lovlig mat-/ingrediensbruk. | RISE prosjekt peker på 70-80 % fukt og mikrobiell risiko. | RISE/Mattilsynet/bryggeri/ingrediensekspert med krav og dokumentasjon. | EV-B-019, CL-B-009 | Gabriel | needs-primary-check |
+| PCQ-B-001 | Okara total | Bekreft nordisk/norsk okara-volum per produsent/anlegg. | Axfoundation/Chalmers gir svensk benchmark; L4-nordisk total avvist; 2026-05-21 låst som benchmark, ikke pilotbevis. | Tonn/år, tørrstoff/fukt, anlegg, år, nåværende avsetning, bruksrett. | SRC-B-024, SRC-B-025, EV-B-018, CL-B-014, CL-B-021 | Gabriel/Cathrine | benchmark; needs-actor-validation |
+| PCQ-B-002 | Okara matgrade | Avklar hygiene, holdbarhet, stabilisering og eventuell Novel Food-/Mattilsynet-status for okara og fermentert okara. | Prosjektkilder peker på mulighet, ikke norsk lovlig pilot; 2026-05-21 foreløpig gul gate. | Mattilsynet/fagekspert/producer QA med krav og dokumentasjonsnivå. | EV-B-018, CL-B-009, CL-B-021 | Gabriel | yellow-gate; needs-primary-check |
+| PCQ-B-003 | Bryggerimask volum | Bekreft norsk/nordisk BSG-volum og dagens avsetning per bryggeri/marked. | RISE gir svensk benchmark: 180 g/liter øl, 80 000 tonn/år Sverige; 2026-05-21 låst som benchmark, ikke pilotbevis. | Bryggeridata, volum/år, fukt, stabilisering, avsetning, logistikk, bruksrett. | SRC-B-026, EV-B-019, CL-B-014, CL-B-021 | Gabriel/Cathrine | benchmark; needs-actor-validation |
+| PCQ-B-004 | Bryggerimask matgrade | Avklar mikrobiologi, tørking/fermentering, prosesskrav og lovlig mat-/ingrediensbruk. | RISE prosjekt peker på 70-80 % fukt og mikrobiell risiko; 2026-05-21 foreløpig gul gate. | RISE/Mattilsynet/bryggeri/ingrediensekspert med krav og dokumentasjon. | EV-B-019, CL-B-009 | Gabriel | yellow-gate; needs-primary-check |
 | PCQ-B-005 | Marint restråstoff | Lås fraksjonsdata for hvilke marine restråstoffer som går til humant konsum, fôr, biogass/energi eller ikke utnyttes. | SINTEF 2024 total er integrert. | Rapporttabeller/aktørdata per art, sektor, fraksjon, sluttbruk og år. | SRC-B-027, EV-B-020, CL-B-009, CL-B-021 | Gabriel | needs-primary-check |
 | PCQ-B-006 | Plantebaserte sidestrømmer ellers | Vurdere potetskrell, eplepressrest, kaffegrut, myse og andre strømmer bare hvis primær-/aktørdata finnes. | L4 prosjektliste er kildejakt. | Produsentdata, volum, kvalitet, nåværende avsetning, lovlig sluttbruk. | CL-B-014, CL-B-021 | Gabriel | needs-primary-check |
 | PCQ-C-002 | KPI-definisjoner | Definer KPI-minimum for fôr, sidestrøm, matsvinn, næringsstoffløkker og sporbarhet. | CL-C-015 er hypotese. | Definisjon, år, geografi, enhet, datakilde, dataeier og rapporteringsfrekvens. | CL-C-015, EV-B-018, EV-B-019, EV-B-020 | Gabriel | needs-primary-check |
@@ -145,3 +145,20 @@ Tall under er import, summert over alle land, `Mengde 1 (M1)` konvertert fra kg 
 **Metodebegrensning:** SSB 08801 brukes som handelsstatistikk per varenummer, ikke som direkte bransjeforbruk. SPC kan ikke tolkes sikkert uten Tolletaten/fôraktørvalidering. Actor-data fra Denofa/Skretting holdes separat fra nasjonal importserie. `210610` er proteinkonsentrater, ikke soyaspesifikk SPC. `23099040` er fiskefôr, ikke SPC.
 
 **Gjenstår:** SPC-/prepared-feed-metode må valideres mot Tolletaten/SSB/fôraktør. Faktisk fôrbruk og aktørfordeling må valideres mot Denofa, Skretting/BioMar/Mowi Feed/Sjømat Norge.
+
+### PCQ-B-001 til PCQ-B-004 Okara/BSG — benchmark, ikke pilotbevis
+
+**Status:** Delvis skjerpet 2026-05-21. Ingen råvareeier- eller Mattilsynet/fagekspertsvar er registrert.
+
+**Masterregel:** Axfoundation/Chalmers og RISE brukes som svenske benchmark. Norsk eller nordisk pilotklarhet krever råvareeier, hygiene-/food-grade-vurdering, stabiliseringsmetode, off-taker og bruksrett.
+
+**Foreløpig gate:**
+
+| Queue-ID | Kandidat | Gate | Begrunnelse |
+|---|---|---|---|
+| PCQ-B-001 | Okara volum | Benchmark | Svenske prosjekttall finnes, men nordisk/norsk volum per produsent/anlegg mangler. |
+| PCQ-B-002 | Okara matgrade | Gul | Kan beskrives som hypotesespor med avklaringsbehov; hygiene, holdbarhet, Novel Food/prosess og Mattilsynet/fagekspert mangler. |
+| PCQ-B-003 | Bryggerimask volum | Benchmark | Svenske RISE-tall finnes, men norsk/nordisk volum, avsetning og logistikk mangler. |
+| PCQ-B-004 | Bryggerimask matgrade | Gul | Kan beskrives som hypotesespor med avklaringsbehov; fukt, mikrobiologi, stabilisering, produktkrav og off-taker må avklares. |
+
+**Gjenstår:** Kontakt råvareeier/produsent, Mattilsynet eller fagekspert og mulig off-taker. Loggfør tonn/år, batchfrekvens, tørrstoff/fukt, temperatur, mikrobiologi, nåværende avsetning, transport/logistikk, mulig off-taker og om data kan siteres.
