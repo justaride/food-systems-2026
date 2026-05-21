@@ -6,6 +6,8 @@ dato: 2026-04-28
 neste_handling: Velg 3-5 første kontakter, send med tilpasset intro og loggfør svar før claim-status endres.
 relaterte_filer:
   - docs/project/mandates/decision-memo-food-tg-scope-v0.2.md
+  - docs/project/mandates/food-tg-scope-decision-request-2026-05-21.md
+  - docs/project/mandates/food-tg-validation-sprint-log-2026-05.md
   - docs/project/mandates/actor-validation-pack-food-tg-v0.1.md
   - docs/project/mandates/primary-check-queue-food-tg-v0.1.md
   - docs/project/mandates/claim-register-food-tg.md
@@ -17,6 +19,10 @@ relaterte_filer:
 ## 1. Bruksregel
 
 Dette er en outreach-pakke for første valideringsrunde. Den dokumenterer ikke ekstern validering. Claim-status skal fortsatt være `Utført internt` til svar er mottatt, loggført og vurdert.
+
+## Sprintstatus 2026-05
+
+Operativ responslogg føres i `food-tg-validation-sprint-log-2026-05.md`. Ingen outreach sendes før JTO/Cathrine/Einar har bekreftet anbefalt scope-beslutning eller minimumsvedtaket i `food-tg-scope-decision-request-2026-05-21.md`.
 
 Når en aktør svarer, loggfør:
 

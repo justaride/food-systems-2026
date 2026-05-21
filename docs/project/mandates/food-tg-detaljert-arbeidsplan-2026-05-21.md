@@ -215,6 +215,8 @@ git commit -m "docs: freeze food tg baseline before validation"
 
 ## 8. Task 2: Scope-vedtak og styringslogg
 
+**Status 2026-05-21:** Blokkert for full gjennomføring fordi scope ikke er bekreftet av JTO/Cathrine/Einar. For å holde statusdisiplin er det opprettet en beslutningsforespørsel og sprintlogg i `venter scope-vedtak`-modus. Ingen rad skal legges inn i beslutningsloggen som faktisk beslutning før skriftlig bekreftelse finnes.
+
 **Files:**
 - Modify: `docs/project/mandates/decision-log-food-tg.md`
 - Modify: `docs/project/mandates/tg-charter-food-2026.md`
@@ -270,11 +272,13 @@ git commit -m "docs: log food tg scope decision"
 
 ## 9. Task 3: Valideringssprint-logg
 
+**Status 2026-05-21:** Opprettet i `venter scope-vedtak`-modus fordi scope ikke er formelt bekreftet. P1-listen er klar, men ingen outreach skal sendes før beslutning eller minimumsvedtak er loggført.
+
 **Files:**
 - Create: `docs/project/mandates/food-tg-validation-sprint-log-2026-05.md`
 - Modify: `docs/project/mandates/actor-outreach-food-tg-v0.1.md`
 
-- [ ] **Step 1: Opprett sprintloggen**
+- [x] **Step 1: Opprett sprintloggen**
 
 Lag filen med denne strukturen:
 
@@ -301,7 +305,7 @@ Lag filen med denne strukturen:
 |---|---:|---:|---:|---:|---|---|
 ```
 
-- [ ] **Step 2: Legg inn P1-kontaktliste**
+- [x] **Step 2: Legg inn P1-kontaktliste**
 
 Legg disse radene i `Kontaktstatus` som startliste med `Status` = `klar til sending`:
 
@@ -316,7 +320,7 @@ Legg disse radene i `Kontaktstatus` som startliste med `Status` = `klar til send
 | 2026-05-25 | Konkurransetilsynet / DFØ | navngis før sending | C | e-post | klar til sending | ikke avklart | CL-C-002, CL-C-005, CL-C-006 | Send innkjøp/handelsskikk-gate |
 ```
 
-- [ ] **Step 3: Synk outreach-pakken**
+- [x] **Step 3: Synk outreach-pakken**
 
 I `actor-outreach-food-tg-v0.1.md`, legg til en kort seksjon etter bruksregelen:
 
@@ -326,7 +330,7 @@ I `actor-outreach-food-tg-v0.1.md`, legg til en kort seksjon etter bruksregelen:
 Operativ responslogg føres i `food-tg-validation-sprint-log-2026-05.md`. Denne filen beholder e-posttekstene og spørsmålsbankene.
 ```
 
-- [ ] **Step 4: Verifiser**
+- [x] **Step 4: Verifiser**
 
 Run:
 
@@ -337,7 +341,7 @@ git diff --check
 
 Expected: alle P1-aktører finnes i sprintloggen.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 Run:
 
