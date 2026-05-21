@@ -4,7 +4,6 @@ import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBa
 import {
   foodTgClaimBoard,
   foodTgClaimStrengthLabels,
-  foodTgDecisionDocuments,
   foodTgMandateSummary,
   foodTgOpportunityRadar,
   foodTgStatusLabels,
@@ -18,6 +17,14 @@ import {
   type FoodTgValidationLaneId,
   type FoodTgValidationStatus,
 } from '@/lib/data/food-tg-mandate'
+import {
+  foodTgCandidateCards,
+  foodTgControlDocuments,
+  foodTgControlStatusLabels,
+  foodTgDecisionGates,
+  foodTgReaderJourneySurfaces,
+  type FoodTgControlStatus,
+} from '@/lib/data/food-tg-control-layer'
 
 const trackStyles: Record<FoodTgTrack, string> = {
   A: 'bg-sky-50 text-sky-700 border-sky-200',
@@ -47,10 +54,26 @@ const validationLaneStyles: Record<FoodTgValidationLaneId, string> = {
   'validert-eksternt': 'bg-stone-50 text-stone-600 border-stone-200',
 }
 
-const documentStatusStyles: Record<string, string> = {
-  'klar-til-bruk': 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  arbeidsgrunnlag: 'bg-sky-50 text-sky-700 border-sky-200',
-  koe: 'bg-amber-50 text-amber-700 border-amber-200',
+const controlStatusStyles: Record<FoodTgControlStatus, string> = {
+  klar: 'bg-stone-50 text-stone-700 border-stone-300',
+  'klar-med-forbehold': 'bg-sky-50 text-sky-700 border-sky-200',
+  'krever-bekreftelse': 'bg-amber-50 text-amber-800 border-amber-200',
+  'maa-harmoniseres': 'bg-cyan-50 text-cyan-700 border-cyan-200',
+  'hold-tilbake': 'bg-rose-50 text-rose-700 border-rose-200',
+  'venter-minimumsvedtak': 'bg-orange-50 text-orange-800 border-orange-200',
+  'ikke-startet': 'bg-stone-100 text-stone-600 border-stone-200',
+  benchmark: 'bg-violet-50 text-violet-700 border-violet-200',
+  hypotese: 'bg-stone-100 text-stone-600 border-stone-200',
+  pilotkandidat: 'bg-teal-50 text-teal-700 border-teal-200',
+  sekundaerspor: 'bg-slate-50 text-slate-700 border-slate-200',
+}
+
+const controlTrackStyles: Record<string, string> = {
+  A: trackStyles.A,
+  'A/B': 'bg-cyan-50 text-cyan-700 border-cyan-200',
+  B: trackStyles.B,
+  'B/C': 'bg-lime-50 text-lime-800 border-lime-200',
+  C: trackStyles.C,
 }
 
 function TrackPill({ track }: { track: FoodTgTrack }) {
@@ -77,12 +100,29 @@ function ClaimStrengthPill({ strength }: { strength: FoodTgClaimStrength }) {
   )
 }
 
-function DocumentStatus({ status }: { status: string }) {
-  const label = status === 'klar-til-bruk' ? 'Klar til bruk' : status === 'arbeidsgrunnlag' ? 'Arbeidsgrunnlag' : 'Kø'
+function ControlStatusPill({ status }: { status: FoodTgControlStatus }) {
   return (
-    <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium ${documentStatusStyles[status]}`}>
-      {label}
+    <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium ${controlStatusStyles[status]}`}>
+      {foodTgControlStatusLabels[status]}
     </span>
+  )
+}
+
+function ControlTrackPill({ track }: { track: string }) {
+  const style = controlTrackStyles[track] ?? 'bg-stone-50 text-stone-700 border-stone-200'
+
+  return <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium ${style}`}>Spor {track}</span>
+}
+
+function InlineList({ items }: { items: string[] }) {
+  return (
+    <ul className="mt-2 flex flex-wrap gap-1.5">
+      {items.map((item) => (
+        <li key={item} className="rounded-md border border-stone-200 bg-stone-50 px-2 py-1 text-[11px] leading-snug text-stone-600">
+          {item}
+        </li>
+      ))}
+    </ul>
   )
 }
 
@@ -115,6 +155,8 @@ export function MandatContent() {
     for (const status of item.statuses) acc[status] = (acc[status] ?? 0) + 1
     return acc
   }, {} as Record<FoodTgValidationStatus, number>)
+  const nextDecisionRuleAction =
+    foodTgDecisionGates.find((gate) => gate.id === 'validation')?.nextAction ?? foodTgMandateSummary.recommendation
 
   return (
     <div className="space-y-6">
@@ -133,16 +175,20 @@ export function MandatContent() {
               <p className="text-xs leading-relaxed text-stone-500">{foodTgMandateSummary.evidenceStatusNote}</p>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-2 text-sm lg:w-72">
+          <div className="grid grid-cols-2 gap-2 text-sm lg:w-80">
             <div className="rounded-lg border border-stone-200 bg-stone-50 p-3">
               <p className="text-[10px] uppercase tracking-wider text-stone-400">Oppdatert</p>
               <p className="mt-1 font-semibold text-stone-800">{foodTgMandateSummary.date}</p>
             </div>
             <div className="rounded-lg border border-stone-200 bg-stone-50 p-3">
-              <p className="text-[10px] uppercase tracking-wider text-stone-400">Scope-møte</p>
+              <p className="text-[10px] uppercase tracking-wider text-stone-400">Beslutningsstatus</p>
+              <p className="mt-1 font-semibold text-stone-800">{foodTgMandateSummary.decisionStatus}</p>
+            </div>
+            <div className="rounded-lg border border-stone-200 bg-stone-50 p-3">
+              <p className="text-[10px] uppercase tracking-wider text-stone-400">Beslutningsdato</p>
               <p className="mt-1 font-semibold text-stone-800">{foodTgMandateSummary.decisionDate}</p>
             </div>
-            <div className="col-span-2 rounded-lg border border-amber-200 bg-amber-50 p-3">
+            <div className="rounded-lg border border-amber-200 bg-amber-50 p-3">
               <p className="text-[10px] uppercase tracking-wider text-amber-700">Statusdisiplin</p>
               <p className="mt-1 text-sm font-medium text-amber-900">{foodTgMandateSummary.externalValidation}</p>
             </div>
@@ -159,6 +205,27 @@ export function MandatContent() {
           </div>
         ))}
       </div>
+
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold text-stone-700">Beslutningsporter før ekstern bruk</h2>
+        <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
+          {foodTgDecisionGates.map((gate) => (
+            <section key={gate.id} className="rounded-xl border border-stone-200 bg-white p-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-sm font-semibold text-stone-900">{gate.title}</h3>
+                <ControlStatusPill status={gate.status} />
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-stone-600">{gate.mustBeTrue}</p>
+              <div className="mt-3 rounded-lg border border-stone-200 bg-stone-50 p-3">
+                <p className="text-[10px] uppercase tracking-wider text-stone-400">Blokkerer</p>
+                <p className="mt-1 text-sm leading-relaxed text-stone-700">{gate.blocks}</p>
+              </div>
+              <code className="mt-3 block break-all rounded-md bg-stone-50 px-2 py-1 text-[11px] text-stone-500">{gate.governingDocument}</code>
+              <p className="mt-3 text-xs leading-relaxed text-stone-500">Neste handling: {gate.nextAction}</p>
+            </section>
+          ))}
+        </div>
+      </section>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {foodTgTrackStatusCards.map((track) => (
@@ -177,6 +244,63 @@ export function MandatContent() {
           </section>
         ))}
       </div>
+
+      <Card title="Kandidatkort">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          {foodTgCandidateCards.map((candidate) => (
+            <div key={candidate.id} className="rounded-lg border border-stone-200 p-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <ControlTrackPill track={candidate.track} />
+                <ControlStatusPill status={candidate.status} />
+                <span className="text-xs font-mono text-stone-400">{candidate.id}</span>
+              </div>
+              <h3 className="mt-3 text-sm font-semibold text-stone-900">{candidate.title}</h3>
+              <p className="mt-1 text-xs font-medium uppercase tracking-wider text-stone-400">{candidate.role}</p>
+
+              <div className="mt-3 grid gap-3 md:grid-cols-2">
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-stone-400">Kan sies nå</p>
+                  <p className="mt-1 text-sm leading-relaxed text-stone-600">{candidate.canSay}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-stone-400">Skal ikke sies ennå</p>
+                  <p className="mt-1 text-sm leading-relaxed text-stone-600">{candidate.cannotSay}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-stone-400">Kildeport</p>
+                  <p className="mt-1 text-sm leading-relaxed text-stone-600">{candidate.sourceGate}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-stone-400">Aktørport</p>
+                  <p className="mt-1 text-sm leading-relaxed text-stone-600">{candidate.actorGate}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-stone-400">C-gate</p>
+                  <p className="mt-1 text-sm leading-relaxed text-stone-600">{candidate.cGate}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-stone-400">Stoppsignal</p>
+                  <p className="mt-1 text-sm leading-relaxed text-stone-600">{candidate.stopSignal}</p>
+                </div>
+              </div>
+
+              <div className="mt-3">
+                <p className="text-[10px] uppercase tracking-wider text-stone-400">Minimumsdata</p>
+                <InlineList items={candidate.minimumData} />
+              </div>
+
+              <div className="mt-3 flex flex-wrap gap-1.5 text-[11px] text-stone-500">
+                {[...candidate.claimIds, ...candidate.evidenceIds, ...candidate.sourceIds].map((id) => (
+                  <span key={id} className="rounded border border-stone-200 bg-stone-50 px-1.5 py-0.5">
+                    {id}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-3 text-xs leading-relaxed text-stone-500">Neste handling: {candidate.nextAction}</p>
+            </div>
+          ))}
+        </div>
+      </Card>
 
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-stone-700">Minimum valideringslaner</h2>
@@ -204,14 +328,15 @@ export function MandatContent() {
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.2fr_0.8fr]">
         <Card title="Beslutningsgrunnlag">
           <div className="space-y-3">
-            {foodTgDecisionDocuments.map((doc) => (
+            {foodTgControlDocuments.map((doc) => (
               <div key={doc.id} className="border-b border-stone-100 pb-3 last:border-0 last:pb-0">
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="text-sm font-semibold text-stone-800">{doc.title}</h3>
-                  <DocumentStatus status={doc.status} />
+                  <ControlStatusPill status={doc.status} />
                 </div>
                 <p className="mt-1 text-xs text-stone-500">{doc.kind}</p>
                 <p className="mt-1 text-sm leading-relaxed text-stone-600">{doc.use}</p>
+                <InlineList items={doc.blocks} />
                 <code className="mt-2 block break-all rounded-md bg-stone-50 px-2 py-1 text-[11px] text-stone-500">{doc.path}</code>
               </div>
             ))}
@@ -223,9 +348,7 @@ export function MandatContent() {
             <p className="text-sm leading-relaxed text-stone-600">{foodTgMandateSummary.decisionRule}</p>
             <div className="rounded-lg border border-stone-200 bg-stone-50 p-3">
               <p className="text-[10px] uppercase tracking-wider text-stone-400">Neste arbeid</p>
-              <p className="mt-1 text-sm font-medium text-stone-800">
-                Kjør sprinten, oppdater claim-status, og bruk resultatet til et oppdatert decision memo etter sprint.
-              </p>
+              <p className="mt-1 text-sm font-medium text-stone-800">{nextDecisionRuleAction}</p>
             </div>
             <div className="flex flex-wrap gap-2">
               <Link href="/innsikt" className="rounded-md border border-stone-200 px-3 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50">
@@ -241,6 +364,32 @@ export function MandatContent() {
           </div>
         </Card>
       </div>
+
+      <Card title="Reader journey og plattformflater">
+        <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
+          {foodTgReaderJourneySurfaces.map((surface) => (
+            <div key={surface.route} className="rounded-lg border border-stone-200 p-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-mono text-stone-400">{surface.route}</span>
+                <ControlStatusPill status={surface.readiness} />
+              </div>
+              <h3 className="mt-2 text-sm font-semibold text-stone-900">{surface.title}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-stone-600">{surface.use}</p>
+              <div className="mt-3 grid gap-3 md:grid-cols-2">
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-stone-400">Figurnote</p>
+                  <p className="mt-1 text-sm leading-relaxed text-stone-600">{surface.figureNote}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-stone-400">Risiko</p>
+                  <p className="mt-1 text-sm leading-relaxed text-stone-600">{surface.risk}</p>
+                </div>
+              </div>
+              <p className="mt-3 text-xs leading-relaxed text-stone-500">Neste handling: {surface.nextAction}</p>
+            </div>
+          ))}
+        </div>
+      </Card>
 
       <Card title="Opportunity radar">
         <div className="space-y-4">
@@ -264,11 +413,11 @@ export function MandatContent() {
 
               <div className="mt-3 grid gap-3 md:grid-cols-2">
                 <div>
-                  <p className="text-[10px] uppercase tracking-wider text-stone-400">Kan sies na</p>
+                  <p className="text-[10px] uppercase tracking-wider text-stone-400">Kan sies nå</p>
                   <p className="mt-1 text-sm leading-relaxed text-stone-600">{item.canSay}</p>
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-wider text-stone-400">Skal ikke sies enna</p>
+                  <p className="text-[10px] uppercase tracking-wider text-stone-400">Skal ikke sies ennå</p>
                   <p className="mt-1 text-sm leading-relaxed text-stone-600">{item.cannotSay}</p>
                 </div>
                 <div>
