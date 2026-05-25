@@ -125,13 +125,13 @@
 | Oslo Innovasjonsprogram-søknad | Finnes | `1. Food system_ Oslo Innovasjons program 2025.md` |
 | Prosjektoversikt | Finnes | `PROJECT-OVERVIEW.md` |
 | Ten-step start v2.0 | Finnes (i PROJECT-OVERVIEW) | Steg 1–10 med outputs definert |
-| FUD-søknader (mat) | **Mangler** | Einar/Cathrine har — ikke i repo |
-| E-Klei møtereferat (feb 2025) | **Mangler** | Cathrine har |
-| NMBU innsiktsintervju | **Mangler** | Cathrine har |
-| Helsinki summit-materiale | **Mangler** | Einar har |
-| CityLife EU-prosjekt (Trondheim) | **Mangler** | NS internt |
-| Kaffeprosjekt-dokumentasjon | **Mangler** | Einar/JT har |
-| UN Circular Cities manifesto/kart | **Mangler** | NS internt |
+| FUD-søknader (mat) | **Mangler** | Einar/Cathrine har — ikke i repo (verifisert 2026-05-26) |
+| E-Klei møtereferat (feb 2025) | **Mangler** | Cathrine har — ikke i repo (verifisert 2026-05-26) |
+| NMBU innsiktsintervju | **Mangler** | Cathrine har. Selve intervjuet ikke i repo, men 7 NMBU-papers i `research/bibliotek/akademia/nmbu/` (verifisert 2026-05-26) |
+| Helsinki summit-materiale | **Mangler / uavklart** | Einar har. Repoet har Nordic Food Innovation Summit 2024 (Malmö) i `research/bibliotek/nordisk/nordic-food-innovation-summit-2024.md` og referanse til Helsinki-workshop nov 2025 (80 personer). Mulig flere ulike "Helsinki summits" — krever avklaring (verifisert 2026-05-26) |
+| CityLife EU-prosjekt (Trondheim) | **Mangler** | NS internt — ikke i repo (verifisert 2026-05-26) |
+| Kaffeprosjekt-dokumentasjon | **Mangler / delvis erstattet** | Original NS-kaffeprosjekt-dokumentasjon ikke i repo. Tema dekket av nytt materiale: `research/external/coffee-forest/` (PRD + sources + EUDR-review) og 5+ forskningsfiler om kaffe (forskningsrunde 20.04). Eldre referanse-prosjekt fortsatt ønsket (verifisert 2026-05-26) |
+| UN Circular Cities manifesto/kart | **Mangler / delvis dekket** | NS-versjonen ikke i repo. UN-Habitat-rammeverket dekket kontekstuelt i `research/external/circular-cities/15-nordic-policy-landscape.md` (verifisert 2026-05-26) |
 
 ---
 

@@ -93,6 +93,20 @@ Alle 7 dokumenter merket «Mangler» i MØTEOVERSIKT er **fortsatt ikke i repo**
 
 Disse var avhengighetspunkter fra møte 1–4. Hvis de fortsatt mangler etter 2,5 mnd, er det reell informasjonsasymmetri mellom teammedlemmer som ikke er adressert.
 
+**Re-verifisering 2026-05-26 (se oppdatert tabell i MØTEOVERSIKT.md):**
+
+| Dokument | Faktisk status |
+|---|---|
+| FUD-søknader (mat) | 🔴 Fortsatt savnet |
+| E-Klei møtereferat | 🔴 Fortsatt savnet |
+| NMBU innsiktsintervju | 🔴 Selve intervjuet savnet — men 7 NMBU-papers i `research/bibliotek/akademia/nmbu/` dekker temaet bredt |
+| Helsinki summit | 🟡 Uavklart hvilken Helsinki-event Einar refererte til. Malmö 2024-summit finnes, Helsinki nov 2025-workshop nevnt i transcripts |
+| CityLife EU-prosjekt | 🔴 Fortsatt savnet |
+| Kaffeprosjekt-dok | 🟡 Original NS-prosjekt savnet, men temaet er substansielt dekket av nytt forskningsmateriale (5+ filer, coffee-forest PRD) |
+| UN Circular Cities | 🟡 NS-versjon savnet, men UN-Habitat-rammeverk dekket kontekstuelt i circular-cities-policy-doc |
+
+**Konklusjon:** 3 fortsatt fullstendig savnet (FUD, E-Klei, CityLife). 3 har fått innholds-dekning via nytt materiale uten at originalen er kommet inn (NMBU, Kaffe, UN Circular). 1 trenger avklaring (Helsinki). Krever team-input for FUD, E-Klei, CityLife — resten kan eventuelt avskrives som «erstattet av nyere kilder».
+
 ### 6. **Mandatets åpne felt**
 
 Per 27.04 hadde Food-mandatet åpne felt:
