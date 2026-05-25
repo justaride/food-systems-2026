@@ -85,6 +85,7 @@
     "audit:citations": "tsx scripts/verify-data-integrity.ts --strict-sources",
     "audit:citable-reports": "tsx scripts/audit-citable-reports.ts",
     "audit:citable": "npm run db:audit && npm run audit:citations && npm run audit:citable-reports && npm run research:citation-readiness-queue",
+    "audit:circular-leverage": "tsx scripts/audit-circular-leverage.ts",
     "remap-document-paths": "tsx scripts/remap-document-paths.ts",
     "extract-html-to-md": "tsx scripts/extract-html-to-md.ts",
     "fix-stale-document-references": "tsx scripts/fix-stale-document-references.ts",
