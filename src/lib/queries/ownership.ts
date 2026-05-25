@@ -1,5 +1,45 @@
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { prisma } from '@/lib/db'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
+
+export type KonsernConfig = {
+  slug: string
+  expectsMaActivity: boolean
+}
+
+export const KONSERN_REGISTRY: Record<string, KonsernConfig> = {
+  '819731322': { slug: 'norgesgruppen', expectsMaActivity: true },
+  '914526647': { slug: 'reitan-retail', expectsMaActivity: true },
+  '936560288': { slug: 'coop',          expectsMaActivity: false },
+  '910747711': { slug: 'orkla',         expectsMaActivity: true },
+  '914224314': { slug: 'bama',          expectsMaActivity: false },
+  '929228723': { slug: 'asko',          expectsMaActivity: false },
+  '947942638': { slug: 'tine',          expectsMaActivity: false },
+  '938752648': { slug: 'nortura',       expectsMaActivity: false },
+  '964118191': { slug: 'mowi',          expectsMaActivity: true },
+  '960514718': { slug: 'salmar',        expectsMaActivity: true },
+  '975350940': { slug: 'leroy',         expectsMaActivity: true },
+  '911608103': { slug: 'felleskjopet',  expectsMaActivity: false },
+  '929975200': { slug: 'austevoll',     expectsMaActivity: true },
+  '982254604': { slug: 'rema1000-norge', expectsMaActivity: false },
+}
+
+const SLUG_TO_ORGNR: Record<string, string> = Object.fromEntries(
+  Object.entries(KONSERN_REGISTRY).map(([orgNr, cfg]) => [cfg.slug, orgNr])
+)
+
+export function slugForOrgNr(orgNr: string): string | null {
+  return KONSERN_REGISTRY[orgNr]?.slug ?? null
+}
+
+export function orgNrForSlug(slug: string): string | null {
+  return SLUG_TO_ORGNR[slug] ?? null
+}
+
+export function isKnownKonsernRoot(orgNr: string): boolean {
+  return orgNr in KONSERN_REGISTRY
+}
 
 type OwnershipNode = {
   id: string
@@ -226,4 +266,81 @@ export async function getCompanyTreeIds(): Promise<Set<string>> {
     select: { parentCompanyId: true, childCompanyId: true },
   })
   return new Set(ownerships.flatMap(o => [o.parentCompanyId, o.childCompanyId]))
+}
+
+type KonsernIndexRow = {
+  slug: string
+  rootCompanyId: string
+  rootName: string
+  qualityScore: number
+  treeSize: number
+  totalRevenue: number | null
+  maEventsCount: number
+  daysSinceBrregRefresh: number | null
+  controllingOwner: { name: string; pct: number | null } | null
+  ownershipType: string | null
+  gaps: string[]
+}
+
+let coverageCache: ReturnType<typeof JSON.parse> | null = null
+function loadCoverage() {
+  if (!coverageCache) {
+    const path = join(process.cwd(), 'data/konsern-coverage.json')
+    coverageCache = JSON.parse(readFileSync(path, 'utf-8'))
+  }
+  return coverageCache
+}
+
+export async function getKonsernIndex(): Promise<KonsernIndexRow[]> {
+  const coverage = loadCoverage()
+  const rows: KonsernIndexRow[] = []
+  for (const entry of coverage.entries) {
+    const treeIds = await gatherTreeIds(entry.rootCompanyId)
+    const currentYear = new Date().getFullYear()
+    const financials = await prisma.companyFinancial.findMany({
+      where: { companyId: { in: treeIds }, year: currentYear - 1 },
+      select: { revenueNok: true, source: true },
+    })
+    const totalRevenue = financials.reduce<number | null>(
+      (acc, f) => {
+        const nok = financialAmountToNok(f.revenueNok, f.source)
+        return nok != null ? (acc ?? 0) + nok : acc
+      },
+      null,
+    )
+    rows.push({
+      slug: entry.slug,
+      rootCompanyId: entry.rootCompanyId,
+      rootName: entry.rootName,
+      qualityScore: entry.qualityScore,
+      treeSize: entry.metrics.treeSize,
+      totalRevenue,
+      maEventsCount: entry.metrics.maEventCount,
+      daysSinceBrregRefresh: entry.metrics.daysSinceBrregRefresh,
+      controllingOwner: entry.controllingOwner ? {
+        name: entry.controllingOwner.name,
+        pct: entry.controllingOwner.pct != null ? parseFloat(entry.controllingOwner.pct) : null,
+      } : null,
+      ownershipType: entry.ownershipType,
+      gaps: entry.gaps,
+    })
+  }
+  return rows.sort((a, b) => a.qualityScore - b.qualityScore)
+}
+
+async function gatherTreeIds(rootId: string): Promise<string[]> {
+  const ids = new Set<string>([rootId])
+  let frontier = [rootId]
+  while (frontier.length > 0) {
+    const children = await prisma.companyOwnership.findMany({
+      where: { parentCompanyId: { in: frontier } },
+      select: { childCompanyId: true },
+    })
+    const nextFrontier: string[] = []
+    for (const c of children) {
+      if (!ids.has(c.childCompanyId)) { ids.add(c.childCompanyId); nextFrontier.push(c.childCompanyId) }
+    }
+    frontier = nextFrontier
+  }
+  return [...ids]
 }

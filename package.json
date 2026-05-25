@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "tsx scripts/write-version.ts && next dev",
-    "compute-metrics": "tsx scripts/compute-chart-metrics.ts --country=all",
+    "compute-metrics": "tsx scripts/compute-chart-metrics.ts --country=all && npm run audit:konsern",
+    "audit:konsern": "tsx scripts/audit-konsern-coverage.ts",
     "build": "tsx scripts/write-version.ts && prisma generate && npm run compute-metrics && next build",
     "start": "next start",
     "lint": "eslint",
