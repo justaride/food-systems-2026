@@ -36,6 +36,18 @@ describe('academic source metadata coverage', () => {
       assert.ok(pct(reports, r => r.author) >= 22)
     })
 
+    it('count of Reports missing author does not increase beyond 100', () => {
+      // Hard cap. Any new Report seed entry without author bumps this to 101
+      // and breaks the build. To increase the cap, you must first reduce the
+      // missing-author backlog using scripts/build-report-author-backfill-worklist.ts
+      // — and then tighten this number, not loosen it.
+      const missing = reports.filter(r => !hasValue(r.author)).length
+      assert.ok(
+        missing <= 100,
+        `Found ${missing} Reports without author (cap = 100). New Report seed entries must include author.`,
+      )
+    })
+
     it('doi coverage does not regress below 15%', () => {
       assert.ok(pct(reports, r => r.doi) >= 15)
     })
