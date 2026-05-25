@@ -128,6 +128,20 @@ Per 27.04 hadde Food-mandatet åpne felt:
 
 **Tiltak:** sjekk `docs/project/mandates/mandate-for-transition-group-food-2026-04-21.pdf` eller `docs/project/mandates/food-transition-group-mandate-2026-04-21.md` for status på disse i dag.
 
+**Verifisering 2026-05-26:** Alle 7 felt fortsatt åpne i `food-transition-group-mandate-2026-04-21.md`:
+
+| Felt | Status i mandat-PDF | Blokker |
+|---|---|---|
+| Godkjenningsdato | `[Date]` | Avhenger av scope-vedtak |
+| Reviewdato | `[Date]` | Avhenger av godkjenning |
+| Geografisk minstekrav | `[number]` nordiske land | Strategisk avklaring fra JT/Cathrine |
+| Chair/co-chair | Ikke navngitt | NCH må oppnevne |
+| Komplett medlemsliste | Kun Natural State + `...` | Onboarding-beslutninger |
+| Annex 1+2 | Referert, ikke inkludert | Lokaliseres eller rekonstrueres |
+| Notion-workplan | Eksternt i Notion | Beslutning: speile inn eller la stå |
+
+**Root cause:** Felt 1–2 (og indirekte 5) er blokkert av at scope-vedtaket fra `decision-memo-food-tg-scope-v0.3.md` ikke er gjort. `food-tg-validation-sprint-log-2026-05.md` (21.05.2026) viser at all outreach er pauset «venter scope-vedtak». Scope-møtet skulle vært 05.05.2026 — kobler tilbake til blindsone 1 (manglende tirsdagsmøter).
+
 ### 7. **JT-GABRIEL Research plan 20-04-26.md** uten plass i strukturen
 
 ~~`docs/meetings/JT-GABRIEL - Research plan 20-04-26.md` ligger blant møtene, men er et plan-dokument fra møte 7, ikke et selvstendig møte.~~
