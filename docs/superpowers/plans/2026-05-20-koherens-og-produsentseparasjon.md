@@ -1309,3 +1309,15 @@ describe('producer separation migration', () => {
 - **Task 13:** `Company` keeps its `subsidies`/`deliveriesFrom` relations, so do **NOT** remove subsidy displays from the `/selskap` pages or `/eierskap`. Task 13 reduces to: remove the obsolete chunked-paging / `includeAll` / `trackedOnly` / 55k-bind-cap logic from `getCompanies()` in `companies.ts` (Company is now ~51 rows; a single `findMany` suffices). The `[id]` page and `EierskapContent` subsidy sections stay.
 - **Task 15:** subsidy queries (`subsidies.ts`, `subsidies-agg.ts`) repoint recipient grouping/joins from `companyId`/`Company` to `producerId`/`Producer`. Filter `producerId IS NOT NULL` where a producer-recipient join is needed — the lone `companyId` subsidy (Yara's Enova grant) is legitimately excluded from the producer-subsidy aggregations on `/subsidier`.
 - **Task 16:** unchanged in intent — `prisma.company.count()` (~51) and `prisma.producer.count()` (38 925) reported separately. DeliveryVolume supplier counting now spans `supplierProducerId` (60 308) + `supplierId` (2).
+
+## 2026-05-25 Close-out
+
+Plan fully implemented and shipped via PR #62 (`food-tg/koherens-produsentseparasjon-2026-05-20` → main, merge commit `c67c412`) and follow-up PR #63 (`food-tg/fix-producer-migration-leaf`, merge `d0a79fb`).
+
+Phase 1 (UI coherence) and Phase 2 (Producer-table separation with dual-target FKs) both delivered. Producer-related routes live in production:
+- `/produsenter` — 55k producers visible
+- `/styremedlemmer`, `/selskap`, `/rapporter` — HTTP 200, no regressions from the FK split
+
+Verified 2026-05-25: `npm run db:audit` passes, `npm test` 246/246 pass.
+
+Plan is closed.

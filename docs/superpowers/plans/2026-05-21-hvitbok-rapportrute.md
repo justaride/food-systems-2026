@@ -1332,3 +1332,15 @@ If no fixes were needed, skip this commit.
 - **Spec coverage:** Routes (T9, T10) ✓; markdown content source (T1, T2) ✓; chapter registry (T3) ✓; loader (T4) ✓; token parser (T5) ✓; embed registry with four types (T6) ✓; embed components (T7) ✓; render layer with dev-mode missing-embed warning (T8) ✓; nav entry (T10) ✓; parser + integrity tests (T5, T11) ✓; 3 seed chapters demonstrating nokkeltall/callout/viz embeds (T2, T6) ✓; error handling — unknown slug `notFound`, missing embed dev-warning, missing file throws (T8, T9, T4) ✓.
 - **Out of scope per spec:** no DB, no in-app editing, no MDX, `/rapporter` untouched — respected.
 - **Type consistency:** `ChapterSegment`, `Chapter`, `EmbedDefinition` and its four variants, `getEmbed`, `EMBEDDABLE_CHARTS`, `parseChapter`, `renderChapter` are used with identical signatures across tasks.
+
+## 2026-05-25 Close-out
+
+Plan fully implemented and shipped via PR #64 (`feat/hvitbok-rapportrute` → main, merge commit `dcca533`). Follow-up commits: `0a008d3 fix: ship hvitbok content in Docker image`, `f51c3c3 fix: add hvitbok entry to desktop sidebar nav`, `13c01db test: add hvitbok content integrity guard`.
+
+`/hvitbok` route live in production:
+- Chapter table-of-contents + detail pages
+- Markdown loader + 4 embed types (nokkeltall, callout, viz, related)
+- Sidebar nav entry
+- Docker image ships content/hvitbok/
+
+Plan is closed.

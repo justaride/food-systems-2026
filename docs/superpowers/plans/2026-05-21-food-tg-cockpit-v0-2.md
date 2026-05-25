@@ -990,6 +990,19 @@ Expected visible sections:
 - Reader journey og plattformflater
 - Existing opportunity radar, sprint, claim board and stoppsignaler
 
-- [ ] **Step 3: Stop dev server**
+- [x] **Step 3: Stop dev server**
 
 Stop the local dev server before final status unless the user explicitly wants it left running.
+
+## 2026-05-25 Close-out
+
+Plan fully implemented and shipped directly on main via commits `8bc5731`, `73858fa`, `3967d79`, `c19200c`, `55b0e08`, `fa6fc14`:
+
+- `src/lib/data/food-tg-control-layer.ts` — control documents, decision gates, candidate cards, reader journey
+- `src/lib/data/food-tg-mandate.ts` — mandate summary date/status updated to 2026-05-21
+- `src/app/mandat/MandatContent.tsx` — cockpit sections rendered via the data module (no hardcoded content in JSX)
+- `tests/lib/food-tg-control-layer.test.ts` — fail-closed test coverage
+
+`/mandat` route live in production with v0.2 cockpit.
+
+Plan is closed.

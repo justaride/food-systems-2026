@@ -75,3 +75,11 @@ Datakilde: utvide `src/lib/data/country-chart-data.ts` eller legge inn som stati
 - Ingen nye prisma-migrasjoner — alt passer innenfor eksisterende skjema.
 - Ingen nye sider — alt bruker eksisterende informasjonsarkitektur.
 - Ingen PDF-nedlasting — bare registrering av URL-er i backlog-CSV.
+
+## 2026-05-25 Close-out
+
+Plan shipped: alle 7 master/PhD-avhandlinger ble lagt til `src/lib/data/theses.ts` (Ruvini De Silva, Bojö, Mirza, Van Straten, Bueso Bordils m.fl.), og policy-rapporter/journal-artikler ble registrert i `src/lib/data/sources.ts` (Managing a Circular Food System Turku, Nested circularity Finland, Delivering the Circular Economy Denmark, m.fl.).
+
+Nordisk benchmark-kort på `/sirkularitet` er live (synlig som "Sirkularitetsrate per land" med NO 2,4%, SE 3,4%, DK/FI/IS n/a, Nordic ~6%).
+
+Plan is closed.
