@@ -328,6 +328,91 @@ export async function getKonsernIndex(): Promise<KonsernIndexRow[]> {
   return rows.sort((a, b) => a.qualityScore - b.qualityScore)
 }
 
+// ─── Konsern Dossier ─────────────────────────────────────────────────────────
+
+export type KonsernDossierData = {
+  slug: string
+  root: { id: string; name: string; orgNr: string; lastBrregRefreshAt: Date | null }
+  treeIds: string[]
+  ownershipType: string | null
+  controllingOwner: { name: string; pct: number | null; source: string | null } | null
+  metrics: {
+    treeSize: number
+    totalRevenue: number | null    // NOK aggregate latest year
+    totalEmployees: number | null  // aggregate latest year (groupEmployees sum)
+    daysSinceBrregRefresh: number | null
+  }
+  coverage: {
+    qualityScore: number
+    gaps: string[]
+    metrics: unknown
+  }
+}
+
+export async function getKonsernDossier(slug: string): Promise<KonsernDossierData | null> {
+  const orgNr = orgNrForSlug(slug)
+  if (!orgNr) return null
+
+  const coverage = loadCoverage()
+  const entry = coverage.entries.find((e: { slug: string }) => e.slug === slug)
+  if (!entry) return null
+
+  const rootCompany = await prisma.company.findUnique({
+    where: { orgNr },
+    select: { id: true, name: true, orgNr: true, lastBrregRefreshAt: true, ownershipType: true },
+  })
+  if (!rootCompany) return null
+
+  const treeIds = await gatherTreeIds(rootCompany.id)
+  const currentYear = new Date().getFullYear()
+
+  const financials = await prisma.companyFinancial.findMany({
+    where: { companyId: { in: treeIds }, year: currentYear - 1 },
+    select: { revenueNok: true, source: true, groupEmployees: true },
+  })
+
+  const totalRevenue = financials.reduce<number | null>((acc, f) => {
+    const nok = financialAmountToNok(f.revenueNok, f.source)
+    return nok != null ? (acc ?? 0) + nok : acc
+  }, null)
+
+  const totalEmployees = financials.reduce<number | null>((acc, f) => {
+    return f.groupEmployees != null ? (acc ?? 0) + f.groupEmployees : acc
+  }, null)
+
+  const controllingOwner = entry.controllingOwner
+    ? {
+        name: entry.controllingOwner.name as string,
+        pct: entry.controllingOwner.pct != null ? parseFloat(entry.controllingOwner.pct as string) : null,
+        source: (entry.controllingOwner.source ?? null) as string | null,
+      }
+    : null
+
+  return {
+    slug: entry.slug,
+    root: {
+      id: rootCompany.id,
+      name: rootCompany.name,
+      orgNr: rootCompany.orgNr,
+      lastBrregRefreshAt: rootCompany.lastBrregRefreshAt,
+    },
+    treeIds,
+    ownershipType: rootCompany.ownershipType,
+    controllingOwner,
+    metrics: {
+      treeSize: entry.metrics.treeSize as number,
+      totalRevenue,
+      totalEmployees,
+      daysSinceBrregRefresh: (entry.metrics.daysSinceBrregRefresh ?? null) as number | null,
+    },
+    coverage: {
+      qualityScore: entry.qualityScore as number,
+      gaps: entry.gaps as string[],
+      metrics: entry.metrics,
+    },
+  }
+}
+
 async function gatherTreeIds(rootId: string): Promise<string[]> {
   const ids = new Set<string>([rootId])
   let frontier = [rootId]
