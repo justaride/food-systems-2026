@@ -107,6 +107,13 @@ Disse var avhengighetspunkter fra møte 1–4. Hvis de fortsatt mangler etter 2,
 
 **Konklusjon:** 3 fortsatt fullstendig savnet (FUD, E-Klei, CityLife). 3 har fått innholds-dekning via nytt materiale uten at originalen er kommet inn (NMBU, Kaffe, UN Circular). 1 trenger avklaring (Helsinki). Krever team-input for FUD, E-Klei, CityLife — resten kan eventuelt avskrives som «erstattet av nyere kilder».
 
+**Web-søk-runde 2026-05-26 (se `docs/meetings/SAVNEDE-DOKUMENTER-SOKLOGG-2026-05-26.md`):**
+
+- **CityLife:** Klargjort som internt NS / Nordic Circular Hotspot-konsept (ikke navngitt EU-prosjekt). Trondheim separat dekket via NetZeroCities Pilot City. 150 mill NOK Horizon-søknad er sannsynligvis planlagt CCRI-søknad. **Originale strategi-dokumenter fortsatt nødvendige fra Einar/NS.**
+- **E-Klei:** Ingen web-treff på noen staveversjon. Sannsynlig mistranskribering — trenger Cathrine å bekrefte korrekt navn.
+- **FUD:** Som forventet ikke web-tilgjengelig (interne NS-søknader til Nordic Innovation FUD).
+- **Helsinki summit:** Repo har Malmö 2024-summit, ikke Helsinki. Den nevnte Helsinki-workshop nov 2025/2026 er antagelig ennå-ikke-avholdt event, ikke dokumentert summit.
+
 ### 6. **Mandatets åpne felt**
 
 Per 27.04 hadde Food-mandatet åpne felt:
