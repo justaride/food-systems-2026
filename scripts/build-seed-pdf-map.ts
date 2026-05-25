@@ -231,9 +231,9 @@ async function loadOverrides(): Promise<{
 
 async function main() {
   const [thesesSrc, reportsSrc, sourcesSrc] = await Promise.all([
-    fs.readFile(path.join(ROOT, 'src/lib/data/theses.ts'), 'utf8'),
-    fs.readFile(path.join(ROOT, 'src/lib/data/reports.ts'), 'utf8'),
-    fs.readFile(path.join(ROOT, 'src/lib/data/sources.ts'), 'utf8'),
+    fs.readFile(path.join(ROOT, 'prisma/seed-data/theses.ts'), 'utf8'),
+    fs.readFile(path.join(ROOT, 'prisma/seed-data/reports.ts'), 'utf8'),
+    fs.readFile(path.join(ROOT, 'prisma/seed-data/sources.ts'), 'utf8'),
   ])
 
   const parseWith = (src: string, name: string, extraKey: string): Entry[] =>

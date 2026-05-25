@@ -132,9 +132,9 @@ function esc(s: string): string {
 async function main() {
   const map: SeedMap = JSON.parse(await fs.readFile(MAP_FILE, 'utf8'))
 
-  const thesesSrc = await fs.readFile(path.join(ROOT, 'src/lib/data/theses.ts'), 'utf8')
-  const reportsSrc = await fs.readFile(path.join(ROOT, 'src/lib/data/reports.ts'), 'utf8')
-  const sourcesSrc = await fs.readFile(path.join(ROOT, 'src/lib/data/sources.ts'), 'utf8')
+  const thesesSrc = await fs.readFile(path.join(ROOT, 'prisma/seed-data/theses.ts'), 'utf8')
+  const reportsSrc = await fs.readFile(path.join(ROOT, 'prisma/seed-data/reports.ts'), 'utf8')
+  const sourcesSrc = await fs.readFile(path.join(ROOT, 'prisma/seed-data/sources.ts'), 'utf8')
 
   const theses: Entry[] = parseEntries(thesesSrc, 'theses').map((b) => ({
     id: field(b, 'id'),

@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
 
-const actorsPath = join(process.cwd(), 'src/lib/data/actors.ts')
+const actorsPath = join(process.cwd(), 'prisma/seed-data/actors.ts')
 const intakePath = join(process.cwd(), 'research/intake/perplexity-2026-04-20/new-actors.json')
 
 const newActors: any[] = JSON.parse(readFileSync(intakePath, 'utf-8'))

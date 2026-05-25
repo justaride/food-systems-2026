@@ -1,7 +1,7 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
 import { COUNTRY_LIST } from '../../src/lib/config/countries'
-import { mediaEntries } from '../../src/lib/data/media-corpus'
+import { mediaEntries } from '../../prisma/seed-data/media-corpus'
 import { mediaCountryMatches } from '../../src/lib/media-country'
 
 describe('media country helpers', () => {

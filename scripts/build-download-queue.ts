@@ -187,7 +187,7 @@ async function loadLinkage(): Promise<{ hasLocalPdf: Set<string>; hasAnyMatch: S
 }
 
 async function loadTheses(hasLocalPdf: Set<string>): Promise<QueueRow[]> {
-  const src = await fs.readFile(path.join(ROOT, 'src/lib/data/theses.ts'), 'utf8')
+  const src = await fs.readFile(path.join(ROOT, 'prisma/seed-data/theses.ts'), 'utf8')
   const blocks = parseEntries(src, 'theses')
   const out: QueueRow[] = []
   for (const b of blocks) {
@@ -212,7 +212,7 @@ async function loadTheses(hasLocalPdf: Set<string>): Promise<QueueRow[]> {
 }
 
 async function loadReports(hasLocalPdf: Set<string>): Promise<QueueRow[]> {
-  const src = await fs.readFile(path.join(ROOT, 'src/lib/data/reports.ts'), 'utf8')
+  const src = await fs.readFile(path.join(ROOT, 'prisma/seed-data/reports.ts'), 'utf8')
   const blocks = parseEntries(src, 'reports')
   const out: QueueRow[] = []
   for (const b of blocks) {
@@ -238,7 +238,7 @@ async function loadReports(hasLocalPdf: Set<string>): Promise<QueueRow[]> {
 }
 
 async function loadSources(hasAnyMatch: Set<string>): Promise<QueueRow[]> {
-  const src = await fs.readFile(path.join(ROOT, 'src/lib/data/sources.ts'), 'utf8')
+  const src = await fs.readFile(path.join(ROOT, 'prisma/seed-data/sources.ts'), 'utf8')
   const blocks = parseEntries(src, 'sources')
   const out: QueueRow[] = []
   for (const b of blocks) {

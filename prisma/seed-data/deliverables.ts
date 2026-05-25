@@ -1,4 +1,4 @@
-import type { Deliverable } from '../types'
+import type { Deliverable } from "@/lib/types"
 
 export const deliverables: Deliverable[] = [
   {

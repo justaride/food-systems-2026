@@ -3,8 +3,8 @@ import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { PrismaClient } from '../src/generated/prisma/client'
-import { reports } from '../src/lib/data/reports'
-import { theses } from '../src/lib/data/theses'
+import { reports } from '../prisma/seed-data/reports'
+import { theses } from '../prisma/seed-data/theses'
 import { parseCsvRecords } from '../src/lib/csv'
 import {
   collectDatabaseUrlRows,
@@ -185,8 +185,8 @@ async function main(): Promise<void> {
     '',
     '## Notater',
     '',
-    '- `Report.sourceUrl` (kanonisk) og `Report.supportingSources[].url` er hentet fra `src/lib/data/reports.ts`.',
-    '- `Thesis.url` er hentet fra `src/lib/data/theses.ts`.',
+    '- `Report.sourceUrl` (kanonisk) og `Report.supportingSources[].url` er hentet fra `prisma/seed-data/reports.ts`.',
+    '- `Thesis.url` er hentet fra `prisma/seed-data/theses.ts`.',
     '- `SourceDoc.url` og `Document.url` er hentet fra databasen når `DATABASE_URL` er satt. Bruk `npm run inventory-urls -- --no-db` for typed seed-data-only inventar.',
     '- Kolonnen `source_priority` er slått opp i `research/KI-PRIORITY.csv`. Tom hvis ingen treff.',
     '- Ingen HTTP-spørringer kjøres her; rens av status håndteres av `scripts/check-urls.ts`.',

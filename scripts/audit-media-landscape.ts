@@ -15,8 +15,8 @@ import {
   mediaEntries,
   mediaEntryCodings,
   mediaOutlets,
-} from '../src/lib/data/media-corpus'
-import { sources } from '../src/lib/data/sources'
+} from '../prisma/seed-data/media-corpus'
+import { sources } from '../prisma/seed-data/sources'
 
 type Check = {
   ok: boolean
@@ -180,7 +180,7 @@ async function main() {
 
   checks.push(
     missingSourceIds.length === 0
-      ? pass(`Alle ${referencedSourceIds.length} media sourceId-er finnes i src/lib/data/sources.ts`)
+      ? pass(`Alle ${referencedSourceIds.length} media sourceId-er finnes i prisma/seed-data/sources.ts`)
       : fail(`Manglende sourceId-er: ${missingSourceIds.join(', ')}`),
   )
 

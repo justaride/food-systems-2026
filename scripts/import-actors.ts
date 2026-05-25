@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
-import { actorsSeed, actorRelationshipsSeed } from '../src/lib/data/actors'
+import { actorsSeed, actorRelationshipsSeed } from '../prisma/seed-data/actors'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
