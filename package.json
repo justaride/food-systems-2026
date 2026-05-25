@@ -64,6 +64,8 @@
     "db:backfill:filehash": "tsx scripts/backfill-source-citation-filehash.ts",
     "db:backfill:filehash:apply": "tsx scripts/backfill-source-citation-filehash.ts --apply",
     "db:verify:filehash": "tsx scripts/verify-source-citation-filehash.ts",
+    "db:backfill:accessed-at": "tsx scripts/backfill-source-citation-accessed-at.ts",
+    "db:backfill:accessed-at:apply": "tsx scripts/backfill-source-citation-accessed-at.ts --apply",
     "db:backfill:field-citation-claim-text": "tsx scripts/backfill-field-citation-claim-text.ts",
     "db:backfill:field-citation-claim-text:apply": "tsx scripts/backfill-field-citation-claim-text.ts --apply",
     "db:refresh:source-citation-readiness": "tsx scripts/refresh-source-citation-readiness.ts",
