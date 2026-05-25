@@ -59,6 +59,7 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
   if (!root) return null
 
   const treeIds = await gatherTreeIds(root.id)
+  const childIds = treeIds.filter(id => id !== root.id)
   const ownershipEdges = await prisma.companyOwnership.findMany({
     where: { parentCompanyId: { in: treeIds } },
     select: { source: true, ownershipType: true, metadata: true, effectiveFrom: true },
@@ -71,13 +72,13 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
   const currentYear = new Date().getFullYear()
   const latestYear = currentYear - 1
   const financials = await prisma.companyFinancial.findMany({
-    where: { companyId: { in: treeIds }, year: latestYear },
+    where: { companyId: { in: childIds }, year: latestYear },
     select: { companyId: true },
   })
   const childrenWithLatestFinancial = new Set(financials.map(f => f.companyId)).size
 
   const boardMembers = await prisma.boardMember.findMany({
-    where: { companyId: { in: treeIds } },
+    where: { companyId: { in: childIds } },
     select: { companyId: true },
   })
   const childrenWithBoardMembers = new Set(boardMembers.map(b => b.companyId)).size
@@ -108,7 +109,7 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
     ownershipEdgesWithSource,
     ownershipEdgesTotal: ownershipEdges.length,
     childrenWithLatestFinancial,
-    childrenTotal: treeIds.length - 1,
+    childrenTotal: childIds.length,
     propertyCount,
     relationshipCount,
     daysSinceBrregRefresh,
@@ -119,9 +120,9 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
   const gaps: string[] = []
   if (!controllingShareholder) gaps.push('Mangler kontrollerende eier på rotnode')
   if (ownershipEdgesWithoutSource > 0) gaps.push(`${ownershipEdgesWithoutSource} ownership-kanter uten source`)
-  const childrenWithoutFinancial = treeIds.length - 1 - childrenWithLatestFinancial
+  const childrenWithoutFinancial = childIds.length - childrenWithLatestFinancial
   if (childrenWithoutFinancial > 0) gaps.push(`${childrenWithoutFinancial} datterselskap uten siste års regnskap`)
-  const childrenWithoutBoardMembers = treeIds.length - 1 - childrenWithBoardMembers
+  const childrenWithoutBoardMembers = childIds.length - childrenWithBoardMembers
   if (childrenWithoutBoardMembers > 0) gaps.push(`${childrenWithoutBoardMembers} datterselskap uten styremedlemmer`)
   if (daysSinceBrregRefresh === null) gaps.push('Aldri Brreg-refreshet')
   else if (daysSinceBrregRefresh >= 90) gaps.push(`Brreg-refresh ${daysSinceBrregRefresh} dager gammel`)
