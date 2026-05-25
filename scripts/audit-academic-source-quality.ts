@@ -79,6 +79,8 @@ const sourceDocChecks: ReadonlyArray<FieldCheck<typeof sources[number]>> = [
   { label: 'author',      getter: s => s.author,      thresholds: { min: 90,  target: 100 } },
   { label: 'url',         getter: s => s.url,         thresholds: { min: 55,  target: 95  } },
   { label: 'doi',         getter: s => s.doi,         thresholds: { min: 3,   target: 40  } },
+  { label: 'accessedAt',  getter: s => s.accessedAt,  thresholds: { min: 0,   target: 50  } },
+  { label: 'archivedUrl', getter: s => s.archivedUrl, thresholds: { min: 0,   target: 50  } },
 ]
 
 console.log('Academic source-quality audit')
