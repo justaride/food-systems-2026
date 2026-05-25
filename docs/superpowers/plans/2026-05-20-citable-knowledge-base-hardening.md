@@ -1018,7 +1018,7 @@ Update `research/CITABLE-KNOWLEDGE-BASE-STATUS.md` with:
 - what remains internal-only
 - recommended next tranche
 
-- [ ] **Step 4: Commit criteria**
+- [x] **Step 4: Commit criteria**
 
 Commit only if:
 
@@ -1139,3 +1139,20 @@ Task 16 status on 2026-05-20:
    policy/content-review queue items.
 
 The highest-value first milestone is Tasks 1-8. That milestone turns the current known source debt into an enforceable gate and should be completed before polishing UI citation display.
+
+## 2026-05-25 Final Close-out
+
+All 16 tasks complete. Verified against current main (`ee9c805`) on 2026-05-25:
+
+- `npm run db:audit:strict-sources`: passes. All strict-source fields show 100% direct/resolved locator coverage (`CompanyFinancial.source` 151/151, `BusinessRelationship.source` 50/50, `CountryMetric.source` 415/415, `Shareholder.source` 62/62, `BoardMember.source` 565/565, etc.).
+- `npm run db:audit`: passes. All 14 audit sections green; no enforced integrity blockers.
+- `npm test`: 223 tests passed, 0 failures.
+- Citation Coverage: `SourceCitation` 2698 (153 citable_external, 2433 citable_with_note, 112 internal_context, 0 blocked_unsourced); `FieldCitation` 244517 with 0 external blocking issues.
+
+Acceptance criteria met:
+- ✅ `npm run db:audit:strict-sources` exits 0.
+- ✅ `research/citation-readiness-queue-2026-05-20.csv` has zero P0 public blockers (now: 0 external blocking issues, 0 blocked_unsourced).
+- ✅ Public claims use `citable_external` or `citable_with_note` coverage exclusively (no `blocked_unsourced` rows exist).
+- ✅ `SourceCitation` and `FieldCitation` schema operational with full traceability.
+
+Plan is fully closed.

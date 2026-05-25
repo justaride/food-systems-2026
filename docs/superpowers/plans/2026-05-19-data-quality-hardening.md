@@ -177,7 +177,7 @@ npm run research:source-gap-queue
 
 Result: wrote `research/_status/strict-source-gap-queue.json` with 168 groups and 557 unresolved row-level issues.
 
-- [ ] **Step 4: Continue with person/source provenance**
+- [x] **Step 4: Continue with person/source provenance**
 
 Next priority rows:
 
@@ -328,6 +328,19 @@ Current source-queue assessment:
 - The remaining `CompanyFinancial` rows are mostly estimates: ASKO aggregate estimates, Skretting/BAMA broad bransjedata estimates, and Lidl/REMA/Samkaup/Festi market-share-derived rows. The single ASKO 2024 `Årsrapport 2024` row is not safe to close as a simple annual-report mapping because the checked public figures indicate the seeded value needs a data-correction slice.
 - The remaining `BusinessRelationship` rows are mostly broad relationship labels (`Bransjedata`, `BioMar`, `Sjømatrådet`, `TGTG Partnerliste 2024`) or one-off web labels that need row-specific evidence checks before mapping.
 - The remaining `CountryMetric` rows include broad market labels, estimates, composite labels, and several value-mismatched candidates. They should be handled as checked source/data-correction slices, not as bulk label-to-URL mappings.
+
+## 2026-05-25 Close-out
+
+The three blockers identified above were fully closed via the citable knowledge base hardening work merged in PR #62 (`food-tg/koherens-produsentseparasjon-2026-05-20`) and follow-up citable commits on main (`080b567`, `a88f8f1`, `f302ab3`, `69c432a`, `c82c831`).
+
+Verified 2026-05-25 against current main (`ee9c805`):
+
+- `npm run db:audit:strict-sources`: passes. `CompanyFinancial.source` 151/151 (100.0%), `BusinessRelationship.source` 50/50 (100.0%), `CountryMetric.source` 415/415 (100.0%), all other strict-source fields 100%.
+- `npm run db:audit`: passes. All 14 audit sections green.
+- `npm test`: 223 tests passed, 0 failures.
+- Citation Coverage: `SourceCitation` 2698 rows (153 citable_external, 2433 citable_with_note, 112 internal_context, 0 blocked_unsourced); `FieldCitation` 244517 rows with 0 external blocking issues.
+
+Plan is fully closed.
 
 ## Task 3: Graph Usefulness And Evidence Links
 
