@@ -270,6 +270,41 @@ export async function getCompanyTreeIds(): Promise<Set<string>> {
   return new Set(ownerships.flatMap(o => [o.parentCompanyId, o.childCompanyId]))
 }
 
+/**
+ * Resolve a konsern slug to the set of company IDs in the full ownership tree.
+ * Returns null if the slug doesn't map to a known konsern root in the DB.
+ */
+export async function getKonsernTreeIds(slug: string): Promise<string[] | null> {
+  const orgNr = orgNrForSlug(slug)
+  if (!orgNr) return null
+  const root = await prisma.company.findUnique({ where: { orgNr }, select: { id: true } })
+  if (!root) return null
+  return gatherTreeIds(root.id)
+}
+
+/**
+ * Walk up the ownership tree from a given company ID and return the orgNr
+ * of the root company (the one that has no parent in CompanyOwnership).
+ * Returns null if the company is not in any ownership tree.
+ */
+export async function resolveKonsernRootOrgNr(companyId: string): Promise<string | null> {
+  let current = companyId
+  const visited = new Set<string>()
+  // Walk up, guarding against cycles
+  while (!visited.has(current)) {
+    visited.add(current)
+    const parentEdge = await prisma.companyOwnership.findFirst({
+      where: { childCompanyId: current },
+      select: { parentCompanyId: true },
+    })
+    if (!parentEdge) break
+    current = parentEdge.parentCompanyId
+  }
+  // current is now the root — find its orgNr
+  const root = await prisma.company.findUnique({ where: { id: current }, select: { orgNr: true } })
+  return root?.orgNr ?? null
+}
+
 type KonsernIndexRow = {
   slug: string
   rootCompanyId: string

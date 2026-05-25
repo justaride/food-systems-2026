@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { Card } from '@/components/ui/Card'
 
@@ -112,6 +113,8 @@ type Props = {
   totalRows: number
   byType: TypeRow[]
   distribution: Distribution
+  konsernFilter?: { slug: string; name: string } | null
+  konsernNotFound?: boolean
 }
 
 type KommuneMetric = 'totalNok' | 'nokPerRecipient' | 'nokPerInhabitant' | 'nokPerKm2'
@@ -228,6 +231,8 @@ export function SubsidierContent({
   totalRows,
   byType,
   distribution,
+  konsernFilter,
+  konsernNotFound,
 }: Props) {
   const [tab, setTab] = useState<'kart' | 'kommuner' | 'ordninger' | 'mottakere'>('kart')
   const [kommuneMetric, setKommuneMetric] = useState<KommuneMetric>('totalNok')
@@ -299,6 +304,29 @@ export function SubsidierContent({
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
+      {konsernNotFound && (
+        <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          Ukjent konsern — viser alle subsidier.
+        </div>
+      )}
+      {konsernFilter && (
+        <div className="flex items-center gap-3 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm text-emerald-900">
+          <span>
+            Filtrert på konsern:{' '}
+            <strong>{konsernFilter.name}</strong>
+          </span>
+          <span className="ml-1 text-emerald-700">
+            · Merk: subsidiedata er produsent-basert og kobler ikke direkte til konsernselskaper.
+            Tallene under er nasjonale totaler.
+          </span>
+          <Link
+            href="/subsidier"
+            className="ml-auto shrink-0 rounded border border-emerald-300 bg-white px-2 py-0.5 text-xs font-medium text-emerald-700 hover:bg-emerald-100"
+          >
+            Fjern filter ×
+          </Link>
+        </div>
+      )}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold text-stone-900 tracking-tight">Subsidier</h1>
