@@ -8,7 +8,8 @@ import {
   getTopSubsidyRecipients,
   getSubsidyTotals,
 } from '@/lib/queries/subsidies-agg'
-import { orgNrForSlug, KONSERN_REGISTRY } from '@/lib/queries/ownership'
+import { orgNrForSlug, getKonsernTreeIds } from '@/lib/queries/ownership'
+import { getKonsernSubsidies, type KonsernSubsidies } from '@/lib/queries/konsern'
 import { SubsidierContent } from './SubsidierContent'
 
 export const metadata: Metadata = {
@@ -35,9 +36,10 @@ export default async function SubsidierPage({
     getSubsidyDistribution('produksjonstilskudd'),
   ])
 
-  // Resolve konsern filter — subsidies are producer-based so we show a note
+  // Resolve konsern filter — now includes producer subsidies via DeliveryVolume
   let konsernFilter: { slug: string; name: string } | null = null
   let konsernNotFound = false
+  let konsernSubsidyStats: KonsernSubsidies | null = null
   if (konsernSlug) {
     const orgNr = orgNrForSlug(konsernSlug)
     if (!orgNr) {
@@ -45,6 +47,12 @@ export default async function SubsidierPage({
     } else {
       const displayName = konsernSlug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
       konsernFilter = { slug: konsernSlug, name: displayName }
+      // Resolve ownership tree and fetch konsern-specific subsidy stats
+      // (includes producer subsidies via DeliveryVolume.buyerId)
+      const treeIds = await getKonsernTreeIds(konsernSlug)
+      if (treeIds && treeIds.length > 0) {
+        konsernSubsidyStats = await getKonsernSubsidies(treeIds)
+      }
     }
   }
 
@@ -61,6 +69,7 @@ export default async function SubsidierPage({
       distribution={distribution}
       konsernFilter={konsernFilter}
       konsernNotFound={konsernNotFound}
+      konsernSubsidyStats={konsernSubsidyStats}
     />
   )
 }

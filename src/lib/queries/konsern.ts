@@ -6,23 +6,47 @@ import { financialAmountToNok } from '@/lib/queries/financial-units'
 export type KonsernSubsidies = {
   perYear: Array<{ year: number; totalNok: number }>   // last 5 years
   topSchemes: Array<{ scheme: string; totalNok: number; count: number }>  // top 5
-  topRecipients: Array<{ companyId: string; companyName: string; totalNok: number }>  // top 5
+  topRecipients: Array<{ companyId: string; companyName: string; totalNok: number }>  // top 5 companies only
   totalNok: number
   rowCount: number
+  producerCount: number  // number of unique producers linked via DeliveryVolume
+}
+
+/**
+ * Derive the set of producer IDs that deliver to any company in the given tree.
+ * ANY-relationship semantics: a producer delivering to one company in the tree
+ * is included. A producer can belong to multiple konserner (transparent overlap).
+ */
+export async function getProducerIdsForKonsern(treeIds: string[]): Promise<string[]> {
+  if (treeIds.length === 0) return []
+  const deliveries = await prisma.deliveryVolume.findMany({
+    where: { buyerId: { in: treeIds }, supplierProducerId: { not: null } },
+    select: { supplierProducerId: true },
+  })
+  return [...new Set(
+    deliveries.map(d => d.supplierProducerId).filter((id): id is string => id !== null)
+  )]
 }
 
 export async function getKonsernSubsidies(treeIds: string[]): Promise<KonsernSubsidies> {
   if (treeIds.length === 0) {
-    return { perYear: [], topSchemes: [], topRecipients: [], totalNok: 0, rowCount: 0 }
+    return { perYear: [], topSchemes: [], topRecipients: [], totalNok: 0, rowCount: 0, producerCount: 0 }
   }
 
+  const producerIds = await getProducerIdsForKonsern(treeIds)
+
   const subsidies = await prisma.subsidy.findMany({
-    where: { companyId: { in: treeIds } },
-    select: { companyId: true, scheme: true, subsidyType: true, amountNok: true, year: true },
+    where: {
+      OR: [
+        { companyId: { in: treeIds } },
+        ...(producerIds.length > 0 ? [{ producerId: { in: producerIds } }] : []),
+      ],
+    },
+    select: { companyId: true, producerId: true, scheme: true, subsidyType: true, amountNok: true, year: true },
   })
 
   if (subsidies.length === 0) {
-    return { perYear: [], topSchemes: [], topRecipients: [], totalNok: 0, rowCount: 0 }
+    return { perYear: [], topSchemes: [], topRecipients: [], totalNok: 0, rowCount: 0, producerCount: producerIds.length }
   }
 
   const currentYear = new Date().getFullYear()
@@ -82,7 +106,7 @@ export async function getKonsernSubsidies(treeIds: string[]): Promise<KonsernSub
 
   const totalNok = subsidies.reduce((sum, s) => sum + (s.amountNok != null ? Number(s.amountNok) : 0), 0)
 
-  return { perYear, topSchemes, topRecipients, totalNok, rowCount: subsidies.length }
+  return { perYear, topSchemes, topRecipients, totalNok, rowCount: subsidies.length, producerCount: producerIds.length }
 }
 
 // ─── Section 7: Eiendommer ────────────────────────────────────────────────────

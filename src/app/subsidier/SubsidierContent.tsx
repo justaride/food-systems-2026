@@ -103,6 +103,14 @@ type Distribution = {
   lorenz: DistributionPoint[]
 }
 
+type KonsernSubsidyStats = {
+  totalNok: number
+  rowCount: number
+  producerCount: number
+  perYear: Array<{ year: number; totalNok: number }>
+  topSchemes: Array<{ scheme: string; totalNok: number; count: number }>
+}
+
 type Props = {
   byKommune: KommuneRow[]
   byScheme: SchemeRow[]
@@ -115,6 +123,7 @@ type Props = {
   distribution: Distribution
   konsernFilter?: { slug: string; name: string } | null
   konsernNotFound?: boolean
+  konsernSubsidyStats?: KonsernSubsidyStats | null
 }
 
 type KommuneMetric = 'totalNok' | 'nokPerRecipient' | 'nokPerInhabitant' | 'nokPerKm2'
@@ -233,6 +242,7 @@ export function SubsidierContent({
   distribution,
   konsernFilter,
   konsernNotFound,
+  konsernSubsidyStats,
 }: Props) {
   const [tab, setTab] = useState<'kart' | 'kommuner' | 'ordninger' | 'mottakere'>('kart')
   const [kommuneMetric, setKommuneMetric] = useState<KommuneMetric>('totalNok')
@@ -310,21 +320,29 @@ export function SubsidierContent({
         </div>
       )}
       {konsernFilter && (
-        <div className="flex items-center gap-3 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm text-emerald-900">
-          <span>
-            Filtrert på konsern:{' '}
-            <strong>{konsernFilter.name}</strong>
-          </span>
-          <span className="ml-1 text-emerald-700">
-            · Merk: subsidiedata er produsent-basert og kobler ikke direkte til konsernselskaper.
-            Tallene under er nasjonale totaler.
-          </span>
-          <Link
-            href="/subsidier"
-            className="ml-auto shrink-0 rounded border border-emerald-300 bg-white px-2 py-0.5 text-xs font-medium text-emerald-700 hover:bg-emerald-100"
-          >
-            Fjern filter ×
-          </Link>
+        <div className="rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
+          <div className="flex items-center gap-3">
+            <span>
+              Filtrert på konsern:{' '}
+              <strong>{konsernFilter.name}</strong>
+            </span>
+            {konsernSubsidyStats && (
+              <span className="ml-1 text-emerald-700">
+                · {formatNok(konsernSubsidyStats.totalNok)} NOK · {konsernSubsidyStats.rowCount.toLocaleString('no')} rader · {konsernSubsidyStats.producerCount.toLocaleString('no')} produsentleverandører
+              </span>
+            )}
+            <Link
+              href="/subsidier"
+              className="ml-auto shrink-0 rounded border border-emerald-300 bg-white px-2 py-0.5 text-xs font-medium text-emerald-700 hover:bg-emerald-100"
+            >
+              Fjern filter ×
+            </Link>
+          </div>
+          <p className="mt-1.5 text-xs text-emerald-700">
+            Inkluderer både selskaps- og produsentbaserte tilskudd for konsernet.
+            Produsentleverandører er koblet via leveransevolum (DeliveryVolume) — en produsent telles for et konsern
+            hvis noen av dens leveranser går til selskaper i eierskapstreet. Statistikken under er nasjonale totaler.
+          </p>
         </div>
       )}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
