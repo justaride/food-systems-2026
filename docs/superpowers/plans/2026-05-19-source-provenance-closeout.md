@@ -177,3 +177,9 @@ git log --oneline --decorate -3
 ```
 
 Expected: clean working tree on the closeout branch with the new commit at HEAD.
+
+## 2026-05-25 Close-out
+
+All 13/13 checkboxes complete. Closeout shipped via commit `205a126 chore(sources): harden provenance audit and coverage` and follow-up `700c15c fix: close local QA regressions`. The remaining strict source-audit debt at that time was subsequently closed by the citable-knowledge-base hardening (PR #62 + follow-ups); see `2026-05-20-citable-knowledge-base-hardening.md` close-out.
+
+Plan is closed.

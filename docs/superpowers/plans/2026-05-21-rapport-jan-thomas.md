@@ -279,3 +279,9 @@ on a white background and sections are not awkwardly clipped.
   file in place and verify in the browser.
 - **Consistency:** the section order, the CSS class names (`finding`, `stat`,
   `src`, `doc`, `wrap`) and the base URL are used identically across tasks.
+
+## 2026-05-25 Close-out
+
+Deliverable shipped: `RAPPORT-JAN-THOMAS-2026-05-21.html` exists in repo root (9.7 KB), gitignored as designed. Spec and plan are the tracked artifacts (commits `9ff9e10`, `ee9c805`).
+
+Plan is closed.
