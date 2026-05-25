@@ -332,8 +332,7 @@ export async function getKonsernIndex(): Promise<KonsernIndexRow[]> {
 
 export type KonsernDossierData = {
   slug: string
-  root: { id: string; name: string; orgNr: string; lastBrregRefreshAt: Date | null }
-  treeIds: string[]
+  root: { id: string; name: string; orgNr: string }
   ownershipType: string | null
   controllingOwner: { name: string; pct: number | null; source: string | null } | null
   metrics: {
@@ -394,9 +393,7 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
       id: rootCompany.id,
       name: rootCompany.name,
       orgNr: rootCompany.orgNr,
-      lastBrregRefreshAt: rootCompany.lastBrregRefreshAt,
     },
-    treeIds,
     ownershipType: rootCompany.ownershipType,
     controllingOwner,
     metrics: {
