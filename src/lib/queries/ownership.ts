@@ -1,6 +1,44 @@
 import { prisma } from '@/lib/db'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
 
+export type KonsernConfig = {
+  slug: string
+  expectsMaActivity: boolean
+}
+
+export const KONSERN_REGISTRY: Record<string, KonsernConfig> = {
+  '819731322': { slug: 'norgesgruppen', expectsMaActivity: true },
+  '914526647': { slug: 'reitan-retail', expectsMaActivity: true },
+  '936560288': { slug: 'coop',          expectsMaActivity: false },
+  '910747711': { slug: 'orkla',         expectsMaActivity: true },
+  '914224314': { slug: 'bama',          expectsMaActivity: false },
+  '929228723': { slug: 'asko',          expectsMaActivity: false },
+  '947942638': { slug: 'tine',          expectsMaActivity: false },
+  '938752648': { slug: 'nortura',       expectsMaActivity: false },
+  '964118191': { slug: 'mowi',          expectsMaActivity: true },
+  '960514718': { slug: 'salmar',        expectsMaActivity: true },
+  '975350940': { slug: 'leroy',         expectsMaActivity: true },
+  '911608103': { slug: 'felleskjopet',  expectsMaActivity: false },
+  '929975200': { slug: 'austevoll',     expectsMaActivity: true },
+  '982254604': { slug: 'rema1000-norge', expectsMaActivity: false },
+}
+
+const SLUG_TO_ORGNR: Record<string, string> = Object.fromEntries(
+  Object.entries(KONSERN_REGISTRY).map(([orgNr, cfg]) => [cfg.slug, orgNr])
+)
+
+export function slugForOrgNr(orgNr: string): string | null {
+  return KONSERN_REGISTRY[orgNr]?.slug ?? null
+}
+
+export function orgNrForSlug(slug: string): string | null {
+  return SLUG_TO_ORGNR[slug] ?? null
+}
+
+export function isKnownKonsernRoot(orgNr: string): boolean {
+  return orgNr in KONSERN_REGISTRY
+}
+
 type OwnershipNode = {
   id: string
   name: string
