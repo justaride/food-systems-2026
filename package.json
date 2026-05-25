@@ -90,6 +90,7 @@
     "audit:circular-leverage": "tsx scripts/audit-circular-leverage.ts",
     "audit:research-artifacts": "tsx scripts/audit-research-artifacts.ts",
     "audit:source-coverage-gaps": "tsx scripts/export-source-coverage-gaps.ts",
+    "audit:academic-source-quality": "tsx scripts/audit-academic-source-quality.ts",
     "db:apply:conditional-shareholder-citations": "tsx scripts/apply-conditional-shareholder-citations.ts",
     "remap-document-paths": "tsx scripts/remap-document-paths.ts",
     "extract-html-to-md": "tsx scripts/extract-html-to-md.ts",
