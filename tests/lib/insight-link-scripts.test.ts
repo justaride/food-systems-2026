@@ -3,13 +3,9 @@ import { readFileSync } from 'node:fs'
 import { describe, it } from 'node:test'
 
 const INSIGHT_LINK_SCRIPTS = [
-  'scripts/apply-insight-doc-links.ts',
-  'scripts/apply-insight-links-v2.ts',
   'scripts/apply-insight-links-v3.ts',
   'scripts/auto-accept-insight-doc-links.ts',
   'scripts/build-insight-doc-link-review.ts',
-  'scripts/curate-insight-doc-links.ts',
-  'scripts/curate-insight-links-v2.ts',
   'scripts/curate-insight-links-v3.ts',
 ]
 
