@@ -3,7 +3,7 @@ import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from '
 import { join, relative, sep } from 'path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
-import { reports as seedReports } from '../src/lib/data/reports'
+import { reports as seedReports } from '../prisma/seed-data/reports'
 import {
   candidateLocalFilePaths,
   normalizeLocalFileLocator,

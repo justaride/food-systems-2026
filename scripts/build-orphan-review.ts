@@ -133,7 +133,7 @@ async function main() {
   lines.push('## Neste steg')
   lines.push('')
   lines.push('1. Gjennomgå hver seksjon, bekreft at klassifiseringen er riktig.')
-  lines.push('2. Legg inn valgte entries i `src/lib/data/reports.ts` eller `theses.ts` (manuell redigering — metadata må hentes eller skrives).')
+  lines.push('2. Legg inn valgte entries i `prisma/seed-data/reports.ts` eller `theses.ts` (manuell redigering — metadata må hentes eller skrives).')
   lines.push('3. Legg til manuell mapping i `research/seed-pdf-map.overrides.json` så audit plukker dem opp.')
   lines.push('4. Re-kjør `node --experimental-strip-types scripts/build-seed-pdf-map.ts` og `scripts/audit-platform-linkage.ts`.')
   lines.push('5. For `pubmed-wave2`: lag et eget wave-2 manifest (`pubmed-wave2-manifest-YYYY-MM-DD.jsonl`) hvis ikke allerede eksisterende.')

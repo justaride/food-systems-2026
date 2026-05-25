@@ -3,17 +3,17 @@ import { Prisma, PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { phases } from '../src/lib/data/phases'
 import { team } from '../src/lib/data/team'
-import { sources } from '../src/lib/data/sources'
+import { sources } from '../prisma/seed-data/sources'
 import { insights } from '../src/lib/data/insights'
-import { theses } from '../src/lib/data/theses'
+import { theses } from '../prisma/seed-data/theses'
 import { applications } from '../src/lib/data/applications'
-import { deliverables } from '../src/lib/data/deliverables'
+import { deliverables } from '../prisma/seed-data/deliverables'
 import { kpis } from '../src/lib/data/kpis'
 import { evidencePack } from '../src/lib/data/evidence-pack'
 import { tenSteps } from '../src/lib/data/ten-step-start'
 import { meetings, type Meeting } from '../src/lib/data/meetings'
 import { communications } from '../src/lib/data/communications'
-import { researchPrompts } from '../src/lib/data/research-prompts'
+import { researchPrompts } from '../prisma/seed-data/research-prompts'
 import {
   mediaThemes,
   mediaTimeline,
@@ -23,10 +23,10 @@ import {
   mediaOutlets,
   mediaEntries,
   mediaEntryCodings,
-} from '../src/lib/data/media-corpus'
+} from '../prisma/seed-data/media-corpus'
 import { countryChartData } from '../src/lib/data/country-chart-data'
-import { sustainabilityCountryMetrics } from '../src/lib/data/sustainability-country-metrics'
-import { reports } from '../src/lib/data/reports'
+import { sustainabilityCountryMetrics } from '../prisma/seed-data/sustainability-country-metrics'
+import { reports } from '../prisma/seed-data/reports'
 import type { ReportSupportingSource } from '../src/lib/types'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })

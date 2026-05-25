@@ -50,9 +50,9 @@ async function parseSeedIds(): Promise<{ theses: Set<string>; reports: Set<strin
     return ids
   }
 
-  const theses = await parseBlock('src/lib/data/theses.ts', 'theses')
-  const reports = await parseBlock('src/lib/data/reports.ts', 'reports')
-  const sources = await parseBlock('src/lib/data/sources.ts', 'sources')
+  const theses = await parseBlock('prisma/seed-data/theses.ts', 'theses')
+  const reports = await parseBlock('prisma/seed-data/reports.ts', 'reports')
+  const sources = await parseBlock('prisma/seed-data/sources.ts', 'sources')
   return { theses, reports, sources }
 }
 

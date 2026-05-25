@@ -25,6 +25,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@seeds/*": [
+        "./prisma/seed-data/*"
       ]
     }
   },

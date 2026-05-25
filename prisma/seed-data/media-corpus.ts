@@ -1,4 +1,4 @@
-import type { SourceRef } from '../types'
+import type { SourceRef } from "@/lib/types"
 
 export type MediaOutletSeed = {
   id: string

@@ -121,7 +121,7 @@ def extract_ts_entries(path: str):
 
 
 # sources.ts
-for eid, body in extract_ts_entries('src/lib/data/sources.ts'):
+for eid, body in extract_ts_entries('prisma/seed-data/sources.ts'):
     url_m = re.search(r"\burl: '([^']+)'", body)
     title_m = re.search(r"\btitle: '([^']+)'", body)
     author_m = re.search(r"\bauthor: '([^']+)'", body)
@@ -134,12 +134,12 @@ for eid, body in extract_ts_entries('src/lib/data/sources.ts'):
             author=author_m.group(1) if author_m else '',
             year=year_m.group(1) if year_m else '',
             doc_type=type_m.group(1) if type_m else '',
-            origin_file='src/lib/data/sources.ts',
+            origin_file='prisma/seed-data/sources.ts',
             origin_id=eid,
         )
 
 # reports.ts
-for eid, body in extract_ts_entries('src/lib/data/reports.ts'):
+for eid, body in extract_ts_entries('prisma/seed-data/reports.ts'):
     url_m = re.search(r"\bsourceUrl: '([^']+)'", body)
     title_m = re.search(r"\btitle: '([^']+)'", body)
     inst_m = re.search(r"\binstitution: '([^']+)'", body)
@@ -154,12 +154,12 @@ for eid, body in extract_ts_entries('src/lib/data/reports.ts'):
             year=year_m.group(1) if year_m else '',
             country=country_m.group(1) if country_m else '',
             doc_type=cat_m.group(1) if cat_m else 'report',
-            origin_file='src/lib/data/reports.ts',
+            origin_file='prisma/seed-data/reports.ts',
             origin_id=eid,
         )
 
 # theses.ts
-for eid, body in extract_ts_entries('src/lib/data/theses.ts'):
+for eid, body in extract_ts_entries('prisma/seed-data/theses.ts'):
     url_m = re.search(r"\burl: '([^']+)'", body)
     title_m = re.search(r"\btitle: '([^']+)'", body)
     authors_m = re.search(r"\bauthors: '([^']+)'", body)
@@ -172,12 +172,12 @@ for eid, body in extract_ts_entries('src/lib/data/theses.ts'):
             author=(authors_m.group(1) if authors_m else '') + (f' / {inst_m.group(1)}' if inst_m else ''),
             year=year_m.group(1) if year_m else '',
             doc_type='thesis',
-            origin_file='src/lib/data/theses.ts',
+            origin_file='prisma/seed-data/theses.ts',
             origin_id=eid,
         )
 
 # actors.ts (Actor.website)
-for eid, body in extract_ts_entries('src/lib/data/actors.ts'):
+for eid, body in extract_ts_entries('prisma/seed-data/actors.ts'):
     url_m = re.search(r"\bwebsite: '([^']+)'", body)
     name_m = re.search(r"\bname: '([^']+)'", body)
     country_m = re.search(r"\bcountry: '([^']+)'", body)
@@ -188,7 +188,7 @@ for eid, body in extract_ts_entries('src/lib/data/actors.ts'):
             title=name_m.group(1) if name_m else '',
             country=country_m.group(1) if country_m else 'NO',
             doc_type=atype_m.group(1) if atype_m else 'actor-website',
-            origin_file='src/lib/data/actors.ts',
+            origin_file='prisma/seed-data/actors.ts',
             origin_id=eid,
         )
 

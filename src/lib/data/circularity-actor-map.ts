@@ -1,4 +1,4 @@
-// Mapping bygget ved å krysse aktørnavn fra public/data/food-systems/circularity-loops.json mot slugs i src/lib/data/actors.ts (case-insensitive, med fallback for parentetiske suffix og konsernvariantter)
+// Mapping bygget ved å krysse aktørnavn fra public/data/food-systems/circularity-loops.json mot slugs i prisma/seed-data/actors.ts (case-insensitive, med fallback for parentetiske suffix og konsernvariantter)
 
 export type CircularityActorLink = {
   type: 'actor' | 'company'

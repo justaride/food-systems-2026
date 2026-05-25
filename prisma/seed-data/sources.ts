@@ -1,4 +1,4 @@
-import type { SourceDoc } from '../types'
+import type { SourceDoc } from "@/lib/types"
 
 export const sources: SourceDoc[] = [
   {

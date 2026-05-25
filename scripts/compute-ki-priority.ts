@@ -1,7 +1,7 @@
 import { writeFileSync } from 'fs'
 import { join } from 'path'
-import { reports } from '../src/lib/data/reports'
-import { theses } from '../src/lib/data/theses'
+import { reports } from '../prisma/seed-data/reports'
+import { theses } from '../prisma/seed-data/theses'
 import type {
   Report,
   Thesis,

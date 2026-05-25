@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { sources } from '../../src/lib/data/sources'
+import { sources } from '../../prisma/seed-data/sources'
 
 describe('source registry data', () => {
   it('keeps high-priority external SourceDocs anchored to direct source URLs', () => {

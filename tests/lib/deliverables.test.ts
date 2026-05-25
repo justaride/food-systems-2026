@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
-import { deliverables } from '../../src/lib/data/deliverables'
+import { deliverables } from '../../prisma/seed-data/deliverables'
 
 describe('deliverables seed data', () => {
   it('covers the Food TG contract deliverables used by db verification', () => {

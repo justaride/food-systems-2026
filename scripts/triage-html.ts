@@ -1,6 +1,6 @@
 import { closeSync, existsSync, openSync, readdirSync, readSync, statSync, writeFileSync } from 'fs'
 import { join, relative, sep } from 'path'
-import { reports as seedReports } from '../src/lib/data/reports'
+import { reports as seedReports } from '../prisma/seed-data/reports'
 
 type Classification =
   | 'error-page'
@@ -450,7 +450,7 @@ function main(): void {
     '',
     `- Lest første ${READ_LIMIT_BYTES / 1024} KB per fil (rask heuristikk).`,
     `- Filer >5 MB utelatt fra parsing: ${skipped.length === 0 ? 'ingen' : skipped.join(', ')}`,
-    `- Krysset mot ${seedRefs.size} HTML-referanser fra \`Report.supportingSources[].documentPath\` i \`src/lib/data/reports.ts\`.`,
+    `- Krysset mot ${seedRefs.size} HTML-referanser fra \`Report.supportingSources[].documentPath\` i \`prisma/seed-data/reports.ts\`.`,
   ]
 
   writeFileSync(join(RESEARCH_DIR, 'HTML-TRIAGE.md'), md.join('\n') + '\n')
