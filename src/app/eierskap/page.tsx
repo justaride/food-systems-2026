@@ -1,7 +1,7 @@
-import { getOwnershipMap } from '@/lib/queries/ownership'
+import { getKonsernIndex } from '@/lib/queries/ownership'
 import { EierskapContent } from './EierskapContent'
 
 export default async function EierskapPage() {
-  const data = await getOwnershipMap()
-  return <EierskapContent data={data} />
+  const konserner = await getKonsernIndex()
+  return <EierskapContent konserner={konserner} />
 }

@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { prisma } from '@/lib/db'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
 
@@ -264,4 +266,81 @@ export async function getCompanyTreeIds(): Promise<Set<string>> {
     select: { parentCompanyId: true, childCompanyId: true },
   })
   return new Set(ownerships.flatMap(o => [o.parentCompanyId, o.childCompanyId]))
+}
+
+type KonsernIndexRow = {
+  slug: string
+  rootCompanyId: string
+  rootName: string
+  qualityScore: number
+  treeSize: number
+  totalRevenue: number | null
+  maEventsCount: number
+  daysSinceBrregRefresh: number | null
+  controllingOwner: { name: string; pct: number | null } | null
+  ownershipType: string | null
+  gaps: string[]
+}
+
+let coverageCache: ReturnType<typeof JSON.parse> | null = null
+function loadCoverage() {
+  if (!coverageCache) {
+    const path = join(process.cwd(), 'data/konsern-coverage.json')
+    coverageCache = JSON.parse(readFileSync(path, 'utf-8'))
+  }
+  return coverageCache
+}
+
+export async function getKonsernIndex(): Promise<KonsernIndexRow[]> {
+  const coverage = loadCoverage()
+  const rows: KonsernIndexRow[] = []
+  for (const entry of coverage.entries) {
+    const treeIds = await gatherTreeIds(entry.rootCompanyId)
+    const currentYear = new Date().getFullYear()
+    const financials = await prisma.companyFinancial.findMany({
+      where: { companyId: { in: treeIds }, year: currentYear - 1 },
+      select: { revenueNok: true, source: true },
+    })
+    const totalRevenue = financials.reduce<number | null>(
+      (acc, f) => {
+        const nok = financialAmountToNok(f.revenueNok, f.source)
+        return nok != null ? (acc ?? 0) + nok : acc
+      },
+      null,
+    )
+    rows.push({
+      slug: entry.slug,
+      rootCompanyId: entry.rootCompanyId,
+      rootName: entry.rootName,
+      qualityScore: entry.qualityScore,
+      treeSize: entry.metrics.treeSize,
+      totalRevenue,
+      maEventsCount: entry.metrics.maEventCount,
+      daysSinceBrregRefresh: entry.metrics.daysSinceBrregRefresh,
+      controllingOwner: entry.controllingOwner ? {
+        name: entry.controllingOwner.name,
+        pct: entry.controllingOwner.pct != null ? parseFloat(entry.controllingOwner.pct) : null,
+      } : null,
+      ownershipType: entry.ownershipType,
+      gaps: entry.gaps,
+    })
+  }
+  return rows.sort((a, b) => a.qualityScore - b.qualityScore)
+}
+
+async function gatherTreeIds(rootId: string): Promise<string[]> {
+  const ids = new Set<string>([rootId])
+  let frontier = [rootId]
+  while (frontier.length > 0) {
+    const children = await prisma.companyOwnership.findMany({
+      where: { parentCompanyId: { in: frontier } },
+      select: { childCompanyId: true },
+    })
+    const nextFrontier: string[] = []
+    for (const c of children) {
+      if (!ids.has(c.childCompanyId)) { ids.add(c.childCompanyId); nextFrontier.push(c.childCompanyId) }
+    }
+    frontier = nextFrontier
+  }
+  return [...ids]
 }

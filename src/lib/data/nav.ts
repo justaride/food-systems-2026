@@ -16,7 +16,7 @@ export const navGroups: NavGroup[] = [
   ]},
   { label: 'Selskap & eierskap', items: [
     { name: 'Selskaper', href: '/selskap', description: 'Selskapsdata og regnskap' },
-    { name: 'Eierskap', href: '/eierskap', description: 'Konsernstrukturer og eiertrær' },
+    { name: 'Eierskap', href: '/eierskap', description: 'Konserndossier og datakvalitet' },
     { name: 'Styremedlemmer', href: '/styremedlemmer', description: 'Krysstyrer og nettverk' },
     { name: 'Personer', href: '/personer', description: 'Nøkkelpersoner og roller' },
     { name: 'Eiendommer', href: '/eiendommer', description: 'Selskapseiendommer og lokaler' },
