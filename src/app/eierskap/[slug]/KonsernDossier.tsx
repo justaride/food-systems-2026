@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import type { KonsernDossierData, MaEvent } from '@/lib/queries/ownership'
-import type { KonsernFinancialsAggregate, KonsernBoardMember } from '@/lib/queries/konsern'
+import type { KonsernFinancialsAggregate, KonsernBoardMember, KonsernSubsidies, KonsernProperties, KonsernRelationships } from '@/lib/queries/konsern'
 import { OwnershipTreeDiagram } from '@/components/charts/OwnershipTreeDiagram'
 
 const OWNERSHIP_TYPE_LABEL: Record<string, string> = {
@@ -270,6 +270,363 @@ function Section5Board({ board }: { board: KonsernBoardMember[] }) {
   )
 }
 
+// ─── Section 6 helpers ────────────────────────────────────────────────────────
+
+function fmtMnokSubsidy(nok: number): string {
+  const mnok = nok / 1_000_000
+  if (Math.abs(mnok) >= 1_000) return `${(mnok / 1_000).toFixed(1)} mrd`
+  if (Math.abs(mnok) >= 1) return `${mnok.toFixed(1)} MNOK`
+  return `${Math.round(nok / 1_000)} kNOK`
+}
+
+function Section6Subsidies({ subsidies, slug }: { subsidies: KonsernSubsidies; slug: string }) {
+  if (subsidies.rowCount === 0) {
+    return (
+      <div>
+        <h2 className="text-lg font-semibold text-stone-900 mb-3">Tilskudd inn</h2>
+        <p className="text-sm text-stone-400 italic">Ingen tilskudd registrert</p>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <h2 className="text-lg font-semibold text-stone-900 mb-3">Tilskudd inn</h2>
+      <div className="space-y-5">
+        {/* Per-year table */}
+        {subsidies.perYear.length > 0 && (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-stone-200 rounded-lg overflow-hidden">
+              <thead className="bg-stone-50 border-b border-stone-200 text-xs text-stone-600">
+                <tr>
+                  <th className="text-left px-3 py-2">År</th>
+                  <th className="text-right px-3 py-2">Total tilskudd</th>
+                </tr>
+              </thead>
+              <tbody>
+                {subsidies.perYear.map(row => (
+                  <tr key={row.year} className="border-b border-stone-100 hover:bg-stone-50">
+                    <td className="px-3 py-2 tabular-nums font-medium text-stone-700">{row.year}</td>
+                    <td className="px-3 py-2 tabular-nums text-right text-stone-700">{fmtMnokSubsidy(row.totalNok)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          {/* Top schemes */}
+          {subsidies.topSchemes.length > 0 && (
+            <div>
+              <h3 className="text-sm font-semibold text-stone-700 mb-2">Topp 5 ordninger</h3>
+              <ol className="space-y-1">
+                {subsidies.topSchemes.map((s, i) => (
+                  <li key={s.scheme} className="flex items-center gap-2 text-sm">
+                    <span className="text-xs text-stone-400 tabular-nums w-4">{i + 1}.</span>
+                    <span className="flex-1 truncate text-stone-700">{s.scheme}</span>
+                    <span className="text-stone-500 tabular-nums text-xs shrink-0">
+                      {fmtMnokSubsidy(s.totalNok)} ({s.count})
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+
+          {/* Top recipients */}
+          {subsidies.topRecipients.length > 0 && (
+            <div>
+              <h3 className="text-sm font-semibold text-stone-700 mb-2">Topp 5 mottakerselskap</h3>
+              <ol className="space-y-1">
+                {subsidies.topRecipients.map((r, i) => (
+                  <li key={r.companyId} className="flex items-center gap-2 text-sm">
+                    <span className="text-xs text-stone-400 tabular-nums w-4">{i + 1}.</span>
+                    <Link
+                      href={`/selskap/${r.companyId}`}
+                      className="text-emerald-700 hover:underline flex-1 truncate"
+                    >
+                      {r.companyName}
+                    </Link>
+                    <span className="text-stone-500 tabular-nums text-xs shrink-0">
+                      {fmtMnokSubsidy(r.totalNok)}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span className="text-sm text-stone-500">Total registrert: {fmtMnokSubsidy(subsidies.totalNok)}</span>
+          <Link
+            href={`/subsidier?konsern=${slug}`}
+            className="text-xs text-emerald-700 hover:underline ml-auto"
+          >
+            Se alle tilskudd &rarr;
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ─── Section 7 helpers ────────────────────────────────────────────────────────
+
+function fmtArea(sqm: number | null): string {
+  if (sqm === null) return '—'
+  if (sqm >= 10_000) return `${Math.round(sqm / 1_000)} 000 m²`
+  return `${sqm.toLocaleString('no-NO')} m²`
+}
+
+function Section7Properties({ properties, slug }: { properties: KonsernProperties; slug: string }) {
+  if (properties.totalCount === 0) {
+    return (
+      <div>
+        <h2 className="text-lg font-semibold text-stone-900 mb-3">Eiendommer</h2>
+        <p className="text-sm text-stone-400 italic">Ingen eiendommer registrert</p>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <h2 className="text-lg font-semibold text-stone-900 mb-3">Eiendommer</h2>
+      <div className="space-y-4">
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border border-stone-200 rounded-lg overflow-hidden">
+            <thead className="bg-stone-50 border-b border-stone-200 text-xs text-stone-600">
+              <tr>
+                <th className="text-left px-3 py-2">Kommune</th>
+                <th className="text-right px-3 py-2">Antall</th>
+                <th className="text-right px-3 py-2">m²</th>
+                <th className="text-left px-3 py-2">Typer</th>
+              </tr>
+            </thead>
+            <tbody>
+              {properties.perMunicipality.map(row => (
+                <tr key={row.municipality} className="border-b border-stone-100 hover:bg-stone-50">
+                  <td className="px-3 py-2 text-stone-700">{row.municipality}</td>
+                  <td className="px-3 py-2 tabular-nums text-right text-stone-700">{row.count}</td>
+                  <td className="px-3 py-2 tabular-nums text-right text-stone-500">{fmtArea(row.areaSqm)}</td>
+                  <td className="px-3 py-2 text-stone-400 text-xs">{row.types.join(', ') || '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="flex items-center">
+          <span className="text-sm text-stone-500">
+            Totalt {properties.totalCount} eiendommer
+            {properties.totalAreaSqm != null && ` · ${fmtArea(properties.totalAreaSqm)}`}
+          </span>
+          <Link
+            href={`/eiendommer?konsern=${slug}`}
+            className="text-xs text-emerald-700 hover:underline ml-auto"
+          >
+            Se på kart &rarr;
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ─── Section 8 helpers ────────────────────────────────────────────────────────
+
+const RELATIONSHIP_TYPE_LABEL: Record<string, string> = {
+  supplier:     'Leverandør',
+  buyer:        'Kjøper',
+  distributor:  'Distributør',
+  franchisor:   'Franchisor',
+  'self-dealing': 'Intern handel',
+  'joint-venture': 'Joint venture',
+}
+
+function RelationshipList({
+  items,
+  direction,
+}: {
+  items: Array<{ counterpartyName: string; counterpartyId: string | null; relationshipType: string; description: string | null }>
+  direction: 'outgoing' | 'incoming'
+}) {
+  if (items.length === 0) return <p className="text-sm text-stone-400 italic">Ingen</p>
+  return (
+    <ul className="space-y-2">
+      {items.map((rel, i) => (
+        <li key={i} className="flex flex-col gap-0.5 px-3 py-2 bg-stone-50 border border-stone-100 rounded-lg text-sm">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className={`text-xs px-1.5 py-0.5 rounded border ${
+              direction === 'outgoing'
+                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                : 'bg-blue-50 text-blue-700 border-blue-200'
+            }`}>
+              {RELATIONSHIP_TYPE_LABEL[rel.relationshipType] ?? rel.relationshipType}
+            </span>
+            {rel.counterpartyId ? (
+              <Link
+                href={`/selskap/${rel.counterpartyId}`}
+                className="font-medium text-emerald-700 hover:underline"
+              >
+                {rel.counterpartyName}
+              </Link>
+            ) : (
+              <span className="font-medium text-stone-800">{rel.counterpartyName}</span>
+            )}
+          </div>
+          {rel.description && (
+            <p className="text-stone-500 text-xs">{rel.description}</p>
+          )}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+function Section8Relationships({ relationships }: { relationships: KonsernRelationships }) {
+  const { outgoingExternal, incomingExternal, intraKonsern } = relationships
+  const hasAny = outgoingExternal.length > 0 || incomingExternal.length > 0 || intraKonsern.length > 0
+
+  if (!hasAny) {
+    return (
+      <div>
+        <h2 className="text-lg font-semibold text-stone-900 mb-3">Forretningsrelasjoner</h2>
+        <p className="text-sm text-stone-400 italic">Ingen forretningsrelasjoner registrert</p>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <h2 className="text-lg font-semibold text-stone-900 mb-3">Forretningsrelasjoner</h2>
+      <div className="space-y-5">
+        {/* Outgoing */}
+        <div>
+          <h3 className="text-sm font-semibold text-stone-700 mb-2">
+            Utgående til eksterne aktører ({outgoingExternal.length})
+          </h3>
+          <RelationshipList items={outgoingExternal} direction="outgoing" />
+        </div>
+
+        {/* Incoming */}
+        <div>
+          <h3 className="text-sm font-semibold text-stone-700 mb-2">
+            Innkommende fra eksterne ({incomingExternal.length})
+          </h3>
+          <RelationshipList items={incomingExternal} direction="incoming" />
+        </div>
+
+        {/* Intra-konsern — market power relevant */}
+        <div>
+          <h3 className="text-sm font-semibold text-stone-700 mb-2 flex items-center gap-2">
+            Innenfor konsernet ({intraKonsern.length})
+            {intraKonsern.length > 0 && (
+              <span className="text-xs px-1.5 py-0.5 rounded border bg-rose-50 text-rose-700 border-rose-200">
+                markedsmakt-relevant
+              </span>
+            )}
+          </h3>
+          {intraKonsern.length === 0 ? (
+            <p className="text-sm text-stone-400 italic">Ingen</p>
+          ) : (
+            <ul className="space-y-2">
+              {intraKonsern.map((rel, i) => (
+                <li key={i} className="flex flex-col gap-0.5 px-3 py-2 bg-rose-50 border border-rose-100 rounded-lg text-sm">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-xs px-1.5 py-0.5 rounded border bg-rose-100 text-rose-700 border-rose-200">
+                      {RELATIONSHIP_TYPE_LABEL[rel.relationshipType] ?? rel.relationshipType}
+                    </span>
+                    <span className="text-stone-700">
+                      <span className="font-medium">{rel.fromCompanyName}</span>
+                      <span className="text-stone-400 mx-1">&rarr;</span>
+                      <span className="font-medium">{rel.toCompanyName}</span>
+                    </span>
+                  </div>
+                  {rel.description && (
+                    <p className="text-rose-600 text-xs">{rel.description}</p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ─── Section 9 helpers ────────────────────────────────────────────────────────
+
+function scoreColor(score: number): string {
+  if (score <= 4) return 'bg-rose-100 text-rose-800 border-rose-200'
+  if (score <= 7) return 'bg-amber-100 text-amber-800 border-amber-200'
+  return 'bg-emerald-100 text-emerald-800 border-emerald-200'
+}
+
+type CoverageData = {
+  qualityScore: number
+  gaps: string[]
+  metrics: unknown
+}
+
+function Section9DataQuality({ coverage }: { coverage: CoverageData }) {
+  const { qualityScore, gaps } = coverage
+
+  return (
+    <div>
+      <div className="flex items-center gap-3 mb-3">
+        <h2 className="text-lg font-semibold text-stone-900">Datakvalitet</h2>
+        <span className={`inline-block text-sm font-bold px-2.5 py-0.5 rounded border ${scoreColor(qualityScore)}`}>
+          {qualityScore} / 10
+        </span>
+      </div>
+
+      <div className="space-y-5">
+        {/* Checklist / gaps */}
+        <div>
+          <h3 className="text-sm font-semibold text-stone-700 mb-2">Sjekkliste</h3>
+          {gaps.length === 0 ? (
+            <div className="flex items-center gap-2 text-sm text-emerald-700">
+              <span className="text-emerald-500">&#10003;</span>
+              Ingen kjente datakvalitet-gap
+            </div>
+          ) : (
+            <ul className="space-y-1">
+              {gaps.map((gap, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-stone-700">
+                  <span className="text-rose-500 mt-0.5 shrink-0">&#9679;</span>
+                  {gap}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        {/* Static enrichment sources */}
+        <div>
+          <h3 className="text-sm font-semibold text-stone-700 mb-2">Foreslåtte berikelseskilder</h3>
+          <ul className="space-y-2">
+            <li className="flex flex-col gap-0.5 px-3 py-2 bg-stone-50 border border-stone-100 rounded-lg">
+              <span className="text-sm font-medium text-stone-800">Aksjonærregisteret (Skatteetaten)</span>
+              <span className="text-xs text-stone-500">Komplett aksjonærliste med eierandeler og historikk</span>
+            </li>
+            <li className="flex flex-col gap-0.5 px-3 py-2 bg-stone-50 border border-stone-100 rounded-lg">
+              <span className="text-sm font-medium text-stone-800">Nordiske eierregistre</span>
+              <span className="text-xs text-stone-500">Bolagsverket (SE), CVR (DK), PRH (FI) — for grensekryssende strukturer</span>
+            </li>
+            <li className="flex flex-col gap-0.5 px-3 py-2 bg-stone-50 border border-stone-100 rounded-lg">
+              <span className="text-sm font-medium text-stone-800">Brreg Roller-API</span>
+              <span className="text-xs text-stone-500">Automatisert styre-import med rollehistorikk og endringssporing</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 type StatBoxProps = {
   label: string
   value: string
@@ -339,7 +696,7 @@ type Props = {
 }
 
 export function KonsernDossier({ dossier }: Props) {
-  const { root, ownershipType, controllingOwner, metrics, tree, maEvents, financials, board } = dossier
+  const { root, ownershipType, controllingOwner, metrics, tree, maEvents, financials, board, subsidies, properties, relationships } = dossier
   const [treeView, setTreeView] = useState<'diagram' | 'table'>('diagram')
 
   const ownershipLabel = ownershipType
@@ -512,7 +869,17 @@ export function KonsernDossier({ dossier }: Props) {
       {/* Section 5: Styre & interlocks */}
       <Section5Board board={board} />
 
-      {/* Sections 6-9 will be added by Tasks 8-9 */}
+      {/* Section 6: Tilskudd inn */}
+      <Section6Subsidies subsidies={subsidies} slug={dossier.slug} />
+
+      {/* Section 7: Eiendommer */}
+      <Section7Properties properties={properties} slug={dossier.slug} />
+
+      {/* Section 8: Forretningsrelasjoner */}
+      <Section8Relationships relationships={relationships} />
+
+      {/* Section 9: Datakvalitet */}
+      <Section9DataQuality coverage={dossier.coverage} />
     </div>
   )
 }

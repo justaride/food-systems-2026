@@ -1,6 +1,234 @@
 import { prisma } from '@/lib/db'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
 
+// ─── Section 6: Tilskudd inn ──────────────────────────────────────────────────
+
+export type KonsernSubsidies = {
+  perYear: Array<{ year: number; totalNok: number }>   // last 5 years
+  topSchemes: Array<{ scheme: string; totalNok: number; count: number }>  // top 5
+  topRecipients: Array<{ companyId: string; companyName: string; totalNok: number }>  // top 5
+  totalNok: number
+  rowCount: number
+}
+
+export async function getKonsernSubsidies(treeIds: string[]): Promise<KonsernSubsidies> {
+  if (treeIds.length === 0) {
+    return { perYear: [], topSchemes: [], topRecipients: [], totalNok: 0, rowCount: 0 }
+  }
+
+  const subsidies = await prisma.subsidy.findMany({
+    where: { companyId: { in: treeIds } },
+    select: { companyId: true, scheme: true, subsidyType: true, amountNok: true, year: true },
+  })
+
+  if (subsidies.length === 0) {
+    return { perYear: [], topSchemes: [], topRecipients: [], totalNok: 0, rowCount: 0 }
+  }
+
+  const currentYear = new Date().getFullYear()
+  const latestYear = currentYear - 1
+  const earliestYear = latestYear - 4
+
+  // Per-year aggregation (last 5 years)
+  const yearMap = new Map<number, number>()
+  for (const s of subsidies) {
+    if (s.year == null) continue
+    if (s.year < earliestYear || s.year > latestYear) continue
+    const amt = s.amountNok != null ? Number(s.amountNok) : 0
+    yearMap.set(s.year, (yearMap.get(s.year) ?? 0) + amt)
+  }
+  const perYear = Array.from(yearMap.entries())
+    .map(([year, totalNok]) => ({ year, totalNok }))
+    .sort((a, b) => b.year - a.year)
+
+  // Top schemes
+  const schemeMap = new Map<string, { totalNok: number; count: number }>()
+  for (const s of subsidies) {
+    const key = s.scheme ?? s.subsidyType ?? 'Ukjent'
+    const amt = s.amountNok != null ? Number(s.amountNok) : 0
+    const existing = schemeMap.get(key) ?? { totalNok: 0, count: 0 }
+    schemeMap.set(key, { totalNok: existing.totalNok + amt, count: existing.count + 1 })
+  }
+  const topSchemes = Array.from(schemeMap.entries())
+    .map(([scheme, { totalNok, count }]) => ({ scheme, totalNok, count }))
+    .sort((a, b) => b.totalNok - a.totalNok)
+    .slice(0, 5)
+
+  // Top recipients
+  const recipientMap = new Map<string, number>()
+  for (const s of subsidies) {
+    if (!s.companyId) continue
+    const amt = s.amountNok != null ? Number(s.amountNok) : 0
+    recipientMap.set(s.companyId, (recipientMap.get(s.companyId) ?? 0) + amt)
+  }
+
+  const companyIds = Array.from(recipientMap.keys())
+  const companies = companyIds.length > 0
+    ? await prisma.company.findMany({
+        where: { id: { in: companyIds } },
+        select: { id: true, name: true },
+      })
+    : []
+  const companyNameById = new Map(companies.map(c => [c.id, c.name]))
+
+  const topRecipients = Array.from(recipientMap.entries())
+    .map(([companyId, totalNok]) => ({
+      companyId,
+      companyName: companyNameById.get(companyId) ?? companyId,
+      totalNok,
+    }))
+    .sort((a, b) => b.totalNok - a.totalNok)
+    .slice(0, 5)
+
+  const totalNok = subsidies.reduce((sum, s) => sum + (s.amountNok != null ? Number(s.amountNok) : 0), 0)
+
+  return { perYear, topSchemes, topRecipients, totalNok, rowCount: subsidies.length }
+}
+
+// ─── Section 7: Eiendommer ────────────────────────────────────────────────────
+
+export type KonsernProperties = {
+  totalCount: number
+  totalAreaSqm: number | null
+  perMunicipality: Array<{
+    municipality: string
+    count: number
+    areaSqm: number | null
+    types: string[]
+  }>
+}
+
+export async function getKonsernProperties(treeIds: string[]): Promise<KonsernProperties> {
+  if (treeIds.length === 0) {
+    return { totalCount: 0, totalAreaSqm: null, perMunicipality: [] }
+  }
+
+  const properties = await prisma.companyProperty.findMany({
+    where: { companyId: { in: treeIds } },
+    select: { municipality: true, propertyType: true, sqMeters: true },
+  })
+
+  if (properties.length === 0) {
+    return { totalCount: 0, totalAreaSqm: null, perMunicipality: [] }
+  }
+
+  // Group by municipality (case-insensitive normalisation)
+  const municipalityMap = new Map<string, { count: number; areaSqm: number | null; types: Set<string>; rawKey: string }>()
+  for (const p of properties) {
+    const rawKey = p.municipality?.trim() ?? 'Ukjent'
+    const normKey = rawKey.toLowerCase()
+    const existing = municipalityMap.get(normKey)
+    if (existing) {
+      existing.count += 1
+      if (p.sqMeters != null) {
+        existing.areaSqm = (existing.areaSqm ?? 0) + p.sqMeters
+      }
+      if (p.propertyType) existing.types.add(p.propertyType)
+    } else {
+      municipalityMap.set(normKey, {
+        rawKey,
+        count: 1,
+        areaSqm: p.sqMeters != null ? p.sqMeters : null,
+        types: new Set(p.propertyType ? [p.propertyType] : []),
+      })
+    }
+  }
+
+  const perMunicipality = Array.from(municipalityMap.values())
+    .map(({ rawKey, count, areaSqm, types }) => ({
+      municipality: rawKey,
+      count,
+      areaSqm,
+      types: Array.from(types),
+    }))
+    .sort((a, b) => b.count - a.count)
+
+  const totalAreaSqm = properties.reduce<number | null>((sum, p) => {
+    if (p.sqMeters == null) return sum
+    return (sum ?? 0) + p.sqMeters
+  }, null)
+
+  return { totalCount: properties.length, totalAreaSqm, perMunicipality }
+}
+
+// ─── Section 8: Forretningsrelasjoner ────────────────────────────────────────
+
+export type KonsernRelationships = {
+  outgoingExternal: Array<{
+    counterpartyName: string
+    counterpartyId: string | null
+    relationshipType: string
+    description: string | null
+  }>
+  incomingExternal: Array<{
+    counterpartyName: string
+    counterpartyId: string | null
+    relationshipType: string
+    description: string | null
+  }>
+  intraKonsern: Array<{
+    fromCompanyName: string
+    toCompanyName: string
+    relationshipType: string
+    description: string | null
+  }>
+}
+
+export async function getKonsernRelationships(treeIds: string[]): Promise<KonsernRelationships> {
+  if (treeIds.length === 0) {
+    return { outgoingExternal: [], incomingExternal: [], intraKonsern: [] }
+  }
+
+  const treeIdSet = new Set(treeIds)
+
+  const relationships = await prisma.businessRelationship.findMany({
+    where: {
+      OR: [
+        { fromCompanyId: { in: treeIds } },
+        { toCompanyId: { in: treeIds } },
+      ],
+    },
+    include: {
+      fromCompany: { select: { name: true } },
+      toCompany: { select: { name: true } },
+    },
+  })
+
+  const outgoingExternal: KonsernRelationships['outgoingExternal'] = []
+  const incomingExternal: KonsernRelationships['incomingExternal'] = []
+  const intraKonsern: KonsernRelationships['intraKonsern'] = []
+
+  for (const rel of relationships) {
+    const fromInTree = treeIdSet.has(rel.fromCompanyId)
+    const toInTree = treeIdSet.has(rel.toCompanyId)
+
+    if (fromInTree && toInTree) {
+      intraKonsern.push({
+        fromCompanyName: rel.fromCompany.name,
+        toCompanyName: rel.toCompany.name,
+        relationshipType: rel.relationshipType,
+        description: rel.description,
+      })
+    } else if (fromInTree && !toInTree) {
+      outgoingExternal.push({
+        counterpartyName: rel.toCompany.name,
+        counterpartyId: rel.toCompanyId,
+        relationshipType: rel.relationshipType,
+        description: rel.description,
+      })
+    } else if (!fromInTree && toInTree) {
+      incomingExternal.push({
+        counterpartyName: rel.fromCompany.name,
+        counterpartyId: rel.fromCompanyId,
+        relationshipType: rel.relationshipType,
+        description: rel.description,
+      })
+    }
+  }
+
+  return { outgoingExternal, incomingExternal, intraKonsern }
+}
+
 // ─── Section 4: Aggregert økonomi ────────────────────────────────────────────
 
 export type KonsernFinancialsAggregate = {

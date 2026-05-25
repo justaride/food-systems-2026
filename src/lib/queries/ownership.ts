@@ -2,8 +2,8 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { prisma } from '@/lib/db'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
-import type { KonsernFinancialsAggregate, KonsernBoardMember } from '@/lib/queries/konsern'
-import { getKonsernFinancials, getKonsernBoard } from '@/lib/queries/konsern'
+import type { KonsernFinancialsAggregate, KonsernBoardMember, KonsernSubsidies, KonsernProperties, KonsernRelationships } from '@/lib/queries/konsern'
+import { getKonsernFinancials, getKonsernBoard, getKonsernSubsidies, getKonsernProperties, getKonsernRelationships } from '@/lib/queries/konsern'
 
 export type KonsernConfig = {
   slug: string
@@ -362,6 +362,9 @@ export type KonsernDossierData = {
   maEvents: MaEvent[]
   financials: KonsernFinancialsAggregate
   board: KonsernBoardMember[]
+  subsidies: KonsernSubsidies
+  properties: KonsernProperties
+  relationships: KonsernRelationships
 }
 
 export async function getKonsernDossier(slug: string): Promise<KonsernDossierData | null> {
@@ -381,8 +384,8 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
   const treeIds = await gatherTreeIds(rootCompany.id)
   const currentYear = new Date().getFullYear()
 
-  // Fetch financials, ownerships, and section 4-5 data in parallel
-  const [financials, ownerships, treeCompanies, konsernFinancials, konsernBoard] = await Promise.all([
+  // Fetch financials, ownerships, and section 4-8 data in parallel
+  const [financials, ownerships, treeCompanies, konsernFinancials, konsernBoard, konsernSubsidies, konsernProperties, konsernRelationships] = await Promise.all([
     prisma.companyFinancial.findMany({
       where: { companyId: { in: treeIds }, year: currentYear - 1 },
       select: { companyId: true, revenueNok: true, source: true, groupEmployees: true, operatingResult: true, operatingMargin: true, year: true },
@@ -408,6 +411,9 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
     }),
     getKonsernFinancials(treeIds),
     getKonsernBoard(treeIds),
+    getKonsernSubsidies(treeIds),
+    getKonsernProperties(treeIds),
+    getKonsernRelationships(treeIds),
   ])
 
   const totalRevenue = financials.reduce<number | null>((acc, f) => {
@@ -545,6 +551,9 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
     maEvents,
     financials: konsernFinancials,
     board: konsernBoard,
+    subsidies: konsernSubsidies,
+    properties: konsernProperties,
+    relationships: konsernRelationships,
   }
 }
 
