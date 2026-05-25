@@ -9,6 +9,7 @@ import { Citation } from '@/components/citations/Citation'
 import { RLadderMatrix } from '@/components/charts/RLadderMatrix'
 import { RLadderMaturityOverview } from '@/components/charts/RLadderMaturityOverview'
 import { R9KpiCatalog } from '@/components/charts/R9KpiCatalog'
+import { EffektTab } from '@/components/charts/EffektTab'
 import { circularityQuestions, type CircularityQuestion, type QuestionStatus } from '@/lib/data/circularity-questions'
 import { CIRCULARITY_ACTOR_MAP } from '@/lib/data/circularity-actor-map'
 import { rLadderById } from '@/lib/data/r-ladder'
@@ -112,7 +113,7 @@ const COUNTRY_FLAGS: Record<string, string> = {
   nordic: 'Norden',
 }
 
-type Tab = 'matrix' | 'maturity' | 'kpi' | 'questions' | 'loops' | 'gaps' | 'actors' | 'naeringsflyt'
+type Tab = 'matrix' | 'effekt' | 'maturity' | 'kpi' | 'questions' | 'loops' | 'gaps' | 'actors' | 'naeringsflyt'
 
 const QUESTION_STATUS_LABEL: Record<QuestionStatus, string> = {
   open: 'apen',
@@ -139,6 +140,7 @@ export function SirkularitetContent() {
   const [tab, setTab] = useState<Tab>('matrix')
   const [themeFilter, setThemeFilter] = useState<string | null>(null)
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
+  const [pendingScrollId, setPendingScrollId] = useState<string | null>(null)
 
   useEffect(() => {
     fetch('/data/food-systems/circularity-loops.json')
@@ -147,6 +149,16 @@ export function SirkularitetContent() {
       .catch(() => setData(null))
   }, [])
 
+  useEffect(() => {
+    if (!pendingScrollId) return
+    const handle = requestAnimationFrame(() => {
+      const el = document.getElementById(pendingScrollId)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      setPendingScrollId(null)
+    })
+    return () => cancelAnimationFrame(handle)
+  }, [pendingScrollId, tab])
+
   const toggle = (id: string) => {
     setExpandedIds((prev) => {
       const next = new Set(prev)
@@ -154,6 +166,24 @@ export function SirkularitetContent() {
       else next.add(id)
       return next
     })
+  }
+
+  const navigateToRelatedItem = (targetTab: Tab, itemId: string) => {
+    // Gap IDs already include `gap-` prefix in the data file; loops do not.
+    let domId: string
+    if (targetTab === 'loops') domId = `loop-${itemId}`
+    else domId = itemId
+    setTab(targetTab)
+    setExpandedIds((prev) => {
+      const next = new Set(prev)
+      next.add(itemId)
+      if (targetTab === 'actors') {
+        next.add(`s-${itemId}`)
+        next.add(`f-${itemId}`)
+      }
+      return next
+    })
+    if (targetTab !== 'actors') setPendingScrollId(domId)
   }
 
   const matrixItems = useMemo(() => {
@@ -244,7 +274,7 @@ export function SirkularitetContent() {
       <NordicCircularityBenchmark />
 
       <div className="flex gap-2 flex-wrap">
-        {(['matrix', 'maturity', 'kpi', 'questions', 'loops', 'gaps', 'actors', 'naeringsflyt'] as Tab[]).map((t) => (
+        {(['matrix', 'effekt', 'maturity', 'kpi', 'questions', 'loops', 'gaps', 'actors', 'naeringsflyt'] as Tab[]).map((t) => (
           <button
             key={t}
             type="button"
@@ -256,6 +286,7 @@ export function SirkularitetContent() {
             }`}
           >
             {t === 'matrix' && `R-stige x verdikjede`}
+            {t === 'effekt' && `Effekt (10)`}
             {t === 'maturity' && `R-stige modenhet`}
             {t === 'kpi' && `KPI-katalog`}
             {t === 'questions' && `10 sirkularitetsspormal (${circularityQuestions.length})`}
@@ -279,6 +310,14 @@ export function SirkularitetContent() {
           </Card>
           <RLadderMatrix items={matrixItems} />
         </div>
+      )}
+
+      {tab === 'effekt' && (
+        <EffektTab
+          expandedIds={expandedIds}
+          onToggleRow={toggle}
+          onNavigateToTab={(t, id) => navigateToRelatedItem(t as Tab, id)}
+        />
       )}
 
       {tab === 'maturity' && <RLadderMaturityOverview />}
@@ -462,7 +501,7 @@ export function SirkularitetContent() {
             <EmptyState message="Ingen looper for dette temaet" />
           ) : (
             filteredLoops.map((loop) => (
-              <Card key={loop.id} className="!p-0">
+              <Card key={loop.id} id={`loop-${loop.id}`} className="!p-0">
                 <button
                   type="button"
                   className="w-full text-left px-4 py-3 flex items-start gap-3"
@@ -566,7 +605,7 @@ export function SirkularitetContent() {
             <EmptyState message="Ingen gap for dette temaet" />
           ) : (
             filteredGaps.map((gap) => (
-              <Card key={gap.id} className="!p-0">
+              <Card key={gap.id} id={gap.id} className="!p-0">
                 <button
                   type="button"
                   className="w-full text-left px-4 py-3 flex items-start gap-3"
