@@ -87,9 +87,13 @@ function formatMnok(nok: number) {
 export function EiendommerContent({
   properties,
   propertyCompanies,
+  konsernFilter,
+  konsernNotFound,
 }: {
   properties: PropertyRow[]
   propertyCompanies: PropertyCompanyRow[]
+  konsernFilter?: { slug: string; name: string } | null
+  konsernNotFound?: boolean
 }) {
   const [typeFilter, setTypeFilter] = useState('alle')
   const [companyFilter, setCompanyFilter] = useState('alle')
@@ -146,6 +150,25 @@ export function EiendommerContent({
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
+      {konsernNotFound && (
+        <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          Ukjent konsern — viser alle eiendommer.
+        </div>
+      )}
+      {konsernFilter && (
+        <div className="flex items-center gap-3 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm text-emerald-900">
+          <span>
+            Filtrert på konsern:{' '}
+            <strong>{konsernFilter.name}</strong>
+          </span>
+          <Link
+            href="/eiendommer"
+            className="ml-auto shrink-0 rounded border border-emerald-300 bg-white px-2 py-0.5 text-xs font-medium text-emerald-700 hover:bg-emerald-100"
+          >
+            Fjern filter ×
+          </Link>
+        </div>
+      )}
       <section className="space-y-6">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
           <div className="max-w-3xl">

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { getCompanyById } from '@/lib/queries/companies'
-import { getCompanyTreeIds } from '@/lib/queries/ownership'
+import { getCompanyTreeIds, resolveKonsernRootOrgNr, KONSERN_REGISTRY } from '@/lib/queries/ownership'
 import { getPersonKeysWithProfiles } from '@/lib/queries/persons'
 import { getInterlockSummaryForCompany } from '@/lib/queries/interlocks'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
@@ -60,11 +60,12 @@ function companyCitation(args: {
 
 export default async function SelskapPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const [company, treeIds, profileKeys, interlockSummary] = await Promise.all([
+  const [company, treeIds, profileKeys, interlockSummary, konsernRootOrgNr] = await Promise.all([
     getCompanyById(id),
     getCompanyTreeIds(),
     getPersonKeysWithProfiles(),
     getInterlockSummaryForCompany(id),
+    resolveKonsernRootOrgNr(id),
   ])
   if (!company) return notFound()
   const memberScoreByKey = new Map(
@@ -72,6 +73,9 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
   )
   const interlockingMemberCount = interlockSummary.interlockingMembers
   const isInTree = treeIds.has(company.id)
+
+  // Determine if this company belongs to a tracked konsern
+  const konsernSlug = konsernRootOrgNr ? (KONSERN_REGISTRY[konsernRootOrgNr]?.slug ?? null) : null
 
   const latestFinancial = company.financials[0]
   const latestRevenueNok = financialAmountToNok(latestFinancial?.revenueNok, latestFinancial?.source)
@@ -98,9 +102,9 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
         {company.naceDescription && (
           <p className="text-sm text-stone-500 mt-2">{company.naceDescription}</p>
         )}
-        {isInTree && (
-          <Link href="/eierskap" className="inline-flex items-center gap-1 text-sm text-emerald-700 hover:underline mt-2">
-            Se eierskapstre &rarr;
+        {konsernSlug && (
+          <Link href={`/eierskap/${konsernSlug}`} className="inline-flex items-center gap-1 text-sm text-emerald-700 hover:underline mt-2">
+            Se konsern &rarr;
           </Link>
         )}
       </div>
