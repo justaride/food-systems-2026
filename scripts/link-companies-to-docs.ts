@@ -182,18 +182,22 @@ async function main() {
   }
 
   const refsToCreate = [...deduped.values()]
+  const dryRun = process.argv.includes('--dry-run')
 
   if (refsToCreate.length === 0) {
     console.log('No company-document links found.')
     return
   }
 
-  const result = await prisma.companyDocumentRef.createMany({
-    data: refsToCreate,
-    skipDuplicates: true,
-  })
-
-  console.log(`Created ${result.count} CompanyDocumentRef records (${refsToCreate.length} candidates, duplicates skipped)\n`)
+  if (dryRun) {
+    console.log(`[DRY-RUN] Would create ${refsToCreate.length} CompanyDocumentRef candidates (duplicates would be skipped on apply)\n`)
+  } else {
+    const result = await prisma.companyDocumentRef.createMany({
+      data: refsToCreate,
+      skipDuplicates: true,
+    })
+    console.log(`Created ${result.count} CompanyDocumentRef records (${refsToCreate.length} candidates, duplicates skipped)\n`)
+  }
 
   console.log('Breakdown per company:')
   console.log('─'.repeat(70))
@@ -210,7 +214,7 @@ async function main() {
   }
 
   console.log('─'.repeat(70))
-  console.log(`Total: ${companies.length} companies, ${result.count} refs created`)
+  console.log(`Total: ${companies.length} companies, ${refsToCreate.length} ${dryRun ? 'candidates' : 'refs created'}`)
 }
 
 main()

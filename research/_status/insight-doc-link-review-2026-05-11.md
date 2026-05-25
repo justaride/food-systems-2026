@@ -1,8 +1,8 @@
 # Insight → Document koblingskandidater
 
 **Generert:** 2026-05-11 fra FTS ts_rank_cd mot Document.search_vector
-**Innsikter dekket:** 102/102 unlinked
-**Kandidater totalt:** 506 (high: 208 · medium: 138 · low: 159)
+**Innsikter dekket:** 101/102 unlinked
+**Kandidater totalt:** 505 (high: 218 · medium: 134 · low: 153)
 
 ## Hvordan reviewe
 
@@ -25,15 +25,15 @@
 | 2 | 🟡 med | 12.9 | `cmmxa66620033ty0d49joui46` Markedskonsentrasjon i Skandinavia |
 | 3 | 🟡 med | 12.6 | `cmmpax3d00005u10dtuh0ykh7` Sentralt Kilderegister: Food Systems 2026 |
 | 4 | 🟡 med | 12.6 | `cmnyng110000yd50dvuprio2f` PDF-gjennomgang: Offentlige rapporter og utredninger |
-| 5 | 🟡 med | 12.3 | `cmmv9nxzd004aw70d4wwxcc5l` Nordisk sjømatfôr: Råvareopprinnelse, importavhengighet og globale sårbarheter |
+| 5 | 🟡 med | 12.6 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
 
 ### `ins-03` Nordisk matsikkerhetsstrategi mangler koordinering
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | 🟢 high | 24 | `cmo87fi8l00kiq30dv4w4v2xn` Perplexity Promptpack — Møte 7 (20.04.2026) |
-| 2 | 🟢 high | 22.2 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
-| 3 | 🟢 high | 22.2 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
+| 2 | 🟢 high | 22.2 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
+| 3 | 🟢 high | 22.2 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
 | 4 | 🟢 high | 18.4 | `cmnyng10v000xd50dki28l95j` PDF-gjennomgang: Nordisk komparativ mappe |
 | 5 | 🟢 high | 15 | `cmo87ff5z000eq30dh9polgas` Arkiv-indeks — research/ |
 
@@ -41,18 +41,18 @@
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟢 high | 21.3 | `cmmpax3qc002ju10dpp2z5xxj` Nordisk Primærproduksjon: Komparativ Analyse |
-| 2 | 🟢 high | 17.8 | `cmmpax3t4002ou10dled3hd5b` Matsvinn og sirkulaer okonomi i matsystemet: Nordisk komparativ analyse |
-| 3 | 🟢 high | 16.5 | `cmo87fgq200aoq30dyfx0mnnt` Oppdater massebalanse-tallene for norsk laks/ørret-oppdrett til 2024: |
-| 4 | 🟢 high | 16.5 | `cmmpax3i2001pu10dyrnjc98w` Dypforskning: Sirkulære Matsystemer, Biogass og Ressursgjenvinning i Norden |
-| 5 | 🟢 high | 15.3 | `cmo87fgsp00b2q30dnmgdp0g3` [Deep Research] Lag en komplett massebalanse for det nordiske matsystemet: |
+| 1 | 🟢 high | 34.5 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 2 | 🟢 high | 21.3 | `cmmpax3qc002ju10dpp2z5xxj` Nordisk Primærproduksjon: Komparativ Analyse |
+| 3 | 🟢 high | 17.8 | `cmmpax3t4002ou10dled3hd5b` Matsvinn og sirkulaer okonomi i matsystemet: Nordisk komparativ analyse |
+| 4 | 🟢 high | 16.5 | `cmo87fgq200aoq30dyfx0mnnt` Oppdater massebalanse-tallene for norsk laks/ørret-oppdrett til 2024: |
+| 5 | 🟢 high | 16.5 | `cmmpax3i2001pu10dyrnjc98w` Dypforskning: Sirkulære Matsystemer, Biogass og Ressursgjenvinning i Norden |
 
 ### `ins-05` Ten Step Start v2.0 anvendt pa matsystemer
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟡 med | 10.8 | `cmmxl54f90005jw0dfhxplkvv` 9. mars-notater — Utvidet Kontekst |
-| 2 | 🟡 med | 10.8 | `cmmxl54eh0002jw0dckrm5ekw` Møtenotat 9. mars 2026 — Food Systems Transition Group |
+| 1 | 🟡 med | 10.8 | `cmmxl54eh0002jw0dckrm5ekw` Møtenotat 9. mars 2026 — Food Systems Transition Group |
+| 2 | 🟡 med | 10.8 | `cmmxl54f90005jw0dfhxplkvv` 9. mars-notater — Utvidet Kontekst |
 | 3 | 🟡 med | 8.4 | `cmmpax3f1000ru10dlc6nv1ep` Akademisk dypforskning: Nordiske matsystemer, markedskonsentrasjon og matpolitikk |
 | 4 | 🟡 med | 8.1 | `cmmpax3vj003lu10d6xmim3j0` Gap List: Items Requiring Human Input Before Finalization |
 | 5 | ⚪ low | 5.4 | `cmo7gxgqh008d060dyubm4b8m` Deep Research Progress: EAT Foundation |
@@ -61,11 +61,11 @@
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟡 med | 8.8 | `cmmv9nxyj0044w70d4yizdtih` Circular Food Systems – Rammeverk, Definisjoner og Operativt Kriteriesett |
-| 2 | ⚪ low | 7.3 | `cmmv9ny0c004ow70dj7dtnnv1` Sirkulære matsystemer — Rammeverk og operativt kriteriesett |
-| 3 | ⚪ low | 6.9 | `cmmxl54e20001jw0d5xz2y194` Oslo Innovasjonsprogram 2025 — Food Systems Application |
-| 4 | ⚪ low | 6.9 | `cmmxl54g9000ajw0d2arpodk1` Oslo Innovasjonsprogram 2025 — Copy |
-| 5 | ⚪ low | 6.6 | `cmmpax3k2001zu10dz43na8c8` Phase 4B & 4C Design: Data Expansion + Advanced Visualization |
+| 1 | 🟡 med | 11.4 | `cmp11sfly000bzq0d14bxlvad` Iceland country profile - control system for organic production |
+| 2 | 🟡 med | 8.8 | `cmmv9nxyj0044w70d4yizdtih` Circular Food Systems – Rammeverk, Definisjoner og Operativt Kriteriesett |
+| 3 | ⚪ low | 7.3 | `cmmv9ny0c004ow70dj7dtnnv1` Sirkulære matsystemer — Rammeverk og operativt kriteriesett |
+| 4 | ⚪ low | 6.9 | `cmmxl54e20001jw0d5xz2y194` Oslo Innovasjonsprogram 2025 — Food Systems Application |
+| 5 | ⚪ low | 6.9 | `cmmxl54g9000ajw0d2arpodk1` Oslo Innovasjonsprogram 2025 — Copy |
 
 ### `ins-07` Gigamapping som metode for systemkartlegging
 
@@ -83,8 +83,8 @@
 |---|---|---|---|
 | 1 | ⚪ low | 3.7 | `cmmxvfn6o001k1i0d19kek5be` Klimatiltak i landbruket — Utredning om modeller, karbonlagring og bærekraftig matproduksjon |
 | 2 | ⚪ low | 3.6 | `cmo7gxjgq00k3060dt7i115mj` Deep Research Prompt Pack - Nordic Circular Food Landscape |
-| 3 | ⚪ low | 3.3 | `cmmxvfo5f00351i0dop0d2r66` PubMed-søk: Relevante publikasjoner for Food Systems 2026 |
-| 4 | ⚪ low | 3.3 | `cmmpax3jc001wu10d4a4veidh` Tenketanker, NGO-er og sivilsamfunnsorganisasjoner: Nordiske matsystemer |
+| 3 | ⚪ low | 3.3 | `cmmpax3jc001wu10d4a4veidh` Tenketanker, NGO-er og sivilsamfunnsorganisasjoner: Nordiske matsystemer |
+| 4 | ⚪ low | 3.3 | `cmmxvfo5f00351i0dop0d2r66` PubMed-søk: Relevante publikasjoner for Food Systems 2026 |
 | 5 | ⚪ low | 3.1 | `cmn7lflkq0053fy0dt58ftf9i` Sammendrag: Migrantarbeid i nordisk matproduksjon |
 
 ### `ins-100` Koebenhavn 87,8% oekologisk i 70 000 daglige maaltider — samme budsjett
@@ -92,17 +92,17 @@
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | ⚪ low | 5.8 | `cmo7gxgsc008q060ddk0uz6og` Nordiske og internasjonale benchmark-case for matsystemomstilling |
-| 2 | ⚪ low | 5.8 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
-| 3 | ⚪ low | 5.8 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
-| 4 | ⚪ low | 3.9 | `cmmpax3so002nu10dnuztrpba` Nordisk HoReCa og Storhusholdning: Komparativ Analyse (2024-2026) |
-| 5 | ⚪ low | 3.9 | `cmo87fgkv009zq30d2fidqzcn` Lag en komplett oversikt over aktive forskningsprogrammer på sirkulære matsystemer ved nordiske universiteter og institutter (2024–2026). Inkluder: |
+| 2 | ⚪ low | 5.8 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 3 | ⚪ low | 5.8 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 4 | ⚪ low | 3.9 | `cmo87fgkv009zq30d2fidqzcn` Lag en komplett oversikt over aktive forskningsprogrammer på sirkulære matsystemer ved nordiske universiteter og institutter (2024–2026). Inkluder: |
+| 5 | ⚪ low | 3.9 | `cmmpax3so002nu10dnuztrpba` Nordisk HoReCa og Storhusholdning: Komparativ Analyse (2024-2026) |
 
 ### `ins-101` Alternative distribusjonskanaler Norden: penetrasjonsindeks SE 3,8 / NO 3,6 / FI 3,4 / DK 3,0
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟢 high | 18.3 | `cmo7gxgo4007y060dsrg4cdu1` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
-| 2 | 🟢 high | 18.3 | `cmo87ffcw001jq30dd5ipihrh` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
+| 1 | 🟢 high | 18.3 | `cmo87ffcw001jq30dd5ipihrh` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
+| 2 | 🟢 high | 18.3 | `cmo7gxgo4007y060dsrg4cdu1` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
 | 3 | 🟢 high | 18.3 | `cmo7gxgou0082060de2z51ph9` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
 | 4 | ⚪ low | 6.3 | `cmo87fgsv00b3q30d5rc4siyp` Identifiser de 20 nordiske kommunene som er lengst framme på sirkulær matpolitikk: |
 | 5 | ⚪ low | 5.4 | `cmn7lflot006rfy0dmcvly2em` Sammendrag: Farm-to-table og kortreist mat i Norden |
@@ -111,11 +111,11 @@
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | ⚪ low | 3.9 | `cmo7gxgo4007y060dsrg4cdu1` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
+| 1 | ⚪ low | 3.9 | `cmo87ffcw001jq30dd5ipihrh` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
 | 2 | ⚪ low | 3.9 | `cmo7gxgou0082060de2z51ph9` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
-| 3 | ⚪ low | 3.9 | `cmo87ffcw001jq30dd5ipihrh` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
-| 4 | ⚪ low | 3.3 | `cmn7lflnk006bfy0dh1ujrepw` Sammendrag: HelloFresh og måltidskasser i Norden |
-| 5 | ⚪ low | 3.3 | `cmo87fhkh00fpq30dgvpu2j3i` Denmark Insect producer Enorm Biofactory insolvent |
+| 3 | ⚪ low | 3.9 | `cmo7gxgo4007y060dsrg4cdu1` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
+| 4 | ⚪ low | 3.3 | `cmo87fhkh00fpq30dgvpu2j3i` Denmark Insect producer Enorm Biofactory insolvent |
+| 5 | ⚪ low | 3.3 | `cmn7lflnk006bfy0dh1ujrepw` Sammendrag: HelloFresh og måltidskasser i Norden |
 
 ### `ins-103` Etableringsbarrierer: 7-dimensjonal modell fra nordiske failed entrants
 
@@ -165,27 +165,27 @@
 | 2 | 🟢 high | 15 | `cmmv9nxz10048w70dm4ig1vyf` Nordiske avhandlinger og masteroppgaver om matsystemer, dagligvare og matpolitikk (2010–2026) |
 | 3 | 🟡 med | 11.7 | `cmo87fgsv00b3q30d5rc4siyp` Identifiser de 20 nordiske kommunene som er lengst framme på sirkulær matpolitikk: |
 | 4 | 🟡 med | 11.7 | `cmn5ibu8b000e1i0dct0a0k6p` Nordisk sirkularitet — komparativ analyse |
-| 5 | 🟡 med | 11.5 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 5 | 🟡 med | 11.5 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
 
 ### `ins-108` Arla FarmAhead: -9,9% CO2/kg melk fra 2020-basislinjen innen 2025
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | ⚪ low | 7 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
-| 2 | ⚪ low | 7 | `cmo7gxgsc008q060ddk0uz6og` Nordiske og internasjonale benchmark-case for matsystemomstilling |
-| 3 | ⚪ low | 7 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
-| 4 | ⚪ low | 4.5 | `cmmpax3r2002ku10dulrezpar` Nordisk Foredlingsindustri: Komparativ Analyse |
-| 5 | ⚪ low | 4.5 | `cmmpax3qc002ju10dpp2z5xxj` Nordisk Primærproduksjon: Komparativ Analyse |
+| 1 | 🟢 high | 18.6 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 2 | ⚪ low | 7 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 3 | ⚪ low | 7 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 4 | ⚪ low | 7 | `cmo7gxgsc008q060ddk0uz6og` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 5 | ⚪ low | 4.5 | `cmmpax3r2002ku10dulrezpar` Nordisk Foredlingsindustri: Komparativ Analyse |
 
 ### `ins-109` Brasil PNAE: 71,2% av kommuner naar 30%-familiebruk-krav — 120 000 familier, 40 mill elever
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟡 med | 14.7 | `cmnyng10s000wd50deopby6ri` Gjennomgang av arsrapporter -- nordiske dagligvareaktorer |
-| 2 | ⚪ low | 7.5 | `cmmpax3rx002mu10d3imte3fi` Innsatsvarer og oppstrøms verdikjeder i nordisk landbruk |
-| 3 | ⚪ low | 7 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 1 | 🟢 high | 15.9 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 2 | 🟡 med | 14.7 | `cmnyng10s000wd50deopby6ri` Gjennomgang av arsrapporter -- nordiske dagligvareaktorer |
+| 3 | ⚪ low | 7.5 | `cmmpax3rx002mu10d3imte3fi` Innsatsvarer og oppstrøms verdikjeder i nordisk landbruk |
 | 4 | ⚪ low | 7 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
-| 5 | ⚪ low | 7 | `cmo7gxgsc008q060ddk0uz6og` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 5 | ⚪ low | 7 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
 
 ### `ins-11` Danmark bruker 62% av landarealet til jordbruk — hoyest i Norden
 
@@ -201,11 +201,11 @@
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | ⚪ low | 6 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
-| 2 | ⚪ low | 6 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
+| 1 | ⚪ low | 6 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
+| 2 | ⚪ low | 6 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
 | 3 | ⚪ low | 5.5 | `cmo87ffd7001lq30dfmstvw66` Framstillinger av mat, makt og beredskap i norsk offentlighet |
-| 4 | ⚪ low | 5.5 | `cmo7gxgri008l060dhkw8m6m3` Framstillinger av mat, makt og beredskap i norsk offentlighet |
-| 5 | ⚪ low | 5.5 | `cmo7gxgp20084060dvyxsojur` Framstillinger av mat, makt og beredskap i norsk offentlighet |
+| 4 | ⚪ low | 5.5 | `cmo7gxgp20084060dvyxsojur` Framstillinger av mat, makt og beredskap i norsk offentlighet |
+| 5 | ⚪ low | 5.5 | `cmo7gxgri008l060dhkw8m6m3` Framstillinger av mat, makt og beredskap i norsk offentlighet |
 
 ### `ins-111` Regulatorisk tidslinje 2024-2026 — 8 hoeydepunkter for dagligvarepolitikk
 
@@ -214,8 +214,8 @@
 | 1 | ⚪ low | 7.6 | `cmmpax3ox002hu10dhx3hp9mg` Regulatorisk og politisk kartlegging: Nordiske matsystemer |
 | 2 | ⚪ low | 5.7 | `cmo87fi6i00k1q30dh046ijuk` Lag en komparativ analyse av suksess- og fiaskotilfeller i nordisk sirkulær mat i perioden 2015–2026. Minimum 15 case totalt. |
 | 3 | ⚪ low | 5.4 | `cmo87fi8l00kiq30dv4w4v2xn` Perplexity Promptpack — Møte 7 (20.04.2026) |
-| 4 | ⚪ low | 4.8 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
-| 5 | ⚪ low | 4.8 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 4 | ⚪ low | 4.8 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 5 | ⚪ low | 4.8 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
 
 ### `ins-112` STROBE+GRADE-ramverk for FS2026 evidensregister
 
@@ -252,10 +252,10 @@
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | 🟡 med | 12.9 | `cmmxa66620033ty0d49joui46` Markedskonsentrasjon i Skandinavia |
-| 2 | 🟡 med | 12.3 | `cmmv9nxzd004aw70d4wwxcc5l` Nordisk sjømatfôr: Råvareopprinnelse, importavhengighet og globale sårbarheter |
-| 3 | 🟡 med | 11.4 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
-| 4 | 🟡 med | 11.4 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
-| 5 | 🟡 med | 11.1 | `cmmpax3d00005u10dtuh0ykh7` Sentralt Kilderegister: Food Systems 2026 |
+| 2 | 🟡 med | 12.6 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 3 | 🟡 med | 12.3 | `cmmv9nxzd004aw70d4wwxcc5l` Nordisk sjømatfôr: Råvareopprinnelse, importavhengighet og globale sårbarheter |
+| 4 | 🟡 med | 11.4 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
+| 5 | 🟡 med | 11.4 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
 
 ### `ins-116` Under-rapportering er hovedeffekten — ikke lav lovbruddssats
 
@@ -271,18 +271,18 @@
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟡 med | 10.2 | `cmmxgxphj005nm70dis7i18u5` Landbruk Arena transkripsjoner med lokal ASR |
-| 2 | 🟡 med | 8.2 | `cmo7gxgsc008q060ddk0uz6og` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 1 | 🟡 med | 14.4 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 2 | 🟡 med | 10.2 | `cmmxgxphj005nm70dis7i18u5` Landbruk Arena transkripsjoner med lokal ASR |
 | 3 | 🟡 med | 8.2 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
-| 4 | 🟡 med | 8.2 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
-| 5 | ⚪ low | 7.2 | `cmmxgxpha005mm70dv46ao4jk` Landbruk Arena transkripsjoner |
+| 4 | 🟡 med | 8.2 | `cmo7gxgsc008q060ddk0uz6og` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 5 | 🟡 med | 8.2 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
 
 ### `ins-12` Nordisk gardskonsolidering: 62% faerre bruk i Norge siden 1989
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟢 high | 30.6 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
-| 2 | 🟢 high | 30.6 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
+| 1 | 🟢 high | 30.6 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
+| 2 | 🟢 high | 30.6 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
 | 3 | 🟢 high | 29.4 | `cmo87fi8l00kiq30dv4w4v2xn` Perplexity Promptpack — Møte 7 (20.04.2026) |
 | 4 | 🟢 high | 18.7 | `cmnyng10v000xd50dki28l95j` PDF-gjennomgang: Nordisk komparativ mappe |
 | 5 | 🟢 high | 17.8 | `cmmpax3rx002mu10d3imte3fi` Innsatsvarer og oppstrøms verdikjeder i nordisk landbruk |
@@ -322,8 +322,8 @@
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | 🟢 high | 25.2 | `cmo87fi8l00kiq30dv4w4v2xn` Perplexity Promptpack — Møte 7 (20.04.2026) |
-| 2 | 🟢 high | 22.2 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
-| 3 | 🟢 high | 22.2 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
+| 2 | 🟢 high | 22.2 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
+| 3 | 🟢 high | 22.2 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
 | 4 | 🟢 high | 18.4 | `cmnyng10v000xd50dki28l95j` PDF-gjennomgang: Nordisk komparativ mappe |
 | 5 | 🟢 high | 15.3 | `cmnyng0ve0000d50ddmwephuv` Arkiv-indeks — research/ |
 
@@ -345,7 +345,7 @@
 | 2 | 🟢 high | 20.7 | `cmmpax3td002qu10dxrl7wdei` Forbruksmonstre og matkonsum i Norden |
 | 3 | 🟢 high | 19.2 | `cmmpax3so002nu10dnuztrpba` Nordisk HoReCa og Storhusholdning: Komparativ Analyse (2024-2026) |
 | 4 | 🟡 med | 11.7 | `cmmpax3t4002ou10dled3hd5b` Matsvinn og sirkulaer okonomi i matsystemet: Nordisk komparativ analyse |
-| 5 | 🟡 med | 10.2 | `cmmpax3rs002lu10dr8rtsh2l` Grossist, distribusjon og logistikkinfrastruktur i Norden |
+| 5 | 🟡 med | 10.2 | `cmmpax3rx002mu10d3imte3fi` Innsatsvarer og oppstrøms verdikjeder i nordisk landbruk |
 
 ### `ins-22` Norske matpriser 24% hoyere enn Sverige
 
@@ -372,20 +372,20 @@
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | 🟡 med | 11.4 | `cmmpax3so002nu10dnuztrpba` Nordisk HoReCa og Storhusholdning: Komparativ Analyse (2024-2026) |
-| 2 | ⚪ low | 5.2 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 2 | ⚪ low | 5.2 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
 | 3 | ⚪ low | 5.2 | `cmo7gxgsc008q060ddk0uz6og` Nordiske og internasjonale benchmark-case for matsystemomstilling |
-| 4 | ⚪ low | 5.2 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 4 | ⚪ low | 5.2 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
 | 5 | ⚪ low | 4.2 | `cmmpax3td002qu10dxrl7wdei` Forbruksmonstre og matkonsum i Norden |
 
 ### `ins-26` 14 norske mataktorer omsetter for over 800 mrd. NOK
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟡 med | 9 | `cmmpax3r2002ku10dulrezpar` Nordisk Foredlingsindustri: Komparativ Analyse |
-| 2 | ⚪ low | 5.7 | `cmmxa66620033ty0d49joui46` Markedskonsentrasjon i Skandinavia |
+| 1 | 🟢 high | 55.5 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 2 | 🟡 med | 9 | `cmmpax3r2002ku10dulrezpar` Nordisk Foredlingsindustri: Komparativ Analyse |
 | 3 | ⚪ low | 5.7 | `cmmpax3uc0032u10dtlb3p6uq` Selskapsdata: 14 Norske Matsystem-Aktorer |
-| 4 | ⚪ low | 5.1 | `cmmv9nxys0046w70dov6it3a9` Nordisk Dagligvaremarked: Markedsstruktur og Validering 2024–2026 |
-| 5 | ⚪ low | 4.5 | `cmnyng10s000wd50deopby6ri` Gjennomgang av arsrapporter -- nordiske dagligvareaktorer |
+| 4 | ⚪ low | 5.7 | `cmmxa66620033ty0d49joui46` Markedskonsentrasjon i Skandinavia |
+| 5 | ⚪ low | 5.1 | `cmmv9nxys0046w70dov6it3a9` Nordisk Dagligvaremarked: Markedsstruktur og Validering 2024–2026 |
 
 ### `ins-29` Yara: 2000+ patenter og 36,2% statlig eierskap
 
@@ -402,10 +402,10 @@
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | 🟢 high | 17.1 | `cmmxa66620033ty0d49joui46` Markedskonsentrasjon i Skandinavia |
-| 2 | 🟡 med | 12.3 | `cmmv9nxzd004aw70d4wwxcc5l` Nordisk sjømatfôr: Råvareopprinnelse, importavhengighet og globale sårbarheter |
-| 3 | 🟡 med | 11.4 | `cmmpax3tk002su10deelzv6fp` Kryssegment Verdikjedeanalyse: Maktkonsentrasjon og Systemrisiko i Nordiske Matsystemer |
-| 4 | 🟡 med | 11.1 | `cmmpax3d00005u10dtuh0ykh7` Sentralt Kilderegister: Food Systems 2026 |
-| 5 | 🟡 med | 9.9 | `cmo87fhe200ejq30duae3m3dw` Lokalmatrapport 2025 |
+| 2 | 🟡 med | 12.6 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 3 | 🟡 med | 12.3 | `cmmv9nxzd004aw70d4wwxcc5l` Nordisk sjømatfôr: Råvareopprinnelse, importavhengighet og globale sårbarheter |
+| 4 | 🟡 med | 11.4 | `cmmpax3tk002su10deelzv6fp` Kryssegment Verdikjedeanalyse: Maktkonsentrasjon og Systemrisiko i Nordiske Matsystemer |
+| 5 | 🟡 med | 11.1 | `cmmpax3d00005u10dtuh0ykh7` Sentralt Kilderegister: Food Systems 2026 |
 
 ### `ins-32` Syv kritiske flaskehalser i nordisk matforsyning
 
@@ -415,7 +415,7 @@
 | 2 | 🟢 high | 22.8 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
 | 3 | 🟢 high | 22.8 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
 | 4 | 🟢 high | 20.2 | `cmnyng10v000xd50dki28l95j` PDF-gjennomgang: Nordisk komparativ mappe |
-| 5 | 🟢 high | 15.9 | `cmo87ff5z000eq30dh9polgas` Arkiv-indeks — research/ |
+| 5 | 🟢 high | 15.9 | `cmnyng0ve0000d50ddmwephuv` Arkiv-indeks — research/ |
 
 ### `ins-37` 1 av 12 norske husholdninger viser tegn til matfattigdom
 
@@ -434,8 +434,8 @@
 | 1 | 🟢 high | 24.3 | `cmmxa66620033ty0d49joui46` Markedskonsentrasjon i Skandinavia |
 | 2 | 🟢 high | 17.5 | `cmmpax3i2001pu10dyrnjc98w` Dypforskning: Sirkulære Matsystemer, Biogass og Ressursgjenvinning i Norden |
 | 3 | 🟡 med | 14.4 | `cmmpax3rx002mu10d3imte3fi` Innsatsvarer og oppstrøms verdikjeder i nordisk landbruk |
-| 4 | 🟡 med | 13.2 | `cmmpax3t4002ou10dled3hd5b` Matsvinn og sirkulaer okonomi i matsystemet: Nordisk komparativ analyse |
-| 5 | 🟡 med | 13.2 | `cmn5ibu8b000e1i0dct0a0k6p` Nordisk sirkularitet — komparativ analyse |
+| 4 | 🟡 med | 13.2 | `cmn5ibu8b000e1i0dct0a0k6p` Nordisk sirkularitet — komparativ analyse |
+| 5 | 🟡 med | 13.2 | `cmmpax3t4002ou10dled3hd5b` Matsvinn og sirkulaer okonomi i matsystemet: Nordisk komparativ analyse |
 
 ### `ins-41` Matsvinnloven 2026: Nordens foerste obligatoriske matsvinnsregulering
 
@@ -444,28 +444,28 @@
 | 1 | 🟡 med | 14.5 | `cmmpax3t4002ou10dled3hd5b` Matsvinn og sirkulaer okonomi i matsystemet: Nordisk komparativ analyse |
 | 2 | 🟡 med | 14.1 | `cmmv9nxz10048w70dm4ig1vyf` Nordiske avhandlinger og masteroppgaver om matsystemer, dagligvare og matpolitikk (2010–2026) |
 | 3 | 🟡 med | 9 | `cmo87fi4c00jpq30d9w30ry2h` Jeg trenger en oversikt over hvilke nøkkelindikatorer (KPI-er) som brukes operativt for å måle sirkularitet i nordiske matsystemer — både i offentlige institusjoner (SSB, Nordisk ministerråd, EUs JRC, norske Matsvinnutvalget, danske Fødevarestyrelsen, svenske Jordbruksverket) og i private bransjeorganer (NorgesGruppen, Coop, Axfood, Arla, Tine). |
-| 4 | 🟡 med | 8.7 | `cmnyng114000zd50dfdqd91nd` PubMed PDF-gjennomgang -- Strukturert analyse |
-| 5 | 🟡 med | 8.7 | `cmn5ibw8l00b41i0d680443lo` 7. Sirkulære matsystemer i Norden |
+| 4 | 🟡 med | 8.7 | `cmn5ibw8l00b41i0d680443lo` 7. Sirkulære matsystemer i Norden |
+| 5 | 🟡 med | 8.7 | `cmnyng114000zd50dfdqd91nd` PubMed PDF-gjennomgang -- Strukturert analyse |
 
 ### `ins-44` NKJ identifiserer 12 nordiske intervensjonspunkter for matsystemtransformasjon
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | 🟢 high | 24 | `cmo87fi8l00kiq30dv4w4v2xn` Perplexity Promptpack — Møte 7 (20.04.2026) |
-| 2 | 🟢 high | 22.2 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
-| 3 | 🟢 high | 22.2 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
+| 2 | 🟢 high | 22.2 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
+| 3 | 🟢 high | 22.2 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
 | 4 | 🟢 high | 18.4 | `cmnyng10v000xd50dki28l95j` PDF-gjennomgang: Nordisk komparativ mappe |
-| 5 | 🟢 high | 15.3 | `cmo87ff5z000eq30dh9polgas` Arkiv-indeks — research/ |
+| 5 | 🟢 high | 15.3 | `cmnyng0ve0000d50ddmwephuv` Arkiv-indeks — research/ |
 
 ### `ins-45` EU Farm to Fork: 50% pesticid, 20% gjodsel, 25% okologisk innen 2030
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟡 med | 8.7 | `cmmpax3so002nu10dnuztrpba` Nordisk HoReCa og Storhusholdning: Komparativ Analyse (2024-2026) |
-| 2 | 🟡 med | 8.1 | `cmmpax3rx002mu10d3imte3fi` Innsatsvarer og oppstrøms verdikjeder i nordisk landbruk |
-| 3 | ⚪ low | 7.8 | `cmmxl54e20001jw0d5xz2y194` Oslo Innovasjonsprogram 2025 — Food Systems Application |
+| 1 | 🟢 high | 16.2 | `cmp11sfly000bzq0d14bxlvad` Iceland country profile - control system for organic production |
+| 2 | 🟡 med | 8.7 | `cmmpax3so002nu10dnuztrpba` Nordisk HoReCa og Storhusholdning: Komparativ Analyse (2024-2026) |
+| 3 | 🟡 med | 8.1 | `cmmpax3rx002mu10d3imte3fi` Innsatsvarer og oppstrøms verdikjeder i nordisk landbruk |
 | 4 | ⚪ low | 7.8 | `cmmxl54g9000ajw0d2arpodk1` Oslo Innovasjonsprogram 2025 — Copy |
-| 5 | ⚪ low | 6.7 | `cmo87fgtf00b6q30d39t7fb9m` Kartlegg alle EU-reguleringer vedtatt eller foreslått 2024–2027 som direkte påvirker sirkularitet i matsystemer: |
+| 5 | ⚪ low | 7.8 | `cmmxl54e20001jw0d5xz2y194` Oslo Innovasjonsprogram 2025 — Food Systems Application |
 
 ### `ins-47` Sverige: 102 av 290 kommuner mangler discounter (~1M mennesker beroert)
 
@@ -485,15 +485,15 @@
 | 2 | 🟢 high | 22.8 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
 | 3 | 🟢 high | 22.8 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
 | 4 | 🟢 high | 18.4 | `cmnyng10v000xd50dki28l95j` PDF-gjennomgang: Nordisk komparativ mappe |
-| 5 | 🟢 high | 15.3 | `cmnyng0ve0000d50ddmwephuv` Arkiv-indeks — research/ |
+| 5 | 🟢 high | 15.3 | `cmo87ff5z000eq30dh9polgas` Arkiv-indeks — research/ |
 
 ### `ins-49` Alle 5 nordiske land har HHI >2500: highly concentrated etter DOJ/EU-standard
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | 🟢 high | 34.8 | `cmo87fi8l00kiq30dv4w4v2xn` Perplexity Promptpack — Møte 7 (20.04.2026) |
-| 2 | 🟢 high | 26.7 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
-| 3 | 🟢 high | 26.7 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
+| 2 | 🟢 high | 26.7 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
+| 3 | 🟢 high | 26.7 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
 | 4 | 🟢 high | 26.2 | `cmmpax3rx002mu10d3imte3fi` Innsatsvarer og oppstrøms verdikjeder i nordisk landbruk |
 | 5 | 🟢 high | 26.2 | `cmnyng10v000xd50dki28l95j` PDF-gjennomgang: Nordisk komparativ mappe |
 
@@ -501,21 +501,21 @@
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟢 high | 24.3 | `cmmv9nxys0046w70dov6it3a9` Nordisk Dagligvaremarked: Markedsstruktur og Validering 2024–2026 |
-| 2 | 🟡 med | 12 | `cmmpax3rs002lu10dr8rtsh2l` Grossist, distribusjon og logistikkinfrastruktur i Norden |
-| 3 | 🟡 med | 11.1 | `cmmpax3ne002du10ddlbworj8` Nordisk komparativ analyse: Matsystemer i Danmark, Sverige og Finland |
-| 4 | 🟡 med | 10.3 | `cmn7lflnn006cfy0dald6x546` Sammendrag: Mathem og Mat.se — svensk nettdagligvare |
-| 5 | 🟡 med | 9.3 | `cmmxa66620033ty0d49joui46` Markedskonsentrasjon i Skandinavia |
+| 1 | 🟢 high | 47.1 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 2 | 🟢 high | 30.6 | `cmp11sfkr0006zq0dpzj0x2p8` Ekologiska Arsrapporten 2024 |
+| 3 | 🟢 high | 24.3 | `cmmv9nxys0046w70dov6it3a9` Nordisk Dagligvaremarked: Markedsstruktur og Validering 2024–2026 |
+| 4 | 🟢 high | 16.2 | `cmp11sfie0003zq0dcan4hfzw` Statistik over okologiske jordbrugsbedrifter 2024 |
+| 5 | 🟡 med | 13.5 | `cmp11sfnm000pzq0dn1orxnsu` Ekomatcentrum EMC marknadsrapport 2022 |
 
 ### `ins-51` Island: Drangar hf. dannet (Samkaup+Heimkaup+Orkan fusjon des. 2024)
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | 🟡 med | 11.7 | `cmmpax3td002qu10dxrl7wdei` Forbruksmonstre og matkonsum i Norden |
-| 2 | ⚪ low | 7.5 | `cmmpax3t8002pu10dn08g1los` Nordisk Sjømatverdikjede: Komparativ Analyse |
-| 3 | ⚪ low | 7.5 | `cmmpax3t4002ou10dled3hd5b` Matsvinn og sirkulaer okonomi i matsystemet: Nordisk komparativ analyse |
-| 4 | ⚪ low | 6.9 | `cmmpax3rs002lu10dr8rtsh2l` Grossist, distribusjon og logistikkinfrastruktur i Norden |
-| 5 | ⚪ low | 6.9 | `cmmpax3qc002ju10dpp2z5xxj` Nordisk Primærproduksjon: Komparativ Analyse |
+| 2 | ⚪ low | 7.5 | `cmmpax3t4002ou10dled3hd5b` Matsvinn og sirkulaer okonomi i matsystemet: Nordisk komparativ analyse |
+| 3 | ⚪ low | 7.5 | `cmmpax3t8002pu10dn08g1los` Nordisk Sjømatverdikjede: Komparativ Analyse |
+| 4 | ⚪ low | 6.9 | `cmmpax3qc002ju10dpp2z5xxj` Nordisk Primærproduksjon: Komparativ Analyse |
+| 5 | ⚪ low | 6.9 | `cmmpax3rs002lu10dr8rtsh2l` Grossist, distribusjon og logistikkinfrastruktur i Norden |
 
 ### `ins-52` Aldi Nord forlot Danmark 2024; Lidl fravaerende fra NO og IS
 
@@ -573,19 +573,19 @@
 |---|---|---|---|
 | 1 | 🟡 med | 14.4 | `cmmv9nxzd004aw70d4wwxcc5l` Nordisk sjømatfôr: Råvareopprinnelse, importavhengighet og globale sårbarheter |
 | 2 | 🟡 med | 12.9 | `cmmxa66620033ty0d49joui46` Markedskonsentrasjon i Skandinavia |
-| 3 | 🟡 med | 11.4 | `cmmpax3d00005u10dtuh0ykh7` Sentralt Kilderegister: Food Systems 2026 |
-| 4 | 🟡 med | 9.9 | `cmo87fhe200ejq30duae3m3dw` Lokalmatrapport 2025 |
-| 5 | 🟡 med | 9.6 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
+| 3 | 🟡 med | 12.6 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 4 | 🟡 med | 11.4 | `cmmpax3d00005u10dtuh0ykh7` Sentralt Kilderegister: Food Systems 2026 |
+| 5 | 🟡 med | 9.9 | `cmo87fhe200ejq30duae3m3dw` Lokalmatrapport 2025 |
 
 ### `ins-60` Vest-Afrika fiskeolje: 123-144K tonn fisk tilsv. 2.5-4M menneskers matforbruk
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟢 high | 21.3 | `cmmpax3qc002ju10dpp2z5xxj` Nordisk Primærproduksjon: Komparativ Analyse |
-| 2 | 🟢 high | 19.5 | `cmo87fgq200aoq30dyfx0mnnt` Oppdater massebalanse-tallene for norsk laks/ørret-oppdrett til 2024: |
-| 3 | 🟢 high | 15.9 | `cmo7gxgrc008k060dq6lzlf91` Påstanden om at 70% av fôret i norsk oppdrett havner i fjorden sirkulerer bredt. Jeg vil ha en kildebasert kvantifisering av det reelle fôr-tapet. |
-| 4 | 🟢 high | 15.3 | `cmmpax3t8002pu10dn08g1los` Nordisk Sjømatverdikjede: Komparativ Analyse |
-| 5 | 🟡 med | 11.8 | `cmo87fgm400a7q30dmgcu1vc4` [Deep Research] Lag en detaljert dossier over AX Foundations prosjekt «Framtidens foder för fågel, fisk och fläsk» (2023–2026): |
+| 1 | 🟢 high | 35.7 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 2 | 🟢 high | 21.3 | `cmmpax3qc002ju10dpp2z5xxj` Nordisk Primærproduksjon: Komparativ Analyse |
+| 3 | 🟢 high | 19.5 | `cmo87fgq200aoq30dyfx0mnnt` Oppdater massebalanse-tallene for norsk laks/ørret-oppdrett til 2024: |
+| 4 | 🟢 high | 15.9 | `cmo7gxgrc008k060dq6lzlf91` Påstanden om at 70% av fôret i norsk oppdrett havner i fjorden sirkulerer bredt. Jeg vil ha en kildebasert kvantifisering av det reelle fôr-tapet. |
+| 5 | 🟢 high | 15.3 | `cmmpax3t8002pu10dn08g1los` Nordisk Sjømatverdikjede: Komparativ Analyse |
 
 ### `ins-61` Historisk forskift: 1990 65% fiskemel → 2024 22% marine, 73% vegetabilsk
 
@@ -611,21 +611,21 @@
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟢 high | 21.3 | `cmmpax3qc002ju10dpp2z5xxj` Nordisk Primærproduksjon: Komparativ Analyse |
-| 2 | 🟢 high | 16.5 | `cmo87fgq200aoq30dyfx0mnnt` Oppdater massebalanse-tallene for norsk laks/ørret-oppdrett til 2024: |
-| 3 | 🟡 med | 13.8 | `cmmpax3t8002pu10dn08g1los` Nordisk Sjømatverdikjede: Komparativ Analyse |
-| 4 | 🟡 med | 12.6 | `cmo7gxgrc008k060dq6lzlf91` Påstanden om at 70% av fôret i norsk oppdrett havner i fjorden sirkulerer bredt. Jeg vil ha en kildebasert kvantifisering av det reelle fôr-tapet. |
-| 5 | 🟡 med | 11.1 | `cmo87fgsp00b2q30dnmgdp0g3` [Deep Research] Lag en komplett massebalanse for det nordiske matsystemet: |
+| 1 | 🟢 high | 34.5 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 2 | 🟢 high | 21.3 | `cmmpax3qc002ju10dpp2z5xxj` Nordisk Primærproduksjon: Komparativ Analyse |
+| 3 | 🟢 high | 16.5 | `cmo87fgq200aoq30dyfx0mnnt` Oppdater massebalanse-tallene for norsk laks/ørret-oppdrett til 2024: |
+| 4 | 🟡 med | 13.8 | `cmmpax3t8002pu10dn08g1los` Nordisk Sjømatverdikjede: Komparativ Analyse |
+| 5 | 🟡 med | 12.6 | `cmo7gxgrc008k060dq6lzlf91` Påstanden om at 70% av fôret i norsk oppdrett havner i fjorden sirkulerer bredt. Jeg vil ha en kildebasert kvantifisering av det reelle fôr-tapet. |
 
 ### `ins-64` Regjeringens 5M tonn laks 2050-ambisjon umulig innenfor 92% importbasert raavaregrunnlag
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟢 high | 29.7 | `cmmpax3t8002pu10dn08g1los` Nordisk Sjømatverdikjede: Komparativ Analyse |
-| 2 | 🟢 high | 21.3 | `cmmpax3qc002ju10dpp2z5xxj` Nordisk Primærproduksjon: Komparativ Analyse |
-| 3 | 🟢 high | 21.1 | `cmo87fgq200aoq30dyfx0mnnt` Oppdater massebalanse-tallene for norsk laks/ørret-oppdrett til 2024: |
-| 4 | 🟢 high | 15.3 | `cmo87fgls00a5q30dd461uzyo` Deep Research] Kartlegg alle operative og under-bygging lukkede/semi-lukkede oppdrettsanlegg i Norden (2024–2026): |
-| 5 | 🟢 high | 15 | `cmo7gxgrc008k060dq6lzlf91` Påstanden om at 70% av fôret i norsk oppdrett havner i fjorden sirkulerer bredt. Jeg vil ha en kildebasert kvantifisering av det reelle fôr-tapet. |
+| 1 | 🟢 high | 35.4 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 2 | 🟢 high | 29.7 | `cmmpax3t8002pu10dn08g1los` Nordisk Sjømatverdikjede: Komparativ Analyse |
+| 3 | 🟢 high | 21.3 | `cmmpax3qc002ju10dpp2z5xxj` Nordisk Primærproduksjon: Komparativ Analyse |
+| 4 | 🟢 high | 21.1 | `cmo87fgq200aoq30dyfx0mnnt` Oppdater massebalanse-tallene for norsk laks/ørret-oppdrett til 2024: |
+| 5 | 🟢 high | 15.3 | `cmo87fgls00a5q30dd461uzyo` Deep Research] Kartlegg alle operative og under-bygging lukkede/semi-lukkede oppdrettsanlegg i Norden (2024–2026): |
 
 ### `ins-65` Dagligvarekjedenes eiendomsportefoljer utgjor over 35 mrd. NOK
 
@@ -633,8 +633,8 @@
 |---|---|---|---|
 | 1 | 🟢 high | 33.1 | `cmn5ibu7a00081i0dknxr6q79` Eiendomsmodellen i norsk dagligvare: Finansiell analyse |
 | 2 | 🟢 high | 19.2 | `cmo7gxgr0008i060d9c6jwiz4` Eiendomsmakt i dagligvaremarkedet i Norge og Norden |
-| 3 | 🟢 high | 18.6 | `cmo7gxgpq0087060dyuans2ba` Eiendomsmakt i dagligvaremarkedet i Norge og Norden |
-| 4 | 🟢 high | 18.6 | `cmo87ffdk001oq30dflbc2wfp` Eiendomsmakt i dagligvaremarkedet i Norge og Norden |
+| 3 | 🟢 high | 18.6 | `cmo87ffdk001oq30dflbc2wfp` Eiendomsmakt i dagligvaremarkedet i Norge og Norden |
+| 4 | 🟢 high | 18.6 | `cmo7gxgpq0087060dyuans2ba` Eiendomsmakt i dagligvaremarkedet i Norge og Norden |
 | 5 | 🟢 high | 17.1 | `cmnyng10s000wd50deopby6ri` Gjennomgang av arsrapporter -- nordiske dagligvareaktorer |
 
 ### `ins-66` Estimert internleie i dagligvare: 2,5-4,6 mrd. NOK aarlig
@@ -673,8 +673,8 @@
 |---|---|---|---|
 | 1 | ⚪ low | 3.7 | `cmn7lflol006ofy0dujrlqe7y` Sammendrag: Matfattigdom i Norge og Norden |
 | 2 | ⚪ low | 1.5 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
-| 3 | ⚪ low | 1.5 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
-| 4 | ⚪ low | 1.5 | `cmn5ibu7q000b1i0dd7amusq8` Matørkener og sårbarhet i nordisk kontekst |
+| 3 | ⚪ low | 1.5 | `cmn5ibu7q000b1i0dd7amusq8` Matørkener og sårbarhet i nordisk kontekst |
+| 4 | ⚪ low | 1.5 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
 | 5 | ⚪ low | 1.2 | `cmmpax3f1000ru10dlc6nv1ep` Akademisk dypforskning: Nordiske matsystemer, markedskonsentrasjon og matpolitikk |
 
 ### `ins-70` Median HHI = 1,0 (monopol) paa postnummernivaa i norsk dagligvare
@@ -683,16 +683,16 @@
 |---|---|---|---|
 | 1 | 🟡 med | 13.5 | `cmnyng110000yd50dvuprio2f` PDF-gjennomgang: Offentlige rapporter og utredninger |
 | 2 | 🟡 med | 13.2 | `cmmxa66620033ty0d49joui46` Markedskonsentrasjon i Skandinavia |
-| 3 | 🟡 med | 12.7 | `cmmpax3tk002su10deelzv6fp` Kryssegment Verdikjedeanalyse: Maktkonsentrasjon og Systemrisiko i Nordiske Matsystemer |
-| 4 | 🟡 med | 12.3 | `cmmv9nxzd004aw70d4wwxcc5l` Nordisk sjømatfôr: Råvareopprinnelse, importavhengighet og globale sårbarheter |
-| 5 | 🟡 med | 11.7 | `cmmpax3d00005u10dtuh0ykh7` Sentralt Kilderegister: Food Systems 2026 |
+| 3 | 🟡 med | 12.9 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 4 | 🟡 med | 12.7 | `cmmpax3tk002su10deelzv6fp` Kryssegment Verdikjedeanalyse: Maktkonsentrasjon og Systemrisiko i Nordiske Matsystemer |
+| 5 | 🟡 med | 12.3 | `cmmv9nxzd004aw70d4wwxcc5l` Nordisk sjømatfôr: Råvareopprinnelse, importavhengighet og globale sårbarheter |
 
 ### `ins-71` Koebenhavn 84 % oekologisk i offentlige kjokken uten oekt budsjett
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | ⚪ low | 5.8 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
-| 2 | ⚪ low | 5.8 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 1 | ⚪ low | 5.8 | `cmo7gxgox0083060dg9rbv56k` Nordiske og internasjonale benchmark-case for matsystemomstilling |
+| 2 | ⚪ low | 5.8 | `cmo87ffd2001kq30dr57jdi3c` Nordiske og internasjonale benchmark-case for matsystemomstilling |
 | 3 | ⚪ low | 5.8 | `cmo7gxgsc008q060ddk0uz6og` Nordiske og internasjonale benchmark-case for matsystemomstilling |
 | 4 | ⚪ low | 3.9 | `cmo87fgkv009zq30d2fidqzcn` Lag en komplett oversikt over aktive forskningsprogrammer på sirkulære matsystemer ved nordiske universiteter og institutter (2024–2026). Inkluder: |
 | 5 | ⚪ low | 3.7 | `cmoh0jq9i001mvw0d9ij0mdzj` Koebenhavn Food Strategy 2019 |
@@ -702,8 +702,8 @@
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | 🟢 high | 24 | `cmo87fi8l00kiq30dv4w4v2xn` Perplexity Promptpack — Møte 7 (20.04.2026) |
-| 2 | 🟢 high | 23.1 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
-| 3 | 🟢 high | 23.1 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
+| 2 | 🟢 high | 23.1 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
+| 3 | 🟢 high | 23.1 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
 | 4 | 🟢 high | 18.4 | `cmnyng10v000xd50dki28l95j` PDF-gjennomgang: Nordisk komparativ mappe |
 | 5 | 🟢 high | 16.8 | `cmmv9ny04004mw70d4mf5vlop` Perplexity-masterliste: Food Systems 2026 |
 
@@ -733,16 +733,16 @@
 |---|---|---|---|
 | 1 | 🟡 med | 11.2 | `cmmpax3i2001pu10dyrnjc98w` Dypforskning: Sirkulære Matsystemer, Biogass og Ressursgjenvinning i Norden |
 | 2 | 🟡 med | 8.1 | `cmn56a5bu000c3b0dhnhk77jy` Sektoranalyse: Mat og biomasse (Circular Cities) |
-| 3 | ⚪ low | 7.5 | `cmo7gxgp50085060dxoohsr0p` Nordiske dagligvarecase som mislyktes og hva de avslører om etableringsbarrierer |
-| 4 | ⚪ low | 7.5 | `cmo87ffdc001mq30d4b0hr65l` Nordiske dagligvarecase som mislyktes og hva de avslører om etableringsbarrierer |
-| 5 | ⚪ low | 7.5 | `cmn5ibvuj008c1i0dqtpb1xbg` A2. Mat og biomasse (Food & Biomass) |
+| 3 | ⚪ low | 7.5 | `cmo87ffdc001mq30d4b0hr65l` Nordiske dagligvarecase som mislyktes og hva de avslører om etableringsbarrierer |
+| 4 | ⚪ low | 7.5 | `cmn5ibvuj008c1i0dqtpb1xbg` A2. Mat og biomasse (Food & Biomass) |
+| 5 | ⚪ low | 7.5 | `cmo7gxgp50085060dxoohsr0p` Nordiske dagligvarecase som mislyktes og hva de avslører om etableringsbarrierer |
 
 ### `ins-76` REKO-ringer: 400+ ringer og 1 mill.+ medlemmer i Finland/Sverige — motmodell til kjedekonsentrasjon
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟢 high | 24.6 | `cmo7gxgou0082060de2z51ph9` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
-| 2 | 🟢 high | 24.6 | `cmo87ffcw001jq30dd5ipihrh` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
+| 1 | 🟢 high | 24.6 | `cmo87ffcw001jq30dd5ipihrh` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
+| 2 | 🟢 high | 24.6 | `cmo7gxgou0082060de2z51ph9` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
 | 3 | 🟢 high | 24.3 | `cmo7gxgo4007y060dsrg4cdu1` Alternative distribusjonskanaler som utfordrer og kompletterer dagligvarekjedene i Norden |
 | 4 | 🟢 high | 20.1 | `cmmpax3td002qu10dxrl7wdei` Forbruksmonstre og matkonsum i Norden |
 | 5 | 🟢 high | 17.4 | `cmmpax3so002nu10dnuztrpba` Nordisk HoReCa og Storhusholdning: Komparativ Analyse (2024-2026) |
@@ -752,10 +752,10 @@
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | 🟢 high | 17.8 | `cmmxa66620033ty0d49joui46` Markedskonsentrasjon i Skandinavia |
-| 2 | ⚪ low | 3.9 | `cmn5ibu8r000h1i0dc96zv3au` Tidsserier: Strukturelle indikatorer for norsk matsystem 2015-2025 |
-| 3 | ⚪ low | 2.8 | `cmmpax3dg0008u10d0422hpen` Sammendrag: Dräger & Vågene (NHH, 2017) — Markedskonsentrasjon i Skandinavia |
-| 4 | ⚪ low | 2.2 | `cmmpax3f1000ru10dlc6nv1ep` Akademisk dypforskning: Nordiske matsystemer, markedskonsentrasjon og matpolitikk |
-| 5 | ⚪ low | 2.1 | `cmnyng10b000sd50dbmse2ex2` PDF-gjennomgang: Akademia (Batch 1) |
+| 2 | ⚪ low | 6 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 3 | ⚪ low | 3.9 | `cmn5ibu8r000h1i0dc96zv3au` Tidsserier: Strukturelle indikatorer for norsk matsystem 2015-2025 |
+| 4 | ⚪ low | 2.8 | `cmmpax3dg0008u10d0422hpen` Sammendrag: Dräger & Vågene (NHH, 2017) — Markedskonsentrasjon i Skandinavia |
+| 5 | ⚪ low | 2.2 | `cmmpax3f1000ru10dlc6nv1ep` Akademisk dypforskning: Nordiske matsystemer, markedskonsentrasjon og matpolitikk |
 
 ### `ins-78` Eiendomsinvestering 6x raskere enn omsetningsvekst: strukturell lock-in
 
@@ -793,9 +793,9 @@
 |---|---|---|---|
 | 1 | 🟢 high | 29.2 | `cmmv9nxz10048w70dm4ig1vyf` Nordiske avhandlinger og masteroppgaver om matsystemer, dagligvare og matpolitikk (2010–2026) |
 | 2 | 🟢 high | 27.2 | `cmmpax3t4002ou10dled3hd5b` Matsvinn og sirkulaer okonomi i matsystemet: Nordisk komparativ analyse |
-| 3 | 🟢 high | 26.7 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
-| 4 | 🟢 high | 26.7 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
-| 5 | 🟢 high | 26.7 | `cmo87fi8l00kiq30dv4w4v2xn` Perplexity Promptpack — Møte 7 (20.04.2026) |
+| 3 | 🟢 high | 26.7 | `cmo87fi8l00kiq30dv4w4v2xn` Perplexity Promptpack — Møte 7 (20.04.2026) |
+| 4 | 🟢 high | 26.7 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
+| 5 | 🟢 high | 26.7 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
 
 ### `ins-82` Dagligvarekjedenes grossistmonopol reproduseres i HORECA
 
@@ -822,8 +822,8 @@
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | 🟢 high | 24.6 | `cmo87fi8l00kiq30dv4w4v2xn` Perplexity Promptpack — Møte 7 (20.04.2026) |
-| 2 | 🟢 high | 23.7 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
-| 3 | 🟢 high | 23.7 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
+| 2 | 🟢 high | 23.7 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
+| 3 | 🟢 high | 23.7 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
 | 4 | 🟢 high | 18.7 | `cmnyng10v000xd50dki28l95j` PDF-gjennomgang: Nordisk komparativ mappe |
 | 5 | 🟢 high | 16.8 | `cmmv9ny04004mw70d4mf5vlop` Perplexity-masterliste: Food Systems 2026 |
 
@@ -863,8 +863,8 @@
 |---|---|---|---|
 | 1 | 🟢 high | 32.3 | `cmmpax3t4002ou10dled3hd5b` Matsvinn og sirkulaer okonomi i matsystemet: Nordisk komparativ analyse |
 | 2 | 🟢 high | 32.1 | `cmo87fi8l00kiq30dv4w4v2xn` Perplexity Promptpack — Møte 7 (20.04.2026) |
-| 3 | 🟢 high | 27.6 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
-| 4 | 🟢 high | 27.6 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
+| 3 | 🟢 high | 27.6 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
+| 4 | 🟢 high | 27.6 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
 | 5 | 🟢 high | 21.1 | `cmmpax3jc001wu10d4a4veidh` Tenketanker, NGO-er og sivilsamfunnsorganisasjoner: Nordiske matsystemer |
 
 ### `ins-89` Fem sirkulaere sloyfer for TG Food Systems
@@ -873,9 +873,9 @@
 |---|---|---|---|
 | 1 | 🟢 high | 78.9 | `cmo7gxj9b00ik060dl8cnxidr` SourceDoc Promotion Preview |
 | 2 | 🟢 high | 60.6 | `cmokdp3qf0000y20dsvg0p64j` Nordic Nutrition Recommendations 2023 |
-| 3 | 🟢 high | 48.9 | `cmmv9nxyw0047w70dj1ts8e81` Nordisk aktørkart for matsystemkartlegging 2026 |
-| 4 | 🟢 high | 40.6 | `cmmxl54e20001jw0d5xz2y194` Oslo Innovasjonsprogram 2025 — Food Systems Application |
-| 5 | 🟢 high | 40 | `cmmxl54co0000jw0dotm561z7` Nordic Circular Food Systems — NI 2024 Application (Rejected) |
+| 3 | 🟢 high | 49.8 | `cmp11sfly000bzq0d14bxlvad` Iceland country profile - control system for organic production |
+| 4 | 🟢 high | 48.9 | `cmmv9nxyw0047w70dj1ts8e81` Nordisk aktørkart for matsystemkartlegging 2026 |
+| 5 | 🟢 high | 40.6 | `cmmxl54e20001jw0d5xz2y194` Oslo Innovasjonsprogram 2025 — Food Systems Application |
 
 ### `ins-90` ISO 59000-serien som forankring for TG sirkulaeroekonomi
 
@@ -904,8 +904,8 @@
 | 1 | 🟢 high | 28.2 | `cmn7lfl4d0004fy0d8rbhfxsd` Research Corpus Audit -- Food Systems 2026 |
 | 2 | 🟢 high | 28.2 | `cmo87ff59000aq30dug05vwd4` Research Corpus Audit -- Food Systems 2026 |
 | 3 | 🟢 high | 25.5 | `cmo87fi8l00kiq30dv4w4v2xn` Perplexity Promptpack — Møte 7 (20.04.2026) |
-| 4 | 🟢 high | 19.8 | `cmo87ff5z000eq30dh9polgas` Arkiv-indeks — research/ |
-| 5 | 🟢 high | 19.8 | `cmnyng0ve0000d50ddmwephuv` Arkiv-indeks — research/ |
+| 4 | 🟢 high | 19.8 | `cmnyng0ve0000d50ddmwephuv` Arkiv-indeks — research/ |
+| 5 | 🟢 high | 19.8 | `cmo87ff5z000eq30dh9polgas` Arkiv-indeks — research/ |
 
 ### `ins-93` Eiendom som strukturell konkurransebarriere — 350+ registrerte negative servitutter
 
@@ -933,8 +933,8 @@
 |---|---|---|---|
 | 1 | 🟢 high | 31.2 | `cmn5ibu7a00081i0dknxr6q79` Eiendomsmodellen i norsk dagligvare: Finansiell analyse |
 | 2 | 🟢 high | 20.1 | `cmo7gxgr0008i060d9c6jwiz4` Eiendomsmakt i dagligvaremarkedet i Norge og Norden |
-| 3 | 🟢 high | 19.5 | `cmo7gxgpq0087060dyuans2ba` Eiendomsmakt i dagligvaremarkedet i Norge og Norden |
-| 4 | 🟢 high | 19.5 | `cmo87ffdk001oq30dflbc2wfp` Eiendomsmakt i dagligvaremarkedet i Norge og Norden |
+| 3 | 🟢 high | 19.5 | `cmo87ffdk001oq30dflbc2wfp` Eiendomsmakt i dagligvaremarkedet i Norge og Norden |
+| 4 | 🟢 high | 19.5 | `cmo7gxgpq0087060dyuans2ba` Eiendomsmakt i dagligvaremarkedet i Norge og Norden |
 | 5 | 🟢 high | 17.1 | `cmnyng10s000wd50deopby6ri` Gjennomgang av arsrapporter -- nordiske dagligvareaktorer |
 
 ### `ins-96` Dagligvaretilsynet: 0 vedtak om lovbrudd siden oppstart
@@ -952,8 +952,8 @@
 | # | Confidence | Rank | Document |
 |---|---|---|---|
 | 1 | ⚪ low | 7.9 | `cmo87ffdn001pq30dgm25r9lk` Makt, fryktkultur og svak enforcement i norsk og nordisk dagligvare |
-| 2 | ⚪ low | 7.9 | `cmo7gxgpu0088060d09vdm923` Makt, fryktkultur og svak enforcement i norsk og nordisk dagligvare |
-| 3 | ⚪ low | 7.9 | `cmo7gxgrn008m060dmzwz2kkc` Makt, fryktkultur og svak enforcement i norsk og nordisk dagligvare |
+| 2 | ⚪ low | 7.9 | `cmo7gxgrn008m060dmzwz2kkc` Makt, fryktkultur og svak enforcement i norsk og nordisk dagligvare |
+| 3 | ⚪ low | 7.9 | `cmo7gxgpu0088060d09vdm923` Makt, fryktkultur og svak enforcement i norsk og nordisk dagligvare |
 | 4 | ⚪ low | 3.6 | `cmmxgxpha005mm70dv46ao4jk` Landbruk Arena transkripsjoner |
 | 5 | ⚪ low | 3.6 | `cmmxgxphj005nm70dis7i18u5` Landbruk Arena transkripsjoner med lokal ASR |
 
@@ -983,18 +983,18 @@
 |---|---|---|---|
 | 1 | 🟢 high | 77.1 | `cmo7gxj9b00ik060dl8cnxidr` SourceDoc Promotion Preview |
 | 2 | 🟢 high | 61.2 | `cmokdp3qf0000y20dsvg0p64j` Nordic Nutrition Recommendations 2023 |
-| 3 | 🟢 high | 48.9 | `cmmv9nxyw0047w70dj1ts8e81` Nordisk aktørkart for matsystemkartlegging 2026 |
-| 4 | 🟢 high | 40.6 | `cmmxl54e20001jw0d5xz2y194` Oslo Innovasjonsprogram 2025 — Food Systems Application |
-| 5 | 🟢 high | 40 | `cmmxl54co0000jw0dotm561z7` Nordic Circular Food Systems — NI 2024 Application (Rejected) |
+| 3 | 🟢 high | 49.8 | `cmp11sfly000bzq0d14bxlvad` Iceland country profile - control system for organic production |
+| 4 | 🟢 high | 48.9 | `cmmv9nxyw0047w70dj1ts8e81` Nordisk aktørkart for matsystemkartlegging 2026 |
+| 5 | 🟢 high | 40.6 | `cmmxl54e20001jw0d5xz2y194` Oslo Innovasjonsprogram 2025 — Food Systems Application |
 
 ### `ins-food-tg-02` EUDR/sporbarhet er sterkest som datadriver, ikke som norsk konklusjon
 
 | # | Confidence | Rank | Document |
 |---|---|---|---|
-| 1 | 🟢 high | 19.5 | `cmmxa66620033ty0d49joui46` Markedskonsentrasjon i Skandinavia |
-| 2 | 🟡 med | 14.1 | `cmmv9nxzd004aw70d4wwxcc5l` Nordisk sjømatfôr: Råvareopprinnelse, importavhengighet og globale sårbarheter |
-| 3 | 🟡 med | 11.7 | `cmmpax3tk002su10deelzv6fp` Kryssegment Verdikjedeanalyse: Maktkonsentrasjon og Systemrisiko i Nordiske Matsystemer |
-| 4 | 🟡 med | 11.7 | `cmnyng110000yd50dvuprio2f` PDF-gjennomgang: Offentlige rapporter og utredninger |
+| 1 | 🟢 high | 19.8 | `cmp11sfly000bzq0d14bxlvad` Iceland country profile - control system for organic production |
+| 2 | 🟢 high | 19.5 | `cmmxa66620033ty0d49joui46` Markedskonsentrasjon i Skandinavia |
+| 3 | 🟡 med | 14.4 | `cmp11sfh50001zq0d0xllhueq` Produksjon av okologiske jordbruksvarer 2025 |
+| 4 | 🟡 med | 14.1 | `cmmv9nxzd004aw70d4wwxcc5l` Nordisk sjømatfôr: Råvareopprinnelse, importavhengighet og globale sårbarheter |
 | 5 | 🟡 med | 11.7 | `cmmpax3d00005u10dtuh0ykh7` Sentralt Kilderegister: Food Systems 2026 |
 
 ### `ins-food-tg-03` Matsvinnkvalitet er raskere adoption-kandidat enn fysisk prosessering
@@ -1023,13 +1023,7 @@
 |---|---|---|---|
 | 1 | 🟢 high | 77.1 | `cmo7gxj9b00ik060dl8cnxidr` SourceDoc Promotion Preview |
 | 2 | 🟢 high | 60.6 | `cmokdp3qf0000y20dsvg0p64j` Nordic Nutrition Recommendations 2023 |
-| 3 | 🟢 high | 48.9 | `cmmv9nxyw0047w70dj1ts8e81` Nordisk aktørkart for matsystemkartlegging 2026 |
-| 4 | 🟢 high | 40.6 | `cmmxl54e20001jw0d5xz2y194` Oslo Innovasjonsprogram 2025 — Food Systems Application |
-| 5 | 🟢 high | 40 | `cmmxl54co0000jw0dotm561z7` Nordic Circular Food Systems — NI 2024 Application (Rejected) |
-
-### `insight_id` insight_title
-
-| # | Confidence | Rank | Document |
-|---|---|---|---|
-| 1 | ⚪ low | NaN | `doc_id` doc_title |
+| 3 | 🟢 high | 49.8 | `cmp11sfly000bzq0d14bxlvad` Iceland country profile - control system for organic production |
+| 4 | 🟢 high | 48.9 | `cmmv9nxyw0047w70dj1ts8e81` Nordisk aktørkart for matsystemkartlegging 2026 |
+| 5 | 🟢 high | 40.6 | `cmmxl54e20001jw0d5xz2y194` Oslo Innovasjonsprogram 2025 — Food Systems Application |
 
