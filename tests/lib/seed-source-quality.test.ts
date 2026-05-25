@@ -77,5 +77,19 @@ describe('academic source metadata coverage', () => {
     it('url coverage stays at ≥ 55%', () => {
       assert.ok(pct(sources, s => s.url) >= 55)
     })
+
+    it('accessedAt and archivedUrl fields are accepted on the type', () => {
+      // Smoke-test that the new fields exist on the TS type and are accepted
+      // by the seed shape. Coverage is 0% today, but the field is now usable —
+      // future entries can include it. Audit script tracks the gap toward
+      // target=50%.
+      const example: typeof sources[number] = {
+        ...sources[0],
+        accessedAt: '2026-05-26',
+        archivedUrl: 'https://web.archive.org/web/2026/https://example.no',
+      }
+      assert.equal(example.accessedAt, '2026-05-26')
+      assert.ok(example.archivedUrl?.startsWith('https://web.archive.org/'))
+    })
   })
 })

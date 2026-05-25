@@ -107,6 +107,12 @@ export type SourceDoc = {
   isDuplicate?: boolean
   doi?: string
   publisher?: string
+  // ISO date string for when the URL was last accessed/verified.
+  // Aligns with Prisma SourceDoc.accessedAt (DateTime?).
+  accessedAt?: string
+  // Wayback Machine snapshot URL for the source.
+  // Aligns with Prisma SourceDoc.archivedUrl (String?).
+  archivedUrl?: string
 }
 
 export type PhaseId = 'fase-1' | 'fase-2' | 'fase-3' | 'fase-4'
