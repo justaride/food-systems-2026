@@ -333,6 +333,7 @@ model Company {
   orgNrFormat         String    @default("bronnoysund")
   registrySource      String?
   registryVerifiedAt  DateTime?
+  lastBrregRefreshAt  DateTime?
 
   financials   CompanyFinancial[]
   shareholders Shareholder[]
