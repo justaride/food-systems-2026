@@ -1,7 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
-import type { KonsernDossierData } from '@/lib/queries/ownership'
+import type { KonsernDossierData, MaEvent } from '@/lib/queries/ownership'
+import { OwnershipTreeDiagram } from '@/components/charts/OwnershipTreeDiagram'
 
 const OWNERSHIP_TYPE_LABEL: Record<string, string> = {
   family:      'Familieeid',
@@ -41,6 +43,30 @@ function fmtDaysSince(n: number | null): string {
   return `${Math.floor(n / 365)} år siden`
 }
 
+const DEAL_TYPE_LABEL: Record<string, string> = {
+  acquisition:   'Oppkjøp',
+  merger:        'Fusjon',
+  divestment:    'Frasalg',
+  'partial-sale': 'Delsalg',
+}
+
+const DEAL_TYPE_CLASS: Record<string, string> = {
+  acquisition:   'bg-emerald-50 text-emerald-800 border-emerald-200',
+  merger:        'bg-blue-50 text-blue-800 border-blue-200',
+  divestment:    'bg-rose-50 text-rose-800 border-rose-200',
+  'partial-sale': 'bg-amber-50 text-amber-800 border-amber-200',
+}
+
+function fmtEventDate(iso: string | null): string {
+  if (iso === null) return 'Udatert'
+  const d = new Date(iso)
+  return d.toLocaleDateString('no-NO', { year: 'numeric', month: 'short', day: 'numeric' })
+}
+
+function isUrl(s: string): boolean {
+  return s.startsWith('http://') || s.startsWith('https://')
+}
+
 type StatBoxProps = {
   label: string
   value: string
@@ -55,12 +81,63 @@ function StatBox({ label, value }: StatBoxProps) {
   )
 }
 
+function MaEventCard({ event }: { event: MaEvent }) {
+  const dealLabel = event.dealType
+    ? (DEAL_TYPE_LABEL[event.dealType] ?? event.dealType)
+    : null
+  const dealClass = event.dealType
+    ? (DEAL_TYPE_CLASS[event.dealType] ?? 'bg-stone-100 text-stone-700 border-stone-300')
+    : null
+
+  return (
+    <div className="flex flex-col gap-1 px-4 py-3 bg-stone-50 border border-stone-200 rounded-lg">
+      <div className="flex items-center gap-2 flex-wrap">
+        <span className="text-xs text-stone-500 tabular-nums">
+          {fmtEventDate(event.effectiveFrom)}
+        </span>
+        {dealLabel && dealClass && (
+          <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded border ${dealClass}`}>
+            {dealLabel}
+          </span>
+        )}
+        <span className="text-sm font-semibold text-stone-900">{event.childName}</span>
+      </div>
+      {event.dealValue && (
+        <p className="text-sm text-stone-700">
+          <span className="text-stone-500">Verdi: </span>{event.dealValue}
+        </p>
+      )}
+      {event.notes && (
+        <p className="text-sm text-stone-600">{event.notes}</p>
+      )}
+      {event.source && (
+        <p className="text-xs text-stone-400 mt-0.5">
+          Kilde:{' '}
+          {isUrl(event.source) ? (
+            <a
+              href={event.source}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-700 hover:underline break-all"
+            >
+              {event.source}
+            </a>
+          ) : (
+            <span className="text-stone-500">{event.source}</span>
+          )}
+        </p>
+      )}
+    </div>
+  )
+}
+
 type Props = {
   dossier: KonsernDossierData
 }
 
 export function KonsernDossier({ dossier }: Props) {
-  const { root, ownershipType, controllingOwner, metrics } = dossier
+  const { root, ownershipType, controllingOwner, metrics, tree, maEvents } = dossier
+  const [treeView, setTreeView] = useState<'diagram' | 'table'>('diagram')
 
   const ownershipLabel = ownershipType
     ? (OWNERSHIP_TYPE_LABEL[ownershipType] ?? ownershipType)
@@ -69,8 +146,11 @@ export function KonsernDossier({ dossier }: Props) {
     ? (OWNERSHIP_TYPE_CLASS[ownershipType] ?? 'bg-stone-100 text-stone-700 border-stone-300')
     : null
 
+  const datedEvents = maEvents.filter(e => e.effectiveFrom !== null)
+  const undatedEvents = maEvents.filter(e => e.effectiveFrom === null)
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Section 1: Header */}
       <div>
         <Link
@@ -121,7 +201,109 @@ export function KonsernDossier({ dossier }: Props) {
         </div>
       </div>
 
-      {/* Sections 2-9 will be added by Tasks 6-9 */}
+      {/* Section 2: Konsernstruktur */}
+      <div>
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-lg font-semibold text-stone-900">Konsernstruktur</h2>
+          {metrics.treeSize > 30 && (
+            <div className="flex gap-1">
+              <button
+                onClick={() => setTreeView('diagram')}
+                className={`text-xs px-2.5 py-1 rounded border transition-colors ${
+                  treeView === 'diagram'
+                    ? 'bg-stone-800 text-white border-stone-800'
+                    : 'bg-white text-stone-600 border-stone-200 hover:border-stone-400'
+                }`}
+              >
+                Diagram
+              </button>
+              <button
+                onClick={() => setTreeView('table')}
+                className={`text-xs px-2.5 py-1 rounded border transition-colors ${
+                  treeView === 'table'
+                    ? 'bg-stone-800 text-white border-stone-800'
+                    : 'bg-white text-stone-600 border-stone-200 hover:border-stone-400'
+                }`}
+              >
+                Vis som tabell
+              </button>
+            </div>
+          )}
+        </div>
+
+        {treeView === 'diagram' || metrics.treeSize <= 30 ? (
+          <OwnershipTreeDiagram tree={tree} />
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-stone-200 rounded-lg overflow-hidden">
+              <thead className="bg-stone-50 border-b border-stone-200 text-xs text-stone-600">
+                <tr>
+                  <th className="text-left px-3 py-2">Morselskap</th>
+                  <th className="text-left px-3 py-2">Datterselskap</th>
+                  <th className="text-right px-3 py-2">Eierandel</th>
+                  <th className="text-left px-3 py-2">Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tree.edges
+                  .filter(edge => !edge.parentId.startsWith('shareholder-'))
+                  .map((edge, i) => {
+                    const parent = tree.nodes.find(n => n.id === edge.parentId)
+                    const child = tree.nodes.find(n => n.id === edge.childId)
+                    return (
+                      <tr key={i} className="border-b border-stone-100 hover:bg-stone-50">
+                        <td className="px-3 py-2 text-stone-700">{parent?.name ?? edge.parentId}</td>
+                        <td className="px-3 py-2">
+                          <Link href={`/selskap/${edge.childId}`} className="text-emerald-700 hover:underline">
+                            {child?.name ?? edge.childId}
+                          </Link>
+                        </td>
+                        <td className="px-3 py-2 text-right tabular-nums text-stone-600">
+                          {edge.ownershipPct != null ? `${edge.ownershipPct}%` : '—'}
+                        </td>
+                        <td className="px-3 py-2 text-stone-500">{edge.ownershipType}</td>
+                      </tr>
+                    )
+                  })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+
+      {/* Section 3: M&A-historikk */}
+      <div>
+        <h2 className="text-lg font-semibold text-stone-900 mb-3">M&amp;A-historikk</h2>
+
+        {maEvents.length === 0 ? (
+          <p className="text-sm text-stone-400 italic">Ingen M&amp;A-events registrert</p>
+        ) : (
+          <div className="space-y-6">
+            {datedEvents.length > 0 && (
+              <div className="space-y-2">
+                {datedEvents.map((event, i) => (
+                  <MaEventCard key={`dated-${i}`} event={event} />
+                ))}
+              </div>
+            )}
+
+            {undatedEvents.length > 0 && (
+              <div>
+                <h3 className="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-2">
+                  Udatert
+                </h3>
+                <div className="space-y-2">
+                  {undatedEvents.map((event, i) => (
+                    <MaEventCard key={`undated-${i}`} event={event} />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Sections 4-9 will be added by Tasks 7-9 */}
     </div>
   )
 }
