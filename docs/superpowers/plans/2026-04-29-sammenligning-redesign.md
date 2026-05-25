@@ -1397,3 +1397,30 @@ git commit -m "chore(sammenligning): språkfix og build-verifisering" --allow-em
 - `feed_import_pct`, `grain_reserve_months`, `turnover_bn`, `value_added_bn`, `retail_format`, `deposit_return_rate_pct`, `waste_reduction_since_2015_pct` antas å ligge i `value-chain.json` med disse navnene. Hvis et felt ikke finnes returnerer `buildCountry()` `null` for det feltet — gap-badgen håndterer da visningen. Ingen krasj forventet.
 - `parentCR3` brukes hvis det finnes i `chart-metrics.json`; ellers vises `null` og gap-badge.
 - Hvis et land mangler `value-chain.json` eller `chart-metrics.json` returneres `null` for hele landet og det vises som «—» i alle charts.
+
+## 2026-05-25 Close-out
+
+Plan fully implemented and shipped via merge of `feature/sammenligning-redesign-2026-04-29` (commit `19ebfcd`) and follow-up commits:
+
+- Server-side data refactor (`088ae64 refactor(sammenligning): server-side data + 5-bolk skeleton`)
+- Bolk 1-5 wire-up (`92975b6`, `31097dc`, `ef38fe8`, `6c3325e`, `860cd0b`)
+- Layout/component primitives (`8eb3298`, `03678b4`, `d418233`)
+- Norwegian grocery market share timeseries (`b506957` via PR #19)
+- ResearchEvidenceBadge integration (`5ed7557` via PR #42)
+- Kildekvalitet-audit + Sprint 1 transparens-UI (`7992217` via PR #43)
+- Bolk 4 food_waste_by_category table (`8b574d7`)
+- Bolk 4 takeaway sign convention fix (`b8b692f`)
+
+All 9 expected files exist:
+- `src/lib/queries/sammenligning.ts`
+- `src/components/sammenligning/{DataGapBadge,InfoPopover,KeyTakeaway,PerCapitaToggle,ChartCard,ComparisonTable,BolkSection,PolicyTimeline}.tsx`
+
+Both modified files updated as planned:
+- `src/app/sammenligning/page.tsx`
+- `src/app/sammenligning/SammenligningContent.tsx`
+
+Verified 2026-05-25: `npm run db:audit` passes, 223 tests pass, `/sammenligning` route is live in production. Sprint 2-4 follow-ups (mentioned in 2026-05-18 handover) are tracked separately if/when needed — not blockers for this plan.
+
+The step-level checkbox tracking was not used during execution (standard pattern for this plan); the ✔ verification section above (Acceptance Criteria) acted as the completion check.
+
+Plan is closed.
