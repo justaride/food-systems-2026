@@ -24,6 +24,12 @@ Møte 5-beslutning: «Fast prosjektdag: Tirsdag fra uke 17» (uke 17 startet 21.
 
 **Hvis tirsdagsmøtene faktisk har skjedd:** notater/transkripsjoner mangler i repo. Hvis de ikke har skjedd: beslutningen er ikke fulgt opp og bør re-vurderes.
 
+**Undersøkelse 2026-05-26 (se `docs/meetings/STATUS-2026-05-26.md`):**
+- Notion-sync (04.05) refererer til «*Mandagsmøte* uke 17/18» — ukedagen kan ha skiftet
+- Handover (18.05) nevner planlagt «Scope-møte JTO/Cathrine/Einar» — status ukjent
+- git-aktivitet på tirsdager mai 2026 er kun kode/seed, ingen møtenotater committed
+- Krever input fra Cathrine/JT for å lukke gapet
+
 ### 2. **Filer i root som tilhører `docs/meetings/`**
 
 17 .md-filer ligger ustrukturert i prosjektroot. Møte-relaterte filer som burde vært flyttet:
@@ -59,6 +65,8 @@ Møte 8 listet «første Food-aktører» som start på kontaktrunde. Status i `p
 | Volare | 3 | ✅ |
 
 **Tiltak:** Legg de 5 manglende inn som actors med minst navn, type, land, kilde-referanse til møte 8. Uten det er ikke møte-beslutningen «start kontaktrunde» reflektert i datalaget.
+
+**Løst 2026-05-26:** Re-verifisering viste at Foodstudio Helsinki (`foodstudio-helsinki`) og AX Foundation (`axfoundation`) faktisk fantes. 4 nye stubs lagt til i `actors.ts` med tag `food-tg-meeting-8-stub`: Fødevareklyngen, Rethink Food, EcoFish Cycle, Gas2Feed. Markert `priorityTier: 'p3'` og `currentStance: 'unknown'` til virksomhet er verifisert.
 
 ### 4. **Action items uten spor av gjennomføring**
 
@@ -101,10 +109,9 @@ Per 27.04 hadde Food-mandatet åpne felt:
 
 ### 7. **JT-GABRIEL Research plan 20-04-26.md** uten plass i strukturen
 
-`docs/meetings/JT-GABRIEL - Research plan 20-04-26.md` ligger blant møtene, men er **et plan-dokument fra møte 7**, ikke et selvstendig møte. Det vises ikke i `/moter` og er heller ikke nevnt i MØTEOVERSIKT-tabellen. Avgjør om det skal:
-- Flyttes til `docs/project/plans/`
-- Refereres som vedlegg til meeting-7 i `meetings.ts`
-- Bli sitt eget møte hvis det faktisk var en separat samtale
+~~`docs/meetings/JT-GABRIEL - Research plan 20-04-26.md` ligger blant møtene, men er et plan-dokument fra møte 7, ikke et selvstendig møte.~~
+
+**Løst 2026-05-26:** Flyttet til `docs/project/plans/RESEARCH-PLAN-FOOD-TG-SIRKULARITET-2026-04-20.md` i tråd med navnekonvensjon for plan-dokumenter.
 
 ## Anbefaling: prioritert tiltaksliste
 
