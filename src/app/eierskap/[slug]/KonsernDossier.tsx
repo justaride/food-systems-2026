@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import type { KonsernDossierData, MaEvent } from '@/lib/queries/ownership'
+import type { KonsernFinancialsAggregate, KonsernBoardMember } from '@/lib/queries/konsern'
 import { OwnershipTreeDiagram } from '@/components/charts/OwnershipTreeDiagram'
 
 const OWNERSHIP_TYPE_LABEL: Record<string, string> = {
@@ -65,6 +66,208 @@ function fmtEventDate(iso: string | null): string {
 
 function isUrl(s: string): boolean {
   return s.startsWith('http://') || s.startsWith('https://')
+}
+
+// ─── Section 4 helpers ────────────────────────────────────────────────────────
+
+function fmtMnok(nok: number | null): string {
+  if (nok === null) return '—'
+  const mnok = nok / 1_000_000
+  if (Math.abs(mnok) >= 1_000) return `${(mnok / 1_000).toFixed(1)} mrd`
+  return `${mnok.toFixed(0)} MNOK`
+}
+
+function Section4Economy({ financials }: { financials: KonsernFinancialsAggregate }) {
+  const { perYear, topRevenueChildren, childrenWithoutLatestFinancial } = financials
+
+  const hasData = perYear.length > 0
+
+  return (
+    <div>
+      <h2 className="text-lg font-semibold text-stone-900 mb-3">Aggregert økonomi</h2>
+
+      {!hasData ? (
+        <p className="text-sm text-stone-400 italic">Ingen aggregert finansiell data tilgjengelig</p>
+      ) : (
+        <div className="space-y-5">
+          {/* Year-by-year table */}
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-stone-200 rounded-lg overflow-hidden">
+              <thead className="bg-stone-50 border-b border-stone-200 text-xs text-stone-600">
+                <tr>
+                  <th className="text-left px-3 py-2">År</th>
+                  <th className="text-right px-3 py-2">Omsetning</th>
+                  <th className="text-right px-3 py-2">EBITDA</th>
+                  <th className="text-right px-3 py-2">Ansatte</th>
+                </tr>
+              </thead>
+              <tbody>
+                {perYear.map(row => (
+                  <tr key={row.year} className="border-b border-stone-100 hover:bg-stone-50">
+                    <td className="px-3 py-2 tabular-nums font-medium text-stone-700">{row.year}</td>
+                    <td className="px-3 py-2 tabular-nums text-right text-stone-700">{fmtMnok(row.totalRevenueNok)}</td>
+                    <td className="px-3 py-2 tabular-nums text-right text-stone-700">{fmtMnok(row.totalEbitdaNok)}</td>
+                    <td className="px-3 py-2 tabular-nums text-right text-stone-700">{fmtEmployees(row.totalEmployees)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Top 5 by revenue */}
+          {topRevenueChildren.length > 0 && (
+            <div>
+              <h3 className="text-sm font-semibold text-stone-700 mb-2">
+                Topp 5 datterselskap (omsetning siste år)
+              </h3>
+              <ol className="space-y-1">
+                {topRevenueChildren.map((child, i) => (
+                  <li key={child.companyId} className="flex items-center gap-2 text-sm">
+                    <span className="text-xs text-stone-400 tabular-nums w-4">{i + 1}.</span>
+                    <Link
+                      href={`/selskap/${child.companyId}`}
+                      className="text-emerald-700 hover:underline flex-1 truncate"
+                    >
+                      {child.companyName}
+                    </Link>
+                    <span className="text-stone-500 tabular-nums text-xs shrink-0">
+                      {fmtMnok(child.revenueNok)}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+
+          {/* Companies without latest financials */}
+          {childrenWithoutLatestFinancial.length > 0 && (
+            <details className="group">
+              <summary className="cursor-pointer text-sm text-stone-500 hover:text-stone-700 select-none list-none flex items-center gap-1">
+                <span className="group-open:rotate-90 inline-block transition-transform text-xs">&#9654;</span>
+                Datterselskap uten siste års regnskap ({childrenWithoutLatestFinancial.length})
+              </summary>
+              <ul className="mt-2 space-y-1 pl-4">
+                {childrenWithoutLatestFinancial.map(child => (
+                  <li key={child.companyId} className="text-sm">
+                    <Link
+                      href={`/selskap/${child.companyId}`}
+                      className="text-stone-600 hover:text-emerald-700 hover:underline"
+                    >
+                      {child.companyName}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Section 5 helpers ────────────────────────────────────────────────────────
+
+function Section5Board({ board }: { board: KonsernBoardMember[] }) {
+  if (board.length === 0) {
+    return (
+      <div>
+        <h2 className="text-lg font-semibold text-stone-900 mb-3">Styre &amp; interlocks</h2>
+        <p className="text-sm text-stone-400 italic">Ingen styremedlemmer registrert</p>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <h2 className="text-lg font-semibold text-stone-900 mb-3">Styre &amp; interlocks</h2>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm border border-stone-200 rounded-lg overflow-hidden">
+          <thead className="bg-stone-50 border-b border-stone-200 text-xs text-stone-600">
+            <tr>
+              <th className="text-left px-3 py-2">Person</th>
+              <th className="text-left px-3 py-2">Roller i konsernet</th>
+              <th className="text-right px-3 py-2">Annet styreverv</th>
+              <th className="text-left px-3 py-2">Profil</th>
+            </tr>
+          </thead>
+          <tbody>
+            {board.map(member => (
+              <tr key={member.personKey} className="border-b border-stone-100 hover:bg-stone-50 align-top">
+                {/* Person name — link only if hasProfile */}
+                <td className="px-3 py-2">
+                  {member.hasProfile ? (
+                    <Link
+                      href={`/personer/${member.personKey}`}
+                      className="text-emerald-700 hover:underline font-medium"
+                    >
+                      {member.personName}
+                    </Link>
+                  ) : (
+                    <span className="font-medium text-stone-800">{member.personName}</span>
+                  )}
+                  {/* Interlock badges */}
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    {member.internalInterlock && (
+                      <span className="text-xs px-1.5 py-0.5 rounded border bg-violet-50 text-violet-700 border-violet-200">
+                        intern interlock
+                      </span>
+                    )}
+                    {member.externalInterlock && (
+                      <Link
+                        href={`/styremedlemmer?personKey=${member.personKey}`}
+                        className="text-xs px-1.5 py-0.5 rounded border bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100"
+                      >
+                        ekstern interlock ({member.externalCount})
+                      </Link>
+                    )}
+                  </div>
+                </td>
+
+                {/* Roles in this konsern */}
+                <td className="px-3 py-2">
+                  <ul className="space-y-0.5">
+                    {member.konsernCompanies.map(kc => (
+                      <li key={kc.companyId} className="flex items-start gap-1 text-xs">
+                        <Link
+                          href={`/selskap/${kc.companyId}`}
+                          className="text-stone-600 hover:text-emerald-700 hover:underline shrink-0"
+                        >
+                          {kc.companyName}
+                        </Link>
+                        {kc.role && (
+                          <span className="text-stone-400">— {kc.role}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+
+                {/* External count */}
+                <td className="px-3 py-2 text-right tabular-nums text-stone-500 text-xs">
+                  {member.externalInterlock ? member.externalCount : '—'}
+                </td>
+
+                {/* Profile link */}
+                <td className="px-3 py-2">
+                  {member.hasProfile ? (
+                    <Link
+                      href={`/personer/${member.personKey}`}
+                      className="text-xs text-emerald-700 hover:underline"
+                    >
+                      Vis profil
+                    </Link>
+                  ) : (
+                    <span className="text-xs text-stone-300">—</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
 }
 
 type StatBoxProps = {
@@ -136,7 +339,7 @@ type Props = {
 }
 
 export function KonsernDossier({ dossier }: Props) {
-  const { root, ownershipType, controllingOwner, metrics, tree, maEvents } = dossier
+  const { root, ownershipType, controllingOwner, metrics, tree, maEvents, financials, board } = dossier
   const [treeView, setTreeView] = useState<'diagram' | 'table'>('diagram')
 
   const ownershipLabel = ownershipType
@@ -303,7 +506,13 @@ export function KonsernDossier({ dossier }: Props) {
         )}
       </div>
 
-      {/* Sections 4-9 will be added by Tasks 7-9 */}
+      {/* Section 4: Aggregert økonomi */}
+      <Section4Economy financials={financials} />
+
+      {/* Section 5: Styre & interlocks */}
+      <Section5Board board={board} />
+
+      {/* Sections 6-9 will be added by Tasks 8-9 */}
     </div>
   )
 }

@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { prisma } from '@/lib/db'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
+import type { KonsernFinancialsAggregate, KonsernBoardMember } from '@/lib/queries/konsern'
+import { getKonsernFinancials, getKonsernBoard } from '@/lib/queries/konsern'
 
 export type KonsernConfig = {
   slug: string
@@ -358,6 +360,8 @@ export type KonsernDossierData = {
   }
   tree: OwnershipTree
   maEvents: MaEvent[]
+  financials: KonsernFinancialsAggregate
+  board: KonsernBoardMember[]
 }
 
 export async function getKonsernDossier(slug: string): Promise<KonsernDossierData | null> {
@@ -377,8 +381,8 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
   const treeIds = await gatherTreeIds(rootCompany.id)
   const currentYear = new Date().getFullYear()
 
-  // Fetch financials and ownerships in parallel
-  const [financials, ownerships, treeCompanies] = await Promise.all([
+  // Fetch financials, ownerships, and section 4-5 data in parallel
+  const [financials, ownerships, treeCompanies, konsernFinancials, konsernBoard] = await Promise.all([
     prisma.companyFinancial.findMany({
       where: { companyId: { in: treeIds }, year: currentYear - 1 },
       select: { companyId: true, revenueNok: true, source: true, groupEmployees: true, operatingResult: true, operatingMargin: true, year: true },
@@ -402,6 +406,8 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
         shareholders: { where: { isControlling: true }, select: { name: true, ownershipPct: true } },
       },
     }),
+    getKonsernFinancials(treeIds),
+    getKonsernBoard(treeIds),
   ])
 
   const totalRevenue = financials.reduce<number | null>((acc, f) => {
@@ -537,6 +543,8 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
     },
     tree,
     maEvents,
+    financials: konsernFinancials,
+    board: konsernBoard,
   }
 }
 
