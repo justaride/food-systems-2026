@@ -3598,6 +3598,62 @@ export const actorsSeed: ActorSeed[] = [
     themeTags: ['research', 'iceland', 'food-waste', 'side-streams', 'aquaculture', 'b-sidestream'],
   },
 
+  // ─── Møte 8 (21.04.2026) "Første Food-aktører" — stubs som trenger verifisering ──
+
+  {
+    id: 'actor-fodevareklyngen',
+    slug: 'fodevareklyngen',
+    name: 'Fødevareklyngen',
+    actorType: 'cluster',
+    organizationType: 'cluster',
+    country: 'DK',
+    roleSummary: 'Dansk fødevare-klynge nevnt som en av "første Food-aktører" i møte 8 (21.04.2026). Stub — kontekst og scope trenger verifisering.',
+    currentRelevance: 'Foreslått som tidlig kontaktpunkt for nordisk Food TG-aktørkartlegging.',
+    currentStance: 'unknown',
+    priorityTier: 'p3',
+    nextStep: 'Verifiser hvilken klynge dette refererer til (Food Nation, Food & Bio Cluster Denmark, e.l.) og dokumentér scope.',
+    themeTags: ['cluster', 'denmark', 'food-tg-meeting-8-stub'],
+  },
+  {
+    id: 'actor-rethink-food',
+    slug: 'rethink-food',
+    name: 'Rethink Food',
+    actorType: 'organization',
+    organizationType: 'unknown',
+    roleSummary: 'Nevnt som "første Food-aktør" i møte 8 (21.04.2026). Stub — geografi, virksomhet og kontaktflate trenger verifisering.',
+    currentRelevance: 'Foreslått som tidlig kontaktpunkt for nordisk Food TG-aktørkartlegging.',
+    currentStance: 'unknown',
+    priorityTier: 'p3',
+    nextStep: 'Avklar identitet (mulige kandidater: Rethink Food NYC, Rethink Foods AS, andre) og dokumentér scope.',
+    themeTags: ['food-tg-meeting-8-stub'],
+  },
+  {
+    id: 'actor-ecofish-cycle',
+    slug: 'ecofish-cycle',
+    name: 'EcoFish Cycle',
+    actorType: 'company',
+    organizationType: 'private',
+    roleSummary: 'Nevnt sammen med Gas2Feed i møte 8 (21.04.2026) som "første Food-aktør". Stub — virksomhet, geografi og teknologi-spor trenger verifisering.',
+    currentRelevance: 'Foreslått som tidlig kontaktpunkt for nordisk Food TG-aktørkartlegging, sannsynligvis innen sirkulær akvakultur/fôr-spor.',
+    currentStance: 'unknown',
+    priorityTier: 'p3',
+    nextStep: 'Verifiser selskap, registrering og kobling til Gas2Feed. Avklar om dette er ett selskap eller to.',
+    themeTags: ['aquaculture', 'circular', 'feed', 'food-tg-meeting-8-stub'],
+  },
+  {
+    id: 'actor-gas2feed',
+    slug: 'gas2feed',
+    name: 'Gas2Feed',
+    actorType: 'company',
+    organizationType: 'private',
+    roleSummary: 'Nevnt sammen med EcoFish Cycle i møte 8 (21.04.2026) som "første Food-aktør". Stub — virksomhet og teknologi-spor trenger verifisering.',
+    currentRelevance: 'Foreslått som tidlig kontaktpunkt for nordisk Food TG-aktørkartlegging, sannsynligvis innen gas-fermentering/single-cell protein for fôr.',
+    currentStance: 'unknown',
+    priorityTier: 'p3',
+    nextStep: 'Verifiser selskap, registrering og teknologi-plattform (gass-fermentering? CO₂-til-protein?).',
+    themeTags: ['alt-protein', 'feed', 'gas-fermentation', 'food-tg-meeting-8-stub'],
+  },
+
 ]
 
 export const actorRelationshipsSeed: ActorRelationshipSeed[] = [
