@@ -1240,12 +1240,43 @@ git commit -m "chore(sirkularitet): browser-fix etter sluttverifikasjon"
 
 ## Akseptkriterier (sjekkliste mot spec)
 
-- [ ] `effekt`-fane synlig som andre fane på `/sirkularitet`
-- [ ] Topp-10 rader rendres med rang, land-pill, tittel, headline, tre effektbarer
-- [ ] Toggle-knappene endrer sortering uten å miste utvidet tilstand
-- [ ] Klikk ekspanderer drilldown med begrunnelse, barrierer, policy-løftestenger, kilder, lenker
-- [ ] `evidenceStatus`-badge synlig i header (alltid `illustrative`)
-- [ ] `npm run audit:circular-leverage` passerer
-- [ ] `npx tsc --noEmit` passerer
-- [ ] `npm run lint` passerer
-- [ ] Alle 12 browser-sjekk-punkter i Task 9 Step 2 fungerer
+- [x] `effekt`-fane synlig som andre fane på `/sirkularitet`
+- [x] Topp-10 rader rendres med rang, land-pill, tittel, headline, tre effektbarer
+- [x] Toggle-knappene endrer sortering uten å miste utvidet tilstand
+- [x] Klikk ekspanderer drilldown med begrunnelse, barrierer, policy-løftestenger, kilder, lenker
+- [x] `evidenceStatus`-badge synlig i header (alltid `illustrative`)
+- [x] `npm run audit:circular-leverage` passerer
+- [x] `npx tsc --noEmit` passerer
+- [x] `npm run lint` passerer
+- [x] Alle 12 browser-sjekk-punkter i Task 9 Step 2 fungerer
+
+## 2026-05-25 Close-out
+
+Plan fully implemented across all 9 tasks. Initial cherry-pick in PR #53 shipped tasks 1, 3, 4, 5 (data + EffectBar + EffektMethodologyCard). This branch closed tasks 2, 6, 7, 8, 9 (audit script registration, EffektRow, EffektTab, SirkularitetContent wire-up, verification).
+
+Implemented in feature branch `feat/sirkulaer-effekt-fane`:
+
+- `package.json` — registered `audit:circular-leverage` npm script (Task 2)
+- `src/components/charts/EffektRow.tsx` — collapsed/expanded row (Task 6)
+- `src/components/charts/EffektTab.tsx` — orchestrator with sort + methodology (Task 7)
+- `src/app/sirkularitet/SirkularitetContent.tsx` — Tab union extended, tab button, EffektTab render, cross-tab navigation with pendingScrollId, gap/loop DOM ids (Task 8)
+
+Gates verified 2026-05-25:
+
+- `npm run audit:circular-leverage`: OK · 10 entries validert
+- `npx tsc --noEmit`: exit 0
+- `npm run lint`: clean
+- `npm test`: 223 passed / 0 failed
+- `npm run build`: passes (next build green, all routes compile)
+
+Browser smoke test via Playwright at `http://localhost:3002/sirkularitet`:
+
+- "Effekt (10)" tab visible as 2nd tab after "R-stige x verdikjede" ✓
+- Header, illustrative badge, "Oppdatert 2026-04-29", four sort buttons, 10 rows ✓
+- Default sort: rad #1 NO Forebygging av husholdningssvinn, rad #10 IS Kartlegg + valoriser fiskeri-svinn ✓
+- Click row #2 expands with begrunnelse, barrierer, policy-løftestenger, suksesshistorier (Too Good To Go), kilder (Whitepaper §7.4 + Naturvårdsverket 2024 link), relaterte gap, relaterte looper ✓
+- Cross-tab click "→ gap-husholdningssvinn": tab switches to "Gap og muligheter", gap card found in DOM and expanded ✓
+
+Bug fix during verification: initial wire-up double-prefixed gap DOM ids (gap IDs already include the `gap-` prefix in `circularity-loops.json`). Fixed by using `id={gap.id}` directly for gap Cards and adjusting `navigateToRelatedItem` to not re-prefix gap targets.
+
+Plan is closed. Live at `/sirkularitet` → `Effekt (10)` tab after merge.
