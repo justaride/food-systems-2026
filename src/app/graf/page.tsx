@@ -122,13 +122,10 @@ function StatusTile({
 }
 
 function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
+  const personDuplicateTriage = quality.personDuplicateTriage
   const totalCompanyDupIds = quality.companyNameDuplicates
     .concat(quality.companyOrgNrDuplicates)
     .reduce((acc, g) => acc + g.ids.length, 0)
-  const totalPersonDupIds = quality.personNameDuplicates
-    .concat(quality.personKeyDuplicates)
-    .reduce((acc, g) => acc + g.ids.length, 0)
-
   const hasIssues =
     quality.companyNameDuplicates.length > 0 ||
     quality.companyOrgNrDuplicates.length > 0 ||
@@ -166,7 +163,7 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
         <QualityStat
           label="Person-duplikater"
           count={quality.personNameDuplicates.length + quality.personKeyDuplicates.length}
-          sub={`${totalPersonDupIds} IDer berørt`}
+          sub={`${personDuplicateTriage.mergeCandidates} kan samles; ${personDuplicateTriage.reviewRequired} må vurderes`}
           severity={
             quality.personNameDuplicates.length + quality.personKeyDuplicates.length > 0
               ? 'warn'
@@ -231,18 +228,48 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
         <DuplicateList
           title="Personer med delt personKey"
           groups={quality.personKeyDuplicates}
-          hrefBuilder={(id) => `/personer/${id}`}
+          hrefBuilder={() => null}
           tone="warn"
         />
       )}
 
-      {quality.personNameDuplicates.length > 0 && (
-        <DuplicateList
-          title="Personer med samme normaliserte navn"
-          groups={quality.personNameDuplicates}
-          hrefBuilder={(id) => `/personer/${id}`}
-          tone="warn"
-        />
+      {personDuplicateTriage.total > 0 && (
+        <div className="mt-4">
+          <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
+            Personduplikater - tiltakskø ({personDuplicateTriage.total})
+          </h4>
+          <ul className="text-xs text-stone-700 space-y-1 max-h-56 overflow-y-auto border border-amber-200 rounded p-2 bg-amber-50">
+            {personDuplicateTriage.samples.slice(0, 50).map((item) => {
+              const href = item.canonicalPersonKey
+                ? `/personer/${encodeURIComponent(item.canonicalPersonKey)}`
+                : null
+              const actionLabel = item.action === 'merge_candidate'
+                ? 'kan samles'
+                : 'må vurderes'
+
+              return (
+                <li key={item.key} className="flex justify-between gap-3">
+                  <span className="min-w-0 truncate">
+                    {href ? (
+                      <Link href={href} className="text-stone-800 hover:underline font-medium">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <span className="font-medium text-stone-800">{item.label}</span>
+                    )}
+                    <span className="text-stone-400">
+                      {' '}
+                      — {item.ids.length} profiler; {item.rationale}
+                    </span>
+                  </span>
+                  <span className="text-[10px] text-stone-500 font-mono shrink-0">
+                    {actionLabel}
+                  </span>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       )}
 
       {quality.businessRelationshipDuplicates.length > 0 && (

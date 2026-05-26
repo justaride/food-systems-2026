@@ -3,6 +3,7 @@ import { actorRelationshipGraphEdge } from '@/lib/actor-relationship-graph'
 import { buildBoardMemberGraphArtifacts } from '@/lib/graph-board-members'
 import { inferGraphConfidence, isBlockedExternalGraphSource, structuralGraphConfidence } from '@/lib/graph-confidence'
 import { analyzeGraphIsolates, type GraphIsolateSummary } from '@/lib/graph-isolates'
+import { analyzePersonNameDuplicates, type PersonDuplicateTriageSummary } from '@/lib/person-duplicate-triage'
 import { isMissingPrismaTable } from './prisma-errors'
 
 export type GraphNode = {
@@ -33,6 +34,7 @@ export type GraphQualityReport = {
   companyOrgNrDuplicates: DuplicateGroup[]
   personNameDuplicates: DuplicateGroup[]
   personKeyDuplicates: DuplicateGroup[]
+  personDuplicateTriage: PersonDuplicateTriageSummary
   businessRelationshipDuplicates: DuplicateGroup[]
   orphanBoardMembers: Array<{ companyId: string; companyName: string; personKey: string; personName: string }>
   boardMemberProfileGaps: Array<{ companyId: string; companyName: string; personKey: string; personName: string }>
@@ -413,6 +415,7 @@ export async function getFullGraph(): Promise<GraphData> {
   const personNameDuplicates: DuplicateGroup[] = [...personNameGroups.entries()]
     .filter(([, v]) => v.length > 1)
     .map(([key, v]) => ({ key, label: v[0].name, ids: v.map(p => p.id) }))
+  const personDuplicateTriage = analyzePersonNameDuplicates(personNameDuplicates, personProfiles)
 
   const personKeyGroups = groupBy(personProfiles, (p) => p.personKey?.trim() || null)
   const personKeyDuplicates: DuplicateGroup[] = [...personKeyGroups.entries()]
@@ -451,6 +454,7 @@ export async function getFullGraph(): Promise<GraphData> {
     companyOrgNrDuplicates,
     personNameDuplicates,
     personKeyDuplicates,
+    personDuplicateTriage,
     businessRelationshipDuplicates,
     orphanBoardMembers,
     boardMemberProfileGaps: boardMemberGraph.boardMemberProfileGaps,
