@@ -1,0 +1,73 @@
+name: Citation Verification
+
+# Periodic integrity checks for cited sources. Runs weekly to catch
+# link rot and file drift in source materials.
+#
+# Required secret:
+#   DATABASE_URL  — connection string to the database to verify against.
+#                   Should point to prod read-write so that file-hash and
+#                   url-health updates are recorded. Set in repo settings →
+#                   Secrets and variables → Actions.
+#
+# Jobs are designed to be tolerant: a failure in one does not block the other.
+
+on:
+  schedule:
+    # Sundays at 03:00 UTC (04:00/05:00 Oslo)
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+jobs:
+  filehash-drift:
+    name: Verify SourceCitation fileHash integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: ${{ vars.CITATION_VERIFY_ENABLED == 'true' }}
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Verify fileHash
+        run: npm run db:verify:filehash
+
+  url-health:
+    name: HTTP-verify needs_review SourceCitations
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: ${{ vars.CITATION_VERIFY_ENABLED == 'true' }}
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Verify URL health (apply mode)
+        # --limit caps each run at 300 rows so the workflow finishes within
+        # the timeout. needs_review backlog drains over multiple weeks.
+        run: npx tsx scripts/verify-source-citation-url-health.ts --apply --limit 300
