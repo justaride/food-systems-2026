@@ -480,7 +480,7 @@ async function main() {
       entityType: 'BoardMember',
       entityId: boardMember.id,
       fieldPath: boardMember.sourceUrl ? 'sourceUrl' : 'source',
-      citationText: `Board member source: ${boardMember.company.name}`,
+      citationText: `Board member source: ${boardMember.company?.name ?? '(unknown company)'}`,
       locator,
       sourceClass: 'primary',
       verifiedAt: boardMember.verifiedAt,
@@ -496,7 +496,7 @@ async function main() {
       entityType: 'Shareholder',
       entityId: shareholder.id,
       fieldPath: shareholder.sourceUrl ? 'sourceUrl' : 'source',
-      citationText: `Shareholder source: ${shareholder.company.name}`,
+      citationText: `Shareholder source: ${shareholder.company?.name ?? '(unknown company)'}`,
       locator,
       sourceClass: 'primary',
       verifiedAt: shareholder.verifiedAt,
@@ -514,7 +514,7 @@ async function main() {
       citationText: `Company ownership source: ${ownership.source}`,
       locator: resolvedLocator ?? ownership.source,
       sourceClass: 'primary',
-      claimText: `${ownership.parentCompany.name} -> ${ownership.childCompany.name}`,
+      claimText: `${ownership.parentCompany?.name ?? '(unknown parent)'} -> ${ownership.childCompany?.name ?? '(unknown child)'}`,
     })
   }
 
@@ -527,7 +527,7 @@ async function main() {
       citationText: `Company property source: ${property.source}`,
       locator: resolvedLocator ?? property.source,
       sourceClass: 'primary',
-      claimText: `${property.company.name} ${property.propertyType}${property.municipality ? ` ${property.municipality}` : ''}`,
+      claimText: `${property.company?.name ?? '(unknown company)'} ${property.propertyType}${property.municipality ? ` ${property.municipality}` : ''}`,
     })
   }
 
@@ -540,7 +540,7 @@ async function main() {
       citationText: `Company financial source: ${financial.source}`,
       locator: resolvedLocator ?? financial.source,
       sourceClass: 'primary',
-      claimText: `${financial.company.name} ${financial.year}`,
+      claimText: `${financial.company?.name ?? '(unknown company)'} ${financial.year}`,
     })
   }
 
@@ -557,7 +557,7 @@ async function main() {
       citationText: `Business relationship source: ${relationship.source}`,
       locator: resolvedLocator ?? relationship.source,
       sourceClass: 'primary',
-      claimText: `${relationship.fromCompany.name} -> ${relationship.toCompany.name} ${relationship.relationshipType}`,
+      claimText: `${relationship.fromCompany?.name ?? '(unknown from)'} -> ${relationship.toCompany?.name ?? '(unknown to)'} ${relationship.relationshipType}`,
     })
   }
 
@@ -583,7 +583,7 @@ async function main() {
       citationText: `Subsidy source: ${subsidy.source} ${subsidy.subsidyType} ${subsidy.year}`,
       locator: resolvedLocator ?? subsidy.source,
       sourceClass: 'dataset',
-      claimText: `${subsidy.company.name} ${subsidy.subsidyType} ${subsidy.year}`,
+      claimText: `${subsidy.company?.name ?? '(unknown company)'} ${subsidy.subsidyType} ${subsidy.year}`,
     })
   }
 
@@ -596,7 +596,7 @@ async function main() {
       citationText: `Delivery volume source: ${delivery.source} ${delivery.commodity} ${delivery.year}`,
       locator: resolvedLocator ?? delivery.source,
       sourceClass: 'dataset',
-      claimText: `${delivery.supplier.name} ${delivery.commodity} ${delivery.year}`,
+      claimText: `${delivery.supplier?.name ?? '(unknown supplier)'} ${delivery.commodity} ${delivery.year}`,
     })
   }
 
