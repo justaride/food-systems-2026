@@ -374,7 +374,8 @@ export const sources: SourceDoc[] = [
     type: 'analyse',
     description: 'Teoretisk rammeverk for kjøpermakt og forbrukervelferd.',
     relevance: 'Akademisk vurdering av markedsmaktens skadevirkninger.',
-    url: 'uib.no/econ'
+    url: 'uib.no/econ',
+    doi: '10.1016/j.ijindorg.2014.11.001'
   },
   {
     id: 'src-39',
@@ -742,6 +743,7 @@ export const sources: SourceDoc[] = [
     relevance: 'Kvantifiserer nordisk sirkularitetspotensial.',
     publisher: 'Nature Food',
     url: 'https://www.nature.com/articles/s43016-023-00734-9',
+    doi: '10.1038/s43016-023-00734-9',
   },
   {
     id: 'src-74',
@@ -920,6 +922,7 @@ export const sources: SourceDoc[] = [
     type: 'forskning',
     description: 'PhD SLU: 32% husholdningsavfall forebyggbart, men kun 0.5% av nasjonale utslipp.',
     relevance: 'Nyanserer matsvinndebatt med faktisk klimaeffekt.',
+    doi: '10.54612/a.2fjqatdg6h',
   },
   {
     id: 'src-90',
@@ -1863,6 +1866,7 @@ export const sources: SourceDoc[] = [
     type: 'forskning',
     url: 'https://pub.epsilon.slu.se/16481/1/karimi_et_al_200127.pdf',
     publisher: 'Sveriges lantbruksuniversitet (SLU)',
+    doi: '10.3390/fermentation5040099',
     description: 'SLU/Karimi et al. (2019) evaluerer filamentoes soppbiomasse dyrket paa vinasse (biproduct fra bioetanolproduksjon) som alternativ proteinkilde i fiskefôr. Del av SLUs "Framtidens foder bygger paa kretslopp"-prosjekt under prof. Anders Kiessling.',
     relevance: 'Primaerkilde for Spor A sirkulaert foer i SE: dokumenterer mikrobiell protein fra sidestroem som FoU-spor. Lukker SE sirkulaert foer-gap (0 docs) i dekningsmatrise. Komplementerer NMBU/Foods of Norway-evidens i CL-A-001/A-002.',
   },
