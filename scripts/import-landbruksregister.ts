@@ -8,6 +8,35 @@ const prisma = new PrismaClient({ adapter })
 const FORETAK_URL =
   'https://raw.githubusercontent.com/LandbruksdirektoratetGIT/opendata/refs/heads/main/datasets/foretak/dataset_extended.csv'
 
+// Stable text used to find-or-create the SourceCitation. Must match the one
+// in scripts/backfill-producer-primary-citation.ts.
+const REGISTRY_CITATION_TEXT =
+  'Landbruksdirektoratet. (2026). Foretak — produsentregister åpen datasett.'
+
+async function findOrCreateRegistryCitation(): Promise<string> {
+  const existing = await prisma.sourceCitation.findFirst({
+    where: { citationText: REGISTRY_CITATION_TEXT },
+    select: { id: true },
+  })
+  if (existing) return existing.id
+  const created = await prisma.sourceCitation.create({
+    data: {
+      citationText: REGISTRY_CITATION_TEXT,
+      title: 'Landbruksdirektoratet produsentregister (foretak)',
+      publisher: 'Landbruksdirektoratet',
+      year: 2026,
+      url: FORETAK_URL,
+      sourceClass: 'registry_snapshot',
+      citationReadiness: 'citable_external',
+      verificationStatus: 'verified',
+      accessedAt: new Date(),
+      captureMethod: 'manual',
+    },
+    select: { id: true },
+  })
+  return created.id
+}
+
 type ForetakRow = {
   orgnr: string
   komnr: string
@@ -78,6 +107,9 @@ async function main() {
     `[landbruksregister] processing ${slice.length} rows${dryRun ? ' (DRY RUN)' : ''}`
   )
 
+  const citationId = dryRun ? '(dry-run)' : await findOrCreateRegistryCitation()
+  console.log(`[landbruksregister] primaryCitation: ${citationId}`)
+
   let created = 0
   let updated = 0
   let skipped = 0
@@ -117,6 +149,8 @@ async function main() {
         data: {
           metadata: { ...existingMeta, ...metaPayload } as any,
           municipality: row.komnr || existing.municipality,
+          // Only set primaryCitationId if missing — preserve any manual override.
+          ...(existing.primaryCitationId ? {} : { primaryCitationId: citationId }),
         },
       })
       updated++
@@ -128,6 +162,7 @@ async function main() {
           country: 'NO',
           municipality: row.komnr || null,
           metadata: metaPayload as any,
+          primaryCitationId: citationId,
         },
       })
       created++
