@@ -24,8 +24,21 @@ describe('academic source metadata coverage', () => {
       assert.ok(pct(reports, r => r.year) >= 100, 'Every Report must have year')
     })
 
-    it('institution coverage stays at ≥ 97%', () => {
-      assert.ok(pct(reports, r => r.institution) >= 97)
+    it('institution coverage stays at 100%', () => {
+      assert.ok(
+        pct(reports, r => r.institution) >= 100,
+        'Every Report must have institution (corporate authorship). For reports without a publishing body, use "Food Systems 2026 (intern syntese)" or similar.',
+      )
+    })
+
+    it('effective attribution (author OR institution) is 100%', () => {
+      const total = reports.length
+      const attributed = reports.filter(r => hasValue(r.author) || hasValue(r.institution)).length
+      assert.equal(
+        attributed,
+        total,
+        `${total - attributed} Reports have neither author nor institution. Add at minimum an institution.`,
+      )
     })
 
     it('sourceUrl coverage stays at ≥ 90%', () => {

@@ -566,6 +566,7 @@ export const reports: Report[] = [
   {
     id: 'verdibutikker-utfordrere',
     title: 'Verdibutikkene — Normal og Europris',
+    institution: 'Food Systems 2026 (intern syntese)',
     year: 2024,
     reportCategory: 'bransje',
     country: 'NO',
@@ -682,6 +683,7 @@ export const reports: Report[] = [
   {
     id: 'merkevarer-historie',
     title: 'Merkevarenes historie — Orkla og TINE',
+    institution: 'Food Systems 2026 (intern syntese)',
     year: 2024,
     reportCategory: 'bransje',
     country: 'NO',
@@ -795,6 +797,7 @@ export const reports: Report[] = [
   {
     id: 'civita-manifest-debatt',
     title: 'Civita vs. Manifest — Matmaktdebatten',
+    institution: 'Civita / Manifest',
     year: 2023,
     sourceUrl: 'https://civita.no/okonomi/naeringspolitikk/svak-konkurranse-som-fortjent/',
     reportCategory: 'tenketank',
