@@ -72,6 +72,8 @@
     "db:backfill:archived-url:apply": "tsx scripts/backfill-source-citation-archived-url.ts --apply",
     "db:backfill:producer-citation": "tsx scripts/backfill-producer-primary-citation.ts",
     "db:backfill:producer-citation:apply": "tsx scripts/backfill-producer-primary-citation.ts --apply",
+    "db:backfill:person-profile-stubs": "tsx scripts/backfill-person-profile-stubs.ts",
+    "db:backfill:person-profile-stubs:apply": "tsx scripts/backfill-person-profile-stubs.ts --apply",
     "db:backfill:field-citation-claim-text": "tsx scripts/backfill-field-citation-claim-text.ts",
     "db:backfill:field-citation-claim-text:apply": "tsx scripts/backfill-field-citation-claim-text.ts --apply",
     "db:refresh:source-citation-readiness": "tsx scripts/refresh-source-citation-readiness.ts",
