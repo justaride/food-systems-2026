@@ -36,6 +36,7 @@ export default async function GrafPage() {
   )
   const connectedNodes = interactiveNodes.length
   const isolatedNodes = nodes.length - connectedNodes
+  const actionableIsolates = quality?.isolatedNodeTriage.actionable ?? isolatedNodes
   const confidencePct =
     quality && quality.edgeConfidenceCoverage.totalEdges > 0
       ? Math.round(
@@ -60,7 +61,7 @@ export default async function GrafPage() {
         </div>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 xl:min-w-[560px]">
           <StatusTile label="Koblede noder" value={connectedNodes.toLocaleString('no')} tone="ok" />
-          <StatusTile label="Isolerte noder" value={isolatedNodes.toLocaleString('no')} tone="warn" />
+          <StatusTile label="Isolat-kø" value={actionableIsolates.toLocaleString('no')} tone={actionableIsolates > 0 ? 'warn' : 'ok'} />
           <StatusTile label="Brutte kanter" value={brokenEdges.toLocaleString('no')} tone={brokenEdges > 0 ? 'error' : 'ok'} />
           <StatusTile label="Konfidens" value={`${confidencePct}%`} tone={confidencePct >= 70 ? 'ok' : 'warn'} />
         </div>
@@ -85,7 +86,7 @@ export default async function GrafPage() {
             Interaktiv flate viser {interactiveNodes.length.toLocaleString('no')} koblede noder.
           </span>
           <span>
-            {isolatedNodes.toLocaleString('no')} isolerte registerrader holdes utenfor canvas for ytelse og lesbarhet.
+            {isolatedNodes.toLocaleString('no')} isolerte registerrader holdes utenfor canvas; {actionableIsolates.toLocaleString('no')} ligger i tiltakskøen.
           </span>
         </div>
         <KnowledgeGraph nodes={interactiveNodes} edges={interactiveEdges} />
@@ -135,7 +136,8 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
     quality.personKeyDuplicates.length > 0 ||
     quality.businessRelationshipDuplicates.length > 0 ||
     quality.orphanBoardMembers.length > 0 ||
-    quality.boardMemberProfileGaps.length > 0
+    quality.boardMemberProfileGaps.length > 0 ||
+    quality.isolatedNodeTriage.actionable > 0
 
   const confidencePct =
     quality.edgeConfidenceCoverage.totalEdges > 0
@@ -195,6 +197,12 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
           sub={`${confidencePct}% av ${quality.edgeConfidenceCoverage.totalEdges}`}
           severity="info"
         />
+        <QualityStat
+          label="Isolerte tiltaksnoder"
+          count={quality.isolatedNodeTriage.actionable}
+          sub={`${quality.isolatedNodeTriage.intentional} katalog-/kildenoder`}
+          severity={quality.isolatedNodeTriage.actionable > 0 ? 'warn' : 'ok'}
+        />
       </div>
 
       {!hasIssues && (
@@ -244,6 +252,36 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
           hrefBuilder={() => null}
           tone="warn"
         />
+      )}
+
+      {quality.isolatedNodeTriage.actionable > 0 && (
+        <div className="mt-4">
+          <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
+            Isolerte noder som trenger kobling ({quality.isolatedNodeTriage.actionable})
+          </h4>
+          <ul className="text-xs text-stone-600 space-y-1 max-h-56 overflow-y-auto border border-amber-200 rounded p-2 bg-amber-50">
+            {quality.isolatedNodeTriage.samples
+              .filter(item => item.actionable)
+              .slice(0, 50)
+              .map((item) => (
+                <li key={item.id} className="flex justify-between gap-3">
+                  <span className="min-w-0 truncate">
+                    {item.href ? (
+                      <Link href={item.href} className="text-stone-800 hover:underline font-medium">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <span className="font-medium text-stone-800">{item.label}</span>
+                    )}
+                    <span className="text-stone-400"> — {item.rationale}</span>
+                  </span>
+                  <span className="text-[10px] text-stone-500 font-mono shrink-0">
+                    {item.type}/{item.action}
+                  </span>
+                </li>
+              ))}
+          </ul>
+        </div>
       )}
 
       {quality.orphanBoardMembers.length > 0 && (

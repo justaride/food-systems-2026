@@ -2,6 +2,7 @@ import { prisma } from '@/lib/db'
 import { actorRelationshipGraphEdge } from '@/lib/actor-relationship-graph'
 import { buildBoardMemberGraphArtifacts } from '@/lib/graph-board-members'
 import { inferGraphConfidence, isBlockedExternalGraphSource, structuralGraphConfidence } from '@/lib/graph-confidence'
+import { analyzeGraphIsolates, type GraphIsolateSummary } from '@/lib/graph-isolates'
 import { isMissingPrismaTable } from './prisma-errors'
 
 export type GraphNode = {
@@ -40,6 +41,7 @@ export type GraphQualityReport = {
     withConfidence: number
     withoutConfidence: number
   }
+  isolatedNodeTriage: GraphIsolateSummary
 }
 
 export type GraphData = {
@@ -442,6 +444,7 @@ export async function getFullGraph(): Promise<GraphData> {
     }))
 
   const edgesWithConfidence = edges.filter((e) => typeof e.confidence === 'number').length
+  const isolatedNodeTriage = analyzeGraphIsolates(nodes, edges)
 
   const quality: GraphQualityReport = {
     companyNameDuplicates,
@@ -456,6 +459,7 @@ export async function getFullGraph(): Promise<GraphData> {
       withConfidence: edgesWithConfidence,
       withoutConfidence: edges.length - edgesWithConfidence,
     },
+    isolatedNodeTriage,
   }
 
   return { nodes, edges, quality }
