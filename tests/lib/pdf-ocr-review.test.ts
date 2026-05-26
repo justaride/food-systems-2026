@@ -74,6 +74,25 @@ describe('PDF OCR review ledger', () => {
     )
   })
 
+  it('closes scanned PDF issues when a reviewed local text replacement is available', () => {
+    const reviews = buildPdfOcrReviewMap([
+      {
+        path: 'research/empty-browser-print.pdf',
+        action: 'replaced_by_local_text',
+        replacement_word_count: '612',
+        replacement_path: 'research/evidence-pack/source.md',
+      },
+    ])
+
+    assert.equal(
+      isReviewedPdfQualityIssueOpen(
+        { path: 'research/empty-browser-print.pdf', classification: 'scanned' },
+        reviews,
+      ),
+      false,
+    )
+  })
+
   it('summarizes closed and unapplied OCR reviews', () => {
     const reviews = buildPdfOcrReviewMap([
       {

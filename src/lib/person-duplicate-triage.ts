@@ -196,3 +196,11 @@ export function analyzePersonNameDuplicates(
 
   return summary
 }
+
+export function isSafeAutomaticPersonDuplicateMerge(
+  group: PersonDuplicateGroupInput,
+  profiles: PersonDuplicateProfile[],
+): boolean {
+  const profilesById = new Map(profiles.map(profile => [profile.id, profile]))
+  return classifyPersonDuplicateGroup(group, profilesById).action === 'merge_candidate'
+}

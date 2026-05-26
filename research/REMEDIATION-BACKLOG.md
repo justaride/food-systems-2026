@@ -1,18 +1,18 @@
 # REMEDIATION BACKLOG — data-readiness Fase B
 
 > Auto-generert av `scripts/build-remediation-backlog.ts` — ikke rediger manuelt.
-> Generert: 2026-05-26T22:51:11.788Z
-> Totalt: **472** funn
+> Generert: 2026-05-26T23:33:32.394Z
+> Totalt: **471** funn
 
 ## Sammendrag per kilde × severity
 
 | Kilde | HIGH | MEDIUM | LOW | INFO |
 |---|---:|---:|---:|---:|
 | file-coverage | 0 | 0 | 310 | 0 |
-| pdf-quality | 0 | 1 | 45 | 0 |
+| pdf-quality | 0 | 0 | 45 | 0 |
 | html-triage | 0 | 0 | 29 | 0 |
 | url-health | 0 | 0 | 87 | 0 |
-| **Total** | 0 | 1 | 471 | 0 |
+| **Total** | 0 | 0 | 471 | 0 |
 
 ## Fiksgrupper (rotårsak-analyse)
 
@@ -23,7 +23,6 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 | F: orphan files | 308 | 0 | 0 | 308 |
 | G: broken supportingSource | 1 | 0 | 0 | 1 |
 | H: duplicate Documents | 1 | 0 | 0 | 1 |
-| I: scanned PDFs (need OCR) | 1 | 0 | 1 | 0 |
 | J: low-text PDFs | 44 | 0 | 0 | 44 |
 | K: oversized PDFs | 1 | 0 | 0 | 1 |
 | O: other HTML issues | 29 | 0 | 0 | 29 |
@@ -34,7 +33,7 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 ## Nåværende hovedrestanser
 
 - **SourceDoc-lokatorer:** 0 funn. Strukturerte SourceDoc-poster regnes som dekket når de har URL, DOI, koblet Document eller lokal fil.
-- **PDF-OCR:** 4 scannede PDF-er er lukket i `research/PDF-OCR-REVIEW.csv` fordi OCR-tekst er arkivert eller eksisterende Document-tekst allerede er dekkende; 0 review-rader traff ingen aktiv PDF-quality-rad.
+- **PDF-OCR:** 5 scannede PDF-er er lukket i `research/PDF-OCR-REVIEW.csv` fordi OCR-tekst, eksisterende Document-tekst eller eksplisitt lokal erstatningstekst er dekkende; 0 review-rader traff ingen aktiv PDF-quality-rad.
 - **URL-helse:** 87 funn fordelt på dead/blocked/timeout/server_error/other.
 - **URL-review:** 5 blokkerte URL-er er lukket i `research/URL-HEALTH-REVIEW.csv` fordi de er verifisert via nettleser, citable mirror eller lokal kildepakke; 0 review-rader traff ingen aktiv URL-health-rad.
 - **Document.filePath:** 0 manglende dokumentfiler i denne kjøringen.
@@ -53,14 +52,14 @@ URL-helse er klassifisert fra `research/URL-HEALTH.csv`. `blocked` kan være ree
 
 Review-lukkede URL-er i `research/URL-HEALTH-REVIEW.csv` beholdes med opprinnelig kilde-URL, men tas ut av åpen backlog når det finnes eksplisitt nettleserverifikasjon, citable mirror eller lokal kildepakke. Dette er ikke det samme som å erklære CLI-sjekken grønn.
 
-Scannede PDF-er i `research/PDF-OCR-REVIEW.csv` beholdes som opprinnelige PDF-filer, men tas ut av åpen backlog når OCR-tekst på minst 100 ord er arkivert eller DB-innhold allerede er dekkende. Dette er ikke det samme som å erklære PDF-filen tekstbasert.
+Scannede PDF-er i `research/PDF-OCR-REVIEW.csv` beholdes som opprinnelige PDF-filer, men tas ut av åpen backlog når OCR-tekst, DB-innhold eller eksplisitt lokal erstatningstekst på minst 100 ord er dekkende. Dette er ikke det samme som å erklære PDF-filen tekstbasert.
 
 ## Top 30 høyest prioritet
 
 | # | Severity | Source | Fix-gruppe | Problem | Ref |
 |---:|---|---|---|---|---|
-| 1 | MEDIUM | pdf-quality | I: scanned PDFs (need OCR) | scanned | arkiv-sortert/Food Research Process 20.04.26/08_Food_Securit |
-| 2 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/00_Working_File |
+| 1 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/00_Working_File |
+| 2 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
 | 3 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
 | 4 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
 | 5 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |

@@ -3,6 +3,7 @@ import { describe, it } from 'node:test'
 import {
   analyzePersonNameDuplicates,
   classifyPersonDuplicateGroup,
+  isSafeAutomaticPersonDuplicateMerge,
 } from '../../src/lib/person-duplicate-triage'
 
 describe('person duplicate triage', () => {
@@ -102,6 +103,32 @@ describe('person duplicate triage', () => {
     assert.equal(result.action, 'review_required')
     assert.equal(result.canonicalPersonKey, 'monica-odegard')
     assert.deepEqual(result.sharedCompanyKeys, [])
+  })
+
+  it('blocks automatic merge when duplicate-name profiles lack shared company evidence', () => {
+    const group = {
+      key: 'monica ødegaard',
+      label: 'Monica Ødegaard',
+      ids: ['norway', 'denmark'],
+    }
+    const profiles = [
+      {
+        id: 'norway',
+        name: 'Monica Ødegaard',
+        personKey: 'monica-odegard',
+        tags: ['brreg-role', 'styremedlem'],
+        roles: [{ companyId: 'rema-no', companyName: 'REMA 1000 Norge AS', role: 'Styremedlem' }],
+      },
+      {
+        id: 'denmark',
+        name: 'Monica Ødegaard',
+        personKey: 'monica-degaard',
+        tags: ['stub'],
+        roles: [{ companyId: 'rema-dk', companyName: 'REMA 1000 A/S', role: 'bestyrelsesmedlem' }],
+      },
+    ]
+
+    assert.equal(isSafeAutomaticPersonDuplicateMerge(group, profiles), false)
   })
 
   it('summarizes merge candidates and review-required groups separately', () => {

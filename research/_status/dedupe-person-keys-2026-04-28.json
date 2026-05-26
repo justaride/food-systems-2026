@@ -1,17 +1,1372 @@
 {
-  "generatedAt": "2026-04-28T15:14:42.730Z",
+  "generatedAt": "2026-05-26T23:30:12.110Z",
   "mode": "commit",
   "limit": null,
   "counts": {
-    "personProfileLoaded": 1307,
-    "boardMemberLoaded": 1696,
-    "groupsTotal": 0,
-    "groupsRunInThisPass": 0,
-    "groupsWithMultipleSourceKeys": 0,
-    "profileLosersDeleted": 0,
-    "profileWinnersUpdated": 0,
-    "boardMembersRekeyed": 0,
-    "boardTripletDuplicatesDeleted": 42
+    "personProfileLoaded": 553,
+    "boardMemberLoaded": 559,
+    "groupsTotal": 56,
+    "groupsRunInThisPass": 56,
+    "groupsWithMultipleSourceKeys": 26,
+    "unsafeProfileMergeGroupsSkipped": 1,
+    "profileLosersDeleted": 26,
+    "profileWinnersUpdated": 56,
+    "boardMembersRekeyed": 53,
+    "boardTripletDuplicatesDeleted": 26
   },
-  "actions": []
+  "actions": [
+    {
+      "newKey": "jostein-hestoy",
+      "canonicalName": "Jostein Hestøy",
+      "sourceKeys": [
+        "jostein-hestoy",
+        "jostein-hesty"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni8u002f45vmzf0og982",
+          "personKey": "jostein-hesty",
+          "name": "Jostein Hestøy"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0atq0011zmvm3wx3juhg",
+        "personKey": "jostein-hestoy",
+        "name": "Jostein Hestøy"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf25u00558vvmhgbcm5l1",
+          "oldKey": "jostein-hesty",
+          "oldName": "Jostein Hestøy"
+        }
+      ]
+    },
+    {
+      "newKey": "lill-maren-mogster",
+      "canonicalName": "Lill Maren Møgster",
+      "sourceKeys": [
+        "lill-maren-mgster",
+        "lill-maren-mogster"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni9h003245vmzfgotthx",
+          "personKey": "lill-maren-mgster",
+          "name": "Lill Maren Møgster"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0aqa000nzmvmxy59bl18",
+        "personKey": "lill-maren-mogster",
+        "name": "Lill Maren Møgster"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf295009w8vvmicafyvym",
+          "oldKey": "lill-maren-mgster",
+          "oldName": "Lill Maren Møgster"
+        }
+      ]
+    },
+    {
+      "newKey": "kristian-nergard",
+      "canonicalName": "Kristian Nergaard",
+      "sourceKeys": [
+        "kristian-nergaard",
+        "kristian-nergard"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni9c002v45vm1gqwt4ks",
+          "personKey": "kristian-nergaard",
+          "name": "Kristian Nergaard"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0atp0010zmvm5jojtgy5",
+        "personKey": "kristian-nergard",
+        "name": "Kristian Nergaard"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf25t00518vvmkzb6tp1e",
+          "oldKey": "kristian-nergaard",
+          "oldName": "Kristian Nergaard"
+        }
+      ]
+    },
+    {
+      "newKey": "oystein-berg",
+      "canonicalName": "Øystein Berg",
+      "sourceKeys": [
+        "oystein-berg",
+        "ystein-berg"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbnibe005645vmvd44s07x",
+          "personKey": "ystein-berg",
+          "name": "Øystein Berg"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0b6d002kzmvmg383uvik",
+        "personKey": "oystein-berg",
+        "name": "Øystein Berg"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf22z000s8vvm70aesakp",
+          "oldKey": "ystein-berg",
+          "oldName": "Øystein Berg"
+        }
+      ]
+    },
+    {
+      "newKey": "bjorn-vikmo",
+      "canonicalName": "Bjørn Vik-Mo",
+      "sourceKeys": [
+        "bjorn-vikmo",
+        "bjrn-vikmo"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni5p000j45vm8ke8e5qd",
+          "personKey": "bjrn-vikmo",
+          "name": "Bjørn Vik-Mo"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0b6h002ozmvmuqzo8scu",
+        "personKey": "bjorn-vikmo",
+        "name": "Bjørn Vik-Mo"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf231000w8vvmieoipg3z",
+          "oldKey": "bjrn-vikmo",
+          "oldName": "Bjørn Vik-Mo"
+        }
+      ]
+    },
+    {
+      "newKey": "katrine-lundstrom",
+      "canonicalName": "Katrine Lundstrøm",
+      "sourceKeys": [
+        "katrine-lundstrm",
+        "katrine-lundstrom"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni91002m45vmbk3dnz5c",
+          "personKey": "katrine-lundstrm",
+          "name": "Katrine Lundstrøm"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0b6n002szmvms9vxkin0",
+        "personKey": "katrine-lundstrom",
+        "name": "Katrine Lundstrøm"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf23300108vvmrm3zz2da",
+          "oldKey": "katrine-lundstrm",
+          "oldName": "Katrine Lundstrøm"
+        }
+      ]
+    },
+    {
+      "newKey": "stine-beate-rodberg",
+      "canonicalName": "Stine Beate Rødberg",
+      "sourceKeys": [
+        "stine-beate-rdberg",
+        "stine-beate-rodberg"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbnib1004v45vmbcfam4dv",
+          "personKey": "stine-beate-rdberg",
+          "name": "Stine Beate Rødberg"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0b6o002tzmvm3lnl4pe6",
+        "personKey": "stine-beate-rodberg",
+        "name": "Stine Beate Rødberg"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf23300118vvm10itde5j",
+          "oldKey": "stine-beate-rdberg",
+          "oldName": "Stine Beate Rødberg"
+        }
+      ]
+    },
+    {
+      "newKey": "christian-forland",
+      "canonicalName": "Christian Førland",
+      "sourceKeys": [
+        "christian-forland",
+        "christian-frland"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni6d000x45vmnabbfemm",
+          "personKey": "christian-frland",
+          "name": "Christian Førland"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0c3r007azmvmerwdz141",
+        "personKey": "christian-forland",
+        "name": "Christian Førland"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf28e008x8vvmz9z0c6ue",
+          "oldKey": "christian-frland",
+          "oldName": "Christian Førland"
+        }
+      ]
+    },
+    {
+      "newKey": "frank-gjoran-fandin",
+      "canonicalName": "Frank Gjøran Fandin",
+      "sourceKeys": [
+        "frank-gjoran-fandin",
+        "frank-gjran-fandin"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni74001d45vm5tr4s1bb",
+          "personKey": "frank-gjran-fandin",
+          "name": "Frank Gjøran Fandin"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0bc4003mzmvmlsnp5bo9",
+        "personKey": "frank-gjoran-fandin",
+        "name": "Frank Gjøran Fandin"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf25f004i8vvmau09pgio",
+          "oldKey": "frank-gjran-fandin",
+          "oldName": "Frank Gjøran Fandin"
+        }
+      ]
+    },
+    {
+      "newKey": "sigbjorn-aurland",
+      "canonicalName": "Sigbjørn Aurland",
+      "sourceKeys": [
+        "sigbjorn-aurland",
+        "sigbjrn-aurland"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbniau004m45vmwt6kly0v",
+          "personKey": "sigbjrn-aurland",
+          "name": "Sigbjørn Aurland"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0bca003szmvmy6vm0xxz",
+        "personKey": "sigbjorn-aurland",
+        "name": "Sigbjørn Aurland"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf25h004o8vvm9id1jsjy",
+          "oldKey": "sigbjrn-aurland",
+          "oldName": "Sigbjørn Aurland"
+        }
+      ]
+    },
+    {
+      "newKey": "torbjorg-kylland",
+      "canonicalName": "Torbjørg Kylland",
+      "sourceKeys": [
+        "torbjorg-kylland",
+        "torbjrg-kylland"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbnibc005345vmkcq32tk4",
+          "personKey": "torbjrg-kylland",
+          "name": "Torbjørg Kylland"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0bcb003tzmvmg2blpiq4",
+        "personKey": "torbjorg-kylland",
+        "name": "Torbjørg Kylland"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf25i004p8vvmnal4dzox",
+          "oldKey": "torbjrg-kylland",
+          "oldName": "Torbjørg Kylland"
+        }
+      ]
+    },
+    {
+      "newKey": "martin-gjolme",
+      "canonicalName": "Martin Gjølme",
+      "sourceKeys": [
+        "martin-gjlme",
+        "martin-gjolme"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni9y003n45vmcp8r8tdt",
+          "personKey": "martin-gjlme",
+          "name": "Martin Gjølme"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0bof005izmvm52nsg0sn",
+        "personKey": "martin-gjolme",
+        "name": "Martin Gjølme"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf288008n8vvmq4c6h4ym",
+          "oldKey": "martin-gjlme",
+          "oldName": "Martin Gjølme"
+        }
+      ]
+    },
+    {
+      "newKey": "henning-kolbjorn-beltestad",
+      "canonicalName": "Henning Kolbjørn Beltestad",
+      "sourceKeys": [
+        "henning-kolbjorn-beltestad",
+        "henning-kolbjrn-beltestad"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni84001x45vmww0y5eli",
+          "personKey": "henning-kolbjrn-beltestad",
+          "name": "Henning Kolbjørn Beltestad"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0c0d006pzmvm849j3lad",
+        "personKey": "henning-kolbjorn-beltestad",
+        "name": "Henning Kolbjørn Beltestad"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf26s006e8vvm9kpqbpwk",
+          "oldKey": "henning-kolbjrn-beltestad",
+          "oldName": "Henning Kolbjørn Beltestad"
+        }
+      ]
+    },
+    {
+      "newKey": "karoline-mogster",
+      "canonicalName": "Karoline Møgster",
+      "sourceKeys": [
+        "karoline-mgster",
+        "karoline-mogster"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni8z002j45vmbwoyswj4",
+          "personKey": "karoline-mgster",
+          "name": "Karoline Møgster"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0c0i006tzmvmihcgknmr",
+        "personKey": "karoline-mogster",
+        "name": "Karoline Møgster"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf26t006h8vvmm3bxy8zz",
+          "oldKey": "karoline-mgster",
+          "oldName": "Karoline Møgster"
+        }
+      ]
+    },
+    {
+      "newKey": "emma-maria-elisabeth-bjorke",
+      "canonicalName": "Emma Maria Elisabeth Bjørke",
+      "sourceKeys": [
+        "emma-maria-elisabeth-bjorke",
+        "emma-maria-elisabeth-bjrke"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni6w001745vmjhebu5jh",
+          "personKey": "emma-maria-elisabeth-bjrke",
+          "name": "Emma Maria Elisabeth Bjørke"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0c8t007mzmvmuv2cjr9t",
+        "personKey": "emma-maria-elisabeth-bjorke",
+        "name": "Emma Maria Elisabeth Bjørke"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf28m00978vvmirnm8rld",
+          "oldKey": "emma-maria-elisabeth-bjrke",
+          "oldName": "Emma Maria Elisabeth Bjørke"
+        }
+      ]
+    },
+    {
+      "newKey": "lisbet-karin-naero",
+      "canonicalName": "Lisbet Karin Nærø",
+      "sourceKeys": [
+        "lisbet-karin-naero",
+        "lisbet-karin-nr"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni9n003745vm3mwiqkk3",
+          "personKey": "lisbet-karin-nr",
+          "name": "Lisbet Karin Nærø"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0cci0080zmvmlu86axqx",
+        "personKey": "lisbet-karin-naero",
+        "name": "Lisbet Karin Nærø"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf265005k8vvmbb5nk6m7",
+          "oldKey": "lisbet-karin-nr",
+          "oldName": "Lisbet Karin Nærø"
+        }
+      ]
+    },
+    {
+      "newKey": "rune-rodbotten",
+      "canonicalName": "Rune Rødbotten",
+      "sourceKeys": [
+        "rune-rdbotten",
+        "rune-rodbotten"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbniat004j45vmmoq4mmkv",
+          "personKey": "rune-rdbotten",
+          "name": "Rune Rødbotten"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0cg2008nzmvmjz3qdyf8",
+        "personKey": "rune-rodbotten",
+        "name": "Rune Rødbotten"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf28z009o8vvmq8huo9ff",
+          "oldKey": "rune-rdbotten",
+          "oldName": "Rune Rødbotten"
+        }
+      ]
+    },
+    {
+      "newKey": "guri-storvold",
+      "canonicalName": "Guri Størvold",
+      "sourceKeys": [
+        "guri-storvold",
+        "guri-strvold"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni7s001o45vmtyns7gng",
+          "personKey": "guri-strvold",
+          "name": "Guri Størvold"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0co9009mzmvm8n7rmh5z",
+        "personKey": "guri-storvold",
+        "name": "Guri Størvold"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf22i000c8vvmbg5qtrk5",
+          "oldKey": "guri-strvold",
+          "oldName": "Guri Størvold"
+        }
+      ]
+    },
+    {
+      "newKey": "erlend-ronning",
+      "canonicalName": "Erlend Rønning",
+      "sourceKeys": [
+        "erlend-rnning",
+        "erlend-ronning"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni6z001945vmi45xs1n5",
+          "personKey": "erlend-rnning",
+          "name": "Erlend Rønning"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0cuu00auzmvmev0bo3qa",
+        "personKey": "erlend-ronning",
+        "name": "Erlend Rønning"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf248002h8vvmmb5ktb93",
+          "oldKey": "erlend-rnning",
+          "oldName": "Erlend Rønning"
+        }
+      ]
+    },
+    {
+      "newKey": "hans-amund-brastad",
+      "canonicalName": "Hans Amund Braastad",
+      "sourceKeys": [
+        "hans-amund-braastad",
+        "hans-amund-brastad"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni80001s45vmfimdsuhs",
+          "personKey": "hans-amund-braastad",
+          "name": "Hans Amund Braastad"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0cuv00avzmvmmqcmdan3",
+        "personKey": "hans-amund-brastad",
+        "name": "Hans Amund Braastad"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf249002i8vvmascc2zsb",
+          "oldKey": "hans-amund-braastad",
+          "oldName": "Hans Amund Braastad"
+        }
+      ]
+    },
+    {
+      "newKey": "martin-maeland",
+      "canonicalName": "Martin Mæland",
+      "sourceKeys": [
+        "martin-maeland",
+        "martin-mland"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbnia0003p45vmvs6my9tq",
+          "personKey": "martin-mland",
+          "name": "Martin Mæland"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0cv100b3zmvmslapnxj8",
+        "personKey": "martin-maeland",
+        "name": "Martin Mæland"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf24d002q8vvmcvvxppq9",
+          "oldKey": "martin-mland",
+          "oldName": "Martin Mæland"
+        }
+      ]
+    },
+    {
+      "newKey": "liselott-kilas",
+      "canonicalName": "Liselott Kilaas",
+      "sourceKeys": [
+        "liselott-kilaas",
+        "liselott-kilas"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni9o003945vm0udnoipk",
+          "personKey": "liselott-kilaas",
+          "name": "Liselott Kilaas"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0d2y00bvzmvmos4x4vb0",
+        "personKey": "liselott-kilas",
+        "name": "Liselott Kilaas"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf23s001w8vvm414kd0rl",
+          "oldKey": "liselott-kilaas",
+          "oldName": "Liselott Kilaas"
+        }
+      ]
+    },
+    {
+      "newKey": "marius-de-has",
+      "canonicalName": "Marius De Haas",
+      "sourceKeys": [
+        "marius-de-haas",
+        "marius-de-has"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni9x003m45vmp6xindnw",
+          "personKey": "marius-de-haas",
+          "name": "Marius De Haas"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0dm700f3zmvm4rjbmboq",
+        "personKey": "marius-de-has",
+        "name": "Marius De Haas"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf27l007k8vvm8zt84fqe",
+          "oldKey": "marius-de-haas",
+          "oldName": "Marius De Haas"
+        }
+      ]
+    },
+    {
+      "newKey": "kare-ivar-stormon",
+      "canonicalName": "Kåre Ivar Stormoen",
+      "sourceKeys": [
+        "kare-ivar-stormoen",
+        "kare-ivar-stormon"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni8x002h45vm3jri7t8i",
+          "personKey": "kare-ivar-stormoen",
+          "name": "Kåre Ivar Stormoen"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0dqj00fyzmvmzj6y8dxn",
+        "personKey": "kare-ivar-stormon",
+        "name": "Kåre Ivar Stormoen"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf24y003p8vvmujs7uzkv",
+          "oldKey": "kare-ivar-stormoen",
+          "oldName": "Kåre Ivar Stormoen"
+        }
+      ]
+    },
+    {
+      "newKey": "ken-vanhogaerden",
+      "canonicalName": "Ken Vanhoegaerden",
+      "sourceKeys": [
+        "ken-vanhoegaerden",
+        "ken-vanhogaerden"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni92002n45vma0h6tf6v",
+          "personKey": "ken-vanhoegaerden",
+          "name": "Ken Vanhoegaerden"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0dvp00gazmvmrjwa7l1u",
+        "personKey": "ken-vanhogaerden",
+        "name": "Ken Vanhoegaerden"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf27x00848vvmncbigw66",
+          "oldKey": "ken-vanhoegaerden",
+          "oldName": "Ken Vanhoegaerden"
+        }
+      ]
+    },
+    {
+      "newKey": "geir-olav-sundbo",
+      "canonicalName": "Geir Olav Sundbø",
+      "sourceKeys": [
+        "geir-olav-sundb",
+        "geir-olav-sundbo"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [
+        {
+          "id": "cmpmbni78001g45vmthj38ufn",
+          "personKey": "geir-olav-sundb",
+          "name": "Geir Olav Sundbø"
+        }
+      ],
+      "profileWinner": {
+        "id": "cmpch0e2q00h7zmvm5xrg8gb2",
+        "personKey": "geir-olav-sundbo",
+        "name": "Geir Olav Sundbø"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf27600738vvmpvp45xcr",
+          "oldKey": "geir-olav-sundb",
+          "oldName": "Geir Olav Sundbø"
+        }
+      ]
+    },
+    {
+      "newKey": "signe-saeter",
+      "canonicalName": "Signe Sæter",
+      "sourceKeys": [
+        "signe-ster"
+      ],
+      "boardMemberCount": 2,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmp8xyui7000wybvm2ptprx0s",
+        "personKey": "signe-ster",
+        "name": "Signe Sæter"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf28d008w8vvmqihn07dg",
+          "oldKey": "signe-ster",
+          "oldName": "Signe Sæter"
+        },
+        {
+          "id": "cmpcdf28l00958vvmzdj7puxr",
+          "oldKey": "signe-ster",
+          "oldName": "Signe Sæter"
+        }
+      ]
+    },
+    {
+      "newKey": "antti-matta",
+      "canonicalName": "Antti Määttä",
+      "sourceKeys": [
+        "antti-maatta"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni51000b45vmbkt3hnxe",
+        "personKey": "antti-maatta",
+        "name": "Antti Määttä"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpd6ncta000ot8vmi1uf49ws",
+          "oldKey": "antti-maatta",
+          "oldName": "Antti Määttä"
+        }
+      ]
+    },
+    {
+      "newKey": "bjorn-gulden",
+      "canonicalName": "Bjørn Gulden",
+      "sourceKeys": [
+        "bjrn-gulden"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni5n000i45vmet21izss",
+        "personKey": "bjrn-gulden",
+        "name": "Bjørn Gulden"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf2b600cn8vvm7rowupsj",
+          "oldKey": "bjrn-gulden",
+          "oldName": "Bjørn Gulden"
+        }
+      ]
+    },
+    {
+      "newKey": "ann-kristin-nygard",
+      "canonicalName": "Ann Kristin Nygaard",
+      "sourceKeys": [
+        "ann-kristin-nygaard"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni4q000545vmpwaehiiw",
+        "personKey": "ann-kristin-nygaard",
+        "name": "Ann Kristin Nygaard"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf25j004q8vvmn0n5h04e",
+          "oldKey": "ann-kristin-nygaard",
+          "oldName": "Ann Kristin Nygaard"
+        }
+      ]
+    },
+    {
+      "newKey": "elin-johanne-arvik",
+      "canonicalName": "Elin Johanne Aarvik",
+      "sourceKeys": [
+        "elin-johanne-aarvik"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni6r001445vmz7wjrayd",
+        "personKey": "elin-johanne-aarvik",
+        "name": "Elin Johanne Aarvik"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf24v003h8vvmz8hbrmmp",
+          "oldKey": "elin-johanne-aarvik",
+          "oldName": "Elin Johanne Aarvik"
+        }
+      ]
+    },
+    {
+      "newKey": "goril-johnsen",
+      "canonicalName": "Gøril Johnsen",
+      "sourceKeys": [
+        "gril-johnsen"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni7m001j45vmadh63kkr",
+        "personKey": "gril-johnsen",
+        "name": "Gøril Johnsen"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf230000v8vvmweww77vg",
+          "oldKey": "gril-johnsen",
+          "oldName": "Gøril Johnsen"
+        }
+      ]
+    },
+    {
+      "newKey": "gyrid-ingero",
+      "canonicalName": "Gyrid Ingerø",
+      "sourceKeys": [
+        "gyrid-inger"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni7u001p45vmz57q7iuf",
+        "personKey": "gyrid-inger",
+        "name": "Gyrid Ingerø"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf25w00598vvmhr1kwyaz",
+          "oldKey": "gyrid-inger",
+          "oldName": "Gyrid Ingerø"
+        }
+      ]
+    },
+    {
+      "newKey": "jens-bjerg-sorensen",
+      "canonicalName": "Jens Bjerg Sørensen",
+      "sourceKeys": [
+        "jens-bjerg-srensen"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni8l002845vmci5kp80c",
+        "personKey": "jens-bjerg-srensen",
+        "name": "Jens Bjerg Sørensen"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf2b800co8vvmbjx7ttzu",
+          "oldKey": "jens-bjerg-srensen",
+          "oldName": "Jens Bjerg Sørensen"
+        }
+      ]
+    },
+    {
+      "newKey": "jette-aen",
+      "canonicalName": "Jette Aaen",
+      "sourceKeys": [
+        "jette-aaen"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni8n002a45vm5vlg6p69",
+        "personKey": "jette-aaen",
+        "name": "Jette Aaen"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf2bh00d68vvm4nox4n94",
+          "oldKey": "jette-aaen",
+          "oldName": "Jette Aaen"
+        }
+      ]
+    },
+    {
+      "newKey": "kirsten-vaerdal",
+      "canonicalName": "Kirsten Værdal",
+      "sourceKeys": [
+        "kirsten-vrdal"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni97002s45vmj42kcegk",
+        "personKey": "kirsten-vrdal",
+        "name": "Kirsten Værdal"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf25v00588vvmbyyukp9w",
+          "oldKey": "kirsten-vrdal",
+          "oldName": "Kirsten Værdal"
+        }
+      ]
+    },
+    {
+      "newKey": "kjersti-helen-hobol",
+      "canonicalName": "Kjersti Helen Hobøl",
+      "sourceKeys": [
+        "kjersti-helen-hobl"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni98002t45vm9lyk10kh",
+        "personKey": "kjersti-helen-hobl",
+        "name": "Kjersti Helen Hobøl"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf265005l8vvmt9zkxmze",
+          "oldKey": "kjersti-helen-hobl",
+          "oldName": "Kjersti Helen Hobøl"
+        }
+      ]
+    },
+    {
+      "newKey": "kraen-ostergard-nielsen",
+      "canonicalName": "Kræn Østergård Nielsen",
+      "sourceKeys": [
+        "krn-stergard-nielsen"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni9c002w45vmq93uyyfo",
+        "personKey": "krn-stergard-nielsen",
+        "name": "Kræn Østergård Nielsen"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf2bh00d58vvm6m3dc4ue",
+          "oldKey": "krn-stergard-nielsen",
+          "oldName": "Kræn Østergård Nielsen"
+        }
+      ]
+    },
+    {
+      "newKey": "liza-ostergren-jensen",
+      "canonicalName": "Liza Østergren Jensen",
+      "sourceKeys": [
+        "liza-stergren-jensen"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni9q003b45vmd0ab8qob",
+        "personKey": "liza-stergren-jensen",
+        "name": "Liza Østergren Jensen"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpd6nct2000dt8vmm7i5f1sx",
+          "oldKey": "liza-stergren-jensen",
+          "oldName": "Liza Østergren Jensen"
+        }
+      ]
+    },
+    {
+      "newKey": "marianne-kirkegard",
+      "canonicalName": "Marianne Kirkegaard",
+      "sourceKeys": [
+        "marianne-kirkegaard"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni9w003j45vmbt132mtp",
+        "personKey": "marianne-kirkegaard",
+        "name": "Marianne Kirkegaard"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf2b900cp8vvmjfx55ufp",
+          "oldKey": "marianne-kirkegaard",
+          "oldName": "Marianne Kirkegaard"
+        }
+      ]
+    },
+    {
+      "newKey": "marianne-rorslev-bock",
+      "canonicalName": "Marianne Rørslev Bock",
+      "sourceKeys": [
+        "marianne-rrslev-bock"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbni9w003k45vm4u05sre2",
+        "personKey": "marianne-rrslev-bock",
+        "name": "Marianne Rørslev Bock"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpd6nct0000at8vm86z3qpav",
+          "oldKey": "marianne-rrslev-bock",
+          "oldName": "Marianne Rørslev Bock"
+        }
+      ]
+    },
+    {
+      "newKey": "meri-alto",
+      "canonicalName": "Meri Aalto",
+      "sourceKeys": [
+        "meri-aalto"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbnia5003t45vm8imobglj",
+        "personKey": "meri-aalto",
+        "name": "Meri Aalto"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpd6ncte000tt8vm4xc1zfvd",
+          "oldKey": "meri-aalto",
+          "oldName": "Meri Aalto"
+        }
+      ]
+    },
+    {
+      "newKey": "morten-mosegard",
+      "canonicalName": "Morten Mosegaard",
+      "sourceKeys": [
+        "morten-mosegaard"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbniab003y45vmlw6uicnc",
+        "personKey": "morten-mosegaard",
+        "name": "Morten Mosegaard"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf2bh00d48vvm0569ctrj",
+          "oldKey": "morten-mosegaard",
+          "oldName": "Morten Mosegaard"
+        }
+      ]
+    },
+    {
+      "newKey": "nils-smedegard-andersen",
+      "canonicalName": "Nils Smedegaard Andersen",
+      "sourceKeys": [
+        "nils-smedegaard-andersen"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbniaf004245vmat8j66x1",
+        "personKey": "nils-smedegaard-andersen",
+        "name": "Nils Smedegaard Andersen"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf2b500cl8vvm7l9xg631",
+          "oldKey": "nils-smedegaard-andersen",
+          "oldName": "Nils Smedegaard Andersen"
+        }
+      ]
+    },
+    {
+      "newKey": "ragnhild-hoimyr",
+      "canonicalName": "Ragnhild Høimyr",
+      "sourceKeys": [
+        "ragnhild-himyr"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbniao004d45vm7fnqbk8q",
+        "personKey": "ragnhild-himyr",
+        "name": "Ragnhild Høimyr"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf27600748vvmiv37da55",
+          "oldKey": "ragnhild-himyr",
+          "oldName": "Ragnhild Høimyr"
+        }
+      ]
+    },
+    {
+      "newKey": "soren-engberg",
+      "canonicalName": "Søren Engberg",
+      "sourceKeys": [
+        "sren-engberg"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbniaz004s45vmqaeocz6z",
+        "personKey": "sren-engberg",
+        "name": "Søren Engberg"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpd6nct1000bt8vmzzo7k1pj",
+          "oldKey": "sren-engberg",
+          "oldName": "Søren Engberg"
+        }
+      ]
+    },
+    {
+      "newKey": "soren-hansen",
+      "canonicalName": "Søren Hansen",
+      "sourceKeys": [
+        "sren-hansen"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbniaz004t45vmo64g5l60",
+        "personKey": "sren-hansen",
+        "name": "Søren Hansen"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpd6nct2000et8vmudchzfqk",
+          "oldKey": "sren-hansen",
+          "oldName": "Søren Hansen"
+        }
+      ]
+    },
+    {
+      "newKey": "susanne-morch-koch",
+      "canonicalName": "Susanne Mørch Koch",
+      "sourceKeys": [
+        "susanne-mrch-koch"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbnib2004w45vmlnb82f0c",
+        "personKey": "susanne-mrch-koch",
+        "name": "Susanne Mørch Koch"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf2b900cr8vvmmnazjt5t",
+          "oldKey": "susanne-mrch-koch",
+          "oldName": "Susanne Mørch Koch"
+        }
+      ]
+    },
+    {
+      "newKey": "tania-klaebel",
+      "canonicalName": "Tania Klæbel",
+      "sourceKeys": [
+        "tania-klbel"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbnib3004x45vmb1d6p3px",
+        "personKey": "tania-klbel",
+        "name": "Tania Klæbel"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpd6ncsw0005t8vmrbn88abl",
+          "oldKey": "tania-klbel",
+          "oldName": "Tania Klæbel"
+        }
+      ]
+    },
+    {
+      "newKey": "thomas-thellersen-borner",
+      "canonicalName": "Thomas Thellersen Børner",
+      "sourceKeys": [
+        "thomas-thellersen-brner"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbnib6004y45vm64hya8yw",
+        "personKey": "thomas-thellersen-brner",
+        "name": "Thomas Thellersen Børner"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpd6nct3000gt8vmaupqr4dg",
+          "oldKey": "thomas-thellersen-brner",
+          "oldName": "Thomas Thellersen Børner"
+        }
+      ]
+    },
+    {
+      "newKey": "thor-skov-jorgensen",
+      "canonicalName": "Thor Skov Jørgensen",
+      "sourceKeys": [
+        "thor-skov-jrgensen"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbnib7004z45vm6673v0a2",
+        "personKey": "thor-skov-jrgensen",
+        "name": "Thor Skov Jørgensen"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf2bg00d28vvmxqgbvv8b",
+          "oldKey": "thor-skov-jrgensen",
+          "oldName": "Thor Skov Jørgensen"
+        }
+      ]
+    },
+    {
+      "newKey": "tomi-korpisari",
+      "canonicalName": "Tomi Korpisaari",
+      "sourceKeys": [
+        "tomi-korpisaari"
+      ],
+      "boardMemberCount": 1,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmpmbnibb005245vmdwqmzexs",
+        "personKey": "tomi-korpisaari",
+        "name": "Tomi Korpisaari"
+      },
+      "boardKeyChanges": [
+        {
+          "id": "cmpcdf2cn00ey8vvmrgou4dan",
+          "oldKey": "tomi-korpisaari",
+          "oldName": "Tomi Korpisaari"
+        }
+      ]
+    },
+    {
+      "newKey": "gustav-magnar-witzo",
+      "canonicalName": "Gustav Magnar Witzøe",
+      "sourceKeys": [
+        "gustav-magnar-witze"
+      ],
+      "boardMemberCount": 0,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmp8xyufu000dybvm97gdhx4e",
+        "personKey": "gustav-magnar-witze",
+        "name": "Gustav Magnar Witzøe"
+      },
+      "boardKeyChanges": []
+    },
+    {
+      "newKey": "petter-has-brubakk",
+      "canonicalName": "Petter Haas Brubakk",
+      "sourceKeys": [
+        "petter-haas-brubakk"
+      ],
+      "boardMemberCount": 0,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmp8xyugs000jybvmrn2qvdw4",
+        "personKey": "petter-haas-brubakk",
+        "name": "Petter Haas Brubakk"
+      },
+      "boardKeyChanges": []
+    },
+    {
+      "newKey": "anne-jodahl-skuterud",
+      "canonicalName": "Anne Jødahl Skuterud",
+      "sourceKeys": [
+        "anne-jdahl-skuterud"
+      ],
+      "boardMemberCount": 0,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmp8xyuh4000oybvmghbzghzy",
+        "personKey": "anne-jdahl-skuterud",
+        "name": "Anne Jødahl Skuterud"
+      },
+      "boardKeyChanges": []
+    },
+    {
+      "newKey": "bjorn-gimming",
+      "canonicalName": "Bjørn Gimming",
+      "sourceKeys": [
+        "bjrn-gimming"
+      ],
+      "boardMemberCount": 0,
+      "profileLosers": [],
+      "profileWinner": {
+        "id": "cmp8xyuhc000sybvmwqhp97i7",
+        "personKey": "bjrn-gimming",
+        "name": "Bjørn Gimming"
+      },
+      "boardKeyChanges": []
+    }
+  ],
+  "skippedUnsafeProfileMerges": [
+    {
+      "newKey": "monica-odegard",
+      "canonicalName": "Monica Ødegaard",
+      "profileIds": [
+        "cmpch0d9o00d2zmvm6pnc87hg",
+        "cmpmbniaa003w45vmcinonuxe"
+      ],
+      "sourceKeys": [
+        "monica-degaard",
+        "monica-odegard"
+      ]
+    }
+  ]
 }

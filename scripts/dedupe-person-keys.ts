@@ -16,6 +16,7 @@ import { dirname } from 'path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { canonicalPersonKey, pickCanonicalName } from '../src/lib/person-key.ts'
+import { isSafeAutomaticPersonDuplicateMerge } from '../src/lib/person-duplicate-triage.ts'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -108,6 +109,9 @@ function mergeMetadata(items: (Record<string, unknown> | null | undefined)[]): R
 
 async function main() {
   const opts = parseArgs(process.argv.slice(2))
+  const generatedDateOslo = new Intl.DateTimeFormat('sv-SE', {
+    timeZone: 'Europe/Oslo',
+  }).format(new Date())
   console.log(`mode: ${opts.commit ? 'COMMIT (will write to DB)' : 'DRY-RUN'}${opts.limit ? `, limit ${opts.limit}` : ''}`)
 
   const [profiles, boardMembers] = await Promise.all([
@@ -165,6 +169,12 @@ async function main() {
   }
 
   const actions: GroupAction[] = []
+  const skippedUnsafeProfileMerges: Array<{
+    newKey: string
+    canonicalName: string
+    profileIds: string[]
+    sourceKeys: string[]
+  }> = []
   for (const newKey of allNewKeys) {
     const profilesInGroup = profilesByNewKey.get(newKey) ?? []
     const boardInGroup = boardByNewKey.get(newKey) ?? []
@@ -185,6 +195,26 @@ async function main() {
       ...boardInGroup.map((b) => b.personName),
     ]
     const canonicalName = pickCanonicalName(namesPool)
+
+    if (
+      profileNeedsMerge &&
+      !isSafeAutomaticPersonDuplicateMerge(
+        {
+          key: newKey,
+          label: canonicalName,
+          ids: profilesInGroup.map((p) => p.id),
+        },
+        profilesInGroup,
+      )
+    ) {
+      skippedUnsafeProfileMerges.push({
+        newKey,
+        canonicalName,
+        profileIds: profilesInGroup.map((p) => p.id),
+        sourceKeys: [...sourceKeys].sort(),
+      })
+      continue
+    }
 
     const profileWinner = profilesInGroup.length > 0
       ? [...profilesInGroup].sort((a, b) => {
@@ -344,6 +374,7 @@ async function main() {
       groupsTotal: actions.length,
       groupsRunInThisPass: limited.length,
       groupsWithMultipleSourceKeys: actions.filter((a) => a.sourceKeys.length > 1).length,
+      unsafeProfileMergeGroupsSkipped: skippedUnsafeProfileMerges.length,
       profileLosersDeleted: profilesDeleted,
       profileWinnersUpdated: profilesUpdated,
       boardMembersRekeyed: boardUpdated,
@@ -358,6 +389,7 @@ async function main() {
       profileWinner: a.profileWinner ? { id: a.profileWinner.id, personKey: a.profileWinner.personKey, name: a.profileWinner.name } : null,
       boardKeyChanges: a.boardKeyChanges.map((b) => ({ id: b.id, oldKey: b.personKey, oldName: b.personName })),
     })),
+    skippedUnsafeProfileMerges,
   }
 
   mkdirSync(dirname(REPORT_JSON), { recursive: true })
@@ -367,7 +399,7 @@ async function main() {
 tittel: "Personer dedup - Food TG"
 status: ${opts.commit ? 'Utført' : 'Dry-run'}
 eier: Gabriel
-sist_oppdatert: 2026-04-28
+sist_oppdatert: ${generatedDateOslo}
 relaterte_filer:
   - scripts/dedupe-person-keys.ts
   - src/lib/person-key.ts
@@ -386,6 +418,7 @@ Modus: \`${report.mode}\`${opts.limit ? `, begrenset til ${opts.limit} grupper` 
 | BoardMember lastet | ${report.counts.boardMemberLoaded} |
 | Grupper som krever endring | ${report.counts.groupsTotal} |
 | Med 2+ kilde-personKey | ${report.counts.groupsWithMultipleSourceKeys} |
+| Usikre profile-merge-grupper holdt igjen | ${report.counts.unsafeProfileMergeGroupsSkipped} |
 | PersonProfile-tapere som slettes | ${report.counts.profileLosersDeleted} |
 | PersonProfile-vinnere som oppdateres | ${report.counts.profileWinnersUpdated} |
 | BoardMember-rader som re-nokles | ${report.counts.boardMembersRekeyed} |
