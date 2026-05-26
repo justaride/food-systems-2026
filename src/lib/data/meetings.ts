@@ -361,4 +361,38 @@ export const meetings: Meeting[] = [
       { sourceId: 'src-180', label: 'Transition Groups arbeidsmote transkripsjon', note: 'Mandat, scoping, aktorkartlegging og plattformstatus — 21. april 2026' },
     ],
   },
+  {
+    id: 'meeting-9',
+    date: '26. mai 2026',
+    title: 'JT + Gabriel — Metodeoverforing Cities/Food',
+    participants: ['Jan Thomas Odegard', 'Gabriel Freeman'],
+    source: 'docs/meetings/JT-GABRIEL - Metodeoverforing Cities Food mai 2026.md',
+    summary:
+      'Cross-project intake note for Food-relevant Wageningen/Moerman/R9 material from the Cities/JT audit. Materialet registreres som intern metodeoverforing og gate-sprak for Food TG, men er ikke formelt Food TG-vedtak, ikke ekstern validering og ikke kilde- eller claim-lukket for offentlig bruk.',
+    keyDecisions: [
+      'Register as cross-project intake, ikke formelt Food TG-mote',
+      'Behandle Wageningen/Elbersen 2022 som internt gate- og scoringssprak til Food-local locators og claim-lenker er lukket',
+      'Hold ekstern validering, pilotstatus og KPI-effekt apen for alle overforte metodeclaims',
+      'Bruk transferpakken til Food-local kontrollartefakter, ikke til a lofte kandidatene til beslutning',
+    ],
+    actionItems: [
+      'Lukke eksakte side-, tabell- og figurlocatorer for SRC-B-035',
+      'Koble all Wageningen-bruk til claim-ID for deck, rapport, whitepaper og apptekst',
+      'Bruke scorecard som valideringssprint-sporsmal for B1, B2, B3 og A/B',
+      'Tilbakefore status til Circular nar Food har claim-readiness registrert',
+    ],
+    keyInsights: [
+      'Wageningen/Moerman er nyttig som metode-lens, men ikke bevis for nordisk overforbarhet',
+      'Kaskadeplassering ma alltid ha fraksjon, lovlig sluttbruk, mattrygghet, LCA/systemgrense og off-taker',
+      'Ghana, Costa Rica og Nederland er benchmark-caser for flaskehalser, ikke nordisk dokumentasjon',
+      'Mattrygghet, regelverk, dataeier og claim-lock ma sta foran pilot- eller effektsprak',
+    ],
+    sources: [
+      {
+        sourceId: 'src-181',
+        label: 'Metodeoverforing Cities/Food intake note',
+        note: 'Cross-project intake og Wageningen/Moerman transfer — 26. mai 2026',
+      },
+    ],
+  },
 ]

@@ -8,7 +8,7 @@
     "audit:konsern": "tsx scripts/audit-konsern-coverage.ts",
     "refresh:brreg": "tsx scripts/refresh-brreg-tracked.ts",
     "build": "tsx scripts/write-version.ts && prisma generate && npm run compute-metrics && next build",
-    "start": "next start",
+    "start": "node .next/standalone/server.js",
     "lint": "eslint",
     "test": "node --import=tsx --test tests/**/*.test.ts",
     "db:generate": "prisma generate",

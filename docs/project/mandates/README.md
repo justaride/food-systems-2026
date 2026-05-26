@@ -27,6 +27,7 @@ Denne mappen samler styringsdokumenter for Food Systems Transition Group og tilh
 | `food-tg-case-to-claim-index-2026-05.md` | Case/claim-indeks | Aktiv | Skiller benchmark, hypotese, pilotkandidat, sekundærspor og effektbevis per case. |
 | `food-tg-source-locator-risk-audit-2026-05.md` | Kilde-locator audit | Aktiv | Risikokart for high-risk tall, regelverk, aktørdata og datalag før ekstern bruk. |
 | `food-tg-validation-sprint-log-2026-05.md` | Valideringssprint-logg | Aktiv, venter scope-vedtak | Operativ logg for P1-aktørkontakt og responsstatus. |
+| `food-tg-wageningen-moerman-method-transfer-2026-05-26.md` | Metodeoverføring | Klar med forbehold | Food-local registrering av Wageningen/Moerman/R9-transfer fra Cities/JT; source-, claim- og ekstern valideringsport står åpen. |
 | `wageningen-critical-gate-analysis-2026-05-26.md` | Wageningen-gate | Aktiv intern | Beslutningsnotat for WUR/Wageningen som internt gate- og scoringsspråk, ikke ekstern validering. |
 | `wageningen-source-locator-ledger-2026-05-26.md` | Wageningen-locator | Aktiv intern | Locator-ledger for `SRC-B-035`, WUR-PDF og bruksgrenser. |
 | `wageningen-scorecard-template-2026-05-26.md` | Wageningen-scorecard | Aktiv intern | Gjenbrukbar 16-indikator scorecard-template med røde porter. |

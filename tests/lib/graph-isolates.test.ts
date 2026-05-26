@@ -24,6 +24,27 @@ describe('graph isolate triage', () => {
     )
   })
 
+  it('treats Nordic sprint and regulatory source documents as intentional catalog isolates', () => {
+    assert.equal(
+      classifyGraphIsolate({
+        id: 'doc-norden',
+        label: 'Sirkularitet sprint source packet',
+        type: 'document',
+        tags: ['norden', 'sirkularitet-sprint-2026-05'],
+      }).action,
+      'intentional_catalog',
+    )
+    assert.equal(
+      classifyGraphIsolate({
+        id: 'doc-regulatory',
+        label: 'Regulatory source capture',
+        type: 'document',
+        tags: ['regulatory'],
+      }).action,
+      'intentional_catalog',
+    )
+  })
+
   it('classifies isolated actors, people, and insights as actionable graph work', () => {
     assert.deepEqual(
       classifyGraphIsolate({

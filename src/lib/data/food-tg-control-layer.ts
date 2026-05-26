@@ -163,6 +163,17 @@ export const foodTgControlDocuments: FoodTgControlDocument[] = [
     use: 'Fryser intern kilde- og databaseline slik at sprintfunn kan sammenlignes mot kjent utgangspunkt.',
     blocks: ['Stopper at nye data blandes inn uten revisjonslogg, dato og endringsgrunn.'],
   },
+  {
+    id: 'wageningen-method-transfer-2026-05-26',
+    title: 'Wageningen/Moerman method transfer 2026-05-26',
+    kind: 'Metodeoverforing',
+    status: 'klar-med-forbehold',
+    path: 'docs/project/mandates/food-tg-wageningen-moerman-method-transfer-2026-05-26.md',
+    use: 'Registrerer Wageningen/Moerman som internt gate- og scoringssprak for Food TG, med apne locator-, claim- og valideringsporter.',
+    blocks: [
+      'Stopper at metodeoverforingen brukes som utadvendt bekreftelse, pilotstatus eller KPI-effekt uten locator, claim-kobling og datert valideringsrespons.',
+    ],
+  },
 ]
 
 export const foodTgDecisionGates: FoodTgDecisionGate[] = [

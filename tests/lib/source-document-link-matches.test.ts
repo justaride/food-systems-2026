@@ -52,6 +52,11 @@ describe('source document link matches', () => {
       sourceDocId: 'src-100',
       reason: 'Strategisk ledergruppe Marked meeting transcript',
     })
+
+    assert.deepEqual(findExactSourceDocLink('docs/meetings/JT-GABRIEL - Metodeoverforing Cities Food mai 2026.md'), {
+      sourceDocId: 'src-181',
+      reason: 'JT-Gabriel Cities/Food method-transfer intake note from 26 May 2026',
+    })
   })
 
   it('does not infer loose matches from derivative or summary files', () => {

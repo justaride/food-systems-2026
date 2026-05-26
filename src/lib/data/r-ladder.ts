@@ -171,6 +171,7 @@ export const rLadder: RLadderStep[] = [
       'Biogass fra matavfall (Den Magiske Fabrikken, Gasum)',
       'Biogassproduksjon fra matsvinn og gjodsel',
       'Forbrenningsanlegg med fjernvarme',
+      'Wageningen/Moerman-kaskade brukes som metode-lens for a holde energi nederst - ikke effektbevis',
     ],
     category: 'linear',
     color: 'bg-stone-100 text-stone-700',
