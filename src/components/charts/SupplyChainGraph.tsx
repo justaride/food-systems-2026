@@ -1,144 +1,152 @@
 'use client'
 
-import { useRef, useEffect, useState, useCallback, useMemo } from 'react'
-import dynamic from 'next/dynamic'
-
-const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), { ssr: false })
-
-type SupplyChainNode = {
-  id: string
-  label: string
-  valueChainStage: string | null
-  country: string
-}
-
-type SupplyChainEdge = {
-  id: string
-  source: string
-  target: string
-  relationshipType: string
-  description: string | null
-  sector: string | null
-  estimatedValue: number | null
-}
+import { NetworkMap, type NetworkTypeConfig } from '@/components/network/NetworkMap'
+import type { NetworkEdge, NetworkNode, NetworkPreset } from '@/lib/network-map'
 
 type Props = {
-  nodes: SupplyChainNode[]
-  edges: SupplyChainEdge[]
+  nodes: NetworkNode[]
+  edges: NetworkEdge[]
   stageColors: Record<string, string>
   relationshipColors: Record<string, string>
-  selectedNodeId: string | null
-  onNodeClick: (nodeId: string | null) => void
+  selectedRelationshipId?: string | null
+  selectedNodeId?: string | null
+  onNodeClick?: (nodeId: string | null) => void
 }
+
+const STAGE_LABELS: Record<string, string> = {
+  retail: 'Dagligvare',
+  processing: 'Foredling',
+  seafood: 'Sjømat',
+  inputs: 'Innsatsmidler',
+  logistics: 'Logistikk',
+  circular: 'Sirkulær',
+  research: 'Forskning',
+  foodservice: 'Foodservice',
+  'export-promotion': 'Export-promotion',
+  company: 'Selskap',
+  document: 'Dokument',
+  source: 'Kilde',
+}
+
+const EDGE_LABELS: Record<string, string> = {
+  supplier: 'Leverandør',
+  buyer: 'Kjøper',
+  distributor: 'Distributør',
+  franchisor: 'Franchisegiver',
+  'self-dealing': 'Egenhandel',
+  'joint-venture': 'Joint venture',
+  'company-ref': 'Dokumentbevis',
+}
+
+const COMPANY_STAGE_TYPES = [
+  'retail',
+  'processing',
+  'seafood',
+  'inputs',
+  'logistics',
+  'circular',
+  'research',
+  'foodservice',
+  'export-promotion',
+  'company',
+]
+
+const SUPPLY_PRESETS: NetworkPreset[] = [
+  {
+    id: 'power',
+    label: 'Maktrelasjoner',
+    description: 'Kuraterte forretningsrelasjoner. Bruk Bevis/kilder for dokumentlaget.',
+    nodeTypes: [...COMPANY_STAGE_TYPES, 'document', 'source'],
+    edgeTypes: ['supplier', 'buyer', 'distributor', 'franchisor', 'self-dealing', 'joint-venture'],
+    showIsolated: false,
+  },
+  {
+    id: 'supplier-buyer',
+    label: 'Leverandør/kjøper',
+    description: 'Retter oppmerksomheten mot leverandør- og kjøpermakt.',
+    nodeTypes: COMPANY_STAGE_TYPES,
+    edgeTypes: ['supplier', 'buyer'],
+    showIsolated: false,
+  },
+  {
+    id: 'self-dealing',
+    label: 'Egenhandel',
+    description: 'Interne handelsrelasjoner og konsernnære koblinger.',
+    nodeTypes: COMPANY_STAGE_TYPES,
+    edgeTypes: ['self-dealing'],
+    showIsolated: false,
+  },
+  {
+    id: 'food-tg',
+    label: 'Food TG',
+    description: 'Food TG-signaler fra dokumenttagger, titler og direkte nabolag.',
+    nodeTypes: [...COMPANY_STAGE_TYPES, 'document', 'source'],
+    edgeTypes: ['supplier', 'buyer', 'distributor', 'franchisor', 'self-dealing', 'joint-venture', 'company-ref'],
+    showIsolated: false,
+    includeMatchedNeighbors: true,
+    matchRules: [
+      { field: 'tag', mode: 'exact', values: ['food-tg', 'food tg', 'transition-group', 'transition-groups', 'mandat'] },
+      { field: 'href', mode: 'includes', values: ['food-tg', 'transition-group', 'mandat'] },
+      { field: 'label', mode: 'includes', values: ['food tg', 'transition group', 'nch'] },
+    ],
+  },
+  {
+    id: 'evidence',
+    label: 'Bevis/kilder',
+    description: 'Dokumentnoder og relasjoner som viser hvorfor en kobling finnes.',
+    nodeTypes: [...COMPANY_STAGE_TYPES, 'document', 'source'],
+    edgeTypes: ['company-ref'],
+    showIsolated: false,
+  },
+  {
+    id: 'stage-country',
+    label: 'Land/ledd',
+    description: 'Selskaper gruppert etter verdikjedeledd og land, med alle relasjonstyper aktive.',
+    nodeTypes: COMPANY_STAGE_TYPES,
+    edgeTypes: ['supplier', 'buyer', 'distributor', 'franchisor', 'self-dealing', 'joint-venture'],
+    showIsolated: false,
+  },
+]
 
 export function SupplyChainGraph({
   nodes,
   edges,
   stageColors,
   relationshipColors,
-  selectedNodeId,
+  selectedRelationshipId = null,
+  selectedNodeId = null,
   onNodeClick,
 }: Props) {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [dimensions, setDimensions] = useState({ width: 800, height: 500 })
+  const typeConfig: Record<string, NetworkTypeConfig> = {
+    document: { label: STAGE_LABELS.document, color: '#059669', size: 5 },
+    source: { label: STAGE_LABELS.source, color: '#d97706', size: 4 },
+    company: { label: STAGE_LABELS.company, color: '#78716c', size: 6 },
+  }
 
-  useEffect(() => {
-    if (!containerRef.current) return
-    const obs = new ResizeObserver(([entry]) => {
-      setDimensions({
-        width: entry.contentRect.width,
-        height: Math.max(500, entry.contentRect.height),
-      })
-    })
-    obs.observe(containerRef.current)
-    return () => obs.disconnect()
-  }, [])
-
-  const connectionCounts = useMemo(() => {
-    const counts: Record<string, number> = {}
-    for (const e of edges) {
-      const src = typeof e.source === 'string' ? e.source : (e.source as any).id
-      const tgt = typeof e.target === 'string' ? e.target : (e.target as any).id
-      counts[src] = (counts[src] ?? 0) + 1
-      counts[tgt] = (counts[tgt] ?? 0) + 1
+  for (const type of COMPANY_STAGE_TYPES) {
+    typeConfig[type] = {
+      label: STAGE_LABELS[type] ?? type,
+      color: stageColors[type] ?? '#78716c',
+      size: type === 'retail' || type === 'processing' ? 8 : 6,
     }
-    return counts
-  }, [edges])
-
-  const connectedNodeIds = useMemo(() => {
-    if (!selectedNodeId) return null
-    const ids = new Set<string>([selectedNodeId])
-    for (const e of edges) {
-      const src = typeof e.source === 'string' ? e.source : (e.source as any).id
-      const tgt = typeof e.target === 'string' ? e.target : (e.target as any).id
-      if (src === selectedNodeId) ids.add(tgt)
-      if (tgt === selectedNodeId) ids.add(src)
-    }
-    return ids
-  }, [selectedNodeId, edges])
-
-  const graphData = useMemo(() => ({
-    nodes: nodes.map(n => ({
-      ...n,
-      val: Math.max(3, (connectionCounts[n.id] ?? 1) * 2),
-    })),
-    links: edges.map(e => ({ ...e })),
-  }), [nodes, edges, connectionCounts])
-
-  const handleNodeClick = useCallback((node: any) => {
-    onNodeClick(node.id === selectedNodeId ? null : node.id)
-  }, [onNodeClick, selectedNodeId])
-
-  const handleBackgroundClick = useCallback(() => {
-    onNodeClick(null)
-  }, [onNodeClick])
+  }
 
   return (
-    <div
-      ref={containerRef}
-      className="rounded-xl border border-stone-200 bg-white overflow-hidden"
-      style={{ height: 500 }}
-    >
-      <ForceGraph2D
-        width={dimensions.width}
-        height={dimensions.height}
-        graphData={graphData}
-        nodeLabel={(node: any) => node.label}
-        nodeColor={(node: any) => {
-          const color = stageColors[node.valueChainStage ?? ''] ?? '#78716c'
-          if (!connectedNodeIds) return color
-          return connectedNodeIds.has(node.id) ? color : '#d6d3d1'
-        }}
-        nodeVal={(node: any) => node.val}
-        linkColor={(link: any) => {
-          const color = relationshipColors[link.relationshipType] ?? '#e7e5e4'
-          if (!connectedNodeIds) return color
-          const src = typeof link.source === 'string' ? link.source : link.source?.id
-          const tgt = typeof link.target === 'string' ? link.target : link.target?.id
-          return (connectedNodeIds.has(src) && connectedNodeIds.has(tgt)) ? color : '#f5f5f4'
-        }}
-        linkWidth={(link: any) => {
-          if (!connectedNodeIds) return 1.5
-          const src = typeof link.source === 'string' ? link.source : link.source?.id
-          const tgt = typeof link.target === 'string' ? link.target : link.target?.id
-          return (connectedNodeIds.has(src) && connectedNodeIds.has(tgt)) ? 2.5 : 0.5
-        }}
-        linkDirectionalArrowLength={5}
-        linkDirectionalArrowRelPos={1}
-        backgroundColor="#fafaf9"
-        cooldownTicks={100}
-        onNodeClick={handleNodeClick}
-        onBackgroundClick={handleBackgroundClick}
-        nodeCanvasObjectMode={() => 'after'}
-        nodeCanvasObject={(node: any, ctx) => {
-          const label = node.label?.length > 20 ? node.label.slice(0, 20) + '...' : node.label
-          const dimmed = connectedNodeIds && !connectedNodeIds.has(node.id)
-          ctx.font = '3px sans-serif'
-          ctx.textAlign = 'center'
-          ctx.fillStyle = dimmed ? '#d6d3d1' : '#57534e'
-          ctx.fillText(label, node.x, node.y + 6)
-        }}
-      />
-    </div>
+    <NetworkMap
+      nodes={nodes}
+      edges={edges}
+      presets={SUPPLY_PRESETS}
+      defaultPresetId="power"
+      typeConfig={typeConfig}
+      edgeLabels={EDGE_LABELS}
+      edgeColors={relationshipColors}
+      maxRenderNodes={500}
+      selectedEdgeId={selectedRelationshipId}
+      selectedNodeId={selectedNodeId}
+      onNodeSelect={onNodeClick}
+      inspectorLinkLabel="Åpne side"
+      emptyTitle="Ingen forsyningskjede-graf"
+      emptyMessage="Databasen returnerte ingen relasjoner for denne arbeidsflaten."
+    />
   )
 }

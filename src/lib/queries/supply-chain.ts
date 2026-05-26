@@ -2,6 +2,11 @@ import { prisma } from '@/lib/db'
 import { parseCsvRecords } from '@/lib/csv'
 import { displayLaneFromReviewStatus, type ValueChainDisplayLane } from '@/lib/supply-chain-status'
 import { isPrismaDataUnavailable } from './prisma-errors'
+import {
+  buildSupplyChainNetwork,
+  type SupplyChainNetworkData,
+  type SupplyChainRelationshipNetworkRow,
+} from '@/lib/supply-chain-network'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
@@ -98,41 +103,7 @@ export async function getPrimaryProducerDeliveries(): Promise<PrimaryDeliveriesD
   }
 }
 
-type SupplyChainNode = {
-  id: string
-  label: string
-  valueChainStage: string | null
-  country: string
-}
-
-type SupplyChainCompanySelection = {
-  id: string
-  name: string
-  valueChainStage: string | null
-  country: string
-}
-
-type SupplyChainEdge = {
-  id: string
-  source: string
-  target: string
-  relationshipType: string
-  description: string | null
-  sector: string | null
-  estimatedValue: number | null
-}
-
-type SupplyChainStats = {
-  totalRelationships: number
-  companiesInvolved: number
-  byType: Record<string, number>
-}
-
-export type SupplyChainGraphData = {
-  nodes: SupplyChainNode[]
-  edges: SupplyChainEdge[]
-  stats: SupplyChainStats
-}
+export type SupplyChainGraphData = SupplyChainNetworkData
 
 type QualityStatus = 'ok' | 'info' | 'warn' | 'error'
 
@@ -1270,17 +1241,7 @@ export async function getInfrastructureData(): Promise<InfrastructureData> {
 }
 
 export async function getSupplyChainGraph(): Promise<SupplyChainGraphData> {
-  let relationships: Array<{
-    id: string
-    fromCompanyId: string
-    toCompanyId: string
-    relationshipType: string
-    description: string | null
-    sector: string | null
-    estimatedValue: number | null
-    fromCompany: SupplyChainCompanySelection
-    toCompany: SupplyChainCompanySelection
-  }>
+  let relationships: SupplyChainRelationshipNetworkRow[]
   try {
     relationships = await prisma.businessRelationship.findMany({
       include: {
@@ -1301,48 +1262,27 @@ export async function getSupplyChainGraph(): Promise<SupplyChainGraphData> {
     }
   }
 
-  const companyMap = new Map<string, SupplyChainNode>()
-
-  for (const rel of relationships) {
-    if (!companyMap.has(rel.fromCompany.id)) {
-      companyMap.set(rel.fromCompany.id, {
-        id: rel.fromCompany.id,
-        label: rel.fromCompany.name,
-        valueChainStage: rel.fromCompany.valueChainStage,
-        country: rel.fromCompany.country,
+  const companyIds = [
+    ...new Set(relationships.flatMap((relationship) => [relationship.fromCompanyId, relationship.toCompanyId])),
+  ]
+  const companyDocumentRefs = companyIds.length > 0
+    ? await prisma.companyDocumentRef.findMany({
+        where: { companyId: { in: companyIds } },
+        select: {
+          companyId: true,
+          context: true,
+          document: {
+            select: {
+              id: true,
+              slug: true,
+              title: true,
+              tags: true,
+              category: true,
+            },
+          },
+        },
       })
-    }
-    if (!companyMap.has(rel.toCompany.id)) {
-      companyMap.set(rel.toCompany.id, {
-        id: rel.toCompany.id,
-        label: rel.toCompany.name,
-        valueChainStage: rel.toCompany.valueChainStage,
-        country: rel.toCompany.country,
-      })
-    }
-  }
+    : []
 
-  const byType: Record<string, number> = {}
-  const edges: SupplyChainEdge[] = relationships.map(r => {
-    byType[r.relationshipType] = (byType[r.relationshipType] ?? 0) + 1
-    return {
-      id: r.id,
-      source: r.fromCompanyId,
-      target: r.toCompanyId,
-      relationshipType: r.relationshipType,
-      description: r.description,
-      sector: r.sector,
-      estimatedValue: r.estimatedValue,
-    }
-  })
-
-  return {
-    nodes: [...companyMap.values()],
-    edges,
-    stats: {
-      totalRelationships: relationships.length,
-      companiesInvolved: companyMap.size,
-      byType,
-    },
-  }
+  return buildSupplyChainNetwork({ relationships, companyDocumentRefs })
 }

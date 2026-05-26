@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/db'
 import { buildBoardMemberGraphArtifacts } from '@/lib/graph-board-members'
+import { inferGraphConfidence, isBlockedExternalGraphSource } from '@/lib/graph-confidence'
 import { isMissingPrismaTable } from './prisma-errors'
 
 export type GraphNode = {
@@ -70,64 +71,6 @@ function groupBy<T>(items: T[], keyFn: (item: T) => string | null | undefined): 
     else map.set(key, [item])
   }
   return map
-}
-
-/**
- * Infer confidence for a graph edge. Returns a number 0..1 or undefined when
- * no signal is available. We do NOT invent fake values — absent = undefined.
- *
- * Inputs:
- *   - metadata.confidence (already 0..1) wins
- *   - else map `sourceType`/`source` to bucket:
- *       primary  → 0.95  (e.g. brreg, offentligdata, official registry)
- *       secondary→ 0.7   (e.g. news, annual-report, press)
- *       inferred → 0.4   (e.g. inferred, derived, heuristic)
- */
-function inferConfidence(
-  metadata: unknown,
-  source: string | null | undefined,
-): { confidence?: number; sourceLabel?: string } {
-  const meta = metadata as { confidence?: unknown; sourceType?: unknown } | null | undefined
-  const metaConf =
-    meta && typeof meta === 'object' && 'confidence' in meta ? meta.confidence : undefined
-  if (typeof metaConf === 'number' && metaConf >= 0 && metaConf <= 1) {
-    return { confidence: metaConf, sourceLabel: source ?? undefined }
-  }
-
-  if (!source) return { sourceLabel: undefined }
-  const s = source.toLowerCase()
-  if (s.includes('brreg') || s.includes('offentligdata') || s.includes('registry') || s.includes('official')) {
-    return { confidence: 0.95, sourceLabel: source }
-  }
-  if (
-    s.includes('inferred') ||
-    s.includes('derived') ||
-    s.includes('heuristic') ||
-    s.includes('estimated')
-  ) {
-    return { confidence: 0.4, sourceLabel: source }
-  }
-  if (
-    s.includes('report') ||
-    s.includes('press') ||
-    s.includes('news') ||
-    s.includes('media') ||
-    s.includes('annual')
-  ) {
-    return { confidence: 0.7, sourceLabel: source }
-  }
-  return { sourceLabel: source }
-}
-
-function isBlockedExternalGraphSource(source: string | null | undefined) {
-  if (!source) return false
-  const normalized = source.toLowerCase()
-  return (
-    normalized.includes('blocked-unsourced') ||
-    normalized.includes('blocked_unsourced') ||
-    normalized.includes('legacy_unsourced') ||
-    normalized.includes('unverified-label')
-  )
 }
 
 export async function getDocumentGraph(id: string): Promise<GraphData> {
@@ -389,7 +332,7 @@ export async function getFullGraph(): Promise<GraphData> {
       .filter(t => t.documentId)
       .map(t => ({ source: t.documentId!, target: t.id, type: 'thesis-doc' })),
     ...publicOwnershipEdges.map((r) => {
-      const { confidence, sourceLabel } = inferConfidence(r.metadata, r.source)
+      const { confidence, sourceLabel } = inferGraphConfidence(r.metadata, r.source)
       return {
         source: r.parentCompanyId,
         target: r.childCompanyId,
@@ -399,7 +342,7 @@ export async function getFullGraph(): Promise<GraphData> {
       }
     }),
     ...publicBizRelEdges.map((r) => {
-      const { confidence, sourceLabel } = inferConfidence(r.metadata, r.source)
+      const { confidence, sourceLabel } = inferGraphConfidence(r.metadata, r.source)
       return {
         source: r.fromCompanyId,
         target: r.toCompanyId,
@@ -412,7 +355,7 @@ export async function getFullGraph(): Promise<GraphData> {
     ...personEdges,
     ...boardMemberGraph.edges,
     ...publicProperties.map((p) => {
-      const { confidence, sourceLabel } = inferConfidence(p.metadata, p.source)
+      const { confidence, sourceLabel } = inferGraphConfidence(p.metadata, p.source)
       return {
         source: p.companyId,
         target: p.id,
@@ -424,7 +367,7 @@ export async function getFullGraph(): Promise<GraphData> {
     ...publicProperties
       .filter(p => p.tenantCompanyId)
       .map((p) => {
-        const { confidence, sourceLabel } = inferConfidence(p.metadata, p.source)
+        const { confidence, sourceLabel } = inferGraphConfidence(p.metadata, p.source)
         return {
           source: p.tenantCompanyId!,
           target: p.id,
