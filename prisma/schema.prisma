@@ -160,7 +160,8 @@ model SourceCitation {
   document           Document?       @relation(fields: [documentId], references: [id], onDelete: SetNull)
   sourceDoc          SourceDoc?      @relation(fields: [sourceDocId], references: [id], onDelete: SetNull)
   fieldCitations     FieldCitation[]
-  primaryForInsights Insight[]       @relation("InsightPrimaryCitation")
+  primaryForInsights  Insight[]   @relation("InsightPrimaryCitation")
+  primaryForProducers Producer[]  @relation("ProducerPrimaryCitation")
 
   @@index([sourceClass])
   @@index([citationReadiness])
@@ -360,16 +361,19 @@ model Company {
 }
 
 model Producer {
-  id           String           @id @default(cuid())
-  orgNr        String           @unique
-  name         String
-  country      String           @default("NO")
-  municipality String?
-  metadata     Json?
-  subsidies    Subsidy[]
-  deliveries   DeliveryVolume[] @relation("DeliverySupplierProducer")
+  id                String           @id @default(cuid())
+  orgNr             String           @unique
+  name              String
+  country           String           @default("NO")
+  municipality      String?
+  metadata          Json?
+  primaryCitationId String?
+  subsidies         Subsidy[]
+  deliveries        DeliveryVolume[] @relation("DeliverySupplierProducer")
+  primaryCitation   SourceCitation?  @relation("ProducerPrimaryCitation", fields: [primaryCitationId], references: [id], onDelete: SetNull)
 
   @@index([country])
+  @@index([primaryCitationId])
 }
 
 model CompanyFinancial {
