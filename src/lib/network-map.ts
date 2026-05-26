@@ -79,6 +79,21 @@ export type NetworkMapView = {
   topConnectedNodes: NetworkNode[]
 }
 
+export function getNetworkPresetTypeSets({
+  preset,
+  allNodeTypes,
+  allEdgeTypes,
+}: {
+  preset: NetworkPreset
+  allNodeTypes: string[]
+  allEdgeTypes: string[]
+}) {
+  return {
+    nodeTypes: new Set(preset.nodeTypes ?? allNodeTypes),
+    edgeTypes: new Set(preset.edgeTypes ?? allEdgeTypes),
+  }
+}
+
 export function networkEndpointId(endpoint: unknown): string {
   if (typeof endpoint === 'string') return endpoint
   if (endpoint && typeof endpoint === 'object' && 'id' in endpoint) {

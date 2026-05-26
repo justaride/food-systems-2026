@@ -114,7 +114,7 @@ export function SupplyChainGraph({
   stageColors,
   relationshipColors,
   selectedRelationshipId = null,
-  selectedNodeId = null,
+  selectedNodeId,
   onNodeClick,
 }: Props) {
   const typeConfig: Record<string, NetworkTypeConfig> = {

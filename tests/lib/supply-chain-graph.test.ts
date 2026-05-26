@@ -27,4 +27,23 @@ describe('supply-chain graph component contract', () => {
     assert.equal(element.props.onNodeSelect, onNodeClick)
     assert.deepEqual(element.props.edgeColors, { supplier: '#16a34a' })
   })
+
+  it('leaves node selection uncontrolled when no selected node is provided', () => {
+    const element = SupplyChainGraph({
+      nodes: [
+        { id: 'company-a', label: 'Supplier AS', type: 'processing' },
+        { id: 'company-b', label: 'Buyer AS', type: 'retail' },
+      ],
+      edges: [
+        { id: 'rel-1', source: 'company-a', target: 'company-b', type: 'supplier' },
+      ],
+      stageColors: { processing: '#ea580c', retail: '#e11d48' },
+      relationshipColors: { supplier: '#16a34a' },
+      selectedRelationshipId: 'rel-1',
+    }) as { type: unknown; props: Record<string, unknown> }
+
+    assert.equal(element.type, NetworkMap)
+    assert.equal(Object.hasOwn(element.props, 'selectedNodeId'), true)
+    assert.equal(element.props.selectedNodeId, undefined)
+  })
 })

@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import {
   getNetworkMapView,
+  getNetworkPresetTypeSets,
   networkEdgeKey,
   networkEndpointId,
   resolveNetworkEdgeSelection,
@@ -258,10 +259,11 @@ export function NetworkMap({
   const applyPreset = useCallback((preset: NetworkPreset) => {
     setActivePresetId(preset.id)
     clearSelection()
-    if (preset.nodeTypes) setActiveNodeTypes(new Set(preset.nodeTypes))
-    if (preset.edgeTypes) setActiveEdgeTypes(new Set(preset.edgeTypes))
+    const { nodeTypes, edgeTypes } = getNetworkPresetTypeSets({ preset, allNodeTypes, allEdgeTypes })
+    setActiveNodeTypes(nodeTypes)
+    setActiveEdgeTypes(edgeTypes)
     if (typeof preset.showIsolated === 'boolean') setShowIsolated(preset.showIsolated)
-  }, [clearSelection])
+  }, [allEdgeTypes, allNodeTypes, clearSelection])
 
   const focusNode = useCallback((nodeId: string) => {
     updateSelectedNode(nodeId)

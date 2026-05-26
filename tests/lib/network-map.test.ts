@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import {
   getNetworkMapView,
+  getNetworkPresetTypeSets,
   networkEdgeKey,
   resolveNetworkEdgeSelection,
   type NetworkEdge,
@@ -106,5 +107,22 @@ describe('network map view model', () => {
     assert.equal(resolveNetworkEdgeSelection(identifiedEdges, 'rel-1'), 'rel-1')
     assert.equal(resolveNetworkEdgeSelection(identifiedEdges, 'document-a-company-a-company-ref-1'), 'document-a-company-a-company-ref-1')
     assert.equal(resolveNetworkEdgeSelection(identifiedEdges, 'missing-rel'), null)
+  })
+
+  it('resets missing preset type lists to all available node and edge types', () => {
+    const preset: NetworkPreset = {
+      id: 'all',
+      label: 'All',
+      showIsolated: true,
+    }
+
+    const resolved = getNetworkPresetTypeSets({
+      preset,
+      allNodeTypes: ['company', 'document'],
+      allEdgeTypes: ['supplier', 'company-ref'],
+    })
+
+    assert.deepEqual([...resolved.nodeTypes].sort(), ['company', 'document'])
+    assert.deepEqual([...resolved.edgeTypes].sort(), ['company-ref', 'supplier'])
   })
 })
