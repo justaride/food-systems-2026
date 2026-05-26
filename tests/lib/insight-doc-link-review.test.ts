@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { resolveReviewDocumentId } from '../../src/lib/insight-doc-link-review'
+import {
+  filterNewInsightDocumentRefs,
+  resolveReviewDocumentId,
+} from '../../src/lib/insight-doc-link-review'
 
 describe('insight doc link review helpers', () => {
   it('keeps the reviewed document id when it exists in the current DB', () => {
@@ -31,5 +34,28 @@ describe('insight doc link review helpers', () => {
     )
 
     assert.equal(resolved, null)
+  })
+
+  it('remaps reviewed report ids to their linked document when title matches uniquely', () => {
+    const resolved = resolveReviewDocumentId(
+      { docId: 'stale-report-id', docTitle: 'Dagligvaretilsynet — Årsrapport 2022' },
+      [],
+      [{ id: 'current-report-id', title: 'Dagligvaretilsynet — Årsrapport 2022', documentId: 'linked-document-id' }],
+    )
+
+    assert.equal(resolved, 'linked-document-id')
+  })
+
+  it('filters already-existing insight document refs before dry-run accounting', () => {
+    const planned = [
+      { insightId: 'ins-95', documentId: 'doc-reitan' },
+      { insightId: 'ins-96', documentId: 'doc-dagligvaretilsynet' },
+      { insightId: 'ins-96', documentId: 'doc-dagligvaretilsynet' },
+    ]
+
+    assert.deepEqual(
+      filterNewInsightDocumentRefs(planned, [{ insightId: 'ins-95', documentId: 'doc-reitan' }]),
+      [{ insightId: 'ins-96', documentId: 'doc-dagligvaretilsynet' }],
+    )
   })
 })

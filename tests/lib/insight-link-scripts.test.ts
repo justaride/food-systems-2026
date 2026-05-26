@@ -17,4 +17,9 @@ describe('insight link review scripts', () => {
       assert.match(source, /process\.cwd\(\)/, scriptPath)
     }
   })
+
+  it('loads dotenv before Prisma-backed insight link application', () => {
+    const source = readFileSync('scripts/apply-insight-links-v3.ts', 'utf8')
+    assert.match(source, /^import ['"]dotenv\/config['"]/m)
+  })
 })
