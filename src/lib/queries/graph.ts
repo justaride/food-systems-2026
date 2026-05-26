@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/db'
 import { buildBoardMemberGraphArtifacts } from '@/lib/graph-board-members'
-import { inferGraphConfidence, isBlockedExternalGraphSource } from '@/lib/graph-confidence'
+import { inferGraphConfidence, isBlockedExternalGraphSource, structuralGraphConfidence } from '@/lib/graph-confidence'
 import { isMissingPrismaTable } from './prisma-errors'
 
 export type GraphNode = {
@@ -73,6 +73,17 @@ function groupBy<T>(items: T[], keyFn: (item: T) => string | null | undefined): 
   return map
 }
 
+function structuralEdge(source: string, target: string, type: string): GraphEdge {
+  const { confidence, sourceLabel } = structuralGraphConfidence(type)
+  return {
+    source,
+    target,
+    type,
+    ...(confidence !== undefined ? { confidence } : {}),
+    ...(sourceLabel ? { sourceLabel } : {}),
+  }
+}
+
 export async function getDocumentGraph(id: string): Promise<GraphData> {
   const doc = await prisma.document.findUnique({
     where: { id },
@@ -107,7 +118,7 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
       })
       seen.add(ref.to.id)
     }
-    edges.push({ source: doc.id, target: ref.to.id, type: ref.refType })
+    edges.push(structuralEdge(doc.id, ref.to.id, ref.refType))
   }
 
   for (const ref of doc.refsTo) {
@@ -121,7 +132,7 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
       })
       seen.add(ref.from.id)
     }
-    edges.push({ source: ref.from.id, target: doc.id, type: ref.refType })
+    edges.push(structuralEdge(ref.from.id, doc.id, ref.refType))
   }
 
   for (const ref of doc.insightDocumentRefs) {
@@ -135,7 +146,7 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
       })
       seen.add(ref.insight.id)
     }
-    edges.push({ source: doc.id, target: ref.insight.id, type: 'insight-ref' })
+    edges.push(structuralEdge(doc.id, ref.insight.id, 'insight-ref'))
   }
 
   for (const ref of doc.companyDocumentRefs) {
@@ -143,7 +154,7 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
       nodes.push({ id: ref.company.id, label: ref.company.name, type: 'company', href: `/selskap/${ref.company.id}` })
       seen.add(ref.company.id)
     }
-    edges.push({ source: doc.id, target: ref.company.id, type: 'company-ref' })
+    edges.push(structuralEdge(doc.id, ref.company.id, 'company-ref'))
   }
 
   try {
@@ -163,7 +174,7 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
         })
         seen.add(ref.actor.id)
       }
-      edges.push({ source: doc.id, target: ref.actor.id, type: 'actor-ref' })
+      edges.push(structuralEdge(doc.id, ref.actor.id, 'actor-ref'))
     }
   } catch (error) {
     if (!isMissingPrismaTable(error, 'Actor')) throw error
@@ -316,21 +327,21 @@ export async function getFullGraph(): Promise<GraphData> {
     const roles = p.roles as Array<{ companyId?: string }>
     return roles
       .filter(r => r.companyId && companyIdSet.has(r.companyId))
-      .map(r => ({ source: p.id, target: r.companyId!, type: 'person-role' }))
+      .map(r => structuralEdge(p.id, r.companyId!, 'person-role'))
   })
 
   const edges: GraphEdge[] = [
-    ...docRefs.map(r => ({ source: r.fromId, target: r.toId, type: r.refType })),
-    ...insightRefs.map(r => ({ source: r.documentId, target: r.insightId, type: 'insight-ref' })),
-    ...companyRefs.map(r => ({ source: r.documentId, target: r.companyId, type: 'company-ref' })),
-    ...actorRefs.map(r => ({ source: r.documentId, target: r.actorId, type: 'actor-ref' })),
+    ...docRefs.map(r => structuralEdge(r.fromId, r.toId, r.refType)),
+    ...insightRefs.map(r => structuralEdge(r.documentId, r.insightId, 'insight-ref')),
+    ...companyRefs.map(r => structuralEdge(r.documentId, r.companyId, 'company-ref')),
+    ...actorRefs.map(r => structuralEdge(r.documentId, r.actorId, 'actor-ref')),
     ...actorRelationships.map(r => ({ source: r.fromActorId, target: r.toActorId, type: r.relationType })),
     ...actors
       .filter(a => a.companyId)
-      .map(a => ({ source: a.id, target: a.companyId!, type: 'company-link' })),
+      .map(a => structuralEdge(a.id, a.companyId!, 'company-link')),
     ...theses
       .filter(t => t.documentId)
-      .map(t => ({ source: t.documentId!, target: t.id, type: 'thesis-doc' })),
+      .map(t => structuralEdge(t.documentId!, t.id, 'thesis-doc')),
     ...publicOwnershipEdges.map((r) => {
       const { confidence, sourceLabel } = inferGraphConfidence(r.metadata, r.source)
       return {
