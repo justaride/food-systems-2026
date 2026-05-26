@@ -50,7 +50,7 @@ Eller bruk Postgres container IP hvis hostname ikke resolves (sjekk `docker netw
 2. Type: **Self-hosted**
 3. Application name: `food-systems-db`
 4. Session duration: `24 hours`
-5. Application domain: `db.food-systems.naturalstateproject.com`
+5. Application domain: `fs-db.naturalstateproject.com`
 6. **Identity providers**: leave default
 7. **Service Auth** policy:
    - Action: **Service Auth**
@@ -129,7 +129,7 @@ Etter alle stegene over:
 ## Verifikasjons-checklist
 
 - [ ] CF Tunnel `food-systems-db` eksisterer + status `HEALTHY`
-- [ ] DNS-record `db.food-systems.naturalstateproject.com` → CNAME peker til tunnel
+- [ ] DNS-record `fs-db.naturalstateproject.com` → CNAME peker til tunnel
 - [ ] CF Access app `food-systems-db` med service-token-policy aktiv
 - [ ] `cloudflared service` kjører på Hetzner
 - [ ] GitHub Secrets: DATABASE_URL, CF_ACCESS_CLIENT_ID, CF_ACCESS_CLIENT_SECRET
