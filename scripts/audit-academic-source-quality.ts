@@ -59,12 +59,16 @@ function audit<T>(
 }
 
 const reportChecks: ReadonlyArray<FieldCheck<typeof reports[number]>> = [
-  { label: 'year',        getter: r => r.year,        thresholds: { min: 100, target: 100 } },
-  { label: 'institution', getter: r => r.institution, thresholds: { min: 97,  target: 100 } },
-  { label: 'sourceUrl',   getter: r => r.sourceUrl,   thresholds: { min: 90,  target: 100 } },
-  { label: 'author',      getter: r => r.author,      thresholds: { min: 22,  target: 80  } },
-  { label: 'doi',         getter: r => r.doi,         thresholds: { min: 15,  target: 50  } },
+  { label: 'year',          getter: r => r.year,                              thresholds: { min: 100, target: 100 } },
+  { label: 'institution',   getter: r => r.institution,                       thresholds: { min: 100, target: 100 } },
+  { label: 'attribution*',  getter: r => r.author || r.institution,           thresholds: { min: 100, target: 100 } },
+  { label: 'sourceUrl',     getter: r => r.sourceUrl,                         thresholds: { min: 90,  target: 100 } },
+  { label: 'author',        getter: r => r.author,                            thresholds: { min: 22,  target: 80  } },
+  { label: 'doi',           getter: r => r.doi,                               thresholds: { min: 15,  target: 50  } },
 ]
+// * attribution = effective attribution: named author OR institutional/corporate
+//   authorship (institution). Policy/government reports are correctly attributed
+//   to their issuing body even without a named individual author.
 
 const thesisChecks: ReadonlyArray<FieldCheck<typeof theses[number]>> = [
   { label: 'year',        getter: t => t.year,        thresholds: { min: 100, target: 100 } },
