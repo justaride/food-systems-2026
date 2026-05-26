@@ -161,11 +161,11 @@ export default async function OversiktPage() {
 
       <Card>
         <h3 className="text-sm font-semibold text-stone-700 mb-3">Ten-Step Methodology v2.1</h3>
-        <div className="flex gap-1">
+        <div className="grid grid-cols-5 gap-1 sm:grid-cols-10">
           {tenSteps.map(step => (
             <div
               key={step.step}
-              className={`flex-1 text-center py-2 px-1 rounded-lg ${
+              className={`min-w-0 text-center py-2 px-1 rounded-lg ${
                 step.status === 'fullfort'
                   ? 'bg-emerald-100 border border-emerald-300'
                   : step.status === 'pagar'

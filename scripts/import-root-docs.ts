@@ -12,6 +12,8 @@ const PROJECT_ROOT = path.resolve(__dirname, '..')
 type RootDocConfig = {
   sourceDocId: string
   filename: string
+  previousFilenames?: string[]
+  slug?: string
   title: string
   author: string | null
   year: number | null
@@ -46,7 +48,9 @@ const ROOT_DOCS: RootDocConfig[] = [
   },
   {
     sourceDocId: 'src-3',
-    filename: '9, mars 2026 FOOD.md',
+    filename: 'docs/meetings/9, mars 2026 FOOD.md',
+    previousFilenames: ['9, mars 2026 FOOD.md'],
+    slug: 'root-9-mars-2026-food',
     title: 'Møtenotat 9. mars 2026 — Food Systems Transition Group',
     author: 'Gabriel Freeman / Cathrine Barth',
     year: 2026,
@@ -57,7 +61,9 @@ const ROOT_DOCS: RootDocConfig[] = [
   },
   {
     sourceDocId: 'src-4',
-    filename: 'Speaker 1.md',
+    filename: 'docs/meetings/Speaker 1.md',
+    previousFilenames: ['Speaker 1.md'],
+    slug: 'root-speaker-1',
     title: 'Strategisamtale — Verdikjeder, Data og Transition Groups',
     author: null,
     year: 2026,
@@ -68,7 +74,9 @@ const ROOT_DOCS: RootDocConfig[] = [
   },
   {
     sourceDocId: 'src-5',
-    filename: 'Speaker 1 (1).md',
+    filename: 'docs/meetings/Speaker 1 (1).md',
+    previousFilenames: ['Speaker 1 (1).md'],
+    slug: 'root-speaker-1-1',
     title: 'Samtale om Dokumenter og Oppstart av Arbeidet',
     author: null,
     year: 2026,
@@ -146,6 +154,8 @@ const ROOT_DOCS: RootDocConfig[] = [
   {
     sourceDocId: 'src-100',
     filename: 'docs/meetings/Strategisk ledergruppe Marked 16 mars 2026.md',
+    previousFilenames: ['Strategisk ledergruppe Marked 16 mars 2026.md'],
+    slug: 'root-docs-meetings-strategisk-ledergruppe-marked-16-mars-2026',
     title: 'Strategisk ledergruppe Marked 16. mars 2026',
     author: null,
     year: 2026,
@@ -153,6 +163,50 @@ const ROOT_DOCS: RootDocConfig[] = [
     category: 'meetings',
     country: 'NO',
     tags: ['meeting', 'transkripsjon', 'marked', 'project'],
+  },
+  {
+    sourceDocId: 'src-177',
+    filename: 'docs/meetings/TRANSITION GROUPS - Møte 13-04-26.md',
+    title: 'Transition Groups — Kapasiteter og roller 13. april 2026',
+    author: 'Nordic Circular Hotspot / Natural State',
+    year: 2026,
+    documentType: 'transcript',
+    category: 'meetings',
+    country: 'NO',
+    tags: ['meeting', 'transkripsjon', 'transition-groups', 'project'],
+  },
+  {
+    sourceDocId: 'src-178',
+    filename: 'docs/meetings/JT-GABRIEL - Arbeidsmøte 13-04-26.md',
+    title: 'JT-Gabriel arbeidsmøte 13. april 2026',
+    author: 'Jan Thomas Odegard / Gabriel Freeman',
+    year: 2026,
+    documentType: 'transcript',
+    category: 'meetings',
+    country: 'NO',
+    tags: ['meeting', 'transkripsjon', 'food-tg', 'project'],
+  },
+  {
+    sourceDocId: 'src-179',
+    filename: 'docs/meetings/JT-GABRIEL - Arbeidsmøte 20-04-26.md',
+    title: 'JT-Gabriel arbeidsmøte 20. april 2026',
+    author: 'Jan Thomas Odegard / Gabriel Freeman',
+    year: 2026,
+    documentType: 'transcript',
+    category: 'meetings',
+    country: 'NO',
+    tags: ['meeting', 'transkripsjon', 'r9', 'food-tg', 'project'],
+  },
+  {
+    sourceDocId: 'src-180',
+    filename: 'docs/meetings/TRANSITION GROUPS - Møte 21-04-26.md',
+    title: 'Transition Groups — mandat og aktørkartlegging 21. april 2026',
+    author: 'Nordic Circular Hotspot / Natural State',
+    year: 2026,
+    documentType: 'transcript',
+    category: 'meetings',
+    country: 'NO',
+    tags: ['meeting', 'transkripsjon', 'mandat', 'food-tg', 'project'],
   },
 ]
 
@@ -210,7 +264,7 @@ async function main() {
       continue
     }
 
-    const slug = `root-${slugify(config.filename)}`
+    const slug = config.slug ?? `root-${slugify(config.filename)}`
     const filePath = config.filename
     const isPdf = config.filename.endsWith('.pdf')
 
@@ -240,58 +294,56 @@ async function main() {
     }
 
     try {
-      const doc = await prisma.document.upsert({
-        where: { filePath },
-        update: {
-          title: config.title,
-          author: config.author,
-          year: config.year,
-          category: config.category,
-          country: config.country,
-          content,
-          summary,
-          wordCount,
-          documentType: config.documentType,
-          slug,
-          tags: config.tags,
-          metadata: {
-            canonicalFileType: isPdf ? 'pdf' : 'md',
-            availabilityStatus: isPdf ? 'metadata-only' : 'fulltext',
-            localPath: filePath,
-            isRootDocument: true,
-          },
-        },
-        create: {
-          slug,
-          filePath,
-          title: config.title,
-          author: config.author,
-          year: config.year,
-          category: config.category,
-          country: config.country,
-          content,
-          summary,
-          wordCount,
-          documentType: config.documentType,
-          tags: config.tags,
-          metadata: {
-            canonicalFileType: isPdf ? 'pdf' : 'md',
-            availabilityStatus: isPdf ? 'metadata-only' : 'fulltext',
-            localPath: filePath,
-            isRootDocument: true,
-          },
-        },
-      })
-
-      console.log(`  IMPORTED ${config.sourceDocId} → Doc[${slug}]`)
-      imported++
-
       const sourceDoc = await prisma.sourceDoc.findUnique({
         where: { id: config.sourceDocId },
         select: { id: true, documentId: true },
       })
 
-      if (sourceDoc && !sourceDoc.documentId) {
+      const existingDocument = await prisma.document.findFirst({
+        where: {
+          OR: [
+            { filePath },
+            { slug },
+            ...(sourceDoc?.documentId ? [{ id: sourceDoc.documentId }] : []),
+          ],
+        },
+        select: { id: true },
+      })
+
+      const documentData = {
+        slug,
+        filePath,
+        title: config.title,
+        author: config.author,
+        year: config.year,
+        category: config.category,
+        country: config.country,
+        content,
+        summary,
+        wordCount,
+        documentType: config.documentType,
+        tags: config.tags,
+        metadata: {
+          canonicalFileType: isPdf ? 'pdf' : 'md',
+          availabilityStatus: isPdf ? 'metadata-only' : 'fulltext',
+          localPath: filePath,
+          isRootDocument: true,
+        },
+      }
+
+      const doc = existingDocument
+        ? await prisma.document.update({
+          where: { id: existingDocument.id },
+          data: documentData,
+        })
+        : await prisma.document.create({
+          data: documentData,
+        })
+
+      console.log(`  IMPORTED ${config.sourceDocId} → Doc[${slug}]`)
+      imported++
+
+      if (sourceDoc && sourceDoc.documentId !== doc.id) {
         await prisma.sourceDoc.update({
           where: { id: sourceDoc.id },
           data: { documentId: doc.id },
@@ -300,6 +352,19 @@ async function main() {
         linked++
       } else if (sourceDoc?.documentId) {
         console.log(`    ALREADY LINKED SourceDoc[${config.sourceDocId}]`)
+      }
+
+      if (config.previousFilenames?.length) {
+        const citationRepair = await prisma.sourceCitation.updateMany({
+          where: {
+            localPath: { in: config.previousFilenames },
+          },
+          data: { localPath: filePath },
+        })
+
+        if (citationRepair.count > 0) {
+          console.log(`    REPAIRED ${citationRepair.count} citation localPath value(s)`)
+        }
       }
     } catch (err) {
       console.error(`  FAILED ${config.sourceDocId}: ${err}`)

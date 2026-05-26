@@ -161,9 +161,9 @@ Fra Cathrines drøftingsdokument (jan 2026) - oppdatert modell for transition gr
 |---|---|---|---|
 | `Just now (12.Revise-Gab) Nordic Circular Food systems - V.2.md` | Søknad | Den store NI-søknaden (avslått). Full prosjektbeskrivelse, partnere, budsjett, handlingsplan | **Primær bakgrunn** - gjenbruk tekst og analyse |
 | `1. Food system_ Oslo Innovasjons program 2025.md` | Søknad + notater | Oslo Innovasjonsprogram-søknad med bakgrunn fra Cecilie, ideer, mål | **Lokal kontekst** - Gamlebyen, urban food systems |
-| `9, mars 2026 FOOD.md` | Møtenotater | Møte 9. mars med aksjonspunkter fra Einar/Martin | **Oppdragsbeskrivelse** - hva som skal gjøres nå |
-| `Speaker 1.md` | Transkripsjon | Samtale (trolig Gabriel + Cathrine/Martin) om å finne dokumenter og starte arbeidet | **Kontekst** - forstå hva som mangler |
-| `Speaker 1 (1).md` | Transkripsjon | Lengre samtale om strategi, data, verdikjeder, transition groups, nordisk merverdi | **Strategisk innsikt** - cascading, HORECA, data, power law |
+| `docs/meetings/9, mars 2026 FOOD.md` | Møtenotater | Møte 9. mars med aksjonspunkter fra Einar/Martin | **Oppdragsbeskrivelse** - hva som skal gjøres nå |
+| `docs/meetings/Speaker 1.md` | Transkripsjon | Samtale (trolig Gabriel + Cathrine/Martin) om å finne dokumenter og starte arbeidet | **Kontekst** - forstå hva som mangler |
+| `docs/meetings/Speaker 1 (1).md` | Transkripsjon | Lengre samtale om strategi, data, verdikjeder, transition groups, nordisk merverdi | **Strategisk innsikt** - cascading, HORECA, data, power law |
 | `Untitled document.md` | Duplikat | Samme som 9. mars-notater med ekstra kontekst | Redundant |
 | `2026 1401 DRØFTING TRANSITION GROUPS.pdf` | Strategidok | Cathrines 20-siders drøfting: TG-metodikk, governance, branding, tjenester | **Metodisk rammeverk** for hele arbeidet |
 | `docs/project/mandates/transition-group-overview-working-doc-2026.pdf` | Arbeidsdok | Revidert 10-step start, vurderingskriterier, felles prosesser | **Operasjonell mal** |

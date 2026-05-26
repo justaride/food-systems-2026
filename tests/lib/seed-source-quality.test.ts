@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict'
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
 import { describe, it } from 'node:test'
 import { reports } from '../../prisma/seed-data/reports'
 import { theses } from '../../prisma/seed-data/theses'
@@ -13,6 +15,10 @@ function hasValue(v: unknown): boolean {
 function pct<T>(rows: readonly T[], getter: (r: T) => unknown): number {
   const present = rows.filter(r => hasValue(getter(r))).length
   return rows.length === 0 ? 0 : (present / rows.length) * 100
+}
+
+function hasSourceDocLocator(source: typeof sources[number]): boolean {
+  return hasValue(source.url) || existsSync(join(process.cwd(), source.filename))
 }
 
 // Baseline thresholds reflect the current state (2026-05-26). Tighten over time;
@@ -87,8 +93,8 @@ describe('academic source metadata coverage', () => {
       assert.ok(pct(sources, s => s.author) >= 90)
     })
 
-    it('url coverage stays at ≥ 55%', () => {
-      assert.ok(pct(sources, s => s.url) >= 55)
+    it('URL or local-file locator coverage stays at ≥ 55%', () => {
+      assert.ok(pct(sources, hasSourceDocLocator) >= 55)
     })
 
     it('accessedAt and archivedUrl fields are accepted on the type', () => {

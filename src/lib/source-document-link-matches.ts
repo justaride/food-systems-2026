@@ -4,6 +4,18 @@ export type SourceDocLinkMatch = {
 }
 
 const EXACT_SOURCE_DOC_LINKS: Record<string, SourceDocLinkMatch> = {
+  'docs/meetings/9, mars 2026 FOOD.md': {
+    sourceDocId: 'src-3',
+    reason: 'Food Systems oppstartsmøte 9. mars 2026',
+  },
+  'docs/meetings/Speaker 1.md': {
+    sourceDocId: 'src-4',
+    reason: 'Strategisamtale om verdikjeder, data og Transition Groups',
+  },
+  'docs/meetings/Speaker 1 (1).md': {
+    sourceDocId: 'src-5',
+    reason: 'Dokumentgjennomgang og oppstartssamtale for Food Systems-arbeidet',
+  },
   'external/coffee-forest/research_review_eudr.md': {
     sourceDocId: 'src-102',
     reason: 'EUDR research review imported from the Coffee & Forest workspace',
@@ -31,6 +43,22 @@ const EXACT_SOURCE_DOC_LINKS: Record<string, SourceDocLinkMatch> = {
   'docs/meetings/Strategisk ledergruppe Marked 16 mars 2026.md': {
     sourceDocId: 'src-100',
     reason: 'Strategisk ledergruppe Marked meeting transcript',
+  },
+  'docs/meetings/TRANSITION GROUPS - Møte 13-04-26.md': {
+    sourceDocId: 'src-177',
+    reason: 'Transition Groups meeting transcript from 13 April 2026',
+  },
+  'docs/meetings/JT-GABRIEL - Arbeidsmøte 13-04-26.md': {
+    sourceDocId: 'src-178',
+    reason: 'JT-Gabriel Food TG working meeting transcript from 13 April 2026',
+  },
+  'docs/meetings/JT-GABRIEL - Arbeidsmøte 20-04-26.md': {
+    sourceDocId: 'src-179',
+    reason: 'JT-Gabriel Food TG working meeting transcript from 20 April 2026',
+  },
+  'docs/meetings/TRANSITION GROUPS - Møte 21-04-26.md': {
+    sourceDocId: 'src-180',
+    reason: 'Transition Groups meeting transcript from 21 April 2026',
   },
 }
 

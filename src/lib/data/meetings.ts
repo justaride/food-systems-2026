@@ -19,7 +19,7 @@ export const meetings: Meeting[] = [
     date: '9. mars 2026',
     title: 'Prosjektoppstart Food Systems TG',
     participants: ['Einar Kleppe Holthe', 'Martin Hagen', 'Gabriel Freeman'],
-    source: '9, mars 2026 FOOD.md',
+    source: 'docs/meetings/9, mars 2026 FOOD.md',
     summary: 'Oppstartsmote for Food Systems TG der mandat, leveranser og arbeidslogikk ble tydeliggjort. Food Systems skal bruke 10 Step Start som forprosjekt og levere innsiktsrapport/whitepaper, aktorkartlegging, metodekartlegging og soknadsklar concept note innen juni 2026. Teamet skal starte bredt med omgivelseskartlegging, tidligere arbeid, parallelle prosesser og nordisk merverdi, og deretter spisse fokusomrade. Samtalen koblet Food mot Circle City Life, EIB/Horizon Europe og eksisterende prosjekter som kaffe, fisk og Nordic Food gigamapping.',
     keyDecisions: [
       'Food Systems er et forprosjekt - forberede utlysning, ikke utlyse',
@@ -62,7 +62,7 @@ export const meetings: Meeting[] = [
     date: 'Februar 2026',
     title: 'TG-metodikk og strategisk retning',
     participants: ['Cathrine Barth', 'Gabriel Freeman', 'Martin Hagen'],
-    source: 'Speaker 1.md',
+    source: 'docs/meetings/Speaker 1.md',
     summary: 'Strategimote om hvordan Transition Groups og Food Systems skal rigges metodisk. Cathrine droftet behovet for a revidere Ten Step Start til en mer operativ modell med dashboard, scorecard, tydelig nordisk merverdi og et klarere why. Samtalen gikk fra stakeholder mapping, PESTEL og surveydesign til branding, samarbeidsavtaler, data-tilgang, HORECA og barrierer i norsk matsektor. Gabriel koblet dette mot systemvisualisering, power law og behovet for a definere hva som faktisk er sirkulaert i matsystemet.',
     keyDecisions: [
       'Reformatere Ten Step Start til mer operativ versjon (v2.0)',
@@ -106,7 +106,7 @@ export const meetings: Meeting[] = [
     date: 'Februar 2026',
     title: 'Oppstart og dokumentgjennomgang',
     participants: ['Gabriel Freeman', 'Martin Hagen'],
-    source: 'Speaker 1 (1).md',
+    source: 'docs/meetings/Speaker 1 (1).md',
     summary: 'Arbeidsmote om konkret oppstart av Food Systems-arbeidet. Gabriel og Martin gikk gjennom tilgjengelige soknader, transkripsjoner og bakgrunnsdokumenter for a finne hva som faktisk skal brukes videre. De avklarte at leveransen i juni er whitepaper/mulighetsstudie og ikke fullskala prosjekt, at NI-soknaden er primar bakgrunn, og at arbeidet ma begynne bredt men spisses raskt. Samtalen berorte ogsa food desert-analyse, eiendomslogikk i dagligvare, kaffeprosjektet som verdikjedereferanse og power law som analytisk spor.',
     keyDecisions: [
       'Bruke NI-soknaden fra 2024 som bakgrunnsmateriale - masse god tekst',
@@ -152,7 +152,7 @@ export const meetings: Meeting[] = [
       'Martin Hagen',
       'Gabriel Freeman',
     ],
-    source: 'Strategisk ledergruppe Marked 16 mars 2026.md',
+    source: 'docs/meetings/Strategisk ledergruppe Marked 16 mars 2026.md',
     summary: 'Strategisk ledergruppemote der roller, leveranseformat og arbeidsoppsett ble avklart for Food Systems og Cities. Cathrine er fagleder Food, Gabriel bygger data/plattform og Jan Thomas leder Cities; arbeidet skal forst samle tidligere arbeid, aktorer, metodikk og nordiske datapunkter for man spisser tema. Leveransen i slutten av juni er en liten rapport eller mini-whitepaper pa rundt 20 sider pluss presentasjon, og 250k-fasen skal brukes til a modne grunnlag for en 2,5M-soknad over tre ar. Motet tok ogsa opp sirkularitetsdefinisjon, Notion/database-oppsett, aktorkartlegging, mikro-survey, medie-API-er og Gabriels kartdata om butikknett, food deserts og saarbarhet.',
     keyDecisions: [
       'Roller avklart: Cathrine = fagleder Food, Gabriel = data/plattform, Jan Thomas = prosjektleder Cities',
@@ -203,7 +203,7 @@ export const meetings: Meeting[] = [
       'Cathrine Barth',
       'Thea Martinsen',
     ],
-    source: 'TRANSITION GROUPS - Møte 13-04-26.md',
+    source: 'docs/meetings/TRANSITION GROUPS - Møte 13-04-26.md',
     summary: 'Statusmote for Nordic Innovation Hotspot Transition Groups. Avklarte ressursallokering (JT 30-40%, Thea 20%, Cathrine 20%, Gabriel uavklart), fast prosjektdag tirsdag fra uke 17, og at ingen partnere er kontaktet etter tildelingen. Budsjett 250k per TG, leveranse er 20-slides presentasjon og consortium. Gabriels dashboard ble vist — Einar positiv men krever presentasjonsformat. Mandat for transition groups ma defineres. Kapasitetsreduksjon av JT ma reverseres.',
     keyDecisions: [
       'Ressursallokering: JT 30-40%, Thea 20%, Cathrine 20% (1 dag/uke), Gabriel uavklart',
@@ -230,7 +230,7 @@ export const meetings: Meeting[] = [
       'Matberedskap/Brimi foresl att som mulig Food-pilot, men Einar: vi skal identifisere, ikke gjennomfore piloter',
     ],
     sources: [
-      { sourceId: 'src-101', label: 'TG kapasitetsmote transkripsjon', note: 'Primarunderlag fra gruppemote 13. april 2026' },
+      { sourceId: 'src-177', label: 'TG kapasitetsmote transkripsjon', note: 'Primarunderlag fra gruppemote 13. april 2026' },
     ],
   },
   {
@@ -238,7 +238,7 @@ export const meetings: Meeting[] = [
     date: '13. april 2026',
     title: 'JT + Gabriel — Arbeidsmote: Food-fokus og verdikjede',
     participants: ['Jan Thomas Odegard', 'Gabriel Freeman', 'Thea Martinsen'],
-    source: 'JT-GABRIEL - Arbeidsmøte 13-04-26.md',
+    source: 'docs/meetings/JT-GABRIEL - Arbeidsmøte 13-04-26.md',
     summary: 'Oppfolgingsmote etter gruppemotet der Jan Thomas og Gabriel diskuterte konkret faglig retning for Food Systems. JT definerte sirkularitet i mat som reduksjon av klima, naturavtrykk og ressursusikkerhet, og identifiserte hull: importavhengighet, alternativt for, matsvinn, regenerativt landbruk, og akademia-til-skala-gapet. Verdikjedekartlegging ble valgt som ankerpunkt — fra ravareproduksjon gjennom prosessering og grossist til retail/HORECA/forbruk og avfall, per nordisk land. Gabriel viste dashboard med akademia-kilder, relasjonskart og medienarrativer per land. Thea fikk justert timeallokering til 90 timer med prosjektkoder 195 (food) og 196 (cities).',
     keyDecisions: [
       'Thea justert til 90 timer totalt (20%). Prosjektkoder: 195 (food), 196 (cities)',
@@ -267,7 +267,7 @@ export const meetings: Meeting[] = [
       'JT: sett foten ned ved verdikjedestrukturen — hvor maten flyter og hvor den kastes',
     ],
     sources: [
-      { sourceId: 'src-102', label: 'JT-Gabriel arbeidsmote transkripsjon', note: 'Oppfolging etter gruppemote 13. april 2026' },
+      { sourceId: 'src-178', label: 'JT-Gabriel arbeidsmote transkripsjon', note: 'Oppfolging etter gruppemote 13. april 2026' },
     ],
   },
   {
@@ -275,7 +275,7 @@ export const meetings: Meeting[] = [
     date: '20. april 2026',
     title: 'JT + Gabriel — R9-rammeverk, sirkularitetssporsmal og for',
     participants: ['Jan Thomas Odegard', 'Gabriel Freeman'],
-    source: 'JT-GABRIEL - Arbeidsmøte 20-04-26.md',
+    source: 'docs/meetings/JT-GABRIEL - Arbeidsmøte 20-04-26.md',
     summary: 'Arbeidsmote der Jan Thomas presenterte R9-rammeverket som teoretisk grunnlag for a vurdere sirkularitetsgrad i hvert ledd av matsystemet. Formulerte behovet for 7-10 nokkelsporsmal for sirkularitet i mat, basert pa verdikjeden og identifiserte svakheter. Diskuterte alternativt for som prioritert spor — nordisk matsystem kan bidra mer til husdyr- og fiskefor. AX Foundation «Framtidens Fisk» ble trukket fram som referansecase: barekraftig formiks med 20 ingredienser som erstatter soja/fiskemel med insekter, mikroproteiner og muslinger, na i salg. Tok opp matavfall-problematikk (mikroplast fra gronne poser, havremelk-avfall), svartvann-dimensjonen (Helsingborg-prosjektet med naeringsgjenvinning), og forineffektivitet i oppdrett (70% av for gar i fjorden). Kaffe identifisert som nytt forskningsspor.',
     keyDecisions: [
       'R9-rammeverket som teoretisk grunnlag for sirkularitetsvurdering i matsystemet',
@@ -308,7 +308,7 @@ export const meetings: Meeting[] = [
       'Sentraliserte VA-anlegg (som VEAS) fokuserer pa CO2-fangst fremfor naeringsgjenvinning — mulig feilprioritering',
     ],
     sources: [
-      { sourceId: 'src-103', label: 'JT-Gabriel arbeidsmote transkripsjon', note: 'R9-rammeverk, sirkularitet og for — 20. april 2026' },
+      { sourceId: 'src-179', label: 'JT-Gabriel arbeidsmote transkripsjon', note: 'R9-rammeverk, sirkularitet og for — 20. april 2026' },
     ],
   },
   {
@@ -322,7 +322,7 @@ export const meetings: Meeting[] = [
       'Thea Martinsen',
       'Kristian Johnsrud',
     ],
-    source: 'TRANSITION GROUPS - Møte 21-04-26.md',
+    source: 'docs/meetings/TRANSITION GROUPS - Møte 21-04-26.md',
     summary: 'Arbeidsmote for Nordic Innovation Hotspot Transition Groups der mandat, medlemskap, timefordeling, 10-step-kobling, Food/Cities-scoping, aktorkartlegging, kommunikasjon og Gabriels plattform ble konsolidert. Standardmandat skal brukes som mal for begge grupper, transition group-aktorer blir gratis NCH-medlemmer ut 2026, og praktiske oppgaver skal ligge i Notion. Cities har tydeligere ekstern pull gjennom SIDCOF/SINTEF/UiO, mens Food fortsatt ma spisses hardt for mobilisering. Gabriel viste status pa verdikjede-, forsyningskjede-, aktor- og casedatabase og foreslo MCP/sporregrensesnitt mot kunnskapsbasen.',
     keyDecisions: [
       'Standardmandat brukes som felles mal, men mal og arbeidsplan spisses per gruppe',
@@ -358,7 +358,7 @@ export const meetings: Meeting[] = [
       'SINTEF/UiO world-building-prosess kan bli relevant strategisk kobling for NCC/NCH, men Natural States rolle er fortsatt uklar',
     ],
     sources: [
-      { sourceId: 'src-104', label: 'Transition Groups arbeidsmote transkripsjon', note: 'Mandat, scoping, aktorkartlegging og plattformstatus — 21. april 2026' },
+      { sourceId: 'src-180', label: 'Transition Groups arbeidsmote transkripsjon', note: 'Mandat, scoping, aktorkartlegging og plattformstatus — 21. april 2026' },
     ],
   },
 ]
