@@ -512,6 +512,7 @@ async function checkSourceQualityCoverage() {
     reports,
     shareholders,
     boardMembers,
+    actorRelationships,
   ] = await Promise.all([
     prisma.companyFinancial.findMany({
       select: {
@@ -584,6 +585,9 @@ async function checkSourceQualityCoverage() {
     }),
     prisma.boardMember.findMany({
       select: { id: true, personName: true, source: true, sourceUrl: true, verifiedAt: true },
+    }),
+    prisma.actorRelationship.findMany({
+      select: { id: true, fromActorId: true, toActorId: true, relationType: true, source: true, sourceUrl: true },
     }),
   ])
 
@@ -677,6 +681,13 @@ async function checkSourceQualityCoverage() {
       'BoardMember.source',
       boardMembers.map((row): SourceRow => ({
         id: `${row.id}:${row.personName}`,
+        source: row.sourceUrl?.trim() || row.source,
+      })),
+    ),
+    summarizeSourceRows(
+      'ActorRelationship.source',
+      actorRelationships.map((row): SourceRow => ({
+        id: `${row.fromActorId}:${row.toActorId}:${row.relationType}`,
         source: row.sourceUrl?.trim() || row.source,
       })),
     ),

@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/db'
+import { actorRelationshipGraphEdge } from '@/lib/actor-relationship-graph'
 import { buildBoardMemberGraphArtifacts } from '@/lib/graph-board-members'
 import { inferGraphConfidence, isBlockedExternalGraphSource, structuralGraphConfidence } from '@/lib/graph-confidence'
 import { isMissingPrismaTable } from './prisma-errors'
@@ -199,7 +200,13 @@ export async function getFullGraph(): Promise<GraphData> {
 
   let actors: Array<{ id: string; slug: string; name: string; themeTags: string[]; companyId: string | null }> = []
   let actorRefs: Array<{ actorId: string; documentId: string }> = []
-  let actorRelationships: Array<{ fromActorId: string; toActorId: string; relationType: string }> = []
+  let actorRelationships: Array<{
+    fromActorId: string
+    toActorId: string
+    relationType: string
+    source: string | null
+    metadata: unknown
+  }> = []
 
   try {
     ;[actors, actorRefs, actorRelationships] = await Promise.all([
@@ -214,7 +221,7 @@ export async function getFullGraph(): Promise<GraphData> {
       }),
       prisma.actorDocumentRef.findMany({ select: { actorId: true, documentId: true } }),
       prisma.actorRelationship.findMany({
-        select: { fromActorId: true, toActorId: true, relationType: true },
+        select: { fromActorId: true, toActorId: true, relationType: true, source: true, metadata: true },
       }),
     ])
   } catch (error) {
@@ -335,7 +342,7 @@ export async function getFullGraph(): Promise<GraphData> {
     ...insightRefs.map(r => structuralEdge(r.documentId, r.insightId, 'insight-ref')),
     ...companyRefs.map(r => structuralEdge(r.documentId, r.companyId, 'company-ref')),
     ...actorRefs.map(r => structuralEdge(r.documentId, r.actorId, 'actor-ref')),
-    ...actorRelationships.map(r => ({ source: r.fromActorId, target: r.toActorId, type: r.relationType })),
+    ...actorRelationships.map(actorRelationshipGraphEdge),
     ...actors
       .filter(a => a.companyId)
       .map(a => structuralEdge(a.id, a.companyId!, 'company-link')),

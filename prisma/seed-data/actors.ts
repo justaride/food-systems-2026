@@ -37,6 +37,10 @@ export type ActorRelationshipSeed = {
   relationType: string
   strength?: string
   note?: string
+  source?: string
+  sourceUrl?: string
+  metadata?: Record<string, unknown>
+  verifiedAt?: string
 }
 
 const ACTOR_MAP_DOC = 'interviews/aktorkart-systematisk-2026'

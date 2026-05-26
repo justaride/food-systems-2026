@@ -2,6 +2,7 @@ import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { actorsSeed, actorRelationshipsSeed } from '../prisma/seed-data/actors'
+import { DEFAULT_ACTOR_RELATIONSHIP_SOURCE } from '../src/lib/actor-relationship-graph'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -131,6 +132,10 @@ async function upsertRelationships() {
         relationType: relation.relationType,
         strength: relation.strength ?? null,
         note: relation.note ?? null,
+        source: relation.source ?? DEFAULT_ACTOR_RELATIONSHIP_SOURCE,
+        sourceUrl: relation.sourceUrl ?? null,
+        metadata: relation.metadata ?? { sourceType: 'curated_actor_relationship_seed' },
+        verifiedAt: relation.verifiedAt ? new Date(relation.verifiedAt) : null,
       },
     })
   }
