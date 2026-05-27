@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { formatEmployeeDisplay, formatRevenueDisplay } from '@/lib/company-card-metrics'
 
 type CompanyRow = {
   id: string
@@ -18,6 +19,7 @@ type CompanyRow = {
   valueChainStage: string | null
   revenueNok: number | null
   employees: number | null
+  hasFinancialRow: boolean
   controllingOwner: string | null
   boardCount: number
   subsidyCount: number
@@ -43,13 +45,6 @@ const OWNERSHIP_LABELS: Record<string, string> = {
   foreign: 'Utenlandsk',
   listed: 'Børsnotert',
   private: 'Privat',
-}
-
-function formatRevenue(n: number | null) {
-  if (n == null) return '—'
-  if (n >= 1e9) return `${(n / 1e9).toFixed(1)} mrd`
-  if (n >= 1e6) return `${(n / 1e6).toFixed(0)} mill`
-  return `${Math.round(n / 1e3).toLocaleString('no')}k`
 }
 
 export function SelskaperContent({
@@ -188,13 +183,13 @@ export function SelskaperContent({
                 <div className="rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
                   <div className="text-[10px] uppercase tracking-wider text-stone-400">Omsetning</div>
                   <div className="mt-0.5 font-semibold text-stone-900">
-                    {formatRevenue(c.revenueNok)}
+                    {formatRevenueDisplay(c.revenueNok, c.hasFinancialRow)}
                   </div>
                 </div>
                 <div className="rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
                   <div className="text-[10px] uppercase tracking-wider text-stone-400">Ansatte</div>
                   <div className="mt-0.5 font-semibold text-stone-900">
-                    {c.employees?.toLocaleString('no') ?? '—'}
+                    {formatEmployeeDisplay(c.employees)}
                   </div>
                 </div>
               </div>

@@ -996,13 +996,20 @@ const nordicCompanies: CompanyData[] = [
   // === M&A TARGETS (Nordic, Session 10) ===
   {
     name: 'City Gross Sverige AB',
-    orgNr: 'SE-556448-4498',
+    orgNr: 'SE-556597-2451',
     country: 'SE',
     legalForm: 'AB',
-    founded: 2002,
-    hqCity: 'Halmstad',
-    ownershipType: 'private',
+    founded: 2000,
+    hqCity: 'Hässleholm',
+    hqAddress: 'Industrigatan 22',
+    naceCode: '47.110',
+    naceDescription: 'Detaljhandel med livsmedel',
+    employees: 1871,
+    ownershipType: 'listed',
     valueChainStage: 'retail',
+    financials: [
+      { year: 2025, revenueNok: 8898, operatingResult: -192, operatingMargin: -2.2, groupEmployees: 1871, source: 'Axfood City Gross key figures 2025. SEK 8,898M net sales; SEK -192M operating profit; 1 SEK ≈ 1.00 NOK' },
+    ],
     shareholders: [
       { name: 'Axfood AB (100% etter oppkjøp)', ownershipPct: 100, shareholderType: 'institutional', isControlling: true },
     ],
