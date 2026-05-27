@@ -39,8 +39,8 @@ const themeLabels: Record<ThesisTheme, string> = {
   emv: 'EMV',
   nordisk: 'Nordisk',
   matsvinn: 'Matsvinn',
-  sirkulaer: 'Sirkulaer',
-  'offentlig-innkjop': 'Offentlig innkjop',
+  sirkulaer: 'Sirkulær',
+  'offentlig-innkjop': 'Offentlig innkjøp',
   atferd: 'Atferd',
   emballasje: 'Emballasje',
   okologi: 'Okologi',
@@ -204,16 +204,16 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
                   <p className="text-sm font-semibold text-stone-900">Innsikten peker mot B og C</p>
                   <p className="text-sm text-stone-700 leading-relaxed mt-1">
                     Tyngden ligger i {focusThemes.length ? focusThemes.join(', ') : 'matsvinn, verdikjede og marked'}.
-                    Det gjor akademialaget sterkest som evidensbank for matsvinn/sidestroemmer, adoption,
-                    offentlig innkjop, governance og markedsmakt som skaleringsbarriere.
+                    Det gjør akademialaget sterkest som evidensbank for matsvinn/sidestrømmer, adoption,
+                    offentlig innkjøp, governance og markedsmakt som skaleringsbarriere.
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-stone-900">Brukes som intern beslutningsstotte</p>
+                  <p className="text-sm font-semibold text-stone-900">Brukes som intern beslutningsstøtte</p>
                   <p className="text-sm text-stone-700 leading-relaxed mt-1">
-                    Avhandlingene kan brukes til a prioritere claims og valideringsspor. Funn som skal ut i dialog
-                    eller eksterne leveranser bor fortsatt holdes pa intern status til primaerkilde- eller
-                    aktoervalidering er gjort.
+                    Avhandlingene kan brukes til å prioritere claims og valideringsspor. Funn som skal ut i dialog
+                    eller eksterne leveranser bør fortsatt holdes på intern status til primærkilde- eller
+                    aktørvalidering er gjort.
                   </p>
                 </div>
               </div>

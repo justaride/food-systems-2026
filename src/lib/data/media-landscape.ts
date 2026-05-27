@@ -55,8 +55,8 @@ export const mediaThemes: MediaTheme[] = [
     name: 'Beredskap og selvforsyning',
     description: 'Mattrygghet, kriseresiliens, importavhengighet og nasjonal forsyningsevne.',
     sources: [
-      { sourceId: 'src-16', label: 'Riksrevisjonen matsikkerhet', url: 'https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/matsikkerhet-og-beredskap-pa-jordbruksomradet/', note: 'Kritisk analyse av systemets saarbarhet' },
-      { sourceId: 'src-26', label: 'Meld. St. 11 selvforsyning', url: 'https://www.regjeringen.no/no/dokumenter/meld-st-11-20232024/id3033241/', note: '50 %-maal innen 2030' },
+      { sourceId: 'src-16', label: 'Riksrevisjonen matsikkerhet', url: 'https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/matsikkerhet-og-beredskap-pa-jordbruksomradet/', note: 'Kritisk analyse av systemets sårbarhet' },
+      { sourceId: 'src-26', label: 'Meld. St. 11 selvforsyning', url: 'https://www.regjeringen.no/no/dokumenter/meld-st-11-20232024/id3033241/', note: '50 %-mål innen 2030' },
       { sourceId: 'src-31', label: 'NIBIO sjolvforsyningsgrad', url: 'nibio.no', note: 'Metodisk grunnlag for beredskapsdebatt' },
     ],
   },
@@ -101,7 +101,7 @@ export const mediaThemes: MediaTheme[] = [
     name: 'Regulering og policy',
     description: 'Matstrategier, handelspraksis, konkurranseregler og offentlige grep.',
     sources: [
-      { sourceId: 'src-36', label: 'Ny hjemmel for markedsetterforskning', url: 'konkurransetilsynet.no', note: 'Nye regulatoriske verktoey' },
+      { sourceId: 'src-36', label: 'Ny hjemmel for markedsetterforskning', url: 'konkurransetilsynet.no', note: 'Nye regulatoriske verktøy' },
       { label: 'Lov om god handelsskikk', url: 'https://lovdata.no/dokument/NL/lov/2020-03-27-13', note: 'I kraft fra 2021' },
     ],
   },
@@ -112,7 +112,7 @@ export const mediaTimeline: MediaTimelineEntry[] = [
     year: 2016,
     intensity: 2,
     label: 'Matstrategier blir offentlig sak',
-    note: 'Sverige setter produksjon og selvforsyning tydeligere pa agendaen; nordisk systemtenkning far mer fotfeste.',
+    note: 'Sverige setter produksjon og selvforsyning tydeligere på agendaen; nordisk systemtenkning får mer fotfeste.',
     sources: [
       { sourceId: 'src-26', label: 'Meld. St. 11 selvforsyning', url: 'https://www.regjeringen.no/no/dokumenter/meld-st-11-20232024/id3033241/', note: 'Norsk matstrategi' },
       { label: 'Livsmedelsstrategin (SE)', url: 'https://www.government.se/information-material/2017/04/a-national-food-strategy-for-sweden/', note: 'Svensk matstrategi 2017-2030' },
@@ -122,7 +122,7 @@ export const mediaTimeline: MediaTimelineEntry[] = [
     year: 2017,
     intensity: 2,
     label: 'Urban mat og omstilling',
-    note: 'Bynare matsystemer, lokal produksjon og innovasjon begynner a dukke opp som eget spor.',
+    note: 'Bynære matsystemer, lokal produksjon og innovasjon begynner å dukke opp som eget spor.',
   },
   {
     year: 2018,
@@ -142,8 +142,8 @@ export const mediaTimeline: MediaTimelineEntry[] = [
   {
     year: 2020,
     intensity: 5,
-    label: 'Pandemi utloser beredskapsfokus',
-    note: 'Forsyningssikkerhet, importavhengighet og robusthet blir synlige temaer pa tvers av Norden.',
+    label: 'Pandemi utløser beredskapsfokus',
+    note: 'Forsyningssikkerhet, importavhengighet og robusthet blir synlige temaer på tvers av Norden.',
     sources: [
       { sourceId: 'src-16', label: 'Riksrevisjonen matsikkerhet', url: 'https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/matsikkerhet-og-beredskap-pa-jordbruksomradet/', note: 'Kritikk av beredskapsplanlegging' },
     ],
@@ -194,9 +194,9 @@ export const mediaTimeline: MediaTimelineEntry[] = [
     label: 'Selvforsyning som strategisk narrativ',
     note: 'Totalberedskap, nasjonale matstrategier og produksjonsevne blir mer sentrale enn ren prisdebatt.',
     sources: [
-      { sourceId: 'src-26', label: 'Meld. St. 11 selvforsyning', url: 'https://www.regjeringen.no/no/dokumenter/meld-st-11-20232024/id3033241/', note: '50 %-maal' },
+      { sourceId: 'src-26', label: 'Meld. St. 11 selvforsyning', url: 'https://www.regjeringen.no/no/dokumenter/meld-st-11-20232024/id3033241/', note: '50 %-mål' },
       { sourceId: 'src-16', label: 'Riksrevisjonen beredskap', url: 'https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/matsikkerhet-og-beredskap-pa-jordbruksomradet/' },
-      { sourceId: 'src-40', label: 'NBS systemkritikk', url: 'smabrukarlaget.no', note: 'Produsentperspektiv paa matberedskap' },
+      { sourceId: 'src-40', label: 'NBS systemkritikk', url: 'smabrukarlaget.no', note: 'Produsentperspektiv på matberedskap' },
     ],
   },
 ]
@@ -208,9 +208,9 @@ export const mediaCountryProfiles: MediaCountryProfile[] = [
     iso: 'NO',
     dominantNarrative: 'Prispress, triopol og beredskap',
     summary:
-      'Mediebildet i Norge drives av et sterkt triopol, hoye prisdiskusjoner, marginstudier og sporsmaal om lav selvforsyning i krise.',
+      'Mediebildet i Norge drives av et sterkt triopol, høye prisdiskusjoner, marginstudier og spørsmål om lav selvforsyning i krise.',
     strongestPeriod: '2022-2025',
-    keyQuestion: 'Hvor saarbart er et konsentrert matsystem nar import og logistikk svikter samtidig?',
+    keyQuestion: 'Hvor sårbart er et konsentrert matsystem når import og logistikk svikter samtidig?',
     yearlySignal: [1, 1, 2, 2, 4, 4, 5, 5, 5, 4],
     focusLevels: {
       beredskap: 'kritisk',
@@ -228,7 +228,7 @@ export const mediaCountryProfiles: MediaCountryProfile[] = [
         { sourceId: 'src-42', label: 'Prisjeger-vedtaket', url: 'konkurransetilsynet.no' },
         { sourceId: 'src-44', label: 'Marginstudie del 1', url: 'konkurransetilsynet.no' },
       ] },
-      { year: 2025, label: 'Totalberedskap og 50 %-maal for selvforsyning styrker narrativet', sources: [
+      { year: 2025, label: 'Totalberedskap og 50 %-mål for selvforsyning styrker narrativet', sources: [
         { sourceId: 'src-26', label: 'Meld. St. 11 selvforsyning', url: 'https://www.regjeringen.no/no/dokumenter/meld-st-11-20232024/id3033241/' },
         { label: 'Totalberedskap', url: 'https://www.regjeringen.no/en/whats-new/white-paper-on-total-preparedness-prepared-for-crisis-or-war/id3082581/' },
       ] },
@@ -245,7 +245,7 @@ export const mediaCountryProfiles: MediaCountryProfile[] = [
     iso: 'SE',
     dominantNarrative: 'Selvforsyning, butikkstruktur og prisdynamikk',
     summary:
-      'Svensk omtale knytter prisokninger til retailstruktur, planbarrierer og behovet for en sterkere nasjonal matstrategi.',
+      'Svensk omtale knytter prisøkninger til retailstruktur, planbarrierer og behovet for en sterkere nasjonal matstrategi.',
     strongestPeriod: '2023-2025',
     keyQuestion: 'Kan Sverige oke produksjonen og konkurransen samtidig, eller peker systemet mot duopol?',
     yearlySignal: [2, 2, 2, 2, 3, 3, 4, 4, 5, 5],
@@ -279,7 +279,7 @@ export const mediaCountryProfiles: MediaCountryProfile[] = [
     summary:
       'Dansk diskusjon handler oftere om klimaetikettering, eksportrolle og hvordan konkurransen kan holdes levende i et konsentrert marked.',
     strongestPeriod: '2022-2025',
-    keyQuestion: 'Hvordan kan et eksportdrevet matsystem omstilles uten a miste tempo eller konkurransekraft?',
+    keyQuestion: 'Hvordan kan et eksportdrevet matsystem omstilles uten å miste tempo eller konkurransekraft?',
     yearlySignal: [1, 1, 1, 2, 2, 2, 3, 3, 4, 4],
     focusLevels: {
       beredskap: 'lav',
@@ -291,7 +291,7 @@ export const mediaCountryProfiles: MediaCountryProfile[] = [
     },
     triggerMoments: [
       { year: 2022, label: 'Prispress blir diskutert opp mot sterkere dansk konkurranse' },
-      { year: 2024, label: 'Klimaetikett for mat forsterker mediefokus pa produksjonsfotavtrykk' },
+      { year: 2024, label: 'Klimaetikett for mat forsterker mediefokus på produksjonsfotavtrykk' },
       { year: 2025, label: 'Salling/Coop-saken holder konkurranse og konsolidering i nyhetsbildet', sources: [
         { label: 'KFST Salling/Coop-vedtak', url: 'https://en.kfst.dk/nyheder/kfst/english/decisions/2025/20250326-salling-group-acquires-33-stores-from-coop-danmark' },
       ] },
@@ -320,8 +320,8 @@ export const mediaCountryProfiles: MediaCountryProfile[] = [
       regulering: 'hoy',
     },
     triggerMoments: [
-      { year: 2020, label: 'Pandemien forsterker finsk fokus pa innenlandsk kapasitet' },
-      { year: 2021, label: 'Food Market Act og UTP-spor gir nytt spraak for kjedemakt', sources: [
+      { year: 2020, label: 'Pandemien forsterker finsk fokus på innenlandsk kapasitet' },
+      { year: 2021, label: 'Food Market Act og UTP-spor gir nytt språk for kjedemakt', sources: [
         { label: 'Food Market Act (FI)', url: 'https://www.roschier.com/newsroom/reform-of-trading-practices-in-the-grocery-sector-proposed-amendments-to-the-finnish-food-market-act' },
       ] },
       { year: 2025, label: 'Food2030 og videre beredskapsprat kobler mat tett til nasjonal sikkerhet', sources: [
@@ -356,8 +356,8 @@ export const mediaCountryProfiles: MediaCountryProfile[] = [
         { label: 'Samkeppniseftirlitid rapportoversikt', url: 'https://www.samkeppni.is/urlausnir/skyrslur/' },
         { sourceId: 'src-85', label: 'USDA GAIN Iceland Exporter Guide' },
       ] },
-      { year: 2025, label: 'Melmollekrisen gjor korn og foredlingskapasitet til et konkret beredskapssporsmaal', sources: [
-        { label: 'Islands melmolle og matsuverenitet', url: 'https://www.samkeppni.is/urlausnir/skyrslur/' },
+      { year: 2025, label: 'Melmøllekrisen gjør korn og foredlingskapasitet til et konkret beredskapsspørsmål', sources: [
+        { label: 'Islands melmølle og matsuverenitet', url: 'https://www.samkeppni.is/urlausnir/skyrslur/' },
       ] },
     ],
     sources: [
@@ -369,9 +369,9 @@ export const mediaCountryProfiles: MediaCountryProfile[] = [
 
 export const mediaScanGuidance = [
   'Bygg faktiske mediesok per land mot 2016-2025 som neste lag oppa denne kvalitative profilen.',
-  'Kod hver omtale pa tema, trigger, tone og geografisk fokus for a skille politikk, marked og innovasjon.',
+  'Kod hver omtale på tema, trigger, tone og geografisk fokus for å skille politikk, marked og innovasjon.',
   'Hold 2026 utenfor historikkgrafene til hele aret eller et definert delaar er lukket og sammenlignbart.',
-  'Bruk denne siden som narrativt kart, ikke som endelig mediestatistikk; den maa kalibreres mot faktiske artikkeltreff.',
+  'Bruk denne siden som narrativt kart, ikke som endelig mediestatistikk; den må kalibreres mot faktiske artikkeltreff.',
 ]
 
 export const mediaInternalSources = [

@@ -47,16 +47,16 @@ const categoryLabels: Record<string, { label: string; description: string }> = {
     description: 'Selvforsyning, beredskap og matsikkerhet',
   },
   'matsvinn-sirkulaer': {
-    label: 'Matsvinn og sirkulaer',
-    description: 'Matsvinn, sirkulaer okonomi og bioressurser',
+    label: 'Matsvinn og sirkulær',
+    description: 'Matsvinn, sirkulær økonomi og bioressurser',
   },
   'logistikk-verdikjede': {
     label: 'Logistikk og verdikjede',
-    description: 'Distribusjon, forsyningskjeder og saarbarhet',
+    description: 'Distribusjon, forsyningskjeder og sårbarhet',
   },
   'interessenter': {
     label: 'Interessenter',
-    description: 'Aktoerer, organisasjoner og nokkelpeople',
+    description: 'Aktører, organisasjoner og nøkkelpersoner',
   },
   'finansiering': {
     label: 'Finansiering',
@@ -90,7 +90,7 @@ const STATUS_META: Record<ResearchPromptStatus, { label: string; className: stri
   delvis: {
     label: 'Delvis dekket',
     className: 'bg-amber-50 text-amber-700 border-amber-200',
-    note: 'Denne prompten er delvis dekket og bor omskrives til en smalere, mer bevisorientert variant for ny bruk.',
+    note: 'Denne prompten er delvis dekket og bør omskrives til en smalere, mer bevisorientert variant for ny bruk.',
     noteClassName: 'border-amber-200 bg-amber-50 text-amber-800',
   },
   arkivert: {

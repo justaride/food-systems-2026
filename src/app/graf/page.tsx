@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
+import { PageFraming } from '@/components/ui/PageFraming'
 import { KnowledgeGraph } from '@/components/charts/KnowledgeGraph'
+import { StatusLegend } from '@/components/visualization/StatusLegend'
 import { getFullGraph, type GraphQualityReport } from '@/lib/queries/graph'
 
 export default async function GrafPage() {
@@ -66,6 +68,25 @@ export default async function GrafPage() {
           <StatusTile label="Konfidens" value={`${confidencePct}%`} tone={confidencePct >= 70 ? 'ok' : 'warn'} />
         </div>
       </div>
+
+      <PageFraming
+        title="Hva svarer denne siden på?"
+        description={[
+          'Siden svarer på hvilke dokumenter, innsikter, selskaper, personer og eiendommer som henger sammen i kunnskapsbasen.',
+          'Den brukes til QA, navigasjon og isolat-kø, ikke som selvstendig bevis for effekt eller eierskap.',
+        ]}
+        takeaways={[
+          'Canvas viser bare koblede noder slik at arbeidsflaten holder fokus på relasjoner.',
+          'Statusflisene gjør brutte kanter, isolater og konfidens synlige for videre rydding.',
+          'Datakvalitetspanelet peker ut duplikater, manglende profiler og kantdekning.',
+        ]}
+        caveat="Internt arbeidsgrunnlag med forbehold: grafkanter bygger på kuraterte kilder, proxy og konfidensmerking og er ikke ekstern validering."
+      />
+
+      <StatusLegend
+        title="Status for graf og relasjoner"
+        description="Les grafstatus som datakvalitet og språkstyring: proxy, illustrativ og intern betyr at koblingen trenger kildekontroll før den brukes i beslutningsspråk."
+      />
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4 xl:grid-cols-8">
         {Object.entries(typeCounts).map(([type, count]) => (

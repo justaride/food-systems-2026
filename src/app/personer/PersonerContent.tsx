@@ -58,8 +58,8 @@ export function PersonerContent({ persons }: { persons: PersonProfileRow[] }) {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-stone-900">Nokkelpersoner</h1>
-          <p className="text-sm text-stone-500 mt-1">Profiler, roller og tilknytninger pa tvers av selskaper</p>
+          <h1 className="text-2xl font-bold text-stone-900">Nøkkelpersoner</h1>
+          <p className="text-sm text-stone-500 mt-1">Profiler, roller og tilknytninger på tvers av selskaper</p>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
@@ -82,7 +82,7 @@ export function PersonerContent({ persons }: { persons: PersonProfileRow[] }) {
           type="text"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Sok etter person, selskap eller tag..."
+          placeholder="Søk etter person, selskap eller tag..."
           className="w-full px-4 py-3 rounded-xl border border-stone-200 bg-white text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
         />
         {allTags.length > 0 && (

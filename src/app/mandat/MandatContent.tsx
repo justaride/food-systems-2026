@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
+import { PageFraming } from '@/components/ui/PageFraming'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
+import { StatusLegend } from '@/components/visualization/StatusLegend'
 import {
   foodTgClaimBoard,
   foodTgClaimStrengthLabels,
@@ -346,6 +348,25 @@ export function MandatContent() {
           </div>
         </div>
       </section>
+
+      <PageFraming
+        title="Hva svarer denne siden på?"
+        description={[
+          'Siden viser mandat, beslutningsstatus og kontrollag for Food TG-sporet før videre validering.',
+          'Den skal hjelpe intern styring med å se hva som er klart, hva som krever bekreftelse og hvor stoppsignalene ligger.',
+        ]}
+        takeaways={[
+          'Mandatet skiller interne beslutninger fra aktør- og primærkildesjekk.',
+          'Kandidatkort, porter og kontrollstatus viser hva som kan brukes nå og hva som må holdes tilbake.',
+          'Wageningen-metoden brukes som metodegrunnlag og spørsmål, ikke som fasit.',
+        ]}
+        caveat="Intern styringsflate med forbehold: ingen Food TG-claims løftes til validert eksternt uten dokumentert ekstern validering."
+      />
+
+      <StatusLegend
+        title="Status for Food TG-styring"
+        description="Legend viser hvilke ord som holder claims i riktig styrke: utført internt er arbeidsstatus, blokkert skal stoppes, og validert eksternt er reservert for dokumentert ekstern bekreftelse."
+      />
 
       <WageningenMethodOverview />
 

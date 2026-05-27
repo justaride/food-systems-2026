@@ -86,13 +86,13 @@ export function RLadderMatrix({ items }: Props) {
         <div>
           <h2 className="text-sm font-semibold text-stone-800">R-stige x verdikjede</h2>
           <p className="text-xs text-stone-400 mt-0.5">
-            {classified} initiativer klassifisert, {unclassified} uklassifisert. Hoyere R = mindre sirkulaer.
+            {classified} initiativer klassifisert, {unclassified} uklassifisert. Høyere R = mindre sirkulær.
           </p>
         </div>
         <div className="flex gap-2 text-[10px] text-stone-500 flex-wrap">
           <span className="flex items-center gap-1">
             <span className="w-3 h-3 rounded border border-emerald-300 bg-emerald-200" />
-            Kjernesirkulaer (R0-R3)
+            Kjernesirkulær (R0-R3)
           </span>
           <span className="flex items-center gap-1">
             <span className="w-3 h-3 rounded border border-blue-300 bg-blue-200" />
@@ -104,7 +104,7 @@ export function RLadderMatrix({ items }: Props) {
           </span>
           <span className="flex items-center gap-1">
             <span className="w-3 h-3 rounded border border-stone-400 bg-stone-300" />
-            Lineaert (R9)
+            Lineært (R9)
           </span>
         </div>
       </div>
@@ -114,7 +114,7 @@ export function RLadderMatrix({ items }: Props) {
           <thead>
             <tr>
               <th className="text-left text-stone-500 font-medium pr-2 py-1 w-36">
-                R-niva
+                R-nivå
               </th>
               {valueChainSlots.map((slot) => (
                 <th

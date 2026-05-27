@@ -129,10 +129,10 @@ export function RLadderMaturityOverview() {
     <div className="space-y-4">
       <div className="flex items-start justify-between flex-wrap gap-3">
         <div>
-          <h2 className="text-sm font-semibold text-stone-800">R-stige modenhet per niva</h2>
+          <h2 className="text-sm font-semibold text-stone-800">R-stige modenhet per nivå</h2>
           <p className="text-xs text-stone-500 mt-0.5 max-w-2xl leading-relaxed">
             {data.description ??
-              'Operasjonalisert R9-sirkulaeritetsstige for nordiske matsystemer med modenhetsscore, eksempler og datahull per niva.'}
+              'Operasjonalisert R9-sirkularitetsstige for nordiske matsystemer med modenhetsscore, eksempler og datahull per nivå.'}
           </p>
         </div>
         <div className="flex items-center gap-2 text-[10px] text-stone-500">

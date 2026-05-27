@@ -12,6 +12,33 @@ const FOOD_SYSTEM_KPIS: KPI[] = [
   { id: 'matsvinn', name: 'Matsvinn', description: 'Spiselig mat kastet i Norge årlig', current: '390 000 t' },
 ]
 
+const READER_JOURNEY = [
+  {
+    label: 'Forstå prosjektet',
+    href: '/mandat',
+    status: 'Intern styring',
+    description: 'Mandat, beslutningsporter og hva som fortsatt må avklares før sterkere språk.',
+  },
+  {
+    label: 'Se hovedfunn',
+    href: '/innsikt',
+    status: 'Med forbehold',
+    description: 'Hovedmønstre i marked, selvforsyning og verdikjede med claim- og kildechips.',
+  },
+  {
+    label: 'Kontroller kilder',
+    href: '/bibliotek',
+    status: 'Kildekontroll',
+    description: 'Dokumenter, rapporter og lokatorer som må bære hvert funn videre.',
+  },
+  {
+    label: 'Forbered whitepaper',
+    href: '/hvitbok',
+    status: 'Utkastgrunnlag',
+    description: 'Rapportstruktur og kapitler som skal holde intern analyse adskilt fra ekstern validering.',
+  },
+]
+
 export default async function OversiktPage() {
   const [phases, evidencePack, tenSteps, recentInsights] = await Promise.all([
     getPhases(),
@@ -35,13 +62,6 @@ export default async function OversiktPage() {
           i den norske og nordiske matsektoren — underlaget for NCH-transisjonsgruppens
           leveranse mot juni 2026.
         </p>
-        <p className="text-sm text-stone-500">
-          Ny her?{' '}
-          <Link href="/innsikt" className="text-emerald-700 underline hover:text-emerald-800">
-            Begynn med Innsikt
-          </Link>{' '}
-          — datadrevet status på markedsstruktur, selvforsyning og funn.
-        </p>
         <details className="rounded-lg border border-stone-200 bg-stone-50 p-3 text-sm">
           <summary className="cursor-pointer font-medium text-stone-700">Nøkkelbegreper</summary>
           <dl className="mt-2 space-y-1.5 text-stone-600">
@@ -60,6 +80,42 @@ export default async function OversiktPage() {
           </dl>
         </details>
       </header>
+
+      <section
+        aria-labelledby="reader-journey-title"
+        className="rounded-xl border border-stone-200 bg-white p-4 shadow-sm"
+      >
+        <div className="mb-3 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-[10px] uppercase tracking-wider text-stone-400">Leserreise</p>
+            <h2 id="reader-journey-title" className="text-sm font-semibold text-stone-800">
+              Startpunkt etter rolle og modenhet
+            </h2>
+          </div>
+          <p className="max-w-lg text-xs text-stone-500">
+            All lesing er intern og statusstyrt; ingen Food TG-claims er eksternt validert.
+          </p>
+        </div>
+        <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-4">
+          {READER_JOURNEY.map((entry) => (
+            <Link
+              key={entry.href}
+              href={entry.href}
+              className="group flex min-h-32 flex-col justify-between rounded-lg border border-stone-200 bg-stone-50/70 p-3 transition-colors hover:border-emerald-300 hover:bg-emerald-50"
+            >
+              <span className="text-[10px] font-medium uppercase tracking-wider text-emerald-700">
+                {entry.status}
+              </span>
+              <span className="mt-2 text-sm font-semibold text-stone-900 group-hover:text-emerald-900">
+                {entry.label}
+              </span>
+              <span className="mt-1 text-xs leading-relaxed text-stone-600">
+                {entry.description}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <div className="rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100/50 border border-emerald-200 p-5">
         <div className="flex justify-between items-start">

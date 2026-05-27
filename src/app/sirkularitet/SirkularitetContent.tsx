@@ -289,11 +289,11 @@ export function SirkularitetContent() {
             {t === 'effekt' && `Effekt (10)`}
             {t === 'maturity' && `R-stige modenhet`}
             {t === 'kpi' && `KPI-katalog`}
-            {t === 'questions' && `10 sirkularitetsspormal (${circularityQuestions.length})`}
+            {t === 'questions' && `10 sirkularitetsspørsmål (${circularityQuestions.length})`}
             {t === 'loops' && `Eksisterende looper (${data.existing_loops.length})`}
             {t === 'gaps' && `Gap og muligheter (${data.gaps.length})`}
-            {t === 'actors' && `Aktorcaser (${allSuccess.length + allFailure.length})`}
-            {t === 'naeringsflyt' && `Naeringsflyt N/P/K`}
+            {t === 'actors' && `Aktørcaser (${allSuccess.length + allFailure.length})`}
+            {t === 'naeringsflyt' && `Næringsflyt N/P/K`}
           </button>
         ))}
       </div>
@@ -302,10 +302,10 @@ export function SirkularitetContent() {
         <div className="space-y-4">
           <Card className="bg-stone-50 border-stone-200">
             <p className="text-xs text-stone-600 leading-relaxed">
-              R-stigen (Potting et al. 2017) rangerer sirkulare strategier fra mest til minst sirkular.
+              R-stigen (Potting et al. 2017) rangerer sirkulære strategier fra mest til minst sirkulær.
               Matrisen viser hvor nordiske initiativer sitter per verdikjedeledd.
               <span className="font-medium text-stone-800"> Tomme celler = uutnyttede muligheter.</span>
-              Klikk en celle for a se hvilke initiativer som er plassert der.
+              Klikk en celle for å se hvilke initiativer som er plassert der.
             </p>
           </Card>
           <RLadderMatrix items={matrixItems} />
@@ -330,9 +330,9 @@ export function SirkularitetContent() {
         <div className="space-y-4">
           <Card className="bg-stone-50 border-stone-200">
             <p className="text-xs text-stone-600 leading-relaxed">
-              10 ankersporsmal for sirkulaer omstilling i nordisk matsystem. Hvert sporsmal kobler R-nivaer,
-              verdikjedeledd og konkrete suksess-/fiasko-caser. Rammeverk etablert i mote JT-Gabriel 20.04.26.
-              <span className="font-medium text-stone-800"> Disse er utkast</span> — skal fylles ut lopende og oppdateres etter JTs bidrag.
+              10 ankerspørsmål for sirkulær omstilling i nordisk matsystem. Hvert spørsmål kobler R-nivåer,
+              verdikjedeledd og konkrete suksess-/fiasko-caser. Rammeverk etablert i møte JT-Gabriel 20.04.26.
+              <span className="font-medium text-stone-800"> Disse er utkast</span> — skal fylles ut løpende og oppdateres etter JTs bidrag.
             </p>
           </Card>
           <div className="space-y-2">
@@ -552,7 +552,7 @@ export function SirkularitetContent() {
                       </div>
                       <div className="flex gap-6">
                         <div>
-                          <p className="text-xs font-medium text-stone-500 mb-1">Aktorer</p>
+                          <p className="text-xs font-medium text-stone-500 mb-1">Aktører</p>
                           <div className="flex flex-wrap gap-1.5">
                             {loop.actors.map((a) => {
                               const mapping = CIRCULARITY_ACTOR_MAP[a]

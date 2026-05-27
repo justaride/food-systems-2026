@@ -95,21 +95,21 @@ const themes: ThemeBucket[] = [
   {
     id: 'makt-fryktkultur',
     label: 'Makt og fryktkultur',
-    description: 'Lov om god handelsskikk, handhevingsgap, leverandoerrapportering og nordisk komparativ.',
+    description: 'Lov om god handelsskikk, håndhevingsgap, leverandørrapportering og nordisk komparativ.',
     tagFilters: ['fryktkultur', 'handheving', 'UTP', 'Dagligvaretilsynet', 'Konkurransetilsynet', 'muntlige-avtaler', 'varsler'],
     accent: 'border-l-4 border-l-rose-400',
   },
   {
     id: 'horeca',
-    label: 'HORECA og offentlige maaltider',
-    description: '5,5 millioner nordiske offentlige maaltider/dag. Kontraktsarkitektur og grossistkonsentrasjon.',
+    label: 'HORECA og offentlige måltider',
+    description: '5,5 millioner nordiske offentlige måltider/dag. Kontraktsarkitektur og grossistkonsentrasjon.',
     tagFilters: ['HORECA', 'offentlige-maaltider', 'innkjoep', 'offentlige-innkjoep', 'klimavekt', 'skolemaaltid', 'grossist', 'Kespro', 'Martin-Servera', 'ASKO'],
     accent: 'border-l-4 border-l-emerald-400',
   },
   {
     id: 'alt-distribusjon',
     label: 'Alternative distribusjonskanaler',
-    description: 'REKO, D2C, maaltidskasser, kooperativer, overskuddsmat-plattformer.',
+    description: 'REKO, D2C, måltidskasser, kooperativer, overskuddsmat-plattformer.',
     tagFilters: ['alternative-distribusjon', 'REKO', 'subscription', 'D2C', 'Cheffelo', 'Aarstiderne', 'Matsmart', 'maaltidskasse', 'lokalmat'],
     accent: 'border-l-4 border-l-blue-400',
   },
@@ -136,7 +136,7 @@ const themes: ThemeBucket[] = [
   },
   {
     id: 'sirkularitet',
-    label: 'Norsk sirkulaer matinnovasjon',
+    label: 'Norsk sirkulær matinnovasjon',
     description: 'Biogass, tare, plantebasert, vertikalt landbruk, CSA.',
     tagFilters: ['sirkulaer', 'biogass', 'tare', 'plantebasert', 'vertikalt-landbruk', 'CSA'],
     accent: 'border-l-4 border-l-lime-400',
@@ -171,8 +171,8 @@ const KEY_NUMBERS: Array<{ value: string; label: string; source: string }> = [
   { value: '350+', label: 'registrerte negative servitutter', source: 'Konkurransetilsynet 2023' },
   { value: 'NOK 168m', label: 'NG internleie til naerstaaende (2024)', source: 'NG registreringsdokument 2025' },
   { value: '0', label: 'vedtak om lovbrudd siden Dagligvaretilsynet ble etablert', source: 'Dagligvaretilsynet aarsrapport 2024' },
-  { value: '5,5M', label: 'offentlige maaltider per dag i Norden', source: 'Nordisk Raad / NORD' },
-  { value: '87,8%', label: 'oekologisk i Koebenhavns 70k maaltider/dag', source: 'Koebenhavns Madhus' },
+  { value: '5,5M', label: 'offentlige måltider per dag i Norden', source: 'Nordisk Råd / NORD' },
+  { value: '87,8%', label: 'økologisk i Københavns 70k måltider/dag', source: 'Københavns Madhus' },
   { value: 'DKK 394m', label: 'Plantefonden committed 2023-2025', source: 'Plantefonden' },
   { value: 'SEK 1,188 mrd', label: 'Cheffelo nordisk omsetning 2025', source: 'Cheffelo Q4 2025' },
   { value: '30. apr 2026', label: 'handheving flyttes til Konkurransetilsynet', source: 'Forskrift 2026-04-17-601' },
@@ -184,7 +184,7 @@ const THEME_LABELS: Record<string, string> = {
   enforcement: 'Handheving / fryktkultur',
   beredskap: 'Beredskap / framstillinger',
   'alt-distribusjon': 'Alternative kanaler',
-  horeca: 'HORECA og offentlig maaltid',
+  horeca: 'HORECA og offentlig måltid',
   'failed-entrants': 'Failed entrants',
   benchmark: 'Benchmark-case',
 }
@@ -255,8 +255,8 @@ export function ForskningsrunderContent({
         </div>
         <p className="text-sm text-stone-500 leading-relaxed">
           Ni dybderapporter + samlerapport fra Food Research Process levert 20. april 2026. Dekker eiendomsmakt,
-          fryktkultur og handheving, HORECA/offentlige maaltider, alternative distribusjonskanaler, nordiske
-          failed entrants, internasjonale benchmark-case, norsk offentlighet og sirkulaer matinnovasjon.
+          fryktkultur og handheving, HORECA/offentlige måltider, alternative distribusjonskanaler, nordiske
+          failed entrants, internasjonale benchmark-case, norsk offentlighet og sirkulær matinnovasjon.
           Rapportene er konvertert til markdown og registrert i biblioteket; metodikk (STROBE+GRADE) er
           innarbeidet i evidensnotat-rammeverket.
         </p>
@@ -318,7 +318,7 @@ export function ForskningsrunderContent({
                 </div>
 
                 <div className="mt-3 text-xs text-emerald-700 font-medium">
-                  Aapne filtrert kildevisning →
+                  Åpne filtrert kildevisning →
                 </div>
               </Link>
             )
@@ -351,7 +351,7 @@ export function ForskningsrunderContent({
         </div>
         <div className="card">
           <div className="text-2xl font-bold text-stone-900">{actors.length}</div>
-          <div className="text-xs text-stone-500 mt-1">nye aktoerer kartlagt</div>
+          <div className="text-xs text-stone-500 mt-1">nye aktører kartlagt</div>
         </div>
       </div>
 
@@ -375,7 +375,7 @@ export function ForskningsrunderContent({
           </div>
           <div className="rounded-lg border border-amber-200 bg-amber-50 p-3">
             <div className="text-lg font-bold text-amber-800">{backlogSummary.urlOnly}</div>
-            <div className="text-[11px] text-amber-700 mt-0.5">Kun URL (maa lastes)</div>
+            <div className="text-[11px] text-amber-700 mt-0.5">Kun URL (må lastes)</div>
           </div>
           <div className="rounded-lg border border-rose-200 bg-rose-50 p-3">
             <div className="text-lg font-bold text-rose-800">{backlogSummary.missingMetadata}</div>
@@ -516,8 +516,8 @@ export function ForskningsrunderContent({
           <code className="text-[10px] bg-stone-100 px-1 rounded">research/evidence-pack/[tema]/</code>. Oppdater
           deretter status fra <code className="text-[10px] bg-stone-100 px-1 rounded">url_only</code> til{' '}
           <code className="text-[10px] bg-stone-100 px-1 rounded">downloaded</code> i CSV-filen. Exa-hentede og
-          manuelle rader maa vurderes separat foer de regnes som lokalt sikret. Metadata-only-rader krever
-          kildesoek for aa lokalisere faktisk URL.
+          manuelle rader må vurderes separat før de regnes som lokalt sikret. Metadata-only-rader krever
+          kildesøk for å lokalisere faktisk URL.
         </div>
       </Card>
 
@@ -601,9 +601,9 @@ export function ForskningsrunderContent({
         </Card>
       )}
 
-      <Card title="Nye aktoerer i forskningsrunden">
+      <Card title="Nye aktører i forskningsrunden">
         {actors.length === 0 ? (
-          <EmptyState message="Ingen nye aktoerer enna" />
+          <EmptyState message="Ingen nye aktører ennå" />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {actors.map((a) => (
@@ -654,9 +654,9 @@ export function ForskningsrunderContent({
 
       <Card title="Selskapsdata fra forskningsrunden" className="!p-4">
         <p className="text-sm text-stone-600">
-          Forskningsrunden har tilfoert {companyCount} selskaper innenfor eiendomsgrener og alternative
-          distribusjonskanaler. Full selskapsimport inkluderer ogsaa foodservice-grossister, failed
-          entrants og benchmark-organisasjoner. Kjor <code className="text-xs bg-stone-100 px-1 rounded">npm run db:import:research-20260420</code> for aa laste selskaper, eierskap,
+          Forskningsrunden har tilført {companyCount} selskaper innenfor eiendomsgrener og alternative
+          distribusjonskanaler. Full selskapsimport inkluderer også foodservice-grossister, failed
+          entrants og benchmark-organisasjoner. Kjør <code className="text-xs bg-stone-100 px-1 rounded">npm run db:import:research-20260420</code> for å laste selskaper, eierskap,
           eiendommer og forretningsrelasjoner.
         </p>
         <div className="mt-3 flex gap-2 flex-wrap">
@@ -751,9 +751,9 @@ export function ForskningsrunderContent({
         </div>
       </Card>
 
-      <Card title="Konkurs-aktoerer kartlagt">
+      <Card title="Konkurs-aktører kartlagt">
         {konkurserActors.length === 0 ? (
-          <EmptyState message="Ingen aktoerer enda. Kjoer db:import:ts for aa laste seed-data." />
+          <EmptyState message="Ingen aktører enda. Kjør db:import:ts for å laste seed-data." />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {konkurserActors.map((a) => (
@@ -777,7 +777,7 @@ export function ForskningsrunderContent({
         )}
       </Card>
 
-      <Card title="Tverrgaaende moenstre — sirkulaer-konkurser" className="!p-4">
+      <Card title="Tverrgående mønstre — sirkulær-konkurser" className="!p-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
           <div className="rounded-lg bg-stone-50 p-3 border-l-4 border-l-amber-400">
             <div className="font-semibold text-stone-800 mb-1">Kapital-catch-22</div>
@@ -790,8 +790,8 @@ export function ForskningsrunderContent({
           <div className="rounded-lg bg-stone-50 p-3 border-l-4 border-l-rose-400">
             <div className="font-semibold text-stone-800 mb-1">Energikrise-eksponering</div>
             <p className="text-stone-600 leading-relaxed">
-              Strom-intensiv teknologi + kaldt klima rammer insekt og vertikalt landbruk uforholdsmessig
-              hardt. Infarm, Ljusgårda, Ÿnsect har alle sitert energikrise 2022-2023 som utloesende faktor.
+              Strøm-intensiv teknologi + kaldt klima rammer insekt og vertikalt landbruk uforholdsmessig
+              hardt. Infarm, Ljusgårda, Ÿnsect har alle sitert energikrise 2022-2023 som utløsende faktor.
             </p>
           </div>
           <div className="rounded-lg bg-stone-50 p-3 border-l-4 border-l-emerald-400">

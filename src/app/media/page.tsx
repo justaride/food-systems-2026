@@ -108,7 +108,7 @@ const focusWeight: Record<MediaFocusLevel, number> = {
 const focusLabel: Record<MediaFocusLevel, string> = {
   lav: 'Lav',
   middels: 'Middels',
-  hoy: 'Hoy',
+  hoy: 'Høy',
   kritisk: 'Kritisk',
 }
 
@@ -242,7 +242,7 @@ function CountryCard({ profile, themes }: { profile: CountryCardProfile; themes:
 
       <div className="mt-5 space-y-3">
         <div>
-          <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Kjernespaersmaal</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Kjernespørsmål</p>
           <p className="mt-2 text-sm leading-6 text-stone-700">{profile.keyQuestion}</p>
         </div>
 
@@ -305,7 +305,7 @@ function CorpusEntryCard({ entry, themes }: { entry: CorpusEntryItem; themes: Th
           <p className="mt-1 text-xs text-stone-500">{entry.outlet.name}</p>
         </div>
         <span className={`badge ${verificationClassName[entry.verificationLevel] ?? verificationClassName.secondary}`}>
-          {entry.verificationLevel === 'primary' ? 'Primaer' : 'Sekundaer'}
+          {entry.verificationLevel === 'primary' ? 'Primær' : 'Sekundær'}
         </span>
       </div>
 
@@ -517,13 +517,13 @@ export default async function MediaPage() {
             Medieoversikt for matsystemene per land, historisk spor 2016-2025
           </h1>
           <p className="mt-4 max-w-3xl text-sm leading-6 text-stone-600 sm:text-base">
-            Siden leser fortsatt narrativer pa tvers av land, men viser na ogsaa et eget
-            evidenskorpus med kodede treff, outlet-typer og verifikasjonsnivaa. Dermed blir det
+            Siden leser fortsatt narrativer på tvers av land, men viser nå også et eget
+            evidenskorpus med kodede treff, outlet-typer og verifikasjonsnivå. Dermed blir det
             tydelig hva som er syntese, og hva som faktisk er granularisert materiale.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-stone-500">
             Den kvalitative profilen under er fortsatt et arbeidskart. Korpuset under viser
-            startpunktet for en mer etterproevbar medieanalyse med land, aar, tema, tone og
+            startpunktet for en mer etterprøvbar medieanalyse med land, år, tema, tone og
             triggerlogikk.
           </p>
         </div>
@@ -541,17 +541,17 @@ export default async function MediaPage() {
           <p className="mt-2 text-2xl font-semibold text-stone-900">
             {mediaYears[0]}-{mediaYears[mediaYears.length - 1]}
           </p>
-          <p className="mt-1 text-xs text-stone-500">Bare hele historiske aar, ikke delvis 2026</p>
+          <p className="mt-1 text-xs text-stone-500">Bare hele historiske år, ikke delvis 2026</p>
         </Card>
 
         <Card className="border-amber-200/80 bg-amber-50/60">
           <p className="text-xs uppercase tracking-wider text-amber-700/70">Tyngste spor</p>
           <p className="mt-2 text-lg font-semibold text-amber-950">{topThemes.join(' + ')}</p>
-          <p className="mt-1 text-xs text-amber-800/70">Narrativer som gar igjen pa tvers av land</p>
+          <p className="mt-1 text-xs text-amber-800/70">Narrativer som går igjen på tvers av land</p>
         </Card>
 
         <Card className="border-sky-200/80 bg-sky-50/70">
-          <p className="text-xs uppercase tracking-wider text-sky-700/70">Stoerst trykk</p>
+          <p className="text-xs uppercase tracking-wider text-sky-700/70">Størst trykk</p>
           <p className="mt-2 text-2xl font-semibold text-sky-950">{strongestCountry?.name}</p>
           <p className="mt-1 text-xs text-sky-800/70">
             Mest sammenhengende diskusjonstrykk i perioden {peakYears[0]}-{peakYears[peakYears.length - 1]}
@@ -569,19 +569,19 @@ export default async function MediaPage() {
         <Card className="border-stone-200 bg-white">
           <p className="text-xs uppercase tracking-wider text-stone-400">Outlets</p>
           <p className="mt-2 text-2xl font-semibold text-stone-900">{outlets.length}</p>
-          <p className="mt-1 text-xs text-stone-500">Kilder fordelt pa myndighet, analyse og marked</p>
+          <p className="mt-1 text-xs text-stone-500">Kilder fordelt på myndighet, analyse og marked</p>
         </Card>
 
         <Card className="border-stone-200 bg-white">
-          <p className="text-xs uppercase tracking-wider text-stone-400">Primaerandel</p>
+          <p className="text-xs uppercase tracking-wider text-stone-400">Primærandel</p>
           <p className="mt-2 text-2xl font-semibold text-stone-900">{primaryVerifiedShare}%</p>
-          <p className="mt-1 text-xs text-stone-500">{primaryVerifiedCount} av {typedEntries.length} entries er primaerkilder</p>
+          <p className="mt-1 text-xs text-stone-500">{primaryVerifiedCount} av {typedEntries.length} entries er primærkilder</p>
         </Card>
 
         <Card className="border-stone-200 bg-white">
           <p className="text-xs uppercase tracking-wider text-stone-400">Tynnest dekning</p>
           <p className="mt-2 text-2xl font-semibold text-stone-900">{thinnestCountry?.name}</p>
-          <p className="mt-1 text-xs text-stone-500">{thinnestCountry?.entryCount ?? 0} kodede entries akkurat na</p>
+          <p className="mt-1 text-xs text-stone-500">{thinnestCountry?.entryCount ?? 0} kodede entries akkurat nå</p>
         </Card>
       </div>
 
@@ -595,7 +595,7 @@ export default async function MediaPage() {
                   <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Entries</th>
                   <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Outlets</th>
                   <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Temaer</th>
-                  <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Primaer</th>
+                  <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Primær</th>
                   <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Siste</th>
                   <th className="py-3 pr-0 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Status</th>
                 </tr>
@@ -622,14 +622,14 @@ export default async function MediaPage() {
         <Card title="Granularitetsgap">
           <div className="space-y-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Aar uten korpusdekning</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-stone-400">År uten korpusdekning</p>
               <p className="mt-2 text-sm leading-6 text-stone-600">
                 {missingHistoricalYears.length > 0 ? missingHistoricalYears.join(', ') : 'Ingen hull i 2016-2025-vinduet'}
               </p>
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Temaer uten primaerkoding</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Temaer uten primærkoding</p>
               <p className="mt-2 text-sm leading-6 text-stone-600">
                 {missingPrimaryThemes.length > 0 ? missingPrimaryThemes.join(', ') : 'Alle hovedtemaer er representert'}
               </p>
@@ -675,23 +675,23 @@ export default async function MediaPage() {
         <Card title="Hva v2 gir">
           <div className="space-y-4">
             <div className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
-              <p className="text-sm font-semibold text-stone-800">Etterproevbar kobling mellom narrativ og evidens</p>
+              <p className="text-sm font-semibold text-stone-800">Etterprøvbar kobling mellom narrativ og evidens</p>
               <p className="mt-2 text-sm leading-6 text-stone-600">
-                Hver entry kan spores til outlet, kilde, publiseringspresisjon, koding og verifikasjonsnivaa.
+                Hver entry kan spores til outlet, kilde, publiseringspresisjon, koding og verifikasjonsnivå.
               </p>
             </div>
 
             <div className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
               <p className="text-sm font-semibold text-stone-800">Mer granular tidsserie</p>
               <p className="mt-2 text-sm leading-6 text-stone-600">
-                Modellen skiller aar, maaned og dag, slik at vi kan bygge kvartals- og hendelsesspor uten a late som alle datoer er like presise.
+                Modellen skiller år, måned og dag, slik at vi kan bygge kvartals- og hendelsesspor uten å late som alle datoer er like presise.
               </p>
             </div>
 
             <div className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
-              <p className="text-sm font-semibold text-stone-800">Bedre sammenligning pa tvers av land</p>
+              <p className="text-sm font-semibold text-stone-800">Bedre sammenligning på tvers av land</p>
               <p className="mt-2 text-sm leading-6 text-stone-600">
-                Samme koding brukes na ogsaa for Island, slik at mediaflaten ikke lenger bryter med resten av nordisk datastruktur.
+                Samme koding brukes nå også for Island, slik at mediaflaten ikke lenger bryter med resten av nordisk datastruktur.
               </p>
             </div>
           </div>

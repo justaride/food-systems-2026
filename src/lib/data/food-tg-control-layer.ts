@@ -169,7 +169,7 @@ export const foodTgControlDocuments: FoodTgControlDocument[] = [
     kind: 'Metodeoverforing',
     status: 'klar-med-forbehold',
     path: 'docs/project/mandates/food-tg-wageningen-moerman-method-transfer-2026-05-26.md',
-    use: 'Registrerer Wageningen/Moerman som internt gate- og scoringssprak for Food TG, med apne locator-, claim- og valideringsporter.',
+    use: 'Registrerer Wageningen/Moerman som internt gate- og scoringsspråk for Food TG, med åpne locator-, claim- og valideringsporter.',
     blocks: [
       'Stopper at metodeoverforingen brukes som utadvendt bekreftelse, pilotstatus eller KPI-effekt uten locator, claim-kobling og datert valideringsrespons.',
     ],
