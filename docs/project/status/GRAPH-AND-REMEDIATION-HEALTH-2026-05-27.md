@@ -15,6 +15,7 @@ Kjort i lokal repo 2026-05-27:
 - `npm run audit:citable-reports`
 - `npm run lint`
 - `npm test`
+- `node --import=tsx --test tests/lib/insight-link-scripts.test.ts`
 - `npm run build`
 - `npm audit --audit-level=moderate`
 - `npx tsx scripts/apply-insight-links-v3.ts --dry-run`
@@ -28,11 +29,11 @@ Graf-audit er teknisk gronn:
 | Kontroll | Status |
 |---|---:|
 | Nodes | 2137 |
-| Edges | 2696 |
+| Edges | 2739 |
 | Duplicate node IDs | 0 |
 | Missing endpoint edges | 0 |
 | Missing href nodes | 0 |
-| Edges with confidence | 2696 / 2696 |
+| Edges with confidence | 2739 / 2739 |
 | Confidence coverage | 100 % |
 
 Remediation-backloggen har ingen HIGH-funn:
@@ -54,14 +55,14 @@ Entydige PersonProfile-/BoardMember-navnesplitt ble deduplisert i lokal DB etter
 
 Insight-document-koblingen er forbedret med guardede pass: `scripts/apply-insight-links-v3.ts` laster na `.env`, teller eksisterende `InsightDocumentRef`-rader riktig i dry-run, og kan mappe godkjente Report/Thesis-kandidater til koblet `Document`. HVK/Finsk matberedskap er na koblet via eksisterende `SourceDoc`/`Document` (`src-39` -> `bibliotek/beredskap/finsk-modell-hvk.md`), og den tidligere holdte `ins-92`-raden er satt inn.
 
-Et separat reviewet slug-ledger-pass (`research/_status/insight-slug-link-accepted-2026-05-27.csv`) la inn 22 konservative insight-document-koblinger fra eksisterende dokument-slugs. Lokal DB har na 44 `insight-ref`-kanter.
+Et separat reviewet slug-ledger-pass (`research/_status/insight-slug-link-accepted-2026-05-27.csv`) la forst inn 22 konservative insight-document-koblinger fra eksisterende dokument-slugs. Neste kontrollerte ledger-pass la inn ytterligere 43 koblinger etter dry-run (`inserted=43 skipped=22`). Lokal DB har na 87 `insight-ref`-kanter.
 
 ## Gjenstaende arbeid
 
 | Omrade | Status | Neste handling |
 |---|---|---|
 | Personduplikater | 1 navnegruppe, 0 maskinelle merge-kandidater og 1 manuell review | Behold Monica Odegard uten automatikk til selskap-/rollegrunnlag er avklart |
-| Isolerte grafnoder | 159 handlingsbare isolater | Prioriter `missing_evidence_link` for insights, deretter `missing_actor_relationship`, deretter `missing_person_role` |
+| Isolerte grafnoder | 117 handlingsbare isolater: 42 `missing_evidence_link`, 65 `missing_actor_relationship`, 10 `missing_person_role` | Prioriter resterende `missing_evidence_link` for insights, deretter `missing_actor_relationship`, deretter `missing_person_role` |
 | Remediation backlog | 471 funn totalt, 0 HIGH, 0 MEDIUM | LOW-grupper ryddes bare der de brukes i app, rapport eller Food TG-claim |
 | Orphan files | 308 LOW-funn | Ikke slett eller arkiver i bulk; vurder filene mot DB/app-bruk forst |
 | URL-helse | 87 LOW-funn | Ikke tolk `blocked` som dod kilde uten nettleser/mirror/lokal kildepakke |
