@@ -1,0 +1,23 @@
+insightId,documentSlug,relevance,decision,reviewNote
+ins-01,evidence-pack/offentlig/nibio-selvforsyning-2026,primary,y,Exact self-sufficiency source
+ins-33,evidence-pack/offentlig/nibio-selvforsyning-2026,primary,y,Exact self-sufficiency metric source
+ins-34,bibliotek/konkurransetilsynet/prisjeger-saken,supporting,y,Direct price-hunter case summary
+ins-36,evidence-pack/offentlig/nou-2013-6-god-handelsskikk,supporting,y,Direct NOU good-trading-practice source
+ins-43,bibliotek/sirkularitet/sirkulaer-definisjoner-wur-emf,supporting,y,Direct circular food systems framework source
+ins-46,norden/food-access-hhi-metodikk,supporting,y,Direct local HHI methodology source
+ins-50,evidence-pack/arsrapporter/axfood-annual-report-2024,primary,y,Direct Axfood annual report source
+ins-51,bibliotek/nordisk-konkurranse/is-markedsstruktur-2024,primary,y,Direct Iceland market-structure source
+ins-52,bibliotek/akademia/masteroppgaver/selmani-forre-2023,primary,y,Direct Lidl Norway failure source
+ins-53,evidence-pack/tilsyn/prisjeger-saken-2024-offentlig-versjon,supporting,y,Direct official price-hunter case source
+ins-89,evidence-pack/akademia/pubmed/wohner-b-2020-environmental-and-economic-assessment-of,primary,y,Direct circular packaging loop source
+ins-101,arkiv-sortert/food-research-process-20-04-26/00_working_files/deep-research-report-40-,primary,y,Direct alternative-distribution research source
+ins-104,evidence-pack/arsrapporter/axfood-annual-report-2024,primary,y,Direct Axfood online grocery consolidation source
+ins-food-tg-02,bibliotek/juridisk/eudr-norge-2025,primary,y,Direct EUDR traceability source
+ins-02,evidence-pack/offentlig/nou-2011-4-mat-makt-avmakt,primary,y,Direct NOU market-power source
+ins-15,norden/verdikjede/04-innsatsvarer,supporting,y,Direct upstream input-dependency source
+ins-23,data/ssb/grensehandel-2025,primary,y,Direct SSB border-trade source
+ins-32,norden/verdikjede/10-kryss-analyse,supporting,y,Direct cross-segment bottleneck source
+ins-62,norden/verdikjede/07b-sjomatfor-saarbarhet,supporting,y,Direct seafood-feed raw-material source
+ins-72,norden/sirkularitet-sprint-2026-05/batch-06-skolemaltid-offentlig-innkjop,supporting,y,Direct public-meals procurement source
+ins-73,bibliotek/sirkularitet/matsvinn-tidsserier-norden,primary,y,Direct Nordic food-waste time-series source
+ins-80,analyse/governance-arkitektur-nordisk,primary,y,Direct governance-architecture source

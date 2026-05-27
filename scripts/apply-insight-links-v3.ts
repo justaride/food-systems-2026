@@ -105,7 +105,7 @@ async function main() {
         r.rank > 15 ? 'supporting' :
         'related'
       await prisma.insightDocumentRef.create({
-        data: { insightId: r.insightId, documentId, relevance },
+        data: { insightId: r.insightId, documentId: r.documentId, relevance },
       })
       inserted++
     } catch (e: unknown) {
