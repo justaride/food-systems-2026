@@ -30,7 +30,7 @@ jobs:
         run: npx prisma generate
 
       - name: Ensure main ref exists
-        run: git fetch origin main --depth=1
+        run: git fetch origin main
 
       - name: Block raw research artifacts
         run: npm run audit:research-artifacts -- --base=origin/main
