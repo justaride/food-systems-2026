@@ -3,93 +3,20 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { Card } from '@/components/ui/Card'
 import { ChartSource } from '@/components/ui/ChartSource'
-
-type Agent = {
-  x: number
-  y: number
-  company: number
-  size: number
-}
-
-const COMPANIES = [
-  { name: 'A', color: '#1565C0' },
-  { name: 'B', color: '#E30613' },
-  { name: 'C', color: '#4CAF50' },
-  { name: 'D', color: '#E91E63' },
-  { name: 'E', color: '#F59E0B' },
-]
-
-const GRID = 40
-const CELL = 8
-
-function initAgents(): Agent[] {
-  const agents: Agent[] = []
-  for (let i = 0; i < 80; i++) {
-    agents.push({
-      x: Math.floor(Math.random() * GRID),
-      y: Math.floor(Math.random() * GRID),
-      company: Math.floor(Math.random() * COMPANIES.length),
-      size: 1,
-    })
-  }
-  return agents
-}
-
-function step(agents: Agent[]): Agent[] {
-  const grid: Record<string, Agent[]> = {}
-  for (const a of agents) {
-    const key = `${a.x},${a.y}`
-    if (!grid[key]) grid[key] = []
-    grid[key].push(a)
-  }
-
-  return agents.map(a => {
-    const neighbors: Agent[] = []
-    for (let dx = -2; dx <= 2; dx++) {
-      for (let dy = -2; dy <= 2; dy++) {
-        if (dx === 0 && dy === 0) continue
-        const key = `${(a.x + dx + GRID) % GRID},${(a.y + dy + GRID) % GRID}`
-        if (grid[key]) neighbors.push(...grid[key])
-      }
-    }
-
-    const sameCompany = neighbors.filter(n => n.company === a.company).length
-    const totalNearby = neighbors.length
-
-    if (totalNearby > 3 && sameCompany < totalNearby * 0.3) {
-      const biggest = neighbors.reduce((max, n) => {
-        const compCount = neighbors.filter(nn => nn.company === n.company).length
-        return compCount > max.count ? { company: n.company, count: compCount } : max
-      }, { company: a.company, count: sameCompany })
-
-      if (Math.random() < 0.15) {
-        return { ...a, company: biggest.company, size: Math.min(a.size + 0.1, 3) }
-      }
-    }
-
-    if (sameCompany > totalNearby * 0.5 && a.size < 3) {
-      return { ...a, size: Math.min(a.size + 0.05, 3) }
-    }
-
-    const dx = Math.floor(Math.random() * 3) - 1
-    const dy = Math.floor(Math.random() * 3) - 1
-    return {
-      ...a,
-      x: (a.x + dx + GRID) % GRID,
-      y: (a.y + dy + GRID) % GRID,
-    }
-  })
-}
-
-function getConcentration(agents: Agent[]): number[] {
-  const counts = new Array(COMPANIES.length).fill(0)
-  for (const a of agents) counts[a.company]++
-  return counts
-}
+import {
+  type Agent,
+  CELL,
+  COMPANIES,
+  GRID,
+  createInitialAgents,
+  getConcentration,
+  stepAgents,
+} from '@/lib/emergence-simulation'
 
 export function EmergenceVisualization() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [agents, setAgents] = useState<Agent[]>(initAgents)
+  const stepSeedRef = useRef(0)
+  const [agents, setAgents] = useState<Agent[]>(() => createInitialAgents())
   const [running, setRunning] = useState(false)
   const [stepCount, setStepCount] = useState(0)
   const animRef = useRef<number>(0)
@@ -143,7 +70,8 @@ export function EmergenceVisualization() {
     const tick = () => {
       if (frame % 3 === 0) {
         setAgents(prev => {
-          const next = step(prev)
+          stepSeedRef.current += 1
+          const next = stepAgents(prev, stepSeedRef.current)
           setStepCount(s => s + 1)
           return next
         })
@@ -157,8 +85,15 @@ export function EmergenceVisualization() {
 
   const reset = () => {
     setRunning(false)
-    setAgents(initAgents())
+    stepSeedRef.current = 0
+    setAgents(createInitialAgents())
     setStepCount(0)
+  }
+
+  const advanceOneStep = () => {
+    stepSeedRef.current += 1
+    setAgents(prev => stepAgents(prev, stepSeedRef.current))
+    setStepCount(s => s + 1)
   }
 
   const concentration = getConcentration(agents)
@@ -197,7 +132,7 @@ export function EmergenceVisualization() {
             </button>
             {!running && (
               <button
-                onClick={() => { setAgents(step(agents)); setStepCount(s => s + 1) }}
+                onClick={advanceOneStep}
                 className="px-3 py-1 text-xs rounded bg-stone-200 text-stone-700 hover:bg-stone-300"
               >
                 Steg
