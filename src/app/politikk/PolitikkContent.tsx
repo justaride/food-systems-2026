@@ -333,7 +333,7 @@ export function PolitikkContent({ data, timeseries, docsByCountry, backlogByCoun
       <div>
         <h1 className="text-3xl font-bold text-stone-900 tracking-tight">Nordisk matpolitikk</h1>
         <p className="text-stone-500 mt-2 max-w-3xl">
-          Sammenligning av sirkularitet-, matsvinn- og selvforsyningspolitikk pa tvers av de
+          Sammenligning av sirkularitet-, matsvinn- og selvforsyningspolitikk på tvers av de
           nordiske landene og EU-rammeverket. Fargekode per celle viser status: grønt for vedtatt
           eller bindende, blått for aktive virkemidler, gult for frivillige avtaler og rødt for
           minimal eller manglende politikk.

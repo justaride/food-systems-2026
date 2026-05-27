@@ -9,6 +9,7 @@ import { FilterChips } from '@/components/ui/FilterChips'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { SourceChip } from '@/components/ui/SourceChip'
 import { InsightGlossary } from '@/components/ui/InsightGlossary'
+import { PageFraming } from '@/components/ui/PageFraming'
 import { ParentCompanyChart } from '@/components/charts/ParentCompanyChart'
 import { InsightTypeDonut } from '@/components/charts/InsightTypeDonut'
 import { InsightTagBar } from '@/components/charts/InsightTagBar'
@@ -226,6 +227,20 @@ export function InnsiktContent({ insights }: { insights: InsightRow[] }) {
             ↓ Kunnskapsbase
           </a>
         </nav>
+
+        <PageFraming
+          title="Hva svarer denne siden på?"
+          description={[
+            'Siden samler markedsstruktur, selvforsyning, flyt og registrerte kunnskapsfunn for de nordiske landene.',
+            'Den skal hjelpe leseren å se mønstre på tvers og deretter kontrollere funn mot bibliotek og kilderegister.',
+          ]}
+          takeaways={[
+            'Konsentrasjon og eierskap leses sammen med landfilter og markedsgrafer.',
+            'Selvforsyning og flyt er analysegrunnlag, ikke komplett beredskapsfasit.',
+            'Kunnskapsbasen skiller strukturerte funn fra dokumentbaserte innganger.',
+          ]}
+          caveat="Internt kildegrunnlag med forbehold: visualiseringene kombinerer primærdata, proxy og dokumentkoblinger og er ikke ekstern validering."
+        />
 
         <InsightGlossary />
       </header>

@@ -4,6 +4,8 @@ import { useState, useMemo, useCallback, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { PageFraming } from '@/components/ui/PageFraming'
+import { StatusLegend } from '@/components/visualization/StatusLegend'
 
 type DocumentRow = {
   id: string
@@ -201,12 +203,31 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
         </div>
       </div>
 
+      <PageFraming
+        title="Hva svarer denne siden på?"
+        description={[
+          'Siden svarer på hvilke dokumenter som finnes i det nedlastede kildegrunnlaget og hvor de kan leses videre.',
+          'Den er kontrollflate for fulltekst, metadata, filtrering og dokumentkoblinger før funn brukes utenfor biblioteket.',
+        ]}
+        takeaways={[
+          'Raskt søk filtrerer pre-lastede dokumenter; FTS søker i dokumentinnhold når serverlaget svarer.',
+          'Hvert dokument kan åpnes for sammendrag, innhold og relasjoner til andre dokumenter.',
+          'Biblioteket er inngang til kildekontroll, ikke alene en vurdering av claim-styrke.',
+        ]}
+        caveat="Internt kildegrunnlag med forbehold: dokumenttilgang og fulltekst er arbeidsgrunnlag og ikke ekstern validering av innholdet."
+      />
+
+      <StatusLegend
+        title="Status for dokumentbruk"
+        description="Bruk legend for å skille dokumenttilgang fra claim-styrke: siterbar med forbehold krever note, blokkert skal holdes tilbake, og intern analyse er ikke ekstern validering."
+      />
+
       <div className="space-y-3">
         <input
           type="text"
           value={search}
           onChange={e => handleSearch(e.target.value)}
-          placeholder={searchMode === 'local' ? 'Sok i dokumenter...' : 'Sok i hele dokumentinnholdet...'}
+          placeholder={searchMode === 'local' ? 'Søk i dokumenter...' : 'Søk i hele dokumentinnholdet...'}
           className="w-full px-3 py-2 text-sm border border-stone-200 rounded-lg bg-white text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-300"
         />
 
@@ -396,7 +417,7 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
                               rel="noopener noreferrer"
                               className="text-xs text-stone-400 hover:text-stone-600 underline underline-offset-2"
                             >
-                              Apne kilde &rarr;
+                              Åpne kilde &rarr;
                             </a>
                           </div>
                         )}

@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import { useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
+import { PageFraming } from '@/components/ui/PageFraming'
 import { SupplyChainGraph } from '@/components/charts/SupplyChainGraph'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
 import { ResearchEvidenceBadge } from '@/components/visualization/ResearchEvidenceBadge'
@@ -310,6 +311,20 @@ export function ForsyningskjedeContent({
           Leverandørkjeder, primærleveranser og forretningsrelasjoner
         </p>
       </div>
+
+      <PageFraming
+        title="Hva svarer denne siden på?"
+        description={[
+          'Siden viser hvordan produsenter, kjøpere, infrastruktur og returstrømmer er koblet i dagens interne kartlegging.',
+          'Den skal skille observerte Norge-data fra kuraterte relasjoner, kandidater og proxy-modeller.',
+        ]}
+        takeaways={[
+          'Primærflyt er Norge-observert registerdata og skal ikke generaliseres til hele Norden.',
+          'Nettverkskartet er en locator for relasjoner, dokumentkoblinger, konfidens og kildegrunnlag.',
+          'Import, infrastruktur og returstrømmer holdes adskilt til metode og dekning er merket.',
+        ]}
+        caveat="Bruk med forbehold: relasjonslaget er kuratert/proxy og ikke ekstern validering av komplett vareflyt."
+      />
 
       <DataQualityStrip
         items={[
@@ -647,7 +662,7 @@ export function ForsyningskjedeContent({
             title="Returstrømmer"
             description="Sirkulære looper, gap og næringsstrømmer som viser hvor sidestrømmer kan kobles tilbake i systemet."
             researchStatus="proxy_model"
-            researchStatusDetail="circularity-loops og nutrient-flows er modellert per MS-004. Skal ikke promoteres som validert primaerstatistikk uten metodenotat."
+            researchStatusDetail="circularity-loops og nutrient-flows er modellert per MS-004. Skal ikke promoteres som validert primærstatistikk uten metodenotat."
           />
           <CircularReturnFlowPanel circularReturnFlows={circularReturnFlows} />
           <NutrientFlowsView />

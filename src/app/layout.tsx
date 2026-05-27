@@ -24,9 +24,9 @@ export default async function RootLayout({
       <body>
         <div className="min-h-screen flex flex-col lg:flex-row">
           <Sidebar activePhase={activeIndex >= 0 ? activeIndex + 1 : 1} totalPhases={phases.length} />
-          <div className="flex-1 flex flex-col min-h-screen">
+          <div className="flex-1 min-w-0 flex flex-col min-h-screen">
             <Header />
-            <main className="flex-1 px-4 sm:px-6 lg:px-8 py-6 max-w-6xl w-full">
+            <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-6 max-w-6xl w-full">
               {children}
             </main>
           </div>

@@ -80,6 +80,7 @@ export default function KartCountryPage({ params }: { params: Promise<{ country:
   return (
     <MapProvider country={country}>
       <div className="w-full h-full relative" style={{ height: 'calc(100vh - 57px)' }}>
+        <h1 className="sr-only">Matkart for {COUNTRY_NAMES[country] ?? country}</h1>
         <FoodMap />
         <MapErrorOverlay />
         <FlowPrototypeLink />

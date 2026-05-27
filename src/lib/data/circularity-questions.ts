@@ -25,9 +25,9 @@ export const circularityQuestions: CircularityQuestion[] = [
     id: 'q-alternativt-for',
     number: 1,
     question:
-      'Kan nordisk matavfall og sideressurser dekke en vesentlig andel av foerbehovet i oppdrett og husdyrhold — og hvorfor har det ikke skjedd enna?',
+      'Kan nordisk matavfall og sideressurser dekke en vesentlig andel av fôrbehovet i oppdrett og husdyrhold — og hvorfor har det ikke skjedd ennå?',
     context:
-      'Fiskefor og husdyrfor er det storste enkelt-importtema i nordisk matsystem. Soya og fiskemel dominerer. ~70 % av fiskefor gar rett i fjorden ved apne anlegg. JT: "fôrselskapet egentlig ikke vil, for det er så billig med soya."',
+      'Fiskefôr og husdyrfôr er det største enkelt-importtema i nordisk matsystem. Soya og fiskemel dominerer. ~70 % av fiskefôr går rett i fjorden ved åpne anlegg. JT: "fôrselskapet egentlig ikke vil, for det er så billig med soya."',
     rLevels: ['R6', 'R7'],
     valueChainSteps: ['processing', 'seafood', 'waste'],
     attemptedSolutions: [
@@ -35,15 +35,15 @@ export const circularityQuestions: CircularityQuestion[] = [
       'AX Framtidens Fisk (SE): 20-ingrediens formula fra sideressurser',
       'Mikroprotein (Solar Foods FI)',
       'Myse fra meieri til protein (TINE)',
-      'Alger og muslinger som fortillegg',
+      'Alger og muslinger som fôrtillegg',
     ],
     successCases: ['AX Foundation Framtidens Fisk', 'Volare', 'Solar Foods', 'TINE myse'],
     failureCases: ['Enorm Biofactory', 'Ynsect'],
     barriers: [
       'Prisgap: insektmel 2-10x dyrere enn soya/fiskemel',
-      'EU-regulering pa avfall som foringrediens',
+      'EU-regulering på avfall som fôringrediens',
       'Fôrprodusenter (Skretting m.fl.) bytter ikke uten prisparitet',
-      'Variabel avfallsstrom = variabel kvalitet',
+      'Variabel avfallsstrøm = variabel kvalitet',
     ],
     evidenceRefs: ['circularity-loops.json:gap-insektprotein', 'SEC-MAT-TEK-02', 'arbeidsanalyse'],
     isRealGap: 'yes',
@@ -54,23 +54,23 @@ export const circularityQuestions: CircularityQuestion[] = [
     id: 'q-svartvann',
     number: 2,
     question:
-      'Hvor mye naering (N, P, K) gar ubenyttet i nordisk svartvann — og kunne dette lukke gjodselimporten?',
+      'Hvor mye næring (N, P, K) går ubenyttet i nordisk svartvann — og kunne dette lukke gjødselimporten?',
     context:
-      'JT: "det er faktisk en missing link". Fra husholdning og oppdrett gar enorme naeringsmengder til fjord eller renseanlegg uten gjenvinning. Helsingborg (2500 boliger) er eneste nordiske pilot i skala.',
+      'JT: "det er faktisk en missing link". Fra husholdning og oppdrett går enorme næringsmengder til fjord eller renseanlegg uten gjenvinning. Helsingborg (2500 boliger) er eneste nordiske pilot i skala.',
     rLevels: ['R8'],
     valueChainSteps: ['household', 'waste', 'primary'],
     attemptedSolutions: [
       'Helsingborg H+ separat svartvann-system',
-      'Fire-fem norske smapiloter (VS Asker m.fl.)',
+      'Fire-fem norske småpiloter (VS Asker m.fl.)',
       'CO2-fangst fra biogassanlegg',
     ],
     successCases: ['Helsingborg svartvann (Oceanhamnen)'],
     failureCases: [],
     barriers: [
-      'Eksisterende avlopsinfrastruktur er sentralisert og kostbar a konvertere',
+      'Eksisterende avløpsinfrastruktur er sentralisert og kostbar å konvertere',
       'Energi til pumping over lange avstander',
       'Offentlig aksept og smitte-oppfatning',
-      'Gjodsel-regulering tillater ikke enna alle resirkulerte kilder',
+      'Gjødsel-regulering tillater ikke ennå alle resirkulerte kilder',
     ],
     evidenceRefs: ['circularity-loops.json:gap-svartvann-naeringsgjenvinning', 'Mote JT-Gabriel 20.04.26'],
     isRealGap: 'yes',
@@ -81,13 +81,13 @@ export const circularityQuestions: CircularityQuestion[] = [
     id: 'q-matavfall-kvalitet',
     number: 3,
     question:
-      'Hvordan kan vi hindre at matavfall (grovnposer) blir forurenset av mikroplast sa det ikke kan brukes til for?',
+      'Hvordan kan vi hindre at matavfall (grønnposer) blir forurenset av mikroplast så det ikke kan brukes til fôr?',
     context:
-      'JT: "sa lenge man putter matavfallet i gronn pose, sa kan det egentlig ikke brukes til for". Biorest etter biogass full av mikroplast. Papirpose-bytte pagar men biorest-problematikk bestar.',
+      'JT: "så lenge man putter matavfallet i grønn pose, så kan det egentlig ikke brukes til fôr". Biorest etter biogass full av mikroplast. Papirpose-bytte pågår men biorest-problematikk består.',
     rLevels: ['R7', 'R9'],
     valueChainSteps: ['household', 'waste'],
     attemptedSolutions: [
-      'Bytte fra gronn plastpose til papirpose (Oslo pagar)',
+      'Bytte fra grønn plastpose til papirpose (Oslo pågår)',
       'Industriell matavfall-innsamling separat fra husholdning',
       'Restaurant-dedikerte innsamlingslinjer (Matemark/drommefabrikken)',
     ],
@@ -107,20 +107,20 @@ export const circularityQuestions: CircularityQuestion[] = [
     id: 'q-akademia-skala',
     number: 4,
     question:
-      'Hvorfor kommersialiseres sa fa av de 71 masteroppgavene og 11 PhD-ene pa alternativt for og sirkulaer mat?',
+      'Hvorfor kommersialiseres så få av de 71 masteroppgavene og 11 PhD-ene på alternativt fôr og sirkulær mat?',
     context:
-      'NMBU har 10-arig prosjekt pa gran som for. Solar Foods og Enifer er sjeldne suksesser. De fleste studier stopper ved doktorgrad.',
+      'NMBU har 10-årig prosjekt på gran som fôr. Solar Foods og Enifer er sjeldne suksesser. De fleste studier stopper ved doktorgrad.',
     rLevels: ['R6', 'R7'],
     valueChainSteps: ['processing', 'primary'],
     attemptedSolutions: [
-      'Innovation Norway kommersialiseringssott',
+      'Innovation Norway kommersialiseringsstøtte',
       'Business Finland agrifoodtech-program',
       'EU Horizon matsystem-calls',
     ],
     successCases: ['Solar Foods', 'Enifer'],
-    failureCases: ['De fleste akademiske spor nar ikke marked'],
+    failureCases: ['De fleste akademiske spor når ikke marked'],
     barriers: [
-      'Formarkedet venter pa prisparitet',
+      'Fôrmarkedet venter på prisparitet',
       'Ingen skaleringsmekanisme mellom TRL 4 og TRL 7',
       'Svake industrisamarbeid tidlig i forskning',
     ],
@@ -133,7 +133,7 @@ export const circularityQuestions: CircularityQuestion[] = [
     id: 'q-havremelk-okara',
     number: 5,
     question:
-      'Hvorfor er havremelk-okara (30-50 kg fast avfall per liter) fortsatt ubrukt i Norden etter 10 ars plantemelk-vekst?',
+      'Hvorfor er havremelk-okara (30-50 kg fast avfall per liter) fortsatt ubrukt i Norden etter 10 års plantemelk-vekst?',
     context:
       'JT: "havremelk, ja det er så super det er så bra natur, nei det er enorme avfallsminner". Teknisk mulig gjenbruk som bakevareingrediens, men 3-timers prosesseringsvindu og logistikk stopper det.',
     rLevels: ['R6'],
@@ -148,7 +148,7 @@ export const circularityQuestions: CircularityQuestion[] = [
     barriers: [
       '3-timers prosesseringsvindu',
       'Transport og logistikk krever industrisamarbeid',
-      'Ingen lonsom parallellinje per produsent',
+      'Ingen lønnsom parallellinje per produsent',
     ],
     evidenceRefs: ['circularity-loops.json:gap-havremelk-okara', 'Mote JT-Gabriel 20.04.26'],
     isRealGap: 'yes',
@@ -159,9 +159,9 @@ export const circularityQuestions: CircularityQuestion[] = [
     id: 'q-lukkede-anlegg',
     number: 6,
     question:
-      'Hvor mye for og naering kan fanges opp ved overgang til lukkede oppdrettsanlegg — og finnes det en nordisk businesscase?',
+      'Hvor mye fôr og næring kan fanges opp ved overgang til lukkede oppdrettsanlegg — og finnes det en nordisk businesscase?',
     context:
-      'JT: "70 % av det der går rett ned i fjora". Argument for lukkede anlegg bade av miljo- og ressursgrunner. Finnforel (FI) reiste $259M pa RAS-modell.',
+      'JT: "70 % av det der går rett ned i fjora". Argument for lukkede anlegg både av miljø- og ressursgrunner. Finnforel (FI) reiste $259M på RAS-modell.',
     rLevels: ['R7', 'R8'],
     valueChainSteps: ['seafood', 'primary', 'waste'],
     attemptedSolutions: [
@@ -187,7 +187,7 @@ export const circularityQuestions: CircularityQuestion[] = [
     question:
       'Hvorfor stagnerer husholdningsmatsvinn-reduksjon (-5 %) mens retail har lykkes (-21 %) i Norge?',
     context:
-      'EU WFD-mal: -30 %. 215 000 t husholdningssvinn/ar. Adferds-endring vanskelig, "best for"-forvirring.',
+      'EU WFD-mål: -30 %. 215 000 t husholdningssvinn/år. Adferds-endring vanskelig, "best før"-forvirring.',
     rLevels: ['R0', 'R1', 'R2'],
     valueChainSteps: ['household', 'retail'],
     attemptedSolutions: [
@@ -199,9 +199,9 @@ export const circularityQuestions: CircularityQuestion[] = [
     successCases: ['Too Good To Go', 'UK WRAP (utenfor Norden)'],
     failureCases: [],
     barriers: [
-      'Adferd vanskelig a endre',
-      '"Best for"-forvirring gir forkasting',
-      'Ingen direkte okonomisk insentiv per husholdning',
+      'Adferd vanskelig å endre',
+      '"Best før"-forvirring gir forkasting',
+      'Ingen direkte økonomisk insentiv per husholdning',
     ],
     evidenceRefs: ['circularity-loops.json:gap-husholdningssvinn', 'matsvinn-2024'],
     isRealGap: 'yes',
@@ -212,7 +212,7 @@ export const circularityQuestions: CircularityQuestion[] = [
     id: 'q-horeca-reuse',
     number: 8,
     question:
-      'Hvordan kan HORECA-takeaway og institusjonelle maltider overholde EU PPWR (10 % ombrukbart innen 2030)?',
+      'Hvordan kan HORECA-takeaway og institusjonelle måltider overholde EU PPWR (10 % ombrukbart innen 2030)?',
     context:
       '~150 000 containere trengs i Norge. Vaskeinfrastruktur og forbrukeraksept er kjernebarrierer.',
     rLevels: ['R3'],
@@ -220,13 +220,13 @@ export const circularityQuestions: CircularityQuestion[] = [
     attemptedSolutions: [
       'Vytal (DE) ombruk-nettverk',
       'Kommunale piloter i Norden',
-      'Offentlig innkjopspakke i Sverige',
+      'Offentlig innkjøpspakke i Sverige',
     ],
     successCases: ['Vytal DE (utenfor Norden)'],
     failureCases: [],
     barriers: [
       'Vaskeinfrastruktur',
-      'Kjede-logistikk pa tvers av aktorer',
+      'Kjede-logistikk på tvers av aktører',
       'Forbrukeraksept og pant/gebyr-modell',
     ],
     evidenceRefs: ['circularity-loops.json:gap-horeca-reuse', 'SEC-MAT-03'],
@@ -238,21 +238,21 @@ export const circularityQuestions: CircularityQuestion[] = [
     id: 'q-regenerativt',
     number: 9,
     question:
-      'Hvorfor ligger Norge pa 4,7 % okologisk mens Sverige leder (18,4 % i Eurostat 2023; forelopig 16,7 % i 2024) — og hva drev skiftet i Danmark?',
+      'Hvorfor ligger Norge på 4,7 % økologisk mens Sverige leder (18,4 % i Eurostat 2023; foreløpig 16,7 % i 2024) — og hva drev skiftet i Danmark?',
     context:
-      'Regenerativ omstilling stanger mot investeringsrisiko hos bonder. Danmark innforer verdens forste CO2-avgift pa kjottproduksjon 2030.',
+      'Regenerativ omstilling stanger mot investeringsrisiko hos bønder. Danmark innfører verdens første CO2-avgift på kjøttproduksjon 2030.',
     rLevels: ['R1'],
     valueChainSteps: ['primary'],
     attemptedSolutions: [
-      'Agreena carbon credits (€500-2000/ha/ar)',
+      'Agreena carbon credits (€500-2000/ha/år)',
       'Arla/Lantmannen pilotprogrammer',
       'DK CO2-avgift (2030)',
     ],
-    successCases: ['SE (18,4 % okologisk areal i Eurostat 2023)', 'Agreena'],
+    successCases: ['SE (18,4 % økologisk areal i Eurostat 2023)', 'Agreena'],
     failureCases: [],
     barriers: [
-      'Investeringsrisiko for bonder',
-      'Ingen langsiktig overgangsstotte',
+      'Investeringsrisiko for bønder',
+      'Ingen langsiktig overgangsstøtte',
       'Markedsbetaling svak for regenerativt',
     ],
     evidenceRefs: ['circularity-loops.json:gap-regenerativ-omstilling', 'SEC-MAT-PROD-02'],
@@ -264,23 +264,23 @@ export const circularityQuestions: CircularityQuestion[] = [
     id: 'q-kaffe',
     number: 10,
     question:
-      'Hva er sirkulaeranalysen pa kaffe — en av Nordens mest importavhengige matvarer?',
+      'Hva er sirkulæranalysen på kaffe — en av Nordens mest importavhengige matvarer?',
     context:
-      'Nytt spor apnet pa motet 20.04.26. JT: "det er jo kaffe. vet ikke hva". Krever dokumentsamling for dashboard-arbeid kan starte.',
+      'Nytt spor åpnet på møtet 20.04.26. JT: "det er jo kaffe. vet ikke hva". Krever dokumentsamling for dashboard-arbeid kan starte.',
     rLevels: [],
     valueChainSteps: ['processing', 'retail', 'household', 'waste'],
     attemptedSolutions: [
       'Kaffegrut til biogass (lokale piloter)',
-      'Kaffesum til matindustri (sjokolade, ol)',
+      'Kaffesum til matindustri (sjokolade, øl)',
       'Kompostering av grut',
     ],
     successCases: [],
     failureCases: [],
     barriers: [
-      'Helt importavhengig — ingen nordisk primaerproduksjon',
+      'Helt importavhengig — ingen nordisk primærproduksjon',
       'Kaffegrut-volym stort men fragmentert',
     ],
-    evidenceRefs: ['Mote JT-Gabriel 20.04.26'],
+    evidenceRefs: ['Møte JT-Gabriel 20.04.26'],
     isRealGap: 'unclear',
     status: 'parked',
     tags: ['kaffe', 'importavhengighet', 'sideressurser'],
