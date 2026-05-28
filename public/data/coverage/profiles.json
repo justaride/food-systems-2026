@@ -1,0 +1,117 @@
+{
+  "computedAt": "2026-05-28T23:35:11.147Z",
+  "computedEnv": "local",
+  "profiles": [
+    {
+      "datasetId": "produksjonstilskudd",
+      "label": "Produksjonstilskudd (Landbruksdirektoratet)",
+      "temporal": {
+        "kind": "snapshot",
+        "year": 2025
+      },
+      "geographic": {
+        "countries": [
+          "NO"
+        ],
+        "presentedAs": "no",
+        "noAsNordicProxy": false
+      },
+      "verification": {
+        "total": 179311,
+        "humanVerified": 0,
+        "machineVerified": 0,
+        "needsReview": 179311,
+        "humanVerifiedPct": 0,
+        "rollup": "needs_review"
+      },
+      "computedAt": "2026-05-28T23:35:11.147Z",
+      "computedEnv": "local"
+    },
+    {
+      "datasetId": "leveransedata",
+      "label": "Leveransevolum (Landbruksdirektoratet)",
+      "temporal": {
+        "kind": "snapshot",
+        "year": 2024
+      },
+      "geographic": {
+        "countries": [
+          "NO"
+        ],
+        "presentedAs": "no",
+        "noAsNordicProxy": false
+      },
+      "verification": {
+        "total": 0,
+        "humanVerified": 0,
+        "machineVerified": 0,
+        "needsReview": 0,
+        "humanVerifiedPct": 0,
+        "rollup": "needs_review"
+      },
+      "computedAt": "2026-05-28T23:35:11.147Z",
+      "computedEnv": "local"
+    },
+    {
+      "datasetId": "selskaps-finanser",
+      "label": "Selskapsfinanser (kuratert graf)",
+      "temporal": {
+        "kind": "time_series",
+        "from": 2020,
+        "to": 2025,
+        "cadence": "yearly"
+      },
+      "geographic": {
+        "countries": [
+          "NO"
+        ],
+        "presentedAs": "no",
+        "noAsNordicProxy": false
+      },
+      "verification": {
+        "total": 152,
+        "humanVerified": 14,
+        "machineVerified": 0,
+        "needsReview": 138,
+        "humanVerifiedPct": 9.2,
+        "rollup": "needs_review"
+      },
+      "computedAt": "2026-05-28T23:35:11.147Z",
+      "computedEnv": "local"
+    },
+    {
+      "datasetId": "selvforsyning-nordisk",
+      "label": "Selvforsyningsgrad (presentert nordisk)",
+      "temporal": {
+        "kind": "multi_year",
+        "years": [
+          2020,
+          2022,
+          2023,
+          2024
+        ]
+      },
+      "geographic": {
+        "countries": [
+          "DK",
+          "FI",
+          "IS",
+          "NO",
+          "SE"
+        ],
+        "presentedAs": "nordic",
+        "noAsNordicProxy": false
+      },
+      "verification": {
+        "total": 0,
+        "humanVerified": 0,
+        "machineVerified": 0,
+        "needsReview": 0,
+        "humanVerifiedPct": 0,
+        "rollup": "needs_review"
+      },
+      "computedAt": "2026-05-28T23:35:11.147Z",
+      "computedEnv": "local"
+    }
+  ]
+}
