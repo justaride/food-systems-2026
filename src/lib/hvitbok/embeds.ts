@@ -1,9 +1,12 @@
+import type { AssertedScope, CoverageClaim } from '../coverage/types'
+
 export type NokkeltallEmbed = {
   kind: 'nokkeltall'
   label: string
   value: string
   enhet?: string
   kilde: string
+  assertedScope?: AssertedScope
 }
 
 export type CalloutEmbed = {
@@ -19,6 +22,7 @@ export type VizEmbed = {
   href: string
   label: string
   description: string
+  assertedScope?: AssertedScope
 }
 
 export type RelatertEmbed = {
@@ -134,4 +138,22 @@ export function getEmbed(
   tokenId: string,
 ): EmbedDefinition | undefined {
   return chapterEmbeds[chapterSlug]?.[tokenId]
+}
+
+export function collectAssertedScopesFrom(
+  map: Record<string, Record<string, EmbedDefinition>>,
+): CoverageClaim[] {
+  const claims: CoverageClaim[] = []
+  for (const [chapter, embeds] of Object.entries(map)) {
+    for (const [token, def] of Object.entries(embeds)) {
+      if ((def.kind === 'nokkeltall' || def.kind === 'viz') && def.assertedScope) {
+        claims.push({ ref: `${chapter}/${token}`, assertedScope: def.assertedScope })
+      }
+    }
+  }
+  return claims
+}
+
+export function collectAssertedScopes(): CoverageClaim[] {
+  return collectAssertedScopesFrom(chapterEmbeds)
 }
