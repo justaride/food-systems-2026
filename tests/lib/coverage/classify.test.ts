@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import {
+  bucketVerification,
   classifyTemporal,
   coversNordic,
   deriveGeographicScope,
@@ -74,5 +75,23 @@ describe('rollupVerification', () => {
       rollupVerification({ verified: 0, humanVerified: 0, machineVerified: 6, needsReview: 4, total: 10 }).rollup,
       'machine_grade',
     )
+  })
+})
+
+describe('bucketVerification', () => {
+  it('routes known statuses to their buckets', () => {
+    assert.deepEqual(bucketVerification({ verified: 3, human_verified: 2, machine_verified: 1 }), {
+      verified: 3, humanVerified: 2, machineVerified: 1, needsReview: 0, total: 6,
+    })
+  })
+  it('routes unknown/other statuses to needsReview', () => {
+    assert.deepEqual(bucketVerification({ pending: 5 }), {
+      verified: 0, humanVerified: 0, machineVerified: 0, needsReview: 5, total: 5,
+    })
+  })
+  it('accumulates a mix of all bucket types', () => {
+    assert.deepEqual(bucketVerification({ verified: 1, human_verified: 1, machine_verified: 2, needs_review: 3, null: 1 }), {
+      verified: 1, humanVerified: 1, machineVerified: 2, needsReview: 4, total: 8,
+    })
   })
 })
