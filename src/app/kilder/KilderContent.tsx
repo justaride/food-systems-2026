@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import type { BacklogRound, SourceDownloadStatus } from '@/lib/queries/download-backlog'
+import { CoverageOverview } from '@/components/coverage/CoverageOverview'
 
 export type SourceRow = {
   id: string
@@ -208,6 +209,8 @@ export function KilderContent({
           </div>
         </div>
       </div>
+
+      <CoverageOverview />
 
       {/* Research rounds banner */}
       <div className="rounded-xl border border-blue-200 bg-blue-50/60 p-4">
