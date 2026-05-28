@@ -5,11 +5,23 @@ import {
   formatCitableReportAuditIssues,
   type CitableReportAuditInput,
 } from '@/lib/citations/report-claim-audit'
+import { collectAssertedScopes } from '@/lib/hvitbok/embeds'
+import type { CoverageProfile } from '@/lib/coverage/types'
 
 const ROOT = process.cwd()
 
 async function readText(path: string) {
   return readFile(join(ROOT, path), 'utf8')
+}
+
+async function readProfiles(): Promise<CoverageProfile[]> {
+  try {
+    const raw = await readText('public/data/coverage/profiles.json')
+    const parsed = JSON.parse(raw) as { profiles?: CoverageProfile[] }
+    return parsed.profiles ?? []
+  } catch {
+    return []
+  }
 }
 
 async function main() {
@@ -21,6 +33,8 @@ async function main() {
     selfCritique: await readText('research/v1-2/phase7-selvkritikk.md'),
     t3Diff: await readText('research/v1-2/phase8-T3-ekstern-vs-intern-diff.md'),
     readme: await readText('research/norden/sirkularitet-sprint-2026-05/README.md'),
+    coverageClaims: collectAssertedScopes(),
+    coverageProfiles: await readProfiles(),
   }
 
   const issues = auditCitableReportDocuments(input)

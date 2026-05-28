@@ -100,6 +100,7 @@
     "research:citable-acceptance-pack": "tsx scripts/build-citable-acceptance-pack.ts",
     "audit:citations": "tsx scripts/verify-data-integrity.ts --strict-sources",
     "audit:citable-reports": "tsx scripts/audit-citable-reports.ts",
+    "gate:overclaim": "npm run compute-coverage && npm run audit:citable-reports",
     "audit:citable": "npm run db:audit && npm run audit:citations && npm run audit:citable-reports && npm run research:citation-readiness-queue",
     "audit:circular-leverage": "tsx scripts/audit-circular-leverage.ts",
     "audit:research-artifacts": "tsx scripts/audit-research-artifacts.ts",
