@@ -77,7 +77,7 @@ export const circularLeverages: CircularLeverage[] = [
     evidenceStatus: 'estimated',
     sourceRefs: [
       { label: 'Whitepaper §7.4', path: 'research/whitepaper/section-7-circular-food-systems.md' },
-      { label: 'Naturvårdsverket 2024', href: 'https://www.naturvardsverket.se/' },
+      { label: 'Naturvårdsverket 2024 (nettsted)', href: 'https://www.naturvardsverket.se/' },
     ],
     barriers: [
       'Ingen nasjonal matsvinnlov (vs Norge 2025)',
@@ -172,7 +172,7 @@ export const circularLeverages: CircularLeverage[] = [
     evidenceStatus: 'estimated',
     sourceRefs: [
       { label: 'Whitepaper §7.3', path: 'research/whitepaper/section-7-circular-food-systems.md' },
-      { label: 'Future of Food Foundation 2024', href: 'https://www.futureoffoodfoundation.org/' },
+      { label: 'Future of Food Foundation 2024 (nettsted)', href: 'https://www.futureoffoodfoundation.org/' },
     ],
     barriers: [
       'Ingen nasjonale mål eller måling',
@@ -331,7 +331,7 @@ export const circularLeverages: CircularLeverage[] = [
     evidenceStatus: 'illustrative',
     sourceRefs: [
       { label: 'Whitepaper §7.4', path: 'research/whitepaper/section-7-circular-food-systems.md' },
-      { label: 'Umhverfisstofnun', href: 'https://www.ust.is/' },
+      { label: 'Umhverfisstofnun (nettsted)', href: 'https://www.ust.is/' },
     ],
     barriers: [
       'Liten skala på forsknings­infrastruktur',

@@ -31,7 +31,7 @@ export function RoleTimeline({ roles }: Props) {
   const yearSpan = maxYear - minYear || 1
 
   const totalWidth = LABEL_WIDTH + CHART_WIDTH
-  const height = TOP_PADDING + roles.length * ROW_HEIGHT + 10
+  const height = TOP_PADDING + rolesWithYears.length * ROW_HEIGHT + 10
 
   const years: number[] = []
   const step = yearSpan <= 10 ? 1 : yearSpan <= 30 ? 5 : 10
@@ -72,9 +72,10 @@ export function RoleTimeline({ roles }: Props) {
         </g>
       ))}
 
-      {roles.map((role, i) => {
+      {rolesWithYears.map((role, i) => {
+        if (role.fromYear == null) return null
         const y = TOP_PADDING + i * ROW_HEIGHT
-        const from = role.fromYear ?? CURRENT_YEAR
+        const from = role.fromYear
         const to = role.toYear ?? CURRENT_YEAR
         const barX = xScale(from)
         const barWidth = Math.max(xScale(to) - xScale(from), 6)

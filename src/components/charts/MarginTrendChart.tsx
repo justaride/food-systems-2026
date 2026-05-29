@@ -43,7 +43,6 @@ export function MarginTrendChart({ data, companies }: MarginTrendChartProps) {
             tickLine={false}
             axisLine={false}
             unit="%"
-            label={{ value: '%', angle: -90, position: 'insideLeft', style: { fontSize: 10, fill: '#a8a29e' } }}
           />
           <ReferenceLine y={0} stroke="#a8a29e" strokeDasharray="3 3" />
           <Tooltip

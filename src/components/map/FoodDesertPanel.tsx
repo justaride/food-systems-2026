@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react'
 import { useMapContext } from '@/lib/map/MapContext'
+import { FOOD_DESERT_RADIUS_KM } from '@/lib/map/desert-analysis'
 
 export default function FoodDesertPanel() {
   const { activeLayers, stores, municipalities, municipalityMetrics, selectedMunicipality } = useMapContext()
@@ -15,7 +16,7 @@ export default function FoodDesertPanel() {
     const totalPop = Object.values(municipalities).reduce((s, m) => s + (m.population || 0), 0)
     const totalArea = Object.values(municipalities).reduce((s, m) => s + (m.area || 0), 0)
     const storeCount = stores.length
-    const coverageEstimate = Math.min(100, Math.round((storeCount * Math.PI * 25) / totalArea * 100 * 10) / 10)
+    const coverageEstimate = Math.min(100, Math.round((storeCount * Math.PI * FOOD_DESERT_RADIUS_KM * FOOD_DESERT_RADIUS_KM) / totalArea * 100 * 10) / 10)
 
     return { totalMunis, munisWithNoStores, totalPop, totalArea, storeCount, coverageEstimate }
   }, [stores, municipalities, municipalityMetrics])
@@ -40,7 +41,7 @@ export default function FoodDesertPanel() {
           </div>
           <div className="bg-stone-50 rounded-lg p-2">
             <p className="text-lg font-bold text-emerald-600">~{stats.coverageEstimate}%</p>
-            <p className="text-[10px] text-stone-500">Arealdekning (est.)</p>
+            <p className="text-[10px] text-stone-500">Arealdekning (est., overlappende sirkler)</p>
           </div>
           <div className="bg-stone-50 rounded-lg p-2">
             <p className="text-lg font-bold text-amber-600">{stats.munisWithNoStores}</p>
