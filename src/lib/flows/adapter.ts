@@ -45,6 +45,31 @@ export function toSankey(loops: LoopFlows[]): SankeyData {
   return { nodes, links }
 }
 
+export function isSankeyConnected(data: SankeyData): boolean {
+  if (data.links.length < 2) return false
+  const adj = new Map<number, number[]>()
+  const referenced = new Set<number>()
+  for (const l of data.links) {
+    referenced.add(l.source)
+    referenced.add(l.target)
+    adj.set(l.source, [...(adj.get(l.source) ?? []), l.target])
+    adj.set(l.target, [...(adj.get(l.target) ?? []), l.source])
+  }
+  const start = data.links[0].source
+  const seen = new Set<number>([start])
+  const stack = [start]
+  while (stack.length) {
+    const cur = stack.pop() as number
+    for (const nxt of adj.get(cur) ?? []) {
+      if (!seen.has(nxt)) {
+        seen.add(nxt)
+        stack.push(nxt)
+      }
+    }
+  }
+  return seen.size === referenced.size
+}
+
 export function toNetwork(loops: LoopFlows[]): { nodes: NetworkNode[]; edges: NetworkEdge[] } {
   const nodes: NetworkNode[] = []
   const edges: NetworkEdge[] = []
