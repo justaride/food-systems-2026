@@ -72,6 +72,7 @@ export function toNetwork(loops: LoopFlows[]): { nodes: NetworkNode[]; edges: Ne
         type: e.evidenceStatus,
         label: e.rLevel ? `${e.material} · ${e.rLevel}` : e.material,
         evidenceStatus: e.evidenceStatus,
+        ...(e.sourceRefs.length ? { sourceLabel: e.sourceRefs.map((r) => r.label).join(', ') } : {}),
         ...(e.quantity ? { estimatedValue: e.quantity.value } : {}),
       })
     }

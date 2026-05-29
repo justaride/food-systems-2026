@@ -30,5 +30,6 @@ describe('toNetwork', () => {
     assert.equal(edges[0].estimatedValue, 8100)
     assert.match(edges[0].label ?? '', /matavfall/)
     assert.match(edges[0].label ?? '', /R9/)
+    assert.equal(edges[0].sourceLabel, 'x')
   })
 })
