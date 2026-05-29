@@ -39,10 +39,16 @@ const BASE_LAYER_GROUPS: LayerGroup[] = [
       { id: 'vulnerability', label: 'Sårbarhet' },
     ],
   },
+  {
+    label: 'Sirkularitet',
+    layers: [
+      { id: 'circular-flows', label: 'Sirkulære strømmer' },
+    ],
+  },
 ]
 
 export default function LayerPanel() {
-  const { activeLayers, toggleLayer, activeChains, toggleChain, stores, isLoading, aquacultureSites, processingPlants, ports, logisticsHubs, farms, vulnerabilityScores, companyProperties, countryConfig } = useMapContext()
+  const { activeLayers, toggleLayer, activeChains, toggleChain, stores, isLoading, aquacultureSites, processingPlants, ports, logisticsHubs, farms, vulnerabilityScores, companyProperties, countryConfig, circularNodes } = useMapContext()
 
   const hasData: Record<string, boolean> = {
     aquaculture: aquacultureSites.length > 0,
@@ -52,6 +58,7 @@ export default function LayerPanel() {
     farms: farms.length > 0,
     properties: (companyProperties?.features?.length ?? 0) > 0,
     vulnerability: Object.keys(vulnerabilityScores).length > 0,
+    'circular-flows': (circularNodes?.features?.length ?? 0) > 0,
   }
 
   const layerGroups = BASE_LAYER_GROUPS
