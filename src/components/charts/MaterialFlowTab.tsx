@@ -104,7 +104,11 @@ export function MaterialFlowTab() {
 
       <Card>
         <h3 className="text-sm font-semibold text-stone-700 mb-2">Kvantifiserte strømmer (Sankey)</h3>
-        <FlowSankey data={sankey} />
+        {loopId === 'all' ? (
+          <EmptyState message="Velg én loop for å se kvantifiserte strømmer som Sankey" />
+        ) : (
+          <FlowSankey data={sankey} />
+        )}
       </Card>
     </div>
   )

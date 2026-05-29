@@ -2,11 +2,11 @@
 
 import { Sankey, Tooltip, ResponsiveContainer } from 'recharts'
 import { EmptyState } from '@/components/ui/EmptyState'
-import type { SankeyData } from '@/lib/flows/adapter'
+import { isSankeyConnected, type SankeyData } from '@/lib/flows/adapter'
 
 export function FlowSankey({ data }: { data: SankeyData }) {
-  if (data.links.length < 2) {
-    return <EmptyState message="For få kvantifiserte kanter til et Sankey-diagram" />
+  if (!isSankeyConnected(data)) {
+    return <EmptyState message="For få eller usammenhengende kvantifiserte strømmer for Sankey" />
   }
   return (
     <div className="h-[320px]">

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { toSankey } from '../../../src/lib/flows/adapter'
+import { toSankey, isSankeyConnected } from '../../../src/lib/flows/adapter'
 import type { LoopFlows } from '../../../src/lib/flows/types'
 
 const q = (v: number) => ({ value: v, unit: 't/yr' })
@@ -34,5 +34,17 @@ describe('toSankey', () => {
     ]
     const { links } = toSankey(loops)
     assert.deepEqual(links, [{ source: 0, target: 1, value: 5 }])
+  })
+})
+
+describe('isSankeyConnected', () => {
+  it('true for a connected chain', () => {
+    assert.equal(isSankeyConnected({ nodes: [{ name: 'a' }, { name: 'b' }, { name: 'c' }], links: [{ source: 0, target: 1, value: 1 }, { source: 1, target: 2, value: 1 }] }), true)
+  })
+  it('false for two disjoint link-components', () => {
+    assert.equal(isSankeyConnected({ nodes: [{ name: 'a' }, { name: 'b' }, { name: 'c' }, { name: 'd' }], links: [{ source: 0, target: 1, value: 1 }, { source: 2, target: 3, value: 1 }] }), false)
+  })
+  it('false for fewer than 2 links', () => {
+    assert.equal(isSankeyConnected({ nodes: [{ name: 'a' }, { name: 'b' }], links: [{ source: 0, target: 1, value: 1 }] }), false)
   })
 })
