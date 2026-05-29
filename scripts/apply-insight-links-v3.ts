@@ -2,11 +2,15 @@
 // Note: InsightDocumentRef.documentId may point to a Document that was originally
 // from a Report or Thesis via documentId field. Idempotent via unique constraint.
 
+import 'dotenv/config'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
-import { resolveReviewDocumentId } from '../src/lib/insight-doc-link-review'
+import {
+  filterNewInsightDocumentRefs,
+  resolveReviewDocumentId,
+} from '../src/lib/insight-doc-link-review'
 
 const REPO = process.cwd()
 const CSV_PATH = join(REPO, 'research/_status/insight-link-candidates-v3-2026-05-11.csv')
@@ -15,6 +19,7 @@ const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
 type Row = { insightId: string; docId: string; docTitle: string; source: string; rank: number; decision: string }
+type PlannedRef = Row & { documentId: string }
 
 function parseCsv(text: string): Row[] {
   const lines = text.split('\n').filter(l => l.trim().length > 0)
@@ -53,16 +58,46 @@ async function main() {
   const documents = await prisma.document.findMany({
     select: { id: true, title: true },
   })
+  const [reports, theses] = await Promise.all([
+    prisma.report.findMany({
+      where: { documentId: { not: null } },
+      select: { id: true, title: true, documentId: true },
+    }),
+    prisma.thesis.findMany({
+      where: { documentId: { not: null } },
+      select: { id: true, title: true, documentId: true },
+    }),
+  ])
+  const linkedEvidenceRefs = [...reports, ...theses]
 
-  let inserted = 0, skipped = 0
+  const resolved: PlannedRef[] = []
+  let skipped = 0
   for (const r of accepted) {
-    const documentId = resolveReviewDocumentId(r, documents)
+    const documentId = resolveReviewDocumentId(r, documents, linkedEvidenceRefs)
     if (!documentId) {
       console.log(`SKIP missing/ambiguous document ${r.insightId} -> ${r.docId}: ${r.docTitle}`)
       skipped++
       continue
     }
+    resolved.push({ ...r, documentId })
+  }
 
+  const existingRefs = resolved.length
+    ? await prisma.insightDocumentRef.findMany({
+        where: {
+          OR: resolved.map((r) => ({
+            insightId: r.insightId,
+            documentId: r.documentId,
+          })),
+        },
+        select: { insightId: true, documentId: true },
+      })
+    : []
+  const toCreate = filterNewInsightDocumentRefs(resolved, existingRefs)
+  skipped += resolved.length - toCreate.length
+
+  let inserted = 0
+  for (const r of toCreate) {
     if (dryRun) { inserted++; continue }
     try {
       const relevance =
@@ -70,7 +105,7 @@ async function main() {
         r.rank > 15 ? 'supporting' :
         'related'
       await prisma.insightDocumentRef.create({
-        data: { insightId: r.insightId, documentId, relevance },
+        data: { insightId: r.insightId, documentId: r.documentId, relevance },
       })
       inserted++
     } catch (e: unknown) {

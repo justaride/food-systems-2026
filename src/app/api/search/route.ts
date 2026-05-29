@@ -31,7 +31,6 @@ export async function GET(request: NextRequest) {
       executedMode: execution.executedMode,
       fallback: execution.fallback,
       warnings: execution.warnings,
-      capabilities: execution.capabilities,
       count: execution.results.length,
       results: execution.results,
     })

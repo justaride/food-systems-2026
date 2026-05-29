@@ -1,3 +1,6 @@
+import { coversNordic } from '../coverage/classify'
+import type { CoverageClaim, CoverageProfile } from '../coverage/types'
+
 export type CitableReportAuditInput = {
   html: string
   appendix: string
@@ -6,6 +9,8 @@ export type CitableReportAuditInput = {
   selfCritique: string
   t3Diff: string
   readme: string
+  coverageClaims?: CoverageClaim[]
+  coverageProfiles?: CoverageProfile[]
 }
 
 export type CitableReportAuditIssue = {
@@ -16,6 +21,10 @@ export type CitableReportAuditIssue = {
     | 'hhi_cr3_mislabel'
     | 'unresolved_weak_claim'
     | 'highlighted_numeric_claim_without_support'
+    | 'geographic_overclaim'
+    | 'temporal_overclaim'
+    | 'verification_overclaim'
+    | 'coverage_profile_missing'
   severity: 'blocking' | 'warning'
   message: string
   evidence?: string
@@ -198,6 +207,51 @@ function t3IsDeferredInPublishedContext(input: CitableReportAuditInput) {
   return /t3[^.\n]*(deferred|ikke kjørt|ikke gjort|ingen ekstern validering)|ingen ekstern validering[^.\n]*t3|ikke har sammenlignet/.test(corpus)
 }
 
+export function auditCoverageClaims(
+  claims: CoverageClaim[] = [],
+  profiles: CoverageProfile[] = [],
+): CitableReportAuditIssue[] {
+  const byId = new Map(profiles.map((p) => [p.datasetId, p]))
+  const issues: CitableReportAuditIssue[] = []
+  for (const { ref, assertedScope } of claims) {
+    const profile = byId.get(assertedScope.datasetId)
+    if (!profile) {
+      issues.push({
+        code: 'coverage_profile_missing',
+        severity: 'blocking',
+        message: `No coverage profile for datasetId "${assertedScope.datasetId}".`,
+        evidence: ref,
+      })
+      continue
+    }
+    if (assertedScope.geo === 'nordic' && !coversNordic(profile.geographic.countries)) {
+      issues.push({
+        code: 'geographic_overclaim',
+        severity: 'blocking',
+        message: `Claims Nordic scope but coverage is ${profile.geographic.countries.join('/') || 'unknown'}.`,
+        evidence: ref,
+      })
+    }
+    if (assertedScope.temporal === 'trend' && (profile.temporal.kind === 'snapshot' || profile.temporal.kind === 'unknown')) {
+      issues.push({
+        code: 'temporal_overclaim',
+        severity: 'blocking',
+        message: `Claims a trend but coverage is ${profile.temporal.kind}.`,
+        evidence: ref,
+      })
+    }
+    if (assertedScope.verified === true && profile.verification.rollup !== 'human_grade') {
+      issues.push({
+        code: 'verification_overclaim',
+        severity: 'blocking',
+        message: `Claims verified but verification rollup is ${profile.verification.rollup}.`,
+        evidence: ref,
+      })
+    }
+  }
+  return issues
+}
+
 export function auditCitableReportDocuments(input: CitableReportAuditInput): CitableReportAuditIssue[] {
   const issues: CitableReportAuditIssue[] = []
 
@@ -277,6 +331,8 @@ export function auditCitableReportDocuments(input: CitableReportAuditInput): Cit
       evidence: claim,
     })
   }
+
+  issues.push(...auditCoverageClaims(input.coverageClaims, input.coverageProfiles))
 
   return issues
 }

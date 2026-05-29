@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
+import { PageFraming } from '@/components/ui/PageFraming'
 import { KnowledgeGraph } from '@/components/charts/KnowledgeGraph'
+import { StatusLegend } from '@/components/visualization/StatusLegend'
 import { getFullGraph, type GraphQualityReport } from '@/lib/queries/graph'
 
 export default async function GrafPage() {
@@ -36,6 +38,7 @@ export default async function GrafPage() {
   )
   const connectedNodes = interactiveNodes.length
   const isolatedNodes = nodes.length - connectedNodes
+  const actionableIsolates = quality?.isolatedNodeTriage.actionable ?? isolatedNodes
   const confidencePct =
     quality && quality.edgeConfidenceCoverage.totalEdges > 0
       ? Math.round(
@@ -60,11 +63,30 @@ export default async function GrafPage() {
         </div>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 xl:min-w-[560px]">
           <StatusTile label="Koblede noder" value={connectedNodes.toLocaleString('no')} tone="ok" />
-          <StatusTile label="Isolerte noder" value={isolatedNodes.toLocaleString('no')} tone="warn" />
+          <StatusTile label="Isolat-kø" value={actionableIsolates.toLocaleString('no')} tone={actionableIsolates > 0 ? 'warn' : 'ok'} />
           <StatusTile label="Brutte kanter" value={brokenEdges.toLocaleString('no')} tone={brokenEdges > 0 ? 'error' : 'ok'} />
           <StatusTile label="Konfidens" value={`${confidencePct}%`} tone={confidencePct >= 70 ? 'ok' : 'warn'} />
         </div>
       </div>
+
+      <PageFraming
+        title="Hva svarer denne siden på?"
+        description={[
+          'Siden svarer på hvilke dokumenter, innsikter, selskaper, personer og eiendommer som henger sammen i kunnskapsbasen.',
+          'Den brukes til QA, navigasjon og isolat-kø, ikke som selvstendig bevis for effekt eller eierskap.',
+        ]}
+        takeaways={[
+          'Canvas viser bare koblede noder slik at arbeidsflaten holder fokus på relasjoner.',
+          'Statusflisene gjør brutte kanter, isolater og konfidens synlige for videre rydding.',
+          'Datakvalitetspanelet peker ut duplikater, manglende profiler og kantdekning.',
+        ]}
+        caveat="Internt arbeidsgrunnlag med forbehold: grafkanter bygger på kuraterte kilder, proxy og konfidensmerking og er ikke ekstern validering."
+      />
+
+      <StatusLegend
+        title="Status for graf og relasjoner"
+        description="Les grafstatus som datakvalitet og språkstyring: proxy, illustrativ og intern betyr at koblingen trenger kildekontroll før den brukes i beslutningsspråk."
+      />
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4 xl:grid-cols-8">
         {Object.entries(typeCounts).map(([type, count]) => (
@@ -85,7 +107,7 @@ export default async function GrafPage() {
             Interaktiv flate viser {interactiveNodes.length.toLocaleString('no')} koblede noder.
           </span>
           <span>
-            {isolatedNodes.toLocaleString('no')} isolerte registerrader holdes utenfor canvas for ytelse og lesbarhet.
+            {isolatedNodes.toLocaleString('no')} isolerte registerrader holdes utenfor canvas; {actionableIsolates.toLocaleString('no')} ligger i tiltakskøen.
           </span>
         </div>
         <KnowledgeGraph nodes={interactiveNodes} edges={interactiveEdges} />
@@ -121,13 +143,10 @@ function StatusTile({
 }
 
 function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
+  const personDuplicateTriage = quality.personDuplicateTriage
   const totalCompanyDupIds = quality.companyNameDuplicates
     .concat(quality.companyOrgNrDuplicates)
     .reduce((acc, g) => acc + g.ids.length, 0)
-  const totalPersonDupIds = quality.personNameDuplicates
-    .concat(quality.personKeyDuplicates)
-    .reduce((acc, g) => acc + g.ids.length, 0)
-
   const hasIssues =
     quality.companyNameDuplicates.length > 0 ||
     quality.companyOrgNrDuplicates.length > 0 ||
@@ -135,7 +154,8 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
     quality.personKeyDuplicates.length > 0 ||
     quality.businessRelationshipDuplicates.length > 0 ||
     quality.orphanBoardMembers.length > 0 ||
-    quality.boardMemberProfileGaps.length > 0
+    quality.boardMemberProfileGaps.length > 0 ||
+    quality.isolatedNodeTriage.actionable > 0
 
   const confidencePct =
     quality.edgeConfidenceCoverage.totalEdges > 0
@@ -164,7 +184,7 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
         <QualityStat
           label="Person-duplikater"
           count={quality.personNameDuplicates.length + quality.personKeyDuplicates.length}
-          sub={`${totalPersonDupIds} IDer berørt`}
+          sub={`${personDuplicateTriage.mergeCandidates} kan samles; ${personDuplicateTriage.reviewRequired} må vurderes`}
           severity={
             quality.personNameDuplicates.length + quality.personKeyDuplicates.length > 0
               ? 'warn'
@@ -195,6 +215,12 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
           sub={`${confidencePct}% av ${quality.edgeConfidenceCoverage.totalEdges}`}
           severity="info"
         />
+        <QualityStat
+          label="Isolerte tiltaksnoder"
+          count={quality.isolatedNodeTriage.actionable}
+          sub={`${quality.isolatedNodeTriage.intentional} katalog-/kildenoder`}
+          severity={quality.isolatedNodeTriage.actionable > 0 ? 'warn' : 'ok'}
+        />
       </div>
 
       {!hasIssues && (
@@ -223,18 +249,48 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
         <DuplicateList
           title="Personer med delt personKey"
           groups={quality.personKeyDuplicates}
-          hrefBuilder={(id) => `/personer/${id}`}
+          hrefBuilder={() => null}
           tone="warn"
         />
       )}
 
-      {quality.personNameDuplicates.length > 0 && (
-        <DuplicateList
-          title="Personer med samme normaliserte navn"
-          groups={quality.personNameDuplicates}
-          hrefBuilder={(id) => `/personer/${id}`}
-          tone="warn"
-        />
+      {personDuplicateTriage.total > 0 && (
+        <div className="mt-4">
+          <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
+            Personduplikater - tiltakskø ({personDuplicateTriage.total})
+          </h4>
+          <ul className="text-xs text-stone-700 space-y-1 max-h-56 overflow-y-auto border border-amber-200 rounded p-2 bg-amber-50">
+            {personDuplicateTriage.samples.slice(0, 50).map((item) => {
+              const href = item.canonicalPersonKey
+                ? `/personer/${encodeURIComponent(item.canonicalPersonKey)}`
+                : null
+              const actionLabel = item.action === 'merge_candidate'
+                ? 'kan samles'
+                : 'må vurderes'
+
+              return (
+                <li key={item.key} className="flex justify-between gap-3">
+                  <span className="min-w-0 truncate">
+                    {href ? (
+                      <Link href={href} className="text-stone-800 hover:underline font-medium">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <span className="font-medium text-stone-800">{item.label}</span>
+                    )}
+                    <span className="text-stone-400">
+                      {' '}
+                      — {item.ids.length} profiler; {item.rationale}
+                    </span>
+                  </span>
+                  <span className="text-[10px] text-stone-500 font-mono shrink-0">
+                    {actionLabel}
+                  </span>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       )}
 
       {quality.businessRelationshipDuplicates.length > 0 && (
@@ -244,6 +300,36 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
           hrefBuilder={() => null}
           tone="warn"
         />
+      )}
+
+      {quality.isolatedNodeTriage.actionable > 0 && (
+        <div className="mt-4">
+          <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
+            Isolerte noder som trenger kobling ({quality.isolatedNodeTriage.actionable})
+          </h4>
+          <ul className="text-xs text-stone-600 space-y-1 max-h-56 overflow-y-auto border border-amber-200 rounded p-2 bg-amber-50">
+            {quality.isolatedNodeTriage.samples
+              .filter(item => item.actionable)
+              .slice(0, 50)
+              .map((item) => (
+                <li key={item.id} className="flex justify-between gap-3">
+                  <span className="min-w-0 truncate">
+                    {item.href ? (
+                      <Link href={item.href} className="text-stone-800 hover:underline font-medium">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <span className="font-medium text-stone-800">{item.label}</span>
+                    )}
+                    <span className="text-stone-400"> — {item.rationale}</span>
+                  </span>
+                  <span className="text-[10px] text-stone-500 font-mono shrink-0">
+                    {item.type}/{item.action}
+                  </span>
+                </li>
+              ))}
+          </ul>
+        </div>
       )}
 
       {quality.orphanBoardMembers.length > 0 && (

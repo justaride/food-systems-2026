@@ -140,6 +140,8 @@ const AXFOOD_ANNUAL_REPORT_2023_URL =
   'https://www.axfood.com/newsroom/press-releases/2024/02/axfood-publishes-annual-and-sustainability-report-2023/'
 const AXFOOD_CITY_GROSS_APPROVAL_URL =
   'https://www.axfood.com/newsroom/press-releases/2024/10/axfoods-acquisition-of-city-gross-approved-by-the-swedish-competition-authority/'
+const AXFOOD_CITY_GROSS_KEY_FIGURES_URL =
+  'https://www.axfood.com/about-axfood/the-axfood-family/city-gross/'
 const MOWI_NOVA_SEA_GLOBENEWSWIRE_URL =
   'https://www.globenewswire.com/news-release/2025/01/30/3017704/0/en/Mowi-increases-ownership-of-Nova-Sea-from-49-to-95.html'
 const SALMAR_NTS_SETTLEMENT_URL =
@@ -471,6 +473,12 @@ const COMPANY_FINANCIAL_OFFICIAL_RESULT_LOCATORS: Array<{
   sourceTokens: string[]
   url: string
 }> = [
+  {
+    orgNr: 'SE-556597-2451',
+    year: 2025,
+    sourceTokens: ['axfood', 'city', 'gross', 'key', 'figures', '2025'],
+    url: AXFOOD_CITY_GROSS_KEY_FIGURES_URL,
+  },
   {
     orgNr: 'DK-38714295',
     year: 2024,
@@ -857,7 +865,7 @@ const VERIFIED_SHAREHOLDER_SOURCE_LOCATORS: Array<{
     locator: `document:${SHAREHOLDER_ANNUAL_REPORT_REFS['885316522']}`,
   },
   {
-    orgNr: 'SE-556448-4498',
+    orgNr: 'SE-556597-2451',
     nameTokens: ['axfood'],
     ownershipPct: 100,
     locator: AXFOOD_CITY_GROSS_APPROVAL_URL,

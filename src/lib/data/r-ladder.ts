@@ -21,7 +21,7 @@ export const rLadder: RLadderStep[] = [
     name: 'Refuse',
     nameNo: 'Nekte / forhindre',
     description:
-      'Unngå behov for ressursen helt. For matsystemet: at forbrukere og kjokken ikke kjoper eller produserer mer enn de faktisk kommer til a spise.',
+      'Unngå behov for ressursen helt. For matsystemet: at forbrukere og kjøkken ikke kjøper eller produserer mer enn de faktisk kommer til å spise.',
     foodExamples: [
       'Smarte menyer som reduserer porsjoner etter forbrukstall',
       'Husholdningsplanlegging: kjope bare det som skal spises',
@@ -56,10 +56,10 @@ export const rLadder: RLadderStep[] = [
     description:
       'Bruke mindre ressurser per produkt. For matsystemet: designendringer som reduserer svinn direkte i produksjon eller foredling.',
     foodExamples: [
-      'Potetlefser med skall (Sorlandet): -10-15 % svinn',
-      'Portion-right-innkjopsavtaler i skolemat',
+      'Potetlefser med skall (Sørlandet): -10-15 % svinn',
+      'Portion-right-innkjøpsavtaler i skolemat',
       'Emballasje som forlenger holdbarhet',
-      'Prosessering som bruker hele ravarer',
+      'Prosessering som bruker hele råvarer',
     ],
     category: 'core-circular',
     color: 'bg-emerald-50 text-emerald-700',
@@ -86,10 +86,10 @@ export const rLadder: RLadderStep[] = [
     rank: 4,
     name: 'Repair',
     nameNo: 'Reparere',
-    description: 'Vedlikeholde og reparere for a forlenge levetid. Begrenset relevans i matsystemet.',
+    description: 'Vedlikeholde og reparere for å forlenge levetid. Begrenset relevans i matsystemet.',
     foodExamples: [
       'Reparasjon av meieri- og prosessutstyr i stedet for utskifting',
-      'Vedlikehold av kjolekjede for a hindre svinn',
+      'Vedlikehold av kjølekjede for å hindre svinn',
     ],
     category: 'extended-life',
     color: 'bg-blue-50 text-blue-700',
@@ -166,11 +166,12 @@ export const rLadder: RLadderStep[] = [
     name: 'Recover',
     nameNo: 'Energigjenvinning',
     description:
-      'Forbrenning med energigjenvinning eller biogassproduksjon. Lineaer logikk — energien tas ut men materialet er tapt som ravare. Nederste trinn for sirkulaer.',
+      'Forbrenning med energigjenvinning eller biogassproduksjon. Lineær logikk — energien tas ut men materialet er tapt som råvare. Nederste trinn for sirkulær.',
     foodExamples: [
       'Biogass fra matavfall (Den Magiske Fabrikken, Gasum)',
-      'Biogassproduksjon fra matsvinn og gjodsel',
+      'Biogassproduksjon fra matsvinn og gjødsel',
       'Forbrenningsanlegg med fjernvarme',
+      'Wageningen/Moerman-kaskade brukes som metode-lens for å holde energi nederst - ikke effektbevis',
     ],
     category: 'linear',
     color: 'bg-stone-100 text-stone-700',

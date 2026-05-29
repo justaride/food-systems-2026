@@ -157,9 +157,9 @@ export function R9KpiCatalog() {
     <div className="space-y-4">
       <Card className="bg-stone-50 border-stone-200">
         <p className="text-xs text-stone-600 leading-relaxed">
-          Katalog over {data.kpis.length} operative KPI-er for maling av nordisk matsystem-sirkularitet
-          per R-niva (Potting et al. 2017). Sok etter KPI-navn, eller filtrer pa R-niva og
-          datatilgjengelighet for a finne relevante indikatorer.
+          Katalog over {data.kpis.length} operative KPI-er for måling av nordisk matsystem-sirkularitet
+          per R-nivå (Potting et al. 2017). Søk etter KPI-navn, eller filtrer på R-nivå og
+          datatilgjengelighet for å finne relevante indikatorer.
           <span className="font-medium text-stone-800"> Kilde:</span> {data.source}.
         </p>
       </Card>
@@ -168,20 +168,20 @@ export function R9KpiCatalog() {
         <div className="space-y-3">
           <div>
             <label className="text-[10px] font-semibold uppercase tracking-wide text-stone-500 mb-1.5 block">
-              Sok
+              Søk
             </label>
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Sok KPI-navn, beskrivelse eller kilde..."
+              placeholder="Søk KPI-navn, beskrivelse eller kilde..."
               className="w-full px-3 py-2 text-sm rounded-lg border border-stone-200 bg-white text-stone-800 placeholder-stone-400 focus:outline-none focus:border-stone-400"
             />
           </div>
 
           <div>
             <label className="text-[10px] font-semibold uppercase tracking-wide text-stone-500 mb-1.5 block">
-              R-niva
+              R-nivå
             </label>
             <div className="flex gap-1.5 flex-wrap">
               {R_FILTER_ORDER.map((r) => {
@@ -323,7 +323,7 @@ export function R9KpiCatalog() {
       <Card className="bg-stone-50 border-stone-200">
         <div className="flex items-start justify-between gap-3 flex-wrap">
           <div className="text-[11px] text-stone-600 space-y-1">
-            <p className="font-medium text-stone-700">Lenke-status for primaerkilder</p>
+            <p className="font-medium text-stone-700">Lenke-status for primærkilder</p>
             <p className="text-stone-500">
               Sist sjekket {data.primary_sources.last_checked}. {data.primary_sources.verification_status}
             </p>

@@ -3,6 +3,8 @@ import { describe, it } from 'node:test'
 import {
   getEmbed,
   EMBEDDABLE_CHARTS,
+  collectAssertedScopesFrom,
+  type EmbedDefinition,
 } from '../../src/lib/hvitbok/embeds'
 
 describe('hvitbok embed registry', () => {
@@ -22,5 +24,23 @@ describe('hvitbok embed registry', () => {
 
   it('whitelists the zipf chart as embeddable', () => {
     assert.ok(EMBEDDABLE_CHARTS.has('zipf-distribution'))
+  })
+})
+
+const fixture: Record<string, Record<string, EmbedDefinition>> = {
+  kap1: {
+    tall1: { kind: 'nokkeltall', label: 'X', value: '5', kilde: 'k', assertedScope: { datasetId: 'd1', geo: 'nordic' } },
+    callout1: { kind: 'callout', variant: 'info', tekst: 'no scope' },
+    viz1: { kind: 'viz', href: '/x', label: 'V', description: 'd', assertedScope: { datasetId: 'd2', temporal: 'trend' } },
+  },
+}
+
+describe('collectAssertedScopesFrom', () => {
+  it('flattens only embeds that declare assertedScope', () => {
+    const claims = collectAssertedScopesFrom(fixture)
+    assert.deepEqual(claims, [
+      { ref: 'kap1/tall1', assertedScope: { datasetId: 'd1', geo: 'nordic' } },
+      { ref: 'kap1/viz1', assertedScope: { datasetId: 'd2', temporal: 'trend' } },
+    ])
   })
 })

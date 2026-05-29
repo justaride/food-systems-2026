@@ -82,6 +82,11 @@ export const evidencePack: EvidenceDoc[] = [
     status: 'utkast',
   },
   {
+    id: 'wageningen-method-transfer',
+    name: 'Wageningen/Moerman method transfer',
+    status: 'utkast',
+  },
+  {
     id: 'finance-note',
     name: 'Finance Note / funding shortlist',
     status: 'utkast',

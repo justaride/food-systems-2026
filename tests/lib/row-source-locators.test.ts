@@ -1093,6 +1093,19 @@ describe('row source locators', () => {
     assert.equal(
       resolveCompanyFinancialSourceLocator(
         {
+          source:
+            'Axfood City Gross key figures 2025. SEK 8,898M net sales; SEK -192M operating profit; 1 SEK ≈ 1.00 NOK',
+          year: 2025,
+          company: { orgNr: 'SE-556597-2451' },
+        },
+        new Set(),
+      ),
+      'https://www.axfood.com/about-axfood/the-axfood-family/city-gross/',
+    )
+
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
           source: 'Regnskap 2024',
           year: 2024,
           company: { orgNr: '815664582' },
@@ -1331,7 +1344,7 @@ describe('row source locators', () => {
         {
           name: 'Axfood AB (100% etter oppkjøp)',
           ownershipPct: 100,
-          company: { orgNr: 'SE-556448-4498' },
+          company: { orgNr: 'SE-556597-2451' },
         },
         new Set(),
       ),
@@ -1960,7 +1973,7 @@ describe('row source locators', () => {
         {
           source: 'Axfood Pressrelease 2024-10-29',
           parentCompany: { orgNr: 'SE-556542-5353' },
-          childCompany: { orgNr: 'SE-556448-4498' },
+          childCompany: { orgNr: 'SE-556597-2451' },
         },
         new Set(),
       ),

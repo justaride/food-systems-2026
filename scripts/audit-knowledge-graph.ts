@@ -87,18 +87,33 @@ async function main() {
           companyOrgNrDuplicateGroups: graph.quality.companyOrgNrDuplicates.length,
           personNameDuplicateGroups: graph.quality.personNameDuplicates.length,
           personKeyDuplicateGroups: graph.quality.personKeyDuplicates.length,
+          personDuplicateTriage: {
+            total: graph.quality.personDuplicateTriage.total,
+            mergeCandidates: graph.quality.personDuplicateTriage.mergeCandidates,
+            reviewRequired: graph.quality.personDuplicateTriage.reviewRequired,
+            byAction: graph.quality.personDuplicateTriage.byAction,
+          },
           businessRelationshipDuplicateGroups: graph.quality.businessRelationshipDuplicates.length,
           orphanBoardMembers: graph.quality.orphanBoardMembers.length,
           boardMemberProfileGaps: graph.quality.boardMemberProfileGaps.length,
           edgeConfidenceCoverage: graph.quality.edgeConfidenceCoverage,
+          isolatedNodeTriage: {
+            total: graph.quality.isolatedNodeTriage.total,
+            actionable: graph.quality.isolatedNodeTriage.actionable,
+            intentional: graph.quality.isolatedNodeTriage.intentional,
+            byAction: graph.quality.isolatedNodeTriage.byAction,
+            byType: graph.quality.isolatedNodeTriage.byType,
+          },
         }
       : undefined,
     samples: {
       duplicateNodeIds: duplicateNodeIds.slice(0, 20),
       missingEndpointEdges: missingEdges.slice(0, 20),
       companyNameDuplicates: graph.quality?.companyNameDuplicates.slice(0, 10) ?? [],
+      personDuplicateTriage: graph.quality?.personDuplicateTriage.samples.slice(0, 20) ?? [],
       orphanBoardMembers: graph.quality?.orphanBoardMembers.slice(0, 10) ?? [],
       boardMemberProfileGaps: graph.quality?.boardMemberProfileGaps.slice(0, 10) ?? [],
+      isolatedNodeTriage: graph.quality?.isolatedNodeTriage.samples.slice(0, 20) ?? [],
     },
   }
 

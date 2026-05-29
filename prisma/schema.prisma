@@ -554,6 +554,10 @@ model ActorRelationship {
   relationType String
   strength     String?
   note         String?
+  source       String?
+  sourceUrl    String?
+  metadata     Json?
+  verifiedAt   DateTime?
 
   fromActor Actor @relation("ActorRelationshipFrom", fields: [fromActorId], references: [id])
   toActor   Actor @relation("ActorRelationshipTo", fields: [toActorId], references: [id])

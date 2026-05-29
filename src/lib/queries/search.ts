@@ -28,9 +28,6 @@ export type SearchExecution = {
   executedMode: SearchMode
   fallback: boolean
   warnings: SearchWarning[]
-  capabilities: {
-    semantic?: SemanticSearchStatus
-  }
   results: SearchResult[]
 }
 
@@ -48,7 +45,6 @@ export async function searchWithDiagnostics(query: string, limit = 20, mode: Sea
         executedMode: 'semantic',
         fallback: false,
         warnings: [],
-        capabilities: {},
         results: mapSemanticResults(results),
       }
     } catch (error) {
@@ -76,7 +72,6 @@ export async function searchWithDiagnostics(query: string, limit = 20, mode: Sea
         executedMode: 'hybrid',
         fallback: false,
         warnings: [],
-        capabilities: {},
         results: merged.slice(0, limit),
       }
     } catch (error) {
@@ -89,7 +84,6 @@ export async function searchWithDiagnostics(query: string, limit = 20, mode: Sea
     executedMode: 'keyword',
     fallback: false,
     warnings: [],
-    capabilities: {},
     results: await keywordSearch(query, limit),
   }
 }
@@ -115,9 +109,6 @@ async function fallbackToKeyword(query: string, limit: number, mode: SearchMode,
     executedMode: 'keyword',
     fallback: true,
     warnings: [warning],
-    capabilities: {
-      ...(semanticStatus ? { semantic: semanticStatus } : {}),
-    },
     results: await keywordSearch(query, limit),
   }
 }
@@ -137,25 +128,22 @@ function semanticWarning(mode: SearchMode, status: SemanticSearchStatus | undefi
   if (!status) {
     return {
       code: 'semantic-error',
-      message: `${mode === 'hybrid' ? 'Hybrid' : 'Semantisk'} søk feilet. Viser nøkkelordstreff i stedet.`,
+      message: fallbackWarningMessage(mode),
     }
   }
 
-  const embeddingCount = typeof status.embeddedDocuments === 'number' && typeof status.totalDocuments === 'number'
-    ? ` (${status.embeddedDocuments} av ${status.totalDocuments} dokumenter har embeddings)`
-    : ''
-  const reason = status.reason === 'missing-openai-key'
-    ? 'OPENAI_API_KEY mangler'
-    : status.reason === 'missing-document-embeddings'
-      ? `dokument-embeddings mangler${embeddingCount}`
-      : status.reason === 'missing-openai-key-and-document-embeddings'
-        ? `OPENAI_API_KEY mangler og dokument-embeddings mangler${embeddingCount}`
-        : 'statussjekken feilet'
-
   return {
     code: 'semantic-unavailable',
-    message: `${mode === 'hybrid' ? 'Hybrid' : 'Semantisk'} søk er ikke klart: ${reason}. Viser nøkkelordstreff i stedet.`,
+    message: fallbackWarningMessage(mode),
   }
+}
+
+function fallbackWarningMessage(mode: SearchMode): string {
+  if (mode === 'hybrid') {
+    return 'Hybrid søk bruker nøkkelord i denne versjonen. Semantisk rangering er ikke aktivert.'
+  }
+
+  return 'Semantisk søk er ikke aktivert i denne versjonen. Viser nøkkelordtreff.'
 }
 
 function interleaveByType(results: SearchResult[], cap: number): SearchResult[] {

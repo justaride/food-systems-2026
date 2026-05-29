@@ -1,0 +1,66 @@
+insightId,documentSlug,relevance,decision,reviewNote
+ins-01,evidence-pack/offentlig/nibio-selvforsyning-2026,primary,y,Exact self-sufficiency source
+ins-33,evidence-pack/offentlig/nibio-selvforsyning-2026,primary,y,Exact self-sufficiency metric source
+ins-34,bibliotek/konkurransetilsynet/prisjeger-saken,supporting,y,Direct price-hunter case summary
+ins-36,evidence-pack/offentlig/nou-2013-6-god-handelsskikk,supporting,y,Direct NOU good-trading-practice source
+ins-43,bibliotek/sirkularitet/sirkulaer-definisjoner-wur-emf,supporting,y,Direct circular food systems framework source
+ins-46,norden/food-access-hhi-metodikk,supporting,y,Direct local HHI methodology source
+ins-50,evidence-pack/arsrapporter/axfood-annual-report-2024,primary,y,Direct Axfood annual report source
+ins-51,bibliotek/nordisk-konkurranse/is-markedsstruktur-2024,primary,y,Direct Iceland market-structure source
+ins-52,bibliotek/akademia/masteroppgaver/selmani-forre-2023,primary,y,Direct Lidl Norway failure source
+ins-53,evidence-pack/tilsyn/prisjeger-saken-2024-offentlig-versjon,supporting,y,Direct official price-hunter case source
+ins-89,evidence-pack/akademia/pubmed/wohner-b-2020-environmental-and-economic-assessment-of,primary,y,Direct circular packaging loop source
+ins-101,arkiv-sortert/food-research-process-20-04-26/00_working_files/deep-research-report-40-,primary,y,Direct alternative-distribution research source
+ins-104,evidence-pack/arsrapporter/axfood-annual-report-2024,primary,y,Direct Axfood online grocery consolidation source
+ins-food-tg-02,bibliotek/juridisk/eudr-norge-2025,primary,y,Direct EUDR traceability source
+ins-02,evidence-pack/offentlig/nou-2011-4-mat-makt-avmakt,primary,y,Direct NOU market-power source
+ins-15,norden/verdikjede/04-innsatsvarer,supporting,y,Direct upstream input-dependency source
+ins-23,data/ssb/grensehandel-2025,primary,y,Direct SSB border-trade source
+ins-32,norden/verdikjede/10-kryss-analyse,supporting,y,Direct cross-segment bottleneck source
+ins-62,norden/verdikjede/07b-sjomatfor-saarbarhet,supporting,y,Direct seafood-feed raw-material source
+ins-72,norden/sirkularitet-sprint-2026-05/batch-06-skolemaltid-offentlig-innkjop,supporting,y,Direct public-meals procurement source
+ins-73,bibliotek/sirkularitet/matsvinn-tidsserier-norden,primary,y,Direct Nordic food-waste time-series source
+ins-80,analyse/governance-arkitektur-nordisk,primary,y,Direct governance-architecture source
+fallback-01,evidence-pack/offentlig/nibio-selvforsyning-2026,primary,y,Exact NIBIO self-sufficiency source
+fallback-02,bibliotek/konkurransetilsynet/dagligvarerapport-2024,supporting,y,Direct grocery concentration source
+fallback-05,evidence-pack/offentlig/meld-st-11-selvforsyning-2024,primary,y,Direct self-sufficiency policy source
+ins-05,cathrine-ten-step-oppsummering,primary,y,Direct Ten Step v2 methodology source
+ins-06,regulatory/eu-farm-to-fork-strategy-2020,primary,y,Direct Farm to Fork policy source
+ins-08,external/notion/biosirkel,primary,y,Direct Biosirkel project source
+ins-24,norden/sirkularitet-sprint-2026-05/batch-06-skolemaltid-offentlig-innkjop,supporting,y,Direct Sweden Finland school-meals source
+ins-25,norden/verdikjede/05-horeca,supporting,y,Direct Copenhagen organic kitchen source
+ins-37,bibliotek/akademia-dyp-research,supporting,y,Direct SIFO food-poverty source
+ins-39,bibliotek/tenketanker-ngo,primary,y,Direct IPES lock-in source
+ins-40,bibliotek/tenketanker-ngo,primary,y,Direct DNVA national food-policy source
+ins-41,barekraft-sec-mat-reg-01-matsvinn-detaljert-lovverk,primary,y,Direct food-waste law source
+ins-42,bibliotek/akademia/nhh-food/ozhegova-assortment-market-power-2024,primary,y,Direct assortment-market-power source
+ins-45,regulatory/eu-farm-to-fork-strategy-2020,primary,y,Direct Farm to Fork target source
+ins-49,norden/nordisk-komparativ-analyse,supporting,y,Direct Nordic HHI comparison source
+ins-69,bibliotek/forbruker/matfattigdom-norge-norden,primary,y,Direct single-parent food-security source
+ins-70,analyse/food-desert-saarbarhet,primary,y,Direct local HHI food-access source
+ins-71,analyse/horeca-maktkonsentrasjon-nordisk,supporting,y,Direct Copenhagen organic-kitchen source
+ins-75,norden/verdikjede/06-matsvinn-sirkulaer,supporting,y,Direct deposit-return and food-waste-law source
+ins-76,bibliotek/forskningsrunde-2026-04-20/alternative-distribusjonskanaler-norden-2026-04-20,primary,y,Direct REKO alternative-distribution source
+ins-77,analyse/tidsserier-strukturelle-indikatorer,primary,y,Direct stable CR3 time-series source
+ins-78,analyse/tidsserier-strukturelle-indikatorer,primary,y,Direct property-investment lock-in source
+ins-79,analyse/tidsserier-strukturelle-indikatorer,primary,y,Direct diverging-trends source
+ins-83,analyse/horeca-maktkonsentrasjon-nordisk,primary,y,Direct Compass catering consolidation source
+ins-84,analyse/horeca-maktkonsentrasjon-nordisk,primary,y,Direct school-meals public-health source
+ins-85,analyse/horeca-maktkonsentrasjon-nordisk,primary,y,Direct Axel Johnson dual-control source
+ins-86,analyse/horeca-maktkonsentrasjon-nordisk,primary,y,Direct HORECA oversight-gap source
+ins-87,regulatory/eu-ppwr-emballasjeforordningen-2025,primary,y,Direct PPWR source
+ins-88,bibliotek/sirkularitet/nordisk-matsvinn-rapport-2024,primary,y,Direct Nordic food-waste goal source
+ins-93,bibliotek/forskningsrunde-2026-04-20/eiendomsmakt-dagligvaremarkedet-norden-2026-04-20,primary,y,Direct negative-servitude property-power source
+ins-94,bibliotek/forskningsrunde-2026-04-20/eiendomsmakt-dagligvaremarkedet-norden-2026-04-20,primary,y,Direct internal-rent property-power source
+ins-99,bibliotek/forskningsrunde-2026-04-20/nordisk-horeca-offentlige-maaltider-2026-04-20,primary,y,Direct public-meals volume source
+ins-100,bibliotek/forskningsrunde-2026-04-20/nordiske-internasjonale-benchmarkcase-2026-04-20,primary,y,Direct Copenhagen benchmark source
+ins-102,bibliotek/forskningsrunde-2026-04-20/alternative-distribusjonskanaler-norden-2026-04-20,primary,y,Direct Cheffelo meal-kit source
+ins-105,bibliotek/forskningsrunde-2026-04-20/nordiske-internasjonale-benchmarkcase-2026-04-20,primary,y,Direct TGTG benchmark source
+ins-107,bibliotek/forskningsrunde-2026-04-20/nordiske-internasjonale-benchmarkcase-2026-04-20,primary,y,Direct South-Korea food-waste benchmark source
+ins-108,bibliotek/forskningsrunde-2026-04-20/nordiske-internasjonale-benchmarkcase-2026-04-20,primary,y,Direct Arla FarmAhead benchmark source
+ins-109,bibliotek/forskningsrunde-2026-04-20/nordiske-internasjonale-benchmarkcase-2026-04-20,primary,y,Direct PNAE benchmark source
+ins-110,bibliotek/forskningsrunde-2026-04-20/framstillinger-mat-makt-beredskap-2026-04-20,primary,y,Direct framing-analysis source
+ins-112,bibliotek/forskningsrunde-2026-04-20/evidensnotat-2026-04-20,primary,y,Direct STROBE GRADE evidence source
+ins-114,analyse/horeca-maktkonsentrasjon-nordisk,primary,y,Direct foodservice-grossist map source
+ins-115,bibliotek/forskningsrunde-2026-04-20/nordisk-horeca-offentlige-maaltider-2026-04-20,primary,y,Direct public-procurement climate-weight source
+ins-117,bibliotek/forskningsrunde-2026-04-20/nordiske-internasjonale-benchmarkcase-2026-04-20,primary,y,Direct transformation-engine benchmark source

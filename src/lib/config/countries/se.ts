@@ -27,7 +27,7 @@ export const swedenConfig: CountryConfig = {
     handlarn: { id: 'handlarn', name: 'Handlarn', color: '#005224', type: 'convenience', parent: 'Axfood' },
     'mat-ppet': { id: 'mat-ppet', name: 'Matoppet', color: '#00843D', type: 'convenience', parent: 'Axfood' },
     lidl: { id: 'lidl', name: 'Lidl', color: '#0050AA', type: 'discount', parent: 'Lidl' },
-    'city-gross': { id: 'city-gross', name: 'City Gross', color: '#FF6900', type: 'hypermarket', parent: 'Bergendahls' },
+    'city-gross': { id: 'city-gross', name: 'City Gross', color: '#FF6900', type: 'hypermarket', parent: 'Axfood' },
   },
   chainParents: {
     'ica-n-ra': 'ICA Gruppen',

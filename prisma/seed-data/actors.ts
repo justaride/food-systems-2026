@@ -37,6 +37,10 @@ export type ActorRelationshipSeed = {
   relationType: string
   strength?: string
   note?: string
+  source?: string
+  sourceUrl?: string
+  metadata?: Record<string, unknown>
+  verifiedAt?: string
 }
 
 const ACTOR_MAP_DOC = 'interviews/aktorkart-systematisk-2026'
@@ -1909,8 +1913,8 @@ export const actorsSeed: ActorSeed[] = [
     actorType: 'deposit-system',
     organizationType: 'panteordning',
     country: 'SE',
-    roleSummary: 'Driver Sveriges pantsystem. Eid av Sveriges Bryggerier (50 %), Svensk Dagligvaruhandel (25 %) og Livsmedelshandlarna (25 %). Over 3 mrd burkar/flaskor pantet 2025. Pantbeloppet hoejt 2025: 2 kr burk, 3 kr stor PET.',
-    currentRelevance: 'Svensk parallell til Infinitum. Interessant eierskapsmodell: 50 % bryggeri, 50 % handel — baade produsent og forhandler eier retursystemet.',
+    roleSummary: 'Driver Sveriges pantsystem. Eid av Sveriges Bryggerier (50 %), Svensk Dagligvaruhandel (25 %) og Livsmedelshandlarna (25 %). Over 3 mrd burkar/flaskor pantet 2025. Pantbeløpet ble hevet i 2025: 2 kr burk, 3 kr stor PET.',
+    currentRelevance: 'Svensk parallell til Infinitum. Interessant eierskapsmodell: 50 % bryggeri, 50 % handel — både produsent og forhandler eier retursystemet.',
     website: 'https://www.pantamera.nu',
     currentStance: 'neutral',
     priorityTier: 'p3',
@@ -3451,14 +3455,14 @@ export const actorsSeed: ActorSeed[] = [
     organizationType: 'private',
     country: 'NO',
     website: 'https://www.denofa.no',
-    roleSummary: 'Norges eneste storskala soyabearbeider; importerer ca. 500 000 tonn soyaboenner/aar til Fredrikstad-anlegget og leverer SPC og soyaolje til lakseoppdretts- og husdyrfor-produsenter. Eier av sertifiseringsregimet for avskogingsfri soya til norsk havbruk.',
-    currentRelevance: 'Kjerneflaskehals i Track A: alle norske soya-claims gaar gjennom Denofas innkjoeps- og sporingssystem. Viktig motpart for EUDR-implementasjon og for tilkobling til The Norwegian Round Table of Sustainable Soy.',
+    roleSummary: 'Norges eneste storskala soyabearbeider; importerer ca. 500 000 tonn soyabønner/år til Fredrikstad-anlegget og leverer SPC og soyaolje til lakseoppdretts- og husdyrfôr-produsenter. Eier av sertifiseringsregimet for avskogingsfri soya til norsk havbruk.',
+    currentRelevance: 'Kjerneflaskehals i Track A: alle norske soya-claims går gjennom Denofas innkjøps- og sporingssystem. Viktig motpart for EUDR-implementasjon og for tilkobling til The Norwegian Round Table of Sustainable Soy.',
     priorityTier: 'p1',
     powerScore: 5,
     interestScore: 4,
     themeTags: ['feed', 'soy', 'imports', 'eudr', 'aquaculture', 'a-feed'],
     documentSlugs: [VALUE_CHAIN_DOC],
-    notes: 'Brukes som actor-primaerkilde for soyaimportvolum (SRC-A-013), men ikke som total norsk soyaimport uten SSB 08801-sjekk.',
+    notes: 'Brukes som actor-primærkilde for soyaimportvolum (SRC-A-013), men ikke som total norsk soyaimport uten SSB 08801-sjekk.',
   },
   {
     id: 'actor-norsus',

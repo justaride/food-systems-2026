@@ -254,10 +254,10 @@ export function VerdikjedeContent({
 
       <div className="space-y-3 pt-4 border-t border-stone-200">
         <div>
-          <h2 className="text-base font-semibold text-stone-800">Forkomposisjon i norsk lakseoppdrett</h2>
+          <h2 className="text-base font-semibold text-stone-800">Fôrkomposisjon i norsk lakseoppdrett</h2>
           <p className="text-xs text-stone-500 mt-1">
-            Tidsserie over fordelingen av forrastoffer (marint, vegetabilsk, novel proteiner) basert pa Nofima/FHF
-            ressursregnskap. Viser retning mot 25 % norske ravarer-malet 2034.
+            Tidsserie over fordelingen av fôrråstoffer (marint, vegetabilsk, novel proteiner) basert på Nofima/FHF
+            ressursregnskap. Viser retning mot 25 % norske råvarer-målet 2034.
           </p>
         </div>
         <FeedCompositionTimeseries />

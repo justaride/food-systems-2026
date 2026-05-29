@@ -60,6 +60,10 @@ const EXACT_SOURCE_DOC_LINKS: Record<string, SourceDocLinkMatch> = {
     sourceDocId: 'src-180',
     reason: 'Transition Groups meeting transcript from 21 April 2026',
   },
+  'docs/meetings/JT-GABRIEL - Metodeoverforing Cities Food mai 2026.md': {
+    sourceDocId: 'src-181',
+    reason: 'JT-Gabriel Cities/Food method-transfer intake note from 26 May 2026',
+  },
 }
 
 export function normalizeSourceDocumentPath(filePath: string): string {

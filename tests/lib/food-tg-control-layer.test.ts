@@ -63,6 +63,7 @@ describe('Food TG control layer', () => {
       'scope-decision-request-2026-05-21',
       'validation-sprint-log-2026-05',
       'baseline-freeze-2026-05-21',
+      'wageningen-method-transfer-2026-05-26',
     ]
 
     assert.deepEqual(foodTgControlDocuments.map((doc) => doc.id), expectedIds)

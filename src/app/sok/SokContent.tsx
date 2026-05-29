@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { StatusLegend } from '@/components/visualization/StatusLegend'
 
 type SearchResult = {
   type: 'document' | 'insight' | 'source' | 'thesis' | 'company' | 'actor' | 'relationship' | 'property' | 'person'
@@ -19,7 +20,7 @@ const TYPE_LABELS: Record<string, string> = {
   source: 'Kilde',
   thesis: 'Masteroppgave',
   company: 'Selskap',
-  actor: 'Aktor',
+  actor: 'Aktør',
   relationship: 'Relasjon',
   property: 'Eiendom',
   person: 'Person',
@@ -44,6 +45,18 @@ const MODE_LABELS: Record<SearchMode, string> = {
   semantic: 'Semantisk',
   hybrid: 'Hybrid',
 }
+
+const MODE_EXPLANATIONS: Record<SearchMode, string> = {
+  keyword: 'Nøkkelord søker i titler, sammendrag, koder og registerfelt.',
+  semantic: 'Semantisk søk faller tilbake til nøkkelord når semantisk rangering ikke er aktivert.',
+  hybrid: 'Hybrid kombinerer nøkkelord med semantisk rangering når den er aktivert.',
+}
+
+const EXAMPLE_QUERIES = [
+  'matsvinn dagligvare',
+  'havbruk konsesjoner',
+  'NorgesGruppen leverandører',
+]
 
 type SearchWarning = {
   code: 'semantic-unavailable' | 'semantic-error'
@@ -153,10 +166,17 @@ export function SokContent() {
 
       {hasSearched && !isLoading && !error && (
         <div className="text-xs text-stone-500 px-1">
-          {results.length} resultater · kjører {MODE_LABELS[executedMode].toLowerCase()}
-          {mode !== executedMode ? ` etter fallback fra ${MODE_LABELS[mode].toLowerCase()}` : ''}
+          {results.length} resultater ·{' '}
+          {mode !== executedMode
+            ? `viser nøkkelordtreff for valgt ${MODE_LABELS[mode].toLowerCase()}-modus`
+            : `kjører ${MODE_LABELS[executedMode].toLowerCase()}`}
         </div>
       )}
+
+      <StatusLegend
+        title="Status for søketreff"
+        description="Bruk treffene som innganger til kildekontroll: søk viser hvor materialet ligger, men løfter ikke claims til ekstern validering."
+      />
 
       {warnings.length > 0 && (
         <div className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
@@ -174,6 +194,39 @@ export function SokContent() {
 
       {hasSearched && !error && results.length === 0 && (
         <EmptyState message={`Ingen resultater for "${query}"`} />
+      )}
+
+      {!hasSearched && !error && (
+        <Card className="!p-4">
+          <div className="grid gap-4 md:grid-cols-[1.2fr_1fr]">
+            <div>
+              <h2 className="text-xs uppercase tracking-wider text-stone-400 mb-2">Eksempler</h2>
+              <div className="flex flex-wrap gap-2">
+                {EXAMPLE_QUERIES.map(example => (
+                  <button
+                    key={example}
+                    type="button"
+                    onClick={() => setQuery(example)}
+                    className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1.5 text-xs font-medium text-stone-600 hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700"
+                  >
+                    {example}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h2 className="text-xs uppercase tracking-wider text-stone-400 mb-2">Søkemodus</h2>
+              <div className="space-y-1.5 text-xs text-stone-500">
+                {(['keyword', 'semantic', 'hybrid'] as const).map(searchMode => (
+                  <p key={searchMode}>
+                    <span className="font-medium text-stone-700">{MODE_LABELS[searchMode]}:</span>{' '}
+                    {MODE_EXPLANATIONS[searchMode]}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Card>
       )}
 
       {Object.entries(grouped).map(([type, items]) => (

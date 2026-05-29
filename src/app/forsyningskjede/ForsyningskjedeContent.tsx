@@ -2,9 +2,10 @@
 
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import { useState, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
+import { PageFraming } from '@/components/ui/PageFraming'
 import { SupplyChainGraph } from '@/components/charts/SupplyChainGraph'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
 import { ResearchEvidenceBadge } from '@/components/visualization/ResearchEvidenceBadge'
@@ -13,6 +14,7 @@ import { DataQualityStrip } from '@/components/visualization/DataQualityStrip'
 import { getResearchEvidenceStatusConfig } from '@/lib/visualization/status'
 import type { ResearchEvidenceStatus } from '@/lib/visualization/types'
 import { valueChainFieldGapLabel } from '@/lib/supply-chain-status'
+import { networkEndpointId } from '@/lib/network-map'
 import type {
   SupplyChainGraphData,
   PrimaryDeliveriesData,
@@ -148,6 +150,7 @@ const CIRCULAR_THEME_LABELS: Record<string, string> = {
 }
 
 const SECTION_LINKS = [
+  { href: '#nettverkskart', label: 'Nettverkskart' },
   { href: '#primaerflyt', label: 'Primærflyt' },
   { href: '#maktrelasjoner', label: 'Maktrelasjoner' },
   { href: '#import-saarbarhet', label: 'Import og sårbarhet' },
@@ -222,79 +225,6 @@ export function ForsyningskjedeContent({
 }) {
   const searchParams = useSearchParams()
   const selectedRelationshipId = searchParams.get('relationship')
-  const [activeStages, setActiveStages] = useState<Set<string>>(() => {
-    const stages = new Set<string>()
-    for (const n of data.nodes) {
-      if (n.valueChainStage) stages.add(n.valueChainStage)
-    }
-    return stages
-  })
-
-  const [activeTypes, setActiveTypes] = useState<Set<string>>(
-    () => new Set(Object.keys(data.stats.byType))
-  )
-
-  const relationshipSelectedNodeId = useMemo(() => {
-    if (!selectedRelationshipId) return null
-    return data.edges.find(e => e.id === selectedRelationshipId)?.target ?? null
-  }, [data.edges, selectedRelationshipId])
-  const [selectedNodeOverride, setSelectedNodeOverride] = useState<string | null | undefined>(undefined)
-  const selectedNodeId = selectedNodeOverride !== undefined ? selectedNodeOverride : relationshipSelectedNodeId
-
-  const toggleStage = (stage: string) => {
-    setActiveStages(prev => {
-      const next = new Set(prev)
-      if (next.has(stage)) next.delete(stage)
-      else next.add(stage)
-      return next
-    })
-  }
-
-  const toggleType = (type: string) => {
-    setActiveTypes(prev => {
-      const next = new Set(prev)
-      if (next.has(type)) next.delete(type)
-      else next.add(type)
-      return next
-    })
-  }
-
-  const filteredNodes = useMemo(
-    () => data.nodes.filter(n => !n.valueChainStage || activeStages.has(n.valueChainStage)),
-    [data.nodes, activeStages]
-  )
-
-  const filteredNodeIds = useMemo(
-    () => new Set(filteredNodes.map(n => n.id)),
-    [filteredNodes]
-  )
-
-  const filteredEdges = useMemo(
-    () => data.edges.filter(e =>
-      activeTypes.has(e.relationshipType) &&
-      filteredNodeIds.has(e.source) &&
-      filteredNodeIds.has(e.target)
-    ),
-    [data.edges, activeTypes, filteredNodeIds]
-  )
-
-  const selectedNode = selectedNodeId
-    ? data.nodes.find(n => n.id === selectedNodeId) ?? null
-    : null
-
-  const selectedInbound = useMemo(
-    () => selectedNodeId
-      ? data.edges.filter(e => e.target === selectedNodeId)
-      : [],
-    [data.edges, selectedNodeId]
-  )
-
-  const selectedOutbound = useMemo(
-    () => selectedNodeId
-      ? data.edges.filter(e => e.source === selectedNodeId)
-      : [],
-    [data.edges, selectedNodeId]
-  )
 
   const nodeById = useMemo(() => {
     const map = new Map<string, SupplyChainGraphData['nodes'][0]>()
@@ -308,19 +238,6 @@ export function ForsyningskjedeContent({
         e => e.relationshipType === 'self-dealing' || e.source === e.target
       ),
     [data.edges]
-  )
-
-  const valueChainStages = useMemo(() => {
-    const stages = new Set<string>()
-    for (const n of data.nodes) {
-      if (n.valueChainStage) stages.add(n.valueChainStage)
-    }
-    return [...stages].sort()
-  }, [data.nodes])
-
-  const relationshipTypes = useMemo(
-    () => Object.keys(data.stats.byType).sort(),
-    [data.stats.byType]
   )
 
   const concentrationRows = useMemo(
@@ -395,6 +312,20 @@ export function ForsyningskjedeContent({
         </p>
       </div>
 
+      <PageFraming
+        title="Hva svarer denne siden på?"
+        description={[
+          'Siden viser hvordan produsenter, kjøpere, infrastruktur og returstrømmer er koblet i dagens interne kartlegging.',
+          'Den skal skille observerte Norge-data fra kuraterte relasjoner, kandidater og proxy-modeller.',
+        ]}
+        takeaways={[
+          'Primærflyt er Norge-observert registerdata og skal ikke generaliseres til hele Norden.',
+          'Nettverkskartet er en locator for relasjoner, dokumentkoblinger, konfidens og kildegrunnlag.',
+          'Import, infrastruktur og returstrømmer holdes adskilt til metode og dekning er merket.',
+        ]}
+        caveat="Bruk med forbehold: relasjonslaget er kuratert/proxy og ikke ekstern validering av komplett vareflyt."
+      />
+
       <DataQualityStrip
         items={[
           {
@@ -440,6 +371,48 @@ export function ForsyningskjedeContent({
           </a>
         ))}
       </nav>
+
+      <section id="nettverkskart" className="scroll-mt-6 space-y-4">
+        <SectionHeader
+          title="Nettverkskart"
+          description="Felles analyse- og QA-kart for relasjoner, dokumentkoblinger, konfidens og kildegrunnlag. Brukes som locator, ikke som selvstendig effektbevis."
+          researchStatus="proxy_model"
+          researchStatusDetail="BusinessRelationship-grafen er kuratert og kildebelagt, men ikke en komplett måling av nordisk vareflyt. Dokumentnoder er valgfrie beviskoblinger."
+        />
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <Card>
+            <p className="text-[10px] text-stone-400 uppercase tracking-wider">Relasjoner</p>
+            <p className="text-xl font-bold text-stone-900 mt-1">{data.stats.totalRelationships}</p>
+          </Card>
+          <Card>
+            <p className="text-[10px] text-stone-400 uppercase tracking-wider">Selskaper</p>
+            <p className="text-xl font-bold text-stone-900 mt-1">{data.stats.companiesInvolved}</p>
+          </Card>
+          {Object.entries(data.stats.byType).slice(0, 2).map(([type, count]) => (
+            <Card key={type}>
+              <p className="text-[10px] text-stone-400 uppercase tracking-wider">
+                {RELATIONSHIP_LABELS[type] ?? type}
+              </p>
+              <p className="text-xl font-bold text-stone-900 mt-1">{count}</p>
+            </Card>
+          ))}
+        </div>
+
+      <SupplyChainGraph
+        nodes={data.nodes}
+        edges={data.edges}
+        stageColors={STAGE_COLORS}
+        relationshipColors={RELATIONSHIP_COLORS}
+        selectedRelationshipId={selectedRelationshipId}
+      />
+
+        <div className="flex flex-wrap gap-4 px-1 text-xs text-stone-400">
+          <span>{data.stats.companiesInvolved} selskaper</span>
+          <span>{data.stats.totalRelationships} kuraterte relasjoner</span>
+          <span>{(data.stats.byType['company-ref'] ?? 0).toLocaleString('no')} dokumentkoblinger</span>
+        </div>
+      </section>
 
       <section id="primaerflyt" className="scroll-mt-6 space-y-4">
         <SectionHeader
@@ -607,25 +580,6 @@ export function ForsyningskjedeContent({
           researchStatusDetail="BusinessRelationship-grafen er kuratert og kildebelagt, men ikke en komplett måling av nordisk vareflyt. NO har dypest dekning."
         />
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <Card>
-          <p className="text-[10px] text-stone-400 uppercase tracking-wider">Relasjoner</p>
-          <p className="text-xl font-bold text-stone-900 mt-1">{data.stats.totalRelationships}</p>
-        </Card>
-        <Card>
-          <p className="text-[10px] text-stone-400 uppercase tracking-wider">Selskaper</p>
-          <p className="text-xl font-bold text-stone-900 mt-1">{data.stats.companiesInvolved}</p>
-        </Card>
-        {Object.entries(data.stats.byType).slice(0, 2).map(([type, count]) => (
-          <Card key={type}>
-            <p className="text-[10px] text-stone-400 uppercase tracking-wider">
-              {RELATIONSHIP_LABELS[type] ?? type}
-            </p>
-            <p className="text-xl font-bold text-stone-900 mt-1">{count}</p>
-          </Card>
-        ))}
-      </div>
-
       {selfDealingEdges.length > 0 && (
         <Card title={`Selvhandel — ${selfDealingEdges.length} interne handelsrelasjoner`}>
           <p className="text-xs text-stone-500 mb-3">
@@ -645,8 +599,10 @@ export function ForsyningskjedeContent({
               </thead>
               <tbody>
                     {selfDealingEdges.map((e) => {
-                      const from = nodeById.get(e.source)
-                      const to = nodeById.get(e.target)
+                      const sourceId = networkEndpointId(e.source)
+                      const targetId = networkEndpointId(e.target)
+                      const from = nodeById.get(sourceId)
+                      const to = nodeById.get(targetId)
                       return (
                     <tr
                       key={e.id}
@@ -657,18 +613,18 @@ export function ForsyningskjedeContent({
                     >
                       <td className="py-2 pr-3">
                         <Link
-                          href={`/selskap/${e.source}`}
+                          href={`/selskap/${sourceId}`}
                           className="font-medium text-stone-800 hover:text-emerald-700"
                         >
-                          {from?.label ?? e.source}
+                          {from?.label ?? sourceId}
                         </Link>
                       </td>
                       <td className="py-2 pr-3">
                         <Link
-                          href={`/selskap/${e.target}`}
+                          href={`/selskap/${targetId}`}
                           className="font-medium text-stone-800 hover:text-emerald-700"
                         >
-                          {to?.label ?? e.target}
+                          {to?.label ?? targetId}
                         </Link>
                       </td>
                       <td className="py-2 pr-3">
@@ -686,161 +642,6 @@ export function ForsyningskjedeContent({
           </div>
         </Card>
       )}
-
-      <div className="flex flex-wrap gap-2">
-        {valueChainStages.map(stage => (
-          <button
-            key={stage}
-            onClick={() => toggleStage(stage)}
-            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border transition-all ${
-              activeStages.has(stage)
-                ? 'bg-white border-stone-300 text-stone-700'
-                : 'bg-stone-100 border-stone-200 text-stone-400'
-            }`}
-          >
-            <span
-              className="w-2.5 h-2.5 rounded-full inline-block"
-              style={{ backgroundColor: activeStages.has(stage) ? STAGE_COLORS[stage] ?? '#78716c' : '#d6d3d1' }}
-            />
-            {STAGE_LABELS[stage] ?? stage}
-          </button>
-        ))}
-
-        <div className="w-px bg-stone-200 mx-1" />
-
-        {relationshipTypes.map(type => (
-          <button
-            key={type}
-            onClick={() => toggleType(type)}
-            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border transition-all ${
-              activeTypes.has(type)
-                ? 'bg-white border-stone-300 text-stone-700'
-                : 'bg-stone-100 border-stone-200 text-stone-400'
-            }`}
-          >
-            <span
-              className="w-2.5 h-2.5 rounded-full inline-block"
-              style={{ backgroundColor: activeTypes.has(type) ? RELATIONSHIP_COLORS[type] ?? '#78716c' : '#d6d3d1' }}
-            />
-            {RELATIONSHIP_LABELS[type] ?? type}
-          </button>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-6">
-        <SupplyChainGraph
-          nodes={filteredNodes}
-          edges={filteredEdges}
-          stageColors={STAGE_COLORS}
-          relationshipColors={RELATIONSHIP_COLORS}
-          selectedNodeId={selectedNodeId}
-          onNodeClick={setSelectedNodeOverride}
-        />
-
-        {selectedNode && (
-          <Card>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-sm font-semibold text-stone-800">{selectedNode.label}</h3>
-                <div className="flex items-center gap-2 mt-1">
-                  {selectedNode.valueChainStage && (
-                    <span
-                      className="text-[10px] px-1.5 py-0.5 rounded border"
-                      style={{
-                        backgroundColor: `${STAGE_COLORS[selectedNode.valueChainStage] ?? '#78716c'}10`,
-                        borderColor: `${STAGE_COLORS[selectedNode.valueChainStage] ?? '#78716c'}40`,
-                        color: STAGE_COLORS[selectedNode.valueChainStage] ?? '#78716c',
-                      }}
-                    >
-                      {STAGE_LABELS[selectedNode.valueChainStage] ?? selectedNode.valueChainStage}
-                    </span>
-                  )}
-                  <span className="text-[10px] text-stone-400">{selectedNode.country}</span>
-                </div>
-              </div>
-
-              {selectedInbound.length > 0 && (
-                <div>
-                  <p className="text-xs font-medium text-stone-500 mb-1.5">
-                    Innkommende ({selectedInbound.length})
-                  </p>
-                  <ul className="space-y-1.5">
-                    {selectedInbound.map((e) => {
-                      const from = nodeById.get(e.source)
-                      return (
-                        <li
-                          key={e.id}
-                          className={`text-xs text-stone-600 flex items-start gap-2 ${
-                            selectedRelationshipId === e.id ? 'font-semibold' : ''
-                          }`}
-                        >
-                          <span
-                            className="w-2 h-2 rounded-full shrink-0 mt-0.5"
-                            style={{ backgroundColor: RELATIONSHIP_COLORS[e.relationshipType] ?? '#78716c' }}
-                          />
-                          <span>
-                            <span className="font-medium">{from?.label ?? e.source}</span>
-                            <span className="text-stone-400">
-                              {' '}{RELATIONSHIP_LABELS[e.relationshipType] ?? e.relationshipType}
-                            </span>
-                            {e.sector && (
-                              <span className="text-stone-300"> ({e.sector})</span>
-                            )}
-                          </span>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
-              )}
-
-              {selectedOutbound.length > 0 && (
-                <div>
-                  <p className="text-xs font-medium text-stone-500 mb-1.5">
-                    Utgående ({selectedOutbound.length})
-                  </p>
-                  <ul className="space-y-1.5">
-                    {selectedOutbound.map((e) => {
-                      const to = nodeById.get(e.target)
-                      return (
-                        <li
-                          key={e.id}
-                          className={`text-xs text-stone-600 flex items-start gap-2 ${
-                            selectedRelationshipId === e.id ? 'font-semibold' : ''
-                          }`}
-                        >
-                          <span
-                            className="w-2 h-2 rounded-full shrink-0 mt-0.5"
-                            style={{ backgroundColor: RELATIONSHIP_COLORS[e.relationshipType] ?? '#78716c' }}
-                          />
-                          <span>
-                            <span className="font-medium">{to?.label ?? e.target}</span>
-                            <span className="text-stone-400">
-                              {' '}{RELATIONSHIP_LABELS[e.relationshipType] ?? e.relationshipType}
-                            </span>
-                            {e.sector && (
-                              <span className="text-stone-300"> ({e.sector})</span>
-                            )}
-                          </span>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
-              )}
-
-              {selectedInbound.length === 0 && selectedOutbound.length === 0 && (
-                <p className="text-xs text-stone-400">Ingen synlige relasjoner med aktive filtre</p>
-              )}
-            </div>
-          </Card>
-        )}
-      </div>
-
-      <div className="flex gap-4 text-xs text-stone-400 px-1">
-        <span>{filteredNodes.length} selskaper</span>
-        <span>{filteredEdges.length} relasjoner</span>
-      </div>
       </section>
 
       <section id="infrastruktur" className="scroll-mt-6">
@@ -861,7 +662,7 @@ export function ForsyningskjedeContent({
             title="Returstrømmer"
             description="Sirkulære looper, gap og næringsstrømmer som viser hvor sidestrømmer kan kobles tilbake i systemet."
             researchStatus="proxy_model"
-            researchStatusDetail="circularity-loops og nutrient-flows er modellert per MS-004. Skal ikke promoteres som validert primaerstatistikk uten metodenotat."
+            researchStatusDetail="circularity-loops og nutrient-flows er modellert per MS-004. Skal ikke promoteres som validert primærstatistikk uten metodenotat."
           />
           <CircularReturnFlowPanel circularReturnFlows={circularReturnFlows} />
           <NutrientFlowsView />

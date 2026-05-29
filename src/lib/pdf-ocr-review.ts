@@ -1,14 +1,21 @@
 export const CLOSED_PDF_OCR_REVIEW_ACTIONS = ['archived', 'updated'] as const
+export const CLOSED_PDF_REPLACEMENT_REVIEW_ACTIONS = ['replaced_by_local_text'] as const
 
 export const MIN_USABLE_OCR_WORDS = 100
 
 export type ClosedPdfOcrReviewAction = (typeof CLOSED_PDF_OCR_REVIEW_ACTIONS)[number]
+export type ClosedPdfReplacementReviewAction =
+  (typeof CLOSED_PDF_REPLACEMENT_REVIEW_ACTIONS)[number]
 
 export type PdfOcrReviewRow = {
   path?: string
   action?: string
   ocr_word_count?: string
   ocrWordCount?: number
+  replacement_path?: string
+  replacementPath?: string
+  replacement_word_count?: string
+  replacementWordCount?: number
 }
 
 export type PdfQualityIssueRow = {
@@ -41,6 +48,28 @@ export function parseOcrWordCount(row: PdfOcrReviewRow): number {
   return Number(row.ocr_word_count) || 0
 }
 
+export function parseReplacementWordCount(row: PdfOcrReviewRow): number {
+  if (typeof row.replacementWordCount === 'number') return row.replacementWordCount
+  return Number(row.replacement_word_count) || 0
+}
+
+export function isClosedPdfReplacementReviewAction(
+  action: string | null | undefined,
+): action is ClosedPdfReplacementReviewAction {
+  return CLOSED_PDF_REPLACEMENT_REVIEW_ACTIONS.includes(
+    (action ?? '').trim() as ClosedPdfReplacementReviewAction,
+  )
+}
+
+function hasUsableReplacementText(row: PdfOcrReviewRow, action: string): boolean {
+  const replacementPath = (row.replacementPath ?? row.replacement_path ?? '').trim()
+  return (
+    isClosedPdfReplacementReviewAction(action) &&
+    replacementPath.length > 0 &&
+    parseReplacementWordCount(row) >= MIN_USABLE_OCR_WORDS
+  )
+}
+
 export function buildPdfOcrReviewMap(
   rows: PdfOcrReviewRow[],
 ): Map<string, PdfOcrReview> {
@@ -56,7 +85,9 @@ export function buildPdfOcrReviewMap(
       path,
       action,
       ocrWordCount,
-      isClosed: isClosedPdfOcrReviewAction(action) && ocrWordCount >= MIN_USABLE_OCR_WORDS,
+      isClosed:
+        (isClosedPdfOcrReviewAction(action) && ocrWordCount >= MIN_USABLE_OCR_WORDS) ||
+        hasUsableReplacementText(row, action),
     })
   }
 

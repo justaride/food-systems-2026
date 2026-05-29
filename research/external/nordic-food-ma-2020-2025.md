@@ -37,7 +37,7 @@ The Nordic food system experienced significant M&A activity during 2020-2025, dr
 ### 3. Axfood / City Gross Acquisition (2024)
 
 - **Acquirer**: Axfood AB (SE-556542-5353)
-- **Target**: City Gross Sverige AB (SE-556448-4498)
+- **Target**: City Gross Sverige AB (SE-556597-2451)
 - **Value**: SEK 2.0 billion (cash and debt free basis)
 - **Ownership change**: 9.9% -> 100%
 - **Announced**: June 2024

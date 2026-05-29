@@ -336,7 +336,7 @@ export function NutrientFlowsView({ defaultCountry = 'NO' }: { defaultCountry?: 
             <ResearchEvidenceBadge
               status="proxy_model"
               prefix="Researchstatus"
-              detail="MS-004 nutrient flow model. Brukes analytisk med metodeforbehold, ikke som observert primaerstatistikk."
+              detail="MS-004 nutrient flow model. Brukes analytisk med metodeforbehold, ikke som observert primærstatistikk."
             />
           </div>
           <p className="text-xs text-stone-500">

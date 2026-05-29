@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { auditCitableReportDocuments } from '../../src/lib/citations/report-claim-audit'
+import { auditCitableReportDocuments, auditCoverageClaims } from '../../src/lib/citations/report-claim-audit'
+import type { CoverageProfile } from '../../src/lib/coverage/types'
 
 function baseInput(overrides: Partial<Parameters<typeof auditCitableReportDocuments>[0]> = {}) {
   return {
@@ -48,6 +49,55 @@ describe('report claim audit', () => {
       }),
     )
 
+    assert.deepEqual(issues, [])
+  })
+})
+
+function coverageProfile(overrides: Partial<CoverageProfile> = {}): CoverageProfile {
+  return {
+    datasetId: 'd1',
+    label: 'D1',
+    temporal: { kind: 'snapshot', year: 2025 },
+    geographic: { countries: ['NO'], presentedAs: 'nordic', noAsNordicProxy: true },
+    verification: { total: 100, humanVerified: 5, machineVerified: 90, needsReview: 5, humanVerifiedPct: 5, rollup: 'machine_grade' },
+    computedAt: '2026-05-29T00:00:00.000Z',
+    computedEnv: 'local',
+    ...overrides,
+  }
+}
+
+describe('auditCoverageClaims', () => {
+  it('blocks geographic overclaim (nordic claim, NO-only data)', () => {
+    const issues = auditCoverageClaims(
+      [{ ref: 'kap/figur', assertedScope: { datasetId: 'd1', geo: 'nordic' } }],
+      [coverageProfile()],
+    )
+    assert.deepEqual(issues.map((i) => i.code), ['geographic_overclaim'])
+    assert.equal(issues[0].severity, 'blocking')
+  })
+  it('blocks temporal overclaim (trend claim, snapshot data)', () => {
+    const issues = auditCoverageClaims(
+      [{ ref: 'kap/figur', assertedScope: { datasetId: 'd1', temporal: 'trend' } }],
+      [coverageProfile()],
+    )
+    assert.deepEqual(issues.map((i) => i.code), ['temporal_overclaim'])
+  })
+  it('blocks verification overclaim (verified claim, not human_grade)', () => {
+    const issues = auditCoverageClaims(
+      [{ ref: 'kap/figur', assertedScope: { datasetId: 'd1', verified: true } }],
+      [coverageProfile()],
+    )
+    assert.deepEqual(issues.map((i) => i.code), ['verification_overclaim'])
+  })
+  it('blocks when the datasetId has no profile (fail-closed)', () => {
+    const issues = auditCoverageClaims([{ ref: 'kap/figur', assertedScope: { datasetId: 'ukjent', geo: 'nordic' } }], [])
+    assert.deepEqual(issues.map((i) => i.code), ['coverage_profile_missing'])
+  })
+  it('passes a truthful weak claim', () => {
+    const issues = auditCoverageClaims(
+      [{ ref: 'kap/figur', assertedScope: { datasetId: 'd1', geo: 'no', temporal: 'point', verified: false } }],
+      [coverageProfile()],
+    )
     assert.deepEqual(issues, [])
   })
 })

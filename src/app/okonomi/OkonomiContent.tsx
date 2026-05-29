@@ -534,7 +534,7 @@ export function OkonomiContent({
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
-            placeholder="Sok etter selskap..."
+            placeholder="Søk etter selskap..."
             className="flex-1 px-3 py-2 rounded-lg border border-stone-200 bg-white text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
           />
           <button
@@ -582,7 +582,7 @@ export function OkonomiContent({
       </Card>
 
       {selectedCompanies.length === 0 ? (
-        <EmptyState message="Velg minst ett selskap for a vise grafer" />
+        <EmptyState message="Velg minst ett selskap for å vise grafer" />
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <RevenueTrendChart data={revenueData} companies={companyMeta} />
@@ -597,8 +597,8 @@ export function OkonomiContent({
 
       <Card title="Selskaper med finansielle data">
         <p className="text-xs text-stone-500 mb-3">
-          Siste tilgjengelige arstall per selskap. Klikk for a se full selskapsprofil. Tilskudd
-          aggregerer alle ar i databasen.
+          Siste tilgjengelige årstall per selskap. Klikk for å se full selskapsprofil. Tilskudd
+          aggregerer alle år i databasen.
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
@@ -606,7 +606,7 @@ export function OkonomiContent({
               <tr className="border-b border-stone-200">
                 <th className="text-left py-2 font-medium text-stone-400">Selskap</th>
                 <th className="text-left py-2 font-medium text-stone-400">Verdikjede</th>
-                <th className="text-right py-2 font-medium text-stone-400">Siste ar</th>
+                <th className="text-right py-2 font-medium text-stone-400">Siste år</th>
                 <th className="text-right py-2 font-medium text-stone-400">Omsetning</th>
                 <th className="text-right py-2 font-medium text-stone-400">YoY</th>
                 <th className="text-right py-2 font-medium text-stone-400">Driftsmargin</th>
@@ -685,9 +685,9 @@ export function OkonomiContent({
           </table>
         </div>
         <p className="text-[10px] text-stone-400 mt-3">
-          YoY = prosentvis endring i omsetning mellom siste og nest siste ar med registrert
-          omsetning. Driftsresultat = operatingResult (Bronnoysund arsrapport). Tilskudd-sum
-          henter fra Subsidy-tabellen og dekker samtlige registrerte ar.
+          YoY = prosentvis endring i omsetning mellom siste og nest siste år med registrert
+          omsetning. Driftsresultat = operatingResult (Brønnøysund årsrapport). Tilskudd-sum
+          henter fra Subsidy-tabellen og dekker samtlige registrerte år.
         </p>
       </Card>
 
@@ -714,7 +714,7 @@ export function OkonomiContent({
               <div className="text-2xl font-bold text-stone-900">{subsidyAggregates.topRecipients.length}</div>
             </div>
             <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
-              <div className="text-xs uppercase tracking-wider text-stone-400">Samlet belop</div>
+              <div className="text-xs uppercase tracking-wider text-stone-400">Samlet beløp</div>
               <div className="text-2xl font-bold text-stone-900">
                 {subsidyAggregates.totalAmountNok > 0
                   ? `${(subsidyAggregates.totalAmountNok / 1e6).toFixed(0)} MNOK`
@@ -725,7 +725,7 @@ export function OkonomiContent({
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <Card title="Tilskudd per type">
-              <p className="text-xs text-stone-500 mb-3">Samlet belop fordelt pa tilskuddstype</p>
+              <p className="text-xs text-stone-500 mb-3">Samlet beløp fordelt på tilskuddstype</p>
               <div className="space-y-2">
                 {subsidyAggregates.byType.map(t => {
                   const maxAmount = subsidyAggregates.byType[0]?.totalAmountNok || 1
@@ -751,7 +751,7 @@ export function OkonomiContent({
             </Card>
 
             <Card title="Topp-mottakere">
-              <p className="text-xs text-stone-500 mb-3">De 10 selskapene med hoyest samlet tilskuddsbelop</p>
+              <p className="text-xs text-stone-500 mb-3">De 10 selskapene med høyest samlet tilskuddsbeløp</p>
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead>

@@ -24,6 +24,7 @@
 | 6 | 13.04.2026 | [JT + Gabriel — Arbeidsmøte](JT-GABRIEL%20-%20Arbeidsm%C3%B8te%2013-04-26.md) | Jan Thomas, Gabriel, Thea (kort) | Fysisk | `JT-GABRIEL - Arbeidsmøte 13-04-26.md` |
 | 7 | 20.04.2026 | [JT + Gabriel — R9, sirkularitetsspørsmål og fôr](JT-GABRIEL%20-%20Arbeidsm%C3%B8te%2020-04-26.md) | Jan Thomas, Gabriel | Fysisk | `JT-GABRIEL - Arbeidsmøte 20-04-26.md` |
 | 8 | 21.04.2026 | [Transition Groups — Mandat, scoping, aktørkartlegging og plattformstatus](TRANSITION%20GROUPS%20-%20M%C3%B8te%2021-04-26.md) | Jan Thomas, Gabriel, Cathrine, Thea, Kristian m.fl. | Fysisk + digitalt | `TRANSITION GROUPS - Møte 21-04-26.md` |
+| 9 | 26.05.2026 | [JT + Gabriel — Metodeoverføring Cities/Food](JT-GABRIEL%20-%20Metodeoverforing%20Cities%20Food%20mai%202026.md) | Jan Thomas, Gabriel | Cross-project intake | `JT-GABRIEL - Metodeoverforing Cities Food mai 2026.md` |
 
 ---
 
@@ -108,6 +109,13 @@
 - **Kommunikasjon:** Thea lager struktur for kommunikasjonsplan, prosjektside og realistisk posteplan basert på NCC-format
 - **JT/Gabriel:** Food må spisses mot hvor sirkularitet faktisk kan erstatte virgin råstoff, redusere importavhengighet og løse pain points for sirkulære aktører
 
+### Møte 9 — 26.05.2026: Metodeoverføring Cities/Food
+- **Type:** Cross-project intake, ikke formelt Food TG-vedtak
+- **Overført materiale:** Wageningen/Moerman/R9-metode fra Cities/JT-audit til Food-local kontrollprosess
+- **Status:** Internt metodegrunnlag med forbehold; ikke source-closed, ikke claim-closed og ikke eksternt validert
+- **Food-eierskap:** Food TG eier videre source-registration, claim-lock, scorecard og valideringssprint
+- **Stoppsignal:** Ikke bruk WUR-score, Moerman-ladder eller Ghana/Costa Rica/Nederland-caser som nordisk pilot- eller effektbevis
+
 ---
 
 ## Dokumenter referert i møtene
@@ -120,6 +128,7 @@
 | Mandate for Transition Group - Circular Food | Finnes | `docs/project/mandates/mandate-for-transition-group-food-2026-04-21.pdf` |
 | Detaljoversikt for Food-mandatet | Finnes | `docs/project/mandates/food-transition-group-mandate-2026-04-21.md` |
 | Transition Group overview working doc | Finnes | `docs/project/mandates/transition-group-overview-working-doc-2026.pdf` |
+| Food/Cities metodeoverføring Wageningen/Moerman | Finnes | `docs/meetings/JT-GABRIEL - Metodeoverforing Cities Food mai 2026.md`; `docs/project/mandates/food-tg-wageningen-moerman-method-transfer-2026-05-26.md` |
 | Statusanalyse og arbeidsplan mot mandat | Finnes | `docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md` |
 | Detaljert innsiktsprosess og verktøyplan | Finnes | `docs/project/plans/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md` |
 | Oslo Innovasjonsprogram-søknad | Finnes | `1. Food system_ Oslo Innovasjons program 2025.md` |

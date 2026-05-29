@@ -1,5 +1,9 @@
 import { prisma } from '@/lib/db'
+import { actorRelationshipGraphEdge } from '@/lib/actor-relationship-graph'
 import { buildBoardMemberGraphArtifacts } from '@/lib/graph-board-members'
+import { inferGraphConfidence, isBlockedExternalGraphSource, structuralGraphConfidence } from '@/lib/graph-confidence'
+import { analyzeGraphIsolates, type GraphIsolateSummary } from '@/lib/graph-isolates'
+import { analyzePersonNameDuplicates, type PersonDuplicateTriageSummary } from '@/lib/person-duplicate-triage'
 import { isMissingPrismaTable } from './prisma-errors'
 
 export type GraphNode = {
@@ -30,6 +34,7 @@ export type GraphQualityReport = {
   companyOrgNrDuplicates: DuplicateGroup[]
   personNameDuplicates: DuplicateGroup[]
   personKeyDuplicates: DuplicateGroup[]
+  personDuplicateTriage: PersonDuplicateTriageSummary
   businessRelationshipDuplicates: DuplicateGroup[]
   orphanBoardMembers: Array<{ companyId: string; companyName: string; personKey: string; personName: string }>
   boardMemberProfileGaps: Array<{ companyId: string; companyName: string; personKey: string; personName: string }>
@@ -38,6 +43,7 @@ export type GraphQualityReport = {
     withConfidence: number
     withoutConfidence: number
   }
+  isolatedNodeTriage: GraphIsolateSummary
 }
 
 export type GraphData = {
@@ -72,62 +78,15 @@ function groupBy<T>(items: T[], keyFn: (item: T) => string | null | undefined): 
   return map
 }
 
-/**
- * Infer confidence for a graph edge. Returns a number 0..1 or undefined when
- * no signal is available. We do NOT invent fake values — absent = undefined.
- *
- * Inputs:
- *   - metadata.confidence (already 0..1) wins
- *   - else map `sourceType`/`source` to bucket:
- *       primary  → 0.95  (e.g. brreg, offentligdata, official registry)
- *       secondary→ 0.7   (e.g. news, annual-report, press)
- *       inferred → 0.4   (e.g. inferred, derived, heuristic)
- */
-function inferConfidence(
-  metadata: unknown,
-  source: string | null | undefined,
-): { confidence?: number; sourceLabel?: string } {
-  const meta = metadata as { confidence?: unknown; sourceType?: unknown } | null | undefined
-  const metaConf =
-    meta && typeof meta === 'object' && 'confidence' in meta ? meta.confidence : undefined
-  if (typeof metaConf === 'number' && metaConf >= 0 && metaConf <= 1) {
-    return { confidence: metaConf, sourceLabel: source ?? undefined }
+function structuralEdge(source: string, target: string, type: string): GraphEdge {
+  const { confidence, sourceLabel } = structuralGraphConfidence(type)
+  return {
+    source,
+    target,
+    type,
+    ...(confidence !== undefined ? { confidence } : {}),
+    ...(sourceLabel ? { sourceLabel } : {}),
   }
-
-  if (!source) return { sourceLabel: undefined }
-  const s = source.toLowerCase()
-  if (s.includes('brreg') || s.includes('offentligdata') || s.includes('registry') || s.includes('official')) {
-    return { confidence: 0.95, sourceLabel: source }
-  }
-  if (
-    s.includes('inferred') ||
-    s.includes('derived') ||
-    s.includes('heuristic') ||
-    s.includes('estimated')
-  ) {
-    return { confidence: 0.4, sourceLabel: source }
-  }
-  if (
-    s.includes('report') ||
-    s.includes('press') ||
-    s.includes('news') ||
-    s.includes('media') ||
-    s.includes('annual')
-  ) {
-    return { confidence: 0.7, sourceLabel: source }
-  }
-  return { sourceLabel: source }
-}
-
-function isBlockedExternalGraphSource(source: string | null | undefined) {
-  if (!source) return false
-  const normalized = source.toLowerCase()
-  return (
-    normalized.includes('blocked-unsourced') ||
-    normalized.includes('blocked_unsourced') ||
-    normalized.includes('legacy_unsourced') ||
-    normalized.includes('unverified-label')
-  )
 }
 
 export async function getDocumentGraph(id: string): Promise<GraphData> {
@@ -164,7 +123,7 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
       })
       seen.add(ref.to.id)
     }
-    edges.push({ source: doc.id, target: ref.to.id, type: ref.refType })
+    edges.push(structuralEdge(doc.id, ref.to.id, ref.refType))
   }
 
   for (const ref of doc.refsTo) {
@@ -178,7 +137,7 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
       })
       seen.add(ref.from.id)
     }
-    edges.push({ source: ref.from.id, target: doc.id, type: ref.refType })
+    edges.push(structuralEdge(ref.from.id, doc.id, ref.refType))
   }
 
   for (const ref of doc.insightDocumentRefs) {
@@ -192,7 +151,7 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
       })
       seen.add(ref.insight.id)
     }
-    edges.push({ source: doc.id, target: ref.insight.id, type: 'insight-ref' })
+    edges.push(structuralEdge(doc.id, ref.insight.id, 'insight-ref'))
   }
 
   for (const ref of doc.companyDocumentRefs) {
@@ -200,7 +159,7 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
       nodes.push({ id: ref.company.id, label: ref.company.name, type: 'company', href: `/selskap/${ref.company.id}` })
       seen.add(ref.company.id)
     }
-    edges.push({ source: doc.id, target: ref.company.id, type: 'company-ref' })
+    edges.push(structuralEdge(doc.id, ref.company.id, 'company-ref'))
   }
 
   try {
@@ -220,7 +179,7 @@ export async function getDocumentGraph(id: string): Promise<GraphData> {
         })
         seen.add(ref.actor.id)
       }
-      edges.push({ source: doc.id, target: ref.actor.id, type: 'actor-ref' })
+      edges.push(structuralEdge(doc.id, ref.actor.id, 'actor-ref'))
     }
   } catch (error) {
     if (!isMissingPrismaTable(error, 'Actor')) throw error
@@ -245,7 +204,13 @@ export async function getFullGraph(): Promise<GraphData> {
 
   let actors: Array<{ id: string; slug: string; name: string; themeTags: string[]; companyId: string | null }> = []
   let actorRefs: Array<{ actorId: string; documentId: string }> = []
-  let actorRelationships: Array<{ fromActorId: string; toActorId: string; relationType: string }> = []
+  let actorRelationships: Array<{
+    fromActorId: string
+    toActorId: string
+    relationType: string
+    source: string | null
+    metadata: unknown
+  }> = []
 
   try {
     ;[actors, actorRefs, actorRelationships] = await Promise.all([
@@ -260,7 +225,7 @@ export async function getFullGraph(): Promise<GraphData> {
       }),
       prisma.actorDocumentRef.findMany({ select: { actorId: true, documentId: true } }),
       prisma.actorRelationship.findMany({
-        select: { fromActorId: true, toActorId: true, relationType: true },
+        select: { fromActorId: true, toActorId: true, relationType: true, source: true, metadata: true },
       }),
     ])
   } catch (error) {
@@ -373,23 +338,23 @@ export async function getFullGraph(): Promise<GraphData> {
     const roles = p.roles as Array<{ companyId?: string }>
     return roles
       .filter(r => r.companyId && companyIdSet.has(r.companyId))
-      .map(r => ({ source: p.id, target: r.companyId!, type: 'person-role' }))
+      .map(r => structuralEdge(p.id, r.companyId!, 'person-role'))
   })
 
   const edges: GraphEdge[] = [
-    ...docRefs.map(r => ({ source: r.fromId, target: r.toId, type: r.refType })),
-    ...insightRefs.map(r => ({ source: r.documentId, target: r.insightId, type: 'insight-ref' })),
-    ...companyRefs.map(r => ({ source: r.documentId, target: r.companyId, type: 'company-ref' })),
-    ...actorRefs.map(r => ({ source: r.documentId, target: r.actorId, type: 'actor-ref' })),
-    ...actorRelationships.map(r => ({ source: r.fromActorId, target: r.toActorId, type: r.relationType })),
+    ...docRefs.map(r => structuralEdge(r.fromId, r.toId, r.refType)),
+    ...insightRefs.map(r => structuralEdge(r.documentId, r.insightId, 'insight-ref')),
+    ...companyRefs.map(r => structuralEdge(r.documentId, r.companyId, 'company-ref')),
+    ...actorRefs.map(r => structuralEdge(r.documentId, r.actorId, 'actor-ref')),
+    ...actorRelationships.map(actorRelationshipGraphEdge),
     ...actors
       .filter(a => a.companyId)
-      .map(a => ({ source: a.id, target: a.companyId!, type: 'company-link' })),
+      .map(a => structuralEdge(a.id, a.companyId!, 'company-link')),
     ...theses
       .filter(t => t.documentId)
-      .map(t => ({ source: t.documentId!, target: t.id, type: 'thesis-doc' })),
+      .map(t => structuralEdge(t.documentId!, t.id, 'thesis-doc')),
     ...publicOwnershipEdges.map((r) => {
-      const { confidence, sourceLabel } = inferConfidence(r.metadata, r.source)
+      const { confidence, sourceLabel } = inferGraphConfidence(r.metadata, r.source)
       return {
         source: r.parentCompanyId,
         target: r.childCompanyId,
@@ -399,7 +364,7 @@ export async function getFullGraph(): Promise<GraphData> {
       }
     }),
     ...publicBizRelEdges.map((r) => {
-      const { confidence, sourceLabel } = inferConfidence(r.metadata, r.source)
+      const { confidence, sourceLabel } = inferGraphConfidence(r.metadata, r.source)
       return {
         source: r.fromCompanyId,
         target: r.toCompanyId,
@@ -412,7 +377,7 @@ export async function getFullGraph(): Promise<GraphData> {
     ...personEdges,
     ...boardMemberGraph.edges,
     ...publicProperties.map((p) => {
-      const { confidence, sourceLabel } = inferConfidence(p.metadata, p.source)
+      const { confidence, sourceLabel } = inferGraphConfidence(p.metadata, p.source)
       return {
         source: p.companyId,
         target: p.id,
@@ -424,7 +389,7 @@ export async function getFullGraph(): Promise<GraphData> {
     ...publicProperties
       .filter(p => p.tenantCompanyId)
       .map((p) => {
-        const { confidence, sourceLabel } = inferConfidence(p.metadata, p.source)
+        const { confidence, sourceLabel } = inferGraphConfidence(p.metadata, p.source)
         return {
           source: p.tenantCompanyId!,
           target: p.id,
@@ -450,6 +415,7 @@ export async function getFullGraph(): Promise<GraphData> {
   const personNameDuplicates: DuplicateGroup[] = [...personNameGroups.entries()]
     .filter(([, v]) => v.length > 1)
     .map(([key, v]) => ({ key, label: v[0].name, ids: v.map(p => p.id) }))
+  const personDuplicateTriage = analyzePersonNameDuplicates(personNameDuplicates, personProfiles)
 
   const personKeyGroups = groupBy(personProfiles, (p) => p.personKey?.trim() || null)
   const personKeyDuplicates: DuplicateGroup[] = [...personKeyGroups.entries()]
@@ -481,12 +447,14 @@ export async function getFullGraph(): Promise<GraphData> {
     }))
 
   const edgesWithConfidence = edges.filter((e) => typeof e.confidence === 'number').length
+  const isolatedNodeTriage = analyzeGraphIsolates(nodes, edges)
 
   const quality: GraphQualityReport = {
     companyNameDuplicates,
     companyOrgNrDuplicates,
     personNameDuplicates,
     personKeyDuplicates,
+    personDuplicateTriage,
     businessRelationshipDuplicates,
     orphanBoardMembers,
     boardMemberProfileGaps: boardMemberGraph.boardMemberProfileGaps,
@@ -495,6 +463,7 @@ export async function getFullGraph(): Promise<GraphData> {
       withConfidence: edgesWithConfidence,
       withoutConfidence: edges.length - edgesWithConfidence,
     },
+    isolatedNodeTriage,
   }
 
   return { nodes, edges, quality }

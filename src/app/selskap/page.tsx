@@ -14,6 +14,7 @@ export default async function SelskaperPage({
   const companies = await getCompanies()
 
   const rows = companies.map(c => ({
+    hasFinancialRow: Boolean(c.financials[0]),
     id: c.id,
     name: c.name,
     orgNr: c.orgNr,

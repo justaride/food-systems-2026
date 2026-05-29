@@ -1922,4 +1922,14 @@ export const sources: SourceDoc[] = [
     description: 'Primærtranskripsjon fra Transition Groups-møte 21. april 2026 om mandat, scoping, aktørkartlegging og plattformstatus.',
     relevance: 'Primærunderlag for meeting-8, Food TG-mandat, aktørkartlegging og valideringslogikk.',
   },
+  {
+    id: 'src-181',
+    filename: 'docs/meetings/JT-GABRIEL - Metodeoverforing Cities Food mai 2026.md',
+    title: 'JT-Gabriel metodeoverforing Cities/Food mai 2026',
+    author: 'Jan Thomas Odegard / Gabriel Freeman',
+    year: 2026,
+    type: 'notat',
+    description: 'Food-local cross-project intake note for Wageningen/Moerman/R9 material transferred from Cities/JT review into Food TG method control.',
+    relevance: 'Primærunderlag for meeting-9 and caveated Wageningen/Moerman method-transfer registration.',
+  },
 ]

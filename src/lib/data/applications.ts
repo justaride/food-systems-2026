@@ -7,11 +7,11 @@ export const applications: Application[] = [
     year: 2024,
     status: 'avslatt',
     budget: '4 MNOK (2M NI + 2M egenandel)',
-    scope: 'Fullskala nordisk materialstromanalyse, 10+ sirkulaere losninger, Transition Group med 20+ medlemmer',
+    scope: 'Fullskala nordisk materialstrømanalyse, 10+ sirkulære løsninger, Transition Group med 20+ medlemmer',
     partners: [
       'Natural State (NO)',
-      'Center for Cirkulaer Okonomi (DK)',
-      'Linkoping University (SE)',
+      'Center for Cirkulær Økonomi (DK)',
+      'Linköping University (SE)',
       'University of Eastern Finland (FI)',
       'Iceland Ocean Cluster (IS)',
       'Nalik Ventures (GL/DK)',
@@ -21,7 +21,7 @@ export const applications: Application[] = [
     ],
     phases: [
       { name: 'Mapping og metodeutvikling', months: '1-4' },
-      { name: 'Materialstromanalyser', months: '5-8' },
+      { name: 'Materialstrømanalyser', months: '5-8' },
       { name: 'Syntese og implementering', months: '9-12' },
     ],
   },
@@ -49,11 +49,11 @@ export const applications: Application[] = [
   },
   {
     id: 'oslo-2025',
-    title: 'Fagmiljo og entreprenorskapsarena for innovative urbane matsystemer (Oslo)',
+    title: 'Fagmiljø og entreprenørskapsarena for innovative urbane matsystemer (Oslo)',
     year: 2025,
     status: 'pagaende',
     budget: '1M tilskudd (2M totalt med egenandel)',
-    scope: 'Lokalt/urbant sirkulaert matsystem i Gamlebyen, Oslo',
+    scope: 'Lokalt/urbant sirkulært matsystem i Gamlebyen, Oslo',
     partners: [
       'Natural State',
       'Gamlebyen Loft',

@@ -16,6 +16,12 @@ type LinkTarget = {
 
 const targets: LinkTarget[] = [
   {
+    sourceDocId: 'src-39',
+    reportId: 'beredskap-finsk-modell-hvk',
+    documentFilePath: 'bibliotek/beredskap/finsk-modell-hvk.md',
+    note: 'HVK / NESA Finnish security-of-supply model',
+  },
+  {
     sourceDocId: 'src-food-17957bbc99a8',
     documentFilePath:
       'research/arkiv-sortert/Food Research Process 20.04.26/04_Food_Waste_And_Circularity/Policy commitment_ Reducing food waste for a green Nordic Region _ Nordic cooperation.pdf',

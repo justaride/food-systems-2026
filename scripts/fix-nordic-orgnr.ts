@@ -36,6 +36,7 @@ const fixes: OrgNrFix[] = [
 
   // --- Sweden (verified via allabolag.se) ---
   { oldOrgNr: 'SE-556070-3166', newOrgNr: 'SE-556004-7903', name: 'Dagab Inkop & Logistik AB' },
+  { oldOrgNr: 'SE-556448-4498', newOrgNr: 'SE-556597-2451', name: 'City Gross Sverige AB' },
 ]
 
 async function fixOrgNumbers() {
@@ -92,13 +93,28 @@ async function addCityGross() {
   console.log('\n=== Adding City Gross Sverige AB ===\n')
   const cityGross = await prisma.company.upsert({
     where: { orgNr: 'SE-556597-2451' },
-    update: { name: 'City Gross Sverige AB' },
+    update: {
+      name: 'City Gross Sverige AB',
+      country: 'SE',
+      legalForm: 'AB',
+      founded: 2000,
+      hqCity: 'Hässleholm',
+      hqAddress: 'Industrigatan 22',
+      employees: 1871,
+      ownershipType: 'listed',
+      valueChainStage: 'retail',
+      naceCode: '47.110',
+      naceDescription: 'Detaljhandel med livsmedel',
+    },
     create: {
       name: 'City Gross Sverige AB',
       orgNr: 'SE-556597-2451',
       country: 'SE',
       legalForm: 'AB',
-      hqCity: 'Halmstad',
+      founded: 2000,
+      hqCity: 'Hässleholm',
+      hqAddress: 'Industrigatan 22',
+      employees: 1871,
       ownershipType: 'listed',
       valueChainStage: 'retail',
       naceCode: '47.110',
@@ -106,6 +122,27 @@ async function addCityGross() {
     },
   })
   console.log(`  City Gross Sverige AB (SE-556597-2451)`)
+
+  await prisma.companyFinancial.upsert({
+    where: { companyId_year: { companyId: cityGross.id, year: 2025 } },
+    update: {
+      revenueNok: 8898,
+      operatingResult: -192,
+      operatingMargin: -2.2,
+      groupEmployees: 1871,
+      source: 'Axfood City Gross key figures 2025. SEK 8,898M net sales; SEK -192M operating profit; 1 SEK ≈ 1.00 NOK',
+    },
+    create: {
+      companyId: cityGross.id,
+      year: 2025,
+      revenueNok: 8898,
+      operatingResult: -192,
+      operatingMargin: -2.2,
+      groupEmployees: 1871,
+      source: 'Axfood City Gross key figures 2025. SEK 8,898M net sales; SEK -192M operating profit; 1 SEK ≈ 1.00 NOK',
+    },
+  })
+  console.log('  2025 key figures')
 
   const axfood = await prisma.company.findUnique({ where: { orgNr: 'SE-556542-5353' }, select: { id: true } })
   if (axfood) {
@@ -121,7 +158,7 @@ async function addCityGross() {
 async function main() {
   console.log('==========================================')
   console.log('  Nordic orgNr correction migration')
-  console.log('  16 ID fixes + 1 removal + 1 addition')
+  console.log('  17 ID fixes + 1 removal + 1 addition')
   console.log('==========================================\n')
 
   await fixOrgNumbers()

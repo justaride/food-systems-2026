@@ -190,7 +190,7 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
               type="text"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Sok etter aktor, tema eller ask..."
+              placeholder="Søk etter aktør, tema eller ask..."
               className="w-full px-4 py-3 rounded-xl border border-stone-200 bg-white text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
             />
             <div className="flex flex-wrap gap-2">
@@ -358,7 +358,7 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
 
               {actor.currentRelevance && (
                 <p className="mt-3 text-sm text-stone-600">
-                  <span className="font-medium text-stone-700">Hvorfor na:</span> {actor.currentRelevance}
+                  <span className="font-medium text-stone-700">Hvorfor nå:</span> {actor.currentRelevance}
                 </p>
               )}
 
@@ -412,4 +412,3 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
     </div>
   )
 }
-

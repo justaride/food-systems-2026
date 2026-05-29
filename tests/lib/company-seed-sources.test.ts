@@ -3,6 +3,20 @@ import { readFileSync } from 'node:fs'
 import { describe, it } from 'node:test'
 
 describe('company seed source corrections', () => {
+  it('keeps City Gross as a structured Axfood subsidiary with verified 2025 key figures', () => {
+    const source = readFileSync('scripts/import-company-data.ts', 'utf8')
+    const cityGrossIndex = source.indexOf("name: 'City Gross Sverige AB'")
+    const cityGrossBlock = cityGrossIndex >= 0 ? source.slice(cityGrossIndex, cityGrossIndex + 1200) : ''
+
+    assert.ok(cityGrossBlock, 'expected a City Gross seed block')
+    assert.match(cityGrossBlock, /orgNr: 'SE-556597-2451'/)
+    assert.match(cityGrossBlock, /employees: 1871/)
+    assert.match(cityGrossBlock, /ownershipType: 'listed'/)
+    assert.match(cityGrossBlock, /naceDescription: 'Detaljhandel med livsmedel'/)
+    assert.match(cityGrossBlock, /year: 2025, revenueNok: 8898, operatingResult: -192, operatingMargin: -2\.2, groupEmployees: 1871/)
+    assert.match(cityGrossBlock, /source: 'Axfood City Gross key figures 2025/)
+  })
+
   it('keeps Oda shareholder seed on the checked direct shareholder row', () => {
     const source = readFileSync('scripts/import-company-data.ts', 'utf8')
     const odaIndex = source.indexOf("name: 'Oda'")

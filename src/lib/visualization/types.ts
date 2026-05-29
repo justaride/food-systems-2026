@@ -1,3 +1,5 @@
+import type { CoverageProfile } from '@/lib/coverage/types'
+
 export type EvidenceStatus = 'observed' | 'estimated' | 'proxy' | 'illustrative'
 
 export type ResearchEvidenceStatus =
@@ -22,4 +24,5 @@ export type VisualizationDataContract = {
   evidenceStatus: EvidenceStatus
   sourceRefs: VisualizationSourceRef[]
   coverageNote?: string
+  coverage?: CoverageProfile // NY: beregnet dekning (audit-sjekkbar sannhet)
 }
