@@ -29,4 +29,11 @@ export const DATASETS: DatasetSpec[] = [
     metricType: 'selfSufficiency',
     presentedAs: 'nordic',
   },
+  {
+    id: 'soya-sporbarhet-dk',
+    label: 'Soya-sporbarhet (IFRO, Danmark)',
+    model: 'countryMetric',
+    metricType: 'feedImportTraceability',
+    presentedAs: 'no',
+  },
 ]

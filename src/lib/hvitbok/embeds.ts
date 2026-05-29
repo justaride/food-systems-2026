@@ -84,6 +84,7 @@ export const chapterEmbeds: Record<string, Record<string, EmbedDefinition>> = {
       value: '6',
       enhet: '%',
       kilde: 'IFRO/KU 2025',
+      assertedScope: { datasetId: 'soya-sporbarhet-dk', temporal: 'point', verified: false },
     },
     'eudr-frist': {
       kind: 'callout',
