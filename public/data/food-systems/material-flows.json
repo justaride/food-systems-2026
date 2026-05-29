@@ -642,13 +642,122 @@
       "loopId": "dk-kalundborg",
       "nodes": [
         {
-          "id": "waste-heat-water-materials-exchanged-between-co-located-industries-incl-food",
+          "id": "symbiosis",
+          "type": "actor",
+          "label": "Kalundborg Symbiosis",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "power-plant",
+          "type": "process",
+          "label": "Co-located power plant",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "food-industry",
           "type": "category",
-          "label": "Waste heat/water/materials exchanged between co-located industries incl. food",
+          "label": "Co-located food industry",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "co-located-industry",
+          "type": "category",
+          "label": "Co-located industries",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "gypsum-board",
+          "type": "category",
+          "label": "Gypsum board production",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "shared-water",
+          "type": "category",
+          "label": "Shared water supply",
           "valueChainStep": "processing"
         }
       ],
-      "edges": []
+      "edges": [
+        {
+          "id": "dk-kalundborg-e0",
+          "fromId": "symbiosis",
+          "toId": "shared-water",
+          "material": "vann",
+          "rLevel": "R7",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "dk-kalundborg-e1",
+          "fromId": "shared-water",
+          "toId": "co-located-industry",
+          "material": "vann",
+          "rLevel": "R7",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "dk-kalundborg-e2",
+          "fromId": "power-plant",
+          "toId": "food-industry",
+          "material": "restvarme",
+          "rLevel": "R7",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "dk-kalundborg-e3",
+          "fromId": "power-plant",
+          "toId": "co-located-industry",
+          "material": "restvarme",
+          "rLevel": "R7",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "dk-kalundborg-e4",
+          "fromId": "power-plant",
+          "toId": "gypsum-board",
+          "material": "gips",
+          "rLevel": "R7",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "dk-kalundborg-e5",
+          "fromId": "food-industry",
+          "toId": "co-located-industry",
+          "material": "materialer",
+          "rLevel": "R7",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            }
+          ]
+        }
+      ]
     },
     {
       "loopId": "nordic-gasum",
