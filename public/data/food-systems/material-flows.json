@@ -47,7 +47,7 @@
             "value": 8100,
             "unit": "GWh/yr"
           },
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "IEA Bioenergy DK 2024"
@@ -63,7 +63,7 @@
           "toId": "biogas-digestate",
           "material": "anaerobic digestion",
           "rLevel": "R9",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "IEA Bioenergy DK 2024"
@@ -79,7 +79,7 @@
           "toId": "energy-fertilizer",
           "material": "biogas + digestate",
           "rLevel": "R9",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "IEA Bioenergy DK 2024"
@@ -95,7 +95,7 @@
           "toId": "agriculture",
           "material": "energy + fertilizer",
           "rLevel": "R9",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "IEA Bioenergy DK 2024"
@@ -252,7 +252,7 @@
             "value": 800000,
             "unit": "tonnes"
           },
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "posisjonsdokument"
@@ -268,7 +268,7 @@
           "toId": "fishmeal-fish-oil",
           "material": "rendering",
           "rLevel": "R7",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "posisjonsdokument"
@@ -284,7 +284,7 @@
           "toId": "feed-supplements",
           "material": "fishmeal + fish oil",
           "rLevel": "R7",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "posisjonsdokument"
@@ -329,7 +329,7 @@
             "value": 300,
             "unit": "MNOK"
           },
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "posisjonsdokument"
@@ -342,7 +342,7 @@
           "toId": "premium-whey-protein-products",
           "material": "protein isolation",
           "rLevel": "R6",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "posisjonsdokument"
@@ -384,7 +384,7 @@
             "value": 5735,
             "unit": "tonnes"
           },
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "Matsentralen"
@@ -400,7 +400,7 @@
           "toId": "vulnerable-populations",
           "material": "food banks",
           "rLevel": "R3",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "Matsentralen"
@@ -445,7 +445,7 @@
             "value": 25,
             "unit": "M"
           },
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "SA-02"
@@ -461,7 +461,7 @@
           "toId": "consumers-via-app",
           "material": "discounted magic bags",
           "rLevel": "R1",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "SA-02"
@@ -506,7 +506,7 @@
             "value": 274,
             "unit": "rings"
           },
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "SA-02"
@@ -519,7 +519,7 @@
           "toId": "consumers-pick-up-at-designated-spots",
           "material": "Facebook groups",
           "rLevel": "R1",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "SA-02"
@@ -616,7 +616,7 @@
             "value": 37,
             "unit": "bn"
           },
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "verdikjede.ts"
@@ -629,7 +629,7 @@
           "toId": "universal-free-meals-since-1946-fi-1948-se",
           "material": "school kitchens",
           "rLevel": "R2",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "verdikjede.ts"
@@ -679,7 +679,7 @@
           "toId": "lbg-transport",
           "material": "Biogas production in FI/SE",
           "rLevel": "R9",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "SA-02"
@@ -692,7 +692,7 @@
           "toId": "heavy-vehicle-fuel-across-nordics",
           "material": "LBG transport",
           "rLevel": "R9",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "SA-02"
@@ -734,7 +734,7 @@
             "value": 2000,
             "unit": "GWh"
           },
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "SA-02"
@@ -750,7 +750,7 @@
           "toId": "vehicle-fuel-fertilizer",
           "material": "biogas + digestate",
           "rLevel": "R9",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "SA-02"
@@ -875,7 +875,7 @@
             "value": 320,
             "unit": "leiligheter"
           },
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "Mote JT-Gabriel 20.04.26"
@@ -891,7 +891,7 @@
           "toId": "naeringsgjenvinning-n-p-k",
           "material": "separat rorsystem",
           "rLevel": "R8",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "Mote JT-Gabriel 20.04.26"
@@ -907,7 +907,7 @@
           "toId": "jordbruk",
           "material": "naeringsgjenvinning (N, P, K)",
           "rLevel": "R8",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "Mote JT-Gabriel 20.04.26"
@@ -958,7 +958,7 @@
             "value": 300000,
             "unit": "t/yr"
           },
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "Perplexity sidestromskartlegging 20.04.26"
@@ -980,7 +980,7 @@
           "toId": "brewers-spent-grain-bsg",
           "material": "mashing/lautering",
           "rLevel": "R7",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "Perplexity sidestromskartlegging 20.04.26"
@@ -1002,7 +1002,7 @@
           "toId": "local-livestock-feed-cattle-pigs",
           "material": "brewers spent grain (BSG)",
           "rLevel": "R7",
-          "evidenceStatus": "illustrative",
+          "evidenceStatus": "estimated",
           "sourceRefs": [
             {
               "label": "Perplexity sidestromskartlegging 20.04.26"
