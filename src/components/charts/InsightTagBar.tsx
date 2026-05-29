@@ -32,7 +32,7 @@ const NORMALIZE_MAP: Record<string, string> = {
 
 function normalize(tag: string) {
   const lower = tag.toLowerCase()
-  return NORMALIZE_MAP[lower] ?? tag
+  return NORMALIZE_MAP[lower] ?? lower
 }
 
 export function InsightTagBar({ insights, activeTags, onToggle, topN = 15 }: InsightTagBarProps) {

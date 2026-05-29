@@ -13,7 +13,7 @@ type Props = {
 }
 
 const BAR_COLORS = ['#e11d48', '#2563eb', '#16a34a', '#ea580c', '#7c3aed', '#0891b2', '#c026d3', '#65a30d']
-const CURRENT_YEAR = 2026
+const CURRENT_YEAR = new Date().getFullYear()
 const LABEL_WIDTH = 200
 const CHART_WIDTH = 500
 const ROW_HEIGHT = 28

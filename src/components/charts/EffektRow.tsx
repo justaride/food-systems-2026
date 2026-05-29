@@ -1,6 +1,7 @@
 'use client'
 
 import type { CircularLeverage } from '@/lib/data/circular-leverage'
+import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
 import { EffectBar } from './EffectBar'
 
 const COUNTRY_LABEL: Record<string, string> = {
@@ -60,6 +61,9 @@ export function EffektRow({ leverage: l, isExpanded, onToggle, onNavigateToTab }
 
       {isExpanded && (
         <div className="px-4 pb-4 pl-14 border-t border-stone-100 text-sm text-stone-700">
+          <div className="mt-3">
+            <EvidenceStatusBadge status={l.evidenceStatus} />
+          </div>
           <div className="mt-3">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-stone-500 mb-1">Begrunnelse</p>
             <p className="leading-relaxed">{l.justification}</p>
