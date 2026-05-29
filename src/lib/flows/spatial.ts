@@ -62,8 +62,10 @@ export function resolveFlowCoordinates(loops: LoopFlows[], lookups: FlowCoordLoo
     for (const node of loop.nodes) {
       const base = { loopId: loop.loopId, nodeId: node.id, label: node.label, type: node.type }
 
-      // Tier 1: curated — try node.ref, node.id, normalized label (first hit wins).
-      const candidates = [node.ref, node.id, normalizeKey(node.label)].filter(Boolean) as string[]
+      // Tier 1: curated — try loop-scoped key first (prevents the same generic node id,
+      // e.g. "jordbruk", in two loops from sharing one curated coordinate), then node.ref,
+      // bare node.id, normalized label (first hit wins).
+      const candidates = [`${loop.loopId}::${node.id}`, node.ref, node.id, normalizeKey(node.label)].filter(Boolean) as string[]
       let hit: CuratedCoord | undefined
       for (const c of candidates) {
         hit = lookups.curated.get(c)

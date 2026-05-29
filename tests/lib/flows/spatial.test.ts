@@ -101,3 +101,31 @@ describe('summarizeCoverage', () => {
     assert.equal(counts.estimated, 0)
   })
 })
+
+describe('loop-scoped curated keys', () => {
+  // The same generic node id ("jordbruk") in two loops must NOT share one curated
+  // coordinate. A loop-scoped key (`loopId::nodeId`) binds the coord to one loop only.
+  const twoLoops: LoopFlows[] = [
+    { loopId: 'no-magiske-fabrikken', nodes: [{ id: 'jordbruk', type: 'category', label: 'jordbruk' }], edges: [] },
+    { loopId: 'se-helsingborg-blackwater', nodes: [{ id: 'jordbruk', type: 'category', label: 'jordbruk' }], edges: [] },
+  ]
+  const scopedLookups: FlowCoordLookups = {
+    curated: new Map([
+      ['no-magiske-fabrikken::jordbruk', { coord: [10.33, 59.36] as [number, number], precision: 'kommune_centroid', source: 'Tønsberg' }],
+    ]),
+    aquacultureByRef: new Map(),
+  }
+  const out = resolveFlowCoordinates(twoLoops, scopedLookups)
+
+  it('places only the loop named in the curated key', () => {
+    const no = out.find(r => r.loopId === 'no-magiske-fabrikken' && r.nodeId === 'jordbruk')!
+    assert.deepEqual(no.coord, [10.33, 59.36])
+    assert.equal(no.precision, 'kommune_centroid')
+  })
+
+  it('leaves the same node id in another loop unknown (no coordinate bleed)', () => {
+    const se = out.find(r => r.loopId === 'se-helsingborg-blackwater' && r.nodeId === 'jordbruk')!
+    assert.equal(se.coord, undefined)
+    assert.equal(se.precision, 'unknown')
+  })
+})
