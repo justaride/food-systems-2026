@@ -17,6 +17,7 @@ import {
   type FarmType,
 } from '@/lib/map/types'
 import { getVulnerabilityColor } from '@/lib/map/vulnerability'
+import { buildCircularFlowLayer } from './CircularFlowLayer'
 
 delete (L.Icon.Default.prototype as unknown as { _getIconUrl?: unknown })._getIconUrl
 L.Icon.Default.mergeOptions({
@@ -67,11 +68,13 @@ export default function FoodMap() {
   const propertiesRef = useRef<L.LayerGroup | null>(null)
   const logisticsRef = useRef<L.LayerGroup | null>(null)
   const farmsRef = useRef<L.LayerGroup | null>(null)
+  const circularFlowRef = useRef<L.LayerGroup | null>(null)
 
   const {
     stores, geojson, activeLayers, activeChains, municipalities,
     aquacultureSites, processingPlants, ports, vulnerabilityScores,
     companyProperties, logisticsHubs, farms, setSelectedMunicipality, countryConfig,
+    country, circularNodes, materialFlows,
   } = useMapContext()
   const [mapReady, setMapReady] = useState(false)
 
@@ -376,6 +379,25 @@ export default function FoodMap() {
       farmsRef.current = null
     }
   }, [farms, activeLayers, municipalities])
+
+  // Circular material flows (spatial) — default-off layer
+  useEffect(() => {
+    if (!mapRef.current) return
+    if (circularFlowRef.current) {
+      mapRef.current.removeLayer(circularFlowRef.current)
+      circularFlowRef.current = null
+    }
+    if (!activeLayers.includes('circular-flows') || !circularNodes || !materialFlows) return
+
+    const layer = buildCircularFlowLayer({ circularNodes, materialFlows, aquacultureSites, country })
+    layer.addTo(mapRef.current)
+    circularFlowRef.current = layer
+
+    return () => {
+      if (mapRef.current && layer) mapRef.current.removeLayer(layer)
+      circularFlowRef.current = null
+    }
+  }, [circularNodes, materialFlows, aquacultureSites, activeLayers, country])
 
   // Food desert layer (5km radius circles)
   useEffect(() => {

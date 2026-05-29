@@ -1,6 +1,6 @@
 export type StoreType = 'discount' | 'convenience' | 'supermarket' | 'hypermarket'
 
-export type MapLayer = 'stores' | 'boundaries' | 'aquaculture' | 'processing' | 'ports' | 'desert' | 'vulnerability' | 'properties' | 'logistics' | 'farms'
+export type MapLayer = 'stores' | 'boundaries' | 'aquaculture' | 'processing' | 'ports' | 'desert' | 'vulnerability' | 'properties' | 'logistics' | 'farms' | 'circular-flows'
 
 export type MunicipalityMetrics = {
   storeCount: number

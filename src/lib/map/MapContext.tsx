@@ -10,6 +10,7 @@ import { calculateVulnerabilityScores, type VulnerabilityScore } from './vulnera
 import { assignStoresToMunicipalities } from './pip'
 import type { CountryConfig, CountryCode } from '@/lib/config/countries'
 import { getCountryConfig } from '@/lib/config/countries'
+import type { MaterialFlowsFile } from '@/lib/flows/types'
 
 type MapContextType = {
   isLoading: boolean
@@ -31,6 +32,8 @@ type MapContextType = {
   municipalityMetrics: Record<string, MunicipalityMetrics>
   vulnerabilityScores: Record<string, VulnerabilityScore>
   companyProperties: GeoJSON.FeatureCollection | null
+  circularNodes: GeoJSON.FeatureCollection | null
+  materialFlows: MaterialFlowsFile | null
   selectedMunicipality: string | null
   setSelectedMunicipality: (code: string | null) => void
 }
@@ -165,6 +168,8 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
   const [logisticsHubs, setLogisticsHubs] = useState<LogisticsHub[]>([])
   const [farms, setFarms] = useState<Farm[]>([])
   const [companyProperties, setCompanyProperties] = useState<GeoJSON.FeatureCollection | null>(null)
+  const [circularNodes, setCircularNodes] = useState<GeoJSON.FeatureCollection | null>(null)
+  const [materialFlows, setMaterialFlows] = useState<MaterialFlowsFile | null>(null)
   const [selectedMunicipality, setSelectedMunicipality] = useState<string | null>(null)
 
   useEffect(() => {
@@ -179,6 +184,8 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
     setPorts([])
     setLogisticsHubs([])
     setFarms([])
+    setCircularNodes(null)
+    setMaterialFlows(null)
     setSelectedMunicipality(null)
 
     const fetchJson = (url: string) =>
@@ -211,10 +218,12 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
         dataFiles.ports ? optionalFetch(dataPath(country, dataFiles.ports)) : Promise.resolve(null),
         dataFiles.logistics ? optionalFetch(dataPath(country, dataFiles.logistics)) : Promise.resolve(null),
         dataFiles.farms ? optionalFetch(dataPath(country, dataFiles.farms)) : Promise.resolve(null),
+        optionalFetch('/data/food-systems/circular-nodes.geojson'),
+        optionalFetch('/data/food-systems/material-flows.json'),
       ]
 
       Promise.all([...required, ...optional])
-        .then(([storesData, municipalitiesData, geojsonData, aquaData, plantData, portData, hubData, farmData]) => {
+        .then(([storesData, municipalitiesData, geojsonData, aquaData, plantData, portData, hubData, farmData, circularNodesData, materialFlowsData]) => {
           setStores(storesData)
           setMunicipalities(municipalitiesData)
           setGeojson(geojsonData)
@@ -223,6 +232,8 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
           if (portData) setPorts(parsePorts(portData))
           if (hubData) setLogisticsHubs(parseLogisticsHubs(hubData))
           if (farmData) setFarms(parseFarms(farmData))
+          if (circularNodesData) setCircularNodes(circularNodesData)
+          if (materialFlowsData) setMaterialFlows(materialFlowsData)
           setIsLoading(false)
 
           if (country === 'no') {
@@ -323,13 +334,15 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
     municipalityMetrics,
     vulnerabilityScores,
     companyProperties,
+    circularNodes,
+    materialFlows,
     selectedMunicipality,
     setSelectedMunicipality,
   }), [
     isLoading, error, country, countryConfig, stores, municipalities, geojson,
     activeLayers, toggleLayer, activeChains, toggleChain,
     aquacultureSites, processingPlants, ports, logisticsHubs, farms,
-    municipalityMetrics, vulnerabilityScores, companyProperties, selectedMunicipality,
+    municipalityMetrics, vulnerabilityScores, companyProperties, circularNodes, materialFlows, selectedMunicipality,
   ])
 
   return (
