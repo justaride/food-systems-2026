@@ -41,9 +41,10 @@ type CuratedFeature = {
   properties?: { key?: string; precision?: string; source?: string }
 }
 
-export function buildCuratedLookup(geojson: { features?: CuratedFeature[] }): Map<string, CuratedCoord> {
+export function buildCuratedLookup(geojson: unknown): Map<string, CuratedCoord> {
   const map = new Map<string, CuratedCoord>()
-  for (const f of geojson.features ?? []) {
+  const features = (geojson as { features?: CuratedFeature[] })?.features ?? []
+  for (const f of features) {
     const key = f.properties?.key
     const coords = f.geometry?.coordinates
     if (!key || !Array.isArray(coords) || coords.length < 2) continue
