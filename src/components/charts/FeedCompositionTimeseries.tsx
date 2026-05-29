@@ -314,15 +314,16 @@ export function FeedCompositionTimeseries() {
         )}
       </div>
 
-      {chartData.some((d) => typeof d.total_feed_raw_materials_tonnes === 'number') && (
-        <p className="text-[10px] text-stone-400 mt-2">
-          Siste dokumenterte totalvolum (2020):{' '}
-          {formatTonnes(
-            data.timeseries.find((r) => r.year === 2020)?.total_feed_raw_materials_tonnes ?? null,
-          )}{' '}
-          · {data.timeseries.find((r) => r.year === 2020)?.domestic_share_pct}% norsk andel
-        </p>
-      )}
+      {(() => {
+        const vol2020 = data.timeseries.find((r) => r.year === 2020)?.total_feed_raw_materials_tonnes
+        return vol2020 != null ? (
+          <p className="text-[10px] text-stone-400 mt-2">
+            Siste dokumenterte totalvolum (2020):{' '}
+            {formatTonnes(vol2020)}{' '}
+            · {data.timeseries.find((r) => r.year === 2020)?.domestic_share_pct}% norsk andel
+          </p>
+        ) : null
+      })()}
 
       <div className="mt-3 flex items-center gap-2 flex-wrap">
         <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">

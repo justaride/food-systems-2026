@@ -103,8 +103,6 @@ export function KommuneChoropleth({
     }
 
     const values = Object.values(data).filter((v) => Number.isFinite(v) && v > 0)
-    const max = values.length > 0 ? Math.max(...values) : 1
-    const min = values.length > 0 ? Math.min(...values) : 0
     const thresholds = quantileThresholds(values, colorStops.length)
 
     const layer = L.geoJSON(geojson, {

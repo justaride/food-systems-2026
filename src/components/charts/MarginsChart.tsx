@@ -50,7 +50,7 @@ export function MarginsChart({ country = 'no' }: { country?: string }) {
             />
             <ReferenceLine
               y={industryAvg}
-              label={{ value: 'Bransjesn.', fontSize: 10, fill: '#78716c' }}
+              label={{ value: 'Bransjesn. (Konkurransetilsynet)', fontSize: 10, fill: '#78716c' }}
               stroke="#f43f5e"
               strokeDasharray="3 3"
             />

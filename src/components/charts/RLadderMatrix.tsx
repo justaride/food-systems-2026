@@ -132,7 +132,7 @@ export function RLadderMatrix({ items }: Props) {
           <tbody>
             {rLadder.map((step) => {
               const rowItems = cells.filter((c) => c.rLevel === step.id)
-              const rowTotal = rowItems.reduce((sum, c) => sum + c.items.length, 0)
+              const rowTotal = new Set(rowItems.flatMap((c) => c.items.map((i) => i.id))).size
               return (
                 <tr key={step.id}>
                   <td className="pr-2 py-1 align-middle">

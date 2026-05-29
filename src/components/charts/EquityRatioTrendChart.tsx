@@ -42,7 +42,6 @@ export function EquityRatioTrendChart({ data, companies }: EquityRatioTrendChart
             tickLine={false}
             axisLine={false}
             unit="%"
-            label={{ value: '%', angle: -90, position: 'insideLeft', style: { fontSize: 10, fill: '#a8a29e' } }}
           />
           <Tooltip
             contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e7e5e4' }}

@@ -119,19 +119,19 @@ export function InsightTimeline({ insights }: { insights: InsightRow[] }) {
               wrapperStyle={{ fontSize: 10, color: '#57534e' }}
               formatter={(name) => phaseLabel(String(name))}
             />
-            {phaseKeys.map((key) => (
+            {phaseKeys.map((key, idx) => (
               <Bar
                 key={key}
                 dataKey={key}
                 stackId="phase"
                 fill={PHASE_COLORS[key] ?? '#a8a29e'}
-                radius={[3, 3, 0, 0]}
+                radius={idx === phaseKeys.length - 1 ? [3, 3, 0, 0] : [0, 0, 0, 0]}
               />
             ))}
           </BarChart>
         </ResponsiveContainer>
       </div>
-      <ChartSource source="Aggregert per måned fra registreringsdato" />
+      <ChartSource source="Aggregert per måned fra registreringsdato · dokumenter uten eksakt dato plasseres i desember" />
     </Card>
   )
 }

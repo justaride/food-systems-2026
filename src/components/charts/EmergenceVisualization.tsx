@@ -99,7 +99,7 @@ export function EmergenceVisualization() {
   const concentration = getConcentration(agents)
   const total = agents.length
   const hhi = concentration.reduce((sum, c) => {
-    const share = (c / total) * 100
+    const share = total > 0 ? (c / total) * 100 : 0
     return sum + share * share
   }, 0)
 
