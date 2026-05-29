@@ -21,7 +21,7 @@ describe('validateMaterialFlows', () => {
     assert.deepEqual(issues.map((i) => i.code), ['observed_without_citable_source'])
   })
   it('passes observed with a citable source', () => {
-    const issues = validateMaterialFlows(loop([{ id: 'e0', fromId: 'a', toId: 'b', material: 'A', evidenceStatus: 'observed', sourceRefs: [{ label: 'x', url: 'https://x' }] }]))
+    const issues = validateMaterialFlows(loop([{ id: 'e0', fromId: 'a', toId: 'b', material: 'A', evidenceStatus: 'observed', sourceRefs: [{ label: 'x', href: 'https://x' }] }]))
     assert.deepEqual(issues, [])
   })
   it('blocks estimated without any source', () => {

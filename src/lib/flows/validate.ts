@@ -7,12 +7,7 @@ const KNOWN_HREFS = new Set(Object.values(CIRCULARITY_ACTOR_MAP).map((l) => l.hr
 
 function isCitable(refs: VisualizationSourceRef[]): boolean {
   return refs.some(
-    (r) =>
-      r.citationReadiness === 'citable_external' ||
-      r.citationReadiness === 'citable_with_note' ||
-      !!r.href ||
-      !!(r as unknown as Record<string, unknown>)['url'] ||
-      !!r.path,
+    (r) => r.citationReadiness === 'citable_external' || r.citationReadiness === 'citable_with_note' || !!r.href || !!r.path,
   )
 }
 
