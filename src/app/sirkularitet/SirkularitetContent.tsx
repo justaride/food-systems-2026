@@ -13,6 +13,7 @@ import { EffektTab } from '@/components/charts/EffektTab'
 import { circularityQuestions, type CircularityQuestion, type QuestionStatus } from '@/lib/data/circularity-questions'
 import { CIRCULARITY_ACTOR_MAP } from '@/lib/data/circularity-actor-map'
 import { rLadderById } from '@/lib/data/r-ladder'
+import { MaterialFlowTab } from '@/components/charts/MaterialFlowTab'
 
 const NutrientFlowsView = dynamic(
   () => import('@/components/charts/NutrientFlowsView').then(mod => mod.NutrientFlowsView),
@@ -113,7 +114,7 @@ const COUNTRY_FLAGS: Record<string, string> = {
   nordic: 'Norden',
 }
 
-type Tab = 'matrix' | 'effekt' | 'maturity' | 'kpi' | 'questions' | 'loops' | 'gaps' | 'actors' | 'naeringsflyt'
+type Tab = 'matrix' | 'effekt' | 'maturity' | 'kpi' | 'questions' | 'loops' | 'gaps' | 'actors' | 'naeringsflyt' | 'flyt'
 
 const QUESTION_STATUS_LABEL: Record<QuestionStatus, string> = {
   open: 'apen',
@@ -274,7 +275,7 @@ export function SirkularitetContent() {
       <NordicCircularityBenchmark />
 
       <div className="flex gap-2 flex-wrap">
-        {(['matrix', 'effekt', 'maturity', 'kpi', 'questions', 'loops', 'gaps', 'actors', 'naeringsflyt'] as Tab[]).map((t) => (
+        {(['matrix', 'effekt', 'maturity', 'kpi', 'questions', 'loops', 'gaps', 'actors', 'naeringsflyt', 'flyt'] as Tab[]).map((t) => (
           <button
             key={t}
             type="button"
@@ -294,6 +295,7 @@ export function SirkularitetContent() {
             {t === 'gaps' && `Gap og muligheter (${data.gaps.length})`}
             {t === 'actors' && `Aktørcaser (${allSuccess.length + allFailure.length})`}
             {t === 'naeringsflyt' && `Næringsflyt N/P/K`}
+            {t === 'flyt' && `Materialflyt`}
           </button>
         ))}
       </div>
@@ -325,6 +327,8 @@ export function SirkularitetContent() {
       {tab === 'kpi' && <R9KpiCatalog />}
 
       {tab === 'naeringsflyt' && <NutrientFlowsView />}
+
+      {tab === 'flyt' && <MaterialFlowTab />}
 
       {tab === 'questions' && (
         <div className="space-y-4">

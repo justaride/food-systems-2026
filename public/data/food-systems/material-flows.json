@@ -1,0 +1,1759 @@
+{
+  "generated": "2026-05-29",
+  "description": "Strukturerte materialstrømmer per sirkulær-loop (nøklet på loopId mot circularity-loops.json). Bootstrap-skjeletter er illustrative; kuratering løfter evidens + tall.",
+  "loops": [
+    {
+      "loopId": "dk-biogas",
+      "nodes": [
+        {
+          "id": "food-waste-manure",
+          "type": "category",
+          "label": "Food waste + manure",
+          "valueChainStep": "waste"
+        },
+        {
+          "id": "anaerobic-digestion",
+          "type": "category",
+          "label": "anaerobic digestion",
+          "valueChainStep": "waste"
+        },
+        {
+          "id": "biogas-digestate",
+          "type": "category",
+          "label": "biogas + digestate",
+          "valueChainStep": "waste"
+        },
+        {
+          "id": "energy-fertilizer",
+          "type": "category",
+          "label": "energy + fertilizer",
+          "valueChainStep": "waste"
+        },
+        {
+          "id": "agriculture",
+          "type": "category",
+          "label": "agriculture",
+          "valueChainStep": "waste"
+        }
+      ],
+      "edges": [
+        {
+          "id": "dk-biogas-e0",
+          "fromId": "food-waste-manure",
+          "toId": "anaerobic-digestion",
+          "material": "Food waste + manure",
+          "rLevel": "R9",
+          "quantity": {
+            "value": 8100,
+            "unit": "GWh/yr"
+          },
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "IEA Bioenergy DK 2024"
+            },
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "dk-biogas-e1",
+          "fromId": "anaerobic-digestion",
+          "toId": "biogas-digestate",
+          "material": "anaerobic digestion",
+          "rLevel": "R9",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "IEA Bioenergy DK 2024"
+            },
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "dk-biogas-e2",
+          "fromId": "biogas-digestate",
+          "toId": "energy-fertilizer",
+          "material": "biogas + digestate",
+          "rLevel": "R9",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "IEA Bioenergy DK 2024"
+            },
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "dk-biogas-e3",
+          "fromId": "energy-fertilizer",
+          "toId": "agriculture",
+          "material": "energy + fertilizer",
+          "rLevel": "R9",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "IEA Bioenergy DK 2024"
+            },
+            {
+              "label": "SA-02"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "no-pant",
+      "nodes": [
+        {
+          "id": "consumers",
+          "type": "category",
+          "label": "Consumers",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "return-machines",
+          "type": "category",
+          "label": "return machines",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "infinitum",
+          "type": "actor",
+          "label": "Infinitum",
+          "ref": "/aktorer/infinitum",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "recyclers",
+          "type": "category",
+          "label": "recyclers",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "new-bottles-cans",
+          "type": "category",
+          "label": "new bottles/cans",
+          "valueChainStep": "retail"
+        }
+      ],
+      "edges": [
+        {
+          "id": "no-pant-e0",
+          "fromId": "consumers",
+          "toId": "return-machines",
+          "material": "Consumers",
+          "rLevel": "R8",
+          "quantity": {
+            "value": 92.3,
+            "unit": "%"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Infinitum"
+            },
+            {
+              "label": "verdikjede.ts"
+            }
+          ]
+        },
+        {
+          "id": "no-pant-e1",
+          "fromId": "return-machines",
+          "toId": "infinitum",
+          "material": "return machines",
+          "rLevel": "R8",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Infinitum"
+            },
+            {
+              "label": "verdikjede.ts"
+            }
+          ]
+        },
+        {
+          "id": "no-pant-e2",
+          "fromId": "infinitum",
+          "toId": "recyclers",
+          "material": "Infinitum",
+          "rLevel": "R8",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Infinitum"
+            },
+            {
+              "label": "verdikjede.ts"
+            }
+          ]
+        },
+        {
+          "id": "no-pant-e3",
+          "fromId": "recyclers",
+          "toId": "new-bottles-cans",
+          "material": "recyclers",
+          "rLevel": "R8",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Infinitum"
+            },
+            {
+              "label": "verdikjede.ts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "no-fiskeavfall",
+      "nodes": [
+        {
+          "id": "fish-heads-bones-organs",
+          "type": "category",
+          "label": "Fish heads/bones/organs",
+          "valueChainStep": "seafood"
+        },
+        {
+          "id": "rendering",
+          "type": "category",
+          "label": "rendering",
+          "valueChainStep": "seafood"
+        },
+        {
+          "id": "fishmeal-fish-oil",
+          "type": "category",
+          "label": "fishmeal + fish oil",
+          "valueChainStep": "seafood"
+        },
+        {
+          "id": "feed-supplements",
+          "type": "category",
+          "label": "feed/supplements",
+          "valueChainStep": "seafood"
+        }
+      ],
+      "edges": [
+        {
+          "id": "no-fiskeavfall-e0",
+          "fromId": "fish-heads-bones-organs",
+          "toId": "rendering",
+          "material": "Fish heads/bones/organs",
+          "rLevel": "R7",
+          "quantity": {
+            "value": 800000,
+            "unit": "tonnes"
+          },
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "posisjonsdokument"
+            },
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "no-fiskeavfall-e1",
+          "fromId": "rendering",
+          "toId": "fishmeal-fish-oil",
+          "material": "rendering",
+          "rLevel": "R7",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "posisjonsdokument"
+            },
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "no-fiskeavfall-e2",
+          "fromId": "fishmeal-fish-oil",
+          "toId": "feed-supplements",
+          "material": "fishmeal + fish oil",
+          "rLevel": "R7",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "posisjonsdokument"
+            },
+            {
+              "label": "SA-02"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "no-tine-myse",
+      "nodes": [
+        {
+          "id": "cheese-production-whey",
+          "type": "category",
+          "label": "Cheese production whey",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "protein-isolation",
+          "type": "category",
+          "label": "protein isolation",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "premium-whey-protein-products",
+          "type": "category",
+          "label": "premium whey protein products",
+          "valueChainStep": "processing"
+        }
+      ],
+      "edges": [
+        {
+          "id": "no-tine-myse-e0",
+          "fromId": "cheese-production-whey",
+          "toId": "protein-isolation",
+          "material": "Cheese production whey",
+          "rLevel": "R6",
+          "quantity": {
+            "value": 300,
+            "unit": "MNOK"
+          },
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "posisjonsdokument"
+            }
+          ]
+        },
+        {
+          "id": "no-tine-myse-e1",
+          "fromId": "protein-isolation",
+          "toId": "premium-whey-protein-products",
+          "material": "protein isolation",
+          "rLevel": "R6",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "posisjonsdokument"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "no-matsentralen",
+      "nodes": [
+        {
+          "id": "surplus-food-from-retail-industry",
+          "type": "category",
+          "label": "Surplus food from retail/industry",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "food-banks",
+          "type": "category",
+          "label": "food banks",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "vulnerable-populations",
+          "type": "category",
+          "label": "vulnerable populations",
+          "valueChainStep": "retail"
+        }
+      ],
+      "edges": [
+        {
+          "id": "no-matsentralen-e0",
+          "fromId": "surplus-food-from-retail-industry",
+          "toId": "food-banks",
+          "material": "Surplus food from retail/industry",
+          "rLevel": "R3",
+          "quantity": {
+            "value": 5735,
+            "unit": "tonnes"
+          },
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "Matsentralen"
+            },
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "no-matsentralen-e1",
+          "fromId": "food-banks",
+          "toId": "vulnerable-populations",
+          "material": "food banks",
+          "rLevel": "R3",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "Matsentralen"
+            },
+            {
+              "label": "SA-02"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "nordic-tgtg",
+      "nodes": [
+        {
+          "id": "surplus-food-from-restaurants-stores",
+          "type": "category",
+          "label": "Surplus food from restaurants/stores",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "discounted-magic-bags",
+          "type": "category",
+          "label": "discounted magic bags",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "consumers-via-app",
+          "type": "category",
+          "label": "consumers via app",
+          "valueChainStep": "retail"
+        }
+      ],
+      "edges": [
+        {
+          "id": "nordic-tgtg-e0",
+          "fromId": "surplus-food-from-restaurants-stores",
+          "toId": "discounted-magic-bags",
+          "material": "Surplus food from restaurants/stores",
+          "rLevel": "R1",
+          "quantity": {
+            "value": 25,
+            "unit": "M"
+          },
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            },
+            {
+              "label": "verdikjede.ts"
+            }
+          ]
+        },
+        {
+          "id": "nordic-tgtg-e1",
+          "fromId": "discounted-magic-bags",
+          "toId": "consumers-via-app",
+          "material": "discounted magic bags",
+          "rLevel": "R1",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            },
+            {
+              "label": "verdikjede.ts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "fi-se-reko",
+      "nodes": [
+        {
+          "id": "local-producers",
+          "type": "category",
+          "label": "Local producers",
+          "valueChainStep": "primary"
+        },
+        {
+          "id": "facebook-groups",
+          "type": "category",
+          "label": "Facebook groups",
+          "valueChainStep": "primary"
+        },
+        {
+          "id": "consumers-pick-up-at-designated-spots",
+          "type": "category",
+          "label": "consumers pick up at designated spots",
+          "valueChainStep": "primary"
+        }
+      ],
+      "edges": [
+        {
+          "id": "fi-se-reko-e0",
+          "fromId": "local-producers",
+          "toId": "facebook-groups",
+          "material": "Local producers",
+          "rLevel": "R1",
+          "quantity": {
+            "value": 274,
+            "unit": "rings"
+          },
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "fi-se-reko-e1",
+          "fromId": "facebook-groups",
+          "toId": "consumers-pick-up-at-designated-spots",
+          "material": "Facebook groups",
+          "rLevel": "R1",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "no-nortura-biprod",
+      "nodes": [
+        {
+          "id": "slaughter-byproducts",
+          "type": "category",
+          "label": "Slaughter byproducts",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "rendering",
+          "type": "category",
+          "label": "rendering",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "animal-feed-pet-food",
+          "type": "category",
+          "label": "animal feed/pet food",
+          "valueChainStep": "processing"
+        }
+      ],
+      "edges": [
+        {
+          "id": "no-nortura-biprod-e0",
+          "fromId": "slaughter-byproducts",
+          "toId": "rendering",
+          "material": "Slaughter byproducts",
+          "rLevel": "R7",
+          "quantity": {
+            "value": 357000,
+            "unit": "t"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "verdikjede.ts"
+            }
+          ]
+        },
+        {
+          "id": "no-nortura-biprod-e1",
+          "fromId": "rendering",
+          "toId": "animal-feed-pet-food",
+          "material": "rendering",
+          "rLevel": "R7",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "verdikjede.ts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "fi-skolmat",
+      "nodes": [
+        {
+          "id": "public-procurement",
+          "type": "category",
+          "label": "Public procurement",
+          "valueChainStep": "horeca"
+        },
+        {
+          "id": "school-kitchens",
+          "type": "category",
+          "label": "school kitchens",
+          "valueChainStep": "horeca"
+        },
+        {
+          "id": "universal-free-meals-since-1946-fi-1948-se",
+          "type": "category",
+          "label": "universal free meals (since 1946 FI / 1948 SE)",
+          "valueChainStep": "horeca"
+        }
+      ],
+      "edges": [
+        {
+          "id": "fi-skolmat-e0",
+          "fromId": "public-procurement",
+          "toId": "school-kitchens",
+          "material": "Public procurement",
+          "rLevel": "R2",
+          "quantity": {
+            "value": 37,
+            "unit": "bn"
+          },
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "verdikjede.ts"
+            }
+          ]
+        },
+        {
+          "id": "fi-skolmat-e1",
+          "fromId": "school-kitchens",
+          "toId": "universal-free-meals-since-1946-fi-1948-se",
+          "material": "school kitchens",
+          "rLevel": "R2",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "verdikjede.ts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "dk-kalundborg",
+      "nodes": [
+        {
+          "id": "waste-heat-water-materials-exchanged-between-co-located-industries-incl-food",
+          "type": "category",
+          "label": "Waste heat/water/materials exchanged between co-located industries incl. food",
+          "valueChainStep": "processing"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "loopId": "nordic-gasum",
+      "nodes": [
+        {
+          "id": "biogas-production-in-fi-se",
+          "type": "category",
+          "label": "Biogas production in FI/SE",
+          "valueChainStep": "waste"
+        },
+        {
+          "id": "lbg-transport",
+          "type": "category",
+          "label": "LBG transport",
+          "valueChainStep": "waste"
+        },
+        {
+          "id": "heavy-vehicle-fuel-across-nordics",
+          "type": "category",
+          "label": "heavy vehicle fuel across Nordics",
+          "valueChainStep": "waste"
+        }
+      ],
+      "edges": [
+        {
+          "id": "nordic-gasum-e0",
+          "fromId": "biogas-production-in-fi-se",
+          "toId": "lbg-transport",
+          "material": "Biogas production in FI/SE",
+          "rLevel": "R9",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            }
+          ]
+        },
+        {
+          "id": "nordic-gasum-e1",
+          "fromId": "lbg-transport",
+          "toId": "heavy-vehicle-fuel-across-nordics",
+          "material": "LBG transport",
+          "rLevel": "R9",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "se-biogas",
+      "nodes": [
+        {
+          "id": "food-waste-manure",
+          "type": "category",
+          "label": "Food waste + manure",
+          "valueChainStep": "waste"
+        },
+        {
+          "id": "biogas-digestate",
+          "type": "category",
+          "label": "biogas + digestate",
+          "valueChainStep": "waste"
+        },
+        {
+          "id": "vehicle-fuel-fertilizer",
+          "type": "category",
+          "label": "vehicle fuel + fertilizer",
+          "valueChainStep": "waste"
+        }
+      ],
+      "edges": [
+        {
+          "id": "se-biogas-e0",
+          "fromId": "food-waste-manure",
+          "toId": "biogas-digestate",
+          "material": "Food waste + manure",
+          "rLevel": "R9",
+          "quantity": {
+            "value": 2000,
+            "unit": "GWh"
+          },
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            },
+            {
+              "label": "IEA Bioenergy SE 2024"
+            }
+          ]
+        },
+        {
+          "id": "se-biogas-e1",
+          "fromId": "biogas-digestate",
+          "toId": "vehicle-fuel-fertilizer",
+          "material": "biogas + digestate",
+          "rLevel": "R9",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "SA-02"
+            },
+            {
+              "label": "IEA Bioenergy SE 2024"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "no-gront-punkt",
+      "nodes": [
+        {
+          "id": "producers-pay-epr-fee",
+          "type": "category",
+          "label": "Producers pay EPR fee",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "gront-punkt",
+          "type": "category",
+          "label": "Gront Punkt",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "collection-sorting",
+          "type": "category",
+          "label": "collection/sorting",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "material-recycling",
+          "type": "category",
+          "label": "material recycling",
+          "valueChainStep": "retail"
+        }
+      ],
+      "edges": [
+        {
+          "id": "no-gront-punkt-e0",
+          "fromId": "producers-pay-epr-fee",
+          "toId": "gront-punkt",
+          "material": "Producers pay EPR fee",
+          "rLevel": "R8",
+          "quantity": {
+            "value": 1000,
+            "unit": "kg"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "SEC-MAT-REG-02"
+            }
+          ]
+        },
+        {
+          "id": "no-gront-punkt-e1",
+          "fromId": "gront-punkt",
+          "toId": "collection-sorting",
+          "material": "Gront Punkt",
+          "rLevel": "R8",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "SEC-MAT-REG-02"
+            }
+          ]
+        },
+        {
+          "id": "no-gront-punkt-e2",
+          "fromId": "collection-sorting",
+          "toId": "material-recycling",
+          "material": "collection/sorting",
+          "rLevel": "R8",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "SEC-MAT-REG-02"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "se-helsingborg-blackwater",
+      "nodes": [
+        {
+          "id": "husholdningssvartvann-matavfall",
+          "type": "category",
+          "label": "Husholdningssvartvann + matavfall",
+          "valueChainStep": "household"
+        },
+        {
+          "id": "separat-rorsystem",
+          "type": "category",
+          "label": "separat rorsystem",
+          "valueChainStep": "household"
+        },
+        {
+          "id": "naeringsgjenvinning-n-p-k",
+          "type": "category",
+          "label": "naeringsgjenvinning (N, P, K)",
+          "valueChainStep": "household"
+        },
+        {
+          "id": "jordbruk",
+          "type": "category",
+          "label": "jordbruk",
+          "valueChainStep": "household"
+        }
+      ],
+      "edges": [
+        {
+          "id": "se-helsingborg-blackwater-e0",
+          "fromId": "husholdningssvartvann-matavfall",
+          "toId": "separat-rorsystem",
+          "material": "Husholdningssvartvann + matavfall",
+          "rLevel": "R8",
+          "quantity": {
+            "value": 320,
+            "unit": "leiligheter"
+          },
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "Mote JT-Gabriel 20.04.26"
+            },
+            {
+              "label": "NSVA Oceanhamnen-rapport"
+            }
+          ]
+        },
+        {
+          "id": "se-helsingborg-blackwater-e1",
+          "fromId": "separat-rorsystem",
+          "toId": "naeringsgjenvinning-n-p-k",
+          "material": "separat rorsystem",
+          "rLevel": "R8",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "Mote JT-Gabriel 20.04.26"
+            },
+            {
+              "label": "NSVA Oceanhamnen-rapport"
+            }
+          ]
+        },
+        {
+          "id": "se-helsingborg-blackwater-e2",
+          "fromId": "naeringsgjenvinning-n-p-k",
+          "toId": "jordbruk",
+          "material": "naeringsgjenvinning (N, P, K)",
+          "rLevel": "R8",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "Mote JT-Gabriel 20.04.26"
+            },
+            {
+              "label": "NSVA Oceanhamnen-rapport"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "nordic-bryggerimask-for",
+      "nodes": [
+        {
+          "id": "brewing-malt",
+          "type": "category",
+          "label": "Brewing malt",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "mashing-lautering",
+          "type": "category",
+          "label": "mashing/lautering",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "brewers-spent-grain-bsg",
+          "type": "category",
+          "label": "brewers spent grain (BSG)",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "local-livestock-feed-cattle-pigs",
+          "type": "category",
+          "label": "local livestock feed (cattle, pigs)",
+          "valueChainStep": "processing"
+        }
+      ],
+      "edges": [
+        {
+          "id": "nordic-bryggerimask-for-e0",
+          "fromId": "brewing-malt",
+          "toId": "mashing-lautering",
+          "material": "Brewing malt",
+          "rLevel": "R7",
+          "quantity": {
+            "value": 300000,
+            "unit": "t/yr"
+          },
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "Perplexity sidestromskartlegging 20.04.26"
+            },
+            {
+              "label": "RISE BSG project (ri.se)"
+            },
+            {
+              "label": "Bryggeriforeningen tall og fakta"
+            },
+            {
+              "label": "DI Foedevarer sidestromme 2024"
+            }
+          ]
+        },
+        {
+          "id": "nordic-bryggerimask-for-e1",
+          "fromId": "mashing-lautering",
+          "toId": "brewers-spent-grain-bsg",
+          "material": "mashing/lautering",
+          "rLevel": "R7",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "Perplexity sidestromskartlegging 20.04.26"
+            },
+            {
+              "label": "RISE BSG project (ri.se)"
+            },
+            {
+              "label": "Bryggeriforeningen tall og fakta"
+            },
+            {
+              "label": "DI Foedevarer sidestromme 2024"
+            }
+          ]
+        },
+        {
+          "id": "nordic-bryggerimask-for-e2",
+          "fromId": "brewers-spent-grain-bsg",
+          "toId": "local-livestock-feed-cattle-pigs",
+          "material": "brewers spent grain (BSG)",
+          "rLevel": "R7",
+          "evidenceStatus": "estimated",
+          "sourceRefs": [
+            {
+              "label": "Perplexity sidestromskartlegging 20.04.26"
+            },
+            {
+              "label": "RISE BSG project (ri.se)"
+            },
+            {
+              "label": "Bryggeriforeningen tall og fakta"
+            },
+            {
+              "label": "DI Foedevarer sidestromme 2024"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "nordic-rapskake-for",
+      "nodes": [
+        {
+          "id": "rapeseed",
+          "type": "category",
+          "label": "Rapeseed",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "oil-pressing",
+          "type": "category",
+          "label": "oil pressing",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "rapeseed-cake-35-40-protein",
+          "type": "category",
+          "label": "rapeseed cake (35-40% protein)",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "livestock-feed-replacing-imported-soy",
+          "type": "category",
+          "label": "livestock feed (replacing imported soy)",
+          "valueChainStep": "processing"
+        }
+      ],
+      "edges": [
+        {
+          "id": "nordic-rapskake-for-e0",
+          "fromId": "rapeseed",
+          "toId": "oil-pressing",
+          "material": "Rapeseed",
+          "rLevel": "R7",
+          "quantity": {
+            "value": 3,
+            "unit": "of"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Perplexity sidestromskartlegging 20.04.26"
+            },
+            {
+              "label": "DI Foedevarer pressekake 2024"
+            },
+            {
+              "label": "Coop RO rapsolje"
+            },
+            {
+              "label": "Felleskjopet kornstatistikk 2024-25"
+            }
+          ]
+        },
+        {
+          "id": "nordic-rapskake-for-e1",
+          "fromId": "oil-pressing",
+          "toId": "rapeseed-cake-35-40-protein",
+          "material": "oil pressing",
+          "rLevel": "R7",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Perplexity sidestromskartlegging 20.04.26"
+            },
+            {
+              "label": "DI Foedevarer pressekake 2024"
+            },
+            {
+              "label": "Coop RO rapsolje"
+            },
+            {
+              "label": "Felleskjopet kornstatistikk 2024-25"
+            }
+          ]
+        },
+        {
+          "id": "nordic-rapskake-for-e2",
+          "fromId": "rapeseed-cake-35-40-protein",
+          "toId": "livestock-feed-replacing-imported-soy",
+          "material": "rapeseed cake (35-40% protein)",
+          "rLevel": "R7",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Perplexity sidestromskartlegging 20.04.26"
+            },
+            {
+              "label": "DI Foedevarer pressekake 2024"
+            },
+            {
+              "label": "Coop RO rapsolje"
+            },
+            {
+              "label": "Felleskjopet kornstatistikk 2024-25"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "no-fisk-avansert-sidestrom",
+      "nodes": [
+        {
+          "id": "fish-heads-frames-skin",
+          "type": "category",
+          "label": "Fish heads/frames/skin",
+          "valueChainStep": "seafood"
+        },
+        {
+          "id": "enzymatic-hydrolysis-extraction",
+          "type": "category",
+          "label": "enzymatic hydrolysis/extraction",
+          "valueChainStep": "seafood"
+        },
+        {
+          "id": "marine-collagen-bioactive-peptides-refined-omega-3",
+          "type": "category",
+          "label": "marine collagen, bioactive peptides, refined omega-3",
+          "valueChainStep": "seafood"
+        },
+        {
+          "id": "supplements-cosmetics-pharma",
+          "type": "category",
+          "label": "supplements/cosmetics/pharma",
+          "valueChainStep": "seafood"
+        }
+      ],
+      "edges": [
+        {
+          "id": "no-fisk-avansert-sidestrom-e0",
+          "fromId": "fish-heads-frames-skin",
+          "toId": "enzymatic-hydrolysis-extraction",
+          "material": "Fish heads/frames/skin",
+          "rLevel": "R6",
+          "quantity": {
+            "value": 800000,
+            "unit": "t/yr"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Perplexity sidestromskartlegging 20.04.26"
+            },
+            {
+              "label": "FHF prosjekt 253104 (enzymprosessering av marine biprodukter)"
+            },
+            {
+              "label": "SINTEF industriell fremstilling av norske forravarer"
+            }
+          ]
+        },
+        {
+          "id": "no-fisk-avansert-sidestrom-e1",
+          "fromId": "enzymatic-hydrolysis-extraction",
+          "toId": "marine-collagen-bioactive-peptides-refined-omega-3",
+          "material": "enzymatic hydrolysis/extraction",
+          "rLevel": "R6",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Perplexity sidestromskartlegging 20.04.26"
+            },
+            {
+              "label": "FHF prosjekt 253104 (enzymprosessering av marine biprodukter)"
+            },
+            {
+              "label": "SINTEF industriell fremstilling av norske forravarer"
+            }
+          ]
+        },
+        {
+          "id": "no-fisk-avansert-sidestrom-e2",
+          "fromId": "marine-collagen-bioactive-peptides-refined-omega-3",
+          "toId": "supplements-cosmetics-pharma",
+          "material": "marine collagen, bioactive peptides, refined omega-3",
+          "rLevel": "R6",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Perplexity sidestromskartlegging 20.04.26"
+            },
+            {
+              "label": "FHF prosjekt 253104 (enzymprosessering av marine biprodukter)"
+            },
+            {
+              "label": "SINTEF industriell fremstilling av norske forravarer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "nordic-potetskall-for-energi",
+      "nodes": [
+        {
+          "id": "industrial-potatoes-fries-chips-gratins",
+          "type": "category",
+          "label": "Industrial potatoes (fries, chips, gratins)",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "peeling-trimming",
+          "type": "category",
+          "label": "peeling/trimming",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "peels-and-off-cuts",
+          "type": "category",
+          "label": "peels and off-cuts",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "livestock-feed-cattle-pigs-and-biogas",
+          "type": "category",
+          "label": "livestock feed (cattle, pigs) and biogas",
+          "valueChainStep": "processing"
+        }
+      ],
+      "edges": [
+        {
+          "id": "nordic-potetskall-for-energi-e0",
+          "fromId": "industrial-potatoes-fries-chips-gratins",
+          "toId": "peeling-trimming",
+          "material": "Industrial potatoes (fries, chips, gratins)",
+          "rLevel": "R7",
+          "quantity": {
+            "value": 25,
+            "unit": "%"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Perplexity sidestromskartlegging 20.04.26"
+            },
+            {
+              "label": "DI Foedevarer 13 sidestrommes 2024"
+            },
+            {
+              "label": "Regjeringen potetplakat"
+            },
+            {
+              "label": "Miljodirektoratet ravare-klassifisering"
+            }
+          ]
+        },
+        {
+          "id": "nordic-potetskall-for-energi-e1",
+          "fromId": "peeling-trimming",
+          "toId": "peels-and-off-cuts",
+          "material": "peeling/trimming",
+          "rLevel": "R7",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Perplexity sidestromskartlegging 20.04.26"
+            },
+            {
+              "label": "DI Foedevarer 13 sidestrommes 2024"
+            },
+            {
+              "label": "Regjeringen potetplakat"
+            },
+            {
+              "label": "Miljodirektoratet ravare-klassifisering"
+            }
+          ]
+        },
+        {
+          "id": "nordic-potetskall-for-energi-e2",
+          "fromId": "peels-and-off-cuts",
+          "toId": "livestock-feed-cattle-pigs-and-biogas",
+          "material": "peels and off-cuts",
+          "rLevel": "R7",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "Perplexity sidestromskartlegging 20.04.26"
+            },
+            {
+              "label": "DI Foedevarer 13 sidestrommes 2024"
+            },
+            {
+              "label": "Regjeringen potetplakat"
+            },
+            {
+              "label": "Miljodirektoratet ravare-klassifisering"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "no-magiske-fabrikken",
+      "nodes": [
+        {
+          "id": "kildesortert-matavfall-husdyrgjodsel",
+          "type": "category",
+          "label": "Kildesortert matavfall + husdyrgjodsel",
+          "valueChainStep": "household"
+        },
+        {
+          "id": "anaerob-nedbrytning",
+          "type": "category",
+          "label": "anaerob nedbrytning",
+          "valueChainStep": "household"
+        },
+        {
+          "id": "biometan-biorest-gjodsel",
+          "type": "category",
+          "label": "biometan + biorest-gjodsel",
+          "valueChainStep": "household"
+        },
+        {
+          "id": "jordbruk",
+          "type": "category",
+          "label": "jordbruk",
+          "valueChainStep": "household"
+        }
+      ],
+      "edges": [
+        {
+          "id": "no-magiske-fabrikken-e0",
+          "fromId": "kildesortert-matavfall-husdyrgjodsel",
+          "toId": "anaerob-nedbrytning",
+          "material": "Kildesortert matavfall + husdyrgjodsel",
+          "rLevel": "R8",
+          "quantity": {
+            "value": 100,
+            "unit": "GWh/yr"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P46 biogass-runde2"
+            },
+            {
+              "label": "Biogass Norge statistikk 2023"
+            }
+          ]
+        },
+        {
+          "id": "no-magiske-fabrikken-e1",
+          "fromId": "anaerob-nedbrytning",
+          "toId": "biometan-biorest-gjodsel",
+          "material": "anaerob nedbrytning",
+          "rLevel": "R8",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P46 biogass-runde2"
+            },
+            {
+              "label": "Biogass Norge statistikk 2023"
+            }
+          ]
+        },
+        {
+          "id": "no-magiske-fabrikken-e2",
+          "fromId": "biometan-biorest-gjodsel",
+          "toId": "jordbruk",
+          "material": "biometan + biorest-gjodsel",
+          "rLevel": "R8",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P46 biogass-runde2"
+            },
+            {
+              "label": "Biogass Norge statistikk 2023"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "se-linkoping-biogas",
+      "nodes": [
+        {
+          "id": "matavfall-slakteriavfall",
+          "type": "category",
+          "label": "Matavfall + slakteriavfall",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "biogass",
+          "type": "category",
+          "label": "biogass",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "drivstoff-til-kollektivtransport-digestat-til-jordbruk",
+          "type": "category",
+          "label": "drivstoff til kollektivtransport + digestat til jordbruk",
+          "valueChainStep": "processing"
+        }
+      ],
+      "edges": [
+        {
+          "id": "se-linkoping-biogas-e0",
+          "fromId": "matavfall-slakteriavfall",
+          "toId": "biogass",
+          "material": "Matavfall + slakteriavfall",
+          "rLevel": "R8",
+          "quantity": {
+            "value": 200,
+            "unit": "GWh/yr"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P46 biogass-runde2"
+            },
+            {
+              "label": "Avfall Sverige"
+            }
+          ]
+        },
+        {
+          "id": "se-linkoping-biogas-e1",
+          "fromId": "biogass",
+          "toId": "drivstoff-til-kollektivtransport-digestat-til-jordbruk",
+          "material": "biogass",
+          "rLevel": "R8",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P46 biogass-runde2"
+            },
+            {
+              "label": "Avfall Sverige"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "fi-stormossen-vaasa",
+      "nodes": [
+        {
+          "id": "matavfall-bioavfall",
+          "type": "category",
+          "label": "Matavfall + bioavfall",
+          "valueChainStep": "household"
+        },
+        {
+          "id": "biogass-biorest-som-godkjent-gjodsel",
+          "type": "category",
+          "label": "biogass + biorest som godkjent gjodsel",
+          "valueChainStep": "household"
+        }
+      ],
+      "edges": [
+        {
+          "id": "fi-stormossen-vaasa-e0",
+          "fromId": "matavfall-bioavfall",
+          "toId": "biogass-biorest-som-godkjent-gjodsel",
+          "material": "Matavfall + bioavfall",
+          "rLevel": "R8",
+          "quantity": {
+            "value": 40,
+            "unit": "GWh/yr"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P46 biogass-runde2"
+            },
+            {
+              "label": "IEA Bioenergy Task 37 Finland"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "nl-peelpioneers",
+      "nodes": [
+        {
+          "id": "sitrusskall-fra-supermarkeder-juiceryper",
+          "type": "category",
+          "label": "Sitrusskall fra supermarkeder/juiceryper",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "industriell-prosessering",
+          "type": "category",
+          "label": "industriell prosessering",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "fiber-olje-aroma",
+          "type": "category",
+          "label": "fiber/olje/aroma",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "b2b-mat-kosmetikk",
+          "type": "category",
+          "label": "B2B mat/kosmetikk",
+          "valueChainStep": "retail"
+        }
+      ],
+      "edges": [
+        {
+          "id": "nl-peelpioneers-e0",
+          "fromId": "sitrusskall-fra-supermarkeder-juiceryper",
+          "toId": "industriell-prosessering",
+          "material": "Sitrusskall fra supermarkeder/juiceryper",
+          "rLevel": "R6",
+          "quantity": {
+            "value": 0,
+            "unit": "tonn"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P41 internasjonale-suksesser-runde2"
+            }
+          ]
+        },
+        {
+          "id": "nl-peelpioneers-e1",
+          "fromId": "industriell-prosessering",
+          "toId": "fiber-olje-aroma",
+          "material": "industriell prosessering",
+          "rLevel": "R6",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P41 internasjonale-suksesser-runde2"
+            }
+          ]
+        },
+        {
+          "id": "nl-peelpioneers-e2",
+          "fromId": "fiber-olje-aroma",
+          "toId": "b2b-mat-kosmetikk",
+          "material": "fiber/olje/aroma",
+          "rLevel": "R6",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P41 internasjonale-suksesser-runde2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "uk-toast-ale",
+      "nodes": [
+        {
+          "id": "overskuddsbroed-fra-bakerier",
+          "type": "category",
+          "label": "Overskuddsbroed fra bakerier",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "erstatter-malt-i-oel",
+          "type": "category",
+          "label": "erstatter malt i oel",
+          "valueChainStep": "processing"
+        },
+        {
+          "id": "b2c-b2b-companion-ingrediens",
+          "type": "category",
+          "label": "B2C/B2B Companion-ingrediens",
+          "valueChainStep": "processing"
+        }
+      ],
+      "edges": [
+        {
+          "id": "uk-toast-ale-e0",
+          "fromId": "overskuddsbroed-fra-bakerier",
+          "toId": "erstatter-malt-i-oel",
+          "material": "Overskuddsbroed fra bakerier",
+          "rLevel": "R6",
+          "quantity": {
+            "value": 2.9,
+            "unit": "M"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P41 internasjonale-suksesser-runde2"
+            }
+          ]
+        },
+        {
+          "id": "uk-toast-ale-e1",
+          "fromId": "erstatter-malt-i-oel",
+          "toId": "b2c-b2b-companion-ingrediens",
+          "material": "erstatter malt i oel",
+          "rLevel": "R6",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P41 internasjonale-suksesser-runde2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "au-goterra",
+      "nodes": [
+        {
+          "id": "matavfall-fra-grossister-flyplasser",
+          "type": "category",
+          "label": "Matavfall fra grossister/flyplasser",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "container-bsf-moduler",
+          "type": "category",
+          "label": "container-BSF-moduler",
+          "valueChainStep": "retail"
+        },
+        {
+          "id": "insektprotein-til-for-frass-gjodsel",
+          "type": "category",
+          "label": "insektprotein til for + frass-gjodsel",
+          "valueChainStep": "retail"
+        }
+      ],
+      "edges": [
+        {
+          "id": "au-goterra-e0",
+          "fromId": "matavfall-fra-grossister-flyplasser",
+          "toId": "container-bsf-moduler",
+          "material": "Matavfall fra grossister/flyplasser",
+          "rLevel": "R6",
+          "quantity": {
+            "value": 0,
+            "unit": "t/ar"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P41 internasjonale-suksesser-runde2"
+            }
+          ]
+        },
+        {
+          "id": "au-goterra-e1",
+          "fromId": "container-bsf-moduler",
+          "toId": "insektprotein-til-for-frass-gjodsel",
+          "material": "container-BSF-moduler",
+          "rLevel": "R6",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P41 internasjonale-suksesser-runde2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "loopId": "dk-kaffe-bueno",
+      "nodes": [
+        {
+          "id": "kaffegrut-fra-kafeer-industri",
+          "type": "category",
+          "label": "Kaffegrut fra kafeer/industri",
+          "valueChainStep": "horeca"
+        },
+        {
+          "id": "bioraffinering",
+          "type": "category",
+          "label": "bioraffinering",
+          "valueChainStep": "horeca"
+        },
+        {
+          "id": "olje-fiber-bioaktive",
+          "type": "category",
+          "label": "olje/fiber/bioaktive",
+          "valueChainStep": "horeca"
+        },
+        {
+          "id": "kosmetikk-mat-funksjonelle-ingredienser",
+          "type": "category",
+          "label": "kosmetikk/mat/funksjonelle ingredienser",
+          "valueChainStep": "horeca"
+        }
+      ],
+      "edges": [
+        {
+          "id": "dk-kaffe-bueno-e0",
+          "fromId": "kaffegrut-fra-kafeer-industri",
+          "toId": "bioraffinering",
+          "material": "Kaffegrut fra kafeer/industri",
+          "rLevel": "R6",
+          "quantity": {
+            "value": 1500,
+            "unit": "t/ar"
+          },
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P33 kaffegrut-runde2"
+            }
+          ]
+        },
+        {
+          "id": "dk-kaffe-bueno-e1",
+          "fromId": "bioraffinering",
+          "toId": "olje-fiber-bioaktive",
+          "material": "bioraffinering",
+          "rLevel": "R6",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P33 kaffegrut-runde2"
+            }
+          ]
+        },
+        {
+          "id": "dk-kaffe-bueno-e2",
+          "fromId": "olje-fiber-bioaktive",
+          "toId": "kosmetikk-mat-funksjonelle-ingredienser",
+          "material": "olje/fiber/bioaktive",
+          "rLevel": "R6",
+          "evidenceStatus": "illustrative",
+          "sourceRefs": [
+            {
+              "label": "P33 kaffegrut-runde2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
