@@ -38,5 +38,12 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Audit committed coverage profiles (overclaim gate)
+        # Audits committed public/data/coverage/profiles.json + hvitbok asserted
+        # scopes against report files — no DB or secrets required.
+        # Prod Docker build regenerates profiles fresh (compute-metrics) for
+        # the deployed artifact; this gate audits what the PR actually commits.
+        run: npm run audit:citable-reports
+
       - name: Run lint
         run: npm run lint

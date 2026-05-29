@@ -32,6 +32,7 @@ COPY research/data/nordic/core-series/ ./research/data/nordic/core-series/
 COPY research/data/nordic/trade-groups/normalized/ ./research/data/nordic/trade-groups/normalized/
 COPY research/data/nordic/market-share/ ./research/data/nordic/market-share/
 ARG DATABASE_URL
+ENV COVERAGE_ENV=prod
 # Schema-sync (prisma db push) er fjernet pga inkompatibilitet med STORED
 # GENERATED-kolonner (search_vector). Prisma kan ikke uttrykke disse, og
 # selv med Unsupported(tsvector) prøver db push å ALTER dem.
