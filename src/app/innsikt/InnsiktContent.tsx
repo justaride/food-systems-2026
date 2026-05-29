@@ -98,7 +98,7 @@ const NORMALIZE_TAG: Record<string, string> = {
 
 function normalizeTag(tag: string) {
   const lower = tag.toLowerCase()
-  return NORMALIZE_TAG[lower] ?? tag
+  return NORMALIZE_TAG[lower] ?? lower
 }
 
 function insightMatchesCountry(insight: InsightRow, country: CountryCode) {

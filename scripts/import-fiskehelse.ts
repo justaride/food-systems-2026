@@ -147,7 +147,10 @@ async function main() {
             hasInFeedTreatment: lice?.hasInFeedTreatment ?? false,
             hasMechanicalRemoval: lice?.hasMechanicalRemoval ?? false,
             hasCleanerFishDeployed: lice?.hasCleanerFishDeployed ?? false,
-            diseaseType: primaryDisease?.name,
+            // Match the upsert `where` (which uses ?? '') so the unique key
+            // (siteId, year, week, diseaseType) dedupes lice observations on
+            // re-import — Postgres treats NULLs as distinct, so '' must be used consistently.
+            diseaseType: primaryDisease?.name ?? '',
             diseaseStatus: primaryDisease?.status,
             source: 'BarentsWatch',
             metadata: { raw: JSON.parse(JSON.stringify(data)) } as any,

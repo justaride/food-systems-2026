@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
 import { circularLeverages, lastUpdated, type EffectLevel } from '@/lib/data/circular-leverage'
+import type { EvidenceStatus } from '@/lib/visualization/types'
 import { EffektRow } from './EffektRow'
 import { EffektMethodologyCard } from './EffektMethodologyCard'
 
@@ -37,6 +38,14 @@ export function EffektTab({ expandedIds, onToggleRow, onNavigateToTab }: Props) 
     })
   }, [sortDim])
 
+  // Honest tab-level badge: the dominant evidence grade across rows (each row
+  // also shows its own status in EffektRow), instead of a hard-coded weakest tier.
+  const dominantEvidence = useMemo<EvidenceStatus>(() => {
+    const counts = {} as Record<EvidenceStatus, number>
+    for (const l of circularLeverages) counts[l.evidenceStatus] = (counts[l.evidenceStatus] ?? 0) + 1
+    return ((Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0] as EvidenceStatus) ?? 'illustrative')
+  }, [])
+
   return (
     <div className="space-y-4">
       <div className="bg-stone-50 border border-stone-200 rounded-lg p-4">
@@ -48,7 +57,7 @@ export function EffektTab({ expandedIds, onToggleRow, onNavigateToTab }: Props) 
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <EvidenceStatusBadge status="illustrative" />
+            <EvidenceStatusBadge status={dominantEvidence} detail="Dominerende evidensgrad — varierer per tiltak (se hver rad)" />
             <span className="text-[11px] text-stone-400">Oppdatert {lastUpdated}</span>
           </div>
         </div>
