@@ -36,13 +36,14 @@ const PRESETS: NetworkPreset[] = [
 
 export function MaterialFlowTab() {
   const [file, setFile] = useState<MaterialFlowsFile | null>(null)
+  const [loading, setLoading] = useState(true)
   const [loopId, setLoopId] = useState<string>('all')
 
   useEffect(() => {
     fetch('/data/food-systems/material-flows.json')
       .then((r) => r.json())
-      .then(setFile)
-      .catch(() => setFile(null))
+      .then((data) => { setFile(data); setLoading(false) })
+      .catch(() => { setFile(null); setLoading(false) })
   }, [])
 
   const selectedLoops = useMemo(() => {
@@ -53,6 +54,9 @@ export function MaterialFlowTab() {
   const network = useMemo(() => toNetwork(selectedLoops), [selectedLoops])
   const sankey = useMemo(() => toSankey(selectedLoops), [selectedLoops])
 
+  if (loading) {
+    return <EmptyState message="Laster materialstrømmer..." />
+  }
   if (!file || file.loops.length === 0) {
     return <EmptyState message="Ingen materialstrømmer ennå — kjør `npm run bootstrap-material-flows`." />
   }
