@@ -9,6 +9,7 @@ export const ALLOWED_KINDS = [
   'processing',
   'agriculture',
   'energy_user',
+  'water_source',
 ] as const
 export type CircularNodeKind = (typeof ALLOWED_KINDS)[number]
 

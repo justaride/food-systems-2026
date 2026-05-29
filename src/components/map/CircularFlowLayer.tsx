@@ -35,6 +35,7 @@ const KIND_LABELS: Record<string, string> = {
   processing: 'Foredling',
   agriculture: 'Jordbruk',
   energy_user: 'Energimottaker',
+  water_source: 'Vannkilde',
 }
 
 const EVIDENCE_LABELS: Record<EvidenceStatus, string> = {

@@ -3,7 +3,7 @@
   "_meta": {
     "source": "Kuratert fra Norsk Biogassforening, anleggslokasjoner (Den Magiske Fabrikken/Greve Biogass, Tekniska verken, Stormossen), Kalundborg Symbiosis, Matsentralen Norge",
     "updated": "2026-05",
-    "note": "Presisjons-gradert ærlig-by-construction: exact_point = kildebelagt anleggspunkt; kommune_centroid = sentroid via src/lib/map/kommune-centroid.ts mot norway-municipalities.geojson; estimated = regional metode (utenlandske kommuner mangler polygon her). Abstrakte noder uten ærlig geo-anker (f.eks. kildesortert-matavfall-husdyrgjodsel, vulnerable-populations, food-industry) er bevisst utelatt → resolver gir unknown → tegnes ikke. key = loopId::nodeId fra material-flows.json (loop-scoped for å unngå at samme generiske node-id i to loops deler én koordinat)."
+    "note": "Presisjons-gradert ærlig-by-construction: exact_point = kildebelagt anleggspunkt; kommune_centroid = sentroid via src/lib/map/kommune-centroid.ts mot norway-municipalities.geojson; estimated = regional metode (utenlandske kommuner mangler polygon her). Abstrakte noder uten ærlig geo-anker (f.eks. kildesortert-matavfall-husdyrgjodsel, vulnerable-populations) er bevisst utelatt → resolver gir unknown → tegnes ikke. Kalundborg-symbiosens fysiske anlegg (Asnæsværket, Novo Nordisk, Equinor-raffineri, Gyproc) er kildebelagt kuratert (Gyproc DAWA-geokodet); Tissø er estimert innsjø-senter. key = loopId::nodeId fra material-flows.json (loop-scoped for å unngå at samme generiske node-id i to loops deler én koordinat)."
   },
   "features": [
     {
@@ -82,13 +82,61 @@
       "type": "Feature",
       "properties": {
         "key": "dk-kalundborg::power-plant",
-        "label": "Asnæsværket (samlokalisert kraftverk)",
-        "kind": "energy_user",
+        "label": "Asnæsværket (Ørsted CHP-anlegg)",
+        "kind": "processing",
         "country": "dk",
         "precision": "exact_point",
-        "source": "Kalundborg Symbiosis — Asnæsværket, Kalundborg"
+        "source": "Asnæsværket (Ørsted), Kalundborg — Wikidata/OpenStreetMap"
       },
-      "geometry": { "type": "Point", "coordinates": [11.1050, 55.6680] }
+      "geometry": { "type": "Point", "coordinates": [11.0871, 55.6620] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "dk-kalundborg::food-industry",
+        "label": "Novo Nordisk / Novozymes (samlokalisert industri)",
+        "kind": "processing",
+        "country": "dk",
+        "precision": "exact_point",
+        "source": "Novo Nordisk, Hallas Allé, Kalundborg — mottar all prosessdamp fra Asnæsværket"
+      },
+      "geometry": { "type": "Point", "coordinates": [11.1218, 55.6712] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "dk-kalundborg::co-located-industry",
+        "label": "Equinor Kalundborg-raffineri (tidl. Statoil)",
+        "kind": "processing",
+        "country": "dk",
+        "precision": "exact_point",
+        "source": "Equinor Refining Denmark — Kalundborg-raffineriet"
+      },
+      "geometry": { "type": "Point", "coordinates": [11.0964, 55.6562] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "dk-kalundborg::gypsum-board",
+        "label": "Saint-Gobain Gyproc (gipsplateproduksjon)",
+        "kind": "processing",
+        "country": "dk",
+        "precision": "exact_point",
+        "source": "Saint-Gobain Gyproc, Hareskovvej 12, Kalundborg (DAWA-geokodet); 2/3 av gipsbehov fra Asnæsværket"
+      },
+      "geometry": { "type": "Point", "coordinates": [11.1118, 55.6658] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "dk-kalundborg::shared-water",
+        "label": "Tissø (delt vannforsyning)",
+        "kind": "water_source",
+        "country": "dk",
+        "precision": "estimated",
+        "source": "Tissø — ferskvannskilde for Kalundborg-symbiosen (estimert innsjø-senter)"
+      },
+      "geometry": { "type": "Point", "coordinates": [11.2833, 55.5833] }
     },
     {
       "type": "Feature",
