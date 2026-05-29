@@ -90,6 +90,7 @@
     "compute-ki-priority": "tsx scripts/compute-ki-priority.ts",
     "compute-coverage": "tsx scripts/compute-coverage.ts",
     "compute-file-coverage": "tsx scripts/compute-file-coverage.ts",
+    "bootstrap-material-flows": "tsx scripts/bootstrap-material-flows.ts",
     "inventory-urls": "tsx scripts/inventory-urls.ts",
     "check-pdf-quality": "tsx scripts/check-pdf-quality.ts",
     "triage-html": "tsx scripts/triage-html.ts",
