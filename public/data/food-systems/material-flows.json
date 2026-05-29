@@ -721,8 +721,11 @@
           "toId": "gypsum-board",
           "material": "gips",
           "rLevel": "R7",
-          "evidenceStatus": "illustrative",
-          "sourceRefs": []
+          "evidenceStatus": "observed",
+          "sourceRefs": [
+            { "label": "Kalundborg Symbiosis — Saint-Gobain Gyproc (avsvovlingsgips fra Asnæsværket)", "href": "https://www.symbiosis.dk/en/saint-gobain-gyproc/" },
+            { "label": "Kalundborg Eco-industrial Park (Wikipedia)", "href": "https://en.wikipedia.org/wiki/Kalundborg_Eco-industrial_Park" }
+          ]
         },
         {
           "id": "dk-kalundborg-e5",

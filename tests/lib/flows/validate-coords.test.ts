@@ -58,5 +58,6 @@ describe('validateCircularNodes', () => {
   it('exposes the allowed-kinds vocabulary', () => {
     assert.ok(ALLOWED_KINDS.includes('biogas_plant'))
     assert.ok(ALLOWED_KINDS.includes('food_bank'))
+    assert.ok(ALLOWED_KINDS.includes('water_source'))
   })
 })
