@@ -89,58 +89,53 @@
     },
     {
       "id": "R6",
-      "name": "Repurpose",
-      "definition_food": "Ombruk til nye produkter/fôr — sidestrømmer oppover i næringshierarkiet",
+      "name": "Remanufacture",
+      "definition_food": "Nye matprodukter laget av side- eller reststrømmer — upcycling der sluttproduktet har matfunksjon",
       "examples_nordic": [
-        "Sidestrømmer fra havre/korn/meieri til nye matprodukter (upcycling)",
-        "Mat som ikke kan selges → dyrefôr (EU-prioritet)",
-        "Nye fôringredienser fra reststrømmer (Norges forskningsråd)",
-        "Fiskebiprodukter → olje, proteinkonsentrat, fôr"
+        "Sidestrømmer fra havre/korn/meieri til nye matprodukter (upcycling)"
       ],
-      "volume_estimate": "Hundretusener tonn/år i fiskebiprodukter; plante-upcycling fortsatt nisje",
-      "maturity": 3.5,
+      "volume_estimate": "Plante- og meieri-upcycling til mat fortsatt nisje, men voksende",
+      "maturity": 3,
       "data_gaps": "Fôr/fisk data ok, men plante-/husholdningssidestrømmer til nye matprodukter svakt kartlagt"
     },
     {
       "id": "R7",
-      "name": "Recycle",
-      "definition_food": "Materialgjenvinning av næringsstoffer og emballasje — lukking av kretsløp som stoff",
+      "name": "Repurpose",
+      "definition_food": "Kassert mat eller restmateriale brukes i en ANNEN, ikke-mat-funksjon — dyrefôr, fiskeolje, insektprotein, gjødsel, industriell symbiose",
       "examples_nordic": [
-        "Kildesortering og materialgjenvinning av matemballasje",
-        "Kompostering og biologisk behandling → jordforbedring",
-        "Krav om separat innsamling av matavfall fra 2023 (EU/EØS)",
-        "Panteordninger for drikkeemballasje (92.3% NO)"
+        "Mat som ikke kan selges → dyrefôr (EU-prioritet)",
+        "Nye fôringredienser fra reststrømmer (Norges forskningsråd)",
+        "Fiskebiprodukter → olje, proteinkonsentrat, fôr"
       ],
-      "volume_estimate": "Flere hundre tusen tonn matavfall biologisk behandlet; høye emballasjevolumer",
+      "volume_estimate": "Hundretusener tonn/år i fiskebiprodukter og fôr fra reststrømmer",
       "maturity": 4,
       "data_gaps": "God statistikk men begrenset kobling til spesifikke R-nivåer i matsystemrammeverk"
     },
     {
       "id": "R8",
-      "name": "Recycle (organic)",
-      "definition_food": "Anaerob nedbrytning med energi OG næringsstoffgjenvinning (biogass + digestat)",
+      "name": "Recycle",
+      "definition_food": "Materialgjenvinning av emballasje og næringsstoffer tilbake til råstoff — kildesortering, kompostering til jordforbedring, næringsgjenvinning N/P/K",
       "examples_nordic": [
-        "Nordisk biogassmodell (NBM) — Sverige og Danmark",
-        "Norske biogassanlegg for matavfall/kloakk/husdyrgjødsel",
-        "Biometan til kollektiv- og tungtransport",
-        "EU-retningslinjer: matavfall → biogass med næringsretur"
+        "Kildesortering og materialgjenvinning av matemballasje",
+        "Kompostering og biologisk behandling → jordforbedring",
+        "Krav om separat innsamling av matavfall fra 2023 (EU/EØS)"
       ],
-      "volume_estimate": "Millioner tonn organisk avfall, flere TWh energi; DK 8 TWh fra 175 anlegg",
+      "volume_estimate": "Flere hundre tusen tonn matavfall biologisk behandlet; høye emballasjevolumer",
       "maturity": 4,
       "data_gaps": "God biogassstatistikk men matavfall vs andre substrater ikke alltid tydelig skilt"
     },
     {
       "id": "R9",
       "name": "Recover",
-      "definition_food": "Energiutnyttelse uten næringsstoffgjenvinning — forbrenning som siste utvei",
+      "definition_food": "Energiutnyttelse av matavfall — biogass/anaerob nedbrytning og forbrenning. Lineær bunn: materiale tapt som råvare selv om noe energi eller digestat gjenvinnes",
       "examples_nordic": [
-        "Avfallsforbrenning av restavfall inkl. mat → fjernvarme",
-        "Avinor: 54% av terminalavfall er restavfall (2023)",
-        "Kommunale forbrenningsanlegg — matavfall i restfraksjonen",
-        "EU: energiutnyttelse kun når høyere R-nivåer umulig"
+        "Nordisk biogassmodell (NBM) — Sverige og Danmark",
+        "Norske biogassanlegg for matavfall/kloakk/husdyrgjødsel",
+        "Biometan til kollektiv- og tungtransport",
+        "Avfallsforbrenning av restavfall inkl. mat → fjernvarme"
       ],
-      "volume_estimate": "Meget store volumer av blandet avfall; matandel i restavfall underrapportert",
-      "maturity": 5,
+      "volume_estimate": "Millioner tonn organisk avfall, flere TWh energi; DK 8 TWh fra 175 anlegg",
+      "maturity": 4,
       "data_gaps": "God energistatistikk men begrenset detaljering av matandelen i restavfall"
     }
   ],

@@ -78,7 +78,7 @@
     {
       "id": "kpi-06",
       "name": "Feed from Residual Streams",
-      "r_level": "R3",
+      "r_level": "R7",
       "unit": "%",
       "data_availability": "partial",
       "nordic_sources": [
@@ -91,7 +91,7 @@
     {
       "id": "kpi-07",
       "name": "Animal By-products to Feed",
-      "r_level": "R3",
+      "r_level": "R7",
       "unit": "%",
       "data_availability": "partial",
       "nordic_sources": [
@@ -103,7 +103,7 @@
     {
       "id": "kpi-08",
       "name": "Food Residuals: Feed vs Lower Tiers",
-      "r_level": "R3",
+      "r_level": "R7",
       "unit": "%",
       "data_availability": "partial",
       "nordic_sources": [
@@ -115,7 +115,7 @@
     {
       "id": "kpi-09",
       "name": "N/P Recovery to Soil",
-      "r_level": "R5",
+      "r_level": "R8",
       "unit": "%",
       "data_availability": "partial",
       "nordic_sources": [
@@ -129,7 +129,7 @@
     {
       "id": "kpi-10",
       "name": "Organic Food Waste to Composting",
-      "r_level": "R5",
+      "r_level": "R8",
       "unit": "%",
       "data_availability": "good",
       "nordic_sources": [
@@ -143,7 +143,7 @@
     {
       "id": "kpi-11",
       "name": "Food Packaging Material Recycling",
-      "r_level": "R5",
+      "r_level": "R8",
       "unit": "%",
       "data_availability": "partial",
       "nordic_sources": [
@@ -169,7 +169,7 @@
     {
       "id": "kpi-13",
       "name": "Food Residuals to Biogas/Energy",
-      "r_level": "R7",
+      "r_level": "R9",
       "unit": "%",
       "data_availability": "partial",
       "nordic_sources": [
@@ -182,7 +182,7 @@
     {
       "id": "kpi-14",
       "name": "Energy Recovery Efficiency",
-      "r_level": "R7",
+      "r_level": "R9",
       "unit": "GWh/tonne",
       "data_availability": "poor",
       "nordic_sources": [
@@ -195,7 +195,7 @@
     {
       "id": "kpi-15",
       "name": "Food Waste to Landfill/No Recovery",
-      "r_level": "R8",
+      "r_level": "R9",
       "unit": "%",
       "data_availability": "partial",
       "nordic_sources": [
