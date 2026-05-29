@@ -1,0 +1,142 @@
+{
+  "type": "FeatureCollection",
+  "_meta": {
+    "source": "Kuratert fra Norsk Biogassforening, anleggslokasjoner (Den Magiske Fabrikken/Greve Biogass, Tekniska verken, Stormossen), Kalundborg Symbiosis, Matsentralen Norge",
+    "updated": "2026-05",
+    "note": "Presisjons-gradert ærlig-by-construction: exact_point = kildebelagt anleggspunkt; kommune_centroid = sentroid via src/lib/map/kommune-centroid.ts mot norway-municipalities.geojson; estimated = regional metode (utenlandske kommuner mangler polygon her). Abstrakte noder uten ærlig geo-anker (f.eks. kildesortert-matavfall-husdyrgjodsel, vulnerable-populations, food-industry) er bevisst utelatt → resolver gir unknown → tegnes ikke. key = loopId::nodeId fra material-flows.json (loop-scoped for å unngå at samme generiske node-id i to loops deler én koordinat)."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "no-magiske-fabrikken::anaerob-nedbrytning",
+        "label": "Den Magiske Fabrikken (anaerob nedbrytning)",
+        "kind": "biogas_plant",
+        "country": "no",
+        "precision": "exact_point",
+        "source": "Den Magiske Fabrikken / Greve Biogass — anlegg Rygg, Tønsberg (norsk-biogassforening.no)"
+      },
+      "geometry": { "type": "Point", "coordinates": [10.3210, 59.2330] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "no-magiske-fabrikken::biometan-biorest-gjodsel",
+        "label": "Biometan + biorest (Den Magiske Fabrikken)",
+        "kind": "biogas_plant",
+        "country": "no",
+        "precision": "exact_point",
+        "source": "Den Magiske Fabrikken — samlokalisert oppgraderingsanlegg, Tønsberg"
+      },
+      "geometry": { "type": "Point", "coordinates": [10.3210, 59.2330] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "no-magiske-fabrikken::jordbruk",
+        "label": "Jordbruk (biorest-spredning, Tønsberg-regionen)",
+        "kind": "agriculture",
+        "country": "no",
+        "precision": "kommune_centroid",
+        "source": "Kommune-sentroid Tønsberg (norway-municipalities.geojson via kommuneCentroid) — biorest-spredning"
+      },
+      "geometry": { "type": "Point", "coordinates": [10.3317, 59.3558] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "no-matsentralen::surplus-food-from-retail-industry",
+        "label": "Overskuddsmat fra handel/industri (Matsentralen Oslo)",
+        "kind": "waste_source",
+        "country": "no",
+        "precision": "exact_point",
+        "source": "Matsentralen Norge — Oslo-sentral, Alnabru (matsentralen.no)"
+      },
+      "geometry": { "type": "Point", "coordinates": [10.8260, 59.9270] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "no-matsentralen::food-banks",
+        "label": "Matsentralen (food bank)",
+        "kind": "food_bank",
+        "country": "no",
+        "precision": "exact_point",
+        "source": "Matsentralen Norge — Oslo-sentral, Alnabru (matsentralen.no)"
+      },
+      "geometry": { "type": "Point", "coordinates": [10.8265, 59.9280] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "dk-kalundborg::symbiosis",
+        "label": "Kalundborg Symbiosis",
+        "kind": "industrial_symbiosis",
+        "country": "dk",
+        "precision": "exact_point",
+        "source": "Kalundborg Symbiosis — Kalundborg, DK (symbiosis.dk)"
+      },
+      "geometry": { "type": "Point", "coordinates": [11.0900, 55.6800] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "dk-kalundborg::power-plant",
+        "label": "Asnæsværket (samlokalisert kraftverk)",
+        "kind": "energy_user",
+        "country": "dk",
+        "precision": "exact_point",
+        "source": "Kalundborg Symbiosis — Asnæsværket, Kalundborg"
+      },
+      "geometry": { "type": "Point", "coordinates": [11.1050, 55.6680] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "se-linkoping-biogas::biogass",
+        "label": "Linköping biogass (Tekniska verken)",
+        "kind": "biogas_plant",
+        "country": "se",
+        "precision": "exact_point",
+        "source": "Tekniska verken — biogassanlegg Linköping (tekniskaverken.se)"
+      },
+      "geometry": { "type": "Point", "coordinates": [15.6210, 58.4080] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "se-linkoping-biogas::matavfall-slakteriavfall",
+        "label": "Matavfall + slakteriavfall (Linköping-regionen)",
+        "kind": "waste_source",
+        "country": "se",
+        "precision": "estimated",
+        "source": "Tekniska verken — estimert by-plassering Linköping (mangler kommune-polygon her)"
+      },
+      "geometry": { "type": "Point", "coordinates": [15.6214, 58.4109] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "fi-stormossen-vaasa::biogass-biorest-som-godkjent-gjodsel",
+        "label": "Stormossen biogass (Vaasa)",
+        "kind": "biogas_plant",
+        "country": "fi",
+        "precision": "exact_point",
+        "source": "Stormossen Oy — biogassanlegg Kvevlax, Vaasa (stormossen.fi)"
+      },
+      "geometry": { "type": "Point", "coordinates": [21.7400, 63.1300] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "key": "fi-stormossen-vaasa::matavfall-bioavfall",
+        "label": "Matavfall + bioavfall (Vaasa-regionen)",
+        "kind": "waste_source",
+        "country": "fi",
+        "precision": "estimated",
+        "source": "Stormossen — estimert regional plassering Vaasa (mangler kommune-polygon her)"
+      },
+      "geometry": { "type": "Point", "coordinates": [21.6158, 63.0951] }
+    }
+  ]
+}
