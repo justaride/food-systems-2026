@@ -685,12 +685,8 @@
           "toId": "shared-water",
           "material": "vann",
           "rLevel": "R7",
-          "evidenceStatus": "estimated",
-          "sourceRefs": [
-            {
-              "label": "SA-02"
-            }
-          ]
+          "evidenceStatus": "illustrative",
+          "sourceRefs": []
         },
         {
           "id": "dk-kalundborg-e1",
@@ -698,12 +694,8 @@
           "toId": "co-located-industry",
           "material": "vann",
           "rLevel": "R7",
-          "evidenceStatus": "estimated",
-          "sourceRefs": [
-            {
-              "label": "SA-02"
-            }
-          ]
+          "evidenceStatus": "illustrative",
+          "sourceRefs": []
         },
         {
           "id": "dk-kalundborg-e2",
@@ -711,12 +703,8 @@
           "toId": "food-industry",
           "material": "restvarme",
           "rLevel": "R7",
-          "evidenceStatus": "estimated",
-          "sourceRefs": [
-            {
-              "label": "SA-02"
-            }
-          ]
+          "evidenceStatus": "illustrative",
+          "sourceRefs": []
         },
         {
           "id": "dk-kalundborg-e3",
@@ -724,12 +712,8 @@
           "toId": "co-located-industry",
           "material": "restvarme",
           "rLevel": "R7",
-          "evidenceStatus": "estimated",
-          "sourceRefs": [
-            {
-              "label": "SA-02"
-            }
-          ]
+          "evidenceStatus": "illustrative",
+          "sourceRefs": []
         },
         {
           "id": "dk-kalundborg-e4",
@@ -737,12 +721,8 @@
           "toId": "gypsum-board",
           "material": "gips",
           "rLevel": "R7",
-          "evidenceStatus": "estimated",
-          "sourceRefs": [
-            {
-              "label": "SA-02"
-            }
-          ]
+          "evidenceStatus": "illustrative",
+          "sourceRefs": []
         },
         {
           "id": "dk-kalundborg-e5",
@@ -750,12 +730,8 @@
           "toId": "co-located-industry",
           "material": "materialer",
           "rLevel": "R7",
-          "evidenceStatus": "estimated",
-          "sourceRefs": [
-            {
-              "label": "SA-02"
-            }
-          ]
+          "evidenceStatus": "illustrative",
+          "sourceRefs": []
         }
       ]
     },
