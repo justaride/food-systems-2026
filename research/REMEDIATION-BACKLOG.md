@@ -1,18 +1,18 @@
 # REMEDIATION BACKLOG — data-readiness Fase B
 
 > Auto-generert av `scripts/build-remediation-backlog.ts` — ikke rediger manuelt.
-> Generert: 2026-05-26T23:33:32.394Z
-> Totalt: **471** funn
+> Generert: 2026-06-01T02:11:36.064Z
+> Totalt: **715** funn
 
 ## Sammendrag per kilde × severity
 
 | Kilde | HIGH | MEDIUM | LOW | INFO |
 |---|---:|---:|---:|---:|
 | file-coverage | 0 | 0 | 310 | 0 |
-| pdf-quality | 0 | 0 | 45 | 0 |
+| pdf-quality | 0 | 289 | 0 | 0 |
 | html-triage | 0 | 0 | 29 | 0 |
 | url-health | 0 | 0 | 87 | 0 |
-| **Total** | 0 | 0 | 471 | 0 |
+| **Total** | 0 | 289 | 426 | 0 |
 
 ## Fiksgrupper (rotårsak-analyse)
 
@@ -23,8 +23,7 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 | F: orphan files | 308 | 0 | 0 | 308 |
 | G: broken supportingSource | 1 | 0 | 0 | 1 |
 | H: duplicate Documents | 1 | 0 | 0 | 1 |
-| J: low-text PDFs | 44 | 0 | 0 | 44 |
-| K: oversized PDFs | 1 | 0 | 0 | 1 |
+| M: other PDF issues | 289 | 0 | 289 | 0 |
 | O: other HTML issues | 29 | 0 | 0 | 29 |
 | P: dead URLs | 41 | 0 | 0 | 41 |
 | Q: blocked URLs (403/451) | 44 | 0 | 0 | 44 |
@@ -33,7 +32,7 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 ## Nåværende hovedrestanser
 
 - **SourceDoc-lokatorer:** 0 funn. Strukturerte SourceDoc-poster regnes som dekket når de har URL, DOI, koblet Document eller lokal fil.
-- **PDF-OCR:** 5 scannede PDF-er er lukket i `research/PDF-OCR-REVIEW.csv` fordi OCR-tekst, eksisterende Document-tekst eller eksplisitt lokal erstatningstekst er dekkende; 0 review-rader traff ingen aktiv PDF-quality-rad.
+- **PDF-OCR:** 0 scannede PDF-er er lukket i `research/PDF-OCR-REVIEW.csv` fordi OCR-tekst, eksisterende Document-tekst eller eksplisitt lokal erstatningstekst er dekkende; 1 review-rader traff ingen aktiv PDF-quality-rad.
 - **URL-helse:** 87 funn fordelt på dead/blocked/timeout/server_error/other.
 - **URL-review:** 5 blokkerte URL-er er lukket i `research/URL-HEALTH-REVIEW.csv` fordi de er verifisert via nettleser, citable mirror eller lokal kildepakke; 0 review-rader traff ingen aktiv URL-health-rad.
 - **Document.filePath:** 0 manglende dokumentfiler i denne kjøringen.
@@ -58,33 +57,33 @@ Scannede PDF-er i `research/PDF-OCR-REVIEW.csv` beholdes som opprinnelige PDF-fi
 
 | # | Severity | Source | Fix-gruppe | Problem | Ref |
 |---:|---|---|---|---|---|
-| 1 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/00_Working_File |
-| 2 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 3 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 4 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 5 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 6 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 7 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 8 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 9 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 10 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 11 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 12 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 13 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 14 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 15 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 16 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 17 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 18 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 19 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 20 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 21 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 22 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 23 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 24 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 25 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 26 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 27 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 28 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 29 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
-| 30 | LOW | file-coverage | F: orphan files | orphan_file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 1 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/00_Working_File |
+| 2 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 3 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 4 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 5 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 6 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 7 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 8 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 9 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 10 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 11 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 12 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 13 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 14 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 15 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 16 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 17 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 18 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 19 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 20 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 21 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 22 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 23 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 24 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 25 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 26 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 27 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 28 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 29 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
+| 30 | MEDIUM | pdf-quality | M: other PDF issues | missing-file | arkiv-sortert/Food Research Process 20.04.26/03_Policy_Gover |
