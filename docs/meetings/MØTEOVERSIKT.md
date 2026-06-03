@@ -112,9 +112,10 @@
 ### Møte 9 — 26.05.2026: Metodeoverføring Cities/Food
 - **Type:** Cross-project intake, ikke formelt Food TG-vedtak
 - **Overført materiale:** Wageningen/Moerman/R9-metode fra Cities/JT-audit til Food-local kontrollprosess
-- **Status:** Internt metodegrunnlag med forbehold; ikke source-closed, ikke claim-closed og ikke eksternt validert
+- **Status:** Internt metodegrunnlag med forbehold; ikke kilde-lukket, ikke claim-lukket og ikke eksternt validert
 - **Food-eierskap:** Food TG eier videre source-registration, claim-lock, scorecard og valideringssprint
 - **Stoppsignal:** Ikke bruk WUR-score, Moerman-ladder eller Ghana/Costa Rica/Nederland-caser som nordisk pilot- eller effektbevis
+- **QA 28.05.2026:** Food har nå QA-lukket møteoverføringen som intern metodepakke i `docs/project/mandates/food-tg-meeting-transfer-qa-2026-05-28.md`; dette er fortsatt ikke et formelt Food TG-vedtak.
 
 ---
 
@@ -129,6 +130,7 @@
 | Detaljoversikt for Food-mandatet | Finnes | `docs/project/mandates/food-transition-group-mandate-2026-04-21.md` |
 | Transition Group overview working doc | Finnes | `docs/project/mandates/transition-group-overview-working-doc-2026.pdf` |
 | Food/Cities metodeoverføring Wageningen/Moerman | Finnes | `docs/meetings/JT-GABRIEL - Metodeoverforing Cities Food mai 2026.md`; `docs/project/mandates/food-tg-wageningen-moerman-method-transfer-2026-05-26.md` |
+| Food/Cities metodeoverføring QA-lukking | Finnes | `docs/project/mandates/food-tg-meeting-transfer-qa-2026-05-28.md` |
 | Statusanalyse og arbeidsplan mot mandat | Finnes | `docs/project/plans/FOOD-TG-STATUS-ARBEIDSPLAN-2026-04-27.md` |
 | Detaljert innsiktsprosess og verktøyplan | Finnes | `docs/project/plans/FOOD-TG-INNSIKTSPROSESS-ARBEIDSPLAN-2026-04-27.md` |
 | Oslo Innovasjonsprogram-søknad | Finnes | `1. Food system_ Oslo Innovasjons program 2025.md` |

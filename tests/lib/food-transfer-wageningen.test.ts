@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, it } from 'node:test'
 
@@ -50,5 +50,33 @@ describe('Food transfer Wageningen registration', () => {
     assert.ok(r9)
     assert.ok(r9.foodExamples.some((example) => /Wageningen|Moerman/i.test(example)))
     assert.ok(r9.foodExamples.some((example) => /ikke.*bevis|not proof/i.test(example)))
+  })
+
+  it('records the Food-local QA closure without lifting source, claim or validation status', () => {
+    const qaNotePath = join(
+      process.cwd(),
+      'docs/project/mandates/food-tg-meeting-transfer-qa-2026-05-28.md',
+    )
+
+    assert.ok(existsSync(qaNotePath), 'Food-local QA closure note should exist')
+
+    const qaNote = readFileSync(qaNotePath, 'utf8')
+    const claimLock = readFileSync(
+      join(process.cwd(), 'docs/project/mandates/food-tg-claim-lock-table-2026-05.md'),
+      'utf8',
+    )
+    const claimRegister = readFileSync(
+      join(process.cwd(), 'docs/project/mandates/claim-register-food-tg.md'),
+      'utf8',
+    )
+
+    assert.match(qaNote, /intern metodepakke klar med forbehold; ikke eksternt validert; ikke claim-lukket/i)
+    assert.match(qaNote, /SRC-B-035/)
+    assert.match(qaNote, /CL-B-008/)
+    assert.match(qaNote, /CL-B-023/)
+    assert.match(qaNote, /Ghana\/Costa Rica\/Nederland.*benchmark-only/i)
+    assert.match(claimLock, /SRC-B-035/)
+    assert.match(claimRegister, /SRC-B-035/)
+    assert.doesNotMatch(qaNote, /(?:validert eksternt|pilotklar|pilot-ready|source-closed|externally ready)/i)
   })
 })

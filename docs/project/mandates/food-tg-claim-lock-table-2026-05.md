@@ -7,6 +7,19 @@
 
 Ingen claim i denne filen er `Validert eksternt`. `klar` betyr bare at claimet kan brukes med oppgitt kilde, caveat og status. `klar-med-forbehold` betyr at det kan brukes internt eller i kontrollert ekstern tekst med tydelig forbehold. `krever-bekreftelse` betyr at claimet ikke skal skrives i faktastemme.
 
+## Wageningen/SRC-B-035 Claim-Gate 2026-05-28
+
+`SRC-B-035` kan brukes som internt metodeanker for Wageningen/Elbersen-score, men det lukker ikke effekt, aktør, juridisk bruk, LCA, KPI eller ekstern validering. Når kilden brukes i Food TG-tekst, må claim-ID, konkret locator, caveat state og åpen valideringsgate stå sammen.
+
+| Claim | Tillatt Wageningen-bruk | Blokkert språk |
+|---|---|---|
+| `CL-B-008` | Kaskade og høyverdig bruk per fraksjon, lovlig sluttbruk og systemgrense. | Én universell rangering eller klimaeffekt. |
+| `CL-B-009` | Designgate for råvarekvalitet, hygiene, stabilisering, lovlig sluttbruk og off-taker. | Pilotklarhet basert på volum eller WUR-score. |
+| `CL-B-021` | Kandidat-/benchmarklogikk for okara/BSG og marint restråstoff. | Valgt første pilot eller aktørbekreftet strøm. |
+| `CL-B-022` | Valideringsspørsmål for baseline, tidsvindu, destinasjon og kontrafaktisk. | Dokumentert matsvinneffekt eller app-bevis. |
+| `CL-B-023` | Benchmark/sekundærspor for nutrient loops med produktstatus, marked og massebalanse som port. | Lettvekts første pilot eller N/P/K-effekt. |
+| `CL-C-015` | Datastandard for definisjon, år, geografi, enhet, kilde, dataeier, frekvens, baseline og systemgrense. | WUR-score som KPI-effekt. |
+
 ## Statusnøkkel
 
 | Status | Betydning | Ekstern bruk |
