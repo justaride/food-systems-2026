@@ -1,6 +1,10 @@
 import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import {
+  boardMemberProvenanceData,
+  resolveBoardMemberAnnualReportSourceLocator,
+} from '../src/lib/board-member-provenance'
 import { resolveShareholderSourceLocator } from '../src/lib/row-source-locators'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
@@ -1600,6 +1604,10 @@ async function main() {
 
     if (c.boardMembers) {
       await prisma.boardMember.deleteMany({ where: { companyId: company.id } })
+      const boardMemberSourceLocator = resolveBoardMemberAnnualReportSourceLocator(
+        { company: { orgNr: c.orgNr } },
+        documentRefs,
+      )
       for (const b of c.boardMembers) {
         await prisma.boardMember.create({
           data: {
@@ -1607,6 +1615,7 @@ async function main() {
             personName: b.personName,
             role: b.role,
             personKey: normalizePersonKey(b.personName),
+            ...boardMemberProvenanceData(boardMemberSourceLocator, importedAt),
           },
         })
       }

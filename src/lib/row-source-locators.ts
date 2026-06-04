@@ -984,6 +984,7 @@ const COUNTRY_METRIC_SOURCE_LABEL_LOCATORS: Record<string, string> = {
 
 const BLOCKED_BUSINESS_RELATIONSHIP_SOURCE_LABELS = new Set([
   'BioMar',
+  'Bransjeanalyse',
   'Bransjedata',
   'Lantmannen.com',
   'mn24.no',
@@ -1585,7 +1586,6 @@ export function resolveCompanyOwnershipSourceLocator(
 
   if (
     normalized.includes('bronnoysund') &&
-    normalized.includes('arsrapport') &&
     row.parentCompany?.orgNr === '819731322' &&
     row.childCompany?.orgNr === '914224314'
   ) {
@@ -1763,6 +1763,14 @@ export function resolveBusinessRelationshipSourceLocator(
 
   if (normalized.includes('kkv') && normalized.includes('pty')) {
     return reportSourceUrlById.get('kkv-fi-4a-dominans')?.trim() || KKV_FI_4A_DOMINANCE_URL
+  }
+
+  if (
+    normalized.includes('bransjeanalyse') &&
+    orgCandidates.includes('986228608') &&
+    orgCandidates.includes('911608103')
+  ) {
+    return YARA_ANNUAL_REPORT_2024_URL
   }
 
   if (BLOCKED_BUSINESS_RELATIONSHIP_SOURCE_LABELS.has(source)) {

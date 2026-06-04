@@ -50,6 +50,14 @@ describe('board-member annual-report provenance', () => {
   it('resolves checked board rows to direct official annual-report URLs when no document is imported', () => {
     assert.equal(
       resolveBoardMemberAnnualReportSourceLocator(
+        { company: { orgNr: '929228723' } },
+        new Set(),
+      ),
+      'https://data.brreg.no/enhetsregisteret/api/enheter/929228723/roller',
+    )
+
+    assert.equal(
+      resolveBoardMemberAnnualReportSourceLocator(
         { company: { orgNr: 'FI-0116323-9' } },
         new Set(),
       ),
@@ -138,6 +146,12 @@ describe('board-member annual-report provenance', () => {
       resolveBoardMemberSourceLabel('https://om.lidl.se/pdf/show/131697'),
       'Board data: sustainability report 2023/24',
     )
+    assert.equal(
+      resolveBoardMemberSourceLabel(
+        'https://data.brreg.no/enhetsregisteret/api/enheter/929228723/roller',
+      ),
+      'Brønnøysundregistrene roller i virksomheten',
+    )
   })
 
   it('wires the backfill script through the tested annual-report resolver', () => {
@@ -147,6 +161,19 @@ describe('board-member annual-report provenance', () => {
     assert.match(source, /sourceUrl/)
     assert.match(source, /--dry-run/)
     assert.match(source, /verifiedAt/)
+  })
+
+  it('wires board-member import scripts through the tested provenance resolver', () => {
+    for (const scriptPath of [
+      'scripts/import-company-data.ts',
+      'scripts/import-asko-corporate-tree.ts',
+      'scripts/import-norgesgruppen-tree.ts',
+    ]) {
+      const source = readFileSync(scriptPath, 'utf8')
+
+      assert.match(source, /resolveBoardMemberAnnualReportSourceLocator/, scriptPath)
+      assert.match(source, /boardMemberProvenanceData/, scriptPath)
+    }
   })
 
   it('keeps checked board seeds aligned with direct sources', () => {

@@ -12,7 +12,7 @@ import {
 import {
   buildPersonProfileRoleFieldPath,
   type PersonProfileRole,
-} from './lib/person-profile-role-citations'
+} from '../src/lib/person-profile-role-citations'
 
 type CliOptions = {
   outputPath: string

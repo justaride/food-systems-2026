@@ -1,5 +1,5 @@
 {
-  "computedAt": "2026-05-29T09:22:32.557Z",
+  "computedAt": "2026-06-04T10:48:07.366Z",
   "computedEnv": "local",
   "profiles": [
     {
@@ -24,7 +24,7 @@
         "humanVerifiedPct": 0,
         "rollup": "needs_review"
       },
-      "computedAt": "2026-05-29T09:22:32.557Z",
+      "computedAt": "2026-06-04T10:48:07.366Z",
       "computedEnv": "local"
     },
     {
@@ -49,7 +49,7 @@
         "humanVerifiedPct": 0,
         "rollup": "needs_review"
       },
-      "computedAt": "2026-05-29T09:22:32.557Z",
+      "computedAt": "2026-06-04T10:48:07.366Z",
       "computedEnv": "local"
     },
     {
@@ -76,7 +76,7 @@
         "humanVerifiedPct": 9.2,
         "rollup": "needs_review"
       },
-      "computedAt": "2026-05-29T09:22:32.557Z",
+      "computedAt": "2026-06-04T10:48:07.366Z",
       "computedEnv": "local"
     },
     {
@@ -110,7 +110,7 @@
         "humanVerifiedPct": 0,
         "rollup": "needs_review"
       },
-      "computedAt": "2026-05-29T09:22:32.557Z",
+      "computedAt": "2026-06-04T10:48:07.366Z",
       "computedEnv": "local"
     },
     {
@@ -138,7 +138,7 @@
         "humanVerifiedPct": 0,
         "rollup": "needs_review"
       },
-      "computedAt": "2026-05-29T09:22:32.557Z",
+      "computedAt": "2026-06-04T10:48:07.366Z",
       "computedEnv": "local"
     }
   ]

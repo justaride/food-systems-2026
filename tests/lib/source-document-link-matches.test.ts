@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import { describe, it } from 'node:test'
 import {
   findExactSourceDocLink,
@@ -62,5 +63,18 @@ describe('source document link matches', () => {
   it('does not infer loose matches from derivative or summary files', () => {
     assert.equal(findExactSourceDocLink('rammeverk/sirkulaer-matsystem-rammeverk.md'), null)
     assert.equal(findExactSourceDocLink('bibliotek/akademia/nhh-food/frode-steen-profil.md'), null)
+  })
+
+  it('keeps root document imports aligned with exact SourceDoc links', () => {
+    const source = readFileSync('scripts/import-root-docs.ts', 'utf8')
+    const methodTransferIndex = source.indexOf("sourceDocId: 'src-181'")
+    const methodTransferBlock =
+      methodTransferIndex >= 0 ? source.slice(methodTransferIndex, methodTransferIndex + 700) : ''
+
+    assert.ok(methodTransferBlock, 'expected src-181 to be imported as a root document')
+    assert.match(
+      methodTransferBlock,
+      /filename:\s*'docs\/meetings\/JT-GABRIEL - Metodeoverforing Cities Food mai 2026\.md'/,
+    )
   })
 })
