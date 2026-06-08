@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { InternalSection } from '@/components/ui/InternalSection'
 import type { StageEnrichment, VerdikjedeOverview } from '@/lib/queries/verdikjede'
 
 const FeedCompositionTimeseries = dynamic(
@@ -439,69 +440,71 @@ function VerdikjedeOverviewPanel({
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_360px] gap-4">
-        <div className="space-y-3">
-          <div className="flex items-center justify-between gap-3">
-            <div>
-              <h2 className="text-base font-semibold text-stone-800">Matflyt som grafisk uttak</h2>
-              <p className="text-xs text-stone-500 mt-0.5">
-                Første operative flytvisning basert på value-chain-filene. Bruk den som arbeidsflate for Sankey/flow-redesign.
-              </p>
+      <InternalSection label="datadekning & arbeidsflate">
+        <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_360px] gap-4">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <h2 className="text-base font-semibold text-stone-800">Matflyt som grafisk uttak</h2>
+                <p className="text-xs text-stone-500 mt-0.5">
+                  Første operative flytvisning basert på value-chain-filene. Bruk den som arbeidsflate for Sankey/flow-redesign.
+                </p>
+              </div>
+              <div className="flex gap-1.5 shrink-0">
+                {flowCountries.map(country => (
+                  <button
+                    key={country.code}
+                    type="button"
+                    onClick={() => onFlowCountryChange(country.code)}
+                    className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
+                      activeFlowCountry === country.code
+                        ? 'bg-stone-900 border-stone-900 text-white'
+                        : 'bg-white border-stone-200 text-stone-600 hover:border-stone-300'
+                    }`}
+                  >
+                    {country.code.toUpperCase()}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="flex gap-1.5 shrink-0">
-              {flowCountries.map(country => (
-                <button
-                  key={country.code}
-                  type="button"
-                  onClick={() => onFlowCountryChange(country.code)}
-                  className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
-                    activeFlowCountry === country.code
-                      ? 'bg-stone-900 border-stone-900 text-white'
-                      : 'bg-white border-stone-200 text-stone-600 hover:border-stone-300'
-                  }`}
-                >
-                  {country.code.toUpperCase()}
-                </button>
+            <FoodFlowSankey country={activeFlowCountry} />
+          </div>
+
+          <Card title="Interessante uttak">
+            <div className="space-y-3">
+              {overview.opportunities.map(opportunity => (
+                <div key={opportunity.id} className="rounded-md border border-stone-200 bg-white p-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="text-sm font-semibold text-stone-800">{opportunity.title}</p>
+                      <p className="text-[11px] text-stone-400 mt-0.5">{opportunity.skill}</p>
+                    </div>
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded border shrink-0 ${READINESS_CLASSES[opportunity.readiness]}`}>
+                      {READINESS_LABELS[opportunity.readiness]}
+                    </span>
+                  </div>
+                  <p className="text-xs text-stone-600 mt-2">{opportunity.why}</p>
+                  <p className="text-xs text-stone-500 mt-1">
+                    <span className="font-medium text-stone-600">Neste:</span> {opportunity.nextStep}
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {opportunity.dataSources.slice(0, 3).map(source => (
+                      <span key={source} className="text-[10px] px-1.5 py-0.5 rounded bg-stone-50 text-stone-500 border border-stone-200">
+                        {source}
+                      </span>
+                    ))}
+                  </div>
+                  {opportunity.route && (
+                    <Link href={opportunity.route} className="inline-block mt-2 text-xs text-emerald-700 hover:text-emerald-800">
+                      Åpne flate {'→'}
+                    </Link>
+                  )}
+                </div>
               ))}
             </div>
-          </div>
-          <FoodFlowSankey country={activeFlowCountry} />
+          </Card>
         </div>
-
-        <Card title="Interessante uttak">
-          <div className="space-y-3">
-            {overview.opportunities.map(opportunity => (
-              <div key={opportunity.id} className="rounded-md border border-stone-200 bg-white p-3">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="text-sm font-semibold text-stone-800">{opportunity.title}</p>
-                    <p className="text-[11px] text-stone-400 mt-0.5">{opportunity.skill}</p>
-                  </div>
-                  <span className={`text-[10px] px-1.5 py-0.5 rounded border shrink-0 ${READINESS_CLASSES[opportunity.readiness]}`}>
-                    {READINESS_LABELS[opportunity.readiness]}
-                  </span>
-                </div>
-                <p className="text-xs text-stone-600 mt-2">{opportunity.why}</p>
-                <p className="text-xs text-stone-500 mt-1">
-                  <span className="font-medium text-stone-600">Neste:</span> {opportunity.nextStep}
-                </p>
-                <div className="mt-2 flex flex-wrap gap-1.5">
-                  {opportunity.dataSources.slice(0, 3).map(source => (
-                    <span key={source} className="text-[10px] px-1.5 py-0.5 rounded bg-stone-50 text-stone-500 border border-stone-200">
-                      {source}
-                    </span>
-                  ))}
-                </div>
-                {opportunity.route && (
-                  <Link href={opportunity.route} className="inline-block mt-2 text-xs text-emerald-700 hover:text-emerald-800">
-                    Åpne flate {'→'}
-                  </Link>
-                )}
-              </div>
-            ))}
-          </div>
-        </Card>
-      </div>
+      </InternalSection>
     </div>
   )
 }
