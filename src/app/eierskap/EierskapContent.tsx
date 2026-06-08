@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { PageFraming } from '@/components/ui/PageFraming'
 
 type KonsernIndexRow = {
   slug: string
@@ -68,6 +69,20 @@ export function EierskapContent({ konserner }: { konserner: KonsernIndexRow[] })
           {totals.konserner} sporede konserner · {totals.selskap} datterselskap kartlagt · {totals.gaps} åpne datakvalitet-gap
         </p>
       </div>
+
+      <PageFraming
+        title="Hva svarer denne siden på?"
+        description={[
+          'Siden viser eierstruktur, konsern og maktkonsentrasjon i matsektoren — hvem som eier hva og hvor styreroller krysser.',
+          'Den brukes til å forstå strukturell makt og konsentrasjon, ikke som påstand om ulovlig adferd.',
+        ]}
+        takeaways={[
+          'Konserntre og eierandeler kobler selskaper til reelle eiere.',
+          'Styrekryss/interlock viser konsentrasjon av innflytelse.',
+          'Tallene bygger på offentlige registre med ulik oppdateringsferskhet.',
+        ]}
+        caveat="Internt kildegrunnlag med forbehold: bygger på register-/Brønnøysund-data med varierende ferskhet, og er ikke ekstern validering."
+      />
 
       <Card>
         <div className="flex gap-4 flex-wrap items-center">
