@@ -11,6 +11,7 @@ describe('deriveGraphPreset', () => {
   it('sentrale: keeps the top-N nodes by degree and edges between them', () => {
     const nodes = ['A', 'B', 'C', 'D', 'E'].map((id) => n(id, 'company'))
     const edges = [e('A', 'B'), e('A', 'C'), e('A', 'D'), e('A', 'E'), e('B', 'C'), e('B', 'D')]
+    // degrees: A=4, B=3 (strengt rangert) → top 2 = A,B; C/D/E (≤2) faller utenfor
     const out = deriveGraphPreset(nodes, edges, 'sentrale', 2)
     assert.deepEqual(out.nodes.map((x) => x.id).sort(), ['A', 'B'])
     assert.deepEqual(out.edges, [e('A', 'B')])

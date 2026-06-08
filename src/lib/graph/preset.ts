@@ -59,6 +59,7 @@ export function deriveGraphPreset(
       endpoints.add(edge.source)
       endpoints.add(edge.target)
     }
+    // endpoints er bygd fra keptEdges, så hver node her har ≥1 kant per konstruksjon
     return { nodes: nodes.filter((node) => endpoints.has(node.id)), edges: keptEdges }
   }
 

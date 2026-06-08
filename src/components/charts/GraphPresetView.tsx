@@ -17,7 +17,7 @@ export function GraphPresetView({ nodes, edges }: { nodes: GraphNode[]; edges: G
 
   return (
     <div className="space-y-3">
-      <div className="flex flex-wrap gap-2">
+      <div role="group" aria-label="Velg grafvisning" className="flex flex-wrap gap-2">
         {GRAPH_PRESETS.map((p) => (
           <button
             key={p.id}
