@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { PageFraming } from '@/components/ui/PageFraming'
-import { KnowledgeGraph } from '@/components/charts/KnowledgeGraph'
+import { GraphPresetView } from '@/components/charts/GraphPresetView'
 import { StatusLegend } from '@/components/visualization/StatusLegend'
 import { getFullGraph, type GraphQualityReport } from '@/lib/queries/graph'
 
@@ -110,7 +110,7 @@ export default async function GrafPage() {
             {isolatedNodes.toLocaleString('no')} isolerte registerrader holdes utenfor canvas; {actionableIsolates.toLocaleString('no')} ligger i tiltakskøen.
           </span>
         </div>
-        <KnowledgeGraph nodes={interactiveNodes} edges={interactiveEdges} />
+        <GraphPresetView nodes={interactiveNodes} edges={interactiveEdges} />
       </section>
 
       {quality && <DataQualityPanel quality={quality} />}
