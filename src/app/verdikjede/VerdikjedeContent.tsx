@@ -368,6 +368,7 @@ function VerdikjedeOverviewPanel({
         />
       </div>
 
+      <InternalSection label="datadekning & arbeidsflate">
       <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_380px] gap-4">
         <Card title="Datadekning per land">
           <div className="overflow-x-auto">
@@ -440,7 +441,6 @@ function VerdikjedeOverviewPanel({
         </Card>
       </div>
 
-      <InternalSection label="datadekning & arbeidsflate">
         <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_360px] gap-4">
           <div className="space-y-3">
             <div className="flex items-center justify-between gap-3">
