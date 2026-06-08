@@ -25,6 +25,7 @@
 | 7 | 20.04.2026 | [JT + Gabriel — R9, sirkularitetsspørsmål og fôr](JT-GABRIEL%20-%20Arbeidsm%C3%B8te%2020-04-26.md) | Jan Thomas, Gabriel | Fysisk | `JT-GABRIEL - Arbeidsmøte 20-04-26.md` |
 | 8 | 21.04.2026 | [Transition Groups — Mandat, scoping, aktørkartlegging og plattformstatus](TRANSITION%20GROUPS%20-%20M%C3%B8te%2021-04-26.md) | Jan Thomas, Gabriel, Cathrine, Thea, Kristian m.fl. | Fysisk + digitalt | `TRANSITION GROUPS - Møte 21-04-26.md` |
 | 9 | 26.05.2026 | [JT + Gabriel — Metodeoverføring Cities/Food](JT-GABRIEL%20-%20Metodeoverforing%20Cities%20Food%20mai%202026.md) | Jan Thomas, Gabriel | Cross-project intake | `JT-GABRIEL - Metodeoverforing Cities Food mai 2026.md` |
+| 10 | 02.06.2026 | [Gjennomgang materialstrøm-Sankey og datakvalitet](FOOD-UTTAK-2JUNI-MATERIALFLYT-2026-06-08.md) | Jan Thomas, Cathrine, Gabriel | Arbeidsgjennomgang (Cities-logget) | Cities-repo: `src/lib/data/meetings.ts` (`meeting-5`, `src-21`); Food-uttak: `FOOD-UTTAK-2JUNI-MATERIALFLYT-2026-06-08.md` |
 
 ---
 
@@ -116,6 +117,15 @@
 - **Food-eierskap:** Food TG eier videre source-registration, claim-lock, scorecard og valideringssprint
 - **Stoppsignal:** Ikke bruk WUR-score, Moerman-ladder eller Ghana/Costa Rica/Nederland-caser som nordisk pilot- eller effektbevis
 - **QA 28.05.2026:** Food har nå QA-lukket møteoverføringen som intern metodepakke i `docs/project/mandates/food-tg-meeting-transfer-qa-2026-05-28.md`; dette er fortsatt ikke et formelt Food TG-vedtak.
+
+### Møte 10 — 02.06.2026: Gjennomgang materialstrøm-Sankey og datakvalitet
+- **Type:** Arbeidsgjennomgang med hele teamet (JT, Cathrine, Gabriel) — siste møte med både Cathrine og JT. Logget i Cities-repoet (`meeting-5`/`src-21`), Food-relevante punkter trukket ut i `FOOD-UTTAK-2JUNI-MATERIALFLYT-2026-06-08.md`.
+- **Sterk intern validering:** JT om materialflyt-Sankey-en: «har ikke sett noe bedre på ti år» — men kun intern, ikke ekstern/materialfaglig validering.
+- **Kjerneforbehold (gjelder også Food-Sankey):** viser registreringer/strømmer fra åpne kilder — **ikke volum, ikke verdi**; «registrert = kilde, ikke målt strøm».
+- **Ny analyseakse:** verdikjedeposisjon per strøm (råstoff vs. bearbeidet, oppstrøm vs. avfallsside).
+- **Formålsramme:** «røntgenbilde» — det interessante er hva som *mangler/er ubearbeidet* → handlingssonen (svarer på Møte 8: «hvor er gapene?»).
+- **Finansieringskrok:** ~27 mill. samfunnsoppdrag om sirkulære symbioser (Nordic Innovation / Nordisk ministerråd) — relevant «carrot» for Food; hold adskilt fra metodikkvalg, ikke bygg konsortium ennå.
+- **Fase-signal:** fra innledende drøfting → dybdeintervjuer; fagvalidering (materialforsker) satt som forutsetning for ekstern bruk.
 
 ---
 
