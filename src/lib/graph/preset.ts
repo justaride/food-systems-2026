@@ -1,22 +1,15 @@
 import type { GraphNode, GraphEdge } from '@/lib/queries/graph'
 
-export type GraphPresetId = 'sentrale' | 'eierskap' | 'forsyning' | 'evidensgap'
+export type GraphPresetId = 'sentrale' | 'evidensgap'
 
 export type GraphPreset = { id: GraphPresetId; label: string; hint: string }
 
 export const GRAPH_PRESETS: GraphPreset[] = [
   { id: 'sentrale', label: 'Mest sentrale', hint: 'De mest tilkoblede nodene — start her for å unngå hele nettverket på én gang.' },
-  { id: 'eierskap', label: 'Makt & eierskap', hint: 'Selskaper, personer og eiendom — eierstruktur og styrekryss.' },
-  { id: 'forsyning', label: 'Forsyning', hint: 'Selskaper og aktører — forsynings- og forretningsrelasjoner.' },
   { id: 'evidensgap', label: 'Evidensgap', hint: 'Koblinger som mangler eller har lav kildekonfidens (< 0.5).' },
 ]
 
 export const DEFAULT_GRAPH_PRESET: GraphPresetId = 'sentrale'
-
-const SUBGRAPH_TYPES: Record<'eierskap' | 'forsyning', GraphNode['type'][]> = {
-  eierskap: ['company', 'person', 'property'],
-  forsyning: ['company', 'actor'],
-}
 
 const EVIDENCE_THRESHOLD = 0.5
 
@@ -63,12 +56,6 @@ export function deriveGraphPreset(
     return { nodes: nodes.filter((node) => endpoints.has(node.id)), edges: keptEdges }
   }
 
-  const allowed = SUBGRAPH_TYPES[presetId]
-  if (!allowed) return { nodes, edges }
-
-  const allowedSet = new Set(allowed)
-  const keptNodeIds = new Set(nodes.filter((node) => allowedSet.has(node.type)).map((node) => node.id))
-  const keptEdges = edges.filter((edge) => keptNodeIds.has(edge.source) && keptNodeIds.has(edge.target))
-  const keptNodes = nodes.filter((node) => keptNodeIds.has(node.id))
-  return { nodes: keepConnected(keptNodes, keptEdges), edges: keptEdges }
+  // Unknown preset → return input unchanged.
+  return { nodes, edges }
 }
