@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { PageFraming } from '@/components/ui/PageFraming'
 import type { StageEnrichment, VerdikjedeOverview } from '@/lib/queries/verdikjede'
 
 const FeedCompositionTimeseries = dynamic(
@@ -77,6 +78,20 @@ export function VerdikjedeContent({
           {stages.length} ledd i den nordiske matverdikjeden — fra jord til bord
         </p>
       </div>
+
+      <PageFraming
+        title="Hva svarer denne siden på?"
+        description={[
+          'Siden viser den nordiske matverdikjeden ledd for ledd — fra primærproduksjon til avfall — med selskaper, datadekning og strømmer per ledd.',
+          'Den brukes til å se hvor import, foredling, makt og sidestrømmer ligger i kjeden, ikke som komplett volum- eller verdiregnskap.',
+        ]}
+        takeaways={[
+          'Hvert ledd kobler selskaper, datadekning og kjente funn.',
+          'Materialflyt viser registrerte strømmer fra åpne kilder, ikke målte volum.',
+          'Selvforsyning og flyt er analysegrunnlag, ikke beredskapsfasit.',
+        ]}
+        caveat="Internt kildegrunnlag med forbehold: kombinerer primærstatistikk, proxy og dokumentkoblinger, og er ikke ekstern validering."
+      />
 
       <VerdikjedeOverviewPanel
         overview={overview}
