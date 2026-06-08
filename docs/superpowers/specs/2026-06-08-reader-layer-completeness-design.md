@@ -26,7 +26,7 @@ Tre avgrensede deler:
 `src/lib/queries/graph.ts`:
 - `GraphNode.type`: `document | insight | thesis | company | source | actor | person | property`
 - `GraphEdge`: `{ source, target, type: string, confidence?: number /* 0..1 */ }`
-- `/graf` beregner allerede node-grad og konfidens; `KnowledgeGraph` (`src/components/charts/KnowledgeGraph.tsx`) rendrer `nodes`/`edges` og har i dag ingen preset-mekanisme.
+- `/graf` beregner allerede node-grad og konfidens. `KnowledgeGraph` (`src/components/charts/KnowledgeGraph.tsx`) **har allerede en intern preset-rad** («VISNING»: Koblet, Selskap/eierskap, Forsyning, Aktør, Dokument/innsikt, Food TG, Alle koblede) som dekker de type-baserte visningene. *(Oppdaget under verifisering 2026-06-08 — opprinnelig premiss om «ingen preset-mekanisme» var feil; se revisjonsnotatet under.)*
 
 ## Del 1 — Graf-presets
 
@@ -37,16 +37,16 @@ Tre avgrensede deler:
 
 ### Presets (default = `sentrale`)
 
+> **Revisjon 2026-06-08 (etter verifisering):** Opprinnelig spec hadde 4 presets. Siden `KnowledgeGraph` allerede har en intern VISNING-rad med type-baserte visninger (inkl. «Selskap/eierskap» og «Forsyning»), ville `eierskap`/`forsyning` blitt duplikater. Vi **slanket derfor til de to net-nye linsene** som VISNING ikke dekker:
+
 | id | Label | Beholder | Regel |
 |---|---|---|---|
-| `sentrale` | Mest sentrale | Topp-N noder etter grad + kanter mellom dem | N = 80 (konfig-konstant); grad = antall kanter |
-| `eierskap` | Makt & eierskap | `company` + `person`-noder + eier-/styre-kanter | `node.type ∈ {company, person}` og `edge.type ∈ EIER_TYPER` |
-| `forsyning` | Forsyning | `company` + `actor`-noder + kjøper/leverandør-kanter | `node.type ∈ {company, actor}` og `edge.type ∈ FORSYNING_TYPER` |
+| `sentrale` (default) | Mest sentrale | Topp-N noder etter grad + kanter mellom dem | N = 80 (konfig-konstant); grad = antall kanter. Løser hairball-default (VISNINGs «Koblet» viser fortsatt alle koblede). |
 | `evidensgap` | Evidensgap | Kanter med lav/ukjent konfidens + endepunkter | `edge.confidence === undefined || edge.confidence < 0.5` |
 
-- `EIER_TYPER` og `FORSYNING_TYPER` enumereres fra faktisk `edge.type`-vokabular i implementasjonen (grep `structuralEdge`/`relationType`-bruk i `graph.ts`).
-- Hver preset dropper deretter noder uten gjenværende kant (samme «kun koblede noder»-prinsipp som dagens side).
-- Tomt resultat → `KnowledgeGraph` viser sin egen tomtilstand; knappen får et lavmælt «0»-merke.
+- `sentrale` dropper noder uten gjenværende kant (samme «kun koblede noder»-prinsipp som dagens side).
+- Ukjent presetId → returner input uendret.
+- De type-baserte visningene (eierskap, forsyning, aktør osv.) håndteres av `KnowledgeGraph`s egen VISNING-rad.
 
 ### UX
 - Knapperad over canvas (samme stil som `StatusLegend`/`Card`). Aktiv preset uthevet.
