@@ -6,6 +6,8 @@ import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { SourceChip } from '@/components/ui/SourceChip'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { InternalBanner } from '@/components/ui/InternalBanner'
+import { InternalSection } from '@/components/ui/InternalSection'
 import type {
   BacklogRow,
   BacklogRound,
@@ -248,6 +250,7 @@ export function ForskningsrunderContent({
 
   return (
     <div className="space-y-6">
+      <InternalBanner note="Forskningsrunde-arbeidsflate: kildebacklog og nedlastingsstatus. Internt, ikke ferdig formidling." />
       <div>
         <div className="flex items-center gap-2 mb-1">
           <h1 className="text-2xl font-bold text-stone-900">Forskningsrunde 20. april 2026</h1>
@@ -511,14 +514,16 @@ export function ForskningsrunderContent({
           </table>
         </div>
 
-        <div className="mt-3 text-[11px] text-stone-500 leading-relaxed">
-          <strong>Neste steg for full kontroll:</strong> url_only-kilder trenger systematisk nedlastning til{' '}
-          <code className="text-[10px] bg-stone-100 px-1 rounded">research/evidence-pack/[tema]/</code>. Oppdater
-          deretter status fra <code className="text-[10px] bg-stone-100 px-1 rounded">url_only</code> til{' '}
-          <code className="text-[10px] bg-stone-100 px-1 rounded">downloaded</code> i CSV-filen. Exa-hentede og
-          manuelle rader må vurderes separat før de regnes som lokalt sikret. Metadata-only-rader krever
-          kildesøk for å lokalisere faktisk URL.
-        </div>
+        <InternalSection label="datainntak & arbeidsinstruksjoner">
+          <div className="mt-3 text-[11px] text-stone-500 leading-relaxed">
+            <strong>Neste steg for full kontroll:</strong> url_only-kilder trenger systematisk nedlastning til{' '}
+            <code className="text-[10px] bg-stone-100 px-1 rounded">research/evidence-pack/[tema]/</code>. Oppdater
+            deretter status fra <code className="text-[10px] bg-stone-100 px-1 rounded">url_only</code> til{' '}
+            <code className="text-[10px] bg-stone-100 px-1 rounded">downloaded</code> i CSV-filen. Exa-hentede og
+            manuelle rader må vurderes separat før de regnes som lokalt sikret. Metadata-only-rader krever
+            kildesøk for å lokalisere faktisk URL.
+          </div>
+        </InternalSection>
       </Card>
 
       <Card title="Dokumenter i forskningsrunden">
