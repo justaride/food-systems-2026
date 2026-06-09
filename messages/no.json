@@ -1,3 +1,46 @@
 {
-  "smoke": "røyktest"
+  "smoke": "røyktest",
+  "header": { "appName": "Food Systems 2026", "appTagline": "NCH Transition Group", "menu": "Meny" },
+  "common": { "phase": "Fase", "deadline": "Frist", "deadlineValue": "Juni 2026" },
+  "language": { "switchAria": "Bytt språk" },
+  "nav": {
+    "internalBadge": "internt",
+    "group": {
+      "intern": "Intern", "selskap": "Selskap & eierskap", "matsystem": "Matsystem",
+      "produsenter": "Produsenter & støtte", "nordisk": "Nordisk", "kunnskap": "Kunnskap", "bibliotek": "Bibliotek"
+    },
+    "oversikt": { "name": "Oversikt", "description": "Fase, fremdrift, neste steg" },
+    "sok": { "name": "Søk", "description": "Søk på tvers av alt" },
+    "team": { "name": "Team", "description": "Medlemmer og roller" },
+    "moter": { "name": "Møter", "description": "Møtesammendrag og referater" },
+    "kommunikasjon": { "name": "Kommunikasjon", "description": "E-post og korrespondanse" },
+    "mandat": { "name": "Mandat", "description": "Food TG scope, claims og validering" },
+    "metodikk": { "name": "Metodikk", "description": "Ten Step, KPIs og deep research-prompter" },
+    "tidslinje": { "name": "Tidslinje", "description": "Faser og søknader" },
+    "selskaper": { "name": "Selskaper", "description": "Selskapsdata og regnskap" },
+    "eierskap": { "name": "Eierskap", "description": "Konserndossier og datakvalitet" },
+    "styremedlemmer": { "name": "Styremedlemmer", "description": "Krysstyrer og nettverk" },
+    "personer": { "name": "Personer", "description": "Nøkkelpersoner og roller" },
+    "eiendommer": { "name": "Eiendommer", "description": "Selskapseiendommer og lokaler" },
+    "verdikjede": { "name": "Verdikjede", "description": "Nordisk verdikjedeanalyse (jord til bord)" },
+    "forsyningskjede": { "name": "Forsyningskjede", "description": "Leverandørrelasjoner, primærleveranser og selvhandel" },
+    "havbruk": { "name": "Havbruk", "description": "Lokaliteter og søknader (Fiskeridir)" },
+    "sirkularitet": { "name": "Sirkularitet", "description": "R-stige, 10 spørsmål, looper og caser" },
+    "okonomi": { "name": "Økonomi", "description": "Finansielle trender og sammenligning" },
+    "produsentregister": { "name": "Produsentregister", "description": "Jordbruksforetak fra register (rådata)" },
+    "subsidier": { "name": "Subsidier", "description": "Tilskudd per kommune, ordning og mottaker" },
+    "sammenligning": { "name": "Sammenligning", "description": "Nordisk sammenligning" },
+    "politikk": { "name": "Politikk", "description": "Nordisk matpolitikk-sammenligning" },
+    "kart": { "name": "Kart", "description": "Butikker og kommunegrenser" },
+    "media": { "name": "Media", "description": "Medieomtale og narrativer" },
+    "innsikt": { "name": "Innsikt", "description": "Forskning, kartlegging, analyse" },
+    "forskningsrunder": { "name": "Forskningsrunder", "description": "Food Research Process 20. april 2026" },
+    "akademia": { "name": "Akademia", "description": "Master- og PhD-avhandlinger" },
+    "graf": { "name": "Graf", "description": "Kunnskapsgraf og koblinger" },
+    "aktorer": { "name": "Aktører", "description": "Prioritering, asks og relasjoner" },
+    "rapporter": { "name": "Rapporter", "description": "Offentlige og bransjeanalyser" },
+    "hvitbok": { "name": "Hvitbok", "description": "Leveransedokument i kapitler" },
+    "bibliotek": { "name": "Bibliotek", "description": "Fulltekst forskningsdokumenter" },
+    "kilder": { "name": "Kilder", "description": "Dokumenter og referanser" }
+  }
 }
