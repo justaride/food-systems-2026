@@ -26,11 +26,18 @@ export function coverageBadgeModel(profile: CoverageProfile): CoverageBadgeModel
       : { label: g.countries.join('/') || 'ukjent', tone: g.countries.length <= 1 ? 'warn' : 'neutral' }
 
   const v = profile.verification
-  const verification: Chip = {
-    label: `${v.humanVerifiedPct}% verifisert`,
-    tone: v.rollup === 'human_grade' ? 'good' : v.rollup === 'needs_review' ? 'bad' : 'warn',
-    title: `Rollup: ${v.rollup} (${v.humanVerified}/${v.total})`,
-  }
+  const verification: Chip =
+    v.total === 0
+      ? {
+          label: 'ikke sporet',
+          tone: 'neutral',
+          title: 'Verifisering spores ikke for dette datasettet (0 rader).',
+        }
+      : {
+          label: `${v.humanVerifiedPct}% verifisert`,
+          tone: v.rollup === 'human_grade' ? 'good' : 'warn',
+          title: `Andel poster en person har kvalitetssjekket: ${v.humanVerified} av ${v.total}.`,
+        }
 
   return { temporal: temporalChip(profile.temporal), geo, verification }
 }

@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import type { BacklogRound, SourceDownloadStatus } from '@/lib/queries/download-backlog'
 import { CoverageOverview } from '@/components/coverage/CoverageOverview'
+import { InternalBanner } from '@/components/ui/InternalBanner'
 
 export type SourceRow = {
   id: string
@@ -176,6 +177,7 @@ export function KilderContent({
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
+      <InternalBanner note="Kilderegister og nedlastings-/kurasjonsstatus — internt arbeidsgrunnlag, ikke ferdig formidling. Tall og status kan endres." />
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold text-stone-900 tracking-tight">Kunnskapsgrunnlag</h1>

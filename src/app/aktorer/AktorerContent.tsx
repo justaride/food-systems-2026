@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useDeferredValue, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { InternalBanner } from '@/components/ui/InternalBanner'
 
 type ActorRow = {
   id: string
@@ -155,6 +156,7 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
+      <InternalBanner note="Intern interessent-/påvirkningsanalyse: stance, makt/interesse-score og «asks» er teamets arbeidsvurderinger, ikke eksterne fakta." />
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold text-stone-900 tracking-tight">Aktorkart</h1>

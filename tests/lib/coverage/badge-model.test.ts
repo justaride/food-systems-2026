@@ -36,4 +36,22 @@ describe('coverageBadgeModel', () => {
     assert.equal(m.geo.tone, 'good')
     assert.equal(m.verification.tone, 'good')
   })
+  it('total === 0 → verification chip is neutral "ikke sporet" (not red 0%)', () => {
+    const m = coverageBadgeModel(
+      profile({
+        verification: { total: 0, humanVerified: 0, machineVerified: 0, needsReview: 0, humanVerifiedPct: 0, rollup: 'needs_review' },
+      }),
+    )
+    assert.equal(m.verification.label, 'ikke sporet')
+    assert.equal(m.verification.tone, 'neutral')
+  })
+  it('real low verification (needs_review, total > 0) → warn, not bad', () => {
+    const m = coverageBadgeModel(
+      profile({
+        verification: { total: 179311, humanVerified: 0, machineVerified: 0, needsReview: 179311, humanVerifiedPct: 0, rollup: 'needs_review' },
+      }),
+    )
+    assert.equal(m.verification.label, '0% verifisert')
+    assert.equal(m.verification.tone, 'warn')
+  })
 })
