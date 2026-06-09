@@ -4,7 +4,7 @@ import { Header } from '@/components/layout/Header'
 import { Sidebar } from '@/components/layout/Sidebar'
 import { getPhases } from '@/lib/queries/project'
 import { NextIntlClientProvider } from 'next-intl'
-import { getLocale, getMessages, getTranslations } from 'next-intl/server'
+import { getLocale, getMessages } from 'next-intl/server'
 
 export const dynamic = 'force-dynamic'
 
@@ -23,7 +23,6 @@ export default async function RootLayout({
   const activeIndex = phases.findIndex(p => p.status === 'pagar')
   const locale = await getLocale()
   const messages = await getMessages()
-  const t = await getTranslations()
   return (
     <html lang={locale}>
       <body>
@@ -37,7 +36,6 @@ export default async function RootLayout({
               </main>
             </div>
           </div>
-          <span data-testid="i18n-smoke" className="sr-only">{t('smoke')}</span>
         </NextIntlClientProvider>
       </body>
     </html>

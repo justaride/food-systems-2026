@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { navGroups } from '@/lib/data/nav'
 import { useTranslations } from 'next-intl'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function Sidebar({ activePhase, totalPhases }: { activePhase: number; totalPhases: number }) {
   const pathname = usePathname()
@@ -72,6 +73,7 @@ export function Sidebar({ activePhase, totalPhases }: { activePhase: number; tot
               <span className="text-stone-600 font-medium">{t('common.deadlineValue')}</span>
             </div>
           </div>
+          <LanguageSwitcher className="mt-3" />
         </div>
       </div>
     </aside>

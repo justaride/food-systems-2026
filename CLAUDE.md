@@ -13,6 +13,13 @@ Knowledge base and analysis app for Norwegian and Nordic food systems. Maps corp
 - Deploy: Coolify on Hetzner via GitHub `justaride`; never Vercel
 - Build note: `npm run build` runs Prisma generate and chart metric computation before the Next.js build
 
+## Operating Discipline
+
+- State assumptions and scope before non-trivial edits; ask when the task can reasonably mean more than one thing.
+- Keep changes traceable to the request. Avoid adjacent refactors, speculative flexibility, and new documentation unless explicitly asked.
+- For research, report, or public-facing claims, route language through the claim-lock, source-locator, and validation-gate documents before treating it as externally usable.
+- Define verification before claiming completion: targeted tests/lint/build for code, the citable sequence in `research/CITABLE-KNOWLEDGE-BASE-STATUS.md` for external knowledge-base status, and `git diff --check` for docs/process edits.
+
 ## Task-Specific Guides
 
 Read only the guide that matches the task.

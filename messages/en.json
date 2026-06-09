@@ -1,5 +1,4 @@
 {
-  "smoke": "smoke test",
   "header": { "appName": "Food Systems 2026", "appTagline": "NCH Transition Group", "menu": "Menu" },
   "common": { "phase": "Phase", "deadline": "Deadline", "deadlineValue": "June 2026" },
   "language": { "switchAria": "Switch language" },

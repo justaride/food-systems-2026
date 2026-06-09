@@ -25,6 +25,7 @@
 | 7 | 20.04.2026 | [JT + Gabriel — R9, sirkularitetsspørsmål og fôr](JT-GABRIEL%20-%20Arbeidsm%C3%B8te%2020-04-26.md) | Jan Thomas, Gabriel | Fysisk | `JT-GABRIEL - Arbeidsmøte 20-04-26.md` |
 | 8 | 21.04.2026 | [Transition Groups — Mandat, scoping, aktørkartlegging og plattformstatus](TRANSITION%20GROUPS%20-%20M%C3%B8te%2021-04-26.md) | Jan Thomas, Gabriel, Cathrine, Thea, Kristian m.fl. | Fysisk + digitalt | `TRANSITION GROUPS - Møte 21-04-26.md` |
 | 9 | 26.05.2026 | [JT + Gabriel — Metodeoverføring Cities/Food](JT-GABRIEL%20-%20Metodeoverforing%20Cities%20Food%20mai%202026.md) | Jan Thomas, Gabriel | Cross-project intake | `JT-GABRIEL - Metodeoverforing Cities Food mai 2026.md` |
+| 10 | 09.06.2026 | [Food Systems — arbeidsavklaring og case-spissing](food-systems-transkripsjon-bearbeidet-2026-06-09.md) | Ikke endelig avklart i transkripsjon | Bearbeidet arbeidsnotat | `food-systems-transkripsjon-bearbeidet-2026-06-09.md` |
 
 ---
 
@@ -116,6 +117,13 @@
 - **Food-eierskap:** Food TG eier videre source-registration, claim-lock, scorecard og valideringssprint
 - **Stoppsignal:** Ikke bruk WUR-score, Moerman-ladder eller Ghana/Costa Rica/Nederland-caser som nordisk pilot- eller effektbevis
 - **QA 28.05.2026:** Food har nå QA-lukket møteoverføringen som intern metodepakke i `docs/project/mandates/food-tg-meeting-transfer-qa-2026-05-28.md`; dette er fortsatt ikke et formelt Food TG-vedtak.
+
+### Møte 10 — 09.06.2026: Arbeidsavklaring og case-spissing
+- **Type:** Bearbeidet arbeidsnotat fra muntlig arbeidsavklaring; ikke formelt Food TG-vedtak og ikke ekstern validering.
+- **Hovedgrep:** Food Systems må spisses fra "hele matsystemet" til konkrete kunnskapsankre, verdikjeder, systembarrierer og cases der NCH/Natural State har data, relasjoner eller mulige samarbeidsinnganger.
+- **Casesignal:** Kaffe/Brasil, bacalhau/fôrimport fra Brasil, kakao/Elfenbenskysten, frukt/grønt/lokal produksjon, spillvarme/drivhus, akvaponikk/hydroponi, Island 100% Fish, Valio/Finland, Danmark/svin/meieri, kunstgjødsel/biogass, Polen/Nederland/Skottland.
+- **Kontrollbehov:** Flere punkter er samtalehypoteser og må inn i source shortlist, claim-lock og primary-check queue før ekstern bruk.
+- **Analyse 09.06.2026:** Samtalen er kartlagt mot eksisterende arbeid i `docs/project/analysis/food-systems-samtaleanalyse-og-status-2026-06-09.md`.
 
 ---
 
