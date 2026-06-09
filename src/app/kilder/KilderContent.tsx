@@ -188,8 +188,7 @@ export function KilderContent({
             Full kildeoversikt for Food Systems 2026. Inkluderer både sporede kilder i databasen
             ({dbCount}), dokumenter i biblioteket uten egen kilderegistrering ({documentCount}) og
             backlog-kilder fra {rounds.length} forskningsrunder ({backlogOnlyCount} uregistrerte).
-            Nedlastingsstatus spores via CSV-er i{' '}
-            <code className="text-xs bg-stone-100 px-1 rounded">research/evidence-pack/</code>.
+            Nedlastingsstatus spores internt.
           </p>
         </div>
         <div className="flex gap-3">

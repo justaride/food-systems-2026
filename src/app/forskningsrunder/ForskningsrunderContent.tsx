@@ -758,7 +758,7 @@ export function ForskningsrunderContent({
 
       <Card title="Konkurs-aktører kartlagt">
         {konkurserActors.length === 0 ? (
-          <EmptyState message="Ingen aktører enda. Kjør db:import:ts for å laste seed-data." />
+          <EmptyState message="Ingen aktører registrert ennå." />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {konkurserActors.map((a) => (

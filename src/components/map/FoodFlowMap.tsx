@@ -713,7 +713,7 @@ export default function FoodFlowMap() {
             <div className="space-y-2 border-b border-stone-200 pb-4">
               <h2 className="text-lg font-semibold text-stone-900">Prototype-innsikt</h2>
               <p className="text-sm leading-6 text-stone-600">
-                Edge-listen er liten med vilje. Den viser hvordan en senere `flowmap.gl`-integrasjon kan brukes for å sammenligne havn til hub-strømmer.
+                Kart-koblingene er få med vilje — en illustrasjon av hvordan havn-til-hub-strømmer kan sammenlignes i en senere versjon.
               </p>
               <div className="flex flex-wrap gap-2 pt-1">
                 <EvidencePill status={dominantEvidenceStatus} />

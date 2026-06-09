@@ -385,17 +385,11 @@ export function SubsidierContent({
 
       {!hasProduksjonstilskudd && (
         <div className="rounded-lg border border-orange-200 bg-orange-50 px-5 py-4 text-sm text-orange-900 space-y-2">
-          <div className="font-semibold">Produksjonstilskudd-data ikke importert</div>
+          <div className="font-semibold">Produksjonstilskudd-data er ikke lastet inn ennå</div>
           <p>
-            Tabellen <code className="px-1.5 py-0.5 rounded bg-white/70 text-xs font-mono">Subsidy</code> mangler rader med
-            <code className="px-1.5 py-0.5 rounded bg-white/70 text-xs font-mono">subsidyType=&apos;produksjonstilskudd&apos;</code>.
-            Det forklarer hvorfor kommune-, ordnings- og mottakeraggregatene er tomme.
-            Beløpet «Totalt utbetalt» over inneholder kun øvrige subsidier ({byType.length} type
+            Kommune-, ordnings- og mottakeraggregatene er derfor tomme. Beløpet «Totalt utbetalt»
+            over inneholder kun øvrige subsidier ({byType.length} type
             {byType.length === 1 ? '' : 'r'}).
-          </p>
-          <p className="text-xs text-orange-800">
-            Kjør i prod-container: <code className="px-1.5 py-0.5 rounded bg-white/70 font-mono">npm run db:import:produksjonstilskudd</code>{' '}
-            (henter ~180k rader fra Landbruksdirektoratet, NLOD).
           </p>
         </div>
       )}
