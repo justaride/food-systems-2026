@@ -51,7 +51,7 @@ type SearchApiResponse = {
 
 const MODE_LABELS: Record<SearchMode, string> = {
   local: 'Rask',
-  fts: 'FTS',
+  fts: 'Fulltekst',
 }
 
 const MODE_DESCRIPTIONS: Record<SearchMode, string> = {
@@ -210,7 +210,7 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
           'Den er kontrollflate for fulltekst, metadata, filtrering og dokumentkoblinger før funn brukes utenfor biblioteket.',
         ]}
         takeaways={[
-          'Raskt søk filtrerer pre-lastede dokumenter; FTS søker i dokumentinnhold når serverlaget svarer.',
+          'Raskt søk filtrerer pre-lastede dokumenter; Fulltekst-søket søker i dokumentinnhold når serverlaget svarer.',
           'Hvert dokument kan åpnes for sammendrag, innhold og relasjoner til andre dokumenter.',
           'Biblioteket er inngang til kildekontroll, ikke alene en vurdering av claim-styrke.',
         ]}

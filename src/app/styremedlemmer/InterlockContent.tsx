@@ -417,7 +417,7 @@ export function InterlockContent({
         </div>
       </Card>
 
-      <Card title="Interlock-score">
+      <Card title="Krysstyre-score">
         <p className="mb-4 text-xs leading-5 text-stone-500">
           Personscore summerer unike selskaper, ekstra roller og to poeng per ekstra sektor.
           Selskapsscore summerer krysspersoner, andre selskaper de binder til og kryssektorbonus.
