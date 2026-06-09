@@ -54,4 +54,9 @@ describe('coverageBadgeModel', () => {
     assert.equal(m.verification.label, '0% verifisert')
     assert.equal(m.verification.tone, 'warn')
   })
+  it('unknown temporal period → warn, not bad (no false red)', () => {
+    const m = coverageBadgeModel(profile({ temporal: { kind: 'unknown' } }))
+    assert.equal(m.temporal.label, 'ukjent periode')
+    assert.equal(m.temporal.tone, 'warn')
+  })
 })

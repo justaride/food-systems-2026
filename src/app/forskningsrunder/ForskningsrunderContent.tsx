@@ -132,7 +132,7 @@ const themes: ThemeBucket[] = [
   {
     id: 'framstillinger',
     label: 'Framstillinger og media',
-    description: 'Norsk offentlig diskurs 2020-2026. Narrative poler: beredskap og kjoepekraft.',
+    description: 'Norsk offentlig diskurs 2020-2026. Narrative poler: beredskap og kjøpekraft.',
     tagFilters: ['media-framing', 'beredskap', 'kjoepekraft', 'diskursanalyse', 'hvitbok'],
     accent: 'border-l-4 border-l-sky-400',
   },
@@ -809,7 +809,7 @@ export function ForskningsrunderContent({
           <div className="rounded-lg bg-stone-50 p-3 border-l-4 border-l-violet-400">
             <div className="font-semibold text-stone-800 mb-1">TINE + Rest-paradokset</div>
             <p className="text-stone-600 leading-relaxed">
-              Selv 33,4% industrielt eierskap fra Norges stoerste meierisamvirke kunne ikke redde
+              Selv 33,4% industrielt eierskap fra Norges største meierisamvirke kunne ikke redde
               Restaurant Rest. Peker mot strukturelle problemer heller enn kapitalmangel.
             </p>
           </div>

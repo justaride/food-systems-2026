@@ -368,9 +368,9 @@ export const mediaCountryProfiles: MediaCountryProfile[] = [
 ]
 
 export const mediaScanGuidance = [
-  'Bygg faktiske mediesok per land mot 2016-2025 som neste lag oppa denne kvalitative profilen.',
+  'Bygg faktiske mediesøk per land mot 2016-2025 som neste lag oppå denne kvalitative profilen.',
   'Kod hver omtale på tema, trigger, tone og geografisk fokus for å skille politikk, marked og innovasjon.',
-  'Hold 2026 utenfor historikkgrafene til hele aret eller et definert delaar er lukket og sammenlignbart.',
+  'Hold 2026 utenfor historikkgrafene til hele året eller et definert delår er lukket og sammenlignbart.',
   'Bruk denne siden som narrativt kart, ikke som endelig mediestatistikk; den må kalibreres mot faktiske artikkeltreff.',
 ]
 

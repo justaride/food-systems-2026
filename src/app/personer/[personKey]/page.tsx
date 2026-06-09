@@ -146,7 +146,7 @@ export default async function PersonPage({ params }: { params: Promise<{ personK
                     {meta.label}
                   </span>
                   <span className="text-xs text-stone-400 tabular-nums">
-                    {role.fromYear ?? '?'}&ndash;{role.toYear ?? 'na'}
+                    {role.fromYear ?? '?'}&ndash;{role.toYear ?? 'nå'}
                   </span>
                 </div>
               </div>

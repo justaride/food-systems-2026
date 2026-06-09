@@ -154,7 +154,7 @@ export function VerdikjedeContent({
                       </div>
 
                       <div>
-                        <p className="text-xs font-medium text-stone-500 mb-1.5">Nokkelfunn</p>
+                        <p className="text-xs font-medium text-stone-500 mb-1.5">Nøkkelfunn</p>
                         <ul className="space-y-1">
                           {stage.keyPoints.map((point, i) => (
                             <li key={i} className="text-sm text-stone-600 flex gap-2">
@@ -181,7 +181,7 @@ export function VerdikjedeContent({
                         </div>
 
                         <div className="flex-1">
-                          <p className="text-xs font-medium text-stone-500 mb-1.5">Nokkelaktorer</p>
+                          <p className="text-xs font-medium text-stone-500 mb-1.5">Nøkkelaktører</p>
                           <div className="flex flex-wrap gap-1.5">
                             {stage.keyActors.map(actor => {
                               const companyId = actorById.get(actor) ?? null

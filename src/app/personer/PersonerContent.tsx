@@ -105,7 +105,7 @@ export function PersonerContent({ persons }: { persons: PersonProfileRow[] }) {
       </Card>
 
       {filtered.length === 0 ? (
-        <EmptyState message="Ingen personer matcher soket" />
+        <EmptyState message="Ingen personer matcher søket" />
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map(person => (

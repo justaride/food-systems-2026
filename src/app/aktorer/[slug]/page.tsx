@@ -145,7 +145,7 @@ export default async function ActorDetailPage({
             <div className="space-y-4">
               {actor.currentRelevance && (
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Hvorfor denne aktoren betyr noe na</p>
+                  <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Hvorfor denne aktøren betyr noe nå</p>
                   <p className="mt-1 text-sm text-stone-700 leading-relaxed">{actor.currentRelevance}</p>
                 </div>
               )}
@@ -176,7 +176,7 @@ export default async function ActorDetailPage({
           <Card title="Profil">
             <div className="space-y-3 text-sm text-stone-700">
               <div>
-                <p className="text-xs uppercase tracking-wider text-stone-400">Onsket stance</p>
+                <p className="text-xs uppercase tracking-wider text-stone-400">Ønsket stance</p>
                 <p className="mt-1">{actor.desiredStance ? STANCE_LABELS[actor.desiredStance] ?? actor.desiredStance : 'Ikke satt'}</p>
               </div>
               <div>

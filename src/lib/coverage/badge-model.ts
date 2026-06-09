@@ -13,7 +13,7 @@ function temporalChip(t: TemporalCoverage): Chip {
     case 'time_series':
       return { label: `${t.from}–${t.to} · tidsserie`, tone: 'good' }
     case 'unknown':
-      return { label: 'ukjent periode', tone: 'bad' }
+      return { label: 'ukjent periode', tone: 'warn' }
   }
 }
 

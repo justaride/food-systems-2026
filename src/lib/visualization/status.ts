@@ -60,14 +60,14 @@ export const researchEvidenceStatusConfig: Record<ResearchEvidenceStatus, Resear
   validated: {
     label: 'Validert',
     shortLabel: 'Validated',
-    description: 'Primaerkilde med locator. Kan siteres direkte i ekstern publikasjon.',
+    description: 'Primærkilde med locator. Kan siteres direkte i ekstern publikasjon.',
     className: 'border-emerald-200 bg-emerald-50 text-emerald-800',
     kiUsage: 'cite_directly',
   },
   primary_snapshot: {
     label: 'Primærsnapshot',
     shortLabel: 'Primary snapshot',
-    description: 'Primaerkilde med metodeforbehold. Kan brukes i rapport med underliggende kildehenvisning.',
+    description: 'Primærkilde med metodeforbehold. Kan brukes i rapport med underliggende kildehenvisning.',
     className: 'border-sky-200 bg-sky-50 text-sky-800',
     kiUsage: 'cite_with_underlying_sources',
   },
@@ -81,7 +81,7 @@ export const researchEvidenceStatusConfig: Record<ResearchEvidenceStatus, Resear
   local_research_needs_primary_check: {
     label: 'Trenger primærsjekk',
     shortLabel: 'Needs check',
-    description: 'Intern hypotese eller arbeidsgrunnlag. Skal ikke brukes som primaerbevis foer ekstern kilde er bekreftet.',
+    description: 'Intern hypotese eller arbeidsgrunnlag. Skal ikke brukes som primærbevis før ekstern kilde er bekreftet.',
     className: 'border-orange-200 bg-orange-50 text-orange-800',
     kiUsage: 'background_only',
   },
