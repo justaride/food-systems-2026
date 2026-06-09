@@ -75,7 +75,7 @@ export function VerdikjedeContent({
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Verdikjede</h1>
         <p className="text-sm text-stone-400 mt-1">
-          {stages.length} ledd i den nordiske matverdikjeden — fra jord til bord
+          {stages.length} ledd i den nordiske matverdikjeden, fra jord til bord — hvor de fem landene har data, svinn og selvforsyning per ledd.
         </p>
       </div>
 

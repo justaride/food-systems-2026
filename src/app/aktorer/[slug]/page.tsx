@@ -41,6 +41,11 @@ export default async function ActorDetailPage({
 
   return (
     <div className="space-y-6">
+      <nav className="flex items-center gap-2 text-xs text-stone-500">
+        <Link href="/aktorer" className="hover:text-emerald-700">Aktører</Link>
+        <span>/</span>
+        <span className="font-medium text-stone-700">{actor.name}</span>
+      </nav>
       <InternalBanner note="Intern aktørprofil: påvirkningsvurdering, ikke ekstern fakta-profil." />
       <div>
         <div className="flex flex-wrap items-center gap-2">
