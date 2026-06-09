@@ -186,7 +186,7 @@ export function KilderContent({
           </p>
           <p className="text-stone-500 mt-2 max-w-2xl">
             Full kildeoversikt for Food Systems 2026. Inkluderer både sporede kilder i databasen
-            ({dbCount}), dokumenter i biblioteket uten eget SourceDoc-lag ({documentCount}) og
+            ({dbCount}), dokumenter i biblioteket uten egen kilderegistrering ({documentCount}) og
             backlog-kilder fra {rounds.length} forskningsrunder ({backlogOnlyCount} uregistrerte).
             Nedlastingsstatus spores via CSV-er i{' '}
             <code className="text-xs bg-stone-100 px-1 rounded">research/evidence-pack/</code>.
@@ -364,7 +364,7 @@ export function KilderContent({
           <span className="px-1.5 py-0.5 rounded bg-sky-100 text-sky-800 text-[10px] font-semibold">
             DOKUMENT
           </span>
-          = hentet direkte fra biblioteket, men ikke promotert til SourceDoc ennå
+          = hentet direkte fra biblioteket, men ikke registrert i kilderegisteret ennå
         </span>
         <span className="inline-flex items-center gap-1.5 text-stone-500">
           <span className="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px] font-semibold">

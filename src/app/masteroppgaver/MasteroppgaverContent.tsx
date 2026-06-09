@@ -177,7 +177,7 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
                 <div className="text-xs uppercase tracking-wider text-stone-400">Dokumentkoblet</div>
                 <div className="text-2xl font-bold text-stone-900">{documentLinkedCount}</div>
                 <div className="text-xs text-stone-500 mt-0.5">
-                  {missingDocumentCount === 0 ? 'alle har documentId' : `${missingDocumentCount} gjenstår`}
+                  {missingDocumentCount === 0 ? 'alle er koblet til kildedokument' : `${missingDocumentCount} gjenstår`}
                 </div>
               </div>
               <div className="bg-stone-50 px-4 py-3 rounded-lg border border-stone-200">

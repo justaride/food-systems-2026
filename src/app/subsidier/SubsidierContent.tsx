@@ -340,7 +340,7 @@ export function SubsidierContent({
           </div>
           <p className="mt-1.5 text-xs text-emerald-700">
             Inkluderer både selskaps- og produsentbaserte tilskudd for konsernet.
-            Produsentleverandører er koblet via leveransevolum (DeliveryVolume) — en produsent telles for et konsern
+            Produsentleverandører er koblet via leveransevolum — en produsent telles for et konsern
             hvis noen av dens leveranser går til selskaper i eierskapstreet. Statistikken under er nasjonale totaler.
           </p>
         </div>
@@ -427,12 +427,7 @@ export function SubsidierContent({
                 />
               </div>
               <p className="mt-4 text-xs leading-5 text-stone-500">
-                Metode: hver mottaker er én produsent (
-                <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">producerId</code>
-                ), og alle rader med{' '}
-                <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">
-                  subsidyType=produksjonstilskudd
-                </code>{' '}
+                Metode: hver mottaker er én produsent, og alle produksjonstilskudd-rader{' '}
                 summeres før fordelingen beregnes. Gini og Lorenz-kurve er derfor
                 mottakerfordeling, ikke kommune-, areal- eller innbyggernormalisering.
               </p>
@@ -479,7 +474,7 @@ export function SubsidierContent({
           <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-xs leading-5 text-stone-600">
             Produsentmottakere har ikke eierskap- eller styredata (det ligger på Company-nivå).
             Toppmottakerlisten er beslutningsklar som fordelingsliste. Neste datasteg er
-            parent-orgnr-oppløsning mot Company-tabellen for å koble produsentene til
+            oppslag av morselskapets orgnr mot selskapsregisteret for å koble produsentene til
             juridiske enheter og styringsspor.
           </div>
         </Card>
@@ -512,7 +507,7 @@ export function SubsidierContent({
           <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-xs leading-5 text-stone-600">
             Dette er driftsenhetsspor, ikke validert eierskap. Matrikkel, koordinater og
             leveransefotavtrykk gjør toppmottakerne mer analyserbare geografisk og
-            produksjonsmessig, mens parent-orgnr må kobles videre til produsentaktør,
+            produksjonsmessig, mens morselskapets orgnr må kobles videre til produsentaktør,
             person eller juridisk enhet før det kan brukes som styringsspor.
           </div>
         </Card>
@@ -644,7 +639,7 @@ export function SubsidierContent({
               />
             </div>
             <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-xs leading-5 text-stone-600">
-              Alle produksjonstilskuddsmottakere er produsenter (Producer-tabell). Heatmapet
+              Alle produksjonstilskuddsmottakere er produsenter (produsentregisteret). Heatmapet
               under viser hvordan ordningene fordeler seg innen jordbruksforetakene — ett
               verdikjedeledd.
             </div>
@@ -681,8 +676,7 @@ export function SubsidierContent({
             <SchemeStageHeatmapView heatmap={schemeStageHeatmap} />
             <div className="mt-4 border-t border-stone-100 pt-3 text-xs leading-5 text-stone-400">
               Metode: hver celle summerer produksjonstilskudd per ordning og verdikjedeledd.
-              Produsenter tilhører primærleddet; mottakere er gruppert per{' '}
-              <code className="rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">producerId</code>.
+              Produsenter tilhører primærleddet; mottakere er gruppert per produsent-ID.
               <code className="mx-1 rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">
                 Uklassifisert
               </code>

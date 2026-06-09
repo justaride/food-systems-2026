@@ -718,7 +718,7 @@ export default function FoodFlowMap() {
               <div className="flex flex-wrap gap-2 pt-1">
                 <EvidencePill status={dominantEvidenceStatus} />
                 <span className="rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5 text-[10px] font-semibold text-stone-600">
-                  {dataset.schemaVersion ?? 'schema ukjent'}
+                  {dataset.schemaVersion ?? 'dataversjon ukjent'}
                 </span>
                 {dataset.lastUpdated ? (
                   <span className="rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5 text-[10px] font-semibold text-stone-600">

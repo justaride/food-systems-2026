@@ -93,7 +93,7 @@ export default async function PersonPage({ params }: { params: Promise<{ personK
         <Card title="Biografi (auto-generert)">
           <p className="text-sm text-stone-700 leading-relaxed">{autoBio}</p>
           <p className="mt-2 text-[11px] text-stone-400">
-            Utledet fra registrerte roller — redigerbar biografi kan legges til i PersonProfile-tabellen.
+            Utledet fra registrerte roller — redigerbar biografi kan legges til manuelt.
           </p>
         </Card>
       ) : null}
