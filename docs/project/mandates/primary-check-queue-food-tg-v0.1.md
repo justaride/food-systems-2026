@@ -3,8 +3,8 @@ tittel: Food TG Primary-Check Queue v0.1
 status: Utført internt
 eier: Gabriel
 dato: 2026-04-28
-sist_oppdatert: 2026-05-21
-neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21. PCQ-B-001 til B-004 er låst som benchmark/hypotese inntil råvareeier, hygiene, stabilisering, off-taker og bruksrett er validert.
+sist_oppdatert: 2026-06-09
+neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21. PCQ-B-001 til B-004 er låst som benchmark/hypotese inntil råvareeier, hygiene, stabilisering, off-taker og bruksrett er validert. 09.06-caser er lagt inn som PCQ-0906-* og skal ikke brukes i faktastemme før primærkilde eller aktørdata finnes.
 relaterte_filer:
   - docs/project/mandates/actor-validation-pack-food-tg-v0.1.md
   - docs/project/mandates/analysefabrikk-handoffs/2026-04-28-mini-verifikasjon-2b-2d-recovery.md
@@ -47,13 +47,30 @@ Runde 3 lukker noen deler av køen som internt kildegrunnlag, men ingen rader bl
 | PCQ-B-006 | Plantebaserte sidestrømmer ellers | Vurdere potetskrell, eplepressrest, kaffegrut, myse og andre strømmer bare hvis primær-/aktørdata finnes. | L4 prosjektliste er kildejakt. | Produsentdata, volum, kvalitet, nåværende avsetning, lovlig sluttbruk. | CL-B-014, CL-B-021 | Gabriel | needs-primary-check |
 | PCQ-C-002 | KPI-definisjoner | Definer KPI-minimum for fôr, sidestrøm, matsvinn, næringsstoffløkker og sporbarhet. | CL-C-015 er hypotese. | Definisjon, år, geografi, enhet, datakilde, dataeier og rapporteringsfrekvens. | CL-C-015, EV-B-018, EV-B-019, EV-B-020 | Gabriel | needs-primary-check |
 
+## 09.06 nye primary-check-rader
+
+Disse radene er opprettet etter 09.06-samtalen. De styrer dokument- og researcharbeid, men de åpner ikke ekstern outreach før scope- eller minimumsvedtak er loggført.
+
+| Queue-ID | Tema | Konkret sjekk | Nåværende kilde/status | Trengs fra primærkilde | Berører | Eier | Status |
+|---|---|---|---|---|---|---|---|
+| PCQ-0906-001 | Brasil-MOU | Finn avtaletekst, partsliste, dato, scope, kontaktpunkt og bruksrett for eventuell Brasil-/kaffe-/WCEF-relasjon. | Samtalehypotese fra 09.06; registrert som `SRC-0906-001`. | MOU/avtale, møtenotat eller dokumenteierbekreftelse. | SRC-0906-001, case-shortlist 2026-06-09 | Gabriel/Cathrine/JT | needs-source |
+| PCQ-0906-002 | Elfenbenskysten-MOU/kakao | Avklar om det finnes avtale, organisasjonsnavn, motpart og scope for kakao-/Elfenbenskysten-spor. | Samtalehypotese fra 09.06; registrert som `SRC-0906-002`. | MOU/avtale, organisasjonsnavn, kontaktperson, dato og bruksrett. | SRC-0906-002, case-shortlist 2026-06-09 | Gabriel/Cathrine/JT | needs-source |
+| PCQ-0906-003 | Kaffeprosjekt/Fuglen | Finn prosjekttekst, aktørrolle, råvareopprinnelse, mulig data og om kaffe kan brukes som importverdikjede-case. | Samtalehypotese fra 09.06; registrert som `SRC-0906-003`. | Prosjektdokument, aktørbekreftelse, import-/opprinnelsesdata og rett til å omtale. | SRC-0906-003, CL-C-011, C-gate | Gabriel | needs-source |
+| PCQ-0906-004 | Bama/frukt-grønt/distribusjon | Skille trygg C-gate om distribusjon/markedsmakt fra utrygge Bama-spesifikke claims om marginer eller blokkering. | C-sporet har markedsmaktgrunnlag; Bama-spesifikke påstander er ikke kildefestet. `SRC-0906-004`. | Primærkilde, aktørdata, tilsyns-/konkurransegrunnlag eller juridisk trygt casegrunnlag. | SRC-0906-004, CL-C-001, CL-C-006, CL-C-015 | Gabriel/Cathrine | needs-primary-check |
+| PCQ-0906-005 | Spillvarme/drivhus/akvaponikk | Avklare om spillvarmebasert matproduksjon har konkret norsk/nordisk case, energidefinisjon og aktør. | Samtalehypotese; nutrient-loop og lokalproduksjon er delvis dekket generelt. `SRC-0906-005`. | Energidata, lokasjon, temperaturprofil, eier, drift/økonomi, mattrygghet og kjøper. | SRC-0906-005, CL-B-023, CL-C-015 | Gabriel | needs-source |
+| PCQ-0906-006 | Valio/Finland | Bekrefte om Valio/Finland kan brukes som governance-/fôr-case og hva som faktisk gjelder for soya, raps, lokal fôrandel eller innkjøpskrav. | Samtalehypotese; finsk baseline finnes delvis via `SRC-BASE-008`. Registrert som `SRC-0906-006`. | Valio-/finsk primærkilde, fôrdata, år, geografi, definisjon og bruksrett. | SRC-0906-006, SRC-BASE-008, CL-A-020, CL-C-001 | Gabriel | needs-source |
+| PCQ-0906-007 | Polen og Skottland watchlist | Finne om Polen eller Skottland har konkrete sidestrøm-, havbruk-, bioressurs- eller policycase som matcher A/B/C. | Kun samtalesignal; registrert som `SRC-0906-007` og `SRC-0906-008`. | Institusjonsrapport, primærdata eller casebeskrivelse med år/geografi. | SRC-0906-007, SRC-0906-008 | Gabriel | watchlist; needs-source |
+| PCQ-0906-008 | Bacalhau og kunstgjødselhistorie | Avklare om bacalhau/Brasil eller kunstgjødsel/Yara/Hydro gir beslutningsrelevant støtte, eller om de skal parkeres. | Kun samtalesignal; registrert som `SRC-0906-009` og `SRC-0906-010`. | Handelsdata, primær-/fagkilde og tydelig kobling til A/B/C. | SRC-0906-009, SRC-0906-010 | Gabriel | watchlist; needs-source |
+
 ## Prioritert rekkefølge
 
-1. PCQ-C-001 EUDR-Norge, fordi juridisk/regulatorisk scope påvirker Spor A-claims.
-2. PCQ-A-001 til PCQ-A-003, fordi soya-/SPC-tall avgjør importbaseline.
-3. PCQ-B-001 til PCQ-B-004, fordi okara/BSG avgjør første prosess-sidestrømspilot.
-4. PCQ-B-005, fordi sjømatrestråstoff kan bli norsk høyverdi-benchmark.
-5. PCQ-C-002, fordi KPI-er først bør formuleres etter datatilgang er kjent.
+1. PCQ-0906-001 til PCQ-0906-003, fordi kaffe/kakao-case ikke kan overleve uten MOU, prosjekttekst, aktørrolle og bruksrett.
+2. PCQ-C-001 og PCQ-A-001 til PCQ-A-003, fordi juridisk/regulatorisk scope, soya-/SPC-tall og faktisk fôrbruk avgjør A-sporet.
+3. PCQ-B-001 til PCQ-B-004, fordi okara/BSG bare kan modnes hvis råvareeier, hygiene, stabilisering og off-taker finnes.
+4. PCQ-B-005 og PCQ-0906-004, fordi marint restråstoff og distribusjon/markedsmakt kan bli sterke case, men trenger aktør-/primærdata før sterk språkbruk.
+5. PCQ-0906-005 og PCQ-0906-006, fordi spillvarme/drivhus og Valio/Finland avgjør om de blir deckklare eller watchlist.
+6. PCQ-0906-007 og PCQ-0906-008, fordi Polen, Skottland, bacalhau og kunstgjødselhistorie skal parkeres hvis ingen kilde finnes raskt.
+7. PCQ-C-002, fordi KPI-er først bør formuleres etter datatilgang er kjent.
 
 ## Runde 4 statusnotat (2026-05-18)
 

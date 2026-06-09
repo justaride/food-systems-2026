@@ -66,8 +66,30 @@ Ingen claim i denne filen er `Validert eksternt`. `klar` betyr bare at claimet k
 | RecoLab/VA kan kopieres som norsk Food TG-pilot. | `hold-tilbake` | Bruk som benchmark for governance, produktstatus og massebalanse. |
 | KPI-er viser effekt/måloppnåelse. | `hold-tilbake` | Bruk KPI som datagate før effekt. |
 
+## 09.06 samtaleclaims som skal holdes tilbake
+
+Disse formuleringene kommer fra 09.06-samtalen eller nærliggende casehypoteser. De kan brukes som researchspørsmål, men ikke som faktastemme før source shortlist, PCQ og actor validation pack har dokumentert kilde, status og bruksrett.
+
+| Formulering | Status | Riktig håndtering |
+|---|---|---|
+| Nordic Circular Hotspot, WCEF eller Natural State har en Brasil-MOU om kaffe. | `hold-tilbake` | Bruk som `SRC-0906-001`/`PCQ-0906-001` dokumentask til avtaletekst, partsliste, dato, scope og bruksrett er funnet. |
+| Nordic Circular Hotspot har avtale med en organisasjon i Elfenbenskysten om kakao. | `hold-tilbake` | Bruk som `SRC-0906-002`/`PCQ-0906-002` dokumentask til organisasjonsnavn, motpart, avtaletekst og kontaktpunkt er bekreftet. |
+| Kaffe/Brasil eller kakao/Elfenbenskysten er klare Food TG-case. | `hold-tilbake` | Bruk som `nytt-case-uten-kilde` og relasjonshypotese; løft først etter MOU/prosjekttekst og actor-/bruksrettsavklaring. |
+| Fuglen eller Norsk Kaffeinformasjon er bekreftet prosjektpartner. | `hold-tilbake` | Bruk som mulig kontaktgruppe i actor validation pack, ikke som partnerclaim. |
+| Bama har høye vinterimportmarginer eller blokkerer vertical farming/akvaponikk. | `hold-tilbake` | Bruk trygg C-gate om distribusjon, markedsstruktur og innkjøpsmakt. Krever primærkilde, aktørdata og juridisk aktsomt språk. |
+| Valio eller Finland produserer melk uten importert fôr. | `hold-tilbake` | Undersøk Valio som mulig governance-/fôrråvarecase; formuler ikke importfritt-meieri-claim uten primærkilde. |
+| Spillvarme i Norge kan oppgis med bestemt TWh-tall for matproduksjon. | `hold-tilbake` | Bruk som `SRC-0906-005` researchspørsmål; må ha energidefinisjon, lokasjon, temperaturprofil, eier, økonomi og systemgrense. |
+| Danmark har besluttet å redusere svineproduksjon. | `hold-tilbake` | Bruk Danmark som policy-benchmark med primærkilder; skill svin, nitrogen, areal, eksport og Green Tripartite. |
+| Polen er en stor sidestrømsmulighet for Food TG. | `hold-tilbake` | Hold som watchlist til rapport eller primærdata viser konkrete strømmer, aktører og barrierer. |
+| Skottland er et dokumentert havbruk-/bioressurs-benchmark for Food TG. | `hold-tilbake` | Hold som watchlist til konkret case, rapport eller policykilde finnes. |
+| Bacalhau Norge-Brasil er et hovedcase. | `hold-tilbake` | Bruk bare som mulig handels-/relasjonsstøtte hvis handelsdata og Brasil-kobling er relevant for A-sporet. |
+| Kaffegrut/biogass eller kaffeverdikjede gir dokumentert utslippskutt for Food TG. | `hold-tilbake` | Behandle som uvalidert B-/C-hypotese til konkret prosjekt, metode, baseline og kontrafaktisk finnes. |
+| 100% Fish beviser at norsk sjømat kan løftes direkte til første høyverdi-case. | `hold-tilbake` | Bruk Icelandic Ocean Cluster/100% Fish som benchmark og valideringsspørsmål, ikke som norsk effekt- eller gjennomføringsbevis. |
+| Kunstgjødselhistorie/Yara/Hydro forklarer Food TGs nutrient-loop-case. | `hold-tilbake` | Bruk kun som kontekst hvis presis primær-/fagkilde finnes; ikke la historielinjen erstatte konkrete nutrient-loop-data. |
+
 ## Neste arbeid
 
 1. Oppdater tabellen etter hver primary-check og aktørrespons.
 2. Legg inn faktisk `sourceCitationIds` eller locator når claimet flyttes nær ekstern bruk.
-3. Bruk denne filen som gate før `food-tg-public-language-bank-v0.1.md`, decision deck og roadmap skrives.
+3. Oppdater 09.06-radene etter `SRC-0906-*`, `PCQ-0906-*` og actor validation pack har ny dokumentasjon.
+4. Bruk denne filen som gate før `food-tg-public-language-bank-v0.1.md`, decision deck og roadmap skrives.

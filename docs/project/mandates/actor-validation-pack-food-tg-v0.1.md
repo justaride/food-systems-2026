@@ -3,7 +3,8 @@ tittel: Food TG Actor Validation Pack v0.1
 status: Utført internt
 eier: Gabriel
 dato: 2026-04-28
-neste_handling: Bruk som samtale-/epostgrunnlag for første valideringsrunde; ingen respons er registrert ennå.
+sist_oppdatert: 2026-06-09
+neste_handling: Bruk som samtale-/epostgrunnlag for første valideringsrunde etter scope- eller minimumsvedtak; ingen respons er registrert ennå. 09.06-caser er lagt inn som gated dokument- og spørsmålsbank, ikke utsendt outreach.
 relaterte_filer:
   - docs/project/mandates/claim-register-food-tg.md
   - docs/project/mandates/evidence-matrix-food-tg.md
@@ -61,6 +62,24 @@ Formål: løfte ut de claimene som ikke kan styrkes videre uten aktørrespons. D
 | Offentlige innkjøpere / kommunale kjøkken | CL-C-002, CL-C-015 | Hvilke sirkulære krav kan brukes i matinnkjøp uten å knekke drift eller leverandørtilgang? | Kontraktskrav, rapporteringsmulighet, matavfall, leverandørkrav, kjøkkenkapasitet. | needs-actor-validation |
 | Dagligvare / HORECA / grossist | CL-C-001, CL-C-012, CL-C-014 | Hvilke rutiner, kontrakter eller datagap hindrer redistribusjon og høyverdiutnyttelse? | Sortering, kvalitetsgrenser, temperatur, ansvar, insentiver, kontraktshindre. | needs-actor-validation |
 | Dagligvaretilsynet / Konkurransetilsynet | CL-C-005, CL-C-006 | Hvordan påvirker handelsskikk, rapporteringsvern og markedsmakt sirkulære leverandører? | Relevante saker, veiledning, håndhevingspraksis, overføring 2026-04-30, leverandørvern. | needs-actor-validation |
+
+## 09.06 tillegg - nye caseanker
+
+Disse spørsmålene kan forberedes internt, men skal ikke sendes før scope- eller minimumsvedtak er loggført. Formålet er å avklare dokumenter, bruksrett og casebarhet, ikke å hente sitater til ekstern bruk.
+
+| Aktør/dokumenteier | Case | Hovedspørsmål | Data/dokumenter å be om | Status |
+|---|---|---|---|---|
+| JT, Cathrine, Einar, NCH/WCEF-dokumenteier | Brasil-MOU / kaffe / Brasil-akse | Finnes det en faktisk MOU eller avtale, og hva kan Food TG bruke den til? | Avtaletekst, partsliste, dato, scope, kontaktperson, bruksrett, om kaffe/bacalhau/fôr er eksplisitt nevnt. | needs-source; not-outreach |
+| JT, Cathrine, Einar, NCH/WCEF-dokumenteier | Elfenbenskysten / kakao | Finnes det en avtale, relasjon eller organisasjon som kan bære et kakao-case? | Organisasjonsnavn, avtaletekst, dato, motpart, kontaktpunkt, tematisk scope, bruksrett. | needs-source; not-outreach |
+| Fuglen, Norsk Kaffeinformasjon, kaffeimportør eller kaffeprosjekteier | Kaffe/Brasil | Kan kaffe brukes som importverdikjede-case uten å overclaiming på EUDR, avskoging eller partnerskap? | Prosjekttekst, aktørrolle, råvareopprinnelse, volum, sertifisering/sporbarhet, reststrøm, hva som kan siteres. | needs-actor-validation |
+| Bama, frukt-/grøntgrossist, leverandør eller markedsekspert | Bama/frukt-grønt/distribusjon | Er distribusjon, innkjøpsmakt eller logistikk en reell adoption-gate for lokal produksjon og sirkulære løsninger? | Verdikjedekart, kontrakts-/logistikkbarrierer, importsesong, kvalitetskrav, data som kan brukes, juridiske forbehold. | needs-actor-validation |
+| Konkurransetilsynet, dagligvare-/grossistkompetanse eller leverandørrepresentant | Markedsmakt/adoption | Hvilke påstander er trygge å formulere om distribusjonsmakt uten å navngi eller overtolke enkeltselskaper? | Veiledning, relevante saker/rapporter, definisjoner, hva som er offentlig, og hva som krever aktørrespons. | needs-actor-validation |
+| Valio eller finsk fôr-/meieri-/landbrukskilde | Valio/Finland | Kan Valio undersøkes som governance-/innkjøpscase for soya, raps, lokal fôrandel eller meieristrategi? | Primærkilde, år, geografi, fôrråvarer, importandel, governance-grep, bruksrett og sitatsjekk. | needs-source |
+| Oatly, The Green Dairy, Fazer, Valio eller annen råvareeier | Okara/prosess-sidestrømmer | Finnes relevante okara-/plantebaserte sidestrømmer som kan valideres på volum, kvalitet og bruksrett? | Tonn/år, batch, fukt, temperatur, mikrobiologi, nåværende avsetning, stabilisering, off-taker, lovlig sluttbruk. | needs-actor-validation |
+| Icelandic Ocean Cluster / 100% Fish, SINTEF, FHF eller sjømataktør | Marint restråstoff og høyverdi | Hva viser 100% Fish/Icelandic Ocean Cluster som benchmark, og hva kan ikke overføres direkte til Norge? | Fraksjoner, sluttbruk, dataordbok, høyverdi-definisjon, råstoffvekt vs produktvekt, bruksrett, kontakt for sitatsjekk. | needs-actor-validation |
+| NIBIO, SINTEF, drivhus-/hydroponiaktør eller industriell spillvarmeeier | Spillvarme/drivhus/akvaponikk | Finnes et konkret case der spillvarme, næringsstrøm og matproduksjon kan kobles med realistisk økonomi? | Lokasjon, energimengde, temperaturprofil, sesong, CAPEX/OPEX, areal, mattrygghet, næringsstrøm, kjøper. | needs-source |
+| Polsk institusjonskilde eller bioøkonomi-/matindustriaktør | Polen watchlist | Finnes konkrete sidestrømmer eller bioressurscase som matcher A/B/C? | Rapport, sektor, volum, aktør, nåværende avsetning, regulatoriske barrierer. | watchlist; needs-source |
+| Skotsk havbruk-/fiskeri-/bioressurskilde | Skottland watchlist | Finnes havbruk, fiskeri eller bioressurser som gir sammenlignbar læring for Norge/Norden? | Casebeskrivelse, rapport, dataår, fraksjoner, sluttbruk, regulatorisk kontekst. | watchlist; needs-source |
 
 ## Minimumsformat for svar
 

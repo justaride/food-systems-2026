@@ -38,6 +38,9 @@ Denne mappen samler styringsdokumenter for Food Systems Transition Group og tilh
 | `insight-pack-outline-food-tg-v0.2.md` | Insight Pack-disposisjon | Aktiv v0.2 | Storyline, slide-rekkefølge og trygg/utrygg formulering per hovedclaim. |
 | `insight-pack-outline-food-tg-v0.3.md` | Decision Pack-produksjonskontrakt | Aktiv v0.3 | Seksjonsstruktur med claim-, figur-, case-, kilde- og valideringsporter før deck/whitepaper. |
 | `food-tg-decision-pack-v0.1.md` | Decision Pack | Aktiv intern v0.1 | Intern beslutningspakke for minimumsvedtak og valideringssprint; ikke ekstern presentasjon. |
+| `food-tg-case-shortlist-addendum-2026-06-09.md` | Case-shortlist addendum | Aktiv intern | 09.06-samtalen omsatt til syv caseanker, watchlist, go/no-go og to-ukers arbeidsløp innenfor eksisterende A+B/C-ramme. |
+| `food-tg-minimumsvedtak-casekort-2026-06-09.md` | Minimumsvedtak | Aktiv intern | Smalt beslutningsnotat for å starte casekort- og researchsprint uten ekstern outreach. |
+| `food-tg-deck-outline-2026-06-09.md` | Deck-outline | Aktiv intern | 10-slides disposisjon for første interne caseuttak med sikker språkbruk og kildegater. |
 | `brief-jan-thomas-cathrine-food-tg-runde-4.md` | Møtebrief | Klar til bruk | Kort beslutnings- og samtalegrunnlag etter runde 4. |
 | `opportunity-radar-food-tg-v0.1.md` | Opportunity radar | Aktiv v0.1 | Prioriterer validerbare muligheter, claims, stoppsignaler og neste handling. |
 | `primary-check-queue-food-tg-v0.1.md` | Primary-check-kø | Aktiv v0.1 | Skiller regulatoriske og datamessige sjekkpunkter fra aktørvalidering. |
