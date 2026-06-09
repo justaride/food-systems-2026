@@ -87,6 +87,11 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
 
   return (
     <div className="space-y-6">
+      <nav className="flex items-center gap-2 text-xs text-stone-500">
+        <Link href="/selskap" className="hover:text-emerald-700">Selskaper</Link>
+        <span>/</span>
+        <span className="font-medium text-stone-700">{company.name}</span>
+      </nav>
       <div>
         <div className="flex items-center gap-3">
           <h1 className="text-2xl font-bold text-stone-900">{company.name}</h1>

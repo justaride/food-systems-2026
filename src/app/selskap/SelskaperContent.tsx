@@ -201,10 +201,10 @@ export function SelskaperContent({
               )}
 
               <div className="mt-2 flex flex-wrap gap-1 text-[11px] text-stone-500">
-                {c.boardCount > 0 && <span>{c.boardCount} styre</span>}
+                {c.boardCount > 0 && <span>{c.boardCount} styremedlemmer</span>}
                 {c.subsidyCount > 0 && <span>· {c.subsidyCount} tilskudd</span>}
-                {c.propertyCount > 0 && <span>· {c.propertyCount} eiendom</span>}
-                {c.relationshipCount > 0 && <span>· {c.relationshipCount} rel.</span>}
+                {c.propertyCount > 0 && <span>· {c.propertyCount} eiendommer</span>}
+                {c.relationshipCount > 0 && <span>· {c.relationshipCount} relasjoner</span>}
               </div>
             </Card>
           ))}
