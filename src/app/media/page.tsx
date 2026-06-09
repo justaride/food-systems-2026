@@ -318,7 +318,7 @@ function CorpusEntryCard({ entry, themes }: { entry: CorpusEntryItem; themes: Th
           <span className={`badge ${toneClassName[coding.tone] ?? focusClassName.middels}`}>{normalizeLabel(coding.tone)}</span>
           <span className="badge badge-neutral">{normalizeLabel(coding.frame)}</span>
           <span className="badge badge-neutral">{normalizeLabel(coding.geography)}</span>
-          <span className="badge badge-neutral">Confidence {coding.confidence}/5</span>
+          <span className="badge badge-neutral">Sikkerhet {coding.confidence}/5</span>
         </div>
       )}
 
@@ -562,13 +562,13 @@ export default async function MediaPage() {
 
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <Card className="border-stone-200 bg-white">
-          <p className="text-xs uppercase tracking-wider text-stone-400">Granulert korpus</p>
+          <p className="text-xs uppercase tracking-wider text-stone-400">Granulert kildesamling</p>
           <p className="mt-2 text-2xl font-semibold text-stone-900">{typedEntries.length}</p>
-          <p className="mt-1 text-xs text-stone-500">Kodede media entries i v2-laget</p>
+          <p className="mt-1 text-xs text-stone-500">Kodede oppføringer i v2-laget</p>
         </Card>
 
         <Card className="border-stone-200 bg-white">
-          <p className="text-xs uppercase tracking-wider text-stone-400">Outlets</p>
+          <p className="text-xs uppercase tracking-wider text-stone-400">Kanaler</p>
           <p className="mt-2 text-2xl font-semibold text-stone-900">{outlets.length}</p>
           <p className="mt-1 text-xs text-stone-500">Kilder fordelt på myndighet, analyse og marked</p>
         </Card>
@@ -576,25 +576,25 @@ export default async function MediaPage() {
         <Card className="border-stone-200 bg-white">
           <p className="text-xs uppercase tracking-wider text-stone-400">Primærandel</p>
           <p className="mt-2 text-2xl font-semibold text-stone-900">{primaryVerifiedShare}%</p>
-          <p className="mt-1 text-xs text-stone-500">{primaryVerifiedCount} av {typedEntries.length} entries er primærkilder</p>
+          <p className="mt-1 text-xs text-stone-500">{primaryVerifiedCount} av {typedEntries.length} oppføringer er primærkilder</p>
         </Card>
 
         <Card className="border-stone-200 bg-white">
           <p className="text-xs uppercase tracking-wider text-stone-400">Tynnest dekning</p>
           <p className="mt-2 text-2xl font-semibold text-stone-900">{thinnestCountry?.name}</p>
-          <p className="mt-1 text-xs text-stone-500">{thinnestCountry?.entryCount ?? 0} kodede entries akkurat nå</p>
+          <p className="mt-1 text-xs text-stone-500">{thinnestCountry?.entryCount ?? 0} kodede oppføringer akkurat nå</p>
         </Card>
       </div>
 
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1.15fr_0.85fr]">
-        <Card title="Media evidence corpus v2">
+        <Card title="Mediekildesamling v2">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[760px] text-sm">
               <thead>
                 <tr className="border-b border-stone-200">
                   <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Land</th>
-                  <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Entries</th>
-                  <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Outlets</th>
+                  <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Oppføringer</th>
+                  <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Kanaler</th>
                   <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Temaer</th>
                   <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Primær</th>
                   <th className="py-3 pr-4 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-400">Siste</th>
@@ -641,14 +641,14 @@ export default async function MediaPage() {
               <div className="mt-2 flex flex-wrap gap-2">
                 {undercoveredCountries.map(country => (
                   <span key={country.code} className={`badge ${coverageClassName[country.status]}`}>
-                    {country.name}: {country.entryCount} entries
+                    {country.name}: {country.entryCount} oppføringer
                   </span>
                 ))}
               </div>
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Outletmix</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Kanalmiks</p>
               <p className="mt-2 text-sm leading-6 text-stone-600">
                 {formatCountMap(outletTypeCountMap, normalizeLabel).join(' | ')}
               </p>
@@ -665,7 +665,7 @@ export default async function MediaPage() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1.2fr_0.8fr]">
-        <Card title="Siste kodede entries">
+        <Card title="Siste kodede oppføringer">
           <div className="space-y-4">
             {latestCorpusEntries.map(entry => (
               <CorpusEntryCard key={entry.id} entry={entry} themes={typedThemes} />
