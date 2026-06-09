@@ -128,7 +128,7 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
                   sources={['stores.json (OpenStreetMap + brand-attribution)', 'Nasjonale konkurransetilsyn']}
                 />
                 <ChartCard
-                  title="EMV-andel foredling"
+                  title="Egne merkevarer (EMV), andel foredling"
                   unit="%"
                   rows={emv}
                   year={2024}

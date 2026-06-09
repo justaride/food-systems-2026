@@ -305,7 +305,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
               <span className="text-amber-900">
                 <strong>{interlockingMemberCount}</strong> av {company.boardMembers.length} har styreverv i andre selskaper.
                 <span className="ml-2 font-medium">
-                  Interlock-score {interlockSummary.interlockScore}
+                  Krysstyre-score {interlockSummary.interlockScore}
                 </span>
                 {interlockSummary.connectedCompanies > 0 && (
                   <span className="ml-2 text-amber-800">
