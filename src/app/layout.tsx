@@ -3,6 +3,8 @@ import '../styles/globals.css'
 import { Header } from '@/components/layout/Header'
 import { Sidebar } from '@/components/layout/Sidebar'
 import { getPhases } from '@/lib/queries/project'
+import { NextIntlClientProvider } from 'next-intl'
+import { getLocale, getMessages, getTranslations } from 'next-intl/server'
 
 export const dynamic = 'force-dynamic'
 
@@ -19,18 +21,24 @@ export default async function RootLayout({
 }) {
   const phases = await getPhases()
   const activeIndex = phases.findIndex(p => p.status === 'pagar')
+  const locale = await getLocale()
+  const messages = await getMessages()
+  const t = await getTranslations()
   return (
-    <html lang="no">
+    <html lang={locale}>
       <body>
-        <div className="min-h-screen flex flex-col lg:flex-row">
-          <Sidebar activePhase={activeIndex >= 0 ? activeIndex + 1 : 1} totalPhases={phases.length} />
-          <div className="flex-1 min-w-0 flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-6 max-w-6xl w-full">
-              {children}
-            </main>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <div className="min-h-screen flex flex-col lg:flex-row">
+            <Sidebar activePhase={activeIndex >= 0 ? activeIndex + 1 : 1} totalPhases={phases.length} />
+            <div className="flex-1 min-w-0 flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-6 max-w-6xl w-full">
+                {children}
+              </main>
+            </div>
           </div>
-        </div>
+          <span data-testid="i18n-smoke" className="sr-only">{t('smoke')}</span>
+        </NextIntlClientProvider>
       </body>
     </html>
   )
