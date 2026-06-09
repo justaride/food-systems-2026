@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
+import { Glossary } from '@/components/ui/Glossary'
 import { getActorBySlug } from '@/lib/queries/actors'
 import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
 
@@ -66,6 +67,8 @@ export default async function ActorDetailPage({
 
         <p className="mt-4 max-w-3xl text-sm leading-relaxed text-stone-700">{actor.roleSummary}</p>
       </div>
+
+      <Glossary category="status" title="Statusforklaringer" />
 
       <div className="grid gap-4 lg:grid-cols-4">
         <Card>

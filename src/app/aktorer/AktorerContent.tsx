@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useDeferredValue, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { Glossary } from '@/components/ui/Glossary'
 
 type ActorRow = {
   id: string
@@ -182,6 +183,8 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
           </div>
         </div>
       </div>
+
+      <Glossary category="status" title="Statusforklaringer" />
 
       <Card>
         <div className="grid gap-4 lg:grid-cols-[1.4fr,1fr]">
