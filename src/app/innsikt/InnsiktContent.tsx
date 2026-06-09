@@ -8,7 +8,7 @@ import { StatusBadge } from '@/components/ui/StatusBadge'
 import { FilterChips } from '@/components/ui/FilterChips'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { SourceChip } from '@/components/ui/SourceChip'
-import { InsightGlossary } from '@/components/ui/InsightGlossary'
+import { Glossary } from '@/components/ui/Glossary'
 import { PageFraming } from '@/components/ui/PageFraming'
 import { ParentCompanyChart } from '@/components/charts/ParentCompanyChart'
 import { InsightTypeDonut } from '@/components/charts/InsightTypeDonut'
@@ -242,7 +242,7 @@ export function InnsiktContent({ insights }: { insights: InsightRow[] }) {
           caveat="Internt kildegrunnlag med forbehold: visualiseringene kombinerer primærdata, proxy og dokumentkoblinger og er ikke ekstern validering."
         />
 
-        <InsightGlossary />
+        <Glossary category="statistikk" defaultOpen />
       </header>
 
       <section className="space-y-3">
