@@ -260,9 +260,8 @@ export function EiendommerContent({
         </div>
 
         <p className="text-[11px] text-stone-400 leading-relaxed">
-          Tall hentet fra Brønnøysundregistrene (regnskapsåret 2024) via offentligdata MCP. Se{' '}
-          <code className="text-stone-500">research/analyse/eiendomsmodell-finansiell-analyse.md</code>{' '}
-          for full dokumentasjon, selskap-for-selskap.
+          Tall hentet fra Brønnøysundregistrene (regnskapsåret 2024) via offentlige registre.
+          Dokumentert selskap-for-selskap i prosjektets kildenotater.
         </p>
       </section>
 

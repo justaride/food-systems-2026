@@ -377,7 +377,7 @@ export function ForsyningskjedeContent({
           title="Nettverkskart"
           description="Felles analyse- og QA-kart for relasjoner, dokumentkoblinger, konfidens og kildegrunnlag. Brukes som locator, ikke som selvstendig effektbevis."
           researchStatus="proxy_model"
-          researchStatusDetail="BusinessRelationship-grafen er kuratert og kildebelagt, men ikke en komplett måling av nordisk vareflyt. Dokumentnoder er valgfrie beviskoblinger."
+          researchStatusDetail="Relasjonsgrafen er kuratert og kildebelagt, men ikke en komplett måling av nordisk vareflyt. Dokumentnoder er valgfrie beviskoblinger."
         />
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -419,7 +419,7 @@ export function ForsyningskjedeContent({
           title="Primærflyt (Norge)"
           description="Observerte leveranser fra norske primærprodusenter via Landbruksdirektoratet — ikke et nordisk lag. Lest per varegruppe og avtakertype."
           researchStatus="validated"
-          researchStatusDetail="DeliveryVolume er Norge-observert register-data (Landbruksdirektoratet); SE/DK/FI/IS har ingen ekvivalent serie."
+          researchStatusDetail="Leveransevolum-dataene er Norge-observert register-data (Landbruksdirektoratet); SE/DK/FI/IS har ingen ekvivalent serie."
         />
 
         {concentrationRows.length > 0 && (
@@ -577,7 +577,7 @@ export function ForsyningskjedeContent({
           title="Maktrelasjoner"
           description="Kuraterte forretningsrelasjoner som peker på eierskap, selvhandel, distribusjon og leverandørmakt."
           researchStatus="proxy_model"
-          researchStatusDetail="BusinessRelationship-grafen er kuratert og kildebelagt, men ikke en komplett måling av nordisk vareflyt. NO har dypest dekning."
+          researchStatusDetail="Relasjonsgrafen er kuratert og kildebelagt, men ikke en komplett måling av nordisk vareflyt. NO har dypest dekning."
         />
 
       {selfDealingEdges.length > 0 && (
@@ -1086,7 +1086,7 @@ function SupplyChainQualityPanel({ quality }: { quality: SupplyChainDataQuality 
                       <th className="py-2 px-2 font-medium">Vare</th>
                       <th className="py-2 px-2 font-medium">År</th>
                       <th className="py-2 px-2 font-medium text-right">Rader</th>
-                      <th className="py-2 px-2 font-medium text-right">Mangler buyerId</th>
+                      <th className="py-2 px-2 font-medium text-right">Mangler kjøper</th>
                       <th className="py-2 px-2 font-medium text-right">Mangler kommune</th>
                     </tr>
                   </thead>

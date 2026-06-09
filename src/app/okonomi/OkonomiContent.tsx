@@ -686,7 +686,7 @@ export function OkonomiContent({
         </div>
         <p className="text-[10px] text-stone-400 mt-3">
           YoY = prosentvis endring i omsetning mellom siste og nest siste år med registrert
-          omsetning. Driftsresultat = operatingResult (Brønnøysund årsrapport). Tilskudd-sum
+          omsetning. Driftsresultat (Brønnøysund årsrapport). Tilskudd-sum
           henter fra Subsidy-tabellen og dekker samtlige registrerte år.
         </p>
       </Card>
