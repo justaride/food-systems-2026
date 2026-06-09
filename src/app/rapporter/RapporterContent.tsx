@@ -184,7 +184,7 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
       <div className="rounded-lg border border-emerald-200 bg-emerald-50/70 p-4">
         <p className="text-sm font-semibold text-emerald-900">Egen statisk rapport</p>
         <p className="text-xs text-emerald-700 mt-1">
-          Denne rapporten ligger utenfor det vanlige database-basertede rapportutvalget.
+          Denne rapporten ligger utenfor det vanlige rapportutvalget.
         </p>
         <div className="mt-2 flex flex-wrap gap-3 text-sm">
           <Link
@@ -370,8 +370,6 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
                                 ) : (
                                   <span className="text-stone-600">{source.label}</span>
                                 )}
-                                {source.reportId && <span> · report:{source.reportId}</span>}
-                                {source.documentPath && <span className="break-all"> · {source.documentPath}</span>}
                                 {source.note && <span> · {source.note}</span>}
                               </li>
                             ))}

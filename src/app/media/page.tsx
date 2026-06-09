@@ -1,4 +1,5 @@
 import { Card } from '@/components/ui/Card'
+import { InternalSection } from '@/components/ui/InternalSection'
 import { SourceChip } from '@/components/ui/SourceChip'
 import { ExpandableSources } from '@/components/ui/ExpandableSources'
 import { COUNTRY_LIST } from '@/lib/config/countries'
@@ -812,19 +813,20 @@ export default async function MediaPage() {
               </div>
             </div>
 
-            <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-stone-400">Internt kildegrunnlag</p>
-              <div className="mt-3 space-y-2">
-                {mediaInternalSources.map(source => (
-                  <div
-                    key={source}
-                    className="rounded-xl border border-stone-200 bg-white px-3 py-2 text-xs font-mono text-stone-500"
-                  >
-                    {source}
-                  </div>
-                ))}
+            <InternalSection label="Internt kildegrunnlag">
+              <div>
+                <div className="mt-3 space-y-2">
+                  {mediaInternalSources.map(source => (
+                    <div
+                      key={source}
+                      className="rounded-xl border border-stone-200 bg-white px-3 py-2 text-xs font-mono text-stone-500"
+                    >
+                      {source}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </InternalSection>
           </div>
         </Card>
       </div>

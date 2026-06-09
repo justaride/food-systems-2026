@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { Card } from '@/components/ui/Card'
+import { InternalSection } from '@/components/ui/InternalSection'
 
 const KommuneChoropleth = dynamic(
   () => import('@/components/map/KommuneChoropleth').then((m) => m.KommuneChoropleth),
@@ -441,71 +442,73 @@ export function SubsidierContent({
         </Card>
       )}
 
-      {hasProduksjonstilskudd && (
-        <Card title="Dekning i topp 100 produsentmottakere">
-          <div className="grid gap-3 md:grid-cols-4">
-            <CoverageStat
-              label="Foretaksnavn"
-              value={`${topRecipientCoverage.jordbruksforetakName}/${topRecipientCoverage.total}`}
-              sub="Syntetiske jordbruksforetak-navn"
-            />
-            <CoverageStat
-              label="Landbruksreg."
-              value={`${topRecipientCoverage.withLandbruksregisterSource}/${topRecipientCoverage.total}`}
-              sub="Metadata merket Landbruksregisteret"
-            />
-            <CoverageStat
-              label="Parent-orgnr"
-              value={`${topRecipientCoverage.withParentOrgNr}/${topRecipientCoverage.total}`}
-              sub="Referanse til overordnet foretak"
-            />
-            <CoverageStat
-              label="Leveranser"
-              value={`${topRecipientCoverage.withDeliveryFootprint}/${topRecipientCoverage.total}`}
-              sub={`${formatNok(topRecipientCoverage.deliveryFootprintTotalNok)} NOK har leveransespor`}
-            />
-          </div>
-          <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-xs leading-5 text-stone-600">
-            Produsentmottakere har ikke eierskap- eller styredata (det ligger på Company-nivå).
-            Toppmottakerlisten er beslutningsklar som fordelingsliste. Neste datasteg er
-            oppslag av morselskapets orgnr mot selskapsregisteret for å koble produsentene til
-            juridiske enheter og styringsspor.
-          </div>
-        </Card>
-      )}
+      <InternalSection label="Datadekning i toppmottakere">
+        {hasProduksjonstilskudd && (
+          <Card title="Dekning i topp 100 produsentmottakere">
+            <div className="grid gap-3 md:grid-cols-4">
+              <CoverageStat
+                label="Foretaksnavn"
+                value={`${topRecipientCoverage.jordbruksforetakName}/${topRecipientCoverage.total}`}
+                sub="Syntetiske jordbruksforetak-navn"
+              />
+              <CoverageStat
+                label="Landbruksreg."
+                value={`${topRecipientCoverage.withLandbruksregisterSource}/${topRecipientCoverage.total}`}
+                sub="Metadata merket Landbruksregisteret"
+              />
+              <CoverageStat
+                label="Parent-orgnr"
+                value={`${topRecipientCoverage.withParentOrgNr}/${topRecipientCoverage.total}`}
+                sub="Referanse til overordnet foretak"
+              />
+              <CoverageStat
+                label="Leveranser"
+                value={`${topRecipientCoverage.withDeliveryFootprint}/${topRecipientCoverage.total}`}
+                sub={`${formatNok(topRecipientCoverage.deliveryFootprintTotalNok)} NOK har leveransespor`}
+              />
+            </div>
+            <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-xs leading-5 text-stone-600">
+              Produsentmottakere har ikke eierskap- eller styredata (det ligger på Company-nivå).
+              Toppmottakerlisten er beslutningsklar som fordelingsliste. Neste datasteg er
+              oppslag av morselskapets orgnr mot selskapsregisteret for å koble produsentene til
+              juridiske enheter og styringsspor.
+            </div>
+          </Card>
+        )}
 
-      {hasProduksjonstilskudd && (
-        <Card title="Driftsenhet-spor i topp 100">
-          <div className="grid gap-3 md:grid-cols-4">
-            <CoverageStat
-              label="Matrikkel"
-              value={`${topRecipientCoverage.withMatrikkel}/${topRecipientCoverage.total}`}
-              sub="Gards-/bruksnummer på mottaker"
-            />
-            <CoverageStat
-              label="Parent-orgnr"
-              value={`${topRecipientCoverage.withParentOrgNr}/${topRecipientCoverage.total}`}
-              sub="Referanse til overordnet foretak"
-            />
-            <CoverageStat
-              label="Koordinater"
-              value={`${topRecipientCoverage.withCoordinates}/${topRecipientCoverage.total}`}
-              sub="Geografisk punkt i metadata"
-            />
-            <CoverageStat
-              label="Leveranser"
-              value={`${topRecipientCoverage.withDeliveryFootprint}/${topRecipientCoverage.total}`}
-              sub={`${formatNok(topRecipientCoverage.deliveryFootprintTotalNok)} NOK har leveransespor`}
-            />
-          </div>
-          <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-xs leading-5 text-stone-600">
-            Dette er driftsenhetsspor, ikke validert eierskap. Matrikkel, koordinater og
-            leveransefotavtrykk gjør toppmottakerne mer analyserbare geografisk og
-            produksjonsmessig, mens morselskapets orgnr må kobles videre til produsentaktør,
-            person eller juridisk enhet før det kan brukes som styringsspor.
-          </div>
-        </Card>
-      )}
+        {hasProduksjonstilskudd && (
+          <Card title="Driftsenhet-spor i topp 100">
+            <div className="grid gap-3 md:grid-cols-4">
+              <CoverageStat
+                label="Matrikkel"
+                value={`${topRecipientCoverage.withMatrikkel}/${topRecipientCoverage.total}`}
+                sub="Gards-/bruksnummer på mottaker"
+              />
+              <CoverageStat
+                label="Parent-orgnr"
+                value={`${topRecipientCoverage.withParentOrgNr}/${topRecipientCoverage.total}`}
+                sub="Referanse til overordnet foretak"
+              />
+              <CoverageStat
+                label="Koordinater"
+                value={`${topRecipientCoverage.withCoordinates}/${topRecipientCoverage.total}`}
+                sub="Geografisk punkt i metadata"
+              />
+              <CoverageStat
+                label="Leveranser"
+                value={`${topRecipientCoverage.withDeliveryFootprint}/${topRecipientCoverage.total}`}
+                sub={`${formatNok(topRecipientCoverage.deliveryFootprintTotalNok)} NOK har leveransespor`}
+              />
+            </div>
+            <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-xs leading-5 text-stone-600">
+              Dette er driftsenhetsspor, ikke validert eierskap. Matrikkel, koordinater og
+              leveransefotavtrykk gjør toppmottakerne mer analyserbare geografisk og
+              produksjonsmessig, mens morselskapets orgnr må kobles videre til produsentaktør,
+              person eller juridisk enhet før det kan brukes som styringsspor.
+            </div>
+          </Card>
+        )}
+      </InternalSection>
 
       <Card>
         <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
@@ -603,11 +606,8 @@ export function SubsidierContent({
           </div>
           <div className="mt-4 pt-3 border-t border-stone-100 text-xs text-stone-400">
             Data: Landbruksdirektoratet, produksjons- og avløsertilskudd 2025.
-            Kommune-navn, innbyggertall og areal kommer fra statisk kommune-metadata i
-            <code className="mx-1 rounded bg-stone-100 px-1 py-0.5 font-mono text-[11px]">
-              public/data/food-systems/no/municipalities.json
-            </code>
-            . {selectedKommuneMetric.footer}
+            Kommune-navn, innbyggertall og areal kommer
+            fra statisk kommune-metadata (innbyggertall og areal). {selectedKommuneMetric.footer}
           </div>
         </Card>
       )}
