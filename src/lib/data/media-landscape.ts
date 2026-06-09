@@ -375,7 +375,7 @@ export const mediaScanGuidance = [
 ]
 
 export const mediaInternalSources = [
-  'research/norden/nordisk-komparativ-analyse.md',
-  'research/norden/regulatory-policy-landscape-nordic.md',
-  'research/analyse/source-scouting-2026-03-10.md',
+  'Nordisk komparativ analyse',
+  'Regulatorisk policy-landskap (Norden)',
+  'Kildescouting 2026-03-10',
 ]

@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import { useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
+import { InternalSection } from '@/components/ui/InternalSection'
 import { PageFraming } from '@/components/ui/PageFraming'
 import { SupplyChainGraph } from '@/components/charts/SupplyChainGraph'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
@@ -358,7 +359,9 @@ export function ForsyningskjedeContent({
         ]}
       />
 
-      <SupplyChainQualityPanel quality={quality} />
+      <InternalSection label="Datakvalitet og neste datainntak">
+        <SupplyChainQualityPanel quality={quality} />
+      </InternalSection>
 
       <nav className="flex flex-wrap gap-2 border-y border-stone-200 py-3" aria-label="Forsyningskjede-seksjoner">
         {SECTION_LINKS.map(link => (
@@ -713,7 +716,7 @@ function InfrastructurePanel({ infrastructure }: { infrastructure: Infrastructur
           label: layer.label,
           path: layer.path,
         })),
-        coverageNote: 'Romlige arbeidslag med ulik koblingsgrad. Akvakultur-GeoJSON er ikke samme paritetsgrunnlag som prod-tabellen i Gate C.',
+        coverageNote: 'Romlige arbeidslag med ulik koblingsgrad. Akvakultur-GeoJSON er ikke samme grunnlag som det validerte akvakulturregisteret.',
       }}
     >
       <div className="space-y-5">

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { InternalSection } from '@/components/ui/InternalSection'
 import type { KonsernDossierData, MaEvent } from '@/lib/queries/ownership'
 import { OwnershipTreeDiagram } from '@/components/charts/OwnershipTreeDiagram'
 import { Section4Economy } from './sections/Section4Economy'
@@ -201,7 +202,7 @@ export function KonsernDossier({ dossier }: Props) {
             value={fmtEmployees(metrics.totalEmployees)}
           />
           <StatBox
-            label="Sist Brreg-refreshet"
+            label="Sist oppdatert fra Brønnøysund"
             value={fmtDaysSince(metrics.daysSinceBrregRefresh)}
           />
         </div>
@@ -314,7 +315,9 @@ export function KonsernDossier({ dossier }: Props) {
       <Section6Subsidies subsidies={subsidies} slug={dossier.slug} />
       <Section7Properties properties={properties} slug={dossier.slug} />
       <Section8Relationships relationships={relationships} />
-      <Section9DataQuality coverage={dossier.coverage} />
+      <InternalSection label="Datakvalitet og berikelseskilder">
+        <Section9DataQuality coverage={dossier.coverage} />
+      </InternalSection>
     </div>
   )
 }

@@ -104,6 +104,11 @@ const MATURITY_COLORS: Record<string, string> = {
   growing: 'bg-amber-100 text-amber-800 border-amber-200',
 }
 
+const MATURITY_LABELS: Record<string, string> = {
+  scaled: 'Skalert', mature: 'Moden', industrial: 'Industriell', commercial: 'Kommersiell',
+  operational: 'I drift', institutional: 'Institusjonell', growing: 'Voksende',
+}
+
 const COUNTRY_FLAGS: Record<string, string> = {
   NO: 'NO',
   SE: 'SE',
@@ -527,7 +532,7 @@ export function SirkularitetContent() {
                     <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="text-sm font-semibold text-stone-800">{loop.name}</h3>
                       <span className={`text-[10px] px-1.5 py-0.5 rounded border ${MATURITY_COLORS[loop.maturity] ?? 'bg-stone-100 text-stone-600 border-stone-200'}`}>
-                        {loop.maturity}
+                        {MATURITY_LABELS[loop.maturity] ?? loop.maturity}
                       </span>
                       {loop.rLevel && rLadderById[loop.rLevel as keyof typeof rLadderById] && (
                         <span
