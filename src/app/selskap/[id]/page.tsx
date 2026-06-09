@@ -204,7 +204,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
               <table className="w-full text-xs">
                 <thead>
                   <tr className="border-b border-stone-200">
-                    <th className="text-left py-2 text-stone-400">Ar</th>
+                    <th className="text-left py-2 text-stone-400">År</th>
                     <th className="text-right py-2 text-stone-400">Omsetning</th>
                     <th className="text-right py-2 text-stone-400">Driftsresultat</th>
                     <th className="text-right py-2 text-stone-400">Margin</th>
@@ -382,7 +382,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                   <th className="text-left py-2 text-stone-400">Type</th>
                   <th className="text-left py-2 text-stone-400">Prosjekt</th>
                   <th className="text-right py-2 text-stone-400">Belop</th>
-                  <th className="text-right py-2 text-stone-400">Ar</th>
+                  <th className="text-right py-2 text-stone-400">År</th>
                 </tr>
               </thead>
               <tbody>

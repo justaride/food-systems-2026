@@ -530,7 +530,7 @@ export function PolitikkContent({ data, timeseries, docsByCountry, backlogByCoun
             <thead>
               <tr className="border-b border-stone-200">
                 <th className="text-left py-2 pr-3 text-stone-500 font-medium align-bottom w-1/4">
-                  Omrade
+                  Område
                 </th>
                 {COUNTRY_CODES.map(({ code }) => {
                   const m = countryMeta(code)

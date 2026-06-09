@@ -268,7 +268,7 @@ export function SirkularitetContent() {
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Sirkularitet</h1>
         <p className="text-sm text-stone-400 mt-1">
-          {data.existing_loops.length} eksisterende looper, {data.gaps.length} gap, {allSuccess.length + allFailure.length} aktorcaser
+          {data.existing_loops.length} eksisterende looper, {data.gaps.length} gap, {allSuccess.length + allFailure.length} aktørcaser
         </p>
       </div>
 
@@ -732,7 +732,7 @@ export function SirkularitetContent() {
                           </div>
                         )}
                         <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-2">
-                          <p className="text-xs font-medium text-emerald-700 mb-0.5">Laerdom</p>
+                          <p className="text-xs font-medium text-emerald-700 mb-0.5">Lærdom</p>
                           <p className="text-xs text-emerald-800">{actor.lesson}</p>
                         </div>
                       </div>
@@ -801,12 +801,12 @@ export function SirkularitetContent() {
                       <div className="mt-3 space-y-2">
                         {actor.cause && (
                           <div>
-                            <p className="text-xs font-medium text-stone-500 mb-0.5">Arsak</p>
+                            <p className="text-xs font-medium text-stone-500 mb-0.5">Årsak</p>
                             <p className="text-sm text-stone-700">{actor.cause}</p>
                           </div>
                         )}
                         <div className="bg-rose-50 border border-rose-200 rounded-lg p-2">
-                          <p className="text-xs font-medium text-rose-700 mb-0.5">Laerdom</p>
+                          <p className="text-xs font-medium text-rose-700 mb-0.5">Lærdom</p>
                           <p className="text-xs text-rose-800">{actor.lesson}</p>
                         </div>
                       </div>

@@ -48,7 +48,7 @@ export default async function MetodikkPage() {
     { label: 'Claims tracked', value: foodTgClaimBoard.length },
     { label: 'Opportunities', value: foodTgOpportunityRadar.length },
     { label: 'Sprint-dager', value: 10 },
-    { label: 'Til scope-mote', value: daysToScopeMote >= 0 ? `${daysToScopeMote}d` : 'forbi' },
+    { label: 'Til scope-møte', value: daysToScopeMote >= 0 ? `${daysToScopeMote}d` : 'forbi' },
   ]
 
   const [tenSteps, kpis, evidencePack] = await Promise.all([
