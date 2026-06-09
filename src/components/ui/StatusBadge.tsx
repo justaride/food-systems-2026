@@ -4,7 +4,7 @@ type StatusBadgeProps = {
 }
 
 const STATUS_MAP: Record<string, { label: string; className: string }> = {
-  'avslatt': { label: 'Avslatt', className: 'badge-red' },
+  'avslatt': { label: 'Avslått', className: 'badge-red' },
   'innvilget': { label: 'Innvilget', className: 'badge-green' },
   'pagaende': { label: 'Pågående', className: 'badge-amber' },
   'pagar': { label: 'Pågår', className: 'badge-amber' },

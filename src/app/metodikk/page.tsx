@@ -97,7 +97,7 @@ export default async function MetodikkPage() {
               href="/mandat"
               className="inline-flex items-center gap-1 text-xs px-3 py-1.5 rounded-md bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200"
             >
-              Apne mandat-flate →
+              Åpne mandat-flate →
             </Link>
           </div>
         </div>

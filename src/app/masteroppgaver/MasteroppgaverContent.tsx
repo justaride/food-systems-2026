@@ -177,7 +177,7 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
                 <div className="text-xs uppercase tracking-wider text-stone-400">Dokumentkoblet</div>
                 <div className="text-2xl font-bold text-stone-900">{documentLinkedCount}</div>
                 <div className="text-xs text-stone-500 mt-0.5">
-                  {missingDocumentCount === 0 ? 'alle har documentId' : `${missingDocumentCount} gjenstar`}
+                  {missingDocumentCount === 0 ? 'alle har documentId' : `${missingDocumentCount} gjenstår`}
                 </div>
               </div>
               <div className="bg-stone-50 px-4 py-3 rounded-lg border border-stone-200">
@@ -195,7 +195,7 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
                 <div>
                   <p className="text-sm font-semibold text-stone-900">Dataen er strukturert, men ikke helt lukket</p>
                   <p className="text-sm text-stone-700 leading-relaxed mt-1">
-                    Alle registrerte arbeider har kortsyntese, nokkelfunn, uttak og metode. Det som fortsatt gjenstar
+                    Alle registrerte arbeider har kortsyntese, nøkkelfunn, uttak og metode. Det som fortsatt gjenstår
                     i datalaget er hovedsakelig dokumentkobling for {missingDocumentCount} rader og kontroll av noen
                     PDF-/arkivhull.
                   </p>
@@ -333,7 +333,7 @@ export function MasteroppgaverContent({ theses }: { theses: ThesisRow[] }) {
                       )}
 
                       <div>
-                        <p className="text-xs font-medium text-stone-500 mb-1.5">Nokkelfunn</p>
+                        <p className="text-xs font-medium text-stone-500 mb-1.5">Nøkkelfunn</p>
                         <ul className="space-y-1">
                           {thesis.keyFindings.map((finding, i) => (
                             <li key={i} className="text-sm text-stone-600 flex gap-2">

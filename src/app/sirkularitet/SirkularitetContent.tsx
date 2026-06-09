@@ -395,7 +395,7 @@ export function SirkularitetContent() {
                       )}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         <div>
-                          <p className="text-xs font-medium text-stone-500 mb-1">Forsokte losninger</p>
+                          <p className="text-xs font-medium text-stone-500 mb-1">Forsøkte løsninger</p>
                           <ul className="text-xs text-stone-700 space-y-0.5 list-disc list-inside">
                             {q.attemptedSolutions.map((s) => (
                               <li key={s}>{s}</li>
@@ -660,7 +660,7 @@ export function SirkularitetContent() {
                         <p className="text-sm text-stone-700">{gap.policy_lever}</p>
                       </div>
                       <div>
-                        <p className="text-xs font-medium text-stone-500 mb-1">Sammenlignbar losning</p>
+                        <p className="text-xs font-medium text-stone-500 mb-1">Sammenlignbar løsning</p>
                         <p className="text-sm text-stone-700">{gap.comparable_solution}</p>
                       </div>
                     </div>

@@ -19,7 +19,7 @@ type ResearchPromptRow = {
 
 const categoryLabels: Record<string, { label: string; description: string }> = {
   'boker-akademisk': {
-    label: 'Boker og akademisk',
+    label: 'Bøker og akademisk',
     description: 'Boker, avhandlinger og akademisk litteratur om matsystemer',
   },
   'forskningsartikler': {
@@ -27,7 +27,7 @@ const categoryLabels: Record<string, { label: string; description: string }> = {
     description: 'Fagfellevurderte artikler og working papers',
   },
   'naeringspublikasjoner': {
-    label: 'Naeringspublikasjoner',
+    label: 'Næringspublikasjoner',
     description: 'Arsrapporter, bransjeanalyser og naeringsoversikter',
   },
   'offentlige-rapporter': {
@@ -156,7 +156,7 @@ export function PromptsContent({ researchPrompts }: { researchPrompts: ResearchP
           Prompt-maler for systematisk kunnskapsinnhenting ({researchPrompts.length} operative prompts). Intern metodikk som produserer innholdet i /innsikt og /rapporter.
         </p>
         <p className="text-xs text-stone-500 mt-2">
-          Operativ ko: {activeCount} aktive og {partialCount} delvis dekkede. Arkiverte prompts er skjult.
+          Operativ kø: {activeCount} aktive og {partialCount} delvis dekkede. Arkiverte prompts er skjult.
         </p>
       </div>
 

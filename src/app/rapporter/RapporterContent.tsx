@@ -293,7 +293,7 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
 
                       {report.externalUseAllowed && report.keyFindings.length > 0 && (
                         <div>
-                          <p className="text-xs font-medium text-stone-500 mb-1.5">Nokkelfunn</p>
+                          <p className="text-xs font-medium text-stone-500 mb-1.5">Nøkkelfunn</p>
                           <ul className="space-y-1">
                             {report.keyFindings.map((finding, i) => (
                               <li key={i} className="text-sm text-stone-600 flex gap-2">
@@ -385,7 +385,7 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
                             href={`/bibliotek/${report.documentSlug}`}
                             className="text-xs text-emerald-700 hover:text-emerald-800 underline underline-offset-2"
                           >
-                            Apne i biblioteket {'\u2192'}
+                            Åpne i biblioteket {'\u2192'}
                           </Link>
                         </div>
                       )}

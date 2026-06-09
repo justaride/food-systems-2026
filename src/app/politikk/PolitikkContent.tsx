@@ -279,9 +279,9 @@ function summarizeCell(entry: CountryPolicy | undefined): string {
   if (entry.year != null) {
     parts.push(entry.in_force === false ? `${entry.year} (ikke i kraft)` : `${entry.year}`)
   }
-  if (entry.target_pct != null) parts.push(`Mal: ${entry.target_pct}%`)
+  if (entry.target_pct != null) parts.push(`Mål: ${entry.target_pct}%`)
   if (entry.production_gwh != null) parts.push(`${entry.production_gwh} GWh`)
-  if (entry.target_gwh != null) parts.push(`Mal: ${entry.target_gwh} GWh`)
+  if (entry.target_gwh != null) parts.push(`Mål: ${entry.target_gwh} GWh`)
   if (entry.caloric_pct != null) parts.push(`${entry.caloric_pct}%`)
   if (entry.rate_dkk_per_tonne != null) {
     const eff = entry.effective_rate_2030_dkk
@@ -514,7 +514,7 @@ export function PolitikkContent({ data, timeseries, docsByCountry, backlogByCoun
               )}
               {eu.horizon_europe_cluster_6.deadlines && (
                 <div className="text-xs text-stone-500 mt-0.5">
-                  Soknadsfrister: {eu.horizon_europe_cluster_6.deadlines}
+                  Søknadsfrister: {eu.horizon_europe_cluster_6.deadlines}
                 </div>
               )}
             </div>
@@ -716,7 +716,7 @@ export function PolitikkContent({ data, timeseries, docsByCountry, backlogByCoun
 
       {/* Per-policy detail blocks */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold text-stone-800">Detaljer per omrade</h2>
+        <h2 className="text-xl font-semibold text-stone-800">Detaljer per område</h2>
         {policyEntries.map(([slug, entry]) => (
           <Card key={slug}>
             <h3 className="text-sm font-semibold text-stone-800 mb-3">{entry.label}</h3>
@@ -745,7 +745,7 @@ export function PolitikkContent({ data, timeseries, docsByCountry, backlogByCoun
                       <div className="text-[11px] text-stone-700 space-y-1 leading-snug">
                         {cell.year != null && (
                           <div>
-                            <span className="text-stone-500">Ar: </span>
+                            <span className="text-stone-500">År: </span>
                             {cell.year}
                             {cell.in_force === false && (
                               <span className="ml-1 text-amber-700 font-semibold">(ikke i kraft)</span>
@@ -759,7 +759,7 @@ export function PolitikkContent({ data, timeseries, docsByCountry, backlogByCoun
                         )}
                         {cell.target_pct != null && (
                           <div>
-                            <span className="text-stone-500">Mal: </span>
+                            <span className="text-stone-500">Mål: </span>
                             {cell.target_pct}%
                             {cell.target_year ? ` innen ${cell.target_year}` : ''}
                           </div>
@@ -772,7 +772,7 @@ export function PolitikkContent({ data, timeseries, docsByCountry, backlogByCoun
                         )}
                         {cell.target_gwh != null && (
                           <div>
-                            <span className="text-stone-500">Mal: </span>
+                            <span className="text-stone-500">Mål: </span>
                             {cell.target_gwh} GWh
                           </div>
                         )}
@@ -902,13 +902,13 @@ export function PolitikkContent({ data, timeseries, docsByCountry, backlogByCoun
                   <div className="text-[11px] text-stone-700 space-y-1 leading-snug">
                     {entry.EU.year != null && (
                       <div>
-                        <span className="text-stone-500">Ar: </span>
+                        <span className="text-stone-500">År: </span>
                         {entry.EU.year}
                       </div>
                     )}
                     {entry.EU.target_pct != null && (
                       <div>
-                        <span className="text-stone-500">Mal: </span>
+                        <span className="text-stone-500">Mål: </span>
                         {String(entry.EU.target_pct)}%
                       </div>
                     )}
