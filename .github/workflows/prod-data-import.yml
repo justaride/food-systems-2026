@@ -65,18 +65,35 @@ jobs:
 
       - name: Start TCP tunnel to prod DB
         run: |
+          # cloudflared access tcp reads the service token from --service-token-id/
+          # --secret (env TUNNEL_SERVICE_TOKEN_ID/SECRET), NOT CF_ACCESS_CLIENT_ID/
+          # SECRET (those are HTTP header names). Passing the wrong vars = no token
+          # presented = CF Access rejects = "websocket: bad handshake". Pass explicitly.
           nohup cloudflared access tcp \
             --hostname "$TUNNEL_HOSTNAME" \
             --url localhost:5432 \
+            --service-token-id "$CF_ACCESS_CLIENT_ID" \
+            --service-token-secret "$CF_ACCESS_CLIENT_SECRET" \
             > tunnel.log 2>&1 &
           echo $! > tunnel.pid
-          for i in 1 2 3 4 5 6 7 8 9 10; do
-            if nc -z localhost 5432 2>/dev/null; then
-              echo "Tunnel ready"; break
+          # Wait for an actual *authenticated* Postgres connection through the tunnel,
+          # not just an open local TCP socket: `nc -z` passes on the cloudflared
+          # listener even when the CF Access websocket handshake to origin fails,
+          # which then surfaces downstream as a confusing Prisma P1017 ConnectionClosed.
+          # Probing with psql fails fast at the real layer (see tunnel.log for
+          # "websocket: bad handshake" = connector/token/Access-app problem).
+          ok=0
+          for i in $(seq 1 30); do
+            if psql "$DATABASE_URL" -tAc 'select 1' >/dev/null 2>&1; then
+              echo "Authenticated DB connection ready (attempt $i)"; ok=1; break
             fi
-            sleep 2
+            sleep 3
           done
-          nc -z localhost 5432 || (echo "Tunnel failed"; cat tunnel.log; exit 1)
+          if [ "$ok" != "1" ]; then
+            echo "::error::DB not reachable through CF Access tunnel — see tunnel.log below"
+            cat tunnel.log
+            exit 1
+          fi
 
       - name: Run import (${{ inputs.target }})
         run: npm run db:import:${{ inputs.target }}
