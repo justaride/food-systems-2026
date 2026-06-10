@@ -1,0 +1,90 @@
+name: Prod Data Import (manual)
+
+# Manually run a sanctioned data import against the PRODUCTION database.
+# Reaches prod postgres through the existing Cloudflare Tunnel (same path as
+# citation-verification.yml) so the DB is never exposed publicly.
+#
+# This fills the gap noted in docs/project/reference/DEPLOYMENT-AND-DATA-OPERATIONS.md:
+# a green Coolify deploy ships code, not data. Data imports must be run against
+# prod separately — this workflow is the secret-safe way to do that from CI.
+#
+# Required secrets (already configured for the citation-verify cron):
+#   DATABASE_URL              — prod connection (host localhost:5432 — tunnel proxies)
+#   CF_ACCESS_CLIENT_ID       — CF Access service token client ID
+#   CF_ACCESS_CLIENT_SECRET   — CF Access service token client secret
+#
+# Guard: the job only runs when the `confirm` input is exactly "IMPORT".
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Which import to run against prod'
+        required: true
+        default: 'ownership'
+        type: choice
+        options:
+          - ownership
+      confirm:
+        description: 'Type IMPORT to confirm a write against the PRODUCTION database'
+        required: true
+        default: ''
+
+jobs:
+  prod-import:
+    name: Import ${{ inputs.target }} into prod DB
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: ${{ inputs.confirm == 'IMPORT' }}
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      TUNNEL_HOSTNAME: fs-db.naturalstateproject.com
+      CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+      CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Install cloudflared
+        run: |
+          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+          chmod +x /usr/local/bin/cloudflared
+          cloudflared --version
+
+      - name: Start TCP tunnel to prod DB
+        run: |
+          nohup cloudflared access tcp \
+            --hostname "$TUNNEL_HOSTNAME" \
+            --url localhost:5432 \
+            > tunnel.log 2>&1 &
+          echo $! > tunnel.pid
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            if nc -z localhost 5432 2>/dev/null; then
+              echo "Tunnel ready"; break
+            fi
+            sleep 2
+          done
+          nc -z localhost 5432 || (echo "Tunnel failed"; cat tunnel.log; exit 1)
+
+      - name: Run import (${{ inputs.target }})
+        run: npm run db:import:${{ inputs.target }}
+
+      - name: Verify prod counts
+        run: npm run db:verify
+
+      - name: Stop tunnel
+        if: always()
+        run: |
+          if [ -f tunnel.pid ]; then kill "$(cat tunnel.pid)" 2>/dev/null || true; fi
