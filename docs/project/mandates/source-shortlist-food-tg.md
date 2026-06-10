@@ -2,14 +2,23 @@
 tittel: Food TG Source Shortlist v0.1
 status: Utført internt
 eier: Gabriel
-sist_oppdatert: 2026-04-28
-neste_handling: Brukes som inntak til evidence-matrix-food-tg.md (Phase 2)
+sist_oppdatert: 2026-06-10
+neste_handling: Brukes som inntak til evidence-matrix-food-tg.md (Phase 2). Se `food-tg-deep-research-source-intake-2026-06-10.md` for 10.06-gjennomgang av syv deep-research-filer mot `SRC-0906-*`, `food-tg-deep-research-prompt-pack-2026-06-10.md` for videre kildejakt, `food-tg-casekort-og-research-mottak-2026-06-10.md` for mottak/importbeslutning og `food-tg-deep-research-results-intake-2026-06-10.md` for de åtte mottatte resultatfilene før nye kilder legges inn.
 relaterte_filer:
   - research/KI-PRIORITY.md
   - research/PLATTFORM-KOBLING.md
   - research/DATA-READINESS-SLUTTRAPPORT.md
   - docs/project/mandates/research-dossiers/baerekraftsutfordringer-input-2026-04-28/
+  - docs/project/mandates/food-tg-deep-research-source-intake-2026-06-10.md
+  - docs/project/mandates/food-tg-deep-research-prompt-pack-2026-06-10.md
+  - docs/project/mandates/food-tg-casekort-og-research-mottak-2026-06-10.md
+  - docs/project/mandates/food-tg-deep-research-results-intake-2026-06-10.md
 endringslogg:
+  - 2026-06-10 Lagt til results intake for åtte mottatte Deep Research-outputer. Kildekandidater derfra må hentes og locator-sjekkes før de blir siterbare source-shortlist-rader.
+  - 2026-06-10 Lagt til casekort- og research-mottaksfil som importgate før nye Deep Research-kilder eventuelt legges til source-shortlist, PCQ eller claim-lock.
+  - 2026-06-10 Lagt til Deep Research prompt pack for videre casevis kildejakt og post-research validering mot `SRC-0906-*`, `PCQ-0906-*` og claim-lock.
+  - 2026-06-10 Lagt til kontrollert deep-research source intake for syv Downloads-rapporter. Intake-filen styrker dokumentask for `SRC-0906-*`, men ingen rader er løftet til ekstern faktastemme.
+  - 2026-06-09 Lagt til 09.06-samtalecaser som `SRC-0906-*` med `uvalidert`/`needs-source`-status: Brasil-MOU, Elfenbenskysten-MOU, kaffeprosjekt, Bama/frukt-grønt, spillvarme/drivhus, Valio/Finland, Polen, Skottland, bacalhau og kunstgjødsel-/nitrogenhistorie.
   - 2026-04-28 (kveld) Lagt til 8 kilder fra nordisk bærekraftsanalyse-runde — A-018/A-019 (NIBIO bærekraft, IFRO/KU soya), B-032 (Matvett+NORSUS faktaark 2024), C-027/C-028 (Riksrevisionen, Concito), BASE-006 til BASE-009 (NIBIO selvforsyning, EEA Country Profiles, Luke balance sheet, og research-dossiers-arkiv).
 ---
 
@@ -177,10 +186,36 @@ Phase 1.1-script ble kjørt før shortlisting:
 | SRC-FIN-002 | research/external/notion/funding-map.md | intern syntese | finance | Notion-speilet funding map; brukes som operativ bruttoliste, ikke som ekstern dokumentasjon. |
 | SRC-POL-001 | research/whitepaper/executive-brief.md | intern syntese | policy, baseline | Executive brief om nordisk markedsstruktur og transition levers; må vris mot Circular Food-scope. |
 
+### 09.06 samtale-caser / needs-source
+
+Disse radene er lagt inn for å styre kildejakt etter 09.06-samtalen. De er ikke siterbare kilder. Bruk dem som research- og dokumentask til primærkilde, aktørdata eller intern dokumenteier er funnet.
+
+| ID | Filsti / referanse | Kvalitetstag | Sportag(er) | Notat |
+|---|---|---|---|---|
+| SRC-0906-001 | Brasil-MOU / WCEF / Nordic Night / NCH-dokumenteier | uvalidert | baseline, actor, A-feed, C-adoption, needs-source | Samtalen peker på Brasil som relasjons- og importverdikjedeanker. Avtaletekst, partsliste, dato, scope og bruksrett må finnes før kaffe, bacalhau eller fôr/Brasil kan brukes i faktastemme. |
+| SRC-0906-002 | Elfenbenskysten-MOU / kakao-relasjon / NCH-dokumenteier | uvalidert | baseline, actor, C-adoption, needs-source | Samtalehypotese om kakao/Elfenbenskysten. Krever organisasjonsnavn, avtaletekst, motpart, dato og rett til å bruke relasjonen. |
+| SRC-0906-003 | Kaffeprosjekt / Fuglen / Norsk Kaffeinformasjon / importørdata | uvalidert | baseline, actor, C-adoption, needs-source | Mulig kaffe-case for importverdikjede, avskogings-/EUDR-logikk og forbruker-/aktørkobling. Krever prosjekttekst, aktørrolle, råvareopprinnelse, volum og bruksrett. |
+| SRC-0906-004 | Bama/frukt-grønt/distribusjon/vertical farming | uvalidert | C-adoption, market power, actor, needs-source | Bama og frukt-/grøntdistribusjon behandles som adoption-gate, ikke som faktaclaim. Margin-, blokkerings- eller vinterimportpåstander krever primærkilde og juridisk aktsomt språk. |
+| SRC-0906-005 | Spillvarme/drivhus/hydroponi/akvaponikk | uvalidert | B-sidestream, C-adoption, baseline, needs-source | Mulig lokal produksjonscase. Trenger lokasjon, temperaturprofil, energimengde, sesong, CAPEX/OPEX, mattrygghet, næringsstrøm og kjøper før deck-faktastemme. |
+| SRC-0906-006 | Valio/Finland/meieri/fôr/governance | uvalidert | A-feed, C-adoption, actor, needs-source | Valio kan undersøkes som governance-/innkjøpscase for soya-fase-ut eller fôrråvarestrategi. Ikke bruk som claim om finsk meieri uten importert fôr før primærkilde finnes. |
+| SRC-0906-007 | Polen sidestrømmer / matindustri / bioressurser | uvalidert | B-sidestream, baseline, needs-source | Watchlist. Krever institusjonsrapport eller primærdata før Polen kan brukes som materialitetscase. |
+| SRC-0906-008 | Skottland havbruk/fiskeri/bioressurser | uvalidert | A-feed, B-sidestream, baseline, needs-source | Watchlist. Trenger konkret havbruk-, fiskeri- eller bioressurscase før sammenligning med Norge/Norden. |
+| SRC-0906-009 | Bacalhau Norge-Brasil / handelsakse | uvalidert | baseline, A-feed, actor, needs-source | Relasjonelt støttecase som bare bør brukes hvis det kobles til Brasil-aksen, fôr/import eller dokumentert handelsdata. |
+| SRC-0906-010 | Kunstgjødsel/Yara/Hydro/Haber-Bosch/biogass | uvalidert | B-sidestream, baseline, policy, needs-source | Næringsstoff- og energihistorikk er relevant støtte, men må holdes som kontekst til nutrient loops. Ingen tall- eller effektclaim uten primærkilde. |
+
 ## Kilder som krever manuell sjekk før ekstern bruk
 
 | ID | Hvorfor manuell sjekk | Eier | Frist |
 |---|---|---|---|
+| SRC-0906-001 | Brasil-MOU og eventuell kaffe-/bacalhau-/fôrakse må bekreftes med dokument, partsliste, dato, scope og bruksrett før ekstern tekst. | Gabriel/Cathrine/JT | 14.06 |
+| SRC-0906-002 | Elfenbenskysten-/kakao-relasjonen må ha korrekt organisasjonsnavn, avtaletekst og kontaktpunkt før casekort kan brukes utover intern hypotese. | Gabriel/Cathrine/JT | 14.06 |
+| SRC-0906-003 | Kaffeprosjekt og aktørkobling må kildefestes mot prosjekttekst eller aktør før det kobles til EUDR, Brasil eller sirkularitet. | Gabriel | 16.06 |
+| SRC-0906-004 | Bama/frukt-grønt/distribusjon er juridisk og reputasjonelt sensitivt; bruk kun som C-gate til primærkilde eller aktørdata finnes. | Gabriel/Cathrine | 16.06 |
+| SRC-0906-005 | Spillvarme-/drivhusclaim krever energidefinisjon, lokasjon, temperaturprofil, eier, økonomi og matproduksjonskobling. | Gabriel | 16.06 |
+| SRC-0906-006 | Valio-/Finland-claim må sjekkes mot Valio/finske primærkilder og fôrdata; ikke bruk som importfritt-meieri-claim. | Gabriel | 16.06 |
+| SRC-0906-007 til SRC-0906-008 | Polen og Skottland er watchlist til konkrete rapporter eller case finnes; ikke bruk som prioriterte case uten kildegrunnlag. | Gabriel | 18.06 |
+| SRC-0906-009 | Bacalhau-aksen krever handelsdata og tydelig kobling til Food TG-scope før den brukes i deck. | Gabriel | 18.06 |
+| SRC-0906-010 | Kunstgjødsel-/nitrogenhistorikk krever presis primær-/fagkilde og må ikke trekke sprinten inn i bred historisk utredning. | Gabriel | 18.06 |
 | SRC-A-007 | L4-soyaimportvolum er erstattet av SSB 08801 (`SRC-A-017`) for offisiell varekodeserie. Behold L4-notatet kun som kildejakt. | Gabriel | 29.04 |
 | SRC-A-008 | Fiskemelvolum er delvis erstattet av SSB 08801 (`SRC-A-017`) for importserie; faktisk bruk i norsk fôr og aktørfordeling må fortsatt sjekkes mot aktører/FAO/IFFO/Eurostat ved behov. | Gabriel | 29.04 |
 | SRC-A-009 | EU TSE/ABP-tolkninger må kontrolleres mot gjeldende EU- og Mattilsynet-tekst. | Gabriel | 29.04 |
@@ -229,6 +264,8 @@ Phase 1.1-script ble kjørt før shortlisting:
 |---|---|---|
 | Finansiering | Konkret shortlist med programnavn, frister, eligibility og match til to prosjektideer. | Decision memo kan anbefale retning, men ikke love finansierbarhet før funding map er skjerpet. |
 | Aktørvalidering | Ingen ekstern respons fra Volare, AX, Mattilsynet, RecoLab, grossister eller fôraktører er dokumentert ennå. | Alle actor-/pilotclaims må stå som `Utført internt`, ikke `Validert eksternt`. |
+| 09.06 MOU- og relasjonscase | Brasil, Elfenbenskysten, kaffeprosjekt, Fuglen og eventuelle NCH/WCEF-dokumenter er ikke funnet i repoet. | Kaffe/kakao kan bare brukes som samtalehypotese og dokumentask. |
+| 09.06 adoption-/lokalproduksjonscase | Bama/frukt-grønt, spillvarme/drivhus og Valio/Finland mangler primærkilder. | Behandles som `needs-source`, ikke som deck-faktastemme. |
 | Primærdata for sidestrømmer | Volum per industriaktør/anlegg for okara, bryggerimask, fiskeinnmat, biorest og svartvann er delvis estimert. | Spor B kan beskrive potensial og hypoteser, men bør ikke tallfeste pilotvolum uten manuell sjekk. |
 | Regulering for fôrsubstrater | Gjeldende og kommende EU/Mattilsynet-praksis for tidligere matvarer, insekter og avløpsnæring må låses. | Spor A kan ellers overselge regulatorisk handlingsrom. |
 | KPI-kobling | Broen mellom sirkularitet, ernæring, klima og biodiversitet er ikke ferdig operasjonalisert. | Roadmap-metrikk må holdes foreløpig til Phase 2-3 har valgt claims og EV-IDer. |

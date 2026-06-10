@@ -984,6 +984,7 @@ const COUNTRY_METRIC_SOURCE_LABEL_LOCATORS: Record<string, string> = {
 
 const BLOCKED_BUSINESS_RELATIONSHIP_SOURCE_LABELS = new Set([
   'BioMar',
+  'Bransjeanalyse',
   'Bransjedata',
   'Lantmannen.com',
   'mn24.no',

@@ -2099,6 +2099,19 @@ describe('row source locators', () => {
       ),
       'source:blocked-unsourced/business-relationship-unverified-label',
     )
+
+    assert.equal(
+      resolveBusinessRelationshipSourceLocator(
+        {
+          source: 'Bransjeanalyse',
+          fromCompany: { orgNr: '930186870' },
+          toCompany: { orgNr: '915442552' },
+        },
+        new Set(),
+        new Map(),
+      ),
+      'source:blocked-unsourced/business-relationship-unverified-label',
+    )
   })
 
   it('resolves business relationship rows through checked company-specific reports', () => {
