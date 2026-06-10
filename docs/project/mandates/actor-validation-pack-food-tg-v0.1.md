@@ -3,17 +3,21 @@ tittel: Food TG Actor Validation Pack v0.1
 status: Utført internt
 eier: Gabriel
 dato: 2026-04-28
-sist_oppdatert: 2026-06-09
-neste_handling: Bruk som samtale-/epostgrunnlag for første valideringsrunde etter scope- eller minimumsvedtak; ingen respons er registrert ennå. 09.06-caser er lagt inn som gated dokument- og spørsmålsbank, ikke utsendt outreach.
+sist_oppdatert: 2026-06-10
+neste_handling: Bruk som samtale-/epostgrunnlag for første valideringsrunde etter scope- eller minimumsvedtak; ingen respons er registrert ennå. 09.06-caser er lagt inn som gated dokument- og spørsmålsbank, ikke utsendt outreach. Se `food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md` for presise interne dokumentasks og senere aktørspørsmål før noe sendes, og `food-tg-deep-research-results-intake-2026-06-10.md` for hvilke aktørspor de mottatte outputene peker mot.
 relaterte_filer:
   - docs/project/mandates/claim-register-food-tg.md
   - docs/project/mandates/evidence-matrix-food-tg.md
   - docs/project/mandates/primary-check-queue-food-tg-v0.1.md
+  - docs/project/mandates/food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md
+  - docs/project/mandates/food-tg-deep-research-results-intake-2026-06-10.md
 ---
 
 # Food TG Actor Validation Pack v0.1
 
 Formål: løfte ut de claimene som ikke kan styrkes videre uten aktørrespons. Dette dokumentet er en intern valideringspakke, ikke dokumentasjon på ekstern validering.
+
+`food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md` er forberedelseslaget før denne pakken brukes operativt: først intern dokumentask, deretter eventuelle aktørspørsmål etter scope- eller minimumsvedtak. `food-tg-deep-research-results-intake-2026-06-10.md` viser hvilke aktørspor som kom fra de åtte mottatte outputene, men åpner ikke outreach.
 
 ## Bruksregel
 

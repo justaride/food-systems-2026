@@ -3,12 +3,16 @@ tittel: Food TG Primary-Check Queue v0.1
 status: Utført internt
 eier: Gabriel
 dato: 2026-04-28
-sist_oppdatert: 2026-06-09
-neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21. PCQ-B-001 til B-004 er låst som benchmark/hypotese inntil råvareeier, hygiene, stabilisering, off-taker og bruksrett er validert. 09.06-caser er lagt inn som PCQ-0906-* og skal ikke brukes i faktastemme før primærkilde eller aktørdata finnes.
+sist_oppdatert: 2026-06-10
+neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21. PCQ-B-001 til B-004 er låst som benchmark/hypotese inntil råvareeier, hygiene, stabilisering, off-taker og bruksrett er validert. 09.06-caser er lagt inn som PCQ-0906-* og skal ikke brukes i faktastemme før primærkilde eller aktørdata finnes. 10.06-intake i `food-tg-deep-research-source-intake-2026-06-10.md` prioriterer neste primærsjekk uten å endre claim-status; `food-tg-deep-research-prompt-pack-2026-06-10.md` styrer videre Deep Research-kjøringer; `food-tg-casekort-og-research-mottak-2026-06-10.md` registrerer outputer før PCQ-rader endres; `food-tg-deep-research-results-intake-2026-06-10.md` logger de åtte mottatte resultatfilene og skjerper PCQ-sjekker uten å åpne claims.
 relaterte_filer:
   - docs/project/mandates/actor-validation-pack-food-tg-v0.1.md
   - docs/project/mandates/analysefabrikk-handoffs/2026-04-28-mini-verifikasjon-2b-2d-recovery.md
   - docs/project/mandates/claim-register-food-tg.md
+  - docs/project/mandates/food-tg-deep-research-source-intake-2026-06-10.md
+  - docs/project/mandates/food-tg-deep-research-prompt-pack-2026-06-10.md
+  - docs/project/mandates/food-tg-casekort-og-research-mottak-2026-06-10.md
+  - docs/project/mandates/food-tg-deep-research-results-intake-2026-06-10.md
 ---
 
 # Food TG Primary-Check Queue v0.1
@@ -53,23 +57,23 @@ Disse radene er opprettet etter 09.06-samtalen. De styrer dokument- og researcha
 
 | Queue-ID | Tema | Konkret sjekk | Nåværende kilde/status | Trengs fra primærkilde | Berører | Eier | Status |
 |---|---|---|---|---|---|---|---|
-| PCQ-0906-001 | Brasil-MOU | Finn avtaletekst, partsliste, dato, scope, kontaktpunkt og bruksrett for eventuell Brasil-/kaffe-/WCEF-relasjon. | Samtalehypotese fra 09.06; registrert som `SRC-0906-001`. | MOU/avtale, møtenotat eller dokumenteierbekreftelse. | SRC-0906-001, case-shortlist 2026-06-09 | Gabriel/Cathrine/JT | needs-source |
-| PCQ-0906-002 | Elfenbenskysten-MOU/kakao | Avklar om det finnes avtale, organisasjonsnavn, motpart og scope for kakao-/Elfenbenskysten-spor. | Samtalehypotese fra 09.06; registrert som `SRC-0906-002`. | MOU/avtale, organisasjonsnavn, kontaktperson, dato og bruksrett. | SRC-0906-002, case-shortlist 2026-06-09 | Gabriel/Cathrine/JT | needs-source |
-| PCQ-0906-003 | Kaffeprosjekt/Fuglen | Finn prosjekttekst, aktørrolle, råvareopprinnelse, mulig data og om kaffe kan brukes som importverdikjede-case. | Samtalehypotese fra 09.06; registrert som `SRC-0906-003`. | Prosjektdokument, aktørbekreftelse, import-/opprinnelsesdata og rett til å omtale. | SRC-0906-003, CL-C-011, C-gate | Gabriel | needs-source |
-| PCQ-0906-004 | Bama/frukt-grønt/distribusjon | Skille trygg C-gate om distribusjon/markedsmakt fra utrygge Bama-spesifikke claims om marginer eller blokkering. | C-sporet har markedsmaktgrunnlag; Bama-spesifikke påstander er ikke kildefestet. `SRC-0906-004`. | Primærkilde, aktørdata, tilsyns-/konkurransegrunnlag eller juridisk trygt casegrunnlag. | SRC-0906-004, CL-C-001, CL-C-006, CL-C-015 | Gabriel/Cathrine | needs-primary-check |
-| PCQ-0906-005 | Spillvarme/drivhus/akvaponikk | Avklare om spillvarmebasert matproduksjon har konkret norsk/nordisk case, energidefinisjon og aktør. | Samtalehypotese; nutrient-loop og lokalproduksjon er delvis dekket generelt. `SRC-0906-005`. | Energidata, lokasjon, temperaturprofil, eier, drift/økonomi, mattrygghet og kjøper. | SRC-0906-005, CL-B-023, CL-C-015 | Gabriel | needs-source |
-| PCQ-0906-006 | Valio/Finland | Bekrefte om Valio/Finland kan brukes som governance-/fôr-case og hva som faktisk gjelder for soya, raps, lokal fôrandel eller innkjøpskrav. | Samtalehypotese; finsk baseline finnes delvis via `SRC-BASE-008`. Registrert som `SRC-0906-006`. | Valio-/finsk primærkilde, fôrdata, år, geografi, definisjon og bruksrett. | SRC-0906-006, SRC-BASE-008, CL-A-020, CL-C-001 | Gabriel | needs-source |
-| PCQ-0906-007 | Polen og Skottland watchlist | Finne om Polen eller Skottland har konkrete sidestrøm-, havbruk-, bioressurs- eller policycase som matcher A/B/C. | Kun samtalesignal; registrert som `SRC-0906-007` og `SRC-0906-008`. | Institusjonsrapport, primærdata eller casebeskrivelse med år/geografi. | SRC-0906-007, SRC-0906-008 | Gabriel | watchlist; needs-source |
+| PCQ-0906-001 | Brasil-MOU | Finn avtaletekst, partsliste, dato, scope, kontaktpunkt og bruksrett for eventuell Brasil-/kaffe-/WCEF-relasjon. | `DRR-0906-001` fant import-/EUDR- og aktørspor, men ikke offentlig MOU/prosjektdokument. | MOU/avtale, møtenotat, roadmap/annex eller dokumenteierbekreftelse. | SRC-0906-001, case-shortlist 2026-06-09, results-intake 2026-06-10 | Gabriel/Cathrine/JT | needs-primary-check; needs-actor-validation |
+| PCQ-0906-002 | Elfenbenskysten-MOU/kakao | Avklar om det finnes avtale, organisasjonsnavn, motpart og scope for kakao-/Elfenbenskysten-spor. | `DRR-0906-002` styrker EUDR/sporbarhet, men signert MOU/LEAD-bekreftelse er ikke funnet. | MOU/avtale/LOI, organisasjonsnavn, kontaktperson, dato, scope og bruksrett. | SRC-0906-002, case-shortlist 2026-06-09, results-intake 2026-06-10 | Gabriel/Cathrine/JT | needs-primary-check; needs-actor-validation |
+| PCQ-0906-003 | Kaffeprosjekt/Fuglen | Finn prosjekttekst, aktørrolle, råvareopprinnelse, mulig data og om kaffe kan brukes som importverdikjede-case. | `DRR-0906-001` peker på Fuglen/Nordic Approach/NKI som mulige data-/aktørspor, ikke bekreftede partnere. | Prosjektdokument, aktørbekreftelse, import-/opprinnelsesdata og rett til å omtale. | SRC-0906-003, CL-C-011, C-gate, results-intake 2026-06-10 | Gabriel | needs-actor-validation; needs-data |
+| PCQ-0906-004 | Distribusjon/adoption-gate for frukt og grønt | Skille trygg C-gate om distribusjon/markedsmakt fra utrygge BAMA-spesifikke claims om marginer eller blokkering. | `DRR-0906-005` styrker bred distribusjons-/adoption-gate og svekker BAMA-anklager. | Aktørdata, produkt-/månedstall, tilsyns-/konkurransegrunnlag og juridisk trygt casegrunnlag. | SRC-0906-004, CL-C-001, CL-C-006, CL-C-015, results-intake 2026-06-10 | Gabriel/Cathrine | needs-data; needs-actor-validation |
+| PCQ-0906-005 | Spillvarme/drivhus/akvaponikk | Avklare om spillvarmebasert matproduksjon har konkret norsk/nordisk case, energidefinisjon og aktør. | `DRR-0906-006` identifiserer Hima som operativ intern case med datagap, Frövi som industriell benchmark og flere plan-/scenario-case. | Driftsdata, GWh/år, temperaturprofil, reservevarme, eier, økonomi, mattrygghet og kjøper. | SRC-0906-005, CL-B-023, CL-C-015, results-intake 2026-06-10 | Gabriel | needs-data; needs-actor-validation |
+| PCQ-0906-006 | Valio/Finland | Bekrefte om Valio/Finland kan brukes som governance-/fôr-case og hva som faktisk gjelder for soya, raps, lokal fôrandel eller innkjøpskrav. | `DRR-0906-003`/`004` styrker soyafri governance og svekker importfritt fôr. | Valio fôrstandard, aggregert fôrkurv, importandel, år, geografi, definisjon og bruksrett. | SRC-0906-006, SRC-BASE-008, CL-A-020, CL-C-001, results-intake 2026-06-10 | Gabriel | needs-data; needs-actor-validation |
+| PCQ-0906-007 | Polen og Skottland watchlist | Finne om Polen eller Skottland har konkrete sidestrøm-, havbruk-, bioressurs- eller policycase som matcher A/B/C. | `DRR-0906-008` styrker Skottland som benchmark-kandidat og holder Polen som watchlist/kill-test. | Skotsk fulltekst/data dictionary/aktørarkiv; polsk aktør, lokasjon, volum og output hvis case skal leve. | SRC-0906-007, SRC-0906-008, results-intake 2026-06-10 | Gabriel | Skottland: needs-primary-check; Polen: watchlist; needs-data |
 | PCQ-0906-008 | Bacalhau og kunstgjødselhistorie | Avklare om bacalhau/Brasil eller kunstgjødsel/Yara/Hydro gir beslutningsrelevant støtte, eller om de skal parkeres. | Kun samtalesignal; registrert som `SRC-0906-009` og `SRC-0906-010`. | Handelsdata, primær-/fagkilde og tydelig kobling til A/B/C. | SRC-0906-009, SRC-0906-010 | Gabriel | watchlist; needs-source |
 
 ## Prioritert rekkefølge
 
-1. PCQ-0906-001 til PCQ-0906-003, fordi kaffe/kakao-case ikke kan overleve uten MOU, prosjekttekst, aktørrolle og bruksrett.
+1. PCQ-0906-001 til PCQ-0906-003, fordi kaffe/kakao-relasjonscase ikke kan overleve uten MOU, prosjekttekst, aktørrolle og bruksrett.
 2. PCQ-C-001 og PCQ-A-001 til PCQ-A-003, fordi juridisk/regulatorisk scope, soya-/SPC-tall og faktisk fôrbruk avgjør A-sporet.
 3. PCQ-B-001 til PCQ-B-004, fordi okara/BSG bare kan modnes hvis råvareeier, hygiene, stabilisering og off-taker finnes.
-4. PCQ-B-005 og PCQ-0906-004, fordi marint restråstoff og distribusjon/markedsmakt kan bli sterke case, men trenger aktør-/primærdata før sterk språkbruk.
-5. PCQ-0906-005 og PCQ-0906-006, fordi spillvarme/drivhus og Valio/Finland avgjør om de blir deckklare eller watchlist.
-6. PCQ-0906-007 og PCQ-0906-008, fordi Polen, Skottland, bacalhau og kunstgjødselhistorie skal parkeres hvis ingen kilde finnes raskt.
+4. PCQ-B-005 og PCQ-0906-004, fordi marint restråstoff og distribusjon/adoption kan bli sterke interne case, men trenger aktør-/primærdata før sterk språkbruk.
+5. PCQ-0906-005 og PCQ-0906-006, fordi Hima/spillvarme og Valio/Finland avgjør om de blir smale interne deckcase eller forblir radar.
+6. PCQ-0906-007 og PCQ-0906-008, fordi Skottland bør fulltekstkontrolleres raskt, mens Polen, bacalhau og kunstgjødselhistorie skal parkeres hvis ingen konkret kilde finnes.
 7. PCQ-C-002, fordi KPI-er først bør formuleres etter datatilgang er kjent.
 
 ## Runde 4 statusnotat (2026-05-18)

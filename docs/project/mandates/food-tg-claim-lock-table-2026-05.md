@@ -74,22 +74,26 @@ Disse formuleringene kommer fra 09.06-samtalen eller nærliggende casehypoteser.
 |---|---|---|
 | Nordic Circular Hotspot, WCEF eller Natural State har en Brasil-MOU om kaffe. | `hold-tilbake` | Bruk som `SRC-0906-001`/`PCQ-0906-001` dokumentask til avtaletekst, partsliste, dato, scope og bruksrett er funnet. |
 | Nordic Circular Hotspot har avtale med en organisasjon i Elfenbenskysten om kakao. | `hold-tilbake` | Bruk som `SRC-0906-002`/`PCQ-0906-002` dokumentask til organisasjonsnavn, motpart, avtaletekst og kontaktpunkt er bekreftet. |
-| Kaffe/Brasil eller kakao/Elfenbenskysten er klare Food TG-case. | `hold-tilbake` | Bruk som `nytt-case-uten-kilde` og relasjonshypotese; løft først etter MOU/prosjekttekst og actor-/bruksrettsavklaring. |
+| Kaffe/Brasil eller kakao/Elfenbenskysten er klare Food TG-case. | `hold-tilbake` | `DRR-0906-001`/`002` styrker import-/EUDR- og sporbarhetskontekst, men relasjonsclaims løftes først etter MOU/prosjekttekst og actor-/bruksrettsavklaring. |
 | Fuglen eller Norsk Kaffeinformasjon er bekreftet prosjektpartner. | `hold-tilbake` | Bruk som mulig kontaktgruppe i actor validation pack, ikke som partnerclaim. |
-| Bama har høye vinterimportmarginer eller blokkerer vertical farming/akvaponikk. | `hold-tilbake` | Bruk trygg C-gate om distribusjon, markedsstruktur og innkjøpsmakt. Krever primærkilde, aktørdata og juridisk aktsomt språk. |
-| Valio eller Finland produserer melk uten importert fôr. | `hold-tilbake` | Undersøk Valio som mulig governance-/fôrråvarecase; formuler ikke importfritt-meieri-claim uten primærkilde. |
-| Spillvarme i Norge kan oppgis med bestemt TWh-tall for matproduksjon. | `hold-tilbake` | Bruk som `SRC-0906-005` researchspørsmål; må ha energidefinisjon, lokasjon, temperaturprofil, eier, økonomi og systemgrense. |
+| Bama har høye vinterimportmarginer eller blokkerer vertical farming/akvaponikk. | `hold-tilbake` | `DRR-0906-005` støtter bred distribusjon/adoption-gate, ikke BAMA-anklage. Krever primærkilde, aktørdata og juridisk aktsomt språk før BAMA-spesifikke claims. |
+| Valio eller Finland produserer melk uten importert fôr. | `hold-tilbake` | `DRR-0906-003`/`004` svekker importfritt språk. Trygg intern formulering er soyafri dairy-feed governance med dokumenterte import-gap og `needs-data`. |
+| Spillvarme i Norge kan oppgis med bestemt TWh-tall for matproduksjon. | `hold-tilbake` | `DRR-0906-006` gir caseledger-spor, men ikke nasjonalt TWh-claim. Må ha energidefinisjon, lokasjon, temperaturprofil, nyttiggjort varme, eier, økonomi og systemgrense. |
 | Danmark har besluttet å redusere svineproduksjon. | `hold-tilbake` | Bruk Danmark som policy-benchmark med primærkilder; skill svin, nitrogen, areal, eksport og Green Tripartite. |
-| Polen er en stor sidestrømsmulighet for Food TG. | `hold-tilbake` | Hold som watchlist til rapport eller primærdata viser konkrete strømmer, aktører og barrierer. |
-| Skottland er et dokumentert havbruk-/bioressurs-benchmark for Food TG. | `hold-tilbake` | Hold som watchlist til konkret case, rapport eller policykilde finnes. |
+| Polen er en stor sidestrømsmulighet for Food TG. | `hold-tilbake` | `DRR-0906-008` holder Polen som watchlist/kill-test til rapport eller primærdata viser aktør, lokasjon, volum, output og barrierer. |
+| Skottland er et dokumentert havbruk-/bioressurs-benchmark for Food TG. | `hold-tilbake` | `DRR-0906-008` gjør Skottland til benchmark-kandidat, men ikke dokumentert Food TG-case før ZWS/SBMT/fulltekst og aktørdata er sjekket. |
 | Bacalhau Norge-Brasil er et hovedcase. | `hold-tilbake` | Bruk bare som mulig handels-/relasjonsstøtte hvis handelsdata og Brasil-kobling er relevant for A-sporet. |
 | Kaffegrut/biogass eller kaffeverdikjede gir dokumentert utslippskutt for Food TG. | `hold-tilbake` | Behandle som uvalidert B-/C-hypotese til konkret prosjekt, metode, baseline og kontrafaktisk finnes. |
-| 100% Fish beviser at norsk sjømat kan løftes direkte til første høyverdi-case. | `hold-tilbake` | Bruk Icelandic Ocean Cluster/100% Fish som benchmark og valideringsspørsmål, ikke som norsk effekt- eller gjennomføringsbevis. |
+| 100% Fish beviser at norsk sjømat kan løftes direkte til første høyverdi-case. | `hold-tilbake` | `DRR-0906-007` styrker benchmark/designkrav, men svekker bokstavelig 100 prosent, norsk pilotbevis og høyverdiandel-claim uten SINTEF/FHF-fraksjonsdata og aktørvalidering. |
 | Kunstgjødselhistorie/Yara/Hydro forklarer Food TGs nutrient-loop-case. | `hold-tilbake` | Bruk kun som kontekst hvis presis primær-/fagkilde finnes; ikke la historielinjen erstatte konkrete nutrient-loop-data. |
 
 ## Neste arbeid
 
 1. Oppdater tabellen etter hver primary-check og aktørrespons.
 2. Legg inn faktisk `sourceCitationIds` eller locator når claimet flyttes nær ekstern bruk.
-3. Oppdater 09.06-radene etter `SRC-0906-*`, `PCQ-0906-*` og actor validation pack har ny dokumentasjon.
-4. Bruk denne filen som gate før `food-tg-public-language-bank-v0.1.md`, decision deck og roadmap skrives.
+3. Bruk `food-tg-deep-research-source-intake-2026-06-10.md` som 10.06-kildeinntak for `SRC-0906-*`/`PCQ-0906-*`; intake styrker arbeidsgrunnlaget, men åpner ingen claim-lock-rad alene.
+4. Bruk `food-tg-deep-research-prompt-pack-2026-06-10.md` for videre casevis Deep Research og post-research validering; prompt-output kan styrke eller svekke arbeidsgrunnlag, men åpner ikke claim alene.
+5. Bruk `food-tg-casekort-og-research-mottak-2026-06-10.md` som mottaks- og importgate før nye Deep Research-funn påvirker claim-lock, PCQ eller actor validation pack.
+6. Bruk `food-tg-deep-research-results-intake-2026-06-10.md` som resultatlogg for de åtte mottatte outputene; den skjerper hold-tilbake-språk, men åpner ingen claim alene.
+7. Oppdater 09.06-radene etter `SRC-0906-*`, `PCQ-0906-*` og actor validation pack har ny dokumentasjon.
+8. Bruk denne filen som gate før `food-tg-public-language-bank-v0.1.md`, decision deck og roadmap skrives.
