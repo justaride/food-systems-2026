@@ -222,11 +222,16 @@ prosjekter frigjør nesten ingen disk* (men hjelper RAM/last).
 postgres fullførte recovery umiddelbart og kom opp (`active_conns=6`).
 Helt trygt — build-cache rører aldri kjørende containere, volumes eller data.
 
-**Forhindre gjentakelse (gjøres fortsatt):**
-- Coolify **Settings → Advanced → Docker Cleanup** (periodisk prune), eller en
-  ukentlig `docker builder prune -af`-cron.
+**Forhindre gjentakelse:**
+- ✅ **Ukentlig prune-cron satt opp 2026-06-11** på `cloudbrain`:
+  `30 5 * * 0 /root/weekly-docker-cleanup.sh` (root crontab). Scriptet prune'r
+  build-cache hver søndag, prune'r ubrukte images kun hvis disk ≥80%, og logger
+  til `/var/log/weekly-docker-cleanup.log`. Gjelder hele boksen.
+- Vurder i tillegg Coolify **Settings → Advanced → Docker Cleanup** (native).
 - Log-rotasjon i `/etc/docker/daemon.json` (`max-size`/`max-file`).
 - Diskvarsel < 15% ledig (uptime-kuma/grafana finnes allerede på boksen).
+- NB: build-cache vokser raskt (~9 GB på 30 min med aktive builds) — derfor er
+  ukentlig + ≥80%-sikkerhetsnett valgt.
 
 **Diagnose-tillegg til §7:** når DB-stien er intermitterende selv om tunnelen er
 frisk → SSH inn og sjekk `df -h /` + `docker exec <pg> psql -c 'select 1'`
