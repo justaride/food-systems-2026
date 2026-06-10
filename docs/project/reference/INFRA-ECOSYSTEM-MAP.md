@@ -106,12 +106,23 @@ localhost:5432 — tunnelen proxyer), `CF_ACCESS_CLIENT_ID`,
   positiv** (passerer på den lokale cloudflared-lytteren selv når origin-handshake
   feiler). Fikset til psql-probe 2026-06-10 så feilen treffer riktig lag raskt.
 
-**Mest sannsynlig årsak (i rekkefølge):**
-1. cloudflared DB-connectoren på Hetzner er **nede/disconnected**.
-2. CF Access **service-token rotert/utløpt** (`CF_ACCESS_CLIENT_ID/SECRET`).
-3. CF Tunnel `food-systems-db` unhealthy / ingress peker feil.
+**Bekreftet root cause (SSH-diagnose 2026-06-10):** DB-connectoren er Coolify-
+servicen `cloudflared-db-tunnel` (compose-prosjekt `t0wwow4wco00ww8cowswo4kg`,
+resource subId 59, opprettet 26. mai). Containeren **crash-looper** fordi
+`TUNNEL_TOKEN` i `/data/coolify/services/t0wwow4wco00ww8cowswo4kg/.env` er **tom
+(lengde 0)** — compose kjører `tunnel run --token ${TUNNEL_TOKEN}` med tomt
+token, så cloudflared printer help og dør. Connector-tokenet ble **aldri lagret
+i Coolify** ved oppsettet → tunnelen har aldri hatt en frisk connector → CF-edge
+har ingen origin → klienten får «bad handshake». Dette forklarer at *hver*
+citation-verify-kjøring har feilet siden tunnelen ble laget.
 
-(DNS og CF-konto er utelukket av signalene over.)
+> Den delte `cloudflared`-containeren (oppe 4 mnd) kjører app-/ingress-tunnelen
+> for **alle** prosjektene (food-systems, circular-cities, gabistudio,
+> plancompass … dusinvis → `coolify-proxy`). **Ikke rør den.** `vskowwk…` (oppe 2
+> uker, tunnel `5540a019`) er en annen frisk connector. Kun `t0ww…` (cloudflared-
+> db-tunnel) er ødelagt.
+
+(DNS, CF-konto, server og app-tunnel er alle friske — utelukket av signalene over.)
 
 ## 7. Diagnose-stige (når DB-tunnel feiler)
 
@@ -131,26 +142,32 @@ Jobb fra utsiden og inn. Stopp ved første røde.
 5. **Ingress:** Zero Trust → Networks → Tunnels → `food-systems-db` →
    Public Hostname `fs-db…` → TCP `food-systems-pgvector-db:5432`. Healthy?
 
-## 8. Gjenoppretting av DB-connector (på Hetzner)
+## 8. Gjenoppretting av DB-connector — sett TUNNEL_TOKEN
 
-> Krever eksplisitt go-ahead; muterer prod-infra.
+Root cause er **tomt `TUNNEL_TOKEN`** (ikke en nede connector). Restart alene gir
+bare ny crash. Tokenet må hentes fra Cloudflare og settes i Coolify:
 
-```bash
-ssh cloudbrain
-# Variant A — systemd:
-systemctl status cloudflared --no-pager
-systemctl restart cloudflared && cloudflared tunnel info food-systems-db
-# Variant B — docker (hvis connector kjører som container i coolify-nettet):
-docker ps -a | grep cloudflared
-docker restart cloudflared-db && docker logs --tail 30 cloudflared-db
-```
-Forventet: connector rapporterer `Connected`/healthy. Verifiser så ende-til-ende
-ved å re-kjøre `prod-data-import` (eller `citation-verification`) — psql-proben
-skal nå passere i stedet for «bad handshake».
+1. **Hent connector-tokenet** (Cloudflare Zero Trust → **Networks → Tunnels →
+   `food-systems-db` → Configure**) — den lange base64-strengen fra
+   `cloudflared service install <TOKEN>` / "Install connector"-fanen.
+   (NB: dette er connector-tokenet, *ikke* CF Access service-tokenet
+   `CF_ACCESS_CLIENT_ID/SECRET`.)
+2. **Sett det i Coolify:** prosjekt `food-systems-2026` → servicen
+   `cloudflared-db-tunnel` → **Environment Variables** → `TUNNEL_TOKEN=<token>` →
+   **Redeploy**.
+3. **Eller direkte på serveren** (Coolify-managed, mindre pent):
+   ```bash
+   ssh cloudbrain
+   DIR=/data/coolify/services/t0wwow4wco00ww8cowswo4kg
+   # sett TUNNEL_TOKEN=<token> i $DIR/.env, så:
+   cd "$DIR" && docker compose up -d --force-recreate
+   docker logs --tail 20 cloudflared-t0wwow4wco00ww8cowswo4kg   # forvent "Registered tunnel connection"
+   ```
+4. **Verifiser ende-til-ende:** `cloudflared tunnel info food-systems-db` skal
+   vise connector tilkoblet; re-kjør `prod-data-import` / `citation-verification`
+   — psql-proben skal nå passere i stedet for «bad handshake».
 
-Hvis connector er borte helt: re-installer med tunnel-token fra CF-dashboardet
-(`cloudflared service install <TUNNEL_TOKEN>`), jf.
-[SETUP-CF-TUNNEL-FOR-DB.md](../../SETUP-CF-TUNNEL-FOR-DB.md).
+Jf. oppsettet i [SETUP-CF-TUNNEL-FOR-DB.md](../../SETUP-CF-TUNNEL-FOR-DB.md).
 
 ## 9. Etter gjenoppretting — verifiseringskjede
 
