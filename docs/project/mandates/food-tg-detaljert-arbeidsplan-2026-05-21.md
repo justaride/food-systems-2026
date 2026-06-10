@@ -19,7 +19,7 @@
 
 Denne planen skal brukes som styringsdokument for neste arbeidsfase. Den erstatter ikke eksisterende planfiler; den binder dem sammen til en utførbar rekkefølge.
 
-Ingen påstand løftes fra `Utført internt` til `Validert eksternt` uten dokumentert aktørrespons, kilde, dato, rolle og bruksrett. Ingen pilot omtales som pilotklar før eier, datatilgang, regulatorisk gate, off-taker og finansieringsvei er vurdert.
+Ingen påstand løftes fra `Utført internt` til eksternt validert uten dokumentert aktørrespons, kilde, dato, rolle og bruksrett. Ingen pilot omtales som pilotklar før eier, datatilgang, regulatorisk gate, off-taker og finansieringsvei er vurdert.
 
 ## 1. Kort strategisk retning
 
@@ -76,7 +76,7 @@ Prosjektet skal gå videre med:
 
 ### 2.3 Kontrollag lagt til 2026-05-21
 
-Disse filene er lagt inn som ekstra porter før Task 13 og Task 14. De endrer ikke scope-status og løfter ingen claims til `Validert eksternt`.
+Disse filene er lagt inn som ekstra porter før Task 13 og Task 14. De endrer ikke scope-status og løfter ingen claims til eksternt validert.
 
 | Fil | Rolle | Brukes før |
 |---|---|---|
@@ -93,7 +93,7 @@ Disse filene er lagt inn som ekstra porter før Task 13 og Task 14. De endrer ik
 | Strøm | Eier | Output | Statusport |
 |---|---|---|---|
 | S0 Styring og scope | JTO/Cathrine/Einar + Gabriel | Beslutning logget, charter oppdatert | `Besluttet internt` |
-| S1 Aktørvalidering | JTO/Cathrine/Gabriel | Responslogg, valideringsfunn, bruksrett | `Validert eksternt` kun per claim |
+| S1 Aktørvalidering | JTO/Cathrine/Gabriel | Responslogg, valideringsfunn, bruksrett | eksternt validert kun per claim |
 | S2 Primærkilder og nordisk dekning | Gabriel/Codex | Oppdatert PCQ, source shortlist, coverage matrix | `citable_with_note` eller `citable_external` |
 | S3 Claim/evidence hygiene | Gabriel/Codex | Oppdatert claim register og evidence matrix | Ingen `blocked_unsourced` i ekstern bruk |
 | S4 Pilot og finance | Gabriel/Cathrine/JTO | Pilotbriefs, finance note, go/no-go | `Pilotkandidat`, ikke `pilotklar`, før eier finnes |
@@ -132,7 +132,7 @@ Disse filene er lagt inn som ekstra porter før Task 13 og Task 14. De endrer ik
 |---|---|---|
 | `Utført internt` | Analyse, notat eller hypotese laget internt | Standardstatus for dagens kunnskapsbase |
 | `Besluttet internt` | NCH/Natural State har tatt en skriftlig beslutning | Etter Decision Log-rad |
-| `Validert eksternt` | Ekstern aktør har bekreftet claim eller metode | Bare med dato, rolle, bruksrett og dokumentasjon |
+| eksternt validert | Ekstern aktør har bekreftet claim eller metode | Bare med dato, rolle, bruksrett og dokumentasjon |
 | `Forpliktet eksternt` | Aktør har sagt ja til konkret rolle, pilot, data, workshop eller finansiering | Bare med dokumentert ask og svar |
 | `Publisert/levert` | Ekstern leveranse er sendt, publisert eller presentert | Etter faktisk utsending/publisering |
 
@@ -269,7 +269,7 @@ Food TG prioriterer sirkulært fôr/importavhengighet og sidestrømmer/matsvinnk
 Run:
 
 ```bash
-rg "A\\+B|Spor A|Spor B|Spor C|Validert eksternt" docs/project/mandates/decision-log-food-tg.md docs/project/mandates/tg-charter-food-2026.md
+rg "A\\+B|Spor A|Spor B|Spor C|Eksternt validert" docs/project/mandates/decision-log-food-tg.md docs/project/mandates/tg-charter-food-2026.md
 git diff --check
 ```
 
@@ -821,7 +821,7 @@ Sorter kandidatene slik:
 Run:
 
 ```bash
-rg "Validert eksternt|needs-actor-validation|kan sies eksternt|skal ikke brukes eksternt|go-kandidat|benchmark" docs/project/mandates/claim-register-food-tg.md docs/project/mandates/claim-strength-report-food-tg-v0.1.md docs/project/mandates/opportunity-radar-food-tg-v0.1.md
+rg "Eksternt validert|needs-actor-validation|kan sies eksternt|skal ikke brukes eksternt|go-kandidat|benchmark" docs/project/mandates/claim-register-food-tg.md docs/project/mandates/claim-strength-report-food-tg-v0.1.md docs/project/mandates/opportunity-radar-food-tg-v0.1.md
 git diff --check
 ```
 
@@ -1150,7 +1150,7 @@ Lag filen:
 Skriv:
 
 ```markdown
-Ingen slide kan bruke claim som `Validert eksternt` uten referanse til responslogg og bruksrett.
+Ingen slide kan bruke claim som eksternt validert uten referanse til responslogg og bruksrett.
 ```
 
 - [ ] **Step 3: Verifiser**
@@ -1158,7 +1158,7 @@ Ingen slide kan bruke claim som `Validert eksternt` uten referanse til responslo
 Run:
 
 ```bash
-rg "Slide|Beslutning|Validert eksternt|responslogg" docs/project/mandates/food-tg-decision-deck-outline-v0.1.md
+rg "Slide|Beslutning|Eksternt validert|responslogg" docs/project/mandates/food-tg-decision-deck-outline-v0.1.md
 git diff --check
 ```
 

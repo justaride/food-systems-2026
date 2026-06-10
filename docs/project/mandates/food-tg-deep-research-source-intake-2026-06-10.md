@@ -5,17 +5,17 @@
 **Eier:** Gabriel
 **Scope:** Gjennomgang av syv `deep-research-report*.md`-filer fra Downloads mot 09.06-casekort, `SRC-0906-*`, `PCQ-0906-*` og claim-lock.
 **Kildeplassering:** Filene ligger forelopig utenfor repoet i `/Users/gabrielfreeman/Downloads/`.
-**Relaterte kontrollfiler:** `food-tg-case-shortlist-addendum-2026-06-09.md`, `source-shortlist-food-tg.md`, `primary-check-queue-food-tg-v0.1.md`, `food-tg-claim-lock-table-2026-05.md`, `food-tg-deck-outline-2026-06-09.md`, `food-tg-deep-research-prompt-pack-2026-06-10.md`, `food-tg-casekort-og-research-mottak-2026-06-10.md`, `food-tg-deep-research-results-intake-2026-06-10.md`.
+**Relaterte kontrollfiler:** `food-tg-case-shortlist-addendum-2026-06-09.md`, `source-shortlist-food-tg.md`, `primary-check-queue-food-tg-v0.1.md`, `food-tg-claim-lock-table-2026-05.md`, `food-tg-deck-outline-2026-06-09.md`, `food-tg-deep-research-prompt-pack-2026-06-10.md`, `food-tg-casekort-og-research-mottak-2026-06-10.md`, `food-tg-deep-research-results-intake-2026-06-10.md`, `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md`, `food-tg-research-intake-decision-pack-2026-06-10.md`.
 
 ## Bruksregel
 
-Dette dokumentet er et kontrollert intake-lag, ikke en ny evidence matrix og ikke ekstern faktastemme. Researchfilene kan brukes til intern casekort-sortering, deckdisposisjon og neste dokumentask, men ingen claim skal loftes til `Validert eksternt` eller brukes offentlig for kilden er sjekket mot primarkilde, actor-/dokumenteier eller repoets citation/locator-gater.
+Dette dokumentet er et kontrollert intake-lag, ikke en ny evidence matrix og ikke ekstern faktastemme. Researchfilene kan brukes til intern casekort-sortering, deckdisposisjon og neste dokumentask, men ingen claim skal gis ekstern valideringsstatus eller brukes offentlig før kilden er sjekket mot primarkilde, actor-/dokumenteier eller repoets citation/locator-gater.
 
 De syv filene matcher 09.06-sprinten godt. Hovedregelen er derfor: styrk eksisterende `SRC-0906-*` og `PCQ-0906-*`, ikke opprett nytt hovedscope.
 
 Videre Deep Research skal kjøres casevis med `food-tg-deep-research-prompt-pack-2026-06-10.md`. Nye outputs skal først gjennom valideringsprompten der før de importeres som kilde, PCQ-oppdatering eller claim-lock-delta.
 
-Når nye outputer kommer tilbake, skal de registreres i `food-tg-deep-research-results-intake-2026-06-10.md` og deretter i `food-tg-casekort-og-research-mottak-2026-06-10.md` før source-shortlist, PCQ, actor validation pack eller claim-lock oppdateres.
+Når nye outputer kommer tilbake, skal de registreres i `food-tg-deep-research-results-intake-2026-06-10.md` og deretter i `food-tg-casekort-og-research-mottak-2026-06-10.md`. Kilde- og datakandidater skal videre gjennom `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md` før source-shortlist, PCQ, actor validation pack eller claim-lock oppdateres.
 
 ## Intake-matrise
 

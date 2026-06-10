@@ -12,11 +12,13 @@ relaterte_filer:
   - docs/project/mandates/source-shortlist-food-tg.md
   - docs/project/mandates/primary-check-queue-food-tg-v0.1.md
   - docs/project/mandates/food-tg-claim-lock-table-2026-05.md
+  - docs/project/mandates/food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md
+  - docs/project/mandates/food-tg-research-intake-decision-pack-2026-06-10.md
 ---
 
 # Food TG Deep Research Results Intake 2026-06-10
 
-Dette dokumentet registrerer nye Deep Research-resultater som eksterne arbeidsnotater. Raw filer blir liggende i `Downloads` og kopieres ikke inn i repoet. Innholdet under er et kontrollert mottak: hva outputen peker mot, hva den svekker, hvilke primærkilder som bør vurderes senere, og hvilken importbeslutning som gjelder før source-shortlist, PCQ, claim-lock eller actor validation pack endres.
+Dette dokumentet registrerer nye Deep Research-resultater som eksterne arbeidsnotater. Raw filer blir liggende i `Downloads` og kopieres ikke inn i repoet. Innholdet under er et kontrollert mottak: hva outputen peker mot, hva den svekker, hvilke primærkilder som bør vurderes senere, og hvilken importbeslutning som gjelder før source-shortlist, PCQ, claim-lock eller actor validation pack endres. 72t kilde-/datakontrollen ligger i `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md`, og samlet go/no-go ligger i `food-tg-research-intake-decision-pack-2026-06-10.md`.
 
 ## Bruksregel
 

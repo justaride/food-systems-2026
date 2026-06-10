@@ -4,13 +4,13 @@
 **Dato:** 2026-06-09
 **Eier:** Gabriel
 **Formål:** 8-12 slides basert på case-shortlisten, uten ekstern faktastemme der kilder mangler.
-**Relaterte filer:** `food-tg-case-shortlist-addendum-2026-06-09.md`, `food-tg-minimumsvedtak-casekort-2026-06-09.md`, `food-tg-claim-lock-table-2026-05.md`, `food-tg-0906-sprintboard-go-no-go-2026-06-10.md`, `food-tg-deep-research-results-intake-2026-06-10.md`
+**Relaterte filer:** `food-tg-case-shortlist-addendum-2026-06-09.md`, `food-tg-minimumsvedtak-casekort-2026-06-09.md`, `food-tg-claim-lock-table-2026-05.md`, `food-tg-0906-sprintboard-go-no-go-2026-06-10.md`, `food-tg-deep-research-results-intake-2026-06-10.md`, `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md`, `food-tg-research-intake-decision-pack-2026-06-10.md`
 
 ## Bruksregel
 
-Decket skal være et internt beslutningsdeck. Alle slides må skille mellom dokumentert intern baseline, benchmark, samtalehypotese, `needs-source` og aktørvalidering. Ikke bruk `Validert eksternt`, aktørsitat eller faktastemme for MOU/Bama/Valio/spillvarme før kilde og bruksrett er låst.
+Decket skal være et internt beslutningsdeck. Alle slides må skille mellom dokumentert intern baseline, benchmark, samtalehypotese, `needs-source` og aktørvalidering. Ikke bruk ekstern valideringsstatus, aktørsitat eller faktastemme for MOU/Bama/Valio/spillvarme før kilde og bruksrett er låst.
 
-Bruk `food-tg-0906-sprintboard-go-no-go-2026-06-10.md` for å avgjøre hvilke slides som er klare internt, hvilke som venter på dokumentask, og hvilke som skal parkeres. Bruk `food-tg-deep-research-results-intake-2026-06-10.md` for de mottatte 10.06-resultatene og deres claim-/PCQ-effekt.
+Bruk `food-tg-0906-sprintboard-go-no-go-2026-06-10.md` for å avgjøre hvilke slides som er klare internt, hvilke som venter på dokumentask, og hvilke som skal parkeres. Bruk `food-tg-deep-research-results-intake-2026-06-10.md`, `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md` og `food-tg-research-intake-decision-pack-2026-06-10.md` for de mottatte 10.06-resultatene, kilde-/dataeffekt og go/no-go.
 
 ## Slideplan
 
@@ -44,3 +44,4 @@ Bruk `food-tg-0906-sprintboard-go-no-go-2026-06-10.md` for å avgjøre hvilke sl
 | Nye case | "Kaffe, kakao, spillvarme og Valio behandles som 09.06-hypoteser med mottatt researchgrunnlag, men relasjon, data og bruksrett må fortsatt låses før faktastemme." |
 | Benchmark | "Benchmark betyr læring og designkrav, ikke bevis for norsk gjennomføring." |
 | Validering | "Neste fase er primærkilde- og aktørvalidering, ikke ekstern publisering." |
+| 72t research-inntak | "72t-ledgeren styrker interne casegrenser og datagap, men åpner ingen sensitiv claim-formulering alene." |

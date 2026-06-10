@@ -5,7 +5,7 @@ eier: Gabriel
 sist_oppdatert: 2026-05-18
 endringslogg:
   - 2026-05-18 EUDR-soya-narrativ skjerpet etter PCQ-C-001 funn — norsk forskriftsutkast 2025-08-19 ekskluderer eksplisitt soya fra norsk virkeområde. §3 Spor A funn 3, §3 Spor C funn 4, §4 CL-C-011-rad og §5 sprint-prioritet oppdatert.
-neste_handling: Brukes som pre-read for scope-beslutning og valideringssprint før pilotcommitment. Ingen statusløft til "Validert eksternt" før aktørrespons er dokumentert.
+neste_handling: Brukes som pre-read for scope-beslutning og valideringssprint før pilotcommitment. Ingen statusløft til "eksternt validert" før aktørrespons er dokumentert.
 relaterte_filer:
   - docs/project/mandates/tg-charter-food-2026.md
   - docs/project/mandates/decision-memo-food-tg-scope-v0.3.md
@@ -34,7 +34,7 @@ relaterte_filer:
 
 **Formål:** Beslutningsklar syntese av Food Transition Groups innsiktsgrunnlag før ekstern validering. Brukes som pre-read for scope-beslutningen og som inntak til valideringssprinten før pilotcommitment.
 
-**Statusmerking:** Hele pakka er `Utført internt`. Ingen del er `Validert eksternt` per 2026-05-18. Insight Pack v0.1 er navigasjonslag over de underliggende filene, ikke ny analyse.
+**Statusmerking:** Hele pakka er `Utført internt`. Ingen del er eksternt validert per 2026-05-18. Insight Pack v0.1 er navigasjonslag over de underliggende filene, ikke ny analyse.
 
 ## 1. Sammendrag
 
@@ -157,7 +157,7 @@ Sekundært (P2): SINTEF/FHF + marin aktør (marint restråstoff som benchmark), 
 
 ## 6. Hva som ikke er dekket
 
-- **Eksterne aktørresponser:** Ingen claims er `Validert eksternt` per 2026-05-18. Outreach starter etter scope-vedtak.
+- **Eksterne aktørresponser:** Ingen claims er eksternt validert per 2026-05-18. Outreach starter etter scope-vedtak.
 - **Ferdige pilotbriefer med eier:** Pilot A1-A3 og B1-B3 er hypoteser i claim-registeret, ikke briefer med eier — kommer i Sprint 4 etter validering.
 - **Finance note med konkrete funding-spor:** Forsknings-/governance-/nordisk samarbeidsfinansiering skal screenes før kapitaltunge teknologiløp prioriteres; ikke gjort.
 - **Roadmap 1-3 år:** Krever bekreftet datatilgang, definisjonsregistre, eierskap til KPI-er — utsettes til Sprint 5.
@@ -169,7 +169,7 @@ Sekundært (P2): SINTEF/FHF + marin aktør (marint restråstoff som benchmark), 
 - Insight Pack v0.1 er **intern syntese**, ikke ekstern publikasjon.
 - Sterke faktapåstander har EV-IDer med kvalitet 4-5 og siterbarhet høy/medium per `evidence-matrix-food-tg.md`.
 - Hypoteser er eksplisitt merket og knyttet til valideringsbehov i `claim-register-food-tg.md`.
-- Statusdisiplin: `benchmark`, `hypotese`, `needs-primary-check`, `needs-actor-validation`. Ingen status løftes til `Validert eksternt` før respons er dokumentert med dato, kontakt, rolle, kildegrunnlag og bruksrett.
+- Statusdisiplin: `benchmark`, `hypotese`, `needs-primary-check`, `needs-actor-validation`. Ingen status løftes til eksternt validert før respons er dokumentert med dato, kontakt, rolle, kildegrunnlag og bruksrett.
 - Stoppsignaler (fra `decision-memo-food-tg-scope-v0.3.md` §8): EUDR omtalt som direkte norsk soya-plikt; varekoder/SPC blandet; Denofa/Skretting som bransjesnitt; okara/BSG uten råvareeier/hygiene/off-taker; matsvinnkvalitet uten baseline/kontrafaktisk; marint restråstoff/nutrient loops gjort til første pilot; KPI uten definisjon; benchmark brukt som effektbevis; hypotese formulert som commitment.
 - Språkbank for trygg formulering i `insight-pack-outline-food-tg-v0.2.md` Appendiks B.
 

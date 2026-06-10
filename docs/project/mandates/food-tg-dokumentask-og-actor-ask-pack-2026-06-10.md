@@ -12,13 +12,15 @@ relaterte_filer:
   - docs/project/mandates/food-tg-claim-lock-table-2026-05.md
   - docs/project/mandates/food-tg-0906-sprintboard-go-no-go-2026-06-10.md
   - docs/project/mandates/food-tg-deep-research-results-intake-2026-06-10.md
+  - docs/project/mandates/food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md
+  - docs/project/mandates/food-tg-research-intake-decision-pack-2026-06-10.md
 ---
 
 # Food TG Dokumentask og Actor Ask Pack 2026-06-10
 
 Dette dokumentet er arbeidslaget mellom Deep Research-output, interne dokumenteiere og senere aktørvalidering. Det skal gjøre spørsmålene så presise at et svar kan brukes direkte til å oppdatere mottakslogg, PCQ, source-shortlist, actor validation pack eller claim-lock.
 
-For rekkefølge og go/no-go-prioritet brukes `food-tg-0906-sprintboard-go-no-go-2026-06-10.md`. For hvilke dokument- og aktørspor som faktisk kom ut av de mottatte Deep Research-resultatene, se `food-tg-deep-research-results-intake-2026-06-10.md`.
+For rekkefølge og go/no-go-prioritet brukes `food-tg-0906-sprintboard-go-no-go-2026-06-10.md`. For hvilke dokument- og aktørspor som faktisk kom ut av de mottatte Deep Research-resultatene, se `food-tg-deep-research-results-intake-2026-06-10.md`. For hvilke kilder/data som er apnet, nedgradert eller klare for shortlist, se `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md`; for samlet beslutning, se `food-tg-research-intake-decision-pack-2026-06-10.md`.
 
 ## Bruksregel
 

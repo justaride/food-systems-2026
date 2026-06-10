@@ -15,13 +15,15 @@ relaterte_filer:
   - docs/project/mandates/food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md
   - docs/project/mandates/food-tg-0906-sprintboard-go-no-go-2026-06-10.md
   - docs/project/mandates/food-tg-deep-research-results-intake-2026-06-10.md
+  - docs/project/mandates/food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md
+  - docs/project/mandates/food-tg-research-intake-decision-pack-2026-06-10.md
 ---
 
 # Food TG Casekort og Research-mottak 2026-06-10
 
 Dette dokumentet er mottakspunktet for nye Deep Research-outputer i 09.06-/10.06-sprinten. Det kombinerer casekort v0.1, mottakslogg, importregler og neste handling per case, slik at nye rapporter ikke blir løse arbeidsnotater.
 
-For samlet prioritering, go/no-go og deck-readiness brukes `food-tg-0906-sprintboard-go-no-go-2026-06-10.md`. For mottatte resultater fra 10.06 brukes `food-tg-deep-research-results-intake-2026-06-10.md` som detaljert resultatlogg før nye kildekandidater eventuelt legges inn i source-shortlist eller PCQ.
+For samlet prioritering, go/no-go og deck-readiness brukes `food-tg-0906-sprintboard-go-no-go-2026-06-10.md`. For mottatte resultater fra 10.06 brukes `food-tg-deep-research-results-intake-2026-06-10.md` som detaljert resultatlogg før nye kildekandidater eventuelt legges inn i source-shortlist eller PCQ. For 72t kilde-/datakontroll brukes `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md`, og for samlet beslutning brukes `food-tg-research-intake-decision-pack-2026-06-10.md`.
 
 ## Bruksregel
 
@@ -174,6 +176,20 @@ Raw output blir foreløpig referert med filsti, dato og prompt-ID. Import av hel
 | Claim-lock ikke si | Ikke si at Polen er stor sidestrømsmulighet, at Skottland er ferdig Food TG-case, eller at fangst-/produksjonsvolum er sidestrømvolum. |
 | Stoppsignal | Manglende fulltekst, ingen konkret A/B/C-kobling eller ingen masse-/aktørdata. |
 | Neste beslutning | Prioriter ZWS/SBMT/Seafood Scotland; parker Polen som direkte case hvis kill-test ikke finner aktør, lokasjon, volum og output. |
+
+## Caseanalyse v0.2 etter 72t-ledger
+
+Denne tabellen oppdaterer casekortene med beslutningseffekt fra `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md`. Den erstatter ikke mottaksradene; den gjør dem klare for intern deck- og beslutningspakke.
+
+| Case | Trygg intern bruk nå | Hva kan ikke sies | Sterkeste kilde | Svakeste ledd | Datagap | Aktør-/dokumentask | Go/no-go | Neste beslutning |
+|---|---|---|---|---|---|---|---|---|
+| Brasil/kaffe | WCEF/Nordic Night, coffee/cocoa som use cases, kaffeimport/EUDR som kildejakt. | Ikke si at NCH/Natural State har Brasil-kaffe-MOU, at Fuglen/NKI er partnere, eller at Brazil er low-risk under EUDR. | Nordic Innovation Nordic Night, WCEF Nordic Stage, EU EUDR/country classification. | Ingen avtale, annex, partsliste eller prosjekttekst. | Kaffeimport per opprinnelse, CONAB/Comtrade-metode, aktørrolle og bruksrett. | `DASK-0906-001`, `DASK-0906-003`; senere `AASK-0906-001`. | No-go for relasjonscase; videre som import-/EUDR-kontekst. | Hvis MOU/annex ikke finnes etter intern dokumentask, parker relasjonsclaim og behold kaffe som kilde-/dataarbeid. |
+| Elfenbenskysten/kakao | Cote d'Ivoire sporbarhet, EUDR-standard-risk og kakao som sporbarhetskontekst. | Ikke si at Natural State/NCH/LEAD har dokumentert kakaoavtale, eller at nordisk råkakaoimport er caseklart. | Government of Cote d'Ivoire traceability article, EU EUDR, FAO/WCF/WITS som spor. | Natural State/LEAD-relasjon bygger ikke på avtaletekst. | Dekret/fulltekst, Conseil du Cafe-Cacao-data, HS1801-1806 og nordisk aktørkjede. | `DASK-0906-002`; senere `AASK-0906-002`. | Go internt for EUDR/sporbarhet; no-go for relasjonscase. | Få MOU/LOI eller avkreftelse; hvis ikke, behold bare EUDR-/sporbarhetscase. |
+| Valio/Finland | Soyafri dairy-feed governance, finsk import-gap og fôrdatakrav. | Ikke si importfritt fôr, 100 prosent finsk fôr eller at A-Rehu er generell Valio-leverandør. | Valio soy policy, Luke import-dependency, Ruokavirasto feed stats. | Fôrkurv og importandel for Valio-melkegårder er ikke dokumentert. | Aggregert fôrkurv 2022-2025, importandel, CN-koder og auditmetode. | `DASK-0906-004`, `AASK-0906-003`. | Go internt som smal governance-slide. | Be Valio/finske kilder om standard og fôrkurv; ellers hold case som soyafri governance med data-gap. |
+| Distribusjon/adoption-gate | Bred C-gate om markedstilgang, avsetning, logistikk, grossistledd, kvalitetskrav og produktdata. | Ikke si BAMA blokkerer, tar høye marginer, misbruker makt eller hindrer vertical farming. | Konkurransetilsynet 2025, SINTEF vertical farming, OFG/Grøntinnsikt 2025, Menon/SØA som caveat. | BAMA-spesifikke vilkår, marginer og onboarding er ikke offentlig dokumentert. | Produkt-/månedstall, CEA-relevante varer, grossist-/leverandørkrav og juridisk formulering. | `DASK-0906-005`, `AASK-0906-004`. | Go internt som bred adoption-gate; no-go for BAMA-anklage. | Bruk casenavnet distribusjon/adoption-gate for norsk frukt og grønt. |
+| Spillvarme/drivhus/akvaponikk | Hima/Green Mountain som operativt datasenter-til-akvakulturcase med datagap; Frövi som industriell benchmark. | Ikke si nasjonalt TWh, at Wiig/Kviamarka/Varde er operative, at Frövi er datasenter, eller at Polar er matcase. | Green Mountain heat reuse, WA3RM/Frövi, Time/Statsforvalteren/Varde/Drangedal som radar. | Målt GWh, temperatur, økonomi, reservevarme og faktisk produksjonsvolum mangler. | Hima drift 2025-2026, Wiig/Klepp/Enova kill-test, Varde endelig plan, Frövi meterte data. | `DASK-0906-006`, `AASK-0906-005`. | Go internt for Hima; benchmark/watchlist for øvrige. | Løft bare Hima i deck; bygg mini-ledger for resten. |
+| 100% Fish/marint restråstoff | 100% Fish/IOC som designbenchmark og SINTEF/FHF som norsk restråstoffbaseline. | Ikke si bokstavelig 100 prosent, norsk pilotbevis eller høyverdiandel uten fraksjonsdata. | SINTEF/Kontali/FHF 2024, Statistics Iceland, IOC/Matís som benchmark. | IOC claim-metode, norsk høyverdiandel og fraksjon/sluttbruk er åpne. | PxWeb Island, SINTEF/FHF fraksjon/sluttbruk, raw/product weight og actor/off-taker. | `DASK-0906-007`, `AASK-0906-006`. | Go internt som benchmark/designkrav. | Lag benchmarkkort med claim-lock og norsk datagap. |
+| Skottland/Polen | Skottland som bioresource/seafood benchmark-kandidat; Polen som kill-test/watchlist. | Ikke si at Skottland er dokumentert Food TG-case uten fulltekst; ikke si Polen er stor sidestrømsmulighet uten aktør/volum/output. | Zero Waste Scotland, Scottish Fish Farm Production Survey 2024, GUS/PROM som watchlist. | ZWS fulltekst/SBMT dictionary og polsk casebevis mangler. | Skotsk data dictionary, Scottish Ocean Cluster arkiv, polsk aktør/lokasjon/volum/output. | `DASK-0906-008`, `DASK-0906-009`, senere `AASK-0906-007`. | Videre validering for Skottland; Polen watchlist/parkering. | Hent ZWS/SBMT først; parker Polen hvis ingen konkret materialstrøm finnes. |
 
 ## Kontrollsjekk før oppdatering av andre filer
 

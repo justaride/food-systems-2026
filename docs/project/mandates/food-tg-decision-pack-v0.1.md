@@ -24,7 +24,7 @@ relaterte_filer:
 
 **Status:** Intern beslutningspakke. Dette er ikke ekstern presentasjon, ikke whitepaper, ikke pilotløfte og ikke validert roadmap.
 
-**Viktig avgrensning:** Ingen claims løftes til `Validert eksternt` gjennom denne pakken. Scope er fortsatt ikke formelt bekreftet per 2026-05-21.
+**Viktig avgrensning:** Ingen claims løftes til eksternt validert gjennom denne pakken. Scope er fortsatt ikke formelt bekreftet per 2026-05-21.
 
 ## 1. Beslutningen vi ber om nå
 
@@ -79,7 +79,7 @@ Det som mangler er ikke først og fremst mer bred research. Det som mangler er:
 | Figur-port | På plass | At grafer, KPI-er og flows leses som effektbevis. |
 | Case-port | På plass | At benchmark blir pilotbevis. |
 | Kilde-port | På plass | At tall, regelverk og actor-data brukes uten locator. |
-| Validerings-port | Venter | At claims løftes til `Validert eksternt` uten aktørrespons og bruksrett. |
+| Validerings-port | Venter | At claims løftes til eksternt validert uten aktørrespons og bruksrett. |
 
 ## 5. Anbefalt retning
 
@@ -249,7 +249,7 @@ Må vente til minimumsvedtak:
 ## 16. Stop-regler
 
 - Ikke send ekstern outreach uten scope- eller minimumsvedtak.
-- Ikke skriv `Validert eksternt` uten dokumentert aktørrespons og bruksrett.
+- Ikke skriv eksternt validert uten dokumentert aktørrespons og bruksrett.
 - Ikke skriv `pilotklar`.
 - Ikke bruk actor-data som bransjesnitt.
 - Ikke bruk varekode som råvare-/bruksbevis uten metode.
