@@ -106,23 +106,31 @@ localhost:5432 — tunnelen proxyer), `CF_ACCESS_CLIENT_ID`,
   positiv** (passerer på den lokale cloudflared-lytteren selv når origin-handshake
   feiler). Fikset til psql-probe 2026-06-10 så feilen treffer riktig lag raskt.
 
-**Bekreftet root cause (SSH-diagnose 2026-06-10):** DB-connectoren er Coolify-
-servicen `cloudflared-db-tunnel` (compose-prosjekt `t0wwow4wco00ww8cowswo4kg`,
-resource subId 59, opprettet 26. mai). Containeren **crash-looper** fordi
-`TUNNEL_TOKEN` i `/data/coolify/services/t0wwow4wco00ww8cowswo4kg/.env` er **tom
-(lengde 0)** — compose kjører `tunnel run --token ${TUNNEL_TOKEN}` med tomt
-token, så cloudflared printer help og dør. Connector-tokenet ble **aldri lagret
-i Coolify** ved oppsettet → tunnelen har aldri hatt en frisk connector → CF-edge
-har ingen origin → klienten får «bad handshake». Dette forklarer at *hver*
-citation-verify-kjøring har feilet siden tunnelen ble laget.
+**Bekreftet root cause (CF API + SSH-diagnose 2026-06-10): workflow-env-var-bug.**
+`cloudflared access tcp` leser Access-service-tokenet fra `--service-token-id` /
+`--service-token-secret` (env `TUNNEL_SERVICE_TOKEN_ID` / `TUNNEL_SERVICE_TOKEN_SECRET`)
+— **ikke** fra `CF_ACCESS_CLIENT_ID` / `CF_ACCESS_CLIENT_SECRET` (det er
+HTTP-header-navn). Workflowene satte kun `CF_ACCESS_CLIENT_*`, som klienten
+ignorerer → cloudflared presenterte **aldri** noe service-token → CF Access
+avviste den uautentiserte forespørselen → «websocket: bad handshake». Bug siden
+oppsettet; derfor har tunnelen aldri fungert fra CI.
 
-> Den delte `cloudflared`-containeren (oppe 4 mnd) kjører app-/ingress-tunnelen
-> for **alle** prosjektene (food-systems, circular-cities, gabistudio,
-> plancompass … dusinvis → `coolify-proxy`). **Ikke rør den.** `vskowwk…` (oppe 2
-> uker, tunnel `5540a019`) er en annen frisk connector. Kun `t0ww…` (cloudflared-
-> db-tunnel) er ødelagt.
+Alt rundt er friskt — verifisert via CF API:
+- Tunnel `food-systems-db` (`5540a019…`) = **healthy, 4 connections**.
+- Ingress riktig: `fs-db.naturalstateproject.com → tcp://l0s8o8oo…:5432`.
+- Access-app `food-systems-db` finnes, policy = **`any_valid_service_token`**
+  (et hvilket som helst gyldig service-token slipper inn — så et korrekt
+  *presentert* token ville virket).
 
-(DNS, CF-konto, server og app-tunnel er alle friske — utelukket av signalene over.)
+> **Blindgate (ikke rør):** Coolify-servicen `cloudflared-db-tunnel`
+> (`t0wwow4wco00ww8cowswo4kg`) crash-looper med tomt `TUNNEL_TOKEN`, men den er et
+> **forlatt duplikat** — den ekte, friske connectoren kjører i containeren
+> `vskowwk…` (tunnel `5540a019`). Den delte `cloudflared`-containeren (4 mnd)
+> server **alle** prosjektenes app-ingress via `coolify-proxy` — rør den aldri.
+
+Fiks = send tokenet med riktige flagg i workflowen (se §8). Ingen server- eller
+CF-dashboard-endring nødvendig hvis de eksisterende `CF_ACCESS_*`-secretene er
+gyldige.
 
 ## 7. Diagnose-stige (når DB-tunnel feiler)
 
@@ -142,30 +150,32 @@ Jobb fra utsiden og inn. Stopp ved første røde.
 5. **Ingress:** Zero Trust → Networks → Tunnels → `food-systems-db` →
    Public Hostname `fs-db…` → TCP `food-systems-pgvector-db:5432`. Healthy?
 
-## 8. Gjenoppretting av DB-connector — sett TUNNEL_TOKEN
+## 8. Fiks — send service-tokenet med riktige flagg
 
-Root cause er **tomt `TUNNEL_TOKEN`** (ikke en nede connector). Restart alene gir
-bare ny crash. Tokenet må hentes fra Cloudflare og settes i Coolify:
+Root cause er at `cloudflared access tcp` aldri fikk service-tokenet. Fiks i
+workflowen (gjort 2026-06-10): legg til flaggene som klienten faktisk leser.
 
-1. **Hent connector-tokenet** (Cloudflare Zero Trust → **Networks → Tunnels →
-   `food-systems-db` → Configure**) — den lange base64-strengen fra
-   `cloudflared service install <TOKEN>` / "Install connector"-fanen.
-   (NB: dette er connector-tokenet, *ikke* CF Access service-tokenet
-   `CF_ACCESS_CLIENT_ID/SECRET`.)
-2. **Sett det i Coolify:** prosjekt `food-systems-2026` → servicen
-   `cloudflared-db-tunnel` → **Environment Variables** → `TUNNEL_TOKEN=<token>` →
-   **Redeploy**.
-3. **Eller direkte på serveren** (Coolify-managed, mindre pent):
-   ```bash
-   ssh cloudbrain
-   DIR=/data/coolify/services/t0wwow4wco00ww8cowswo4kg
-   # sett TUNNEL_TOKEN=<token> i $DIR/.env, så:
-   cd "$DIR" && docker compose up -d --force-recreate
-   docker logs --tail 20 cloudflared-t0wwow4wco00ww8cowswo4kg   # forvent "Registered tunnel connection"
-   ```
-4. **Verifiser ende-til-ende:** `cloudflared tunnel info food-systems-db` skal
-   vise connector tilkoblet; re-kjør `prod-data-import` / `citation-verification`
-   — psql-proben skal nå passere i stedet for «bad handshake».
+```yaml
+nohup cloudflared access tcp \
+  --hostname "$TUNNEL_HOSTNAME" \
+  --url localhost:5432 \
+  --service-token-id "$CF_ACCESS_CLIENT_ID" \
+  --service-token-secret "$CF_ACCESS_CLIENT_SECRET" \
+  > tunnel.log 2>&1 &
+```
+
+(`CF_ACCESS_CLIENT_ID/SECRET`-secretene gjenbrukes — de var riktige, bare sendt
+via env-navn cloudflared ignorerer.)
+
+**Verifiser:** re-kjør `prod-data-import` (manuell, `confirm=IMPORT`) — psql-proben
+skal nå passere. Hvis den fortsatt feiler med «bad handshake», er *da* selve
+service-tokenet utløpt/ugyldig → roter det i CF Zero Trust → Access → Service
+Tokens og oppdater GH-secrets `CF_ACCESS_CLIENT_ID/SECRET` (policy er
+`any_valid_service_token`, så et hvilket som helst gyldig token virker).
+
+**Rydding (valgfritt):** den forlatte `cloudflared-db-tunnel`-servicen
+(`t0wwow4wco00ww8cowswo4kg`) crash-looper uten effekt — kan slettes i Coolify for
+å fjerne støy. Den friske connectoren (`vskowwk…`) berøres ikke.
 
 Jf. oppsettet i [SETUP-CF-TUNNEL-FOR-DB.md](../../SETUP-CF-TUNNEL-FOR-DB.md).
 

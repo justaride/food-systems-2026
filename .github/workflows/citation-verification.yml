@@ -56,9 +56,14 @@ jobs:
 
       - name: Start TCP tunnel to prod DB
         run: |
+          # cloudflared access tcp reads the service token from --service-token-id/
+          # --secret, NOT CF_ACCESS_CLIENT_ID/SECRET — passing the wrong vars means no
+          # token is presented and CF Access rejects with "websocket: bad handshake".
           nohup cloudflared access tcp \
             --hostname "$TUNNEL_HOSTNAME" \
             --url localhost:5432 \
+            --service-token-id "$CF_ACCESS_CLIENT_ID" \
+            --service-token-secret "$CF_ACCESS_CLIENT_SECRET" \
             > tunnel.log 2>&1 &
           echo $! > tunnel.pid
           # Wait for an authenticated Postgres connection through the tunnel, not just
@@ -115,9 +120,14 @@ jobs:
 
       - name: Start TCP tunnel to prod DB
         run: |
+          # cloudflared access tcp reads the service token from --service-token-id/
+          # --secret, NOT CF_ACCESS_CLIENT_ID/SECRET — passing the wrong vars means no
+          # token is presented and CF Access rejects with "websocket: bad handshake".
           nohup cloudflared access tcp \
             --hostname "$TUNNEL_HOSTNAME" \
             --url localhost:5432 \
+            --service-token-id "$CF_ACCESS_CLIENT_ID" \
+            --service-token-secret "$CF_ACCESS_CLIENT_SECRET" \
             > tunnel.log 2>&1 &
           echo $! > tunnel.pid
           # Authenticated probe (see filehash job for rationale): `nc -z` false-positives

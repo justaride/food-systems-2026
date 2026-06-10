@@ -65,9 +65,15 @@ jobs:
 
       - name: Start TCP tunnel to prod DB
         run: |
+          # cloudflared access tcp reads the service token from --service-token-id/
+          # --secret (env TUNNEL_SERVICE_TOKEN_ID/SECRET), NOT CF_ACCESS_CLIENT_ID/
+          # SECRET (those are HTTP header names). Passing the wrong vars = no token
+          # presented = CF Access rejects = "websocket: bad handshake". Pass explicitly.
           nohup cloudflared access tcp \
             --hostname "$TUNNEL_HOSTNAME" \
             --url localhost:5432 \
+            --service-token-id "$CF_ACCESS_CLIENT_ID" \
+            --service-token-secret "$CF_ACCESS_CLIENT_SECRET" \
             > tunnel.log 2>&1 &
           echo $! > tunnel.pid
           # Wait for an actual *authenticated* Postgres connection through the tunnel,
