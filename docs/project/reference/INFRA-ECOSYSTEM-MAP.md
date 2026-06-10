@@ -197,4 +197,38 @@ for et nytt prosjekt:
   hver hemmelighet bor (ikke verdiene).
 - Cron-helse er ikke selvbevisende: en grønn workflow-fil betyr ikke at den
   faktisk lykkes — sjekk run-historikken (her: 2/2 feilet ubemerket i ≥10 dager).
-```
+- **Overvåk disk + skru på Docker-cleanup** på den delte Hetzner-boksen — build-
+  cache og ubrukte images vokser ubegrenset og kan fylle disken og ta ned *alle*
+  prosjektenes databaser samtidig (se §11).
+
+## 11. Hendelse 2026-06-10: full disk → postgres crash-loop
+
+**Symptom:** etter at env-var-fiksen (§8) fjernet «bad handshake», var prod-DB
+fortsatt bare *intermitterende* tilgjengelig — samme workflow lyktes 20:42, feilet
+21:35. Ingen tunnel-/connector-feil.
+
+**Root cause:** Hetzner-disken var **100% full** (`/dev/sda1 291G/301G, 0 ledig`).
+Postgres paniket i recovery-checkpointen:
+`PANIC: could not write to file "pg_logical/replorigin_checkpoint.tmp": No space left on device`
+→ crash-loop *internt* i containeren (Coolify så den som «running»,
+`RestartCount=0`, `OOMKilled=false`), så DB-en var nesten aldri oppe. Dette rammet
+hele boksen, ikke bare food-systems.
+
+**Diskforbruk:** Docker **build-cache 163,6 GB (100% gjenvinnbart)** + 32 GB
+ubrukte images. Stoppede containere var bare 766 MB — *å stenge idle Coolify-
+prosjekter frigjør nesten ingen disk* (men hjelper RAM/last).
+
+**Fiks:** `docker builder prune -af` → frigjorde **174 GB** (disk 100%→44%);
+postgres fullførte recovery umiddelbart og kom opp (`active_conns=6`).
+Helt trygt — build-cache rører aldri kjørende containere, volumes eller data.
+
+**Forhindre gjentakelse (gjøres fortsatt):**
+- Coolify **Settings → Advanced → Docker Cleanup** (periodisk prune), eller en
+  ukentlig `docker builder prune -af`-cron.
+- Log-rotasjon i `/etc/docker/daemon.json` (`max-size`/`max-file`).
+- Diskvarsel < 15% ledig (uptime-kuma/grafana finnes allerede på boksen).
+
+**Diagnose-tillegg til §7:** når DB-stien er intermitterende selv om tunnelen er
+frisk → SSH inn og sjekk `df -h /` + `docker exec <pg> psql -c 'select 1'`
+(ser etter «in recovery mode»/«No space left on device») før du mistenker
+tunnel/Access.
