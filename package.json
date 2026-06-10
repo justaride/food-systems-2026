@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "tsx scripts/write-version.ts && next dev",
-    "compute-metrics": "tsx scripts/compute-chart-metrics.ts --country=all && npm run audit:konsern && npm run compute-coverage",
+    "compute-metrics": "tsx scripts/compute-chart-metrics.ts --country=all",
+    "compute-metrics:full": "npm run compute-metrics && npm run audit:konsern && npm run compute-coverage",
     "audit:konsern": "tsx scripts/audit-konsern-coverage.ts",
     "refresh:brreg": "tsx scripts/refresh-brreg-tracked.ts",
     "build": "tsx scripts/write-version.ts && prisma generate && npm run compute-metrics && next build",
