@@ -8,10 +8,10 @@ Knowledge base and analysis app for Norwegian and Nordic food systems. Maps corp
 - Dev: `npm run dev`
 - Build: `npm run build`
 - Lint: `npm run lint`
-- Metrics refresh: `npm run compute-metrics`
+- Metrics refresh: `npm run compute-metrics` (chart metrics only, DB-free; this is what the build runs). For the full refresh incl. konsern-audit + coverage profiles (needs the DB), use `npm run compute-metrics:full` and commit the regenerated `public/data/coverage/profiles.json` + `data/konsern-coverage.json`.
 - Database import: `npm run db:import`
 - Deploy: Coolify on Hetzner via GitHub `justaride`; never Vercel
-- Build note: `npm run build` runs Prisma generate and chart metric computation before the Next.js build
+- Build note: `npm run build` runs Prisma generate + DB-free chart-metric computation before the Next.js build. The build must NOT depend on a live DB (the build container can't reach prod Postgres) — DB-derived artifacts are committed and refreshed separately via `compute-metrics:full`.
 
 ## Operating Discipline
 
