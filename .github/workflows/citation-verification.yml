@@ -61,15 +61,18 @@ jobs:
             --url localhost:5432 \
             > tunnel.log 2>&1 &
           echo $! > tunnel.pid
-          # Wait for tunnel ready
-          for i in 1 2 3 4 5 6 7 8 9 10; do
-            if nc -z localhost 5432 2>/dev/null; then
-              echo "Tunnel ready"
-              break
+          # Wait for an authenticated Postgres connection through the tunnel, not just
+          # an open local socket: `nc -z` is a false positive on the cloudflared listener
+          # when the CF Access handshake to origin fails (tunnel.log shows
+          # "websocket: bad handshake"). psql probes the real end-to-end path.
+          ok=0
+          for i in $(seq 1 30); do
+            if psql "$DATABASE_URL" -tAc 'select 1' >/dev/null 2>&1; then
+              echo "Authenticated DB connection ready (attempt $i)"; ok=1; break
             fi
-            sleep 2
+            sleep 3
           done
-          nc -z localhost 5432 || (echo "Tunnel failed"; cat tunnel.log; exit 1)
+          if [ "$ok" != "1" ]; then echo "::error::DB not reachable through CF Access tunnel"; cat tunnel.log; exit 1; fi
 
       - name: Verify fileHash
         run: npm run db:verify:filehash
@@ -117,13 +120,16 @@ jobs:
             --url localhost:5432 \
             > tunnel.log 2>&1 &
           echo $! > tunnel.pid
-          for i in 1 2 3 4 5 6 7 8 9 10; do
-            if nc -z localhost 5432 2>/dev/null; then
-              echo "Tunnel ready"; break
+          # Authenticated probe (see filehash job for rationale): `nc -z` false-positives
+          # on the cloudflared listener when the CF Access handshake to origin fails.
+          ok=0
+          for i in $(seq 1 30); do
+            if psql "$DATABASE_URL" -tAc 'select 1' >/dev/null 2>&1; then
+              echo "Authenticated DB connection ready (attempt $i)"; ok=1; break
             fi
-            sleep 2
+            sleep 3
           done
-          nc -z localhost 5432 || (echo "Tunnel failed"; cat tunnel.log; exit 1)
+          if [ "$ok" != "1" ]; then echo "::error::DB not reachable through CF Access tunnel"; cat tunnel.log; exit 1; fi
 
       - name: Verify URL health (apply mode)
         # --limit caps each run at 300 rows. Backlog drains over multiple weeks.
