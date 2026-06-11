@@ -37,7 +37,7 @@ describe('Food TG status after Port E landing', () => {
     for (const term of [
       'seneste status-sync',
       'PR #159 er live kilde for siste head/check-status',
-      '543 tester / 139 suiter / 0 feil',
+      'PR #159-kommentaren er live kilde for siste test-/suite-tall',
       'GitHub CI er grønn på PR #159',
       'PR #177',
       'npm run verify:platform-stack-main',
@@ -53,8 +53,34 @@ describe('Food TG status after Port E landing', () => {
       'GitHub CI på head `',
       'PR #159-head `',
       'PR #159-hodet `',
+      '550 tester / 140 suiter / 0 feil',
+      '543 tester / 139 suiter / 0 feil',
       '540 tester / 139 suiter / 0 feil',
       '537 tester / 139 suiter / 0 feil',
+    ]) {
+      assert.ok(!status.includes(staleTerm), `${staleTerm} should no longer be current in ${statusPath}`)
+      assert.ok(!review.includes(staleTerm), `${staleTerm} should no longer be current in ${reviewPath}`)
+    }
+  })
+
+  it('records the landed JT package QA guard without reopening the platform decision gate', () => {
+    const status = readFileSync(statusPath, 'utf8')
+    const review = readFileSync(reviewPath, 'utf8')
+
+    for (const term of [
+      'PR #182',
+      'JT uke 25-pakken har egen QA-guard',
+      'tests/lib/jt-uke25-package.test.ts',
+      'PR #159-kommentaren er live kilde for siste test-/suite-tall',
+      'G-06, G-10 og G-11',
+    ]) {
+      assert.ok(status.includes(term), `${term} missing from ${statusPath}`)
+      assert.ok(review.includes(term), `${term} missing from ${reviewPath}`)
+    }
+
+    for (const staleTerm of [
+      'JT uke 25-pakken mangler QA-guard',
+      'PR #182 er ikke landet',
     ]) {
       assert.ok(!status.includes(staleTerm), `${staleTerm} should no longer be current in ${statusPath}`)
       assert.ok(!review.includes(staleTerm), `${staleTerm} should no longer be current in ${reviewPath}`)
