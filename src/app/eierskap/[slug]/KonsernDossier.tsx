@@ -161,13 +161,6 @@ export function KonsernDossier({ dossier }: Props) {
     <div className="space-y-8">
       {/* Section 1: Header */}
       <div>
-        <Link
-          href="/eierskap"
-          className="text-xs text-stone-400 hover:text-stone-600 hover:underline mb-2 inline-block"
-        >
-          &larr; Tilbake til eierskap
-        </Link>
-
         <div className="flex items-center gap-3 flex-wrap">
           <h1 className="text-2xl font-bold text-stone-900">{root.name}</h1>
           {ownershipLabel && ownershipClass && (

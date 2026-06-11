@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
 export const metadata = {
   title: 'Nordisk sirkularitetsrapport 2026-05',
@@ -9,12 +9,9 @@ export default function NordiskSirkularitetsrapportPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-4">
       <div className="mb-4">
-        <Link
-          href="/rapporter"
-          className="inline-flex text-sm text-stone-500 hover:text-stone-700 underline underline-offset-2"
-        >
-          ← Tilbake til rapportoversikt
-        </Link>
+        <Breadcrumbs
+          items={[{ label: 'Rapporter', href: '/rapporter' }, { label: 'Nordisk sirkularitetsrapport 2026-05' }]}
+        />
       </div>
 
       <div className="space-y-2">

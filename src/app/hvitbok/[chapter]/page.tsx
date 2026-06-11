@@ -7,6 +7,7 @@ import {
 } from '@/lib/hvitbok/chapters'
 import { readChapterMarkdown, countChapterWords } from '@/lib/hvitbok/loader'
 import { renderChapter } from '@/lib/hvitbok/render-chapter'
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
 export function generateStaticParams() {
   return chapters.map((c) => ({ chapter: c.slug }))
@@ -38,13 +39,7 @@ export default async function ChapterPage({
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-4 space-y-6">
-      <nav className="flex items-center gap-2 text-xs text-stone-500">
-        <Link href="/hvitbok" className="hover:text-emerald-700">
-          Hvitbok
-        </Link>
-        <span>/</span>
-        <span className="font-medium text-stone-700">Kapittel {ch.number}</span>
-      </nav>
+      <Breadcrumbs items={[{ label: 'Hvitbok', href: '/hvitbok' }, { label: `Kapittel ${ch.number}` }]} />
 
       <header className="rounded-xl border border-emerald-200/60 bg-gradient-to-br from-emerald-50 to-white p-5">
         <p className="text-[10px] uppercase tracking-wider text-emerald-600">

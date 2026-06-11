@@ -5,6 +5,8 @@ import { Card } from '@/components/ui/Card'
 import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
 import { Citation, type CitationViewModel } from '@/components/citations/Citation'
 import { CitationBibliography } from '@/components/citations/CitationBibliography'
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
+import { RelatedLinks } from '@/components/ui/RelatedLinks'
 
 type Props = {
   params: Promise<{ slug: string[] }>
@@ -94,6 +96,36 @@ export default async function DocumentDetailPage({ params }: Props) {
   }
 
   const actorItems = [...actorItemsByHref.values()]
+  const relatedItems = [
+    ...doc.companyDocumentRefs.map(ref => ({
+      label: ref.company.name,
+      href: `/selskap/${ref.company.id}`,
+      meta: ref.context ?? ref.company.valueChainStage ?? 'Selskapskobling',
+      badge: ref.company.ownershipType,
+    })),
+    ...doc.actorDocumentRefs.map(ref => ({
+      label: ref.actor.name,
+      href: `/aktorer/${ref.actor.slug}`,
+      meta: ref.context ?? ref.actor.actorType,
+      badge: ref.actor.themeTags[0],
+    })),
+    ...doc.refsFrom
+      .filter(ref => ref.to)
+      .map(ref => ({
+        label: ref.to!.title,
+        href: `/bibliotek/${ref.to!.slug}`,
+        meta: ref.refType,
+        badge: 'refererer til',
+      })),
+    ...doc.refsTo
+      .filter(ref => ref.from)
+      .map(ref => ({
+        label: ref.from!.title,
+        href: `/bibliotek/${ref.from!.slug}`,
+        meta: ref.refType,
+        badge: 'referert av',
+      })),
+  ]
   const storedCitations = [
     ...doc.sourceCitations.map(mapSourceCitation),
     ...(doc.sourceDoc?.sourceCitations ?? []).map(mapSourceCitation),
@@ -112,15 +144,7 @@ export default async function DocumentDetailPage({ params }: Props) {
 
   return (
     <div className="space-y-6">
-      <Link
-        href="/bibliotek"
-        className="inline-flex items-center gap-1.5 text-sm text-stone-400 hover:text-stone-600 transition-colors"
-      >
-        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-        </svg>
-        Tilbake til biblioteket
-      </Link>
+      <Breadcrumbs items={[{ label: 'Bibliotek', href: '/bibliotek' }, { label: doc.title }]} />
 
       <div>
         <h1 className="text-2xl font-bold text-stone-900">{doc.title}</h1>
@@ -144,6 +168,8 @@ export default async function DocumentDetailPage({ params }: Props) {
           ))}
         </div>
       )}
+
+      <RelatedLinks items={relatedItems} />
 
       {doc.summary && (
         <Card title="Sammendrag">

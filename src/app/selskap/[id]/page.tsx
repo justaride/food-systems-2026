@@ -11,6 +11,8 @@ import { formatAmountWithYear } from '@/lib/financial-year-labels'
 import { CompanyPropertiesPanel } from './CompanyPropertiesPanel'
 import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
 import { Citation, type CitationViewModel } from '@/components/citations/Citation'
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
+import { RelatedLinks } from '@/components/ui/RelatedLinks'
 
 function formatNokBillions(value: number | null): string {
   return value != null ? `${(value / 1e9).toFixed(1)} mrd` : '—'
@@ -85,6 +87,24 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
 
   // Determine if this company belongs to a tracked konsern
   const konsernSlug = konsernRootOrgNr ? (KONSERN_REGISTRY[konsernRootOrgNr]?.slug ?? null) : null
+  const relatedItems = [
+    ...(konsernSlug
+      ? [{
+          label: 'Konserntre',
+          href: `/eierskap/${konsernSlug}`,
+          meta: 'Eierskapstre og konserndossier',
+          badge: 'eierskap',
+        }]
+      : []),
+    ...company.boardMembers
+      .filter(m => profileKeys.has(m.personKey))
+      .map(m => ({
+        label: m.personName,
+        href: `/personer/${m.personKey}`,
+        meta: m.role,
+        badge: 'person',
+      })),
+  ]
 
   const latestFinancial = company.financials[0]
   const latestRevenueNok = financialAmountToNok(latestFinancial?.revenueNok, latestFinancial?.source)
@@ -96,11 +116,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
 
   return (
     <div className="space-y-6">
-      <nav className="flex items-center gap-2 text-xs text-stone-500">
-        <Link href="/selskap" className="hover:text-emerald-700">Selskaper</Link>
-        <span>/</span>
-        <span className="font-medium text-stone-700">{company.name}</span>
-      </nav>
+      <Breadcrumbs items={[{ label: 'Selskaper', href: '/selskap' }, { label: company.name }]} />
       <div>
         <div className="flex items-center gap-3">
           <h1 className="text-2xl font-bold text-stone-900">{company.name}</h1>
@@ -122,6 +138,8 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
           </Link>
         )}
       </div>
+
+      <RelatedLinks items={relatedItems} />
 
       <EntityNeighborhood
         groups={[
