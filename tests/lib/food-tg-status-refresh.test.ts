@@ -14,7 +14,7 @@ describe('Food TG status after Port E landing', () => {
       'PR #167',
       portEPath,
       'Port E event-go-pakken er landet',
-      'PR #159 er resynket etter PR #167',
+      'PR #159 er resynket gjennom seneste status-sync',
       'G-06, G-10 og G-11',
     ]) {
       assert.ok(status.includes(term), `${term} missing from ${statusPath}`)
@@ -34,7 +34,7 @@ describe('Food TG status after Port E landing', () => {
     const review = readFileSync(reviewPath, 'utf8')
 
     for (const term of [
-      'PR #172',
+      'seneste status-sync',
       'PR #159 er live kilde for siste head/check-status',
       '537 tester / 139 suiter / 0 feil',
       'GitHub CI er grønn på PR #159',
@@ -45,6 +45,8 @@ describe('Food TG status after Port E landing', () => {
 
     for (const staleTerm of [
       '73b8e3b',
+      'PR #172',
+      'post-#171 status-sync via PR',
       'GitHub CI på head `',
       'PR #159-head `',
       'PR #159-hodet `',
