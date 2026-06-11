@@ -8,6 +8,7 @@ bruksregel: Ikke send eksternt. Dette er intern mote- og dokumentaskpakke. Fakta
 relaterte_filer:
   - docs/project/status/jt-statusnotat-uke-25-2026-06-15.md
   - docs/project/status/port-e-event-go-uke-25-2026-06-15.md
+  - docs/project/status/jt-uke25-operatorlogg-2026-06-15.md
   - docs/project/status/food-tg-start-her-2026-06-15.md
   - docs/project/status/jt-moteinvitasjon-uke-25-2026-06-15.md
   - docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md
@@ -31,6 +32,8 @@ Den kan brukes til tre interne handlinger:
 Den skal ikke brukes til ekstern outreach. AASK-sporsmalene holdes tilbake til minimumsvedtak eller separat outreach-gate apner dem.
 
 ## 2. Operatorrekkefolge
+
+Faktisk sending, mottakere, vedtak og DASK-respons loggføres i `docs/project/status/jt-uke25-operatorlogg-2026-06-15.md`.
 
 | Steg | Handling | Eier | Ferdigkriterium | Stoppsignal |
 |---|---|---|---|---|
