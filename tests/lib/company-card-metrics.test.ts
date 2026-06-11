@@ -16,4 +16,15 @@ describe('company card metric display', () => {
     assert.equal(formatRevenueDisplay(52_100_000_000, true), '52.1 mrd')
     assert.equal(formatEmployeeDisplay(2800), '2 800')
   })
+
+  it('shows the financial year next to available revenue values', () => {
+    const formatRevenueWithYear = formatRevenueDisplay as (
+      value: number,
+      hasFinancialRow: boolean,
+      missingLabel?: string,
+      year?: number | null
+    ) => string
+
+    assert.equal(formatRevenueWithYear(52_100_000_000, true, undefined, 2024), '52.1 mrd (2024)')
+  })
 })

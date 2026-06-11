@@ -7,6 +7,7 @@ import { getCompanyTreeIds, resolveKonsernRootOrgNr, KONSERN_REGISTRY } from '@/
 import { getPersonKeysWithProfiles } from '@/lib/queries/persons'
 import { getInterlockSummaryForCompany } from '@/lib/queries/interlocks'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
+import { formatAmountWithYear } from '@/lib/financial-year-labels'
 import { CompanyPropertiesPanel } from './CompanyPropertiesPanel'
 import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
 import { Citation, type CitationViewModel } from '@/components/citations/Citation'
@@ -17,6 +18,14 @@ function formatNokBillions(value: number | null): string {
 
 function formatNokMillions(value: number | null): string {
   return value != null ? `${(value / 1e6).toFixed(0)} MNOK` : '—'
+}
+
+function formatNokBillionsWithYear(value: number | null, year: number | null): string {
+  return formatAmountWithYear(formatNokBillions(value), year)
+}
+
+function formatNokMillionsWithYear(value: number | null, year: number | null): string {
+  return formatAmountWithYear(formatNokMillions(value), year)
 }
 
 function formatPct(value: unknown): string {
@@ -168,14 +177,13 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Omsetning</p>
               <p className="text-lg font-bold text-stone-900">
-                {formatNokBillions(latestRevenueNok)}
+                {formatNokBillionsWithYear(latestRevenueNok, latestFinancial.year)}
               </p>
-              <p className="text-xs text-stone-400">{latestFinancial.year}</p>
             </div>
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Driftsresultat</p>
               <p className="text-lg font-bold text-stone-900">
-                {formatNokMillions(latestOperatingResultNok)}
+                {formatNokMillionsWithYear(latestOperatingResultNok, latestFinancial.year)}
               </p>
             </div>
             <div>
@@ -187,7 +195,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">EBITDA</p>
               <p className="text-lg font-bold text-stone-900">
-                {formatNokMillions(latestEbitdaNok)}
+                {formatNokMillionsWithYear(latestEbitdaNok, latestFinancial.year)}
               </p>
             </div>
             <div>

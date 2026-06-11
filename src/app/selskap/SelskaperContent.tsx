@@ -22,6 +22,7 @@ type CompanyRow = {
   ownershipType: string | null
   valueChainStage: string | null
   revenueNok: number | null
+  latestFinancialYear: number | null
   employees: number | null
   hasFinancialRow: boolean
   financialMissingValueReason: MissingValueReason
@@ -248,7 +249,7 @@ export function SelskaperContent({
                         className="font-semibold"
                       />
                     ) : (
-                      formatRevenueDisplay(c.revenueNok, c.hasFinancialRow)
+                      formatRevenueDisplay(c.revenueNok, c.hasFinancialRow, undefined, c.latestFinancialYear)
                     )}
                   </div>
                 </div>

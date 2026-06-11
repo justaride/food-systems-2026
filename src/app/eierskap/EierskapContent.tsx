@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { InternalBanner } from '@/components/ui/InternalBanner'
+import { formatAmountWithYear, type FinancialYearLabel } from '@/lib/financial-year-labels'
 
 type KonsernIndexRow = {
   slug: string
@@ -13,6 +14,7 @@ type KonsernIndexRow = {
   qualityScore: number
   treeSize: number
   totalRevenue: number | null
+  totalRevenueYearLabel: string | null
   maEventsCount: number
   daysSinceBrregRefresh: number | null
   controllingOwner: { name: string; pct: number | null } | null
@@ -26,11 +28,11 @@ const SCORE_COLOR = (score: number): string => {
   return 'bg-emerald-100 text-emerald-800 border-emerald-200'
 }
 
-function fmtRevenue(n: number | null): string {
+function fmtRevenue(n: number | null, yearLabel?: FinancialYearLabel): string {
   if (n === null) return '—'
-  if (n >= 1_000_000_000) return `${(n / 1_000_000_000).toFixed(1)} mrd`
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(0)} mill`
-  return n.toString()
+  if (n >= 1_000_000_000) return formatAmountWithYear(`${(n / 1_000_000_000).toFixed(1)} mrd`, yearLabel)
+  if (n >= 1_000_000) return formatAmountWithYear(`${(n / 1_000_000).toFixed(0)} mill`, yearLabel)
+  return formatAmountWithYear(n.toString(), yearLabel)
 }
 
 function fmtDays(n: number | null): string {
@@ -116,7 +118,7 @@ export function EierskapContent({ konserner }: { konserner: KonsernIndexRow[] })
                     {k.controllingOwner ? `${k.controllingOwner.name}${k.controllingOwner.pct !== null ? ` (${k.controllingOwner.pct}%)` : ''}` : <span className="text-stone-400">—</span>}
                   </td>
                   <td className="px-3 py-2 text-right">{k.treeSize}</td>
-                  <td className="px-3 py-2 text-right text-stone-700">{fmtRevenue(k.totalRevenue)}</td>
+                  <td className="px-3 py-2 text-right text-stone-700">{fmtRevenue(k.totalRevenue, k.totalRevenueYearLabel)}</td>
                   <td className="px-3 py-2 text-right">{k.maEventsCount}</td>
                   <td className="px-3 py-2 text-center">
                     <span className={`inline-block px-2 py-0.5 rounded border ${SCORE_COLOR(k.qualityScore)}`}>{k.qualityScore}</span>

@@ -11,6 +11,7 @@ import type {
   SubsidySumByCompany,
   SubsidySumsByCompanyYear,
 } from '@/lib/queries/financials'
+import { formatAmountWithYear, formatYearRange, type FinancialYearLabel } from '@/lib/financial-year-labels'
 import type { SubsidyAggregates } from '@/lib/queries/subsidies'
 
 const RevenueTrendChart = dynamic(
@@ -64,6 +65,7 @@ type StageFinancialSummary = {
   stage: string
   companyCount: number
   totalRevenueNok: number
+  yearLabel: string | null
   weightedMarginPct: number | null
   totalSubsidyNok: number
   subsidySharePct: number | null
@@ -135,6 +137,10 @@ function formatNokMillions(value: number): string {
   if (absolute >= 1e6) return `${sign}${(absolute / 1e6).toFixed(0)} MNOK`
   if (absolute < 1e3) return `${sign}${absolute.toLocaleString('nb-NO')} NOK`
   return `${sign}${(absolute / 1e3).toFixed(0)} TNOK`
+}
+
+function formatNokMillionsWithYear(value: number, yearLabel: FinancialYearLabel): string {
+  return formatAmountWithYear(formatNokMillions(value), yearLabel)
 }
 
 function labelStage(stage: string | null | undefined) {
@@ -293,6 +299,9 @@ export function OkonomiContent({
   const maxYear = allYears.length > 0 ? Math.max(...allYears) : 0
   const companiesWithLatestRevenue = companies.filter(c => getLatestRevenue(c) != null).length
   const latestTotalRevenue = companies.reduce((sum, c) => sum + (getLatestRevenue(c) ?? 0), 0)
+  const latestRevenueYearLabel = formatYearRange(
+    companies.map(c => (getLatestRevenue(c) != null ? getLatestYear(c) : null))
+  )
   const companiesWithSubsidy = companies.filter(
     c => (subsidySumsByCompany[c.id]?.totalAmountNok ?? 0) > 0
   ).length
@@ -310,6 +319,7 @@ export function OkonomiContent({
     const byStage = new Map<string, {
       companyIds: Set<string>
       revenue: number
+      years: Set<number>
       weightedOperatingResult: number
       subsidy: number
     }>()
@@ -318,11 +328,13 @@ export function OkonomiContent({
       const row = byStage.get(point.stage) ?? {
         companyIds: new Set<string>(),
         revenue: 0,
+        years: new Set<number>(),
         weightedOperatingResult: 0,
         subsidy: 0,
       }
       row.companyIds.add(point.id)
       row.revenue += point.revenueNok
+      row.years.add(point.year)
       row.weightedOperatingResult += point.revenueNok * (point.marginPct / 100)
       row.subsidy += point.subsidyNok
       byStage.set(point.stage, row)
@@ -333,6 +345,7 @@ export function OkonomiContent({
         stage,
         companyCount: row.companyIds.size,
         totalRevenueNok: row.revenue,
+        yearLabel: formatYearRange(row.years),
         weightedMarginPct: row.revenue > 0 ? (row.weightedOperatingResult / row.revenue) * 100 : null,
         totalSubsidyNok: row.subsidy,
         subsidySharePct: row.revenue > 0 ? (row.subsidy / row.revenue) * 100 : null,
@@ -440,7 +453,7 @@ export function OkonomiContent({
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
           <div className="text-xs uppercase tracking-wider text-stone-400">Samlet omsetning</div>
           <div className="text-2xl font-bold text-stone-900">
-            {(latestTotalRevenue / 1e9).toFixed(0)} mrd
+            {formatNokMillionsWithYear(latestTotalRevenue, latestRevenueYearLabel)}
           </div>
         </div>
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
@@ -657,7 +670,7 @@ export function OkonomiContent({
                         {year ?? <MissingValue reason="not_reported" />}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {rev != null ? formatNokMillions(rev) : <MissingValue reason="not_reported" />}
+                        {rev != null ? formatNokMillionsWithYear(rev, year) : <MissingValue reason="not_reported" />}
                       </td>
                       <td
                         className={`text-right py-2 tabular-nums ${
@@ -674,7 +687,7 @@ export function OkonomiContent({
                         {margin !== null ? `${margin.toFixed(1)}%` : <MissingValue reason="not_reported" />}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {opRes !== null ? formatNokMillions(opRes) : <MissingValue reason="not_reported" />}
+                        {opRes !== null ? formatNokMillionsWithYear(opRes, year) : <MissingValue reason="not_reported" />}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
                         {emp !== null ? emp.toLocaleString('nb-NO') : <MissingValue reason="not_reported" />}
@@ -940,7 +953,7 @@ function StageFinancialTile({ summary }: { summary: StageFinancialSummary }) {
         <div>
           <p className="text-stone-400">Omsetning</p>
           <p className="mt-1 font-semibold tabular-nums text-stone-900">
-            {formatNokMillions(summary.totalRevenueNok)}
+            {formatNokMillionsWithYear(summary.totalRevenueNok, summary.yearLabel)}
           </p>
         </div>
         <div>
@@ -967,6 +980,8 @@ type TreemapItem = {
   id: string
   label: string
   value: number
+  year: number | null
+  yearLabel: string | null
   stage: string
 }
 
@@ -1036,6 +1051,8 @@ function ConcentrationTreemap({
       label: point.name,
       stage: point.stage,
       value: metric === 'revenue' ? point.revenueNok : Math.max(0, point.operatingResultNok ?? 0),
+      year: point.year,
+      yearLabel: String(point.year),
     }))
     .filter(item => item.value > 0)
     .sort((a, b) => b.value - a.value)
@@ -1052,7 +1069,17 @@ function ConcentrationTreemap({
   const rest = ranked.slice(18)
   const restValue = rest.reduce((sum, item) => sum + item.value, 0)
   const items = restValue > 0
-    ? [...visible, { id: 'other', label: 'Øvrige selskaper', stage: 'unknown', value: restValue }]
+    ? [
+        ...visible,
+        {
+          id: 'other',
+          label: 'Øvrige selskaper',
+          stage: 'unknown',
+          value: restValue,
+          year: null,
+          yearLabel: formatYearRange(rest.map(item => item.year)),
+        },
+      ]
     : visible
   const total = items.reduce((sum, item) => sum + item.value, 0)
   const rects = splitTreemap(items, 0, 0, 100, 100, true)
@@ -1092,7 +1119,7 @@ function ConcentrationTreemap({
                 strokeWidth="0.45"
               >
                 <title>
-                  {`${rect.label}: ${formatNokMillions(rect.value)} (${share.toFixed(1)}% av ${metricLabel})`}
+                  {`${rect.label}: ${formatNokMillionsWithYear(rect.value, rect.yearLabel)} (${share.toFixed(1)}% av ${metricLabel})`}
                 </title>
               </rect>
               {showLabel && (
@@ -1101,7 +1128,7 @@ function ConcentrationTreemap({
                     {rect.label.slice(0, 28)}
                   </text>
                   <text x={rect.x + 1.4} y={rect.y + 8.4} className="fill-white/85 text-[2.5px]">
-                    {share.toFixed(1)}% · {formatNokMillions(rect.value)}
+                    {share.toFixed(1)}% · {formatNokMillionsWithYear(rect.value, rect.yearLabel)}
                   </text>
                 </>
               )}
