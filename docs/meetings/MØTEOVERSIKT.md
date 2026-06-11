@@ -127,6 +127,20 @@
 
 ---
 
+## Møtelogg-reparasjon etter 21.04.2026
+
+Denne seksjonen er repo-reparasjonen av møtelogg-hullet som ble dokumentert i `docs/meetings/STATUS-2026-05-26.md`. Den erstatter ikke manglende Notion-referater eller interne kalenderdata, men gjør dagens repo-status eksplisitt og hindrer at intake-notater behandles som formelle Food TG-vedtak.
+
+| Periode / post | Repo-status | Hva den kan brukes til | Hva den ikke beviser |
+|---|---|---|---|
+| 22.04-25.05.2026 | Ingen formelle Food TG-møtereferater funnet i repo. `docs/project/reference/notion-sync-food-tg-2026-05-04.md` peker på mulige Notion-/mandagsmøter, men repoet har ikke referatene. | Å synliggjøre at møtelogg og eventuelle Notion-notater må etterspørres fra JT/Cathrine/Einar. | Ingen beslutninger, ingen scope-lukking og ingen ekstern validering. |
+| 26.05.2026 | Registrert som møte 9: metodeoverføring Cities/Food. | Intern metode-intake og Food-local kontrollpakke for Wageningen/Moerman/R9. | ikke formelt Food TG-vedtak, ikke ekstern validering og ikke claim-lukking. |
+| 09.06.2026 | Registrert som møte 10: arbeidsavklaring og case-spissing. | Arbeidsavklaring for case-shortlist, sprintboard, DASK/PCQ og deck-manus. | ikke formelt Food TG-vedtak og ikke ekstern validering. |
+
+Føringsregel fra 11.06.2026: hvert JT-/TG-møte eller muntlig arbeidsavklaring som påvirker mandat, scope, case, DASK/AASK, Port E eller claim-status skal ha fil i `docs/meetings/` og MØTEOVERSIKT-rad innen 48 timer. Skill tydelig mellom `arbeidsavklaring`, `intake`, `statusmøte` og `formelt vedtak`. Formelle beslutninger føres i `docs/project/mandates/decision-log-food-tg.md` samme dag som de foreligger.
+
+---
+
 ## Dokumenter referert i møtene
 
 | Dokument | Status | Plassering |
