@@ -7,6 +7,7 @@ scope: Sendeklar, intern operatorpakke for JT-beslutningsmote, DASK-0906-001/002
 bruksregel: Ikke send eksternt. Dette er intern mote- og dokumentaskpakke. Faktatall fra operatorgater brukes ikke eksternt foer PR #159 er merget, deployet og operatorsekvensen er re-kjort.
 relaterte_filer:
   - docs/project/status/jt-statusnotat-uke-25-2026-06-15.md
+  - docs/project/status/food-tg-start-her-2026-06-15.md
   - docs/project/status/jt-moteinvitasjon-uke-25-2026-06-15.md
   - docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md
   - docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.md
