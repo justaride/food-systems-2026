@@ -121,22 +121,31 @@ describe('Food TG status after Port E landing', () => {
     }
   })
 
-  it('keeps the execution plan restartable after #182 and #183 landed', () => {
+  it('keeps the execution plan restartable after #185 and the current prod preflight landed', () => {
     const executionPlan = readFileSync(executionPlanPath, 'utf8')
 
     for (const term of [
-      '## Execution Checkpoint 2026-06-11 After PR #183',
+      '## Execution Checkpoint 2026-06-11 After PR #185',
       'PR #182',
       'PR #183',
+      'PR #184',
+      'PR #185',
       'JT uke 25-pakken er repo-landet',
+      'Node 24-compatible GitHub Actions pins',
+      'prod-data-import `verify-only` run 27369814363',
+      'actions/checkout@v6',
+      'actions/setup-node@v6',
       'draft-PR #159 er fortsatt beslutningsgated',
-      'live `/api/version` svarer `10e1ab1`',
+      'PR #159 er live kilde for siste head/check-status',
       'Ikke start på Task 0 som om planen er urørt',
     ]) {
       assert.ok(executionPlan.includes(term), `${term} missing from ${executionPlanPath}`)
     }
 
     for (const staleTerm of [
+      '## Execution Checkpoint 2026-06-11 After PR #183',
+      'live `/api/version` svarer `10e1ab1`',
+      'main` is at merge commit `10e1ab1',
       '## Current Verified Baseline',
       'Current branch: `codex/food-tg-research-intake-72h`',
       'Current remote main: `origin/main` at `4e510dc',
@@ -178,13 +187,17 @@ describe('Food TG status after Port E landing', () => {
     }
   })
 
-  it('records the successful prod verify-only preflight without claiming prod import is done', () => {
+  it('records the successful post-#185 prod verify-only preflight without claiming prod import is done', () => {
     const status = readFileSync(statusPath, 'utf8')
     const review = readFileSync(reviewPath, 'utf8')
 
     for (const term of [
+      'PR #185',
+      'Node 24-kompatible GitHub Actions-pins',
+      'actions/checkout@v6',
+      'actions/setup-node@v6',
       'prod-data-import `verify-only`',
-      'run 27366094787',
+      'run 27369814363',
       'Authenticated DB connection ready',
       '`db:verify`',
       'Result: OK',
@@ -194,6 +207,7 @@ describe('Food TG status after Port E landing', () => {
       'CompanyOwnership: 75',
       'Deliverable: 12',
       'ingen prod-write-target',
+      'ingen Node.js 20-warning',
     ]) {
       assert.ok(status.includes(term), `${term} missing from ${statusPath}`)
       assert.ok(review.includes(term), `${term} missing from ${reviewPath}`)
