@@ -12,7 +12,7 @@ scope: Eksplisitt review av beslutningspunktene som ble implementert uten forhan
 
 Codex-anbefaling: godkjenn alle tre beslutningspunktene som implementert, men ikke merge integrasjonsstacken før Gabriel har gitt eksplisitt ja eller endringsordre per punkt.
 
-PR #159 er etter PR #170-resync fortsatt draft, mergeable og grønn på GitHub CI. Beslutningspakken er også lagt som PR-kommentar slik at Gabriel kan svare direkte på G-06, G-10 og G-11 i reviewflaten.
+PR #159 er etter PR #171-resync fortsatt draft, mergeable og grønn på GitHub CI på head `73b8e3b`. Beslutningspakken er også lagt som PR-kommentar slik at Gabriel kan svare direkte på G-06, G-10 og G-11 i reviewflaten.
 
 Fokustest kjørt i integrasjons-worktree ved første beslutningsreview:
 
@@ -106,18 +106,18 @@ Beslutning:
 
 ## Lokal verifikasjonsstatus 2026-06-11
 
-Status: Integrasjonsstacken er bygget og testet lokalt, og draft-PR #159 er teknisk mergebar med grønn GitHub CI etter resync gjennom PR #170. PR-en skal likevel ikke tas ut av draft før Gabriel har godkjent eller endret G-06, G-10 og G-11. Gjenstående strict source-rødt er klassifisert som baseline/operator-dataavvik, ikke som PR-spesifikk kodefeil.
+Status: Integrasjonsstacken er bygget og testet lokalt, og draft-PR #159 er teknisk mergebar med grønn GitHub CI etter resync gjennom PR #171. PR-en skal likevel ikke tas ut av draft før Gabriel har godkjent eller endret G-06, G-10 og G-11. Gjenstående strict source-rødt er klassifisert som baseline/operator-dataavvik, ikke som PR-spesifikk kodefeil.
 
-Grønt lokalt etter #170-resync på PR #159-head `224cec7`:
+Grønt lokalt etter #171-resync på PR #159-head `73b8e3b`:
 - `npm run db:generate` passerte.
-- Fokuserte uke 25 docs/deck-tester passerte: 9 tester, 0 feilet.
 - `npm test` passerte: 536 tester / 139 suiter / 0 feil.
 - `npm run lint` passerte.
 - `git diff --check` passerte.
-- GitHub CI passerte: GitGuardian, Schema migration guard og to `PR Quality Gates/test-and-audit`-kjøringer.
+- GitHub CI på head `73b8e3b`: grønn. GitGuardian, Schema migration guard og to `PR Quality Gates/test-and-audit`-kjøringer passerte.
 
-Tidligere integrasjonsverifikasjon før #170 docs-resync:
+Tidligere integrasjonsverifikasjon før docs-resyncene:
 - `npm ci` passerte i integrasjons-worktree uten lock-sync-feil.
+- Fokuserte uke 25 docs/deck-tester passerte: 9 tester, 0 feilet.
 - `git diff --check origin/main...HEAD && git diff --check` passerte.
 - `npm run lint` passerte.
 - `npm test` passerte etter `npm run db:generate` i fresh worktree. Full suite: 518 tester, 0 feilet.
