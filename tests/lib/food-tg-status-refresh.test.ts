@@ -37,8 +37,10 @@ describe('Food TG status after Port E landing', () => {
     for (const term of [
       'seneste status-sync',
       'PR #159 er live kilde for siste head/check-status',
-      '540 tester / 139 suiter / 0 feil',
+      '542 tester / 139 suiter / 0 feil',
       'GitHub CI er grønn på PR #159',
+      'PR #177',
+      'npm run verify:platform-stack-main',
     ]) {
       assert.ok(status.includes(term), `${term} missing from ${statusPath}`)
       assert.ok(review.includes(term), `${term} missing from ${reviewPath}`)
@@ -51,6 +53,7 @@ describe('Food TG status after Port E landing', () => {
       'GitHub CI på head `',
       'PR #159-head `',
       'PR #159-hodet `',
+      '540 tester / 139 suiter / 0 feil',
       '537 tester / 139 suiter / 0 feil',
     ]) {
       assert.ok(!status.includes(staleTerm), `${staleTerm} should no longer be current in ${statusPath}`)
@@ -77,6 +80,10 @@ describe('Food TG status after Port E landing', () => {
     assert.ok(
       executionPlan.includes('PR #175') && executionPlan.includes('verify-only') && executionPlan.includes('registers'),
       `${executionPlanPath} must reflect that prod-data-import workflow readiness is landed`,
+    )
+    assert.ok(
+      executionPlan.includes('npm run verify:platform-stack-main'),
+      `${executionPlanPath} must use the consolidated A4 verification command`,
     )
 
     for (const staleTerm of [

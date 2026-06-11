@@ -12,7 +12,7 @@ scope: Eksplisitt review av beslutningspunktene som ble implementert uten forhan
 
 Codex-anbefaling: godkjenn alle tre beslutningspunktene som implementert, men ikke merge integrasjonsstacken før Gabriel har gitt eksplisitt ja eller endringsordre per punkt.
 
-PR #159 er etter seneste status-sync fortsatt draft, mergeable og grønn på GitHub CI. PR #159 er live kilde for siste head/check-status. PR #175 er landet på `main` og gjør prod-data-import-workflowen eksplisitt for `verify-only`, `ownership`, `registers` og `full`, men den kjører ikke prod-import i seg selv. Beslutningspakken er også lagt som PR-kommentar slik at Gabriel kan svare direkte på G-06, G-10 og G-11 i reviewflaten.
+PR #159 er etter seneste status-sync fortsatt draft, mergeable og grønn på GitHub CI. PR #159 er live kilde for siste head/check-status. PR #175 er landet på `main` og gjør prod-data-import-workflowen eksplisitt for `verify-only`, `ownership`, `registers` og `full`, men den kjører ikke prod-import i seg selv. PR #177 er landet på `main` og gjør A4-verifikasjonen kjørbar som `npm run verify:platform-stack-main`. Beslutningspakken er også lagt som PR-kommentar slik at Gabriel kan svare direkte på G-06, G-10 og G-11 i reviewflaten.
 
 ## Kopierbar PR-review
 
@@ -25,7 +25,7 @@ G-06: godkjent
 G-10: godkjent
 G-11: godkjent
 
-Jeg godkjenner at PR #159 kan tas ut av draft og merges når siste GitHub CI er grønn. Etter merge skal A4-verifikasjon på main kjøres før prod-data, deploy og operatorsekvens.
+Jeg godkjenner at PR #159 kan tas ut av draft og merges når siste GitHub CI er grønn. Etter merge skal A4-verifikasjon på main kjøres med `npm run verify:platform-stack-main` før prod-data, deploy og operatorsekvens.
 ```
 
 Hvis noe må endres før merge:
@@ -130,12 +130,12 @@ Beslutning:
 
 ## Lokal verifikasjonsstatus 2026-06-11
 
-Status: Integrasjonsstacken er bygget og testet lokalt, og draft-PR #159 er teknisk mergebar med grønn GitHub CI etter seneste status-sync. PR #159 er live kilde for siste head/check-status. PR #175 er landet på `main` og gjør prod-data-import-workflowen klar for eksplisitt `verify-only`, `ownership`, `registers` og `full`-valg. PR #159 skal likevel ikke tas ut av draft før Gabriel har godkjent eller endret G-06, G-10 og G-11. Gjenstående strict source-rødt er klassifisert som baseline/operator-dataavvik, ikke som PR-spesifikk kodefeil.
+Status: Integrasjonsstacken er bygget og testet lokalt, og draft-PR #159 er teknisk mergebar med grønn GitHub CI etter seneste status-sync. PR #159 er live kilde for siste head/check-status. PR #175 er landet på `main` og gjør prod-data-import-workflowen klar for eksplisitt `verify-only`, `ownership`, `registers` og `full`-valg. PR #177 er landet på `main` og gjør A4-verifikasjonen kjørbar som `npm run verify:platform-stack-main`. PR #159 skal likevel ikke tas ut av draft før Gabriel har godkjent eller endret G-06, G-10 og G-11. Gjenstående strict source-rødt er klassifisert som baseline/operator-dataavvik, ikke som PR-spesifikk kodefeil.
 
 Grønt lokalt etter seneste status-sync av PR #159:
 - `npm ci` passerte med 0 vulnerabilities.
 - `npm run db:generate` passerte.
-- `npm test` passerte: 540 tester / 139 suiter / 0 feil.
+- `npm test` passerte: 542 tester / 139 suiter / 0 feil.
 - `npm run lint` passerte.
 - `git diff --check` passerte.
 - GitHub CI er grønn på PR #159. GitGuardian, Schema migration guard og to `PR Quality Gates/test-and-audit`-kjøringer passerte.
