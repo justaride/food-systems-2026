@@ -12,7 +12,7 @@ scope: Eksplisitt review av beslutningspunktene som ble implementert uten forhan
 
 Codex-anbefaling: godkjenn alle tre beslutningspunktene som implementert, men ikke merge integrasjonsstacken før Gabriel har gitt eksplisitt ja eller endringsordre per punkt.
 
-PR #159 er etter seneste status-sync fortsatt draft, mergeable og grønn på GitHub CI. PR #159 er live kilde for siste head/check-status. PR #175 er landet på `main` og gjør prod-data-import-workflowen eksplisitt for `verify-only`, `ownership`, `registers` og `full`, men den kjører ikke prod-import i seg selv. PR #177 er landet på `main` og gjør A4-verifikasjonen kjørbar som `npm run verify:platform-stack-main`. PR #179 er landet på `main`; read-only prod-baseline viser at Coolify SHA Sync er grønn og at live `/api/version` er fasit for gjeldende deploy-SHA, men PR #159-stackens nye `/api/data-status`-dekning er fortsatt ikke på prod. Beslutningspakken er også lagt som PR-kommentar slik at Gabriel kan svare direkte på G-06, G-10 og G-11 i reviewflaten.
+PR #159 er etter seneste status-sync fortsatt draft, mergeable og grønn på GitHub CI. PR #159 er live kilde for siste head/check-status. PR #175 er landet på `main` og gjør prod-data-import-workflowen eksplisitt for `verify-only`, `ownership`, `registers` og `full`, men den kjører ikke prod-import i seg selv. PR #177 er landet på `main` og gjør A4-verifikasjonen kjørbar som `npm run verify:platform-stack-main`. PR #179 er landet på `main`; read-only prod-baseline viser at Coolify SHA Sync er grønn og at live `/api/version` er fasit for gjeldende deploy-SHA. prod-data-import `verify-only` er kjørt på `main` i GitHub Actions run 27366094787: tunnelproben rapporterte `Authenticated DB connection ready`, `db:verify` returnerte `Result: OK`, og målte blant annet `Document: 990`, `SourceDoc: 193`, `Company: 185`, `CompanyOwnership: 75` og `Deliverable: 12`. Dette er bare read-only B1-preflight; ingen prod-write-target (`ownership`, `registers` eller `full`) er kjørt, og PR #159-stackens nye `/api/data-status`-dekning er fortsatt ikke på prod. Beslutningspakken er også lagt som PR-kommentar slik at Gabriel kan svare direkte på G-06, G-10 og G-11 i reviewflaten.
 
 ## Kopierbar PR-review
 
@@ -130,7 +130,7 @@ Beslutning:
 
 ## Lokal verifikasjonsstatus 2026-06-11
 
-Status: Integrasjonsstacken er bygget og testet lokalt, og draft-PR #159 er teknisk mergebar med grønn GitHub CI etter seneste status-sync. PR #159 er live kilde for siste head/check-status. PR #175 er landet på `main` og gjør prod-data-import-workflowen klar for eksplisitt `verify-only`, `ownership`, `registers` og `full`-valg. PR #177 er landet på `main` og gjør A4-verifikasjonen kjørbar som `npm run verify:platform-stack-main`. PR #179 er landet på `main`, Coolify SHA Sync er grønn, og live `/api/version` er fasit for gjeldende deploy-SHA. PR #159 skal likevel ikke tas ut av draft før Gabriel har godkjent eller endret G-06, G-10 og G-11. Gjenstående strict source-rødt er klassifisert som baseline/operator-dataavvik, ikke som PR-spesifikk kodefeil.
+Status: Integrasjonsstacken er bygget og testet lokalt, og draft-PR #159 er teknisk mergebar med grønn GitHub CI etter seneste status-sync. PR #159 er live kilde for siste head/check-status. PR #175 er landet på `main` og gjør prod-data-import-workflowen klar for eksplisitt `verify-only`, `ownership`, `registers` og `full`-valg. PR #177 er landet på `main` og gjør A4-verifikasjonen kjørbar som `npm run verify:platform-stack-main`. PR #179 er landet på `main`, Coolify SHA Sync er grønn, og live `/api/version` er fasit for gjeldende deploy-SHA. prod-data-import `verify-only` run 27366094787 er grønn på `main`, med autentisert prod-DB-tunnel og `db:verify` OK. PR #159 skal likevel ikke tas ut av draft før Gabriel har godkjent eller endret G-06, G-10 og G-11. Gjenstående strict source-rødt er klassifisert som baseline/operator-dataavvik, ikke som PR-spesifikk kodefeil.
 
 Grønt lokalt etter seneste status-sync av PR #159:
 - `npm ci` passerte med 0 vulnerabilities.
@@ -167,11 +167,12 @@ Read-only prod-baseline 2026-06-11:
 - `/api/data-status` returnerte HTTP 200.
 - Prod svarte `ok: true`, `dbOk: true`, `pageGatesOk: true`.
 - Relevante prod-tabelltall: `companies: 185`, `landbruksregisterCompanies: 4`, `fishHealthObservations: 0`, `deliveryVolumes: 60310`, `aquacultureSites: 285`, `businessRelationships: 105`.
-- Dette bekrefter at live `main` og deploy-kjeden er oppe gjennom seneste status-sync. B1/B3 for selve stacken er likevel ikke gjort: PR #159-stackens nye `/api/data-status`-dekning, ~275-selskapsavstemming, prod-import og operatorsekvens kan ikke dokumenteres for prod foer PR #159 er merget, deployet og Fase B er kjort.
+- prod-data-import `verify-only` run 27366094787 passerte på `main`: `Authenticated DB connection ready`, `db:verify`, `Result: OK`; nøkkeltall var `Document: 990`, `SourceDoc: 193`, `Company: 185`, `CompanyOwnership: 75`, `BusinessRelationship: 105`, `Deliverable: 12` og `Actor: 169`.
+- Dette bekrefter at live `main`, prod-DB-tunnelen og baselinemålingen er oppe gjennom seneste status-sync. B1/B3 for selve stacken er likevel ikke gjort: PR #159-stackens nye `/api/data-status`-dekning, ~275-selskapsavstemming, prod-write-target (`ownership`, `registers`/`full`) og operatorsekvens kan ikke dokumenteres for prod foer PR #159 er merget, deployet og Fase B er kjort.
 
 Ikke gjort:
 - Ingen DB-muteringer er kjort.
-- Ingen prod import, PR #159-stackdeploy eller operator-sekvens er kjort.
+- Ingen prod-write-target, PR #159-stackdeploy eller operator-sekvens er kjort.
 - Draft integrasjons-PR #159 er apnet, men den er ikke klar for merge uten Gabriel-vedtak paa G-06/G-10/G-11.
 
 Merge-gate:
