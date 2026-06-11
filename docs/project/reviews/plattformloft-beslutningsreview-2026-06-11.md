@@ -104,7 +104,7 @@ Beslutning:
 
 ## Lokal verifikasjonsstatus 2026-06-11
 
-Status: Integrasjonsstacken er bygget og testet lokalt, men er ikke klar for merge for Gabriel-vedtak og strict source-gate mangler.
+Status: Integrasjonsstacken er bygget og testet lokalt, og draft-PR #159 er teknisk mergebar med groenn GitHub CI. PR-en skal likevel ikke tas ut av draft foer Gabriel har godkjent eller endret G-06, G-10 og G-11. Gjenstaaende strict source-roedt er klassifisert som baseline/operator-dataavvik, ikke som PR-spesifikk kodefeil.
 
 Gront lokalt:
 - `npm ci` passerte i integrasjons-worktree uten lock-sync-feil.
@@ -138,7 +138,7 @@ Read-only prod-baseline 2026-06-11 kl. 13:21 UTC:
 Ikke gjort:
 - Ingen DB-muteringer er kjort.
 - Ingen prod import, deploy eller operator-sekvens er kjort.
-- Draft integrasjons-PR #159 er apnet, men den er ikke klar for merge.
+- Draft integrasjons-PR #159 er apnet, men den er ikke klar for merge uten Gabriel-vedtak paa G-06/G-10/G-11.
 
 Merge-gate:
 - Gabriel ma eksplisitt godkjenne eller endre G-06, G-10 og G-11.
