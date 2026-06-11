@@ -325,6 +325,11 @@ export function ForsyningskjedeContent({
           'Import, infrastruktur og returstrømmer holdes adskilt til metode og dekning er merket.',
         ]}
         caveat="Bruk med forbehold: relasjonslaget er kuratert/proxy og ikke ekstern validering av komplett vareflyt."
+        siblingLink={{
+          prompt: 'Leter du etter jord-til-bord-struktur og verdikjedeledd?',
+          href: '/verdikjede',
+          label: 'Gå til Verdikjede',
+        }}
       />
 
       <DataQualityStrip

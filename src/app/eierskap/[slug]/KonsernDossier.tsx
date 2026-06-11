@@ -11,6 +11,7 @@ import { Section6Subsidies } from './sections/Section6Subsidies'
 import { Section7Properties } from './sections/Section7Properties'
 import { Section8Relationships } from './sections/Section8Relationships'
 import { Section9DataQuality } from './sections/Section9DataQuality'
+import { formatAmountWithYear, type FinancialYearLabel } from '@/lib/financial-year-labels'
 
 const OWNERSHIP_TYPE_LABEL: Record<string, string> = {
   family:      'Familieeid',
@@ -44,11 +45,11 @@ const DEAL_TYPE_CLASS: Record<string, string> = {
   'partial-sale': 'bg-amber-50 text-amber-800 border-amber-200',
 }
 
-function fmtRevenueMNok(nok: number | null): string {
+function fmtRevenueMNok(nok: number | null, yearLabel?: FinancialYearLabel): string {
   if (nok === null) return '—'
   const mnok = nok / 1_000_000
-  if (mnok >= 1_000) return `${(mnok / 1_000).toFixed(1)} mrd`
-  return `${mnok.toFixed(0)} MNOK`
+  if (mnok >= 1_000) return formatAmountWithYear(`${(mnok / 1_000).toFixed(1)} mrd`, yearLabel)
+  return formatAmountWithYear(`${mnok.toFixed(0)} MNOK`, yearLabel)
 }
 
 function fmtEmployees(n: number | null): string {
@@ -160,13 +161,6 @@ export function KonsernDossier({ dossier }: Props) {
     <div className="space-y-8">
       {/* Section 1: Header */}
       <div>
-        <Link
-          href="/eierskap"
-          className="text-xs text-stone-400 hover:text-stone-600 hover:underline mb-2 inline-block"
-        >
-          &larr; Tilbake til eierskap
-        </Link>
-
         <div className="flex items-center gap-3 flex-wrap">
           <h1 className="text-2xl font-bold text-stone-900">{root.name}</h1>
           {ownershipLabel && ownershipClass && (
@@ -195,7 +189,7 @@ export function KonsernDossier({ dossier }: Props) {
           />
           <StatBox
             label="Sum omsetning"
-            value={fmtRevenueMNok(metrics.totalRevenue)}
+            value={fmtRevenueMNok(metrics.totalRevenue, metrics.totalRevenueYearLabel)}
           />
           <StatBox
             label="Sum ansatte"

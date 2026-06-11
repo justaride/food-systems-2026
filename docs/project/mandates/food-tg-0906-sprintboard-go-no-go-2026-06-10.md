@@ -12,11 +12,13 @@ relaterte_filer:
   - docs/project/mandates/food-tg-deck-outline-2026-06-09.md
   - docs/project/mandates/primary-check-queue-food-tg-v0.1.md
   - docs/project/mandates/food-tg-claim-lock-table-2026-05.md
+  - docs/project/mandates/food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md
+  - docs/project/mandates/food-tg-research-intake-decision-pack-2026-06-10.md
 ---
 
 # Food TG 09.06 Sprintboard Go/No-Go 2026-06-10
 
-Dette er arbeidsbrettet for 09.06-/10.06-sprinten mens Deep Research-output, dokumentask og intern casekortsortering pågår. Mottatte outputer fra 10.06 er logget i `food-tg-deep-research-results-intake-2026-06-10.md`. Sprintboardet skal gjøre det lett å se hva som kan brukes internt, hva som venter på kilde/data, og hva som skal parkeres raskt hvis dokumentasjon uteblir.
+Dette er arbeidsbrettet for 09.06-/10.06-sprinten mens Deep Research-output, dokumentask og intern casekortsortering pågår. Mottatte outputer fra 10.06 er logget i `food-tg-deep-research-results-intake-2026-06-10.md`; 72t kilde-/datakontroll er logget i `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md`; samlet go/no-go er oppsummert i `food-tg-research-intake-decision-pack-2026-06-10.md`. Sprintboardet skal gjøre det lett å se hva som kan brukes internt, hva som venter på kilde/data, og hva som skal parkeres raskt hvis dokumentasjon uteblir.
 
 ## Bruksregel
 
@@ -43,6 +45,18 @@ Sprintboardet åpner ikke ekstern outreach, ekstern faktastemme eller nye claims
 | 5 | Spillvarme/drivhus/akvaponikk | `DRO-0906-005` | `DASK-0906-006`, senere `AASK-0906-005` | Mottatt `DRR-0906-006`; Hima intern case med datagap; resten radar/primary-check | Hima som operativ datasenter-til-akvakultur; Frövi som industriell benchmark; planprosjekter som radar. | GWh/år, temperaturprofil, faktisk energibesparelse, reservevarme og økonomi mangler. | Lag mini-ledger; be Green Mountain/Hima om driftsdata; drep/valider Wiig via Klepp/Enova. | Kun datasenterkapasitet, planomtale eller scenario uten nyttiggjort varme og matkobling. | Go for Hima intern case med datagap; no-go for nasjonalt TWh-claim. |
 | 6 | 100% Fish/marint restråstoff | `DRO-0906-006` | `DASK-0906-007`, senere `AASK-0906-006` | Mottatt `DRR-0906-007`; `benchmark-only`; `deckklart internt` med claim-lock; `needs-data` | Benchmark/designkrav for fraksjonskart, produktkaskade og clusterlogikk. | Islandsk nåtidsdata, IOC claim-metode, norsk fraksjonsdata, høyverdiandel og bruksrett mangler. | Koble til PCQ-B-005; ekstraher Statistics Iceland; be SINTEF/FHF om fraksjons-/høyverdiuttrekk. | Islandsk benchmark behandles som norsk pilotbevis eller 100 prosent faktisk utnyttelse. | Go som benchmark; no-go som norsk pilotcase uten aktørdata. |
 | 7 | Skottland/Polen | `DRO-0906-007` | `DASK-0906-008`, `DASK-0906-009`, senere `AASK-0906-007` | Mottatt `DRR-0906-008`; Skottland `benchmark-kandidat`; Polen `watchlist` | Skottland som bioressurs-/seafood-benchmark etter fulltekst; Polen som kill-test/watchlist. | ZWS fulltekst, SBMT data dictionary, aktørarkiv, polsk aktør/lokasjon/volum/output mangler. | Prioriter ZWS/SBMT/Seafood Scotland; kill-test Polen med GUS/PROM/CDR/SIR/EMFAF. | Ingen fulltekst eller ingen konkret aktør/lokasjon/volum/output. | Go for Skottland hvis fulltekst holder; Polen forblir watchlist eller parkeres. |
+
+## 72t sprintbeslutning 2026-06-11
+
+| Case | Ledger-beslutning | Intern deckretning | Neste gate |
+|---|---|---|---|
+| Brasil/kaffe | Relasjonscase no-go; import/EUDR-kontekst videre. | Bruk WCEF/use-case og standard-risk med caveat. | MOU/annex eller avkreftelse. |
+| Elfenbenskysten/kakao | EUDR/sporbarhet go internt; relasjon no-go. | Bruk CI-sporbarhet og standard-risk; ikke LEAD/MOU. | MOU/LOI eller Conseil du Cafe-Cacao/dekret/fulltekst. |
+| Valio/Finland | Go internt som soyafri governance. | Soyafri feed-governance med import-gap. | Fôrstandard, fôrkurv og importandel. |
+| Distribusjon/adoption-gate | Go internt som bred C-gate. | Distribusjon, markedstilgang, logistikk og produktdata. | Produkt-/månedstall og juridisk trygg aktørvalidering. |
+| Spillvarme/drivhus/akvaponikk | Hima go internt; Frövi benchmark; resten radar. | Hima med datagap og Frövi som sammenligning. | Hima GWh/temp/oppetid; Wiig/Varde kill-test. |
+| 100% Fish/marint restråstoff | Go internt som benchmark/designkrav. | IOC benchmark + SINTEF/FHF norsk baseline. | Fraksjon/sluttbruk/høyverdi og PxWeb-uttrekk. |
+| Skottland/Polen | Skottland videre; Polen watchlist/parkering. | Skottland benchmark-kandidat, Polen kun kill-test. | ZWS/SBMT fulltekst; polsk aktør/volum/output. |
 
 ## Neste 72 timer
 

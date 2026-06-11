@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/db'
 import { isAquacultureTonnageUnit } from '@/lib/aquaculture-capacity'
+import { isPrismaDataUnavailable } from './prisma-errors'
 
 export async function getAquacultureSites() {
   return prisma.aquacultureSite.findMany({
@@ -24,6 +25,15 @@ export async function getAquacultureApplications() {
 export type AquacultureApplicationRow = Awaited<
   ReturnType<typeof getAquacultureApplications>
 >[number]
+
+export async function getFishHealthObservationCount(): Promise<number | null> {
+  try {
+    return await prisma.fishHealthObservation.count()
+  } catch (error) {
+    if (!isPrismaDataUnavailable(error)) throw error
+    return null
+  }
+}
 
 export async function getAquacultureStats() {
   const [sites, totalApps, byResult] = await Promise.all([

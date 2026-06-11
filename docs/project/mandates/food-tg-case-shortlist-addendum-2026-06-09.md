@@ -9,7 +9,7 @@
 
 ## Bruksregel
 
-Dette addendumet er et internt sorterings- og sprintdokument. Det gir ikke ekstern validering, aktørbekreftelse eller publiserbar faktastemme. Ingen case skal omtales som `Validert eksternt`, og ingen kandidat skal få pilotstatus før eier, data, lovlig sluttbruk, kjøper, drift og finansiering er dokumentert.
+Dette addendumet er et internt sorterings- og sprintdokument. Det gir ikke ekstern validering, aktørbekreftelse eller publiserbar faktastemme. Ingen case skal omtales som eksternt validert, og ingen kandidat skal få pilotstatus før eier, data, lovlig sluttbruk, kjøper, drift og finansiering er dokumentert.
 
 ## Kort konklusjon
 

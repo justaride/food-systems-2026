@@ -11,6 +11,7 @@ type BolkSectionProps = {
   takeaway?: React.ReactNode
   charts: React.ReactNode
   table?: React.ReactNode
+  sourceNote?: React.ReactNode
   seeAlso: Array<{ href: string; label: string }>
   researchStatus?: ResearchEvidenceStatus
   researchStatusDetail?: string
@@ -24,6 +25,7 @@ export function BolkSection({
   takeaway,
   charts,
   table,
+  sourceNote,
   seeAlso,
   researchStatus,
   researchStatusDetail,
@@ -44,6 +46,11 @@ export function BolkSection({
         </div>
         <p className="text-sm text-stone-500 mt-1 italic">{question}</p>
         <p className="text-sm text-stone-700 mt-2 max-w-3xl">{narrative}</p>
+        {sourceNote && (
+          <p className="mt-2 max-w-3xl text-[11px] leading-relaxed text-stone-500">
+            Kildegrunnlag: {sourceNote}
+          </p>
+        )}
       </header>
 
       {takeaway}

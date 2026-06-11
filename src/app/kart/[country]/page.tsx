@@ -11,6 +11,8 @@ import FoodDesertPanel from '@/components/map/FoodDesertPanel'
 import VulnerabilityPanel from '@/components/map/VulnerabilityPanel'
 import DataSourcesPanel from '@/components/map/DataSourcesPanel'
 import CountrySelector from '@/components/map/CountrySelector'
+import { CoverageBadgeStrip } from '@/components/coverage/CoverageBadgeStrip'
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
 const COUNTRY_NAMES: Record<CountryCode, string> = {
   no: 'Norge',
@@ -81,7 +83,11 @@ export default function KartCountryPage({ params }: { params: Promise<{ country:
     <MapProvider country={country}>
       <div className="w-full h-full relative" style={{ height: 'calc(100vh - 57px)' }}>
         <h1 className="sr-only">Matkart for {COUNTRY_NAMES[country] ?? country}</h1>
-        <div className="pointer-events-none absolute top-3 left-1/2 z-[1000] -translate-x-1/2 max-w-[90vw] rounded-lg border border-stone-200 bg-white/95 px-3 py-1.5 text-center shadow-sm backdrop-blur">
+        <div className="pointer-events-auto absolute top-3 left-1/2 z-[1000] -translate-x-1/2 max-w-[90vw] rounded-lg border border-stone-200 bg-white/95 px-3 py-1.5 text-center shadow-sm backdrop-blur">
+          <Breadcrumbs
+            items={[{ label: 'Kart', href: '/kart' }, { label: COUNTRY_NAMES[country] ?? country.toUpperCase() }]}
+            className="justify-center border-0 bg-transparent p-0"
+          />
           <p className="text-[10px] font-semibold uppercase tracking-wider text-stone-400">
             Matkart {COUNTRY_NAMES[country] ?? country}
           </p>
@@ -96,6 +102,13 @@ export default function KartCountryPage({ params }: { params: Promise<{ country:
         <LayerPanel />
         <FoodDesertPanel />
         <VulnerabilityPanel />
+        <CoverageBadgeStrip
+          datasetIds={['produksjonstilskudd', 'leveransedata']}
+          title="Kartdatadekning"
+          note="Register- og leveranselag kontrolleres mot beregnede coverage-profiler."
+          compact
+          className="absolute bottom-16 right-4 z-[1000] hidden w-80 max-w-[calc(100vw-2rem)] md:block"
+        />
         <DataSourcesPanel />
       </div>
     </MapProvider>

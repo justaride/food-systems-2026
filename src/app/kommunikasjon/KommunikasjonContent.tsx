@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { Card } from '@/components/ui/Card'
+import { DataReadinessNotice } from '@/components/ui/DataReadinessNotice'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { FilterChips } from '@/components/ui/FilterChips'
 import { EmptyState } from '@/components/ui/EmptyState'
@@ -28,12 +29,23 @@ const typeFilters = [
 
 const formatTo = (to: string[]): string => to.join(', ')
 
-export function KommunikasjonContent({ communications }: { communications: CommunicationRow[] }) {
+function formatTableCount(count: number | null): string {
+  return count == null ? 'ukjent antall rader' : `${count.toLocaleString('no')} rader`
+}
+
+export function KommunikasjonContent({
+  communications,
+  communicationTableCount,
+}: {
+  communications: CommunicationRow[]
+  communicationTableCount: number | null
+}) {
   const [typeFilter, setTypeFilter] = useState('alle')
 
   const filtered = communications.filter(c =>
     typeFilter === 'alle' || c.commType === typeFilter
   )
+  const communicationTableNeedsNotice = communicationTableCount == null || communicationTableCount === 0
 
   return (
     <div className="space-y-6">
@@ -42,10 +54,26 @@ export function KommunikasjonContent({ communications }: { communications: Commu
         <p className="text-sm text-stone-400 mt-1">E-post og korrespondanse</p>
       </div>
 
+      {communicationTableNeedsNotice && (
+        <DataReadinessNotice title="Venter på kommunikasjonslogg">
+          <p>
+            Communication-tabellen har {formatTableCount(communicationTableCount)}. Siden kan vise
+            tilknyttede dokumenter eller arbeidsmelding, men den er ikke en komplett DB-logg over
+            korrespondanse før kommunikasjonsloggen er importert.
+          </p>
+        </DataReadinessNotice>
+      )}
+
       <FilterChips items={typeFilters} defaultValue="alle" onChange={setTypeFilter} />
 
       {filtered.length === 0 ? (
-        <EmptyState message="Kommunikasjon legges til etterhvert som korrespondanse skjer" />
+        <EmptyState
+          message={
+            communicationTableNeedsNotice
+              ? 'Venter på datagrunnlag: Communication-tabellen har ingen importerte rader.'
+              : 'Kommunikasjon legges til etterhvert som korrespondanse skjer'
+          }
+        />
       ) : (
         <div className="space-y-3">
           {filtered.map(item => (

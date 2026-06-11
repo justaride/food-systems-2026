@@ -207,6 +207,66 @@ model SourceRef {
   @@index([insightId])
 }
 
+// ─── Domain 2b: Food TG mandate board ───────────────────────────────
+
+model ClaimBoardEntry {
+  id              String   @id
+  claimId         String
+  track           String
+  title           String
+  strength        String
+  status          String
+  nextAction      String
+  useNow          String
+  needs           String
+  sourcePath      String
+  sourceUpdatedAt DateTime
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([claimId])
+  @@index([track])
+  @@index([status])
+}
+
+model OpportunityEntry {
+  id              String   @id
+  rank            Int      @unique
+  title           String
+  track           String
+  role            String
+  statuses        String[]
+  whyNow          String
+  canSay          String
+  cannotSay       String
+  validationNeed  String
+  stopSignal      String
+  nextAction      String
+  claimIds        String[]
+  evidenceIds     String[]
+  sourceIds       String[]
+  sourcePath      String
+  sourceUpdatedAt DateTime
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([rank])
+  @@index([track])
+}
+
+model FoodTgBoardLedger {
+  id          String   @id @default(cuid())
+  entryType   String
+  entryId     String
+  contentHash String
+  snapshot    Json
+  sourcePath  String
+  importedAt  DateTime @default(now())
+
+  @@unique([entryType, entryId, contentHash])
+  @@index([entryType, entryId])
+}
+
 // ─── Domain 3: Insights ─────────────────────────────────────────────
 
 model Insight {

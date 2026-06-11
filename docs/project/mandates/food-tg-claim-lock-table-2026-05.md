@@ -5,7 +5,7 @@
 **Scope-status:** Venter scope- eller minimumsvedtak.
 **Bruksregel:** Denne tabellen styrer hva som kan skrives i decision pack, deck, nettside og senere whitepaper. Den erstatter ikke `claim-register-food-tg.md`; den er et smalere kontrollag for publiserbar tekst.
 
-Ingen claim i denne filen er `Validert eksternt`. `klar` betyr bare at claimet kan brukes med oppgitt kilde, caveat og status. `klar-med-forbehold` betyr at det kan brukes internt eller i kontrollert ekstern tekst med tydelig forbehold. `krever-bekreftelse` betyr at claimet ikke skal skrives i faktastemme.
+Ingen claim i denne filen er eksternt validert. `klar` betyr bare at claimet kan brukes med oppgitt kilde, caveat og status. `klar-med-forbehold` betyr at det kan brukes internt eller i kontrollert ekstern tekst med tydelig forbehold. `krever-bekreftelse` betyr at claimet ikke skal skrives i faktastemme.
 
 ## Wageningen/SRC-B-035 Claim-Gate 2026-05-28
 
@@ -87,6 +87,20 @@ Disse formuleringene kommer fra 09.06-samtalen eller nærliggende casehypoteser.
 | 100% Fish beviser at norsk sjømat kan løftes direkte til første høyverdi-case. | `hold-tilbake` | `DRR-0906-007` styrker benchmark/designkrav, men svekker bokstavelig 100 prosent, norsk pilotbevis og høyverdiandel-claim uten SINTEF/FHF-fraksjonsdata og aktørvalidering. |
 | Kunstgjødselhistorie/Yara/Hydro forklarer Food TGs nutrient-loop-case. | `hold-tilbake` | Bruk kun som kontekst hvis presis primær-/fagkilde finnes; ikke la historielinjen erstatte konkrete nutrient-loop-data. |
 
+## 11.06 72t-ledger claim-effekt
+
+`food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md` skjerper stoppspraket, men apner ingen claim alene.
+
+| Case | Claim-effekt | Riktig handling |
+|---|---|---|
+| Brasil/kaffe | WCEF/Nordic Night og EUDR/kaffe kan brukes som kontekst; MOU-/partnerclaim er fortsatt sperret. | Behold `hold-tilbake` for relasjon; bruk bare import-/sporbarhetshypotese internt. |
+| Elfenbenskysten/kakao | CI-sporbarhet styrkes; Natural State/LEAD/MOU er ikke dokumentert. | Skill EUDR-kontekst fra relasjon; behold relasjon i PCQ. |
+| Valio/Finland | Soyafri feed-governance styrkes; importfritt fôr svekkes. | Tillat bare intern soyafri governance-formulering med import-gap. |
+| Distribusjon/adoption | Strukturell C-gate styrkes; BAMA-blokkering/margin/misbruk svekkes. | Bruk bredt casenavn og juridisk forsiktig språk. |
+| Spillvarme | Hima styrkes; planprosjekter og nasjonalt TWh-claim svekkes. | Bruk casevis ledger; ikke summer elektrisk kapasitet som nyttiggjort varme. |
+| 100% Fish | Benchmark og SINTEF/FHF-baseline styrkes; bokstavelig 100 prosent og norsk pilotbevis svekkes. | Bruk benchmark-only og krev fraksjon/høyverdi-data. |
+| Skottland/Polen | Skottland styrkes som benchmark-kandidat; Polen mangler konkret case. | Skottland fulltekstgate; Polen watchlist/parkering. |
+
 ## Neste arbeid
 
 1. Oppdater tabellen etter hver primary-check og aktørrespons.
@@ -95,5 +109,6 @@ Disse formuleringene kommer fra 09.06-samtalen eller nærliggende casehypoteser.
 4. Bruk `food-tg-deep-research-prompt-pack-2026-06-10.md` for videre casevis Deep Research og post-research validering; prompt-output kan styrke eller svekke arbeidsgrunnlag, men åpner ikke claim alene.
 5. Bruk `food-tg-casekort-og-research-mottak-2026-06-10.md` som mottaks- og importgate før nye Deep Research-funn påvirker claim-lock, PCQ eller actor validation pack.
 6. Bruk `food-tg-deep-research-results-intake-2026-06-10.md` som resultatlogg for de åtte mottatte outputene; den skjerper hold-tilbake-språk, men åpner ingen claim alene.
-7. Oppdater 09.06-radene etter `SRC-0906-*`, `PCQ-0906-*` og actor validation pack har ny dokumentasjon.
-8. Bruk denne filen som gate før `food-tg-public-language-bank-v0.1.md`, decision deck og roadmap skrives.
+7. Bruk `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md` og `food-tg-research-intake-decision-pack-2026-06-10.md` som 72t-kontroll før casekort, deck og roadmap oppdateres.
+8. Oppdater 09.06-radene etter `SRC-0906-*`, `PCQ-0906-*` og actor validation pack har ny dokumentasjon.
+9. Bruk denne filen som gate før `food-tg-public-language-bank-v0.1.md`, decision deck og roadmap skrives.

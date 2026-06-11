@@ -1,0 +1,376 @@
+{
+  "generatedAt": "2026-06-11T00:40:38.888Z",
+  "totals": {
+    "scripts": 39,
+    "uniqueDefined": 283,
+    "uniqueFound": 275,
+    "uniqueMissing": 8,
+    "uniqueExcepted": 8,
+    "uniqueUnexplainedMissing": 0,
+    "dbCompanies": 275
+  },
+  "scripts": [
+    {
+      "script": "scripts/import-actors.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-akvakulturregister.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-akvakultursoknader.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-asko-corporate-tree.ts",
+      "defined": 17,
+      "found": 17,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-bama-tree.ts",
+      "defined": 8,
+      "found": 8,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-barekraft-sources.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-company-data.ts",
+      "defined": 43,
+      "found": 43,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-company-extraction-candidates.ts",
+      "defined": 7,
+      "found": 7,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-company-ownership.ts",
+      "defined": 31,
+      "found": 31,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-coop-tree.ts",
+      "defined": 20,
+      "found": 20,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-external-sources.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-felleskjopet-tree.ts",
+      "defined": 9,
+      "found": 9,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-fiskehelse.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-food-research-process-intake.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-horeca-companies.ts",
+      "defined": 16,
+      "found": 16,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-kavli-tree.ts",
+      "defined": 4,
+      "found": 4,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-landbruksregister.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-leroy-tree.ts",
+      "defined": 8,
+      "found": 8,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-leveransedata.ts",
+      "defined": 3,
+      "found": 3,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-market-metrics.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-mowi-tree.ts",
+      "defined": 5,
+      "found": 5,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-nordic-deepening.ts",
+      "defined": 28,
+      "found": 28,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-norgesgruppen-tree.ts",
+      "defined": 25,
+      "found": 25,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-nortura-tree.ts",
+      "defined": 12,
+      "found": 12,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-orkla-tree.ts",
+      "defined": 13,
+      "found": 13,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-person-profiles.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-produksjonstilskudd.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-reitan-tree.ts",
+      "defined": 12,
+      "found": 12,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-remaining-deep.ts",
+      "defined": 5,
+      "found": 5,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-research-20260420.ts",
+      "defined": 71,
+      "found": 63,
+      "missing": [
+        "948202063",
+        "949556207",
+        "987565922",
+        "DK-COOP-DK",
+        "FI-KESKO",
+        "FI-SGROUP",
+        "NO-PELAGIA",
+        "SE-DAGAB"
+      ],
+      "excepted": [
+        {
+          "script": "scripts/import-research-20260420.ts",
+          "orgNr": "948202063",
+          "reason": "April research alias/reference for Coop Norge; approved Company corpus models Coop Norge SA as org.nr. 936560288 and Coop Norge Eiendom AS as NO-948202063-EIE."
+        },
+        {
+          "script": "scripts/import-research-20260420.ts",
+          "orgNr": "949556207",
+          "reason": "Historical REMA/Lidl acquisition reference only; approved Company corpus models Reitan Retail AS as 914526647 and REMA 1000 Norge AS as 982254604."
+        },
+        {
+          "script": "scripts/import-research-20260420.ts",
+          "orgNr": "987565922",
+          "reason": "April research property-tenant/reference id for NorgesGruppen; approved Company corpus models NorgesGruppen ASA as org.nr. 819731322."
+        },
+        {
+          "script": "scripts/import-research-20260420.ts",
+          "orgNr": "DK-COOP-DK",
+          "reason": "April research alias for Coop Danmark failed-entrant context; approved Company corpus models Coop Danmark A/S as DK-26259495."
+        },
+        {
+          "script": "scripts/import-research-20260420.ts",
+          "orgNr": "FI-KESKO",
+          "reason": "April research alias for Kesko; approved Company corpus models Kesko Oyj as FI-0110456-8."
+        },
+        {
+          "script": "scripts/import-research-20260420.ts",
+          "orgNr": "FI-SGROUP",
+          "reason": "April research alias for S Group; approved Company corpus models SOK (S Group) as FI-0116323-9."
+        },
+        {
+          "script": "scripts/import-research-20260420.ts",
+          "orgNr": "NO-PELAGIA",
+          "reason": "Historical acquisition counterparty referenced in April research relationships; not loaded as a Company row by the approved corpus."
+        },
+        {
+          "script": "scripts/import-research-20260420.ts",
+          "orgNr": "SE-DAGAB",
+          "reason": "April research alias for Dagab; approved Company corpus models Dagab Inkop & Logistik AB as SE-556004-7903."
+        }
+      ],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-research-docs.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-root-docs.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-salmar-tree.ts",
+      "defined": 5,
+      "found": 5,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-seafood-holdings-tree.ts",
+      "defined": 3,
+      "found": 3,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-session10-relationships.ts",
+      "defined": 21,
+      "found": 21,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-session5-supply-chain.ts",
+      "defined": 38,
+      "found": 38,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-tine-tree.ts",
+      "defined": 5,
+      "found": 5,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-transcripts.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    },
+    {
+      "script": "scripts/import-ts-data.ts",
+      "defined": 0,
+      "found": 0,
+      "missing": [],
+      "excepted": [],
+      "unexplainedMissing": []
+    }
+  ]
+}

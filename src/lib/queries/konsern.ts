@@ -266,11 +266,23 @@ export type KonsernFinancialsAggregate = {
     companyId: string
     companyName: string
     revenueNok: number | null
+    year: number | null
   }>
   childrenWithoutLatestFinancial: Array<{
     companyId: string
     companyName: string
   }>
+}
+
+function latestFinancialByCompany<T extends { companyId: string; year: number }>(financials: T[]): Map<string, T> {
+  const latest = new Map<string, T>()
+  for (const financial of financials) {
+    const existing = latest.get(financial.companyId)
+    if (!existing || financial.year > existing.year) {
+      latest.set(financial.companyId, financial)
+    }
+  }
+  return latest
 }
 
 export async function getKonsernFinancials(treeIds: string[]): Promise<KonsernFinancialsAggregate> {
@@ -323,13 +335,15 @@ export async function getKonsernFinancials(treeIds: string[]): Promise<KonsernFi
     .map(([year, agg]) => ({ year, ...agg }))
     .sort((a, b) => b.year - a.year)  // newest first
 
-  // Top 5 by latest year revenue
-  const latestFinancials = financials.filter(f => f.year === latestYear)
+  // Top 5 by newest available revenue per company.
+  const latestFinancials = Array.from(latestFinancialByCompany(financials).values())
   const revenueByCompany = new Map<string, number>()
+  const yearByCompany = new Map<string, number>()
   for (const f of latestFinancials) {
     const rev = financialAmountToNok(f.revenueNok, f.source)
     if (rev != null) {
       revenueByCompany.set(f.companyId, (revenueByCompany.get(f.companyId) ?? 0) + rev)
+      yearByCompany.set(f.companyId, f.year)
     }
   }
 
@@ -340,9 +354,10 @@ export async function getKonsernFinancials(treeIds: string[]): Promise<KonsernFi
       companyId,
       companyName: companyNameById.get(companyId) ?? companyId,
       revenueNok,
+      year: yearByCompany.get(companyId) ?? null,
     }))
 
-  // Companies without latest year financials
+  // Companies without any financial row in the analysis window.
   const companiesWithLatest = new Set(latestFinancials.map(f => f.companyId))
   const childrenWithoutLatestFinancial = treeIds
     .filter(id => !companiesWithLatest.has(id))

@@ -1,3 +1,4 @@
+import { SELF_SUFFICIENCY_REFERENCE } from '@/lib/data/forside-kpis'
 import type { CountryConfig } from '../countries'
 
 export const norwayConfig: CountryConfig = {
@@ -5,7 +6,7 @@ export const norwayConfig: CountryConfig = {
   name: 'Norge',
   center: [65, 13],
   zoom: 5,
-  selfSufficiency: 0.45,
+  selfSufficiency: SELF_SUFFICIENCY_REFERENCE.ratio,
   municipalityIdProp: 'kommunenummer',
   municipalityNameProp: 'kommunenavn',
   chains: {
@@ -132,7 +133,7 @@ export const norwayConfig: CountryConfig = {
       records: '4-faktor risikomodell',
       source: 'Vektet modell: hub-avstand (30%), butikktetthet (30%), selvforsyning (20%), befolkningstetthet (20%)',
       updated: 'Beregnet i sanntid',
-      limitations: 'Modellen er en forenkling. Selvforsyningsgrad er nasjonal baseline (45%). Faktorvekter er ekspertvurdering.',
+      limitations: `Modellen er en forenkling. Selvforsyningsgrad er NIBIO 2024-baseline (${SELF_SUFFICIENCY_REFERENCE.displayValue}, totalt inkl. fisk; ${SELF_SUFFICIENCY_REFERENCE.feedCorrectedDisplayValue} forkorrigert). Faktorvekter er ekspertvurdering.`,
     },
   ],
 }

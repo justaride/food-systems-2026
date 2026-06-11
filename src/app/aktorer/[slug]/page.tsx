@@ -6,6 +6,8 @@ import { getActorBySlug } from '@/lib/queries/actors'
 import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
 import { InternalBanner } from '@/components/ui/InternalBanner'
 import { InternalSection } from '@/components/ui/InternalSection'
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
+import { RelatedLinks } from '@/components/ui/RelatedLinks'
 
 const STANCE_LABELS: Record<string, string> = {
   champion: 'Champion',
@@ -39,13 +41,38 @@ export default async function ActorDetailPage({
 
   if (!actor) return notFound()
 
+  const relatedItems = [
+    ...(actor.company
+      ? [{
+          label: actor.company.name,
+          href: `/selskap/${actor.company.id}`,
+          meta: actor.company.valueChainStage ?? 'Koblet selskap',
+          badge: actor.company.ownershipType,
+        }]
+      : []),
+    ...actor.relationshipsFrom.map(relation => ({
+      label: relation.toActor.name,
+      href: `/aktorer/${relation.toActor.slug}`,
+      meta: relation.note ?? relation.relationType,
+      badge: 'utgående',
+    })),
+    ...actor.relationshipsTo.map(relation => ({
+      label: relation.fromActor.name,
+      href: `/aktorer/${relation.fromActor.slug}`,
+      meta: relation.note ?? relation.relationType,
+      badge: 'inngående',
+    })),
+    ...actor.documentRefs.map(ref => ({
+      label: ref.document.title,
+      href: `/bibliotek/${ref.document.slug}`,
+      meta: ref.context ?? ref.document.category ?? 'kilde',
+      badge: 'dokument',
+    })),
+  ]
+
   return (
     <div className="space-y-6">
-      <nav className="flex items-center gap-2 text-xs text-stone-500">
-        <Link href="/aktorer" className="hover:text-emerald-700">Aktører</Link>
-        <span>/</span>
-        <span className="font-medium text-stone-700">{actor.name}</span>
-      </nav>
+      <Breadcrumbs items={[{ label: 'Aktører', href: '/aktorer' }, { label: actor.name }]} />
       <InternalBanner note="Intern aktørprofil: påvirkningsvurdering, ikke ekstern fakta-profil." />
       <div>
         <div className="flex flex-wrap items-center gap-2">
@@ -77,6 +104,8 @@ export default async function ActorDetailPage({
       </div>
 
       <Glossary category="status" title="Statusforklaringer" />
+
+      <RelatedLinks items={relatedItems} />
 
       <div className="grid gap-4 lg:grid-cols-4">
         <Card>

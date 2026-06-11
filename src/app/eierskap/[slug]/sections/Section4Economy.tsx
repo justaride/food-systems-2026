@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { KonsernFinancialsAggregate } from '@/lib/queries/konsern'
-import { fmtEmployees, fmtMnok } from './formatters'
+import { fmtEmployees, fmtMnok, fmtMnokWithYear } from './formatters'
 
 export function Section4Economy({ financials }: { financials: KonsernFinancialsAggregate }) {
   const { perYear, topRevenueChildren, childrenWithoutLatestFinancial } = financials
@@ -54,7 +54,7 @@ export function Section4Economy({ financials }: { financials: KonsernFinancialsA
                       {child.companyName}
                     </Link>
                     <span className="text-stone-500 tabular-nums text-xs shrink-0">
-                      {fmtMnok(child.revenueNok)}
+                      {fmtMnokWithYear(child.revenueNok, child.year)}
                     </span>
                   </li>
                 ))}
@@ -66,7 +66,7 @@ export function Section4Economy({ financials }: { financials: KonsernFinancialsA
             <details className="group">
               <summary className="cursor-pointer text-sm text-stone-500 hover:text-stone-700 select-none list-none flex items-center gap-1">
                 <span className="group-open:rotate-90 inline-block transition-transform text-xs">&#9654;</span>
-                Datterselskap uten siste års regnskap ({childrenWithoutLatestFinancial.length})
+                Datterselskap uten regnskap i perioden ({childrenWithoutLatestFinancial.length})
               </summary>
               <ul className="mt-2 space-y-1 pl-4">
                 {childrenWithoutLatestFinancial.map(child => (

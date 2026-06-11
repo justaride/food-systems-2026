@@ -12,6 +12,8 @@ relaterte_filer:
   - docs/project/mandates/food-tg-claim-lock-table-2026-05.md
   - docs/project/mandates/food-tg-casekort-og-research-mottak-2026-06-10.md
   - docs/project/mandates/food-tg-deep-research-results-intake-2026-06-10.md
+  - docs/project/mandates/food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md
+  - docs/project/mandates/food-tg-research-intake-decision-pack-2026-06-10.md
 ---
 
 # Food TG Deep Research Prompt Pack 2026-06-10
@@ -24,8 +26,10 @@ Deep Research-output er ikke ekstern faktastemme. Outputen er et kildejakt- og v
 
 1. `food-tg-deep-research-results-intake-2026-06-10.md` for resultatlogg når output er mottatt.
 2. `food-tg-casekort-og-research-mottak-2026-06-10.md` for registrering, casekortstatus og importbeslutning.
-3. `source-shortlist-food-tg.md` for ny eller forbedret kilde.
-4. `primary-check-queue-food-tg-v0.1.md` for primærkilde, data eller aktørgate.
+3. `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md` for kilde-/datakontroll og importbeslutning.
+4. `food-tg-research-intake-decision-pack-2026-06-10.md` for samlet go/no-go etter inntak.
+5. `source-shortlist-food-tg.md` for ny eller forbedret kilde.
+6. `primary-check-queue-food-tg-v0.1.md` for primærkilde, data eller aktørgate.
 5. `food-tg-claim-lock-table-2026-05.md` før noe brukes i faktastemme.
 6. `actor-validation-pack-food-tg-v0.1.md` når funn krever aktørbekreftelse eller bruksrett.
 

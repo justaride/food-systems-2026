@@ -77,7 +77,10 @@ export async function getActors(opts?: {
       },
     })
 
-    return sortActors(actors)
+    return sortActors(actors).map(actor => ({
+      ...actor,
+      lastVerifiedAt: actor.lastVerifiedAt?.toISOString() ?? null,
+    }))
   } catch (error) {
     if (isMissingPrismaTable(error, 'Actor')) return []
     throw error

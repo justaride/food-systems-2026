@@ -46,4 +46,8 @@ describe('nav structure', () => {
     const prod = navGroups.find(g => g.groupKey === 'produsenter')
     assert.ok(prod?.items.some(i => i.href === '/produsenter'), 'expected /produsenter in Produsenter group')
   })
+  it('exposes datastatus as an internal working surface', () => {
+    const internal = navGroups.find(g => g.groupKey === 'intern')
+    assert.ok(internal?.items.some(i => i.href === '/datastatus'), 'expected /datastatus in Intern group')
+  })
 })

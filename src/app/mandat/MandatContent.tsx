@@ -4,10 +4,8 @@ import { PageFraming } from '@/components/ui/PageFraming'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
 import { StatusLegend } from '@/components/visualization/StatusLegend'
 import {
-  foodTgClaimBoard,
   foodTgClaimStrengthLabels,
   foodTgMandateSummary,
-  foodTgOpportunityRadar,
   foodTgStatusLabels,
   foodTgStopSignals,
   foodTgTrackStatusCards,
@@ -19,6 +17,11 @@ import {
   type FoodTgValidationLaneId,
   type FoodTgValidationStatus,
 } from '@/lib/data/food-tg-mandate'
+import type {
+  FoodTgBoardSource,
+  FoodTgClaimBoardView,
+  FoodTgOpportunityView,
+} from '@/lib/queries/food-tg-board'
 import {
   foodTgCandidateCards,
   foodTgControlDocuments,
@@ -303,8 +306,45 @@ function WageningenMethodOverview() {
   )
 }
 
-export function MandatContent() {
-  const statusCounts = foodTgOpportunityRadar.reduce<Record<FoodTgValidationStatus, number>>((acc, item) => {
+function formatBoardDate(value: string) {
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return value
+  return new Intl.DateTimeFormat('nb-NO', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  }).format(date)
+}
+
+function BoardRowMeta({
+  updatedAt,
+  sourcePath,
+  dataSource,
+}: {
+  updatedAt: string
+  sourcePath: string
+  dataSource: FoodTgBoardSource
+}) {
+  return (
+    <p className="mt-2 text-[11px] leading-relaxed text-stone-500">
+      Oppdatert: {formatBoardDate(updatedAt)} ·{' '}
+      {dataSource === 'db' ? 'DB-rad' : 'statisk fallback'} · {sourcePath}
+    </p>
+  )
+}
+
+export function MandatContent({
+  claimBoard,
+  opportunityRadar,
+  boardSource,
+  boardSourcePath,
+}: {
+  claimBoard: FoodTgClaimBoardView[]
+  opportunityRadar: FoodTgOpportunityView[]
+  boardSource: FoodTgBoardSource
+  boardSourcePath: string
+}) {
+  const statusCounts = opportunityRadar.reduce<Record<FoodTgValidationStatus, number>>((acc, item) => {
     for (const status of item.statuses) acc[status] = (acc[status] ?? 0) + 1
     return acc
   }, {} as Record<FoodTgValidationStatus, number>)
@@ -367,6 +407,13 @@ export function MandatContent() {
         title="Status for Food TG-styring"
         description="Legend viser hvilke ord som holder claims i riktig styrke: utført internt er arbeidsstatus, blokkert skal stoppes, og validert eksternt er reservert for dokumentert ekstern bekreftelse."
       />
+
+      {boardSource === 'static-fallback' && (
+        <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-relaxed text-amber-950">
+          Claim-board og opportunity-radar bruker statisk fallback fra {boardSourcePath}. Kjør importen for
+          DB-rader med egen oppdateringshistorikk.
+        </div>
+      )}
 
       <WageningenMethodOverview />
 
@@ -567,7 +614,7 @@ export function MandatContent() {
 
       <Card title="Opportunity radar">
         <div className="space-y-4">
-          {foodTgOpportunityRadar.map((item) => (
+          {opportunityRadar.map((item) => (
             <div key={item.rank} className="rounded-lg border border-stone-200 p-4">
               <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
                 <div>
@@ -611,6 +658,7 @@ export function MandatContent() {
                   </span>
                 ))}
               </div>
+              <BoardRowMeta updatedAt={item.updatedAt} sourcePath={item.sourcePath} dataSource={item.dataSource} />
             </div>
           ))}
         </div>
@@ -627,7 +675,7 @@ export function MandatContent() {
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_0.8fr]">
         <Card title="Claim og evidence board">
           <div className="space-y-3">
-            {foodTgClaimBoard.map((claim) => (
+            {claimBoard.map((claim) => (
               <div key={claim.id} className="border-b border-stone-100 pb-3 last:border-0 last:pb-0">
                 <div className="flex flex-wrap items-center gap-2">
                   <TrackPill track={claim.track} />
@@ -639,6 +687,7 @@ export function MandatContent() {
                 <p className="mt-1 text-sm text-stone-600">{claim.useNow}</p>
                 <p className="mt-1 text-xs text-stone-500">Neste handling: {claim.nextAction}</p>
                 <p className="mt-1 text-xs text-stone-500">Må avklares: {claim.needs}</p>
+                <BoardRowMeta updatedAt={claim.updatedAt} sourcePath={claim.sourcePath} dataSource={claim.dataSource} />
               </div>
             ))}
           </div>

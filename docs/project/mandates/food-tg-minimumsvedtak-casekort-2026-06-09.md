@@ -8,7 +8,7 @@
 
 ## Anbefalt minimumsvedtak
 
-Food TG kan gjennomføre en to-ukers intern casekort- og researchsprint basert på 09.06-samtalen. A+B/C beholdes som arbeidsramme; nye case behandles som caseanker og valideringshypoteser. Ingen ekstern outreach sendes og ingen claim løftes til `Validert eksternt` før separat scope- eller minimumsvedtak foreligger.
+Food TG kan gjennomføre en to-ukers intern casekort- og researchsprint basert på 09.06-samtalen. A+B/C beholdes som arbeidsramme; nye case behandles som caseanker og valideringshypoteser. Ingen ekstern outreach sendes og ingen claim løftes til eksternt validert før separat scope- eller minimumsvedtak foreligger.
 
 ## Hva vedtaket åpner
 

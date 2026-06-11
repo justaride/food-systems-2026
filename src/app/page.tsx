@@ -3,15 +3,8 @@ import { Card } from '@/components/ui/Card'
 import { KpiCard } from '@/components/ui/KpiCard'
 import { Glossary } from '@/components/ui/Glossary'
 import { ProgressBar } from '@/components/ui/ProgressBar'
+import { FOOD_SYSTEM_KPIS } from '@/lib/data/forside-kpis'
 import { getPhases, getTenSteps, getEvidenceDocs, getRecentInsights } from '@/lib/queries/project'
-import type { KPI } from '@/lib/types'
-
-const FOOD_SYSTEM_KPIS: KPI[] = [
-  { id: 'butikker', name: 'Butikker kartlagt', description: 'OSM-data, 14 kjeder', current: '3 849' },
-  { id: 'konsentrasjon', name: 'Markedskonsentrasjon', description: 'Tre kjeder dominerer', current: '96%', target: '<80%' },
-  { id: 'selvforsyning', name: 'Selvforsyningsgrad', description: 'Meld. St. 11-mål innen 2030', current: '44%', target: '50%' },
-  { id: 'matsvinn', name: 'Matsvinn', description: 'Spiselig mat kastet i Norge årlig', current: '390 000 t' },
-]
 
 const READER_JOURNEY = [
   {
@@ -39,6 +32,36 @@ const READER_JOURNEY = [
     description: 'Rapportstruktur og kapitler som skal holde intern analyse adskilt fra ekstern validering.',
   },
 ]
+
+const SYSTEM_MODEL_STEPS = [
+  {
+    label: 'Verdikjedeledd',
+    href: '/verdikjede',
+    detail: 'Jord-til-bord-strukturen som gir hvert funn riktig plass.',
+  },
+  {
+    label: 'Forsyningsdata',
+    href: '/forsyningskjede',
+    detail: 'Leveranser, relasjoner og vareflyt der datagrunnlaget finnes.',
+  },
+  {
+    label: 'Kildekontroll',
+    href: '/kilder',
+    detail: 'Kilder, status og forbehold som avgjør om språk kan skjerpes.',
+  },
+]
+
+function formatInsightDate(date: string | null | undefined) {
+  if (!date) return 'Udatert'
+  const parsed = new Date(`${date}T00:00:00`)
+  if (Number.isNaN(parsed.getTime())) return date
+
+  return new Intl.DateTimeFormat('no-NO', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  }).format(parsed)
+}
 
 export default async function OversiktPage() {
   const [phases, evidencePack, tenSteps, recentInsights] = await Promise.all([
@@ -154,27 +177,47 @@ export default async function OversiktPage() {
         </div>
       </div>
 
-      <Card className="border-emerald-200 bg-gradient-to-br from-white to-emerald-50/70">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+      <Card className="border-sky-200 bg-gradient-to-br from-white via-sky-50/50 to-emerald-50/60">
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <div>
-            <p className="text-[10px] uppercase tracking-wider text-emerald-700">Ny prototype</p>
-            <h2 className="mt-1 text-base font-semibold text-stone-900">Matflyt Norge</h2>
+            <p className="text-[10px] uppercase tracking-wider text-sky-700">Systemmodell</p>
+            <h2 className="mt-1 text-base font-semibold text-stone-900">Slik henger systemet sammen</h2>
             <p className="mt-1 text-sm text-stone-600">
-              Egen flow-visning med kuraterte forbindelser mellom norske havner og logistikkhub-er.
+              Verdikjedeleddene gir strukturen, forsyningsdata viser relasjonene, og kildekontroll avgjør hva som kan brukes videre.
             </p>
-            <div className="mt-3 flex flex-wrap gap-2 text-xs text-stone-500">
-              <span className="rounded-full border border-emerald-200 bg-white px-2.5 py-1">Norge-only</span>
-              <span className="rounded-full border border-emerald-200 bg-white px-2.5 py-1">15 forbindelser</span>
-              <span className="rounded-full border border-emerald-200 bg-white px-2.5 py-1">Kartprototype</span>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <Link
+                href="/metodikk"
+                className="inline-flex items-center justify-center rounded-lg bg-stone-900 px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-stone-700"
+              >
+                Åpne full modell
+              </Link>
+              <Link
+                href="/verdikjede"
+                className="inline-flex items-center justify-center rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-xs font-medium text-stone-700 transition-colors hover:border-emerald-300 hover:text-emerald-700"
+              >
+                Se verdikjede
+              </Link>
             </div>
           </div>
-          <div className="flex shrink-0">
-            <Link
-              href="/kart/no/flow"
-              className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-emerald-700"
-            >
-              Åpne flow prototype →
-            </Link>
+          <div className="grid gap-2 sm:grid-cols-3">
+            {SYSTEM_MODEL_STEPS.map((step, index) => (
+              <Link
+                key={step.href}
+                href={step.href}
+                className="group min-h-28 rounded-lg border border-white/80 bg-white/80 p-3 shadow-sm transition-colors hover:border-sky-300 hover:bg-white"
+              >
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-sky-700">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="mt-2 block text-sm font-semibold text-stone-900 group-hover:text-sky-900">
+                  {step.label}
+                </span>
+                <span className="mt-1 block text-xs leading-relaxed text-stone-600">
+                  {step.detail}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </Card>
@@ -192,7 +235,7 @@ export default async function OversiktPage() {
               <div key={item.id} className="py-1.5 px-2 rounded-lg bg-stone-50">
                 <p className="text-xs text-stone-700">{item.title}</p>
                 <p className="text-[10px] text-stone-400 mt-0.5">
-                  Kilde: {item.source} · {item.insightType}
+                  Dato: {formatInsightDate(item.date)} · Kilde: {item.source} · {item.insightType}
                 </p>
               </div>
             ))}

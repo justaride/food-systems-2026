@@ -2,8 +2,8 @@
 tittel: Food TG Source Shortlist v0.1
 status: Utført internt
 eier: Gabriel
-sist_oppdatert: 2026-06-10
-neste_handling: Brukes som inntak til evidence-matrix-food-tg.md (Phase 2). Se `food-tg-deep-research-source-intake-2026-06-10.md` for 10.06-gjennomgang av syv deep-research-filer mot `SRC-0906-*`, `food-tg-deep-research-prompt-pack-2026-06-10.md` for videre kildejakt, `food-tg-casekort-og-research-mottak-2026-06-10.md` for mottak/importbeslutning og `food-tg-deep-research-results-intake-2026-06-10.md` for de åtte mottatte resultatfilene før nye kilder legges inn.
+sist_oppdatert: 2026-06-11
+neste_handling: Brukes som inntak til evidence-matrix-food-tg.md (Phase 2). Se `food-tg-deep-research-source-intake-2026-06-10.md` for 10.06-gjennomgang av syv deep-research-filer mot `SRC-0906-*`, `food-tg-deep-research-prompt-pack-2026-06-10.md` for videre kildejakt, `food-tg-casekort-og-research-mottak-2026-06-10.md` for mottak/importbeslutning, `food-tg-deep-research-results-intake-2026-06-10.md` for de åtte mottatte resultatfilene, `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md` for 72t kilde-/datakontroll og `food-tg-research-intake-decision-pack-2026-06-10.md` for go/no-go-beslutninger.
 relaterte_filer:
   - research/KI-PRIORITY.md
   - research/PLATTFORM-KOBLING.md
@@ -13,7 +13,10 @@ relaterte_filer:
   - docs/project/mandates/food-tg-deep-research-prompt-pack-2026-06-10.md
   - docs/project/mandates/food-tg-casekort-og-research-mottak-2026-06-10.md
   - docs/project/mandates/food-tg-deep-research-results-intake-2026-06-10.md
+  - docs/project/mandates/food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md
+  - docs/project/mandates/food-tg-research-intake-decision-pack-2026-06-10.md
 endringslogg:
+  - 2026-06-11 Lagt til apnede/stabile `SRC-0906-011` til `SRC-0906-024` fra 72t primarkilde-/datakontroll-ledger. Disse er interne kildeanker med caveat; de apner ikke relasjons-, partner-, margin-, pilot- eller hoyverdiclaims.
   - 2026-06-10 Lagt til results intake for åtte mottatte Deep Research-outputer. Kildekandidater derfra må hentes og locator-sjekkes før de blir siterbare source-shortlist-rader.
   - 2026-06-10 Lagt til casekort- og research-mottaksfil som importgate før nye Deep Research-kilder eventuelt legges til source-shortlist, PCQ eller claim-lock.
   - 2026-06-10 Lagt til Deep Research prompt pack for videre casevis kildejakt og post-research validering mot `SRC-0906-*`, `PCQ-0906-*` og claim-lock.
@@ -202,6 +205,27 @@ Disse radene er lagt inn for å styre kildejakt etter 09.06-samtalen. De er ikke
 | SRC-0906-008 | Skottland havbruk/fiskeri/bioressurser | uvalidert | A-feed, B-sidestream, baseline, needs-source | Watchlist. Trenger konkret havbruk-, fiskeri- eller bioressurscase før sammenligning med Norge/Norden. |
 | SRC-0906-009 | Bacalhau Norge-Brasil / handelsakse | uvalidert | baseline, A-feed, actor, needs-source | Relasjonelt støttecase som bare bør brukes hvis det kobles til Brasil-aksen, fôr/import eller dokumentert handelsdata. |
 | SRC-0906-010 | Kunstgjødsel/Yara/Hydro/Haber-Bosch/biogass | uvalidert | B-sidestream, baseline, policy, needs-source | Næringsstoff- og energihistorikk er relevant støtte, men må holdes som kontekst til nutrient loops. Ingen tall- eller effektclaim uten primærkilde. |
+
+### 11.06 apnede kildeanker fra 72t-ledger
+
+Disse radene er importert fra `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md`. De kan brukes som interne kildeanker med caveat, men de lukker ikke claim-lock alene.
+
+| ID | Filsti / referanse | Kvalitetstag | Sportag(er) | Notat |
+|---|---|---|---|---|
+| SRC-0906-011 | https://www.nordicinnovation.org/events/2025/nordic-night | primær | baseline, actor, C-adoption | Nordic Innovation-side for Nordic Night/WCEF sideevent i São Paulo. Brukes som kontekst for nordisk-brasiliansk sirkularitetsarena, ikke som kaffe-/MOU-bevis. |
+| SRC-0906-012 | https://wcef2025.com/session/nordic-stage-collaboration-from-the-arctic-to-the-amazon/ | primær | baseline, C-adoption, A-feed | WCEF Nordic Stage-side som nevner coffee/cocoa som use cases og Natural State-kontakt. Programside, ikke prosjektkontrakt. |
+| SRC-0906-013 | European Commission EUDR overview og country classification list: https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en og https://green-forum.ec.europa.eu/nature-and-biodiversity/deforestation-regulation-implementation/eudr-cooperation-and-partnerships/country-classification-list_en | primær | C-adoption, policy, A-feed | Brukes for EUDR-scope, frister og standard-risk-avgrensning for Brazil/Cote d'Ivoire. Ikke norsk/EOS-praksis eller aktørworkflow alene. |
+| SRC-0906-014 | Government of Cote d'Ivoire traceability article: https://www.gouv.ci/actualite/durabilite-de-la-filiere-cafe-cacao-le-gouvernement-ivoirien-deploie-de-nombreuses-initiatives-2384 | primær | baseline, C-adoption, policy | Myndighetskilde for cafe-cacao traceability, producer cards og national traceability system. Ikke bevis for nordisk relasjon. |
+| SRC-0906-015 | Valio raw material policy on soy: https://www.valio.com/sustainability/transparent-sourcing/raw-material-policy-on-the-use-of-soy/ | primær | A-feed, C-adoption, actor | Aktørpolicy som dokumenterer soyafri feed-praksis fra 01.03.2018 for Valio-melkegarder i Finland. Ikke importfritt fôr. |
+| SRC-0906-016 | Luke import-dependency analysis og Ruokavirasto feed statistics page: https://www.luke.fi/en/blogs/how-dependent-is-food-production-on-imported-inputs og https://www.ruokavirasto.fi/elaimet/rehut/rehujen-valvonta/tilastot-ja-raportit/ | primær/sekundær | A-feed, baseline, policy | Finsk systemkontekst for protein-/fôrimport og datakilde for fôrkontroll/statistikk. Ikke Valio-spesifikk fôrkurv. |
+| SRC-0906-017 | Konkurransetilsynet Dagligvarerapport 2025: https://konkurransetilsynet.no/wp-content/uploads/2026/04/Dagligvarerapport-2025.pdf | primær | C-adoption, market power, policy | Tilsynskilde for dagligvarestruktur, konkurranse og frukt-/grøntlogistikk. Ikke BAMA-blokkering eller misbruk. |
+| SRC-0906-018 | SINTEF/Landbruksdirektoratet, Vertikal innendørs dyrking: https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/Vertikal%20innend%C3%B8rs%20dyrking%20SINTEF.pdf | primær | C-adoption, baseline | Norsk institusjonsrapport som støtter markedstilgang, avsetning og distribusjon som CEA-/vertical-farming-barrierer. Ikke kausal grossistbevis. |
+| SRC-0906-019 | OFG/Grøntinnsikt Frukt- og grøntstatistikk 2025: https://www.xn--grntinnsikt-hgb.no/globalassets/end_331699_frukt--og-grontstatistikk-2025_20260320.pdf | primær | baseline, C-adoption, data | Kilde for norskandel/importandel og grossistvolum med metode. Krever produkt-/månedstall før casevalg. |
+| SRC-0906-020 | Green Mountain Heat Reuse / Hima: https://greenmountain.no/why-green-mountain/heat-reuse/ | primær | B-sidestream, C-adoption, actor | Aktørkilde for operativ Hima/Green Mountain heat reuse, 1,75 MW fase og mulig 8 MW fase 2. Krever GWh/temp/økonomi før sterk faktastemme. |
+| SRC-0906-021 | SINTEF/Kontali/FHF Analyse marint restråstoff 2024: https://www.fhf.no/prosjekter/prosjektbasen/901844/?filename=rapport+analyse+marint+restrstoff+2024&fileurl=https%3A%2F%2Ffhfno.sharepoint.com%2Fsites%2Fpdb%2FPublisertedokumenter%2F405028Rapport+-+Analyse+marint+restr%C3%A5stof+2024.PDF | primær | B-sidestream, baseline, data | Norsk baseline for tilgjengelig, utnyttet og uutnyttet marint restråstoff. Høyverdi/fraksjon krever videre data. |
+| SRC-0906-022 | Statistics Iceland catch and value 2024: https://statice.is/publications/news-archive/fisheries/catch-and-value-of-catch-in-2024/ | primær | B-sidestream, baseline, data | Islandsk fangst-/verdibaseline for 100% Fish-benchmark. Ikke restråstoff- eller høyverdiandel alene. |
+| SRC-0906-023 | Zero Waste Scotland Biorefining Potential for Scotland: https://www.zerowastescotland.org.uk/resources/report-biorefining-potential-scotland | primær | B-sidestream, baseline, benchmark | Skotsk bioresource-benchmark og spor til Scottish Bioresource Mapping Tool. Bred/eldre biomaterialkilde; fulltekst/data dictionary kreves. |
+| SRC-0906-024 | Scottish Government Fish Farm Production Survey 2024: https://www.gov.scot/publications/scottish-fish-farm-production-survey-2024/ | primær | B-sidestream, A-feed, baseline | Skotsk havbruksvolum og metode. Ikke side-/restråstoffdata eller norsk overføringsbevis. |
 
 ## Kilder som krever manuell sjekk før ekstern bruk
 

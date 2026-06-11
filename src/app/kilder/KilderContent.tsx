@@ -3,10 +3,14 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
+import { ColumnHelp } from '@/components/ui/ColumnHelp'
+import { Glossary } from '@/components/ui/Glossary'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import type { BacklogRound, SourceDownloadStatus } from '@/lib/queries/download-backlog'
 import { CoverageOverview } from '@/components/coverage/CoverageOverview'
 import { InternalBanner } from '@/components/ui/InternalBanner'
+import { PageFraming } from '@/components/ui/PageFraming'
+import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 
 export type SourceRow = {
   id: string
@@ -174,6 +178,11 @@ export function KilderContent({
     analyse: sources.filter((s) => s.sourceType === 'analyse').length,
     lovverk: sources.filter((s) => s.sourceType === 'lovverk').length,
   }
+  const sectionAnchors = {
+    rounds: `${rounds.length} forskningsrunder`,
+    types: `${Object.keys(typeLabels).length - 1} kildetyper`,
+    results: `${filteredSources.length} treff`,
+  }
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
@@ -211,10 +220,59 @@ export function KilderContent({
         </div>
       </div>
 
+      <PageFraming
+        title="Hva svarer denne siden på?"
+        description={[
+          'Siden svarer på hvilke kilder, referanser og nedlastingsstatus som inngår i analysegrunnlaget.',
+          'Den brukes til kildeoversikt, opprinnelse, backlog-status og kobling videre til dokumenter når fulltekst finnes.',
+        ]}
+        takeaways={[
+          'Kilderegisteret er oversikten over hva som finnes, hvor det kommer fra og om det er nedlastet eller fortsatt i backlog.',
+          'Statusene skiller databasekilder, dokumentfallback og backlog-only rader slik at hull ikke blir skjult.',
+          'Lenker til biblioteket brukes når en registrert kilde også har lesbart dokumentinnhold.',
+        ]}
+        caveat="Internt arbeidsgrunnlag: kilde- og downloadstatus er kontrollspor, ikke en selvstendig vurdering av claim-styrke."
+        siblingLink={{
+          prompt: 'Leter du etter fulltekstlesing og dokumentinnhold?',
+          href: '/bibliotek',
+          label: 'Gå til Bibliotek',
+        }}
+      />
+
       <CoverageOverview />
 
+      <Glossary
+        category="kolonner"
+        terms={LIST_SURFACE_GLOSSARY_TERMS.kilder}
+        title="Kolonneforklaringer"
+      />
+
+      <nav
+        aria-label="Kildeseksjoner"
+        className="flex flex-wrap gap-2 rounded-xl border border-stone-200 bg-white p-3 text-xs"
+      >
+        <a
+          href="#kilder-runder"
+          className="rounded-md border border-blue-200 bg-blue-50 px-3 py-1.5 font-medium text-blue-800 hover:bg-blue-100"
+        >
+          Forskningsrunder · {sectionAnchors.rounds}
+        </a>
+        <a
+          href="#kilder-typer"
+          className="rounded-md border border-stone-200 bg-stone-50 px-3 py-1.5 font-medium text-stone-700 hover:bg-stone-100"
+        >
+          Kildetyper · {sectionAnchors.types}
+        </a>
+        <a
+          href="#kilder-resultater"
+          className="rounded-md border border-emerald-200 bg-emerald-50 px-3 py-1.5 font-medium text-emerald-800 hover:bg-emerald-100"
+        >
+          Resultatliste · {sectionAnchors.results}
+        </a>
+      </nav>
+
       {/* Research rounds banner */}
-      <div className="rounded-xl border border-blue-200 bg-blue-50/60 p-4">
+      <div id="kilder-runder" className="scroll-mt-6 rounded-xl border border-blue-200 bg-blue-50/60 p-4">
         <div className="text-sm font-semibold text-blue-900 mb-2">Forskningsrunder</div>
         <div className="flex flex-wrap gap-2">
           <button
@@ -314,7 +372,7 @@ export function KilderContent({
       </div>
 
       {/* Type filter + search */}
-      <div className="flex flex-col md:flex-row gap-4 items-center bg-stone-50 p-4 rounded-xl border border-stone-200">
+      <div id="kilder-typer" className="scroll-mt-6 flex flex-col md:flex-row gap-4 items-center bg-stone-50 p-4 rounded-xl border border-stone-200">
         <div className="w-full md:w-64">
           <input
             type="text"
@@ -349,7 +407,9 @@ export function KilderContent({
 
       {/* Status legend */}
       <div className="flex items-center gap-4 text-xs text-stone-600 flex-wrap">
-        <span className="font-semibold">Status:</span>
+        <span className="font-semibold">
+          <ColumnHelp term="Nedlastingsstatus" label="Status:" />
+        </span>
         {sourceDownloadStatuses.map((s) => {
           const dot = statusDot(s)
           return (
@@ -374,7 +434,7 @@ export function KilderContent({
       </div>
 
       {filter === 'nou' || filter === 'analyse' ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="kilder-resultater" className="scroll-mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSources.map((src) => {
             const dot = statusDot(src.downloadStatus)
             return (
@@ -440,26 +500,28 @@ export function KilderContent({
           })}
         </div>
       ) : (
-        <Card className="overflow-hidden">
+        <Card id="kilder-resultater" className="scroll-mt-6 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
                 <tr className="bg-stone-50 border-b border-stone-200">
-                  <th className="px-3 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider w-8"></th>
-                  <th className="px-6 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider">
-                    Kilde / Tittel
+                  <th className="px-3 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider w-8">
+                    <ColumnHelp term="Nedlastingsstatus" label="" />
                   </th>
                   <th className="px-6 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider">
-                    Type
+                    <ColumnHelp term="Kildetittel" label="Kilde / Tittel" />
                   </th>
                   <th className="px-6 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider">
-                    Utgiver / År
+                    <ColumnHelp term="Kildetype" label="Type" />
                   </th>
                   <th className="px-6 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider">
-                    Beskrivelse
+                    <ColumnHelp term="Utgiver" label="Utgiver / År" />
+                  </th>
+                  <th className="px-6 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider">
+                    <ColumnHelp term="Beskrivelse" />
                   </th>
                   <th className="px-6 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider text-right">
-                    Lenke
+                    <ColumnHelp term="Lenke" align="right" />
                   </th>
                 </tr>
               </thead>

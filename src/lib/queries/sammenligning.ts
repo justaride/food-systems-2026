@@ -62,9 +62,12 @@ type ValueChainJson = {
   currency?: string
   selfSufficiency?: {
     caloric_pct?: number | null
+    feed_corrected_pct?: number | null
+    strategic_grain_reserve_months?: number | null
     target_pct?: number | null
     target_year?: number | null
     source?: string | null
+    notes?: string | null
   } | null
   steps: ValueChainStep[]
   key_policies?: Array<{
@@ -109,6 +112,7 @@ export type DataPointMeta = {
 type MarketMetricKey = 'hhi' | 'cr3' | 'gini' | 'totalStores' | 'emvSharePct' | 'retailFormatMix' | 'parents'
 type PreparednessMetricKey =
   | 'selfSufficiencyCaloricPct'
+  | 'selfSufficiencyFeedCorrectedPct'
   | 'selfSufficiencyTargetPct'
   | 'selfSufficiencyTargetYear'
   | 'importTonnes'
@@ -152,6 +156,7 @@ export type CountrySammenligning = {
   }
   preparedness: {
     selfSufficiencyCaloricPct: number | null
+    selfSufficiencyFeedCorrectedPct: number | null
     selfSufficiencyTargetPct: number | null
     selfSufficiencyTargetYear: number | null
     importTonnes: number | null
@@ -320,8 +325,16 @@ function buildCountry(
   const ssSourceLabel = vc.selfSufficiency?.source ?? undefined
 
   const ssVal = vc.selfSufficiency?.caloric_pct ?? null
+  const ssFeedCorrectedVal = vc.selfSufficiency?.feed_corrected_pct ?? null
   const ssTargetVal = vc.selfSufficiency?.target_pct ?? null
   const ssTargetYearVal = vc.selfSufficiency?.target_year ?? null
+  const grainReserveVal = primary?.grain_reserve_months
+    ?? vc.selfSufficiency?.strategic_grain_reserve_months
+    ?? null
+  const grainReserveSources = code === 'fi' && grainReserveVal !== null
+    ? [ssSourceLabel ?? 'Huoltovarmuuskeskus (HVK)']
+    : primary?.sources ?? []
+  const grainReserveMethodNote = primary?.method_note ?? vc.selfSufficiency?.notes ?? undefined
 
   return {
     code,
@@ -338,6 +351,7 @@ function buildCountry(
     },
     preparedness: {
       selfSufficiencyCaloricPct: ssVal,
+      selfSufficiencyFeedCorrectedPct: ssFeedCorrectedVal,
       selfSufficiencyTargetPct: ssTargetVal,
       selfSufficiencyTargetYear: ssTargetYearVal,
       importTonnes: sumImports,
@@ -345,7 +359,7 @@ function buildCountry(
       exportTonnes: sumExports,
       exportValueBn: sumExportValue,
       feedImportPct: primary?.feed_import_pct ?? null,
-      grainReserveMonths: primary?.grain_reserve_months ?? null,
+      grainReserveMonths: grainReserveVal,
       sourceYear: vc.year ?? null,
     },
     valueChain: {
@@ -402,7 +416,14 @@ function buildCountry(
           'primary_snapshot',
           ssSourceLabel ? [ssSourceLabel] : [],
           vc.year,
-          vc.selfSufficiency?.target_year ? undefined : undefined,
+          vc.selfSufficiency?.notes ?? undefined,
+        ),
+        selfSufficiencyFeedCorrectedPct: metaFromExplicit(
+          ssFeedCorrectedVal,
+          'primary_snapshot',
+          ssSourceLabel ? [ssSourceLabel] : [],
+          vc.year,
+          vc.selfSufficiency?.notes ?? undefined,
         ),
         selfSufficiencyTargetPct: metaFromExplicit(ssTargetVal, 'primary_snapshot', ssSourceLabel ? [ssSourceLabel] : [], vc.year),
         selfSufficiencyTargetYear: metaFromExplicit(ssTargetYearVal, 'primary_snapshot', ssSourceLabel ? [ssSourceLabel] : [], vc.year),
@@ -412,10 +433,11 @@ function buildCountry(
         exportValueBn: metaFromExplicit(sumExportValue, 'primary_snapshot', ['SSB / Sjømatrådet / Eurostat'], vc.year),
         feedImportPct: metaFromStep(primary, primary?.feed_import_pct, vc.year),
         grainReserveMonths: metaFromExplicit(
-          primary?.grain_reserve_months ?? null,
+          grainReserveVal,
           code === 'fi' ? 'validated' : 'primary_snapshot',
-          code === 'fi' ? ['Huoltovarmuuskeskus (HVK)'] : primary?.sources ?? [],
+          grainReserveSources,
           vc.year,
+          grainReserveMethodNote,
         ),
       },
       valueChain: {

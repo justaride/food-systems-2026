@@ -1,4 +1,5 @@
 import type { CountryCode } from '@/lib/config/countries'
+import { SELF_SUFFICIENCY_REFERENCE } from '@/lib/data/forside-kpis'
 
 type SelfSufficiencyEntry = { name: string; value: number }
 type MarginEntry = { name: string; margin: number }
@@ -32,12 +33,12 @@ export const countryChartData: Record<CountryCode, CountryChartDataSet> = {
         { name: 'Kjøtt', value: 96 },
         { name: 'Poteter', value: 77 },
         { name: 'Grønnsaker', value: 49 },
-        { name: 'Kalorier', value: 44 },
+        { name: 'Kalorier', value: SELF_SUFFICIENCY_REFERENCE.valuePct },
         { name: 'Frukt', value: 4 },
       ],
-      year: '2023',
-      source: 'SSB/Landbruksdirektoratet',
-      subtitle: 'Andel av forbruk dekket av norsk produksjon',
+      year: String(SELF_SUFFICIENCY_REFERENCE.source.year),
+      source: SELF_SUFFICIENCY_REFERENCE.source.label,
+      subtitle: 'Andel av forbruk dekket av norsk produksjon; kaloriraden følger NIBIO AB5/AB6.',
     },
     margins: {
       data: [

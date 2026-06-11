@@ -74,6 +74,15 @@ async function loadCommunicationsFromTable(type?: string): Promise<Communication
   }
 }
 
+export async function getCommunicationTableCount(): Promise<number | null> {
+  try {
+    return await prisma.communication.count()
+  } catch (error) {
+    if (!isPrismaDataUnavailable(error)) throw error
+    return null
+  }
+}
+
 async function loadCommunicationsFromDocuments(type?: string): Promise<CommunicationRow[]> {
   if (type && type !== 'epost' && type !== 'brev') return []
 

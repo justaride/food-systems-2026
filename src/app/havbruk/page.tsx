@@ -3,6 +3,7 @@ import {
   getAquacultureSites,
   getAquacultureApplications,
   getAquacultureStats,
+  getFishHealthObservationCount,
 } from '@/lib/queries/aquaculture'
 import { HavbrukContent } from './HavbrukContent'
 
@@ -12,10 +13,11 @@ export const metadata: Metadata = {
 }
 
 export default async function HavbrukPage() {
-  const [sites, applications, stats] = await Promise.all([
+  const [sites, applications, stats, fishHealthObservationCount] = await Promise.all([
     getAquacultureSites(),
     getAquacultureApplications(),
     getAquacultureStats(),
+    getFishHealthObservationCount(),
   ])
 
   const siteRows = sites.map(s => ({
@@ -67,6 +69,7 @@ export default async function HavbrukPage() {
       totalCapacityTonnes={stats.totalCapacityTonnes}
       totalApplications={stats.totalApplications}
       companyStats={companyStats}
+      fishHealthObservationCount={fishHealthObservationCount}
     />
   )
 }

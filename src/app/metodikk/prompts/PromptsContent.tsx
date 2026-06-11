@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { FilterChips } from '@/components/ui/FilterChips'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import type { ResearchPromptStatus } from '@/lib/types'
 
 type ResearchPromptRow = {
@@ -146,11 +147,7 @@ export function PromptsContent({ researchPrompts }: { researchPrompts: ResearchP
   return (
     <div className="space-y-6">
       <div>
-        <div className="flex items-center gap-2 text-xs text-stone-400">
-          <a href="/metodikk" className="hover:text-stone-600">Metodikk</a>
-          <span>·</span>
-          <span>Deep research-prompter</span>
-        </div>
+        <Breadcrumbs items={[{ label: 'Metodikk', href: '/metodikk' }, { label: 'Deep research-prompter' }]} />
         <h1 className="text-2xl font-bold text-stone-900 mt-1">Deep research-prompter</h1>
         <p className="text-sm text-stone-400 mt-1">
           Prompt-maler for systematisk kunnskapsinnhenting ({researchPrompts.length} operative prompts). Intern metodikk som produserer innholdet i /innsikt og /rapporter.

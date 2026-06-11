@@ -3,8 +3,13 @@
 import Link from 'next/link'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
+import { ColumnHelp } from '@/components/ui/ColumnHelp'
+import { CoverageBadgeStrip } from '@/components/coverage/CoverageBadgeStrip'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { Glossary } from '@/components/ui/Glossary'
+import { MissingValue, formatCoverageFootnote, type MissingValueReason } from '@/components/ui/MissingValue'
 import { formatEmployeeDisplay, formatRevenueDisplay } from '@/lib/company-card-metrics'
+import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 
 type CompanyRow = {
   id: string
@@ -18,8 +23,11 @@ type CompanyRow = {
   ownershipType: string | null
   valueChainStage: string | null
   revenueNok: number | null
+  latestFinancialYear: number | null
   employees: number | null
   hasFinancialRow: boolean
+  financialMissingValueReason: MissingValueReason
+  financialMissingLabel: string
   controllingOwner: string | null
   boardCount: number
   subsidyCount: number
@@ -47,6 +55,31 @@ const OWNERSHIP_LABELS: Record<string, string> = {
   private: 'Privat',
 }
 
+function CoveragePill({
+  label,
+  ok,
+  missingReason = 'not_collected',
+  missingLabel = 'mangler',
+}: {
+  label: string
+  ok: boolean
+  missingReason?: MissingValueReason
+  missingLabel?: string
+}) {
+  return (
+    <span
+      className={`inline-flex items-center gap-1 rounded border px-1.5 py-0.5 ${
+        ok
+          ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
+          : 'border-stone-200 bg-stone-50 text-stone-500'
+      }`}
+    >
+      <span>{label}</span>
+      {ok ? <span>OK</span> : <MissingValue reason={missingReason} label={missingLabel} className="text-stone-500" />}
+    </span>
+  )
+}
+
 export function SelskaperContent({
   companies,
   initialStages = [],
@@ -63,6 +96,21 @@ export function SelskaperContent({
     () => Array.from(new Set(companies.map(c => c.valueChainStage).filter((v): v is string => Boolean(v)))).sort(),
     [companies]
   )
+  const stageCounts = useMemo(
+    () => [
+      ...stages.map(stage => ({
+        stage,
+        label: STAGE_LABELS[stage] ?? stage,
+        count: companies.filter(c => c.valueChainStage === stage).length,
+      })),
+      {
+        stage: 'ukjent',
+        label: 'Ukjent ledd',
+        count: companies.filter(c => !c.valueChainStage).length,
+      },
+    ].filter(item => item.count > 0),
+    [companies, stages]
+  )
   const ownershipTypes = useMemo(
     () => Array.from(new Set(companies.map(c => c.ownershipType).filter((v): v is string => Boolean(v)))).sort(),
     [companies]
@@ -70,7 +118,8 @@ export function SelskaperContent({
 
   const filtered = useMemo(() => {
     return companies.filter(c => {
-      if (stageFilter !== 'alle' && c.valueChainStage !== stageFilter) return false
+      if (stageFilter === 'ukjent' && c.valueChainStage) return false
+      if (stageFilter !== 'alle' && stageFilter !== 'ukjent' && c.valueChainStage !== stageFilter) return false
       if (ownershipFilter !== 'alle' && c.ownershipType !== ownershipFilter) return false
       if (!deferredQuery.trim()) return true
       const q = deferredQuery.toLowerCase()
@@ -83,6 +132,14 @@ export function SelskaperContent({
     })
   }, [companies, deferredQuery, stageFilter, ownershipFilter])
 
+  const coverage = useMemo(() => ({
+    revenue: companies.filter(c => c.revenueNok != null).length,
+    financialRows: companies.filter(c => c.hasFinancialRow).length,
+    employees: companies.filter(c => c.employees != null).length,
+    boards: companies.filter(c => c.boardCount > 0).length,
+    ownership: companies.filter(c => c.controllingOwner != null).length,
+  }), [companies])
+
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
       <div>
@@ -90,7 +147,82 @@ export function SelskaperContent({
         <p className="text-sm text-stone-500 mt-1 max-w-3xl">
           {`${companies.length} kartlagte selskaper med regnskap, styre, eierskap og relasjoner.`}
         </p>
+        <p className="mt-2 text-xs leading-5 text-stone-500">
+          {formatCoverageFootnote('Omsetningsvisning', coverage.revenue, companies.length, 'selskaper')}{' '}
+          Regnskapsrad finnes for {coverage.financialRows.toLocaleString('nb-NO')}; ansatte for{' '}
+          {coverage.employees.toLocaleString('nb-NO')}; styre for {coverage.boards.toLocaleString('nb-NO')}; kontrollerende eier for{' '}
+          {coverage.ownership.toLocaleString('nb-NO')}.
+        </p>
+        <CoverageBadgeStrip
+          datasetIds={['selskaps-finanser']}
+          title="Beregnet selskapsdekning"
+          note="Regnskapsprofilen er beregnet fra CompanyFinancial-rader og brukes som kontrollmerke for denne listen."
+          className="mt-3 max-w-3xl"
+        />
       </div>
+
+      <Glossary
+        category="kolonner"
+        terms={LIST_SURFACE_GLOSSARY_TERMS.selskap}
+        title="Kolonneforklaringer"
+      />
+      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs uppercase tracking-wider text-stone-400">
+        <ColumnHelp term="Verdikjedetrinn" />
+        <ColumnHelp term="Eierskapstype" />
+        <ColumnHelp term="NACE" />
+        <ColumnHelp term="Organisasjonsnummer" label="Orgnr" />
+        <ColumnHelp term="Dekningsstatus" />
+      </div>
+
+      <Card>
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 className="text-sm font-semibold text-stone-800">Verdikjedesegmenter</h2>
+              <p className="mt-1 text-xs leading-relaxed text-stone-500">
+                Utvalg: viser {Math.min(filtered.length, 300).toLocaleString('nb-NO')} av{' '}
+                {filtered.length.toLocaleString('nb-NO')} treff fra {companies.length.toLocaleString('nb-NO')}{' '}
+                kartlagte selskaper.
+              </p>
+            </div>
+            <p className="max-w-xl text-xs leading-relaxed text-stone-500">
+              <span className="font-medium text-stone-700">Kartlagt betyr</span> registrert med minst ett
+              prosjektspor for regnskap, styre, eierskap eller relasjon. Se{' '}
+              <Link href="/metodikk" className="text-emerald-700 hover:underline">
+                metodikken
+              </Link>{' '}
+              for avgrensning og kildekrav.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => setStageFilter('alle')}
+              className={`rounded-full border px-3 py-1 text-xs font-medium ${
+                stageFilter === 'alle'
+                  ? 'border-stone-900 bg-stone-900 text-white'
+                  : 'border-stone-200 bg-white text-stone-600 hover:border-stone-300'
+              }`}
+            >
+              Alle ({companies.length.toLocaleString('nb-NO')})
+            </button>
+            {stageCounts.map(item => (
+              <button
+                key={item.stage}
+                type="button"
+                onClick={() => setStageFilter(item.stage)}
+                className={`rounded-full border px-3 py-1 text-xs font-medium ${
+                  stageFilter === item.stage
+                    ? 'border-emerald-700 bg-emerald-50 text-emerald-800'
+                    : 'border-stone-200 bg-white text-stone-600 hover:border-emerald-300'
+                }`}
+              >
+                {item.label} ({item.count.toLocaleString('nb-NO')})
+              </button>
+            ))}
+          </div>
+        </div>
+      </Card>
 
       <Card>
         <div className="flex flex-wrap gap-2 items-center">
@@ -112,6 +244,9 @@ export function SelskaperContent({
                 {STAGE_LABELS[s] ?? s}
               </option>
             ))}
+            {stageCounts.some(item => item.stage === 'ukjent') && (
+              <option value="ukjent">Ukjent ledd</option>
+            )}
           </select>
           <select
             value={ownershipFilter}
@@ -150,29 +285,29 @@ export function SelskaperContent({
                 </div>
                 <div className="text-right text-xs text-stone-500 shrink-0">
                   <div className="font-mono">{c.orgNr}</div>
-                  {c.hqCity && <div>{c.hqCity}</div>}
+                  <div>
+                    {c.hqCity ? c.hqCity : <MissingValue reason="not_collected" />}
+                  </div>
                 </div>
               </div>
 
-              {c.naceDescription && (
-                <p className="mt-3 text-sm text-stone-700 leading-snug line-clamp-2">
-                  {c.naceDescription}
-                </p>
-              )}
+              <p className="mt-3 text-sm text-stone-700 leading-snug line-clamp-2">
+                {c.naceDescription ?? <MissingValue reason="not_collected" label="NACE ikke innhentet" />}
+              </p>
 
               <div className="mt-3 grid grid-cols-3 gap-2 text-xs">
-                {c.legalForm && (
-                  <div>
-                    <div className="text-[10px] uppercase tracking-wider text-stone-400">Form</div>
-                    <div className="text-stone-700 font-medium">{c.legalForm}</div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-stone-400">Form</div>
+                  <div className="text-stone-700 font-medium">
+                    {c.legalForm ?? <MissingValue reason="not_collected" />}
                   </div>
-                )}
-                {c.founded && (
-                  <div>
-                    <div className="text-[10px] uppercase tracking-wider text-stone-400">Stiftet</div>
-                    <div className="text-stone-700 font-medium">{c.founded}</div>
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-stone-400">Stiftet</div>
+                  <div className="text-stone-700 font-medium">
+                    {c.founded ?? <MissingValue reason="not_reported" />}
                   </div>
-                )}
+                </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-wider text-stone-400">Land</div>
                   <div className="text-stone-700 font-medium">{c.country}</div>
@@ -183,22 +318,44 @@ export function SelskaperContent({
                 <div className="rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
                   <div className="text-[10px] uppercase tracking-wider text-stone-400">Omsetning</div>
                   <div className="mt-0.5 font-semibold text-stone-900">
-                    {formatRevenueDisplay(c.revenueNok, c.hasFinancialRow)}
+                    {c.revenueNok == null ? (
+                      <MissingValue
+                        reason={c.hasFinancialRow ? 'not_reported' : c.financialMissingValueReason}
+                        label={formatRevenueDisplay(c.revenueNok, c.hasFinancialRow, c.financialMissingLabel)}
+                        className="font-semibold"
+                      />
+                    ) : (
+                      formatRevenueDisplay(c.revenueNok, c.hasFinancialRow, undefined, c.latestFinancialYear)
+                    )}
                   </div>
                 </div>
                 <div className="rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
                   <div className="text-[10px] uppercase tracking-wider text-stone-400">Ansatte</div>
                   <div className="mt-0.5 font-semibold text-stone-900">
-                    {formatEmployeeDisplay(c.employees)}
+                    {c.employees == null ? (
+                      <MissingValue reason="not_reported" label={formatEmployeeDisplay(c.employees)} className="font-semibold" />
+                    ) : (
+                      formatEmployeeDisplay(c.employees)
+                    )}
                   </div>
                 </div>
               </div>
 
-              {c.controllingOwner && (
-                <div className="mt-3 text-xs text-stone-500">
-                  Kontrollerende eier: {c.controllingOwner}
-                </div>
-              )}
+              <div className="mt-3 text-xs text-stone-500">
+                Kontrollerende eier:{' '}
+                {c.controllingOwner ?? <MissingValue reason="no_matching_record" label="mangler" />}
+              </div>
+
+              <div className="mt-3 flex flex-wrap gap-1 text-[11px]">
+                <CoveragePill
+                  label="Finans"
+                  ok={c.hasFinancialRow}
+                  missingReason={c.financialMissingValueReason}
+                  missingLabel={c.financialMissingLabel}
+                />
+                <CoveragePill label="Styre" ok={c.boardCount > 0} />
+                <CoveragePill label="Eierskap" ok={c.controllingOwner != null} missingReason="no_matching_record" />
+              </div>
 
               <div className="mt-2 flex flex-wrap gap-1 text-[11px] text-stone-500">
                 {c.boardCount > 0 && <span>{c.boardCount} styremedlemmer</span>}

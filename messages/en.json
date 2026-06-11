@@ -13,16 +13,17 @@
     "team": { "name": "Team", "description": "Members and roles" },
     "moter": { "name": "Meetings", "description": "Meeting summaries and minutes" },
     "kommunikasjon": { "name": "Communication", "description": "Email and correspondence" },
-    "mandat": { "name": "Mandate", "description": "Food TG scope, claims and validation" },
-    "metodikk": { "name": "Methodology", "description": "Ten Step, KPIs and deep-research prompts" },
+    "datastatus": { "name": "Data status", "description": "Coverage, gaps and artifacts" },
+    "mandat": { "name": "Mandate", "description": "Food TG claim/status cockpit" },
+    "metodikk": { "name": "Methodology", "description": "Method surface for Ten Step, models and prompts" },
     "tidslinje": { "name": "Timeline", "description": "Phases and applications" },
     "selskaper": { "name": "Companies", "description": "Company data and financials" },
     "eierskap": { "name": "Ownership", "description": "Group dossiers and data quality" },
     "styremedlemmer": { "name": "Board members", "description": "Interlocks and networks" },
     "personer": { "name": "People", "description": "Key people and roles" },
     "eiendommer": { "name": "Properties", "description": "Company properties and premises" },
-    "verdikjede": { "name": "Value chain", "description": "Nordic value-chain analysis (farm to table)" },
-    "forsyningskjede": { "name": "Supply chain", "description": "Supplier relations, primary supply and self-dealing" },
+    "verdikjede": { "name": "Value chain", "description": "Farm-to-table stages, themes and actors" },
+    "forsyningskjede": { "name": "Supply chain", "description": "Relationships, deliveries and flows" },
     "havbruk": { "name": "Aquaculture", "description": "Sites and applications (Fisheries Dir.)" },
     "sirkularitet": { "name": "Circularity", "description": "R-ladder, 10 questions, loops and cases" },
     "okonomi": { "name": "Economy", "description": "Financial trends and comparison" },
@@ -39,7 +40,7 @@
     "aktorer": { "name": "Actors", "description": "Prioritization, asks and relations" },
     "rapporter": { "name": "Reports", "description": "Public and industry analyses" },
     "hvitbok": { "name": "White paper", "description": "Deliverable document in chapters" },
-    "bibliotek": { "name": "Library", "description": "Full-text research documents" },
-    "kilder": { "name": "Sources", "description": "Documents and references" }
+    "bibliotek": { "name": "Library", "description": "Full-text reader for document content" },
+    "kilder": { "name": "Sources", "description": "Source register, references and download status" }
   }
 }

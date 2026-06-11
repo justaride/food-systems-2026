@@ -13,4 +13,18 @@ describe('package scripts', () => {
     assert.match(nextConfig, /output:\s*'standalone'/)
     assert.equal(packageJson.scripts.start, 'node .next/standalone/server.js')
   })
+
+  it('keeps the full import corpus reproducible without secret-gated API refreshes', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+
+    assert.match(packageJson.scripts['db:import:full'], /db:import:approved-corpus/)
+    assert.match(packageJson.scripts['db:import:full'], /db:reconcile:imports:strict/)
+    assert.match(packageJson.scripts['db:import:full'], /audit:konsern/)
+    assert.match(packageJson.scripts['db:import:approved-corpus'], /db:import:akvakultursoknader/)
+    assert.match(packageJson.scripts['db:import:approved-corpus'], /db:import:leveransedata/)
+    assert.doesNotMatch(packageJson.scripts['db:import:approved-corpus'], /db:import:fiskehelse/)
+    assert.match(packageJson.scripts['db:prod-sync'], /db:import:fiskehelse/)
+  })
 })

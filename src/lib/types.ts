@@ -70,6 +70,23 @@ export type KPI = {
   description: string
   current?: string
   target?: string
+  secondary?: string
+  source?: {
+    label: string
+    year: string | number
+    href: string
+    lastVerified: string
+    sourceId?: string
+  }
+  definition?: string
+  unit?: string
+  geography?: string
+  dataOwner?: string
+  frequency?: string
+  baseline?: string
+  systemBoundary?: string
+  claimGate?: string
+  caveat?: string
 }
 
 export type EvidenceDoc = {

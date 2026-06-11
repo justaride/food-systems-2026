@@ -1,9 +1,12 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { prisma } from '@/lib/db'
+import { formatYearRange } from '@/lib/financial-year-labels'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
 import type { KonsernFinancialsAggregate, KonsernBoardMember, KonsernSubsidies, KonsernProperties, KonsernRelationships } from '@/lib/queries/konsern'
 import { getKonsernFinancials, getKonsernBoard, getKonsernSubsidies, getKonsernProperties, getKonsernRelationships } from '@/lib/queries/konsern'
+
+type FinancialAmountValue = Parameters<typeof financialAmountToNok>[0]
 
 export type KonsernConfig = {
   slug: string
@@ -312,6 +315,7 @@ type KonsernIndexRow = {
   qualityScore: number
   treeSize: number
   totalRevenue: number | null
+  totalRevenueYearLabel: string | null
   maEventsCount: number
   daysSinceBrregRefresh: number | null
   controllingOwner: { name: string; pct: number | null } | null
@@ -328,16 +332,40 @@ function loadCoverage() {
   return coverageCache
 }
 
+function latestFinancialByCompany<T extends { companyId: string; year: number }>(financials: T[]): Map<string, T> {
+  const latest = new Map<string, T>()
+  for (const financial of financials) {
+    const existing = latest.get(financial.companyId)
+    if (!existing || financial.year > existing.year) {
+      latest.set(financial.companyId, financial)
+    }
+  }
+  return latest
+}
+
+function revenueYearLabel(
+  financials: Array<{ year: number; revenueNok: FinancialAmountValue; source: string | null }>
+): string | null {
+  return formatYearRange(
+    financials.map(financial => (
+      financialAmountToNok(financial.revenueNok, financial.source) != null
+        ? financial.year
+        : null
+    ))
+  )
+}
+
 export async function getKonsernIndex(): Promise<KonsernIndexRow[]> {
   const coverage = loadCoverage()
   const rows: KonsernIndexRow[] = []
   for (const entry of coverage.entries) {
     const treeIds = await gatherTreeIds(entry.rootCompanyId)
-    const currentYear = new Date().getFullYear()
-    const financials = await prisma.companyFinancial.findMany({
-      where: { companyId: { in: treeIds }, year: currentYear - 1 },
-      select: { revenueNok: true, source: true },
+    const financialRows = await prisma.companyFinancial.findMany({
+      where: { companyId: { in: treeIds } },
+      select: { companyId: true, year: true, revenueNok: true, source: true },
+      orderBy: [{ companyId: 'asc' }, { year: 'desc' }],
     })
+    const financials = Array.from(latestFinancialByCompany(financialRows).values())
     const totalRevenue = financials.reduce<number | null>(
       (acc, f) => {
         const nok = financialAmountToNok(f.revenueNok, f.source)
@@ -345,6 +373,7 @@ export async function getKonsernIndex(): Promise<KonsernIndexRow[]> {
       },
       null,
     )
+    const totalRevenueYearLabel = revenueYearLabel(financials)
     rows.push({
       slug: entry.slug,
       rootCompanyId: entry.rootCompanyId,
@@ -352,6 +381,7 @@ export async function getKonsernIndex(): Promise<KonsernIndexRow[]> {
       qualityScore: entry.qualityScore,
       treeSize: entry.metrics.treeSize,
       totalRevenue,
+      totalRevenueYearLabel,
       maEventsCount: entry.metrics.maEventCount,
       daysSinceBrregRefresh: entry.metrics.daysSinceBrregRefresh,
       controllingOwner: entry.controllingOwner ? {
@@ -385,6 +415,7 @@ export type KonsernDossierData = {
   metrics: {
     treeSize: number
     totalRevenue: number | null    // NOK aggregate latest year
+    totalRevenueYearLabel: string | null
     totalEmployees: number | null  // aggregate latest year (groupEmployees sum)
     daysSinceBrregRefresh: number | null
   }
@@ -417,13 +448,13 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
   if (!rootCompany) return null
 
   const treeIds = await gatherTreeIds(rootCompany.id)
-  const currentYear = new Date().getFullYear()
 
   // Fetch financials, ownerships, and section 4-8 data in parallel
-  const [financials, ownerships, treeCompanies, konsernFinancials, konsernBoard, konsernSubsidies, konsernProperties, konsernRelationships] = await Promise.all([
+  const [financialRows, ownerships, treeCompanies, konsernFinancials, konsernBoard, konsernSubsidies, konsernProperties, konsernRelationships] = await Promise.all([
     prisma.companyFinancial.findMany({
-      where: { companyId: { in: treeIds }, year: currentYear - 1 },
+      where: { companyId: { in: treeIds } },
       select: { companyId: true, revenueNok: true, source: true, groupEmployees: true, operatingResult: true, operatingMargin: true, year: true },
+      orderBy: [{ companyId: 'asc' }, { year: 'desc' }],
     }),
     prisma.companyOwnership.findMany({
       where: { parentCompanyId: { in: treeIds } },
@@ -450,11 +481,14 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
     getKonsernProperties(treeIds),
     getKonsernRelationships(treeIds),
   ])
+  const financialsByCompany = latestFinancialByCompany(financialRows)
+  const financials = Array.from(financialsByCompany.values())
 
   const totalRevenue = financials.reduce<number | null>((acc, f) => {
     const nok = financialAmountToNok(f.revenueNok, f.source)
     return nok != null ? (acc ?? 0) + nok : acc
   }, null)
+  const totalRevenueYearLabel = revenueYearLabel(financials)
 
   const totalEmployees = financials.reduce<number | null>((acc, f) => {
     return f.groupEmployees != null ? (acc ?? 0) + f.groupEmployees : acc
@@ -469,7 +503,6 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
     : null
 
   // ─── Build OwnershipTree for this konsern ──────────────────────────────────
-  const financialsByCompany = new Map(financials.map(f => [f.companyId, f]))
   const treeNodes: OwnershipNode[] = []
   const treeEdges: OwnershipEdge[] = []
 
@@ -574,6 +607,7 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
     metrics: {
       treeSize: entry.metrics.treeSize as number,
       totalRevenue,
+      totalRevenueYearLabel,
       totalEmployees,
       daysSinceBrregRefresh: (entry.metrics.daysSinceBrregRefresh ?? null) as number | null,
     },

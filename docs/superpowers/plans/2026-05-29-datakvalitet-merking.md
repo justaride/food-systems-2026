@@ -15,6 +15,10 @@
 - Scripts (`scripts/*.ts`, kjørt via `tsx`) og React-komponenter kan bruke `@/`-alias.
 - Prisma i scripts: `import 'dotenv/config'` + `PrismaPg`-adapter (se Task 7-mønster).
 
+## G-17 execution note (2026-06-11)
+
+Tasks 1-12 were already present in the codebase before the G-17 branch: `CoverageProfile` types, classification, `CoverageBadge`, dataset registry, `compute-coverage`, generated `profiles.json`, hvitbok `assertedScope`/audit gating, `/kilder` `CoverageOverview`, and supporting tests. The remaining G-17 acceptance gap was route-level visibility outside `/kilder`. This branch therefore adds a shared `CoverageBadgeStrip` and wires calculated badges onto `/selskap`, `/kart/[country]`, and `/sammenligning`, while keeping `/kilder` as the full overview.
+
 ---
 
 ### Task 1: Coverage-typer

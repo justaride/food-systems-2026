@@ -1,3 +1,5 @@
+import { formatAmountWithYear, type FinancialYearLabel } from '@/lib/financial-year-labels'
+
 export function fmtEmployees(n: number | null): string {
   if (n === null) return '—'
   return n.toLocaleString('no-NO')
@@ -8,6 +10,10 @@ export function fmtMnok(nok: number | null): string {
   const mnok = nok / 1_000_000
   if (Math.abs(mnok) >= 1_000) return `${(mnok / 1_000).toFixed(1)} mrd`
   return `${mnok.toFixed(0)} MNOK`
+}
+
+export function fmtMnokWithYear(nok: number | null, yearLabel: FinancialYearLabel): string {
+  return formatAmountWithYear(fmtMnok(nok), yearLabel)
 }
 
 export function fmtMnokSubsidy(nok: number): string {

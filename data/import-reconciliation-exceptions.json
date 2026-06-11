@@ -1,0 +1,44 @@
+{
+  "exceptions": [
+    {
+      "script": "scripts/import-research-20260420.ts",
+      "orgNr": "948202063",
+      "reason": "April research alias/reference for Coop Norge; approved Company corpus models Coop Norge SA as org.nr. 936560288 and Coop Norge Eiendom AS as NO-948202063-EIE."
+    },
+    {
+      "script": "scripts/import-research-20260420.ts",
+      "orgNr": "949556207",
+      "reason": "Historical REMA/Lidl acquisition reference only; approved Company corpus models Reitan Retail AS as 914526647 and REMA 1000 Norge AS as 982254604."
+    },
+    {
+      "script": "scripts/import-research-20260420.ts",
+      "orgNr": "987565922",
+      "reason": "April research property-tenant/reference id for NorgesGruppen; approved Company corpus models NorgesGruppen ASA as org.nr. 819731322."
+    },
+    {
+      "script": "scripts/import-research-20260420.ts",
+      "orgNr": "DK-COOP-DK",
+      "reason": "April research alias for Coop Danmark failed-entrant context; approved Company corpus models Coop Danmark A/S as DK-26259495."
+    },
+    {
+      "script": "scripts/import-research-20260420.ts",
+      "orgNr": "FI-KESKO",
+      "reason": "April research alias for Kesko; approved Company corpus models Kesko Oyj as FI-0110456-8."
+    },
+    {
+      "script": "scripts/import-research-20260420.ts",
+      "orgNr": "FI-SGROUP",
+      "reason": "April research alias for S Group; approved Company corpus models SOK (S Group) as FI-0116323-9."
+    },
+    {
+      "script": "scripts/import-research-20260420.ts",
+      "orgNr": "NO-PELAGIA",
+      "reason": "Historical acquisition counterparty referenced in April research relationships; not loaded as a Company row by the approved corpus."
+    },
+    {
+      "script": "scripts/import-research-20260420.ts",
+      "orgNr": "SE-DAGAB",
+      "reason": "April research alias for Dagab; approved Company corpus models Dagab Inkop & Logistik AB as SE-556004-7903."
+    }
+  ]
+}

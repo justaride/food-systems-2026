@@ -3,8 +3,8 @@ tittel: Food TG Primary-Check Queue v0.1
 status: Utført internt
 eier: Gabriel
 dato: 2026-04-28
-sist_oppdatert: 2026-06-10
-neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21. PCQ-B-001 til B-004 er låst som benchmark/hypotese inntil råvareeier, hygiene, stabilisering, off-taker og bruksrett er validert. 09.06-caser er lagt inn som PCQ-0906-* og skal ikke brukes i faktastemme før primærkilde eller aktørdata finnes. 10.06-intake i `food-tg-deep-research-source-intake-2026-06-10.md` prioriterer neste primærsjekk uten å endre claim-status; `food-tg-deep-research-prompt-pack-2026-06-10.md` styrer videre Deep Research-kjøringer; `food-tg-casekort-og-research-mottak-2026-06-10.md` registrerer outputer før PCQ-rader endres; `food-tg-deep-research-results-intake-2026-06-10.md` logger de åtte mottatte resultatfilene og skjerper PCQ-sjekker uten å åpne claims.
+sist_oppdatert: 2026-06-11
+neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21. PCQ-B-001 til B-004 er låst som benchmark/hypotese inntil råvareeier, hygiene, stabilisering, off-taker og bruksrett er validert. 09.06-caser er lagt inn som PCQ-0906-* og skal ikke brukes i faktastemme før primærkilde eller aktørdata finnes. 10.06/11.06-intake i `food-tg-deep-research-source-intake-2026-06-10.md`, `food-tg-deep-research-results-intake-2026-06-10.md` og `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md` skjerper PCQ-sjekker uten å åpne claims; `food-tg-research-intake-decision-pack-2026-06-10.md` oppsummerer go/no-go.
 relaterte_filer:
   - docs/project/mandates/actor-validation-pack-food-tg-v0.1.md
   - docs/project/mandates/analysefabrikk-handoffs/2026-04-28-mini-verifikasjon-2b-2d-recovery.md
@@ -13,6 +13,8 @@ relaterte_filer:
   - docs/project/mandates/food-tg-deep-research-prompt-pack-2026-06-10.md
   - docs/project/mandates/food-tg-casekort-og-research-mottak-2026-06-10.md
   - docs/project/mandates/food-tg-deep-research-results-intake-2026-06-10.md
+  - docs/project/mandates/food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md
+  - docs/project/mandates/food-tg-research-intake-decision-pack-2026-06-10.md
 ---
 
 # Food TG Primary-Check Queue v0.1
@@ -65,6 +67,21 @@ Disse radene er opprettet etter 09.06-samtalen. De styrer dokument- og researcha
 | PCQ-0906-006 | Valio/Finland | Bekrefte om Valio/Finland kan brukes som governance-/fôr-case og hva som faktisk gjelder for soya, raps, lokal fôrandel eller innkjøpskrav. | `DRR-0906-003`/`004` styrker soyafri governance og svekker importfritt fôr. | Valio fôrstandard, aggregert fôrkurv, importandel, år, geografi, definisjon og bruksrett. | SRC-0906-006, SRC-BASE-008, CL-A-020, CL-C-001, results-intake 2026-06-10 | Gabriel | needs-data; needs-actor-validation |
 | PCQ-0906-007 | Polen og Skottland watchlist | Finne om Polen eller Skottland har konkrete sidestrøm-, havbruk-, bioressurs- eller policycase som matcher A/B/C. | `DRR-0906-008` styrker Skottland som benchmark-kandidat og holder Polen som watchlist/kill-test. | Skotsk fulltekst/data dictionary/aktørarkiv; polsk aktør, lokasjon, volum og output hvis case skal leve. | SRC-0906-007, SRC-0906-008, results-intake 2026-06-10 | Gabriel | Skottland: needs-primary-check; Polen: watchlist; needs-data |
 | PCQ-0906-008 | Bacalhau og kunstgjødselhistorie | Avklare om bacalhau/Brasil eller kunstgjødsel/Yara/Hydro gir beslutningsrelevant støtte, eller om de skal parkeres. | Kun samtalesignal; registrert som `SRC-0906-009` og `SRC-0906-010`. | Handelsdata, primær-/fagkilde og tydelig kobling til A/B/C. | SRC-0906-009, SRC-0906-010 | Gabriel | watchlist; needs-source |
+
+## 11.06 ledger-effekt
+
+`food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md` har apnet flere stabile kildeanker, men ingen PCQ lukkes alene. Tabellen under styrer hva som skjer videre.
+
+| Queue-ID | Ledger-effekt | PCQ-beslutning |
+|---|---|---|
+| PCQ-0906-001 | Nordic Night/WCEF styrker Brasil-/use-case-kontekst, men MOU/prosjekttekst mangler. | Viderefør `needs-primary-check; needs-actor-validation`. |
+| PCQ-0906-002 | CI/EUDR-sporbarhet styrkes, men Natural State/LEAD/MOU er ikke dokumentert. | Viderefør relasjon som `needs-primary-check`; EUDR-kontekst kan brukes internt med caveat. |
+| PCQ-0906-003 | Kaffeaktørspor finnes, men rolle/prosjekt/data/bruksrett mangler. | Viderefør `needs-actor-validation; needs-data`. |
+| PCQ-0906-004 | KT/SINTEF/OFG styrker bred distribusjon/adoption-gate og svekker BAMA-anklage. | Viderefør `needs-data; needs-actor-validation`; bruk bredt casenavn. |
+| PCQ-0906-005 | Hima styrkes som intern case med datagap; Frövi benchmark; Wiig/Kviamarka/Varde/Polar forblir radar. | Viderefør `needs-data; needs-actor-validation`; lag casevis mini-ledger. |
+| PCQ-0906-006 | Valio soyafri policy styrkes; importfritt fôr svekkes. | Viderefør `needs-data; needs-actor-validation` for fôrkurv/importandel. |
+| PCQ-0906-007 | Skottland styrkes som benchmark-kandidat; Polen mangler aktør/lokasjon/volum/output. | Skottland `needs-primary-check`; Polen `watchlist; needs-data`. |
+| PCQ-B-005 | SINTEF/FHF-baseline styrkes; høyverdi/fraksjon mangler. | Viderefør fraksjon/sluttbruk/høyverdi som `needs-primary-check; needs-actor-validation`. |
 
 ## Prioritert rekkefølge
 

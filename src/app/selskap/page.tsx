@@ -1,5 +1,6 @@
 import { getCompanies } from '@/lib/queries/companies'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
+import { financialMissingDisplay } from '@/lib/financial-backfill'
 import { SelskaperContent } from './SelskaperContent'
 
 export default async function SelskaperPage({
@@ -13,26 +14,33 @@ export default async function SelskaperPage({
     : []
   const companies = await getCompanies()
 
-  const rows = companies.map(c => ({
-    hasFinancialRow: Boolean(c.financials[0]),
-    id: c.id,
-    name: c.name,
-    orgNr: c.orgNr,
-    legalForm: c.legalForm,
-    founded: c.founded,
-    naceDescription: c.naceDescription,
-    hqCity: c.hqCity,
-    country: c.country,
-    ownershipType: c.ownershipType,
-    valueChainStage: c.valueChainStage,
-    revenueNok: financialAmountToNok(c.financials[0]?.revenueNok, c.financials[0]?.source),
-    employees: c.financials[0]?.groupEmployees ?? c.employees ?? null,
-    controllingOwner: c.shareholders[0]?.name ?? null,
-    boardCount: c._count.boardMembers,
-    subsidyCount: c._count.subsidies,
-    propertyCount: c._count.ownedProperties,
-    relationshipCount: c._count.relationshipsFrom + c._count.relationshipsTo,
-  }))
+  const rows = companies.map(c => {
+    const financialMissing = financialMissingDisplay(c.metadata)
+
+    return {
+      hasFinancialRow: Boolean(c.financials[0]),
+      financialMissingValueReason: financialMissing.missingValueReason,
+      financialMissingLabel: financialMissing.label,
+      id: c.id,
+      name: c.name,
+      orgNr: c.orgNr,
+      legalForm: c.legalForm,
+      founded: c.founded,
+      naceDescription: c.naceDescription,
+      hqCity: c.hqCity,
+      country: c.country,
+      ownershipType: c.ownershipType,
+      valueChainStage: c.valueChainStage,
+      revenueNok: financialAmountToNok(c.financials[0]?.revenueNok, c.financials[0]?.source),
+      latestFinancialYear: c.financials[0]?.year ?? null,
+      employees: c.financials[0]?.groupEmployees ?? c.employees ?? null,
+      controllingOwner: c.shareholders[0]?.name ?? null,
+      boardCount: c._count.boardMembers,
+      subsidyCount: c._count.subsidies,
+      propertyCount: c._count.ownedProperties,
+      relationshipCount: c._count.relationshipsFrom + c._count.relationshipsTo,
+    }
+  })
 
   return <SelskaperContent companies={rows} initialStages={initialStages} />
 }

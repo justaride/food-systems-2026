@@ -5,6 +5,7 @@ import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { KONSERN_REGISTRY } from '../src/lib/queries/ownership'
 import { computeQualityScore } from './lib/konsern-coverage-scoring'
+import { formatFinancialCoverageGaps, summarizeFinancialCoverage } from './lib/konsern-coverage-year'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -19,8 +20,10 @@ type CoverageEntry = {
   qualityScore: number
   metrics: {
     treeSize: number
+    measuredYear: number | null
     childrenWithLatestFinancial: number
     childrenWithoutFinancial: number
+    childrenWithOlderFinancial: number
     childrenWithBoardMembers: number
     childrenWithoutBoardMembers: number
     ownershipEdgesWithSource: number
@@ -54,7 +57,11 @@ async function gatherTreeIds(rootId: string): Promise<string[]> {
   return [...ids]
 }
 
-async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity: boolean }): Promise<CoverageEntry | null> {
+async function buildEntry(
+  orgNr: string,
+  cfg: { slug: string; expectsMaActivity: boolean },
+  fallbackMeasuredYear: number | null,
+): Promise<CoverageEntry | null> {
   const root = await prisma.company.findUnique({ where: { orgNr } })
   if (!root) return null
 
@@ -69,13 +76,11 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
     select: { name: true, ownershipPct: true, source: true },
   })
 
-  const currentYear = new Date().getFullYear()
-  const latestYear = currentYear - 1
   const financials = await prisma.companyFinancial.findMany({
-    where: { companyId: { in: childIds }, year: latestYear },
-    select: { companyId: true },
+    where: { companyId: { in: childIds } },
+    select: { companyId: true, year: true },
   })
-  const childrenWithLatestFinancial = new Set(financials.map(f => f.companyId)).size
+  const financialCoverage = summarizeFinancialCoverage(childIds, financials, fallbackMeasuredYear)
 
   const boardMembers = await prisma.boardMember.findMany({
     where: { companyId: { in: childIds } },
@@ -108,7 +113,7 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
     hasControllingOwner: !!controllingShareholder,
     ownershipEdgesWithSource,
     ownershipEdgesTotal: ownershipEdges.length,
-    childrenWithLatestFinancial,
+    childrenWithLatestFinancial: financialCoverage.childrenWithLatestFinancial,
     childrenTotal: childIds.length,
     propertyCount,
     relationshipCount,
@@ -120,8 +125,7 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
   const gaps: string[] = []
   if (!controllingShareholder) gaps.push('Mangler kontrollerende eier på rotnode')
   if (ownershipEdgesWithoutSource > 0) gaps.push(`${ownershipEdgesWithoutSource} ownership-kanter uten source`)
-  const childrenWithoutFinancial = childIds.length - childrenWithLatestFinancial
-  if (childrenWithoutFinancial > 0) gaps.push(`${childrenWithoutFinancial} datterselskap uten siste års regnskap`)
+  gaps.push(...formatFinancialCoverageGaps(financialCoverage))
   const childrenWithoutBoardMembers = childIds.length - childrenWithBoardMembers
   if (childrenWithoutBoardMembers > 0) gaps.push(`${childrenWithoutBoardMembers} datterselskap uten styremedlemmer`)
   if (daysSinceBrregRefresh === null) gaps.push('Aldri Brreg-refreshet')
@@ -140,8 +144,10 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
     qualityScore,
     metrics: {
       treeSize: treeIds.length,
-      childrenWithLatestFinancial,
-      childrenWithoutFinancial,
+      measuredYear: financialCoverage.measuredYear,
+      childrenWithLatestFinancial: financialCoverage.childrenWithLatestFinancial,
+      childrenWithoutFinancial: financialCoverage.childrenWithoutFinancial,
+      childrenWithOlderFinancial: financialCoverage.childrenWithOlderFinancial,
       childrenWithBoardMembers,
       childrenWithoutBoardMembers,
       ownershipEdgesWithSource,
@@ -159,8 +165,11 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
 async function main() {
   const entries: CoverageEntry[] = []
   const missing: string[] = []
+  const globalFinancialYear = await prisma.companyFinancial.aggregate({ _max: { year: true } })
+  const fallbackMeasuredYear = globalFinancialYear._max.year
+
   for (const [orgNr, cfg] of Object.entries(KONSERN_REGISTRY)) {
-    const entry = await buildEntry(orgNr, cfg)
+    const entry = await buildEntry(orgNr, cfg, fallbackMeasuredYear)
     if (entry) entries.push(entry)
     else missing.push(`${cfg.slug} (${orgNr})`)
   }

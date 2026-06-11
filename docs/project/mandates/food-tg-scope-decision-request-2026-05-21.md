@@ -14,7 +14,7 @@ Uten scope-beslutning kan prosjektet fortsatt forberede outreach og dokumentstru
 - sende bred ekstern valideringsrunde
 - omtale scope som låst
 - skrive roadmap som om pilotrekkefølgen er besluttet
-- oppdatere claim-status til `Validert eksternt`
+- oppdatere claim-status til eksternt validert
 
 ## Anbefalt beslutning
 

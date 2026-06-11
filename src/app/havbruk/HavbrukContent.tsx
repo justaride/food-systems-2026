@@ -3,8 +3,13 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
+import { ColumnHelp } from '@/components/ui/ColumnHelp'
+import { DataReadinessNotice } from '@/components/ui/DataReadinessNotice'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { Glossary } from '@/components/ui/Glossary'
+import { MissingValue } from '@/components/ui/MissingValue'
 import { formatAquacultureCapacity } from '@/lib/aquaculture-capacity'
+import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 
 type SiteRow = {
   id: string
@@ -50,18 +55,19 @@ type Props = {
   totalCapacityTonnes: number
   totalApplications: number
   companyStats: CompanyStat[]
+  fishHealthObservationCount: number | null
 }
 
 function formatStatusBadge(status: string | null) {
-  if (!status) return { label: '—', className: 'bg-stone-100 text-stone-500 border-stone-200' }
+  if (!status) return { label: '—', className: 'bg-stone-100 text-stone-500 border-stone-200', missing: true }
   const s = status.toLowerCase()
   if (s.includes('aktiv') || s === 'active')
-    return { label: 'Aktiv', className: 'bg-emerald-50 text-emerald-700 border-emerald-200' }
+    return { label: 'Aktiv', className: 'bg-emerald-50 text-emerald-700 border-emerald-200', missing: false }
   if (s.includes('paus') || s.includes('inaktiv'))
-    return { label: 'Pauset', className: 'bg-amber-50 text-amber-700 border-amber-200' }
+    return { label: 'Pauset', className: 'bg-amber-50 text-amber-700 border-amber-200', missing: false }
   if (s.includes('revok') || s.includes('avviklet'))
-    return { label: 'Avviklet', className: 'bg-rose-50 text-rose-700 border-rose-200' }
-  return { label: status, className: 'bg-stone-100 text-stone-600 border-stone-200' }
+    return { label: 'Avviklet', className: 'bg-rose-50 text-rose-700 border-rose-200', missing: false }
+  return { label: status, className: 'bg-stone-100 text-stone-600 border-stone-200', missing: false }
 }
 
 function formatResultBadge(result: string | null) {
@@ -75,6 +81,10 @@ function formatResultBadge(result: string | null) {
   return { label: result, className: 'bg-stone-100 text-stone-600 border-stone-200' }
 }
 
+function formatTableCount(count: number | null): string {
+  return count == null ? 'ukjent antall rader' : `${count.toLocaleString('no')} rader`
+}
+
 export function HavbrukContent({
   sites,
   applications,
@@ -82,6 +92,7 @@ export function HavbrukContent({
   totalCapacityTonnes,
   totalApplications,
   companyStats,
+  fishHealthObservationCount,
 }: Props) {
   const [companyFilter, setCompanyFilter] = useState('alle')
   const [countyFilter, setCountyFilter] = useState('alle')
@@ -133,6 +144,7 @@ export function HavbrukContent({
     .reduce((acc, c) => acc + c.siteCount, 0)
 
   const topOperator = operatorRows[0]
+  const fishHealthNeedsNotice = fishHealthObservationCount == null || fishHealthObservationCount === 0
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
@@ -155,6 +167,16 @@ export function HavbrukContent({
           </Link>
         </div>
       </div>
+
+      {fishHealthNeedsNotice && (
+        <DataReadinessNotice title="Fiskehelse venter på datagrunnlag">
+          <p>
+            FishHealthObservation-tabellen har {formatTableCount(fishHealthObservationCount)}.
+            /havbruk viser derfor lokaliteter og søknader, men ingen luse- eller
+            fiskehelseobservasjoner fra BarentsWatch før importen er kjørt.
+          </p>
+        </DataReadinessNotice>
+      )}
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
@@ -187,6 +209,12 @@ export function HavbrukContent({
           Konsernstrukturen hos de 8 operative selskapene (Mowi, SalMar, Lerøy, Cermaq, Nova Sea m.fl.) gir få beslutningspunkter over norsk havbruk.
         </div>
       )}
+
+      <Glossary
+        category="kolonner"
+        terms={LIST_SURFACE_GLOSSARY_TERMS.havbruk}
+        title="Kolonneforklaringer"
+      />
 
       <Card>
         <div className="flex flex-wrap gap-2 items-center">
@@ -248,22 +276,22 @@ export function HavbrukContent({
                 <thead>
                   <tr className="border-b border-stone-200 text-left">
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Lokalitet
+                      <ColumnHelp term="Lokalitet" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Operatør
+                      <ColumnHelp term="Operatør" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Kommune
+                      <ColumnHelp term="Kommune" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
-                      Kapasitet
+                      <ColumnHelp term="Kapasitet" align="right" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Art
+                      <ColumnHelp term="Art" />
                     </th>
                     <th className="py-2 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Status
+                      <ColumnHelp term="Konsesjonsstatus" label="Status" />
                     </th>
                   </tr>
                 </thead>
@@ -293,22 +321,24 @@ export function HavbrukContent({
                           </Link>
                         </td>
                         <td className="py-2.5 pr-4 text-stone-600">
-                          {s.municipality ?? '—'}
+                          {s.municipality ?? <MissingValue reason="not_collected" />}
                           {s.county ? (
                             <span className="text-stone-400 ml-1">({s.county})</span>
                           ) : null}
                         </td>
                         <td className="py-2.5 pr-4 text-right tabular-nums text-stone-700">
-                          {formatAquacultureCapacity(s.capacityTonnes, s.capacityUnit)}
+                          {s.capacityTonnes == null || s.capacityTonnes === 0
+                            ? <MissingValue reason="not_collected" />
+                            : formatAquacultureCapacity(s.capacityTonnes, s.capacityUnit)}
                         </td>
                         <td className="py-2.5 pr-4 text-stone-600 text-xs">
-                          {s.species.length > 0 ? s.species.join(', ') : '—'}
+                          {s.species.length > 0 ? s.species.join(', ') : <MissingValue reason="not_collected" />}
                         </td>
                         <td className="py-2.5">
                           <span
                             className={`text-[11px] px-1.5 py-0.5 rounded border ${badge.className}`}
                           >
-                            {badge.label}
+                            {badge.missing ? <MissingValue reason="not_collected" label={badge.label} /> : badge.label}
                           </span>
                         </td>
                       </tr>
@@ -336,19 +366,19 @@ export function HavbrukContent({
                 <thead>
                   <tr className="border-b border-stone-200 text-left">
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Søknad
+                      <ColumnHelp term="Søknad" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Søker
+                      <ColumnHelp term="Søker" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Type
+                      <ColumnHelp term="Søknadstype" label="Type" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Opprettet
+                      <ColumnHelp term="Opprettet" />
                     </th>
                     <th className="py-2 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Resultat
+                      <ColumnHelp term="Søknadsresultat" label="Resultat" />
                     </th>
                   </tr>
                 </thead>
@@ -379,12 +409,12 @@ export function HavbrukContent({
                           )}
                         </td>
                         <td className="py-2.5 pr-4 text-stone-600 text-xs">
-                          {a.applicationType ?? '—'}
+                          {a.applicationType ?? <MissingValue reason="not_collected" />}
                         </td>
                         <td className="py-2.5 pr-4 text-stone-600 text-xs">
                           {a.createdAt
                             ? new Date(a.createdAt).toLocaleDateString('no-NO')
-                            : '—'}
+                            : <MissingValue reason="not_collected" />}
                         </td>
                         <td className="py-2.5">
                           <span
@@ -409,16 +439,16 @@ export function HavbrukContent({
               <thead>
                 <tr className="border-b border-stone-200 text-left">
                   <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                    Operatør
+                    <ColumnHelp term="Operatør" />
                   </th>
                   <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
-                    Lokaliteter
+                    <ColumnHelp term="Lokalitet" label="Lokaliteter" align="right" />
                   </th>
                   <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
-                    MTB (tonn)
+                    <ColumnHelp term="MTB" label="MTB (tonn)" align="right" />
                   </th>
                   <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
-                    Andel lok.
+                    <ColumnHelp term="Lokalitetsandel" label="Andel lok." align="right" />
                   </th>
                 </tr>
               </thead>
@@ -449,7 +479,7 @@ export function HavbrukContent({
                     <td className="py-2.5 pr-4 text-right tabular-nums text-stone-500">
                       {totalSites > 0
                         ? `${((op.siteCount / totalSites) * 100).toFixed(1)}%`
-                        : '—'}
+                        : <MissingValue reason="not_applicable" />}
                     </td>
                   </tr>
                 ))}

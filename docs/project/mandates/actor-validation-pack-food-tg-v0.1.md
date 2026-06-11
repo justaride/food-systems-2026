@@ -3,21 +3,23 @@ tittel: Food TG Actor Validation Pack v0.1
 status: Utført internt
 eier: Gabriel
 dato: 2026-04-28
-sist_oppdatert: 2026-06-10
-neste_handling: Bruk som samtale-/epostgrunnlag for første valideringsrunde etter scope- eller minimumsvedtak; ingen respons er registrert ennå. 09.06-caser er lagt inn som gated dokument- og spørsmålsbank, ikke utsendt outreach. Se `food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md` for presise interne dokumentasks og senere aktørspørsmål før noe sendes, og `food-tg-deep-research-results-intake-2026-06-10.md` for hvilke aktørspor de mottatte outputene peker mot.
+sist_oppdatert: 2026-06-11
+neste_handling: Bruk som samtale-/epostgrunnlag for første valideringsrunde etter scope- eller minimumsvedtak; ingen respons er registrert ennå. 09.06-caser er lagt inn som gated dokument- og spørsmålsbank, ikke utsendt outreach. Se `food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md` for presise interne dokumentasks og senere aktørspørsmål før noe sendes, `food-tg-deep-research-results-intake-2026-06-10.md` for hvilke aktørspor de mottatte outputene peker mot, og `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md` for 11.06-prioritering.
 relaterte_filer:
   - docs/project/mandates/claim-register-food-tg.md
   - docs/project/mandates/evidence-matrix-food-tg.md
   - docs/project/mandates/primary-check-queue-food-tg-v0.1.md
   - docs/project/mandates/food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md
   - docs/project/mandates/food-tg-deep-research-results-intake-2026-06-10.md
+  - docs/project/mandates/food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md
+  - docs/project/mandates/food-tg-research-intake-decision-pack-2026-06-10.md
 ---
 
 # Food TG Actor Validation Pack v0.1
 
 Formål: løfte ut de claimene som ikke kan styrkes videre uten aktørrespons. Dette dokumentet er en intern valideringspakke, ikke dokumentasjon på ekstern validering.
 
-`food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md` er forberedelseslaget før denne pakken brukes operativt: først intern dokumentask, deretter eventuelle aktørspørsmål etter scope- eller minimumsvedtak. `food-tg-deep-research-results-intake-2026-06-10.md` viser hvilke aktørspor som kom fra de åtte mottatte outputene, men åpner ikke outreach.
+`food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md` er forberedelseslaget før denne pakken brukes operativt: først intern dokumentask, deretter eventuelle aktørspørsmål etter scope- eller minimumsvedtak. `food-tg-deep-research-results-intake-2026-06-10.md` viser hvilke aktørspor som kom fra de åtte mottatte outputene, og `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md` rangerer hvilke aktør-/dataasks som har mest beslutningseffekt. Ingen av filene åpner outreach alene.
 
 ## Bruksregel
 
@@ -84,6 +86,20 @@ Disse spørsmålene kan forberedes internt, men skal ikke sendes før scope- ell
 | NIBIO, SINTEF, drivhus-/hydroponiaktør eller industriell spillvarmeeier | Spillvarme/drivhus/akvaponikk | Finnes et konkret case der spillvarme, næringsstrøm og matproduksjon kan kobles med realistisk økonomi? | Lokasjon, energimengde, temperaturprofil, sesong, CAPEX/OPEX, areal, mattrygghet, næringsstrøm, kjøper. | needs-source |
 | Polsk institusjonskilde eller bioøkonomi-/matindustriaktør | Polen watchlist | Finnes konkrete sidestrømmer eller bioressurscase som matcher A/B/C? | Rapport, sektor, volum, aktør, nåværende avsetning, regulatoriske barrierer. | watchlist; needs-source |
 | Skotsk havbruk-/fiskeri-/bioressurskilde | Skottland watchlist | Finnes havbruk, fiskeri eller bioressurser som gir sammenlignbar læring for Norge/Norden? | Casebeskrivelse, rapport, dataår, fraksjoner, sluttbruk, regulatorisk kontekst. | watchlist; needs-source |
+
+## 11.06 aktør- og dokumentask-prioritet
+
+Denne prioriteringen kommer fra `food-tg-primarkilde-og-datakontroll-ledger-2026-06-10.md` og skal bare brukes til intern forberedelse til scope/minimumsvedtak apner neste gate.
+
+| Prioritet | Ask | Aktør-/dokumenteier | Hva må bekreftes | Stoppsignal |
+|---:|---|---|---|---|
+| 1 | Brasil/kaffe MOU | JT, Cathrine, Einar, NCH/WCEF/Natural State | Avtale, annex, partsliste, scope, kaffe-/Food TG-kobling og bruksrett. | Ingen dokumenteier eller avtaletekst. |
+| 2 | Elfenbenskysten/kakao | JT, Cathrine, Einar, NCH/WCEF/Natural State/LEAD | Organisasjonsnavn, MOU/LOI, dato, motpart, scope og bruksrett. | Ingen organisasjonsnavn eller avtaledokument. |
+| 3 | Valio/finsk fôr | Valio, Luke, Ruokavirasto, Tulli, eventuelt A-Rehu | Fôrstandard, fôrkurv, importandel, råvarer, år og definisjon. | Kun generell sustainability-side eller importfritt språk. |
+| 4 | Distribusjon/adoption | Grossist, Gartnerhallen, tilsyn, CEA-aktør eller markedsekspert | Trygge formuleringer om markedstilgang, volum, logistikk og kvalitetskrav. | Margin-, blokkering- eller misbruksclaim uten primærkilde. |
+| 5 | Hima/spillvarme | Green Mountain, Hima, eventuelt Frövi/Nevel/Billerud | GWh, MW, tur/retur-temp, driftstid, reservevarme, økonomi og produksjonsstatus. | Bare datasenterkapasitet eller PR-tekst. |
+| 6 | Marint restråstoff | SINTEF/FHF/Kontali, IOC/100% Fish eller sjømataktør | Fraksjon, sluttbruk, råstoffvekt vs produktvekt, høyverdi og bruksrett. | Benchmark behandles som norsk pilotbevis. |
+| 7 | Skottland/Polen | ZWS/SBMT/Scottish Ocean Cluster; GUS/PROM/CDR bare ved konkret spor | Fulltekst, data dictionary, aktør, lokasjon, volum og output. | Ingen fulltekst eller ingen konkret aktør/materialstrøm. |
 
 ## Minimumsformat for svar
 
