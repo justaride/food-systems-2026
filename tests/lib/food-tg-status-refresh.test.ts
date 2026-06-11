@@ -29,21 +29,26 @@ describe('Food TG status after Port E landing', () => {
     }
   })
 
-  it('tracks the post-171 platform-stack resync as the current review state', () => {
+  it('keeps volatile PR #159 head/check state on the PR instead of pinning old SHAs in docs', () => {
     const status = readFileSync(statusPath, 'utf8')
     const review = readFileSync(reviewPath, 'utf8')
 
     for (const term of [
-      'PR #171',
-      '73b8e3b',
-      '536 tester / 139 suiter / 0 feil',
-      'GitHub CI på head `73b8e3b`: grønn',
+      'PR #172',
+      'PR #159 er live kilde for siste head/check-status',
+      '537 tester / 139 suiter / 0 feil',
+      'GitHub CI er grønn på PR #159',
     ]) {
       assert.ok(status.includes(term), `${term} missing from ${statusPath}`)
       assert.ok(review.includes(term), `${term} missing from ${reviewPath}`)
     }
 
-    for (const staleTerm of ['PR #159-hodet `224cec7`']) {
+    for (const staleTerm of [
+      '73b8e3b',
+      'GitHub CI på head `',
+      'PR #159-head `',
+      'PR #159-hodet `',
+    ]) {
       assert.ok(!status.includes(staleTerm), `${staleTerm} should no longer be current in ${statusPath}`)
       assert.ok(!review.includes(staleTerm), `${staleTerm} should no longer be current in ${reviewPath}`)
     }
