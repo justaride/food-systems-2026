@@ -25,6 +25,8 @@ on:
         type: choice
         options:
           - ownership
+          - approved-corpus
+          - full
       confirm:
         description: 'Type IMPORT to confirm a write against the PRODUCTION database'
         required: true
