@@ -10,6 +10,7 @@ export const navGroups: NavGroup[] = [
     { key: 'team', href: '/team' },
     { key: 'moter', href: '/moter' },
     { key: 'kommunikasjon', href: '/kommunikasjon' },
+    { key: 'datastatus', href: '/datastatus' },
     { key: 'mandat', href: '/mandat' },
     { key: 'metodikk', href: '/metodikk' },
     { key: 'tidslinje', href: '/tidslinje' },

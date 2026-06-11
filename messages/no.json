@@ -13,6 +13,7 @@
     "team": { "name": "Team", "description": "Medlemmer og roller" },
     "moter": { "name": "Møter", "description": "Møtesammendrag og referater" },
     "kommunikasjon": { "name": "Kommunikasjon", "description": "E-post og korrespondanse" },
+    "datastatus": { "name": "Datastatus", "description": "Dekning, hull og artefakter" },
     "mandat": { "name": "Mandat", "description": "Food TG scope, claims og validering" },
     "metodikk": { "name": "Metodikk", "description": "Ten Step, KPIs og deep research-prompter" },
     "tidslinje": { "name": "Tidslinje", "description": "Faser og søknader" },

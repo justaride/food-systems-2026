@@ -1,6 +1,10 @@
-import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
-import { buildCountStatus, fallbackSurfaces, getDataStatus } from '../../src/lib/data-status'
+import { mkdirSync, writeFileSync } from 'node:fs'
+import { mkdtemp } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { describe, it } from 'node:test'
+import { buildCountStatus, fallbackSurfaces, getArtifactStatuses, getDataStatus } from '../../src/lib/data-status'
 
 describe('data status helpers', () => {
   it('fails a page gate when the count is below the required threshold', () => {
@@ -37,6 +41,9 @@ describe('data status helpers', () => {
       deliveryVolume: count(5),
       businessRelationship: count(2),
       company: count(150),
+      companyFinancial: { ...count(12), findFirst: async () => ({ year: 2024 }) },
+      companyProperty: count(3),
+      producer: count(10),
       phase: count(3),
       teamMember: count(2),
       kPI: count(4),
@@ -68,6 +75,9 @@ describe('data status helpers', () => {
       deliveryVolume: count(60310),
       businessRelationship: count(50),
       company: count(38976),
+      companyFinancial: { ...count(51), findFirst: async () => ({ year: 2024 }) },
+      companyProperty: count(25),
+      producer: count(1200),
       phase: count(4),
       teamMember: count(9),
       kPI: count(5),
@@ -85,5 +95,89 @@ describe('data status helpers', () => {
     assert.equal(status.pages.havbruk.ok, true)
     assert.equal(status.pages.havbruk.minRequired, 50)
     assert.equal(status.ok, true)
+  })
+
+  it('reports field coverage and explicit fallback consequences for data-status page', async () => {
+    const count = (value: number) => ({ count: async () => value })
+    const company = {
+      count: async (args?: unknown) => {
+        const text = JSON.stringify(args ?? {})
+        if (text.includes('Landbruksregisteret')) return 4
+        if (text.includes('financials')) return 80
+        if (text.includes('groupEmployees')) return 74
+        if (text.includes('isControlling')) return 65
+        return 100
+      },
+    }
+    const aquacultureSite = {
+      count: async (args?: unknown) => JSON.stringify(args ?? {}).includes('capacityTonnes') ? 45 : 50,
+    }
+    const companyProperty = {
+      count: async (args?: unknown) => {
+        const text = JSON.stringify(args ?? {})
+        if (text.includes('sqMeters')) return 12
+        if (text.includes('acquiredYear')) return 8
+        return 20
+      },
+    }
+    const producer = {
+      count: async (args?: unknown) => JSON.stringify(args ?? {}).includes('municipality') ? 700 : 1000,
+    }
+
+    const status = await getDataStatus({
+      subsidy: count(179310),
+      aquacultureSite,
+      aquacultureApplication: count(8),
+      fishHealthObservation: count(0),
+      deliveryVolume: count(60310),
+      businessRelationship: count(50),
+      company,
+      companyFinancial: { ...count(123), findFirst: async () => ({ year: 2024 }) },
+      companyProperty,
+      producer,
+      phase: count(4),
+      teamMember: count(9),
+      kPI: count(5),
+      tenStep: count(10),
+      evidenceDoc: count(18),
+      application: count(3),
+      insight: count(122),
+      meeting: count(8),
+      communication: count(0),
+      document: count(1063),
+      actor: count(201),
+      personProfile: count(371),
+    }, { artifactRoot: await mkdtemp(join(tmpdir(), 'data-status-empty-artifacts-')) })
+
+    const latestFinancial = status.fieldCoverage.find(row => row.id === 'companies.latest-financial')
+    assert.equal(latestFinancial?.covered, 80)
+    assert.equal(latestFinancial?.total, 100)
+    assert.equal(latestFinancial?.percent, 80)
+    assert.equal(latestFinancial?.measuredYear, 2024)
+
+    assert.equal(status.fieldCoverage.find(row => row.id === 'aquaculture.capacity')?.missing, 5)
+    assert.equal(status.fieldCoverage.find(row => row.id === 'properties.sqm')?.percent, 60)
+    assert.equal(status.fieldCoverage.find(row => row.id === 'producers.total')?.total, 1000)
+    assert.equal(status.fieldCoverage.find(row => row.id === 'producers.total')?.percent, 100)
+
+    assert.ok(status.operationalGaps.some(gap => gap.id === 'communications-empty' && gap.route === '/kommunikasjon'))
+    assert.ok(status.operationalGaps.some(gap => gap.id === 'fish-health-empty' && gap.route === '/havbruk'))
+    assert.ok(status.operationalGaps.some(gap => gap.id === 'landbruksregister-narrow' && gap.route === '/produsenter'))
+  })
+
+  it('extracts artifact freshness from generatedAt, generated and curated year fields', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'data-status-artifacts-'))
+    mkdirSync(join(root, 'data'), { recursive: true })
+    mkdirSync(join(root, 'public/data/food-systems/no'), { recursive: true })
+    writeFileSync(join(root, 'data/konsern-coverage.json'), JSON.stringify({ generatedAt: '2026-06-11T00:00:00.000Z' }))
+    writeFileSync(join(root, 'public/data/food-systems/no/chart-metrics.json'), JSON.stringify({ generated: '2026-06-10T12:00:00.000Z' }))
+    writeFileSync(join(root, 'public/data/food-systems/no/value-chain.json'), JSON.stringify({ year: 2024, steps: [] }))
+
+    const artifacts = await getArtifactStatuses(root)
+
+    assert.equal(artifacts.find(row => row.id === 'konsern-coverage')?.generatedAt, '2026-06-11T00:00:00.000Z')
+    assert.equal(artifacts.find(row => row.id === 'chart-metrics')?.generatedAt, '2026-06-10T12:00:00.000Z')
+    assert.equal(artifacts.find(row => row.id === 'value-chain')?.generatedAt, null)
+    assert.equal(artifacts.find(row => row.id === 'value-chain')?.displayDate, '2024')
   })
 })
