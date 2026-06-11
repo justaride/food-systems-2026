@@ -13,6 +13,7 @@ relaterte_filer:
   - docs/project/status/jt-moteinvitasjon-uke-25-2026-06-15.md
   - docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md
   - docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.md
+  - docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.pptx
   - docs/project/mandates/food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md
   - docs/project/mandates/food-tg-minimumsvedtak-casekort-2026-06-09.md
 ---
@@ -70,6 +71,7 @@ Vedlegg/lenker:
 - Statusnotat til JT uke 25
 - Beslutningssaker JT uke 25
 - Deck v0.1 slide-manus
+- Deck v0.1 redigerbar PPTX: docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.pptx
 - Port E event-go-pakke: docs/project/status/port-e-event-go-uke-25-2026-06-15.md
 ```
 
