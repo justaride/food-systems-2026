@@ -1,6 +1,6 @@
 ---
 tittel: JT deck v0.1 uke 25
-status: Slide-manus v0.1
+status: Slide-manus og redigerbar PPTX v0.1
 eier: Gabriel
 dato: 2026-06-15
 scope: Intern beslutningsdeck for JT/Einar/Thea-forankring i uke 25. Ikke ekstern presentasjon.
@@ -10,9 +10,14 @@ relaterte_filer:
   - docs/project/mandates/food-tg-0906-sprintboard-go-no-go-2026-06-10.md
   - docs/project/status/jt-statusnotat-uke-25-2026-06-15.md
   - docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md
+  - docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.pptx
 ---
 
 # JT deck v0.1 uke 25
+
+Redigerbar PPTX v0.1 ligger i `docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.pptx`.
+
+PPTX-en er intern beslutningsdeck basert på dette manuset. Den skal ikke brukes eksternt før PR #159 er merget/deployet og operatorsekvensen er re-kjørt.
 
 ## Designpremiss for senere PPTX
 

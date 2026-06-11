@@ -10,6 +10,7 @@ relaterte_filer:
   - docs/project/status/jt-uke25-operatorlogg-2026-06-15.md
   - docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md
   - docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.md
+  - docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.pptx
 ---
 
 # Møteinvitasjon JT uke 25
@@ -60,6 +61,7 @@ Forslag: onsdag-fredag uke 25.
 - `docs/project/status/jt-statusnotat-uke-25-2026-06-15.md`
 - `docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md`
 - `docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.md`
+- `docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.pptx`
 
 ## Operatorpakke
 
