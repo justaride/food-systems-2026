@@ -9,6 +9,7 @@ relaterte_filer:
   - docs/project/analysis/food-tg-vurderingsrapport-siden-jt-2026-06-10.md
   - docs/project/status/STATUS-OG-ARBEIDSPLAN-2026-06-11.md
   - docs/project/status/jt-uke25-sendepakke-2026-06-15.md
+  - docs/project/status/food-tg-start-her-2026-06-15.md
   - docs/project/plans/FOOD-TG-UTVIKLINGSPLAN-2026-06-10.md
   - docs/project/mandates/food-tg-minimumsvedtak-casekort-2026-06-09.md
   - docs/project/mandates/food-tg-0906-sprintboard-go-no-go-2026-06-10.md
