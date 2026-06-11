@@ -80,7 +80,7 @@ localhost:5432 — tunnelen proxyer), `CF_ACCESS_CLIENT_ID`,
 |---|---|---|---|
 | `coolify-sync-source-commit.yml` | push `main`, manuell | Setter `SOURCE_COMMIT`-env + trigger redeploy via Coolify API | nei |
 | `citation-verification.yml` | cron søn 03:00 UTC, manuell | `db:verify:filehash` + url-health mot prod | **ja** |
-| `prod-data-import.yml` | manuell (`confirm=IMPORT`) | Sanksjonert prod-import (start: `db:import:ownership`) + `db:verify` | **ja** |
+| `prod-data-import.yml` | manuell (`confirm=IMPORT`) | Sanksjonert prod-data-operasjon via eksplisitte targetvalg: `verify-only`, `ownership`, `registers`, `full` | **ja** |
 | `coolify-db-watcher.yml` | (sjekk fila) | DB-overvåking | [A] |
 | `coolify-resource-snapshot.yml` | (sjekk fila) | Ressurs-snapshot | [A] |
 | `schema-migration-guard.yml` | PR | Schema-drift-gate | nei [A] |
@@ -167,8 +167,9 @@ nohup cloudflared access tcp \
 (`CF_ACCESS_CLIENT_ID/SECRET`-secretene gjenbrukes — de var riktige, bare sendt
 via env-navn cloudflared ignorerer.)
 
-**Verifiser:** re-kjør `prod-data-import` (manuell, `confirm=IMPORT`) — psql-proben
-skal nå passere. Hvis den fortsatt feiler med «bad handshake», er *da* selve
+**Verifiser:** re-kjør `prod-data-import` med target `verify-only` (manuell,
+`confirm=IMPORT`) — psql-proben og `db:verify` skal nå passere uten å skrive
+data. Hvis den fortsatt feiler med «bad handshake», er *da* selve
 service-tokenet utløpt/ugyldig → roter det i CF Zero Trust → Access → Service
 Tokens og oppdater GH-secrets `CF_ACCESS_CLIENT_ID/SECRET` (policy er
 `any_valid_service_token`, så et hvilket som helst gyldig token virker).
@@ -181,9 +182,11 @@ Jf. oppsettet i [SETUP-CF-TUNNEL-FOR-DB.md](../../SETUP-CF-TUNNEL-FOR-DB.md).
 
 ## 9. Etter gjenoppretting — verifiseringskjede
 
-1. `prod-data-import` (manuell, `confirm=IMPORT`, target `ownership`) → `db:verify`.
-2. `citation-verification` (manuell dispatch) → skal passere DB-steget.
-3. Bekreft pending data-fiks A (NorgesGruppen→BAMA `source`) er i prod.
+1. `prod-data-import` (manuell, `confirm=IMPORT`, target `verify-only`) → `db:verify`.
+2. Hvis prod mangler data etter verifikasjon: kjør eksplisitt target `registers`
+   eller `full`, ikke fri tekst / dynamisk npm-script.
+3. `citation-verification` (manuell dispatch) → skal passere DB-steget.
+4. Bekreft pending data-fiks A (NorgesGruppen→BAMA `source`) er i prod.
 
 ## 10. Gjenbruk på tvers av prosjektene
 
