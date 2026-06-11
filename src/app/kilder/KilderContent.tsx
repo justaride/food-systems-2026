@@ -178,6 +178,11 @@ export function KilderContent({
     analyse: sources.filter((s) => s.sourceType === 'analyse').length,
     lovverk: sources.filter((s) => s.sourceType === 'lovverk').length,
   }
+  const sectionAnchors = {
+    rounds: `${rounds.length} forskningsrunder`,
+    types: `${Object.keys(typeLabels).length - 1} kildetyper`,
+    results: `${filteredSources.length} treff`,
+  }
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
@@ -242,8 +247,32 @@ export function KilderContent({
         title="Kolonneforklaringer"
       />
 
+      <nav
+        aria-label="Kildeseksjoner"
+        className="flex flex-wrap gap-2 rounded-xl border border-stone-200 bg-white p-3 text-xs"
+      >
+        <a
+          href="#kilder-runder"
+          className="rounded-md border border-blue-200 bg-blue-50 px-3 py-1.5 font-medium text-blue-800 hover:bg-blue-100"
+        >
+          Forskningsrunder · {sectionAnchors.rounds}
+        </a>
+        <a
+          href="#kilder-typer"
+          className="rounded-md border border-stone-200 bg-stone-50 px-3 py-1.5 font-medium text-stone-700 hover:bg-stone-100"
+        >
+          Kildetyper · {sectionAnchors.types}
+        </a>
+        <a
+          href="#kilder-resultater"
+          className="rounded-md border border-emerald-200 bg-emerald-50 px-3 py-1.5 font-medium text-emerald-800 hover:bg-emerald-100"
+        >
+          Resultatliste · {sectionAnchors.results}
+        </a>
+      </nav>
+
       {/* Research rounds banner */}
-      <div className="rounded-xl border border-blue-200 bg-blue-50/60 p-4">
+      <div id="kilder-runder" className="scroll-mt-6 rounded-xl border border-blue-200 bg-blue-50/60 p-4">
         <div className="text-sm font-semibold text-blue-900 mb-2">Forskningsrunder</div>
         <div className="flex flex-wrap gap-2">
           <button
@@ -343,7 +372,7 @@ export function KilderContent({
       </div>
 
       {/* Type filter + search */}
-      <div className="flex flex-col md:flex-row gap-4 items-center bg-stone-50 p-4 rounded-xl border border-stone-200">
+      <div id="kilder-typer" className="scroll-mt-6 flex flex-col md:flex-row gap-4 items-center bg-stone-50 p-4 rounded-xl border border-stone-200">
         <div className="w-full md:w-64">
           <input
             type="text"
@@ -405,7 +434,7 @@ export function KilderContent({
       </div>
 
       {filter === 'nou' || filter === 'analyse' ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="kilder-resultater" className="scroll-mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSources.map((src) => {
             const dot = statusDot(src.downloadStatus)
             return (
@@ -471,7 +500,7 @@ export function KilderContent({
           })}
         </div>
       ) : (
-        <Card className="overflow-hidden">
+        <Card id="kilder-resultater" className="scroll-mt-6 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>

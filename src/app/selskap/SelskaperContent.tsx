@@ -95,6 +95,21 @@ export function SelskaperContent({
     () => Array.from(new Set(companies.map(c => c.valueChainStage).filter((v): v is string => Boolean(v)))).sort(),
     [companies]
   )
+  const stageCounts = useMemo(
+    () => [
+      ...stages.map(stage => ({
+        stage,
+        label: STAGE_LABELS[stage] ?? stage,
+        count: companies.filter(c => c.valueChainStage === stage).length,
+      })),
+      {
+        stage: 'ukjent',
+        label: 'Ukjent ledd',
+        count: companies.filter(c => !c.valueChainStage).length,
+      },
+    ].filter(item => item.count > 0),
+    [companies, stages]
+  )
   const ownershipTypes = useMemo(
     () => Array.from(new Set(companies.map(c => c.ownershipType).filter((v): v is string => Boolean(v)))).sort(),
     [companies]
@@ -102,7 +117,8 @@ export function SelskaperContent({
 
   const filtered = useMemo(() => {
     return companies.filter(c => {
-      if (stageFilter !== 'alle' && c.valueChainStage !== stageFilter) return false
+      if (stageFilter === 'ukjent' && c.valueChainStage) return false
+      if (stageFilter !== 'alle' && stageFilter !== 'ukjent' && c.valueChainStage !== stageFilter) return false
       if (ownershipFilter !== 'alle' && c.ownershipType !== ownershipFilter) return false
       if (!deferredQuery.trim()) return true
       const q = deferredQuery.toLowerCase()
@@ -152,6 +168,56 @@ export function SelskaperContent({
       </div>
 
       <Card>
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 className="text-sm font-semibold text-stone-800">Verdikjedesegmenter</h2>
+              <p className="mt-1 text-xs leading-relaxed text-stone-500">
+                Utvalg: viser {Math.min(filtered.length, 300).toLocaleString('nb-NO')} av{' '}
+                {filtered.length.toLocaleString('nb-NO')} treff fra {companies.length.toLocaleString('nb-NO')}{' '}
+                kartlagte selskaper.
+              </p>
+            </div>
+            <p className="max-w-xl text-xs leading-relaxed text-stone-500">
+              <span className="font-medium text-stone-700">Kartlagt betyr</span> registrert med minst ett
+              prosjektspor for regnskap, styre, eierskap eller relasjon. Se{' '}
+              <Link href="/metodikk" className="text-emerald-700 hover:underline">
+                metodikken
+              </Link>{' '}
+              for avgrensning og kildekrav.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => setStageFilter('alle')}
+              className={`rounded-full border px-3 py-1 text-xs font-medium ${
+                stageFilter === 'alle'
+                  ? 'border-stone-900 bg-stone-900 text-white'
+                  : 'border-stone-200 bg-white text-stone-600 hover:border-stone-300'
+              }`}
+            >
+              Alle ({companies.length.toLocaleString('nb-NO')})
+            </button>
+            {stageCounts.map(item => (
+              <button
+                key={item.stage}
+                type="button"
+                onClick={() => setStageFilter(item.stage)}
+                className={`rounded-full border px-3 py-1 text-xs font-medium ${
+                  stageFilter === item.stage
+                    ? 'border-emerald-700 bg-emerald-50 text-emerald-800'
+                    : 'border-stone-200 bg-white text-stone-600 hover:border-emerald-300'
+                }`}
+              >
+                {item.label} ({item.count.toLocaleString('nb-NO')})
+              </button>
+            ))}
+          </div>
+        </div>
+      </Card>
+
+      <Card>
         <div className="flex flex-wrap gap-2 items-center">
           <input
             type="text"
@@ -171,6 +237,9 @@ export function SelskaperContent({
                 {STAGE_LABELS[s] ?? s}
               </option>
             ))}
+            {stageCounts.some(item => item.stage === 'ukjent') && (
+              <option value="ukjent">Ukjent ledd</option>
+            )}
           </select>
           <select
             value={ownershipFilter}

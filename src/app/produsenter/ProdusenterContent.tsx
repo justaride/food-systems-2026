@@ -15,6 +15,8 @@ function formatTableCount(count: number | null): string {
   return count == null ? 'ukjent antall rader' : `${count.toLocaleString('no')} rader`
 }
 
+const PAGE_SIZE = 25
+
 export function ProdusenterContent({
   producers,
   total,
@@ -25,6 +27,7 @@ export function ProdusenterContent({
   landbruksregisterCompanyCount: number | null
 }) {
   const [query, setQuery] = useState('')
+  const [page, setPage] = useState(1)
   const deferredQuery = useDeferredValue(query)
 
   const filtered = useMemo(() => {
@@ -34,6 +37,11 @@ export function ProdusenterContent({
       p => p.name.toLowerCase().includes(q) || p.orgNr.includes(q)
     )
   }, [producers, deferredQuery])
+  const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))
+  const currentPage = Math.min(page, pageCount)
+  const pageStart = filtered.length === 0 ? 0 : (currentPage - 1) * PAGE_SIZE + 1
+  const pageEnd = Math.min(currentPage * PAGE_SIZE, filtered.length)
+  const visibleRows = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
   const landbruksregisterCompanyIsNarrow =
     landbruksregisterCompanyCount == null || landbruksregisterCompanyCount < 100
 
@@ -75,11 +83,14 @@ export function ProdusenterContent({
       />
 
       <Card>
-        <div className="flex flex-wrap gap-2 items-center">
+        <div className="flex flex-wrap gap-2 items-center justify-between">
           <input
             type="text"
             value={query}
-            onChange={e => setQuery(e.target.value)}
+            onChange={e => {
+              setQuery(e.target.value)
+              setPage(1)
+            }}
             placeholder="Søk etter navn eller orgnr..."
             aria-label="Søk etter navn eller orgnr"
             className="flex-1 min-w-[220px] px-3 py-1.5 rounded-lg border border-stone-200 bg-white text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
@@ -101,6 +112,31 @@ export function ProdusenterContent({
         />
       ) : (
         <Card>
+          <div className="mb-3 flex flex-col gap-2 border-b border-stone-100 pb-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs text-stone-500">
+              Side {currentPage} av {pageCount} · viser {pageStart.toLocaleString('no')}-
+              {pageEnd.toLocaleString('no')} av {filtered.length.toLocaleString('no')} treff · totalt{' '}
+              {total.toLocaleString('no')} produsenter.
+            </p>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="rounded-md border border-stone-200 px-2.5 py-1 text-xs font-medium text-stone-600 disabled:cursor-not-allowed disabled:opacity-40 hover:bg-stone-50"
+              >
+                Forrige
+              </button>
+              <button
+                type="button"
+                onClick={() => setPage(currentPage + 1)}
+                disabled={currentPage === pageCount}
+                className="rounded-md border border-stone-200 px-2.5 py-1 text-xs font-medium text-stone-600 disabled:cursor-not-allowed disabled:opacity-40 hover:bg-stone-50"
+              >
+                Neste
+              </button>
+            </div>
+          </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -123,7 +159,7 @@ export function ProdusenterContent({
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-100">
-                {filtered.map(p => (
+                {visibleRows.map(p => (
                   <tr key={p.id} className="hover:bg-stone-50">
                     <td className="py-2 pr-4 text-stone-900 font-medium">{p.name}</td>
                     <td className="py-2 pr-4 font-mono text-xs text-stone-500">{p.orgNr}</td>

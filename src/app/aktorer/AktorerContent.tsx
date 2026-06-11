@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useDeferredValue, useState } from 'react'
+import { useDeferredValue, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { ColumnHelp } from '@/components/ui/ColumnHelp'
 import { EmptyState } from '@/components/ui/EmptyState'
@@ -25,6 +25,7 @@ type ActorRow = {
   priorityTier: string | null
   owner: string | null
   nextStep: string | null
+  lastVerifiedAt: string | null
   powerScore: number | null
   interestScore: number | null
   themeTags: string[]
@@ -98,6 +99,17 @@ function isKeyPlayer(actor: ActorRow) {
   return (actor.powerScore ?? 0) >= 4 && (actor.interestScore ?? 0) >= 4
 }
 
+function formatActorDate(value: string | null | undefined) {
+  if (!value) return null
+  const parsed = new Date(value)
+  if (Number.isNaN(parsed.getTime())) return value
+  return new Intl.DateTimeFormat('nb-NO', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  }).format(parsed)
+}
+
 export function AktorerContent({ actors }: { actors: ActorRow[] }) {
   const [query, setQuery] = useState('')
   const [typeFilter, setTypeFilter] = useState('alle')
@@ -109,6 +121,17 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
   const actorTypes = [...new Set(actors.map(actor => actor.actorType))].sort()
   const stances = [...new Set(actors.map(actor => actor.currentStance).filter(Boolean))].sort() as string[]
   const allThemeTags = [...new Set(actors.flatMap(a => a.themeTags ?? []))].sort()
+  const actorTypeDates = useMemo(() => {
+    const dates = new Map<string, string>()
+    for (const actor of actors) {
+      if (!actor.lastVerifiedAt) continue
+      const current = dates.get(actor.actorType)
+      if (!current || new Date(actor.lastVerifiedAt).getTime() > new Date(current).getTime()) {
+        dates.set(actor.actorType, actor.lastVerifiedAt)
+      }
+    }
+    return dates
+  }, [actors])
 
   const filteredActors = actors.filter(actor => {
     if (typeFilter !== 'alle' && actor.actorType !== typeFilter) return false
@@ -346,8 +369,12 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
         <EmptyState message="Ingen aktorer matcher filteret" />
       ) : (
         <div className="grid gap-4 lg:grid-cols-2">
-          {filteredActors.map(actor => (
-            <Card key={actor.id} className="!p-5">
+          {filteredActors.map(actor => {
+            const actorReviewedDate = formatActorDate(actor.lastVerifiedAt)
+            const groupReviewedDate = formatActorDate(actorTypeDates.get(actor.actorType))
+
+            return (
+              <Card key={actor.id} className="!p-5">
               <div className="flex items-start justify-between gap-4">
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
@@ -368,6 +395,11 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
                   <p className="mt-1 text-xs uppercase tracking-wider text-stone-400">
                     {ACTOR_TYPE_LABELS[actor.actorType] ?? actor.actorType}
                     {actor.organizationType ? ` · ${actor.organizationType}` : ''}
+                  </p>
+                  <p className="mt-1 text-xs text-stone-500">
+                    {actorReviewedDate
+                      ? `Sist vurdert: ${actorReviewedDate}`
+                      : `Gruppedato: ${groupReviewedDate ?? 'ikke datert'}`}
                   </p>
                 </div>
 
@@ -428,8 +460,9 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
                   )}
                 </div>
               )}
-            </Card>
-          ))}
+              </Card>
+            )
+          })}
         </div>
       )}
     </div>
