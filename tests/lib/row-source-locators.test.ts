@@ -1118,6 +1118,18 @@ describe('row source locators', () => {
     assert.equal(
       resolveCompanyFinancialSourceLocator(
         {
+          source: 'Regnskapsregisteret 2024',
+          year: 2024,
+          company: { orgNr: '815664582' },
+        },
+        new Set(),
+      ),
+      'https://data.brreg.no/regnskapsregisteret/regnskap/815664582?regnskapsaar=2024',
+    )
+
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
           source: 'Proff.no 2023',
           year: 2022,
           company: { orgNr: '815664582' },

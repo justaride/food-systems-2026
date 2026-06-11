@@ -65,6 +65,8 @@
     "db:backfill:shareholder-provenance": "tsx scripts/backfill-shareholder-provenance.ts",
     "db:backfill:source-citations": "tsx scripts/backfill-source-citations-from-existing-locators.ts",
     "db:backfill:source-citations:apply": "tsx scripts/backfill-source-citations-from-existing-locators.ts --apply",
+    "db:backfill:financials-brreg": "tsx scripts/backfill-financials-brreg.ts",
+    "db:backfill:financials-brreg:apply": "tsx scripts/backfill-financials-brreg.ts --apply",
     "db:backfill:filehash": "tsx scripts/backfill-source-citation-filehash.ts",
     "db:backfill:filehash:apply": "tsx scripts/backfill-source-citation-filehash.ts --apply",
     "db:verify:filehash": "tsx scripts/verify-source-citation-filehash.ts",

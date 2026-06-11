@@ -165,6 +165,114 @@ describe('data status helpers', () => {
     assert.ok(status.operationalGaps.some(gap => gap.id === 'landbruksregister-narrow' && gap.route === '/produsenter'))
   })
 
+  it('splits company financial coverage into BRREG AS/ASA targets and explicit missing reasons', async () => {
+    const count = (value: number) => ({ count: async () => value })
+    const companyRows = [
+      {
+        orgNr: '815664582',
+        country: 'NO',
+        legalForm: 'AS',
+        isResearchConstruct: false,
+        metadata: null,
+        _count: { financials: 1 },
+      },
+      {
+        orgNr: '897392232',
+        country: 'NO',
+        legalForm: 'AS',
+        isResearchConstruct: false,
+        metadata: null,
+        _count: { financials: 0 },
+      },
+      {
+        orgNr: '964118191',
+        country: 'NO',
+        legalForm: 'ASA',
+        isResearchConstruct: false,
+        metadata: null,
+        _count: { financials: 0 },
+      },
+      {
+        orgNr: 'DK-35954716',
+        country: 'DK',
+        legalForm: 'A/S',
+        isResearchConstruct: false,
+        metadata: { financials: { missingReason: 'foreign_registry' } },
+        _count: { financials: 0 },
+      },
+      {
+        orgNr: 'NO-LIDL',
+        country: 'NO',
+        legalForm: 'AS',
+        isResearchConstruct: false,
+        metadata: { financials: { missingReason: 'synthetic_orgnr' } },
+        _count: { financials: 0 },
+      },
+      {
+        orgNr: '947942638',
+        country: 'NO',
+        legalForm: 'SA',
+        isResearchConstruct: false,
+        metadata: { financials: { missingReason: 'not_as_asa_scope' } },
+        _count: { financials: 0 },
+      },
+      {
+        orgNr: 'SE-556004-7903',
+        country: 'SE',
+        legalForm: 'AB',
+        isResearchConstruct: false,
+        metadata: null,
+        _count: { financials: 0 },
+      },
+    ]
+    const company = {
+      count: async (args?: unknown) => {
+        const text = JSON.stringify(args ?? {})
+        if (text.includes('Landbruksregisteret')) return 0
+        if (text.includes('financials')) return companyRows.filter(row => row._count.financials > 0).length
+        return companyRows.length
+      },
+      findMany: async () => companyRows,
+    }
+
+    const status = await getDataStatus({
+      subsidy: count(179310),
+      aquacultureSite: count(50),
+      aquacultureApplication: count(8),
+      fishHealthObservation: count(0),
+      deliveryVolume: count(60310),
+      businessRelationship: count(50),
+      company,
+      companyFinancial: { ...count(1), findFirst: async () => ({ year: 2024 }) },
+      companyProperty: count(20),
+      producer: count(1000),
+      phase: count(4),
+      teamMember: count(9),
+      kPI: count(5),
+      tenStep: count(10),
+      evidenceDoc: count(18),
+      application: count(3),
+      insight: count(122),
+      meeting: count(8),
+      communication: count(1),
+      document: count(1063),
+      actor: count(201),
+      personProfile: count(371),
+    }, { artifactRoot: await mkdtemp(join(tmpdir(), 'data-status-financial-split-')) })
+
+    const norwegianAsa = status.fieldCoverage.find(row => row.id === 'companies.latest-financial-norwegian-as-asa')
+    assert.equal(norwegianAsa?.covered, 1)
+    assert.equal(norwegianAsa?.total, 3)
+    assert.equal(norwegianAsa?.percent, 33.3)
+    assert.equal(norwegianAsa?.status, 'critical')
+
+    const explicitReasons = status.fieldCoverage.find(row => row.id === 'companies.financial-missing-reason')
+    assert.equal(explicitReasons?.covered, 3)
+    assert.equal(explicitReasons?.total, 6)
+    assert.equal(explicitReasons?.percent, 50)
+    assert.equal(explicitReasons?.status, 'warn')
+  })
+
   it('extracts artifact freshness from generatedAt, generated and curated year fields', async () => {
     const root = await mkdtemp(join(tmpdir(), 'data-status-artifacts-'))
     mkdirSync(join(root, 'data'), { recursive: true })

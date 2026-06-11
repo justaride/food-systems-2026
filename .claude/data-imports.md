@@ -41,6 +41,7 @@ main()
 - Treat `npm run db:import` as the smaller legacy/core seed chain; it does not include the later konserntre-, HORECA-, register-, Nordic-, or April 2026 imports
 - Run `npm run db:audit` after major import changes when you need an integrity check
 - Prefer Prisma upserts so imports stay idempotent
+- Run `npm run db:backfill:financials-brreg` to dry-run BRREG Regnskapsregisteret financial backfill; run `npm run db:backfill:financials-brreg:apply` to upsert `CompanyFinancial` rows and mark explicit missing reasons
 - For company entities, check [Company Registry](company-registry.md) before adding new records
 
 ## Full Approved Chain
@@ -97,6 +98,7 @@ Post-run artifacts:
 | `preview-food-research-process-intake.ts` | Ingen DB-skriving. Genererer `review.csv`, `manifest.json` og `SUMMARY.md` for manuell vurdering av `research/arkiv-sortert/` | `research:intake:food-process:preview` |
 | `import-food-research-process-intake.ts` | `Document` (staged intake fra godkjente rader i review-CSV) | `db:import:food-process-intake` |
 | `fix-nordic-orgnr.ts` | `Company` orgNr migration | `db:fix:nordic-orgnr` |
+| `backfill-financials-brreg.ts` | `CompanyFinancial` upsert from BRREG Regnskapsregisteret plus `Company.metadata.financials.missingReason` markers | `db:backfill:financials-brreg` / `db:backfill:financials-brreg:apply` |
 
 ## Adding New Companies
 

@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/Card'
 import { ColumnHelp } from '@/components/ui/ColumnHelp'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { Glossary } from '@/components/ui/Glossary'
-import { MissingValue, formatCoverageFootnote } from '@/components/ui/MissingValue'
+import { MissingValue, formatCoverageFootnote, type MissingValueReason } from '@/components/ui/MissingValue'
 import { formatEmployeeDisplay, formatRevenueDisplay } from '@/lib/company-card-metrics'
 import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 
@@ -24,6 +24,8 @@ type CompanyRow = {
   revenueNok: number | null
   employees: number | null
   hasFinancialRow: boolean
+  financialMissingValueReason: MissingValueReason
+  financialMissingLabel: string
   controllingOwner: string | null
   boardCount: number
   subsidyCount: number
@@ -55,10 +57,12 @@ function CoveragePill({
   label,
   ok,
   missingReason = 'not_collected',
+  missingLabel = 'mangler',
 }: {
   label: string
   ok: boolean
-  missingReason?: 'not_collected' | 'no_matching_record' | 'no_financial_row'
+  missingReason?: MissingValueReason
+  missingLabel?: string
 }) {
   return (
     <span
@@ -69,7 +73,7 @@ function CoveragePill({
       }`}
     >
       <span>{label}</span>
-      {ok ? <span>OK</span> : <MissingValue reason={missingReason} label="mangler" className="text-stone-500" />}
+      {ok ? <span>OK</span> : <MissingValue reason={missingReason} label={missingLabel} className="text-stone-500" />}
     </span>
   )
 }
@@ -239,8 +243,8 @@ export function SelskaperContent({
                   <div className="mt-0.5 font-semibold text-stone-900">
                     {c.revenueNok == null ? (
                       <MissingValue
-                        reason={c.hasFinancialRow ? 'not_reported' : 'no_financial_row'}
-                        label={formatRevenueDisplay(c.revenueNok, c.hasFinancialRow)}
+                        reason={c.hasFinancialRow ? 'not_reported' : c.financialMissingValueReason}
+                        label={formatRevenueDisplay(c.revenueNok, c.hasFinancialRow, c.financialMissingLabel)}
                         className="font-semibold"
                       />
                     ) : (
@@ -266,7 +270,12 @@ export function SelskaperContent({
               </div>
 
               <div className="mt-3 flex flex-wrap gap-1 text-[11px]">
-                <CoveragePill label="Finans" ok={c.hasFinancialRow} missingReason="no_financial_row" />
+                <CoveragePill
+                  label="Finans"
+                  ok={c.hasFinancialRow}
+                  missingReason={c.financialMissingValueReason}
+                  missingLabel={c.financialMissingLabel}
+                />
                 <CoveragePill label="Styre" ok={c.boardCount > 0} />
                 <CoveragePill label="Eierskap" ok={c.controllingOwner != null} missingReason="no_matching_record" />
               </div>

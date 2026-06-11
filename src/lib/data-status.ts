@@ -1,5 +1,10 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+import {
+  hasExplicitFinancialMissingReason,
+  isNorwegianFinancialStatementTarget,
+  type FinancialBackfillCompany,
+} from '@/lib/financial-backfill'
 
 type CountStatus = {
   ok: boolean
@@ -10,6 +15,17 @@ type CountStatus = {
 
 type CountDelegate = {
   count: (args?: unknown) => Promise<number>
+}
+
+type CompanyFinancialCoverageRow = FinancialBackfillCompany & {
+  _count?: {
+    financials?: number
+  }
+  financials?: unknown[]
+}
+
+type CompanyCoverageDelegate = CountDelegate & {
+  findMany?: (args?: unknown) => Promise<CompanyFinancialCoverageRow[]>
 }
 
 type LatestFinancialYearDelegate = CountDelegate & {
@@ -23,7 +39,7 @@ export type DataStatusDb = {
   fishHealthObservation: CountDelegate
   deliveryVolume: CountDelegate
   businessRelationship: CountDelegate
-  company: CountDelegate
+  company: CompanyCoverageDelegate
   companyFinancial: LatestFinancialYearDelegate
   companyProperty: CountDelegate
   producer: CountDelegate
@@ -178,10 +194,10 @@ function roundPercent(covered: number, total: number): number {
   return Math.round((covered / total) * 1000) / 10
 }
 
-function coverageStatus(percent: number | null): CoverageTone {
+function coverageStatus(percent: number | null, minOkPercent = 80, criticalBelowPercent = 50): CoverageTone {
   if (percent == null) return 'unknown'
-  if (percent < 50) return 'critical'
-  if (percent < 80) return 'warn'
+  if (percent < criticalBelowPercent) return 'critical'
+  if (percent < minOkPercent) return 'warn'
   return 'ok'
 }
 
@@ -194,6 +210,8 @@ function buildFieldCoverageMetric(input: {
   covered: number | null
   consequence: string
   measuredYear?: number
+  minOkPercent?: number
+  criticalBelowPercent?: number
   error?: string
 }): FieldCoverageMetric {
   const missing =
@@ -209,7 +227,7 @@ function buildFieldCoverageMetric(input: {
     ...input,
     missing,
     percent,
-    status: coverageStatus(percent),
+    status: coverageStatus(percent, input.minOkPercent, input.criticalBelowPercent),
   }
 }
 
@@ -222,6 +240,8 @@ async function safeFieldCoverageMetric(input: {
   total: () => Promise<number>
   covered: () => Promise<number>
   measuredYear?: number
+  minOkPercent?: number
+  criticalBelowPercent?: number
 }): Promise<FieldCoverageMetric> {
   const [totalResult, coveredResult] = await Promise.all([
     safeCount(`${input.id}.total`, input.total),
@@ -238,8 +258,93 @@ async function safeFieldCoverageMetric(input: {
     covered: coveredResult.actual,
     consequence: input.consequence,
     measuredYear: input.measuredYear,
+    minOkPercent: input.minOkPercent,
+    criticalBelowPercent: input.criticalBelowPercent,
     error,
   })
+}
+
+function financialRowCount(row: CompanyFinancialCoverageRow): number {
+  return row._count?.financials ?? (Array.isArray(row.financials) ? row.financials.length : 0)
+}
+
+async function safeCompanyFinancialCoverageMetrics(
+  db: DataStatusDb,
+  latestFinancialYear: number | null,
+): Promise<FieldCoverageMetric[]> {
+  const baseInput = {
+    surface: 'Selskap / finans',
+    denominatorLabel: 'Company-rader uten regnskapsrad',
+    consequence: 'Rader uten regnskapsrad må ha eksplisitt grunn slik at /selskap kan skille hull fra ikke-relevante eller utilgjengelige regnskap.',
+  }
+
+  if (!db.company.findMany) return []
+
+  try {
+    const rows = await db.company.findMany({
+      select: {
+        orgNr: true,
+        country: true,
+        legalForm: true,
+        isResearchConstruct: true,
+        metadata: true,
+        _count: { select: { financials: true } },
+      },
+    })
+
+    const norwegianTargets = rows.filter(isNorwegianFinancialStatementTarget)
+    const norwegianTargetsWithFinancials = norwegianTargets.filter(row => financialRowCount(row) > 0)
+    const rowsWithoutFinancials = rows.filter(row => financialRowCount(row) === 0)
+    const rowsWithReason = rowsWithoutFinancials.filter(row => hasExplicitFinancialMissingReason(row.metadata))
+
+    return [
+      buildFieldCoverageMetric({
+        id: 'companies.latest-financial-norwegian-as-asa',
+        surface: 'Selskap / finans',
+        label: latestFinancialYear == null
+          ? 'Norske AS/ASA med regnskap'
+          : `Norske AS/ASA med regnskap (nyeste DB-år ${latestFinancialYear})`,
+        denominatorLabel: 'aktive norske AS/ASA med BRREG-orgnr',
+        total: norwegianTargets.length,
+        covered: norwegianTargetsWithFinancials.length,
+        measuredYear: latestFinancialYear ?? undefined,
+        minOkPercent: 90,
+        criticalBelowPercent: 50,
+        consequence: 'Dette er G-08-målet for regnskapsbackfill: minst 90 % av aktive norske AS/ASA med BRREG-orgnr skal ha regnskapsrad.',
+      }),
+      buildFieldCoverageMetric({
+        id: 'companies.financial-missing-reason',
+        label: 'Selskaper uten regnskap med eksplisitt grunn',
+        total: rowsWithoutFinancials.length,
+        covered: rowsWithReason.length,
+        minOkPercent: 100,
+        criticalBelowPercent: 50,
+        ...baseInput,
+      }),
+    ]
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error)
+    return [
+      buildFieldCoverageMetric({
+        id: 'companies.latest-financial-norwegian-as-asa',
+        surface: 'Selskap / finans',
+        label: 'Norske AS/ASA med regnskap',
+        denominatorLabel: 'aktive norske AS/ASA med BRREG-orgnr',
+        total: null,
+        covered: null,
+        consequence: 'Kunne ikke måle G-08-regnskapsdekning.',
+        error: message,
+      }),
+      buildFieldCoverageMetric({
+        id: 'companies.financial-missing-reason',
+        label: 'Selskaper uten regnskap med eksplisitt grunn',
+        total: null,
+        covered: null,
+        error: message,
+        ...baseInput,
+      }),
+    ]
+  }
 }
 
 function buildOperationalGaps(counts: Record<string, number | null>): OperationalGap[] {
@@ -479,81 +584,89 @@ export async function getDataStatus(db: DataStatusDb, options: DataStatusOptions
     },
   }
 
-  const fieldCoverage = await Promise.all([
-    safeFieldCoverageMetric({
-      id: 'companies.latest-financial',
-      surface: 'Selskap / finans',
-      label: latestFinancialYear.actual == null
-        ? 'Selskaper med regnskap'
-        : `Selskaper med regnskap (nyeste DB-år ${latestFinancialYear.actual})`,
-      denominatorLabel: 'Company-rader',
-      total: () => db.company.count(),
-      covered: () => db.company.count({ where: { financials: { some: {} } } }),
-      measuredYear: latestFinancialYear.actual ?? undefined,
-      consequence: 'Rader uten regnskapsrad får svakere økonomi- og konserndekning; nyeste tilgjengelige rad brukes per selskap.',
-    }),
-    safeFieldCoverageMetric({
-      id: 'companies.employees',
-      surface: 'Selskap / finans',
-      label: 'Selskaper med ansatte',
-      denominatorLabel: 'Company-rader',
-      total: () => db.company.count(),
-      covered: () => db.company.count({
-        where: {
-          OR: [
-            { employees: { not: null } },
-            { financials: { some: { groupEmployees: { not: null } } } },
-          ],
-        },
+  const [standardFieldCoverage, companyFinancialCoverage] = await Promise.all([
+    Promise.all([
+      safeFieldCoverageMetric({
+        id: 'companies.latest-financial',
+        surface: 'Selskap / finans',
+        label: latestFinancialYear.actual == null
+          ? 'Selskaper med regnskap'
+          : `Selskaper med regnskap (nyeste DB-år ${latestFinancialYear.actual})`,
+        denominatorLabel: 'Company-rader',
+        total: () => db.company.count(),
+        covered: () => db.company.count({ where: { financials: { some: {} } } }),
+        measuredYear: latestFinancialYear.actual ?? undefined,
+        consequence: 'Rader uten regnskapsrad får svakere økonomi- og konserndekning; nyeste tilgjengelige rad brukes per selskap.',
       }),
-      consequence: 'Manglende ansatte gjør størrelse, effektivitet og kartvisninger mindre presise.',
-    }),
-    safeFieldCoverageMetric({
-      id: 'companies.controlling-owner',
-      surface: 'Selskap / eierskap',
-      label: 'Selskaper med kontrollerende eier',
-      denominatorLabel: 'Company-rader',
-      total: () => db.company.count(),
-      covered: () => db.company.count({ where: { shareholders: { some: { isControlling: true } } } }),
-      consequence: 'Manglende kontrollerende eier svekker konsern-, eier- og maktkonsentrasjonslesning.',
-    }),
-    safeFieldCoverageMetric({
-      id: 'aquaculture.capacity',
-      surface: 'Havbruk',
-      label: 'Lokaliteter med kapasitet',
-      denominatorLabel: 'AquacultureSite-rader',
-      total: () => db.aquacultureSite.count(),
-      covered: () => db.aquacultureSite.count({ where: { capacityTonnes: { not: null } } }),
-      consequence: 'Lokaliteter uten kapasitet kan telles, men bidrar ikke til MTB-/biomasseanalyser.',
-    }),
-    safeFieldCoverageMetric({
-      id: 'properties.sqm',
-      surface: 'Eiendommer',
-      label: 'Eiendommer med kvadratmeter',
-      denominatorLabel: 'CompanyProperty-rader',
-      total: () => db.companyProperty.count(),
-      covered: () => db.companyProperty.count({ where: { sqMeters: { not: null } } }),
-      consequence: 'Eiendommer uten areal kan kartlegges, men ikke summeres i areal- og leieflateanalyser.',
-    }),
-    safeFieldCoverageMetric({
-      id: 'properties.acquired-year',
-      surface: 'Eiendommer',
-      label: 'Eiendommer med år',
-      denominatorLabel: 'CompanyProperty-rader',
-      total: () => db.companyProperty.count(),
-      covered: () => db.companyProperty.count({ where: { acquiredYear: { not: null } } }),
-      consequence: 'Eiendommer uten år kan ikke brukes til tidslinje eller oppkjøpsrekkefølge.',
-    }),
-    safeFieldCoverageMetric({
-      id: 'producers.total',
-      surface: 'Produsenter',
-      label: 'Produsent-totaler',
-      denominatorLabel: 'Producer-rader',
-      total: () => db.producer.count(),
-      covered: () => db.producer.count(),
-      consequence: 'Produsentregisteret er totalgrunnlaget for produsentflater; geografiske hull håndteres i senere liste- og dekningsgoals.',
-    }),
+      safeFieldCoverageMetric({
+        id: 'companies.employees',
+        surface: 'Selskap / finans',
+        label: 'Selskaper med ansatte',
+        denominatorLabel: 'Company-rader',
+        total: () => db.company.count(),
+        covered: () => db.company.count({
+          where: {
+            OR: [
+              { employees: { not: null } },
+              { financials: { some: { groupEmployees: { not: null } } } },
+            ],
+          },
+        }),
+        consequence: 'Manglende ansatte gjør størrelse, effektivitet og kartvisninger mindre presise.',
+      }),
+      safeFieldCoverageMetric({
+        id: 'companies.controlling-owner',
+        surface: 'Selskap / eierskap',
+        label: 'Selskaper med kontrollerende eier',
+        denominatorLabel: 'Company-rader',
+        total: () => db.company.count(),
+        covered: () => db.company.count({ where: { shareholders: { some: { isControlling: true } } } }),
+        consequence: 'Manglende kontrollerende eier svekker konsern-, eier- og maktkonsentrasjonslesning.',
+      }),
+      safeFieldCoverageMetric({
+        id: 'aquaculture.capacity',
+        surface: 'Havbruk',
+        label: 'Lokaliteter med kapasitet',
+        denominatorLabel: 'AquacultureSite-rader',
+        total: () => db.aquacultureSite.count(),
+        covered: () => db.aquacultureSite.count({ where: { capacityTonnes: { not: null } } }),
+        consequence: 'Lokaliteter uten kapasitet kan telles, men bidrar ikke til MTB-/biomasseanalyser.',
+      }),
+      safeFieldCoverageMetric({
+        id: 'properties.sqm',
+        surface: 'Eiendommer',
+        label: 'Eiendommer med kvadratmeter',
+        denominatorLabel: 'CompanyProperty-rader',
+        total: () => db.companyProperty.count(),
+        covered: () => db.companyProperty.count({ where: { sqMeters: { not: null } } }),
+        consequence: 'Eiendommer uten areal kan kartlegges, men ikke summeres i areal- og leieflateanalyser.',
+      }),
+      safeFieldCoverageMetric({
+        id: 'properties.acquired-year',
+        surface: 'Eiendommer',
+        label: 'Eiendommer med år',
+        denominatorLabel: 'CompanyProperty-rader',
+        total: () => db.companyProperty.count(),
+        covered: () => db.companyProperty.count({ where: { acquiredYear: { not: null } } }),
+        consequence: 'Eiendommer uten år kan ikke brukes til tidslinje eller oppkjøpsrekkefølge.',
+      }),
+      safeFieldCoverageMetric({
+        id: 'producers.total',
+        surface: 'Produsenter',
+        label: 'Produsent-totaler',
+        denominatorLabel: 'Producer-rader',
+        total: () => db.producer.count(),
+        covered: () => db.producer.count(),
+        consequence: 'Produsentregisteret er totalgrunnlaget for produsentflater; geografiske hull håndteres i senere liste- og dekningsgoals.',
+      }),
+    ]),
+    safeCompanyFinancialCoverageMetrics(db, latestFinancialYear.actual),
   ])
+  const fieldCoverage = [
+    standardFieldCoverage[0],
+    ...companyFinancialCoverage,
+    ...standardFieldCoverage.slice(1),
+  ]
 
   const operationalGaps = buildOperationalGaps(tables)
   const artifacts = await getArtifactStatuses(options.artifactRoot)
