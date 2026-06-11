@@ -15,11 +15,13 @@ bruksregel: Internt arbeidsdokument. Ingen tall eller formuleringer herfra bruke
 
 # Status 11.06: har vi løst alt, og er vi klare for Jan Thomas?
 
+> Oppdatert 2026-06-11 kl. 14:10: Dokument- og kontrollgrunnlaget er landet på `main` via PR #158, JT uke 25-pakken er landet via PR #160, og plattformstacken G-01-G-17 ligger i draft-PR #159. #159 er mergeable og GitHub CI er grønn, men står fortsatt som draft til Gabriel eksplisitt godkjenner eller endrer G-06, G-10 og G-11. `npm ci`-lockfeilen er ikke reprodusert i ren integrasjons-worktree. Gjenstående strict-source-rødt er klassifisert som baseline/operator-dataavvik, ikke PR-spesifikk kodefeil: samme 9 violations finnes på `main`, mens PR-spesifikk Citation Coverage-blokkering er 0 etter sync av ignorerte lokale evidence-filer. Prod-data, deploy og full operatorsekvens er ikke kjørt.
+
 ## 1. Kort konklusjon
 
-Nei, vi har ikke løst alt — men vi har løst det riktige, nesten helt frem. Codex har implementert **alle 17 goals** i plattformløft-planen som kode på 17 brancher (18 commits, 139 filer, ~8 150 linjer), og stikkprøvene viser at arbeidet respekterer stoppreglene. Men **ingenting av det er landet**: null PR-er er åpnet, null goals er merget til main, CI har aldri kjørt på stacken, og statustabellen i planen står urørt på «åpen». Koden eksisterer; leveransen gjør det ikke ennå.
+Nei, vi har ikke løst alt - men vi har flyttet arbeidet fra "kode finnes" til en reell landingsprosess. Codex har implementert **alle 17 goals** i plattformløft-planen som kode på 17 brancher (18 commits, 139 filer, ~8 150 linjer), og stikkprøvene viser at arbeidet respekterer stoppreglene. Kontroll- og styringsdokumentene er landet på `main` via PR #158, JT uke 25-pakken er landet via PR #160, og hele plattformstacken ligger nå i draft-PR #159 med grønn GitHub CI. Leveransen er altså reviewbar, men **ikke ferdig landet** før Gabriel eksplisitt vedtar eller endrer G-06, G-10 og G-11, PR #159 merges, prod deployes og operatorsekvensen kjøres.
 
-For rapportering til Jan Thomas er situasjonen todelt: **innholdssiden er rapporteringsklar i dag** (vurderingsrapporten 10.06 er i praksis rapporten), mens **plattformen ikke kan vises frem før stacken er reviewet, merget og deployet**. Viktigst: plattformløftet var et sidespor fra FOOD-TG-UTVIKLINGSPLANENs H1-løp — uke 24-leveransene mot kontraktsfristen 31.07 (minimumsvedtak, DASK-utsending, Port E-forberedelse, deck) har **ikke beveget seg** mens plattformarbeidet pågikk. Det er nå det kritiske sporet.
+For rapportering til Jan Thomas er situasjonen todelt: **innholdssiden er nå repo-landet** (statusnotat, beslutningssaker, møtetekst og slide-manus), mens **plattformen ikke kan vises frem som ferdig før stacken er merget og deployet**. Viktigst: H1-løpet mot kontraktsfristen 31.07 må nå overta styringen igjen. DASK-utsending, faktisk møtebooking, Port E-beslutning, Thea-aktivering og prod-data/deploy er fortsatt operative porter.
 
 ## 2. Hva Codex faktisk leverte
 
@@ -34,23 +36,24 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 - **G-08 (Brreg-backfill):** Eget skript med dry-run/`--apply`-skille og tester — riktig mønster for idempotent DB-skriving.
 - **Merge-renhet:** Hele stacken merger **konfliktfritt** mot origin/main (testet med merge-tree), til tross for at den ligger 9 commits bak (infra-fiksene #137–#140).
 
-### 2.3 Avvik fra goal-prosessen — dette er gapet
+### 2.3 Avvik fra goal-prosessen - dette er gapet
 
 | Prosesskrav i planen | Faktisk status |
 |---|---|
-| Én PR per goal, akseptkriterier avkrysset i PR-beskrivelse | **0 PR-er åpnet.** Commit-meldingene er én linje uten verifikasjonsdokumentasjon |
-| Verifisering per goal (lint/test/build, db:audit ved datagoals) | **Udokumentert.** CI (`pr-quality-gates.yml`) trigges kun av PR — har aldri kjørt på stacken |
+| Én PR per goal, akseptkriterier avkrysset i PR-beskrivelse | Prosesskravet ble ikke fulgt per goal. Stacken er i stedet samlet i integrasjons-PR #159, med akseptkriterier og beslutningsreview i PR-/reviewgrunnlaget. |
+| Verifisering per goal (lint/test/build, db:audit ved datagoals) | Goal-for-goal-verifikasjon er fortsatt udokumentert. Integrasjonsverifikasjon er derimot kjørt i #159: `npm ci`, `npm run lint`, `npm test`, `npm run build`, relevante audit-kommandoer og GitHub CI. |
 | Statustabell oppdateres til `ferdig` + PR-nummer etter merge | Urørt — alle 17 står som «åpen» |
 | Parallelle, uavhengige brancher | Branchene er **stablet** (goal-02 inneholder goal-01, … goal-17 inneholder alle 18 commits). De kan bare merges sekvensielt — eller som én samlet integrasjons-PR |
-| G-11 «krever Gabriel-vedtak» | Gjennomført uten vedtaket («Split mandate and methodology surfaces») — retningen var foreslått i planen, men ditt godkjenningspunkt er hoppet over og må tas i review |
-| G-10 «utført etter Gabriels valg» | Samme: beslutningene per tomme tabell må bekreftes i review |
+| G-11 «krever Gabriel-vedtak» | Gjennomført uten vedtaket («Split mandate and methodology surfaces»). Retningen var foreslått i planen, men godkjenningspunktet er hoppet over og må tas i PR #159-review før merge. |
+| G-10 «utført etter Gabriels valg» | Samme: beslutningene per tomme tabell må bekreftes i PR #159-review. |
 
 ### 2.4 Tekniske funn som må sjekkes før merge
 
-1. **`npm ci` feiler med lock-sync-feil** (EUSAGE) på goal-17-checkouten i ren Linux-miljø. package.json-endringene i stacken er kun scripts (ikke avhengigheter), så feilen er enten arvet fra main eller npm-versjonsavhengig — men siden Dockerfile/CI bruker `npm ci`, **må dette avklares før PR**, ellers blir bygget rødt.
-2. **Stacken mangler main-fiksene #137–#140** (build frikoblet fra prod-DB, Dockerfile messages-fix, deploy-kjede-dokumentasjonen). Merge er konfliktfri, men full verifikasjon (lint, test, build, db:audit, strict-sources, audit:konsern) må kjøres på *resultatet av* merge, ikke på branchene alene.
-3. **Hvilken DB ble avstemt?** Reconciliation-rapporten viser 275 selskaper — det må bekreftes om dette er prod (via tunnel) eller lokal DB, og om prod-importen faktisk er kjørt via den nye `prod-data-import`-workflowen. `/api/data-status` i prod er fasiten.
-4. **Ukommitterte nøkkeldokumenter:** selve goal-planen, dybdeanalysen, vurderingsrapporten, JT-tema-mandatet og to research-filer ligger **untracked i arbeidskopien** og finnes ikke på origin. Repoet er per nå ikke kilden til sannhet for sitt eget styringsgrunnlag. Lokal main er dessuten 9 commits bak origin/main.
+1. **`npm ci`-feilen er avklart lokalt.** Lock-sync-feilen reproduserte ikke i ren integrasjons-worktree for PR #159; `npm ci` er grønn.
+2. **Stacken er synket med main-fiksene.** PR #159 er oppdatert etter PR #158 og PR #160, og GitHub rapporterer mergebar grønn draft. Full verifikasjon må likevel kjøres på `main` etter merge, ikke bare i PR-worktree.
+3. **Strict-source rødt er ikke PR-spesifikt.** Etter sync av ignorerte lokale evidence-filer er PR-spesifikk Citation Coverage-blokkering 0. De 9 gjenværende strict-source-violations finnes også på `main` og er klassifisert som baseline/operator-dataavvik.
+4. **Hvilken DB ble avstemt?** Reconciliation-rapporten viser 275 selskaper — det må bekreftes om dette er prod (via tunnel) eller lokal DB, og om prod-importen faktisk er kjørt via den nye `prod-data-import`-workflowen. `/api/data-status` i prod er fasiten.
+5. **Styringsdokumentene er landet, men goal-statusen gjenstår.** PR #158 og PR #160 gjør repoet til kilden for kontrollgrunnlag og JT-pakke. Statustabellen i goal-planen må oppdateres etter faktisk PR #159-merge.
 
 ## 3. Kritisk analyse: er vi klare til å rapportere til Jan Thomas?
 
@@ -62,16 +65,16 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 
 ### 3.2 Det som mangler — ærlig liste
 
-1. **Programleveransesporet står stille.** Utviklingsplanens uke 24-rad (minimumsvedtak, DASK sendt internt, hydration-avklaring) er ikke utført, og uke 25-portene (Port E event-go, deck v0.1, Thea-aktivering, «start her») nærmer seg uten forberedelse. Kontraktsfristen 31.07 rykker nærmere for hver uke plattformarbeid prioriteres. **Dette er hovedrisikoen nå — ikke plattformkvalitet.**
-2. **Deck v0.1 finnes ikke.** Outline og språkbank er klare, men selve decket — som både JT-møtet, Port E og eventet trenger — er ikke produsert. Bestillingen er fra april (Einar) og gjentatt 09.06.
-3. **Plattformen kan ikke demonstreres med de nye flatene** før stacken er merget og deployet. Å vise JT `/datastatus`, proveniens-linjer og kildede KPI-er ville vært et sterkt svar på transparens-temaet — men å vise en branch er ikke et alternativ.
+1. **Programleveransesporet er delvis restartet, men ikke gjennomført.** Minimumsvedtak, H1/H2-sak, Port E-sak, DASK-anbefaling og møtetekst finnes nå i repoet. Selve DASK-utsendingen, møtebookingen, Thea-aktivering, «start her» og event-go er fortsatt ikke utført. Kontraktsfristen 31.07 rykker nærmere for hver uke plattformarbeid prioriteres. **Dette er hovedrisikoen nå - ikke plattformkvalitet.**
+2. **Deck v0.1 finnes som slide-manus, ikke som redigerbar PPTX.** Outline og språkbank er fylt i `docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.md`. En faktisk presentasjonsfil krever eget designvalg og produksjon.
+3. **Plattformen kan ikke demonstreres med de nye flatene** før stacken er merget og deployet. Å vise JT `/datastatus`, proveniens-linjer og kildede KPI-er ville vært et sterkt svar på transparens-temaet - men å vise en branch er ikke et alternativ.
 4. **Casestatus-flaten** (utviklingsplanens arbeidsstrøm 2, det JT/Cathrine-rettede styringsgrepet) var **ikke** del av de 17 goals og er ikke bygget. G-16 (claim-board i DB) legger grunnlaget, men flaten gjenstår.
 5. **Gate-tallene er ferskvare.** Vurderingsrapportens kvalitetstall er fra 10.06; strict-gaten har regressert ubemerket før (oppdaget nettopp 10.06). Operator-sekvensen må re-kjøres etter merge, før tallene brukes i møtet.
-6. **Møtelogg-hullet etter 21.04** er fortsatt åpent — pinlig i en rapport som handler om sporbarhet.
+6. **Møtelogg-hullet etter 21.04** er fortsatt åpent - pinlig i en rapport som handler om sporbarhet.
 
 ### 3.3 Vurdering
 
-**Vi kan rapportere til Jan Thomas i uke 25 med god margin — men ikke i dag.** Innholdet er klart; det som mangler er (a) å lande plattformstacken slik at det vi forteller om transparensløftet faktisk er på prod, (b) deck v0.1, og (c) å pakke møtet som *beslutningsmøte* (minimumsvedtak + H1/H2 + Port E), ikke som ren orientering. Å rapportere uten beslutningssakene ville kaste bort møtet; å vente lenger ville true uke 25-portene i utviklingsplanen. Realistisk møtetidspunkt: **onsdag–fredag uke 25**, med landingsarbeidet gjort i mellomtiden.
+**Vi kan rapportere til Jan Thomas i uke 25 med god margin, men ikke som en ferdig prod-demo ennå.** Innholdspakken og beslutningsgrunnlaget finnes nå på `main`; det som mangler er (a) å lande plattformstacken slik at transparensløftet faktisk er på prod, (b) produsere eventuell redigerbar PPTX fra slide-manuset, og (c) gjennomføre møtebooking/utsending. Møtet bør fortsatt pakkes som *beslutningsmøte* (minimumsvedtak + H1/H2 + Port E), ikke som ren orientering. Realistisk møtetidspunkt: **onsdag–fredag uke 25**, med landingsarbeidet gjort i mellomtiden.
 
 ## 4. Arbeidsplan videre
 
@@ -79,11 +82,11 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 
 | # | Oppgave | Detalj | Ferdigkriterium |
 |---|---|---|---|
-| A1 | Avklar `npm ci`-lock-feilen | Reproduser på main vs goal-17; `npm install` for re-synk hvis nødvendig | `npm ci` grønn i ren sjekkout |
-| A2 | Review av beslutningsgoals | G-11 (mandat/metodikk-split), G-10 (tomme tabeller), G-06 (selvforsyningsvalg) — dine tre utestående vedtak, tas som review-kommentarer | Eksplisitt godkjent/endret |
-| A3 | Åpne PR og kjøre CI | Anbefaling: **én integrasjons-PR fra goal-17** (stacken er likevel sekvensiell) med akseptkriteriene fra alle 17 goals listet; alternativt sekvensielle PR-er hvis du vil ha granulær historikk | pr-quality-gates grønn |
-| A4 | Merge + full verifikasjon på main | `npm run lint && npm test && npm run build && npm run db:audit && npm run db:audit:strict-sources && npm run audit:konsern && npm run graph:audit` | Alt grønt, loggført |
-| A5 | Commit styringsdokumentene | Goal-plan (med oppdatert statustabell), dybdeanalyse, vurderingsrapport, JT-tema-mandat, to research-filer; synk lokal main mot origin | `git status` ren, push |
+| A1 | Avklar `npm ci`-lock-feilen | Kjørt i ren integrasjons-worktree | **Ferdig:** `npm ci` grønn; lock-sync-feilen reproduserte ikke. |
+| A2 | Review av beslutningsgoals | G-11 (mandat/metodikk-split), G-10 (tomme tabeller), G-06 (selvforsyningsvalg) | **Åpen:** review er dokumentert i PR #159, men Gabriel må fortsatt velge `godkjent` eller endring. |
+| A3 | Åpne PR og kjøre CI | Én integrasjons-PR fra samlet stack | **Ferdig teknisk:** PR #159 er åpen som draft, mergeable og GitHub CI er grønn. |
+| A4 | Merge + full verifikasjon på main | `npm run lint && npm test && npm run build && npm run db:audit && npm run db:audit:strict-sources && npm run audit:konsern && npm run graph:audit` | **Ikke startet:** venter på G-06/G-10/G-11-vedtak og merge. |
+| A5 | Commit styringsdokumentene | Goal-plan, dybdeanalyse, vurderingsrapport, JT-tema-mandat og execution-plan | **Ferdig for kontrollgrunnlaget:** PR #158 landet. Goal-status etter merge gjenstår. |
 
 ### Fase B — Data og deploy (13.–16.06, Gabriel)
 
@@ -98,10 +101,10 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 
 | # | Oppgave | Detalj | Eier |
 |---|---|---|---|
-| C1 | Statusnotat til JT | Kondensert av vurderingsrapporten (2–3 sider): gjort siden 26.05, pålitelighet, de tre beslutningssakene | Gabriel |
-| C2 | Deck v0.1 | Fyll outline for slideområdene merket «kan fylles nå» (7 caseankre, Valio, distribusjon, 100% Fish); kun språkbank-formuleringer | Gabriel |
-| C3 | Beslutningssaker forberedt | (1) Minimumsvedtak casekort — tekst ligger klar; (2) H1/H2-todeling av leveransen mot 31.07; (3) Port E: event-dato/format + Thea-aktivering; (4) DASK-0906-001/002 sendes **nå** — krever ikke møtet | Gabriel/JT |
-| C4 | Book møtet | Uke 25, ons–fre; inviter Einar til H1/H2- og Port E-punktene | Gabriel |
+| C1 | Statusnotat til JT | Kondensert av vurderingsrapporten (2–3 sider): gjort siden 26.05, pålitelighet, de tre beslutningssakene | **Ferdig:** `docs/project/status/jt-statusnotat-uke-25-2026-06-15.md`, landet via PR #160. |
+| C2 | Deck v0.1 | Fyll outline for slideområdene merket «kan fylles nå» (7 caseankre, Valio, distribusjon, 100% Fish); kun språkbank-formuleringer | **Ferdig som slide-manus:** `docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.md`, landet via PR #160. Redigerbar PPTX krever separat designvalg. |
+| C3 | Beslutningssaker forberedt | Minimumsvedtak, H1/H2, Port E, DASK-0906-001/002 | **Ferdig:** `docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md`, landet via PR #160. |
+| C4 | Book møtet | Uke 25, ons–fre; inviter Einar til H1/H2- og Port E-punktene | **Ferdig som tekst:** `docs/project/status/jt-moteinvitasjon-uke-25-2026-06-15.md`, landet via PR #160. Sending/bookingen er ikke utført i repo. |
 
 ### Fase D — Etter JT-møtet (uke 25–26, betinget av vedtak)
 
@@ -111,12 +114,12 @@ Casestatus-flate (nå mulig oppå G-16-datamodellen), «start her»-dokument og 
 
 | Risiko | Sannsynlighet | Mottiltak |
 |---|---|---|
-| CI avdekker feil i stacken (aldri kjørt) | Middels | Fase A før alt annet; ikke lov å demonstrere før A4 er grønn |
-| Lock-/byggfeil forsinker deploy | Middels | A1 først; deploy-kjeden er nyreparert og må røykes (B3) |
+| CI/regresjon i stacken etter ny main-sync | Lav–middels | Hold PR #159 grønn etter hver main-endring; ikke demonstrer før A4 er grønn på main |
+| Lock-/byggfeil forsinker deploy | Lav–middels | A1 er grønn lokalt; deploy-kjeden er nyreparert og må røykes (B3) |
 | JT-møtet blir orientering uten vedtak | Middels | C3: send beslutningssakene i forkant med eksplisitt «dette ber vi om vedtak på» |
 | Plattformarbeid fortsetter å fortrenge H1-løpet | Høy uten styring | Fase D-plattformarbeid (utover casestatus-flaten) fryses til etter Port E |
 | Gate-regresjon mellom nå og møtet | Lav–middels | B4 operator-sekvens maks 24 t før møtet |
 
 ## 6. Verifikasjon av dette dokumentet
 
-Branch-, commit- og diff-tall er målt direkte med git 11.06 (origin hentet samme dag). Merge-renhet testet med `git merge-tree` mot origin/main. Reconciliation-tall lest fra `data/import-reconciliation.json` på goal-02-branchen. `npm ci`-feilen reprodusert i ren Linux-sjekkout av goal-17 (kan være miljøspesifikk — verifiseres i A1). Test-/gate-status (446 tester, strict gate grønn) er **ikke** re-kjørt i denne sesjonen og siteres fra vurderingsrapporten 10.06; de re-verifiseres i A4/B4. Innholds- og leveransestatus er lest fra utviklingsplanen 10.06, vurderingsrapporten 10.06 og sprintboardet 10.06.
+Opprinnelige branch-, commit- og diff-tall er målt direkte med git 11.06. Merge-renhet ble først testet med `git merge-tree` mot origin/main. Statusoppdateringen 11.06 bygger i tillegg på PR #158/#160 på `main`, draft-PR #159, ren `npm ci` i integrasjons-worktree, lokal integrasjonsverifikasjon og GitHub CI-status. Reconciliation-tall er lest fra `data/import-reconciliation.json` på goal-02/stacken. Test-/gate-status fra vurderingsrapporten 10.06 må fortsatt re-verifiseres i A4/B4 før tall brukes eksternt.
