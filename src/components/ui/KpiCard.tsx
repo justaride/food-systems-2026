@@ -6,7 +6,7 @@ type KpiCardProps = {
 }
 
 function SourceLink({ source }: { source: NonNullable<KPI['source']> }) {
-  const label = `${source.label} (${source.year})`
+  const label = source.label
   const isExternal = /^https?:\/\//.test(source.href)
 
   if (isExternal) {
@@ -56,17 +56,19 @@ export function KpiCard({ kpi }: KpiCardProps) {
         <p className="mt-1 text-xs font-medium text-stone-600">{kpi.secondary}</p>
       )}
       {(kpi.source || kpi.definition || kpi.caveat) && (
-        <div className="mt-auto pt-3 text-[10px] leading-relaxed text-stone-500">
+        <div className="mt-auto space-y-1.5 border-t border-stone-100 pt-3 text-[10px] leading-relaxed text-stone-500">
           {kpi.source && (
-            <>
+            <div>
+              <p className="font-semibold uppercase tracking-wider text-stone-400">Kildekort</p>
               <p>
                 Kilde: <SourceLink source={kpi.source} />
               </p>
-              <p>Sist verifisert: {kpi.source.lastVerified}</p>
-            </>
+              <p>Kildeår: {kpi.source.year} · Sist verifisert: {kpi.source.lastVerified}</p>
+              {kpi.systemBoundary && <p>Systemgrense: {kpi.systemBoundary}</p>}
+            </div>
           )}
-          {kpi.definition && <p className="mt-1 text-stone-400">{kpi.definition}</p>}
-          {kpi.caveat && <p className="mt-1 text-stone-400">{kpi.caveat}</p>}
+          {kpi.definition && <p className="text-stone-400">{kpi.definition}</p>}
+          {kpi.caveat && <p className="text-stone-400">{kpi.caveat}</p>}
         </div>
       )}
     </div>
