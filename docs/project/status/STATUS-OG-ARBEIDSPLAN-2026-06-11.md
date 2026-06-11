@@ -10,6 +10,7 @@ relaterte_filer:
   - docs/project/analysis/plattform-dybdeanalyse-2026-06-11.md
   - docs/project/analysis/food-tg-vurderingsrapport-siden-jt-2026-06-10.md
   - docs/project/status/port-e-event-go-uke-25-2026-06-15.md
+  - docs/project/status/jt-uke25-operatorlogg-2026-06-15.md
   - research/CITABLE-KNOWLEDGE-BASE-STATUS.md
 bruksregel: Internt arbeidsdokument. Ingen tall eller formuleringer herfra brukes eksternt uten operator-sekvensen i CITABLE-KNOWLEDGE-BASE-STATUS.md.
 ---
@@ -22,7 +23,7 @@ bruksregel: Internt arbeidsdokument. Ingen tall eller formuleringer herfra bruke
 
 Nei, vi har ikke løst alt - men vi har flyttet arbeidet fra "kode finnes" til en reell landingsprosess. Codex har implementert **alle 17 goals** i plattformløft-planen som kode på 17 brancher (18 commits, 139 filer, ~8 150 linjer), og stikkprøvene viser at arbeidet respekterer stoppreglene. Kontroll- og styringsdokumentene er landet på `main` via PR #158, JT uke 25-pakken er landet først via PR #160, Port E event-go-pakken er landet via PR #167, og hele plattformstacken ligger nå i draft-PR #159 med grønn GitHub CI etter resync. Leveransen er altså reviewbar, men **ikke ferdig landet** før Gabriel eksplisitt vedtar eller endrer G-06, G-10 og G-11, PR #159 merges, prod deployes og operatorsekvensen kjøres.
 
-For rapportering til Jan Thomas er situasjonen todelt: **innholdssiden er nå repo-landet** (statusnotat, beslutningssaker, møtetekst, slide-manus og Port E go/no-go-pakke), mens **plattformen ikke kan vises frem som ferdig før stacken er merget og deployet**. Viktigst: H1-løpet mot kontraktsfristen 31.07 må nå overta styringen igjen. DASK-utsending, faktisk møtebooking, Port E-beslutning, Thea-aktivering og prod-data/deploy er fortsatt operative porter.
+For rapportering til Jan Thomas er situasjonen todelt: **innholdssiden er nå repo-landet** (statusnotat, beslutningssaker, møtetekst, slide-manus, Port E go/no-go-pakke og uke 25-operatorlogg), mens **plattformen ikke kan vises frem som ferdig før stacken er merget og deployet**. Viktigst: H1-løpet mot kontraktsfristen 31.07 må nå overta styringen igjen. DASK-utsending, faktisk møtebooking, Port E-beslutning, Thea-aktivering og prod-data/deploy er fortsatt operative porter.
 
 ## 2. Hva Codex faktisk leverte
 
@@ -66,7 +67,7 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 
 ### 3.2 Det som mangler — ærlig liste
 
-1. **Programleveransesporet er delvis restartet, men ikke gjennomført.** Minimumsvedtak, H1/H2-beslutning, Port E go/no-go-pakke, DASK-anbefaling, møtetekst og «start her» finnes nå i repoet. Selve DASK-utsendingen, møtebookingen, Thea-aktivering og faktisk Port E-vedtak er fortsatt ikke utført. Kontraktsfristen 31.07 rykker nærmere for hver uke plattformarbeid prioriteres. **Dette er hovedrisikoen nå - ikke plattformkvalitet.**
+1. **Programleveransesporet er delvis restartet, men ikke gjennomført.** Minimumsvedtak, H1/H2-beslutning, Port E go/no-go-pakke, DASK-anbefaling, møtetekst, «start her» og uke 25-operatorlogg finnes nå i repoet. Selve DASK-utsendingen, møtebookingen, Thea-aktivering og faktisk Port E-vedtak er fortsatt ikke utført. Kontraktsfristen 31.07 rykker nærmere for hver uke plattformarbeid prioriteres. **Dette er hovedrisikoen nå - ikke plattformkvalitet.**
 2. **Deck v0.1 finnes som slide-manus, ikke som redigerbar PPTX.** Outline og språkbank er fylt i `docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.md`. En faktisk presentasjonsfil krever eget designvalg og produksjon.
 3. **Plattformen kan ikke demonstreres med de nye flatene** før stacken er merget og deployet. Å vise JT `/datastatus`, proveniens-linjer og kildede KPI-er ville vært et sterkt svar på transparens-temaet - men å vise en branch er ikke et alternativ.
 4. **Casestatus-flaten** (utviklingsplanens arbeidsstrøm 2, det JT/Cathrine-rettede styringsgrepet) var **ikke** del av de 17 goals og er ikke bygget. G-16 (claim-board i DB) legger grunnlaget, men flaten gjenstår.
@@ -107,6 +108,7 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 | C3 | Beslutningssaker forberedt | Minimumsvedtak, H1/H2, Port E, DASK-0906-001/002 | **Ferdig:** `docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md`, landet via PR #160 og supplert med Port E-kilde via PR #167. |
 | C4 | Book møtet | Uke 25, ons–fre; inviter Einar til H1/H2- og Port E-punktene | **Ferdig som tekst:** `docs/project/status/jt-moteinvitasjon-uke-25-2026-06-15.md`, landet via PR #160. Sending/bookingen er ikke utført i repo. |
 | C5 | Port E event-go-pakken | Gjør offentlig online event beslutningsklar med go/no-go, Q&A-stoppliste, fallback og Port F-stoppregel | **Ferdig som intern pakke:** `docs/project/status/port-e-event-go-uke-25-2026-06-15.md`, landet via PR #167. Vedtak og Thea-aktivering gjenstår. |
+| C6 | Uke 25 operatorlogg | Spor faktisk møtebooking, sendte vedlegg, DASK-0906-001/002, RESP-0906-001/002 og vedtaksføring | **Ferdig som loggmal:** `docs/project/status/jt-uke25-operatorlogg-2026-06-15.md`. Rader fylles først etter faktisk sending/vedtak. |
 
 ### Fase D — Etter JT-møtet (uke 25–26, betinget av vedtak)
 

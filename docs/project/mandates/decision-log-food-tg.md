@@ -11,6 +11,7 @@ relaterte_filer:
   - docs/project/plans/FOOD-TG-UTVIKLINGSPLAN-2026-06-10.md
   - docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md
   - docs/project/status/jt-uke25-sendepakke-2026-06-15.md
+  - docs/project/status/jt-uke25-operatorlogg-2026-06-15.md
   - docs/project/reviews/plattformloft-beslutningsreview-2026-06-11.md
 ---
 
@@ -20,7 +21,7 @@ Formell logg over beslutninger som påvirker Food Transition Group-mandatet, sco
 
 ## Hvordan loggføres beslutninger
 
-1. Beslutning gjøres i internt møte eller skriftlig avklaring.
+1. Beslutning gjøres i internt møte eller skriftlig avklaring. Uke 25-sending, mottakere, DASK-respons og møtebooking spores først i `docs/project/status/jt-uke25-operatorlogg-2026-06-15.md`.
 2. Loggfør samme dag i tabellen under.
 3. Fyll alltid alle kolonner. Ingen tomme felter.
 4. Koble til møtenotat i `docs/meetings/` der relevant.
