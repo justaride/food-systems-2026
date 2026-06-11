@@ -120,7 +120,7 @@ Gront lokalt:
 - GitHub draft-PR #159 er apnet og CI er gronn: GitGuardian, Schema migration guard og to `test-and-audit`-kjoringer passerte.
 - Etter sync av 29 ignorerte lokale evidence-filer fra hovedcheckoutens `research/` til integrasjons-worktreeets `research/` falt Citation Coverage fra 29 external blocking issues til 0. Filene er Git-ignorert og er ikke del av PR-en.
 
-Rott/blokkert lokalt:
+Restavvik lokalt:
 - `npm run db:audit:strict-sources` feiler fortsatt med 9 enforced audit violations i integrasjons-worktree etter evidence-sync.
 - `npm run audit:citable` feiler fordi den kjeder videre til strict source-gate.
 - Samme strict source-gate feiler ogsa pa oppdatert `main` med 9 enforced violations mot samme lokale DB/env. Det peker pa baseline/lokal data-state som separat operatoravklaring, ikke ren stack-kodefeil.
@@ -134,4 +134,5 @@ Ikke gjort:
 
 Merge-gate:
 - Gabriel ma eksplisitt godkjenne eller endre G-06, G-10 og G-11.
-- Strict source-gate ma enten gronnes med riktig DB/operatorsekvens eller klassifiseres som dokumentert baseline-dataavvik for denne PR-en.
+- Strict source-gate er klassifisert som dokumentert baseline/operator-dataavvik for PR #159: gjenstaende 9 violations finnes ogsa pa `main`, mens PR-spesifikk Citation Coverage-blokkering er 0 etter evidence-sync.
+- Prod import, deploy og full operatorsekvens horer til Fase B etter stack-merge, ikke som kode-PR-gate.
