@@ -94,4 +94,32 @@ describe('Food TG status after Port E landing', () => {
       assert.ok(!executionPlan.includes(staleTerm), `${staleTerm} should no longer be current in ${executionPlanPath}`)
     }
   })
+
+  it('keeps the read-only prod baseline current after the #178 deploy sync', () => {
+    const status = readFileSync(statusPath, 'utf8')
+    const review = readFileSync(reviewPath, 'utf8')
+
+    for (const term of [
+      'PR #178',
+      'Read-only prod-baseline 2026-06-11 kl. 17:18 UTC',
+      '`/api/version` returnerte HTTP 200',
+      '`45e21a5`',
+      'Coolify SHA Sync',
+      'companies: 185',
+      'landbruksregisterCompanies: 4',
+      'PR #159-stackens nye `/api/data-status`-dekning',
+    ]) {
+      assert.ok(status.includes(term), `${term} missing from ${statusPath}`)
+      assert.ok(review.includes(term), `${term} missing from ${reviewPath}`)
+    }
+
+    for (const staleTerm of [
+      '9cf7c60',
+      'Prod-versjon var `9cf7c60`',
+      'Prod-API-et hadde fortsatt pre-G-01-formen',
+    ]) {
+      assert.ok(!status.includes(staleTerm), `${staleTerm} should no longer be current in ${statusPath}`)
+      assert.ok(!review.includes(staleTerm), `${staleTerm} should no longer be current in ${reviewPath}`)
+    }
+  })
 })
