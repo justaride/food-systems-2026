@@ -1,11 +1,18 @@
+import Link from 'next/link'
+
 type PageFramingProps = {
   title: string
   description: string[]
   takeaways: string[]
   caveat: string
+  siblingLink?: {
+    prompt: string
+    href: string
+    label: string
+  }
 }
 
-export function PageFraming({ title, description, takeaways, caveat }: PageFramingProps) {
+export function PageFraming({ title, description, takeaways, caveat, siblingLink }: PageFramingProps) {
   return (
     <section className="rounded-lg border border-stone-200 bg-stone-50/80 p-4">
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)]">
@@ -16,6 +23,17 @@ export function PageFraming({ title, description, takeaways, caveat }: PageFrami
               <p key={line}>{line}</p>
             ))}
           </div>
+          {siblingLink && (
+            <div className="mt-3 flex flex-wrap items-center gap-2 text-xs leading-relaxed text-stone-600">
+              <span>{siblingLink.prompt}</span>
+              <Link
+                href={siblingLink.href}
+                className="inline-flex items-center rounded-md border border-stone-200 bg-white px-2.5 py-1 font-medium text-emerald-700 hover:border-emerald-300 hover:bg-emerald-50"
+              >
+                {siblingLink.label} {'->'}
+              </Link>
+            </div>
+          )}
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
           <div>

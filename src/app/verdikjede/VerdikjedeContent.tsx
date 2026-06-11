@@ -6,6 +6,7 @@ import { useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { InternalSection } from '@/components/ui/InternalSection'
+import { PageFraming } from '@/components/ui/PageFraming'
 import type { StageEnrichment, VerdikjedeOverview } from '@/lib/queries/verdikjede'
 
 const FeedCompositionTimeseries = dynamic(
@@ -78,6 +79,25 @@ export function VerdikjedeContent({
           {stages.length} ledd i den nordiske matverdikjeden, fra jord til bord — hvor de fem landene har data, svinn og selvforsyning per ledd.
         </p>
       </div>
+
+      <PageFraming
+        title="Hva svarer denne siden på?"
+        description={[
+          'Siden svarer på hvilke jord-til-bord-ledd som strukturerer matsystemet, og hvilke temaer, land og aktører som hører til hvert ledd.',
+          'Den brukes som konseptuell verdikjedeoversikt før du går videre til målte leveranser, relasjoner og vareflyt.',
+        ]}
+        takeaways={[
+          'Leddlisten forklarer rollen til hvert steg fra innsatsmidler og produksjon til handel, konsum og returstrømmer.',
+          'Aktør- og temakoblinger viser hvor det finnes selskapsdata eller kun kuratert kontekst.',
+          'Matflyt- og fôrmodellene er overblikk, ikke komplett leverandørnettverk.',
+        ]}
+        caveat="Bruk som analysemodell med forbehold: siden viser verdikjedeledd og kontekst, ikke et fullstendig mål på transaksjoner eller leverandørrelasjoner."
+        siblingLink={{
+          prompt: 'Leter du etter konkrete leverandørrelasjoner, primærleveranser og vareflyt?',
+          href: '/forsyningskjede',
+          label: 'Gå til Forsyningskjede',
+        }}
+      />
 
       <VerdikjedeOverviewPanel
         overview={overview}

@@ -215,6 +215,11 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
           'Biblioteket er inngang til kildekontroll, ikke alene en vurdering av claim-styrke.',
         ]}
         caveat="Internt kildegrunnlag med forbehold: dokumenttilgang og fulltekst er arbeidsgrunnlag og ikke ekstern validering av innholdet."
+        siblingLink={{
+          prompt: 'Leter du etter kilderegister, referanser og downloadstatus?',
+          href: '/kilder',
+          label: 'Gå til Kilder',
+        }}
       />
 
       <StatusLegend

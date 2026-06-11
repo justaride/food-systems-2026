@@ -22,8 +22,8 @@
     "styremedlemmer": { "name": "Styremedlemmer", "description": "Krysstyrer og nettverk" },
     "personer": { "name": "Personer", "description": "Nøkkelpersoner og roller" },
     "eiendommer": { "name": "Eiendommer", "description": "Selskapseiendommer og lokaler" },
-    "verdikjede": { "name": "Verdikjede", "description": "Nordisk verdikjedeanalyse (jord til bord)" },
-    "forsyningskjede": { "name": "Forsyningskjede", "description": "Leverandørrelasjoner, primærleveranser og selvhandel" },
+    "verdikjede": { "name": "Verdikjede", "description": "Jord-til-bord-ledd, temaer og aktører" },
+    "forsyningskjede": { "name": "Forsyningskjede", "description": "Relasjoner, leveranser og vareflyt" },
     "havbruk": { "name": "Havbruk", "description": "Lokaliteter og søknader (Fiskeridir)" },
     "sirkularitet": { "name": "Sirkularitet", "description": "R-stige, 10 spørsmål, looper og caser" },
     "okonomi": { "name": "Økonomi", "description": "Finansielle trender og sammenligning" },
@@ -40,7 +40,7 @@
     "aktorer": { "name": "Aktører", "description": "Prioritering, asks og relasjoner" },
     "rapporter": { "name": "Rapporter", "description": "Offentlige og bransjeanalyser" },
     "hvitbok": { "name": "Hvitbok", "description": "Leveransedokument i kapitler" },
-    "bibliotek": { "name": "Bibliotek", "description": "Fulltekst forskningsdokumenter" },
-    "kilder": { "name": "Kilder", "description": "Dokumenter og referanser" }
+    "bibliotek": { "name": "Bibliotek", "description": "Fulltekstleser for dokumentinnhold" },
+    "kilder": { "name": "Kilder", "description": "Kilderegister, referanser og downloadstatus" }
   }
 }

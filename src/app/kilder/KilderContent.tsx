@@ -9,6 +9,7 @@ import { StatusBadge } from '@/components/ui/StatusBadge'
 import type { BacklogRound, SourceDownloadStatus } from '@/lib/queries/download-backlog'
 import { CoverageOverview } from '@/components/coverage/CoverageOverview'
 import { InternalBanner } from '@/components/ui/InternalBanner'
+import { PageFraming } from '@/components/ui/PageFraming'
 import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 
 export type SourceRow = {
@@ -213,6 +214,25 @@ export function KilderContent({
           </div>
         </div>
       </div>
+
+      <PageFraming
+        title="Hva svarer denne siden på?"
+        description={[
+          'Siden svarer på hvilke kilder, referanser og nedlastingsstatus som inngår i analysegrunnlaget.',
+          'Den brukes til kildeoversikt, opprinnelse, backlog-status og kobling videre til dokumenter når fulltekst finnes.',
+        ]}
+        takeaways={[
+          'Kilderegisteret er oversikten over hva som finnes, hvor det kommer fra og om det er nedlastet eller fortsatt i backlog.',
+          'Statusene skiller databasekilder, dokumentfallback og backlog-only rader slik at hull ikke blir skjult.',
+          'Lenker til biblioteket brukes når en registrert kilde også har lesbart dokumentinnhold.',
+        ]}
+        caveat="Internt arbeidsgrunnlag: kilde- og downloadstatus er kontrollspor, ikke en selvstendig vurdering av claim-styrke."
+        siblingLink={{
+          prompt: 'Leter du etter fulltekstlesing og dokumentinnhold?',
+          href: '/bibliotek',
+          label: 'Gå til Bibliotek',
+        }}
+      />
 
       <CoverageOverview />
 
