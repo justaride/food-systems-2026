@@ -127,6 +127,14 @@ Restavvik lokalt:
 - Fersk sammenligning: `main` har 0 Citation Coverage external blocking issues, og integrasjons-worktreeet har ogsa 0 etter evidence-sync. PR-en har dermed ikke lenger en egen citation-blockergruppe.
 - BoardMember/Shareholder/source-locator gapene er ikke lukket. Dry-run av board-member provenance/correction dekker bare deler av gapet og er ikke brukt som write-fiks.
 
+Read-only prod-baseline 2026-06-11 kl. 13:21 UTC:
+- `curl https://food-systems.naturalstateproject.com/api/data-status` returnerte HTTP 200.
+- Prod svarte `ok: true`, `dbOk: true`, `pageGatesOk: true`.
+- Prod-versjon var `9cf7c60` (`docs: refresh platform landing status (#161)`), altsa foer PR #159 er merget/deployet.
+- Prod-API-et hadde fortsatt pre-G-01-formen uten `fieldCoverage`, `operationalGaps` og `artifacts`.
+- Relevante prod-tabelltall: `companies: 185`, `landbruksregisterCompanies: 4`, `fishHealthObservations: 0`, `deliveryVolumes: 60310`, `aquacultureSites: 285`, `businessRelationships: 105`.
+- Dette bekrefter at B1/B3 ikke er gjort: prod er oppe, men ny `/api/data-status`-dekning og ~275-selskapsavstemming kan ikke dokumenteres for stacken foer PR #159 er merget, deployet og prod-import/operatorsekvens er kjort.
+
 Ikke gjort:
 - Ingen DB-muteringer er kjort.
 - Ingen prod import, deploy eller operator-sekvens er kjort.
