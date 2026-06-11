@@ -4,18 +4,25 @@ import { useDeferredValue, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { ColumnHelp } from '@/components/ui/ColumnHelp'
+import { DataReadinessNotice } from '@/components/ui/DataReadinessNotice'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { Glossary } from '@/components/ui/Glossary'
 import { MissingValue } from '@/components/ui/MissingValue'
 import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 import type { ProducerListRow } from '@/lib/queries/producers'
 
+function formatTableCount(count: number | null): string {
+  return count == null ? 'ukjent antall rader' : `${count.toLocaleString('no')} rader`
+}
+
 export function ProdusenterContent({
   producers,
   total,
+  landbruksregisterCompanyCount,
 }: {
   producers: ProducerListRow[]
   total: number
+  landbruksregisterCompanyCount: number | null
 }) {
   const [query, setQuery] = useState('')
   const deferredQuery = useDeferredValue(query)
@@ -27,6 +34,8 @@ export function ProdusenterContent({
       p => p.name.toLowerCase().includes(q) || p.orgNr.includes(q)
     )
   }, [producers, deferredQuery])
+  const landbruksregisterCompanyIsNarrow =
+    landbruksregisterCompanyCount == null || landbruksregisterCompanyCount < 100
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
@@ -48,6 +57,16 @@ export function ProdusenterContent({
         </Link>
         .
       </div>
+
+      {landbruksregisterCompanyIsNarrow && (
+        <DataReadinessNotice title="Smal Company-kobling mot Landbruksregisteret">
+          <p>
+            Company-rader merket Landbruksregisteret: {formatTableCount(landbruksregisterCompanyCount)}.
+            Denne flaten bruker Producer/Subsidy/DeliveryVolume som registergrunnlag; Company-importen
+            er dokumentert smal og skal ikke leses som full selskapskartlegging av landbruksregisteret.
+          </p>
+        </DataReadinessNotice>
+      )}
 
       <Glossary
         category="kolonner"

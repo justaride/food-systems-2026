@@ -20,6 +20,17 @@ export async function getProducerCount(): Promise<number> {
   }
 }
 
+export async function getLandbruksregisterCompanyCount(): Promise<number | null> {
+  try {
+    return await prisma.company.count({
+      where: { metadata: { path: ['source'], equals: 'Landbruksregisteret' } },
+    })
+  } catch (error) {
+    if (isPrismaDataUnavailable(error)) return null
+    throw error
+  }
+}
+
 export async function getProducers(opts?: { take?: number; skip?: number; search?: string }): Promise<ProducerListRow[]> {
   const { take = 100, skip = 0, search } = opts ?? {}
   try {

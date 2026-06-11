@@ -163,6 +163,18 @@ describe('data status helpers', () => {
     assert.ok(status.operationalGaps.some(gap => gap.id === 'communications-empty' && gap.route === '/kommunikasjon'))
     assert.ok(status.operationalGaps.some(gap => gap.id === 'fish-health-empty' && gap.route === '/havbruk'))
     assert.ok(status.operationalGaps.some(gap => gap.id === 'landbruksregister-narrow' && gap.route === '/produsenter'))
+
+    const g10Gaps = [
+      status.operationalGaps.find(gap => gap.id === 'communications-empty'),
+      status.operationalGaps.find(gap => gap.id === 'fish-health-empty'),
+      status.operationalGaps.find(gap => gap.id === 'landbruksregister-narrow'),
+    ]
+
+    for (const gap of g10Gaps) {
+      assert.equal(gap?.decision, 'ui_notice')
+      assert.match(gap?.statusNote ?? '', /G-10/)
+      assert.match(gap?.statusNote ?? '', /\/kommunikasjon|\/havbruk|\/produsenter/)
+    }
   })
 
   it('splits company financial coverage into BRREG AS/ASA targets and explicit missing reasons', async () => {

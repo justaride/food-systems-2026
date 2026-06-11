@@ -46,6 +46,11 @@ function StatusPill({ tone, label }: { tone: CoverageTone | ArtifactStatus['stat
   )
 }
 
+function formatOperationalGapDecision(decision: OperationalGap['decision']) {
+  if (decision === 'ui_notice') return 'UI-merket'
+  return decision
+}
+
 function StatTile({ label, value, detail }: { label: string; value: string; detail: string }) {
   return (
     <div className="rounded-lg border border-stone-200 bg-white px-4 py-3 shadow-sm shadow-stone-900/[0.03]">
@@ -164,6 +169,13 @@ function OperationalGaps({ operationalGaps }: { operationalGaps: OperationalGap[
                 <StatusPill tone={gap.severity} label={gap.actual == null ? 'ukjent' : `${formatNumber(gap.actual)} rader`} />
               </div>
               <p className="mt-3 text-xs leading-relaxed text-stone-600">{gap.consequence}</p>
+              <div className="mt-3 rounded-md border border-amber-200 bg-white px-3 py-2 text-xs leading-relaxed text-stone-700">
+                <p className="font-semibold text-amber-800">
+                  Statusnotat (G-10): {formatOperationalGapDecision(gap.decision)}
+                </p>
+                <p className="mt-1">{gap.statusNote}</p>
+                <p className="mt-1 text-stone-500">{gap.nextAction}</p>
+              </div>
               <Link href={gap.route} className="mt-3 inline-block text-xs font-medium text-emerald-700 hover:underline">
                 Åpne {gap.route}
               </Link>

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { ColumnHelp } from '@/components/ui/ColumnHelp'
+import { DataReadinessNotice } from '@/components/ui/DataReadinessNotice'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { Glossary } from '@/components/ui/Glossary'
 import { MissingValue } from '@/components/ui/MissingValue'
@@ -54,6 +55,7 @@ type Props = {
   totalCapacityTonnes: number
   totalApplications: number
   companyStats: CompanyStat[]
+  fishHealthObservationCount: number | null
 }
 
 function formatStatusBadge(status: string | null) {
@@ -79,6 +81,10 @@ function formatResultBadge(result: string | null) {
   return { label: result, className: 'bg-stone-100 text-stone-600 border-stone-200' }
 }
 
+function formatTableCount(count: number | null): string {
+  return count == null ? 'ukjent antall rader' : `${count.toLocaleString('no')} rader`
+}
+
 export function HavbrukContent({
   sites,
   applications,
@@ -86,6 +92,7 @@ export function HavbrukContent({
   totalCapacityTonnes,
   totalApplications,
   companyStats,
+  fishHealthObservationCount,
 }: Props) {
   const [companyFilter, setCompanyFilter] = useState('alle')
   const [countyFilter, setCountyFilter] = useState('alle')
@@ -137,6 +144,7 @@ export function HavbrukContent({
     .reduce((acc, c) => acc + c.siteCount, 0)
 
   const topOperator = operatorRows[0]
+  const fishHealthNeedsNotice = fishHealthObservationCount == null || fishHealthObservationCount === 0
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
@@ -159,6 +167,16 @@ export function HavbrukContent({
           </Link>
         </div>
       </div>
+
+      {fishHealthNeedsNotice && (
+        <DataReadinessNotice title="Fiskehelse venter på datagrunnlag">
+          <p>
+            FishHealthObservation-tabellen har {formatTableCount(fishHealthObservationCount)}.
+            /havbruk viser derfor lokaliteter og søknader, men ingen luse- eller
+            fiskehelseobservasjoner fra BarentsWatch før importen er kjørt.
+          </p>
+        </DataReadinessNotice>
+      )}
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">

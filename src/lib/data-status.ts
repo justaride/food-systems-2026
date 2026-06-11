@@ -82,6 +82,9 @@ export type OperationalGap = {
   actual: number | null
   minExpected: number
   severity: 'warn' | 'critical'
+  decision: 'ui_notice'
+  statusNote: string
+  nextAction: string
   consequence: string
 }
 
@@ -347,6 +350,10 @@ async function safeCompanyFinancialCoverageMetrics(
   }
 }
 
+function formatGapCount(actual: number | null): string {
+  return actual == null ? 'ukjent antall rader' : `${actual.toLocaleString('no')} rader`
+}
+
 function buildOperationalGaps(counts: Record<string, number | null>): OperationalGap[] {
   const gapConfigs = [
     {
@@ -358,6 +365,9 @@ function buildOperationalGaps(counts: Record<string, number | null>): Operationa
       minExpected: 1,
       severity: 'warn' as const,
       consequence: 'Siden faller tilbake til tom-/arbeidsmelding og kan ikke dokumentere korrespondanse fra databasen.',
+      statusNote: (actual: number | null) =>
+        `G-10-vedtak: /kommunikasjon er UI-merket som venter på datagrunnlag fordi Communication har ${formatGapCount(actual)}. Dokumentfallback leses ikke som komplett kommunikasjonslogg.`,
+      nextAction: 'Importer kommunikasjonslogg, eller behold statusnotatet synlig til flaten avvikles.',
     },
     {
       id: 'fish-health-empty',
@@ -368,6 +378,9 @@ function buildOperationalGaps(counts: Record<string, number | null>): Operationa
       minExpected: 1,
       severity: 'warn' as const,
       consequence: 'Havbruk viser lokaliteter og søknader, men ikke luse-/helseobservasjoner fra BarentsWatch.',
+      statusNote: (actual: number | null) =>
+        `G-10-vedtak: /havbruk er UI-merket med FishHealthObservation-status fordi tabellen har ${formatGapCount(actual)}. Havbruk kan leses som lokalitets- og søknadsflate, ikke helsedataflate.`,
+      nextAction: 'Kjør db:import:fiskehelse når BarentsWatch-observasjoner skal løftes inn.',
     },
     {
       id: 'landbruksregister-narrow',
@@ -378,10 +391,19 @@ function buildOperationalGaps(counts: Record<string, number | null>): Operationa
       minExpected: 100,
       severity: 'warn' as const,
       consequence: 'Produsentflatene må leses som register-/leveransedata, ikke komplett kartlegging av landbruksregisteret i Company.',
+      statusNote: (actual: number | null) =>
+        `G-10-vedtak: /produsenter er UI-merket som smal Company-kobling fordi Company-rader merket Landbruksregisteret er ${formatGapCount(actual)}, under terskel 100. Producer/Subsidy/DeliveryVolume er hovedgrunnlaget.`,
+      nextAction: 'Kjør full landbruksregister-import eller fortsett å dokumentere Company-koblingen som smal.',
     },
   ]
 
-  return gapConfigs.filter(gap => gap.actual == null || gap.actual < gap.minExpected)
+  return gapConfigs
+    .filter(gap => gap.actual == null || gap.actual < gap.minExpected)
+    .map(({ statusNote, ...gap }) => ({
+      ...gap,
+      decision: 'ui_notice' as const,
+      statusNote: statusNote(gap.actual),
+    }))
 }
 
 async function readJson(rootDir: string, relPath: string): Promise<Record<string, unknown> | null> {
