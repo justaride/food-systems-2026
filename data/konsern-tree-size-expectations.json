@@ -1,0 +1,373 @@
+{
+  "basis": "Static parentOrgNr -> childOrgNr ownership links in scripts/import-*.ts, traversed from KONSERN_REGISTRY roots.",
+  "roots": [
+    {
+      "slug": "asko",
+      "rootOrgNr": "929228723",
+      "expectedTreeSize": 16,
+      "expectedOrgNrs": [
+        "813612992",
+        "884133572",
+        "912015238",
+        "913117883",
+        "916286074",
+        "918710507",
+        "923622845",
+        "925109185",
+        "925216534",
+        "929228723",
+        "930622974",
+        "933129950",
+        "979334109",
+        "979487916",
+        "979655215",
+        "999320600"
+      ],
+      "sourceScripts": [
+        "scripts/import-asko-corporate-tree.ts",
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-horeca-companies.ts",
+        "scripts/import-norgesgruppen-tree.ts",
+        "scripts/import-session10-relationships.ts",
+        "scripts/import-session5-supply-chain.ts"
+      ]
+    },
+    {
+      "slug": "austevoll",
+      "rootOrgNr": "929975200",
+      "expectedTreeSize": 9,
+      "expectedOrgNrs": [
+        "886813082",
+        "914353561",
+        "927894254",
+        "929975200",
+        "975350940",
+        "985848718",
+        "985940460",
+        "986392858",
+        "995548194"
+      ],
+      "sourceScripts": [
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-leroy-tree.ts",
+        "scripts/import-seafood-holdings-tree.ts",
+        "scripts/import-session10-relationships.ts",
+        "scripts/import-session5-supply-chain.ts"
+      ]
+    },
+    {
+      "slug": "bama",
+      "rootOrgNr": "914224314",
+      "expectedTreeSize": 8,
+      "expectedOrgNrs": [
+        "914224314",
+        "959657769",
+        "965437150",
+        "976565967",
+        "981384016",
+        "992714409",
+        "995244071",
+        "995518333"
+      ],
+      "sourceScripts": [
+        "scripts/import-bama-tree.ts",
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-norgesgruppen-tree.ts",
+        "scripts/import-session10-relationships.ts",
+        "scripts/import-session5-supply-chain.ts"
+      ]
+    },
+    {
+      "slug": "coop",
+      "rootOrgNr": "936560288",
+      "expectedTreeSize": 9,
+      "expectedOrgNrs": [
+        "819784922",
+        "882722422",
+        "919784725",
+        "919784814",
+        "931186744",
+        "936560288",
+        "988445177",
+        "989085557",
+        "997800419"
+      ],
+      "sourceScripts": [
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-coop-tree.ts",
+        "scripts/import-session10-relationships.ts",
+        "scripts/import-session5-supply-chain.ts"
+      ]
+    },
+    {
+      "slug": "felleskjopet",
+      "rootOrgNr": "911608103",
+      "expectedTreeSize": 7,
+      "expectedOrgNrs": [
+        "885719422",
+        "911608103",
+        "912589455",
+        "916329717",
+        "958457952",
+        "975871096",
+        "998232058"
+      ],
+      "sourceScripts": [
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-felleskjopet-tree.ts",
+        "scripts/import-leveransedata.ts",
+        "scripts/import-session10-relationships.ts",
+        "scripts/import-session5-supply-chain.ts"
+      ]
+    },
+    {
+      "slug": "leroy",
+      "rootOrgNr": "975350940",
+      "expectedTreeSize": 8,
+      "expectedOrgNrs": [
+        "886813082",
+        "914353561",
+        "927894254",
+        "975350940",
+        "985848718",
+        "985940460",
+        "986392858",
+        "995548194"
+      ],
+      "sourceScripts": [
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-leroy-tree.ts",
+        "scripts/import-seafood-holdings-tree.ts",
+        "scripts/import-session10-relationships.ts",
+        "scripts/import-session5-supply-chain.ts"
+      ]
+    },
+    {
+      "slug": "mowi",
+      "rootOrgNr": "964118191",
+      "expectedTreeSize": 6,
+      "expectedOrgNrs": [
+        "911610744",
+        "916146337",
+        "919441879",
+        "921668236",
+        "961056268",
+        "964118191"
+      ],
+      "sourceScripts": [
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-mowi-tree.ts",
+        "scripts/import-session10-relationships.ts",
+        "scripts/import-session5-supply-chain.ts"
+      ]
+    },
+    {
+      "slug": "norgesgruppen",
+      "rootOrgNr": "819731322",
+      "expectedTreeSize": 49,
+      "expectedOrgNrs": [
+        "813612992",
+        "819731322",
+        "882578402",
+        "883743512",
+        "884133572",
+        "885316522",
+        "912015238",
+        "913117883",
+        "913283805",
+        "914183332",
+        "914224314",
+        "916286074",
+        "918710507",
+        "920341659",
+        "920428959",
+        "923622845",
+        "925109185",
+        "925216534",
+        "929228723",
+        "930258008",
+        "930622974",
+        "933129950",
+        "959657769",
+        "965437150",
+        "971047917",
+        "975959171",
+        "976542223",
+        "976565967",
+        "976769511",
+        "977066727",
+        "977263646",
+        "979334109",
+        "979487916",
+        "979655215",
+        "981384016",
+        "983392970",
+        "985131406",
+        "985402779",
+        "989009001",
+        "989578790",
+        "992714409",
+        "995244071",
+        "995518333",
+        "995666553",
+        "995915820",
+        "997732812",
+        "997747054",
+        "999320600",
+        "DK-38714295"
+      ],
+      "sourceScripts": [
+        "scripts/import-asko-corporate-tree.ts",
+        "scripts/import-bama-tree.ts",
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-horeca-companies.ts",
+        "scripts/import-nordic-deepening.ts",
+        "scripts/import-norgesgruppen-tree.ts",
+        "scripts/import-session10-relationships.ts",
+        "scripts/import-session5-supply-chain.ts"
+      ]
+    },
+    {
+      "slug": "nortura",
+      "rootOrgNr": "938752648",
+      "expectedTreeSize": 12,
+      "expectedOrgNrs": [
+        "885209432",
+        "913755855",
+        "919117060",
+        "921042434",
+        "936661386",
+        "938752648",
+        "962977006",
+        "976502744",
+        "987390689",
+        "992318899",
+        "995643316",
+        "997754123"
+      ],
+      "sourceScripts": [
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-leveransedata.ts",
+        "scripts/import-nortura-tree.ts",
+        "scripts/import-session10-relationships.ts",
+        "scripts/import-session5-supply-chain.ts",
+        "scripts/import-tine-tree.ts"
+      ]
+    },
+    {
+      "slug": "orkla",
+      "rootOrgNr": "910747711",
+      "expectedTreeSize": 14,
+      "expectedOrgNrs": [
+        "910747711",
+        "911161230",
+        "911161419",
+        "912692094",
+        "916170858",
+        "925745855",
+        "930097683",
+        "930097705",
+        "930097748",
+        "932176076",
+        "940712580",
+        "986519904",
+        "991742255",
+        "996888142"
+      ],
+      "sourceScripts": [
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-orkla-tree.ts",
+        "scripts/import-session5-supply-chain.ts"
+      ]
+    },
+    {
+      "slug": "reitan-retail",
+      "rootOrgNr": "914526647",
+      "expectedTreeSize": 11,
+      "expectedOrgNrs": [
+        "883409442",
+        "894759372",
+        "914526647",
+        "921757131",
+        "928211398",
+        "980411133",
+        "982254604",
+        "983415652",
+        "983415660",
+        "988247111",
+        "DK-14705627"
+      ],
+      "sourceScripts": [
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-reitan-tree.ts",
+        "scripts/import-session10-relationships.ts",
+        "scripts/import-session5-supply-chain.ts"
+      ]
+    },
+    {
+      "slug": "rema1000-norge",
+      "rootOrgNr": "982254604",
+      "expectedTreeSize": 3,
+      "expectedOrgNrs": [
+        "894759372",
+        "980411133",
+        "982254604"
+      ],
+      "sourceScripts": [
+        "scripts/import-company-data.ts",
+        "scripts/import-reitan-tree.ts",
+        "scripts/import-session10-relationships.ts",
+        "scripts/import-session5-supply-chain.ts"
+      ]
+    },
+    {
+      "slug": "salmar",
+      "rootOrgNr": "960514718",
+      "expectedTreeSize": 4,
+      "expectedOrgNrs": [
+        "952587687",
+        "952662813",
+        "960514718",
+        "966840528"
+      ],
+      "sourceScripts": [
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-salmar-tree.ts",
+        "scripts/import-session5-supply-chain.ts"
+      ]
+    },
+    {
+      "slug": "tine",
+      "rootOrgNr": "947942638",
+      "expectedTreeSize": 5,
+      "expectedOrgNrs": [
+        "821186382",
+        "921761929",
+        "936661386",
+        "947942638",
+        "984460198"
+      ],
+      "sourceScripts": [
+        "scripts/import-company-data.ts",
+        "scripts/import-company-ownership.ts",
+        "scripts/import-leveransedata.ts",
+        "scripts/import-nortura-tree.ts",
+        "scripts/import-session10-relationships.ts",
+        "scripts/import-session5-supply-chain.ts",
+        "scripts/import-tine-tree.ts"
+      ]
+    }
+  ]
+}

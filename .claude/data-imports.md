@@ -37,15 +37,34 @@ main()
 - Resolve companies by `orgNr` with `prisma.company.findUnique({ where: { orgNr } })`
 - Normalize `personKey` with lowercase text, NFD decomposition, diacritic stripping, and spaces replaced by hyphens
 - Run one-off scripts with `npx tsx scripts/script-name.ts`
-- Run the full import chain with `npm run db:import`
+- Run the full approved import chain with `npm run db:import:full`
+- Treat `npm run db:import` as the smaller legacy/core seed chain; it does not include the later konserntre-, HORECA-, register-, Nordic-, or April 2026 imports
 - Run `npm run db:audit` after major import changes when you need an integrity check
 - Prefer Prisma upserts so imports stay idempotent
 - For company entities, check [Company Registry](company-registry.md) before adding new records
+
+## Full Approved Chain
+
+Use `npm run db:import:full` when a DB needs the complete approved org/company corpus. The command delegates to `db:import:approved-corpus`, then writes reconciliation artifacts and regenerates konsern coverage:
+
+1. Core corpus: thesis/report data, research docs, root docs, external/source docs, barekraft sources, company data, ownership, person profiles, actors, transcripts, market metrics.
+2. Relationship and deepening imports: session 5, session 10, ASKO, NorgesGruppen, Coop, Reitan, Orkla, Nortura, TINE, Felleskjopet, Mowi, SalMar, Leroy, Austevoll/seafood holdings, BAMA, Kavli, HORECA, April 2026 research, Nordic deepening, remaining deepening.
+3. Register and intake imports: landbruksregister, produksjonstilskudd, akvakulturregister, akvakultursoknader, leveransedata, food process intake, company extraction candidates.
+4. Verification/artifacts: `db:verify`, `db:reconcile:imports:strict`, and `audit:konsern`.
+
+`db:import:fiskehelse` is not part of `db:import:full` because it requires BarentsWatch API credentials (`BARENTSWATCH_CLIENT_ID` and `BARENTSWATCH_CLIENT_SECRET`) and does not add org.nr. to the import corpus. Run it separately in environments that have those secrets.
+
+Post-run artifacts:
+
+- `data/import-reconciliation.json` compares static org.nr. references in `scripts/import-*.ts` against the `Company` table and separates loaded, missing, and explicitly excepted rows per script.
+- `data/konsern-tree-size-expectations.json` is the checked-in expectation table for konsern `treeSize`, derived from static `parentOrgNr -> childOrgNr` ownership links in the import corpus.
+- `data/konsern-coverage.json` is regenerated from the DB and should match the checked-in tree-size expectations unless an intentional exception is documented in the PR.
 
 ## Import Script Inventory
 
 | Script | Models | npm command |
 |---|---|---|
+| `reconcile-import-corpus.ts` | Audit artifact only: `Company` lookup plus static import-corpus/org.nr. parser | `db:reconcile:imports` / `db:reconcile:imports:strict` |
 | `import-ts-data.ts` | `Thesis`, `Report` | `db:import:ts` |
 | `import-research-docs.ts` | `Document` | `db:import:docs` |
 | `import-root-docs.ts` | `Document` | `db:import:root` |
