@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { ColumnHelp } from '@/components/ui/ColumnHelp'
+import { CoverageBadgeStrip } from '@/components/coverage/CoverageBadgeStrip'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { Glossary } from '@/components/ui/Glossary'
 import { MissingValue, formatCoverageFootnote, type MissingValueReason } from '@/components/ui/MissingValue'
@@ -152,6 +153,12 @@ export function SelskaperContent({
           {coverage.employees.toLocaleString('nb-NO')}; styre for {coverage.boards.toLocaleString('nb-NO')}; kontrollerende eier for{' '}
           {coverage.ownership.toLocaleString('nb-NO')}.
         </p>
+        <CoverageBadgeStrip
+          datasetIds={['selskaps-finanser']}
+          title="Beregnet selskapsdekning"
+          note="Regnskapsprofilen er beregnet fra CompanyFinancial-rader og brukes som kontrollmerke for denne listen."
+          className="mt-3 max-w-3xl"
+        />
       </div>
 
       <Glossary

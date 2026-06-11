@@ -4,6 +4,7 @@ import { ChartCard } from '@/components/sammenligning/ChartCard'
 import { ComparisonTable } from '@/components/sammenligning/ComparisonTable'
 import { KeyTakeaway } from '@/components/sammenligning/KeyTakeaway'
 import { PolicyTimeline } from '@/components/sammenligning/PolicyTimeline'
+import { CoverageBadgeStrip } from '@/components/coverage/CoverageBadgeStrip'
 import { ChartFrame } from '@/components/visualization/ChartFrame'
 import { NoMarketShareTimeseriesDynamic } from '@/components/charts/NoMarketShareTimeseriesDynamic'
 import { PageFraming } from '@/components/ui/PageFraming'
@@ -83,6 +84,13 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
           caveat="Siterbar med forbehold: deler av sammenligningen er primærkildebasert, mens andre felt er proxy/illustrativ og ikke ekstern validering."
         />
       </div>
+
+      <CoverageBadgeStrip
+        datasetIds={['selvforsyning-nordisk']}
+        title="Beregnet dekningsprofil"
+        note="Selvforsyningsprofilen kontrollerer om nordisk språk hviler på faktisk femlandsdekning og tidsgrunnlag."
+        className="mb-8"
+      />
 
       {(() => {
         const hhi = rowsFor(data, c => c.market.hhi, c => c.meta.market.hhi)

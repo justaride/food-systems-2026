@@ -11,6 +11,7 @@ import FoodDesertPanel from '@/components/map/FoodDesertPanel'
 import VulnerabilityPanel from '@/components/map/VulnerabilityPanel'
 import DataSourcesPanel from '@/components/map/DataSourcesPanel'
 import CountrySelector from '@/components/map/CountrySelector'
+import { CoverageBadgeStrip } from '@/components/coverage/CoverageBadgeStrip'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
 const COUNTRY_NAMES: Record<CountryCode, string> = {
@@ -101,6 +102,13 @@ export default function KartCountryPage({ params }: { params: Promise<{ country:
         <LayerPanel />
         <FoodDesertPanel />
         <VulnerabilityPanel />
+        <CoverageBadgeStrip
+          datasetIds={['produksjonstilskudd', 'leveransedata']}
+          title="Kartdatadekning"
+          note="Register- og leveranselag kontrolleres mot beregnede coverage-profiler."
+          compact
+          className="absolute bottom-16 right-4 z-[1000] hidden w-80 max-w-[calc(100vw-2rem)] md:block"
+        />
         <DataSourcesPanel />
       </div>
     </MapProvider>
