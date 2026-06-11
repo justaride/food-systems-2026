@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import '../styles/globals.css'
+import { RouteDataProvenance } from '@/components/layout/DataProvenance'
 import { Header } from '@/components/layout/Header'
 import { Sidebar } from '@/components/layout/Sidebar'
 import { getPhases } from '@/lib/queries/project'
@@ -33,6 +34,7 @@ export default async function RootLayout({
               <Header />
               <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-6 max-w-6xl w-full">
                 {children}
+                <RouteDataProvenance />
               </main>
             </div>
           </div>
