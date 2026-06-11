@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-25T16:53:31.854Z",
+  "generatedAt": "2026-06-11T00:17:26.827Z",
   "entries": [
     {
       "slug": "leroy",
@@ -15,8 +15,10 @@
       "qualityScore": 4,
       "metrics": {
         "treeSize": 1,
+        "measuredYear": 2025,
         "childrenWithLatestFinancial": 0,
         "childrenWithoutFinancial": 0,
+        "childrenWithOlderFinancial": 0,
         "childrenWithBoardMembers": 0,
         "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 0,
@@ -46,8 +48,10 @@
       "qualityScore": 5,
       "metrics": {
         "treeSize": 1,
+        "measuredYear": 2025,
         "childrenWithLatestFinancial": 0,
         "childrenWithoutFinancial": 0,
+        "childrenWithOlderFinancial": 0,
         "childrenWithBoardMembers": 0,
         "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 0,
@@ -76,8 +80,10 @@
       "qualityScore": 5,
       "metrics": {
         "treeSize": 1,
+        "measuredYear": 2025,
         "childrenWithLatestFinancial": 0,
         "childrenWithoutFinancial": 0,
+        "childrenWithOlderFinancial": 0,
         "childrenWithBoardMembers": 0,
         "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 0,
@@ -106,13 +112,15 @@
       "qualityScore": 5,
       "metrics": {
         "treeSize": 1,
+        "measuredYear": 2025,
         "childrenWithLatestFinancial": 0,
         "childrenWithoutFinancial": 0,
+        "childrenWithOlderFinancial": 0,
         "childrenWithBoardMembers": 0,
         "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 0,
         "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 13,
+        "propertyCount": 1,
         "relationshipCount": 1,
         "maEventCount": 0,
         "maEventsWithDealValue": 0,
@@ -136,13 +144,15 @@
       "qualityScore": 5,
       "metrics": {
         "treeSize": 1,
+        "measuredYear": 2025,
         "childrenWithLatestFinancial": 0,
         "childrenWithoutFinancial": 0,
+        "childrenWithOlderFinancial": 0,
         "childrenWithBoardMembers": 0,
         "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 0,
         "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 5,
+        "propertyCount": 7,
         "relationshipCount": 7,
         "maEventCount": 0,
         "maEventsWithDealValue": 0,
@@ -166,13 +176,15 @@
       "qualityScore": 5,
       "metrics": {
         "treeSize": 1,
+        "measuredYear": 2025,
         "childrenWithLatestFinancial": 0,
         "childrenWithoutFinancial": 0,
+        "childrenWithOlderFinancial": 0,
         "childrenWithBoardMembers": 0,
         "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 0,
         "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 8,
+        "propertyCount": 16,
         "relationshipCount": 7,
         "maEventCount": 0,
         "maEventsWithDealValue": 0,
@@ -196,13 +208,15 @@
       "qualityScore": 5,
       "metrics": {
         "treeSize": 1,
+        "measuredYear": 2025,
         "childrenWithLatestFinancial": 0,
         "childrenWithoutFinancial": 0,
+        "childrenWithOlderFinancial": 0,
         "childrenWithBoardMembers": 0,
         "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 0,
         "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 7,
+        "propertyCount": 18,
         "relationshipCount": 4,
         "maEventCount": 0,
         "maEventsWithDealValue": 0,
@@ -210,102 +224,6 @@
       },
       "gaps": [
         "Aldri Brreg-refreshet"
-      ]
-    },
-    {
-      "slug": "norgesgruppen",
-      "rootCompanyId": "cmp8xysz20000xrvmbm4d5nat",
-      "rootName": "NorgesGruppen ASA",
-      "rootOrgNr": "819731322",
-      "ownershipType": "subsidiary",
-      "controllingOwner": {
-        "name": "Joh. Johannson-familien",
-        "pct": "74.4",
-        "source": "document:evidence-pack/arsrapporter/norgesgruppen-2024"
-      },
-      "qualityScore": 6,
-      "metrics": {
-        "treeSize": 4,
-        "childrenWithLatestFinancial": 0,
-        "childrenWithoutFinancial": 3,
-        "childrenWithBoardMembers": 3,
-        "childrenWithoutBoardMembers": 0,
-        "ownershipEdgesWithSource": 3,
-        "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 18,
-        "relationshipCount": 14,
-        "maEventCount": 0,
-        "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": null
-      },
-      "gaps": [
-        "3 datterselskap uten siste års regnskap",
-        "Aldri Brreg-refreshet",
-        "Forventer M&A-aktivitet, ingen events registrert"
-      ]
-    },
-    {
-      "slug": "reitan-retail",
-      "rootCompanyId": "cmp8xyt1k0019xrvmq0qfsj0z",
-      "rootName": "Reitan Retail AS",
-      "rootOrgNr": "914526647",
-      "ownershipType": "subsidiary",
-      "controllingOwner": {
-        "name": "Reitan-familien (Odd Reitan)",
-        "pct": "100",
-        "source": "document:evidence-pack/arsrapporter/reitan-retail-2024"
-      },
-      "qualityScore": 6,
-      "metrics": {
-        "treeSize": 2,
-        "childrenWithLatestFinancial": 0,
-        "childrenWithoutFinancial": 1,
-        "childrenWithBoardMembers": 1,
-        "childrenWithoutBoardMembers": 0,
-        "ownershipEdgesWithSource": 1,
-        "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 2,
-        "relationshipCount": 9,
-        "maEventCount": 0,
-        "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": null
-      },
-      "gaps": [
-        "1 datterselskap uten siste års regnskap",
-        "Aldri Brreg-refreshet",
-        "Forventer M&A-aktivitet, ingen events registrert"
-      ]
-    },
-    {
-      "slug": "austevoll",
-      "rootCompanyId": "cmp8xytb8009pxrvmjdg1chp6",
-      "rootName": "Austevoll Seafood ASA",
-      "rootOrgNr": "929975200",
-      "ownershipType": "subsidiary",
-      "controllingOwner": {
-        "name": "Laco AS (Møgster-familien)",
-        "pct": "52.7",
-        "source": "Aksjonærdata: årsrapport 2024"
-      },
-      "qualityScore": 6,
-      "metrics": {
-        "treeSize": 2,
-        "childrenWithLatestFinancial": 0,
-        "childrenWithoutFinancial": 1,
-        "childrenWithBoardMembers": 1,
-        "childrenWithoutBoardMembers": 0,
-        "ownershipEdgesWithSource": 1,
-        "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 2,
-        "relationshipCount": 3,
-        "maEventCount": 0,
-        "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": null
-      },
-      "gaps": [
-        "1 datterselskap uten siste års regnskap",
-        "Aldri Brreg-refreshet",
-        "Forventer M&A-aktivitet, ingen events registrert"
       ]
     },
     {
@@ -322,8 +240,10 @@
       "qualityScore": 7,
       "metrics": {
         "treeSize": 3,
+        "measuredYear": 2025,
         "childrenWithLatestFinancial": 0,
         "childrenWithoutFinancial": 2,
+        "childrenWithOlderFinancial": 0,
         "childrenWithBoardMembers": 0,
         "childrenWithoutBoardMembers": 2,
         "ownershipEdgesWithSource": 2,
@@ -335,7 +255,7 @@
         "daysSinceBrregRefresh": null
       },
       "gaps": [
-        "2 datterselskap uten siste års regnskap",
+        "2 datterselskap mangler regnskap helt (målt mot 2025)",
         "2 datterselskap uten styremedlemmer",
         "Aldri Brreg-refreshet"
       ]
@@ -354,8 +274,10 @@
       "qualityScore": 7,
       "metrics": {
         "treeSize": 2,
+        "measuredYear": 2025,
         "childrenWithLatestFinancial": 0,
         "childrenWithoutFinancial": 1,
+        "childrenWithOlderFinancial": 0,
         "childrenWithBoardMembers": 0,
         "childrenWithoutBoardMembers": 1,
         "ownershipEdgesWithSource": 1,
@@ -367,7 +289,7 @@
         "daysSinceBrregRefresh": null
       },
       "gaps": [
-        "1 datterselskap uten siste års regnskap",
+        "1 datterselskap mangler regnskap helt (målt mot 2025)",
         "1 datterselskap uten styremedlemmer",
         "Aldri Brreg-refreshet"
       ]
@@ -386,8 +308,10 @@
       "qualityScore": 7,
       "metrics": {
         "treeSize": 2,
+        "measuredYear": 2025,
         "childrenWithLatestFinancial": 0,
         "childrenWithoutFinancial": 1,
+        "childrenWithOlderFinancial": 0,
         "childrenWithBoardMembers": 0,
         "childrenWithoutBoardMembers": 1,
         "ownershipEdgesWithSource": 1,
@@ -399,7 +323,7 @@
         "daysSinceBrregRefresh": null
       },
       "gaps": [
-        "1 datterselskap uten siste års regnskap",
+        "1 datterselskap mangler regnskap helt (målt mot 2025)",
         "1 datterselskap uten styremedlemmer",
         "Aldri Brreg-refreshet"
       ]
@@ -418,8 +342,10 @@
       "qualityScore": 7,
       "metrics": {
         "treeSize": 3,
+        "measuredYear": 2025,
         "childrenWithLatestFinancial": 0,
         "childrenWithoutFinancial": 2,
+        "childrenWithOlderFinancial": 0,
         "childrenWithBoardMembers": 2,
         "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 2,
@@ -431,8 +357,107 @@
         "daysSinceBrregRefresh": null
       },
       "gaps": [
-        "2 datterselskap uten siste års regnskap",
+        "2 datterselskap mangler regnskap helt (målt mot 2025)",
         "Aldri Brreg-refreshet"
+      ]
+    },
+    {
+      "slug": "norgesgruppen",
+      "rootCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+      "rootName": "NorgesGruppen ASA",
+      "rootOrgNr": "819731322",
+      "ownershipType": "minority-stake",
+      "controllingOwner": {
+        "name": "Joh. Johannson-familien",
+        "pct": "74.4",
+        "source": "document:evidence-pack/arsrapporter/norgesgruppen-2024"
+      },
+      "qualityScore": 8,
+      "metrics": {
+        "treeSize": 4,
+        "measuredYear": 2024,
+        "childrenWithLatestFinancial": 3,
+        "childrenWithoutFinancial": 0,
+        "childrenWithOlderFinancial": 0,
+        "childrenWithBoardMembers": 3,
+        "childrenWithoutBoardMembers": 0,
+        "ownershipEdgesWithSource": 3,
+        "ownershipEdgesWithoutSource": 0,
+        "propertyCount": 6,
+        "relationshipCount": 14,
+        "maEventCount": 0,
+        "maEventsWithDealValue": 0,
+        "daysSinceBrregRefresh": null
+      },
+      "gaps": [
+        "Aldri Brreg-refreshet",
+        "Forventer M&A-aktivitet, ingen events registrert"
+      ]
+    },
+    {
+      "slug": "reitan-retail",
+      "rootCompanyId": "cmp8xyt1k0019xrvmq0qfsj0z",
+      "rootName": "Reitan Retail AS",
+      "rootOrgNr": "914526647",
+      "ownershipType": "subsidiary",
+      "controllingOwner": {
+        "name": "Reitan-familien (Odd Reitan)",
+        "pct": "100",
+        "source": "document:evidence-pack/arsrapporter/reitan-retail-2024"
+      },
+      "qualityScore": 8,
+      "metrics": {
+        "treeSize": 2,
+        "measuredYear": 2024,
+        "childrenWithLatestFinancial": 1,
+        "childrenWithoutFinancial": 0,
+        "childrenWithOlderFinancial": 0,
+        "childrenWithBoardMembers": 1,
+        "childrenWithoutBoardMembers": 0,
+        "ownershipEdgesWithSource": 1,
+        "ownershipEdgesWithoutSource": 0,
+        "propertyCount": 2,
+        "relationshipCount": 9,
+        "maEventCount": 0,
+        "maEventsWithDealValue": 0,
+        "daysSinceBrregRefresh": null
+      },
+      "gaps": [
+        "Aldri Brreg-refreshet",
+        "Forventer M&A-aktivitet, ingen events registrert"
+      ]
+    },
+    {
+      "slug": "austevoll",
+      "rootCompanyId": "cmp8xytb8009pxrvmjdg1chp6",
+      "rootName": "Austevoll Seafood ASA",
+      "rootOrgNr": "929975200",
+      "ownershipType": "subsidiary",
+      "controllingOwner": {
+        "name": "Laco AS (Møgster-familien)",
+        "pct": "52.7",
+        "source": "Aksjonærdata: årsrapport 2024"
+      },
+      "qualityScore": 8,
+      "metrics": {
+        "treeSize": 2,
+        "measuredYear": 2024,
+        "childrenWithLatestFinancial": 1,
+        "childrenWithoutFinancial": 0,
+        "childrenWithOlderFinancial": 0,
+        "childrenWithBoardMembers": 1,
+        "childrenWithoutBoardMembers": 0,
+        "ownershipEdgesWithSource": 1,
+        "ownershipEdgesWithoutSource": 0,
+        "propertyCount": 2,
+        "relationshipCount": 3,
+        "maEventCount": 0,
+        "maEventsWithDealValue": 0,
+        "daysSinceBrregRefresh": null
+      },
+      "gaps": [
+        "Aldri Brreg-refreshet",
+        "Forventer M&A-aktivitet, ingen events registrert"
       ]
     }
   ],
