@@ -121,6 +121,32 @@ describe('Food TG status after Port E landing', () => {
     }
   })
 
+  it('keeps the execution plan restartable after #182 and #183 landed', () => {
+    const executionPlan = readFileSync(executionPlanPath, 'utf8')
+
+    for (const term of [
+      '## Execution Checkpoint 2026-06-11 After PR #183',
+      'PR #182',
+      'PR #183',
+      'JT uke 25-pakken er repo-landet',
+      'draft-PR #159 er fortsatt beslutningsgated',
+      'live `/api/version` svarer `10e1ab1`',
+      'Ikke start på Task 0 som om planen er urørt',
+    ]) {
+      assert.ok(executionPlan.includes(term), `${term} missing from ${executionPlanPath}`)
+    }
+
+    for (const staleTerm of [
+      '## Current Verified Baseline',
+      'Current branch: `codex/food-tg-research-intake-72h`',
+      'Current remote main: `origin/main` at `4e510dc',
+      'Current local branch relation to `origin/main`: 1 commit ahead, 9 commits behind',
+      'Current untracked control docs after this plan is created',
+    ]) {
+      assert.ok(!executionPlan.includes(staleTerm), `${staleTerm} should no longer be current in ${executionPlanPath}`)
+    }
+  })
+
   it('keeps volatile prod deploy SHA on live /api/version instead of pinning it in docs', () => {
     const status = readFileSync(statusPath, 'utf8')
     const review = readFileSync(reviewPath, 'utf8')
