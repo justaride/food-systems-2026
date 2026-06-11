@@ -4,7 +4,9 @@ import Link from 'next/link'
 import { Fragment, useCallback, useMemo, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Card } from '@/components/ui/Card'
+import { ColumnHelp } from '@/components/ui/ColumnHelp'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { Glossary } from '@/components/ui/Glossary'
 import { MissingValue } from '@/components/ui/MissingValue'
 import {
   PROPERTY_COMPANY_KJEDE_LABELS,
@@ -12,6 +14,7 @@ import {
   equityRatioPct,
   type PropertyCompanyKjede,
 } from '@/lib/data/property-companies'
+import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 import type { PropertyCompanyRow } from '@/lib/queries/property-companies'
 
 const PropertiesMap = dynamic(
@@ -266,6 +269,12 @@ export function EiendommerContent({
         </p>
       </section>
 
+      <Glossary
+        category="kolonner"
+        terms={LIST_SURFACE_GLOSSARY_TERMS.eiendommer}
+        title="Kolonneforklaringer"
+      />
+
       <PropertyCompaniesSection rows={propertyCompanies} />
 
       <div className="border-t border-stone-200 pt-8">
@@ -359,13 +368,27 @@ export function EiendommerContent({
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-stone-200 text-left">
-                  <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">Selskap</th>
-                  <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">Type</th>
-                  <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">Adresse</th>
-                  <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">Kommune</th>
-                  <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">Areal</th>
-                  <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">Leietaker</th>
-                  <th className="py-2 text-xs uppercase tracking-wider text-stone-400 font-medium">Status</th>
+                  <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
+                    <ColumnHelp term="Selskapsnavn" label="Selskap" />
+                  </th>
+                  <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
+                    <ColumnHelp term="Eiendomstype" label="Type" />
+                  </th>
+                  <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
+                    <ColumnHelp term="Adresse" />
+                  </th>
+                  <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
+                    <ColumnHelp term="Kommune" />
+                  </th>
+                  <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
+                    <ColumnHelp term="Areal" align="right" />
+                  </th>
+                  <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
+                    <ColumnHelp term="Leietaker" />
+                  </th>
+                  <th className="py-2 text-xs uppercase tracking-wider text-stone-400 font-medium">
+                    <ColumnHelp term="Leiestatus" label="Status" />
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -494,13 +517,27 @@ function PropertyCompaniesSection({ rows }: { rows: PropertyCompanyRow[] }) {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-stone-200 text-left">
-                <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">Selskap</th>
-                <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">Type</th>
-                <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">Sum eiendeler</th>
-                <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">EK-andel</th>
-                <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">Driftsinntekter</th>
-                <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">Driftsresultat</th>
-                <th className="py-2 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">År</th>
+                <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
+                  <ColumnHelp term="Selskapsnavn" label="Selskap" />
+                </th>
+                <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
+                  <ColumnHelp term="Eiendomsselskapstype" label="Type" />
+                </th>
+                <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
+                  <ColumnHelp term="Sum eiendeler" align="right" />
+                </th>
+                <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
+                  <ColumnHelp term="EK-andel" align="right" />
+                </th>
+                <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
+                  <ColumnHelp term="Driftsinntekter" align="right" />
+                </th>
+                <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
+                  <ColumnHelp term="Driftsresultat" align="right" />
+                </th>
+                <th className="py-2 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
+                  <ColumnHelp term="År" align="right" />
+                </th>
               </tr>
             </thead>
             <tbody>

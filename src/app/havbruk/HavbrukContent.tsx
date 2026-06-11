@@ -3,9 +3,12 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
+import { ColumnHelp } from '@/components/ui/ColumnHelp'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { Glossary } from '@/components/ui/Glossary'
 import { MissingValue } from '@/components/ui/MissingValue'
 import { formatAquacultureCapacity } from '@/lib/aquaculture-capacity'
+import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 
 type SiteRow = {
   id: string
@@ -189,6 +192,12 @@ export function HavbrukContent({
         </div>
       )}
 
+      <Glossary
+        category="kolonner"
+        terms={LIST_SURFACE_GLOSSARY_TERMS.havbruk}
+        title="Kolonneforklaringer"
+      />
+
       <Card>
         <div className="flex flex-wrap gap-2 items-center">
           <div className="inline-flex rounded-lg border border-stone-200 bg-white p-0.5">
@@ -249,22 +258,22 @@ export function HavbrukContent({
                 <thead>
                   <tr className="border-b border-stone-200 text-left">
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Lokalitet
+                      <ColumnHelp term="Lokalitet" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Operatør
+                      <ColumnHelp term="Operatør" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Kommune
+                      <ColumnHelp term="Kommune" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
-                      Kapasitet
+                      <ColumnHelp term="Kapasitet" align="right" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Art
+                      <ColumnHelp term="Art" />
                     </th>
                     <th className="py-2 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Status
+                      <ColumnHelp term="Konsesjonsstatus" label="Status" />
                     </th>
                   </tr>
                 </thead>
@@ -339,19 +348,19 @@ export function HavbrukContent({
                 <thead>
                   <tr className="border-b border-stone-200 text-left">
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Søknad
+                      <ColumnHelp term="Søknad" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Søker
+                      <ColumnHelp term="Søker" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Type
+                      <ColumnHelp term="Søknadstype" label="Type" />
                     </th>
                     <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Opprettet
+                      <ColumnHelp term="Opprettet" />
                     </th>
                     <th className="py-2 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                      Resultat
+                      <ColumnHelp term="Søknadsresultat" label="Resultat" />
                     </th>
                   </tr>
                 </thead>
@@ -412,16 +421,16 @@ export function HavbrukContent({
               <thead>
                 <tr className="border-b border-stone-200 text-left">
                   <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium">
-                    Operatør
+                    <ColumnHelp term="Operatør" />
                   </th>
                   <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
-                    Lokaliteter
+                    <ColumnHelp term="Lokalitet" label="Lokaliteter" align="right" />
                   </th>
                   <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
-                    MTB (tonn)
+                    <ColumnHelp term="MTB" label="MTB (tonn)" align="right" />
                   </th>
                   <th className="py-2 pr-4 text-xs uppercase tracking-wider text-stone-400 font-medium text-right">
-                    Andel lok.
+                    <ColumnHelp term="Lokalitetsandel" label="Andel lok." align="right" />
                   </th>
                 </tr>
               </thead>

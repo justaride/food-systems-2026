@@ -3,9 +3,11 @@
 import Link from 'next/link'
 import { useDeferredValue, useState } from 'react'
 import { Card } from '@/components/ui/Card'
+import { ColumnHelp } from '@/components/ui/ColumnHelp'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { InternalBanner } from '@/components/ui/InternalBanner'
 import { Glossary } from '@/components/ui/Glossary'
+import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 
 type ActorRow = {
   id: string
@@ -172,7 +174,9 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
             <div className="text-2xl font-bold text-stone-900">{stats.total}</div>
           </div>
           <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
-            <div className="text-xs uppercase tracking-wider text-stone-400">P1</div>
+            <div className="text-xs uppercase tracking-wider text-stone-400">
+              <ColumnHelp term="Prioritet (P1–P3)" label="P1" />
+            </div>
             <div className="text-2xl font-bold text-stone-900">{stats.p1}</div>
           </div>
           <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
@@ -180,13 +184,27 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
             <div className="text-2xl font-bold text-stone-900">{stats.keyPlayers}</div>
           </div>
           <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
-            <div className="text-xs uppercase tracking-wider text-stone-400">Med ask</div>
+            <div className="text-xs uppercase tracking-wider text-stone-400">
+              <ColumnHelp term="Specific ask" label="Med ask" />
+            </div>
             <div className="text-2xl font-bold text-stone-900">{stats.withAsks}</div>
           </div>
         </div>
       </div>
 
       <Glossary category="status" title="Statusforklaringer" />
+      <Glossary
+        category="kolonner"
+        terms={LIST_SURFACE_GLOSSARY_TERMS.aktorer}
+        title="Kolonneforklaringer"
+      />
+      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs uppercase tracking-wider text-stone-400">
+        <ColumnHelp term="Aktørtype" />
+        <ColumnHelp term="Stance" />
+        <ColumnHelp term="Makt" />
+        <ColumnHelp term="Interesse" />
+        <ColumnHelp term="Tema" />
+      </div>
 
       <Card>
         <div className="grid gap-4 lg:grid-cols-[1.4fr,1fr]">

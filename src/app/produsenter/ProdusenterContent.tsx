@@ -3,8 +3,11 @@
 import { useDeferredValue, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
+import { ColumnHelp } from '@/components/ui/ColumnHelp'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { Glossary } from '@/components/ui/Glossary'
 import { MissingValue } from '@/components/ui/MissingValue'
+import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 import type { ProducerListRow } from '@/lib/queries/producers'
 
 export function ProdusenterContent({
@@ -46,6 +49,12 @@ export function ProdusenterContent({
         .
       </div>
 
+      <Glossary
+        category="kolonner"
+        terms={LIST_SURFACE_GLOSSARY_TERMS.produsenter}
+        title="Kolonneforklaringer"
+      />
+
       <Card>
         <div className="flex flex-wrap gap-2 items-center">
           <input
@@ -77,11 +86,21 @@ export function ProdusenterContent({
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-stone-200 text-left text-[11px] uppercase tracking-wider text-stone-400">
-                  <th scope="col" className="pb-2 pr-4 font-medium">Navn</th>
-                  <th scope="col" className="pb-2 pr-4 font-medium">Orgnr</th>
-                  <th scope="col" className="pb-2 pr-4 font-medium">Kommune</th>
-                  <th scope="col" className="pb-2 pr-4 font-medium text-right" title="Antall tilskudd">Tilskudd</th>
-                  <th scope="col" className="pb-2 font-medium text-right" title="Antall leveranser">Leveranser</th>
+                  <th scope="col" className="pb-2 pr-4 font-medium">
+                    <ColumnHelp term="Produsentnavn" label="Navn" />
+                  </th>
+                  <th scope="col" className="pb-2 pr-4 font-medium">
+                    <ColumnHelp term="Organisasjonsnummer" label="Orgnr" />
+                  </th>
+                  <th scope="col" className="pb-2 pr-4 font-medium">
+                    <ColumnHelp term="Kommune" />
+                  </th>
+                  <th scope="col" className="pb-2 pr-4 font-medium text-right">
+                    <ColumnHelp term="Tilskudd" align="right" />
+                  </th>
+                  <th scope="col" className="pb-2 font-medium text-right">
+                    <ColumnHelp term="Leveranser" align="right" />
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-100">

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
+import { ColumnHelp } from '@/components/ui/ColumnHelp'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { FilterChips } from '@/components/ui/FilterChips'
 import { EmptyState } from '@/components/ui/EmptyState'
@@ -14,6 +15,7 @@ import { ParentCompanyChart } from '@/components/charts/ParentCompanyChart'
 import { InsightTypeDonut } from '@/components/charts/InsightTypeDonut'
 import { InsightTagBar } from '@/components/charts/InsightTagBar'
 import { COUNTRY_LIST, type CountryCode } from '@/lib/config/countries'
+import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 
 const InsightTimeline = dynamic(
   () => import('@/components/charts/InsightTimeline').then((mod) => mod.InsightTimeline),
@@ -243,6 +245,17 @@ export function InnsiktContent({ insights }: { insights: InsightRow[] }) {
         />
 
         <Glossary category="statistikk" defaultOpen />
+        <Glossary
+          category="kolonner"
+          terms={LIST_SURFACE_GLOSSARY_TERMS.innsikt}
+          title="Listeforklaringer"
+        />
+        <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs uppercase tracking-wider text-stone-400">
+          <ColumnHelp term="Innsiktstype" />
+          <ColumnHelp term="Kilde" />
+          <ColumnHelp term="Fase" />
+          <ColumnHelp term="Tagger" />
+        </div>
       </header>
 
       <section className="space-y-3">
@@ -316,7 +329,9 @@ export function InnsiktContent({ insights }: { insights: InsightRow[] }) {
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between gap-3 flex-wrap">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="text-xs font-medium uppercase tracking-wider text-stone-500">Type</span>
+                <span className="text-xs font-medium uppercase tracking-wider text-stone-500">
+                  <ColumnHelp term="Innsiktstype" label="Type" />
+                </span>
                 <FilterChips
                   items={typeFilters}
                   defaultValue={typeFilter}
@@ -337,7 +352,7 @@ export function InnsiktContent({ insights }: { insights: InsightRow[] }) {
             {activeTags.size > 0 && (
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-medium uppercase tracking-wider text-stone-500">
-                  Aktive tagger
+                  <ColumnHelp term="Tagger" label="Aktive tagger" />
                 </span>
                 {[...activeTags].map((tag) => (
                   <button

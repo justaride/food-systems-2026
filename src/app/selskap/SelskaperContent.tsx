@@ -3,9 +3,12 @@
 import Link from 'next/link'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
+import { ColumnHelp } from '@/components/ui/ColumnHelp'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { Glossary } from '@/components/ui/Glossary'
 import { MissingValue, formatCoverageFootnote } from '@/components/ui/MissingValue'
 import { formatEmployeeDisplay, formatRevenueDisplay } from '@/lib/company-card-metrics'
+import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 
 type CompanyRow = {
   id: string
@@ -128,6 +131,19 @@ export function SelskaperContent({
           {coverage.employees.toLocaleString('nb-NO')}; styre for {coverage.boards.toLocaleString('nb-NO')}; kontrollerende eier for{' '}
           {coverage.ownership.toLocaleString('nb-NO')}.
         </p>
+      </div>
+
+      <Glossary
+        category="kolonner"
+        terms={LIST_SURFACE_GLOSSARY_TERMS.selskap}
+        title="Kolonneforklaringer"
+      />
+      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs uppercase tracking-wider text-stone-400">
+        <ColumnHelp term="Verdikjedetrinn" />
+        <ColumnHelp term="Eierskapstype" />
+        <ColumnHelp term="NACE" />
+        <ColumnHelp term="Organisasjonsnummer" label="Orgnr" />
+        <ColumnHelp term="Dekningsstatus" />
       </div>
 
       <Card>

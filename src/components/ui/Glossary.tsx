@@ -1,19 +1,25 @@
 'use client'
 
 import { useState } from 'react'
-import { GLOSSARY_TERMS, type GlossaryCategory } from '@/lib/glossary/terms'
+import { GLOSSARY_TERMS, getGlossaryTerm, type GlossaryCategory, type GlossaryTerm } from '@/lib/glossary/terms'
 
 export function Glossary({
   category,
+  terms,
   title = 'Begrepsforklaringer',
   defaultOpen = false,
 }: {
   category: GlossaryCategory
+  terms?: readonly string[]
   title?: string
   defaultOpen?: boolean
 }) {
   const [open, setOpen] = useState(defaultOpen)
-  const entries = GLOSSARY_TERMS.filter((t) => t.category === category)
+  const entries = terms
+    ? terms
+        .map((term) => getGlossaryTerm(term, category))
+        .filter((entry): entry is GlossaryTerm => Boolean(entry))
+    : GLOSSARY_TERMS.filter((t) => t.category === category)
   if (entries.length === 0) return null
   const summary = entries.map((e) => e.term).join(' · ')
 
@@ -23,9 +29,9 @@ export function Glossary({
         onClick={() => setOpen((v) => !v)}
         className="w-full flex items-center justify-between px-4 py-2.5 text-left hover:bg-stone-50 transition-colors rounded-lg"
       >
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-stone-500">{title}</span>
-          <span className="text-[10px] text-stone-400">{summary}</span>
+        <div className="flex min-w-0 items-center gap-2">
+          <span className="shrink-0 text-xs font-semibold uppercase tracking-wider text-stone-500">{title}</span>
+          <span className="min-w-0 truncate text-[10px] text-stone-400">{summary}</span>
         </div>
         <svg
           className={`w-4 h-4 text-stone-400 transition-transform ${open ? 'rotate-180' : ''}`}

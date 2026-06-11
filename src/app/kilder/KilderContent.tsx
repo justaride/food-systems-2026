@@ -3,10 +3,13 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
+import { ColumnHelp } from '@/components/ui/ColumnHelp'
+import { Glossary } from '@/components/ui/Glossary'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import type { BacklogRound, SourceDownloadStatus } from '@/lib/queries/download-backlog'
 import { CoverageOverview } from '@/components/coverage/CoverageOverview'
 import { InternalBanner } from '@/components/ui/InternalBanner'
+import { LIST_SURFACE_GLOSSARY_TERMS } from '@/lib/glossary/terms'
 
 export type SourceRow = {
   id: string
@@ -213,6 +216,12 @@ export function KilderContent({
 
       <CoverageOverview />
 
+      <Glossary
+        category="kolonner"
+        terms={LIST_SURFACE_GLOSSARY_TERMS.kilder}
+        title="Kolonneforklaringer"
+      />
+
       {/* Research rounds banner */}
       <div className="rounded-xl border border-blue-200 bg-blue-50/60 p-4">
         <div className="text-sm font-semibold text-blue-900 mb-2">Forskningsrunder</div>
@@ -349,7 +358,9 @@ export function KilderContent({
 
       {/* Status legend */}
       <div className="flex items-center gap-4 text-xs text-stone-600 flex-wrap">
-        <span className="font-semibold">Status:</span>
+        <span className="font-semibold">
+          <ColumnHelp term="Nedlastingsstatus" label="Status:" />
+        </span>
         {sourceDownloadStatuses.map((s) => {
           const dot = statusDot(s)
           return (
@@ -445,21 +456,23 @@ export function KilderContent({
             <table className="w-full text-left">
               <thead>
                 <tr className="bg-stone-50 border-b border-stone-200">
-                  <th className="px-3 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider w-8"></th>
-                  <th className="px-6 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider">
-                    Kilde / Tittel
+                  <th className="px-3 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider w-8">
+                    <ColumnHelp term="Nedlastingsstatus" label="" />
                   </th>
                   <th className="px-6 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider">
-                    Type
+                    <ColumnHelp term="Kildetittel" label="Kilde / Tittel" />
                   </th>
                   <th className="px-6 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider">
-                    Utgiver / År
+                    <ColumnHelp term="Kildetype" label="Type" />
                   </th>
                   <th className="px-6 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider">
-                    Beskrivelse
+                    <ColumnHelp term="Utgiver" label="Utgiver / År" />
+                  </th>
+                  <th className="px-6 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider">
+                    <ColumnHelp term="Beskrivelse" />
                   </th>
                   <th className="px-6 py-4 text-xs font-bold text-stone-400 uppercase tracking-wider text-right">
-                    Lenke
+                    <ColumnHelp term="Lenke" align="right" />
                   </th>
                 </tr>
               </thead>
