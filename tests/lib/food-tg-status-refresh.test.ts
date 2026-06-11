@@ -125,4 +125,34 @@ describe('Food TG status after Port E landing', () => {
       assert.ok(!review.includes(staleTerm), `${staleTerm} should no longer be current in ${reviewPath}`)
     }
   })
+
+  it('records the successful prod verify-only preflight without claiming prod import is done', () => {
+    const status = readFileSync(statusPath, 'utf8')
+    const review = readFileSync(reviewPath, 'utf8')
+
+    for (const term of [
+      'prod-data-import `verify-only`',
+      'run 27366094787',
+      'Authenticated DB connection ready',
+      '`db:verify`',
+      'Result: OK',
+      'Document: 990',
+      'SourceDoc: 193',
+      'Company: 185',
+      'CompanyOwnership: 75',
+      'Deliverable: 12',
+      'ingen prod-write-target',
+    ]) {
+      assert.ok(status.includes(term), `${term} missing from ${statusPath}`)
+      assert.ok(review.includes(term), `${term} missing from ${reviewPath}`)
+    }
+
+    for (const staleTerm of [
+      'prod-data-import, PR #159-stackens nye `/api/data-status`-dekning og full operatorsekvens er ikke kjørt',
+      'Ingen prod import, PR #159-stackdeploy eller operator-sekvens er kjort',
+    ]) {
+      assert.ok(!status.includes(staleTerm), `${staleTerm} should be updated in ${statusPath}`)
+      assert.ok(!review.includes(staleTerm), `${staleTerm} should be updated in ${reviewPath}`)
+    }
+  })
 })
