@@ -10,20 +10,21 @@
 
 ---
 
-## Execution Checkpoint 2026-06-11 After PR #183
+## Execution Checkpoint 2026-06-11 After PR #185
 
 This checkpoint supersedes the original baseline below. Use the repo, PR #159 and live APIs as source of truth before taking the next action. Ikke start på Task 0 som om planen er urørt.
 
-Verified state after the latest status sync:
+Verified state after the latest status sync and CI/runtime fix:
 
-- `main` is at merge commit `10e1ab1` from PR #183 (`docs: sync platform status after JT QA guard`) and the root checkout is clean.
 - PR #182 is merged and added `tests/lib/jt-uke25-package.test.ts`, so the JT uke 25 package has a repo-level QA guard.
 - PR #183 is merged and synced the status/review docs after PR #182.
-- draft-PR #159 er fortsatt beslutningsgated: it is mergeable, GitHub CI is green, and the latest head/check/test-count state lives on PR #159 rather than in this static plan.
+- PR #184 is merged and synced the execution/status docs after #183, while keeping volatile PR #159 head and test-count state out of static docs.
+- PR #185 is merged and moved first-party workflows to Node 24-compatible GitHub Actions pins: `actions/checkout@v6` and `actions/setup-node@v6`.
+- draft-PR #159 er fortsatt beslutningsgated: it is mergeable, GitHub CI is green, and PR #159 er live kilde for siste head/check-status and test-count state rather than this static plan.
 - The only remaining Fase A blocker before taking #159 out of draft is Gabriel's explicit approval or change request for G-06, G-10 and G-11.
 - JT uke 25-pakken er repo-landet: status note, decision cases, meeting invitation, send package, operator log, Port E event-go package, slide manuscript and editable PPTX are present on `main`.
-- live `/api/version` svarer `10e1ab1`; `/api/data-status` returns `ok: true`, `dbOk: true` and `pageGatesOk: true` for the current `main` deployment.
-- Prod-data-import `verify-only` has passed as read-only B1 preflight, but no prod-write target, #159 stack deploy or full operator sequence has run.
+- live `/api/version` er fasit for gjeldende deploy-SHA; read it fresh before deploy decisions instead of pinning it in this plan. After PR #185, `/api/data-status` returned `ok: true`, `dbOk: true` and `pageGatesOk: true` for the current `main` deployment.
+- prod-data-import `verify-only` run 27369814363 has passed as read-only B1 preflight after PR #185 with authenticated DB tunnel, `db:verify`, `Result: OK`, `actions/checkout@v6` and `actions/setup-node@v6`, but no prod-write target, #159 stack deploy or full operator sequence has run.
 
 Next action sequence from this checkpoint:
 
