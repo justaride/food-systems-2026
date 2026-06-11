@@ -12,6 +12,7 @@
     "start": "node .next/standalone/server.js",
     "lint": "eslint",
     "test": "node --import=tsx --test $(find tests -name '*.test.ts')",
+    "verify:platform-stack-main": "npm run db:generate && npm run lint && npm test && npm run build && npm run db:audit && npm run db:audit:strict-sources && npm run audit:konsern && npm run graph:audit && npm run audit:citable",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",

@@ -88,7 +88,7 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 | A1 | Avklar `npm ci`-lock-feilen | Kjørt i ren integrasjons-worktree | **Ferdig:** `npm ci` grønn; lock-sync-feilen reproduserte ikke. |
 | A2 | Review av beslutningsgoals | G-11 (mandat/metodikk-split), G-10 (tomme tabeller), G-06 (selvforsyningsvalg) | **Åpen:** review er dokumentert i PR #159, men Gabriel må fortsatt velge `godkjent` eller endring. |
 | A3 | Åpne PR og kjøre CI | Én integrasjons-PR fra samlet stack | **Ferdig teknisk:** PR #159 er åpen som draft, mergeable og GitHub CI er grønn. |
-| A4 | Merge + full verifikasjon på main | `npm run lint && npm test && npm run build && npm run db:audit && npm run db:audit:strict-sources && npm run audit:konsern && npm run graph:audit` | **Ikke startet:** venter på G-06/G-10/G-11-vedtak og merge. |
+| A4 | Merge + full verifikasjon på main | `npm run verify:platform-stack-main` (samler Prisma generate, lint, test, build, DB-/strict-source-, konsern-, graph- og citable-gatene) | **Ikke startet:** venter på G-06/G-10/G-11-vedtak og merge. |
 | A5 | Commit styringsdokumentene | Goal-plan, dybdeanalyse, vurderingsrapport, JT-tema-mandat og execution-plan | **Ferdig for kontrollgrunnlaget:** PR #158 landet. Goal-status etter merge gjenstår. |
 
 ### Fase B — Data og deploy (13.–16.06, Gabriel)
