@@ -14,6 +14,7 @@ relaterte_filer:
   - docs/project/status/jt-statusnotat-uke-25-2026-06-15.md
   - docs/project/status/port-e-event-go-uke-25-2026-06-15.md
   - docs/project/status/jt-uke25-sendepakke-2026-06-15.md
+  - docs/project/status/jt-uke25-operatorlogg-2026-06-15.md
 ---
 
 # Food TG Start her - uke 25
@@ -73,8 +74,9 @@ Hvis tiden er knapp: les steg 3 og 4 først, men ikke ta beslutninger uten steg 
 For uke 25 er riktig rekkefølge:
 
 1. Book JT/Einar/Thea-slot med `docs/project/status/jt-uke25-sendepakke-2026-06-15.md`.
-2. Bruk `docs/project/status/jt-statusnotat-uke-25-2026-06-15.md` som pre-read.
-3. Bruk `docs/project/status/port-e-event-go-uke-25-2026-06-15.md` for Port E go/no-go, Q&A-stoppliste og fallback.
-4. Be om vedtakene i `docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md`.
-5. Logg svar i `docs/project/mandates/decision-log-food-tg.md`.
-6. Deretter oppdateres casekort, sprintboard, PCQ/source-shortlist og claim-lock bare der svaret faktisk gir ny dokumentasjon eller ny beslutning.
+2. Logg faktisk sending, mottakere og status i `docs/project/status/jt-uke25-operatorlogg-2026-06-15.md`.
+3. Bruk `docs/project/status/jt-statusnotat-uke-25-2026-06-15.md` som pre-read.
+4. Bruk `docs/project/status/port-e-event-go-uke-25-2026-06-15.md` for Port E go/no-go, Q&A-stoppliste og fallback.
+5. Be om vedtakene i `docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md`.
+6. Logg vedtak i `docs/project/mandates/decision-log-food-tg.md`.
+7. Deretter oppdateres casekort, sprintboard, PCQ/source-shortlist og claim-lock bare der svaret faktisk gir ny dokumentasjon eller ny beslutning.
