@@ -2,18 +2,20 @@
 tittel: Food TG Source Shortlist v0.1
 status: Utført internt
 eier: Gabriel
-sist_oppdatert: 2026-06-10
-neste_handling: Brukes som inntak til evidence-matrix-food-tg.md (Phase 2). Se `food-tg-deep-research-source-intake-2026-06-10.md` for 10.06-gjennomgang av syv deep-research-filer mot `SRC-0906-*`, `food-tg-deep-research-prompt-pack-2026-06-10.md` for videre kildejakt, `food-tg-casekort-og-research-mottak-2026-06-10.md` for mottak/importbeslutning og `food-tg-deep-research-results-intake-2026-06-10.md` for de åtte mottatte resultatfilene før nye kilder legges inn.
+sist_oppdatert: 2026-06-11
+neste_handling: Brukes som inntak til evidence-matrix-food-tg.md (Phase 2). Se `food-tg-mottaksprotokoll-v1-2026-06-15.md` for obligatorisk rekkefølge før nye kilder legges inn, `food-tg-deep-research-source-intake-2026-06-10.md` for 10.06-gjennomgang av syv deep-research-filer mot `SRC-0906-*`, `food-tg-deep-research-prompt-pack-2026-06-10.md` for videre kildejakt, `food-tg-casekort-og-research-mottak-2026-06-10.md` for mottak/importbeslutning og `food-tg-deep-research-results-intake-2026-06-10.md` for de åtte mottatte resultatfilene før nye kilder legges inn.
 relaterte_filer:
   - research/KI-PRIORITY.md
   - research/PLATTFORM-KOBLING.md
   - research/DATA-READINESS-SLUTTRAPPORT.md
   - docs/project/mandates/research-dossiers/baerekraftsutfordringer-input-2026-04-28/
+  - docs/project/mandates/food-tg-mottaksprotokoll-v1-2026-06-15.md
   - docs/project/mandates/food-tg-deep-research-source-intake-2026-06-10.md
   - docs/project/mandates/food-tg-deep-research-prompt-pack-2026-06-10.md
   - docs/project/mandates/food-tg-casekort-og-research-mottak-2026-06-10.md
   - docs/project/mandates/food-tg-deep-research-results-intake-2026-06-10.md
 endringslogg:
+  - 2026-06-11 Lagt til mottaksprotokoll v1.0 som obligatorisk importport før nye Deep Research-funn kan flyttes til source-shortlist, PCQ eller claim-lock.
   - 2026-06-10 Lagt til results intake for åtte mottatte Deep Research-outputer. Kildekandidater derfra må hentes og locator-sjekkes før de blir siterbare source-shortlist-rader.
   - 2026-06-10 Lagt til casekort- og research-mottaksfil som importgate før nye Deep Research-kilder eventuelt legges til source-shortlist, PCQ eller claim-lock.
   - 2026-06-10 Lagt til Deep Research prompt pack for videre casevis kildejakt og post-research validering mot `SRC-0906-*`, `PCQ-0906-*` og claim-lock.

@@ -47,6 +47,7 @@ Denne mappen samler styringsdokumenter for Food Systems Transition Group og tilh
 | `food-tg-deep-research-results-intake-2026-06-10.md` | Results intake | Aktiv intern | Kontrollerer åtte mottatte Deep Research-resultater fra Downloads mot `DRO-0906-*`, PCQ, source-shortlist, claim-lock og neste dokumentask uten å importere raw filer. |
 | `food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md` | Dokumentask/actor ask | Aktiv intern | Presise interne dokumentforespørsler og senere aktørspørsmål for 09.06-/10.06-casegrunnlaget, uten å åpne outreach. |
 | `food-tg-0906-sprintboard-go-no-go-2026-06-10.md` | Sprintboard | Aktiv intern | Operativt go/no-go-brett for Deep Research-mottak, dokumentask, PCQ/source/claim-lock og intern deck-readiness. |
+| `food-tg-mottaksprotokoll-v1-2026-06-15.md` | Mottaksprotokoll | Aktiv intern | Standardiserer 10.06-pipelinen: ingen ny kilde uten DRO/DRR-rad, eier/dato/status, locator/bruksrett, PCQ/source-shortlist og claim-lock-gate. |
 | `brief-jan-thomas-cathrine-food-tg-runde-4.md` | Møtebrief | Klar til bruk | Kort beslutnings- og samtalegrunnlag etter runde 4. |
 | `opportunity-radar-food-tg-v0.1.md` | Opportunity radar | Aktiv v0.1 | Prioriterer validerbare muligheter, claims, stoppsignaler og neste handling. |
 | `primary-check-queue-food-tg-v0.1.md` | Primary-check-kø | Aktiv v0.1 | Skiller regulatoriske og datamessige sjekkpunkter fra aktørvalidering. |
