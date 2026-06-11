@@ -118,12 +118,13 @@ Gront lokalt:
 - `npm run audit:research-artifacts -- --base=origin/main` passerte: 45 added paths sjekket, 2724 tracked files sjekket, 0 violations.
 - `npm run audit:citable-reports` passerte: Citable report audit passed.
 - GitHub draft-PR #159 er apnet og CI er gronn: GitGuardian, Schema migration guard og to `test-and-audit`-kjoringer passerte.
+- Etter sync av 29 ignorerte lokale evidence-filer fra hovedcheckoutens `research/` til integrasjons-worktreeets `research/` falt Citation Coverage fra 29 external blocking issues til 0. Filene er Git-ignorert og er ikke del av PR-en.
 
 Rott/blokkert lokalt:
-- `npm run db:audit:strict-sources` feiler med 10 enforced audit violations i integrasjons-worktree.
+- `npm run db:audit:strict-sources` feiler fortsatt med 9 enforced audit violations i integrasjons-worktree etter evidence-sync.
 - `npm run audit:citable` feiler fordi den kjeder videre til strict source-gate.
 - Samme strict source-gate feiler ogsa pa oppdatert `main` med 9 enforced violations mot samme lokale DB/env. Det peker pa baseline/lokal data-state som separat operatoravklaring, ikke ren stack-kodefeil.
-- Integrasjonsstacken legger til en ekstra strict-feilgruppe: Citation Coverage har 29 external blocking issues. Dry-run av `npm run db:refresh:source-citation-readiness` viser at 29 rader ville flyttes fra `citable_with_note` til `internal_context`; apply er ikke kjort.
+- Fersk sammenligning: `main` har 0 Citation Coverage external blocking issues, og integrasjons-worktreeet har ogsa 0 etter evidence-sync. PR-en har dermed ikke lenger en egen citation-blockergruppe.
 - BoardMember/Shareholder/source-locator gapene er ikke lukket. Dry-run av board-member provenance/correction dekker bare deler av gapet og er ikke brukt som write-fiks.
 
 Ikke gjort:
