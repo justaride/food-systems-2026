@@ -8,6 +8,7 @@ import { ChartFrame } from '@/components/visualization/ChartFrame'
 import { NoMarketShareTimeseriesDynamic } from '@/components/charts/NoMarketShareTimeseriesDynamic'
 import { PageFraming } from '@/components/ui/PageFraming'
 import { COUNTRY_LIST } from '@/lib/config/countries'
+import { SELF_SUFFICIENCY_REFERENCE } from '@/lib/data/forside-kpis'
 import type { CountryCode } from '@/lib/config/countries'
 import type { SammenligningData, CountrySammenligning, DataPointMeta } from '@/lib/queries/sammenligning'
 import type { NoMarketShareTimeSeries } from '@/lib/queries/market-share'
@@ -30,6 +31,28 @@ function rowsFor<T>(
       meta: country && pickMeta ? pickMeta(country) : undefined,
     }
   })
+}
+
+function formatComparisonNumber(value: number | null | undefined) {
+  if (value === null || value === undefined) return '—'
+  return new Intl.NumberFormat('nb-NO', { maximumFractionDigits: 1 }).format(value)
+}
+
+function formatComparisonPct(value: number | null | undefined) {
+  return value === null || value === undefined ? '—' : `${formatComparisonNumber(value)} %`
+}
+
+function formatComparisonSourceNote(items: Array<{ label: string; meta?: DataPointMeta }>) {
+  const parts = items
+    .filter(item => item.meta)
+    .map(item => {
+      const meta = item.meta as DataPointMeta
+      const sources = meta.sources.length ? meta.sources.join(', ') : 'kilde mangler'
+      const year = meta.year ? `år ${meta.year}` : 'år ikke oppgitt'
+      return `${item.label}: ${sources} (${year})`
+    })
+
+  return parts.join(' · ')
 }
 
 export function SammenligningContent({ data, noMarketShare }: Props) {
@@ -82,13 +105,19 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
 
         const hhiNo = data.countries.no?.market.hhi
         const hhiDk = data.countries.dk?.market.hhi
+        const hhiNoMeta = data.countries.no?.meta.market.hhi
+        const hhiDkMeta = data.countries.dk?.meta.market.hhi
 
         return (
           <BolkSection
             number={1}
             title="Markedsstruktur & makt"
             question="Hvor konsentrert er nordisk dagligvare?"
-            narrative="Norge har Nordens mest konsentrerte dagligvaremarked. HHI rundt 3445 ligger godt over Danmarks 2157 og signaliserer høy markedsmakt hos få aktører."
+            narrative={`Norge har Nordens mest konsentrerte dagligvaremarked i dette datasettet. HHI ${formatComparisonNumber(hhiNo)} ligger over Danmarks ${formatComparisonNumber(hhiDk)} og signaliserer høy markedsmakt hos få aktører.`}
+            sourceNote={formatComparisonSourceNote([
+              { label: 'NO HHI', meta: hhiNoMeta },
+              { label: 'DK HHI', meta: hhiDkMeta },
+            ])}
             researchStatus="primary_snapshot"
             researchStatusDetail="NO-HHI er kuratert primærdata; nordisk sammenligning bruker delvis butikkantall-proxy og krever omsetnings-HHI for full paritet (B11 gap)."
             takeaway={
@@ -185,19 +214,34 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
 
         const dk = data.countries.dk?.preparedness.selfSufficiencyCaloricPct
         const no = data.countries.no?.preparedness.selfSufficiencyCaloricPct
+        const noFeedCorrected = data.countries.no?.preparedness.selfSufficiencyFeedCorrectedPct
+        const fiReserve = data.countries.fi?.preparedness.grainReserveMonths
+        const noSelfMeta = data.countries.no?.meta.preparedness.selfSufficiencyCaloricPct
+        const noFeedMeta = data.countries.no?.meta.preparedness.selfSufficiencyFeedCorrectedPct
+        const dkSelfMeta = data.countries.dk?.meta.preparedness.selfSufficiencyCaloricPct
+        const fiReserveMeta = data.countries.fi?.meta.preparedness.grainReserveMonths
 
         return (
           <BolkSection
             number={2}
             title="Selvforsyning & beredskap"
             question="Hvor sårbar er hvert land for import-stopp?"
-            narrative="NIBIO 2024 oppgir 41,3 % selvforsyningsgrad for Norge totalt inkl. fisk og 34,9 % korrigert for importert kraftfor. Danmark ligger rundt ~300 %. Finland skiller seg ut med 9 måneders kornreserve via HVK-modellen — de andre landene har minimale strategiske lagre."
+            narrative={`NIBIO-serien viser ${formatComparisonPct(no)} selvforsyningsgrad for Norge totalt inkl. fisk og ${formatComparisonPct(noFeedCorrected)} korrigert for importert kraftfôr. Danmark ligger på ${formatComparisonPct(dk)} i dette datasettet. Finland skiller seg ut med ${formatComparisonNumber(fiReserve)} måneders kornreserve via HVK-modellen; de andre landene har minimale strategiske lagre.`}
+            sourceNote={formatComparisonSourceNote([
+              {
+                label: `NO selvforsyning (${SELF_SUFFICIENCY_REFERENCE.source.sourceId}/${SELF_SUFFICIENCY_REFERENCE.claimGate})`,
+                meta: noSelfMeta,
+              },
+              { label: 'NO forkorrigert', meta: noFeedMeta },
+              { label: 'DK selvforsyning', meta: dkSelfMeta },
+              { label: 'FI kornreserve', meta: fiReserveMeta },
+            ])}
             researchStatus="primary_snapshot"
             researchStatusDetail="NIBIO Engrosforbruk 2024 (EV-A-022) er primærkilden for NO; nordisk sammenligning krever felles definisjonsbaseline og er ikke ferdig harmonisert."
             takeaway={
               <KeyTakeaway
-                headline={`${dk ?? '—'} % DK vs ${no ?? '—'} % NO`}
-                subline="Kalori-basert selvforsyning (NIBIO 2024: NO 41,3% / 34,9% forkorrigert)"
+                headline={`${formatComparisonPct(dk)} DK vs ${formatComparisonPct(no)} NO`}
+                subline={`Kalori-basert selvforsyning; NO ${formatComparisonPct(noFeedCorrected)} forkorrigert`}
               />
             }
             charts={
