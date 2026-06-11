@@ -418,23 +418,25 @@ git diff --check origin/main...HEAD
 
 Expected: no whitespace errors.
 
-- [ ] **Step 2: Run app/static gates**
+- [ ] **Step 2: Run the consolidated A4 gate**
 
 Run:
 
 ```bash
+npm run verify:platform-stack-main
+```
+
+Expected: the command exits 0. It runs Prisma generate, lint, full tests, build, DB audit, strict-source audit, konsern audit, graph audit and citable audit in the same order the package script defines.
+
+- [ ] **Step 3: If the consolidated gate fails, isolate the failing sub-gate**
+
+Use the package script definition as the source of truth. Run only the failing segment(s), for example:
+
+```bash
+npm run db:generate
 npm run lint
 npm test
 npm run build
-```
-
-Expected: all commands exit 0.
-
-- [ ] **Step 3: Run data/source/operator gates**
-
-Run:
-
-```bash
 npm run db:audit
 npm run db:audit:strict-sources
 npm run audit:konsern
@@ -442,7 +444,7 @@ npm run graph:audit
 npm run audit:citable
 ```
 
-Expected: all commands exit 0. If a command exits 0 with warnings/worklist counts, capture both the pass and the remaining counts in the PR body.
+Expected: each isolated failing command gives an actionable error. If a command exits 0 with warnings/worklist counts, capture both the pass and the remaining counts in the PR body.
 
 - [ ] **Step 4: Commit any verification-required artifacts**
 
