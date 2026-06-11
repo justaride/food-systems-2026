@@ -7,22 +7,6 @@ import { getTenSteps, getKpis, getEvidenceDocs } from '@/lib/queries/project'
 import { getResearchPrompts } from '@/lib/queries/research-prompts'
 import { CausalLoopDiagram } from '@/components/charts/CausalLoopDiagram'
 import { EmergenceVisualization } from '@/components/charts/EmergenceVisualization'
-import {
-  foodTgClaimBoard,
-  foodTgMandateSummary,
-  foodTgOpportunityRadar,
-  foodTgStatusLabels,
-  foodTgStopSignals,
-  type FoodTgValidationStatus,
-} from '@/lib/data/food-tg-mandate'
-
-const statusStyles: Record<FoodTgValidationStatus, string> = {
-  'internt-trygt': 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  'needs-primary-check': 'bg-sky-50 text-sky-700 border-sky-200',
-  'needs-actor-validation': 'bg-amber-50 text-amber-700 border-amber-200',
-  benchmark: 'bg-violet-50 text-violet-700 border-violet-200',
-  hypotese: 'bg-stone-100 text-stone-600 border-stone-200',
-}
 
 export default async function MetodikkPage() {
   let activePromptsCount = 0
@@ -32,24 +16,6 @@ export default async function MetodikkPage() {
   } catch {
     activePromptsCount = 0
   }
-
-  const statusCounts = (Object.keys(foodTgStatusLabels) as FoodTgValidationStatus[]).reduce<Record<FoodTgValidationStatus, { claims: number; opportunities: number }>>((acc, status) => {
-    acc[status] = {
-      claims: foodTgClaimBoard.filter(c => c.status === status).length,
-      opportunities: foodTgOpportunityRadar.filter(o => o.statuses.includes(status)).length,
-    }
-    return acc
-  }, {} as Record<FoodTgValidationStatus, { claims: number; opportunities: number }>)
-
-  const today = new Date()
-  const scopeMoteDate = new Date(foodTgMandateSummary.decisionDate)
-  const daysToScopeMote = Math.ceil((scopeMoteDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
-  const validationKpis = [
-    { label: 'Claims tracked', value: foodTgClaimBoard.length },
-    { label: 'Opportunities', value: foodTgOpportunityRadar.length },
-    { label: 'Sprint-dager', value: 10 },
-    { label: 'Til scope-møte', value: daysToScopeMote >= 0 ? `${daysToScopeMote}d` : 'forbi' },
-  ]
 
   const [tenSteps, kpis, evidencePack] = await Promise.all([
     getTenSteps(),
@@ -61,7 +27,10 @@ export default async function MetodikkPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Metodikk</h1>
-        <p className="text-sm text-stone-400 mt-1">Ten-Step Methodology v2.1 (NCH/JT Tallinn 2026-05-06 + Food-TG overlay), mandat og validering, KPIs, Evidence Pack og deep research-prompter</p>
+        <p className="text-sm text-stone-500 mt-1">
+          Metodeflate for Ten-Step, modellforklaringer, Evidence Pack, KPIs og deep research-prompter.
+          Claim-/statusarbeid styres på mandatflaten.
+        </p>
       </div>
 
       <Card>
@@ -81,15 +50,17 @@ export default async function MetodikkPage() {
         </div>
       </Card>
 
-      <Card title="Mandat og validering">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-3xl space-y-2">
-            <p className="text-sm leading-relaxed text-stone-600">{foodTgMandateSummary.scope}</p>
+      <Card title="Claim/status-cockpit ligger på mandatet">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-3xl">
             <p className="text-sm leading-relaxed text-stone-600">
-              <span className="font-semibold text-stone-800">Beslutningsregel:</span> {foodTgMandateSummary.decisionRule}
+              Denne metode-siden forklarer hvordan arbeidet kjøres. Claim-board, opportunity-radar,
+              status-tellere og beslutningsporter ligger samlet på /mandat, slik at metode og
+              styringsstatus ikke blandes.
             </p>
-            <p className="text-xs text-amber-800 bg-amber-50 border border-amber-200 rounded-md px-2 py-1 inline-block">
-              {foodTgMandateSummary.externalValidation}
+            <p className="mt-2 text-xs leading-relaxed text-stone-500">
+              Bruk /metodikk for prosess, modeller og prompts. Bruk /mandat når du skal se hva som
+              er klart, hva som må bekreftes og hvilke claims som holdes tilbake.
             </p>
           </div>
           <div className="flex shrink-0 flex-col items-start gap-2 lg:items-end">
@@ -97,44 +68,9 @@ export default async function MetodikkPage() {
               href="/mandat"
               className="inline-flex items-center gap-1 text-xs px-3 py-1.5 rounded-md bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200"
             >
-              Åpne mandat-flate →
+              Åpne claim/status-cockpit →
             </Link>
           </div>
-        </div>
-        <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2">
-          {validationKpis.map((k) => (
-            <div key={k.label} className="rounded-lg border border-stone-200 bg-stone-50 p-3">
-              <p className="text-[10px] uppercase tracking-wider text-stone-400">{k.label}</p>
-              <p className="mt-1 text-lg font-bold text-stone-800">{k.value}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-4 border-t border-stone-100 pt-4">
-          <p className="text-[10px] uppercase tracking-wider text-stone-400 mb-2">Statusdisiplin (claims / opportunity-treff)</p>
-          <div className="flex flex-wrap gap-2">
-            {(Object.entries(foodTgStatusLabels) as [FoodTgValidationStatus, string][]).map(([status, label]) => (
-              <span
-                key={status}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-xs font-medium ${statusStyles[status]}`}
-              >
-                {label}
-                <span className="font-mono text-[10px] opacity-70">
-                  {statusCounts[status].claims}/{statusCounts[status].opportunities}
-                </span>
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="mt-4 border-t border-stone-100 pt-4">
-          <p className="text-[10px] uppercase tracking-wider text-stone-400 mb-2">Stop signals (metodisk gate)</p>
-          <ul className="space-y-1">
-            {foodTgStopSignals.map((signal, i) => (
-              <li key={i} className="flex gap-2 text-sm text-stone-600">
-                <span className="text-stone-300">•</span>
-                <span>{signal}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </Card>
 

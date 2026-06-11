@@ -11,6 +11,7 @@ const navigation = [
   { key: 'team', href: '/team' },
   { key: 'moter', href: '/moter' },
   { key: 'kommunikasjon', href: '/kommunikasjon' },
+  { key: 'mandat', href: '/mandat' },
   { key: 'metodikk', href: '/metodikk' },
   { key: 'tidslinje', href: '/tidslinje' },
   { key: 'innsikt', href: '/innsikt' },
