@@ -9,6 +9,7 @@ relaterte_filer:
   - docs/project/analysis/food-tg-vurderingsrapport-siden-jt-2026-06-10.md
   - docs/project/status/STATUS-OG-ARBEIDSPLAN-2026-06-11.md
   - docs/project/status/jt-uke25-sendepakke-2026-06-15.md
+  - docs/project/status/port-e-event-go-uke-25-2026-06-15.md
   - docs/project/status/food-tg-start-her-2026-06-15.md
   - docs/project/plans/FOOD-TG-UTVIKLINGSPLAN-2026-06-10.md
   - docs/project/mandates/food-tg-minimumsvedtak-casekort-2026-06-09.md
@@ -61,7 +62,7 @@ Vi ber om fire beslutninger, formulert i eget beslutningsnotat:
 
 1. Minimumsvedtak for intern casekort- og researchsprint.
 2. Bekreftelse av H1/H2-todelingen fram mot kontraktsfristen 31.07.2026.
-3. Port E: offentlig online event - dato/format/vertskap og Thea-aktivering.
+3. Port E: offentlig online event - dato/format/vertskap og Thea-aktivering. Se `docs/project/status/port-e-event-go-uke-25-2026-06-15.md` for go/no-go, Q&A-stoppliste og fallback-format.
 4. Godkjenning til å sende DASK-0906-001/002 internt nå.
 
 I tillegg må Gabriel separat lukke plattform-PR-gaten for G-06, G-10 og G-11. Den beslutningen handler om kode-/plattformstacken, mens JT-møtet handler om programleveranse og styring.
