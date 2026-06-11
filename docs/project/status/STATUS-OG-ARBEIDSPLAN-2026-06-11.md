@@ -9,19 +9,20 @@ relaterte_filer:
   - docs/project/plans/FOOD-TG-UTVIKLINGSPLAN-2026-06-10.md
   - docs/project/analysis/plattform-dybdeanalyse-2026-06-11.md
   - docs/project/analysis/food-tg-vurderingsrapport-siden-jt-2026-06-10.md
+  - docs/project/status/port-e-event-go-uke-25-2026-06-15.md
   - research/CITABLE-KNOWLEDGE-BASE-STATUS.md
 bruksregel: Internt arbeidsdokument. Ingen tall eller formuleringer herfra brukes eksternt uten operator-sekvensen i CITABLE-KNOWLEDGE-BASE-STATUS.md.
 ---
 
 # Status 11.06: har vi løst alt, og er vi klare for Jan Thomas?
 
-> Oppdatert 2026-06-11 kl. 14:10: Dokument- og kontrollgrunnlaget er landet på `main` via PR #158, JT uke 25-pakken er landet via PR #160, og plattformstacken G-01-G-17 ligger i draft-PR #159. #159 er mergeable og GitHub CI er grønn, men står fortsatt som draft til Gabriel eksplisitt godkjenner eller endrer G-06, G-10 og G-11. `npm ci`-lockfeilen er ikke reprodusert i ren integrasjons-worktree. Gjenstående strict-source-rødt er klassifisert som baseline/operator-dataavvik, ikke PR-spesifikk kodefeil: samme 9 violations finnes på `main`, mens PR-spesifikk Citation Coverage-blokkering er 0 etter sync av ignorerte lokale evidence-filer. Prod-data, deploy og full operatorsekvens er ikke kjørt.
+> Oppdatert 2026-06-11 kl. 16:45: Dokument- og kontrollgrunnlaget er landet på `main` via PR #158, JT uke 25-pakken er landet først via PR #160 og supplert med Port E event-go via PR #167. PR #159 er resynket etter PR #167, mergeable og GitHub CI er grønn, men står fortsatt som draft til Gabriel eksplisitt godkjenner eller endrer G-06, G-10 og G-11. `npm ci`-lockfeilen er ikke reprodusert i ren integrasjons-worktree. Gjenstående strict-source-rødt er klassifisert som baseline/operator-dataavvik, ikke PR-spesifikk kodefeil: samme 9 violations finnes på `main`, mens PR-spesifikk Citation Coverage-blokkering er 0 etter sync av ignorerte lokale evidence-filer. Prod-data, deploy og full operatorsekvens er ikke kjørt.
 
 ## 1. Kort konklusjon
 
-Nei, vi har ikke løst alt - men vi har flyttet arbeidet fra "kode finnes" til en reell landingsprosess. Codex har implementert **alle 17 goals** i plattformløft-planen som kode på 17 brancher (18 commits, 139 filer, ~8 150 linjer), og stikkprøvene viser at arbeidet respekterer stoppreglene. Kontroll- og styringsdokumentene er landet på `main` via PR #158, JT uke 25-pakken er landet via PR #160, og hele plattformstacken ligger nå i draft-PR #159 med grønn GitHub CI. Leveransen er altså reviewbar, men **ikke ferdig landet** før Gabriel eksplisitt vedtar eller endrer G-06, G-10 og G-11, PR #159 merges, prod deployes og operatorsekvensen kjøres.
+Nei, vi har ikke løst alt - men vi har flyttet arbeidet fra "kode finnes" til en reell landingsprosess. Codex har implementert **alle 17 goals** i plattformløft-planen som kode på 17 brancher (18 commits, 139 filer, ~8 150 linjer), og stikkprøvene viser at arbeidet respekterer stoppreglene. Kontroll- og styringsdokumentene er landet på `main` via PR #158, JT uke 25-pakken er landet først via PR #160, Port E event-go-pakken er landet via PR #167, og hele plattformstacken ligger nå i draft-PR #159 med grønn GitHub CI etter resync. Leveransen er altså reviewbar, men **ikke ferdig landet** før Gabriel eksplisitt vedtar eller endrer G-06, G-10 og G-11, PR #159 merges, prod deployes og operatorsekvensen kjøres.
 
-For rapportering til Jan Thomas er situasjonen todelt: **innholdssiden er nå repo-landet** (statusnotat, beslutningssaker, møtetekst og slide-manus), mens **plattformen ikke kan vises frem som ferdig før stacken er merget og deployet**. Viktigst: H1-løpet mot kontraktsfristen 31.07 må nå overta styringen igjen. DASK-utsending, faktisk møtebooking, Port E-beslutning, Thea-aktivering og prod-data/deploy er fortsatt operative porter.
+For rapportering til Jan Thomas er situasjonen todelt: **innholdssiden er nå repo-landet** (statusnotat, beslutningssaker, møtetekst, slide-manus og Port E go/no-go-pakke), mens **plattformen ikke kan vises frem som ferdig før stacken er merget og deployet**. Viktigst: H1-løpet mot kontraktsfristen 31.07 må nå overta styringen igjen. DASK-utsending, faktisk møtebooking, Port E-beslutning, Thea-aktivering og prod-data/deploy er fortsatt operative porter.
 
 ## 2. Hva Codex faktisk leverte
 
@@ -50,10 +51,10 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 ### 2.4 Tekniske funn som må sjekkes før merge
 
 1. **`npm ci`-feilen er avklart lokalt.** Lock-sync-feilen reproduserte ikke i ren integrasjons-worktree for PR #159; `npm ci` er grønn.
-2. **Stacken er synket med main-fiksene.** PR #159 er oppdatert etter PR #158 og PR #160, og GitHub rapporterer mergebar grønn draft. Full verifikasjon må likevel kjøres på `main` etter merge, ikke bare i PR-worktree.
+2. **Stacken er synket med main-fiksene.** PR #159 er oppdatert etter PR #158, PR #160 og PR #167, og GitHub rapporterer mergebar grønn draft. PR #159 er resynket etter PR #167, men full verifikasjon må likevel kjøres på `main` etter merge, ikke bare i PR-worktree.
 3. **Strict-source rødt er ikke PR-spesifikt.** Etter sync av ignorerte lokale evidence-filer er PR-spesifikk Citation Coverage-blokkering 0. De 9 gjenværende strict-source-violations finnes også på `main` og er klassifisert som baseline/operator-dataavvik.
 4. **Hvilken DB ble avstemt?** Reconciliation-rapporten viser 275 selskaper — det må bekreftes om dette er prod (via tunnel) eller lokal DB, og om prod-importen faktisk er kjørt via den nye `prod-data-import`-workflowen. `/api/data-status` i prod er fasiten.
-5. **Styringsdokumentene er landet, men goal-statusen gjenstår.** PR #158 og PR #160 gjør repoet til kilden for kontrollgrunnlag og JT-pakke. Statustabellen i goal-planen må oppdateres etter faktisk PR #159-merge.
+5. **Styringsdokumentene er landet, men goal-statusen gjenstår.** PR #158, PR #160 og PR #167 gjør repoet til kilden for kontrollgrunnlag, JT-pakke og Port E event-go. Statustabellen i goal-planen må oppdateres etter faktisk PR #159-merge.
 
 ## 3. Kritisk analyse: er vi klare til å rapportere til Jan Thomas?
 
@@ -65,7 +66,7 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 
 ### 3.2 Det som mangler — ærlig liste
 
-1. **Programleveransesporet er delvis restartet, men ikke gjennomført.** Minimumsvedtak, H1/H2-sak, Port E-sak, DASK-anbefaling og møtetekst finnes nå i repoet. Selve DASK-utsendingen, møtebookingen, Thea-aktivering, «start her» og event-go er fortsatt ikke utført. Kontraktsfristen 31.07 rykker nærmere for hver uke plattformarbeid prioriteres. **Dette er hovedrisikoen nå - ikke plattformkvalitet.**
+1. **Programleveransesporet er delvis restartet, men ikke gjennomført.** Minimumsvedtak, H1/H2-beslutning, Port E go/no-go-pakke, DASK-anbefaling, møtetekst og «start her» finnes nå i repoet. Selve DASK-utsendingen, møtebookingen, Thea-aktivering og faktisk Port E-vedtak er fortsatt ikke utført. Kontraktsfristen 31.07 rykker nærmere for hver uke plattformarbeid prioriteres. **Dette er hovedrisikoen nå - ikke plattformkvalitet.**
 2. **Deck v0.1 finnes som slide-manus, ikke som redigerbar PPTX.** Outline og språkbank er fylt i `docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.md`. En faktisk presentasjonsfil krever eget designvalg og produksjon.
 3. **Plattformen kan ikke demonstreres med de nye flatene** før stacken er merget og deployet. Å vise JT `/datastatus`, proveniens-linjer og kildede KPI-er ville vært et sterkt svar på transparens-temaet - men å vise en branch er ikke et alternativ.
 4. **Casestatus-flaten** (utviklingsplanens arbeidsstrøm 2, det JT/Cathrine-rettede styringsgrepet) var **ikke** del av de 17 goals og er ikke bygget. G-16 (claim-board i DB) legger grunnlaget, men flaten gjenstår.
@@ -74,7 +75,7 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 
 ### 3.3 Vurdering
 
-**Vi kan rapportere til Jan Thomas i uke 25 med god margin, men ikke som en ferdig prod-demo ennå.** Innholdspakken og beslutningsgrunnlaget finnes nå på `main`; det som mangler er (a) å lande plattformstacken slik at transparensløftet faktisk er på prod, (b) produsere eventuell redigerbar PPTX fra slide-manuset, og (c) gjennomføre møtebooking/utsending. Møtet bør fortsatt pakkes som *beslutningsmøte* (minimumsvedtak + H1/H2 + Port E), ikke som ren orientering. Realistisk møtetidspunkt: **onsdag–fredag uke 25**, med landingsarbeidet gjort i mellomtiden.
+**Vi kan rapportere til Jan Thomas i uke 25 med god margin, men ikke som en ferdig prod-demo ennå.** Innholdspakken, beslutningsgrunnlaget og Port E event-go finnes nå på `main`; det som mangler er (a) å lande plattformstacken slik at transparensløftet faktisk er på prod, (b) produsere eventuell redigerbar PPTX fra slide-manuset, og (c) gjennomføre møtebooking/utsending. Møtet bør fortsatt pakkes som *beslutningsmøte* (minimumsvedtak + H1/H2 + Port E), ikke som ren orientering. Realistisk møtetidspunkt: **onsdag–fredag uke 25**, med landingsarbeidet gjort i mellomtiden.
 
 ## 4. Arbeidsplan videre
 
@@ -103,8 +104,9 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 |---|---|---|---|
 | C1 | Statusnotat til JT | Kondensert av vurderingsrapporten (2–3 sider): gjort siden 26.05, pålitelighet, de tre beslutningssakene | **Ferdig:** `docs/project/status/jt-statusnotat-uke-25-2026-06-15.md`, landet via PR #160. |
 | C2 | Deck v0.1 | Fyll outline for slideområdene merket «kan fylles nå» (7 caseankre, Valio, distribusjon, 100% Fish); kun språkbank-formuleringer | **Ferdig som slide-manus:** `docs/project/mandates/jt-deck-v0.1-uke-25-2026-06-15.md`, landet via PR #160. Redigerbar PPTX krever separat designvalg. |
-| C3 | Beslutningssaker forberedt | Minimumsvedtak, H1/H2, Port E, DASK-0906-001/002 | **Ferdig:** `docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md`, landet via PR #160. |
+| C3 | Beslutningssaker forberedt | Minimumsvedtak, H1/H2, Port E, DASK-0906-001/002 | **Ferdig:** `docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md`, landet via PR #160 og supplert med Port E-kilde via PR #167. |
 | C4 | Book møtet | Uke 25, ons–fre; inviter Einar til H1/H2- og Port E-punktene | **Ferdig som tekst:** `docs/project/status/jt-moteinvitasjon-uke-25-2026-06-15.md`, landet via PR #160. Sending/bookingen er ikke utført i repo. |
+| C5 | Port E event-go-pakken | Gjør offentlig online event beslutningsklar med go/no-go, Q&A-stoppliste, fallback og Port F-stoppregel | **Ferdig som intern pakke:** `docs/project/status/port-e-event-go-uke-25-2026-06-15.md`, landet via PR #167. Vedtak og Thea-aktivering gjenstår. |
 
 ### Fase D — Etter JT-møtet (uke 25–26, betinget av vedtak)
 
@@ -122,4 +124,4 @@ Casestatus-flate (nå mulig oppå G-16-datamodellen), «start her»-dokument og 
 
 ## 6. Verifikasjon av dette dokumentet
 
-Opprinnelige branch-, commit- og diff-tall er målt direkte med git 11.06. Merge-renhet ble først testet med `git merge-tree` mot origin/main. Statusoppdateringen 11.06 bygger i tillegg på PR #158/#160 på `main`, draft-PR #159, ren `npm ci` i integrasjons-worktree, lokal integrasjonsverifikasjon og GitHub CI-status. Reconciliation-tall er lest fra `data/import-reconciliation.json` på goal-02/stacken. Test-/gate-status fra vurderingsrapporten 10.06 må fortsatt re-verifiseres i A4/B4 før tall brukes eksternt.
+Opprinnelige branch-, commit- og diff-tall er målt direkte med git 11.06. Merge-renhet ble først testet med `git merge-tree` mot origin/main. Statusoppdateringen 11.06 bygger i tillegg på PR #158/#160/#167 på `main`, draft-PR #159, ren `npm ci` i integrasjons-worktree, lokal integrasjonsverifikasjon og GitHub CI-status. Reconciliation-tall er lest fra `data/import-reconciliation.json` på goal-02/stacken. Test-/gate-status fra vurderingsrapporten 10.06 må fortsatt re-verifiseres i A4/B4 før tall brukes eksternt.
