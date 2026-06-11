@@ -31,6 +31,32 @@
 | `BusinessRelationship` | Inter-company relationships | `[fromCompanyId, toCompanyId, relationshipType]` |
 | `PersonProfile` | Stakeholder profiles with role arrays | `personKey` |
 
+## Food TG Mandate Board
+
+| Model | Purpose | Unique Key |
+|---|---|---|
+| `ClaimBoardEntry` | DB rows for the `/mandat` claim/evidence board | `id` |
+| `OpportunityEntry` | DB rows for the `/mandat` opportunity radar | `id`, `rank` |
+| `FoodTgBoardLedger` | Idempotent content-history ledger for board imports | `[entryType, entryId, contentHash]` |
+
+### `ClaimBoardEntry`
+
+- DB-backed rows for the `/mandat` claim/evidence board.
+- Seeded from `src/lib/data/food-tg-mandate.ts` via `npm run db:import:food-tg-board`.
+- `updatedAt` is the UI row timestamp; `sourceUpdatedAt` records the static seed's mandate date.
+- The static mandate file remains a marked fallback only when DB rows are unavailable.
+
+### `OpportunityEntry`
+
+- DB-backed rows for the `/mandat` opportunity radar.
+- `rank` preserves the static radar order and is unique.
+- `statuses`, `claimIds`, `evidenceIds`, and `sourceIds` preserve the current claim-lock references.
+
+### `FoodTgBoardLedger`
+
+- Idempotent import ledger for claim-board and opportunity-radar snapshots.
+- Unique by `[entryType, entryId, contentHash]` so unchanged imports do not create duplicate history.
+
 ## Deep Research Field Notes
 
 ### `CompanyOwnership`

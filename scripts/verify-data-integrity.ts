@@ -4,6 +4,7 @@ import { join } from 'path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { reports as seedReports } from '../prisma/seed-data/reports'
+import { foodTgClaimBoard, foodTgOpportunityRadar } from '../src/lib/data/food-tg-mandate'
 import type { Report, ReportSupportingSource } from '../src/lib/types'
 import { candidateLocalFilePaths } from '../src/lib/local-file-locator'
 import {
@@ -282,13 +283,17 @@ async function printRecordCounts() {
     prisma.personProfile.count(),
     prisma.shareholder.count(),
     prisma.subsidy.count(),
+    prisma.claimBoardEntry.count(),
+    prisma.opportunityEntry.count(),
+    prisma.foodTgBoardLedger.count(),
   ])
 
   const labels = [
     'Company', 'CompanyFinancial', 'Actor', 'ActorRelationship', 'Document',
     'Thesis', 'Report', 'SourceDoc', 'CompanyOwnership', 'CompanyProperty',
     'BusinessRelationship', 'CountryMetric', 'BoardMember',
-    'PersonProfile', 'Shareholder', 'Subsidy',
+    'PersonProfile', 'Shareholder', 'Subsidy', 'ClaimBoardEntry',
+    'OpportunityEntry', 'FoodTgBoardLedger',
   ]
 
   const maxLen = Math.max(...labels.map(l => l.length))
@@ -309,6 +314,35 @@ async function printRecordCounts() {
 
   if (emptyCount > 0) {
     console.log(`\n  ⚠ ${emptyCount} model(s) are empty — may need import run`)
+  }
+}
+
+async function checkFoodTgBoardTables() {
+  header('8a. Food TG Board Tables')
+
+  const [claimCount, opportunityCount, ledgerCount] = await Promise.all([
+    prisma.claimBoardEntry.count(),
+    prisma.opportunityEntry.count(),
+    prisma.foodTgBoardLedger.count(),
+  ])
+
+  if (claimCount === foodTgClaimBoard.length) {
+    pass(`ClaimBoardEntry has ${claimCount}/${foodTgClaimBoard.length} mandate rows`)
+  } else {
+    fail(`ClaimBoardEntry has ${claimCount}/${foodTgClaimBoard.length} mandate rows`)
+  }
+
+  if (opportunityCount === foodTgOpportunityRadar.length) {
+    pass(`OpportunityEntry has ${opportunityCount}/${foodTgOpportunityRadar.length} radar rows`)
+  } else {
+    fail(`OpportunityEntry has ${opportunityCount}/${foodTgOpportunityRadar.length} radar rows`)
+  }
+
+  const expectedLedgerMinimum = claimCount + opportunityCount
+  if (ledgerCount >= expectedLedgerMinimum) {
+    pass(`FoodTgBoardLedger has ${ledgerCount} rows for ${expectedLedgerMinimum} current board entries`)
+  } else {
+    fail(`FoodTgBoardLedger has ${ledgerCount} rows; expected at least ${expectedLedgerMinimum}`)
   }
 }
 
@@ -871,6 +905,7 @@ async function main() {
   checkCountryDataFiles()
   checkRetailerShares()
   await printRecordCounts()
+  await checkFoodTgBoardTables()
   await checkUnprofiledInterlocks()
   await checkThesisMissingUrls()
   await checkReportMissingUrls()

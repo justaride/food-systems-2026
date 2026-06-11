@@ -42,13 +42,14 @@ main()
 - Run `npm run db:audit` after major import changes when you need an integrity check
 - Prefer Prisma upserts so imports stay idempotent
 - Run `npm run db:backfill:financials-brreg` to dry-run BRREG Regnskapsregisteret financial backfill; run `npm run db:backfill:financials-brreg:apply` to upsert `CompanyFinancial` rows and mark explicit missing reasons
+- Run `npm run db:import:food-tg-board` after Food TG mandate status changes; it seeds `ClaimBoardEntry`, `OpportunityEntry`, and `FoodTgBoardLedger` from the locked mandate file and is idempotent
 - For company entities, check [Company Registry](company-registry.md) before adding new records
 
 ## Full Approved Chain
 
 Use `npm run db:import:full` when a DB needs the complete approved org/company corpus. The command delegates to `db:import:approved-corpus`, then writes reconciliation artifacts and regenerates konsern coverage:
 
-1. Core corpus: thesis/report data, research docs, root docs, external/source docs, barekraft sources, company data, ownership, person profiles, actors, transcripts, market metrics.
+1. Core corpus: thesis/report data, research docs, root docs, external/source docs, barekraft sources, company data, ownership, person profiles, actors, Food TG board/radar rows, transcripts, market metrics.
 2. Relationship and deepening imports: session 5, session 10, ASKO, NorgesGruppen, Coop, Reitan, Orkla, Nortura, TINE, Felleskjopet, Mowi, SalMar, Leroy, Austevoll/seafood holdings, BAMA, Kavli, HORECA, April 2026 research, Nordic deepening, remaining deepening.
 3. Register and intake imports: landbruksregister, produksjonstilskudd, akvakulturregister, akvakultursoknader, leveransedata, food process intake, company extraction candidates.
 4. Verification/artifacts: `db:verify`, `db:reconcile:imports:strict`, and `audit:konsern`.
@@ -74,6 +75,7 @@ Post-run artifacts:
 | `import-company-ownership.ts` | `CompanyOwnership`, `BusinessRelationship` | `db:import:ownership` |
 | `import-person-profiles.ts` | `PersonProfile` | `db:import:persons` |
 | `import-actors.ts` | `Actor`, `ActorContact`, `ActorRelationship` | `db:import:actors` |
+| `import-food-tg-board.ts` | `ClaimBoardEntry`, `OpportunityEntry`, `FoodTgBoardLedger` | `db:import:food-tg-board` |
 | `import-transcripts.ts` | `Document` | `db:import:transcripts` |
 | `import-session5-supply-chain.ts` | `Company`, `CompanyProperty`, `CompanyOwnership`, `BusinessRelationship` | `db:import:session5` |
 | `import-horeca-companies.ts` | `Company`, `CompanyOwnership`, `BusinessRelationship` | `db:import:horeca` |

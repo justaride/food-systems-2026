@@ -10,12 +10,16 @@ function readSource(path: string) {
 describe('G-11 mandate and methodology split', () => {
   it('keeps claim-board and opportunity-radar surfaces on /mandat only', () => {
     const mandate = readSource('src/app/mandat/MandatContent.tsx')
+    const mandatePage = readSource('src/app/mandat/page.tsx')
     const methodology = readSource('src/app/metodikk/page.tsx')
 
     assert.match(mandate, /Claim og evidence board/)
     assert.match(mandate, /Opportunity radar/)
-    assert.match(mandate, /foodTgClaimBoard/)
-    assert.match(mandate, /foodTgOpportunityRadar/)
+    assert.match(mandate, /claimBoard\.map/)
+    assert.match(mandate, /opportunityRadar\.map/)
+    assert.match(mandatePage, /getFoodTgBoard/)
+    assert.match(mandatePage, /claimBoard=\{board\.claimBoard\}/)
+    assert.match(mandatePage, /opportunityRadar=\{board\.opportunityRadar\}/)
 
     assert.doesNotMatch(methodology, /Claim og evidence board/)
     assert.doesNotMatch(methodology, /Opportunity radar/)
