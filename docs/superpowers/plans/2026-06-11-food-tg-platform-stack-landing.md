@@ -10,13 +10,35 @@
 
 ---
 
-## Current Verified Baseline
+## Execution Checkpoint 2026-06-11 After PR #183
 
-- Current checkout: `/Users/gabrielfreeman/Documents/Food Systems 2026`
-- Current branch: `codex/food-tg-research-intake-72h`
-- Current remote main: `origin/main` at `4e510dc chore(snapshot): Coolify resource state 2026-06-11`
-- Current local branch relation to `origin/main`: 1 commit ahead, 9 commits behind
-- Current untracked control docs after this plan is created:
+This checkpoint supersedes the original baseline below. Use the repo, PR #159 and live APIs as source of truth before taking the next action. Ikke start på Task 0 som om planen er urørt.
+
+Verified state after the latest status sync:
+
+- `main` is at merge commit `10e1ab1` from PR #183 (`docs: sync platform status after JT QA guard`) and the root checkout is clean.
+- PR #182 is merged and added `tests/lib/jt-uke25-package.test.ts`, so the JT uke 25 package has a repo-level QA guard.
+- PR #183 is merged and synced the status/review docs after PR #182.
+- draft-PR #159 er fortsatt beslutningsgated: it is mergeable, GitHub CI is green, and the latest head/check/test-count state lives on PR #159 rather than in this static plan.
+- The only remaining Fase A blocker before taking #159 out of draft is Gabriel's explicit approval or change request for G-06, G-10 and G-11.
+- JT uke 25-pakken er repo-landet: status note, decision cases, meeting invitation, send package, operator log, Port E event-go package, slide manuscript and editable PPTX are present on `main`.
+- live `/api/version` svarer `10e1ab1`; `/api/data-status` returns `ok: true`, `dbOk: true` and `pageGatesOk: true` for the current `main` deployment.
+- Prod-data-import `verify-only` has passed as read-only B1 preflight, but no prod-write target, #159 stack deploy or full operator sequence has run.
+
+Next action sequence from this checkpoint:
+
+1. Get Gabriel's explicit PR #159 decision for G-06/G-10/G-11, or implement any requested change.
+2. If approved, mark #159 ready, merge it, then run `npm run verify:platform-stack-main` on updated `main`.
+3. Only after A4 is green, continue with prod-data/import, deploy and operator-sequence gates.
+4. Keep JT/H1 execution moving from the landed uke 25 package; do not restart the already-landed control-doc/JT-package tasks.
+
+## Original Baseline Captured Before Execution
+
+- Original checkout: `/Users/gabrielfreeman/Documents/Food Systems 2026`
+- Original branch: `codex/food-tg-research-intake-72h`
+- Original remote main at plan creation: `origin/main` at `4e510dc chore(snapshot): Coolify resource state 2026-06-11`
+- Original local branch relation to `origin/main`: 1 commit ahead, 9 commits behind
+- Original untracked control docs after this plan was created:
   - `docs/project/analysis/food-tg-vurderingsrapport-siden-jt-2026-06-10.md`
   - `docs/project/analysis/plattform-dybdeanalyse-2026-06-11.md`
   - `docs/project/mandates/food-tg-jt-tema-research-prosesser-og-modellkobling-2026-06-10.md`
