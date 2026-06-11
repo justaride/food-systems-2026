@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { MissingValue } from '@/components/ui/MissingValue'
 import { formatAquacultureCapacity } from '@/lib/aquaculture-capacity'
 
 type SiteRow = {
@@ -53,15 +54,15 @@ type Props = {
 }
 
 function formatStatusBadge(status: string | null) {
-  if (!status) return { label: '—', className: 'bg-stone-100 text-stone-500 border-stone-200' }
+  if (!status) return { label: '—', className: 'bg-stone-100 text-stone-500 border-stone-200', missing: true }
   const s = status.toLowerCase()
   if (s.includes('aktiv') || s === 'active')
-    return { label: 'Aktiv', className: 'bg-emerald-50 text-emerald-700 border-emerald-200' }
+    return { label: 'Aktiv', className: 'bg-emerald-50 text-emerald-700 border-emerald-200', missing: false }
   if (s.includes('paus') || s.includes('inaktiv'))
-    return { label: 'Pauset', className: 'bg-amber-50 text-amber-700 border-amber-200' }
+    return { label: 'Pauset', className: 'bg-amber-50 text-amber-700 border-amber-200', missing: false }
   if (s.includes('revok') || s.includes('avviklet'))
-    return { label: 'Avviklet', className: 'bg-rose-50 text-rose-700 border-rose-200' }
-  return { label: status, className: 'bg-stone-100 text-stone-600 border-stone-200' }
+    return { label: 'Avviklet', className: 'bg-rose-50 text-rose-700 border-rose-200', missing: false }
+  return { label: status, className: 'bg-stone-100 text-stone-600 border-stone-200', missing: false }
 }
 
 function formatResultBadge(result: string | null) {
@@ -293,22 +294,24 @@ export function HavbrukContent({
                           </Link>
                         </td>
                         <td className="py-2.5 pr-4 text-stone-600">
-                          {s.municipality ?? '—'}
+                          {s.municipality ?? <MissingValue reason="not_collected" />}
                           {s.county ? (
                             <span className="text-stone-400 ml-1">({s.county})</span>
                           ) : null}
                         </td>
                         <td className="py-2.5 pr-4 text-right tabular-nums text-stone-700">
-                          {formatAquacultureCapacity(s.capacityTonnes, s.capacityUnit)}
+                          {s.capacityTonnes == null || s.capacityTonnes === 0
+                            ? <MissingValue reason="not_collected" />
+                            : formatAquacultureCapacity(s.capacityTonnes, s.capacityUnit)}
                         </td>
                         <td className="py-2.5 pr-4 text-stone-600 text-xs">
-                          {s.species.length > 0 ? s.species.join(', ') : '—'}
+                          {s.species.length > 0 ? s.species.join(', ') : <MissingValue reason="not_collected" />}
                         </td>
                         <td className="py-2.5">
                           <span
                             className={`text-[11px] px-1.5 py-0.5 rounded border ${badge.className}`}
                           >
-                            {badge.label}
+                            {badge.missing ? <MissingValue reason="not_collected" label={badge.label} /> : badge.label}
                           </span>
                         </td>
                       </tr>
@@ -379,12 +382,12 @@ export function HavbrukContent({
                           )}
                         </td>
                         <td className="py-2.5 pr-4 text-stone-600 text-xs">
-                          {a.applicationType ?? '—'}
+                          {a.applicationType ?? <MissingValue reason="not_collected" />}
                         </td>
                         <td className="py-2.5 pr-4 text-stone-600 text-xs">
                           {a.createdAt
                             ? new Date(a.createdAt).toLocaleDateString('no-NO')
-                            : '—'}
+                            : <MissingValue reason="not_collected" />}
                         </td>
                         <td className="py-2.5">
                           <span
@@ -449,7 +452,7 @@ export function HavbrukContent({
                     <td className="py-2.5 pr-4 text-right tabular-nums text-stone-500">
                       {totalSites > 0
                         ? `${((op.siteCount / totalSites) * 100).toFixed(1)}%`
-                        : '—'}
+                        : <MissingValue reason="not_applicable" />}
                     </td>
                   </tr>
                 ))}

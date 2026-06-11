@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { MissingValue, formatCoverageFootnote } from '@/components/ui/MissingValue'
 import { formatEmployeeDisplay, formatRevenueDisplay } from '@/lib/company-card-metrics'
 
 type CompanyRow = {
@@ -47,6 +48,29 @@ const OWNERSHIP_LABELS: Record<string, string> = {
   private: 'Privat',
 }
 
+function CoveragePill({
+  label,
+  ok,
+  missingReason = 'not_collected',
+}: {
+  label: string
+  ok: boolean
+  missingReason?: 'not_collected' | 'no_matching_record' | 'no_financial_row'
+}) {
+  return (
+    <span
+      className={`inline-flex items-center gap-1 rounded border px-1.5 py-0.5 ${
+        ok
+          ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
+          : 'border-stone-200 bg-stone-50 text-stone-500'
+      }`}
+    >
+      <span>{label}</span>
+      {ok ? <span>OK</span> : <MissingValue reason={missingReason} label="mangler" className="text-stone-500" />}
+    </span>
+  )
+}
+
 export function SelskaperContent({
   companies,
   initialStages = [],
@@ -83,12 +107,26 @@ export function SelskaperContent({
     })
   }, [companies, deferredQuery, stageFilter, ownershipFilter])
 
+  const coverage = useMemo(() => ({
+    revenue: companies.filter(c => c.revenueNok != null).length,
+    financialRows: companies.filter(c => c.hasFinancialRow).length,
+    employees: companies.filter(c => c.employees != null).length,
+    boards: companies.filter(c => c.boardCount > 0).length,
+    ownership: companies.filter(c => c.controllingOwner != null).length,
+  }), [companies])
+
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Selskaper</h1>
         <p className="text-sm text-stone-500 mt-1 max-w-3xl">
           {`${companies.length} kartlagte selskaper med regnskap, styre, eierskap og relasjoner.`}
+        </p>
+        <p className="mt-2 text-xs leading-5 text-stone-500">
+          {formatCoverageFootnote('Omsetningsvisning', coverage.revenue, companies.length, 'selskaper')}{' '}
+          Regnskapsrad finnes for {coverage.financialRows.toLocaleString('nb-NO')}; ansatte for{' '}
+          {coverage.employees.toLocaleString('nb-NO')}; styre for {coverage.boards.toLocaleString('nb-NO')}; kontrollerende eier for{' '}
+          {coverage.ownership.toLocaleString('nb-NO')}.
         </p>
       </div>
 
@@ -150,29 +188,29 @@ export function SelskaperContent({
                 </div>
                 <div className="text-right text-xs text-stone-500 shrink-0">
                   <div className="font-mono">{c.orgNr}</div>
-                  {c.hqCity && <div>{c.hqCity}</div>}
+                  <div>
+                    {c.hqCity ? c.hqCity : <MissingValue reason="not_collected" />}
+                  </div>
                 </div>
               </div>
 
-              {c.naceDescription && (
-                <p className="mt-3 text-sm text-stone-700 leading-snug line-clamp-2">
-                  {c.naceDescription}
-                </p>
-              )}
+              <p className="mt-3 text-sm text-stone-700 leading-snug line-clamp-2">
+                {c.naceDescription ?? <MissingValue reason="not_collected" label="NACE ikke innhentet" />}
+              </p>
 
               <div className="mt-3 grid grid-cols-3 gap-2 text-xs">
-                {c.legalForm && (
-                  <div>
-                    <div className="text-[10px] uppercase tracking-wider text-stone-400">Form</div>
-                    <div className="text-stone-700 font-medium">{c.legalForm}</div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-stone-400">Form</div>
+                  <div className="text-stone-700 font-medium">
+                    {c.legalForm ?? <MissingValue reason="not_collected" />}
                   </div>
-                )}
-                {c.founded && (
-                  <div>
-                    <div className="text-[10px] uppercase tracking-wider text-stone-400">Stiftet</div>
-                    <div className="text-stone-700 font-medium">{c.founded}</div>
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-stone-400">Stiftet</div>
+                  <div className="text-stone-700 font-medium">
+                    {c.founded ?? <MissingValue reason="not_reported" />}
                   </div>
-                )}
+                </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-wider text-stone-400">Land</div>
                   <div className="text-stone-700 font-medium">{c.country}</div>
@@ -183,22 +221,39 @@ export function SelskaperContent({
                 <div className="rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
                   <div className="text-[10px] uppercase tracking-wider text-stone-400">Omsetning</div>
                   <div className="mt-0.5 font-semibold text-stone-900">
-                    {formatRevenueDisplay(c.revenueNok, c.hasFinancialRow)}
+                    {c.revenueNok == null ? (
+                      <MissingValue
+                        reason={c.hasFinancialRow ? 'not_reported' : 'no_financial_row'}
+                        label={formatRevenueDisplay(c.revenueNok, c.hasFinancialRow)}
+                        className="font-semibold"
+                      />
+                    ) : (
+                      formatRevenueDisplay(c.revenueNok, c.hasFinancialRow)
+                    )}
                   </div>
                 </div>
                 <div className="rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
                   <div className="text-[10px] uppercase tracking-wider text-stone-400">Ansatte</div>
                   <div className="mt-0.5 font-semibold text-stone-900">
-                    {formatEmployeeDisplay(c.employees)}
+                    {c.employees == null ? (
+                      <MissingValue reason="not_reported" label={formatEmployeeDisplay(c.employees)} className="font-semibold" />
+                    ) : (
+                      formatEmployeeDisplay(c.employees)
+                    )}
                   </div>
                 </div>
               </div>
 
-              {c.controllingOwner && (
-                <div className="mt-3 text-xs text-stone-500">
-                  Kontrollerende eier: {c.controllingOwner}
-                </div>
-              )}
+              <div className="mt-3 text-xs text-stone-500">
+                Kontrollerende eier:{' '}
+                {c.controllingOwner ?? <MissingValue reason="no_matching_record" label="mangler" />}
+              </div>
+
+              <div className="mt-3 flex flex-wrap gap-1 text-[11px]">
+                <CoveragePill label="Finans" ok={c.hasFinancialRow} missingReason="no_financial_row" />
+                <CoveragePill label="Styre" ok={c.boardCount > 0} />
+                <CoveragePill label="Eierskap" ok={c.controllingOwner != null} missingReason="no_matching_record" />
+              </div>
 
               <div className="mt-2 flex flex-wrap gap-1 text-[11px] text-stone-500">
                 {c.boardCount > 0 && <span>{c.boardCount} styremedlemmer</span>}

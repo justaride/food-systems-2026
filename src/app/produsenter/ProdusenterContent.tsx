@@ -4,6 +4,7 @@ import { useDeferredValue, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { MissingValue } from '@/components/ui/MissingValue'
 import type { ProducerListRow } from '@/lib/queries/producers'
 
 export function ProdusenterContent({
@@ -88,12 +89,14 @@ export function ProdusenterContent({
                   <tr key={p.id} className="hover:bg-stone-50">
                     <td className="py-2 pr-4 text-stone-900 font-medium">{p.name}</td>
                     <td className="py-2 pr-4 font-mono text-xs text-stone-500">{p.orgNr}</td>
-                    <td className="py-2 pr-4 text-stone-600">{p.municipality ?? '—'}</td>
+                    <td className="py-2 pr-4 text-stone-600">
+                      {p.municipality ?? <MissingValue reason="not_collected" />}
+                    </td>
                     <td className="py-2 pr-4 text-right text-stone-600">
-                      {p.subsidyCount > 0 ? p.subsidyCount.toLocaleString('no') : '—'}
+                      {p.subsidyCount.toLocaleString('no')}
                     </td>
                     <td className="py-2 text-right text-stone-600">
-                      {p.deliveryCount > 0 ? p.deliveryCount.toLocaleString('no') : '—'}
+                      {p.deliveryCount.toLocaleString('no')}
                     </td>
                   </tr>
                 ))}

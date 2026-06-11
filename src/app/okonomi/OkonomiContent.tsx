@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { MissingValue, formatCoverageFootnote, sortNullableNumberDesc } from '@/components/ui/MissingValue'
 import type {
   CompanyWithFinancials,
   SubsidySumByCompany,
@@ -91,11 +92,11 @@ type MatchedSubsidyCoverage = {
   allCompaniesWithYearSubsidies: number
 }
 
-function getLatestRevenue(c: CompanyWithFinancials): number {
+function getLatestRevenue(c: CompanyWithFinancials): number | null {
   for (let i = c.financials.length - 1; i >= 0; i--) {
     if (c.financials[i].revenueNok !== null) return c.financials[i].revenueNok!
   }
-  return 0
+  return null
 }
 
 function getLatestField(
@@ -127,10 +128,13 @@ function getRevenueYoY(c: CompanyWithFinancials): number | null {
 }
 
 function formatNokMillions(value: number): string {
-  if (value >= 1e9) return `${(value / 1e9).toFixed(1)} mrd`
-  if (value >= 1e6) return `${(value / 1e6).toFixed(0)} MNOK`
-  if (value > 0) return `${(value / 1e3).toFixed(0)} TNOK`
-  return '—'
+  if (value === 0) return '0'
+  const sign = value < 0 ? '-' : ''
+  const absolute = Math.abs(value)
+  if (absolute >= 1e9) return `${sign}${(absolute / 1e9).toFixed(1)} mrd`
+  if (absolute >= 1e6) return `${sign}${(absolute / 1e6).toFixed(0)} MNOK`
+  if (absolute < 1e3) return `${sign}${absolute.toLocaleString('nb-NO')} NOK`
+  return `${sign}${(absolute / 1e3).toFixed(0)} TNOK`
 }
 
 function labelStage(stage: string | null | undefined) {
@@ -239,7 +243,7 @@ export function OkonomiContent({
   const [concentrationMetric, setConcentrationMetric] = useState<ConcentrationMetric>('revenue')
 
   const defaultSelected = useMemo(() => {
-    const sorted = [...companies].sort((a, b) => getLatestRevenue(b) - getLatestRevenue(a))
+    const sorted = [...companies].sort((a, b) => sortNullableNumberDesc(getLatestRevenue(a), getLatestRevenue(b)))
     return new Set(sorted.slice(0, 5).map(c => c.id))
   }, [companies])
 
@@ -287,7 +291,8 @@ export function OkonomiContent({
   const allYears = companies.flatMap(c => c.financials.map(f => f.year))
   const minYear = allYears.length > 0 ? Math.min(...allYears) : 0
   const maxYear = allYears.length > 0 ? Math.max(...allYears) : 0
-  const latestTotalRevenue = companies.reduce((sum, c) => sum + getLatestRevenue(c), 0)
+  const companiesWithLatestRevenue = companies.filter(c => getLatestRevenue(c) != null).length
+  const latestTotalRevenue = companies.reduce((sum, c) => sum + (getLatestRevenue(c) ?? 0), 0)
   const companiesWithSubsidy = companies.filter(
     c => (subsidySumsByCompany[c.id]?.totalAmountNok ?? 0) > 0
   ).length
@@ -429,7 +434,7 @@ export function OkonomiContent({
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
           <div className="text-xs uppercase tracking-wider text-stone-400">Tidsrom</div>
           <div className="text-2xl font-bold text-stone-900">
-            {minYear > 0 ? `${minYear}–${maxYear}` : '—'}
+            {minYear > 0 ? `${minYear}–${maxYear}` : <MissingValue reason="not_collected" />}
           </div>
         </div>
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
@@ -447,10 +452,19 @@ export function OkonomiContent({
           <div className="text-2xl font-bold text-stone-900">
             {totalSubsidySumForTrackedCompanies > 0
               ? `${(totalSubsidySumForTrackedCompanies / 1e6).toFixed(0)} MNOK`
-              : '—'}
+              : '0'}
           </div>
         </div>
       </div>
+      <p className="text-xs leading-5 text-stone-500">
+        {formatCoverageFootnote(
+          'Samlet omsetning',
+          companiesWithLatestRevenue,
+          totalCompanyCount > 0 ? totalCompanyCount : companies.length,
+          'selskaper',
+        )}{' '}
+        Marginplot og verdikjedeledd bruker {latestFinancialPoints.length.toLocaleString('nb-NO')} selskaper med både omsetning og margin.
+      </p>
 
       <Card title="Margin vs omsetning">
         <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]">
@@ -483,6 +497,8 @@ export function OkonomiContent({
           <h2 className="text-xl font-bold text-stone-900">Økonomi per verdikjedeledd</h2>
           <p className="text-sm text-stone-500 mt-1">
             Siste omsetning, vektet driftsmargin og akkumulert tilskudd for selskaper med komplett regnskapspunkt.
+            {' '}
+            {formatCoverageFootnote('Verdikjede-oppsummeringen', latestFinancialPoints.length, companies.length, 'regnskapsselskaper')}
           </p>
         </div>
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
@@ -618,7 +634,7 @@ export function OkonomiContent({
             </thead>
             <tbody>
               {[...companies]
-                .sort((a, b) => getLatestRevenue(b) - getLatestRevenue(a))
+                .sort((a, b) => sortNullableNumberDesc(getLatestRevenue(a), getLatestRevenue(b)))
                 .map(c => {
                   const rev = getLatestRevenue(c)
                   const year = getLatestYear(c)
@@ -634,12 +650,14 @@ export function OkonomiContent({
                           {c.name}
                         </Link>
                       </td>
-                      <td className="py-2 text-stone-500">{c.valueChainStage ?? '—'}</td>
+                      <td className="py-2 text-stone-500">
+                        {c.valueChainStage ?? <MissingValue reason="not_collected" />}
+                      </td>
                       <td className="text-right py-2 text-stone-500 tabular-nums">
-                        {year ?? '—'}
+                        {year ?? <MissingValue reason="not_reported" />}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {rev > 0 ? formatNokMillions(rev) : '—'}
+                        {rev != null ? formatNokMillions(rev) : <MissingValue reason="not_reported" />}
                       </td>
                       <td
                         className={`text-right py-2 tabular-nums ${
@@ -650,16 +668,16 @@ export function OkonomiContent({
                               : 'text-rose-700'
                         }`}
                       >
-                        {yoy === null ? '—' : `${yoy >= 0 ? '+' : ''}${yoy.toFixed(1)}%`}
+                        {yoy === null ? <MissingValue reason="not_applicable" /> : `${yoy >= 0 ? '+' : ''}${yoy.toFixed(1)}%`}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {margin !== null ? `${margin.toFixed(1)}%` : '—'}
+                        {margin !== null ? `${margin.toFixed(1)}%` : <MissingValue reason="not_reported" />}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {opRes !== null ? formatNokMillions(opRes) : '—'}
+                        {opRes !== null ? formatNokMillions(opRes) : <MissingValue reason="not_reported" />}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
-                        {emp !== null ? emp.toLocaleString('nb-NO') : '—'}
+                        {emp !== null ? emp.toLocaleString('nb-NO') : <MissingValue reason="not_reported" />}
                       </td>
                       <td className="text-right py-2 text-stone-700 tabular-nums">
                         {sub && sub.totalAmountNok > 0 ? (
@@ -667,7 +685,7 @@ export function OkonomiContent({
                             {formatNokMillions(sub.totalAmountNok)}
                           </span>
                         ) : (
-                          <span className="text-stone-300">—</span>
+                          <span className="text-stone-500">0</span>
                         )}
                       </td>
                       <td className="text-right py-2">
@@ -687,7 +705,8 @@ export function OkonomiContent({
         <p className="text-[10px] text-stone-400 mt-3">
           YoY = prosentvis endring i omsetning mellom siste og nest siste år med registrert
           omsetning. Driftsresultat (Brønnøysund årsrapport). Tilskudd-sum
-          henter fra Subsidy-tabellen og dekker samtlige registrerte år.
+          henter fra Subsidy-tabellen og dekker samtlige registrerte år.{' '}
+          {formatCoverageFootnote('Finanstabellen', companiesWithLatestRevenue, companies.length, 'regnskapsselskaper')}
         </p>
       </Card>
 
@@ -914,7 +933,7 @@ function StageFinancialTile({ summary }: { summary: StageFinancialSummary }) {
           </p>
         </div>
         <p className="text-right text-xs font-medium text-stone-500">
-          {summary.weightedMarginPct === null ? '—' : `${summary.weightedMarginPct.toFixed(1)}% margin`}
+          {summary.weightedMarginPct === null ? <MissingValue reason="not_reported" /> : `${summary.weightedMarginPct.toFixed(1)}% margin`}
         </p>
       </div>
       <div className="mt-4 grid grid-cols-2 gap-3 text-xs">
@@ -927,14 +946,14 @@ function StageFinancialTile({ summary }: { summary: StageFinancialSummary }) {
         <div>
           <p className="text-stone-400">Tilskudd</p>
           <p className="mt-1 font-semibold tabular-nums text-stone-900">
-            {summary.totalSubsidyNok > 0 ? formatNokMillions(summary.totalSubsidyNok) : '—'}
+            {summary.totalSubsidyNok > 0 ? formatNokMillions(summary.totalSubsidyNok) : '0'}
           </p>
         </div>
       </div>
       <div className="mt-3">
         <div className="flex justify-between text-[10px] text-stone-400">
           <span>Tilskudd / siste omsetning</span>
-          <span>{summary.subsidySharePct === null ? '—' : `${summary.subsidySharePct.toFixed(2)}%`}</span>
+          <span>{summary.subsidySharePct === null ? <MissingValue reason="not_applicable" /> : `${summary.subsidySharePct.toFixed(2)}%`}</span>
         </div>
         <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-stone-100">
           <div className="h-full rounded-full bg-emerald-600" style={{ width: `${subsidyWidth}%` }} />

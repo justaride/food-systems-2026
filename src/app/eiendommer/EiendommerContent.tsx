@@ -5,6 +5,7 @@ import { Fragment, useCallback, useMemo, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { MissingValue } from '@/components/ui/MissingValue'
 import {
   PROPERTY_COMPANY_KJEDE_LABELS,
   PROPERTY_COMPANY_TYPE_LABELS,
@@ -62,8 +63,7 @@ const PROPERTY_TYPE_STYLES: Record<string, string> = {
   logistics: 'bg-purple-50 text-purple-700 border-purple-200',
 }
 
-function formatSqm(sqm: number | null) {
-  if (sqm == null) return '—'
+function formatSqm(sqm: number) {
   return `${sqm.toLocaleString('no')} m²`
 }
 
@@ -78,9 +78,10 @@ function formatMrd(nok: number) {
 }
 
 function formatMnok(nok: number) {
-  if (nok === 0) return '—'
+  if (nok === 0) return '0 mill.'
   const mnok = nok / 1e6
   if (Math.abs(mnok) >= 1000) return `${(mnok / 1000).toFixed(1)} mrd.`
+  if (Math.abs(mnok) < 0.5) return `${Math.round(nok / 1000).toLocaleString('no')} TNOK`
   return `${Math.round(mnok).toLocaleString('no')} mill.`
 }
 
@@ -285,7 +286,7 @@ export function EiendommerContent({
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
           <div className="text-xs uppercase tracking-wider text-stone-400">Totalt areal</div>
           <div className="text-2xl font-bold text-stone-900">
-            {stats.totalSqm > 0 ? `${Math.round(stats.totalSqm).toLocaleString('no')} m²` : '—'}
+            {stats.totalSqm > 0 ? `${Math.round(stats.totalSqm).toLocaleString('no')} m²` : <MissingValue reason="not_collected" />}
           </div>
         </div>
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
@@ -295,7 +296,7 @@ export function EiendommerContent({
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
           <div className="text-xs uppercase tracking-wider text-stone-400">Selvleie-andel</div>
           <div className="text-2xl font-bold text-stone-900">
-            {stats.total > 0 ? `${stats.selfLeasedPct.toFixed(0)}%` : '—'}
+            {stats.total > 0 ? `${stats.selfLeasedPct.toFixed(0)}%` : <MissingValue reason="not_applicable" />}
           </div>
         </div>
       </div>
@@ -387,13 +388,15 @@ export function EiendommerContent({
                         {PROPERTY_TYPE_LABELS[p.propertyType] ?? p.propertyType}
                       </span>
                     </td>
-                    <td className="py-2.5 pr-4 text-stone-600">{p.address ?? '—'}</td>
                     <td className="py-2.5 pr-4 text-stone-600">
-                      {p.municipality ?? '—'}
+                      {p.address ?? <MissingValue reason="not_collected" />}
+                    </td>
+                    <td className="py-2.5 pr-4 text-stone-600">
+                      {p.municipality ?? <MissingValue reason="not_collected" />}
                       {p.county ? <span className="text-stone-400 ml-1">({p.county})</span> : null}
                     </td>
                     <td className="py-2.5 pr-4 text-right tabular-nums text-stone-700">
-                      {formatSqm(p.sqMeters)}
+                      {p.sqMeters == null ? <MissingValue reason="not_collected" /> : formatSqm(p.sqMeters)}
                     </td>
                     <td className="py-2.5 pr-4">
                       {p.tenantCompany ? (
@@ -404,7 +407,7 @@ export function EiendommerContent({
                           {p.tenantCompany.name}
                         </Link>
                       ) : (
-                        <span className="text-stone-400">—</span>
+                        <MissingValue reason="no_matching_record" />
                       )}
                     </td>
                     <td className="py-2.5">
@@ -546,7 +549,7 @@ function PropertyCompaniesSection({ rows }: { rows: PropertyCompanyRow[] }) {
                           {formatMnok(p.revenueNok)}
                         </td>
                         <td className={`py-2 pr-4 text-right tabular-nums ${isOperatingLoss ? 'text-rose-700' : 'text-stone-700'}`}>
-                          {p.operatingResultNok === 0 ? '—' : formatMnok(p.operatingResultNok)}
+                          {formatMnok(p.operatingResultNok)}
                         </td>
                         <td className="py-2 text-right text-stone-500 tabular-nums">{p.year}</td>
                       </tr>
