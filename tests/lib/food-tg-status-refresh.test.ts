@@ -37,7 +37,7 @@ describe('Food TG status after Port E landing', () => {
     for (const term of [
       'seneste status-sync',
       'PR #159 er live kilde for siste head/check-status',
-      '542 tester / 139 suiter / 0 feil',
+      '543 tester / 139 suiter / 0 feil',
       'GitHub CI er grønn på PR #159',
       'PR #177',
       'npm run verify:platform-stack-main',
@@ -95,15 +95,15 @@ describe('Food TG status after Port E landing', () => {
     }
   })
 
-  it('keeps the read-only prod baseline current after the #178 deploy sync', () => {
+  it('keeps volatile prod deploy SHA on live /api/version instead of pinning it in docs', () => {
     const status = readFileSync(statusPath, 'utf8')
     const review = readFileSync(reviewPath, 'utf8')
 
     for (const term of [
-      'PR #178',
-      'Read-only prod-baseline 2026-06-11 kl. 17:18 UTC',
-      '`/api/version` returnerte HTTP 200',
-      '`45e21a5`',
+      'PR #179',
+      'Read-only prod-baseline 2026-06-11',
+      'live `/api/version` er fasit for gjeldende deploy-SHA',
+      '`/api/data-status` returnerte HTTP 200',
       'Coolify SHA Sync',
       'companies: 185',
       'landbruksregisterCompanies: 4',
@@ -115,8 +115,11 @@ describe('Food TG status after Port E landing', () => {
 
     for (const staleTerm of [
       '9cf7c60',
+      '45e21a5',
+      '471335a',
       'Prod-versjon var `9cf7c60`',
       'Prod-API-et hadde fortsatt pre-G-01-formen',
+      'matchet `main` etter PR #178',
     ]) {
       assert.ok(!status.includes(staleTerm), `${staleTerm} should no longer be current in ${statusPath}`)
       assert.ok(!review.includes(staleTerm), `${staleTerm} should no longer be current in ${reviewPath}`)
