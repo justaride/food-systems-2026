@@ -37,7 +37,7 @@
 - `docs/project/analysis/food-tg-vurderingsrapport-siden-jt-2026-06-10.md`: source for JT status note.
 - `docs/project/mandates/food-tg-jt-tema-research-prosesser-og-modellkobling-2026-06-10.md`: JT topic/research process mandate.
 - `.github/workflows/pr-quality-gates.yml`: PR CI gate.
-- `.github/workflows/prod-data-import.yml`: manual prod import workflow. Currently only exposes `ownership` as input option on `origin/main`; do not assume it can run `db:import:full` until updated or documented.
+- `.github/workflows/prod-data-import.yml`: manual prod import workflow. PR #175 landed explicit `verify-only`, `ownership`, `registers`, and `full` target choices on `origin/main`; each target is routed through a shell allowlist.
 - `scripts/deploy.sh` and `scripts/coolify-sync-source-commit.sh`: Coolify deploy/sync helpers.
 - `research/CITABLE-KNOWLEDGE-BASE-STATUS.md`: operator sequence and citation-readiness control layer.
 
@@ -640,10 +640,10 @@ Run:
 
 ```bash
 sed -n '1,220p' .github/workflows/prod-data-import.yml
-rg -n "db:import:full|db:prod-sync|db:backfill:financials-brreg|ownership" .github/workflows/prod-data-import.yml package.json .claude/data-imports.md
+rg -n "verify-only|registers|full|db:prod-sync|db:backfill:financials-brreg|ownership" .github/workflows/prod-data-import.yml package.json .claude/data-imports.md
 ```
 
-Expected: confirm whether the workflow can run the needed import. On current main, it exposes only `ownership`; update workflow or use a documented safe alternative before any prod write.
+Expected: confirm that PR #175 workflow choices are present and that write targets are routed explicitly (`ownership`, `registers`, `full`) before any prod write.
 
 - [ ] **Step 2: Verify prod data status before writes**
 
@@ -657,11 +657,11 @@ Expected: endpoint responds with current prod status. Capture company/reconcilia
 
 - [ ] **Step 3: Run sanctioned prod import only after command support is explicit**
 
-If workflow is updated to expose the intended target, run it from GitHub Actions with the exact target option exposed by the updated workflow:
+Run the workflow from GitHub Actions with the exact target option exposed by the PR #175 workflow:
 
 ```text
 workflow: Prod Data Import (manual)
-target: exact option shown in the workflow UI after update
+target: verify-only | ownership | registers | full
 confirm: IMPORT
 ```
 
@@ -847,4 +847,4 @@ Expected: docs pushed on the active JT/package branch or main, depending on the 
 - Spec coverage: covers Fase A lock/PR/merge/docs, Fase B prod-data/deploy/operator sequence, Fase C JT package, and Fase D freeze rule.
 - Placeholder scan: the only bracketed text appears inside the decision-review template where Gabriel must write explicit decisions before merge; the task includes a stop rule for this.
 - Type/command consistency: commands use existing scripts from current `package.json` and workflows checked in `.github/workflows`.
-- Known caveat: `.github/workflows/prod-data-import.yml` currently exposes only `ownership` on `origin/main`; prod import scope must be updated or explicitly routed before trying to run `db:import:full` against prod.
+- Known caveat: PR #175 makes workflow routing explicit, but no prod write has been run yet. Use `verify-only` first, then choose `registers` or `full` only after branch SHA, target, and `confirm=IMPORT` are checked.

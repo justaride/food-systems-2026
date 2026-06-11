@@ -18,11 +18,11 @@ bruksregel: Internt arbeidsdokument. Ingen tall eller formuleringer herfra bruke
 
 # Status 11.06: har vi løst alt, og er vi klare for Jan Thomas?
 
-> Oppdatert 2026-06-11 kl. 18:01: Dokument- og kontrollgrunnlaget er landet på `main` via PR #158. JT uke 25-pakken ble først landet via PR #160 og er supplert med Port E event-go via PR #167, uke 25-operatorlogg via PR #169, redigerbar JT deck v0.1 via PR #170, post-#170 statusreview via PR #171 og seneste status-sync. Port E event-go-pakken er landet. PR #159 er resynket gjennom seneste status-sync, og PR #159 er live kilde for siste head/check-status. GitHub CI er grønn på PR #159, men PR-en står fortsatt som draft til Gabriel eksplisitt godkjenner eller endrer G-06, G-10 og G-11. `npm ci`-lockfeilen er ikke reprodusert i ren integrasjons-worktree. Gjenstående strict-source-rødt er klassifisert som baseline/operator-dataavvik, ikke PR-spesifikk kodefeil: samme 9 violations finnes på `main`, mens PR-spesifikk Citation Coverage-blokkering er 0 etter sync av ignorerte lokale evidence-filer. Prod-data, deploy og full operatorsekvens er ikke kjørt.
+> Oppdatert 2026-06-11 kl. 18:39: Dokument- og kontrollgrunnlaget er landet på `main` via PR #158. JT uke 25-pakken ble først landet via PR #160 og er supplert med Port E event-go via PR #167, uke 25-operatorlogg via PR #169, redigerbar JT deck v0.1 via PR #170, post-#170 statusreview via PR #171, Start her/møtelogg-reparasjon og senere status-syncer. Port E event-go-pakken er landet. PR #175 er landet på `main` og gjør prod-data-import-workflowen eksplisitt for `verify-only`, `ownership`, `registers` og `full`. PR #159 er resynket gjennom seneste status-sync, og PR #159 er live kilde for siste head/check-status. GitHub CI er grønn på PR #159, men PR-en står fortsatt som draft til Gabriel eksplisitt godkjenner eller endrer G-06, G-10 og G-11. `npm ci`-lockfeilen er ikke reprodusert i ren integrasjons-worktree. Gjenstående strict-source-rødt er klassifisert som baseline/operator-dataavvik, ikke PR-spesifikk kodefeil: samme 9 violations finnes på `main`, mens PR-spesifikk Citation Coverage-blokkering er 0 etter sync av ignorerte lokale evidence-filer. Prod-data, deploy og full operatorsekvens er ikke kjørt.
 
 ## 1. Kort konklusjon
 
-Nei, vi har ikke løst alt - men vi har flyttet arbeidet fra "kode finnes" til en reell landingsprosess. Codex har implementert **alle 17 goals** i plattformløft-planen som kode på 17 brancher (18 commits, 139 filer, ~8 150 linjer), og stikkprøvene viser at arbeidet respekterer stoppreglene. Kontroll- og styringsdokumentene er landet på `main` via PR #158, JT uke 25-pakken ble først landet via PR #160 og supplert via PR #167, #169, #170, #171 og senere status-syncer, og hele plattformstacken ligger nå i draft-PR #159 med grønn GitHub CI etter resync. Leveransen er altså reviewbar, men **ikke ferdig landet** før Gabriel eksplisitt vedtar eller endrer G-06, G-10 og G-11, PR #159 merges, prod deployes og operatorsekvensen kjøres.
+Nei, vi har ikke løst alt - men vi har flyttet arbeidet fra "kode finnes" til en reell landingsprosess. Codex har implementert **alle 17 goals** i plattformløft-planen som kode på 17 brancher (18 commits, 139 filer, ~8 150 linjer), og stikkprøvene viser at arbeidet respekterer stoppreglene. Kontroll- og styringsdokumentene er landet på `main` via PR #158, JT uke 25-pakken ble først landet via PR #160 og supplert via PR #167, #169, #170, #171 og senere status-syncer, og PR #175 har klargjort manuell prod-data-import med eksplisitte workflow-mål. Hele plattformstacken ligger nå i draft-PR #159 med grønn GitHub CI etter resync. Leveransen er altså reviewbar, men **ikke ferdig landet** før Gabriel eksplisitt vedtar eller endrer G-06, G-10 og G-11, PR #159 merges, prod deployes og operatorsekvensen kjøres.
 
 For rapportering til Jan Thomas er situasjonen todelt: **innholdssiden er nå repo-landet** (statusnotat, beslutningssaker, møtetekst, slide-manus, redigerbar PPTX, Port E go/no-go-pakke og uke 25-operatorlogg), mens **plattformen ikke kan vises frem som ferdig før stacken er merget og deployet**. Viktigst: H1-løpet mot kontraktsfristen 31.07 må nå overta styringen igjen. DASK-utsending, faktisk møtebooking, Port E-beslutning, Thea-aktivering og prod-data/deploy er fortsatt operative porter.
 
@@ -35,7 +35,7 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 ### 2.2 Stikkprøver — kvalitetssignaler er gode
 
 - **G-06 (kildede KPI-er):** Codex valgte den claim-låste NIBIO-varianten av selvforsyningsgraden med eksplisitt caveat om forkorrigering og `sourceId`/`lastVerified` per KPI — nøyaktig det stoppregelen krevde. Hardkodet «44 %»/«45 %» er erstattet med én definisjonsfil.
-- **G-02 (avstemming):** `data/import-reconciliation.json` er faktisk generert (11.06 kl. 00:40) og viser 283 definerte org.nr., 275 funnet i DB, 8 eksplisitt unntatt, **0 uforklarte mangler**. Det betyr at importkjeden reelt er kjørt mot en database — differansen 185→275 fra dybdeanalysen ser ut til å være tettet. Ny samlekommando `db:import:full` + `db:import:approved-corpus` finnes.
+- **G-02 (avstemming):** `data/import-reconciliation.json` er faktisk generert (11.06 kl. 00:40) og viser 283 definerte org.nr., 275 funnet i DB, 8 eksplisitt unntatt, **0 uforklarte mangler**. Det betyr at importkjeden reelt er kjørt mot en database - differansen 185→275 fra dybdeanalysen ser ut til å være tettet. Stacken har samlet import via `db:prod-sync` og en godkjent-korpus-rute via `db:import:approved-corpus`; main har i tillegg PR #175-workflowmålene `verify-only`, `ownership`, `registers` og `full`.
 - **G-08 (Brreg-backfill):** Eget skript med dry-run/`--apply`-skille og tester — riktig mønster for idempotent DB-skriving.
 - **Merge-renhet:** Hele stacken merger **konfliktfritt** mot origin/main (testet med merge-tree), til tross for at den ligger 9 commits bak (infra-fiksene #137–#140).
 
@@ -53,9 +53,9 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 ### 2.4 Tekniske funn som må sjekkes før merge
 
 1. **`npm ci`-feilen er avklart lokalt.** Lock-sync-feilen reproduserte ikke i ren integrasjons-worktree for PR #159; `npm ci` er grønn.
-2. **Stacken er synket med main-fiksene.** PR #159 er oppdatert etter PR #158, PR #160, PR #167, PR #169, PR #170, PR #171 og seneste status-sync, og GitHub rapporterer mergebar grønn draft. PR #159 er live kilde for siste head/check-status. Full verifikasjon må likevel kjøres på `main` etter merge, ikke bare i PR-worktree.
+2. **Stacken er synket med main-fiksene.** PR #159 er oppdatert etter PR #158, PR #160, PR #167, PR #169, PR #170, PR #171, PR #175 og seneste status-sync, og GitHub rapporterer mergebar grønn draft. PR #159 er live kilde for siste head/check-status. Full verifikasjon må likevel kjøres på `main` etter merge, ikke bare i PR-worktree.
 3. **Strict-source rødt er ikke PR-spesifikt.** Etter sync av ignorerte lokale evidence-filer er PR-spesifikk Citation Coverage-blokkering 0. De 9 gjenværende strict-source-violations finnes også på `main` og er klassifisert som baseline/operator-dataavvik.
-4. **Hvilken DB ble avstemt?** Reconciliation-rapporten viser 275 selskaper — det må bekreftes om dette er prod (via tunnel) eller lokal DB, og om prod-importen faktisk er kjørt via den nye `prod-data-import`-workflowen. `/api/data-status` i prod er fasiten.
+4. **Hvilken DB ble avstemt?** Reconciliation-rapporten viser 275 selskaper — det må bekreftes om dette er prod (via tunnel) eller lokal DB, og om prod-importen faktisk er kjørt via den nye `prod-data-import`-workflowen. PR #175 gjør workflowen eksplisitt, men ingen prod-import er kjørt. `/api/data-status` i prod er fasiten.
 5. **Styringsdokumentene er landet, men goal-statusen gjenstår.** PR #158, PR #160, PR #167, PR #169, PR #170, PR #171 og senere status-syncer gjør repoet til kilden for kontrollgrunnlag, JT-pakke, Port E event-go, operatorlogg, deck og beslutningsreview. Statustabellen i goal-planen må oppdateres etter faktisk PR #159-merge.
 
 ## 3. Kritisk analyse: er vi klare til å rapportere til Jan Thomas?
@@ -73,7 +73,7 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 3. **Plattformen kan ikke demonstreres med de nye flatene** før stacken er merget og deployet. Å vise JT `/datastatus`, proveniens-linjer og kildede KPI-er ville vært et sterkt svar på transparens-temaet - men å vise en branch er ikke et alternativ.
 4. **Casestatus-flaten** (utviklingsplanens arbeidsstrøm 2, det JT/Cathrine-rettede styringsgrepet) var **ikke** del av de 17 goals og er ikke bygget. G-16 (claim-board i DB) legger grunnlaget, men flaten gjenstår.
 5. **Gate-tallene er ferskvare.** Vurderingsrapportens kvalitetstall er fra 10.06; strict-gaten har regressert ubemerket før (oppdaget nettopp 10.06). Operator-sekvensen må re-kjøres etter merge, før tallene brukes i møtet.
-6. **Møtelogg-hullet etter 21.04** er fortsatt åpent - pinlig i en rapport som handler om sporbarhet.
+6. **Møtelogg-hullet etter 21.04** er repo-reparert som eksplisitt statusmerking i `docs/meetings/MØTEOVERSIKT.md`, men eventuelle manglende Notion-/kalenderreferater må fortsatt etterspørres hvis de trengs som bevis.
 
 ### 3.3 Vurdering
 
@@ -95,7 +95,7 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 
 | # | Oppgave | Detalj | Ferdigkriterium |
 |---|---|---|---|
-| B1 | Bekreft prod-DB-status | Avklar hvilken DB reconciliation traff; kjør `db:import:full` mot prod via prod-data-import-workflowen hvis ikke alt er inne | `/api/data-status` viser ~275 selskaper, 0 uforklarte avvik |
+| B1 | Bekreft prod-DB-status | Avklar hvilken DB reconciliation traff; bruk PR #175-workflowmålene `verify-only`, `registers` eller `full` mot prod bare med eksplisitt `confirm=IMPORT` | `/api/data-status` viser ~275 selskaper, 0 uforklarte avvik |
 | B2 | Kjør Brreg-backfill skarpt | `db:backfill:financials-brreg` dry-run → review → `--apply` | Finansdekning ≥ 90 % for norske AS/ASA på `/datastatus` |
 | B3 | Deploy til prod | Via Coolify; deploy-kjeden er nettopp reparert (#137–#140) — verifiser at den holder | Nye flater live; `/datastatus` og proveniens-linjer synlige |
 | B4 | Operator-sekvens | Full re-kjøring per CITABLE-KNOWLEDGE-BASE-STATUS før tall brukes i JT-materiale | Strict gate grønn, datert |
@@ -113,7 +113,7 @@ Alle 17 goals fra `plattformloft-goal-arbeidsplan-2026-06-11.md` er implementert
 
 ### Fase D — Etter JT-møtet (uke 25–26, betinget av vedtak)
 
-Casestatus-flate (nå mulig oppå G-16-datamodellen), «start her»-dokument og møtelogg-reparasjon, event-innholdsdesign hvis Port E gir go, statuskadens annenhver uke fra uke 26. Deretter følger utviklingsplanens uke 26–31-løp som planlagt.
+Casestatus-flate (nå mulig oppå G-16-datamodellen), event-innholdsdesign hvis Port E gir go, statuskadens annenhver uke fra uke 26. `Start her`-dokument og repo-basert møtelogg-reparasjon er allerede landet; faktisk møte-/vedtaksføring fortsetter løpende. Deretter følger utviklingsplanens uke 26–31-løp som planlagt.
 
 ## 5. Risikobilde
 
@@ -127,4 +127,4 @@ Casestatus-flate (nå mulig oppå G-16-datamodellen), «start her»-dokument og 
 
 ## 6. Verifikasjon av dette dokumentet
 
-Opprinnelige branch-, commit- og diff-tall er målt direkte med git 11.06. Merge-renhet ble først testet med `git merge-tree` mot origin/main. Statusoppdateringen 11.06 bygger i tillegg på PR #158/#160/#167/#169/#170/#171, senere status-syncer på `main`, draft-PR #159, ren `npm ci` i integrasjons-worktree, lokal integrasjonsverifikasjon og GitHub CI-status. Etter seneste status-sync er PR #159 dokumentert grønt med `npm test` 537 tester / 139 suiter / 0 feil, `npm run lint`, `git diff --check` og GitHub CI. PR #159 er live kilde for siste head/check-status. Reconciliation-tall er lest fra `data/import-reconciliation.json` på goal-02/stacken. Test-/gate-status fra vurderingsrapporten 10.06 må fortsatt re-verifiseres i A4/B4 før tall brukes eksternt.
+Opprinnelige branch-, commit- og diff-tall er målt direkte med git 11.06. Merge-renhet ble først testet med `git merge-tree` mot origin/main. Statusoppdateringen 11.06 bygger i tillegg på PR #158/#160/#167/#169/#170/#171/#175, senere status-syncer på `main`, draft-PR #159, ren `npm ci` i integrasjons-worktree, lokal integrasjonsverifikasjon og GitHub CI-status. Etter seneste status-sync er PR #159 dokumentert grønt med `npm ci`, `npm run db:generate`, `npm test` 540 tester / 139 suiter / 0 feil, `npm run lint`, `git diff --check` og GitHub CI. PR #159 er live kilde for siste head/check-status. PR #175 er verifisert med GitHub CI og gjør prod-data-import-workflowen eksplisitt for `verify-only`, `ownership`, `registers` og `full`. Reconciliation-tall er lest fra `data/import-reconciliation.json` på goal-02/stacken. Test-/gate-status fra vurderingsrapporten 10.06 må fortsatt re-verifiseres i A4/B4 før tall brukes eksternt.

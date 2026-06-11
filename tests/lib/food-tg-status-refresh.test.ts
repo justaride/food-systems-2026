@@ -5,6 +5,7 @@ import { describe, it } from 'node:test'
 const statusPath = 'docs/project/status/STATUS-OG-ARBEIDSPLAN-2026-06-11.md'
 const reviewPath = 'docs/project/reviews/plattformloft-beslutningsreview-2026-06-11.md'
 const portEPath = 'docs/project/status/port-e-event-go-uke-25-2026-06-15.md'
+const executionPlanPath = 'docs/superpowers/plans/2026-06-11-food-tg-platform-stack-landing.md'
 
 describe('Food TG status after Port E landing', () => {
   it('tracks the landed Port E event-go package and keeps remaining blockers current', () => {
@@ -36,7 +37,7 @@ describe('Food TG status after Port E landing', () => {
     for (const term of [
       'seneste status-sync',
       'PR #159 er live kilde for siste head/check-status',
-      '537 tester / 139 suiter / 0 feil',
+      '540 tester / 139 suiter / 0 feil',
       'GitHub CI er grønn på PR #159',
     ]) {
       assert.ok(status.includes(term), `${term} missing from ${statusPath}`)
@@ -50,9 +51,40 @@ describe('Food TG status after Port E landing', () => {
       'GitHub CI på head `',
       'PR #159-head `',
       'PR #159-hodet `',
+      '537 tester / 139 suiter / 0 feil',
     ]) {
       assert.ok(!status.includes(staleTerm), `${staleTerm} should no longer be current in ${statusPath}`)
       assert.ok(!review.includes(staleTerm), `${staleTerm} should no longer be current in ${reviewPath}`)
+    }
+  })
+
+  it('records the landed #175 prod-data workflow readiness update', () => {
+    const status = readFileSync(statusPath, 'utf8')
+    const review = readFileSync(reviewPath, 'utf8')
+    const executionPlan = readFileSync(executionPlanPath, 'utf8')
+
+    for (const term of [
+      'PR #175',
+      'prod-data-import-workflowen',
+      '`verify-only`',
+      '`registers`',
+      '`full`',
+    ]) {
+      assert.ok(status.includes(term), `${term} missing from ${statusPath}`)
+      assert.ok(review.includes(term), `${term} missing from ${reviewPath}`)
+    }
+
+    assert.ok(
+      executionPlan.includes('PR #175') && executionPlan.includes('verify-only') && executionPlan.includes('registers'),
+      `${executionPlanPath} must reflect that prod-data-import workflow readiness is landed`,
+    )
+
+    for (const staleTerm of [
+      'Currently only exposes `ownership`',
+      'currently exposes only `ownership`',
+      'do not assume it can run `db:import:full` until updated or documented',
+    ]) {
+      assert.ok(!executionPlan.includes(staleTerm), `${staleTerm} should no longer be current in ${executionPlanPath}`)
     }
   })
 })
