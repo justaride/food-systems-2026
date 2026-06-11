@@ -12,6 +12,7 @@ relaterte_filer:
   - docs/project/mandates/food-tg-0906-sprintboard-go-no-go-2026-06-10.md
   - research/CITABLE-KNOWLEDGE-BASE-STATUS.md
   - docs/project/status/jt-statusnotat-uke-25-2026-06-15.md
+  - docs/project/status/port-e-event-go-uke-25-2026-06-15.md
   - docs/project/status/jt-uke25-sendepakke-2026-06-15.md
 ---
 
@@ -73,6 +74,7 @@ For uke 25 er riktig rekkefølge:
 
 1. Book JT/Einar/Thea-slot med `docs/project/status/jt-uke25-sendepakke-2026-06-15.md`.
 2. Bruk `docs/project/status/jt-statusnotat-uke-25-2026-06-15.md` som pre-read.
-3. Be om vedtakene i `docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md`.
-4. Logg svar i `docs/project/mandates/decision-log-food-tg.md`.
-5. Deretter oppdateres casekort, sprintboard, PCQ/source-shortlist og claim-lock bare der svaret faktisk gir ny dokumentasjon eller ny beslutning.
+3. Bruk `docs/project/status/port-e-event-go-uke-25-2026-06-15.md` for Port E go/no-go, Q&A-stoppliste og fallback.
+4. Be om vedtakene i `docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md`.
+5. Logg svar i `docs/project/mandates/decision-log-food-tg.md`.
+6. Deretter oppdateres casekort, sprintboard, PCQ/source-shortlist og claim-lock bare der svaret faktisk gir ny dokumentasjon eller ny beslutning.

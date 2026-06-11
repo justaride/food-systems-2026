@@ -6,6 +6,7 @@ dato: 2026-06-15
 scope: Fire beslutninger som trengs for å holde H1-leveransen mot 31.07.2026 i bevegelse.
 relaterte_filer:
   - docs/project/status/jt-statusnotat-uke-25-2026-06-15.md
+  - docs/project/status/port-e-event-go-uke-25-2026-06-15.md
   - docs/project/plans/FOOD-TG-UTVIKLINGSPLAN-2026-06-10.md
   - docs/project/mandates/food-tg-minimumsvedtak-casekort-2026-06-09.md
   - docs/project/mandates/food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md
@@ -66,7 +67,7 @@ relaterte_filer:
 
 **Konsekvens hvis vi ikke beslutter:** Theas kapasitet aktiveres for sent, og eventet blir improvisert i juli.
 
-**Kilde:** `docs/project/plans/FOOD-TG-UTVIKLINGSPLAN-2026-06-10.md`
+**Kilde:** `docs/project/plans/FOOD-TG-UTVIKLINGSPLAN-2026-06-10.md` og `docs/project/status/port-e-event-go-uke-25-2026-06-15.md`
 
 ## Sak 4: DASK-0906-001/002 sendes internt nå
 
