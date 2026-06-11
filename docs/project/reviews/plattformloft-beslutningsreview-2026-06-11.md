@@ -10,9 +10,11 @@ scope: Eksplisitt review av beslutningspunktene som ble implementert uten forhan
 
 ## Kort konklusjon
 
-Codex-anbefaling: godkjenn alle tre beslutningspunktene som implementert, men ikke merge integrasjonsstacken for Gabriel har gitt eksplisitt ja eller endringsordre per punkt.
+Codex-anbefaling: godkjenn alle tre beslutningspunktene som implementert, men ikke merge integrasjonsstacken før Gabriel har gitt eksplisitt ja eller endringsordre per punkt.
 
-Fokustest kjort i integrasjons-worktree:
+PR #159 er etter PR #170-resync fortsatt draft, mergeable og grønn på GitHub CI. Beslutningspakken er også lagt som PR-kommentar slik at Gabriel kan svare direkte på G-06, G-10 og G-11 i reviewflaten.
+
+Fokustest kjørt i integrasjons-worktree ved første beslutningsreview:
 
 ```bash
 node --import=tsx --test tests/lib/frontpage-kpis.test.ts tests/lib/kildede-kpier-integration.test.ts tests/lib/empty-table-notices.test.ts tests/lib/mandat-metodikk-split.test.ts
@@ -104,9 +106,17 @@ Beslutning:
 
 ## Lokal verifikasjonsstatus 2026-06-11
 
-Status: Integrasjonsstacken er bygget og testet lokalt, og draft-PR #159 er teknisk mergebar med groenn GitHub CI. PR-en skal likevel ikke tas ut av draft foer Gabriel har godkjent eller endret G-06, G-10 og G-11. Gjenstaaende strict source-roedt er klassifisert som baseline/operator-dataavvik, ikke som PR-spesifikk kodefeil.
+Status: Integrasjonsstacken er bygget og testet lokalt, og draft-PR #159 er teknisk mergebar med grønn GitHub CI etter resync gjennom PR #170. PR-en skal likevel ikke tas ut av draft før Gabriel har godkjent eller endret G-06, G-10 og G-11. Gjenstående strict source-rødt er klassifisert som baseline/operator-dataavvik, ikke som PR-spesifikk kodefeil.
 
-Gront lokalt:
+Grønt lokalt etter #170-resync på PR #159-head `224cec7`:
+- `npm run db:generate` passerte.
+- Fokuserte uke 25 docs/deck-tester passerte: 9 tester, 0 feilet.
+- `npm test` passerte: 536 tester / 139 suiter / 0 feil.
+- `npm run lint` passerte.
+- `git diff --check` passerte.
+- GitHub CI passerte: GitGuardian, Schema migration guard og to `PR Quality Gates/test-and-audit`-kjøringer.
+
+Tidligere integrasjonsverifikasjon før #170 docs-resync:
 - `npm ci` passerte i integrasjons-worktree uten lock-sync-feil.
 - `git diff --check origin/main...HEAD && git diff --check` passerte.
 - `npm run lint` passerte.
@@ -117,7 +127,6 @@ Gront lokalt:
 - `npm run graph:audit` passerte: 2792 noder, 3241 edges, 0 duplicate node IDs, 0 missing endpoint edges, 0 missing href nodes.
 - `npm run audit:research-artifacts -- --base=origin/main` passerte: 45 added paths sjekket, 2724 tracked files sjekket, 0 violations.
 - `npm run audit:citable-reports` passerte: Citable report audit passed.
-- GitHub draft-PR #159 er apnet og CI er gronn: GitGuardian, Schema migration guard og to `test-and-audit`-kjoringer passerte.
 - Etter sync av 29 ignorerte lokale evidence-filer fra hovedcheckoutens `research/` til integrasjons-worktreeets `research/` falt Citation Coverage fra 29 external blocking issues til 0. Filene er Git-ignorert og er ikke del av PR-en.
 
 Restavvik lokalt:
