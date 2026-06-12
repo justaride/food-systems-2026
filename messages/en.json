@@ -11,6 +11,7 @@
     "oversikt": { "name": "Overview", "description": "Phase, progress, next steps" },
     "sok": { "name": "Search", "description": "Search across everything" },
     "team": { "name": "Team", "description": "Members and roles" },
+    "casestatus": { "name": "Case status", "description": "Maturity per case anchor" },
     "moter": { "name": "Meetings", "description": "Meeting summaries and minutes" },
     "kommunikasjon": { "name": "Communication", "description": "Email and correspondence" },
     "mandat": { "name": "Mandate", "description": "Food TG scope, claims and validation" },
