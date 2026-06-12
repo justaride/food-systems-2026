@@ -16,7 +16,11 @@ relaterte_filer:
 
 # Food TG Deep Research Results Intake 2026-06-10
 
-Dette dokumentet registrerer nye Deep Research-resultater som eksterne arbeidsnotater. Raw filer blir liggende i `Downloads` og kopieres ikke inn i repoet. Innholdet under er et kontrollert mottak: hva outputen peker mot, hva den svekker, hvilke primærkilder som bør vurderes senere, og hvilken importbeslutning som gjelder før source-shortlist, PCQ, claim-lock eller actor validation pack endres.
+Dette dokumentet registrerer nye Deep Research-resultater som eksterne arbeidsnotater. Innholdet under er et kontrollert mottak: hva outputen peker mot, hva den svekker, hvilke primærkilder som bør vurderes senere, og hvilken importbeslutning som gjelder før source-shortlist, PCQ, claim-lock eller actor validation pack endres.
+
+> **Repo-sikring 2026-06-12:** Råfilene er kopiert fra `Downloads` til `research/external/dro-0906/` med DRR-navngitte filnavn, repo-sha256-hasher og egen bruksregel (se README i mappen). Repo-kopiene er Markdown-normalisert for trailing whitespace/EOF-hygiene, men substansen er ikke redigert. Dette endrer ingen importbeslutninger: filene er fortsatt mottaksdokumenter, ikke kilder. Downloads-stiene i resultatloggen under er historiske locators; repo-kopiene er nå primær locator. Innholdsanalyse: `docs/project/analysis/drr-0906-innholdsanalyse-2026-06-12.md`.
+>
+> **Desk-research 2026-06-12:** Kø-punkt 1–9 fra innholdsanalysen er gjennomført (uten aktørkontakt) og logget i `docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md`. Viktigste utfall: kaffe-importcaset kvantifisert (Comtrade 2022–2025, NKI kryssverifisert), kakao-direkteimport motbevist for alle kakaokapitler, finsk fôrimportramme tallfestet, ZWS-fullteksten kontrollert (datering korrigert til 2020/2019-survey), Enova-kilden for Wiig bekreftet, Polen-watchlist bekreftet. Foreslåtte statusendringer ligger i loggens kap. 11 og skal gjennomføres som kontrollert oppdatering (PCQ/SRC/claim-lock/sprintboard) før bruk i faktastemme.
 
 ## Bruksregel
 

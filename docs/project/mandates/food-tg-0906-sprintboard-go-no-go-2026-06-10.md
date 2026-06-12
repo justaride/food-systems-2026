@@ -54,6 +54,20 @@ Sprintboardet åpner ikke ekstern outreach, ekstern faktastemme eller nye claims
 | 4 | Lag mini-ledger for Hima, Frövi, Wiig, Kviamarka, Varde og Polar. | Gabriel | Casevis status på operativ drift, varmekilde, MW/GWh, temperatur, off-taker og stoppsignal. |
 | 5 | Prioriter ZWS/SBMT for Skottland og Statistics Iceland/SINTEF-FHF for 100% Fish. | Gabriel | Benchmarkdata eller parkering av utrygge claims. |
 
+## Desk-research-status 2026-06-12
+
+Kjeden er oppdatert i protokollens rekkefølge etter desk-research-runden 12.06: mottakslogg (notat) → DASK (L1-status) → PCQ (runde 6) → source-shortlist (`SRC-0906-011`–`015`) → claim-lock (delta + ikke-si-konsolidering). Full logg: `docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md`. Delta per case:
+
+| Case | Endring 12.06 | Ny neste handling |
+|---|---|---|
+| 1 Brasil/kaffe | Import-/EUDR-sporet kvantifisert (Comtrade 2022–2025; Brasil-andel 45–48 %; NKI kryssverifisert). Relasjonsspor uendret. | DASK-0906-001/003 (MOU + aktørrolle); autorisert re-trekk av serien før ekstern bruk. |
+| 2 Elfenbenskysten/kakao | Direkteimport motbevist for alle kakaokapitler i Norden (2024). | DASK-0906-002 (MOU); Eurostat Comext EU-aggregat for indirekte eksponering. |
+| 3 Valio/Finland | Nasjonal importramme tallfestet (~216 000 t rapsmel/år; 87–144 000 t soyamel/år). | Uendret: Valio fôrstandard/fôrkurv via DASK/AASK. |
+| 4 Distribusjon/adoption | KT/NFD-politikkvindu dokumentert (håndhevingsføringer + høringer om innkjøpsbetingelser). | Uendret aktørvalidering; følg høringsutfall. |
+| 5 Spillvarme | Enova-kilden for Wiig bekreftet (4 MW, 50–70 °C); driftsstatus fortsatt udokumentert. Varde i høring til 25.06. | Klepp byggesak (eInnsyn); Hima driftsdata; Varde-oppfølging uke 27. |
+| 6 100% Fish | Statistics Iceland-tabellstruktur sikret; datauttrekk blokkert på POST. | Manuell PxWeb-eksport (oppskrift i loggen kap. 1) → fraksjonssammenligning mot SINTEF/FHF. |
+| 7 Skottland/Polen | ZWS-fulltekst kontrollert — **datering korrigert til 2020/2019-survey**; prisskille ekstrahert. Polen-watchlist bekreftet. | SBMT-datatilgang (IBioIC); Polen full kill via GUS XLS/EMFAF. |
+
 ## Go/no-go-regler
 
 | Beslutning | Krav | Standardtekst |

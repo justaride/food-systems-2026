@@ -87,6 +87,40 @@ Disse formuleringene kommer fra 09.06-samtalen eller nærliggende casehypoteser.
 | 100% Fish beviser at norsk sjømat kan løftes direkte til første høyverdi-case. | `hold-tilbake` | `DRR-0906-007` styrker benchmark/designkrav, men svekker bokstavelig 100 prosent, norsk pilotbevis og høyverdiandel-claim uten SINTEF/FHF-fraksjonsdata og aktørvalidering. |
 | Kunstgjødselhistorie/Yara/Hydro forklarer Food TGs nutrient-loop-case. | `hold-tilbake` | Bruk kun som kontekst hvis presis primær-/fagkilde finnes; ikke la historielinjen erstatte konkrete nutrient-loop-data. |
 
+## Desk-research-delta 2026-06-12 for 09.06-radene
+
+Desk-research-runden 12.06 (kilder: `SRC-0906-011` til `SRC-0906-015`; logg: `docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md`) endrer håndteringen av enkelte 09.06-rader. Hold-tilbake-statusen står; deltaene gjelder hva som nå kan sies internt med kilde.
+
+| 09.06-rad | Delta 12.06 |
+|---|---|
+| Brasil-MOU om kaffe | Uendret hold-tilbake for relasjonsclaim. NYTT: import-/EUDR-konteksten kan brukes internt med tall: Brasil-andel 45–48 % av norsk råkaffeimport 2022–2025, importverdi fra verden ~doblet 2024→2025 (`SRC-0906-011`, internt til autorisert re-trekk). |
+| Elfenbenskysten-avtale om kakao | Uendret hold-tilbake for relasjonsclaim. NYTT: «nordiske land importerer kakao direkte fra CI» er motbevist for alle kakaokapitler 1801–1806 (2024); trygg formulering er indirekte eksponering via EU-prosessering/merkevarer. |
+| Valio/Finland uten importert fôr | Uendret hold-tilbake. NYTT: nasjonal ramme kan tallfestes internt: Finland importerer ~216 000 t rapsmel/år og 87–144 000 t soyamel/år (2022–2024) — «soyafri ≠ importfri» er kvantifisert på systemnivå. |
+| Spillvarme TWh-claim | Uendret hold-tilbake for nasjonalt tall. NYTT: Enova-primærkilden for Wiig/Green Horizon er bekreftet (4 MW initielt, 50–70 °C); driftsstatus fortsatt udokumentert — ikke si «operativt» om Wiig. |
+| Skottland som dokumentert benchmark | Uendret hold-tilbake for «dokumentert case». NYTT: ZWS-hovedkilden er fulltekstkontrollert, men datert 31.03.2020 med 2019-survey — all bruk krever aktualitetscaveat. Prisskillet mixed/segregert (£62–173 vs. £250–520/t, 2019) kan brukes internt som høyverdi-argument med årstall. |
+| Polen som stor sidestrømsmulighet | Uendret hold-tilbake; watchlist bekreftet ved hurtig kill-test 12.06. |
+
+## DRR-0906 ikke-si-konsolidering 2026-06-12
+
+Konsoliderte ikke-si-punkter fra de åtte DRR-rapportene (`research/external/dro-0906/`) som ikke allerede dekkes av radene over. Samme bruksregel som «Påstander som skal holdes tilbake».
+
+| Formulering | Status | Riktig håndtering |
+|---|---|---|
+| Brasil er lavrisiko under EUDR. | `hold-tilbake` | EU-annekset lister Brasil verken som lav- eller høyrisiko; gjeldende veiledning gir standard risk. Bruk «standard risk» med kildedato. |
+| Côte d'Ivoire er high-risk under EUDR. | `hold-tilbake` | EU country classification gir standard risk (3 % kontrollnivå). |
+| EUDR gjelder fullt for kakao/kaffe i 2025. | `hold-tilbake` | Anvendelse 30.12.2026 (store/mellomstore) og 30.06.2027 (mikro/små); sjekk konsolidert lovtekst ved bruk. |
+| Sertifisering alene beviser EUDR-compliance. | `hold-tilbake` | Sertifisering er sporbarhetsstøtte, ikke DDS-oppfyllelse per leveranse. |
+| Menon-rapporten beviser utestengelse fra grossisttjenester. | `hold-tilbake` | Menon fant ingen rapportert tilgangsnekt og kunne ikke konkludere uten interne avtaler. Negativfunnet skal refereres presist. |
+| BAMA er juridisk dominerende / misbruker stillingen. | `hold-tilbake` | SØA peker på mulig dominans som problemstilling, ikke rettslig konklusjon. Juridisk aktsomt språk påkrevd. |
+| Frövi er datasenterspillvarme. | `hold-tilbake` | Frövi er industriell spillvarme fra papir-/kartongproduksjon (Billerud). Bruk som industri→drivhus-benchmark. |
+| Wiig Gartneri-anlegget er operativt. | `hold-tilbake` | Plan-/forstudie- og Enova-kilder finnes; ferdigattest/driftsbevis er ikke funnet. |
+| Kviamarka har 492 GWh/år nyttiggjort spillvarme. | `hold-tilbake` | 492 GWh/år er anslått energiforbruk med datasenter, ikke varmeleveranse. |
+| Hima produserer 8 000 tonn ørret/år nå. | `hold-tilbake` | 8 000 t/år er skaleringsmål; anlegget er i vekstfase. Testet varmekapasitet er 1,75 MW. |
+| Polar DC/Varde er matproduksjonscase. | `hold-tilbake` | Polar har ingen varmemottaker; Varde er i §25-høring (frist 25.06.2026) uten navngitt drivhusoperatør. Benchmark-radar. |
+| Island utnytter 100 % av fisken / >90 % betyr høyverdi. | `hold-tilbake` | Matís: 100 % er teoretisk, ikke realistisk. Total utnyttelse ≠ høyverdiandel; norsk baseline er 89 % total, ~15 % human konsum-andel av produktvolum (SINTEF/FHF 2024). |
+| A-Rehu er Valios generelle fôrleverandør. | `hold-tilbake` | Dokumentert kun for Startti-kalvedrikkefôr (Varkaus); generell rolle er needs-actor-validation. |
+| ZWS-tallene beskriver dagens skotske biproduktstrømmer. | `hold-tilbake` | Survey-data fra 2019, publisert 2025. Bruk med årstall og aktualitetscaveat. |
+
 ## Neste arbeid
 
 1. Oppdater tabellen etter hver primary-check og aktørrespons.

@@ -183,3 +183,17 @@ Tall under er import, summert over alle land, `Mengde 1 (M1)` konvertert fra kg 
 | PCQ-B-004 | Bryggerimask matgrade | Gul | Kan beskrives som hypotesespor med avklaringsbehov; fukt, mikrobiologi, stabilisering, produktkrav og off-taker må avklares. |
 
 **Gjenstår:** Kontakt råvareeier/produsent, Mattilsynet eller fagekspert og mulig off-taker. Loggfør tonn/år, batchfrekvens, tørrstoff/fukt, temperatur, mikrobiologi, nåværende avsetning, transport/logistikk, mulig off-taker og om data kan siteres.
+
+## Runde 6 statusnotat (2026-06-12) — desk-research DRO-0906
+
+Desk-research-runden 12.06 (full logg med tall og locators: `docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md`) lukket flere primærsjekker uten aktørkontakt. Ingen rad løftes til ekstern faktastemme; Comtrade preview-uttrekk skal re-trekkes som autorisert uttrekk (SSB 08801 eller Comtrade med nøkkel) før sitering.
+
+| Queue-ID | Runde 6-status | Masterbeslutning |
+|---|---|---|
+| PCQ-0906-001/003 | Import-/EUDR-konteksten for kaffe er kvantifisert: Comtrade-serie 2022–2025 Brasil→Norge (HS 090111: 13,8→13,8→12,4→15,6 mill. kg; verdi 64,7→58,3→58,8→122,9 mUSD) + verdenstotal; Brasil-andel stabil 45–48 %. NKI-tabellen kryssverifisert eksakt (2024-identisk). | Integrer som intern tallramme for import-/EUDR-caset; MOU-/relasjonsclaim uendret `needs-primary-check`; aktørrolle `needs-actor-validation`. |
+| PCQ-0906-002 | Direkteimport fra Côte d'Ivoire motbevist for alle kakaokapitler 1801–1806 i NO/SE/DK/FI (Comtrade 2024; største post: NO kakaosmør 36 450 kg). | Skjerp trygg formulering: nordisk CI-eksponering er indirekte via EU-prosessering/merkevarer. Neste datasteg er Eurostat Comext EU-aggregat, ikke mer nordisk tolldata. Relasjonsclaim uendret. |
+| PCQ-0906-004 | Regulatorisk vindu dokumentert: KT overtok god handelsskikk-håndheving 01.05.2026 med NFD-føringer; høringer om innkjøpsbetingelser i matverdikjeden pågår. Ingen aktørspesifikk sak funnet. | Bruk som policy-kontekst i C-gate; aktør-/margin-claims fortsatt blokkert. |
+| PCQ-0906-005 | Enova-prosjektsiden for Wiig/Green Horizon bekreftet som primærkilde (50–70 °C, 4 MW initielt, 200 MW potensial i separate prosjekter). Driftsstatus/ferdigattest ikke funnet offentlig. | Lukk «Enova-kilde ikke funnet»-blokkeren; Wiig forblir `needs-primary-check` for operativ status (Klepp byggesak/eInnsyn). Hima driftsdata uendret åpen. |
+| PCQ-0906-006 | Nasjonal finsk fôrimportramme tallfestet (Comtrade 2022–2024): rapsmel 230641 stabilt ~216 000 t/år, soyamel 2304 87–144 000 t/år, erter marginalt. | Integrer som systemramme for Valio-casen («soyafri ≠ importfri» er nå kvantifisert nasjonalt); Valio-spesifikk fôrkurv uendret `needs-data` (DASK/AASK). |
+| PCQ-0906-007 | Skottland: ZWS-hovedrapport fulltekstkontrollert. **Datering korrigert: Enscape 31.03.2020, 2019-survey, republisert 20.02.2025.** Nøkkelvolum og prisskille (£62–173 vs. £250–520/t) ekstrahert. Polen: hurtig kill-test bekrefter watchlist. | Skottland: `benchmark-kandidat` med eksplisitt aktualitetscaveat (2019-data); SBMT-tilgang gjenstår. Polen: watchlist bekreftet; full kill via GUS XLS/EMFAF gjenstår. |
+| PCQ-B-005 | Statistics Iceland-tabellene SJA09114/09110/04903 identifisert med full struktur (33 arter × 20 biproduktkategorier × 1992–2024 × tonn/ISK). Datauttrekk blokkert på PxWeb POST; manuell eksportoppskrift i loggen kap. 1. | Kjør manuell PxWeb-eksport og legg CSV i `research/external/dro-0906/`; deretter fraksjonssammenligning mot SINTEF/FHF 2024. |
