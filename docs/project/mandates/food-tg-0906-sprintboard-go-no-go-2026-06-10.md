@@ -68,6 +68,17 @@ Kjeden er oppdatert i protokollens rekkefølge etter desk-research-runden 12.06:
 | 6 100% Fish | Statistics Iceland-tabellstruktur sikret; datauttrekk blokkert på POST. | Manuell PxWeb-eksport (oppskrift i loggen kap. 1) → fraksjonssammenligning mot SINTEF/FHF. |
 | 7 Skottland/Polen | ZWS-fulltekst kontrollert — **datering korrigert til 2020/2019-survey**; prisskille ekstrahert. Polen-watchlist bekreftet. | SBMT-datatilgang (IBioIC); Polen full kill via GUS XLS/EMFAF. |
 
+## Case-avsjekk-promptstatus 2026-06-13
+
+Fire prioriterte case-avsjekkprompter er kjørt og kontrollimportert som `CAP-1306-*`. De gjør første researchbølge mer operativ, men de endrer ikke outreach-reglene.
+
+| Case | Ny status | Intern bruk nå | Fortsatt blokkert | Neste handling |
+|---|---|---|---|---|
+| 100% Fish / marint restråstoff | P-FISH-1/P-SKOT-2 delvis lukket; P-FISH-2 stoppet på manglende Strand et al. 2024. | Norsk volum-/fraksjonsbaseline, hvitfiskgap, skotsk 2019-separeringsbenchmark og produktverdi-proxy med caveat. | Råfraksjonspris, høyverdiandel per fraksjon, aktørmarginer og Island-Norge-metodebro. | PCQ-B-005 oppdatert; hent Strand fulltekst før ny metodebro. |
+| Distribusjon/adoption | P-DIST-1 delvis lukket som RP-06-ledgerkandidat. | Navngitt intern ledger over kanaloppnåelse/barrierer uten aktøranklage. | Månedlige importvinduer, onboardingvilkår, marginer og BAMA/Gartnerhallen-spesifikke claims. | Bruk ledgeren før ny bred aktørjakt; eventuell P-DIST-1B kun for SSB månedstall. |
+| Valio/Finland | P-VALIO-1 lukket for nasjonalt datasettgrunnlag. | Ruokavirasto/Luke/Uljas som systemramme for `soyafri != importfri`. | Valio-andeler, fôrkurv, PFAD/A-Rehu-generalisering og GM-soya-tall. | Hold Valio-spesifikke spørsmål i DASK/AASK. |
+| Skottland | P-SKOT-2 lukket som strukturdel; P-SKOT-1 fortsatt åpen ved tung ekstern bruk. | Intern struktur-/separeringsbenchmark med 2019-caveat. | Dagens skotske markedsstatus og SBMT-data. | Kjør P-SKOT-1 bare hvis Skottland skal bli mer enn benchmark. |
+
 ## Go/no-go-regler
 
 | Beslutning | Krav | Standardtekst |
@@ -84,10 +95,10 @@ Kjeden er oppdatert i protokollens rekkefølge etter desk-research-runden 12.06:
 |---|---|---|---|
 | Syv caseanker | Ja | Ingen | Status må vises som intern modenhet, ikke ekstern godkjenning. |
 | Kaffe/kakao | Delvis | MOU/avtale/dokumenteier og nordisk verdikjededata | Kaffe/kakao som import-/EUDR-hypotese; relasjonsclaims lukket. |
-| Valio | Ja, smalt | Fôrstandard, fôrkurv og importdata | Soyafri governance, ikke importfritt fôr. |
-| Distribusjon/adoption | Ja, bredt | Aktørdata og produkt-/månedstall | Bruk distribusjon/adoption, ikke BAMA-anklage. |
+| Valio | Ja, smalt | Valio-spesifikk fôrstandard, fôrkurv og aktørdata | Soyafri governance og nasjonal systemramme, ikke importfritt fôr. |
+| Distribusjon/adoption | Ja, bredt | Aktørdata, avtalevilkår og produkt-/månedstall | Bruk distribusjon/adoption-ledger, ikke BAMA-anklage. |
 | Spillvarme | Delvis | Hima driftsdata og casevis mini-ledger | Hima internt med datagap; radar, ikke nasjonalt potensial. |
-| 100% Fish | Ja, som benchmark | Norsk fraksjons-/høyverdidata | Benchmark, ikke norsk pilotbevis. |
+| 100% Fish | Ja, som intern baseline + benchmark | Råfraksjonspris, høyverdiandel og Strand-metodebro | Norsk volum-/strukturgrunnlag og benchmark, ikke norsk pilotbevis eller råprisclaim. |
 | Skottland/Polen | Delvis | Fulltekst og konkrete data | Skottland benchmarkkandidat; Polen watchlist. |
 
 ## Oppdateringsprotokoll

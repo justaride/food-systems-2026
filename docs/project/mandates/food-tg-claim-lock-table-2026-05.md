@@ -100,6 +100,17 @@ Desk-research-runden 12.06 (kilder: `SRC-0906-011` til `SRC-0906-015`; logg: `do
 | Skottland som dokumentert benchmark | Uendret hold-tilbake for «dokumentert case». NYTT: ZWS-hovedkilden er fulltekstkontrollert, men datert 31.03.2020 med 2019-survey — all bruk krever aktualitetscaveat. Prisskillet mixed/segregert (£62–173 vs. £250–520/t, 2019) kan brukes internt som høyverdi-argument med årstall. |
 | Polen som stor sidestrømsmulighet | Uendret hold-tilbake; watchlist bekreftet ved hurtig kill-test 12.06. |
 
+## Case-avsjekk-delta 2026-06-13
+
+Case-avsjekkpromptene fra 13.06 (`CAP-1306-*`) styrker enkelte interne formuleringer, men åpner ikke ekstern faktastemme. Claim-lock-effekten er å skille datasettgrunnlag, proxypris, aktørgate og benchmark enda tydeligere.
+
+| Claimområde | Delta 13.06 | Claim-lock-effekt |
+|---|---|---|
+| Marint restråstoff / 100% Fish | SINTEF/FHF 2024 og P-FISH-1 lukker intern norsk volum-/fraksjonsbaseline og norsk-skotsk strukturkontrast; SSB 08801 gir produkt-/eksportverdi, ikke råfraksjonspris. | Tillat intern formulering om volum, utnyttelse, hvitfiskgap og struktur med caveat. Hold tilbake råfraksjonspris, margin, kausalitet mellom struktur og verdi, og direkte Island-Norge-utnyttelsesclaim. |
+| Skottland separering | P-SKOT-2 kan brukes som struktur-/separeringsbenchmark sammen med ZWS/Enscape 2019-surveyen. | All bruk må ha årstall og aktualitetscaveat. Ikke si at ZWS-tallene beskriver dagens skotske strømmer eller at de beviser norsk økonomisk premium. |
+| Distribusjon/adoption | P-DIST-1 dokumenterer at flere norske CEA-/veksthus-/lokalproduksjonsaktører har oppnådd kanal, og at barrierene er sammensatte. | Tillat intern C-gate/ledger-språk. Hold tilbake BAMA-/Gartnerhallen-blokkering, marginer, onboardingvilkår og juridisk dominans uten primærkilde/aktørgate. |
+| Valio/Finland | P-VALIO-1 gir autorisert nasjonal finsk fôrsektor-, Luke- og Uljas-ramme. Det lukker ikke Valios egen fôrkurv. | Tillat intern systemformulering: soyafri governance er ikke importfri fôrkjede. Hold tilbake Valio-andeler, Valio-fôrkurv, PFAD/A-Rehu-generalisering og GM-soya-tall uten manuell avlesning. |
+
 ## DRR-0906 ikke-si-konsolidering 2026-06-12
 
 Konsoliderte ikke-si-punkter fra de åtte DRR-rapportene (`research/external/dro-0906/`) som ikke allerede dekkes av radene over. Samme bruksregel som «Påstander som skal holdes tilbake».
