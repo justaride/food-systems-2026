@@ -3,8 +3,8 @@ tittel: Food TG Primary-Check Queue v0.1
 status: Utført internt
 eier: Gabriel
 dato: 2026-04-28
-sist_oppdatert: 2026-06-10
-neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21. PCQ-B-001 til B-004 er låst som benchmark/hypotese inntil råvareeier, hygiene, stabilisering, off-taker og bruksrett er validert. 09.06-caser er lagt inn som PCQ-0906-* og skal ikke brukes i faktastemme før primærkilde eller aktørdata finnes. 10.06-intake i `food-tg-deep-research-source-intake-2026-06-10.md` prioriterer neste primærsjekk uten å endre claim-status; `food-tg-deep-research-prompt-pack-2026-06-10.md` styrer videre Deep Research-kjøringer; `food-tg-casekort-og-research-mottak-2026-06-10.md` registrerer outputer før PCQ-rader endres; `food-tg-deep-research-results-intake-2026-06-10.md` logger de åtte mottatte resultatfilene og skjerper PCQ-sjekker uten å åpne claims.
+sist_oppdatert: 2026-06-13
+neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21. PCQ-B-001 til B-004 er låst som benchmark/hypotese inntil råvareeier, hygiene, stabilisering, off-taker og bruksrett er validert. 09.06-caser er lagt inn som PCQ-0906-* og skal ikke brukes i faktastemme før primærkilde eller aktørdata finnes. 13.06-case-avsjekkene lukker enkelte interne datasettgrunnlag, men råfraksjonspriser, månedlig importvindu, Strand et al.-metodebro og Valio-spesifikk fôrkurv står fortsatt åpne. `food-tg-casekort-og-research-mottak-2026-06-10.md` og `food-tg-deep-research-results-intake-2026-06-10.md` registrerer outputer før PCQ-rader endres.
 relaterte_filer:
   - docs/project/mandates/actor-validation-pack-food-tg-v0.1.md
   - docs/project/mandates/analysefabrikk-handoffs/2026-04-28-mini-verifikasjon-2b-2d-recovery.md
@@ -197,3 +197,14 @@ Desk-research-runden 12.06 (full logg med tall og locators: `docs/project/analys
 | PCQ-0906-006 | Nasjonal finsk fôrimportramme tallfestet (Comtrade 2022–2024): rapsmel 230641 stabilt ~216 000 t/år, soyamel 2304 87–144 000 t/år, erter marginalt. | Integrer som systemramme for Valio-casen («soyafri ≠ importfri» er nå kvantifisert nasjonalt); Valio-spesifikk fôrkurv uendret `needs-data` (DASK/AASK). |
 | PCQ-0906-007 | Skottland: ZWS-hovedrapport fulltekstkontrollert. **Datering korrigert: Enscape 31.03.2020, 2019-survey, republisert 20.02.2025.** Nøkkelvolum og prisskille (£62–173 vs. £250–520/t) ekstrahert. Polen: hurtig kill-test bekrefter watchlist. | Skottland: `benchmark-kandidat` med eksplisitt aktualitetscaveat (2019-data); SBMT-tilgang gjenstår. Polen: watchlist bekreftet; full kill via GUS XLS/EMFAF gjenstår. |
 | PCQ-B-005 | Statistics Iceland-tabellene SJA09114/09110/04903 identifisert med full struktur (33 arter × 20 biproduktkategorier × 1992–2024 × tonn/ISK). Datauttrekk blokkert på PxWeb POST; manuell eksportoppskrift i loggen kap. 1. | Kjør manuell PxWeb-eksport og legg CSV i `research/external/dro-0906/`; deretter fraksjonssammenligning mot SINTEF/FHF 2024. |
+
+## Runde 7 statusnotat (2026-06-13) — case-avsjekk-prompter
+
+Fire case-avsjekk-prompter er kjørt etter 12.06-mottaket og logget i `docs/project/analysis/case-avsjekk/mottak-deep-research-1206-2026-06-13.md`. Ingen rad løftes til ekstern faktastemme uten claim-lock og kildebrukscaveat.
+
+| Queue-ID | Runde 7-status | Masterbeslutning |
+|---|---|---|
+| PCQ-B-005 | `P-FISH-1` + `P-SKOT-2` lukker norske 2024-hovedvolum, hvitfisk-/laksefiskfraksjoner og norsk-skotsk strukturdel som intern baseline. SSB 08801 gir bare eksportenhetsverdier på produktnivå; `P-FISH-2` traff stoppsignal fordi Strand et al. 2024 ikke finnes lokalt. | Integrer SINTEF/FHF, SSB 08801, ZWS og Nofima som interne kildekandidater. Hold råfraksjonspriser, høyverdiandel per fraksjon, aktørmarginer og Island-Norge-metodebro som `needs-data`/`needs-primary-check`. |
+| PCQ-0906-004 | `P-DIST-1` gir en RP-06-ledgerkandidat for Coop/Reindyrka, ONNA, Grønt fra Nord, Viken, Skjærgaarden, Grønne Folk, Wiig og Skavland. Den dokumenterer flere oppnådde kanaler, ikke en grossistblokkering. | Oppgrader intern arbeidsstatus til `ledgerkandidat med caveat`. Månedlige importvinduer, onboardingvilkår og BAMA/Gartnerhallen-spesifikke marginer forblir `needs-data`/`needs-actor-validation`. |
+| PCQ-0906-006 | `P-VALIO-1` lukker nasjonal finsk fôr-/importdatatilgang med Ruokavirasto, Luke PxWeb og Tulli/Uljas. Uljas bekrefter Comtrade-previewen på kg-nivå for 2022–2024. | Bruk som autorisert nasjonal systemramme for `soyafri != importfri`. Ikke bruk som Valio-fôrkurv; Valio-andeler, PFAD/A-Rehu og gårdsspesifikk fôrstandard forblir DASK/AASK. |
+| PCQ-0906-007 | `P-SKOT-2` er lukket som strukturdel i P-FISH-1; `P-SKOT-1` er fortsatt åpen hvis Skottland skal brukes tungt utover 2019-surveyen. | Skottland kan brukes som intern struktur-/separeringsbenchmark med årstall og aktualitetscaveat. Ikke bruk som dagens skotske markedsstatus uten nyere data. |
