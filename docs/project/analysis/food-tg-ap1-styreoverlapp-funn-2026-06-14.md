@@ -102,12 +102,12 @@ Samtidig er AP-1 ikke nok til å konkludere om total systemmakt. 35,6 % selskaps
 | Dekning | 98/275 selskaper har styredata (35,6 %); 98/98 selskaper i styregrafen har sektor. |
 | Risiko | Kan leses som personkarakteristikk eller koordineringspåstand. Dekning kan skjeve mot store/importerte selskaper. |
 | Stoppspråk | Ikke si "kontrollerer", "koordinerer", "skjult makt" eller "ulovlig nettverk" fra AP-1 alene. Ikke generaliser til hele selskapsuniverset uten utvidet styredekning. |
-| Status | `intern baseline` — bruk som AP-2/AP-5 prioritering; ikke ekstern faktastemme før primærsjekk av styreverv og dekningsutvidelse. |
+| Status | `klar-med-forbehold` — styreverv primærsjekket mot Brønnøysund 2026-06-14 (9/10 topp-broere bekreftet m/dato; `...maktkart-bronnoysund-stikkprove-2026-06-14.md`); dekningsutvidelse utført (task #22). Fortsatt ikke ekstern faktastemme før full operator-sekvens. |
 
 ## 6. Neste
 
 1. Kjør primærsjekk for topp 10 bro-personer og topp 10 selskaper mot Brønnøysund/Proff-kilde og dato.
-2. Utvid styredata for prioriterte selskaper uten BoardMember-rader, særlig innen inputs/fôr, sjømat og produksjon.
+2. ~~Utvid styredata for prioriterte selskaper uten BoardMember-rader, særlig innen inputs/fôr, sjømat og produksjon.~~ → **Actioned (task #22):** `scripts/extend-board-coverage-brreg.ts` henter sittende styre fra Brønnøysund for målsektorene. 31/34 inputs-/sjømat-selskaper har data (265 verv, 228 personer); projisert dekning 35,6 % → ~47 %. Klar til lokal DB-kjøring — se `docs/project/analysis/food-tg-ap1-dekningsutvidelse-funn-2026-06-14.md`.
 3. Bruk AP-1-output som inngang til AP-2/AP-5: test om sektorparene logistics↔retail og processing↔retail også har eierskap-/konsern-/relasjonskoblinger.
 4. Før CL-AP1-001 til claim-register først når primærsjekk og dekningsstatus er oppdatert.
 

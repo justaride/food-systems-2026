@@ -85,7 +85,7 @@ Det ikke-opplagte: samvirkeselskapene (Coop SA, TINE SA, Nortura SA, Felleskjøp
 | Dekning | 183/275 selskaper i eiergrafen (67 %). |
 | Risiko | Eierskap kan feiltolkes som operativ kontroll/samordning; JV-/delt kontroll undertelles; adminledd kan overtelles som integrasjon. |
 | Stoppspråk | Ikke si «samordner» eller «operativ kontroll». Ikke tell research/property/holding som verdikjede-integrasjon. Ikke bruk ultimate-eierskap eksternt før Brønnøysund-stikkprøve. |
-| Status | `intern baseline` — ikke ekstern faktastemme før primærsjekk av ultimate ownership og dekningsutvidelse. |
+| Status | `klar-med-forbehold` for kontroll-STRUKTUR — form + styrekontroll primærsjekket mot Brønnøysund 2026-06-14 (22/22 formmatch; `...maktkart-bronnoysund-stikkprove-2026-06-14.md`). Eierandel-%/≥50 %-kontroll fortsatt `krever-bekreftelse` (Skatteetaten Aksjonærregister). Ikke ekstern faktastemme før operator-sekvens. |
 
 ## 7. Forbehold
 

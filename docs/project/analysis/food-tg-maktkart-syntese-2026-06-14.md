@@ -78,7 +78,7 @@ Tre ting hever dette over allemannskunnskap:
 | Evidens | AP-1/AP-2/AP-3/AP-5-funnnotater + JSON-aggregater; enhetstestede skript; konvergens av uavhengige sektorpar-mønstre. |
 | Risiko | Eierskap/styre kan feiltolkes som operativ samordning; dekningshull per lense; JV/delt kontroll undertelles. |
 | Stoppspråk | Ikke si «samordner», «karteller» eller «operativ kontroll». Ikke tell research/property/holding som verdikjede-integrasjon. Ikke bruk én lenses dekning som hele markedet. |
-| Status | `intern baseline` — ikke ekstern faktastemme før primærsjekk (Brønnøysund-stikkprøve, markedscensus for HHI, 2024-tilskudd, utvidet styredekning). |
+| Status | `klar-med-forbehold` for strukturpåstanden (hvem kontrollerer via form/styre) etter Brønnøysund-stikkprøve 2026-06-14 (22/22 formmatch, 9/10 broer bekreftet — `...maktkart-bronnoysund-stikkprove-2026-06-14.md`). Eierandel-% (AP-5), markedscensus (AP-2 HHI), 2024-tilskudd (AP-3) og full operator-sekvens gjenstår før ekstern faktastemme. |
 
 ## 7. Forbehold
 
@@ -92,13 +92,13 @@ Tre ting hever dette over allemannskunnskap:
 
 For å løfte CL-MAKTKART-001 fra intern baseline til citable (ekstern) kreves, i rekkefølge:
 
-1. **Brønnøysund-stikkprøve** av ultimate ownership for topp-konsernene (AP-5) og styreverv for topp-broene (AP-1).
-2. **Utvid styredekningen** (AP-1) fra 36 % så styre- og eierkart står på likt grunnlag.
+1. ~~**Brønnøysund-stikkprøve** av ultimate ownership for topp-konsernene (AP-5) og styreverv for topp-broene (AP-1).~~ **Delvis utført 2026-06-14** (`...maktkart-bronnoysund-stikkprove-2026-06-14.md`): form + styrekontroll bekreftet (22/22), broer 9/10. Gjenstår: eierandel-% mot Skatteetaten Aksjonærregister.
+2. ~~**Utvid styredekningen** (AP-1) fra 36 % så styre- og eierkart står på likt grunnlag.~~ **Utført (task #22)**, klar til lokal DB-kjøring (`...ap1-dekningsutvidelse-funn-2026-06-14.md`); projisert 36 % → ~47 %.
 3. **Markedscensus** for ekte node-HHI (AP-2) der det skal brukes som markedskonsentrasjon.
 4. **2024-tilskudd** verifiseres mot Landbruksdirektoratets publiserte totaler (AP-3).
 5. **Operator-sekvens** (CITABLE-KNOWLEDGE-BASE-STATUS) før noe av dette brukes utad.
 
-Først etter (1)–(5) kan maktkartet bli ett samlende eksternt uttak (whitepaper-kapittel/figur). Til da: intern beslutningsstøtte.
+Steg 1–2 er nå adressert; (3)–(5) gjenstår. Først etter alle fem kan maktkartet bli ett samlende eksternt uttak (whitepaper-kapittel/figur). Til da: intern beslutningsstøtte, nå med primærsjekket kontrollstruktur.
 
 ## 9. Verifikasjon
 
