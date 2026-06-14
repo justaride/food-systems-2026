@@ -1,0 +1,336 @@
+{
+  "generatedAt": "2026-06-14T19:51:14.422Z",
+  "source": "intern DB (Company × Financial × Shareholder)",
+  "totals": {
+    "companies": 275,
+    "nodes": 16,
+    "withRevenue": 173,
+    "withShareholders": 66
+  },
+  "nodes": [
+    {
+      "node": "export-promotion",
+      "companies": 1,
+      "withRevenue": 1,
+      "revenueCoverage": 1,
+      "revenueHHI": 10000,
+      "top1RevShare": 1,
+      "top3RevShare": 1,
+      "topCompaniesByRevenue": [
+        "Norges Sjømatråd AS"
+      ],
+      "withShareholders": 1,
+      "medianOwnerHHI": 10000,
+      "controllingPrevalence": 1,
+      "ownershipTypeMix": {
+        "state": 1
+      }
+    },
+    {
+      "node": "research",
+      "companies": 5,
+      "withRevenue": 5,
+      "revenueCoverage": 1,
+      "revenueHHI": 6420.8,
+      "top1RevShare": 0.7874,
+      "top3RevShare": 0.9953,
+      "topCompaniesByRevenue": [
+        "Animalia AS",
+        "Felleskjoepet Forutvikling AS",
+        "Natural State AS"
+      ],
+      "withShareholders": 1,
+      "medianOwnerHHI": 4328.5,
+      "controllingPrevalence": 0.2,
+      "ownershipTypeMix": {
+        "state": 1,
+        "cooperative": 2,
+        "listed": 1,
+        "private": 1
+      }
+    },
+    {
+      "node": "circular",
+      "companies": 5,
+      "withRevenue": 4,
+      "revenueCoverage": 0.8,
+      "revenueHHI": 6255.7,
+      "top1RevShare": 0.7734,
+      "top3RevShare": 1,
+      "topCompaniesByRevenue": [
+        "Too Good To Go Norge AS",
+        "Matvett AS",
+        "Nordic Circular Hotspot AS"
+      ],
+      "withShareholders": 2,
+      "medianOwnerHHI": 10000,
+      "controllingPrevalence": 0.4,
+      "ownershipTypeMix": {
+        "foreign": 1,
+        "private": 2,
+        "nonprofit": 2
+      }
+    },
+    {
+      "node": "foodservice",
+      "companies": 17,
+      "withRevenue": 8,
+      "revenueCoverage": 0.47,
+      "revenueHHI": 2713.5,
+      "top1RevShare": 0.4306,
+      "top3RevShare": 0.78,
+      "topCompaniesByRevenue": [
+        "ISS Facility Services AS",
+        "BAMA Storkjoekken AS",
+        "Compass Group Norge AS"
+      ],
+      "withShareholders": 12,
+      "medianOwnerHHI": 10000,
+      "controllingPrevalence": 0.71,
+      "ownershipTypeMix": {
+        "family": 5,
+        "listed": 3,
+        "state": 1,
+        "cooperative": 2,
+        "foreign": 6
+      }
+    },
+    {
+      "node": "inputs",
+      "companies": 13,
+      "withRevenue": 11,
+      "revenueCoverage": 0.85,
+      "revenueHHI": 2430.8,
+      "top1RevShare": 0.3651,
+      "top3RevShare": 0.8054,
+      "topCompaniesByRevenue": [
+        "Felleskjøpet Agri SA",
+        "BioMar AS",
+        "Mowi Feed AS"
+      ],
+      "withShareholders": 5,
+      "medianOwnerHHI": 10000,
+      "controllingPrevalence": 0.38,
+      "ownershipTypeMix": {
+        "foreign": 2,
+        "cooperative": 9,
+        "listed": 1,
+        "state": 1
+      }
+    },
+    {
+      "node": "retail",
+      "companies": 100,
+      "withRevenue": 61,
+      "revenueCoverage": 0.61,
+      "revenueHHI": 1636.6,
+      "top1RevShare": 0.3677,
+      "top3RevShare": 0.5285,
+      "topCompaniesByRevenue": [
+        "Coop Norge SA",
+        "Uno-X Mobility Norge AS",
+        "Norsk Butikkdrift AS"
+      ],
+      "withShareholders": 20,
+      "medianOwnerHHI": 10000,
+      "controllingPrevalence": 0.19,
+      "ownershipTypeMix": {
+        "private": 6,
+        "family": 40,
+        "listed": 20,
+        "cooperative": 26,
+        "foreign": 7,
+        "non-profit": 1
+      }
+    },
+    {
+      "node": "seafood",
+      "companies": 21,
+      "withRevenue": 20,
+      "revenueCoverage": 0.95,
+      "revenueHHI": 1483.5,
+      "top1RevShare": 0.2789,
+      "top3RevShare": 0.5738,
+      "topCompaniesByRevenue": [
+        "Mowi ASA",
+        "Austevoll Seafood ASA",
+        "Lerøy Seafood Group ASA"
+      ],
+      "withShareholders": 7,
+      "medianOwnerHHI": 2777.3,
+      "controllingPrevalence": 0.33,
+      "ownershipTypeMix": {
+        "listed": 15,
+        "family": 4,
+        "private": 1,
+        "foreign": 1
+      }
+    },
+    {
+      "node": "logistics",
+      "companies": 25,
+      "withRevenue": 21,
+      "revenueCoverage": 0.84,
+      "revenueHHI": 1184.1,
+      "top1RevShare": 0.2366,
+      "top3RevShare": 0.496,
+      "topCompaniesByRevenue": [
+        "REMA Distribusjon Norge AS",
+        "BAMA Gruppen AS",
+        "ASKO Oslofjord AS"
+      ],
+      "withShareholders": 4,
+      "medianOwnerHHI": 10000,
+      "controllingPrevalence": 0.16,
+      "ownershipTypeMix": {
+        "family": 22,
+        "state": 1,
+        "listed": 1,
+        "private": 1
+      }
+    },
+    {
+      "node": "processing",
+      "companies": 52,
+      "withRevenue": 42,
+      "revenueCoverage": 0.81,
+      "revenueHHI": 1122.3,
+      "top1RevShare": 0.2162,
+      "top3RevShare": 0.5266,
+      "topCompaniesByRevenue": [
+        "Nortura SA",
+        "TINE SA",
+        "Unil AS"
+      ],
+      "withShareholders": 14,
+      "medianOwnerHHI": 10000,
+      "controllingPrevalence": 0.27,
+      "ownershipTypeMix": {
+        "foundation": 4,
+        "private": 4,
+        "family": 20,
+        "foreign": 5,
+        "cooperative": 16,
+        "listed": 3
+      }
+    },
+    {
+      "node": "property",
+      "companies": 17,
+      "withRevenue": 0,
+      "revenueCoverage": 0,
+      "revenueHHI": 0,
+      "top1RevShare": 0,
+      "top3RevShare": 0,
+      "topCompaniesByRevenue": [],
+      "withShareholders": 0,
+      "medianOwnerHHI": 0,
+      "controllingPrevalence": 0,
+      "ownershipTypeMix": {
+        "family": 12,
+        "listed": 1,
+        "cooperative": 4
+      }
+    },
+    {
+      "node": "wholesale",
+      "companies": 12,
+      "withRevenue": 0,
+      "revenueCoverage": 0,
+      "revenueHHI": 0,
+      "top1RevShare": 0,
+      "top3RevShare": 0,
+      "topCompaniesByRevenue": [],
+      "withShareholders": 0,
+      "medianOwnerHHI": 0,
+      "controllingPrevalence": 0,
+      "ownershipTypeMix": {
+        "family": 6,
+        "listed": 3,
+        "cooperative": 2,
+        "private": 1
+      }
+    },
+    {
+      "node": "holding",
+      "companies": 2,
+      "withRevenue": 0,
+      "revenueCoverage": 0,
+      "revenueHHI": 0,
+      "top1RevShare": 0,
+      "top3RevShare": 0,
+      "topCompaniesByRevenue": [],
+      "withShareholders": 0,
+      "medianOwnerHHI": 0,
+      "controllingPrevalence": 0,
+      "ownershipTypeMix": {
+        "family": 2
+      }
+    },
+    {
+      "node": "platform",
+      "companies": 1,
+      "withRevenue": 0,
+      "revenueCoverage": 0,
+      "revenueHHI": 0,
+      "top1RevShare": 0,
+      "top3RevShare": 0,
+      "topCompaniesByRevenue": [],
+      "withShareholders": 0,
+      "medianOwnerHHI": 0,
+      "controllingPrevalence": 0,
+      "ownershipTypeMix": {
+        "private": 1
+      }
+    },
+    {
+      "node": "utility",
+      "companies": 1,
+      "withRevenue": 0,
+      "revenueCoverage": 0,
+      "revenueHHI": 0,
+      "top1RevShare": 0,
+      "top3RevShare": 0,
+      "topCompaniesByRevenue": [],
+      "withShareholders": 0,
+      "medianOwnerHHI": 0,
+      "controllingPrevalence": 0,
+      "ownershipTypeMix": {
+        "private": 1
+      }
+    },
+    {
+      "node": "production",
+      "companies": 2,
+      "withRevenue": 0,
+      "revenueCoverage": 0,
+      "revenueHHI": 0,
+      "top1RevShare": 0,
+      "top3RevShare": 0,
+      "topCompaniesByRevenue": [],
+      "withShareholders": 0,
+      "medianOwnerHHI": 0,
+      "controllingPrevalence": 0,
+      "ownershipTypeMix": {
+        "joint-venture": 1,
+        "private": 1
+      }
+    },
+    {
+      "node": "distribution",
+      "companies": 1,
+      "withRevenue": 0,
+      "revenueCoverage": 0,
+      "revenueHHI": 0,
+      "top1RevShare": 0,
+      "top3RevShare": 0,
+      "topCompaniesByRevenue": [],
+      "withShareholders": 0,
+      "medianOwnerHHI": 0,
+      "controllingPrevalence": 0,
+      "ownershipTypeMix": {
+        "foreign": 1
+      }
+    }
+  ]
+}

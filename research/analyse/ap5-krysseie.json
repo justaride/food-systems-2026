@@ -1,0 +1,289 @@
+{
+  "generatedAt": "2026-06-14T20:05:49.118Z",
+  "source": "intern DB (CompanyOwnership × Company)",
+  "totals": {
+    "companies": 275,
+    "ownershipEdges": 160,
+    "controllingEdges": 153,
+    "companiesInGraph": 183,
+    "controllers": 57,
+    "ultimateControllers": 27,
+    "crossSectorControllers": 19
+  },
+  "crossSectorControllers": [
+    {
+      "name": "NorgesGruppen ASA",
+      "ownSector": "retail",
+      "sectors": [
+        "foodservice",
+        "logistics",
+        "processing",
+        "retail"
+      ],
+      "controlledCount": 39,
+      "isUltimate": true
+    },
+    {
+      "name": "Axel Johnson AB",
+      "ownSector": "retail",
+      "sectors": [
+        "foodservice",
+        "logistics",
+        "retail",
+        "wholesale"
+      ],
+      "controlledCount": 8,
+      "isUltimate": true
+    },
+    {
+      "name": "Reitan AS",
+      "ownSector": "retail",
+      "sectors": [
+        "logistics",
+        "processing",
+        "retail"
+      ],
+      "controlledCount": 13,
+      "isUltimate": true
+    },
+    {
+      "name": "Reitan Retail AS",
+      "ownSector": "retail",
+      "sectors": [
+        "logistics",
+        "processing",
+        "retail"
+      ],
+      "controlledCount": 10,
+      "isUltimate": false
+    },
+    {
+      "name": "Nortura SA",
+      "ownSector": "processing",
+      "sectors": [
+        "inputs",
+        "processing",
+        "research"
+      ],
+      "controlledCount": 9,
+      "isUltimate": true
+    },
+    {
+      "name": "BAMA Gruppen AS",
+      "ownSector": "logistics",
+      "sectors": [
+        "foodservice",
+        "logistics",
+        "processing"
+      ],
+      "controlledCount": 7,
+      "isUltimate": true
+    },
+    {
+      "name": "Felleskjøpet Agri SA",
+      "ownSector": "inputs",
+      "sectors": [
+        "inputs",
+        "processing",
+        "research"
+      ],
+      "controlledCount": 6,
+      "isUltimate": true
+    },
+    {
+      "name": "REITAN AS",
+      "ownSector": "holding",
+      "sectors": [
+        "holding",
+        "logistics",
+        "property"
+      ],
+      "controlledCount": 6,
+      "isUltimate": true
+    },
+    {
+      "name": "Mowi ASA",
+      "ownSector": "seafood",
+      "sectors": [
+        "inputs",
+        "research",
+        "seafood"
+      ],
+      "controlledCount": 5,
+      "isUltimate": true
+    },
+    {
+      "name": "Axfood AB",
+      "ownSector": "retail",
+      "sectors": [
+        "foodservice",
+        "logistics",
+        "retail"
+      ],
+      "controlledCount": 5,
+      "isUltimate": false
+    },
+    {
+      "name": "REMA 1000 AS",
+      "ownSector": "retail",
+      "sectors": [
+        "logistics",
+        "processing",
+        "retail"
+      ],
+      "controlledCount": 3,
+      "isUltimate": false
+    },
+    {
+      "name": "REMA 1000 Norge AS",
+      "ownSector": "retail",
+      "sectors": [
+        "logistics",
+        "processing",
+        "retail"
+      ],
+      "controlledCount": 2,
+      "isUltimate": false
+    },
+    {
+      "name": "ASKO Norge AS",
+      "ownSector": "logistics",
+      "sectors": [
+        "foodservice",
+        "logistics"
+      ],
+      "controlledCount": 15,
+      "isUltimate": false
+    },
+    {
+      "name": "Coop Norge SA",
+      "ownSector": "retail",
+      "sectors": [
+        "processing",
+        "retail"
+      ],
+      "controlledCount": 8,
+      "isUltimate": true
+    },
+    {
+      "name": "Reitan Eiendom AS",
+      "ownSector": "property",
+      "sectors": [
+        "logistics",
+        "property"
+      ],
+      "controlledCount": 5,
+      "isUltimate": false
+    },
+    {
+      "name": "TINE SA",
+      "ownSector": "processing",
+      "sectors": [
+        "inputs",
+        "processing"
+      ],
+      "controlledCount": 4,
+      "isUltimate": true
+    },
+    {
+      "name": "Joh Johannson Invest AS",
+      "ownSector": "holding",
+      "sectors": [
+        "holding",
+        "property"
+      ],
+      "controlledCount": 2,
+      "isUltimate": true
+    },
+    {
+      "name": "Kesko Oyj",
+      "ownSector": "retail",
+      "sectors": [
+        "foodservice",
+        "retail"
+      ],
+      "controlledCount": 1,
+      "isUltimate": true
+    },
+    {
+      "name": "SOK (S Group)",
+      "ownSector": "retail",
+      "sectors": [
+        "foodservice",
+        "retail"
+      ],
+      "controlledCount": 1,
+      "isUltimate": true
+    }
+  ],
+  "sectorPairControl": [
+    {
+      "pair": "logistics ↔ retail",
+      "count": 7
+    },
+    {
+      "pair": "logistics ↔ processing",
+      "count": 6
+    },
+    {
+      "pair": "processing ↔ retail",
+      "count": 6
+    },
+    {
+      "pair": "foodservice ↔ logistics",
+      "count": 5
+    },
+    {
+      "pair": "foodservice ↔ retail",
+      "count": 5
+    },
+    {
+      "pair": "inputs ↔ processing",
+      "count": 3
+    },
+    {
+      "pair": "inputs ↔ research",
+      "count": 3
+    },
+    {
+      "pair": "foodservice ↔ processing",
+      "count": 2
+    },
+    {
+      "pair": "processing ↔ research",
+      "count": 2
+    },
+    {
+      "pair": "holding ↔ property",
+      "count": 2
+    },
+    {
+      "pair": "logistics ↔ property",
+      "count": 2
+    },
+    {
+      "pair": "foodservice ↔ wholesale",
+      "count": 1
+    },
+    {
+      "pair": "logistics ↔ wholesale",
+      "count": 1
+    },
+    {
+      "pair": "retail ↔ wholesale",
+      "count": 1
+    },
+    {
+      "pair": "holding ↔ logistics",
+      "count": 1
+    },
+    {
+      "pair": "inputs ↔ seafood",
+      "count": 1
+    },
+    {
+      "pair": "research ↔ seafood",
+      "count": 1
+    }
+  ]
+}
