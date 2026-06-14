@@ -1,0 +1,182 @@
+{
+  "generatedAt": "2026-06-14T23:18:25.864Z",
+  "totalDefined": 278,
+  "totalInDb": 275,
+  "globalMissingCount": 3,
+  "globalMissing": [
+    {
+      "file": "import-research-20260420.ts",
+      "orgNr": "987565922",
+      "name": "Unknown Name"
+    },
+    {
+      "file": "import-research-20260420.ts",
+      "orgNr": "948202063",
+      "name": "Unknown Name"
+    },
+    {
+      "file": "import-research-20260420.ts",
+      "orgNr": "949556207",
+      "name": "Unknown Name"
+    }
+  ],
+  "reconciliation": {
+    "import-asko-corporate-tree.ts": {
+      "defined": 17,
+      "foundInDb": 17,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-bama-tree.ts": {
+      "defined": 8,
+      "foundInDb": 8,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-company-data.ts": {
+      "defined": 43,
+      "foundInDb": 43,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-company-extraction-candidates.ts": {
+      "defined": 7,
+      "foundInDb": 7,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-company-ownership.ts": {
+      "defined": 31,
+      "foundInDb": 31,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-coop-tree.ts": {
+      "defined": 20,
+      "foundInDb": 20,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-felleskjopet-tree.ts": {
+      "defined": 9,
+      "foundInDb": 9,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-horeca-companies.ts": {
+      "defined": 16,
+      "foundInDb": 16,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-kavli-tree.ts": {
+      "defined": 4,
+      "foundInDb": 4,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-leroy-tree.ts": {
+      "defined": 8,
+      "foundInDb": 8,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-leveransedata.ts": {
+      "defined": 3,
+      "foundInDb": 3,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-mowi-tree.ts": {
+      "defined": 5,
+      "foundInDb": 5,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-nordic-deepening.ts": {
+      "defined": 28,
+      "foundInDb": 28,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-norgesgruppen-tree.ts": {
+      "defined": 25,
+      "foundInDb": 25,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-nortura-tree.ts": {
+      "defined": 12,
+      "foundInDb": 12,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-orkla-tree.ts": {
+      "defined": 13,
+      "foundInDb": 13,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-reitan-tree.ts": {
+      "defined": 12,
+      "foundInDb": 12,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-remaining-deep.ts": {
+      "defined": 5,
+      "foundInDb": 5,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-research-20260420.ts": {
+      "defined": 66,
+      "foundInDb": 63,
+      "missingInDb": 3,
+      "missingList": [
+        {
+          "name": "Unknown Name",
+          "orgNr": "987565922"
+        },
+        {
+          "name": "Unknown Name",
+          "orgNr": "948202063"
+        },
+        {
+          "name": "Unknown Name",
+          "orgNr": "949556207"
+        }
+      ]
+    },
+    "import-salmar-tree.ts": {
+      "defined": 5,
+      "foundInDb": 5,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-seafood-holdings-tree.ts": {
+      "defined": 3,
+      "foundInDb": 3,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-session10-relationships.ts": {
+      "defined": 21,
+      "foundInDb": 21,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-session5-supply-chain.ts": {
+      "defined": 38,
+      "foundInDb": 38,
+      "missingInDb": 0,
+      "missingList": []
+    },
+    "import-tine-tree.ts": {
+      "defined": 5,
+      "foundInDb": 5,
+      "missingInDb": 0,
+      "missingList": []
+    }
+  }
+}

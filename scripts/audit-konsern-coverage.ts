@@ -17,9 +17,11 @@ type CoverageEntry = {
   ownershipType: string | null
   controllingOwner: { name: string; pct: number | null; source: string | null } | null
   qualityScore: number
+  measuredYear: number
   metrics: {
     treeSize: number
     childrenWithLatestFinancial: number
+    childrenWithOlderFinancial: number
     childrenWithoutFinancial: number
     childrenWithBoardMembers: number
     childrenWithoutBoardMembers: number
@@ -70,12 +72,34 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
   })
 
   const currentYear = new Date().getFullYear()
-  const latestYear = currentYear - 1
-  const financials = await prisma.companyFinancial.findMany({
-    where: { companyId: { in: childIds }, year: latestYear },
-    select: { companyId: true },
+  const childFinancials = await prisma.companyFinancial.findMany({
+    where: { companyId: { in: childIds } },
+    select: { companyId: true, year: true },
   })
-  const childrenWithLatestFinancial = new Set(financials.map(f => f.companyId)).size
+
+  // Find max year for this group, default to currentYear - 1
+  const groupYears = childFinancials.map(f => f.year)
+  const latestYear = groupYears.length > 0 ? Math.max(...groupYears) : currentYear - 1
+
+  // Map childId to its financial years
+  const childYearsMap = new Map<string, number[]>()
+  for (const f of childFinancials) {
+    const years = childYearsMap.get(f.companyId) ?? []
+    years.push(f.year)
+    childYearsMap.set(f.companyId, years)
+  }
+
+  let childrenWithLatestFinancial = 0
+  let childrenWithOlderFinancial = 0
+  for (const childId of childIds) {
+    const years = childYearsMap.get(childId) ?? []
+    if (years.includes(latestYear)) {
+      childrenWithLatestFinancial++
+    } else if (years.length > 0) {
+      childrenWithOlderFinancial++
+    }
+  }
+  const childrenWithoutFinancial = childIds.length - childrenWithLatestFinancial - childrenWithOlderFinancial
 
   const boardMembers = await prisma.boardMember.findMany({
     where: { companyId: { in: childIds } },
@@ -120,8 +144,8 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
   const gaps: string[] = []
   if (!controllingShareholder) gaps.push('Mangler kontrollerende eier på rotnode')
   if (ownershipEdgesWithoutSource > 0) gaps.push(`${ownershipEdgesWithoutSource} ownership-kanter uten source`)
-  const childrenWithoutFinancial = childIds.length - childrenWithLatestFinancial
-  if (childrenWithoutFinancial > 0) gaps.push(`${childrenWithoutFinancial} datterselskap uten siste års regnskap`)
+  if (childrenWithoutFinancial > 0) gaps.push(`${childrenWithoutFinancial} datterselskap mangler regnskap helt`)
+  if (childrenWithOlderFinancial > 0) gaps.push(`${childrenWithOlderFinancial} datterselskap har bare eldre regnskap enn målt år ${latestYear}`)
   const childrenWithoutBoardMembers = childIds.length - childrenWithBoardMembers
   if (childrenWithoutBoardMembers > 0) gaps.push(`${childrenWithoutBoardMembers} datterselskap uten styremedlemmer`)
   if (daysSinceBrregRefresh === null) gaps.push('Aldri Brreg-refreshet')
@@ -138,9 +162,11 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
       ? { name: controllingShareholder.name, pct: controllingShareholder.ownershipPct, source: controllingShareholder.source }
       : null,
     qualityScore,
+    measuredYear: latestYear,
     metrics: {
       treeSize: treeIds.length,
       childrenWithLatestFinancial,
+      childrenWithOlderFinancial,
       childrenWithoutFinancial,
       childrenWithBoardMembers,
       childrenWithoutBoardMembers,

@@ -52,6 +52,46 @@ const SCHEME_COLUMNS = [
 
 type SchemeCol = (typeof SCHEME_COLUMNS)[number]
 
+// Landbruksdirektoratet omdøpte beløpskolonnene fra maskin-slugger (brukt t.o.m.
+// 2023) til lesbare prosa-etiketter i 2024-filen. Disse aliasene (lowercased,
+// slik parseCsv normaliserer) mapper prosa-etikett → kanonisk slug, slik at alle
+// 15 ordninger fanges uansett årgang. Uten dette matchet bare de tre der prosa
+// tilfeldigvis er identisk med sluggen (areal/husdyr/kulturlandskap), og
+// 2024-totalen ble ~40 % for lav (skript-artefakt, ikke reell nedgang).
+const SCHEME_ALIASES: Partial<Record<SchemeCol, string[]>> = {
+  avloesertilskudd: ['tilskudd til avløsning ved ferie og fritid'],
+  beitetilskudd: ['tilskudd for dyr på beite'],
+  bevaringsverdige_husdyr_tilsku: ['tilskudd for dyr av bevaringsverdige husdyrraser'],
+  distriktstilskudd_frukt_groent: ['distriktstilskudd for frukt, bær, veksthusgrønnsaker (inkl. salat på friland)'],
+  distriktstilskudd_potet_gronns: ['distriktstilskudd for matpotet i nord-norge'],
+  melkeproduksjon: ['driftstilskudd til melkeproduksjon'],
+  oekologiskarealtilskudd: ['arealtilskudd til økologisk landbruk'],
+  oekologiskhusdyrtilskudd: ['tilskudd til økologisk husdyrproduksjon'],
+  smaa_mellomstore_melkebruk: ['tilskudd til små og mellomstore melkebruk'],
+  storfekjoettproduksjon: ['driftstilskudd til spesialisert storfekjøttproduksjon'],
+  utmarksbeitetilskudd: ['tilskudd for dyr på utmarksbeite'],
+}
+
+/**
+ * Resolver kanonisk ordning-slug → faktisk kolonnenøkkel i raden (slug hvis til
+ * stede, ellers første matchende prosa-alias). Ren og testbar. Bakoverkompatibel:
+ * for slug-headere (≤2023) mapper hver ordning til sin egen slug, så tallene er
+ * uendret; for 2024-prosa-headere fanges de øvrige ordningene via alias.
+ */
+export function resolveSchemeHeaders(headerKeys: string[]): Map<SchemeCol, string> {
+  const present = new Set(headerKeys)
+  const map = new Map<SchemeCol, string>()
+  for (const scheme of SCHEME_COLUMNS) {
+    if (present.has(scheme)) {
+      map.set(scheme, scheme)
+      continue
+    }
+    const alias = (SCHEME_ALIASES[scheme] ?? []).find(a => present.has(a))
+    if (alias) map.set(scheme, alias)
+  }
+  return map
+}
+
 function parseCsv(text: string, delimiter: string): Record<string, string>[] {
   const lines = text.split(/\r?\n/).filter(Boolean)
   if (lines.length === 0) return []
@@ -136,18 +176,20 @@ export function topShare(values: number[], pct: number): number {
   return +(top / total).toFixed(4)
 }
 
-function summarize(year: number, rows: Record<string, string>[]) {
+export function summarize(year: number, rows: Record<string, string>[]) {
   const perRecipient = new Map<string, number>()
   const perKommune = new Map<string, number>()
   const perScheme = new Map<string, number>()
+  // Resolver ordning-kolonner én gang (slug ≤2023, prosa-alias 2024).
+  const schemeHeaders = resolveSchemeHeaders(rows.length ? Object.keys(rows[0]) : [])
 
   for (const row of rows) {
     const orgNr = normalizeOrgNr(row.orgnr)
     if (!orgNr) continue
     const kommune = row.kommunenr || 'ukjent'
     let recipientYearTotal = 0
-    for (const scheme of SCHEME_COLUMNS) {
-      const amount = parseAmount(row[scheme])
+    for (const [scheme, header] of schemeHeaders) {
+      const amount = parseAmount(row[header])
       if (!amount) continue
       recipientYearTotal += amount
       perScheme.set(scheme, (perScheme.get(scheme) ?? 0) + amount)
