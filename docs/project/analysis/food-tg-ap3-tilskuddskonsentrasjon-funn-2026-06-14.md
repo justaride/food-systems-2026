@@ -27,15 +27,15 @@ Konsentrasjonen drives av de strukturavhengige ordningene (husdyr-, areal- og ku
 
 ## 2. Tall
 
-Pålitelige år (alle ordninger til stede): **2022 og 2023**.
+Pålitelige år (alle ordninger til stede): **2022, 2023 og 2024** (2024 fanget etter kolonnefiks 2026-06-14; tidligere artefakt-lav).
 
 | År | Mottakere | Total (mrd NOK) | Gini (mottaker) | Topp 1 % | Topp 10 % | Median | Gini (kommune) |
 |---|---|---|---|---|---|---|---|
 | 2022 | 37 748 | 15,21 | 0,521 | 5,3 % | 32,2 % | 244 000 | 0,471 |
 | 2023 | 37 390 | 17,25 | 0,541 | 5,5 % | 33,8 % | 260 000 | 0,476 |
-| 2024* | 36 730 | 10,94* | 0,512* | 6,2 % | 34,4 % | 192 000 | 0,474 |
+| 2024 | 37 016 | 18,61 | 0,542 | 5,5 % | 33,8 % | 286 000 | 0,475 |
 
-\* 2024 er ufullstendig (kun 3 ordninger i åpne data per 14.06.2026); total er ~⅓ for lav. Ikke bruk som trend.
+**Korrigert 2026-06-14:** Den tidligere 2024-raden (10,94 mrd, «kun 3 ordninger») var en kolonnematch-bug i skriptet, ikke ufullstendige åpne data. Etter alias-fiks (slug↔prosa) summeres alle ordninger: 18,61 mrd brutto, verifisert mot publisert netto-total 18,39 mrd (Landbruksdirektoratet/LMD, 12.02.2025). 2024 er nå på linje med 2023. Se `food-tg-maktkart-section8-3-4-funn-2026-06-14.md`.
 
 Lorenz-kurven (2023): nederste 50 % av mottakerne holder 11,8 %, nederste 70 % holder 29,1 %, øverste 10 % holder 33,8 %. Figur: `docs/project/figures/food-tg-2026-06-14/fig-ap3-lorenz-tilskudd.svg`.
 
@@ -51,9 +51,9 @@ Tre forsvarbare, ikke-trivielle observasjoner:
 
 Regional fordeling er jevnere (Gini ~0,47 over 350 kommuner) enn mottakerfordelingen — pengene er spredt bredere geografisk enn per foretak.
 
-## 4. Datakvalitetsflagg: 2024 ufullstendig
+## 4. Datakvalitetsflagg: 2024 — løst (var skript-bug, ikke datahull)
 
-Analysen fanget en datafelle som illustrerer hvorfor disiplinen finnes. 2024-datasettet i Landbruksdirektoratets åpne data har **kun 3 av 15 ordninger fylt inn** (husdyr-, areal-, kulturlandskapstilskudd) — melkeproduksjon, avløser- og resten mangler. Det gir en kunstig lav total (10,94 mrd mot 15–17 mrd) og en lavere median. **2024-tallene skal ikke brukes som reell nedgang eller trend** før de er verifisert mot Landbruksdirektoratets publiserte totaler for søknadsåret. Et tall som *ser ut* som en dramatisk kutt (−37 %) er nesten sikkert et artefakt av ufullstendig åpne data.
+Analysen fanget opprinnelig en tilsynelatende datafelle: 2024-totalen kom ut på 10,94 mrd mot 15–17 mrd for 2022–2023. Primærsjekk (§8 steg 4, 2026-06-14) viste at dette **ikke** var ufullstendige åpne data, men en **kolonnematch-bug**: Landbruksdirektoratet omdøpte beløpskolonnene fra maskin-slugger (≤2023) til prosa-etiketter i 2024-fila, og skriptet matchet eksakt på slug — så bare 3 av 15 ordninger traff. Etter fiks (`SCHEME_ALIASES` + `resolveSchemeHeaders`, enhetstestet) er reell 2024 = **18,61 mrd brutto / 18,39 mrd netto** (publisert), verifisert mot Landbruksdirektoratet + LMD (12.02.2025). 2024-konsentrasjonen (Gini 0,54, topp-10 % 33,8 %) er på linje med 2023. Disiplin-lærdommen står: et tall som *så ut* som et dramatisk kutt var et skript-artefakt — men nå **løst**, ikke bare flagget.
 
 ## 5. Lakmustest
 
@@ -66,23 +66,23 @@ Analysen fanget en datafelle som illustrerer hvorfor disiplinen finnes. 2024-dat
 | Felt | Innhold |
 |---|---|
 | Claim-ID | CL-AP3-001 (utkast) |
-| Påstand | Norske produksjons- og avløsertilskudd er moderat konsentrert på mottakernivå (Gini ~0,52, 2022–2023); øverste 10 % får ~⅓, nederste 50 % får ~12 %. |
-| Evidens | Landbruksdirektoratet åpne data 2022–2023; mottaker-aggregat; `scripts/analyze-subsidy-concentration.ts` (matematikk enhetstestet). |
+| Påstand | Norske produksjons- og avløsertilskudd er moderat konsentrert på mottakernivå (Gini ~0,52–0,54, 2022–2024); øverste 10 % får ~⅓, nederste 50 % får ~12 %. |
+| Evidens | Landbruksdirektoratet åpne data 2022–2024; mottaker-aggregat; `scripts/analyze-subsidy-concentration.ts` (matematikk + kolonneresolver enhetstestet); 2024-total verifisert mot publisert primærtotal (LMD 12.02.2025). |
 | Risiko | Kan leses som «misbruk» eller fordelingsdom; struktur-effekt kan overses. |
-| Stoppspråk | Ikke si at tilskudd er «kapret av de store», ikke bruk 2024-total, ikke kall konsentrasjon urettferdig uten struktur-/policy-kontekst. |
-| Status | `intern baseline` — ikke ekstern faktastemme før PCQ-verifisering av 2024 og struktur-kontroll. |
+| Stoppspråk | Ikke si at tilskudd er «kapret av de store», ikke kall konsentrasjon urettferdig uten struktur-/policy-kontekst. (Tidligere «ikke bruk 2024-total» er løst — 2024 er verifisert, se §4.) |
+| Status | `klar-med-forbehold` — 2024 verifisert mot publisert total (§4); konsentrasjon konsistent 2022–2024. Ikke ekstern faktastemme før full operator-sekvens; lever alltid med struktur-forbeholdet. |
 
 ## 7. Forbehold
 
 - **Mottaker-nivå, ikke transaksjon:** sum over alle ordninger per orgnr/år; ett foretak = én mottaker.
 - **Kun produksjons- og avløsertilskudd:** ikke totalt landbruksstøtte (markedsordninger, investeringsstøtte, kvoteverdi, tollvern er ikke med). Konklusjonen gjelder denne tilskuddstypen.
 - **Struktur ≠ skjevhet:** ordningene er delvis utformet etter omfang; konsentrasjon reflekterer dels gårdsstruktur.
-- **2024 ufullstendig** (§4).
-- **To pålitelige år** gir ikke en trend; 0,521 → 0,541 er innenfor støy.
+- **2024 verifisert/lukket** (§4) — tidligere artefakt-lav var en skript-bug, nå rettet.
+- **Tre pålitelige år** (2022–2024); 0,521 → 0,541 → 0,542 er flatt/innenfor støy, ikke en stigende trend.
 
 ## 8. Neste
 
-1. Verifiser 2024-fullstendighet mot Landbruksdirektoratets publiserte totaler; kjør analysen på nytt når datasettet er komplett.
+1. ~~Verifiser 2024-fullstendighet mot Landbruksdirektoratets publiserte totaler.~~ **Gjort 2026-06-14:** 2024 var en kolonnematch-bug (nå fikset + enhetstestet); reell total 18,61 mrd verifisert mot publisert 18,39 mrd. Aggregatet `research/analyse/ap3-tilskuddskonsentrasjon.json` er regenerert.
 2. Kjør AP-1 (styreoverlapp/maktnettverk) — der ligger den mer sannsynlige «makt»-historien.
 3. Hvis ønsket: AP-2 (HHI per verdikjede-node) for å teste hypotesen i §5 om at konsentrasjonen er størst utenfor produksjonstilskuddet.
 4. Løft CL-AP3-001 til claim-register ved bruk; behold som intern baseline til da.

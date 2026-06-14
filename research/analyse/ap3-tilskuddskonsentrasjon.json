@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T11:24:25.031Z",
+  "generatedAt": "2026-06-14T23:38:04.617Z",
   "source": "Landbruksdirektoratet opendata",
   "results": [
     {
@@ -193,42 +193,97 @@
     },
     {
       "year": 2024,
-      "recipients": 36730,
-      "totalNok": 10942430600,
-      "meanNok": 297915,
-      "medianNok": 192117,
-      "giniRecipient": 0.5116,
-      "giniKommune": 0.4744,
-      "top1pctShare": 0.0617,
-      "top5pctShare": 0.2099,
-      "top10pctShare": 0.3437,
+      "recipients": 37016,
+      "totalNok": 18608323174,
+      "meanNok": 502710,
+      "medianNok": 285739,
+      "giniRecipient": 0.5415,
+      "giniKommune": 0.4749,
+      "top1pctShare": 0.0545,
+      "top5pctShare": 0.1982,
+      "top10pctShare": 0.3378,
       "lorenzDeciles": [
-        0.0077,
-        0.0247,
-        0.0519,
-        0.0913,
-        0.1465,
-        0.2223,
-        0.3252,
-        0.4632,
-        0.6563,
+        0.0056,
+        0.0181,
+        0.0388,
+        0.0703,
+        0.1171,
+        0.1865,
+        0.2907,
+        0.4457,
+        0.6622,
         1
       ],
       "schemeBreakdown": [
         {
           "scheme": "husdyrtilskudd",
           "amount": 4721090328,
-          "share": 0.4314
+          "share": 0.2537
         },
         {
           "scheme": "arealtilskudd",
           "amount": 3503577721,
-          "share": 0.3202
+          "share": 0.1883
         },
         {
           "scheme": "kulturlandskapstilskudd",
           "amount": 2717762551,
-          "share": 0.2484
+          "share": 0.1461
+        },
+        {
+          "scheme": "melkeproduksjon",
+          "amount": 2138322519,
+          "share": 0.1149
+        },
+        {
+          "scheme": "avloesertilskudd",
+          "amount": 1593498175,
+          "share": 0.0856
+        },
+        {
+          "scheme": "utmarksbeitetilskudd",
+          "amount": 1467249094,
+          "share": 0.0788
+        },
+        {
+          "scheme": "beitetilskudd",
+          "amount": 866327151,
+          "share": 0.0466
+        },
+        {
+          "scheme": "storfekjoettproduksjon",
+          "amount": 761633881,
+          "share": 0.0409
+        },
+        {
+          "scheme": "distriktstilskudd_frukt_groent",
+          "amount": 382306856,
+          "share": 0.0205
+        },
+        {
+          "scheme": "smaa_mellomstore_melkebruk",
+          "amount": 238203631,
+          "share": 0.0128
+        },
+        {
+          "scheme": "oekologiskarealtilskudd",
+          "amount": 85338287,
+          "share": 0.0046
+        },
+        {
+          "scheme": "oekologiskhusdyrtilskudd",
+          "amount": 80733297,
+          "share": 0.0043
+        },
+        {
+          "scheme": "bevaringsverdige_husdyr_tilsku",
+          "amount": 32223550,
+          "share": 0.0017
+        },
+        {
+          "scheme": "distriktstilskudd_potet_gronns",
+          "amount": 20056133,
+          "share": 0.0011
         }
       ],
       "kommuner": 351
