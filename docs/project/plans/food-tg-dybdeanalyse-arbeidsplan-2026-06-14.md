@@ -1,0 +1,159 @@
+---
+tittel: Food TG Dybdeanalyse-arbeidsplan 2026-06-14 — ikke-opplagt analyse på eksisterende data
+status: Forslag til intern arbeidsplan
+eier: Gabriel
+dato: 2026-06-14
+scope: Strukturert, kjørbar plan for å gjøre den innsamlede dataen om til ikke-opplagte, forsvarbare påstander — uten ny bredde-research. Replikerer hypotesetest-metoden fra `research/norge/kvantitativ-dybdeanalyse.md` på tvers av de 7 caseankrene.
+bruksregel: Internt arbeidsdokument. Hver analyse produserer interne funn som går gjennom claim-lock og PCQ før ekstern bruk. Ingen output er ekstern faktastemme uten operator-sekvensen i research/CITABLE-KNOWLEDGE-BASE-STATUS.md. Statistiske funn merkes med forbehold, dekningsgrad og metode.
+relaterte_filer:
+  - research/norge/kvantitativ-dybdeanalyse.md
+  - docs/project/analysis/plattform-dybdeanalyse-2026-06-11.md
+  - docs/project/mandates/primary-check-queue-food-tg-v0.1.md
+  - docs/project/mandates/food-tg-claim-lock-table-2026-05.md
+  - docs/project/mandates/food-tg-definerte-sok-spesifikasjon-2026-06-14.md
+  - docs/project/mandates/roadmap-food-tg-2026-2029-v0.1.md
+---
+
+# Food TG Dybdeanalyse-arbeidsplan 2026-06-14
+
+## 0. Hva planen er — og hvorfor
+
+Bekymringen som utløste planen: at kunnskapsbasen lister opp informasjon som er allemannskunnskap for folk i feltet («tre aktører kontrollerer 96 %», «selvforsyning under 50 %»), uten å gi noe nytt. Planen svarer på det med ett grep: **vri eksisterende data til ikke-opplagte, kvantifiserte påstander gjennom hypotesetesting** — ikke gjennom mer datainnsamling.
+
+Premisset er at vi allerede har et bevis på at dette går: `kvantitativ-dybdeanalyse.md` testet faktisk hypoteser (asymmetrisk pristransmisjon PPI→KPI, sesongbasert marginekspansjon, HHI/Gini/Lorenz, tidsseriedekomponering) og produserte påstander en bransjeinnsider *ikke* allerede har liggende. Den analysen er imidlertid konsentrert om dagligvare/pris-domenet. Denne planen replikerer metoden på de andre ankrene, med data vi allerede har i basen.
+
+Dette er bevisst **ikke** en research-plan. Bredt videre-søk er ikke flaskehalsen (jf. 09.06-konklusjonen «risikoen nå er ikke for lite kunnskap, men at alt blir like viktig»). De målrettede, definerte søkene står i eget uttak: `food-tg-definerte-sok-spesifikasjon-2026-06-14.md`.
+
+## 1. Prinsipp og lakmustest
+
+Hver arbeidspakke må bestå denne testen før den regnes som ferdig:
+
+> **Produserer den minst én påstand en bransjeinnsider ikke allerede vet, og som vi kan forsvare med data?**
+
+Beskrivende kartlegging (hvem eier hva, hva flyter hvor) består *ikke* testen alene — det er inngangsdataen, ikke innsikten. Innsikten ligger i mønsteret: konsentrasjon, asymmetri, overlapp, korrelasjon, divergens over tid.
+
+To disipliner gjelder gjennomgående: (1) statistisk nøkternhet — korrelasjon er ikke årsak, og funn merkes med n, dekningsgrad og usikkerhet; (2) claim-disiplin — ingen påstand løftes til ekstern faktastemme uten claim-lock/PCQ, og strukturelle funn formuleres som posisjon/mønster, ikke som intensjon eller anklage.
+
+## 2. Datagrunnlag (det vi allerede har)
+
+Tall fra `/api/data-status` per 14.06.2026:
+
+| Datasett | Volum | Brukes i |
+|---|---|---|
+| Produksjonstilskudd (`subsidiesProduksjon`) | ~179 310 rader | AP-3, AP-8 |
+| Leveransevolum (`deliveryVolumes`) | ~60 310 rader | AP-4 |
+| Havbrukslokaliteter (`aquacultureSites`) | 285 | AP-6 |
+| Selskaper (`companies`) | 185 | AP-1, AP-2, AP-5 |
+| Aktører (`actors`) | 169 | AP-1, AP-6 |
+| Personprofiler (`personProfiles`) | 369 | AP-1 |
+| Forretningsrelasjoner (`businessRelationships`) | 105 | AP-1, AP-5 |
+| Konserndekning (`konsern-coverage`) | 14 konsern | AP-5 |
+
+Metodisk presedens: `research/norge/kvantitativ-dybdeanalyse.md` (HHI, Gini, Lorenz, pris-asymmetri, tidsserie). Kjent begrensning: finansdekning ~50 % av selskapskorpuset (jf. `plattform-dybdeanalyse-2026-06-11.md` funn A1) — påvirker AP-4.
+
+## 3. Analyse-backlog (arbeidspakker)
+
+Hver pakke: ikke-opplagt hypotese → datagrunnlag → metode → output → claim-gate → anker → estimat.
+
+### AP-1 — Styreoverlapp og maktnettverk (board interlocks)
+- **Hypotese:** Reell innflytelse i norsk matsystem går via personer med styreverv på tvers av fôr, dagligvare og produksjon — ikke bare via selskapseierskap. Få personer er «broer» mellom ellers atskilte sektorer.
+- **Data:** `personProfiles` (369) × `companies` (185) × `businessRelationships` (105).
+- **Metode:** Bygg bipartitt person↔selskap-graf; tell styreverv per person; beregn betweenness/broer mellom sektorklynger; mål interlock-tetthet.
+- **Output:** Interlock-kart + topp-N personer etter tverrsektoriell posisjon + liste over sektorbroer.
+- **Claim-gate:** Styreverv verifiseres mot Brønnøysund-dato; «makt» formuleres som strukturell posisjon, ikke intensjon. Personvern: offentlige rolledata, ikke karakteristikk.
+- **Anker:** Tverrgående (1, 5). **Estimat:** 2–3 dager.
+
+### AP-2 — Eierkonsentrasjon per verdikjede-node (HHI)
+- **Hypotese:** Konsentrasjonen er ujevn langs kjeden — enkelte noder (f.eks. fôrimport, grøntdistribusjon) er mer konsentrert enn dagligvarens topplinje på 96 % antyder.
+- **Data:** `companies` + eierskap + `verdikjede.ts`.
+- **Metode:** HHI per node i verdikjeden; ranger noder etter konsentrasjon.
+- **Output:** HHI-profil per node + identifiserte flaskehals-noder.
+- **Claim-gate:** HHI krever fullstendig markedsandelsgrunnlag per node; der det mangler, merk `needs-data` framfor å estimere.
+- **Anker:** 1, 5. **Estimat:** 2 dager.
+
+### AP-3 — Tilskuddskonsentrasjon (Gini/Lorenz)
+- **Hypotese:** Av ~179 000 produksjonstilskudd-rader konsentreres pengene asymmetrisk — offentlig støtte forsterker eksisterende struktur framfor å utjevne den.
+- **Data:** `subsidiesProduksjon` (~179 310).
+- **Metode:** Gini + Lorenz-kurve per region/kategori/mottaker; topp-decil-andel; konsentrasjon over tid hvis årsdata finnes.
+- **Output:** Tilskudds-Gini + topp-mottaker-konsentrasjon + regional skjevhet.
+- **Claim-gate:** Tilskudd ≠ misbruk; beskriv fordeling nøytralt, ikke moralsk. Bekreft at radene er mottaker-nivå, ikke transaksjons-duplikater.
+- **Anker:** 1, 5. **Estimat:** 2 dager. *(Høy gevinst: stort, rent datasett; politisk relevant; vanskelig å avfeie.)*
+- **Skript:** `scripts/analyze-subsidy-concentration.ts` (kjørbart, DB-fritt; henter Landbruksdirektoratets åpne data; Gini/Lorenz/topp-andel per mottaker, ordning og kommune; matematikk enhetstestet 14.06).
+
+### AP-4 — Verdifangst-asymmetri (volum vs. verdi)
+- **Hypotese:** De som flytter mest volum er ikke de som fanger mest verdi — verdifangsten sitter et annet sted i kjeden enn volumet.
+- **Data:** `deliveryVolumes` (~60 310) + finansdata der den finnes.
+- **Metode:** Koble leveransevolum til omsetning/margin per aktør; volum-vs-verdi-kart; identifiser asymmetri.
+- **Output:** Verdifangst-indikator per kjedeledd.
+- **Claim-gate:** Finansdekning ~50 % — begrens til selskaper med regnskap og merk dekningshullet eksplisitt; ikke ekstrapoler til hele korpuset.
+- **Anker:** 2, 5. **Estimat:** 3 dager.
+
+### AP-5 — Krysseie og tverrsektoriell kontroll
+- **Hypotese:** Samme eiermiljøer kontrollerer på tvers av fôr + dagligvare + produksjon — vertikal/horisontal integrasjon skjult bak konsernstruktur.
+- **Data:** `companies` + eierskap + `konsern-coverage` (14 konsern).
+- **Metode:** Spor ultimate eiere; finn delte eiere på tvers av spor; bygg krysseie-kart.
+- **Output:** Krysseie-kart + liste over skjulte tverrsektorielle koblinger.
+- **Claim-gate:** Ultimate ownership spores til kilde; ikke anta kontroll fra minoritetspost; skill eierskap fra kontroll.
+- **Anker:** Tverrgående. **Estimat:** 2 dager.
+
+### AP-6 — Havbrukskonsentrasjon og restråstoff-tilgang
+- **Hypotese:** Konsentrasjon av oppdrettslokaliteter/biomasse hos få aktører former hvem som faktisk har tilgang til restråstoff-strømmene (anker 2).
+- **Data:** `aquacultureSites` (285) + `actors`.
+- **Metode:** Konsentrasjon per aktør/region; koble til restråstoff-tilgangslogikk.
+- **Output:** Havbruk-konsentrasjonsprofil + tilgangsimplikasjon for B-sporet.
+- **Claim-gate:** Lokalitet ≠ biomasse ≠ restråstoffvolum; hold nivåene atskilt.
+- **Anker:** 2. **Estimat:** 1–2 dager.
+
+### AP-7 — Replikér pris-asymmetri til andre domener
+- **Hypotese:** «Rockets and feathers»-asymmetrien finnes også utenfor dagligvare — f.eks. fôr→oppdrett eller grønt — der prisøkninger slår raskere ut enn prisfall.
+- **Data:** Prisindekser (PPI/KPI) per domene der serier finnes.
+- **Metode:** Gjenbruk H-NY1-metoden fra `kvantitativ-dybdeanalyse.md` på nye domener.
+- **Output:** Asymmetri-test per domene (bekreftet/avkreftet/utilstrekkelig data).
+- **Claim-gate:** Krever PPI/KPI-serier med definisjon per domene; der de mangler, `needs-data` — ikke lån dagligvare-funnet til andre domener.
+- **Anker:** 1, 5. **Estimat:** 2–3 dager.
+
+### AP-8 — Tilskudd-mot-konsentrasjon-korrelasjon
+- **Hypotese:** Offentlige midler flyter mot allerede konsentrerte noder (eller, motsatt, mot fragmenterte) — en testbar påstand om hvorvidt støtte motvirker eller forsterker konsentrasjon.
+- **Data:** AP-3-output (tilskudd) × AP-2-output (HHI).
+- **Metode:** Korrelér tilskuddsintensitet mot konsentrasjon per node/region.
+- **Output:** Én forsvarbar påstand om støttens strukturelle retning.
+- **Claim-gate:** Korrelasjon ≠ årsak; formuler som observert samvariasjon med n og usikkerhet.
+- **Anker:** 1, 5. **Estimat:** 1 dag (bygger på AP-2/AP-3).
+
+## 4. Faseplan og rekkefølge
+
+Sekvensert etter gevinst/avhengighet — selvstendige, høy-novelty-pakker først:
+
+| Fase | Uke | Pakker | Hvorfor først |
+|---|---|---|---|
+| 1 | 1 | AP-1, AP-3 | Ren eksisterende data, høy novelty, ingen avhengigheter; AP-3 er stort rent datasett |
+| 2 | 2 | AP-2, AP-5, AP-6 | Konsentrasjons-/eierstruktur; bygger maktbildet |
+| 3 | 3 | AP-4, AP-7, AP-8 | AP-4 begrenset av finansdekning; AP-8 bygger på fase 1–2 |
+
+Etter hver fase: en kort konsolidering — hvilke påstander besto lakmustesten, hvilke ble `needs-data`, og hvordan de surfaces (jf. §6).
+
+## 5. Kvalitet, claim-disiplin og surfacing
+
+Tre krav per output:
+
+1. **Claim-lock/PCQ:** hver påstand som skal kunne brukes utad får en claim-lock-rad med evidens og risikofelt; uavklarte deler går til PCQ som `needs-data`/`needs-primary-check`.
+2. **Statistiske forbehold:** n, dekningsgrad, metode og «hva vi ekskluderte og hvorfor» dokumenteres — samme mal som metodologikapittelet i `kvantitativ-dybdeanalyse.md`.
+3. **Surfacing:** funnet plasseres der det forklarer noe. `plattform-dybdeanalyse-2026-06-11.md` viste at dyp analyse i dag drukner i hardkodede KPI-kort og listedumper — et funn som ikke surfaces, oppleves som allemannskunnskap selv om det ikke er det. Hver bestått pakke kobles til en flate (graf, verdikjede, innsikt) eller en figur.
+
+## 6. Ferdigkriterium per pakke
+
+En pakke er ferdig når: (a) den har produsert minst én påstand som består lakmustesten, (b) påstanden har claim-lock-rad med forbehold, (c) usikre deler er ført til PCQ, og (d) funnet er surfaced på en flate eller i en figur. Pakker som *ikke* finner et ikke-opplagt mønster, lukkes som «testet, negativt» — også det er et resultat, og det dokumenteres.
+
+## 7. Risiko
+
+| Risiko | Mottiltak |
+|---|---|
+| Spuriøse korrelasjoner / p-hacking | Forhåndsdefiner hypotesen før kjøring; rapporter negative funn; ingen etterrasjonalisering |
+| Overclaiming fra delvis data (særlig AP-4) | Eksplisitt dekningsgrad; ingen ekstrapolering utover korpuset med regnskap |
+| Strukturelle funn leses som anklage | Formuler som posisjon/mønster; juridisk nøkternt språk; ingen aktørspesifikk «misbruk»-claim uten primærkilde |
+| Analyse spiser H1-leveransen | Pakkene kan alle utsettes til H2 uten å true 31.07; kjør fase 1 som pilot, vurder resten etter |
+| Funn surfaces ikke → oppleves som grunt | §5 krav 3 er obligatorisk per pakke |
+
+## 8. Verifikasjon
+
+Metodisk presedens og datagrunnlag er hentet fra `research/norge/kvantitativ-dybdeanalyse.md` (hypotesetest-metode) og `/api/data-status` (datasettvolum 14.06.2026). Finansdekningsforbeholdet (AP-4) er fra `plattform-dybdeanalyse-2026-06-11.md` funn A1. Konserntall fra `data/konsern-coverage.json` (14 entries). Ingen påstand i denne planen er selv et analysefunn — planen beskriver analyser som skal kjøres. Alle resultater går gjennom claim-lock/PCQ før ekstern bruk. `git diff --check` forutsettes kjørt før commit.
