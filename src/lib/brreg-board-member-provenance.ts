@@ -11,6 +11,7 @@ export type BoardMemberForProvenancePruning = ExistingBoardMemberForBrregMatch &
 }
 
 export const BRREG_ROLES_SOURCE_LABEL = 'Brønnøysundregistrene roller i virksomheten'
+export const BRREG_SEED_BOARD_SOURCE_LABEL = 'Session 5 seed board roster (Brreg locator pending enrichment)'
 
 export function boardMemberPersonRoleKey(personKey: string, role: string): string {
   return `${personKey}|${role}`
@@ -71,12 +72,20 @@ function isCompletelyUnverifiedSeedRow(member: BoardMemberForProvenancePruning):
   return !member.source?.trim() && !member.sourceUrl?.trim() && !member.verifiedAt
 }
 
+function isSession5SeedRowWithLocator(member: BoardMemberForProvenancePruning): boolean {
+  return (
+    member.source === BRREG_SEED_BOARD_SOURCE_LABEL &&
+    Boolean(member.sourceUrl?.trim()) &&
+    Boolean(member.verifiedAt)
+  )
+}
+
 export function selectUnverifiedSeedBoardMemberIdsForPruning(
   members: BoardMemberForProvenancePruning[],
 ): string[] {
   if (!members.some(hasBrregRoleProvenance)) return []
 
   return members
-    .filter(isCompletelyUnverifiedSeedRow)
+    .filter((member) => isCompletelyUnverifiedSeedRow(member) || isSession5SeedRowWithLocator(member))
     .map((member) => member.id)
 }

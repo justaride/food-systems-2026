@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs'
 import { describe, it } from 'node:test'
 import {
   BRREG_ROLES_SOURCE_LABEL,
+  BRREG_SEED_BOARD_SOURCE_LABEL,
   boardMemberPersonRoleKey,
   boardMemberNamesAreCompatible,
   groupBoardMembersByPersonRole,
@@ -94,5 +95,28 @@ describe('offentligdata board-member provenance import', () => {
     ])
 
     assert.deepEqual(ids, [])
+  })
+
+  it('selects Session 5 seed rows with source locators for pruning when BRREG replacements exist', () => {
+    const ids = selectUnverifiedSeedBoardMemberIdsForPruning([
+      {
+        id: 'session5-seed',
+        personKey: 'lars-kristian-lindberg',
+        role: 'styremedlem',
+        source: BRREG_SEED_BOARD_SOURCE_LABEL,
+        sourceUrl: 'https://data.brreg.no/enhetsregisteret/api/enheter/894759372/roller',
+        verifiedAt: new Date('2026-06-16T00:00:00Z'),
+      },
+      {
+        id: 'brreg-current',
+        personKey: 'tina-flem',
+        role: 'styremedlem',
+        source: BRREG_ROLES_SOURCE_LABEL,
+        sourceUrl: 'https://data.brreg.no/enhetsregisteret/api/enheter/894759372/roller',
+        verifiedAt: new Date('2026-06-16T00:00:00Z'),
+      },
+    ])
+
+    assert.deepEqual(ids, ['session5-seed'])
   })
 })

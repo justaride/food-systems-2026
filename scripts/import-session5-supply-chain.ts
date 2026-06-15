@@ -2,9 +2,12 @@ import 'dotenv/config'
 import { canonicalPersonKey as normalizePersonKey } from '../src/lib/person-key'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { BRREG_SEED_BOARD_SOURCE_LABEL } from '../src/lib/brreg-board-member-provenance'
+import { resolveShareholderSourceLocator } from '../src/lib/row-source-locators'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
+const BRREG_BASE_URL = 'https://data.brreg.no/enhetsregisteret/api'
 
 type PropertyData = {
   companyOrgNr: string
@@ -52,6 +55,24 @@ type RelationshipRecord = {
   description?: string
   sector?: string
   source?: string
+}
+
+function shareholderProvenanceData(locator: string | null, verifiedAt: Date) {
+  if (!locator) return {}
+
+  if (locator.startsWith('document:')) {
+    return { source: locator, verifiedAt }
+  }
+
+  return {
+    source: 'Aksjonærdata: årsrapport/offentlig eierskapskilde',
+    sourceUrl: locator,
+    verifiedAt,
+  }
+}
+
+function brregRolesUrl(orgNr: string) {
+  return `${BRREG_BASE_URL}/enheter/${orgNr}/roller`
 }
 
 // ─── New Companies ──────────────────────────────────────────────────
@@ -439,6 +460,13 @@ async function resolveCompanyId(orgNr: string): Promise<string | null> {
 async function importNewCompanies() {
   console.log('Importing Session 5 new companies...\n')
   let created = 0
+  const importedAt = new Date()
+  const documents = await prisma.document.findMany({
+    select: { id: true, slug: true },
+  })
+  const documentRefs = new Set(
+    documents.flatMap((document) => [document.id, document.slug].filter(Boolean) as string[]),
+  )
 
   for (const c of newCompanies) {
     const company = await prisma.company.upsert({
@@ -473,6 +501,15 @@ async function importNewCompanies() {
     if (c.shareholders) {
       await prisma.shareholder.deleteMany({ where: { companyId: company.id } })
       for (const s of c.shareholders) {
+        const sourceLocator = resolveShareholderSourceLocator(
+          {
+            name: s.name,
+            ownershipPct: s.ownershipPct,
+            company: { orgNr: c.orgNr },
+          },
+          documentRefs,
+        )
+
         await prisma.shareholder.create({
           data: {
             companyId: company.id,
@@ -480,6 +517,7 @@ async function importNewCompanies() {
             ownershipPct: s.ownershipPct,
             shareholderType: s.shareholderType,
             isControlling: s.isControlling ?? false,
+            ...shareholderProvenanceData(sourceLocator, importedAt),
           },
         })
       }
@@ -494,6 +532,9 @@ async function importNewCompanies() {
             personName: b.personName,
             role: b.role,
             personKey: normalizePersonKey(b.personName),
+            source: BRREG_SEED_BOARD_SOURCE_LABEL,
+            sourceUrl: brregRolesUrl(c.orgNr),
+            verifiedAt: importedAt,
           },
         })
       }

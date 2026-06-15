@@ -237,6 +237,22 @@ function resolvedLocatorText(parsed: ParsedCitationLocator | null) {
   return ''
 }
 
+function linkDocumentFilePathCandidate(
+  candidate: SourceCitationBackfillCandidate,
+  parsed: ParsedCitationLocator,
+): ParsedCitationLocator {
+  if (
+    candidate.entityType === 'Document' &&
+    candidate.fieldPath === 'filePath' &&
+    parsed.localPath &&
+    !parsed.documentId
+  ) {
+    return { ...parsed, documentId: candidate.entityId }
+  }
+
+  return parsed
+}
+
 function sourceClassFor(candidate: SourceCitationBackfillCandidate, parsed: ParsedCitationLocator) {
   if (parsed.internalRef) return 'internal_synthesis'
   if (candidate.sourceClass) return candidate.sourceClass
@@ -338,11 +354,12 @@ export function buildCitationBackfillPlan(
       continue
     }
 
+    const linkedParsed = linkDocumentFilePathCandidate(candidate, parsed)
     const sourceKey = sourceCitationDuplicateKey({
-      documentId: parsed.documentId,
-      localPath: parsed.localPath,
-      url: parsed.url,
-      sourceDocId: parsed.sourceDocId,
+      documentId: linkedParsed.documentId,
+      localPath: linkedParsed.localPath,
+      url: linkedParsed.url,
+      sourceDocId: linkedParsed.sourceDocId,
       citationText: candidate.citationText,
     })
     const existingCitationId = existingSourceCitationIdsByKey.get(sourceKey)
@@ -363,7 +380,7 @@ export function buildCitationBackfillPlan(
       status = 'duplicate_source_create_field'
     } else {
       citationClientKey = `source-${plan.sourceCitationsToCreate.length + 1}`
-      sourceCitation = toPlannedSourceCitation(candidate, parsed, citationClientKey)
+      sourceCitation = toPlannedSourceCitation(candidate, linkedParsed, citationClientKey)
       plan.sourceCitationsToCreate.push(sourceCitation)
       plannedSourceIdsByKey.set(sourceKey, citationClientKey)
     }
@@ -404,7 +421,7 @@ export function buildCitationBackfillPlan(
       fieldPath: candidate.fieldPath,
       citationText: candidate.citationText,
       locator,
-      resolvedLocator: resolvedLocatorText(parsed),
+      resolvedLocator: resolvedLocatorText(linkedParsed),
       citationReadiness: sourceCitation?.citationReadiness ?? 'blocked_unsourced',
       reason:
         status === 'create'

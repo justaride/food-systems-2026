@@ -149,6 +149,23 @@ describe('source citation backfill helpers', () => {
     )
   })
 
+  it('keeps Document filePath citations linked to their Document row', () => {
+    const plan = buildCitationBackfillPlan([
+      {
+        entityType: 'Document',
+        entityId: 'doc-1',
+        fieldPath: 'filePath',
+        citationText: 'Document local file: Report',
+        locator: 'bibliotek/report.md',
+        sourceClass: 'primary',
+      },
+    ])
+
+    assert.equal(plan.sourceCitationsToCreate.length, 1)
+    assert.equal(plan.sourceCitationsToCreate[0].documentId, 'doc-1')
+    assert.equal(plan.sourceCitationsToCreate[0].localPath, 'bibliotek/report.md')
+  })
+
   it('formats preview CSV with stable headers and escaped values', () => {
     const csv = formatBackfillPreviewCsv([
       {
