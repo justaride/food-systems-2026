@@ -295,7 +295,7 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
 
       {quality.businessRelationshipDuplicates.length > 0 && (
         <DuplicateList
-          title="BusinessRelationship-duplikater"
+          title="Relasjons-duplikater"
           groups={quality.businessRelationshipDuplicates}
           hrefBuilder={() => null}
           tone="warn"
@@ -335,7 +335,7 @@ function DataQualityPanel({ quality }: { quality: GraphQualityReport }) {
       {quality.orphanBoardMembers.length > 0 && (
         <div className="mt-4">
           <h4 className="text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
-            Styremedlemmer uten PersonProfile ({quality.orphanBoardMembers.length})
+            Styremedlemmer uten profil ({quality.orphanBoardMembers.length})
           </h4>
           <ul className="text-xs text-stone-600 space-y-1 max-h-48 overflow-y-auto border border-stone-200 rounded p-2 bg-stone-50">
             {quality.orphanBoardMembers.slice(0, 50).map((bm, i) => (

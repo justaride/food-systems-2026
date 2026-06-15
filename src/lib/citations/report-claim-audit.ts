@@ -295,7 +295,7 @@ export function auditCitableReportDocuments(input: CitableReportAuditInput): Cit
       issues.push({
         code: 'hhi_cr3_mislabel',
         severity: 'blocking',
-        message: 'HHI/CR3 labels are mixed; 96.6% must be CR3, while HHI is 3445.',
+        message: 'HHI/CR3 labels are mixed; 96.6% must be CR3, while HHI is 3327 (KT omsetning 2024).',
         evidence: `${name}:${lineNumber}: ${line}`,
       })
     }

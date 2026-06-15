@@ -1,7 +1,4 @@
 ref,entity_type,problem,severity,suggested_action,priority
-"CITABLE-ACCEPTANCE-TESTS.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
-"CITABLE-KNOWLEDGE-BASE-HANDOFF-2026-05-20.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
-"CITABLE-KNOWLEDGE-BASE-STATUS.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
 "arkiv-sortert/Food Research Process 20.04.26/00_Working_Files/Research-Report-Norges-matrevolusjon-2026.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
 "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/2022-68-EMV-og-innovasjon-i-dagligvare-1.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
 "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/20250326-salling-groups-erhvervelse-af-dele-af-coop-danmark-a.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
@@ -269,8 +266,72 @@ ref,entity_type,problem,severity,suggested_action,priority
 "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/coop-danmark-aarsrapport-2024 (1).pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
 "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/dagligvare_rapport (1).pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
 "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/dagligvare_rapport (2).pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
-"citable-acceptance-pack-2026-05-20.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"bibliotek/akademia/nhh-food/butikkstruktur-2024 2.md",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"bibliotek/akademia/nhh-food/food-konsentrasjon-nordisk-2024 2.md",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"bibliotek/akademia/nhh-food/matbors-historie 2.md",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"bibliotek/akademia/nhh-food/pettersen-steen-mot-bedre-vitende-i-norsk-matsektor-2020 2.md",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"bibliotek/sirkularitet/kilder/ks-veileder-sirkulaerokonomi-om-veilederen-2022.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"bibliotek/sirkularitet/kilder/resource-se-slutrapport-regional-resurskartlaggning-2026-03.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/nordisk/nordic-nutrition-recommendations-2023.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/dk-landbrugsstyrelsen-okologiske-jordbrugsbedrifter-2024.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/dk-okologisk-landsforening-arsrapport-2025.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/dk-organic-denmark-market-report-2025.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/fi-ruokavirasto-luomuvalvonta-2024.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/is-esa-country-profile-iceland-2023.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/is-esa-official-controls-2023.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/is-government-organic-action-plan-2024.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/no-debio-statistikk-2024.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/no-landbruksdirektoratet-okologiske-jordbruksvarer-2025.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/nordic-fibl-ifoam-organic-world-2026.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekologiska-arsrapporten-2024.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekologiska-marknadsrapporten-2024.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-emc-marknadsrapport-2022.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-emc-marknadsrapport-2023.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-kompletterande-statistik-ekologiska-arsrapporten-2024.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-effektrapport-2025.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2023-april.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2023-juni-potatis.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2023-november-biologisk-mangfald.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2023-september-skolmjolk.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2024-april.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2024-oktober-beredskap.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2025-april.pdf",file,orphan_file,MEDIUM,"Link to a Document/SourceDoc or Report.supportingSources, or move to archive",
+"external/dro-0906/drr-0906-001-brasil-kaffe.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-0906/drr-0906-002-elfenbenskysten-kakao-eudr.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-0906/drr-0906-003-valio-importfritt-for-case.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-0906/drr-0906-004-valio-soyafritt-dairy-feed-governance.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-0906/drr-0906-005-distribusjon-adoption-gate.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-0906/drr-0906-006-spillvarme-green-mountain-hima.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-0906/drr-0906-007-100-fish-iceland-ocean-cluster.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-0906/drr-0906-008-skottland-polen.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/downloads/dist/ofg-frukt-og-grontstatistikk-2025.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/downloads/sintef-fhf-analyse-marint-restrastoff-2024.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/downloads/valio/ruokavirasto-gm-soija-tuonti-rehukayttoon-2008-2023.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/downloads/valio/ruokavirasto-rehuaineet-lisaaineet-esiseokset-tuonti-2022-2023.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/downloads/valio/ruokavirasto-rehuaineiden-valmistus-2022-2023.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/downloads/valio/ruokavirasto-rehuvalvonta-2025.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/downloads/valio/ruokavirasto-tuotantoelainten-rehuseosten-tuonti-2018-2023.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/downloads/valio/ruokavirasto-tuotantoelainten-rehuseosten-valmistus-2011-2023.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/downloads/zero-waste-scotland-characterising-fish-processing-by-products.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/drr-1206-001-valio-kort-svar.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/drr-1206-002-brasil-kaffe-natural-state.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/drr-1206-003-brasil-kaffe-lenkeoversikt.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/drr-1206-004-brasil-kaffe-source-validation.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/drr-1206-005-kakao-ci-source-validation.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/drr-1206-006-valio-soy-free-governance.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/drr-1206-007-100-fish-iceland-benchmark.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/drr-1206-008-spillvarme-food-production.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/drr-1206-009-distribusjon-adoption-gate.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/dro-1206/drr-1206-010-kakao-ci-case-validation.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
 "external/nch-contract/contract-201-2503-P25013.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/spor1-uttak-2026-06-12/uttak-01-statistics-iceland-sja09114.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/spor1-uttak-2026-06-12/uttak-02-sintef-fhf-restrastoff.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/spor1-uttak-2026-06-12/uttak-03-wiig-einnsyn.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/spor1-uttak-2026-06-12/uttak-04-valio-offentlig.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/spor1-uttak-2026-06-12/uttak-05-sbmt-ibioic.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/spor1-uttak-2026-06-12/uttak-06-kt-horinger.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/spor1-uttak-2026-06-12/uttak-07-kakao-eu-omvei.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"external/spor1-uttak-2026-06-12/uttak-08-norsk-grunnlinje-forimport.md",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
 "pdf-downloads-20-04-26/1-s2.0-S0044848617322998-main.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
 "pdf-downloads-20-04-26/1-s2.0-S0044848625013481-main.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
 "pdf-downloads-20-04-26/1-s2.0-S2451943X24000486-main.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
@@ -307,5 +368,146 @@ ref,entity_type,problem,severity,suggested_action,priority
 "visualisering/figurer/fig7_nordic_concentration_comparison.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
 "visualisering/figurer/fig8_self_sufficiency_rates.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
 "visualisering/figurer/fig9_regulatory_heatmap.pdf",file,orphan_file,LOW,"Confirm intentional archive copy; otherwise consider removal",
+"cmq8rsnh5000eekvmd90n6xvp",Document,missing_file_document,MEDIUM,"Restore file at ""external/norgesgruppen-registreringsdokument-2025.pdf"" or update Document.filePath to actual location",
+"cmppajyof0000njvmdjrv2blv (tesdal-2013)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.5
+"cmppajyqr0001njvm7la1op31 (sedwall-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyqy0002njvmeo5z64yk (bojo-2023)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyr30003njvmka3xvjsc (nmbu-circular-vegetables-2022)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyr60004njvmkuyujbnd (van-straten-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmq8rsnh7000fekvmb9a3gc61",Document,missing_file_document,MEDIUM,"Restore file at ""external/reitan-eiendom-2024.pdf"" or update Document.filePath to actual location",
+"cmppajyrc0005njvm3ccaxbrf (segersven-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmq8rsnhz000wekvmjmmnyhcw",Document,missing_file_document,MEDIUM,"Restore file at ""external/nordic-council-waste-prevention-nord2025-007.pdf"" or update Document.filePath to actual location",
+"cmppajyri0006njvm31b5p6at (rey-verge-2005)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyrn0007njvmd1h15xme (slu-house-crickets-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyrr0008njvm72f0l3n2 (bueso-bordils-2021)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyru0009njvmavxrd7cp (desilva-2023)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyrz000anjvm40x9zv8t (lund-beijer-2026)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajys2000bnjvm18kstw5z (mirza-2016)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.5
+"cmppajyso000cnjvm1vx5gvhu (matsystemutvalget-2026)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajysv000dnjvm5uvvmk08 (akademia-uib-kjopermakt)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajysy000enjvmlvxividk (oversikt-tenketanker-ngo)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",3.5
+"cmppajyt3000fnjvmjakt14qv (se-konkurrensverket-2024-5)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyt8000gnjvmz8r1gkuy (asko-infrastruktur-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajytd000hnjvmn60kb31b (kt-markedsundersokelser-2026)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajytf000injvm3k3rqsu6 (is-markedsstruktur-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajytj000jnjvmapvnokb7 (juridisk-eudr-norge-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajytn000knjvm9q2oil3y (nbs-systemkritikk)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajytq000lnjvmyke545yn (evida-biogasstatus-danmark-2024)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppajytu000mnjvm08iarq3v (jordbruksverket-livsmedelskonsumtion-sverige-2024)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmq8rsnha000gekvm6gixtkx7",Document,missing_file_document,MEDIUM,"Restore file at ""external/jcleprod-norwegian-seafood-sd-2025.pdf"" or update Document.filePath to actual location",
+"cmq8rsnhb000hekvmfxr21olh",Document,missing_file_document,MEDIUM,"Restore file at ""external/ellen-macarthur-denmark-circular-2015.pdf"" or update Document.filePath to actual location",
+"cmppajytz000nnjvmc3fmzqgc (finland-nutrition-recommendations-2024)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmq8rsnhe000iekvmxetvdbw4",Document,missing_file_document,MEDIUM,"Restore file at ""external/luke-food-balance-2024.md"" or update Document.filePath to actual location",
+"cmppajyu3000onjvmqmv7ycxt (norden-policy-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.5
+"cmq8rsni0000xekvmts782ho2",Document,missing_file_document,MEDIUM,"Restore file at ""external/iceland-ocean-cluster-seafood-circular-2022.pdf"" or update Document.filePath to actual location",
+"cmq8rsni1000yekvmtkitik13",Document,missing_file_document,MEDIUM,"Restore file at ""external/regjeringen-handlingsplan-sirkulaer-okonomi-2024-2025.pdf"" or update Document.filePath to actual location",
+"cmppajyu9000pnjvmnf9p1ypx (akademia-sifo-retail-media-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyuc000qnjvmm7gsitu3 (juridisk-eiendomsmakt-lokal-konkurranse)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyue000rnjvmxrad483t (etmv-toimintakertomus-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyuh000snjvmgcmt6umd (coop-danmark-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyul000tnjvmlzlt7jek (verdibutikker-utfordrere)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.5
+"cmppajyuo000unjvmcl2enn4a (nordisk-sammenligning-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.5
+"cmppajyur000vnjvm4yz7gbmx (trolle-2024-fbdg-environmental-sustainability)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppajyut000wnjvm9uh3kihc (dlf-leverandor-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.5
+"cmppajyux000xnjvmzf93ke10 (ifro-danish-soy-imports-2025)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppajyv1000ynjvmqjymvcbk (menon-emv-innovasjon)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyv3000znjvm24f56eod (merkevarer-historie)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.0
+"cmppajyv60010njvmqvtgrlw9 (civita-manifest-debatt)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.5
+"cmppajyv80011njvmgpvgesxt (solutions-menu-2018)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppajyvb0012njvmnphhze07 (karlstad-declaration-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyve0013njvmw7zok4yr (nordic-food-alert-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyvi0014njvmjm0t5x4g (dagligvaretilsynet-aarsrapport-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyvn0015njvm6x39ztvs (biogas-danmark-outlook-2024)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppajyvq0016njvm54pgm4sa (luke-peat-soils-roadmap-finland-2024)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppajyvs0017njvm2oigezqq (pubmed-szulecka-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyvy0018njvmtrhi7iw8 (pubmed-sigala-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyw10019njvmnuoox38a (statistics-finland-biogas-2024)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppajyw6001anjvm95a7xl8g (valio-sustainability-report-2024)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppajyw8001bnjvm9rn9oa2w (beredskap-island-melmolle-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.5
+"cmppajywc001cnjvmql7lo7er (norgesgruppen-halvarsrapport-h1-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajywg001dnjvmesg58paz (akademia-nhh-matbors-historie)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajywj001enjvm0m816xpe (oversikt-offentlig-rapportlogg)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",3.0
+"cmppajywm001fnjvm3ugcn86r (beredskap-nibio-selvforsyning-metode)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajywp001gnjvmm2tb78w5 (plantefonden-projects-2023-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajywt001hnjvmyn336uml (oversikt-sirkularitet-dyp)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",3.5
+"cmppajyww001injvm093fjdh0 (coop-norge-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyx1001jnjvmywzmbra7 (eu-utp-report-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyx5001knjvmul13uwji (van-zanten-circularity-2023)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyx7001lnjvmznrvwwtg (jackson-holm-2024-food-sustainability-dimensions)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmq8rsni3000zekvmwu7rc3s9",Document,missing_file_document,MEDIUM,"Restore file at ""external/wur-elbersen-agri-residues-2022.pdf"" or update Document.filePath to actual location",
+"cmppajyxb001mnjvm618meabc (riksrevisionen-2025-jordbrukets-klimatomstallning)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppajyxg001nnjvmx2x39jef (biokierto-biogas-finland-2030-2040-2024)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmq8rsni70011ekvmnamdezrv",Document,missing_file_document,MEDIUM,"Restore file at ""external/mdpi-2071-1050-13-11-6231-turku-circular-food.pdf"" or update Document.filePath to actual location",
+"cmq8rsni50010ekvmnsgx0e5v",Document,missing_file_document,MEDIUM,"Restore file at ""external/prop-33-l-2019-2020.pdf"" or update Document.filePath to actual location",
+"cmppajyxk001onjvm8uh4qegn (oversikt-bransje-statistikk-beredskap)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.5
+"cmppajyxn001pnjvm1g7v5xd1 (sirkularitet-definisjoner-wur-emf)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyxq001qnjvmgci4vrq4 (oversikt-nordisk-mat-tenkere)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",3.5
+"cmppajyxw001rnjvmo7gty16f (finland-food2030)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.5
+"cmppajyxz001snjvmjzin1ww1 (konkurrensverket-2025-5-livsmedelsutredning)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyy5001tnjvmkbpjz5j7 (oversikt-nou-stortingsdok-juridisk)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",3.0
+"cmppajyy8001unjvmifn56ywm (oversikt-akademia-dyp-research)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.5
+"cmppajyyb001vnjvmxh0x02er (dk-salling-coop-decision-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyyf001wnjvmhfj24z4o (oversikt-nordisk-avhandlingsregister)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",3.0
+"cmppajyyi001xnjvm9v3f2zzf (salling-coop-danmark-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyyl001ynjvm4bdc2jvs (agrianalyse-bondens-andel-2025)",Document,missing_file_document,LOW,"Restore file at ""null"" or update Document.filePath to actual location",1.0
+"cmppajyyo001znjvm5l3m7ll6 (emv-kartlegging-2023)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyys0020njvmgyo6usd7 (kkv-fi-4a-dominans)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyyw0021njvmam1pbay7 (kfst-foedevarehandelslov-evaluering-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyyz0022njvminucxtun (dagligvarerapporten-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyz10023njvmv64s83y5 (fivh-etikk-2025)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",4.5
+"cmppajyz50024njvmgjezol1f (harwatt-2024-environmental-sustainability-nordic-baltic)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppajyz90025njvm7honuym3 (erkkola-2025-nnr-evidence-to-action)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppajyzc0026njvmqo4u2hqx (naturvardsverket-livsmedelsavfall-sverige-2024)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppajyzf0027njvmhef9ud89 (arla-farmahead-check-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyzh0028njvmatse5a18 (pubmed-van-der-fels-klerx-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyzk0029njvm85j5c2lz (sirkularitet-matsvinn-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmq8rsnif0016ekvmmrf87rct",Document,missing_file_document,MEDIUM,"Restore file at ""external/kfst-ok-coop-afgoerelse-2024-06-26.md"" or update Document.filePath to actual location",
+"cmppajyzo002anjvme2maywhb (akademia-nhh-butikkstruktur-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyzt002bnjvmy46d4szp (oversikt-nordisk-matmakt-historikk)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",3.5
+"cmppajyzv002cnjvm3mpaho9p (eu-utp-staff-working-doc-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajyzy002dnjvmygmi85r8 (pubmed-van-leeuwen-2024)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajz01002enjvmc6qc4e5m (kbh-food-strategy-madhus)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajz05002fnjvm809cboyl (motiva-food-procurement-2026)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmppajz0a002gnjvmrciurme9 (sodertaelje-diet-green-planet)",Document,missing_file_document,HIGH,"Restore file at ""null"" or update Document.filePath to actual location",5.0
+"cmq8rsnih0017ekvm9fs87cg8",Document,missing_file_document,MEDIUM,"Restore file at ""external/nesa-food-water-2030-programme.md"" or update Document.filePath to actual location",
+"cmppas6oi00003evmux65v0s6 (matsvinnloven-2025)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppgazam0000g5vmg0rcwk66 (konkurransetilsynet-dagligvare-2025)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppgazb10001g5vmfbv7rp2t (miljostyrelsen-madspild-2025)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppgazb60002g5vm1iwy5j0v (livsmedelsverket-skolor-2025)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppgez6p0000f5vm780lxspg (konkurrensverket-lonsamhet-2025)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppgez710001f5vmu3vx72b4 (konkurrensverket-etablering-2026)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppghqdv0000vfvm9j0h98zo (luke-food-waste-diary-2025)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmppghqe90001vfvmbwp87wah (livsmedelsforetagen-resiliens-2025)",Document,missing_file_document,MEDIUM,"Restore file at ""null"" or update Document.filePath to actual location",
+"cmq8rsnhg000jekvmfcai7mrs",Document,missing_file_document,MEDIUM,"Restore file at ""external/cdrc-priority-places.md"" or update Document.filePath to actual location",
+"cmq8rsnhi000kekvm8th1u208",Document,missing_file_document,MEDIUM,"Restore file at ""external/oecd-flw-2025.md"" or update Document.filePath to actual location",
+"cmq8rsnhj000lekvm5l5vhigm",Document,missing_file_document,MEDIUM,"Restore file at ""external/greenpeace-feeding-monster-2021.md"" or update Document.filePath to actual location",
+"cmq8rsnhl000mekvmou6qjq2j",Document,missing_file_document,MEDIUM,"Restore file at ""external/etmv-toimintakertomus-2024.pdf"" or update Document.filePath to actual location",
+"cmq8rsng10000ekvmcoahov5a",Document,missing_file_document,MEDIUM,"Restore file at ""external/nhh-food-steen-2024.md"" or update Document.filePath to actual location",
+"cmq8rsngb0001ekvmel13gspy",Document,missing_file_document,MEDIUM,"Restore file at ""external/feedback-blue-empire-2024.md"" or update Document.filePath to actual location",
+"cmq8rsnge0002ekvmhgvjcqa0",Document,missing_file_document,MEDIUM,"Restore file at ""external/eat-lancet-2025.md"" or update Document.filePath to actual location",
+"cmq8rsngg0003ekvm021q5h2q",Document,missing_file_document,MEDIUM,"Restore file at ""external/jrc-spp-2025.md"" or update Document.filePath to actual location",
+"cmq8rsngj0004ekvm0gqy3kj3",Document,missing_file_document,MEDIUM,"Restore file at ""external/ravareloeftet-2024.md"" or update Document.filePath to actual location",
+"cmq8rsngk0005ekvmnars2t75",Document,missing_file_document,MEDIUM,"Restore file at ""external/skretting-sustainability-2024.md"" or update Document.filePath to actual location",
+"cmq8rsngm0006ekvmkd4mqbwl",Document,missing_file_document,MEDIUM,"Restore file at ""external/statistics-finland-hbs-2012.md"" or update Document.filePath to actual location",
+"cmq8rsngp0007ekvmv07uqzln",Document,missing_file_document,MEDIUM,"Restore file at ""external/ecr-dagligvarukartan-2024.md"" or update Document.filePath to actual location",
+"cmq8rsngr0008ekvm3vofyt3r",Document,missing_file_document,MEDIUM,"Restore file at ""external/nordicfeed-nordforsk.md"" or update Document.filePath to actual location",
+"cmq8rsngu0009ekvmpotbo2tc",Document,missing_file_document,MEDIUM,"Restore file at ""external/prop-4-l-2025-2026.pdf"" or update Document.filePath to actual location",
+"cmq8rsngw000aekvmrju25aav",Document,missing_file_document,MEDIUM,"Restore file at ""external/press-id3101561-2025.pdf"" or update Document.filePath to actual location",
+"cmq8rsngz000bekvmmhi6uxmd",Document,missing_file_document,MEDIUM,"Restore file at ""external/cheffelo-q4-2025.pdf"" or update Document.filePath to actual location",
+"cmq8rsnh0000cekvmtv7zt12q",Document,missing_file_document,MEDIUM,"Restore file at ""external/motiva-responsible-food-procurement-2026.pdf"" or update Document.filePath to actual location",
+"cmq8rsnh3000dekvm84mp4w9g",Document,missing_file_document,MEDIUM,"Restore file at ""external/mst-denmark-food-waste-978-87-93529-80-9-2017.pdf"" or update Document.filePath to actual location",
+"cmq8rsnhm000nekvmcsoth0p2",Document,missing_file_document,MEDIUM,"Restore file at ""external/meld-st-25-2024-2025-sirkular.pdf"" or update Document.filePath to actual location",
+"cmq8rsnho000oekvmzfqx4jwz",Document,missing_file_document,MEDIUM,"Restore file at ""external/nkj-white-paper-2024.md"" or update Document.filePath to actual location",
+"cmq8rsnhq000pekvms91bau2o",Document,missing_file_document,MEDIUM,"Restore file at ""external/halseth-nhh-2023.md"" or update Document.filePath to actual location",
+"cmq8rsnhr000qekvmzurbh35d",Document,missing_file_document,MEDIUM,"Restore file at ""external/konkurrensverket-2024-4.md"" or update Document.filePath to actual location",
+"cmq8rsnht000rekvm1vipzxyt",Document,missing_file_document,MEDIUM,"Restore file at ""external/usda-gain-iceland-exporter-guide-2023.md"" or update Document.filePath to actual location",
+"cmq8rsnhu000sekvmh125najl",Document,missing_file_document,MEDIUM,"Restore file at ""external/konkurrensverket-2025-5-livsmedel.pdf"" or update Document.filePath to actual location",
+"cmq8rsnhv000tekvm8plly1pt",Document,missing_file_document,MEDIUM,"Restore file at ""external/kfst-evaluering-foedevarehandelsloven-2024.pdf"" or update Document.filePath to actual location",
+"cmq8rsnhx000uekvmm4xj8e8i",Document,missing_file_document,MEDIUM,"Restore file at ""external/slu-eriksson-food-chain-sustainability-2016.pdf"" or update Document.filePath to actual location",
+"cmq8rsnhy000vekvmzikj43kz",Document,missing_file_document,MEDIUM,"Restore file at ""external/nordic-council-low-carbon-circular-transition-2022.pdf"" or update Document.filePath to actual location",
+"cmq8rsni80012ekvm9hkzcwj0",Document,missing_file_document,MEDIUM,"Restore file at ""external/slu-karimi-filamentous-fungi-vinasse-2019.pdf"" or update Document.filePath to actual location",
+"cmq8rsnia0013ekvmknxpw8un",Document,missing_file_document,MEDIUM,"Restore file at ""external/frontiers-phosphorus-aquaculture-norway-2023.pdf"" or update Document.filePath to actual location",
+"cmq8rsnic0014ekvm8ynb1o20",Document,missing_file_document,MEDIUM,"Restore file at ""external/green-platform-mikroalger.md"" or update Document.filePath to actual location",
+"cmq8rsnie0015ekvmp52qy9il",Document,missing_file_document,MEDIUM,"Restore file at ""external/nested-circularity-finland-2023.pdf"" or update Document.filePath to actual location",
 "agrianalyse-bondens-andel-2025::Lokal blokkert PDF-kandidat",Report.supportingSources,broken_supportingsource,LOW,"Restore ""research/evidence-pack/akademia/agrianalyse-bondens-andel-2025.pdf"" or replace with valid url/documentPath in seed",1.0
 "sha:9f8d0396d2dd",Document[],duplicate_file_separate_records,LOW,"Consolidate Documents [cmp8xyn3d00grvvvmi1g0q8sq, cmp8xyoej00k6vvvm63gli4a8] -> one canonical record (paths: 3)",

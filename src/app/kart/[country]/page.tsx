@@ -81,6 +81,14 @@ export default function KartCountryPage({ params }: { params: Promise<{ country:
     <MapProvider country={country}>
       <div className="w-full h-full relative" style={{ height: 'calc(100vh - 57px)' }}>
         <h1 className="sr-only">Matkart for {COUNTRY_NAMES[country] ?? country}</h1>
+        <div className="pointer-events-none absolute top-3 left-1/2 z-[1000] -translate-x-1/2 max-w-[90vw] rounded-lg border border-stone-200 bg-white/95 px-3 py-1.5 text-center shadow-sm backdrop-blur">
+          <p className="text-[10px] font-semibold uppercase tracking-wider text-stone-400">
+            Matkart {COUNTRY_NAMES[country] ?? country}
+          </p>
+          <p className="text-[11px] leading-snug text-stone-500">
+            Butikker, kjeder og forsyningsledd — kilder nederst til venstre
+          </p>
+        </div>
         <FoodMap />
         <MapErrorOverlay />
         <FlowPrototypeLink />

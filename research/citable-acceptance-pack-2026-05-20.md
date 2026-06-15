@@ -2,7 +2,7 @@
 
 Generated: 2026-05-20
 
-Summary: 7/12 cite-ready, 5 blocked.
+Summary: 9/15 cite-ready, 6 blocked.
 
 A blocked result is intentional when the current evidence only supports internal context or `citable_with_note` while the question requires `citable_external`.
 
@@ -52,17 +52,17 @@ A blocked result is intentional when the current evidence only supports internal
 - Exclusion notes:
   - None
 
-## CA-004: Kan vi sitere Norge som HHI 3445 og CR3 96,6% uten å blande begrepene?
+## CA-004: Kan vi sitere Norge som HHI 3327 og CR3 96,6% uten å blande begrepene?
 
 - Status: `cite_ready`
 - Readiness: `citable_with_note`
 - Caveat required: yes
-- Proposed answer: Ja, når teksten sier HHI 3445 og CR3 96,6%, og ikke presenterer CR3 som HHI.
+- Proposed answer: Ja, når teksten sier HHI 3327 (KT-omsetning 2024) og CR3 96,6%, og ikke presenterer CR3 som HHI.
 - Required readiness: `citable_with_note`
 - Expected source type: computed market concentration data plus audited report correction
-- Known caveat: HHI er indeks, CR3 er prosentandel. Påstanden må bruke begge etikettene eksplisitt.
+- Known caveat: HHI er indeks, CR3 er prosentandel; bruk begge etikettene eksplisitt. HHI 3327 er omsetnings-HHI fra Konkurransetilsynets Dagligvarerapport 2024-25 (NG 43,5/Coop 29,2/Rema 23,9/Bunnpris 3,3 → 43,5²+29,2²+23,9²+3,3² = 3327). Ikke forveksle med chart-metrics butikkantall-baserte parentHhi.
 - Citations:
-  - no-chart-metrics: Norway food-system chart metrics (computed local dataset, citable_with_note) - public/data/food-systems/no/chart-metrics.json. Supports: Inneholder beregnet parent HHI for norsk dagligvarestruktur.
+  - no-value-chain: Norway value-chain retail concentration (curated primary dataset (KT Dagligvarerapport 2024-25), citable_with_note) - public/data/food-systems/no/value-chain.json. Supports: Inneholder retail-HHI 3327 og CR3 96,6 % fra KT-omsetningsandeler 2024 for norsk dagligvarestruktur.
   - hhi-cr3-report-correction: Nordisk sirkularitetsrapport HHI/CR3 correction (audited report package, citable_with_note) - public/reports/nordisk-sirkularitetsrapport-2026-05.html. Supports: Dokumenterer at tidligere HHI 96,6%-formulering er rettet.
 - Exclusion notes:
   - None
@@ -190,3 +190,49 @@ A blocked result is intentional when the current evidence only supports internal
   - Acceptance requires a source-backed underlying row before a relationship can be cited externally.
   - graph-query-filter: internal_context does not satisfy citable_external
   - graph-audit-low-confidence: internal_context does not satisfy citable_external
+
+## CA-013: Kan vi sitere at konsentrasjonen i norsk matsystem topper i foredling (meieri ~6000, rødt kjøtt ~4600) over dagligvare (~3327), med samvirkene TINE/Nortura som mest konsentrert?
+
+- Status: `cite_ready`
+- Readiness: `citable_with_note`
+- Caveat required: yes
+- Proposed answer: Ja, med forbehold: det ordinale funnet (foredling topper, samvirke mest konsentrert, primær lavest) er citable m/forbehold; oppgi at utfordrer-andeler er estimert og at referanseår/baser varierer.
+- Required readiness: `citable_with_note`
+- Expected source type: sourced market shares per node (authority/industry) with arithmetic verification
+- Known caveat: Ordinal-funnet (foredling > retail > primær) er robust via leder-gulv (TINE 76,4² = 5837; Nortura 66² = 4356 — begge over retail uansett utfordrer-split). Per-node presise HHI varierer; bær basis + år.
+- Citations:
+  - ap2-kryssnode-funn: AP-2 kryss-node markeds-HHI funn (internal sourced analysis (Oslo Economics / KLF / Animalia / KT / Fiskeridir.), citable_with_note) - docs/project/analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md. Supports: Dokumenterer node-HHI med kildebelagte leder-andeler + leder-gulv-robusthet og sjømat-kryssvalidering.
+  - no-value-chain-retail: Norway retail concentration (KT 2024) (curated primary dataset (KT Dagligvarerapport 2024-25), citable_with_note) - public/data/food-systems/no/value-chain.json. Supports: Retail-HHI 3327 (KT-omsetning) som referansepunkt for «over dagligvare».
+- Exclusion notes:
+  - None
+
+## CA-014: Kan vi sitere at samlede produksjonstilskudd i 2024 var ~18,6 mrd kr, og at den tidligere 10,94 mrd-totalen var et skript-artefakt?
+
+- Status: `cite_ready`
+- Readiness: `citable_with_note`
+- Caveat required: yes
+- Proposed answer: Ja, med forbehold: 2024 ~18,6 mrd (verifisert mot publisert 18,39 mrd); den tidligere 10,94 mrd var en skript-bug, ikke en reell nedgang.
+- Required readiness: `citable_with_note`
+- Expected source type: open agency data (Landbruksdirektoratet) with reproducible aggregate
+- Known caveat: 2024-totalen 18,61 mrd er regenerert etter en kolonnematch-bug (SCHEME_ALIASES) og avstemt mot publisert 18,39 mrd. Gini ~0,52–0,54; konsentrasjonen er strukturdrevet (husdyr/areal).
+- Citations:
+  - ap3-aggregate: AP-3 tilskuddskonsentrasjon aggregat (reproducible aggregate over Landbruksdirektoratet open data, citable_with_note) - research/analyse/ap3-tilskuddskonsentrasjon.json. Supports: Inneholder 2024-total 18,61 mrd + Gini, regenerert og avstemt mot publisert total.
+  - ap3-funn: AP-3 funnnotat (internal sourced analysis, citable_with_note) - docs/project/analysis/food-tg-ap3-tilskuddskonsentrasjon-funn-2026-06-14.md. Supports: Dokumenterer bug-fiksen og avstemmingen mot publisert total.
+- Exclusion notes:
+  - None
+
+## CA-015: Kan vi sitere AP-1-styrebroene (logistikk↔retail 7, foredling↔retail 6) som ekstern påstand om makt-konsentrasjon?
+
+- Status: `blocked`
+- Readiness: `internal_context`
+- Caveat required: yes
+- Proposed answer: Nei (ennå): AP-1-broene er intern baseline (internal_context) og fail-closes til de er primærsjekket og styredekningen er utvidet. Trianguleringen med AP-5 (vertikal eierkontroll) er den citerbare ruten.
+- Required readiness: `citable_with_note`
+- Expected source type: internal board-interlock graph pending primary check + coverage extension
+- Known caveat: AP-1 er intern baseline: 36 % styredekning, favoriserer store/velinnsamlede selskaper; dekningsutvidelse til ~47 % krever DB-kjøring. Pekepinn for AP-2/AP-5, ikke konklusjon.
+- Citations:
+  - ap1-funn: AP-1 styreoverlapp funn (internal graph analysis, internal_context) - docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md. Supports: Dokumenterer broene, men som intern baseline (36 % styredekning).
+- Exclusion notes:
+  - AP-1 alene er intern baseline (36 % styredekning) — fail-closed til primærsjekk + dekningsutvidelse (~47 %).
+  - Ekstern makt-påstand krever AP-5-triangulering (eierkontroll), ikke styregraf alene.
+  - ap1-funn: internal_context does not satisfy citable_with_note

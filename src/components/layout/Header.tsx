@@ -3,28 +3,32 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 const navigation = [
-  { name: 'Oversikt', href: '/' },
-  { name: 'Team', href: '/team' },
-  { name: 'Moter', href: '/moter' },
-  { name: 'Kommunikasjon', href: '/kommunikasjon' },
-  { name: 'Metodikk', href: '/metodikk' },
-  { name: 'Tidslinje', href: '/tidslinje' },
-  { name: 'Innsikt', href: '/innsikt' },
-  { name: 'Akademia', href: '/masteroppgaver' },
-  { name: 'Kart', href: '/kart' },
-  { name: 'Sammenligning', href: '/sammenligning' },
-  { name: 'Verdikjede', href: '/verdikjede' },
-  { name: 'Rapporter', href: '/rapporter' },
-  { name: 'Hvitbok', href: '/hvitbok' },
-  { name: 'Kilder', href: '/kilder' },
-  { name: 'Media', href: '/media' },
+  { key: 'oversikt', href: '/' },
+  { key: 'team', href: '/team' },
+  { key: 'casestatus', href: '/casestatus' },
+  { key: 'moter', href: '/moter' },
+  { key: 'kommunikasjon', href: '/kommunikasjon' },
+  { key: 'metodikk', href: '/metodikk' },
+  { key: 'tidslinje', href: '/tidslinje' },
+  { key: 'innsikt', href: '/innsikt' },
+  { key: 'akademia', href: '/masteroppgaver' },
+  { key: 'kart', href: '/kart' },
+  { key: 'sammenligning', href: '/sammenligning' },
+  { key: 'verdikjede', href: '/verdikjede' },
+  { key: 'rapporter', href: '/rapporter' },
+  { key: 'hvitbok', href: '/hvitbok' },
+  { key: 'kilder', href: '/kilder' },
+  { key: 'media', href: '/media' },
 ]
 
 export function Header() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const t = useTranslations()
 
   return (
     <header className="lg:hidden border-b border-stone-200 bg-white sticky top-0 z-50">
@@ -33,27 +37,30 @@ export function Header() {
           <Link href="/" className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-emerald-500" />
             <div className="flex flex-col">
-              <span className="text-sm font-bold text-stone-900">Food Systems 2026</span>
-              <span className="text-xs text-stone-400">NCH Transition Group</span>
+              <span className="text-sm font-bold text-stone-900">{t('header.appName')}</span>
+              <span className="text-xs text-stone-400">{t('header.appTagline')}</span>
             </div>
           </Link>
 
-          <button
-            type="button"
-            className="inline-flex items-center justify-center p-2 rounded-lg text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <span className="sr-only">Meny</span>
-            {mobileMenuOpen ? (
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-            )}
-          </button>
+          <div className="flex items-center gap-1.5">
+            <LanguageSwitcher />
+            <button
+              type="button"
+              className="inline-flex items-center justify-center p-2 rounded-lg text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <span className="sr-only">{t('header.menu')}</span>
+              {mobileMenuOpen ? (
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -75,7 +82,7 @@ export function Header() {
                   `}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item.name}
+                  {t(`nav.${item.key}.name`)}
                 </Link>
               )
             })}

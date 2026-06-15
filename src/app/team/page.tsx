@@ -35,7 +35,7 @@ export default async function TeamPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Team</h1>
-        <p className="text-sm text-stone-400 mt-1">Organisasjon og nokkelpersoner</p>
+        <p className="text-sm text-stone-400 mt-1">Organisasjon og nøkkelpersoner</p>
       </div>
 
       {groups.map(group => {

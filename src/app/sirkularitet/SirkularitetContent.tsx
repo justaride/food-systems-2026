@@ -105,6 +105,11 @@ const MATURITY_COLORS: Record<string, string> = {
   growing: 'bg-amber-100 text-amber-800 border-amber-200',
 }
 
+const MATURITY_LABELS: Record<string, string> = {
+  scaled: 'Skalert', mature: 'Moden', industrial: 'Industriell', commercial: 'Kommersiell',
+  operational: 'I drift', institutional: 'Institusjonell', growing: 'Voksende',
+}
+
 const COUNTRY_FLAGS: Record<string, string> = {
   NO: 'NO',
   SE: 'SE',
@@ -269,7 +274,7 @@ export function SirkularitetContent() {
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Sirkularitet</h1>
         <p className="text-sm text-stone-400 mt-1">
-          {data.existing_loops.length} eksisterende looper, {data.gaps.length} gap, {allSuccess.length + allFailure.length} aktorcaser
+          {data.existing_loops.length} eksisterende looper, {data.gaps.length} gap, {allSuccess.length + allFailure.length} aktørcaser
         </p>
       </div>
 
@@ -410,7 +415,7 @@ export function SirkularitetContent() {
                       )}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         <div>
-                          <p className="text-xs font-medium text-stone-500 mb-1">Forsokte losninger</p>
+                          <p className="text-xs font-medium text-stone-500 mb-1">Forsøkte løsninger</p>
                           <ul className="text-xs text-stone-700 space-y-0.5 list-disc list-inside">
                             {q.attemptedSolutions.map((s) => (
                               <li key={s}>{s}</li>
@@ -542,7 +547,7 @@ export function SirkularitetContent() {
                     <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="text-sm font-semibold text-stone-800">{loop.name}</h3>
                       <span className={`text-[10px] px-1.5 py-0.5 rounded border ${MATURITY_COLORS[loop.maturity] ?? 'bg-stone-100 text-stone-600 border-stone-200'}`}>
-                        {loop.maturity}
+                        {MATURITY_LABELS[loop.maturity] ?? loop.maturity}
                       </span>
                       {loop.rLevel && rLadderById[loop.rLevel as keyof typeof rLadderById] && (
                         <span
@@ -675,7 +680,7 @@ export function SirkularitetContent() {
                         <p className="text-sm text-stone-700">{gap.policy_lever}</p>
                       </div>
                       <div>
-                        <p className="text-xs font-medium text-stone-500 mb-1">Sammenlignbar losning</p>
+                        <p className="text-xs font-medium text-stone-500 mb-1">Sammenlignbar løsning</p>
                         <p className="text-sm text-stone-700">{gap.comparable_solution}</p>
                       </div>
                     </div>
@@ -747,7 +752,7 @@ export function SirkularitetContent() {
                           </div>
                         )}
                         <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-2">
-                          <p className="text-xs font-medium text-emerald-700 mb-0.5">Laerdom</p>
+                          <p className="text-xs font-medium text-emerald-700 mb-0.5">Lærdom</p>
                           <p className="text-xs text-emerald-800">{actor.lesson}</p>
                         </div>
                       </div>
@@ -816,12 +821,12 @@ export function SirkularitetContent() {
                       <div className="mt-3 space-y-2">
                         {actor.cause && (
                           <div>
-                            <p className="text-xs font-medium text-stone-500 mb-0.5">Arsak</p>
+                            <p className="text-xs font-medium text-stone-500 mb-0.5">Årsak</p>
                             <p className="text-sm text-stone-700">{actor.cause}</p>
                           </div>
                         )}
                         <div className="bg-rose-50 border border-rose-200 rounded-lg p-2">
-                          <p className="text-xs font-medium text-rose-700 mb-0.5">Laerdom</p>
+                          <p className="text-xs font-medium text-rose-700 mb-0.5">Lærdom</p>
                           <p className="text-xs text-rose-800">{actor.lesson}</p>
                         </div>
                       </div>

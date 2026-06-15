@@ -7,10 +7,8 @@ export default function ProveniensPage() {
     <div className="max-w-3xl mx-auto p-6 space-y-4">
       <h1 className="text-2xl font-bold text-stone-900">Proveniens-vedlegg</h1>
       <p className="text-sm text-stone-600">
-        Faktisk datadekning bak figurene i hvitboken — temporal rekkevidde, geografisk omfang og
-        verifiseringsgrad, beregnet direkte fra databasen (ikke kuratert). Et øyeblikksbilde-merke
-        betyr at tallet er ett enkelt år, ikke en tidsserie; «NO → nordisk» betyr at kun norske data
-        ligger bak en nordisk-presentert figur.
+        Faktisk datadekning bak figurene i hvitboken — beregnet direkte fra databasen (ikke kuratert).
+        Se «Hva betyr merkene?» i oversikten under for forklaring av tids-, geografi- og verifiseringsmerkene.
       </p>
       <CoverageOverview />
     </div>
