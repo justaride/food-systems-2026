@@ -19,22 +19,25 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: 'Which import to run against prod'
+        description: 'Which sanctioned prod data operation to run'
         required: true
-        default: 'ownership'
+        default: 'verify-only'
         type: choice
         options:
+          - verify-only
           - ownership
+          - registers
+          - full
       confirm:
-        description: 'Type IMPORT to confirm a write against the PRODUCTION database'
+        description: 'Type IMPORT to confirm a production database operation'
         required: true
         default: ''
 
 jobs:
   prod-import:
-    name: Import ${{ inputs.target }} into prod DB
+    name: Prod data operation ${{ inputs.target }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 90
     if: ${{ inputs.confirm == 'IMPORT' }}
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
@@ -43,10 +46,10 @@ jobs:
       CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
@@ -95,11 +98,29 @@ jobs:
             exit 1
           fi
 
-      - name: Run import (${{ inputs.target }})
-        run: npm run db:import:${{ inputs.target }}
-
-      - name: Verify prod counts
-        run: npm run db:verify
+      - name: Run selected prod data operation
+        run: |
+          TARGET="${{ inputs.target }}"
+          case "$TARGET" in
+            verify-only)
+              npm run db:verify
+              ;;
+            ownership)
+              npm run db:import:ownership
+              npm run db:verify
+              ;;
+            registers)
+              npm run db:prod-sync:registers
+              npm run db:verify
+              ;;
+            full)
+              npm run db:prod-sync
+              ;;
+            *)
+              echo "::error::Unsupported prod data import target: $TARGET"
+              exit 1
+              ;;
+          esac
 
       - name: Stop tunnel
         if: always()

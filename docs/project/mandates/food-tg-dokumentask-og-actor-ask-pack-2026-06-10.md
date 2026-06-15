@@ -61,6 +61,21 @@ Svar skal ikke behandles som eksternt validert før de har dato, rolle, dokument
 | DASK-0906-008 | Skottland benchmark | Deep Research-output + skotsk institusjonskilde | Prioriter fem skotske fulltekstkilder for bioressurs, sjømat, havbruk, fiskeri eller sidestrømmer. | Fulltekst, eier, dato, sektor, fraksjon/ressurs, datagrunnlag og A/B/C-kobling. | Om Skottland løftes fra watchlist til benchmarkkandidat. | Manglende fulltekst eller ingen konkret A/B/C-kobling. | `DRO-0906-007`, `SRC-0906-008`, `PCQ-0906-007` |
 | DASK-0906-009 | Polen watchlist | Deep Research-output + polsk/EU-institusjonskilde hvis konkret | Finn om Polen har konkrete matindustri-, fiskeri-, akvakultur- eller bioressursstrømmer som matcher A/B/C. | Rapport, sektor, volum, lokasjon, aktør, nåværende avsetning og regulatoriske barrierer. | Om Polen blir konkret watchlist eller parkeres. | Bare generelle bioøkonomi-/matsvinnstrategier uten masse-/aktørdata. | `DRO-0906-007`, `SRC-0906-007`, `PCQ-0906-007` |
 
+## L1 desk-research-status 2026-06-12
+
+Desk-research-runden 12.06 (logg: `docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md`) lukket eller flyttet flere L1-punkter uten aktørkontakt. DASK-radene over står uendret som L0-asks; tabellen under viser hva L1 nå allerede har avklart, slik at dokumenteiere ikke spørres om ting som er offentlig avklart.
+
+| Ask-ID | L1-avklart 12.06 | Fortsatt åpent (L0/L2) |
+|---|---|---|
+| DASK-0906-001/003 | Import-/EUDR-konteksten er kvantifisert: Comtrade-serie 2022–2025 for HS 090111/090121 Brasil→Norge + verdenstotal; NKI-tabellen kryssverifisert eksakt mot tolldata. | MOU/avtaletekst, partsliste, bruksrett og aktørrolle (Fuglen/NKI/Nordic Approach). |
+| DASK-0906-002 | Direkteimport fra Côte d'Ivoire er motbevist for alle kakaokapitler (1801–1806) i alle fire nordiske land (Comtrade 2024). Nordisk eksponering går via EU-prosessering/merkevarer. | MOU/LOI med LEAD Ivory Coast, organisasjonsbekreftelse og bruksrett. |
+| DASK-0906-004 | Nasjonal finsk importramme tallfestet: ~216 000 t rapsmel/år, 87–144 000 t soyamel/år (Comtrade 2022–2024). | Valios fôrstandard og aggregert fôrkurv (kun Valio kan svare). |
+| DASK-0906-005 | Regulatorisk vindu dokumentert: KT overtok god handelsskikk 01.05.2026 med NFD-føringer; høringer om innkjøpsbetingelser pågår. Ingen aktørspesifikk sak funnet. | Aktørdata, produkt-/månedstall, onboarding-vilkår (BAMA/Gartnerhallen). |
+| DASK-0906-006 | Enova-prosjektsiden for Wiig/Green Horizon bekreftet (50–70 °C, 4 MW initielt, 200 MW potensial). | Driftsstatus/ferdigattest (Klepp byggesak), Hima driftsdata (Green Mountain). |
+| DASK-0906-007 | Statistics Iceland-tabellene SJA09114/09110/04903 identifisert med full struktur; datauttrekk krever manuell PxWeb-eksport (oppskrift i loggen kap. 1). | SINTEF/FHF-fraksjonsuttrekk, IOC claim-metode. |
+| DASK-0906-008 | ZWS-hovedrapporten fulltekstkontrollert. **Dateringskorreksjon: Enscape Consulting, 31.03.2020 (2019-survey), republisert av ZWS 20.02.2025.** Volumer og prisskille ekstrahert. | SBMT-datatilgang/lisens (IBioIC), Seafood Scotland-prosjektarkiv. |
+| DASK-0906-009 | Hurtig kill-test bekrefter watchlist: ingen pilot med aktør+lokasjon+volum+output i åpne kilder. Nye spor: MIR Gdynia, gov.pl EMFAF-PDF, PSPR. | Full kill-test (GUS XLS, PROM fullrapport, EMFAF-prosjektbase). |
+
 ## Senere aktørask-bank
 
 Disse kan klargjøres, men skal ikke sendes før separat outreach-gate åpnes.

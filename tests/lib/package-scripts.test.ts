@@ -27,4 +27,41 @@ describe('package scripts', () => {
     assert.doesNotMatch(packageJson.scripts['db:import:approved-corpus'], /db:import:fiskehelse/)
     assert.match(packageJson.scripts['db:prod-sync'], /db:import:fiskehelse/)
   })
+
+  it('exposes the A4 post-merge platform verification gate as a single command', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const statusDoc = readFileSync(
+      join(process.cwd(), 'docs/project/status/STATUS-OG-ARBEIDSPLAN-2026-06-11.md'),
+      'utf8',
+    )
+    const executionPlan = readFileSync(
+      join(process.cwd(), 'docs/superpowers/plans/2026-06-11-food-tg-platform-stack-landing.md'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['verify:platform-stack-main'],
+      [
+        'npm run db:generate',
+        'npm run lint',
+        'npm test',
+        'npm run build',
+        'npm run db:audit',
+        'npm run db:audit:strict-sources',
+        'npm run audit:konsern',
+        'npm run graph:audit',
+        'npm run audit:citable',
+      ].join(' && '),
+    )
+    assert.ok(
+      statusDoc.includes('npm run verify:platform-stack-main'),
+      'A4 status table must point to the single post-merge verification command',
+    )
+    assert.ok(
+      executionPlan.includes('npm run verify:platform-stack-main'),
+      'execution plan must point to the single post-merge verification command',
+    )
+  })
 })
