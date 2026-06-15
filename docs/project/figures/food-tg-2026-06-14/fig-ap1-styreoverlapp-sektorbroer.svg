@@ -1,0 +1,69 @@
+<svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Arial, sans-serif">
+  <rect width="760" height="470" fill="#ffffff"/>
+  <text x="380" y="26" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle">AP-1 styreoverlapp: sektorbroer og mest sammenkoblede selskaper</text>
+  <text x="380" y="46" font-size="10.5" fill="#64748b" text-anchor="middle">Intern DB · 555 styreverv · 98/275 selskaper med styredata · 11 tverrsektorielle broer</text>
+
+  <rect x="24" y="66" width="338" height="340" fill="#f8fafc" stroke="#dbe3ef"/>
+  <text x="44" y="92" font-size="12" font-weight="700" fill="#0f172a">Sektorpar-broer</text>
+  <text x="44" y="110" font-size="9.5" fill="#64748b">Antall personer med styreverv i begge sektorene</text>
+
+  <line x1="120" y1="168" x2="120" y2="292" stroke="#0ea5e9" stroke-width="8" stroke-linecap="round"/>
+  <line x1="120" y1="168" x2="262" y2="228" stroke="#22c55e" stroke-width="7" stroke-linecap="round"/>
+  <line x1="120" y1="292" x2="262" y2="228" stroke="#f59e0b" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="262" y1="228" x2="315" y2="110" stroke="#a855f7" stroke-width="2" stroke-linecap="round"/>
+  <line x1="120" y1="292" x2="315" y2="110" stroke="#a855f7" stroke-width="2" stroke-linecap="round"/>
+  <line x1="120" y1="168" x2="315" y2="110" stroke="#a855f7" stroke-width="2" stroke-linecap="round"/>
+
+  <circle cx="120" cy="168" r="36" fill="#dbeafe" stroke="#0ea5e9" stroke-width="2"/>
+  <circle cx="120" cy="292" r="36" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+  <circle cx="262" cy="228" r="38" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <circle cx="315" cy="110" r="30" fill="#f3e8ff" stroke="#a855f7" stroke-width="2"/>
+
+  <text x="120" y="164" font-size="12" font-weight="700" fill="#0f172a" text-anchor="middle">retail</text>
+  <text x="120" y="181" font-size="10" fill="#475569" text-anchor="middle">dagligvare</text>
+  <text x="120" y="288" font-size="12" font-weight="700" fill="#0f172a" text-anchor="middle">logistics</text>
+  <text x="120" y="305" font-size="10" fill="#475569" text-anchor="middle">distribusjon</text>
+  <text x="262" y="224" font-size="12" font-weight="700" fill="#0f172a" text-anchor="middle">processing</text>
+  <text x="262" y="241" font-size="10" fill="#475569" text-anchor="middle">foredling</text>
+  <text x="315" y="106" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">foodservice</text>
+  <text x="315" y="122" font-size="9.5" fill="#475569" text-anchor="middle">storhush.</text>
+
+  <rect x="93" y="219" width="54" height="20" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="120" y="233" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">7</text>
+  <rect x="181" y="184" width="54" height="20" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="208" y="198" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">6</text>
+  <rect x="183" y="264" width="54" height="20" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="210" y="278" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">2</text>
+  <rect x="281" y="157" width="44" height="20" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="303" y="171" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">1</text>
+
+  <rect x="398" y="66" width="338" height="340" fill="#f8fafc" stroke="#dbe3ef"/>
+  <text x="418" y="92" font-size="12" font-weight="700" fill="#0f172a">Selskaper med høyest interlock-grad</text>
+  <text x="418" y="110" font-size="9.5" fill="#64748b">Antall andre selskaper de deler styremedlem med</text>
+
+  <g font-size="10" fill="#0f172a">
+    <text x="418" y="142">BAMA Gruppen AS</text>
+    <rect x="565" y="130" width="136" height="14" fill="#0ea5e9"/><text x="710" y="142" font-weight="700">17</text>
+    <text x="418" y="169">ASKO Norge AS</text>
+    <rect x="565" y="157" width="112" height="14" fill="#22c55e"/><text x="686" y="169" font-weight="700">14</text>
+    <text x="418" y="196">NorgesGruppen Data AS</text>
+    <rect x="565" y="184" width="96" height="14" fill="#f59e0b"/><text x="670" y="196" font-weight="700">12</text>
+    <text x="418" y="223">Kiwi Norge AS</text>
+    <rect x="565" y="211" width="88" height="14" fill="#a855f7"/><text x="662" y="223" font-weight="700">11</text>
+    <text x="418" y="250">Reitan AS</text>
+    <rect x="565" y="238" width="88" height="14" fill="#64748b"/><text x="662" y="250" font-weight="700">11</text>
+    <text x="418" y="277">Reitan Convenience AS</text>
+    <rect x="565" y="265" width="88" height="14" fill="#64748b"/><text x="662" y="277" font-weight="700">11</text>
+    <text x="418" y="304">MENY AS</text>
+    <rect x="565" y="292" width="80" height="14" fill="#0ea5e9"/><text x="654" y="304" font-weight="700">10</text>
+    <text x="418" y="331">NorgesGruppen Servicehandel AS</text>
+    <rect x="565" y="319" width="80" height="14" fill="#0ea5e9"/><text x="654" y="331" font-weight="700">10</text>
+    <text x="418" y="358">Uno-X Mobility AS</text>
+    <rect x="565" y="346" width="80" height="14" fill="#64748b"/><text x="654" y="358" font-weight="700">10</text>
+    <text x="418" y="385">Reitan Kapital AS</text>
+    <rect x="565" y="373" width="80" height="14" fill="#64748b"/><text x="654" y="385" font-weight="700">10</text>
+  </g>
+
+  <text x="380" y="432" font-size="9" fill="#64748b" text-anchor="middle">Tolkning: strukturell posisjon i styregrafen, ikke intensjon, samordning eller normativ vurdering.</text>
+  <text x="380" y="449" font-size="8.5" fill="#94a3b8" text-anchor="middle">Kilde: research/analyse/ap1-styreoverlapp.json · BoardMember.personKey x Company.valueChainStage · kjørt 14.06.2026</text>
+</svg>

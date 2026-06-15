@@ -80,7 +80,7 @@ localhost:5432 — tunnelen proxyer), `CF_ACCESS_CLIENT_ID`,
 |---|---|---|---|
 | `coolify-sync-source-commit.yml` | push `main`, manuell | Setter `SOURCE_COMMIT`-env + trigger redeploy via Coolify API | nei |
 | `citation-verification.yml` | cron søn 03:00 UTC, manuell | `db:verify:filehash` + url-health mot prod | **ja** |
-| `prod-data-import.yml` | manuell (`confirm=IMPORT`) | Sanksjonert prod-import (start: `db:import:ownership`) + `db:verify` | **ja** |
+| `prod-data-import.yml` | manuell (`confirm=IMPORT`) | Sanksjonert prod-data-operasjon via eksplisitte targetvalg: `verify-only`, `ownership`, `registers`, `full` | **ja** |
 | `coolify-db-watcher.yml` | (sjekk fila) | DB-overvåking | [A] |
 | `coolify-resource-snapshot.yml` | (sjekk fila) | Ressurs-snapshot | [A] |
 | `schema-migration-guard.yml` | PR | Schema-drift-gate | nei [A] |
@@ -167,8 +167,9 @@ nohup cloudflared access tcp \
 (`CF_ACCESS_CLIENT_ID/SECRET`-secretene gjenbrukes — de var riktige, bare sendt
 via env-navn cloudflared ignorerer.)
 
-**Verifiser:** re-kjør `prod-data-import` (manuell, `confirm=IMPORT`) — psql-proben
-skal nå passere. Hvis den fortsatt feiler med «bad handshake», er *da* selve
+**Verifiser:** re-kjør `prod-data-import` med target `verify-only` (manuell,
+`confirm=IMPORT`) — psql-proben og `db:verify` skal nå passere uten å skrive
+data. Hvis den fortsatt feiler med «bad handshake», er *da* selve
 service-tokenet utløpt/ugyldig → roter det i CF Zero Trust → Access → Service
 Tokens og oppdater GH-secrets `CF_ACCESS_CLIENT_ID/SECRET` (policy er
 `any_valid_service_token`, så et hvilket som helst gyldig token virker).
@@ -181,9 +182,11 @@ Jf. oppsettet i [SETUP-CF-TUNNEL-FOR-DB.md](../../SETUP-CF-TUNNEL-FOR-DB.md).
 
 ## 9. Etter gjenoppretting — verifiseringskjede
 
-1. `prod-data-import` (manuell, `confirm=IMPORT`, target `ownership`) → `db:verify`.
-2. `citation-verification` (manuell dispatch) → skal passere DB-steget.
-3. Bekreft pending data-fiks A (NorgesGruppen→BAMA `source`) er i prod.
+1. `prod-data-import` (manuell, `confirm=IMPORT`, target `verify-only`) → `db:verify`.
+2. Hvis prod mangler data etter verifikasjon: kjør eksplisitt target `registers`
+   eller `full`, ikke fri tekst / dynamisk npm-script.
+3. `citation-verification` (manuell dispatch) → skal passere DB-steget.
+4. Bekreft pending data-fiks A (NorgesGruppen→BAMA `source`) er i prod.
 
 ## 10. Gjenbruk på tvers av prosjektene
 
@@ -237,3 +240,50 @@ Helt trygt — build-cache rører aldri kjørende containere, volumes eller data
 frisk → SSH inn og sjekk `df -h /` + `docker exec <pg> psql -c 'select 1'`
 (ser etter «in recovery mode»/«No space left on device») før du mistenker
 tunnel/Access.
+
+## 12. Hendelse 2026-06-10: prod udeploybar i ~3 uker (5-lags kaskade)
+
+**Symptom:** `/api/version` viste `f2e2d20` (bygget 2026-05-25) selv om `main` var
+mange merger foran. **En grønn Coolify-redeploy-trigger betyr ikke at buildet
+lyktes** — `coolify-sync-source-commit` trigger redeploy, men Coolify-*buildet*
+feilet hver gang. Sjekk faktisk build-status, ikke bare at trigger gikk.
+
+**Hvor build-loggen ligger** (GitHub-workflowen ser bare «Deploy failed» fra
+Coolify-API): i Coolify-DB-en på serveren —
+`docker exec coolify-db psql -U coolify -d coolify -tAc "select logs from
+application_deployment_queues where resourceable_id=<app-row-id> order by
+created_at desc limit 1"` (app 66 = food-systems; logs er JSON-array med
+`output`-felt per linje).
+
+**Fem lag, hvert skjulte det neste** (alle reelle, ingen var «the» feil alene):
+
+1. **Disk full** (§11) — drepte buildet før det startet. → prune.
+2. **`npm ci` lockfile-drift** — `next-intl@4.13.0` drar `@swc/core` som krever
+   `@swc/helpers >=0.5.17`, men lockfila hadde kun `0.5.15` (fra next). **npm 11
+   (lokal) tolererer det som «invalid»; buildets npm 10.8.2 sin strenge `npm ci`
+   nekter.** `npm run build` lokalt skjulte det (bruker eksisterende
+   `node_modules`, ikke `npm ci`). → regenerer lock med `npm@10` (PR #137).
+3. **Build koblet til prod-DB** — `609b257` (eierskap) la `audit:konsern` +
+   `compute-coverage` i `compute-metrics`, som Prisma-spør DB-en ved build-tid.
+   Build-en (`--network host`) når ikke `localhost:5432` (kun DB-container-IP-en)
+   → `ECONNREFUSED`. → gjør `compute-metrics` DB-fritt; DB-stegene til
+   `compute-metrics:full` (PR #138). **Build skal aldri avhenge av en levende DB.**
+4. **`next build` (Turbopack)** — `src/i18n/request.ts` dynamisk-importerer
+   `../../messages/<locale>.json`, men Dockerfilen `COPY`-et aldri `messages/`
+   inn i builder-stagen. → `COPY messages ./messages` (PR #139).
+5. Deploy grønn; `/api/version` = ny SHA. ✅
+
+**Lærdom på tvers av prosjektene:**
+- **Verifiser deploy *utfall*, ikke trigger.** Bygg en helsesjekk som matcher
+  `/api/version` mot push-SHA (vår `coolify-sync` gjør det — den fanget at prod
+  hang på gammel SHA).
+- **`npm ci` i Docker bruker en pinnet npm-versjon** (node:20-alpine → npm 10).
+  Generer/oppdater `package-lock.json` med *samme* npm som buildet, ellers kan en
+  nyere lokal npm produsere en lock buildets `npm ci` avviser. `npm run build`
+  lokalt beviser ikke at `npm ci` passerer.
+- **Builds skal være DB-frie og selvstendige.** DB-avledede artefakter committes
+  og bakes inn; refresh kjøres separat der DB finnes (`compute-metrics:full`).
+- **Hver fil en dynamisk import trenger må `COPY`-es eksplisitt** i en multi-stage
+  Dockerfile med selektive COPY-er — Turbopack/Next feiler buildet ellers.
+- **Kaskadefeil:** når flere ting er ødelagt samtidig, fikser man ett lag og får
+  neste feil. Les hele build-loggen for hvert forsøk; ikke anta at én fiks løste alt.

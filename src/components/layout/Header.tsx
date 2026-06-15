@@ -9,6 +9,7 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 const navigation = [
   { key: 'oversikt', href: '/' },
   { key: 'team', href: '/team' },
+  { key: 'casestatus', href: '/casestatus' },
   { key: 'moter', href: '/moter' },
   { key: 'kommunikasjon', href: '/kommunikasjon' },
   { key: 'metodikk', href: '/metodikk' },

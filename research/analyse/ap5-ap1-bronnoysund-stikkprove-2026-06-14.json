@@ -1,0 +1,803 @@
+{
+  "tittel": "AP-5/AP-1 Brønnøysund-stikkprøve — maktkart §8 primærsjekk",
+  "generatedAt": "2026-06-14T21:26:44.138Z",
+  "source": "Brønnøysundregistrene — Enhetsregisteret (/enheter) + roller (/roller)",
+  "metode": "Orgnr resolvert via navnesøk eller seed; juridisk form, konsernflagg og styre/daglig-leder hentet per selskap. Eierandel-% IKKE verifisert her (krever Skatteetaten Aksjonærregisteret).",
+  "totals": {
+    "targets": 22,
+    "formMatches": 22,
+    "bridgePersonsConfirmed": 9,
+    "bridgePersonsTotal": 10
+  },
+  "verify": [
+    {
+      "cat": "konsern",
+      "target": "NorgesGruppen ASA",
+      "orgNr": "819731322",
+      "brregName": "NORGESGRUPPEN ASA",
+      "expectedForm": "ASA",
+      "form": "ASA",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Johan Johannson"
+      ],
+      "dagligLeder": [
+        "Runar Hollevik"
+      ],
+      "styremedlemmer": [
+        "Liv Gisele Marchand",
+        "Ørjan Svanevik",
+        "Hilde Vatne",
+        "Guri Størvold",
+        "Jan Magne Borgen",
+        "Martine Myrstad Steinsholt",
+        "Filip Lorentzen",
+        "Cecilie Blindern Myhre",
+        "Mats Gunnar Torsvik Knudsen"
+      ],
+      "styreSistEndret": "2026-02-17",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/819731322",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/819731322/roller"
+    },
+    {
+      "cat": "konsern",
+      "target": "Reitan AS",
+      "orgNr": "912609987",
+      "brregName": "REITAN AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Odd Reitan"
+      ],
+      "dagligLeder": [
+        "Odd Reitan"
+      ],
+      "styremedlemmer": [
+        "Ole Robert Reitan",
+        "Kristin Solheim Genton",
+        "Magnus Reitan",
+        "Sunniva Reitan"
+      ],
+      "styreSistEndret": "2025-01-07",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/912609987",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/912609987/roller"
+    },
+    {
+      "cat": "konsern",
+      "target": "Coop Norge SA",
+      "orgNr": "936560288",
+      "brregName": "COOP NORGE SA",
+      "expectedForm": "SA",
+      "form": "SA",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Runar Laukvik Leite"
+      ],
+      "dagligLeder": [
+        "Philipp Lasse Hartlieb Engedal"
+      ],
+      "styremedlemmer": [
+        "Øystein Berg",
+        "Lars Arve Jakobsen",
+        "Elin Botnen Viken",
+        "Gøril Havrevold Joys Johnsen",
+        "Bjørn Vik-Mo",
+        "Yngve Haldorsen",
+        "Lise Renee Skarpås",
+        "Johan Martin Andreassen",
+        "Katrine Lundstrøm",
+        "Stine Beate Rødberg"
+      ],
+      "styreSistEndret": "2026-02-02",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/936560288",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/936560288/roller"
+    },
+    {
+      "cat": "konsern",
+      "target": "BAMA Gruppen AS",
+      "orgNr": "914224314",
+      "brregName": "BAMA GRUPPEN AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Kristian Nergaard"
+      ],
+      "dagligLeder": [
+        "Bent Andersen"
+      ],
+      "styremedlemmer": [
+        "Jostein Hestøy",
+        "Runar Hollevik",
+        "Ihsan Akram",
+        "Ole Robert Reitan",
+        "Kirsten Indgjerd Værdal",
+        "Gyrid Skalleberg Ingerø",
+        "Devi Christel Røsand Ahuja"
+      ],
+      "styreSistEndret": "2026-05-08",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/914224314",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/914224314/roller"
+    },
+    {
+      "cat": "konsern",
+      "target": "Nortura SA",
+      "orgNr": "938752648",
+      "brregName": "NORTURA SA",
+      "expectedForm": "SA",
+      "form": "SA",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Johan Narum"
+      ],
+      "dagligLeder": [
+        "Morten Henriksen"
+      ],
+      "styremedlemmer": [
+        "Merethe Sund",
+        "Kenneth Rene Misiewicz Johansen",
+        "Ken Ove Sletthaug",
+        "Erlend Rønning",
+        "Hans Amund Braastad",
+        "Linda Gjerde Myren",
+        "Ole Johannes Egeland",
+        "Live Major",
+        "Einar Johnsen Meisfjord",
+        "Ann Kristin Nes",
+        "Ragnhild Sjurgard",
+        "Irene Åstveit",
+        "Martin Mæland"
+      ],
+      "styreSistEndret": "2025-08-06",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/938752648",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/938752648/roller"
+    },
+    {
+      "cat": "konsern",
+      "target": "Felleskjøpet Agri SA",
+      "orgNr": "911608103",
+      "brregName": "FELLESKJØPET AGRI SA",
+      "expectedForm": "SA",
+      "form": "SA",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Jens Lippestad"
+      ],
+      "dagligLeder": [
+        "Svenn Ivar Fure"
+      ],
+      "styremedlemmer": [
+        "Elisabeth Holand",
+        "Frank Gjøran Fandin",
+        "Grim Erik Gillestad",
+        "Thor Johannes Rogneby",
+        "Elisabeth Slethaug Nilsen",
+        "Borgny Kjølstad Grande",
+        "Erling Mølnvik Aune",
+        "Sigbjørn Aurland",
+        "Torbjørg Kylland",
+        "Ann Kristin Sønmør Nygaard",
+        "Knut Grønnerød Repstad"
+      ],
+      "styreSistEndret": "2026-05-06",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/911608103",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/911608103/roller"
+    },
+    {
+      "cat": "konsern",
+      "target": "TINE SA",
+      "orgNr": "947942638",
+      "brregName": "TINE SA",
+      "expectedForm": "SA",
+      "form": "SA",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Rolf Øyvind Thune"
+      ],
+      "dagligLeder": [
+        "Ann-Beth Nina Johannesen Freuchen"
+      ],
+      "styremedlemmer": [
+        "Asgeir Pollestad",
+        "Elin Johanne Husby Aarvik",
+        "Tor Arne Johansen",
+        "Hans Olav Hallan Minsås",
+        "Ingunn Helene Skauen Ruud",
+        "Lise Kaldahl Skreddernes",
+        "Anne Saltrø Polden",
+        "Arthur Salte",
+        "Kåre Ivar Stormoen",
+        "Veronica Berntsen Hjelle"
+      ],
+      "styreSistEndret": "2026-05-08",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/947942638",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/947942638/roller"
+    },
+    {
+      "cat": "konsern",
+      "target": "Mowi ASA",
+      "orgNr": "964118191",
+      "brregName": "MOWI ASA",
+      "expectedForm": "ASA",
+      "form": "ASA",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [],
+      "dagligLeder": [
+        "Ivan Vindheim"
+      ],
+      "styremedlemmer": [
+        "Leif Teksum",
+        "Peder Strand",
+        "Lisbet Karin Nærø",
+        "Kjersti Helen Krokeide Hobøl",
+        "Aino Kristin Lindal Olaisen",
+        "Kathrine Astrup Fredriksen",
+        "Eivind Kallbekken",
+        "John Olav Johansen",
+        "Marit Øvergård Utnes"
+      ],
+      "styreSistEndret": "2026-03-01",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/964118191",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/964118191/roller"
+    },
+    {
+      "cat": "cluster",
+      "target": "Austevoll Seafood ASA",
+      "orgNr": "929975200",
+      "brregName": "AUSTEVOLL SEAFOOD ASA",
+      "expectedForm": "ASA",
+      "form": "ASA",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Helge Singelstad"
+      ],
+      "dagligLeder": [
+        "Arne Møgster"
+      ],
+      "styremedlemmer": [
+        "Helge Arvid Møgster",
+        "Eirik Drønen Melingen",
+        "Siren Merete Grønhaug",
+        "Lill Maren Møgster",
+        "Hege Åse Solbakken",
+        "Hege Charlotte Bakken",
+        "Petter Dragesund"
+      ],
+      "styreSistEndret": "2026-02-17",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/929975200",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/929975200/roller"
+    },
+    {
+      "cat": "cluster",
+      "target": "Lerøy Seafood Group ASA",
+      "orgNr": "975350940",
+      "brregName": "LERØY SEAFOOD GROUP ASA",
+      "expectedForm": "ASA",
+      "form": "ASA",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Arne Møgster"
+      ],
+      "dagligLeder": [
+        "Henning Kolbjørn Beltestad"
+      ],
+      "styremedlemmer": [
+        "Britt Kathrine Drivenes",
+        "Didrik Oskar Munch",
+        "Karoline Møgster",
+        "Are Dragesund",
+        "Linda Kidøy Pedersen",
+        "Silje Elin Grunnaleite Butt",
+        "Bjarne Egil Kristiansen",
+        "Tor-Ivar Ingebrigtsen"
+      ],
+      "styreSistEndret": "2024-06-12",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/975350940",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/975350940/roller"
+    },
+    {
+      "cat": "cluster",
+      "target": "Laco AS",
+      "orgNr": "937305354",
+      "brregName": "LACO AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Helge Arvid Møgster"
+      ],
+      "dagligLeder": [
+        "Helge Singelstad"
+      ],
+      "styremedlemmer": [
+        "June Inger Lise Drønen Møgster",
+        "Lill Maren Møgster",
+        "Karoline Møgster",
+        "Arne Møgster",
+        "Rolf Kristian Våge",
+        "Patrick Andreas Rød Møgster",
+        "Eirik Drønen Melingen",
+        "Gunnbjørg Algrøy Træland"
+      ],
+      "styreSistEndret": "2024-09-06",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/937305354",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/937305354/roller"
+    },
+    {
+      "cat": "cluster",
+      "target": "Kverva AS",
+      "orgNr": "919818824",
+      "brregName": "KVERVA AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": false,
+      "status": "aktiv",
+      "styreleder": [
+        "Gustav Witzøe"
+      ],
+      "dagligLeder": [
+        "Torgeir Johan Svae"
+      ],
+      "styremedlemmer": [
+        "Leif Inge Nordhammer",
+        "Helge Karstein Moen",
+        "Randi Ness",
+        "Therese Log Bergjord"
+      ],
+      "styreSistEndret": "2025-07-23",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/919818824",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/919818824/roller"
+    },
+    {
+      "cat": "cluster",
+      "target": "Kverva Industrier AS",
+      "orgNr": "960329856",
+      "brregName": "KVERVA INDUSTRIER AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Torgeir Johan Svae"
+      ],
+      "dagligLeder": [],
+      "styremedlemmer": [],
+      "styreSistEndret": "2025-11-15",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/960329856",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/960329856/roller"
+    },
+    {
+      "cat": "cluster",
+      "target": "SalMar ASA",
+      "orgNr": "960514718",
+      "brregName": "SALMAR ASA",
+      "expectedForm": "ASA",
+      "form": "ASA",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Gustav Witzøe"
+      ],
+      "dagligLeder": [
+        "Frode Arntsen"
+      ],
+      "styremedlemmer": [
+        "Margrethe Hauge",
+        "Leif Inge Nordhammer",
+        "Morten Loktu",
+        "Arnhild Holstad",
+        "Ingvild Kindlihagen",
+        "Stig Arne Stensen"
+      ],
+      "styreSistEndret": "2026-02-17",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/960514718",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/960514718/roller"
+    },
+    {
+      "cat": "interlock",
+      "target": "ASKO Norge AS",
+      "orgNr": "929228723",
+      "brregName": "ASKO NORGE AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": false,
+      "status": "aktiv",
+      "styreleder": [
+        "Runar Hollevik"
+      ],
+      "dagligLeder": [
+        "Tore Bekken"
+      ],
+      "styremedlemmer": [
+        "Grete Ovanger",
+        "Dina Gjersøyen Rolstad Thune",
+        "Kristine Stranne",
+        "Knut Hartvig Johannson",
+        "Jan Paul Bjørkøy"
+      ],
+      "styreSistEndret": "2023-09-15",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/929228723",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/929228723/roller"
+    },
+    {
+      "cat": "interlock",
+      "target": "NorgesGruppen Data AS",
+      "orgNr": "971047917",
+      "brregName": "NORGESGRUPPEN DATA AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Runar Hollevik"
+      ],
+      "dagligLeder": [
+        "Per Ola Drøpping"
+      ],
+      "styremedlemmer": [
+        "Tore Bekken",
+        "Truls Fjeldstad",
+        "Merete Løkse",
+        "Hilde Hagen Øygarden",
+        "Mette Lier",
+        "Camilla Varhaug Søberg",
+        "Zakaria El Mansouri"
+      ],
+      "styreSistEndret": "2026-02-10",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/971047917",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/971047917/roller"
+    },
+    {
+      "cat": "interlock",
+      "target": "Kiwi Norge AS",
+      "orgNr": "975959171",
+      "brregName": "KIWI NORGE AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Runar Hollevik"
+      ],
+      "dagligLeder": [
+        "Vegard Kjuus"
+      ],
+      "styremedlemmer": [
+        "Øyvind Andersen",
+        "Silje Elisabeth Hals",
+        "Nina Brendsrud-Andersen",
+        "Truls Fjeldstad"
+      ],
+      "styreSistEndret": "2026-02-10",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/975959171",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/975959171/roller"
+    },
+    {
+      "cat": "interlock",
+      "target": "Reitan Convenience Norway AS",
+      "orgNr": "983415660",
+      "brregName": "REITAN CONVENIENCE NORWAY AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Anna Mariette Kristensson"
+      ],
+      "dagligLeder": [
+        "Anna-Maria Linnea Carnemark"
+      ],
+      "styremedlemmer": [
+        "Rita Rosenlund Forsberg",
+        "Jesper Østergaard Jensen",
+        "Anna Eva Elisabeth Wallenberg",
+        "Helene Henriksen Thomsgård",
+        "Inge Sleire",
+        "Niklas Paul Patrik Lilius"
+      ],
+      "styreSistEndret": "2026-02-03",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/983415660",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/983415660/roller"
+    },
+    {
+      "cat": "interlock",
+      "target": "MENY AS",
+      "orgNr": "977066727",
+      "brregName": "MENY AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Runar Hollevik"
+      ],
+      "dagligLeder": [
+        "Rannveig Børresen Krane"
+      ],
+      "styremedlemmer": [
+        "Mette Lier",
+        "Ivar Jørgen Bjoner",
+        "Truls Fjeldstad",
+        "Trine Riis Groven",
+        "Kristine Høiesen Hartviksen",
+        "Martin Gran"
+      ],
+      "styreSistEndret": "2026-02-10",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/977066727",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/977066727/roller"
+    },
+    {
+      "cat": "interlock",
+      "target": "NorgesGruppen Servicehandel AS",
+      "orgNr": "976769511",
+      "brregName": "NORGESGRUPPEN SERVICEHANDEL AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Runar Hollevik"
+      ],
+      "dagligLeder": [
+        "Kristine Stranne"
+      ],
+      "styremedlemmer": [
+        "Rune Spikseth",
+        "Finn Torstein Dybvik",
+        "Kristine Aakvaag Arvin",
+        "Bodil Ragner"
+      ],
+      "styreSistEndret": "2023-10-10",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/976769511",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/976769511/roller"
+    },
+    {
+      "cat": "interlock",
+      "target": "Uno-X Mobility AS",
+      "orgNr": "988247111",
+      "brregName": "UNO-X MOBILITY AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": true,
+      "status": "aktiv",
+      "styreleder": [
+        "Ole Robert Reitan"
+      ],
+      "dagligLeder": [
+        "Vegar Normann Kulset"
+      ],
+      "styremedlemmer": [
+        "Kristin Solheim Genton",
+        "Monica Ødegaard"
+      ],
+      "styreSistEndret": "2021-03-12",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/988247111",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/988247111/roller"
+    },
+    {
+      "cat": "interlock",
+      "target": "Reitan Kapital AS",
+      "orgNr": "935873177",
+      "brregName": "REITAN KAPITAL AS",
+      "expectedForm": "AS",
+      "form": "AS",
+      "formMatch": true,
+      "konsern": false,
+      "status": "aktiv",
+      "styreleder": [
+        "Trond Fredrik Mellingsæter"
+      ],
+      "dagligLeder": [
+        "Magnus Reitan"
+      ],
+      "styremedlemmer": [
+        "Kristin Solheim Genton",
+        "Ole Robert Reitan"
+      ],
+      "styreSistEndret": "2025-07-25",
+      "sourceUrlEntity": "https://data.brreg.no/enhetsregisteret/api/enheter/935873177",
+      "sourceUrlRoller": "https://data.brreg.no/enhetsregisteret/api/enheter/935873177/roller"
+    }
+  ],
+  "personHits": {
+    "Runar Hollevik": [
+      {
+        "company": "NORGESGRUPPEN ASA",
+        "brregName": "Runar Hollevik",
+        "role": "Daglig leder",
+        "fratraadt": false,
+        "sistEndret": "2016-06-23"
+      },
+      {
+        "company": "BAMA GRUPPEN AS",
+        "brregName": "Runar Hollevik",
+        "role": "Styremedlem",
+        "fratraadt": false,
+        "sistEndret": "2026-05-08"
+      },
+      {
+        "company": "ASKO NORGE AS",
+        "brregName": "Runar Hollevik",
+        "role": "Styrets leder",
+        "fratraadt": false,
+        "sistEndret": "2023-09-15"
+      },
+      {
+        "company": "NORGESGRUPPEN DATA AS",
+        "brregName": "Runar Hollevik",
+        "role": "Styrets leder",
+        "fratraadt": false,
+        "sistEndret": "2026-02-10"
+      },
+      {
+        "company": "KIWI NORGE AS",
+        "brregName": "Runar Hollevik",
+        "role": "Styrets leder",
+        "fratraadt": false,
+        "sistEndret": "2026-02-10"
+      },
+      {
+        "company": "MENY AS",
+        "brregName": "Runar Hollevik",
+        "role": "Styrets leder",
+        "fratraadt": false,
+        "sistEndret": "2026-02-10"
+      },
+      {
+        "company": "NORGESGRUPPEN SERVICEHANDEL AS",
+        "brregName": "Runar Hollevik",
+        "role": "Styrets leder",
+        "fratraadt": false,
+        "sistEndret": "2023-10-10"
+      }
+    ],
+    "Kristine Stranne": [
+      {
+        "company": "ASKO NORGE AS",
+        "brregName": "Kristine Stranne",
+        "role": "Styremedlem",
+        "fratraadt": false,
+        "sistEndret": "2023-09-15"
+      },
+      {
+        "company": "NORGESGRUPPEN SERVICEHANDEL AS",
+        "brregName": "Kristine Stranne",
+        "role": "Daglig leder",
+        "fratraadt": false,
+        "sistEndret": "2023-01-25"
+      }
+    ],
+    "Ole Robert Reitan": [
+      {
+        "company": "REITAN AS",
+        "brregName": "Ole Robert Reitan",
+        "role": "Styremedlem",
+        "fratraadt": false,
+        "sistEndret": "2025-01-07"
+      },
+      {
+        "company": "BAMA GRUPPEN AS",
+        "brregName": "Ole Robert Reitan",
+        "role": "Styremedlem",
+        "fratraadt": false,
+        "sistEndret": "2026-05-08"
+      },
+      {
+        "company": "UNO-X MOBILITY AS",
+        "brregName": "Ole Robert Reitan",
+        "role": "Styrets leder",
+        "fratraadt": false,
+        "sistEndret": "2021-03-12"
+      },
+      {
+        "company": "REITAN KAPITAL AS",
+        "brregName": "Ole Robert Reitan",
+        "role": "Styremedlem",
+        "fratraadt": false,
+        "sistEndret": "2025-07-25"
+      }
+    ],
+    "Magnus Reitan": [
+      {
+        "company": "REITAN AS",
+        "brregName": "Magnus Reitan",
+        "role": "Styremedlem",
+        "fratraadt": false,
+        "sistEndret": "2025-01-07"
+      },
+      {
+        "company": "REITAN KAPITAL AS",
+        "brregName": "Magnus Reitan",
+        "role": "Daglig leder",
+        "fratraadt": false,
+        "sistEndret": "2025-07-25"
+      }
+    ],
+    "Tore Bekken": [
+      {
+        "company": "ASKO NORGE AS",
+        "brregName": "Tore Bekken",
+        "role": "Daglig leder",
+        "fratraadt": false,
+        "sistEndret": "2023-09-15"
+      },
+      {
+        "company": "NORGESGRUPPEN DATA AS",
+        "brregName": "Tore Bekken",
+        "role": "Styremedlem",
+        "fratraadt": false,
+        "sistEndret": "2026-02-10"
+      }
+    ],
+    "Øyvind Andersen": [
+      {
+        "company": "KIWI NORGE AS",
+        "brregName": "Øyvind Andersen",
+        "role": "Styremedlem",
+        "fratraadt": false,
+        "sistEndret": "2026-02-10"
+      }
+    ],
+    "Trond Bentestuen": [],
+    "Dina Thune": [
+      {
+        "company": "ASKO NORGE AS",
+        "brregName": "Dina Gjersøyen Rolstad Thune",
+        "role": "Styremedlem",
+        "fratraadt": false,
+        "sistEndret": "2023-09-15"
+      }
+    ],
+    "Finn Torstein Dybvik": [
+      {
+        "company": "NORGESGRUPPEN SERVICEHANDEL AS",
+        "brregName": "Finn Torstein Dybvik",
+        "role": "Styremedlem",
+        "fratraadt": false,
+        "sistEndret": "2023-10-10"
+      }
+    ],
+    "Johan Johannson": [
+      {
+        "company": "NORGESGRUPPEN ASA",
+        "brregName": "Johan Johannson",
+        "role": "Styrets leder",
+        "fratraadt": false,
+        "sistEndret": "2026-02-17"
+      }
+    ]
+  }
+}
