@@ -70,7 +70,7 @@ Et inntekts-HHI regnet på tvers av noder er mekanisk følsomt for hvor mange se
 
 - **Produksjonstilskudd (AP-3, citable_with_note):** Samlede produksjonstilskudd i 2024 var ~18,6 mrd kr (verifisert mot Landbruksdirektoratets publiserte 18,39 mrd). Fordelingen er moderat konsentrert (Gini ~0,52–0,54), strukturdrevet av husdyrhold og areal. Den tidligere 10,94 mrd-totalen for 2024 var et skript-artefakt (kolonnematch-bug), ikke en reell nedgang.
 - **Pris-asymmetri i fiskeforedling (AP-7, intern STØTTET — ikke ekstern ennå):** Nedstrøms foredlings-PPI fanger oppstrøms lakseråpris-økninger raskere/fullere enn prisfall (NARDL-asymmetri t=14,0). Holdes utenfor faktastemmen til valutaeffekten er kontrollert.
-- **Havbrukskonsentrasjon (AP-6, intern baseline — ikke ekstern ennå):** Sjøbasert MTB er klart mer konsentrert (HHI ~929) enn totaltallet (~510) antyder, fordi store land-RAS-tillatelser fortynner totalen. Holdes utenfor faktastemmen til konsern-rollup er stikkprøvd mot Brønnøysund.
+- **Havbrukskonsentrasjon (AP-6, citable_with_note):** Sjøbasert MTB er klart mer konsentrert (HHI ~929; CR4 57 %) enn totaltallet (~510) antyder, fordi store land-RAS-tillatelser fortynner totalen. Konsern-rollupen er stikkprøvd mot Brønnøysund 2026-06-15 (alle aktive innehaver-enheter bekreftet, SalMar/NTS/SalmoNor/NRS-konsolidering konsistent, fem land-RAS-eksklusjoner uavhengige). Restforbehold ved ekstern bruk: eierandels-% er offentlig kjent men ikke register-bekreftet (→ Aksjonærregister/AP-5), og MTB ≠ slaktevolum.
 
 ## 6. Gjenstående blokker før CL-MAKTKART-001 er citable_external
 

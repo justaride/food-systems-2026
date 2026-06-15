@@ -1,6 +1,6 @@
 ---
 tittel: Food TG AP-6 — Havbrukskonsentrasjon og restråstoff-tilgang: funn 2026-06-14
-status: Internt analysefunn (første kjøring; fan-out-subagent + coordinator-verifikasjon)
+status: klar-med-forbehold (citable_with_note) — konsern-rollup stikkprøvet mot Brønnøysund 2026-06-15 (§7b); restforbehold eierandels-% (Aksjonærregister/AP-5) + MTB≠slaktevolum
 eier: Gabriel
 dato: 2026-06-14
 arbeidspakke: AP-6 i docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md
@@ -72,13 +72,13 @@ Ja. Det opplagte er «tre–fire store dominerer». Det ikke-opplagte er **nivå
 | Dekning | Sjøbasert matfisk laks/ørret, n=92 innehavere (konsern-rollup). Total-MTB-brakett n=140. |
 | Risiko | MTB ≠ faktisk slaktevolum (kapasitetstak); konsern-rollup på navn må stikkprøves; HHI på tildelt MTB, ikke markedsandel av slaktet volum. |
 | Stoppspråk | Ikke konflater lokalitet/MTB/restråstoffvolum. Ikke sammenlign denne HHI direkte mot AP-2s node-HHI (ulike størrelser). Restråstoff-kontroll er strukturell posisjon, ikke målt strøm eller intensjon. |
-| Status | `intern baseline` — ikke ekstern faktastemme før konsern-rollup stikkprøves mot Brønnøysund/Aksjonærregister og restråstoffvolum hentes (RUBIN/SINTEF). |
+| Status | `klar-med-forbehold` (citable_with_note) — oppgradert fra `intern baseline` 2026-06-15 etter at konsern-rollupen er stikkprøvet mot Brønnøysund (§7b: alle aktive innehaver-enheter bekreftet, ingen feilallokering, SalMar/NTS/SalmoNor/NRS-konsolidering konsistent) og restråstoffvolum delvis tallfestet (§6b). Gjenstående forbehold ved ekstern bruk: (a) eierandels-%/ultimat eierskap er offentlig kjent men ikke register-bekreftet her — krever Aksjonærregisteret (AP-5); (b) MTB ≠ slaktevolum; (c) per-aktør restråstoff-tonnasje forblir `needs-data`. |
 
 ## 6. Forbehold og needs-data
 
 - **Committet geojson mangler operatørfelt** — den gir lokalitets-univers men ikke operatørkonsentrasjon; MTB/operatør-mapping krever Akvakulturregisteret.
 - **MTB ≠ faktisk produksjon** (kapasitetstak, ikke realisert/slaktet biomasse). Faktisk slaktevolum kan endre rangeringen marginalt.
-- **Konsern-rollup** på innehavernavn (SalMar inkl. tidl. NTS/SalmoNor, konsolidert under SALMAR OPPDRETT AS) bør stikkprøves mot Brønnøysund ved ekstern bruk.
+- **Konsern-rollup** på innehavernavn (SalMar inkl. tidl. NTS/SalmoNor, konsolidert under SALMAR OPPDRETT AS) — ✅ stikkprøvet mot Brønnøysund 2026-06-15, se §7b. Alle aktive innehaver-enheter bekreftet, ingen feilallokering. Restforbehold: eierandels-% er inferert/offentlig kjent, ikke register-bekreftet (→ Aksjonærregister/AP-5).
 - **Restråstoffvolum per aktør = `needs-data`** (RUBIN/SINTEF/Fiskeridirektoratet restråstoffstatistikk).
 
 ## 6b. Restråstoff — kvantifisert (åpen-data-oppdatering 2026-06-15, Strøm E)
@@ -97,6 +97,35 @@ Restråstoff-koblingen (§3) sto som ren `needs-data`. Åpen-data-research mot n
 **Stoppspråk:** Ikke konverter CR4 (MTB) til en kildebelagt restråstoff-CR4 — «etter konstruksjon … majoritet» er en flagget inferens. Hold lokalitet ≠ MTB ≠ restråstoffvolum atskilt. Torskeoppdrett (~1100 t) er neglisjerbart — ikke bland inn.
 
 **Kilder (§6b):** SINTEF Ocean/Kontali «Analyse marint restråstoff 2022» (rapport 2023:01209, Tabell 5-4 + §5.10) — <https://www.sintef.no/contentassets/f87ee6b4a78846888459395cc020262e/analyse-marint-restrastoff-2022.pdf>; SINTEF «…2024» (nasjonalt ~1,1 Mt, 89 %); Konkurransetilsynet fusjonssak Pelagia/Hordafor 2021_0221 — <https://konkurransetilsynet.no/wp-content/uploads/2021/04/2021_0221-1-OFF-Pelagia-AS-Hordafor-AS.pdf>; RUBIN-lineage bekreftet (avviklet 2012 → FHF/SINTEF).
+
+## 7b. Konsern-rollup stikkprøve mot Brønnøysund (Strøm B, 2026-06-15)
+
+Risiko-raden i §5 og forbeholdet i §6 («konsern-rollup på innehavernavn bør stikkprøves») var den siste blokkereren før AP-6 kunne løftes fra `intern baseline`. Stikkprøven er nå kjørt mot Brønnøysund Enhetsregister (`data.brreg.no`, åpen API, 2026-06-15). Funnet: **rollupen holder — ingen feilallokering oppdaget blant aktive enheter.**
+
+**Bekreftet aktive (data.brreg.no/enhetsregisteret/api/enheter/{orgnr}):**
+
+| Konsern | Nøkkelenhet | Orgnr | Status |
+|---|---|---|---|
+| Mowi | MOWI ASA (bærer matfisk-næringskoden selv) | 964118191 | aktiv |
+| SalMar | SALMAR ASA | 960514718 | aktiv |
+| SalMar | SALMAR FARMING AS | 966840528 | aktiv |
+| SalMar | SALMAR OPPDRETT AS | 928957489 | aktiv |
+| Lerøy | LERØY SEAFOOD GROUP ASA | 975350940 | aktiv |
+| Lerøy | LERØY AURORA AS | 985940460 | aktiv |
+| Lerøy | LERØY MIDT AS | 985848718 | aktiv |
+| Lerøy | SJØTROLL HAVBRUK AS | 929363833 | aktiv |
+| Lerøy | AUSTEVOLL SEAFOOD ASA (ultimat majoritetseier av LSG) | 929975200 | aktiv |
+| Cermaq | CERMAQ GROUP AS | 971647949 | aktiv |
+| Cermaq | CERMAQ NORWAY AS (matfisk-innehaver, «Produksjon av fisk i sjø») | 961922976 | aktiv |
+| Cermaq | CERMAQ NORWAY HOLDING AS | 930152358 | aktiv |
+
+**Kritisk SalMar-sjekk (består):** NTS ASA, SalmoNor AS og Norway Royal Salmon ASA er **fraværende fra Brønnøysunds aktive-enhet-søk** (`?navn=`-endepunktet returnerer kun aktive). Det er konsistent med 2022-konsolideringen: SalMar kjøpte NTS ASA (som kontrollerte SalmoNor AS og NRS), og enhetene ble fusjonert/oppløst inn i SalMar-konsernet. Å tilskrive den tidligere MTB-en til SalMar er dermed korrekt.
+
+**Eksklusjonssjekk (består):** De fem store land-RAS/offshore-tillatelsene som fortynner totaltallet (§2) er bekreftet som **selvstendige aktive enheter, ikke del av de fire** — ECOFISK AS (926847775), BUE SALMON AS (916066899), ANDFJORD SALMON AS (932201070), VIKING AQUA AS (918858741), ABP AQUA MONGSTAD AS (928786994). Å holde dem utenfor det sjøbaserte CR4-tallet er dermed riktig.
+
+**Hva stikkprøven IKKE gjorde (restforbehold):** Brønnøysunds åpne enhetsregister bekrefter *eksistens, status og næringskode*, men ikke aksjonær-/eierandel. Eierskaps-/konsernlenkene (Austevoll→LSG, Mitsubishi→Cermaq, NTS/SalmoNor/NRS→SalMar) er **velkjent offentlig M&A-historikk, men inferert her** — proff.no (HTTP 202), purehelp.no (403) og northdata.com (JS-render) var ikke maskinlesbare i denne kjøringen. Selve eierandels-%-bekreftelsen forblir derfor AP-5/Aksjonærregister-arbeid (Strøm A). Stikkprøven fjerner risikoen for *navn→konsern-feilallokering*, ikke behovet for eierandels-verifikasjon.
+
+**Stoppspråk (§7b):** «Stikkprøvet mot Brønnøysund» betyr at innehaver-enhetene er bekreftet eksisterende/aktive og konsolideringene konsistente — ikke at eierandels-% er register-verifisert. Ikke fremstill rollupen som «Aksjonærregister-bekreftet». Konsolideringslenkene er merket inferert.
 
 ## 7. Verifikasjon
 
