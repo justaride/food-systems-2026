@@ -25,9 +25,10 @@ export DATABASE_URL="$(node -e 'require("dotenv").config({ quiet: true }); proce
 test -n "$DATABASE_URL"   # quiet:true: dotenv v17 logger banneret til stdout og forurenser ellers verdien
 
 # DB-sjekk: klienten (prisma-client-provider, ingen url i datasource) KREVER pg-adapter + dotenv.
-npx tsx -e 'import "dotenv/config"; import { PrismaPg } from "@prisma/adapter-pg"; import { PrismaClient } from "./src/generated/prisma/client"; const url = process.env.DATABASE_URL; if (!url) throw new Error("DATABASE_URL mangler"); const p = new PrismaClient({ adapter: new PrismaPg({ connectionString: url }) }); try { await p.$queryRaw`SELECT 1`; console.log("DB OK"); } finally { await p.$disconnect(); }'
+npx tsx -e 'import "dotenv/config"; import { PrismaPg } from "@prisma/adapter-pg"; import { PrismaClient } from "./src/generated/prisma/client"; const main = async () => { const url = process.env.DATABASE_URL; if (!url) throw new Error("DATABASE_URL mangler"); const p = new PrismaClient({ adapter: new PrismaPg({ connectionString: url }) }); try { await p.$queryRaw`SELECT 1`; console.log("DB OK"); } finally { await p.$disconnect(); } }; main().catch((error) => { console.error(error); process.exit(1); })'
 
-pg_dump "$DATABASE_URL" > ~/foodsystems-backup-$(date +%Y%m%d-%H%M).sql
+PG_DUMP_URL="$(node -e 'const raw = process.env.DATABASE_URL || ""; if (!raw) process.exit(2); const u = new URL(raw); u.search = ""; process.stdout.write(u.toString())')"
+pg_dump "$PG_DUMP_URL" > ~/foodsystems-backup-$(date +%Y%m%d-%H%M).sql
 npm test && npm run lint && npm run build
 ```
 

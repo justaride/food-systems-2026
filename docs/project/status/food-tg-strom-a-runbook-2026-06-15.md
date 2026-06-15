@@ -36,10 +36,12 @@ export DATABASE_URL="$(node -e 'require("dotenv").config({ quiet: true }); proce
 test -n "$DATABASE_URL"   # NB: quiet:true er nødvendig — dotenv v17 logger banneret til stdout og forurenser ellers verdien
 
 # DB når? (skal printe "DB OK" og feile hardt hvis DATABASE_URL/DB er feil)
-npx tsx -e 'import "dotenv/config"; import { PrismaPg } from "@prisma/adapter-pg"; import { PrismaClient } from "./src/generated/prisma/client"; const url = process.env.DATABASE_URL; if (!url) throw new Error("DATABASE_URL mangler"); const p = new PrismaClient({ adapter: new PrismaPg({ connectionString: url }) }); try { await p.$queryRaw`SELECT 1`; console.log("DB OK"); } finally { await p.$disconnect(); }'
+npx tsx -e 'import "dotenv/config"; import { PrismaPg } from "@prisma/adapter-pg"; import { PrismaClient } from "./src/generated/prisma/client"; const main = async () => { const url = process.env.DATABASE_URL; if (!url) throw new Error("DATABASE_URL mangler"); const p = new PrismaClient({ adapter: new PrismaPg({ connectionString: url }) }); try { await p.$queryRaw`SELECT 1`; console.log("DB OK"); } finally { await p.$disconnect(); } }; main().catch((error) => { console.error(error); process.exit(1); })'
 
-# DB-backup FØR noen skriving (rull tilbake hit ved behov)
-pg_dump "$DATABASE_URL" > ~/foodsystems-backup-$(date +%Y%m%d-%H%M).sql
+# DB-backup FØR noen skriving (rull tilbake hit ved behov).
+# Prisma-URL-en kan inneholde ?schema=...; pg_dump tåler ikke det, så stripp query.
+PG_DUMP_URL="$(node -e 'const raw = process.env.DATABASE_URL || ""; if (!raw) process.exit(2); const u = new URL(raw); u.search = ""; process.stdout.write(u.toString())')"
+pg_dump "$PG_DUMP_URL" > ~/foodsystems-backup-$(date +%Y%m%d-%H%M).sql
 
 # Baseline-gater (forvent grønt)
 npm test && npm run lint && npm run build
@@ -198,7 +200,7 @@ Vurder om avviksrapporten avdekker selskaper som bør orgnr-korrigeres — særl
 - **DB FAIL i §0:** sjekk `DATABASE_URL` i `.env` (lokal = `postgresql://foodsystems:foodsystems@localhost:5432/foodsystems`), at Postgres kjører, og at `npm run db:generate` er kjørt.
 - **`dedupe-person-keys` hoppet over:** den er KRITISK før AP-1 re-kjøres (steg 1c) — uten `--commit` skriver den ikke. Symptom: historiske personKeys lenker ikke mot kanoniske → interlock-tall ser for lave ut.
 - **Strict-source fortsatt rød etter §2:** kjør 2a på nytt og se hvilke rader som gjenstår; en rad uten noen mulig kilde skal fjernes eller eksplisitt merkes intern, ikke stå som blokkert ekstern evidens.
-- **`build` regenererer chart-metrics med ny timestamp men identisk data:** `git checkout -- public/data/food-systems/*/chart-metrics.json` for å unngå støy-diff.
+- **`build` regenererer chart-metrics med ny timestamp/EOF-støy men identisk data:** ikke stage filene; gjenopprett dem bevisst før commit etter at `git diff -- public/data/food-systems/*/chart-metrics.json` viser at diffen bare er støy.
 
 ## Rollback
 

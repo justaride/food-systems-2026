@@ -4,7 +4,7 @@ status: Eksternt uttak / utkast — routet gjennom claim-lock. Kun citable_with_
 eier: Gabriel
 dato: 2026-06-15
 arbeidspakke: Strøm F1 (master-handover 2026-06-15)
-bruksregel: «Makt»/«kontroll»/«konsentrasjon» = strukturell posisjon i data, ikke intensjon, samordning eller ulovlighet. Hver tallpåstand bærer kilde, basis og år. Claims under «klar-med-forbehold» eller «intern baseline» er IKKE eksternt siterbare og er merket som sådan. CL-MAKTKART-001 som helhet er fortsatt klar-med-forbehold (se §6).
+bruksregel: «Makt»/«kontroll»/«konsentrasjon» = strukturell posisjon i data, ikke intensjon, samordning eller ulovlighet. Hver tallpåstand bærer kilde, basis og år. Claims under «intern baseline» er IKKE eksternt siterbare og er merket som sådan. CL-MAKTKART-001 som helhet er citable_with_note etter lokal operator-sekvens 2026-06-15 (se §6).
 relaterte_filer:
   - docs/project/analysis/food-tg-maktkart-syntese-2026-06-14.md
   - docs/project/analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md
@@ -58,7 +58,7 @@ Maktkartet hviler på en strukturpåstand som er primærsjekket mot Brønnøysun
 
 To uavhengige datakilder peker på den samme arkitekturen. **Styregrafen** (AP-1) finner at de tverrsektorielle styrebroene klumper seg i marked og distribusjon — sterkest logistikk↔retail og foredling↔retail. **Eiergrafen** (AP-5) finner 19 konsern som kontrollerer vertikalt på tvers av butikk, logistikk og foredling; NorgesGruppen spenner alle fire ledd (butikk + logistikk + foredling + servering). Sektorparene er nesten identiske i de to grafene — to ulike datakilder gir samme strukturkart.
 
-Brønnøysund-stikkprøven (2026-06-14) bekreftet selskapsform og styrekontroll for 22 av 22 toppkonsern, og 9 av 10 av de sterkeste broene. Eierandel-% er deretter verifisert fra offentlige primærkilder (2026-06-15, §6): ≥50 %-majoritetskontroll er bekreftet for NorgesGruppen (>74 %), Reitan (100 %), ASKO (100 %), Lerøy (Austevoll 52,69 %) og Austevoll (Laco 55,55 %), mens SalMar (44,3 %), Mowi (15,47 %) og Orkla (25,32 %) styres via *største aksjeblokk*, ikke flertall. Det gjør **kontrollstrukturen** til en klar-med-forbehold-påstand — solid for intern beslutningsstøtte; gjenstående for ekstern faktastemme er operator-sekvensen (se §6).
+Brønnøysund-stikkprøven (2026-06-14) bekreftet selskapsform og styrekontroll for 22 av 22 toppkonsern, og 9 av 10 av de sterkeste broene. Eierandel-% er deretter verifisert fra offentlige primærkilder (2026-06-15, §6): ≥50 %-majoritetskontroll er bekreftet for NorgesGruppen (>74 %), Reitan (100 %), ASKO (100 %), Lerøy (Austevoll 52,69 %) og Austevoll (Laco 55,55 %), mens SalMar (44,3 %), Mowi (15,47 %) og Orkla (25,32 %) styres via *største aksjeblokk*, ikke flertall. Etter lokal operator-sekvens 2026-06-15 er **kontrollstrukturen** `citable_with_note`: egnet som ekstern faktastemme når forbeholdene om struktur, ikke atferd, følger teksten.
 
 Figur: `docs/project/figures/food-tg-2026-06-15/fig-maktkart-konvergens.svg` (panel A: sektorpar-konvergens styrer vs eierskap; panel B: konsentrasjonsprofilen — foredling topper).
 
@@ -72,18 +72,18 @@ Et inntekts-HHI regnet på tvers av noder er mekanisk følsomt for hvor mange se
 - **Pris-asymmetri i fiskeforedling (AP-7, intern STØTTET — ikke ekstern ennå):** Nedstrøms foredlings-PPI fanger oppstrøms lakseråpris-økninger raskere/fullere enn prisfall (NARDL-asymmetri t=14,0). Holdes utenfor faktastemmen til valutaeffekten er kontrollert.
 - **Havbrukskonsentrasjon (AP-6, citable_with_note):** Sjøbasert MTB er klart mer konsentrert (HHI ~929; CR4 57 %) enn totaltallet (~510) antyder, fordi store land-RAS-tillatelser fortynner totalen. Konsern-rollupen er stikkprøvd mot Brønnøysund 2026-06-15 (alle aktive innehaver-enheter bekreftet, SalMar/NTS/SalmoNor/NRS-konsolidering konsistent, fem land-RAS-eksklusjoner uavhengige). Restforbehold ved ekstern bruk: eierandels-% er offentlig kjent men ikke register-bekreftet (→ Aksjonærregister/AP-5), og MTB ≠ slaktevolum.
 
-## 6. Gjenstående blokker før CL-MAKTKART-001 er citable_external
+## 6. CL-MAKTKART-001-status etter Strøm A
 
-CL-MAKTKART-001 som **samlet** påstand er fortsatt `klar-med-forbehold`. Steg på veien til ekstern faktastemme, i rekkefølge:
+CL-MAKTKART-001 som **samlet** påstand er nå `citable_with_note`. Steg på veien til ekstern faktastemme:
 
 1. Brønnøysund-stikkprøve av form + styrekontroll for toppkonsernene — **utført** (22/22).
-2. Dekningsutvidelse av styregrafen (36 % → ~47 %) — **klar til DB-kjøring** (krever lokal DB).
+2. Dekningsutvidelse av styregrafen (36 % → ~47 %) — **utført som forberedende AP-1-spor / ikke egen ekstern claim alene**; AP-1 brukes her bare triangulert med AP-5.
 3. Ekte node-markeds-HHI der det brukes som markedskonsentrasjon — **i hovedsak lukket** (5 noder med ekte HHI; CL-KRYSSNODE-HHI-001 citable m/forbehold).
 4. 2024-tilskudd verifisert mot publiserte totaler (AP-3) — **utført** (~18,6 mrd).
 5. **Eierandel-% for toppkonsernene (AP-5)** — **utført via offentlige primærkilder 2026-06-15** (selskapenes egne IR/årsrapporter; ikke Aksjonærregisteret). Eier-identitet match for alle 9; topp-andel primærkildebelagt for 6 (Lerøy 52,69 %, Austevoll/Laco 55,55 %, SalMar/Kverva 44,3 %, Mowi/Geveran 15,47 %, Orkla/Canica 25,32 % + NorgesGruppen/Johannson >74 % via SNL). Rest: Reitan/ASKO 100 % strukturelt sikkert men inferert; **BAMAs eksakte NG/Reitan-split** trenger fortsatt register/BAMA-årsrapport. Se `food-tg-ap5-krysseie-funn-2026-06-14.md` §6b.
-6. **Operator-sekvens** (CITABLE-KNOWLEDGE-BASE-STATUS) grønn — **gjenstår** (krever lokal DB-kjøring; strict-sources blokkert bl.a. på 28 Shareholder-rader). *Dette er nå den eksakte gjenstående blokkeren.*
+6. **Operator-sekvens** (CITABLE-KNOWLEDGE-BASE-STATUS) grønn — **utført lokalt 2026-06-15**: `db:audit:strict-sources` 0 brudd, `citation-readiness-queue` P0=0, acceptance-pack grønn, test/lint/build grønn.
 
-Med andre ord: konsentrasjonsprofilen (CL-KRYSSNODE-HHI-001) og 2024-tilskuddene (CL-AP3-001) er siterbare med forbehold nå, og eierandel-% er primærkildebelagt (steg 5). Den vertikale kontrollstrukturen venter nå kun på operator-sekvensen (steg 6) før det samlede maktkartet kan løftes til ekstern faktastemme.
+Med andre ord: konsentrasjonsprofilen (CL-KRYSSNODE-HHI-001), 2024-tilskuddene (CL-AP3-001), eierandel-% (CL-AP5-001) og det samlede maktkartet (CL-MAKTKART-001) er siterbare med forbehold. Forbeholdene skal følge teksten: struktur ≠ atferd; ikke bland år/baser; BAMA-split og enkelte utfordrer-andeler er fortsatt presisjonsforbehold.
 
 ## 7. Stoppspråk (gjelder all ekstern bruk)
 
@@ -91,7 +91,7 @@ Med andre ord: konsentrasjonsprofilen (CL-KRYSSNODE-HHI-001) og 2024-tilskuddene
 - Ikke framstill estimerte utfordrer-andeler som kildebelagte; ikke bland baser eller referanseår.
 - Ikke si at sjømat er like konsentrert som retail (~950 vs ~3327).
 - Ikke bruk AP-1-styrebroene alene som ekstern makt-påstand (intern baseline; fail-closed til primærsjekk + dekningsutvidelse — jf. acceptance-test CA-015).
-- Ikke presenter den vertikale kontrollstrukturen som ekstern faktastemme før operator-sekvensen er på plass (eierandel-% er nå primærkildebelagt, §6).
+- Ikke presenter den vertikale kontrollstrukturen uten `citable_with_note`-forbeholdene i §6.
 - Ikke framstill SalMar/Mowi/Orkla som majoritetseid — der er topp-eieren største aksjeblokk (44,3 / 15,47 / 25,32 %), ikke ≥50 %.
 
 ## 8. Kilder

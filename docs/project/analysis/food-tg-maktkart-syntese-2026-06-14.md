@@ -77,12 +77,12 @@ Fire ting hever dette over allemannskunnskap:
 
 | Felt | Innhold |
 |---|---|
-| Claim-ID | CL-MAKTKART-001 (utkast; bygger på CL-AP1/2/3/5-001) |
+| Claim-ID | CL-MAKTKART-001 (citable_with_note; bygger på CL-AP1/2/3/5-001) |
 | Påstand | Makten i norsk matsystem er vertikal konsernintegrasjon i dagligvare/distribusjon, via samvirke-/familieeierskap og styreoverlapp; triangulert over tilskudd, styrer, eierskap og konsern. |
 | Evidens | AP-1/AP-2/AP-3/AP-5-funnnotater + JSON-aggregater; enhetstestede skript; konvergens av uavhengige sektorpar-mønstre. |
 | Risiko | Eierskap/styre kan feiltolkes som operativ samordning; dekningshull per lense; JV/delt kontroll undertelles. |
 | Stoppspråk | Ikke si «samordner», «karteller» eller «operativ kontroll». Ikke tell research/property/holding som verdikjede-integrasjon. Ikke bruk én lenses dekning som hele markedet. |
-| Status | `klar-med-forbehold` for strukturpåstanden etter Brønnøysund-stikkprøve 2026-06-14 (22/22 formmatch, 9/10 broer). Siden lukket: markedscensus (AP-2 kryss-node-HHI), 2024-tilskudd (AP-3 ~18,6 mrd), og **eierandel-% (AP-5) verifisert fra offentlige primærkilder 2026-06-15** (`food-tg-ap5-krysseie-funn-2026-06-14.md` §6b; ≥50 % bekreftet for NG/Reitan/ASKO/Lerøy/Austevoll, største blokk for SalMar/Mowi/Orkla). Gjenstår før ekstern faktastemme: **kun full operator-sekvens** (strict-sources grønn — krever lokal DB; rest BAMA-split). |
+| Status | `citable_with_note` for strukturpåstanden etter Brønnøysund-stikkprøve 2026-06-14 (22/22 formmatch, 9/10 broer), markedscensus (AP-2 kryss-node-HHI), 2024-tilskudd (AP-3 ~18,6 mrd), **eierandel-% (AP-5) verifisert fra offentlige primærkilder 2026-06-15** (`food-tg-ap5-krysseie-funn-2026-06-14.md` §6b; ≥50 % bekreftet for NG/Reitan/ASKO/Lerøy/Austevoll, største blokk for SalMar/Mowi/Orkla), og lokal operator-sekvens grønn 2026-06-15 (`db:audit:strict-sources` 0 brudd; `research/citation-readiness-queue-2026-05-20.csv` P0=0). Restforbehold: BAMAs eksakte NG/Reitan-split, presise utfordrer-andeler i enkelte noder og ulike år/baser. |
 
 ## 7. Forbehold
 
@@ -94,16 +94,16 @@ Fire ting hever dette over allemannskunnskap:
 
 ## 8. Vei til citable uttak
 
-For å løfte CL-MAKTKART-001 fra intern baseline til citable (ekstern) kreves, i rekkefølge:
+CL-MAKTKART-001 er løftet fra intern baseline til `citable_with_note` etter denne sjekklisten:
 
 1. ~~**Brønnøysund-stikkprøve** av ultimate ownership for topp-konsernene (AP-5) og styreverv for topp-broene (AP-1).~~ **Utført:** form + styrekontroll 2026-06-14 (22/22, broer 9/10); **eierandel-% verifisert fra offentlige primærkilder 2026-06-15** (`food-tg-ap5-krysseie-funn-2026-06-14.md` §6b). Eneste rest: BAMAs eksakte NG/Reitan-split.
 2. ~~**Utvid styredekningen** (AP-1) fra 36 % så styre- og eierkart står på likt grunnlag.~~ **Utført (task #22)**, klar til lokal DB-kjøring (`...ap1-dekningsutvidelse-funn-2026-06-14.md`); projisert 36 % → ~47 %.
-3. **Markedscensus** for ekte node-HHI (AP-2) der det skal brukes som markedskonsentrasjon.
-4. **2024-tilskudd** verifiseres mot Landbruksdirektoratets publiserte totaler (AP-3).
-5. **Operator-sekvens** (CITABLE-KNOWLEDGE-BASE-STATUS) før noe av dette brukes utad.
+3. ~~**Markedscensus** for ekte node-HHI (AP-2) der det skal brukes som markedskonsentrasjon.~~ **Utført:** kryss-node-HHI 2026-06-15 (`food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md`), med presise caveats per node.
+4. ~~**2024-tilskudd** verifiseres mot Landbruksdirektoratets publiserte totaler (AP-3).~~ **Utført:** 2024-total avstemt 2026-06-14/15 (`food-tg-ap3-tilskuddskonsentrasjon-funn-2026-06-14.md`).
+5. ~~**Operator-sekvens** (CITABLE-KNOWLEDGE-BASE-STATUS) før noe av dette brukes utad.~~ **Utført lokalt 2026-06-15:** `npm test`, `npm run lint`, `npm run db:audit`, `npm run db:audit:strict-sources`, `npm run audit:citable-reports`, `npm run research:citation-readiness-queue`, `npm run research:citable-acceptance-pack` og `npm run build` grønne; strict-sources 0 brudd.
 
-Steg 1–2 er nå adressert; (3)–(5) gjenstår. Først etter alle fem kan maktkartet bli ett samlende eksternt uttak (whitepaper-kapittel/figur). Til da: intern beslutningsstøtte, nå med primærsjekket kontrollstruktur.
+Ekstern bruk skal fortsatt bære forbeholdene i §7: strukturell posisjon, ikke intensjon/samordning/ulovlighet; ikke bland markedsbaser eller år; ikke framstill estimerte utfordrer-andeler som kildebelagte punktverdier.
 
 ## 9. Verifikasjon
 
-Denne syntesen introduserer ingen nye tall — den binder sammen `food-tg-ap1/ap2/ap3/ap5-...-funn-2026-06-14.md` og deres JSON-aggregater (`research/analyse/ap1-styreoverlapp.json`, `ap2-nodekonsentrasjon.json`, `ap3-tilskuddskonsentrasjon.json`, `ap5-krysseie.json`). Konvergens-tabellen (§3) er lest direkte av sektorpar-feltene i AP-1- og AP-5-JSON. Hvert underliggende skript er enhetstestet (`tests/scripts/`). Ingen påstand er løftet til ekstern bruk; `git diff --check` forutsettes kjørt før commit.
+Denne syntesen introduserer ingen nye tall — den binder sammen `food-tg-ap1/ap2/ap3/ap5-...-funn-2026-06-14.md` og deres JSON-aggregater (`research/analyse/ap1-styreoverlapp.json`, `ap2-nodekonsentrasjon.json`, `ap3-tilskuddskonsentrasjon.json`, `ap5-krysseie.json`). Konvergens-tabellen (§3) er lest direkte av sektorpar-feltene i AP-1- og AP-5-JSON. Hvert underliggende skript er enhetstestet (`tests/scripts/`). Løftet til `citable_with_note` forutsetter at operator-sekvensen fra 2026-06-15 forblir grønn i CI/deploy.

@@ -201,3 +201,19 @@ Every question states the source type, readiness level, allowed evidence, disall
   - «Kontrollerer» / «koordinerer» / «skjult makt» utledet fra AP-1 alene
   - Generalisering til hele selskapsuniverset uten utvidet styredekning
 - Known caveat: AP-1 er intern baseline: 36 % styredekning, favoriserer store/velinnsamlede selskaper; dekningsutvidelse til ~47 % krever DB-kjøring. Pekepinn for AP-2/AP-5, ikke konklusjon.
+
+## CA-016: Kan vi sitere CL-MAKTKART-001: et fåtall konsern kontrollerer vertikalt på tvers av butikk, logistikk og foredling, og konsentrasjonen topper i samvirke-foredling?
+
+- Category: `ownership_company`
+- Expected source type: triangulated board + ownership graph, Brønnøysund + public company primary sources
+- Required citation readiness: `citable_with_note`
+- Must use:
+  - docs/project/analysis/food-tg-maktkart-syntese-2026-06-14.md
+  - docs/project/analysis/food-tg-maktkart-bronnoysund-stikkprove-2026-06-14.md
+  - docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md
+  - docs/project/analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md
+- Must not use:
+  - «Samordner»/«opererer i samråd» fra eierstruktur alene
+  - AP-1-styrebroer alene uten AP-5-triangulering
+  - Aksjonærregisteret som faktisk brukt kilde for 2026-06-15-løftet
+- Known caveat: Struktur (form + styre + eierandel-%) er primærsjekket; «kontroll» = strukturell posisjon, ikke intensjon/samordning. Enkeltnoders presise HHI bærer fortsatt forbehold.
