@@ -3,6 +3,8 @@ import { describe, it } from 'node:test'
 
 import {
   normalizePersonKey,
+  loosePersonKey,
+  nameSignature,
   brregPersonName,
   mapRolle,
   extractBrregPeople,
@@ -171,5 +173,79 @@ describe('validate-against-brreg pure core', () => {
     }
     const v = compareCompany(db, null, null)
     assert.equal(v.status, 'ikke-funnet')
+  })
+
+  // ── personKey-normalisering: fallback-matching (ø/oe, å/aa + mellomnavn) ──────
+  const plainEnhet = { navn: 'Testkonsern AS', konkurs: false, underAvvikling: false }
+  const styreRoller = (roller: unknown[]) => ({ rollegrupper: [{ type: { kode: 'STYR' }, roller }] })
+  const dbWith = (boardMembers: DbCompany['boardMembers']): DbCompany => ({
+    orgNr: '111111111', name: 'Testkonsern AS', naceCode: null, hqCity: null,
+    founded: null, ownershipType: null, boardMembers,
+  })
+
+  it('loosePersonKey collapses ø/oe and å/aa spellings to one key', () => {
+    assert.equal(loosePersonKey('Tor Rønhovde'), loosePersonKey('Tor Roenhovde'))
+    assert.equal(loosePersonKey('Arne Møgster'), loosePersonKey('Arne Moegster'))
+    assert.equal(loosePersonKey('Kåre Ås'), loosePersonKey('Kaare Aas'))
+  })
+
+  it('nameSignature matches despite extra middle/maiden names', () => {
+    assert.equal(nameSignature('Elin Johanne Husby Aarvik'), nameSignature('Elin Johanne Aarvik'))
+    assert.equal(nameSignature('Elin Johanne Husby Aarvik'), 'elin|arvik')
+  })
+
+  it('does not flag ø/oe spelling variants of the same board member', () => {
+    const roller = styreRoller([
+      { type: { kode: 'LEDE' }, person: { navn: { fornavn: 'Tor', etternavn: 'Rønhovde' } }, fratraadt: false },
+    ])
+    const db = dbWith([
+      { personName: 'Tor Roenhovde', personKey: normalizePersonKey('Tor Roenhovde'), role: 'styreleder' },
+    ])
+    const v = compareCompany(db, plainEnhet, roller)
+    assert.equal(v.boardDiff.missingInDb.length, 0)
+    assert.equal(v.boardDiff.staleInDb.length, 0)
+    assert.equal(v.boardDiff.roleMismatch.length, 0)
+    assert.equal(v.status, 'ok')
+  })
+
+  it('does not flag an extra middle name as missing/stale (signature fallback)', () => {
+    const roller = styreRoller([
+      { type: { kode: 'MEDL' }, person: { navn: { fornavn: 'Elin', mellomnavn: 'Johanne Husby', etternavn: 'Aarvik' } }, fratraadt: false },
+    ])
+    const db = dbWith([
+      { personName: 'Elin Johanne Aarvik', personKey: normalizePersonKey('Elin Johanne Aarvik'), role: 'styremedlem' },
+    ])
+    const v = compareCompany(db, plainEnhet, roller)
+    assert.equal(v.boardDiff.missingInDb.length, 0)
+    assert.equal(v.boardDiff.staleInDb.length, 0)
+    assert.equal(v.status, 'ok')
+  })
+
+  it('still flags genuinely different board members (no over-merge)', () => {
+    const roller = styreRoller([
+      { type: { kode: 'MEDL' }, person: { navn: { fornavn: 'Anne', etternavn: 'Hansen' } }, fratraadt: false },
+    ])
+    const db = dbWith([
+      { personName: 'Bjørn Olsen', personKey: normalizePersonKey('Bjørn Olsen'), role: 'styremedlem' },
+    ])
+    const v = compareCompany(db, plainEnhet, roller)
+    assert.deepEqual(v.boardDiff.missingInDb.map((p) => p.name), ['Anne Hansen'])
+    assert.deepEqual(v.boardDiff.staleInDb.map((m) => m.personName), ['Bjørn Olsen'])
+  })
+
+  it('records a role mismatch for a loose-matched member with a different role', () => {
+    const roller = styreRoller([
+      { type: { kode: 'LEDE' }, person: { navn: { fornavn: 'Tor', etternavn: 'Rønhovde' } }, fratraadt: false },
+    ])
+    const db = dbWith([
+      { personName: 'Tor Roenhovde', personKey: normalizePersonKey('Tor Roenhovde'), role: 'styremedlem' },
+    ])
+    const v = compareCompany(db, plainEnhet, roller)
+    assert.equal(v.boardDiff.missingInDb.length, 0)
+    assert.equal(v.boardDiff.staleInDb.length, 0)
+    assert.deepEqual(
+      v.boardDiff.roleMismatch.map((m) => `${m.dbRole}->${m.brregRole}`),
+      ['styremedlem->styreleder'],
+    )
   })
 })

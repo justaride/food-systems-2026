@@ -3,7 +3,7 @@ tittel: Food TG — statusoppdatering etter Strøm A-lukking (2026-06-15 kveld)
 status: Statusnotat — oppdatert etter lokal DB/operator-kjøring på claude/strom-a-strict-sources
 eier: Gabriel
 dato: 2026-06-15
-formål: Fange faktisk nåtilstand etter at Strøm A ble kjørt lokalt: strict-sources er lukket, CL-MAKTKART-001 er løftet til citable_with_note på branch, og arbeidet ligger bak draft PR/review-gate før merge/deploy.
+formål: Fange faktisk nåtilstand etter at Strøm A ble kjørt lokalt: strict-sources er lukket, CL-MAKTKART-001 er løftet til citable_with_note, og PR #192 er merget (8bd2a1b) + deployet live. Gjenstår: B4-sideverifisering, Brønnøysund-triage og Strøm E.
 plattform: https://food-systems.naturalstateproject.com
 relaterte_filer:
   - docs/project/status/food-tg-ukesrapport-2026-06-15.md
@@ -18,9 +18,9 @@ relaterte_filer:
 
 ## 1. Kort sagt
 
-Strøm A er nå kjørt ferdig lokalt på `claude/strom-a-strict-sources` og ligger i draft PR #192 (`Close Food TG Stream A citable gate`). Den tidligere kritiske blokkeren — `db:audit:strict-sources` rød / operator-sekvens ikke kjørt mot lokal DB — er lukket på branchen.
+Strøm A er kjørt ferdig lokalt, og PR #192 (`Close Food TG Stream A citable gate`) er nå **merget til `main` (`8bd2a1b`) og deployet til prod** (bygget 2026-06-15T19:59:17Z, verifisert via `/api/version` med cache-bust). Den tidligere kritiske blokkeren — `db:audit:strict-sources` rød / operator-sekvens ikke kjørt mot lokal DB — er lukket.
 
-Det samlede maktkartet er derfor løftet fra `klar-med-forbehold` til **`citable_with_note`** i syntese, whitepaper, PCQ og acceptance-pakke. Det er fortsatt ikke merget/deployet fra denne branchen; review, merge og deploy-verifikasjon gjenstår før dette kan regnes som live produksjonsstatus.
+Det samlede maktkartet er dermed løftet fra `klar-med-forbehold` til **`citable_with_note`** i syntese, whitepaper, PCQ og acceptance-pakke — og er nå live på plattformen. Deploy-helse bekreftet: `/api/data-status` `ok/dbOk/pageGatesOk`, og GitHub Actions (Coolify SHA Sync + Schema migration guard) grønne. Gjenstår før endelig ferdig: B4-sideverifisering og Brønnøysund-triage (se §5).
 
 Hovedfunnet er uendret: markedskonsentrasjonen i norsk matsystem topper oppstrøms i foredling — særlig i samvirke-nodene meieri/TINE og egg/kjøtt/Nortura — ikke først og fremst i dagligvareleddet.
 
@@ -74,11 +74,19 @@ Nøkkelresultater:
 
 | # | Spor | Hva | Status |
 |---|---|---|---|
-| 1 | Review/merge | Review draft PR #192, merge til `main` når godkjent | Gjenstår |
-| 2 | Deploy-verifikasjon | Bekreft Coolify deploy og `/api/version` = ny SHA etter merge | Gjenstår |
-| 3 | B4 | Verifiser at `/graf`, `/styremedlemmer`, `/personer`, `/eierskap`, `/selskap` reflekterer nye rader; `graph:audit` grønn | Etter merge/deploy |
-| 4 | D3/D4 | Triage `validate:brreg`-avvik; vurder orgnr-korreksjon for NTS / SalmoNor / Hallvard Lerøy før neste import | Gjenstår |
+| 1 | Review/merge | PR #192 merget til `main` (`8bd2a1b`) | ✅ Utført |
+| 2 | Deploy-verifikasjon | Prod `/api/version` = `8bd2a1b` (cache-bustet), bygget 19:59:17Z; `data-status` ok/dbOk/pageGatesOk; GH Actions grønne | ✅ Utført |
+| 3 | B4 | Prod-sveip: `/graf`, `/styremedlemmer`, `/personer`, `/selskap` ✅ rendrer med data; **`/eierskap` feilet** → rotårsak + fiks i §5b; `graph:audit` gjenstår lokalt | 4/5 ✅; eierskap-fiks klar |
+| 4 | D3/D4 | Brønnøysund-triage **utført** (se `docs/project/analysis/food-tg-brreg-triage-2026-06-15.md`): 222 avvik = navneform/rolletittel/vintage, **null maktkart-effekt**. personKey-normalisering **implementert + testet** i validatoren (432→42 mot ekte data); **21 import-skript migrert til delt `canonicalPersonKey`** (ESLint, Next build og 544/544 tester grønne; full `tsc --noEmit` har pre-eksisterende test-typing-funn). Rest: 6 orgnr-saker + lokal `db:import` + `dedupe-person-keys` for å re-nøkle eksisterende rader | Triagert; validator + import-align klart; DB-reimport gjenstår |
 | 5 | Strøm E | Needs-data-lenser: presise node-andeler, fôr->oppdrett-PPI, restråstoffvolum, per-aktør volum↔margin | Lavere prioritet |
+
+## 5b. B4-sveip + /eierskap-fiks (kveld 2026-06-15)
+
+Visuell B4-sjekk på prod (`8bd2a1b`): `/styremedlemmer`, `/selskap`, `/personer`, `/graf` rendrer med data (graf: 1011 koblede noder, NorgesGruppen/Reitan/Coop/BAMA topper interlock-lista; styremedlem-uten-grafnode = 0; selskap-orgnr-duplikater = 0). **`/eierskap` feilet** med en Server Components render-feil (digest skjult i produksjon).
+
+**Rotårsak (verifisert i repo):** `/eierskap` → `getKonsernIndex()`/`getKonsernDossier()` → `loadCoverage()` leser `data/konsern-coverage.json` via `readFileSync(process.cwd()+…)` ved kjøretid. Dockerfilen kopierer `public`, `content`, `research/…` m.m., men **aldri `data/`** → filen mangler i containeren → ENOENT → RSC-feil. `/eierskap` er den eneste runtime-leseren av `data/` og har ingen fallback-flate — derfor eneste side som faller. Pre-eksisterende pakkings-gap (både Dockerfile og `ownership.ts` uendret i deploy-vinduet), avdekket nå under B4.
+
+**Fiks (lagt til i `Dockerfile`, build-verifisert lokalt):** `COPY data ./data` i builder-stage + `COPY --from=builder … /app/data ./data` i runner-stage. Lavrisiko (legger kun til to små JSON-filer, 24 KB). Review → commit → deploy → re-sjekk at `/eierskap` rendrer og `/api/version` = ny SHA.
 
 ## 6. Ekstern bruk nå
 
@@ -94,7 +102,7 @@ På branchen er CL-MAKTKART-001 `citable_with_note`, ikke `citable_external`. Ek
 
 Arbeidet er operatørgrønt på branch. Endelig ferdig-status krever fortsatt:
 
-- [ ] PR #192 review'd og merget til `main`.
-- [ ] Deploy ferdig og `/api/version` bekrefter ny SHA.
+- [x] PR #192 review'd og merget til `main` (`8bd2a1b`).
+- [x] Deploy ferdig og `/api/version` bekrefter ny SHA (`8bd2a1b`, 19:59:17Z; cache-bust nødvendig pga. edge-cache).
 - [ ] Post-deploy sidetest / B4 utført.
-- [ ] Brønnøysund-avvik triagert som enten dokumentert restavvik eller import-korreksjon.
+- [x] Brønnøysund-avvik triagert (`food-tg-brreg-triage-2026-06-15.md`): kosmetisk navneform/rolletittel/vintage; 6 orgnr-saker + personKey-normalisering gjenstår som import-hygiene (ikke maktkart-blokker).
