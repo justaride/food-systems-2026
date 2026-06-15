@@ -50,6 +50,23 @@ describe('casestatus data', () => {
     }
   })
 
+  it('every anchor has a case-avsjekk doc that exists for its dybde-underside', () => {
+    const seen = new Set<string>()
+    for (const anchor of caseAnchors) {
+      assert.ok(anchor.caseAvsjekk.length > 0, `${anchor.id} missing caseAvsjekk`)
+      assert.ok(
+        anchor.caseAvsjekk.startsWith('docs/project/analysis/case-avsjekk/'),
+        `${anchor.id} caseAvsjekk should point into the case-avsjekk folder`,
+      )
+      assert.ok(!seen.has(anchor.caseAvsjekk), `${anchor.id} reuses caseAvsjekk path: ${anchor.caseAvsjekk}`)
+      seen.add(anchor.caseAvsjekk)
+      assert.doesNotThrow(
+        () => readFileSync(anchor.caseAvsjekk),
+        `${anchor.id} caseAvsjekk not found: ${anchor.caseAvsjekk}`,
+      )
+    }
+  })
+
   it('claim safety: bruksregel og hold-tilbake-språk er bevart', () => {
     assert.match(CASESTATUS_RULE, /[Ii]ntern/, 'bruksregel must state internal status')
     assert.match(CASESTATUS_RULE, /re-trekkes|ikke ekstern/, 'bruksregel must gate external use')

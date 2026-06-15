@@ -1,31 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { InternalBanner } from '@/components/ui/InternalBanner'
 import { PageFraming } from '@/components/ui/PageFraming'
 import { CASESTATUS_RULE, CASESTATUS_UPDATED, caseAnchors } from '@/lib/data/casestatus'
-import type { CaseStatusWord } from '@/lib/data/casestatus'
+import { MATURITY_LABELS, STATUS_STYLES } from './status-display'
 
 export const metadata: Metadata = {
   title: 'Casestatus — Food Systems 2026',
   description: 'Intern modenhetsstatus for de syv caseankrene fra 09.06-spissingen.',
-}
-
-const STATUS_STYLES: Record<CaseStatusWord, string> = {
-  'deckklart internt': 'border-emerald-200 bg-emerald-50 text-emerald-700',
-  'deckklart internt med caveat': 'border-emerald-200 bg-emerald-50 text-emerald-700',
-  'benchmark-kandidat': 'border-sky-200 bg-sky-50 text-sky-700',
-  'benchmark-only': 'border-sky-200 bg-sky-50 text-sky-700',
-  'needs-primary-check': 'border-amber-200 bg-amber-50 text-amber-700',
-  'needs-actor-validation': 'border-amber-200 bg-amber-50 text-amber-700',
-  'needs-data': 'border-amber-200 bg-amber-50 text-amber-700',
-  watchlist: 'border-stone-200 bg-stone-50 text-stone-600',
-  parkert: 'border-stone-200 bg-stone-100 text-stone-500',
-}
-
-const MATURITY_LABELS: Record<string, string> = {
-  kartlagt: 'Kartlagt',
-  delvis: 'Delvis kartlagt',
-  radar: 'Radar',
 }
 
 export default function CasestatusPage() {
@@ -66,7 +49,11 @@ export default function CasestatusPage() {
           <Card key={anchor.id}>
             <div className="flex items-start justify-between gap-3 mb-3">
               <div>
-                <h3 className="text-base font-semibold text-stone-800">{anchor.title}</h3>
+                <h3 className="text-base font-semibold text-stone-800">
+                  <Link href={`/casestatus/${anchor.id}`} className="hover:text-emerald-700 hover:underline">
+                    {anchor.title}
+                  </Link>
+                </h3>
                 <p className="text-xs text-stone-500 mt-1">
                   Spor {anchor.tracks.join('/')} · {MATURITY_LABELS[anchor.maturity]}
                 </p>
@@ -139,9 +126,17 @@ export default function CasestatusPage() {
               </ul>
             </div>
 
-            <p className="text-[11px] text-stone-400 font-mono break-all">
-              Underlag: {anchor.docRefs.join(' · ')}
-            </p>
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-[11px] text-stone-400 font-mono break-all">
+                Underlag: {anchor.docRefs.join(' · ')}
+              </p>
+              <Link
+                href={`/casestatus/${anchor.id}`}
+                className="shrink-0 text-xs font-medium text-emerald-700 hover:underline"
+              >
+                Åpne dybde-avsjekk →
+              </Link>
+            </div>
           </Card>
         ))}
       </div>

@@ -30,6 +30,8 @@ export type CaseAnchor = {
   notSay: string[]
   nextActions: string[]
   docRefs: string[]
+  /** Repo-relativ sti til den fulle case-avsjekken som surfaces på dybde-undersiden. */
+  caseAvsjekk: string
 }
 
 export const CASESTATUS_UPDATED = '2026-06-12'
@@ -64,6 +66,7 @@ export const caseAnchors: CaseAnchor[] = [
       'research/external/dro-0906/drr-0906-001-brasil-kaffe.md',
       'docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md',
     ],
+    caseAvsjekk: 'docs/project/analysis/case-avsjekk/avsjekk-01-kaffe-brasil-2026-06-12.md',
   },
   {
     id: 'kakao-elfenbenskysten',
@@ -89,6 +92,7 @@ export const caseAnchors: CaseAnchor[] = [
       'research/external/dro-0906/drr-0906-002-elfenbenskysten-kakao-eudr.md',
       'docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md',
     ],
+    caseAvsjekk: 'docs/project/analysis/case-avsjekk/avsjekk-02-kakao-elfenbenskysten-2026-06-12.md',
   },
   {
     id: 'valio-finland',
@@ -115,6 +119,7 @@ export const caseAnchors: CaseAnchor[] = [
       'research/external/dro-0906/drr-0906-003-valio-importfritt-for-case.md',
       'docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md',
     ],
+    caseAvsjekk: 'docs/project/analysis/case-avsjekk/avsjekk-03-valio-finland-2026-06-12.md',
   },
   {
     id: 'distribusjon-adoption',
@@ -142,6 +147,7 @@ export const caseAnchors: CaseAnchor[] = [
       'research/external/dro-0906/drr-0906-005-distribusjon-adoption-gate.md',
       'docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md',
     ],
+    caseAvsjekk: 'docs/project/analysis/case-avsjekk/avsjekk-04-distribusjon-adoption-2026-06-12.md',
   },
   {
     id: 'spillvarme',
@@ -167,6 +173,7 @@ export const caseAnchors: CaseAnchor[] = [
       'research/external/dro-0906/drr-0906-006-spillvarme-green-mountain-hima.md',
       'docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md',
     ],
+    caseAvsjekk: 'docs/project/analysis/case-avsjekk/avsjekk-05-spillvarme-2026-06-12.md',
   },
   {
     id: 'fish-restrastoff',
@@ -193,6 +200,7 @@ export const caseAnchors: CaseAnchor[] = [
       'research/external/dro-0906/drr-0906-007-100-fish-iceland-ocean-cluster.md',
       'docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md',
     ],
+    caseAvsjekk: 'docs/project/analysis/case-avsjekk/avsjekk-06-fish-restrastoff-2026-06-12.md',
   },
   {
     id: 'skottland-polen',
@@ -218,5 +226,6 @@ export const caseAnchors: CaseAnchor[] = [
       'research/external/dro-0906/drr-0906-008-skottland-polen.md',
       'docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md',
     ],
+    caseAvsjekk: 'docs/project/analysis/case-avsjekk/avsjekk-07-skottland-polen-2026-06-12.md',
   },
 ]
