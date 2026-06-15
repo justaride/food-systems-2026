@@ -11,7 +11,7 @@ plattform: https://food-systems.naturalstateproject.com
 
 **Plattform:** <https://food-systems.naturalstateproject.com>
 
-> **Én ting å vite før møtet:** Alt arbeidet er ferdig, testet og lagt ut i koden (GitHub). Den siste rettelsen (egg-tallet) er ikke synlig på *nettsiden* ennå, fordi serveren ikke har bygget den nyeste versjonen — det skjer når vi trykker «Redeploy». Lenkene under fungerer; bare egg-oppdateringen mangler på live-siden inntil videre.
+> **Én ting å vite før møtet:** Alt arbeidet er ferdig, testet, lagt ut i koden (GitHub) **og publisert på nettsiden** — inkludert den siste rettelsen (egg-tallet). Alle lenkene under fungerer og viser de nyeste tallene.
 
 ---
 
@@ -94,7 +94,7 @@ Et regionalt delfunn er klart: støtten er regionalt strukturnøytral (følger a
 | Subsidier | Tilskuddsfordeling | <https://food-systems.naturalstateproject.com/subsidier> |
 | Eierskap | Konsern- og eierstruktur | <https://food-systems.naturalstateproject.com/eierskap> |
 
-*(Merk: egg-rettelsen vises på disse sidene først etter neste «Redeploy». Alt annet er live.)*
+*(Alt er live på disse sidene, inkludert egg-rettelsen.)*
 
 ### Dokumenter (de skriftlige uttakene — deles som filer)
 - **Policy-oppsummering** (1–2 sider, enkelt språk) — `docs/project/analysis/food-tg-policy-oppsummering-konsentrasjon-2026-06-15.md`
@@ -109,7 +109,7 @@ Et regionalt delfunn er klart: støtten er regionalt strukturnøytral (følger a
 1. **Én lokal datakjøring (det viktigste).** På Gabriels maskin, mot prosjektets database: utvide styre-dekningen, rydde kildehenvisninger, og hente eierandel-% fra Aksjonærregisteret (bestilt uttrekk). Når dette er grønt, løftes maktkartet til 🟢. Det finnes en ferdig steg-for-steg-oppskrift.
 2. **Bekrefte i appen** at de nye dataene vises riktig (graf, styrer, eierskap).
 3. **Saktere oppfølging (mer data trengs):** presise fôr-/egg-andeler, verdifangst per selskap, en månedlig fôr-prisindeks.
-4. **Teknisk:** trykke «Redeploy» i Coolify så egg-rettelsen blir synlig på nettsiden. (En automatisk vakt varsler når den er live.)
+4. **Teknisk (gjort ✓):** egg-rettelsen er nå deployet og synlig på nettsiden — ingenting gjenstår her.
 
 ---
 
