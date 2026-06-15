@@ -64,7 +64,7 @@ Dataflyt: funnnotatet er kilde til sannhet → en seed-rad legges i `prisma/seed
 |---|---|---|
 | Tittel + kort funn | funnnotat §1 | `Card`-tittel + beskrivelse |
 | **Claim-lock-status** | CL-rad status + `citationReadiness` | `EvidenceStatusBadge` (status + «Ekstern bruk: intern») + `StatusBadge` «Utkast» |
-| Dekning/forbehold | funnnotat dekningsflagg | `CoverageBadge` + én caveat-linje (AP-1: «35,6 % selskapsdekning»; AP-3: «2022–2023; 2024 ufullstendig») |
+| Dekning/forbehold | funnnotat dekningsflagg | `CoverageBadge` + én caveat-linje (AP-1: «35,6 % selskapsdekning»; AP-3: «2022–2024 pålitelig; 2024 lukket 2026-06-14 — tidligere «ufullstendig» var en kolonnematch-bug») |
 | Figur | SVG/chart | AP-3 → `LorenzCurveChart` (eksisterende); AP-1 → sektorbro-mini + «Se i grafen»-lenke til `/graf` |
 | Metode | skript + test | «Metode: reproduserbart skript, enhetstestet» → lenke til `scripts/analyze-*.ts` |
 | Kilde/evidens | funnnotat + JSON | `SourceChip`-lenker |
