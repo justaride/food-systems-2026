@@ -27,6 +27,7 @@ import {
   auditCitationCoverage,
   formatCitationAuditSummary,
 } from '../src/lib/citations/citation-audit'
+import { hasDocumentLocator } from '../src/lib/document-locator-coverage'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -566,7 +567,13 @@ async function checkSourceQualityCoverage() {
     }),
     prisma.deliveryVolume.findMany({ select: { id: true, commodity: true, year: true, source: true } }),
     prisma.document.findMany({
-      select: { id: true, slug: true, filePath: true, url: true, report: { select: { id: true } } },
+      select: {
+        id: true,
+        slug: true,
+        filePath: true,
+        url: true,
+        report: { select: { id: true, provenanceType: true, supportingSources: true } },
+      },
     }),
     prisma.sourceDoc.findMany({
       select: { id: true, url: true, documentId: true, isDuplicate: true },
@@ -710,11 +717,8 @@ async function checkSourceQualityCoverage() {
   const documentsWithResolvableFile = documents.filter((document) =>
     fileExistsForDocumentPath(document.filePath),
   ).length
-  const documentsWithoutUrlOrFile = documents.filter(
-    (document) =>
-      !document.url?.trim() &&
-      !fileExistsForDocumentPath(document.filePath) &&
-      !reportQualifiesAsProvenanceException(document.report?.id),
+  const documentsWithoutLocator = documents.filter(
+    (document) => !hasDocumentLocator(document, fileExistsForDocumentPath),
   )
   const documentsWithMissingFilePath = documents.filter(
     (document) => document.filePath && !fileExistsForDocumentPath(document.filePath),
@@ -725,10 +729,10 @@ async function checkSourceQualityCoverage() {
       `${documentsWithResolvableFile}/${documents.length} have resolvable local filePath`,
   )
 
-  if (documentsWithoutUrlOrFile.length > 0) {
+  if (documentsWithoutLocator.length > 0) {
     sourceAuditIssue(
-      `Document: ${documentsWithoutUrlOrFile.length}/${documents.length} have neither URL nor resolvable local filePath` +
-        ` (examples: ${documentsWithoutUrlOrFile
+      `Document: ${documentsWithoutLocator.length}/${documents.length} have neither URL, resolvable local filePath, nor resolved report provenance` +
+        ` (examples: ${documentsWithoutLocator
           .slice(0, 5)
           .map((document) => document.slug)
           .join('; ')})`,

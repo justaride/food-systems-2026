@@ -2,8 +2,8 @@ import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import {
+  boardMemberProvenanceData,
   resolveBoardMemberAnnualReportSourceLocator,
-  resolveBoardMemberSourceLabel,
 } from '../src/lib/board-member-provenance'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
@@ -16,22 +16,6 @@ function parseArgs(argv: string[]): { dryRun: boolean } {
   }
 
   return { dryRun: argv.includes('--dry-run') }
-}
-
-function provenanceFields(locator: string, verifiedAt: Date) {
-  if (locator.startsWith('document:')) {
-    return {
-      source: locator,
-      sourceUrl: null,
-      verifiedAt,
-    }
-  }
-
-  return {
-    source: resolveBoardMemberSourceLabel(locator),
-    sourceUrl: locator,
-    verifiedAt,
-  }
 }
 
 async function main() {
@@ -76,7 +60,7 @@ async function main() {
     if (!dryRun) {
       await prisma.boardMember.update({
         where: { id: boardMember.id },
-        data: provenanceFields(locator, verifiedAt),
+        data: boardMemberProvenanceData(locator, verifiedAt),
       })
     }
 

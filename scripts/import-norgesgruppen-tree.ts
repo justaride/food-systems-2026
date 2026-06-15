@@ -1,6 +1,10 @@
 import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import {
+  boardMemberProvenanceData,
+  resolveBoardMemberAnnualReportSourceLocator,
+} from '../src/lib/board-member-provenance'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -13,6 +17,13 @@ function normalizePersonKey(name: string): string {
     .replace(/[^a-z ]/g, '')
     .trim()
     .replace(/\s+/g, '-')
+}
+
+async function loadDocumentRefs() {
+  const documents = await prisma.document.findMany({ select: { id: true, slug: true } })
+  return new Set(
+    documents.flatMap((document) => [document.id, document.slug].filter(Boolean) as string[]),
+  )
 }
 
 const NG_ORG = '819731322'
@@ -509,6 +520,8 @@ async function resolveCompanyId(orgNr: string): Promise<string | null> {
 async function importCompanies() {
   console.log('Importing NorgesGruppen subsidiaries...\n')
   let created = 0
+  const documentRefs = await loadDocumentRefs()
+  const importedAt = new Date()
 
   for (const c of ngCompanies) {
     const company = await prisma.company.upsert({
@@ -542,6 +555,10 @@ async function importCompanies() {
 
     if (c.boardMembers) {
       await prisma.boardMember.deleteMany({ where: { companyId: company.id } })
+      const boardMemberSourceLocator = resolveBoardMemberAnnualReportSourceLocator(
+        { company: { orgNr: c.orgNr } },
+        documentRefs,
+      )
       for (const b of c.boardMembers) {
         await prisma.boardMember.create({
           data: {
@@ -549,6 +566,7 @@ async function importCompanies() {
             personName: b.personName,
             role: b.role,
             personKey: normalizePersonKey(b.personName),
+            ...boardMemberProvenanceData(boardMemberSourceLocator, importedAt),
           },
         })
       }
@@ -574,6 +592,12 @@ async function updateNGBoard() {
   }
 
   await prisma.boardMember.deleteMany({ where: { companyId: ngId } })
+  const documentRefs = await loadDocumentRefs()
+  const importedAt = new Date()
+  const boardMemberSourceLocator = resolveBoardMemberAnnualReportSourceLocator(
+    { company: { orgNr: NG_ORG } },
+    documentRefs,
+  )
   for (const b of ngBoard) {
     await prisma.boardMember.create({
       data: {
@@ -581,6 +605,7 @@ async function updateNGBoard() {
         personName: b.personName,
         role: b.role,
         personKey: normalizePersonKey(b.personName),
+        ...boardMemberProvenanceData(boardMemberSourceLocator, importedAt),
       },
     })
     console.log(`  ${b.personName} (${b.role})`)
