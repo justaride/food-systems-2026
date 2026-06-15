@@ -47,9 +47,48 @@ function SektorbroFigure() {
   )
 }
 
+function KryssnodeHhiFigure() {
+  // Markeds-HHI per node (citable-noder), sortert; 2500 = «høyt konsentrert» (DOJ/FTC).
+  const bars = [
+    { node: 'Meieri', hhi: 6000, samvirke: true },
+    { node: 'Rødt kjøtt', hhi: 4700, samvirke: true },
+    { node: 'Dagligvare', hhi: 3327, samvirke: false },
+    { node: 'Kylling', hhi: 3200, samvirke: false },
+    { node: 'Sjømat', hhi: 950, samvirke: false },
+  ]
+  const maxHhi = 6000
+  const plotX = 92
+  const plotW = 120
+  const rowH = 20
+  const top = 8
+  const x = (hhi: number) => plotX + (hhi / maxHhi) * plotW
+  return (
+    <svg viewBox="0 0 220 130" className="w-full max-w-[220px]" role="img" aria-label="Markeds-HHI per verdikjede-node: konsentrasjonen topper i foredling (meieri ~6000, rødt kjøtt ~4700) over dagligvare (~3327); sjømat ~950 er lavest. Samvirkenodene er mest konsentrert.">
+      {/* 2500-terskel */}
+      <line x1={x(2500)} y1={top - 3} x2={x(2500)} y2={top + bars.length * rowH} stroke="#f59e0b" strokeWidth="1" strokeDasharray="3 2" />
+      <text x={x(2500)} y={top + bars.length * rowH + 9} fontSize="7" fill="#b45309" textAnchor="middle">2500</text>
+      {bars.map((b, i) => {
+        const y = top + i * rowH
+        return (
+          <g key={b.node}>
+            <text x={plotX - 4} y={y + 9} fontSize="8" fill="#57534e" textAnchor="end">{b.node}</text>
+            <rect x={plotX} y={y + 2} width={x(b.hhi) - plotX} height={10} rx="1.5" fill={b.samvirke ? '#075985' : '#0284c7'} />
+            <text x={x(b.hhi) + 3} y={y + 10} fontSize="7.5" fill="#78716c" textAnchor="start">{b.hhi === 6000 ? '~6000' : `~${b.hhi}`}</text>
+          </g>
+        )
+      })}
+      <g>
+        <rect x={plotX} y={top + bars.length * rowH + 13} width="8" height="6" rx="1.5" fill="#075985" />
+        <text x={plotX + 11} y={top + bars.length * rowH + 18} fontSize="7" fill="#78716c" textAnchor="start">samvirke (TINE / Nortura)</text>
+      </g>
+    </svg>
+  )
+}
+
 function FindingFigure({ figure }: { figure: DybdeanalyseFigure }) {
   if (figure === 'lorenz') return <LorenzFigure />
   if (figure === 'sektorbro') return <SektorbroFigure />
+  if (figure === 'kryssnodeHhi') return <KryssnodeHhiFigure />
   return null
 }
 

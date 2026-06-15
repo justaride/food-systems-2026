@@ -1,7 +1,7 @@
 import type { EvidenceStatus } from '@/lib/visualization/types'
 import type { CitationReadinessLevel } from '@/lib/citations/citation-status'
 
-export type DybdeanalyseFigure = 'lorenz' | 'sektorbro' | null
+export type DybdeanalyseFigure = 'lorenz' | 'sektorbro' | 'kryssnodeHhi' | null
 
 export type DybdeanalyseFinding = {
   id: string
@@ -22,7 +22,7 @@ export type DybdeanalyseFinding = {
   docRefs: string[]
 }
 
-export const DYBDEANALYSE_UPDATED = '2026-06-14'
+export const DYBDEANALYSE_UPDATED = '2026-06-15'
 
 export const DYBDEANALYSE_RULE =
   'Interne dybdeanalyse-funn fra arbeidspakkene (AP). «Makt»/«konsentrasjon» betyr strukturell posisjon i data, ikke intensjon eller anklage. ' +
@@ -117,5 +117,137 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     ],
     graphHref: '/graf',
     docRefs: ['docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md'],
+  },
+  {
+    id: 'ins-ap2-002',
+    arbeidspakke: 'AP-2',
+    claimId: 'CL-KRYSSNODE-HHI-001',
+    title: 'Konsentrasjonen topper i foredling, ikke i dagligvare',
+    kortFunn:
+      'Et ekte markeds-HHI per node — bygget fra kildebelagte markedsandeler, ikke det n-følsomme inntekts-HHI-et — viser at konsentrasjonen topper oppstrøms i foredling: meieri (~6000) og rødt kjøtt (~4600–4800) er mer konsentrert enn dagligvare (~3327), mens primærproduksjon (laks/ørret ~950) er minst konsentrert. De to mest konsentrerte nodene er samvirkene TINE (76,4 % → gulv 5837) og Nortura (66 % → gulv 4356). Ordinal-funnet (foredling > retail > primær) er robust mot usikkerhet i utfordrer-andelene fordi leder-kvadratleddet alene gir gulv over retail.',
+    evidenceStatus: 'estimated',
+    citationReadiness: 'citable_with_note',
+    citationNote:
+      'Citable m/forbehold — ordinal-funnet (foredling > retail > primær) er robust via leder-gulv. Per-node presise HHI varierer (estimerte utfordrer-andeler, ulike referanseår/baser).',
+    coverageNote:
+      'Dekning: 5 noder med ekte markeds-HHI (retail ~3327, meieri ~6000, rødt kjøtt ~4600, kylling ~3200, sjømat ~950). 5 noder citable struktur / needs-data på presis HHI (egg, kraftfôr, oppdrettsfôr, logistikk, foodservice). Catering-operatører metodisk uegnet (anbudsmarked, lave byttekostnader).',
+    method:
+      'Markeds-HHI = Σ(andel%)²; >2500 = «høyt konsentrert» (US DOJ/FTC). Kildebelagte leder-andeler + estimerte utfordrer-split; fan-out-subagenter + coordinator-aritmetikk. Sjømat kryssvalidert mot AP-6 MTB.',
+    figure: 'kryssnodeHhi',
+    tags: ['konsentrasjon', 'hhi', 'foredling', 'samvirke'],
+    sources: [
+      'funnnotat AP-2 kryss-node',
+      'Oslo Economics meierimarked 2023',
+      'KLF/Animalia slaktestatistikk',
+      'Konkurransetilsynet Dagligvarerapport 2024-25',
+      'Fiskeridirektoratet MTB (AP-6)',
+    ],
+    notSay: [
+      'Ikke fremstill estimerte utfordrer-andeler som kildebelagte.',
+      'Ikke bland baser (slakt/foredling/retail/kapasitet) eller referanseår.',
+      'Ikke si at sjømat er like konsentrert som retail (~950 vs ~3327).',
+      'Ikke dobbelttell eier-overlappende aktører (Cardinal/Den Stolte Hane i egg/kylling).',
+    ],
+    docRefs: ['docs/project/analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md'],
+  },
+  {
+    id: 'ins-ap6-001',
+    arbeidspakke: 'AP-6',
+    claimId: 'CL-AP6-001',
+    title: 'Havbruk: sjøbasert produksjon er langt mer konsentrert enn totaltallet viser',
+    kortFunn:
+      'Fire konsern (Mowi, SalMar, Lerøy, Cermaq) kontrollerer ~57 % av sjøbasert MTB (CR4 57 %, HHI ~929). Regnes alle kommersielle matfisk-tillatelser med (inkl. store land-RAS/offshore-utviklingstillatelser) faller HHI til ~510 — de nye tillatelsene har høy nominell MTB men ligger ofte på én lokalitet og er ennå ikke i drift, så de fortynner totaltallet og maskerer at produksjonen som faktisk genererer marint restråstoff i dag er vesentlig mer konsentrert. Siden restråstoff skalerer med biomasse, er MTB-konsentrasjonen rett utgangspunkt for «hvem genererer restråstoff-strømmene».',
+    evidenceStatus: 'observed',
+    citationReadiness: 'internal_context',
+    citationNote:
+      'Intern baseline — ikke ekstern bruk før konsern-rollup stikkprøves mot Brønnøysund/Aksjonærregister.',
+    coverageNote:
+      'Dekning: sjøbasert matfisk laks/ørret, n=92 innehavere (konsern-rollup); total-MTB-brakett n=140. MTB = tildelt kapasitet, ikke realisert slaktevolum. Restråstoffvolum per aktør = needs-data (RUBIN/SINTEF).',
+    method:
+      'Fiskeridirektoratet Akvakulturregister (åpen pub-aqua CSV, 15.06.2026); dedup på tillatelsesnr; MTB = sum tillatelseskapasitet; konsern-rollup på innehaver; HHI = Σ(andel%)². Sjømat kryssvalidert mot AP-2 slaktevolum.',
+    figure: null,
+    tags: ['havbruk', 'konsentrasjon', 'mtb', 'restråstoff'],
+    sources: ['funnnotat AP-6', 'Fiskeridirektoratet Akvakulturregister', 'aquaculture_sites.geojson'],
+    notSay: [
+      'Ikke konflater lokalitet, MTB og restråstoffvolum — tre atskilte nivåer.',
+      'Ikke sammenlign denne MTB-HHI direkte mot AP-2s node-HHI (ulike størrelser).',
+      'Restråstoff-kontroll er strukturell posisjon, ikke målt strøm eller intensjon.',
+    ],
+    docRefs: ['docs/project/analysis/food-tg-ap6-havbrukskonsentrasjon-funn-2026-06-14.md'],
+  },
+  {
+    id: 'ins-ap7-001',
+    arbeidspakke: 'AP-7',
+    claimId: 'CL-AP7-001',
+    title: 'Pris-asymmetri («rockets and feathers») finnes også i fiskeforedling',
+    kortFunn:
+      'Nedstrøms produsentprisindeks for fiskeforedling (SSB 12462, SNN102) fanger kumulativt ~0,27 av oppstrøms lakseråpris-økninger (SSB 03024), men kun ~0,13 av prisfall — en statistisk sterk asymmetri (NARDL β_opp−β_ned = +0,14, t=14,0; 2019M01–2025M12, n=84). I 2025 falt råprisen ~13 % (94,4 → 81,8 kr/kg) mens foredlings-PPI steg ~10 %. Et selvstendig domene-funn (laks→foredling), ikke en overføring av dagligvarefunnet.',
+    evidenceStatus: 'estimated',
+    citationReadiness: 'internal_context',
+    citationNote:
+      'Intern STØTTET (medium-høy tillit) — ikke ekstern faktastemme før valuta kontrolleres (NOK-svekkelse løfter eksport-PPI; deflater EUR/USD).',
+    coverageNote:
+      'Dekning: 84 månedsobservasjoner 2019–2025; ett domene (laks→foredling). Valuta ikke kontrollert; SNN102 dekker all fisk, ikke kun laks. Fôr→oppdrett-leddet = needs-data (SSB har ingen ren månedlig fôr-PPI).',
+    method:
+      'NARDL + distribuert-lag (lag 0–3, opp/ned-splittet) + fortegnstest; metodepresedens kvantitativ-dybdeanalyse §H-NY1; SSBs åpne JSON-stat-API.',
+    figure: null,
+    tags: ['pris', 'asymmetri', 'havbruk', 'foredling'],
+    sources: ['funnnotat AP-7', 'SSB 03024 lakseeksport kilopris', 'SSB 12462 PPI SNN102'],
+    notSay: [
+      'Formuler som prisatferd/mønster, ikke intensjon eller margin-anklage.',
+      'Ikke generaliser til grønt eller andre utestede domener.',
+      'Ikke lån funnet til det utestede fôr→oppdrett-leddet.',
+    ],
+    docRefs: ['docs/project/analysis/food-tg-ap7-prisasymmetri-funn-2026-06-14.md'],
+  },
+  {
+    id: 'ins-ap4-001',
+    arbeidspakke: 'AP-4',
+    claimId: 'CL-AP4-001',
+    title: 'Verdifangst: sjømat skaper ~2× verdi per tonn — per-aktør-testen er needs-data',
+    kortFunn:
+      'På 2024-tall flytter norsk primærlandbruk og sjømat tilnærmet lik tonnasje (3,3 mot 3,8 mill. tonn), men sjømat skaper ~2× verdi per tonn (≈16 700 mot ≈8 500 NOK GVA/tonn). Nedstrøms har detaljhandelen høyest konsentrasjon (CR3 96,6 %) men blant de laveste rapporterte prosentmarginene (NG retail-segment 2,6 %, Coop 1,0 %); Konkurransetilsynet/Oslo Economics plasserer høyere marginer oppstrøms. Selve per-aktør volum↔margin-testen krever en DB-join (DeliveryVolume × CompanyFinancial, ~50 % dekning) og står som needs-data.',
+    evidenceStatus: 'observed',
+    citationReadiness: 'internal_context',
+    citationNote:
+      'Delfunn klar-med-forbehold (committet value-chain/financial_insights). Hovedpåstanden (per-aktør volum↔margin) er needs-data — krever DB-join, ikke ekstrapolerbar (~50 % finansdekning).',
+    coverageNote:
+      'Dekning: node-/kjedeledd-tall fra committet 2024-data, ikke per aktør. GVA/tonn blander inn importert råstoff (sjømat-fôr ~92 % importert) → verdi/tonn ≠ ren norsk verdiskaping. Node-margin for foredling/distribusjon mangler i committet data.',
+    method:
+      'Committet value-chain.json + financial_insights_2024.json (2024). Hovedtest = DeliveryVolume × CompanyFinancial Spearman-join (needs-data, DB).',
+    figure: null,
+    tags: ['verdifangst', 'margin', 'volum', 'needs-data'],
+    sources: ['funnnotat AP-4/AP-8', 'value-chain.json', 'financial_insights_2024.json'],
+    notSay: [
+      'Ikke fremstill GVA/tonn som ren norsk verdiskaping (importert råstoff inngår).',
+      'Ikke presenter referert KT/Oslo Economics-marginanalyse som eget regnestykke.',
+      'Ikke ekstrapoler ~50 %-finansdekningen til hele selskapskorpuset.',
+    ],
+    docRefs: ['docs/project/analysis/food-tg-ap4-ap8-partial-funn-2026-06-14.md'],
+  },
+  {
+    id: 'ins-ap8-001',
+    arbeidspakke: 'AP-8',
+    claimId: 'CL-AP8-001',
+    title: 'Tilskudd↔konsentrasjon: regionalt strukturnøytralt; node-HHI-testen er needs-data',
+    kortFunn:
+      'Den egentlige testen (tilskuddsintensitet per node × node-markeds-HHI) er blokkert: produksjonstilskudd går til primærprodusenter, og ekte markeds-HHI mangler for produksjonsnodene — så aksen hypotesen krever, finnes ikke ennå (needs-data). Et testbart regionalt resultat finnes: produksjonstilskudd fordeles i hovedsak proporsjonalt med mottakertetthet (r ≈ 0,92), uten signifikant samvariasjon mellom mottakertetthet og tilskudd per mottaker (r ≈ −0,05, ikke-sign., n ≈ 350, alle tre år) — støtten er regionalt strukturnøytral på dette målet.',
+    evidenceStatus: 'observed',
+    citationReadiness: 'internal_context',
+    citationNote:
+      'Regional subpåstand klar-med-forbehold; kjernen (node-HHI × tilskudd) er needs-data. Ikke lån retail-HHI eller AP-2s inntekts-HHI inn i en tilskuddskorrelasjon.',
+    coverageNote:
+      'Dekning: kommune-aggregat 2022–2024 (Landbruksdirektoratet, eksakt match mot AP-3-aggregat). Mottakertetthet er proxy for fragmentering, ikke markeds-HHI; mottaker-nivå, brutto.',
+    method:
+      'Reprodusert fra ap3-tilskuddskonsentrasjon.json; Pearson r på kommune-aggregat (n ≈ 350) med signifikans rapportert.',
+    figure: null,
+    tags: ['tilskudd', 'konsentrasjon', 'regional', 'needs-data'],
+    sources: ['funnnotat AP-4/AP-8', 'ap3-tilskuddskonsentrasjon.json', 'Landbruksdirektoratet'],
+    notSay: [
+      'Korrelasjon ≠ årsak; dette er en regional struktur-test, ikke node-HHI-testen AP-8 spesifiserer.',
+      'Ikke lån retail-HHI eller AP-2s inntekts-HHI inn i tilskuddskorrelasjonen.',
+      'Ikke tolk mottakertetthet som markedskonsentrasjon.',
+    ],
+    docRefs: ['docs/project/analysis/food-tg-ap4-ap8-partial-funn-2026-06-14.md'],
   },
 ]
