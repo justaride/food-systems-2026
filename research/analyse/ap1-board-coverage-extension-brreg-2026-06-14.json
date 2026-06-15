@@ -1,0 +1,2499 @@
+{
+  "tittel": "AP-1 styredekning — Brønnøysund-utvidelse (inputs/sjømat), snapshot 2026-06-14",
+  "generatedAt": "2026-06-14T21:09:15.317Z",
+  "source": "Brønnøysundregistrene — roller i virksomheten",
+  "sourceUrlTemplate": "https://data.brreg.no/enhetsregisteret/api/enheter/{orgNr}/roller",
+  "method": "Hentet /roller for målselskaper i target-sektorer; STYR+DAGL→rolle; ekskluderer fratraadt/avregistrert (kun sittende styre); personKey via canonicalPersonKey. Identisk rolle-mapping som enrich-offentligdata.ts.",
+  "bruksregel": "Intern baseline. Snapshot for reproduserbar/offline import (scripts/extend-board-coverage-brreg.ts --snapshot-in). Tall er projeksjon til DB-kjøring kjøres lokalt.",
+  "targetSectors": [
+    "inputs",
+    "seafood",
+    "production"
+  ],
+  "totals": {
+    "companiesQueried": 34,
+    "companiesWithBoardData": 31,
+    "deadOrgNrs": 3,
+    "totalCurrentSeats": 265,
+    "distinctPersons": 228
+  },
+  "bySector": {
+    "inputs": {
+      "n": 13,
+      "withBoard": 13,
+      "seats": 130
+    },
+    "seafood": {
+      "n": 21,
+      "withBoard": 18,
+      "seats": 135
+    }
+  },
+  "projectedCoverage": {
+    "ap1Baseline": {
+      "companiesWithBoard": 98,
+      "universe": 275,
+      "pct": 0.3564
+    },
+    "addedCompaniesUpperBound": 31,
+    "projectedCompaniesWithBoardUpperBound": 129,
+    "projectedPctUpperBound": 0.4691,
+    "note": "Øvre grense: antar alle 31 målselskaper mangler styredata i DB i dag. Faktisk løft avgjøres ved kjøring (noen mor-ASA kan allerede ha styredata). Konsern-dekningssignal (2026-05-25) viser leroy/salmar/mowi/felleskjopet/nortura/tine w/board=0, så de fleste antas nye."
+  },
+  "interlockPreview": {
+    "note": "Beregnet KUN på de 34 målselskapene (isolert). Full AP-1-rekjøring mot kombinert graf (eksisterende 555 + nye 265 verv) vil sannsynligvis avdekke FLERE broer enn dette (sjekken her dekker bare topp-20 fra forrige kjøring).",
+    "intraSetInterlockers": 24,
+    "crossSectorBridges": [
+      {
+        "name": "Therese Log Bergjord",
+        "sectors": [
+          "inputs",
+          "seafood"
+        ],
+        "companies": [
+          "FISKÅ MØLLE AS",
+          "KVERVA AS"
+        ]
+      },
+      {
+        "name": "Ivan Vindheim",
+        "sectors": [
+          "inputs",
+          "seafood"
+        ],
+        "companies": [
+          "MOWI FEED AS",
+          "MOWI ASA"
+        ]
+      }
+    ],
+    "overlapWithExistingTop20": 0,
+    "topIntraSet": [
+      {
+        "name": "Arne Møgster",
+        "sectors": [
+          "seafood"
+        ],
+        "companies": [
+          "LERØY SEAFOOD GROUP ASA",
+          "AUSTEVOLL SEAFOOD ASA",
+          "LERØY HAVFISK AS",
+          "LERØY NORWAY SEAFOODS AS",
+          "LACO AS"
+        ]
+      },
+      {
+        "name": "Sjur Svenningsson Malm",
+        "sectors": [
+          "seafood"
+        ],
+        "companies": [
+          "LERØY AURORA AS",
+          "LERØY MIDT AS",
+          "LERØY VEST AS",
+          "LERØY HAVFISK AS",
+          "LERØY NORWAY SEAFOODS AS"
+        ]
+      },
+      {
+        "name": "Helge Singelstad",
+        "sectors": [
+          "seafood"
+        ],
+        "companies": [
+          "AUSTEVOLL SEAFOOD ASA",
+          "LERØY HAVFISK AS",
+          "LERØY NORWAY SEAFOODS AS",
+          "LACO AS"
+        ]
+      },
+      {
+        "name": "Gustav Witzøe",
+        "sectors": [
+          "seafood"
+        ],
+        "companies": [
+          "SALMAR ASA",
+          "SALMAR FARMING AS",
+          "KVERVA AS"
+        ]
+      },
+      {
+        "name": "Henning Kolbjørn Beltestad",
+        "sectors": [
+          "seafood"
+        ],
+        "companies": [
+          "LERØY SEAFOOD GROUP ASA",
+          "LERØY HAVFISK AS",
+          "LERØY NORWAY SEAFOODS AS"
+        ]
+      },
+      {
+        "name": "Britt Kathrine Drivenes",
+        "sectors": [
+          "seafood"
+        ],
+        "companies": [
+          "LERØY SEAFOOD GROUP ASA",
+          "LERØY HAVFISK AS",
+          "LERØY NORWAY SEAFOODS AS"
+        ]
+      },
+      {
+        "name": "Ørjan Mortveit Tveiten",
+        "sectors": [
+          "seafood"
+        ],
+        "companies": [
+          "NOVA SEA AS",
+          "NOVA SEA AS",
+          "MOWI SEAWATER NORWAY AS"
+        ]
+      },
+      {
+        "name": "Bjarne Reinert",
+        "sectors": [
+          "seafood"
+        ],
+        "companies": [
+          "LERØY AURORA AS",
+          "LERØY MIDT AS",
+          "LERØY VEST AS"
+        ]
+      },
+      {
+        "name": "Elisabeth Holand",
+        "sectors": [
+          "inputs"
+        ],
+        "companies": [
+          "FELLESKJØPET AGRI SA",
+          "GARTNERHALLEN SA"
+        ]
+      },
+      {
+        "name": "Mads Martinsen",
+        "sectors": [
+          "inputs"
+        ],
+        "companies": [
+          "SKRETTING AS",
+          "SKRETTING AS"
+        ]
+      },
+      {
+        "name": "Trude Ulven",
+        "sectors": [
+          "inputs"
+        ],
+        "companies": [
+          "STRAND UNIKORN AS",
+          "NORGESFÔR AS"
+        ]
+      },
+      {
+        "name": "Therese Log Bergjord",
+        "sectors": [
+          "inputs",
+          "seafood"
+        ],
+        "companies": [
+          "FISKÅ MØLLE AS",
+          "KVERVA AS"
+        ]
+      }
+    ]
+  },
+  "dataQuality": {
+    "deadOrgNrs": [
+      {
+        "orgNr": "952587687",
+        "name": "NTS ASA",
+        "httpStatus": 404,
+        "likelyReason": "NTS ASA — fusjonert inn i SalMar (avnotert)"
+      },
+      {
+        "orgNr": "914353561",
+        "name": "Hallvard Lerøy AS",
+        "httpStatus": 404,
+        "likelyReason": "Hallvard Lerøy AS — omorganisert/utgått orgnr"
+      },
+      {
+        "orgNr": "952662813",
+        "name": "SalmoNor AS",
+        "httpStatus": 404,
+        "likelyReason": "SalmoNor AS — fusjonert inn i SalMar"
+      }
+    ],
+    "nameDiffs": [
+      {
+        "orgNr": "975871096",
+        "corpus": "Norgesfor AS",
+        "brreg": "NORGESFÔR AS"
+      }
+    ]
+  },
+  "companies": [
+    {
+      "sector": "inputs",
+      "orgNr": "911608103",
+      "corpusName": "Felleskjøpet Agri SA",
+      "brregName": "FELLESKJØPET AGRI SA",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 21,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Svenn Ivar Fure",
+          "role": "CEO",
+          "personKey": "svenn-ivar-fure",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1975"
+        },
+        {
+          "personName": "Jens Lippestad",
+          "role": "styreleder",
+          "personKey": "jens-lippestad",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1960"
+        },
+        {
+          "personName": "Elisabeth Holand",
+          "role": "styremedlem",
+          "personKey": "elisabeth-holand",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1980"
+        },
+        {
+          "personName": "Frank Gjøran Fandin",
+          "role": "styremedlem",
+          "personKey": "frank-gjoran-fandin",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1969"
+        },
+        {
+          "personName": "Grim Erik Gillestad",
+          "role": "styremedlem",
+          "personKey": "grim-erik-gillestad",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1978"
+        },
+        {
+          "personName": "Thor Johannes Rogneby",
+          "role": "styremedlem",
+          "personKey": "thor-johannes-rogneby",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1972"
+        },
+        {
+          "personName": "Elisabeth Slethaug Nilsen",
+          "role": "styremedlem",
+          "personKey": "elisabeth-slethaug-nilsen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1979"
+        },
+        {
+          "personName": "Borgny Kjølstad Grande",
+          "role": "styremedlem",
+          "personKey": "borgny-kjolstad-grande",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1979"
+        },
+        {
+          "personName": "Erling Mølnvik Aune",
+          "role": "styremedlem",
+          "personKey": "erling-molnvik-aune",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1981"
+        },
+        {
+          "personName": "Sigbjørn Aurland",
+          "role": "styremedlem",
+          "personKey": "sigbjorn-aurland",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1976"
+        },
+        {
+          "personName": "Torbjørg Kylland",
+          "role": "styremedlem",
+          "personKey": "torbjorg-kylland",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1971"
+        },
+        {
+          "personName": "Ann Kristin Sønmør Nygaard",
+          "role": "styremedlem",
+          "personKey": "ann-kristin-sonmor-nygard",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1981"
+        },
+        {
+          "personName": "Knut Grønnerød Repstad",
+          "role": "styremedlem",
+          "personKey": "knut-gronnerod-repstad",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1993"
+        },
+        {
+          "personName": "Margareth Fosseng",
+          "role": "styremedlem",
+          "personKey": "margareth-fosseng",
+          "brregRoleCode": "VARA",
+          "birthYear": "1980"
+        },
+        {
+          "personName": "Laila Stenstadvolden",
+          "role": "styremedlem",
+          "personKey": "laila-stenstadvolden",
+          "brregRoleCode": "VARA",
+          "birthYear": "1974"
+        },
+        {
+          "personName": "Anne-Lise Jenssen Humstad",
+          "role": "styremedlem",
+          "personKey": "annelise-jenssen-humstad",
+          "brregRoleCode": "VARA",
+          "birthYear": "1990"
+        },
+        {
+          "personName": "Knut Martin Bårnes",
+          "role": "styremedlem",
+          "personKey": "knut-martin-barnes",
+          "brregRoleCode": "VARA",
+          "birthYear": "1982"
+        },
+        {
+          "personName": "Per Volden",
+          "role": "styremedlem",
+          "personKey": "per-volden",
+          "brregRoleCode": "VARA",
+          "birthYear": "1979"
+        },
+        {
+          "personName": "Baard Finn Frøyland",
+          "role": "styremedlem",
+          "personKey": "bard-finn-froyland",
+          "brregRoleCode": "VARA",
+          "birthYear": "1973"
+        },
+        {
+          "personName": "Jan Frode Antonsen",
+          "role": "styremedlem",
+          "personKey": "jan-frode-antonsen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1968"
+        },
+        {
+          "personName": "Solveig Ballo",
+          "role": "styremedlem",
+          "personKey": "solveig-ballo",
+          "brregRoleCode": "VARA",
+          "birthYear": "1981"
+        }
+      ]
+    },
+    {
+      "sector": "inputs",
+      "orgNr": "986228608",
+      "corpusName": "Yara International ASA",
+      "brregName": "YARA INTERNATIONAL ASA",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 20,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Svein Tore Holsether",
+          "role": "CEO",
+          "personKey": "svein-tore-holsether",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1972"
+        },
+        {
+          "personName": "Trond Berger",
+          "role": "styreleder",
+          "personKey": "trond-berger",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1957"
+        },
+        {
+          "personName": "Jannicke Hilland",
+          "role": "styremedlem",
+          "personKey": "jannicke-hilland",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1967"
+        },
+        {
+          "personName": "John Gabriel Thuestad",
+          "role": "styremedlem",
+          "personKey": "john-gabriel-thuestad",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1960"
+        },
+        {
+          "personName": "Tove Feld",
+          "role": "styremedlem",
+          "personKey": "tove-feld",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1964"
+        },
+        {
+          "personName": "Jais Stampe Li Valeur",
+          "role": "styremedlem",
+          "personKey": "jais-stampe-li-valeur",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1962"
+        },
+        {
+          "personName": "Tina Elizabeth Lawton",
+          "role": "styremedlem",
+          "personKey": "tina-elizabeth-lawton",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1967"
+        },
+        {
+          "personName": "Harald Lauritz Thorstein",
+          "role": "styremedlem",
+          "personKey": "harald-lauritz-thorstein",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1979"
+        },
+        {
+          "personName": "Rune Asle Bratteberg",
+          "role": "styremedlem",
+          "personKey": "rune-asle-bratteberg",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1960"
+        },
+        {
+          "personName": "Amund Myrstad",
+          "role": "styremedlem",
+          "personKey": "amund-myrstad",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1974"
+        },
+        {
+          "personName": "Edina Ringdal Wickholm",
+          "role": "styremedlem",
+          "personKey": "edina-ringdal-wickholm",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1981"
+        },
+        {
+          "personName": "Kari Marie Nøstberg",
+          "role": "styremedlem",
+          "personKey": "kari-marie-nostberg",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1960"
+        },
+        {
+          "personName": "Roger Hansen",
+          "role": "styremedlem",
+          "personKey": "roger-hansen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1965"
+        },
+        {
+          "personName": "Karl Edvard Juul",
+          "role": "styremedlem",
+          "personKey": "karl-edvard-juul",
+          "brregRoleCode": "VARA",
+          "birthYear": "1968"
+        },
+        {
+          "personName": "Maiken Sandland",
+          "role": "styremedlem",
+          "personKey": "maiken-sandland",
+          "brregRoleCode": "VARA",
+          "birthYear": "1990"
+        },
+        {
+          "personName": "Inger Aandahl Raastad",
+          "role": "styremedlem",
+          "personKey": "inger-andahl-rastad",
+          "brregRoleCode": "VARA",
+          "birthYear": "1967"
+        },
+        {
+          "personName": "Øystein Botillen",
+          "role": "styremedlem",
+          "personKey": "oystein-botillen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1965"
+        },
+        {
+          "personName": "Veronique Elisabeth Anahid Revoy",
+          "role": "styremedlem",
+          "personKey": "veronique-elisabeth-anahid-revoy",
+          "brregRoleCode": "VARA",
+          "birthYear": "1966"
+        },
+        {
+          "personName": "Kristian Johnsen Haukalid",
+          "role": "styremedlem",
+          "personKey": "kristian-johnsen-haukalid",
+          "brregRoleCode": "VARA",
+          "birthYear": "1982"
+        },
+        {
+          "personName": "Simon Brage Fossdal Høimyr",
+          "role": "styremedlem",
+          "personKey": "simon-brage-fossdal-hoimyr",
+          "brregRoleCode": "VARA",
+          "birthYear": "1985"
+        }
+      ]
+    },
+    {
+      "sector": "inputs",
+      "orgNr": "988044113",
+      "corpusName": "Skretting AS",
+      "brregName": "SKRETTING AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 9,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Mads Martinsen",
+          "role": "CEO",
+          "personKey": "mads-martinsen",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1986"
+        },
+        {
+          "personName": "Håvard Walde",
+          "role": "styreleder",
+          "personKey": "havard-walde",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1976"
+        },
+        {
+          "personName": "May-Helen Holme",
+          "role": "styremedlem",
+          "personKey": "mayhelen-holme",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1980"
+        },
+        {
+          "personName": "Marina Iren Kvarsvik",
+          "role": "styremedlem",
+          "personKey": "marina-iren-kvarsvik",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1985"
+        },
+        {
+          "personName": "Frank Åge Enstad",
+          "role": "styremedlem",
+          "personKey": "frank-age-enstad",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1967"
+        },
+        {
+          "personName": "Hilde Kristin Roald",
+          "role": "styremedlem",
+          "personKey": "hilde-kristin-roald",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1969"
+        },
+        {
+          "personName": "Marius De Haas",
+          "role": "styremedlem",
+          "personKey": "marius-de-has",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1988"
+        },
+        {
+          "personName": "Line Miranda Andersen",
+          "role": "styremedlem",
+          "personKey": "line-miranda-andersen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1987"
+        },
+        {
+          "personName": "Mads Martinsen",
+          "role": "styremedlem",
+          "personKey": "mads-martinsen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1986"
+        }
+      ]
+    },
+    {
+      "sector": "inputs",
+      "orgNr": "916329717",
+      "corpusName": "Strand Unikorn AS",
+      "brregName": "STRAND UNIKORN AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 14,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Trude Ulven",
+          "role": "CEO",
+          "personKey": "trude-ulven",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1971"
+        },
+        {
+          "personName": "Audun Løhre",
+          "role": "styreleder",
+          "personKey": "audun-lohre",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1966"
+        },
+        {
+          "personName": "Svein Åge Haugli",
+          "role": "styremedlem",
+          "personKey": "svein-age-haugli",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1966"
+        },
+        {
+          "personName": "Anne Cathrine Blakstad",
+          "role": "styremedlem",
+          "personKey": "anne-cathrine-blakstad",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1983"
+        },
+        {
+          "personName": "Marius Sylling",
+          "role": "styremedlem",
+          "personKey": "marius-sylling",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1984"
+        },
+        {
+          "personName": "Roger Baadshaug",
+          "role": "styremedlem",
+          "personKey": "roger-badshaug",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1973"
+        },
+        {
+          "personName": "Arne Medlien",
+          "role": "styremedlem",
+          "personKey": "arne-medlien",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1966"
+        },
+        {
+          "personName": "Robin Anne Fitzgerald",
+          "role": "styremedlem",
+          "personKey": "robin-anne-fitzgerald",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1981"
+        },
+        {
+          "personName": "Berthe Lise Mengshoel",
+          "role": "styremedlem",
+          "personKey": "berthe-lise-mengshol",
+          "brregRoleCode": "VARA",
+          "birthYear": "1973"
+        },
+        {
+          "personName": "Jan Cato Jansen",
+          "role": "styremedlem",
+          "personKey": "jan-cato-jansen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1970"
+        },
+        {
+          "personName": "Lars Almstrøm Moger",
+          "role": "styremedlem",
+          "personKey": "lars-almstrom-moger",
+          "brregRoleCode": "VARA",
+          "birthYear": "1967"
+        },
+        {
+          "personName": "Sissel Bilstad Neraasen",
+          "role": "styremedlem",
+          "personKey": "sissel-bilstad-nerasen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Halvor Nordli",
+          "role": "styremedlem",
+          "personKey": "halvor-nordli",
+          "brregRoleCode": "VARA",
+          "birthYear": "1964"
+        },
+        {
+          "personName": "Arnfinn Evensen",
+          "role": "styremedlem",
+          "personKey": "arnfinn-evensen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1966"
+        }
+      ]
+    },
+    {
+      "sector": "inputs",
+      "orgNr": "975871096",
+      "corpusName": "Norgesfor AS",
+      "brregName": "NORGESFÔR AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 8,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Martin Dombestein",
+          "role": "CEO",
+          "personKey": "martin-dombestein",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1961"
+        },
+        {
+          "personName": "Trude Ulven",
+          "role": "styreleder",
+          "personKey": "trude-ulven",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1971"
+        },
+        {
+          "personName": "Ebbe Maurtvedt",
+          "role": "styremedlem",
+          "personKey": "ebbe-maurtvedt",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1965"
+        },
+        {
+          "personName": "Per Arnfinn Selvnes",
+          "role": "styremedlem",
+          "personKey": "per-arnfinn-selvnes",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1966"
+        },
+        {
+          "personName": "Anders Skarsgard",
+          "role": "styremedlem",
+          "personKey": "anders-skarsgard",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1961"
+        },
+        {
+          "personName": "Unn-Elisabeth Tofthagen",
+          "role": "styremedlem",
+          "personKey": "unnelisabeth-tofthagen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1979"
+        },
+        {
+          "personName": "Jostein Fjeld",
+          "role": "styremedlem",
+          "personKey": "jostein-fjeld",
+          "brregRoleCode": "VARA",
+          "birthYear": "1967"
+        },
+        {
+          "personName": "Lina Mogstad",
+          "role": "styremedlem",
+          "personKey": "lina-mogstad",
+          "brregRoleCode": "VARA",
+          "birthYear": "1966"
+        }
+      ]
+    },
+    {
+      "sector": "inputs",
+      "orgNr": "915442552",
+      "corpusName": "Felleskjøpet Rogaland Agder SA",
+      "brregName": "FELLESKJØPET ROGALAND AGDER SA",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 16,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Per Harald Vabø",
+          "role": "CEO",
+          "personKey": "per-harald-vabo",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1961"
+        },
+        {
+          "personName": "Roar Lima Grødeland",
+          "role": "styreleder",
+          "personKey": "roar-lima-grodeland",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1982"
+        },
+        {
+          "personName": "Line Njåstad",
+          "role": "styremedlem",
+          "personKey": "line-njastad",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1971"
+        },
+        {
+          "personName": "Ingrid Ropeid",
+          "role": "styremedlem",
+          "personKey": "ingrid-ropeid",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1984"
+        },
+        {
+          "personName": "Kirsten Vestergaard Eike",
+          "role": "styremedlem",
+          "personKey": "kirsten-vestergard-eike",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1981"
+        },
+        {
+          "personName": "Marit Epletveit",
+          "role": "styremedlem",
+          "personKey": "marit-epletveit",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1978"
+        },
+        {
+          "personName": "Jon Magne Haugland",
+          "role": "styremedlem",
+          "personKey": "jon-magne-haugland",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1971"
+        },
+        {
+          "personName": "Espen Vårvik",
+          "role": "styremedlem",
+          "personKey": "espen-varvik",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1984"
+        },
+        {
+          "personName": "Helge Arne Espeland",
+          "role": "styremedlem",
+          "personKey": "helge-arne-espeland",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1978"
+        },
+        {
+          "personName": "Åge Andre Brømnes",
+          "role": "styremedlem",
+          "personKey": "age-andre-bromnes",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1983"
+        },
+        {
+          "personName": "Odd Sande",
+          "role": "styremedlem",
+          "personKey": "odd-sande",
+          "brregRoleCode": "VARA",
+          "birthYear": "1979"
+        },
+        {
+          "personName": "Ingrid Haugen",
+          "role": "styremedlem",
+          "personKey": "ingrid-haugen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1986"
+        },
+        {
+          "personName": "Ole Topnes",
+          "role": "styremedlem",
+          "personKey": "ole-topnes",
+          "brregRoleCode": "VARA",
+          "birthYear": "1967"
+        },
+        {
+          "personName": "Birger Reve",
+          "role": "styremedlem",
+          "personKey": "birger-reve",
+          "brregRoleCode": "VARA",
+          "birthYear": "1975"
+        },
+        {
+          "personName": "Geir Inge Gausland",
+          "role": "styremedlem",
+          "personKey": "geir-inge-gausland",
+          "brregRoleCode": "VARA",
+          "birthYear": "1979"
+        },
+        {
+          "personName": "Elisabeth Johnsen Haugse",
+          "role": "styremedlem",
+          "personKey": "elisabeth-johnsen-haugse",
+          "brregRoleCode": "VARA",
+          "birthYear": "1980"
+        }
+      ]
+    },
+    {
+      "sector": "inputs",
+      "orgNr": "975856844",
+      "corpusName": "Fiskå Mølle AS",
+      "brregName": "FISKÅ MØLLE AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 4,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Tommy Neverdahl Nordbø",
+          "role": "CEO",
+          "personKey": "tommy-neverdahl-nordbo",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1986"
+        },
+        {
+          "personName": "Rasmus Nordbø",
+          "role": "styreleder",
+          "personKey": "rasmus-nordbo",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1961"
+        },
+        {
+          "personName": "Therese Log Bergjord",
+          "role": "styremedlem",
+          "personKey": "therese-log-bergjord",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1965"
+        },
+        {
+          "personName": "Christian Pagaard Junker",
+          "role": "styremedlem",
+          "personKey": "christian-pagard-junker",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1952"
+        }
+      ]
+    },
+    {
+      "sector": "inputs",
+      "orgNr": "911610744",
+      "corpusName": "Mowi Feed AS",
+      "brregName": "MOWI FEED AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 3,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Atle Kvist",
+          "role": "CEO",
+          "personKey": "atle-kvist",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Ivan Vindheim",
+          "role": "styreleder",
+          "personKey": "ivan-vindheim",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1971"
+        },
+        {
+          "personName": "Kristian Ellingsen",
+          "role": "styremedlem",
+          "personKey": "kristian-ellingsen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1980"
+        }
+      ]
+    },
+    {
+      "sector": "inputs",
+      "orgNr": "987390689",
+      "corpusName": "Telespor AS",
+      "brregName": "TELESPOR AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 5,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Nicolay Boberg Jansen",
+          "role": "CEO",
+          "personKey": "nicolay-boberg-jansen",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1987"
+        },
+        {
+          "personName": "Einar Risnes",
+          "role": "styreleder",
+          "personKey": "einar-risnes",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1968"
+        },
+        {
+          "personName": "Jan Christian Roland Ormåsen",
+          "role": "styremedlem",
+          "personKey": "jan-christian-roland-ormasen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1987"
+        },
+        {
+          "personName": "Sunniva Berglund Skogan",
+          "role": "styremedlem",
+          "personKey": "sunniva-berglund-skogan",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1990"
+        },
+        {
+          "personName": "Knut Kavli",
+          "role": "styremedlem",
+          "personKey": "knut-kavli",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1987"
+        }
+      ]
+    },
+    {
+      "sector": "inputs",
+      "orgNr": "945958405",
+      "corpusName": "Gartnerhallen SA",
+      "brregName": "GARTNERHALLEN SA",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 10,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Kai Ståle Knutsen",
+          "role": "CEO",
+          "personKey": "kai-stale-knutsen",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1976"
+        },
+        {
+          "personName": "Nils Olve Gillund",
+          "role": "styreleder",
+          "personKey": "nils-olve-gillund",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1979"
+        },
+        {
+          "personName": "Ingunn Haugen Hegdal",
+          "role": "styremedlem",
+          "personKey": "ingunn-haugen-hegdal",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Kjetil Lerfall",
+          "role": "styremedlem",
+          "personKey": "kjetil-lerfall",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1974"
+        },
+        {
+          "personName": "Aud Mari Folden",
+          "role": "styremedlem",
+          "personKey": "aud-mari-folden",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1969"
+        },
+        {
+          "personName": "Edle Skavland",
+          "role": "styremedlem",
+          "personKey": "edle-skavland",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1978"
+        },
+        {
+          "personName": "Leif Johann Rugsland",
+          "role": "styremedlem",
+          "personKey": "leif-johann-rugsland",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1982"
+        },
+        {
+          "personName": "Steffen Aleksander Green",
+          "role": "styremedlem",
+          "personKey": "steffen-aleksander-green",
+          "brregRoleCode": "VARA",
+          "birthYear": "1983"
+        },
+        {
+          "personName": "Elisabeth Holand",
+          "role": "styremedlem",
+          "personKey": "elisabeth-holand",
+          "brregRoleCode": "VARA",
+          "birthYear": "1980"
+        },
+        {
+          "personName": "Simen Andreas Myhrene",
+          "role": "styremedlem",
+          "personKey": "simen-andreas-myhrene",
+          "brregRoleCode": "VARA",
+          "birthYear": "1971"
+        }
+      ]
+    },
+    {
+      "sector": "inputs",
+      "orgNr": "937843860",
+      "corpusName": "BioMar AS",
+      "brregName": "BIOMAR A.S.",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 9,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Håvard Yngve Jørgensen",
+          "role": "CEO",
+          "personKey": "havard-yngve-jorgensen",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1972"
+        },
+        {
+          "personName": "Carlos Armando Diaz Verdugo",
+          "role": "styreleder",
+          "personKey": "carlos-armando-diaz-verdugo",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1969"
+        },
+        {
+          "personName": "Sif Rishøj",
+          "role": "styremedlem",
+          "personKey": "sif-rishoj",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1972"
+        },
+        {
+          "personName": "Claus Eskildsen",
+          "role": "styremedlem",
+          "personKey": "claus-eskildsen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1970"
+        },
+        {
+          "personName": "Torunn Forberg",
+          "role": "styremedlem",
+          "personKey": "torunn-forberg",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1980"
+        },
+        {
+          "personName": "Susanne Poulsen",
+          "role": "styremedlem",
+          "personKey": "susanne-poulsen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1981"
+        },
+        {
+          "personName": "Sverre Richard Amlie",
+          "role": "styremedlem",
+          "personKey": "sverre-richard-amlie",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1969"
+        },
+        {
+          "personName": "Petter Leknes",
+          "role": "styremedlem",
+          "personKey": "petter-leknes",
+          "brregRoleCode": "VARA",
+          "birthYear": "1977"
+        },
+        {
+          "personName": "Kathrine Beate Hansen",
+          "role": "styremedlem",
+          "personKey": "kathrine-beate-hansen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1981"
+        }
+      ]
+    },
+    {
+      "sector": "inputs",
+      "orgNr": "821186382",
+      "corpusName": "Mimiro Holding AS",
+      "brregName": "MIMIRO HOLDING AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 8,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Anne Vabø Dingstad",
+          "role": "CEO",
+          "personKey": "anne-vabo-dingstad",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1981"
+        },
+        {
+          "personName": "Per Waldemar Simonsen",
+          "role": "styreleder",
+          "personKey": "per-waldemar-simonsen",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Jo Anders Hoff Moflag",
+          "role": "styremedlem",
+          "personKey": "jo-anders-hoff-moflag",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1976"
+        },
+        {
+          "personName": "Henrik Bachke Madsen",
+          "role": "styremedlem",
+          "personKey": "henrik-bachke-madsen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1979"
+        },
+        {
+          "personName": "Sveinung Kjøren",
+          "role": "styremedlem",
+          "personKey": "sveinung-kjoren",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1969"
+        },
+        {
+          "personName": "Eirin Sannes Sleteng",
+          "role": "styremedlem",
+          "personKey": "eirin-sannes-sleteng",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1979"
+        },
+        {
+          "personName": "Anne Jorun Aas",
+          "role": "styremedlem",
+          "personKey": "anne-jorun-as",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1972"
+        },
+        {
+          "personName": "Bjarne Holm",
+          "role": "styremedlem",
+          "personKey": "bjarne-holm",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1975"
+        }
+      ]
+    },
+    {
+      "sector": "inputs",
+      "orgNr": "921761929",
+      "corpusName": "Kukraft AS",
+      "brregName": "KUKRAFT AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 3,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Jon Lasse Garberg",
+          "role": "CEO",
+          "personKey": "jon-lasse-garberg",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1972"
+        },
+        {
+          "personName": "Johnny Ødegård",
+          "role": "styreleder",
+          "personKey": "johnny-odegard",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Jon Lasse Garberg",
+          "role": "styremedlem",
+          "personKey": "jon-lasse-garberg",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1972"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "964118191",
+      "corpusName": "Mowi ASA",
+      "brregName": "MOWI ASA",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 13,
+      "excludedResigned": 1,
+      "boardMembers": [
+        {
+          "personName": "Ivan Vindheim",
+          "role": "CEO",
+          "personKey": "ivan-vindheim",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1971"
+        },
+        {
+          "personName": "Leif Teksum",
+          "role": "styremedlem",
+          "personKey": "leif-teksum",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1952"
+        },
+        {
+          "personName": "Peder Strand",
+          "role": "styremedlem",
+          "personKey": "peder-strand",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1980"
+        },
+        {
+          "personName": "Lisbet Karin Nærø",
+          "role": "styremedlem",
+          "personKey": "lisbet-karin-naero",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Kjersti Helen Krokeide Hobøl",
+          "role": "styremedlem",
+          "personKey": "kjersti-helen-krokeide-hobol",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1961"
+        },
+        {
+          "personName": "Aino Kristin Lindal Olaisen",
+          "role": "styremedlem",
+          "personKey": "aino-kristin-lindal-olaisen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1974"
+        },
+        {
+          "personName": "Kathrine Astrup Fredriksen",
+          "role": "styremedlem",
+          "personKey": "kathrine-astrup-fredriksen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1983"
+        },
+        {
+          "personName": "Eivind Kallbekken",
+          "role": "styremedlem",
+          "personKey": "eivind-kallbekken",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1980"
+        },
+        {
+          "personName": "John Olav Johansen",
+          "role": "styremedlem",
+          "personKey": "john-olav-johansen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1968"
+        },
+        {
+          "personName": "Marit Øvergård Utnes",
+          "role": "styremedlem",
+          "personKey": "marit-overgard-utnes",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1987"
+        },
+        {
+          "personName": "Magnar Viga",
+          "role": "styremedlem",
+          "personKey": "magnar-viga",
+          "brregRoleCode": "VARA",
+          "birthYear": "1970"
+        },
+        {
+          "personName": "Nina Johansen Kupen",
+          "role": "styremedlem",
+          "personKey": "nina-johansen-kupen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1982"
+        },
+        {
+          "personName": "Maiken Harsvik",
+          "role": "styremedlem",
+          "personKey": "maiken-harsvik",
+          "brregRoleCode": "VARA",
+          "birthYear": "1993"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "960514718",
+      "corpusName": "SalMar ASA",
+      "brregName": "SALMAR ASA",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 14,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Frode Arntsen",
+          "role": "CEO",
+          "personKey": "frode-arntsen",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1970"
+        },
+        {
+          "personName": "Gustav Witzøe",
+          "role": "styreleder",
+          "personKey": "gustav-witzo",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1953"
+        },
+        {
+          "personName": "Margrethe Hauge",
+          "role": "styremedlem",
+          "personKey": "margrethe-hauge",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1971"
+        },
+        {
+          "personName": "Leif Inge Nordhammer",
+          "role": "styremedlem",
+          "personKey": "leif-inge-nordhammer",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1958"
+        },
+        {
+          "personName": "Morten Loktu",
+          "role": "styremedlem",
+          "personKey": "morten-loktu",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1960"
+        },
+        {
+          "personName": "Arnhild Holstad",
+          "role": "styremedlem",
+          "personKey": "arnhild-holstad",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Ingvild Kindlihagen",
+          "role": "styremedlem",
+          "personKey": "ingvild-kindlihagen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1994"
+        },
+        {
+          "personName": "Stig Arne Stensen",
+          "role": "styremedlem",
+          "personKey": "stig-arne-stensen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1969"
+        },
+        {
+          "personName": "Magnus Dybvad",
+          "role": "styremedlem",
+          "personKey": "magnus-dybvad",
+          "brregRoleCode": "VARA",
+          "birthYear": "1982"
+        },
+        {
+          "personName": "Vibecke Bondø",
+          "role": "styremedlem",
+          "personKey": "vibecke-bondo",
+          "brregRoleCode": "VARA",
+          "birthYear": "1971"
+        },
+        {
+          "personName": "Thomas Landsem",
+          "role": "styremedlem",
+          "personKey": "thomas-landsem",
+          "brregRoleCode": "VARA",
+          "birthYear": "1982"
+        },
+        {
+          "personName": "Tor Ingar Magne Olsen",
+          "role": "styremedlem",
+          "personKey": "tor-ingar-magne-olsen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1967"
+        },
+        {
+          "personName": "Stine Mari Andreassen Kjoshaug",
+          "role": "styremedlem",
+          "personKey": "stine-mari-andreassen-kjoshaug",
+          "brregRoleCode": "VARA",
+          "birthYear": "1983"
+        },
+        {
+          "personName": "Charlotte Opskar Hunnes",
+          "role": "styremedlem",
+          "personKey": "charlotte-opskar-hunnes",
+          "brregRoleCode": "VARA",
+          "birthYear": "1980"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "975350940",
+      "corpusName": "Lerøy Seafood Group ASA",
+      "brregName": "LERØY SEAFOOD GROUP ASA",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 10,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Henning Kolbjørn Beltestad",
+          "role": "CEO",
+          "personKey": "henning-kolbjorn-beltestad",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1968"
+        },
+        {
+          "personName": "Arne Møgster",
+          "role": "styreleder",
+          "personKey": "arne-mogster",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1975"
+        },
+        {
+          "personName": "Britt Kathrine Drivenes",
+          "role": "styremedlem",
+          "personKey": "britt-kathrine-drivenes",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Didrik Oskar Munch",
+          "role": "styremedlem",
+          "personKey": "didrik-oskar-munch",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1956"
+        },
+        {
+          "personName": "Karoline Møgster",
+          "role": "styremedlem",
+          "personKey": "karoline-mogster",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1980"
+        },
+        {
+          "personName": "Are Dragesund",
+          "role": "styremedlem",
+          "personKey": "are-dragesund",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1975"
+        },
+        {
+          "personName": "Linda Kidøy Pedersen",
+          "role": "styremedlem",
+          "personKey": "linda-kidoy-pedersen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1971"
+        },
+        {
+          "personName": "Silje Elin Grunnaleite Butt",
+          "role": "styremedlem",
+          "personKey": "silje-elin-grunnaleite-butt",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1984"
+        },
+        {
+          "personName": "Bjarne Egil Kristiansen",
+          "role": "styremedlem",
+          "personKey": "bjarne-egil-kristiansen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1955"
+        },
+        {
+          "personName": "Tor-Ivar Ingebrigtsen",
+          "role": "styremedlem",
+          "personKey": "torivar-ingebrigtsen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1974"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "929975200",
+      "corpusName": "Austevoll Seafood ASA",
+      "brregName": "AUSTEVOLL SEAFOOD ASA",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 9,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Arne Møgster",
+          "role": "CEO",
+          "personKey": "arne-mogster",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1975"
+        },
+        {
+          "personName": "Helge Singelstad",
+          "role": "styreleder",
+          "personKey": "helge-singelstad",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Helge Arvid Møgster",
+          "role": "styremedlem",
+          "personKey": "helge-arvid-mogster",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1953"
+        },
+        {
+          "personName": "Eirik Drønen Melingen",
+          "role": "styremedlem",
+          "personKey": "eirik-dronen-melingen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1988"
+        },
+        {
+          "personName": "Siren Merete Grønhaug",
+          "role": "styremedlem",
+          "personKey": "siren-merete-gronhaug",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1965"
+        },
+        {
+          "personName": "Lill Maren Møgster",
+          "role": "styremedlem",
+          "personKey": "lill-maren-mogster",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1984"
+        },
+        {
+          "personName": "Hege Åse Solbakken",
+          "role": "styremedlem",
+          "personKey": "hege-ase-solbakken",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1972"
+        },
+        {
+          "personName": "Hege Charlotte Bakken",
+          "role": "styremedlem",
+          "personKey": "hege-charlotte-bakken",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1973"
+        },
+        {
+          "personName": "Petter Dragesund",
+          "role": "styremedlem",
+          "personKey": "petter-dragesund",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1964"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "952587687",
+      "corpusName": "NTS ASA",
+      "brregName": null,
+      "status": "not-found",
+      "httpStatus": 404,
+      "seats": 0,
+      "excludedResigned": 0,
+      "boardMembers": []
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "961056268",
+      "corpusName": "Nova Sea AS",
+      "brregName": "NOVA SEA AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 14,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Ørjan Mortveit Tveiten",
+          "role": "CEO",
+          "personKey": "orjan-mortveit-tveiten",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1977"
+        },
+        {
+          "personName": "Ørjan Mortveit Tveiten",
+          "role": "styreleder",
+          "personKey": "orjan-mortveit-tveiten",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1977"
+        },
+        {
+          "personName": "Olav Soleide",
+          "role": "styremedlem",
+          "personKey": "olav-soleide",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1968"
+        },
+        {
+          "personName": "Cecilia Anna Jufors",
+          "role": "styremedlem",
+          "personKey": "cecilia-anna-jufors",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1990"
+        },
+        {
+          "personName": "Egil Kristoffer Thomassen Fjellgaard",
+          "role": "styremedlem",
+          "personKey": "egil-kristoffer-thomassen-fjellgard",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1997"
+        },
+        {
+          "personName": "Arne Håvard Måsøy",
+          "role": "styremedlem",
+          "personKey": "arne-havard-masoy",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Kjersti Jonassen Eikeseth",
+          "role": "styremedlem",
+          "personKey": "kjersti-jonassen-eikeseth",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1978"
+        },
+        {
+          "personName": "Ørjan Halnes",
+          "role": "styremedlem",
+          "personKey": "orjan-halnes",
+          "brregRoleCode": "VARA",
+          "birthYear": "1980"
+        },
+        {
+          "personName": "Christian Krogh Gangsøy",
+          "role": "styremedlem",
+          "personKey": "christian-krogh-gangsoy",
+          "brregRoleCode": "VARA",
+          "birthYear": "1981"
+        },
+        {
+          "personName": "Asgeir Nergård",
+          "role": "styremedlem",
+          "personKey": "asgeir-nergard",
+          "brregRoleCode": "VARA",
+          "birthYear": "1993"
+        },
+        {
+          "personName": "Benjamin Aspmodal Juberg",
+          "role": "styremedlem",
+          "personKey": "benjamin-aspmodal-juberg",
+          "brregRoleCode": "VARA",
+          "birthYear": "1999"
+        },
+        {
+          "personName": "Brynjulf Kristensen",
+          "role": "styremedlem",
+          "personKey": "brynjulf-kristensen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1985"
+        },
+        {
+          "personName": "Camilla Therese Anbakk Riber",
+          "role": "styremedlem",
+          "personKey": "camilla-therese-anbakk-riber",
+          "brregRoleCode": "VARA",
+          "birthYear": "1999"
+        },
+        {
+          "personName": "Inger Helene Nitteberg Nordstad",
+          "role": "styremedlem",
+          "personKey": "inger-helene-nitteberg-nordstad",
+          "brregRoleCode": "VARA",
+          "birthYear": "1988"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "914353561",
+      "corpusName": "Hallvard Lerøy AS",
+      "brregName": null,
+      "status": "not-found",
+      "httpStatus": 404,
+      "seats": 0,
+      "excludedResigned": 0,
+      "boardMembers": []
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "985940460",
+      "corpusName": "Lerøy Aurora AS",
+      "brregName": "LERØY AURORA AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 6,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Kurt-Einar Karlsen",
+          "role": "CEO",
+          "personKey": "kurteinar-karlsen",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1974"
+        },
+        {
+          "personName": "Bjarne Reinert",
+          "role": "styreleder",
+          "personKey": "bjarne-reinert",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1982"
+        },
+        {
+          "personName": "Sjur Svenningsson Malm",
+          "role": "styremedlem",
+          "personKey": "sjur-svenningsson-malm",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1978"
+        },
+        {
+          "personName": "Tor-Ivar Ingebrigtsen",
+          "role": "styremedlem",
+          "personKey": "torivar-ingebrigtsen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1974"
+        },
+        {
+          "personName": "Tor Kristian Pedersen",
+          "role": "styremedlem",
+          "personKey": "tor-kristian-pedersen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1976"
+        },
+        {
+          "personName": "Odd Eilert Ingilæ",
+          "role": "styremedlem",
+          "personKey": "odd-eilert-ingilae",
+          "brregRoleCode": "VARA",
+          "birthYear": "1981"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "985848718",
+      "corpusName": "Lerøy Midt AS",
+      "brregName": "LERØY MIDT AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 9,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Harald Larssen",
+          "role": "CEO",
+          "personKey": "harald-larssen",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1979"
+        },
+        {
+          "personName": "Bjarne Reinert",
+          "role": "styreleder",
+          "personKey": "bjarne-reinert",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1982"
+        },
+        {
+          "personName": "Sjur Svenningsson Malm",
+          "role": "styremedlem",
+          "personKey": "sjur-svenningsson-malm",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1978"
+        },
+        {
+          "personName": "Helene Bergsli",
+          "role": "styremedlem",
+          "personKey": "helene-bergsli",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1995"
+        },
+        {
+          "personName": "Bjørn Saga Østensen",
+          "role": "styremedlem",
+          "personKey": "bjorn-saga-ostensen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1977"
+        },
+        {
+          "personName": "Ingun Næve",
+          "role": "styremedlem",
+          "personKey": "ingun-naeve",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1987"
+        },
+        {
+          "personName": "Beate Skillingstad",
+          "role": "styremedlem",
+          "personKey": "beate-skillingstad",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1970"
+        },
+        {
+          "personName": "Arild Strøm",
+          "role": "styremedlem",
+          "personKey": "arild-strom",
+          "brregRoleCode": "VARA",
+          "birthYear": "1973"
+        },
+        {
+          "personName": "Silje Trøan Paulsen",
+          "role": "styremedlem",
+          "personKey": "silje-troan-paulsen",
+          "brregRoleCode": "VARA",
+          "birthYear": "1990"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "886813082",
+      "corpusName": "Lerøy Vest AS",
+      "brregName": "LERØY VEST AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 5,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Morten Egenæs Fjæreide",
+          "role": "CEO",
+          "personKey": "morten-egenaes-fjaereide",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1978"
+        },
+        {
+          "personName": "Bjarne Reinert",
+          "role": "styreleder",
+          "personKey": "bjarne-reinert",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1982"
+        },
+        {
+          "personName": "Sjur Svenningsson Malm",
+          "role": "styremedlem",
+          "personKey": "sjur-svenningsson-malm",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1978"
+        },
+        {
+          "personName": "John Andre Njåstad",
+          "role": "styremedlem",
+          "personKey": "john-andre-njastad",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1990"
+        },
+        {
+          "personName": "Sigfrid Lundekvam",
+          "role": "styremedlem",
+          "personKey": "sigfrid-lundekvam",
+          "brregRoleCode": "VARA",
+          "birthYear": "1985"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "986392858",
+      "corpusName": "Lerøy Havfisk AS",
+      "brregName": "LERØY HAVFISK AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 8,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Eldar Kåre Farstad",
+          "role": "CEO",
+          "personKey": "eldar-kare-farstad",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1960"
+        },
+        {
+          "personName": "Helge Singelstad",
+          "role": "styreleder",
+          "personKey": "helge-singelstad",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Henning Kolbjørn Beltestad",
+          "role": "styremedlem",
+          "personKey": "henning-kolbjorn-beltestad",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1968"
+        },
+        {
+          "personName": "Britt Kathrine Drivenes",
+          "role": "styremedlem",
+          "personKey": "britt-kathrine-drivenes",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Sjur Svenningsson Malm",
+          "role": "styremedlem",
+          "personKey": "sjur-svenningsson-malm",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1978"
+        },
+        {
+          "personName": "André Steffensen",
+          "role": "styremedlem",
+          "personKey": "andre-steffensen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1968"
+        },
+        {
+          "personName": "Mona Didriksen",
+          "role": "styremedlem",
+          "personKey": "mona-didriksen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1979"
+        },
+        {
+          "personName": "Arne Møgster",
+          "role": "styremedlem",
+          "personKey": "arne-mogster",
+          "brregRoleCode": "VARA",
+          "birthYear": "1975"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "995548194",
+      "corpusName": "Lerøy Norway Seafoods AS",
+      "brregName": "LERØY NORWAY SEAFOODS AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 10,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Børge Soleng",
+          "role": "CEO",
+          "personKey": "borge-soleng",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1968"
+        },
+        {
+          "personName": "Helge Singelstad",
+          "role": "styreleder",
+          "personKey": "helge-singelstad",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Bjarne Egil Kristiansen",
+          "role": "styremedlem",
+          "personKey": "bjarne-egil-kristiansen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1955"
+        },
+        {
+          "personName": "Nina Katrine Hanssen",
+          "role": "styremedlem",
+          "personKey": "nina-katrine-hanssen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1971"
+        },
+        {
+          "personName": "Henning Kolbjørn Beltestad",
+          "role": "styremedlem",
+          "personKey": "henning-kolbjorn-beltestad",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1968"
+        },
+        {
+          "personName": "Sjur Svenningsson Malm",
+          "role": "styremedlem",
+          "personKey": "sjur-svenningsson-malm",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1978"
+        },
+        {
+          "personName": "Mikael Johansen",
+          "role": "styremedlem",
+          "personKey": "mikael-johansen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1975"
+        },
+        {
+          "personName": "Evelyn Lundanes Rørvik",
+          "role": "styremedlem",
+          "personKey": "evelyn-lundanes-rorvik",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1965"
+        },
+        {
+          "personName": "Britt Kathrine Drivenes",
+          "role": "styremedlem",
+          "personKey": "britt-kathrine-drivenes",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Arne Møgster",
+          "role": "styremedlem",
+          "personKey": "arne-mogster",
+          "brregRoleCode": "VARA",
+          "birthYear": "1975"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "927894254",
+      "corpusName": "Sjøtroll AS",
+      "brregName": "SJØTROLL AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 5,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Joachim Rangø Andersen",
+          "role": "CEO",
+          "personKey": "joachim-rango-andersen",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1990"
+        },
+        {
+          "personName": "Espen Hammer",
+          "role": "styreleder",
+          "personKey": "espen-hammer",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1982"
+        },
+        {
+          "personName": "Lars Laurentius Paulsen",
+          "role": "styremedlem",
+          "personKey": "lars-laurentius-paulsen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1980"
+        },
+        {
+          "personName": "Joachim Rangø Andersen",
+          "role": "styremedlem",
+          "personKey": "joachim-rango-andersen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1990"
+        },
+        {
+          "personName": "Lena Hårberg",
+          "role": "styremedlem",
+          "personKey": "lena-harberg",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1991"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "921668236",
+      "corpusName": "Mowi Seawater Norway AS",
+      "brregName": "MOWI SEAWATER NORWAY AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 6,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Øyvind Oaland",
+          "role": "CEO",
+          "personKey": "oyvind-oaland",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1970"
+        },
+        {
+          "personName": "Asgeir Hasund",
+          "role": "styreleder",
+          "personKey": "asgeir-hasund",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1968"
+        },
+        {
+          "personName": "Ørjan Mortveit Tveiten",
+          "role": "styremedlem",
+          "personKey": "orjan-mortveit-tveiten",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1977"
+        },
+        {
+          "personName": "Turid Lande Solheim",
+          "role": "styremedlem",
+          "personKey": "turid-lande-solheim",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1970"
+        },
+        {
+          "personName": "Jeanett Ivarna Lillesalt",
+          "role": "styremedlem",
+          "personKey": "jeanett-ivarna-lillesalt",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1984"
+        },
+        {
+          "personName": "Roger Andre Pettersen",
+          "role": "styremedlem",
+          "personKey": "roger-andre-pettersen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1971"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "916146337",
+      "corpusName": "Mowi Markets Norway AS",
+      "brregName": "MOWI MARKETS NORWAY AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 3,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Andreas Søraa",
+          "role": "CEO",
+          "personKey": "andreas-sora",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1982"
+        },
+        {
+          "personName": "Ola Nilsen Brattvoll",
+          "role": "styreleder",
+          "personKey": "ola-nilsen-brattvoll",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1968"
+        },
+        {
+          "personName": "Olav Soleide",
+          "role": "styremedlem",
+          "personKey": "olav-soleide",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1968"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "966840528",
+      "corpusName": "SalMar Farming AS",
+      "brregName": "SALMAR FARMING AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 2,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Anders Jon Fjellheim",
+          "role": "CEO",
+          "personKey": "anders-jon-fjellheim",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1974"
+        },
+        {
+          "personName": "Gustav Witzøe",
+          "role": "styreleder",
+          "personKey": "gustav-witzo",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1953"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "952662813",
+      "corpusName": "SalmoNor AS",
+      "brregName": null,
+      "status": "not-found",
+      "httpStatus": 404,
+      "seats": 0,
+      "excludedResigned": 0,
+      "boardMembers": []
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "919818824",
+      "corpusName": "Kverva AS",
+      "brregName": "KVERVA AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 6,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Torgeir Johan Svae",
+          "role": "CEO",
+          "personKey": "torgeir-johan-svae",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1975"
+        },
+        {
+          "personName": "Gustav Witzøe",
+          "role": "styreleder",
+          "personKey": "gustav-witzo",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1953"
+        },
+        {
+          "personName": "Leif Inge Nordhammer",
+          "role": "styremedlem",
+          "personKey": "leif-inge-nordhammer",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1958"
+        },
+        {
+          "personName": "Helge Karstein Moen",
+          "role": "styremedlem",
+          "personKey": "helge-karstein-mon",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1973"
+        },
+        {
+          "personName": "Randi Ness",
+          "role": "styremedlem",
+          "personKey": "randi-ness",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1983"
+        },
+        {
+          "personName": "Therese Log Bergjord",
+          "role": "styremedlem",
+          "personKey": "therese-log-bergjord",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1965"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "960329856",
+      "corpusName": "Kverva Industrier AS",
+      "brregName": "KVERVA INDUSTRIER AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 1,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Torgeir Johan Svae",
+          "role": "styreleder",
+          "personKey": "torgeir-johan-svae",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1975"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "937305354",
+      "corpusName": "Laco AS",
+      "brregName": "LACO AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 10,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "Helge Singelstad",
+          "role": "CEO",
+          "personKey": "helge-singelstad",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1963"
+        },
+        {
+          "personName": "Helge Arvid Møgster",
+          "role": "styreleder",
+          "personKey": "helge-arvid-mogster",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1953"
+        },
+        {
+          "personName": "June Inger Lise Drønen Møgster",
+          "role": "styremedlem",
+          "personKey": "june-inger-lise-dronen-mogster",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1958"
+        },
+        {
+          "personName": "Lill Maren Møgster",
+          "role": "styremedlem",
+          "personKey": "lill-maren-mogster",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1984"
+        },
+        {
+          "personName": "Karoline Møgster",
+          "role": "styremedlem",
+          "personKey": "karoline-mogster",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1980"
+        },
+        {
+          "personName": "Arne Møgster",
+          "role": "styremedlem",
+          "personKey": "arne-mogster",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1975"
+        },
+        {
+          "personName": "Rolf Kristian Våge",
+          "role": "styremedlem",
+          "personKey": "rolf-kristian-vage",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1977"
+        },
+        {
+          "personName": "Patrick Andreas Rød Møgster",
+          "role": "styremedlem",
+          "personKey": "patrick-andreas-rod-mogster",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1984"
+        },
+        {
+          "personName": "Eirik Drønen Melingen",
+          "role": "styremedlem",
+          "personKey": "eirik-dronen-melingen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1988"
+        },
+        {
+          "personName": "Gunnbjørg Algrøy Træland",
+          "role": "styremedlem",
+          "personKey": "gunnbjorg-algroy-traeland",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1982"
+        }
+      ]
+    },
+    {
+      "sector": "seafood",
+      "orgNr": "961922976",
+      "corpusName": "Cermaq Norway AS",
+      "brregName": "CERMAQ NORWAY AS",
+      "status": "ok",
+      "httpStatus": 200,
+      "seats": 4,
+      "excludedResigned": 0,
+      "boardMembers": [
+        {
+          "personName": "John Gunnar Glørstad",
+          "role": "CEO",
+          "personKey": "john-gunnar-glorstad",
+          "brregRoleCode": "DAGL",
+          "birthYear": "1981"
+        },
+        {
+          "personName": "Axel Ranang Gustavsen",
+          "role": "styreleder",
+          "personKey": "axel-ranang-gustavsen",
+          "brregRoleCode": "LEDE",
+          "birthYear": "1975"
+        },
+        {
+          "personName": "Silvia Segnini",
+          "role": "styremedlem",
+          "personKey": "silvia-segnini",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1978"
+        },
+        {
+          "personName": "Snorre Jonassen",
+          "role": "styremedlem",
+          "personKey": "snorre-jonassen",
+          "brregRoleCode": "MEDL",
+          "birthYear": "1977"
+        }
+      ]
+    }
+  ]
+}

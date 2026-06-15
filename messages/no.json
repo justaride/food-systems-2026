@@ -11,6 +11,7 @@
     "oversikt": { "name": "Oversikt", "description": "Fase, fremdrift, neste steg" },
     "sok": { "name": "Søk", "description": "Søk på tvers av alt" },
     "team": { "name": "Team", "description": "Medlemmer og roller" },
+    "casestatus": { "name": "Casestatus", "description": "Modenhet per caseanker" },
     "moter": { "name": "Møter", "description": "Møtesammendrag og referater" },
     "kommunikasjon": { "name": "Kommunikasjon", "description": "E-post og korrespondanse" },
     "datastatus": { "name": "Datastatus", "description": "Dekning, hull og artefakter" },

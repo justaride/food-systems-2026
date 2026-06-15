@@ -121,13 +121,13 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
             number={1}
             title="Markedsstruktur & makt"
             question="Hvor konsentrert er nordisk dagligvare?"
-            narrative={`Norge har Nordens mest konsentrerte dagligvaremarked i dette datasettet. HHI ${formatComparisonNumber(hhiNo)} ligger over Danmarks ${formatComparisonNumber(hhiDk)} og signaliserer høy markedsmakt hos få aktører.`}
+            narrative={`Norge har Nordens mest konsentrerte dagligvaremarked i dette datasettet. HHI ${formatComparisonNumber(hhiNo)} ligger over Danmarks ${formatComparisonNumber(hhiDk)}; den siterbare norske omsetnings-HHI-en fra Konkurransetilsynet 2024 er 3327 med CR3 96,6 %. Begge signaliserer høy markedsmakt hos få aktører.`}
             sourceNote={formatComparisonSourceNote([
               { label: 'NO HHI', meta: hhiNoMeta },
               { label: 'DK HHI', meta: hhiDkMeta },
             ])}
             researchStatus="primary_snapshot"
-            researchStatusDetail="NO-HHI er kuratert primærdata; nordisk sammenligning bruker delvis butikkantall-proxy og krever omsetnings-HHI for full paritet (B11 gap)."
+            researchStatusDetail="Den viste HHI-en er butikkantall-proxy (chart-metrics parentHHI), brukt likt på tvers av land for sammenlignbarhet. Den autoritative omsetnings-HHI-en for Norge er 3327 (KT Dagligvarerapport 2024-25). Full nordisk paritet på omsetning gjenstår (B11 gap)."
             takeaway={
               <KeyTakeaway
                 headline={`HHI ${hhiNo ?? '—'} (NO høyest) vs ${hhiDk ?? '—'} (DK lavest)`}

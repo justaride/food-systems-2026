@@ -1,0 +1,176 @@
+# Iceland Ocean Cluster and 100% Fish as a benchmark for marine side-stream value creation in Norway
+
+## Recommendation
+
+**Short answer:** mature the case as **`benchmark-only`**. In internal material it is **`deckklart internt med claim-lock`** only for a narrow statement: *Iceland Ocean Cluster / 100% Fish is a useful design benchmark for cluster-led innovation, fuller use of side streams, and product-cascade thinking*. It should **not** be used as proof that Iceland has a publicly verified national “100% fish” outcome, nor as proof that Norway already has the same high-value conversion profile. The strongest Icelandic primary sources I could verify show high utilisation, many by-product pathways, and strong innovation intent; they do **not** give me a directly accessible, current, audited primary basis for the widely repeated claims of “~90% utilisation by 2023” or “USD 12 to USD 5,000 per cod”. Those two claims remained **secondary mentions** in this pass. citeturn55search8turn55search2turn57view3turn56view0turn16search0
+
+The Norwegian side is much firmer on **total utilisation** than on **high-value utilisation**. Primary Norwegian sources show that around **1.1 million tonnes** of marine side-streams arose in 2024, around **89%** were utilised, and whitefish reached **72%** utilisation, but a large share still goes into feed and energy-type pathways. The 2023 full report is explicit that only a limited share currently goes into the highest-paying markets such as supplements, cosmetics, or pharma. So the transfer question is not “can Norway utilise side-streams at all?”; it is “which fractions, logistics and off-takes can move more Norwegian volume out of feed/energy and into demonstrably higher-value routes?” citeturn33view0turn33view1turn23view0turn28view1
+
+| Decision point | Call | Why |
+|---|---|---|
+| Use Iceland/100% Fish as inspiration for design principles | Yes | Official IOC material describes 100% Fish as helping companies turn seafood side streams into high-value products through innovation and collaboration. citeturn55search8turn55search2 |
+| Use Iceland/100% Fish as proof of publicly audited national full utilisation | No | Accessible primary material did not let me primary-verify the headline utilisation claim; Matís also says 100% utilisation is not realistic under the current cod-fishery set-up. citeturn57view3turn16search0 |
+| Use Norway as proof of high-value side-stream conversion | No | Norway has strong utilisation data, but the annual report says most side-streams are still used in bulk categories and little goes to higher-paying markets. citeturn23view0turn28view1 |
+| Continue validation work | Yes | The fastest de-risking path is to obtain the IOC annual report directly, query Iceland’s official by-product table, and map Norwegian fractions/off-takes in more detail. citeturn15search1turn45view0turn32view0 |
+
+## Claim-test table
+
+| Claim / hypothesis | Finding | Strongest source | What the source proves | What it does not prove | Status |
+|---|---|---|---|---|---|
+| 100% Fish is an IOC programme about turning seafood side streams into higher-value products through innovation and collaboration | **Documented fact** | IOC home page / programme page | IOC describes 100% Fish as a programme helping companies turn side streams into high-value products and the programme page frames IOC as strengthening relations across the seafood industry. citeturn55search8turn55search2 | It does not prove measured national utilisation outcomes or economics. | **documented fact · deckklart internt** |
+| IOC has an official 100% Fish annual report artefact | **Documented fact** | IOC publications page / programme page | An official publications page lists a “100% Fish Annual Report”, and the programme page exists on IOC’s domain. citeturn15search1turn55search2 | It does not prove the report’s contents, because the report itself was not directly accessible in this pass. | **documented fact · needs-primary-check** |
+| Iceland has publicly verified ~90% fish utilisation by 2023 | **Only secondary mention verified here** | OECD/IDB box citing IOC 2025 | OECD/IDB repeats the claim and attributes it to IOC. citeturn16search0 | I could not directly verify the primary IOC report content; Matís-accessible primary material instead speaks more cautiously about utilisation and constraints. citeturn56view0turn57view3 | **secondary mention · needs-primary-check** |
+| One cod in Iceland is proven to create value rising from about USD 12 to USD 5,000 | **Only secondary mention verified here** | OECD/IDB box citing IOC 2025 | The claim is in circulation in an institutional secondary source that cites IOC. citeturn16search0 | I did not obtain the primary IOC calculation, denominator, year basis, or method. | **secondary mention · needs-primary-check** |
+| Icelandic primary material documents a product cascade rather than only bulk use | **Documented fact** | Matís report on whitefish by-products | Matís shows a value pyramid from raw material/feed to nutrition/functional food/pharmacy and discusses concrete product families from skins, heads, liver, roe, milt, cut-offs and frames. citeturn57view3turn57view2 | It does not quantify a current national share by value-tier. | **documented fact · deckklart internt** |
+| Icelandic primary material proves that literal 100% utilisation is already realistic across the current cod system | **Weakened / partly rebutted** | Matís whitefish report | Matís explicitly says it is theoretically possible to utilise the entire cod, **but** “with current set-up of the fishery it is not realistic to expect 100% utilization”; factory trawlers and gutted-fresh vessels have storage/handling constraints. citeturn57view3 | It does not rule out higher future utilisation; it weakens any present-tense “already 100%” claim. | **documented fact · claim weakened** |
+| Iceland has current official primary datasets for by-products, species and value | **Documented fact** | Statistics Iceland PxWeb tables | Statistics Iceland exposes a table for “catch and value of by-products by species and type 1992–2024” sourced from the Directorate of Fisheries, and a separate customs-based export table by species/category/country. citeturn45view0turn43view0 | In this environment I did not extract the full 2024 matrix values from the interactive table. | **documented fact · needs-data** |
+| I found a current public Icelandic annual national report equivalent to Norway’s restråstoff analysis | **Not found in reviewed source set** | Statistics Iceland and Matís sources reviewed | The reviewed Icelandic source base contains useful tables, thematic reports and news releases. citeturn45view0turn43view0turn56view0turn57view3 | It does not amount to a directly accessible, current, consolidated annual Icelandic national report on available/used/unused side-streams by fraction, end-use and value comparable to SINTEF/FHF in Norway. | **not found · needs-primary-check** |
+| Norway has strong primary data on total side-stream availability, utilisation and product categories | **Documented fact** | SINTEF/FHF annual analysis | 2024 fact sheet and 2023 full report give national totals, sector splits, product categories, unutilised volumes and value estimates. citeturn33view0turn33view1turn23view0turn30view0 | They do not fully resolve detailed higher-value share by fraction and market. | **documented fact · deckklart internt** |
+| Norway’s high utilisation rate already means Norway is succeeding in high-value utilisation | **Weakened** | SINTEF 2023 full report / FHF 2024 note | The report says most side-streams go into marine ingredients for feed and consumption, and “foreløpig blir lite” of Norwegian side-streams used in higher-paying markets like supplements, cosmetics or pharma. 2024 also shows feed remains the largest product category. citeturn23view0turn28view1turn33view1 | High utilisation does not equal high-value conversion. | **documented fact · needs-data** |
+| Norway’s main remaining transfer bottleneck is whitefish seagoing-fleet handling/logistics plus uncovered fractions such as salmon blood | **Documented fact plus plausible inference** | Government strategy, SINTEF, SUPREME | Government strategy and SINTEF place the largest remaining whitefish potential in the seagoing fleet; SUPREME is explicitly set up around onboard handling, logistics and processing; 2024 fact sheet/newsletter still flag unutilised whitefish volumes and blood. citeturn38view0turn35view0turn33view0turn33view1turn37view0 | It does not prove a single winning commercial model. | **plausible inference · deckklart internt** |
+| Lerøy’s 100% Fish is evidence of a Norwegian pilot at national scale | **Weakened** | Lerøy official pages | Lerøy has created a 100% Fish department and publicly launched SalmoFer, an iron ingredient from salmon blood. citeturn39search2turn39search6 | This is a company case, not a national Norwegian pilot or a documented sector-wide solution. | **documented actor signal · needs-actor-validation** |
+| Therefore IOC/100% Fish can be used as Norwegian pilot proof | **Not supported** | Synthesis of above | The evidence supports design-benchmark use. citeturn55search8turn57view3turn33view1 | It does not support “pilot proof” for Norway. | **benchmark-only** |
+
+## Data extraction and Norwegian gap table
+
+The table below separates **what is numerically documented** from **what is still missing**. The biggest asymmetry in this case is that Norway has a consolidated annual side-stream evidence base, while Iceland has strong official tables and good thematic reports, but I did not find the same kind of directly accessible annual national synthesis in this pass. citeturn45view0turn43view0turn23view0turn33view0
+
+| Metric | Value | Unit | Year | Geography | Method | Source | Limitation |
+|---|---:|---|---:|---|---|---|---|
+| Exported marine products | just over 624,000 | tonnes | 2024 | Iceland | Customs-based export statistics | Statistics Iceland news release. citeturn43view1 | Export data; not a side-stream utilisation ledger. |
+| Total marine export value | 347 | bn ISK FOB | 2024 | Iceland | Customs-based export statistics | Statistics Iceland news release. citeturn43view1 | Same limitation as above. |
+| Cod export value | 143 | bn ISK | 2024 | Iceland | Customs-based export statistics | Statistics Iceland news release. citeturn43view1 | Species export value, not by-product share. |
+| Cod share of seafood export value | 35–40 | % | “recent years” as reported in 2016 report | Iceland | Statistics Iceland data cited by Matís | Matís whitefish report. citeturn57view0turn57view3 | Historic framing; not a 2024 figure. |
+| Potential by-products if all cod raw materials were landed and used, with skinless/boneless fillet as main product | 57 | % of catch volume | n/a | Iceland cod scenario | Scenario assumption in Matís report | Matís whitefish report. citeturn57view3 | Theoretical scenario, not measured actual utilisation. |
+| Fish oil exported from processed by-products | 37,000 | tonnes | 2014 | Iceland | Export value/volume discussed in Matís report | Matís whitefish report. citeturn57view3 | Old but primary-sector detail. |
+| Fish oil export value | 10,500 | m ISK | 2014 | Iceland | Export value/volume discussed in Matís report | Matís whitefish report. citeturn57view3 | Old but primary-sector detail. |
+| Dried fish heads exported | 15,000 | tonnes | 2014 | Iceland | Export value/volume discussed in Matís report | Matís whitefish report. citeturn57view3 | Old but primary-sector detail. |
+| Dried fish heads export value | 8,600 | m ISK | 2014 | Iceland | Export value/volume discussed in Matís report | Matís whitefish report. citeturn57view3 | Old but primary-sector detail. |
+| Canned fish liver exported | 4,200 | tonnes | 2014 | Iceland | Export value/volume discussed in Matís report | Matís whitefish report. citeturn57view3 | Old but primary-sector detail. |
+| Canned fish liver export value | 2,000 | m ISK | 2014 | Iceland | Export value/volume discussed in Matís report | Matís whitefish report. citeturn57view3 | Old but primary-sector detail. |
+| Available marine side-streams | ca. 1.1 million | tonnes | 2024 | Norway | Annual national side-stream analysis | SINTEF/FHF fact sheet. citeturn33view0 | Rounded summary figure. |
+| Utilised marine side-streams | ca. 980,000 | tonnes | 2024 | Norway | Annual national side-stream analysis | SINTEF/FHF fact sheet. citeturn33view0 | Rounded summary figure. |
+| Utilisation rate | 89 | % | 2024 | Norway | Annual national side-stream analysis | SINTEF publication summary and FHF fact sheet. citeturn18view0turn33view0 | Total utilisation, not value-tier share. |
+| Unutilised side-streams | ca. 118,000 | tonnes | 2024 | Norway | Annual national side-stream analysis | SINTEF publication summary / fact sheet. citeturn18view0turn33view0 | Mainly whitefish; summary level only. |
+| Whitefish utilisation rate | 72 | % | 2024 | Norway | Annual national side-stream analysis | FHF newsletter / fact sheet. citeturn33view0turn33view1 | Aggregate across whitefish sector. |
+| Human-consumption products from side-streams | ca. 70,000 | tonnes | 2024 | Norway | Annual national side-stream analysis | FHF fact sheet / newsletter. citeturn33view0turn33view1 | Still not identical to “high-value share”. |
+| Feed products from side-streams | ca. 312,000 | tonnes | 2024 | Norway | Annual national side-stream analysis | FHF fact sheet / newsletter. citeturn33view0turn33view1 | Bulk category. |
+| Gross turnover from marine side-streams | ca. 7.8 | bn NOK | 2024 | Norway | Value estimate based on industry inputs and statistics | FHF fact sheet / newsletter. citeturn33view0turn33view1 | Estimated, partly industry-informed. |
+| Raw-material first-hand value | ca. 4.8 | bn NOK | 2024 | Norway | Value estimate based on industry inputs and statistics | FHF project page / fact sheet. citeturn32view0turn33view0 | Estimated, partly industry-informed. |
+| Blood not utilised from salmonid aquaculture | 33,300 | tonnes | 2023 | Norway | Fraction-level annual analysis | SINTEF 2023. citeturn34view1 | 2023, not 2024. |
+| Largest unutilised fractions in 2023 | blood 33,300; whitefish liver 21,700; heads 20,000; roe 16,500 | tonnes | 2023 | Norway | Fraction-level annual analysis | SINTEF 2023. citeturn26view3 | 2023 baseline; 2024 updated fraction values not extracted here. |
+
+A key Norwegian methodological caveat matters for any “high-value” discussion: SINTEF states that for **applications/end uses**, most information is gathered **from the companies themselves**, because public statistics are very limited in this area. That makes Norway strong on national totals and sector aggregates, but weaker on auditable fraction-to-end-market tracing, especially for higher-value routes. citeturn25view0
+
+### Norwegian gap table
+
+| Fraction | Current end use | Higher-value possibility | Data gap | Actor need |
+|---|---|---|---|---|
+| Whitefish heads | Direct food products such as dried heads, plus some non-utilised volume, especially linked to fleet/handling patterns. citeturn23view0turn35view0 | More differentiated food ingredients, collagen/mineral extraction, or better graded export routes; Iceland is a benchmark for established head markets, not proof of Norwegian economics. citeturn57view3turn38view0 | Exact 2024 split between direct food, bulk processing and loss by fleet class. | Seagoing fleet + processors + off-taker validation. |
+| Whitefish liver | Existing consumer/oil pathways, but still a major unutilised fraction in Norway in 2023. citeturn26view3turn57view3 | Refined marine oils, nutraceutical ingredients, better food-grade routing. citeturn57view3turn38view0 | 2024 national volume/value split by food vs oil vs discard not extracted here. | Needs-data + processor validation. |
+| Whitefish roe and milt | Human-consumption exports exist, but sizeable non-utilised volume remains in whitefish. citeturn26view3turn23view0 | Premium food markets and more stable seasonal routing. | Market/value data by fraction is weak in public sources. | Seafood Council / processors / sales channels. |
+| Whitefish skins, backbones, cut-offs | Today routed into mince, meal/oil, ingredients and some food uses; Norway also has research on quality-preserving routes. citeturn25view2turn36search3turn37view0 | Gelatin, collagen, protein isolates, peptides, human-food ingredients. citeturn37view0turn37view3 | Public 2024 fraction-by-end-use split is still not crisp. | SUPREME + Nofima + industry offtake. |
+| Whitefish viscera / slo from seagoing fleet | A large part remains the hardest logistics problem when not landed or preserved properly. citeturn35view0turn38view0 | Ensiling, oil/protein separation, speciality ingredients if onboard handling and landing economics work. citeturn37view0turn38view0 | Vessel-class economics, preservation quality and off-take certainty. | Fleet, technology suppliers, Scanbio/Pelagia-type processors. |
+| Salmon blood | Still largely unutilised nationally; blood is singled out as the remaining main aquaculture fraction. citeturn33view0turn33view1turn34view1 | Iron/heme ingredients and protein products; Lerøy’s SalmoFer is a live actor signal. citeturn39search2turn39search6 | No public national commercial-volume data yet. | `needs-actor-validation` with Lerøy and slaughterhouse operators. |
+| Shellfish shells | Variable utilisation; some shell meal/chitin/chitosan pathways exist. citeturn27view2turn36search1turn36search10 | Bioactives, materials, speciality feed or human-nutrition applications. citeturn36search1turn36search10 | National volume and route data remain patchy. | Nofima + shellfish processors. |
+
+## Actor and document owner map
+
+| Actor | Possible role | Document need | Contact / ownership signal | Status |
+|---|---|---|---|---|
+| Iceland Ocean Cluster | Owner of the 100% Fish narrative, annual report and cluster case framing | The full 100% Fish annual report / methodology behind utilisation and cod-value claims | Official programme page and publication listing on IOC domain. citeturn55search2turn15search1 | **needs-primary-check** |
+| Matís | Icelandic research institute documenting utilisation pathways, product examples and parts of the value chain | Latest thematic reports or any updated cod/by-product utilisation synthesis | Official reports and materials on Matís domain. citeturn57view3turn56view0 | **documented research owner** |
+| Statistics Iceland | Public owner of export and fisheries tables | Direct extraction from PxWeb tables SJA04903 and SJA09114 | Official PxWeb and news releases; contact listed on table pages. citeturn43view0turn45view0 | **documented data owner** |
+| Icelandic Directorate of Fisheries | Underlying owner/source of Icelandic by-product table data | If exact by-product matrix pull is needed beyond PxWeb access | Statistics Iceland table states source is Directorate of Fisheries. citeturn45view0 | **documented source owner** |
+| SINTEF Ocean | Main Norwegian analytical owner of national restråstoff analyses | 2024 full report, fraction-level outputs, methodology clarifications | Official publication pages and named contact in fact sheet. citeturn18view0turn33view0 | **documented research owner** |
+| FHF | Commissioning owner / project archive for Norwegian side-stream work | Project files, fact sheets, outputs, related industry projects | Official project page with full project archive. citeturn32view0 | **documented programme owner** |
+| Kontali Analyse | Co-producer of Norwegian annual analysis and market/value estimates | Value-model assumptions and fraction routing logic | Named co-author across reports and figures. citeturn23view0turn30view0 | **needs-actor-validation** |
+| Nofima | R&D on bioprocessing, market/regulatory barriers, underused marine raw materials | Fraction-specific technology, regulatory barriers, consumer/market acceptance | Official project and report pages. citeturn37view2turn37view3 | **documented research owner** |
+| SUPREME consortium | Whitefish transferability programme around onboard handling, logistics, processing | Pilot outputs, techno-economics, industrial test results | Official SINTEF project page with partners and work packages. citeturn37view0 | **documented programme owner** |
+| Fiskeridirektoratet | Norwegian official fisheries statistics input | Landing, fleet, species, raw-material denominator checks | Named as core input in SINTEF methodology. citeturn25view0turn35view0 | **documented data owner** |
+| Norges sjømatråd | Export-statistics input and market owner | Product-code export extraction for heads/liver/roe etc. | Named as input in SINTEF and government strategy. citeturn25view0turn38view0 | **documented data/market owner** |
+| Sjømat Norge | Industry interface and validation route | Industry read-out on commercial feasibility and bottlenecks | Named in SINTEF/FHF project reference group. citeturn23view0turn32view0 | **needs-actor-validation** |
+| Lerøy 100% Fish | Company-specific signal on salmon-blood valorisation | Commercial-status, volumes, offtake and regulatory path for SalmoFer | Official Lerøy pages describe department and product. citeturn39search2turn39search6 | **needs-actor-validation** |
+
+## Source ledger
+
+| Source ID | Title | Owner / publisher | Date | URL | Document type | Primary / secondary | Relevant locator | Use value | Weakness |
+|---|---|---|---|---|---|---|---|---|---|
+| IC-1 citeturn55search8 | Home – Iceland Ocean Cluster | Iceland Ocean Cluster | search result surfaced 2026 | `https://sjavarklasinn.is/en/` | Official website snippet | Primary | Search snippet | Best short official description of 100% Fish purpose | Snippet only; full page not opened |
+| IC-2 citeturn55search2 | 100% Fish programme: Sustainable Seafood Value Creation | Iceland Ocean Cluster | 18 Jan 2024 | `https://sjavarklasinn.is/portfolio/100-fish-annual-report/` | Official project/report page snippet | Primary | Search snippet | Best official cluster/programme framing accessible here | Full page not directly fetched |
+| IC-3 citeturn15search1 | Our Publications | Iceland Ocean Cluster | search result surfaced 2026 | `https://sjavarklasinn.is/en/our-activities/our-publications/` | Official publications page snippet | Primary | Search snippet | Verifies existence of “100% Fish Annual Report” as an IOC artefact | No report content accessible in this pass |
+| IC-4 citeturn7view0turn57view3 | By-products from whitefish processing | Matís | 2016 | `https://www.matis.is/media/matis/utgafa/08-16-By-products-from-whitefish.pdf` | Research report PDF | Primary | P4–P6; P34–P35 | Strongest accessible Icelandic primary source on product cascade, cod by-products, value examples and limits to full utilisation | Old; mostly whitefish-focused; not a current national dashboard |
+| IC-5 citeturn56view0 | Icelandic Cod | Matís | 2025 | `https://matis.is/wp-content/uploads/2025_Icelandic_Cod_Jonas.pdf` | Official sector pamphlet PDF | Primary | P1 L3–18 | Current Matís framing on cod importance and high utilisation in processing | Promotional tone; not a methodology report |
+| IC-6 citeturn43view1 | Decrease in export of fisheries products in 2024 | Statistics Iceland | 24 Jun 2025 | `https://www.statice.is/publications/news-archive/fisheries/export-of-fisheries-products-2024/` | Official statistics news release | Primary | L383–388 | Best current Iceland export totals and cod export value | Export-focused, not by-product-focused |
+| IC-7 citeturn43view0 | Exported marine products by categories and countries 1999–2024 | Statistics Iceland | latest update 24 Jun 2025 | `https://px.hagstofa.is/pxen/pxweb/en/Atvinnuvegir/Atvinnuvegir__sjavarutvegur__utf/SJA04903.px` | PxWeb table | Primary | L23–50 | Confirms official current export microdata structure | Interactive; values not extracted here |
+| IC-8 citeturn45view0 | Catch and value of by-products by species and type 1992–2024 | Statistics Iceland, source: Icelandic Directorate of Fisheries | latest update 17 Oct 2025 | `https://px.hagstofa.is/pxen/pxweb/en/Atvinnuvegir/Atvinnuvegir__sjavarutvegur__aflatolur__radsofun_afla_vinnsla/SJA09114.px` | PxWeb table | Primary | L23–50; L65–96 | Critical proof that official Icelandic by-product data exists by species and by-product type | Interactive; values not extracted here |
+| IC-9 citeturn16search0 | Caribbean Development Dynamics 2026, Box 2.5 Iceland Ocean Cluster | OECD / IDB | 17 Apr 2026 | `https://www.oecd.org/en/publications/caribbean-development-dynamics-2026_5c92507d-en/full-report/investment-as-a-driver-of-sustainable-and-resilient-development_5fd3d91e.html` | Institutional report / web chapter | Secondary | Box 2.5 snippet | Best trace for the circulating “90%” and “USD 5,000 per cod” claims | Secondary; depends on inaccessible IOC source |
+| NO-1 citeturn18view0 | Analyse marint restråstoff 2024 | SINTEF Ocean | 2 Jun 2025 | `https://www.sintef.no/publikasjoner/publikasjon/019cb816e9d8-613672ba-42ff-40f5-8c4a-d11bcb98a574/` | Publication summary page | Primary | L144–148 | Fast official summary for 2024 totals and utilisation | Summary only |
+| NO-2 citeturn33view0 | Faktaark: Analyse marint restråstoff 2024 | SINTEF / FHF project archive | 5 Jun 2025 | `https://www.fhf.no/prosjekter/prosjektbasen/901844/` via fact sheet attachment | Fact sheet PDF | Primary | P0–P1 | Best concise 2024 figures, whitefish utilisation, product categories and value estimate | Short format |
+| NO-3 citeturn33view1 | Hvitfisk passerte 70 % utnyttelse av restråstoff i 2024 | SINTEF / FHF project archive | Jun 2025 | `https://www.fhf.no/prosjekter/prosjektbasen/901844/` via newsletter attachment | Popular-science PDF | Primary | P0–P3 | Adds 2024 trend context and human/feed split | Popularised output, not full methodology |
+| NO-4 citeturn23view0turn30view0 | Analyse marint restråstoff 2023 | SINTEF Ocean / Kontali Analyse | 14 Jun 2024 | `https://www.sintef.no/contentassets/f87ee6b4a78846888459395cc020262e/analyse-marint-restrastoff-2023-1.pdf` | Full research report PDF | Primary | P3–P5; P21; P28–P35 | Strongest accessible Norwegian source on fractions, end uses, product groups and value | 2023, not 2024 |
+| NO-5 citeturn38view0 | Regjeringa sin strategi for auka verdiskaping frå marint restråstoff | Government of Norway | 2019 | `https://www.regjeringen.no/contentassets/0891087a014e4bab8bd2d9db5e88750d/no/sved/1.pdf` | Government strategy PDF | Primary | P4–P8; P19–P21 | Best policy framing of remaining bottlenecks and public instruments | Dated; pre-2024 data |
+| NO-6 citeturn37view0 | SUPREME | SINTEF project page | current page | `https://www.sintef.no/projectweb/supreme/` | Official project page | Primary | L15–21 | Best proof that Norway is actively targeting onboard handling/logistics/processing for whitefish side-streams | Project page, not results dossier |
+| NO-7 citeturn37view2 | Utfordringer som hindrer økt utnyttelse av marint restråstoff og marine arter | Nofima | 2021 | `https://nofima.no/publikasjon/1932854/` | Research report page | Primary | L20–27 | Strong on barriers, regulation and “food first / highest value” framing | Not a quantitative national dataset |
+| NO-8 citeturn39search2turn39search6 | Making use of salmon blood / sustainability library R&D note | Lerøy Seafood Group | 22 Apr 2024 / 2024 library | `https://www.leroyseafood.com/en/about-us/news/making-use-of-salmon-blood/` ; `https://www.leroyseafood.com/en/sustainability/sustainability-library-2024/fu/` | Official company pages | Primary | Search snippets / page text | Useful actor signal for salmon-blood valorisation | Company claim, not sector proof |
+
+## Safe slide language and do-not-say list
+
+**Safe internal slide formulation**
+
+> **Iceland Ocean Cluster’s 100% Fish is best treated as a design benchmark, not a Norwegian pilot proof.** Accessible Icelandic primary sources show strong cod by-product utilisation, a mature product-cascade logic, and cluster-led innovation around higher-value side streams. But in this pass I did **not** primary-verify the stronger headline claims often repeated about “~90% utilisation” or “USD 12 to USD 5,000 per cod”; those remained secondary references. Norway’s primary evidence base is stronger on **total side-stream utilisation** than on **high-value share**, so the relevant transfer question is where Norwegian fractions can move from feed/energy into clearly documented higher-value routes. citeturn55search8turn55search2turn57view3turn16search0turn33view1turn23view0
+
+**Safe shorter slide line**
+
+> **Benchmark-only:** Iceland shows what cluster logic plus side-stream innovation can look like; it does **not** yet prove a directly comparable Norwegian pilot or a fully primary-verified “100% fish” outcome. citeturn55search8turn57view3turn16search0
+
+**Do-not-say list**
+
+- Do **not** say Iceland has a publicly audited national **100%** fish-utilisation result.
+- Do **not** say the “~90% utilisation by 2023” claim is primary-verified from IOC in this memo. It is not. citeturn16search0
+- Do **not** say the “USD 12 to USD 5,000 per cod” claim is verified fact in this memo. It is not. citeturn16search0
+- Do **not** say Norway’s **89% utilisation** means Norway already has strong **high-value** utilisation. The Norwegian evidence says bulk feed and energy routes still dominate, and little currently goes to the highest-paying markets. citeturn33view0turn33view1turn23view0turn28view1
+- Do **not** say Lerøy’s 100% Fish is a national Norwegian pilot. It is a company initiative. citeturn39search2turn39search6
+- Do **not** say Icelandic and Norwegian percentages are directly comparable without denominator and methodology checks.
+- Do **not** say a cluster model alone explains Icelandic outcomes; Matís and other sources also point to quota structure, integrated value chains, research/product development and long-established market routes. citeturn57view3turn56view0
+
+## Priority validation actions
+
+**Ranked by what most efficiently validates or kills the case**
+
+| Rank | Action | Why this is the fastest validation / kill test | Expected output status |
+|---|---|---|---|
+| 1 | **Obtain the full IOC 100% Fish annual report directly from Iceland Ocean Cluster** and verify the methodology behind the “~90%” and “USD 12 to USD 5,000” claims | This is the single highest-leverage action because those are the most repeated claims and the least primary-verified. If the methodology is weak or purely illustrative, the case stays benchmark-only. | **`needs-primary-check` → either validated or weakened** |
+| 2 | **Pull Statistics Iceland table SJA09114** for cod and key by-products over 2020–2024, then pair it with export table SJA04903 | This converts Iceland from narrative benchmark to measurable benchmark by species/fraction/value. If no clean 2024 extraction emerges, that itself is a major evidence gap. | **`needs-data`** |
+| 3 | **Get the full SINTEF 2024 report and `marintrestrastoff.no` extracts** by sector, fraction and geography | This gives the current Norwegian denominator and shows where the unutilised or low-value fractions still sit. | **`deckklart internt` on totals; `needs-data` on value-tier** |
+| 4 | **Run targeted actor validation with SINTEF/FHF, SUPREME and one industrial user/off-taker route** | Best way to test whether a fraction can realistically move from current route to higher-value route under Norwegian conditions. | **`needs-actor-validation`** |
+| 5 | **Build a transferability filter** comparing Iceland and Norway on fleet structure, onboard handling, landing patterns, species mix, regulation, aggregation scale and off-taker maturity | This is the right way to use Iceland as benchmark without over-claiming Norwegian proof. If the filter fails on scale/logistics/regulation, the case remains benchmark-only by design. | **`benchmark-only` or focused design benchmark** |
+
+## Search strings
+
+These are the search strings used or recommended for the next validation round. I would keep the Icelandic and Norwegian strings in the workflow because some of the best sources sit behind local-language indexing.
+
+| Language | Search string | Purpose |
+|---|---|---|
+| English | `Iceland Ocean Cluster 100% Fish annual report` | Locate the official annual report and its page variants |
+| English | `site:sjavarklasinn.is "100% Fish" annual report` | Narrow to IOC-owned pages |
+| English | `site:sjavarklasinn.is "100% Fish programme" Iceland Ocean Cluster` | Find programme description |
+| English | `Matís fish by-products Iceland utilisation report pdf` | Find Matís primary reports |
+| English | `site:matis.is "By-products from whitefish processing" pdf` | Direct hit for the 2016 Matís report |
+| English | `Statistics Iceland catch and value of by-products by species and type` | Find official by-product tables |
+| English | `Statistics Iceland exported marine products by categories and countries` | Find official export tables |
+| English | `SINTEF Analyse marint restråstoff 2024 pdf` | Retrieve the Norwegian full report |
+| English | `Nofima marine by-products Norway valorisation` | Find Norwegian fraction/valorisation work |
+| English | `SUPREME whitefish side streams Norway logistics onboard handling` | Validate Norwegian transfer programmes |
+| Norwegian | `SINTEF marint restråstoff 2024 utnyttelse sluttbruk` | Norwegian totals and end uses |
+| Norwegian | `FHF restråstoff sjømat høyverdiutnyttelse` | FHF project archive on higher-value utilisation |
+| Norwegian | `Nofima restråstoff marine ingredienser` | Nofima technology and market work |
+| Norwegian | `Regjeringa strategi auka verdiskaping marint restråstoff` | Norwegian policy baseline |
+| Norwegian | `Lerøy 100% Fish lakseblod SalmoFer` | Company proof-point on blood |
+| Icelandic | `site:sjavarklasinn.is "100% Fish" "ársskýrsla"` | Try to surface the annual report in Icelandic indexing |
+| Icelandic | `site:matis.is nýting aukaafurða þorsks skýrsla` | Icelandic report search on cod side-stream use |
+| Icelandic | `site:px.hagstofa.is aukaafurðir þorskur verð magn` | Statistics Iceland by-product table / value / volume |
+| Icelandic | `site:matis.is verðmætasköpun aukaafurðir sjávarafurðir` | Value-creation terms used in Icelandic sources |
+| Mixed local / English | `site:px.hagstofa.is "Catch and value of by-products by species and type"` | Best direct route into the official Icelandic by-product matrix |
+
+**Search note:** the most important unresolved search target is the **official IOC annual report content itself**. Until that is in hand, the strongest case posture remains **`benchmark-only`**.

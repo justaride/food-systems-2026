@@ -8,6 +8,7 @@ export const navGroups: NavGroup[] = [
   ]},
   { groupKey: 'intern', items: [
     { key: 'team', href: '/team' },
+    { key: 'casestatus', href: '/casestatus' },
     { key: 'moter', href: '/moter' },
     { key: 'kommunikasjon', href: '/kommunikasjon' },
     { key: 'datastatus', href: '/datastatus' },

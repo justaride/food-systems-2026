@@ -120,6 +120,16 @@ export const routeProvenance: RouteProvenance[] = [
     ],
   },
   {
+    route: '/casestatus',
+    title: 'Casestatus',
+    sources: [
+      source('manual', 'src/lib/data/casestatus.ts', 'syv caseankre, modenhet, blokkere og neste handling'),
+      source('manual', 'docs/project/mandates/food-tg-0906-sprintboard-go-no-go-2026-06-10.md', 'sprintboard og go/no-go-retning'),
+      source('manual', 'docs/project/mandates/primary-check-queue-food-tg-v0.1.md', 'primærsjekk-kø og åpne datagap'),
+      source('manual', 'docs/project/mandates/food-tg-claim-lock-table-2026-05.md', 'claim-lock og ikke-si-regler'),
+    ],
+  },
+  {
     route: '/mandat',
     title: 'Mandat',
     sources: [

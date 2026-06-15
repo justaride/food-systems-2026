@@ -986,11 +986,20 @@ const BLOCKED_BUSINESS_RELATIONSHIP_SOURCE_LABELS = new Set([
   'BioMar',
   'Bransjeanalyse',
   'Bransjedata',
+  'Bransjekunnskap',
+  'Bransjekunnskap / ASKO aarsrapport',
+  'Dagligvaretilsynet / Bransjedata',
+  'Dansk Erhverv foodservice rapport 2024',
+  'Den Magiske Fabrikken',
+  'Compass Group plc pressemelding 2024 (4Service-oppkjop)',
   'Lantmannen.com',
+  'Mathem press release 2023',
   'mn24.no',
   'Mowi Industry Handbook',
+  'NorgesGruppen/Dagrofa samarbeidsavtale',
   'Nofima Prosjektoversikt',
   'Sjømatrådet',
+  'Svensk Dagligvaruhandel marknadsrapport 2024',
   'TGTG Partnerliste 2024',
 ])
 
@@ -1319,7 +1328,9 @@ function isNorwegianOrgNumber(orgNr: string): boolean {
 
 function isBronnoysundSource(source: string | null | undefined): boolean {
   if (!source?.trim()) return false
-  return normalizeSourceText(source).includes('bronnoysund')
+  const normalized = normalizeSourceText(source)
+  // Match both the æøå spelling ("Brønnøysund" → "bronnoysund") and the ascii "Broennoysund" variant.
+  return normalized.includes('bronnoysund') || normalized.includes('broennoysund')
 }
 
 function isBronnoysundSubunitSource(source: string | null | undefined): boolean {
@@ -1385,7 +1396,9 @@ function officialNorwegianCompanyFinancialAccountsUrlForRow(
   if (
     normalized === `regnskap ${row.year}` ||
     normalized === `regnskapsregisteret ${row.year}` ||
-    /^proff\.no 20\d{2}$/.test(normalized)
+    /^proff\.no 20\d{2}$/.test(normalized) ||
+    // Brønnøysund/Broennoysund regnskapsdata hentet via offentligdata-MCP (norsk selskapsregister)
+    normalized.includes('offentligdata')
   ) {
     return bronnoysundAnnualAccountsUrl(orgNr, row.year)
   }
@@ -1508,6 +1521,105 @@ export function resolveCountryMetricSourceLocator(
   return source ? (COUNTRY_METRIC_SOURCE_LABEL_LOCATORS[source] ?? null) : null
 }
 
+// Canonical 2024 annual-report locators per konsern, verified own-site/IR PDFs (2026-06-15
+// workflow url-discovery). The source label names the konsern ("/ Nortura aarsrapport 2024"),
+// so match on a token in the source text — robust to which subsidiary orgnr the row carries.
+// Order matters: more specific tokens (e.g. "reitan eiendom") must precede broader ones ("reitan").
+const KONSERN_ANNUAL_REPORT_2024: Array<{ tokens: string[]; url: string }> = [
+  { tokens: ['norgesgruppen'], url: 'https://www.norgesgruppen.no/globalassets/finansiell-informasjon/rapporter/2024/ng_ars--og-barekraftsrapport-2024.pdf' },
+  { tokens: ['orkla'], url: 'https://www.orkla.com/files/mfn/7f0f329a-2944-4496-aec4-b6068d0c6b5c/orkla-annual-report-2024.pdf' },
+  { tokens: ['reitan eiendom'], url: 'https://2024.reitaneiendom.no/' },
+  { tokens: ['reitan'], url: 'https://www.reitanretail.no/en/about/reports' },
+  { tokens: ['nortura'], url: 'https://www.nortura.no/attachments/%C3%85rsmeldinger/Nortura_aarsmelding_2024.pdf' },
+  { tokens: ['coop'], url: 'https://downloads.eu.ctfassets.net/69zmfo9ko3qk/2QvCIRYayaH5K6dAMK48De/2801533b804d7c9f660b997103bd675e/Coop_Norge_SA_%C3%A5rsrapport_2024_HR_1.pdf' },
+  { tokens: ['fk aarsrapport', 'felleskj'], url: 'https://fka.felleskjopet.no/globalassets/medlem/arsrapporter/aarsrapport_felleskjoepet_2024.pdf' },
+  { tokens: ['tine'], url: 'https://www.tine.no/b%C3%A6rekraft/_/attachment/inline/9cea416b-a20a-4626-96ed-65bce2a82685:31abe1fe90c6862b897357ca6350a74a6e6b38b1/TINE%20%C3%85rsrapport%202024.pdf' },
+  { tokens: ['leroey', 'leroy'], url: 'https://www.leroyseafood.com/globalassets/02--documents/english/annual-reports/lsg-annual-report-2024.pdf' },
+  { tokens: ['bama'], url: 'https://www.bama.no/siteassets/bama/arsrapport/2024/bama-2024-no.pdf' },
+  { tokens: ['mowi'], url: 'https://mowi.com/wp-content/uploads/2025/03/Mowi-Integrated-Annual-Report-2024.pdf' },
+  { tokens: ['salmar'], url: 'https://ml-eu.globenewswire.com/Resource/Download/1da20c9a-09bb-4d58-8e81-72f7942be36f' },
+  { tokens: ['austevoll'], url: 'https://www.auss.no/media/1627/auss-annual-report-2024-250430.pdf' },
+  { tokens: ['kavli', 'q-meieriene', 'q meieriene'], url: 'https://cdn.sanity.io/files/akyc3m22/production/fa27d945620cdc5cd79573a0340cbbdbaddcef90.pdf' },
+  { tokens: ['axfood'], url: 'https://www.axfood.se/globalassets/startsida/investerare/rapporter-och-presentationer/arkiv/2024/axfood-annual-and-sustainability-report-2024.pdf' },
+  { tokens: ['ica gruppen'], url: 'https://www.icagruppen.se/globalassets/xx.-arsredovisning-2024/250221_icagruppen_annual_report_2024.pdf' },
+  { tokens: ['salling'], url: 'https://sallinggroup.com/en/publications' },
+  { tokens: ['kesko'], url: 'https://www.kesko.fi/493454/globalassets/03-sijoittaja/raporttikeskus/2025/q1/vuosiraportti-2024/kesko_annual_report_2024.pdf' },
+  { tokens: ['hagar'], url: 'https://www.hagar.is/media/drobil3b/hagar-%C3%A1rsreikningur-28-02-2025-%C3%ADsl.pdf' },
+  { tokens: ['festi'], url: 'https://www.arsskyrsla2024.festi.is/fjarhagur-og-arsreikningur' },
+  { tokens: ['yara'], url: 'https://www.yara.com/siteassets/investors/057-reports-and-presentations/annual-reports/2024/yara-integrated-report-2024.pdf' },
+]
+
+const BLOCKED_OWNERSHIP_UNVERIFIED_LOCATOR = 'source:blocked-unsourced/company-ownership-unverified-label'
+const BLOCKED_PROPERTY_UNVERIFIED_LOCATOR = 'source:blocked-unsourced/company-property-unverified-label'
+
+// Ownership labels with no externally-citable per-row locator (foreign/obscure issuers, internal
+// transaction refs, press releases without a captured URL). Marked internal_context, not label-only.
+const BLOCKED_COMPANY_OWNERSHIP_SOURCE_LABELS = new Set<string>([
+  'Axel Johnson AB arsredovisning 2024',
+  'Axel Johnson portfolio',
+  'Cheffelo Q4 2025 investor report',
+  'ISS A/S aarsrapport',
+  'SOK tilinpaatos 2024',
+  'Compass Group plc pressemelding 2024 (4Service-oppkjop)',
+  'Himmelgroent founding 2023',
+  'Himmelgroent founding',
+  'Coop Danmark / ISS arsrapporter',
+  'Kinnevik press release 2021',
+  'Mathem press release 2023',
+])
+
+// Alias tokens → a konsern whose verified 2024 report documents the ownership, even when the
+// source label does not itself look like an annual report (e.g. "/ Broennoysund 2024", a family
+// holding, or an internal transaction reference). Used only by the ownership resolver.
+const OWNERSHIP_KONSERN_ALIAS_TOKENS: Array<{ tokens: string[]; tokenInList: string }> = [
+  { tokens: ['johannson'], tokenInList: 'norgesgruppen' },
+  { tokens: ['rema', 'rebus'], tokenInList: 'reitan' },
+]
+
+// Property descriptions / labels with no externally-citable per-row locator → internal_context.
+const BLOCKED_COMPANY_PROPERTY_SOURCE_LABELS = new Set<string>([
+  'Coop Norge SA — Engros Bergen',
+  'Coop Norge SA — Hovedkontor Oslo',
+  'Coop Norge SA — Lager Langhus',
+  'Coop Norge SA — Lager Stavanger',
+  'Coop Norge SA — Lager Tromsoe',
+  'Coop Norge SA — Lager Trondheim',
+  'Coop Norge SA — Logistikksenter Jessheim',
+  'NG registreringsdokument 2025',
+  'NorgesGruppen registreringsdokument 2025',
+])
+
+// Permissive konsern match for ownership rows: the holding is documented in the named konsern's
+// 2024 report regardless of how the source is phrased. Estimates are never matched.
+function ownershipKonsernUrlFromSource(source: string | null | undefined): string | null {
+  if (!source?.trim()) return null
+  const normalized = normalizeSourceText(source)
+  if (normalized.includes('estimat')) return null
+  const direct = KONSERN_ANNUAL_REPORT_2024.find((entry) =>
+    entry.tokens.some((token) => normalized.includes(token)),
+  )
+  if (direct) return direct.url
+  const alias = OWNERSHIP_KONSERN_ALIAS_TOKENS.find((entry) =>
+    entry.tokens.some((token) => normalized.includes(token)),
+  )
+  if (!alias) return null
+  return KONSERN_ANNUAL_REPORT_2024.find((e) => e.tokens.includes(alias.tokenInList))?.url ?? null
+}
+
+// Resolve an annual-report source label naming a konsern to its verified 2024 report URL.
+// Returns null for estimates, non-annual-report sources, or years outside 2024 (incl. 2024/25, 2025 IS fiscal).
+function annualReport2024UrlFromSource(source: string | null | undefined): string | null {
+  if (!source?.trim() || !looksLikeAnnualReportSource(source)) return null
+  const normalized = normalizeSourceText(source)
+  if (normalized.includes('estimat')) return null
+  const year = yearFromSource(source)
+  if (year !== 2024 && year !== 2025) return null
+  const match = KONSERN_ANNUAL_REPORT_2024.find((entry) =>
+    entry.tokens.some((token) => normalized.includes(token)),
+  )
+  return match ? match.url : null
+}
+
 export function resolveCompanyFinancialSourceLocator(
   row: CompanyFinancialSourceRow,
   documentRefs: DocumentRefSet,
@@ -1528,8 +1640,10 @@ export function resolveCompanyFinancialSourceLocator(
   const documentRef = annualReportDocumentRefForOrgYear(orgNr, row.year)
   if (documentRef && documentRefs.has(documentRef)) return `document:${documentRef}`
 
+  // Verified per-orgnr URL wins; otherwise fall back to the konsern's 2024 report named in the label.
   return (
     COMPANY_FINANCIAL_ANNUAL_REPORT_URLS[`${orgNr}:${row.year}`] ??
+    annualReport2024UrlFromSource(row.source) ??
     blockedCompanyFinancialSourceLocatorForRow(row)
   )
 }
@@ -1605,6 +1719,15 @@ export function resolveCompanyOwnershipSourceLocator(
   ) {
     const documentRef = SHAREHOLDER_ANNUAL_REPORT_REFS['819731322']
     if (documentRefs.has(documentRef)) return `document:${documentRef}`
+  }
+
+  const konsernUrl = ownershipKonsernUrlFromSource(source)
+  if (konsernUrl) return konsernUrl
+
+  // Explicit block-list (codebase pattern): only KNOWN-unsourceable labels become internal_context;
+  // genuinely new/unknown sources stay null so the audit keeps flagging them for review.
+  if (BLOCKED_COMPANY_OWNERSHIP_SOURCE_LABELS.has(source)) {
+    return BLOCKED_OWNERSHIP_UNVERIFIED_LOCATOR
   }
 
   return null
@@ -1690,6 +1813,10 @@ export function resolveCompanyPropertySourceLocator(row: CompanyPropertySourceRo
     if (officialLocator) return officialLocator.url
   }
 
+  if (BLOCKED_COMPANY_PROPERTY_SOURCE_LABELS.has(source)) {
+    return BLOCKED_PROPERTY_UNVERIFIED_LOCATOR
+  }
+
   return null
 }
 
@@ -1768,6 +1895,12 @@ export function resolveBusinessRelationshipSourceLocator(
 
   if (normalized.includes('kkv') && normalized.includes('pty')) {
     return reportSourceUrlById.get('kkv-fi-4a-dominans')?.trim() || KKV_FI_4A_DOMINANCE_URL
+  }
+
+  // Konsern annual report named in the relationship source (e.g. "Lerøy årsrapport").
+  if (looksLikeAnnualReportSource(source)) {
+    const konsernUrl = ownershipKonsernUrlFromSource(source)
+    if (konsernUrl) return konsernUrl
   }
 
   if (BLOCKED_BUSINESS_RELATIONSHIP_SOURCE_LABELS.has(source)) {
