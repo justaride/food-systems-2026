@@ -1,20 +1,35 @@
 ---
-tittel: "Food TG — Scope-minimumsvedtak (utkast til bekreftelse)"
-status: Utkast til bekreftelse — IKKE vedtatt
+tittel: "Food TG — Scope-minimumsvedtak"
+status: Operativt minimumsvedtak bekreftet for sprintstart 2026-06-15 — formell eierbekreftelse gjenstår
 eier_for_beslutning: JTO / Cathrine / Einar
 forberedt_av: Gabriel
 dato: 2026-06-08
+operativ_bekreftelse: 2026-06-15
+valgt_alternativ: 2A
 relaterte_filer:
   - docs/project/mandates/decision-memo-food-tg-scope-v0.3.md
   - docs/project/mandates/food-tg-scope-decision-request-2026-05-21.md
   - docs/project/mandates/decision-log-food-tg.md
   - docs/project/mandates/MANDATE-OPEN-FIELDS-STATUS-2026-05-26.md
+  - docs/project/mandates/matsvinnkvalitet-validation-sprint-2026-06-15.md
   - docs/meetings/MØTEOVERSIKT.md
 ---
 
-# Food TG — Scope-minimumsvedtak (utkast til bekreftelse)
+# Food TG — Scope-minimumsvedtak
 
-> **Status:** Dette er et **utkast** ført i pennen av Gabriel, klart til å bekreftes av JTO/Cathrine/Einar. Det er **ikke** et vedtak før bekreftelsesblokken (§7) er signert og raden er ført i `decision-log-food-tg.md`.
+> **Status 2026-06-15:** Valg **2A** er bekreftet som operativt minimumsvedtak for å starte intern valideringssprint med matsvinnkvalitet først. Dette gir ikke pilot-, volum- eller effektcommitment, og ingen claim løftes til `Validert eksternt` før primærsjekk eller aktørvalidering er dokumentert. Formell eierbekreftelse fra JTO/Cathrine/Einar og eventuell mandatesignering står fortsatt som egen port.
+
+## 0. Operativ bekreftelse 2026-06-15
+
+**Valgt alternativ:** 2A — A+B som foreløpig hovedscope, C som tverrgående adoption-, regelverks- og datagate.
+
+**Umiddelbar konsekvens:**
+
+- `decision-log-food-tg.md` føres med en operativ beslutningsrad for sprintstart.
+- `food-tg-validation-sprint-log-2026-05.md` åpnes fra "venter scope-vedtak" til aktiv dag-0 sprintstatus.
+- Første valideringspakke avgrenses til **matsvinnkvalitet** (`CL-B-022`, `CL-C-012`, `CL-C-014`, `CL-C-015`) og ber om baseline, kategori, tidsvindu, rutineendring, alternativ behandling og kontrafaktisk.
+
+**Bevart gate:** Mandatfelt som krever formell eier-/teamavklaring fylles ikke automatisk av dette dokumentet. Chair/co-chair, komplett medlemsliste, signaturblokk og ekstern sitatbruk krever fortsatt eksplisitt avklaring.
 
 ## 1. Hvorfor dette må avklares nå
 
@@ -100,8 +115,10 @@ Oppdater også `decision-log-food-tg.md`-raden «Hovedscope (A/B/C kombinasjon)�
 | Prosjektleder/metodikk | Jan Thomas Ødegard | | | ☐ |
 | Team Food | Cathrine Barth | | | ☐ |
 
-**Valgt alternativ:** ☐ 2A (full A+B/C) · ☐ 2B (fallback sprint) · ☐ Endre — oppgi: ____________
+**Valgt alternativ:** ☒ 2A (full A+B/C) · ☐ 2B (fallback sprint) · ☐ Endre — oppgi: ____________
+
+**Operativ bekreftelse:** Gabriel 2026-06-15 for sprintstart. Formell eierbekreftelse/signatur fra JTO/Cathrine/Einar gjenstår.
 
 ---
 
-*Forberedt 2026-06-08. Tas inn i neste møte med Cathrine/JT (jf. åpent punkt i `GAP-NYESTE-MOTER-2026-06-08.md` §7 #1–#2). Erstatter ikke beslutningsforespørselen 21.05 — lukker den.*
+*Forberedt 2026-06-08. Operativt bekreftet 2026-06-15 for å starte valideringssprint. Tas fortsatt inn i neste møte med Cathrine/JT/Einar for formell eierbekreftelse og eventuelle mandatfelt.*
