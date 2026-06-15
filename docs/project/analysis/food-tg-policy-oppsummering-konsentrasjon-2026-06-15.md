@@ -20,6 +20,7 @@ Debatten om makt i norsk mat handler nesten alltid om dagligvarekjedene: tre akt
 Måler man konsentrasjonen ledd for ledd med et ekte markeds-HHI — det standardiserte målet konkurransemyndigheter bruker — ligger den **høyest oppstrøms, i foredlingen, og høyest av alt i de medlemseide samvirkene**:
 
 - **Meieri (TINE):** HHI ~6000
+- **Egg (Nortura/Prior):** HHI ~5500–6800
 - **Rødt kjøtt (Nortura):** HHI ~4600–4800
 - **Dagligvare (NorgesGruppen/Coop/Rema):** HHI ~3327
 - **Laks-/ørretoppdrett:** HHI ~950 — den minst konsentrerte noden
@@ -43,6 +44,6 @@ Alt over 2500 regnes internasjonalt som «høyt konsentrert». Foredlingsleddet 
 
 ## Tallgrunnlag i én linje
 
-HHI = summen av kvadrerte markedsandeler. Selv om man ser bort fra alle utfordrere, gir markedslederen alene et «gulv»: TINE 76,4² = 5837 og Nortura 66² = 4356 — begge over dagligvare (~3327) uansett hvordan resten av markedet fordeles. Det er derfor rekkefølgen står støtt selv om de presise verdiene ikke gjør det.
+HHI = summen av kvadrerte markedsandeler. Selv om man ser bort fra alle utfordrere, gir markedslederen alene et «gulv»: TINE 76,4² = 5837 (meieri), Nortura/Prior 70² = 4900 (egg) og Nortura 66² = 4356 (kjøtt) — alle over dagligvare (~3327) uansett hvordan resten av markedet fordeles. Det er derfor rekkefølgen står støtt selv om de presise verdiene ikke gjør det. (Egg-tallet er kildebelagt 2026-06-15: Nortura-eierne står for 70–80 % av nasjonal eggproduksjon; Cardinal/Den Stolte Hane er én aktør.)
 
 **Kilder:** Oslo Economics (meieri), KLF/Animalia (kjøtt), Konkurransetilsynets Dagligvarerapport 2024-25 (dagligvare), Fiskeridirektoratet og selskapenes årsrapporter (sjømat). Figur: `fig-kryssnode-hhi-profil.svg`. Fullt grunnlag med forbehold: whitepaper-kapittel `food-tg-maktkart-whitepaper-kapittel-2026-06-15.md`.

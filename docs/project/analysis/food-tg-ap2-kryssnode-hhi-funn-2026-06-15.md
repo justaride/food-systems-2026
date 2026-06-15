@@ -27,21 +27,23 @@ Og det ikke-opplagte poenget: **de to mest konsentrerte nodene — meieri og kj�
 | Node | Markeds-HHI | CR3 | Basis / år | Status |
 |---|---:|---:|---|---|
 | **Meieri** (foredling) | ~6000 | 94 % | anvendt melk hovedprodukter, 2021 | citable m/forbehold |
+| **Egg** (produksjon/marked) | ~5500–6800 | CR2 90–100 % | Nortura-/Prior-andel, 2014–2024 | citable m/forbehold (oppdatert §12) |
 | **Rødt kjøtt** (slakt) | ~4600–4800 | 86 % | slaktemengde, 2024 | citable m/forbehold |
-| **Egg** (pakkeri) | ~3600 | 90 % | pakkeri-volum, 2023 | needs-data (presise andeler) |
+| **Logistikk/grossist** | ~3697 | CR3 100 % | omsetning, 2023 (Menon) | citable m/forbehold (oppdatert §12) |
 | **Kraftfôr** (input) | ~3100–3700 | 86–88 % | volum, 2023 | citable struktur / needs-data presis |
 | **Dagligvare** (retail) | ~3327 | 96,6 % | omsetning, 2024 (KT) | citable m/forbehold ✓ |
 | **Kylling** (slakt) | ~3200 | 88 % | slaktemengde, 2024 | citable m/forbehold |
+| **Foodservice-dist.** | ~2900–5400 | leder 36–75 % omtv. | omsetning, 2018–23 | citable struktur (range; §12) |
 | **Oppdrettsfôr** (input) | ~2500–2900 | 78–90 % | kapasitet/struktur, 2020–22 | citable struktur / needs-data presis |
 | **Sjømat** (oppdrett) | ~950–1150 | CR4 56–58 % | slaktevolum GWT, 2024 | citable m/forbehold |
 
-Alle over 2500 = «høyt konsentrert»; sjømat (~950) = «moderat». Dagligvare-HHI (~3327) er fra tidligere (§8 steg 3, KT Dagligvarerapport). Aritmetikk (HHI = Σ andel²) coordinator-verifisert mot de oppgitte andelene.
+Alle over 2500 = «høyt konsentrert»; sjømat (~950) = «moderat». Dagligvare-HHI (~3327) er fra tidligere (§8 steg 3, KT Dagligvarerapport). Egg, logistikk og foodservice er **oppdatert 2026-06-15 (Strøm E, §12)** — egg flyttet opp etter at Nortura-/Prior-andelen (70–80 %) er kildebelagt og Cardinal/Den Stolte Hane korrekt regnet som **én** aktør. Aritmetikk (HHI = Σ andel²) coordinator-verifisert mot de oppgitte andelene.
 
 Figur: `docs/project/figures/food-tg-2026-06-15/fig-kryssnode-hhi-profil.svg` (søylediagram, citable noder solid, needs-data-presis lysere, samvirke merket, 2500-terskel). Også surfacet i `/innsikt` som inline-figur (`kryssnodeHhi`).
 
 ## 3. Konsentrasjonsprofilen langs kjeden
 
-Primærproduksjon (sjømat ~950) **→** input/fôr (~2500–3700) **→** foredling (meieri ~6000, kjøtt ~4600) **→** dagligvare (~3327) **→** forbruker. Konsentrasjonen er altså **ikke** monotont stigende mot forbruker; den **topper i foredlingsleddet** (samvirke-monopolene), faller noe i retail, og er lavest i primærproduksjon. Det er et mer presist maktkart enn «retail har 96 %».
+Primærproduksjon (sjømat ~950) **→** input/fôr (~2500–3700) **→** foredling (meieri ~6000, egg ~5500–6800, kjøtt ~4600) **→** dagligvare (~3327) **→** forbruker. Konsentrasjonen er altså **ikke** monotont stigende mot forbruker; den **topper i foredlingsleddet** (samvirke-monopolene), faller noe i retail, og er lavest i primærproduksjon. Det er et mer presist maktkart enn «retail har 96 %». Med egg-oppdateringen (§12) er de tre mest konsentrerte nodene **alle samvirke-foredling** (TINE meieri, Nortura/Prior egg, Nortura kjøtt) — det skjerper samvirke-tesen ytterligere.
 
 ## 4. Robusthet — hva tåler forbehold
 
@@ -124,3 +126,25 @@ De to siste nodene er like mye et **strukturfunn** som et HHI-tall.
 - **`chart-metrics.json` `parentHHI` (NO = 3445)** er en *butikkantall-proxy* beregnet fra `stores.json` (PIP → konsernandeler), brukt likt på tvers av land i `/sammenligning` for kryssnasjonal sammenlignbarhet. Den er en compute-metrics-artefakt og røres **ikke** for hånd; den er nå eksplisitt merket som proxy i `/sammenligning`-narrativet, med den citerbare omsetnings-HHI-en (3327) oppgitt ved siden av. Full nordisk omsetnings-paritet gjenstår (B11 gap).
 
 Valg: **KT-omsetning 2024 er autoritativ kilde for markeds-strukturtallet** (anbefalt i master-handover D2); butikkantall-proxyen beholdes kun som kryssnasjonalt sammenligningsmål, tydelig merket.
+
+## 12. Presise node-andeler — åpen-data-oppdatering 2026-06-15 (Strøm E)
+
+Fan-out-research mot navngitte primærkilder for de fem nodene som sto «citable struktur / needs-data presis». Aritmetikk coordinator-reverifisert (HHI = Σ andel²).
+
+**Lukket / oppgradert (needs-data → citable m/forbehold):**
+
+- **Egg — oppgradert og flyttet opp.** Markedet er Nortura-/Prior-dominert: Nortura-eierne står for **~70 % av nasjonal eggproduksjon**, hevet til **~80 %** etter forpaktningsavtalen (2014). Nest størst er **Den Stolte Hane = Cardinal Foods = én aktør** (Scandi Standard Norway), ~20–25 % — den tidligere ~3600-verdien dobbelttalte trolig disse to og/eller brukte en lavere lederandel. Korrigert: Nortura 70–80 %, DSH/Cardinal 20–25 %, småaktører ~5 % → **HHI ~5500 (70/25/5) til ~6800 (80/20)**; robust via leder-gulv (Nortura alene 70² = 4900). Basis = produksjons-/markedsandel, ikke pakkeri-linje. *Kilder: Nationen, DN (Nortura 69→80 %); Wikipedia/Nettavisen (Cardinal = Den Stolte Hane).* Stoppspråk: oppgi 70–80 % som intervall (71,4 % var ikke etterprøvbart); DSH/Cardinal er **én** aktør.
+- **Logistikk/grossist — bekreftet til ekte HHI.** Menon Economics 2023 (regjeringen.no) gir omsetning per integrert fullsortimentsgrossist: NG/ASKO 78,8 mrd, Coop 58,9 mrd, REMA 33,0 mrd (= 170,7 mrd) → andeler **46,2 / 34,5 / 19,3 %** → **HHI 3697** (46,2²+34,5²+19,3² = 3697; CR3 100 %, lukket marked). Bekrefter §11-anslaget (~3696) og sporer det til underliggende omsetningstall. Måler samme konsentrasjon som retail (vertikalt internalisert).
+
+**Citable som range (presis verdi omstridt):**
+
+- **Foodservice-distribusjon.** ASKO Storhusholdning (NG) er dominerende, men lederandelen er **omstridt 36 % (NGs egen) vs ~70–75 % (Servicegrossistenes CEO + bransjetall)**. Servicegrossistene ~20 %; Kolly (REMA) ny inn. HHI **~2900 (ASKO 50 %) til ~5400 (ASKO 70 %)** — høyt konsentrert under enhver lesning ≥50 %, men ett punktanslag er ikke forsvarlig. *Kilder: NHO Reiseliv 2018; Menon 2023; NTB (REMA/Servicegrossistene).*
+
+**Forblir needs-data (presise produsentandeler ikke publisert — kilder sjekket):**
+
+- **Oppdrettsfôr.** Fire produsenter ≈ 100 % (Skretting, Cargill/EWOS, BioMar, Mowi Feed captive); CR4 ≈ 100 % er eneste kildebelagte konsentrasjonstall. Norge-spesifikk volum-/kapasitetssplit er **ikke publisert åpent** (Frontiers 2024 + Aas et al. 2022 gir sammensetning, ikke andeler; Kontali-feed-rapport ikke åpen). Status uendret: citable struktur, needs-data presis.
+- **Kraftfôr.** Felleskjøpet (Agri + Rogaland Agder) er nasjonal leder, men de **65 % er bekreftet regionale**, ikke nasjonale; eneste granulære utfordrertall er Norgesfôr **29,2 % i fjørfefôr** (segment, ikke total). Landbruksdirektoratet publiserer totalvolum, ikke produsentandeler. Status uendret. **Ikke nasjonaliser 65 %-tallet.**
+
+**Konsekvens for surfacing:** egg-oppgraderingen reordner konsentrasjonsprofilen (egg blir nr. 2, over rødt kjøtt) og forsterker samvirke-tesen (de tre øverste = TINE meieri, Nortura/Prior egg, Nortura kjøtt). Figuren, `/innsikt`-kortet og whitepaper-§2-tabellen er oppdatert tilsvarende (egne commits på `claude/strom-e-research-2026-06-15`).
+
+**Kilder (tillegg §12):** Nationen + DN (Nortura eggandel); Nettavisen + no.wikipedia (Cardinal Foods/Den Stolte Hane = samme aktør); Menon Economics 2023 «Kartlegging av tilgang til dagligvaregrossisttjenester» (regjeringen.no, omsetning grossist); NHO Reiseliv høringssvar 2018 + NTB (foodservice-distribusjon); Frontiers in Marine Science 2024 + Aas et al. 2022 (fôr-struktur); Landbruksdirektoratet kraftfôrstatistikk + Bondebladet (Norgesfôr 29,2 % fjørfefôr).

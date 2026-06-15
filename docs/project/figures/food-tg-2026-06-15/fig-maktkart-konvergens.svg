@@ -31,10 +31,10 @@
 <!-- bars scale: 360px / 6000, x0=156 -->
 <text x="150" y="285" font-size="10.5" fill="#44403c" text-anchor="end">Meieri</text>
 <rect x="156" y="275" width="360" height="12" rx="2" fill="#075985"/><text x="521" y="285" font-size="9.5" fill="#075985">~6000</text>
-<text x="150" y="305" font-size="10.5" fill="#44403c" text-anchor="end">Rødt kjøtt</text>
-<rect x="156" y="295" width="282" height="12" rx="2" fill="#075985"/><text x="443" y="305" font-size="9.5" fill="#075985">~4700</text>
-<text x="150" y="325" font-size="10.5" fill="#44403c" text-anchor="end">Egg</text>
-<rect x="156" y="315" width="216" height="12" rx="2" fill="#bae6fd"/><text x="377" y="325" font-size="9.5" fill="#0369a1">~3600</text>
+<text x="150" y="305" font-size="10.5" fill="#44403c" text-anchor="end">Egg</text>
+<rect x="156" y="295" width="330" height="12" rx="2" fill="#075985"/><text x="491" y="305" font-size="9.5" fill="#075985">~5500–6800</text>
+<text x="150" y="325" font-size="10.5" fill="#44403c" text-anchor="end">Rødt kjøtt</text>
+<rect x="156" y="315" width="282" height="12" rx="2" fill="#075985"/><text x="443" y="325" font-size="9.5" fill="#075985">~4700</text>
 <text x="150" y="345" font-size="10.5" fill="#44403c" text-anchor="end">Kraftfôr</text>
 <rect x="156" y="335" width="204" height="12" rx="2" fill="#bae6fd"/><text x="365" y="345" font-size="9.5" fill="#0369a1">~3400</text>
 <text x="150" y="365" font-size="10.5" fill="#44403c" text-anchor="end">Dagligvare</text>
@@ -45,7 +45,7 @@
 <rect x="156" y="395" width="162" height="12" rx="2" fill="#bae6fd"/><text x="323" y="405" font-size="9.5" fill="#0369a1">~2700</text>
 <text x="150" y="425" font-size="10.5" fill="#44403c" text-anchor="end">Sjømat</text>
 <rect x="156" y="415" width="57" height="12" rx="2" fill="#0284c7"/><text x="218" y="425" font-size="9.5" fill="#0284c7">~950</text>
-<text x="156" y="448" font-size="9.5" fill="#44403c">Leder-gulv: TINE 76,4² = 5837 · Nortura 66² = 4356 — begge over retail uansett utfordrer-split.</text>
+<text x="156" y="448" font-size="9.5" fill="#44403c">Leder-gulv: TINE 76,4² = 5837 · Nortura/Prior egg 70² = 4900 · Nortura kjøtt 66² = 4356 — alle over retail. Topp 3 = samvirke.</text>
 
 <text x="290" y="500" font-size="9.5" fill="#0f172a" text-anchor="middle" font-weight="600">Samlet maktkart: vertikal konsernintegrasjon (A) + konsentrasjonen topper oppstrøms i samvirke-foredling (B).</text>
 <text x="290" y="514" font-size="9" fill="#a8a29e" text-anchor="middle">CL-MAKTKART-001 / CL-KRYSSNODE-HHI-001. Intern baseline — struktur primærsjekket; ekte markeds-HHI citable m/forbehold.</text>

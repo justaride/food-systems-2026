@@ -19,19 +19,19 @@ relaterte_filer:
 
 ## Sammendrag
 
-Den vanlige fortellingen om makt i norsk matsystem handler om dagligvareleddet: «tre kjeder kontrollerer 96 %». Det er riktig at detaljhandelen er svært konsentrert. Men når man måler konsentrasjon med et ekte markeds-HHI per verdikjede-node — bygget fra kildebelagte markedsandeler i hvert ledd, ikke fra et n-følsomt inntekts-HHI — flytter tyngdepunktet seg. **Den mest ekstreme markedskonsentrasjonen i norsk mat ligger oppstrøms, i foredlingsleddet, og den ligger i de medlemseide samvirkene.** Meieriforedling (HHI ~6000) og rødkjøttslakting (~4600–4800) er mer konsentrert enn dagligvare (~3327), mens primærproduksjon — laks- og ørretoppdrett (~950) — er den minst konsentrerte noden i kjeden.
+Den vanlige fortellingen om makt i norsk matsystem handler om dagligvareleddet: «tre kjeder kontrollerer 96 %». Det er riktig at detaljhandelen er svært konsentrert. Men når man måler konsentrasjon med et ekte markeds-HHI per verdikjede-node — bygget fra kildebelagte markedsandeler i hvert ledd, ikke fra et n-følsomt inntekts-HHI — flytter tyngdepunktet seg. **Den mest ekstreme markedskonsentrasjonen i norsk mat ligger oppstrøms, i foredlingsleddet, og den ligger i de medlemseide samvirkene.** Meieriforedling (HHI ~6000), eggpakking/-marked (~5500–6800) og rødkjøttslakting (~4600–4800) er mer konsentrert enn dagligvare (~3327), mens primærproduksjon — laks- og ørretoppdrett (~950) — er den minst konsentrerte noden i kjeden.
 
 Samtidig viser to uavhengige datakilder — styregrafen (interlock mellom selskapsstyrer) og eiergrafen (kontrollerende konsernstrukturer) — den samme vertikale arkitekturen: et fåtall konsern spenner butikk, logistikk og foredling samtidig. Dette kapittelet legger fram det siterbare i dette bildet, og er eksplisitt om hva som ennå ikke er det.
 
 ## 1. Hovedfunn (siterbart med forbehold)
 
-**Konsentrasjonen er ikke monotont stigende mot forbruker; den topper i foredlingsleddet.** Profilen langs kjeden er: primærproduksjon (sjømat ~950) → input/fôr (~2500–3700) → **foredling (meieri ~6000, rødt kjøtt ~4600)** → dagligvare (~3327) → forbruker.
+**Konsentrasjonen er ikke monotont stigende mot forbruker; den topper i foredlingsleddet.** Profilen langs kjeden er: primærproduksjon (sjømat ~950) → input/fôr (~2500–3700) → **foredling (meieri ~6000, egg ~5500–6800, rødt kjøtt ~4600)** → dagligvare (~3327) → forbruker.
 
-De to mest konsentrerte nodene er samvirkene **TINE** (meieri) og **Nortura** (rødt kjøtt). Det skjerper et eldre poeng: samvirke er ikke bare en eierform som *skjuler* konsentrasjon bak lav aksje-HHI — i foredling *er* samvirket den mest konsentrerte markedsstrukturen.
+De **tre** mest konsentrerte nodene er alle samvirke-foredling: **TINE** (meieri) og **Nortura/Prior** (egg + rødt kjøtt). Det skjerper et eldre poeng: samvirke er ikke bare en eierform som *skjuler* konsentrasjon bak lav aksje-HHI — i foredling *er* samvirket den mest konsentrerte markedsstrukturen.
 
-> **Claim CL-KRYSSNODE-HHI-001 (citable_with_note):** «Konsentrasjonen i norsk matsystem topper i foredling (meieri ~6000, rødt kjøtt ~4600), over dagligvare (~3327); primærproduksjon (sjømat ~950) er minst konsentrert. De to mest konsentrerte nodene er samvirkene TINE og Nortura.»
+> **Claim CL-KRYSSNODE-HHI-001 (citable_with_note):** «Konsentrasjonen i norsk matsystem topper i foredling (meieri ~6000, egg ~5500–6800, rødt kjøtt ~4600), over dagligvare (~3327); primærproduksjon (sjømat ~950) er minst konsentrert. De tre mest konsentrerte nodene er alle samvirke-foredling — TINE (meieri) og Nortura/Prior (egg, kjøtt).»
 >
-> *Forbehold:* Det **ordinale** funnet (foredling > retail > primær) er robust mot usikkerheten i utfordrer-fordelingene, fordi leder-kvadratleddet alene gir gulv over retail (TINE 76,4² = 5837; Nortura 66² = 4356 — begge over retail uansett hvordan resten av markedet fordeles). De **presise** HHI-punktverdiene har derimot usikkerhet: utfordrer-andeler er estimert, og nodene bruker ulike referanseår (2021–2024) og baser (foredlingsvolum / slaktemengde / omsetning / kapasitet). Bland ikke baser eller år; framstill ikke estimerte utfordrer-andeler som kildebelagte.
+> *Forbehold:* Det **ordinale** funnet (foredling > retail > primær) er robust mot usikkerheten i utfordrer-fordelingene, fordi leder-kvadratleddet alene gir gulv over retail (TINE 76,4² = 5837; Nortura/Prior egg 70² = 4900; Nortura kjøtt 66² = 4356 — alle over retail uansett hvordan resten av markedet fordeles). De **presise** HHI-punktverdiene har derimot usikkerhet: utfordrer-andeler er estimert, eggandelen oppgis som intervall (Nortura 70–80 %), og nodene bruker ulike referanseår (2014–2024) og baser (foredlingsvolum / slaktemengde / produksjon/marked / omsetning / kapasitet). Bland ikke baser eller år; framstill ikke estimerte utfordrer-andeler som kildebelagte; Cardinal/Den Stolte Hane er **én** aktør.
 
 Figur: `docs/project/figures/food-tg-2026-06-15/fig-kryssnode-hhi-profil.svg` (markeds-HHI per node, citable noder solid, needs-data-presis lysere, samvirke merket, 2500-terskel).
 
@@ -40,15 +40,17 @@ Figur: `docs/project/figures/food-tg-2026-06-15/fig-kryssnode-hhi-profil.svg` (m
 | Node | Markeds-HHI | CR | Basis / år | Citérbarhet |
 |---|---:|---:|---|---|
 | Meieri (foredling) | ~6000 | CR3 94 % | anvendt melk, 2021 | citable m/forbehold |
+| Egg (produksjon/marked) | ~5500–6800 | CR2 90–100 % | Nortura/Prior-andel, 2014–2024 | citable m/forbehold |
 | Rødt kjøtt (slakt) | ~4600–4800 | CR3 86 % | slaktemengde, 2024 | citable m/forbehold |
-| Egg (pakkeri) | ~3600 | CR3 90 % | pakkeri-volum, 2023 | needs-data (presis) |
+| Logistikk/grossist | ~3697 | CR3 100 % | omsetning, 2023 (Menon) | citable m/forbehold |
 | Kraftfôr (input) | ~3100–3700 | CR3 86–88 % | volum, 2023 | citable struktur / needs-data presis |
 | Dagligvare (retail) | ~3327 | CR3 96,6 % | omsetning, 2024 (KT) | citable m/forbehold |
 | Kylling (slakt) | ~3200 | CR3 88 % | slaktemengde, 2024 | citable m/forbehold |
+| Foodservice-dist. | ~2900–5400 | leder 36–75 % omtv. | omsetning, 2018–23 | citable struktur (range) |
 | Oppdrettsfôr (input) | ~2500–2900 | CR3 78–90 % | kapasitet, 2020–22 | citable struktur / needs-data presis |
 | Sjømat (oppdrett) | ~950–1150 | CR4 56–58 % | slaktevolum GWT, 2024 | citable m/forbehold |
 
-Alle over 2500 regnes som «høyt konsentrert» (US DOJ/FTC-terskel). Dagligvare-HHI (~3327) er Konkurransetilsynets omsetningsandeler 2024 (NorgesGruppen 43,5 %, Coop 29,2 %, Rema 23,9 %, Bunnpris 3,3 %; HHI = 43,5²+29,2²+23,9²+3,3² = 3327). Sjømat-noden er kryssvalidert mot to uavhengige baser (selskapenes slaktevolum og Fiskeridirektoratets tildelte MTB-kapasitet) som gir nesten identisk konsentrasjon — det sterkeste evidensgrunnlaget av alle nodene.
+Alle over 2500 regnes som «høyt konsentrert» (US DOJ/FTC-terskel). Dagligvare-HHI (~3327) er Konkurransetilsynets omsetningsandeler 2024 (NorgesGruppen 43,5 %, Coop 29,2 %, Rema 23,9 %, Bunnpris 3,3 %; HHI = 43,5²+29,2²+23,9²+3,3² = 3327). **Egg** og **logistikk** er kildebelagt 2026-06-15 (Strøm E): egg via Nortura/Prior-andel 70–80 % (Nationen/DN; Cardinal = Den Stolte Hane, én aktør) → HHI ~5500–6800; logistikk via Menon 2023 omsetning (NG/ASKO 46,2 %, Coop 34,5 %, REMA 19,3 %) → HHI 3697. Sjømat-noden er kryssvalidert mot to uavhengige baser (selskapenes slaktevolum og Fiskeridirektoratets tildelte MTB-kapasitet) som gir nesten identisk konsentrasjon — det sterkeste evidensgrunnlaget av alle nodene.
 
 ## 3. Den vertikale arkitekturen (struktur primærsjekket)
 

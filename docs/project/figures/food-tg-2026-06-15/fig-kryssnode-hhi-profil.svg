@@ -1,7 +1,7 @@
-<svg viewBox="0 0 580 380" xmlns="http://www.w3.org/2000/svg" font-family="Inter,Arial,sans-serif">
-<rect width="580" height="380" fill="#ffffff"/>
+<svg viewBox="0 0 580 400" xmlns="http://www.w3.org/2000/svg" font-family="Inter,Arial,sans-serif">
+<rect width="580" height="400" fill="#ffffff"/>
 <text x="290" y="26" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle">Markeds-HHI per verdikjede-node — konsentrasjonen topper i foredling</text>
-<text x="290" y="44" font-size="10.5" fill="#78716c" text-anchor="middle">HHI = Σ(markedsandel %)²; &gt;2500 = «høyt konsentrert» (US DOJ/FTC). Sortert etter konsentrasjon.</text>
+<text x="290" y="44" font-size="10.5" fill="#78716c" text-anchor="middle">HHI = Σ(markedsandel %)²; &gt;2500 = «høyt konsentrert» (US DOJ/FTC). Sortert etter konsentrasjon. Egg/logistikk oppdatert 2026-06-15 (Strøm E).</text>
 
 <!-- legend -->
 <rect x="150" y="56" width="12" height="12" rx="2" fill="#075985"/><text x="167" y="66" font-size="10" fill="#44403c">samvirke (TINE / Nortura)</text>
@@ -9,39 +9,42 @@
 <rect x="455" y="56" width="12" height="12" rx="2" fill="#bae6fd"/><text x="472" y="66" font-size="10" fill="#44403c">needs-data presis</text>
 
 <!-- 2500 threshold: x(2500)=150+(2500/6000)*360=300 -->
-<line x1="300" y1="78" x2="300" y2="350" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4 3"/>
-<text x="300" y="364" font-size="9" fill="#b45309" text-anchor="middle">terskel 2500</text>
+<line x1="300" y1="78" x2="300" y2="370" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="300" y="384" font-size="9" fill="#b45309" text-anchor="middle">terskel 2500</text>
 
 <!-- bars: x0=150, scale 360px / 6000 -->
 <!-- Meieri 6000 samvirke -->
 <text x="144" y="93" font-size="11" fill="#44403c" text-anchor="end">Meieri (foredling)</text>
 <rect x="150" y="82" width="360" height="14" rx="2" fill="#075985"/><text x="515" y="93" font-size="10" fill="#075985">~6000</text>
+<!-- Egg 5500 samvirke (upgraded 2026-06-15) -->
+<text x="144" y="117" font-size="11" fill="#44403c" text-anchor="end">Egg (Nortura/Prior)</text>
+<rect x="150" y="106" width="330" height="14" rx="2" fill="#075985"/><text x="485" y="117" font-size="10" fill="#075985">~5500–6800</text>
 <!-- Rødt kjøtt 4700 samvirke -->
-<text x="144" y="117" font-size="11" fill="#44403c" text-anchor="end">Rødt kjøtt (slakt)</text>
-<rect x="150" y="106" width="282" height="14" rx="2" fill="#075985"/><text x="437" y="117" font-size="10" fill="#075985">~4600–4800</text>
-<!-- Egg 3600 needs-data -->
-<text x="144" y="141" font-size="11" fill="#44403c" text-anchor="end">Egg (pakkeri)</text>
-<rect x="150" y="130" width="216" height="14" rx="2" fill="#bae6fd"/><text x="371" y="141" font-size="10" fill="#0369a1">~3600</text>
+<text x="144" y="141" font-size="11" fill="#44403c" text-anchor="end">Rødt kjøtt (slakt)</text>
+<rect x="150" y="130" width="282" height="14" rx="2" fill="#075985"/><text x="437" y="141" font-size="10" fill="#075985">~4600–4800</text>
+<!-- Logistikk 3697 citable (sourced 2026-06-15) -->
+<text x="144" y="165" font-size="11" fill="#44403c" text-anchor="end">Logistikk/grossist</text>
+<rect x="150" y="154" width="221.8" height="14" rx="2" fill="#0284c7"/><text x="377" y="165" font-size="10" fill="#0284c7">~3697</text>
 <!-- Kraftfôr 3400 needs-data -->
-<text x="144" y="165" font-size="11" fill="#44403c" text-anchor="end">Kraftfôr (input)</text>
-<rect x="150" y="154" width="204" height="14" rx="2" fill="#bae6fd"/><text x="359" y="165" font-size="10" fill="#0369a1">~3100–3700</text>
+<text x="144" y="189" font-size="11" fill="#44403c" text-anchor="end">Kraftfôr (input)</text>
+<rect x="150" y="178" width="204" height="14" rx="2" fill="#bae6fd"/><text x="359" y="189" font-size="10" fill="#0369a1">~3100–3700</text>
 <!-- Dagligvare 3327 citable -->
-<text x="144" y="189" font-size="11" fill="#44403c" text-anchor="end">Dagligvare (retail)</text>
-<rect x="150" y="178" width="199.6" height="14" rx="2" fill="#0284c7"/><text x="355" y="189" font-size="10" fill="#0284c7">~3327</text>
+<text x="144" y="213" font-size="11" fill="#44403c" text-anchor="end">Dagligvare (retail)</text>
+<rect x="150" y="202" width="199.6" height="14" rx="2" fill="#0284c7"/><text x="355" y="213" font-size="10" fill="#0284c7">~3327</text>
 <!-- Kylling 3200 citable -->
-<text x="144" y="213" font-size="11" fill="#44403c" text-anchor="end">Kylling (slakt)</text>
-<rect x="150" y="202" width="192" height="14" rx="2" fill="#0284c7"/><text x="347" y="213" font-size="10" fill="#0284c7">~3200</text>
+<text x="144" y="237" font-size="11" fill="#44403c" text-anchor="end">Kylling (slakt)</text>
+<rect x="150" y="226" width="192" height="14" rx="2" fill="#0284c7"/><text x="347" y="237" font-size="10" fill="#0284c7">~3200</text>
 <!-- Oppdrettsfôr 2700 needs-data -->
-<text x="144" y="237" font-size="11" fill="#44403c" text-anchor="end">Oppdrettsfôr (input)</text>
-<rect x="150" y="226" width="162" height="14" rx="2" fill="#bae6fd"/><text x="317" y="237" font-size="10" fill="#0369a1">~2500–2900</text>
+<text x="144" y="261" font-size="11" fill="#44403c" text-anchor="end">Oppdrettsfôr (input)</text>
+<rect x="150" y="250" width="162" height="14" rx="2" fill="#bae6fd"/><text x="317" y="261" font-size="10" fill="#0369a1">~2500–2900</text>
 <!-- Sjømat 950 citable -->
-<text x="144" y="261" font-size="11" fill="#44403c" text-anchor="end">Sjømat (oppdrett)</text>
-<rect x="150" y="250" width="57" height="14" rx="2" fill="#0284c7"/><text x="212" y="261" font-size="10" fill="#0284c7">~950–1150</text>
+<text x="144" y="285" font-size="11" fill="#44403c" text-anchor="end">Sjømat (oppdrett)</text>
+<rect x="150" y="274" width="57" height="14" rx="2" fill="#0284c7"/><text x="212" y="285" font-size="10" fill="#0284c7">~950–1150</text>
 
 <!-- leder-gulv annotation -->
-<text x="150" y="300" font-size="10.5" font-weight="600" fill="#0f172a">Ordinal-funnet er robust via leder-gulv (kvadratleddet alene):</text>
-<text x="150" y="316" font-size="10.5" fill="#44403c">TINE 76,4² = 5837 (meieri) · Nortura 66² = 4356 (rødt kjøtt) — begge over retail (~3327) uansett utfordrer-split.</text>
-<text x="150" y="332" font-size="10.5" fill="#44403c">Profil: primær (sjømat ~950) → input → foredling (topp) → retail → forbruker. Ikke monotont stigende mot forbruker.</text>
+<text x="150" y="320" font-size="10.5" font-weight="600" fill="#0f172a">Ordinal-funnet er robust via leder-gulv (kvadratleddet alene):</text>
+<text x="150" y="336" font-size="10.5" fill="#44403c">TINE 76,4² = 5837 (meieri) · Nortura/Prior 70² = 4900 (egg) · Nortura 66² = 4356 (rødt kjøtt) — alle over retail (~3327).</text>
+<text x="150" y="352" font-size="10.5" fill="#44403c">De tre mest konsentrerte nodene er alle samvirke-foredling. Profil: primær (sjømat ~950) → input → foredling (topp) → retail.</text>
 
-<text x="290" y="374" font-size="9" fill="#a8a29e" text-anchor="middle">Kilder: Oslo Economics (meieri), KLF/Animalia (kjøtt/egg/kylling), Konkurransetilsynet (dagligvare), Fiskeridir./børsrapporter (sjømat). Intern baseline — citable m/forbehold.</text>
+<text x="290" y="394" font-size="9" fill="#a8a29e" text-anchor="middle">Kilder: Oslo Economics (meieri), Nationen/DN (egg), KLF/Animalia (kjøtt/kylling), Menon 2023 (logistikk), KT (dagligvare), Fiskeridir. (sjømat). Intern baseline — citable m/forbehold.</text>
 </svg>

@@ -81,9 +81,26 @@ Ja. Det opplagte er «tre–fire store dominerer». Det ikke-opplagte er **nivå
 - **Konsern-rollup** på innehavernavn (SalMar inkl. tidl. NTS/SalmoNor, konsolidert under SALMAR OPPDRETT AS) bør stikkprøves mot Brønnøysund ved ekstern bruk.
 - **Restråstoffvolum per aktør = `needs-data`** (RUBIN/SINTEF/Fiskeridirektoratet restråstoffstatistikk).
 
+## 6b. Restråstoff — kvantifisert (åpen-data-oppdatering 2026-06-15, Strøm E)
+
+Restråstoff-koblingen (§3) sto som ren `needs-data`. Åpen-data-research mot navngitte primærkilder lar den nå **delvis tallfestes** — den nasjonale/akvakultur-volummengden er publisert, men ikke en per-aktør-split. Status hevet fra `needs-data` til **citable m/forbehold (delvis)**.
+
+**Volumer (SINTEF Ocean + Kontali, «Analyse marint restråstoff» — serien som overtok RUBINs varestrømanalyse etter at RUBIN ble avviklet 2012, FHF-finansiert):**
+
+- Nasjonalt totalt marint restråstoff: **~1,13 mill. tonn (2022)**, ~87 % utnyttet; ~1,1 mill. tonn (2024), ~89 % utnyttet.
+- **Akvakultur (laks/ørret) 2022: ~546 000 tonn restråstoff, 94 % utnyttet — ~48 % av nasjonalt totalt** (SINTEF 2022, Tabell 5-4; kilder Fiskeridir./SSB/Sjømatrådet/Kontali). Oppstår 43 % på slakteri, 33 % i videreforedling, **25 % som dødfisk på matfiskanlegg** → skalerer mekanisk med slaktet biomasse.
+
+**Internalisering (strukturell, kildebelagt — Konkurransetilsynet, fusjonssak Pelagia/Hordafor 2021_0221):** SINTEF (§5.10) sier eksplisitt at i oppdrett er «restråstoffprosessering ofte en del av samme selskapsstruktur». Konkrete eksempler: **NutriMar** (Kverva/SalMar-sfæren) prosesserer SalMars avskjær ved siden av InnovaMar på Frøya; **Hordafor** (største ensilasje-prosessor) var deleid 50 % av Pelagia (= Austevoll/Lerøy + Kverva/SalMar). Et reelt, men **konsentrert** annenhåndsmarked finnes ved siden av (Scanbio, Biomega, Hofseth BioMarine).
+
+**Inferens (flagget som inferens, ikke kildebelagt tall):** siden restråstoff skalerer med biomasse, genererer de fire største MTB-aktørene (CR4 ~57 % sjøbasert MTB) etter konstruksjon en tilsvarende majoritet av lakse-restråstoffet; og prosesseringen er tungt internalisert/eid av de samme aktørene. **Forblir needs-data:** restråstoff-tonnasje *per selskap* (SINTEF avstår eksplisitt; ikke i åpen kilde).
+
+**Stoppspråk:** Ikke konverter CR4 (MTB) til en kildebelagt restråstoff-CR4 — «etter konstruksjon … majoritet» er en flagget inferens. Hold lokalitet ≠ MTB ≠ restråstoffvolum atskilt. Torskeoppdrett (~1100 t) er neglisjerbart — ikke bland inn.
+
+**Kilder (§6b):** SINTEF Ocean/Kontali «Analyse marint restråstoff 2022» (rapport 2023:01209, Tabell 5-4 + §5.10) — <https://www.sintef.no/contentassets/f87ee6b4a78846888459395cc020262e/analyse-marint-restrastoff-2022.pdf>; SINTEF «…2024» (nasjonalt ~1,1 Mt, 89 %); Konkurransetilsynet fusjonssak Pelagia/Hordafor 2021_0221 — <https://konkurransetilsynet.no/wp-content/uploads/2021/04/2021_0221-1-OFF-Pelagia-AS-Hordafor-AS.pdf>; RUBIN-lineage bekreftet (avviklet 2012 → FHF/SINTEF).
+
 ## 7. Verifikasjon
 
-Tall er regnet fra Fiskeridirektoratets åpne Akvakulturregister-dump (15.06.2026) — prosjektets kanoniske akvakulturkilde (`scripts/import-akvakulturregister.ts` henter fra samme pub-aqua-API). CR/HHI-aritmetikken er internt konsistent (Mowi 19,8 + SalMar 16,1 + Lerøy 11,5 + Cermaq 9,5 = 56,9 ≈ CR4 57 %). Ingen committet fil endret under analysen; ingen påstand løftet til ekstern bruk. Restråstoff-koblingen er eksplisitt merket `needs-data`.
+Tall er regnet fra Fiskeridirektoratets åpne Akvakulturregister-dump (15.06.2026) — prosjektets kanoniske akvakulturkilde (`scripts/import-akvakulturregister.ts` henter fra samme pub-aqua-API). CR/HHI-aritmetikken er internt konsistent (Mowi 19,8 + SalMar 16,1 + Lerøy 11,5 + Cermaq 9,5 = 56,9 ≈ CR4 57 %). Restråstoff-volumene (§6b) er fra SINTEF/Kontali-serien (åpen, primær); per-aktør-split forblir `needs-data`. Ingen committet datafil endret under analysen; ingen påstand løftet til ekstern bruk uten forbehold.
 
 ## 8. Kilder
 

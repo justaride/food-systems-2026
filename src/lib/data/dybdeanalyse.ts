@@ -124,13 +124,13 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     claimId: 'CL-KRYSSNODE-HHI-001',
     title: 'Konsentrasjonen topper i foredling, ikke i dagligvare',
     kortFunn:
-      'Et ekte markeds-HHI per node — bygget fra kildebelagte markedsandeler, ikke det n-følsomme inntekts-HHI-et — viser at konsentrasjonen topper oppstrøms i foredling: meieri (~6000) og rødt kjøtt (~4600–4800) er mer konsentrert enn dagligvare (~3327), mens primærproduksjon (laks/ørret ~950) er minst konsentrert. De to mest konsentrerte nodene er samvirkene TINE (76,4 % → gulv 5837) og Nortura (66 % → gulv 4356). Ordinal-funnet (foredling > retail > primær) er robust mot usikkerhet i utfordrer-andelene fordi leder-kvadratleddet alene gir gulv over retail.',
+      'Et ekte markeds-HHI per node — bygget fra kildebelagte markedsandeler, ikke det n-følsomme inntekts-HHI-et — viser at konsentrasjonen topper oppstrøms i foredling: meieri (~6000), egg (~5500–6800) og rødt kjøtt (~4600–4800) er mer konsentrert enn dagligvare (~3327), mens primærproduksjon (laks/ørret ~950) er minst konsentrert. De tre mest konsentrerte nodene er alle samvirke-foredling — TINE (meieri) og Nortura/Prior (egg + kjøtt). Ordinal-funnet (foredling > retail > primær) er robust mot usikkerhet i utfordrer-andelene fordi leder-kvadratleddet alene gir gulv over retail (TINE 76,4² = 5837; Nortura egg 70² = 4900).',
     evidenceStatus: 'estimated',
     citationReadiness: 'citable_with_note',
     citationNote:
       'Citable m/forbehold — ordinal-funnet (foredling > retail > primær) er robust via leder-gulv. Per-node presise HHI varierer (estimerte utfordrer-andeler, ulike referanseår/baser).',
     coverageNote:
-      'Dekning: 5 noder med ekte markeds-HHI (retail ~3327, meieri ~6000, rødt kjøtt ~4600, kylling ~3200, sjømat ~950). 5 noder citable struktur / needs-data på presis HHI (egg, kraftfôr, oppdrettsfôr, logistikk, foodservice). Catering-operatører metodisk uegnet (anbudsmarked, lave byttekostnader).',
+      'Dekning: 7 noder med ekte markeds-HHI (meieri ~6000, egg ~5500–6800, rødt kjøtt ~4600, logistikk ~3697, retail ~3327, kylling ~3200, sjømat ~950). Egg + logistikk kildebelagt 2026-06-15 (Strøm E). Foodservice citable som range (~2900–5400, leder omtvistet); oppdrettsfôr + kraftfôr forblir needs-data på presis HHI. Catering-operatører metodisk uegnet (anbudsmarked).',
     method:
       'Markeds-HHI = Σ(andel%)²; >2500 = «høyt konsentrert» (US DOJ/FTC). Kildebelagte leder-andeler + estimerte utfordrer-split; fan-out-subagenter + coordinator-aritmetikk. Sjømat kryssvalidert mot AP-6 MTB.',
     figure: 'kryssnodeHhi',

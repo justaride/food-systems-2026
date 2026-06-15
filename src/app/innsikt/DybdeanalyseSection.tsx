@@ -49,37 +49,40 @@ function SektorbroFigure() {
 
 function KryssnodeHhiFigure() {
   // Markeds-HHI per node (citable-noder), sortert; 2500 = «høyt konsentrert» (DOJ/FTC).
+  // Egg oppgradert 2026-06-15 (Strøm E): Nortura/Prior 70–80 % → ~5500–6800, ny nr. 2.
   const bars = [
-    { node: 'Meieri', hhi: 6000, samvirke: true },
-    { node: 'Rødt kjøtt', hhi: 4700, samvirke: true },
-    { node: 'Dagligvare', hhi: 3327, samvirke: false },
-    { node: 'Kylling', hhi: 3200, samvirke: false },
-    { node: 'Sjømat', hhi: 950, samvirke: false },
+    { node: 'Meieri', hhi: 6000, samvirke: true, label: '~6000' },
+    { node: 'Egg', hhi: 5500, samvirke: true, label: '~5500–6800' },
+    { node: 'Rødt kjøtt', hhi: 4700, samvirke: true, label: '~4700' },
+    { node: 'Dagligvare', hhi: 3327, samvirke: false, label: '~3327' },
+    { node: 'Kylling', hhi: 3200, samvirke: false, label: '~3200' },
+    { node: 'Sjømat', hhi: 950, samvirke: false, label: '~950' },
   ]
   const maxHhi = 6000
-  const plotX = 92
-  const plotW = 120
-  const rowH = 20
+  const plotX = 88
+  const plotW = 95
+  const rowH = 18
   const top = 8
   const x = (hhi: number) => plotX + (hhi / maxHhi) * plotW
+  const baseY = top + bars.length * rowH
   return (
-    <svg viewBox="0 0 220 130" className="w-full max-w-[220px]" role="img" aria-label="Markeds-HHI per verdikjede-node: konsentrasjonen topper i foredling (meieri ~6000, rødt kjøtt ~4700) over dagligvare (~3327); sjømat ~950 er lavest. Samvirkenodene er mest konsentrert.">
+    <svg viewBox="0 0 220 145" className="w-full max-w-[220px]" role="img" aria-label="Markeds-HHI per verdikjede-node: konsentrasjonen topper i foredling. De tre øverste er samvirke — meieri ~6000 (TINE), egg ~5500–6800 og rødt kjøtt ~4700 (Nortura/Prior) — alle over dagligvare ~3327; sjømat ~950 er lavest.">
       {/* 2500-terskel */}
-      <line x1={x(2500)} y1={top - 3} x2={x(2500)} y2={top + bars.length * rowH} stroke="#f59e0b" strokeWidth="1" strokeDasharray="3 2" />
-      <text x={x(2500)} y={top + bars.length * rowH + 9} fontSize="7" fill="#b45309" textAnchor="middle">2500</text>
+      <line x1={x(2500)} y1={top - 3} x2={x(2500)} y2={baseY} stroke="#f59e0b" strokeWidth="1" strokeDasharray="3 2" />
+      <text x={x(2500)} y={baseY + 9} fontSize="7" fill="#b45309" textAnchor="middle">2500</text>
       {bars.map((b, i) => {
         const y = top + i * rowH
         return (
           <g key={b.node}>
             <text x={plotX - 4} y={y + 9} fontSize="8" fill="#57534e" textAnchor="end">{b.node}</text>
-            <rect x={plotX} y={y + 2} width={x(b.hhi) - plotX} height={10} rx="1.5" fill={b.samvirke ? '#075985' : '#0284c7'} />
-            <text x={x(b.hhi) + 3} y={y + 10} fontSize="7.5" fill="#78716c" textAnchor="start">{b.hhi === 6000 ? '~6000' : `~${b.hhi}`}</text>
+            <rect x={plotX} y={y + 2} width={x(b.hhi) - plotX} height={9} rx="1.5" fill={b.samvirke ? '#075985' : '#0284c7'} />
+            <text x={x(b.hhi) + 3} y={y + 9.5} fontSize="7" fill="#78716c" textAnchor="start">{b.label}</text>
           </g>
         )
       })}
       <g>
-        <rect x={plotX} y={top + bars.length * rowH + 13} width="8" height="6" rx="1.5" fill="#075985" />
-        <text x={plotX + 11} y={top + bars.length * rowH + 18} fontSize="7" fill="#78716c" textAnchor="start">samvirke (TINE / Nortura)</text>
+        <rect x={plotX} y={baseY + 13} width="8" height="6" rx="1.5" fill="#075985" />
+        <text x={plotX + 11} y={baseY + 18} fontSize="7" fill="#78716c" textAnchor="start">samvirke (TINE / Nortura)</text>
       </g>
     </svg>
   )

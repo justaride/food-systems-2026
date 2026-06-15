@@ -71,6 +71,17 @@ Et rent fôr→laks-funn krever en fôr-prisindeks SSB ikke publiserer separat m
 
 Inntil en av disse foreligger står fôr→oppdrett-leddet som `needs-data`; verken dagligvare- eller foredlingsfunnet skal lånes til det.
 
+### 6b. Åpen-data-oppdatering 2026-06-15 (Strøm E): proxy-testbart, native serie forblir needs-data
+
+Research mot navngitte kilder skjerper avgrensningen: **ingen ren månedlig norsk fôr-PPI finnes** (bekreftet), men leddet er **proxy-testbart** med en månedlig importert-input-kostnadsindeks.
+
+- **Native norske fôr-kostnadsserier er årlige:** Fiskeridirektoratets *Lønnsomhetsundersøkelse for laks og regnbueørret* gir fôrkostnad/kg (25,67 kr/kg 2024; ~39,7 % av kostnad/kg; serie 2008–2023 i Excel) — **kun årlig**. Nofima har produksjonskostnads-/fôrfaktor-studier, ingen vedlikeholdt høyfrekvent indeks. Mowi Handbook er årlig.
+- **Kvartalsvis finnes som tall, ikke som serie:** SalmonBusiness beregner en kvartalsvis fôrpris (NOK/kg) fra BioMar + EWOS/Cargill-rapporter, men publisert kun i spredte nyhetsartikler — ikke nedlastbar serie (rekonstruerbar fra kvartalsrapporter med manuelt arbeid).
+- **Anbefalt månedlig proxy:** Verdensbankens **fiskemel-pris** (IndexMundi, USD/MT, månedlig, kontinuerlig 2016→2026, Excel + NOK-konvertering), evt. blandet med fiskeolje + soyamel diett-vektet, mot oppdretternes førstehåndspris. **Kritisk valuta-forbehold (kildebelagt):** fôr-råvarer prises i USD (Skretting: «driveren i fôrmarkedet er svekkelsen av norske kroner») — kjør derfor med USDNOK som eksogen regressor (eller test både USD- og NOK-denominert), så asymmetrien ikke blir en ren valutaeffekt.
+- **Status:** fôr→oppdrett-leddet er **ikke blokkert, men ikke native tilfredsstillbart** — proxy-testbart med eksplisitt flagget FX-kanal; en native månedlig norsk fôr-PPI forblir `needs-data`.
+
+**Kilder (§6b):** IndexMundi/Verdensbanken fiskemel (<https://www.indexmundi.com/commodities/?commodity=fish-meal&months=120>) + soyamel; Fiskeridirektoratet Lønnsomhetsundersøkelse (<https://www.fiskeridir.no/statistikk-tall-og-analyse/data-og-statistikk-om-akvakultur/lonnsomhetsundersokelse-for-laks-og-regnbueorret>); SalmonBusiness (kvartalsvis fôrpris + Skretting valuta-sitat); Mowi Salmon Farming Industry Handbook 2024.
+
 ## 7. Verifikasjon
 
 Tall regnet av subagent fra SSBs åpne JSON-stat-API (tabell 03024 + 12462), metode replikert fra `kvantitativ-dybdeanalyse.md` §H-NY1. Coordinator-forbehold: regresjonskoeffisientene (β, t) er subagent-beregnet og bør re-verifiseres med valutadeflatering før ekstern bruk; den retningsbestemte 2025-illustrasjonen (laks −13 %, PPI +10 %) er den enkleste etterprøvbare påstanden. Ingen committet fil endret; ingen påstand løftet til ekstern bruk.
