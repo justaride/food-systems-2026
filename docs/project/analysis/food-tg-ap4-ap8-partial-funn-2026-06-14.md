@@ -25,7 +25,7 @@ Begge pakkene har en kjernehypotese som krever data prosjektet ikke har tilgjeng
 Committet `no/value-chain.json` (2024) gir node-/kjedeledd-tall (ikke per aktør). To forsvarbare observasjoner:
 
 1. **Verdi-tetthet stiger kraftig oppstrøms på lik tonnasje.** Primærlandbruk og sjømat flytter nesten lik tonnasje (3,29 mot 3,80 mill. tonn), men sjømat skaper **~2× verdi per tonn**: ≈16 700 NOK GVA/tonn (sjømat) mot ≈8 500 NOK/tonn (landbruk).
-2. **Volum-dominans ≠ marginfangst nedstrøms.** Detaljhandelen har høyest konsentrasjon (CR3 96,6 %, HHI 3445) men blant de tynneste rapporterte marginene (NorgesGruppen retail-segment 2,6 %, Coop 1,0 %, Virke-snitt 1,9 %). Konkurransetilsynet og Oslo Economics (sitert i `financial_insights_2024.json`) plasserer høyere marginer / «super profit» på **leverandørleddet**, ikke detaljistleddet. Dette er andres analyse referert i committet fil, ikke et eget regnestykke.
+2. **Volum-dominans ≠ marginfangst nedstrøms.** Detaljhandelen har høyest konsentrasjon (CR3 96,6 %, HHI 3327 — KT-omsetning 2024, harmonisert jf. D2/kryss-node §11) men blant de tynneste rapporterte marginene (NorgesGruppen retail-segment 2,6 %, Coop 1,0 %, Virke-snitt 1,9 %). Konkurransetilsynet og Oslo Economics (sitert i `financial_insights_2024.json`) plasserer høyere marginer / «super profit» på **leverandørleddet**, ikke detaljistleddet. Dette er andres analyse referert i committet fil, ikke et eget regnestykke.
 
 ### Kjerne = needs-data (DB-join)
 
