@@ -82,7 +82,7 @@ Fire ting hever dette over allemannskunnskap:
 | Evidens | AP-1/AP-2/AP-3/AP-5-funnnotater + JSON-aggregater; enhetstestede skript; konvergens av uavhengige sektorpar-mønstre. |
 | Risiko | Eierskap/styre kan feiltolkes som operativ samordning; dekningshull per lense; JV/delt kontroll undertelles. |
 | Stoppspråk | Ikke si «samordner», «karteller» eller «operativ kontroll». Ikke tell research/property/holding som verdikjede-integrasjon. Ikke bruk én lenses dekning som hele markedet. |
-| Status | `klar-med-forbehold` for strukturpåstanden (hvem kontrollerer via form/styre) etter Brønnøysund-stikkprøve 2026-06-14 (22/22 formmatch, 9/10 broer bekreftet — `...maktkart-bronnoysund-stikkprove-2026-06-14.md`). Eierandel-% (AP-5), markedscensus (AP-2 HHI), 2024-tilskudd (AP-3) og full operator-sekvens gjenstår før ekstern faktastemme. |
+| Status | `klar-med-forbehold` for strukturpåstanden etter Brønnøysund-stikkprøve 2026-06-14 (22/22 formmatch, 9/10 broer). Siden lukket: markedscensus (AP-2 kryss-node-HHI), 2024-tilskudd (AP-3 ~18,6 mrd), og **eierandel-% (AP-5) verifisert fra offentlige primærkilder 2026-06-15** (`food-tg-ap5-krysseie-funn-2026-06-14.md` §6b; ≥50 % bekreftet for NG/Reitan/ASKO/Lerøy/Austevoll, største blokk for SalMar/Mowi/Orkla). Gjenstår før ekstern faktastemme: **kun full operator-sekvens** (strict-sources grønn — krever lokal DB; rest BAMA-split). |
 
 ## 7. Forbehold
 
@@ -96,7 +96,7 @@ Fire ting hever dette over allemannskunnskap:
 
 For å løfte CL-MAKTKART-001 fra intern baseline til citable (ekstern) kreves, i rekkefølge:
 
-1. ~~**Brønnøysund-stikkprøve** av ultimate ownership for topp-konsernene (AP-5) og styreverv for topp-broene (AP-1).~~ **Delvis utført 2026-06-14** (`...maktkart-bronnoysund-stikkprove-2026-06-14.md`): form + styrekontroll bekreftet (22/22), broer 9/10. Gjenstår: eierandel-% mot Skatteetaten Aksjonærregister.
+1. ~~**Brønnøysund-stikkprøve** av ultimate ownership for topp-konsernene (AP-5) og styreverv for topp-broene (AP-1).~~ **Utført:** form + styrekontroll 2026-06-14 (22/22, broer 9/10); **eierandel-% verifisert fra offentlige primærkilder 2026-06-15** (`food-tg-ap5-krysseie-funn-2026-06-14.md` §6b). Eneste rest: BAMAs eksakte NG/Reitan-split.
 2. ~~**Utvid styredekningen** (AP-1) fra 36 % så styre- og eierkart står på likt grunnlag.~~ **Utført (task #22)**, klar til lokal DB-kjøring (`...ap1-dekningsutvidelse-funn-2026-06-14.md`); projisert 36 % → ~47 %.
 3. **Markedscensus** for ekte node-HHI (AP-2) der det skal brukes som markedskonsentrasjon.
 4. **2024-tilskudd** verifiseres mot Landbruksdirektoratets publiserte totaler (AP-3).
