@@ -43,18 +43,20 @@ Every question states the source type, readiness level, allowed evidence, disall
   - Biogassvolum alene som bevis for høyest sirkularitet
 - Known caveat: Forebygging er et prioriteringsprinsipp; tallfestede effektforhold må følges av kilde og metodeavgrensning.
 
-## CA-004: Kan vi sitere Norge som HHI 3445 og CR3 96,6% uten å blande begrepene?
+## CA-004: Kan vi sitere Norge som HHI 3327 og CR3 96,6% uten å blande begrepene?
 
 - Category: `market_concentration`
 - Expected source type: computed market concentration data plus audited report correction
 - Required citation readiness: `citable_with_note`
 - Must use:
-  - public/data/food-systems/no/chart-metrics.json
+  - public/data/food-systems/no/value-chain.json
   - public/reports/nordisk-sirkularitetsrapport-2026-05.html
 - Must not use:
   - NO HHI 96,6%
   - CR3 omtalt som HHI eller HHI omtalt som prosentandel
-- Known caveat: HHI er indeks, CR3 er prosentandel. Påstanden må bruke begge etikettene eksplisitt.
+  - Eldre HHI 3445 (NG 48,4/Coop 27,1/Reitan 18,0/Bunnpris 6,6) — erstattet av KT-omsetning 2024
+  - Butikkantall-basert parentHhi fra chart-metrics som om det var omsetnings-HHI
+- Known caveat: HHI er indeks, CR3 er prosentandel; bruk begge etikettene eksplisitt. HHI 3327 er omsetnings-HHI fra Konkurransetilsynets Dagligvarerapport 2024-25 (NG 43,5/Coop 29,2/Rema 23,9/Bunnpris 3,3 → 43,5²+29,2²+23,9²+3,3² = 3327). Ikke forveksle med chart-metrics butikkantall-baserte parentHhi.
 
 ## CA-005: Kan Finland 30%-regelen brukes som sitatklar juridisk sammenligning?
 

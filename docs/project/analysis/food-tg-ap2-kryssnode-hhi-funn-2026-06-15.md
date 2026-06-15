@@ -117,4 +117,10 @@ De to siste nodene er like mye et **strukturfunn** som et HHI-tall.
 
 **Kilder (tillegg):** Menon Economics, «Kartlegging av tilgang til dagligvaregrossisttjenester» (regjeringen.no 2025); Handelswatch (ASKO >100 mrd 2024); NHO Reiseliv høringssvar 2018; Konkurransetilsynet vedtak 2024_633 (Compass–4Service); committet `logistics_hubs.geojson` + `value-chain.json` (`distribution`-noden, `volume_tonnes: null`, «vertically integrated»-note).
 
-**Datakvalitets-merknad:** `value-chain.json` har et retail-HHI på 3445 (NG 48,4/Coop 27,1/Reitan 18,0/Bunnpris 6,6), mens dette notatet bruker 3327 (KT-andeler). Disse bør harmoniseres ved neste oppdatering av surfacingen.
+**Datakvalitets-merknad — harmonisert 2026-06-15 (Strøm D2):** Avviket er løst. Det var tre tall i omløp; nå med eksplisitt metodeskille:
+
+- **Autoritativ omsetnings-HHI (citable):** **3327**, CR3 96,6 % — Konkurransetilsynets Dagligvarerapport 2024-25, omsetningsandeler 2024: NorgesGruppen 43,5 %, Coop 29,2 %, Rema 23,9 %, Bunnpris 3,3 % (43,5²+29,2²+23,9²+3,3² = 3326,99 ≈ 3327, CR3 = 96,6 %; verifisert mot KT/Finansavisen 11.04.2025). Dette er nå verdien i `value-chain.json` (`concentration.hhi` + `hhi_basis`), i kryss-node-funnet, i `/innsikt`-kortet og i acceptance-pakkens CA-004.
+- **Tidligere `value-chain.json`-verdi 3445** kom fra eldre andeler (NG 48,4/Coop 27,1/Reitan 18,0/Bunnpris 6,6) som ga CR3 93,5 % — inkonsistent med det committede `cr3_pct: 96,6`. Erstattet.
+- **`chart-metrics.json` `parentHHI` (NO = 3445)** er en *butikkantall-proxy* beregnet fra `stores.json` (PIP → konsernandeler), brukt likt på tvers av land i `/sammenligning` for kryssnasjonal sammenlignbarhet. Den er en compute-metrics-artefakt og røres **ikke** for hånd; den er nå eksplisitt merket som proxy i `/sammenligning`-narrativet, med den citerbare omsetnings-HHI-en (3327) oppgitt ved siden av. Full nordisk omsetnings-paritet gjenstår (B11 gap).
+
+Valg: **KT-omsetning 2024 er autoritativ kilde for markeds-strukturtallet** (anbefalt i master-handover D2); butikkantall-proxyen beholdes kun som kryssnasjonalt sammenligningsmål, tydelig merket.

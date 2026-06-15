@@ -169,26 +169,31 @@ export const ACCEPTANCE_TESTS: CitableAcceptanceTest[] = [
   {
     id: 'CA-004',
     category: 'market_concentration',
-    question: 'Kan vi sitere Norge som HHI 3445 og CR3 96,6% uten å blande begrepene?',
+    question: 'Kan vi sitere Norge som HHI 3327 og CR3 96,6% uten å blande begrepene?',
     expectedSourceType: 'computed market concentration data plus audited report correction',
     requiredReadinessLevel: 'citable_with_note',
     mustUse: [
-      'public/data/food-systems/no/chart-metrics.json',
+      'public/data/food-systems/no/value-chain.json',
       'public/reports/nordisk-sirkularitetsrapport-2026-05.html',
     ],
-    mustNotUse: ['NO HHI 96,6%', 'CR3 omtalt som HHI eller HHI omtalt som prosentandel'],
+    mustNotUse: [
+      'NO HHI 96,6%',
+      'CR3 omtalt som HHI eller HHI omtalt som prosentandel',
+      'Eldre HHI 3445 (NG 48,4/Coop 27,1/Reitan 18,0/Bunnpris 6,6) — erstattet av KT-omsetning 2024',
+      'Butikkantall-basert parentHhi fra chart-metrics som om det var omsetnings-HHI',
+    ],
     knownCaveat:
-      'HHI er indeks, CR3 er prosentandel. Påstanden må bruke begge etikettene eksplisitt.',
+      'HHI er indeks, CR3 er prosentandel; bruk begge etikettene eksplisitt. HHI 3327 er omsetnings-HHI fra Konkurransetilsynets Dagligvarerapport 2024-25 (NG 43,5/Coop 29,2/Rema 23,9/Bunnpris 3,3 → 43,5²+29,2²+23,9²+3,3² = 3327). Ikke forveksle med chart-metrics butikkantall-baserte parentHhi.',
     proposedAnswer:
-      'Ja, når teksten sier HHI 3445 og CR3 96,6%, og ikke presenterer CR3 som HHI.',
+      'Ja, når teksten sier HHI 3327 (KT-omsetning 2024) og CR3 96,6%, og ikke presenterer CR3 som HHI.',
     citations: [
       {
-        id: 'no-chart-metrics',
-        title: 'Norway food-system chart metrics',
-        locator: 'public/data/food-systems/no/chart-metrics.json',
-        sourceType: 'computed local dataset',
+        id: 'no-value-chain',
+        title: 'Norway value-chain retail concentration',
+        locator: 'public/data/food-systems/no/value-chain.json',
+        sourceType: 'curated primary dataset (KT Dagligvarerapport 2024-25)',
         readiness: 'citable_with_note',
-        supportsClaim: 'Inneholder beregnet parent HHI for norsk dagligvarestruktur.',
+        supportsClaim: 'Inneholder retail-HHI 3327 og CR3 96,6 % fra KT-omsetningsandeler 2024 for norsk dagligvarestruktur.',
       },
       {
         id: 'hhi-cr3-report-correction',

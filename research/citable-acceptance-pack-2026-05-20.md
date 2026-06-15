@@ -52,17 +52,17 @@ A blocked result is intentional when the current evidence only supports internal
 - Exclusion notes:
   - None
 
-## CA-004: Kan vi sitere Norge som HHI 3445 og CR3 96,6% uten å blande begrepene?
+## CA-004: Kan vi sitere Norge som HHI 3327 og CR3 96,6% uten å blande begrepene?
 
 - Status: `cite_ready`
 - Readiness: `citable_with_note`
 - Caveat required: yes
-- Proposed answer: Ja, når teksten sier HHI 3445 og CR3 96,6%, og ikke presenterer CR3 som HHI.
+- Proposed answer: Ja, når teksten sier HHI 3327 (KT-omsetning 2024) og CR3 96,6%, og ikke presenterer CR3 som HHI.
 - Required readiness: `citable_with_note`
 - Expected source type: computed market concentration data plus audited report correction
-- Known caveat: HHI er indeks, CR3 er prosentandel. Påstanden må bruke begge etikettene eksplisitt.
+- Known caveat: HHI er indeks, CR3 er prosentandel; bruk begge etikettene eksplisitt. HHI 3327 er omsetnings-HHI fra Konkurransetilsynets Dagligvarerapport 2024-25 (NG 43,5/Coop 29,2/Rema 23,9/Bunnpris 3,3 → 43,5²+29,2²+23,9²+3,3² = 3327). Ikke forveksle med chart-metrics butikkantall-baserte parentHhi.
 - Citations:
-  - no-chart-metrics: Norway food-system chart metrics (computed local dataset, citable_with_note) - public/data/food-systems/no/chart-metrics.json. Supports: Inneholder beregnet parent HHI for norsk dagligvarestruktur.
+  - no-value-chain: Norway value-chain retail concentration (curated primary dataset (KT Dagligvarerapport 2024-25), citable_with_note) - public/data/food-systems/no/value-chain.json. Supports: Inneholder retail-HHI 3327 og CR3 96,6 % fra KT-omsetningsandeler 2024 for norsk dagligvarestruktur.
   - hhi-cr3-report-correction: Nordisk sirkularitetsrapport HHI/CR3 correction (audited report package, citable_with_note) - public/reports/nordisk-sirkularitetsrapport-2026-05.html. Supports: Dokumenterer at tidligere HHI 96,6%-formulering er rettet.
 - Exclusion notes:
   - None
