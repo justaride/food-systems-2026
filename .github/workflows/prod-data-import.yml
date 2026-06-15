@@ -1,0 +1,128 @@
+name: Prod Data Import (manual)
+
+# Manually run a sanctioned data import against the PRODUCTION database.
+# Reaches prod postgres through the existing Cloudflare Tunnel (same path as
+# citation-verification.yml) so the DB is never exposed publicly.
+#
+# This fills the gap noted in docs/project/reference/DEPLOYMENT-AND-DATA-OPERATIONS.md:
+# a green Coolify deploy ships code, not data. Data imports must be run against
+# prod separately — this workflow is the secret-safe way to do that from CI.
+#
+# Required secrets (already configured for the citation-verify cron):
+#   DATABASE_URL              — prod connection (host localhost:5432 — tunnel proxies)
+#   CF_ACCESS_CLIENT_ID       — CF Access service token client ID
+#   CF_ACCESS_CLIENT_SECRET   — CF Access service token client secret
+#
+# Guard: the job only runs when the `confirm` input is exactly "IMPORT".
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Which sanctioned prod data operation to run'
+        required: true
+        default: 'verify-only'
+        type: choice
+        options:
+          - verify-only
+          - ownership
+          - registers
+          - full
+      confirm:
+        description: 'Type IMPORT to confirm a production database operation'
+        required: true
+        default: ''
+
+jobs:
+  prod-import:
+    name: Prod data operation ${{ inputs.target }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    if: ${{ inputs.confirm == 'IMPORT' }}
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      TUNNEL_HOSTNAME: fs-db.naturalstateproject.com
+      CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+      CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Install cloudflared
+        run: |
+          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+          chmod +x /usr/local/bin/cloudflared
+          cloudflared --version
+
+      - name: Start TCP tunnel to prod DB
+        run: |
+          # cloudflared access tcp reads the service token from --service-token-id/
+          # --secret (env TUNNEL_SERVICE_TOKEN_ID/SECRET), NOT CF_ACCESS_CLIENT_ID/
+          # SECRET (those are HTTP header names). Passing the wrong vars = no token
+          # presented = CF Access rejects = "websocket: bad handshake". Pass explicitly.
+          nohup cloudflared access tcp \
+            --hostname "$TUNNEL_HOSTNAME" \
+            --url localhost:5432 \
+            --service-token-id "$CF_ACCESS_CLIENT_ID" \
+            --service-token-secret "$CF_ACCESS_CLIENT_SECRET" \
+            > tunnel.log 2>&1 &
+          echo $! > tunnel.pid
+          # Wait for an actual *authenticated* Postgres connection through the tunnel,
+          # not just an open local TCP socket: `nc -z` passes on the cloudflared
+          # listener even when the CF Access websocket handshake to origin fails,
+          # which then surfaces downstream as a confusing Prisma P1017 ConnectionClosed.
+          # Probing with psql fails fast at the real layer (see tunnel.log for
+          # "websocket: bad handshake" = connector/token/Access-app problem).
+          ok=0
+          for i in $(seq 1 30); do
+            if psql "$DATABASE_URL" -tAc 'select 1' >/dev/null 2>&1; then
+              echo "Authenticated DB connection ready (attempt $i)"; ok=1; break
+            fi
+            sleep 3
+          done
+          if [ "$ok" != "1" ]; then
+            echo "::error::DB not reachable through CF Access tunnel — see tunnel.log below"
+            cat tunnel.log
+            exit 1
+          fi
+
+      - name: Run selected prod data operation
+        run: |
+          TARGET="${{ inputs.target }}"
+          case "$TARGET" in
+            verify-only)
+              npm run db:verify
+              ;;
+            ownership)
+              npm run db:import:ownership
+              npm run db:verify
+              ;;
+            registers)
+              npm run db:prod-sync:registers
+              npm run db:verify
+              ;;
+            full)
+              npm run db:prod-sync
+              ;;
+            *)
+              echo "::error::Unsupported prod data import target: $TARGET"
+              exit 1
+              ;;
+          esac
+
+      - name: Stop tunnel
+        if: always()
+        run: |
+          if [ -f tunnel.pid ]; then kill "$(cat tunnel.pid)" 2>/dev/null || true; fi

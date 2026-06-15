@@ -3,12 +3,16 @@ tittel: Food TG Primary-Check Queue v0.1
 status: Utført internt
 eier: Gabriel
 dato: 2026-04-28
-sist_oppdatert: 2026-05-21
-neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21. PCQ-B-001 til B-004 er låst som benchmark/hypotese inntil råvareeier, hygiene, stabilisering, off-taker og bruksrett er validert.
+sist_oppdatert: 2026-06-13
+neste_handling: PCQ-A-001 tidsserie er kjørt mot SSB 08801. PCQ-C-001 er oppdatert mot direktoratstatus per 2026-05-21. PCQ-B-001 til B-004 er låst som benchmark/hypotese inntil råvareeier, hygiene, stabilisering, off-taker og bruksrett er validert. 09.06-caser er lagt inn som PCQ-0906-* og skal ikke brukes i faktastemme før primærkilde eller aktørdata finnes. 13.06-case-avsjekkene lukker enkelte interne datasettgrunnlag, men råfraksjonspriser, månedlig importvindu, Strand et al.-metodebro og Valio-spesifikk fôrkurv står fortsatt åpne. `food-tg-casekort-og-research-mottak-2026-06-10.md` og `food-tg-deep-research-results-intake-2026-06-10.md` registrerer outputer før PCQ-rader endres.
 relaterte_filer:
   - docs/project/mandates/actor-validation-pack-food-tg-v0.1.md
   - docs/project/mandates/analysefabrikk-handoffs/2026-04-28-mini-verifikasjon-2b-2d-recovery.md
   - docs/project/mandates/claim-register-food-tg.md
+  - docs/project/mandates/food-tg-deep-research-source-intake-2026-06-10.md
+  - docs/project/mandates/food-tg-deep-research-prompt-pack-2026-06-10.md
+  - docs/project/mandates/food-tg-casekort-og-research-mottak-2026-06-10.md
+  - docs/project/mandates/food-tg-deep-research-results-intake-2026-06-10.md
 ---
 
 # Food TG Primary-Check Queue v0.1
@@ -47,13 +51,30 @@ Runde 3 lukker noen deler av køen som internt kildegrunnlag, men ingen rader bl
 | PCQ-B-006 | Plantebaserte sidestrømmer ellers | Vurdere potetskrell, eplepressrest, kaffegrut, myse og andre strømmer bare hvis primær-/aktørdata finnes. | L4 prosjektliste er kildejakt. | Produsentdata, volum, kvalitet, nåværende avsetning, lovlig sluttbruk. | CL-B-014, CL-B-021 | Gabriel | needs-primary-check |
 | PCQ-C-002 | KPI-definisjoner | Definer KPI-minimum for fôr, sidestrøm, matsvinn, næringsstoffløkker og sporbarhet. | CL-C-015 er hypotese. | Definisjon, år, geografi, enhet, datakilde, dataeier og rapporteringsfrekvens. | CL-C-015, EV-B-018, EV-B-019, EV-B-020 | Gabriel | needs-primary-check |
 
+## 09.06 nye primary-check-rader
+
+Disse radene er opprettet etter 09.06-samtalen. De styrer dokument- og researcharbeid, men de åpner ikke ekstern outreach før scope- eller minimumsvedtak er loggført.
+
+| Queue-ID | Tema | Konkret sjekk | Nåværende kilde/status | Trengs fra primærkilde | Berører | Eier | Status |
+|---|---|---|---|---|---|---|---|
+| PCQ-0906-001 | Brasil-MOU | Finn avtaletekst, partsliste, dato, scope, kontaktpunkt og bruksrett for eventuell Brasil-/kaffe-/WCEF-relasjon. | `DRR-0906-001` fant import-/EUDR- og aktørspor, men ikke offentlig MOU/prosjektdokument. | MOU/avtale, møtenotat, roadmap/annex eller dokumenteierbekreftelse. | SRC-0906-001, case-shortlist 2026-06-09, results-intake 2026-06-10 | Gabriel/Cathrine/JT | needs-primary-check; needs-actor-validation |
+| PCQ-0906-002 | Elfenbenskysten-MOU/kakao | Avklar om det finnes avtale, organisasjonsnavn, motpart og scope for kakao-/Elfenbenskysten-spor. | `DRR-0906-002` styrker EUDR/sporbarhet, men signert MOU/LEAD-bekreftelse er ikke funnet. | MOU/avtale/LOI, organisasjonsnavn, kontaktperson, dato, scope og bruksrett. | SRC-0906-002, case-shortlist 2026-06-09, results-intake 2026-06-10 | Gabriel/Cathrine/JT | needs-primary-check; needs-actor-validation |
+| PCQ-0906-003 | Kaffeprosjekt/Fuglen | Finn prosjekttekst, aktørrolle, råvareopprinnelse, mulig data og om kaffe kan brukes som importverdikjede-case. | `DRR-0906-001` peker på Fuglen/Nordic Approach/NKI som mulige data-/aktørspor, ikke bekreftede partnere. | Prosjektdokument, aktørbekreftelse, import-/opprinnelsesdata og rett til å omtale. | SRC-0906-003, CL-C-011, C-gate, results-intake 2026-06-10 | Gabriel | needs-actor-validation; needs-data |
+| PCQ-0906-004 | Distribusjon/adoption-gate for frukt og grønt | Skille trygg C-gate om distribusjon/markedsmakt fra utrygge BAMA-spesifikke claims om marginer eller blokkering. | `DRR-0906-005` styrker bred distribusjons-/adoption-gate og svekker BAMA-anklager. | Aktørdata, produkt-/månedstall, tilsyns-/konkurransegrunnlag og juridisk trygt casegrunnlag. | SRC-0906-004, CL-C-001, CL-C-006, CL-C-015, results-intake 2026-06-10 | Gabriel/Cathrine | needs-data; needs-actor-validation |
+| PCQ-0906-005 | Spillvarme/drivhus/akvaponikk | Avklare om spillvarmebasert matproduksjon har konkret norsk/nordisk case, energidefinisjon og aktør. | `DRR-0906-006` identifiserer Hima som operativ intern case med datagap, Frövi som industriell benchmark og flere plan-/scenario-case. | Driftsdata, GWh/år, temperaturprofil, reservevarme, eier, økonomi, mattrygghet og kjøper. | SRC-0906-005, CL-B-023, CL-C-015, results-intake 2026-06-10 | Gabriel | needs-data; needs-actor-validation |
+| PCQ-0906-006 | Valio/Finland | Bekrefte om Valio/Finland kan brukes som governance-/fôr-case og hva som faktisk gjelder for soya, raps, lokal fôrandel eller innkjøpskrav. | `DRR-0906-003`/`004` styrker soyafri governance og svekker importfritt fôr. | Valio fôrstandard, aggregert fôrkurv, importandel, år, geografi, definisjon og bruksrett. | SRC-0906-006, SRC-BASE-008, CL-A-020, CL-C-001, results-intake 2026-06-10 | Gabriel | needs-data; needs-actor-validation |
+| PCQ-0906-007 | Polen og Skottland watchlist | Finne om Polen eller Skottland har konkrete sidestrøm-, havbruk-, bioressurs- eller policycase som matcher A/B/C. | `DRR-0906-008` styrker Skottland som benchmark-kandidat og holder Polen som watchlist/kill-test. | Skotsk fulltekst/data dictionary/aktørarkiv; polsk aktør, lokasjon, volum og output hvis case skal leve. | SRC-0906-007, SRC-0906-008, results-intake 2026-06-10 | Gabriel | Skottland: needs-primary-check; Polen: watchlist; needs-data |
+| PCQ-0906-008 | Bacalhau og kunstgjødselhistorie | Avklare om bacalhau/Brasil eller kunstgjødsel/Yara/Hydro gir beslutningsrelevant støtte, eller om de skal parkeres. | Kun samtalesignal; registrert som `SRC-0906-009` og `SRC-0906-010`. | Handelsdata, primær-/fagkilde og tydelig kobling til A/B/C. | SRC-0906-009, SRC-0906-010 | Gabriel | watchlist; needs-source |
+
 ## Prioritert rekkefølge
 
-1. PCQ-C-001 EUDR-Norge, fordi juridisk/regulatorisk scope påvirker Spor A-claims.
-2. PCQ-A-001 til PCQ-A-003, fordi soya-/SPC-tall avgjør importbaseline.
-3. PCQ-B-001 til PCQ-B-004, fordi okara/BSG avgjør første prosess-sidestrømspilot.
-4. PCQ-B-005, fordi sjømatrestråstoff kan bli norsk høyverdi-benchmark.
-5. PCQ-C-002, fordi KPI-er først bør formuleres etter datatilgang er kjent.
+1. PCQ-0906-001 til PCQ-0906-003, fordi kaffe/kakao-relasjonscase ikke kan overleve uten MOU, prosjekttekst, aktørrolle og bruksrett.
+2. PCQ-C-001 og PCQ-A-001 til PCQ-A-003, fordi juridisk/regulatorisk scope, soya-/SPC-tall og faktisk fôrbruk avgjør A-sporet.
+3. PCQ-B-001 til PCQ-B-004, fordi okara/BSG bare kan modnes hvis råvareeier, hygiene, stabilisering og off-taker finnes.
+4. PCQ-B-005 og PCQ-0906-004, fordi marint restråstoff og distribusjon/adoption kan bli sterke interne case, men trenger aktør-/primærdata før sterk språkbruk.
+5. PCQ-0906-005 og PCQ-0906-006, fordi Hima/spillvarme og Valio/Finland avgjør om de blir smale interne deckcase eller forblir radar.
+6. PCQ-0906-007 og PCQ-0906-008, fordi Skottland bør fulltekstkontrolleres raskt, mens Polen, bacalhau og kunstgjødselhistorie skal parkeres hvis ingen konkret kilde finnes.
+7. PCQ-C-002, fordi KPI-er først bør formuleres etter datatilgang er kjent.
 
 ## Runde 4 statusnotat (2026-05-18)
 
@@ -162,3 +183,70 @@ Tall under er import, summert over alle land, `Mengde 1 (M1)` konvertert fra kg 
 | PCQ-B-004 | Bryggerimask matgrade | Gul | Kan beskrives som hypotesespor med avklaringsbehov; fukt, mikrobiologi, stabilisering, produktkrav og off-taker må avklares. |
 
 **Gjenstår:** Kontakt råvareeier/produsent, Mattilsynet eller fagekspert og mulig off-taker. Loggfør tonn/år, batchfrekvens, tørrstoff/fukt, temperatur, mikrobiologi, nåværende avsetning, transport/logistikk, mulig off-taker og om data kan siteres.
+
+## Runde 6 statusnotat (2026-06-12) — desk-research DRO-0906
+
+Desk-research-runden 12.06 (full logg med tall og locators: `docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md`) lukket flere primærsjekker uten aktørkontakt. Ingen rad løftes til ekstern faktastemme; Comtrade preview-uttrekk skal re-trekkes som autorisert uttrekk (SSB 08801 eller Comtrade med nøkkel) før sitering.
+
+| Queue-ID | Runde 6-status | Masterbeslutning |
+|---|---|---|
+| PCQ-0906-001/003 | Import-/EUDR-konteksten for kaffe er kvantifisert: Comtrade-serie 2022–2025 Brasil→Norge (HS 090111: 13,8→13,8→12,4→15,6 mill. kg; verdi 64,7→58,3→58,8→122,9 mUSD) + verdenstotal; Brasil-andel stabil 45–48 %. NKI-tabellen kryssverifisert eksakt (2024-identisk). | Integrer som intern tallramme for import-/EUDR-caset; MOU-/relasjonsclaim uendret `needs-primary-check`; aktørrolle `needs-actor-validation`. |
+| PCQ-0906-002 | Direkteimport fra Côte d'Ivoire motbevist for alle kakaokapitler 1801–1806 i NO/SE/DK/FI (Comtrade 2024; største post: NO kakaosmør 36 450 kg). | Skjerp trygg formulering: nordisk CI-eksponering er indirekte via EU-prosessering/merkevarer. Neste datasteg er Eurostat Comext EU-aggregat, ikke mer nordisk tolldata. Relasjonsclaim uendret. |
+| PCQ-0906-004 | Regulatorisk vindu dokumentert: KT overtok god handelsskikk-håndheving 01.05.2026 med NFD-føringer; høringer om innkjøpsbetingelser i matverdikjeden pågår. Ingen aktørspesifikk sak funnet. | Bruk som policy-kontekst i C-gate; aktør-/margin-claims fortsatt blokkert. |
+| PCQ-0906-005 | Enova-prosjektsiden for Wiig/Green Horizon bekreftet som primærkilde (50–70 °C, 4 MW initielt, 200 MW potensial i separate prosjekter). Driftsstatus/ferdigattest ikke funnet offentlig. | Lukk «Enova-kilde ikke funnet»-blokkeren; Wiig forblir `needs-primary-check` for operativ status (Klepp byggesak/eInnsyn). Hima driftsdata uendret åpen. |
+| PCQ-0906-006 | Nasjonal finsk fôrimportramme tallfestet (Comtrade 2022–2024): rapsmel 230641 stabilt ~216 000 t/år, soyamel 2304 87–144 000 t/år, erter marginalt. | Integrer som systemramme for Valio-casen («soyafri ≠ importfri» er nå kvantifisert nasjonalt); Valio-spesifikk fôrkurv uendret `needs-data` (DASK/AASK). |
+| PCQ-0906-007 | Skottland: ZWS-hovedrapport fulltekstkontrollert. **Datering korrigert: Enscape 31.03.2020, 2019-survey, republisert 20.02.2025.** Nøkkelvolum og prisskille (£62–173 vs. £250–520/t) ekstrahert. Polen: hurtig kill-test bekrefter watchlist. | Skottland: `benchmark-kandidat` med eksplisitt aktualitetscaveat (2019-data); SBMT-tilgang gjenstår. Polen: watchlist bekreftet; full kill via GUS XLS/EMFAF gjenstår. |
+| PCQ-B-005 | Statistics Iceland-tabellene SJA09114/09110/04903 identifisert med full struktur (33 arter × 20 biproduktkategorier × 1992–2024 × tonn/ISK). Datauttrekk blokkert på PxWeb POST; manuell eksportoppskrift i loggen kap. 1. | Kjør manuell PxWeb-eksport og legg CSV i `research/external/dro-0906/`; deretter fraksjonssammenligning mot SINTEF/FHF 2024. |
+
+## Runde 7 statusnotat (2026-06-13) — case-avsjekk-prompter
+
+Fire case-avsjekk-prompter er kjørt etter 12.06-mottaket og logget i `docs/project/analysis/case-avsjekk/mottak-deep-research-1206-2026-06-13.md`. Ingen rad løftes til ekstern faktastemme uten claim-lock og kildebrukscaveat.
+
+| Queue-ID | Runde 7-status | Masterbeslutning |
+|---|---|---|
+| PCQ-B-005 | `P-FISH-1` + `P-SKOT-2` lukker norske 2024-hovedvolum, hvitfisk-/laksefiskfraksjoner og norsk-skotsk strukturdel som intern baseline. SSB 08801 gir bare eksportenhetsverdier på produktnivå; `P-FISH-2` traff stoppsignal fordi Strand et al. 2024 ikke finnes lokalt. | Integrer SINTEF/FHF, SSB 08801, ZWS og Nofima som interne kildekandidater. Hold råfraksjonspriser, høyverdiandel per fraksjon, aktørmarginer og Island-Norge-metodebro som `needs-data`/`needs-primary-check`. |
+| PCQ-0906-004 | `P-DIST-1` gir en RP-06-ledgerkandidat for Coop/Reindyrka, ONNA, Grønt fra Nord, Viken, Skjærgaarden, Grønne Folk, Wiig og Skavland. Den dokumenterer flere oppnådde kanaler, ikke en grossistblokkering. | Oppgrader intern arbeidsstatus til `ledgerkandidat med caveat`. Månedlige importvinduer, onboardingvilkår og BAMA/Gartnerhallen-spesifikke marginer forblir `needs-data`/`needs-actor-validation`. |
+| PCQ-0906-006 | `P-VALIO-1` lukker nasjonal finsk fôr-/importdatatilgang med Ruokavirasto, Luke PxWeb og Tulli/Uljas. Uljas bekrefter Comtrade-previewen på kg-nivå for 2022–2024. | Bruk som autorisert nasjonal systemramme for `soyafri != importfri`. Ikke bruk som Valio-fôrkurv; Valio-andeler, PFAD/A-Rehu og gårdsspesifikk fôrstandard forblir DASK/AASK. |
+| PCQ-0906-007 | `P-SKOT-2` er lukket som strukturdel i P-FISH-1; `P-SKOT-1` er fortsatt åpen hvis Skottland skal brukes tungt utover 2019-surveyen. | Skottland kan brukes som intern struktur-/separeringsbenchmark med årstall og aktualitetscaveat. Ikke bruk som dagens skotske markedsstatus uten nyere data. |
+
+## Runde 8 statusnotat (2026-06-14) — Maktkart Brønnøysund-stikkprøve (AP-1/AP-5 §8)
+
+Maktkart-syntese §8 steg 1 er kjørt mot Brønnøysund Enhetsregisteret + roller for 22 selskaper. Full logg med kilde-URL per orgnr: `docs/project/analysis/food-tg-maktkart-bronnoysund-stikkprove-2026-06-14.md` + `research/analyse/ap5-ap1-bronnoysund-stikkprove-2026-06-14.json`. Bekrefter kontroll-STRUKTUR (form + styre), ikke eierandel-%.
+
+| Queue-ID | Tema | Konkret sjekk | Nåværende kilde/status | Trengs fra primærkilde | Berører | Eier | Status |
+|---|---|---|---|---|---|---|---|
+| PCQ-MAKT-001 | AP-5 ultimate ownership | Verifiser topp-konsernenes juridiske form + kontrollpersoner mot Brønnøysund; krysssjekk eierandel-%. | Form + styrekontroll bekreftet for 8 konsern + 6 sjømat/Møgster-selskaper (22/22 formmatch) mot `/enheter` + `/roller` 2026-06-14. Eierandel-verktøy bygget (`scripts/verify-ownership-aksjonaerregister.ts`, enhetstestet); NG ≈ 74,4 % Johannson + Laco→Austevoll→Lerøy sekundær-korroborert; SA-samvirke N/A (bekreftet av form). Eksakt eierandel-% gjenstår fra registeruttrekk. | Bestilt Aksjonærregister-uttrekk (skatteetaten.no/deling, e-postlenke 1 uke; AS/ASA) for ≥50 %-kontroll og «39 selskaper»-tellingen. | CL-AP5-001, CL-MAKTKART-001 | Gabriel | partly-checked; eierandel-% `needs-primary-check` (verktøy klart) |
+| PCQ-MAKT-002 | AP-1 styreverv | Verifiser topp-bro-personer + topp-interlock-selskaper mot Brønnøysund roller m/dato. | 9/10 broere bekreftet med sittende verv (`sistEndret` 2021–2026); Hollevik bekreftet på 7 selskaper; Trond Bentestuen utenfor utvalget. | Brønnøysund roller for Trond Bentestuen; full styredekning fra dekningsutvidelsen (task #22) før komplett bro-telling. | CL-AP1-001, CL-AP1-002, CL-MAKTKART-001 | Gabriel | partly-checked |
+
+**Masterbeslutning:** Løft CL-AP1-001/CL-AP5-001/CL-MAKTKART-001 til `klar-med-forbehold` for *strukturpåstanden* (hvem kontrollerer via form/styre). Hold eierandel-% (AP-5) som `krever-bekreftelse` til Aksjonærregisteret er sjekket. Ingen rad blir ekstern faktastemme før full operator-sekvens (`research/CITABLE-KNOWLEDGE-BASE-STATUS.md`) er grønn.
+
+## Runde 9 statusnotat (2026-06-14) — Maktkart §8 steg 3–4 (AP-2 HHI / AP-3 2024)
+
+§8 steg 3 (markeds-HHI) og steg 4 (2024-tilskudd) kjørt som parallelle subagenter + coordinator-verifikasjon. Full logg: `docs/project/analysis/food-tg-maktkart-section8-3-4-funn-2026-06-14.md`. *(Gjenskapt 2026-06-15 etter tap i git-shuffling.)*
+
+| Queue-ID | Tema | Status/funn | Berører | Status |
+|---|---|---|---|---|
+| PCQ-MAKT-003 | AP-3 2024-tilskudd | LUKKET: «2024-datafella» var kolonnematch-bug (slug↔prosa), nå fikset + enhetstestet. Reell 2024 = 18,61 mrd brutto, verifisert mot publisert 18,39 mrd (LMD 12.02.2025). 2022/2023 byte-stabile; aggregat regenerert. | CL-AP3-001 | closed → klar-med-forbehold |
+| PCQ-MAKT-004 | AP-2 markeds-HHI | DELVIS: dagligvare ekte HHI ~3 327 (CR3 ~96,6 %; KT Dagligvarerapport 2024-25) → CL-DAGLIGVARE-HHI-001. Kryss-node forfulgt videre i Runde 11. | CL-AP2-001, CL-DAGLIGVARE-HHI-001 | partly-checked |
+
+## Runde 10 statusnotat (2026-06-14) — AP-4/6/7/8 (parallell fan-out)
+
+De fire un-startede lensene kjørt som parallelle subagenter. Funnnotater: `...ap6-havbrukskonsentrasjon...`, `...ap7-prisasymmetri...`, `...ap4-ap8-partial...`. *(Gjenskapt 2026-06-15.)*
+
+| Queue-ID | Tema | Status/funn | Berører | Status |
+|---|---|---|---|---|
+| PCQ-MAKT-005 | AP-6 havbruk | Sjøbasert laks/ørret-MTB CR4 57 %, HHI ~929 (Fiskeridir. 15.06.2026); land-RAS fortynner totaltallet (HHI 510). Restråstoffvolum = `needs-data` (RUBIN/SINTEF). | CL-AP6-001 | partly; restråstoff `needs-data` |
+| PCQ-MAKT-006 | AP-7 pris-asymmetri | Asymmetri bekreftet laks→foredling (SSB 03024×12462; NARDL β_opp−β_ned +0,14, t=14,0). Valuta ikke kontrollert. Fôr→oppdrett = `needs-data`. | CL-AP7-001 | støttet m/valuta-forbehold |
+| PCQ-MAKT-007 | AP-4 verdifangst | Sjømat ~2× verdi/tonn; per-aktør volum↔margin = `needs-data` (DeliveryVolume×CompanyFinancial). | CL-AP4-001 | delvis; kjerne `needs-data` (DB) |
+| PCQ-MAKT-008 | AP-8 tilskudd↔konsentrasjon | Node-HHI×tilskudd blokkert; regionalt null-funn (r≈−0,05, n≈350, strukturnøytral). | CL-AP8-001 | `needs-data`-kjerne + regionalt klar-med-forbehold |
+
+## Runde 11 statusnotat (2026-06-15) — AP-2 kryss-node markeds-HHI (§8 steg 3 utvidet)
+
+Markeds-HHI for sjømat/meieri/kjøtt/fôr hentet som parallelle subagenter + coordinator-aritmetikkverifikasjon. Funnnotat: `docs/project/analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md`.
+
+| Queue-ID | Tema | Status/funn | Berører | Status |
+|---|---|---|---|---|
+| PCQ-MAKT-009 | AP-2 kryss-node markeds-HHI | Ekte markeds-HHI for 5 noder: meieri ~6000, rødt kjøtt ~4600, dagligvare ~3327, kylling ~3200, sjømat ~950 (sjømat kryssvalidert mot AP-6 MTB). Hovedfunn: **konsentrasjonen topper i foredling (samvirke TINE/Nortura), ikke retail.** Egg/oppdrettsfôr/kraftfôr: citable struktur, `needs-data` presis HHI. | CL-AP2-001, CL-MAKTKART-001, ny CL-KRYSSNODE-HHI-001 | ordinal citable m/forbehold; presise verdier varierer |
+| PCQ-MAKT-010 | AP-2 logistikk + foodservice | Logistikk/grossist: distribusjon er vertikalt **internalisert** i de 3 kjedene (ASKO/REMA/Coop; ingen åpent marked); grossist-HHI ~3300–3700 måler samme konsentrasjon som retail (Menon 2025). Foodservice-distribusjon: ASKO/NG-dominert, leder-andel 36–50 % `needs-data`. Catering-operatører: anbudsmarked, HHI **metodisk uegnet** (ISS-ledet, andeler sladdet). | CL-LOGISTIKK-001, CL-FOODSERVICE-DIST/OPS-001 | logistikk citable struktur; foodservice `needs-data`/uegnet |
+
+**Masterbeslutning (Runde 9–11):** CL-AP3-001 → `klar-med-forbehold` (2024 lukket). Opprett CL-DAGLIGVARE-HHI-001, CL-AP4/6/7/8-001, CL-KRYSSNODE-HHI-001, CL-LOGISTIKK-001, CL-FOODSERVICE-DIST/OPS-001. **§8 steg 3 (markeds-HHI) er nå lukket så langt åpne data tillater:** 5 noder dekket, 5 citable struktur + needs-data presis (inkl. logistikk/foodservice-dist), 1 (catering) metodisk uegnet for HHI. Gjenstående `needs-data`: eierandel-% (AP-5), presise fôr-/egg-/foodservice-andeler, fôr→oppdrett-PPI (AP-7), restråstoffvolum (AP-6), per-aktør volum↔margin (AP-4, DB). Ingen ekstern faktastemme før operator-sekvens.

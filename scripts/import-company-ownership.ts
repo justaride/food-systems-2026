@@ -29,7 +29,7 @@ type RelationshipRecord = {
 
 const ownershipRecords: OwnershipRecord[] = [
   { parentOrgNr: '819731322', childOrgNr: '929228723', ownershipPct: 100, ownershipType: 'subsidiary', source: 'Brønnøysund' },
-  { parentOrgNr: '819731322', childOrgNr: '914224314', ownershipPct: 46, ownershipType: 'minority-stake', source: 'Brønnøysund' },
+  { parentOrgNr: '819731322', childOrgNr: '914224314', ownershipPct: 46, ownershipType: 'minority-stake', source: 'Brønnøysund årsrapport 2024' },
 
   // --- Nordic cross-border ownership (Session 4) ---
   { parentOrgNr: '819731322', childOrgNr: 'DK-38714295', ownershipPct: 48.9, ownershipType: 'minority-stake', source: 'NorgesGruppen Credit Report 2025 / Dagrofa corporate presentation', metadata: { note: 'NorgesGruppen (NO) owns 48.9% of Dagrofa (DK). Cross-border NO→DK.' } },

@@ -41,10 +41,10 @@ export const tenSteps: TenStep[] = [
   {
     step: 5,
     theme: 'Operating model for TG',
-    output: 'Moterytme, sprintplan, beslutningslogg',
+    output: 'Møterytme, sprintplan, beslutningslogg',
     status: 'fullfort',
     methodology: 'Agile/Scrum cadence + lightweight OKR + RACI + beslutningslogg',
-    description: 'Definer rytme, roller og arbeidsartefakter som holder gruppen produktiv over tid: moterytme, sprintplan, beslutningslogg, dokumentstruktur og korte retros. Faa, klare mål via lightweight OKR. Fasilitering som gjennomgaaande kapabilitet, ikkje eit eige steg. Food-TG-overlay: Gate A (veke 2) - scope + koalisjonskvalitet (Go/Iterate/Pause).',
+    description: 'Definer rytme, roller og arbeidsartefakter som holder gruppen produktiv over tid: møterytme, sprintplan, beslutningslogg, dokumentstruktur og korte retros. Få, klare mål via lightweight OKR. Fasilitering som gjennomgående kapabilitet, ikkje eit eige steg. Food-TG-overlay: Gate A (veke 2) - scope + koalisjonskvalitet (Go/Iterate/Pause).',
   },
   {
     step: 6,

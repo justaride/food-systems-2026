@@ -467,7 +467,7 @@ export default function FoodFlowMap() {
           </div>
           <h1 className="mt-4 text-2xl font-semibold text-stone-900">Flowdata finnes ikke for {selectedCountryName}</h1>
           <p className="mt-3 text-sm leading-6 text-stone-600">
-            Denne prototypen bruker kuraterte origin-destination-kanter mellom norske havner og logistikkhub-er.
+            Denne prototypen bruker kuraterte kanter fra opprinnelse til destinasjon mellom norske havner og logistikkhub-er.
             Vi har ikke lagt inn tilsvarende data for andre land ennå.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
@@ -507,14 +507,14 @@ export default function FoodFlowMap() {
           <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
             <div className="space-y-2">
               <div className="inline-flex rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-emerald-700">
-                Norway-first prototype
+                Prototype – Norge først
               </div>
               <h1 className="text-2xl font-semibold tracking-tight text-stone-900 sm:text-3xl">
                 {dataset.title}
               </h1>
               <p className="max-w-3xl text-sm leading-6 text-stone-600">
-                {dataset.description} Edges and node positions are hand-curated from public Norwegian port and logistics hub IDs.
-                Values are visual weights, not observed tonnage, value or shipment count.
+                {dataset.description} Kanter og node-posisjoner er håndkuratert fra offentlige norske havne- og logistikkhub-ID-er.
+                Verdiene er visuelle vekter, ikke observert tonnasje, verdi eller antall forsendelser.
               </p>
               <div className="flex flex-wrap gap-2">
                 <EvidencePill status={dominantEvidenceStatus} />
@@ -713,12 +713,12 @@ export default function FoodFlowMap() {
             <div className="space-y-2 border-b border-stone-200 pb-4">
               <h2 className="text-lg font-semibold text-stone-900">Prototype-innsikt</h2>
               <p className="text-sm leading-6 text-stone-600">
-                Edge-listen er liten med vilje. Den viser hvordan en senere `flowmap.gl`-integrasjon kan brukes for å sammenligne havn til hub-strømmer.
+                Kart-koblingene er få med vilje — en illustrasjon av hvordan havn-til-hub-strømmer kan sammenlignes i en senere versjon.
               </p>
               <div className="flex flex-wrap gap-2 pt-1">
                 <EvidencePill status={dominantEvidenceStatus} />
                 <span className="rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5 text-[10px] font-semibold text-stone-600">
-                  {dataset.schemaVersion ?? 'schema ukjent'}
+                  {dataset.schemaVersion ?? 'dataversjon ukjent'}
                 </span>
                 {dataset.lastUpdated ? (
                   <span className="rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5 text-[10px] font-semibold text-stone-600">

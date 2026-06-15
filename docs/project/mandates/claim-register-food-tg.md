@@ -92,6 +92,19 @@ inn senere bare der de faktisk finnes.
 | CL-C-017 | citable_with_note | SRC-C-028; SRC-BASE-007; EV-C-027 | claim-register:CL-C-017:paastand | allowed_with_caveat | tax-rate comparison must include bottom deduction and implementation caveat |
 | CL-C-018 | citable_with_note | SRC-C-027; EV-C-028 | claim-register:CL-C-018:paastand | allowed_with_caveat | Swedish policy-response status must be checked before strong claims |
 
+## Wageningen/SRC-B-035 Claim-Gate Addendum 2026-05-28
+
+`SRC-B-035` is attached to the claim register as internal method support for Wageningen/Elbersen scoring. It is not an external validation source and does not close effect, actor, legal, LCA, KPI or publication gates.
+
+| Claim | `SRC-B-035` use | Required caveat |
+|---|---|---|
+| `CL-B-008` | Cascade and high-value-use method anchor. | Fraction, legal end use and local system boundary required. |
+| `CL-B-009` | Sidestream designgate method anchor. | WUR score cannot lift a stream to pilot status. |
+| `CL-B-021` | Candidate/benchmark gate for okara, BSG and marine residual fractions. | Actor, legal end use, stabilization and off-taker remain open. |
+| `CL-B-022` | Matsvinnkvalitet validation-gate anchor. | Baseline, time window, destination and counterfactual remain open. |
+| `CL-B-023` | Nutrient-loop benchmark/secondary-track anchor. | Product status, market, mass balance, law and system boundary remain open. |
+| `CL-C-015` | KPI/data-standard gate anchor. | WUR score is an internal prioritisation signal, not KPI effect. |
+
 ## Claim-kategorier per spor (mål: ≥5 claims, ≥2 hypoteser per spor)
 
 | Kategori | Eksempel |

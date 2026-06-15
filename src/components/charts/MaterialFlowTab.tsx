@@ -6,6 +6,7 @@ import { EmptyState } from '@/components/ui/EmptyState'
 import { NetworkMap, type NetworkTypeConfig } from '@/components/network/NetworkMap'
 import { FlowSankey } from '@/components/charts/FlowSankey'
 import { toNetwork, toSankey } from '@/lib/flows/adapter'
+import { summarizeVerdikjede } from '@/lib/flows/value-chain-axis'
 import type { MaterialFlowsFile } from '@/lib/flows/types'
 import type { NetworkPreset } from '@/lib/network-map'
 
@@ -53,16 +54,26 @@ export function MaterialFlowTab() {
 
   const network = useMemo(() => toNetwork(selectedLoops), [selectedLoops])
   const sankey = useMemo(() => toSankey(selectedLoops), [selectedLoops])
+  const verdikjede = useMemo(() => summarizeVerdikjede(selectedLoops), [selectedLoops])
 
   if (loading) {
     return <EmptyState message="Laster materialstrømmer..." />
   }
   if (!file || file.loops.length === 0) {
-    return <EmptyState message="Ingen materialstrømmer ennå — kjør `npm run bootstrap-material-flows`." />
+    return <EmptyState message="Ingen materialstrømmer registrert ennå." />
   }
 
   return (
     <div className="space-y-4">
+      <Card className="bg-emerald-50/50 border-emerald-100">
+        <p className="text-xs text-stone-700 leading-relaxed max-w-2xl">
+          <strong>Hva dette er:</strong> et røntgenbilde av matsystemets registrerte materialstrømmer fra
+          åpne kilder. Det sier ikke hvor mye (volum) eller hvor verdifullt (verdi) noe er. Den viktigste
+          lesningen er ikke hva som er der, men hva som <strong>mangler eller er ubearbeidet</strong> — det
+          peker mot handlingssonen: hvilke sidestrømmer bør utnyttes, bearbeides eller jobbes videre med.
+        </p>
+      </Card>
+
       <Card className="bg-stone-50 border-stone-200">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <p className="text-xs text-stone-600 leading-relaxed max-w-2xl">
@@ -71,6 +82,10 @@ export function MaterialFlowTab() {
             <span className="text-amber-700"> estimated</span>,
             <span className="text-sky-700"> proxy</span>,
             <span className="text-stone-500"> illustrative</span>. Sankey viser kun kvantifiserte strømmer.
+            <br />
+            <span className="text-stone-400">
+              Registrert = en kilde/dokument som omtaler strømmen, ikke en målt materialbevegelse.
+            </span>
           </p>
           <select
             value={loopId}
@@ -84,6 +99,20 @@ export function MaterialFlowTab() {
           </select>
         </div>
       </Card>
+
+      {verdikjede.total > 0 && (
+        <Card className="bg-white border-stone-200">
+          <p className="text-xs font-semibold text-stone-700 mb-1">
+            Verdikjede-akse{' '}
+            <span className="font-normal text-stone-400">(avledet fra verdikjedesteg, ikke målt)</span>
+          </p>
+          <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-stone-600">
+            <span><strong>{verdikjede.raastoff}</strong> råstoff · <strong>{verdikjede.bearbeidet}</strong> bearbeidet</span>
+            <span><strong>{verdikjede.oppstroem}</strong> oppstrøm · <strong>{verdikjede.avfallsside}</strong> avfallsside</span>
+            <span className="text-stone-400">av {verdikjede.total} strømmer</span>
+          </div>
+        </Card>
+      )}
 
       <Card className="!p-0 overflow-hidden">
         <div className="h-[480px]">

@@ -28,6 +28,7 @@ Denne mappen samler styringsdokumenter for Food Systems Transition Group og tilh
 | `food-tg-source-locator-risk-audit-2026-05.md` | Kilde-locator audit | Aktiv | Risikokart for high-risk tall, regelverk, aktørdata og datalag før ekstern bruk. |
 | `food-tg-validation-sprint-log-2026-05.md` | Valideringssprint-logg | Aktiv, venter scope-vedtak | Operativ logg for P1-aktørkontakt og responsstatus. |
 | `food-tg-wageningen-moerman-method-transfer-2026-05-26.md` | Metodeoverføring | Klar med forbehold | Food-local registrering av Wageningen/Moerman/R9-transfer fra Cities/JT; source-, claim- og ekstern valideringsport står åpen. |
+| `food-tg-meeting-transfer-qa-2026-05-28.md` | Møteoverføring QA | Aktiv intern | Lukker Food/Cities-overføringen som intern metodepakke med forbehold og peker ut åpne source-, claim- og validation-gater. |
 | `wageningen-critical-gate-analysis-2026-05-26.md` | Wageningen-gate | Aktiv intern | Beslutningsnotat for WUR/Wageningen som internt gate- og scoringsspråk, ikke ekstern validering. |
 | `wageningen-source-locator-ledger-2026-05-26.md` | Wageningen-locator | Aktiv intern | Locator-ledger for `SRC-B-035`, WUR-PDF og bruksgrenser. |
 | `wageningen-scorecard-template-2026-05-26.md` | Wageningen-scorecard | Aktiv intern | Gjenbrukbar 16-indikator scorecard-template med røde porter. |
@@ -37,6 +38,16 @@ Denne mappen samler styringsdokumenter for Food Systems Transition Group og tilh
 | `insight-pack-outline-food-tg-v0.2.md` | Insight Pack-disposisjon | Aktiv v0.2 | Storyline, slide-rekkefølge og trygg/utrygg formulering per hovedclaim. |
 | `insight-pack-outline-food-tg-v0.3.md` | Decision Pack-produksjonskontrakt | Aktiv v0.3 | Seksjonsstruktur med claim-, figur-, case-, kilde- og valideringsporter før deck/whitepaper. |
 | `food-tg-decision-pack-v0.1.md` | Decision Pack | Aktiv intern v0.1 | Intern beslutningspakke for minimumsvedtak og valideringssprint; ikke ekstern presentasjon. |
+| `food-tg-case-shortlist-addendum-2026-06-09.md` | Case-shortlist addendum | Aktiv intern | 09.06-samtalen omsatt til syv caseanker, watchlist, go/no-go og to-ukers arbeidsløp innenfor eksisterende A+B/C-ramme. |
+| `food-tg-minimumsvedtak-casekort-2026-06-09.md` | Minimumsvedtak | Aktiv intern | Smalt beslutningsnotat for å starte casekort- og researchsprint uten ekstern outreach. |
+| `food-tg-deck-outline-2026-06-09.md` | Deck-outline | Aktiv intern | 10-slides disposisjon for første interne caseuttak med sikker språkbruk og kildegater. |
+| `food-tg-deep-research-source-intake-2026-06-10.md` | Source intake | Aktiv intern | Kontrollerer syv deep-research-rapporter fra Downloads mot `SRC-0906-*`, `PCQ-0906-*`, claim-lock og neste primærsjekk uten å løfte claims til ekstern bruk. |
+| `food-tg-deep-research-prompt-pack-2026-06-10.md` | Prompt pack | Aktiv intern | Copy/paste-prosess for videre Deep Research: masterprompt, syv caseprompts, valideringsprompt og importmal koblet til `SRC-0906-*`, `PCQ-0906-*` og claim-lock. |
+| `food-tg-casekort-og-research-mottak-2026-06-10.md` | Casekort/mottak | Aktiv intern | Mottakslogg og casekort v0.1 for kommende Deep Research-outputer, med importregler mot source-shortlist, PCQ, actor validation pack og claim-lock. |
+| `food-tg-deep-research-results-intake-2026-06-10.md` | Results intake | Aktiv intern | Kontrollerer åtte mottatte Deep Research-resultater fra Downloads mot `DRO-0906-*`, PCQ, source-shortlist, claim-lock og neste dokumentask uten å importere raw filer. |
+| `food-tg-dokumentask-og-actor-ask-pack-2026-06-10.md` | Dokumentask/actor ask | Aktiv intern | Presise interne dokumentforespørsler og senere aktørspørsmål for 09.06-/10.06-casegrunnlaget, uten å åpne outreach. |
+| `food-tg-0906-sprintboard-go-no-go-2026-06-10.md` | Sprintboard | Aktiv intern | Operativt go/no-go-brett for Deep Research-mottak, dokumentask, PCQ/source/claim-lock og intern deck-readiness. |
+| `food-tg-mottaksprotokoll-v1-2026-06-15.md` | Mottaksprotokoll | Aktiv intern | Standardiserer 10.06-pipelinen: ingen ny kilde uten DRO/DRR-rad, eier/dato/status, locator/bruksrett, PCQ/source-shortlist og claim-lock-gate. |
 | `brief-jan-thomas-cathrine-food-tg-runde-4.md` | Møtebrief | Klar til bruk | Kort beslutnings- og samtalegrunnlag etter runde 4. |
 | `opportunity-radar-food-tg-v0.1.md` | Opportunity radar | Aktiv v0.1 | Prioriterer validerbare muligheter, claims, stoppsignaler og neste handling. |
 | `primary-check-queue-food-tg-v0.1.md` | Primary-check-kø | Aktiv v0.1 | Skiller regulatoriske og datamessige sjekkpunkter fra aktørvalidering. |

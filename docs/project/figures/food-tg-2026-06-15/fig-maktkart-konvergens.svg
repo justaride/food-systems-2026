@@ -1,0 +1,52 @@
+<svg viewBox="0 0 580 520" xmlns="http://www.w3.org/2000/svg" font-family="Inter,Arial,sans-serif">
+<rect width="580" height="520" fill="#ffffff"/>
+<text x="290" y="26" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle">Maktkart — to konvergerende strukturer i norsk matsystem</text>
+
+<!-- Panel A: sector-pair convergence (AP-1 styrer vs AP-5 eierskap) -->
+<text x="40" y="56" font-size="12" font-weight="700" fill="#0f172a">A · Sektorpar: styrebroer (AP-1) vs eierkontroll (AP-5)</text>
+<rect x="156" y="64" width="12" height="12" rx="2" fill="#1d4ed8"/><text x="174" y="74" font-size="11" fill="#44403c">AP-1 styrer</text>
+<rect x="262" y="64" width="12" height="12" rx="2" fill="#0d9488"/><text x="280" y="74" font-size="11" fill="#44403c">AP-5 eierskap</text>
+<!-- bars scale: 360px / 7 -->
+<text x="144" y="103" font-size="11" fill="#44403c" text-anchor="end">logistikk ↔ retail</text>
+<rect x="156" y="88" width="360.0" height="11" rx="2" fill="#1d4ed8"/><text x="521" y="97" font-size="9.5" fill="#1d4ed8">7</text>
+<rect x="156" y="101" width="360.0" height="11" rx="2" fill="#0d9488"/><text x="521" y="110" font-size="9.5" fill="#0d9488">7</text>
+<text x="144" y="139" font-size="11" fill="#44403c" text-anchor="end">foredling ↔ retail</text>
+<rect x="156" y="124" width="308.6" height="11" rx="2" fill="#1d4ed8"/><text x="469.6" y="133" font-size="9.5" fill="#1d4ed8">6</text>
+<rect x="156" y="137" width="308.6" height="11" rx="2" fill="#0d9488"/><text x="469.6" y="146" font-size="9.5" fill="#0d9488">6</text>
+<text x="144" y="175" font-size="11" fill="#44403c" text-anchor="end">logistikk ↔ foredling</text>
+<rect x="156" y="160" width="102.9" height="11" rx="2" fill="#1d4ed8"/><text x="263.9" y="169" font-size="9.5" fill="#1d4ed8">2</text>
+<rect x="156" y="173" width="308.6" height="11" rx="2" fill="#0d9488"/><text x="469.6" y="182" font-size="9.5" fill="#0d9488">6</text>
+<text x="290" y="200" font-size="9.5" fill="#a8a29e" text-anchor="middle">To uavhengige datakilder — de sterkeste parene (logistikk/foredling ↔ retail) sammenfaller.</text>
+
+<line x1="40" y1="216" x2="540" y2="216" stroke="#e7e5e4" stroke-width="1"/>
+
+<!-- Panel B: concentration profile (markeds-HHI per node) -->
+<text x="40" y="240" font-size="12" font-weight="700" fill="#0f172a">B · Markeds-HHI per node — konsentrasjonen topper i foredling</text>
+<rect x="156" y="248" width="12" height="12" rx="2" fill="#075985"/><text x="174" y="258" font-size="11" fill="#44403c">samvirke</text>
+<rect x="262" y="248" width="12" height="12" rx="2" fill="#0284c7"/><text x="280" y="258" font-size="11" fill="#44403c">citable m/forbehold</text>
+<rect x="400" y="248" width="12" height="12" rx="2" fill="#bae6fd"/><text x="418" y="258" font-size="11" fill="#44403c">needs-data presis</text>
+<!-- threshold x(2500)=156+(2500/6000)*360=306 -->
+<line x1="306" y1="270" x2="306" y2="468" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="306" y="482" font-size="9" fill="#b45309" text-anchor="middle">terskel 2500</text>
+<!-- bars scale: 360px / 6000, x0=156 -->
+<text x="150" y="285" font-size="10.5" fill="#44403c" text-anchor="end">Meieri</text>
+<rect x="156" y="275" width="360" height="12" rx="2" fill="#075985"/><text x="521" y="285" font-size="9.5" fill="#075985">~6000</text>
+<text x="150" y="305" font-size="10.5" fill="#44403c" text-anchor="end">Egg</text>
+<rect x="156" y="295" width="330" height="12" rx="2" fill="#075985"/><text x="491" y="305" font-size="9.5" fill="#075985">~5500–6800</text>
+<text x="150" y="325" font-size="10.5" fill="#44403c" text-anchor="end">Rødt kjøtt</text>
+<rect x="156" y="315" width="282" height="12" rx="2" fill="#075985"/><text x="443" y="325" font-size="9.5" fill="#075985">~4700</text>
+<text x="150" y="345" font-size="10.5" fill="#44403c" text-anchor="end">Kraftfôr</text>
+<rect x="156" y="335" width="204" height="12" rx="2" fill="#bae6fd"/><text x="365" y="345" font-size="9.5" fill="#0369a1">~3400</text>
+<text x="150" y="365" font-size="10.5" fill="#44403c" text-anchor="end">Dagligvare</text>
+<rect x="156" y="355" width="199.6" height="12" rx="2" fill="#0284c7"/><text x="361" y="365" font-size="9.5" fill="#0284c7">~3327</text>
+<text x="150" y="385" font-size="10.5" fill="#44403c" text-anchor="end">Kylling</text>
+<rect x="156" y="375" width="192" height="12" rx="2" fill="#0284c7"/><text x="353" y="385" font-size="9.5" fill="#0284c7">~3200</text>
+<text x="150" y="405" font-size="10.5" fill="#44403c" text-anchor="end">Oppdrettsfôr</text>
+<rect x="156" y="395" width="162" height="12" rx="2" fill="#bae6fd"/><text x="323" y="405" font-size="9.5" fill="#0369a1">~2700</text>
+<text x="150" y="425" font-size="10.5" fill="#44403c" text-anchor="end">Sjømat</text>
+<rect x="156" y="415" width="57" height="12" rx="2" fill="#0284c7"/><text x="218" y="425" font-size="9.5" fill="#0284c7">~950</text>
+<text x="156" y="448" font-size="9.5" fill="#44403c">Leder-gulv: TINE 76,4² = 5837 · Nortura/Prior egg 70² = 4900 · Nortura kjøtt 66² = 4356 — alle over retail. Topp 3 = samvirke.</text>
+
+<text x="290" y="500" font-size="9.5" fill="#0f172a" text-anchor="middle" font-weight="600">Samlet maktkart: vertikal konsernintegrasjon (A) + konsentrasjonen topper oppstrøms i samvirke-foredling (B).</text>
+<text x="290" y="514" font-size="9" fill="#a8a29e" text-anchor="middle">CL-MAKTKART-001 / CL-KRYSSNODE-HHI-001. Intern baseline — struktur primærsjekket; ekte markeds-HHI citable m/forbehold.</text>
+</svg>

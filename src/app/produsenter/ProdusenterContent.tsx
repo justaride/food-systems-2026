@@ -79,8 +79,8 @@ export function ProdusenterContent({
                   <th scope="col" className="pb-2 pr-4 font-medium">Navn</th>
                   <th scope="col" className="pb-2 pr-4 font-medium">Orgnr</th>
                   <th scope="col" className="pb-2 pr-4 font-medium">Kommune</th>
-                  <th scope="col" className="pb-2 pr-4 font-medium text-right">Tilskudd</th>
-                  <th scope="col" className="pb-2 font-medium text-right">Leveranser</th>
+                  <th scope="col" className="pb-2 pr-4 font-medium text-right" title="Antall tilskudd">Tilskudd</th>
+                  <th scope="col" className="pb-2 font-medium text-right" title="Antall leveranser">Leveranser</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-100">

@@ -7,7 +7,7 @@ const STRUCTURAL_GRAPH_CONFIDENCE: Record<string, GraphConfidence> = {
   'source-file': { confidence: 0.95, sourceLabel: 'kildedokument-kobling' },
   'thesis-doc': { confidence: 0.95, sourceLabel: 'masteroppgave-dokument' },
   'company-ref': { confidence: 0.9, sourceLabel: 'kurert dokumentkobling' },
-  'actor-ref': { confidence: 0.9, sourceLabel: 'kurert aktorkobling' },
+  'actor-ref': { confidence: 0.9, sourceLabel: 'kurert aktørkobling' },
   'insight-ref': { confidence: 0.85, sourceLabel: 'kurert innsiktskobling' },
   'company-link': { confidence: 0.8, sourceLabel: 'aktør-selskapskobling' },
   'person-role': { confidence: 0.7, sourceLabel: 'personprofil-rolle' },

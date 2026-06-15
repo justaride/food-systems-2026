@@ -452,6 +452,114 @@ describe('row source locators', () => {
     )
   })
 
+  it('resolves konsern annual-report sources to the verified 2024 report locator (token match)', () => {
+    // ownership row citing a konsern's 2024 annual report (parent orgnr varies; the label names the konsern)
+    assert.equal(
+      resolveCompanyOwnershipSourceLocator(
+        {
+          source: 'Broennoysundregistrene / Nortura aarsrapport 2024',
+          parentCompany: { orgNr: '938752648' },
+          childCompany: { orgNr: '914423306' },
+        },
+        new Set(),
+      ),
+      'https://www.nortura.no/attachments/%C3%85rsmeldinger/Nortura_aarsmelding_2024.pdf',
+    )
+
+    // financial subsidiary row whose label names Lerøy (orgnr is a subsidiary, not LSG ASA)
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
+          source: 'Leroey Annual Report 2024 / web research 2026-03',
+          year: 2024,
+          company: { orgNr: '985848718' },
+        },
+        new Set(),
+      ),
+      'https://www.leroyseafood.com/globalassets/02--documents/english/annual-reports/lsg-annual-report-2024.pdf',
+    )
+
+    // specificity: "Reitan Eiendom" must resolve to the property arm, not Reitan Retail
+    assert.equal(
+      resolveCompanyOwnershipSourceLocator(
+        {
+          source: 'Reitan Eiendom arsrapport 2024',
+          parentCompany: { orgNr: 'NO-REITAN-EIE' },
+          childCompany: { orgNr: '912345678' },
+        },
+        new Set(),
+      ),
+      'https://2024.reitaneiendom.no/',
+    )
+
+    // estimates still must NOT get an annual-report locator
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
+          source: 'Estimat. ~SEK 5.9B. Schwarz Group annual report.',
+          year: 2024,
+          company: { orgNr: 'DE-SCHWARZ' },
+        },
+        new Set(),
+      ),
+      'source:blocked-unsourced/company-financial-estimate',
+    )
+  })
+
+  it('resolves Brønnøysund-register-sourced financial rows to the regnskapsregister accounts URL', () => {
+    // offentligdata MCP scrape of Brønnøysund — asserts official register provenance (æøå variant)
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
+          source: 'Brønnøysund / offentligdata MCP 2026-03',
+          year: 2024,
+          company: { orgNr: '819731322' },
+        },
+        new Set(),
+      ),
+      'https://data.brreg.no/regnskapsregisteret/regnskap/819731322?regnskapsaar=2024',
+    )
+
+    // ascii spelling variant of the same label
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
+          source: 'Broennoysund / offentligdata MCP 2026-03',
+          year: 2023,
+          company: { orgNr: '964118191' },
+        },
+        new Set(),
+      ),
+      'https://data.brreg.no/regnskapsregisteret/regnskap/964118191?regnskapsaar=2023',
+    )
+
+    // explicit "Regnskapsregisteret {year}" label (currently only the exact "regnskap {year}" form resolved)
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
+          source: 'Regnskapsregisteret 2024',
+          year: 2024,
+          company: { orgNr: '936560288' },
+        },
+        new Set(),
+      ),
+      'https://data.brreg.no/regnskapsregisteret/regnskap/936560288?regnskapsaar=2024',
+    )
+
+    // estimates must NOT be granted a register locator — they stay blocked
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
+          source: 'Estimat basert på bransjedata',
+          year: 2024,
+          company: { orgNr: '936560288' },
+        },
+        new Set(),
+      ),
+      'source:blocked-unsourced/company-financial-estimate',
+    )
+  })
+
   it('resolves company financial rows to verified official annual-report URLs when no document is imported', () => {
     assert.equal(
       resolveCompanyFinancialSourceLocator(
@@ -2105,6 +2213,19 @@ describe('row source locators', () => {
           source: 'TGTG Partnerliste 2024',
           fromCompany: { orgNr: '917203261' },
           toCompany: { orgNr: '819731322' },
+        },
+        new Set(),
+        new Map(),
+      ),
+      'source:blocked-unsourced/business-relationship-unverified-label',
+    )
+
+    assert.equal(
+      resolveBusinessRelationshipSourceLocator(
+        {
+          source: 'Bransjeanalyse',
+          fromCompany: { orgNr: '930186870' },
+          toCompany: { orgNr: '915442552' },
         },
         new Set(),
         new Map(),

@@ -80,6 +80,23 @@ function hasResolvableSupportingSource(report: Report) {
   return report.supportingSources?.some(supportingSourceIsResolvable) ?? false
 }
 
+// A report is a reviewed provenance exception (internal_synthesis / composite_source /
+// internal_register / blocked_source, etc.) when it carries an explicit, non-external
+// provenanceType and at least one resolvable supporting source. Shared by the report-URL
+// check (#11) and the Document locator check (#13) so the two gates cannot drift: a
+// Document whose linked report qualifies here is not a strict external-citation blocker.
+function reportQualifiesAsProvenanceException(reportId: string | null | undefined): boolean {
+  if (!reportId) return false
+  const seedReport = seedReportsById.get(reportId)
+  if (!seedReport) return false
+  if (seedReport.sourceUrl) return false
+  if (!seedReport.provenanceType) return false
+  if (seedReport.provenanceType === 'external_report' || seedReport.provenanceType === 'external_article') {
+    return false
+  }
+  return hasResolvableSupportingSource(seedReport)
+}
+
 async function checkOrphanOwnerships() {
   header('1. Orphan Ownership Records')
   const ownerships = await prisma.companyOwnership.findMany()
@@ -358,24 +375,7 @@ async function checkReportMissingUrls() {
   const classified: Array<{ id: string; title: string; provenanceType: string }> = []
 
   for (const report of reports) {
-    const seedReport = seedReportsById.get(report.id)
-
-    if (seedReport?.sourceUrl) {
-      unresolved.push(report)
-      continue
-    }
-
-    if (!seedReport?.provenanceType) {
-      unresolved.push(report)
-      continue
-    }
-
-    if (seedReport.provenanceType === 'external_report' || seedReport.provenanceType === 'external_article') {
-      unresolved.push(report)
-      continue
-    }
-
-    if (!hasResolvableSupportingSource(seedReport)) {
+    if (!reportQualifiesAsProvenanceException(report.id)) {
       unresolved.push(report)
       continue
     }
@@ -383,7 +383,7 @@ async function checkReportMissingUrls() {
     classified.push({
       id: report.id,
       title: report.title,
-      provenanceType: seedReport.provenanceType,
+      provenanceType: seedReportsById.get(report.id)!.provenanceType!,
     })
   }
 
@@ -572,7 +572,7 @@ async function checkSourceQualityCoverage() {
         slug: true,
         filePath: true,
         url: true,
-        report: { select: { provenanceType: true, supportingSources: true } },
+        report: { select: { id: true, provenanceType: true, supportingSources: true } },
       },
     }),
     prisma.sourceDoc.findMany({
