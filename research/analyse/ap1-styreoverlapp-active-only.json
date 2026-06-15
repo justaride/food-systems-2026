@@ -1,0 +1,653 @@
+{
+  "generatedAt": "2026-06-14T11:21:49.850Z",
+  "source": "intern DB (BoardMember × Company)",
+  "activeOnly": true,
+  "totals": {
+    "seats": 555,
+    "distinctPersons": 487,
+    "distinctCompanies": 98,
+    "companyUniverse": 275,
+    "boardCompanyCoverage": 0.3564,
+    "companiesWithSector": 98,
+    "boardCompaniesWithSectorCoverage": 1,
+    "interlockers": 32,
+    "crossSectorBridges": 11
+  },
+  "topInterlockers": [
+    {
+      "name": "Runar Hollevik",
+      "seats": 10,
+      "companies": 10,
+      "sectors": [
+        "processing",
+        "logistics",
+        "retail",
+        "foodservice"
+      ],
+      "companyNames": [
+        "Unil AS",
+        "ASKO Norge AS",
+        "Kiwi Norge AS",
+        "MENY AS",
+        "Kjopmannshuset Norge AS",
+        "NorgesGruppen Servicehandel AS",
+        "NorgesGruppen Detalj AS",
+        "NorgesGruppen Data AS",
+        "BAMA Gruppen AS",
+        "Storcash Norge AS"
+      ],
+      "roles": [
+        "styreleder",
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Ole Robert Reitan",
+      "seats": 9,
+      "companies": 9,
+      "sectors": [
+        "retail",
+        "logistics"
+      ],
+      "companyNames": [
+        "REMA 1000 Norge AS",
+        "REMA 1000 A/S",
+        "REMA Distribusjon Norge AS",
+        "BAMA Gruppen AS",
+        "Reitan AS",
+        "REMA 1000 AS",
+        "Reitan Convenience AS",
+        "Uno-X Mobility AS",
+        "Reitan Kapital AS"
+      ],
+      "roles": [
+        "styreleder",
+        "bestyrelsesformand",
+        "styremedlem",
+        "daglig leder"
+      ]
+    },
+    {
+      "name": "Kristin Genton",
+      "seats": 6,
+      "companies": 6,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "Reitan AS",
+        "REMA 1000 AS",
+        "Reitan Convenience AS",
+        "Uno-X Mobility AS",
+        "Reitan Kapital AS",
+        "Reitan Eiendom AS"
+      ],
+      "roles": [
+        "styremedlem",
+        "styreleder"
+      ]
+    },
+    {
+      "name": "Magnus Reitan",
+      "seats": 5,
+      "companies": 5,
+      "sectors": [
+        "logistics",
+        "retail"
+      ],
+      "companyNames": [
+        "REMA Distribusjon Norge AS",
+        "Reitan AS",
+        "Reitan Convenience AS",
+        "Reitan Kapital AS",
+        "Reitan Retail AS"
+      ],
+      "roles": [
+        "styremedlem",
+        "daglig leder"
+      ]
+    },
+    {
+      "name": "Truls Fjeldstad",
+      "seats": 5,
+      "companies": 5,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "Kiwi Norge AS",
+        "MENY AS",
+        "Kjopmannshuset Norge AS",
+        "NorgesGruppen Detalj AS",
+        "NorgesGruppen Data AS"
+      ],
+      "roles": [
+        "styremedlem",
+        "daglig leder"
+      ]
+    },
+    {
+      "name": "Tore Bekken",
+      "seats": 4,
+      "companies": 4,
+      "sectors": [
+        "retail",
+        "logistics"
+      ],
+      "companyNames": [
+        "Dagrofa A/S",
+        "ASKO Midt-Norge AS",
+        "ASKO Norge AS",
+        "NorgesGruppen Data AS"
+      ],
+      "roles": [
+        "næstformand",
+        "styreleder",
+        "daglig leder",
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Kristine Stranne",
+      "seats": 4,
+      "companies": 4,
+      "sectors": [
+        "logistics",
+        "retail",
+        "processing"
+      ],
+      "companyNames": [
+        "ASKO Norge AS",
+        "Deli de Luca Norge AS",
+        "Joh. Johannson Kaffe AS",
+        "Bakehuset AS"
+      ],
+      "roles": [
+        "styremedlem",
+        "styreleder"
+      ]
+    },
+    {
+      "name": "Oyvind Andersen",
+      "seats": 3,
+      "companies": 3,
+      "sectors": [
+        "retail",
+        "processing"
+      ],
+      "companyNames": [
+        "Kiwi Norge AS",
+        "Joh. Johannson Kaffe AS",
+        "Bakehuset AS"
+      ],
+      "roles": [
+        "styremedlem",
+        "styreleder"
+      ]
+    },
+    {
+      "name": "Mette Lier",
+      "seats": 3,
+      "companies": 3,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "MENY AS",
+        "NorgesGruppen Data AS",
+        "NorgesGruppen Regnskap AS"
+      ],
+      "roles": [
+        "styremedlem",
+        "styreleder"
+      ]
+    },
+    {
+      "name": "Odd Reitan",
+      "seats": 3,
+      "companies": 3,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "Reitan AS",
+        "Reitan Eiendom AS",
+        "Odd Reitan Private Holding AS"
+      ],
+      "roles": [
+        "styreleder"
+      ]
+    },
+    {
+      "name": "Finn Rune Kristiansen",
+      "seats": 3,
+      "companies": 2,
+      "sectors": [
+        "foodservice"
+      ],
+      "companyNames": [
+        "4Service Gruppen AS",
+        "Compass Group Norge AS"
+      ],
+      "roles": [
+        "daglig leder",
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Andre Rolf Knüppel",
+      "seats": 2,
+      "companies": 2,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "Oda",
+        "Oda Norway AS"
+      ],
+      "roles": [
+        "styreleder"
+      ]
+    },
+    {
+      "name": "Carl-Fredrik Bergan",
+      "seats": 2,
+      "companies": 2,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "Oda",
+        "Oda Norway AS"
+      ],
+      "roles": [
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Sara Elisabet Manne",
+      "seats": 2,
+      "companies": 2,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "Oda",
+        "Oda Norway AS"
+      ],
+      "roles": [
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Signe Sæter",
+      "seats": 2,
+      "companies": 2,
+      "sectors": [
+        "circular"
+      ],
+      "companyNames": [
+        "Matsentralen Norge",
+        "Matvett AS"
+      ],
+      "roles": [
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Anne-Grete Haugen",
+      "seats": 2,
+      "companies": 2,
+      "sectors": [
+        "circular"
+      ],
+      "companyNames": [
+        "Matsentralen Norge",
+        "Matvett AS"
+      ],
+      "roles": [
+        "styremedlem",
+        "CEO"
+      ]
+    },
+    {
+      "name": "Trond Bentestuen",
+      "seats": 2,
+      "companies": 2,
+      "sectors": [
+        "retail",
+        "logistics"
+      ],
+      "companyNames": [
+        "REMA 1000 Norge AS",
+        "REMA Distribusjon Norge AS"
+      ],
+      "roles": [
+        "CEO"
+      ]
+    },
+    {
+      "name": "Tor Roenhovde",
+      "seats": 2,
+      "companies": 2,
+      "sectors": [
+        "foodservice"
+      ],
+      "companyNames": [
+        "4Service Gruppen AS",
+        "Compass Group Norge AS"
+      ],
+      "roles": [
+        "styreleder"
+      ]
+    },
+    {
+      "name": "Grete Ovanger",
+      "seats": 2,
+      "companies": 2,
+      "sectors": [
+        "logistics"
+      ],
+      "companyNames": [
+        "ASKO Midt-Norge AS",
+        "ASKO Norge AS"
+      ],
+      "roles": [
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Dina Thune",
+      "seats": 2,
+      "companies": 2,
+      "sectors": [
+        "logistics",
+        "retail"
+      ],
+      "companyNames": [
+        "ASKO Norge AS",
+        "Kjopmannshuset Norge AS"
+      ],
+      "roles": [
+        "styremedlem"
+      ]
+    }
+  ],
+  "topBridges": [
+    {
+      "name": "Runar Hollevik",
+      "sectors": [
+        "processing",
+        "logistics",
+        "retail",
+        "foodservice"
+      ],
+      "companies": [
+        "Unil AS",
+        "ASKO Norge AS",
+        "Kiwi Norge AS",
+        "MENY AS",
+        "Kjopmannshuset Norge AS",
+        "NorgesGruppen Servicehandel AS",
+        "NorgesGruppen Detalj AS",
+        "NorgesGruppen Data AS",
+        "BAMA Gruppen AS",
+        "Storcash Norge AS"
+      ]
+    },
+    {
+      "name": "Kristine Stranne",
+      "sectors": [
+        "logistics",
+        "retail",
+        "processing"
+      ],
+      "companies": [
+        "ASKO Norge AS",
+        "Deli de Luca Norge AS",
+        "Joh. Johannson Kaffe AS",
+        "Bakehuset AS"
+      ]
+    },
+    {
+      "name": "Ole Robert Reitan",
+      "sectors": [
+        "retail",
+        "logistics"
+      ],
+      "companies": [
+        "REMA 1000 Norge AS",
+        "REMA 1000 A/S",
+        "REMA Distribusjon Norge AS",
+        "BAMA Gruppen AS",
+        "Reitan AS",
+        "REMA 1000 AS",
+        "Reitan Convenience AS",
+        "Uno-X Mobility AS",
+        "Reitan Kapital AS"
+      ]
+    },
+    {
+      "name": "Magnus Reitan",
+      "sectors": [
+        "logistics",
+        "retail"
+      ],
+      "companies": [
+        "REMA Distribusjon Norge AS",
+        "Reitan AS",
+        "Reitan Convenience AS",
+        "Reitan Kapital AS",
+        "Reitan Retail AS"
+      ]
+    },
+    {
+      "name": "Tore Bekken",
+      "sectors": [
+        "retail",
+        "logistics"
+      ],
+      "companies": [
+        "Dagrofa A/S",
+        "ASKO Midt-Norge AS",
+        "ASKO Norge AS",
+        "NorgesGruppen Data AS"
+      ]
+    },
+    {
+      "name": "Oyvind Andersen",
+      "sectors": [
+        "retail",
+        "processing"
+      ],
+      "companies": [
+        "Kiwi Norge AS",
+        "Joh. Johannson Kaffe AS",
+        "Bakehuset AS"
+      ]
+    },
+    {
+      "name": "Trond Bentestuen",
+      "sectors": [
+        "retail",
+        "logistics"
+      ],
+      "companies": [
+        "REMA 1000 Norge AS",
+        "REMA Distribusjon Norge AS"
+      ]
+    },
+    {
+      "name": "Dina Thune",
+      "sectors": [
+        "logistics",
+        "retail"
+      ],
+      "companies": [
+        "ASKO Norge AS",
+        "Kjopmannshuset Norge AS"
+      ]
+    },
+    {
+      "name": "Finn Torstein Dybvik",
+      "sectors": [
+        "retail",
+        "processing"
+      ],
+      "companies": [
+        "NorgesGruppen Servicehandel AS",
+        "Bakehuset AS"
+      ]
+    },
+    {
+      "name": "Johan Johannson",
+      "sectors": [
+        "processing",
+        "retail"
+      ],
+      "companies": [
+        "Joh. Johannson Kaffe AS",
+        "NorgesGruppen ASA"
+      ]
+    },
+    {
+      "name": "Geir Alsaker",
+      "sectors": [
+        "processing",
+        "retail"
+      ],
+      "companies": [
+        "Bakehuset AS",
+        "NorgesGruppen Regnskap AS"
+      ]
+    }
+  ],
+  "topCompaniesByInterlockDegree": [
+    {
+      "company": "BAMA Gruppen AS",
+      "sector": "logistics",
+      "interlockDegree": 17
+    },
+    {
+      "company": "ASKO Norge AS",
+      "sector": "logistics",
+      "interlockDegree": 14
+    },
+    {
+      "company": "NorgesGruppen Data AS",
+      "sector": "retail",
+      "interlockDegree": 12
+    },
+    {
+      "company": "Kiwi Norge AS",
+      "sector": "retail",
+      "interlockDegree": 11
+    },
+    {
+      "company": "Reitan AS",
+      "sector": "retail",
+      "interlockDegree": 11
+    },
+    {
+      "company": "Reitan Convenience AS",
+      "sector": "retail",
+      "interlockDegree": 11
+    },
+    {
+      "company": "MENY AS",
+      "sector": "retail",
+      "interlockDegree": 10
+    },
+    {
+      "company": "NorgesGruppen Servicehandel AS",
+      "sector": "retail",
+      "interlockDegree": 10
+    },
+    {
+      "company": "Uno-X Mobility AS",
+      "sector": "retail",
+      "interlockDegree": 10
+    },
+    {
+      "company": "Reitan Kapital AS",
+      "sector": "retail",
+      "interlockDegree": 10
+    },
+    {
+      "company": "Unil AS",
+      "sector": "processing",
+      "interlockDegree": 9
+    },
+    {
+      "company": "Kjopmannshuset Norge AS",
+      "sector": "retail",
+      "interlockDegree": 9
+    },
+    {
+      "company": "NorgesGruppen Detalj AS",
+      "sector": "retail",
+      "interlockDegree": 9
+    },
+    {
+      "company": "Storcash Norge AS",
+      "sector": "foodservice",
+      "interlockDegree": 9
+    },
+    {
+      "company": "REMA Distribusjon Norge AS",
+      "sector": "logistics",
+      "interlockDegree": 9
+    },
+    {
+      "company": "REMA 1000 AS",
+      "sector": "retail",
+      "interlockDegree": 9
+    },
+    {
+      "company": "REMA 1000 Norge AS",
+      "sector": "retail",
+      "interlockDegree": 8
+    },
+    {
+      "company": "REMA 1000 A/S",
+      "sector": "retail",
+      "interlockDegree": 8
+    },
+    {
+      "company": "Bakehuset AS",
+      "sector": "processing",
+      "interlockDegree": 6
+    },
+    {
+      "company": "Reitan Eiendom AS",
+      "sector": "retail",
+      "interlockDegree": 6
+    }
+  ],
+  "sectorPairBridges": [
+    {
+      "pair": "logistics ↔ retail",
+      "count": 7
+    },
+    {
+      "pair": "processing ↔ retail",
+      "count": 6
+    },
+    {
+      "pair": "logistics ↔ processing",
+      "count": 2
+    },
+    {
+      "pair": "foodservice ↔ logistics",
+      "count": 1
+    },
+    {
+      "pair": "foodservice ↔ processing",
+      "count": 1
+    },
+    {
+      "pair": "foodservice ↔ retail",
+      "count": 1
+    }
+  ]
+}

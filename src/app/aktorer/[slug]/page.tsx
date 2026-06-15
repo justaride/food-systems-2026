@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
+import { Glossary } from '@/components/ui/Glossary'
 import { getActorBySlug } from '@/lib/queries/actors'
 import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
+import { InternalBanner } from '@/components/ui/InternalBanner'
+import { InternalSection } from '@/components/ui/InternalSection'
 
 const STANCE_LABELS: Record<string, string> = {
   champion: 'Champion',
@@ -38,6 +41,12 @@ export default async function ActorDetailPage({
 
   return (
     <div className="space-y-6">
+      <nav className="flex items-center gap-2 text-xs text-stone-500">
+        <Link href="/aktorer" className="hover:text-emerald-700">Aktører</Link>
+        <span>/</span>
+        <span className="font-medium text-stone-700">{actor.name}</span>
+      </nav>
+      <InternalBanner note="Intern aktørprofil: påvirkningsvurdering, ikke ekstern fakta-profil." />
       <div>
         <div className="flex flex-wrap items-center gap-2">
           <h1 className="text-2xl font-bold text-stone-900">{actor.name}</h1>
@@ -66,6 +75,8 @@ export default async function ActorDetailPage({
 
         <p className="mt-4 max-w-3xl text-sm leading-relaxed text-stone-700">{actor.roleSummary}</p>
       </div>
+
+      <Glossary category="status" title="Statusforklaringer" />
 
       <div className="grid gap-4 lg:grid-cols-4">
         <Card>
@@ -136,76 +147,78 @@ export default async function ActorDetailPage({
         ]}
       />
 
-      <div className="grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
-        <Card title="Commitment Snapshot">
-          <div className="space-y-4">
-            {actor.currentRelevance && (
-              <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Hvorfor denne aktoren betyr noe na</p>
-                <p className="mt-1 text-sm text-stone-700 leading-relaxed">{actor.currentRelevance}</p>
-              </div>
-            )}
+      <InternalSection label="påvirkningsarbeid (asks, eier, ønsket stance)">
+        <div className="grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
+          <Card title="Commitment Snapshot">
+            <div className="space-y-4">
+              {actor.currentRelevance && (
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Hvorfor denne aktøren betyr noe nå</p>
+                  <p className="mt-1 text-sm text-stone-700 leading-relaxed">{actor.currentRelevance}</p>
+                </div>
+              )}
 
-            {actor.specificAsk && (
-              <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Specific ask</p>
-                <p className="mt-1 text-sm text-stone-700 leading-relaxed">{actor.specificAsk}</p>
-              </div>
-            )}
+              {actor.specificAsk && (
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Specific ask</p>
+                  <p className="mt-1 text-sm text-stone-700 leading-relaxed">{actor.specificAsk}</p>
+                </div>
+              )}
 
-            {actor.nextStep && (
-              <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Neste steg</p>
-                <p className="mt-1 text-sm text-stone-700 leading-relaxed">{actor.nextStep}</p>
-              </div>
-            )}
+              {actor.nextStep && (
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Neste steg</p>
+                  <p className="mt-1 text-sm text-stone-700 leading-relaxed">{actor.nextStep}</p>
+                </div>
+              )}
 
-            {actor.notes && (
-              <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Notater</p>
-                <p className="mt-1 text-sm text-stone-700 leading-relaxed">{actor.notes}</p>
-              </div>
-            )}
-          </div>
-        </Card>
-
-        <Card title="Profil">
-          <div className="space-y-3 text-sm text-stone-700">
-            <div>
-              <p className="text-xs uppercase tracking-wider text-stone-400">Onsket stance</p>
-              <p className="mt-1">{actor.desiredStance ? STANCE_LABELS[actor.desiredStance] ?? actor.desiredStance : 'Ikke satt'}</p>
+              {actor.notes && (
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Notater</p>
+                  <p className="mt-1 text-sm text-stone-700 leading-relaxed">{actor.notes}</p>
+                </div>
+              )}
             </div>
-            <div>
-              <p className="text-xs uppercase tracking-wider text-stone-400">Tematagger</p>
-              <div className="mt-2 flex flex-wrap gap-1">
-                {actor.themeTags.length > 0 ? (
-                  actor.themeTags.map(tag => (
-                    <span key={tag} className="text-[10px] px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 border border-stone-200">
-                      {tag}
-                    </span>
-                  ))
-                ) : (
-                  <span className="text-stone-500">Ingen tagger</span>
-                )}
-              </div>
-            </div>
-            {actor.company && (
+          </Card>
+
+          <Card title="Profil">
+            <div className="space-y-3 text-sm text-stone-700">
               <div>
-                <p className="text-xs uppercase tracking-wider text-stone-400">Koblet selskap</p>
-                <div className="mt-1">
-                  <Link href={`/selskap/${actor.company.id}`} className="font-medium text-rose-700 hover:underline">
-                    {actor.company.name}
-                  </Link>
-                  <p className="text-xs text-stone-500 mt-1">
-                    {actor.company.valueChainStage ?? 'ukjent ledd'}
-                    {actor.company.ownershipType ? ` · ${actor.company.ownershipType}` : ''}
-                  </p>
+                <p className="text-xs uppercase tracking-wider text-stone-400">Ønsket stance</p>
+                <p className="mt-1">{actor.desiredStance ? STANCE_LABELS[actor.desiredStance] ?? actor.desiredStance : 'Ikke satt'}</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-wider text-stone-400">Tematagger</p>
+                <div className="mt-2 flex flex-wrap gap-1">
+                  {actor.themeTags.length > 0 ? (
+                    actor.themeTags.map(tag => (
+                      <span key={tag} className="text-[10px] px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 border border-stone-200">
+                        {tag}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="text-stone-500">Ingen tagger</span>
+                  )}
                 </div>
               </div>
-            )}
-          </div>
-        </Card>
-      </div>
+              {actor.company && (
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-stone-400">Koblet selskap</p>
+                  <div className="mt-1">
+                    <Link href={`/selskap/${actor.company.id}`} className="font-medium text-rose-700 hover:underline">
+                      {actor.company.name}
+                    </Link>
+                    <p className="text-xs text-stone-500 mt-1">
+                      {actor.company.valueChainStage ?? 'ukjent ledd'}
+                      {actor.company.ownershipType ? ` · ${actor.company.ownershipType}` : ''}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </Card>
+        </div>
+      </InternalSection>
 
       {actor.contacts.length > 0 && (
         <Card title="Kontakter">

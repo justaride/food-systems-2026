@@ -64,7 +64,7 @@ export function KommunikasjonContent({ communications }: { communications: Commu
                     href={`/bibliotek/${item.documentSlug}`}
                     className="text-emerald-700 hover:underline"
                   >
-                    Apne dokument
+                    Åpne dokument
                   </Link>
                 )}
               </div>

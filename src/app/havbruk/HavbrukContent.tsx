@@ -164,7 +164,7 @@ export function HavbrukContent({
           </div>
         </div>
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
-          <div className="text-xs uppercase tracking-wider text-stone-400">MTB totalt</div>
+          <div className="text-xs uppercase tracking-wider text-stone-400">MTB (maks tillatt biomasse)</div>
           <div className="text-2xl font-bold text-stone-900">
             {Math.round(totalCapacityTonnes / 1000).toLocaleString('no')}k tonn
           </div>

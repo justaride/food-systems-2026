@@ -38,6 +38,15 @@ export function CoverageOverview() {
           </div>
         ))}
       </div>
+      <details className="mt-3 border-t border-stone-100 pt-2">
+        <summary className="cursor-pointer text-xs text-stone-500">Hva betyr merkene?</summary>
+        <div className="mt-2 space-y-1 text-[11px] leading-relaxed text-stone-500">
+          <p><strong>Tid:</strong> øyeblikksbilde = ett enkelt år · flere år = spredte år · tidsserie = minst fem sammenhengende år.</p>
+          <p><strong>Geografi:</strong> NO/DK = ett land · Norden (5) = alle fem · «NO → nordisk ⚠» = kun norske data bak en nordisk-presentert figur.</p>
+          <p><strong>Verifisering:</strong> andel poster en person har kvalitetssjekket manuelt. «ikke sporet» = datasettet har ingen verifiseringsdata (0 rader).</p>
+          <p><strong>«Beregnet … (local)»</strong> = beregnet mot lokal database, ikke produksjon.</p>
+        </div>
+      </details>
     </Card>
   )
 }

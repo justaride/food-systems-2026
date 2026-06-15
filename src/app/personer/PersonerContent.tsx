@@ -71,7 +71,7 @@ export function PersonerContent({ persons }: { persons: PersonProfileRow[] }) {
             <div className="text-2xl font-bold text-stone-900">{totalRoles}</div>
           </div>
           <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
-            <div className="text-xs uppercase tracking-wider text-stone-400">Interlocking</div>
+            <div className="text-xs uppercase tracking-wider text-stone-400">Kryssverv</div>
             <div className="text-2xl font-bold text-stone-900">{interlockingCount}</div>
           </div>
         </div>
@@ -105,7 +105,7 @@ export function PersonerContent({ persons }: { persons: PersonProfileRow[] }) {
       </Card>
 
       {filtered.length === 0 ? (
-        <EmptyState message="Ingen personer matcher soket" />
+        <EmptyState message="Ingen personer matcher søket" />
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map(person => (

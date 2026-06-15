@@ -20,11 +20,11 @@ export const verdikjedeStages: VerdikjedeStage[] = [
       'Nordisk primærproduksjon preges av konsolidering (2-3 % færre bruk per år), sterk kooperativ organisering og klimavolatilitet. Danmark dominerer volummessig med over 300 % selvforsyning, mens Norge har lavest areal (3 % av landareal) og lavest selvforsyningsgrad (47 %). Sverige leder på økologisk andel (18,4 % av UAA i Eurostat 2023; foreløpig 16,7 % i 2024). Alle land opplever rask nedgang i antall bruk og økning i gårdsstørrelse. Kornberedskap er tilbake på agendaen etter Ukraina-krigen.',
     keyPoints: [
       'Danmark har 62 % av landarealet til jordbruk — høyest i Norden og blant de høyeste i Europa',
-      'Norges kornavlinger i 2023 var dårligste på 50+ år grunnet ekstremvaeret Hans',
+      'Norges kornavlinger i 2023 var dårligste på 50+ år grunnet ekstremværet Hans',
       'Finland opprettholder 9 måneders strategisk kornlager — gullstandarden i Norden',
-      'Sverige oppnådde rekordhhoest korn i 2025 (6,4 mill. tonn) — stor årlig volatilitet',
+      'Sverige oppnådde rekordhøst korn i 2025 (6,4 mill. tonn) — stor årlig volatilitet',
       'Kooperativene (Arla, Danish Crown, TINE, Valio, Lantmannen) kontrollerer primærleddet i alle land',
-      'Oekologisk stagnasjon: Sverige falt fra 18,4 % økoandel i 2023 til foreløpig 16,7 % i 2024; Island-data er needs-primary-check',
+      'Økologisk stagnasjon: Sverige falt fra 18,4 % økoandel i 2023 til foreløpig 16,7 % i 2024; Island-data er needs-primary-check',
     ],
     countries: ['NO', 'SE', 'DK', 'FI', 'IS'],
     keyActors: [
@@ -136,9 +136,9 @@ export const verdikjedeStages: VerdikjedeStage[] = [
     id: 'horeca',
     step: 5,
     title: 'HoReCa og storhusholdning',
-    subtitle: 'Hotell, restaurant, catering og offentlig maltid',
+    subtitle: 'Hotell, restaurant, catering og offentlig måltid',
     summary:
-      'Nordisk HoReCa representerer 30-45 % av totalt matforbruk. Norge har høyest grossistkonsentrasjon (ASKO Servering ~70 %). Finland og Sverige tilbyr universelt gratis skolemat (siden 1946/1948), mens Norge og Danmark har matpakkekultur. Compass Group dominerer kontraktcatering etter oppkjøp av Fazer Food Services (2020) og 4Service (2024). København har nadd 84 % økologisk mat i 900 offentlige kjoekken. Wolt dominerer matlevering i hele Norden.',
+      'Nordisk HoReCa representerer 30-45 % av totalt matforbruk. Norge har høyest grossistkonsentrasjon (ASKO Servering ~70 %). Finland og Sverige tilbyr universelt gratis skolemat (siden 1946/1948), mens Norge og Danmark har matpakkekultur. Compass Group dominerer kontraktcatering etter oppkjøp av Fazer Food Services (2020) og 4Service (2024). København har nådd 84 % økologisk mat i 900 offentlige kjøkken. Wolt dominerer matlevering i hele Norden.',
     keyPoints: [
       'Norges foodservice-profittsektor: 76,9 mrd NOK (2024), forventet 92,5 mrd innen 2029',
       'Michelin Guide Nordic 2025: 282 anbefalte restauranter, 6 trestjernes, 39 Green Stars',
@@ -167,11 +167,11 @@ export const verdikjedeStages: VerdikjedeStage[] = [
     title: 'Matsvinn og sirkulær økonomi',
     subtitle: 'Matsvinnreduksjon, biogass, panteordninger og EPR',
     summary:
-      'Norden kaster anslagsvis 3,5-4 millioner tonn mat årlig. Norge har vedtatt Nordens første matsvinnlov (2026) og oppnadd 24 % reduksjon siden 2015. Danmarks hoye per capita-tall (254 kg) skyldes stor foredlingsindustri relativt til befolkning. Panteordningene er blant verdens beste (87-93 % retur). Danmark leder på biogass (>8 000 GWh), Sverige har flest anlegg (330), og Norges potensial er 5 500 GWh — 6,6x nåværende kapasitet. Too Good To Go (København) har 120 mill. brukere globalt.',
+      'Norden kaster anslagsvis 3,5-4 millioner tonn mat årlig. Norge har vedtatt Nordens første matsvinnlov (2026) og oppnådd 24 % reduksjon siden 2015. Danmarks høye per capita-tall (254 kg) skyldes stor foredlingsindustri relativt til befolkning. Panteordningene er blant verdens beste (87-93 % retur). Danmark leder på biogass (>8 000 GWh), Sverige har flest anlegg (330), og Norges potensial er 5 500 GWh — 6,6x nåværende kapasitet. Too Good To Go (København) har 120 mill. brukere globalt.',
     keyPoints: [
       'Norges matsvinnlov (2026) er den første lovfestede matsvinnreduksjonen i Norden',
-      'Norsk dagligvare har oppnadd -42 % matsvinnreduksjon — stoerst av alle ledd',
-      'Danmarks biogassproduksjon (>8 000 GWh) er fjerde stoerst i Europa',
+      'Norsk dagligvare har oppnådd -42 % matsvinnreduksjon — størst av alle ledd',
+      'Danmarks biogassproduksjon (>8 000 GWh) er fjerde størst i Europa',
       'Norges panteordning (Infinitum): 92,3 % returandel — regnes som verdens beste modell',
       'Norden har paradoksalt høyt plastforbruk: ~200 kg/innb i NO og DK vs. 119 kg EU-snitt',
       'Insektoppdrett (Invertapro NO, Enorm DK) konverterer matavfall til fiskefôr-protein',
@@ -232,9 +232,9 @@ export const verdikjedeStages: VerdikjedeStage[] = [
       'Norsk laksenæring brukte 2,26 millioner tonn fôr i 2024 til en verdi av $3,16 mrd — 92 % av råvarene er importert. Fôret har gjennomgått en fundamental transformasjon: marin andel falt fra 89 % (1990) til 22 % (2024), erstattet av vegetabilske råvarer. Kritiske sårbarhetspunkter er soya fra Brasil (94 % fra tre leverandører), fiskemel/olje fra Peru (El Nino-volatilitet) og Vest-Afrikas fiskeolje (matsikkerhetskonflikten). Novel ingredienser utgjør kun 0,4 % — målet er 25 % innen 2030.',
     keyPoints: [
       'El Nino 2023 ga 70 % fangstsvikt i Peru — fiskemelpriser spikret til $1 800+/tonn',
-      'Veramaris algeolje økte produksjonen 61 % i 2024 — naa standardingrediens hos Cargill/EWOS',
+      'Veramaris algeolje økte produksjonen 61 % i 2024 — nå standardingrediens hos Cargill/EWOS',
       'Skretting lanserte verdens første laksefôr helt uten fiskemel (MicroBalance FLX)',
-      '39 NGO-er ba Norge stoppe bruk av vestafrikansk fiskeolje — Skretting stoppet kjoep 2023-24',
+      '39 NGO-er ba Norge stoppe bruk av vestafrikansk fiskeolje — Skretting stoppet kjøp 2023-24',
       '5 mill tonn laks innen 2050 krever ~6,8 mill tonn fôr — umulig uten fôrrevolusjon',
       'Insektprotein (BSF): 4 % i laksefôr ga 9,6 % vektgevinst i kontrollerte forsøk',
     ],
@@ -262,7 +262,7 @@ export const verdikjedeStages: VerdikjedeStage[] = [
       'Island har høyest fiskeforbruk (83,8 kg/innb) — nesten 3x Norge og 6x Finland',
       'Norsk matbudsjett for en familie økte 33 % på tre år (2021-2024)',
       'Nordisk veganmarked: $447 mill (2024), forventet $1 488 mill (2033), CAGR 14,3 %',
-      'REKO-ringer: ~300+ i Norden, stoerst i Finland (160+ ringer, 250 000 kunder)',
+      'REKO-ringer: ~300+ i Norden, størst i Finland (160+ ringer, 250 000 kunder)',
       'Fjørfe erstatter svinekjøtt i hele Norden — tydeligst i Finland (passerte svin i 2023)',
       '56 % av nordiske voksne og 1 av 5 barn er overvektige (NORMO 2025)',
     ],

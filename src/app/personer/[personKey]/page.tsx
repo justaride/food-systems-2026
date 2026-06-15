@@ -70,6 +70,11 @@ export default async function PersonPage({ params }: { params: Promise<{ personK
 
   return (
     <div className="space-y-6">
+      <nav className="flex items-center gap-2 text-xs text-stone-500">
+        <Link href="/personer" className="hover:text-emerald-700">Personer</Link>
+        <span>/</span>
+        <span className="font-medium text-stone-700">{person.name}</span>
+      </nav>
       <div className="flex items-start gap-4">
         <div className="w-16 h-16 rounded-full bg-stone-100 border border-stone-200 flex items-center justify-center text-lg font-bold text-stone-500 shrink-0">
           {person.name.split(' ').map(n => n[0]).join('')}
@@ -93,7 +98,7 @@ export default async function PersonPage({ params }: { params: Promise<{ personK
         <Card title="Biografi (auto-generert)">
           <p className="text-sm text-stone-700 leading-relaxed">{autoBio}</p>
           <p className="mt-2 text-[11px] text-stone-400">
-            Utledet fra registrerte roller — redigerbar biografi kan legges til i PersonProfile-tabellen.
+            Utledet fra registrerte roller — redigerbar biografi kan legges til manuelt.
           </p>
         </Card>
       ) : null}
@@ -146,7 +151,7 @@ export default async function PersonPage({ params }: { params: Promise<{ personK
                     {meta.label}
                   </span>
                   <span className="text-xs text-stone-400 tabular-nums">
-                    {role.fromYear ?? '?'}&ndash;{role.toYear ?? 'na'}
+                    {role.fromYear ?? '?'}&ndash;{role.toYear ?? 'nå'}
                   </span>
                 </div>
               </div>

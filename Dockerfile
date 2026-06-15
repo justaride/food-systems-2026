@@ -21,6 +21,9 @@ COPY prisma ./prisma
 COPY public ./public
 COPY scripts ./scripts
 COPY src ./src
+# i18n-kataloger: src/i18n/request.ts dynamisk-importerer ../../messages/<locale>.json,
+# så Turbopack trenger messages/ tilstede for å bygge dynamic-import-kartet.
+COPY messages ./messages
 # Hvitbok-kapitler leses fra disk ved kjøretid (src/lib/hvitbok/loader.ts)
 COPY content ./content
 COPY research/evidence-pack/*.csv ./research/evidence-pack/

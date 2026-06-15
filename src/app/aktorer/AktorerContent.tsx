@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { useDeferredValue, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { InternalBanner } from '@/components/ui/InternalBanner'
+import { Glossary } from '@/components/ui/Glossary'
 
 type ActorRow = {
   id: string
@@ -155,17 +157,18 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
+      <InternalBanner note="Intern interessent-/påvirkningsanalyse: stance, makt/interesse-score og «asks» er teamets arbeidsvurderinger, ikke eksterne fakta." />
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-stone-900 tracking-tight">Aktorkart</h1>
+          <h1 className="text-3xl font-bold text-stone-900 tracking-tight">Aktørkart</h1>
           <p className="text-stone-500 mt-2 max-w-3xl">
-            Prioritert aktoroversikt for TG-mobilisering. Kombinerer rolle, stance, power/interesse,
+            Prioritert aktøroversikt for TG-mobilisering. Kombinerer rolle, stance, power/interesse,
             konkrete asks og neste steg med dokumentgrunnlag og relasjoner.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
-            <div className="text-xs uppercase tracking-wider text-stone-400">Aktorer</div>
+            <div className="text-xs uppercase tracking-wider text-stone-400">Aktører</div>
             <div className="text-2xl font-bold text-stone-900">{stats.total}</div>
           </div>
           <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
@@ -182,6 +185,8 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
           </div>
         </div>
       </div>
+
+      <Glossary category="status" title="Statusforklaringer" />
 
       <Card>
         <div className="grid gap-4 lg:grid-cols-[1.4fr,1fr]">

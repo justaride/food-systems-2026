@@ -127,7 +127,7 @@ export default function DataSourcesPanel() {
                 <line x1="12" y1="17" x2="12.01" y2="17" />
               </svg>
               <p className="text-xs text-amber-700">
-                All data er samlet fra offentlige kilder og årsrapporter. Beregninger (matørken, sårbarhet) er modellbaserte og skal tolkes som indikatorer, ikke absolutte verdier. Se <span className="font-mono">DATA-SOURCES.md</span> for fullstendig dokumentasjon.
+                All data er samlet fra offentlige kilder og årsrapporter. Beregninger (matørken, sårbarhet) er modellbaserte og skal tolkes som indikatorer, ikke absolutte verdier. Se kildedokumentasjonen for detaljer.
               </p>
             </div>
           </div>

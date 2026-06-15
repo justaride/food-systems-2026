@@ -87,6 +87,11 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
 
   return (
     <div className="space-y-6">
+      <nav className="flex items-center gap-2 text-xs text-stone-500">
+        <Link href="/selskap" className="hover:text-emerald-700">Selskaper</Link>
+        <span>/</span>
+        <span className="font-medium text-stone-700">{company.name}</span>
+      </nav>
       <div>
         <div className="flex items-center gap-3">
           <h1 className="text-2xl font-bold text-stone-900">{company.name}</h1>
@@ -204,7 +209,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
               <table className="w-full text-xs">
                 <thead>
                   <tr className="border-b border-stone-200">
-                    <th className="text-left py-2 text-stone-400">Ar</th>
+                    <th className="text-left py-2 text-stone-400">År</th>
                     <th className="text-right py-2 text-stone-400">Omsetning</th>
                     <th className="text-right py-2 text-stone-400">Driftsresultat</th>
                     <th className="text-right py-2 text-stone-400">Margin</th>
@@ -305,7 +310,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
               <span className="text-amber-900">
                 <strong>{interlockingMemberCount}</strong> av {company.boardMembers.length} har styreverv i andre selskaper.
                 <span className="ml-2 font-medium">
-                  Interlock-score {interlockSummary.interlockScore}
+                  Krysstyre-score {interlockSummary.interlockScore}
                 </span>
                 {interlockSummary.connectedCompanies > 0 && (
                   <span className="ml-2 text-amber-800">
@@ -382,7 +387,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                   <th className="text-left py-2 text-stone-400">Type</th>
                   <th className="text-left py-2 text-stone-400">Prosjekt</th>
                   <th className="text-right py-2 text-stone-400">Belop</th>
-                  <th className="text-right py-2 text-stone-400">Ar</th>
+                  <th className="text-right py-2 text-stone-400">År</th>
                 </tr>
               </thead>
               <tbody>

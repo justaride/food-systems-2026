@@ -1,0 +1,37 @@
+<svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" font-family="Inter,Arial,sans-serif">
+<rect width="580" height="360" fill="#ffffff"/>
+<text x="290" y="26" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle">Pris-asymmetri i fiskeforedling — «rockets and feathers»</text>
+<text x="290" y="44" font-size="10.5" fill="#78716c" text-anchor="middle">Nedstrøms PPI fanger oppstrøms lakspris-økninger raskere/fullere enn prisfall. SSB 03024 + 12462 (SNN102), 2019M01–2025M12, n=84.</text>
+
+<!-- Left: NARDL cumulative pass-through up vs down -->
+<text x="40" y="78" font-size="11.5" font-weight="600" fill="#0f172a">Kumulativt gjennomslag (NARDL)</text>
+<line x1="120" y1="92" x2="120" y2="230" stroke="#e7e5e4" stroke-width="1"/>
+<line x1="120" y1="230" x2="300" y2="230" stroke="#e7e5e4" stroke-width="1"/>
+<!-- scale: 170px / 0.30 ; baseline y=230 ; bottom -->
+<!-- opp 0.272 -> h=154 -->
+<rect x="150" y="76" width="48" height="154" rx="2" fill="#075985"/><text x="174" y="70" font-size="11" fill="#075985" text-anchor="middle">+0,272</text>
+<text x="174" y="245" font-size="10" fill="#44403c" text-anchor="middle">ved prisøkning</text>
+<!-- ned 0.134 -> h=76 -->
+<rect x="232" y="154" width="48" height="76" rx="2" fill="#bae6fd"/><text x="256" y="148" font-size="11" fill="#0369a1" text-anchor="middle">+0,134</text>
+<text x="256" y="245" font-size="10" fill="#44403c" text-anchor="middle">ved prisfall</text>
+<text x="40" y="276" font-size="10.5" font-weight="600" fill="#0f172a">Asymmetri β_opp − β_ned = +0,139</text>
+<text x="40" y="292" font-size="10.5" fill="#44403c">Wald t = 14,0 — sterkt signifikant. Nedstrøms fanger ~2× mer</text>
+<text x="40" y="306" font-size="10.5" fill="#44403c">av økninger enn av fall.</text>
+
+<!-- Right: 2025 illustration -->
+<text x="330" y="78" font-size="11.5" font-weight="600" fill="#0f172a">2025: råpris ned, foredlings-PPI opp</text>
+<!-- arrows -->
+<text x="345" y="120" font-size="11" fill="#44403c">Lakseråpris (kr/kg)</text>
+<text x="345" y="140" font-size="13" font-weight="700" fill="#b91c1c">94,4 → 81,8</text>
+<text x="470" y="140" font-size="12" font-weight="700" fill="#b91c1c">▼ ~13 %</text>
+<text x="345" y="178" font-size="11" fill="#44403c">Foredlings-PPI (SNN102)</text>
+<text x="345" y="198" font-size="13" font-weight="700" fill="#15803d">148,2 → 162,8</text>
+<text x="470" y="198" font-size="12" font-weight="700" fill="#15803d">▲ ~10 %</text>
+<text x="330" y="234" font-size="10" fill="#44403c">Av 40 mnd med stigende lakspris steg PPI i 78 %;</text>
+<text x="330" y="248" font-size="10" fill="#44403c">av 43 mnd med fallende lakspris steg PPI likevel i 51 %.</text>
+<rect x="330" y="266" width="220" height="44" rx="4" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
+<text x="340" y="284" font-size="9.5" font-weight="600" fill="#b45309">Forbehold</text>
+<text x="340" y="300" font-size="9.5" fill="#92400e">Valuta ikke kontrollert — NOK-svekkelse kan løfte eksport-PPI.</text>
+
+<text x="290" y="348" font-size="9" fill="#a8a29e" text-anchor="middle">Metodepresedens kvantitativ-dybdeanalyse §H-NY1. Prisatferd/mønster, ikke margin-anklage. Intern STØTTET (medium-høy tillit).</text>
+</svg>
