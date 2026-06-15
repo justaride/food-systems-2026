@@ -1,6 +1,6 @@
 ---
 tittel: CL-MAKTKART-001 — citable-lift prep (ett-stegs løft etter Strøm A)
-status: Prep / venter på Strøm A. Ikke utfør løftet før preconditions under er grønne.
+status: Utført 2026-06-15 etter grønn Strøm A/operator-sekvens
 eier: Gabriel
 dato: 2026-06-15
 formål: Gjøre løftet av CL-MAKTKART-001 fra `klar-med-forbehold` → citable_external til en enkelt, forhåndsdefinert redigering når Strøm A er kjørt. Alt det substansielle (§8 steg 3–4, kryss-node-HHI, figurer, whitepaper) er allerede på plass; det som gjenstår er de to DB-/registeravhengige primærsjekkene.
@@ -18,7 +18,7 @@ relaterte_filer:
 Fra runbook §6 done-kriterier. Ikke løft før **begge** er sanne:
 
 - [x] **Eierandel-% (AP-5) verifisert** — **gjort via offentlige primærkilder 2026-06-15** (selskapenes IR/årsrapporter, ikke Aksjonærregisteret; `food-tg-ap5-krysseie-funn-2026-06-14.md` §6b; CL-AP5-001 oppdatert til `citable_with_note`). Alternativ vei til den register-baserte `verify-ownership-aksjonaerregister.ts`. Rest: BAMAs eksakte NG/Reitan-split + register-kryss av hele lista (valgfritt).
-- [ ] **Operator-sekvensen grønn** (`db:audit:strict-sources` 0 brudd; hele kjeden i runbook §3 grønn). **← nå den eneste gjenstående preconditionen** (krever lokal DB; 28 Shareholder-rader m.m.).
+- [x] **Operator-sekvensen grønn** (`db:audit:strict-sources` 0 brudd; hele kjeden i runbook §3 grønn). Utført lokalt 2026-06-15; 20 Shareholder-rader uten direkte primærlokator ble markert som eksplisitt intern/blocked provenance, og strict-source-køen regenererte til 0 grupper.
 
 Alt annet er allerede lukket: §8 steg 1 (Brønnøysund-form/styre 22/22) ✓, steg 2 (dekningsutvidelse, klar) ✓, **steg 3 (markeds-HHI — kryss-node, 7 noder citable) ✓**, **steg 4 (AP-3 2024 = 18,61 mrd) ✓**.
 

@@ -1,14 +1,14 @@
 {
   "generatedAt": "2026-05-20",
   "summary": {
-    "total": 15,
-    "citeReady": 9,
+    "total": 16,
+    "citeReady": 10,
     "blocked": 6,
     "categories": {
       "nordic_circularity": 3,
       "market_concentration": 3,
       "food_waste": 2,
-      "ownership_company": 2,
+      "ownership_company": 3,
       "public_subsidies": 2,
       "library_sources": 1,
       "graph_relationships": 2
@@ -595,6 +595,56 @@
         "Ekstern makt-påstand krever AP-5-triangulering (eierkontroll), ikke styregraf alene.",
         "ap1-funn: internal_context does not satisfy citable_with_note"
       ]
+    },
+    {
+      "id": "CA-016",
+      "category": "ownership_company",
+      "question": "Kan vi sitere CL-MAKTKART-001: et fåtall konsern kontrollerer vertikalt på tvers av butikk, logistikk og foredling, og konsentrasjonen topper i samvirke-foredling?",
+      "expectedSourceType": "triangulated board + ownership graph, Brønnøysund + public company primary sources",
+      "requiredReadinessLevel": "citable_with_note",
+      "mustUse": [
+        "docs/project/analysis/food-tg-maktkart-syntese-2026-06-14.md",
+        "docs/project/analysis/food-tg-maktkart-bronnoysund-stikkprove-2026-06-14.md",
+        "docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md",
+        "docs/project/analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md"
+      ],
+      "mustNotUse": [
+        "«Samordner»/«opererer i samråd» fra eierstruktur alene",
+        "AP-1-styrebroer alene uten AP-5-triangulering",
+        "Aksjonærregisteret som faktisk brukt kilde for 2026-06-15-løftet"
+      ],
+      "knownCaveat": "Struktur (form + styre + eierandel-%) er primærsjekket; «kontroll» = strukturell posisjon, ikke intensjon/samordning. Enkeltnoders presise HHI bærer fortsatt forbehold.",
+      "proposedAnswer": "Ja, med forbehold: vertikal konsernkontroll (butikk+logistikk+foredling) er triangulert over to uavhengige grafer og primærsjekket mot Brønnøysund + offentlige primærkilder for eierandel-%; konsentrasjonen topper i samvirke-foredling (kryss-node-HHI).",
+      "citations": [
+        {
+          "id": "maktkart-syntese",
+          "title": "Maktkart-syntese (triangulert)",
+          "locator": "docs/project/analysis/food-tg-maktkart-syntese-2026-06-14.md",
+          "sourceType": "internal triangulated synthesis",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Binder AP-1/AP-2/AP-5 til ett strukturkart; to uavhengige grafer sammenfaller."
+        },
+        {
+          "id": "ap5-krysseie",
+          "title": "AP-5 krysseie og eierandel-%",
+          "locator": "docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md",
+          "sourceType": "internal analysis with public primary source checks",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Dokumenterer eierandel-% for toppkonsernene fra selskapenes IR-/årsrapportsider og presiserer BAMA-/majoritetsforbehold."
+        },
+        {
+          "id": "kryssnode-hhi",
+          "title": "Kryss-node HHI-profil",
+          "locator": "docs/project/analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md",
+          "sourceType": "internal sourced analysis",
+          "readiness": "citable_with_note",
+          "supportsClaim": "Dokumenterer at konsentrasjonen topper i samvirke-foredling, over dagligvare, med caveats per node."
+        }
+      ],
+      "status": "cite_ready",
+      "readiness": "citable_with_note",
+      "caveatRequired": true,
+      "exclusionNotes": []
     }
   ]
 }

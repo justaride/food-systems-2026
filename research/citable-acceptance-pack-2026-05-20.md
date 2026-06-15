@@ -2,7 +2,7 @@
 
 Generated: 2026-05-20
 
-Summary: 9/15 cite-ready, 6 blocked.
+Summary: 10/16 cite-ready, 6 blocked.
 
 A blocked result is intentional when the current evidence only supports internal context or `citable_with_note` while the question requires `citable_external`.
 
@@ -236,3 +236,19 @@ A blocked result is intentional when the current evidence only supports internal
   - AP-1 alene er intern baseline (36 % styredekning) — fail-closed til primærsjekk + dekningsutvidelse (~47 %).
   - Ekstern makt-påstand krever AP-5-triangulering (eierkontroll), ikke styregraf alene.
   - ap1-funn: internal_context does not satisfy citable_with_note
+
+## CA-016: Kan vi sitere CL-MAKTKART-001: et fåtall konsern kontrollerer vertikalt på tvers av butikk, logistikk og foredling, og konsentrasjonen topper i samvirke-foredling?
+
+- Status: `cite_ready`
+- Readiness: `citable_with_note`
+- Caveat required: yes
+- Proposed answer: Ja, med forbehold: vertikal konsernkontroll (butikk+logistikk+foredling) er triangulert over to uavhengige grafer og primærsjekket mot Brønnøysund + offentlige primærkilder for eierandel-%; konsentrasjonen topper i samvirke-foredling (kryss-node-HHI).
+- Required readiness: `citable_with_note`
+- Expected source type: triangulated board + ownership graph, Brønnøysund + public company primary sources
+- Known caveat: Struktur (form + styre + eierandel-%) er primærsjekket; «kontroll» = strukturell posisjon, ikke intensjon/samordning. Enkeltnoders presise HHI bærer fortsatt forbehold.
+- Citations:
+  - maktkart-syntese: Maktkart-syntese (triangulert) (internal triangulated synthesis, citable_with_note) - docs/project/analysis/food-tg-maktkart-syntese-2026-06-14.md. Supports: Binder AP-1/AP-2/AP-5 til ett strukturkart; to uavhengige grafer sammenfaller.
+  - ap5-krysseie: AP-5 krysseie og eierandel-% (internal analysis with public primary source checks, citable_with_note) - docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md. Supports: Dokumenterer eierandel-% for toppkonsernene fra selskapenes IR-/årsrapportsider og presiserer BAMA-/majoritetsforbehold.
+  - kryssnode-hhi: Kryss-node HHI-profil (internal sourced analysis, citable_with_note) - docs/project/analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md. Supports: Dokumenterer at konsentrasjonen topper i samvirke-foredling, over dagligvare, med caveats per node.
+- Exclusion notes:
+  - None

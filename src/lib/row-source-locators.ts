@@ -988,16 +988,21 @@ const BLOCKED_BUSINESS_RELATIONSHIP_SOURCE_LABELS = new Set([
   'Bransjedata',
   'Bransjekunnskap',
   'Bransjekunnskap / ASKO aarsrapport',
+  'Axel Johnson AB arsredovisning 2024',
+  'coop.no',
   'Dagligvaretilsynet / Bransjedata',
   'Dansk Erhverv foodservice rapport 2024',
   'Den Magiske Fabrikken',
   'Compass Group plc pressemelding 2024 (4Service-oppkjop)',
+  'Kinnevik press release 2021',
   'Lantmannen.com',
   'Mathem press release 2023',
   'mn24.no',
   'Mowi Industry Handbook',
   'NorgesGruppen/Dagrofa samarbeidsavtale',
   'Nofima Prosjektoversikt',
+  'Schwarz Group Annual Report 2024',
+  'servicegrossistene.no',
   'Sjømatrådet',
   'Svensk Dagligvaruhandel marknadsrapport 2024',
   'TGTG Partnerliste 2024',
@@ -1760,6 +1765,19 @@ export function resolveCompanyPropertySourceLocator(row: CompanyPropertySourceRo
   const source = row.source?.trim()
   if (!source) return null
 
+  if (source === 'asko.no — Sentrallager Vestby') return ASKO_SENTRALLAGER_TRANSPORT_URL
+  if (source === 'Reitan Eiendom arsrapport 2024') return 'https://2024.reitaneiendom.no/'
+  if (
+    [
+      'REBUS transfer dec 2023',
+      'Coop Midt-Norge arsrapport 2024',
+      'Himmelgroent founding',
+      'Den Magiske Fabrikken',
+    ].includes(source)
+  ) {
+    return BLOCKED_PROPERTY_UNVERIFIED_LOCATOR
+  }
+
   if (orgNr && isNorwegianOrgNumber(orgNr) && isBronnoysundSource(source)) {
     if (isBronnoysundSubunitSource(source)) {
       return bronnoysundSubunitUrl(orgNr)
@@ -1843,6 +1861,9 @@ export function resolveBusinessRelationshipSourceLocator(
   const normalized = normalizeSourceText(source)
   const orgCandidates = [row.fromCompany?.orgNr, row.toCompany?.orgNr]
 
+  if (source === 'asko.no') return ASKO_CONTACT_URL
+  if (source === 'SOK tilinpaatos 2024') return S_GROUP_2024_FINANCIAL_RESULTS_URL
+
   if (normalized.includes('bama') && orgCandidates.includes('914224314')) {
     return BAMA_ANNUAL_REPORT_2024_URL
   }
@@ -1854,7 +1875,9 @@ export function resolveBusinessRelationshipSourceLocator(
   if (
     normalized.includes('gartnerhallen.no') &&
     orgCandidates.includes('945958405') &&
-    orgCandidates.includes('914224314')
+    (orgCandidates.includes('914224314') ||
+      orgCandidates.includes('936560288') ||
+      orgCandidates.includes('914526647'))
   ) {
     return GARTNERHALLEN_MARKET_BALANCING_URL
   }

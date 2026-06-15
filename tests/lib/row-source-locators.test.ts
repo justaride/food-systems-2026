@@ -2051,6 +2051,39 @@ describe('row source locators', () => {
     )
   })
 
+  it('resolves or blocks strict-source property labels from the local Food TG closeout DB', () => {
+    assert.equal(
+      resolveCompanyPropertySourceLocator({
+        source: 'asko.no — Sentrallager Vestby',
+        company: { orgNr: '912015238' },
+      }),
+      'https://asko.no/kontakt-oss/vare-asko-selskap/asko-sentrallager-og-transport-as/',
+    )
+
+    assert.equal(
+      resolveCompanyPropertySourceLocator({
+        source: 'Reitan Eiendom arsrapport 2024',
+        company: { orgNr: 'NO-REITAN-EIE' },
+      }),
+      'https://2024.reitaneiendom.no/',
+    )
+
+    for (const source of [
+      'REBUS transfer dec 2023',
+      'Coop Midt-Norge arsrapport 2024',
+      'Himmelgroent founding',
+      'Den Magiske Fabrikken',
+    ]) {
+      assert.equal(
+        resolveCompanyPropertySourceLocator({
+          source,
+          company: { orgNr: 'NO-LOCAL-STRICT-SOURCE' },
+        }),
+        'source:blocked-unsourced/company-property-unverified-label',
+      )
+    }
+  })
+
   it('resolves company ownership rows through direct annual reports and transaction announcements', () => {
     assert.equal(
       resolveCompanyOwnershipSourceLocator(
@@ -2303,8 +2336,70 @@ describe('row source locators', () => {
         documentRefs,
         new Map(),
       ),
-      null,
+      'https://gartnerhallen.no/nb/tema/markedsbalansering-i-grontmarkedet/',
     )
+  })
+
+  it('resolves or blocks strict-source business relationship labels from the local Food TG closeout DB', () => {
+    assert.equal(
+      resolveBusinessRelationshipSourceLocator(
+        {
+          source: 'asko.no',
+          fromCompany: { orgNr: '929228723' },
+          toCompany: { orgNr: '819731322' },
+        },
+        new Set(),
+        new Map(),
+      ),
+      'https://asko.no/kontakt-oss/',
+    )
+
+    assert.equal(
+      resolveBusinessRelationshipSourceLocator(
+        {
+          source: 'gartnerhallen.no',
+          fromCompany: { orgNr: '945958405' },
+          toCompany: { orgNr: '936560288' },
+        },
+        new Set(),
+        new Map(),
+      ),
+      'https://gartnerhallen.no/nb/tema/markedsbalansering-i-grontmarkedet/',
+    )
+
+    assert.equal(
+      resolveBusinessRelationshipSourceLocator(
+        {
+          source: 'SOK tilinpaatos 2024',
+          fromCompany: { orgNr: 'FI-0697627-4' },
+          toCompany: { orgNr: 'FI-0116323-9' },
+        },
+        new Set(),
+        new Map(),
+      ),
+      'https://s-ryhma.fi/en/news/s-groups-investments-in-finland-nearly-eur-1-billi/7chnW0iL7yorOogGzyYcSa',
+    )
+
+    for (const source of [
+      'coop.no',
+      'Kinnevik press release 2021',
+      'Schwarz Group Annual Report 2024',
+      'servicegrossistene.no',
+      'Axel Johnson AB arsredovisning 2024',
+    ]) {
+      assert.equal(
+        resolveBusinessRelationshipSourceLocator(
+          {
+            source,
+            fromCompany: { orgNr: 'NO-LOCAL-STRICT-SOURCE-A' },
+            toCompany: { orgNr: 'NO-LOCAL-STRICT-SOURCE-B' },
+          },
+          new Set(),
+          new Map(),
+        ),
+        'source:blocked-unsourced/business-relationship-unverified-label',
+      )
+    }
   })
 
   it('resolves or blocks remaining strict-source business relationship labels', () => {
