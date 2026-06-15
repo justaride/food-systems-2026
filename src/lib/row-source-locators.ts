@@ -1704,7 +1704,6 @@ export function resolveCompanyOwnershipSourceLocator(
 
   if (
     normalized.includes('bronnoysund') &&
-    normalized.includes('arsrapport') &&
     row.parentCompany?.orgNr === '819731322' &&
     row.childCompany?.orgNr === '914224314'
   ) {
@@ -1895,6 +1894,14 @@ export function resolveBusinessRelationshipSourceLocator(
 
   if (normalized.includes('kkv') && normalized.includes('pty')) {
     return reportSourceUrlById.get('kkv-fi-4a-dominans')?.trim() || KKV_FI_4A_DOMINANCE_URL
+  }
+
+  if (
+    normalized.includes('bransjeanalyse') &&
+    orgCandidates.includes('986228608') &&
+    orgCandidates.includes('911608103')
+  ) {
+    return YARA_ANNUAL_REPORT_2024_URL
   }
 
   // Konsern annual report named in the relationship source (e.g. "Lerøy årsrapport").

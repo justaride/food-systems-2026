@@ -9,7 +9,7 @@ Dette notatet oversetter tilgjengelige agent-skills til en praktisk arbeidsplan 
 - geodata og kart i `src/components/map/` og `src/lib/map/`
 - forskningskorpus i `research/` og dokumentmodeller i databasen
 - API-ruter og query-lag i `src/app/api/` og `src/lib/queries/`
-- forelopig ingen synlig testpakke eller `test`-script i `package.json`
+- test- og audit-stack i `package.json`: `npm run test`, `npm run lint`, `npm run build`, `npm run db:audit`, `npm run audit:citable`, `npm run gate:overclaim`
 
 ## Prosjektsignal
 
@@ -18,8 +18,18 @@ Dette prosjektet er i praksis tre ting samtidig:
 1. En kunnskapsbase for dokumenter, aktorer, selskaper og innsikt
 2. En analyseapp med sokesystem, grafer og dashboards
 3. En geospatial prototype med kartlag, flyt og sårbarhetsanalyse
+4. Et kilde- og claim-governance-system for whitepaper-klare fakta
 
 Skill-valget bør derfor dekke app-utvikling, retrieval/kunnskapsforvaltning, geodata og test.
+
+## Karpathy-overforing
+
+Fra `multica-ai/andrej-karpathy-skills` bor dette prosjektet adoptere prinsippene, ikke kopiere hele filen:
+
+- Think before implementing: si fra om antakelser, uklarheter og trade-offs for ikke-trivielle endringer
+- Simplicity first: ingen spekulative features, abstractions eller fleksibilitet uten konkret behov
+- Surgical changes: hver endret linje skal kunne knyttes til brukerens bestilling
+- Goal-driven execution: definer suksesskriterier og verifikasjon for arbeidet, og loop til de er oppfylt
 
 ## Kjerne-skills
 
@@ -78,7 +88,14 @@ Bruk dette som default med mindre en oppgave tydelig tilsier noe annet:
 
 - Bruk `backend-testing` for query-lag, API-ruter og importskript
 - Bruk `playwright` for brukerreiser som søk, filtrering, navigasjon og kartinteraksjon
-- Dette bør prioriteres tidlig siden prosjektet per nå ikke viser en tydelig testpakke
+- Prosjektet har na en tydelig test- og audit-stack. Velg smaleste relevante gate, men ikke avslutt app-, claim- eller dataendringer uten verifikasjon.
+
+| Endringstype | Relevante gates |
+|---|---|
+| App/UI eller query-logikk | `npm run test`, `npm run lint`, `npm run build` |
+| Importer og datamodell | relevant `db:import:*`, `npm run db:audit`, eventuelt `npm run db:audit:strict-sources` |
+| Kilder, claims og whitepaper | `npm run audit:citable`, `npm run gate:overclaim`, `npm run research:citation-readiness-queue` |
+| Research-binarier og artifact hygiene | `npm run audit:research-artifacts -- --base=origin/main` |
 
 ## Eksterne skills verdt å installere senere
 

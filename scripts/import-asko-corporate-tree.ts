@@ -1,6 +1,10 @@
 import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import {
+  boardMemberProvenanceData,
+  resolveBoardMemberAnnualReportSourceLocator,
+} from '../src/lib/board-member-provenance'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -13,6 +17,13 @@ function normalizePersonKey(name: string): string {
     .replace(/[^a-z ]/g, '')
     .trim()
     .replace(/\s+/g, '-')
+}
+
+async function loadDocumentRefs() {
+  const documents = await prisma.document.findMany({ select: { id: true, slug: true } })
+  return new Set(
+    documents.flatMap((document) => [document.id, document.slug].filter(Boolean) as string[]),
+  )
 }
 
 type AskoCompany = {
@@ -321,6 +332,8 @@ async function resolveCompanyId(orgNr: string): Promise<string | null> {
 async function importAskoCompanies() {
   console.log('Importing ASKO regional companies...\n')
   let created = 0
+  const documentRefs = await loadDocumentRefs()
+  const importedAt = new Date()
 
   for (const c of askoCompanies) {
     const company = await prisma.company.upsert({
@@ -354,6 +367,10 @@ async function importAskoCompanies() {
 
     if (c.boardMembers) {
       await prisma.boardMember.deleteMany({ where: { companyId: company.id } })
+      const boardMemberSourceLocator = resolveBoardMemberAnnualReportSourceLocator(
+        { company: { orgNr: c.orgNr } },
+        documentRefs,
+      )
       for (const b of c.boardMembers) {
         await prisma.boardMember.create({
           data: {
@@ -361,6 +378,7 @@ async function importAskoCompanies() {
             personName: b.personName,
             role: b.role,
             personKey: normalizePersonKey(b.personName),
+            ...boardMemberProvenanceData(boardMemberSourceLocator, importedAt),
           },
         })
       }
@@ -386,6 +404,12 @@ async function updateAskoHoldingBoard() {
   }
 
   await prisma.boardMember.deleteMany({ where: { companyId: holdingId } })
+  const documentRefs = await loadDocumentRefs()
+  const importedAt = new Date()
+  const boardMemberSourceLocator = resolveBoardMemberAnnualReportSourceLocator(
+    { company: { orgNr: ASKO_PARENT_ORG } },
+    documentRefs,
+  )
   for (const b of askoHoldingBoard) {
     await prisma.boardMember.create({
       data: {
@@ -393,6 +417,7 @@ async function updateAskoHoldingBoard() {
         personName: b.personName,
         role: b.role,
         personKey: normalizePersonKey(b.personName),
+        ...boardMemberProvenanceData(boardMemberSourceLocator, importedAt),
       },
     })
     console.log(`  ${b.personName} (${b.role})`)

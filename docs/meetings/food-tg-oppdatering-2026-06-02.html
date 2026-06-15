@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food TG — Prosjektoppdatering 26.05 → 02.06.2026</title>
+<style>
+  :root{
+    --ink:#1c2620; --muted:#5d6b62; --line:#dfe5e0; --bg:#f6f8f6;
+    --green:#2f6b4f; --green-soft:#e7f1ea; --amber:#9a6b12; --amber-soft:#fbf2dc;
+    --red:#9a3324; --red-soft:#f7e4e1; --blue:#23506b; --blue-soft:#e4eef4;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  .wrap{max-width:840px; margin:0 auto; padding:0 22px 64px}
+
+  /* Header */
+  header.masthead{
+    background:linear-gradient(135deg,#234c39,#2f6b4f);
+    color:#fff; margin-bottom:26px;
+    border-radius:0 0 14px 14px;
+  }
+  .masthead-inner{max-width:840px; margin:0 auto; padding:30px 22px 26px}
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:.09em; font-size:12px;
+    font-weight:600; opacity:.85; margin:0 0 8px;
+  }
+  h1{font-size:27px; line-height:1.2; margin:0 0 6px; font-weight:700}
+  .subtitle{margin:0; opacity:.92; font-size:15px}
+
+  /* Meta grid */
+  .meta{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:10px;
+    overflow:hidden; margin:0 0 28px;
+  }
+  .meta div{background:var(--card); padding:11px 14px}
+  .meta dt{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin:0 0 3px}
+  .meta dd{margin:0; font-weight:600; font-size:14px}
+
+  h2{
+    font-size:19px; margin:34px 0 12px; padding-bottom:7px;
+    border-bottom:2px solid var(--green-soft);
+  }
+  h2 .n{
+    display:inline-grid; place-items:center; width:25px; height:25px;
+    background:var(--green); color:#fff; border-radius:7px; font-size:13px;
+    margin-right:9px; vertical-align:2px;
+  }
+  h3{font-size:15px; margin:18px 0 6px}
+  p{margin:0 0 12px}
+  ul{margin:0 0 12px; padding-left:20px}
+  li{margin:0 0 6px}
+  a{color:var(--blue); text-decoration:none; border-bottom:1px solid #bcd2e0}
+  a:hover{border-bottom-color:var(--blue)}
+  code{
+    font:13px/1.4 "SF Mono",ui-monospace,Menlo,Consolas,monospace;
+    background:#eef2ef; padding:1px 5px; border-radius:4px; color:#33483d;
+  }
+
+  /* Cards */
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:11px;
+    padding:16px 18px; margin:0 0 14px;
+  }
+  .lede{
+    background:var(--green-soft); border:1px solid #cbe0d3; border-left:4px solid var(--green);
+    border-radius:10px; padding:16px 18px; margin:0 0 26px;
+  }
+  .lede ul{margin-bottom:0}
+
+  /* Badges */
+  .badge{
+    display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.02em;
+    padding:2px 9px; border-radius:999px; vertical-align:1px; white-space:nowrap;
+  }
+  .b-green{background:var(--green-soft); color:var(--green)}
+  .b-amber{background:var(--amber-soft); color:var(--amber)}
+  .b-red{background:var(--red-soft); color:var(--red)}
+  .b-blue{background:var(--blue-soft); color:var(--blue)}
+
+  /* Deliverable rows */
+  .deliv{display:flex; gap:13px; padding:13px 0; border-top:1px solid var(--line)}
+  .deliv:first-child{border-top:0}
+  .deliv .body{flex:1; min-width:0}
+  .deliv .title{font-weight:650; margin:0 0 3px}
+  .deliv .desc{color:var(--muted); font-size:14px; margin:0}
+  .deliv .links{margin-top:6px; font-size:13px}
+  .deliv .links a{margin-right:12px}
+  .tag{
+    flex:0 0 auto; align-self:flex-start; font-size:11px; font-weight:700;
+    color:var(--green); background:var(--green-soft); border-radius:6px;
+    padding:3px 8px; margin-top:2px;
+  }
+
+  /* Caveat box */
+  .caveat{
+    background:var(--amber-soft); border:1px solid #ecd9a7; border-left:4px solid var(--amber);
+    border-radius:10px; padding:14px 16px; margin:12px 0;
+  }
+  .caveat strong{color:var(--amber)}
+  .stop{
+    background:var(--red-soft); border:1px solid #ecc9c2; border-left:4px solid var(--red);
+    border-radius:10px; padding:14px 16px; margin:12px 0; font-size:14.5px;
+  }
+  .stop strong{color:var(--red)}
+
+  /* Tables */
+  table{width:100%; border-collapse:collapse; margin:6px 0 14px; font-size:13.5px}
+  th,td{text-align:left; padding:9px 11px; border-bottom:1px solid var(--line); vertical-align:top}
+  th{font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); background:#fafbfa}
+  tr:last-child td{border-bottom:0}
+  .ref-table code{background:transparent; padding:0; color:var(--muted)}
+
+  .access-note{
+    font-size:13px; color:var(--muted); background:#eef2ef;
+    border-radius:8px; padding:10px 13px; margin:10px 0 0;
+  }
+  .next li{margin-bottom:9px}
+  .next b{color:var(--green)}
+
+  footer{
+    margin-top:38px; padding-top:16px; border-top:1px solid var(--line);
+    color:var(--muted); font-size:12.5px;
+  }
+  footer p{margin:0 0 4px}
+
+  @media (max-width:620px){
+    .meta{grid-template-columns:repeat(2,1fr)}
+  }
+  @media print{
+    body{background:#fff}
+    header.masthead{background:#2f6b4f !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; border-radius:0}
+    .card,.lede,.caveat,.stop,.meta{break-inside:avoid}
+    a{color:var(--ink); border:0}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="eyebrow">Nordic Circular Hotspot · WP3 Food Systems · Transition Group</p>
+    <h1>Prosjektoppdatering</h1>
+    <p class="subtitle">Arbeid utført siden møte 9 (metodeoverføring) · 26.05 → 02.06.2026</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <dl class="meta">
+    <div><dt>Periode</dt><dd>26.05 – 02.06.2026</dd></div>
+    <div><dt>Avsender</dt><dd>Gabriel Freeman</dd></div>
+    <div><dt>Mottaker</dt><dd>Food TG-gruppen</dd></div>
+    <div><dt>Startpunkt</dt><dd>Møte 9 · 26.05</dd></div>
+  </dl>
+
+  <!-- SAMMENDRAG -->
+  <div class="lede">
+    <strong>Kort sammendrag</strong>
+    <ul>
+      <li>Metodeoverføringen fra Cities (Wageningen/Moerman/R9) er <b>QA-lukket internt 28.05</b> som Food-local metodepakke — fortsatt <em>med forbehold</em>, ikke claim-lukket, ikke eksternt validert, ikke formelt TG-vedtak.</li>
+      <li>Ny <b>sirkulær materialflyt-modell</b> på plattformen: evidens-graderte materialstrømmer med Sankey og nettverk, inkl. <b>Kalundborg-symbiosen</b> med ekte romlige flyt og observert gips-strøm.</li>
+      <li>Nytt <b>kildedeknings-/proveniens-system</b> (coverage + overclaim-audit) som synliggjør geografisk/temporal dekning og fanger overclaim før publisering.</li>
+      <li><b>R-stigen justert til Potting 2017-kanon</b> (20 reklassifiseringer) + QA-sveip på badges, språk og disclosure etter ekstern brukergjennomgang.</li>
+      <li>Plattformen vurderes nå som <b>intern beslutnings- og valideringsklar</b>, men ikke ekstern presentasjonsklar. <b>435/435 tester grønne.</b></li>
+    </ul>
+  </div>
+
+  <!-- 1. METODEOVERFØRING -->
+  <h2><span class="n">1</span>Metodeoverføring (Cities → Food)</h2>
+  <p>
+    Møte 9 (26.05) registrerte overføringen av Wageningen-/Moerman-/R9-metoden fra Cities/JT-sporet til
+    Food-local kontrollprosess. 28.05 ble dette <strong>QA-lukket internt</strong> som metodepakke med kontrollartefakter
+    (kilde-locator-ledger, claim-kobling, kandidat-scorecards).
+  </p>
+  <div class="card">
+    <p style="margin-bottom:8px">
+      <span class="badge b-green">Food eier sporet</span>
+      <span class="badge b-amber">Med forbehold</span>
+      <span class="badge b-red">Ikke claim-lukket</span>
+      <span class="badge b-red">Ikke eksternt validert</span>
+      <span class="badge b-blue">Ikke formelt TG-vedtak</span>
+    </p>
+    <ul style="margin-bottom:0">
+      <li>Møte 9 er registrert som <em>cross-project intake</em>, ikke formelt Food TG-vedtak.</li>
+      <li><code>SRC-B-035</code> har Food-local locator-ledger, men ikke ekstern metodegodkjenning.</li>
+      <li>Seks claim-IDer er koblet som caveated/internt: <code>CL-B-008/009/021/022/023</code> og <code>CL-C-015</code>.</li>
+      <li>Kandidatstrømmer (okara/BSG, matsvinnkvalitet, marint restråstoff, nutrient loops, fôr/insektprotein) er kvalitativt forhåndsscoret — som valideringsspørsmål, ikke effektbevis.</li>
+    </ul>
+  </div>
+  <div class="stop">
+    <strong>Stoppsignal som gjelder all tekst (deck, rapport, whitepaper, apptekst):</strong>
+    Ikke bruk WUR-/Wageningen-score, Moerman-ladderen eller Ghana-/Costa&nbsp;Rica-/Nederland-casene som
+    nordisk pilot- eller effektbevis. De er benchmark/metodeeksempler — ikke claims.
+  </div>
+  <div class="caveat">
+    <strong>Åpent eierpunkt for Food TG:</strong> gruppen må beslutte hvordan metoden skal stå —
+    synlig metode, internt scoringstemplate, vedlegg, eller parkert kildekandidat. Krever beslutning etter minimumsvedtaket på scope.
+  </div>
+
+  <!-- 2. PLATTFORM / LEVERANSER -->
+  <h2><span class="n">2</span>Plattform — leveranser siden sist</h2>
+  <p>Følgende er bygget, testet og rullet ut på plattformen i perioden. Lenker peker til live-flatene (se tilgangsnotis under underlag).</p>
+
+  <div class="card">
+    <div class="deliv">
+      <div class="body">
+        <p class="title">Kildedeknings- og proveniens-system</p>
+        <p class="desc">Coverage-oversikt med geografisk/temporal/verifikasjons-klassifisering, dekningsmerker (CoverageBadge), automatisk overclaim-audit i publiseringsporten, og proveniens-vedlegg på hvitboken.</p>
+        <p class="links"><a href="https://food-systems.naturalstateproject.com/kilder">Åpne /kilder</a><a href="https://food-systems.naturalstateproject.com/hvitbok">Proveniens-vedlegg /hvitbok</a></p>
+      </div>
+      <span class="tag">coverage</span>
+    </div>
+    <div class="deliv">
+      <div class="body">
+        <p class="title">Sirkulær materialflyt-modell</p>
+        <p class="desc">Strukturerte, evidens-graderte materialstrømmer (Spec 2 + 3a) visualisert som Sankey og nettverkskart, fargelagt etter evidensstatus. Sporbar kilde-evidens i inspektøren; integritetsregler og test-vakt over flyt-dataene.</p>
+        <p class="links"><a href="https://food-systems.naturalstateproject.com/verdikjede">Åpne /verdikjede → Materialflyt</a></p>
+      </div>
+      <span class="tag">flows</span>
+    </div>
+    <div class="deliv">
+      <div class="body">
+        <p class="title">Kalundborg-symbiosen — romlig flyt på kart</p>
+        <p class="desc">Ekte romlige materialstrømmer mellom aktørene i Kalundborg industrisymbiose, inkl. observert gips-strøm. Første sirkulære loop modellert med faktiske geografiske koblinger.</p>
+        <p class="links"><a href="https://food-systems.naturalstateproject.com/verdikjede">Se i /verdikjede</a></p>
+      </div>
+      <span class="tag">#109</span>
+    </div>
+    <div class="deliv">
+      <div class="body">
+        <p class="title">R-stige justert til Potting 2017-kanon</p>
+        <p class="desc">20 reklassifiseringer slik at sirkularitetsstigen følger den kanoniske R-ladderen (Potting et&nbsp;al. 2017). Matrisen er restrukturert for konsistent vurdering av sirkularitetsgrad per ledd.</p>
+        <p class="links"><a href="https://food-systems.naturalstateproject.com/sirkularitet">Åpne /sirkularitet</a></p>
+      </div>
+      <span class="tag">#111</span>
+    </div>
+    <div class="deliv">
+      <div class="body">
+        <p class="title">QA-sveip — badges, språk, disclosure</p>
+        <p class="desc">Evidens-badges, tag-filter, rolle-/år-visning og fish-health-dedup (#110), samt kosmetikk- og disclosure-opprydding i lang hale (#112). Adresserer kopi-/språkfunn fra den eksterne brukergjennomgangen.</p>
+        <p class="links"><span class="badge b-green">435/435 tester grønne</span></p>
+      </div>
+      <span class="tag">#110·#112</span>
+    </div>
+  </div>
+
+  <!-- 3. ANALYSE / FUNN -->
+  <h2><span class="n">3</span>Analyse og funn</h2>
+  <ul>
+    <li><strong>Ekstern brukergjennomgang (27.05):</strong> plattformen vurderes som <em>intern beslutnings- og valideringsklar, men ikke ekstern presentasjonsklar</em>. 33 hovedruter ga 200-svar; ingen synlige <code>[object Object]</code>/<code>undefined</code>/<code>NaN</code> i hovedinnholdet. Hovedfriksjon: for mange samtidige innganger og intern terminologi for en ny leser.</li>
+    <li><strong>Kildedekning &amp; overclaim:</strong> coverage-systemet gir nå datert dekningsprofil per datasett og fanger fire overclaim-koder (geografisk, temporal, verifikasjon, manglende kilde) i PR-porten — disiplin som hindrer at interne hypoteser presenteres som validerte funn.</li>
+    <li><strong>Evidensgradering gjennomgående:</strong> materialflyt, R-stige og hvitbok skiller eksplisitt mellom intern analyse, kildebelagt-med-forbehold og eksternt validert — i tråd med metodepakkens kontrollregel.</li>
+  </ul>
+
+  <!-- 4. PROSJEKTSTATUS -->
+  <h2><span class="n">4</span>Prosjektstatus &amp; åpne punkter</h2>
+  <ul>
+    <li><strong>Møtekadens:</strong> Siste formelle Food TG-møte er fortsatt 21.04 (møte 8). Møte 9 (26.05) er cross-project intake. Det er behov for å avklare om mandags-/tirsdagsmøtene i mai faktisk er holdt, og få ev. referater inn i <code>docs/meetings/</code>.</li>
+    <li><strong>Mandat:</strong> Food-mandatet har fortsatt åpne felt (godkjenningsdato, reviewdato, geografisk minstekrav, chair/co-chair, komplett medlemsliste, annex, Notion-workplan).</li>
+    <li><strong>Metode:</strong> Source-, claim- og valideringsportene er Food-eide og fortsatt åpne — ingen flere store Cities-pakker bør flyttes inn før disse er lukket i en valideringssprint.</li>
+    <li><strong>Outreach:</strong> Fortsatt ingen eksterne partnere kontaktet; arbeidet er innsikt/analyse, ikke ekstern kontakt.</li>
+  </ul>
+
+  <!-- 5. NESTE STEG -->
+  <h2><span class="n">5</span>Neste steg</h2>
+  <ul class="next">
+    <li><b>Møtelogg:</b> Be Cathrine/JT om møtelogg 22.04→dd; registrer ev. formelle møter som <code>meeting-10, 11, …</code> og avklar møtedag (mandag vs tirsdag).</li>
+    <li><b>Valideringssprint:</b> Kjør kontrollsettet på de prioriterte kandidatstrømmene (matsvinnkvalitet først) og oppdater canonical claim-status med datert respons.</li>
+    <li><b>Eierbeslutning på metode:</b> Food TG velger hvordan Wageningen/Moerman/R9 skal stå (synlig metode / internt verktøy / vedlegg / parkert).</li>
+    <li><b>Mandat:</b> Fyll ut de åpne mandatfeltene slik at scope-/minimumsvedtaket kan låses.</li>
+    <li><b>Ekstern lesbarhet:</b> Vurder en guidet «5-minutters»-inngang før plattformen deles bredere, basert på funnene i brukergjennomgangen.</li>
+  </ul>
+
+  <!-- 6. UNDERLAG -->
+  <h2><span class="n">6</span>Underlag &amp; lenker</h2>
+
+  <h3>Live-plattform <span class="badge b-blue">krever tilgang</span></h3>
+  <table>
+    <thead><tr><th>Flate</th><th>Innhold</th><th>Lenke</th></tr></thead>
+    <tbody>
+      <tr><td>Kilder</td><td>Kildedekning, coverage-oversikt, overclaim-audit</td><td><a href="https://food-systems.naturalstateproject.com/kilder">/kilder</a></td></tr>
+      <tr><td>Hvitbok</td><td>Proveniens-vedlegg, evidensgraderte embeds</td><td><a href="https://food-systems.naturalstateproject.com/hvitbok">/hvitbok</a></td></tr>
+      <tr><td>Verdikjede</td><td>Materialflyt-fane: Sankey, nettverk, Kalundborg</td><td><a href="https://food-systems.naturalstateproject.com/verdikjede">/verdikjede</a></td></tr>
+      <tr><td>Sirkularitet</td><td>R-stige (Potting 2017-justert)</td><td><a href="https://food-systems.naturalstateproject.com/sirkularitet">/sirkularitet</a></td></tr>
+      <tr><td>Innsikt</td><td>Markedsstruktur, selvforsyning, innsiktslag</td><td><a href="https://food-systems.naturalstateproject.com/innsikt">/innsikt</a></td></tr>
+      <tr><td>Mandat / Møter</td><td>Mandatstatus og møteoversikt</td><td><a href="https://food-systems.naturalstateproject.com/mandat">/mandat</a> · <a href="https://food-systems.naturalstateproject.com/moter">/moter</a></td></tr>
+    </tbody>
+  </table>
+  <p class="access-note">
+    🔒 <strong>Tilgang:</strong> Live-lenkene ligger bak Cloudflare Access (innlogging via
+    <code>naturalstatedeployments.cloudflareaccess.com</code>). De fungerer for Food TG-medlemmer som står på
+    tilgangslisten — gi beskjed om noen mangler tilgang. Lenkene under er interne referanser i prosjekt-repoet.
+  </p>
+
+  <h3>Endringer i perioden <span class="badge b-blue">internt repo</span></h3>
+  <table class="ref-table">
+    <thead><tr><th>Ref.</th><th>Leveranse</th></tr></thead>
+    <tbody>
+      <tr><td><code>#106–#107</code></td><td>Flows: Sankey-NaN-vakt, gate-aktivering (dk-soya) + dk-kalundborg-edges</td></tr>
+      <tr><td><code>#108</code></td><td>Spec 3a — romlig flytmodell: sirkulære materialstrømmer på kart</td></tr>
+      <tr><td><code>#109</code></td><td>Kalundborg-symbiose — ekte romlige flyt + observert gips-strøm</td></tr>
+      <tr><td><code>#110</code></td><td>QA-fikser: evidens-badges, tag-filter, kopi, rolle-/år, fish-health-dedup</td></tr>
+      <tr><td><code>#111</code></td><td>R-stige justert til kanonisk Potting 2017</td></tr>
+      <tr><td><code>#112</code></td><td>Kosmetikk + disclosure-sveip (QA lang hale)</td></tr>
+      <tr><td><code>coverage</code></td><td>Proveniens-/coverage-system: badge-modell, dataset-register, overclaim-audit, hvitbok-vedlegg (29.05)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Dokumenter <span class="badge b-blue">internt repo</span></h3>
+  <table class="ref-table">
+    <thead><tr><th>Dokument</th><th>Sti</th></tr></thead>
+    <tbody>
+      <tr><td>Metodeoverføring — QA-lukking</td><td><code>docs/project/mandates/food-tg-meeting-transfer-qa-2026-05-28.md</code></td></tr>
+      <tr><td>Wageningen/Moerman-overføring</td><td><code>docs/project/mandates/food-tg-wageningen-moerman-method-transfer-2026-05-26.md</code></td></tr>
+      <tr><td>Claim-register &amp; claim-lock-tabell</td><td><code>docs/project/mandates/claim-register-food-tg.md</code></td></tr>
+      <tr><td>Ekstern brukergjennomgang</td><td><code>docs/project/analysis/outside-user-platform-review-2026-05-27.md</code></td></tr>
+      <tr><td>Møteoversikt &amp; møtestatus</td><td><code>docs/meetings/MØTEOVERSIKT.md</code> · <code>STATUS-2026-05-26.md</code></td></tr>
+    </tbody>
+  </table>
+
+  <footer>
+    <p><strong>Nordic Circular Hotspot</strong> — Nordic Innovation Hotspot (P25013) · Periode 08.08.2025–31.07.2026 · WP3 Food Systems (NOK 500&nbsp;000).</p>
+    <p>Team Food: Gabriel Freeman, Cathrine Barth · Metodikk-spor: Jan Thomas Olsen.</p>
+    <p>Utarbeidet 02.06.2026 · Dekker arbeid 26.05–02.06.2026 · Intern statusoppdatering, ikke formelt Food TG-vedtak.</p>
+  </footer>
+
+</div>
+</body>
+</html>

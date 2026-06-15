@@ -40,6 +40,8 @@ test-results/
 # Research binaries — track metadata/manifests, not the files themselves.
 # Lokale PDF-er beholdes på disk; repo har bare struktur og analyse.
 research/**/*.pdf
+research/**/*.pptx
+research/**/*.ppt
 research/citation-backfill-preview-*.csv
 research/arkiv-sortert/**/*.docx
 research/arkiv-sortert/**/*.zip

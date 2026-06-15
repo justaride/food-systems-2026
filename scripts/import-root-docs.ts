@@ -208,6 +208,17 @@ const ROOT_DOCS: RootDocConfig[] = [
     country: 'NO',
     tags: ['meeting', 'transkripsjon', 'mandat', 'food-tg', 'project'],
   },
+  {
+    sourceDocId: 'src-181',
+    filename: 'docs/meetings/JT-GABRIEL - Metodeoverforing Cities Food mai 2026.md',
+    title: 'JT-Gabriel metodeoverføring Cities/Food mai 2026',
+    author: 'Jan Thomas Odegard / Gabriel Freeman',
+    year: 2026,
+    documentType: 'note',
+    category: 'meetings',
+    country: 'NO',
+    tags: ['meeting', 'metodeoverforing', 'wageningen', 'food-tg', 'project'],
+  },
 ]
 
 function slugify(filename: string): string {

@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { PageFraming } from '@/components/ui/PageFraming'
 import { Citation } from '@/components/citations/Citation'
 import { RLadderMatrix } from '@/components/charts/RLadderMatrix'
 import { RLadderMaturityOverview } from '@/components/charts/RLadderMaturityOverview'
@@ -276,6 +277,20 @@ export function SirkularitetContent() {
           {data.existing_loops.length} eksisterende looper, {data.gaps.length} gap, {allSuccess.length + allFailure.length} aktørcaser
         </p>
       </div>
+
+      <PageFraming
+        title="Hva svarer denne siden på?"
+        description={[
+          'Siden vurderer sirkularitet i matsystemet via R-stigen (Potting 2017), eksisterende sirkulære looper, gap og materialflyt.',
+          'Den brukes til å se hvor sirkularitet kan erstatte virgin råstoff, ikke som effekt- eller pilotbevis.',
+        ]}
+        takeaways={[
+          'R-stigen klassifiserer hvert tiltak etter sirkularitetsgrad.',
+          'Looper og gap viser hva som finnes og hva som mangler.',
+          'Materialflyt og næringsflyt er modellert/registrert, ikke målt.',
+        ]}
+        caveat="Internt arbeidsgrunnlag med forbehold: benchmarks og hypoteser er ikke eksternt validert, og ingen case er pilotbevis."
+      />
 
       <NordicCircularityBenchmark />
 

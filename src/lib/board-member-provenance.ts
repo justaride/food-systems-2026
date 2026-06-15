@@ -1,3 +1,5 @@
+import { BRREG_ROLES_SOURCE_LABEL } from './brreg-board-member-provenance'
+
 type DocumentRefSet = Pick<Set<string>, 'has'>
 
 export type BoardMemberAnnualReportSourceRow = {
@@ -5,6 +7,8 @@ export type BoardMemberAnnualReportSourceRow = {
     orgNr?: string | null
   } | null
 }
+
+const BRREG_ENHETSREGISTERET_API = 'https://data.brreg.no/enhetsregisteret/api'
 
 const BOARD_MEMBER_ANNUAL_REPORT_REFS: Record<string, string> = {
   'DK-26259495': 'evidence-pack/arsrapporter/coop-danmark-2024',
@@ -30,6 +34,14 @@ const BOARD_MEMBER_ANNUAL_REPORT_URLS: Record<string, string> = {
   'SE-969697-6594': 'https://om.lidl.se/pdf/show/131697',
 }
 
+function isNorwegianOrgNumber(orgNr: string): boolean {
+  return /^\d{9}$/.test(orgNr)
+}
+
+function brregRolesUrl(orgNr: string): string {
+  return `${BRREG_ENHETSREGISTERET_API}/enheter/${encodeURIComponent(orgNr)}/roller`
+}
+
 export function resolveBoardMemberAnnualReportSourceLocator(
   row: BoardMemberAnnualReportSourceRow,
   documentRefs: DocumentRefSet,
@@ -40,10 +52,14 @@ export function resolveBoardMemberAnnualReportSourceLocator(
   const documentRef = BOARD_MEMBER_ANNUAL_REPORT_REFS[orgNr]
   if (documentRef && documentRefs.has(documentRef)) return `document:${documentRef}`
 
-  return BOARD_MEMBER_ANNUAL_REPORT_URLS[orgNr] ?? null
+  return BOARD_MEMBER_ANNUAL_REPORT_URLS[orgNr] ?? (isNorwegianOrgNumber(orgNr) ? brregRolesUrl(orgNr) : null)
 }
 
 export function resolveBoardMemberSourceLabel(locator: string): string {
+  if (locator.startsWith(`${BRREG_ENHETSREGISTERET_API}/enheter/`) && locator.endsWith('/roller')) {
+    return BRREG_ROLES_SOURCE_LABEL
+  }
+
   if (locator === 'https://corporate.lidl.fi/lidl-yrityksena/johtoryhma') {
     return 'Board data: official leadership page'
   }
@@ -58,4 +74,22 @@ export function resolveBoardMemberSourceLabel(locator: string): string {
   }
 
   return 'Board data: annual report 2024'
+}
+
+export function boardMemberProvenanceData(locator: string | null, verifiedAt: Date) {
+  if (!locator) return {}
+
+  if (locator.startsWith('document:')) {
+    return {
+      source: locator,
+      sourceUrl: null,
+      verifiedAt,
+    }
+  }
+
+  return {
+    source: resolveBoardMemberSourceLabel(locator),
+    sourceUrl: locator,
+    verifiedAt,
+  }
 }

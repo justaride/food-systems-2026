@@ -2115,6 +2115,18 @@ describe('row source locators', () => {
     assert.equal(
       resolveCompanyOwnershipSourceLocator(
         {
+          source: 'Brønnøysund',
+          parentCompany: { orgNr: '819731322' },
+          childCompany: { orgNr: '914224314' },
+        },
+        new Set(),
+      ),
+      'https://www.bama.no/siteassets/bama/arsrapport/2024/bama-2024-no.pdf',
+    )
+
+    assert.equal(
+      resolveCompanyOwnershipSourceLocator(
+        {
           source: 'NorgesGruppen Credit Report 2025 / Dagrofa corporate presentation',
           parentCompany: { orgNr: '819731322' },
           childCompany: { orgNr: 'DK-38714295' },
@@ -2336,6 +2348,32 @@ describe('row source locators', () => {
         ]),
       ),
       'https://www.kkv.fi/en/facts-and-advice/competition-affairs/abuse-of-dominant-position/maaraava-markkina-asema-paivittaistavarakaupassa/',
+    )
+
+    assert.equal(
+      resolveBusinessRelationshipSourceLocator(
+        {
+          source: 'Bransjeanalyse',
+          fromCompany: { orgNr: '988044113' },
+          toCompany: { orgNr: '964118191' },
+        },
+        new Set(),
+        new Map(),
+      ),
+      'source:blocked-unsourced/business-relationship-unverified-label',
+    )
+
+    assert.equal(
+      resolveBusinessRelationshipSourceLocator(
+        {
+          source: 'Bransjeanalyse',
+          fromCompany: { orgNr: '986228608' },
+          toCompany: { orgNr: '911608103' },
+        },
+        new Set(),
+        new Map(),
+      ),
+      'https://www.yara.com/siteassets/investors/057-reports-and-presentations/annual-reports/2024/yara-integrated-report-2024.pdf',
     )
 
     assert.equal(
