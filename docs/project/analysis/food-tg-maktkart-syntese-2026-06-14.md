@@ -12,7 +12,10 @@ relaterte_filer:
   - docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md
   - docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md
   - docs/project/figures/food-tg-2026-06-14/fig-maktkart-konvergens.svg
+  - docs/project/figures/food-tg-2026-06-15/fig-maktkart-konvergens.svg
 ---
+
+> **Figur-oppdatering (2026-06-15):** `docs/project/figures/food-tg-2026-06-15/fig-maktkart-konvergens.svg` er den skjerpede versjonen — den kombinerer sektorpar-konvergensen (A) med kryss-node-konsentrasjonsprofilen (B: foredling topper over retail; samvirke-monopolene TINE/Nortura mest konsentrert). 2026-06-14-figuren er beholdt for provenans.
 
 # Maktkart for norsk matsystem — syntese
 

@@ -10,6 +10,7 @@ relaterte_filer:
   - research/norge/kvantitativ-dybdeanalyse.md
   - docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md
   - docs/project/analysis/food-tg-maktkart-section8-3-4-funn-2026-06-14.md
+  - docs/project/figures/food-tg-2026-06-15/fig-ap7-pris-asymmetri.svg
 ---
 
 # AP-7 — Pris-asymmetri replikert til havbruk/foredling
@@ -37,6 +38,8 @@ Metoden fra H-NY1 operasjonaliserer asymmetri som: gjennomslaget er raskere/stø
 - **Årsnivåer:** lakspris 2022→2025 = 80,8 / 95,3 / 94,4 / 81,8 kr/kg; foredlings-PPI = 124,6 / 140,2 / 148,2 / 162,8 — PPI fortsetter monotont opp også når råprisen snur ned.
 
 Resultat: **bekreftet** for dette domenet, med høyere statistisk styrke enn dagligvarefunnet (formell Wald-asymmetri t=14,0 mot dagligvarens fasebaserte vurdering).
+
+Figur: `docs/project/figures/food-tg-2026-06-15/fig-ap7-pris-asymmetri.svg` (β_opp +0,272 vs β_ned +0,134; 2025-illustrasjon råpris −13 % / PPI +10 %; valuta-forbehold markert).
 
 ## 4. Tolkning og det avgjørende forbeholdet
 

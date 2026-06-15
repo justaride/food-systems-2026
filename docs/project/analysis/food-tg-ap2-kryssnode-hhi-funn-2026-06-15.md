@@ -11,6 +11,7 @@ relaterte_filer:
   - docs/project/analysis/food-tg-ap2-nodekonsentrasjon-funn-2026-06-14.md
   - docs/project/analysis/food-tg-ap6-havbrukskonsentrasjon-funn-2026-06-14.md
   - docs/project/analysis/food-tg-maktkart-syntese-2026-06-14.md
+  - docs/project/figures/food-tg-2026-06-15/fig-kryssnode-hhi-profil.svg
 ---
 
 # AP-2 — Kryss-node markeds-HHI
@@ -35,6 +36,8 @@ Og det ikke-opplagte poenget: **de to mest konsentrerte nodene — meieri og kj�
 | **Sjømat** (oppdrett) | ~950–1150 | CR4 56–58 % | slaktevolum GWT, 2024 | citable m/forbehold |
 
 Alle over 2500 = «høyt konsentrert»; sjømat (~950) = «moderat». Dagligvare-HHI (~3327) er fra tidligere (§8 steg 3, KT Dagligvarerapport). Aritmetikk (HHI = Σ andel²) coordinator-verifisert mot de oppgitte andelene.
+
+Figur: `docs/project/figures/food-tg-2026-06-15/fig-kryssnode-hhi-profil.svg` (søylediagram, citable noder solid, needs-data-presis lysere, samvirke merket, 2500-terskel). Også surfacet i `/innsikt` som inline-figur (`kryssnodeHhi`).
 
 ## 3. Konsentrasjonsprofilen langs kjeden
 

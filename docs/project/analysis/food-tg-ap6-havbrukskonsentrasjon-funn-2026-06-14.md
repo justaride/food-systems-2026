@@ -11,6 +11,7 @@ relaterte_filer:
   - docs/project/analysis/food-tg-ap2-nodekonsentrasjon-funn-2026-06-14.md
   - scripts/import-akvakulturregister.ts
   - public/data/food-systems/no/aquaculture_sites.geojson
+  - docs/project/figures/food-tg-2026-06-15/fig-ap6-havbruk-konsentrasjon.svg
 ---
 
 # AP-6 — Havbrukskonsentrasjon og restråstoff-tilgang
@@ -50,6 +51,8 @@ CR3 47,5 %, CR4 57,0 %, CR5 60,7 %, CR10 70,6 %, **HHI ~929**.
 **Land-RAS-effekten:** Over *alle* kommersielle matfisk-tillatelser (inkl. land/offshore; total MTB 1 336 016 tonn, n=140) faller HHI til ~510 og CR3 til 33,8 %. Store enkelttillatelser (Ecofisk 40 000, Bue Salmon 33 900, ABP Aqua Mongstad 29 135, Viking Aqua 27 400 m.fl.) — høy nominell MTB, ofte 1 lokalitet, ennå ikke i drift — fortynner de etablerte aktørenes andel i totaltallet.
 
 Metode: dedup på tillatelsesnummer; filter kommersiell + art ∈ {laks, regnbueørret, ørret} + produksjonsform «MATFISK»; MTB = sum tillatelseskapasitet (ikke lokalitetskapasitet, som deles på tvers og ville dobbeltelt); konsern-rollup på innehavernavn. HHI = Σ(andel%)².
+
+Figur: `docs/project/figures/food-tg-2026-06-15/fig-ap6-havbruk-konsentrasjon.svg` (sjøbasert MTB-andeler per konsern + sjøbasert HHI ~929 vs total-MTB HHI ~510 land-RAS-fortynning).
 
 ## 3. Restråstoff-implikasjon (anker 2 — strukturell, ikke målt)
 
