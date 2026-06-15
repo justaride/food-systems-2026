@@ -60,7 +60,7 @@ export function MaterialFlowTab() {
     return <EmptyState message="Laster materialstrømmer..." />
   }
   if (!file || file.loops.length === 0) {
-    return <EmptyState message="Ingen materialstrømmer ennå — kjør `npm run bootstrap-material-flows`." />
+    return <EmptyState message="Ingen materialstrømmer registrert ennå." />
   }
 
   return (

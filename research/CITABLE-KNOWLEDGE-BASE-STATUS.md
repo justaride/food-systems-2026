@@ -1,7 +1,7 @@
 # Citable Knowledge Base Status
 
-Date: 2026-05-20
-Branch: `main`
+Date: 2026-06-10
+Branch: `codex/food-tg-mandat-2026-06-09`
 Base before current quality-pass commit: `f302ab3 docs: prepare next citable quality tranche`
 
 ## Purpose
@@ -10,6 +10,64 @@ This file is the current operational status for making the Food Systems 2026
 knowledge base usable as a citable external knowledge base. It replaces older
 snapshot interpretation for this workstream. Historical audit counts should be
 treated as stale unless repeated here.
+
+## 2026-06-10 Strict-Gate Re-Greening (supersedes all verification sections below)
+
+Running the operator sequence on `codex/food-tg-mandat-2026-06-09` found the
+strict source gate had **regressed to red** since the 2026-05-20 snapshot: three
+enforced violations in `db:audit:strict-sources` / `audit:citations` §13. The
+non-strict `db:audit`, `audit:citable-reports`, tests, lint, and build all
+stayed green; the regression was data/code drift after the 2026-05-26 gate
+change (`9e68918`) and the 2026-06-03 KS/Re:Source import, not from any docs
+commit on this branch.
+
+The three blocker groups and their fixes:
+
+- **A — 1 `CompanyOwnership` label-only row.** NorgesGruppen → BAMA Gruppen (46%)
+  carried a bare `Brønnøysund` source that missed the resolver's
+  `bronnoysund + arsrapport` annual-report case. Set the source to
+  `Brønnøysund årsrapport 2024` so the existing resolver returns the BAMA 2024
+  annual-report URL. Applied to the DB **and** to the seed-of-truth
+  `scripts/import-company-ownership.ts` so it survives re-import and reaches
+  prod on the next `db:import`.
+- **B — 4 `BusinessRelationship` `Bransjeanalyse` rows** (Skretting→Lerøy/SalMar/
+  Mowi feed, Yara→Felleskjøpet fertilizer). `Bransjeanalyse` was the only vague
+  industry-label not in `BLOCKED_BUSINESS_RELATIONSHIP_SOURCE_LABELS`; added it
+  so those rows carry the same honest blocked-unverified locator as their
+  siblings (`Bransjedata`, `BioMar`, …). This also cleared the 4 P0 rows that
+  had appeared in the readiness queue.
+- **C — 11 internal-exception report `Document` rows** (`internal_synthesis` /
+  `composite_source` / `internal_register` / `blocked_source`, each with
+  `supportingSources`). The report-URL check (#11) already honoured these
+  provenance exceptions, but the Document locator check (§13) did not — a
+  coherence gap. Extracted #11's exact predicate into a shared
+  `reportQualifiesAsProvenanceException()` used by **both** checks so they
+  cannot drift; §13 now exempts Documents whose linked report is a reviewed
+  provenance exception. No fabricated locators.
+
+Verification after the fixes (all green):
+
+| Command | Result | Notes |
+|---|---:|---|
+| `npm test` | passed | 446 tests across 111 suites, 0 fail (incl. new `Bransjeanalyse` resolver test). |
+| `npm run lint` | passed | ESLint clean. |
+| `npm run db:audit` | passed | Enforced integrity checks pass. |
+| `npm run db:audit:strict-sources` / `audit:citations` | passed | Strict gate exits 0; the three §13 violations are gone. |
+| `npm run audit:citable` | passed | Full chain (`db:audit` + strict + citable-reports + readiness) exits 0. |
+| `npm run research:citation-readiness-queue` | passed | Down to 1 row: P0 0, P1 0, **P2 1**, P3 0 (the intentionally-blocked `agrianalyse-bondens-andel-2025`). |
+| `npm run research:citable-acceptance-pack` | passed | 7 of 12 cite-ready, 5 fail-closed blocked. |
+| `npm run build` | passed | Prisma + metrics + Next.js build; timestamp/property-count metric diffs reverted (pre-existing drift, not this fix). |
+| `git diff --check` | passed | No whitespace errors. |
+
+Current strict citation coverage (supersedes the PR #60/#61 counts below):
+
+- `SourceCitation=2699`
+- `citable_external=154`
+- `citable_with_note=2433`
+- `internal_context=112`
+- `blocked_unsourced=0`
+- `FieldCitation=244517`
+- external blocking citation issues `0`
 
 ## Standard Operator Sequence
 

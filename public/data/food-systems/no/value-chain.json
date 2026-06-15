@@ -136,17 +136,18 @@
       },
       "concentration": {
         "cr3_pct": 96.6,
-        "hhi": 3445,
+        "hhi": 3327,
+        "hhi_basis": "Omsetningsandeler 2024 (Konkurransetilsynets Dagligvarerapport 2024-25). HHI = Σ(andel%)² = 43,5²+29,2²+23,9²+3,3² = 3327. Tidligere 3445 brukte eldre andeler (NG 48,4/Coop 27,1/Reitan 18,0/Bunnpris 6,6) som ga CR3 93,5 % — inkonsistent med cr3_pct 96,6. Harmonisert til KT 2026-06-15.",
         "shares": {
-          "NorgesGruppen": 48.4,
-          "Coop": 27.1,
-          "Reitangruppen": 18.0,
-          "Bunnpris": 6.6
+          "NorgesGruppen": 43.5,
+          "Coop": 29.2,
+          "Reitangruppen": 23.9,
+          "Bunnpris": 3.3
         }
       },
       "waste_tonnes": 50000,
       "waste_reduction_since_2015_pct": -42,
-      "sources": ["Dagligvaretilsynet", "chart-metrics.json", "matsvinn-2024.md"]
+      "sources": ["Konkurransetilsynet Dagligvarerapport 2024-25", "chart-metrics.json", "matsvinn-2024.md"]
     },
     {
       "name": "HoReCa",

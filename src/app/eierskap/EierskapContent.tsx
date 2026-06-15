@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { InternalBanner } from '@/components/ui/InternalBanner'
 
 type KonsernIndexRow = {
   slug: string
@@ -62,6 +63,7 @@ export function EierskapContent({ konserner }: { konserner: KonsernIndexRow[] })
 
   return (
     <div className="space-y-6">
+      <InternalBanner note="Eierskap-kartlegging med datakvalitet-score og Brønnøysund-ferskhet — internt arbeidsgrunnlag, ikke en vurdering av selskapene." />
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Eierskap &amp; konsernstrukturer</h1>
         <p className="text-sm text-stone-400 mt-1">
@@ -79,7 +81,7 @@ export function EierskapContent({ konserner }: { konserner: KonsernIndexRow[] })
             className="px-3 py-1.5 border border-stone-200 rounded text-sm flex-1 min-w-[200px]"
           />
           <label className="text-xs text-stone-600 flex items-center gap-2">
-            Min. score:
+            Min. datakvalitet:
             <input type="range" min="0" max="10" value={minScore} onChange={e => setMinScore(Number(e.target.value))} />
             <span className="font-semibold text-stone-800 w-6">{minScore}</span>
           </label>
@@ -98,7 +100,7 @@ export function EierskapContent({ konserner }: { konserner: KonsernIndexRow[] })
                 <th className="text-right px-3 py-2">Selskap i tre</th>
                 <th className="text-right px-3 py-2">Omsetning</th>
                 <th className="text-right px-3 py-2">M&amp;A</th>
-                <th className="text-center px-3 py-2">Score</th>
+                <th className="text-center px-3 py-2" title="0–10: hvor komplett kartleggingen er, ikke en vurdering av selskapet.">Datakvalitet</th>
                 <th className="text-right px-3 py-2">Brreg</th>
               </tr>
             </thead>

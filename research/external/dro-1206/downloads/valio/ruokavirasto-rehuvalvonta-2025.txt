@@ -1,0 +1,2077 @@
+        Ruokaviraston raportti
+
+
+
+
+Rehuvalvonnan raportti 2025
+                                  Rehuvalvonnan raportti 2025
+
+
+
+
+Päiväys:                        20.4.2026
+
+Asianumero:                     415/00.01.02.00.01/2026
+
+                                Ruokavirasto
+
+Linja, osasto ja/tai yksikkö:   Elintarvikeketju, Elintarviketurvallisuusosasto, Rehujaosto
+
+Hyväksyjä:                      Tiina Lapveteläinen
+
+Laatija/laatijat:               Ruokaviraston rehujaosto
+Lisätietoja:
+                                                              Rehuvalvonnan raportti 2025
+
+
+
+SISÄLLYSLUETTELO
+
+1 ARVIO VALVONNAN VAIKUTTAVUUDEN TOTEUTUMISESTA ................................................................. 3
+2 REHUALAN TOIMIJOIDEN JA REHUJEN VALMISTUKSEN MÄÄRÄT .......................................................... 4
+    2.1 Rehualan toimijat .................................................................................................................................... 4
+    2.2 Rehujen valmistus, tuonti ja vienti .......................................................................................................... 4
+3 VALVONTASUUNNITELMAN TOTEUTUMINEN, SÄÄNNÖSTENMUKAISUUS JA KORJAAVAT TOIMENPITEET
+.............................................................................................................................................................. 6
+    3.1 Alkutuotannon toimijat (tilavalvonta) ..................................................................................................... 6
+        3.1.1 Valvontasuunnitelman toteutuminen ............................................................................................. 6
+       3.1.2 Säännöstenmukaisuus ..................................................................................................................... 8
+       3.1.3 Korjaavat toimenpiteet .................................................................................................................. 10
+   3.2. Rehualan toimijat ................................................................................................................................. 10
+      3.2.1 Valvontasuunnitelman toteutuminen ........................................................................................... 10
+       3.2.2 Säännöstenmukaisuus ................................................................................................................... 14
+       3.2.3 Korjaavat toimenpiteet .................................................................................................................. 17
+   3.3 Tuotevalvonta (kotimainen valmistus, tuonti, vähittäismyynti) ........................................................... 18
+      3.3.1 Valvontasuunnitelman toteutuminen ........................................................................................... 18
+       3.3.2 Säännöstenmukaisuus ................................................................................................................... 25
+       3.3.2.1 Mikrobiologisten vaarojen esiintyminen .................................................................................... 30
+       3.3.2.2 Kielletty eläinvalkuainen ............................................................................................................. 31
+       3.3.2.3 Kasviperäiset epäpuhtaudet, aitous ja tuhohyönteiset .............................................................. 31
+       3.3.2.4 Kemialliset haitalliset ja kielletyt aineet ..................................................................................... 31
+       3.3.2.5 Rehujen muuntogeenisyyden valvonta ...................................................................................... 33
+       3.3.2.6 Elintarvikkeita ja rehuja koskeva, eurooppalainen nopea hälytysjärjestelmä (RASFF) ja
+       hallinnollista avunantoa koskeva järjestelmä (AAC)............................................................................... 33
+       3.3.3 Korjaavat toimenpiteet .................................................................................................................. 33
+4 SÄÄNNÖSTENMUKAISUUDEN VARMISTAMINEN ................................................................................ 34
+   4.1 Toimijoiden säännösten tuntemus ....................................................................................................... 34
+   4.2 Valvontakäytännöt ................................................................................................................................ 35
+5 AUDITOINNIT JA MUU SAATU PALAUTE ............................................................................................. 35
+   5.1. Komission suorittamat auditoinnit....................................................................................................... 35
+   5.2 Muut auditoinnit ................................................................................................................................... 36
+   5.3 Tarkastajien koulutuksesta antamat palautteet ................................................................................... 36
+   5.4 Asiakaspalautteet .................................................................................................................................. 36
+6 VALVONNAN RESURSSIT .................................................................................................................... 37
+7 MUUTOKSET SEURAAVAN VUODEN VALVONTAAN ............................................................................ 39
+                                    Rehuvalvonnan raportti 2025
+
+
+
+
+1 ARVIO VALVONNAN VAIKUTTAVUUDEN TOTEUTUMISESTA
+       Rehuvalvonnan strategisena vaikuttavuustavoitteena on varmistaa, että markkinoille
+       saatettujen rehujen koostumus vastaa tuotteista annettuja tietoja ja että ne ovat
+       hyvälaatuisia, turvallisia ja käyttötarkoitukseensa sopivia koko Suomen alueella. Rehuja
+       valvotaan kaikissa rehujen tuotanto-, valmistus- ja jakeluvaiheissa. Tavoitteena on, että
+       vaatimukset täyttävien rehunäytteiden osuus on 99 % ja että salmonellaa ei esiinny
+       markkinoille saatetuissa elintarviketuotantoeläinten rehuissa. Molemmat tavoitteet
+       saavutettiin. Vaatimukset täyttävillä rehunäytteillä tarkoitetaan tässä rehuissa esiintyvien
+       haitallisten ja kiellettyjen aineiden sekä eliöiden esiintymistä suhteessa em. rehuista
+       tehtyihin haitallisten ja kiellettyjen aineiden ja eliöiden analyyseihin.
+
+       Näytteenotto ja näytteistä tehtävät analyysit kohdennetaan riskiperusteisesti. Tavoitteena
+       on varmistua, että erityisesti ne rehut, jotka saattavat sisältää haitallisia tai kiellettyjä aineita,
+       jäävät valvonnan näyteotantaan mahdollisimman suurella todennäköisyydellä ja valvonta on
+       vaikuttavaa. Rehunäytteiden valvontatulosten perusteella arvioiden Suomessa valmistetut ja
+       markkinoille saatetut rehut täyttävät suurelta osin rehulainsäädännössä rehujen
+       turvallisuudelle ja laadulle asetetut vaatimukset. Nettikauppaa valvotaan sekä osana muuta
+       toimijoiden valvontaa että omana kokonaisuutena. Ruokavirasto ei todennut rehuperäisiä
+       eläinten salmonellatartuntoja tai elintarvikkeiden saastumisia. Salmonellaa todettiin rehujen
+       tuontierissä, mutta salmonellapositiivisten erien määrä ja koko oli edellisen vuoden tapaan
+       keskimääräistä pienempi.
+
+       Tarkastusten perusteella rehualan toimijat noudattavat rehulainsäädännön vaatimuksia
+       yleisesti ottaen hyvin, mutta puutteitakin löytyy. Määrällisesti eniten todettiin tänäkin
+       vuonna lieviä, luokan kolme puutteita. Toimintavuoden aikana havaittiin ja annettiin yhdellä
+       tarkastuksella yksi luokan 1 eli vakavin puute. Tehdyistä tarkastuksista 12:sta ei havaittu
+       puutteita, joten toimenpiteitäkään ei edellytetty.
+
+       Kokkidiostaatteja ja lääkeaineita sisältävien rehujen tuotannossa voi tapahtua
+       väistämättömiä, teknologisia jäämien siirtymiä seuraaviin rehujen valmistuseriin. Jäämien
+       siirtymät sekä muut rehuissa kielletyt yhdisteet on huomioitu elintarviketuotantoeläinten
+       rehuja valmistavien rehutehtaiden valvonnassa. Lääkerehujen valmistus
+       elintarviketuotantoeläimille oli toimintavuonna edelleen vähäistä.
+       Elintarviketuotantoeläimistä lääkerehuja valmistettiin ainoastaan kaloille.
+       Elintarviketuotantoeläimille tarkoitetuissa rehuissa ei todettu jäämien enimmäismääriä
+       ylittäviä pitoisuuksia kokkidiostaatteja eikä lääkeaineiden jäämiä.
+
+       Alkutuotannon toimijoiden valvonnassa havaittiin puutteita vain pienellä osalla valvotuista
+       tiloista, mutta kuitenkin hiukan enemmän kuin edellisenä vuonna. Havaitut laiminlyönnit
+       liittyivät rehujen hankintaan rekisteröidyltä rehualan toimijalta, rehu-, kasvinsuojeluaine- ja
+       biosidikirjanpitoon sekä jätteiden, vaarallisten aineiden ym. eläinten ruokinnassa kiellettyjen
+       tuotteiden varastointiin rehuista erillään. Kotieläintiloilla todettiin edellisen vuoden tapaan
+
+
+
+
+                                               3 (41)
+                                        Rehuvalvonnan raportti 2025
+
+
+
+           salmonellaa tuotantoeläimissä. Kotieläinten tiloilla eläinten ruokintaan tarkoitetuista
+           rehueristä otetuista näytteistä ei todettu salmonellaa.
+
+           Rehujen, erityisesti rehun lisäaineiden, vienti oli vilkasta, ja rehualan toimijat lähettivät
+           vientitodistuspyyntöjä edelleen paljon, vaikkakin hieman edellisvuotta vähemmän.
+
+           Käytettävissä olevaan resurssimäärään nähden valvonta on hyvin vaikuttavaa. Se, että
+           rehuvalvonta on suureksi osaksi keskitetty Ruokavirastoon, tuo mukanaan asiantuntemuksen
+           ja toimijoiden tuntemisen keskittymän, joka luo merkittävää synergiaa eri rehuvalvonnan
+           osa-alueiden välille ja mahdollistaa tehokkaan valvonnan pienillä resursseilla.
+
+
+2 REHUALAN TOIMIJOIDEN JA REHUJEN VALMISTUKSEN MÄÄRÄT
+
+2.1 Rehualan toimijat
+
+           Ruokaviraston rekisterissä oli 1.1.2025 rehualan alkutuotannon toimijoita 46 113 ja muita
+           rehualan toimijoita 2 289. Alkutuotannon toimijoiden rekisteröinti-ilmoituksia saapui v. 2025
+           aikana yhteensä 717 kpl, joista uusia 189 kpl, muutoksia 373 kpl ja lopetuksia 155 kpl.
+           Muiden rehualan toimijoiden rekisteröinti-ilmoituksia saapui yhteensä 199 kpl (246 kpl v.
+           2024), joista uusia ilmoituksia oli 106 (87), muutosilmoituksia 50 kpl (73) ja
+           lopetusilmoituksia 43 kpl (86). Ilmoituksista 82 % tehtiin Touko-asiointipalvelun kautta, ja
+           Toukon käyttö ilmoitusten antamisessa kasvoi edelleen verrattuna edelliseen vuoteen (64
+           %). Uusia rekisteröinti-ilmoituksia (90 %) annettiin eniten Toukon kautta kaikista
+           ilmoitustyypeistä. Vientitodistuksia kirjoitettiin 638 kpl (378 alkuperäiskappaletta ja 260
+           kopiota), miltei 15 % vähemmän kuin vuonna 2024 (747 kpl).
+
+           Luomurehutoimijoita oli 1.1.2025 rekisterissä 40 kpl. Vuoden 2025 aikana uusia
+           luomurehutoimijoita tuli viisi ja kuusi toimijaa erosi valvonnasta.
+
+
+2.2 Rehujen valmistus, tuonti ja vienti
+
+           Tilastojen määrätiedot perustuvat rehualan toimijoiden ilmoittamiin tietoihin. Vuoden 2025
+           määrätiedot ovat alustavia ja tietoja saatetaan vielä päivittää vuoden aikana saatujen
+           lisätietojen perusteella tai määräajan jälkeen lähetettyjen ilmoitusten perusteella.
+           Vahvistetut määrätiedot vuodelta 2025 julkaistaan ensi vuoden valvontaraportissa.
+
+           Alustavien tietojen mukaan tuotantoeläinten rehuseoksia valmistettiin Suomessa vuonna
+           2025 yhteensä 1 632,3 milj. kg. Taulukosta 1 näkee, kuinka paljon yleisimpiä eläinlajikohtaisia
+           rehuja on valmistettu. Tuotantoeläimille tarkoitettuja rehuseoksia tuotiin Suomeen vuonna
+           2025 40,6 milj. kg. Rehusekoittamoissa (3 kpl) valmistettujen turkisrehujen määrä oli 64,7
+           milj. kg ja jatkoi pienenemistään (9 % vähemmän kuin vuonna 2024).
+
+
+
+
+                                                  4 (41)
+                              Rehuvalvonnan raportti 2025
+
+
+
+Lemmikkieläinten ruokia valmistettiin 36,4 milj. kg. Kasvua edelliseen vuoteen verrattuna oli
+14 %. Kasvu perustuu kotimaisen kuivaruuan valmistusmäärän lisääntymiseen.
+Lemmikkieläinten ruokia tuotiin 68,1 milj. kg.
+
+Taulukko 1. Eläinlajikohtaisten rehujen valmistus-, tuonti ja vientimäärät vuosina 2024 ja 2025.
+ELÄINLAJIKOHTAISET REHUT                                    2025 alustava             2024
+                                                               milj. kg              milj. kg
+Tuotantoeläinten rehuseosten valmistus                          1632                  1619
+                                   vientiin                     18,4                  17,2
+                    Nautojen rehuseokset                       645,6                 648,3
+                   Siipikarjan rehuseokset                     463,8                 450,3
+                       Sikojen rehuseokset                     384,1                 376,7
+                    Hevosten rehuseokset                         9,2                   9,3
+       Turkiseläinten tuoreet rehuseokset                       64,7                  70,8
+Tuotantoeläinten rehuseosten tuonti*                            25,1                  23,2
+
+Lemmikkieläinten ruoan valmistus                            36,4                       31,8
+                                         vientiin           10,2                       7,5
+                               Koirien rehut**              31,6                       28,6
+                                 Kissojen rehut              4,6                       2,98
+Lemmikkieläinten ruoan tuonti                               68,1                       56,2
+* pl. kalanrehut
+** sisältää sekä koirille että kissoille soveltuvat raakaruoat
+
+Rehuaineita eli pääasiassa rehunvalmistukseen käytettäviä raaka-aineita valmistettiin
+vuonna 2025 yhteensä 1185 milj. kg. Määrä on lähes 14 % vähemmän kuin vuonna 2024
+(1375 milj.kg) Tarkempi erittely rehuainetyypittäin näkyy taulukosta 2. Kasviperäisten
+rehuaineiden valmistusmäärät eivät sisällä alkutuotantoon lukeutuvaa rehukasvien viljelyä,
+koska rehualan alkutuotannon toimijat eivät ole vuosi-ilmoitusvelvollisia. Lemmikkieläinten
+ruoaksi tarkoitetut kuluttajapakatut rehuaineet on raportoitu taulukossa 1.
+
+Kasviperäisten rehuaineiden tuonti EU-alueelta ja kolmansista maista lisääntyi vuosi-
+ilmoitusten perusteella noin neljä prosenttia suhteessa edelliseen vuoteen. Eläinperäisten
+rehuaineiden tuonti lähes kaksinkertaistui vuodesta 2024. Kivennäisrehuaineita tuotiin
+vuonna 2025 saman verran kuin edellisenä vuonna.
+
+Rehun lisäaineiden ja lisäaineiden esiseosten valmistusmäärä oli 88,3 milj.kg, mikä on reilut
+neljä prosenttia enemmän vuoteen 2024 verrattuna (taulukko 2). Rehun lisäaineiden ja
+esiseosten tuontimäärät pysyivät lähes samalla tasolla kuin vuonna 2024.
+
+
+
+
+                                        5 (41)
+                                          Rehuvalvonnan raportti 2025
+
+
+
+            Taulukko 2. Rehuaineiden, rehun lisäaineiden ja lisäaineiden esiseosten valmistus-, tuonti ja
+            vientimäärät vuosina 2024 ja 2025.
+            REHURAAKA-AINEET                                            2025 alustava             2024
+                                                                           milj. kg              milj. kg
+            Rehuaineiden valmistus*                                        1 185                 1 375
+                                                   vientiin                305,3                 342,0
+                                            Kasviperäiset                  576,6                 630,9
+                                             Eläinperäiset                 273,3                 301,8
+                                      Kivennäisrehuaineet                  311,3                 413,3
+            Rehuaineiden tuonti                                            670,4                 640,7
+                                            Kasviperäiset                  548,9                 527,6
+                                             Eläinperäiset                  11,1                   5,6
+                                      Kivennäisrehuaineet                   84,8                  85,0
+
+            Lisäaineiden ja esiseosten valmistus                            88,5                   84,9
+                                               vientiin                     65,8                   55,8
+            Lisäaineiden ja esiseosten tuonti                               19,7                   19,4
+
+            Rehujen vientimäärissä Suomen ulkopuolelle oli edelleen havaittavissa kautta linjan kasvua
+            (taulukko 1 ja taulukko 2). Tuotantoeläinten rehuseoksia vietiin 18,4 milj. kg (7 % enemmän
+            kuin vuonna 2024), lemmikkieläinten ruokia 10,2 milj. kg (36 % enemmän kuin vuonna 2024)
+            ja rehujen lisäaineita ja esiseoksia 65,8 milj.kg (18 % enemmän kuin vuonna 2024).
+            Rehuaineiden vienti sitä vastoin väheni 11 % vuodesta 2024, mikä on linjassa sen kanssa, että
+            rehuaineiden valmistus on laskenut vuodesta 2024.
+
+
+
+3 VALVONTASUUNNITELMAN TOTEUTUMINEN, SÄÄNNÖSTENMUKAISUUS
+JA KORJAAVAT TOIMENPITEET
+
+3.1 Alkutuotannon toimijat (tilavalvonta)
+
+     3.1.1 Valvontasuunnitelman toteutuminen
+
+            Rehualan alkutuotannon toimijoiden valvonta on pääosin yhtä aikaa sekä rehulainsäädännön
+            että maataloustukiin liittyvän ehdollisuuden valvontaa. Tilat valittiin valvontaan sekä
+            satunnaisesti että painotetusti Ruokaviraston määrittelemien ehdollisuuden otantojen
+            perusteella. Eläintilojen painotetussa otannassa huomioitiin tuotantosuunta, eläintuotannon
+            monipuolisuus (sekatilat), valvontatulokset ja tilan koko. Kasvitilojen painotetussa otannassa
+            huomioitiin rehukasvien viljely ja aikaisemmat laiminlyönnit. Otantavalvonnan lisäksi
+            rehualan alkutuotannon toimijoiden valvontaa voidaan tehdä johonkin laiminlyöntiepäilyyn
+            perustuen tai muun valvonnan, esim. rehujen seleeni- ja homemyrkkyseurannan sekä
+            markkinavalvonnan (kalanviljelylaitokset), yhteydessä.
+
+
+
+
+                                                    6 (41)
+                              Rehuvalvonnan raportti 2025
+
+
+
+ELY-keskusten tarkastajat valvoivat yhteensä 405 otantatilaa, joista 278 oli kasvi- ja 127
+eläintilaa. ELY-tarkastajat valvoivat tilat Ruokaviraston laatiman suunnitelman ja
+ohjeistuksen mukaisesti. Tavoitteena oli valvoa vähintään 1 % tukia hakeneista maatiloista,
+mikä toteutui. Eläintilaotantaan tulleista tiloista 14:sta ei ollut enää eläimiä ja ne valvottiin
+soveltuvin osin kasvinviljelytilana. Yhdellä otantaan tulleella eläintilalla ei ollut valvottavaa eli
+ei eläin- eikä kasvintuotantoa, mikä on huomattavasti vähemmän kuin edellisenä vuonna.
+Kasvitilaotantojen tiloilla ei ollut tuotantoeläimiä, joten niiden rehuvalvontaa ei ollut tarvetta
+laajentaa eläintilavalvonnaksi. Otantavalvontojen lisäksi rehualan alkutuotannon toimijan
+valvonta tehtiin kolmella kalanviljelylaitoksella ja kuudella seleeni-/homemyrkkyseurannan
+tilalla (Taulukko 3).
+
+Valtaosalla valvotuista otantoihin tulleista eläintiloista oli vain märehtijöitä (72 %), mutta
+valvonnassa oli myös eri eläinlajeja pitäviä sekatiloja (4 %), sikatiloja (9 %) ja siipikarjatiloja
+(12 %). Siipikarja- ja sekatiloja oli valvonnassa hiukan aiempaa enemmän, mutta sikatiloja oli
+vähemmän. Otantatiloilta otettiin yhteensä 33 rehunäytettä, mikä oli suunnitelman
+mukaisesti vähemmän kuin edellisinä vuosina. Näytteistä 30 % oli tilaseoksia, 55 % viljoja ja
+15 % teollisia rehuseoksia. Lisäksi neljältä kalanviljelylaitokselta otettiin viisi näytettä
+teollisista rehuseoksista markkinavalvonnan yhteydessä. Muista kuin kalanrehuista
+analysoitiin kiellettyjä eläinvalkuaisia sekä muita visuaalisia poikkeamia, kuten tuholaisia,
+torajyviä ja hukkakauraa. Kuudesta vuoden 2025 sadon viljanäytteestä tutkittiin
+Ruokavirastossa pikatestillä DON-homemyrkkyä ja referenssimenetelmällä myös 17 muuta
+homemyrkky-yhdistettä.
+
+
+Taulukko 3. Valvottujen rehualan alkutuotannon toimijoiden ja kielletyn eläinvalkuaisen tutkimiseksi
+otettujen rehunäytteiden määrä v. 2025.
+                                Tavoite kpl             Toteutuma kpl            Toteutunut %
+ Tilat                             406                      414                      102
+ Näytteet                           43                       33                       77
+
+Elinkeino-, liikenne- ja ympäristökeskukset (ELY) tarkastivat kaikilla tiloilla rehukirjanpidon
+sekä biosidien ja kasvinsuojeluaineiden käyttökirjanpidon. Lisäksi tarkastettiin, että rehut oli
+hankittu rekisteröityneiltä tai hyväksytyiltä toimijoilta ja että tila itse oli rekisteröitynyt
+rehualan alkutuotannon toimijaksi.
+
+Tarkastajat valvoivat eläintiloilla ja kalanviljelylaitoksilla myös käsitellyn eläinvalkuaisen
+varastointia ja rehukäyttöä. Eläintiloilla tarkastettiin myös toimijan rekisteröitymistä
+edellyttävien maitotuotteiden rehukäyttö. Toimintavuonna rekisteröitiin yksi maitotuotteita
+eläinten ruokinnassa käyttävä tila. Käsiteltyä eläinvalkuaista tai sitä sisältävää
+täydennysrehua käyttävän rehualan alkutuotannon toimijan ja lääkerehua valmistavan
+tilasekoittajan tulee olla Ruokaviraston hyväksymä/rekisteröimä. Neljä tilaa rekisteröitiin
+sioista saatavaa käsiteltyä eläinvalkuaista sisältävän täydennysrehun käyttäjiksi siipikarjan
+ruokinnassa ja 12 kalanviljelylaitosta hyväksyttiin lääkerehun tilasekoittajiksi.
+
+
+
+
+                                        7 (41)
+                                   Rehuvalvonnan raportti 2025
+
+
+
+       Lisäksi tarkastajat valvoivat eläintiloilla rehuvarastojen tunnisteiden merkinnät, kirjasivat ylös
+       havaitut tuhoeläimet tai niiden jäljet ja käytetyn tuholaistorjunnan sekä tarkastivat
+       orgaanisten lannoitteiden ja maanparannusaineiden varastointia. Lisäksi valvottiin jätteiden,
+       vaarallisten aineiden, kasvinsuojeluaineiden, biosidien ym. eläinten ruokinnassa kiellettyjen
+       aineiden ja lääkerehujen varastointia ja käsittelyä erillään rehuista.
+
+       ELY-tarkastajat ottivat maatiloilta 45 säilörehu- ja muu karkearehunäytettä (tavoite 60)
+       kansallista seleeniseurantaa varten. Seurannassa selvitetään lannoitteisiin lisätyn seleenin
+       vaikutusta rehujen ja eläimistä saatavien elintarvikkeiden seleenipitoisuuteen.
+
+3.1.2 Säännöstenmukaisuus
+
+       Yhden tilan ohranäytteestä todettiin kiellettyä eläinvalkuaista (verijauhoa). Tuhohyönteisiä
+       todettiin yhdessä rehunäytteessä (6 kpl 2024, 14 kpl 2023, 2 kpl 2022, 8 kpl 2021), mikä
+       normaalisti johtaa rehun säilytyspaikan puhdistuskehotukseen, mutta tässä rehun käyttö
+       kiellettiin verijauholöydöksen vuoksi. Jyrsijän ja linnun ulostetta todettiin kahdessa
+       rehunäytteessä (3 kpl 2024, 6 kpl 2023, 0 kpl 2022, 5 kpl 2021). Hukkakauraa tai torajyviä ei
+       todettu. Visuaalisia poikkeamia todettiin suhteellisesti vähemmän kuin edellisenä vuonna.
+
+       Kuudesta viljanäytteistä (kolme kauraa, kaksi ohraa ja yksi vehnä) tutkittiin pikamenetelmällä
+       DON-homemyrkkyä. Näytteiden DON-pitoisuudet olivat 150, 1600, 2800, 84, 660 ja 1600
+       µg/kg 12 % kosteutta sisältävää rehua. Näytteet tutkittiin myös referenssimenetelmällä 17
+       muun homemyrkyn osalta, joista useiden eri DON-yhdisteiden lisäksi todettiin T-2- ja HT-2-
+       toksiinia, zearalenonia ja okratoksiini A:ta, mutta pitoisuudet eivät ylittäneet ohjearvoja.
+
+       Rehualan alkutuottajien valvonnassa todetut poikkeamat ja tarkastuksilla havaitut puutteet
+       on esitetty taulukossa 4. Puutteiden lukumäärä oli suhteellisesti suurempi kuin
+       edellisvuonna, koska erityisesti valvottujen kasvitilojen määrä oli huomattavasti pienempi
+       kuin aikaisemmin. Suurin osa puutteista liittyi kirjanpitoihin ja rehualan alkutuotannon
+       toimijaksi rekisteröitymättömyyteen. Tarkastajat tekivät suhteellisesti edellisiä vuosia
+       vähemmän havaintoja tuhoeläimistä tai niiden jäljistä eläintilojen rehuvarastoalueilla.
+       Tarkastajat antoivat neuvontaa liittyen mm. rekisteröinteihin, rehuvarastojen tunnisteisiin,
+       rehujen hygieeniseen varastointiin, tuholaistorjuntaan ja biosidikirjanpitoon.
+
+
+
+
+                                             8 (41)
+                             Rehuvalvonnan raportti 2025
+
+
+
+Taulukko 4. Todetut puutteet (kpl) rehualan alkutuotannon toimijoiden valvonnassa 2025 ja 2024.
+ Todettu puute                                                                      2025    2024
+ Rehunäytteessä tuho- tai muita hyönteisiä                                            1       6
+ Rehunäytteessä todettiin kiellettyä eläinvalkuaista                                  1       0
+ Kirjanpito rehuista, kasvinsuojeluaineista tai biosideista on puutteellinen         10      14
+ Jätteitä, vaarallisia aineita, kemikaaleja, siemeniä tai lääkerehuja ei ole          4       1
+ varastoitu asianmukaisesti erillään rehuista tai eläinten pitopaikoista tai
+ muu epäasiallinen rehujen varastointi
+ Rehun hankinta rekisteröitymättömältä rehualan toimijalta                            1       2
+ Käsitellyn eläinvalkuaisen käyttöön vaadittavaa rekisteröintiä tai                   0       0
+ hyväksyntää ei ole
+ Maitotuotteiden rehukäyttöön vaadittavaa rekisteröintiä ei ole                      0        2
+ Rekisteröintiä rehualan alkutuotannon toimijaksi ei ole (eläintilat)                9        11
+ Rehuvarastojen tunnisteiden merkitsemisessä puutteita (eläintilat)                  4        2
+ Yhteensä                                                                            30       38
+
+Ehdollisuuden rehuvaatimusten noudattamisessa havaittiin laiminlyönti viidellä eläintilalla.
+Ne johtivat neljään vähäiseen laiminlyöntiin (rehut hankittu rekisteröidyltä/hyväksytyltä
+toimijalta, jätteiden, vaarallisten ym. kiellettyjen aineiden ym. varastointi erillään rehuista ja
+biosidikirjanpito 2 kpl) sekä yhteen 1 %:n (kiellettyjen aineiden varastointi) ja yhteen 5 %:n
+tukiseuraamukseen (kiellettyjen aineiden varastointi). Neljällä kasvitilalla todettiin
+laiminlyöntejä ehdollisuuden neljässä rehuvaatimuksessa, mikä on suhteellisesti samaa tasoa
+kuin edellisenä vuonna. Puutteista seurasi kaksi vähäistä laiminlyöntiä (rehu- ja
+kasvinsuojeluainekirjapito) ja seitsemän 3 %:n tukiseuraamusta (rehukirjanpito 2 kpl,
+kasvinsuojeluainekirjanpito 2 kpl, biosidikirjanpito 2 kpl, kiellettyjen aineiden varastointi).
+Kalanviljelylaitosten valvonnassa havaitut laiminlyönnit liittyivät rehualan alkutuotannon
+toimijan rekisteröinnin puuttumiseen (1 kpl) ja rehuvarastojen tunnisteiden merkinteiden
+puutteisiin (2 kpl).
+
+Seleeniseurantaa varten v. 2025 otettujen säilörehunäytteiden (yht. 45 kpl) keskimääräinen
+seleenipitoisuus oli teollisilla lannoitevalmisteilla lannoitetuilta nurmilta korjatussa rehussa
+0,23 mg/kg ka (0,23 v. 2024, 0,15 v. 2023) ja karjanlannalla lannoitetuilta tai
+lannoittamattomilta nurmilta tehdyissä rehunäytteissä 0,03 mg/kg ka (0,04 v. 2024, <0,04 v.
+2023). Vuonna 2025 otetuissa näytteissä ei todettu huomattavan korkeita
+seleenipitoisuuksia suhteutettuna rehun lisäaineasetuksessa seleenin enimmäispitoisuudelle
+asetettuun rajaan 0,5 mg/kg 12 % kosteutta sisältävää rehua. Lähes kaikkien
+lannoittamattomien ja karjanlannalla lannoitettujen säilörehujen seleenipitoisuus jäi alle
+Luonnonvarakeskuksen (Luke) ruokintasuositusten. Teollisilla valmisteilla lannoitetuista
+nurmista tehdyt karkearehut sisältävät seleeniä yleensä ruokintasuositusten mukaisesti tai
+ne ylittäen.
+
+Eläinten salmonellatartunnan lähteen selvittämiseksi yhdelle tilalle järjestettiin
+rehunäytteenotto valvontavuoden aikana. Rehuista ei todettu salmonellaa. Rehuselvityksiä
+rehujaostoon tuli yhteensä kahdeksan. Seitsemän kohdalla arviointiin, että tilan
+
+
+
+                                       9 (41)
+                                        Rehuvalvonnan raportti 2025
+
+
+
+            rehunäytteenotolle ei ole perustetta. Rehuselvitysten tarkastelussa käydään läpi kaikki
+            viranomaisnäytteenoton (ml. kolmasmaatuonti) ja rehujen valmistajien omavalvonnan
+            näytteenoton (ml. sisämarkkinatuonti) salmonellatulokset usean vuoden ajalta.
+
+    3.1.3 Korjaavat toimenpiteet
+
+            Kaikista edellä kuvatuista puutteista on annettu rehualan alkutuotannon toimijoille ilmoitus,
+            huomautus, toimenpidekehotus tai rehun käyttökielto. Lisäksi ehdollisuuden
+            rehuvaatimusten laiminlyönneistä on annettu tukiseuraamukset.
+
+3.2. Rehualan toimijat
+
+    3.2.1 Valvontasuunnitelman toteutuminen
+
+            Ruokavirasto valvoo rehualan toimijoita tarkastuskäynnein riskin kokonaisarviointiin
+            perustuvan suunnitelman mukaisesti. Riskipisteytys on toteutettu rehuhygieniatarkastusten
+            osalta Elmo -järjestelmässä. Riskipisteytyksen lähtötietoja ovat tuotantomäärät
+            rehutyypeittäin, rehuhygienia-asetuksen mukainen hyväksyntä, kalajauhon tai muun
+            eläinvalkuaisen (sika-/siipikarja-/hyönteis-PAP, Processed Animal Protein) käyttö
+            valmistuksessa, lääkerehujen valmistus, maitopohjaisten sivutuotteiden valmistus ja jakelu,
+            edellisestä tarkastuksesta kulunut aika ja todetut puutteet sekä rehualan toimijan
+            hyväksyntähakemukset. Tarkastettavien toimijoiden valinnassa on huomioitu ilmoitukset
+            omavalvonnan salmonellalöydöksistä.
+
+            Etämarkkinoinnin ja -myynnin valvontaan liittyvät etätarkastukset kohdistetaan niihin
+            toimijoihin, joiden markkinoinnissa ja/tai tuotteiden etiketeissä havaitaan puutteita tai
+            säädöstenvastaisuuksia. Erityishuomiota kiinnitetään markkinointiväittämiin.
+
+            Sivutuotetoimijoiden riskinarviointiin vaikuttaa tuotantomäärien ja edellisten tarkastusten
+            lisäksi keskeisimmin se, käytetäänkö valmistuksessa raakoja vai käsiteltyjä eläinperäisiä
+            sivutuotteita ja mille eläinlajeille lopputuote on tarkoitettu.
+
+            Taulukko 5 sisältää Ruokaviraston eri rehutoimialasektoreille suunnitellut ja toteutuneet
+            tarkastukset. Toimintojen mukaan raportoidut tarkastukset menevät osittain päällekkäin.
+            Esimerkiksi joidenkin rehujen valmistajien tarkastusten yhteydessä katsottiin myös
+            hyväksynnän alainen rehun lisäaineiden maahantuonti.
+
+
+
+
+                                                 10 (41)
+                              Rehuvalvonnan raportti 2025
+
+
+
+Taulukko 5. Rehualan toimijat eri sektoreilla; suunnitellut ja suoritetut tarkastukset vuonna 2025.
+ Tarkastuskohde/toiminta                          Toimijoide     Tarkastukset      Tarkastukset       %
+                                                   n määrä       suunnitelma         toteuma
+                                                   1.1.2025
+ Rehujen (rehuaineet, rehuseokset, li-               494               47               46            98
+ säaineet, esiseokset) valmistus
+ Varastointi päätoimintona                           137               6                 6            100
+ Tuotantoeläinten rehujen vähittäis-                 636               20               20            100
+ kauppa (ELYjen suorittamat tarkastuk-
+ set)
+ Tarkastuskohde/toimija
+ Hyväksytyt rehun lisäaineiden maa-                   37               14               12            86
+ hantuojat ja/ tai välittäjät
+ Kuljetusvälineet (valtuutettujen                   494*             40**               41            103
+ tarkastajien ja laitostarkastajien                 (709)
+ suorittamat tarkastukset)
+ Maitoalan laitokset                                 30                5                 5            100
+ Turkiseläimille rehua valmistavat re-              7***               0                 0             -
+ husekoittamot (turkisrehusekoittamot)
+ Käsittelylaitokset (luokan 2 ja 3 rehu-              19               7                 8            114
+ aineita tuottavat laitokset)
+ Lemmikkieläinten rehua valmistavat                   38               8                11            138
+ hyväksytyt laitokset
+ Luomurehualan toimijat                               40               40               40            100
+* Irtorehuja kuljettavien kuljetusliikkeiden määrä, sulkeissa kuljetusliikkeiden kokonaismäärä.
+** Irtorehujen kuljetusvälineisiin kohdistuvat suunnitellut tarkastukset.
+*** kahdessa sekoittamossa ei toimintaa tällä hetkellä
+
+Ruokavirasto suunnitteli tekevänsä 59 rehuhygienia-asetuksen mukaista tarkastusta
+hyväksyntätarkastukset mukaan lukien. Tarkastusmäärä asetettiin valvontasuunnitelmassa ja
+määrä suhteutettiin käytössä olleeseen henkilöresurssiin. Tarkastuksia kohdistettiin niihin
+rehualan toimijoihin, joilla on toimintona rehujen valmistus, varastointi tai
+maahantuonti/välitys. Tarkastuksia tehtiin yhteensä 58 eli toteumaprosentti oli 98.
+Tarkastuksista ennalta ilmoittamatta tehtiin 34 %. Suurin osa tarkastuksista tehtiin paikan
+päällä ja vain kolme tarkastusta tehtiin etätarkastuksina. Laitostarkastuksista 7/58 eli 12 %
+kohdistui aikaisemmin tarkastamattomiin toimijoihin. Rehuhygienia-asetuksen mukaisesti
+hyväksyttyjä toimijoita tarkastettiin 19. Valvontasuunnitelman ulkopuolelta tuli
+lääkerehuasetukseen liittyviä tilasekoittajien hyväksyntähakemuksia ja näitä tarkastuksia
+tehtiin yhdessä ELY-keskuksien kanssa 12.
+
+Rehuhygieniatarkastuksissa rehuseosten valmistajia tarkastettiin 17, joista neljä oli
+rahtisekoittajia ja yksi rehuosuuskunta. Rehuaineiden valmistajia tarkastettiin 22.
+Tarkastetuista rehuaineiden valmistajista viisi oli maitoalan laitoksia. Rehun lisäaineiden ja
+esiseosten valmistajia tarkastettiin seitsemän. Hyväksyttyjä rehujen markkinoille saattajia
+tarkastettiin 12. Toimijoita, jotka ovat ensisijaisesti varastointiliikkeitä, tarkastettiin kuusi.
+
+
+                                        11 (41)
+                            Rehuvalvonnan raportti 2025
+
+
+
+Viidessä varastoitiin irtorehuja ja yksi oli ainoastaan pakattujen rehujen varastointilaitos.
+Kuljetusliikkeitä ei valvontavuonna valikoitunut tarkastuskohteeksi, vaan tänä vuonna
+keskityttiin irtorehujen kuljetuskalustotarkastuksiin. Tarkastuskohteiksi valikoiduista kahdella
+ei ollut enää rehualan toimintaa, joten tarkastusta ei tehty.
+
+Toimintavuonna ei tullut uusia hakemuksia liittyen rehuhygienia—asetuksen mukaiseen
+hyväksyntään, mutta tarkastuksella havaittiin, että hyväksytty toimija oli laajentanut
+toimintaa eri toimipaikkaan ja uudelle toimipaikalle edellytettiin hakemaan hyväksyntä. TSE-
+asetukseen liittyen yksi rehutehdas poistettiin hyväksyttyjen kalajauhon käyttäjien listalta
+toimijan aloitteesta, koska kalajauhon käyttö oli loppunut. Lisäksi yksi rehutehdas
+hyväksyttiin sikaPAP käyttäjäksi. Ajantasaiset TSE-laitoslistat julkaistaan nettisivuilla.
+Valvontavuoden aikana tarkastettiin kolme TSE-hyväksyttyä rehutehdasta ja neljä
+rahtisekoittajaa.
+
+Elintarviketuotantoeläinten lääkerehuja valmisti toimintavuonna yksi rehutehdas, mutta
+loppuvuodesta uusia lääkerehun tilasekoittajahakemuksia tuli 14. Lääkerehun tilasekoittaja
+on maatila tai vesiviljelytila, joka sekoittaa itse eläinlääkärin määräämää esisekoitetta rehuun
+käytettäväksi ainoastaan kyseisellä tilalla. Näiden uusien tilasekoittajien
+hyväksyntähakemukset käsiteltiin ensin Ruokavirastossa, jonka jälkeen paikan päällä
+tarkastuksen teki ELY-keskuksen tarkastaja. Päätökset hyväksynnästä ja mahdolliset
+edellytetyt toimenpiteet tehtiin tarkastuksen jälkeen Ruokavirastosta käsin. Hyväksytyt
+lääkerehutoimijat löytyvät rehualan toimijaluettelosta Ruokaviraston nettisivuilta. Lisäksi
+hyväksyttiin yksi uusi lemmikkieläinten lääkerehujen jälleenmyyjä. Lääkerehutoimijoiden
+lukumäärä lisääntyi paljon verrattuna edellisvuosiin, mutta toisaalta moni turkispuolen
+lääkerehutoimija myös lopetti. Lääkerehujen valmistusmäärät myös hieman kasvoivat
+verrattuna edelliseen vuoteen.
+
+Ruokavirasto kiinnitti rehutehtaiden tarkastuksissa erityisesti huomiota HACCP-järjestelmiin
+sekä laadunvarmistusnäytteenottoon salmonellan ja haitallisten aineiden toteamiseksi.
+Laitostarkastusten yhteydessä tarkastettiin myös kokkidiostaattijäämien hallintaa,
+muuntogeenisten ja tavanomaisten rehujen erillään pitoa sekä TSE-asetuksen edellyttämää
+kalajauhon/muiden käsiteltyä eläinvalkuaista sisältävien rehujen erillään pitämistä
+märehtijän/muiden elintarviketuotantoeläinten rehuista, mille ko. eläinvalkuainen ei ole
+sallittu.
+
+Ruokavirasto valvoo eläimistä saatavia, rehuksi käytettäviä sivutuotteita luokan 2 ja 3
+käsittelylaitosten, lemmikkieläinten ruokia valmistavien laitosten ja turkiseläimille rehua
+valmistavien laitosten (teurastamojen yhteydessä olevat keräyskeskukset,
+turkisrehusekoittamot) osalta. Luokan 2 ja 3 käsittelylaitoksilta sekä lemmikkieläinten ruokia
+valmistavilta laitoksilta edellytetään hyväksyntää, keräyskeskuksilta ja
+turkisrehusekoittamoilta rekisteröintiä. Varastot ja kuljettajat rekisteröidään lähtökohtaisesti
+ainoastaan rehualan toimijoiksi, vaikka ne varastoisivatkin myös sivutuotteista johdettuja
+tuotteita, kuten kalajauhoa. Ruokavirasto valvoo myös niitä, mutta valvontamäärät sisältyvät
+muiden varastojen ja kuljetusliikkeiden määrään.
+
+
+
+
+                                     12 (41)
+                             Rehuvalvonnan raportti 2025
+
+
+
+Ruokaviraston tarkastuseläinlääkärit valvovat sivutuotteiden rehuksi toimittamista
+teurastamoissa ja niiden yhteydessä olevissa elintarvike- ja sivutuotealan laitoksissa.
+Valvonta tehdään Oiva-ohjeistuksen mukaisesti osana muuta elintarvikehuoneistojen
+sivutuotevalvontaa.
+
+Rehujen valvontasuunnitelman mukaiset sivutuotealan laitosten tarkastukset toteutuivat
+suunnitellusti. Tarkastuksia tehtiin yhteensä 17, ja niillä tarkastettiin 20 eri laitoksen asioita.
+Valvontasuunnitelman mukaisista tarkastuksista 31 % tehtiin ennalta ilmoittamatta, mikä
+vastaa suunniteltua.
+
+Valvontasuunnitelman mukaan oli tarkoitus tarkastaa yksi rehusivutuotteiden välittäjä,
+mutta se jäi toteutumatta, kun toimija ilmoitti lopettamisesta tammikuun aikana.
+Uusia laitoksia hyväksyttiin valvontavuoden aikana yhteensä kuusi: neljä lemmikkieläinten
+ruokia valmistavaa laitosta ja kaksi käsittelylaitosta (hyönteisPAP ja siipikarjaPAP).
+Turkisrehusektorille ei tehty tänä vuonna rehuvalvonnan tarkastuskäyntejä, mutta niihin on
+kohdistettu sivutuotepuolen valvontaa. Tarkemmat tiedot eläimistä saatavien sivutuotteiden
+valvonnasta löytyvät sivutuotesektorin valvontaraportista.
+
+Ruokavirasto teki yhden vientitarkastuksen käsittelylaitokseen (kalajauho) Yhdysvaltoihin
+vientiä varten. Valvontavuoden alussa erilliset Euraasian vientitarkastukset lopetettiin
+valvontajärjestelmän lakkauttamisesta johtuen, joten näitä tarkastuksia ei enää tehty.
+
+Luomurehutoimijoista kaikille valvontaan kuuluville tehtiin vuosittainen tarkastus
+suunnitelman mukaisesti. Kuusi toimijaa erosi luomurehuvalvonnasta valvontavuoden
+aikana. Uusille luomurehutoimijoille tehtiin viisi alkutarkastusta. Lisäksi tehtiin neljä (10 %
+toimijoiden määrästä) ennalta ilmoittamatonta ja ylimääräistä luomurehutarkastusta.
+
+Irtorehun kuljetusvälineiden tarkastuksia tehtiin viidentoista eri toimijan tehtaalla.
+Tarkastukset tehtiin pistokokeina ja suunnattiin mahdollisimman tasapuolisesti eri
+kuljetusliikkeiden kalustoon. Eri kuljetusliikeitä osui valvontaan 30 kpl. Toteutuneiden
+tarkastusten määrä ylitti tavoitteen. Vuonna 2025 tarkastettiin 41 kuljetusvälinettä (v. 2024
+35).
+
+Tuotantoeläinten rehuja myyvien vähittäiskauppojen rehuhygienia-asetuksen (EY/183/2005)
+mukaiset tarkastukset tehtiin ELY-keskusten toimesta Ruokaviraston ohjeiden mukaisesti.
+Tarkastuksen tarkoituksena on selvittää, noudattavatko toimijat rehuhygienia-asetuksen
+vaatimuksia, minkä lisäksi tarkastuksilla tarkastetaan rehujen pakkausmerkintöjä.
+Tarkastuksen kohteeksi voidaan valita kauppaketjuihin kuuluvia myymälöitä, yksityisiä
+myymälöitä ja meijereiden yhteydessä toimivia myymälöitä. Tarkastukset tehdään
+pääasiassa ennalta ilmoittamatta. ELY-keskusten tarkastajat tarkastivat valvontavuoden
+aikana 20 tuotantoeläinten rehuja myyvää vähittäiskauppaa.
+
+
+
+
+                                       13 (41)
+                                   Rehuvalvonnan raportti 2025
+
+
+
+3.2.2 Säännöstenmukaisuus
+
+       Ruokavirasto luokittelee rehualan toimijoiden tarkastuksissa todetut puutteet ja niiden
+       perusteella rehualan toimijoilta edellytetyt toimenpiteet kolmeen luokkaan siten, että 1.
+       luokan puutteet ovat vakavimpia ja 3. luokan puutteet lievimpiä. Lisäksi rehualan toimijalle
+       voidaan antaa toiminnan parantamiseksi toimintaan liittyviä kehitysehdotuksia, joiden osalta
+       lainsäädännössä ei esitetä täsmällisiä vaatimuksia. Kehitysehdotukset eivät ole toimijaa
+       sitovia. Puutteen vakavuusluokan lisäksi edellytetyt toimenpiteet on jaettu 10:een eri
+       kategoriaan riippuen siitä, mihin edellytetty toimenpide liittyy. Luokkia ovat esim. raaka-
+       aineisiin liittyvät, tietojen kirjaamiseen tai HACCP- järjestelmään liittyvät puutteet.
+
+       Rehuhygienia-asetuksen mukaisissa tarkastuksissa sekä hyväksyttävien
+       lääkerehutoimijoiden/TSE-hyväksyntätarkastuksissa toimijoilta edellytettiin taulukoiden 6 a
+       ja 6 b mukaisesti yhteensä 197 korjaavaa toimenpidettä ja annettiin 73 kehitysehdotusta.
+       Edellytettyjen toimenpiteiden lukumäärä suhteutettuna tarkastuskäynteihin kasvoi
+       verrattuna edelliseen vuoteen. Kehitysehdotuksia annettiin myös hieman enemmän.
+       Toimintavuoden aikana havaittiin ja annettiin yksi luokan 1 eli vakavin puute yhdessä
+       rehuhygienia-asetuksen mukaisessa tarkastuksessa. Ykkösluokan puute liittyi rehuerin
+       jäljitettävyyteen eli tietojen kirjaamiseen. Toimijalta edellytettiin toiminnan välitöntä
+       korjaamista liittyen tietojen kirjaamiseen varastoinnin yhteydessä.
+
+       Luokan 1 puutteiden lisäksi havaittiin luokan 2 puutteita, joita todettiin 60 kappaletta. Tämä
+       oli enemmän kuin edellisvuonna. Lukumääräisesti luokan 2 puutteiden johdosta edellytetyt
+       toimenpiteet kohdistuivat eniten HACCP- järjestelmään (22 kpl) sekä laadunvarmistukseen
+       (17 kpl). Tänäkin valvontavuonna eniten todettiin lieviä eli luokan 3 puutteita (136 kpl).
+       Näitä luokan 3 puutteita annettiin lukumäärällisesti eniten tukijärjestelmiin,
+       laadunvarmistukseen sekä pakkausmerkintöihin liittyen.
+
+       Ruokaviraston valvonnassa toteamat säännösten vastaisuudet liittyivät lukumäärällisesti
+       eniten tukijärjestelmiin (kuten kunnossapito, kalibrointi, tuhoeläintorjunta, puhtaanapito)
+       sekä laadunvarmistukseen (näytteenotto, vastanäytteet ja niiden sinetöinti, ohjeistus).
+       Yhteensä näitä puutteita oli 84 kpl eli niiden osuus oli vajaa puolet todetuista puutteista (n.
+       40 %). Tarkastuksilla todettiin puutteita myös liittyen HACCP- järjestelmiin,
+       pakkausmerkintöihin (ml. nettisivuilla esitettyihin kiellettyihin väittämiin kuten sairauksien
+       hoito) sekä tietojen kirjaamiseen.
+
+       Yhdeksällä tarkastuksella ei havaittu puutteita eikä siten edellytetty toimenpiteitäkään.
+
+
+
+
+                                            14 (41)
+                              Rehuvalvonnan raportti 2025
+
+
+
+Taulukko 6 a. Todetut puutteet (kpl), joiden perusteella on edellytetty korjaavia toimenpiteitä. 1)
+                                         Luokka 1      Luokka 2      Luokka 3       Yhteensä
+ Raaka-aineet                               -              1             5              6
+ Tilat ja laitteet                          -              4             8             12
+ Tukijärjestelmät                           -              6            38             44
+ Henkilöstö                                 -              -             -              -
+ Laadunvarmistus                            -             17            23             40
+ Tietojen kirjaaminen                       1              5            10             16
+ Valitukset ja takaisinveto                 -              2             9             11
+ HACCP                                      -             22            12             34
+ Pakkausmerkinnät                            -               3          22             25
+ Rekisteröitymättömät toimijat               -               -           9              9
+                                             1              60          136            197
+1) Ei sisällä sivutuoteasetuksen mukaisissa tarkastuksissa tai vähittäiskauppojen tarkastuksissa
+todettuja puutteita. Sisältää hyväksyntätarkastuksissa todetut puutteet.
+
+Taulukko 6 b. Havainnot (kpl), joiden perusteella on annettu kehitysehdotuksia
+ Puuteryhmä                           Kirjattu määrä
+ Raaka-aineet                                   6
+ Tilat ja laitteet                              4
+ Tukijärjestelmät                               8
+ Henkilöstö                                    18
+ Laadunvarmistus                                8
+ Kirjanpito                                     7
+ Valitukset ja takaisinveto                     4
+ HACCP                                          5
+ Pakkausmerkinnät                               9
+ Rekisteröidyt toimijat                         4
+ Summa                                         73
+
+Ruokavirasto asetti edellytetyille toimenpiteille päätöksellä määräajan, johon mennessä asia
+tuli saattaa kuntoon ja raportoida Ruokavirastoon.
+
+Valvontakäyntien lisäksi valvontaa kohdennettiin kotimaisten toimijoiden nettisivujen
+markkinointimateriaalin ja rehujen merkintöjen valvontaan. Huomiota kiinnitettiin erityisesti
+markkinointiväittämiin. Valvontavuoden aikana neljää toimijaa huomautettiin sähköpostitse
+nettisivuilla esitetyistä rehujen merkinnöistä. Rehujen merkintöjä valvottiin lisäksi
+hevosmessuilla ja lemmikkimessuilla. Messuilla tehdyn valvonnan seurauksena neljää
+toimijaa huomautettiin sähköpostitse merkintöihin liittyen, minkä lisäksi messuilla tehdyt
+havainnot huomioitiin yhden toimijan laitostarkastukseen liittyvällä päätöksellä. Toimijat
+korjasivat nettisivujaan valvontatoimenpiteiden johdosta.
+
+Sivutuoteasetuksen mukaan hyväksyttyjen ja rekisteröityjen laitosten
+valvontasuunnitelman mukaisilla ja hyväksynnän siirtoihin liittyvillä tarkastuksilla todettiin
+
+
+
+                                        15 (41)
+                              Rehuvalvonnan raportti 2025
+
+
+
+yhteensä 20 puutetta, joista 6 oli luokan 2 puutteita ja 16 luokan 3 puutteita (Taulukko 6 c).
+Luokan 1 puutteita ei havaittu. Kaikkiin havaittuihin puutteisiin liittyen edellytettiin korjaavia
+toimenpiteitä.
+
+Luokan 2 puutteet liittyvät vaatimustenvastaiseen tai heikkolaatuiseen rehuun,
+puutteelliseen CCP-kirjanpitoon, kokonaan puuttuviin rehumerkintöihin ja puuttuvaan tai
+puutteelliseen rehujen laadunvarmistukseen (näytteenotto). Luokan 3 puutteita todettiin
+eniten omavalvontasuunnitelmissa (ml. tukijärjestelmien kirjanpito) ja HACCP-järjestelmissä,
+pakkausmerkinnöissä, laadunvarmistuksessa (vastanäytteet) sekä yhteistyökumppaneiden
+rekisteröinneissä.
+
+Taulukko 6 c. Todetut puutteet (kpl), joiden perusteella on edellytetty korjaavia toimenpiteitä
+sivutuoterehulaitosten valvonnassa.
+                                        Luokka 1       Luokka 2      Luokka 3      Yhteensä
+ HACCP                                     -              -              3             3
+ Henkilöstö                                -              -              -             -
+ Laadunvarmistus                           -              3              3             6
+ Pakkausmerkinnät                          -              1              2             3
+ Raaka-aineet                              -              -              1             1
+ Rekisteröitymättömät toimijat             -              -              3             3
+ Tietojen kirjaaminen                      -              -              1             1
+ Tilat ja laitteet                         -              -              -             -
+ Tukijärjestelmät                          -              -              5             5
+ Valitukset ja takaisinveto                -              -              -             -
+                                           0              6             16            22
+
+Sivutuoterehulaitosten valvonnan yhteydessä annettiin 17 tarkastuskäynnillä (joista 6
+hyväksyntätarkastuksia) yhteensä 22 kehitysehdotusta (taulukko 6 d).
+
+Taulukko 6 d. Havainnot (kpl), joiden perusteella on annettu kehitysehdotuksia.
+                                      Kirjattu määrä
+ HACCP                                          3
+ Henkilöstö                                     -
+ Laadunvarmistus                                2
+ Pakkausmerkinnät                               1
+ Raaka-aineet                                   3
+ Rekisteröitymättömät toimijat                  -
+ Tietojen kirjaaminen                           6
+ Tilat ja laitteet                              2
+ Tukijärjestelmät                               5
+ Valitukset ja takaisinveto                     2
+ Summa                                         24
+
+Seuraamusmaksuja ei määrätty valvontavuoden aikana.
+
+
+
+                                        16 (41)
+                                     Rehuvalvonnan raportti 2025
+
+
+
+        Irtorehun kuljetusautojen tarkastuksissa (yht. 41 kpl) havaittiin puutteita eniten
+        salmonellanäytteenotossa (taulukko 7). Lastaustilojen siisteyden todettiin olevan tyydyttävä
+        kahdella tarkastuksella, muilla tarkastuksilla lastaustilojen siisteys oli hyvällä tasolla. Auton
+        lastitilojen siisteyden ei todettu olevan välttävä tai huono yhdelläkään tarkastuksella.
+        Salmonellanäytteenotto puuttui tai näytteenotto oli puutteellista viidessätoista autossa.
+        Viranomaisnäytteet salmonellan toteamiseksi otettiin yhdestä kuljetusvälineestä; näytteessä
+        ei todettu salmonellaa. Tarkastetuista kuljetusliikkeistä yksi ei ollut rekisteröitynyt rehualan
+        toimijaksi.
+
+        Kuljetusvälineiden tarkastusten vaikuttavuutta on pyritty parantamaan laatimalla päätös
+        sellaisiin tarkastuksiin liittyen, joilla havaittiin selkeitä puutteita. Mikäli ajoista tai
+        puhdistuksista- ja desinfioinneista ei ollut kirjanpitoa tai salmonellanäytteenotto oli
+        puutteellista, laadittiin päätös puutteiden korjaamiseksi edellytetyistä toimenpiteistä.
+        Päätöksiä laadittiin valvontavuoden aikana kaksitoista.
+
+        Taulukko 7. Kuljetusautojen tarkastuksissa havaitut puutteet v. 2025
+         Puuteryhmä                      Puutteita, kpl                        Osuus tarkastetuista, %
+         Puhdistuskirjanpito             4 (ei kirjanpitoa)                              10
+         Lastaustilojen siisteys         2 (tyydyttävä, välttävä tai                     5
+                                         huono)
+         Ajokirjanpito                   0 (ei kirjanpitoa)                              0
+         Salmonellanäytteenotto          15 (ei näytteenottoa)                           37
+         Rekisteröityminen               1                                               2
+
+
+
+        Tuotantoeläinten rehua myyvien vähittäiskauppojen tarkastuksissa (20 kpl) todettiin yksi
+        puute/laiminlyönti (2 kpl v. 2024). Puute koski epäsiistiä varastoa. Toimijalle, jolla puute
+        todettiin, tehtiin päätös edellytetyistä toimenpiteistä. Kehitysehdotuksia annettiin yhteensä
+        12 (10 kpl v. 2024): seitsemän liittyen ohjeistukseen rikkoutuneiden ja muiden viallisten
+        tuotteiden käsittelystä, kaksi puutteellisista tuholaistorjuntaohjelman kirjauksista, yksi tilojen
+        siisteydestä (siivouskehotus), yksi avoimista varaston ovista ja yksi puutteellisista
+        merkinnöistä rehuissa. Kaikki tarkastetut asiat olivat kunnossa 11 myymälässä.
+
+3.2.3 Korjaavat toimenpiteet
+
+        Laitosvalvonnassa todetut puutteet ja edellytetyt toimenpiteet on kirjattu
+        tarkastuskertomuksiin ja valvontapäätöksiin. Luokkien 1, 2 ja 3 puutteiden korjaaville
+        toimenpiteille on asetettu määräajat, joiden toteutumisen raportointia seurataan.
+        Suurin osa toimijoista raportoi puutteet pääosin määräaikoihin mennessä, liittäen mukaan
+        esimerkiksi valokuvia ja muita dokumentteja. Kaikki raportoinnit käydään läpi ja tarvittaessa
+        pyydetään lisäselvityksiä tai lisäkorjauksia asiaan liittyen. Mikäli toimenpiteitä ei raportoida
+        ajallaan, asiasta muistutetaan ja mikäli raportointia ei tehdä tai se on puutteellinen
+        Ruokavirasto voi keskeyttää toimijan rehurekisteröinnin siihen asti, kunnes puutteet on
+        korjattu.
+
+
+
+
+                                               17 (41)
+                                        Rehuvalvonnan raportti 2025
+
+
+
+           Valvontavuonna lähetettiin muistutuksia toimijoille puutteiden korjaamisen raportoinnista.
+           Muistutukset lähetettiin sähköpostitse. Muistutusten lisäksi lähetettiin kolme virallista,
+           valvontarekisteriin kirjattavaa kehotusta raportoida puuttuvat korjaavien toimenpiteiden
+           raportoinnit Ruokavirastoon. Yksi toimija raportoi toimenpiteet kehotuksen määräajassa.
+           Kuutta toimijaa kuultiin rehurekisteröinnin keskeyttämisestä tarkastuskäynnillä todettujen
+           puutteiden vuoksi, koska toimijat eivät olleet raportoineet puutteiden korjaamista
+           Ruokavirastoon annettuun määräaikaan mennessä. Toimijoita oli muistutettu edellytetyistä
+           toimenpiteistä määräajan umpeutumisen jälkeen. Yksi toimija ilmoitti lopettavansa
+           toiminnan ja viiden muun toimijan rekisteröinti keskeytettiin. Näistä yksi toimija raportoi
+           edellytetyt toimenpiteet riittävällä tasolla ja rekisteröinti palautettiin. Sittemmin toimija
+           ilmoitti lopettaneensa rehutoiminnan vuoden lopussa.
+
+           Korjaavat toimenpiteet tarkastetaan viimeistään seuraavan tarkastuskäynnin yhteydessä, jos
+           ne ovat luonteeltaan lieviä tai niitä on vain yksittäisiä. Tällöin päätökseen kirjataan, että asia
+           tarkastetaan seuraavalla tarkastuksella. Tarkastuksia, joissa katsottaisiin pelkästään
+           korjaavien toimenpiteiden toteuttamista, ei ole resurssisyistä mahdollista tehdä kuin
+           poikkeustilanteessa.
+
+           Valvontavuoden aikana seurattiin edellisvuoden tapaan rehuja valmistavien, tuovien tai
+           vievien toimijoiden vuosi-ilmoitusvelvollisuuden toteutumista. Vuosi-ilmoituspyyntö
+           lähetettiin 752 toimijalle ja määräaikaan mennessä ilmoituksen antoi 603 toimijaa.
+           Määräaikaan mennessä ilmoituksensa antaneiden toimijoiden osuus nousi 55 %:sta 82 %:iin
+           edellisvuoteen verrattuna, eli seurannan tehostamisella ja muistutusten ajoittamisella on
+           ollut vaikutusta. Niille toimijoille (yhteensä 54 kpl), jotka eivät muistutuksista huolimatta
+           toimittaneet vuosi-ilmoitustaan, lähetettiin kuuleminen rehualan toimijan rekisteröinnin
+           keskeyttämisestä. Toimijoista 12 toimitti vuosi-ilmoituksen kuulemisen aikana, eikä
+           rekisteröinnin keskeytyspäätöstä tehty. Kuulemisista 42 johti toimijan rekisteröinnin
+           peruuttamiseen yhden tai useamman toiminnon osalta. Näistä seitsemän toimijan
+           rekisteröinti jatkui myöhemmin, kun toimijat toimittivat vuosi-ilmoituksena.
+
+3.3 Tuotevalvonta (kotimainen valmistus, tuonti, vähittäismyynti)
+
+    3.3.1 Valvontasuunnitelman toteutuminen
+
+           Ruokaviraston valtuuttamat tarkastajat ja ELY-tarkastajat ottivat näytteitä rehujen
+           tuotevalvonnassa. Tarkastaja valitsi rehuerän näytteenoton kohteeksi Ruokaviraston
+           antaman vuosittaisen näytteenottosuunnitelman ja -ohjeistuksen mukaisesti satunnaisesti
+           tai kohdennetusti. Sekä viranomaisnäytteenoton ohjeistuksessa että analyysien
+           määrittelyssä huomioitiin riskiperusteisuus ja erityyppisiin rehuihin liittyvät riskitekijät, kuten
+           tiettyjen haitallisten ja kiellettyjen aineiden mahdollinen siirtyminen eläimistä saataviin
+           elintarvikkeisiin tai eläinlajien mahdolliset herkkyydet eri aineille. Vuosisuunnitelman lisäksi
+           tuotevalvontaa ohjasi valvontakohteen valvontahistoria: laitosvalvonnan havainnot ja
+           tuotevalvonnan tulokset, valvontahistoriassa havaitut mahdolliset poikkeamat, epäilyt ja
+           reklamaatiot sekä RASFF-järjestelmästä saadut tiedot rehuihin liittyvistä vaaroista.
+
+
+
+
+                                                 18 (41)
+                            Rehuvalvonnan raportti 2025
+
+
+
+Viranomaisnäytteiden analyysien määrittelyssä pääpaino oli rehujen haitallisissa ja
+kielletyissä aineissa. Viranomaisanalyysein varmennettiin lisäksi eläinten terveyden ja
+hyvinvoinnin sekä eläintuotannon kannalta rehujen keskeisten ravintoaineiden
+pitoisuustasoja.
+
+Kotimaisen valmistuksen valvonnan näytteenotto toteutui suunnitellusti. Ruokavirasto laatii
+vuosittaiset kotimaista rehujen valmistusta koskevat näytteenottosuunnitelmat, jotka
+perustuvat toimijakohtaiseen riskiluokitukseen. Riskiluokituksen painopisteet ovat eri
+rehutyyppien / rehujen valmistus: rehuaineet, kivennäisrehuaineet, täysrehut,
+täydennysrehut, rehun lisäaineet sekä muut hyväksyntää vaativat, kuten
+kokkidiostaattirehut, lääkerehut ja esiseokset. Lisäksi valvontakohteessa huomioidaan
+erityisen riskialttiiden rehujen sekä tavanomaisen / muuntogeenisen rehun, kalajauhon tai
+muiden eläimistä saatavien sivutuotteiden valmistus ja/tai käyttö sekä valmistettujen
+rehujen tuotantomäärät ja eri rehujen (tuotteiden) määrät. Valvontavuoden aikana
+näytteenoton määrää ja kohdentamista voidaan tarpeen mukaan muuttaa. Rehunäytteiden
+lisäksi valvontakohteesta voidaan tarvittaessa ottaa tuotantoympäristönäytteitä.
+Näytteenottoon liittyvät tarkastukset tehdään ennalta ilmoittamatta.
+
+Ruokavirasto teki toimintavuonna kotimaisten elintarviketuotantoeläinten rehujen
+valmistuksen valvonnan näytteenottoa tehostettuna kolmessa valvontakohteessa.
+Näytteenoton tehostuksen tarpeet liittyivät kohteissa kemiallisten haitallisten aineiden
+jäämien ja hygieniaan liittyvien omavalvontatoimien seurantaan. Lisäksi näytteenotto oli
+tehostettuna yhdessä lemmikkieläinten rehuja valmistavassa valvontakohteessa.
+
+Suomeen 3. maista tuoduista (= rehun alkuperä 3. maa) erityisen riskialttiista kasviperäisistä
+rehuaine-eristä otettiin viranomaisnäytteet salmonellatutkimuksia varten rehuerän
+saapuessa Suomeen. Tuontieriä oli paljon edelliseen vuoteen verrattuna, mutta erät olivat
+pääosin pieniä. Salmonellavalvontaa varten otettujen tuontinäytteiden lukumäärä oli noin
+kaksinkertainen edellisen vuoden näytemäärään verrattuna, mutta edelleen pieni
+takavuosiin verrattuna. Ruokavirasto tutki myös kaikki elintarviketuotantoeläinten rehuihin
+tarkoitetut ja sisämarkkinoilta tulleet kalajauhoerät mikroskopoimalla kiellettyjen
+eläinvalkuaisten varalta.
+
+Sisämarkkinoilta tulleita, salmonellan suhteen riskialttiita kasviperäisiä rehuaineita rehualan
+toimijat tutkivat itse omavalvontasuunnitelmiensa mukaisesti.
+
+Rehujen 3. maatuontia valvottiin paitsi näytteenotoin myös asiakirjatarkastuksin. Tiettyjen
+rehun lisäaineiden ja esiseosten tuonti 3. maalaitoksista on mahdollista, kun tuoja on
+taannut EU-lainsäädännön noudattamisen ko. laitoksilla/ilmoittanut tiedot Ruokavirastoon.
+Valmiisiin rehuseoksiin valvontaa kohdistettiin pistokoeluonteisesti tarkastamalla rehujen
+koostumusta ja käyttötarkoitusta.
+
+EU:n tehostetussa tuontivalvonnassa olevia rehueriä valvottiin lainsäädännön edellyttämällä
+tavalla. Tehovalvontasäädöksen (EU 2019/1793) piiriin kuuluvia maapähkinäeriä tuotiin
+Suomeen yhteensä 19 kpl (USA). Viidestä erästä otettiin näytteet aflatoksiinien määrityksiä
+
+
+                                     19 (41)
+                            Rehuvalvonnan raportti 2025
+
+
+
+varten eli näytteenoton toteumafrekvenssi oli 26 %. Asetuksen mukaan USA:sta tulleista
+eristä tuli tutkia 20 %.
+
+Markkinavalvonnassa näytteenotto toteutui suunnitellusti. Näytteenottoa kohdistettiin
+erityisesti niihin rehuihin, joihin ei kohdistu muuta näytteenottoa eli sisämarkkinoilta
+tuotaviin lemmikkieläinten rehuihin, luonnonlintujen rehuihin ja elintarviketuotantoeläinten
+valmiisiin rehuseoksiin. Lisäksi muutamia näytteitä otettiin myös riistalle markkinoidusta
+maissista ja rehuherneestä sekä ko. yhteydessä muistutettiin suosituksesta, ettei
+käsittelemätöntä viljaa tuotaisi riistakäyttöön ASF-tautialueilta. Markkinavalvonnan
+näytteenoton yhteydessä valvottiin myös rehujen pakkausmerkintöjä, kaupanpitoa ja
+mainontaa.
+
+Etämyyntiä valvottiin paitsi kotimaisen laitos- ja tuotevalvonnan yhteydessä myös
+etätarkastuksin, joita kohdistettiin hevosten ja lemmikkieläinten rehuja myyviin
+nettikauppoihin. Valvonnassa puututtiin erityisesti kiellettyihin, sairauksien hoitoon
+viittaaviin markkinointiväittämiin.
+
+Valmistuksen valvonnassa elintarviketuotantoeläimille tarkoitetuista rehuista otettiin
+suunnitelman mukaisesti 385 näytettä (suunniteltu 349 n) 76 valvontakohteesta (suunniteltu
+91 vk). Usean valvontakohteen osalla toiminta oli keskeytyksessä tai se oli kokonaan
+loppunut valvontavuoden aikana ja kohteesta ei siten saatu näytettä.
+
+Valmistuksen valvonnassa eläimistä saatavia sivutuotteita rehukäyttöön käsitteleviltä
+toimijoilta otettiin yhteensä 85 näytettä (suunniteltu 88 n) 33 valvontakohteesta (suunniteltu
+36 vk). Muutaman valvontakohteen osalla toiminta oli keskeytyksessä valvontavuoden
+aikana tai se oli kokonaan loppunut. Toiminnan keskeytyksiä / lopetuksia oli erityisesti
+rehujakeita turkiseläimille valmistaneissa valvontakohteissa. Otetuista näytteistä 64 oli
+lemmikkieläimille tarkoitettuja raakapakasteita, kuivattuja sivutuotteita, lämpökäsiteltyjä
+täys- ja täydennysrehuja tai niiden valmistuksessa käytettyjä raaka-aineita. Muut 21 näytettä
+olivat käsiteltyjä eläinvalkuaisia, käsiteltyjä sivutuotteita turkiseläimille ja turkiseläinten
+rehuseoksia.
+
+Rehujen muuntogeenisyyden (gm) valvonnassa otettiin valvontasuunnitelma täyttäen
+yhteensä 17 näytettä. Näytteenoton pääpaino oli kotimaassa valmistetuissa rehuseoksissa ja
+rehuaineissa. Lisäksi rehujen muuntogeenisyyttä valvottiin ulkomaisesta rehuseoksesta.
+Valvonnassa painotettiin rehuseoksia, joissa oli käytetty rehuaineita, joilla on olemassa
+muuntogeenisiä muotoja. Tällaisia rehuaineita ovat riisi, rapsi, soija, maissi, pellava ja
+sokerijuurikas. Lisäksi valvonnassa rehujen muuntogeenisyyttä varmennettiin tarkastamalla
+muuntogeenisten rehujen erillään pitoa toimijoiden omavalvonnassa. Näytteenottoa
+kohdennettiin erityisesti sellaisiin rehutehtaisiin, joissa valmistetaan sekä tavanomaisia että
+muuntogeenisiä rehuja tai lisäksi luomurehuja. Rehunäytteistä kotimaisen valmistuksen
+valvonnan yhteydessä otettiin 16 näytettä 14 eri rehun valmistajalta sekä
+markkinavalvonnassa puolestaan yksi näyte yhdeltä markkinoille saattajalta.
+
+
+
+
+                                     20 (41)
+                             Rehuvalvonnan raportti 2025
+
+
+
+Luomurehuista tai luomuun soveltuvista rehuista otettiin viranomaisnäytteitä yhteensä 21
+eri rehuerästä. Luomurehuja valvotaan osana kaikkien valvontalinjojen tuotevalvontaa ja
+luomurehujen luomusäädösten valvonnassa keskitytään torjunta-aineiden jäämien ja
+rehujen muuntogeenisyyden valvontaan, joita valvottiin yhteensä yhdeksästä
+luomurehuerästä (tavoite kuusi). Muuntogeenisyyden valvontaan tuotevalvonnassa otetuista
+näytteistä neljä (tavoite kolme) kohdistui luomurehuun. Torjunta-aineiden jäämien
+valvontaan otetuista näytteistä viisi (tavoite kolme) kohdistui luomurehuun.
+Tuotevalvonnassa luomurehuista analysoitiin myös ravitsemuksellista koostumusta,
+hygieniaa ja kielletyn eläinperäisen ainekset esiintymistä sekä muita rehujen haitallisia ja
+kiellettyjä aineita, kuten mykotoksiineja.
+
+Rehujen viranomaisvalvonnan näytteenottomäärät valvontalinjoittain toteutuivat pääosin
+suunnitelmien mukaisesti ja näytteenoton keskimääräinen toteutuma oli 103 % (taulukko 8).
+Kokonaisnäytemäärä (1088 näytettä) oli suurempi kuin edellisenä vuonna (973 näytettä).
+Kokonaisnäytemäärää suurensi erityisen riskialttiiden kasviperäisten rehujen maahantuonnin
+suurempi tuontierien määrä. Vuosittaiset maahantuonnin näytemäärät ovat suoraan
+suhteessa kunakin vuonna toteutuneeseen rehualan toimijoiden kasviperäisten rehuaineiden
+maahantuonnin kokonaisvolyymiin.
+
+Kaikkien valvontalinjojen toteutuneet näytemäärät vuonna 2025 on esitetty taulukossa 8
+siten, että näytteenottoajankohta eli näytteenoton tapahtumapäivä on ollut aikavälillä 1.1.-
+31.12.25
+
+Taulukko 8. Rehujen viranomaisvalvonnan näytteet valvontalinjoittain, suunniteltu vs. toteutunut
+(näytteenoton tapahtumapäivä aikavälillä 1.1.-31.12.2025).
+ Valvontalinja                                   Suunniteltu       Toteutunut      Näytteenoton
+                                                 näytemäärä        näytemäärä      toteutuma (%)
+ Maahantuonti                                       413 1)             413              100
+ Sisämarkkinakauppa                                 25 1)              25               100
+ Markkinavalvonta                                    80                80               100
+ Kotimainen valmistus
+ - Rehunäytteet 2)                                    437              470               108
+ - Rehuympäristönäytteet 3)                                             2
+ Alkutuotannon valvonta
+ - Rehunäytteet 4)                                     81               81               100
+ - Rehu- ja rehuympäristönäytteet 5)                   19               19
+ Viranomaisnäytteet yhteensä                          1055             1090              103
+    1) Suunniteltujen analyysien yhteismäärä tuonnissa määräytyy rehualan toimijoiden
+       toteutuneiden tuontierien ja niistä otettavien näytteiden lukumäärän mukaisesti.
+       Suunniteltu = toteutunut.
+    2) Näytemäärä sisältää rehujen valmistajilta otetut rehunäytteet elintarviketuotantoeläimille,
+       turkiseläimille ja lemmikkieläimille tarkoitetuista rehuista.
+    3) Näytemäärä sisältää kuljetuskaluston tarkastuksessa otetut rehuympäristönäytteet
+
+
+
+
+                                       21 (41)
+                             Rehuvalvonnan raportti 2025
+
+
+
+    4) Käsitellyn eläinvalkuaisen rehukäytön valvonnan toteutuneeseen näytemäärään vaikuttavat
+       eläintiloilla kulloinkin käytössä olevat rehut pois lukien karkea- eikä kivennäisrehut. Taulukon
+       rivin näytemäärä sisältää seleeniseurannan näytteitä 45.
+    5) Näytemäärä sisältää rehu- ja rehuympäristönäytteet eläinten salmonellatartuntatiloilta
+       eläinten tartunnan lähteen rajaamiseksi (1 tilan rehuista yhteensä 19 rehunäytettä).
+
+
+Rehujen viranomaisvalvonnassa otetuista 1090 näytteestä tehtiin yhteensä 13306
+analyysia, mikä oli 117 % suunnitellusta (11333 a). Rehujen haitallisten ja kiellettyjen
+aineiden analyysien toteutuma oli keskimäärin 121 % suunnitellusta, ja näiden analyysien
+osuus kaikista viranomaisanalyyseista oli 87,5 % (11652 a). Elintarviketuotantoon
+tarkoitetuista rehuista analysoitiin 86,2 % (10042 a), lemmikkieläinten rehuista 12,7 % (1480
+a) ja muiden tuotantoeläinten rehuista 1,1 % (150 a) kaikista haitallisten ja kiellettyjen
+aineiden analyyseistä. Rehujen haitallisten ja kiellettyjen aineiden /eliöiden analyyseista
+kemiallisten analyysien osuus oli 84,1 % (9796 analyysia), mikroskooppisten analyysien osuus
+2,0 % (235 analyysia), salmonella-analyysien osus 11,4 % (1328 analyysia) ja muiden
+mikrobiologisten analyysien osuus 2,5 % (293 analyysia) (Taulukko 9).
+
+Ruokavirasto analysoi salmonellaa maahantuotujen erityisen riskialttiiden rehujen
+tuontieristä ja kotimaisessa valmistuksessa elintarviketuotantoeläimille tarkoitetuista
+rehuista. Lisäksi salmonellaa analysoitiin kotimaisen valmistuksessa ja markkinavalvonnassa
+lemmikkieläimille tarkoitetuista rehuista, erityisesti raakapakasteista ja puruluista.
+Rehuaineiden salmonella-analyysien osuus kaikkien näytteiden salmonella-analyyseistä oli v.
+2025 62 % (2024 55 %, v. 2023 76 %, v. 2022 79 %) (Taulukko 9). Rehuaineiden salmonella-
+analyysien suhteellinen osuus oli suurempi kuin edellisenä vuonna johtuen suuremmasta
+erityisen riskialttiiden rehujen 3. maatuonnin määrästä verrattuna edelliseen vuoteen.
+Rehujen 3. maatuonnin määrällä on välitön vaikutus tuonnin viranomaisvalvonnan
+salmonellanäytteenottojen määrään.
+
+Ruokavirastolla oli käytössä rehujen kemiallisten aineiden / ainesosien analysointia varten
+useita eri multimenetelmiä ja/tai menetelmien kokonaisuuksia, joilla voitiin samanaikaisesti
+tutkia sekä kemiallisia haitallisia/kiellettyjä aineita että ravitsemuksellisia ainesosia.
+Valvontavuonna haitallisten ja kiellettyjen aineiden ja eliöiden analyysien (11652 a) lisäksi
+tehtiin yhteensä 1654 rehun ravitsemuksellisen koostumuksen ja rehun lisäaineiden
+pitoisuuksien analyysia rehujen pakkausmerkinnöissä annettujen vakuusarvojen
+tarkastamiseksi (Taulukko 9). Suurin osa kaikista ravitsemuksellisista analyyseista tehtiin
+elintarviketuotantoeläimille tarkoitetuista rehuseoksista, rehuaineista sekä rehun lisäaineista
+ja esiseoksista (83 %) ja puolestaan lemmikkieläinten rehuseosten ja rehuaineiden osuus ko.
+analyyseista oli kuudesosa (17 %).
+
+
+
+
+                                       22 (41)
+                                                      Rehuvalvonnan raportti 2025
+
+
+
+        Taulukko 9. Rehujen haitallisten ja kiellettyjen aineiden, kokkidiostaattien ja lääkerehujen tehoaineiden sekä
+        ravitsemuksellisten analyysien määrät v. 2025. Toteutuneet näytteet (%) on laskettu vertaamalla toteutunutta
+        näytemäärää suunniteltuun näytemäärään. Näytteiden lukumäärä (n) on esitetty taulukossa suluissa.
+Analyysi                       Suunniteltu      Toteutunut;       Toteutunut;        Toteutunut;        Toteutunut       Toteutuneet
+                               analyysien       rehuaineet        rehuseokset           rehun           analyysien       näytteet (n)
+                                 (n) lkm                                             lisäaineet /            (n)             (%)
+                                yhteensä                                              esiseokset        lukumäärä
+                                                                                                         yhteensä
+Salmonella 1)                     1328              8211)              491                 16              1328              100
+                                  (891)            (530) 1)           (345)               (16)             (891)
+Muut mikro-organismit 2)           250              225                 68                  -               293              118
+                                   (50)             (45)               (14)                                 (59)
+Maaeläinperäisen                                     62                 44                 2                108
+aineksen toteaminen
+Kalajauhon toteaminen                                22                   27                1               50
+Yo. yhteensä 3)                    110               84                   71                3               158              100
+                                   (75)             (58)                 (44)              (2)             (104)
+
+Kasviperäiset                       50               69                   8                 -                77              100
+epäpuhtaudet, aitous ja            (30)             (38)                 (7)                                (45)
+tuholaiset 4)
+Mykotoksiinit 5)                  1080              380                  954               36               1370             133
+                                  (60)              (25)                 (53)              (2)              (80)
+Kadmium                                               8                   55               18                81
+Lyijy                                                 8                   54               17                79
+Elohopea                                              5                   42               17                64
+Arseeni + EO-As                                      10                   58               19                87
+Kromi                                                 8                   55               20                83
+Nikkeli                                               8                   55               20                83
+Raskasmetallit yhteensä            380               47                  319              111               477              128
+                                   (65)              (8)                 (55)             (20)              (83)
+Melamiini, urea, biureetti          20                -                   12                -                12              100
+ja syanuurihappo                   (10)                                  (10)                               (10)
+GTH-merkkiaine jääminä               5                5                    -                -                 5              100
+ja vakuudellisena                   (5)              (5)                                                     (5)
+Dioksiinit, dioksiinien             20               20                   -                 -                20              100
+kaltaiset PCB-yhdisteet ja          (5)              (5)                                                     (5)
+muut kuin dioksiinien
+kaltaiset PCB-yhdisteet 6)
+PFAS-yhdisteet 7)                  70                70                                     -                70              100
+                                   (5)               (5)                                                     (5)
+Torjunta-aineet l.                3600               481              4284                  -               4765             133
+pestisidit 8)                     (15)               (2)              (18)                                  (20)
+
+
+
+
+                                                               23 (41)
+                                                    Rehuvalvonnan raportti 2025
+
+
+
+Analyysi                    Suunniteltu       Toteutunut;       Toteutunut;         Toteutunut;        Toteutunut       Toteutuneet
+                            analyysien        rehuaineet        rehuseokset            rehun           analyysien       näytteet (n)
+                              (n) lkm                                               lisäaineet /           (n)              (%)
+                             yhteensä                                                esiseokset        lukumäärä
+                                                                                                        yhteensä
+Kokkidiostaatit,                2350               196               2192                233              2621               104
+lääkeaineet, kielletyt          (45)               (4)               (38)                (5)              (47)
+antibiootit ja muut
+yhdisteet jääminä 9)
+Kokkidiostaattien                 6                 -                    8                 -                 8               133
+pitoisuudet rehun                (6)                                    (8)                                 (8)
+lisäaineina ja
+lääkerehujen
+tehoaineiden pitoisuudet
+Muuntogeenisyyden                250               29                   249                -                278              113
+analysointi 10)                  (15)              (3)                  (14)                                (17)
+Biogeeniset amiinit (BA)         100                -                   120                -                120              120
+11)
+    ja BA-summa                  (10)                                   (12)                                (12)
+Glykoalkaloidit (GA) ja           50                -                    50                -                 50              100
+GA-summa12)                      (10)                                   (10)                                (10)
+Haitallisten ja
+kiellettyjen aineiden           9669              2427               8826                399              11652              121
+analyysit yhteensä
+Ravitsemukselliset
+                                1654               256               1264                134               1654              100
+analyysit yhteensä
+Valvonta-analyysit
+                               11333              2683              10090                533              13306              117
+yhteensä
+                 1) Suunniteltujen analyysien yhteismäärä määräytyy pääosin rehualan toimijoiden toteutuneiden tuonti-
+                    ja valmistuserien ja niistä otettavien näytteiden lukumäärän mukaisesti (suunniteltu = toteutunut).
+                    Rehuaineiden sarakesoluun sisällytetty 1 salmonella-analyysi kuljetusvälineiden
+                    rehuympäristönäytteestä ja siten salmonella -määrityksiä yhteensä 890 näytteestä.
+                 2) Analyysien kohteena ovat pääosin eläinperäiset rehuaineet tuotantoeläimille ja lemmikkieläimille sekä
+                    lemmikkieläinten rehuseokset.
+                 3) Kohteena ovat elintarviketuotantoeläinten rehuseokset (märehtijöiden ja ei-märehtijöiden rehut) ja
+                    ed. mainittujen rehujen valmistukseen käytettävät rehuaineet tiloilla ja kotimaisessa valmistuksessa
+                    sekä lisäksi tuonnissa kalajauho. Tiloilta otettujen näytteiden määrä oli yhteensä 81 näytettä v. 2025.
+                    Analyysit määräytyvät sen mukaan, mille eläimelle rehu on tarkoitettu. Samasta näytteestä voidaan
+                    tehdä maaeläimen aineksen ja/tai kalajauhon osoittaminen (toteutunut ≈ suunniteltu).
+                 4) Suunnitelmassa näytteiden ja analyysien määrä on arvio. Analyysit määritellään näytteille sekä
+                    pistokoeluonteisesti että epäilyn perusteella. Samasta näytteistä voidaan tehdä yksi tai useampi
+                    analyysiryhmään kuuluva analyysi. Toteutuneiden analyysien yhteismäärä vaihtelee näytteittäin
+                    (toteutunut ≈ suunniteltu).
+                 5) Tutkittavat mykotoksiinit ovat laajassa multimenetelmässä (18 yhdistettä) ovat aflatoksiini B1,
+                    aflatoksiini B2, aflatoksiini G1, aflatoksiini G2, fumonisiini B1, fumonisiini B2, okratoksiini A, 3-
+                    asetyylideoksinivalenoli, 15-asetyylideoksinivalenoli, deoksinivalenoli, deoksinivalenoli-3-glukosidi,
+                    nivalenoli, diasetoksiskirpenoli, neosolanioli, fusarenoni-X, HT-2-toksiini, T-2-toksiini ja zearalenoni .
+
+
+
+                                                              24 (41)
+                                        Rehuvalvonnan raportti 2025
+
+
+
+       Tutkittavat mykotoksiinit erillismenetelmässä (4 yhdistettä) ovat aflatoksiini B1, aflatoksiini B2,
+       aflatoksiini G1 ja aflatoksiini G2. Näytteiden analysoimiseen käytetään pääasiassa laajaa
+       multimenetelmää.
+   6) Dioksiini- ja furaaniyhdisteiden summa (17 yhdistettä) 12 %:n kosteuteen suhteutettuna WHO (2005) -
+       PCDD/F TEQ mukaisesti sisältäen määritysrajan. Dioksiinien kaltaisten PCB-yhdisteiden summa (12
+       yhdistettä) 12 %:n kosteuteen suhteutettuna WHO (2005) – dlPCBt TEQ mukaisesti sisältäen
+       määritysrajan. Muut kuin dioksiinien kaltaisten PCB-yhdisteiden summa (6 yhdistettä) 12 %:n
+       kosteuteen suhteutettuna - Indicator-PCBs (ICES-6) mukaisesti sisältäen määritysrajan.
+   7) PFAS l. perfluoroalkyyliyhdisteet (13 yhdistettä): a) perfluoro-alkyylikarboksylaatit: PFHxA, PFHpA,
+       PFOA, PFNA, PFDA, PFUnA, PFDoA, PFTrA ja PTeA ja b) perfluoro-alkyylisulfonaatit: PFHxS (summa lin
+       + br), PFHpS, PFOS (summa lin + br) ja PFDS sekä neljän PFAS-yhdisteen summa (4PFAS): PFOS, PFOA,
+       PFNA ja PFHxS summa.
+   8) Torjunta-aineiden l. pestisidien analyysivalikoima on laaja ja näytteiden analysoinnissa käytetään
+       useita multimenetelmiä sekä yksittäisiä menetelmiä. Kaikkia yhdisteitä ei aina ole mahdollista tutkia
+       näytteiden kaikista rehumatriiseista. Näytteestä analysoidaan rehumatriisikohtaisesti keskimäärin n.
+       220 - 240 yhdistettä. (toteutunut ≈ suunniteltu). Taulukon laskentaan lisätty rehunäytteistä tehdyt
+       klormekvatin (ra + 2 a ja rs + 15 a) ja mepikvatin analyysitulosten lukumäärät (ra + 2 a ja rs + 15 a)
+       tietokantakorjauksena.
+   9) Multimenetelmä seuraavien yhdisteiden jäämille (yhteensä 49 yhdistettä): a) Kokkidiostaatit:
+       amprolium, dekokinaatti, diklatsuriili, halofuginoni, lasalosidi, , monensiini, narasiini, nikarbatsiini,
+       robenidiinihydrokloridi, salinomysiini, semduramisiini, (11 yhdistettä) b) lääkeaineiden tehoaineet:
+       ampisilliini, danofloksasiini, difloksasiini, doksisykliini, emamektiinibentsoaatti, enrofloksasini,
+       etopabaatti, febanteeli, fenbendatsoli, florfenikoli, flubendatsoli, flumektiini, furatsolidoni, nifursoli,
+       klooritetrasykliini, klopidoli, kloramfenikoli, linkomysiini, mebendatsoli, norfloksasiini, oksitetrasykliini,
+       oksoliinihappo, rodidatsoli, siprofloksasiini, sulfadiatsiini, sulfadimetoksiini, tetrasykliini, tiamuliini,
+       tilmikosiini, toltrasuriili, trimetopriimi, tylosiini, tylvalosiini, valnemuliini (34 yhdistettä) ja c) kielletyt
+       yhdisteet: basitrasiini, dimetridatsoli, karbadoksi ja maduramisiiniammonium (4 yhdistettä). Kun
+       näytteestä analysoidaan vakuudellisia pitoisuutena yksittäistä kokkidiostaattia tai lääkerehun
+       lääkeainetta, niin samasta näytteestä määritetään samanaikaisesti ko. menetelmässä muiden
+       yhdisteiden pitoisuudet jääminä.
+   10) Näytteille tehdään kasvilajikohtainen gm-tapahtumien seulonta, gm-tapahtumien identifiointi sekä
+       määritetään todettujen gm-tapahtumien suhteellinen osuus. Menetelmässä tutkitaan sekä EU:ssa
+       hyväksyttyjen että hyväksymättömien gm-tapahtumien esiintymistä. Lopullinen analyysien määrä per
+       näyte määräytyy rehun koostumuksen mukaan ja näytteestä analysoidaan rehumatriisikohtaisesti
+       keskimäärin n. 15 tekijää. (toteutunut ≈ suunniteltu).
+   11) Biogeeniset amiinit l. BA-yhdisteet (9 yhdistettä ja BA-yhdisteiden summa): fenyylietyyliamiini,
+       histamiini, kadaveriini, putreskiini, serotoiini, spermidiini, spermiini, tryptamiini ja tyramiini ja
+       biogeenisten amiinien summa.
+   12) Glykoalkaloidit l. GA-yhdisteet (4 yhdistettä ja GA-yhdisteiden summa): alfa-solaniini, alfa-kakoniini,
+       solanidiini, gamma-kakoniini sekä GA-yhdisteiden summa (alfa-kakoniini ja alfa-solaniinin summa).
+
+
+3.3.2 Säännöstenmukaisuus
+
+       Rehujen viranomaisanalyyseissa todettujen säännöstenvastaisuuksien perusteella
+       annettujen huomautusten ja toimenpidemääräysten prosentuaalinen osuus on kuvattu
+       taulukossa 10. Poikkeamien esiintymistiheyden vaihteluun eri vuosina vaikuttavat
+       valvontavuoden painotukset viranomaisnäytteenotossa, riskiperusteinen analyysien
+       kohdentaminen eri rehuihin ja tiettyihin analyyseihin ohjattujen näytteiden kokonaismäärä.
+
+
+
+                                                   25 (41)
+                            Rehuvalvonnan raportti 2025
+
+
+
+Esimerkiksi koska kokkidiostaattirehujen vakuudellisten analyysien vuosittain valvottavien
+näytteiden kokonaismäärä on verrattain pieni (5–8 näytettä), niin silloin vakuudellisissa
+analyyseissa todettu yksittäinen säädöstenvastaisuus johtaa suureen huomautettujen
+analyysien prosenttiosuuteen kaikkiin analyysiryhmän analyyseihin suhteutettuna.
+
+Tuotevalvontalinjojen viranomaisnäytteenoton kohteena olleita rehueriä (kaikki
+valvontalinjat), joihin liittyi yksi tai useampi säädöstenvastaisuus ja seuraamus oli vuonna
+2025 85 kpl (v. 2024 95 kpl v. 2023 94 kpl v. 2022 105 kpl). Ne edustivat 11,9 % kaikista
+viranomaisnäytteenoton kohteena olleista 712 rehuerästä (v. 2024 12,5 % v. 2023 11,8 % v.
+2022 12,3 %). Säädösten vastaisten rehuerien määrä oli keskimäärin samalla tasolla kuin
+aikaisempinakin vuosina.
+
+Määrällisesti eniten huomautuksia annettiin liittyen pakkausmerkintöihin,
+pääravintoaineisiin, vitamiinitasoihin sekä tuhohyönteisiin ja kasviperäisiin epäpuhtauksiin.
+Suhteellisesti eniten poikkeamia todettiin rehun lisäaineina käytettyjen kokkidiostaattien
+vakuudellisissa pitoisuustasoissa, merkkiaineiden vakuudellisissa pitoisuuksissa sekä liittyen
+dioksiinien ja dioksiinien kaltaisten PCB-yhdisteiden toimintarajoihin, vakuudellisiin
+vitamiinitasoihin sekä tuhohyönteisiin ja kasviperäisiin epäpuhtauksiin. Muiden
+analyysiryhmien säännösten vastaisten pitoisuuksien %-osuudet olivat rehunäytteissä
+keskimäärin samalla tasolla kuin aikaisempina vuosina. (Taulukko 10).
+
+Yleisesti rehujen pakkausmerkinnöissä huomautettiin eniten liittyen pakollisesti annettaviin
+tietoihin, kuten rehutyyppiin, ravitsemuksellisen koostumuksen ilmoittamiseen sekä rehun
+lisäaineiden pakollisiin merkintöihin ja rehun lisäaineiden pitoisuuksien. Rehujen
+markkinavalvonnassa yleisimmät säännöstenvastaisuudet liittyivät ravintoainepoikkeamien
+lisäksi lemmikkieläinten rehujen pakkausmerkintöihin ja niissä erityisesti kielivaatimuksiin ja
+markkinointiväittämiin. Pakkausmerkintöjä tarkastetaan pääosin rehujen kotimaisen
+valmistuksen valvonnan ja markkinavalvonnan näytteistä. Pakkausmerkintöjä koskevia
+huomautuksia annettiin valvontavuonna 8,3 %:lle tarkastetuista rehueristä ja huomautusten
+%-osuus oli keskimäärin aikaisempien vuosien tasolla (Taulukko 10).
+
+Taulukko 10. Rehujen viranomaisanalyyseissa todettujen säännöstenvastaisuuksien seurauksesta
+analyyseille annettujen huomautusten prosentuaalinen osuus ko. analyysiryhmän analyyseista.
+Pakkausmerkintähuomautusten osuus on esitetty suhteutettuna tarkastettuja rehueriä kohden.
+Todettu säännöstenvastaisuus                                2022     2023    2024    2025
+                                                             (%)      (%)     (%)     (%)
+Pääravintoaineet                                             4,5      5,1     5,4     3,0
+Kivennäisaineet                                              0,6      0,3     0,9     1,7
+Hivenaineet                                                  2,1      0,2     3,1     1,2
+Vitamiinit                                                    16       13      11      13
+Aminohappo-, sokeri-, hera- tai tärkkelysanalyysit           0,0      0,0     0,0     0,0
+Muut analyysit mm. tiheys, suolapitoisuus,                   0,0      0,0       -       -
+suolahappoon liukenematon tuhka, propyleeniglykoli
+Salmonella                                                   0,5      1,1     0,9     0,2
+
+
+
+
+                                     26 (41)
+                            Rehuvalvonnan raportti 2025
+
+
+
+Todettu säännöstenvastaisuus                                2022    2023    2024     2025
+                                                             (%)     (%)     (%)      (%)
+Muut mikro-organismit: enterobakteerit                       1,8     1,6     3,6      1,4
+Kielletty maaeläinperäinen aines tai kala                    0,0     0,0     0,0      0,6
+Kasviperäiset epäpuhtaudet, aitous ja tuhohyönteiset         7,4      22      16       10
+Mykotoksiinit                                                0,0     0,1     0,3      0,3
+Glykoalkaloidit                                                       23     2,2      2,0
+Biogeeniset amiinit                                                   11     0,8      0,0
+Raskasmetallit                                               0,0     0,0     0,0      0,2
+Melamiini ja syanuurihappo sekä urea                         0,0     0,0     0,0      0,0
+Dioksiinit ja dioksiinien kaltaiset PCB-yhdisteet sekä       3,6     0,0     0,0       15
+muut kuin dioksiinien kaltaiset PCB-yhdisteet
+PFAS-yhdisteet                                               0,0     0,0     0,0      0,0
+GTH-merkkiaine vakuudellinen ja jäämänä                      0,0     0,0     20       20
+Pestisidit                                                   0,1     0,1     0,0      0,1
+Kokkidiostaatit rehun lisäaineina                            29      38      29       25
+Lääkerehujen tehoaineiden pitoisuudet                         -       -       -        -
+Kokkidiostaatit, lääkerehujen tehoaineet, muut               0,1     0,0     0,0      0,0
+lääkkeiden tehoaineet ja kielletyt yhdisteet jääminä
+Muuntogeenisyyden analysointi: todettu EU:ssa                0,0     0,0     0,0      0,0
+hyväksymätöntä organismia
+Muuntogeenisyyden analysointi: todettu EU:ssa                0,4     0,7     0,0      0,7
+hyväksyttyä organismia
+Pakkausmerkintäpuutteet 1)                                   4,9     7,9     5,9      8,3
+    1) Pakkausmerkintäpuutteiden esiintymistiheys on tässä esitetty suhteutettuna
+       viranomaisnäytteenoton kohteena olleiden rehuerien yhteismäärään valmistuksen
+       valvonnassa ja markkinavalvonnassa. Valmistuksen valvonnassa ja markkinavalvonnassa oli
+       yhteensä 527 rehuerää (valvontatapahtumaa) v. 2025.
+
+
+Rehujen viranomaisanalyyseissa todettujen säännöstenvastaisuuksien seurauksena
+annettujen huomautusten suhteelliset osuudet analyysiryhmittäin on kuvattuna edellisessä
+taulukossa 10. Taulukossa 11 on esitetty ne rehuerät, joissa todettiin vakavia poikkeamia ja
+joihin kohdistui kieltoja, määräyksiä ja muita valvonnan edellyttämiä korjaavia toimenpiteitä.
+
+Kielto annettiin tuonnin valvonnassa yhdelle rehuaine-erälle, kotimaisessa valmistuksen
+valvonnassa hevosten täydennysrehulle ja luomutuotantoon tarkoitetulle lypsykarjan
+täydennysrehulle, tilavalvonnassa yhdelle viljaerälle sekä markkinavalvonnassa kahdelle
+lemmikkieläinten rehuerälle ja yhdelle luonnonlintujen ruokintaan tarkoitetulle rehuerälle
+(yhteensä 7 rehuerälle) (taulukko 11).
+
+Säädöstenvastaisille rehuerille, joista todettiin vakavia poikkeamia, annettiin
+tapauskohtaisesti kieltoja, määräyksiä sekä muita valvonnan edellyttämiä korjaavia
+toimenpiteitä ja selvityksiä. Tapauskohtaisesti kielletyt erät tai toimijan omavalvonnassa
+salmonellapositiivisiksi todetut erät joko käsiteltiin, hävitettiin tai palautettiin sekä
+
+
+
+                                     27 (41)
+                                Rehuvalvonnan raportti 2025
+
+
+
+  tarvittaessa erän käyttötarkoitusta rajattiin tai muutettiin (Taulukko 11).
+  Salmonellasaastuneet kasviperäiset rehuaine-erät käsiteltiin ja käsittely varmistettiin
+  uusintanäytteenotolla. Salmonellasaastuneita rehueriä ei päätynyt
+  elintarviketuotantoeläinten rehuketjuun.
+
+  Taulukko 11. Säädöstenvastaiset rehuerät vuonna 2025, joista todettu vakava poikkeama ja joille
+  huomausten lisäksi annettu tapauskohtaisesti kieltoja, määräyksiä sekä muita valvonnan edellyttämiä
+  toimenpiteitä. Lisäksi taulukossa on esitetty sisämarkkinoilta tuodut rehuaine-erät, joista toimija on
+  omavalvonnassaan todennut salmonellaa. Kiellon saaneet erät on esitetty taulukossa lihavoituna.
+
+                                       Erät,     Todettu                        Valvonnan
+Valvontalinja     Aihe / Tuote
+                                       lkm       säännöstenvastaisuus           toimenpiteet
+Tuonti            Kasviperäiset        1         Elävät tuholaiset              Tuontikielto, erä
+                  rehuaineet:                                                   palautettiin
+                  luomusoija-
+                  puriste
+Sisämarkkina-     Kasviperäiset        4         Salmonella Agona (1)           Lupa käsitellä erät,
+kauppa            rehuaineet:                    Salmonella Cubana (1)          uusintanäytteenotto ja -
+                  rapsirouhe                     Salmonella Derby (1)           analyysit käsittelyn
+                                                 Salmonella Mbandaka (1)        jälkeen
+
+Sisämarkkina-     Kasviperäiset        2         Salmonella Mbandaka (2)   Lupa käsitellä erät,
+kauppa            rehuaineet:                                              uusintanäytteenotto ja -
+                  rapsipuriste                                             analyysit käsittelyn
+                                                                           jälkeen
+Sisämarkkina-     Kasviperäiset        1         Salmonella Fresno,        Lupa käsitellä erät,
+kauppa            rehuaineet:                    Salmonella Senftenberg ja uusintanäytteenotto ja -
+                  luomurapsi-                    Salmonella ssp            analyysit käsittelyn
+                  puriste                                                  jälkeen
+Sisämarkkina-     Kasviperäiset        1         Salmonella Teko           Erän takaisinveto ja
+kauppa            rehuaineet:                                              hävitys
+                  psyllium-kuori
+Sisämarkkina-     Kasviperäiset        1         Salmonella Telhashomer         Erä palautettiin
+kauppa            rehuaineet:
+                  sarviapilajauho
+Sisämarkkina-     Eläinperäiset        1         Salmonella Agona               Erä palautettiin
+kauppa            rehuaineet: PAP
+                  höyhenjauho
+                  elintarviket.
+                  eläimille
+Sisämarkkina-     Eläinperäiset        3         Salmonella Schwarzengrund   Erät palautettiin ja/tai
+kauppa            rehuaineet:                    (1)                         käytettiin
+                  kalkkuna PAP,                  Salmonella Stanleyville (1) kuumennettuna
+                  MDM ja MSM                     Salmonella Blockley (1)
+                  lemmikeille
+
+
+
+                                           28 (41)
+                             Rehuvalvonnan raportti 2025
+
+
+
+                                    Erät,     Todettu                      Valvonnan
+Valvontalinja    Aihe / Tuote
+                                    lkm       säännöstenvastaisuus         toimenpiteet
+Valmistuksen     Täydennysrehu      1         Raskasmetalli kadmiumia      Markkinointikielto ja
+valvonta         hevosille                    yli sallitun                 takaisinveto sekä
+                                              enimmäispitoisuuden          toimenpidemääräyksiä
+                                              sekä suuria pitoisuuksia
+                                              sinkkiä ja kuparia.
+Valmistuksen     Täydennysrehu      1         Luomutuotantoon              Käyttökielto
+valvonta         lypsykarjalle                tarkoitetussa rehussa        luomutuotannossa ja
+                 luomutuotanno                todettiin torjunta-aine      takaisinveto sekä
+                 ssa                          glyfosaattia                 toimenpidemääräyksiä
+Valmistuksen     Käsitelty          1         GTH-merkkiaineen             Toimenpidemääräyksiä
+valvonta         sivutuote luokka             pitoisuus toistuvasti alle
+                 2 lihaluujauho               säädetyn
+                                              vähimmäispitoisuuden
+Tilavalvonta     Kasviperäiset      1         Todettiin                    Käyttökielto rehuna ja
+                 rehuaineet:                  maaeläinperäistä             toimenpidemääräyksiä
+                 ohra                         ainesta: verituotetta,
+                                              jyrsijän ja linnun
+                                              ulostetta sekä eläviä
+                                              tuholaisia
+Markkina-        Lemmikki-          2         Salmonella                   Markkinointikielto ja
+valvonta         eläinten ruoka,              Mishmarhaemek,               takaisinveto
+                 kuivatut                     Salmonella Telaviv ja
+                 sivutuotteet                 Salmonella Typhimurium
+                                              (1)
+                                              Salmonella Ordonez (1)
+Markkina-        Siemenseokset      1         Eläviä tuholaisia            Markkinointikielto ja
+valvonta                                                                   takaisinveto
+Yhteenveto                          7         kielletyt erät lkm
+                                    21        kaikki erät lkm
+
+
+
+  Taulukossa 12 on esitetty todettujen säännöstenvastaisuuksien perusteella annetut
+  seuraamukset suhteutettuna viranomaisnäytteiden ja -analyysien määriin. Rehuerille
+  annettuja kirjallisia huomautuksia säädöstenvastaisuuksista suhteessa näytemäärään oli
+  vähemmän ja suhteessa analyysimäärään myös jonkin verran vähemmän kuin edellisenä
+  vuotena. Pakkausmerkintähuomautuksia annettiin enemmän kuin edellisenä vuonna.
+  Rehuerille asetettuja kieltoja ja muita valvonnan määräyksiä oli sekä suhteessa näytteisiin
+  että suhteessa analyyseihin hieman vähemmän kuin edellisenä vuonna. Asetettujen
+  kieltojen, määräysten ja huomautusten yhteismäärä suhteessa analyysimäärään ja myös
+  näytemäärään suhteutettuna oli pienempi kuin edellisenä vuonna. Suhteelliset muutokset
+  johtuivat erityisesti kasviperäisten rehuaineiden tuonnin ja tuonnin
+  viranomaisnäytteenottojen määrän kasvulla, joka lisäsi valvontanäytteiden määrää.
+
+
+
+                                        29 (41)
+                                    Rehuvalvonnan raportti 2025
+
+
+
+        Analyysien määrää lisäsi puolestaan edellistä vuotta ja suunniteltua laajemmin tehtyjen
+        haitallisten ja kiellettyjen kemiallisten analyysien määrät. Tällä oli myös osaltaan vaikutusta
+        todettujen säännöstenvastaisuuksien suhteellisiin osuuksiin verrattaessa niitä
+        kokonaisanalyysimäärään.
+
+        Taulukko 12. Todettujen säännöstenvastaisuuksien perusteella annetut seuraamukset suhteutettuna
+        viranomaisnäytteiden ja -analyysien määriin v. 2025
+         Seuraamus                              Yhteensä          %-osuus kaikista   %-osuus kaikista
+                                                   kpl            näytteistä; yht.   analyyseistä; yht.
+         v. 2025                                                   1090 näytettä      13306 analyysia
+         Rehuerille annetut kirjalliset            118                 10,8                 0,9
+         huomautukset
+         (analyysihuomautukset 69 kpl ja
+         pakkausmerkintähuomautukset
+         49 kpl)
+         Rehun valmistus-, tuonti-,                    7               0,64                0,05
+         markkinointi- tai käyttökielto,
+         ehdollinen / ehdoton
+         Rehuerät, joille määrätty muita            14                  1,3                0,11
+         valvonnan toimenpiteitä (erää ei
+         ole kielletty)
+         Yhteensä                                  139                 12,8                 1,0
+
+
+
+3.3.2.1 Mikrobiologisten vaarojen esiintyminen
+
+        Salmonellan suhteen riskialttiiden rehuaineiden tuontieristä (3. maa + EU) 14 kpl osoittautui
+        salmonellapositiiviksi (v. 2024 13 kpl, v. 2023 18 kpl, v. 2022 23 kpl). Saastuneita eriä oli
+        keskimääräistä vähemmän. Toimijat hakivat salmonellaa sisältäneille kasviperäisten rehujen
+        tuontierille käsittelyluvan Ruokavirastosta ja tutkivat erät käsittelyn jälkeen omana
+        laadunvarmistuksenaan. Erät hyväksyttiin käyttöön sen jälkeen, kun ne oli todettu puhtaaksi.
+        Eläinperäiset rehujen tuontierät palautettiin valmistajalle tai käytettiin kuumennettuna
+        lemmikkieläinten rehujen valmistuksessa. Yhteensä salmonellaa sisältäneet erät edustivat
+        noin 15 miljoonaa kiloa rehuaineita, määrä oli aiempiin vuosiin verrattuna pieni (v. 2024 18,5
+        milj. kg, v. 2023 40 milj. kg, v. 2022 59,5 milj kg).
+
+        Kotimaisessa rehun valmistuksessa elintarviketuotantoeläimille tarkoitetuista rehuerissä ei
+        todettu salmonellaa. Salmonellaa ei todettu kotimaisissa lemmikkieläinten rehuissa.
+        Salmonellan lisäksi kuivatuista ja raaoista lemmikkieläinten rehuista analysoitiin myös
+        enterobakteerien pitoisuuksia. Muutamassa tapauksessa raakapakasteiden valmistajia
+        kehotettiin kiinnittämään huomioita prosessihygieniakriteerin ylittäneisiin enterobakteerien
+        määriin. Edellä mainittua sivutuotelainsäädännön mukaista prosessihygieniakriteeriä eli
+        enterobakteerien määrään liittyvää raja-arvoa ei kuitenkaan suoraan sovelleta valmiisiin,
+        markkinoilla oleviin raakaruokiin.
+
+
+
+                                             30 (41)
+                                       Rehuvalvonnan raportti 2025
+
+
+
+
+         Kotimaisista luokan 3 käsitellyistä eläinvalkuaisen (PAP) eristä ei todettu salmonellaa eikä
+         kohonneita enterobakteerien pitoisuuksia. Turkiseläimille tarkoitetuista luokan 2 käsitellyistä
+         sivutuotteista ei todettu salmonellaa eikä kohonneita enterobakteerimääriä. Turkiseläimille
+         tarkoitetussa rehuseoksessa ei todettu salmonellaa, mutta yhdessä tapauksessa todettiin
+         kohonneita enterobakteerien määriä.
+
+         Tavanomaiseen tapaan myös rehujen markkinavalvonnan näytteissä, joita otettiin
+         sisämarkkinoilta tuoduista, kuivatuista sivutuotteista, todettiin säädöstenvastaisuuksia:
+         yhdessä vuohenkorvaerässä ja yhdessä puruluu/nahkarullaerässä todettiin salmonellaa.
+         Edellä mainittujen erien markkinointi kiellettiin ja erät vedettiin pois markkinoilta.
+
+3.3.2.2 Kielletty eläinvalkuainen
+
+         Ruokavirasto tutki Suomeen tuodut, elintarviketuotantoeläimille tarkoitetut kalajauhoerät
+         mikroskopoimalla maaeläinperäisen aineksen varalta. Erissä ei todettu huomautettavaa.
+
+         Tilavalvonnan näytteenotossa tutkituista rehueristä yhdessä rehussa todettiin kiellettyä
+         eläinvalkuaista (verijauhoa). Tilavalvonnan osalta ks. tarkemmin kappale 3.1 Alkutuotannon
+         toimijat (tilavalvonta).
+
+         Valmistuksen valvonnan näytteenotoissa tutkituista rehueristä ei todettu kiellettyä
+         kalajauhon esiintymistä kohde-eläimen rehussa tai kiellettyä maaeläinperäisen aineksen
+         esiintymistä kohderehussa.
+
+         Luokan 3 käsitellystä eläinvalkuaisen (PAP) rehuainesta ei todettu siihen kuulumatonta
+         eläinperäistä ainesta eikä GTH-merkkiaineen jäämiä ja ne täyttivät siten säädösten
+         vaatimukset. Huomautettavaa todettiin kuitenkin luokan 2 käsitellystä sivutuotteesta, jossa
+         merkkiaineena lisättävä GTH-merkkiaineen vakuudellinen pitoisuus ei vastannut
+         lainsäädännön vaatimuksia. Toimijalta edellytettiin asiassa selvityksiä ja korjaavia
+         toimenpiteitä.
+
+3.3.2.3 Kasviperäiset epäpuhtaudet, aitous ja tuhohyönteiset
+
+         Vuonna 2025 otetuissa linnunsiemennäytteissä ei todettu hukkakauraa eikä muita kiellettyjä
+         siemeniä. Yhdessä siemenseoserässä todettiin eläviä tuholaisia. Poikkeamia oli
+         markkinavalvonnan linnunsiemennäytteissä keskimääräistä vähemmän. Rehujen
+         valmistuksen tai tuonnin yhteydessä otetuista näytteistä ei todettu poikkeamia.
+         Tilavalvonnan osalta ks. tarkemmin kappale 3.1 Alkutuotannon toimijat (tilavalvonta).
+
+3.3.2.4 Kemialliset haitalliset ja kielletyt aineet
+
+         Ruokavirastossa rehujen valvonnassa hyödynnettiin laajamittaisesti multimenetelmiä, jotka
+         mahdollistavat samanaikaisesti usean aineen tai yhdisteen analysoinnin. Rehuissa ei todettu
+
+
+
+
+                                                31 (41)
+                            Rehuvalvonnan raportti 2025
+
+
+
+säännöstenvastaisia pitoisuuksia kokkidiostaattien, lääkeaineiden tai kiellettyjen aineiden
+jäämiä, GTH-merkkiaineen jäämiä, glykoalkaloidien, biogeenisteen amiinien, melamiinin ja
+muiden epäorgaanisten typpiyhdisteiden, dioksiinien- ja PCB-yhdisteiden eikä PFAS-
+yhdisteiden jäämiä. Rehuissa ei todettu säädöstenvastaisuuksia liittyen rehujen
+muuntogeenisyyteen.
+
+Luomutuotantoon tarkoitetussa rehussa todettiin jäämiä torjunta-aine glyfosaatista.
+Rehuerän käyttö luomutuotannossa kiellettiin ja edellytettiin takaisinvetoa sekä korjaavia
+toimenpiteitä luomurehujen valmistuksessa.
+
+Hevosille tarkoitetussa täydennysrehussa todettiin raskasmetalli kadmiumia yli sallitun
+enimmäismäärän ja lisäksi tuotteessa oli merkittävässä määrin sinkkiä ja kuparia yli
+täydennysrehussa sallitun enimmäismäärän. Erä kiellettiin ja edellytettiin takaisinvetoa sekä
+korjaavia toimenpiteitä rehun valmistuksessa.
+
+Mykotoksiinien analyyseissä todettiin yhdessä porsaiden täydennysrehussa deoksinivalenolia
+ja yhdessä emakoiden täysrehussa zearalenonia yli rehuille asetetun ohjearvon. Toimijoilta
+edellytettiin korjaavia toimenpiteitä valmistettavien rehuerien mykotoksiinien pitoisuuksien
+hallintaan ja vilja-rehuaine-erien laadun varmistamiseen.
+
+Käsitellyissä luokan 3 eläinvalkuaiserissä (PAP) ei todettu jäämiä GTH-merkkiaineesta.
+Yhdessä tapauksessa käsitellyssä luokan 2 sivutuote-erässä GTH-merkkiaineen pitoisuus ei
+ollut säännösten edellyttämällä tasolla. Toimijalta edellytettiin korjaavia toimenpiteitä
+omavalvonnassa liittyen aineen tasaiseen annosteluun ja sekoittumiseen.
+
+Glykoalkaloidien (10 näytettä) ja biogeenisten amiinien (12 näytettä) monitorointia
+lemmikkieläinten kotimaisista ja ulkomaisista rehuseoksista jatkettiin vuonna 2025, koska
+tietoa em. yhdisteiden pitoisuustasoista on toistaiseksi vähän. Luontaisiin kasvitoksiineihin
+kuuluvat glykoalkaloidit voivat olla riski kuivissa rehuseoksissa, jotka sisältävät runsaasti
+perunaa. Biogeenisten amiinien (esim. histamiini) suuret pitoisuudet viittaavat yleisesti
+eläinperäisten raaka-aineiden pilaantumiseen; suurimmat pitoisuudet todettiin kalaa
+sisältävissä rehuissa. Glykoalkaloidelle tai biogeenisille amiineille ei ole EU:ssa asetettu
+suurimpia sallittuja enimmäispitoisuuksia rehuissa.
+
+EU:ssa on asetettu enimmäispitoisuudet PFAS-yhdisteille elintarvikkeissa. Rehuille ei EU:ssa
+ole puolestaan asetettu enimmäispitoisuuksia. Tutkimusten mukaan PFAS-yhdisteiden
+jäämäpitoisuudet luonnonkaloissa voivat vaihdella suuresti riippuen eri kalalajeista ja
+kalastusalueista ja tämän vuoksi luonnonkalasta valmistetussa kalajauhossa voi olla jäämiä
+PFAS-yhdisteistä. Suomessa luomumunantuotannossa olevia tiloja on varotoimenpiteenä
+ohjeistettu käyttämään rehussa vain sellaisia kalajauhoeriä, joiden PFAS-yhdisteiden
+jäämäpitoisuudet on analysoitu eräkohtaisesti ja jäämäpitoisuudet ovat mahdollisimman
+pieniä. Kalajauhon käyttöä luomurehussa on lisäksi korvattu kanojen ravitsemukseen
+soveltuvilla muilla rehuaineilla. Tiloilla tapahtuvassa tilarehuseosten valmistuksessa
+käytettiin edellisen vuoden tapaan vain ulkomaista luomuun soveltuvaan kalajauhoa, jolle oli
+
+
+
+
+                                     32 (41)
+                                    Rehuvalvonnan raportti 2025
+
+
+
+        eräkohtaiset PFAS-yhdisteiden analyysitulokset. Elintarvikkeisiin liittyvää valvontatietoa on
+        saatavilla Elintarviketurvallisuus Suomessa -raportissa.
+
+        Lääkerehujen valmistus elintarviketuotantoeläimille oli toimintavuonna vähäistä, mutta
+        valmistusmäärä oli suurempi verrattuna vuoteen 2024. Lääkerehuja valmistettiin
+        elintarviketuotantoeläimistä ainoastaan kaloille. Turkiseläinten lääkerehujen valmistus oli
+        vuoden 2024 tasolla eli n. 130 000 kg. Verrattuna aiempiin vuosiin turkiseläinten lääkerehun
+        valmistus on hyvin vähäistä (v. 2023 600 000 kg, v. 2022: 1,1 milj. kg). Myös turkiseläinten
+        rehujen kokonaisvalmistusmäärä on edelleen vähentynyt. Tarkemmat tiedot lääkerehujen
+        valmistuksesta julkaistaan Ruokaviraston nettisivuilla.
+
+3.3.2.5 Rehujen muuntogeenisyyden valvonta
+
+        Kotimaisessa valmistuksessa tai markkinoilta/tuonnin yhteydessä otetuissa
+        viranomaisnäytteissä ei todettu EU:ssa hyväksymättömiä muuntogeenisiä organismeja.
+        Näytteistä ei todettu sellaisia pitoisuuksia hyväksyttyjä muuntogeenisiä aineksia, jotka
+        olisivat edellyttäneet rehun merkitsemistä muuntogeeniseksi rehuksi.
+
+3.3.2.6 Elintarvikkeita ja rehuja koskeva, eurooppalainen nopea hälytysjärjestelmä (RASFF) ja
+hallinnollista avunantoa koskeva järjestelmä (AAC)
+
+        Suomi teki RASFF-hälytysjärjestelmässä yhteensä neljätoista rehuja koskevaa RASFF-
+        ilmoitusta (v. 2024 12 kpl, v. 2023 10 kpl, v. 2022 11 kpl). Kaikki em. ilmoitukset koskivat
+        tuontiraaka-aineissa todettua salmonellaa. Kyse oli sisämarkkinaeristä ja toimijoiden
+        omavalvonnan löydöksistä.
+
+        RASFF-järjestelmän kautta saatiin myös ilmoituksia Suomeen toimitetuista rehuista, joissa oli
+        todettu laatuongelmia kuten esim. metallia hevosten rehussa, salmonellaepäilyjä lemmikkien
+        makupaloissa ja hivenainepoikkeamia porsasrehussa. Ruokavirasto varmisti, että
+        sisämarkkinatuojat olivat saaneet tiedon laatupoikkeamista ja pysäyttäneet
+        myynnin/toteuttaneen takaisinvetotoimet tai muut tarvittavat toimenpiteet haittojen
+        poistamiseksi. Lisäksi saatiin ilmoitus, että suomalaisessa käsitellyssä eläinvalkuaisessa oli
+        Norjassa todettu salmonellaa – asiaa selvitettiin rehualan toimijan kanssa eikä positiiviselle
+        tulokselle löydetty selitystä tai toiminnassa parannettavaa.
+
+        Lisäksi AAC-järjestelmässä keskusteltiin toisten jäsenmaiden kanssa hevosten rehujen
+        seleenipitoisuuksista, entsyymien gm-jäämistä ja soijan pestisidijäämistä.
+
+3.3.3 Korjaavat toimenpiteet
+
+        Rehuerälle voidaan antaa kielto, toimenpidemääräys, huomautus tai kehotus / seuraamus.
+        Näytteissä todettujen säännöstenvastaisuuksien ja seuraamusten tarkemmat kuvaukset ovat
+        kohdassa 3.4.2 ja esiintyvyys taulukoissa 10, 11 ja 12.
+
+
+
+
+                                             33 (41)
+                                       Rehuvalvonnan raportti 2025
+
+
+
+          Rehusta todettu haitallisten / kiellettyjen aineiden säädöstenvastainen pitoisuus tai muu
+          vakava poikkeama johtaa yleensä rehuerän tuonti-, valmistus-, käyttö- tai markkinoille
+          saattamiskieltoon. Säädöstenvastaisen pitoisuuden omaavan rehuerän laimentaminen on
+          kiellettyä. Kielto voi olla ehdollinen, kun toimijan on mahdollista poistaa laatupoikkeama
+          esimerkiksi rehun käsittelyllä, tai ehdoton, jolloin rehulle annetaan hävitysmääräys tai
+          tuontitilanteessa erä voidaan vaihtoehtoisesti palauttaa lähtömaahan. Haitallisten aineiden
+          toteaminen johtaa pääsääntöisesti rehuerän kieltoon silloin, kun niiden pitoisuus ylittää
+          lainsäädännössä annetun enimmäispitoisuuden.
+
+          Jos rehussa on todettu poikkeama esim. ravintoaineissa ja/tai pakkausmerkinnöissä, se
+          johtaa kirjalliseen huomautukseen ja kehotukseen korjaavista toimenpiteistä. Toistuvat
+          huomautukset tai vakavat poikkeamat / puutteellisuudet voivat johtaa rehuerän tai rehun
+          valmistuksen kieltoon. Rehualan toimija voidaan asettaa myös tehostettuun valvontaan,
+          jolloin viranomaisvalvontaa lisätään ja näytteenottofrekvenssiä tihennetään esimerkiksi, jos
+          on todettu merkittäviä poikkeamia liittyen hygieniaan, kokkidiostaattien jäämiin tai toistuvia
+          poikkeamia maksimi-/minimimäärän omaavien rehun lisäaineiden pitoisuuksiin.
+
+
+
+4 SÄÄNNÖSTENMUKAISUUDEN VARMISTAMINEN
+
+4.1 Toimijoiden säännösten tuntemus
+
+          Rehujaosto julkaisi vuoden aikana neljä rehualan toimijoille suunnattua uutiskirjettä. Muut
+          kuin rehualan toimijat voivat tilata uutiskirjeen nettisivuilta. Uutiskirjeiden lisäksi julkaistiin
+          kaksi rehuihin liittyvää ajankohtaisuutista.
+
+          Rehujaosto luennoi koirien raakaruokaohjaajakoulutuksessa raakaruokiin liittyvästä
+          lainsäädännöstä kaksi kertaa vuoden aikana. Kyseessä oli maksullinen luento.
+
+          Ruokavirasto vastasi toimintavuoden aikana noin 170:een rehulainsäädäntöön liittyvään
+          rehukyselyt -virkasähköpostilaatikkoon saapuneeseen kysymykseen ja palautteeseen.
+          Viesteistä n. kolmasosa liittyi lemmikki- ja luonnonlintujen rehuihin. Lisäksi toimijoilta tuli
+          ilmoituksia rehuilmoitukset -postilaatikkoon erityisesti omavalvonnassa todettuun
+          salmonellaan, vuosi-ilmoituksiin sekä rekisteröinteihin ja toiminnan muutoksiin liittyen.
+          Luomurehuja koskeviin kysymyksiin vastattiin luomurehu -postilaatikon kautta. Tuontiin
+          liittyviä kysymyksiä ja toimintaa käsiteltiin toimijoiden kanssa rehutuonti
+          -postilaatikossa. Vientitodistuksia ja niihin liittyviä kysymyksiä käsiteltiin
+          rehuvientitodistukset –postilaatikossa. Tavoitteena on vastata toimijoilta ja sidosryhmiltä
+          tuleviin kyselyihin 3 - 5 työpäivän kuluessa. Yhteiskäytössä olevien sähköpostilaatikoiden
+          lisäksi kysymyksiä tulee päivittäin rehujaoston henkilöstön henkilökohtaisiin sähköposteihin
+          ja puhelimitse. Näihin kysymyksiin vastattiin niin nopeasti kuin mahdollista.
+
+
+
+
+                                                 34 (41)
+                                       Rehuvalvonnan raportti 2025
+
+
+
+4.2 Valvontakäytännöt
+
+           Ruokavirasto edisti valvonnan yhdenmukaisuutta ohjeiden päivittämisen ja laatimisen sekä
+           tiedottamisen, kouluttamisen ja kysymyksiin vastaamisen avulla.
+
+           EU-komission järjestämiin BTSF-koulutuksiin (Better Training For Safer Food) ei tämän
+           valvontavuoden aikana osallistuttu, ei verkossa eikä paikan päällä.
+
+           Rehuvalvontaviranomaisten NordicBaltic -kokous järjestettiin Virossa. Kokoukseen osallistui
+           kolme rehujaostolaista, mikä mahdollisti kolmeen eri rinnakkaiseen työryhmään
+           osallistumisen. Kokoukseen osallistui yhteensä 45 rehuviranomaista Pohjois- ja Baltian
+           maista. Rehujaoston rooli kokouksessa oli aktiivinen. Kaksi jaostolaista toimi eri työryhmien
+           sihteereinä, lisäksi pidettiin esitykset Suomen rehuvalvonnan ajankohtaisista aiheista sekä
+           etämyynnin ajankohtaisista.
+
+           Valtuutetuille tarkastajille, luomurehutarkastajille ja ELY-keskusten rehutarkastajille
+           järjestettiin kullekin omat koulutuspäivät. ELYille järjestettiin vuoden aikana kolme rehujen
+           tilavalvonnan ajankohtaispalaveria ja kaksi markkinavalvonnan seurantapalaveria. Kaikki
+           koulutukset toteutettiin etäyhteyksin.
+
+           Rehujaosto osallistui toimintavuoden aikana lukuisiin eri työryhmiin, kuten tuonti,
+           kemiallinen valvonta ja laboratorioyhteistyö, luomu, etämyynti, ehdollisuus, eläimistä
+           saatavat sivutuotteet, laaja lihatiimi, kansallinen seleeniseuranta ja ELY-ohjaus sekä uutena
+           työryhmänä lääkerehujen yhteistyöryhmä, joka kokoontui kaksi kertaa.
+
+
+
+5 AUDITOINNIT JA MUU SAATU PALAUTE
+
+5.1. Komission suorittamat auditoinnit
+
+           Rehujaosto osallistui maaliskuussa EU komission Suomeen tekemään tuontitarkastukseen.
+           Tarkastuksen tavoitteena oli arvioida, suoritettiinko Euroopan unioniin (EU)
+           rajatarkastusasemien (BCP) kautta tulevien eläinten ja tavaroiden virallinen valvonta
+           asiaankuuluvan EU:n lainsäädännön mukaisesti. Tarkastus kohdistui erityisesti
+           eläinlääkinnällisiin rajatarkastusasemiin Vuosaaressa ja Helsinki-Vantaan lentokentällä.
+           Muiden kuin eläinperäisten rehujen osalta tarkastus koski vain EU:ssa tehovalvottavia,
+           asetuksen (EU) 2019/1793 mukaisia rehuja eli käytännössä pähkinöitä ulkolinnuille.
+           Tarkastuksesta saadun palautteen mukaan valvontajärjestelmä toimii, menettelyt ovat
+           dokumentoituja, henkilöstö pätevää ja yhteistyö toimivaltaisten viranomaisen välillä
+           toimivaa. Muiden kuin eläinperäisten rehujen osalta puutteet liittyivät Traces- kirjauksiin:
+           tapauksissa, joissa lähetykset oli siirretty valvontapisteeseen (CP) näytteenottoa varten, erän
+           saapumiskuittaus CP:lle puuttui Traceksen tuloasiakirjalta ja analyysitulokset oli esitetty liian
+           yleisellä tasolla. Edellä mainitut puutteet korjattiin tarkastuksen aikana/ennen
+
+
+
+
+                                                35 (41)
+                                       Rehuvalvonnan raportti 2025
+
+
+
+           tarkastusraportin valmistumista. Rehuille nimettyjä valvontapisteitä ei valikoitunut
+           tarkastuksen kohteeksi.
+
+           EU:n Komissio (DG AGRI) teki Suomeen maataloustukien, ml. ehdollisuus, toimeenpanoon
+           liittyvän tarkastuksen 2.-3.4.2025 etänä ja 12.-16.5.2025 paikan päällä. Komission tekemiin
+           havaintoihin liittyen Ruokavirasto on lähettänyt komissiolle vastineen selvityksineen. Asian
+           käsittely on kesken ja sitä jatketaan komission kanssa bilateraalineuvottelussa 14.4.2026.
+
+
+
+5.2 Muut auditoinnit
+           Arviointi- ja ohjauskäyntejä (AJO) ei resurssisyistä tehty.
+
+
+5.3 Tarkastajien koulutuksesta antamat palautteet
+
+           Valtuutettujen tarkastajien koulutus järjestettiin yhteistyössä lannoitevalvonnan kanssa.
+           Koulutuspäivä koostui rehuosuudesta, yhteisestä osuudesta ja lannoiteosuudesta.
+           Koulutukseen osallistui 10 valtuutettua tarkastajaa, 17 ruokavirastolaista (muuta kuin
+           rehujaostolaista) sekä yksi Ahvenanmaalla rehuvalvontaa tekevä viranomainen. Palautetta
+           antoi 12 osallistujaa, joista 7 oli valtuutettuja tarkastajia. Sekä valtuutettujen tarkastajien
+           että ruokavirastolaisten antaman numeerisen palautteen keskiarvo oli 4,4 (asteikolla 1-5,
+           jossa 1=huonoin ja 5=paras). Valtuutetut tarkastajat antoivat parhaat arviot käytännön
+           järjestelyistä (ka 4,7), ruokavirastolaiset kouluttajien ammattitaidosta. Alhaisimmat arviot
+           valtuutetut tarkastajat antoivat asioiden esittämisen selkeydestä (ka 3,9), ruokavirastolaiset
+           ajankäytön tehokkuudesta (ka 4,2). Avoimessa palautteessa kiiteltiin koulutuksesta.
+
+           Rehualan alkutuotannon toimijoiden valvontaa ja markkinavalvontaa tekevien ELY-
+           tarkastajien koulutuksesta saatiin palautetta 13 koulutukseen osallistuneelta (97
+           ilmoittautunutta yhteensä). Lähes puolet osallistujista eivät olleet ilmoittautuneet
+           koulutukseen etukäteen. Saadun numeerisen palautteen keskiarvo oli 4,2 (13 palautetta)
+           asteikolla 1-5 (1=huonoin, 5=paras). Parhaat arviot saivat asioiden esittämisen selkeys,
+           käytännön järjestelyt sekä koulutusmateriaalin taso (kaikissa ka 4,3). Avoimessa palautteessa
+           kiiteltiin koulutusta ja esityksiä. Kehittävässä palautteessa toivottiin uusien asioiden
+           hitaampaa läpikäyntiä sekä pahoiteltiin koulutuspäivän ajankohtaa.
+
+
+5.4 Asiakaspalautteet
+
+           Laitostarkastuksista kerätään jatkuvasti palautetta rehualan toimijoilta. Palautteita saatiin 8
+           kpl, mikä on peräti 21 palautetta vähemmän kuin edellisenä vuonna ja ylipäätään hyvin
+           paljon vähemmän kuin yleensä. Rehujaoston henkilöstö ja valtuutetut tarkastajat tekivät
+           yhteensä 75 tarkastusta, joten palautetta saatiin 11:sta prosentista tarkastuksia. Palautteista
+           kuusi koski Ruokaviraston henkilöstön tekemiä tarkastuksia ja kaksi valtuutetun tarkastajan
+           tekemää tarkastusta. Kaikki palautteen antajat kokivat, että tarkastuksesta oli hyötyä
+           toiminnalle. Kaikki palautteen antajat arvioivat tarkastuksen kokonaisuutena erinomaiseksi.
+
+
+
+                                                 36 (41)
+                                    Rehuvalvonnan raportti 2025
+
+
+
+        Myös tarkastajan ammattitaito arvioitiin kaikissa palautteissa erinomaiseksi. Avoimessa
+        palautteessa toivottiin hyväksymistarkastuksen hinnan suhteuttamista toiminnan kokoon,
+        kiiteltiin rehuvalvontaa avusta, yhteistyöstä, ystävällisyydestä ja ammattitaidosta,
+        harmiteltiin sähköisen asiointipalvelu Toukon käytön hankaluutta vuosi-ilmoittamisessa sekä
+        toivottiin, että Ruokavirasto huolehtisi henkilöstön riittävyydestä ja työhyvinvoinnista.
+        Tarkastuksiin liittyvä palaute saatiin sähköisesti webropol -lomakkeella.
+
+        Ruokavirasto kerää pikapalautteita rehualan toimijoiden käyttämästä sähköisestä
+        asiointipalvelusta Toukosta. Vain kaksi rehualan toimijaa vastasi palautekyselyyn ja olivat
+        molemmat tyytymättömiä asiointipalveluun. Pikapalautteessa kysyttiin erikseen
+        onnistumista seuraavissa osa-alueissa: helppokäyttöisyys, palvelun nopeus, sisällön selkeys,
+        toimintavarmuus ja ulkoasu. Palautteissa palvelun helppokäyttöisyyttä, selkeyttä ja
+        toimintavarmuutta toivottiin parannettavan.
+
+
+
+6 VALVONNAN RESURSSIT
+
+        Ruokavirasto vastaa rehuvalvonnan toimeenpanoon liittyvistä viranomaistehtävistä.
+        Kemiallisen elintarviketurvallisuuden yksikön (KETU) rehujaostossa oli toimintavuonna
+        käytettävissä rehuvalvontaan yhteensä noin 8,5 htv:tta. Ruokavirasto käyttää apunaan
+        valtuuttamiaan ja kouluttamiaan tarkastajia sekä Elinkeino-, liikenne- ja ympäristökeskusten
+        (ELY-keskusten) tarkastajia. ELY-keskusten toiminta lakkasi 31.12.2025. Rehuvalvonnan
+        tehtävät siirtyivät 1.1.2026 toimintansa aloittaneisiin elinvoimakeskuksiin. Valtuutettujen
+        tarkastajien resursseja arvioidaan käytetyn noin 2 htv:tta (sisältäen rehuvalvonnan
+        näytteenotto- ja tarkastustehtäviä, pl. luomurehutarkastukset). Htv-arvio on laskennallinen
+        ja suhteutettu valtuutetuille tarkastajille maksettuihin palkkioihin. ELY-keskusten tarkastajien
+        resursseja käytettiin noin 1,6 htv:tta rehujen markkina-, tila- ja tuotantoeläinten rehuja
+        myyvien vähittäiskauppojen valvonnassa sekä lääkerehujen tilasekoittajien
+        hyväksyntätarkastuksissa. Markkinavalvontaa tehtiin viidessä teema-ELYssä.
+
+        Tarkastajien rehuista ottamat viranomaisnäytteet analysoidaan kansallisissa
+        vertailulaboratorioissa Ruokavirastossa, Terveyden ja hyvinvoinnin laitoksen laboratoriossa
+        ja tarvittaessa Tullilaboratoriossa sekä tietyissä tapauksissa Ruokaviraston hyväksymissä
+        laboratorioissa (salmonella). Rehulain mukaisesti hyväksyttyjä virallisia laboratorioita
+        salmonellan määrittämiseen rehuista on neljä. Lisäksi kahdeksalla rehualan toimijoiden
+        omavalvontalaboratoriolla on rehulain mukainen hyväksyntä salmonellan analysoimiseksi
+        lakisääteisistä omavalvontanäytteistä. Kemialliset määritykset ja mikrobiologiset tutkimukset
+        tehdään rehuista pääsääntöisesti Ruokaviraston tutkimuslaboratoriossa. Terveyden ja
+        hyvinvoinnin laitoksen tutkimuslaboratorio tekee kuitenkin rehujen viranomaisnäytteiden
+        dioksiini- ja PCB-yhdisteiden sekä PFAS-yhdisteiden määritykset. Rehujen muuntogeenisyyttä
+        voidaan myös analysoida Tullilaboratoriossa. Ruokaviraston tutkimuslaboratorio voi
+        tarvittaessa teettää analyysejä alihankintana.
+
+
+
+
+                                             37 (41)
+                            Rehuvalvonnan raportti 2025
+
+
+
+Valvontasuunnitelma suhteutetaan aina käytettävissä olevaan henkilöstöresurssiin
+valvontasuunnitelman laatimisen yhteydessä käytettävissä olevan tiedon perusteella.
+Rehuvalvonnan viroista hieman yli 1,5 oli täyttämättä valvontavuoden aikana.
+Valvontavuodelle suunniteltu valvonta yleisesti ottaen toteutui. Haasteita suunnitelmallisen
+valvonnan toteutumiselle aiheuttavat erityistilanteet sekä valvontasuunnitelman
+ulkopuolelta tulevat hyväksymishakemukset. Vuoden lopussa aktivoitui uudestaan
+hyväksyttyyn rehun lisäaineeseen liittynyt kohu, joka aiheutti lukuisia yhteydenottoja
+jaostoon. Myös toimijoiden omavalvonnassa todetut salmonellat työllistivät jaostoa.
+Salmonella- ja muiden erityistilanteiden hoitaminen priorisoituu korkealle jaoston
+toiminnassa ja jos tapauksia on valvontavuoden aikana paljon, se vaikuttaa suunnitellun
+valvonnan toteutumiseen ja/tai työaikakertymiin. Tänä valvontavuonna erityistilanteiden
+hoitamiseen kului poikkeuksellisen vähän työaikaa suhteessa useaan aiempaan vuoteen.
+Erityistilanteiden hoitamiselle kirjattiin työaikaa noin 20 henkilötyöpäivää eli yhden henkilön
+täyspäiväinen työaika noin neljän viikon ajan. Tämän valvontavuoden aikana lisätyötä
+aiheuttivat erityisesti sähköisen näytteenottopöytäkirjan käyttöönotto ja
+aluehallintouudistus. Merkittävin ja yllätyksenä tullut lisätyöllistäjä oli kuitenkin
+loppuvuodesta tullut hyväksymishakemusten suma, joka liittyi erityisesti lääkerehun
+tilasekoittamiseen. Erityistilanteiden ohella hyväksymishakemukset priorisoituvat
+rehujaostossa, koska hyväksyminen on toiminnan edellytys.
+
+Rehujaosto vastasi valvontavuoden aikana kahdeksaan median yhteydenottoon.
+Yhteydenottoja tuli puhelimitse ja sähköpostitse, haastatteluja annettiin ja kysymyksiin
+vastattiin puhelimitse, sähköpostitse sekä video/televisiohaastatteluissa. Tiedonkeruuseen,
+haastatteluihin, kysymyksiin vastaamiseen ja artikkelien tarkistamiseen kului yhteensä noin
+viisi henkilötyöpäivää eli yhden henkilön täyspäiväinen työaika viikon ajan.
+
+Rehujaoston tehtäväkenttään liittyen tuli yksi tiedonluovutuspyyntö liittyen hyväksyttyyn
+rehun lisäaineeseen ja kolme pyyntöä liittyen rehuista vuosittain kerättäviin määrätietoihin.
+Tiedonluovutuspyynnöt tulevat ja ne koordinoidaan Ruokaviraston keskitetyn
+tiedonluovutuksen kautta. Tietopyyntöjen käsittelyyn ja aineiston koostamiseen arvioidaan
+kuluneen rehujaostossa noin yksi henkilötyöpäivä.
+
+Sähköisen asioinnin ja raportoinnin kehittämiseen käytettiin suunnitellusti hyvin paljon
+resursseja. Sähköinen näytteenottopöytäkirja saatiin käyttöön kaikilla valvontalinjoilla.
+Valtuutettujen tarkastajien ja ELY-keskusten tarkastajien kouluttaminen, neuvominen ja
+ohjeistaminen sähköisen näytteenottopöytäkirjan käyttöön vei merkittävästi työaikaa
+erityisesti vuoden alussa. Myös SALLI-hankeen puitteissa luotuun ja julkaistuun rehualan
+toimijoiden sähköiseen vuosi-ilmoittamiseen asiointipalvelu Toukossa tehtiin
+jatkokehitystyötä erityisesti ohjeistukseen ja prosessin hiomiseen liittyen. Vuosi-ilmoitusten
+käsittelyyn liittyvän prosessin hiomisesta johtuen vuosi-ilmoitukset saatiin käsiteltyä
+ennätysajassa. Nopean käsittelyn seurauksena kevään valvontaraporttiin saatiin koostetuksi
+tilastot edellisen vuoden rehujen valmistus- ja tuontimääristä. SALLI-hanke on Ruokaviraston
+Elintarvikeketju- ja laboratorio- ja tutkimuslinjan yhteinen sähköisen asioinnin kehittämiseen
+liittyvä hanke, johon rehujaosto osallistuu. SALLI-hankkeessa kehitetään rehuvalvonnan
+sähköisen asioinnin palveluja. Osa SALLI-hankkeen puitteissa suunnitelluista rehuvalvonnan
+
+
+                                     38 (41)
+                                    Rehuvalvonnan raportti 2025
+
+
+
+       työkaluista ei valitettavasti toteudu tämän projektin aikana, vaan jäävät odottamaan
+       päätöstä SALLI2-hankkeen toteutumisesta. Tällaisia osa-alueita ovat vuosi-ilmoittamisen
+       web-portaali, rehualan alkutuotannon toimijoiden sähköinen rekisteröityminen, asiointi ja
+       rekisteri, kuulemismenettely Touko-asiointipalveluun ja todisteellinen tiedoksianto sekä
+       hyväksymishakemusten sähköistäminen. SALLI-hankkeelle kirjattiin valvontavuoden aikana
+       rehujaoston työaikaa yhteensä 20 henkilötyöpäivää eli noin 143 tuntia (v. 2024: 430 tuntia).
+       Myös käytössä olevien tietojärjestelmien ylläpito- ja kehitystyö vaatii merkittävästi resurssia
+       myös substanssista.
+
+       Rehuvalvonnan seuraamusmaksu (rehulaki, 51§) ja rehualan toimijan luotettavuus (rehulaki,
+       18§) ovat hyviä työkaluja valvonnalle, mutta niiden soveltaminen valvonnassa on
+       tavanomaisempia hallinnollisia toimenpiteitä työläämpää ja vaatii niin ikään resurssia.
+
+       Valvontavuoden aikana rehujaoston hoidettavaksi tuli valvontasuunnitelman ulkopuolisia
+       erityistilanteita. Yksikään erityistilanne ei kuitenkaan ollut yhtä laaja tai poikkeuksellinen kuin
+       edellisten vuosien koiranruokiin liittyneet erityistilanteet. Median yhteydenottojen määrä ja
+       niiden hoitamiseen kulunut työmäärä oli merkittävästi vähäisempi kuin kahtena edellisenä
+       vuotena. Myös tietopyyntöjä tuli vähemmän ja SALLI-hanke sekä muu digikehittäminen vaati
+       vähemmän jaoston työaikaa kuin aiempina vuosina. Edellä mainittujen työtehtävien
+       vähäisempi määrä vaikutti suotuisasti jaostolaisten työaikakertymiin ja henkilöstön
+       jaksamiseen valvontavuoden aikana.
+
+       Ruokaviraston ja siten myös rehuvalvonnan resurssit ovat vähentyneet.
+       Yhteistoimintaneuvotteluista seurasi pysyvä resurssivähennys, minkä lisäksi on ollut ja on
+       edelleen täyttämättömiä sijaisuuksia. Resurssien väheneminen tarkoittaa tehtävien
+       karsimisen jatkamista. Karsimisella on vaikutuksia valvontaan sekä rehualan toimijoiden,
+       kuluttajien, median ja sidosryhmien palvelemiseen, neuvomiseen, ohjeistamiseen ja
+       ohjaamiseen.
+
+
+
+7 MUUTOKSET SEURAAVAN VUODEN VALVONTAAN
+       Valtion aluehallinnon uudistus toi rehuvalvontaankin rakenteellisia muutoksia sekä
+       valvonnan suunnittelun ja raportoin kehitystyötä. Kehitystyötä tehtiin tiiviisti jo vuoden 2025
+       puolella, aluehallintouudistus tuli voimaan vuoden 2026 alusta. Aluehallintouudistuksessa
+       koottiin valtion lupa-, ohjaus- ja valvontatehtäviä uuteen valtakunnalliseen Lupa- ja
+       valvontavirastoon sekä muodostettiin uudet alueelliset elinvoimakeskukset entisten
+       Elinkeino-, liikenne- ja ympäristökeskusten eli ELY-keskusten pohjalta. Aluehallintovirastot
+       lopettivat toimintansa ja noin 60 henkilöä siirtyi Ruokavirastoon. Rehualan alkutuotannon
+       toimijoiden ja elintarviketuotantoeläinten rehujen vähittäiskaupan valvonta sekä
+       markkinavalvonnan näytteenotto siirtyivät Ely-keskuksista elinvoimakeskuksiin. Edellä
+       mainittujen toimintojen ohjaus säilyi Ruokavirastossa.
+
+
+
+
+                                             39 (41)
+                            Rehuvalvonnan raportti 2025
+
+
+
+Rehuvalvonnan ykkösprioriteetti on elintarviketuotantoeläinten rehujen valvonta, koska
+niillä on suora yhteys elintarviketurvallisuuteen. Kakkosprioriteetti ovat lemmikkieläinten
+rehut ja kolmantena tulevat turkiseläinten rehut. Kuluttaja- ja mediakiinnostus kohdistuu
+ennen kaikkea lemmikkieläinten rehuihin ja niiden valvontaan. Erityistilanteiden aiheuttama,
+valvontasuunnitelman ulkopuolelta tuleva työmäärä vaihtelee merkittävästi vuosittain,
+jolloin resurssin varaaminen niihin on ja tulee jatkossakin olemaan haastavaa. Käytännössä
+vähänkään merkittävämmistä erityistilanteista seuraa merkittävää henkilöstön kuormitusta
+ja työaikakertymiä, suunnitelmallisen valvonnan kärsimisen lisäksi. Erityistilanteiden
+hoitamiseen kulunutta työaikaa seurataan työajanseurantakoodin avulla.
+
+Rehualan toimijoihin kohdistuvat laitostarkastukset toteutetaan ELMO-tietojärjestelmässä
+luodun riskiperusteisen suunnitelman avulla. Jos rehua valmistetaan vain omaan käyttöön,
+toiminta on pakkaamista tai toiminta on erittäin pienimuotoista, jätetään tällaiset kohteet
+jatkossakin tarkastusten ulkopuolelle. Tarkastettavien rehualan toimijoiden määrä säilyy
+edellisen vuoden tasolla. Valvontavuoden tarkastuskäynneistä noin 30 % tehdään ennalta
+ilmoittamatta niitä varten laaditun, hieman suppeamman tarkastuskertomuslomakkeen
+avulla.
+
+Rehujen viranomaisnäytteiden suunniteltu määrä on jonkin verran suurempi kuin edellisenä
+vuonna. Näytteenottoa kohdennetaan siten, että rehunäytteistä on mahdollista tutkia
+mahdollisimman laajasti erityisesti kemiallisia haitallisia ja kiellettyjä aineita. Kemiallisten
+multimenetelmien käyttö valvonnassa lisää yksittäisestä rehunäytteestä tehtävien analyysien
+määrää. Rehuvalvonnan yksittäiselle näytteelle tekemä riskiperusteinen analyysien
+määrittely on rehujen tuotevalvonnassa siten ensiarvoisen tärkeää. Tämä tuotevalvonnan
+riskiperusteinen kohdentaminen lisää osaltaan rehujen valvonnan vaikuttavuutta.
+
+Petoksellista toimintaa ja harhaanjohtamista pyritään rehujaostossa ehkäisemään ja
+tunnistamaan sekä tuotevalvonnassa että toimijoiden valvonnassa. Rehuvalvonta tekee
+jatkossakin yhteistyötä mm. Tullin ja elintarvikevalvonnan kanssa. Etämarkkinoinnin
+valvonnassa valvontaa tullaan resurssien puitteissa jatkossakin kohdentamaan erityisesti
+hevosten ja lemmikkieläinten rehujen markkinointiväittämiin. Valvontaa kohdennetaan
+kotimaisiin rekisteröityihin rehualan toimijoihin.
+
+Sähköisen asioinnin kehittämiseen panostetaan myös tulevina vuosina (ks. kohta 6
+Valvonnan resurssit). Panostamismahdollisuudet riippuvat paitsi käytettävissä olevasta
+substanssin ja IT:n resurssista, myös IT-budjetista. Tavoitteena on toiminnan tehostaminen
+pitkällä aikavälillä. Vuosi-ilmoitustilastot saataneen Elmon ja Qlikin kautta Tietolaariin. Vuosi-
+ilmoittamisen excel-lomakkeiden muutoksista johtuvat muutokset toteutetaan Toukoon ja
+Elmoon. Jos Toukon kehittämisessä riittää resursseja, hyväksyntähakemukset saadaan
+Toukoon eli pois paperiprosessista. SALLI-hankkeesta ei tulla saamaan kehittämisresurssia
+vuosi-ilmoittamisen sovellusversiolle vielä tulevanakaan vuotena.
+
+Sähköisen raportoinnin osalta Ruokavirasto jatkaa Qlik -raportointityökalun kehittämistä.
+Rehuvalvonnan Qlik-työkalu parantaa merkittävästi Elmoon tallennettavan tiedon
+hyödyntämistä. Elmosta Qlikin kautta Avoimeen tietoon (jatkossa Tietolaariin) siirtyvä tieto
+
+
+                                      40 (41)
+                             Rehuvalvonnan raportti 2025
+
+
+
+on sidosryhmien ja kansalaisten hyödynnettävissä. Avoimesta tiedosta Tietolaariin
+siirtymiseen liittyen joudutaan tekemään testaustyötä myös rehujaostossa. Qlik on jo
+helpottanut ja helpottaa edelleen erilaisten yhteenvetojen tekemistä sekä riskiperusteisen
+valvonnan suunnittelua ja toimeenpanoa. Qlikiä hyödynnettiin merkittävästi myös tämän
+raportin tekemisessä.
+
+Rehuvalvonnan perustyön hoitamista haastavat viraston tiukan taloustilanteen lisäksi
+erilaiset erityistilanteet. Niin sanottujen perinteisten salmonellaan liittyvien erityistilanteiden
+ohelle on noussut esimerkiksi raaka-aineisiin ja kansainväliseen rehualan toimintaan liittyviä
+erityistilanteita ja haasteita, joiden hoitaminen operatiivisen perustyön ohella tulee olemaan
+rehuvalvonnalle haasteellista jatkossakin. Kotimaisten lemmikkieläinten ruokien valmistajien
+määrä on kasvanut ja tuotevalikoima laajentunut, mikä on kasvattanut myös kotimaisen
+valmistuksen valvonnan tarvetta. Myös käsiteltyjä eläinvalkuaisia valmistavien toimijoiden
+määrä on ollut kasvussa. Turkisalan rehualan toimijoiden määrä sekä turkiseläinrehujen
+valmistusmäärä on sitä vastoin edelleen laskenut.
+
+Tiukasta resurssitilanteesta johtuen yksityishenkilöiden rehuja koskeviin yhteydenottoihin ei
+olla pääsääntöisesti pystytty enää vastaamaan. Tilanne jatkuu samanlaisena. Sähköpostitse
+tulleisiin kysymyksiin vastataan automaattivastauksella, jossa kerrotaan linjauksesta ja
+ohjataan nettisivuille rehuja ja rehuvalvontaa koskevan tiedon äärelle. Tätä henkilökohtaisen
+palvelun vähentymistä paikattiin Usein kysyttyä lemmikkien ruoista ja niiden valvonnasta
+-palstalla. Em. palsta on Usein kysyttyä rehuista -palstan lisäksi ja sitä täydennetään tarpeen
+ja mahdollisuuksien mukaan. Yksityishenkilöiden yhteydenottojen sisältö kuitenkin
+huomioidaan valvonnassa. Rehuihin liittyvissä ongelmatapauksissa kuluttajat ohjataan
+automaattivastauksessa olemaan yhteydessä rehun ostopaikkaan, valmistajaan tai
+maahantuojaan. Valmistajalla ja maahantuojalla on vastuu rehujensa laadusta ja
+turvallisuudesta. Rehuvalvonnan resurssit keskitetään tilanteiden selvittämiseen rehualan
+toimijoiden kanssa.
+
+Median saamaa palvelua on jouduttu rajaamaan ja rajauksista tullaan pitämään kiinni
+jatkossakin. Median kysymykset pyydetään sähköpostitse ja niihin myös vastataan
+sähköpostitse. Mahdollisten median tarvitsemien videotallenteiden nauhoitusajankohdasta
+sovitaan erikseen, ml. kysymykset ja vastauksen toivottu pituus.
+
+Resurssi- ja työmäärä vaikuttavat väistämättä sekä valvontaan että rehualan toimijoiden,
+kuluttajien, median ja sidosryhmien saamaan palveluun.
+
+
+
+
+                                      41 (41)
+

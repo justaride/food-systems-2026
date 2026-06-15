@@ -260,9 +260,8 @@ export function EiendommerContent({
         </div>
 
         <p className="text-[11px] text-stone-400 leading-relaxed">
-          Tall hentet fra Brønnøysundregistrene (regnskapsåret 2024) via offentligdata MCP. Se{' '}
-          <code className="text-stone-500">research/analyse/eiendomsmodell-finansiell-analyse.md</code>{' '}
-          for full dokumentasjon, selskap-for-selskap.
+          Tall hentet fra Brønnøysundregistrene (regnskapsåret 2024) via offentlige registre.
+          Dokumentert selskap-for-selskap i prosjektets kildenotater.
         </p>
       </section>
 
@@ -410,7 +409,7 @@ export function EiendommerContent({
                     </td>
                     <td className="py-2.5">
                       {p.selfLeased ? (
-                        <span className="text-[11px] px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200">
+                        <span className="text-[11px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">
                           Selvleie
                         </span>
                       ) : (

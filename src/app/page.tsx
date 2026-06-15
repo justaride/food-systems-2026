@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { KpiCard } from '@/components/ui/KpiCard'
+import { Glossary } from '@/components/ui/Glossary'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { getPhases, getTenSteps, getEvidenceDocs, getRecentInsights } from '@/lib/queries/project'
 import type { KPI } from '@/lib/types'
@@ -62,23 +63,7 @@ export default async function OversiktPage() {
           i den norske og nordiske matsektoren — underlaget for NCH-transisjonsgruppens
           leveranse mot juni 2026.
         </p>
-        <details className="rounded-lg border border-stone-200 bg-stone-50 p-3 text-sm">
-          <summary className="cursor-pointer font-medium text-stone-700">Nøkkelbegreper</summary>
-          <dl className="mt-2 space-y-1.5 text-stone-600">
-            <div><dt className="inline font-medium text-stone-800">Food TG</dt>
-              <dd className="inline"> — Food Transition Group, prosjektets arbeidsgruppe.</dd></div>
-            <div><dt className="inline font-medium text-stone-800">Ten Step</dt>
-              <dd className="inline"> — ti-stegs metodikk for å drive transisjonsgruppen.</dd></div>
-            <div><dt className="inline font-medium text-stone-800">Evidence Pack</dt>
-              <dd className="inline"> — standardsettet av leveransedokumenter.</dd></div>
-            <div><dt className="inline font-medium text-stone-800">Spor A/B/C</dt>
-              <dd className="inline"> — de tre scope-sporene: fôr/import, sidestrømmer, governance.</dd></div>
-            <div><dt className="inline font-medium text-stone-800">Claim-koder</dt>
-              <dd className="inline"> — CL = claim, EV = evidence, SRC = kilde, med spor og nummer.</dd></div>
-            <div><dt className="inline font-medium text-stone-800">Forskningsrunder</dt>
-              <dd className="inline"> — avgrensede runder med kunnskapsinnhenting.</dd></div>
-          </dl>
-        </details>
+        <Glossary category="prosjekt" title="Nøkkelbegreper" defaultOpen />
       </header>
 
       <section

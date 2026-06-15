@@ -26,6 +26,7 @@
 | 8 | 21.04.2026 | [Transition Groups — Mandat, scoping, aktørkartlegging og plattformstatus](TRANSITION%20GROUPS%20-%20M%C3%B8te%2021-04-26.md) | Jan Thomas, Gabriel, Cathrine, Thea, Kristian m.fl. | Fysisk + digitalt | `TRANSITION GROUPS - Møte 21-04-26.md` |
 | 9 | 26.05.2026 | [JT + Gabriel — Metodeoverføring Cities/Food](JT-GABRIEL%20-%20Metodeoverforing%20Cities%20Food%20mai%202026.md) | Jan Thomas, Gabriel | Cross-project intake | `JT-GABRIEL - Metodeoverforing Cities Food mai 2026.md` |
 | 10 | 02.06.2026 | [Gjennomgang materialstrøm-Sankey og datakvalitet](FOOD-UTTAK-2JUNI-MATERIALFLYT-2026-06-08.md) | Jan Thomas, Cathrine, Gabriel | Arbeidsgjennomgang (Cities-logget) | Cities-repo: `src/lib/data/meetings.ts` (`meeting-5`, `src-21`); Food-uttak: `FOOD-UTTAK-2JUNI-MATERIALFLYT-2026-06-08.md` |
+| 11 | 09.06.2026 | [Food Systems — arbeidsavklaring og case-spissing](food-systems-transkripsjon-bearbeidet-2026-06-09.md) | Ikke endelig avklart i transkripsjon | Bearbeidet arbeidsnotat | `food-systems-transkripsjon-bearbeidet-2026-06-09.md` |
 
 ---
 
@@ -126,6 +127,28 @@
 - **Formålsramme:** «røntgenbilde» — det interessante er hva som *mangler/er ubearbeidet* → handlingssonen (svarer på Møte 8: «hvor er gapene?»).
 - **Finansieringskrok:** ~27 mill. samfunnsoppdrag om sirkulære symbioser (Nordic Innovation / Nordisk ministerråd) — relevant «carrot» for Food; hold adskilt fra metodikkvalg, ikke bygg konsortium ennå.
 - **Fase-signal:** fra innledende drøfting → dybdeintervjuer; fagvalidering (materialforsker) satt som forutsetning for ekstern bruk.
+
+### Møte 11 — 09.06.2026: Arbeidsavklaring og case-spissing
+- **Type:** Bearbeidet arbeidsnotat fra muntlig arbeidsavklaring; ikke formelt Food TG-vedtak og ikke ekstern validering.
+- **Hovedgrep:** Food Systems må spisses fra "hele matsystemet" til konkrete kunnskapsankre, verdikjeder, systembarrierer og cases der NCH/Natural State har data, relasjoner eller mulige samarbeidsinnganger.
+- **Casesignal:** Kaffe/Brasil, bacalhau/fôrimport fra Brasil, kakao/Elfenbenskysten, frukt/grønt/lokal produksjon, spillvarme/drivhus, akvaponikk/hydroponi, Island 100% Fish, Valio/Finland, Danmark/svin/meieri, kunstgjødsel/biogass, Polen/Nederland/Skottland.
+- **Kontrollbehov:** Flere punkter er samtalehypoteser og må inn i source shortlist, claim-lock og primary-check queue før ekstern bruk.
+- **Analyse 09.06.2026:** Samtalen er kartlagt mot eksisterende arbeid i `docs/project/analysis/food-systems-samtaleanalyse-og-status-2026-06-09.md`.
+
+---
+
+## Møtelogg-reparasjon etter 21.04.2026
+
+Denne seksjonen er repo-reparasjonen av møtelogg-hullet som ble dokumentert i `docs/meetings/STATUS-2026-05-26.md`. Den erstatter ikke manglende Notion-referater eller interne kalenderdata, men gjør dagens repo-status eksplisitt og hindrer at intake-notater behandles som formelle Food TG-vedtak.
+
+| Periode / post | Repo-status | Hva den kan brukes til | Hva den ikke beviser |
+|---|---|---|---|
+| 22.04-25.05.2026 | Ingen formelle Food TG-møtereferater funnet i repo. `docs/project/reference/notion-sync-food-tg-2026-05-04.md` peker på mulige Notion-/mandagsmøter, men repoet har ikke referatene. | Å synliggjøre at møtelogg og eventuelle Notion-notater må etterspørres fra JT/Cathrine/Einar. | Ingen beslutninger, ingen scope-lukking og ingen ekstern validering. |
+| 26.05.2026 | Registrert som møte 9: metodeoverføring Cities/Food. | Intern metode-intake og Food-local kontrollpakke for Wageningen/Moerman/R9. | ikke formelt Food TG-vedtak, ikke ekstern validering og ikke claim-lukking. |
+| 02.06.2026 | Registrert som møte 10: materialflyt-Sankey og datakvalitet. | Intern arbeidsgjennomgang, UI-lesegrep og forbehold for Materialflyt-fanen. | ikke formelt Food TG-vedtak, ikke ekstern validering og ikke målt materialstrøm. |
+| 09.06.2026 | Registrert som møte 11: arbeidsavklaring og case-spissing. | Arbeidsavklaring for case-shortlist, sprintboard, DASK/PCQ og deck-manus. | ikke formelt Food TG-vedtak og ikke ekstern validering. |
+
+Føringsregel fra 11.06.2026: hvert JT-/TG-møte eller muntlig arbeidsavklaring som påvirker mandat, scope, case, DASK/AASK, Port E eller claim-status skal ha fil i `docs/meetings/` og MØTEOVERSIKT-rad innen 48 timer. Skill tydelig mellom `arbeidsavklaring`, `intake`, `statusmøte` og `formelt vedtak`. Formelle beslutninger føres i `docs/project/mandates/decision-log-food-tg.md` samme dag som de foreligger.
 
 ---
 

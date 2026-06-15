@@ -158,7 +158,7 @@ export const foodTgDecisionDocuments: FoodTgDocument[] = [
     kind: 'Arbeidskø',
     status: 'koe',
     path: 'docs/project/mandates/primary-check-queue-food-tg-v0.1.md',
-    use: 'Holder regulatoriske og datamessige sjekkpunkter atskilt fra aktorvalidering.',
+    use: 'Holder regulatoriske og datamessige sjekkpunkter atskilt fra aktørvalidering.',
   },
   {
     id: 'actor-validation-pack-v01',

@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import { useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
+import { InternalSection } from '@/components/ui/InternalSection'
 import { PageFraming } from '@/components/ui/PageFraming'
 import { SupplyChainGraph } from '@/components/charts/SupplyChainGraph'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
@@ -358,7 +359,9 @@ export function ForsyningskjedeContent({
         ]}
       />
 
-      <SupplyChainQualityPanel quality={quality} />
+      <InternalSection label="Datakvalitet og neste datainntak">
+        <SupplyChainQualityPanel quality={quality} />
+      </InternalSection>
 
       <nav className="flex flex-wrap gap-2 border-y border-stone-200 py-3" aria-label="Forsyningskjede-seksjoner">
         {SECTION_LINKS.map(link => (
@@ -377,7 +380,7 @@ export function ForsyningskjedeContent({
           title="Nettverkskart"
           description="Felles analyse- og QA-kart for relasjoner, dokumentkoblinger, konfidens og kildegrunnlag. Brukes som locator, ikke som selvstendig effektbevis."
           researchStatus="proxy_model"
-          researchStatusDetail="BusinessRelationship-grafen er kuratert og kildebelagt, men ikke en komplett måling av nordisk vareflyt. Dokumentnoder er valgfrie beviskoblinger."
+          researchStatusDetail="Relasjonsgrafen er kuratert og kildebelagt, men ikke en komplett måling av nordisk vareflyt. Dokumentnoder er valgfrie beviskoblinger."
         />
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -419,7 +422,7 @@ export function ForsyningskjedeContent({
           title="Primærflyt (Norge)"
           description="Observerte leveranser fra norske primærprodusenter via Landbruksdirektoratet — ikke et nordisk lag. Lest per varegruppe og avtakertype."
           researchStatus="validated"
-          researchStatusDetail="DeliveryVolume er Norge-observert register-data (Landbruksdirektoratet); SE/DK/FI/IS har ingen ekvivalent serie."
+          researchStatusDetail="Leveransevolum-dataene er Norge-observert register-data (Landbruksdirektoratet); SE/DK/FI/IS har ingen ekvivalent serie."
         />
 
         {concentrationRows.length > 0 && (
@@ -577,7 +580,7 @@ export function ForsyningskjedeContent({
           title="Maktrelasjoner"
           description="Kuraterte forretningsrelasjoner som peker på eierskap, selvhandel, distribusjon og leverandørmakt."
           researchStatus="proxy_model"
-          researchStatusDetail="BusinessRelationship-grafen er kuratert og kildebelagt, men ikke en komplett måling av nordisk vareflyt. NO har dypest dekning."
+          researchStatusDetail="Relasjonsgrafen er kuratert og kildebelagt, men ikke en komplett måling av nordisk vareflyt. NO har dypest dekning."
         />
 
       {selfDealingEdges.length > 0 && (
@@ -713,7 +716,7 @@ function InfrastructurePanel({ infrastructure }: { infrastructure: Infrastructur
           label: layer.label,
           path: layer.path,
         })),
-        coverageNote: 'Romlige arbeidslag med ulik koblingsgrad. Akvakultur-GeoJSON er ikke samme paritetsgrunnlag som prod-tabellen i Gate C.',
+        coverageNote: 'Romlige arbeidslag med ulik koblingsgrad. Akvakultur-GeoJSON er ikke samme grunnlag som det validerte akvakulturregisteret.',
       }}
     >
       <div className="space-y-5">
@@ -1086,7 +1089,7 @@ function SupplyChainQualityPanel({ quality }: { quality: SupplyChainDataQuality 
                       <th className="py-2 px-2 font-medium">Vare</th>
                       <th className="py-2 px-2 font-medium">År</th>
                       <th className="py-2 px-2 font-medium text-right">Rader</th>
-                      <th className="py-2 px-2 font-medium text-right">Mangler buyerId</th>
+                      <th className="py-2 px-2 font-medium text-right">Mangler kjøper</th>
                       <th className="py-2 px-2 font-medium text-right">Mangler kommune</th>
                     </tr>
                   </thead>
