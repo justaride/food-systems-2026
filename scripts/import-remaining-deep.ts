@@ -1,13 +1,10 @@
 import 'dotenv/config'
+import { canonicalPersonKey as normalizePersonKey } from '../src/lib/person-key'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
-
-function normalizePersonKey(name: string): string {
-  return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z ]/g, '').trim().replace(/\s+/g, '-')
-}
 
 async function resolveCompanyId(orgNr: string): Promise<string | null> {
   const c = await prisma.company.findUnique({ where: { orgNr }, select: { id: true } })

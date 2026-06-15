@@ -34,6 +34,8 @@ COPY research/_status/ ./research/_status/
 COPY research/data/nordic/core-series/ ./research/data/nordic/core-series/
 COPY research/data/nordic/trade-groups/normalized/ ./research/data/nordic/trade-groups/normalized/
 COPY research/data/nordic/market-share/ ./research/data/nordic/market-share/
+# data/konsern-coverage.json leses ved kjøretid av src/lib/queries/ownership.ts (/eierskap)
+COPY data ./data
 ARG DATABASE_URL
 ENV COVERAGE_ENV=prod
 # Schema-sync (prisma db push) er fjernet pga inkompatibilitet med STORED
@@ -55,6 +57,8 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/content ./content
 COPY --from=builder --chown=nextjs:nodejs /app/research ./research
+# data/ holder konsern-coverage.json (lest ved kjøretid av /eierskap via ownership.ts)
+COPY --from=builder --chown=nextjs:nodejs /app/data ./data
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # scripts/ + prisma/ kopieres så Coolify post_deployment_command kan kjøre

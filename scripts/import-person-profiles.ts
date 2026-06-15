@@ -1,4 +1,5 @@
 import 'dotenv/config'
+import { canonicalPersonKey as normalizePersonKey } from '../src/lib/person-key'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 
@@ -22,16 +23,6 @@ type PersonProfileData = {
   affiliations?: string[]
   tags?: string[]
   metadata?: Record<string, unknown>
-}
-
-function normalizePersonKey(name: string): string {
-  return name
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z ]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
 }
 
 const profiles: PersonProfileData[] = [

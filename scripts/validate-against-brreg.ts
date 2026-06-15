@@ -37,6 +37,7 @@ import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { canonicalPersonKey } from '../src/lib/person-key'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Ren kjerne (ingen DB / nett) — enhetstestbar
@@ -68,6 +69,26 @@ export function normalizePersonKey(name: string): string {
     .replace(/[^a-z ]/g, '')
     .trim()
     .replace(/\s+/g, '-')
+}
+
+/**
+ * «Løs» nøkkel som kollapser BEGGE norske stavemåter: ø→o OG oe→o, å→a OG aa→a.
+ * Importdataene har ofte nordiske bokstaver hardkodet som ASCII (oe/aa), mens
+ * registeret har dem native (ø/å) — eksakt personKey bommer da selv om det er
+ * samme person («Tor Roenhovde» vs «Tor Rønhovde»). Brukes KUN som fallback
+ * etter eksakt match, så den kan bare fjerne falske avvik.
+ */
+export const loosePersonKey = canonicalPersonKey
+
+/**
+ * Fornavn+etternavn-signatur («fornavn|etternavn» på løs nøkkel) for å absorbere
+ * ulikt antall mellom-/pikenavn (register «Elin Johanne Husby Aarvik» vs DB
+ * «Elin Johanne Aarvik»). Konservativ: brukes bare når den gir ett entydig treff.
+ */
+export function nameSignature(name: string): string {
+  const parts = loosePersonKey(name).split('-').filter(Boolean)
+  if (parts.length < 2) return parts.join('-')
+  return `${parts[0]}|${parts[parts.length - 1]}`
 }
 
 /** Løs sammen fornavn/mellomnavn/etternavn fra brreg-personobjekt. */
@@ -203,26 +224,63 @@ export function compareCompany(
     fieldDiffs.push({ field: 'founded', db: db.founded, brreg: regFoundedYear })
   }
 
-  // Styre / daglig leder
+  // Styre / daglig leder.
+  // To-pass-matching: (1) eksakt personKey, deretter (2) konservativ fallback for
+  // ulik norsk stavemåte (ø/oe, å/aa) og ulikt antall mellom-/pikenavn. Fallbacken
+  // kjører BARE mot ennå-uparede DB-medlemmer og krever ett entydig treff, så den
+  // kan utelukkende fjerne falske «mangler/utdatert»-par — aldri skjule ekte avvik.
+  type DbMember = DbCompany['boardMembers'][number]
   const brregPeople = roller ? extractBrregPeople(roller) : []
-  const brregByKey = new Map(brregPeople.map((p) => [p.personKey, p]))
   const dbByKey = new Map(db.boardMembers.map((m) => [m.personKey, m]))
+  const matchedDbKeys = new Set<string>()
+  const unmatchedBrreg: BrregPerson[] = []
 
-  for (const p of brregPeople) {
-    const match = dbByKey.get(p.personKey)
-    if (!match) {
-      boardDiff.missingInDb.push(p)
-    } else if (norm(match.role) !== norm(p.role)) {
-      boardDiff.roleMismatch.push({
-        personKey: p.personKey,
-        name: p.name,
-        dbRole: match.role,
-        brregRole: p.role,
-      })
+  const recordRole = (p: BrregPerson, m: DbMember) => {
+    if (norm(m.role) !== norm(p.role)) {
+      boardDiff.roleMismatch.push({ personKey: p.personKey, name: p.name, dbRole: m.role, brregRole: p.role })
     }
   }
+
+  // Pass 1 — eksakt personKey.
+  for (const p of brregPeople) {
+    const m = dbByKey.get(p.personKey)
+    if (m && !matchedDbKeys.has(m.personKey)) {
+      matchedDbKeys.add(m.personKey)
+      recordRole(p, m)
+    } else {
+      unmatchedBrreg.push(p)
+    }
+  }
+
+  // Pass 2 — løs nøkkel + fornavn/etternavn-signatur over uparede DB-medlemmer.
+  const addTo = (map: Map<string, DbMember[]>, key: string, m: DbMember) => {
+    const arr = map.get(key)
+    if (arr) arr.push(m)
+    else map.set(key, [m])
+  }
+  const looseIndex = new Map<string, DbMember[]>()
+  const sigIndex = new Map<string, DbMember[]>()
   for (const m of db.boardMembers) {
-    if (!brregByKey.has(m.personKey)) {
+    if (matchedDbKeys.has(m.personKey)) continue
+    addTo(looseIndex, loosePersonKey(m.personName), m)
+    addTo(sigIndex, nameSignature(m.personName), m)
+  }
+  const available = (cands: DbMember[] | undefined) =>
+    (cands ?? []).filter((m) => !matchedDbKeys.has(m.personKey))
+  for (const p of unmatchedBrreg) {
+    let cand = available(looseIndex.get(loosePersonKey(p.name)))
+    if (cand.length !== 1) cand = available(sigIndex.get(nameSignature(p.name)))
+    if (cand.length === 1) {
+      matchedDbKeys.add(cand[0].personKey)
+      recordRole(p, cand[0])
+    } else {
+      boardDiff.missingInDb.push(p)
+    }
+  }
+
+  // Gjenværende uparede DB-medlemmer = ekte «kun i DB».
+  for (const m of db.boardMembers) {
+    if (!matchedDbKeys.has(m.personKey)) {
       boardDiff.staleInDb.push({ personName: m.personName, personKey: m.personKey, role: m.role })
     }
   }
