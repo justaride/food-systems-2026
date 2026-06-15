@@ -1382,7 +1382,13 @@ function officialNorwegianCompanyFinancialAccountsUrlForRow(
   if (!orgNr || !row.year || !source || !isNorwegianOrgNumber(orgNr)) return null
 
   const normalized = normalizeSourceText(source)
-  if (normalized === `regnskap ${row.year}` || /^proff\.no 20\d{2}$/.test(normalized)) {
+  if (
+    normalized === `regnskap ${row.year}` ||
+    normalized === `regnskapsregisteret ${row.year}` ||
+    /^proff\.no 20\d{2}$/.test(normalized) ||
+    // Brønnøysund/Broennoysund regnskapsdata hentet via offentligdata-MCP (norsk selskapsregister)
+    normalized.includes('offentligdata')
+  ) {
     return bronnoysundAnnualAccountsUrl(orgNr, row.year)
   }
 

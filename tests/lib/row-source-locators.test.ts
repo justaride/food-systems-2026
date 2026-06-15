@@ -452,6 +452,60 @@ describe('row source locators', () => {
     )
   })
 
+  it('resolves Brønnøysund-register-sourced financial rows to the regnskapsregister accounts URL', () => {
+    // offentligdata MCP scrape of Brønnøysund — asserts official register provenance (æøå variant)
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
+          source: 'Brønnøysund / offentligdata MCP 2026-03',
+          year: 2024,
+          company: { orgNr: '819731322' },
+        },
+        new Set(),
+      ),
+      'https://data.brreg.no/regnskapsregisteret/regnskap/819731322?regnskapsaar=2024',
+    )
+
+    // ascii spelling variant of the same label
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
+          source: 'Broennoysund / offentligdata MCP 2026-03',
+          year: 2023,
+          company: { orgNr: '964118191' },
+        },
+        new Set(),
+      ),
+      'https://data.brreg.no/regnskapsregisteret/regnskap/964118191?regnskapsaar=2023',
+    )
+
+    // explicit "Regnskapsregisteret {year}" label (currently only the exact "regnskap {year}" form resolved)
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
+          source: 'Regnskapsregisteret 2024',
+          year: 2024,
+          company: { orgNr: '936560288' },
+        },
+        new Set(),
+      ),
+      'https://data.brreg.no/regnskapsregisteret/regnskap/936560288?regnskapsaar=2024',
+    )
+
+    // estimates must NOT be granted a register locator — they stay blocked
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
+          source: 'Estimat basert på bransjedata',
+          year: 2024,
+          company: { orgNr: '936560288' },
+        },
+        new Set(),
+      ),
+      'source:blocked-unsourced/company-financial-estimate',
+    )
+  })
+
   it('resolves company financial rows to verified official annual-report URLs when no document is imported', () => {
     assert.equal(
       resolveCompanyFinancialSourceLocator(
