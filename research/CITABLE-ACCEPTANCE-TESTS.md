@@ -161,3 +161,43 @@ Every question states the source type, readiness level, allowed evidence, disall
   - Edges without confidence/source as external evidence
   - Graph neighborhood visualization as proof
 - Known caveat: Graph currently has low confidence coverage and many isolated nodes; use it for navigation unless a relationship has source-backed evidence.
+
+## CA-013: Kan vi sitere at konsentrasjonen i norsk matsystem topper i foredling (meieri ~6000, rødt kjøtt ~4600) over dagligvare (~3327), med samvirkene TINE/Nortura som mest konsentrert?
+
+- Category: `market_concentration`
+- Expected source type: sourced market shares per node (authority/industry) with arithmetic verification
+- Required citation readiness: `citable_with_note`
+- Must use:
+  - docs/project/analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md
+  - public/data/food-systems/no/value-chain.json
+- Must not use:
+  - Estimerte utfordrer-andeler presentert som kildebelagte
+  - Sammenligning av ulike baser/referanseår som om de var én base
+  - Sjømat (~950) framstilt som like konsentrert som retail (~3327)
+  - AP-2s n-følsomme inntekts-HHI brukt som markedskonsentrasjon
+- Known caveat: Ordinal-funnet (foredling > retail > primær) er robust via leder-gulv (TINE 76,4² = 5837; Nortura 66² = 4356 — begge over retail uansett utfordrer-split). Per-node presise HHI varierer; bær basis + år.
+
+## CA-014: Kan vi sitere at samlede produksjonstilskudd i 2024 var ~18,6 mrd kr, og at den tidligere 10,94 mrd-totalen var et skript-artefakt?
+
+- Category: `public_subsidies`
+- Expected source type: open agency data (Landbruksdirektoratet) with reproducible aggregate
+- Required citation readiness: `citable_with_note`
+- Must use:
+  - research/analyse/ap3-tilskuddskonsentrasjon.json
+  - docs/project/analysis/food-tg-ap3-tilskuddskonsentrasjon-funn-2026-06-14.md
+- Must not use:
+  - Tidligere 10,94 mrd 2024-total framstilt som reell nedgang
+  - Gini/konsentrasjon omtalt som «kapret av de store» uten struktur-/policy-kontekst
+- Known caveat: 2024-totalen 18,61 mrd er regenerert etter en kolonnematch-bug (SCHEME_ALIASES) og avstemt mot publisert 18,39 mrd. Gini ~0,52–0,54; konsentrasjonen er strukturdrevet (husdyr/areal).
+
+## CA-015: Kan vi sitere AP-1-styrebroene (logistikk↔retail 7, foredling↔retail 6) som ekstern påstand om makt-konsentrasjon?
+
+- Category: `graph_relationships`
+- Expected source type: internal board-interlock graph pending primary check + coverage extension
+- Required citation readiness: `citable_with_note`
+- Must use:
+  - docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md
+- Must not use:
+  - «Kontrollerer» / «koordinerer» / «skjult makt» utledet fra AP-1 alene
+  - Generalisering til hele selskapsuniverset uten utvidet styredekning
+- Known caveat: AP-1 er intern baseline: 36 % styredekning, favoriserer store/velinnsamlede selskaper; dekningsutvidelse til ~47 % krever DB-kjøring. Pekepinn for AP-2/AP-5, ikke konklusjon.
