@@ -32,7 +32,7 @@ Formell logg over beslutninger som påvirker Food Transition Group-mandatet, sco
 
 | Dato | Beslutning | Eier | Begrunnelse | Lukker | Møtereferanse |
 |---|---|---|---|---|---|
-| 2026-06-15 | Operativt minimumsvedtak: Food TG arbeider videre med A+B som foreløpig hovedscope, C som tverrgående adoption-, regelverks- og datagate, og starter 10 arbeidsdagers valideringssprint med matsvinnkvalitet først. Dette er ikke pilot-, volum- eller effektcommitment. | Gabriel; formell eierbekreftelse fra JTO/Cathrine/Einar gjenstår | Følger decision memo v0.3, scope request 2026-05-21 og minimumsvedtak 2A. Sprintstart trengs for å avklare lavest overclaim-risiko før pilotcommitment. | P1-valideringssprint kan startes internt; scope-forespørselen er operativt lukket for sprintstart, men mandatfelt og ekstern status venter formell bekreftelse | `docs/project/mandates/food-tg-scope-minimumsvedtak-2026-06-08.md` |
+| - | Ingen formelle vedtak loggført etter uke 25-forberedelsene. Operative sprintavklaringer står under beslutningsforespørsler til eierbekreftelse foreligger. | Gabriel | Beslutningsloggen skal ikke blande intern sprintstart med formelt JT/Cathrine/Einar-vedtak. | - | - |
 
 ## Beslutningsforespørsler
 
@@ -46,6 +46,12 @@ Dette er ikke beslutninger. Brukes for å skille ferdig forberedte anbefalinger 
 | 2026-06-15 | Port E: velg eventretning, anbefalt webinar 60-90 min i uke 29 eller 30 med Thea aktivert i uke 25. | JT/Einar/Thea | Venter vedtak | `docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md` |
 | 2026-06-15 | DASK-0906-001/002: godkjenn intern dokumentask for Brasil/kaffe MOU og Elfenbenskysten/kakao. | JT/Gabriel | Venter vedtak; ikke ekstern outreach | `docs/project/status/jt-uke25-sendepakke-2026-06-15.md` |
 | 2026-06-11 | G-06/G-10/G-11: godkjenn eller endre plattformløftets beslutningspunkter før PR #159 tas ut av draft. | Gabriel | Venter eksplisitt PR-review | `docs/project/reviews/plattformloft-beslutningsreview-2026-06-11.md` |
+
+## Operativ sprintstatus - ikke formelt vedtak
+
+| Dato | Status | Eier | Bruksregel | Fil |
+|---|---|---|---|---|
+| 2026-06-15 | Operativt 2A-minimum er bekreftet for å starte matsvinnkvalitet-valideringssprint dag 0. | Gabriel; formell eierbekreftelse fra JTO/Cathrine/Einar gjenstår | Ikke pilot-, volum- eller effektcommitment. Ingen claim løftes til ekstern validert status før primærsjekk eller aktørvalidering er dokumentert. | `docs/project/mandates/food-tg-scope-minimumsvedtak-2026-06-08.md`; `docs/project/mandates/matsvinnkvalitet-validation-sprint-2026-06-15.md` |
 
 ## Klar-til-logg rader når vedtak foreligger
 
