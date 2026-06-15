@@ -29,6 +29,7 @@ Formål: løfte ut de claimene som ikke kan styrkes videre uten aktørrespons. D
 
 | Prioritet | Kontaktgruppe | Hvorfor nå | Minimum å be om |
 |---|---|---|---|
+| P0 | Matvett, Too Good To Go og én driftsaktør innen dagligvare/HORECA/offentlig kjøkken | Scope-minimumsvedtaket 2026-06-15 starter valideringssprinten med matsvinnkvalitet først, fordi dette er lavterskel adoption-kandidat med tydelig overclaim-risiko. | Baseline, kategori, tidsvindu, alternativ behandling, rutineendring, kontrafaktisk, KPI-minimum og bruksrett. Bruk `matsvinnkvalitet-validation-sprint-2026-06-15.md` som spørsmålspakke. |
 | P1 | Landbruksdirektoratet / Miljødirektoratet | EUDR-Norge må formuleres presist før decision memo v0.2 bruker CL-C-011. | Endelig EØS-/forskriftsstatus, soya-scope, SPC/prepared-feed-varekoder, Traces/DDS/EORI-praksis og hva norske fôr-/soyaaktører bør gjøre i 2026. |
 | P1 | Denofa, Skretting Norge og Sjømat Norge | SSB/HS, Denofa, Skretting og Fiskeridirektoratet må holdes som separate datatyper; bransjeproxy krever aktørsvar. | År, geografi, enhet, fôrsammensetning, SPC/fiskemel/fiskeolje, volum, opprinnelse, sertifisering, data som kan siteres og om sitatsjekk kreves. |
 | P1 | NMBU / Foods of Norway | CL-A-001/CL-A-002/CL-A-020 trenger teknisk modenhetsgate for encelle-/gjærprotein. | Originalartikler/DOI, forsøksdesign, substitusjonsnivå, LCA/kost, regulatorisk vei og pilotminimum. |
