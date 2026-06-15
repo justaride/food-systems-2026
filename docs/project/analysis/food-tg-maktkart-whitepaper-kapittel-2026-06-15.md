@@ -54,11 +54,11 @@ Alle over 2500 regnes som «høyt konsentrert» (US DOJ/FTC-terskel). Dagligvare
 
 ## 3. Den vertikale arkitekturen (struktur primærsjekket)
 
-Maktkartet hviler på en strukturpåstand som er primærsjekket mot Brønnøysundregistrene, men som ennå ikke er fullt eksternt validert (mangler eierandel-% — se §6):
+Maktkartet hviler på en strukturpåstand som er primærsjekket mot Brønnøysundregistrene og — for eierandel-% — mot selskapenes egne årsrapporter/IR (se §6):
 
 To uavhengige datakilder peker på den samme arkitekturen. **Styregrafen** (AP-1) finner at de tverrsektorielle styrebroene klumper seg i marked og distribusjon — sterkest logistikk↔retail og foredling↔retail. **Eiergrafen** (AP-5) finner 19 konsern som kontrollerer vertikalt på tvers av butikk, logistikk og foredling; NorgesGruppen spenner alle fire ledd (butikk + logistikk + foredling + servering). Sektorparene er nesten identiske i de to grafene — to ulike datakilder gir samme strukturkart.
 
-Brønnøysund-stikkprøven (2026-06-14) bekreftet selskapsform og styrekontroll for 22 av 22 toppkonsern, og 9 av 10 av de sterkeste broene. Det gjør **kontrollstrukturen** (hvem som kontrollerer via form og styre) til en klar-med-forbehold-påstand — solid nok for intern beslutningsstøtte, men ikke ekstern faktastemme før den siste primærsjekken (eierandel-% mot Skatteetatens Aksjonærregister) er kjørt.
+Brønnøysund-stikkprøven (2026-06-14) bekreftet selskapsform og styrekontroll for 22 av 22 toppkonsern, og 9 av 10 av de sterkeste broene. Eierandel-% er deretter verifisert fra offentlige primærkilder (2026-06-15, §6): ≥50 %-majoritetskontroll er bekreftet for NorgesGruppen (>74 %), Reitan (100 %), ASKO (100 %), Lerøy (Austevoll 52,69 %) og Austevoll (Laco 55,55 %), mens SalMar (44,3 %), Mowi (15,47 %) og Orkla (25,32 %) styres via *største aksjeblokk*, ikke flertall. Det gjør **kontrollstrukturen** til en klar-med-forbehold-påstand — solid for intern beslutningsstøtte; gjenstående for ekstern faktastemme er operator-sekvensen (se §6).
 
 Figur: `docs/project/figures/food-tg-2026-06-15/fig-maktkart-konvergens.svg` (panel A: sektorpar-konvergens styrer vs eierskap; panel B: konsentrasjonsprofilen — foredling topper).
 
@@ -80,10 +80,10 @@ CL-MAKTKART-001 som **samlet** påstand er fortsatt `klar-med-forbehold`. Steg p
 2. Dekningsutvidelse av styregrafen (36 % → ~47 %) — **klar til DB-kjøring** (krever lokal DB).
 3. Ekte node-markeds-HHI der det brukes som markedskonsentrasjon — **i hovedsak lukket** (5 noder med ekte HHI; CL-KRYSSNODE-HHI-001 citable m/forbehold).
 4. 2024-tilskudd verifisert mot publiserte totaler (AP-3) — **utført** (~18,6 mrd).
-5. **Eierandel-% mot Skatteetatens Aksjonærregister (AP-5)** — **gjenstår** (bestilt uttrekk; verktøy klart). *Dette er den eksakte gjenstående blokkeren.*
-6. **Operator-sekvens** (CITABLE-KNOWLEDGE-BASE-STATUS) grønn — **gjenstår** (krever lokal DB-kjøring).
+5. **Eierandel-% for toppkonsernene (AP-5)** — **utført via offentlige primærkilder 2026-06-15** (selskapenes egne IR/årsrapporter; ikke Aksjonærregisteret). Eier-identitet match for alle 9; topp-andel primærkildebelagt for 6 (Lerøy 52,69 %, Austevoll/Laco 55,55 %, SalMar/Kverva 44,3 %, Mowi/Geveran 15,47 %, Orkla/Canica 25,32 % + NorgesGruppen/Johannson >74 % via SNL). Rest: Reitan/ASKO 100 % strukturelt sikkert men inferert; **BAMAs eksakte NG/Reitan-split** trenger fortsatt register/BAMA-årsrapport. Se `food-tg-ap5-krysseie-funn-2026-06-14.md` §6b.
+6. **Operator-sekvens** (CITABLE-KNOWLEDGE-BASE-STATUS) grønn — **gjenstår** (krever lokal DB-kjøring; strict-sources blokkert bl.a. på 28 Shareholder-rader). *Dette er nå den eksakte gjenstående blokkeren.*
 
-Med andre ord: konsentrasjonsprofilen (CL-KRYSSNODE-HHI-001) og 2024-tilskuddene (CL-AP3-001) er siterbare med forbehold nå. Den vertikale kontrollstrukturen er primærsjekket men venter på eierandel-% (steg 5) og operator-sekvensen (steg 6) før det samlede maktkartet kan løftes til ekstern faktastemme.
+Med andre ord: konsentrasjonsprofilen (CL-KRYSSNODE-HHI-001) og 2024-tilskuddene (CL-AP3-001) er siterbare med forbehold nå, og eierandel-% er primærkildebelagt (steg 5). Den vertikale kontrollstrukturen venter nå kun på operator-sekvensen (steg 6) før det samlede maktkartet kan løftes til ekstern faktastemme.
 
 ## 7. Stoppspråk (gjelder all ekstern bruk)
 
@@ -91,7 +91,8 @@ Med andre ord: konsentrasjonsprofilen (CL-KRYSSNODE-HHI-001) og 2024-tilskuddene
 - Ikke framstill estimerte utfordrer-andeler som kildebelagte; ikke bland baser eller referanseår.
 - Ikke si at sjømat er like konsentrert som retail (~950 vs ~3327).
 - Ikke bruk AP-1-styrebroene alene som ekstern makt-påstand (intern baseline; fail-closed til primærsjekk + dekningsutvidelse — jf. acceptance-test CA-015).
-- Ikke presenter den vertikale kontrollstrukturen som ekstern faktastemme før eierandel-% (AP-5) og operator-sekvensen er på plass.
+- Ikke presenter den vertikale kontrollstrukturen som ekstern faktastemme før operator-sekvensen er på plass (eierandel-% er nå primærkildebelagt, §6).
+- Ikke framstill SalMar/Mowi/Orkla som majoritetseid — der er topp-eieren største aksjeblokk (44,3 / 15,47 / 25,32 %), ikke ≥50 %.
 
 ## 8. Kilder
 

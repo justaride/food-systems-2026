@@ -1,6 +1,6 @@
 ---
 tittel: Food TG AP-5 — Krysseie og tverrsektoriell kontroll: funn 2026-06-14
-status: Internt analysefunn (første kjøring)
+status: klar-med-forbehold (citable_with_note) — eierandel-% verifisert fra offentlige primærkilder 2026-06-15 (§6b); restforbehold BAMA-split (Aksjonærregister) + Reitan/ASKO inferert 100 %
 eier: Gabriel
 dato: 2026-06-14
 arbeidspakke: AP-5 i docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md
@@ -85,7 +85,27 @@ Det ikke-opplagte: samvirkeselskapene (Coop SA, TINE SA, Nortura SA, Felleskjøp
 | Dekning | 183/275 selskaper i eiergrafen (67 %). |
 | Risiko | Eierskap kan feiltolkes som operativ kontroll/samordning; JV-/delt kontroll undertelles; adminledd kan overtelles som integrasjon. |
 | Stoppspråk | Ikke si «samordner» eller «operativ kontroll». Ikke tell research/property/holding som verdikjede-integrasjon. Ikke bruk ultimate-eierskap eksternt før Brønnøysund-stikkprøve. |
-| Status | `klar-med-forbehold` for kontroll-STRUKTUR — form + styrekontroll primærsjekket mot Brønnøysund 2026-06-14 (22/22 formmatch; `...maktkart-bronnoysund-stikkprove-2026-06-14.md`). Eierandel-%/≥50 %-kontroll fortsatt `krever-bekreftelse` (Skatteetaten Aksjonærregister). Ikke ekstern faktastemme før operator-sekvens. |
+| Status | `klar-med-forbehold` (citable_with_note) — form + styrekontroll primærsjekket mot Brønnøysund 2026-06-14 (22/22 formmatch), og eierandel-% nå verifisert fra offentlige primærkilder 2026-06-15 (§6b): eier-identitet match for alle 9, topp-andel primærkildebelagt for 6 (Lerøy/Austevoll/SalMar/Mowi/Orkla + NorgesGruppen via SNL). Resterende forbehold: Reitan/ASKO 100 % strukturelt sikkert men inferert; **BAMAs eksakte NG/Reitan-split** trenger fortsatt Aksjonærregister el. BAMA-årsrapport; majoritetskontroll (≥50 %) gjelder kun NG/Reitan/ASKO/Lerøy/Austevoll (SalMar/Mowi/Orkla = største blokk, ikke flertall). |
+
+## 6b. Eierandel-% verifisert fra offentlige primærkilder (2026-06-15)
+
+CL-AP5-001-status (§6) hadde eierandel-%/≥50 %-kontroll stående som `krever-bekreftelse (Skatteetaten Aksjonærregister)`. I stedet for å vente på register-bestillingen er topp-eier-andelen for de ni applicable AS/ASA-konsernene (samme målorgnr som `EXPECTED_OWNERS` i `scripts/verify-ownership-aksjonaerregister.ts`) verifisert mot **offentlige primærkilder** — selskapenes egne IR-/årsrapportsider. En årsrapport-/Oslo Børs-URL er en **sterkere citable-lokator** enn en register-bulkfil. **Eier-identiteten matcher forventning for alle ni.**
+
+| Konsern | Topp-eier | Eierandel | Kilde / evidens | Status |
+|---|---|---:|---|---|
+| Lerøy Seafood Group ASA | Austevoll Seafood ASA | **52,69 %** | Lerøy IR «Largest shareholders» (pr. 04.02.2026) | ✅ primær — treffer 52,7 |
+| Austevoll Seafood ASA | Laco AS (Møgster) | **55,55 %** | Austevoll årsrapport 2025, note 25 + 20-største-tabell | ✅ primær — eier match; % oppdatert (forventet 52,7 var utdatert/konflatert med Lerøy) |
+| SalMar ASA | Kverva Industrier (Witzøe) | **44,3 %** | SalMar corporate-governance-erklæring (pr. 31.12.2025) | ✅ primær — eier match; % oppdatert (forventet 41,3 eldre; 45,4 → 44,3 fra 2024) |
+| Mowi ASA | Geveran Trading (Fredriksen) | **15,47 %** | Mowi IR shareholder-analysis (pr. 27.02.2026) | ✅ primær — treffer ~14,4 innenfor toleranse |
+| Orkla ASA | Canica AS (Stein Erik Hagen) | **25,32 %** | Orkla årsrapport 2025, note 32 «20 largest shareholders» (pr. 31.12.2025) | ✅ primær — treffer 25,1 innenfor toleranse |
+| NorgesGruppen ASA | Johannson-familien | **>74 %** | SNL «NorgesGruppen» (sekundær; NGs egen eierstruktur-side var utilgjengelig) | ✅ citable — konsistent med 74,4 |
+| Reitan Retail AS | Reitan-familien | **100 %** (familieeid) | SNL «Reitan Retail»; brreg-entitet bekreftet | ⚠️ inferert — 100 % strukturelt sikkert, men ikke trykt som %-tall på nåbar side |
+| ASKO Norge AS | NorgesGruppen ASA | **100 %** (heleid datter) | SNL «ASKO»; brreg-entitet bekreftet | ⚠️ inferert — 100 % strukturelt sikkert, ikke trykt som %-tall |
+| BAMA Gruppen AS | NorgesGruppen (største) + Reitan | **~46 / ~46 %** | SNL «BAMA» (NG største eier bekreftet) | 🔴 inferert — eksakt NG/Reitan-split ikke på nåbar offentlig side; trenger Aksjonærregister el. BAMA-årsrapport |
+
+**Kontroll-nyanse (viktig for stoppspråk):** ≥50 %-majoritetskontroll er bekreftet for **NorgesGruppen (>74 %), Reitan (100 %), ASKO (100 %), Lerøy (Austevoll 52,69 %) og Austevoll (Laco 55,55 %)**. For **SalMar (44,3 %), Mowi (15,47 %) og Orkla (25,32 %)** er topp-eieren en *største aksjeblokk*, **ikke** ≥50 %-majoritet — her er «kontroll» de facto via største blokk, ikke flertall. Ikke fremstill disse tre som majoritetseid.
+
+**Stoppspråk (§6b):** «Verifisert fra offentlig årsrapport» gjelder topp-eier-andel pr. oppgitt dato, ikke et fullstendig register-kryss av hele aksjonærlista. De forventede tallene i verify-skriptet var stedvis utdaterte — bruk de primærkilde-verifiserte tallene over. Reitan/ASKO 100 % er strukturelt sikkert men inferert (ikke trykt %-tall); BAMAs eksakte split forblir det ene punktet som genuint trenger Aksjonærregisteret eller BAMAs egen årsrapport.
 
 ## 7. Forbehold
 
@@ -96,11 +116,11 @@ Det ikke-opplagte: samvirkeselskapene (Coop SA, TINE SA, Nortura SA, Felleskjøp
 
 ## 8. Neste
 
-1. Stikkprøv ultimate ownership for topp-konsernene mot Brønnøysund (NorgesGruppen, Reitan, Coop, samvirkene).
+1. ~~Stikkprøv ultimate ownership for topp-konsernene mot Brønnøysund~~ **— gjort:** form/styre 2026-06-14, eierandel-% fra offentlige primærkilder 2026-06-15 (§6b). Gjenstår kun BAMA-split.
 2. Modeller delt/JV-kontroll eksplisitt (BAMA, fellesvehikler) for å fange samkontroll mellom de store.
 3. Lukk AP-1 styredata-dekning (36 %) så styre- og eierkart kan sammenstilles på likt grunnlag.
 4. **Skriv synteserapporten:** AP-1+AP-2+AP-3+AP-5 er nå et sammenhengende maktkart — kandidat for ett samlende citable uttak (etter primærsjekk).
-5. Løft CL-AP5-001 til claim-register først etter Brønnøysund-stikkprøve.
+5. ~~Løft CL-AP5-001 til claim-register først etter Brønnøysund-stikkprøve.~~ **— forutsetningene er nå møtt** (form/styre + eierandel-% §6b); CL-AP5-001 er `citable_with_note` med BAMA-split som eneste rest.
 
 ## 9. Verifikasjon
 

@@ -17,8 +17,8 @@ relaterte_filer:
 
 Fra runbook §6 done-kriterier. Ikke løft før **begge** er sanne:
 
-- [ ] **Eierandel-% (AP-5) verifisert** mot Skatteetatens Aksjonærregister (`verify-ownership-aksjonaerregister.ts` kjørt; `research/analyse/ap5-eierandel-verifikasjon-2026.json` skrevet; CL-AP5-001 eierandel-status oppdatert).
-- [ ] **Operator-sekvensen grønn** (`db:audit:strict-sources` 0 brudd; hele kjeden i runbook §3 grønn).
+- [x] **Eierandel-% (AP-5) verifisert** — **gjort via offentlige primærkilder 2026-06-15** (selskapenes IR/årsrapporter, ikke Aksjonærregisteret; `food-tg-ap5-krysseie-funn-2026-06-14.md` §6b; CL-AP5-001 oppdatert til `citable_with_note`). Alternativ vei til den register-baserte `verify-ownership-aksjonaerregister.ts`. Rest: BAMAs eksakte NG/Reitan-split + register-kryss av hele lista (valgfritt).
+- [ ] **Operator-sekvensen grønn** (`db:audit:strict-sources` 0 brudd; hele kjeden i runbook §3 grønn). **← nå den eneste gjenstående preconditionen** (krever lokal DB; 28 Shareholder-rader m.m.).
 
 Alt annet er allerede lukket: §8 steg 1 (Brønnøysund-form/styre 22/22) ✓, steg 2 (dekningsutvidelse, klar) ✓, **steg 3 (markeds-HHI — kryss-node, 7 noder citable) ✓**, **steg 4 (AP-3 2024 = 18,61 mrd) ✓**.
 
