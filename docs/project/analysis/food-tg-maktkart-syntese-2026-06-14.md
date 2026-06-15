@@ -63,11 +63,12 @@ Mønsteret: dagligvare/distribusjon (NorgesGruppen, Reitan, Coop, BAMA) er verti
 
 ## 5. Hvorfor det er ikke-opplagt
 
-Tre ting hever dette over allemannskunnskap:
+Fire ting hever dette over allemannskunnskap:
 
 1. **Lensevalget er innsikten.** «Tre kjeder har 96 %» er kjent. At makten er *usynlig* i tilskudd (AP-3) og aksje-HHI (AP-2), men *synlig* i styrer (AP-1) og konsern (AP-5), er det ikke. En standard eierskapsanalyse ville konkludert feil.
 2. **Samvirke som maktform.** At samvirkeselskapene (Coop, TINE, Nortura, Felleskjøpet) — som per definisjon ikke har en kontrollerende aksjonær — er nettopp de som integrerer vertikalt, snur den vanlige «konsentrert eierskap»-fortellingen.
-3. **Triangulering, ikke påstand.** Fire uavhengige kilder, kvantifisert, med claim-lock og enhetstestede skript. Det er et etterprøvbart maktkart, ikke en mening.
+3. **Konsentrasjonen topper i foredling, ikke retail.** Ekte markeds-HHI per node (2026-06-15, `...ap2-kryssnode-hhi-funn-2026-06-15.md`) viser at meieri (~6000) og kjøtt (~4600) er *mer* konsentrert enn dagligvare (~3327); primærproduksjon (sjømat ~950) er minst. De to mest konsentrerte nodene er samvirkene TINE og Nortura — så «96 %»-retail-fortellingen underdriver hvor konsentrasjonen faktisk topper. (Ordinalt robust; presise HHI bærer forbehold.)
+4. **Triangulering, ikke påstand.** Uavhengige kilder, kvantifisert, med claim-lock og enhetstestede skript. Det er et etterprøvbart maktkart, ikke en mening.
 
 ## 6. Samlet claim-lock
 

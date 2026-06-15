@@ -15,23 +15,23 @@ Forrige handoff (2026-06-14) sto med fire AP-pakker + maktkart. Denne sesjonen k
 **Nye verktøy (kode, committet/klart):**
 - `src/lib/brreg-roles.ts` + `scripts/extend-board-coverage-brreg.ts` — AP-1 dekningsutvidelse (sittende styre fra Brønnøysund, sektor-målrettet, idempotent provenans). Enhetstestet.
 - `scripts/verify-ownership-aksjonaerregister.ts` — AP-5 eierandel-% mot Skatteetatens Aksjonærregister (bestilt uttrekk). Enhetstestet.
-- `scripts/analyze-subsidy-concentration.ts` — **bugfix**: `SCHEME_ALIASES`/`resolveSchemeHeaders` for 2024s omdøpte kolonner. Enhetstestet (committet). **NB:** aggregatet `ap3-tilskuddskonsentrasjon.json` står fortsatt på den gamle 10,94 mrd — regenereringen ble rullet tilbake (se §6.1).
+- `scripts/analyze-subsidy-concentration.ts` — **bugfix**: `SCHEME_ALIASES`/`resolveSchemeHeaders` for 2024s omdøpte kolonner. Enhetstestet + committet. Aggregatet regenerert til **18,61 mrd** og avstemt (funnnotat §4 + surfacing); AP-3 konsistent på main (jf. §6.1 — ryddet).
 
 **Nye datasett:**
 - `research/analyse/ap1-board-coverage-extension-brreg-2026-06-14.json` (265 styreverv, 31 selskaper).
 - `research/analyse/ap5-ap1-bronnoysund-stikkprove-2026-06-14.json` (22 selskaper, form + styrekontroll).
-- `research/analyse/ap3-tilskuddskonsentrasjon.json` (committet på gammel 2024 = 10,94 mrd — regenerering til 18,61 mrd gjenstår, se §6.1).
+- `research/analyse/ap3-tilskuddskonsentrasjon.json` (2024 = 18,61 mrd, regenerert + avstemt).
 
-**Nye funnnotater:** AP-1 dekningsutvidelse, maktkart Brønnøysund-stikkprøve (§8 steg 1), maktkart §8 steg 3–4, AP-6 havbruk, AP-7 pris-asymmetri, AP-4+AP-8 partial.
+**Nye funnnotater:** AP-1 dekningsutvidelse, maktkart Brønnøysund-stikkprøve (§8 steg 1), maktkart §8 steg 3–4, AP-6 havbruk, AP-7 pris-asymmetri, AP-4+AP-8 partial, **AP-2 kryss-node markeds-HHI (§8 steg 3, alle noder)**. Pluss `food-tg-gemini-arbeidsplan-protokoll-2026-06-15.md` (sikker Gemini-samarbeidsprotokoll).
 
-**Primærsjekker utført herfra (åpne kilder):** Brønnøysund (form + styre, 22/22 formmatch, 9/10 broer); Landbruksdirektoratet/LMD (2024-tilskudd total); SSB (AP-7 prisserier); Fiskeridirektoratet (AP-6 MTB); Konkurransetilsynet (dagligvare-HHI).
+**Primærsjekker utført herfra (åpne kilder):** Brønnøysund (form + styre, 22/22 formmatch, 9/10 broer); Landbruksdirektoratet/LMD (2024-tilskudd total); SSB (AP-7 prisserier); Fiskeridirektoratet (AP-6 MTB); Konkurransetilsynet + Oslo Economics + KLF/Animalia + Menon (kryss-node markeds-HHI).
 
 ## 2. Status alle 8 lenser (intern baseline, claim-lock)
 
 | AP | Status | Kjerne-funn |
 |---|---|---|
 | AP-1 styrer | `klar-med-forbehold` | Broer i retail/logistikk/foredling; 9/10 primærsjekket; dekningsutvidelse 36 %→~47 % klar til DB-kjøring |
-| AP-2 eierskap | `intern baseline` + dagligvare-HHI delvis | Makt er samvirke-/styrebåren, ikke aksjekonsentrert; ekte dagligvare-HHI ~3 327 |
+| AP-2 eierskap | `klar-med-forbehold` (kryss-node-HHI) | Ekte markeds-HHI for 5 noder; **konsentrasjonen topper i foredling (samvirke TINE/Nortura ~6000/~4600), ikke retail (~3327)**; distribusjon vertikalt internalisert |
 | AP-3 tilskudd | `klar-med-forbehold` | Moderat konsentrert (Gini ~0,52–0,54); 2024 lukket (var skript-bug) |
 | AP-4 verdifangst | delvis; kjerne `needs-data` | Sjømat ~2× verdi/tonn; per-aktør volum↔margin = DB-join |
 | AP-5 konsern | `klar-med-forbehold` for struktur | 19 tverrsektorielle kontrollører; form+styre primærsjekket; eierandel-% `needs-data` |
@@ -40,11 +40,11 @@ Forrige handoff (2026-06-14) sto med fire AP-pakker + maktkart. Denne sesjonen k
 | AP-8 tilskudd↔konsentrasjon | `needs-data`-kjerne + regionalt null-funn | Regionalt strukturnøytral (r≈−0,05) |
 | Syntese | `klar-med-forbehold` for struktur | CL-MAKTKART-001; CL-DAGLIGVARE-HHI-001 citable-kvalifisert m/forbehold |
 
-Detaljer: arbeidsplan §9 (statusoversikt) + PCQ Runde 8–10 + de enkelte funnnotatene.
+Detaljer: arbeidsplan §9 (statusoversikt) + PCQ Runde 8–11 + de enkelte funnnotatene.
 
 ## 3. Vei til citable (maktkart §8)
 
-Steg 1 (Brønnøysund-stikkprøve) ✓ · steg 2 (dekningsutvidelse) klar · **steg 4 (2024-tilskudd) lukket** · **steg 3 (markeds-HHI) delvis** (dagligvare) · steg 5 (operator-sekvens) gjenstår. CL-MAKTKART-001 kan løftes mot citable først når eierandel-% + kryss-node-HHI + operator-sekvensen er på plass.
+Steg 1 (Brønnøysund-stikkprøve) ✓ · steg 2 (dekningsutvidelse) klar · **steg 3 (markeds-HHI) lukket så langt åpne data tillater** (5 noder ekte HHI; 5 citable struktur + needs-data presis; catering metodisk uegnet) · **steg 4 (2024-tilskudd) lukket** ✓ · steg 5 (operator-sekvens) gjenstår. CL-MAKTKART-001 kan løftes mot citable først når eierandel-% (AP-5) + operator-sekvensen er på plass.
 
 ## 4. Lokale steg som gjenstår (din maskin)
 
@@ -57,27 +57,20 @@ Kjernerekkefølge: vei 2-import → `dedupe-person-keys --commit` → AP-1-rekj�
 ## 5. Needs-data (navngitte kilder per lens)
 
 - **AP-5:** eierandel-% → Skatteetaten Aksjonærregister (bestilt uttrekk; verktøy klart).
-- **AP-2/AP-8:** kryss-node markeds-HHI → Fiskeridirektoratet/Kontali (sjømat), markedsregulator (TINE/Nortura), bransjekilder (fôr/logistikk/foodservice).
+- **AP-2:** kryss-node markeds-HHI er gjort for 5 noder (citable) + 5 struktur. Gjenstår presise andeler for: oppdrettsfôr/kraftfôr/egg, foodservice-distribusjon (leder-andel ASKO ~36–50 %), logistikk volum-HHI → Kontali/årsrapporter/Konkurransetilsynet. Catering-operatører: HHI metodisk uegnet (anbudsmarked).
 - **AP-7:** fôr→oppdrett-PPI → SSB publiserer ingen ren fôr-PPI; vurder Nofima/Fiskeridir fôrkostnadsstatistikk.
 - **AP-4:** per-aktør volum↔margin → DB-join `DeliveryVolume × CompanyFinancial` (~50 % finansdekning).
 - **AP-6:** restråstoffvolum per aktør → RUBIN/SINTEF.
 
-## 6. Git / uncommittede filer
+## 6. Git / status
 
-To commits er allerede pushet til `main` (`bccb924` tooling, `0501c0a` docs). Senere runder (AP-3-fiks + §8 3–4 + AP-4/6/7/8) ligger uncommittet i treet — du/parallell-prosessen styrer git. Foreslåtte commits:
-- `fix(ap3): alias-resolver for 2024 kolonnenavn + regenerert aggregat`
-- `docs(maktkart): §8 steg 3–4 + AP-4/6/7/8 funn + status — alle 8 lenser`
+Hovedlinjen er ryddet etter en Gemini-avsporing (Gemini Flash jobbet i en Downloads-kopi, committet på sidebranch `codex/assessment-and-fixes` og blandet inn egne endringer). Opprydding gjennomført + merget til main: AP-1/AP-5/maktkart-pakken + AP-3-fiks + §8 3–4 + AP-4/6/7/8-funnnotatene + Geminis nyttige verktøy (`validate-against-brreg`, `reconcile-import-corpus`, audit-konsern-forbedring) er på `main`; de ekskluderte docene (MCP-CONNECTOR, PILOT-BRREG) + sync-skriptet ble fjernet. **`origin/main` var aldri berørt av Gemini.** Sikker arbeidsmodell for videre Gemini-bruk: `food-tg-gemini-arbeidsplan-protokoll-2026-06-15.md`.
 
-Separate, bevisst utelatte spor: `MCP-CONNECTOR-ANALYSIS...md`, `PILOT-BRREG-...md`, og en uncommittet `validate-against-brreg`-pakke (+ `package.json`-linje) — beslutning gjenstår.
+Uncommittet nå (denne øktens kryss-node-arbeid): `...ap2-kryssnode-hhi-funn-2026-06-15.md` (nytt) + `...gemini-arbeidsplan-protokoll-2026-06-15.md` (nytt), samt oppdatert syntese §5 / PCQ Runde 9–11 / arbeidsplan §9 / denne handoffen. Foreslått commit: `docs(ap2): kryss-node markeds-HHI + §8 steg 3 lukket + gjenopprett status`.
 
-### 6.1 Kjent inkonsistens å rydde (AP-3 2024)
+### 6.1 AP-3 2024 — ryddet ✓
 
-AP-3-avstemmingen ble delvis rullet tilbake i git. Treet er nå internt motstridende:
-
-- **Committet og korrekt:** script-fiksen (`analyze-subsidy-concentration.ts`, gir 18,61 mrd ved kjøring) + `...maktkart-section8-3-4...` (sier «2024 lukket, 18,61 mrd»).
-- **Committet, men gammelt:** `ap3-tilskuddskonsentrasjon.json` (2024 = 10,94 mrd), AP-3-funnnotatets §4 («2024 ufullstendig») og `dybdeanalyse.ts` `ins-ap3-001` («2024 utelatt»).
-
-**Rydding (når du vil):** regenerer aggregatet (`npx tsx scripts/analyze-subsidy-concentration.ts --year=2022,2023,2024 --out=research/analyse/ap3-tilskuddskonsentrasjon.json`) og oppdater AP-3-funnnotatets §4 + `dybdeanalyse.ts` `ins-ap3-001` til «2024 lukket (18,61 mrd)». Disse tre redigeringene ble laget i forrige økt men rullet tilbake — re-applisering avventer din beslutning.
+AP-3-inkonsistensen (skript fikset, men aggregat/funnnotat/surfacing sto på gammel 10,94 mrd etter git-shufflingen) er **løst**: aggregatet regenerert til 18,61 mrd, og funnnotat §4 + `dybdeanalyse.ts` sier «2024 lukket». Konsistent på alle nivåer. PCQ Runde 9–10 + arbeidsplan §9 gikk tapt i samme shuffling (uncommittede edits) og er **gjenskapt** 2026-06-15.
 
 ## 7. Konvensjoner (følg disse)
 
@@ -90,7 +83,7 @@ AP-3-avstemmingen ble delvis rullet tilbake i git. Treet er nå internt motstrid
 
 1. **Lokal lukking** (høyest verdi nå): kjør closeout + guide-stegene → strict-source grønn → CL-AP1/AP-5 mot citable.
 2. **Eierandel-% (AP-5):** bestill Aksjonærregister-uttrekk → kjør `verify-ownership-aksjonaerregister.ts`.
-3. **Lukk needs-data-lenser:** kryss-node markeds-HHI (AP-2/AP-8), fôr→oppdrett-PPI (AP-7), restråstoff (AP-6) — alle ny datainnhenting.
+3. **Lukk gjenstående needs-data:** presise fôr-/egg-/foodservice-andeler (AP-2), fôr→oppdrett-PPI (AP-7), restråstoff (AP-6), per-aktør volum↔margin (AP-4, DB) — kryss-node markeds-HHI er ellers lukket (5 noder dekket).
 4. **Samlende uttak:** når struktur + eierandel + §8 er grønt — bygg whitepaper-kapittel/figur over maktkartet.
 
 ## 9. Verifikasjon

@@ -219,3 +219,34 @@ Maktkart-syntese §8 steg 1 er kjørt mot Brønnøysund Enhetsregisteret + rolle
 | PCQ-MAKT-002 | AP-1 styreverv | Verifiser topp-bro-personer + topp-interlock-selskaper mot Brønnøysund roller m/dato. | 9/10 broere bekreftet med sittende verv (`sistEndret` 2021–2026); Hollevik bekreftet på 7 selskaper; Trond Bentestuen utenfor utvalget. | Brønnøysund roller for Trond Bentestuen; full styredekning fra dekningsutvidelsen (task #22) før komplett bro-telling. | CL-AP1-001, CL-AP1-002, CL-MAKTKART-001 | Gabriel | partly-checked |
 
 **Masterbeslutning:** Løft CL-AP1-001/CL-AP5-001/CL-MAKTKART-001 til `klar-med-forbehold` for *strukturpåstanden* (hvem kontrollerer via form/styre). Hold eierandel-% (AP-5) som `krever-bekreftelse` til Aksjonærregisteret er sjekket. Ingen rad blir ekstern faktastemme før full operator-sekvens (`research/CITABLE-KNOWLEDGE-BASE-STATUS.md`) er grønn.
+
+## Runde 9 statusnotat (2026-06-14) — Maktkart §8 steg 3–4 (AP-2 HHI / AP-3 2024)
+
+§8 steg 3 (markeds-HHI) og steg 4 (2024-tilskudd) kjørt som parallelle subagenter + coordinator-verifikasjon. Full logg: `docs/project/analysis/food-tg-maktkart-section8-3-4-funn-2026-06-14.md`. *(Gjenskapt 2026-06-15 etter tap i git-shuffling.)*
+
+| Queue-ID | Tema | Status/funn | Berører | Status |
+|---|---|---|---|---|
+| PCQ-MAKT-003 | AP-3 2024-tilskudd | LUKKET: «2024-datafella» var kolonnematch-bug (slug↔prosa), nå fikset + enhetstestet. Reell 2024 = 18,61 mrd brutto, verifisert mot publisert 18,39 mrd (LMD 12.02.2025). 2022/2023 byte-stabile; aggregat regenerert. | CL-AP3-001 | closed → klar-med-forbehold |
+| PCQ-MAKT-004 | AP-2 markeds-HHI | DELVIS: dagligvare ekte HHI ~3 327 (CR3 ~96,6 %; KT Dagligvarerapport 2024-25) → CL-DAGLIGVARE-HHI-001. Kryss-node forfulgt videre i Runde 11. | CL-AP2-001, CL-DAGLIGVARE-HHI-001 | partly-checked |
+
+## Runde 10 statusnotat (2026-06-14) — AP-4/6/7/8 (parallell fan-out)
+
+De fire un-startede lensene kjørt som parallelle subagenter. Funnnotater: `...ap6-havbrukskonsentrasjon...`, `...ap7-prisasymmetri...`, `...ap4-ap8-partial...`. *(Gjenskapt 2026-06-15.)*
+
+| Queue-ID | Tema | Status/funn | Berører | Status |
+|---|---|---|---|---|
+| PCQ-MAKT-005 | AP-6 havbruk | Sjøbasert laks/ørret-MTB CR4 57 %, HHI ~929 (Fiskeridir. 15.06.2026); land-RAS fortynner totaltallet (HHI 510). Restråstoffvolum = `needs-data` (RUBIN/SINTEF). | CL-AP6-001 | partly; restråstoff `needs-data` |
+| PCQ-MAKT-006 | AP-7 pris-asymmetri | Asymmetri bekreftet laks→foredling (SSB 03024×12462; NARDL β_opp−β_ned +0,14, t=14,0). Valuta ikke kontrollert. Fôr→oppdrett = `needs-data`. | CL-AP7-001 | støttet m/valuta-forbehold |
+| PCQ-MAKT-007 | AP-4 verdifangst | Sjømat ~2× verdi/tonn; per-aktør volum↔margin = `needs-data` (DeliveryVolume×CompanyFinancial). | CL-AP4-001 | delvis; kjerne `needs-data` (DB) |
+| PCQ-MAKT-008 | AP-8 tilskudd↔konsentrasjon | Node-HHI×tilskudd blokkert; regionalt null-funn (r≈−0,05, n≈350, strukturnøytral). | CL-AP8-001 | `needs-data`-kjerne + regionalt klar-med-forbehold |
+
+## Runde 11 statusnotat (2026-06-15) — AP-2 kryss-node markeds-HHI (§8 steg 3 utvidet)
+
+Markeds-HHI for sjømat/meieri/kjøtt/fôr hentet som parallelle subagenter + coordinator-aritmetikkverifikasjon. Funnnotat: `docs/project/analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md`.
+
+| Queue-ID | Tema | Status/funn | Berører | Status |
+|---|---|---|---|---|
+| PCQ-MAKT-009 | AP-2 kryss-node markeds-HHI | Ekte markeds-HHI for 5 noder: meieri ~6000, rødt kjøtt ~4600, dagligvare ~3327, kylling ~3200, sjømat ~950 (sjømat kryssvalidert mot AP-6 MTB). Hovedfunn: **konsentrasjonen topper i foredling (samvirke TINE/Nortura), ikke retail.** Egg/oppdrettsfôr/kraftfôr: citable struktur, `needs-data` presis HHI. | CL-AP2-001, CL-MAKTKART-001, ny CL-KRYSSNODE-HHI-001 | ordinal citable m/forbehold; presise verdier varierer |
+| PCQ-MAKT-010 | AP-2 logistikk + foodservice | Logistikk/grossist: distribusjon er vertikalt **internalisert** i de 3 kjedene (ASKO/REMA/Coop; ingen åpent marked); grossist-HHI ~3300–3700 måler samme konsentrasjon som retail (Menon 2025). Foodservice-distribusjon: ASKO/NG-dominert, leder-andel 36–50 % `needs-data`. Catering-operatører: anbudsmarked, HHI **metodisk uegnet** (ISS-ledet, andeler sladdet). | CL-LOGISTIKK-001, CL-FOODSERVICE-DIST/OPS-001 | logistikk citable struktur; foodservice `needs-data`/uegnet |
+
+**Masterbeslutning (Runde 9–11):** CL-AP3-001 → `klar-med-forbehold` (2024 lukket). Opprett CL-DAGLIGVARE-HHI-001, CL-AP4/6/7/8-001, CL-KRYSSNODE-HHI-001, CL-LOGISTIKK-001, CL-FOODSERVICE-DIST/OPS-001. **§8 steg 3 (markeds-HHI) er nå lukket så langt åpne data tillater:** 5 noder dekket, 5 citable struktur + needs-data presis (inkl. logistikk/foodservice-dist), 1 (catering) metodisk uegnet for HHI. Gjenstående `needs-data`: eierandel-% (AP-5), presise fôr-/egg-/foodservice-andeler, fôr→oppdrett-PPI (AP-7), restråstoffvolum (AP-6), per-aktør volum↔margin (AP-4, DB). Ingen ekstern faktastemme før operator-sekvens.

@@ -157,3 +157,20 @@ En pakke er ferdig når: (a) den har produsert minst én påstand som består la
 ## 8. Verifikasjon
 
 Metodisk presedens og datagrunnlag er hentet fra `research/norge/kvantitativ-dybdeanalyse.md` (hypotesetest-metode) og `/api/data-status` (datasettvolum 14.06.2026). Finansdekningsforbeholdet (AP-4) er fra `plattform-dybdeanalyse-2026-06-11.md` funn A1. Konserntall fra `data/konsern-coverage.json` (14 entries). Ingen påstand i denne planen er selv et analysefunn — planen beskriver analyser som skal kjøres. Alle resultater går gjennom claim-lock/PCQ før ekstern bruk. `git diff --check` forutsettes kjørt før commit.
+
+## 9. Statusoversikt — alle 8 lenser (oppdatert 2026-06-15)
+
+Alle åtte arbeidspakkene er kjørt minst én gang. Status er intern baseline / claim-lock-disiplin; ingenting er eksternt validert. *(Gjenskapt + oppdatert 2026-06-15 etter tap i git-shuffling.)*
+
+| AP | Status | Kort | Funnnotat |
+|---|---|---|---|
+| AP-1 styrer | `klar-med-forbehold` | Primærsjekket (9/10 broer) + dekningsutvidelse klar (36 %→~47 %) | `...ap1-styreoverlapp...`, `...ap1-dekningsutvidelse...` |
+| AP-2 eierskap | `klar-med-forbehold` for kryss-node-HHI | Ekte markeds-HHI for 5/8 noder; **konsentrasjonen topper i foredling (samvirke), ikke retail** | `...ap2-nodekonsentrasjon...`, `...ap2-kryssnode-hhi...`, `...section8-3-4...` |
+| AP-3 tilskudd | `klar-med-forbehold` | 2024 lukket (var skript-bug); Gini ~0,52–0,54, 2022–2024 | `...ap3-tilskuddskonsentrasjon...` |
+| AP-4 verdifangst | delvis; kjerne `needs-data` | Sjømat ~2× verdi/tonn; per-aktør volum↔margin krever DB-join | `...ap4-ap8-partial...` |
+| AP-5 konsern | `klar-med-forbehold` for struktur | Form+styrekontroll primærsjekket; eierandel-% `needs-data` (Aksjonærregister) | `...ap5-krysseie...`, `...maktkart-bronnoysund-stikkprove...` |
+| AP-6 havbruk | `intern baseline` | Sjøbasert MTB CR4 57 %, HHI ~929; land-RAS fortynner totaltall | `...ap6-havbrukskonsentrasjon...` |
+| AP-7 pris-asymmetri | `intern STØTTET` (valuta-forbehold) | Asymmetri bekreftet laks→foredling (NARDL t=14,0) | `...ap7-prisasymmetri...` |
+| AP-8 tilskudd↔konsentrasjon | `needs-data`-kjerne + regionalt null-funn | Node-HHI nå delvis tilgjengelig (R11); regionalt strukturnøytral | `...ap4-ap8-partial...` |
+
+Gjenstående mot citable: eierandel-% (AP-5), logistikk-/foodservice-HHI + presise fôr-/egg-andeler (AP-2), fôr→oppdrett-PPI (AP-7), restråstoffvolum (AP-6), per-aktør volum↔margin (AP-4, DB), og full operator-sekvens.
