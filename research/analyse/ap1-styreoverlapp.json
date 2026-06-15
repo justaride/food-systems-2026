@@ -1,44 +1,180 @@
 {
-  "generatedAt": "2026-06-14T11:20:42.515Z",
+  "generatedAt": "2026-06-15T12:01:03.885Z",
   "source": "intern DB (BoardMember × Company)",
   "activeOnly": false,
   "totals": {
-    "seats": 555,
-    "distinctPersons": 487,
-    "distinctCompanies": 98,
-    "companyUniverse": 275,
-    "boardCompanyCoverage": 0.3564,
-    "companiesWithSector": 98,
-    "boardCompaniesWithSectorCoverage": 1,
-    "interlockers": 32,
-    "crossSectorBridges": 11
+    "seats": 1892,
+    "distinctPersons": 1520,
+    "distinctCompanies": 253,
+    "companyUniverse": 351,
+    "boardCompanyCoverage": 0.7208,
+    "companiesWithSector": 186,
+    "boardCompaniesWithSectorCoverage": 0.7352,
+    "interlockers": 165,
+    "crossSectorBridges": 40
   },
   "topInterlockers": [
+    {
+      "name": "Tore Bekken",
+      "seats": 15,
+      "companies": 15,
+      "sectors": [
+        "logistics",
+        "retail",
+        "processing"
+      ],
+      "companyNames": [
+        "ASKO Molde AS",
+        "ASKO Nord AS",
+        "ASKO Agder AS",
+        "ASKO Hedmark AS",
+        "ASKO Maritime AS",
+        "ASKO Norge AS",
+        "ASKO Oest AS",
+        "ASKO Oslofjord AS",
+        "ASKO Rogaland AS",
+        "ASKO Vest AS",
+        "ASKO Vestfold Telemark AS",
+        "Dagrofa A/S",
+        "ASKO Midt-Norge AS",
+        "NorgesGruppen Data AS",
+        "Unil AS"
+      ],
+      "roles": [
+        "styreleder",
+        "CEO",
+        "næstformand",
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Truls Fjeldstad",
+      "seats": 15,
+      "companies": 14,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "NORGESGRUPPEN VESTFOLD TELEMARK AS",
+        "NORGESGRUPPEN AGDER AS",
+        "Kjopmannshuset Norge AS",
+        "MENY AS",
+        "NorgesGruppen Data AS",
+        "NORGESGRUPPEN VEST AS",
+        "NORGESGRUPPEN MØRE AS",
+        "NORGESGRUPPEN NORD AS",
+        "NORGESGRUPPEN MIDT-NORGE AS",
+        "Kiwi Minidrift AS",
+        "Kiwi Norge AS",
+        "NorgesGruppen Detalj AS",
+        "NorgesGruppen Eiendom Holding AS",
+        "NorgesGruppen Eiendomskapital AS"
+      ],
+      "roles": [
+        "styreleder",
+        "styremedlem",
+        "CEO"
+      ]
+    },
+    {
+      "name": "Stig Børger Bratlie",
+      "seats": 12,
+      "companies": 11,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "NORGESGRUPPEN VESTFOLD TELEMARK AS",
+        "NORGESGRUPPEN AGDER AS",
+        "NorgesGruppen Eiendom AS",
+        "NORGESGRUPPEN EIENDOM REGION AS",
+        "NORGESGRUPPEN VEST AS",
+        "NORGESGRUPPEN NORD AS",
+        "NORGESGRUPPEN MIDT-NORGE AS",
+        "Kjopmannshuset Butikkdrift AS",
+        "NorgesGruppen Eiendom Holding AS",
+        "NorgesGruppen Eiendomskapital AS",
+        "NorgesGruppen Eiendomsutvikling AS"
+      ],
+      "roles": [
+        "styremedlem",
+        "styreleder",
+        "CEO"
+      ]
+    },
+    {
+      "name": "Bjørn Strand",
+      "seats": 11,
+      "companies": 11,
+      "sectors": [
+        "logistics"
+      ],
+      "companyNames": [
+        "ASKO Molde AS",
+        "ASKO Nord AS",
+        "ASKO Agder AS",
+        "ASKO Fornybar AS",
+        "ASKO Hedmark AS",
+        "ASKO Maritime AS",
+        "ASKO Oslofjord AS",
+        "ASKO Rogaland AS",
+        "ASKO Vest AS",
+        "ASKO Vestfold Telemark AS",
+        "ASKO Midt-Norge AS"
+      ],
+      "roles": [
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Helge Christian Haugen",
+      "seats": 10,
+      "companies": 10,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "COOP EIENDOM SØRVEST AS",
+        "COOP RAUFOSS KJØPESENTER AS",
+        "COOP HORDALAND EIENDOM AS",
+        "COOP INNLANDET EIENDOM AS",
+        "Coop Norge Tromsoe Eiendom AS",
+        "Coop Norge Eiendom AS",
+        "Coop Norge Langhus Eiendom AS",
+        "Coop Norge Stavanger Eiendom AS",
+        "Coop Norge Stavanger Eiendom II AS",
+        "Coop Norge Trondheim Eiendom AS"
+      ],
+      "roles": [
+        "styreleder",
+        "styremedlem",
+        "CEO"
+      ]
+    },
     {
       "name": "Runar Hollevik",
       "seats": 10,
       "companies": 10,
       "sectors": [
-        "processing",
         "logistics",
-        "retail",
-        "foodservice"
+        "retail"
       ],
       "companyNames": [
-        "Unil AS",
         "ASKO Norge AS",
-        "Kiwi Norge AS",
-        "MENY AS",
         "Kjopmannshuset Norge AS",
-        "NorgesGruppen Servicehandel AS",
         "NorgesGruppen Detalj AS",
         "NorgesGruppen Data AS",
         "BAMA Gruppen AS",
-        "Storcash Norge AS"
+        "Kiwi Minidrift AS",
+        "Kiwi Norge AS",
+        "MENY AS",
+        "NorgesGruppen ASA",
+        "NorgesGruppen Servicehandel AS"
       ],
       "roles": [
         "styreleder",
-        "styremedlem"
+        "styremedlem",
+        "CEO"
       ]
     },
     {
@@ -52,19 +188,164 @@
       "companyNames": [
         "REMA 1000 Norge AS",
         "REMA 1000 A/S",
-        "REMA Distribusjon Norge AS",
         "BAMA Gruppen AS",
         "Reitan AS",
-        "REMA 1000 AS",
         "Reitan Convenience AS",
-        "Uno-X Mobility AS",
-        "Reitan Kapital AS"
+        "Reitan Kapital AS",
+        "Reitan Retail AS",
+        "REMA 1000 AS",
+        "Uno-X Mobility AS"
       ],
       "roles": [
         "styreleder",
         "bestyrelsesformand",
         "styremedlem",
-        "daglig leder"
+        "CEO"
+      ]
+    },
+    {
+      "name": "Øistein Brevig Pjaaka",
+      "seats": 9,
+      "companies": 7,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "NG EIENDOM VESTFOLD TELEMARK AS",
+        "NORGESGRUPPEN EIENDOM REGION AS",
+        "NORGESGRUPPEN EIENDOM BUSKERUD AS",
+        "NORGESGRUPPEN EIENDOM MIDT-NORGE AS",
+        "NorgesGruppen Eiendom AS",
+        "NorgesGruppen Eiendomskapital AS",
+        "NorgesGruppen Eiendomsutvikling AS"
+      ],
+      "roles": [
+        "styreleder",
+        "CEO",
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Jarle Gjerde",
+      "seats": 7,
+      "companies": 6,
+      "sectors": [
+        "logistics",
+        "processing",
+        "foodservice"
+      ],
+      "companyNames": [
+        "BAMA Blomster Holding AS",
+        "BAMA Industri AS",
+        "BAMA International AS",
+        "BAMA Logistikk AS",
+        "BAMA Pakkerier AS",
+        "BAMA Storkjoekken AS"
+      ],
+      "roles": [
+        "styremedlem",
+        "CEO"
+      ]
+    },
+    {
+      "name": "Johan Johannson",
+      "seats": 7,
+      "companies": 6,
+      "sectors": [
+        "processing",
+        "retail"
+      ],
+      "companyNames": [
+        "Joh. Johannson Kaffe AS",
+        "NorgesGruppen ASA",
+        "JOH JOHANNSON INVEST AS",
+        "Joh Johannson Eiendom AS",
+        "Joh Johannson Handel AS",
+        "NorgesGruppen Eiendom Holding AS"
+      ],
+      "roles": [
+        "styreleder",
+        "CEO",
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Ingjald Sørhøy",
+      "seats": 6,
+      "companies": 6,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "NG EIENDOM VESTFOLD TELEMARK AS",
+        "NorgesGruppen Eiendom AS",
+        "NORGESGRUPPEN EIENDOM REGION AS",
+        "NORGESGRUPPEN EIENDOM BUSKERUD AS",
+        "NORGESGRUPPEN EIENDOM MIDT-NORGE AS",
+        "NorgesGruppen Eiendomsutvikling AS"
+      ],
+      "roles": [
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Oyvind Andersen",
+      "seats": 6,
+      "companies": 6,
+      "sectors": [
+        "retail",
+        "processing"
+      ],
+      "companyNames": [
+        "Kiwi Norge AS",
+        "Bakehuset AS",
+        "Joh. Johannson Kaffe AS",
+        "Kiwi Minidrift AS",
+        "NorgesGruppen Merkevare AS",
+        "Unil AS"
+      ],
+      "roles": [
+        "styremedlem",
+        "styreleder"
+      ]
+    },
+    {
+      "name": "Mette Lier",
+      "seats": 6,
+      "companies": 6,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "MENY AS",
+        "NorgesGruppen Data AS",
+        "NorgesGruppen Regnskap AS",
+        "NorgesGruppen Fellestjenester AS",
+        "NorgesGruppen Finans AS",
+        "NorgesGruppen Finans Holding AS"
+      ],
+      "roles": [
+        "styremedlem",
+        "styreleder"
+      ]
+    },
+    {
+      "name": "Christian Stange Eidem",
+      "seats": 6,
+      "companies": 6,
+      "sectors": [
+        "retail"
+      ],
+      "companyNames": [
+        "COOP INNLANDET EIENDOM AS",
+        "Coop Norge Tromsoe Eiendom AS",
+        "Coop Norge Langhus Eiendom AS",
+        "Coop Norge Stavanger Eiendom AS",
+        "Coop Norge Stavanger Eiendom II AS",
+        "Coop Norge Trondheim Eiendom AS"
+      ],
+      "roles": [
+        "styremedlem"
       ]
     },
     {
@@ -77,10 +358,10 @@
       "companyNames": [
         "Reitan AS",
         "REMA 1000 AS",
-        "Reitan Convenience AS",
-        "Uno-X Mobility AS",
+        "Reitan Eiendom AS",
         "Reitan Kapital AS",
-        "Reitan Eiendom AS"
+        "Uno-X Mobility AS",
+        "Reitan Convenience AS"
       ],
       "roles": [
         "styremedlem",
@@ -88,285 +369,98 @@
       ]
     },
     {
-      "name": "Magnus Reitan",
+      "name": "Tina Bachmann",
+      "seats": 5,
+      "companies": 5,
+      "sectors": [],
+      "companyNames": [
+        "NORGESGRUPPEN VESTFOLD TELEMARK AS",
+        "NORGESGRUPPEN AGDER AS",
+        "NORGESGRUPPEN VEST AS",
+        "NORGESGRUPPEN NORD AS",
+        "NORGESGRUPPEN MIDT-NORGE AS"
+      ],
+      "roles": [
+        "styremedlem"
+      ]
+    },
+    {
+      "name": "Bent Andersen",
       "seats": 5,
       "companies": 5,
       "sectors": [
         "logistics",
-        "retail"
+        "processing",
+        "foodservice"
       ],
       "companyNames": [
-        "REMA Distribusjon Norge AS",
-        "Reitan AS",
-        "Reitan Convenience AS",
-        "Reitan Kapital AS",
-        "Reitan Retail AS"
+        "BAMA Blomster Holding AS",
+        "BAMA Gruppen AS",
+        "BAMA Industri AS",
+        "BAMA International AS",
+        "BAMA Storkjoekken AS"
       ],
       "roles": [
-        "styremedlem",
-        "daglig leder"
-      ]
-    },
-    {
-      "name": "Truls Fjeldstad",
-      "seats": 5,
-      "companies": 5,
-      "sectors": [
-        "retail"
-      ],
-      "companyNames": [
-        "Kiwi Norge AS",
-        "MENY AS",
-        "Kjopmannshuset Norge AS",
-        "NorgesGruppen Detalj AS",
-        "NorgesGruppen Data AS"
-      ],
-      "roles": [
-        "styremedlem",
-        "daglig leder"
-      ]
-    },
-    {
-      "name": "Tore Bekken",
-      "seats": 4,
-      "companies": 4,
-      "sectors": [
-        "retail",
-        "logistics"
-      ],
-      "companyNames": [
-        "Dagrofa A/S",
-        "ASKO Midt-Norge AS",
-        "ASKO Norge AS",
-        "NorgesGruppen Data AS"
-      ],
-      "roles": [
-        "næstformand",
         "styreleder",
-        "daglig leder",
-        "styremedlem"
+        "CEO"
       ]
     },
     {
       "name": "Kristine Stranne",
-      "seats": 4,
-      "companies": 4,
+      "seats": 5,
+      "companies": 5,
       "sectors": [
         "logistics",
-        "retail",
-        "processing"
+        "processing",
+        "retail"
       ],
       "companyNames": [
         "ASKO Norge AS",
+        "Bakehuset AS",
+        "Joh. Johannson Kaffe AS",
         "Deli de Luca Norge AS",
-        "Joh. Johannson Kaffe AS",
-        "Bakehuset AS"
+        "NorgesGruppen Servicehandel AS"
       ],
       "roles": [
         "styremedlem",
-        "styreleder"
+        "styreleder",
+        "CEO"
       ]
     },
     {
-      "name": "Oyvind Andersen",
-      "seats": 3,
-      "companies": 3,
+      "name": "Knut Hartvig Johannson",
+      "seats": 5,
+      "companies": 5,
       "sectors": [
+        "logistics",
         "retail",
         "processing"
       ],
       "companyNames": [
-        "Kiwi Norge AS",
-        "Joh. Johannson Kaffe AS",
-        "Bakehuset AS"
-      ],
-      "roles": [
-        "styremedlem",
-        "styreleder"
-      ]
-    },
-    {
-      "name": "Mette Lier",
-      "seats": 3,
-      "companies": 3,
-      "sectors": [
-        "retail"
-      ],
-      "companyNames": [
-        "MENY AS",
-        "NorgesGruppen Data AS",
-        "NorgesGruppen Regnskap AS"
-      ],
-      "roles": [
-        "styremedlem",
-        "styreleder"
-      ]
-    },
-    {
-      "name": "Odd Reitan",
-      "seats": 3,
-      "companies": 3,
-      "sectors": [
-        "retail"
-      ],
-      "companyNames": [
-        "Reitan AS",
-        "Reitan Eiendom AS",
-        "Odd Reitan Private Holding AS"
-      ],
-      "roles": [
-        "styreleder"
-      ]
-    },
-    {
-      "name": "Finn Rune Kristiansen",
-      "seats": 3,
-      "companies": 2,
-      "sectors": [
-        "foodservice"
-      ],
-      "companyNames": [
-        "4Service Gruppen AS",
-        "Compass Group Norge AS"
-      ],
-      "roles": [
-        "daglig leder",
-        "styremedlem"
-      ]
-    },
-    {
-      "name": "Andre Rolf Knüppel",
-      "seats": 2,
-      "companies": 2,
-      "sectors": [
-        "retail"
-      ],
-      "companyNames": [
-        "Oda",
-        "Oda Norway AS"
-      ],
-      "roles": [
-        "styreleder"
-      ]
-    },
-    {
-      "name": "Carl-Fredrik Bergan",
-      "seats": 2,
-      "companies": 2,
-      "sectors": [
-        "retail"
-      ],
-      "companyNames": [
-        "Oda",
-        "Oda Norway AS"
-      ],
-      "roles": [
-        "styremedlem"
-      ]
-    },
-    {
-      "name": "Sara Elisabet Manne",
-      "seats": 2,
-      "companies": 2,
-      "sectors": [
-        "retail"
-      ],
-      "companyNames": [
-        "Oda",
-        "Oda Norway AS"
-      ],
-      "roles": [
-        "styremedlem"
-      ]
-    },
-    {
-      "name": "Signe Sæter",
-      "seats": 2,
-      "companies": 2,
-      "sectors": [
-        "circular"
-      ],
-      "companyNames": [
-        "Matsentralen Norge",
-        "Matvett AS"
-      ],
-      "roles": [
-        "styremedlem"
-      ]
-    },
-    {
-      "name": "Anne-Grete Haugen",
-      "seats": 2,
-      "companies": 2,
-      "sectors": [
-        "circular"
-      ],
-      "companyNames": [
-        "Matsentralen Norge",
-        "Matvett AS"
-      ],
-      "roles": [
-        "styremedlem",
-        "CEO"
-      ]
-    },
-    {
-      "name": "Trond Bentestuen",
-      "seats": 2,
-      "companies": 2,
-      "sectors": [
-        "retail",
-        "logistics"
-      ],
-      "companyNames": [
-        "REMA 1000 Norge AS",
-        "REMA Distribusjon Norge AS"
-      ],
-      "roles": [
-        "CEO"
-      ]
-    },
-    {
-      "name": "Tor Roenhovde",
-      "seats": 2,
-      "companies": 2,
-      "sectors": [
-        "foodservice"
-      ],
-      "companyNames": [
-        "4Service Gruppen AS",
-        "Compass Group Norge AS"
-      ],
-      "roles": [
-        "styreleder"
-      ]
-    },
-    {
-      "name": "Grete Ovanger",
-      "seats": 2,
-      "companies": 2,
-      "sectors": [
-        "logistics"
-      ],
-      "companyNames": [
-        "ASKO Midt-Norge AS",
-        "ASKO Norge AS"
-      ],
-      "roles": [
-        "styremedlem"
-      ]
-    },
-    {
-      "name": "Dina Thune",
-      "seats": 2,
-      "companies": 2,
-      "sectors": [
-        "logistics",
-        "retail"
-      ],
-      "companyNames": [
         "ASKO Norge AS",
-        "Kjopmannshuset Norge AS"
+        "JOH JOHANNSON INVEST AS",
+        "Joh Johannson Eiendom AS",
+        "Joh Johannson Handel AS",
+        "Unil AS"
+      ],
+      "roles": [
+        "styremedlem",
+        "styreleder"
+      ]
+    },
+    {
+      "name": "Sjur Svenningsson Malm",
+      "seats": 5,
+      "companies": 5,
+      "sectors": [
+        "seafood"
+      ],
+      "companyNames": [
+        "Leroey Aurora AS",
+        "Leroey Havfisk AS",
+        "Leroey Midt AS",
+        "Leroey Norway Seafoods AS",
+        "Leroey Vest AS"
       ],
       "roles": [
         "styremedlem"
@@ -375,28 +469,78 @@
   ],
   "topBridges": [
     {
-      "name": "Runar Hollevik",
+      "name": "Tore Bekken",
       "sectors": [
-        "processing",
         "logistics",
         "retail",
+        "processing"
+      ],
+      "companies": [
+        "ASKO Molde AS",
+        "ASKO Nord AS",
+        "ASKO Agder AS",
+        "ASKO Hedmark AS",
+        "ASKO Maritime AS",
+        "ASKO Norge AS",
+        "ASKO Oest AS",
+        "ASKO Oslofjord AS",
+        "ASKO Rogaland AS",
+        "ASKO Vest AS",
+        "ASKO Vestfold Telemark AS",
+        "Dagrofa A/S",
+        "ASKO Midt-Norge AS",
+        "NorgesGruppen Data AS",
+        "Unil AS"
+      ]
+    },
+    {
+      "name": "Jarle Gjerde",
+      "sectors": [
+        "logistics",
+        "processing",
         "foodservice"
       ],
       "companies": [
-        "Unil AS",
-        "ASKO Norge AS",
-        "Kiwi Norge AS",
-        "MENY AS",
-        "Kjopmannshuset Norge AS",
-        "NorgesGruppen Servicehandel AS",
-        "NorgesGruppen Detalj AS",
-        "NorgesGruppen Data AS",
+        "BAMA Blomster Holding AS",
+        "BAMA Industri AS",
+        "BAMA International AS",
+        "BAMA Logistikk AS",
+        "BAMA Pakkerier AS",
+        "BAMA Storkjoekken AS"
+      ]
+    },
+    {
+      "name": "Bent Andersen",
+      "sectors": [
+        "logistics",
+        "processing",
+        "foodservice"
+      ],
+      "companies": [
+        "BAMA Blomster Holding AS",
         "BAMA Gruppen AS",
-        "Storcash Norge AS"
+        "BAMA Industri AS",
+        "BAMA International AS",
+        "BAMA Storkjoekken AS"
       ]
     },
     {
       "name": "Kristine Stranne",
+      "sectors": [
+        "logistics",
+        "processing",
+        "retail"
+      ],
+      "companies": [
+        "ASKO Norge AS",
+        "Bakehuset AS",
+        "Joh. Johannson Kaffe AS",
+        "Deli de Luca Norge AS",
+        "NorgesGruppen Servicehandel AS"
+      ]
+    },
+    {
+      "name": "Knut Hartvig Johannson",
       "sectors": [
         "logistics",
         "retail",
@@ -404,9 +548,55 @@
       ],
       "companies": [
         "ASKO Norge AS",
-        "Deli de Luca Norge AS",
-        "Joh. Johannson Kaffe AS",
-        "Bakehuset AS"
+        "JOH JOHANNSON INVEST AS",
+        "Joh Johannson Eiendom AS",
+        "Joh Johannson Handel AS",
+        "Unil AS"
+      ]
+    },
+    {
+      "name": "Finn Torstein Dybvik",
+      "sectors": [
+        "logistics",
+        "processing",
+        "retail"
+      ],
+      "companies": [
+        "ASKO Fornybar AS",
+        "Bakehuset AS",
+        "NorgesGruppen Servicehandel AS"
+      ]
+    },
+    {
+      "name": "Trude Venset Sleire",
+      "sectors": [
+        "logistics",
+        "processing",
+        "foodservice"
+      ],
+      "companies": [
+        "BAMA Blomster Holding AS",
+        "BAMA Industri AS",
+        "BAMA Storkjoekken AS"
+      ]
+    },
+    {
+      "name": "Runar Hollevik",
+      "sectors": [
+        "logistics",
+        "retail"
+      ],
+      "companies": [
+        "ASKO Norge AS",
+        "Kjopmannshuset Norge AS",
+        "NorgesGruppen Detalj AS",
+        "NorgesGruppen Data AS",
+        "BAMA Gruppen AS",
+        "Kiwi Minidrift AS",
+        "Kiwi Norge AS",
+        "MENY AS",
+        "NorgesGruppen ASA",
+        "NorgesGruppen Servicehandel AS"
       ]
     },
     {
@@ -418,40 +608,13 @@
       "companies": [
         "REMA 1000 Norge AS",
         "REMA 1000 A/S",
-        "REMA Distribusjon Norge AS",
         "BAMA Gruppen AS",
-        "Reitan AS",
-        "REMA 1000 AS",
-        "Reitan Convenience AS",
-        "Uno-X Mobility AS",
-        "Reitan Kapital AS"
-      ]
-    },
-    {
-      "name": "Magnus Reitan",
-      "sectors": [
-        "logistics",
-        "retail"
-      ],
-      "companies": [
-        "REMA Distribusjon Norge AS",
         "Reitan AS",
         "Reitan Convenience AS",
         "Reitan Kapital AS",
-        "Reitan Retail AS"
-      ]
-    },
-    {
-      "name": "Tore Bekken",
-      "sectors": [
-        "retail",
-        "logistics"
-      ],
-      "companies": [
-        "Dagrofa A/S",
-        "ASKO Midt-Norge AS",
-        "ASKO Norge AS",
-        "NorgesGruppen Data AS"
+        "Reitan Retail AS",
+        "REMA 1000 AS",
+        "Uno-X Mobility AS"
       ]
     },
     {
@@ -462,41 +625,11 @@
       ],
       "companies": [
         "Kiwi Norge AS",
+        "Bakehuset AS",
         "Joh. Johannson Kaffe AS",
-        "Bakehuset AS"
-      ]
-    },
-    {
-      "name": "Trond Bentestuen",
-      "sectors": [
-        "retail",
-        "logistics"
-      ],
-      "companies": [
-        "REMA 1000 Norge AS",
-        "REMA Distribusjon Norge AS"
-      ]
-    },
-    {
-      "name": "Dina Thune",
-      "sectors": [
-        "logistics",
-        "retail"
-      ],
-      "companies": [
-        "ASKO Norge AS",
-        "Kjopmannshuset Norge AS"
-      ]
-    },
-    {
-      "name": "Finn Torstein Dybvik",
-      "sectors": [
-        "retail",
-        "processing"
-      ],
-      "companies": [
-        "NorgesGruppen Servicehandel AS",
-        "Bakehuset AS"
+        "Kiwi Minidrift AS",
+        "NorgesGruppen Merkevare AS",
+        "Unil AS"
       ]
     },
     {
@@ -507,7 +640,73 @@
       ],
       "companies": [
         "Joh. Johannson Kaffe AS",
-        "NorgesGruppen ASA"
+        "NorgesGruppen ASA",
+        "JOH JOHANNSON INVEST AS",
+        "Joh Johannson Eiendom AS",
+        "Joh Johannson Handel AS",
+        "NorgesGruppen Eiendom Holding AS"
+      ]
+    },
+    {
+      "name": "Torgeir Herlofsen",
+      "sectors": [
+        "logistics",
+        "retail"
+      ],
+      "companies": [
+        "NG EIENDOM VESTFOLD TELEMARK AS",
+        "NORGESGRUPPEN VESTFOLD TELEMARK AS",
+        "ASKO Vestfold Telemark AS",
+        "Kjopmannshuset Norge AS"
+      ]
+    },
+    {
+      "name": "Stein Erik Hagen",
+      "sectors": [
+        "retail",
+        "processing"
+      ],
+      "companies": [
+        "Canica AS",
+        "CANICA INVESTOR AS",
+        "STEIN ERIK HAGEN AS",
+        "Orkla ASA"
+      ]
+    },
+    {
+      "name": "Rolf Gjermund Fjeldheim",
+      "sectors": [
+        "research",
+        "processing"
+      ],
+      "companies": [
+        "Animalia AS",
+        "Fjordland AS",
+        "Noridane Foods AS"
+      ]
+    },
+    {
+      "name": "Hilde Christin Talseth",
+      "sectors": [
+        "research",
+        "processing"
+      ],
+      "companies": [
+        "Animalia AS",
+        "PRONOFA ASA",
+        "Norsk Kylling AS"
+      ]
+    },
+    {
+      "name": "Kjell Åge Stokbakken",
+      "sectors": [
+        "processing",
+        "logistics"
+      ],
+      "companies": [
+        "REMA INDUSTRIER AS",
+        "Norsk Kylling AS",
+        "REMA Distribusjon Norge AS"
       ]
     },
     {
@@ -518,135 +717,189 @@
       ],
       "companies": [
         "Bakehuset AS",
+        "NorgesGruppen Merkevare AS",
         "NorgesGruppen Regnskap AS"
+      ]
+    },
+    {
+      "name": "Bjørn Ole Juul-Hansen",
+      "sectors": [
+        "research",
+        "processing"
+      ],
+      "companies": [
+        "Animalia AS",
+        "Biosirk Norge AS"
+      ]
+    },
+    {
+      "name": "Stein Rømmerud",
+      "sectors": [
+        "logistics",
+        "retail"
+      ],
+      "companies": [
+        "ASKO Fornybar AS",
+        "Deli de Luca Norge AS"
+      ]
+    },
+    {
+      "name": "André Tangerud",
+      "sectors": [
+        "logistics",
+        "foodservice"
+      ],
+      "companies": [
+        "ASKO Oest AS",
+        "Storcash Norge AS"
       ]
     }
   ],
   "topCompaniesByInterlockDegree": [
     {
-      "company": "BAMA Gruppen AS",
-      "sector": "logistics",
-      "interlockDegree": 17
+      "company": "NorgesGruppen Data AS",
+      "sector": "retail",
+      "interlockDegree": 34
     },
     {
       "company": "ASKO Norge AS",
       "sector": "logistics",
-      "interlockDegree": 14
+      "interlockDegree": 28
     },
     {
-      "company": "NorgesGruppen Data AS",
+      "company": "NorgesGruppen Eiendom Holding AS",
       "sector": "retail",
-      "interlockDegree": 12
-    },
-    {
-      "company": "Kiwi Norge AS",
-      "sector": "retail",
-      "interlockDegree": 11
-    },
-    {
-      "company": "Reitan AS",
-      "sector": "retail",
-      "interlockDegree": 11
-    },
-    {
-      "company": "Reitan Convenience AS",
-      "sector": "retail",
-      "interlockDegree": 11
-    },
-    {
-      "company": "MENY AS",
-      "sector": "retail",
-      "interlockDegree": 10
-    },
-    {
-      "company": "NorgesGruppen Servicehandel AS",
-      "sector": "retail",
-      "interlockDegree": 10
-    },
-    {
-      "company": "Uno-X Mobility AS",
-      "sector": "retail",
-      "interlockDegree": 10
-    },
-    {
-      "company": "Reitan Kapital AS",
-      "sector": "retail",
-      "interlockDegree": 10
+      "interlockDegree": 25
     },
     {
       "company": "Unil AS",
       "sector": "processing",
-      "interlockDegree": 9
+      "interlockDegree": 24
+    },
+    {
+      "company": "Kiwi Norge AS",
+      "sector": "retail",
+      "interlockDegree": 21
+    },
+    {
+      "company": "Kiwi Minidrift AS",
+      "sector": "retail",
+      "interlockDegree": 21
+    },
+    {
+      "company": "MENY AS",
+      "sector": "retail",
+      "interlockDegree": 21
+    },
+    {
+      "company": "BAMA Gruppen AS",
+      "sector": "logistics",
+      "interlockDegree": 21
     },
     {
       "company": "Kjopmannshuset Norge AS",
       "sector": "retail",
-      "interlockDegree": 9
+      "interlockDegree": 20
+    },
+    {
+      "company": "NorgesGruppen Eiendomskapital AS",
+      "sector": "retail",
+      "interlockDegree": 20
+    },
+    {
+      "company": "NORGESGRUPPEN VESTFOLD TELEMARK AS",
+      "sector": null,
+      "interlockDegree": 19
+    },
+    {
+      "company": "ASKO Vestfold Telemark AS",
+      "sector": "logistics",
+      "interlockDegree": 18
     },
     {
       "company": "NorgesGruppen Detalj AS",
       "sector": "retail",
-      "interlockDegree": 9
+      "interlockDegree": 18
     },
     {
-      "company": "Storcash Norge AS",
-      "sector": "foodservice",
-      "interlockDegree": 9
+      "company": "NORGESGRUPPEN AGDER AS",
+      "sector": null,
+      "interlockDegree": 18
     },
     {
-      "company": "REMA Distribusjon Norge AS",
+      "company": "NORGESGRUPPEN MIDT-NORGE AS",
+      "sector": null,
+      "interlockDegree": 18
+    },
+    {
+      "company": "NORGESGRUPPEN VEST AS",
+      "sector": null,
+      "interlockDegree": 17
+    },
+    {
+      "company": "NORGESGRUPPEN NORD AS",
+      "sector": null,
+      "interlockDegree": 17
+    },
+    {
+      "company": "ASKO Oest AS",
       "sector": "logistics",
-      "interlockDegree": 9
+      "interlockDegree": 16
     },
     {
-      "company": "REMA 1000 AS",
+      "company": "Dagrofa A/S",
       "sector": "retail",
-      "interlockDegree": 9
+      "interlockDegree": 16
     },
     {
-      "company": "REMA 1000 Norge AS",
-      "sector": "retail",
-      "interlockDegree": 8
-    },
-    {
-      "company": "REMA 1000 A/S",
-      "sector": "retail",
-      "interlockDegree": 8
-    },
-    {
-      "company": "Bakehuset AS",
-      "sector": "processing",
-      "interlockDegree": 6
-    },
-    {
-      "company": "Reitan Eiendom AS",
-      "sector": "retail",
-      "interlockDegree": 6
+      "company": "ASKO Agder AS",
+      "sector": "logistics",
+      "interlockDegree": 16
     }
   ],
   "sectorPairBridges": [
     {
+      "pair": "logistics ↔ processing",
+      "count": 11
+    },
+    {
       "pair": "logistics ↔ retail",
-      "count": 7
+      "count": 11
     },
     {
       "pair": "processing ↔ retail",
-      "count": 6
-    },
-    {
-      "pair": "logistics ↔ processing",
-      "count": 2
+      "count": 10
     },
     {
       "pair": "foodservice ↔ logistics",
-      "count": 1
+      "count": 5
+    },
+    {
+      "pair": "inputs ↔ processing",
+      "count": 5
+    },
+    {
+      "pair": "processing ↔ research",
+      "count": 3
     },
     {
       "pair": "foodservice ↔ processing",
+      "count": 3
+    },
+    {
+      "pair": "inputs ↔ seafood",
+      "count": 2
+    },
+    {
+      "pair": "research ↔ seafood",
+      "count": 2
+    },
+    {
+      "pair": "export-promotion ↔ seafood",
       "count": 1
     },
     {
-      "pair": "foodservice ↔ retail",
+      "pair": "circular ↔ research",
       "count": 1
     }
   ]
