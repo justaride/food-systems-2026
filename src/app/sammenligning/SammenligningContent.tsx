@@ -6,6 +6,7 @@ import { KeyTakeaway } from '@/components/sammenligning/KeyTakeaway'
 import { PolicyTimeline } from '@/components/sammenligning/PolicyTimeline'
 import { ChartFrame } from '@/components/visualization/ChartFrame'
 import { NoMarketShareTimeseriesDynamic } from '@/components/charts/NoMarketShareTimeseriesDynamic'
+import { NordicMineralgjodselChart } from '@/components/charts/NordicMineralgjodselChart'
 import { PageFraming } from '@/components/ui/PageFraming'
 import { COUNTRY_LIST } from '@/lib/config/countries'
 import type { CountryCode } from '@/lib/config/countries'
@@ -496,6 +497,15 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
           />
         )
       })()}
+
+      <section className="mt-12">
+        <h2 className="text-base font-semibold text-stone-800 mb-1">Mineralgjødsel — nordisk referansegrunnlag</h2>
+        <p className="text-xs text-stone-500 mb-3">
+          Forbruk av mineralgjødsel (N, P, K) per land, element-basis. Viser hvor stort virgin-forbruket er
+          som gjenvunnet næring eventuelt måtte erstatte. Island er foreløpig ikke hentet.
+        </p>
+        <NordicMineralgjodselChart />
+      </section>
 
       <footer className="mt-16 pt-6 border-t border-stone-200 text-xs text-stone-500">
         <p>Sist generert: {new Date(data.generatedAt).toLocaleDateString('nb-NO')}</p>
