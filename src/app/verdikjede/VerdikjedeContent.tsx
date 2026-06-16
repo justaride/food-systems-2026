@@ -17,6 +17,14 @@ const FeedCompositionTimeseries = dynamic(
   }
 )
 
+const HandelsakseNorgeBrasil = dynamic(
+  () => import('@/components/charts/HandelsakseNorgeBrasil').then((mod) => mod.HandelsakseNorgeBrasil),
+  {
+    ssr: false,
+    loading: () => <div className="h-[360px]" aria-hidden="true" />,
+  }
+)
+
 const FoodFlowSankey = dynamic(
   () => import('@/components/charts/FoodFlowSankey').then((mod) => mod.FoodFlowSankey),
   {
@@ -277,6 +285,17 @@ export function VerdikjedeContent({
           </p>
         </div>
         <FeedCompositionTimeseries />
+      </div>
+
+      <div className="space-y-3 pt-4 border-t border-stone-200">
+        <div>
+          <h2 className="text-base font-semibold text-stone-800">Handelsakse Norge–Brasil</h2>
+          <p className="text-xs text-stone-500 mt-1">
+            Den bilaterale mat-handelsaksen: soyaimport (fôrprotein) inn fra Brasil, klippfisk (bacalhau) ut til Brasil.
+            Brasils andel av norsk import/eksport, basert på SSB tolldata (tabell 08801).
+          </p>
+        </div>
+        <HandelsakseNorgeBrasil />
       </div>
     </div>
   )

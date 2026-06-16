@@ -8,6 +8,7 @@
     "compute-metrics:full": "npm run compute-metrics && npm run audit:konsern && npm run compute-coverage",
     "audit:konsern": "tsx scripts/audit-konsern-coverage.ts",
     "refresh:brreg": "tsx scripts/refresh-brreg-tracked.ts",
+    "refresh:brreg-financials": "tsx scripts/import-brreg-financials.ts",
     "validate:brreg": "tsx scripts/validate-against-brreg.ts",
     "build": "tsx scripts/write-version.ts && prisma generate && npm run compute-metrics && next build",
     "start": "node .next/standalone/server.js",

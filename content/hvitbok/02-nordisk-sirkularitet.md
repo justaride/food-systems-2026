@@ -51,4 +51,19 @@ mottakere av samme fôrråstoff-marked som Norge. Et tverrnordisk pilotprosjekt 
 sporbarhetsdatabase i fiskefôr-segmentet — koordinert av NMR — er det mest
 konkrete neste steget.
 
+## Norsk soyaimport følger Brasil-aksen
+
+Det danske mønsteret har en norsk parallell. Tolldata fra Statistisk sentralbyrå
+(tabell 08801) viser at Brasil sto for mellom 60 og 80 prosent av volumet i norsk
+soyabønneimport i årene 2015–2024, og i 2024 var Brasil-andelen rundt 70 prosent av
+både mengde og verdi. Samtidig går en motstrøm den andre veien: Norge eksporterer
+klippfisk (bacalhau) til Brasil — i 2024 om lag 2 600 tonn, rundt 11 prosent av total
+norsk klippfiskeksport. Norge–Brasil er dermed best forstått som én bilateral akse
+med to motsatte strømmer: importert fôrprotein inn, høyverdi marint protein ut.
+
+Funnet er forankret i offentlig primærstatistikk og samsvarer med speilserier fra UN
+Comtrade på kilonivå. To forbehold følger med: tallene for 2025 er foreløpige (Brasil-
+andelen falt da indikativt mot drøyt 40 prosent, men revideres), og «Verden» som
+sammenligningsgrunnlag inkluderer reeksport, ikke bare produksjonsland.
+
 {{relatert:sirk-relatert}}

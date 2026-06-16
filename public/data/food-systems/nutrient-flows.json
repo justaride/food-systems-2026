@@ -4,6 +4,15 @@
   "methodology": "Material Flow Analysis (MFA) based on NIBIO, SSB, Norsk Vann, Frontiers P-MFA studies (Hamilton et al. 2023), HSY Finland, Svenskt Vatten, DTU Environment. Cross-validated with P27 (avlopsanlegg) and P29 (gjodselimport) from Perplexity Runde 2, 20.04.26. Order-of-magnitude estimates, not official statistics.",
   "countries": {
     "NO": {
+      "realized_recovery": {
+        "headline": "Realisert gjenvinning er minimal vs. potensialet",
+        "items": [
+          { "label": "Realisert i dag (f.eks. VEAS Asker)", "value": "~0,75 kt N / 0,28 kt P gjenvunnet fra avløpsslam" },
+          { "label": "Havbruksslam faktisk samlet", "value": "~2 % av ekskret" },
+          { "label": "Teknisk potensial (alle strømmer)", "value": "64 kt N / 9,8 kt P (25–30 % av import)" }
+        ],
+        "source": "DRO-R2-02 / CL-B-016, CL-B-023 (SINTEF; NIBIO; VEAS)"
+      },
       "population_m": 5.5,
       "imports": {
         "mineral_n_kt_yr": 120,
@@ -84,6 +93,14 @@
       ]
     },
     "SE": {
+      "realized_recovery": {
+        "headline": "RecoLab 2024: realisert gjenvinning i kg, ikke kt",
+        "items": [
+          { "label": "RecoLab realisert 2024", "value": "497 kg struvitt + 629 kg ammoniumsulfat (~0,16 t N / 0,06 t P)" },
+          { "label": "Resten av slam/gråvann", "value": "ført tilbake til ordinær avløpsbehandling" }
+        ],
+        "source": "DRO-R2-02 / CL-B-016 (NSVA Miljörapport 2024)"
+      },
       "population_m": 10.6,
       "imports": {
         "mineral_n_kt_yr": null,

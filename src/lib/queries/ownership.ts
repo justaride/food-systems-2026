@@ -24,7 +24,8 @@ export const KONSERN_REGISTRY: Record<string, KonsernConfig> = {
   '975350940': { slug: 'leroy',         expectsMaActivity: true },
   '911608103': { slug: 'felleskjopet',  expectsMaActivity: false },
   '929975200': { slug: 'austevoll',     expectsMaActivity: true },
-  '982254604': { slug: 'rema1000-norge', expectsMaActivity: false },
+  // REMA 1000 Norge AS (982254604) er bevisst utelatt som egen konsern-rot:
+  // den er en under-enhet i Reitan-hierarkiet og vises i 'reitan-retail'-treet.
 }
 
 const SLUG_TO_ORGNR: Record<string, string> = Object.fromEntries(
@@ -335,10 +336,18 @@ export async function getKonsernIndex(): Promise<KonsernIndexRow[]> {
     const treeIds = await gatherTreeIds(entry.rootCompanyId)
     const currentYear = new Date().getFullYear()
     const financials = await prisma.companyFinancial.findMany({
-      where: { companyId: { in: treeIds }, year: currentYear - 1 },
-      select: { revenueNok: true, source: true },
+      where: { companyId: { in: treeIds }, year: { gte: currentYear - 6 } },
+      select: { companyId: true, year: true, revenueNok: true, source: true },
+      orderBy: { year: 'desc' },
     })
-    const totalRevenue = financials.reduce<number | null>(
+    // Sum each company's latest available record rather than one fixed year.
+    // Filings lag (most entities are at last year, some Nordic ones already have
+    // current-year figures), so a single-year filter silently drops real revenue.
+    const latestByCompany = new Map<string, (typeof financials)[number]>()
+    for (const f of financials) {
+      if (!latestByCompany.has(f.companyId)) latestByCompany.set(f.companyId, f)
+    }
+    const totalRevenue = [...latestByCompany.values()].reduce<number | null>(
       (acc, f) => {
         const nok = financialAmountToNok(f.revenueNok, f.source)
         return nok != null ? (acc ?? 0) + nok : acc
@@ -420,10 +429,11 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
   const currentYear = new Date().getFullYear()
 
   // Fetch financials, ownerships, and section 4-8 data in parallel
-  const [financials, ownerships, treeCompanies, konsernFinancials, konsernBoard, konsernSubsidies, konsernProperties, konsernRelationships] = await Promise.all([
+  const [financialsRange, ownerships, treeCompanies, konsernFinancials, konsernBoard, konsernSubsidies, konsernProperties, konsernRelationships] = await Promise.all([
     prisma.companyFinancial.findMany({
-      where: { companyId: { in: treeIds }, year: currentYear - 1 },
+      where: { companyId: { in: treeIds }, year: { gte: currentYear - 6 } },
       select: { companyId: true, revenueNok: true, source: true, groupEmployees: true, operatingResult: true, operatingMargin: true, year: true },
+      orderBy: { year: 'desc' },
     }),
     prisma.companyOwnership.findMany({
       where: { parentCompanyId: { in: treeIds } },
@@ -451,6 +461,15 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
     getKonsernRelationships(treeIds),
   ])
 
+  // Each company's latest available financial record (newest filed year per
+  // company). Filings lag and arrive at different times, so picking one fixed
+  // year would drop real revenue/employees that are simply a year behind.
+  const financialsByCompany = new Map<string, (typeof financialsRange)[number]>()
+  for (const f of financialsRange) {
+    if (!financialsByCompany.has(f.companyId)) financialsByCompany.set(f.companyId, f)
+  }
+  const financials = [...financialsByCompany.values()]
+
   const totalRevenue = financials.reduce<number | null>((acc, f) => {
     const nok = financialAmountToNok(f.revenueNok, f.source)
     return nok != null ? (acc ?? 0) + nok : acc
@@ -469,7 +488,6 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
     : null
 
   // ─── Build OwnershipTree for this konsern ──────────────────────────────────
-  const financialsByCompany = new Map(financials.map(f => [f.companyId, f]))
   const treeNodes: OwnershipNode[] = []
   const treeEdges: OwnershipEdge[] = []
 

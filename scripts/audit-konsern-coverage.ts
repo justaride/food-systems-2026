@@ -77,8 +77,14 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
     select: { companyId: true, year: true },
   })
 
-  // Find max year for this group, default to currentYear - 1
+  // Recency is judged per company against a fixed threshold, NOT against the
+  // group max year. A single subsidiary that has filed an early next-year set
+  // (e.g. a Nordic entity already at 2025) must not flag every peer that is
+  // correctly at last year as "stale". Filing lag is ~1.5 years, so the newest
+  // accounts that should realistically be on file is currentYear - 2.
+  const recencyThreshold = currentYear - 2
   const groupYears = childFinancials.map(f => f.year)
+  // measuredYear stays informational: the newest fiscal year present anywhere.
   const latestYear = groupYears.length > 0 ? Math.max(...groupYears) : currentYear - 1
 
   // Map childId to its financial years
@@ -93,9 +99,10 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
   let childrenWithOlderFinancial = 0
   for (const childId of childIds) {
     const years = childYearsMap.get(childId) ?? []
-    if (years.includes(latestYear)) {
+    if (years.length === 0) continue
+    if (Math.max(...years) >= recencyThreshold) {
       childrenWithLatestFinancial++
-    } else if (years.length > 0) {
+    } else {
       childrenWithOlderFinancial++
     }
   }
@@ -145,7 +152,7 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
   if (!controllingShareholder) gaps.push('Mangler kontrollerende eier på rotnode')
   if (ownershipEdgesWithoutSource > 0) gaps.push(`${ownershipEdgesWithoutSource} ownership-kanter uten source`)
   if (childrenWithoutFinancial > 0) gaps.push(`${childrenWithoutFinancial} datterselskap mangler regnskap helt`)
-  if (childrenWithOlderFinancial > 0) gaps.push(`${childrenWithOlderFinancial} datterselskap har bare eldre regnskap enn målt år ${latestYear}`)
+  if (childrenWithOlderFinancial > 0) gaps.push(`${childrenWithOlderFinancial} datterselskap har bare regnskap eldre enn ${recencyThreshold}`)
   const childrenWithoutBoardMembers = childIds.length - childrenWithBoardMembers
   if (childrenWithoutBoardMembers > 0) gaps.push(`${childrenWithoutBoardMembers} datterselskap uten styremedlemmer`)
   if (daysSinceBrregRefresh === null) gaps.push('Aldri Brreg-refreshet')

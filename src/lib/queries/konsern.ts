@@ -323,13 +323,20 @@ export async function getKonsernFinancials(treeIds: string[]): Promise<KonsernFi
     .map(([year, agg]) => ({ year, ...agg }))
     .sort((a, b) => b.year - a.year)  // newest first
 
-  // Top 5 by latest year revenue
-  const latestFinancials = financials.filter(f => f.year === latestYear)
+  // Latest available record per company (newest year each has filed), not a
+  // single fixed year — filings lag, so most are at last year while a few
+  // already have current-year numbers.
+  const latestByCompany = new Map<string, (typeof financials)[number]>()
+  for (const f of [...financials].sort((a, b) => b.year - a.year)) {
+    if (!latestByCompany.has(f.companyId)) latestByCompany.set(f.companyId, f)
+  }
+
+  // Top 5 by latest revenue
   const revenueByCompany = new Map<string, number>()
-  for (const f of latestFinancials) {
+  for (const f of latestByCompany.values()) {
     const rev = financialAmountToNok(f.revenueNok, f.source)
     if (rev != null) {
-      revenueByCompany.set(f.companyId, (revenueByCompany.get(f.companyId) ?? 0) + rev)
+      revenueByCompany.set(f.companyId, rev)
     }
   }
 
@@ -342,10 +349,9 @@ export async function getKonsernFinancials(treeIds: string[]): Promise<KonsernFi
       revenueNok,
     }))
 
-  // Companies without latest year financials
-  const companiesWithLatest = new Set(latestFinancials.map(f => f.companyId))
+  // Companies without any recent financials
   const childrenWithoutLatestFinancial = treeIds
-    .filter(id => !companiesWithLatest.has(id))
+    .filter(id => !latestByCompany.has(id))
     .map(id => ({
       companyId: id,
       companyName: companyNameById.get(id) ?? id,
