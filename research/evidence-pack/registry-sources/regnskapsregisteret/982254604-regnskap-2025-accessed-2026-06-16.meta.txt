@@ -1,0 +1,4 @@
+Endpoint: https://data.brreg.no/regnskapsregisteret/regnskap/982254604
+AccessedAt: 2026-06-16
+SourceClass: registry_snapshot
+SHA256(regnskap.json): 9af052f361c4c40cf392529b7f73e36f235d054b24e51427d22b0df48054d3e5

@@ -1,0 +1,130 @@
+{
+  "probedAt": "2026-06-16",
+  "endpoint": "https://data.brreg.no/regnskapsregisteret/regnskap/{orgnr}",
+  "note": "Driftsinntekter from regnskapstype=SELSKAP (single-entity). For holding/listed parents this understates consolidated group revenue. Mowi reports in EUR (not NOK).",
+  "samples": [
+    {
+      "name": "NorgesGruppen ASA",
+      "orgNr": "819731322",
+      "form": "ASA",
+      "latestYear": 2024,
+      "driftsinntekterNok": 589728000,
+      "driftsresultatNok": -230445000,
+      "type": "holding-parent",
+      "flag": "consolidated ~100bn not in SELSKAP record"
+    },
+    {
+      "name": "Orkla ASA",
+      "orgNr": "910747711",
+      "form": "ASA",
+      "latestYear": 2024,
+      "driftsinntekterNok": 292000000,
+      "driftsresultatNok": -902000000,
+      "type": "holding-parent",
+      "flag": "consolidated in annual report"
+    },
+    {
+      "name": "Coop Norge SA",
+      "orgNr": "936560288",
+      "form": "SA",
+      "latestYear": 2024,
+      "driftsinntekterNok": 62245000000,
+      "driftsresultatNok": 183000000,
+      "type": "operating-entity"
+    },
+    {
+      "name": "Nortura SA",
+      "orgNr": "938752648",
+      "form": "SA",
+      "latestYear": 2024,
+      "driftsinntekterNok": 23881166000,
+      "driftsresultatNok": -101363000,
+      "type": "operating-entity"
+    },
+    {
+      "name": "TINE SA",
+      "orgNr": "947942638",
+      "form": "SA",
+      "latestYear": 2025,
+      "driftsinntekterNok": 24228808000,
+      "driftsresultatNok": 2054282000,
+      "type": "operating-entity",
+      "flag": "2025 already filed"
+    },
+    {
+      "name": "SalMar ASA",
+      "orgNr": "960514718",
+      "form": "ASA",
+      "latestYear": 2024,
+      "driftsinntekterNok": 331000000,
+      "driftsresultatNok": 62000000,
+      "type": "holding-parent"
+    },
+    {
+      "name": "BAMA Gruppen AS",
+      "orgNr": "914224314",
+      "form": "AS",
+      "latestYear": 2024,
+      "driftsinntekterNok": 12863801000,
+      "driftsresultatNok": 23145000,
+      "type": "operating-parent"
+    },
+    {
+      "name": "ASKO Norge AS",
+      "orgNr": "929228723",
+      "form": "AS",
+      "latestYear": 2024,
+      "driftsinntekterNok": 524186809,
+      "driftsresultatNok": 21484744,
+      "type": "AS",
+      "flag": "smaaForetak=true; likely holding/wrong root - operating ASKO is ~50bn"
+    },
+    {
+      "name": "REMA 1000 Norge AS",
+      "orgNr": "982254604",
+      "form": "AS",
+      "latestYear": 2025,
+      "driftsinntekterNok": 5889627000,
+      "driftsresultatNok": 970235000,
+      "type": "franchise-ip-entity"
+    },
+    {
+      "name": "Felleskjøpet Agri SA",
+      "orgNr": "911608103",
+      "form": "SA",
+      "latestYear": 2024,
+      "driftsinntekterNok": 14799766000,
+      "driftsresultatNok": 146376000,
+      "type": "operating-entity"
+    },
+    {
+      "name": "Lerøy Seafood Group ASA",
+      "orgNr": "975350940",
+      "form": "ASA",
+      "latestYear": 2024,
+      "driftsinntekterNok": 403780000,
+      "driftsresultatNok": -388969000,
+      "type": "holding-parent",
+      "flag": "consolidated ~30bn in annual report"
+    },
+    {
+      "name": "Austevoll Seafood ASA",
+      "orgNr": "929975200",
+      "form": "ASA",
+      "latestYear": 2024,
+      "driftsinntekterNok": 2537000,
+      "driftsresultatNok": -51938000,
+      "type": "holding-parent"
+    },
+    {
+      "name": "Mowi ASA",
+      "orgNr": "964118191",
+      "form": "ASA",
+      "latestYear": 2024,
+      "driftsinntekterValue": 1931000000,
+      "reportingCurrency": "EUR",
+      "type": "holding-parent",
+      "flag": "reports in EUR - requires documented FX, importer skips"
+    }
+  ]
+}
