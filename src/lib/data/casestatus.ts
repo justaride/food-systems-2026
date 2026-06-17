@@ -25,6 +25,12 @@ export type CaseAnchor = {
   statuses: CaseStatusWord[]
   maturity: 'kartlagt' | 'delvis' | 'radar'
   summary: string
+  /** JT §7-felt: kort problemformulering i klartekst (én setning). */
+  problem: string
+  /** JT §7-felt: navngitte aktører med rolle og evt. status. Tynt der det er tynt. */
+  stakeholders: string[]
+  /** JT §7-felt: finansierings-/etterspørselsvinkel; ærlig merket «ikke kartlagt» der den mangler. */
+  funding: string
   keyFigures: CaseKeyFigure[]
   blockers: string[]
   notSay: string[]
@@ -34,7 +40,7 @@ export type CaseAnchor = {
   caseAvsjekk: string
 }
 
-export const CASESTATUS_UPDATED = '2026-06-16'
+export const CASESTATUS_UPDATED = '2026-06-17'
 
 export const CASESTATUS_RULE =
   'Intern modenhetsstatus per caseanker, ikke ekstern godkjenning. Alle statusord følger mottaksloggen og claim-lock-tabellen. ' +
@@ -44,6 +50,17 @@ export const caseAnchors: CaseAnchor[] = [
   {
     id: 'kaffe-brasil',
     title: 'Kaffe / Brasil',
+    problem:
+      'Norsk kaffeforsyning er sterkt konsentrert om import fra Brasil (~45–48 %), med kraftig prisøkning og en EUDR-frist (30.12.2026) som tidsvindu.',
+    stakeholders: [
+      'Fuglen — origin-sourcing Minas Gerais (kandidat)',
+      'Nordic Approach — EUDR / farm mapping (kandidat)',
+      'Norsk Kaffeinformasjon (NKI) — dataeier, 84 % dekning',
+      'Joh. Johannson/ICP, Gruten — norske aktører (benchmark)',
+      'Landbruksdirektoratet — EUDR-myndighet (primærkilde)',
+    ],
+    funding:
+      'EUDR-compliance som markedsdriver (frister 30.12.2026 / 30.06.2027; Brasil = standard risk). Ingen egen støtteordning kartlagt.',
     tracks: ['A', 'C'],
     goNoGo: 'Go som import-/EUDR-case (kvantifisert); no-go som relasjonscase uten MOU-dokument.',
     statuses: ['deckklart internt med caveat', 'needs-actor-validation'],
@@ -71,6 +88,16 @@ export const caseAnchors: CaseAnchor[] = [
   {
     id: 'kakao-elfenbenskysten',
     title: 'Kakao / Elfenbenskysten',
+    problem:
+      'Nordisk kakaoeksponering mot Elfenbenskysten går via EU-prosessering og merkevareprogrammer, ikke direkteimport — så sporbarhet på produktnivå er udokumenterbar i åpne kilder.',
+    stakeholders: [
+      'Cargill, ofi, Barry Callebaut, ECOM — EU-prosessorer (locator-dokumentert)',
+      'Fazer, Freia/Marabou, Nidar, Cloetta — nordiske merkevarer (egenrapportert program)',
+      'Conseil du Café-Cacao (CCC) — CI-sporbarhet (primærdokument mangler)',
+      'Miljødirektoratet / Landbruksdirektoratet — EØS/EUDR-status (primærkilde)',
+    ],
+    funding:
+      'EUDR due diligence-plikt som strukturell driver (CI = standard risk; DDS hos EU-førsteledd). Ingen grant-/investeringsvinkel i underlaget.',
     tracks: ['C'],
     goNoGo: 'Go som EUDR-/sporbarhetskontekst med caveat; no-go som relasjonscase uten dokument; direkteimport-vinkel avskrevet.',
     statuses: ['deckklart internt med caveat', 'needs-primary-check'],
@@ -97,6 +124,17 @@ export const caseAnchors: CaseAnchor[] = [
   {
     id: 'valio-finland',
     title: 'Valio / Finland (soyafri fôr-governance)',
+    problem:
+      '«Soyafri ≠ importfri»: Valios soyafrie melkekufôr erstatter soya med rapsmel som selv er stor import — en governance-suksess, ikke selvforsyning.',
+    stakeholders: [
+      'Valio — soyaforbud fra 1.3.2018 (fôrkurv = aktørgate)',
+      'A-Rehu — soyafritt nautafôr / Startti (dokumentert)',
+      'Luke / NESA — selvforsyningstall (primærkilde)',
+      'Ruokavirasto / Tulli (Uljas) — fôr- og tolldata (ikke trukket)',
+      'Denofa, Skretting — norsk kontrast (soya-prosessering/fiskefôr)',
+    ],
+    funding:
+      'Luke/NESA-beredskapsramme (15–20 % supplerende planteprotein) kobler caset til finsk beredskap. Ingen støtteordning angitt — etterspurt av JT.',
     tracks: ['A'],
     goNoGo: 'Go som soyafri governance-case med grasbasert system; no-go for «importfritt fôr».',
     statuses: ['deckklart internt med caveat', 'needs-data'],
@@ -124,6 +162,17 @@ export const caseAnchors: CaseAnchor[] = [
   {
     id: 'distribusjon-adoption',
     title: 'Distribusjon / adoption-gate for norsk frukt og grønt',
+    problem:
+      'Den konsentrerte, vertikalt integrerte dagligvarestrukturen er en C-gate som sirkulære og lokale produkter må passere for å nå forbruker.',
+    stakeholders: [
+      'BAMA — sentral node, >500 000 t/år (claim-lock: node, ikke blokkør)',
+      'Gartnerhallen — produsentledd / avtalepart (vilkår udokumentert)',
+      'Konkurransetilsynet — overtok god handelsskikk 30.04.2026 (myndighet)',
+      'SINTEF, Menon, OFG/Grøntinnsikt — utredninger (primærkilde)',
+      'NFD — tildelingsbrev/føringer til KT',
+    ],
+    funding:
+      'Offentlige innkjøp som alternativ etterspørselskanal er åpen hypotese (P-DIST-2), ikke et kartlagt finansieringsspor.',
     tracks: ['C'],
     goNoGo: 'Go som bred strukturell C-gate; no-go for aktørspesifikke anklager (marginer, blokkering).',
     statuses: ['deckklart internt', 'needs-actor-validation', 'needs-data'],
@@ -156,6 +205,17 @@ export const caseAnchors: CaseAnchor[] = [
   {
     id: 'spillvarme',
     title: 'Spillvarme / drivhus / akvakultur',
+    problem:
+      'Spillvarme kan drive lokal matproduksjon, men flaskehalsen er koblingen varmeeier–matprodusent — «varme uten mottaker».',
+    stakeholders: [
+      'Green Mountain–Hima (Rjukan) — operativt datasenter→ørret (driftstall = aktørgate)',
+      'Regenergy Frövi / Billerud — industriell benchmark',
+      'Wiig / Green Horizon (Klepp) — pilot, ikke i drift',
+      'Enova — prosjektstøtte til Wiig-piloten',
+      'NVE — kost-nytte-krav for datasentre >2 MW',
+    ],
+    funding:
+      'Enova-støtte (Wiig-pilot, 4 MW) er eneste eksplisitte finansieringsspor; NVE-kravet er strukturell ramme, ikke en dokumentert mekanisme.',
     tracks: ['B'],
     goNoGo: 'Go for Hima som operativt internt case med datagap; Frövi som industriell benchmark; resten radar. No-go for nasjonalt TWh-claim.',
     statuses: ['deckklart internt med caveat', 'needs-primary-check', 'needs-data'],
@@ -182,6 +242,17 @@ export const caseAnchors: CaseAnchor[] = [
   {
     id: 'fish-restrastoff',
     title: '100% Fish / marint restråstoff',
+    problem:
+      'Norge utnytter 89 % av marint restråstoff, men mest til lavverdi (fôr/biogass); systemproblemet er verdi, ikke volum.',
+    stakeholders: [
+      'SINTEF / FHF — norsk baseline (primærkilde)',
+      'Nofima — kryssjekk (primærkilde)',
+      'Islands Ocean Cluster / Matís — Island-benchmark (metode = aktørgate)',
+      'Pelagia, Lerøy, Scanbio — norske aktører (aktørgate)',
+      'Statistics Iceland / SSB / Sjømatrådet — statistikk',
+    ],
+    funding:
+      'Ikke kartlagt — eksplisitt etterspurt av JT. Underlaget rammer caset som verdimiks/R-stige, uten finansieringsvinkel.',
     tracks: ['B'],
     goNoGo: 'Go som designbenchmark med claim-lock; no-go som norsk pilotbevis eller bokstavelig «100 %».',
     statuses: ['benchmark-only', 'deckklart internt med caveat', 'needs-data'],
@@ -210,6 +281,17 @@ export const caseAnchors: CaseAnchor[] = [
   {
     id: 'skottland-polen',
     title: 'Skottland (benchmark) / Polen (radar)',
+    problem:
+      'Skottland viser at segregering av sjømat-biprodukter gir 3–7× prispremie, og at governance/kartlegging — ikke teknologi — driver verdiløftet; Polen er radar uten dokumentert case.',
+    stakeholders: [
+      'Zero Waste Scotland / Enscape — biproduktkartlegging (primærkilde, 2019-survey-caveat)',
+      'SBMT / IBioIC — forespørselsbasert datatilgang',
+      'Marine Directorate / Scottish Government — produksjonsstatistikk',
+      'Seafood Scotland / Scottish Ocean Cluster — prosjektarkiv',
+      'GUS / PROM / MIR Gdynia — polsk baseline (watchlist)',
+    ],
+    funding:
+      'Skotsk governance-apparat (ZWS, Circular Economy Strategy 24.03.2026) nevnes som driver, men ingen støtteordning er tallfestet — etterspurt av JT.',
     tracks: ['B'],
     goNoGo: 'Skottland: go som benchmark-kandidat med aktualitetscaveat. Polen: watchlist bekreftet; parkeres som direkte case uten nye primærdata.',
     statuses: ['benchmark-kandidat', 'watchlist', 'needs-data'],
@@ -232,5 +314,65 @@ export const caseAnchors: CaseAnchor[] = [
       'docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md',
     ],
     caseAvsjekk: 'docs/project/analysis/case-avsjekk/avsjekk-07-skottland-polen-2026-06-12.md',
+  },
+  {
+    id: 'for-import-sjomatfor',
+    title: 'Fôr/import — råvaresårbarhet i norsk sjømatfôr',
+    problem:
+      'Norsk laksefôr er over 92 % importavhengig, med konsentrerte forsyningskjeder i geopolitisk, klimatisk og matsikkerhetsmessig sårbare regioner — en systemrisiko strukturen ikke kan vokse ut av.',
+    stakeholders: [
+      'Skretting (Nutreco) — verdens største akvafôrprodusent; «ingen afrikansk fiskeolje 2023–24»',
+      'Mowi Feed — vertikalt integrert, 527 751 t (2023)',
+      'BioMar — soya/palme klassifisert «høyrisiko», forlot Russland 2022',
+      'Cargill / EWOS — sluttet å selge fôr til Russland 2023',
+      'Caramuru, CJ Selecta, Imcopa — dominerende Brasil-soyaleverandører',
+      'Veramaris, Protix, Aker BioMarine, Bellona (Råvareløftet) — nye råvarer',
+    ],
+    funding:
+      'Offentlig støtte til nye råvarer (Finnfjord-mikroalge NOK 93,3 mill.; NordicFeed €10 mill. via NordForsk) og EU-taksonomi/CSRD som compliance-driver. Egen kapitalstrøms-/investeringskartlegging ikke gjort — etterspurt av JT.',
+    tracks: ['A'],
+    goNoGo:
+      'Go som strukturelt importsårbarhets-/A-spor med kildecaveat; no-go for ferske presens-andeler og NGO-estimerte Vest-Afrika-volum som hard fakta.',
+    statuses: ['needs-primary-check', 'needs-data'],
+    maturity: 'delvis',
+    summary:
+      'Norsk lakseoppdrett hviler på et fôr der over 92 % av ingrediensene er importert — fra Brasil (soya), Peru/Chile ' +
+      '(fiskemel/-olje), Vest-Afrika, Russland/Ukraina og andre sårbare regioner. Sammensetningen har gått fra 65 % fiskemel / ' +
+      '24 % fiskeolje (1990) til ~73 % vegetabilsk / ~22 % marint i dag, mens «nye» råvarer (insekt/alger) bare var 0,4 % i 2020. ' +
+      'De største risikoene er konsentrasjon i brasiliansk soya, El Niño-volatilitet i Peru, matsikkerhetskonflikt i Vest-Afrika og ' +
+      'Russland/Ukraina-eksponering på olje. Transformasjonsarbeidet er i gang, men er ikke dimensjonert for den femdoblingen av ' +
+      'lakseproduksjon som er myndighetenes ambisjon. NB: flere kjernetall er historiske (2015/2020) eller NGO-estimater.',
+    keyFigures: [
+      { label: 'Andel av fôringredienser som er importert', value: 'over 92 %', source: 'SINTEF Ocean / Skavang 2024 (Frontiers, doi:10.3389/fmars.2024.1378970)' },
+      { label: 'Fôrsammensetning i dag (mot 65 % fiskemel / 24 % fiskeolje i 1990)', value: '~73 % vegetabilsk / ~22 % marint; 0,4 % «nye» råvarer (2020)', source: 'Mowi Industry Handbook 2023; SINTEF/Frontiers 2024' },
+      { label: 'Soyaproteinkonsentrat; andel av soya fra Brasil', value: '~473 000 t SPC / ~492 mUSD (2024); ~94 % Brasil (2015-data, historisk)', source: 'USDA FAS; The Fish Site; Skretting' },
+      { label: 'Rapsolje fra Russland/Hviterussland (2020); Russland+Ukraina = 53 % global solsikkeolje', value: '~25 %', source: 'SINTEF/Frontiers 2024; FSA UK' },
+      { label: 'Peru-andel av globalt fiskemel; ansjosfall 2023', value: '~30–35 %; ansjos −~70 % (1,3 mt 2023, opp til 4,85 mt 2024)', source: 'IFFO/SeafoodSource; S&P Global («anslagsvis»)' },
+      { label: 'Småpelagisk fisk fra Vest-Afrika til FMFO (2020) — NGO-estimat', value: '123 000–144 000 t', source: '«Blue Empire» Feedback/Greenpeace Africa 2024 («anslagsvis»)' },
+    ],
+    blockers: [
+      'Ferske andeler mangler — Brasil-soya 94 % er 2015-data, rapsolje 25 % er 2020',
+      'Vest-Afrika-volum er NGO-estimater, ikke verifiserte myndighetstall',
+      'Selskapenes egne svar (Skretting/Mowi/BioMar/Cargill) på Blue Empire og 2023–24-innkjøp',
+      'ILUC-effekt og Råvareløftet 0,4 %→25 %-veikart ikke tallfestet',
+    ],
+    notSay: [
+      '«Norsk laks bruker X tonn vestafrikansk fisk» som hard fakta (NGO-estimat/intervall)',
+      '«94 % av soyaen kommer fra Brasil» i presens (2015-data; i dag ~20 % av ingrediensene)',
+      '«25 % av rapsoljen kommer fra Russland nå» (2020-andel; aktørene forlot 2022–23)',
+      '«Avskogingsproblemet er løst» (ProTerra avskogingsfri, men ILUC vedvarer)',
+      '«Guinea-Bissau forbød FMFO-produksjon 2026» som etablert faktum',
+    ],
+    nextActions: [
+      'Oppdatere historiske andeler mot ferskeste USDA FAS / SINTEF-tall',
+      'Verifisere Vest-Afrika-volum mot primærrapporter; merke som estimat',
+      'Hente selskapenes bekreftelser for å skille historisk fra nåværende eksponering',
+      'Tallfeste ILUC og Råvareløftet-veikartet (volum/kapasitet)',
+    ],
+    docRefs: [
+      'research/perpl-17-03/Råvareopprinnelse og globale sårbarheter i nordisk sjømatfôr.md',
+      'research/external/barekraft/SEC-MAT-PROD-03-Blå-Bioøkonomi-Teknisk-Detalj.md',
+    ],
+    caseAvsjekk: 'docs/project/analysis/case-avsjekk/avsjekk-08-for-import-sjomatfor-2026-06-17.md',
   },
 ]

@@ -16,10 +16,11 @@ const ALLOWED_STATUSES = new Set([
 ])
 
 describe('casestatus data', () => {
-  it('has exactly the seven 09.06 case anchors with unique ids', () => {
-    assert.equal(caseAnchors.length, 7)
+  it('has the 09.06 case anchors plus fôr/import, with unique ids', () => {
+    assert.equal(caseAnchors.length, 8)
     const ids = new Set(caseAnchors.map(c => c.id))
-    assert.equal(ids.size, 7)
+    assert.equal(ids.size, 8)
+    assert.ok(ids.has('for-import-sjomatfor'), 'fôr/import anchor must be present')
   })
 
   it('every anchor is complete: status, go/no-go, figures, blockers, ikke-si, neste handling og underlag', () => {
@@ -33,6 +34,10 @@ describe('casestatus data', () => {
       assert.ok(anchor.notSay.length > 0, `${anchor.id} missing ikke-si list`)
       assert.ok(anchor.nextActions.length > 0, `${anchor.id} missing next actions`)
       assert.ok(anchor.docRefs.length > 0, `${anchor.id} missing doc refs`)
+      // JTs §7-felt: oversikten krever problem, stakeholders og finansiering på hvert anker.
+      assert.ok(anchor.problem.length > 20, `${anchor.id} problem too thin`)
+      assert.ok(anchor.stakeholders.length > 0, `${anchor.id} missing stakeholders`)
+      assert.ok(anchor.funding.length > 0, `${anchor.id} missing funding`)
       for (const status of anchor.statuses) {
         assert.ok(ALLOWED_STATUSES.has(status), `${anchor.id} has unknown status word: ${status}`)
       }

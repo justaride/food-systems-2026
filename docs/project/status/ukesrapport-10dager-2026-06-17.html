@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food Systems — 10-dagers rapport · 7.–17. juni 2026</title>
+<meta name="description" content="Pedagogisk arbeids- og funnrapport for Food Systems-prosjektet, perioden 7.–17. juni 2026. Til Cathrine Barth og Jan Thomas Ødegard.">
+<!--
+  ────────────────────────────────────────────────────────────────────────
+  DESIGNNOTAT — Natural State rapport-mal (gjenbrukbar)
+  ────────────────────────────────────────────────────────────────────────
+  Dette er flaggskip-malen for NS-rapporter. Selvstendig .html, ingen
+  eksterne kall (ingen webfonter, script eller bilder utenfra). Print-vennlig.
+
+  TYPOGRAFI
+    Display : "Instrument Serif"  → fallback ui-serif/Georgia
+    Brødtekst: "Instrument Sans"  → fallback system-ui/-apple-system
+    (Fontene lastes IKKE fra nett — rendrer med Instrument hvis installert
+     lokalt, ellers ren systemfallback. Bevisst, for offline-trygghet.)
+
+  PALETT (NS-tokens, jf. brand/ns-tokens.css)
+    Mørk hero : bg #060606 · paper-tekst #f7f6f2
+    Lys body  : bg #f7f6f2 · ink #0b0b0b · muted #565953
+    Aksenter (harmonisert mot de fire sphere-SVG-ene for denne rapporten):
+      grønn  #5CB85C  (Nature / hovedaksent)
+      blå    #38A4D0  (Market)
+      amber  #F5A623  (Human)
+      rød    #D0422A  (Society)
+    Merk: tokens.css og sphere-SVG-ene har litt ulike aksent-hex
+    (grønn 78c840 vs 5CB85C). For denne rapporten er sphere-settet kanonisk;
+    harmoniser til ETT sett i det dedikerte ns-design-repoet.
+
+  TYPESKALA (clamp, responsiv)
+    hero    clamp(2.8rem, 6.5vw, 4.8rem)
+    h2      clamp(1.6rem, 3.2vw, 2.2rem)
+    h3      1.18rem
+    brød    1.0625rem / linjeavstand 1.7
+
+  KOMPONENTER
+    .hero · .toc (sticky) · .summary-grid · .finding (funn-liste m/ sphere)
+    · .metrics (tall-grid) · .method · .decision · .links · .caveats
+    Figurer er inline <svg>, rolige og forklarende (ikke pynt).
+
+  PRINT: hero flater til lyst, TOC skjules, kort brytes ikke over sider.
+  ────────────────────────────────────────────────────────────────────────
+-->
+<style>
+:root{
+  --ns-font-display:"Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --ns-font-sans:"Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --bg:#f7f6f2;
+  --ink:#0b0b0b;
+  --muted:#565953;
+  --faint:#6b6f68;
+  --line:rgba(11,11,11,.11);
+  --line-strong:rgba(11,11,11,.20);
+  --panel:#ffffff;
+  --panel-2:#f0efe9;
+
+  --dark:#060606;
+  --dark-panel:#121211;
+  --paper:#f7f6f2;
+
+  --green:#3f9a47;
+  --green-sphere:#5CB85C;
+  --blue:#2f86ac;
+  --amber:#b97e12;
+  --red:#c0381f;
+
+  --radius-sm:8px;
+  --radius:14px;
+  --radius-lg:22px;
+  --max:1180px;
+  --gutter:clamp(18px,3.5vw,34px);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--ns-font-sans);
+  font-size:17px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,h4{font-family:var(--ns-font-display);font-weight:400;letter-spacing:.1px;line-height:1.1}
+p{margin:0 0 1.05em}
+a{color:var(--green);text-decoration:none;border-bottom:1px solid rgba(63,154,71,.35)}
+a:hover{border-bottom-color:var(--green)}
+:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px;border-radius:4px}
+
+/* ───────── HERO ───────── */
+.hero{
+  background:
+    radial-gradient(ellipse 80% 80% at 95% 15%, rgba(92,184,92,.08), transparent 50%),
+    radial-gradient(ellipse 70% 70% at 5% 90%, rgba(56,164,208,.05), transparent 55%),
+    var(--dark);
+  color:var(--paper);
+  padding:clamp(52px,9vw,108px) var(--gutter) clamp(44px,7vw,84px);
+  border-bottom:1px solid rgba(247,246,242,.10);
+  position:relative;
+  overflow:hidden;
+}
+.hero-art{
+  position:absolute;
+  right:clamp(-120px,-8vw,0px);
+  top:50%;
+  transform:translateY(-50%);
+  width:clamp(260px,34vw,460px);
+  height:clamp(260px,34vw,460px);
+  pointer-events:none;
+}
+.hero-art svg{width:100%;height:100%;display:block}
+.hero-inner{max-width:var(--max);margin:0 auto;position:relative;z-index:1}
+.brand{display:flex;align-items:center;gap:16px;margin-bottom:clamp(40px,8vw,80px)}
+.brand .spheres{display:flex;gap:8px}
+.brand .spheres svg{width:28px;height:28px;display:block}
+.brand .wordmark{font-family:var(--ns-font-display);font-size:1.35rem;letter-spacing:.5px;color:var(--paper)}
+.eyebrow{
+  font-family:var(--ns-font-sans);
+  text-transform:uppercase;letter-spacing:.2em;font-size:.68rem;font-weight:700;
+  color:rgba(247,246,242,.45);margin-bottom:20px;display:block;
+}
+.hero h1{
+  font-size:clamp(2.8rem,6.5vw,4.8rem);
+  margin:0 0 .4em;max-width:14ch;color:var(--paper);
+  letter-spacing:-.5px;
+  line-height:1.06;
+}
+.hero .lede{
+  font-size:clamp(1.05rem,1.9vw,1.28rem);
+  color:rgba(247,246,242,.75);max-width:54ch;margin:0 0 2.4em;line-height:1.62;
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:0;
+  font-size:.87rem;color:rgba(247,246,242,.6);
+  border-top:1px solid rgba(247,246,242,.12);
+  padding-top:22px;
+}
+.hero-meta span{
+  padding-right:22px;margin-right:22px;margin-bottom:6px;
+  border-right:1px solid rgba(247,246,242,.13);
+}
+.hero-meta span:last-child{border-right:none;padding-right:0;margin-right:0}
+.hero-meta b{color:var(--paper);font-weight:600}
+
+/* ───────── LAYOUT ───────── */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.layout{display:grid;grid-template-columns:210px 1fr;gap:clamp(32px,5vw,72px);align-items:start;padding-top:clamp(40px,6vw,64px);padding-bottom:100px}
+.toc{position:sticky;top:28px}
+.toc h2{
+  font-family:var(--ns-font-sans);font-size:.66rem;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--faint);font-weight:700;margin:0 0 0;
+  padding-bottom:10px;border-bottom:1px solid var(--line);
+}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:t}
+.toc li{counter-increment:t;margin:0}
+.toc a{
+  display:block;padding:8px 0 8px 28px;position:relative;
+  color:var(--muted);border:none;
+  font-size:.87rem;line-height:1.4;
+  border-bottom:1px solid var(--line);
+}
+.toc a::before{
+  content:counter(t,decimal-leading-zero);
+  position:absolute;left:0;top:9px;
+  font-size:.68rem;color:var(--faint);
+  font-variant-numeric:tabular-nums;
+}
+.toc li:last-child a{border-bottom:none}
+.toc a:hover{color:var(--ink)}
+.content{min-width:0}
+
+section{scroll-margin-top:28px;padding:clamp(36px,5.5vw,60px) 0;border-top:1px solid var(--line)}
+section:first-child{border-top:none;padding-top:0}
+.sec-num{
+  font-family:var(--ns-font-sans);
+  font-size:.67rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--green);font-weight:700;display:block;margin-bottom:12px;
+}
+section>h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin:0 0 .7em;max-width:24ch;letter-spacing:-.3px}
+section>h2:first-child{margin-top:0}
+.standfirst{font-size:1.07rem;color:var(--muted);max-width:62ch;margin-bottom:1.8em;line-height:1.65}
+h3{font-size:1.18rem;margin:1.8em 0 .5em}
+.content p{max-width:68ch}
+.content ul{max-width:68ch;padding-left:1.1em;margin:0 0 1.2em}
+.content li{margin:.4em 0}
+.lead-in{font-weight:600;color:var(--ink)}
+
+/* ───────── SUMMARY STATS ───────── */
+.summary-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  margin:0 0 40px;
+  padding:32px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.stat{padding:0 32px;border-right:1px solid var(--line)}
+.stat:first-child{padding-left:0}
+.stat:last-child{border-right:none;padding-right:0}
+.stat .n{
+  font-family:var(--ns-font-display);
+  font-size:3.8rem;line-height:1;
+  display:block;margin-bottom:8px;
+  color:var(--ink);letter-spacing:-2px;
+}
+.stat .l{font-size:.87rem;color:var(--muted);line-height:1.45}
+
+/* ───────── KEY FINDINGS ───────── */
+.keyfindings{display:grid;gap:0;margin-top:6px}
+.kf{
+  display:grid;grid-template-columns:52px 1fr;
+  gap:20px;align-items:start;
+  padding:24px 0;
+  border-top:1px solid var(--line);
+}
+.kf:last-child{border-bottom:1px solid var(--line)}
+.kf .dot{width:44px;height:44px;flex:0 0 44px;opacity:.9}
+.kf p{margin:0;max-width:none}
+.kf b{font-family:var(--ns-font-display);font-weight:400;font-size:1.18rem;display:block;margin-bottom:3px}
+
+/* ───────── TIMELINE ───────── */
+.flow{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;margin:1.8em 0 2.2em;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.flow .step{
+  padding:22px 20px 22px 0;
+  border-right:1px solid var(--line);
+  position:relative;overflow:hidden;
+}
+.flow .step:first-child{padding-left:0}
+.flow .step:last-child{border-right:none;padding-right:0}
+.flow .step .k{
+  font-size:.64rem;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--faint);font-weight:700;display:block;margin-bottom:10px;
+}
+.flow .step b{font-family:var(--ns-font-display);font-weight:400;font-size:1.06rem;display:block;margin-bottom:6px;color:var(--ink)}
+.flow .step span.d{font-size:.85rem;color:var(--muted);line-height:1.5;display:block}
+.flow .step .step-n{
+  position:absolute;right:-2px;bottom:-8px;
+  font-family:var(--ns-font-display);
+  font-size:4.5rem;
+  color:rgba(11,11,11,.05);
+  line-height:1;letter-spacing:-2px;
+  pointer-events:none;user-select:none;
+}
+
+/* ───────── FINDING CARDS ───────── */
+.findings{display:grid;gap:0;margin-top:12px}
+.finding{
+  border:none;border-top:1px solid var(--line);
+  border-radius:0;padding:32px 0;
+  box-shadow:none;position:relative;overflow:visible;
+  background:none;
+}
+.finding::before{display:none}
+.finding:last-child{border-bottom:1px solid var(--line)}
+.finding .ftop{display:flex;align-items:flex-start;gap:18px;margin-bottom:14px}
+.finding .ftop svg{width:40px;height:40px;flex:0 0 40px;margin-top:3px;opacity:.88}
+.finding h3{margin:0;font-size:1.32rem;line-height:1.18}
+.finding .what{margin:0 0 .8em;font-size:1.04rem;max-width:72ch}
+.finding .why{margin:0 0 .8em;color:var(--muted);max-width:72ch;font-style:italic}
+
+/* Meta: inline with pipe separators, no pills */
+.meta-row{
+  display:flex;flex-wrap:wrap;gap:0;
+  font-size:.8rem;
+  padding-top:14px;margin-top:6px;
+  border-top:1px solid var(--line);
+}
+.tag{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:2px 14px 2px 0;margin-right:14px;
+  color:var(--muted);
+  background:none;border:none;border-radius:0;
+  border-right:1px solid var(--line);
+  margin-bottom:4px;
+}
+.tag:last-child{border-right:none;padding-right:0;margin-right:0}
+.tag b{color:var(--ink);font-weight:600}
+.tag.src{background:none;border-color:var(--line)}
+
+/* ───────── FIGURES ───────── */
+figure{margin:2em 0;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px 24px 18px}
+figure svg{width:100%;height:auto;display:block}
+figure svg text{font-family:var(--ns-font-sans)}
+figure svg text.disp{font-family:var(--ns-font-display)}
+figcaption{font-size:.84rem;color:var(--faint);margin-top:14px;line-height:1.55;max-width:70ch}
+.fig-title{font-family:var(--ns-font-display);font-size:1.15rem;margin:0 0 2px}
+.fig-sub{font-size:.88rem;color:var(--muted);margin:0 0 18px}
+
+/* ───────── METHOD ───────── */
+.method{background:var(--dark);color:var(--paper);border-radius:var(--radius);padding:clamp(28px,4vw,44px);margin:1.8em 0}
+.method h3{color:var(--paper);margin-top:0;font-size:1.2rem}
+.method p{color:rgba(247,246,242,.78)}
+.method .legend{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+.method .lvl{padding-top:18px;border-top:1px solid rgba(247,246,242,.12)}
+.method .lvl .b{
+  display:flex;align-items:center;gap:10px;
+  font-weight:600;color:var(--paper);margin-bottom:8px;font-size:.95rem;
+}
+.method .lvl .b i{width:10px;height:10px;border-radius:50%;display:inline-block;flex:0 0 10px}
+.method .lvl span{font-size:.86rem;color:rgba(247,246,242,.68);line-height:1.5}
+
+/* ───────── METRICS ───────── */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:.8em 0 2em}
+.metric{
+  padding:24px 20px 24px 0;
+  border-right:1px solid var(--line);
+  background:none;border-bottom:none;border-top:none;border-radius:0;text-align:left;
+}
+.metric:first-child{padding-left:0}
+.metric:nth-child(4n+1){padding-left:0}
+.metric:nth-child(4n){border-right:none}
+.metric:nth-child(n+5){padding-top:24px;border-top:1px solid var(--line)}
+.metric .n{
+  font-family:var(--ns-font-display);
+  font-size:2.5rem;line-height:1;
+  display:block;color:var(--ink);
+  letter-spacing:-.5px;
+}
+.metric .l{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.4}
+
+/* ───────── DECISIONS ───────── */
+.decisions{display:grid;gap:0;margin-top:12px}
+.decision{
+  padding:32px 0;
+  background:none;border:none;border-top:1px solid var(--line);
+  box-shadow:none;border-radius:0;
+}
+.decision:last-child{border-bottom:1px solid var(--line)}
+.decision .dh{display:flex;align-items:baseline;gap:14px;flex-wrap:nowrap;margin-bottom:10px}
+.decision .dh .no{
+  font-family:var(--ns-font-display);
+  font-size:.95rem;color:var(--faint);
+  font-weight:400;flex:0 0 auto;letter-spacing:.02em;
+}
+.decision h3{margin:0;font-size:1.28rem;line-height:1.18}
+.decision .ask{font-weight:600;margin:.6em 0 .3em;font-size:.95rem}
+.decision .rec{
+  display:inline-flex;align-items:center;gap:7px;
+  background:none;border:none;border-radius:0;padding:0;
+  font-size:.75rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;
+  color:var(--green);margin-bottom:.8em;
+}
+.decision .rec::before{content:"→";font-weight:400;letter-spacing:0;font-size:.9rem}
+.decision .conseq{font-size:.9rem;color:var(--muted);border-top:1px solid var(--line);margin-top:16px;padding-top:14px}
+
+/* ───────── LINKS ───────── */
+.linkgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:12px}
+.linkcard{background:none;border:none;border-top:2px solid var(--ink);padding:18px 0 0}
+.linkcard h3{margin:0 0 14px;font-size:1rem;font-family:var(--ns-font-sans);font-weight:700;letter-spacing:.01em;text-transform:uppercase;font-size:.82rem;letter-spacing:.12em;color:var(--faint)}
+.linkcard ul{list-style:none;padding:0;margin:0}
+.linkcard li{padding:7px 0;font-size:.93rem;border-bottom:1px solid var(--line)}
+.linkcard li:last-child{border-bottom:none}
+.linkcard .desc{color:var(--muted);font-size:.84rem}
+
+/* ───────── CAVEATS ───────── */
+.caveats{background:none;border:none;border-radius:0;padding:28px 0;border-top:2px solid var(--amber)}
+.caveats h3{margin-top:0;font-size:1.08rem}
+.caveats ul{margin:0;max-width:72ch;padding-left:0;list-style:none}
+.caveats li{
+  margin:0;padding:9px 0 9px 22px;
+  border-bottom:1px solid var(--line);
+  font-size:.94rem;position:relative;
+}
+.caveats li::before{
+  content:"—";position:absolute;left:0;
+  color:var(--amber);font-family:var(--ns-font-display);
+}
+.caveats li:last-child{border-bottom:none}
+
+/* ───────── NEXT STEPS ───────── */
+.next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:12px}
+.next-col{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+.next-col h3{margin-top:0;font-size:1.05rem}
+.next-col .kicker{font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;font-weight:700;display:block;margin-bottom:5px}
+.next-col.closing{background:rgba(92,184,92,.04);border-color:rgba(63,154,71,.2);border-top:3px solid var(--green-sphere)}
+.next-col.closing .kicker{color:var(--green)}
+.next-col.parked{background:rgba(245,166,35,.04);border-color:rgba(181,126,18,.2);border-top:3px solid var(--amber)}
+.next-col.parked .kicker{color:var(--amber)}
+.next-col.meeting{background:rgba(56,164,208,.04);border-color:rgba(47,134,172,.2);border-top:3px solid var(--blue)}
+.next-col.meeting .kicker{color:var(--blue)}
+
+footer{background:var(--dark);color:rgba(247,246,242,.6);padding:56px var(--gutter);border-top:1px solid rgba(247,246,242,.10)}
+footer .wrap2{max-width:var(--max);margin:0 auto;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-start}
+footer .spheres{display:flex;gap:8px;margin-bottom:16px}
+footer .spheres svg{width:24px;height:24px}
+footer p{margin:0;font-size:.86rem;max-width:54ch;line-height:1.6}
+footer b{color:var(--paper)}
+
+/* ───────── RESPONSIVE ───────── */
+@media (max-width:920px){
+  .layout{grid-template-columns:1fr}
+  .toc{position:static;margin-bottom:10px}
+  .summary-grid{grid-template-columns:repeat(2,1fr)}
+  .summary-grid .stat:nth-child(2){border-right:none;padding-right:0}
+  .summary-grid .stat:nth-child(3){padding-left:0;border-top:1px solid var(--line);padding-top:24px;margin-top:4px;grid-column:1/-1}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .metric:nth-child(4n){border-right:1px solid var(--line)}
+  .metric:nth-child(2n){border-right:none}
+  .metric:nth-child(n+5){border-top:none;padding-top:0}
+  .metric:nth-child(n+3){padding-top:24px;border-top:1px solid var(--line)}
+  .metric:nth-child(odd){padding-left:0;padding-right:16px}
+  .metric:nth-child(even){padding-left:16px;padding-right:0}
+  .metric:nth-child(1),.metric:nth-child(2){border-top:none;padding-top:0}
+  .flow{grid-template-columns:1fr 1fr}
+  .method .legend{grid-template-columns:1fr}
+  .linkgrid,.next-grid{grid-template-columns:1fr}
+  .hero-art{opacity:.5}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .summary-grid{grid-template-columns:1fr;padding:20px 0}
+  .summary-grid .stat{padding:16px 0;border-right:none;border-top:1px solid var(--line)}
+  .summary-grid .stat:first-child{border-top:none;padding-top:0}
+  .summary-grid .stat:nth-child(2){border-right:none}
+  .summary-grid .stat:nth-child(3){grid-column:auto;margin-top:0}
+  .metrics{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr}
+  .flow .step{border-right:none;border-bottom:1px solid var(--line);padding:18px 0}
+  .flow .step:last-child{border-bottom:none}
+  .flow .step .step-n{display:none}
+  .kf{grid-template-columns:1fr}
+  .kf .dot{display:none}
+  .hero-art{display:none}
+}
+
+/* ───────── PRINT ───────── */
+@media print{
+  body{font-size:11pt;background:#fff;color:#000}
+  .hero{background:#fff !important;color:#000;border-bottom:2px solid #000;padding:0 0 18pt}
+  .hero h1,.hero .lede,.brand .wordmark,.hero-meta b{color:#000}
+  .hero .lede,.hero-meta,.eyebrow{color:#222}
+  .hero-art{display:none}
+  .toc{display:none}
+  .layout{display:block;padding-top:14pt}
+  section{border-top:1px solid #bbb;padding:14pt 0;break-inside:avoid}
+  .finding,.decision,figure,.stat,.metric,.kf,.next-col,.linkcard{break-inside:avoid}
+  .method{background:#f2f2f2 !important;color:#000;border:1px solid #999}
+  .method h3,.method p,.method .lvl span,.method .lvl .b{color:#000}
+  footer{background:#fff;color:#333;border-top:2px solid #000}
+  footer b{color:#000}
+  a{color:#000;border-bottom:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<header class="hero">
+  <!-- Background sphere art -->
+  <span class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 300 300" fill="none">
+      <g stroke="rgba(247,246,242,.065)" stroke-width="1">
+        <circle cx="150" cy="150" r="132"/>
+        <ellipse cx="150" cy="150" rx="132" ry="36" transform="rotate(0 150 150)"/>
+        <ellipse cx="150" cy="150" rx="36" ry="132" transform="rotate(0 150 150)"/>
+        <ellipse cx="150" cy="150" rx="132" ry="36" transform="rotate(30 150 150)"/>
+        <ellipse cx="150" cy="150" rx="36" ry="132" transform="rotate(30 150 150)"/>
+        <ellipse cx="150" cy="150" rx="132" ry="36" transform="rotate(60 150 150)"/>
+        <ellipse cx="150" cy="150" rx="36" ry="132" transform="rotate(60 150 150)"/>
+        <ellipse cx="150" cy="150" rx="132" ry="36" transform="rotate(90 150 150)"/>
+        <ellipse cx="150" cy="150" rx="132" ry="36" transform="rotate(120 150 150)"/>
+        <ellipse cx="150" cy="150" rx="36" ry="132" transform="rotate(120 150 150)"/>
+        <ellipse cx="150" cy="150" rx="132" ry="36" transform="rotate(150 150 150)"/>
+      </g>
+      <g stroke="rgba(92,184,92,.05)" stroke-width=".8">
+        <circle cx="150" cy="150" r="100"/>
+        <circle cx="150" cy="150" r="68"/>
+      </g>
+    </svg>
+  </span>
+
+  <div class="hero-inner">
+    <div class="brand">
+      <span class="spheres" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none"><g stroke="#F5A623" stroke-width="2" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="8" ry="42"/><ellipse cx="50" cy="50" rx="8" ry="42" transform="rotate(45 50 50)"/><ellipse cx="50" cy="50" rx="8" ry="42" transform="rotate(90 50 50)"/><ellipse cx="50" cy="50" rx="8" ry="42" transform="rotate(135 50 50)"/></g></svg>
+        <svg viewBox="0 0 100 100" fill="none"><g stroke="#D0422A" stroke-width="2" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="8"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(45 50 50)"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(90 50 50)"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(135 50 50)"/></g></svg>
+        <svg viewBox="0 0 100 100" fill="none"><g stroke="#5CB85C" stroke-width="2" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(30 50 50)"/><ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(60 50 50)"/><ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(60 50 50)"/><ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(120 50 50)"/></g></svg>
+        <svg viewBox="0 0 100 100" fill="none"><g stroke="#38A4D0" stroke-width="2" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(-30 50 50)"/><ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(0 50 50)"/><ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(0 50 50)"/><ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(60 50 50)"/></g></svg>
+      </span>
+      <span class="wordmark">Natural State</span>
+    </div>
+
+    <span class="eyebrow">Food Systems · Arbeids- og funnrapport</span>
+    <h1>Ti dager fra notat til publisert kunnskap</h1>
+    <p class="lede">En oversikt over hva vi gjorde, hvorfor det er solid, og hva vi fant — i perioden 7.–17. juni 2026. Skrevet for å leses på 5–10 minutter, uten teknisk språk.</p>
+    <div class="hero-meta">
+      <span><b>Periode</b> · 7.–17. juni 2026</span>
+      <span><b>Til</b> · Cathrine Barth &amp; Jan Thomas Ødegard</span>
+      <span><b>Plattform</b> · food-systems.naturalstateproject.com</span>
+      <span><b>Status</b> · Hovedfunn siterbare med forbehold</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="layout">
+
+  <!-- ══════════════ STICKY TOC ══════════════ -->
+  <nav class="toc" aria-label="Innholdsfortegnelse">
+    <h2>Innhold</h2>
+    <ol>
+      <li><a href="#sammendrag">Sammendrag</a></li>
+      <li><a href="#klartekst">Hva vi gjorde — i klartekst</a></li>
+      <li><a href="#uttak">De viktigste uttakene</a></li>
+      <li><a href="#kilder">Slik jobbet vi med kilder</a></li>
+      <li><a href="#omfang">Omfang i tall</a></li>
+      <li><a href="#beslutninger">Beslutningssaker til møtet</a></li>
+      <li><a href="#innhold">Hvor innholdet ligger</a></li>
+      <li><a href="#gjenstaar">Hva som gjenstår</a></li>
+      <li><a href="#forbehold">Forbehold &amp; ærlighet</a></li>
+    </ol>
+  </nav>
+
+  <main class="content">
+
+  <!-- 1 — SAMMENDRAG -->
+  <section id="sammendrag">
+    <span class="sec-num">Sammendrag</span>
+    <h2>Det viktigste på én skjerm</h2>
+    <p class="standfirst">På ti dager gikk prosjektet fra funn i interne notater til funn som er synlige, illustrerte, forklart og publisert — og fra «venter på den siste datakjøringen» til et maktkart som kan brukes utad, så lenge forbeholdene følger med.</p>
+
+    <div class="summary-grid">
+      <div class="stat"><span class="n">16</span><span class="l">grundige kildesøk på 10 ulike tema</span></div>
+      <div class="stat"><span class="n">6</span><span class="l">tall hentet rett fra offisiell statistikk</span></div>
+      <div class="stat"><span class="n">4</span><span class="l">land dekket med offentlig statistikk</span></div>
+    </div>
+
+    <div class="keyfindings">
+      <div class="kf">
+        <svg class="dot" viewBox="0 0 100 100" fill="none" aria-hidden="true"><g stroke="#5CB85C" stroke-width="3" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(45 50 50)"/><ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(45 50 50)"/></g></svg>
+        <p><b>Makten ligger oppstrøms.</b> Den sterkeste markedskonsentrasjonen er ikke i butikkene, men i foredlingen — og særlig i de bondeeide samvirkene (meieri, egg, kjøtt). Tiltak som bare retter seg mot butikkleddet treffer ikke der konsentrasjonen er størst.</p>
+      </div>
+      <div class="kf">
+        <svg class="dot" viewBox="0 0 100 100" fill="none" aria-hidden="true"><g stroke="#38A4D0" stroke-width="3" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="14"/><ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(30 50 50)"/></g></svg>
+        <p><b>To motstrømmer mot Brasil.</b> Vi henter hoveddelen av soyaen til dyrefôr fra Brasil og sender klippfisk (bacalhau) tilbake — to motgående strømmer i samme handelsakse. Tallene er nå hentet rett fra Statistisk sentralbyrå.</p>
+      </div>
+      <div class="kf">
+        <svg class="dot" viewBox="0 0 100 100" fill="none" aria-hidden="true"><g stroke="#F5A623" stroke-width="3" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="8" ry="42"/><ellipse cx="50" cy="50" rx="8" ry="42" transform="rotate(60 50 50)"/><ellipse cx="50" cy="50" rx="8" ry="42" transform="rotate(120 50 50)"/></g></svg>
+        <p><b>Næring: stort potensial, knapt målt.</b> Det teoretiske potensialet for å gjenvinne næringsstoffer er stort, men svært lite gjenvinnes faktisk — og det måles ikke engang nasjonalt. Selve gapet mellom mulighet og praksis er funnet.</p>
+      </div>
+      <div class="kf">
+        <svg class="dot" viewBox="0 0 100 100" fill="none" aria-hidden="true"><g stroke="#D0422A" stroke-width="3" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(20 50 50)"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(70 50 50)"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(120 50 50)"/></g></svg>
+        <p><b>Et annet styringsmål, ikke et etterslep.</b> Norge «ligger ikke bak» København på økologisk mat i offentlige måltider — Norge har bevisst valgt et annet mål: kjøttreduksjon, mindre matsvinn og mer plantebasert.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 — KLARTEKST -->
+  <section id="klartekst">
+    <span class="sec-num">Hva vi gjorde</span>
+    <h2>Ti dager, i klartekst</h2>
+    <p class="standfirst">Arbeidet fulgte en tydelig bue: vi spisset hva prosjektet skal handle om, gikk grundig til kildene, kvalitetssikret hvert tall, og publiserte resultatene på plattformen.</p>
+
+    <div class="flow">
+      <div class="step"><span class="k">Først</span><b>Spissing</b><span class="d">Fra «hele matsystemet» til noen få konkrete verdikjeder vi faktisk kan noe om.</span><span class="step-n" aria-hidden="true">01</span></div>
+      <div class="step"><span class="k">Så</span><b>Kildesøk</b><span class="d">16 grundige søk på 10 tema, med tall hentet rett fra offisiell statistikk.</span><span class="step-n" aria-hidden="true">02</span></div>
+      <div class="step"><span class="k">Deretter</span><b>Kvalitetssikring</b><span class="d">Hvert tall fikk kilde, år og en ærlig merknad om hva det ikke viser.</span><span class="step-n" aria-hidden="true">03</span></div>
+      <div class="step"><span class="k">Til slutt</span><b>Publisering</b><span class="d">Funnene illustrert, forklart og lagt ut live — og verifisert at de fungerer.</span><span class="step-n" aria-hidden="true">04</span></div>
+    </div>
+
+    <h3>Vi spisset hva prosjektet skal handle om</h3>
+    <p>I møtet 9. juni var hovedbudskapet tydelig: vi skal ikke late som vi kan alt om mat, men bygge på det vi faktisk kan noe om. Den uken oversatte vi det til praksis — vi gikk fra en bred ambisjon til <span class="lead-in">syv konkrete kunnskapsankre</span> (blant annet fôr- og soyaimport, marint restråstoff, matsvinnkvalitet og marked/distribusjon), hver med en kvantifisert gjennomgang som skiller det vi vet sikkert fra det som må undersøkes videre.</p>
+
+    <h3>Vi gikk grundig til kildene — to runder</h3>
+    <p>Vi gjennomførte to runder med grundige kildesøk og hentet deretter de viktigste tallene rett fra de offisielle statistikkbyråene. <span class="lead-in">Tre felt ble løftet til offisielt kildenivå</span> — handelen mellom Norge og Brasil, dansk gjødselforbruk, og energimiksen i nederlandsk veksthusproduksjon. <span class="lead-in">To hull ble bekreftet og presisert</span> (hvor mye næring som faktisk gjenvinnes, og den norske andelen økologisk i offentlige innkjøp), og <span class="lead-in">ett rettslig spørsmål ble avklart</span> (statusen til den danske klimaavgiften på landbruk).</p>
+    <p>En tredje, kortere runde lukket få nye tall, men gjorde noe viktigere: den <span class="lead-in">korrigerte en tidligere overdrivelse</span>. Et tilsynelatende fall i Brasils andel av soyaimporten i 2025 viste seg trolig å være støy fra foreløpig statistikk — ikke en reell vending — og vi rettet formuleringen i både whitepaper, kvalitetskontroll og figur. Det illustrerer hvordan apparatet er ment å virke: nye funn kan korrigere gamle, og vi noterer det åpent.</p>
+
+    <h3>Vi løftet maktkartet og rettet en publiseringsfeil</h3>
+    <p>Parallelt ble prosjektets «maktkart» — oversikten over hvem som eier og kontrollerer hva i norsk matsystem — løftet fra «klar med forbehold» til <span class="lead-in">siterbart med fotnote</span>. Eierandelene i de sporede konsernene ble bekreftet mot selskapenes egne offentlige rapporter, og en uavhengig kontroll mot Brønnøysundregistrene (over 250 navn og roller) viste at avvikene var kosmetiske og ikke påvirker bildet. Vi oppdaget også at eierskap-siden hadde krasjet for besøkende, rettet feilen, og bekreftet at siden fungerer igjen.</p>
+  </section>
+
+  <!-- 3 — UTTAK -->
+  <section id="uttak">
+    <span class="sec-num">De viktigste uttakene</span>
+    <h2>Sju funn det er verdt å merke seg</h2>
+    <p class="standfirst">Hvert funn er forankret i en navngitt offentlig kilde med år og en ærlig merknad. Fargen på sfæren følger Natural States fire sfærer.</p>
+
+    <div class="findings">
+
+      <article class="finding f-green">
+        <div class="ftop">
+          <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><g stroke="#5CB85C" stroke-width="2.5" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(45 50 50)"/><ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(45 50 50)"/></g></svg>
+          <h3>Makten ligger oppstrøms — i foredlingen</h3>
+        </div>
+        <p class="what">Måler vi konsentrasjon ledd for ledd med det målet konkurransemyndigheter bruker, er den høyest i foredling: meieri og egg ligger klart over butikkleddet, og de tre tyngste leddene er alle bondeeide samvirker.</p>
+        <p class="why">Det betyr at tiltak rettet bare mot dagligvarekjedene ikke treffer der konsentrasjonen faktisk er størst.</p>
+        <div class="meta-row">
+          <span class="tag src">Kilde: <b>Konkurransetilsynet (2024) + selskapenes årsrapporter</b></span>
+          <span class="tag">Sikkerhet: <b>Siterbart med forbehold</b></span>
+          <span class="tag">Vises på: <b>/innsikt · /eierskap · /sammenligning</b></span>
+        </div>
+      </article>
+
+      <article class="finding f-blue">
+        <div class="ftop">
+          <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><g stroke="#38A4D0" stroke-width="2.5" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="14"/><ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(30 50 50)"/></g></svg>
+          <h3>Norge–Brasil: to motstrømmer i samme akse</h3>
+        </div>
+        <p class="what">Brasil er hovedopprinnelsen for soyabønnene vi bruker til fôr (om lag 60–80 % av volumet i perioden 2015–2024), og Norge sender klippfisk og bacalhau tilbake til Brasil. Tallene er nå hentet rett fra Statistisk sentralbyrå.</p>
+        <p class="why">Det knytter norsk matberedskap til en global verdikjede — og gjør importert fôr til en sentral del av selvforsyningsbildet.</p>
+        <div class="meta-row">
+          <span class="tag src">Kilde: <b>SSB tabell 08801 (2015–2024); Denofa; Felleskjøpet</b></span>
+          <span class="tag">Merk: <b>2025 er foreløpige tall</b></span>
+          <span class="tag">Vises på: <b>/verdikjede</b></span>
+        </div>
+      </article>
+
+      <article class="finding f-amber">
+        <div class="ftop">
+          <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><g stroke="#F5A623" stroke-width="2.5" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="8" ry="42"/><ellipse cx="50" cy="50" rx="8" ry="42" transform="rotate(60 50 50)"/><ellipse cx="50" cy="50" rx="8" ry="42" transform="rotate(120 50 50)"/></g></svg>
+          <h3>Næring: stort potensial, knapt målt</h3>
+        </div>
+        <p class="what">Det er et stort teoretisk potensial for å gjenvinne næringsstoffer fra avløp og oppdrett, men det som faktisk gjenvinnes er svært lite — og det finnes ikke noe nasjonalt regnskap for det. Det mest åpne nordiske anlegget gjenvant i 2024 under halvannet tonn produkt totalt.</p>
+        <p class="why">Selve avstanden mellom dokumentert potensial og realisert gjenvinning er mulighetsrommet — det er der et omstillingsarbeid faktisk kan flytte noe.</p>
+        <div class="meta-row">
+          <span class="tag src">Kilde: <b>SINTEF; NIBIO; RecoLab/NSVA Miljörapport 2024</b></span>
+          <span class="tag">Sikkerhet: <b>Hull bekreftet og presisert</b></span>
+          <span class="tag">Vises på: <b>/sirkularitet + hvitbok</b></span>
+        </div>
+      </article>
+
+      <article class="finding f-red">
+        <div class="ftop">
+          <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><g stroke="#D0422A" stroke-width="2.5" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(20 50 50)"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(70 50 50)"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(120 50 50)"/></g></svg>
+          <h3>Offentlig innkjøp: et annet styringsmål</h3>
+        </div>
+        <p class="what">København når svært høy økologisk andel i offentlige måltider — men gjennom menyomlegging og kjøkkenfag, ikke gjennom innkjøpsparagrafer alene. Norge har bevisst flyttet styringsmålet bort fra økologisk andel, til kjøttreduksjon, mindre matsvinn og mer plantebasert.</p>
+        <p class="why">Den nyttige lærdommen fra København er <em>mekanismen</em> (kjøkkenfag og menyomlegging), som er overførbar uansett hva målet heter — ikke sertifiseringsandelen i seg selv.</p>
+        <div class="meta-row">
+          <span class="tag src">Kilde: <b>Oslo matplan (2023); danske primærkilder</b></span>
+          <span class="tag">Sikkerhet: <b>Mekanisme klar; effekt må bekreftes</b></span>
+          <span class="tag">Vises på: <b>hvitbok kap. 3</b></span>
+        </div>
+      </article>
+
+      <article class="finding f-blue">
+        <div class="ftop">
+          <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><g stroke="#38A4D0" stroke-width="2.5" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(-20 50 50)"/><ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(20 50 50)"/><ellipse cx="50" cy="50" rx="14" ry="42"/></g></svg>
+          <h3>Nederland: lær koblingen, ikke modellen</h3>
+        </div>
+        <p class="what">Nederlandsk veksthusproduksjon er ofte løftet som et sirkulært forbilde, men tallene viser en gass-drevet gjennomstrømningsmodell: fornybarandelen var bare drøyt 15 % i 2024, lavere enn det nasjonale snittet, og sektoren er en netto eksportør av strøm.</p>
+        <p class="why">Det som er nordisk-relevant er <em>koblingsmekanismen</em> — hvordan varme, CO₂ og reststrømmer bindes sammen i tette klynger — ikke selve modellen eller intensiteten.</p>
+        <div class="meta-row">
+          <span class="tag src">Kilde: <b>WUR Energiemonitor glastuinbouw 2024</b></span>
+          <span class="tag">Sikkerhet: <b>Sammenligningseksempel med forbehold</b></span>
+          <span class="tag">Vises på: <b>hvitbok kap. 3</b></span>
+        </div>
+      </article>
+
+      <article class="finding f-red">
+        <div class="ftop">
+          <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><g stroke="#D0422A" stroke-width="2.5" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(45 50 50)"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(90 50 50)"/></g></svg>
+          <h3>Dansk klimaavgift: avtalt, ikke vedtatt</h3>
+        </div>
+        <p class="what">Danmark har <em>avtalt</em> en klimaavgift på landbruk politisk, men den er ennå ikke vedtatt som lov, og virkningen kommer først fra 2030. Det er ingen lovpålagt reduksjon av dyrebestanden.</p>
+        <p class="why">Dette må sies presist: «Danmark har avtalt en avgift med virkning fra 2030» — ikke «Danmark har en avgift nå».</p>
+        <div class="meta-row">
+          <span class="tag src">Kilde: <b>Dansk politisk avtale (Green Tripartite), juni 2024</b></span>
+          <span class="tag">Sikkerhet: <b>Rettsstatus avklart</b></span>
+          <span class="tag">Vises på: <b>kvalitetskontroll / hvitbok</b></span>
+        </div>
+      </article>
+
+      <article class="finding f-green">
+        <div class="ftop">
+          <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><g stroke="#5CB85C" stroke-width="2.5" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="8" ry="42" transform="rotate(20 50 50)"/><ellipse cx="50" cy="50" rx="8" ry="42" transform="rotate(80 50 50)"/><ellipse cx="50" cy="50" rx="8" ry="42" transform="rotate(140 50 50)"/></g></svg>
+          <h3>Selve kildearbeidet er et funn</h3>
+        </div>
+        <p class="what">Hver påstand vi vil bruke utad er knyttet til en navngitt offentlig kilde, med år og en ærlig merknad om hva tallet ikke viser. Vi skiller systematisk mellom det vi vet sikkert, det som må dobbeltsjekkes, og det vi ikke påstår ennå.</p>
+        <p class="why">Det gjør arbeidet etterprøvbart — og det er nettopp denne disiplinen som gjør at funnene tåler å bli sitert.</p>
+        <div class="meta-row">
+          <span class="tag src">Kilde: <b>Prosjektets kvalitetskontroll</b></span>
+          <span class="tag">Sikkerhet: <b>Gjennomgående praksis</b></span>
+          <span class="tag">Vises på: <b>Neste avsnitt</b></span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- FIGURE: konsentrasjonsprofil -->
+    <figure aria-label="Figur: konsentrasjon ledd for ledd">
+      <p class="fig-title">Konsentrasjonen topper i foredlingen</p>
+      <p class="fig-sub">Mål på hvor få aktører som dominerer markedet, ledd for ledd. Høyere søyle = mer konsentrert. De tre tyngste leddene er bondeeide samvirker.</p>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Søylediagram: meieri rundt 6000, egg 5500 til 6800, rødt kjøtt 4600, dagligvare 3327, havbruk 950">
+        <!-- gridlines -->
+        <g stroke="#d8d7d0" stroke-width="1">
+          <line x1="190" y1="20" x2="190" y2="260"/>
+          <line x1="190" y1="260" x2="740" y2="260"/>
+        </g>
+        <g font-family="var(--ns-font-sans)" font-size="11" fill="#6b6f68">
+          <text x="186" y="24" text-anchor="end">7000</text>
+          <text x="186" y="144" text-anchor="end">3500</text>
+          <text x="186" y="264" text-anchor="end">0</text>
+        </g>
+        <!-- reference line for "høyt konsentrert" ~2500 -->
+        <line x1="190" y1="174" x2="740" y2="174" stroke="#b97e12" stroke-width="1" stroke-dasharray="5 4"/>
+        <text x="736" y="168" text-anchor="end" font-family="var(--ns-font-sans)" font-size="10.5" fill="#b97e12">Terskel for «høyt konsentrert»</text>
+        <!-- bars: scale 240px = 7000 → 0.03429 px per unit -->
+        <g>
+          <!-- Meieri 6000 -->
+          <rect x="210" y="54" width="78" height="206" rx="4" fill="#5CB85C"/>
+          <text x="249" y="48" text-anchor="middle" font-family="var(--ns-font-sans)" font-size="12" font-weight="700" fill="#0b0b0b">~6000</text>
+          <!-- Egg 6150 (midt i 5500-6800) -->
+          <rect x="318" y="49" width="78" height="211" rx="4" fill="#5CB85C"/>
+          <text x="357" y="43" text-anchor="middle" font-family="var(--ns-font-sans)" font-size="12" font-weight="700" fill="#0b0b0b">5500–6800</text>
+          <!-- Rødt kjøtt 4600 -->
+          <rect x="426" y="102" width="78" height="158" rx="4" fill="#5CB85C"/>
+          <text x="465" y="96" text-anchor="middle" font-family="var(--ns-font-sans)" font-size="12" font-weight="700" fill="#0b0b0b">~4600</text>
+          <!-- Dagligvare 3327 -->
+          <rect x="534" y="146" width="78" height="114" rx="4" fill="#9aa0a0"/>
+          <text x="573" y="140" text-anchor="middle" font-family="var(--ns-font-sans)" font-size="12" font-weight="700" fill="#0b0b0b">3327</text>
+          <!-- Havbruk 950 -->
+          <rect x="642" y="227" width="78" height="33" rx="4" fill="#cdd0cf"/>
+          <text x="681" y="221" text-anchor="middle" font-family="var(--ns-font-sans)" font-size="12" font-weight="700" fill="#0b0b0b">~950</text>
+        </g>
+        <g font-size="11.5" fill="#565953" text-anchor="middle">
+          <text x="249" y="278" fill="#565953">Meieri</text>
+          <text x="357" y="278" fill="#565953">Egg</text>
+          <text x="465" y="278" fill="#565953">Rødt kjøtt</text>
+          <text x="573" y="278" fill="#565953">Dagligvare</text>
+          <text x="681" y="278" fill="#565953">Havbruk</text>
+        </g>
+      </svg>
+      <figcaption>Meieri, egg og rødt kjøtt (alle samvirker) er klart mer konsentrert enn butikkleddet. Havbruk er det minst konsentrerte leddet. «Konsentrasjon» betyr her strukturell posisjon i data — ikke en påstand om ulovlig samordning. Kilde: Konkurransetilsynets omsetningstall 2024 (dagligvare, CR3 96,6 %) og prosjektets beregninger.</figcaption>
+    </figure>
+
+    <!-- FIGURE: handelsakse -->
+    <figure aria-label="Figur: handelsaksen Norge–Brasil">
+      <p class="fig-title">To motstrømmer mot Brasil</p>
+      <p class="fig-sub">Soya til fôr inn, klippfisk ut — i samme handelsakse.</p>
+      <svg viewBox="0 0 760 220" role="img" aria-label="Diagram: Norge og Brasil med to motgående piler — soya fra Brasil til Norge, klippfisk fra Norge til Brasil">
+        <!-- nodes -->
+        <rect x="40" y="78" width="170" height="64" rx="14" fill="#121211"/>
+        <text x="125" y="116" text-anchor="middle" class="disp" font-size="22" fill="#f7f6f2">Norge</text>
+        <rect x="550" y="78" width="170" height="64" rx="14" fill="#121211"/>
+        <text x="635" y="116" text-anchor="middle" class="disp" font-size="22" fill="#f7f6f2">Brasil</text>
+        <!-- arrow Brazil -> Norway (soya), top -->
+        <line x1="548" y1="92" x2="216" y2="92" stroke="#3f9a47" stroke-width="3"/>
+        <polygon points="212,92 226,86 226,98" fill="#3f9a47"/>
+        <text x="382" y="78" text-anchor="middle" font-family="var(--ns-font-sans)" font-size="13" font-weight="700" fill="#0b0b0b">Soyabønner til fôr</text>
+        <text x="382" y="62" text-anchor="middle" font-family="var(--ns-font-sans)" font-size="11.5" fill="#565953">~60–80 % av volumet (2015–2024)</text>
+        <!-- arrow Norway -> Brazil (klippfisk), bottom -->
+        <line x1="212" y1="128" x2="544" y2="128" stroke="#2f86ac" stroke-width="3"/>
+        <polygon points="548,128 534,122 534,134" fill="#2f86ac"/>
+        <text x="382" y="150" text-anchor="middle" font-family="var(--ns-font-sans)" font-size="13" font-weight="700" fill="#0b0b0b">Klippfisk / bacalhau</text>
+        <text x="382" y="166" text-anchor="middle" font-family="var(--ns-font-sans)" font-size="11.5" fill="#565953">Brasil er et av de største enkeltmarkedene</text>
+      </svg>
+      <figcaption>Kilde: SSB tabell 08801, serie 2015–2024 (2025 foreløpig). Brasil leverer også til andre opprinnelsesland (USA, Canada, Polen) — Norge importerer altså ikke bare brasiliansk soya.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 4 — KILDER -->
+  <section id="kilder">
+    <span class="sec-num">Slik jobbet vi med kilder</span>
+    <h2>Hvorfor tallene tåler å bli sitert</h2>
+    <p class="standfirst">Dette er den pedagogiske kjernen. Vi har lagt mye energi i å gjøre arbeidet etterprøvbart — slik at den som leser kan stole på skillet mellom det vi vet, det vi tror, og det vi ennå ikke kan si.</p>
+
+    <p>Hvert tall vi bruker bærer tre ting: en <span class="lead-in">navngitt offentlig kilde</span>, et <span class="lead-in">årstall</span>, og en <span class="lead-in">ærlig merknad</span> om hva tallet ikke viser. Når vi sammenligner land, passer vi på at tallene faktisk er sammenlignbare. Og når vi mangler sikre tall, skriver vi «her mangler vi fortsatt sikre tall» i stedet for å gjette.</p>
+
+    <div class="method">
+      <h3>Tre nivåer av «hvor klart»</h3>
+      <p>Vi merker hvert funn med hvor trygt det er å bruke. Det er denne taksonomien som gjør at vi kan dele noe utad uten å overdrive.</p>
+      <div class="legend">
+        <div class="lvl">
+          <span class="b"><i style="background:#5CB85C"></i>Klart med forbehold</span>
+          <span>Kan brukes utad så lenge merknadene følger med. Hovedfunnet om konsentrasjon ligger her.</span>
+        </div>
+        <div class="lvl">
+          <span class="b"><i style="background:#F5A623"></i>Internt solid</span>
+          <span>Godt nok for våre egne vurderinger, men ikke klart for ekstern bruk ennå.</span>
+        </div>
+        <div class="lvl">
+          <span class="b"><i style="background:#D0422A"></i>Mangler data</span>
+          <span>Vi sier det rett ut i stedet for å fylle hullet med gjetning.</span>
+        </div>
+      </div>
+    </div>
+
+    <p>Et konkret eksempel på disiplinen i praksis: i den siste runden oppdaget vi at vi tidligere hadde lest et fall i Brasils soyaandel i 2025 som om det var en reell vending. Da vi sjekket mot selskapenes egne kilder, var det ingen tegn til at noen hadde flyttet kjøpene bort fra Brasil — fallet var trolig bare støy fra foreløpig statistikk. Vi rettet formuleringen samme dag, i alle dokumentene den fantes. Det er slik kvalitetskontrollen er ment å virke: den fanger våre egne overdrivelser, ikke bare andres.</p>
+  </section>
+
+  <!-- 5 — OMFANG -->
+  <section id="omfang">
+    <span class="sec-num">Omfang i tall</span>
+    <h2>Grundigheten, tallfestet</h2>
+    <p class="standfirst">Tallene under viser omfanget og grundigheten i arbeidet — ikke som teknisk statistikk, men som et bilde av hvor mye som faktisk ble gjort og kontrollert.</p>
+
+    <div class="metrics">
+      <div class="metric m-green"><span class="n">16</span><span class="l">grundige kildesøk på 10 ulike tema</span></div>
+      <div class="metric"><span class="n">6</span><span class="l">tall hentet rett fra offisiell statistikk</span></div>
+      <div class="metric m-amber"><span class="n">4</span><span class="l">land dekket (Norge, Sverige, Danmark, Nederland)</span></div>
+      <div class="metric m-red"><span class="n">3</span><span class="l">nye figurer bygget, flere oppdatert — alt publisert live</span></div>
+      <div class="metric"><span class="n">568</span><span class="l">interne kvalitetssjekker kjører grønt</span></div>
+      <div class="metric m-green"><span class="n">2</span><span class="l">leveranser lagt ut i drift og verifisert</span></div>
+      <div class="metric m-amber"><span class="n">14</span><span class="l">konserner kartlagt, med 161 datterselskap</span></div>
+      <div class="metric m-red"><span class="n">250+</span><span class="l">navn og roller kontrollert mot Brønnøysund</span></div>
+    </div>
+
+    <p>Noen verifiserte enkelttall som illustrerer dybden: Brasil sto for om lag 70 % av norsk soyaimport-volum (2015–2024); nordisk forbruk av mineralgjødsel er stort og dominert av nitrogen.</p>
+
+    <!-- FIGURE: mineralgjødsel -->
+    <figure aria-label="Figur: nordisk forbruk av mineralnitrogen">
+      <p class="fig-title">Nordisk forbruk av mineralnitrogen</p>
+      <p class="fig-sub">Hvor mye nitrogen-gjødsel som brukes — referansen for hvor mye gjenvunnet næring eventuelt måtte erstatte. Tonn nitrogen, siste tilgjengelige gjødselår.</p>
+      <svg viewBox="0 0 760 220" role="img" aria-label="Søylediagram: Norge 91646 tonn, Sverige 219100 tonn, Danmark 238846 tonn nitrogen">
+        <g stroke="#d8d7d0" stroke-width="1"><line x1="150" y1="20" x2="150" y2="180"/><line x1="150" y1="180" x2="740" y2="180"/></g>
+        <!-- scale: 250000 over 460px width; bars horizontal -->
+        <!-- Norge 91646 -> 169px -->
+        <rect x="150" y="40" width="169" height="34" rx="4" fill="#5CB85C"/>
+        <text x="142" y="62" text-anchor="end" font-family="var(--ns-font-sans)" font-size="12.5" fill="#565953">Norge</text>
+        <text x="329" y="62" font-family="var(--ns-font-sans)" font-size="12.5" font-weight="700" fill="#0b0b0b">91 646 t</text>
+        <!-- Sverige 219100 -> 403px -->
+        <rect x="150" y="88" width="403" height="34" rx="4" fill="#3f9a47"/>
+        <text x="142" y="110" text-anchor="end" font-family="var(--ns-font-sans)" font-size="12.5" fill="#565953">Sverige</text>
+        <text x="563" y="110" font-family="var(--ns-font-sans)" font-size="12.5" font-weight="700" fill="#0b0b0b">219 100 t</text>
+        <!-- Danmark 238846 -> 439px -->
+        <rect x="150" y="136" width="439" height="34" rx="4" fill="#2f6b34"/>
+        <text x="142" y="158" text-anchor="end" font-family="var(--ns-font-sans)" font-size="12.5" fill="#565953">Danmark</text>
+        <text x="599" y="158" font-family="var(--ns-font-sans)" font-size="12.5" font-weight="700" fill="#0b0b0b">238 846 t</text>
+      </svg>
+      <figcaption>Kilde: NIBIO (Norge), SCB (Sverige), Danmarks Statistik (Danmark). Tallene gjelder salg/forbruk av mineralnitrogen; fosfor og kalium oppgis i element-basis. Land med ulik definisjon skal ikke blandes ukritisk.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 6 — BESLUTNINGER -->
+  <section id="beslutninger">
+    <span class="sec-num">Til møtet</span>
+    <h2>Fire beslutningssaker</h2>
+    <p class="standfirst">Disse fire er klare til møtet. De er ikke hovedinnholdet i rapporten, men de er det som låser opp leveransen mot fristen 31. juli 2026. Hver sak har en tydelig anbefaling.</p>
+
+    <div class="decisions">
+      <article class="decision">
+        <div class="dh"><span class="no">01</span><h3>Minimumsvedtak for casekort</h3></div>
+        <p class="ask">Vi ber om: godkjenning av en intern casekort- og researchsprint.</p>
+        <span class="rec">Anbefaling: godkjenn de sju caseankrene som arbeidsramme</span>
+        <p>Teamet får en styrt arbeidsløype uten ekstern risiko. Sju caseanker kan sorteres og kildejages internt, mens ekstern kontakt og påstander utad krever en egen, senere beslutning.</p>
+        <p class="conseq">Hvis vi ikke beslutter: deck, dokumentinnhenting og veikart mangler et formelt casegrunnlag, og arbeidet fortsetter som research i stedet for leveranse.</p>
+      </article>
+
+      <article class="decision">
+        <div class="dh"><span class="no">02</span><h3>Todeling av leveransen (H1/H2)</h3></div>
+        <p class="ask">Vi ber om: bekreftelse på at prosjektet leverer en første programleveranse innen 31. juli, og lar resten bli videreført fra august til desember.</p>
+        <span class="rec">Anbefaling: godkjenn todelingen, og be Einar bekrefte mot kontrakten</span>
+        <p>Første del (innen 31. juli) = strategisk veikart v0.1, et offentlig nettmøte og en intern presentasjon — kun med trygge, siterbare uttak. Andre del (aug–des) = veikart v1.0, whitepaper, aktørvalidering og finansieringsnotat.</p>
+        <p class="conseq">Hvis vi ikke beslutter: teamet kan bygge mot feil leveransehorisont, og event/veikart kan gli ut i tid uten en uttalt aksept.</p>
+      </article>
+
+      <article class="decision">
+        <div class="dh"><span class="no">03</span><h3>Port E — offentlig nettmøte</h3></div>
+        <p class="ask">Vi ber om: valg av retning for et offentlig online event i første leveranse.</p>
+        <span class="rec">Anbefaling: webinar på 60–90 minutter i uke 29 eller 30</span>
+        <p>Det rekker innholdsdesign, påmelding, generalprøve og etterbruk før fristen — forutsatt at kommunikasjonskapasitet (Thea) aktiveres allerede i uke 25, og at vi holder oss til den trygge språkbanken med en eksplisitt stoppliste for spørsmål.</p>
+        <p class="conseq">Hvis vi ikke beslutter: kapasiteten aktiveres for sent, og eventet blir improvisert i juli.</p>
+      </article>
+
+      <article class="decision">
+        <div class="dh"><span class="no">04</span><h3>Sende intern dokumentinnhenting (DASK)</h3></div>
+        <p class="ask">Vi ber om: godkjenning til å sende to interne dokumentforespørsler nå — om Brasil/kaffe og Elfenbenskysten/kakao. Dette er intern innhenting, ikke ekstern kontakt.</p>
+        <span class="rec">Anbefaling: send begge nå</span>
+        <p>Forespørslene avklarer om kaffe- og kakao-sporene har dokumentert grunnlag som relasjonscase. Finnes ikke dokumentene, parkerer vi sporene i stedet for å overdrive dem.</p>
+        <p class="conseq">Hvis vi ikke beslutter: kaffe og kakao blir hengende som interessante hypoteser uten et klart ja/nei, og risikerer å ta plass i materialet uten grunnlag.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 7 — INNHOLD -->
+  <section id="innhold">
+    <span class="sec-num">Hvor innholdet ligger</span>
+    <h2>Hvor du finner det selv</h2>
+    <p class="standfirst">Alt er sporbart. Her er de kuraterte inngangene til plattformen og de viktigste dokumentene.</p>
+
+    <div class="linkgrid">
+      <div class="linkcard">
+        <h3>På plattformen</h3>
+        <p class="desc" style="margin:0 0 .6rem">Det nye case-arbeidet fra denne perioden ligger øverst — så følger de løpende analysesidene.</p>
+        <ul>
+          <li><a href="https://food-systems.naturalstateproject.com/casestatus">/casestatus</a> <span class="desc">— de 7 caseankrene JT ba om: status, tall og go/no-go per case (nytt denne perioden)</span></li>
+          <li><a href="https://food-systems.naturalstateproject.com/hvitbok">/hvitbok</a> <span class="desc">— whitepaper-kapitlene, lesbart direkte på plattformen</span></li>
+          <li><a href="https://food-systems.naturalstateproject.com/mandat">/mandat</a> <span class="desc">— beslutningsgrunnlag og case-vedtak</span></li>
+          <li><a href="https://food-systems.naturalstateproject.com/innsikt">/innsikt</a> <span class="desc">— alle analysetemaene som kort, med funn og forbehold</span></li>
+          <li><a href="https://food-systems.naturalstateproject.com/eierskap">/eierskap</a> <span class="desc">— konsern- og eierstruktur (rettet og live)</span></li>
+          <li><a href="https://food-systems.naturalstateproject.com/sammenligning">/sammenligning</a> <span class="desc">— nordisk konsentrasjon på tvers av land</span></li>
+          <li><a href="https://food-systems.naturalstateproject.com/verdikjede">/verdikjede</a> <span class="desc">— verdikjeden ledd for ledd, med handelsaksen</span></li>
+          <li><a href="https://food-systems.naturalstateproject.com/sirkularitet">/sirkularitet</a> <span class="desc">— næringsflyt og det målte gapet</span></li>
+          <li><a href="https://food-systems.naturalstateproject.com/havbruk">/havbruk</a> <span class="desc">— konsentrasjon i havbruk</span></li>
+          <li><a href="https://food-systems.naturalstateproject.com/graf">/graf</a> <span class="desc">— nettverket av styrer og eierskap</span></li>
+        </ul>
+      </div>
+      <div class="linkcard">
+        <h3>De skriftlige uttakene</h3>
+        <ul>
+          <li><b>Whitepaper</b> <span class="desc">— det samlende dokumentet med tall og forbehold (kap. 1–3)</span></li>
+          <li><b>Policy-oppsummering</b> <span class="desc">— 1–2 sider i enkelt språk</span></li>
+          <li><b>Narrativramme</b> <span class="desc">— ferdige, trygge formuleringer og en «ikke si»-liste</span></li>
+          <li><b>Kvalitetskontroll-tabell</b> <span class="desc">— hvert tall med kilde, år og merknad</span></li>
+          <li><b>Forrige ukesrapport (16. juni)</b> <span class="desc">— forløperen denne bygger videre på</span></li>
+          <li><b>Mottaks- og konsolideringsnotater</b> <span class="desc">— full sporbarhet for runde 2 og 3</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 — GJENSTÅR -->
+  <section id="gjenstaar">
+    <span class="sec-num">Hva som gjenstår</span>
+    <h2>Neste steg — og to slags hull</h2>
+    <p class="standfirst">Det utadvendte arbeidet er ferdig og publisert. Det som gjenstår deler seg i tre: hull vi tetter nå (der målet er null manglende data), tall som ikke finnes målt noe sted (der fraværet er et funn i seg selv), og det som venter på et vedtak i møtet.</p>
+
+    <div class="next-grid">
+      <div class="next-col closing">
+        <span class="kicker">Tetter nå · mål: null hull</span>
+        <h3>Hull vi lukker</h3>
+        <ul>
+          <li><b>Én lokal databasekjøring</b> løfter maktkartet fra «siterbart med fotnote» til helt forbeholdsfritt. Logikken er ferdig og testet; bare selve kjøringen gjenstår.</li>
+          <li><b>Verdifangst per selskap</b> og koblingen tilskudd ↔ konsentrasjon — krever en databasekobling vi ennå ikke har kjørt, men kan kjøre.</li>
+          <li><b>Et eget dypdykk på fôr/import</b> — Jan Thomas' uttalte hovedspor — bør lukkes i neste runde.</li>
+        </ul>
+      </div>
+      <div class="next-col parked">
+        <span class="kicker">Finnes ikke målt · selve fraværet er funnet</span>
+        <h3>Tall ingen samler inn</h3>
+        <ul>
+          <li><b>Gjenvunnet nitrogen og fosfor fra fiskeslam</b> har ikke noe nasjonalt regnskap — det måles rett og slett ikke.</li>
+          <li><b>Digestat-/næringsretur og Island-verdier</b> finnes ikke som offentlig statistikk i flere av landene.</li>
+          <li>Dette er ekte data-arkitektur-hull, ikke søkemiss. Vi kan ikke «fylle» dem uten at noen først begynner å måle — og at de mangler er nettopp poenget: <b>stort potensial, men ikke engang målt</b>.</li>
+        </ul>
+      </div>
+      <div class="next-col meeting">
+        <span class="kicker">Venter på vedtak</span>
+        <h3>Til møtet</h3>
+        <ul>
+          <li><b>De fire beslutningssakene</b> over — særlig å låse minimumsvedtaket og H1/H2-todelingen.</li>
+          <li><b>Et bevisst valg av ryggrad</b> for første leveranse: maktkartet, case-porteføljen, eller begge med klar vekting.</li>
+          <li><b>Stakeholder-kart og finansieringsvinkel per case</b> — begge etterspurt, begge fortsatt tynne.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 — FORBEHOLD -->
+  <section id="forbehold">
+    <span class="sec-num">Forbehold &amp; ærlighet</span>
+    <h2>Hva vi ikke påstår ennå</h2>
+    <p class="standfirst">Kort og tillitsbyggende: her er grensene for hva vi sier. Å være presis på dette er en del av kvaliteten.</p>
+    <div class="caveats">
+      <h3>Det vi er nøye med å ikke si</h3>
+      <ul>
+        <li>«Konsentrasjon» og «makt» betyr <b>strukturell posisjon i data</b> — ikke en påstand om ulovlig samordning eller hensikt.</li>
+        <li>Hovedfunnet er <b>siterbart med fotnote</b>, ikke en forbeholdsfri pressemelding. Forbeholdene må følge med.</li>
+        <li>Vi sier ikke at <b>Brasil-andelen falt i 2025</b> — 2025-tallene er foreløpige, og selskapskildene viser ingen flytting bort fra Brasil.</li>
+        <li>Vi sier ikke at <b>nordisk næringsgjenvinning skjer i skala</b> — det realiserte er minimalt; gapet er selve poenget.</li>
+        <li>Vi sier ikke at <b>Norge ligger bak på økologisk innkjøp</b> — Norge har valgt et annet styringsmål.</li>
+        <li>Vi sier ikke at <b>Danmark har en klimaavgift på landbruk nå</b> — den er avtalt, med virkning fra 2030.</li>
+        <li>Vi sier ikke at <b>nederlandsk veksthus er en sirkulær mal</b> — det er et sammenligningseksempel for mekanismen, ikke en modell å kopiere.</li>
+        <li>Der vi ennå mangler sikre tall, sier vi det rett ut framfor å gjette — og skiller mellom <b>hull vi er i ferd med å tette</b> (som maktkartet, én datakjøring unna) og <b>tall som ikke finnes målt noe sted</b>, der selve fraværet er et funn.</li>
+      </ul>
+    </div>
+  </section>
+
+  </main>
+</div>
+</div>
+
+<footer>
+  <div class="wrap2">
+    <div>
+      <span class="spheres" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none"><g stroke="#F5A623" stroke-width="2.5" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="8" ry="42"/><ellipse cx="50" cy="50" rx="8" ry="42" transform="rotate(60 50 50)"/><ellipse cx="50" cy="50" rx="8" ry="42" transform="rotate(120 50 50)"/></g></svg>
+        <svg viewBox="0 0 100 100" fill="none"><g stroke="#D0422A" stroke-width="2.5" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="8"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(60 50 50)"/><ellipse cx="50" cy="50" rx="42" ry="8" transform="rotate(120 50 50)"/></g></svg>
+        <svg viewBox="0 0 100 100" fill="none"><g stroke="#5CB85C" stroke-width="2.5" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(45 50 50)"/><ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(45 50 50)"/></g></svg>
+        <svg viewBox="0 0 100 100" fill="none"><g stroke="#38A4D0" stroke-width="2.5" fill="none"><circle cx="50" cy="50" r="42"/><ellipse cx="50" cy="50" rx="42" ry="14"/><ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(30 50 50)"/></g></svg>
+      </span>
+      <p><b>Natural State · Food Systems</b><br>Arbeids- og funnrapport for perioden 7.–17. juni 2026. Alt materiale er sporbart; hovedfunnene er siterbare med forbehold.</p>
+    </div>
+    <p>De fire sfærene — Human, Society, Nature, Market — er Natural States signatur.<br>Utkast til intern gjennomgang før deling med Cathrine og Jan Thomas.</p>
+  </div>
+</footer>
+
+</body>
+</html>

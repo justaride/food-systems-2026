@@ -8,7 +8,7 @@ import { MATURITY_LABELS, STATUS_STYLES } from './status-display'
 
 export const metadata: Metadata = {
   title: 'Casestatus — Food Systems 2026',
-  description: 'Intern modenhetsstatus for de syv caseankrene fra 09.06-spissingen.',
+  description: 'Intern modenhetsstatus for caseankrene fra 09.06-spissingen (pluss fôr/import).',
 }
 
 export default function CasestatusPage() {
@@ -20,12 +20,20 @@ export default function CasestatusPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-stone-900">Casestatus</h1>
-        <p className="text-sm text-stone-400 mt-1">
-          De syv caseankrene fra 09.06-spissingen med intern modenhet, nøkkeltall, blokkere og neste handling.
-          Oppdatert {CASESTATUS_UPDATED}.
-        </p>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h1 className="text-2xl font-bold text-stone-900">Casestatus</h1>
+          <p className="text-sm text-stone-400 mt-1">
+            Caseankrene fra 09.06-spissingen med intern modenhet, nøkkeltall, blokkere og neste handling.
+            Oppdatert {CASESTATUS_UPDATED}.
+          </p>
+        </div>
+        <Link
+          href="/casestatus/oversikt"
+          className="shrink-0 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-xs font-medium text-emerald-700 hover:bg-emerald-100"
+        >
+          Se alt på én side (JTs §7-format) →
+        </Link>
       </div>
 
       <InternalBanner note={CASESTATUS_RULE} />
@@ -33,7 +41,7 @@ export default function CasestatusPage() {
       <PageFraming
         title="Hva svarer denne siden på?"
         description={[
-          'Hvor moden er hvert av de syv caseankrene fra arbeidsavklaringen 09.06, hva er tallfestet, og hva stopper videre løft?',
+          'Hvor moden er hvert av caseankrene fra arbeidsavklaringen 09.06, hva er tallfestet, og hva stopper videre løft?',
           'Siden speiler sprintboardet og desk-research-loggen, slik at styringsdialogen ikke krever lesing av repo-filer.',
         ]}
         takeaways={[
