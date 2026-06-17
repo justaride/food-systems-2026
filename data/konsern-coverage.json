@@ -243,38 +243,6 @@
       ]
     },
     {
-      "slug": "rema1000-norge",
-      "rootCompanyId": "cmp8xytbv00a6xrvmi8ugubkz",
-      "rootName": "REMA 1000 Norge AS",
-      "rootOrgNr": "982254604",
-      "ownershipType": "subsidiary",
-      "controllingOwner": {
-        "name": "Reitan Retail AS",
-        "pct": "100",
-        "source": "document:evidence-pack/arsrapporter/reitan-retail-2024"
-      },
-      "qualityScore": 8,
-      "measuredYear": 2025,
-      "metrics": {
-        "treeSize": 3,
-        "childrenWithLatestFinancial": 1,
-        "childrenWithOlderFinancial": 1,
-        "childrenWithoutFinancial": 0,
-        "childrenWithBoardMembers": 2,
-        "childrenWithoutBoardMembers": 0,
-        "ownershipEdgesWithSource": 2,
-        "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 7,
-        "relationshipCount": 4,
-        "maEventCount": 0,
-        "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": 3
-      },
-      "gaps": [
-        "1 datterselskap har bare eldre regnskap enn målt år 2025"
-      ]
-    },
-    {
       "slug": "nortura",
       "rootCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
       "rootName": "Nortura SA",

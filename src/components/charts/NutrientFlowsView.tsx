@@ -66,6 +66,11 @@ type CountryData = {
     svartvann_pct_of_mineral_p?: string | null
     note?: string
   }
+  realized_recovery?: {
+    headline?: string
+    items?: { label: string; value: string }[]
+    source?: string
+  }
   sources?: string[]
 }
 
@@ -396,6 +401,26 @@ export function NutrientFlowsView({ defaultCountry = 'NO' }: { defaultCountry?: 
         </div>
       ) : (
         <EmptyState message={`Ingen data for ${COUNTRY_LABELS[country]}`} />
+      )}
+
+      {countryData?.realized_recovery && (
+        <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50/60 px-3 py-2.5">
+          <h4 className="text-[11px] font-semibold uppercase tracking-wide text-rose-700 mb-1.5">
+            Realisert vs. potensial{countryData.realized_recovery.headline ? ` — ${countryData.realized_recovery.headline}` : ''}
+          </h4>
+          <dl className="grid gap-1.5 sm:grid-cols-3">
+            {(countryData.realized_recovery.items ?? []).map((it) => (
+              <div key={it.label} className="text-[11px] text-stone-700">
+                <dt className="font-medium text-stone-600">{it.label}</dt>
+                <dd>{it.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-1.5 text-[10px] text-stone-500">
+            «Gjenvinningspotensial» i grafen er <em>teknisk</em> potensial, ikke realisert gjenvinning.
+            {countryData.realized_recovery.source ? ` Kilde: ${countryData.realized_recovery.source}.` : ''}
+          </p>
+        </div>
       )}
 
       <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50/60 px-3 py-2 text-[11px] leading-relaxed text-amber-900">

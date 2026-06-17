@@ -1,0 +1,23 @@
+{
+  "generated": "2026-06-16",
+  "description": "Mineralgjødselforbruk i Norden (N, P, K), siste tilgjengelige gjødselår. Referansegrunnlag for hvor mye gjenvunnet næring måtte erstatte.",
+  "methodology": "Salg/forbruk av mineralgjødsel per land. P og K oppgis i element-basis (grunnstoff), ikke P2O5/K2O. Gjødselår varierer per land. Island ble ikke hentet (PxWeb POST-blokkert; ferdig spørring staget).",
+  "basis": "Element-basis (P, K) — ikke P2O5/K2O.",
+  "primary_sources": [
+    "NIBIO Mineralgjødselstatistikk 2023–2024 (NO)",
+    "SCB Sales of fertilisers 2024/25 (SE)",
+    "Danmarks Statistik GOEDSALG 2023:2024 (DK)"
+  ],
+  "caveats": [
+    "Gjødselår varierer: NO 2023/24, SE 2024/25, DK 2023/24.",
+    "P og K i element-basis (ikke oksid P2O5/K2O).",
+    "DK 2023:2024 er foreløpige tall (revideres).",
+    "Island ikke hentet — Hagstofa LAN10001 er POST-blokkert; ferdig spørring ligger staget."
+  ],
+  "countries": [
+    { "code": "NO", "name": "Norge", "n_t": 91646, "p_t": 7166, "k_t": 27754, "year": "2023/24", "source": "NIBIO", "data_quality": "endelig" },
+    { "code": "SE", "name": "Sverige", "n_t": 219100, "p_t": 19000, "k_t": 33900, "year": "2024/25", "source": "SCB", "data_quality": "endelig" },
+    { "code": "DK", "name": "Danmark", "n_t": 224811, "p_t": 16859, "k_t": 53265, "year": "2023/24", "source": "DST GOEDSALG", "data_quality": "foreløpig" },
+    { "code": "IS", "name": "Island", "n_t": null, "p_t": null, "k_t": null, "year": "2024", "source": "Hagstofa LAN10001 (POST-blokkert)", "data_quality": "ikke hentet" }
+  ]
+}

@@ -919,9 +919,14 @@ const companies: CompanyData[] = [
     naceDescription: 'Utleie av immateriell eiendom og lignende produkter, unntatt opphavsrettsbeskyttede verker',
     hqAddress: 'Gladengveien 2',
     hqCity: 'Oslo',
-    employees: 543,
+    employees: 550,
     ownershipType: 'family',
     valueChainStage: 'retail',
+    financials: [
+      // Franchise-/IP-selskapet i Reitan-strukturen (NACE 77.400), ikke konsolidert kjedeomsetning.
+      // Tall stored i MNOK (source-streng trigger million-konvertering i financialAmountToNok).
+      { year: 2025, revenueNok: 5890, operatingResult: 970, operatingMargin: 16.5, groupEmployees: 550, source: 'Regnskapsregisteret (Brønnøysund) API regnskap/982254604, årsregnskap 2025 key figures — driftsinntekter 5 889,6 MNOK, driftsresultat 970,2 MNOK; antallAnsatte fra Enhetsregisteret; hentet 2026-06-16' },
+    ],
     shareholders: [
       { name: 'Reitan Retail AS', ownershipPct: 100, shareholderType: 'institutional', isControlling: true },
     ],

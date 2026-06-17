@@ -132,6 +132,61 @@ Konsoliderte ikke-si-punkter fra de åtte DRR-rapportene (`research/external/dro
 | A-Rehu er Valios generelle fôrleverandør. | `hold-tilbake` | Dokumentert kun for Startti-kalvedrikkefôr (Varkaus); generell rolle er needs-actor-validation. |
 | ZWS-tallene beskriver dagens skotske biproduktstrømmer. | `hold-tilbake` | Survey-data fra 2019, publisert 2025. Bruk med årstall og aktualitetscaveat. |
 
+## Runde 2-delta 2026-06-16 (primæruttrekk)
+
+Primæruttrekkene 16.06 (SSB 08801, DST `GOEDSALG`, WUR Energiemonitor 2024, NSVA Miljörapport 2024, dansk rettsstatus, Oslo øko-innkjøp) er konsolidert i `docs/project/mandates/food-tg-runde2-konsolidering-2026-06-16.md` og lagret i `research/external/r2/`. Deltaet åpner tre nye claims på primærkilde og skjerper forbehold på fire eksisterende. Ingen claim er `Validert eksternt`.
+
+### Nye claims
+
+| Claim | Foreslått publikasjonsformulering | Status | Kildeanker | Må alltid sies | Ikke si | Neste port |
+|---|---|---|---|---|---|---|
+| `CL-A-022` Norge–Brasil soya/klippfisk-akse | Norge importerer hoveddelen av soyabønnene fra Brasil (~60–80 % av volum 2015–2024) og eksporterer klippfisk/bacalhau tilbake til Brasil — to motstrømmer i samme akse; SSB tabell 08801 er autoritativ. | `klar-med-forbehold` | SSB 08801; Denofa; Felleskjøpet 2025 (jf. `research/external/r2/SSB-08801-norge-brasil-uttrekk-2026-06-16.md`) | Oppgi år og HS-kode; 2025 er foreløpig; «Verden» inkluderer reeksport; verdi i NOK. | «Norge importerer bare brasiliansk soya» (også US/CA/PL); «andelen er stabil» (2025 foreløpig ~42 %). | HS6-full-sum ved behov; NOK→USD for verdisammenligning. |
+| `CL-B-024` Nordisk mineralgjødselforbruk N/P/K | Mineralgjødselforbruket i Norden er stort og N-dominert (NO 91 646 t N, SE 219 100 t N, DK 238 846 t N; DK P 16 859 t / K 53 265 t, element-basis) — referansegrunnlag for hvor mye gjenvunnet næring måtte erstatte. | `klar` | NIBIO; SCB; DST `GOEDSALG` (jf. `research/external/r2/STATBANK-dk-island-gjodsel-2026-06-16.md`) | Skill salg/forbruk/produksjon; oppgi gjødselår; P/K i element-basis (ikke P2O5/K2O). | «Gjenvunnet næring kan erstatte all virgin mineral-N»; bland ikke land med ulik definisjon. | Island-verdier (POST-spørring klar); harmonisert nordisk tabell. |
+| `CL-C-019` Nederland glastuinbouw energimiks | Nederlandsk veksthus er en gass-/WKK-drevet gjennomstrømningsmodell (fornybarandel 15,1 % i 2024, under nasjonalt snitt), med voksende geotermi og økende ekstern CO2-avhengighet — benchmark for mekanisme, ikke nordisk mal. | `klar-med-forbehold` | WUR Energiemonitor 2024 (Rapport 2025-150, edepot.wur.nl/702373); CBS (jf. `research/external/r2/NL-glastuinbouw-energimiks-2026-06-16.md`) | Benchmark-kontekst (NL), ikke nordisk bevis; oppgi år; WKK gjør sektoren til netto strømeksportør. | «Nederlandsk veksthus = sirkulær mal»; «modellen er fossiluavhengig»; WUR/Moerman som effektbevis. | Nordisk overføringsverdi-vurdering. |
+
+### Oppdaterte forbehold på eksisterende claims
+
+| Claim | Delta 16.06 | Skjerpet forbehold |
+|---|---|---|
+| `CL-B-016` RecoLab/nutrient-loop benchmark | Realiserte tonn nå kjent og minimale: 2024 = 497 kg struvitt + 629 kg ammoniumsulfat; resten av slam/gråvann returnert til hovedstrøm (NSVA Miljörapport 2024). | Må si: realisert distriktsvis gjenvinning er svært liten (prosesstall ≠ realisert tonn). Ikke si: «RecoLab gjenvinner betydelige årlige N/P/K-tonn». |
+| `CL-B-023` nutrient loops som sekundærspor | Bekreftet at Norge ikke har nasjonal realisert aggregat for fiskeslam; SINTEF 89 %-restråstoff er biprodukt, ikke slam. | Ikke si: «SINTEF 89 % viser næringsgjenvinning fra slam». |
+| `CL-C-002` offentlig innkjøp | Oslo målt øko-andel 2,5 % (2018); 50 %-mål fjernet i matplan 2023; metrikk byttet til kjøttreduksjon/svinn/plantebasert. | Må si: Norge har byttet styringsmål bort fra øko-andel; København-sammenligning rammer virkemiddelvalg, ikke norsk «underprestasjon». |
+| `CL-C-017` Danmark Green Tripartite | CO2e-avgift verifisert IKKE vedtatt lov per 16.06.2026 — fortsatt politisk aftale; sats 300→750 DKK/t (60 % bunnfradrag → effektivt 120/300), start 2030; ingen lovpålagt buskapsreduksjon. | Ikke si: «Danmark har en CO2-avgift på landbruk (nå)» (avtalt, virkning 2030); «Danmark har vedtatt buskapsreduksjon». |
+
+### Hold-tilbake-rader som runde 2 berører
+
+| Eksisterende rad | Delta 16.06 |
+|---|---|
+| «Bacalhau Norge-Brasil er et hovedcase» | Uendret som «hovedcase». NYTT: handelsstøtte for A-sporet kan tallfestes internt på SSB-primær — Brasil ~60–80 % av norsk soyaimport-volum 2015–2024; klippfisk til Brasil ~11 % av norsk klippfiskeksport 2024 (SSB 08801). |
+| «Danmark har besluttet å redusere svineproduksjon» | Bekreftet hold-tilbake: ingen lovpålagt buskapsreduksjon per 16.06.2026 (kun valgkamputspill mars 2026). |
+| «Kunstgjødselhistorie/Yara forklarer nutrient-loop-case» | Uendret. NYTT: nordisk mineral-N-forbruk er nå primærtallfestet (jf. `CL-B-024`) som referanseramme — bruk tall, ikke historielinje. |
+
+## Runde 3-delta 2026-06-17 (datahull-lukking)
+
+Runde-3-uttrekkene (DRO-R3-01..04, arkivert i `research/external/r3/`) ga få nye tall, men avklarte hull og **korrigerer ett tidligere forbehold**. Konsolidert i `docs/project/mandates/food-tg-runde3-mottak-2026-06-17.md`.
+
+### Korreksjon til `CL-A-022` (2025-soya)
+
+Det foreløpige 2025-fallet i Brasils soyaandel (~42 %) er **ikke et dokumentert skifte**. SSB 2025 er foreløpig (endelig mai 2027), og detaljceller kan revideres betydelig. Selskapskilder viser ingen Brasil-exit: Denofa 2024 = 68 % Brasil / 12 % Romania / 10 % Polen / 10 % Canada; Felleskjøpet 2024 og 2025 = Brasil/USA/Canada/Polen. Ingen primærkilde for Paraguay/Argentina som nye hovedland.
+
+**Oppdatert «ikke si» for `CL-A-022`:** «Brasil-andelen falt i 2025» som etablert faktum; «EUDR har flyttet norske kjøp bort fra Brasil» (dokumentasjonen gjelder sporbarhet/sertifisering i en fortsatt Brasil-ledet kjede, ikke utfasing).
+
+### Nye deckklare fakta (med forbehold)
+
+| Felt | Tall | Kilde | Status |
+|---|---|---|---|
+| Norsk biorest produsert | 218 000 t avvannet + 370 000 t flytende (2022); 84 % spredd på jordbruksareal | Landbruksdirektoratet rapport 17/2024 (Biogasstatistikk 2022) | deckklart internt |
+| Norsk fiskeslam, realiserte enkeltanlegg | Cermaq Forsan ~260 t TS/år (biogass); Norcem Kjøpsvik ~40 t (energi); IVAR Minorga ~4 200–4 600 t blandet gjødsel/år 2022–24 (eksport Vietnam) | Sterner; Heidelberg; IVAR årsrapporter | deckklart internt (anleggsnivå) |
+| Denofa opprinnelsesmiks 2024 | 68 % Brasil, 12 % Romania, 10 % Polen, 10 % Canada | Denofa due diligence 2024 | deckklart internt |
+
+### Bekreftede hull (styrker potensial-vs-realisert-narrativet)
+
+| Hull | Status etter runde 3 |
+|---|---|
+| Realisert digestat-N/P/K-retur (DK/FI/NO/IS) | Bekreftet **reelt data-arkitektur-hull** — ingen nasjonal næringsretur-statistikk utenom Sverige. Norge har biorest-mengde + 84 % jordbruksbruk, men ikke N/P/K-tonn. |
+| Norsk fiskeslam-aggregat per sluttbruk | Bekreftet **finnes ikke** (Fiskeridir/SSB/Miljødir/Mattilsynet). Beste offisielle spor: Miljødir 2018 ~1 000 t TS fiskeslam til 2 biogassanlegg. |
+| Island mineralgjødsel N/P/K | Fortsatt `needs-data` — verdiene ikke uttrukket (eksport-blokkert). NYTT forbehold: basis-konflikt (nåværende PxWeb-etikett `P`/`K` vs. eldre Hagstofa-årbok `P2O5`/`K2O`) — basis må verifiseres før Island legges i element-basis-serien. |
+
 ## Neste arbeid
 
 1. Oppdater tabellen etter hver primary-check og aktørrespons.

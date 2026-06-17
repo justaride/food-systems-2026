@@ -34,7 +34,7 @@ export type CaseAnchor = {
   caseAvsjekk: string
 }
 
-export const CASESTATUS_UPDATED = '2026-06-12'
+export const CASESTATUS_UPDATED = '2026-06-16'
 
 export const CASESTATUS_RULE =
   'Intern modenhetsstatus per caseanker, ikke ekstern godkjenning. Alle statusord følger mottaksloggen og claim-lock-tabellen. ' +
@@ -133,19 +133,23 @@ export const caseAnchors: CaseAnchor[] = [
       'frukt/grønt, og markedstilgang/distribusjon som dokumentert barriere for vertikal innendørs dyrking (SINTEF 2025). ' +
       'Avgjørende negativfunn: Menon 2024 fant ingen rapportert tilgangsnekt, og margindata finnes ikke offentlig — derfor føres ' +
       'caset som struktur, ikke anklage. Politikkvinduet er aktivt: Konkurransetilsynet overtok god handelsskikk-håndhevingen ' +
-      '01.05.2026 med egne føringer fra NFD, og høringer om innkjøpsbetingelser pågår.',
+      '01.05.2026 med egne føringer fra NFD, og høringer om innkjøpsbetingelser pågår. ' +
+      'Offentlig innkjøp er en mulig alternativ etterspørselskanal: København viser mekanismen (menyomlegging og kjøkkenfag), ' +
+      'mens Norge har byttet styringsmål fra økologisk andel til kjøttreduksjon, matsvinn og plantebasert (Oslo, matplan 2023).',
     keyFigures: [
       { label: 'Norskandel frukt/grønt/bær/poteter inkl. industri 2025', value: '44 %', source: 'OFG/Grøntinnsikt via DRR-0906-005' },
       { label: 'Norskandel frukt', value: '4 %', source: 'OFG via DRR-0906-005' },
       { label: 'BAMA-skala', value: '>500 000 tonn/år; 37/63 norsk/import', source: 'BAMA egenrapportering via DRR-0906-005' },
       { label: 'Regulatorisk vindu', value: 'KT-håndheving fra 01.05.2026 + pågående høringer', source: 'SRC-0906-015' },
+      { label: 'Offentlig innkjøp (NO vs DK)', value: 'Oslo målt øko-andel 2,5 % (2018); 50 %-mål fjernet i matplan 2023. København ~90 % via menyomlegging/kjøkkenfag (~12 MDKK/år rådgivning)', source: 'DRO-R2-05 / CL-C-002 (Oslo kommune; Københavns Madhus)' },
     ],
     blockers: ['Aktørdata om onboarding/vilkår (BAMA/Gartnerhallen, etter vedtak)', 'Produkt-/månedstall for CEA-relevante varer'],
-    notSay: ['«BAMA blokkerer vertical farming»', '«Grossistmarginene er X %»', '«BAMA er juridisk dominerende»'],
+    notSay: ['«BAMA blokkerer vertical farming»', '«Grossistmarginene er X %»', '«BAMA er juridisk dominerende»', '«Norge ligger bak København på øko-innkjøp» (Norge har byttet styringsmål, ikke underprestert)'],
     nextActions: ['Aktørvalidering etter vedtak', 'Følg høringsutfall om innkjøpsbetingelser'],
     docRefs: [
       'research/external/dro-0906/drr-0906-005-distribusjon-adoption-gate.md',
       'docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md',
+      'research/external/r2/NO-offentlig-innkjop-okologisk-andel-2026-06-16.md',
     ],
     caseAvsjekk: 'docs/project/analysis/case-avsjekk/avsjekk-04-distribusjon-adoption-2026-06-12.md',
   },
@@ -194,11 +198,12 @@ export const caseAnchors: CaseAnchor[] = [
       { label: 'Prisskille segregert vs. blandet (Skottland 2019)', value: '£250–520/t mot £62–173/t', source: 'ZWS/Enscape 2020 (SRC-0906-012)' },
     ],
     blockers: ['Statistics Iceland-uttrekk (manuell PxWeb-eksport, oppskrift i loggen)', 'Norsk fraksjons-/høyverdidata (SINTEF/FHF-uttrekk)'],
-    notSay: ['«Island utnytter 100 % av fisken»', '«89 % utnyttelse betyr høyverdi»', '«100% Fish er en norsk pilot»'],
+    notSay: ['«Island utnytter 100 % av fisken»', '«89 % utnyttelse betyr høyverdi»', '«100% Fish er en norsk pilot»', '«89 % restråstoff-utnyttelse er det samme som realisert næringsgjenvinning fra oppdrettsslam»'],
     nextActions: ['Manuell PxWeb-eksport av SJA09114', 'Fraksjonssammenligning Island/Norge'],
     docRefs: [
       'research/external/dro-0906/drr-0906-007-100-fish-iceland-ocean-cluster.md',
       'docs/project/analysis/desk-research-logg-dro-0906-2026-06-12.md',
+      'research/external/r2/nutrient-loop-realiserte-tonn-2026-06-16.md',
     ],
     caseAvsjekk: 'docs/project/analysis/case-avsjekk/avsjekk-06-fish-restrastoff-2026-06-12.md',
   },

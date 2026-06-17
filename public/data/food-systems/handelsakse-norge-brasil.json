@@ -1,0 +1,29 @@
+{
+  "generated": "2026-06-16",
+  "source": "SSB tabell 08801 (Utenrikshandel med varer), uttrekk 2026-06-16",
+  "description": "Den bilaterale mat-handelsaksen Norge–Brasil: soyaimport inn, klippfisk (bacalhau) ut. Andelene viser Brasil som andel av total norsk import/eksport av varegruppen i mengde (kg).",
+  "methodology": "SSB PxWebApi v2-beta, tabell 08801. Soyabønner = HS 12019090; klippfisk av atlanterhavstorsk = HS 03055121. «Verden» = sum alle land (Land-dimensjonen eliminert). Andel = Brasil / Verden i kg.",
+  "primary_sources": [
+    "SSB tabell 08801 (Utenrikshandel med varer, etter varenummer og land)",
+    "UN Comtrade (speilkontroll)"
+  ],
+  "control": "SSB 2024 soyaimport fra Brasil (242 300 715 kg) matcher Comtrade-rapportørside (242 301 000 kg) til −0,0001 %.",
+  "caveats": [
+    "2025-tall er foreløpige (endelig mai 2027); det lave Brasil-tallet for 2025 er trolig revisjons-/detaljcellestøy — selskapskilder (Denofa, Felleskjøpet) viser fortsatt Brasil som hovedopprinnelse. Skal ikke leses som en dokumentert vending.",
+    "«Verden» som sammenligningsgrunnlag inkluderer reeksport, ikke kun produksjonsland.",
+    "Verdier er i NOK; ikke USD-konvertert."
+  ],
+  "timeseries": [
+    { "year": 2015, "soya_import_brasil_share_kg_pct": 76.3, "klippfisk_export_brasil_share_kg_pct": 19.4, "soya_import_brasil_kg": 322498838, "klippfisk_export_brasil_kg": 7708205, "data_quality": "endelig" },
+    { "year": 2016, "soya_import_brasil_share_kg_pct": 60.9, "klippfisk_export_brasil_share_kg_pct": 15.5, "soya_import_brasil_kg": 253851944, "klippfisk_export_brasil_kg": 5827021, "data_quality": "endelig" },
+    { "year": 2017, "soya_import_brasil_share_kg_pct": 62.2, "klippfisk_export_brasil_share_kg_pct": 22.4, "soya_import_brasil_kg": 269155310, "klippfisk_export_brasil_kg": 8392458, "data_quality": "endelig" },
+    { "year": 2018, "soya_import_brasil_share_kg_pct": 77.5, "klippfisk_export_brasil_share_kg_pct": 18.1, "soya_import_brasil_kg": 302719075, "klippfisk_export_brasil_kg": 6384670, "data_quality": "endelig" },
+    { "year": 2019, "soya_import_brasil_share_kg_pct": 79.9, "klippfisk_export_brasil_share_kg_pct": 15.4, "soya_import_brasil_kg": 322511900, "klippfisk_export_brasil_kg": 5377962, "data_quality": "endelig" },
+    { "year": 2020, "soya_import_brasil_share_kg_pct": 79.5, "klippfisk_export_brasil_share_kg_pct": 11.0, "soya_import_brasil_kg": 327622379, "klippfisk_export_brasil_kg": 3174286, "data_quality": "endelig" },
+    { "year": 2021, "soya_import_brasil_share_kg_pct": 66.4, "klippfisk_export_brasil_share_kg_pct": 11.4, "soya_import_brasil_kg": 306341792, "klippfisk_export_brasil_kg": 3535668, "data_quality": "endelig" },
+    { "year": 2022, "soya_import_brasil_share_kg_pct": 79.1, "klippfisk_export_brasil_share_kg_pct": 10.2, "soya_import_brasil_kg": 243970931, "klippfisk_export_brasil_kg": 2942700, "data_quality": "endelig" },
+    { "year": 2023, "soya_import_brasil_share_kg_pct": 76.9, "klippfisk_export_brasil_share_kg_pct": 14.5, "soya_import_brasil_kg": 278823124, "klippfisk_export_brasil_kg": 3781775, "data_quality": "endelig" },
+    { "year": 2024, "soya_import_brasil_share_kg_pct": 69.8, "klippfisk_export_brasil_share_kg_pct": 10.8, "soya_import_brasil_kg": 242300715, "klippfisk_export_brasil_kg": 2628550, "data_quality": "revidert" },
+    { "year": 2025, "soya_import_brasil_share_kg_pct": 42.1, "klippfisk_export_brasil_share_kg_pct": 5.9, "soya_import_brasil_kg": 167956153, "klippfisk_export_brasil_kg": 1256275, "data_quality": "foreløpig" }
+  ]
+}

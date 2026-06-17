@@ -38,4 +38,45 @@ Matsvinn-harmonisering og felles beredskapslager etter finsk modell er lettest
 Norsk 30%-regel og re-evaluering av EUDR-soya-unntaket er de vanskeligste
 endringene, men gir størst strukturell effekt.
 
+## Offentlig innkjøp: mekanisme, ikke sertifiseringsandel
+
+Fokusområde 5 hviler på en presisering verifisert i 2026. København brukes ofte som
+forbilde for høy økologiandel i offentlige måltider (rundt 90 prosent), men andelen
+ble ikke drevet av innkjøpsparagrafer alene — den kom av menyomlegging, kjøkkenfag,
+sesongplanlegging og matsvinnarbeid, støttet av en varig sentral rådgivningsfunksjon
+(i størrelsesorden 12 millioner DKK i året). Norge har samtidig gjort et annet
+virkemiddelvalg: Oslos sist målte økologiandel var rundt 2,5 prosent (2018), og byens
+tidligere 50-prosentsmål ble tatt ut av matplanen i 2023 til fordel for delmål om
+kjøttreduksjon, plantebasert kost og redusert matsvinn. Den riktige lærdommen er
+derfor ikke at Norge «ligger bak» på samme akse, men at den overførbare mekanismen
+fra København er kjøkkenfaget — ikke sertifiseringsandelen i seg selv.
+
+## Næringsgjenvinning: stort potensial, minimal realisering
+
+Oppdrettsavfall-sporet (fokusområde 4) møter en nøktern realitet når man måler hva
+som faktisk gjenvinnes. Norsk havbruk slipper ut i størrelsesorden 66 000 tonn
+nitrogen og 14 000 tonn fosfor i året, men bare omtrent to prosent av ekskretet
+samles i dag som slam. Det mest transparente nordiske gjenvinningsanlegget, RecoLab i
+Helsingborg, gjenvant i 2024 til sammen under halvannet tonn produkt (struvitt og
+ammoniumsulfat), mens resten av strømmen ble ført tilbake til ordinær avløpsbehandling.
+Avstanden mellom dokumentert teknisk potensial og realisert gjenvinning er stor — og
+det er nettopp dette gapet som er mulighetsrommet. Skranken er sjelden mangel på
+næringsstoffer, men kvalitet (mikroplast), regelverk (marint slam, CE-merking),
+logistikk og produktmarked. En presisering hører med: høy utnyttelse av marint
+restråstoff (rundt 89 prosent) er prosessbiprodukt, ikke det samme som
+næringsgjenvinning fra oppdrettsslam.
+
+## Nederland som benchmark: lær koblingen, ikke modellen
+
+Nederlandsk veksthusproduksjon trekkes ofte fram som et sirkulært forbilde, men
+tallene gir et mer sammensatt bilde. I 2024 brukte sektoren rundt 95 PJ energi, med
+gassfyrt kraftvarme på 60–65 prosent av arealet — så mye at veksthusene er en netto
+eksportør av elektrisitet. Geotermi vokser, men fornybarandelen var fortsatt bare
+drøyt 15 prosent, lavere enn det nederlandske nasjonale snittet, og sektorens innkjøp
+av ekstern CO₂ til fotosyntese øker. Den nederlandske modellen er altså ikke først og
+fremst lavt ressursforbruk, men svært effektiv kobling av varme, strøm, CO₂ og
+reststrømmer i tette klynger. Det er denne koblingsmekanismen som er nordisk-relevant
+som læring — ikke intensiteten eller den eksportdrevne gjennomstrømningslogikken, som
+hviler på forutsetninger Norden verken har eller nødvendigvis bør etterligne.
+
 {{relatert:fokus-relatert}}
