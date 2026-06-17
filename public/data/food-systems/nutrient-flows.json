@@ -9,9 +9,10 @@
         "items": [
           { "label": "Realisert i dag (f.eks. VEAS Asker)", "value": "~0,75 kt N / 0,28 kt P gjenvunnet fra avløpsslam" },
           { "label": "Havbruksslam faktisk samlet", "value": "~2 % av ekskret" },
+          { "label": "Biorest spredd på jord (biogass)", "value": "218k + 370k t (2022), 84 % til jordbruk — men N/P/K-retur ikke tallfestet" },
           { "label": "Teknisk potensial (alle strømmer)", "value": "64 kt N / 9,8 kt P (25–30 % av import)" }
         ],
-        "source": "DRO-R2-02 / CL-B-016, CL-B-023 (SINTEF; NIBIO; VEAS)"
+        "source": "DRO-R2-02 / DRO-R3-02 / CL-B-016, CL-B-023 (SINTEF; NIBIO; VEAS; Landbruksdir. 17/2024)"
       },
       "population_m": 5.5,
       "imports": {
