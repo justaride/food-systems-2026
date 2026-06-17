@@ -161,6 +161,32 @@ Primæruttrekkene 16.06 (SSB 08801, DST `GOEDSALG`, WUR Energiemonitor 2024, NSV
 | «Danmark har besluttet å redusere svineproduksjon» | Bekreftet hold-tilbake: ingen lovpålagt buskapsreduksjon per 16.06.2026 (kun valgkamputspill mars 2026). |
 | «Kunstgjødselhistorie/Yara forklarer nutrient-loop-case» | Uendret. NYTT: nordisk mineral-N-forbruk er nå primærtallfestet (jf. `CL-B-024`) som referanseramme — bruk tall, ikke historielinje. |
 
+## Runde 3-delta 2026-06-17 (datahull-lukking)
+
+Runde-3-uttrekkene (DRO-R3-01..04, arkivert i `research/external/r3/`) ga få nye tall, men avklarte hull og **korrigerer ett tidligere forbehold**. Konsolidert i `docs/project/mandates/food-tg-runde3-mottak-2026-06-17.md`.
+
+### Korreksjon til `CL-A-022` (2025-soya)
+
+Det foreløpige 2025-fallet i Brasils soyaandel (~42 %) er **ikke et dokumentert skifte**. SSB 2025 er foreløpig (endelig mai 2027), og detaljceller kan revideres betydelig. Selskapskilder viser ingen Brasil-exit: Denofa 2024 = 68 % Brasil / 12 % Romania / 10 % Polen / 10 % Canada; Felleskjøpet 2024 og 2025 = Brasil/USA/Canada/Polen. Ingen primærkilde for Paraguay/Argentina som nye hovedland.
+
+**Oppdatert «ikke si» for `CL-A-022`:** «Brasil-andelen falt i 2025» som etablert faktum; «EUDR har flyttet norske kjøp bort fra Brasil» (dokumentasjonen gjelder sporbarhet/sertifisering i en fortsatt Brasil-ledet kjede, ikke utfasing).
+
+### Nye deckklare fakta (med forbehold)
+
+| Felt | Tall | Kilde | Status |
+|---|---|---|---|
+| Norsk biorest produsert | 218 000 t avvannet + 370 000 t flytende (2022); 84 % spredd på jordbruksareal | Landbruksdirektoratet rapport 17/2024 (Biogasstatistikk 2022) | deckklart internt |
+| Norsk fiskeslam, realiserte enkeltanlegg | Cermaq Forsan ~260 t TS/år (biogass); Norcem Kjøpsvik ~40 t (energi); IVAR Minorga ~4 200–4 600 t blandet gjødsel/år 2022–24 (eksport Vietnam) | Sterner; Heidelberg; IVAR årsrapporter | deckklart internt (anleggsnivå) |
+| Denofa opprinnelsesmiks 2024 | 68 % Brasil, 12 % Romania, 10 % Polen, 10 % Canada | Denofa due diligence 2024 | deckklart internt |
+
+### Bekreftede hull (styrker potensial-vs-realisert-narrativet)
+
+| Hull | Status etter runde 3 |
+|---|---|
+| Realisert digestat-N/P/K-retur (DK/FI/NO/IS) | Bekreftet **reelt data-arkitektur-hull** — ingen nasjonal næringsretur-statistikk utenom Sverige. Norge har biorest-mengde + 84 % jordbruksbruk, men ikke N/P/K-tonn. |
+| Norsk fiskeslam-aggregat per sluttbruk | Bekreftet **finnes ikke** (Fiskeridir/SSB/Miljødir/Mattilsynet). Beste offisielle spor: Miljødir 2018 ~1 000 t TS fiskeslam til 2 biogassanlegg. |
+| Island mineralgjødsel N/P/K | Fortsatt `needs-data` — verdiene ikke uttrukket (eksport-blokkert). NYTT forbehold: basis-konflikt (nåværende PxWeb-etikett `P`/`K` vs. eldre Hagstofa-årbok `P2O5`/`K2O`) — basis må verifiseres før Island legges i element-basis-serien. |
+
 ## Neste arbeid
 
 1. Oppdater tabellen etter hver primary-check og aktørrespons.

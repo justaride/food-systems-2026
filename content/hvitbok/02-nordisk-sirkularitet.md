@@ -62,8 +62,11 @@ norsk klippfiskeksport. Norge–Brasil er dermed best forstått som én bilatera
 med to motsatte strømmer: importert fôrprotein inn, høyverdi marint protein ut.
 
 Funnet er forankret i offentlig primærstatistikk og samsvarer med speilserier fra UN
-Comtrade på kilonivå. To forbehold følger med: tallene for 2025 er foreløpige (Brasil-
-andelen falt da indikativt mot drøyt 40 prosent, men revideres), og «Verden» som
-sammenligningsgrunnlag inkluderer reeksport, ikke bare produksjonsland.
+Comtrade på kilonivå. To forbehold følger med. For det første er 2025-tallene foreløpige
+(SSB reviderer detaljstatistikk fram til mai 2027), og en lavere Brasil-andel for 2025
+skal ikke leses som en dokumentert vending: selskapskildene (Denofa oppgir 68 prosent
+Brasil i 2024; Felleskjøpet Agri oppgir samme leverandørland i 2024 og 2025) viser ingen
+faktisk utfasing av Brasil. For det andre inkluderer «Verden» som sammenligningsgrunnlag
+reeksport, ikke bare produksjonsland.
 
 {{relatert:sirk-relatert}}
