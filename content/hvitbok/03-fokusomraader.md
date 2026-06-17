@@ -66,6 +66,16 @@ logistikk og produktmarked. En presisering hører med: høy utnyttelse av marint
 restråstoff (rundt 89 prosent) er prosessbiprodukt, ikke det samme som
 næringsgjenvinning fra oppdrettsslam.
 
+Gapet er ikke bare lite realisert — det er knapt målt. Ingen nordisk land utenom
+Sverige fører nasjonal statistikk over hvor mye nitrogen, fosfor og kalium som faktisk
+føres tilbake til jord fra biorest eller slam, og Norge har ikke engang et samlet
+register over hvor oppdrettsslammet ender. Norge produserer riktignok store mengder
+biorest (rundt 218 000 tonn avvannet og 370 000 tonn flytende i 2022, der 84 prosent
+spres på jordbruksareal), men næringsinnholdet som returneres er ikke tallfestet. Et
+lavterskel første grep for transition-gruppa er derfor ikke ny teknologi, men en felles
+nordisk rapporteringsstandard for realisert næringsretur — uten den kan verken effekt
+eller måloppnåelse måles.
+
 ## Nederland som benchmark: lær koblingen, ikke modellen
 
 Nederlandsk veksthusproduksjon trekkes ofte fram som et sirkulært forbilde, men

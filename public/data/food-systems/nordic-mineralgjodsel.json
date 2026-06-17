@@ -12,7 +12,7 @@
     "Gjødselår varierer: NO 2023/24, SE 2024/25, DK 2023/24.",
     "P og K i element-basis (ikke oksid P2O5/K2O).",
     "DK 2023:2024 er foreløpige tall (revideres).",
-    "Island ikke hentet — Hagstofa LAN10001 er POST-blokkert; ferdig spørring ligger staget."
+    "Island ikke hentet — Hagstofa LAN10001 er POST-blokkert; ferdig spørring ligger staget. Basis (element vs P2O5/K2O) må dessuten verifiseres før Island legges inn (R3-01)."
   ],
   "countries": [
     { "code": "NO", "name": "Norge", "n_t": 91646, "p_t": 7166, "k_t": 27754, "year": "2023/24", "source": "NIBIO", "data_quality": "endelig" },
