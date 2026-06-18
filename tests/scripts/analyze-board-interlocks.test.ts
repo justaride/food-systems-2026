@@ -22,9 +22,9 @@ describe('computeInterlocks', () => {
 
       assert.deepEqual({
         totals: result.totals,
-        bridgeNames: result.topBridges.map(person => person.name),
+        bridgeNames: result.topBridges.map((person: { name: string }) => person.name),
         sectorPairBridges: result.sectorPairBridges,
-        inputsDegree: result.topCompaniesByInterlockDegree.find(company => company.company === 'Inputs AS')?.interlockDegree,
+        inputsDegree: result.topCompaniesByInterlockDegree.find((company: { company: string; interlockDegree: number }) => company.company === 'Inputs AS')?.interlockDegree,
       }, {
         totals: {
           seats: 5,
