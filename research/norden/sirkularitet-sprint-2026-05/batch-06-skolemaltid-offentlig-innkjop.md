@@ -68,7 +68,7 @@ SE 1948 og FI 1946 har 80-årig hode-start på universelle gratis skolemåltider
 **CD-NO-skolemaltid-gap:** Norge har den lengste landbrukspolitikk-tradisjonen i Norden, men mangler grunnleggende institusjonelle innkjøpsmekanismer naboene har hatt i 80 år.
 
 - **Politisk påstand:** "Norge har en sterk og konkurransedyktig matsektor."
-- **Motstandsdata:** Universell skolemåltid eksisterer i SE (1948), FI (1946), delvis DK; ikke i NO. Ingen NO offentlig øko-innkjøp-statistikk. Helsedirektoratet anbefaler, men har ikke virkemiddel. Detaljhandelen er 96,6% konsentrert (HHI 3445) — privat innkjøpsmakt er ekstrem, offentlig innkjøpsmakt er minimal.
+- **Motstandsdata:** Universell skolemåltid eksisterer i SE (1948), FI (1946), delvis DK; ikke i NO. Ingen NO offentlig øko-innkjøp-statistikk. Helsedirektoratet anbefaler, men har ikke virkemiddel. Detaljhandelen er 96,6% konsentrert (HHI 3327, korr.; DRO-R4-25) — privat innkjøpsmakt er ekstrem, offentlig innkjøpsmakt er minimal.
 - **Gap-størrelse:** Fundamental.
 - **Tolkning:** NO mangler etterspørselsside-virkemiddel som kan dirigere matsystemet. Politisk modell hviler på subsidier til produsent + tollvern, ikke på offentlig kjøper-makt.
 - **Implikasjon:** Universell skolemåltid + bindende øko-/matsvinn-/lokalt-krav i offentlig innkjøp er strukturell omstilling, ikke marginalprogram. Modell finnes hos naboer.

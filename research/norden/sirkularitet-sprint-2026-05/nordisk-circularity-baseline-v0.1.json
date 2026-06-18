@@ -280,12 +280,12 @@
       "country": "NO",
       "theme": "market-power",
       "metric": "retail_hhi",
-      "value": 3445,
+      "value": 3327,
       "unit": "HHI",
       "year": 2024,
-      "source": "Dagligvaretilsynet, chart-metrics.json",
+      "source": "Konkurransetilsynet Dagligvarerapport 2024 (DRO-R4-25)",
       "quality": "primary_report",
-      "note": "CR3 96,6%: NorgesGruppen 48,4%, Coop 27,1%, Reitan 18,0%. Mest konsentrert i Norden."
+      "note": "CR3 96,6%: NorgesGruppen 43,5%, Coop 29,2%, Rema 23,9%, Bunnpris 3,3% (KT omsetning 2024). Erstatter eldre 3445 (Dagligvaretilsynet/butikkantall-basis). NB: FI ~3662 kan være høyere under harmonisert metode; kryssnasjonal HHI-sammenligning har metodeforbehold (DRO-R4-25)."
     },
     {
       "country": "SE",
