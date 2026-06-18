@@ -1,17 +1,23 @@
 import type { EffectLevel } from '@/lib/data/circular-leverage'
 
-type Dimension = 'klima' | 'natur' | 'forurensning'
+type Dimension = 'klima' | 'natur' | 'forurensning' | 'resiliens' | 'distrikt' | 'helse'
 
 const DIMENSION_LABEL: Record<Dimension, string> = {
   klima: 'Klima',
   natur: 'Natur',
   forurensning: 'Forurensning',
+  resiliens: 'Resiliens',
+  distrikt: 'Distrikt',
+  helse: 'Helse',
 }
 
 const DIMENSION_COLOR: Record<Dimension, string> = {
   klima: 'bg-red-600',
   natur: 'bg-green-600',
   forurensning: 'bg-blue-500',
+  resiliens: 'bg-amber-600',
+  distrikt: 'bg-purple-600',
+  helse: 'bg-pink-600',
 }
 
 const LEVEL_WIDTH: Record<EffectLevel, string> = {

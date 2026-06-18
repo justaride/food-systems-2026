@@ -13,6 +13,12 @@ export type CircularLeverage = {
     klima: EffectLevel
     natur: EffectLevel
     forurensning: EffectLevel
+    // Objektivfunksjon Sett II (vedtak 2026-06-18): resiliens + distrikt lagt til.
+    // Bevisst valgfrie og USCORET (undefined) for de fleste punkter — det synliggjør
+    // dekningsblindsonen i stedet for å fabrikkere scorer. helse = fase 2 (tom).
+    resiliens?: EffectLevel
+    distrikt?: EffectLevel
+    helse?: EffectLevel
   }
   aggregate: EffectLevel
   headline: string
@@ -28,6 +34,37 @@ export type CircularLeverage = {
 }
 
 export const lastUpdated = '2026-04-29'
+
+// Objektivfunksjon-linser (vedtak Sett II, 2026-06-18). Fase 1 = aktive dimensjoner;
+// fase 2 = planlagt blindsone (helse) som bevisst står tom til den åpnes.
+export type ObjectiveDimension =
+  | 'klima'
+  | 'natur'
+  | 'forurensning'
+  | 'resiliens'
+  | 'distrikt'
+  | 'helse'
+
+export const objectiveDimensions: { id: ObjectiveDimension; label: string; phase: 1 | 2 }[] = [
+  { id: 'klima', label: 'Klima', phase: 1 },
+  { id: 'natur', label: 'Natur', phase: 1 },
+  { id: 'forurensning', label: 'Forurensning', phase: 1 },
+  { id: 'resiliens', label: 'Resiliens', phase: 1 },
+  { id: 'distrikt', label: 'Distrikt/bonde', phase: 1 },
+  { id: 'helse', label: 'Helse (fase 2)', phase: 2 },
+]
+
+/** Effektnivå for en gitt objektiv-dimensjon, eller undefined hvis tiltaket ikke er scoret (dekningshull). */
+export function objectiveLevel(l: CircularLeverage, dim: ObjectiveDimension): EffectLevel | undefined {
+  return l.effects[dim]
+}
+
+/** Antall tiltak scoret på en dimensjon (for å synliggjøre dekningsgrad i UI). */
+export function objectiveCoverage(dim: ObjectiveDimension): { scored: number; total: number } {
+  const total = circularLeverages.length
+  const scored = circularLeverages.filter((l) => l.effects[dim] != null).length
+  return { scored, total }
+}
 
 export const circularLeverages: CircularLeverage[] = [
   {
@@ -100,7 +137,7 @@ export const circularLeverages: CircularLeverage[] = [
     country: 'NO',
     title: 'Lukke 11× biogass-gap til DK-nivå',
     shortTitle: 'NO biogass-gap',
-    effects: { klima: 'high', natur: 'medium', forurensning: 'high' },
+    effects: { klima: 'high', natur: 'medium', forurensning: 'high', resiliens: 'high', distrikt: 'medium' },
     aggregate: 'high',
     headline: '5–7 TWh potensial · 1,5–3 mill. tonn CO₂e/år',
     justification:
@@ -133,7 +170,7 @@ export const circularLeverages: CircularLeverage[] = [
     country: 'NO',
     title: 'Akvakultur-slam → biogass + P-gjenvinning',
     shortTitle: 'NO akvakultur-slam',
-    effects: { klima: 'medium', natur: 'high', forurensning: 'high' },
+    effects: { klima: 'medium', natur: 'high', forurensning: 'high', resiliens: 'high' },
     aggregate: 'high',
     headline: '70 % av N/P fra åpne anlegg slippes i fjord · 3 TWh + struvitt-potensial',
     justification:
@@ -164,7 +201,7 @@ export const circularLeverages: CircularLeverage[] = [
     country: 'NO',
     title: 'Offentlig innkjøp etter København-modell',
     shortTitle: 'NO offentlig innkjøp',
-    effects: { klima: 'high', natur: 'high', forurensning: 'medium' },
+    effects: { klima: 'high', natur: 'high', forurensning: 'medium', distrikt: 'medium' },
     aggregate: 'high',
     headline: '611 mrd. NOK uten øko-mål · KBH har 84 % økologisk uten budsjettøkning',
     justification:
@@ -290,7 +327,7 @@ export const circularLeverages: CircularLeverage[] = [
     country: 'FI',
     title: 'Industrialiser alternativt protein (Volare/Enifer/Solar Foods)',
     shortTitle: 'FI alt. protein',
-    effects: { klima: 'medium', natur: 'high', forurensning: 'medium' },
+    effects: { klima: 'medium', natur: 'high', forurensning: 'medium', resiliens: 'high' },
     aggregate: 'medium',
     headline: 'Volare €26M · Enifer PEKILO · Solar Foods · de få som lykkes med akademia→industri',
     justification:
