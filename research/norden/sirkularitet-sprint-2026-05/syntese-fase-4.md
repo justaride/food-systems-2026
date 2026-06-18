@@ -62,7 +62,7 @@ Fra T2-motsigelses-flagging (12 kandidater) plukket vi **7 cases** etter kriteri
 
 ### CD-4: NOK 4,9 mrd bot endret ikke strukturen
 **Politisk påstand:** "NO har Nordens sterkeste konkurransehåndheving (NOK 4,9 mrd bot 2024 + ny markedsetterforskningstjeneste)."
-**Motstandsdata:** HHI 3445 fortsatt høyest i Norden. CR3 96,6%. Strukturen uendret etter sanksjon. FI 30%-regel er forebyggende; NO har ingen tilsvarende strukturell terskel. Restriktive eiendomsklausuler stopper nye aktører.
+**Motstandsdata:** HHI 3327 (korr. fra 3445; FI ~3662 kan være høyere under harmonisert metode — DRO-R4-25). CR3 96,6%. Strukturen uendret etter sanksjon. FI 30%-regel er forebyggende; NO har ingen tilsvarende strukturell terskel. Restriktive eiendomsklausuler stopper nye aktører.
 **Gap:** Fundamental.
 **Tolkning:** Reaktiv straff endrer ikke struktur. Sirkulære leverandører møter usynlig murer.
 **Implikasjon:** Norsk versjon av FI 30%-regel + tvunget eiendomsklausul-revisjon, ikke bare større bøter.

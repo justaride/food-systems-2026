@@ -77,7 +77,7 @@
     {"country": "FI", "theme": "food-waste", "metric": "food_waste_total_tonnes", "value": 520000, "year": 2024, "source": "Luke, stat.fi", "quality": "definition_diff", "note": "Husholdning 22 kg/cap — LAVEST i Norden."},
     {"country": "IS", "theme": "food-waste", "metric": "food_waste_total_tonnes", "value": null, "year": null, "source": "ingen nasjonal strategi", "quality": "needs_primary_check"},
 
-    {"country": "NO", "theme": "market-power", "metric": "retail_hhi", "value": 3445, "year": 2024, "source": "Dagligvaretilsynet", "quality": "primary_report", "note": "CR3 96,6%. Mest konsentrert i Norden."},
+    {"country": "NO", "theme": "market-power", "metric": "retail_hhi", "value": 3327, "year": 2024, "source": "Konkurransetilsynet Dagligvarerapport 2024 (DRO-R4-25)", "quality": "primary_report", "note": "CR3 96,6%: NG 43,5/Coop 29,2/Rema 23,9/Bunnpris 3,3 (KT omsetning 2024). Erstatter eldre 3445 (Dagligvaretilsynet). NB: FI ~3662 kan vaere hoyere under harmonisert metode; metodeforbehold (DRO-R4-25)."},
     {"country": "NO", "theme": "market-power", "metric": "competition_fine_2024_nok_bn", "value": 4.9, "year": 2024, "source": "Konkurransetilsynet", "quality": "primary_report", "note": "Bot på NorgesGruppen, Coop, REMA 1000 (aug. 2024) — 'prishunter'-saken (deling av butikkpriser siden 2011). EUR ~420M."},
     {"country": "SE", "theme": "market-power", "metric": "retail_hhi", "value": 3300, "year": 2024, "source": "Konkurrensverket", "quality": "primary_report"},
     {"country": "DK", "theme": "market-power", "metric": "retail_hhi", "value": 2500, "year": 2024, "source": "KFST", "quality": "primary_report", "note": "Lavest HHI i Norden."},
