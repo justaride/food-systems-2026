@@ -1,7 +1,7 @@
 # Nordisk offentlig matinnkjøp — komparativ analyse
 
-**ID:** DRO-R4-24 · 2026-06-18 · felt: Nordisk offentlig matinnkjøp · hull-type: A  
-**Agent:** claude-sonnet-4-6 · søkedato 2026-06-18  
+**ID:** DRO-R4-24 · 2026-06-18 · felt: Nordisk offentlig matinnkjøp · hull-type: A
+**Agent:** claude-sonnet-4-6 · søkedato 2026-06-18
 **Søsterfil:** DRO-R4-07 (NO DFØ-volum, DK Københavns Madhus-mekanisme — ikke duplisert her)
 
 ---

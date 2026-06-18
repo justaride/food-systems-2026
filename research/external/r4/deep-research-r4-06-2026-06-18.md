@@ -1,8 +1,8 @@
 # Spillvarme/veksthus — normalisert energi/areal og NVE-hjemmel
 
-**ID:** DRO-R4-06 · 2026-06-18 · felt: Spillvarme/drivhus · hull-type: A  
-**Agent:** claude-sonnet-4-6 · sesjon local_305cc1f7  
-**Primærkilder:** NVE (lovdata/veiledere.nve.no), SINTEF Energi AS (via Landbruksdirektoratet), SSB, Sweco/WA3RM (prosjektdok)  
+**ID:** DRO-R4-06 · 2026-06-18 · felt: Spillvarme/drivhus · hull-type: A
+**Agent:** claude-sonnet-4-6 · sesjon local_305cc1f7
+**Primærkilder:** NVE (lovdata/veiledere.nve.no), SINTEF Energi AS (via Landbruksdirektoratet), SSB, Sweco/WA3RM (prosjektdok)
 **Sekundærkilder:** Agri-e.no, Impact Loop, Nordic Prosjekt
 
 ---

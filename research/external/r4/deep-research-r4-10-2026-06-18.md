@@ -15,33 +15,33 @@ Ingen ekstern primær- eller forskningskilde er identifisert som eksplisitt anal
 ## Søkelogg
 
 ### Søk 1
-**Query:** "Norway Brazil trade soybean import stockfish bacalhau export bilateral trade flows research"  
-**Funn:** Enkeltstrøm-dekning: NSC om klippfisk til Brasil; USDA FAS om norsk fiskeforingredient-marked (soya fra Brasil). Ingen kilde behandler begge strømmene i én analyse.  
+**Query:** "Norway Brazil trade soybean import stockfish bacalhau export bilateral trade flows research"
+**Funn:** Enkeltstrøm-dekning: NSC om klippfisk til Brasil; USDA FAS om norsk fiskeforingredient-marked (soya fra Brasil). Ingen kilde behandler begge strømmene i én analyse.
 **Nærmeste treff:** USDA FAS (2018) nevner at planteprotein til norsk fiskefôr «predominantly imported from Brazil», men dette er en markedsrapport, ikke en bilateral strømstudie.
 
 ### Søk 2
-**Query:** "Norge Brasil soya import klippfisk bacalhau eksport bilateral handel forskning"  
+**Query:** "Norge Brasil soya import klippfisk bacalhau eksport bilateral handel forskning"
 **Funn:** Nofima-prosjektet «Klippfisk til Brasil» (ensidig, bare klippfisk-strømmen). Regjeringen.no-pressemelding om Brasil som voksende sjømatmarked. Ingen tostrøms-analyse.
 
 ### Søk 3
-**Query:** "Norway soybean imports Brazil aquaculture feed counterflow trade bilateral analysis academic"  
-**Funn:** Frontiers in Marine Science (2024), «Conceptualization of the Norwegian feed system of farmed Atlantic salmon» — behandler soya fra Brasil som fôringrediens, men omtaler ikke klippfisk/bacalhau-strømmen.  
+**Query:** "Norway soybean imports Brazil aquaculture feed counterflow trade bilateral analysis academic"
+**Funn:** Frontiers in Marine Science (2024), «Conceptualization of the Norwegian feed system of farmed Atlantic salmon» — behandler soya fra Brasil som fôringrediens, men omtaler ikke klippfisk/bacalhau-strømmen.
 Water History (2025), de Souza: «From Brazilian plains to Norwegian seas» — nærmeste enkeltarbeid (se detaljer nedenfor). Nevner begge elementer, men er ikke en bilateral handelsanalyse.
 
 ### Søk 4
-**Query:** `"Norway" "Brazil" "soy" "bacalhau" OR "clipfish" "trade" bilateral flows same study`  
+**Query:** `"Norway" "Brazil" "soy" "bacalhau" OR "clipfish" "trade" bilateral flows same study`
 **Funn:** OEC (Observatory of Economic Complexity) har bilateral profil BRA↔NOR, men dette er et datavisualiserings-verktøy, ikke en analytisk studie. Ingen akademiske treff med begge strømmene i rammen.
 
 ### Søk 5
-**Query:** "Norway Brazil food system trade soy salmon feed counterpart bacalhau academic journal article"  
+**Query:** "Norway Brazil food system trade soy salmon feed counterpart bacalhau academic journal article"
 **Funn:** Identifiserte de Souza (Water History, 2025) og Frontiers 2024. de Souza (2025) er det nærmeste.
 
 ### Søk 6
-**Query:** Lundeberg & Grønlund «From Brazilian farms to Norwegian tables» (RFN 2017)  
+**Query:** Lundeberg & Grønlund «From Brazilian farms to Norwegian tables» (RFN 2017)
 **Funn:** Rapporten bekreftet — behandler soya i norsk laksefôr fra Brasil. Omtaler ikke klippfisk/bacalhau-strømmen overhodet. Ensidig soya-rapport.
 
 ### Søk 7
-**Query:** NHH-masteroppgave «Brasiliansk soya i norsk lakseproduksjon» (Bergen)  
+**Query:** NHH-masteroppgave «Brasiliansk soya i norsk lakseproduksjon» (Bergen)
 **Funn:** PDF utilgjengelig ved henting. Tittelen indikerer ensidig soya-fokus, ikke bilateral kobling.
 
 ---
