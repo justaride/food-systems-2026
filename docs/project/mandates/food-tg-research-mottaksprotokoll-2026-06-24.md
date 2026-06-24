@@ -75,6 +75,7 @@ Tillatte gate outcomes er:
 - `claim-lock`: funnet er claim-nært og må låses med nøyaktig tekst, kilde og caveat.
 - `actor-gate`: funnet krever aktørkontakt, tilgang, bekreftelse eller beslutning.
 - `forstaelse`: funnet hører hjemme i analyse/metode før det kan brukes som eksternt utsagn.
+- `internal`: funnet er internt arbeidsunderlag — modell-, visualiserings- eller designspesifikasjon, eller intern vurdering — som ikke skal bli eksternt utsagn, men som fortsatt mottaksføres når det bygger på researchfunn.
 - `parkert`: funnet skal ikke brukes nå, men beholdes med begrunnelse.
 
 Gate skal velges etter svakeste punkt, ikke etter ønsket bruk.
@@ -118,7 +119,7 @@ Et funn kan løftes videre når:
 - kildeklasse og hulltype er satt
 - gate er valgt
 - `Ikke-si`-listen finnes
-- neste mottaker vet om funnet skal til source-shortlist, PCQ, claim-lock, actor-gate, forstaelse eller parkert status
+- neste mottaker vet om funnet skal til source-shortlist, PCQ, claim-lock, actor-gate, forstaelse, internal eller parkert status
 
 Claim-nære funn kan bare løftes som claim-lock-kandidat, ikke som ferdig tekst.
 
