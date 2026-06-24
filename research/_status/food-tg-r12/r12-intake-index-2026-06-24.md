@@ -12,9 +12,9 @@ Denne indeksen grupperer Runde 12-prompter etter mottaksstatus. Den bygger på `
 
 ## Kontrollstatus
 
-- **Promptrader indeksert:** 46
-- **Decision-batcher funnet:** `batch-01`, `batch-02`, `batch-03`, `batch-04`, `batch-05`, `batch-06`, `batch-08`, `batch-09`, `batch-10`, `batch-11`, `batch-12`
-- **Batcher ikke funnet som decision/report-fil:** `batch-07`
+- **Promptrader indeksert:** 50
+- **Decision-batcher funnet:** `batch-01`, `batch-02`, `batch-03`, `batch-04`, `batch-05`, `batch-06`, `batch-07`, `batch-08`, `batch-09`, `batch-10`, `batch-11`, `batch-12`
+- **Batcher ikke funnet som decision/report-fil:** ingen — `batch-07` (`R12-RES-003`, `R12-RES-004`, `R12-RES-005`, `R12-FEED-003`) ble kjørt og mottaksført 2026-06-25.
 - **Arbeidsregel:** alle rader er interne mottaks-/triageposter; ingen rad åpner ekstern claim, DB-skriving, `safe_for_ai_context`, whitepapertekst eller deckstemme.
 - **Overlapp:** samme prompt kan ligge i flere grupper når den både har en hovedgate og en stop-regel, f.eks. PCQ + må ikke visualiseres ennå.
 
@@ -22,14 +22,14 @@ Denne indeksen grupperer Runde 12-prompter etter mottaksstatus. Den bygger på `
 
 | Gruppe | Antall | Bruk |
 |---|---:|---|
-| PCQ-ready | 17 | klar for primary-check queue / kontrollert uttrekk før eventuell claim-lock |
-| source-shortlist | 15 | klar som kilde-/metodekandidat, ikke claim |
+| PCQ-ready | 18 | klar for primary-check queue / kontrollert uttrekk før eventuell claim-lock |
+| source-shortlist | 18 | klar som kilde-/metodekandidat, ikke claim |
 | claim-lock candidate | 2 | kun svært smal formulering kan vurderes etter PCQ |
 | actor-gate | 20 | krever aktørdata, verifikasjon, kontrakt, avregning eller aktiv-status |
 | forstaelse | 4 | bakgrunn/hypotese/mental modell; ikke faktastemme |
 | internal only | 5 | intern modell, datakontrakt, funding-fit eller uttakskø |
 | parkert | 7 | hele eller sentrale claims stoppet inntil ny locator/aktor/data finnes |
-| må ikke visualiseres ennå | 10 | ikke lag ekstern figur/radar/rangering/deckuttak før gate og tomme celler vises |
+| må ikke visualiseres ennå | 13 | ikke lag ekstern figur/radar/rangering/deckuttak før gate og tomme celler vises |
 
 ## PCQ-ready
 
@@ -52,6 +52,7 @@ Denne indeksen grupperer Runde 12-prompter etter mottaksstatus. Den bygger på `
 | `R12-FEED-004` | 08 | Soya og SPC-koder | PCQ | SSB 08801 gir primæranker for soyabønner, soyabønnemel, soyabaserte oljekaker/reststoffer og proteinkonsentrater til fôr, men SPC må ikke legges i HS 2304 og sluttbrukssplitt forblir C/actor-gate. | import code ledger and explicit C cells; claim-lock only for narrow SSB-code wording after PCQ | research/external/r12/R12-FEED-004-soya-og-spc-koder.md |
 | `R12-FARM-003` | 09 | Gjodselsjokk 2022-2023 | PCQ | BFJ/NIBIO gir A-kilde for et tydelig gjodselsjokk i 2022-2023, med handelsgjodsel og kalk fra 1,883 mrd. kr i 2021 til 2,460 mrd. kr i 2022 og budsjett 3,431 mrd. kr i 2023. Ettervirkning per produksjon og region krever tabelluttrekk. | import as PCQ candidate for fertilizer shock; no per-production or regional margin claim yet | research/external/r12/R12-FARM-003-gjodselsjokk-2022-2023.md |
 | `R12-TRUE-004` | 10 | Nexus-rapporten anbefalingstall og SOIL-score | PCQ | IPBES Nexus Assessment er verifisert med DOI for full report/SPM; tallsporet bor korrigeres til 71 response options, mens SOIL-score parkeres uten primarlocator. | import source card and count correction; park SOIL-score claim | research/external/r12/R12-TRUE-004-nexus-rapporten-anbefalingstall-og-soil-score.md |
+| `R12-RES-003` | 07 | Kritiske importnoder Norge | PCQ | Importavhengighet for fosfat/forprotein/fiskeolje/soya/kaffe/kakao er godt dokumentert kvalitativt, men konkrete tonn-tall mangler SSB 08801-uttak og er B/C. | import as underlag; flag all tonnage B/C and upgrade per node via SSB 08801 HS extract before external use | research/external/r12/R12-RES-003-kritiske-importnoder-norge.md |
 
 ## source-shortlist
 
@@ -72,6 +73,9 @@ Denne indeksen grupperer Runde 12-prompter etter mottaksstatus. Den bygger på `
 | `R12-TRUE-005` | 10 | Folkehelse-output for norsk matsystem | source-shortlist | FHI og Helsedirektoratet gir sterke kildeankre for kosthold, sykdomsbyrde og matforsyning, men ikke et ferdig norsk helse-true-cost-regnskap. | import as health-output source shortlist and datagap; no true-cost health monetization claim | research/external/r12/R12-TRUE-005-folkehelse-output-norsk-matsystem.md |
 | `R12-GOV-003` | 11 | Nordiske regulatoriske terskler | source-shortlist | Nordiske konkurransemyndigheter har A-kildebare fusjons-/oppkjopsterskler og noen underterskelverktøy, men ingen felles vedtatt dagligvare- eller EMV-spesifikk terskel ble funnet i denne batchen. | import as regulatorisk terskel-/virkemiddelmatrise; no claim-lock | research/external/r12/R12-GOV-003-nordiske-regulatoriske-terskler.md |
 | `R12-GOV-004` | 11 | Implementeringsbarrierer for sirkulære mattiltak | source-shortlist | Kildene støtter en barrierematrise om kapital, energi/drift, regulering/areal, aksept og skaleringsrisiko, men konkurs/pause beviser ikke at teknologien feiler. | import barrierematrise; park Plantagon/Rest case rows until primary locator/entity match | research/external/r12/R12-GOV-004-implementeringsbarrierer-sirkulaere-mattiltak.md |
+| `R12-RES-004` | 07 | Lokal verdikjede og faktisk robusthet | source-shortlist | Lokal/kort kjede oker forsyningssikkerhet bare der en faktisk mekanisme er dokumentert (lager, redusert innsatsvareavhengighet, diversifisering); mekanisme-evidens kommer fra FFI, ikke lokalmat-narrativ. | import as source-shortlist; keep mechanism distinct from identity, hold local-food volume figures as C | research/external/r12/R12-RES-004-lokal-verdikjede-og-faktisk-robusthet.md |
+| `R12-RES-005` | 07 | Transport, lager og kaldkjede | source-shortlist | Matspesifikke transport-/kaldkjede-sarbarheter er godt dokumentert kvalitativt (OE-rapport 60-2023), men tallfestet kapasitet/dagsdekning/kjolekjede-tonnasje er tomme/C-celler. | import as food-relevant vulnerability matrix with realized/capacity/plan columns; no quantified figure yet | research/external/r12/R12-RES-005-transport-lager-og-kaldkjede.md |
+| `R12-FEED-003` | 07 | Alternative nordiske forproteiner | source-shortlist | Feltet er dominert av annonsert kapasitet og plan; realisert for-grade aarsvolum per nordisk aktoer er i stor grad ikke offentlig (C). | import as actor ledger with realized/capacity/plan in separate columns; no row closed to realized production | research/external/r12/R12-FEED-003-alternative-nordiske-forproteiner.md |
 
 ## claim-lock candidate
 
@@ -150,6 +154,9 @@ Denne indeksen grupperer Runde 12-prompter etter mottaksstatus. Den bygger på `
 | `R12-VIZ-003` | 12 | Kausalkart L1-L5 | forstaelse | Kausalkartet kan bygges som hypotesekart med evidensstyrke per pil, men ikke som målt kausalmodell. | import as internal hypothesis/evidence table; no external causal figure without PCQ/claim-lock or hypothesis label | research/forstaelse/R12-VIZ-003-kausalkart-l1-l5.md |
 | `R12-VIZ-004` | 12 | Datagap-figur-underlag | internal | Datagap kan visualiseres som egne funn når hver tomme celle har eier, gapType, gate og lukkekrav. | import as internal datagap figure substrate; no external figure until method/scope is stated | docs/project/mandates/R12-VIZ-004-datagap-figur-underlag.md |
 | `R12-VIZ-005` | 12 | Whitepaper og deck uttaksoversikt | internal | R12 har flere figur-, tabell- og casekortkandidater, men alle må beholde gate/status og svakeste punkt før whitepaper/deck-bruk. | import as internal extraction queue; select later candidates for PCQ or claim-lock cards | docs/project/mandates/R12-VIZ-005-whitepaper-og-deck-uttaksoversikt.md |
+| `R12-RES-003` | 07 | Kritiske importnoder Norge | PCQ | Tonn-tall er B/C uten SSB 08801 HS-uttak; fosfat og fôrprotein-total er tomme celler. | no import-node figure until each node is upgraded to A via 08801 extract; empty cells must show | research/external/r12/R12-RES-003-kritiske-importnoder-norge.md |
+| `R12-RES-005` | 07 | Transport, lager og kaldkjede | source-shortlist | Node-tall (havneandeler, dagsdekning, kjølekjede-tonnasje) er kvalitative eller ikke-publiserte. | no quantified risk/cold-chain figure; keep qualitative nodes and empty cells visible | research/external/r12/R12-RES-005-transport-lager-og-kaldkjede.md |
+| `R12-FEED-003` | 07 | Alternative nordiske forproteiner | source-shortlist | Realisert fôr-grade volum mangler nesten helt; tallene er annonsert kapasitet/plan. | no actor-ledger volume figure that blends capacity/plan with realized production | research/external/r12/R12-FEED-003-alternative-nordiske-forproteiner.md |
 
 ## Neste kontrollrekkefølge
 
