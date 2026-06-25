@@ -61,6 +61,7 @@ Les hele denne fila først. Følg §3-loopen. Stopp kun på §7-betingelsene.
    h. APPEND hver importert node til review-køen (§5).
    i. RECONCILE:  oppdater last_updated i dekningsboka for cellen, kjør audit på nytt.
    j. Skriv/append mottakslogg for cellen.
+   j2. PROD-WIRING (obligatorisk): registrer npm-alias `db:import:domene-<celle>-<dato>` i package.json (samme `--csv`/`--dataset` som steg g) og legg det inn i `db:prod-sync`-kjeden (før `db:verify`). Uten dette får ikke prod nodene — de finnes kun i lokal DB.
    k. COMMIT per celle (egen commit, sporbar melding).
 5. Når lista er tom eller §7 stopper → §8 sluttrapport + PR.
 ```
