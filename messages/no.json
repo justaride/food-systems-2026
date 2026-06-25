@@ -9,6 +9,7 @@
       "produsenter": "Produsenter & støtte", "nordisk": "Nordisk", "kunnskap": "Kunnskap", "bibliotek": "Bibliotek"
     },
     "oversikt": { "name": "Oversikt", "description": "Fase, fremdrift, neste steg" },
+    "veiledning": { "name": "Brukerveiledning", "description": "Slik bruker du plattformen — start her" },
     "sok": { "name": "Søk", "description": "Søk på tvers av alt" },
     "team": { "name": "Team", "description": "Medlemmer og roller" },
     "casestatus": { "name": "Casestatus", "description": "Modenhet per caseanker" },

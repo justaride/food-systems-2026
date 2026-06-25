@@ -27,7 +27,7 @@ describe('insight link review scripts', () => {
   it('uses each resolved document id when applying insight links', () => {
     const source = readFileSync('scripts/apply-insight-links-v3.ts', 'utf8')
 
-    assert.match(source, /data:\s*\{\s*insightId:\s*r\.insightId,\s*documentId:\s*r\.documentId,\s*relevance\s*\}/s)
+    assert.match(source, /data:\s*\{\s*insightId:\s*r\.insightId,\s*documentId:\s*r\.documentId,\s*relevance\s*\}/)
   })
 
   it('keeps reviewed slug-link application duplicate-aware', () => {
