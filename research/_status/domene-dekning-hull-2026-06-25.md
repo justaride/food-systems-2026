@@ -4,7 +4,7 @@
 |---|---|---|---|---|---|---|
 | lokale-verdikjeder | reko | NO | 140 | 20 | 120 | middels |
 | lokale-verdikjeder | andelslandbruk | NO | 93 | 20 | 73 | middels |
-| regenerativ-praksis | market-gardening | NO | 30 | 0 | 30 | lav |
+| regenerativ-praksis | market-gardening | NO | 30 | 10 | 20 | lav |
 | regenerativ-praksis | jordhelse-karbon | NO | 20 | 0 | 20 | lav |
 | permakultur-fleraarige | skogshage-agroforestry | NO | 20 | 0 | 20 | lav |
 | permakultur-fleraarige | demonstrasjonssteder | NO | 20 | 0 | 20 | lav |
@@ -24,4 +24,4 @@
 | lokale-verdikjeder | gaardsutsalg | NO | 0 | 0 | 0 | lav |
 | lokale-verdikjeder | markedshager | NO | 0 | 0 | 0 | lav |
 
-Totalt kartlagt (domene-tagga): 49
+Totalt kartlagt (domene-tagga): 59

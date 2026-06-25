@@ -68,8 +68,8 @@
     "geo": "NO",
     "estimated_universe": 30,
     "universe_confidence": "lav",
-    "mapped_count": 0,
-    "gap": 30
+    "mapped_count": 10,
+    "gap": 20
   },
   {
     "domain": "regenerativ-praksis",
