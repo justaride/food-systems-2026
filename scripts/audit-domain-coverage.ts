@@ -45,13 +45,16 @@ async function main() {
   // Hent alle domene-tagga aktører én gang; tell per (domain, subdomain, geo) fra metadata.
   const actors = await prisma.actor.findMany({
     where: { themeTags: { hasSome: ledger.map(r => `domene:${r.domain}`) } },
-    select: { metadata: true, country: true },
+    select: { metadata: true, country: true, themeTags: true },
   })
   const counts = new Map<string, number>()
   for (const a of actors) {
     const m = (a.metadata ?? {}) as Record<string, unknown>
-    const domain = String(m.domain ?? '')
-    const subdomain = String(m.subdomain ?? '(uklassifisert)')
+    const tags = a.themeTags ?? []
+    const domainTag = tags.find(t => t.startsWith('domene:'))
+    const subTag = tags.find(t => t.startsWith('subdomene:'))
+    const domain = domainTag ? domainTag.slice('domene:'.length) : String(m.domain ?? '')
+    const subdomain = subTag ? subTag.slice('subdomene:'.length) : '(uklassifisert)'
     const geo = String(m.geo ?? a.country ?? 'NO')
     counts.set(`${domain}|${subdomain}|${geo}`, (counts.get(`${domain}|${subdomain}|${geo}`) ?? 0) + 1)
   }
