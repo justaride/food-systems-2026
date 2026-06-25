@@ -7,6 +7,7 @@
     "compute-metrics": "tsx scripts/compute-chart-metrics.ts --country=all",
     "compute-metrics:full": "npm run compute-metrics && npm run audit:konsern && npm run compute-coverage",
     "audit:konsern": "tsx scripts/audit-konsern-coverage.ts",
+    "audit:domain-coverage": "tsx scripts/audit-domain-coverage.ts",
     "refresh:brreg": "tsx scripts/refresh-brreg-tracked.ts",
     "refresh:brreg-financials": "tsx scripts/import-brreg-financials.ts",
     "validate:brreg": "tsx scripts/validate-against-brreg.ts",
