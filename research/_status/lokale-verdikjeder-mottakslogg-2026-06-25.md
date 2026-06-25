@@ -67,6 +67,6 @@ Alle 10 eksisterende aktører beriket additivt (themeTags-union): la til `domene
 | gaardsutsalg (NO) | 0 | 0 | 0 |
 | markedshager (NO) | 0 | 0 | 0 |
 
-Totalt domene-tagga aktorer: 22 (fra 0)
+Totalt domene-tagga aktorer i NO-cellene: 22. I tillegg ble 4 noder med Norden-kontekst re-tagget (reko-sverige/danmark/finland → reko; beint-fra-byli → paraply-nettverk) — disse faller utenfor NO-dekningsboka og telles derfor ikke i cellene over (26 noder totalt tagget).
 
 Gap-reduksjon: reko 140→134, andelslandbruk 93→86, bondens-marked 20→16, paraply-nettverk 8→3.
