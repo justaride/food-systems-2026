@@ -1,7 +1,22 @@
 domain,subdomain,geo,estimated_universe,universe_source,universe_confidence,mapped_count,gap,last_updated
-lokale-verdikjeder,reko,NO,140,"REKO Norge feb. 2022 (140+ ringer); siste offisielle",middels,0,0,2026-06-25
+lokale-verdikjeder,reko,NO,140,"REKO Norge feb. 2022 (140+ ringer); siste offisielle",middels,20,120,2026-06-25
 lokale-verdikjeder,bondens-marked,NO,20,"Stiftelsen Bondens marked: ~20 faste markedsplasser",middels,0,0,2026-06-25
-lokale-verdikjeder,andelslandbruk,NO,93,"Oekologisk Norge: 93 i drift (2023)",middels,0,0,2026-06-25
+lokale-verdikjeder,andelslandbruk,NO,93,"Oekologisk Norge: 93 i drift (2023)",middels,20,73,2026-06-25
 lokale-verdikjeder,gaardsutsalg,NO,0,"Ingen samlet telling; agent-fanout-celle",lav,0,0,2026-06-25
 lokale-verdikjeder,markedshager,NO,0,"Markedshager Norge: ikke tallfestet",lav,0,0,2026-06-25
 lokale-verdikjeder,paraply-nettverk,NO,8,"REKO Norge, Bondens marked, HANEN, Oekologisk Norge, NBS, Smaaskala Groent, Matsentralen, Stiftelsen Norsk Mat",hoey,0,0,2026-06-25
+regenerativ-praksis,holistic-management-beiting,NO,12,"Regenerativt Norge/NLR maalrettet beiting og Holistic Management-raadgivermiljoe; grovt anslag",lav,0,0,2026-06-25
+regenerativ-praksis,market-gardening,NO,30,"Markedshager Norge og Smaaskala Groent Norge; ingen samlet offentlig telling",lav,10,20,2026-06-25
+regenerativ-praksis,biodynamisk,NO,12,"Biologisk-dynamisk Forening/Debio Demeter-gaardsliste: 12 Demeter-gaarder 2025",middels,0,0,2026-06-25
+regenerativ-praksis,jordhelse-karbon,NO,20,"NIBIO/NLR/Regenerativt Norge jordhelse- og karbonprosjekter; grovt prosjektnode-anslag",lav,0,0,2026-06-25
+regenerativ-praksis,raadgivning-nettverk,NO,15,"Regenerativt Norge, NLR, DebioInfo og uavhengige raadgivernettverk; grovt anslag",lav,0,0,2026-06-25
+permakultur-fleraarige,permakultur-foreninger,NO,12,"Norsk Permakulturforening: nasjonal forening + ca. 10 lokallag; grovt anslag",middels,0,0,2026-06-25
+permakultur-fleraarige,skogshage-agroforestry,NO,20,"NPF skoghagekart, KVANN/Schuebelers hager og kjente LAND-/demo-steder; grovt anslag",lav,0,0,2026-06-25
+permakultur-fleraarige,froebevaring,NO,10,"KVANN, Norsk genressurssenter og nordiske froesamarbeid; konservativt node-anslag",middels,0,0,2026-06-25
+permakultur-fleraarige,planteskoler-froeleverandoerer,NO,15,"Solhatt, Efferus og oekologiske/permakultur-naere planteskoler/froeleverandoerer; grovt anslag",lav,0,0,2026-06-25
+permakultur-fleraarige,demonstrasjonssteder,NO,20,"LAND-sentre, skoghager, oekolandsbyer og undervisningshager; grovt anslag",lav,0,0,2026-06-25
+institusjon-finansiering,forskningsinstitutt,NO,8,"NIBIO, NORSOK, Ruralis og tilgrensende FoU-institutt i feltet; konservativt anslag",middels,0,0,2026-06-25
+institusjon-finansiering,universitet-utdanning,NO,8,"NMBU, UiO/SUM og relevante UH-miljoer/utdanninger; konservativt anslag",middels,0,0,2026-06-25
+institusjon-finansiering,virkemiddel-ordning,NO,12,"Innovasjon Norge, Forskningsraadet, jordbruksavtaleprogram og EU-prosjektordninger; grovt anslag",lav,0,0,2026-06-25
+institusjon-finansiering,kontroll-sertifisering,NO,6,"Debio, Stiftelsen Norsk Mat og sertifiserings-/merkeordninger i feltet; konservativt anslag",middels,0,0,2026-06-25
+institusjon-finansiering,interesseorg-paraply,NO,15,"Oekologisk Norge, NBS, Bondelaget, fag-/paraplyorganisasjoner og nettverk; grovt anslag",lav,0,0,2026-06-25
