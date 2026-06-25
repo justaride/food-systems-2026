@@ -60,6 +60,7 @@
     "db:import:leveransedata": "tsx scripts/import-leveransedata.ts",
     "db:import:fiskehelse": "tsx scripts/import-fiskehelse.ts",
     "db:import:company-extraction-candidates": "tsx scripts/import-company-extraction-candidates.ts",
+    "db:import:domain": "tsx scripts/import-domain-actors.ts",
     "db:link:tracked-company-docs": "tsx scripts/link-tracked-company-docs.ts",
     "db:enrich:offentligdata": "tsx scripts/enrich-offentligdata.ts",
     "db:backfill:board-member-provenance": "tsx scripts/backfill-board-member-provenance.ts",
