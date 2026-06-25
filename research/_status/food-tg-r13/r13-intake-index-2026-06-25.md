@@ -1,7 +1,7 @@
 ---
 tittel: Food TG R13 intake/triageindeks
 dato: 2026-06-25
-status: UNDER ARBEID — batch 01-03 mottaksført
+status: UNDER ARBEID — batch 01-04 mottaksført
 scope: Runde 13 batch 01-13, basert på batchrapporter og decision JSONL
 bruksregel: Ikke faktastemme. Ikke batch-output. Ikke whitepaper/deck. Bruk som triagekart for neste kontrollsteg.
 relaterte_filer:
@@ -19,9 +19,9 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 
 ## Kontrollstatus
 
-- **Promptrader indeksert:** 12 / 50
-- **Decision-batcher funnet:** `batch-01`, `batch-02`, `batch-03`
-- **Batcher ikke funnet som decision/report-fil:** `batch-04`-`batch-13`
+- **Promptrader indeksert:** 16 / 50
+- **Decision-batcher funnet:** `batch-01`, `batch-02`, `batch-03`, `batch-04`
+- **Batcher ikke funnet som decision/report-fil:** `batch-05`-`batch-13`
 - **Arbeidsregel:** alle rader er interne mottaks-/triageposter; ingen rad åpner ekstern claim, DB-skriving, `safe_for_ai_context`, whitepapertekst eller deckstemme.
 - **Overlapp:** samme prompt kan ligge i flere grupper når den både har en hovedgate og en stop-regel.
 
@@ -29,14 +29,14 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 
 | Gruppe | Antall | Bruk |
 |---|---:|---|
-| PCQ-ready | 5 | klar for primary-check queue / kontrollert uttrekk før eventuell claim-lock |
-| source-shortlist | 5 | klar som kilde-/metodekandidat, ikke claim |
+| PCQ-ready | 7 | klar for primary-check queue / kontrollert uttrekk før eventuell claim-lock |
+| source-shortlist | 7 | klar som kilde-/metodekandidat, ikke claim |
 | claim-lock candidate | 0 | kun svært smal formulering kan vurderes etter PCQ |
 | actor-gate | 1 | krever aktørdata, verifikasjon, kontrakt, avregning eller aktiv-status |
 | forstaelse | 1 | bakgrunn/hypotese/mental modell; ikke faktastemme |
 | internal only | 0 | intern modell, datakontrakt, funding-fit eller uttakskø |
 | parkert | 1 | hele eller sentrale claims stoppet inntil ny locator/aktor/data finnes |
-| må ikke visualiseres ennå | 10 | ikke lag ekstern figur/radar/rangering/deckuttak før gate og tomme celler vises |
+| må ikke visualiseres ennå | 14 | ikke lag ekstern figur/radar/rangering/deckuttak før gate og tomme celler vises |
 
 ## PCQ-ready
 
@@ -47,6 +47,8 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | R13-WASTE-002 | 02 | Oppdrettsslam massebalanse | PCQ | Oppdrettsslam er godt dokumentert som ressurs/problem; nasjonal realisert massebalanse mangler. | importer | `research/external/r13/R13-WASTE-002-oppdrettsslam-massebalanse.md` |
 | R13-WASTE-004 | 03 | Husholdnings- og detaljmatsvinn | PCQ | Matvett/NORSUS gir baseline, men sektorer og metoder må vises per rad. | importer | `research/external/r13/R13-WASTE-004-husholdning-detalj-matsvinn.md` |
 | R13-WASTE-005 | 03 | Digestat NPK-retur | PCQ | Sverige er A-anker via SPCR 120; Norge har ikke lukket faktisk NPK-retur. | importer | `research/external/r13/R13-WASTE-005-digestat-npk-retur.md` |
+| R13-PROT-006 | 04 | Soya/SPC-erstatning i fôr | PCQ | Kraftfôrproteinråvarer i 2025 var ca. 95 % importert; dette er mix, ikke soya-substitusjon. | importer | `research/external/r13/R13-PROT-006-soya-erstatning-for.md` |
+| R13-PROT-007 | 04 | Proteinselvforsyning Norge | PCQ | NIBIOs 35 % fôrkorrigert selvforsyning er energibasert, ikke proteinselvforsyning. | importer | `research/external/r13/R13-PROT-007-proteinselvforsyning.md` |
 
 ## source-shortlist
 
@@ -57,6 +59,8 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | R13-GAP-003 | 02 | Transport og lager-sårbarhet | source-shortlist | Transport/lager kan være matrelevant risikoinventar, men ikke tallfestet kapasitetsmodell. | importer | `research/external/r13/R13-GAP-003-transport-lager-sarbarhet.md` |
 | R13-WASTE-003 | 03 | Matsvinn-redistribusjon | source-shortlist | Matsentralen gir B-anker for 5 735 tonn omfordelt i 2024; ikke nasjonal redistribusjonstotal. | importer | `research/external/r13/R13-WASTE-003-matsvinn-redistribusjon.md` |
 | R13-WASTE-007 | 03 | Industrielle næringssidestrømmer | source-shortlist | Industrielle sidestrømmer kan bli fraksjonsledger, ikke nasjonal volumclaim. | importer | `research/external/r13/R13-WASTE-007-industrielle-sidestrommer.md` |
+| R13-WASTE-006 | 04 | Kaffegrut og urbane sidestrømmer | source-shortlist | Kaffegrut er avledet massestrøm, ikke målt norsk avfallsfraksjon. | importer | `research/external/r13/R13-WASTE-006-kaffegrut-urbane-sidestrommer.md` |
+| R13-WASTE-008 | 04 | Prevention-tiltak med baseline | source-shortlist | Prevention-tiltak krever baseline og målemetode før effektpåstand. | importer | `research/external/r13/R13-WASTE-008-prevention-baseline.md` |
 
 ## claim-lock candidate
 
@@ -102,6 +106,10 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | R13-WASTE-004 | 03 | Husholdnings- og detaljmatsvinn | PCQ | Ingen sektorfigur uten år/metode/scope per rad. | importer | `research/external/r13/R13-WASTE-004-husholdning-detalj-matsvinn.md` |
 | R13-WASTE-005 | 03 | Digestat NPK-retur | PCQ | Ingen nordisk NPK-rangering eller digestat-returfigur uten faktisk spredd mengde. | importer | `research/external/r13/R13-WASTE-005-digestat-npk-retur.md` |
 | R13-WASTE-007 | 03 | Industrielle næringssidestrømmer | source-shortlist | Ingen R-stige eller sidestrømsvolum som blander dagens bruk og potensial. | importer | `research/external/r13/R13-WASTE-007-industrielle-sidestrommer.md` |
+| R13-WASTE-006 | 04 | Kaffegrut og urbane sidestrømmer | source-shortlist | Ingen kaffegrutvolumfigur uten avledet/metodeetikett og våt/tørr-vekt. | importer | `research/external/r13/R13-WASTE-006-kaffegrut-urbane-sidestrommer.md` |
+| R13-WASTE-008 | 04 | Prevention-tiltak med baseline | source-shortlist | Ingen tiltak/effektfigur uten baseline, måleperiode og scope. | importer | `research/external/r13/R13-WASTE-008-prevention-baseline.md` |
+| R13-PROT-006 | 04 | Soya/SPC-erstatning i fôr | PCQ | Ingen soya-erstatningsfigur uten tidsserie og skille landfôr/fiskefôr. | importer | `research/external/r13/R13-PROT-006-soya-erstatning-for.md` |
+| R13-PROT-007 | 04 | Proteinselvforsyning Norge | PCQ | Ingen proteinselvforsyningsfigur før proteinfaktorer og mat/fôr-scope er definert. | importer | `research/external/r13/R13-PROT-007-proteinselvforsyning.md` |
 
 ## Neste kontrollrekkefølge
 
