@@ -9,6 +9,7 @@
       "produsenter": "Producers & support", "nordisk": "Nordic", "kunnskap": "Knowledge", "bibliotek": "Library"
     },
     "oversikt": { "name": "Overview", "description": "Phase, progress, next steps" },
+    "veiledning": { "name": "User guide", "description": "How to use the platform — start here" },
     "sok": { "name": "Search", "description": "Search across everything" },
     "team": { "name": "Team", "description": "Members and roles" },
     "casestatus": { "name": "Case status", "description": "Maturity per case anchor" },

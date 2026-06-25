@@ -78,7 +78,10 @@ export default async function OversiktPage() {
             </h2>
           </div>
           <p className="max-w-lg text-xs text-stone-500">
-            All lesing er intern og statusstyrt; ingen Food TG-claims er eksternt validert.
+            All lesing er intern og statusstyrt; ingen Food TG-claims er eksternt validert.{' '}
+            <Link href="/veiledning" className="font-medium text-emerald-700 hover:text-emerald-800">
+              Ny her? Start med brukerveiledningen →
+            </Link>
           </p>
         </div>
         <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-4">

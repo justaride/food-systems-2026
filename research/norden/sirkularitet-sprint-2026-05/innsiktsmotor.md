@@ -85,7 +85,7 @@ Strukturert lesning av baseline + batches for å finne påstander som motsier hv
 
 ### M7: NO konkurransehåndheving vs konsentrasjon
 - **Påstand A:** "NOK 4,9 mrd bot på de 3 store + ny markedsetterforskningstjeneste = sterkeste håndheving i Norden."
-- **Påstand B:** HHI 3445 fortsatt høyest i Norden. Strukturen uendret etter sanksjon.
+- **Påstand B:** HHI 3327 (korr. fra 3445; FI ~3662 kan være høyere — DRO-R4-25). Strukturen uendret etter sanksjon.
 - **Spenning:** Reaktiv straff endrer ikke struktur.
 
 ### M8: IS matsikkerhet vs Kornax-tap

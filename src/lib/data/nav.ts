@@ -4,6 +4,7 @@ export type NavGroup = { groupKey?: string; items: NavItem[] }
 export const navGroups: NavGroup[] = [
   { items: [
     { key: 'oversikt', href: '/' },
+    { key: 'veiledning', href: '/veiledning' },
     { key: 'sok', href: '/sok' },
   ]},
   { groupKey: 'intern', items: [

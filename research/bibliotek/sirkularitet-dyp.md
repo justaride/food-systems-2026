@@ -1,7 +1,9 @@
 # Dypforskning: Sirkulære Matsystemer, Biogass og Ressursgjenvinning i Norden
 
+> ⚠️ **SUPERSEDED (2026-06-18, dybdeaudit §0/P0c).** Tallene her er potensial-/modellerte anslag fra mars 2026, ikke realiserte. For realiserte tall og primærverifiserte serier, se runde 2/3-datasøk (`research/external/dro-0906/`, `research/external/r4/`) og casestatus-flaten. Ikke siter dette dokumentet som faktakilde for realiserte volum.
+
 **Dokument-ID:** FS2026-SIR-DYP
-**Status:** Ferdigstilt dypforskning
+**Status:** Superseded — potensial/modellert (se runde 2/3 for realiserte tall)
 **Dato:** 13. mars 2026
 **Kontekst:** Kryssegmentanalysen (DOC-VK-010) identifiserte at Norge ligger 9,7x under Danmark på biogassproduksjon fra matavfall, og identifiserte 5 sirkulærøkonomi-muligheter. Denne forskningen går i dybden på disse.
 

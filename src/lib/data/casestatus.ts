@@ -67,14 +67,14 @@ export const caseAnchors: CaseAnchor[] = [
     maturity: 'kartlagt',
     summary:
       'Verdikjeden Brasil til Norge er tallfestet med tolldata, og EUDR-konteksten er avklart: Brasil er «standard risk», ' +
-      'kaffe er innlemmet i den norske EUDR-gjennomføringen, og CONAB Parque Cafeeiro er en operativ brasiliansk sporbarhetsplattform. ' +
+      'kaffe er EØS-relevant og gjennomføring pågår (Landbruksdirektoratet 05.05.2026), og CONAB Parque Cafeeiro er en operativ brasiliansk sporbarhetsplattform. ' +
       'Aktørlandskapet er kartlagt med kandidater (Fuglen, Nordic Approach, Norsk Kaffeinformasjon, Joh. Johannson/ICP, Gruten). ' +
       'Relasjonssporet (MOU) finnes ikke i offentlige kilder og avgjøres kun av intern dokumentask.',
     keyFigures: [
-      { label: 'Brasil-andel av norsk råkaffeimport 2022–2025', value: '45–48 %', source: 'internt tallgrunnlag: Comtrade-uttrekk 12.06 (SRC-0906-011)' },
+      { label: 'Brasil-andel av norsk råkaffeimport 2022–2025', value: '47,4–47,8 % (2024–25); 43–45 % 2015–21', source: 'SSB tabell 08801 (primær, PxWebApi-uttrekk 2026-06-18, DRO-R4-03); NKI-kryssverifisert' },
       { label: 'Import fra Brasil 2025 (HS 090111)', value: '15,6 mill. kg / 122,9 mUSD', source: 'internt tallgrunnlag: Comtrade-uttrekk 12.06' },
       { label: 'Prisutvikling per kg 2024 til 2025', value: '+65 %', source: 'avledet av Comtrade-serien; importverdi fra verden ~doblet' },
-      { label: 'NKI-kryssverifikasjon', value: '2024-tall identisk med tolldata', source: 'NKI-tabell mot Comtrade 090111-aggregat' },
+      { label: 'NKI-kryssverifikasjon', value: '2024-tall identisk med tolldata', source: 'NKI-tabell identisk med SSB 08801 (DRO-R4-03)' },
     ],
     blockers: ['MOU/avtaletekst med Brasil (kun intern dokumentask kan svare)', 'Aktørroller og bruksrett (etter vedtak)'],
     notSay: ['«Det finnes en Brasil-MOU om kaffe»', '«Brasil er lavrisiko under EUDR»', '«Kaffegrut-til-biogass er et norsk pilotcase»'],
@@ -345,20 +345,20 @@ export const caseAnchors: CaseAnchor[] = [
     keyFigures: [
       { label: 'Andel av fôringredienser som er importert', value: 'over 92 %', source: 'SINTEF Ocean / Skavang 2024 (Frontiers, doi:10.3389/fmars.2024.1378970)' },
       { label: 'Fôrsammensetning i dag (mot 65 % fiskemel / 24 % fiskeolje i 1990)', value: '~73 % vegetabilsk / ~22 % marint; 0,4 % «nye» råvarer (2020)', source: 'Mowi Industry Handbook 2023; SINTEF/Frontiers 2024' },
-      { label: 'Soyaproteinkonsentrat; andel av soya fra Brasil', value: '~473 000 t SPC / ~492 mUSD (2024); ~94 % Brasil (2015-data, historisk)', source: 'USDA FAS; The Fish Site; Skretting' },
+      { label: 'Soyaproteinkonsentrat; andel av soya fra Brasil', value: '~473 000 t SPC / ~492 mUSD (2024); Brasil-andel av norsk soyaimport 69,8 % (2024, SSB tabell 08801 revidert) — erstatter tidligere 94 %-anslag (2015)', source: 'USDA FAS; The Fish Site; Skretting; SSB tabell 08801 (uttrekk 2026-06-16)' },
       { label: 'Rapsolje fra Russland/Hviterussland (2020); Russland+Ukraina = 53 % global solsikkeolje', value: '~25 %', source: 'SINTEF/Frontiers 2024; FSA UK' },
       { label: 'Peru-andel av globalt fiskemel; ansjosfall 2023', value: '~30–35 %; ansjos −~70 % (1,3 mt 2023, opp til 4,85 mt 2024)', source: 'IFFO/SeafoodSource; S&P Global («anslagsvis»)' },
       { label: 'Småpelagisk fisk fra Vest-Afrika til FMFO (2020) — NGO-estimat', value: '123 000–144 000 t', source: '«Blue Empire» Feedback/Greenpeace Africa 2024 («anslagsvis»)' },
     ],
     blockers: [
-      'Ferske andeler mangler — Brasil-soya 94 % er 2015-data, rapsolje 25 % er 2020',
+      'Rapsolje 25 % er 2020-data; Brasil-soya nå oppdatert til 69,8 % (2024, SSB 08801) fra utdatert 94 %-anslag (2015)',
       'Vest-Afrika-volum er NGO-estimater, ikke verifiserte myndighetstall',
       'Selskapenes egne svar (Skretting/Mowi/BioMar/Cargill) på Blue Empire og 2023–24-innkjøp',
       'ILUC-effekt og Råvareløftet 0,4 %→25 %-veikart ikke tallfestet',
     ],
     notSay: [
       '«Norsk laks bruker X tonn vestafrikansk fisk» som hard fakta (NGO-estimat/intervall)',
-      '«94 % av soyaen kommer fra Brasil» i presens (2015-data; i dag ~20 % av ingrediensene)',
+      '«94 % av soyaen kommer fra Brasil» (utdatert 2015-tall; SSB 08801 viser 69,8 % for 2024; soya er i dag ~20 % av fôringrediensene)',
       '«25 % av rapsoljen kommer fra Russland nå» (2020-andel; aktørene forlot 2022–23)',
       '«Avskogingsproblemet er løst» (ProTerra avskogingsfri, men ILUC vedvarer)',
       '«Guinea-Bissau forbød FMFO-produksjon 2026» som etablert faktum',
