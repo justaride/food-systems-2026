@@ -1,7 +1,7 @@
 ---
 tittel: Food TG R13 intake/triageindeks
 dato: 2026-06-25
-status: UNDER ARBEID — batch 01 mottaksført
+status: UNDER ARBEID — batch 01-02 mottaksført
 scope: Runde 13 batch 01-13, basert på batchrapporter og decision JSONL
 bruksregel: Ikke faktastemme. Ikke batch-output. Ikke whitepaper/deck. Bruk som triagekart for neste kontrollsteg.
 relaterte_filer:
@@ -19,9 +19,9 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 
 ## Kontrollstatus
 
-- **Promptrader indeksert:** 4 / 50
-- **Decision-batcher funnet:** `batch-01`
-- **Batcher ikke funnet som decision/report-fil:** `batch-02`-`batch-13`
+- **Promptrader indeksert:** 8 / 50
+- **Decision-batcher funnet:** `batch-01`, `batch-02`
+- **Batcher ikke funnet som decision/report-fil:** `batch-03`-`batch-13`
 - **Arbeidsregel:** alle rader er interne mottaks-/triageposter; ingen rad åpner ekstern claim, DB-skriving, `safe_for_ai_context`, whitepapertekst eller deckstemme.
 - **Overlapp:** samme prompt kan ligge i flere grupper når den både har en hovedgate og en stop-regel.
 
@@ -29,14 +29,14 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 
 | Gruppe | Antall | Bruk |
 |---|---:|---|
-| PCQ-ready | 2 | klar for primary-check queue / kontrollert uttrekk før eventuell claim-lock |
-| source-shortlist | 1 | klar som kilde-/metodekandidat, ikke claim |
+| PCQ-ready | 3 | klar for primary-check queue / kontrollert uttrekk før eventuell claim-lock |
+| source-shortlist | 3 | klar som kilde-/metodekandidat, ikke claim |
 | claim-lock candidate | 0 | kun svært smal formulering kan vurderes etter PCQ |
-| actor-gate | 0 | krever aktørdata, verifikasjon, kontrakt, avregning eller aktiv-status |
-| forstaelse | 0 | bakgrunn/hypotese/mental modell; ikke faktastemme |
+| actor-gate | 1 | krever aktørdata, verifikasjon, kontrakt, avregning eller aktiv-status |
+| forstaelse | 1 | bakgrunn/hypotese/mental modell; ikke faktastemme |
 | internal only | 0 | intern modell, datakontrakt, funding-fit eller uttakskø |
 | parkert | 1 | hele eller sentrale claims stoppet inntil ny locator/aktor/data finnes |
-| må ikke visualiseres ennå | 3 | ikke lag ekstern figur/radar/rangering/deckuttak før gate og tomme celler vises |
+| må ikke visualiseres ennå | 6 | ikke lag ekstern figur/radar/rangering/deckuttak før gate og tomme celler vises |
 
 ## PCQ-ready
 
@@ -44,24 +44,27 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 |---|---:|---|---|---|---|---|
 | R13-GAP-001 | 01 | Kritiske importnoder | PCQ | SSB 08801 lukker konkrete HS-serier, men sluttbruk og samlet fôrprotein er fortsatt C/metodegap. | importer | `research/external/r13/R13-GAP-001-kritiske-importnoder.md` |
 | R13-WASTE-001 | 01 | Marint restråstoff R-stige | PCQ | SINTEF/FHF 2024 er A-anker for restråstoffstatus; R-stige krever synlig metode. | importer | `research/external/r13/R13-WASTE-001-marint-restrastoff-rstige.md` |
+| R13-WASTE-002 | 02 | Oppdrettsslam massebalanse | PCQ | Oppdrettsslam er godt dokumentert som ressurs/problem; nasjonal realisert massebalanse mangler. | importer | `research/external/r13/R13-WASTE-002-oppdrettsslam-massebalanse.md` |
 
 ## source-shortlist
 
 | ID | Batch | Tittel | Gate | Kort dom | Triagebeslutning | Artefakt |
 |---|---:|---|---|---|---|---|
 | R13-GAP-002 | 01 | Lokale verdikjeder og forsyningssikkerhet | source-shortlist | Mekanisme-evidens finnes, men ikke for "lokalmat = resilient" uten mekanisme. | importer | `research/external/r13/R13-GAP-002-lokale-verdikjeder-resiliens.md` |
+| R13-GAP-004 | 02 | Alternative nordiske fôrproteiner | source-shortlist | Alternative fôrproteiner er mest kapasitet/plan/pilot; realisert fôr-grade årsvolum er ikke offentlig lukket. | importer | `research/external/r13/R13-GAP-004-alternative-nordiske-forproteiner.md` |
+| R13-GAP-003 | 02 | Transport og lager-sårbarhet | source-shortlist | Transport/lager kan være matrelevant risikoinventar, men ikke tallfestet kapasitetsmodell. | importer | `research/external/r13/R13-GAP-003-transport-lager-sarbarhet.md` |
 
 ## claim-lock candidate
 
 | ID | Batch | Tittel | Gate | Kort dom | Triagebeslutning | Artefakt |
 |---|---:|---|---|---|---|---|
-| | | | | | | |
+| R13-GAP-006 | 02 | Type-C-eskalering og actor-gate-kø | actor-gate | R12 C-hull er delt i Type A desk-uttak, Type B actor-gate og ekte Type C. | aktørspørsmål | `research/forstaelse/R13-GAP-006-type-c-eskalering.md` |
 
 ## actor-gate
 
 | ID | Batch | Tittel | Gate | Kort dom | Triagebeslutning | Artefakt |
 |---|---:|---|---|---|---|---|
-| | | | | | | |
+| R13-GAP-006 | 02 | Type-C-eskalering og actor-gate-kø | actor-gate | Intern triage av hull; ikke ekstern kilde. | aktørspørsmål | `research/forstaelse/R13-GAP-006-type-c-eskalering.md` |
 
 ## forstaelse
 
@@ -88,6 +91,9 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | R13-GAP-001 | 01 | Kritiske importnoder | PCQ | Kan visualiseres først når HS/proxy, sluttbruksgap og foreløpig/endelig status vises. | importer | `research/external/r13/R13-GAP-001-kritiske-importnoder.md` |
 | R13-GAP-005 | 01 | Parkerte R12-claims verifisering | parkert | Skal ikke visualiseres som verifiserte claims; dette er en park-/nedgraderingsledger. | parker | `research/external/r13/R13-GAP-005-parkerte-claims-verifisering.md` |
 | R13-WASTE-001 | 01 | Marint restråstoff R-stige | PCQ | R-stigefigur må vise metode og enhet per kategori. | importer | `research/external/r13/R13-WASTE-001-marint-restrastoff-rstige.md` |
+| R13-GAP-004 | 02 | Alternative nordiske fôrproteiner | source-shortlist | Ingen aktørgraf som viser volum uten at realisert/kapasitet/plan er skilt. | importer | `research/external/r13/R13-GAP-004-alternative-nordiske-forproteiner.md` |
+| R13-GAP-003 | 02 | Transport og lager-sårbarhet | source-shortlist | Ingen sårbarhetskart med dagsdekning/lagerkapasitet som ikke er åpent dokumentert. | importer | `research/external/r13/R13-GAP-003-transport-lager-sarbarhet.md` |
+| R13-WASTE-002 | 02 | Oppdrettsslam massebalanse | PCQ | Ingen massebalansefigur som blander modellert, oppsamlet og behandlet volum. | importer | `research/external/r13/R13-WASTE-002-oppdrettsslam-massebalanse.md` |
 
 ## Neste kontrollrekkefølge
 
