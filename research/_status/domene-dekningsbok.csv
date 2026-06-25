@@ -1,0 +1,7 @@
+domain,subdomain,geo,estimated_universe,universe_source,universe_confidence,mapped_count,gap,last_updated
+lokale-verdikjeder,reko,NO,140,"REKO Norge feb. 2022 (140+ ringer); siste offisielle",middels,0,0,2026-06-25
+lokale-verdikjeder,bondens-marked,NO,20,"Stiftelsen Bondens marked: ~20 faste markedsplasser",middels,0,0,2026-06-25
+lokale-verdikjeder,andelslandbruk,NO,93,"Oekologisk Norge: 93 i drift (2023)",middels,0,0,2026-06-25
+lokale-verdikjeder,gaardsutsalg,NO,0,"Ingen samlet telling; agent-fanout-celle",lav,0,0,2026-06-25
+lokale-verdikjeder,markedshager,NO,0,"Markedshager Norge: ikke tallfestet",lav,0,0,2026-06-25
+lokale-verdikjeder,paraply-nettverk,NO,8,"REKO Norge, Bondens marked, HANEN, Oekologisk Norge, NBS, Smaaskala Groent, Matsentralen, Stiftelsen Norsk Mat",hoey,0,0,2026-06-25
