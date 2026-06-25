@@ -1,7 +1,7 @@
 ---
 tittel: Food TG R13 intake/triageindeks
 dato: 2026-06-25
-status: UNDER ARBEID — batch 01-04 mottaksført
+status: UNDER ARBEID — batch 01-05 mottaksført
 scope: Runde 13 batch 01-13, basert på batchrapporter og decision JSONL
 bruksregel: Ikke faktastemme. Ikke batch-output. Ikke whitepaper/deck. Bruk som triagekart for neste kontrollsteg.
 relaterte_filer:
@@ -19,9 +19,9 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 
 ## Kontrollstatus
 
-- **Promptrader indeksert:** 16 / 50
-- **Decision-batcher funnet:** `batch-01`, `batch-02`, `batch-03`, `batch-04`
-- **Batcher ikke funnet som decision/report-fil:** `batch-05`-`batch-13`
+- **Promptrader indeksert:** 20 / 50
+- **Decision-batcher funnet:** `batch-01`, `batch-02`, `batch-03`, `batch-04`, `batch-05`
+- **Batcher ikke funnet som decision/report-fil:** `batch-06`-`batch-13`
 - **Arbeidsregel:** alle rader er interne mottaks-/triageposter; ingen rad åpner ekstern claim, DB-skriving, `safe_for_ai_context`, whitepapertekst eller deckstemme.
 - **Overlapp:** samme prompt kan ligge i flere grupper når den både har en hovedgate og en stop-regel.
 
@@ -30,13 +30,13 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | Gruppe | Antall | Bruk |
 |---|---:|---|
 | PCQ-ready | 7 | klar for primary-check queue / kontrollert uttrekk før eventuell claim-lock |
-| source-shortlist | 7 | klar som kilde-/metodekandidat, ikke claim |
+| source-shortlist | 11 | klar som kilde-/metodekandidat, ikke claim |
 | claim-lock candidate | 0 | kun svært smal formulering kan vurderes etter PCQ |
 | actor-gate | 1 | krever aktørdata, verifikasjon, kontrakt, avregning eller aktiv-status |
 | forstaelse | 1 | bakgrunn/hypotese/mental modell; ikke faktastemme |
 | internal only | 0 | intern modell, datakontrakt, funding-fit eller uttakskø |
 | parkert | 1 | hele eller sentrale claims stoppet inntil ny locator/aktor/data finnes |
-| må ikke visualiseres ennå | 14 | ikke lag ekstern figur/radar/rangering/deckuttak før gate og tomme celler vises |
+| må ikke visualiseres ennå | 18 | ikke lag ekstern figur/radar/rangering/deckuttak før gate og tomme celler vises |
 
 ## PCQ-ready
 
@@ -61,6 +61,10 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | R13-WASTE-007 | 03 | Industrielle næringssidestrømmer | source-shortlist | Industrielle sidestrømmer kan bli fraksjonsledger, ikke nasjonal volumclaim. | importer | `research/external/r13/R13-WASTE-007-industrielle-sidestrommer.md` |
 | R13-WASTE-006 | 04 | Kaffegrut og urbane sidestrømmer | source-shortlist | Kaffegrut er avledet massestrøm, ikke målt norsk avfallsfraksjon. | importer | `research/external/r13/R13-WASTE-006-kaffegrut-urbane-sidestrommer.md` |
 | R13-WASTE-008 | 04 | Prevention-tiltak med baseline | source-shortlist | Prevention-tiltak krever baseline og målemetode før effektpåstand. | importer | `research/external/r13/R13-WASTE-008-prevention-baseline.md` |
+| R13-PROT-001 | 05 | Insektprotein aktørledger | source-shortlist | Insektprotein er FoU/pilot/kapasitet/regulatorisk mulighet, ikke åpen realisert fôrvolumserie. | importer | `research/external/r13/R13-PROT-001-insektprotein.md` |
+| R13-PROT-002 | 05 | Single-cell og fermenteringsprotein | source-shortlist | Single-cell har sterke teknologispor; kapasitet og første shipment er ikke årlig realisert volum. | importer | `research/external/r13/R13-PROT-002-single-cell-fermentering.md` |
+| R13-PROT-003 | 05 | Musling, tang og tare | source-shortlist | Musling/tang/tare lukkes som FoU- og datagapledger, ikke volumclaim. | importer | `research/external/r13/R13-PROT-003-musling-tang-tare.md` |
+| R13-PROT-004 | 05 | Plantebasert humanprotein | source-shortlist | Plantebasert humanprotein har markedsankre, men ikke komplett åpen volum-/råvaretabell. | importer | `research/external/r13/R13-PROT-004-plantebasert-humanprotein.md` |
 
 ## claim-lock candidate
 
@@ -110,6 +114,10 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | R13-WASTE-008 | 04 | Prevention-tiltak med baseline | source-shortlist | Ingen tiltak/effektfigur uten baseline, måleperiode og scope. | importer | `research/external/r13/R13-WASTE-008-prevention-baseline.md` |
 | R13-PROT-006 | 04 | Soya/SPC-erstatning i fôr | PCQ | Ingen soya-erstatningsfigur uten tidsserie og skille landfôr/fiskefôr. | importer | `research/external/r13/R13-PROT-006-soya-erstatning-for.md` |
 | R13-PROT-007 | 04 | Proteinselvforsyning Norge | PCQ | Ingen proteinselvforsyningsfigur før proteinfaktorer og mat/fôr-scope er definert. | importer | `research/external/r13/R13-PROT-007-proteinselvforsyning.md` |
+| R13-PROT-001 | 05 | Insektprotein aktørledger | source-shortlist | Ingen volumgraf for insektprotein uten realisert tonnasje. | importer | `research/external/r13/R13-PROT-001-insektprotein.md` |
+| R13-PROT-002 | 05 | Single-cell og fermenteringsprotein | source-shortlist | Ingen single-cell kapasitetsgraf som blander mat, fôr, plan og produksjon. | importer | `research/external/r13/R13-PROT-002-single-cell-fermentering.md` |
+| R13-PROT-003 | 05 | Musling, tang og tare | source-shortlist | Ingen marint-proteinvolumfigur uten å skille potensial, FoU og realisert volum. | importer | `research/external/r13/R13-PROT-003-musling-tang-tare.md` |
+| R13-PROT-004 | 05 | Plantebasert humanprotein | source-shortlist | Ingen markedsandelsgraf uten datadekning og råvareopprinnelse. | importer | `research/external/r13/R13-PROT-004-plantebasert-humanprotein.md` |
 
 ## Neste kontrollrekkefølge
 
