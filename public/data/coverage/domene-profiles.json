@@ -5,8 +5,8 @@
     "geo": "NO",
     "estimated_universe": 140,
     "universe_confidence": "middels",
-    "mapped_count": 0,
-    "gap": 140
+    "mapped_count": 6,
+    "gap": 134
   },
   {
     "domain": "lokale-verdikjeder",
@@ -14,8 +14,8 @@
     "geo": "NO",
     "estimated_universe": 20,
     "universe_confidence": "middels",
-    "mapped_count": 0,
-    "gap": 20
+    "mapped_count": 4,
+    "gap": 16
   },
   {
     "domain": "lokale-verdikjeder",
@@ -23,8 +23,8 @@
     "geo": "NO",
     "estimated_universe": 93,
     "universe_confidence": "middels",
-    "mapped_count": 0,
-    "gap": 93
+    "mapped_count": 7,
+    "gap": 86
   },
   {
     "domain": "lokale-verdikjeder",
@@ -50,7 +50,7 @@
     "geo": "NO",
     "estimated_universe": 8,
     "universe_confidence": "hoey",
-    "mapped_count": 0,
-    "gap": 8
+    "mapped_count": 5,
+    "gap": 3
   }
 ]
