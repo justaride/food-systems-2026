@@ -3,6 +3,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname } from 'node:path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { countActorDomainCells } from './lib/domain-coverage'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -47,17 +48,7 @@ async function main() {
     where: { themeTags: { hasSome: ledger.map(r => `domene:${r.domain}`) } },
     select: { metadata: true, country: true, themeTags: true },
   })
-  const counts = new Map<string, number>()
-  for (const a of actors) {
-    const m = (a.metadata ?? {}) as Record<string, unknown>
-    const tags = a.themeTags ?? []
-    const domainTag = tags.find(t => t.startsWith('domene:'))
-    const subTag = tags.find(t => t.startsWith('subdomene:'))
-    const domain = domainTag ? domainTag.slice('domene:'.length) : String(m.domain ?? '')
-    const subdomain = subTag ? subTag.slice('subdomene:'.length) : '(uklassifisert)'
-    const geo = String(m.geo ?? a.country ?? 'NO')
-    counts.set(`${domain}|${subdomain}|${geo}`, (counts.get(`${domain}|${subdomain}|${geo}`) ?? 0) + 1)
-  }
+  const counts = countActorDomainCells(actors)
 
   const cells: Cell[] = ledger.map(r => {
     const mapped = counts.get(`${r.domain}|${r.subdomain}|${r.geo}`) ?? 0

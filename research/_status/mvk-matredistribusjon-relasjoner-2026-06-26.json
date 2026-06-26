@@ -1,0 +1,10 @@
+[
+  { "from": "matsentralen-innlandet", "to": "matsentralen-norge", "type": "member_of", "note": "Regional matsentral oppfort under Matsentralen Norge-nettverket." },
+  { "from": "matsentralen-nord-norge", "to": "matsentralen-norge", "type": "member_of", "note": "Regional matsentral oppfort under Matsentralen Norge-nettverket." },
+  { "from": "matsentralen-ost", "to": "matsentralen-norge", "type": "member_of", "note": "Regional matsentral oppfort under Matsentralen Norge-nettverket." },
+  { "from": "matsentralen-rogaland", "to": "matsentralen-norge", "type": "member_of", "note": "Regional matsentral oppfort under Matsentralen Norge-nettverket." },
+  { "from": "matsentralen-sor", "to": "matsentralen-norge", "type": "member_of", "note": "Regional matsentral oppfort under Matsentralen Norge-nettverket." },
+  { "from": "matsentralen-trondelag", "to": "matsentralen-norge", "type": "member_of", "note": "Regional matsentral oppfort under Matsentralen Norge-nettverket." },
+  { "from": "matsentralen-vestfold-telemark", "to": "matsentralen-norge", "type": "member_of", "note": "Regional matsentral oppfort under Matsentralen Norge-nettverket." },
+  { "from": "matsentralen-vestland", "to": "matsentralen-norge", "type": "member_of", "note": "Regional matsentral oppfort under Matsentralen Norge-nettverket." }
+]

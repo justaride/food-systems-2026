@@ -1,0 +1,7 @@
+[
+  { "from": "ecoprot", "to": "pronofa", "type": "subsidiary_of", "note": "Pronofa-pressemelding oppgir at Pronofa ble majoritetseier i Ecoprot i 2021." },
+  { "from": "invertapro", "to": "nibio", "type": "partners_with", "note": "NIBIO beskriver Invertapro som viktig samarbeidspartner i MultiFuelLarve-sporet." },
+  { "from": "norinsect", "to": "nibio", "type": "partners_with", "note": "NIBIO beskriver Norinsect som samarbeidspartner og ny prosjektansvarlig fra april 2023." },
+  { "from": "pronofa", "to": "nibio", "type": "partners_with", "note": "NIBIO beskriver Pronofa som viktig samarbeidspartner i MultiFuelLarve-sporet." },
+  { "from": "ecoprot", "to": "nibio", "type": "partners_with", "note": "NIBIO beskriver Ecoprot som prosjekteier og prosjektansvarlig ved oppstart av MultiFuelLarve." }
+]
