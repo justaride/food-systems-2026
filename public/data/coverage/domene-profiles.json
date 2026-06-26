@@ -491,8 +491,8 @@
     "geo": "NO",
     "estimated_universe": 20,
     "universe_confidence": "lav",
-    "mapped_count": 0,
-    "gap": 20
+    "mapped_count": 6,
+    "gap": 14
   },
   {
     "domain": "okologi-sertifisering",

@@ -37,7 +37,6 @@
 | matsvinn-sirkulaer | kompost-jordprodukt | NO | 20 | 0 | 20 | lav |
 | matsvinn-sirkulaer | reststrom-sidestrom | NO | 20 | 0 | 20 | lav |
 | matsvinn-sirkulaer | emballasje-retur | NO | 20 | 0 | 20 | lav |
-| matsvinn-sirkulaer | insekt-alternativ-protein | NO | 20 | 0 | 20 | lav |
 | okologi-sertifisering | okologisk-produsent | NO | 20 | 0 | 20 | lav |
 | fou-institusjon | nettverk-kompetanse | NO | 20 | 0 | 20 | lav |
 | interesseorg-paraply | naeringsorganisasjon | NO | 20 | 0 | 20 | lav |
@@ -50,6 +49,7 @@
 | regenerativ-praksis | raadgivning-nettverk | NO | 15 | 0 | 15 | lav |
 | permakultur-fleraarige | planteskoler-froeleverandoerer | NO | 15 | 0 | 15 | lav |
 | institusjon-finansiering | interesseorg-paraply | NO | 15 | 0 | 15 | lav |
+| matsvinn-sirkulaer | insekt-alternativ-protein | NO | 20 | 6 | 14 | lav |
 | regenerativ-praksis | holistic-management-beiting | NO | 12 | 0 | 12 | lav |
 | regenerativ-praksis | biodynamisk | NO | 12 | 0 | 12 | middels |
 | permakultur-fleraarige | permakultur-foreninger | NO | 12 | 0 | 12 | middels |
@@ -73,4 +73,4 @@
 | lokale-verdikjeder | markedshager | NO | 0 | 0 | 0 | lav |
 | handel-dagligvare | dagligvarekjede | NO | 0 | 0 | 0 | hoey |
 
-Totalt kartlagt (domene-tagga): 88
+Totalt kartlagt (domene-tagga): 94
