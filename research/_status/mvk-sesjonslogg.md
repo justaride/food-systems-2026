@@ -22,3 +22,22 @@
 1. `lokale-verdikjeder / reko` og `lokale-verdikjeder / andelslandbruk` har store numeriske gap, men er allerede delvis behandlet i v1-sporet; velg dem bare hvis formaalet er volumdekning.
 2. For v2-vektet videre arbeid bor neste celle komme fra tynt sirkulaert/SME-lag: `matsvinn-sirkulaer / biogass-bioraffinering`, `matsvinn-sirkulaer / reststrom-sidestrom`, `innsatsfaktorer / froe-genressurser`, eller `foredling-industri / frukt-groent-foredling`.
 3. Coverage-scriptet ble korrigert til aa telle aktorer i flere subdomener naar de har flere `subdomene:`-tags; dette maa beholdes for additiv beriking av eksisterende aktorer.
+
+### Delokt 2: biogass-bioraffinering
+
+- Celle bearbeidet: `matsvinn-sirkulaer / biogass-bioraffinering`.
+- Kandidater: 19 aktorer, alle med lokator; alle org.nr validert mot Brreg API 2026-06-26.
+- Nye noder: 15 (`den-magiske-fabrikken`, `ecopro-as`, `lindum-as`, `renevo-as`, `veas-as`, `veas-marked-as`, `romerike-biogassanlegg`, `cambi-asa`, `antec-biogas`, `norsk-biogass-as`, `mjosanlegget-as`, `frevar-kf`, `bir-ressurs-as`, `bio-jaeren-as`, `vireo-as`).
+- Eksisterende beriket/lenket: 4 (`biogass-norge`, `st1-biokraft`, `greve-biogass`, `ivar-iks`); `st1-biokraft` beholdt eksisterende `Company.companyId`.
+- Relasjoner: 3 (`den-magiske-fabrikken -> greve-biogass`, `den-magiske-fabrikken -> lindum-as`, `veas-marked-as -> veas-as`).
+- Dekningsdelta: 0 -> 19 kartlagt; gap 20 -> 1.
+- Usikkerhet: `renevo-as` og `vireo-as` importert som `unverified`; `greve-biogass` flagget fordi lokal Company-rad har syntetisk orgNr; `bir-ressurs-as` flagget for operator/konsernpresisering.
+- Cross-session dedup-audit: ingen dupliserte Actor metadata-orgNr, ingen dupliserte `companyId`, og ingen normaliserte navneduplikater for de 19 datasett-taggede nodene.
+- Prod-wiring: `db:import:mvk-biogass-bioraffinering-2026-06-26` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne delokten: stopper etter andre celle for aa kjoere dedup-audit/verifikasjon og PR-oppdatering med god margin.
+
+### Completeness-critic / neste arbeidsliste etter delokt 2
+
+1. `matsvinn-sirkulaer / biogass-bioraffinering` mangler bare 1 node etter arbeidsanslaget; neste runde bor enten lukke siste gap med egenkilde for Renevo/Vireo eller markere loop-til-torr etter en ny passering.
+2. Neste v2-vektede sirkulaere celler: `matsvinn-sirkulaer / reststrom-sidestrom`, `matsvinn-sirkulaer / kompost-jordprodukt`, `matsvinn-sirkulaer / insekt-alternativ-protein`.
+3. Alternativt kryss over til `innsatsfaktorer / froe-genressurser` for aa unngaa at hele runbooken blir for sirkulaer-tung i startfasen.

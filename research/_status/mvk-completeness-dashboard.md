@@ -14,8 +14,8 @@ Regenerert: 2026-06-26
 | innsatsfaktorer | 0 | 80 | 0% | 0/4 | 20 |
 | institusjon-finansiering | 0 | 49 | 0% | 0/5 | 15 |
 | interesseorg-paraply | 0 | 60 | 0% | 0/3 | 20 |
-| lokale-verdikjeder | 50 | 261 | 19% | 4/6 | 120 |
-| matsvinn-sirkulaer | 10 | 120 | 8% | 0/6 | 20 |
+| lokale-verdikjeder | 50 | 261 | 19% | 2/6 | 120 |
+| matsvinn-sirkulaer | 29 | 120 | 24% | 0/6 | 20 |
 | okologi-sertifisering | 0 | 40 | 0% | 0/3 | 20 |
 | permakultur-fleraarige | 0 | 77 | 0% | 0/5 | 20 |
 | primaerproduksjon | 0 | 120 | 0% | 0/6 | 20 |
@@ -24,6 +24,7 @@ Regenerert: 2026-06-26
 
 ## Underrepresentert
 
-- Hele v2-spinen er fortsatt tidlig i metningsloopen. `matsvinn-sirkulaer / matredistribusjon` er forbedret, men ikke mettet.
+- Hele v2-spinen er fortsatt tidlig i metningsloopen. `matsvinn-sirkulaer / matredistribusjon` er forbedret, og `matsvinn-sirkulaer / biogass-bioraffinering` er nesten mettet med gap 1.
 - De fleste nye verdikjedestadier har 0 kartlagte noder fordi dette er forste v2-okt etter taksonomi-utvidelsen.
 - Arbeidsanslag med `universe_confidence=lav` maa erstattes med kildebelagte univers der strukturerte registre finnes.
+- `matsvinn-sirkulaer` har naa 29/120 kartlagt; neste sirkulaere hull er `reststrom-sidestrom`, `kompost-jordprodukt`, `emballasje-retur` og `insekt-alternativ-protein`.

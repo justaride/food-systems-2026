@@ -455,8 +455,8 @@
     "geo": "NO",
     "estimated_universe": 20,
     "universe_confidence": "lav",
-    "mapped_count": 0,
-    "gap": 20
+    "mapped_count": 19,
+    "gap": 1
   },
   {
     "domain": "matsvinn-sirkulaer",

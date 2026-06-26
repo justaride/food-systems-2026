@@ -34,7 +34,6 @@
 | horeca-offentlig | offentlig-innkjop-kantine | NO | 20 | 0 | 20 | lav |
 | horeca-offentlig | reiseliv-gardsmat | NO | 20 | 0 | 20 | lav |
 | forbruk | matfellesskap-innkjopslag | NO | 20 | 0 | 20 | lav |
-| matsvinn-sirkulaer | biogass-bioraffinering | NO | 20 | 0 | 20 | lav |
 | matsvinn-sirkulaer | kompost-jordprodukt | NO | 20 | 0 | 20 | lav |
 | matsvinn-sirkulaer | reststrom-sidestrom | NO | 20 | 0 | 20 | lav |
 | matsvinn-sirkulaer | emballasje-retur | NO | 20 | 0 | 20 | lav |
@@ -69,8 +68,9 @@
 | institusjon-finansiering | universitet-utdanning | NO | 8 | 0 | 8 | middels |
 | institusjon-finansiering | kontroll-sertifisering | NO | 6 | 0 | 6 | middels |
 | lokale-verdikjeder | paraply-nettverk | NO | 8 | 5 | 3 | hoey |
+| matsvinn-sirkulaer | biogass-bioraffinering | NO | 20 | 19 | 1 | lav |
 | lokale-verdikjeder | gaardsutsalg | NO | 0 | 1 | 0 | lav |
 | lokale-verdikjeder | markedshager | NO | 0 | 0 | 0 | lav |
 | handel-dagligvare | dagligvarekjede | NO | 0 | 0 | 0 | hoey |
 
-Totalt kartlagt (domene-tagga): 69
+Totalt kartlagt (domene-tagga): 88

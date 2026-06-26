@@ -9,3 +9,22 @@ matsentralen-trondelag,matsvinn-sirkulaer,matredistribusjon,machine_verified,htt
 matsentralen-vestfold-telemark,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matsentralen.no/kontakt,primary,"Oppfort paa Matsentralen Norges kontaktside; lokal enhet mangler eget org.nr. i kandidatdata",ja
 matsentralen-vestland,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matsentralen.no/kontakt,primary,"Oppfort paa Matsentralen Norges kontaktside; lokal enhet mangler eget org.nr. i kandidatdata",ja
 matvett,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matvett.no/bransje/kontakt,primary,"Egen kontaktside og Brreg-validert org.nr.; eksisterende Actor/Company berikes og lenkes",nei
+biogass-norge,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://biogassnorge.no/om-oss,primary,"Egen side og Brreg-validert org.nr.; eksisterende Actor berikes",nei
+st1-biokraft,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://st1biokraft.com/media/news/norway-s-prime-minister-jonas-gahr-store-visited-skogn,primary,"Egen side og Brreg-validert org.nr.; eksisterende Actor/Company berikes",nei
+greve-biogass,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://dmfas.no/om-dmfas,primary,"DMF-side og Brreg-validert org.nr.; eksisterende Actor berikes, men Company-laget har forelopig syntetisk Greve-orgNr",ja
+den-magiske-fabrikken,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://dmfas.no/om-dmfas,primary,"Egen side og Brreg-validert org.nr.; relasjon til Greve/Lindum importeres",nei
+ivar-iks,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://www.ivar.no/biogass/,primary,"Egen side og Brreg-validert org.nr.; eksisterende Actor berikes",nei
+ecopro-as,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://ecopro.no/2023/05/ecopro-utvider-kapasiteten-og-investerer-43-mill-kroner/,primary,"Egen side og Brreg-validert org.nr.",nei
+lindum-as,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://lindum.no/produkter/biogass,primary,"Egen side og Brreg-validert org.nr.; relasjon fra DMF importeres",nei
+renevo-as,matsvinn-sirkulaer,biogass-bioraffinering,unverified,https://biogassbransjen.no/emne/biogassanlegg/,secondary,"Brreg-validert org.nr.; rolle i cellen bygger paa bransjekilde og maa etterkontrolleres mot egen/konsesjonskilde",ja
+veas-as,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://veas.nu/arsrapporter/arsrapport-2024/styrets-beretning-og-okonomi/styret-har-ordet/,primary,"Egen aarsrapport og Brreg-validert org.nr.",nei
+veas-marked-as,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://veas.nu/arsrapporter/arsrapport-2024/styrets-beretning-og-okonomi/styret-har-ordet/,primary,"Egen aarsrapport og Brreg-validert org.nr.; datterselskapsrelasjon importeres",nei
+romerike-biogassanlegg,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://aktuelt.oslo.kommune.no/byradet-anbefaler-salg-av-romerike-biogassanlegg,public,"Oslo kommune beskriver anlegget; Brreg-validert org.nr.",nei
+cambi-asa,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://www.cambi.com/process,primary,"Egen side og Brreg-validert org.nr.",nei
+antec-biogas,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://antecbiogas.com/,primary,"Egen side og Brreg-validert org.nr.",nei
+norsk-biogass-as,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://www.norskbiogass.no/about.html,primary,"Egen side og Brreg-validert org.nr.",nei
+mjosanlegget-as,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://www.mjosanlegget.no/om-oss/,primary,"Egen side og Brreg-validert org.nr.",nei
+frevar-kf,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://frevar.no/biogassanlegg/,primary,"Egen side og Brreg-validert org.nr.",nei
+bir-ressurs-as,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://bir.no/om-bir/vaare-anlegg/biogassanlegget/,primary,"BIRs egen anleggsside og Brreg-validert BIR Ressurs AS; operatoer/konsernrolle kan presiseres senere",ja
+bio-jaeren-as,matsvinn-sirkulaer,biogass-bioraffinering,machine_verified,https://biojaeren.no/om-oss,primary,"Egen side og Brreg-validert org.nr.",nei
+vireo-as,matsvinn-sirkulaer,biogass-bioraffinering,unverified,https://nordsol.com/news/vireo-selects-nordsol-for-lbg-technology-at-lista-biogass/,secondary,"Brreg-validert org.nr.; prosjektrolle bygger paa leverandoerkilde og maa etterkontrolleres mot egen side",ja
