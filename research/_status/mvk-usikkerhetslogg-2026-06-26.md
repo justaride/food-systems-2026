@@ -48,3 +48,13 @@
 - Brreg-validert: 12 org.nr i kandidatfilen er aktive enheter per Enhetsregisteret API hentet 2026-06-26 (`917965137`, `988983837`, `967247359`, `993061158`, `913997832`, `984027761`, `960117883`, `916329717`, `911608103`, `971169486`, `983473997`, `912047652`).
 - Dedup-forventning/resultat: eksisterende Actor berikes for `kvann`, `nibio`, `nordgen`, `solhatt` og `felleskjopet-agri`; `graminor-as`, `strand-unikorn-as` og `felleskjopet-agri` lenkes til eksisterende `Company.companyId`.
 - Cross-session dedup-audit etter import: 14 datasett-taggede noder, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+
+## innsatsfaktorer / for-protein
+
+- Droppet kildelost: 0.
+- Disputed: 0.
+- Unverified importert: 0.
+- Til menneskelig etterkontroll: 8 (`cargill-aqua-nutrition` fordi eksisterende Actor har `country=US` selv om norsk NUF/org.nr og aktivitet er validert, `aller-aqua-norway-as` fordi norsk rolle er salgs-/importledd, `norilia-as` fordi proteinrollen har mat/petfood-tyngde, `pronofa` og `bio3-norway` fordi feed-rollen er framvoksende/alternativ protein, `nofima` og `foods-of-norway` fordi de er FoU-/prosjektroller, og `arctic-feed-ingredients-as` fordi kilden er investor/prospektpreget).
+- Brreg-validert: 21 org.nr i kandidatfilen er aktive enheter per Enhetsregisteret API hentet 2026-06-26 (`911608103`, `915442552`, `975871096`, `975856844`, `916329717`, `987643935`, `988044113`, `911610744`, `916635001`, `937843860`, `994046055`, `994423592`, `989094823`, `984468970`, `988354139`, `995643316`, `917809755`, `926501836`, `915334504`, `989278835`, `913170539`).
+- Dedup-forventning/resultat: eksisterende Actor berikes for 10 kandidater (`felleskjopet-agri`, `strand-unikorn-as`, `denofa`, `skretting`, `mowi-feed`, `cargill-aqua-nutrition`, `invertapro`, `pronofa`, `bio3-norway`, `nofima`); 15 kandidater lenkes til eksisterende `Company.companyId`.
+- Cross-session dedup-audit etter import: 22 datasett-taggede noder, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.

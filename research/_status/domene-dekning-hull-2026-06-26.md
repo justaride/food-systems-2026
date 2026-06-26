@@ -8,7 +8,6 @@
 | regenerativ-praksis | jordhelse-karbon | NO | 20 | 0 | 20 | lav |
 | permakultur-fleraarige | skogshage-agroforestry | NO | 20 | 0 | 20 | lav |
 | permakultur-fleraarige | demonstrasjonssteder | NO | 20 | 0 | 20 | lav |
-| innsatsfaktorer | for-protein | NO | 20 | 0 | 20 | lav |
 | innsatsfaktorer | gjodsel-jordforbedring | NO | 20 | 0 | 20 | lav |
 | innsatsfaktorer | biostimulanter-jordliv | NO | 20 | 0 | 20 | lav |
 | primaerproduksjon | jordbruk-groent | NO | 20 | 0 | 20 | lav |
@@ -71,6 +70,7 @@
 | matsvinn-sirkulaer | biogass-bioraffinering | NO | 20 | 19 | 1 | lav |
 | lokale-verdikjeder | gaardsutsalg | NO | 0 | 1 | 0 | lav |
 | lokale-verdikjeder | markedshager | NO | 0 | 0 | 0 | lav |
+| innsatsfaktorer | for-protein | NO | 20 | 21 | 0 | lav |
 | handel-dagligvare | dagligvarekjede | NO | 0 | 0 | 0 | hoey |
 
-Totalt kartlagt (domene-tagga): 115
+Totalt kartlagt (domene-tagga): 136

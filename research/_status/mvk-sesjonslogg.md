@@ -98,3 +98,22 @@
 1. `innsatsfaktorer / froe-genressurser` er ikke mettet: gapet er 7 etter forste passering, og neste passering bor prioritere flere norske produsent-/foredlings-/genressursroller med primarkilder.
 2. For aa balansere input-siden videre er beste neste celler `innsatsfaktorer / for-protein` eller `innsatsfaktorer / gjodsel-jordforbedring`.
 3. Hvis neste okt skal tilbake til sirkulaer-sporet, er de stoerste helt apne hullene `matsvinn-sirkulaer / reststrom-sidestrom` og `matsvinn-sirkulaer / emballasje-retur`.
+
+### Delokt 6: for-protein
+
+- Celle bearbeidet: `innsatsfaktorer / for-protein`.
+- Kandidater: 22 aktorer/prosjekt med lokator; 21 org.nr validert mot Brreg API 2026-06-26. `Foods of Norway` er NMBU-prosjekt/center uten eget org.nr. i kandidatdata.
+- Nye noder: 12 (`felleskjopet-rogaland-agder`, `norgesfor-as`, `fiskaa-molle-as`, `biomar-as`, `aller-aqua-norway-as`, `vestkorn-milling-as`, `pelagia-as`, `calanus-as`, `the-qrill-company-as`, `norilia-as`, `foods-of-norway`, `arctic-feed-ingredients-as`).
+- Eksisterende beriket/lenket: 10 (`felleskjopet-agri`, `strand-unikorn-as`, `denofa`, `skretting`, `mowi-feed`, `cargill-aqua-nutrition`, `invertapro`, `pronofa`, `bio3-norway`, `nofima`); 15 kandidater ble lenket til eksisterende `Company.companyId`.
+- Relasjoner: 0 i denne passeringen; ingen primarkildebelagte supplier/member-relasjoner utover `companyId`-lenker ble importert.
+- Dekningsdelta: 0 -> 21 kartlagt for NO; gap 20 -> 0. `for-protein` er mettet etter arbeidsanslaget. Telleavviket mot 22 importerte/berikede skyldes at eksisterende `Cargill Aqua Nutrition / EWOS` har `country=US` og dermed teller utenfor NO-raden i dekningsboka.
+- Usikkerhet: `cargill-aqua-nutrition`, `aller-aqua-norway-as`, `norilia-as`, `pronofa`, `bio3-norway`, `nofima`, `foods-of-norway` og `arctic-feed-ingredients-as` flagget for menneskelig etterkontroll av landtelling, salgs-/importrolle, FoU-/prosjektrolle eller modenhet i feed-markedet.
+- Cross-session dedup-audit: ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+- Prod-wiring: `db:import:mvk-for-protein-2026-06-26` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne delokten: stopper etter mettet inputfaktor-celle for aa kjoere verifikasjon og PR-oppdatering.
+
+### Completeness-critic / neste arbeidsliste etter delokt 6
+
+1. `innsatsfaktorer / for-protein` er mettet i audit-ledgeren; ikke start ny for-protein-passering for volum for Cargill-telleavviket alene.
+2. Resterende inputfaktor-hull er `innsatsfaktorer / gjodsel-jordforbedring` og `innsatsfaktorer / biostimulanter-jordliv`, begge 20/20.
+3. Hvis neste okt skal tilbake til sirkulaer-sporet, er de stoerste helt apne hullene fortsatt `matsvinn-sirkulaer / reststrom-sidestrom` og `matsvinn-sirkulaer / emballasje-retur`.
