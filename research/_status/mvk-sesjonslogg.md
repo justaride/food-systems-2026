@@ -174,3 +174,22 @@
 1. `matsvinn-sirkulaer / reststrom-sidestrom` er mettet i audit-ledgeren; `matsvinn-sirkulaer` er naa 65/120 med 1/6 celler mettet.
 2. Resterende sirkulaere hull er `emballasje-retur` med gap 20, `insekt-alternativ-protein` med gap 14, `kompost-jordprodukt` med gap 12, `matredistribusjon` med gap 10 og `biogass-bioraffinering` med gap 1.
 3. Hvis neste okt skal holde sirkulaer/SME-vektingen, start med `matsvinn-sirkulaer / emballasje-retur`. Hvis bredere v2-spine skal prioriteres, ta en helt apen cellerunde i `regenerativ-praksis / jordhelse-karbon` eller `primaerproduksjon / jordbruk-groent`.
+
+### Delokt 10: emballasje-retur
+
+- Celle bearbeidet: `matsvinn-sirkulaer / emballasje-retur`.
+- Kandidater: 23 aktorer/ordninger med lokator; 21 org.nr validert mot Brreg API 2026-06-26. `Sorteringsmerkene` er ordningsnode uten eget org.nr. og lenkes til LOOP som forvalter.
+- Nye noder: 19 (`gront-punkt-norge-as`, `plastretur-as`, `norsk-returkartong-as`, `norsk-resy-as`, `norsk-metallgjenvinning-as`, `sirkel-glass-as`, `treretur-as`, `norsirk-as`, `loop-stiftelsen`, `sorteringsmerkene-loop`, `tomra-systems-asa`, `tomra-butikksystemer-as`, `den-norske-emballasjeforening`, `bewi-insulation-norge-as`, `bewi-circular-as`, `vartdal-plastindustri-as`, `packoorang-as`, `ragn-sells-as`, `roaf-iks`).
+- Eksisterende beriket/lenket: 4 (`infinitum-as` -> eksisterende `actor-infinitum`, `norsk-gjenvinning-as` -> eksisterende `actor-norsk-gjenvinning`, `sirk-norge` -> eksisterende `actor-sirk-norge`, `norsus` -> eksisterende `actor-norsus`); 2 kandidater ble lenket til eksisterende `Company.companyId`.
+- Relasjoner: 15, inkludert materialselskapene til Gront Punkt, `Sorteringsmerkene -> LOOP`, `TOMRA Butikksystemer -> TOMRA Systems`, BEWI/NORSIRK og Vartdal/Plastretur.
+- Dekningsdelta: 0 -> 23 kartlagt for NO; gap 20 -> 0. `emballasje-retur` er mettet etter arbeidsanslaget.
+- Usikkerhet: 9 noder flagget for menneskelig etterkontroll fordi de er ordnings-, bransje-, FoU-, adjacent ombruks-, generell gjenvinnings- eller interkommunal infrastrukturrolle heller enn rene emballasje-retur-operatorer.
+- Cross-session dedup-audit: 23 datasett-taggede noder, alle `NO`, ingen dupliserte kandidat-orgNr etter lokal metadata-opprydding for `sorteringsmerkene-loop`, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+- Prod-wiring: `db:import:mvk-emballasje-retur-2026-06-26` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne delokten: stopper etter mettet emballasje-retur-celle for aa kjoere dedup-audit/verifikasjon og PR-oppdatering.
+
+### Completeness-critic / neste arbeidsliste etter delokt 10
+
+1. `matsvinn-sirkulaer / emballasje-retur` er mettet i audit-ledgeren; `matsvinn-sirkulaer` er naa 88/120 med 2/6 celler mettet.
+2. Resterende sirkulaere hull er `insekt-alternativ-protein` med gap 14, `kompost-jordprodukt` med gap 12, `matredistribusjon` med gap 10 og `biogass-bioraffinering` med gap 1.
+3. Hvis neste okt skal holde sirkulaer/SME-vektingen, ta andrepassering paa `matsvinn-sirkulaer / insekt-alternativ-protein` eller `kompost-jordprodukt`. Hvis bredere v2-spine skal prioriteres, start en helt apen cellerunde i `regenerativ-praksis / jordhelse-karbon` eller `primaerproduksjon / jordbruk-groent`.

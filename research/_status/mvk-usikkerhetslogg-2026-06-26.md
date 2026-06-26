@@ -88,3 +88,13 @@
 - Brreg-validert: 22 org.nr i kandidatfilen er aktive enheter per Enhetsregisteret API hentet 2026-06-26 (`995643316`, `993406198`, `921042434`, `956982715`, `938752648`, `919117060`, `989094823`, `916768257`, `990080372`, `982951879`, `994464663`, `977049490`, `977249368`, `996920933`, `961138973`, `995073307`, `926407163`, `914843316`, `921770359`, `989278835`, `937357370`, `947942638`).
 - Dedup-forventning/resultat: eksisterende Actor berikes for 6 kandidater (`norilia-as`, `nortura-sa` som traff eksisterende `actor-nortura`, `pelagia-as`, `biomega-norway`, `nofima`, `sintef-ocean`); 6 kandidater lenkes til eksisterende `Company.companyId`.
 - Cross-session dedup-audit etter import: 22 datasett-taggede noder, alle `NO`, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+
+## matsvinn-sirkulaer / emballasje-retur
+
+- Droppet kildelost: 0.
+- Disputed: 0.
+- Unverified importert: 0.
+- Til menneskelig etterkontroll: 9 (`sorteringsmerkene-loop` fordi dette er en ordningsnode uten eget org.nr., `tomra-butikksystemer-as` for presis norsk service-/butikkrolle, `den-norske-emballasjeforening`, `sirk-norge` og `norsus` fordi de er bransje-/FoU-/kunnskapsroller og ikke operatorer, `bewi-circular-as` for norsk selskapsrolle, `packoorang-as` fordi ombruksemballasje er adjacent til matverdikjeden, `ragn-sells-as` fordi rollen er generisk plastemballasjeoperator og `roaf-iks` fordi den er interkommunal ettersorteringsinfrastruktur).
+- Brreg-validert: 21 org.nr i kandidatfilen er aktive norske enheter per Enhetsregisteret API hentet 2026-06-26. `Sorteringsmerkene` er uten eget org.nr. og lenkes til LOOP som forvalter.
+- Dedup-forventning/resultat: eksisterende Actor berikes for 4 kandidater (`infinitum-as`, `norsk-gjenvinning-as`, `sirk-norge`, `norsus`); `Infinitum AS` og `Norsk Gjenvinning AS` lenkes til eksisterende `Company.companyId`.
+- Cross-session dedup-audit etter import: 23 datasett-taggede noder, alle `NO`, ingen dupliserte kandidat-orgNr etter lokal metadata-opprydding for `sorteringsmerkene-loop`, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.

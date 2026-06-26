@@ -1,0 +1,92 @@
+[
+  {
+    "from": "plastretur-as",
+    "to": "gront-punkt-norge-as",
+    "type": "part_of",
+    "note": "Plastretur beskrives som produsentansvarsselskapet for plastemballasje i Gront Punkt Norge-systemet."
+  },
+  {
+    "from": "norsk-returkartong-as",
+    "to": "gront-punkt-norge-as",
+    "type": "part_of",
+    "note": "Gront Punkt-siden lister Norsk Returkartong som materialselskap i systemet for drikke- og emballasjekartong."
+  },
+  {
+    "from": "norsk-resy-as",
+    "to": "gront-punkt-norge-as",
+    "type": "part_of",
+    "note": "Gront Punkt-siden lister Norsk Resy som materialselskap i systemet for bolgepapp/fiberemballasje."
+  },
+  {
+    "from": "norsk-metallgjenvinning-as",
+    "to": "gront-punkt-norge-as",
+    "type": "part_of",
+    "note": "Gront Punkt-siden lister Norsk Metallgjenvinning som materialselskap for metallemballasje."
+  },
+  {
+    "from": "sirkel-glass-as",
+    "to": "gront-punkt-norge-as",
+    "type": "part_of",
+    "note": "Gront Punkt-systemet lister Sirkel Glass som materialselskap/returselskap for glassfraksjonen."
+  },
+  {
+    "from": "treretur-as",
+    "to": "gront-punkt-norge-as",
+    "type": "part_of",
+    "note": "Gront Punkt-systemet lister Treretur som materialselskap for treemballasje."
+  },
+  {
+    "from": "sorteringsmerkene-loop",
+    "to": "loop-stiftelsen",
+    "type": "managed_by",
+    "note": "LOOP oppgir at stiftelsen forvalter Sorteringsmerkene som nasjonal merkeordning for kildesortering."
+  },
+  {
+    "from": "tomra-butikksystemer-as",
+    "to": "tomra-systems-asa",
+    "type": "subsidiary_of",
+    "note": "TOMRA-kontaktsiden peker til TOMRA Butikksystemer AS som norsk kontor/serviceenhet under TOMRA Systems."
+  },
+  {
+    "from": "bewi-insulation-norge-as",
+    "to": "norsirk-as",
+    "type": "partner_of",
+    "note": "NORSIRK beskriver BEWI Insulation Norge som godkjent behandler og samarbeidspartner for EPS/XPS."
+  },
+  {
+    "from": "bewi-circular-as",
+    "to": "bewi-insulation-norge-as",
+    "type": "sector_adjacent_to",
+    "note": "Begge BEWI-nodene ligger i EPS-innsamling/gjenvinning, men kandidatene skiller behandlings- og circular-roller."
+  },
+  {
+    "from": "vartdal-plastindustri-as",
+    "to": "plastretur-as",
+    "type": "partner_of",
+    "note": "Vartdal Plast oppgir avtale med Plastretur og stor rolle i innsamling av EPS i Norge."
+  },
+  {
+    "from": "norsk-gjenvinning-as",
+    "to": "plastretur-as",
+    "type": "sector_adjacent_to",
+    "note": "Norsk Gjenvinning dokumenterer EPS-innsamling/gjenvinning; Plastretur har produsentansvarsrollen for plastemballasje."
+  },
+  {
+    "from": "ragn-sells-as",
+    "to": "plastretur-as",
+    "type": "sector_adjacent_to",
+    "note": "Ragn-Sells dokumenterer plastemballasje-fraksjon og videre behandling, mens Plastretur har systemansvar for plastemballasje."
+  },
+  {
+    "from": "roaf-iks",
+    "to": "plastretur-as",
+    "type": "sector_adjacent_to",
+    "note": "ROAF ettersorterer plastemballasje fra restavfall; Plastretur beskriver ROAF som unntak fra hjemme-kildesortering i plastemballasjesystemet."
+  },
+  {
+    "from": "norsus",
+    "to": "den-norske-emballasjeforening",
+    "type": "sector_adjacent_to",
+    "note": "NORSUS bidrar med emballasje-/matsvinnforskning, mens Emballasjeforeningen er bransje- og kompetansearena for emballasjeverdikjeden."
+  }
+]
