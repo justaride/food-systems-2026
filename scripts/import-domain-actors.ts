@@ -4,6 +4,15 @@ import path from 'node:path'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { canonicalPersonKey } from '../src/lib/person-key'
+import {
+  buildActorImportData,
+  buildThemeTags,
+  chooseActorTarget,
+  nodeMetadata,
+  normalizeOrgNr,
+  parseAccessedAt,
+  type DomainActorCsvRow,
+} from './lib/domain-actor-import'
 
 /**
  * Generalisert domene-importer (CLI-parameterisert, idempotent).
@@ -40,27 +49,8 @@ const datasetTag = arg('dataset')
 const noteMatch = arg('doc', '')   // tom = ingen dok-ref
 const relPath = arg('rel', '')     // tom = ingen relasjoner
 
-type CsvRow = {
-  node_id: string
-  name: string
-  node_type: string
-  domain: string
-  subdomain: string
-  country: string
-  description: string
-  key_people: string
-  scale_metric_year: string
-  org_nr: string
-  locator_url: string
-  sourceClass: string
-  verificationStatus: string
-  confidence: string
-  accessedAt: string
-  notes: string
-}
-
 // Minimal RFC-4180-ish parser (quoted fields, embedded commas, "" escapes). Unngår ny dependency.
-function parseCsv(text: string): CsvRow[] {
+function parseCsv(text: string): DomainActorCsvRow[] {
   const rows: string[][] = []
   let field = ''
   let record: string[] = []
@@ -97,21 +87,8 @@ function parseCsv(text: string): CsvRow[] {
   return rows.map(cols => {
     const obj: Record<string, string> = {}
     header.forEach((key, idx) => { obj[key.trim()] = (cols[idx] ?? '').trim() })
-    return obj as CsvRow
+    return obj as DomainActorCsvRow
   })
-}
-
-const ACTOR_TYPE_BY_NODE_TYPE: Record<string, string> = {
-  organisasjon: 'organization',
-  nettverk: 'network',
-  gaard: 'farm',
-  institusjon: 'institution',
-  prosjekt: 'project',
-  ordning: 'public-scheme',
-}
-
-function mapActorType(nodeType: string): string {
-  return ACTOR_TYPE_BY_NODE_TYPE[nodeType] ?? 'organization'
 }
 
 // "Maria Gjoelberg (leder); Anders Lerberg Kopstad (nestleder)" -> [{name, role}]
@@ -124,51 +101,15 @@ function parseKeyPeople(raw: string): { name: string; role?: string }[] {
   })
 }
 
-function websiteFrom(locator: string): string | null {
-  if (!locator) return null
-  try {
-    const host = new URL(locator).hostname
-    // Brreg-API-lokatorer er kildehenvisning, ikke aktørens hjemmeside.
-    if (host === 'data.brreg.no') return null
-    return locator
-  } catch {
-    return null
-  }
-}
-
-function parseAccessedAt(value: string): Date | null {
-  if (!value) return null
-  const d = new Date(`${value}T00:00:00Z`)
-  return Number.isNaN(d.getTime()) ? null : d
-}
-
-function nodeMetadata(row: CsvRow): Record<string, unknown> {
-  return {
-    dataset: datasetTag,
-    nodeType: row.node_type,
-    domain: row.domain,
-    subdomain: row.subdomain ?? null,
-    geo: row.country || 'NO',
-    sourceClass: row.sourceClass || null,
-    verificationStatus: row.verificationStatus || null,
-    confidence: row.confidence || null,
-    locatorUrl: row.locator_url || null,
-    accessedAt: row.accessedAt || null,
-    orgNr: row.org_nr || null,
-    keyPeople: row.key_people || null,
-    scaleMetricYear: row.scale_metric_year || null,
-  }
-}
-
 // ── Person-profiler (node_type = person) ─────────────────────────────
-function buildPersonProfile(row: CsvRow) {
+function buildPersonProfile(row: DomainActorCsvRow) {
   return {
     name: row.name,
     biography: row.description || undefined,
     roles: [] as object[],
     affiliations: [] as string[],
     tags: ['domene:' + row.domain, datasetTag] as string[],
-    metadata: nodeMetadata(row),
+    metadata: nodeMetadata(row, datasetTag),
     lastVerifiedAt: parseAccessedAt(row.accessedAt) ?? undefined,
   }
 }
@@ -204,10 +145,35 @@ async function main() {
   // Disse skal IKKE dupliseres eller overskrives — kun lett berikes (themeTags-union + dok-ref).
   const existing = await prisma.actor.findMany({
     where: { slug: { in: actorIds } },
-    select: { id: true, slug: true, themeTags: true },
+    select: { id: true, slug: true, themeTags: true, companyId: true },
   })
   const existingBySlug = new Map(existing.map(a => [a.slug, a]))
-  const resolveActorId = (nodeId: string) => existingBySlug.get(nodeId)?.id ?? nodeId
+
+  const orgNrs = Array.from(new Set(actorRows.map(r => normalizeOrgNr(r.org_nr)).filter(Boolean)))
+  const companies = orgNrs.length
+    ? await prisma.company.findMany({
+        where: { orgNr: { in: orgNrs } },
+        select: { id: true, orgNr: true, name: true },
+      })
+    : []
+  const companyByOrgNr = new Map(companies.map(c => [c.orgNr, c]))
+  const companyIds = companies.map(c => c.id)
+  const existingCompanyActors = companyIds.length
+    ? await prisma.actor.findMany({
+        where: { companyId: { in: companyIds } },
+        select: { id: true, slug: true, themeTags: true, companyId: true },
+      })
+    : []
+  const existingByCompanyId = new Map(
+    existingCompanyActors
+      .filter(a => a.companyId)
+      .map(a => [a.companyId!, a]),
+  )
+  const targetByNodeId = new Map(actorRows.map(r => [
+    r.node_id,
+    chooseActorTarget(r, { existingBySlug, companyByOrgNr, existingByCompanyId }),
+  ]))
+  const resolveActorId = (nodeId: string) => targetByNodeId.get(nodeId)?.id ?? nodeId
 
   // Hent docSlug for scoped relasjons-slett (brukes kun om --rel er oppgitt)
   const docSlug = note?.slug ?? (noteMatch || datasetTag)
@@ -218,33 +184,25 @@ async function main() {
   let created = 0
   let enriched = 0
   for (const r of actorRows) {
-    const themeTags = [
-      'domene:' + r.domain,
-      r.subdomain ? 'subdomene:' + r.subdomain : null,
-      datasetTag,
-    ].filter(Boolean) as string[]
-
-    const prior = existingBySlug.get(r.node_id)
+    const themeTags = buildThemeTags(r, datasetTag)
+    const company = companyByOrgNr.get(normalizeOrgNr(r.org_nr)) ?? null
+    const prior = targetByNodeId.get(r.node_id)
     if (prior) {
       // Eksisterende kuratert aktør: additiv berikelse, ingen klobbing av kuraterte felter.
       const mergedTags = Array.from(new Set([...(prior.themeTags ?? []), ...themeTags]))
-      await prisma.actor.update({ where: { id: prior.id }, data: { themeTags: mergedTags } })
+      const canSetCompanyId = company && (!prior.companyId || prior.companyId === company.id)
+      await prisma.actor.update({
+        where: { id: prior.id },
+        data: {
+          themeTags: mergedTags,
+          ...(canSetCompanyId ? { companyId: company.id } : {}),
+        },
+      })
       enriched++
-      console.log(`  ↻ [finnes] ${r.name} → ${prior.id}`)
+      const companySuffix = company ? ` (companyId=${company.id})` : ''
+      console.log(`  ↻ [finnes] ${r.name} → ${prior.id}${companySuffix}`)
     } else {
-      const data = {
-        slug: r.node_id,
-        name: r.name,
-        actorType: mapActorType(r.node_type),
-        country: r.country || 'NO',
-        roleSummary: r.description || r.name,
-        website: websiteFrom(r.locator_url),
-        themeTags,
-        notes: r.notes || null,
-        verificationStatus: r.verificationStatus || null,
-        lastVerifiedAt: parseAccessedAt(r.accessedAt),
-        metadata: nodeMetadata(r),
-      }
+      const data = buildActorImportData(r, { datasetTag, company })
       await prisma.actor.upsert({
         where: { id: r.node_id },
         update: data,

@@ -1,0 +1,11 @@
+node_id,domain,subdomain,verificationStatus,locator_url,kilde-type,begrunnelse,flagg-for-menneske
+matsentralen-norge,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matsentralen.no/kontakt,primary,"Egen nettverksside og Brreg-validert org.nr.; eksisterende Actor/Company berikes og lenkes",nei
+matsentralen-innlandet,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matsentralen.no/kontakt,primary,"Oppfort paa Matsentralen Norges kontaktside; lokal enhet mangler eget org.nr. i kandidatdata",ja
+matsentralen-nord-norge,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matsentralen.no/kontakt,primary,"Oppfort paa Matsentralen Norges kontaktside; lokal enhet mangler eget org.nr. i kandidatdata",ja
+matsentralen-ost,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matsentralen.no/kontakt,primary,"Oppfort paa Matsentralen Norges kontaktside; lokal enhet mangler eget org.nr. i kandidatdata",ja
+matsentralen-rogaland,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matsentralen.no/kontakt,primary,"Oppfort paa Matsentralen Norges kontaktside; lokal enhet mangler eget org.nr. i kandidatdata",ja
+matsentralen-sor,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matsentralen.no/kontakt,primary,"Oppfort paa Matsentralen Norges kontaktside; lokal enhet mangler eget org.nr. i kandidatdata",ja
+matsentralen-trondelag,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matsentralen.no/kontakt,primary,"Oppfort paa Matsentralen Norges kontaktside; lokal enhet mangler eget org.nr. i kandidatdata",ja
+matsentralen-vestfold-telemark,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matsentralen.no/kontakt,primary,"Oppfort paa Matsentralen Norges kontaktside; lokal enhet mangler eget org.nr. i kandidatdata",ja
+matsentralen-vestland,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matsentralen.no/kontakt,primary,"Oppfort paa Matsentralen Norges kontaktside; lokal enhet mangler eget org.nr. i kandidatdata",ja
+matvett,matsvinn-sirkulaer,matredistribusjon,machine_verified,https://www.matvett.no/bransje/kontakt,primary,"Egen kontaktside og Brreg-validert org.nr.; eksisterende Actor/Company berikes og lenkes",nei

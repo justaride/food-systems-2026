@@ -20,3 +20,52 @@ institusjon-finansiering,universitet-utdanning,NO,8,"NMBU, UiO/SUM og relevante 
 institusjon-finansiering,virkemiddel-ordning,NO,12,"Innovasjon Norge, Forskningsraadet, jordbruksavtaleprogram og EU-prosjektordninger; grovt anslag",lav,0,0,2026-06-25
 institusjon-finansiering,kontroll-sertifisering,NO,6,"Debio, Stiftelsen Norsk Mat og sertifiserings-/merkeordninger i feltet; konservativt anslag",middels,0,0,2026-06-25
 institusjon-finansiering,interesseorg-paraply,NO,15,"Oekologisk Norge, NBS, Bondelaget, fag-/paraplyorganisasjoner og nettverk; grovt anslag",lav,0,0,2026-06-25
+innsatsfaktorer,froe-genressurser,NO,20,"Arbeidsanslag for taksonomi-metning; KVANN NordGen Norsk genressurssenter og froeleverandoerer verifiseres i gather",lav,0,0,2026-06-26
+innsatsfaktorer,for-protein,NO,20,"Arbeidsanslag for taksonomi-metning; kraftfor proteinvekster og alternative for-kilder verifiseres i gather",lav,0,0,2026-06-26
+innsatsfaktorer,gjodsel-jordforbedring,NO,20,"Arbeidsanslag for taksonomi-metning; gjodsel biorest kompost og jordforbedring verifiseres i gather",lav,0,0,2026-06-26
+innsatsfaktorer,biostimulanter-jordliv,NO,20,"Arbeidsanslag for taksonomi-metning; biostimulanter og jordlivsmiljoer verifiseres i gather",lav,0,0,2026-06-26
+primaerproduksjon,jordbruk-groent,NO,20,"Arbeidsanslag for taksonomi-metning; groentprodusenter og produsentnettverk verifiseres i gather",lav,0,0,2026-06-26
+primaerproduksjon,husdyr-beite,NO,20,"Arbeidsanslag for taksonomi-metning; husdyr beite og jordhelsepraksis verifiseres i gather",lav,0,0,2026-06-26
+primaerproduksjon,havbruk-akvakultur,NO,20,"Arbeidsanslag for taksonomi-metning; akvakulturregister og sjoenmat-aktorer verifiseres i gather",lav,0,0,2026-06-26
+primaerproduksjon,villfisk-fiskeri,NO,20,"Arbeidsanslag for taksonomi-metning; Fiskeridirektoratet og fiskeriorganisasjoner verifiseres i gather",lav,0,0,2026-06-26
+primaerproduksjon,ville-ressurser-sanking,NO,20,"Arbeidsanslag for taksonomi-metning; sanking ville vekster og ressursmiljoer verifiseres i gather",lav,0,0,2026-06-26
+primaerproduksjon,urban-dyrking,NO,20,"Arbeidsanslag for taksonomi-metning; urbant landbruk og dyrkingsnettverk verifiseres i gather",lav,0,0,2026-06-26
+foredling-industri,meieri,NO,20,"Arbeidsanslag for taksonomi-metning; meieriaktorer og lokale foredlere verifiseres i gather",lav,0,0,2026-06-26
+foredling-industri,kjott-egg,NO,20,"Arbeidsanslag for taksonomi-metning; kjott egg slakteri og foredling verifiseres i gather",lav,0,0,2026-06-26
+foredling-industri,korn-molle-bakeri,NO,20,"Arbeidsanslag for taksonomi-metning; korn molle og bakeriaktorer verifiseres i gather",lav,0,0,2026-06-26
+foredling-industri,frukt-groent-foredling,NO,20,"Arbeidsanslag for taksonomi-metning; frukt groent og lokal foredling verifiseres i gather",lav,0,0,2026-06-26
+foredling-industri,drikke-bryggeri,NO,20,"Arbeidsanslag for taksonomi-metning; bryggeri sider most og drikkeaktorer verifiseres i gather",lav,0,0,2026-06-26
+foredling-industri,sjomat-foredling,NO,20,"Arbeidsanslag for taksonomi-metning; sjomatforedling verifiseres i gather",lav,0,0,2026-06-26
+foredling-industri,naeringsmiddel-ovrig,NO,20,"Arbeidsanslag for taksonomi-metning; oevrig naeringsmiddelindustri verifiseres i gather",lav,0,0,2026-06-26
+distribusjon-grossist,grossist-distributor,NO,20,"Arbeidsanslag for taksonomi-metning; grossister og distributorer verifiseres i gather",lav,0,0,2026-06-26
+distribusjon-grossist,logistikk-lager,NO,20,"Arbeidsanslag for taksonomi-metning; logistikk lager og mattransport verifiseres i gather",lav,0,0,2026-06-26
+distribusjon-grossist,alternativ-distribusjon,NO,20,"Arbeidsanslag for taksonomi-metning; alternative distribusjonsmodeller verifiseres i gather",lav,0,0,2026-06-26
+handel-dagligvare,dagligvarekjede,NO,0,"Konsern- og dagligvarelaget er allerede dekket; denne cellen lenkes ved behov og re-kartlegges ikke",hoey,0,0,2026-06-26
+handel-dagligvare,spesialhandel-delikatesse,NO,20,"Arbeidsanslag for taksonomi-metning; spesialhandel og delikatesseaktorer verifiseres i gather",lav,0,0,2026-06-26
+handel-dagligvare,direktesalg-plattform,NO,20,"Arbeidsanslag for taksonomi-metning; direktesalg og plattformaktorer verifiseres i gather",lav,0,0,2026-06-26
+horeca-offentlig,restaurant-storkjokken,NO,20,"Arbeidsanslag for taksonomi-metning; restaurant og storkjokkenaktorer verifiseres i gather",lav,0,0,2026-06-26
+horeca-offentlig,offentlig-innkjop-kantine,NO,20,"Arbeidsanslag for taksonomi-metning; offentlige innkjop kantine og institusjonsmat verifiseres i gather",lav,0,0,2026-06-26
+horeca-offentlig,reiseliv-gardsmat,NO,20,"Arbeidsanslag for taksonomi-metning; reiseliv gardsmat og HANEN-naere aktorer verifiseres i gather",lav,0,0,2026-06-26
+forbruk,forbrukerorganisasjon,NO,10,"Arbeidsanslag for taksonomi-metning; forbruker- og miljoorganisasjoner verifiseres i gather",lav,0,0,2026-06-26
+forbruk,matfellesskap-innkjopslag,NO,20,"Arbeidsanslag for taksonomi-metning; matfellesskap og innkjopslag verifiseres i gather",lav,0,0,2026-06-26
+matsvinn-sirkulaer,matredistribusjon,NO,20,"Arbeidsanslag for taksonomi-metning; matsentraler og redistribusjonsaktorer verifiseres i gather",lav,10,10,2026-06-26
+matsvinn-sirkulaer,biogass-bioraffinering,NO,20,"Arbeidsanslag for taksonomi-metning; biogass og bioraffinering verifiseres i gather",lav,0,0,2026-06-26
+matsvinn-sirkulaer,kompost-jordprodukt,NO,20,"Arbeidsanslag for taksonomi-metning; kompost jordprodukt og restressursaktorer verifiseres i gather",lav,0,0,2026-06-26
+matsvinn-sirkulaer,reststrom-sidestrom,NO,20,"Arbeidsanslag for taksonomi-metning; reststrom og sidestromaktorer verifiseres i gather",lav,0,0,2026-06-26
+matsvinn-sirkulaer,emballasje-retur,NO,20,"Arbeidsanslag for taksonomi-metning; emballasje retur og materialsystemer verifiseres i gather",lav,0,0,2026-06-26
+matsvinn-sirkulaer,insekt-alternativ-protein,NO,20,"Arbeidsanslag for taksonomi-metning; insekt og alternative proteinaktorer verifiseres i gather",lav,0,0,2026-06-26
+okologi-sertifisering,kontrollorgan-merkeordning,NO,10,"Arbeidsanslag for taksonomi-metning; kontrollorgan og merkeordninger verifiseres i gather",lav,0,0,2026-06-26
+okologi-sertifisering,okologisk-produsent,NO,20,"Arbeidsanslag for taksonomi-metning; okologiske produsentnoder verifiseres i gather",lav,0,0,2026-06-26
+okologi-sertifisering,regenerativ-sertifisering,NO,10,"Arbeidsanslag for taksonomi-metning; regenerative sertifiserings- og kontrollmiljoer verifiseres i gather",lav,0,0,2026-06-26
+fou-institusjon,forskningsinstitutt,NO,12,"Arbeidsanslag for taksonomi-metning; NIBIO NORSOK Ruralis Nofima SINTEF og tilgrensende miljoer verifiseres i gather",lav,0,0,2026-06-26
+fou-institusjon,universitet-utdanning,NO,12,"Arbeidsanslag for taksonomi-metning; relevante UH-miljoer og utdanninger verifiseres i gather",lav,0,0,2026-06-26
+fou-institusjon,nettverk-kompetanse,NO,20,"Arbeidsanslag for taksonomi-metning; kompetansenettverk og fagmiljoer verifiseres i gather",lav,0,0,2026-06-26
+virkemiddel-policy,virkemiddelapparat,NO,12,"Arbeidsanslag for taksonomi-metning; virkemiddelapparat og programaktorer verifiseres i gather",lav,0,0,2026-06-26
+virkemiddel-policy,forvaltning-tilsyn,NO,12,"Arbeidsanslag for taksonomi-metning; forvaltning og tilsyn i matsystemet verifiseres i gather",lav,0,0,2026-06-26
+virkemiddel-policy,politisk-program,NO,10,"Arbeidsanslag for taksonomi-metning; politiske program og satsinger verifiseres i gather",lav,0,0,2026-06-26
+interesseorg-paraply,naeringsorganisasjon,NO,20,"Arbeidsanslag for taksonomi-metning; naeringsorganisasjoner verifiseres i gather",lav,0,0,2026-06-26
+interesseorg-paraply,faglag-bonde,NO,20,"Arbeidsanslag for taksonomi-metning; faglag bonde- og produsentorganisasjoner verifiseres i gather",lav,0,0,2026-06-26
+interesseorg-paraply,miljo-forbruker-ngo,NO,20,"Arbeidsanslag for taksonomi-metning; miljo forbruker og NGO-aktorer verifiseres i gather",lav,0,0,2026-06-26
+finansiering-investering,stiftelse-fond,NO,20,"Arbeidsanslag for taksonomi-metning; stiftelser og fond verifiseres i gather",lav,0,0,2026-06-26
+finansiering-investering,impact-investor,NO,20,"Arbeidsanslag for taksonomi-metning; impact-investorer og kapitalmiljoer verifiseres i gather",lav,0,0,2026-06-26
+finansiering-investering,kooperativ-eierskap,NO,20,"Arbeidsanslag for taksonomi-metning; kooperativt eierskap og samvirkeaktorer verifiseres i gather",lav,0,0,2026-06-26
