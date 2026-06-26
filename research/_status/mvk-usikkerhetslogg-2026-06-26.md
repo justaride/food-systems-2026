@@ -78,3 +78,13 @@
 - Brreg-validert/identifisert: 22 org.nr i kandidatfilen er norske enheter per Enhetsregisteret/Brreg-oppslag hentet 2026-06-26 (`960117883`, `983473997`, `984015666`, `911608103`, `995300575`, `929242688`, `933576418`, `983725902`, `977303311`, `923456570`, `995194252`, `969840383`, `988983837`, `931892126`, `983494463`, `828079042`, `913547853`, `996063631`, `982512069`, `997460944`, `990675627`, `965208739`).
 - Dedup-forventning/resultat: eksisterende Actor berikes for 10 kandidater (`norgro-as`, `log-as`, `yara-norge-as`, `felleskjopet-agri`, `bokashi-norge-as`, `gronn-gjodsel-as`, `norsok`, `nibio`, `okologisk-norge`, `stiftelsen-norsk-mat`); 2 kandidater lenkes til eksisterende `Company.companyId`.
 - Cross-session dedup-audit etter import: 22 datasett-taggede noder, alle `NO`, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+
+## matsvinn-sirkulaer / reststrom-sidestrom
+
+- Droppet kildelost: 0.
+- Disputed: 0.
+- Unverified importert: 0.
+- Til menneskelig etterkontroll: 9 (`nortura-sa` og `tine-sa` fordi de er store konsernnoder tatt inn for lenking/side-stream-kontekst, `animalia-as`, `nofima` og `sintef-ocean` fordi de er kunnskaps-/FoU-infrastruktur, `seagarden-as` og `orkla-health-ocean-as` fordi restrastoffkobling bor etterkontrolleres mot mer presis primarkilde, `hitramat-as` fordi rollen er generator av krabbeskall for NutriShell, og `ydra-as` fordi dette er teknologileverandor og ikke raavareforedler).
+- Brreg-validert: 22 org.nr i kandidatfilen er aktive enheter per Enhetsregisteret API hentet 2026-06-26 (`995643316`, `993406198`, `921042434`, `956982715`, `938752648`, `919117060`, `989094823`, `916768257`, `990080372`, `982951879`, `994464663`, `977049490`, `977249368`, `996920933`, `961138973`, `995073307`, `926407163`, `914843316`, `921770359`, `989278835`, `937357370`, `947942638`).
+- Dedup-forventning/resultat: eksisterende Actor berikes for 6 kandidater (`norilia-as`, `nortura-sa` som traff eksisterende `actor-nortura`, `pelagia-as`, `biomega-norway`, `nofima`, `sintef-ocean`); 6 kandidater lenkes til eksisterende `Company.companyId`.
+- Cross-session dedup-audit etter import: 22 datasett-taggede noder, alle `NO`, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.

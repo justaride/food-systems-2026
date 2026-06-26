@@ -1,0 +1,32 @@
+[
+  {
+    "from": "norilia-as",
+    "to": "nortura-sa",
+    "type": "subsidiary_of",
+    "note": "Norilia beskrives som Nortura-eid side- og restravareaktor for plussprodukter fra kjott- og eggindustrien."
+  },
+  {
+    "from": "fatland-ull-hud-skinn-as",
+    "to": "biosirk-norge-as",
+    "type": "sector_adjacent_to",
+    "note": "Begge nodene ligger i animalske biprodukt-/plussproduktstrommer, men med ulike roller i hud/skinn/ull og biproduktforedling."
+  },
+  {
+    "from": "karmsund-protein-as",
+    "to": "pelagia-as",
+    "type": "subsidiary_of",
+    "note": "Pelagia oppgir Karmsund Protein som en av sine Pelagia Feed-fabrikker."
+  },
+  {
+    "from": "nutrishell-as",
+    "to": "hitramat-as",
+    "type": "supplier_from",
+    "note": "Innovasjon Norge-casen beskriver at NutriShell bruker taskekrabbeskall fra Hitramat."
+  },
+  {
+    "from": "nofima",
+    "to": "sintef-ocean",
+    "type": "sector_adjacent_to",
+    "note": "Begge nodene dokumenterer FoU-/teknologiarbeid for restrastoff og marin sirkulaer biookonomi."
+  }
+]

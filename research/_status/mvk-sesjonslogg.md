@@ -155,3 +155,22 @@
 1. `innsatsfaktorer / biostimulanter-jordliv` er mettet i audit-ledgeren; inputfaktor-stadiet er naa 78/80 med 3/4 celler mettet.
 2. Resterende inputfaktor-hull er `innsatsfaktorer / froe-genressurser` med gap 7; det bor ha en liten andre passering senere, men ikke foran de store null-cellene hvis neste okt skal dekke v2-spinen bredere.
 3. Neste v2-vektede toppliste etter volum er fortsatt `matsvinn-sirkulaer / reststrom-sidestrom`, `matsvinn-sirkulaer / emballasje-retur`, `regenerativ-praksis / jordhelse-karbon`, `permakultur-fleraarige / skogshage-agroforestry` og de helt apne primaerproduksjons-/foredlingscellene. Hvis en praktiker-/SME-vekt prioriteres over volum, start med `matsvinn-sirkulaer / reststrom-sidestrom` eller `regenerativ-praksis / jordhelse-karbon`.
+
+### Delokt 9: reststrom-sidestrom
+
+- Celle bearbeidet: `matsvinn-sirkulaer / reststrom-sidestrom`.
+- Kandidater: 22 aktorer med lokator; alle 22 org.nr validert mot Brreg API 2026-06-26.
+- Nye noder: 16 (`bioco-as`, `biosirk-norge-as`, `fatland-ull-hud-skinn-as`, `animalia-as`, `karmsund-protein-as`, `nutrimar-as`, `hofseth-biocare-asa`, `marealis-as`, `seagarden-as`, `scanbio-marine-group-as`, `triplenine-vedde-as`, `orkla-health-ocean-as`, `nutrishell-as`, `hitramat-as`, `ydra-as`, `tine-sa`).
+- Eksisterende beriket/lenket: 6 (`norilia-as`, `nortura-sa` som traff eksisterende `actor-nortura`, `pelagia-as`, `biomega-norway`, `nofima`, `sintef-ocean`); 6 kandidater ble lenket til eksisterende `Company.companyId`.
+- Relasjoner: 5 (`norilia-as -> nortura-sa`, `fatland-ull-hud-skinn-as -> biosirk-norge-as`, `karmsund-protein-as -> pelagia-as`, `nutrishell-as -> hitramat-as`, `nofima -> sintef-ocean`).
+- Dekningsdelta: 0 -> 22 kartlagt for NO; gap 20 -> 0. `reststrom-sidestrom` er mettet etter arbeidsanslaget.
+- Usikkerhet: `nortura-sa`, `tine-sa`, `animalia-as`, `nofima`, `sintef-ocean`, `seagarden-as`, `orkla-health-ocean-as`, `hitramat-as` og `ydra-as` flagget for menneskelig etterkontroll av konsern-/kunnskaps-/FoU-/generator-/teknologileverandorrolle eller restrastoff-presisjon.
+- Cross-session dedup-audit: 22 datasett-taggede noder, alle `NO`, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+- Prod-wiring: `db:import:mvk-reststrom-sidestrom-2026-06-26` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne delokten: stopper etter mettet sirkulaer side-stream-celle for aa kjoere dedup-audit/verifikasjon og PR-oppdatering.
+
+### Completeness-critic / neste arbeidsliste etter delokt 9
+
+1. `matsvinn-sirkulaer / reststrom-sidestrom` er mettet i audit-ledgeren; `matsvinn-sirkulaer` er naa 65/120 med 1/6 celler mettet.
+2. Resterende sirkulaere hull er `emballasje-retur` med gap 20, `insekt-alternativ-protein` med gap 14, `kompost-jordprodukt` med gap 12, `matredistribusjon` med gap 10 og `biogass-bioraffinering` med gap 1.
+3. Hvis neste okt skal holde sirkulaer/SME-vektingen, start med `matsvinn-sirkulaer / emballasje-retur`. Hvis bredere v2-spine skal prioriteres, ta en helt apen cellerunde i `regenerativ-praksis / jordhelse-karbon` eller `primaerproduksjon / jordbruk-groent`.

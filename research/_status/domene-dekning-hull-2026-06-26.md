@@ -30,7 +30,6 @@
 | horeca-offentlig | offentlig-innkjop-kantine | NO | 20 | 0 | 20 | lav |
 | horeca-offentlig | reiseliv-gardsmat | NO | 20 | 0 | 20 | lav |
 | forbruk | matfellesskap-innkjopslag | NO | 20 | 0 | 20 | lav |
-| matsvinn-sirkulaer | reststrom-sidestrom | NO | 20 | 0 | 20 | lav |
 | matsvinn-sirkulaer | emballasje-retur | NO | 20 | 0 | 20 | lav |
 | okologi-sertifisering | okologisk-produsent | NO | 20 | 0 | 20 | lav |
 | fou-institusjon | nettverk-kompetanse | NO | 20 | 0 | 20 | lav |
@@ -72,5 +71,6 @@
 | innsatsfaktorer | gjodsel-jordforbedring | NO | 20 | 22 | 0 | lav |
 | innsatsfaktorer | biostimulanter-jordliv | NO | 20 | 22 | 0 | lav |
 | handel-dagligvare | dagligvarekjede | NO | 0 | 0 | 0 | hoey |
+| matsvinn-sirkulaer | reststrom-sidestrom | NO | 20 | 22 | 0 | lav |
 
-Totalt kartlagt (domene-tagga): 180
+Totalt kartlagt (domene-tagga): 202
