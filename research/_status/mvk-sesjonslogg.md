@@ -117,3 +117,22 @@
 1. `innsatsfaktorer / for-protein` er mettet i audit-ledgeren; ikke start ny for-protein-passering for volum for Cargill-telleavviket alene.
 2. Resterende inputfaktor-hull er `innsatsfaktorer / gjodsel-jordforbedring` og `innsatsfaktorer / biostimulanter-jordliv`, begge 20/20.
 3. Hvis neste okt skal tilbake til sirkulaer-sporet, er de stoerste helt apne hullene fortsatt `matsvinn-sirkulaer / reststrom-sidestrom` og `matsvinn-sirkulaer / emballasje-retur`.
+
+### Delokt 7: gjodsel-jordforbedring
+
+- Celle bearbeidet: `innsatsfaktorer / gjodsel-jordforbedring`.
+- Kandidater: 22 aktorer med lokator; alle 22 org.nr validert mot Brreg API 2026-06-26.
+- Nye noder: 3 (`yara-norge-as`, `gronn-gjodsel-as`, `minorga-vekst-as`).
+- Eksisterende beriket/lenket: 19 (`felleskjopet-agri`, `felleskjopet-rogaland-agder`, `norgesfor-as`, `fiskaa-molle-as`, `strand-unikorn-as`, `log-as`, `norgro-as`, `gronn-vekst-as`, `lindum-as`, `mjosanlegget-as`, `reve-kompost-as`, `bokashi-norge-as`, `norbark-as`, `den-magiske-fabrikken`, `greve-biogass`, `ivar-iks`, `ecopro-as`, `veas-as`, `veas-marked-as`); 6 kandidater ble lenket til eksisterende `Company.companyId`.
+- Relasjoner: 5 (`greve-biogass -> den-magiske-fabrikken`, `lindum-as -> den-magiske-fabrikken`, `yara-norge-as -> gronn-gjodsel-as`, `veas-marked-as -> veas-as`, `ivar-iks -> minorga-vekst-as`).
+- Dekningsdelta: 0 -> 22 kartlagt for NO; gap 20 -> 0. `gjodsel-jordforbedring` er mettet etter arbeidsanslaget.
+- Usikkerhet: `bokashi-norge-as`, `norbark-as`, `greve-biogass` og `minorga-vekst-as` flagget for menneskelig etterkontroll av landbruksinput-presisjon, org-/eierskapspresisering, Company-lag eller nyere primarkilde.
+- Cross-session dedup-audit: 22 datasett-taggede noder, alle `NO`, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+- Prod-wiring: `db:import:mvk-gjodsel-jordforbedring-2026-06-26` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne delokten: stopper etter mettet inputfaktor-celle for aa kjoere dedup-audit/verifikasjon og PR-oppdatering.
+
+### Completeness-critic / neste arbeidsliste etter delokt 7
+
+1. `innsatsfaktorer / gjodsel-jordforbedring` er mettet i audit-ledgeren; ikke start ny gjodsel-passering for volum alene.
+2. Resterende inputfaktor-hull er `innsatsfaktorer / biostimulanter-jordliv` med 20/20.
+3. Hvis neste okt skal tilbake til sirkulaer-sporet, er de stoerste helt apne hullene fortsatt `matsvinn-sirkulaer / reststrom-sidestrom` og `matsvinn-sirkulaer / emballasje-retur`.
