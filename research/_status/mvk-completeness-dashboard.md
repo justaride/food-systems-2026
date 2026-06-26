@@ -2,6 +2,8 @@
 
 Regenerert: 2026-06-26
 
+> **Korreksjon 2026-06-26 (review-kø-resolusjon):** `nibio` fjernet fra tre produsent-celler (FoU-infrastruktur, ikke produsent). Korrigerte celletall: `innsatsfaktorer/froe-genressurser` 12, `innsatsfaktorer/biostimulanter-jordliv` 21, `matsvinn-sirkulaer/insekt-alternativ-protein` 5. Stadium-summer i tabellen under er fra forrige regenerering; `public/data/coverage/domene-profiles.json` er re-auditert og autoritativ. Tabellen regenereres ved neste økt.
+
 | Stadium/domene | Kartlagt | Anslatt univers | Dekning | Mettede celler | Maks gap |
 |---|---:|---:|---:|---:|---:|
 | distribusjon-grossist | 0 | 60 | 0% | 0/3 | 20 |

@@ -42,7 +42,7 @@
 | regenerativ-praksis | raadgivning-nettverk | NO | 15 | 0 | 15 | lav |
 | permakultur-fleraarige | planteskoler-froeleverandoerer | NO | 15 | 0 | 15 | lav |
 | institusjon-finansiering | interesseorg-paraply | NO | 15 | 0 | 15 | lav |
-| matsvinn-sirkulaer | insekt-alternativ-protein | NO | 20 | 6 | 14 | lav |
+| matsvinn-sirkulaer | insekt-alternativ-protein | NO | 20 | 5 | 15 | lav |
 | regenerativ-praksis | holistic-management-beiting | NO | 12 | 0 | 12 | lav |
 | regenerativ-praksis | biodynamisk | NO | 12 | 0 | 12 | middels |
 | permakultur-fleraarige | permakultur-foreninger | NO | 12 | 0 | 12 | middels |
@@ -60,7 +60,7 @@
 | virkemiddel-policy | politisk-program | NO | 10 | 0 | 10 | lav |
 | institusjon-finansiering | forskningsinstitutt | NO | 8 | 0 | 8 | middels |
 | institusjon-finansiering | universitet-utdanning | NO | 8 | 0 | 8 | middels |
-| innsatsfaktorer | froe-genressurser | NO | 20 | 13 | 7 | lav |
+| innsatsfaktorer | froe-genressurser | NO | 20 | 12 | 8 | lav |
 | institusjon-finansiering | kontroll-sertifisering | NO | 6 | 0 | 6 | middels |
 | lokale-verdikjeder | paraply-nettverk | NO | 8 | 5 | 3 | hoey |
 | matsvinn-sirkulaer | biogass-bioraffinering | NO | 20 | 19 | 1 | lav |
@@ -68,9 +68,9 @@
 | lokale-verdikjeder | markedshager | NO | 0 | 0 | 0 | lav |
 | innsatsfaktorer | for-protein | NO | 20 | 21 | 0 | lav |
 | innsatsfaktorer | gjodsel-jordforbedring | NO | 20 | 22 | 0 | lav |
-| innsatsfaktorer | biostimulanter-jordliv | NO | 20 | 22 | 0 | lav |
+| innsatsfaktorer | biostimulanter-jordliv | NO | 20 | 21 | 0 | lav |
 | handel-dagligvare | dagligvarekjede | NO | 0 | 0 | 0 | hoey |
 | matsvinn-sirkulaer | reststrom-sidestrom | NO | 20 | 22 | 0 | lav |
 | matsvinn-sirkulaer | emballasje-retur | NO | 20 | 23 | 0 | lav |
 
-Totalt kartlagt (domene-tagga): 225
+Totalt kartlagt (domene-tagga): 222

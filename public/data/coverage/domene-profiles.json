@@ -194,8 +194,8 @@
     "geo": "NO",
     "estimated_universe": 20,
     "universe_confidence": "lav",
-    "mapped_count": 13,
-    "gap": 7
+    "mapped_count": 12,
+    "gap": 8
   },
   {
     "domain": "innsatsfaktorer",
@@ -221,7 +221,7 @@
     "geo": "NO",
     "estimated_universe": 20,
     "universe_confidence": "lav",
-    "mapped_count": 22,
+    "mapped_count": 21,
     "gap": 0
   },
   {
@@ -491,8 +491,8 @@
     "geo": "NO",
     "estimated_universe": 20,
     "universe_confidence": "lav",
-    "mapped_count": 6,
-    "gap": 14
+    "mapped_count": 5,
+    "gap": 15
   },
   {
     "domain": "okologi-sertifisering",
