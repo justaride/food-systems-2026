@@ -60,3 +60,22 @@
 1. `matsvinn-sirkulaer / insekt-alternativ-protein` er ikke mettet: neste passering bor lete etter aktive norske produsenter/leverandorer utover MultiFuelLarve-kjernen, men ikke fylle med petfood/importcase uten norsk verdikjederolle.
 2. Neste v2-vektede sirkulaere celler med fullt gap: `matsvinn-sirkulaer / reststrom-sidestrom`, `matsvinn-sirkulaer / kompost-jordprodukt`, `matsvinn-sirkulaer / emballasje-retur`.
 3. Kryss til `innsatsfaktorer / froe-genressurser` er fortsatt nyttig for aa balansere spinen hvis neste okt ikke skal bli for sirkulaer-tung.
+
+### Delokt 4: kompost-jordprodukt
+
+- Celle bearbeidet: `matsvinn-sirkulaer / kompost-jordprodukt`.
+- Kandidater: 8 aktorer/ordninger med lokator; alle org.nr validert mot Brreg API 2026-06-26.
+- Nye noder: 6 (`gronn-vekst-as`, `oslo-kommune-oslokompost`, `reve-kompost-as`, `bokashi-norge-as`, `follo-ren-iks`, `norbark-as`).
+- Eksisterende beriket/lenket: 2 (`lindum-as`, `mjosanlegget-as`); `bokashi-norge-as` lenket til eksisterende `Company.companyId`.
+- Relasjoner: 3 (`mjosanlegget-as -> gronn-vekst-as`, `follo-ren-iks -> gronn-vekst-as`, `norbark-as -> lindum-as`).
+- Dekningsdelta: 0 -> 8 kartlagt; gap 20 -> 12.
+- Usikkerhet: `oslo-kommune-oslokompost` flagget fordi dette er kommunal produkt-/etatrolle; `follo-ren-iks` flagget fordi rollen er bestilling/distribusjon av jord produsert av Gronn Vekst; `norbark-as` flagget for nyere org-/eierskapsstruktur.
+- Cross-session dedup-audit: ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+- Prod-wiring: `db:import:mvk-kompost-jordprodukt-2026-06-26` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne delokten: stopper etter kompakt, kildebelagt kjerne for aa kjoere verifikasjon og PR-oppdatering.
+
+### Completeness-critic / neste arbeidsliste etter delokt 4
+
+1. `matsvinn-sirkulaer / kompost-jordprodukt` er ikke mettet: neste passering bor lete etter flere norske avfalls-/jordproduktaktorer med primarkilder, men ikke fylle med rene forhandlere uten dokumentert restressursrolle.
+2. Neste v2-vektede sirkulaere celler med fullt gap: `matsvinn-sirkulaer / reststrom-sidestrom` og `matsvinn-sirkulaer / emballasje-retur`.
+3. Kryss til `innsatsfaktorer / froe-genressurser` eller `innsatsfaktorer / gjodsel-jordforbedring` er nyttig for aa balansere spinen og unngaa at startfasen blir ensidig sirkulaer.

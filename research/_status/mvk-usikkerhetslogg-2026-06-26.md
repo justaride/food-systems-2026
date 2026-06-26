@@ -28,3 +28,13 @@
 - Brreg-validert: 5 org.nr i kandidatfilen er aktive enheter per Enhetsregisteret API hentet 2026-06-26 (`917809755`, `916325010`, `926501836`, `915334504`, `988983837`).
 - Dedup-forventning: eksisterende Actor berikes for alle 6 kandidater; `invertapro`, `norinsect`, `pronofa` og `bio3-norway` lenkes til eksisterende `Company.companyId`.
 - Cross-session dedup-audit etter import: 6 datasett-taggede noder, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+
+## matsvinn-sirkulaer / kompost-jordprodukt
+
+- Droppet kildelost: 0.
+- Disputed: 0.
+- Unverified importert: 0.
+- Til menneskelig etterkontroll: 3 (`oslo-kommune-oslokompost` fordi dette er kommunal produkt-/etatrolle, `follo-ren-iks` fordi rollen er bestilling/distribusjon av jord produsert av Gronn Vekst, `norbark-as` fordi nyere org-/eierskapsstruktur bor etterkontrolleres).
+- Brreg-validert: 8 org.nr i kandidatfilen er aktive enheter per Enhetsregisteret API hentet 2026-06-26 (`981711033`, `979618840`, `987916346`, `958935420`, `987739924`, `923456570`, `975804569`, `936074189`).
+- Dedup-forventning: eksisterende Actor berikes for `lindum-as` og `mjosanlegget-as`; `bokashi-norge-as` lenkes til eksisterende `Company.companyId`.
+- Cross-session dedup-audit etter import: 8 datasett-taggede noder, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.

@@ -50,7 +50,7 @@ forbruk,forbrukerorganisasjon,NO,10,"Arbeidsanslag for taksonomi-metning; forbru
 forbruk,matfellesskap-innkjopslag,NO,20,"Arbeidsanslag for taksonomi-metning; matfellesskap og innkjopslag verifiseres i gather",lav,0,0,2026-06-26
 matsvinn-sirkulaer,matredistribusjon,NO,20,"Arbeidsanslag for taksonomi-metning; matsentraler og redistribusjonsaktorer verifiseres i gather",lav,10,10,2026-06-26
 matsvinn-sirkulaer,biogass-bioraffinering,NO,20,"Arbeidsanslag for taksonomi-metning; biogass og bioraffinering verifiseres i gather",lav,19,1,2026-06-26
-matsvinn-sirkulaer,kompost-jordprodukt,NO,20,"Arbeidsanslag for taksonomi-metning; kompost jordprodukt og restressursaktorer verifiseres i gather",lav,0,0,2026-06-26
+matsvinn-sirkulaer,kompost-jordprodukt,NO,20,"Arbeidsanslag for taksonomi-metning; kompost jordprodukt og restressursaktorer verifiseres i gather",lav,8,12,2026-06-26
 matsvinn-sirkulaer,reststrom-sidestrom,NO,20,"Arbeidsanslag for taksonomi-metning; reststrom og sidestromaktorer verifiseres i gather",lav,0,0,2026-06-26
 matsvinn-sirkulaer,emballasje-retur,NO,20,"Arbeidsanslag for taksonomi-metning; emballasje retur og materialsystemer verifiseres i gather",lav,0,0,2026-06-26
 matsvinn-sirkulaer,insekt-alternativ-protein,NO,20,"Arbeidsanslag for taksonomi-metning; insekt og alternative proteinaktorer verifiseres i gather",lav,6,14,2026-06-26

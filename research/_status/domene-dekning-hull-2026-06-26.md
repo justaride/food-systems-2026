@@ -34,7 +34,6 @@
 | horeca-offentlig | offentlig-innkjop-kantine | NO | 20 | 0 | 20 | lav |
 | horeca-offentlig | reiseliv-gardsmat | NO | 20 | 0 | 20 | lav |
 | forbruk | matfellesskap-innkjopslag | NO | 20 | 0 | 20 | lav |
-| matsvinn-sirkulaer | kompost-jordprodukt | NO | 20 | 0 | 20 | lav |
 | matsvinn-sirkulaer | reststrom-sidestrom | NO | 20 | 0 | 20 | lav |
 | matsvinn-sirkulaer | emballasje-retur | NO | 20 | 0 | 20 | lav |
 | okologi-sertifisering | okologisk-produsent | NO | 20 | 0 | 20 | lav |
@@ -54,6 +53,7 @@
 | regenerativ-praksis | biodynamisk | NO | 12 | 0 | 12 | middels |
 | permakultur-fleraarige | permakultur-foreninger | NO | 12 | 0 | 12 | middels |
 | institusjon-finansiering | virkemiddel-ordning | NO | 12 | 0 | 12 | lav |
+| matsvinn-sirkulaer | kompost-jordprodukt | NO | 20 | 8 | 12 | lav |
 | fou-institusjon | forskningsinstitutt | NO | 12 | 0 | 12 | lav |
 | fou-institusjon | universitet-utdanning | NO | 12 | 0 | 12 | lav |
 | virkemiddel-policy | virkemiddelapparat | NO | 12 | 0 | 12 | lav |
@@ -73,4 +73,4 @@
 | lokale-verdikjeder | markedshager | NO | 0 | 0 | 0 | lav |
 | handel-dagligvare | dagligvarekjede | NO | 0 | 0 | 0 | hoey |
 
-Totalt kartlagt (domene-tagga): 94
+Totalt kartlagt (domene-tagga): 102
