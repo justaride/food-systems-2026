@@ -12,6 +12,8 @@ Mål per økt: **«Kjør matverdikjede-runbooken: velg topp-gap-celler i dekning
 
 Dette er en **flerøkt-prosess**. Dekningsboka + sesjonsloggen er den varige fronten — hver økt fortsetter der forrige slapp. «Ferdig» er ikke én økt, men når alle celler er mettet (§2).
 
+**Anti-no-op (§7.1):** en økt MÅ importere minst én ny node og åpne en NY PR. Velg 0%-celler først. Å bare kjøre verifiseringsbatteriet på allerede-merget tilstand, eller å re-sitere en tidligere merget PR, er IKKE en fullført økt.
+
 ---
 
 ## 1. Forutsetninger
@@ -82,7 +84,7 @@ Det eksisterende selskaps-/konsern-laget skal **forenes**, ikke dupliseres.
 ```
 1. Utvid/verifiser taksonomien i dekningsboka (§3, idempotent).
 2. npm run audit:domain-coverage -- --date=<i-dag>  → les domene-profiles.json
-3. Arbeidsliste = NO-celler med gap > 0, sortert synkende på gap, vektet mot tynt-dekkede lag (§2).
+3. Arbeidsliste = NO-celler med gap > 0, sortert synkende på gap, vektet mot tynt-dekkede lag (§2). **Sett celler med `mapped_count = 0` (0%-stadier) først** (§7.1) — ikke re-velg mettede celler.
 4. FOR HVER celle (til §7 stopper):
    a. Mettet (§2)? → hopp over.
    b. REGISTRERINGSPASS (§6): strukturerte lister/registre → kandidatrader.
@@ -125,6 +127,14 @@ Stopp å starte nye celler når: alle NO-celler mettet (§2); token-/tidsbudsjet
 
 **Sikkerhet:** lokal DB only; ingen Prisma-schema-endring (alt via themeTags/metadata/companyId-lenk); ingen rå binær/filer ≥50 MB; ingen prod-import. Import-feil → STOPP cellen, logg, gå videre; improviser aldri schema/datafiks.
 
+### 7.1 Anti-no-op-vakt (OBLIGATORISK — verifisering er IKKE fullføring)
+
+En økt som **ikke importerer minst én ny node er ikke fullført.** Å kjøre verifiseringsbatteriet på allerede-merget tilstand teller ikke som arbeid.
+
+- **Cellevalg:** velg **alltid celler med `mapped_count = 0` (0%-stadier) før** du rører mettede celler. Re-velg aldri en mettet celle med mindre målet eksplisitt er dybde på akkurat den. Hvis dine første kandidatceller alt er mettet → hopp til et 0%-stadium (`primaerproduksjon`, `foredling-industri`, `distribusjon-grossist`, `fou-institusjon`, `handel-dagligvare/spesialhandel`, osv.).
+- **Hvis 0 nye noder etter et reelt forsøk** (registre + fanout på minst 3 ulike celler): da, og bare da, rapporter eksplisitt **STOPP-årsak** («feltet er uttømt / alt mettet») — aldri «ferdig» uten import.
+- **PR-disiplin:** hver økt åpner en **NY** PR og rapporterer dens nye nummer. **Re-siter aldri en tidligere merget PR** (f.eks. #208) som «landingen» for en ny økt. Branch fra `main`; en gren som alt er merget gir ikke ny merged tilstand.
+
 ---
 
 ## 8. Output, dashboard & avslutning (per økt)
@@ -145,11 +155,13 @@ Committet hver økt:
 ## 9. Definition of Done
 
 **Per økt:**
+- [ ] **≥ 1 ny node importert** (anti-no-op, §7.1) — ELLER eksplisitt STOPP-årsak dokumentert etter reelt forsøk på ≥ 3 celler. Verifisering av eksisterende tilstand teller IKKE som fullført økt.
+- [ ] Bearbeidede celler valgt fra 0%-stadier først; ingen mettet celle re-valgt uten dybde-mål.
 - [ ] Taksonomien i dekningsboka komplett/utvidet; bearbeidede celler har kandidat-CSV + import + mottakslogg + dekningsdelta + prod-sync-alias + commit.
 - [ ] Alle nye noder har hentet lokator; kildeløse droppet+logget; org.nr Brreg-validert; selskaps-entiteter lenket via `companyId` (ikke duplisert).
 - [ ] Review-kø + usikkerhetslogg + sesjonslogg + completeness-dashboard oppdatert.
 - [ ] Cross-session dedup-audit kjørt; ingen utilsiktede duplikater.
-- [ ] Verifiseringsbatteriet rent; PR åpnet.
+- [ ] Verifiseringsbatteriet rent; **NY PR åpnet med nytt nummer** (ikke re-sitert en tidligere merget PR, §7.1).
 
 **Overordnet (prosessen ferdig):**
 - [ ] Alle NO-celler i §3-taksonomien mettet (eller dokumentert som ukjennbart univers via loop-til-tørr).
