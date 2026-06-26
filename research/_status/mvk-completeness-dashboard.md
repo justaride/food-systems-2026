@@ -11,7 +11,7 @@ Regenerert: 2026-06-26
 | fou-institusjon | 0 | 44 | 0% | 0/3 | 20 |
 | handel-dagligvare | 0 | 40 | 0% | 1/3 | 20 |
 | horeca-offentlig | 0 | 60 | 0% | 0/3 | 20 |
-| innsatsfaktorer | 56 | 80 | 70% | 2/4 | 20 |
+| innsatsfaktorer | 78 | 80 | 98% | 3/4 | 7 |
 | institusjon-finansiering | 0 | 49 | 0% | 0/5 | 15 |
 | interesseorg-paraply | 0 | 60 | 0% | 0/3 | 20 |
 | lokale-verdikjeder | 50 | 261 | 19% | 2/6 | 120 |
@@ -24,8 +24,8 @@ Regenerert: 2026-06-26
 
 ## Underrepresentert
 
-- Hele v2-spinen er fortsatt tidlig i metningsloopen. `matsvinn-sirkulaer / matredistribusjon` er forbedret, `matsvinn-sirkulaer / biogass-bioraffinering` er nesten mettet med gap 1, `matsvinn-sirkulaer / insekt-alternativ-protein` har faatt en forste kildebelagt kjerne paa 6 noder, `matsvinn-sirkulaer / kompost-jordprodukt` har faatt en forste kildebelagt kjerne paa 8 noder, `innsatsfaktorer / froe-genressurser` har faatt en forste NO-tellende kjerne paa 13 noder, `innsatsfaktorer / for-protein` er mettet med 21 NO-tellende noder, og `innsatsfaktorer / gjodsel-jordforbedring` er mettet med 22 NO-tellende noder.
+- Hele v2-spinen er fortsatt tidlig i metningsloopen. `matsvinn-sirkulaer / matredistribusjon` er forbedret, `matsvinn-sirkulaer / biogass-bioraffinering` er nesten mettet med gap 1, `matsvinn-sirkulaer / insekt-alternativ-protein` har faatt en forste kildebelagt kjerne paa 6 noder, `matsvinn-sirkulaer / kompost-jordprodukt` har faatt en forste kildebelagt kjerne paa 8 noder, `innsatsfaktorer / froe-genressurser` har faatt en forste NO-tellende kjerne paa 13 noder, `innsatsfaktorer / for-protein` er mettet med 21 NO-tellende noder, `innsatsfaktorer / gjodsel-jordforbedring` er mettet med 22 NO-tellende noder, og `innsatsfaktorer / biostimulanter-jordliv` er mettet med 22 NO-tellende noder.
 - De fleste nye verdikjedestadier har 0 kartlagte noder fordi dette er forste v2-okt etter taksonomi-utvidelsen.
 - Arbeidsanslag med `universe_confidence=lav` maa erstattes med kildebelagte univers der strukturerte registre finnes.
 - `matsvinn-sirkulaer` har naa 43/120 kartlagt; neste sirkulaere hull er `reststrom-sidestrom`, `emballasje-retur` og videre metning av `insekt-alternativ-protein` og `kompost-jordprodukt`.
-- `innsatsfaktorer` har naa 56/80 kartlagt og 2/4 celler mettet. `froe-genressurser` har gap 7; `for-protein` importerte/beriket 22 noder hvor 21 teller i NO-raden og `Cargill Aqua Nutrition / EWOS` teller som `US` fordi eksisterende Actor-country er US. `gjodsel-jordforbedring` importerte/beriket 22 noder og alle teller i NO-raden. Resterende input-hull er `biostimulanter-jordliv`.
+- `innsatsfaktorer` har naa 78/80 kartlagt og 3/4 celler mettet. `froe-genressurser` har gap 7; `for-protein` importerte/beriket 22 noder hvor 21 teller i NO-raden og `Cargill Aqua Nutrition / EWOS` teller som `US` fordi eksisterende Actor-country er US. `gjodsel-jordforbedring` importerte/beriket 22 noder og alle teller i NO-raden. `biostimulanter-jordliv` importerte/beriket 22 noder og alle teller i NO-raden. Resterende input-hull er `froe-genressurser`.

@@ -1,0 +1,38 @@
+[
+  {
+    "from": "norsok",
+    "to": "nibio",
+    "type": "partners_with",
+    "note": "NORSOEKs Jordhelse i praksis-prosjekt oppgir NIBIO som samarbeidspartner."
+  },
+  {
+    "from": "norsok",
+    "to": "norsk-landbruksradgiving-sa",
+    "type": "partners_with",
+    "note": "NORSOEKs Jordhelse i praksis-prosjekt oppgir Norsk Landbruksradgiving som samarbeidspartner."
+  },
+  {
+    "from": "norges-vel",
+    "to": "sunn-jord-as",
+    "type": "partners_with",
+    "note": "Landbruksdirektoratet oppgir Sunn Jord AS som samarbeidspartner i Nasjonalt kompetansenettverk for jordfruktbarhet med Norges Vel som prosjekteier."
+  },
+  {
+    "from": "norges-vel",
+    "to": "vitalanalyse",
+    "type": "partners_with",
+    "note": "Landbruksdirektoratet oppgir VitalAnalyse som samarbeidspartner i Nasjonalt kompetansenettverk for jordfruktbarhet med Norges Vel som prosjekteier."
+  },
+  {
+    "from": "nordquist-ferment-as",
+    "to": "norsok",
+    "type": "partners_with",
+    "note": "Nordquist Ferment oppgir at Terra Biosa-forsoket ble gjennomfort i samarbeid med NORSOEK."
+  },
+  {
+    "from": "nordquist-ferment-as",
+    "to": "sunn-jord-as",
+    "type": "partners_with",
+    "note": "Nordquist Ferment oppgir at Terra Biosa-forsoket ble gjennomfort i samarbeid med Vibhoda/Sunn Jord."
+  }
+]

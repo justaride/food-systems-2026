@@ -136,3 +136,22 @@
 1. `innsatsfaktorer / gjodsel-jordforbedring` er mettet i audit-ledgeren; ikke start ny gjodsel-passering for volum alene.
 2. Resterende inputfaktor-hull er `innsatsfaktorer / biostimulanter-jordliv` med 20/20.
 3. Hvis neste okt skal tilbake til sirkulaer-sporet, er de stoerste helt apne hullene fortsatt `matsvinn-sirkulaer / reststrom-sidestrom` og `matsvinn-sirkulaer / emballasje-retur`.
+
+### Delokt 8: biostimulanter-jordliv
+
+- Celle bearbeidet: `innsatsfaktorer / biostimulanter-jordliv`.
+- Kandidater: 22 aktorer med lokator; 22 org.nr identifisert/validert mot norske registeroppslag 2026-06-26.
+- Nye noder: 12 (`agrinos-norway-as`, `kelpinor-as`, `seafertil-as`, `nordquist-ferment-as`, `norsk-naturgjodsel-as`, `norsk-landbruksradgiving-sa`, `vitalanalyse`, `sunn-jord-as`, `eurofins-agro-testing-norway-as`, `jordplan-as`, `norsk-jordforening`, `norges-vel`).
+- Eksisterende beriket/lenket: 10 (`norgro-as`, `log-as`, `yara-norge-as`, `felleskjopet-agri`, `bokashi-norge-as`, `gronn-gjodsel-as`, `norsok`, `nibio`, `okologisk-norge`, `stiftelsen-norsk-mat`); 2 kandidater ble lenket til eksisterende `Company.companyId`.
+- Relasjoner: 6 (`norsok -> nibio`, `norsok -> norsk-landbruksradgiving-sa`, `norges-vel -> sunn-jord-as`, `norges-vel -> vitalanalyse`, `nordquist-ferment-as -> norsok`, `nordquist-ferment-as -> sunn-jord-as`).
+- Dekningsdelta: 0 -> 22 kartlagt for NO; gap 20 -> 0. `biostimulanter-jordliv` er mettet etter arbeidsanslaget.
+- Usikkerhet: `vitalanalyse` og `norsk-jordforening` importert som `unverified`; `agrinos-norway-as`, `norsk-naturgjodsel-as`, `bokashi-norge-as`, `gronn-gjodsel-as`, `norsok`, `nibio`, `okologisk-norge`, `stiftelsen-norsk-mat`, `sunn-jord-as` og `jordplan-as` flagget for menneskelig etterkontroll av primarkilde, adjacent rolle, FoU-/kunnskapsrolle, egenkilde eller juridisk presisering.
+- Cross-session dedup-audit: 22 datasett-taggede noder, alle `NO`, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+- Prod-wiring: `db:import:mvk-biostimulanter-jordliv-2026-06-26` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne delokten: stopper etter mettet inputfaktor-celle for aa kjoere dedup-audit/verifikasjon og PR-oppdatering.
+
+### Completeness-critic / neste arbeidsliste etter delokt 8
+
+1. `innsatsfaktorer / biostimulanter-jordliv` er mettet i audit-ledgeren; inputfaktor-stadiet er naa 78/80 med 3/4 celler mettet.
+2. Resterende inputfaktor-hull er `innsatsfaktorer / froe-genressurser` med gap 7; det bor ha en liten andre passering senere, men ikke foran de store null-cellene hvis neste okt skal dekke v2-spinen bredere.
+3. Neste v2-vektede toppliste etter volum er fortsatt `matsvinn-sirkulaer / reststrom-sidestrom`, `matsvinn-sirkulaer / emballasje-retur`, `regenerativ-praksis / jordhelse-karbon`, `permakultur-fleraarige / skogshage-agroforestry` og de helt apne primaerproduksjons-/foredlingscellene. Hvis en praktiker-/SME-vekt prioriteres over volum, start med `matsvinn-sirkulaer / reststrom-sidestrom` eller `regenerativ-praksis / jordhelse-karbon`.

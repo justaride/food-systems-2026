@@ -68,3 +68,13 @@
 - Brreg-validert: 22 org.nr i kandidatfilen er aktive enheter per Enhetsregisteret API hentet 2026-06-26 (`984015666`, `911608103`, `915442552`, `975871096`, `975856844`, `916329717`, `983473997`, `960117883`, `995194252`, `981711033`, `979618840`, `987916346`, `987739924`, `923456570`, `936074189`, `926389998`, `912716635`, `871035032`, `984853998`, `920171400`, `920652336`, `997863623`).
 - Dedup-forventning/resultat: eksisterende Actor berikes for 19 kandidater (`felleskjopet-agri`, `felleskjopet-rogaland-agder`, `norgesfor-as`, `fiskaa-molle-as`, `strand-unikorn-as`, `log-as`, `norgro-as`, `gronn-vekst-as`, `lindum-as`, `mjosanlegget-as`, `reve-kompost-as`, `bokashi-norge-as`, `norbark-as`, `den-magiske-fabrikken`, `greve-biogass`, `ivar-iks`, `ecopro-as`, `veas-as`, `veas-marked-as`); 6 kandidater lenkes til eksisterende `Company.companyId`.
 - Cross-session dedup-audit etter import: 22 datasett-taggede noder, alle `NO`, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+
+## innsatsfaktorer / biostimulanter-jordliv
+
+- Droppet kildelost: 0.
+- Disputed: 0.
+- Unverified importert: 2 (`vitalanalyse`, `norsk-jordforening`) fordi rollebelegg/juridisk kobling er svakere enn for produktleverandorene.
+- Til menneskelig etterkontroll: 12 (`agrinos-norway-as` for nyere primarkilde, `norsk-naturgjodsel-as`, `bokashi-norge-as` og `gronn-gjodsel-as` for adjacent gjodsel/jordliv-presisjon, `norsok`, `nibio`, `okologisk-norge` og `stiftelsen-norsk-mat` fordi de er FoU-/kompetanse-/interesse-/kunnskapsroller, `vitalanalyse` for juridisk/nyere Sunn Jord-kobling, `sunn-jord-as` for egenkilde, `jordplan-as` for verktøy/service-rolle og `norsk-jordforening` for sparsom webrolle).
+- Brreg-validert/identifisert: 22 org.nr i kandidatfilen er norske enheter per Enhetsregisteret/Brreg-oppslag hentet 2026-06-26 (`960117883`, `983473997`, `984015666`, `911608103`, `995300575`, `929242688`, `933576418`, `983725902`, `977303311`, `923456570`, `995194252`, `969840383`, `988983837`, `931892126`, `983494463`, `828079042`, `913547853`, `996063631`, `982512069`, `997460944`, `990675627`, `965208739`).
+- Dedup-forventning/resultat: eksisterende Actor berikes for 10 kandidater (`norgro-as`, `log-as`, `yara-norge-as`, `felleskjopet-agri`, `bokashi-norge-as`, `gronn-gjodsel-as`, `norsok`, `nibio`, `okologisk-norge`, `stiftelsen-norsk-mat`); 2 kandidater lenkes til eksisterende `Company.companyId`.
+- Cross-session dedup-audit etter import: 22 datasett-taggede noder, alle `NO`, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
