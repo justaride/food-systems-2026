@@ -38,3 +38,13 @@
 - Brreg-validert: 8 org.nr i kandidatfilen er aktive enheter per Enhetsregisteret API hentet 2026-06-26 (`981711033`, `979618840`, `987916346`, `958935420`, `987739924`, `923456570`, `975804569`, `936074189`).
 - Dedup-forventning: eksisterende Actor berikes for `lindum-as` og `mjosanlegget-as`; `bokashi-norge-as` lenkes til eksisterende `Company.companyId`.
 - Cross-session dedup-audit etter import: 8 datasett-taggede noder, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+
+## innsatsfaktorer / froe-genressurser
+
+- Droppet kildelost: 0.
+- Disputed: 0.
+- Unverified importert: 0.
+- Til menneskelig etterkontroll: 6 (`kvann` og `nibio` fordi eldre eksisterende Actor-metadata manglet direkte orgNr etter additiv beriking, `nordgen` fordi eksisterende Actor har `country=Nordic` og telles utenfor NO-raden, `svalbard-global-seed-vault` fordi dette er froberedskapsinfrastruktur uten eget org.nr. i kandidatdata, `log-as` og `la-humla-suse` fordi rollen er distribusjon/formidling heller enn foredling/genbank).
+- Brreg-validert: 12 org.nr i kandidatfilen er aktive enheter per Enhetsregisteret API hentet 2026-06-26 (`917965137`, `988983837`, `967247359`, `993061158`, `913997832`, `984027761`, `960117883`, `916329717`, `911608103`, `971169486`, `983473997`, `912047652`).
+- Dedup-forventning/resultat: eksisterende Actor berikes for `kvann`, `nibio`, `nordgen`, `solhatt` og `felleskjopet-agri`; `graminor-as`, `strand-unikorn-as` og `felleskjopet-agri` lenkes til eksisterende `Company.companyId`.
+- Cross-session dedup-audit etter import: 14 datasett-taggede noder, ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.

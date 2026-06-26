@@ -11,7 +11,7 @@ Regenerert: 2026-06-26
 | fou-institusjon | 0 | 44 | 0% | 0/3 | 20 |
 | handel-dagligvare | 0 | 40 | 0% | 1/3 | 20 |
 | horeca-offentlig | 0 | 60 | 0% | 0/3 | 20 |
-| innsatsfaktorer | 0 | 80 | 0% | 0/4 | 20 |
+| innsatsfaktorer | 13 | 80 | 16% | 0/4 | 20 |
 | institusjon-finansiering | 0 | 49 | 0% | 0/5 | 15 |
 | interesseorg-paraply | 0 | 60 | 0% | 0/3 | 20 |
 | lokale-verdikjeder | 50 | 261 | 19% | 2/6 | 120 |
@@ -24,7 +24,8 @@ Regenerert: 2026-06-26
 
 ## Underrepresentert
 
-- Hele v2-spinen er fortsatt tidlig i metningsloopen. `matsvinn-sirkulaer / matredistribusjon` er forbedret, `matsvinn-sirkulaer / biogass-bioraffinering` er nesten mettet med gap 1, `matsvinn-sirkulaer / insekt-alternativ-protein` har faatt en forste kildebelagt kjerne paa 6 noder, og `matsvinn-sirkulaer / kompost-jordprodukt` har faatt en forste kildebelagt kjerne paa 8 noder.
+- Hele v2-spinen er fortsatt tidlig i metningsloopen. `matsvinn-sirkulaer / matredistribusjon` er forbedret, `matsvinn-sirkulaer / biogass-bioraffinering` er nesten mettet med gap 1, `matsvinn-sirkulaer / insekt-alternativ-protein` har faatt en forste kildebelagt kjerne paa 6 noder, `matsvinn-sirkulaer / kompost-jordprodukt` har faatt en forste kildebelagt kjerne paa 8 noder, og `innsatsfaktorer / froe-genressurser` har faatt en forste NO-tellende kjerne paa 13 noder.
 - De fleste nye verdikjedestadier har 0 kartlagte noder fordi dette er forste v2-okt etter taksonomi-utvidelsen.
 - Arbeidsanslag med `universe_confidence=lav` maa erstattes med kildebelagte univers der strukturerte registre finnes.
 - `matsvinn-sirkulaer` har naa 43/120 kartlagt; neste sirkulaere hull er `reststrom-sidestrom`, `emballasje-retur` og videre metning av `insekt-alternativ-protein` og `kompost-jordprodukt`.
+- `innsatsfaktorer / froe-genressurser` importerte/beriket 14 noder, men `NordGen` har `country=Nordic` i lokal KB og teller derfor utenfor NO-raden i dekningsboka; resterende input-hull er `for-protein`, `gjodsel-jordforbedring` og `biostimulanter-jordliv`.

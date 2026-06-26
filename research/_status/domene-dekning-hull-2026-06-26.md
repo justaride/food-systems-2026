@@ -8,7 +8,6 @@
 | regenerativ-praksis | jordhelse-karbon | NO | 20 | 0 | 20 | lav |
 | permakultur-fleraarige | skogshage-agroforestry | NO | 20 | 0 | 20 | lav |
 | permakultur-fleraarige | demonstrasjonssteder | NO | 20 | 0 | 20 | lav |
-| innsatsfaktorer | froe-genressurser | NO | 20 | 0 | 20 | lav |
 | innsatsfaktorer | for-protein | NO | 20 | 0 | 20 | lav |
 | innsatsfaktorer | gjodsel-jordforbedring | NO | 20 | 0 | 20 | lav |
 | innsatsfaktorer | biostimulanter-jordliv | NO | 20 | 0 | 20 | lav |
@@ -66,6 +65,7 @@
 | virkemiddel-policy | politisk-program | NO | 10 | 0 | 10 | lav |
 | institusjon-finansiering | forskningsinstitutt | NO | 8 | 0 | 8 | middels |
 | institusjon-finansiering | universitet-utdanning | NO | 8 | 0 | 8 | middels |
+| innsatsfaktorer | froe-genressurser | NO | 20 | 13 | 7 | lav |
 | institusjon-finansiering | kontroll-sertifisering | NO | 6 | 0 | 6 | middels |
 | lokale-verdikjeder | paraply-nettverk | NO | 8 | 5 | 3 | hoey |
 | matsvinn-sirkulaer | biogass-bioraffinering | NO | 20 | 19 | 1 | lav |
@@ -73,4 +73,4 @@
 | lokale-verdikjeder | markedshager | NO | 0 | 0 | 0 | lav |
 | handel-dagligvare | dagligvarekjede | NO | 0 | 0 | 0 | hoey |
 
-Totalt kartlagt (domene-tagga): 102
+Totalt kartlagt (domene-tagga): 115

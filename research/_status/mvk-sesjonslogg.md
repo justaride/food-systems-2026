@@ -79,3 +79,22 @@
 1. `matsvinn-sirkulaer / kompost-jordprodukt` er ikke mettet: neste passering bor lete etter flere norske avfalls-/jordproduktaktorer med primarkilder, men ikke fylle med rene forhandlere uten dokumentert restressursrolle.
 2. Neste v2-vektede sirkulaere celler med fullt gap: `matsvinn-sirkulaer / reststrom-sidestrom` og `matsvinn-sirkulaer / emballasje-retur`.
 3. Kryss til `innsatsfaktorer / froe-genressurser` eller `innsatsfaktorer / gjodsel-jordforbedring` er nyttig for aa balansere spinen og unngaa at startfasen blir ensidig sirkulaer.
+
+### Delokt 5: froe-genressurser
+
+- Celle bearbeidet: `innsatsfaktorer / froe-genressurser`.
+- Kandidater: 14 aktorer/ordninger med lokator; 12 org.nr validert mot Brreg API 2026-06-26. `NordGen` og `Svalbard Global Seed Vault` er inkludert som froberedskaps-/genressursinfrastruktur uten norsk org.nr. i kandidatdata.
+- Nye noder: 9 (`svalbard-global-seed-vault`, `graminor-as`, `sagaplant-as`, `norsk-froavlerlag`, `norgro-as`, `strand-unikorn-as`, `midt-norsk-blomsterengfro-ans`, `log-as`, `la-humla-suse`).
+- Eksisterende beriket/lenket: 5 (`kvann`, `nibio`, `nordgen`, `solhatt`, `felleskjopet-agri`); `graminor-as`, `strand-unikorn-as` og `felleskjopet-agri` lenket til eksisterende `Company.companyId`.
+- Relasjoner: 4 (`svalbard-global-seed-vault -> nordgen`, `kvann -> nibio`, `la-humla-suse -> nibio`, `norgro-as -> felleskjopet-agri`).
+- Dekningsdelta: 0 -> 13 kartlagt for NO; gap 20 -> 7. Telleavviket mot 14 importerte/berikede skyldes at eksisterende `NordGen`-actor har `country=Nordic` og dermed teller utenfor NO-raden i dekningsboka.
+- Usikkerhet: `kvann` og `nibio` flagget fordi eldre eksisterende Actor-metadata manglet direkte orgNr etter additiv beriking; `nordgen` flagget for Nordic-telling; `svalbard-global-seed-vault` flagget fordi det er infrastruktur/ordning uten eget org.nr.; `log-as` og `la-humla-suse` flagget fordi rollen er distribusjon/formidling heller enn foredling/genbank.
+- Cross-session dedup-audit: ingen dupliserte kandidat-orgNr, ingen dupliserte `companyId`, ingen normaliserte navneduplikater og ingen eksterne Actor-kollisjoner paa datasettenes `companyId`.
+- Prod-wiring: `db:import:mvk-froe-genressurser-2026-06-26` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne delokten: stopper etter balanserende inputfaktor-kjerne for aa kjoere verifikasjon og PR-oppdatering.
+
+### Completeness-critic / neste arbeidsliste etter delokt 5
+
+1. `innsatsfaktorer / froe-genressurser` er ikke mettet: gapet er 7 etter forste passering, og neste passering bor prioritere flere norske produsent-/foredlings-/genressursroller med primarkilder.
+2. For aa balansere input-siden videre er beste neste celler `innsatsfaktorer / for-protein` eller `innsatsfaktorer / gjodsel-jordforbedring`.
+3. Hvis neste okt skal tilbake til sirkulaer-sporet, er de stoerste helt apne hullene `matsvinn-sirkulaer / reststrom-sidestrom` og `matsvinn-sirkulaer / emballasje-retur`.
