@@ -237,3 +237,23 @@
 - Cross-session dedup: `bama-gruppen-as`-duplikatet ble fjernet lokalt og kandidat-CSV peker naa paa eksisterende BAMA-actor.
 - Prod-wiring: `db:import:mvk-grossist-distributor-2026-06-27` lagt til og innlemmet i `db:prod-sync`.
 - Stopp-arsak denne cellen: tre prioriterte 0%-celler er importert; gaar videre til cross-session dedup og obligatorisk verifikasjon.
+
+### Sluttstatus for 2026-06-27-oekten
+
+- Celler bearbeidet: `primaerproduksjon / havbruk-akvakultur`, `primaerproduksjon / villfisk-fiskeri`, `distribusjon-grossist / grossist-distributor`.
+- Nye noder fra ren DB: 59.
+- Eksisterende beriket/lenket: 1 (`BAMA Gruppen` via eksisterende Actor/Company).
+- CompanyId-lenker: 3.
+- Dekningsdelta: `primaerproduksjon / havbruk-akvakultur` 0 -> 20, `primaerproduksjon / villfisk-fiskeri` 0 -> 20, `distribusjon-grossist / grossist-distributor` 0 -> 20.
+- Cross-session dedup-audit: ren etter BAMA-resolusjon; ingen dupliserte metadata-orgNr, `companyId` eller normaliserte navn som beroerer oektens 60 datasett-taggede actors.
+- Stopp-arsak: maaloppnaaelse for denne oekten etter tre prioriterte 0%-celler og 59 nye noder; fortsetter ikke til flere celler foer obligatorisk verifikasjon og PR.
+
+### Neste toppliste etter 2026-06-27
+
+1. `primaerproduksjon / jordbruk-groent` (0/20).
+2. `primaerproduksjon / husdyr-beite` (0/20).
+3. `primaerproduksjon / ville-ressurser-sanking` (0/20).
+4. `primaerproduksjon / urban-dyrking` (0/20).
+5. `distribusjon-grossist / logistikk-lager` (0/20).
+6. `distribusjon-grossist / alternativ-distribusjon` (0/20).
+7. `fou-institusjon / nettverk-kompetanse` (0/20).
