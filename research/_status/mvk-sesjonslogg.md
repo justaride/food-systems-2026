@@ -193,3 +193,67 @@
 1. `matsvinn-sirkulaer / emballasje-retur` er mettet i audit-ledgeren; `matsvinn-sirkulaer` er naa 88/120 med 2/6 celler mettet.
 2. Resterende sirkulaere hull er `insekt-alternativ-protein` med gap 14, `kompost-jordprodukt` med gap 12, `matredistribusjon` med gap 10 og `biogass-bioraffinering` med gap 1.
 3. Hvis neste okt skal holde sirkulaer/SME-vektingen, ta andrepassering paa `matsvinn-sirkulaer / insekt-alternativ-protein` eller `kompost-jordprodukt`. Hvis bredere v2-spine skal prioriteres, start en helt apen cellerunde i `regenerativ-praksis / jordhelse-karbon` eller `primaerproduksjon / jordbruk-groent`.
+
+## 2026-06-27 - primaerproduksjon / havbruk-akvakultur
+
+- Worktree/branch: `.worktrees/matverdikjede-0pct-import-2026-06-27` / `codex/matverdikjede-0pct-import-2026-06-27`.
+- Celle bearbeidet: `primaerproduksjon / havbruk-akvakultur` (0%-celle).
+- Kandidater: 20 Brreg-registerrader med lokator og validert org.nr.
+- Nye noder: 20.
+- Eksisterende beriket/lenket: 0.
+- CompanyId-lenker: 0.
+- Relasjoner: 0; ingen kildebelagte actor-to-actor-relasjoner i registerpasset.
+- Dekningsdelta: 0 -> 20; gap 20 -> 0.
+- Review-koe: `research/_status/mvk-review-koe-2026-06-27.csv`.
+- Usikkerhet: 3 noder flagget for menneskelig etterkontroll; 0 kildelose importert.
+- Prod-wiring: `db:import:mvk-havbruk-akvakultur-2026-06-27` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne cellen: fortsetter til neste prioriterte 0%-celle.
+
+## 2026-06-27 - primaerproduksjon / villfisk-fiskeri
+
+- Celle bearbeidet: `primaerproduksjon / villfisk-fiskeri` (0%-celle).
+- Kandidater: 20 Brreg-registerrader med lokator og validert org.nr.
+- Nye noder: 20.
+- Eksisterende beriket/lenket: 0.
+- CompanyId-lenker: 0.
+- Relasjoner: 0; ingen kildebelagte actor-to-actor-relasjoner i registerpasset.
+- Dekningsdelta: 0 -> 20; gap 20 -> 0.
+- Review-koe: `research/_status/mvk-review-koe-2026-06-27.csv`.
+- Usikkerhet: 1 node flagget for menneskelig etterkontroll; 0 kildelose importert.
+- Prod-wiring: `db:import:mvk-villfisk-fiskeri-2026-06-27` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne cellen: fortsetter til neste prioriterte 0%-celle.
+
+## 2026-06-27 - distribusjon-grossist / grossist-distributor
+
+- Celle bearbeidet: `distribusjon-grossist / grossist-distributor` (0%-celle).
+- Kandidater: 20 Brreg-registerrader med lokator og validert org.nr.
+- Nye noder fra ren DB: 19.
+- Eksisterende beriket/lenket: 1 (`BAMA Gruppen` via eksisterende Actor/Company).
+- CompanyId-lenker: 3.
+- Relasjoner: 0; ingen kildebelagte actor-to-actor-relasjoner i registerpasset.
+- Dekningsdelta: 0 -> 20; gap 20 -> 0.
+- Review-koe: `research/_status/mvk-review-koe-2026-06-27.csv`.
+- Usikkerhet: 18 noder flagget for menneskelig etterkontroll; 0 kildelose importert.
+- Cross-session dedup: `bama-gruppen-as`-duplikatet ble fjernet lokalt og kandidat-CSV peker naa paa eksisterende BAMA-actor.
+- Prod-wiring: `db:import:mvk-grossist-distributor-2026-06-27` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne cellen: tre prioriterte 0%-celler er importert; gaar videre til cross-session dedup og obligatorisk verifikasjon.
+
+### Sluttstatus for 2026-06-27-oekten
+
+- Celler bearbeidet: `primaerproduksjon / havbruk-akvakultur`, `primaerproduksjon / villfisk-fiskeri`, `distribusjon-grossist / grossist-distributor`.
+- Nye noder fra ren DB: 59.
+- Eksisterende beriket/lenket: 1 (`BAMA Gruppen` via eksisterende Actor/Company).
+- CompanyId-lenker: 3.
+- Dekningsdelta: `primaerproduksjon / havbruk-akvakultur` 0 -> 20, `primaerproduksjon / villfisk-fiskeri` 0 -> 20, `distribusjon-grossist / grossist-distributor` 0 -> 20.
+- Cross-session dedup-audit: ren etter BAMA-resolusjon; ingen dupliserte metadata-orgNr, `companyId` eller normaliserte navn som beroerer oektens 60 datasett-taggede actors.
+- Stopp-arsak: maaloppnaaelse for denne oekten etter tre prioriterte 0%-celler og 59 nye noder; fortsetter ikke til flere celler foer obligatorisk verifikasjon og PR.
+
+### Neste toppliste etter 2026-06-27
+
+1. `primaerproduksjon / jordbruk-groent` (0/20).
+2. `primaerproduksjon / husdyr-beite` (0/20).
+3. `primaerproduksjon / ville-ressurser-sanking` (0/20).
+4. `primaerproduksjon / urban-dyrking` (0/20).
+5. `distribusjon-grossist / logistikk-lager` (0/20).
+6. `distribusjon-grossist / alternativ-distribusjon` (0/20).
+7. `fou-institusjon / nettverk-kompetanse` (0/20).

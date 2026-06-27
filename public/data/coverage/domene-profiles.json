@@ -248,8 +248,8 @@
     "geo": "NO",
     "estimated_universe": 20,
     "universe_confidence": "lav",
-    "mapped_count": 0,
-    "gap": 20
+    "mapped_count": 20,
+    "gap": 0
   },
   {
     "domain": "primaerproduksjon",
@@ -257,8 +257,8 @@
     "geo": "NO",
     "estimated_universe": 20,
     "universe_confidence": "lav",
-    "mapped_count": 0,
-    "gap": 20
+    "mapped_count": 20,
+    "gap": 0
   },
   {
     "domain": "primaerproduksjon",
@@ -347,8 +347,8 @@
     "geo": "NO",
     "estimated_universe": 20,
     "universe_confidence": "lav",
-    "mapped_count": 0,
-    "gap": 20
+    "mapped_count": 20,
+    "gap": 0
   },
   {
     "domain": "distribusjon-grossist",
