@@ -10,7 +10,6 @@
 | permakultur-fleraarige | demonstrasjonssteder | NO | 20 | 0 | 20 | lav |
 | primaerproduksjon | jordbruk-groent | NO | 20 | 0 | 20 | lav |
 | primaerproduksjon | husdyr-beite | NO | 20 | 0 | 20 | lav |
-| primaerproduksjon | villfisk-fiskeri | NO | 20 | 0 | 20 | lav |
 | primaerproduksjon | ville-ressurser-sanking | NO | 20 | 0 | 20 | lav |
 | primaerproduksjon | urban-dyrking | NO | 20 | 0 | 20 | lav |
 | foredling-industri | meieri | NO | 20 | 0 | 20 | lav |
@@ -69,8 +68,9 @@
 | innsatsfaktorer | gjodsel-jordforbedring | NO | 20 | 22 | 0 | lav |
 | innsatsfaktorer | biostimulanter-jordliv | NO | 20 | 21 | 0 | lav |
 | primaerproduksjon | havbruk-akvakultur | NO | 20 | 20 | 0 | lav |
+| primaerproduksjon | villfisk-fiskeri | NO | 20 | 20 | 0 | lav |
 | handel-dagligvare | dagligvarekjede | NO | 0 | 0 | 0 | hoey |
 | matsvinn-sirkulaer | reststrom-sidestrom | NO | 20 | 22 | 0 | lav |
 | matsvinn-sirkulaer | emballasje-retur | NO | 20 | 23 | 0 | lav |
 
-Totalt kartlagt (domene-tagga): 242
+Totalt kartlagt (domene-tagga): 262

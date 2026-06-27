@@ -208,3 +208,17 @@
 - Usikkerhet: 3 noder flagget for menneskelig etterkontroll; 0 kildelose importert.
 - Prod-wiring: `db:import:mvk-havbruk-akvakultur-2026-06-27` lagt til og innlemmet i `db:prod-sync`.
 - Stopp-arsak denne cellen: fortsetter til neste prioriterte 0%-celle.
+
+## 2026-06-27 - primaerproduksjon / villfisk-fiskeri
+
+- Celle bearbeidet: `primaerproduksjon / villfisk-fiskeri` (0%-celle).
+- Kandidater: 20 Brreg-registerrader med lokator og validert org.nr.
+- Nye noder: 20.
+- Eksisterende beriket/lenket: 0.
+- CompanyId-lenker: 0.
+- Relasjoner: 0; ingen kildebelagte actor-to-actor-relasjoner i registerpasset.
+- Dekningsdelta: 0 -> 20; gap 20 -> 0.
+- Review-koe: `research/_status/mvk-review-koe-2026-06-27.csv`.
+- Usikkerhet: 1 node flagget for menneskelig etterkontroll; 0 kildelose importert.
+- Prod-wiring: `db:import:mvk-villfisk-fiskeri-2026-06-27` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne cellen: fortsetter til neste prioriterte 0%-celle.

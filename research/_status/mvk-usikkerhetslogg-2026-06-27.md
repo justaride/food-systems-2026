@@ -7,3 +7,10 @@
 - Flagget for menneske: 3 noder med middels confidence fordi Brreg-aktivitet ogsaa omtaler investerings-/holdingrolle.
 - Disputed: 0.
 
+## primaerproduksjon / villfisk-fiskeri
+
+- Droppet foer import: 33 Brreg-rader utenfor kvalitetsfilteret (inaktiv, ikke AS/SA/ANS/DA, ren holding-/stoetterolle, allerede kartlagt eller ikke tydelig fiskeriaktivitet).
+- Kildelose droppet: 0. Alle importerte noder har Brreg-lokator og validert org.nr.
+- Flagget for menneske: 1 node med middels confidence fordi Brreg-aktivitet ogsaa omtaler stoetterolle.
+- Disputed: 0.
+

@@ -18,7 +18,7 @@ Regenerert: 2026-06-27
 | matsvinn-sirkulaer | 87 | 120 | 73% | 2/6 | 15 |
 | okologi-sertifisering | 0 | 40 | 0% | 0/3 | 20 |
 | permakultur-fleraarige | 0 | 77 | 0% | 0/5 | 20 |
-| primaerproduksjon | 20 | 120 | 17% | 1/6 | 20 |
+| primaerproduksjon | 40 | 120 | 33% | 2/6 | 20 |
 | regenerativ-praksis | 9 | 89 | 10% | 0/5 | 21 |
 | virkemiddel-policy | 0 | 34 | 0% | 0/3 | 12 |
 
@@ -29,14 +29,15 @@ Regenerert: 2026-06-27
 - permakultur-fleraarige / demonstrasjonssteder: 0/20, gap 20.
 - primaerproduksjon / jordbruk-groent: 0/20, gap 20.
 - primaerproduksjon / husdyr-beite: 0/20, gap 20.
-- primaerproduksjon / villfisk-fiskeri: 0/20, gap 20.
 - primaerproduksjon / ville-ressurser-sanking: 0/20, gap 20.
 - primaerproduksjon / urban-dyrking: 0/20, gap 20.
 - foredling-industri / meieri: 0/20, gap 20.
 - foredling-industri / kjott-egg: 0/20, gap 20.
 - foredling-industri / korn-molle-bakeri: 0/20, gap 20.
 - foredling-industri / frukt-groent-foredling: 0/20, gap 20.
+- foredling-industri / drikke-bryggeri: 0/20, gap 20.
 
 ## Denne oktens status
 
 - primaerproduksjon / havbruk-akvakultur: 0 -> 20 kartlagt; 20 nye noder, 3 flagget for etterkontroll.
+- primaerproduksjon / villfisk-fiskeri: 0 -> 20 kartlagt; 20 nye noder, 1 flagget for etterkontroll.
