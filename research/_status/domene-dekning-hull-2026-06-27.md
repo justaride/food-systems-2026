@@ -19,7 +19,6 @@
 | foredling-industri | drikke-bryggeri | NO | 20 | 0 | 20 | lav |
 | foredling-industri | sjomat-foredling | NO | 20 | 0 | 20 | lav |
 | foredling-industri | naeringsmiddel-ovrig | NO | 20 | 0 | 20 | lav |
-| distribusjon-grossist | grossist-distributor | NO | 20 | 0 | 20 | lav |
 | distribusjon-grossist | logistikk-lager | NO | 20 | 0 | 20 | lav |
 | distribusjon-grossist | alternativ-distribusjon | NO | 20 | 0 | 20 | lav |
 | handel-dagligvare | spesialhandel-delikatesse | NO | 20 | 0 | 20 | lav |
@@ -69,8 +68,9 @@
 | innsatsfaktorer | biostimulanter-jordliv | NO | 20 | 21 | 0 | lav |
 | primaerproduksjon | havbruk-akvakultur | NO | 20 | 20 | 0 | lav |
 | primaerproduksjon | villfisk-fiskeri | NO | 20 | 20 | 0 | lav |
+| distribusjon-grossist | grossist-distributor | NO | 20 | 20 | 0 | lav |
 | handel-dagligvare | dagligvarekjede | NO | 0 | 0 | 0 | hoey |
 | matsvinn-sirkulaer | reststrom-sidestrom | NO | 20 | 22 | 0 | lav |
 | matsvinn-sirkulaer | emballasje-retur | NO | 20 | 23 | 0 | lav |
 
-Totalt kartlagt (domene-tagga): 262
+Totalt kartlagt (domene-tagga): 282

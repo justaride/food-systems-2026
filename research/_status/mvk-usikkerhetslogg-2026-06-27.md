@@ -14,3 +14,10 @@
 - Flagget for menneske: 1 node med middels confidence fordi Brreg-aktivitet ogsaa omtaler stoetterolle.
 - Disputed: 0.
 
+## distribusjon-grossist / grossist-distributor
+
+- Droppet foer import: 5 Brreg-rader utenfor kvalitetsfilteret (inaktiv, feil land/form, ren holding-/stoetterolle eller allerede kartlagt).
+- Kildelose droppet: 0. Alle importerte noder har Brreg-lokator og validert org.nr.
+- Flagget for menneske: 18 noder med middels confidence fordi Brreg-registerfeltet er tynt for operativ grossistrolle eller blandet med lokalmat-/produsentnettverk.
+- Disputed: 0.
+

@@ -4,7 +4,7 @@ Regenerert: 2026-06-27
 
 | Stadium/domene | Kartlagt | Anslatt univers | Dekning | Mettede celler | Maks gap |
 |---|---:|---:|---:|---:|---:|
-| distribusjon-grossist | 0 | 60 | 0% | 0/3 | 20 |
+| distribusjon-grossist | 20 | 60 | 33% | 1/3 | 20 |
 | finansiering-investering | 0 | 60 | 0% | 0/3 | 20 |
 | forbruk | 0 | 30 | 0% | 0/2 | 20 |
 | foredling-industri | 0 | 140 | 0% | 0/7 | 20 |
@@ -41,3 +41,4 @@ Regenerert: 2026-06-27
 
 - primaerproduksjon / havbruk-akvakultur: 0 -> 20 kartlagt; 20 nye noder, 3 flagget for etterkontroll.
 - primaerproduksjon / villfisk-fiskeri: 0 -> 20 kartlagt; 20 nye noder, 1 flagget for etterkontroll.
+- distribusjon-grossist / grossist-distributor: 0 -> 20 kartlagt; 19 nye noder, 1 eksisterende beriket, 3 companyId-lenker, 18 flagget for etterkontroll.

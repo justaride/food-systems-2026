@@ -222,3 +222,18 @@
 - Usikkerhet: 1 node flagget for menneskelig etterkontroll; 0 kildelose importert.
 - Prod-wiring: `db:import:mvk-villfisk-fiskeri-2026-06-27` lagt til og innlemmet i `db:prod-sync`.
 - Stopp-arsak denne cellen: fortsetter til neste prioriterte 0%-celle.
+
+## 2026-06-27 - distribusjon-grossist / grossist-distributor
+
+- Celle bearbeidet: `distribusjon-grossist / grossist-distributor` (0%-celle).
+- Kandidater: 20 Brreg-registerrader med lokator og validert org.nr.
+- Nye noder fra ren DB: 19.
+- Eksisterende beriket/lenket: 1 (`BAMA Gruppen` via eksisterende Actor/Company).
+- CompanyId-lenker: 3.
+- Relasjoner: 0; ingen kildebelagte actor-to-actor-relasjoner i registerpasset.
+- Dekningsdelta: 0 -> 20; gap 20 -> 0.
+- Review-koe: `research/_status/mvk-review-koe-2026-06-27.csv`.
+- Usikkerhet: 18 noder flagget for menneskelig etterkontroll; 0 kildelose importert.
+- Cross-session dedup: `bama-gruppen-as`-duplikatet ble fjernet lokalt og kandidat-CSV peker naa paa eksisterende BAMA-actor.
+- Prod-wiring: `db:import:mvk-grossist-distributor-2026-06-27` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne cellen: tre prioriterte 0%-celler er importert; gaar videre til cross-session dedup og obligatorisk verifikasjon.

@@ -37,7 +37,7 @@ foredling-industri,frukt-groent-foredling,NO,20,"Arbeidsanslag for taksonomi-met
 foredling-industri,drikke-bryggeri,NO,20,"Arbeidsanslag for taksonomi-metning; bryggeri sider most og drikkeaktorer verifiseres i gather",lav,0,0,2026-06-26
 foredling-industri,sjomat-foredling,NO,20,"Arbeidsanslag for taksonomi-metning; sjomatforedling verifiseres i gather",lav,0,0,2026-06-26
 foredling-industri,naeringsmiddel-ovrig,NO,20,"Arbeidsanslag for taksonomi-metning; oevrig naeringsmiddelindustri verifiseres i gather",lav,0,0,2026-06-26
-distribusjon-grossist,grossist-distributor,NO,20,"Arbeidsanslag for taksonomi-metning; grossister og distributorer verifiseres i gather",lav,0,0,2026-06-26
+distribusjon-grossist,grossist-distributor,NO,20,Arbeidsanslag for taksonomi-metning; grossister og distributorer verifiseres i gather,lav,20,0,2026-06-27
 distribusjon-grossist,logistikk-lager,NO,20,"Arbeidsanslag for taksonomi-metning; logistikk lager og mattransport verifiseres i gather",lav,0,0,2026-06-26
 distribusjon-grossist,alternativ-distribusjon,NO,20,"Arbeidsanslag for taksonomi-metning; alternative distribusjonsmodeller verifiseres i gather",lav,0,0,2026-06-26
 handel-dagligvare,dagligvarekjede,NO,0,"Konsern- og dagligvarelaget er allerede dekket; denne cellen lenkes ved behov og re-kartlegges ikke",hoey,0,0,2026-06-26
