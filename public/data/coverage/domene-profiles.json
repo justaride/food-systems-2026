@@ -246,19 +246,19 @@
     "domain": "primaerproduksjon",
     "subdomain": "havbruk-akvakultur",
     "geo": "NO",
-    "estimated_universe": 20,
+    "estimated_universe": 120,
     "universe_confidence": "lav",
     "mapped_count": 20,
-    "gap": 0
+    "gap": 100
   },
   {
     "domain": "primaerproduksjon",
     "subdomain": "villfisk-fiskeri",
     "geo": "NO",
-    "estimated_universe": 20,
+    "estimated_universe": 150,
     "universe_confidence": "lav",
     "mapped_count": 20,
-    "gap": 0
+    "gap": 130
   },
   {
     "domain": "primaerproduksjon",
@@ -345,10 +345,10 @@
     "domain": "distribusjon-grossist",
     "subdomain": "grossist-distributor",
     "geo": "NO",
-    "estimated_universe": 20,
+    "estimated_universe": 80,
     "universe_confidence": "lav",
     "mapped_count": 20,
-    "gap": 0
+    "gap": 60
   },
   {
     "domain": "distribusjon-grossist",
