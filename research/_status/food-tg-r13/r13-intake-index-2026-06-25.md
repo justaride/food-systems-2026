@@ -19,9 +19,9 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 
 ## Kontrollstatus
 
-- **Promptrader indeksert:** 8 / 50
-- **Decision-batcher funnet:** batch-01 (R13-GAP-001, R13-GAP-005, R13-WASTE-001, R13-GAP-002), batch-02 (R13-GAP-004, R13-GAP-006, R13-GAP-003, R13-WASTE-002)
-- **Batcher ikke funnet som decision/report-fil:** batch-03..13 (ikke startet)
+- **Promptrader indeksert:** 12 / 50
+- **Decision-batcher funnet:** batch-01 (R13-GAP-001, R13-GAP-005, R13-WASTE-001, R13-GAP-002), batch-02 (R13-GAP-004, R13-GAP-006, R13-GAP-003, R13-WASTE-002), batch-03 (R13-WASTE-003, R13-WASTE-004, R13-WASTE-005, R13-WASTE-007)
+- **Batcher ikke funnet som decision/report-fil:** batch-04..13 (ikke startet)
 - **Arbeidsregel:** alle rader er interne mottaks-/triageposter; ingen rad åpner ekstern claim, DB-skriving, `safe_for_ai_context`, whitepapertekst eller deckstemme.
 - **Overlapp:** samme prompt kan ligge i flere grupper når den både har en hovedgate og en stop-regel.
 
@@ -29,14 +29,14 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 
 | Gruppe | Antall | Bruk |
 |---|---:|---|
-| PCQ-ready | 4 | klar for primary-check queue / kontrollert uttrekk før eventuell claim-lock |
-| source-shortlist | 3 | klar som kilde-/metodekandidat, ikke claim |
+| PCQ-ready | 6 | klar for primary-check queue / kontrollert uttrekk før eventuell claim-lock |
+| source-shortlist | 5 | klar som kilde-/metodekandidat, ikke claim |
 | claim-lock candidate | 1 | kun svært smal formulering kan vurderes etter PCQ |
-| actor-gate | 2 | krever aktørdata, verifikasjon, kontrakt, avregning eller aktiv-status |
+| actor-gate | 3 | krever aktørdata, verifikasjon, kontrakt, avregning eller aktiv-status |
 | forstaelse | 1 | bakgrunn/hypotese/mental modell; ikke faktastemme |
 | internal only | 0 | intern modell, datakontrakt, funding-fit eller uttakskø |
 | parkert | 1 | hele eller sentrale claims stoppet inntil ny locator/aktor/data finnes |
-| må ikke visualiseres ennå | 5 | ikke lag ekstern figur/radar/rangering/deckuttak før gate og tomme celler vises |
+| må ikke visualiseres ennå | 7 | ikke lag ekstern figur/radar/rangering/deckuttak før gate og tomme celler vises |
 
 ## PCQ-ready
 
@@ -46,6 +46,8 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | R13-GAP-005 | 01 | Verifisering av 7 parkerte R12-claims | PCQ | 3 løftbare m/caveat (REKO 2022, andelslandbruk 93/2023, Rest-konkurs 2024), 1 delvis (fiskeolje), 3 parkert/nedgradert (ASKO 70 %, SOIL-score, Plantagon). | claim-lock-kandidat for smale rader; verifiser per claim | research/external/r13/R13-GAP-005-parkerte-claims-verifisering.md |
 | R13-WASTE-001 | 01 | Marint restråstoff R-stige | PCQ | SINTEF/FHF fulltekst: ~1,1 mill. t, 89 % utnyttet, men kun ~15 % humant konsum vs 66 % fôr / ~19 % energi — utnyttet ≠ høyverdi. | importer (PCQ) | research/external/r13/R13-WASTE-001-marint-restrastoff-rstige.md |
 | R13-WASTE-002 | 02 | Oppdrettsslam massebalanse | PCQ | Offentlige tall er modellerte utslipp (535 412 t slam / 14 000 t P, 2019); innsamlet/behandlet kun fragmenter; åpne merder samler ~0. Ingen 3-kolonners anleggsbalanse i åpne kilder. | vent — parkert til actor/primærdata (se også parkert) | research/external/r13/R13-WASTE-002-oppdrettsslam-massebalanse.md |
+| R13-WASTE-004 | 03 | Husholdnings- og detaljmatsvinn | PCQ | NORSUS/Matvett OR.16.24 (husholdning 2023: 193 200 tonn) og OR.28.25 (dagligvare 2024: 43 600 tonn); bransjeavtale og matsvinnlov primærkilder. A-klasse med C-gap (husholdning 2024 mangler, matindustri kun t.o.m. 2022). | importer med synlige caveater og tomme 2024-celler | research/external/r13/R13-WASTE-004-husholdning-detalj-matsvinn.md |
+| R13-WASTE-005 | 03 | Digestat NPK-retur | PCQ | Sverige A (SPCR 120 2023: Tot-N ~5,1 / P ~0,60 / K ~2,1 kg/tonn); Norge B/C — ingen nasjonal aggregering, strukturelt hull. | aktørspørsmål til Biogass Norge/NIBIO | research/external/r13/R13-WASTE-005-digestat-npk-retur.md |
 
 ## source-shortlist
 
@@ -54,6 +56,8 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | R13-GAP-002 | 01 | Lokale verdikjeder og forsyningssikkerhet | source-shortlist | Lokal/kort kjede øker forsyningssikkerhet kun via navngitt mekanisme (redundans, desentralisert lager, redusert innsatsvare-import) — ikke via identitet; ingen norsk kvantifisering funnet. | vent — kildekort, ikke claim | research/external/r13/R13-GAP-002-lokale-verdikjeder-resiliens.md |
 | R13-GAP-004 | 02 | Alternative nordiske fôrproteiner | source-shortlist | Feltet dominert av kapasitet/plan, ikke realisert fôr-grade volum; Enorm (DK) konkurs okt 2025, Solar Foods 160 t/år men mat ikke fôr, Invertapro er mealworm. | aktørspørsmål (realisert volum, se også actor-gate) | research/external/r13/R13-GAP-004-alternative-nordiske-forproteiner.md |
 | R13-GAP-003 | 02 | Transport/lager-sårbarhet (mat, Norden) | source-shortlist | Åpent myndighetsmateriale kobler transport/havn/lager/kaldkjede til mat, men overveiende kvalitativt; tallfestet: NO ~60 % importavhengighet, 34–40 % fôrjustert selvforsyning, 82 500 t matkorn (~3 mnd) innen 2029. | importer som kildekort; node-tonnasje forblir C | research/external/r13/R13-GAP-003-transport-lager-sarbarhet.md |
+| R13-WASTE-003 | 03 | Matsvinn-redistribusjon | source-shortlist | Matsentralen 5 735 tonn omfordelt 2024 (primær/aktørrapport B). TGTG norsk 2024-statistikk ikke offentliggjort (C). Ingen nasjonal redistributionstotal mulig uten metodebro. | vent — hold til TGTG og Matvett publiserer oppdaterte per-kanal-tall | research/external/r13/R13-WASTE-003-matsvinn-redistribusjon.md |
+| R13-WASTE-007 | 03 | Industrielle næringssidestrømmer | source-shortlist | Nofima 67/2016 gir samlede estimater (bryggeri ~17 000 tonn mask, slakteri ~264 000 tonn), men utdatert (~10 år). Meieri-tall aktørformidlet uten verifiserbar primærkilde. Per-fraksjon-celler tomme. | vent — hent Nofima-fulltekst, TINE-årsrapport og SSB 14458 | research/external/r13/R13-WASTE-007-industrielle-sidestrommer.md |
 
 ## claim-lock candidate
 
@@ -67,6 +71,7 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 |---|---:|---|---|---|---|---|
 | R13-GAP-006 | 02 | Type-C-eskalering + actor-gate-kø | forstaelse → actor-gate | R12s C-hull reklassifisert; Type-B-hull samlet i 14-posters actor-gate-kø; ekte C bevart som funn. | aktørspørsmål — bruk køen som inngang til neste actor-gate-runde | research/forstaelse/R13-GAP-006-type-c-eskalering.md |
 | R13-GAP-004 | 02 | Alternative nordiske fôrproteiner | source-shortlist → actor-gate | Realisert fôr-grade årsvolum ikke offentlig for noen rendyrket nordisk aktør — krever aktørdata. | aktørspørsmål: be om realisert tonn per aktør/år | research/external/r13/R13-GAP-004-alternative-nordiske-forproteiner.md |
+| R13-WASTE-005 | 03 | Digestat NPK-retur | PCQ → actor-gate | Norge mangler nasjonal aggregert NPK-statistikk for biorest; strukturelt hull. | aktørspørsmål til Biogass Norge / NIBIO om aggregerte data under ny gjødselvareforskrift | research/external/r13/R13-WASTE-005-digestat-npk-retur.md |
 
 ## forstaelse
 
@@ -95,6 +100,10 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | R13-WASTE-001 | 01 | Marint restråstoff R-stige | PCQ | R-stige-figur må vise tomme celler (eksportvolum per R-nivå, laksblod-tap) og skille utnyttet fra høyverdi. | ingen R-stige-figur før tomme celler og volum/verdi-skille er synlig | research/external/r13/R13-WASTE-001-marint-restrastoff-rstige.md |
 | R13-GAP-004 | 02 | Alternative nordiske fôrproteiner | source-shortlist | Kapasitetstall (Enorm 10 000 t, Volare 5 000 t, Enifer 3 000 t osv.) er ikke realisert produksjon; ingen graf som blander kapasitet og volum. | ingen aktør-/kapasitetsgraf før realisert vs kapasitet skilles og konkurser vises | research/external/r13/R13-GAP-004-alternative-nordiske-forproteiner.md |
 | R13-WASTE-002 | 02 | Oppdrettsslam massebalanse | PCQ | Modellert ≠ innsamlet; 60 %-tall er ett pilotanlegg, 90 % P-rensing er krav ikke resultat. | ingen massebalanse-figur før modellert/innsamlet/behandlet skilles og C-celler vises | research/external/r13/R13-WASTE-002-oppdrettsslam-massebalanse.md |
+| R13-WASTE-003 | 03 | Matsvinn-redistribusjon | source-shortlist | Ingen nasjonal total; TGTG 2024 er C; per-sentral-volum mangler. | ingen redistributionstotal-figur eller kanalsammenligning før TGTG 2024 og metodebro foreligger | research/external/r13/R13-WASTE-003-matsvinn-redistribusjon.md |
+| R13-WASTE-004 | 03 | Husholdnings- og detaljmatsvinn | PCQ | Husholdning 2024 mangler; matindustri kun t.o.m. 2022; KBS eksplisitt estimat; ulike basisår og metoder. | ingen tverrledd-figur eller totalsumrangering før alle ledd har same metode og år | research/external/r13/R13-WASTE-004-husholdning-detalj-matsvinn.md |
+| R13-WASTE-005 | 03 | Digestat NPK-retur | PCQ | Norge = B/C; K særlig svak; SPCR 120 aggregerer ikke NO-data. | ingen NO/SE-sammenligning uten kildeforbehold; ingen norsk NPK-figur uten primærmåling | research/external/r13/R13-WASTE-005-digestat-npk-retur.md |
+| R13-WASTE-007 | 03 | Industrielle næringssidestrømmer | source-shortlist | Tall fra 2016; meieri aktørformidlet; per-fraksjon-celler tomme; bruk/potensial ikke skilt. | ingen R-stige-figur eller sektorrangering før oppdaterte primærtall og bruk/potensial er skilt | research/external/r13/R13-WASTE-007-industrielle-sidestrommer.md |
 
 ## Neste kontrollrekkefølge
 
