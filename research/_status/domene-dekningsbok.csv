@@ -26,8 +26,8 @@ innsatsfaktorer,gjodsel-jordforbedring,NO,20,"Arbeidsanslag for taksonomi-metnin
 innsatsfaktorer,biostimulanter-jordliv,NO,20,"Arbeidsanslag for taksonomi-metning; biostimulanter og jordlivsmiljoer verifiseres i gather",lav,22,0,2026-06-26
 primaerproduksjon,jordbruk-groent,NO,20,"Arbeidsanslag for taksonomi-metning; groentprodusenter og produsentnettverk verifiseres i gather",lav,0,0,2026-06-26
 primaerproduksjon,husdyr-beite,NO,20,"Arbeidsanslag for taksonomi-metning; husdyr beite og jordhelsepraksis verifiseres i gather",lav,0,0,2026-06-26
-primaerproduksjon,havbruk-akvakultur,NO,20,Arbeidsanslag for taksonomi-metning; akvakulturregister og sjoenmat-aktorer verifiseres i gather,lav,20,0,2026-06-27
-primaerproduksjon,villfisk-fiskeri,NO,20,Arbeidsanslag for taksonomi-metning; Fiskeridirektoratet og fiskeriorganisasjoner verifiseres i gather,lav,20,0,2026-06-27
+primaerproduksjon,havbruk-akvakultur,NO,120,Register-slice (#211) tok 20 alfabetisk men bommet paa hovedaktorer (Mowi/SalMar/Leroy); deep-research fyller signifikant lag,lav,20,100,2026-06-27
+primaerproduksjon,villfisk-fiskeri,NO,150,Register-slice (#211) tok 20; feltet stort; deep-research fyller fiskerirederiene; langhale via register,lav,20,130,2026-06-27
 primaerproduksjon,ville-ressurser-sanking,NO,20,"Arbeidsanslag for taksonomi-metning; sanking ville vekster og ressursmiljoer verifiseres i gather",lav,0,0,2026-06-26
 primaerproduksjon,urban-dyrking,NO,20,"Arbeidsanslag for taksonomi-metning; urbant landbruk og dyrkingsnettverk verifiseres i gather",lav,0,0,2026-06-26
 foredling-industri,meieri,NO,20,"Arbeidsanslag for taksonomi-metning; meieriaktorer og lokale foredlere verifiseres i gather",lav,0,0,2026-06-26
@@ -37,7 +37,7 @@ foredling-industri,frukt-groent-foredling,NO,20,"Arbeidsanslag for taksonomi-met
 foredling-industri,drikke-bryggeri,NO,20,"Arbeidsanslag for taksonomi-metning; bryggeri sider most og drikkeaktorer verifiseres i gather",lav,0,0,2026-06-26
 foredling-industri,sjomat-foredling,NO,20,"Arbeidsanslag for taksonomi-metning; sjomatforedling verifiseres i gather",lav,0,0,2026-06-26
 foredling-industri,naeringsmiddel-ovrig,NO,20,"Arbeidsanslag for taksonomi-metning; oevrig naeringsmiddelindustri verifiseres i gather",lav,0,0,2026-06-26
-distribusjon-grossist,grossist-distributor,NO,20,Arbeidsanslag for taksonomi-metning; grossister og distributorer verifiseres i gather,lav,20,0,2026-06-27
+distribusjon-grossist,grossist-distributor,NO,80,Register-slice (#211) tok 20 alfabetisk; deep-research fyller strukturgrossister (ASKO/Bama/Unil/REMA Dist),lav,20,60,2026-06-27
 distribusjon-grossist,logistikk-lager,NO,20,"Arbeidsanslag for taksonomi-metning; logistikk lager og mattransport verifiseres i gather",lav,0,0,2026-06-26
 distribusjon-grossist,alternativ-distribusjon,NO,20,"Arbeidsanslag for taksonomi-metning; alternative distribusjonsmodeller verifiseres i gather",lav,0,0,2026-06-26
 handel-dagligvare,dagligvarekjede,NO,0,"Konsern- og dagligvarelaget er allerede dekket; denne cellen lenkes ved behov og re-kartlegges ikke",hoey,0,0,2026-06-26
