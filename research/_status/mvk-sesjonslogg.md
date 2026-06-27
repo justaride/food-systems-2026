@@ -193,3 +193,18 @@
 1. `matsvinn-sirkulaer / emballasje-retur` er mettet i audit-ledgeren; `matsvinn-sirkulaer` er naa 88/120 med 2/6 celler mettet.
 2. Resterende sirkulaere hull er `insekt-alternativ-protein` med gap 14, `kompost-jordprodukt` med gap 12, `matredistribusjon` med gap 10 og `biogass-bioraffinering` med gap 1.
 3. Hvis neste okt skal holde sirkulaer/SME-vektingen, ta andrepassering paa `matsvinn-sirkulaer / insekt-alternativ-protein` eller `kompost-jordprodukt`. Hvis bredere v2-spine skal prioriteres, start en helt apen cellerunde i `regenerativ-praksis / jordhelse-karbon` eller `primaerproduksjon / jordbruk-groent`.
+
+## 2026-06-27 - primaerproduksjon / havbruk-akvakultur
+
+- Worktree/branch: `.worktrees/matverdikjede-0pct-import-2026-06-27` / `codex/matverdikjede-0pct-import-2026-06-27`.
+- Celle bearbeidet: `primaerproduksjon / havbruk-akvakultur` (0%-celle).
+- Kandidater: 20 Brreg-registerrader med lokator og validert org.nr.
+- Nye noder: 20.
+- Eksisterende beriket/lenket: 0.
+- CompanyId-lenker: 0.
+- Relasjoner: 0; ingen kildebelagte actor-to-actor-relasjoner i registerpasset.
+- Dekningsdelta: 0 -> 20; gap 20 -> 0.
+- Review-koe: `research/_status/mvk-review-koe-2026-06-27.csv`.
+- Usikkerhet: 3 noder flagget for menneskelig etterkontroll; 0 kildelose importert.
+- Prod-wiring: `db:import:mvk-havbruk-akvakultur-2026-06-27` lagt til og innlemmet i `db:prod-sync`.
+- Stopp-arsak denne cellen: fortsetter til neste prioriterte 0%-celle.
