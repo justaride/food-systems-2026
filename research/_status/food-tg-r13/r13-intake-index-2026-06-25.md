@@ -19,8 +19,8 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 
 ## Kontrollstatus
 
-- **Promptrader indeksert:** 48 / 50
-- **Decision-batcher funnet:** batch-01 (R13-GAP-001, R13-GAP-005, R13-WASTE-001, R13-GAP-002), batch-02 (R13-GAP-004, R13-GAP-006, R13-GAP-003, R13-WASTE-002), batch-03 (R13-WASTE-003, R13-WASTE-004, R13-WASTE-005, R13-WASTE-007), batch-04 (R13-WASTE-006, R13-WASTE-008, R13-PROT-006, R13-PROT-007), batch-05 (R13-PROT-001, R13-PROT-002, R13-PROT-003, R13-PROT-004), batch-06 (R13-PROT-005, R13-AKTOR-001, R13-AKTOR-002, R13-AKTOR-003), batch-07 (R13-AKTOR-004, R13-AKTOR-005, R13-AKTOR-006, R13-AKTOR-007), batch-08 (R13-AKTOR-008, R13-PROT-008, R13-INNO-001, R13-INNO-002), batch-09 (R13-INNO-003, R13-INNO-004, R13-INNO-005, R13-INNO-006), batch-10 (R13-INNO-007, R13-OKO-001, R13-OKO-002, R13-OKO-003), batch-11 (R13-OKO-004, R13-OKO-005, R13-OKO-006, R13-OKO-007), batch-12 (R13-LAND-001, R13-LAND-002, R13-LAND-003, R13-LAND-004)
+- **Promptrader indeksert:** 50 / 50
+- **Decision-batcher funnet:** batch-01 (R13-GAP-001, R13-GAP-005, R13-WASTE-001, R13-GAP-002), batch-02 (R13-GAP-004, R13-GAP-006, R13-GAP-003, R13-WASTE-002), batch-03 (R13-WASTE-003, R13-WASTE-004, R13-WASTE-005, R13-WASTE-007), batch-04 (R13-WASTE-006, R13-WASTE-008, R13-PROT-006, R13-PROT-007), batch-05 (R13-PROT-001, R13-PROT-002, R13-PROT-003, R13-PROT-004), batch-06 (R13-PROT-005, R13-AKTOR-001, R13-AKTOR-002, R13-AKTOR-003), batch-07 (R13-AKTOR-004, R13-AKTOR-005, R13-AKTOR-006, R13-AKTOR-007), batch-08 (R13-AKTOR-008, R13-PROT-008, R13-INNO-001, R13-INNO-002), batch-09 (R13-INNO-003, R13-INNO-004, R13-INNO-005, R13-INNO-006), batch-10 (R13-INNO-007, R13-OKO-001, R13-OKO-002, R13-OKO-003), batch-11 (R13-OKO-004, R13-OKO-005, R13-OKO-006, R13-OKO-007), batch-12 (R13-LAND-001, R13-LAND-002, R13-LAND-003, R13-LAND-004), batch-13 (R13-LAND-005, R13-LAND-006)
 - **Batcher ikke funnet som decision/report-fil:** batch-13 (ikke startet)
 - **Arbeidsregel:** alle rader er interne mottaks-/triageposter; ingen rad åpner ekstern claim, DB-skriving, `safe_for_ai_context`, whitepapertekst eller deckstemme.
 - **Overlapp:** samme prompt kan ligge i flere grupper når den både har en hovedgate og en stop-regel.
@@ -30,13 +30,13 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | Gruppe | Antall | Bruk |
 |---|---:|---|
 | PCQ-ready | 14 | klar for primary-check queue / kontrollert uttrekk før eventuell claim-lock |
-| source-shortlist | 23 | klar som kilde-/metodekandidat, ikke claim |
+| source-shortlist | 24 | klar som kilde-/metodekandidat, ikke claim |
 | claim-lock candidate | 1 | kun svært smal formulering kan vurderes etter PCQ |
 | actor-gate | 8 | krever aktørdata, verifikasjon, kontrakt, avregning eller aktiv-status |
 | forstaelse | 4 | bakgrunn/hypotese/mental modell; ikke faktastemme |
-| internal only | 2 | intern modell, datakontrakt, funding-fit eller uttakskø |
+| internal only | 3 | intern modell, datakontrakt, funding-fit eller uttakskø |
 | parkert | 1 | hele eller sentrale claims stoppet inntil ny locator/aktor/data finnes |
-| må ikke visualiseres ennå | 44 | ikke lag ekstern figur/radar/rangering/deckuttak før gate og tomme celler vises |
+| må ikke visualiseres ennå | 46 | ikke lag ekstern figur/radar/rangering/deckuttak før gate og tomme celler vises |
 
 ## PCQ-ready
 
@@ -81,6 +81,7 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | R13-OKO-004 | 11 | Biodiversitet i jordbrukslandskap — indikatorer, kilder og trend | source-shortlist | Fugler ned ~25 % siden 2000 (3Q/NIBIO 2026, DOI). Naturindeks 2025: åpent lavland = 0,445, lavest av alle 7 økosystemer. 60 % av semi-naturlig eng i gjengroing (ASO/NIBIO 2026). Pollinatortrend: for kort serie (fra 2021). Insektbiomasse i åker: C. | **importer** — sterk A-kildedekning for fugler og naturtyper; tomme celler for pollinatortrend og insekter synlige | research/external/r13/R13-OKO-004-biodiversitet-jordbruk.md |
 | R13-OKO-005 | 11 | Sertifiserings- og merkeordninger for mat i Norge | source-shortlist | Debio: 3 018 godkjente virksomheter 2025 (A). Nyt Norge: 6 100 produkter / 43 mrd. NOK 2024 (A). Distinksjon: Nyt Norge = opprinnelse (ikke miljø). Stiftelsen Norsk Mat er privat stiftelse. Kontroll via egenrevisjon. | **importer** — primærkildedekning god; tomme celler for Debio avgift, USDA-ekvivalens, BOB/BGB-liste 2025 | research/external/r13/R13-OKO-005-sertifisering-merkeordninger.md |
 | R13-OKO-006 | 11 | Beite, utmark og husdyr-økologi | source-shortlist | 1,3 mill. sau/lam + 270 000 storfe + 63 000 geit på utmarksbeite 2025 (SSB, A). Metan = 48,5 % av jordbruksutslipp (NID 2025, Tier 2, GWP100/AR5). SOC i utmark: utenfor inventaret, endringsdata tidligst 2033. | **importer** — solid A-kildedekning for areal og utslipp; SOC-gap eksplisitt dokumentert | research/external/r13/R13-OKO-006-beite-utmark-husdyr.md |
+| R13-LAND-005 | 13 | Bevegelse- og nettverkskart — regenerativ/lokalmat/øko | source-shortlist | 19 nettverkskoblinger (A fra org.sider): Økologisk Norge drifter andelslandbruk.no; GMO-nettverket = paraply for 18 medl. + 3 støttemedl. med styreoverlapp; Bondens marked stiftet av Oikos/Bondelaget/NBS m.fl.; KVANN spunnet ut av NIBIO/Hageselskapets Planteklubber. Oikos→Økologisk Norge (2018). | vent — kildekort; Slow Food-status, KVANN org.nr/permakultur-link og Bondens marked-stifterskap (B) er C/uverifisert | research/external/r13/R13-LAND-005-bevegelse-nettverkskart.md |
 
 ## claim-lock candidate
 
@@ -116,6 +117,7 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 |---|---:|---|---|---|---|---|
 | R13-INNO-003 | 09 | Finansiering og virkemidler for matsystem-omstilling | internal | Bredt norsk/nordisk virkemiddelapparat med god tematisk overlapp (altprotein, CEA, matsvinn), men ingen programmer finansierer analysearbeid/maktkartlegging. IPN FFL/JA og IPN Landbasert bioøkonomi løpende; NordForsk matsikkerhet frist des. 2026. | bruk som intern orientering; ikke koble programmene til Food TG-validering | docs/project/mandates/R13-INNO-003-finansiering-virkemidler.md |
 | R13-LAND-004 | 12 | Datagap-atlas — norsk matsystem R13 | internal | 10 domener, 60+ C-hull fra R13 batch 01–11. Tyngste strukturelle gap: SOC-baseline (~2036), aksjonærregister (lukket), oppdrettsslam massebalanse (tre-kolonner ukoblet), protein-gram-serie (ingen offisiell). R4/R5/R6 ikke dekket. | bruk som intern kartleggingsmatriks; ikke siterbar; utfyll R4/R5/R6-gap ved neste runde | docs/project/mandates/R13-LAND-004-datagap-atlas.md |
+| R13-LAND-006 | 13 | Figurkandidat-oversikt for whitepaper — R13 | internal | ~30 figurkandidater i 6 domener; ~6–8 figur-klare MED synlige tomme celler (dagligvarekonsentrasjon, vertikal integrasjon, marint R-stige, proteinselvforsyning, biodiversitet, øko-/policy-mål); resten blokkert (PCQ-C, actor-gate, forstaelse/internal). Gate beholdt per kandidat fra originalfil. | bruk som internt figur-kandidatregister; ikke siterbar; ta «Ja»-rader gjennom PCQ/claim-lock per figur | docs/project/mandates/R13-LAND-006-figurkandidater.md |
 
 ## parkert
 
@@ -174,6 +176,8 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 | R13-LAND-002 | 12 | Vertikal integrasjon og kontroll | PCQ | 28 integrasjonskoblinger fra årsrapporter (A). NG: ASKO (100 %), UNIL (100 %), BAMA (46 %). REMA: Norsk Kylling (100 %). Mowi: fullt vertikalt integrert. 6 PCQ-tomme celler. | ikke si Fjordland eies av Tine alene (motstridende); ikke si Nova Sea er heleid Mowi per 31.12.2024; ikke si Cermaq er norsk | research/external/r13/R13-LAND-002-vertikal-integrasjon.md |
 | R13-LAND-003 | 12 | Helsystem-kart og aktørtypologi | forstaelse | Ti-node systemkart. Syntetisk — behold gate per node. Blinde flekker: WASTE, regenerativ, LAND-001/002. | ikke presentere kartet som faktastemme; ikke si Norge er X % selvforsynt i protein; ikke si REKO har 140 ringer i 2025 | research/forstaelse/R13-LAND-003-helsystem-kart.md |
 | R13-LAND-004 | 12 | Datagap-atlas | internal | 60+ C-hull i 10 domener. Strukturelle gap: SOC-baseline, aksjonærregister, oppdrettsslam, protein-gram-serie. Intern syntese — ikke siterbar. | ikke siter atlasset som faktakilde; ikke si Norge har en nasjonal SOC-baseline; ikke si oppdrettsslam er kartlagt | docs/project/mandates/R13-LAND-004-datagap-atlas.md |
+| R13-LAND-005 | 13 | Bevegelse- og nettverkskart | source-shortlist | Organisatorisk kobling er ikke ideologisk enhet; flere koblinger er historiske/B-klasse; Slow Food-kobling uverifisert. | ingen nettverks-/bevegelsesfigur som fremstiller feltet som én samordnet aktør; ingen figur uten å skille A-koblinger fra historiske/B/C | research/external/r13/R13-LAND-005-bevegelse-nettverkskart.md |
+| R13-LAND-006 | 13 | Figurkandidat-oversikt for whitepaper | internal | Registeret arver underlagets C-hull; «figur-klar» betyr kun datateknisk klar MED tomme celler — ikke publiseringsklar. | ingen figur fra registeret uten at kandidatens gate, status, svakeste punkt og tomme celler vises i selve figuren; hold «Nei»-rader ute | docs/project/mandates/R13-LAND-006-figurkandidater.md |
 
 ## Neste kontrollrekkefølge
 
