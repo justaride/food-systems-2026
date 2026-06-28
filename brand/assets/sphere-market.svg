@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Market Sphere - Blue with curved diagonal lines -->
+  <g stroke="#38A4D0" stroke-width="1.5" fill="none">
+    <!-- Outer circle -->
+    <circle cx="50" cy="50" r="42"/>
+    <!-- Diagonal curved lines - left to right -->
+    <ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(-30 50 50)"/>
+    <ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(-15 50 50)"/>
+    <ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(0 50 50)"/>
+    <ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(15 50 50)"/>
+    <ellipse cx="50" cy="50" rx="42" ry="14" transform="rotate(30 50 50)"/>
+    <!-- Vertical curved lines -->
+    <ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(-30 50 50)"/>
+    <ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(0 50 50)"/>
+    <ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(30 50 50)"/>
+    <ellipse cx="50" cy="50" rx="14" ry="42" transform="rotate(60 50 50)"/>
+  </g>
+</svg>
