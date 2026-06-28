@@ -27,6 +27,7 @@
 | 9 | 26.05.2026 | [JT + Gabriel — Metodeoverføring Cities/Food](JT-GABRIEL%20-%20Metodeoverforing%20Cities%20Food%20mai%202026.md) | Jan Thomas, Gabriel | Cross-project intake | `JT-GABRIEL - Metodeoverforing Cities Food mai 2026.md` |
 | 10 | 02.06.2026 | [Gjennomgang materialstrøm-Sankey og datakvalitet](FOOD-UTTAK-2JUNI-MATERIALFLYT-2026-06-08.md) | Jan Thomas, Cathrine, Gabriel | Arbeidsgjennomgang (Cities-logget) | Cities-repo: `src/lib/data/meetings.ts` (`meeting-5`, `src-21`); Food-uttak: `FOOD-UTTAK-2JUNI-MATERIALFLYT-2026-06-08.md` |
 | 11 | 09.06.2026 | [Food Systems — arbeidsavklaring og case-spissing](food-systems-transkripsjon-bearbeidet-2026-06-09.md) | Ikke endelig avklart i transkripsjon | Bearbeidet arbeidsnotat | `food-systems-transkripsjon-bearbeidet-2026-06-09.md` |
+| 12 | 19.06.2026 | [Food Transition — videreføring, metodikk og scope](FOOD%20TRANSITION%20-%20M%C3%B8te%2019-06-26.md) | Einar, Cathrine, Jan Thomas, Gabriel (Del 1); Gabriel + Jan Thomas (Del 2) | Fysisk (delt) — arbeidsavklaring/intake | `FOOD TRANSITION - Møte 19-06-26.md` |
 
 ---
 
@@ -135,6 +136,21 @@
 - **Kontrollbehov:** Flere punkter er samtalehypoteser og må inn i source shortlist, claim-lock og primary-check queue før ekstern bruk.
 - **Analyse 09.06.2026:** Samtalen er kartlagt mot eksisterende arbeid i `docs/project/analysis/food-systems-samtaleanalyse-og-status-2026-06-09.md`.
 
+### Møte 12 — 19.06.2026: Videreføring, metodikk og scope
+- **Type:** Arbeidsavklaring/intake (delt møte; Einar kort tilstede). Ikke formelt Food TG-vedtak, ikke ekstern validering. Atlas-prosjektet (siste del) er bevisst skilt ut og holdt utenfor Food-underlaget.
+- **Videreføring bekreftet:** JT avklarte med Einar i forkant — Food kjøres videre med løp fram til årsslutt; «stram opp løpet».
+- **Oktober-event:** Cathrine foreslår heldag «sirkulær mat i Norden» under Oslo Innovation Week (okt). Annonsering klar i august; sekvens circular → circular food → ev. circular city (Urban Week).
+- **Strateginarrativ:** Bygg bro bærekraft↔beredskap — Einar: et lokalt matsystem med korte verdikjeder er det mest resiliente. Feltet beveger seg «fra bærekraft mot beredskap».
+- **Metodikk:** Strukturér data etter verdikjeden (import → produksjon → prosessering → distribusjon → forbruk/avfall), med R9/sirkularitet + waste + beredskap per ledd. Spider-/multikriteriemodell (sugar beet leaves-case). Prioriter aktører som faktisk **konverterer** (import-substitusjon «kollapser i impact»).
+- **Scope (Einar):** To spor parallelt — (1) mer nordisk produksjon (fôr, fisk, grønt), (2) ansvarlig for ikke-nordiske varer (kaffe, kakao). Slagord: «grow best what you can / source best what you have to». Mål bærekraftig fôr innen 6–7 år; skjell/tang i fjorder som proteinkilde.
+- **Whitepaper-logikk (JT):** problem → karakteristikk per verdikjedeledd → svakhets/styrkeanalyse → anbefal 3–5 satsingsområder for et sikkert, sirkulært matsystem. Metodikk/læring i eget kapittel/vedlegg.
+- **Eksternaliteter (Del 2):** Edinburgh-/NMBU-forsker — tekno-økonomiske/lineære analyser kommer alltid ut negativt fordi helse/beredskap/miljø ikke prises; «ingen klare indikatorer utenfor sirkulær skala». Sufficiency + prevention løftet som nøkkelbegreper. Nexus-rapport (mat/vann/helse/klima/natur, ~70 anbefalinger, SOIL høyt) — **må verifiseres**.
+- **Distribusjon:** tre matvarekjeder styrer ~96 % i Norge (triopol); lease/leaseback-mekanikk presser marginer — screenes for beredskap/bærekraft-relevans.
+- **Verktøy:** NotebookLM-arkiv (~25 tema) skal kurateres og deles; database som arbeidsverktøy (API-nøkkel, logget dialog, Dropbox-innsending). Fable-modellens tilgang usikker.
+- **Praktisk:** Dataunderlag henger; JT siktet mot levering tidlig uke 26 (møte tirsdag morgen som siste frist). Gabriel av ~4.–6. juli. Egen gjennomgang av dataunderlaget planlagt.
+- **Sidesak (Natural State-kommersielt):** Yara vil samarbeide om kaffe-/produktinitiativ («Fulen»?) men ikke med NS som likeverdig part → sterk greenwashing-skepsis (Einar/Bjørnar); kort betinget svar til Bruno, krav om QA-runde i NS før merkebruk.
+- **Claim-status:** Alle punkter er intake-hypoteser; ikke kilde-/claim-lukket eller eksternt validert. Se forbehold i møtenotatet (ASR-støy).
+
 ---
 
 ## Møtelogg-reparasjon etter 21.04.2026
@@ -147,6 +163,7 @@ Denne seksjonen er repo-reparasjonen av møtelogg-hullet som ble dokumentert i `
 | 26.05.2026 | Registrert som møte 9: metodeoverføring Cities/Food. | Intern metode-intake og Food-local kontrollpakke for Wageningen/Moerman/R9. | ikke formelt Food TG-vedtak, ikke ekstern validering og ikke claim-lukking. |
 | 02.06.2026 | Registrert som møte 10: materialflyt-Sankey og datakvalitet. | Intern arbeidsgjennomgang, UI-lesegrep og forbehold for Materialflyt-fanen. | ikke formelt Food TG-vedtak, ikke ekstern validering og ikke målt materialstrøm. |
 | 09.06.2026 | Registrert som møte 11: arbeidsavklaring og case-spissing. | Arbeidsavklaring for case-shortlist, sprintboard, DASK/PCQ og deck-manus. | ikke formelt Food TG-vedtak og ikke ekstern validering. |
+| 19.06.2026 | Registrert som møte 12: videreføring, metodikk og scope. Atlas-delen skilt ut (ikke i Food-underlaget). | Operativ videreføringsavklaring, verdikjede-/whitepaper-metodikk, to-spors scope-retning og dataunderlag-tidslinje. | ikke formelt Food TG-vedtak, ikke ekstern validering og ikke claim-lukking. |
 
 Føringsregel fra 11.06.2026: hvert JT-/TG-møte eller muntlig arbeidsavklaring som påvirker mandat, scope, case, DASK/AASK, Port E eller claim-status skal ha fil i `docs/meetings/` og MØTEOVERSIKT-rad innen 48 timer. Skill tydelig mellom `arbeidsavklaring`, `intake`, `statusmøte` og `formelt vedtak`. Formelle beslutninger føres i `docs/project/mandates/decision-log-food-tg.md` samme dag som de foreligger.
 

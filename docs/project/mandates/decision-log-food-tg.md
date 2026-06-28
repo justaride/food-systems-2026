@@ -2,7 +2,7 @@
 tittel: Food TG Decision Log
 status: Operativ beslutningslogg
 eier: Gabriel
-sist_oppdatert: 2026-06-16
+sist_oppdatert: 2026-06-19
 neste_handling: Minimumsvedtak casekort er operativt låst som alt. A (Gabriel/forvalter, 2026-06-16); runde 2 (7 caseanker + 6 primæruttrekk + claim-lock-import) er utført under den. Gjenstår formell JT/TG/Einar-eierbekreftelse + Sak 2 (H1/H2), Sak 3 (Port E) og Sak 4 (DASK) i uke 25-møtet. PR #159 holdes draft til G-06/G-10/G-11 er eksplisitt godkjent eller endret.
 relaterte_filer:
   - docs/project/mandates/food-transition-group-mandate-2026-04-21.md
@@ -53,6 +53,7 @@ Dette er ikke beslutninger. Brukes for å skille ferdig forberedte anbefalinger 
 |---|---|---|---|---|
 | 2026-06-15 | Operativt 2A-minimum er bekreftet for å starte matsvinnkvalitet-valideringssprint dag 0. | Gabriel; formell eierbekreftelse fra JTO/Cathrine/Einar gjenstår | Ikke pilot-, volum- eller effektcommitment. Ingen claim løftes til ekstern validert status før primærsjekk eller aktørvalidering er dokumentert. | `docs/project/mandates/food-tg-scope-minimumsvedtak-2026-06-08.md`; `docs/project/mandates/matsvinnkvalitet-validation-sprint-2026-06-15.md` |
 | 2026-06-16 | **Operativ casekort-/researchsprint låst som alt. A** (7 caseanker). Runde 2 utført under den: 7 caseanker researchet, 6 primæruttrekk kjørt (SSB/DST/WUR m.fl.), funn importert til claim-lock som «Runde 2-delta 2026-06-16». | Gabriel (forvalter); formell JT/TG/Einar-eierbekreftelse gjenstår uke 25 | Intern arbeidsramme, ikke formelt TG-vedtak. Ingen ekstern outreach; ingen claim løftet til «Validert eksternt»; benchmark holdes som benchmark. Gating på uke25-minimumsvedtak for ekstern utvidelse. | `docs/project/mandates/food-tg-runde2-konsolidering-2026-06-16.md`; `research/external/r2/DRO-R2-INDEX-2026-06-16.md` |
+| 2026-06-19 | **Operativ videreføringsavklaring (Møte 12):** JT/Einar bekrefter at Food kjøres videre med løp til årsslutt; «stram opp løpet». Metodisk retning: data struktureres etter verdikjeden med R9/waste/beredskap per ledd; whitepaper med 3–5 satsingsområder. Scope-retning: to spor (mer nordisk + ansvarlig for ikke-nordiske varer). | JT/Einar (muntlig); formell mandat-/scope-eierbekreftelse gjenstår uke 25 | Arbeidsavklaring/intake, ikke nytt formelt mandatvedtak. Endrer ikke åpne mandatfelt (scope A/B/C, chair, godkjenningsdato). Ingen claim løftet til ekstern validert status; Nexus/SOIL, «96 %-triopol» og Edinburgh-forskerens studier inn i source shortlist før bruk. Atlas-delen skilt ut, utenfor Food-underlaget. | `docs/meetings/FOOD TRANSITION - Møte 19-06-26.md` |
 
 ## Klar-til-logg rader når vedtak foreligger
 
