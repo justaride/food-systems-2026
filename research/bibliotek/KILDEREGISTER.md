@@ -266,6 +266,7 @@ Kilder benyttet i de åtte verdikjede-dokumentene (`research/norden/verdikjede/0
 *   **Matis (Island).** *Matforskning.* matis.is
 *   **NordGen (Alnarp).** *Nordisk genbank; PPP for planteforedling.* nordgen.org
 *   **SIFO / OsloMet (2024–2025).** *Referansebudsjettet; inntekt-matkvalitet.* oslomet.no/sifo
+*   **Nordisk Ministerråd (2017).** *Future Nordic Diets: Exploring ways for sustainably feeding the Nordics.* TemaNord 2017:566. DOI: 10.6027/TN2017-566. `[src-182]` [PDF](research/evidence-pack/nordisk/future-nordic-diets-tn2017-566.pdf)
 *   **Nordisk Ministerråd (2021–2025).** *TemaNord 2021:504 (matsvinn); TemaNord 2024:506 (EPR); Nord 2024:007 (bærekraftig kosthold).* pub.norden.org
 *   **NNR 2023.** *Nordic Nutrition Recommendations (Nord 2023:003).* pub.norden.org
 *   **NORMO 2025.** *Nordic Monitoring 2014–2024 (Nord 2025:026).* pub.norden.org

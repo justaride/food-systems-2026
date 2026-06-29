@@ -1,7 +1,7 @@
 # Incoming Sources Manifest
 
 Single source of truth for pending ingestion work.
-Updated: 2026-05-18
+Updated: 2026-06-19
 
 ## Pending source families
 
@@ -17,6 +17,7 @@ Updated: 2026-05-18
 | 8 | NESA Food and Water 2030 programme (huoltovarmuuskeskus.fi/en/a/...) | Strategi 2024-2030 for finsk matberedskap; Finland som nordisk leder på matsikkerhet | 1 | url-only | **registered** | FI selvforsyning + Spor C | Registrert som `src-174` 2026-05-18. Sentralt for nordisk beredskapssammenligning. |
 | 9 | SLU Karimi et al. (2019) filamentous fungi on vinasse (pub.epsilon.slu.se/16481/...) | SE forskningsartikkel om mikrobiell proteinprod fra biproduct, FoU-spor for sirkulær fôr | 1 | 0.6 MB | **registered** | SE sirkulært fôr / Spor A | Registrert som `src-175` 2026-05-18 for å tette SE sirkulært fôr-gap (0 docs). Del av SLUs "Framtidens foder bygger på kretslopp"-prosjekt. PDF tilgjengelig på pub.epsilon. |
 | 10 | Jordbruksverket Livsmedelsstrategi Rapport 2024:3 (www2.jordbruksverket.se/download/...) | SE årsrapport på livsmedelsstrategin med 6 kap. + 12 vedlegg, dekker fôr/biomasse | 1 | PDF | **registered** | SE adopsjon / Spor C | Registrert som `src-176` 2026-05-18. Norsk nordisk komparativ for policy-spor. |
+| 11 | `research/evidence-pack/nordisk/future-nordic-diets-tn2017-566.pdf` | Nordic Council of Ministers TemaNord 2017:566 — to scenarioer (SY/EY) for nordisk matsystem basert på organisk drift; kjøttreduksjon 81–90 %; GHG-kutt fra ~1600 til 310–700 kg CO₂-ekv/person/år | 1 | 1.7 MB | **ready** | Spor A (selvforsyning/beredskap) + nordisk komparativ | Registrert som `src-182` i `prisma/seed-data/sources.ts`. Rapport i `reports.ts` (`future-nordic-diets-tn2017-566`). PDF i evidence-pack. Import-script klart: `npx tsx scripts/import-future-nordic-diets-pdf.ts --apply`. |
 
 ## Disposition key
 
