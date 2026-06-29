@@ -63,6 +63,7 @@
     "db:import:fiskehelse": "tsx scripts/import-fiskehelse.ts",
     "db:import:company-extraction-candidates": "tsx scripts/import-company-extraction-candidates.ts",
     "db:import:regenerativ-lokalmat": "tsx scripts/import-regenerativ-lokalmat-actors.ts",
+    "db:import:nordic-diets-pdf": "tsx scripts/import-future-nordic-diets-pdf.ts",
     "db:import:domain": "tsx scripts/import-domain-actors.ts",
     "db:import:lokale-verdikjeder-2026": "tsx scripts/import-domain-actors.ts --csv=research/_status/lokale-verdikjeder-node-kandidater-2026-06-25.csv --dataset=lokale-verdikjeder-2026-06-25",
     "db:import:domene-reko-2026": "tsx scripts/import-domain-actors.ts --csv=research/_status/domene-reko-node-kandidater-2026-06-25.csv --dataset=domene-reko-2026-06-25",

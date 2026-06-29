@@ -26,6 +26,7 @@ on:
         options:
           - verify-only
           - seed
+          - nordic-pdf
           - ownership
           - registers
           - full
@@ -108,6 +109,17 @@ jobs:
               ;;
             seed)
               npm run db:import:ts
+              npm run db:verify
+              ;;
+            nordic-pdf)
+              # Evidens-PDF lastes ved kjøretid fra offentlig kilde (aldri committet —
+              # research-artifact-guarden avviser nye PDF-er i repoet). Hash verifiseres.
+              sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+              PDF=research/evidence-pack/nordisk/future-nordic-diets-tn2017-566.pdf
+              mkdir -p "$(dirname "$PDF")"
+              curl -fsSL "https://norden.diva-portal.org/smash/get/diva2:1163192/FULLTEXT01.pdf" -o "$PDF"
+              echo "d86d220158a6e24b7d851d60fa91172923b5d6ca72c21afbbb87d907626270c1  $PDF" | sha256sum -c -
+              npm run db:import:nordic-diets-pdf -- --apply
               npm run db:verify
               ;;
             ownership)
