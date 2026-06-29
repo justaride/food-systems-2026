@@ -1,0 +1,62 @@
+/*
+ * Natural State — design tokens (kopi for staging)
+ * Kilde: «Natural State Deployments And MainBoards» (iCloud-repo),
+ *        Natural State Design Project 05.02/elements/tokens.css
+ * Hentet: 2026-06-17. Skal migreres til dedikert ns-design-repo (jf. NS-design-konsolideringsplan).
+ *
+ * System i korthet: mørk-først (med light-variant), redaksjonelt.
+ * Display: Instrument Serif · Sans: Instrument Sans.
+ * Fire aksenter fra «sphere»-symbolet: grønn/blå/amber/rød (internal/lab/place/market).
+ */
+:root {
+  color-scheme: dark light;
+
+  --ns-font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --ns-font-sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+  --ns-bg: #060606;
+  --ns-panel: rgba(12, 12, 12, 0.7);
+  --ns-panel-solid: #0c0c0c;
+  --ns-fg: rgba(247, 246, 242, 0.98);
+  --ns-muted: rgba(247, 246, 242, 0.72);
+  --ns-faint: rgba(247, 246, 242, 0.54);
+  --ns-border: rgba(247, 246, 242, 0.14);
+  --ns-border-strong: rgba(247, 246, 242, 0.24);
+
+  --ns-ink: #0b0b0b;
+  --ns-paper: #f7f6f2;
+
+  /* Extracted from the sphere asset */
+  --ns-accent-green: #78c840;
+  --ns-accent-blue: #40a8f0;
+  --ns-accent-amber: #f8b038;
+  --ns-accent-red: #d80808;
+  --ns-accent-deep: #183030;
+
+  --ns-radius-sm: 12px;
+  --ns-radius: 18px;
+  --ns-radius-lg: 28px;
+
+  --ns-shadow: 0 18px 60px rgba(0, 0, 0, 0.58);
+  --ns-shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.35);
+
+  --ns-max: 1120px;
+  --ns-gutter: clamp(18px, 3.5vw, 34px);
+
+  --ns-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ns-ease-snap: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+:root[data-ns-theme="light"] {
+  --ns-bg: #f7f6f2;
+  --ns-panel: rgba(255, 255, 255, 0.72);
+  --ns-panel-solid: #ffffff;
+  --ns-fg: rgba(11, 11, 11, 0.92);
+  --ns-muted: rgba(11, 11, 11, 0.7);
+  --ns-faint: rgba(11, 11, 11, 0.55);
+  --ns-border: rgba(11, 11, 11, 0.14);
+  --ns-border-strong: rgba(11, 11, 11, 0.22);
+  --ns-shadow: 0 18px 60px rgba(11, 11, 11, 0.12);
+  --ns-shadow-soft: 0 12px 40px rgba(11, 11, 11, 0.08);
+}
