@@ -1,92 +1,103 @@
-# Food TG R13 Batch 06 report
+---
+tittel: Food TG R13 — Batchrapport 06
+dato: 2026-06-28
+goal: Food TG Research OS Runde 13 (autonom)
+batch: 06
+prompter: R13-PROT-005, R13-AKTOR-001, R13-AKTOR-002, R13-AKTOR-003
+regel: Ingen DB-skriving, ingen claims, ingen safe_for_ai_context, ingen whitepaper-/deck-stemme
+status: Intern mottaksrapport — ikke faktastemme
+---
 
-**Dato:** 2026-06-25
-**Goal:** Execute controlled Food TG Research OS Runde 13 batch 06.
-**Batch:** `R13-PROT-005`, `R13-PROT-008`, `R13-AKTOR-001`, `R13-AKTOR-002`
-**Regel:** Ingen DB-skriving, ingen claims, ingen `safe_for_ai_context`, ingen whitepaper/deck-stemme.
+# Batchrapport 06 — Food TG R13
 
 ## Oppsummering
 
-| Beslutning | Antall | ID-er |
+| Beslutning | Antall | IDer |
 |---|---:|---|
-| enrich | 2 | `R13-PROT-005`, `R13-PROT-008` |
-| actor-gate | 2 | `R13-AKTOR-001`, `R13-AKTOR-002` |
-| park | 0 | - |
+| enrich | 4 | R13-PROT-005, R13-AKTOR-001, R13-AKTOR-002, R13-AKTOR-003 |
+| park | 0 | — |
+| actor-gate | 2 | R13-AKTOR-001, R13-AKTOR-002 |
 
-## Mottaksrad
+## Mottaksrad-tabell (8 kolonner)
 
-| ID | Kort dom | Sterkeste kilde | Svakeste punkt | Kildeklasse | Hulltype | Gate | Importbeslutning |
+| ID | Tittel | Beslutning | Gate | Kildeklasse | Sterkeste kilde | Svakeste punkt | Importbeslutning |
 |---|---|---|---|---|---|---|---|
-| R13-PROT-005 | Presisjonsfermentering har aktør-/kapasitetsankre, men EU/Norge-salg og dyrket-kjøttvolum er ikke lukket. | EFSA Novel Food, EU Union list, Solar Foods, Melt&Marble | Kapasitet/søknad/pilot er ikke realisert volum eller EU-autorisasjon. | A regulatory; A/B actor; C volume | Type A status; Type C volume | forstaelse | vent |
-| R13-PROT-008 | Erter og åkerbønner har sterk 2026-statistikk, men mat/fôr-splitt og foredlingskjede er fortsatt gap. | Landbruksdirektoratet 2026, SSB | Humant konsum er ikke egen åpen statistikkserie. | A aggregate; B human-use indication; C allocation | Type A crop data; Type B/C food/feed split | source-shortlist | importer |
-| R13-AKTOR-001 | Markedshager har nettverks-/kartlokatorer, men ikke komplett verifisert produsentregister. | Markedshager Norge, Småskala Grønt Norge, Økoguiden API | Aktiv drift og produksjonsstatus må kontrolleres per produsent. | A/B locators; C complete registry | Type B actor-gate; Type C coverage | actor-gate | aktørspørsmål |
-| R13-AKTOR-002 | Økoguiden gir andelslandbruk-lokatorer, men ikke verifisert aktiv 2025/2026-status per gård. | Økoguiden API, Solsiden actor page, SNL | Karttreff er ikke aktiv-status, og treff må dedupes. | A/B locators; B total; C active register | Type B actor-gate; Type C active/dedup state | actor-gate | aktørspørsmål |
+| R13-PROT-005 | Presisjonsfermentering og dyrket kjøtt | enrich | forstaelse | A (EFSA, Nofima, SINTEF, Vinnova, Lovdata) + B (selskapspressemeldinger, GFI-rapporter) + C (Mattilsynets stilling) | EFSA novel food topic page, 2026-05-06 | Mattilsynets eksplisitte norske posisjon om dyrket kjøtt ikke funnet; ingen norske presisjonsfermentering-selskaper identifisert | vent |
+| R13-AKTOR-001 | Markedshager fra kandidat til verifisert | enrich | actor-gate | A (Brreg-verifiserte foretak); C (populasjonsestimat og organisasjonsmedlemskap) | Brreg Enhetsregisteret API, 2026-06-28 | Ingen av de to nye bransjeorganisasjonene har publisert nettside eller medlemsliste | vent |
+| R13-AKTOR-002 | Andelslandbruk aktiv status per gård | enrich | actor-gate | B (aggregert telling), A (Brreg entity-level), C (Økoguiden per-gård) | Økologisk Norge, Om andelslandbruk, oppdatert 26.01.2026 | Økoguiden JavaScript-drevet — per-gård-liste for alle 90 gårder ikke hentet | vent |
+| R13-AKTOR-003 | REKO-ringer oppdaterte tall | enrich | source-shortlist | B/C — alle tall aktørrapporterte eller avledet; ingen A-kilde med oppdatert statistikk | rekonorge.no/hva-er-reko, feb. 2022 (aktørrapportert) | Ingen REKO-spesifikk statistikk etter feb. 2022; REKO Norge (jan. 2025) ingen årsmelding publisert | vent |
 
 ## Per-target outcome
 
-### R13-PROT-005 - ENRICH
+### R13-PROT-005 — Presisjonsfermentering og dyrket kjøtt
 
-Output: `research/forstaelse/R13-PROT-005-presisjonsfermentering-dyrket-kjott.md`
+**Beslutning:** enrich → forstaelse (vent)
 
-Verified source anchors:
+**Nøkkelfunn:**
+- Realisert kommersielt volum for dyrket kjøtt og presisjonsfermenteringsproteiner (myse, kasein, ovalbumin) i EU og Norge er **null** per juni 2026.
+- EU Novel Food: ingen godkjenninger for animalske proteiner via presisjonsfermentering. Gourmeys (FR) andekjøtt-søknad er eneste aktive EFSA-vurdering for dyrket kjøtt.
+- Regulatorisk vei: Novel Food Regulation (EC 2015/2283) krever EFSA sikkerhetsgjennomgang. Tidshorisont 3–5+ år for eventuelle godkjenninger.
+- Nordisk FoU-aktivitet reell men pre-kommersiell: Nofima ARRIVAL (norsk, celle-basert), SINTEF tare-til-dyrket-kjøtt, Re:meat (SE, Vinnova 2024), Melt&Marble (SE, fettpresisjonsfermentering), Onego Bio (FI, egg hvite ovalbumin via presisjonsfermentering). Alle rettet mot US-marked som første kommersiell inngang eller i laboratorium/demonstrasjonsfase.
+- BioCraft Pet Nutrition (EU-godkjenning for dyrket kjøtt til kjæledyrfôr, okt. 2025) er eneste realiserte EU-inngangspunkt for dyrket kjøtt — men til kjæledyr, ikke human konsum.
+- NoMy (NO, mycelium) og ENIFER (FI, PEKILO) er sopp-/gjærbasert, ikke presisjonsfermentering i tradisjonell forstand.
+- Lovdata: Ny norsk forskrift om nye næringsmidler (2025-10-27-2133) gjennomfører EU Novel Food i norsk rett. Mattilsynets eksplisitte stilling til dyrket kjøtt er ikke offentliggjort.
 
-- EFSA Novel Food: `https://www.efsa.europa.eu/en/topics/topic/novel-food`
-- European Commission Union list: `https://food.ec.europa.eu/food-safety/novel-food/authorisations/union-list-novel-foods_en`
-- Solar Foods EU Novel Food process: `https://investors.solarfoods.com/release/b2d87859-e297-47df-a282-4bbdb79bfa24`
-- Solein Factory 01: `https://www.solein.com/articles/factory-01-where-the-sun-never-sets-on-harvest-season/`
-- Melt&Marble: `https://www.meltandmarble.com/`
+**Ikke si:** presisjonsfermentering er godkjent i EU, dyrket kjøtt er nær EU-godkjenning, Re:meat/Melt&Marble produserer for salg, Singapore-godkjenning gjelder i EU/Norge.
 
-Outcome: Forstaelse. Regulatorisk/statusmemo er nyttig, men ikke kilde til claim, volumfigur eller markedslansering.
+---
 
-### R13-PROT-008 - ENRICH
+### R13-AKTOR-001 — Markedshager fra kandidat til verifisert
 
-Output: `research/external/r13/R13-PROT-008-bonner-erter-akerbonne.md`
+**Beslutning:** enrich → actor-gate (vent)
 
-Verified source anchors:
+**Nøkkelfunn:**
+- Ingen nasjonal offentlig database over markedshager eksisterer i Norge. "Markedshager Norge" som organisasjon finnes ikke.
+- **Småskala Grønt Norge** (org.nr. 937612265, FLI) ble registrert i Brreg 25. april 2026 med stiftelsesdato 25. mars 2026 — en helt ny nasjonal bransjeorganisasjon for småskala grøntprodusenter. Ingen nettside eller medlemsliste publisert per juni 2026.
+- **Markedshager Vestland** (org.nr. 937119283, FLI) ble registrert i Brreg mai 2025 — regionalt nettverk for Vestland fylke. Ingen nettside funnet.
+- Brreg-søk på "markedshage" gir 18 aktive foretak (A-klasse), spredt over alle regioner. Flertallet er enkeltpersonforetak (EPF). Én feil: Ål Markedshage Medgard (926452215) har NACE 74.110 (motedesign) — ikke en grøntprodusent til tross for navn.
+- NLR har rådgivingstjenester for grønnsaker men ingen produsentliste. Matmerk mangler markedshage som produkt-/produksjonstype-kategori.
+- Epistemisk gap: mange markedshager bruker ikke "markedshage" i foretaksnavnet → navnesøk undervurderer populasjonen.
 
-- Landbruksdirektoratet 2026 report: `https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/%C3%85kerb%C3%B8nner%2C%20erter%20og%20oljefr%C3%B8.%20Vurdering%20av%20tilskudd%20for%20%C3%A5%20%C3%B8ke%20norskandelen%20i%20matindustrien%20Rapport%202026%203%2016.pdf`
-- SSB Korn og oljevekster: `https://www.ssb.no/jord-skog-jakt-og-fiskeri/jordbruk/statistikk/korn-og-oljevekster-areal-og-avlinger`
-- NLR Kornstatistikk: `https://kornforum.nlr.no/kornstatistikk`
+**Ikke si:** Markedshager Norge er etablert, det finnes X markedshager i Norge (ukjent), Ål Markedshage Medgard er grøntprodusent.
 
-Outcome: Source-shortlist. Belgvekstdata er styrket, men mat/fôr-splitt og foredlingskobling må holdes som gap.
+---
 
-### R13-AKTOR-001 - ACTOR-GATE
+### R13-AKTOR-002 — Andelslandbruk aktiv status per gård
 
-Output: `research/_status/R13-AKTOR-001-markedshager-verifisert.md`
+**Beslutning:** enrich → actor-gate (vent)
 
-Verified source anchors:
+**Nøkkelfunn:**
+- **Økologisk Norge** oppgir 90 aktive andelslandbruk per januar 2026 (B-klasse, aktørrapportert), ned fra 93 i 2023. Eneste offentlig tilgjengelige aggregattall.
+- **Brreg-søk** ("andelslandbruk" + "andelsgård"): 25 distinkte enheter uten konkurs/avvikling bekreftet (A-klasse). Brreg-søk fanger ~25–30 % av total populasjon — mange CSA-gårder er registrert under annet foretaksnavn.
+- **Økoguiden** (Debio, categoryId=8467): JavaScript-drevet kart som ikke returnerer data uten nettleser-rendering. Eneste samlede per-gård-kilde er dermed utilgjengelig via API/statisk henting. Utgjør et strukturelt epistemisk gap.
+- **andelslandbruk.no**: ikke aktiv/ikke funnet som separat nettsted — Økologisk Norge er primærkanal.
+- Konkrete gårder verifisert via Brreg: Overlandel Andelslandbruk (Ås), Linderud Gård, Solborg Camphill, Høgseth Gård m.fl. 25 gårder med A-status via Brreg.
+- Trend: antall ned fra 93 (2023) til 90 (2026-01) — B-klasse men konsistent.
 
-- Markedshager Norge: `https://www.markedshage.no/`
-- Finn markedshager: `https://www.markedshage.no/markedshager-i-fylkene/`
-- Småskala Grønt Norge: `https://www.markedshage.no/nb/nyheter/2026/06/smaskala-gront-norge-har-apnet-for-innmelding/`
-- Økoguiden API Search/8074: `https://okologisknorge.no/Umbraco/Api/EcoGuideApi/Search/8074`
+**Ikke si:** det er 90/93 aktive andelslandbruk (uten B-klasse-forbehold), Brreg gir totalbilde, Økoguiden bekrefter aktiv status per navngitt gård.
 
-Outcome: Actor-gate. Locatorgrunnlag finnes, men verifisert produsent-CSV krever per-aktør aktiv-status og dedupe.
+---
 
-### R13-AKTOR-002 - ACTOR-GATE
+### R13-AKTOR-003 — REKO-ringer oppdaterte tall
 
-Output: `research/_status/R13-AKTOR-002-andelslandbruk-aktiv-status.md`
+**Beslutning:** enrich → source-shortlist (vent)
 
-Verified source anchors:
+**Nøkkelfunn:**
+- **2022 er siste verifiserte ankerpunkt.** Primærkilden rekonorge.no/hva-er-reko oppgir (datert februar 2022): over 140 ringer, ~500 000 kunder, over 600 produsenter — alle aktørrapporterte B-kilde.
+- **REKO Norge** (org.nr. 935 472 350) ble stiftet 12. januar 2025 som selvstendig nasjonal organisasjon. Første ordinære årsmøte var planlagt mars 2026. Ingen årsmelding eller oppdatert statistikk publisert per juni 2026.
+- Forsideoppdatering på rekonorge.no sier "over 130 ringer" (uten dato) — mulig nedgang eller bare utdatert tekst. Kan ikke avgjøres.
+- **Regjeringens Lokalmatrapport 2024** (Reiler Consulting): 725 mill. NOK samlet direktesalg av lokalmat 2023/2024 — aggregerer REKO + gårdsbutikker + bondens marked. Ingen REKO-spesifikk andel.
+- **DIGIFOOD-prosjektet** (USN, prosjektslutt 2024): kan ha publisert sluttrapport med oppdaterte tall, men ikke funnet offentlig per juni 2026.
+- Qualitativ indikator: en REKO-bonde sitert i Nationen (feb. 2025) melder om vekst i salg — men ingen kvantifisert statistikk.
 
-- Økoguiden: `https://okologisknorge.no/oekoguiden/`
-- Økoguiden categories: `https://okologisknorge.no/Umbraco/Api/EcoGuideApi/GetCategories`
-- Økoguiden Search/8074: `https://okologisknorge.no/Umbraco/Api/EcoGuideApi/Search/8074`
-- Solsiden andelslandbruk: `https://www.solsidenandel.net/`
-- SNL andelslandbruk: `https://snl.no/andelslandbruk`
+**Ikke si:** REKO har 140 ringer i 2025, REKO har 500 000 kunder (som nåtidsfaktum), REKO omsetter X millioner kr, REKO vokste i 2024 (ingen statistikk).
 
-Outcome: Actor-gate. Gode lokatorer, men aktiv 2025/2026-status per gård må hentes fra aktørsider eller direkte kontakt.
+---
 
-## Stop-regler som ble brukt
+## Oppfølgingspunkter
 
-- Kapasitet, Novel Food-søknad og self-GRAS ble ikke gjort til EU/EØS-markedstilgang.
-- Belgvekstvolum ble ikke gjort til humanproteinvolum uten mat/fôr-splitt.
-- Kart-/API-treff ble ikke gjort til aktiv gårdsstatus.
-- Nettverks-/organisasjonsstatus ble ikke gjort til komplett nasjonalt produsentregister.
-
-## Må ikke visualiseres ennå
-
-- `R13-PROT-005`: ingen modenhets-/volumgraf som blander kapasitet, søknad, godkjenning og salg.
-- `R13-PROT-008`: ingen areal-/volumtrend uten fôr/mat-scope, foreløpig status og sesongsvingninger.
-- `R13-AKTOR-001`: ingen markedshagekart som later som kart-/API-dekning er komplett eller aktiv-verifisert.
-- `R13-AKTOR-002`: ingen andelslandbruk-total eller kart som bruker Økoguiden-treff som aktiv 2026-register.
+- **PROT-005**: Følg EFSA Novel Food-køen (Gourmey andekjøtt, eventuelle presisjonsfermentering-søknader). Kontakt Mattilsynet for stilling til dyrket kjøtt i norsk rett. Følg Teknologirådet-oppdatering (cellebasert landbruk rapport 2024). Ingen visualisering mulig.
+- **AKTOR-001**: Kontakt Småskala Grønt Norge (org.nr. 937612265) for medlemsliste — er definitivt aktørspørsmål. NLR Rogaland og NLR Trøndelag kan gi regionale oversikter.
+- **AKTOR-002**: Bruk en JavaScript-kjørende browser (Claude in Chrome eller Playwright) for å hente Økoguiden-kartet (categoryId=8467) og få per-gård-data. Kontakt Debio for produsentliste hvis API-løsning feiler.
+- **AKTOR-003**: Kontakt REKO Norge (org.nr. 935 472 350) direkte for årsmelding/statistikk 2025. Sjekk USN DIGIFOOD-sluttrapport. Frem til da er 2022-tallene eneste tilgjengelige anker.
+- Ingen av batch-06-outputene åpner ekstern claim, visualisering eller whitepaper-stemme.

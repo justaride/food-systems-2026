@@ -1,89 +1,100 @@
-# Food TG R13 Batch 03 report
+---
+tittel: Food TG R13 — Batchrapport 03
+dato: 2026-06-27
+goal: Food TG Research OS Runde 13 (autonom)
+batch: 03
+prompter: R13-WASTE-003, R13-WASTE-004, R13-WASTE-005, R13-WASTE-007
+regel: Ingen DB-skriving, ingen claims, ingen safe_for_ai_context, ingen whitepaper-/deck-stemme
+status: Intern mottaksrapport — ikke faktastemme
+---
 
-**Dato:** 2026-06-25
-**Goal:** Execute controlled Food TG Research OS Runde 13 batch 03.
-**Batch:** `R13-WASTE-003`, `R13-WASTE-004`, `R13-WASTE-005`, `R13-WASTE-007`
-**Regel:** Ingen DB-skriving, ingen claims, ingen `safe_for_ai_context`, ingen whitepaper/deck-stemme.
+# Batchrapport 03 — Food TG R13
 
 ## Oppsummering
 
-| Beslutning | Antall | ID-er |
+| Beslutning | Antall | IDer |
 |---|---:|---|
-| enrich | 4 | `R13-WASTE-003`, `R13-WASTE-004`, `R13-WASTE-005`, `R13-WASTE-007` |
-| actor-gate | 0 | - |
-| park | 0 | - |
+| enrich | 4 | R13-WASTE-003, R13-WASTE-004, R13-WASTE-005, R13-WASTE-007 |
+| park | 0 | — |
+| actor-gate | 0 | — |
 
-## Mottaksrad
+## Mottaksrad-tabell (8 kolonner)
 
-| ID | Kort dom | Sterkeste kilde | Svakeste punkt | Kildeklasse | Hulltype | Gate | Importbeslutning |
+| ID | Tittel | Beslutning | Gate | Kildeklasse | Sterkeste kilde | Svakeste punkt | Importbeslutning |
 |---|---|---|---|---|---|---|---|
-| R13-WASTE-003 | Matsentralen gir B-anker for 5 735 tonn omfordelt i 2024; ikke nasjonal redistribusjonstotal. | Matsentralen, Matvett, Too Good To Go | Ingen metodekonsistent nasjonal sum uten dobbelttelling. | B actor/NGO, C national total | Type B actor; Type C national total | source-shortlist | importer |
-| R13-WASTE-004 | Matvett/NORSUS gir baseline, men sektorer og metoder må vises per rad. | Matvett/NORSUS, SSB, SINTEF | Ulike år/metoder; SSB matavfall er ikke lik spiselig matsvinn. | A/B with caveats | Type A/B baseline; Type C harmonization | PCQ | importer |
-| R13-WASTE-005 | Sverige er A-anker via SPCR 120; Norge har ikke lukket faktisk NPK-retur. | Avfall Sverige, Biogodsel.se, Energimyndigheten, NIBIO | Produsert, sertifisert og spredd digestat blandes lett. | A for SE, B/C Nordic | Type A SE; Type B/C actual NPK return | PCQ | importer |
-| R13-WASTE-007 | Industrielle sidestrømmer kan bli fraksjonsledger, ikke nasjonal volumclaim. | Norsk Dyremat, Animalia, Mattilsynet, Nofima | Volum per fraksjon er ofte actor/case, og dagens bruk er ikke potensial. | B/C per fraction | Type B actor/case; Type C national fractions | source-shortlist | importer |
+| R13-WASTE-003 | Matsvinn-redistribusjon | enrich | source-shortlist | B with C gaps | Matsentralen Norge Årsrapport 2024 (PDF, primær/aktørrapport) | TGTG norsk 2024-statistikk ikke offentliggjort; ingen nasjonal redistributionstotal | vent |
+| R13-WASTE-004 | Husholdnings- og detaljmatsvinn | enrich | PCQ | A with C gaps | NORSUS/Matvett OR.16.24 + OR.28.25, åpne PDF med full metodedokumentasjon | Husholdning sist målt 2023 (42 % befolkningsdekning); matindustri nasjonalt kun t.o.m. 2022 | importer |
+| R13-WASTE-005 | Digestat NPK-retur | enrich | PCQ | A with C gaps | Avfall Sverige Årsrapport SPCR 120 2023 | Norge: ingen nasjonal aggregert NPK-statistikk; alle NO-tall er substratspesifikke FoU-analyser | aktørspørsmål |
+| R13-WASTE-007 | Industrielle næringssidestrømmer | enrich | source-shortlist | B with C gaps | Nofima-rapport 67/2016, Lindberg m.fl. | Per-fraksjon volum for slakteri/meieri — ingen oppdatert offentlig primærkilde | vent |
 
 ## Per-target outcome
 
-### R13-WASTE-003 - ENRICH
+### R13-WASTE-003 — Matsvinn-redistribusjon
 
-Output: `research/external/r13/R13-WASTE-003-matsvinn-redistribusjon.md`
+**Beslutning:** enrich → source-shortlist (vent)
 
-Verified source anchors:
+**Kilder verifisert:**
+- Matsentralen Norge Årsrapport 2024 (primær, åpen PDF): 5 735 tonn omfordelt, 8 sentre, 354 leverandører, 544 mottakerorganisasjoner. Nedgang fra 6 090 tonn i 2023.
+- Matvett faktaark 2024 alle sektorer (primær): redistribusjon ikke kvantifisert separat fra svinnreduksjon; dagligvare narrativt nevnt.
+- Too Good To Go norsk pressemelding 2023 (sekundær): ~3,3 mill. poser / >3 000 tonn i 2023. Norsk 2024-tall ikke funnet (C).
 
-- Matsentralen årsrapport 2024: `https://www.matsentralen.no/rapporter/arsrapport-matsentralen-norge`
-- Matvett om Matsentralene: `https://www.matvett.no/bransje/aktuelt/matsentralene-har-kapasitet-til-a-ta-i-mot-mye-mer-mat`
-- Too Good To Go resources/impact: `https://www.toogoodtogo.com/en-us/resources`
+**Utfall:** Matsentralen er eneste aktør med primærdokumentert norsk redistribusjonsvolum (2024). TGTG norsk 2024 er Type C. Nasjonal total ikke mulig uten metodebro mellom aktørene. Gate: source-shortlist; hold til TGTG og Matvett publiserer oppdaterte norske tall per kanal.
 
-Outcome: Source-shortlist. Matsentralen kan brukes som aktøravgrenset volum, men private/app-kanaler og nasjonal total må til actor-gate/metode.
+**Ikke si:** nasjonal redistribusjonstotal, TGTG 3 000 tonn i 2024, Matsentralen 6 000 tonn i 2024, «10,2 millioner måltider» som primærverifisert volum.
 
-### R13-WASTE-004 - ENRICH
+---
 
-Output: `research/external/r13/R13-WASTE-004-husholdning-detalj-matsvinn.md`
+### R13-WASTE-004 — Husholdnings- og detaljmatsvinn
 
-Verified source anchors:
+**Beslutning:** enrich → PCQ (importer)
 
-- Matvett/NORSUS faktaark 2024: `https://www.matvett.no/uploads/documents/Faktaark-om-matsvinn-i-Norge-2024-alle-sektorer.pdf`
-- SSB notat 2025/37: `https://www.ssb.no/natur-og-miljo/avfall/artikler/matavfall-og-matsvinnstatistikk/_/attachment/inline/94d9fa84-86a0-4d50-826c-b06eb703ac4b%3A7766af10975a5a29f2454f2bd04dc3a88420b1a5/NOT2025-37.pdf`
-- SSB avfall fra hushalda: `https://www.ssb.no/natur-og-miljo/avfall/statistikk/avfall-fra-hushalda`
+**Kilder verifisert:**
+- NORSUS/Matvett OR.16.24 (Stensgård 2024): husholdning 2023 = 193 200 tonn / 35,0 kg/innb. (–18 % fra 2016-baseline 222 300 tonn). Plukkanalyse, 42 % befolkningsdekning.
+- NORSUS/Matvett OR.27.25 + OR.28.25 (Plataniti & Van de Glind 2025): totalt kartlagt 2024 ≈ 407 100 tonn / 73,4 kg/innb.; dagligvare 43 600 tonn (–47 % fra 2015-baseline 77 200 tonn).
+- Bransjeavtale om matsvinn (Regjeringen.no, 2017/2025): frivillig, mål –50 % innen 2030; status 2024 = –24 % (eks. jordbruk).
+- Matsvinnloven (Lovdata, vedtatt 2025-06-20): rapporteringsplikt; avventer forskrift — ikke i kraft ennå.
 
-Outcome: PCQ. Baseline er nyttig, men krever metodekolonner for ar, sektor, definisjon og kildeklasse.
+**Utfall:** Sterkeste kildegrunnlag i batch 03. Husholdning 2024 mangler (under bearbeiding); matindustri nasjonalt kun t.o.m. 2022. Metode- og basisårgap gjør kryssledd-sammenligning problematisk. Gate: PCQ — importer med synlige metodecaveater og tomme 2024-celler for husholdning.
 
-### R13-WASTE-005 - ENRICH
+**Ikke si:** husholdning kaster X tonn i 2024, at tallene kan summeres på tvers, at bransjeavtalen er juridisk bindende, at matsvinnloven er i kraft.
 
-Output: `research/external/r13/R13-WASTE-005-digestat-npk-retur.md`
+---
 
-Verified source anchors:
+### R13-WASTE-005 — Digestat NPK-retur
 
-- Avfall Sverige SPCR 120 2024: `https://www.avfallsverige.se/media/p2akb3gx/a-rsrapport-spcr-120-2024.pdf`
-- Biogodsel.se SPCR 120: `https://www.biogodsel.se/certifiering/spcr-120/`
-- Energimyndigheten biogas/rotrester: `https://www.energimyndigheten.se/statistik/officiell-energistatistik/tillforsel-och-anvandning/Produktion-av-biogas-och-rotrester/`
-- NIBIO biorest: `https://www.nibio.no/tema/jord/organisk-avfall-som-gjodsel/biorest`
+**Beslutning:** enrich → PCQ (aktørspørsmål)
 
-Outcome: PCQ. Sverige kan brukes som A-anker; Norge og ovrige nordiske land star med NPK-retur som B/C-metodegap.
+**Kilder verifisert:**
+- Avfall Sverige Årsrapport SPCR 120 2023 (Hushållningssällskapet Östergötland): 12 samrötningsanläggningar, primærmålte verdier — Tot-N ~5,1 kg/tonn, Tot-P ~0,60 kg/tonn, Tot-K ~2,1 kg/tonn, NH4-N ~3,3 kg/tonn. Kildeklasse A.
+- Norsk gjødselvareforskrift (Lovdata, ikrafttredelse 2025-01-29): innfører registrerings-/sporingskrav for biorest; genererer ikke aggregert tredjeparts NPK-statistikk per i dag.
+- NIBIO/NORSUS FoU (sekundær): norske anleggsspesifikke tall — eks. Mjøsanlegget 2021: N 3,9 / P 0,27 / K 1,2 kg/tonn. Ingen nasjonal aggregering.
 
-### R13-WASTE-007 - ENRICH
+**Utfall:** Sverige = A; Norge = B/C. Det epistemiske hullet for Norge er strukturelt — manglende sertifiseringssystem. Ny gjødselvareforskrift (2025) endrer ikke dette på kort sikt. Krever aktørkontakt mot Biogass Norge / NIBIO for å avklare om aggregerte data vil komme. K-data særlig svak på systemnivå for begge land.
 
-Output: `research/external/r13/R13-WASTE-007-industrielle-sidestrommer.md`
+**Ikke si:** Norge har målt NPK-retur på nasjonalt nivå, norsk biorest har X kg/tonn som nasjonalt snitt, NPK-ratio 14-1-5 er primærmålt NO-data.
 
-Verified source anchors:
+---
 
-- Norsk Dyremat sustainability report 2024: `https://norskdyremat.no/sustainability-report-2024/`
-- Animalia spiselige kjottbiprodukter: `https://www.animalia.no/no/samfunn/kjottforbruk/spiselige-kjottbiprodukter/`
-- Mattilsynet animaliebiprodukter: `https://www.mattilsynet.no/animaliebiprodukter/veileder-for-animalske-biprodukter`
-- Nofima underutnyttede restrastoff: `https://nofima.no/prosjekt/optimal-bruk-av-underutnyttede-marine-rastoff/`
+### R13-WASTE-007 — Industrielle næringssidestrømmer
 
-Outcome: Source-shortlist. Fraksjonsledger er styrket, men nasjonale volum og R-stige per fraksjon ma ikke lukkes uten nye data.
+**Beslutning:** enrich → source-shortlist (vent)
 
-## Stop-regler som ble brukt
+**Kilder verifisert:**
+- Nofima-rapport 67/2016 (Lindberg m.fl.): samlede restråstoff-estimater for bryggeri (~17 000 tonn mask), meieri og slakteri (~264 000 tonn totalt). Kildeklasse B; utdatert (~10 år).
+- Animalia Husdyrstatistikk 2025 (primær): ull 2 898 tonn (A); per-fraksjon slakteridata ikke disaggregert offentlig.
+- FHF/HI nyhet 2025: MaskLaks-prosjekt (bryggeri-mask → laksefôr R5-potensial). FoU-fase, ikke realisert volum.
+- TINE (aktørformidlet): ~450 000–640 mill. liter råmyse; 3 000 tonn WPC80 og 21 000 tonn laktosepulver er 2012-planer, ikke verifisert realisert produksjon.
 
-- Aktorrapportert redistribusjon ble ikke gjort til nasjonal sum.
-- Matavfall og spiselig matsvinn ble holdt adskilt.
-- Svensk SPCR 120 ble ikke overfort til norsk NPK-retur.
-- Industrielle case-/aktørvolum ble ikke gjort til nasjonale fraksjonsvolum.
+**Utfall:** Side-stream ledger med 14 fraksjonerte rader skrevet. Bryggeri- og meierital er enten utdaterte (2016) eller aktørformidlede (TINE); slakteri per-fraksjon-data (blod, bein, huder) finnes ikke offentlig. Gate: source-shortlist — hent Nofima 67/2016 full PDF, TINE-årsrapport 2022–2024, og SSB industriavfallsundersøkelse 2022 (tabell 14458) for triangulering.
 
-## Må ikke visualiseres ennå
+**Ikke si:** mask ~17 000 tonn er nåtidstall, TINE produserer 640 mill. liter myse i dag, meierislam er etablert biogasskilde.
 
-- `R13-WASTE-003`: ingen nasjonal redistribusjonsgraf uten metode og dobbelttellingskontroll.
-- `R13-WASTE-004`: ingen sektorfigur uten år/metode/scope per rad.
-- `R13-WASTE-005`: ingen nordisk NPK-rangering eller digestat-returfigur uten faktisk spredd mengde.
-- `R13-WASTE-007`: ingen R-stige eller sidestrømsvolum som blander dagens bruk og potensial.
+---
+
+## Oppfølgingspunkter
+
+- **WASTE-003**: hold til TGTG publiserer norsk 2024-rapport; NORSUS/Matvett bør kontaktes for metodenøkkel redistribusjon vs. svinnreduksjon.
+- **WASTE-004**: klar for PCQ-import med eksplisitte caveater. Husholdning 2024 og matindustri 2023 er neste målepunkter å overvåke.
+- **WASTE-005**: aktørspørsmål til Biogass Norge / NIBIO v/ Eva Brod om aggregerte biorestdata under ny gjødselvareforskrift.
+- **WASTE-007**: prioriter innhenting av Nofima 67/2016 fulltekst + TINE-årsrapport. SSB 14458 for triangulering av industritall.
+- Ingen av batch-03-outputene åpner ekstern claim, visualisering eller whitepaper-stemme.

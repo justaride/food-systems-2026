@@ -1,52 +1,143 @@
----
-tittel: R13-PROT-008 — Norsk dyrking av bønner og erter
-dato: 2026-06-25
-status: Intern R13-output — ikke claim, ikke whitepapertekst
-gate: source-shortlist
+# R13-PROT-008 — Norsk dyrking av bønner, erter og åkerbønne
+
+**ID:** R13-PROT-008
+**Prioritet:** P2
+**Tema:** Proteinalternativer
+**Geo:** NO
+**Output-type:** grain legume profile
+**Dato:** 2026-06-28
+**Anbefalt gate:** source-shortlist
+
 ---
 
-# R13-PROT-008 — Norsk dyrking av bønner, erter og åkerbønne
+## Sammendrag-tabell
 
 | Felt | Svar |
 |---|---|
-| Kort dom | Landbruksdirektoratet gir et sterkt 2026-anker for erter og åkerbønner som norsk proteinråvare, men dagens åpne tall skiller ikke rent mellom mat og fôr. Produksjonen er reell og voksende i rapporterte sesongvolum, men humant konsum er fortsatt et usikkert delvolum og foredlingskjeden er et sentralt gap. |
-| Sterkeste kilde | Landbruksdirektoratet, `Åkerbønner, erter og oljefrø`, rapport nr. 26/3-16, 15.02.2026, tabell 1, 3 og 4. |
-| Svakeste punkt | Areal/volum for erter og åkerbønner kan verifiseres som samlet fôr+mat, men volum til matindustri/humant konsum er ikke en egen åpen statistikkserie. |
+| Kort dom | Norsk åkerbønne- og ertedyrking har vokst sterkt siden 2013 (fra ~10 000 daa til ca. 86 000 daa samlet i 2024), men volumene er fortsatt marginale mot matindustriens behov. Nesten all produksjon går til kraftfôr — ikke mat. Landbruksdirektoratets rapport fra februar 2026 utreder virkemidler for å øke matindustriens bruk, men ingen tilskuddsordning er innført per i dag. |
+| Sterkeste kilde | NIBIO nyhetsartikkel (2025, siterer doktorgradsarbeid av Anne Marthe Lundby): 48 000 daa åkerbønne og 38 000 daa erter i 2024 — https://www.nibio.no/nyheter/mange-muligheter-med-akerbonner-og-erter |
+| Svakeste punkt | Volum (tonn) per vekst per år er ikke publisert som egne SSB-serier for belgvekster; de inngår i aggregerte kategorier. Nofimas potensialtall (50 000 t åkerbønne, 40 000 t erter) er teoretiske maksimumstall, ikke prognoser. Mat/fôr-splitt for erter er ikke kvantifisert i offentlig statistikk. |
+| Funn-tabell | se under |
+| Tomme celler | se under |
+| Ikke si | se under |
 | Anbefalt gate | source-shortlist |
 
-## Funn-tabell
+---
 
-| Vekst | Areal | Volum | Foredling/status | År/lokator | Kildeklasse | Caveat |
-|---|---:|---:|---|---|---|---|
-| Erter og åkerbønner samlet | 35 400 dekar gjennomsnitt 2020-2025, inkludert ca. 6 000 daa konserveserter. | Ikke totalvolum i samme tabell; se radene under. | Samlet fôr og mat; rapporten peker på feilrapportering/konserves-uklarhet. | Landbruksdirektoratet 2026 tabell 1. | A. | Areal er avrundet og 2025 foreløpig; ikke ren matproduksjon. |
-| Erter | Ikke separat faktisk areal i tabell 1; potensial 160 200 daa. | 8 867 tonn innrapportert 2025/26; gjennomsnittlig mengde 2020-2025 beregnet til 6 400 tonn vare 15 % vann. | Brukes både fôr og mat; sorten Ingrid kan brukes til begge, men matkvalitet avhenger av krav/protein. | Landbruksdirektoratet 2026 tabell 2-4. | A/B. | Volum til humant konsum er innbakt, ikke isolert; potensial er scenario. |
-| Åkerbønner | Ikke separat faktisk areal i tabell 1; potensial 113 300 daa. | 18 752 tonn innrapportert 2025/26; gjennomsnittlig mengde 2020-2025 beregnet til 6 600 tonn vare 15 % vann. | Flere sorter mer tilpasset matkvalitet, men vær/klima og industriens krav styrer om råvaren kan bli mat. | Landbruksdirektoratet 2026 tabell 2-4. | A/B. | Ikke all åkerbønne oppnår matkvalitet; fôr er sikkerhetsventil. |
-| Erter + åkerbønner til humant konsum | Ikke åpen arealserie. | Indikasjon opp til ca. 1 000 tonn årlig til humant konsum. | Basert på dialog med bransjen i Landbruksdirektoratets rapport. | Landbruksdirektoratet 2026, avsnitt etter tabell 4. | B. | Bransjedialog/indikasjon, ikke registerført primærstatistikk. |
-| Korn/oljevekst-statistikk som ramme | Kornareal/statistikk oppdateres av SSB; kornavling 2025 foreløpig. | SSB viser kornavling, men ikke erter/åkerbønner som egne valgte indikatorer på oversiktssiden. | Brukes som ramme for areal og SSB-kilde i Landbruksdirektoratets beregning. | SSB Korn og oljevekster, oppdatert 27.02.2026. | A. | SSB oversiktsside er ikke nok alene for belgvekst-fordeling. |
-| NLR Kornstatistikk | Lenker videre til SSB-statistikkbank og kornstatistikk. | Ikke eget volumanker i denne runden. | Veiledende locator for videre uttrekk. | NLR Fagforum Korn. | B. | Bruk som locator, ikke som primærtall når Landbruksdirektoratet/SSB finnes. |
+## Nøkkelindikator-tabell
+
+| Vekst | Areal (daa) | Volum (tonn) | Bruk (mat/fôr) | Foredling | År | Kildeklasse | Caveat |
+|---|---|---|---|---|---|---|---|
+| Åkerbønne (Vicia faba) | ~48 000 | ikke publisert separat | nesten utelukkende fôr (kraftfôr) | Felleskjøpet Agri (mottak); Nofima (pilot tørrfraksjonering) | 2024 | B | Arealtall er avrundet, fra doktorgradsarbeid sitert i NIBIO-artikkel; ikke SSB-primærtabell |
+| Erter (Pisum sativum) | ~38 000 | ikke publisert separat | overveiende fôr; noe matproduksjon (frosne grønne erter via Findus/BAMA) | Felleskjøpet Agri (fôr); Findus/BAMA (mat) | 2024 | B | Arealtall fra samme kilde som åkerbønne |
+| Erter + åkerbønne samlet (2013-utgangspunkt) | ~10 000 | — | fôr | — | 2013 | B | Historisk referansepunkt fra samme kilde; brukes for å illustrere vekst |
+| Hagebønne (Phaseolus vulgaris) | ikke registrert i nasjonal statistikk | ikke registrert | ikke aktuelt i skala | ingen kjent foredlingskjede | — | C | Krever for lang vekstsesong for storskala dyrking i Norge |
+| Lupiner | ikke registrert som dyrket i skala | ikke registrert | — | ingen | — | C | Kun forsøksdyrking omtalt, ingen offentlige arealtall funnet |
+| Erter til konservesindustrien (grønne, umodne) | ikke kvantifisert separat | ikke kvantifisert | mat (frysevarer) | Findus / BAMA | — | C | SSB hagebruksavling ekskluderer eksplisitt «bønner og erter til konservesindustrien» fra grønnsakstatistikken |
+
+---
+
+## Trendoversikt 2013–2024
+
+| År | Åkerbønne (daa, estimat) | Erter (daa, estimat) | Samlet (daa) | Kommentar |
+|---|---|---|---|---|
+| 2013 | ~5 000–7 000 | ~3 000–5 000 | ~10 000 | Historisk lavpunkt; referanse fra NIBIO/Lundby |
+| 2020–2022 | stigende | stigende | — | Arealet «har vært økende de siste fem år» (NMBU/Uhlen, 2023); gjødselprisvekst 2021–2022 økte interesse |
+| 2022–2023 | — | — | — | Rekordsvak kornhøst nasjonalt 2023; virkning på belgvekster ikke isolert i tilgjengelige tall |
+| 2024 | ~48 000 | ~38 000 | ~86 000 | Fra NIBIO (Lundby, 2025); ca. 1 % av kornarealet (~2,8 mill. daa) brukes til belgvekster |
+
+Trenden er tydelig oppadgående 2013–2024. Veksten skyldes delvis høye gjødselpriser (biologisk nitrogenfiksering reduserer gjødselkostnader), økt interesse i kraftfôrindustrien og aktiv rådgivning fra NLR og NIBIO.
+
+**Merk:** SSBs kornstatistikk-tabeller dekker «korn og oljevekster» — belgvekster inngår ikke som egne tidsserier i de standardpubliserte SSB-tabellene som ble gjennomgått (07495/11506). Arealtallene for belgvekster ser ut til å komme primært fra søknader om produksjonstilskudd og fra FoU-kilder (NIBIO/NLR), ikke fra en egen SSB-serie med kontinuerlig tidsrekke.
+
+---
+
+## Foredlingskjede
+
+### Fôrsiden (dominerende)
+
+Felleskjøpet Agri er den sentrale mottaksaktøren for åkerbønner og erter til kraftfôr. Kornmottakene mottar åkerbønner og erter med maks 20 % vanninnhold, og levering må avtales på forhånd. Råvaren inngår i kraftfôrproduksjon som delvis erstatning for importert soya. Importen av åkerbønner (fra Baltikum og Danmark) er fortsatt stor — dette er altså en konkurrerende råvare til norsk produksjon.
+
+Landbruksdirektoratets rapport (februar 2026) slår fast: «produksjonen går omtrent i sin helhet til kraftfôrindustrien, med unntak av noe raps til matoljeproduksjon.»
+
+### Matsiden (marginal)
+
+- **Findus** og **BAMA** er nevnt i NDLA-undervisningsmaterialet (basert på NIBIO-kilder) som de som formidler «det aller meste av de norskavlede belgvekstene som går til menneskeføde». Primært gjelder dette frosne grønne erter (umodne, ikke tørkede frøerter).
+- **Nofima** har utviklet tørrfraksjoneringsprosess (luftklassifisering) som kan konsentrere protein fra norske erter og åkerbønner til 55–65 %. Metoden er på pilotnivå (Matpiloten på Nofima), ikke industriell skala.
+- **Graminor** deltar i FutureProteinCrops-prosjektet for sortsutvikling (NIBIO, NMBU, NLR, Nofima, Felleskjøpet Agri, Graminor).
+- Det finnes ingen norsk sortsforedling per i dag — all foredling baseres på utenlandske sorter (finske: Louhi, Sampo; tyske: Vertigo, Birgit, Tiffany).
+
+### Geografisk konsentrasjon
+
+Dyrkingen er konsentrert til Østlandet, noe Sørlandet og Trøndelag — de eneste regionene med tilstrekkelig lang vekstsesong. Vestlandet, Nord-Norge: ikke aktuelt.
+
+### Politikk og virkemidler (2026)
+
+Landbruksdirektoratet fikk i oppdrag (brev 30. juni 2025, Landbruks- og matdepartementet) å utrede et tilskudd tilsvarende matkorntilskuddet for å øke matindustriens bruk av norske modne oljefrø, erter og belgvekster. Rapporten «Åkerbønner, erter og oljefrø» ble levert 25. februar 2026 (Rapport 3-16/2026). Et eventuelt tilskudd kan innføres fra kornsesongen 2026–2027 — det er ikke vedtatt per rapportdato 2026-06-28.
+
+### Barrierer
+
+1. Kort norsk vekstsesong — krever sorter med kort veksttid; tilgjengelige sorter er enten for sene (tyske) eller gir lav avling (finske)
+2. Manglende tørkekapasitet hos bønder og møller — flaskehals ved levering
+3. Lite/ingen tollvern på import av tørkede belgvekster til mat — norske råvarer kan ikke konkurrere prismessig
+4. Skadedyrproblemer: ertevikler, ertesnutebille, fabafrøbille — sistnevnte kan ødelegge opptil 80 % av avling (svenske forsøk)
+5. Sykdom: sjokoladeflekk (Botrytis fabae), Phytophthora pisi (fra erter kan angripe åkerbønner)
+6. Vekstskiftkrav: 6–8 år mellom belgvekstdyrking på samme skifte
+
+---
 
 ## Tomme celler
 
-- Ren årlig volumserie for erter til mat vs fôr.
-- Ren årlig volumserie for åkerbønner til mat vs fôr.
-- Aktør-/mottaksledd per foredlingskjede med kapasitet og flaskehals.
-- Kornmottak, sort, proteinprosent og kvalitet koblet til sluttbruk.
-- Importsubstitusjon i faktiske produkter, ikke bare potensial eller bransjeindikasjon.
+- **Volum (tonn) per vekst per år (2020–2024):** Ikke publisert som egne SSB-tidsserier for åkerbønne og ert. SSBs korn- og oljevekststatistikk dekker ikke belgvekster som egne vekstslag. Landbruksdirektoratets leveransestatistikk (tilgjengelig for korn) er ikke gjennomgått for belgvekster i dette søket.
+- **Mat/fôr-volum-split for erter:** Ikke kvantifisert i offentlig statistikk som ble funnet. SSBs hagebruksavlingsstatistikk ekskluderer erter til konservesindustrien eksplisitt.
+- **Hagebønne (Phaseolus vulgaris) areal og volum:** Ingen norsk statistikk funnet. Klimatisk ikke egnet for storskala.
+- **Lupin:** Ingen offentlig arealstatistikk funnet for norsk dyrking.
+- **Geografisk fordeling av belgvekstareal per fylke:** Ikke funnet som standardpublisert SSB-tabell. Kjent fra agronomi: Østfold, Vestfold, Akershus, Telemark, deler av Trøndelag.
+- **Priser til produsent for åkerbønne og ert (konvensjonell):** Ikke hentet i dette søket. Felleskjøpets kornguide nevner «økte pristillegg ved tegning av leveringsavtale», men tallene er ikke lastet ned.
+- **Landbruksdirektoratets rapport februar 2026 (Rapport 3-16/2026) — fullt innhold:** Kun sammendrag/innledning er lest. Rapporten inneholder sannsynligvis kvantitative estimater for kort og mellomlang sikt som ikke er gjengitt her.
+- **Agrianalyse-rapporten (2022) — fullt innhold:** Kun abstrakt lest.
+
+---
 
 ## Ikke si
 
-- Ikke si at alt innrapportert volum av erter og åkerbønner er matprotein.
-- Ikke si at 160 200 daa erter og 113 300 daa åkerbønner er faktisk dyrket areal; det er potensial.
-- Ikke gjøre "opp til 1 000 tonn" til offisiell registerstatistikk.
-- Ikke slå sammen fôr, mat, konserveserter og moden belgvekst uten metodefelt.
-- Ikke visualiser vekst som stabil trend uten å vise vær-/sesongsvingninger og foreløpige tall.
+- At norsk åkerbønne- og erteproduksjon bidrar vesentlig til norsk matkonsumprotein — omtrent all produksjon går til kraftfôr, ikke mat.
+- At 48 000 daa åkerbønne tilsvarer X tonn — avlingstall per dekar varierer fra ca. 200–700 kg/daa avhengig av sort og vekstsesong; totalt volum er ikke dokumentert i en kilde som kan siteres med årstall.
+- At Nofimas potensialanslag (50 000 t åkerbønne, 40 000 t erter) er prognoser eller forventede tall — de er modellerte potensialmaksimumsscenarier ved optimal arealbruk.
+- At norsk belgvekstproduksjon kan erstatte norsk proteinimport på noe tidspunkt som er fastsatt — ingen vedtatt plan foreligger.
+- At hagebønne (Phaseolus vulgaris) dyrkes i norsk skala — klimatisk ikke egnet.
+- At lupiner dyrkes kommersielt i Norge — ingen kilder finner dette.
+- At BAMA og Findus er de eneste distributørene av norske matbelgvekster — dette er basert på undervisningsmateriale (NDLA), ikke primærkilder fra aktørene.
+- At areal = volum, eller at areal fra ett år er sammenlignbart med volum fra et annet år.
+- At Landbruksdirektoratets utredning fra februar 2026 innebærer at tilskuddet er innført — det er kun en utredning.
 
-## Kilder hentet
+---
 
-| Kilde | URL | Tilgangsdato | Klasse | Bruk |
-|---|---|---:|---|---|
-| Landbruksdirektoratet, Åkerbønner, erter og oljefrø | https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/%C3%85kerb%C3%B8nner%2C%20erter%20og%20oljefr%C3%B8.%20Vurdering%20av%20tilskudd%20for%20%C3%A5%20%C3%B8ke%20norskandelen%20i%20matindustrien%20Rapport%202026%203%2016.pdf | 2026-06-25 | primary/technical | Areal, volum, potensial, mat/fôr-gap. |
-| SSB Korn og oljevekster, areal og avlinger | https://www.ssb.no/jord-skog-jakt-og-fiskeri/jordbruk/statistikk/korn-og-oljevekster-areal-og-avlinger | 2026-06-25 | primary/statistics | Offisiell statistikkramme og oppdateringsstatus. |
-| SSB Statistikkbanken 07479 | https://www.ssb.no/statbank/table/07479 | 2026-06-25 | primary/statistics | Kornavlingstabell; begrenset for belgvekst i denne prompten. |
-| NLR Fagforum Kornstatistikk | https://kornforum.nlr.no/kornstatistikk | 2026-06-25 | sector/locator | Videre locator til SSB/kornstatistikk. |
-| NIBIO, åkerbønner og erter | https://www.nibio.no/nyheter/mange-muligheter-med-akerbonner-og-erter | 2026-06-25 | research | Agronomisk støtte og kontekst. |
+## Anbefalt gate
+
+**source-shortlist** — Arealtallene (48 000 daa åkerbønne / 38 000 daa erter i 2024) er hentet fra en NIBIO-artikkel som siterer et doktorgradsarbeid, ikke fra SSBs primærtabell for belgvekster. Før disse tallene brukes i eksterne sammenhenger bør de bekreftes mot: (1) SSB statistikkbank tabell 07495 med vekstslag «åkerbønne» og «erter» spesifisert, eller (2) Landbruksdirektoratets rapport 3-16/2026 (den fulle PDF-versjonen). Volumtall (tonn) mangler for begge vekster i denne kartleggingen og bør innhentes fra Landbruksdirektoratets leveransedatabase eller Norske Felleskjøp.
+
+---
+
+## Kilder sjekket
+
+| URL | Kildetype | Kildeklasse | Tilgangsdato |
+|---|---|---|---|
+| https://www.nibio.no/nyheter/mange-muligheter-med-akerbonner-og-erter | NIBIO nyhetsartikkel — doktorgradsarbeid (Lundby 2025) | B (actor-reported/derived) | 2026-06-28 |
+| https://www.nibio.no/tema/mat/korn-og-frovekster/belgvekster | NIBIO tematside belgvekster | B | 2026-06-28 |
+| https://www.nibio.no/nyheter/erter-og-kerbnner-er-god-agronomi | NIBIO nyhetsartikkel (Waalen, udatert) | B | 2026-06-28 |
+| https://www.landbruksdirektoratet.no/nb/nyhetsrom/rapporter/akerbonner-erter-og-oljefro | Landbruksdirektoratet Rapport 3-16/2026 (sammendrag/innledning) | A (primær — offentlig forvaltningsdokument) | 2026-06-28 |
+| https://nofima.no/resultater/erter-og-bonner-kan-gjore-norge-selvforsynt-med-planteprotein/ | Nofima rapport-kommuniké (sept. 2025) | B | 2026-06-28 |
+| https://www.nlr.no/kunnskap/fagartikler/olje-og-belgvekster/ostlandet/dyrkingsveiledning-for-akerbonner | NLR dyrkingsveiledning åkerbønner 2023 | B | 2026-06-28 |
+| https://www.nlr.no/files/documents/Dyrkingsveiledning-akerbonner-2023.pdf | NLR dyrkingsveiledning PDF 2023 | B | 2026-06-28 |
+| https://www.forskning.no/jordbruk-mat-nmbu-norges-miljo-og-biovitenskapelige-universitet/kan-vi-fa-bonner-fra-norske-bonder/2288072 | Forskning.no / NMBU (Uhlen, 2023) | B | 2026-06-28 |
+| https://www.ssb.no/jord-skog-jakt-og-fiskeri/jordbruk/statistikk/korn-og-oljevekster-areal-og-avlinger | SSB kornstatistikk (ikke belgvekster direkte) | A | 2026-06-28 |
+| https://www.ssb.no/statbank/table/07495 | SSB statistikkbank tabell 07495 (ikke belgvekster trukket ut i dette søket) | A (ikke fullstendig gjennomgått) | 2026-06-28 |
+| https://www.ssb.no/jord-skog-jakt-og-fiskeri/jordbruk/statistikk/hagebruksavlingar | SSB hagebruksavlinger (belgvekster til konservesindustri eksplisitt ekskludert) | A | 2026-06-28 |
+| https://www.agrianalyse.no/publikasjoner/meir-norske-proteinvekstar-til-for-og-mat-article1345-856.html | Agrianalyse Rapport 1-2022 (Klima- og miljøprogrammet, Landbruksdirektoratet) | B | 2026-06-28 |
+| https://www.felleskjopet.no/alle-artikler/alle-artikler-fra-samvirke/aakerboenner--etterspurt-av-kraftforindustrien/ | Felleskjøpet aktørside belgvekster | B (actor-reported) | 2026-06-28 |
+| https://fka.felleskjopet.no/korn/ | Felleskjøpet kornguide 2025–2026 | B | 2026-06-28 |
+| https://nibio.no/prosjekter/fabanova-klimatilpassa-akerbonner-for-norden-og-baltikum | NIBIO FABANOVA-prosjekt (2023–2026) | B | 2026-06-28 |
+| https://www.nmbu.no/forskning/prosjekter/futureproteincrops | NMBU FutureProteinCrops-prosjekt | B | 2026-06-28 |
+| https://ndla.no/r/naturbasert-produksjon-og-tjenesteyting-na-nab-vg1/belgvekster/f48ca2e242 | NDLA undervisningsressurs (sekundær, basert på NIBIO) | C | 2026-06-28 |
+| https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/Produksjon%20av%20%C3%B8kologiske%20jordbruksvarer%202024%20... | Landbruksdirektoratet: Produksjon av økologiske jordbruksvarer 2024 | A | 2026-06-28 |

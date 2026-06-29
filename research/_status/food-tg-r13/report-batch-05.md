@@ -1,88 +1,99 @@
-# Food TG R13 Batch 05 report
+---
+tittel: Food TG R13 — Batchrapport 05
+dato: 2026-06-28
+goal: Food TG Research OS Runde 13 (autonom)
+batch: 05
+prompter: R13-PROT-001, R13-PROT-002, R13-PROT-003, R13-PROT-004
+regel: Ingen DB-skriving, ingen claims, ingen safe_for_ai_context, ingen whitepaper-/deck-stemme
+status: Intern mottaksrapport — ikke faktastemme
+---
 
-**Dato:** 2026-06-25
-**Goal:** Execute controlled Food TG Research OS Runde 13 batch 05.
-**Batch:** `R13-PROT-001`, `R13-PROT-002`, `R13-PROT-003`, `R13-PROT-004`
-**Regel:** Ingen DB-skriving, ingen claims, ingen `safe_for_ai_context`, ingen whitepaper/deck-stemme.
+# Batchrapport 05 — Food TG R13
 
 ## Oppsummering
 
-| Beslutning | Antall | ID-er |
+| Beslutning | Antall | IDer |
 |---|---:|---|
-| enrich | 4 | `R13-PROT-001`, `R13-PROT-002`, `R13-PROT-003`, `R13-PROT-004` |
-| actor-gate | 0 | - |
-| park | 0 | - |
+| enrich | 4 | R13-PROT-001, R13-PROT-002, R13-PROT-003, R13-PROT-004 |
+| park | 0 | — |
+| actor-gate | 0 | — |
 
-## Mottaksrad
+## Mottaksrad-tabell (8 kolonner)
 
-| ID | Kort dom | Sterkeste kilde | Svakeste punkt | Kildeklasse | Hulltype | Gate | Importbeslutning |
+| ID | Tittel | Beslutning | Gate | Kildeklasse | Sterkeste kilde | Svakeste punkt | Importbeslutning |
 |---|---|---|---|---|---|---|---|
-| R13-PROT-001 | Insektprotein er FoU/pilot/kapasitet/regulatorisk mulighet, ikke åpen realisert fôrvolumserie. | Invertapro, EØS/TSE, EU Novel Food, Nofima | Ingen realisert kommersiell årsvolumserie. | A/B status; C volum | Type A status; Type B/C volum | source-shortlist | importer |
-| R13-PROT-002 | Single-cell har sterke teknologispor; Unibio har 24 tonn førsteforsendelse, Solar Foods er matprotein. | Unibio, Solar Foods, Nofima | Kapasitet og første shipment er ikke årlig realisert volum. | A/B status; C volum | Type A/B capacity; Type C volume | source-shortlist | importer |
-| R13-PROT-003 | Musling/tang/tare lukkes som FoU- og datagapledger, ikke volumclaim. | FHF 901895, Nofima, Nordic Innovation | Potensial og FoU er ikke realisert fôrvolum. | A project; C commercial volume | Type A project; Type C volume | source-shortlist | importer |
-| R13-PROT-004 | Plantebasert humanprotein har markedsankre, men ikke komplett åpen volum-/råvaretabell. | Nofima, NIBIO, Landbruksdirektoratet | Markedsandel og råvareopprinnelse er ikke koblet åpent. | A/B indicators; C full allocation | Type A/B market/crop; Type C linkage | source-shortlist | importer |
+| R13-PROT-001 | Insektprotein aktørledger | enrich | source-shortlist | A (Skretting rapport, EU-forordninger, konkurskunngjøringer) + B (pressemeldinger, selskapsoppgitte tall) | Skretting Impact Report 2024 — fôrsammensetning med insektmel 0,012 % | Ingen offentlig realisert produksjonsvolum i tonn for noen nordisk aktør; norsk PAP-godkjenningsliste ikke offentlig | vent |
+| R13-PROT-002 | Single-cell og fermenteringsprotein | enrich | source-shortlist | B-dominert (selskapsmeldinger, bransjemedia); A for EU-prosjektfaktaark og universitetsprosjektsider | Solar Foods Financial Statements 2025 + Enifer Agfundernews 2026-05 | Realisert salgsvolum ikke offentliggjort for noen nordisk aktør; kapasitetstall er nameplate, ikke leveransedata | vent |
+| R13-PROT-003 | Musling, tang og tare | enrich | source-shortlist | A: HI-nyheter, FHF-prosjekt, PhD UiB 2024. B: Nordic Oceans 2050. C: Alaria volum/protein | FHF prosjektbase nr. 901895 Mussel Up (2023–2026) | Realisert norsk blåskjellproduksjon 2023/2024 ikke lest fra Fiskeridirektoratets primærstatistikk; potensial er modell, ikke realisert | vent |
+| R13-PROT-004 | Plantebasert humanprotein | enrich | source-shortlist | A: Brønnøysund-regnskap, UN Comtrade. B: Nofima/Asko-salgstall (43 % dekning). C: erteprotein-import separat | Nofima 2024: salg av plantebaserte produkter, salgsfall fra 2021-topp | Ingen åpne volum-tall i tonn for individuelle aktørers planteproteinproduksjon; råvareimport for human ikke separert fra fôr | vent |
 
 ## Per-target outcome
 
-### R13-PROT-001 - ENRICH
+### R13-PROT-001 — Insektprotein aktørledger
 
-Output: `research/external/r13/R13-PROT-001-insektprotein.md`
+**Beslutning:** enrich → source-shortlist (vent)
 
-Verified source anchors:
+**Nøkkelfunn:**
+- Invertapro (Voss, BSF) og NorInsect er operative norske pilotaktører. Volare (FI, BSF) sikret EUR 26 mill 2025 og er ledende nordisk oppskalerer.
+- Skretting bruker 0,012 % insektmel (nederlandsk/fransk kilde, ikke nordisk) i laksefôr per 2024 — A-kilde.
+- Sektoren er under hard konsolidering: Enorm (DK) konkurs sep. 2025, Ÿnsect (FR) konkurs okt. 2025, Tebrito (SE) konkurs 2024.
+- Regulatorisk: insektmel i akvakultur-fôr godkjent (EU 2017/893, 2021/1372). Novel Food for 7 arter godkjent 2023–2024 (Tenebrio molitor, Acheta domesticus, Alphitobius diaperinus, Hermetia illucens larver/voksen/tørket).
+- Ingen offentlig norsk PAP-godkjenningsliste for insektproteinprodusenter.
 
-- Invertapro: `https://www.invertapro.com/`
-- Invertapro feed page: `https://www.invertapro.com/en/for-til-produksjonsdyr`
-- EØS/TSE insektsmel: `https://www.regjeringen.no/no/sub/eos-notatbasen/notatene/2017/juni/vet-tse-insektsmel-i-fiskefor/id2558190/`
-- European Commission novel food insects: `https://food.ec.europa.eu/food-safety/novel-food/authorisations/approval-insect-novel-food_en`
+**Ikke si:** norsk insektprotein er i kommersiell produksjon, Skretting bruker nordisk insektmel, kapasitetstall = realisert produksjon, insektprotein godkjent for alle dyrearter.
 
-Outcome: Source-shortlist. Aktør- og regulatorisk ledger styrket; volum fortsatt C/actor-gate.
+---
 
-### R13-PROT-002 - ENRICH
+### R13-PROT-002 — Single-cell og fermenteringsprotein
 
-Output: `research/external/r13/R13-PROT-002-single-cell-fermentering.md`
+**Beslutning:** enrich → source-shortlist (vent)
 
-Verified source anchors:
+**Nøkkelfunn:**
+- Solar Foods (FI): 160 t/år Solein-kapasitet (Factory 01, matprotein, ikke fôr). EU Novel Food-søknad til vurdering per 2026-06 — ikke godkjent ennå.
+- Enifer (FI, PEKILO gjærprotein fra skogsindustristrømmer): pilotanlegg operativt, søknad mot EU Novel Food for pet food/akvakultur, ca. 500 t/år pilotkapasitet.
+- Unibio (DK, UniProtein CH4-SCP): første kommersielle forsendelse til Danish Agro 2021, men nordisk produksjonsvolum ikke offentlig. Ny Saudi-Arabian fullskalaplan annonsert.
+- Aerbio (DK, H2-SCP): FoU-fase.
+- Calysta (FeedKind, CH4-SCP): piloter i US/UK lagt ned; all produksjon i Kina (joint venture Cargill).
+- Norske prosjekter: SynoProtein (SINTEF, CBE-prosjekt), Foods of Norway (NMBU), NordicFeed (NMBU) — alle pilot-/demonstrasjonsfase, ingen tilgjengelig ingrediens.
 
-- Unibio 2021 shipment: `https://www.unibio.dk/news/press-release--unibio-makes-its-first-ever-commercial-shipment-of-uniprotein-r-in-europe-to-danish-agro`
-- Solar Foods Factory 01: `https://solarfoods.com/solar-foods-factory-01-has-reached-its-productivity-targets/`
-- Nofima protein digestibility: `https://nofima.com/projects/the-effect-of-process-on-protein-digestibility-in-salmon/`
+**Ikke si:** Solar Foods har EU-godkjenning, Enifer produserer 3 000 tonn, SCP er godkjent for human konsum i EU, Calysta produserer i Norden.
 
-Outcome: Source-shortlist. Teknologiberedskap styrket, men årlig realisert volum og mat/fôrstatus må holdes separat.
+---
 
-### R13-PROT-003 - ENRICH
+### R13-PROT-003 — Musling, tang og tare
 
-Output: `research/external/r13/R13-PROT-003-musling-tang-tare.md`
+**Beslutning:** enrich → source-shortlist (vent)
 
-Verified source anchors:
+**Nøkkelfunn:**
+- Blåskjell: Mussel Up (FHF 901895, HI/Nofima/Lerøy, 2023–2026) viser at blåskjellmel gir like god vekst og fôrutnyttelse som fiskemel i laksefôr. Kommersiell bruk ikke realisert. Realisert norsk produksjon ~2 000–2 600 t/år (matmarkedet). Hardangerfjord-modell: kapasitet 130 000–200 000 t/år biomasse — scenario, ikke plan.
+- Tang/tare: Saccharina latissima ~600 tonn farmet 2023 (Fiskeridirektoratet-kilde). Proteininnhold 1–21 % av tørrstoff — lavt og variabelt, lite egnet som proteinkilde.
+- Mikroalger: ingen kommersiell norsk fôrvolumserie funnet.
+- Flaskehalser blåskjell: prosessering (maling, tørking), infrastruktur (anlegg ved fjord), algetoksin-overvåking (ShellFeed FHF 901849).
+- Mussel Up sluttrapport forventet Q1 2027.
 
-- FHF 901895 Mussel up: `https://www.fhf.no/prosjekter/prosjektbasen/901895/`
-- Nofima nye arter/vekster: `https://nofima.no/forskning/ravarer-fra-havbruk-fiskeri-og-landbruk/mat-fra-nye-arter-vekster/`
-- Nordic Innovation Local Fish Feed Ingredients: `https://www.nordicinnovation.org/programs/local-fish-feed-ingredients-competitive-and-sustainable-production-high-quality`
+**Ikke si:** blåskjell brukes i norsk laksefôr (FoU, ikke kommersiell), 130 000–200 000 tonn er realisert produksjon (modellscenario), 600 tonn tare = 600 tonn protein.
 
-Outcome: Source-shortlist. R12-hullet er lukket som FoU-/datagapledger, ikke volumclaim.
+---
 
-### R13-PROT-004 - ENRICH
+### R13-PROT-004 — Plantebasert humanprotein
 
-Output: `research/external/r13/R13-PROT-004-plantebasert-humanprotein.md`
+**Beslutning:** enrich → source-shortlist (vent)
 
-Verified source anchors:
+**Nøkkelfunn:**
+- Norsk marked: plantebasert (kjøttalternativer + plantedrikker) nådde topp 2021, falt til 2020-nivå etter 2022 (Nofima/Asko-data, 43 % dekning av norsk dagligvare). Norskproduserte kjøttalternativer øker sin andel i et krympende marked.
+- Produsenter: Naturli (Orkla), Hoff Liv Laga, Finsbråten GoVegan, Mills — norske. Oatly (SE), Alpro (BE) — importerte plantedrikker.
+- Vestkorn Milling (Tau, dsm-firmenich): Europas ledende tørr-prosesserte erteproteinprodusent. NOK 275 mill driftsinntekt 2024 (Brønnøysund). Ingen offentliggjorte produksjonsvolum i tonn.
+- Råvareimport: HS 210610 (proteinkonsentrater/-isolater) — 866–1 510 tonn/år importert 2022–2024 (UN Comtrade). Kan ikke splittes på planteart uten SSB 08801-oppslag.
+- Norske råvarer: åkerbønner (Vicia faba) og erter (Pisum sativum) er på vei opp, men volumene er langt under norsk matindustribruk. Landbruksdirektoratets rapport mars 2026 gir barriereoversikt.
 
-- Nofima plantedata: `https://kommunikasjon.ntb.no/pressemelding/18348215/norskproduserte-vegetarprodukter-i-framgang-men-nedgang-i-salget-totalt?lang=no&publisherId=9232871`
-- NIBIO åkerbønner/erter: `https://www.nibio.no/nyheter/mange-muligheter-med-akerbonner-og-erter`
-- Landbruksdirektoratet åkerbønner/erter/oljefrø: `https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/%C3%85kerb%C3%B8nner%2C%20erter%20og%20oljefr%C3%B8.%20Vurdering%20av%20tilskudd%20for%20%C3%A5%20%C3%B8ke%20norskandelen%20i%20matindustrien%20Rapport%202026%203%2016.pdf`
+**Ikke si:** plantebasert vokser i 2024, Asko-data = totalt marked, norskprodusert = norske råvarer, Vestkorn leverer til norsk dagligvare, HS 210610 er erteprotein.
 
-Outcome: Source-shortlist. Marked og råvarepotensial er bedre kartlagt; full volum-/råvarekobling mangler.
+---
 
-## Stop-regler som ble brukt
+## Oppfølgingspunkter
 
-- Kapasitet, FoU og pilot ble ikke gjort til realisert volum.
-- Matprotein og fôrprotein ble holdt adskilt.
-- Prosjektpotensial for blåskjell ble ikke gjort til produksjonskapasitet.
-- Asko-/Nofima-markedsindikatorer ble ikke gjort til totalmarked.
-
-## Må ikke visualiseres ennå
-
-- `R13-PROT-001`: ingen volumgraf for insektprotein uten realisert tonnasje.
-- `R13-PROT-002`: ingen single-cell kapasitetsgraf som blander mat, fôr, plan og produksjon.
-- `R13-PROT-003`: ingen marint-proteinvolumfigur uten å skille potensial, FoU og realisert volum.
-- `R13-PROT-004`: ingen markedsandelsgraf uten datadekning og råvareopprinnelse.
+- **PROT-001**: Actor-gate til Invertapro og Volare for realisert tonn/år. Sjekk Mattilsynet om norsk PAP-godkjenningsliste finnes for insektprodusenter. Konsolideringsbildet (Enorm/Ÿnsect/Tebrito) bør PCQ-es mot venture-finansieringsdata.
+- **PROT-002**: Vent på EU Novel Food-avgjørelse for Solar Foods/Enifer. FAO/EFSA-datauttak for regulatorisk fremdrift. SINTEF SynoProtein midtveisrapport (2025?) kan gi norsk demonstrasjonsvolum.
+- **PROT-003**: Hent Fiskeridirektoratets primærstatistikk for blåskjellproduksjon 2023/2024. Vent på Mussel Up sluttrapport (Q1 2027). ShellFeed-prosjektet (FHF 901849) for algetoksin-risikostatus.
+- **PROT-004**: Kjør SSB 08801 for HS 210610/210690 import 2022–2024 for norsk primæranker. Kontakt Vestkorn Milling for volum (actor-gate). Følg Landbruksdirektoratets åkerbønne-/erterapport (mars 2026) for råvarepotensialtall.
+- Ingen av batch-05-outputene åpner ekstern claim, visualisering eller whitepaper-stemme.

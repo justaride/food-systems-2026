@@ -1,86 +1,68 @@
-# Food TG R13 Batch 01 report
+---
+tittel: Food TG R13 — Batch 01 rapport
+dato: 2026-06-27
+goal: docs/project/mandates/food-tg-research-runde13-goal-codex-2026-06-25.md
+batch: "01 (R13-GAP-001, R13-GAP-005, R13-WASTE-001, R13-GAP-002)"
+regel: Internt research-underlag. Ingen claims, ingen DB-skriving, ingen safe_for_ai_context, ingen whitepaper-/deck-stemme.
+status: Mottatt — komplett (4/4)
+relaterte_filer:
+  - docs/project/mandates/food-tg-research-runde13-promptpack-2026-06-25.md
+  - docs/project/mandates/food-tg-research-runde13-goal-codex-2026-06-25.md
+  - research/_status/food-tg-r13/decisions/batch-01.jsonl
+  - research/_status/food-tg-r13/r13-intake-index-2026-06-25.md
+---
 
-**Dato:** 2026-06-25
-**Goal:** Execute controlled Food TG Research OS Runde 13 batch 01.
-**Batch:** `R13-GAP-001`, `R13-GAP-005`, `R13-WASTE-001`, `R13-GAP-002`
-**Regel:** Ingen DB-skriving, ingen claims, ingen `safe_for_ai_context`, ingen whitepaper/deck-stemme.
+# Food TG R13 — Batch 01 rapport
+
+Komplett batch 01 fra goal-codex: `R13-GAP-001`, `R13-GAP-005`, `R13-WASTE-001`, `R13-GAP-002`.
 
 ## Oppsummering
 
-| Beslutning | Antall | ID-er |
+| Beslutning | Antall | IDer |
 |---|---:|---|
-| enrich | 3 | `R13-GAP-001`, `R13-WASTE-001`, `R13-GAP-002` |
-| park | 1 | `R13-GAP-005` |
-| actor-gate | 0 | - |
+| enrich | 4 | R13-GAP-001, R13-GAP-005, R13-WASTE-001, R13-GAP-002 |
+| park | 0 | — |
+| actor-gate | 0 | — |
 
-## Mottaksrad
+Tre fikk gate **PCQ**, én (`R13-GAP-002`) **source-shortlist**. Ingen output åpner claim, skriver DB eller bruker whitepaper-/deck-stemme.
 
-| ID | Kort dom | Sterkeste kilde | Svakeste punkt | Kildeklasse | Hulltype | Gate | Importbeslutning |
+## Mottaksrad-tabell
+
+| ID | Tittel | Kildeklasse | Hulltype | Gate | Import­beslutning | Sterkeste kilde | Svakeste punkt |
 |---|---|---|---|---|---|---|---|
-| R13-GAP-001 | SSB 08801 lukker konkrete HS-serier for flere importnoder, men sluttbruk og samlet fôrprotein er fortsatt C/metodegap. | SSB 08801 bulkdata 2018-2025 | HS-koder beviser vareimport, ikke sluttbruk, art eller total fôrprotein. | A with C gaps | Type A uttak + Type C sluttbruk/metode | PCQ | importer |
-| R13-GAP-005 | Ingen parkert R12-tallclaim kan løftes direkte; flere delankre er styrket, men claimsene forblir parkert. | Landbruksdirektoratet 2026, REKO Norge, Økologisk Norge, SSB 08801, IPBES/Nexus, KT-melding | Mangler claim-grade primærkilde for ASKO 70 %, REKO produsent/kunde, SOIL-score, fiskeolje art/sluttbruk, Plantagon/Rest. | A/B/C per claim | Type A delankre; Type B/C claims | parkert | parker |
-| R13-WASTE-001 | SINTEF/FHF 2024 er A-anker for 1,094 mill. tonn tilgjengelig restråstoff, 976 000 tonn utnyttet og 118 000 tonn ikke utnyttet. | SINTEF Ocean rapport 2025:00517 / FHF 901844 | R-stige/Moerman-mapping er analytisk omkoding; enheter må ikke blandes. | A med metodecaveat | Type A uttak + Type C figurmetode | PCQ | importer |
-| R13-GAP-002 | Mekanisme-evidens finnes for importreduksjon, lager/transportrobusthet og frø-/sortsdiversitet, men ikke for "lokalmat = resilient". | FFI rapport 26/010, FNI, REKO Norge, Økologisk Norge | Ingen A-kilde måler kort/lokal verdikjede som samlet kategori mot nasjonal forsyningssikkerhet. | A/B with C gaps | Type A mekanisme; Type B actor; Type C effekt/volum | source-shortlist | importer |
+| R13-GAP-001 | Kritiske importnoder | A with C gaps | Type A (soya/fiskeolje/kaffe/kakao/fosfat hentet); Type C (fôrprotein-total) | PCQ | importer | SSB tabell 08801, PxWeb-uttak 2026-06-27 | Fôrprotein-total ikke ett HS-nummer; reell fosfor-avhengighet undervurderes (P via NPK/fôr) |
+| R13-GAP-005 | Verifisering av 7 parkerte R12-claims | A with C gaps | Type A/B/C per claim | PCQ | claim-lock-kandidat | Restaurant Rest konkurs (Brreg) + andelslandbruk 93 i drift 2023 (Landbruksdir./Øko. Norge) | ASKO/HORECA 70 % er omstridt aktøranslag uten uavhengig primær; SOIL-score ukjent proveniens |
+| R13-WASTE-001 | Marint restråstoff R-stige | A with C gaps | Type C | PCQ | importer | SINTEF/FHF Analyse marint restråstoff 2024 (rapport 2025:00517) | Eksport rapportert som verdi (NOK), ikke volum per R-nivå; biogass-tonnasje avledet |
+| R13-GAP-002 | Lokale verdikjeder og forsyningssikkerhet | B with C gaps | Type B | source-shortlist | vent | Fagfellevurdert SFSC-redundans-litteratur (EU4Advice 2024; MDPI 2021) + FFI 26/010 | Ingen kilde kvantifiserer bidrag til norsk forsyningssikkerhet; sterkeste fagkilder paywalled/403 i sesjon |
 
 ## Per-target outcome
 
-### R13-GAP-001 - ENRICH
+### R13-GAP-001 — Kritiske importnoder
+**Utfall: enrich → PCQ.** SSB tabell 08801 (PxWeb v1 API, uttak 2026-06-27) ga komplett Type-A primær importtidsserie 2020–2024 med volum (tonn) og verdi (NOK) i separate kolonner for soya (HS 1201/2304/1507), fiskeolje (1504 + 150420), kaffe (0901/090111) og kakao (1801/1803/1804/1805). De to R12-tomme cellene er nå synlig løst:
+- **Fosfat:** råfosfat-import (HS 2510) er ≈0 (22 t i 2024); fosfor kommer i praksis inn via sammensatt NPK-gjødsel (HS 3105, ~35 000 t 2024) og fôrtilsetninger.
+- **Fôrprotein-total:** vist som ekte metodisk/Type-C-luke fordi ingen enkelt HS-node fanger den; supplert med Landbruksdirektoratets kraftfôrstatistikk (415 970 t importerte proteinråvarer, 2025).
 
-Output: `research/external/r13/R13-GAP-001-kritiske-importnoder.md`
+Comtrade ble forsøkt som speil, men returnerte 0 rader uten abonnementsnøkkel → ingen B-tall ført inn (speil ble ikke primær — som krevd).
 
-Verified source anchors:
+### R13-GAP-005 — Verifisering av 7 parkerte R12-claims
+**Utfall: enrich → PCQ (claim-lock-kandidat for de smaleste radene).** Hver claim verifisert uavhengig:
+- **Kan løftes med caveat:** REKO-tall (Feb-2022-snapshot), andelslandbruk (93 i drift 2023), Restaurant Rest (konkurs åpnet 2024-09-05).
+- **Delvis / vent:** fiskeolje art/sluttbruk — vent på Nofima-primær.
+- **Parkert/nedgradert:** ASKO/HORECA 70 % (omstridt konkurrent-anslag fra Servicegrossistene under alternativ markedsdefinisjon; NorgesGruppen selv oppgir ~36 % — ingen uavhengig primær for 70 %); SOIL-score (ingen sporbar proveniens, *ikke* IPBES); Plantagon (svensk konkursfirma, ingen norsk relevans for NO-geo).
 
-- SSB import/eksport alle land og varenummer: `https://www.ssb.no/utenriksokonomi/utenrikshandel/artikler/import-og-eksport-alle-land-og-varenummer`
-- Bulkdata brukt: `Tab_08801_2018-2022.zip`, `Tab_08801_2023.zip`, `Tab_08801_2024.zip`, `Tab_08801_2025.zip`
+### R13-WASTE-001 — Marint restråstoff R-stige
+**Utfall: enrich → PCQ.** SINTEF/FHF «Analyse marint restråstoff» hentet i fulltekst fra primærkilde: nyeste utgave (2024-data, rapport 2025:00517, ISBN 978-82-14-07469-7, datert 2025-06-02) + foregående år (2023-data, rapport 2024:00583). Begge klasse A. Nøkkelfunn for overclaim-vakt: 2024 ~1,094 mill. tonn tilgjengelig restråstoff, ~976 000 t (89 %) «utnyttet» — men kun ~15 % av produktvolum til humant konsum, mens fôr tar 66 % og biogass/energi ~19 %. **Høy utnyttelsesgrad ≠ høyverdi.** Tomme celler bevart: eksportvolum per R-nivå (rapportert kun som NOK-verdi), Danmark-biogass-eksportvolum, fritt laksblod (34 300 t tapt som prosessvann), pelsdyrfôr.
 
-Outcome: PCQ. R12-hullet med manglende HS-uttak er lukket for konkrete koder/proxyer. `fôrprotein-total`, sluttbruk og fiskeart forblir C.
+### R13-GAP-002 — Lokale verdikjeder og forsyningssikkerhet
+**Utfall: enrich → source-shortlist (importDecision: vent).** Bygde på R12-RES-004 med fagfellevurdert mekanisme-litteratur (SFSC-redundans) + eksplisitt motevidens (lokal produksjon alene gir ikke robusthet). Bunnlinje: «lokal → forsyningssikkerhet» holder kun via tre navngitte mekanismer — redundans (parallell uavhengig forsyningsvei), desentraliserte lagre/infrastruktur (FFI), og lokal ressursutnyttelse som kutter innsatsvare-import (NIBIO) — og ingen er kvantifisert mot norsk forsyningssikkerhet. Sterkeste fagkilder (FFI-PDF kryptert, MDPI/ScienceDirect 403, Springer paywall) var utilgjengelige som fulltekst → forblir internt underlag, ikke claim.
 
-### R13-GAP-005 - PARK
+## Kontroller
 
-Output: `research/external/r13/R13-GAP-005-parkerte-claims-verifisering.md`
+- `git diff --check`: ren.
+- `npm run audit:research-artifacts -- --base=origin/main`: 0 violations.
+- JSON-validitet `decisions/batch-01.jsonl`: 4/4 gyldige linjer.
 
-Verified source anchors:
+## Neste
 
-- Landbruksdirektoratet rapport 4/2026: `https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/Produksjon%20av%20%C3%B8kologiske%20jordbruksvarer%202025%20Rapport%202026%204.pdf`
-- REKO Norge organisasjon: `https://www.rekonorge.no/organisasjon-reko-norge`
-- Økologisk Norge andelslandbruk i Norge: `https://okologisknorge.no/vaart-arbeid/andelslandbruk/hva-er-andelslandbruk/i-norge/`
-- Konkurransetilsynet-publisert ASKO/Mandarinen-melding: `https://konkurransetilsynet.no/wp-content/uploads/2025/01/OFF-ASKO-Norge-AS-Mandarinen-Import-Engros-AS-og-Mandarinen-Oslo-AS.pdf`
-
-Outcome: Parkert. Delkilder kan gjenbrukes i source-shortlist/PCQ, men ingen av tallclaimene åpnes.
-
-### R13-WASTE-001 - ENRICH
-
-Output: `research/external/r13/R13-WASTE-001-marint-restrastoff-rstige.md`
-
-Verified source anchors:
-
-- SINTEF publikasjon: `https://www.sintef.no/publikasjoner/publikasjon/019cb816e9d8-613672ba-42ff-40f5-8c4a-d11bcb98a574/`
-- FHF prosjektbase 901844: `https://www.fhf.no/prosjekter/prosjektbasen/901844/`
-
-Outcome: PCQ. Sterk A-kilde for 2024-status, men ikke ekstern R-stigefigur før metode/enheter er synlige.
-
-### R13-GAP-002 - ENRICH
-
-Output: `research/external/r13/R13-GAP-002-lokale-verdikjeder-resiliens.md`
-
-Verified source anchors:
-
-- FFI rapport 26/010: `https://www.ffi.no/publikasjoner/arkiv/nasjonal-forsyningssikkerhet-i-krise-og-krig-sarbarheter-konsekvenser-og-tiltak-for-mat-og-drivstofforsyningen`
-- Regjeringen PDF: `https://www.regjeringen.no/contentassets/ae61fb43e430495f8d9b9e40d22ffa95/ffi-rapport-oppdatert.pdf`
-- FNI Frøberedskap: `https://www.fni.no/prosjekter/froberedskap`
-- REKO Norge og Økologisk Norge som actor-/organisasjonsankre
-
-Outcome: Source-shortlist. Mekanisme først; direktesalgsnettverk og CSA-data blir actor-gate/C.
-
-## Stop-regler som ble brukt
-
-- Ingen HS-kode ble gjort til sluttbruksclaim.
-- Ingen parkert tallclaim ble løftet uten uavhengig primærlocator.
-- `Utnyttet restråstoff` ble ikke oversatt til høyverdi/humant konsum.
-- Lokal/kort verdikjede ble ikke gjort til robusthetsclaim uten mekanisme.
-
-## Må ikke visualiseres ennå
-
-- `R13-GAP-001`: kan visualiseres først når HS/proxy, sluttbruksgap og foreløpig/endelig status vises.
-- `R13-GAP-005`: skal ikke visualiseres som "verifiserte claims"; dette er en park-/nedgraderingsledger.
-- `R13-WASTE-001`: R-stigefigur må vise metode og enhet per kategori.
+- Batch 01 komplett. Batch 02 (`R13-GAP-004`, `R13-GAP-006`, `R13-GAP-003`, `R13-WASTE-002`) kjørt — se `report-batch-02.md`.
+- Resten av goal-codex-batchene (03–13) ikke startet.
