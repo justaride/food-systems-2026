@@ -209,7 +209,7 @@ Data fra BFJ Referansebruksberegninger (Statens tilbud 2026, Tabell 3.6) — år
 | **2023** | **345 100** | **355 700** | **251 700** |
 | 2024 | 455 700 | 455 700 | 159 700 |
 
-**Kjerneobservasjon:** I 2022 steg nominelt årsresultat (+77 400 kr) fordi store kjøttpriser og jordbruksavtalen kompenserte delvis. Men gjødselprisene eksploderte videre inn i 2023, og 2023 ble det reelle bunnåret: årsresultatet *falt* 75 200 kr i faste 2024-kr (355 700 vs. 430 900); det nominelle fallet var 51 100 kr, og inntektsgapet nådde 251 700 kr — det høyeste i måleserien.
+**Kjerneobservasjon:** I 2022 steg nominelt årsresultat (+77 400 kr) fordi store kjøttpriser og jordbruksavtalen kompenserte delvis. Men gjødselprisene eksploderte videre inn i 2023, og 2023 ble det reelle bunnåret: årsresultatet *falt* 75 200 kr i faste 2024-kr (355 700 vs. 430 900); det nominelle fallet var 51 000 kr, og inntektsgapet nådde 251 700 kr — det høyeste i måleserien.
 
 **Mekanismen:** Gjødselkjøp skjer i høst-/vinterkampanjen (gjødselår starter ca. sept.). Prisjokket fra 2022 inngikk fullt i 2023-regnskapet. Produksjonsinntektene hentet seg ikke inn fort nok: sum inntekter inkl. tilskudd økte bare 5,6 mrd. kr fra 2021→2023, mens sum kostnader økte 6,96 mrd. kr.
 
