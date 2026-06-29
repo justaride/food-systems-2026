@@ -21,6 +21,7 @@ type ActorRow = {
   desiredStance: string | null
   specificAsk: string | null
   priorityTier: string | null
+  verificationStatus: string | null
   owner: string | null
   nextStep: string | null
   powerScore: number | null
@@ -339,6 +340,11 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
                     {actor.priorityTier && (
                       <span className={`text-[10px] px-1.5 py-0.5 rounded border ${PRIORITY_STYLES[actor.priorityTier] ?? PRIORITY_STYLES.p3}`}>
                         {PRIORITY_LABELS[actor.priorityTier] ?? actor.priorityTier}
+                      </span>
+                    )}
+                    {actor.verificationStatus && actor.verificationStatus !== 'human_verified' && actor.verificationStatus !== 'machine_verified' && (
+                      <span className="text-[10px] px-1.5 py-0.5 rounded border border-amber-400 text-amber-700">
+                        {actor.verificationStatus === 'disputed' ? 'omstridt' : 'ubekreftet'}
                       </span>
                     )}
                     {actor.currentStance && (

@@ -56,6 +56,9 @@ export function EffektRow({ leverage: l, isExpanded, onToggle, onNavigateToTab }
           <EffectBar dim="klima" level={l.effects.klima} />
           <EffectBar dim="natur" level={l.effects.natur} />
           <EffectBar dim="forurensning" level={l.effects.forurensning} />
+          {l.effects.resiliens && <EffectBar dim="resiliens" level={l.effects.resiliens} />}
+          {l.effects.distrikt && <EffectBar dim="distrikt" level={l.effects.distrikt} />}
+          {l.effects.helse && <EffectBar dim="helse" level={l.effects.helse} />}
         </div>
       </button>
 

@@ -1,0 +1,5 @@
+[
+  { "from": "den-magiske-fabrikken", "to": "greve-biogass", "type": "subsidiary_of", "note": "DMF oppgir Greve Biogass AS som 66 prosent eier." },
+  { "from": "den-magiske-fabrikken", "to": "lindum-as", "type": "subsidiary_of", "note": "DMF oppgir Lindum AS som 34 prosent eier." },
+  { "from": "veas-marked-as", "to": "veas-as", "type": "subsidiary_of", "note": "Veas aarsrapport omtaler Veas Marked AS som del av konsernets tjenesteproduksjon for LBG." }
+]

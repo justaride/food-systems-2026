@@ -1,0 +1,7 @@
+[
+  { "from": "greve-biogass", "to": "den-magiske-fabrikken", "type": "owns", "note": "Den Magiske Fabrikken oppgir at Greve Biogass AS eier 66 prosent av Den Magiske Fabrikken AS." },
+  { "from": "lindum-as", "to": "den-magiske-fabrikken", "type": "owns", "note": "Den Magiske Fabrikken oppgir at Lindum AS eier 34 prosent av Den Magiske Fabrikken AS." },
+  { "from": "yara-norge-as", "to": "gronn-gjodsel-as", "type": "partners_with", "note": "Yara Norge omtaler investeringen i Gronn Gjodsel AS som grunnlag for organisk-basert gjodsel sammen med mineralgjodsel." },
+  { "from": "veas-marked-as", "to": "veas-as", "type": "part_of", "note": "Veas omtaler Veas Marked som selskap for videre utvikling og salg av Veas-jord og flytende ammoniumsulfat/gjodsel." },
+  { "from": "ivar-iks", "to": "minorga-vekst-as", "type": "partners_with", "note": "IVAR-styresak dokumenterer Minorga Vekst som omsettings-/jordproduksjonsselskap for gjodsel- og jordprodukter i IVAR-systemet." }
+]

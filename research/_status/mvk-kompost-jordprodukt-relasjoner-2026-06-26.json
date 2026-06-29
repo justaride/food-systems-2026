@@ -1,0 +1,5 @@
+[
+  { "from": "mjosanlegget-as", "to": "gronn-vekst-as", "type": "partners_with", "note": "Mjosanlegget oppgir at jordproduktene produseres i samarbeid med Gronn Vekst." },
+  { "from": "follo-ren-iks", "to": "gronn-vekst-as", "type": "partners_with", "note": "Follo Ren oppgir at torvfri blomsterjord er produsert av Gronn Vekst for Follo Ren." },
+  { "from": "norbark-as", "to": "lindum-as", "type": "partners_with", "note": "Lindum oppgir at Norbark overtok jordproduksjon og salg ved Lindums anlegg i Drammen fra 1. juni 2023." }
+]

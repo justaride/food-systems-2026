@@ -1,0 +1,6 @@
+[
+  { "from": "svalbard-global-seed-vault", "to": "nordgen", "type": "partners_with", "note": "NordGen dokumenterer operativ rolle for Svalbard Global Seed Vault." },
+  { "from": "kvann", "to": "nibio", "type": "partners_with", "note": "KVANN oppgir at forgjenger-sporet Planteklubbene ble etablert av Norsk genressurssenter og Hageselskapet." },
+  { "from": "la-humla-suse", "to": "nibio", "type": "partners_with", "note": "La Humla Suse formidler norske blomsterengfro fra NIBIO Landvik." },
+  { "from": "norgro-as", "to": "felleskjopet-agri", "type": "partners_with", "note": "NORGRO oppgir at selskapet eies av Felleskjopet og Gartnerhallen." }
+]

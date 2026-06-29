@@ -1,0 +1,632 @@
+[
+  {
+    "domain": "lokale-verdikjeder",
+    "subdomain": "reko",
+    "geo": "NO",
+    "estimated_universe": 140,
+    "universe_confidence": "middels",
+    "mapped_count": 20,
+    "gap": 120
+  },
+  {
+    "domain": "lokale-verdikjeder",
+    "subdomain": "bondens-marked",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "middels",
+    "mapped_count": 4,
+    "gap": 16
+  },
+  {
+    "domain": "lokale-verdikjeder",
+    "subdomain": "andelslandbruk",
+    "geo": "NO",
+    "estimated_universe": 93,
+    "universe_confidence": "middels",
+    "mapped_count": 20,
+    "gap": 73
+  },
+  {
+    "domain": "lokale-verdikjeder",
+    "subdomain": "gaardsutsalg",
+    "geo": "NO",
+    "estimated_universe": 0,
+    "universe_confidence": "lav",
+    "mapped_count": 1,
+    "gap": 0
+  },
+  {
+    "domain": "lokale-verdikjeder",
+    "subdomain": "markedshager",
+    "geo": "NO",
+    "estimated_universe": 0,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 0
+  },
+  {
+    "domain": "lokale-verdikjeder",
+    "subdomain": "paraply-nettverk",
+    "geo": "NO",
+    "estimated_universe": 8,
+    "universe_confidence": "hoey",
+    "mapped_count": 5,
+    "gap": 3
+  },
+  {
+    "domain": "regenerativ-praksis",
+    "subdomain": "holistic-management-beiting",
+    "geo": "NO",
+    "estimated_universe": 12,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 12
+  },
+  {
+    "domain": "regenerativ-praksis",
+    "subdomain": "market-gardening",
+    "geo": "NO",
+    "estimated_universe": 30,
+    "universe_confidence": "lav",
+    "mapped_count": 9,
+    "gap": 21
+  },
+  {
+    "domain": "regenerativ-praksis",
+    "subdomain": "biodynamisk",
+    "geo": "NO",
+    "estimated_universe": 12,
+    "universe_confidence": "middels",
+    "mapped_count": 0,
+    "gap": 12
+  },
+  {
+    "domain": "regenerativ-praksis",
+    "subdomain": "jordhelse-karbon",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "regenerativ-praksis",
+    "subdomain": "raadgivning-nettverk",
+    "geo": "NO",
+    "estimated_universe": 15,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 15
+  },
+  {
+    "domain": "permakultur-fleraarige",
+    "subdomain": "permakultur-foreninger",
+    "geo": "NO",
+    "estimated_universe": 12,
+    "universe_confidence": "middels",
+    "mapped_count": 0,
+    "gap": 12
+  },
+  {
+    "domain": "permakultur-fleraarige",
+    "subdomain": "skogshage-agroforestry",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "permakultur-fleraarige",
+    "subdomain": "froebevaring",
+    "geo": "NO",
+    "estimated_universe": 10,
+    "universe_confidence": "middels",
+    "mapped_count": 0,
+    "gap": 10
+  },
+  {
+    "domain": "permakultur-fleraarige",
+    "subdomain": "planteskoler-froeleverandoerer",
+    "geo": "NO",
+    "estimated_universe": 15,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 15
+  },
+  {
+    "domain": "permakultur-fleraarige",
+    "subdomain": "demonstrasjonssteder",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "institusjon-finansiering",
+    "subdomain": "forskningsinstitutt",
+    "geo": "NO",
+    "estimated_universe": 8,
+    "universe_confidence": "middels",
+    "mapped_count": 0,
+    "gap": 8
+  },
+  {
+    "domain": "institusjon-finansiering",
+    "subdomain": "universitet-utdanning",
+    "geo": "NO",
+    "estimated_universe": 8,
+    "universe_confidence": "middels",
+    "mapped_count": 0,
+    "gap": 8
+  },
+  {
+    "domain": "institusjon-finansiering",
+    "subdomain": "virkemiddel-ordning",
+    "geo": "NO",
+    "estimated_universe": 12,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 12
+  },
+  {
+    "domain": "institusjon-finansiering",
+    "subdomain": "kontroll-sertifisering",
+    "geo": "NO",
+    "estimated_universe": 6,
+    "universe_confidence": "middels",
+    "mapped_count": 0,
+    "gap": 6
+  },
+  {
+    "domain": "institusjon-finansiering",
+    "subdomain": "interesseorg-paraply",
+    "geo": "NO",
+    "estimated_universe": 15,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 15
+  },
+  {
+    "domain": "innsatsfaktorer",
+    "subdomain": "froe-genressurser",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 12,
+    "gap": 8
+  },
+  {
+    "domain": "innsatsfaktorer",
+    "subdomain": "for-protein",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 21,
+    "gap": 0
+  },
+  {
+    "domain": "innsatsfaktorer",
+    "subdomain": "gjodsel-jordforbedring",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 22,
+    "gap": 0
+  },
+  {
+    "domain": "innsatsfaktorer",
+    "subdomain": "biostimulanter-jordliv",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 21,
+    "gap": 0
+  },
+  {
+    "domain": "primaerproduksjon",
+    "subdomain": "jordbruk-groent",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "primaerproduksjon",
+    "subdomain": "husdyr-beite",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "primaerproduksjon",
+    "subdomain": "havbruk-akvakultur",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "primaerproduksjon",
+    "subdomain": "villfisk-fiskeri",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "primaerproduksjon",
+    "subdomain": "ville-ressurser-sanking",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "primaerproduksjon",
+    "subdomain": "urban-dyrking",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "foredling-industri",
+    "subdomain": "meieri",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "foredling-industri",
+    "subdomain": "kjott-egg",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "foredling-industri",
+    "subdomain": "korn-molle-bakeri",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "foredling-industri",
+    "subdomain": "frukt-groent-foredling",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "foredling-industri",
+    "subdomain": "drikke-bryggeri",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "foredling-industri",
+    "subdomain": "sjomat-foredling",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "foredling-industri",
+    "subdomain": "naeringsmiddel-ovrig",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "distribusjon-grossist",
+    "subdomain": "grossist-distributor",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "distribusjon-grossist",
+    "subdomain": "logistikk-lager",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "distribusjon-grossist",
+    "subdomain": "alternativ-distribusjon",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "handel-dagligvare",
+    "subdomain": "dagligvarekjede",
+    "geo": "NO",
+    "estimated_universe": 0,
+    "universe_confidence": "hoey",
+    "mapped_count": 0,
+    "gap": 0
+  },
+  {
+    "domain": "handel-dagligvare",
+    "subdomain": "spesialhandel-delikatesse",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "handel-dagligvare",
+    "subdomain": "direktesalg-plattform",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "horeca-offentlig",
+    "subdomain": "restaurant-storkjokken",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "horeca-offentlig",
+    "subdomain": "offentlig-innkjop-kantine",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "horeca-offentlig",
+    "subdomain": "reiseliv-gardsmat",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "forbruk",
+    "subdomain": "forbrukerorganisasjon",
+    "geo": "NO",
+    "estimated_universe": 10,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 10
+  },
+  {
+    "domain": "forbruk",
+    "subdomain": "matfellesskap-innkjopslag",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "matsvinn-sirkulaer",
+    "subdomain": "matredistribusjon",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 10,
+    "gap": 10
+  },
+  {
+    "domain": "matsvinn-sirkulaer",
+    "subdomain": "biogass-bioraffinering",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 19,
+    "gap": 1
+  },
+  {
+    "domain": "matsvinn-sirkulaer",
+    "subdomain": "kompost-jordprodukt",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 8,
+    "gap": 12
+  },
+  {
+    "domain": "matsvinn-sirkulaer",
+    "subdomain": "reststrom-sidestrom",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 22,
+    "gap": 0
+  },
+  {
+    "domain": "matsvinn-sirkulaer",
+    "subdomain": "emballasje-retur",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 23,
+    "gap": 0
+  },
+  {
+    "domain": "matsvinn-sirkulaer",
+    "subdomain": "insekt-alternativ-protein",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 5,
+    "gap": 15
+  },
+  {
+    "domain": "okologi-sertifisering",
+    "subdomain": "kontrollorgan-merkeordning",
+    "geo": "NO",
+    "estimated_universe": 10,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 10
+  },
+  {
+    "domain": "okologi-sertifisering",
+    "subdomain": "okologisk-produsent",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "okologi-sertifisering",
+    "subdomain": "regenerativ-sertifisering",
+    "geo": "NO",
+    "estimated_universe": 10,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 10
+  },
+  {
+    "domain": "fou-institusjon",
+    "subdomain": "forskningsinstitutt",
+    "geo": "NO",
+    "estimated_universe": 12,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 12
+  },
+  {
+    "domain": "fou-institusjon",
+    "subdomain": "universitet-utdanning",
+    "geo": "NO",
+    "estimated_universe": 12,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 12
+  },
+  {
+    "domain": "fou-institusjon",
+    "subdomain": "nettverk-kompetanse",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "virkemiddel-policy",
+    "subdomain": "virkemiddelapparat",
+    "geo": "NO",
+    "estimated_universe": 12,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 12
+  },
+  {
+    "domain": "virkemiddel-policy",
+    "subdomain": "forvaltning-tilsyn",
+    "geo": "NO",
+    "estimated_universe": 12,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 12
+  },
+  {
+    "domain": "virkemiddel-policy",
+    "subdomain": "politisk-program",
+    "geo": "NO",
+    "estimated_universe": 10,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 10
+  },
+  {
+    "domain": "interesseorg-paraply",
+    "subdomain": "naeringsorganisasjon",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "interesseorg-paraply",
+    "subdomain": "faglag-bonde",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "interesseorg-paraply",
+    "subdomain": "miljo-forbruker-ngo",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "finansiering-investering",
+    "subdomain": "stiftelse-fond",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "finansiering-investering",
+    "subdomain": "impact-investor",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  },
+  {
+    "domain": "finansiering-investering",
+    "subdomain": "kooperativ-eierskap",
+    "geo": "NO",
+    "estimated_universe": 20,
+    "universe_confidence": "lav",
+    "mapped_count": 0,
+    "gap": 20
+  }
+]

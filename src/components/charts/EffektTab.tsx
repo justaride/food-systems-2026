@@ -2,20 +2,30 @@
 
 import { useState, useMemo } from 'react'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
-import { circularLeverages, lastUpdated, type EffectLevel } from '@/lib/data/circular-leverage'
+import {
+  circularLeverages,
+  lastUpdated,
+  objectiveCoverage,
+  type EffectLevel,
+  type ObjectiveDimension,
+} from '@/lib/data/circular-leverage'
 import type { EvidenceStatus } from '@/lib/visualization/types'
 import { EffektRow } from './EffektRow'
 import { EffektMethodologyCard } from './EffektMethodologyCard'
 
-type SortDim = 'aggregate' | 'klima' | 'natur' | 'forurensning'
+type SortDim = 'aggregate' | ObjectiveDimension
 
 const LEVEL_RANK: Record<EffectLevel, number> = { high: 3, medium: 2, low: 1 }
+const levelRank = (lvl?: EffectLevel): number => (lvl ? LEVEL_RANK[lvl] : 0)
 
 const SORT_LABEL: Record<SortDim, string> = {
   aggregate: 'Aggregat',
   klima: 'Klima',
   natur: 'Natur',
   forurensning: 'Forurensning',
+  resiliens: 'Resiliens',
+  distrikt: 'Distrikt/bonde',
+  helse: 'Helse (fase 2)',
 }
 
 type Props = {
@@ -33,10 +43,13 @@ export function EffektTab({ expandedIds, onToggleRow, onNavigateToTab }: Props) 
       return list.sort((a, b) => a.rank - b.rank)
     }
     return list.sort((a, b) => {
-      const diff = LEVEL_RANK[b.effects[sortDim]] - LEVEL_RANK[a.effects[sortDim]]
+      const diff = levelRank(b.effects[sortDim]) - levelRank(a.effects[sortDim])
       return diff !== 0 ? diff : a.rank - b.rank
     })
   }, [sortDim])
+
+  // Dekningsgrad for valgt linse — synliggjør blindsonen ærlig i stedet for å skjule den.
+  const coverage = sortDim === 'aggregate' ? null : objectiveCoverage(sortDim)
 
   // Honest tab-level badge: the dominant evidence grade across rows (each row
   // also shows its own status in EffektRow), instead of a hard-coded weakest tier.
@@ -78,6 +91,14 @@ export function EffektTab({ expandedIds, onToggleRow, onNavigateToTab }: Props) 
             </button>
           ))}
         </div>
+
+        {coverage && coverage.scored < coverage.total && (
+          <p className="mt-2 text-[11px] text-amber-700 bg-amber-50 border border-amber-200 rounded px-2 py-1">
+            {coverage.scored} av {coverage.total} tiltak er scoret på «{SORT_LABEL[sortDim]}». Resten er en bevisst
+            dokumentert dekningsblindsone (objektivfunksjon Sett II)
+            {sortDim === 'helse' ? ' — helse er fase 2 og åpnes senere' : ''}.
+          </p>
+        )}
       </div>
 
       <div className="space-y-1">
