@@ -270,6 +270,11 @@ export function HavbrukContent({
                 <tbody>
                   {filteredSites.slice(0, 500).map(s => {
                     const badge = formatStatusBadge(s.licenseStatus)
+                    const isLand = (s.placement ?? '').toUpperCase() === 'LAND'
+                    const capacityLabel = formatAquacultureCapacity(
+                      s.capacityTonnes,
+                      s.capacityUnit
+                    )
                     return (
                       <tr
                         key={s.id}
@@ -299,10 +304,32 @@ export function HavbrukContent({
                           ) : null}
                         </td>
                         <td className="py-2.5 pr-4 text-right tabular-nums text-stone-700">
-                          {formatAquacultureCapacity(s.capacityTonnes, s.capacityUnit)}
+                          {capacityLabel !== '—' ? (
+                            capacityLabel
+                          ) : isLand ? (
+                            <span
+                              className="text-stone-400"
+                              title="Landanlegg – kapasitet ikke oppgitt i Akvakulturregisteret (settefisk/smolt måles i antall fisk, ikke MTB)"
+                            >
+                              n/a
+                            </span>
+                          ) : (
+                            '—'
+                          )}
                         </td>
                         <td className="py-2.5 pr-4 text-stone-600 text-xs">
-                          {s.species.length > 0 ? s.species.join(', ') : '—'}
+                          {s.species.length > 0 ? (
+                            s.species.join(', ')
+                          ) : isLand ? (
+                            <span
+                              className="text-stone-400"
+                              title="Landanlegg – art ikke oppgitt i Akvakulturregisteret"
+                            >
+                              n/a
+                            </span>
+                          ) : (
+                            '—'
+                          )}
                         </td>
                         <td className="py-2.5">
                           <span

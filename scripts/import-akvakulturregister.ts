@@ -1,6 +1,12 @@
 import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import {
+  type SiteSummary,
+  type SiteDetail,
+  buildSitePayload,
+  localityNumber,
+} from './lib/akvakultur-transform'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -9,57 +15,6 @@ const BASE = 'https://api.fiskeridir.no/pub-aqua/api/v1'
 
 let requestDelayMs = 0
 let maxRetries = 3
-
-type SiteSummary = {
-  siteId?: number
-  siteNr?: string
-  siteName?: string
-  status?: string
-  statusValue?: string
-  siteCapacity?: number
-  siteCapacityUnitType?: string
-  sitePlacement?: {
-    municipalityCode?: string
-    municipalityName?: string
-    countyCode?: string
-    countyName?: string
-  }
-  connections?: Array<{
-    openLegalEntityNr?: string
-    productionStageValue?: string
-  }>
-}
-
-type SiteDetail = {
-  siteId: number
-  siteNr: number
-  name?: string
-  placementType?: string
-  placementTypeValue?: string
-  waterType?: string
-  waterTypeValue?: string
-  latitude?: number
-  longitude?: number
-  capacity?: number
-  tempCapacity?: number
-  capacityUnitType?: string
-  placement?: {
-    municipalityCode?: string
-    municipalityName?: string
-    countyCode?: string
-    countyName?: string
-  }
-  speciesType?: string | null
-  speciesTypeValue?: string | null
-  speciesLimitations?: Array<{ name?: string }>
-  connections?: Array<{
-    licenseNr?: string
-    openLegalEntityNr?: string
-    productionStageValue?: string
-    statusValue?: string
-  }>
-  statusValue?: string
-}
 
 function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
@@ -117,10 +72,6 @@ async function fetchSiteDetail(siteNr: string): Promise<SiteDetail | null> {
   }
 }
 
-function localityNumber(summary: SiteSummary): string {
-  return String(summary.siteNr ?? summary.siteId)
-}
-
 async function upsertSite(
   summary: SiteSummary,
   detail: SiteDetail | null,
@@ -128,44 +79,13 @@ async function upsertSite(
   source: string
 ) {
   const locNr = localityNumber(summary)
-  const species = (detail?.speciesLimitations ?? [])
-    .map(s => s?.name)
-    .filter((x): x is string => Boolean(x))
-  if (detail?.speciesTypeValue) species.push(detail.speciesTypeValue)
-
-  const placement = detail?.placementTypeValue ?? summary.connections?.[0]?.productionStageValue
-  const waterType = detail?.waterTypeValue ?? null
-  const capacity = detail?.capacity ?? summary.siteCapacity ?? null
-  const capacityUnit = detail?.capacityUnitType ?? summary.siteCapacityUnitType ?? 'TN'
-  const siteName = detail?.name ?? summary.siteName ?? null
-  const municipality = detail?.placement?.municipalityName ?? summary.sitePlacement?.municipalityName
-  const municipalityNo = detail?.placement?.municipalityCode ?? summary.sitePlacement?.municipalityCode
-  const county = detail?.placement?.countyName ?? summary.sitePlacement?.countyName
-  const licenseStatus = (detail?.statusValue ?? summary.statusValue ?? summary.status ?? '').toLowerCase() || null
-
   const payload = {
-    siteName,
-    municipality,
-    municipalityNo,
-    county,
-    country: 'NO',
-    lat: detail?.latitude ?? null,
-    lng: detail?.longitude ?? null,
-    licenseStatus,
-    placement,
-    waterType,
-    capacityTonnes: capacity ? Number(capacity) : null,
-    capacityUnit,
-    species: Array.from(new Set(species)),
-    productionTypes: Array.from(
-      new Set(
-        (summary.connections ?? [])
-          .map(c => c.productionStageValue)
-          .filter((x): x is string => Boolean(x))
-      )
-    ),
+    ...buildSitePayload(summary, detail),
     source,
-    metadata: { summary: JSON.parse(JSON.stringify(summary)), detail: detail ? JSON.parse(JSON.stringify(detail)) : null } as any,
+    metadata: {
+      summary: JSON.parse(JSON.stringify(summary)),
+      detail: detail ? JSON.parse(JSON.stringify(detail)) : null,
+    } as any,
   }
 
   await prisma.aquacultureSite.upsert({
