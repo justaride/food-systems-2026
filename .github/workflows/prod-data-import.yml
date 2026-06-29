@@ -25,6 +25,7 @@ on:
         type: choice
         options:
           - verify-only
+          - seed
           - ownership
           - registers
           - full
@@ -103,6 +104,10 @@ jobs:
           TARGET="${{ inputs.target }}"
           case "$TARGET" in
             verify-only)
+              npm run db:verify
+              ;;
+            seed)
+              npm run db:import:ts
               npm run db:verify
               ;;
             ownership)
