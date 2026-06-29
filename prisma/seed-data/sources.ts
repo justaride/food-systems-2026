@@ -1932,4 +1932,16 @@ export const sources: SourceDoc[] = [
     description: 'Food-local cross-project intake note for Wageningen/Moerman/R9 material transferred from Cities/JT review into Food TG method control.',
     relevance: 'Primærunderlag for meeting-9 and caveated Wageningen/Moerman method-transfer registration.',
   },
+  {
+    id: 'src-182',
+    filename: 'research/evidence-pack/nordisk/future-nordic-diets-tn2017-566.pdf',
+    title: 'Future Nordic Diets: Exploring ways for sustainably feeding the Nordics',
+    author: 'Johan Karlsson, Elin Röös, Tove Sjunnestrand, Kajsa Pira, Malin Larsson, Bente Hessellund Andersen, Jacob Sørensen, Tapani Veistola, Jaana Rantakokko, Sirkku Manninen, Stein Brubæk',
+    year: 2017,
+    type: 'rapport',
+    url: 'https://www.norden.org/en/publication/future-nordic-diets',
+    publisher: 'Nordic Council of Ministers',
+    description: 'Scenariorapport (TemaNord 2017:566) som modellerer to fremtider for matsystemet i DK, FI, NO og SE basert på primært regional, økologisk produksjon. SY-scenario: kjøttreduksjon 90 %, 31 mill. fôret. EY-scenario: kjøttreduksjon 81 %, 37 mill. fôret. GHG fra landbruk reduseres fra 1310–1940 til 310–700 kg CO₂-ekv/person/år. Rapporten tar utgangspunkt i planetære grenser og NNR, ikke i trendekstrapolering.',
+    relevance: 'Sentral referanse for nordisk matsystemanalyse og scenariebasert kostholdsplanlegging. Danner vitenskapelig grunnlag for at drastisk kjøttreduksjon er nødvendig — ikke bare ønskelig — for et klimaforenlig nordisk matsystem. Kobler jordbruksstruktur, selvforsyning og klimamål; direkte relevant for Spor A (selvforsyning/beredskap) og nordisk komparativ analyse.',
+  },
 ]
