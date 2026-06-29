@@ -87,7 +87,7 @@ flowchart TB
   subgraph OUTPUT["OUTPUT-lag (tynt/blindt)"]
     N9["N9 Helse/sannkost<br/>BLIND"]:::blind
     N10["N10 Klimafotavtrykk<br/>delvis (N/P-tap finnes)"]:::partial
-    N11["N11 Bondeøkonomi/arbeid<br/>BLIND"]:::blind
+    N11["N11 Bondeøkonomi/arbeid<br/>DELVIS DEKKET<br/>(skvis tallfestet; per-kg-margin = B)"]:::partial
   end
 
   N7 -.mangler.-> N3
@@ -117,6 +117,8 @@ flowchart TB
 ```
 
 Les pilene som *analytiske hypoteser* (syntese), ikke målt kausalitet. De stiplede pilene fra N7/N8 og til N9/N11 er der modellen mangler input/output — blindsonene.
+
+> **Oppdatering 2026-06-29 (N11):** N11 er flyttet fra BLIND til **DELVIS DEKKET**. Kostnads-/prisskvisen på primærleddet er nå tallfestet og primærkilde-forankret (DRO-R6-N11, BFJ/NIBIO Totalkalkylen UT-1-2026 + Statens tilbud 2026), og verifisert ved uavhengig aritmetikk- og URL-kontroll 2026-06-29. `audit:citable` + `gate:overclaim` kjørt grønt 2026-06-29 (0 eksterne blokkere) — N11 er dermed formelt lukket på «delvis dekket». **Gjenstår** kun per-kg-margin etter kjøperprisavtale (Type B / aktørdata), en bevisst aktør-gate-avgrensning. Analyseprosaen i §5–7 under er skrevet før denne oppdateringen og omtaler N11 som blindsone i sin opprinnelige ramme.
 
 ## 5. Blindsonene plassert på modellen
 
