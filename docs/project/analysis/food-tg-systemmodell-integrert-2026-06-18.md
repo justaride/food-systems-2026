@@ -118,7 +118,7 @@ flowchart TB
 
 Les pilene som *analytiske hypoteser* (syntese), ikke målt kausalitet. De stiplede pilene fra N7/N8 og til N9/N11 er der modellen mangler input/output — blindsonene.
 
-> **Oppdatering 2026-06-29 (N11):** N11 er flyttet fra BLIND til **DELVIS DEKKET**. Kostnads-/prisskvisen på primærleddet er nå tallfestet og primærkilde-forankret (DRO-R6-N11, BFJ/NIBIO Totalkalkylen UT-1-2026 + Statens tilbud 2026), og verifisert ved uavhengig aritmetikk- og URL-kontroll 2026-06-29. **Gjenstår** før formell lukking: per-kg-margin etter kjøperprisavtale (Type B / aktørdata) og grønn `audit:citable`/`gate:overclaim` i miljø med DB. Analyseprosaen i §5–7 under er skrevet før denne oppdateringen og omtaler N11 som blindsone i sin opprinnelige ramme.
+> **Oppdatering 2026-06-29 (N11):** N11 er flyttet fra BLIND til **DELVIS DEKKET**. Kostnads-/prisskvisen på primærleddet er nå tallfestet og primærkilde-forankret (DRO-R6-N11, BFJ/NIBIO Totalkalkylen UT-1-2026 + Statens tilbud 2026), og verifisert ved uavhengig aritmetikk- og URL-kontroll 2026-06-29. `audit:citable` + `gate:overclaim` kjørt grønt 2026-06-29 (0 eksterne blokkere) — N11 er dermed formelt lukket på «delvis dekket». **Gjenstår** kun per-kg-margin etter kjøperprisavtale (Type B / aktørdata), en bevisst aktør-gate-avgrensning. Analyseprosaen i §5–7 under er skrevet før denne oppdateringen og omtaler N11 som blindsone i sin opprinnelige ramme.
 
 ## 5. Blindsonene plassert på modellen
 

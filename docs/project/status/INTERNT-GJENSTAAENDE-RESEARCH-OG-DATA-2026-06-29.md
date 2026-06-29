@@ -40,8 +40,8 @@ sin kanoniske kilde (R13-backlog / dekningsbok / mottakslogg), ikke bare her.
 
 **Research-sporet** har en strukturert backlog på **50 mål (runde 13)**, alle med status
 `planned`: 3 × P0, 34 × P1, 13 × P2. Fordelt på gate er det **24 source-shortlist,
-14 PCQ, 5 actor-gate, 4 forståelse, 3 internal**. I tillegg ligger **N11 bondemargin**
-som det vedtatte aktive spor-A-målet, og to bevisste **blindsoner** (etterspørsel N7,
+14 PCQ, 5 actor-gate, 4 forståelse, 3 internal**. I tillegg er **N11 bondemargin**
+(vedtatt spor-A-mål) nylig gate-lukket på «delvis dekket» (2026-06-29), og to bevisste **blindsoner** (etterspørsel N7,
 helse/true-cost N9) parkert mot en eventuell fase 2.
 
 **Datainnhentings-sporet** er styrt av MVK-dekningskartet: **17 områder**, hvorav
@@ -70,7 +70,7 @@ rekke **usikre universanslag** som selv må kildebelegges.
 
 ## 3. RESEARCH-SPORET
 
-### 3.1 Aktivt nå — N11 bondemargin (spor A)
+### 3.1 Nylig lukket (2026-06-29) — N11 bondemargin (spor A)
 
 - **Status:** igangsatt 18. juni som vedtatt neste spor-A-runde (objektivfunksjonen
   åpnet bondeøkonomi som blindsone). Spec ferdig; leveranse i `research/external/r6/`.
@@ -86,8 +86,9 @@ rekke **usikre universanslag** som selv må kildebelegges.
   systemmodell-noden (sto fortsatt «BLIND») og én nominell-tall-nit i deliverablen (51 100 → 51 000).
 - **Avgrensning:** kun NO denne runden; ingen aktørkontakt (bondeintervju markeres B);
   ingen policy-anbefalinger (kun tallgrunnlag).
-- **Neste:** kjør `audit:citable` + `gate:overclaim` i miljø med DB — eneste gjenstående
-  blokker før N11 regnes formelt lukket på «delvis dekket»-nivå. Per-kg-margin forblir Type B
+- **Gate kjørt grønt 2026-06-29:** `audit:citable` (alle håndhevede integritetssjekker bestått,
+  0 eksterne blokkere) + `gate:overclaim` (compute-coverage + audit:citable-reports rene).
+  **N11 er dermed formelt lukket på «delvis dekket»-nivå.** Per-kg-margin forblir Type B
   (aktør-gate), ikke en mangel ved denne runden.
 
 ### 3.2 R13-backloggen — 50 mål (alle `planned`)
@@ -302,8 +303,8 @@ kildebelegges før de brukes som nevner i dekning-%:
 
 ## 6. Prioritert rekkefølge (forslag — sekvensert mot H1 31.07 + oktober)
 
-1. **Lukk P0-ene** (R13-GAP-001, GAP-005, WASTE-001) + **gate-lukk N11** (verifisert
-   2026-06-29; gjenstår kun `audit:citable`/`gate:overclaim` i DB-miljø). Dette er
+1. **Lukk P0-ene** (R13-GAP-001, GAP-005, WASTE-001). **N11 er gate-lukket 2026-06-29**
+   (verifisert + `audit:citable`/`gate:overclaim` grønt) — ferdig som «delvis dekket». Dette er
    gap-closure som fjerner kjente svakheter i eksisterende materiale.
 2. **Fyll foredling-industri + resten av primærproduksjon** (data-sporet) — størst
    tomme univers, høyest strategisk vekt, kilde finnes (Brønnøysund).
@@ -339,19 +340,19 @@ kildebelegges før de brukes som nevner i dekning-%:
 
 ### 8.1 N11 — lukket eller ikke?
 
-**Anbefaling:** Behandle N11 som **delvis dekket, verifisert — men ikke formelt gate-lukket**.
-Verifikasjonspasset er kjørt (2026-06-29) og leveransen holder: alle 8 seksjoner, primærkilde-
-forankret, adversariell verifikasjon til stede, mottaksrad finnes, aritmetikk re-kjørt uavhengig
-og korrekt. Eneste gjenstående blokker er gate-kjøringen, som krever DB.
+**Anbefaling:** Behandle N11 som **formelt lukket på «delvis dekket»** (per 2026-06-29).
+Verifikasjonspasset er kjørt og leveransen holder: alle 8 seksjoner, primærkilde-forankret,
+adversariell verifikasjon til stede, mottaksrad finnes, aritmetikk re-kjørt uavhengig og korrekt.
+`audit:citable` + `gate:overclaim` er kjørt grønt — skvis-tallene er nå gate-bekreftet, ikke kun
+siterbar-kandidat.
 
-**Begrunnelse:** I tråd med anti-no-op-vakta — *verifisering er ikke fullføring*. Verifiseringen
-er nå gjort og bekreftet, så «delvis dekket» er et dekket (ikke gjettet) status. Men gate-grønt
-(`audit:citable`/`gate:overclaim`) er ennå ikke bevist; til det er kjørt er skvis-tallene
-«siterbar-kandidat», ikke gate-bekreftet. Per-kg-margin forblir bevisst Type B (aktør-gate) —
-det er en legitim avgrensning, ikke en åpen DoD-post.
+**Begrunnelse:** I tråd med anti-no-op-vakta — *verifisering er ikke fullføring*. Nå er begge ledd
+oppfylt: uavhengig adversariell verifikasjon **og** grønne gater. Per-kg-margin forblir bevisst
+Type B (aktør-gate) — en legitim avgrensning, ikke en åpen DoD-post.
 
-**Neste handling:** Kjør `audit:citable` + `gate:overclaim` i miljø med DB. Grønt → N11 formelt
-lukket på «delvis dekket». Systemmodell-node og nominell-tall-nit er allerede rettet (2026-06-29).
+**Neste handling:** Ingen for selve N11-runden. Per-kg-margin reaktiveres som Type B-oppgave bak
+actor-gaten (G1) når/hvis aktørkontakt åpnes. Systemmodell-node, nominell-tall-nit og gate-kjøring
+er gjort (2026-06-29).
 
 ### 8.2 Datasekvens — foredling-industri eller handel-dagligvare først?
 
@@ -415,7 +416,7 @@ merk dem eksplisitt «klar til PCQ ved scope-vedtak».
 
 | # | Spørsmål | Anbefaling |
 |---|---|---|
-| 1 | N11 lukket? | Verifisert «delvis dekket» (2026-06-29); gjenstår kun gate-kjøring i DB-miljø |
+| 1 | N11 lukket? | Ja — formelt lukket «delvis dekket» (2026-06-29: verifisert + gater grønne); per-kg-margin = Type B |
 | 2 | Datasekvens | Handel-dagligvare (rask seier) → så foredling-industri (hovedløft) |
 | 3 | R13-kjøring | Gate-drevet + priorisert; P0-PCQ først, så source-shortlist-fanout |
 | 4 | Universanslag | Lev med `lav`, men skjul %-en der nevner er myk; logg i datagap-atlas |
