@@ -87,6 +87,19 @@ async function main() {
   const weeksArg = process.argv.find(a => a.startsWith('--weeks='))
   const weeksBack = weeksArg ? parseInt(weeksArg.split('=')[1], 10) : 4
 
+  // Graceful skip: BarentsWatch is an optional external-API enrichment. When its
+  // credentials are not configured (e.g. missing secrets in CI), skip with a warning
+  // and exit 0 so a chained prod-sync (db:prod-sync / registers) can continue instead
+  // of hard-failing the whole run.
+  if (!dryRun && (!process.env.BARENTSWATCH_CLIENT_ID || !process.env.BARENTSWATCH_CLIENT_SECRET)) {
+    console.warn(
+      '[fiskehelse] skipper: mangler BARENTSWATCH_CLIENT_ID/SECRET. ' +
+        'Registrer API-client på https://www.barentswatch.no/minside/ (Mine applikasjoner, scope: api) ' +
+        'og sett dem som secrets for å importere fiskehelsedata.'
+    )
+    return
+  }
+
   const token = dryRun ? 'dry-run' : await getToken()
 
   const sites = await prisma.aquacultureSite.findMany({
