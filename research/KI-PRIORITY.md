@@ -1,15 +1,15 @@
 # KI-priority — Reports + Theses
 
 > Auto-generert av `scripts/compute-ki-priority.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T15:54:45.440Z
-> Totalt: **186** poster (108 rapporter + 78 avhandlinger)
+> Generert: 2026-07-01T02:08:50.743Z
+> Totalt: **208** poster (130 rapporter + 78 avhandlinger)
 
 ## Score-distribusjon
 
 | Score | Reports | Theses | Sum |
 |---|---:|---:|---:|
-| 5.0 | 86 | 58 | 144 |
-| 4.5 | 12 | 20 | 32 |
+| 5.0 | 105 | 58 | 163 |
+| 4.5 | 15 | 20 | 35 |
 | 4.0 | 2 | 0 | 2 |
 | 3.5 | 4 | 0 | 4 |
 | 3.0 | 3 | 0 | 3 |
@@ -33,22 +33,22 @@
 | 12 | 5.0 | report | bransje | external_report | 2025 | ASKO — Infrastruktur og Logistikkmakt |
 | 13 | 5.0 | report | bransje | external_report | 2025 | Dagligvarerapporten 2025 |
 | 14 | 5.0 | report | bransje | external_report | 2025 | NBS — Systemkritikk |
-| 15 | 5.0 | report | juridisk | external_report | 2025 | EUDR og norsk dagligvare |
-| 16 | 5.0 | report | akademia | external_report | 2025 | SIFO: Retail media og forbrukermakt |
-| 17 | 5.0 | report | akademia | external_report | 2025 | NHH/Foros: Vertikal integrasjon i media og dagligvare |
-| 18 | 5.0 | report | bransje | external_report | 2025 | Hagar plc — Management Report 2024/25 and Q4 Results |
-| 19 | 5.0 | report | juridisk | external_report | 2025 | Salling Group A/S erhvervelse af dele af Coop Danmark A/S (Konkurrencerådsafgøre |
-| 20 | 5.0 | report | akademia | external_report | 2025 | Analyse af Salling Group A/S og Coop Danmark A/S — Erhvervsøkonomisk metode |
-| 21 | 5.0 | report | offentlig | external_report | 2025 | Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 20 |
-| 22 | 5.0 | report | akademia | external_report | 2025 | Reducing food waste in the HORECA sector using AI-based waste tracking technolog |
-| 23 | 5.0 | report | bransje | external_report | 2025 | NorgesGruppen halvarsrapport H1 2025 |
-| 24 | 5.0 | report | konkurransetilsyn | external_report | 2025 | Konkurrensverket rapport 2025:5 — livsmedelsutredningen |
-| 25 | 5.0 | report | bransje | external_report | 2025 | Plantefonden — projekter og bevillinger 2023-2025 |
-| 26 | 5.0 | report | bransje | external_report | 2025 | Koebenhavns Madhus — maaltidstrategi og status |
-| 27 | 5.0 | thesis | master | external_report | 2025 | Analyse af Salling Group A/S og Coop Danmark A/S |
-| 28 | 5.0 | thesis | master | external_report | 2025 | Pass-through av ravarepriser for kakao- og kaffeprodukter |
-| 29 | 5.0 | thesis | phd | external_report | 2025 | Navigating a Transformative Governance Maze |
-| 30 | 5.0 | thesis | master | external_report | 2025 | Hybrid Supply Chain Models in Swedish Grocery Retail |
+| 15 | 5.0 | report | akademia | external_report | 2025 | Status of Danish imports of sustainable and deforestation- and conversion-free s |
+| 16 | 5.0 | report | offentlig | external_report | 2025 | Biogasstatus for 2024 |
+| 17 | 5.0 | report | offentlig | external_report | 2025 | Statens insatser for jordbrukets klimatomstallning |
+| 18 | 5.0 | report | offentlig | external_report | 2025 | Livsmedelsavfall i Sverige 2024 |
+| 19 | 5.0 | report | offentlig | external_report | 2025 | Livsmedelskonsumtion och näringsinnehåll 2024 |
+| 20 | 5.0 | report | offentlig | external_report | 2025 | Two per cent more biogas was produced in 2024 |
+| 21 | 5.0 | report | bransje | external_report | 2025 | Valio Sustainability Report 2024 |
+| 22 | 5.0 | report | juridisk | external_report | 2025 | EUDR og norsk dagligvare |
+| 23 | 5.0 | report | akademia | external_report | 2025 | SIFO: Retail media og forbrukermakt |
+| 24 | 5.0 | report | akademia | external_report | 2025 | NHH/Foros: Vertikal integrasjon i media og dagligvare |
+| 25 | 5.0 | report | bransje | external_report | 2025 | Hagar plc — Management Report 2024/25 and Q4 Results |
+| 26 | 5.0 | report | juridisk | external_report | 2025 | Salling Group A/S erhvervelse af dele af Coop Danmark A/S (Konkurrencerådsafgøre |
+| 27 | 5.0 | report | akademia | external_report | 2025 | Analyse af Salling Group A/S og Coop Danmark A/S — Erhvervsøkonomisk metode |
+| 28 | 5.0 | report | offentlig | external_report | 2025 | Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 20 |
+| 29 | 5.0 | report | akademia | external_report | 2025 | Reducing food waste in the HORECA sector using AI-based waste tracking technolog |
+| 30 | 5.0 | report | bransje | external_report | 2025 | NorgesGruppen halvarsrapport H1 2025 |
 
 ## Bunn 15 (deprioritert i KI-bruk)
 

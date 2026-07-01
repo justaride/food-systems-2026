@@ -1,7 +1,7 @@
 # HTML triage — research/ snapshots
 
 > Auto-generert av `scripts/triage-html.ts` — ikke rediger manuelt.
-> Generert: 2026-05-20T11:16:23.434Z
+> Generert: 2026-07-01T02:09:53.961Z
 > Totalt: **29** HTML-filer skannet (utelater `_plans/`, `_status/`, `intake/`)
 
 ## Klassifisering
@@ -60,4 +60,4 @@ _Ingen needs-md-extraction-filer funnet._
 
 - Lest første 100 KB per fil (rask heuristikk).
 - Filer >5 MB utelatt fra parsing: ingen
-- Krysset mot 3 HTML-referanser fra `Report.supportingSources[].documentPath` i `src/lib/data/reports.ts`.
+- Krysset mot 3 HTML-referanser fra `Report.supportingSources[].documentPath` i `prisma/seed-data/reports.ts`.
