@@ -204,6 +204,21 @@ export function RapporterContent({ reports }: { reports: ReportRow[] }) {
         </div>
       </div>
 
+      <div className="rounded-lg border border-emerald-200 bg-emerald-50/70 p-4">
+        <p className="text-sm font-semibold text-emerald-900">Statusrapport 10-dagers · 1. juli</p>
+        <p className="text-xs text-emerald-700 mt-1">
+          Status- og funnrapport (periode 18.–29. juni), oppdatert 1. juli 2026.
+        </p>
+        <div className="mt-2 flex flex-wrap gap-3 text-sm">
+          <Link
+            href="/rapporter/statusrapport-siden-10dager-2026-06-29"
+            className="inline-flex text-emerald-900 underline underline-offset-2 hover:text-emerald-950"
+          >
+            Se statusrapport 10-dagers (HTML)
+          </Link>
+        </div>
+      </div>
+
       <FilterChips items={categoryFilters} defaultValue="alle" onChange={setCategoryFilter} />
 
       {filtered.length === 0 ? (
