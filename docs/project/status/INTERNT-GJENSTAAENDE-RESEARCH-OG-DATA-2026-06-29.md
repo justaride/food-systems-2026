@@ -45,8 +45,8 @@ sin kanoniske kilde (R13-backlog / dekningsbok / mottakslogg), ikke bare her.
 helse/true-cost N9) parkert mot en eventuell fase 2.
 
 **Datainnhentings-sporet** er styrt av MVK-dekningskartet: **17 områder**, hvorav
-**12 fortsatt står på 0 %**, et par er delvis dekket (primærproduksjon 33 %,
-distribusjon-grossist 33 %, lokale-verdikjeder 19 %, regenerativ-praksis 10 %), og to
+**12 fortsatt står på 0 %**, et par er delvis dekket (primærproduksjon 11 %,
+distribusjon-grossist 17 %, lokale-verdikjeder 19 %, regenerativ-praksis 10 %), og to
 er godt dekket (innsatsfaktorer 95 %, matsvinn-sirkulær 73 %). I tillegg ligger en
 **etterkontroll-kø** på allerede importerte noder (havbruk/villfiske/grossist) og en
 rekke **usikre universanslag** som selv må kildebelegges.
@@ -213,14 +213,14 @@ Gate-koder: `PCQ` = primary-check queue, `source-shortlist` = kildekandidat-jakt
 
 ## 4. DATAINNHENTING-SPORET (MVK-dekning)
 
-### 4.1 Dekningskartet i tall (per 2026-06-27)
+### 4.1 Dekningskartet i tall (kanonisk kilde: `domene-profiles.json`, datagrunnlag #212)
 
 | Område | Kartlagt | Univers (anslag) | Dekning |
 |---|---:|---:|---:|
 | innsatsfaktorer | 76 | 80 | **95 %** |
 | matsvinn-sirkulær | 87 | 120 | **73 %** |
-| primærproduksjon | 40 | 120 | 33 % |
-| distribusjon-grossist | 20 | 60 | 33 % |
+| primærproduksjon | 40 | 350 | 11 % |
+| distribusjon-grossist | 20 | 120 | 17 % |
 | lokale-verdikjeder | 50 | 261 | 19 % |
 | regenerativ-praksis | 9 | 89 | 10 % |
 | foredling-industri | 0 | 140 | **0 %** |
@@ -242,7 +242,7 @@ Rangert etter strategisk vekt (resiliens/verdikjede) × størrelse × at vi har 
 1. **foredling-industri (0/140)** — størst tomt univers, og leddet der makten ligger
    oppstrøms (jf. 10-dagers-funn). Underområder: meieri, kjøtt/egg, korn/mølle/bakeri,
    frukt/grønt-foredling, drikke/bryggeri. Kilde: Brønnøysund + bransjeregistre.
-2. **primærproduksjon — resten (40/120)** — jordbruk-grønt, husdyr-beite,
+2. **primærproduksjon — resten (40/350)** — jordbruk-grønt, husdyr-beite,
    ville-ressurser/sanking, urban-dyrking står på 0 av delmål. Kjernen i spor 1
    («grow best what you can»).
 3. **handel-dagligvare (0/40)** — maktkartet finnes på konsernnivå, men MVK-cellen er
