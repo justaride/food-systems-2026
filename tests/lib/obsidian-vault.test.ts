@@ -11,6 +11,7 @@ import {
   buildStakeholderArtifacts,
   buildVaultExportArtifacts,
   buildGeneratedNote,
+  buildM2DraftSections,
   mergeGeneratedNote,
   noteFileName,
   validateInsightCandidateApprovalGate,
@@ -151,6 +152,49 @@ describe('obsidian vault sync helpers', () => {
         .filter((line) => /\s$/.test(line)),
       [],
     )
+  })
+
+  it('builds M2 draft sections with human approval gates and source-backed numbers', () => {
+    const sections = buildM2DraftSections()
+
+    const insightSections = sections.filter((section) =>
+      section.relPath.startsWith('10 Innsiktskart/Innsikter/'),
+    )
+    const actorSections = sections.filter((section) => section.relPath.startsWith('11 Maktkart/Selskaper/'))
+
+    assert.equal(new Set(insightSections.map((section) => section.relPath)).size, 6)
+    assert.equal(insightSections.length, 12)
+    assert.equal(insightSections.filter((section) => section.heading === '## Tallgrunnlag og forbehold').length, 6)
+    assert.equal(
+      insightSections.filter((section) => section.heading === '## M2 selvbærende utkast (krever godkjenning)').length,
+      6,
+    )
+    assert.equal(actorSections.length, 31)
+    assert.ok(sections.every((section) => section.body.some((line) => line.includes('Krever menneskelig godkjenning'))))
+
+    const i27 = sections.find((section) => section.relPath.endsWith('I27 Styreoverlappet peker på smale broer.md'))
+    assert.ok(i27)
+    assert.ok(i27.body.join('\n').includes('555 styreverv'))
+    assert.ok(i27.body.join('\n').includes('98 av 275 selskaper'))
+    assert.ok(
+      i27.body
+        .join('\n')
+        .includes('docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md'),
+    )
+
+    const i31 = sections.find((section) => section.relPath.endsWith('I31 Krysseie må leses som kontrollbaner.md'))
+    assert.ok(i31)
+    assert.ok(i31.body.join('\n').includes('183 av 275'))
+    assert.ok(i31.body.join('\n').includes('19 tverrsektorielle kontrollører'))
+
+    const i34 = sections.find((section) => section.relPath.endsWith('I34 Fem fokusområder gjør kartet handlingsrettet.md'))
+    assert.ok(i34)
+    assert.ok(i34.body.join('\n').includes('11/12'))
+
+    const norgesgruppen = sections.find((section) => section.relPath.endsWith('NorgesGruppen ASA.md'))
+    assert.ok(norgesgruppen)
+    assert.ok(norgesgruppen.body.join('\n').includes('39 selskaper'))
+    assert.ok(norgesgruppen.body.join('\n').includes('Posisjonstekst'))
   })
 
   it('creates stable note filenames for Nordic letters and slash aliases', () => {
@@ -2782,6 +2826,54 @@ describe('obsidian vault sync helpers', () => {
     const messages = validateVault(vault).issues.map((issue) => issue.message)
 
     assert.ok(messages.some((message) => message.includes('insight note must link at least one source note')))
+  })
+
+  it('requires approved M2 insight notes to be self-contained with key evidence', () => {
+    const vault = mkdtempSync(join(tmpdir(), 'food-vault-m2-self-contained-'))
+    mkdirSync(join(vault, '10 Innsiktskart', 'Innsikter'), { recursive: true })
+    mkdirSync(join(vault, '12 Kilder'), { recursive: true })
+    writeFileSync(
+      join(vault, '12 Kilder', 'Kilde – AP-1 styreoverlapp.md'),
+      buildGeneratedNote({
+        title: 'Kilde – AP-1 styreoverlapp',
+        frontmatter: {
+          type: 'kilde',
+          status: 'generert',
+          kilde: 'test',
+          siterbarhet: 'intern',
+        },
+        body: ['OK.'],
+      }),
+    )
+    writeFileSync(
+      join(vault, '10 Innsiktskart', 'Innsikter', 'I27 Styreoverlappet peker på smale broer.md'),
+      buildGeneratedNote({
+        title: 'I27 Styreoverlappet peker på smale broer',
+        frontmatter: {
+          type: 'innsikt',
+          status: 'utkast',
+          kilde: 'docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md',
+          siterbarhet: 'intern',
+        },
+        body: [
+          'Styreoverlappet peker på smale broer.',
+          '',
+          '## Kilde',
+          '',
+          '- [[Kilde – AP-1 styreoverlapp]]',
+        ],
+      }),
+    )
+
+    const messages = validateVault(vault).issues.map((issue) => `${issue.file}: ${issue.message}`)
+
+    assert.deepEqual(messages, [
+      '10 Innsiktskart/Innsikter/I27 Styreoverlappet peker på smale broer.md: M2 insight note must include ## Tallgrunnlag og forbehold',
+      '10 Innsiktskart/Innsikter/I27 Styreoverlappet peker på smale broer.md: M2 insight note is missing required evidence text: 555 styreverv',
+      '10 Innsiktskart/Innsikter/I27 Styreoverlappet peker på smale broer.md: M2 insight note is missing required evidence text: 32 interlockere',
+      '10 Innsiktskart/Innsikter/I27 Styreoverlappet peker på smale broer.md: M2 insight note is missing required evidence text: 11 tverrsektorielle broer',
+      '10 Innsiktskart/Innsikter/I27 Styreoverlappet peker på smale broer.md: M2 insight note is missing required evidence text: 98 av 275',
+    ])
   })
 
   it('can require pending I27+ candidates to stay out of the vault', () => {

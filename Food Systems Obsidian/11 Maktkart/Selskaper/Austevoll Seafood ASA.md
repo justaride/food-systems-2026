@@ -39,6 +39,15 @@ tier: kjerne
 
 - [[Maktkartet]]
 - [[Eierskapsregisteret]]
+
+## Posisjon i systemet (utkast, krever godkjenning)
+
+Krever menneskelig godkjenning: Codex-utkast for intern review; claim-lock og siterbarhet må godkjennes før ekstern bruk.
+
+Posisjonstekst: Austevoll Seafood er en sjømat- og havbruksrelatert eiernode som er relevant for å forstå hvordan marine verdikjeder kobles til kontroll- og ressursflyt. M2-teksten bør holde den som strukturell aktør, ikke som ferdig case om sirkularitet.
+
+Kilde: `content/hvitbok/03-fokusomraader.md`
+Review-ask: Godkjenn, juster eller dropp posisjonsteksten før den brukes som kuratert selskapsbeskrivelse.
 ## Notater
 
 _Utvikles gjennom prosjektet._

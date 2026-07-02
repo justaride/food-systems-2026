@@ -73,6 +73,15 @@ tier: kjerne
 
 - [[Maktkartet]]
 - [[Eierskapsregisteret]]
+
+## Posisjon i systemet (utkast, krever godkjenning)
+
+Krever menneskelig godkjenning: Codex-utkast for intern review; claim-lock og siterbarhet må godkjennes før ekstern bruk.
+
+Posisjonstekst: TINE er et samvirkebasert meierianker og en sentral foredlingsnode i kartet. I M2 bør noten forklare hvordan meieristrukturen berører både produsentøkonomi, industriell kapasitet og konkurransespørsmål, uten å overføre AP-5-konklusjoner til udokumenterte driftspåstander.
+
+Kilde: `docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md`
+Review-ask: Godkjenn, juster eller dropp posisjonsteksten før den brukes som kuratert selskapsbeskrivelse.
 ## Notater
 
 _Utvikles gjennom prosjektet._
