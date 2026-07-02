@@ -44,6 +44,19 @@ const REQUIRED_GRAPH_COLOR_GROUPS = [
 const DATAVIEW_QUERY_TYPES = new Set(['TABLE', 'LIST', 'TASK', 'CALENDAR'])
 const REQUIRED_OBSIDIAN_PLUGIN_RECOMMENDATIONS = ['Dataview', 'Breadcrumbs', 'Minimal Theme Settings'] as const
 const REQUIRED_OBSIDIAN_PRESENTATION_PLUGIN_ALTERNATIVES = ['Juggl', '3D Graph'] as const
+const REQUIRED_OBSIDIAN_M3_SETUP_TEXT = [
+  '## Presentasjonsvisninger',
+  'Beviskjeden',
+  'Styrenettverket (kjerne)',
+  'Sirkularitetsloopene per R-nivå',
+  '## Eksport til leveranser',
+  'docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
+  '## Visnings-QA',
+  'Kunnskapskart.canvas',
+  'Verdikjedekart.canvas',
+  'Maktkart.canvas',
+  'NorgesGruppen ASA.canvas',
+] as const
 const CORE_GRAPH_FILTER = [
   '-path:"0 Kart/Konsern"',
   '-path:"0 Kart/Kunnskapskart.canvas"',
@@ -1400,6 +1413,15 @@ function validateObsidianSetupNote(vaultPath: string, issues: VaultIssue[]) {
       file: setupPath,
       message: `missing required Obsidian presentation plugin recommendation ${REQUIRED_OBSIDIAN_PRESENTATION_PLUGIN_ALTERNATIVES.join(' or ')}`,
     })
+  }
+
+  for (const requiredText of REQUIRED_OBSIDIAN_M3_SETUP_TEXT) {
+    if (!source.includes(requiredText)) {
+      issues.push({
+        file: setupPath,
+        message: `missing M3 setup text ${requiredText}`,
+      })
+    }
   }
 }
 

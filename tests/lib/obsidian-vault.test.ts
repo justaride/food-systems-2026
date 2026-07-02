@@ -2972,6 +2972,49 @@ describe('obsidian vault sync helpers', () => {
     assert.ok(messages.includes('0 Kart/Oppsett.md: missing required Obsidian plugin recommendation Breadcrumbs'))
   })
 
+  it('requires the Obsidian setup note to keep the M3 presentation and export runbook', () => {
+    const vault = mkdtempSync(join(tmpdir(), 'food-vault-m3-runbook-'))
+    mkdirSync(join(vault, '0 Kart', 'Temakart'), { recursive: true })
+    mkdirSync(join(vault, '.obsidian', 'snippets'), { recursive: true })
+    writeFileSync(
+      join(vault, '0 Kart', 'Oppsett.md'),
+      [
+        '# Oppsett',
+        '',
+        '## Plugin-oppsett',
+        '',
+        '- Dataview — MOC-tabeller.',
+        '- Breadcrumbs — hierarki.',
+        '- Juggl eller 3D Graph — presentasjonsgraf.',
+        '- Minimal Theme Settings — roligere canvas-visning.',
+        '',
+      ].join('\n'),
+    )
+    writeFileSync(join(vault, '.obsidian', 'graph.json'), JSON.stringify({ colorGroups: [] }))
+    writeFileSync(join(vault, '.obsidian', 'snippets', 'kunnskapskart.css'), '/* ok */\n')
+    writeFileSync(join(vault, '0 Kart', 'Temakart', 'Sirkularitet.canvas'), '{"nodes":[],"edges":[]}\n')
+    writeFileSync(join(vault, '0 Kart', 'Temakart', 'Norden.canvas'), '{"nodes":[],"edges":[]}\n')
+
+    const messages = validateVault(vault, { requirePresentationAssets: true }).issues.map(
+      (issue) => `${issue.file}: ${issue.message}`,
+    )
+
+    assert.ok(messages.includes('0 Kart/Oppsett.md: missing M3 setup text ## Presentasjonsvisninger'))
+    assert.ok(messages.includes('0 Kart/Oppsett.md: missing M3 setup text Beviskjeden'))
+    assert.ok(messages.includes('0 Kart/Oppsett.md: missing M3 setup text Styrenettverket (kjerne)'))
+    assert.ok(messages.includes('0 Kart/Oppsett.md: missing M3 setup text ## Eksport til leveranser'))
+    assert.ok(
+      messages.includes(
+        '0 Kart/Oppsett.md: missing M3 setup text docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
+      ),
+    )
+    assert.ok(messages.includes('0 Kart/Oppsett.md: missing M3 setup text ## Visnings-QA'))
+    assert.ok(messages.includes('0 Kart/Oppsett.md: missing M3 setup text Kunnskapskart.canvas'))
+    assert.ok(messages.includes('0 Kart/Oppsett.md: missing M3 setup text Verdikjedekart.canvas'))
+    assert.ok(messages.includes('0 Kart/Oppsett.md: missing M3 setup text Maktkart.canvas'))
+    assert.ok(messages.includes('0 Kart/Oppsett.md: missing M3 setup text NorgesGruppen ASA.canvas'))
+  })
+
   it('validates the Obsidian CSS snippet syntax when presentation assets are required', () => {
     const vault = mkdtempSync(join(tmpdir(), 'food-vault-presentation-css-'))
     mkdirSync(join(vault, '0 Kart', 'Temakart'), { recursive: true })
