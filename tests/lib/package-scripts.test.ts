@@ -81,6 +81,7 @@ describe('package scripts', () => {
     assert.equal(packageJson.scripts['vault:check'], 'tsx scripts/obsidian-vault/sync.ts --check')
     assert.equal(packageJson.scripts['vault:export-db'], 'tsx scripts/obsidian-vault/export-db.ts')
     assert.equal(packageJson.scripts['vault:review-preflight'], 'tsx scripts/obsidian-vault/review-preflight.ts')
+    assert.equal(packageJson.scripts['vault:review-samples'], 'tsx scripts/obsidian-vault/review-samples.ts')
   })
 
   it('includes the I27+ approval gate in the default vault review preflight', () => {
@@ -104,6 +105,18 @@ describe('package scripts', () => {
     assert.ok(
       preflightSource.includes('validateMasterplanFrontmatterLinks'),
       'default review preflight must validate masterplan frontmatter related files',
+    )
+  })
+
+  it('runs the machine-checkable VK-5 sample validator in the default vault review preflight', () => {
+    const preflightSource = readFileSync(
+      join(process.cwd(), 'scripts', 'obsidian-vault', 'review-preflight.ts'),
+      'utf8',
+    )
+
+    assert.ok(
+      preflightSource.includes('validateReviewSamples'),
+      'default review preflight must validate machine-checkable VK-5 samples',
     )
   })
 })

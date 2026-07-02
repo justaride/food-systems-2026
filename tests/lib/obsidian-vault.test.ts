@@ -17,6 +17,7 @@ import {
   validateReferencedPaths,
   validateReviewPackageFrontmatterLinks,
   validateReviewProtocolDecisionGate,
+  validateReviewSamples,
   validateVault,
 } from '../../src/lib/obsidian-vault'
 
@@ -381,6 +382,273 @@ describe('obsidian vault sync helpers', () => {
         message: 'missing referenced repo/vault path `11 Maktkart/Mangler.md`',
       },
     ])
+  })
+
+  it('validates machine-checkable VK-5 review samples against vault export data', () => {
+    const repo = mkdtempSync(join(tmpdir(), 'food-vk5-review-samples-'))
+    mkdirSync(join(repo, 'data', 'vault-export'), { recursive: true })
+    mkdirSync(join(repo, 'docs', 'meetings'), { recursive: true })
+    mkdirSync(join(repo, 'research', 'landbrukarena_transcripts'), { recursive: true })
+    mkdirSync(join(repo, 'Food Systems Obsidian', '11 Maktkart', 'Selskaper'), { recursive: true })
+    mkdirSync(join(repo, 'Food Systems Obsidian', '12 Kilder'), { recursive: true })
+
+    const manifest = {
+      generatedAt: '2026-07-02T00:00:00.000Z',
+      source: 'scripts/obsidian-vault/export-db.ts',
+      counts: {
+        companies: 2,
+        ownershipEdges: 1,
+        boardMembers: 2,
+        businessRelationships: 0,
+        properties: 0,
+      },
+    }
+    const companies = [
+      {
+        id: 'ng',
+        name: 'NorgesGruppen ASA',
+        orgNr: '819731322',
+        legalForm: 'ASA',
+        country: 'NO',
+        valueChainStage: 'retail',
+        classification: 'family',
+        naceCode: '47.111',
+        naceDescription: 'Butikkhandel',
+        isResearchConstruct: false,
+      },
+      {
+        id: 'asko',
+        name: 'ASKO Norge AS',
+        orgNr: '929228723',
+        legalForm: 'AS',
+        country: 'NO',
+        valueChainStage: 'logistics',
+        classification: 'family',
+        naceCode: null,
+        naceDescription: null,
+        isResearchConstruct: false,
+      },
+    ]
+    const ownershipEdges = [
+      {
+        id: 'edge-1',
+        parentCompanyId: 'ng',
+        parentName: 'NorgesGruppen ASA',
+        childCompanyId: 'asko',
+        childName: 'ASKO Norge AS',
+        ownershipPct: 100,
+        ownershipType: 'subsidiary',
+        source: 'Brønnøysund',
+      },
+    ]
+    const boardMembers = [
+      {
+        id: 'board-1',
+        companyId: 'ng',
+        personName: 'Johan Johannson',
+        personKey: 'johan-johannson',
+        role: 'styreleder',
+        source: 'Brønnøysundregistrene roller i virksomheten',
+        verificationStatus: null,
+        companyName: 'NorgesGruppen ASA',
+      },
+      {
+        id: 'board-2',
+        companyId: 'asko',
+        personName: 'Johan Johannson',
+        personKey: 'johan-johannson',
+        role: 'styremedlem',
+        source: 'Brønnøysundregistrene roller i virksomheten',
+        verificationStatus: null,
+        companyName: 'ASKO Norge AS',
+      },
+    ]
+    writeFileSync(join(repo, 'data', 'vault-export', 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
+    writeFileSync(join(repo, 'data', 'vault-export', 'companies.json'), `${JSON.stringify(companies, null, 2)}\n`)
+    writeFileSync(
+      join(repo, 'data', 'vault-export', 'ownership-edges.json'),
+      `${JSON.stringify(ownershipEdges, null, 2)}\n`,
+    )
+    writeFileSync(
+      join(repo, 'data', 'vault-export', 'board-members.json'),
+      `${JSON.stringify(boardMembers, null, 2)}\n`,
+    )
+    writeFileSync(join(repo, 'docs', 'meetings', 'review.md'), '# Review\n')
+    writeFileSync(join(repo, 'research', 'landbrukarena_transcripts', 'sample.txt'), 'transcript\n')
+
+    writeFileSync(
+      join(repo, 'Food Systems Obsidian', '11 Maktkart', 'Selskaper', 'NorgesGruppen ASA.md'),
+      buildGeneratedNote({
+        title: 'NorgesGruppen ASA',
+        frontmatter: {
+          type: 'aktor',
+          status: 'generert',
+          kilde: 'data/vault-export/companies.json',
+          siterbarhet: 'intern',
+          orgnr: '819731322',
+        },
+        body: [
+          '## Basisdata',
+          '',
+          '- Orgnr: 819731322',
+          '- NACE: 47.111 — Butikkhandel',
+          '',
+          '## Eierskap',
+          '',
+          '- [[ASKO Norge AS]] — 100 % (subsidiary)',
+          '',
+          '## Styreverv',
+          '',
+          '- Johan Johannson — styreleder',
+        ],
+      }),
+    )
+    writeFileSync(
+      join(repo, 'Food Systems Obsidian', '11 Maktkart', 'Eierskapsregisteret.md'),
+      buildGeneratedNote({
+        title: 'Eierskapsregisteret',
+        frontmatter: {
+          type: 'seksjon',
+          status: 'generert',
+          kilde: 'data/vault-export/ownership-edges.json',
+          siterbarhet: 'intern',
+        },
+        body: [
+          '## Omfang',
+          '',
+          '- Selskaper: 2',
+          '- Eierskapskanter: 1',
+          '',
+          '## Kanter',
+          '',
+          '- [[NorgesGruppen ASA]] → [[ASKO Norge AS]] — 100 % (subsidiary) · kilde: Brønnøysund',
+        ],
+      }),
+    )
+    writeFileSync(
+      join(repo, 'Food Systems Obsidian', '11 Maktkart', 'Selskapsregister.md'),
+      buildGeneratedNote({
+        title: 'Selskapsregister',
+        frontmatter: {
+          type: 'aktor',
+          status: 'generert',
+          kilde: 'data/vault-export/companies.json',
+          siterbarhet: 'intern',
+        },
+        body: [
+          '## Omfang',
+          '',
+          '- Selskaper: 2',
+          '',
+          '## Selskaper',
+          '',
+          '- [[NorgesGruppen ASA]] — retail · family · 819731322',
+          '- [[ASKO Norge AS]] — logistics · family · 929228723',
+        ],
+      }),
+    )
+    writeFileSync(
+      join(repo, 'Food Systems Obsidian', '11 Maktkart', 'Selskaper', 'Selskapsmappe-register.md'),
+      buildGeneratedNote({
+        title: 'Selskapsmappe-register',
+        frontmatter: {
+          type: 'aktor',
+          status: 'generert',
+          kilde: 'scripts/obsidian-vault/sync.ts',
+          siterbarhet: 'intern',
+        },
+        body: ['## Omfang', '', '- Noder: 2', '', '## Noder', '', '- [[NorgesGruppen ASA]]', '- [[ASKO Norge AS]]'],
+      }),
+    )
+    writeFileSync(
+      join(repo, 'Food Systems Obsidian', '11 Maktkart', 'Personregister.md'),
+      buildGeneratedNote({
+        title: 'Personregister',
+        frontmatter: {
+          type: 'person',
+          status: 'generert',
+          kilde: 'data/vault-export/board-members.json',
+          siterbarhet: 'intern',
+        },
+        body: [
+          '## Interlockere',
+          '',
+          '- [[Johan Johannson]] — 2 verv',
+          '',
+          '⚠️ _Bruksregel (fra AP-1): «makt» betyr strukturell posisjon i styregrafen, ikke intensjon, samordning eller ulovlighet. Personnavn er offentlige rolledata, men aktørspesifikke formuleringer går gjennom claim-lock/PCQ før ekstern bruk._',
+        ],
+      }),
+    )
+    writeFileSync(
+      join(repo, 'Food Systems Obsidian', '12 Kilder', 'Møte- og transkriptregister.md'),
+      buildGeneratedNote({
+        title: 'Møte- og transkriptregister',
+        frontmatter: {
+          type: 'mote',
+          status: 'generert',
+          kilde: 'docs/meetings; research/landbrukarena_transcripts',
+          siterbarhet: 'intern',
+        },
+        body: [
+          '> Metadata-register for møter og transkripter. Fulltekst holdes i originalfilene.',
+          '',
+          '## Omfang',
+          '',
+          '- Møter: 1',
+          '- Transkripter: 1',
+          '',
+          '## Møter',
+          '',
+          '- [[review]] — `docs/meetings/review.md`',
+          '',
+          '## Transkripter',
+          '',
+          '- [[sample]] — `research/landbrukarena_transcripts/sample.txt`',
+        ],
+      }),
+    )
+
+    assert.deepEqual(validateReviewSamples(repo).issues, [])
+  })
+
+  it('reports VK-5 sample drift when a sampled export edge is missing from the vault note', () => {
+    const repo = mkdtempSync(join(tmpdir(), 'food-vk5-review-sample-drift-'))
+    mkdirSync(join(repo, 'data', 'vault-export'), { recursive: true })
+    mkdirSync(join(repo, 'Food Systems Obsidian', '11 Maktkart', 'Selskaper'), { recursive: true })
+    writeFileSync(
+      join(repo, 'data', 'vault-export', 'manifest.json'),
+      `${JSON.stringify({
+        counts: { companies: 1, ownershipEdges: 1, boardMembers: 0, businessRelationships: 0, properties: 0 },
+      })}\n`,
+    )
+    writeFileSync(
+      join(repo, 'data', 'vault-export', 'companies.json'),
+      `${JSON.stringify([{ id: 'ng', name: 'NorgesGruppen ASA', orgNr: '819731322' }])}\n`,
+    )
+    writeFileSync(
+      join(repo, 'data', 'vault-export', 'ownership-edges.json'),
+      `${JSON.stringify([
+        {
+          parentCompanyId: 'ng',
+          parentName: 'NorgesGruppen ASA',
+          childCompanyId: 'asko',
+          childName: 'ASKO Norge AS',
+          ownershipPct: 100,
+          ownershipType: 'subsidiary',
+          source: 'Brønnøysund',
+        },
+      ])}\n`,
+    )
+    writeFileSync(join(repo, 'data', 'vault-export', 'board-members.json'), '[]\n')
+    writeFileSync(join(repo, 'Food Systems Obsidian', '11 Maktkart', 'Selskaper', 'NorgesGruppen ASA.md'), '# NorgesGruppen ASA\n')
+
+    const messages = validateReviewSamples(repo).issues.map((issue) => `${issue.file}: ${issue.message}`)
+
+    assert.ok(
+      messages.includes(
+        'Food Systems Obsidian/11 Maktkart/Selskaper/NorgesGruppen ASA.md: missing sampled ownership child ASKO Norge AS from data/vault-export/ownership-edges.json',
+      ),
+    )
   })
 
   it('validates masterplan frontmatter related file targets', () => {

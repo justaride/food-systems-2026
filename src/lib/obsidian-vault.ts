@@ -264,6 +264,43 @@ type InsightCandidateApprovalRow = {
   status: string
 }
 
+type VaultExportCompanyReviewRow = {
+  id?: string
+  name: string
+  orgNr?: string
+  valueChainStage?: string | null
+  classification?: string | null
+  legalForm?: string | null
+}
+
+type VaultExportOwnershipReviewRow = {
+  parentCompanyId?: string
+  parentName: string
+  childCompanyId?: string
+  childName: string
+  ownershipPct: number | null
+  ownershipType?: string | null
+  source?: string | null
+}
+
+type VaultExportBoardReviewRow = {
+  companyId?: string
+  companyName: string
+  personName: string
+  personKey: string
+  role: string
+}
+
+type VaultExportManifestReview = {
+  counts?: {
+    companies?: number
+    ownershipEdges?: number
+    boardMembers?: number
+    businessRelationships?: number
+    properties?: number
+  }
+}
+
 export type VaultValidationOptions = {
   requirePresentationAssets?: boolean
   requireGapMissions?: boolean
@@ -1582,6 +1619,229 @@ export function validateReferencedPaths(
   return { issues }
 }
 
+export function validateReviewSamples(repoRoot: string, options: ReviewPreflightOptions = {}): { issues: VaultIssue[] } {
+  const vaultDirName = options.vaultDirName ?? 'Food Systems Obsidian'
+  const issues: VaultIssue[] = []
+  const manifest = readReviewJson<VaultExportManifestReview>(repoRoot, 'data/vault-export/manifest.json', issues)
+  const companies = readReviewJson<VaultExportCompanyReviewRow[]>(repoRoot, 'data/vault-export/companies.json', issues)
+  const ownershipEdges = readReviewJson<VaultExportOwnershipReviewRow[]>(
+    repoRoot,
+    'data/vault-export/ownership-edges.json',
+    issues,
+  )
+  const boardMembers = readReviewJson<VaultExportBoardReviewRow[]>(
+    repoRoot,
+    'data/vault-export/board-members.json',
+    issues,
+  )
+
+  const norgesGruppen = companies?.find((company) => company.name === 'NorgesGruppen ASA')
+  const norgesGruppenNotePath = join(vaultDirName, '11 Maktkart', 'Selskaper', 'NorgesGruppen ASA.md')
+  const norgesGruppenNote = readReviewText(repoRoot, norgesGruppenNotePath, issues)
+  if (norgesGruppen && norgesGruppenNote) {
+    requireReviewText(
+      norgesGruppenNotePath,
+      norgesGruppenNote,
+      norgesGruppen.orgNr ?? '',
+      'missing sampled orgnr 819731322 from data/vault-export/companies.json',
+      issues,
+    )
+    const childEdges =
+      ownershipEdges?.filter(
+        (edge) =>
+          (norgesGruppen.id && edge.parentCompanyId === norgesGruppen.id) || edge.parentName === norgesGruppen.name,
+      ) ?? []
+    for (const edge of childEdges) {
+      requireReviewText(
+        norgesGruppenNotePath,
+        norgesGruppenNote,
+        edge.childName,
+        `missing sampled ownership child ${edge.childName} from data/vault-export/ownership-edges.json`,
+        issues,
+      )
+      requireReviewText(
+        norgesGruppenNotePath,
+        norgesGruppenNote,
+        formatPct(edge.ownershipPct),
+        `missing sampled ownership percentage for ${edge.childName} from data/vault-export/ownership-edges.json`,
+        issues,
+      )
+      if (edge.ownershipType) {
+        requireReviewText(
+          norgesGruppenNotePath,
+          norgesGruppenNote,
+          edge.ownershipType,
+          `missing sampled ownership type for ${edge.childName} from data/vault-export/ownership-edges.json`,
+          issues,
+        )
+      }
+    }
+    const companyBoardMembers =
+      boardMembers?.filter(
+        (member) =>
+          (norgesGruppen.id && member.companyId === norgesGruppen.id) || member.companyName === norgesGruppen.name,
+      ) ?? []
+    for (const member of companyBoardMembers) {
+      requireReviewText(
+        norgesGruppenNotePath,
+        norgesGruppenNote,
+        member.personName,
+        `missing sampled board member ${member.personName} from data/vault-export/board-members.json`,
+        issues,
+      )
+      requireReviewText(
+        norgesGruppenNotePath,
+        norgesGruppenNote,
+        member.role,
+        `missing sampled board role ${member.role} for ${member.personName} from data/vault-export/board-members.json`,
+        issues,
+      )
+    }
+  } else if (companies) {
+    issues.push({
+      file: norgesGruppenNotePath,
+      message: 'missing sampled company NorgesGruppen ASA from data/vault-export/companies.json or vault note',
+    })
+  }
+
+  const ownershipRegisterPath = join(vaultDirName, '11 Maktkart', 'Eierskapsregisteret.md')
+  const ownershipRegister = readReviewText(repoRoot, ownershipRegisterPath, issues)
+  if (ownershipRegister && manifest?.counts) {
+    requireReviewText(
+      ownershipRegisterPath,
+      ownershipRegister,
+      `- Selskaper: ${manifest.counts.companies}`,
+      'missing manifest company count in ownership register',
+      issues,
+    )
+    requireReviewText(
+      ownershipRegisterPath,
+      ownershipRegister,
+      `- Eierskapskanter: ${manifest.counts.ownershipEdges}`,
+      'missing manifest ownership edge count in ownership register',
+      issues,
+    )
+  }
+  if (ownershipRegister && ownershipEdges) {
+    for (const edge of ownershipEdges) {
+      requireReviewText(
+        ownershipRegisterPath,
+        ownershipRegister,
+        edge.parentName,
+        `missing ownership edge parent ${edge.parentName} from data/vault-export/ownership-edges.json`,
+        issues,
+      )
+      requireReviewText(
+        ownershipRegisterPath,
+        ownershipRegister,
+        edge.childName,
+        `missing ownership edge child ${edge.childName} from data/vault-export/ownership-edges.json`,
+        issues,
+      )
+      requireReviewText(
+        ownershipRegisterPath,
+        ownershipRegister,
+        formatPct(edge.ownershipPct),
+        `missing ownership edge percentage for ${edge.parentName} -> ${edge.childName}`,
+        issues,
+      )
+    }
+  }
+
+  const companyRegisterPath = join(vaultDirName, '11 Maktkart', 'Selskapsregister.md')
+  const companyRegister = readReviewText(repoRoot, companyRegisterPath, issues)
+  if (companyRegister && manifest?.counts) {
+    requireReviewText(
+      companyRegisterPath,
+      companyRegister,
+      `- Selskaper: ${manifest.counts.companies}`,
+      'missing manifest company count in company register',
+      issues,
+    )
+  }
+  if (companyRegister && companies) {
+    for (const company of companies) {
+      requireReviewText(
+        companyRegisterPath,
+        companyRegister,
+        company.name,
+        `missing company register entry ${company.name} from data/vault-export/companies.json`,
+        issues,
+      )
+      requireReviewText(
+        companyRegisterPath,
+        companyRegister,
+        company.orgNr ?? '',
+        `missing company register orgnr for ${company.name} from data/vault-export/companies.json`,
+        issues,
+      )
+    }
+  }
+
+  const companyFolderRegisterPath = join(vaultDirName, '11 Maktkart', 'Selskaper', 'Selskapsmappe-register.md')
+  const companyFolderRegister = readReviewText(repoRoot, companyFolderRegisterPath, issues)
+  if (companyFolderRegister && companies) {
+    for (const company of companies) {
+      requireReviewText(
+        companyFolderRegisterPath,
+        companyFolderRegister,
+        company.name,
+        `missing company folder register entry ${company.name}`,
+        issues,
+      )
+    }
+  }
+
+  const personRegisterPath = join(vaultDirName, '11 Maktkart', 'Personregister.md')
+  const personRegister = readReviewText(repoRoot, personRegisterPath, issues)
+  if (personRegister) {
+    requireReviewText(personRegisterPath, personRegister, AP1_USAGE_RULE, 'missing AP-1 usage rule in person register', issues)
+  }
+  if (personRegister && boardMembers) {
+    const rolesByPerson = groupBy(boardMembers, (member) => member.personKey)
+    for (const roles of rolesByPerson.values()) {
+      if (roles.length < 2) continue
+      const personName = roles[0].personName
+      requireReviewText(
+        personRegisterPath,
+        personRegister,
+        personName,
+        `missing interlocker ${personName} from data/vault-export/board-members.json`,
+        issues,
+      )
+      requireReviewText(
+        personRegisterPath,
+        personRegister,
+        `${roles.length} verv`,
+        `missing interlocker role count for ${personName}`,
+        issues,
+      )
+    }
+  }
+
+  const meetingRegisterPath = join(vaultDirName, '12 Kilder', 'Møte- og transkriptregister.md')
+  const meetingRegister = readReviewText(repoRoot, meetingRegisterPath, issues)
+  if (meetingRegister) {
+    requireReviewText(
+      meetingRegisterPath,
+      meetingRegister,
+      'Fulltekst holdes i originalfilene',
+      'missing metadata-only fulltext boundary in meeting/transcript register',
+      issues,
+    )
+    for (const referencedPath of extractBacktickPathReferences(meetingRegister)) {
+      if (!existsSync(join(repoRoot, referencedPath))) {
+        issues.push({
+          file: meetingRegisterPath,
+          message: `missing meeting/transcript source path \`${referencedPath}\``,
+        })
+      }
+    }
+  }
+
+  return { issues }
+}
+
 export function validateInsightCandidateApprovalGate(repoRoot: string): { issues: VaultIssue[] } {
   const issues: VaultIssue[] = []
   const absolutePath = join(repoRoot, INSIGHT_CANDIDATE_GATE_PATH)
@@ -2144,6 +2404,43 @@ function parseFrontmatter(source: string): { frontmatter: Record<string, string>
   }
 
   return { frontmatter, body: source.slice(end + 5) }
+}
+
+function readReviewText(repoRoot: string, file: string, issues: VaultIssue[]): string | null {
+  const absolutePath = join(repoRoot, file)
+  if (!existsSync(absolutePath)) {
+    issues.push({ file, message: 'missing VK-5 review sample file' })
+    return null
+  }
+
+  return readFileSync(absolutePath, 'utf8')
+}
+
+function readReviewJson<T>(repoRoot: string, file: string, issues: VaultIssue[]): T | null {
+  const source = readReviewText(repoRoot, file, issues)
+  if (source === null) return null
+
+  try {
+    return JSON.parse(source) as T
+  } catch (error) {
+    issues.push({
+      file,
+      message: `invalid JSON for VK-5 review sample: ${error instanceof Error ? error.message : String(error)}`,
+    })
+    return null
+  }
+}
+
+function requireReviewText(
+  file: string,
+  source: string,
+  expected: string,
+  message: string,
+  issues: VaultIssue[],
+): void {
+  if (expected && !source.includes(expected)) {
+    issues.push({ file, message })
+  }
 }
 
 function extractBacktickPathReferences(source: string): string[] {

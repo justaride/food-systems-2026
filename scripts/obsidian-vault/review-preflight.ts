@@ -5,6 +5,7 @@ import {
   validateReferencedPaths,
   validateReviewPackageFrontmatterLinks,
   validateReviewProtocolDecisionGate,
+  validateReviewSamples,
 } from '../../src/lib/obsidian-vault'
 
 const repoRoot = process.cwd()
@@ -25,6 +26,7 @@ const result = {
     ...validateReviewProtocolDecisionGate(repoRoot).issues,
     ...validateReviewPackageFrontmatterLinks(repoRoot).issues,
     ...validateMasterplanFrontmatterLinks(repoRoot).issues,
+    ...validateReviewSamples(repoRoot).issues,
   ],
 }
 
