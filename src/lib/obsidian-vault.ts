@@ -1537,13 +1537,21 @@ function validatePendingInsightCandidateGate(vaultPath: string, markdownFiles: s
     return
   }
 
-  const pendingIds = parsePendingInsightCandidateIds(readFileSync(candidatePath, 'utf8'))
-  if (pendingIds.size === 0) return
+  const source = readFileSync(candidatePath, 'utf8')
+  const candidateRows = parseInsightCandidateRows(source)
+  const pendingIds = parsePendingInsightCandidateIds(source)
 
   for (const file of markdownFiles) {
     const rel = relative(vaultPath, file)
     if (!rel.startsWith(join('10 Innsiktskart', 'Innsikter') + '/')) continue
     const title = basename(file, '.md')
+    const insightId = /^I\d{2,}(?:\b|\s)/.exec(title)?.[0].trim()
+    if (insightId && Number.parseInt(insightId.slice(1), 10) >= 27 && !candidateRows.has(insightId)) {
+      issues.push({
+        file: rel,
+        message: `insight candidate ${insightId} must have an approval row before generation`,
+      })
+    }
     const pendingId = [...pendingIds].find((id) => new RegExp(`^${escapeRegExp(id)}(?:\\b|\\s)`).test(title))
     if (pendingId) {
       issues.push({

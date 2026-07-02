@@ -3079,6 +3079,60 @@ describe('obsidian vault sync helpers', () => {
     ])
   })
 
+  it('requires future I39+ insight notes to have an approval gate row', () => {
+    const repo = mkdtempSync(join(tmpdir(), 'food-vault-i39-gate-'))
+    const vault = join(repo, 'Food Systems Obsidian')
+    mkdirSync(join(vault, '10 Innsiktskart', 'Innsikter'), { recursive: true })
+    mkdirSync(join(vault, '12 Kilder'), { recursive: true })
+    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-i27-kandidatgodkjenning-2026-07-02.md'),
+      [
+        '| Foreslått ID | Arbeidstittel | Kildegrunnlag | Hvorfor kandidat | Status |',
+        '|---|---|---|---|---|',
+        ...Array.from(
+          { length: 12 },
+          (_, index) => `| I${index + 27} | Kandidat | \`docs/source.md\` | Test | godkjenn med endring |`,
+        ),
+        '',
+      ].join('\n'),
+    )
+    writeFileSync(
+      join(vault, '12 Kilder', 'Kilde.md'),
+      buildGeneratedNote({
+        title: 'Kilde',
+        frontmatter: {
+          type: 'kilde',
+          status: 'generert',
+          kilde: 'test',
+          siterbarhet: 'intern',
+        },
+        body: ['OK.'],
+      }),
+    )
+    writeFileSync(
+      join(vault, '10 Innsiktskart', 'Innsikter', 'I39 Ny innsikt.md'),
+      buildGeneratedNote({
+        title: 'I39 Ny innsikt',
+        frontmatter: {
+          type: 'innsikt',
+          status: 'generert',
+          kilde: 'test',
+          siterbarhet: 'intern',
+        },
+        body: ['Se [[Kilde]].'],
+      }),
+    )
+
+    const messages = validateVault(vault, { requireInsightCandidateGate: true }).issues.map(
+      (issue) => `${issue.file}: ${issue.message}`,
+    )
+
+    assert.deepEqual(messages, [
+      '10 Innsiktskart/Innsikter/I39 Ny innsikt.md: insight candidate I39 must have an approval row before generation',
+    ])
+  })
+
   it('can require presentation assets for the complete vault', () => {
     const vault = mkdtempSync(join(tmpdir(), 'food-vault-presentation-assets-'))
     mkdirSync(join(vault, '0 Kart'), { recursive: true })
