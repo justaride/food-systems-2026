@@ -1,0 +1,105 @@
+{
+  "nodes": [
+    {
+      "id": "cmq8ri3xy000dr2vm56jteena",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/REITAN AS (NO-REITAN-HOLD).md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3xy000cr2vmt80ql5ns",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Reitan Eiendom AS (NO-REITAN-EIE).md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3y2000ir2vmes7pk50b",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Christiania Areal AS.md",
+      "x": 720,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3xz000er2vmwu3ckdra",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/E C Dahls Eiendom AS.md",
+      "x": 720,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3y1000gr2vm6kxubjv4",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/REBUS Handelseiendom AS.md",
+      "x": 720,
+      "y": 640,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3y2000hr2vmatlbtwvw",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/REBUS Utvikling AS.md",
+      "x": 1080,
+      "y": 800,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3y0000fr2vmottxw7af",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/RELOG AS.md",
+      "x": 720,
+      "y": 960,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmq8ri3xy000dr2vm56jteena-cmq8ri3xy000cr2vmt80ql5ns",
+      "fromNode": "cmq8ri3xy000dr2vm56jteena",
+      "toNode": "cmq8ri3xy000cr2vmt80ql5ns",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri3xy000cr2vmt80ql5ns-cmq8ri3y2000ir2vmes7pk50b",
+      "fromNode": "cmq8ri3xy000cr2vmt80ql5ns",
+      "toNode": "cmq8ri3y2000ir2vmes7pk50b",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri3xy000cr2vmt80ql5ns-cmq8ri3xz000er2vmwu3ckdra",
+      "fromNode": "cmq8ri3xy000cr2vmt80ql5ns",
+      "toNode": "cmq8ri3xz000er2vmwu3ckdra",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri3xy000cr2vmt80ql5ns-cmq8ri3y1000gr2vm6kxubjv4",
+      "fromNode": "cmq8ri3xy000cr2vmt80ql5ns",
+      "toNode": "cmq8ri3y1000gr2vm6kxubjv4",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri3y1000gr2vm6kxubjv4-cmq8ri3y2000hr2vmatlbtwvw",
+      "fromNode": "cmq8ri3y1000gr2vm6kxubjv4",
+      "toNode": "cmq8ri3y2000hr2vmatlbtwvw",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri3xy000cr2vmt80ql5ns-cmq8ri3y0000fr2vmottxw7af",
+      "fromNode": "cmq8ri3xy000cr2vmt80ql5ns",
+      "toNode": "cmq8ri3y0000fr2vmottxw7af",
+      "label": "100 %"
+    }
+  ]
+}

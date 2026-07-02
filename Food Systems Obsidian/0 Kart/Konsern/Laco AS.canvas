@@ -1,0 +1,150 @@
+{
+  "nodes": [
+    {
+      "id": "cmq8ri2bp0000klvmewgbvqm7",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Laco AS.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xytb8009pxrvmjdg1chp6",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Austevoll Seafood ASA.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xyt620066xrvmjffvu35l",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Lerøy Seafood Group ASA.md",
+      "x": 720,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri1y70000jmvm67a2av65",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Hallvard Leroey AS.md",
+      "x": 1080,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri1yn0001jmvmd3phc5go",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Leroey Aurora AS.md",
+      "x": 1080,
+      "y": 640,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri1yp0004jmvmsqr3r2r5",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Leroey Havfisk AS.md",
+      "x": 1080,
+      "y": 800,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri1yo0002jmvm6jp04sdg",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Leroey Midt AS.md",
+      "x": 1080,
+      "y": 960,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri1yq0005jmvmm747m598",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Leroey Norway Seafoods AS.md",
+      "x": 1080,
+      "y": 1120,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri1yo0003jmvmysbnoj5j",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Leroey Vest AS.md",
+      "x": 1080,
+      "y": 1280,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri1yr0006jmvmarnyej1l",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Sjoetroll AS.md",
+      "x": 1440,
+      "y": 1440,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmq8ri2bp0000klvmewgbvqm7-cmp8xytb8009pxrvmjdg1chp6",
+      "fromNode": "cmq8ri2bp0000klvmewgbvqm7",
+      "toNode": "cmp8xytb8009pxrvmjdg1chp6",
+      "label": "55.55 %"
+    },
+    {
+      "id": "cmp8xytb8009pxrvmjdg1chp6-cmp8xyt620066xrvmjffvu35l",
+      "fromNode": "cmp8xytb8009pxrvmjdg1chp6",
+      "toNode": "cmp8xyt620066xrvmjffvu35l",
+      "label": "52.70 %"
+    },
+    {
+      "id": "cmp8xyt620066xrvmjffvu35l-cmq8ri1y70000jmvm67a2av65",
+      "fromNode": "cmp8xyt620066xrvmjffvu35l",
+      "toNode": "cmq8ri1y70000jmvm67a2av65",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt620066xrvmjffvu35l-cmq8ri1yn0001jmvmd3phc5go",
+      "fromNode": "cmp8xyt620066xrvmjffvu35l",
+      "toNode": "cmq8ri1yn0001jmvmd3phc5go",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt620066xrvmjffvu35l-cmq8ri1yp0004jmvmsqr3r2r5",
+      "fromNode": "cmp8xyt620066xrvmjffvu35l",
+      "toNode": "cmq8ri1yp0004jmvmsqr3r2r5",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt620066xrvmjffvu35l-cmq8ri1yo0002jmvm6jp04sdg",
+      "fromNode": "cmp8xyt620066xrvmjffvu35l",
+      "toNode": "cmq8ri1yo0002jmvm6jp04sdg",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt620066xrvmjffvu35l-cmq8ri1yq0005jmvmm747m598",
+      "fromNode": "cmp8xyt620066xrvmjffvu35l",
+      "toNode": "cmq8ri1yq0005jmvmm747m598",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt620066xrvmjffvu35l-cmq8ri1yo0003jmvmysbnoj5j",
+      "fromNode": "cmp8xyt620066xrvmjffvu35l",
+      "toNode": "cmq8ri1yo0003jmvmysbnoj5j",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri1yo0003jmvmysbnoj5j-cmq8ri1yr0006jmvmarnyej1l",
+      "fromNode": "cmq8ri1yo0003jmvmysbnoj5j",
+      "toNode": "cmq8ri1yr0006jmvmarnyej1l",
+      "label": "100 %"
+    }
+  ]
+}

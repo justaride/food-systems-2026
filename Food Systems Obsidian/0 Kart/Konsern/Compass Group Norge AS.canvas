@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    {
+      "id": "cmq8ri3ht0003njvmtt7rw5my",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Compass Group Norge AS.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3hz000anjvm88jmys6q",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/4Service Gruppen AS.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmq8ri3ht0003njvmtt7rw5my-cmq8ri3hz000anjvm88jmys6q",
+      "fromNode": "cmq8ri3ht0003njvmtt7rw5my",
+      "toNode": "cmq8ri3hz000anjvm88jmys6q",
+      "label": "100 %"
+    }
+  ]
+}

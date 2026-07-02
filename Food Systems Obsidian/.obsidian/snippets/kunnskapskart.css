@@ -1,0 +1,69 @@
+/* Food Systems 2026 kunnskapskart */
+
+.metadata-property[data-property-key="type"] .metadata-property-value,
+.metadata-property[data-property-key="status"] .metadata-property-value,
+.metadata-property[data-property-key="siterbarhet"] .metadata-property-value {
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.86em;
+  font-weight: 600;
+}
+
+.metadata-property[data-property-key="type"] .metadata-property-value {
+  background: rgba(21, 128, 61, 0.12);
+  color: #166534;
+}
+
+.metadata-property[data-property-key="siterbarhet"] .metadata-property-value {
+  background: rgba(180, 83, 9, 0.12);
+  color: #92400e;
+}
+
+.metadata-property[data-property-key="status"] .metadata-property-value {
+  background: rgba(51, 65, 85, 0.1);
+  color: #334155;
+}
+
+.tag[href="#innsikt"],
+.tag[href="#loop"],
+.tag[href="#gap"],
+.tag[href="#norden"],
+.tag[href="#person"] {
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-weight: 650;
+}
+
+.tag[href="#innsikt"] {
+  background: rgba(219, 39, 119, 0.14);
+  color: #be185d;
+}
+
+.tag[href="#loop"] {
+  background: rgba(8, 145, 178, 0.14);
+  color: #0e7490;
+}
+
+.tag[href="#gap"] {
+  background: rgba(234, 88, 12, 0.14);
+  color: #c2410c;
+}
+
+.tag[href="#norden"] {
+  background: rgba(124, 58, 237, 0.14);
+  color: #6d28d9;
+}
+
+.tag[href="#person"] {
+  background: rgba(202, 138, 4, 0.18);
+  color: #a16207;
+}
+
+.canvas-node-content {
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.canvas-node-label {
+  font-weight: 650;
+}

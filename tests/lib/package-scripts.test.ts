@@ -71,4 +71,65 @@ describe('package scripts', () => {
       'execution plan must point to the single post-merge verification command',
     )
   })
+
+  it('exposes vault sync and check commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+
+    assert.equal(packageJson.scripts['vault:sync'], 'tsx scripts/obsidian-vault/sync.ts')
+    assert.equal(packageJson.scripts['vault:check'], 'tsx scripts/obsidian-vault/sync.ts --check')
+    assert.equal(packageJson.scripts['vault:export-db'], 'tsx scripts/obsidian-vault/export-db.ts')
+    assert.equal(packageJson.scripts['vault:review-preflight'], 'tsx scripts/obsidian-vault/review-preflight.ts')
+    assert.equal(packageJson.scripts['vault:review-samples'], 'tsx scripts/obsidian-vault/review-samples.ts')
+    assert.equal(packageJson.scripts['vault:review-closeout'], 'tsx scripts/obsidian-vault/review-closeout.ts')
+  })
+
+  it('includes the I27+ approval gate in the default vault review preflight', () => {
+    const preflightSource = readFileSync(
+      join(process.cwd(), 'scripts', 'obsidian-vault', 'review-preflight.ts'),
+      'utf8',
+    )
+
+    assert.ok(
+      preflightSource.includes('docs/project/plans/obsidian-i27-kandidatgodkjenning-2026-07-02.md'),
+      'default review preflight must path-check the I27+ candidate approval gate',
+    )
+  })
+
+  it('runs the masterplan related-file validator in the default vault review preflight', () => {
+    const preflightSource = readFileSync(
+      join(process.cwd(), 'scripts', 'obsidian-vault', 'review-preflight.ts'),
+      'utf8',
+    )
+
+    assert.ok(
+      preflightSource.includes('validateMasterplanFrontmatterLinks'),
+      'default review preflight must validate masterplan frontmatter related files',
+    )
+  })
+
+  it('runs the machine-checkable VK-5 sample validator in the default vault review preflight', () => {
+    const preflightSource = readFileSync(
+      join(process.cwd(), 'scripts', 'obsidian-vault', 'review-preflight.ts'),
+      'utf8',
+    )
+
+    assert.ok(
+      preflightSource.includes('validateReviewSamples'),
+      'default review preflight must validate machine-checkable VK-5 samples',
+    )
+  })
+
+  it('exposes VK-5 review closeout as a separate final gate', () => {
+    const closeoutSource = readFileSync(
+      join(process.cwd(), 'scripts', 'obsidian-vault', 'review-closeout.ts'),
+      'utf8',
+    )
+
+    assert.ok(
+      closeoutSource.includes('validateReviewCloseout'),
+      'review closeout script must use the dedicated final closeout validator',
+    )
+  })
 })

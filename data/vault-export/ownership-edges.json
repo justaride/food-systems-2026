@@ -1,0 +1,1602 @@
+[
+  {
+    "id": "cmq8rhy1500139dvm5tsdxwno",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhxzt00019dvm8ezatn5k",
+    "childName": "ASKO Vest AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1600149dvmwzx8ldac",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhxzu00029dvm6d47qmtc",
+    "childName": "ASKO Hedmark AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1700159dvmk0n89jwg",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhxzv00039dvm40ykw0gr",
+    "childName": "ASKO Rogaland AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1700169dvm3nvjqipq",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhxzw00049dvm7vhq896z",
+    "childName": "ASKO Midt-Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1800179dvmtrsruxgb",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhy04000a9dvmfdzk04tf",
+    "childName": "ASKO Agder AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1900189dvm9paby9qv",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhy05000b9dvmnq8brmtv",
+    "childName": "ASKO Vestfold Telemark AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1a00199dvmh2witgnc",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhy05000c9dvmitjheub0",
+    "childName": "ASKO Oest AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1b001a9dvmrqadxlsc",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhy06000d9dvmtlg6rve3",
+    "childName": "ASKO Nord AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1c001b9dvmbrjhocmu",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhy06000e9dvmlz3hizcg",
+    "childName": "ASKO Molde AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1d001c9dvm1h3v6290",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhy07000f9dvmz4r2n1jy",
+    "childName": "ASKO Transport AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1d001d9dvmshiau877",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhy08000g9dvm5xj0r8ce",
+    "childName": "ASKO Maritime AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1e001e9dvmfndx55jx",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhy09000h9dvmzs4otqot",
+    "childName": "ASKO Fornybar AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1f001f9dvm8x7uy711",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhy0a000i9dvmifw8vyzk",
+    "childName": "ASKO Mat AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1g001g9dvmgyc1u368",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhy0a000j9dvmn0dzipbs",
+    "childName": "ASKO Bygg Vestby AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhy1300129dvm66v4k1nu",
+    "parentCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "parentName": "ASKO Norge AS",
+    "childCompanyId": "cmq8rhxze00009dvmsw5qqkay",
+    "childName": "ASKO Oslofjord AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmp8xyxmk003mywvm9gnhby28",
+    "parentCompanyId": "cmp8xytb8009pxrvmjdg1chp6",
+    "parentName": "Austevoll Seafood ASA",
+    "childCompanyId": "cmp8xyt620066xrvmjffvu35l",
+    "childName": "Lerøy Seafood Group ASA",
+    "ownershipPct": 52.7,
+    "ownershipType": "subsidiary",
+    "source": "Austevoll Seafood årsrapport 2024"
+  },
+  {
+    "id": "cmq8ri3zp0022r2vm418sytbp",
+    "parentCompanyId": "cmq8ri3yv001kr2vmy6zja76p",
+    "parentName": "Avisomo AS",
+    "childCompanyId": "cmq8ri3yw001lr2vmfsk8dpp3",
+    "childName": "Himmelgroent AS",
+    "ownershipPct": 50,
+    "ownershipType": "joint-venture",
+    "source": "Himmelgroent founding 2023"
+  },
+  {
+    "id": "cmq8ri4d8000jsxvmh6exs2qp",
+    "parentCompanyId": "cmq8ri4c50000sxvmrlp0ze1h",
+    "parentName": "Axel Johnson AB",
+    "childCompanyId": "cmp8xytcn00b3xrvm9e2orzrs",
+    "childName": "Axfood AB",
+    "ownershipPct": 50.1,
+    "ownershipType": "subsidiary",
+    "source": "Axel Johnson AB arsredovisning 2024. Axel Johnson har bestammande inflytande."
+  },
+  {
+    "id": "cmq8ri4d9000ksxvmm2qdinsp",
+    "parentCompanyId": "cmq8ri4c50000sxvmrlp0ze1h",
+    "parentName": "Axel Johnson AB",
+    "childCompanyId": "cmq8ri3i3000enjvmrh90cw5m",
+    "childName": "Martin & Servera AB",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Axel Johnson AB arsredovisning 2024"
+  },
+  {
+    "id": "cmq8rm2ba0022pvvmfehfvbck",
+    "parentCompanyId": "cmq8ri4c50000sxvmrlp0ze1h",
+    "parentName": "Axel Johnson AB",
+    "childCompanyId": "cmq8ri3yc000ur2vmez0e9vlt",
+    "childName": "Martin & Servera AB",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Axel Johnson portfolio"
+  },
+  {
+    "id": "cmp8xytwq0006y6vmu7tgk6t1",
+    "parentCompanyId": "cmp8xytcn00b3xrvm9e2orzrs",
+    "parentName": "Axfood AB",
+    "childCompanyId": "cmp8xytc600ajxrvm9rqvviqe",
+    "childName": "City Gross Sverige AB",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Axfood Pressrelease 2024-10-29"
+  },
+  {
+    "id": "cmq8ri4d3000fsxvme83ci5v5",
+    "parentCompanyId": "cmp8xytcn00b3xrvm9e2orzrs",
+    "parentName": "Axfood AB",
+    "childCompanyId": "cmq8ri4cl0003sxvmvwmmz64f",
+    "childName": "Willys AB",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Axfood Arsredovisning 2024"
+  },
+  {
+    "id": "cmq8ri4d4000gsxvmm7pkjrsz",
+    "parentCompanyId": "cmp8xytcn00b3xrvm9e2orzrs",
+    "parentName": "Axfood AB",
+    "childCompanyId": "cmq8ri4cm0004sxvmgbr0s17n",
+    "childName": "Hemkop AB",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Axfood Arsredovisning 2024"
+  },
+  {
+    "id": "cmq8ri4d5000hsxvmix1pmwr6",
+    "parentCompanyId": "cmp8xytcn00b3xrvm9e2orzrs",
+    "parentName": "Axfood AB",
+    "childCompanyId": "cmq8ri4cm0005sxvm766vav85",
+    "childName": "Dagab Inköp & Logistik AB",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Axfood Arsredovisning 2024"
+  },
+  {
+    "id": "cmq8ri4d6000isxvmqcucbzog",
+    "parentCompanyId": "cmp8xytcn00b3xrvm9e2orzrs",
+    "parentName": "Axfood AB",
+    "childCompanyId": "cmq8ri4cn0006sxvmpokqwapx",
+    "childName": "Axfood Snabbgross AB",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Axfood Arsredovisning 2024"
+  },
+  {
+    "id": "cmq8ri2qv000pllvmqwsgvjmm",
+    "parentCompanyId": "cmq8ri2q20005llvm8m8m5cei",
+    "parentName": "BAMA Blomster Holding AS",
+    "childCompanyId": "cmq8ri2q30006llvm7cehoe6a",
+    "childName": "BAMA Blomster Sourcing AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "BAMA Gruppen / Broennoysund 2024"
+  },
+  {
+    "id": "cmq8ri2qp000jllvmpxqhqpff",
+    "parentCompanyId": "cmp8xyt4t004sxrvm7b86awqx",
+    "parentName": "BAMA Gruppen AS",
+    "childCompanyId": "cmq8ri2pi0000llvmqneas7ct",
+    "childName": "BAMA Industri AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "BAMA Gruppen / Broennoysund 2024"
+  },
+  {
+    "id": "cmq8ri2qq000kllvmc7ra5yp4",
+    "parentCompanyId": "cmp8xyt4t004sxrvm7b86awqx",
+    "parentName": "BAMA Gruppen AS",
+    "childCompanyId": "cmq8ri2px0001llvmimilccw0",
+    "childName": "BAMA Storkjoekken AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "BAMA Gruppen / Broennoysund 2024"
+  },
+  {
+    "id": "cmq8ri2qs000lllvm2xaz3rwn",
+    "parentCompanyId": "cmp8xyt4t004sxrvm7b86awqx",
+    "parentName": "BAMA Gruppen AS",
+    "childCompanyId": "cmq8ri2py0002llvm504gy632",
+    "childName": "BAMA Logistikk AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "BAMA Gruppen / Broennoysund 2024"
+  },
+  {
+    "id": "cmq8ri2qs000mllvmb7c8u43t",
+    "parentCompanyId": "cmp8xyt4t004sxrvm7b86awqx",
+    "parentName": "BAMA Gruppen AS",
+    "childCompanyId": "cmq8ri2q00003llvmpna36adn",
+    "childName": "BAMA Pakkerier AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "BAMA Gruppen / Broennoysund 2024"
+  },
+  {
+    "id": "cmq8ri2qt000nllvmdggcwwg9",
+    "parentCompanyId": "cmp8xyt4t004sxrvm7b86awqx",
+    "parentName": "BAMA Gruppen AS",
+    "childCompanyId": "cmq8ri2q10004llvmzsy3h67t",
+    "childName": "BAMA International AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "BAMA Gruppen / Broennoysund 2024"
+  },
+  {
+    "id": "cmq8ri2qu000ollvm5sy6uckr",
+    "parentCompanyId": "cmp8xyt4t004sxrvm7b86awqx",
+    "parentName": "BAMA Gruppen AS",
+    "childCompanyId": "cmq8ri2q20005llvm8m8m5cei",
+    "childName": "BAMA Blomster Holding AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "BAMA Gruppen / Broennoysund 2024"
+  },
+  {
+    "id": "cmq8ri0t50016g8vmv93fuep5",
+    "parentCompanyId": "cmq8ri0s20006g8vmrkbvtjj0",
+    "parentName": "Cernova AS",
+    "childCompanyId": "cmq8ri0s30007g8vmg10ts21j",
+    "childName": "Cernova Trading AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / FK aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri3zm0020r2vmz3xv66tr",
+    "parentCompanyId": "cmq8ri3y5000mr2vm8aabiaut",
+    "parentName": "Cheffelo AB",
+    "childCompanyId": "cmq8ri3y6000nr2vmob95sphp",
+    "childName": "Linas Matkasse AB",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Cheffelo Q4 2025 investor report"
+  },
+  {
+    "id": "cmq8ri3zn0021r2vmhddtonpp",
+    "parentCompanyId": "cmq8ri3y5000mr2vm8aabiaut",
+    "parentName": "Cheffelo AB",
+    "childCompanyId": "cmq8ri3y7000or2vmwf39y0cb",
+    "childName": "RetNemt ApS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Cheffelo Q4 2025 investor report"
+  },
+  {
+    "id": "cmq8ri3in000tnjvmcp95oxq3",
+    "parentCompanyId": "cmq8ri3ht0003njvmtt7rw5my",
+    "parentName": "Compass Group Norge AS",
+    "childCompanyId": "cmq8ri3hz000anjvm88jmys6q",
+    "childName": "4Service Gruppen AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Compass Group plc pressemelding 2024 (4Service-oppkjop)"
+  },
+  {
+    "id": "cmq8rhyvg0025bcvmszgq0ieg",
+    "parentCompanyId": "cmq8rhysy0000bcvmf6z6l989",
+    "parentName": "Coop Norge Eiendom AS",
+    "childCompanyId": "cmq8rhyts000gbcvmj7v68uod",
+    "childName": "Coop Norge Trondheim Eiendom AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Coop aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhyvi0026bcvmy3kq109v",
+    "parentCompanyId": "cmq8rhysy0000bcvmf6z6l989",
+    "parentName": "Coop Norge Eiendom AS",
+    "childCompanyId": "cmq8rhytt000hbcvm9gt4kaem",
+    "childName": "Coop Norge Langhus Eiendom AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Coop aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhyvj0027bcvmgpv7ol8t",
+    "parentCompanyId": "cmq8rhysy0000bcvmf6z6l989",
+    "parentName": "Coop Norge Eiendom AS",
+    "childCompanyId": "cmq8rhytt000ibcvmq8lmd64z",
+    "childName": "Coop Norge Stavanger Eiendom AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Coop aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhyvk0028bcvmr06ppi0x",
+    "parentCompanyId": "cmq8rhysy0000bcvmf6z6l989",
+    "parentName": "Coop Norge Eiendom AS",
+    "childCompanyId": "cmq8rhytu000jbcvmsct42qc7",
+    "childName": "Coop Norge Tromsoe Eiendom AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Coop aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhyvl0029bcvmhbb8ztk5",
+    "parentCompanyId": "cmq8rhysy0000bcvmf6z6l989",
+    "parentName": "Coop Norge Eiendom AS",
+    "childCompanyId": "cmq8rhytv000kbcvma23x5g3x",
+    "childName": "Coop Norge Stavanger Eiendom II AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Coop aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhyvc0022bcvmi5v53n48",
+    "parentCompanyId": "cmp8xyt0w000jxrvm0iavgyro",
+    "parentName": "Coop Norge SA",
+    "childCompanyId": "cmq8rhysy0000bcvmf6z6l989",
+    "childName": "Coop Norge Eiendom AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Coop aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhyve0023bcvm8txlpdor",
+    "parentCompanyId": "cmp8xyt0w000jxrvm0iavgyro",
+    "parentName": "Coop Norge SA",
+    "childCompanyId": "cmq8rhytn0008bcvmyop8cnn5",
+    "childName": "Norsk Butikkdrift AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Coop aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhyvf0024bcvmf82f49xf",
+    "parentCompanyId": "cmp8xyt0w000jxrvm0iavgyro",
+    "parentName": "Coop Norge SA",
+    "childCompanyId": "cmq8rhytr000fbcvmhqg0763j",
+    "childName": "Coop Norge Kaffe AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Coop aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri0t60017g8vm7htyutmh",
+    "parentCompanyId": "cmq8ri0s6000bg8vm7vuywe14",
+    "parentName": "Felleskjoepet Rogaland Agder SA",
+    "childCompanyId": "cmq8ri0s9000gg8vm4fgpt60f",
+    "childName": "Fiskaa Molle AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / FK aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri0sy0011g8vmu4r8ojwa",
+    "parentCompanyId": "cmp8xyt4b0048xrvm0b9hbwbs",
+    "parentName": "Felleskjøpet Agri SA",
+    "childCompanyId": "cmq8ri0rf0000g8vm8la88lla",
+    "childName": "Norgesmollene AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / FK aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri0t00012g8vm3nem30yy",
+    "parentCompanyId": "cmp8xyt4b0048xrvm0b9hbwbs",
+    "parentName": "Felleskjøpet Agri SA",
+    "childCompanyId": "cmq8ri0s20006g8vmrkbvtjj0",
+    "childName": "Cernova AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / FK aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri0t10013g8vm9aoh14ti",
+    "parentCompanyId": "cmp8xyt4b0048xrvm0b9hbwbs",
+    "parentName": "Felleskjøpet Agri SA",
+    "childCompanyId": "cmq8ri0s30008g8vm3xfwy3ln",
+    "childName": "Strand Unikorn AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / FK aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri0t30014g8vm9z1fmva5",
+    "parentCompanyId": "cmp8xyt4b0048xrvm0b9hbwbs",
+    "parentName": "Felleskjøpet Agri SA",
+    "childCompanyId": "cmq8ri0s40009g8vm6uu6qb0u",
+    "childName": "Felleskjoepet Forutvikling AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / FK aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri0t30015g8vmf91l6jyj",
+    "parentCompanyId": "cmp8xyt4b0048xrvm0b9hbwbs",
+    "parentName": "Felleskjøpet Agri SA",
+    "childCompanyId": "cmq8ri0s5000ag8vmmfkzynkp",
+    "childName": "Norgesfor AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / FK aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri4dg000qsxvmp5vdhw0n",
+    "parentCompanyId": "cmp8xythb00g4xrvmuqxxrjy7",
+    "parentName": "Festi hf",
+    "childCompanyId": "cmq8ri4cs000bsxvmcx56uxa5",
+    "childName": "Kronan hf",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Festi hf arsreikningur 2025"
+  },
+  {
+    "id": "cmq8ri4dh000rsxvmdq32kyk4",
+    "parentCompanyId": "cmp8xythb00g4xrvmuqxxrjy7",
+    "parentName": "Festi hf",
+    "childCompanyId": "cmq8ri4cs000csxvmnlfrkk7z",
+    "childName": "N1 hf",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Festi hf arsreikningur 2025"
+  },
+  {
+    "id": "cmq8ri4dd000nsxvmesfmq0y4",
+    "parentCompanyId": "cmp8xytg200fcxrvmqcdfpxb6",
+    "parentName": "Hagar hf",
+    "childCompanyId": "cmq8ri4cp0008sxvm7t95d20c",
+    "childName": "Bonus hf",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Hagar hf arsreikningur 2024/25"
+  },
+  {
+    "id": "cmq8ri4de000osxvm7g7u723p",
+    "parentCompanyId": "cmp8xytg200fcxrvmqcdfpxb6",
+    "parentName": "Hagar hf",
+    "childCompanyId": "cmq8ri4cq0009sxvmesqlgpbb",
+    "childName": "Hagkaup hf",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Hagar hf arsreikningur 2024/25"
+  },
+  {
+    "id": "cmq8ri4df000psxvmgye0k1xv",
+    "parentCompanyId": "cmp8xytg200fcxrvmqcdfpxb6",
+    "parentName": "Hagar hf",
+    "childCompanyId": "cmq8ri4cr000asxvmbb0lrqxb",
+    "childName": "Olis hf",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Hagar hf arsreikningur 2024/25"
+  },
+  {
+    "id": "cmq8ri4d0000dsxvmps8eueyf",
+    "parentCompanyId": "cmp8xytca00alxrvm4atlmz8s",
+    "parentName": "ICA Gruppen AB",
+    "childCompanyId": "cmq8ri4cj0001sxvm7c1wl592",
+    "childName": "ICA Sverige AB",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "ICA Gruppen Arsredovisning 2024"
+  },
+  {
+    "id": "cmq8ri4d2000esxvmcqs1ot56",
+    "parentCompanyId": "cmp8xytca00alxrvm4atlmz8s",
+    "parentName": "ICA Gruppen AB",
+    "childCompanyId": "cmq8ri4ck0002sxvminndm9si",
+    "childName": "ICA Fastigheter AB",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "ICA Gruppen Arsredovisning 2024"
+  },
+  {
+    "id": "cmq8ri3iq000vnjvm32joojei",
+    "parentCompanyId": "cmq8ri3i8000knjvmtbp7h5if",
+    "parentName": "ISS A/S",
+    "childCompanyId": "cmq8ri3hx0008njvmrts8ow0o",
+    "childName": "ISS Facility Services AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "ISS A/S aarsrapport"
+  },
+  {
+    "id": "cmq8ri3za001sr2vmofw97se9",
+    "parentCompanyId": "cmq8ri3xs0005r2vmeot4mcul",
+    "parentName": "Joh Johannson Invest AS",
+    "childCompanyId": "cmq8ri3xr0004r2vmyjnvo88z",
+    "childName": "Joh. Johannson Eiendom AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Johannson family holding"
+  },
+  {
+    "id": "cmq8ri3zb001tr2vmieorh01b",
+    "parentCompanyId": "cmq8ri3xs0005r2vmeot4mcul",
+    "parentName": "Joh Johannson Invest AS",
+    "childCompanyId": "cmq8ri3xs0006r2vm9wicie1g",
+    "childName": "Bokveien 112 AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Johannson family holding"
+  },
+  {
+    "id": "cmq8ri34l000fmkvmwkdd9c78",
+    "parentCompanyId": "cmp8xytbh009xxrvmwf5gnlcp",
+    "parentName": "Kavli Holding AS",
+    "childCompanyId": "cmq8ri33k0000mkvmbn1kf1qw",
+    "childName": "Kavli Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Kavli Holding / Broennoysund 2024"
+  },
+  {
+    "id": "cmq8ri34n000gmkvmgumz6yih",
+    "parentCompanyId": "cmq8ri33k0000mkvmbn1kf1qw",
+    "parentName": "Kavli Norge AS",
+    "childCompanyId": "cmq8ri33z0001mkvmtdafj2pu",
+    "childName": "O Kavli AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Kavli Holding / Broennoysund 2024"
+  },
+  {
+    "id": "cmq8ri34o000hmkvminrsgfm2",
+    "parentCompanyId": "cmq8ri33k0000mkvmbn1kf1qw",
+    "parentName": "Kavli Norge AS",
+    "childCompanyId": "cmq8ri3400002mkvmlq6h0m6r",
+    "childName": "Q-Meieriene AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Kavli Holding / Broennoysund 2024"
+  },
+  {
+    "id": "cmq8ri4db000msxvmxle4bvxt",
+    "parentCompanyId": "cmp8xytfe00eixrvmirdqrc44",
+    "parentName": "Kesko Oyj",
+    "childCompanyId": "cmq8ri4co0007sxvmwc81k3hf",
+    "childName": "Kespro Oy",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Kesko vuosikertomus 2024"
+  },
+  {
+    "id": "cmq8rhygf0038advm19fy2f9g",
+    "parentCompanyId": "cmq8rhydo0000advm1hn6fiih",
+    "parentName": "Kiwi Norge AS",
+    "childCompanyId": "cmq8rhye90006advmc07qrod5",
+    "childName": "Kiwi Minidrift AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhygh003aadvmwstpvnzf",
+    "parentCompanyId": "cmq8rhyeg000gadvmm1fc7zwp",
+    "parentName": "Kjopmannshuset Norge AS",
+    "childCompanyId": "cmq8rhyek000qadvmgmyyal9h",
+    "childName": "Kjopmannshuset Butikkdrift AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri1lq000finvmbkjeb5eq",
+    "parentCompanyId": "cmq8ri1l20002invm9fbjmwa1",
+    "parentName": "Kverva AS",
+    "childCompanyId": "cmq8ri1l30003invmurf020ws",
+    "childName": "Kverva Industrier AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "SalMar Annual Report 2024 / Broennoysund"
+  },
+  {
+    "id": "cmq8ri1lr000ginvmgmn3npo9",
+    "parentCompanyId": "cmq8ri1l30003invmurf020ws",
+    "parentName": "Kverva Industrier AS",
+    "childCompanyId": "cmp8xyt5p005rxrvmj9vo32fb",
+    "childName": "SalMar ASA",
+    "ownershipPct": 44.3,
+    "ownershipType": "minority-stake",
+    "source": "SalMar Annual Report 2024 / Broennoysund"
+  },
+  {
+    "id": "cmq8ri2cl000aklvmb8tck5v6",
+    "parentCompanyId": "cmq8ri2bp0000klvmewgbvqm7",
+    "parentName": "Laco AS",
+    "childCompanyId": "cmp8xytb8009pxrvmjdg1chp6",
+    "childName": "Austevoll Seafood ASA",
+    "ownershipPct": 55.55,
+    "ownershipType": "subsidiary",
+    "source": "Austevoll Seafood / Broennoysund aksjeeierboken 2024"
+  },
+  {
+    "id": "cmq8ri1zq000tjmvmlg9g0sjh",
+    "parentCompanyId": "cmq8ri1yo0003jmvmysbnoj5j",
+    "parentName": "Leroey Vest AS",
+    "childCompanyId": "cmq8ri1yr0006jmvmarnyej1l",
+    "childName": "Sjoetroll AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Leroey Annual Report 2024 / Broennoysund"
+  },
+  {
+    "id": "cmq8ri1zi000njmvm2bov7jmi",
+    "parentCompanyId": "cmp8xyt620066xrvmjffvu35l",
+    "parentName": "Lerøy Seafood Group ASA",
+    "childCompanyId": "cmq8ri1y70000jmvm67a2av65",
+    "childName": "Hallvard Leroey AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Leroey Annual Report 2024 / Broennoysund"
+  },
+  {
+    "id": "cmq8ri1zk000ojmvmg4uruep0",
+    "parentCompanyId": "cmp8xyt620066xrvmjffvu35l",
+    "parentName": "Lerøy Seafood Group ASA",
+    "childCompanyId": "cmq8ri1yn0001jmvmd3phc5go",
+    "childName": "Leroey Aurora AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Leroey Annual Report 2024 / Broennoysund"
+  },
+  {
+    "id": "cmq8ri1zl000pjmvmcu6dbg5o",
+    "parentCompanyId": "cmp8xyt620066xrvmjffvu35l",
+    "parentName": "Lerøy Seafood Group ASA",
+    "childCompanyId": "cmq8ri1yo0002jmvm6jp04sdg",
+    "childName": "Leroey Midt AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Leroey Annual Report 2024 / Broennoysund"
+  },
+  {
+    "id": "cmq8ri1zm000qjmvmdpwqxejp",
+    "parentCompanyId": "cmp8xyt620066xrvmjffvu35l",
+    "parentName": "Lerøy Seafood Group ASA",
+    "childCompanyId": "cmq8ri1yo0003jmvmysbnoj5j",
+    "childName": "Leroey Vest AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Leroey Annual Report 2024 / Broennoysund"
+  },
+  {
+    "id": "cmq8ri1zn000rjmvmx86ky4bi",
+    "parentCompanyId": "cmp8xyt620066xrvmjffvu35l",
+    "parentName": "Lerøy Seafood Group ASA",
+    "childCompanyId": "cmq8ri1yp0004jmvmsqr3r2r5",
+    "childName": "Leroey Havfisk AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Leroey Annual Report 2024 / Broennoysund"
+  },
+  {
+    "id": "cmq8ri1zo000sjmvmlfpv8xkl",
+    "parentCompanyId": "cmp8xyt620066xrvmjffvu35l",
+    "parentName": "Lerøy Seafood Group ASA",
+    "childCompanyId": "cmq8ri1yq0005jmvmm747m598",
+    "childName": "Leroey Norway Seafoods AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Leroey Annual Report 2024 / Broennoysund"
+  },
+  {
+    "id": "cmq8rhygg0039advmoiccx4oo",
+    "parentCompanyId": "cmq8rhyea0007advm8eybx3oj",
+    "parentName": "MENY AS",
+    "childCompanyId": "cmq8rhyef000fadvmqk5o6eyn",
+    "childName": "Meny Butikkdrift AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmp8xytwo0005y6vmbxohyisv",
+    "parentCompanyId": "cmp8xyt58005axrvmq4uvylny",
+    "parentName": "Mowi ASA",
+    "childCompanyId": "cmp8xytbz00acxrvmjbj3td65",
+    "childName": "Nova Sea AS",
+    "ownershipPct": 95,
+    "ownershipType": "subsidiary",
+    "source": "Mowi Borsmeld. jan 2025 / GlobeNewswire"
+  },
+  {
+    "id": "cmq8ri17i000dhovm0v7fyq8n",
+    "parentCompanyId": "cmp8xyt58005axrvmq4uvylny",
+    "parentName": "Mowi ASA",
+    "childCompanyId": "cmq8ri1670000hovmn2i2hdwg",
+    "childName": "Mowi Seawater Norway AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Mowi Annual Report 2024"
+  },
+  {
+    "id": "cmq8ri17k000ehovmew2xi54f",
+    "parentCompanyId": "cmp8xyt58005axrvmq4uvylny",
+    "parentName": "Mowi ASA",
+    "childCompanyId": "cmq8ri16n0001hovmoyb58pus",
+    "childName": "Mowi Markets Norway AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Mowi Annual Report 2024"
+  },
+  {
+    "id": "cmq8ri17l000fhovmlblo3mvu",
+    "parentCompanyId": "cmp8xyt58005axrvmq4uvylny",
+    "parentName": "Mowi ASA",
+    "childCompanyId": "cmq8ri16p0002hovmkzh2go59",
+    "childName": "Mowi Feed AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Mowi Annual Report 2024"
+  },
+  {
+    "id": "cmq8ri17m000ghovmuuf972dq",
+    "parentCompanyId": "cmp8xyt58005axrvmq4uvylny",
+    "parentName": "Mowi ASA",
+    "childCompanyId": "cmq8ri16q0003hovm1sefyvqb",
+    "childName": "Mowi Norway FoU AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Mowi Annual Report 2024"
+  },
+  {
+    "id": "cmp8xyttq0000y6vmkk1sxfd7",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+    "childName": "ASKO Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Brønnøysund"
+  },
+  {
+    "id": "cmq8rhyg90033advmenixgesq",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmq8rhyer0017advmpm4j4zf5",
+    "childName": "NorgesGruppen Merkevare AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhygb0034advm5xdekxqx",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmq8rhyey001ladvmqal42v4f",
+    "childName": "NorgesGruppen Fellestjenester AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhyg3002xadvmahxbb7dq",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmq8rhydo0000advm1hn6fiih",
+    "childName": "Kiwi Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhyg5002yadvm0trt7oqj",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmq8rhyea0007advm8eybx3oj",
+    "childName": "MENY AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhyg6002zadvmr3yl4z1r",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmq8rhyeg000gadvmm1fc7zwp",
+    "childName": "Kjopmannshuset Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhyg70030advmnocxf7kc",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmq8rhyep0013advmciotpt15",
+    "childName": "NorgesGruppen Detalj AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhyg80031advmflkr91vt",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmq8rhyek000radvmrcuxm1ra",
+    "childName": "NorgesGruppen Servicehandel AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmp8xytwd0002y6vmfexgze5s",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmp8xyter00doxrvm206trvnu",
+    "childName": "Dagrofa A/S",
+    "ownershipPct": 48.9,
+    "ownershipType": "minority-stake",
+    "source": "NorgesGruppen Credit Report 2025 / Dagrofa corporate presentation"
+  },
+  {
+    "id": "cmq8rhygd0036advmvibe64pi",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmq8rhyf80028advmowiq9bmg",
+    "childName": "NorgesGruppen Finans Holding AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhygc0035advmbf40irmd",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmq8rhyf40021advmbgkw7vbn",
+    "childName": "NorgesGruppen Eiendom Holding AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri3il000snjvme832ws3k",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmq8ri3h70000njvm7r5nclev",
+    "childName": "Storcash Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysund / NorgesGruppen aarsrapport"
+  },
+  {
+    "id": "cmp8xytwa0001y6vmt40u484u",
+    "parentCompanyId": "cmp8xysz20000xrvmbm4d5nat",
+    "parentName": "NorgesGruppen ASA",
+    "childCompanyId": "cmp8xyt4t004sxrvm7b86awqx",
+    "childName": "BAMA Gruppen AS",
+    "ownershipPct": 46,
+    "ownershipType": "minority-stake",
+    "source": "Brønnøysund/Årsrapport"
+  },
+  {
+    "id": "cmq8rhygp003jadvmbfbycpcj",
+    "parentCompanyId": "cmq8rhyf50022advm2lj4r8jb",
+    "parentName": "NorgesGruppen Eiendom AS",
+    "childCompanyId": "cmq8rhyf70027advmxpmmq0aa",
+    "childName": "NorgesGruppen Eiendomsutvikling AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri3z8001rr2vm4pljgntx",
+    "parentCompanyId": "cmq8ri3x50000r2vmo264rrtc",
+    "parentName": "NorgesGruppen Eiendom AS",
+    "childCompanyId": "cmq8ri3xn0002r2vmsclfigsz",
+    "childName": "NG Eiendom Vestfold Telemark AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "NorgesGruppen registreringsdokument 2025"
+  },
+  {
+    "id": "cmq8rhygn003hadvmpbxt60yx",
+    "parentCompanyId": "cmq8rhyf40021advmbgkw7vbn",
+    "parentName": "NorgesGruppen Eiendom Holding AS",
+    "childCompanyId": "cmq8rhyf50022advm2lj4r8jb",
+    "childName": "NorgesGruppen Eiendom AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhygo003iadvmpq1p0nbz",
+    "parentCompanyId": "cmq8rhyf40021advmbgkw7vbn",
+    "parentName": "NorgesGruppen Eiendom Holding AS",
+    "childCompanyId": "cmq8rhyf70026advmfyy6remv",
+    "childName": "NorgesGruppen Eiendomskapital AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri3z6001qr2vmkq951mwi",
+    "parentCompanyId": "cmq8ri3xm0001r2vmaswu5x19",
+    "parentName": "NorgesGruppen Eiendom Holding AS",
+    "childCompanyId": "cmq8ri3x50000r2vmo264rrtc",
+    "childName": "NorgesGruppen Eiendom AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "NorgesGruppen registreringsdokument 2025"
+  },
+  {
+    "id": "cmq8rhygm003fadvmfndd6fxw",
+    "parentCompanyId": "cmq8rhyey001ladvmqal42v4f",
+    "parentName": "NorgesGruppen Fellestjenester AS",
+    "childCompanyId": "cmq8rhyey001madvmfjjuxs3y",
+    "childName": "NorgesGruppen Data AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhygn003gadvmtxsk7m6d",
+    "parentCompanyId": "cmq8rhyey001ladvmqal42v4f",
+    "parentName": "NorgesGruppen Fellestjenester AS",
+    "childCompanyId": "cmq8rhyf2001vadvm17c4kkhl",
+    "childName": "NorgesGruppen Regnskap AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhygq003kadvmafxy1i32",
+    "parentCompanyId": "cmq8rhyf80028advmowiq9bmg",
+    "parentName": "NorgesGruppen Finans Holding AS",
+    "childCompanyId": "cmq8rhyf80029advmb75ln7u3",
+    "childName": "NorgesGruppen Finans AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhygj003cadvmrdu79oju",
+    "parentCompanyId": "cmq8rhyer0017advmpm4j4zf5",
+    "parentName": "NorgesGruppen Merkevare AS",
+    "childCompanyId": "cmp8xytbp00a2xrvmgp9lh2h2",
+    "childName": "Unil AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhygk003dadvm55c5qv8k",
+    "parentCompanyId": "cmq8rhyer0017advmpm4j4zf5",
+    "parentName": "NorgesGruppen Merkevare AS",
+    "childCompanyId": "cmq8rhyer0018advmyodraxo5",
+    "childName": "Joh. Johannson Kaffe AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhygk003eadvmv9887ho5",
+    "parentCompanyId": "cmq8rhyer0017advmpm4j4zf5",
+    "parentName": "NorgesGruppen Merkevare AS",
+    "childCompanyId": "cmq8rhxl800008evmyipstgjv",
+    "childName": "Bakehuset AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhygi003badvmo822uiid",
+    "parentCompanyId": "cmq8rhyek000radvmrcuxm1ra",
+    "parentName": "NorgesGruppen Servicehandel AS",
+    "childCompanyId": "cmq8rhyen000xadvmidtzb00d",
+    "childName": "Deli de Luca Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / NorgesGruppen aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri01j0016eavmy671i4jf",
+    "parentCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
+    "parentName": "Nortura SA",
+    "childCompanyId": "cmq8rhzzv0000eavmjnjlh7n0",
+    "childName": "Norilia AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Nortura aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri01k0017eavm1d72xlh3",
+    "parentCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
+    "parentName": "Nortura SA",
+    "childCompanyId": "cmq8ri00a0001eavm7zegmcju",
+    "childName": "Norfersk AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Nortura aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri01l0018eavm6ajwzomq",
+    "parentCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
+    "parentName": "Nortura SA",
+    "childCompanyId": "cmq8ri00b0002eavmwhat7azn",
+    "childName": "Prima Slakt AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Nortura aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri01m0019eavmfs7egouu",
+    "parentCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
+    "parentName": "Nortura SA",
+    "childCompanyId": "cmq8ri00c0003eavmnydbd5ab",
+    "childName": "Norsk Dyremat AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Nortura aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri01o001aeavm18m1qf4n",
+    "parentCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
+    "parentName": "Nortura SA",
+    "childCompanyId": "cmq8ri00o000eeavmwusrp2id",
+    "childName": "Telespor AS",
+    "ownershipPct": 99.7,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Nortura aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri01p001beavmww2dwlk9",
+    "parentCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
+    "parentName": "Nortura SA",
+    "childCompanyId": "cmq8ri00d0004eavmjl94swfx",
+    "childName": "Biosirk Norge AS",
+    "ownershipPct": 67,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Nortura aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri01r001ceavmi8vsv2o5",
+    "parentCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
+    "parentName": "Nortura SA",
+    "childCompanyId": "cmq8ri00f0006eavmvg92i6gs",
+    "childName": "Animalia AS",
+    "ownershipPct": 66,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Nortura aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri01s001deavmvnb0vs7f",
+    "parentCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
+    "parentName": "Nortura SA",
+    "childCompanyId": "cmq8ri00f0007eavmvh4uwkpx",
+    "childName": "Noridane Foods AS",
+    "ownershipPct": 65,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Nortura aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri01t001eeavmdpvc1ulg",
+    "parentCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
+    "parentName": "Nortura SA",
+    "childCompanyId": "cmq8ri00e0005eavms7smf2uk",
+    "childName": "Fjordkjoekken AS",
+    "ownershipPct": 56.5,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Nortura aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri01u001feavmcpbo7rr8",
+    "parentCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
+    "parentName": "Nortura SA",
+    "childCompanyId": "cmq8ri00p000feavmd9ripmyr",
+    "childName": "NorPri AS",
+    "ownershipPct": 49,
+    "ownershipType": "minority-stake",
+    "source": "Broennoysundregistrene / Nortura aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri01v001geavmaftbewt5",
+    "parentCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
+    "parentName": "Nortura SA",
+    "childCompanyId": "cmq8ri00g0008eavm9nehuayh",
+    "childName": "Fjordland AS",
+    "ownershipPct": 38.9,
+    "ownershipType": "minority-stake",
+    "source": "Broennoysundregistrene / Nortura aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhz9q001xccvm0pggfbzz",
+    "parentCompanyId": "cmq8rhz8w001cccvme2qq7igt",
+    "parentName": "Odd Reitan Private Holding AS",
+    "childCompanyId": "cmq8rhz7o0000ccvm7re947er",
+    "childName": "Reitan AS",
+    "ownershipPct": 33.33,
+    "ownershipType": "minority-stake",
+    "source": "Broennoysundregistrene / Reitan aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhz9r001yccvm06m88ak1",
+    "parentCompanyId": "cmq8rhz8w001cccvme2qq7igt",
+    "parentName": "Odd Reitan Private Holding AS",
+    "childCompanyId": "cmq8rhz8t0016ccvm3h0ohxmz",
+    "childName": "Reitan Eiendom AS",
+    "ownershipPct": 27.76,
+    "ownershipType": "minority-stake",
+    "source": "Broennoysundregistrene / Reitan aarsrapport 2024"
+  },
+  {
+    "id": "cmp8xytwu0008y6vmvezj9epp",
+    "parentCompanyId": "cmp8xyt25001nxrvm5fopu1xb",
+    "parentName": "Orkla ASA",
+    "childCompanyId": "cmp8xytc400ahxrvm6dhey2fh",
+    "childName": "Lilleborg AS",
+    "ownershipPct": 0,
+    "ownershipType": "subsidiary",
+    "source": "Orkla Pressrelease 2024-06"
+  },
+  {
+    "id": "cmq8rhzno001ddbvmqekqjmlz",
+    "parentCompanyId": "cmp8xyt25001nxrvm5fopu1xb",
+    "parentName": "Orkla ASA",
+    "childCompanyId": "cmq8rhzlv0000dbvmshh1z2vf",
+    "childName": "Orkla Foods AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Orkla aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhznq001edbvmu9jmq2zt",
+    "parentCompanyId": "cmp8xyt25001nxrvm5fopu1xb",
+    "parentName": "Orkla ASA",
+    "childCompanyId": "cmq8rhzml000cdbvmaqc8camf",
+    "childName": "Orkla Snacks AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Orkla aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhzns001gdbvm32jfbxy6",
+    "parentCompanyId": "cmp8xyt25001nxrvm5fopu1xb",
+    "parentName": "Orkla ASA",
+    "childCompanyId": "cmq8rhzmo000jdbvm5lxbow5a",
+    "childName": "Orkla Health Holding AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Orkla aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhznt001hdbvm4n4g9lro",
+    "parentCompanyId": "cmp8xyt25001nxrvm5fopu1xb",
+    "parentName": "Orkla ASA",
+    "childCompanyId": "cmq8rhzmp000ldbvmek8dap09",
+    "childName": "Orkla Home and Personal Care AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Orkla aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhzo2001kdbvm3x93288y",
+    "parentCompanyId": "cmp8xyt25001nxrvm5fopu1xb",
+    "parentName": "Orkla ASA",
+    "childCompanyId": "cmq8rhzmr000pdbvmrml87k52",
+    "childName": "Orkla IT AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Orkla aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhzo1001jdbvmylyjjzjb",
+    "parentCompanyId": "cmp8xyt25001nxrvm5fopu1xb",
+    "parentName": "Orkla ASA",
+    "childCompanyId": "cmq8rhzmq000odbvmtdokirlr",
+    "childName": "Orkla Eiendom AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Orkla aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhzny001idbvm7hsds5te",
+    "parentCompanyId": "cmp8xyt25001nxrvm5fopu1xb",
+    "parentName": "Orkla ASA",
+    "childCompanyId": "cmq8rhzmq000ndbvm2xhgdtp7",
+    "childName": "Pierre Robert Group AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Orkla aarsrapport 2024"
+  },
+  {
+    "id": "cmp8xytws0007y6vmvxfy6ge6",
+    "parentCompanyId": "cmp8xyt25001nxrvm5fopu1xb",
+    "parentName": "Orkla ASA",
+    "childCompanyId": "cmp8xytc100aexrvm71qkugy8",
+    "childName": "Orkla Food Ingredients AS",
+    "ownershipPct": 60,
+    "ownershipType": "subsidiary",
+    "source": "Orkla Pressrelease 2024-04-17"
+  },
+  {
+    "id": "cmq8rhzo2001ldbvmine1kqxs",
+    "parentCompanyId": "cmq8rhzlv0000dbvmshh1z2vf",
+    "parentName": "Orkla Foods AS",
+    "childCompanyId": "cmq8rhzmh0006dbvmeo29g869",
+    "childName": "Orkla Foods Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Orkla aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhzo5001ndbvmp03z4g1x",
+    "parentCompanyId": "cmq8rhzmo000jdbvm5lxbow5a",
+    "parentName": "Orkla Health Holding AS",
+    "childCompanyId": "cmq8rhzmo000kdbvm75b3ox1g",
+    "childName": "Orkla Health AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Orkla aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhzo6001odbvm6zjy8t4c",
+    "parentCompanyId": "cmq8rhzmp000ldbvmek8dap09",
+    "parentName": "Orkla Home and Personal Care AS",
+    "childCompanyId": "cmq8rhzmp000mdbvmxgszys5n",
+    "childName": "Orkla House Care Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Orkla aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhzo4001mdbvm4l765jnh",
+    "parentCompanyId": "cmq8rhzml000cdbvmaqc8camf",
+    "parentName": "Orkla Snacks AS",
+    "childCompanyId": "cmq8rhzmm000ddbvmfdj03yu8",
+    "childName": "Orkla Snacks Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Orkla aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri3zk001zr2vm3ieptizr",
+    "parentCompanyId": "cmq8ri3y1000gr2vm6kxubjv4",
+    "parentName": "REBUS Handelseiendom AS",
+    "childCompanyId": "cmq8ri3y2000hr2vmatlbtwvw",
+    "childName": "REBUS Utvikling AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "REBUS transfer december 2023 (from REMA 1000 Norge)"
+  },
+  {
+    "id": "cmq8rhz9m001uccvmcbar92gp",
+    "parentCompanyId": "cmq8rhz7o0000ccvm7re947er",
+    "parentName": "Reitan AS",
+    "childCompanyId": "cmp8xyt1k0019xrvmq0qfsj0z",
+    "childName": "Reitan Retail AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Reitan aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhz9n001vccvm8npylw88",
+    "parentCompanyId": "cmq8rhz7o0000ccvm7re947er",
+    "parentName": "Reitan AS",
+    "childCompanyId": "cmq8rhz8q0011ccvmzcml9ju7",
+    "childName": "Reitan Kapital AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Reitan aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhz9p001wccvma5mlu96r",
+    "parentCompanyId": "cmq8rhz7o0000ccvm7re947er",
+    "parentName": "Reitan AS",
+    "childCompanyId": "cmq8rhz8t0016ccvm3h0ohxmz",
+    "childName": "Reitan Eiendom AS",
+    "ownershipPct": 72.23,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Reitan aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri3zc001ur2vm2uw3qlow",
+    "parentCompanyId": "cmq8ri3xy000dr2vm56jteena",
+    "parentName": "REITAN AS",
+    "childCompanyId": "cmq8ri3xy000cr2vmt80ql5ns",
+    "childName": "Reitan Eiendom AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Reitan Eiendom arsrapport 2024"
+  },
+  {
+    "id": "cmq8rhz9x0023ccvmy2cbvbx0",
+    "parentCompanyId": "cmq8rhz8d0009ccvmz12tb1ek",
+    "parentName": "Reitan Convenience AS",
+    "childCompanyId": "cmq8rhz8g000fccvm1tj5jb39",
+    "childName": "Reitan Convenience Norway AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Reitan aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri3ze001vr2vm0lhaju7k",
+    "parentCompanyId": "cmq8ri3xy000cr2vmt80ql5ns",
+    "parentName": "Reitan Eiendom AS",
+    "childCompanyId": "cmq8ri3xz000er2vmwu3ckdra",
+    "childName": "E C Dahls Eiendom AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Reitan Eiendom arsrapport 2024"
+  },
+  {
+    "id": "cmq8ri3zg001wr2vmnnjg84dr",
+    "parentCompanyId": "cmq8ri3xy000cr2vmt80ql5ns",
+    "parentName": "Reitan Eiendom AS",
+    "childCompanyId": "cmq8ri3y0000fr2vmottxw7af",
+    "childName": "RELOG AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Reitan Eiendom arsrapport 2024"
+  },
+  {
+    "id": "cmq8ri3zh001xr2vmqdgejre6",
+    "parentCompanyId": "cmq8ri3xy000cr2vmt80ql5ns",
+    "parentName": "Reitan Eiendom AS",
+    "childCompanyId": "cmq8ri3y1000gr2vm6kxubjv4",
+    "childName": "REBUS Handelseiendom AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Reitan Eiendom arsrapport 2024"
+  },
+  {
+    "id": "cmq8ri3zj001yr2vmq80xx4mh",
+    "parentCompanyId": "cmq8ri3xy000cr2vmt80ql5ns",
+    "parentName": "Reitan Eiendom AS",
+    "childCompanyId": "cmq8ri3y2000ir2vmes7pk50b",
+    "childName": "Christiania Areal AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Reitan Eiendom arsrapport 2024"
+  },
+  {
+    "id": "cmp8xytwf0003y6vm4jzphc50",
+    "parentCompanyId": "cmp8xyt1k0019xrvmq0qfsj0z",
+    "parentName": "Reitan Retail AS",
+    "childCompanyId": "cmp8xytef00daxrvm80gdkpkl",
+    "childName": "REMA 1000 A/S",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Reitan Retail årsrapport 2024"
+  },
+  {
+    "id": "cmq8rhz9s001zccvm9yve7chi",
+    "parentCompanyId": "cmp8xyt1k0019xrvmq0qfsj0z",
+    "parentName": "Reitan Retail AS",
+    "childCompanyId": "cmq8rhz8a0006ccvmvr7n3spw",
+    "childName": "REMA 1000 AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Reitan aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhz9t0020ccvmlbdpcare",
+    "parentCompanyId": "cmp8xyt1k0019xrvmq0qfsj0z",
+    "parentName": "Reitan Retail AS",
+    "childCompanyId": "cmq8rhz8d0009ccvmz12tb1ek",
+    "childName": "Reitan Convenience AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Reitan aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhz9u0021ccvmac56098w",
+    "parentCompanyId": "cmp8xyt1k0019xrvmq0qfsj0z",
+    "parentName": "Reitan Retail AS",
+    "childCompanyId": "cmq8rhz8k000occvmgh7ksibe",
+    "childName": "Uno-X Mobility AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Reitan aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhz9v0022ccvmxg6c29zg",
+    "parentCompanyId": "cmq8rhz8a0006ccvmvr7n3spw",
+    "parentName": "REMA 1000 AS",
+    "childCompanyId": "cmp8xytbv00a6xrvmi8ugubkz",
+    "childName": "REMA 1000 Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Reitan aarsrapport 2024"
+  },
+  {
+    "id": "cmpcumjv40000oxvmwwvs21w5",
+    "parentCompanyId": "cmp8xytbv00a6xrvmi8ugubkz",
+    "parentName": "REMA 1000 Norge AS",
+    "childCompanyId": "cmp8xyxgw0000ywvm6nzarwyc",
+    "childName": "REMA Distribusjon Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "https://www.rema.no/wordpress/wp-content/uploads/2024/06/REMA-Distribusjon-AS-Redegjorelse-apenhetsloven-for-2023-28.08.2024.pdf"
+  },
+  {
+    "id": "cmpcumjv80001oxvm73bnd8bj",
+    "parentCompanyId": "cmp8xytbv00a6xrvmi8ugubkz",
+    "parentName": "REMA 1000 Norge AS",
+    "childCompanyId": "cmp8xyxhq0006ywvm3fzeullv",
+    "childName": "Norsk Kylling AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "https://www.rema.no/egne-merkevarer/norsk-kylling/"
+  },
+  {
+    "id": "cmp8xytwj0004y6vmydkxa6hm",
+    "parentCompanyId": "cmp8xyt5p005rxrvmj9vo32fb",
+    "parentName": "SalMar ASA",
+    "childCompanyId": "cmp8xytby00aaxrvm3h2n1eb4",
+    "childName": "NTS ASA",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "SalMar Borsmeld. 2022-12"
+  },
+  {
+    "id": "cmq8ri1lo000einvmocg0kg07",
+    "parentCompanyId": "cmp8xyt5p005rxrvmj9vo32fb",
+    "parentName": "SalMar ASA",
+    "childCompanyId": "cmq8ri1l00001invmrxtdno58",
+    "childName": "SalmoNor AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "SalMar Annual Report 2024 / Broennoysund"
+  },
+  {
+    "id": "cmq8ri1lm000dinvm9l50smjj",
+    "parentCompanyId": "cmp8xyt5p005rxrvmj9vo32fb",
+    "parentName": "SalMar ASA",
+    "childCompanyId": "cmq8ri1kh0000invmnj9vdg5f",
+    "childName": "SalMar Farming AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "SalMar Annual Report 2024 / Broennoysund"
+  },
+  {
+    "id": "cmq8ri3ip000unjvm3w1domdg",
+    "parentCompanyId": "cmp8xytf500e3xrvm5038rtz6",
+    "parentName": "SOK (S Group)",
+    "childCompanyId": "cmq8ri3ic000mnjvmwra9xqdk",
+    "childName": "Meira Nova Oy",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "SOK tilinpaatos 2024"
+  },
+  {
+    "id": "cmq8ri0ez000mf9vm68ef3hjg",
+    "parentCompanyId": "cmp8xyt3l0037xrvmpzlb3lbw",
+    "parentName": "TINE SA",
+    "childCompanyId": "cmq8ri0dr0000f9vmiy61mp13",
+    "childName": "Diplom-Is AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / TINE aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri0f1000nf9vmbb1wcv81",
+    "parentCompanyId": "cmp8xyt3l0037xrvmpzlb3lbw",
+    "parentName": "TINE SA",
+    "childCompanyId": "cmq8ri0eg0007f9vm26qz4x4y",
+    "childName": "Kukraft AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / TINE aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri0f2000of9vmbjui2o2c",
+    "parentCompanyId": "cmp8xyt3l0037xrvmpzlb3lbw",
+    "parentName": "TINE SA",
+    "childCompanyId": "cmq8ri0ef0006f9vmzzgd0s6s",
+    "childName": "Mimiro Holding AS",
+    "ownershipPct": 56.6,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / TINE aarsrapport 2024"
+  },
+  {
+    "id": "cmq8ri0f4000pf9vmpbhoerl9",
+    "parentCompanyId": "cmp8xyt3l0037xrvmpzlb3lbw",
+    "parentName": "TINE SA",
+    "childCompanyId": "cmq8ri00g0008eavm9nehuayh",
+    "childName": "Fjordland AS",
+    "ownershipPct": 51.1,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / TINE aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhz9z0024ccvm8rxg8105",
+    "parentCompanyId": "cmq8rhz8k000occvmgh7ksibe",
+    "parentName": "Uno-X Mobility AS",
+    "childCompanyId": "cmq8rhz8m000tccvm9da5oimd",
+    "childName": "Uno-X Mobility Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Reitan aarsrapport 2024"
+  },
+  {
+    "id": "cmq8rhza00025ccvmg0zh48q4",
+    "parentCompanyId": "cmq8rhz8k000occvmgh7ksibe",
+    "parentName": "Uno-X Mobility AS",
+    "childCompanyId": "cmq8rhz8p0010ccvm4hsjz57a",
+    "childName": "Uno-X E-Mobility Norge AS",
+    "ownershipPct": 100,
+    "ownershipType": "subsidiary",
+    "source": "Broennoysundregistrene / Reitan aarsrapport 2024"
+  }
+]

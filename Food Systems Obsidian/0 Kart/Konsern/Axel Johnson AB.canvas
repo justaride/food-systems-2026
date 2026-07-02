@@ -1,0 +1,135 @@
+{
+  "nodes": [
+    {
+      "id": "cmq8ri4c50000sxvmrlp0ze1h",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Axel Johnson AB.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xytcn00b3xrvm9e2orzrs",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Axfood AB.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri4cn0006sxvmpokqwapx",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Axfood Snabbgross AB.md",
+      "x": 720,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xytc600ajxrvm9rqvviqe",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/City Gross Sverige AB.md",
+      "x": 720,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri4cm0005sxvm766vav85",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Dagab Inköp & Logistik AB.md",
+      "x": 720,
+      "y": 640,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri4cm0004sxvmgbr0s17n",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Hemkop AB.md",
+      "x": 720,
+      "y": 800,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri4cl0003sxvmvwmmz64f",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Willys AB.md",
+      "x": 720,
+      "y": 960,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3i3000enjvmrh90cw5m",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Martin & Servera AB (SE-556559-1135).md",
+      "x": 360,
+      "y": 1120,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3yc000ur2vmez0e9vlt",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Martin & Servera AB (SE-MARTIN-SERV).md",
+      "x": 360,
+      "y": 1280,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmq8ri4c50000sxvmrlp0ze1h-cmp8xytcn00b3xrvm9e2orzrs",
+      "fromNode": "cmq8ri4c50000sxvmrlp0ze1h",
+      "toNode": "cmp8xytcn00b3xrvm9e2orzrs",
+      "label": "50.10 %"
+    },
+    {
+      "id": "cmp8xytcn00b3xrvm9e2orzrs-cmq8ri4cn0006sxvmpokqwapx",
+      "fromNode": "cmp8xytcn00b3xrvm9e2orzrs",
+      "toNode": "cmq8ri4cn0006sxvmpokqwapx",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xytcn00b3xrvm9e2orzrs-cmp8xytc600ajxrvm9rqvviqe",
+      "fromNode": "cmp8xytcn00b3xrvm9e2orzrs",
+      "toNode": "cmp8xytc600ajxrvm9rqvviqe",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xytcn00b3xrvm9e2orzrs-cmq8ri4cm0005sxvm766vav85",
+      "fromNode": "cmp8xytcn00b3xrvm9e2orzrs",
+      "toNode": "cmq8ri4cm0005sxvm766vav85",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xytcn00b3xrvm9e2orzrs-cmq8ri4cm0004sxvmgbr0s17n",
+      "fromNode": "cmp8xytcn00b3xrvm9e2orzrs",
+      "toNode": "cmq8ri4cm0004sxvmgbr0s17n",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xytcn00b3xrvm9e2orzrs-cmq8ri4cl0003sxvmvwmmz64f",
+      "fromNode": "cmp8xytcn00b3xrvm9e2orzrs",
+      "toNode": "cmq8ri4cl0003sxvmvwmmz64f",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri4c50000sxvmrlp0ze1h-cmq8ri3i3000enjvmrh90cw5m",
+      "fromNode": "cmq8ri4c50000sxvmrlp0ze1h",
+      "toNode": "cmq8ri3i3000enjvmrh90cw5m",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri4c50000sxvmrlp0ze1h-cmq8ri3yc000ur2vmez0e9vlt",
+      "fromNode": "cmq8ri4c50000sxvmrlp0ze1h",
+      "toNode": "cmq8ri3yc000ur2vmez0e9vlt",
+      "label": "100 %"
+    }
+  ]
+}

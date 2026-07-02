@@ -1,0 +1,45 @@
+{
+  "nodes": [
+    {
+      "id": "cmq8ri3xm0001r2vmaswu5x19",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Eiendom Holding AS (NO-961483584-EIEH).md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3x50000r2vmo264rrtc",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Eiendom AS (NO-961483584-EIE).md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3xn0002r2vmsclfigsz",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NG Eiendom Vestfold Telemark AS (NO-961483584-VTEIE).md",
+      "x": 720,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmq8ri3xm0001r2vmaswu5x19-cmq8ri3x50000r2vmo264rrtc",
+      "fromNode": "cmq8ri3xm0001r2vmaswu5x19",
+      "toNode": "cmq8ri3x50000r2vmo264rrtc",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri3x50000r2vmo264rrtc-cmq8ri3xn0002r2vmsclfigsz",
+      "fromNode": "cmq8ri3x50000r2vmo264rrtc",
+      "toNode": "cmq8ri3xn0002r2vmsclfigsz",
+      "label": "100 %"
+    }
+  ]
+}

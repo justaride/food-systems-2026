@@ -1,0 +1,60 @@
+{
+  "nodes": [
+    {
+      "id": "cmp8xytg200fcxrvmqcdfpxb6",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Hagar hf.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri4cp0008sxvm7t95d20c",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Bonus hf.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri4cq0009sxvmesqlgpbb",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Hagkaup hf.md",
+      "x": 360,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri4cr000asxvmbb0lrqxb",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Olis hf.md",
+      "x": 360,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmp8xytg200fcxrvmqcdfpxb6-cmq8ri4cp0008sxvm7t95d20c",
+      "fromNode": "cmp8xytg200fcxrvmqcdfpxb6",
+      "toNode": "cmq8ri4cp0008sxvm7t95d20c",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xytg200fcxrvmqcdfpxb6-cmq8ri4cq0009sxvmesqlgpbb",
+      "fromNode": "cmp8xytg200fcxrvmqcdfpxb6",
+      "toNode": "cmq8ri4cq0009sxvmesqlgpbb",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xytg200fcxrvmqcdfpxb6-cmq8ri4cr000asxvmbb0lrqxb",
+      "fromNode": "cmp8xytg200fcxrvmqcdfpxb6",
+      "toNode": "cmq8ri4cr000asxvmbb0lrqxb",
+      "label": "100 %"
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "nodes": [
+    {
+      "id": "cmq8rhz8w001cccvme2qq7igt",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Odd Reitan Private Holding AS.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhz7o0000ccvm7re947er",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Reitan AS (912609987).md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhz8t0016ccvm3h0ohxmz",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Reitan Eiendom AS (915994415).md",
+      "x": 720,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhz8q0011ccvmzcml9ju7",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Reitan Kapital AS.md",
+      "x": 720,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xyt1k0019xrvmq0qfsj0z",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Reitan Retail AS.md",
+      "x": 720,
+      "y": 640,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhz8d0009ccvmz12tb1ek",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Reitan Convenience AS.md",
+      "x": 1080,
+      "y": 800,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhz8g000fccvm1tj5jb39",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Reitan Convenience Norway AS.md",
+      "x": 1440,
+      "y": 960,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xytef00daxrvm80gdkpkl",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/REMA 1000 A-S.md",
+      "x": 1080,
+      "y": 1120,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhz8a0006ccvmvr7n3spw",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/REMA 1000 AS.md",
+      "x": 1080,
+      "y": 1280,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xytbv00a6xrvmi8ugubkz",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/REMA 1000 Norge AS.md",
+      "x": 1440,
+      "y": 1440,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xyxhq0006ywvm3fzeullv",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Norsk Kylling AS.md",
+      "x": 1800,
+      "y": 1600,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xyxgw0000ywvm6nzarwyc",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/REMA Distribusjon Norge AS.md",
+      "x": 1800,
+      "y": 1760,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhz8k000occvmgh7ksibe",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Uno-X Mobility AS.md",
+      "x": 1080,
+      "y": 1920,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhz8p0010ccvm4hsjz57a",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Uno-X E-Mobility Norge AS.md",
+      "x": 1440,
+      "y": 2080,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhz8m000tccvm9da5oimd",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Uno-X Mobility Norge AS.md",
+      "x": 1440,
+      "y": 2240,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhz8t0016ccvm3h0ohxmz",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Reitan Eiendom AS (915994415).md",
+      "x": 360,
+      "y": 2400,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmq8rhz8w001cccvme2qq7igt-cmq8rhz7o0000ccvm7re947er",
+      "fromNode": "cmq8rhz8w001cccvme2qq7igt",
+      "toNode": "cmq8rhz7o0000ccvm7re947er",
+      "label": "33.33 %"
+    },
+    {
+      "id": "cmq8rhz7o0000ccvm7re947er-cmq8rhz8t0016ccvm3h0ohxmz",
+      "fromNode": "cmq8rhz7o0000ccvm7re947er",
+      "toNode": "cmq8rhz8t0016ccvm3h0ohxmz",
+      "label": "72.23 %"
+    },
+    {
+      "id": "cmq8rhz7o0000ccvm7re947er-cmq8rhz8q0011ccvmzcml9ju7",
+      "fromNode": "cmq8rhz7o0000ccvm7re947er",
+      "toNode": "cmq8rhz8q0011ccvmzcml9ju7",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhz7o0000ccvm7re947er-cmp8xyt1k0019xrvmq0qfsj0z",
+      "fromNode": "cmq8rhz7o0000ccvm7re947er",
+      "toNode": "cmp8xyt1k0019xrvmq0qfsj0z",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt1k0019xrvmq0qfsj0z-cmq8rhz8d0009ccvmz12tb1ek",
+      "fromNode": "cmp8xyt1k0019xrvmq0qfsj0z",
+      "toNode": "cmq8rhz8d0009ccvmz12tb1ek",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhz8d0009ccvmz12tb1ek-cmq8rhz8g000fccvm1tj5jb39",
+      "fromNode": "cmq8rhz8d0009ccvmz12tb1ek",
+      "toNode": "cmq8rhz8g000fccvm1tj5jb39",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt1k0019xrvmq0qfsj0z-cmp8xytef00daxrvm80gdkpkl",
+      "fromNode": "cmp8xyt1k0019xrvmq0qfsj0z",
+      "toNode": "cmp8xytef00daxrvm80gdkpkl",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt1k0019xrvmq0qfsj0z-cmq8rhz8a0006ccvmvr7n3spw",
+      "fromNode": "cmp8xyt1k0019xrvmq0qfsj0z",
+      "toNode": "cmq8rhz8a0006ccvmvr7n3spw",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhz8a0006ccvmvr7n3spw-cmp8xytbv00a6xrvmi8ugubkz",
+      "fromNode": "cmq8rhz8a0006ccvmvr7n3spw",
+      "toNode": "cmp8xytbv00a6xrvmi8ugubkz",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xytbv00a6xrvmi8ugubkz-cmp8xyxhq0006ywvm3fzeullv",
+      "fromNode": "cmp8xytbv00a6xrvmi8ugubkz",
+      "toNode": "cmp8xyxhq0006ywvm3fzeullv",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xytbv00a6xrvmi8ugubkz-cmp8xyxgw0000ywvm6nzarwyc",
+      "fromNode": "cmp8xytbv00a6xrvmi8ugubkz",
+      "toNode": "cmp8xyxgw0000ywvm6nzarwyc",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt1k0019xrvmq0qfsj0z-cmq8rhz8k000occvmgh7ksibe",
+      "fromNode": "cmp8xyt1k0019xrvmq0qfsj0z",
+      "toNode": "cmq8rhz8k000occvmgh7ksibe",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhz8k000occvmgh7ksibe-cmq8rhz8p0010ccvm4hsjz57a",
+      "fromNode": "cmq8rhz8k000occvmgh7ksibe",
+      "toNode": "cmq8rhz8p0010ccvm4hsjz57a",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhz8k000occvmgh7ksibe-cmq8rhz8m000tccvm9da5oimd",
+      "fromNode": "cmq8rhz8k000occvmgh7ksibe",
+      "toNode": "cmq8rhz8m000tccvm9da5oimd",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhz8w001cccvme2qq7igt-cmq8rhz8t0016ccvm3h0ohxmz",
+      "fromNode": "cmq8rhz8w001cccvme2qq7igt",
+      "toNode": "cmq8rhz8t0016ccvm3h0ohxmz",
+      "label": "27.76 %"
+    }
+  ]
+}

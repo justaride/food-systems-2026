@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-07-02T00:52:13.381Z",
+  "source": "scripts/obsidian-vault/export-db.ts",
+  "counts": {
+    "companies": 351,
+    "ownershipEdges": 160,
+    "boardMembers": 1800,
+    "businessRelationships": 105,
+    "properties": 104
+  }
+}

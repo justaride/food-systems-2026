@@ -1,0 +1,180 @@
+{
+  "nodes": [
+    {
+      "id": "cmp8xyt2l0025xrvmxuh0939x",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Nortura SA.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri00f0006eavmvg92i6gs",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Animalia AS.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri00d0004eavmjl94swfx",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Biosirk Norge AS.md",
+      "x": 360,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri00e0005eavms7smf2uk",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Fjordkjoekken AS.md",
+      "x": 360,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri00g0008eavm9nehuayh",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Fjordland AS.md",
+      "x": 360,
+      "y": 640,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri00a0001eavm7zegmcju",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Norfersk AS.md",
+      "x": 360,
+      "y": 800,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri00f0007eavmvh4uwkpx",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Noridane Foods AS.md",
+      "x": 360,
+      "y": 960,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhzzv0000eavmjnjlh7n0",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Norilia AS.md",
+      "x": 360,
+      "y": 1120,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri00p000feavmd9ripmyr",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorPri AS.md",
+      "x": 360,
+      "y": 1280,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri00c0003eavmnydbd5ab",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Norsk Dyremat AS.md",
+      "x": 360,
+      "y": 1440,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri00b0002eavmwhat7azn",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Prima Slakt AS.md",
+      "x": 360,
+      "y": 1600,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri00o000eeavmwusrp2id",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Telespor AS.md",
+      "x": 360,
+      "y": 1760,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmp8xyt2l0025xrvmxuh0939x-cmq8ri00f0006eavmvg92i6gs",
+      "fromNode": "cmp8xyt2l0025xrvmxuh0939x",
+      "toNode": "cmq8ri00f0006eavmvg92i6gs",
+      "label": "66 %"
+    },
+    {
+      "id": "cmp8xyt2l0025xrvmxuh0939x-cmq8ri00d0004eavmjl94swfx",
+      "fromNode": "cmp8xyt2l0025xrvmxuh0939x",
+      "toNode": "cmq8ri00d0004eavmjl94swfx",
+      "label": "67 %"
+    },
+    {
+      "id": "cmp8xyt2l0025xrvmxuh0939x-cmq8ri00e0005eavms7smf2uk",
+      "fromNode": "cmp8xyt2l0025xrvmxuh0939x",
+      "toNode": "cmq8ri00e0005eavms7smf2uk",
+      "label": "56.50 %"
+    },
+    {
+      "id": "cmp8xyt2l0025xrvmxuh0939x-cmq8ri00g0008eavm9nehuayh",
+      "fromNode": "cmp8xyt2l0025xrvmxuh0939x",
+      "toNode": "cmq8ri00g0008eavm9nehuayh",
+      "label": "38.90 %"
+    },
+    {
+      "id": "cmp8xyt2l0025xrvmxuh0939x-cmq8ri00a0001eavm7zegmcju",
+      "fromNode": "cmp8xyt2l0025xrvmxuh0939x",
+      "toNode": "cmq8ri00a0001eavm7zegmcju",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt2l0025xrvmxuh0939x-cmq8ri00f0007eavmvh4uwkpx",
+      "fromNode": "cmp8xyt2l0025xrvmxuh0939x",
+      "toNode": "cmq8ri00f0007eavmvh4uwkpx",
+      "label": "65 %"
+    },
+    {
+      "id": "cmp8xyt2l0025xrvmxuh0939x-cmq8rhzzv0000eavmjnjlh7n0",
+      "fromNode": "cmp8xyt2l0025xrvmxuh0939x",
+      "toNode": "cmq8rhzzv0000eavmjnjlh7n0",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt2l0025xrvmxuh0939x-cmq8ri00p000feavmd9ripmyr",
+      "fromNode": "cmp8xyt2l0025xrvmxuh0939x",
+      "toNode": "cmq8ri00p000feavmd9ripmyr",
+      "label": "49 %"
+    },
+    {
+      "id": "cmp8xyt2l0025xrvmxuh0939x-cmq8ri00c0003eavmnydbd5ab",
+      "fromNode": "cmp8xyt2l0025xrvmxuh0939x",
+      "toNode": "cmq8ri00c0003eavmnydbd5ab",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt2l0025xrvmxuh0939x-cmq8ri00b0002eavmwhat7azn",
+      "fromNode": "cmp8xyt2l0025xrvmxuh0939x",
+      "toNode": "cmq8ri00b0002eavmwhat7azn",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt2l0025xrvmxuh0939x-cmq8ri00o000eeavmwusrp2id",
+      "fromNode": "cmp8xyt2l0025xrvmxuh0939x",
+      "toNode": "cmq8ri00o000eeavmwusrp2id",
+      "label": "99.70 %"
+    }
+  ]
+}

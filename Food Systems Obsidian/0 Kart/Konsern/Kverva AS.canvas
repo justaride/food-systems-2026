@@ -1,0 +1,90 @@
+{
+  "nodes": [
+    {
+      "id": "cmq8ri1l20002invm9fbjmwa1",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kverva AS.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri1l30003invmurf020ws",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kverva Industrier AS.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xyt5p005rxrvmj9vo32fb",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/SalMar ASA.md",
+      "x": 720,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xytby00aaxrvm3h2n1eb4",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NTS ASA.md",
+      "x": 1080,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri1kh0000invmnj9vdg5f",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/SalMar Farming AS.md",
+      "x": 1080,
+      "y": 640,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri1l00001invmrxtdno58",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/SalmoNor AS.md",
+      "x": 1080,
+      "y": 800,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmq8ri1l20002invm9fbjmwa1-cmq8ri1l30003invmurf020ws",
+      "fromNode": "cmq8ri1l20002invm9fbjmwa1",
+      "toNode": "cmq8ri1l30003invmurf020ws",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri1l30003invmurf020ws-cmp8xyt5p005rxrvmj9vo32fb",
+      "fromNode": "cmq8ri1l30003invmurf020ws",
+      "toNode": "cmp8xyt5p005rxrvmj9vo32fb",
+      "label": "44.30 %"
+    },
+    {
+      "id": "cmp8xyt5p005rxrvmj9vo32fb-cmp8xytby00aaxrvm3h2n1eb4",
+      "fromNode": "cmp8xyt5p005rxrvmj9vo32fb",
+      "toNode": "cmp8xytby00aaxrvm3h2n1eb4",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt5p005rxrvmj9vo32fb-cmq8ri1kh0000invmnj9vdg5f",
+      "fromNode": "cmp8xyt5p005rxrvmj9vo32fb",
+      "toNode": "cmq8ri1kh0000invmnj9vdg5f",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt5p005rxrvmj9vo32fb-cmq8ri1l00001invmrxtdno58",
+      "fromNode": "cmp8xyt5p005rxrvmj9vo32fb",
+      "toNode": "cmq8ri1l00001invmrxtdno58",
+      "label": "100 %"
+    }
+  ]
+}

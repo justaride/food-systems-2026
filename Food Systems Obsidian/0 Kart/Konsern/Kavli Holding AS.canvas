@@ -1,0 +1,60 @@
+{
+  "nodes": [
+    {
+      "id": "cmp8xytbh009xxrvmwf5gnlcp",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kavli Holding AS.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri33k0000mkvmbn1kf1qw",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kavli Norge AS.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri33z0001mkvmtdafj2pu",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/O Kavli AS.md",
+      "x": 720,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3400002mkvmlq6h0m6r",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Q-Meieriene AS.md",
+      "x": 720,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmp8xytbh009xxrvmwf5gnlcp-cmq8ri33k0000mkvmbn1kf1qw",
+      "fromNode": "cmp8xytbh009xxrvmwf5gnlcp",
+      "toNode": "cmq8ri33k0000mkvmbn1kf1qw",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri33k0000mkvmbn1kf1qw-cmq8ri33z0001mkvmtdafj2pu",
+      "fromNode": "cmq8ri33k0000mkvmbn1kf1qw",
+      "toNode": "cmq8ri33z0001mkvmtdafj2pu",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri33k0000mkvmbn1kf1qw-cmq8ri3400002mkvmlq6h0m6r",
+      "fromNode": "cmq8ri33k0000mkvmbn1kf1qw",
+      "toNode": "cmq8ri3400002mkvmlq6h0m6r",
+      "label": "100 %"
+    }
+  ]
+}

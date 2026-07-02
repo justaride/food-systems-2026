@@ -1,0 +1,2532 @@
+[
+  {
+    "id": "cmqeg2upm000jlkvmnqr638un",
+    "name": "0000 NORGE AS",
+    "orgNr": "837000602",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg30vi00zilkvm2bvf8t6t",
+    "name": "1814 NORD AS",
+    "orgNr": "816022932",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg33xl01fclkvm1li1cqaw",
+    "name": "2CW GRUPPEN AS",
+    "orgNr": "917619727",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yt001hr2vmz745cftq",
+    "name": "Agrain A/S",
+    "orgNr": "DK-AGRAIN",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2w1f005tlkvm6k36fgp7",
+    "name": "AIRTEC  DANMARK A/S",
+    "orgNr": "920871372",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg30jo00xflkvmg1hosuyh",
+    "name": "AKER BIOMARINE ASIA LTD",
+    "orgNr": "920535763",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3xt0007r2vmcar1ca18",
+    "name": "Alf Bjercke Eiendom AS",
+    "orgNr": "NO-BJERCKE-EIE",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2zyy00tllkvmlmetu1ei",
+    "name": "ALGAVIDA AS",
+    "orgNr": "928679969",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yu001jr2vmhjliofjx",
+    "name": "Alginor ASA",
+    "orgNr": "NO-ALGINOR",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2vgp0035lkvm37zvgv59",
+    "name": "ALGINOR ASA",
+    "orgNr": "913422082",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg317u010qlkvmjy4vb76j",
+    "name": "AQUAPRO AS",
+    "orgNr": "914827922",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg31ge0133lkvmawu52hbm",
+    "name": "ARCTIC NATURAL NUTRITION AS",
+    "orgNr": "928103668",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg301z00twlkvmog68wfyc",
+    "name": "ARCTIC PROTEIN INDUSTRIES AS",
+    "orgNr": "931863444",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg305000udlkvm8dwjdrs2",
+    "name": "ARCTIC SEAWEED AS",
+    "orgNr": "917378819",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg312n010dlkvmty9zemq7",
+    "name": "ATOS BELGIUM NV",
+    "orgNr": "926751352",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg31b7011dlkvmw8dhw5pu",
+    "name": "ATTVIN NÆRING AS",
+    "orgNr": "923030891",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg31ji013clkvmsisuj330",
+    "name": "AURORA SEAWEED AS",
+    "orgNr": "921332017",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yv001kr2vmy6zja76p",
+    "name": "Avisomo AS",
+    "orgNr": "NO-AVISOMO",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri3yw001lr2vmfsk8dpp3",
+        "name": "Himmelgroent AS",
+        "orgNr": "NO-HIMMELGR",
+        "ownershipPct": 50,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmq8ri4c50000sxvmrlp0ze1h",
+    "name": "Axel Johnson AB",
+    "orgNr": "SE-556223-6959",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmp8xytcn00b3xrvm9e2orzrs",
+        "name": "Axfood AB",
+        "orgNr": "SE-556542-5353",
+        "ownershipPct": 50.1,
+        "children": [
+          {
+            "id": "cmq8ri4cn0006sxvmpokqwapx",
+            "name": "Axfood Snabbgross AB",
+            "orgNr": "SE-556000-3575",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmp8xytc600ajxrvm9rqvviqe",
+            "name": "City Gross Sverige AB",
+            "orgNr": "SE-556597-2451",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8ri4cm0005sxvm766vav85",
+            "name": "Dagab Inköp & Logistik AB",
+            "orgNr": "SE-556004-7903",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8ri4cm0004sxvmgbr0s17n",
+            "name": "Hemkop AB",
+            "orgNr": "SE-556113-8826",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8ri4cl0003sxvmvwmmz64f",
+            "name": "Willys AB",
+            "orgNr": "SE-556163-2232",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8ri3i3000enjvmrh90cw5m",
+        "name": "Martin & Servera AB",
+        "orgNr": "SE-556559-1135",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri3yc000ur2vmez0e9vlt",
+        "name": "Martin & Servera AB",
+        "orgNr": "SE-MARTIN-SERV",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmqeg324w018alkvm2lwf0wf8",
+    "name": "BACASSA SEAWEED AS",
+    "orgNr": "927116758",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri6io0029xlvmvu50gx1v",
+    "name": "Banan II AS",
+    "orgNr": "816488362",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg31qg014ulkvmoyuvj33o",
+    "name": "BARENTS SEAWEED AS",
+    "orgNr": "818481152",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yk0015r2vm0ve50qh2",
+    "name": "BC Catering",
+    "orgNr": "DK-BCCATER",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg30n400xhlkvmhcdu8u44",
+    "name": "BIO3 AS",
+    "orgNr": "915334504",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyxim000wywvmmto53yhr",
+    "name": "BioMar AS",
+    "orgNr": "937843860",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yy001nr2vmhzp4lcfh",
+    "name": "Biomega Group AS",
+    "orgNr": "NO-BIOMEGA",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg34d201hrlkvm285ia25h",
+    "name": "BOKASHI NORGE AS",
+    "orgNr": "923456570",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3y9000rr2vmv89wcs8t",
+    "name": "Bondens Marked Norge",
+    "orgNr": "NO-BONDENS",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri6cb0024xlvmb6vk75fl",
+    "name": "Canica AS",
+    "orgNr": "938701237",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg32eu019alkvmhno5pwwf",
+    "name": "CANICA INVESTOR AS",
+    "orgNr": "980322939",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2wj20095lkvmd6fcfhcu",
+    "name": "CARGILL INC",
+    "orgNr": "916635001",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyxig000rywvm1vql3agx",
+    "name": "Cermaq Norway AS",
+    "orgNr": "961922976",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3y5000mr2vm8aabiaut",
+    "name": "Cheffelo AB",
+    "orgNr": "SE-CHEFFELO",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri3y6000nr2vmob95sphp",
+        "name": "Linas Matkasse AB",
+        "orgNr": "SE-LINAS",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri3y7000or2vmwf39y0cb",
+        "name": "RetNemt ApS",
+        "orgNr": "DK-RETNEMT",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmq8ri3y4000kr2vm0ed0yt0i",
+    "name": "Cibus Nordic Real Estate AB",
+    "orgNr": "SE-CIBUS-NRE",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3ht0003njvmtt7rw5my",
+    "name": "Compass Group Norge AS",
+    "orgNr": "952507729",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri3hz000anjvm88jmys6q",
+        "name": "4Service Gruppen AS",
+        "orgNr": "897392232",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmp8xyte600cuxrvmlygb8gba",
+    "name": "Coop Danmark A/S",
+    "orgNr": "DK-26259495",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2yox00knlkvm74fjy7sg",
+    "name": "COOP EIENDOM ROGALAND AS",
+    "orgNr": "916047967",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3xv0009r2vmpdpxrmko",
+    "name": "Coop Eiendom Soervest AS",
+    "orgNr": "NO-COOP-SV",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2v9d0021lkvmxh8zzycu",
+    "name": "COOP EIENDOM SØRVEST AS",
+    "orgNr": "920126839",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2ybl00jalkvmmv3uxwhz",
+    "name": "COOP EIENDOM VEST AS",
+    "orgNr": "985052441",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhyu80016bcvm87ihwgev",
+    "name": "Coop Finnmark SA",
+    "orgNr": "981397568",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2ylr00k8lkvm3buejx5f",
+    "name": "COOP HORDALAND EIENDOM AS",
+    "orgNr": "917853908",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhyu1000wbcvm6p4cnrfc",
+    "name": "Coop Hordaland SA",
+    "orgNr": "982594421",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2yhs00jmlkvmpd4d9cw9",
+    "name": "COOP INNLANDET EIENDOM AS",
+    "orgNr": "812977032",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhyu40010bcvmkqklxma3",
+    "name": "Coop Innlandet SA",
+    "orgNr": "979419287",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3xv000ar2vm65o48gts",
+    "name": "Coop Midt-Norge Eiendom AS",
+    "orgNr": "NO-COOP-MN",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2vlc003tlkvmf5qa1qxf",
+    "name": "COOP MIDT-NORGE EIENDOM AS",
+    "orgNr": "915300219",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhytv000lbcvmz72436gy",
+    "name": "Coop Midt-Norge SA",
+    "orgNr": "938786054",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhyu0000ubcvm7kixuuq0",
+    "name": "Coop Nord SA",
+    "orgNr": "938497257",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhyu2000ybcvmd98n735u",
+    "name": "Coop Nordland SA",
+    "orgNr": "946231819",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhytz000rbcvmhjfcbh4n",
+    "name": "Coop Nordvest SA",
+    "orgNr": "942763654",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3xu0008r2vmsq0b6jjw",
+    "name": "Coop Norge Eiendom AS",
+    "orgNr": "NO-948202063-EIE",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyt0w000jxrvm0iavgyro",
+    "name": "Coop Norge SA",
+    "orgNr": "936560288",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8rhysy0000bcvmf6z6l989",
+        "name": "Coop Norge Eiendom AS",
+        "orgNr": "988445177",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhytt000hbcvm9gt4kaem",
+            "name": "Coop Norge Langhus Eiendom AS",
+            "orgNr": "919784814",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhytt000ibcvmq8lmd64z",
+            "name": "Coop Norge Stavanger Eiendom AS",
+            "orgNr": "989085557",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhytv000kbcvma23x5g3x",
+            "name": "Coop Norge Stavanger Eiendom II AS",
+            "orgNr": "819784922",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhytu000jbcvmsct42qc7",
+            "name": "Coop Norge Tromsoe Eiendom AS",
+            "orgNr": "997800419",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhyts000gbcvmj7v68uod",
+            "name": "Coop Norge Trondheim Eiendom AS",
+            "orgNr": "919784725",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhytr000fbcvmhqg0763j",
+        "name": "Coop Norge Kaffe AS",
+        "orgNr": "882722422",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8rhytn0008bcvmyop8cnn5",
+        "name": "Norsk Butikkdrift AS",
+        "orgNr": "931186744",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmq8rhyu50012bcvm3wj77bjq",
+    "name": "Coop Oekonom SA",
+    "orgNr": "953452626",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhytw000nbcvmc67mwg7r",
+    "name": "Coop Oest SA",
+    "orgNr": "948432617",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3xw000br2vm0z6lzn3k",
+    "name": "Coop Raufoss Kjoepesenter AS",
+    "orgNr": "NO-COOP-RAUF",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2vo40046lkvmq200l8g9",
+    "name": "COOP RAUFOSS KJØPESENTER AS",
+    "orgNr": "889775912",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhytx000pbcvmniku8wms",
+    "name": "Coop Soervest SA",
+    "orgNr": "966833300",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xytcz00bmxrvmeajnuf9t",
+    "name": "Coop Sverige AB",
+    "orgNr": "SE-702001-3469",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhyu60014bcvm7sjer9lk",
+    "name": "Coop Vestviken SA",
+    "orgNr": "950264799",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2yrq00lqlkvmc5ovfle0",
+    "name": "COOP ØKONOM EIENDOM AS",
+    "orgNr": "825091912",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yp001br2vmvsx2oqd9",
+    "name": "Coop.dk MAD",
+    "orgNr": "DK-COOPDKMAD",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yz001pr2vmitqm5az0",
+    "name": "Cultivate Food AS",
+    "orgNr": "NO-CULTIVATE",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yh0012r2vm3kcpx7sx",
+    "name": "Dagrofa A/S",
+    "orgNr": "DK-DAGROFA",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yk0014r2vmbq7utgok",
+    "name": "Dansk Cater A/S",
+    "orgNr": "DK-DANSKCATER",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2z2d00nzlkvm9obkt8hp",
+    "name": "DEBIO MARKED AS",
+    "orgNr": "915190715",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhxmc000u8evmgjkzcj2x",
+    "name": "Denofa AS",
+    "orgNr": "987643935",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3y9000qr2vmaggl6oi8",
+    "name": "Dyrket.no AS",
+    "orgNr": "NO-DYRKET",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg32vt01b3lkvmla1deluj",
+    "name": "EL-GIGANTEN LOGISTIK AB",
+    "orgNr": "937557922",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg30yi00zwlkvm2sw8zorv",
+    "name": "EMIRO AS",
+    "orgNr": "999221963",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3i6000injvmpzy1txdr",
+    "name": "Euro Cater A/S",
+    "orgNr": "DK-29783535",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri0s6000bg8vm7vuywe14",
+    "name": "Felleskjoepet Rogaland Agder SA",
+    "orgNr": "915442552",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri0s9000gg8vm4fgpt60f",
+        "name": "Fiskaa Molle AS",
+        "orgNr": "975856844",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmp8xyt4b0048xrvm0b9hbwbs",
+    "name": "Felleskjøpet Agri SA",
+    "orgNr": "911608103",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri0s20006g8vmrkbvtjj0",
+        "name": "Cernova AS",
+        "orgNr": "958457952",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8ri0s30007g8vmg10ts21j",
+            "name": "Cernova Trading AS",
+            "orgNr": "912589455",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8ri0s40009g8vm6uu6qb0u",
+        "name": "Felleskjoepet Forutvikling AS",
+        "orgNr": "998232058",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri0s5000ag8vmmfkzynkp",
+        "name": "Norgesfor AS",
+        "orgNr": "975871096",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri0rf0000g8vm8la88lla",
+        "name": "Norgesmollene AS",
+        "orgNr": "885719422",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri0s30008g8vm3xfwy3ln",
+        "name": "Strand Unikorn AS",
+        "orgNr": "916329717",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmp8xythb00g4xrvmuqxxrjy7",
+    "name": "Festi hf",
+    "orgNr": "IS-540206-2010",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri4cs000bsxvmcx56uxa5",
+        "name": "Kronan hf",
+        "orgNr": "IS-711298-2239",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri4cs000csxvmnlfrkk7z",
+        "name": "N1 hf",
+        "orgNr": "IS-411003-3370",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmqeg2wlv009blkvmmipy87fs",
+    "name": "FINNFJORD AS",
+    "orgNr": "934039254",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yq001dr2vm1cc6ei6g",
+    "name": "Foodora Finland Oy",
+    "orgNr": "FI-FOODORA",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyxhz000bywvmqye03rmv",
+    "name": "Gartnerhallen SA",
+    "orgNr": "945958405",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2v5t0016lkvmb5fc39mb",
+    "name": "GEODATA AS",
+    "orgNr": "893136932",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2wz000bklkvm1ssnk16z",
+    "name": "GRAMINOR AS",
+    "orgNr": "967247359",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yu001ir2vmfo5kuawj",
+    "name": "Greve Biogass AS",
+    "orgNr": "NO-GREVEBIO",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyxit0011ywvm8qm4kgzk",
+    "name": "Grilstad AS",
+    "orgNr": "937070632",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xytg200fcxrvmqcdfpxb6",
+    "name": "Hagar hf",
+    "orgNr": "IS-670203-2120",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri4cp0008sxvm7t95d20c",
+        "name": "Bonus hf",
+        "orgNr": "IS-450199-3389",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri4cq0009sxvmesqlgpbb",
+        "name": "Hagkaup hf",
+        "orgNr": "IS-430698-3549",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri4cr000asxvmbb0lrqxb",
+        "name": "Olis hf",
+        "orgNr": "IS-500269-3249",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmq8rhxm1000c8evmv2oovq9m",
+    "name": "Hansa Borg AS",
+    "orgNr": "876862522",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg31tb015llkvm9u1acp2x",
+    "name": "HELGELAND SEAWEED AS",
+    "orgNr": "921995938",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yi0013r2vm1a035jii",
+    "name": "Hoerkram Foodservice A/S",
+    "orgNr": "DK-HORKRAM",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2wdk007clkvm9xcu3qj4",
+    "name": "HOFF SA",
+    "orgNr": "940379016",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yy001or2vm9tgjx6jo",
+    "name": "Hofseth BioCare ASA",
+    "orgNr": "NO-HOFSETHBC",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyta3008hxrvmhpcstihu",
+    "name": "Holdbart AS",
+    "orgNr": "815664582",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yx001mr2vm7jvoequq",
+    "name": "Hordafor AS",
+    "orgNr": "NO-HORDAFOR",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri5s50015xlvmaitwltwl",
+    "name": "I K Lykke AS",
+    "orgNr": "814055922",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3y3000jr2vmhw765v7g",
+    "name": "I.K. Lykke Eiendom AS",
+    "orgNr": "NO-IKLYKKE-EIE",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xytca00alxrvm4atlmz8s",
+    "name": "ICA Gruppen AB",
+    "orgNr": "SE-556048-2837",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri4ck0002sxvminndm9si",
+        "name": "ICA Fastigheter AB",
+        "orgNr": "SE-556033-8518",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri4cj0001sxvm7c1wl592",
+        "name": "ICA Sverige AB",
+        "orgNr": "SE-556021-0261",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmq8ri3yl0017r2vmuyjigzrj",
+    "name": "ICA Norge AS",
+    "orgNr": "NO-ICA-NO",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2yy300nxlkvm8tb67eib",
+    "name": "ICA SVERIGE AB",
+    "orgNr": "986619968",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg3d5902ghlkvm2574ln9f",
+    "name": "INFINITUM AS",
+    "orgNr": "977199611",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg3d7102gilkvm2z9kiy0d",
+    "name": "INVERTAPRO AS",
+    "orgNr": "917809755",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yp001cr2vmz1yrlvhg",
+    "name": "Irma A/S",
+    "orgNr": "DK-IRMA",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3i8000knjvmtbp7h5if",
+    "name": "ISS A/S",
+    "orgNr": "DK-28316745",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri3hx0008njvmrts8ow0o",
+        "name": "ISS Facility Services AS",
+        "orgNr": "914791723",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmq8ri65x001yxlvmt9t7dkcx",
+    "name": "Joh Johannson Eiendom AS",
+    "orgNr": "983522025",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri5z7001qxlvmi97c0k0i",
+    "name": "Joh Johannson Handel AS",
+    "orgNr": "921979819",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3xs0005r2vmeot4mcul",
+    "name": "Joh Johannson Invest AS",
+    "orgNr": "NO-JJ-INV",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri3xs0006r2vm9wicie1g",
+        "name": "Bokveien 112 AS",
+        "orgNr": "NO-BOKV112",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri3xr0004r2vmyjnvo88z",
+        "name": "Joh. Johannson Eiendom AS",
+        "orgNr": "NO-JJ-EIE",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmqeg327q018klkvmznn857lu",
+    "name": "JOH JOHANNSON INVEST AS",
+    "orgNr": "918293477",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2ziy00qxlkvmde8cy1x2",
+    "name": "K. THORSTEINSSON OG CO EHF",
+    "orgNr": "918579176",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xytbh009xxrvmwf5gnlcp",
+    "name": "Kavli Holding AS",
+    "orgNr": "913344162",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri33k0000mkvmbn1kf1qw",
+        "name": "Kavli Norge AS",
+        "orgNr": "985461791",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8ri33z0001mkvmtdafj2pu",
+            "name": "O Kavli AS",
+            "orgNr": "971142138",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8ri3400002mkvmlq6h0m6r",
+            "name": "Q-Meieriene AS",
+            "orgNr": "982423767",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cmp8xytfe00eixrvmirdqrc44",
+    "name": "Kesko Oyj",
+    "orgNr": "FI-0110456-8",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri4co0007sxvmwc81k3hf",
+        "name": "Kespro Oy",
+        "orgNr": "FI-0777402-5",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmq8ri3yd000wr2vm9j2sv3sw",
+    "name": "Kespro Oy",
+    "orgNr": "FI-KESPRO",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri1l20002invm9fbjmwa1",
+    "name": "Kverva AS",
+    "orgNr": "919818824",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri1l30003invmurf020ws",
+        "name": "Kverva Industrier AS",
+        "orgNr": "960329856",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmp8xyt5p005rxrvmj9vo32fb",
+            "name": "SalMar ASA",
+            "orgNr": "960514718",
+            "ownershipPct": 44.3,
+            "children": [
+              {
+                "id": "cmp8xytby00aaxrvm3h2n1eb4",
+                "name": "NTS ASA",
+                "orgNr": "952587687",
+                "ownershipPct": 100,
+                "children": []
+              },
+              {
+                "id": "cmq8ri1kh0000invmnj9vdg5f",
+                "name": "SalMar Farming AS",
+                "orgNr": "966840528",
+                "ownershipPct": 100,
+                "children": []
+              },
+              {
+                "id": "cmq8ri1l00001invmrxtdno58",
+                "name": "SalmoNor AS",
+                "orgNr": "952662813",
+                "ownershipPct": 100,
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cmq8ri2bp0000klvmewgbvqm7",
+    "name": "Laco AS",
+    "orgNr": "937305354",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmp8xytb8009pxrvmjdg1chp6",
+        "name": "Austevoll Seafood ASA",
+        "orgNr": "929975200",
+        "ownershipPct": 55.55,
+        "children": [
+          {
+            "id": "cmp8xyt620066xrvmjffvu35l",
+            "name": "Lerøy Seafood Group ASA",
+            "orgNr": "975350940",
+            "ownershipPct": 52.7,
+            "children": [
+              {
+                "id": "cmq8ri1y70000jmvm67a2av65",
+                "name": "Hallvard Leroey AS",
+                "orgNr": "914353561",
+                "ownershipPct": 100,
+                "children": []
+              },
+              {
+                "id": "cmq8ri1yn0001jmvmd3phc5go",
+                "name": "Leroey Aurora AS",
+                "orgNr": "985940460",
+                "ownershipPct": 100,
+                "children": []
+              },
+              {
+                "id": "cmq8ri1yp0004jmvmsqr3r2r5",
+                "name": "Leroey Havfisk AS",
+                "orgNr": "986392858",
+                "ownershipPct": 100,
+                "children": []
+              },
+              {
+                "id": "cmq8ri1yo0002jmvm6jp04sdg",
+                "name": "Leroey Midt AS",
+                "orgNr": "985848718",
+                "ownershipPct": 100,
+                "children": []
+              },
+              {
+                "id": "cmq8ri1yq0005jmvmm747m598",
+                "name": "Leroey Norway Seafoods AS",
+                "orgNr": "995548194",
+                "ownershipPct": 100,
+                "children": []
+              },
+              {
+                "id": "cmq8ri1yo0003jmvmysbnoj5j",
+                "name": "Leroey Vest AS",
+                "orgNr": "886813082",
+                "ownershipPct": 100,
+                "children": [
+                  {
+                    "id": "cmq8ri1yr0006jmvmarnyej1l",
+                    "name": "Sjoetroll AS",
+                    "orgNr": "927894254",
+                    "ownershipPct": 100,
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cmp8xyxib000mywvmcuule0js",
+    "name": "Lantmännen Cerealia AS",
+    "orgNr": "910629085",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3if000qnjvmth1wil1x",
+    "name": "Leijona Catering Oy",
+    "orgNr": "FI-2449777-9",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yl0016r2vmrk7jghfb",
+    "name": "Lidl Norge AS",
+    "orgNr": "NO-LIDL",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xytft00f1xrvmg69nyoo1",
+    "name": "Lidl Suomi Ky",
+    "orgNr": "FI-1615492-7",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xytdd00c2xrvmg4yblf40",
+    "name": "Lidl Sverige KB",
+    "orgNr": "SE-969697-6594",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg308400v0lkvm08kwgrrr",
+    "name": "LYNGEN SEAWEED AS",
+    "orgNr": "922997748",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg31w7016llkvm85puby4x",
+    "name": "MARSTEIN SEAWEED AS",
+    "orgNr": "817580122",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg33fj01d4lkvmdmzrvbb3",
+    "name": "MARTIN & SERVERA AB",
+    "orgNr": "926875701",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yn0018r2vm89465e9q",
+    "name": "Mat.se AB",
+    "orgNr": "SE-MATSE",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yn0019r2vm6mmy4b3n",
+    "name": "Mathem i Sverige AB",
+    "orgNr": "SE-MATHEM",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xytab008qxrvmwx3gi7fe",
+    "name": "Matsentralen Norge",
+    "orgNr": "919702974",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3y8000pr2vmp6oh5k8u",
+    "name": "Matsmart / Motatos AB",
+    "orgNr": "SE-MATSMART",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xytaj0090xrvmuqj46eh2",
+    "name": "Matvett AS",
+    "orgNr": "997898397",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3ye000xr2vmhi9arml6",
+    "name": "Meira Nova Oy",
+    "orgNr": "FI-MEIRA",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3i5000gnjvmcadcdbu4",
+    "name": "Menigo Foodservice AB",
+    "orgNr": "SE-556424-2537",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yd000vr2vmwa1mv3ae",
+    "name": "Menigo Foodservice AB",
+    "orgNr": "SE-MENIGO",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg3dex02gjlkvmr4ghiod1",
+    "name": "MENON ECONOMICS AS",
+    "orgNr": "977213193",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yf000yr2vmi2a0qxwj",
+    "name": "Metro-tukku (Wihuri)",
+    "orgNr": "FI-METRO-T",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyt58005axrvmq4uvylny",
+    "name": "Mowi ASA",
+    "orgNr": "964118191",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri16p0002hovmkzh2go59",
+        "name": "Mowi Feed AS",
+        "orgNr": "911610744",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri16n0001hovmoyb58pus",
+        "name": "Mowi Markets Norway AS",
+        "orgNr": "916146337",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri16q0003hovm1sefyvqb",
+        "name": "Mowi Norway FoU AS",
+        "orgNr": "919441879",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri1670000hovmn2i2hdwg",
+        "name": "Mowi Seawater Norway AS",
+        "orgNr": "921668236",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmp8xytbz00acxrvmjbj3td65",
+        "name": "Nova Sea AS",
+        "orgNr": "961056268",
+        "ownershipPct": 95,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmq8ri5en0000xlvm3tsnc3if",
+    "name": "Natural State AS",
+    "orgNr": "919645636",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2vt4004olkvmlquv3jov",
+    "name": "NG EIENDOM VESTFOLD TELEMARK AS",
+    "orgNr": "984980744",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xytas0098xrvm1x6bwwrf",
+    "name": "Nofima AS",
+    "orgNr": "989278835",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri5lx000jxlvmt1hn272p",
+    "name": "Nordic Circular Hotspot AS",
+    "orgNr": "930183350",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yh0011r2vmbu19i75a",
+    "name": "Norengros AS",
+    "orgNr": "NO-NORENGROS",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyxi3000gywvmoqkh12pg",
+    "name": "Norges Sjømatråd AS",
+    "orgNr": "988597627",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2xq300gblkvmlzytntd0",
+    "name": "NORGESGRUPPEN AGDER AS",
+    "orgNr": "926994387",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xysz20000xrvmbm4d5nat",
+    "name": "NorgesGruppen ASA",
+    "orgNr": "819731322",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmp8xyt95007mxrvmlptkx5cl",
+        "name": "ASKO Norge AS",
+        "orgNr": "929228723",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhy04000a9dvmfdzk04tf",
+            "name": "ASKO Agder AS",
+            "orgNr": "913117883",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhy0a000j9dvmn0dzipbs",
+            "name": "ASKO Bygg Vestby AS",
+            "orgNr": "884133572",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhy09000h9dvmzs4otqot",
+            "name": "ASKO Fornybar AS",
+            "orgNr": "916286074",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhxzu00029dvm6d47qmtc",
+            "name": "ASKO Hedmark AS",
+            "orgNr": "918710507",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhy08000g9dvm5xj0r8ce",
+            "name": "ASKO Maritime AS",
+            "orgNr": "925216534",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhy0a000i9dvmifw8vyzk",
+            "name": "ASKO Mat AS",
+            "orgNr": "925109185",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhxzw00049dvm7vhq896z",
+            "name": "ASKO Midt-Norge AS",
+            "orgNr": "979334109",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhy06000e9dvmlz3hizcg",
+            "name": "ASKO Molde AS",
+            "orgNr": "813612992",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhy06000d9dvmtlg6rve3",
+            "name": "ASKO Nord AS",
+            "orgNr": "979655215",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhy05000c9dvmitjheub0",
+            "name": "ASKO Oest AS",
+            "orgNr": "912015238",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhxze00009dvmsw5qqkay",
+            "name": "ASKO Oslofjord AS",
+            "orgNr": "930622974",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhxzv00039dvm40ykw0gr",
+            "name": "ASKO Rogaland AS",
+            "orgNr": "923622845",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhy07000f9dvmz4r2n1jy",
+            "name": "ASKO Transport AS",
+            "orgNr": "999320600",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhxzt00019dvm8ezatn5k",
+            "name": "ASKO Vest AS",
+            "orgNr": "979487916",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhy05000b9dvmnq8brmtv",
+            "name": "ASKO Vestfold Telemark AS",
+            "orgNr": "933129950",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmp8xyt4t004sxrvm7b86awqx",
+        "name": "BAMA Gruppen AS",
+        "orgNr": "914224314",
+        "ownershipPct": 46,
+        "children": [
+          {
+            "id": "cmq8ri2q20005llvm8m8m5cei",
+            "name": "BAMA Blomster Holding AS",
+            "orgNr": "981384016",
+            "ownershipPct": 100,
+            "children": [
+              {
+                "id": "cmq8ri2q30006llvm7cehoe6a",
+                "name": "BAMA Blomster Sourcing AS",
+                "orgNr": "992714409",
+                "ownershipPct": 100,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "cmq8ri2pi0000llvmqneas7ct",
+            "name": "BAMA Industri AS",
+            "orgNr": "976565967",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8ri2q10004llvmzsy3h67t",
+            "name": "BAMA International AS",
+            "orgNr": "959657769",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8ri2py0002llvm504gy632",
+            "name": "BAMA Logistikk AS",
+            "orgNr": "965437150",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8ri2q00003llvmpna36adn",
+            "name": "BAMA Pakkerier AS",
+            "orgNr": "995244071",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8ri2px0001llvmimilccw0",
+            "name": "BAMA Storkjoekken AS",
+            "orgNr": "995518333",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmp8xyter00doxrvm206trvnu",
+        "name": "Dagrofa A/S",
+        "orgNr": "DK-38714295",
+        "ownershipPct": 48.9,
+        "children": []
+      },
+      {
+        "id": "cmq8rhydo0000advm1hn6fiih",
+        "name": "Kiwi Norge AS",
+        "orgNr": "975959171",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhye90006advmc07qrod5",
+            "name": "Kiwi Minidrift AS",
+            "orgNr": "985131406",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhyeg000gadvmm1fc7zwp",
+        "name": "Kjopmannshuset Norge AS",
+        "orgNr": "977263646",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhyek000qadvmgmyyal9h",
+            "name": "Kjopmannshuset Butikkdrift AS",
+            "orgNr": "995915820",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhyea0007advm8eybx3oj",
+        "name": "MENY AS",
+        "orgNr": "977066727",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhyef000fadvmqk5o6eyn",
+            "name": "Meny Butikkdrift AS",
+            "orgNr": "989578790",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhyep0013advmciotpt15",
+        "name": "NorgesGruppen Detalj AS",
+        "orgNr": "882578402",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8rhyf40021advmbgkw7vbn",
+        "name": "NorgesGruppen Eiendom Holding AS",
+        "orgNr": "997747054",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhyf50022advm2lj4r8jb",
+            "name": "NorgesGruppen Eiendom AS",
+            "orgNr": "976542223",
+            "ownershipPct": 100,
+            "children": [
+              {
+                "id": "cmq8rhyf70027advmxpmmq0aa",
+                "name": "NorgesGruppen Eiendomsutvikling AS",
+                "orgNr": "995666553",
+                "ownershipPct": 100,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "cmq8rhyf70026advmfyy6remv",
+            "name": "NorgesGruppen Eiendomskapital AS",
+            "orgNr": "989009001",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhyey001ladvmqal42v4f",
+        "name": "NorgesGruppen Fellestjenester AS",
+        "orgNr": "983392970",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhyey001madvmfjjuxs3y",
+            "name": "NorgesGruppen Data AS",
+            "orgNr": "971047917",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhyf2001vadvm17c4kkhl",
+            "name": "NorgesGruppen Regnskap AS",
+            "orgNr": "883743512",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhyf80028advmowiq9bmg",
+        "name": "NorgesGruppen Finans Holding AS",
+        "orgNr": "920341659",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhyf80029advmb75ln7u3",
+            "name": "NorgesGruppen Finans AS",
+            "orgNr": "920428959",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhyer0017advmpm4j4zf5",
+        "name": "NorgesGruppen Merkevare AS",
+        "orgNr": "997732812",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhxl800008evmyipstgjv",
+            "name": "Bakehuset AS",
+            "orgNr": "914183332",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8rhyer0018advmyodraxo5",
+            "name": "Joh. Johannson Kaffe AS",
+            "orgNr": "913283805",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmp8xytbp00a2xrvmgp9lh2h2",
+            "name": "Unil AS",
+            "orgNr": "885316522",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhyek000radvmrcuxm1ra",
+        "name": "NorgesGruppen Servicehandel AS",
+        "orgNr": "976769511",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhyen000xadvmidtzb00d",
+            "name": "Deli de Luca Norge AS",
+            "orgNr": "985402779",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8ri3h70000njvm7r5nclev",
+        "name": "Storcash Norge AS",
+        "orgNr": "930258008",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmqeg2xk500f9lkvmed4yfu0a",
+    "name": "NORGESGRUPPEN EIENDOM BUSKERUD AS",
+    "orgNr": "881452642",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3xm0001r2vmaswu5x19",
+    "name": "NorgesGruppen Eiendom Holding AS",
+    "orgNr": "NO-961483584-EIEH",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri3x50000r2vmo264rrtc",
+        "name": "NorgesGruppen Eiendom AS",
+        "orgNr": "NO-961483584-EIE",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8ri3xn0002r2vmsclfigsz",
+            "name": "NG Eiendom Vestfold Telemark AS",
+            "orgNr": "NO-961483584-VTEIE",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cmqeg2xn000fxlkvm5ohmtf35",
+    "name": "NORGESGRUPPEN EIENDOM MIDT-NORGE AS",
+    "orgNr": "935480507",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2xc800e5lkvmkhhh268p",
+    "name": "NORGESGRUPPEN EIENDOM REGION AS",
+    "orgNr": "997732863",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2y5r00imlkvm0lfh3kp4",
+    "name": "NORGESGRUPPEN MIDT-NORGE AS",
+    "orgNr": "811793442",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2xxr00hklkvme1oyd7bv",
+    "name": "NORGESGRUPPEN MØRE AS",
+    "orgNr": "987570067",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2y1900hzlkvmc4ko7r1j",
+    "name": "NORGESGRUPPEN NORD AS",
+    "orgNr": "990236186",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2xum00h3lkvmzpcfasse",
+    "name": "NORGESGRUPPEN VEST AS",
+    "orgNr": "977389666",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3xp0003r2vma7pie0fb",
+    "name": "NorgesGruppen Vestfold Telemark AS",
+    "orgNr": "NO-961483584-VT",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2u3q0004lkvmirwbvb8n",
+    "name": "NORGESGRUPPEN VESTFOLD TELEMARK AS",
+    "orgNr": "975960714",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg34s501kalkvmbyr62434",
+    "name": "NORINSECT AS",
+    "orgNr": "916325010",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg33p901e4lkvm1pnhp06m",
+    "name": "NORSK GJENVINNING AS",
+    "orgNr": "937270062",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg33sa01evlkvm5mkw5bt2",
+    "name": "NORTHERN LIGHTS JV DA",
+    "orgNr": "926655779",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyt2l0025xrvmxuh0939x",
+    "name": "Nortura SA",
+    "orgNr": "938752648",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri00f0006eavmvg92i6gs",
+        "name": "Animalia AS",
+        "orgNr": "919117060",
+        "ownershipPct": 66,
+        "children": []
+      },
+      {
+        "id": "cmq8ri00d0004eavmjl94swfx",
+        "name": "Biosirk Norge AS",
+        "orgNr": "921042434",
+        "ownershipPct": 67,
+        "children": []
+      },
+      {
+        "id": "cmq8ri00e0005eavms7smf2uk",
+        "name": "Fjordkjoekken AS",
+        "orgNr": "976502744",
+        "ownershipPct": 56.5,
+        "children": []
+      },
+      {
+        "id": "cmq8ri00g0008eavm9nehuayh",
+        "name": "Fjordland AS",
+        "orgNr": "936661386",
+        "ownershipPct": 38.9,
+        "children": []
+      },
+      {
+        "id": "cmq8ri00a0001eavm7zegmcju",
+        "name": "Norfersk AS",
+        "orgNr": "997754123",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri00f0007eavmvh4uwkpx",
+        "name": "Noridane Foods AS",
+        "orgNr": "992318899",
+        "ownershipPct": 65,
+        "children": []
+      },
+      {
+        "id": "cmq8rhzzv0000eavmjnjlh7n0",
+        "name": "Norilia AS",
+        "orgNr": "995643316",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri00p000feavmd9ripmyr",
+        "name": "NorPri AS",
+        "orgNr": "913755855",
+        "ownershipPct": 49,
+        "children": []
+      },
+      {
+        "id": "cmq8ri00c0003eavmnydbd5ab",
+        "name": "Norsk Dyremat AS",
+        "orgNr": "962977006",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri00b0002eavmwhat7azn",
+        "name": "Prima Slakt AS",
+        "orgNr": "885209432",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri00o000eeavmwusrp2id",
+        "name": "Telespor AS",
+        "orgNr": "987390689",
+        "ownershipPct": 99.7,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmqeg30at00vblkvmsn21a1re",
+    "name": "NORWAY SEAWEED AS",
+    "orgNr": "916335784",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg31za0178lkvm6vv0rs4r",
+    "name": "NORWEGIAN SEAWEED AS",
+    "orgNr": "822659292",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2wqm00anlkvmqvuebamw",
+    "name": "NTF KLUBBEN VED ICA NORGE AS LOGISTIKK AVD TRONDHEIM",
+    "orgNr": "993450782",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyt9o0088xrvmoop48ij7",
+    "name": "Oda",
+    "orgNr": "932256134",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhxm8000o8evm9xr0rfe4",
+    "name": "Oda Norway AS",
+    "orgNr": "912262510",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yo001ar2vmft3yml7u",
+    "name": "Oda Sverige AB",
+    "orgNr": "SE-ODA",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhz8w001cccvme2qq7igt",
+    "name": "Odd Reitan Private Holding AS",
+    "orgNr": "915990487",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8rhz7o0000ccvm7re947er",
+        "name": "Reitan AS",
+        "orgNr": "912609987",
+        "ownershipPct": 33.33,
+        "children": [
+          {
+            "id": "cmq8rhz8t0016ccvm3h0ohxmz",
+            "name": "Reitan Eiendom AS",
+            "orgNr": "915994415",
+            "ownershipPct": 72.23,
+            "children": []
+          },
+          {
+            "id": "cmq8rhz8q0011ccvmzcml9ju7",
+            "name": "Reitan Kapital AS",
+            "orgNr": "917114684",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmp8xyt1k0019xrvmq0qfsj0z",
+            "name": "Reitan Retail AS",
+            "orgNr": "914526647",
+            "ownershipPct": 100,
+            "children": [
+              {
+                "id": "cmq8rhz8d0009ccvmz12tb1ek",
+                "name": "Reitan Convenience AS",
+                "orgNr": "983415652",
+                "ownershipPct": 100,
+                "children": [
+                  {
+                    "id": "cmq8rhz8g000fccvm1tj5jb39",
+                    "name": "Reitan Convenience Norway AS",
+                    "orgNr": "983415660",
+                    "ownershipPct": 100,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "cmp8xytef00daxrvm80gdkpkl",
+                "name": "REMA 1000 A/S",
+                "orgNr": "DK-14705627",
+                "ownershipPct": 100,
+                "children": []
+              },
+              {
+                "id": "cmq8rhz8a0006ccvmvr7n3spw",
+                "name": "REMA 1000 AS",
+                "orgNr": "883409442",
+                "ownershipPct": 100,
+                "children": [
+                  {
+                    "id": "cmp8xytbv00a6xrvmi8ugubkz",
+                    "name": "REMA 1000 Norge AS",
+                    "orgNr": "982254604",
+                    "ownershipPct": 100,
+                    "children": [
+                      {
+                        "id": "cmp8xyxhq0006ywvm3fzeullv",
+                        "name": "Norsk Kylling AS",
+                        "orgNr": "980411133",
+                        "ownershipPct": 100,
+                        "children": []
+                      },
+                      {
+                        "id": "cmp8xyxgw0000ywvm6nzarwyc",
+                        "name": "REMA Distribusjon Norge AS",
+                        "orgNr": "894759372",
+                        "ownershipPct": 100,
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "cmq8rhz8k000occvmgh7ksibe",
+                "name": "Uno-X Mobility AS",
+                "orgNr": "988247111",
+                "ownershipPct": 100,
+                "children": [
+                  {
+                    "id": "cmq8rhz8p0010ccvm4hsjz57a",
+                    "name": "Uno-X E-Mobility Norge AS",
+                    "orgNr": "928211398",
+                    "ownershipPct": 100,
+                    "children": []
+                  },
+                  {
+                    "id": "cmq8rhz8m000tccvm9da5oimd",
+                    "name": "Uno-X Mobility Norge AS",
+                    "orgNr": "921757131",
+                    "ownershipPct": 100,
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhz8t0016ccvm3h0ohxmz",
+        "name": "Reitan Eiendom AS",
+        "orgNr": "915994415",
+        "ownershipPct": 27.76,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmp8xyt25001nxrvm5fopu1xb",
+    "name": "Orkla ASA",
+    "orgNr": "910747711",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmp8xytc400ahxrvm6dhey2fh",
+        "name": "Lilleborg AS",
+        "orgNr": "925745855",
+        "ownershipPct": 0,
+        "children": []
+      },
+      {
+        "id": "cmq8rhzmq000odbvmtdokirlr",
+        "name": "Orkla Eiendom AS",
+        "orgNr": "932176076",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmp8xytc100aexrvm71qkugy8",
+        "name": "Orkla Food Ingredients AS",
+        "orgNr": "911161419",
+        "ownershipPct": 60,
+        "children": []
+      },
+      {
+        "id": "cmq8rhzlv0000dbvmshh1z2vf",
+        "name": "Orkla Foods AS",
+        "orgNr": "930097705",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhzmh0006dbvmeo29g869",
+            "name": "Orkla Foods Norge AS",
+            "orgNr": "916170858",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhzmo000jdbvm5lxbow5a",
+        "name": "Orkla Health Holding AS",
+        "orgNr": "930097683",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhzmo000kdbvm75b3ox1g",
+            "name": "Orkla Health AS",
+            "orgNr": "986519904",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhzmp000ldbvmek8dap09",
+        "name": "Orkla Home and Personal Care AS",
+        "orgNr": "911161230",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhzmp000mdbvmxgszys5n",
+            "name": "Orkla House Care Norge AS",
+            "orgNr": "996888142",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhzmr000pdbvmrml87k52",
+        "name": "Orkla IT AS",
+        "orgNr": "991742255",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8rhzml000cdbvmaqc8camf",
+        "name": "Orkla Snacks AS",
+        "orgNr": "930097748",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8rhzmm000ddbvmfdj03yu8",
+            "name": "Orkla Snacks Norge AS",
+            "orgNr": "940712580",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cmq8rhzmq000ndbvm2xhgdtp7",
+        "name": "Pierre Robert Group AS",
+        "orgNr": "912692094",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmqeg3e1c02gklkvmcbvc1y9o",
+    "name": "OSLO ECONOMICS AS",
+    "orgNr": "993924741",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3ya000sr2vmuiqw8vyf",
+    "name": "Oslo Kooperativ SA",
+    "orgNr": "NO-OSLO-KOOP",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3ys001gr2vmbwtfb7wc",
+    "name": "PeelPioneers B.V.",
+    "orgNr": "NL-PEELPIO",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhxm4000i8evmadlbl8nx",
+    "name": "Posten Bring AS",
+    "orgNr": "984661185",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg34p301jllkvmvkbxe013",
+    "name": "PRONOFA ASA",
+    "orgNr": "926501836",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3xy000dr2vm56jteena",
+    "name": "REITAN AS",
+    "orgNr": "NO-REITAN-HOLD",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri3xy000cr2vmt80ql5ns",
+        "name": "Reitan Eiendom AS",
+        "orgNr": "NO-REITAN-EIE",
+        "ownershipPct": 100,
+        "children": [
+          {
+            "id": "cmq8ri3y2000ir2vmes7pk50b",
+            "name": "Christiania Areal AS",
+            "orgNr": "NO-CHR-AREAL",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8ri3xz000er2vmwu3ckdra",
+            "name": "E C Dahls Eiendom AS",
+            "orgNr": "NO-ECDAHLS-EIE",
+            "ownershipPct": 100,
+            "children": []
+          },
+          {
+            "id": "cmq8ri3y1000gr2vm6kxubjv4",
+            "name": "REBUS Handelseiendom AS",
+            "orgNr": "NO-REBUS-HEIE",
+            "ownershipPct": 100,
+            "children": [
+              {
+                "id": "cmq8ri3y2000hr2vmatlbtwvw",
+                "name": "REBUS Utvikling AS",
+                "orgNr": "NO-REBUS-UTV",
+                "ownershipPct": 100,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "cmq8ri3y0000fr2vmottxw7af",
+            "name": "RELOG AS",
+            "orgNr": "NO-RELOG",
+            "ownershipPct": 100,
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cmqeg2y8q00j3lkvmb1u4vwzw",
+    "name": "REITAN EIENDOM DRIFT AS",
+    "orgNr": "979491514",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2x5v00dhlkvmi2o67gyh",
+    "name": "REMA INDUSTRIER AS",
+    "orgNr": "994674099",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8rhxly00068evmt7qbjfk0",
+    "name": "Ringnes AS",
+    "orgNr": "914670705",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yb000tr2vmgl30kgec",
+    "name": "Ruokaboksi Oy",
+    "orgNr": "FI-RUOKAB",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xytdq00cexrvmnyah62ph",
+    "name": "Salling Group A/S",
+    "orgNr": "DK-35954716",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg32nx01a6lkvmm48ziv0a",
+    "name": "SALMAR OCEAN AS",
+    "orgNr": "923534717",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xytgq00fqxrvmhy225al2",
+    "name": "Samkaup hf",
+    "orgNr": "IS-571298-3769",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2zvy00sdlkvmanuxg45t",
+    "name": "SEAWEED SOLUTIONS AS",
+    "orgNr": "993491780",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg3224017dlkvm4gaa5ufs",
+    "name": "SELVÆR SEAWEED AS",
+    "orgNr": "932324997",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3i1000cnjvm90htjvbe",
+    "name": "Servicegrossistene AS",
+    "orgNr": "933444724",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yg0010r2vmoa75sch1",
+    "name": "Servicegrossistene AS",
+    "orgNr": "NO-SERVICEGR",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyt850077xrvmw6sfeqx1",
+    "name": "Skretting AS",
+    "orgNr": "988044113",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg31mh014dlkvm6kvz2mbm",
+    "name": "SMART SEAWEED SOLUTIONS AS",
+    "orgNr": "921275730",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg3eiq02gllkvmfnl411b6",
+    "name": "SMARTSOIL BIOTECH AS",
+    "orgNr": "925470996",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3hw0006njvm6ppq58sg",
+    "name": "Sodexo AS",
+    "orgNr": "932144336",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xytf500e3xrvm5038rtz6",
+    "name": "SOK (S Group)",
+    "orgNr": "FI-0116323-9",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri3ic000mnjvmwra9xqdk",
+        "name": "Meira Nova Oy",
+        "orgNr": "FI-0697627-4",
+        "ownershipPct": 100,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmqeg3ela02gmlkvmd9kjc8f2",
+    "name": "ST1 BIOKRAFT AS",
+    "orgNr": "894625902",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg32id019xlkvmxjdllry8",
+    "name": "STEIN ERIK HAGEN AS",
+    "orgNr": "977047587",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yr001er2vm9wli9ygr",
+    "name": "Stockmann Herkku Delicatessen",
+    "orgNr": "FI-STOCKHERKKU",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg30rv00ymlkvmdaoymyuv",
+    "name": "SUMMA EQUITY AB",
+    "orgNr": "922876878",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg2yf200jhlkvmoqpcyk3m",
+    "name": "TELEMARK EIENDOM AS",
+    "orgNr": "915123678",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyt3l0037xrvmpzlb3lbw",
+    "name": "TINE SA",
+    "orgNr": "947942638",
+    "ownershipPct": null,
+    "children": [
+      {
+        "id": "cmq8ri0dr0000f9vmiy61mp13",
+        "name": "Diplom-Is AS",
+        "orgNr": "984460198",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri00g0008eavm9nehuayh",
+        "name": "Fjordland AS",
+        "orgNr": "936661386",
+        "ownershipPct": 51.1,
+        "children": []
+      },
+      {
+        "id": "cmq8ri0eg0007f9vm26qz4x4y",
+        "name": "Kukraft AS",
+        "orgNr": "921761929",
+        "ownershipPct": 100,
+        "children": []
+      },
+      {
+        "id": "cmq8ri0ef0006f9vmzzgd0s6s",
+        "name": "Mimiro Holding AS",
+        "orgNr": "821186382",
+        "ownershipPct": 56.6,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cmq8ri3ys001fr2vmy47lr0uk",
+    "name": "Too Good To Go International A/S",
+    "orgNr": "DK-TGTG",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyt9k0081xrvmnmdi03r5",
+    "name": "Too Good To Go Norge AS",
+    "orgNr": "917203261",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3yf000zr2vmmul0nwhl",
+    "name": "Valio Aimo",
+    "orgNr": "FI-VALIO-AIMO",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg3epk02gnlkvmh8haysgl",
+    "name": "VERMINORD AS",
+    "orgNr": "935948878",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmqeg30dc00w7lkvmdclo0d48",
+    "name": "VESTERÅLEN SEAWEED AS",
+    "orgNr": "917339937",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3ie000onjvmwg73p7qh",
+    "name": "Wolt Enterprises Oy",
+    "orgNr": "FI-2646674-9",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmp8xyt6h006nxrvm3rzyuh5h",
+    "name": "Yara International ASA",
+    "orgNr": "986228608",
+    "ownershipPct": null,
+    "children": []
+  },
+  {
+    "id": "cmq8ri3y5000lr2vmm9miify4",
+    "name": "Aarstiderne A/S",
+    "orgNr": "DK-AARSTID",
+    "ownershipPct": null,
+    "children": []
+  }
+]

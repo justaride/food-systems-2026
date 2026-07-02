@@ -1,0 +1,128 @@
+{
+  "nodes": [
+    {
+      "id": "hub-sirkularitet",
+      "type": "file",
+      "file": "4 Matsystem/Sirkularitet.md",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 90,
+      "color": "#15803D"
+    },
+    {
+      "id": "innsiktskart",
+      "type": "file",
+      "file": "10 Innsiktskart/Innsiktskartet.md",
+      "x": 400,
+      "y": 0,
+      "width": 320,
+      "height": 90,
+      "color": "#DB2777"
+    },
+    {
+      "id": "ledd8",
+      "type": "file",
+      "file": "10 Innsiktskart/Ledd/Ledd 8 – Ressurssløyfe og sidestrømmer.md",
+      "x": 0,
+      "y": 180,
+      "width": 320,
+      "height": 80,
+      "color": "#15803D"
+    },
+    {
+      "id": "loop-tine",
+      "type": "file",
+      "file": "10 Innsiktskart/Looper/Loop – TINE myse til protein (Norge).md",
+      "x": 400,
+      "y": 160,
+      "width": 320,
+      "height": 70,
+      "color": "#0891B2"
+    },
+    {
+      "id": "loop-biogass",
+      "type": "file",
+      "file": "10 Innsiktskart/Looper/Loop – Biogass fra matavfall (Danmark).md",
+      "x": 400,
+      "y": 260,
+      "width": 320,
+      "height": 70,
+      "color": "#0891B2"
+    },
+    {
+      "id": "gap-oppdrett",
+      "type": "file",
+      "file": "10 Innsiktskart/Gaps/Gap – Oppdrettsslam valorisering.md",
+      "x": 800,
+      "y": 160,
+      "width": 320,
+      "height": 70,
+      "color": "#EA580C"
+    },
+    {
+      "id": "gap-naering",
+      "type": "file",
+      "file": "10 Innsiktskart/Gaps/Gap – Samlet norsk naeringsstoff-resirkuleringsgap (25-30% av import erstattbar).md",
+      "x": 800,
+      "y": 260,
+      "width": 320,
+      "height": 70,
+      "color": "#EA580C"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-sirk-inn",
+      "fromNode": "hub-sirkularitet",
+      "fromSide": "right",
+      "toNode": "innsiktskart",
+      "toSide": "left",
+      "color": "#15803D"
+    },
+    {
+      "id": "e-sirk-ledd8",
+      "fromNode": "hub-sirkularitet",
+      "fromSide": "bottom",
+      "toNode": "ledd8",
+      "toSide": "top",
+      "color": "#15803D"
+    },
+    {
+      "id": "e-ledd8-tine",
+      "fromNode": "ledd8",
+      "fromSide": "right",
+      "toNode": "loop-tine",
+      "toSide": "left",
+      "color": "#0891B2",
+      "label": "loop"
+    },
+    {
+      "id": "e-ledd8-biogass",
+      "fromNode": "ledd8",
+      "fromSide": "right",
+      "toNode": "loop-biogass",
+      "toSide": "left",
+      "color": "#0891B2",
+      "label": "benchmark"
+    },
+    {
+      "id": "e-tine-gap",
+      "fromNode": "loop-tine",
+      "fromSide": "right",
+      "toNode": "gap-oppdrett",
+      "toSide": "left",
+      "color": "#EA580C",
+      "label": "gap"
+    },
+    {
+      "id": "e-biogass-gap",
+      "fromNode": "loop-biogass",
+      "fromSide": "right",
+      "toNode": "gap-naering",
+      "toSide": "left",
+      "color": "#EA580C",
+      "label": "gap"
+    }
+  ]
+}

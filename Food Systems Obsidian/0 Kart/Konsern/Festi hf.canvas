@@ -1,0 +1,45 @@
+{
+  "nodes": [
+    {
+      "id": "cmp8xythb00g4xrvmuqxxrjy7",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Festi hf.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri4cs000bsxvmcx56uxa5",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kronan hf.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri4cs000csxvmnlfrkk7z",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/N1 hf.md",
+      "x": 360,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmp8xythb00g4xrvmuqxxrjy7-cmq8ri4cs000bsxvmcx56uxa5",
+      "fromNode": "cmp8xythb00g4xrvmuqxxrjy7",
+      "toNode": "cmq8ri4cs000bsxvmcx56uxa5",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xythb00g4xrvmuqxxrjy7-cmq8ri4cs000csxvmnlfrkk7z",
+      "fromNode": "cmp8xythb00g4xrvmuqxxrjy7",
+      "toNode": "cmq8ri4cs000csxvmnlfrkk7z",
+      "label": "100 %"
+    }
+  ]
+}

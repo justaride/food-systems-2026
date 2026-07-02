@@ -1,0 +1,898 @@
+{
+ "nodes": [
+  {
+   "id": "titlecard",
+   "type": "file",
+   "file": "10 Innsiktskart/Innsiktskartet.md",
+   "x": 1020,
+   "y": 0,
+   "width": 640,
+   "height": 90,
+   "color": "#DB2777"
+  },
+  {
+   "id": "i-i17-fruktavhengigheten-96-import",
+   "type": "file",
+   "file": "10 Innsiktskart/Innsikter/I17 Fruktavhengigheten – 96 % import.md",
+   "x": 0,
+   "y": 150,
+   "width": 300,
+   "height": 90,
+   "color": "#DB2777"
+  },
+  {
+   "id": "i-i15-selvforsyning-44",
+   "type": "file",
+   "file": "10 Innsiktskart/Innsikter/I15 Selvforsyning 44 %.md",
+   "x": 340,
+   "y": 150,
+   "width": 300,
+   "height": 90,
+   "color": "#DB2777"
+  },
+  {
+   "id": "i-i16-riksrevisjonen-2023-uforberedt-pa-matkrise",
+   "type": "file",
+   "file": "10 Innsiktskart/Innsikter/I16 Riksrevisjonen 2023 – uforberedt på matkrise.md",
+   "x": 340,
+   "y": 260,
+   "width": 300,
+   "height": 90,
+   "color": "#DB2777"
+  },
+  {
+   "id": "i-i24-syntesen-prisgulv-pluss-superprofitt",
+   "type": "file",
+   "file": "10 Innsiktskart/Innsikter/I24 Syntesen – prisgulv pluss superprofitt.md",
+   "x": 680,
+   "y": 150,
+   "width": 300,
+   "height": 90,
+   "color": "#DB2777"
+  },
+  {
+   "id": "i-i22-nordstad-tesen-infrastrukturkontroll",
+   "type": "file",
+   "file": "10 Innsiktskart/Innsikter/I22 Nordstad-tesen – infrastrukturkontroll.md",
+   "x": 1020,
+   "y": 150,
+   "width": 300,
+   "height": 90,
+   "color": "#DB2777"
+  },
+  {
+   "id": "i-i18-dobbel-sarbarhet",
+   "type": "file",
+   "file": "10 Innsiktskart/Innsikter/I18 Dobbel sårbarhet.md",
+   "x": 1020,
+   "y": 260,
+   "width": 300,
+   "height": 90,
+   "color": "#DB2777"
+  },
+  {
+   "id": "i-i01-triopolet-93-4-av-butikkene",
+   "type": "file",
+   "file": "10 Innsiktskart/Innsikter/I01 Triopolet – 93,4 % av butikkene.md",
+   "x": 1360,
+   "y": 150,
+   "width": 300,
+   "height": 90,
+   "color": "#DB2777"
+  },
+  {
+   "id": "i-i03-attraktortilstanden",
+   "type": "file",
+   "file": "10 Innsiktskart/Innsikter/I03 Attraktortilstanden.md",
+   "x": 1360,
+   "y": 260,
+   "width": 300,
+   "height": 90,
+   "color": "#DB2777"
+  },
+  {
+   "id": "i-i09-juli-effekten",
+   "type": "file",
+   "file": "10 Innsiktskart/Innsikter/I09 Juli-effekten.md",
+   "x": 1360,
+   "y": 370,
+   "width": 300,
+   "height": 90,
+   "color": "#DB2777"
+  },
+  {
+   "id": "i-i06-pristransmisjon-paradokset",
+   "type": "file",
+   "file": "10 Innsiktskart/Innsikter/I06 Pristransmisjon-paradokset.md",
+   "x": 2040,
+   "y": 150,
+   "width": 300,
+   "height": 90,
+   "color": "#DB2777"
+  },
+  {
+   "id": "i-i25-fem-overgangsmekanismer",
+   "type": "file",
+   "file": "10 Innsiktskart/Innsikter/I25 Fem overgangsmekanismer.md",
+   "x": 2380,
+   "y": 150,
+   "width": 300,
+   "height": 90,
+   "color": "#DB2777"
+  },
+  {
+   "id": "ledd-ledd-1-innsatsfaktorer",
+   "type": "file",
+   "file": "10 Innsiktskart/Ledd/Ledd 1 – Innsatsfaktorer.md",
+   "x": 0,
+   "y": 620,
+   "width": 300,
+   "height": 90,
+   "color": "#15803D"
+  },
+  {
+   "id": "ledd-ledd-2-primaerproduksjon",
+   "type": "file",
+   "file": "10 Innsiktskart/Ledd/Ledd 2 – Primærproduksjon.md",
+   "x": 340,
+   "y": 620,
+   "width": 300,
+   "height": 90,
+   "color": "#15803D"
+  },
+  {
+   "id": "ledd-ledd-3-foredling",
+   "type": "file",
+   "file": "10 Innsiktskart/Ledd/Ledd 3 – Foredling.md",
+   "x": 680,
+   "y": 620,
+   "width": 300,
+   "height": 90,
+   "color": "#15803D"
+  },
+  {
+   "id": "ledd-ledd-4-distribusjon-og-grossist",
+   "type": "file",
+   "file": "10 Innsiktskart/Ledd/Ledd 4 – Distribusjon og grossist.md",
+   "x": 1020,
+   "y": 620,
+   "width": 300,
+   "height": 90,
+   "color": "#15803D"
+  },
+  {
+   "id": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "type": "file",
+   "file": "10 Innsiktskart/Ledd/Ledd 5 – Dagligvare og detaljhandel.md",
+   "x": 1360,
+   "y": 620,
+   "width": 300,
+   "height": 90,
+   "color": "#15803D"
+  },
+  {
+   "id": "ledd-ledd-6-horeca-og-storhusholdning",
+   "type": "file",
+   "file": "10 Innsiktskart/Ledd/Ledd 6 – Horeca og storhusholdning.md",
+   "x": 1700,
+   "y": 620,
+   "width": 300,
+   "height": 90,
+   "color": "#15803D"
+  },
+  {
+   "id": "ledd-ledd-7-forbruker-og-husholdning",
+   "type": "file",
+   "file": "10 Innsiktskart/Ledd/Ledd 7 – Forbruker og husholdning.md",
+   "x": 2040,
+   "y": 620,
+   "width": 300,
+   "height": 90,
+   "color": "#15803D"
+  },
+  {
+   "id": "ledd-ledd-8-ressurssloyfe-og-sidestrommer",
+   "type": "file",
+   "file": "10 Innsiktskart/Ledd/Ledd 8 – Ressurssløyfe og sidestrømmer.md",
+   "x": 2380,
+   "y": 620,
+   "width": 300,
+   "height": 90,
+   "color": "#15803D"
+  },
+  {
+   "id": "a-norgesgruppen",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/NorgesGruppen.md",
+   "x": 1360,
+   "y": 770,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-asko",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/ASKO.md",
+   "x": 1020,
+   "y": 770,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-reitan-retail",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/Reitan Retail.md",
+   "x": 1360,
+   "y": 850,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-coop-norge",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/Coop Norge.md",
+   "x": 1360,
+   "y": 930,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-orkla",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/Orkla.md",
+   "x": 680,
+   "y": 770,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-tine",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/TINE.md",
+   "x": 680,
+   "y": 850,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-nortura",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/Nortura.md",
+   "x": 680,
+   "y": 930,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-felleskjopet-agri",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/Felleskjøpet Agri.md",
+   "x": 0,
+   "y": 770,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-bama",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/BAMA.md",
+   "x": 1020,
+   "y": 850,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-mowi",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/Mowi.md",
+   "x": 340,
+   "y": 770,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-leroy-seafood",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/Lerøy Seafood.md",
+   "x": 340,
+   "y": 850,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-salmar",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/SalMar.md",
+   "x": 340,
+   "y": 930,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-austevoll-seafood",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/Austevoll Seafood.md",
+   "x": 340,
+   "y": 1010,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "a-bunnpris",
+   "type": "file",
+   "file": "10 Innsiktskart/Aktører/Bunnpris.md",
+   "x": 1360,
+   "y": 1010,
+   "width": 300,
+   "height": 60,
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "loop-no-pant",
+   "type": "file",
+   "file": "10 Innsiktskart/Looper/Loop – Panteordning (Norge).md",
+   "x": 0.0,
+   "y": 1170,
+   "width": 300,
+   "height": 70,
+   "color": "#0891B2"
+  },
+  {
+   "id": "loop-no-fiskeavfall",
+   "type": "file",
+   "file": "10 Innsiktskart/Looper/Loop – Fiskeavfall til fiskemel/olje (Norge).md",
+   "x": 333.2,
+   "y": 1170,
+   "width": 300,
+   "height": 70,
+   "color": "#0891B2"
+  },
+  {
+   "id": "loop-no-tine-myse",
+   "type": "file",
+   "file": "10 Innsiktskart/Looper/Loop – TINE myse til protein (Norge).md",
+   "x": 666.4,
+   "y": 1170,
+   "width": 300,
+   "height": 70,
+   "color": "#0891B2"
+  },
+  {
+   "id": "loop-no-matsentralen",
+   "type": "file",
+   "file": "10 Innsiktskart/Looper/Loop – Matsentralen redistribusjon (Norge).md",
+   "x": 999.6,
+   "y": 1170,
+   "width": 300,
+   "height": 70,
+   "color": "#0891B2"
+  },
+  {
+   "id": "loop-dk-biogas",
+   "type": "file",
+   "file": "10 Innsiktskart/Looper/Loop – Biogass fra matavfall (Danmark).md",
+   "x": 1332.8,
+   "y": 1170,
+   "width": 300,
+   "height": 70,
+   "color": "#0891B2"
+  },
+  {
+   "id": "loop-nordic-gasum",
+   "type": "file",
+   "file": "10 Innsiktskart/Looper/Loop – Gasum tverrnordisk biogass (Finland/Sverige/Norge).md",
+   "x": 1666.0,
+   "y": 1170,
+   "width": 300,
+   "height": 70,
+   "color": "#0891B2"
+  },
+  {
+   "id": "loop-no-magiske-fabrikken",
+   "type": "file",
+   "file": "10 Innsiktskart/Looper/Loop – Den Magiske Fabrikken (Norge).md",
+   "x": 1999.2,
+   "y": 1170,
+   "width": 300,
+   "height": 70,
+   "color": "#0891B2"
+  },
+  {
+   "id": "loop-fi-se-reko",
+   "type": "file",
+   "file": "10 Innsiktskart/Looper/Loop – REKO-ringer direktesalg (Finland/Sverige/Norge).md",
+   "x": 2332.4,
+   "y": 1170,
+   "width": 300,
+   "height": 70,
+   "color": "#0891B2"
+  }
+ ],
+ "edges": [
+  {
+   "id": "e-i-i17-fruktavhengigheten-96-import",
+   "fromNode": "i-i17-fruktavhengigheten-96-import",
+   "fromSide": "bottom",
+   "toNode": "ledd-ledd-1-innsatsfaktorer",
+   "toSide": "top",
+   "color": "#DB2777"
+  },
+  {
+   "id": "e-i-i15-selvforsyning-44",
+   "fromNode": "i-i15-selvforsyning-44",
+   "fromSide": "bottom",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "top",
+   "color": "#DB2777"
+  },
+  {
+   "id": "e-i-i16-riksrevisjonen-2023-uforberedt-pa-matkrise",
+   "fromNode": "i-i16-riksrevisjonen-2023-uforberedt-pa-matkrise",
+   "fromSide": "bottom",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "top",
+   "color": "#DB2777"
+  },
+  {
+   "id": "e-i-i24-syntesen-prisgulv-pluss-superprofitt",
+   "fromNode": "i-i24-syntesen-prisgulv-pluss-superprofitt",
+   "fromSide": "bottom",
+   "toNode": "ledd-ledd-3-foredling",
+   "toSide": "top",
+   "color": "#DB2777"
+  },
+  {
+   "id": "e-i-i22-nordstad-tesen-infrastrukturkontroll",
+   "fromNode": "i-i22-nordstad-tesen-infrastrukturkontroll",
+   "fromSide": "bottom",
+   "toNode": "ledd-ledd-4-distribusjon-og-grossist",
+   "toSide": "top",
+   "color": "#DB2777"
+  },
+  {
+   "id": "e-i-i18-dobbel-sarbarhet",
+   "fromNode": "i-i18-dobbel-sarbarhet",
+   "fromSide": "bottom",
+   "toNode": "ledd-ledd-4-distribusjon-og-grossist",
+   "toSide": "top",
+   "color": "#DB2777"
+  },
+  {
+   "id": "e-i-i01-triopolet-93-4-av-butikkene",
+   "fromNode": "i-i01-triopolet-93-4-av-butikkene",
+   "fromSide": "bottom",
+   "toNode": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "toSide": "top",
+   "color": "#DB2777"
+  },
+  {
+   "id": "e-i-i03-attraktortilstanden",
+   "fromNode": "i-i03-attraktortilstanden",
+   "fromSide": "bottom",
+   "toNode": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "toSide": "top",
+   "color": "#DB2777"
+  },
+  {
+   "id": "e-i-i09-juli-effekten",
+   "fromNode": "i-i09-juli-effekten",
+   "fromSide": "bottom",
+   "toNode": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "toSide": "top",
+   "color": "#DB2777"
+  },
+  {
+   "id": "e-i-i06-pristransmisjon-paradokset",
+   "fromNode": "i-i06-pristransmisjon-paradokset",
+   "fromSide": "bottom",
+   "toNode": "ledd-ledd-7-forbruker-og-husholdning",
+   "toSide": "top",
+   "color": "#DB2777"
+  },
+  {
+   "id": "e-i-i25-fem-overgangsmekanismer",
+   "fromNode": "i-i25-fem-overgangsmekanismer",
+   "fromSide": "bottom",
+   "toNode": "ledd-ledd-8-ressurssloyfe-og-sidestrommer",
+   "toSide": "top",
+   "color": "#DB2777"
+  },
+  {
+   "id": "e-chain-ledd-ledd-2-primaerproduksjon",
+   "fromNode": "ledd-ledd-1-innsatsfaktorer",
+   "fromSide": "right",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "left",
+   "color": "#15803D"
+  },
+  {
+   "id": "e-chain-ledd-ledd-3-foredling",
+   "fromNode": "ledd-ledd-2-primaerproduksjon",
+   "fromSide": "right",
+   "toNode": "ledd-ledd-3-foredling",
+   "toSide": "left",
+   "color": "#15803D"
+  },
+  {
+   "id": "e-chain-ledd-ledd-4-distribusjon-og-grossist",
+   "fromNode": "ledd-ledd-3-foredling",
+   "fromSide": "right",
+   "toNode": "ledd-ledd-4-distribusjon-og-grossist",
+   "toSide": "left",
+   "color": "#15803D"
+  },
+  {
+   "id": "e-chain-ledd-ledd-5-dagligvare-og-detaljhandel",
+   "fromNode": "ledd-ledd-4-distribusjon-og-grossist",
+   "fromSide": "right",
+   "toNode": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "toSide": "left",
+   "color": "#15803D"
+  },
+  {
+   "id": "e-chain-ledd-ledd-6-horeca-og-storhusholdning",
+   "fromNode": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "fromSide": "right",
+   "toNode": "ledd-ledd-6-horeca-og-storhusholdning",
+   "toSide": "left",
+   "color": "#15803D"
+  },
+  {
+   "id": "e-chain-ledd-ledd-7-forbruker-og-husholdning",
+   "fromNode": "ledd-ledd-6-horeca-og-storhusholdning",
+   "fromSide": "right",
+   "toNode": "ledd-ledd-7-forbruker-og-husholdning",
+   "toSide": "left",
+   "color": "#15803D"
+  },
+  {
+   "id": "e-chain-ledd-ledd-8-ressurssloyfe-og-sidestrommer",
+   "fromNode": "ledd-ledd-7-forbruker-og-husholdning",
+   "fromSide": "right",
+   "toNode": "ledd-ledd-8-ressurssloyfe-og-sidestrommer",
+   "toSide": "left",
+   "color": "#15803D"
+  },
+  {
+   "id": "e-a-norgesgruppen",
+   "fromNode": "a-norgesgruppen",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-norgesgruppen-ledd-4-distribusjon-og-grossist",
+   "fromNode": "a-norgesgruppen",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-4-distribusjon-og-grossist",
+   "toSide": "bottom",
+   "color": "#93C5FD"
+  },
+  {
+   "id": "e-a-asko",
+   "fromNode": "a-asko",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-4-distribusjon-og-grossist",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-reitan-retail",
+   "fromNode": "a-reitan-retail",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-coop-norge",
+   "fromNode": "a-coop-norge",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-coop-norge-ledd-4-distribusjon-og-grossist",
+   "fromNode": "a-coop-norge",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-4-distribusjon-og-grossist",
+   "toSide": "bottom",
+   "color": "#93C5FD"
+  },
+  {
+   "id": "e-a-orkla",
+   "fromNode": "a-orkla",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-3-foredling",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-tine",
+   "fromNode": "a-tine",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-3-foredling",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-tine-ledd-2-primaerproduksjon",
+   "fromNode": "a-tine",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "bottom",
+   "color": "#93C5FD"
+  },
+  {
+   "id": "e-a-nortura",
+   "fromNode": "a-nortura",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-3-foredling",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-nortura-ledd-2-primaerproduksjon",
+   "fromNode": "a-nortura",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "bottom",
+   "color": "#93C5FD"
+  },
+  {
+   "id": "e-a-felleskjopet-agri",
+   "fromNode": "a-felleskjopet-agri",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-1-innsatsfaktorer",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-felleskjopet-agri-ledd-4-distribusjon-og-grossist",
+   "fromNode": "a-felleskjopet-agri",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-4-distribusjon-og-grossist",
+   "toSide": "bottom",
+   "color": "#93C5FD"
+  },
+  {
+   "id": "e-a-bama",
+   "fromNode": "a-bama",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-4-distribusjon-og-grossist",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-bama-ledd-3-foredling",
+   "fromNode": "a-bama",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-3-foredling",
+   "toSide": "bottom",
+   "color": "#93C5FD"
+  },
+  {
+   "id": "e-a-mowi",
+   "fromNode": "a-mowi",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-mowi-ledd-3-foredling",
+   "fromNode": "a-mowi",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-3-foredling",
+   "toSide": "bottom",
+   "color": "#93C5FD"
+  },
+  {
+   "id": "e-a-leroy-seafood",
+   "fromNode": "a-leroy-seafood",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-leroy-seafood-ledd-3-foredling",
+   "fromNode": "a-leroy-seafood",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-3-foredling",
+   "toSide": "bottom",
+   "color": "#93C5FD"
+  },
+  {
+   "id": "e-a-salmar",
+   "fromNode": "a-salmar",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-salmar-ledd-3-foredling",
+   "fromNode": "a-salmar",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-3-foredling",
+   "toSide": "bottom",
+   "color": "#93C5FD"
+  },
+  {
+   "id": "e-a-austevoll-seafood",
+   "fromNode": "a-austevoll-seafood",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-a-bunnpris",
+   "fromNode": "a-bunnpris",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "toSide": "bottom",
+   "color": "#1D4ED8"
+  },
+  {
+   "id": "e-loop-no-pant-ledd-5-dagligvare-og-detaljhandel",
+   "fromNode": "loop-no-pant",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R3"
+  },
+  {
+   "id": "e-loop-no-pant-ledd-8-ressurssloyfe-og-sidestrommer",
+   "fromNode": "loop-no-pant",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-8-ressurssloyfe-og-sidestrommer",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R3"
+  },
+  {
+   "id": "e-loop-no-fiskeavfall-ledd-2-primaerproduksjon",
+   "fromNode": "loop-no-fiskeavfall",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R7"
+  },
+  {
+   "id": "e-loop-no-fiskeavfall-ledd-3-foredling",
+   "fromNode": "loop-no-fiskeavfall",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-3-foredling",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R7"
+  },
+  {
+   "id": "e-loop-no-tine-myse-ledd-3-foredling",
+   "fromNode": "loop-no-tine-myse",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-3-foredling",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R6"
+  },
+  {
+   "id": "e-loop-no-matsentralen-ledd-5-dagligvare-og-detaljhandel",
+   "fromNode": "loop-no-matsentralen",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R1"
+  },
+  {
+   "id": "e-loop-no-matsentralen-ledd-6-horeca-og-storhusholdning",
+   "fromNode": "loop-no-matsentralen",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-6-horeca-og-storhusholdning",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R1"
+  },
+  {
+   "id": "e-loop-dk-biogas-ledd-2-primaerproduksjon",
+   "fromNode": "loop-dk-biogas",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R9"
+  },
+  {
+   "id": "e-loop-dk-biogas-ledd-8-ressurssloyfe-og-sidestrommer",
+   "fromNode": "loop-dk-biogas",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-8-ressurssloyfe-og-sidestrommer",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R9"
+  },
+  {
+   "id": "e-loop-nordic-gasum-ledd-4-distribusjon-og-grossist",
+   "fromNode": "loop-nordic-gasum",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-4-distribusjon-og-grossist",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R9"
+  },
+  {
+   "id": "e-loop-nordic-gasum-ledd-8-ressurssloyfe-og-sidestrommer",
+   "fromNode": "loop-nordic-gasum",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-8-ressurssloyfe-og-sidestrommer",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R9"
+  },
+  {
+   "id": "e-loop-no-magiske-fabrikken-ledd-2-primaerproduksjon",
+   "fromNode": "loop-no-magiske-fabrikken",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R9"
+  },
+  {
+   "id": "e-loop-no-magiske-fabrikken-ledd-7-forbruker-og-husholdning",
+   "fromNode": "loop-no-magiske-fabrikken",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-7-forbruker-og-husholdning",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R9"
+  },
+  {
+   "id": "e-loop-fi-se-reko-ledd-2-primaerproduksjon",
+   "fromNode": "loop-fi-se-reko",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-2-primaerproduksjon",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R1"
+  },
+  {
+   "id": "e-loop-fi-se-reko-ledd-5-dagligvare-og-detaljhandel",
+   "fromNode": "loop-fi-se-reko",
+   "fromSide": "top",
+   "toNode": "ledd-ledd-5-dagligvare-og-detaljhandel",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "R1"
+  },
+  {
+   "id": "e-storslyfe",
+   "fromNode": "ledd-ledd-8-ressurssloyfe-og-sidestrommer",
+   "fromSide": "bottom",
+   "toNode": "ledd-ledd-1-innsatsfaktorer",
+   "toSide": "bottom",
+   "color": "#0891B2",
+   "label": "Ressurssløyfen — der sirkulariteten lukkes"
+  }
+ ]
+}
