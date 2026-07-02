@@ -24,6 +24,82 @@ import {
   validateVault,
 } from '../../src/lib/obsidian-vault'
 
+const ACTIVE_OBSIDIAN_MASTERPLAN_PATH =
+  'docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md'
+
+const REQUIRED_V3_MASTERPLAN_RELATED_FILES = [
+  'scripts/obsidian-vault/sync.ts',
+  'scripts/obsidian-vault/review-preflight.ts',
+  'scripts/obsidian-vault/review-closeout.ts',
+  'docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
+  'docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
+] as const
+
+function writeSupportFiles(repo: string, files: readonly string[]) {
+  for (const file of files) {
+    mkdirSync(join(repo, ...file.split('/').slice(0, -1)), { recursive: true })
+    writeFileSync(join(repo, file), '')
+  }
+}
+
+function buildV3MasterplanFixture(options: {
+  bruksregel?: string
+  relatedFiles?: readonly string[]
+  omitSection?: string
+  omitContractText?: string
+} = {}) {
+  const relatedFiles = options.relatedFiles ?? REQUIRED_V3_MASTERPLAN_RELATED_FILES
+  const sections = [
+    '## 0. Goal-prompt (lim inn i Codex)',
+    '## 1. Kritisk analyse av V2-leveransen (PR #228)',
+    '## 2. Målbilde',
+    '## 3. Arbeidspakker',
+    '### M0 — Se V2 og lås baseline (MENNESKE — Gabriel, ~45 min, gjøres først)',
+    '### M1 — Oversiktslaget: signal over støy (CODEX — kjernefasen)',
+    '### M2 — Innholdsløft der det betyr noe (CODEX foreslår → MENNESKE godkjenner)',
+    '### M3 — Visningsflaten (CODEX + menneskelig QA)',
+    '### M4 — Slank prosessmaskineriet (CODEX)',
+    '### M5 — VK-5 menneskelig review og closeout (MENNESKE — Gabriel + evt. Cathrine)',
+    '### M6 — Levende drift (løpende)',
+    '## 4. Rekkefølge og avhengigheter',
+    '## 5. Vernede invarianter (uendret fra V2, gjelder alle faser)',
+    '## 6. Suksesskriterier for hele V3',
+  ].filter((section) => section !== options.omitSection)
+  const contractText = [
+    '**Akseptanse:** PR #228 merget til main; du har sett V2-grafen med plugins aktive; beslutning bekreftet om at M1-M4 kjøres.',
+    '**Akseptanse:** `vault:sync && vault:check` grønn; kjerne-graf ≤ ~180 noder med filter aktivt; ingen note-titler avkuttet av slash-mapper; Oversiktskart.canvas finnes og Welcome peker dit; diff viser kun M1-endringer.',
+    '**Akseptanse:** ingen kravliste finnes i mer enn ett dokument; alle antall i styringsdokumentene kan spores til kanonisk kilde; gates fortsatt grønne/røde som før (closeout feiler fortsatt før M5).',
+    '**Akseptanse:** closeout grønn; kartet kan kalles ferdig internt arbeidskart + godkjent visningsflate.',
+    '1. Menneskelig innhold under `## Notater` overlever alltid sync — også gjennom M1-flyttingene (flytt = git mv + lenkeoppdatering, aldri regenerering av notedelen).',
+    '2. Vault-endringer rører aldri app-kode, DB eller committede dataartefakter (enveis repo → vault; unntak `data/vault-export/` som sync-input).',
+    '3. Alle datagenererte noter bærer kilde-referanse og siterbarhetsmarkering; AP-1-bruksregelen står ordrett på personnoter.',
+    '4. `vault:check` grønn før hver fase merges; bygget avhenger aldri av vaulten.',
+    '5. Ingen nye claims eksternt uten claim-lock/siterbarhets-gate — kartets lesbarhet endrer ikke publiserbarhet.',
+  ].filter((text) => text !== options.omitContractText)
+
+  return [
+    '---',
+    'tittel: Masterplan V3 — Fra komplett vault til lesbart kart (Obsidian)',
+    'status: utkast-til-godkjenning',
+    'eier: Gabriel',
+    'dato: 2026-07-02',
+    'arbeidsflate: Food Systems Obsidian/ (vault i repo-roten)',
+    `bruksregel: ${options.bruksregel ?? 'Internt arbeidskart. Ekstern bruk av tall/claims krever claim-lock/siterbarhets-gate (.claude/source-attribution-policy.md).'}`,
+    'relaterte_filer:',
+    ...relatedFiles.map((file) => `  - ${file}`),
+    '---',
+    '# Masterplan V3: Fra komplett vault til lesbart kart',
+    ...sections,
+    ...contractText,
+    '',
+  ].join('\n')
+}
+
+function writeV3MasterplanFixture(repo: string, options?: Parameters<typeof buildV3MasterplanFixture>[0]) {
+  mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
+  writeFileSync(join(repo, ACTIVE_OBSIDIAN_MASTERPLAN_PATH), buildV3MasterplanFixture(options))
+}
+
 describe('obsidian vault sync helpers', () => {
   it('upserts managed Dataview sections before human notes without touching notes', () => {
     const managedBody = [
@@ -699,50 +775,16 @@ describe('obsidian vault sync helpers', () => {
 
   it('validates masterplan frontmatter related file targets', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-masterplan-related-files-'))
-    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
-    mkdirSync(join(repo, 'scripts', 'obsidian-vault'), { recursive: true })
-    writeFileSync(join(repo, 'scripts', 'obsidian-vault', 'sync.ts'), '')
-    writeFileSync(
-      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'),
-      [
-        '---',
-        'tittel: Masterplan',
-        'relaterte_filer:',
-        '  - scripts/obsidian-vault/sync.ts',
-        '  - docs/project/analysis/mangler.md',
-        '---',
-        '# Masterplan: Det fullstendige kunnskapskartet',
-        '## 0. Goal-prompt (lim inn i Codex)',
-        '## 1. Nåsituasjon (per 2026-07-02)',
-        '## 2. Målbilde: «det fullstendige kartet»',
-        '## 3. Arbeidspakker',
-        '### VK-0 — Sync-infrastruktur (teknisk fundament, gjør først)',
-        '### VK-1 — Komplett selskaps- og eierskapslag (krever DB)',
-        '### VK-2 — Innsikts- og kildelag komplett',
-        '### VK-3 — Grafisk løft',
-        '### VK-4 — Datainnsamling (mates av kartet, utføres som research-missions)',
-        '### VK-5 — Gjennomgang (menneske + Claude, etter Codex-leveransen)',
-        '**Akseptanse:** `npm run vault:sync && npm run vault:check` er grønn og en diff-kjøring mot dagens vault viser kun forventede endringer (frontmatter-normalisering).',
-        '**Akseptanse:** antall noter/kanter stemmer med eksport-JSON (skriv tallene i sync-loggen); `vault:check` grønn; stikkprøve mot `npm run db:audit`-tall.',
-        '**Akseptanse:** hver innsiktsnote har minst én kildenote-lenke; ingen innsikt uten `siterbarhet`-felt.',
-        '**Akseptanse:** skjermbilde-gjennomgang med Gabriel/Cathrine; Dataview-spørringer returnerer uten feil; CSS validerer i Obsidian 1.5+.',
-        '**Akseptanse:** hver gap-node i vaulten har enten data eller en lenket mission; konsern-coverage `qualityScore` uendret eller bedre etter re-import + `npm run db:audit` grønn.',
-        '## 4. Rekkefølge og avhengigheter',
-        '## 5. Vernede invarianter (gjelder alle faser)',
-        '1. Menneskelig innhold under `## Notater` overlever alltid sync.',
-        '2. Vault-endringer rører aldri app-kode, DB eller committede dataartefakter (enveis: repo → vault; unntak: `data/vault-export/` som er sync-input).',
-        '3. Alle datagenererte noter bærer kilde-referanse og siterbarhets-markering.',
-        '4. `vault:check` grønn før hver fase merges.',
-        '5. Personnoter beholder AP-1-bruksregelen ordrett.',
-        '',
-      ].join('\n'),
-    )
+    writeSupportFiles(repo, ['scripts/obsidian-vault/sync.ts'])
+    writeV3MasterplanFixture(repo, {
+      relatedFiles: ['scripts/obsidian-vault/sync.ts', 'docs/project/analysis/mangler.md'],
+    })
 
     const issues = validateMasterplanFrontmatterLinks(repo).issues
 
     assert.deepEqual(issues, [
       {
-        file: 'docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        file: 'docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         message: 'missing masterplan related file: docs/project/analysis/mangler.md',
       },
     ])
@@ -750,201 +792,46 @@ describe('obsidian vault sync helpers', () => {
 
   it('requires the masterplan to keep every required related file entry', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-masterplan-required-related-files-'))
-    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
-    mkdirSync(join(repo, 'scripts', 'obsidian-vault'), { recursive: true })
-    mkdirSync(join(repo, 'docs'), { recursive: true })
-    mkdirSync(join(repo, 'docs', 'project', 'analysis'), { recursive: true })
-    writeFileSync(join(repo, 'scripts', 'obsidian-vault', 'build_innsiktskart.py'), '')
-    writeFileSync(join(repo, 'scripts', 'obsidian-vault', 'build_maktkart.py'), '')
-    writeFileSync(join(repo, 'docs', 'miro-kart-kunnskapsgrunnlag-blueprint.md'), '')
-    writeFileSync(join(repo, 'docs', 'project', 'analysis', 'food-tg-ap1-styreoverlapp-funn-2026-06-14.md'), '')
-    writeFileSync(
-      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'),
-      [
-        '---',
-        'tittel: Masterplan — Det fullstendige kunnskapskartet (Obsidian-vault)',
-        'status: Handover-klar for Codex',
-        'eier: Gabriel',
-        'dato: 2026-07-02',
-        'arbeidsflate: Food Systems Obsidian/ (vault i repo-roten)',
-        'bruksregel: Internt arbeidskart. Alle tall/claims i vaulten er gjengitt fra research-syntesen; ekstern bruk krever claim-lock/siterbarhets-gate (.claude/source-attribution-policy.md).',
-        'relaterte_filer:',
-        '  - scripts/obsidian-vault/build_innsiktskart.py',
-        '  - scripts/obsidian-vault/build_maktkart.py',
-        '  - docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
-        '  - docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md',
-        '---',
-        '# Masterplan: Det fullstendige kunnskapskartet',
-        '## 0. Goal-prompt (lim inn i Codex)',
-        '## 1. Nåsituasjon (per 2026-07-02)',
-        '## 2. Målbilde: «det fullstendige kartet»',
-        '## 3. Arbeidspakker',
-        '### VK-0 — Sync-infrastruktur (teknisk fundament, gjør først)',
-        '### VK-1 — Komplett selskaps- og eierskapslag (krever DB)',
-        '### VK-2 — Innsikts- og kildelag komplett',
-        '### VK-3 — Grafisk løft',
-        '### VK-4 — Datainnsamling (mates av kartet, utføres som research-missions)',
-        '### VK-5 — Gjennomgang (menneske + Claude, etter Codex-leveransen)',
-        '**Akseptanse:** `npm run vault:sync && npm run vault:check` er grønn og en diff-kjøring mot dagens vault viser kun forventede endringer (frontmatter-normalisering).',
-        '**Akseptanse:** antall noter/kanter stemmer med eksport-JSON (skriv tallene i sync-loggen); `vault:check` grønn; stikkprøve mot `npm run db:audit`-tall.',
-        '**Akseptanse:** hver innsiktsnote har minst én kildenote-lenke; ingen innsikt uten `siterbarhet`-felt.',
-        '**Akseptanse:** skjermbilde-gjennomgang med Gabriel/Cathrine; Dataview-spørringer returnerer uten feil; CSS validerer i Obsidian 1.5+.',
-        '**Akseptanse:** hver gap-node i vaulten har enten data eller en lenket mission; konsern-coverage `qualityScore` uendret eller bedre etter re-import + `npm run db:audit` grønn.',
-        '## 4. Rekkefølge og avhengigheter',
-        '## 5. Vernede invarianter (gjelder alle faser)',
-        '1. Menneskelig innhold under `## Notater` overlever alltid sync.',
-        '2. Vault-endringer rører aldri app-kode, DB eller committede dataartefakter (enveis: repo → vault; unntak: `data/vault-export/` som er sync-input).',
-        '3. Alle datagenererte noter bærer kilde-referanse og siterbarhets-markering.',
-        '4. `vault:check` grønn før hver fase merges.',
-        '5. Personnoter beholder AP-1-bruksregelen ordrett.',
-        '',
-      ].join('\n'),
-    )
+    const relatedFiles = REQUIRED_V3_MASTERPLAN_RELATED_FILES.filter((file) => file !== 'scripts/obsidian-vault/sync.ts')
+    writeSupportFiles(repo, relatedFiles)
+    writeV3MasterplanFixture(repo, { relatedFiles })
 
     const issues = validateMasterplanFrontmatterLinks(repo).issues
 
     assert.deepEqual(issues, [
       {
-        file: 'docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
-        message: 'missing required masterplan related file entry: scripts/obsidian-vault/build_vault.py',
+        file: 'docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
+        message: 'missing required masterplan related file entry: scripts/obsidian-vault/sync.ts',
       },
     ])
   })
 
   it('keeps the masterplan internal-use and claim-lock rule from being weakened', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-masterplan-usage-rule-'))
-    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
-    mkdirSync(join(repo, 'scripts', 'obsidian-vault'), { recursive: true })
-    mkdirSync(join(repo, 'docs'), { recursive: true })
-    mkdirSync(join(repo, 'docs', 'project', 'analysis'), { recursive: true })
-    for (const file of [
-      'scripts/obsidian-vault/build_vault.py',
-      'scripts/obsidian-vault/build_innsiktskart.py',
-      'scripts/obsidian-vault/build_maktkart.py',
-      'docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
-      'docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md',
-    ]) {
-      writeFileSync(join(repo, file), '')
-    }
-    writeFileSync(
-      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'),
-      [
-        '---',
-        'tittel: Masterplan — Det fullstendige kunnskapskartet (Obsidian-vault)',
-        'status: Handover-klar for Codex',
-        'eier: Gabriel',
-        'dato: 2026-07-02',
-        'arbeidsflate: Food Systems Obsidian/ (vault i repo-roten)',
-        'bruksregel: Ekstern bruk er ok.',
-        'relaterte_filer:',
-        '  - scripts/obsidian-vault/build_vault.py',
-        '  - scripts/obsidian-vault/build_innsiktskart.py',
-        '  - scripts/obsidian-vault/build_maktkart.py',
-        '  - docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
-        '  - docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md',
-        '---',
-        '# Masterplan: Det fullstendige kunnskapskartet',
-        '## 0. Goal-prompt (lim inn i Codex)',
-        '## 1. Nåsituasjon (per 2026-07-02)',
-        '## 2. Målbilde: «det fullstendige kartet»',
-        '## 3. Arbeidspakker',
-        '### VK-0 — Sync-infrastruktur (teknisk fundament, gjør først)',
-        '### VK-1 — Komplett selskaps- og eierskapslag (krever DB)',
-        '### VK-2 — Innsikts- og kildelag komplett',
-        '### VK-3 — Grafisk løft',
-        '### VK-4 — Datainnsamling (mates av kartet, utføres som research-missions)',
-        '### VK-5 — Gjennomgang (menneske + Claude, etter Codex-leveransen)',
-        '**Akseptanse:** `npm run vault:sync && npm run vault:check` er grønn og en diff-kjøring mot dagens vault viser kun forventede endringer (frontmatter-normalisering).',
-        '**Akseptanse:** antall noter/kanter stemmer med eksport-JSON (skriv tallene i sync-loggen); `vault:check` grønn; stikkprøve mot `npm run db:audit`-tall.',
-        '**Akseptanse:** hver innsiktsnote har minst én kildenote-lenke; ingen innsikt uten `siterbarhet`-felt.',
-        '**Akseptanse:** skjermbilde-gjennomgang med Gabriel/Cathrine; Dataview-spørringer returnerer uten feil; CSS validerer i Obsidian 1.5+.',
-        '**Akseptanse:** hver gap-node i vaulten har enten data eller en lenket mission; konsern-coverage `qualityScore` uendret eller bedre etter re-import + `npm run db:audit` grønn.',
-        '## 4. Rekkefølge og avhengigheter',
-        '## 5. Vernede invarianter (gjelder alle faser)',
-        '1. Menneskelig innhold under `## Notater` overlever alltid sync.',
-        '2. Vault-endringer rører aldri app-kode, DB eller committede dataartefakter (enveis: repo → vault; unntak: `data/vault-export/` som er sync-input).',
-        '3. Alle datagenererte noter bærer kilde-referanse og siterbarhets-markering.',
-        '4. `vault:check` grønn før hver fase merges.',
-        '5. Personnoter beholder AP-1-bruksregelen ordrett.',
-        '',
-      ].join('\n'),
-    )
+    writeSupportFiles(repo, REQUIRED_V3_MASTERPLAN_RELATED_FILES)
+    writeV3MasterplanFixture(repo, { bruksregel: 'Ekstern bruk er ok.' })
 
     const issues = validateMasterplanFrontmatterLinks(repo).issues
 
     assert.deepEqual(issues, [
       {
-        file: 'docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        file: 'docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         message:
-          'invalid masterplan frontmatter bruksregel: Internt arbeidskart. Alle tall/claims i vaulten er gjengitt fra research-syntesen; ekstern bruk krever claim-lock/siterbarhets-gate (.claude/source-attribution-policy.md).',
+          'invalid masterplan frontmatter bruksregel: Internt arbeidskart. Ekstern bruk av tall/claims krever claim-lock/siterbarhets-gate (.claude/source-attribution-policy.md).',
       },
     ])
   })
 
   it('requires the masterplan claim-lock policy target to exist', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-masterplan-policy-target-'))
-    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
-    mkdirSync(join(repo, 'scripts', 'obsidian-vault'), { recursive: true })
-    mkdirSync(join(repo, 'docs'), { recursive: true })
-    mkdirSync(join(repo, 'docs', 'project', 'analysis'), { recursive: true })
-    for (const file of [
-      'scripts/obsidian-vault/build_vault.py',
-      'scripts/obsidian-vault/build_innsiktskart.py',
-      'scripts/obsidian-vault/build_maktkart.py',
-      'docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
-      'docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md',
-    ]) {
-      writeFileSync(join(repo, file), '')
-    }
-    writeFileSync(
-      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'),
-      [
-        '---',
-        'tittel: Masterplan — Det fullstendige kunnskapskartet (Obsidian-vault)',
-        'status: Handover-klar for Codex',
-        'eier: Gabriel',
-        'dato: 2026-07-02',
-        'arbeidsflate: Food Systems Obsidian/ (vault i repo-roten)',
-        'bruksregel: Internt arbeidskart. Alle tall/claims i vaulten er gjengitt fra research-syntesen; ekstern bruk krever claim-lock/siterbarhets-gate (.claude/source-attribution-policy.md).',
-        'relaterte_filer:',
-        '  - scripts/obsidian-vault/build_vault.py',
-        '  - scripts/obsidian-vault/build_innsiktskart.py',
-        '  - scripts/obsidian-vault/build_maktkart.py',
-        '  - docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
-        '  - docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md',
-        '---',
-        '# Masterplan: Det fullstendige kunnskapskartet',
-        '## 0. Goal-prompt (lim inn i Codex)',
-        '## 1. Nåsituasjon (per 2026-07-02)',
-        '## 2. Målbilde: «det fullstendige kartet»',
-        '## 3. Arbeidspakker',
-        '### VK-0 — Sync-infrastruktur (teknisk fundament, gjør først)',
-        '### VK-1 — Komplett selskaps- og eierskapslag (krever DB)',
-        '### VK-2 — Innsikts- og kildelag komplett',
-        '### VK-3 — Grafisk løft',
-        '### VK-4 — Datainnsamling (mates av kartet, utføres som research-missions)',
-        '### VK-5 — Gjennomgang (menneske + Claude, etter Codex-leveransen)',
-        '**Akseptanse:** `npm run vault:sync && npm run vault:check` er grønn og en diff-kjøring mot dagens vault viser kun forventede endringer (frontmatter-normalisering).',
-        '**Akseptanse:** antall noter/kanter stemmer med eksport-JSON (skriv tallene i sync-loggen); `vault:check` grønn; stikkprøve mot `npm run db:audit`-tall.',
-        '**Akseptanse:** hver innsiktsnote har minst én kildenote-lenke; ingen innsikt uten `siterbarhet`-felt.',
-        '**Akseptanse:** skjermbilde-gjennomgang med Gabriel/Cathrine; Dataview-spørringer returnerer uten feil; CSS validerer i Obsidian 1.5+.',
-        '**Akseptanse:** hver gap-node i vaulten har enten data eller en lenket mission; konsern-coverage `qualityScore` uendret eller bedre etter re-import + `npm run db:audit` grønn.',
-        '## 4. Rekkefølge og avhengigheter',
-        '## 5. Vernede invarianter (gjelder alle faser)',
-        '1. Menneskelig innhold under `## Notater` overlever alltid sync.',
-        '2. Vault-endringer rører aldri app-kode, DB eller committede dataartefakter (enveis: repo → vault; unntak: `data/vault-export/` som er sync-input).',
-        '3. Alle datagenererte noter bærer kilde-referanse og siterbarhets-markering.',
-        '4. `vault:check` grønn før hver fase merges.',
-        '5. Personnoter beholder AP-1-bruksregelen ordrett.',
-        '',
-      ].join('\n'),
-    )
+    writeSupportFiles(repo, REQUIRED_V3_MASTERPLAN_RELATED_FILES)
+    writeV3MasterplanFixture(repo)
 
     const issues = validateMasterplanFrontmatterLinks(repo).issues
 
     assert.deepEqual(issues, [
       {
-        file: 'docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        file: 'docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         message: 'missing masterplan claim-lock policy target: .claude/source-attribution-policy.md',
       },
     ])
@@ -952,127 +839,31 @@ describe('obsidian vault sync helpers', () => {
 
   it('requires the masterplan to keep every VK work package and invariant section', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-masterplan-required-sections-'))
-    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
-    mkdirSync(join(repo, 'scripts', 'obsidian-vault'), { recursive: true })
-    mkdirSync(join(repo, 'docs'), { recursive: true })
-    mkdirSync(join(repo, 'docs', 'project', 'analysis'), { recursive: true })
-    for (const file of [
-      'scripts/obsidian-vault/build_vault.py',
-      'scripts/obsidian-vault/build_innsiktskart.py',
-      'scripts/obsidian-vault/build_maktkart.py',
-      'docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
-      'docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md',
-    ]) {
-      writeFileSync(join(repo, file), '')
-    }
-    writeFileSync(
-      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'),
-      [
-        '---',
-        'tittel: Masterplan — Det fullstendige kunnskapskartet (Obsidian-vault)',
-        'status: Handover-klar for Codex',
-        'eier: Gabriel',
-        'dato: 2026-07-02',
-        'arbeidsflate: Food Systems Obsidian/ (vault i repo-roten)',
-        'bruksregel: Internt arbeidskart. Alle tall/claims i vaulten er gjengitt fra research-syntesen; ekstern bruk krever claim-lock/siterbarhets-gate (.claude/source-attribution-policy.md).',
-        'relaterte_filer:',
-        '  - scripts/obsidian-vault/build_vault.py',
-        '  - scripts/obsidian-vault/build_innsiktskart.py',
-        '  - scripts/obsidian-vault/build_maktkart.py',
-        '  - docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
-        '  - docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md',
-        '---',
-        '# Masterplan: Det fullstendige kunnskapskartet',
-        '## 0. Goal-prompt (lim inn i Codex)',
-        '## 1. Nåsituasjon (per 2026-07-02)',
-        '## 2. Målbilde: «det fullstendige kartet»',
-        '## 3. Arbeidspakker',
-        '### VK-0 — Sync-infrastruktur (teknisk fundament, gjør først)',
-        '### VK-1 — Komplett selskaps- og eierskapslag (krever DB)',
-        '### VK-2 — Innsikts- og kildelag komplett',
-        '### VK-4 — Datainnsamling (mates av kartet, utføres som research-missions)',
-        '### VK-5 — Gjennomgang (menneske + Claude, etter Codex-leveransen)',
-        '## 4. Rekkefølge og avhengigheter',
-        '## 5. Vernede invarianter (gjelder alle faser)',
-        '',
-      ].join('\n'),
-    )
+    writeSupportFiles(repo, REQUIRED_V3_MASTERPLAN_RELATED_FILES)
+    writeV3MasterplanFixture(repo, { omitSection: '### M3 — Visningsflaten (CODEX + menneskelig QA)' })
 
     const issues = validateMasterplanFrontmatterLinks(repo).issues
 
     assert.deepEqual(issues, [
       {
-        file: 'docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
-        message: 'missing masterplan section: ### VK-3 — Grafisk løft',
+        file: 'docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
+        message: 'missing masterplan section: ### M3 — Visningsflaten (CODEX + menneskelig QA)',
       },
     ])
   })
 
   it('requires the masterplan to keep protected acceptance and invariant text', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-masterplan-required-contract-text-'))
-    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
-    mkdirSync(join(repo, 'scripts', 'obsidian-vault'), { recursive: true })
-    mkdirSync(join(repo, 'docs'), { recursive: true })
-    mkdirSync(join(repo, 'docs', 'project', 'analysis'), { recursive: true })
-    for (const file of [
-      'scripts/obsidian-vault/build_vault.py',
-      'scripts/obsidian-vault/build_innsiktskart.py',
-      'scripts/obsidian-vault/build_maktkart.py',
-      'docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
-      'docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md',
-    ]) {
-      writeFileSync(join(repo, file), '')
-    }
-    writeFileSync(
-      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'),
-      [
-        '---',
-        'tittel: Masterplan — Det fullstendige kunnskapskartet (Obsidian-vault)',
-        'status: Handover-klar for Codex',
-        'eier: Gabriel',
-        'dato: 2026-07-02',
-        'arbeidsflate: Food Systems Obsidian/ (vault i repo-roten)',
-        'bruksregel: Internt arbeidskart. Alle tall/claims i vaulten er gjengitt fra research-syntesen; ekstern bruk krever claim-lock/siterbarhets-gate (.claude/source-attribution-policy.md).',
-        'relaterte_filer:',
-        '  - scripts/obsidian-vault/build_vault.py',
-        '  - scripts/obsidian-vault/build_innsiktskart.py',
-        '  - scripts/obsidian-vault/build_maktkart.py',
-        '  - docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
-        '  - docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md',
-        '---',
-        '# Masterplan: Det fullstendige kunnskapskartet',
-        '## 0. Goal-prompt (lim inn i Codex)',
-        '## 1. Nåsituasjon (per 2026-07-02)',
-        '## 2. Målbilde: «det fullstendige kartet»',
-        '## 3. Arbeidspakker',
-        '### VK-0 — Sync-infrastruktur (teknisk fundament, gjør først)',
-        '### VK-1 — Komplett selskaps- og eierskapslag (krever DB)',
-        '### VK-2 — Innsikts- og kildelag komplett',
-        '### VK-3 — Grafisk løft',
-        '### VK-4 — Datainnsamling (mates av kartet, utføres som research-missions)',
-        '### VK-5 — Gjennomgang (menneske + Claude, etter Codex-leveransen)',
-        '**Akseptanse:** `npm run vault:sync && npm run vault:check` er grønn og en diff-kjøring mot dagens vault viser kun forventede endringer (frontmatter-normalisering).',
-        '**Akseptanse:** antall noter/kanter stemmer med eksport-JSON (skriv tallene i sync-loggen); `vault:check` grønn; stikkprøve mot `npm run db:audit`-tall.',
-        '**Akseptanse:** hver innsiktsnote har minst én kildenote-lenke; ingen innsikt uten `siterbarhet`-felt.',
-        '**Akseptanse:** skjermbilde-gjennomgang med Gabriel/Cathrine; Dataview-spørringer returnerer uten feil; CSS validerer i Obsidian 1.5+.',
-        '**Akseptanse:** hver gap-node i vaulten har enten data eller en lenket mission; konsern-coverage `qualityScore` uendret eller bedre etter re-import + `npm run db:audit` grønn.',
-        '## 4. Rekkefølge og avhengigheter',
-        '## 5. Vernede invarianter (gjelder alle faser)',
-        '1. Menneskelig innhold under `## Notater` overlever alltid sync.',
-        '2. Vault-endringer rører aldri app-kode, DB eller committede dataartefakter (enveis: repo → vault; unntak: `data/vault-export/` som er sync-input).',
-        '3. Alle datagenererte noter bærer kilde-referanse og siterbarhets-markering.',
-        '4. `vault:check` grønn før hver fase merges.',
-        '',
-      ].join('\n'),
-    )
+    const omittedText = '5. Ingen nye claims eksternt uten claim-lock/siterbarhets-gate — kartets lesbarhet endrer ikke publiserbarhet.'
+    writeSupportFiles(repo, REQUIRED_V3_MASTERPLAN_RELATED_FILES)
+    writeV3MasterplanFixture(repo, { omitContractText: omittedText })
 
     const issues = validateMasterplanFrontmatterLinks(repo).issues
 
     assert.deepEqual(issues, [
       {
-        file: 'docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
-        message:
-          'missing masterplan contract text: 5. Personnoter beholder AP-1-bruksregelen ordrett.',
+        file: 'docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
+        message: `missing masterplan contract text: ${omittedText}`,
       },
     ])
   })
@@ -1090,7 +881,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: klar-for-menneskelig-review',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'completion_audit: docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md',
         '---',
         '# Status',
@@ -1105,7 +896,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: repo-lokalt-klart-ikke-mal-complete',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'statusnotat: docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
@@ -1141,7 +932,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: klar-for-menneskelig-review',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'completion_audit: docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
@@ -1157,7 +948,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: repo-lokalt-klart-ikke-mal-complete',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'statusnotat: docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
@@ -1175,7 +966,7 @@ describe('obsidian vault sync helpers', () => {
       {
         file: 'docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md',
         message:
-          'missing review package frontmatter target plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+          'missing review package frontmatter target plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
       },
       {
         file: 'docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md',
@@ -1185,7 +976,7 @@ describe('obsidian vault sync helpers', () => {
       {
         file: 'docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md',
         message:
-          'missing review package frontmatter target plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+          'missing review package frontmatter target plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
       },
       {
         file: 'docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md',
@@ -1208,7 +999,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: klar-for-menneskelig-review',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'completion_audit: docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
@@ -1224,7 +1015,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: fullfort',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'statusnotat: docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
@@ -1254,7 +1045,7 @@ describe('obsidian vault sync helpers', () => {
       join(repo, 'docs', 'project', 'plans', 'archive', 'obsidian-kunnskapskart-completion-audit-2026-07-02.md'),
       '',
     )
-    writeFileSync(join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'), '')
+    writeV3MasterplanFixture(repo)
     writeFileSync(
       join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md'),
       '',
@@ -1264,7 +1055,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: klar-for-menneskelig-review',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'completion_audit: docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
@@ -1282,7 +1073,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: repo-lokalt-klart-ikke-mal-complete',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'statusnotat: docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
@@ -1308,7 +1099,7 @@ describe('obsidian vault sync helpers', () => {
   it('requires archived V2 plan and completion audit plus canonical count-source pointers', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-vk5-review-process-archive-'))
     mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
-    writeFileSync(join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'), '')
+    writeV3MasterplanFixture(repo)
     writeFileSync(
       join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md'),
       '',
@@ -1318,7 +1109,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: klar-for-menneskelig-review',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'completion_audit: docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
@@ -1334,7 +1125,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: repo-lokalt-klart-ikke-mal-complete',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'statusnotat: docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
@@ -1483,7 +1274,7 @@ describe('obsidian vault sync helpers', () => {
   it('accepts content paths as I27+ candidate source path references', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-i27-approval-content-source-gate-'))
     mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
-    writeFileSync(join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'), '')
+    writeV3MasterplanFixture(repo)
     writeFileSync(
       join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md'),
       '',
@@ -1493,7 +1284,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: krever menneskelig godkjenning for generering',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
         '| Foreslått ID | Arbeidstittel | Kildegrunnlag | Hvorfor kandidat | Status |',
@@ -1526,7 +1317,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: krever menneskelig godkjenning for generering',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         '---',
         '| Foreslått ID | Arbeidstittel | Kildegrunnlag | Hvorfor kandidat | Status |',
         '|---|---|---|---|---|',
@@ -1557,7 +1348,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: krever menneskelig godkjenning for generering',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
         '| Foreslått ID | Arbeidstittel | Kildegrunnlag | Hvorfor kandidat | Status |',
@@ -1582,7 +1373,7 @@ describe('obsidian vault sync helpers', () => {
       {
         file: 'docs/project/plans/obsidian-i27-kandidatgodkjenning-2026-07-02.md',
         message:
-          'missing I27+ candidate approval frontmatter target plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+          'missing I27+ candidate approval frontmatter target plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
       },
       {
         file: 'docs/project/plans/obsidian-i27-kandidatgodkjenning-2026-07-02.md',
@@ -1600,7 +1391,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: generering godkjent',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
         '| Foreslått ID | Arbeidstittel | Kildegrunnlag | Hvorfor kandidat | Status |',
@@ -1631,7 +1422,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: krever menneskelig godkjenning for generering',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         '---',
         '| Foreslått ID | Arbeidstittel | Kildegrunnlag | Hvorfor kandidat | Status |',
@@ -1908,7 +1699,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: klar-for-gjennomgang-ikke-utfort',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         '---',
         '## 1. Diff-gjennomgang og kilde-JSON',
         'Beslutning etter diff-gjennomgang:',
@@ -2024,7 +1815,7 @@ describe('obsidian vault sync helpers', () => {
       [
         '---',
         'status: klar-for-gjennomgang-ikke-utfort',
-        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
         'completion_audit: docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md',
         '---',
         '## 1. Diff-gjennomgang og kilde-JSON',
@@ -2081,7 +1872,7 @@ describe('obsidian vault sync helpers', () => {
       {
         file: 'docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
         message:
-          'missing VK-5 review protocol frontmatter target plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+          'missing VK-5 review protocol frontmatter target plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md',
       },
       {
         file: 'docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
@@ -2223,10 +2014,7 @@ describe('obsidian vault sync helpers', () => {
   it('keeps VK-5 closeout blocked until the review protocol is explicitly closed', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-vk5-review-closeout-open-'))
     mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
-    writeFileSync(
-      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'),
-      '# Masterplan\n',
-    )
+    writeV3MasterplanFixture(repo)
     writeFileSync(
       join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-completion-audit-2026-07-02.md'),
       '# Audit\n',
@@ -2253,10 +2041,7 @@ describe('obsidian vault sync helpers', () => {
   it('allows VK-5 closeout only after protocol status and review rows are resolved', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-vk5-review-closeout-closed-'))
     mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
-    writeFileSync(
-      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'),
-      '# Masterplan\n',
-    )
+    writeV3MasterplanFixture(repo)
     writeFileSync(
       join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-completion-audit-2026-07-02.md'),
       '# Audit\n',

@@ -8,6 +8,12 @@ arbeidsflate: Food Systems Obsidian/ (vault i repo-roten)
 formål: Analyse-cockpit + visningsflate (besluttet 2026-07-02)
 utfører: Codex via goal-prompt; menneskelige gates markert eksplisitt
 bruksregel: Internt arbeidskart. Ekstern bruk av tall/claims krever claim-lock/siterbarhets-gate (.claude/source-attribution-policy.md).
+relaterte_filer:
+  - scripts/obsidian-vault/sync.ts
+  - scripts/obsidian-vault/review-preflight.ts
+  - scripts/obsidian-vault/review-closeout.ts
+  - docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md
+  - docs/miro-kart-kunnskapsgrunnlag-blueprint.md
 ---
 
 # Masterplan V3: Fra komplett vault til lesbart kart

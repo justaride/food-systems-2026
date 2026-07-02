@@ -3,7 +3,7 @@ tittel: Obsidian kunnskapskart - VK-5 review-protokoll
 status: klar-for-gjennomgang-ikke-utfort
 dato: 2026-07-02
 arbeidsflate: Food Systems Obsidian/
-plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md
+plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md
 completion_audit: docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md
 ---
 
