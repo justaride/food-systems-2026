@@ -60,6 +60,15 @@ tier: kjerne
 
 - [[Maktkartet]]
 - [[Eierskapsregisteret]]
+
+## Posisjon i systemet (utkast, krever godkjenning)
+
+Krever menneskelig godkjenning: Codex-utkast for intern review; claim-lock og siterbarhet må godkjennes før ekstern bruk.
+
+Posisjonstekst: Lerøy Seafood Group er en sentral sjømataktør som bør brukes til å lese havbruk og sjømatforedling som egne systemlag. I M2 bør teksten kobles til fôr-/næringsgjenvinningssporet og skilles fra generelle retail- eller landbrukspåstander.
+
+Kilde: `content/hvitbok/03-fokusomraader.md`
+Review-ask: Godkjenn, juster eller dropp posisjonsteksten før den brukes som kuratert selskapsbeskrivelse.
 ## Notater
 
 _Utvikles gjennom prosjektet._

@@ -131,6 +131,15 @@ tier: kjerne
 
 - [[Maktkartet]]
 - [[Eierskapsregisteret]]
+
+## Posisjon i systemet (utkast, krever godkjenning)
+
+Krever menneskelig godkjenning: Codex-utkast for intern review; claim-lock og siterbarhet må godkjennes før ekstern bruk.
+
+Posisjonstekst: NorgesGruppen er den tydeligste flerleddsaktøren i AP-5-materialet, med kontroll over 39 selskaper på tvers av 4 verdikjedesteg. I M2 bør noten beskrive konsernet som et strukturelt knutepunkt for retail, distribusjon og relaterte service-/datafunksjoner, uten å gjøre kontroll til bevis for faktisk samordning.
+
+Kilde: `docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md`
+Review-ask: Godkjenn, juster eller dropp posisjonsteksten før den brukes som kuratert selskapsbeskrivelse.
 ## Notater
 
 _Utvikles gjennom prosjektet._
