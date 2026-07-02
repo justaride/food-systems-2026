@@ -34,6 +34,9 @@ fresh-review-*.png
 test-results/
 .claude/scheduled_tasks*.lock
 
+# Obsidian local UI state
+Food Systems Obsidian/.obsidian/workspace*.json
+
 /src/generated/prisma
 /src/generated/version.json
 
