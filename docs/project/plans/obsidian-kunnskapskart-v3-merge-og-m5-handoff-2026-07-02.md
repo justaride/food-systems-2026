@@ -13,13 +13,14 @@ Dette er operatornotatet for å ta V3 fra grønne Codex-PR-er til menneskelig VK
 
 | Rekkefølge | PR | Base | Head | Status per 2026-07-02 |
 |---|---|---|---|---|
-| 1 | #228 — V2 baseline | `main` | `codex/obsidian-kunnskapskart-2026-07-02` | Open draft, mergeable, GitHub checks grønne |
-| 2 | #229 — M1 oversiktslag | `codex/obsidian-kunnskapskart-2026-07-02` | `codex/obsidian-kunnskapskart-m1-2026-07-02` | Open draft, mergeable, GitHub checks grønne |
-| 3 | #231 — M2 innholdsløft | `codex/obsidian-kunnskapskart-m1-2026-07-02` | `codex/obsidian-kunnskapskart-m2-2026-07-02` | Open draft, mergeable, GitHub checks grønne |
-| 4 | #232 — M3 visningsflate | `codex/obsidian-kunnskapskart-m1-2026-07-02` | `codex/obsidian-kunnskapskart-m3-2026-07-02` | Open draft, mergeable, GitHub checks grønne |
-| 5 | #230 — M4 prosessopprydding | `codex/obsidian-kunnskapskart-m1-2026-07-02` | `codex/obsidian-kunnskapskart-m4-2026-07-02` | Open draft, mergeable, GitHub checks grønne |
+| 1 | #228 — V2 baseline | `main` | `codex/obsidian-kunnskapskart-2026-07-02` | Ready-for-review, mergeable, GitHub checks grønne |
+| 2 | #229 — M1 oversiktslag | `codex/obsidian-kunnskapskart-2026-07-02` | `codex/obsidian-kunnskapskart-m1-2026-07-02` | Ready-for-review, mergeable, GitHub checks grønne |
+| 3 | #231 — M2 innholdsløft | `codex/obsidian-kunnskapskart-m1-2026-07-02` | `codex/obsidian-kunnskapskart-m2-2026-07-02` | Ready-for-review, mergeable, GitHub checks grønne |
+| 4 | #232 — M3 visningsflate | `codex/obsidian-kunnskapskart-m1-2026-07-02` | `codex/obsidian-kunnskapskart-m3-2026-07-02` | Ready-for-review, mergeable, GitHub checks grønne |
+| 5 | #230 — M4 prosessopprydding | `codex/obsidian-kunnskapskart-m1-2026-07-02` | `codex/obsidian-kunnskapskart-m4-2026-07-02` | Ready-for-review, mergeable, GitHub checks grønne |
+| Proof | #233 — V3 integration proof | `codex/obsidian-kunnskapskart-m1-2026-07-02` | `codex/obsidian-kunnskapskart-v3-integration-2026-07-02` | Draft merge-preview, mergeable, GitHub checks grønne |
 
-M2, M3 og M4 er parallelle etter M1. Hvis GitHub krever retarget/rebase etter at M1 merges, behold samme innhold og verifiser hver PR på nytt før ready-for-review.
+M2, M3 og M4 er parallelle etter M1. PR #233 er kun et samlet konflikt- og verifikasjonsbevis for M2+M3+M4 oppå M1; den erstatter ikke fase-PR-ene med mindre Gabriel eksplisitt velger en samlet merge. Hvis GitHub krever retarget/rebase etter at M1 merges, behold samme innhold og verifiser hver PR på nytt før merge.
 
 ## Hva som er Codex-klart
 
@@ -33,7 +34,7 @@ M2, M3 og M4 er parallelle etter M1. Hvis GitHub krever retarget/rebase etter at
 1. Merge #228 til `main`, eller checkout #228 lokalt hvis review skal skje før main-merge.
 2. Merge #229 etter #228. Åpne `Food Systems Obsidian/` i Obsidian med Dataview, Breadcrumbs, Minimal Theme Settings og Juggl/3D Graph eller 3D Graph aktivert.
 3. Gå gjennom M0/M1 førsteinntrykk: Welcome, Oversiktskart, global graf med kjernefilter, og `0 Kart/Oppsett.md`.
-4. Merge eller checkout M2/M3/M4 etter behov. Hvis de merges separat, kjør verifikasjon etter hver merge.
+4. Merge eller checkout M2/M3/M4 etter behov. Hvis de merges separat, kjør verifikasjon etter hver merge. Bruk #233 som konfliktbevis eller samlet checkout hvis du vil se M2+M3+M4 samtidig.
 5. Utfør VK-5 i `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.
 6. Når reviewen er faktisk lukket, oppdater protokollens frontmatter-status til en tillatt lukket verdi (`fullfort`, `fullført`, `ferdig` eller `lukket`) og fyll beslutningsradene.
 7. Kjør `npm run vault:review-closeout`. Først når den er grønn kan V3 kalles ferdig internt arbeidskart og godkjent visningsflate.
