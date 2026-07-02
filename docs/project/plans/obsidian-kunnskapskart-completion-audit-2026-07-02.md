@@ -52,12 +52,12 @@ Denne auditen er krav-for-krav-sjekken mot masterplanen. Konklusjonen er bevisst
 
 ## Verifikasjon lest i denne auditen
 
-- `git status --short --branch` bekrefter worktree `codex/obsidian-kunnskapskart-2026-07-02` med forventede ustagede endringer.
+- Vault-delivery baseline er commit `eb9950f` (`Build Obsidian knowledge map vault`) på branch `codex/obsidian-kunnskapskart-2026-07-02`; senere dokumentasjonscommits skal ikke endre vault-innholdet.
 - `find Food Systems Obsidian -name '*.md'` viser 753 markdown-noter; `find ... -name '*.canvas'` viser 30 canvas-filer.
 - `data/vault-export/manifest.json` viser 351 selskaper, 160 eierskapskanter, 1800 styreverv, 105 forretningsrelasjoner og 104 eiendommer.
 - `find Food Systems Obsidian/0 Kart/Konsern -name '*.canvas'` viser 25 konsern-canvas.
 - `rg` bekrefter I27-I38 som `til godkjenning` og VK4-GAP-010 til VK4-GAP-012 i mission-register og gap-noter.
-- `node --import=tsx --test tests/lib/obsidian-vault.test.ts tests/lib/obsidian-vault-export.test.ts tests/lib/package-scripts.test.ts` bekrefter 76 smale vault-/script-tester.
+- `node --import=tsx --test tests/lib/obsidian-vault.test.ts tests/lib/obsidian-vault-export.test.ts tests/lib/package-scripts.test.ts` bekrefter 77 smale vault-/script-tester.
 - `npm run vault:check` bekrefter validator-portene inkludert canvas file-node targets, canvas edge-endepunkter, canvas node-overlapp, Dataview-fences, query-typer og `FROM`-mapper, Obsidian plugin-anbefalinger, CSS-snippet-syntaks, graph colorGroup-mapper, AP-1-bruksregel, metadata-only-kilder og I27+-pending-gaten.
 - `npm run vault:review-preflight` bekrefter at repo-/vault-stier i VK-5-protokoll, statusnotat, completion-audit og I27+-godkjenningsark finnes i live filer etter protokolloppretting, at masterplanens obligatoriske frontmatter, `relaterte_filer`-mål, kontraktseksjoner, akseptanse-/invarianttekst og `.claude/source-attribution-policy.md`-målet for claim-lock finnes, at I27+-kildegrunnlag-stier finnes, at I27+-godkjenningsarket har komplett I27-I38-port med lovlige statusverdier, arbeidstittel/kildegrunnlag med repo-sti/begrunnelse per kandidat, anti-overclaim-status, plan-/VK-5-protokollkoblinger med eksisterende målfil og no-generation/claim-lock-stopptekst i I27+-frontmatter/dokument, at VK-5-protokollen har lovlig frontmatter-status og plan-/completion-audit-koblinger med eksisterende målfil, at statusnotat/completion-audit beholder gjensidige review-pakkekoblinger med eksisterende målfil og anti-overclaim-statusverdier, alle obligatoriske review-seksjoner inkludert neste datainnsamlingsrunde, komplette review-beslutningsblokker og -valg, komplett sluttstatus-sjekkliste, komplett VK-5-reviewradsett med nødvendige radforekomster, komplett I27-I38-radsett, lovlige status-/beslutningsverdier i review-tabellene og closeout-port som nekter `fullfort`/lukket protokoll med uloste review-rader.
 

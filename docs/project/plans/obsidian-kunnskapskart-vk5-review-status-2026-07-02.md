@@ -33,13 +33,14 @@ vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-proto
 
 ## Verifikasjon 2026-07-02
 
+- Vault-delivery baseline - commit `eb9950f` (`Build Obsidian knowledge map vault`) på branch `codex/obsidian-kunnskapskart-2026-07-02`; senere dokumentasjonscommits skal ikke endre vault-innholdet.
 - `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run vault:export-db` - pass, skrev `data/vault-export/`.
-- `node --import=tsx --test tests/lib/obsidian-vault.test.ts tests/lib/obsidian-vault-export.test.ts tests/lib/package-scripts.test.ts` - pass, 76 tester.
+- `node --import=tsx --test tests/lib/obsidian-vault.test.ts tests/lib/obsidian-vault-export.test.ts tests/lib/package-scripts.test.ts` - pass, 77 tester.
 - `npm run vault:sync` - pass, andre runde `graph-settings changed=0`, `dataview-mocs targets=11 changed=0`, `stakeholders=15 linkedActorNotes=3 changed=0`, `topology-registers loops=25 gaps=12 companies=353 changed=0`, `staleRemoved=0`, `vault:check ok`.
 - `npm run vault:check` - pass.
 - `npm run vault:review-preflight` - pass, VK-5-protokollens repo-/vault-stier finnes i live filer, masterplanens obligatoriske frontmatter, `relaterte_filer`-mål, kontraktseksjoner, akseptanse-/invarianttekst og `.claude/source-attribution-policy.md`-målet for claim-lock finnes, I27+-kildegrunnlag-stier finnes, I27+-godkjenningsarket har komplett I27-I38-port med lovlige statusverdier, arbeidstittel/kildegrunnlag med repo-sti/begrunnelse per kandidat, anti-overclaim-status, plan-/VK-5-protokollkoblinger med eksisterende målfil og no-generation/claim-lock-stopptekst i I27+-frontmatter/dokument, VK-5-protokollen har lovlig frontmatter-status og plan-/completion-audit-koblinger med eksisterende målfil, status-/auditfrontmatter-koblinger med eksisterende målfil og anti-overclaim-statusverdier for review-pakken finnes, alle obligatoriske review-seksjoner inkludert neste datainnsamlingsrunde, komplette review-beslutningsblokker og -valg, komplett sluttstatus-sjekkliste, komplett VK-5-reviewradsett med nødvendige radforekomster, komplett I27-I38-radsett, lovlige status-/beslutningsverdier i review-tabellene og closeout-port som nekter `fullfort`/lukket protokoll med uloste review-rader.
 - `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:audit` - pass, alle enforced integrity checks passed.
-- `npm run test` - pass, 644 tester.
+- `npm run test` - pass, 645 tester.
 - `npm run lint` - pass.
 - `npm run build` - pass med kjente Next/NFT worktree-advarsler.
 - `git diff --check` - pass.
