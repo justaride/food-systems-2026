@@ -36,7 +36,7 @@ Denne statusfilen skal bare peke til kontrollflatene:
 
 ## PR-stack og human gate-rekkefølge
 
-Snapshot per 2026-07-02. Refresh alltid med `gh pr view <nr> --json isDraft,mergeStateStatus,statusCheckRollup,baseRefName,headRefName` før nye merges.
+Snapshot per 2026-07-02. Refresh alltid med `gh pr view <nr> --json state,isDraft,mergedAt,mergeStateStatus,statusCheckRollup,baseRefName,headRefName` før videre statusendring.
 
 1. Baseline: PR #228 `codex/obsidian-kunnskapskart-2026-07-02` -> `main` er merget (`720de60`).
 2. M1: PR #229 `codex/obsidian-kunnskapskart-m1-2026-07-02` -> `main` er merget (`fc48e6a`).
@@ -44,7 +44,7 @@ Snapshot per 2026-07-02. Refresh alltid med `gh pr view <nr> --json isDraft,merg
    - PR #231 M2 innholdsløft er merget (`84a3e08`).
    - PR #232 M3 visningsflate/runbook er merget (`1f5154d`).
    - PR #230 M4 prosessopprydding er merget (`17e3af4`).
-4. PR #233 er et superseded integrasjonsbevis for M2+M3+M4 oppå M1. Behold kun som historisk konflikt-/checkout-proof, eller lukk den når #234 er behandlet.
-5. PR #234 er M6-driftbeviset på valgt V3-stack. Det kobler `compute-metrics:full` til `vault:export-db` + `vault:sync`, krever godkjenningsrad for fremtidige I39+ innsikter og validerer gap-noters mission-ID mot `research/RESEARCH-MISSIONS.md`, men lukker ikke VK-5 og skal ikke behandles som erstatning for menneskelig review.
+4. PR #233 er et superseded integrasjonsbevis for M2+M3+M4 oppå M1. Behold kun som historisk konflikt-/checkout-proof, eller lukk den når beviset ikke trengs.
+5. PR #234 er merget som M6-driftbevis på valgt V3-stack (`eeccd01`). Det kobler `compute-metrics:full` til `vault:export-db` + `vault:sync`, krever godkjenningsrad for fremtidige I39+ innsikter og validerer gap-noters mission-ID mot `research/RESEARCH-MISSIONS.md`, men lukker ikke VK-5 og skal ikke behandles som erstatning for menneskelig review.
 6. Ikke kall M0 oppfylt før gammel untracked lokal vault-kopi er fjernet/flyttet, Obsidian-pluginoppsettet i `0 Kart/Oppsett.md` er aktivert, og Gabriel har notert førsteinntrykk i Welcome.
 7. Ikke kall M5 oppfylt før VK-5-protokollen er fylt ut etter faktisk Obsidian-gjennomgang og `npm run vault:review-closeout` er grønn.

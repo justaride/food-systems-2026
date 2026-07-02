@@ -1,13 +1,13 @@
 ---
-status: klar-for-menneskelig-merge-og-m5-review
+status: main-integrert-klar-for-menneskelig-m5-review
 dato: 2026-07-02
 plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md
 eier: Gabriel
 ---
 
-# Obsidian V3 merge- og M5-handoff
+# Obsidian V3 main- og M5-handoff
 
-Dette er operatornotatet for å ta V3 fra grønne Codex-PR-er til menneskelig VK-5-closeout. Notatet er ikke et ferdig-stempel: `vault:review-closeout` skal fortsatt være rød frem til Obsidian-review er gjennomført og VK-5-protokollen er lukket.
+Dette er operatornotatet for å ta V3 fra integrert `main` til menneskelig VK-5-closeout. Notatet er ikke et ferdig-stempel: `vault:review-closeout` skal fortsatt være rød frem til Obsidian-review er gjennomført og VK-5-protokollen er lukket.
 
 ## Nåværende PR-stack
 
@@ -19,9 +19,9 @@ Dette er operatornotatet for å ta V3 fra grønne Codex-PR-er til menneskelig VK
 | 4 | #232 — M3 visningsflate | `main` | `codex/obsidian-kunnskapskart-m3-2026-07-02` | Merget til `main` (`1f5154d`) |
 | 5 | #230 — M4 prosessopprydding | `main` | `codex/obsidian-kunnskapskart-m4-2026-07-02` | Merget til `main` (`17e3af4`) |
 | Proof | #233 — V3 integration proof | `codex/obsidian-kunnskapskart-m1-2026-07-02` | `codex/obsidian-kunnskapskart-v3-integration-2026-07-02` | Superseded av separate fase-PR-merges; behold kun som historisk konfliktbevis |
-| Drift | #234 — M6 drift automation og guardrails | `main` | `codex/obsidian-kunnskapskart-m6-drift-2026-07-02` | M6 drift-followup etter fase-merge; mergebar når retarget-verifikasjon er grønn |
+| Drift | #234 — M6 drift automation og guardrails | `main` | `codex/obsidian-kunnskapskart-m6-drift-2026-07-02` | Merget til `main` (`eeccd01`); drift-guardrails integrert, men M5 er fortsatt åpen |
 
-M2, M3 og M4 ble valgt inn som separate fase-PR-er etter M1. PR #233 er dermed ikke lenger en merge-kandidat; den kan lukkes når #234 er behandlet eller beholdes som historisk konfliktbevis. PR #234 er en M6-driftoppfølging på den valgte V3-stacken som kobler `compute-metrics:full` til `vault:export-db` + `vault:sync`, krever godkjenningsrad for fremtidige I39+ innsikter og validerer at gap-noters mission-ID finnes i `research/RESEARCH-MISSIONS.md`; den lukker ikke M5.
+M2, M3 og M4 ble valgt inn som separate fase-PR-er etter M1. PR #233 er dermed ikke lenger en merge-kandidat; den kan lukkes når historisk konfliktbevis ikke trengs. PR #234 er merget som M6-driftoppfølging på den valgte V3-stacken: den kobler `compute-metrics:full` til `vault:export-db` + `vault:sync`, krever godkjenningsrad for fremtidige I39+ innsikter og validerer at gap-noters mission-ID finnes i `research/RESEARCH-MISSIONS.md`; den lukker ikke M5.
 
 ## Hva som er Codex-klart
 
@@ -36,13 +36,13 @@ M2, M3 og M4 ble valgt inn som separate fase-PR-er etter M1. PR #233 er dermed i
 1. #228, #229, #231, #232 og #230 er merget til `main`.
 2. Åpne `Food Systems Obsidian/` i Obsidian med Dataview, Breadcrumbs, Minimal Theme Settings og Juggl/3D Graph eller 3D Graph aktivert.
 3. Gå gjennom M0/M1 førsteinntrykk: Welcome, Oversiktskart, global graf med kjernefilter, og `0 Kart/Oppsett.md`.
-4. Behandle #234 som egen M6-driftoppfølging. Den er ikke nødvendig for VK-5-review, men gjør senere DB-refresh, fremtidige I39+ innsikter og gap→mission-drift mer robuste.
+4. M6-driftoppfølgingen fra #234 er allerede integrert. Den er ikke nødvendig for VK-5-review, men gjør senere DB-refresh, fremtidige I39+ innsikter og gap→mission-drift mer robuste.
 5. Lukk #233 som superseded proof-PR når du ikke lenger trenger den som historisk konfliktbevis.
 6. Utfør VK-5 i `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.
 7. Når reviewen er faktisk lukket, oppdater protokollens frontmatter-status til en tillatt lukket verdi (`fullfort`, `fullført`, `ferdig` eller `lukket`) og fyll beslutningsradene.
 8. Kjør `npm run vault:review-closeout`. Først når den er grønn kan V3 kalles ferdig internt arbeidskart og godkjent visningsflate.
 
-## Kommandoer etter hver merge eller checkout
+## Kommandoer på oppdatert main
 
 ```bash
 DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:generate
