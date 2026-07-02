@@ -33,3 +33,16 @@ Denne statusfilen skal bare peke til kontrollflatene:
 - I27+ etterarbeid for parkerte kandidater må gjennom egen claim-lock/datareview før nye innsiktsnoter genereres.
 - VK-5 må fylles ut i Obsidian med graf-, canvas-, Dataview-, diff- og siterbarhetsreview.
 - `npm run vault:review-closeout` skal feile frem til VK-5-protokollen er lukket med løste review-rader etter menneskelig review.
+
+## PR-stack og human gate-rekkefølge
+
+Snapshot per 2026-07-02. Refresh alltid med `gh pr view <nr> --json isDraft,mergeStateStatus,statusCheckRollup,baseRefName,headRefName` før merge.
+
+1. Baseline: PR #228 `codex/obsidian-kunnskapskart-2026-07-02` -> `main`.
+2. M1: PR #229 `codex/obsidian-kunnskapskart-m1-2026-07-02` -> `codex/obsidian-kunnskapskart-2026-07-02`.
+3. Etter M1 kan M2, M3 og M4 vurderes som parallelle fase-PR-er på M1-basen:
+   - PR #231 M2 innholdsløft.
+   - PR #232 M3 visningsflate/runbook.
+   - PR #230 M4 prosessopprydding.
+4. Ikke kall M0 oppfylt før PR #228 er merget, gammel untracked lokal vault-kopi er fjernet/flyttet, Obsidian-pluginoppsettet i `0 Kart/Oppsett.md` er aktivert, og Gabriel har notert førsteinntrykk i Welcome.
+5. Ikke kall M5 oppfylt før VK-5-protokollen er fylt ut etter faktisk Obsidian-gjennomgang og `npm run vault:review-closeout` er grønn.
