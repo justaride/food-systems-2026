@@ -3,7 +3,7 @@ tittel: I27+ kandidatgodkjenning for Obsidian-kunnskapskart
 status: krever menneskelig godkjenning for generering
 dato: 2026-07-02
 fase: VK-2
-plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md
+plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md
 vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md
 ---
 

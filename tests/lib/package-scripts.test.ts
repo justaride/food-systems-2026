@@ -85,6 +85,23 @@ describe('package scripts', () => {
     assert.equal(packageJson.scripts['vault:review-closeout'], 'tsx scripts/obsidian-vault/review-closeout.ts')
   })
 
+  it('runs the Obsidian vault export and sync at the end of the full DB refresh routine', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+
+    assert.equal(
+      packageJson.scripts['compute-metrics:full'],
+      [
+        'npm run compute-metrics',
+        'npm run audit:konsern',
+        'npm run compute-coverage',
+        'npm run vault:export-db',
+        'npm run vault:sync',
+      ].join(' && '),
+    )
+  })
+
   it('includes the I27+ approval gate in the default vault review preflight', () => {
     const preflightSource = readFileSync(
       join(process.cwd(), 'scripts', 'obsidian-vault', 'review-preflight.ts'),
