@@ -53,6 +53,26 @@ SORT file.name ASC
 
 - [[Sirkularitet.canvas|Sirkularitet]]
 - [[Norden.canvas|Norden]]
+
+## Presentasjonsvisninger
+
+- Beviskjeden — åpne [[Oversiktskart.canvas|Oversiktskart]], gå videre til [[Innsiktskartet]] og filtrer på `10 Innsiktskart/Innsikter`. Bruk Juggl/3D Graph kun etter at default-grafen er satt til kjernefilteret.
+- Styrenettverket (kjerne) — start fra [[Maktkartet]] og [[Personregister]], vis kun personnoter utenfor `Personer/Register/` og selskaper utenfor `Selskaper/Register/`. Dette er kjernevisningen for AP-1-broer; person- og aktørformuleringer er fortsatt interne.
+- Sirkularitetsloopene per R-nivå — bruk [[Sirkularitet.canvas|Sirkularitet]] som første visning, og gå derfra til [[Loop-register]] for detaljer. Hold gaps og missions synlige som egne arbeidsnoder, ikke som ferdige funn.
+
+## Eksport til leveranser
+
+- Hvitbok-figur: eksporter valgt canvas-utsnitt som PNG fra Obsidian, legg figuren i relevant hvitbok-arbeidsmappe, og bevar kildehenvisningen til vault-noten som forklarer utsnittet.
+- Miro: bruk `docs/miro-kart-kunnskapsgrunnlag-blueprint.md` som mottaker-spec. Ikke oppdater Miro manuelt med nye tall uten å sjekke at samme tall finnes i vault- eller app-kilden.
+- App/graf: hvis et utsnitt skal inn i `/graf`, bruk repo-data eller delt JSON som kilde. Skjermbilde er bare presentasjon, ikke nytt datagrunnlag.
+- QA-gate: skjermbildegjennomgang med Gabriel og eventuelt Cathrine må godkjenne at visningen tåler møtebruk før M3 regnes som lukket.
+
+## Visnings-QA
+
+- Åpne `0 Kart/Oversiktskart.canvas`, `0 Kart/Kunnskapskart.canvas`, `0 Kart/Verdikjedekart.canvas`, `0 Kart/Maktkart.canvas`, `0 Kart/Temakart/Sirkularitet.canvas` og `0 Kart/Temakart/Norden.canvas` i Obsidian før møtebruk.
+- Sjekk projektorlesbarhet: tekststørrelse, overlapp, kantkryss og om første blikk forklarer kartets historie uten muntlig omvei.
+- Stresstest konsernvisningen med `0 Kart/Konsern/NorgesGruppen ASA.canvas`.
+- Noter godkjent, justert eller parkert visning i VK-5-protokollen; Codex kan ikke lukke M3 uten denne skjermbildegjennomgangen.
 ## Notater
 
 _Utvikles gjennom prosjektet._
