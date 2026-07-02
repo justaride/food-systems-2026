@@ -87,7 +87,7 @@ const RESTRICTED_FLAT_VAULT_FOLDERS = [
 ] as const
 const INSIGHT_CANDIDATE_GATE_PATH = 'docs/project/plans/obsidian-i27-kandidatgodkjenning-2026-07-02.md'
 const INSIGHT_CANDIDATE_GATE_STATUS = 'krever menneskelig godkjenning for generering'
-const VK5_MASTERPLAN_PATH = 'docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md'
+const VK5_MASTERPLAN_PATH = 'docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md'
 const VK5_REVIEW_PROTOCOL_PATH = 'docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md'
 const VK5_REVIEW_STATUS_PATH = 'docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md'
 const VK5_COMPLETION_AUDIT_PATH = 'docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md'
@@ -95,46 +95,46 @@ const VK5_ARCHIVED_MASTERPLAN_PATH = 'docs/project/plans/archive/obsidian-kunnsk
 const VK5_ARCHIVED_COMPLETION_AUDIT_PATH =
   'docs/project/plans/archive/obsidian-kunnskapskart-completion-audit-2026-07-02.md'
 const REQUIRED_MASTERPLAN_FRONTMATTER = {
-  status: 'Handover-klar for Codex',
+  status: 'utkast-til-godkjenning',
   eier: 'Gabriel',
   dato: '2026-07-02',
   arbeidsflate: 'Food Systems Obsidian/ (vault i repo-roten)',
-  bruksregel:
-    'Internt arbeidskart. Alle tall/claims i vaulten er gjengitt fra research-syntesen; ekstern bruk krever claim-lock/siterbarhets-gate (.claude/source-attribution-policy.md).',
+  bruksregel: 'Internt arbeidskart. Ekstern bruk av tall/claims krever claim-lock/siterbarhets-gate (.claude/source-attribution-policy.md).',
 } as const
 const REQUIRED_MASTERPLAN_CLAIM_LOCK_POLICY_TARGET = '.claude/source-attribution-policy.md'
 const REQUIRED_MASTERPLAN_RELATED_FILES = [
-  'scripts/obsidian-vault/build_vault.py',
-  'scripts/obsidian-vault/build_innsiktskart.py',
-  'scripts/obsidian-vault/build_maktkart.py',
+  'scripts/obsidian-vault/sync.ts',
+  'scripts/obsidian-vault/review-preflight.ts',
+  'scripts/obsidian-vault/review-closeout.ts',
+  'docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
   'docs/miro-kart-kunnskapsgrunnlag-blueprint.md',
-  'docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md',
 ] as const
 const REQUIRED_MASTERPLAN_SECTIONS = [
   '## 0. Goal-prompt (lim inn i Codex)',
-  '## 1. Nåsituasjon (per 2026-07-02)',
-  '## 2. Målbilde: «det fullstendige kartet»',
+  '## 1. Kritisk analyse av V2-leveransen (PR #228)',
+  '## 2. Målbilde',
   '## 3. Arbeidspakker',
-  '### VK-0 — Sync-infrastruktur (teknisk fundament, gjør først)',
-  '### VK-1 — Komplett selskaps- og eierskapslag (krever DB)',
-  '### VK-2 — Innsikts- og kildelag komplett',
-  '### VK-3 — Grafisk løft',
-  '### VK-4 — Datainnsamling (mates av kartet, utføres som research-missions)',
-  '### VK-5 — Gjennomgang (menneske + Claude, etter Codex-leveransen)',
+  '### M0 — Se V2 og lås baseline (MENNESKE — Gabriel, ~45 min, gjøres først)',
+  '### M1 — Oversiktslaget: signal over støy (CODEX — kjernefasen)',
+  '### M2 — Innholdsløft der det betyr noe (CODEX foreslår → MENNESKE godkjenner)',
+  '### M3 — Visningsflaten (CODEX + menneskelig QA)',
+  '### M4 — Slank prosessmaskineriet (CODEX)',
+  '### M5 — VK-5 menneskelig review og closeout (MENNESKE — Gabriel + evt. Cathrine)',
+  '### M6 — Levende drift (løpende)',
   '## 4. Rekkefølge og avhengigheter',
-  '## 5. Vernede invarianter (gjelder alle faser)',
+  '## 5. Vernede invarianter (uendret fra V2, gjelder alle faser)',
+  '## 6. Suksesskriterier for hele V3',
 ] as const
 const REQUIRED_MASTERPLAN_CONTRACT_TEXT = [
-  '**Akseptanse:** `npm run vault:sync && npm run vault:check` er grønn og en diff-kjøring mot dagens vault viser kun forventede endringer (frontmatter-normalisering).',
-  '**Akseptanse:** antall noter/kanter stemmer med eksport-JSON (skriv tallene i sync-loggen); `vault:check` grønn; stikkprøve mot `npm run db:audit`-tall.',
-  '**Akseptanse:** hver innsiktsnote har minst én kildenote-lenke; ingen innsikt uten `siterbarhet`-felt.',
-  '**Akseptanse:** skjermbilde-gjennomgang med Gabriel/Cathrine; Dataview-spørringer returnerer uten feil; CSS validerer i Obsidian 1.5+.',
-  '**Akseptanse:** hver gap-node i vaulten har enten data eller en lenket mission; konsern-coverage `qualityScore` uendret eller bedre etter re-import + `npm run db:audit` grønn.',
-  '1. Menneskelig innhold under `## Notater` overlever alltid sync.',
-  '2. Vault-endringer rører aldri app-kode, DB eller committede dataartefakter (enveis: repo → vault; unntak: `data/vault-export/` som er sync-input).',
-  '3. Alle datagenererte noter bærer kilde-referanse og siterbarhets-markering.',
-  '4. `vault:check` grønn før hver fase merges.',
-  '5. Personnoter beholder AP-1-bruksregelen ordrett.',
+  '**Akseptanse:** PR #228 merget til main; du har sett V2-grafen med plugins aktive; beslutning bekreftet om at M1-M4 kjøres.',
+  '**Akseptanse:** `vault:sync && vault:check` grønn; kjerne-graf ≤ ~180 noder med filter aktivt; ingen note-titler avkuttet av slash-mapper; Oversiktskart.canvas finnes og Welcome peker dit; diff viser kun M1-endringer.',
+  '**Akseptanse:** ingen kravliste finnes i mer enn ett dokument; alle antall i styringsdokumentene kan spores til kanonisk kilde; gates fortsatt grønne/røde som før (closeout feiler fortsatt før M5).',
+  '**Akseptanse:** closeout grønn; kartet kan kalles ferdig internt arbeidskart + godkjent visningsflate.',
+  '1. Menneskelig innhold under `## Notater` overlever alltid sync — også gjennom M1-flyttingene (flytt = git mv + lenkeoppdatering, aldri regenerering av notedelen).',
+  '2. Vault-endringer rører aldri app-kode, DB eller committede dataartefakter (enveis repo → vault; unntak `data/vault-export/` som sync-input).',
+  '3. Alle datagenererte noter bærer kilde-referanse og siterbarhetsmarkering; AP-1-bruksregelen står ordrett på personnoter.',
+  '4. `vault:check` grønn før hver fase merges; bygget avhenger aldri av vaulten.',
+  '5. Ingen nye claims eksternt uten claim-lock/siterbarhets-gate — kartets lesbarhet endrer ikke publiserbarhet.',
 ] as const
 const REQUIRED_INSIGHT_CANDIDATE_GATE_FRONTMATTER_LINKS = {
   plan: VK5_MASTERPLAN_PATH,

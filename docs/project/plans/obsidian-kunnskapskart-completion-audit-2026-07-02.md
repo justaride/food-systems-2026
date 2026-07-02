@@ -3,7 +3,7 @@ tittel: Obsidian kunnskapskart - completion audit
 status: repo-lokalt-klart-ikke-mal-complete
 dato: 2026-07-02
 arbeidsflate: Food Systems Obsidian/
-plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md
+plan: docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md
 statusnotat: docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md
 vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md
 ---
