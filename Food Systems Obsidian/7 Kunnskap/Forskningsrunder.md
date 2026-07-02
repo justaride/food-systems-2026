@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /forskningsrunder
 type: seksjon
 status: generert

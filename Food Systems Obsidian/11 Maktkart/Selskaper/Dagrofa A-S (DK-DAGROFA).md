@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: DK-DAGROFA
+tier: kjerne
 ---
 
 # Dagrofa A/S
@@ -19,21 +20,7 @@ orgnr: DK-DAGROFA
 - NACE: ukjent
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
-
-## Styreverv
-
-- Ingen registrert i eksporten.
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

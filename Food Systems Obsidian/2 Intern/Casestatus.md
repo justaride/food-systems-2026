@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /casestatus
 type: seksjon
 status: generert

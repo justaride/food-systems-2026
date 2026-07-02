@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /personer
 type: seksjon
 status: generert

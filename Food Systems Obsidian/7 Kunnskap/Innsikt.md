@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /innsikt
 type: seksjon
 status: generert

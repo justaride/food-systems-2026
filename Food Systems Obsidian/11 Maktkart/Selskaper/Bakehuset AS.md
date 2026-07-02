@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 914183332
+tier: kjerne
 ---
 
 # Bakehuset AS
@@ -22,7 +23,6 @@ orgnr: 914183332
 ## Eierskap
 
 - Eier: [[NorgesGruppen Merkevare AS]] — 100 % (subsidiary)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 
@@ -46,9 +46,8 @@ orgnr: 914183332
 - supplier → [[NorgesGruppen ASA]] — Bakehuset leverer brød og bakerivarer til NorgesGruppen
 - supplier → [[Oda Norway AS]] — Bakehuset leverer bakerivarer til Oda Norway
 - supplier → [[Servicegrossistene AS (933444724)|Servicegrossistene AS]] — Bakehuset leverer bakerivarer til Servicegrossistene (storhusholdning)
-- Ingen registrert i eksporten.
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

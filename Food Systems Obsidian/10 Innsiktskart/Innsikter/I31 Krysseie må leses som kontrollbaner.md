@@ -1,5 +1,4 @@
 ---
-tags: ""
 del: 8
 type: innsikt
 status: utkast

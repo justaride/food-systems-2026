@@ -1,5 +1,4 @@
 ---
-tags: ""
 farge: #0891B2
 type: datafundament
 status: generert

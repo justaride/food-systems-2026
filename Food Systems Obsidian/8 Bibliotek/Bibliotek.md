@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /bibliotek
 type: seksjon
 status: generert

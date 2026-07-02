@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 976769511
+tier: kjerne
 ---
 
 # NorgesGruppen Servicehandel AS
@@ -33,12 +34,7 @@ orgnr: 976769511
 - Runar Hollevik — styreleder
 - Rune Spikseth — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

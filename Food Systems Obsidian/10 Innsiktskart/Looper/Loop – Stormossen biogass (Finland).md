@@ -1,5 +1,4 @@
 ---
-tags: ""
 rLevel: R9
 maturity: operational
 country: FI

@@ -1,5 +1,4 @@
 ---
-tags: ""
 farge: #15803D
 rolle: Verdikjede
 type: klynge

@@ -1,5 +1,4 @@
 ---
-tags: ""
 del: 5
 type: innsikt
 status: generert

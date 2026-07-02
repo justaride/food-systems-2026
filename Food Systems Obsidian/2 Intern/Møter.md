@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /moter
 type: mote
 status: generert

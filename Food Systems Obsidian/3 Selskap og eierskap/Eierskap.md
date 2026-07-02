@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /eierskap
 type: seksjon
 status: generert

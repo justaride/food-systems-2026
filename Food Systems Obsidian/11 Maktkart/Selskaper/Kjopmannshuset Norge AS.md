@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 977263646
+tier: kjerne
 ---
 
 # Kjopmannshuset Norge AS
@@ -37,12 +38,7 @@ orgnr: 977263646
 - Torgeir Herlofsen — styremedlem
 - Truls Fjeldstad — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /masteroppgaver
 type: seksjon
 status: generert

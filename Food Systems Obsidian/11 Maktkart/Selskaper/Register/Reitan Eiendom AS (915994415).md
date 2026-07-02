@@ -1,0 +1,46 @@
+---
+type: aktor
+status: generert
+kilde: data/vault-export/companies.json
+siterbarhet: intern
+orgnr: 915994415
+tier: periferi
+---
+
+# Reitan Eiendom AS
+
+> DB-generert selskapsnode · Del av [[Maktkartet]]
+
+## Basisdata
+
+- Orgnr: 915994415
+- Land: NO
+- Verdikjedeledd: retail
+- Klassifisering: family
+- NACE: 68.200 — Utleie av egen eller leid fast eiendom
+- Research-konstrukt: nei
+
+## Eierskap
+
+- Eier: [[Odd Reitan Private Holding AS]] — 27.76 % (minority-stake)
+- Eier: [[Reitan AS (912609987)|Reitan AS]] — 72.23 % (subsidiary)
+
+## Styreverv
+
+- Finn Haugan — styremedlem
+- Kari Elisabeth Moen — styremedlem
+- Kristin Genton — styremedlem
+- Odd Reitan — styreleder
+- Trond Fredrik Mellingsæter — CEO
+
+## Registrerte relasjoner
+
+- Ingen registrert i eksporten.
+
+## Koblinger
+
+- [[Maktkartet]]
+- [[Eierskapsregisteret]]
+## Notater
+
+_Utvikles gjennom prosjektet._

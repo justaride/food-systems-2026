@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 929975200
+tier: kjerne
 ---
 
 # Austevoll Seafood ASA
@@ -30,12 +31,7 @@ orgnr: 929975200
 - Helge Møgster — styreleder
 - Lill Maren Møgster — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

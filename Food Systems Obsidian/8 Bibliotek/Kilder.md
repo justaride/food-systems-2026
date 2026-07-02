@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /kilder
 type: kilde
 status: generert

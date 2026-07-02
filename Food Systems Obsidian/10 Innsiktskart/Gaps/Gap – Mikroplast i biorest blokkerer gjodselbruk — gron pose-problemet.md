@@ -1,5 +1,4 @@
 ---
-tags: ""
 type: gap
 status: generert
 kilde: scripts/obsidian-vault/sync.ts

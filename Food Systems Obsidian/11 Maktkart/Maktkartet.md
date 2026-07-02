@@ -1,5 +1,4 @@
 ---
-tags: ""
 type: hub
 status: generert
 kilde: scripts/obsidian-vault/sync.ts

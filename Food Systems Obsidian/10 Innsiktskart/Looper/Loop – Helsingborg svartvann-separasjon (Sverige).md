@@ -1,5 +1,4 @@
 ---
-tags: ""
 rLevel: R8
 maturity: operational
 country: SE

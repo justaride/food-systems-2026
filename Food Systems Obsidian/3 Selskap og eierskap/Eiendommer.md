@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /eiendommer
 type: seksjon
 status: generert

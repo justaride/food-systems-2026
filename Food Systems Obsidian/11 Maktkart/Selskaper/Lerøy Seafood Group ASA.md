@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 975350940
+tier: kjerne
 ---
 
 # Lerøy Seafood Group ASA

@@ -1,0 +1,39 @@
+---
+type: aktor
+status: generert
+kilde: data/vault-export/companies.json
+siterbarhet: intern
+orgnr: 921979819
+tier: periferi
+---
+
+# Joh Johannson Handel AS
+
+> DB-generert selskapsnode · Del av [[Maktkartet]]
+
+## Basisdata
+
+- Orgnr: 921979819
+- Land: NO
+- Verdikjedeledd: retail
+- Klassifisering: family
+- NACE: 47.110 — Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler
+- Research-konstrukt: nei
+
+## Styreverv
+
+- Johan Johannson — styremedlem
+- Knut Hartvig Johannson — styreleder
+- Torbjørn Johannson — styremedlem
+
+## Registrerte relasjoner
+
+- Ingen registrert i eksporten.
+
+## Koblinger
+
+- [[Maktkartet]]
+- [[Eierskapsregisteret]]
+## Notater
+
+_Utvikles gjennom prosjektet._

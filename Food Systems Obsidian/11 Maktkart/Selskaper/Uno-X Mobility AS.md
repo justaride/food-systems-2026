@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 988247111
+tier: kjerne
 ---
 
 # Uno-X Mobility AS
@@ -32,12 +33,7 @@ orgnr: 988247111
 - Ole Robert Reitan — styreleder
 - Vegar Normann Kulset — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

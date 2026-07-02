@@ -1,5 +1,4 @@
 ---
-tags: ""
 farge: #334155
 rolle: Kilder og leveranse
 type: klynge

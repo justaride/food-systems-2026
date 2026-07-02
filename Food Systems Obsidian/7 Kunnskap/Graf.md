@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /graf
 type: seksjon
 status: generert

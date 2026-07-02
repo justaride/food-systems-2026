@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 964118191
+tier: kjerne
 ---
 
 # Mowi ASA
@@ -21,7 +22,6 @@ orgnr: 964118191
 
 ## Eierskap
 
-- Ingen registrert i eksporten.
 - [[Nova Sea AS]] — 95 % (subsidiary)
 - [[Mowi Seawater Norway AS]] — 100 % (subsidiary)
 - [[Mowi Markets Norway AS]] — 100 % (subsidiary)

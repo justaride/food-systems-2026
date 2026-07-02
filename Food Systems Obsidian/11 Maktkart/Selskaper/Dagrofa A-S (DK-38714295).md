@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: DK-38714295
+tier: kjerne
 ---
 
 # Dagrofa A/S
@@ -22,7 +23,6 @@ orgnr: DK-38714295
 ## Eierskap
 
 - Eier: [[NorgesGruppen ASA]] — 48.90 % (minority-stake)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 

@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 983415652
+tier: kjerne
 ---
 
 # Reitan Convenience AS
@@ -32,12 +33,7 @@ orgnr: 983415652
 - Monica Odegaard — styremedlem
 - Ole Robert Reitan — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

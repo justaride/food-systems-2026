@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 947942638
+tier: kjerne
 ---
 
 # TINE SA
@@ -21,7 +22,6 @@ orgnr: 947942638
 
 ## Eierskap
 
-- Ingen registrert i eksporten.
 - [[Diplom-Is AS]] — 100 % (subsidiary)
 - [[Kukraft AS]] — 100 % (subsidiary)
 - [[Mimiro Holding AS]] — 56.60 % (subsidiary)

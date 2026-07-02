@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /mandat
 type: seksjon
 status: generert

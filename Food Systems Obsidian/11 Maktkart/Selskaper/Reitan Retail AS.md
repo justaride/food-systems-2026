@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 914526647
+tier: kjerne
 ---
 
 # Reitan Retail AS

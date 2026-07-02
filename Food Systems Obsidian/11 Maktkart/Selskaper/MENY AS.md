@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 977066727
+tier: kjerne
 ---
 
 # MENY AS
@@ -35,12 +36,7 @@ orgnr: 977066727
 - Trine Groven — styremedlem
 - Truls Fjeldstad — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

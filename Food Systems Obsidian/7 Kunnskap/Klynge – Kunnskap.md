@@ -1,5 +1,4 @@
 ---
-tags: ""
 farge: #DB2777
 rolle: Analyse og innsikt
 type: klynge

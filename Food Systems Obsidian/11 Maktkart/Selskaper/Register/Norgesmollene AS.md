@@ -1,0 +1,47 @@
+---
+type: aktor
+status: generert
+kilde: data/vault-export/companies.json
+siterbarhet: intern
+orgnr: 885719422
+tier: periferi
+---
+
+# Norgesmollene AS
+
+> DB-generert selskapsnode · Del av [[Maktkartet]]
+
+## Basisdata
+
+- Orgnr: 885719422
+- Land: NO
+- Verdikjedeledd: processing
+- Klassifisering: cooperative
+- NACE: 10.610 — Produksjon av kornvarer
+- Research-konstrukt: nei
+
+## Eierskap
+
+- Eier: [[Felleskjøpet Agri SA]] — 100 % (subsidiary)
+
+## Styreverv
+
+- Jan-Erik Eikeland — CEO
+- Laila Stenstadvolden — styremedlem
+- Line Ramstad — styremedlem
+- Niels Brinch-Nielsen — styremedlem
+- Tormod Amundsen — styremedlem
+- Trine Hjellhaug — styremedlem
+- Trond Fidje — styreleder
+
+## Registrerte relasjoner
+
+- Ingen registrert i eksporten.
+
+## Koblinger
+
+- [[Maktkartet]]
+- [[Eierskapsregisteret]]
+## Notater
+
+_Utvikles gjennom prosjektet._

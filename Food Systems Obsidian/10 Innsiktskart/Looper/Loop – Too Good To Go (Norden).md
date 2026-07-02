@@ -1,5 +1,4 @@
 ---
-tags: ""
 rLevel: R1
 maturity: scaled
 country: nordic

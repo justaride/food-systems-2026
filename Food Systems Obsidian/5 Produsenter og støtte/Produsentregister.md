@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /produsenter
 type: seksjon
 status: generert

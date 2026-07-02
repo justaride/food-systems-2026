@@ -1,589 +1,589 @@
 {
- "nodes": [
-  {
-   "id": "hubcard",
-   "type": "file",
-   "file": "11 Maktkart/Maktkartet.md",
-   "x": 900,
-   "y": 0,
-   "width": 640,
-   "height": 100,
-   "color": "#DB2777"
-  },
-  {
-   "id": "fam-joh-johannson-familien",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/Joh. Johannson-familien.md",
-   "x": 0,
-   "y": 170,
-   "width": 380,
-   "height": 70,
-   "color": "#3B82F6"
-  },
-  {
-   "id": "fam-reitan-familien",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/Reitan-familien.md",
-   "x": 420,
-   "y": 170,
-   "width": 380,
-   "height": 70,
-   "color": "#3B82F6"
-  },
-  {
-   "id": "fam-mogster-familien-laco",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/Møgster-familien (Laco).md",
-   "x": 840,
-   "y": 170,
-   "width": 380,
-   "height": 70,
-   "color": "#3B82F6"
-  },
-  {
-   "id": "fam-gustav-witzoe",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/Gustav Witzøe.md",
-   "x": 1260,
-   "y": 170,
-   "width": 380,
-   "height": 70,
-   "color": "#3B82F6"
-  },
-  {
-   "id": "fam-stein-erik-hagen-canica",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/Stein Erik Hagen (Canica).md",
-   "x": 1680,
-   "y": 170,
-   "width": 380,
-   "height": 70,
-   "color": "#3B82F6"
-  },
-  {
-   "id": "fam-john-fredriksen",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/John Fredriksen.md",
-   "x": 2100,
-   "y": 170,
-   "width": 380,
-   "height": 70,
-   "color": "#3B82F6"
-  },
-  {
-   "id": "kon-norgesgruppen",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/NorgesGruppen.md",
-   "x": 0,
-   "y": 340,
-   "width": 290,
-   "height": 70,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "kon-coop-norge",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/Coop Norge.md",
-   "x": 320,
-   "y": 340,
-   "width": 290,
-   "height": 70,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "kon-reitan-retail",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/Reitan Retail.md",
-   "x": 640,
-   "y": 340,
-   "width": 290,
-   "height": 70,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "kon-orkla",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/Orkla.md",
-   "x": 960,
-   "y": 340,
-   "width": 290,
-   "height": 70,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "kon-austevoll-seafood",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/Austevoll Seafood.md",
-   "x": 1280,
-   "y": 340,
-   "width": 290,
-   "height": 70,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "kon-leroy-seafood",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/Lerøy Seafood.md",
-   "x": 1600,
-   "y": 340,
-   "width": 290,
-   "height": 70,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "kon-salmar",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/SalMar.md",
-   "x": 1920,
-   "y": 340,
-   "width": 290,
-   "height": 70,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "kon-mowi",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/Mowi.md",
-   "x": 2240,
-   "y": 340,
-   "width": 290,
-   "height": 70,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "dat-asko",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/ASKO.md",
-   "x": 0,
-   "y": 540,
-   "width": 290,
-   "height": 60,
-   "color": "#60A5FA"
-  },
-  {
-   "id": "dat-bama",
-   "type": "file",
-   "file": "10 Innsiktskart/Aktører/BAMA.md",
-   "x": 320,
-   "y": 540,
-   "width": 290,
-   "height": 60,
-   "color": "#60A5FA"
-  },
-  {
-   "id": "dat-kiwi-norge-as",
-   "type": "file",
-   "file": "11 Maktkart/Selskaper/Kiwi Norge AS.md",
-   "x": 640,
-   "y": 540,
-   "width": 290,
-   "height": 60,
-   "color": "#60A5FA"
-  },
-  {
-   "id": "dat-meny-as",
-   "type": "file",
-   "file": "11 Maktkart/Selskaper/MENY AS.md",
-   "x": 960,
-   "y": 540,
-   "width": 290,
-   "height": 60,
-   "color": "#60A5FA"
-  },
-  {
-   "id": "dat-unil-as",
-   "type": "file",
-   "file": "11 Maktkart/Selskaper/Unil AS.md",
-   "x": 1280,
-   "y": 540,
-   "width": 290,
-   "height": 60,
-   "color": "#60A5FA"
-  },
-  {
-   "id": "dat-norgesgruppen-data-as",
-   "type": "file",
-   "file": "11 Maktkart/Selskaper/NorgesGruppen Data AS.md",
-   "x": 1600,
-   "y": 540,
-   "width": 290,
-   "height": 60,
-   "color": "#60A5FA"
-  },
-  {
-   "id": "dat-rema-1000-norge-as",
-   "type": "file",
-   "file": "11 Maktkart/Selskaper/REMA 1000 Norge AS.md",
-   "x": 1920,
-   "y": 540,
-   "width": 290,
-   "height": 60,
-   "color": "#60A5FA"
-  },
-  {
-   "id": "dat-rema-distribusjon-norge-as",
-   "type": "file",
-   "file": "11 Maktkart/Selskaper/REMA Distribusjon Norge AS.md",
-   "x": 2240,
-   "y": 540,
-   "width": 290,
-   "height": 60,
-   "color": "#60A5FA"
-  },
-  {
-   "id": "per-runar-hollevik",
-   "type": "file",
-   "file": "11 Maktkart/Personer/Runar Hollevik.md",
-   "x": 0,
-   "y": 760,
-   "width": 290,
-   "height": 60,
-   "color": "#CA8A04"
-  },
-  {
-   "id": "per-ole-robert-reitan",
-   "type": "file",
-   "file": "11 Maktkart/Personer/Ole Robert Reitan.md",
-   "x": 320,
-   "y": 760,
-   "width": 290,
-   "height": 60,
-   "color": "#CA8A04"
-  },
-  {
-   "id": "per-kristin-genton",
-   "type": "file",
-   "file": "11 Maktkart/Personer/Kristin Genton.md",
-   "x": 640,
-   "y": 760,
-   "width": 290,
-   "height": 60,
-   "color": "#CA8A04"
-  },
-  {
-   "id": "per-magnus-reitan",
-   "type": "file",
-   "file": "11 Maktkart/Personer/Magnus Reitan.md",
-   "x": 960,
-   "y": 760,
-   "width": 290,
-   "height": 60,
-   "color": "#CA8A04"
-  },
-  {
-   "id": "per-truls-fjeldstad",
-   "type": "file",
-   "file": "11 Maktkart/Personer/Truls Fjeldstad.md",
-   "x": 1280,
-   "y": 760,
-   "width": 290,
-   "height": 60,
-   "color": "#CA8A04"
-  },
-  {
-   "id": "per-tore-bekken",
-   "type": "file",
-   "file": "11 Maktkart/Personer/Tore Bekken.md",
-   "x": 1600,
-   "y": 760,
-   "width": 290,
-   "height": 60,
-   "color": "#CA8A04"
-  },
-  {
-   "id": "per-kristine-stranne",
-   "type": "file",
-   "file": "11 Maktkart/Personer/Kristine Stranne.md",
-   "x": 1920,
-   "y": 760,
-   "width": 290,
-   "height": 60,
-   "color": "#CA8A04"
-  },
-  {
-   "id": "per-oyvind-andersen",
-   "type": "file",
-   "file": "11 Maktkart/Personer/Oyvind Andersen.md",
-   "x": 2240,
-   "y": 760,
-   "width": 290,
-   "height": 60,
-   "color": "#CA8A04"
-  }
- ],
- "edges": [
-  {
-   "id": "e-fam-joh-johannson-familien-kon-norgesgruppen",
-   "fromNode": "fam-joh-johannson-familien",
-   "fromSide": "bottom",
-   "toNode": "kon-norgesgruppen",
-   "toSide": "top",
-   "color": "#3B82F6",
-   "label": "74,4 %"
-  },
-  {
-   "id": "e-fam-reitan-familien-kon-reitan-retail",
-   "fromNode": "fam-reitan-familien",
-   "fromSide": "bottom",
-   "toNode": "kon-reitan-retail",
-   "toSide": "top",
-   "color": "#3B82F6",
-   "label": "100 %"
-  },
-  {
-   "id": "e-fam-mogster-familien-laco-kon-austevoll-seafood",
-   "fromNode": "fam-mogster-familien-laco",
-   "fromSide": "bottom",
-   "toNode": "kon-austevoll-seafood",
-   "toSide": "top",
-   "color": "#3B82F6",
-   "label": "52,7 %"
-  },
-  {
-   "id": "e-fam-gustav-witzoe-kon-salmar",
-   "fromNode": "fam-gustav-witzoe",
-   "fromSide": "bottom",
-   "toNode": "kon-salmar",
-   "toSide": "top",
-   "color": "#3B82F6",
-   "label": "41,3 %"
-  },
-  {
-   "id": "e-fam-stein-erik-hagen-canica-kon-orkla",
-   "fromNode": "fam-stein-erik-hagen-canica",
-   "fromSide": "bottom",
-   "toNode": "kon-orkla",
-   "toSide": "top",
-   "color": "#3B82F6",
-   "label": "25,1 %"
-  },
-  {
-   "id": "e-fam-john-fredriksen-kon-mowi",
-   "fromNode": "fam-john-fredriksen",
-   "fromSide": "bottom",
-   "toNode": "kon-mowi",
-   "toSide": "top",
-   "color": "#3B82F6",
-   "label": "14,4 %"
-  },
-  {
-   "id": "e-kon-austevoll-seafood-kon-leroy-seafood",
-   "fromNode": "kon-austevoll-seafood",
-   "fromSide": "right",
-   "toNode": "kon-leroy-seafood",
-   "toSide": "left",
-   "color": "#1D4ED8",
-   "label": "52,7 %"
-  },
-  {
-   "id": "e-kon-norgesgruppen-dat-asko",
-   "fromNode": "kon-norgesgruppen",
-   "fromSide": "bottom",
-   "toNode": "dat-asko",
-   "toSide": "top",
-   "color": "#1D4ED8",
-   "label": "100 %"
-  },
-  {
-   "id": "e-kon-norgesgruppen-dat-bama",
-   "fromNode": "kon-norgesgruppen",
-   "fromSide": "bottom",
-   "toNode": "dat-bama",
-   "toSide": "top",
-   "color": "#1D4ED8",
-   "label": "46 %"
-  },
-  {
-   "id": "e-kon-norgesgruppen-dat-kiwi-norge-as",
-   "fromNode": "kon-norgesgruppen",
-   "fromSide": "bottom",
-   "toNode": "dat-kiwi-norge-as",
-   "toSide": "top",
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "e-kon-norgesgruppen-dat-meny-as",
-   "fromNode": "kon-norgesgruppen",
-   "fromSide": "bottom",
-   "toNode": "dat-meny-as",
-   "toSide": "top",
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "e-kon-norgesgruppen-dat-unil-as",
-   "fromNode": "kon-norgesgruppen",
-   "fromSide": "bottom",
-   "toNode": "dat-unil-as",
-   "toSide": "top",
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "e-kon-norgesgruppen-dat-norgesgruppen-data-as",
-   "fromNode": "kon-norgesgruppen",
-   "fromSide": "bottom",
-   "toNode": "dat-norgesgruppen-data-as",
-   "toSide": "top",
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "e-kon-reitan-retail-dat-rema-1000-norge-as",
-   "fromNode": "kon-reitan-retail",
-   "fromSide": "bottom",
-   "toNode": "dat-rema-1000-norge-as",
-   "toSide": "top",
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "e-kon-reitan-retail-dat-rema-distribusjon-norge-as",
-   "fromNode": "kon-reitan-retail",
-   "fromSide": "bottom",
-   "toNode": "dat-rema-distribusjon-norge-as",
-   "toSide": "top",
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "e-per-runar-hollevik-dat-unil-as",
-   "fromNode": "per-runar-hollevik",
-   "fromSide": "top",
-   "toNode": "dat-unil-as",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-runar-hollevik-dat-asko",
-   "fromNode": "per-runar-hollevik",
-   "fromSide": "top",
-   "toNode": "dat-asko",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-runar-hollevik-dat-kiwi-norge-as",
-   "fromNode": "per-runar-hollevik",
-   "fromSide": "top",
-   "toNode": "dat-kiwi-norge-as",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-runar-hollevik-dat-meny-as",
-   "fromNode": "per-runar-hollevik",
-   "fromSide": "top",
-   "toNode": "dat-meny-as",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-runar-hollevik-dat-norgesgruppen-data-as",
-   "fromNode": "per-runar-hollevik",
-   "fromSide": "top",
-   "toNode": "dat-norgesgruppen-data-as",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-runar-hollevik-dat-bama",
-   "fromNode": "per-runar-hollevik",
-   "fromSide": "top",
-   "toNode": "dat-bama",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-ole-robert-reitan-dat-rema-1000-norge-as",
-   "fromNode": "per-ole-robert-reitan",
-   "fromSide": "top",
-   "toNode": "dat-rema-1000-norge-as",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-ole-robert-reitan-dat-rema-distribusjon-norge-as",
-   "fromNode": "per-ole-robert-reitan",
-   "fromSide": "top",
-   "toNode": "dat-rema-distribusjon-norge-as",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-ole-robert-reitan-dat-bama",
-   "fromNode": "per-ole-robert-reitan",
-   "fromSide": "top",
-   "toNode": "dat-bama",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-magnus-reitan-dat-rema-distribusjon-norge-as",
-   "fromNode": "per-magnus-reitan",
-   "fromSide": "top",
-   "toNode": "dat-rema-distribusjon-norge-as",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-magnus-reitan-kon-reitan-retail",
-   "fromNode": "per-magnus-reitan",
-   "fromSide": "top",
-   "toNode": "kon-reitan-retail",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-truls-fjeldstad-dat-kiwi-norge-as",
-   "fromNode": "per-truls-fjeldstad",
-   "fromSide": "top",
-   "toNode": "dat-kiwi-norge-as",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-truls-fjeldstad-dat-meny-as",
-   "fromNode": "per-truls-fjeldstad",
-   "fromSide": "top",
-   "toNode": "dat-meny-as",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-truls-fjeldstad-dat-norgesgruppen-data-as",
-   "fromNode": "per-truls-fjeldstad",
-   "fromSide": "top",
-   "toNode": "dat-norgesgruppen-data-as",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-tore-bekken-dat-asko",
-   "fromNode": "per-tore-bekken",
-   "fromSide": "top",
-   "toNode": "dat-asko",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-tore-bekken-dat-norgesgruppen-data-as",
-   "fromNode": "per-tore-bekken",
-   "fromSide": "top",
-   "toNode": "dat-norgesgruppen-data-as",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-kristine-stranne-dat-asko",
-   "fromNode": "per-kristine-stranne",
-   "fromSide": "top",
-   "toNode": "dat-asko",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  },
-  {
-   "id": "e-per-oyvind-andersen-dat-kiwi-norge-as",
-   "fromNode": "per-oyvind-andersen",
-   "fromSide": "top",
-   "toNode": "dat-kiwi-norge-as",
-   "toSide": "bottom",
-   "color": "#CA8A04"
-  }
- ]
+  "nodes": [
+    {
+      "id": "hubcard",
+      "type": "file",
+      "file": "11 Maktkart/Maktkartet.md",
+      "x": 900,
+      "y": 0,
+      "width": 640,
+      "height": 100,
+      "color": "#DB2777"
+    },
+    {
+      "id": "fam-joh-johannson-familien",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/Joh. Johannson-familien.md",
+      "x": 0,
+      "y": 170,
+      "width": 380,
+      "height": 70,
+      "color": "#3B82F6"
+    },
+    {
+      "id": "fam-reitan-familien",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/Reitan-familien.md",
+      "x": 420,
+      "y": 170,
+      "width": 380,
+      "height": 70,
+      "color": "#3B82F6"
+    },
+    {
+      "id": "fam-mogster-familien-laco",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/Møgster-familien (Laco).md",
+      "x": 840,
+      "y": 170,
+      "width": 380,
+      "height": 70,
+      "color": "#3B82F6"
+    },
+    {
+      "id": "fam-gustav-witzoe",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/Gustav Witzøe.md",
+      "x": 1260,
+      "y": 170,
+      "width": 380,
+      "height": 70,
+      "color": "#3B82F6"
+    },
+    {
+      "id": "fam-stein-erik-hagen-canica",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/Stein Erik Hagen (Canica).md",
+      "x": 1680,
+      "y": 170,
+      "width": 380,
+      "height": 70,
+      "color": "#3B82F6"
+    },
+    {
+      "id": "fam-john-fredriksen",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/John Fredriksen.md",
+      "x": 2100,
+      "y": 170,
+      "width": 380,
+      "height": 70,
+      "color": "#3B82F6"
+    },
+    {
+      "id": "kon-norgesgruppen",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/NorgesGruppen.md",
+      "x": 0,
+      "y": 340,
+      "width": 290,
+      "height": 70,
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "kon-coop-norge",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/Coop Norge.md",
+      "x": 320,
+      "y": 340,
+      "width": 290,
+      "height": 70,
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "kon-reitan-retail",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/Reitan Retail.md",
+      "x": 640,
+      "y": 340,
+      "width": 290,
+      "height": 70,
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "kon-orkla",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/Orkla.md",
+      "x": 960,
+      "y": 340,
+      "width": 290,
+      "height": 70,
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "kon-austevoll-seafood",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/Austevoll Seafood.md",
+      "x": 1280,
+      "y": 340,
+      "width": 290,
+      "height": 70,
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "kon-leroy-seafood",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/Lerøy Seafood.md",
+      "x": 1600,
+      "y": 340,
+      "width": 290,
+      "height": 70,
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "kon-salmar",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/SalMar.md",
+      "x": 1920,
+      "y": 340,
+      "width": 290,
+      "height": 70,
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "kon-mowi",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/Mowi.md",
+      "x": 2240,
+      "y": 340,
+      "width": 290,
+      "height": 70,
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "dat-asko",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/ASKO.md",
+      "x": 0,
+      "y": 540,
+      "width": 290,
+      "height": 60,
+      "color": "#60A5FA"
+    },
+    {
+      "id": "dat-bama",
+      "type": "file",
+      "file": "10 Innsiktskart/Aktører/BAMA.md",
+      "x": 320,
+      "y": 540,
+      "width": 290,
+      "height": 60,
+      "color": "#60A5FA"
+    },
+    {
+      "id": "dat-kiwi-norge-as",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kiwi Norge AS.md",
+      "x": 640,
+      "y": 540,
+      "width": 290,
+      "height": 60,
+      "color": "#60A5FA"
+    },
+    {
+      "id": "dat-meny-as",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/MENY AS.md",
+      "x": 960,
+      "y": 540,
+      "width": 290,
+      "height": 60,
+      "color": "#60A5FA"
+    },
+    {
+      "id": "dat-unil-as",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Unil AS.md",
+      "x": 1280,
+      "y": 540,
+      "width": 290,
+      "height": 60,
+      "color": "#60A5FA"
+    },
+    {
+      "id": "dat-norgesgruppen-data-as",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Data AS.md",
+      "x": 1600,
+      "y": 540,
+      "width": 290,
+      "height": 60,
+      "color": "#60A5FA"
+    },
+    {
+      "id": "dat-rema-1000-norge-as",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/REMA 1000 Norge AS.md",
+      "x": 1920,
+      "y": 540,
+      "width": 290,
+      "height": 60,
+      "color": "#60A5FA"
+    },
+    {
+      "id": "dat-rema-distribusjon-norge-as",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/REMA Distribusjon Norge AS.md",
+      "x": 2240,
+      "y": 540,
+      "width": 290,
+      "height": 60,
+      "color": "#60A5FA"
+    },
+    {
+      "id": "per-runar-hollevik",
+      "type": "file",
+      "file": "11 Maktkart/Personer/Runar Hollevik.md",
+      "x": 0,
+      "y": 760,
+      "width": 290,
+      "height": 60,
+      "color": "#CA8A04"
+    },
+    {
+      "id": "per-ole-robert-reitan",
+      "type": "file",
+      "file": "11 Maktkart/Personer/Ole Robert Reitan.md",
+      "x": 320,
+      "y": 760,
+      "width": 290,
+      "height": 60,
+      "color": "#CA8A04"
+    },
+    {
+      "id": "per-kristin-genton",
+      "type": "file",
+      "file": "11 Maktkart/Personer/Register/Kristin Genton.md",
+      "x": 640,
+      "y": 760,
+      "width": 290,
+      "height": 60,
+      "color": "#CA8A04"
+    },
+    {
+      "id": "per-magnus-reitan",
+      "type": "file",
+      "file": "11 Maktkart/Personer/Magnus Reitan.md",
+      "x": 960,
+      "y": 760,
+      "width": 290,
+      "height": 60,
+      "color": "#CA8A04"
+    },
+    {
+      "id": "per-truls-fjeldstad",
+      "type": "file",
+      "file": "11 Maktkart/Personer/Register/Truls Fjeldstad.md",
+      "x": 1280,
+      "y": 760,
+      "width": 290,
+      "height": 60,
+      "color": "#CA8A04"
+    },
+    {
+      "id": "per-tore-bekken",
+      "type": "file",
+      "file": "11 Maktkart/Personer/Tore Bekken.md",
+      "x": 1600,
+      "y": 760,
+      "width": 290,
+      "height": 60,
+      "color": "#CA8A04"
+    },
+    {
+      "id": "per-kristine-stranne",
+      "type": "file",
+      "file": "11 Maktkart/Personer/Kristine Stranne.md",
+      "x": 1920,
+      "y": 760,
+      "width": 290,
+      "height": 60,
+      "color": "#CA8A04"
+    },
+    {
+      "id": "per-oyvind-andersen",
+      "type": "file",
+      "file": "11 Maktkart/Personer/Oyvind Andersen.md",
+      "x": 2240,
+      "y": 760,
+      "width": 290,
+      "height": 60,
+      "color": "#CA8A04"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-fam-joh-johannson-familien-kon-norgesgruppen",
+      "fromNode": "fam-joh-johannson-familien",
+      "fromSide": "bottom",
+      "toNode": "kon-norgesgruppen",
+      "toSide": "top",
+      "color": "#3B82F6",
+      "label": "74,4 %"
+    },
+    {
+      "id": "e-fam-reitan-familien-kon-reitan-retail",
+      "fromNode": "fam-reitan-familien",
+      "fromSide": "bottom",
+      "toNode": "kon-reitan-retail",
+      "toSide": "top",
+      "color": "#3B82F6",
+      "label": "100 %"
+    },
+    {
+      "id": "e-fam-mogster-familien-laco-kon-austevoll-seafood",
+      "fromNode": "fam-mogster-familien-laco",
+      "fromSide": "bottom",
+      "toNode": "kon-austevoll-seafood",
+      "toSide": "top",
+      "color": "#3B82F6",
+      "label": "52,7 %"
+    },
+    {
+      "id": "e-fam-gustav-witzoe-kon-salmar",
+      "fromNode": "fam-gustav-witzoe",
+      "fromSide": "bottom",
+      "toNode": "kon-salmar",
+      "toSide": "top",
+      "color": "#3B82F6",
+      "label": "41,3 %"
+    },
+    {
+      "id": "e-fam-stein-erik-hagen-canica-kon-orkla",
+      "fromNode": "fam-stein-erik-hagen-canica",
+      "fromSide": "bottom",
+      "toNode": "kon-orkla",
+      "toSide": "top",
+      "color": "#3B82F6",
+      "label": "25,1 %"
+    },
+    {
+      "id": "e-fam-john-fredriksen-kon-mowi",
+      "fromNode": "fam-john-fredriksen",
+      "fromSide": "bottom",
+      "toNode": "kon-mowi",
+      "toSide": "top",
+      "color": "#3B82F6",
+      "label": "14,4 %"
+    },
+    {
+      "id": "e-kon-austevoll-seafood-kon-leroy-seafood",
+      "fromNode": "kon-austevoll-seafood",
+      "fromSide": "right",
+      "toNode": "kon-leroy-seafood",
+      "toSide": "left",
+      "color": "#1D4ED8",
+      "label": "52,7 %"
+    },
+    {
+      "id": "e-kon-norgesgruppen-dat-asko",
+      "fromNode": "kon-norgesgruppen",
+      "fromSide": "bottom",
+      "toNode": "dat-asko",
+      "toSide": "top",
+      "color": "#1D4ED8",
+      "label": "100 %"
+    },
+    {
+      "id": "e-kon-norgesgruppen-dat-bama",
+      "fromNode": "kon-norgesgruppen",
+      "fromSide": "bottom",
+      "toNode": "dat-bama",
+      "toSide": "top",
+      "color": "#1D4ED8",
+      "label": "46 %"
+    },
+    {
+      "id": "e-kon-norgesgruppen-dat-kiwi-norge-as",
+      "fromNode": "kon-norgesgruppen",
+      "fromSide": "bottom",
+      "toNode": "dat-kiwi-norge-as",
+      "toSide": "top",
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "e-kon-norgesgruppen-dat-meny-as",
+      "fromNode": "kon-norgesgruppen",
+      "fromSide": "bottom",
+      "toNode": "dat-meny-as",
+      "toSide": "top",
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "e-kon-norgesgruppen-dat-unil-as",
+      "fromNode": "kon-norgesgruppen",
+      "fromSide": "bottom",
+      "toNode": "dat-unil-as",
+      "toSide": "top",
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "e-kon-norgesgruppen-dat-norgesgruppen-data-as",
+      "fromNode": "kon-norgesgruppen",
+      "fromSide": "bottom",
+      "toNode": "dat-norgesgruppen-data-as",
+      "toSide": "top",
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "e-kon-reitan-retail-dat-rema-1000-norge-as",
+      "fromNode": "kon-reitan-retail",
+      "fromSide": "bottom",
+      "toNode": "dat-rema-1000-norge-as",
+      "toSide": "top",
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "e-kon-reitan-retail-dat-rema-distribusjon-norge-as",
+      "fromNode": "kon-reitan-retail",
+      "fromSide": "bottom",
+      "toNode": "dat-rema-distribusjon-norge-as",
+      "toSide": "top",
+      "color": "#1D4ED8"
+    },
+    {
+      "id": "e-per-runar-hollevik-dat-unil-as",
+      "fromNode": "per-runar-hollevik",
+      "fromSide": "top",
+      "toNode": "dat-unil-as",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-runar-hollevik-dat-asko",
+      "fromNode": "per-runar-hollevik",
+      "fromSide": "top",
+      "toNode": "dat-asko",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-runar-hollevik-dat-kiwi-norge-as",
+      "fromNode": "per-runar-hollevik",
+      "fromSide": "top",
+      "toNode": "dat-kiwi-norge-as",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-runar-hollevik-dat-meny-as",
+      "fromNode": "per-runar-hollevik",
+      "fromSide": "top",
+      "toNode": "dat-meny-as",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-runar-hollevik-dat-norgesgruppen-data-as",
+      "fromNode": "per-runar-hollevik",
+      "fromSide": "top",
+      "toNode": "dat-norgesgruppen-data-as",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-runar-hollevik-dat-bama",
+      "fromNode": "per-runar-hollevik",
+      "fromSide": "top",
+      "toNode": "dat-bama",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-ole-robert-reitan-dat-rema-1000-norge-as",
+      "fromNode": "per-ole-robert-reitan",
+      "fromSide": "top",
+      "toNode": "dat-rema-1000-norge-as",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-ole-robert-reitan-dat-rema-distribusjon-norge-as",
+      "fromNode": "per-ole-robert-reitan",
+      "fromSide": "top",
+      "toNode": "dat-rema-distribusjon-norge-as",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-ole-robert-reitan-dat-bama",
+      "fromNode": "per-ole-robert-reitan",
+      "fromSide": "top",
+      "toNode": "dat-bama",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-magnus-reitan-dat-rema-distribusjon-norge-as",
+      "fromNode": "per-magnus-reitan",
+      "fromSide": "top",
+      "toNode": "dat-rema-distribusjon-norge-as",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-magnus-reitan-kon-reitan-retail",
+      "fromNode": "per-magnus-reitan",
+      "fromSide": "top",
+      "toNode": "kon-reitan-retail",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-truls-fjeldstad-dat-kiwi-norge-as",
+      "fromNode": "per-truls-fjeldstad",
+      "fromSide": "top",
+      "toNode": "dat-kiwi-norge-as",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-truls-fjeldstad-dat-meny-as",
+      "fromNode": "per-truls-fjeldstad",
+      "fromSide": "top",
+      "toNode": "dat-meny-as",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-truls-fjeldstad-dat-norgesgruppen-data-as",
+      "fromNode": "per-truls-fjeldstad",
+      "fromSide": "top",
+      "toNode": "dat-norgesgruppen-data-as",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-tore-bekken-dat-asko",
+      "fromNode": "per-tore-bekken",
+      "fromSide": "top",
+      "toNode": "dat-asko",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-tore-bekken-dat-norgesgruppen-data-as",
+      "fromNode": "per-tore-bekken",
+      "fromSide": "top",
+      "toNode": "dat-norgesgruppen-data-as",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-kristine-stranne-dat-asko",
+      "fromNode": "per-kristine-stranne",
+      "fromSide": "top",
+      "toNode": "dat-asko",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    },
+    {
+      "id": "e-per-oyvind-andersen-dat-kiwi-norge-as",
+      "fromNode": "per-oyvind-andersen",
+      "fromSide": "top",
+      "toNode": "dat-kiwi-norge-as",
+      "toSide": "bottom",
+      "color": "#CA8A04"
+    }
+  ]
 }

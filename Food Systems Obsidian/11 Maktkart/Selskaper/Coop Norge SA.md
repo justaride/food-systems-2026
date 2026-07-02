@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 936560288
+tier: kjerne
 ---
 
 # Coop Norge SA
@@ -21,7 +22,6 @@ orgnr: 936560288
 
 ## Eierskap
 
-- Ingen registrert i eksporten.
 - [[Coop Norge Eiendom AS (988445177)|Coop Norge Eiendom AS]] — 100 % (subsidiary)
 - [[Norsk Butikkdrift AS]] — 100 % (subsidiary)
 - [[Coop Norge Kaffe AS]] — 100 % (subsidiary)

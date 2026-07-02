@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 982254604
+tier: kjerne
 ---
 
 # REMA 1000 Norge AS
@@ -30,12 +31,7 @@ orgnr: 982254604
 - Ole Robert Reitan — styreleder
 - Trond Bentestuen — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

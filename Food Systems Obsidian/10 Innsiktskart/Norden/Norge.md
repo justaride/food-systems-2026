@@ -1,5 +1,4 @@
 ---
-tags: ""
 type: norden
 status: generert
 kilde: scripts/obsidian-vault/sync.ts

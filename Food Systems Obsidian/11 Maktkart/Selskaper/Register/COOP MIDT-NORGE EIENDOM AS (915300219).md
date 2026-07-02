@@ -1,0 +1,40 @@
+---
+type: aktor
+status: generert
+kilde: data/vault-export/companies.json
+siterbarhet: intern
+orgnr: 915300219
+tier: periferi
+---
+
+# COOP MIDT-NORGE EIENDOM AS
+
+> DB-generert selskapsnode · Del av [[Maktkartet]]
+
+## Basisdata
+
+- Orgnr: 915300219
+- Land: NO
+- Verdikjedeledd: ukjent
+- Klassifisering: AS
+- NACE: 68.110 — Kjøp og salg av egen fast eiendom
+- Research-konstrukt: nei
+
+## Styreverv
+
+- Bjørn Vik-Mo — styreleder
+- Inge Tennås — styremedlem
+- Rune Brovoll — styremedlem
+- Therese Bjørstad Karlsen — styremedlem
+
+## Registrerte relasjoner
+
+- Ingen registrert i eksporten.
+
+## Koblinger
+
+- [[Maktkartet]]
+- [[Eierskapsregisteret]]
+## Notater
+
+_Utvikles gjennom prosjektet._

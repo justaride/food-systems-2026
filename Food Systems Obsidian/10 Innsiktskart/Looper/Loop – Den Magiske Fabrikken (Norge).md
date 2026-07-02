@@ -1,5 +1,4 @@
 ---
-tags: ""
 rLevel: R9
 maturity: commercial
 country: NO

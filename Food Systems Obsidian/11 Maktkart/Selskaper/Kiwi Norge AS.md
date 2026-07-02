@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 975959171
+tier: kjerne
 ---
 
 # Kiwi Norge AS
@@ -33,12 +34,7 @@ orgnr: 975959171
 - Truls Fjeldstad — styremedlem
 - Vegard Kjuus — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

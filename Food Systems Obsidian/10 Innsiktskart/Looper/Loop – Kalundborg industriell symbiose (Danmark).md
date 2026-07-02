@@ -1,5 +1,4 @@
 ---
-tags: ""
 rLevel: R7
 maturity: mature
 country: DK

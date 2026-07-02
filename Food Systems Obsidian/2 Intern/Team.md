@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /team
 type: seksjon
 status: generert

@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /rapporter
 type: seksjon
 status: generert

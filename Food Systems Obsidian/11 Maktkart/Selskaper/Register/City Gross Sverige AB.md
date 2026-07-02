@@ -1,0 +1,37 @@
+---
+type: aktor
+status: generert
+kilde: data/vault-export/companies.json
+siterbarhet: intern
+orgnr: SE-556597-2451
+tier: periferi
+---
+
+# City Gross Sverige AB
+
+> DB-generert selskapsnode · Del av [[Maktkartet]]
+
+## Basisdata
+
+- Orgnr: SE-556597-2451
+- Land: SE
+- Verdikjedeledd: retail
+- Klassifisering: listed
+- NACE: 47.110 — Detaljhandel med livsmedel
+- Research-konstrukt: nei
+
+## Eierskap
+
+- Eier: [[Axfood AB]] — 100 % (subsidiary)
+
+## Registrerte relasjoner
+
+- Ingen registrert i eksporten.
+
+## Koblinger
+
+- [[Maktkartet]]
+- [[Eierskapsregisteret]]
+## Notater
+
+_Utvikles gjennom prosjektet._

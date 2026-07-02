@@ -17,6 +17,16 @@ const REVIEW_PATH_PREFIXES = [
   'research/',
 ] as const
 const REQUIRED_GRAPH_COLOR_GROUPS = [
+  { query: 'path:"0 Kart"', rgb: 4605510 },
+  { query: 'path:"1 Oversikt og navigasjon"', rgb: 4605510 },
+  { query: 'path:"2 Intern"', rgb: 4605510 },
+  { query: 'path:"3 Selskap og eierskap"', rgb: 6333946 },
+  { query: 'path:"4 Matsystem"', rgb: 1409085 },
+  { query: 'path:"5 Produsenter og støtte"', rgb: 1409085 },
+  { query: 'path:"6 Nordisk"', rgb: 8141549 },
+  { query: 'path:"7 Kunnskap"', rgb: 14362487 },
+  { query: 'path:"8 Bibliotek"', rgb: 3342336 },
+  { query: 'path:"9 Datafundament"', rgb: 3342336 },
   { query: 'path:"10 Innsiktskart/Ledd"', rgb: 1409085 },
   { query: 'path:"10 Innsiktskart/Aktører"', rgb: 1920728 },
   { query: 'path:"10 Innsiktskart/Stakeholders"', rgb: 6333946 },
@@ -31,6 +41,34 @@ const REQUIRED_GRAPH_COLOR_GROUPS = [
 const DATAVIEW_QUERY_TYPES = new Set(['TABLE', 'LIST', 'TASK', 'CALENDAR'])
 const REQUIRED_OBSIDIAN_PLUGIN_RECOMMENDATIONS = ['Dataview', 'Breadcrumbs', 'Minimal Theme Settings'] as const
 const REQUIRED_OBSIDIAN_PRESENTATION_PLUGIN_ALTERNATIVES = ['Juggl', '3D Graph'] as const
+const CORE_GRAPH_FILTER = [
+  '-path:"0 Kart/Konsern"',
+  '-path:"0 Kart/Kunnskapskart.canvas"',
+  '-path:"0 Kart/Maktkart.canvas"',
+  '-path:"0 Kart/Oppsett.md"',
+  '-path:"0 Kart/Temakart"',
+  '-path:"0 Kart/Verdikjedekart.canvas"',
+  '-path:"1 Oversikt og navigasjon"',
+  '-path:"2 Intern"',
+  '-path:"3 Selskap og eierskap"',
+  '-path:"4 Matsystem"',
+  '-path:"5 Produsenter og støtte"',
+  '-path:"6 Nordisk"',
+  '-path:"7 Kunnskap"',
+  '-path:"8 Bibliotek"',
+  '-path:"9 Datafundament"',
+  '-path:"10 Innsiktskart/Stakeholders"',
+  '-path:"Selskaper/Register"',
+  '-path:"Personer/Register"',
+  '-path:"12 Kilder"',
+].join(' ')
+const RESTRICTED_FLAT_VAULT_FOLDERS = [
+  { relPath: join('10 Innsiktskart', 'Looper'), allowedSubfolders: new Set<string>() },
+  { relPath: join('10 Innsiktskart', 'Gaps'), allowedSubfolders: new Set<string>() },
+  { relPath: join('10 Innsiktskart', 'Innsikter'), allowedSubfolders: new Set<string>() },
+  { relPath: join('11 Maktkart', 'Selskaper'), allowedSubfolders: new Set(['Register']) },
+  { relPath: join('11 Maktkart', 'Personer'), allowedSubfolders: new Set(['Register']) },
+] as const
 const INSIGHT_CANDIDATE_GATE_PATH = 'docs/project/plans/obsidian-i27-kandidatgodkjenning-2026-07-02.md'
 const INSIGHT_CANDIDATE_GATE_STATUS = 'krever menneskelig godkjenning for generering'
 const VK5_MASTERPLAN_PATH = 'docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md'
@@ -391,6 +429,9 @@ export type VaultExportArtifactsInput = {
     tenantCompanyName: string | null
   }>
   ownershipForest: Array<OwnershipForestNode>
+  coreCompanyIds?: string[]
+  coreCompanyNames?: string[]
+  corePersonNames?: string[]
 }
 
 export type OwnershipForestNode = {
@@ -436,11 +477,11 @@ export function buildGraphSettings(): string {
   return `${JSON.stringify(
     {
       'collapse-filter': true,
-      search: '',
+      search: CORE_GRAPH_FILTER,
       showTags: false,
       showAttachments: false,
       hideUnresolved: false,
-      showOrphans: true,
+      showOrphans: false,
       'collapse-color-groups': true,
       colorGroups: REQUIRED_GRAPH_COLOR_GROUPS.map((group) => ({
         query: group.query,
@@ -773,6 +814,8 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
   const relationshipsTo = groupBy(input.businessRelationships, (relationship) => relationship.toCompanyId)
   const propertiesByCompany = groupBy(input.properties, (property) => property.companyId)
   const forestByRoot = new Map(input.ownershipForest.map((root) => [root.id, root]))
+  const companyTierById = buildCompanyTierIndex(input)
+  const corePersonNames = new Set(input.corePersonNames ?? [])
 
   for (const company of input.companies) {
     const parents = ownershipByChild.get(company.id) ?? []
@@ -782,6 +825,15 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
     const inbound = relationshipsTo.get(company.id) ?? []
     const properties = propertiesByCompany.get(company.id) ?? []
     const forest = forestByRoot.get(company.id)
+    const tier = companyTierById.get(company.id) ?? 'periferi'
+    const ownershipLines = [
+      ...parents.map((edge) => `- Eier: ${companyLink(edge.parentCompanyId, edge.parentName)} — ${formatPct(edge.ownershipPct)} (${edge.ownershipType ?? 'ukjent'})`),
+      ...children.map((edge) => `- ${companyLink(edge.childCompanyId, edge.childName)} — ${formatPct(edge.ownershipPct)} (${edge.ownershipType ?? 'ukjent'})`),
+    ]
+    const supplyChainLines = [
+      ...outbound.map((relationship) => `- ${relationship.relationshipType} → ${companyLink(relationship.toCompanyId, relationship.toCompanyName)}${relationship.description ? ` — ${relationship.description}` : ''}`),
+      ...inbound.map((relationship) => `- ${companyLink(relationship.fromCompanyId, relationship.fromCompanyName)} → ${relationship.relationshipType}${relationship.description ? ` — ${relationship.description}` : ''}`),
+    ]
     const body = [
       '> DB-generert selskapsnode · Del av [[Maktkartet]]',
       '',
@@ -794,26 +846,23 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
       `- NACE: ${formatNullable(company.naceCode)}${company.naceDescription ? ` — ${company.naceDescription}` : ''}`,
       `- Research-konstrukt: ${company.isResearchConstruct ? 'ja' : 'nei'}`,
       '',
-      '## Eierskap',
-      '',
-      ...listOrPlaceholder(parents, (edge) => `- Eier: ${companyLink(edge.parentCompanyId, edge.parentName)} — ${formatPct(edge.ownershipPct)} (${edge.ownershipType ?? 'ukjent'})`),
-      ...listOrPlaceholder(children, (edge) => `- ${companyLink(edge.childCompanyId, edge.childName)} — ${formatPct(edge.ownershipPct)} (${edge.ownershipType ?? 'ukjent'})`),
-      '',
+      ...(ownershipLines.length > 0 ? ['## Eierskap', '', ...ownershipLines, ''] : []),
       ...(forest && forest.children.length > 0
         ? ['## Konserntre', '', ...renderForest(forest.children, 0, companyTitleById), '']
         : []),
-      '## Styreverv',
-      '',
-      ...listOrPlaceholder(roles, (member) => `- ${member.personName} — ${member.role}`),
-      '',
-      '## Forsyningskjede',
-      '',
-      ...listOrPlaceholder(outbound, (relationship) => `- ${relationship.relationshipType} → ${companyLink(relationship.toCompanyId, relationship.toCompanyName)}${relationship.description ? ` — ${relationship.description}` : ''}`),
-      ...listOrPlaceholder(inbound, (relationship) => `- ${companyLink(relationship.fromCompanyId, relationship.fromCompanyName)} → ${relationship.relationshipType}${relationship.description ? ` — ${relationship.description}` : ''}`),
-      '',
-      '## Eiendom',
-      '',
-      ...listOrPlaceholder(properties, (property) => `- ${property.propertyType}: ${[property.address, property.municipality].filter(Boolean).join(', ') || property.country}${property.sqMeters ? ` (${property.sqMeters} m2)` : ''}`),
+      ...(roles.length > 0 ? ['## Styreverv', '', ...roles.map((member) => `- ${member.personName} — ${member.role}`), ''] : []),
+      ...(supplyChainLines.length > 0 ? ['## Forsyningskjede', '', ...supplyChainLines, ''] : []),
+      ...(properties.length > 0
+        ? [
+            '## Eiendom',
+            '',
+            ...properties.map((property) => `- ${property.propertyType}: ${[property.address, property.municipality].filter(Boolean).join(', ') || property.country}${property.sqMeters ? ` (${property.sqMeters} m2)` : ''}`),
+          ]
+        : [
+            '## Registrerte relasjoner',
+            '',
+            '- Ingen registrert i eksporten.',
+          ]),
       '',
       '## Koblinger',
       '',
@@ -822,7 +871,7 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
     ]
 
     files.push({
-      path: join('11 Maktkart', 'Selskaper', noteFileName(companyTitleById.get(company.id) ?? company.name)),
+      path: companyNotePath(companyTitleById.get(company.id) ?? company.name, tier),
       content: buildGeneratedNote({
         title: company.name,
         frontmatter: {
@@ -831,6 +880,7 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
           kilde: 'data/vault-export/companies.json',
           siterbarhet: 'intern',
           orgnr: company.orgNr,
+          tier,
         },
         body,
       }),
@@ -942,8 +992,9 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
 
   for (const roles of interlockers) {
     const personName = roles[0].personName
+    const tier = personTier(roles, corePersonNames)
     files.push({
-      path: join('11 Maktkart', 'Personer', noteFileName(personName)),
+      path: personNotePath(personName, tier),
       content: buildGeneratedNote({
         title: personName,
         frontmatter: {
@@ -952,6 +1003,7 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
           kilde: 'data/vault-export/board-members.json',
           siterbarhet: 'intern',
           verv: roles.length,
+          tier,
         },
         body: [
           `> Styrenettverk · ${roles.length} verv · Del av [[Maktkartet]]`,
@@ -973,8 +1025,8 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
   const concernRoots = input.ownershipForest.filter((root) => root.children.length > 0)
   for (const root of concernRoots) {
     files.push({
-      path: join('0 Kart', 'Konsern', `${(companyTitleById.get(root.id) ?? root.name).replace(/\//g, '-')}.canvas`),
-      content: `${JSON.stringify(buildConcernCanvas(root, companyTitleById), null, 2)}\n`,
+      path: join('0 Kart', 'Konsern', `${noteFileName(companyTitleById.get(root.id) ?? root.name).replace(/\.md$/, '')}.canvas`),
+      content: `${JSON.stringify(buildConcernCanvas(root, companyTitleById, companyTierById), null, 2)}\n`,
     })
   }
 
@@ -1045,6 +1097,15 @@ export function validateVault(
     }
 
     validateDataviewFromPaths(vaultPath, rel, source, issues)
+
+    if (
+      (rel.startsWith(join('11 Maktkart', 'Selskaper') + '/') ||
+        rel.startsWith(join('11 Maktkart', 'Personer') + '/')) &&
+      basename(rel) !== 'Selskapsmappe-register.md' &&
+      !['kjerne', 'periferi'].includes(parsed.frontmatter.tier ?? '')
+    ) {
+      issues.push({ file: rel, message: 'maktkart note must declare tier kjerne or periferi' })
+    }
 
     if (parsed.frontmatter.type === 'innsikt') {
       const hasSourceNoteLink = extractWikiLinks(source).some((link) => noteTypes.get(link) === 'kilde')
@@ -1121,6 +1182,9 @@ export function validateVault(
     validateGraphColorGroups(vaultPath, issues)
   }
 
+  validateVaultRootHygiene(vaultPath, issues)
+  validateFlatManagedFolders(vaultPath, issues)
+
   if (options.requireVaultExport) {
     const manifestPath = join(dirname(vaultPath), 'data', 'vault-export', 'manifest.json')
     if (!existsSync(manifestPath)) {
@@ -1182,6 +1246,49 @@ function formatPct(value: number | null): string {
 function listOrPlaceholder<T>(items: T[], render: (item: T) => string): string[] {
   if (items.length === 0) return ['- Ingen registrert i eksporten.']
   return items.map(render)
+}
+
+function listOrPlaceholderLines(lines: string[]): string[] {
+  return lines.length === 0 ? ['- Ingen registrert i eksporten.'] : lines
+}
+
+function companyNotePath(title: string, tier: 'kjerne' | 'periferi'): string {
+  return tier === 'periferi'
+    ? join('11 Maktkart', 'Selskaper', 'Register', noteFileName(title))
+    : join('11 Maktkart', 'Selskaper', noteFileName(title))
+}
+
+function personNotePath(title: string, tier: 'kjerne' | 'periferi'): string {
+  return tier === 'periferi'
+    ? join('11 Maktkart', 'Personer', 'Register', noteFileName(title))
+    : join('11 Maktkart', 'Personer', noteFileName(title))
+}
+
+function buildCompanyTierIndex(input: VaultExportArtifactsInput): Map<string, 'kjerne' | 'periferi'> {
+  const coreCompanyIds = new Set(input.coreCompanyIds ?? [])
+  const coreCompanyNames = new Set(input.coreCompanyNames ?? [])
+  const relationshipCompanyIds = new Set(
+    input.businessRelationships.flatMap((relationship) => [relationship.fromCompanyId, relationship.toCompanyId]),
+  )
+
+  const tiers = new Map<string, 'kjerne' | 'periferi'>()
+  for (const company of input.companies) {
+    const isCore =
+      coreCompanyIds.has(company.id) ||
+      coreCompanyNames.has(company.name) ||
+      (company.isResearchConstruct && relationshipCompanyIds.has(company.id))
+
+    tiers.set(company.id, isCore ? 'kjerne' : 'periferi')
+  }
+
+  return tiers
+}
+
+function personTier(
+  roles: VaultExportArtifactsInput['boardMembers'],
+  corePersonNames: Set<string>,
+): 'kjerne' | 'periferi' {
+  return corePersonNames.has(roles[0]?.personName ?? '') ? 'kjerne' : 'periferi'
 }
 
 function renderForest(nodes: OwnershipForestNode[], depth: number, companyTitleById = new Map<string, string>()): string[] {
@@ -1280,6 +1387,34 @@ function validateGraphColorGroups(vaultPath: string, issues: VaultIssue[]) {
     }
   } catch {
     issues.push({ file: '.obsidian/graph.json', message: 'invalid graph JSON' })
+  }
+}
+
+function validateVaultRootHygiene(vaultPath: string, issues: VaultIssue[]) {
+  for (const file of walkFiles(vaultPath, (candidate) => candidate.endsWith('.md'))) {
+    const rel = relative(vaultPath, file)
+    if (rel.includes('/')) continue
+    const name = basename(file)
+    if (/^Untitled/i.test(name) || /^\d{4}-\d{2}-\d{2}\.md$/.test(name)) {
+      issues.push({ file: rel, message: 'loose workspace note is not allowed in vault root' })
+    }
+  }
+}
+
+function validateFlatManagedFolders(vaultPath: string, issues: VaultIssue[]) {
+  for (const folder of RESTRICTED_FLAT_VAULT_FOLDERS) {
+    const absoluteRoot = join(vaultPath, folder.relPath)
+    if (!existsSync(absoluteRoot)) continue
+    for (const file of walkFiles(absoluteRoot, (candidate) => candidate.endsWith('.md'))) {
+      const relFromRoot = relative(absoluteRoot, file)
+      const parts = relFromRoot.split('/')
+      if (parts.length <= 1) continue
+      if (parts.length === 2 && folder.allowedSubfolders.has(parts[0])) continue
+      issues.push({
+        file: relative(vaultPath, file),
+        message: `managed folder ${folder.relPath} must stay flat${folder.allowedSubfolders.size > 0 ? ' except allowed Register folder' : ''}`,
+      })
+    }
   }
 }
 
@@ -1535,6 +1670,7 @@ function buildCompanyNoteTitleIndex(
 function buildConcernCanvas(
   root: OwnershipForestNode,
   companyTitleById: Map<string, string>,
+  companyTierById: Map<string, 'kjerne' | 'periferi'>,
 ): { nodes: unknown[]; edges: unknown[] } {
   const nodes: Array<Record<string, unknown>> = []
   const edges: Array<Record<string, unknown>> = []
@@ -1546,7 +1682,7 @@ function buildConcernCanvas(
     nodes.push({
       id: nodeId,
       type: 'file',
-      file: join('11 Maktkart', 'Selskaper', noteFileName(companyTitleById.get(node.id) ?? node.name)),
+      file: companyNotePath(companyTitleById.get(node.id) ?? node.name, companyTierById.get(node.id) ?? 'kjerne'),
       x: depth * 360,
       y: row * 160,
       width: 260,
@@ -1568,22 +1704,39 @@ function buildConcernCanvas(
 
 export function normalizeExistingNote(source: string, relPath: string): string {
   const parsed = parseFrontmatter(source)
+  const frontmatter = { ...parsed.frontmatter }
+  if (frontmatter.tags === '') {
+    delete frontmatter.tags
+  }
+  const inferredTier = inferMaktkartTier(relPath)
+  if (inferredTier && !['kjerne', 'periferi'].includes(frontmatter.tier ?? '')) {
+    frontmatter.tier = inferredTier
+  }
   const bodyWithoutFrontmatter = parsed.body.trimStart()
   const parts = splitAtNotes(bodyWithoutFrontmatter)
   const title = inferTitle(parts.head, relPath)
   const generated = buildGeneratedNote({
     title,
     frontmatter: {
-      ...parsed.frontmatter,
-      type: String(parsed.frontmatter.type ?? inferType(relPath, title)),
-      status: String(parsed.frontmatter.status ?? 'generert'),
-      kilde: String(parsed.frontmatter.kilde ?? 'scripts/obsidian-vault/sync.ts'),
-      siterbarhet: String(parsed.frontmatter.siterbarhet ?? 'intern'),
+      ...frontmatter,
+      type: String(frontmatter.type ?? inferType(relPath, title)),
+      status: String(frontmatter.status ?? 'generert'),
+      kilde: String(frontmatter.kilde ?? 'scripts/obsidian-vault/sync.ts'),
+      siterbarhet: String(frontmatter.siterbarhet ?? 'intern'),
     },
     body: stripTitle(parts.head),
   })
 
   return mergeGeneratedNote(generated, bodyWithoutFrontmatter)
+}
+
+function inferMaktkartTier(relPath: string): 'kjerne' | 'periferi' | null {
+  if (relPath === join('11 Maktkart', 'Selskaper', 'Selskapsmappe-register.md')) return null
+  if (relPath.startsWith(join('11 Maktkart', 'Selskaper', 'Register') + '/')) return 'periferi'
+  if (relPath.startsWith(join('11 Maktkart', 'Personer', 'Register') + '/')) return 'periferi'
+  if (relPath.startsWith(join('11 Maktkart', 'Selskaper') + '/')) return 'kjerne'
+  if (relPath.startsWith(join('11 Maktkart', 'Personer') + '/')) return 'kjerne'
+  return null
 }
 
 export function validateReferencedPaths(

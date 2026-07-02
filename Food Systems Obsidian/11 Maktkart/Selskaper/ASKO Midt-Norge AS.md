@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 979334109
+tier: kjerne
 ---
 
 # ASKO Midt-Norge AS
@@ -22,7 +23,6 @@ orgnr: 979334109
 ## Eierskap
 
 - Eier: [[ASKO Norge AS]] — 100 % (subsidiary)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 
@@ -33,11 +33,6 @@ orgnr: 979334109
 - Tina Cecilie Johansen — styremedlem
 - Tom Roger Larsen — styremedlem
 - Tore Bekken — styreleder
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
 
 ## Eiendom
 

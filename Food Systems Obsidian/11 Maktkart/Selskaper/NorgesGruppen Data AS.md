@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 971047917
+tier: kjerne
 ---
 
 # NorgesGruppen Data AS
@@ -22,7 +23,6 @@ orgnr: 971047917
 ## Eierskap
 
 - Eier: [[NorgesGruppen Fellestjenester AS]] — 100 % (subsidiary)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 
@@ -39,12 +39,7 @@ orgnr: 971047917
 - Truls Fjeldstad — styremedlem
 - Zakaria El Mansouri — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

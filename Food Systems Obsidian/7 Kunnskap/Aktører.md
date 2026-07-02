@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /aktorer
 type: seksjon
 status: generert

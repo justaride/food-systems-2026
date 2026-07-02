@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /tidslinje
 type: seksjon
 status: generert

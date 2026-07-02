@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /forsyningskjede
 type: seksjon
 status: generert

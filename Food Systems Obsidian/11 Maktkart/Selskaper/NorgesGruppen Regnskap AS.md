@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 883743512
+tier: kjerne
 ---
 
 # NorgesGruppen Regnskap AS
@@ -22,7 +23,6 @@ orgnr: 883743512
 ## Eierskap
 
 - Eier: [[NorgesGruppen Fellestjenester AS]] — 100 % (subsidiary)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 
@@ -35,12 +35,7 @@ orgnr: 883743512
 - Mette Lier — styreleder
 - Solveig Johanne Vaeng — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

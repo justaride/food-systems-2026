@@ -1,12 +1,82 @@
 {
   "collapse-filter": true,
-  "search": "",
+  "search": "-path:\"0 Kart/Konsern\" -path:\"0 Kart/Kunnskapskart.canvas\" -path:\"0 Kart/Maktkart.canvas\" -path:\"0 Kart/Oppsett.md\" -path:\"0 Kart/Temakart\" -path:\"0 Kart/Verdikjedekart.canvas\" -path:\"1 Oversikt og navigasjon\" -path:\"2 Intern\" -path:\"3 Selskap og eierskap\" -path:\"4 Matsystem\" -path:\"5 Produsenter og støtte\" -path:\"6 Nordisk\" -path:\"7 Kunnskap\" -path:\"8 Bibliotek\" -path:\"9 Datafundament\" -path:\"10 Innsiktskart/Stakeholders\" -path:\"Selskaper/Register\" -path:\"Personer/Register\" -path:\"12 Kilder\"",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
-  "showOrphans": true,
+  "showOrphans": false,
   "collapse-color-groups": true,
   "colorGroups": [
+    {
+      "query": "path:\"0 Kart\"",
+      "color": {
+        "a": 1,
+        "rgb": 4605510
+      }
+    },
+    {
+      "query": "path:\"1 Oversikt og navigasjon\"",
+      "color": {
+        "a": 1,
+        "rgb": 4605510
+      }
+    },
+    {
+      "query": "path:\"2 Intern\"",
+      "color": {
+        "a": 1,
+        "rgb": 4605510
+      }
+    },
+    {
+      "query": "path:\"3 Selskap og eierskap\"",
+      "color": {
+        "a": 1,
+        "rgb": 6333946
+      }
+    },
+    {
+      "query": "path:\"4 Matsystem\"",
+      "color": {
+        "a": 1,
+        "rgb": 1409085
+      }
+    },
+    {
+      "query": "path:\"5 Produsenter og støtte\"",
+      "color": {
+        "a": 1,
+        "rgb": 1409085
+      }
+    },
+    {
+      "query": "path:\"6 Nordisk\"",
+      "color": {
+        "a": 1,
+        "rgb": 8141549
+      }
+    },
+    {
+      "query": "path:\"7 Kunnskap\"",
+      "color": {
+        "a": 1,
+        "rgb": 14362487
+      }
+    },
+    {
+      "query": "path:\"8 Bibliotek\"",
+      "color": {
+        "a": 1,
+        "rgb": 3342336
+      }
+    },
+    {
+      "query": "path:\"9 Datafundament\"",
+      "color": {
+        "a": 1,
+        "rgb": 3342336
+      }
+    },
     {
       "query": "path:\"10 Innsiktskart/Ledd\"",
       "color": {

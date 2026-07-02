@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: DK-14705627
+tier: kjerne
 ---
 
 # REMA 1000 A/S
@@ -22,7 +23,6 @@ orgnr: DK-14705627
 ## Eierskap
 
 - Eier: [[Reitan Retail AS]] — 100 % (subsidiary)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 
@@ -35,7 +35,6 @@ orgnr: DK-14705627
 
 ## Forsyningskjede
 
-- Ingen registrert i eksporten.
 - [[Reitan Retail AS]] → franchisor — Reitan Retail (NO) er franchisor for REMA 1000 (DK) med 419 butikker i Danmark
 
 ## Eiendom

@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /okonomi
 type: seksjon
 status: generert
