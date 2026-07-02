@@ -45,6 +45,6 @@ Snapshot per 2026-07-02. Refresh alltid med `gh pr view <nr> --json isDraft,merg
    - PR #232 M3 visningsflate/runbook.
    - PR #230 M4 prosessopprydding.
 4. PR #233 er et draftet integrasjonsbevis for M2+M3+M4 oppå M1. Bruk den som konflikt-/checkout-proof, ikke som erstatning for fase-PR-ene uten eksplisitt menneskelig merge-valg.
-5. PR #234 er et draftet M6-driftbevis på #233-basen. Det kobler `compute-metrics:full` til `vault:export-db` + `vault:sync`, men lukker ikke VK-5 og skal ikke behandles som erstatning for menneskelig review.
+5. PR #234 er et draftet M6-driftbevis på #233-basen. Det kobler `compute-metrics:full` til `vault:export-db` + `vault:sync`, krever godkjenningsrad for fremtidige I39+ innsikter og validerer gap-noters mission-ID mot `research/RESEARCH-MISSIONS.md`, men lukker ikke VK-5 og skal ikke behandles som erstatning for menneskelig review.
 6. Ikke kall M0 oppfylt før PR #228 er merget, gammel untracked lokal vault-kopi er fjernet/flyttet, Obsidian-pluginoppsettet i `0 Kart/Oppsett.md` er aktivert, og Gabriel har notert førsteinntrykk i Welcome.
 7. Ikke kall M5 oppfylt før VK-5-protokollen er fylt ut etter faktisk Obsidian-gjennomgang og `npm run vault:review-closeout` er grønn.
