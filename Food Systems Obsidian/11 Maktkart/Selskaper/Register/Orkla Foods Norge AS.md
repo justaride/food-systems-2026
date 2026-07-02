@@ -43,11 +43,7 @@ tier: periferi
 - Svein Hansen — styremedlem
 - Tommy Torgersen Sandø — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

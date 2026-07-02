@@ -36,11 +36,7 @@ tier: periferi
 - Inger Elise Mey — CEO
 - Trond Mohn — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -21,6 +21,7 @@ Dette er det interne arbeidskartet for Food Systems 2026. Start med [[Oversiktsk
 - [[Kunnskapskart.canvas|Kunnskapskart]] — hele kartet i ett overblikk.
 - [[Verdikjedekart.canvas|Verdikjedekart]] — verdikjede, innsikter, looper og gaps.
 - [[Maktkart.canvas|Maktkart]] — eierskap, konsern og styrenettverk.
+- [[Oppsett]] — plugin-/snippet-oppsett og M0-sjekkliste før V3-fasene vurderes.
 
 ## Bruksregel
 

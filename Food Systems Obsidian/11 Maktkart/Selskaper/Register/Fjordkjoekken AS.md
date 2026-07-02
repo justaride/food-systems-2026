@@ -38,11 +38,7 @@ tier: periferi
 - Thomas Kvalevåg — styremedlem
 - Vibeke Lamark — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

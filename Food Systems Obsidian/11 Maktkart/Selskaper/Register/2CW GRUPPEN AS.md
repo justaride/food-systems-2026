@@ -20,21 +20,13 @@ tier: periferi
 - NACE: 68.120 — Utvikling og salg av byggeprosjekter
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Knut Magne Wilhelmsen — CEO
 - Knut Magne Wilhelmsen — styreleder
 - Mats Alexander Sæverud — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

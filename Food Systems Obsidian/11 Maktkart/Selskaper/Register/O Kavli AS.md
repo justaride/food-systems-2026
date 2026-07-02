@@ -32,11 +32,7 @@ tier: periferi
 - Thomas Fredrik Palm — styremedlem
 - Øydis Nese Haavi — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

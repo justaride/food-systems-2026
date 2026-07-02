@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 03.211 — Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Axel Ranang Gustavsen — styreleder
@@ -37,7 +33,7 @@ tier: periferi
 - [[BioMar AS]] → supplier — BioMar leverer fiskefôr til Cermaq Norway
 - [[Skretting AS]] → supplier — Skretting leverer fiskefôr til Cermaq Norway
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

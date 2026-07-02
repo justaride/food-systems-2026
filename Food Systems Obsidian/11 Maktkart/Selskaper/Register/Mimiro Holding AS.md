@@ -35,11 +35,7 @@ tier: periferi
 - Per Waldemar Simonsen — styreleder
 - Sveinung Kjøren — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

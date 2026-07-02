@@ -32,11 +32,7 @@ tier: periferi
 - Øistein Brevig Pjaaka — CEO
 - Øistein Brevig Pjaaka — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

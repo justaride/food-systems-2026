@@ -24,15 +24,7 @@ tier: periferi
 
 - Eier: [[NorgesGruppen Eiendom AS (NO-961483584-EIE)|NorgesGruppen Eiendom AS]] — 100 % (subsidiary)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

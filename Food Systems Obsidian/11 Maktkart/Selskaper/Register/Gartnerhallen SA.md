@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 01.240 — Dyrking av kjernefrukter og steinfrukter
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Aud Mari Folden — styremedlem
@@ -44,7 +40,7 @@ tier: periferi
 - supplier → [[Reitan Retail AS]] — Gartnerhallen leverer norsk frukt og grønt til REMA 1000 via BAMA
 - [[Yara International ASA]] → supplier — Yara leverer gjødsel til Gartnerhallen-produsenters grønnsakdyrking
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

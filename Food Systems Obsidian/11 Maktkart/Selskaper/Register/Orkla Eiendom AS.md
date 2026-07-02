@@ -30,11 +30,7 @@ tier: periferi
 - Geir Solli — styremedlem
 - Gjert Brun — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

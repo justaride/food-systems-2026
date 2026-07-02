@@ -31,11 +31,7 @@ tier: kjerne
 - Helge Møgster — styreleder
 - Lill Maren Møgster — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

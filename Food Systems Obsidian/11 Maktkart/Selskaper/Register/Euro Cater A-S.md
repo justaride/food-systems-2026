@@ -20,19 +20,11 @@ tier: periferi
 - NACE: ukjent
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
-## Styreverv
-
-- Ingen registrert i eksporten.
-
 ## Forsyningskjede
 
 - [[Dagrofa A-S (DK-38714295)|Dagrofa A/S]] → supplier — Dagrofa og Euro Cater er store danske foodservice-grossister — konkurrenter i dansk HoReCa
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

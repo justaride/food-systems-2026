@@ -34,10 +34,6 @@ tier: periferi
 - Tore Bekken — styreleder
 - Vegard Bjerkeset — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
 ## Eiendom
 
 - warehouse: Aarosetervegen 20, Molde

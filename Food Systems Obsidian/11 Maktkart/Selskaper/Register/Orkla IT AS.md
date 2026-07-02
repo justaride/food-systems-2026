@@ -39,11 +39,7 @@ tier: periferi
 - Torvin Berg Døviken — styremedlem
 - Unn Elin Hatlelid — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

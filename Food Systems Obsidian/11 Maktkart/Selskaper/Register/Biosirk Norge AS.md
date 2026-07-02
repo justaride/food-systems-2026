@@ -40,11 +40,7 @@ tier: periferi
 - Mattis Hoelstad Gudbrandsen — styremedlem
 - Tilde Sæther — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

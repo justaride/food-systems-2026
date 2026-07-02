@@ -35,11 +35,7 @@ tier: periferi
 - Terje Kristoffersen — styremedlem
 - Tone Margrethe Håkedal — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -34,10 +34,6 @@ tier: periferi
 - Nina Thorsdahl — styremedlem
 - Tore Bekken — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
 ## Eiendom
 
 - warehouse: Vestre kystvei 191, Lillesand

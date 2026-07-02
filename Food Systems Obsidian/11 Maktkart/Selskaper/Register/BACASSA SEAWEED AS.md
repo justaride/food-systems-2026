@@ -20,21 +20,13 @@ tier: periferi
 - NACE: 03.110 — Fiske og fangst i sjø
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Ale Christer Løkken Arntzen — CEO
 - Ale Christer Løkken Arntzen — styremedlem
 - Birgitte Amundsen — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

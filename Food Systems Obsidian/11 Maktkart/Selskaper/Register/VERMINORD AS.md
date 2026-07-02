@@ -20,20 +20,12 @@ tier: periferi
 - NACE: 20.150 — Produksjon av gjødsel og nitrogenforbindelser
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Rune Martin Folkestad — CEO
 - Rune Martin Folkestad — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

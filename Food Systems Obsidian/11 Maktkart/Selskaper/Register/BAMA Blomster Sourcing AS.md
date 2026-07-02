@@ -29,11 +29,7 @@ tier: periferi
 - Alf Christoffer Jahr — CEO
 - Alf Christoffer Jahr — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

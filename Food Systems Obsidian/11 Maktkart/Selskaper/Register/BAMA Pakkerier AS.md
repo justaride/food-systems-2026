@@ -31,11 +31,7 @@ tier: periferi
 - Thomas Vestmo Harbosen — CEO
 - Thor Ingvar Huuse — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -38,11 +38,7 @@ tier: periferi
 - Piotr Stanislaw Kluszewski — styremedlem
 - Roar Furuhaug — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

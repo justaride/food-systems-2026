@@ -858,24 +858,23 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
       `- NACE: ${formatNullable(company.naceCode)}${company.naceDescription ? ` — ${company.naceDescription}` : ''}`,
       `- Research-konstrukt: ${company.isResearchConstruct ? 'ja' : 'nei'}`,
       '',
-      '## Eierskap',
-      '',
-      ...listOrPlaceholderLines(ownershipLines),
-      '',
+      ...(ownershipLines.length > 0 ? ['## Eierskap', '', ...ownershipLines, ''] : []),
       ...(forest && forest.children.length > 0
         ? ['## Konserntre', '', ...renderForest(forest.children, 0, companyTitleById), '']
         : []),
-      '## Styreverv',
-      '',
-      ...listOrPlaceholder(roles, (member) => `- ${member.personName} — ${member.role}`),
-      '',
-      '## Forsyningskjede',
-      '',
-      ...listOrPlaceholderLines(supplyChainLines),
-      '',
-      '## Eiendom',
-      '',
-      ...listOrPlaceholder(properties, (property) => `- ${property.propertyType}: ${[property.address, property.municipality].filter(Boolean).join(', ') || property.country}${property.sqMeters ? ` (${property.sqMeters} m2)` : ''}`),
+      ...(roles.length > 0 ? ['## Styreverv', '', ...roles.map((member) => `- ${member.personName} — ${member.role}`), ''] : []),
+      ...(supplyChainLines.length > 0 ? ['## Forsyningskjede', '', ...supplyChainLines, ''] : []),
+      ...(properties.length > 0
+        ? [
+            '## Eiendom',
+            '',
+            ...properties.map((property) => `- ${property.propertyType}: ${[property.address, property.municipality].filter(Boolean).join(', ') || property.country}${property.sqMeters ? ` (${property.sqMeters} m2)` : ''}`),
+          ]
+        : [
+            '## Registrerte relasjoner',
+            '',
+            '- Ingen registrert i eksporten.',
+          ]),
       '',
       '## Koblinger',
       '',
@@ -1110,6 +1109,15 @@ export function validateVault(
     }
 
     validateDataviewFromPaths(vaultPath, rel, source, issues)
+
+    if (
+      (rel.startsWith(join('11 Maktkart', 'Selskaper') + '/') ||
+        rel.startsWith(join('11 Maktkart', 'Personer') + '/')) &&
+      basename(rel) !== 'Selskapsmappe-register.md' &&
+      !['kjerne', 'periferi'].includes(parsed.frontmatter.tier ?? '')
+    ) {
+      issues.push({ file: rel, message: 'maktkart note must declare tier kjerne or periferi' })
+    }
 
     if (parsed.frontmatter.type === 'innsikt') {
       const hasSourceNoteLink = extractWikiLinks(source).some((link) => noteTypes.get(link) === 'kilde')
@@ -1712,6 +1720,10 @@ export function normalizeExistingNote(source: string, relPath: string): string {
   if (frontmatter.tags === '') {
     delete frontmatter.tags
   }
+  const inferredTier = inferMaktkartTier(relPath)
+  if (inferredTier && !['kjerne', 'periferi'].includes(frontmatter.tier ?? '')) {
+    frontmatter.tier = inferredTier
+  }
   const bodyWithoutFrontmatter = parsed.body.trimStart()
   const parts = splitAtNotes(bodyWithoutFrontmatter)
   const title = inferTitle(parts.head, relPath)
@@ -1728,6 +1740,15 @@ export function normalizeExistingNote(source: string, relPath: string): string {
   })
 
   return mergeGeneratedNote(generated, bodyWithoutFrontmatter)
+}
+
+function inferMaktkartTier(relPath: string): 'kjerne' | 'periferi' | null {
+  if (relPath === join('11 Maktkart', 'Selskaper', 'Selskapsmappe-register.md')) return null
+  if (relPath.startsWith(join('11 Maktkart', 'Selskaper', 'Register') + '/')) return 'periferi'
+  if (relPath.startsWith(join('11 Maktkart', 'Personer', 'Register') + '/')) return 'periferi'
+  if (relPath.startsWith(join('11 Maktkart', 'Selskaper') + '/')) return 'kjerne'
+  if (relPath.startsWith(join('11 Maktkart', 'Personer') + '/')) return 'kjerne'
+  return null
 }
 
 export function validateReferencedPaths(

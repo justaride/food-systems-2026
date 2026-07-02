@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 62.100 — Dataprogrammeringstjenester
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Benedikte Holm — styremedlem
@@ -35,11 +31,7 @@ tier: periferi
 - Olbjørn Kvernberg — styreleder
 - Øystein Hole — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

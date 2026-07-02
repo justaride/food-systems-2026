@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 68.200 — Utleie av egen eller leid fast eiendom
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Kristian Nergaard — styreleder
@@ -33,11 +29,7 @@ tier: periferi
 - Stein Aukner — styremedlem
 - Vibeke Nergaard — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

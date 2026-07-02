@@ -20,21 +20,13 @@ tier: periferi
 - NACE: 68.200 — Utleie av egen eller leid fast eiendom
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Egil Giørtz — CEO
 - Egil Giørtz — styremedlem
 - Truls Fjeldstad — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

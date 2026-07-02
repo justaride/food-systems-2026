@@ -35,11 +35,7 @@ tier: kjerne
 - Mette Lier — styreleder
 - Solveig Johanne Vaeng — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

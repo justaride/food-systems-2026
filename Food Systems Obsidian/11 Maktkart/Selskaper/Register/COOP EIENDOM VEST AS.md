@@ -20,21 +20,13 @@ tier: periferi
 - NACE: 68.120 — Utvikling og salg av byggeprosjekter
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Fredrik Lekven Lien — CEO
 - Lise Renee Skarpås — styreleder
 - Roald Valestrand — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

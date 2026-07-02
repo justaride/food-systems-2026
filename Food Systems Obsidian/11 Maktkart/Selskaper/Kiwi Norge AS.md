@@ -34,11 +34,7 @@ tier: kjerne
 - Truls Fjeldstad — styremedlem
 - Vegard Kjuus — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

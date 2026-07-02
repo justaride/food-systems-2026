@@ -33,11 +33,7 @@ tier: periferi
 - Karina Solheim — styremedlem
 - Ove Drange — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

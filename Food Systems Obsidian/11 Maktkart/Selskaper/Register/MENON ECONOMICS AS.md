@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 72.200 — Forskning og eksperimentell utvikling innenfor samfunnsvitenskap og humanistiske fag
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Caroline Wang Gierløff — CEO
@@ -34,11 +30,7 @@ tier: periferi
 - Per Fredrik Forsberg Johnsen — styremedlem
 - Sander Rivø Aslesen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

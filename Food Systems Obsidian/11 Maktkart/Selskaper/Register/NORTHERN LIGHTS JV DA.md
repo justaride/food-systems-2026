@@ -20,19 +20,11 @@ tier: periferi
 - NACE: 38.320 — Drift av deponi og permanent lagring av avfall
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Tim Heijn — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

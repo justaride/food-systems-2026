@@ -20,19 +20,11 @@ tier: periferi
 - NACE: 10.890 — Produksjon av næringsmidler ikke nevnt annet sted
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Johannes Njåstad Møgster — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

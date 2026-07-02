@@ -24,15 +24,11 @@ tier: periferi
 
 - Eier: [[Kesko Oyj]] — 100 % (subsidiary)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
 ## Forsyningskjede
 
 - distributor → [[Kesko Oyj]] — Kespro Oy er Keskos foodservice-grossist og HoReCa-leverandor
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

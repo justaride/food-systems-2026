@@ -24,15 +24,11 @@ tier: periferi
 
 - Eier: [[ICA Gruppen AB]] — 100 % (subsidiary)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
 ## Forsyningskjede
 
 - self-dealing → [[ICA Fastigheter AB]] — ICA Sverige leier butikklokaler av ICA Fastigheter — vertikal integrering av retail + eiendom
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -38,11 +38,7 @@ tier: kjerne
 - Torgeir Herlofsen — styremedlem
 - Truls Fjeldstad — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -20,19 +20,11 @@ tier: periferi
 - NACE: ukjent
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
-## Styreverv
-
-- Ingen registrert i eksporten.
-
 ## Forsyningskjede
 
 - self-dealing → [[Mathem i Sverige AB]] — Axfood byttet Mat.se for andel i Mathem 2021
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

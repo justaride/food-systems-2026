@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 47.120 — Detaljhandel med bredt vareutvalg ellers
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Andre Rolf Knüppel — styreleder
@@ -40,7 +36,7 @@ tier: periferi
 - [[TINE SA]] → supplier — TINE leverer meieriprodukter til Oda Norway
 - [[Unil AS]] → supplier — Unil leverer utvalgte EMV-produkter til Oda Norway
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

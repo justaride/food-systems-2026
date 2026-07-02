@@ -35,10 +35,6 @@ tier: periferi
 - Torunn Bjerke Olsen — styremedlem
 - Trond Aas — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
 ## Eiendom
 
 - warehouse: Hegdalveien 87, Larvik

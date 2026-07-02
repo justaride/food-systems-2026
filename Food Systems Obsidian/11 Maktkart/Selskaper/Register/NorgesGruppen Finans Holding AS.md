@@ -35,11 +35,7 @@ tier: periferi
 - Mette Lier — styremedlem
 - Ørjan Svanevik — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

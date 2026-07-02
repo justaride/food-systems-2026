@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 74.990 — All annen faglig, vitenskapelig og teknisk virksomhet ikke nevnt annet sted
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Andreas Mjølner Akselsen — styremedlem
@@ -35,11 +31,7 @@ tier: periferi
 - Hilde Christin Talseth — styremedlem
 - Terje Andersen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

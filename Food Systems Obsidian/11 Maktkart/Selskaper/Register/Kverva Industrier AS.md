@@ -29,11 +29,7 @@ tier: periferi
 
 - Torgeir Johan Svae — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

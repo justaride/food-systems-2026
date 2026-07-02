@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 47.110 — Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Anders Moe — CEO
@@ -34,11 +30,7 @@ tier: periferi
 - Kristin Irene Strand — styremedlem
 - Nina Lykke — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -34,10 +34,6 @@ tier: periferi
 - Tonje Myklatun Brekken — styremedlem
 - Tore Bekken — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
 ## Eiendom
 
 - warehouse: Skurvemarka 21, Gjesdal

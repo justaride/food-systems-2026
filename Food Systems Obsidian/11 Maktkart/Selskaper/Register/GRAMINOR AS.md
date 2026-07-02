@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 72.100 — Forskning og eksperimentell utvikling innenfor naturvitenskap og teknikk
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Bjørn Oddvar Stabbetorp — styremedlem
@@ -42,11 +38,7 @@ tier: periferi
 - Susann Herzog — styremedlem
 - Wendy Marie Waalen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

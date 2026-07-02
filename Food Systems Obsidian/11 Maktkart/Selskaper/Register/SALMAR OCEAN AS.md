@@ -20,21 +20,13 @@ tier: periferi
 - NACE: 03.300 — Tjenester tilknyttet fiske, fangst og akvakultur
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Anders Jon Fjellheim — CEO
 - Frode Arntsen — styreleder
 - Runar Sivertsen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

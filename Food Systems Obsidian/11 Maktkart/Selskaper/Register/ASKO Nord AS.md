@@ -35,10 +35,6 @@ tier: periferi
 - Trond Morten Martinsen — styremedlem
 - Veronika Cecilie Karlsen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
 ## Eiendom
 
 - warehouse: Kjoselvmoen 84, Tromsoe

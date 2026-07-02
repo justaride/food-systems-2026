@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 47.911 — Postordre-/Internetthandel med bredt vareutvalg
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Andre Rolf Knüppel — styreleder
@@ -34,11 +30,7 @@ tier: periferi
 - Nils Petter Hollekim — styremedlem
 - Sara Elisabet Manne — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

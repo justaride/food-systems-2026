@@ -47,11 +47,7 @@ tier: periferi
 - Roar Lima Grødeland — styreleder
 - Åge Andre Brømnes — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

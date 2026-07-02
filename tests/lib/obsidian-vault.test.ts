@@ -3240,6 +3240,7 @@ describe('obsidian vault sync helpers', () => {
           status: 'generert',
           kilde: 'data/vault-export/companies.json',
           siterbarhet: 'intern',
+          tier: 'kjerne',
         },
         body: ['En eksportert node.'],
       }),
@@ -3273,6 +3274,7 @@ describe('obsidian vault sync helpers', () => {
           status: 'generert',
           kilde: 'data/vault-export/companies.json',
           siterbarhet: 'intern',
+          tier: 'kjerne',
         },
         body: ['En eksportert node.'],
       }),
@@ -3292,6 +3294,56 @@ describe('obsidian vault sync helpers', () => {
     )
 
     assert.deepEqual(validateVault(vault, { requireVaultExport: true }).issues, [])
+  })
+
+  it('requires M1 company and person notes to declare kjerne or periferi tier', () => {
+    const vault = mkdtempSync(join(tmpdir(), 'food-vault-m1-tier-'))
+    mkdirSync(join(vault, '11 Maktkart', 'Selskaper'), { recursive: true })
+    mkdirSync(join(vault, '11 Maktkart', 'Personer'), { recursive: true })
+    writeFileSync(
+      join(vault, '11 Maktkart', 'Selskaper', 'Kjerne AS.md'),
+      buildGeneratedNote({
+        title: 'Kjerne AS',
+        frontmatter: {
+          type: 'aktor',
+          status: 'generert',
+          kilde: 'test',
+          siterbarhet: 'intern',
+        },
+        body: ['Mangler tier.'],
+      }),
+    )
+    writeFileSync(
+      join(vault, '11 Maktkart', 'Personer', 'Kjerne Person.md'),
+      buildGeneratedNote({
+        title: 'Kjerne Person',
+        frontmatter: {
+          type: 'person',
+          status: 'generert',
+          kilde: 'test',
+          siterbarhet: 'intern',
+          tier: 'ukjent',
+        },
+        body: ['Ugyldig tier.'],
+      }),
+    )
+
+    const issues = validateVault(vault).issues
+
+    assert.ok(
+      issues.some(
+        (issue) =>
+          issue.file === join('11 Maktkart', 'Selskaper', 'Kjerne AS.md') &&
+          issue.message === 'maktkart note must declare tier kjerne or periferi',
+      ),
+    )
+    assert.ok(
+      issues.some(
+        (issue) =>
+          issue.file === join('11 Maktkart', 'Personer', 'Kjerne Person.md') &&
+          issue.message === 'maktkart note must declare tier kjerne or periferi',
+      ),
+    )
   })
 
   it('builds meeting and transcript notes as metadata-only source notes', () => {
@@ -3591,6 +3643,46 @@ describe('obsidian vault sync helpers', () => {
     assert.ok(result.files.some((file) => file.path === '11 Maktkart/Personer/Ada Nord.md'))
     assert.ok(!result.files.some((file) => file.path === '11 Maktkart/Personer/Enkelt Rolle.md'))
     assert.ok(result.files.some((file) => file.path === '0 Kart/Konsern/NorgesGruppen ASA.canvas'))
+  })
+
+  it('uses one company placeholder block instead of repeating the empty export line in every empty section', () => {
+    const result = buildVaultExportArtifacts({
+      manifest: {
+        generatedAt: '2026-07-02T00:00:00.000Z',
+        source: 'scripts/obsidian-vault/export-db.ts',
+        counts: {
+          companies: 1,
+          ownershipEdges: 0,
+          boardMembers: 0,
+          businessRelationships: 0,
+          properties: 0,
+        },
+      },
+      companies: [
+        {
+          id: 'empty',
+          name: 'Tomt Selskap AS',
+          orgNr: '900000001',
+          legalForm: 'AS',
+          country: 'NO',
+          valueChainStage: 'ukjent',
+          classification: null,
+          naceCode: null,
+          naceDescription: null,
+          isResearchConstruct: false,
+        },
+      ],
+      ownershipEdges: [],
+      boardMembers: [],
+      businessRelationships: [],
+      properties: [],
+      ownershipForest: [],
+    })
+
+    const company = result.files.find((file) => file.path === '11 Maktkart/Selskaper/Register/Tomt Selskap AS.md')
+
+    assert.ok(company)
+    assert.equal((company.content.match(/Ingen registrert i eksporten\./g) ?? []).length, 1)
   })
 
   it('builds concern canvas nodes without layout overlap across branches', () => {

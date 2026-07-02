@@ -35,11 +35,7 @@ tier: periferi
 - Trine-Marie Hagen — styremedlem
 - Trond Fidje — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

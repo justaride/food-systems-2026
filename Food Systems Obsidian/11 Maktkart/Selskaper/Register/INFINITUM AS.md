@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 38.210 — Materialgjenvinning
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Anne Cathrine Berger — styremedlem
@@ -39,11 +35,7 @@ tier: periferi
 - Synnøve Gautesen Berg — styremedlem
 - Torgeir Løftingsmo — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

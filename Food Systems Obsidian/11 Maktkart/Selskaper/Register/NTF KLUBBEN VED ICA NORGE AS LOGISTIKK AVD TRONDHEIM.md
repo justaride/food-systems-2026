@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 94.120 — Aktiviteter i yrkessammenslutninger
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Bent Johansen — styremedlem
@@ -33,11 +29,7 @@ tier: periferi
 - Kjell Arve Aspaas — styremedlem
 - Krister Sveinhaug — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

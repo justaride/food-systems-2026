@@ -33,11 +33,7 @@ tier: periferi
 - Trude Venset Sleire — styremedlem
 - Wenche Holen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

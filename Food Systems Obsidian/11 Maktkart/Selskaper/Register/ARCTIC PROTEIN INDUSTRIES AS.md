@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 10.890 — Produksjon av næringsmidler ikke nevnt annet sted
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Eirik Kristoffer Myking — CEO
@@ -32,11 +28,7 @@ tier: periferi
 - Oddmund Edvard Åsen — styreleder
 - Torjus Ødegård — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 68.200 — Utleie av egen eller leid fast eiendom
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Christian Stange Eidem — styremedlem
@@ -32,11 +28,7 @@ tier: periferi
 - Laila Hulleberg — styremedlem
 - Ulf Storbekk — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

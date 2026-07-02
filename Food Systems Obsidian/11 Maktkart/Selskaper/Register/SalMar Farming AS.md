@@ -29,11 +29,7 @@ tier: periferi
 - Anders Jon Fjellheim — CEO
 - Gustav Witzøe — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -34,11 +34,7 @@ tier: periferi
 - Trine Hjellhaug — styremedlem
 - Trond Fidje — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

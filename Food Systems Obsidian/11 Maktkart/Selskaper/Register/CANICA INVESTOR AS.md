@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 68.200 — Utleie av egen eller leid fast eiendom
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Ingrid Haugen Fougner — styremedlem
@@ -31,11 +27,7 @@ tier: periferi
 - Jan Ole Stangeland — styremedlem
 - Stein Erik Hagen — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

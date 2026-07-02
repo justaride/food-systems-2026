@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 74.110 — Industri-, produkt- og motedesignvirksomhet
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Jan Kåre Bredal — styremedlem
@@ -31,11 +27,7 @@ tier: periferi
 - Rune Sakslo — CEO
 - Rune Sakslo — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

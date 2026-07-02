@@ -41,11 +41,7 @@ tier: periferi
 - Svein Åge Haugli — styremedlem
 - Trude Ulven — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

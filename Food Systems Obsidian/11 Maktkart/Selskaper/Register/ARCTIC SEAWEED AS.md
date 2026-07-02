@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 03.211 — Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Aleksander Øverby — styremedlem
@@ -35,11 +31,7 @@ tier: periferi
 - Libbe Skovgaard-Petersen — styremedlem
 - Matthias Böing — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

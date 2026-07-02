@@ -37,10 +37,6 @@ tier: periferi
 - Tore Bekken — styreleder
 - Trond Eikeland — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
 ## Eiendom
 
 - warehouse: Magnusvegen 10, Bergen
