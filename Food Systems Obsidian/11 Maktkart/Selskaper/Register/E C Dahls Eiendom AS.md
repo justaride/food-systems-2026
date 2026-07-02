@@ -24,15 +24,7 @@ tier: periferi
 
 - Eier: [[Reitan Eiendom AS (NO-REITAN-EIE)|Reitan Eiendom AS]] — 100 % (subsidiary)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

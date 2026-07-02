@@ -20,21 +20,13 @@ tier: periferi
 - NACE: 10.890 — Produksjon av næringsmidler ikke nevnt annet sted
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Ane Caroline Wollmann Lian — styremedlem
 - Eirik Sand Mikkelborg — styreleder
 - Rune Ulvang — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

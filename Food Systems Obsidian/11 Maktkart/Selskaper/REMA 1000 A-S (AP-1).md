@@ -3,6 +3,7 @@ type: seksjon
 status: generert
 kilde: scripts/obsidian-vault/sync.ts
 siterbarhet: intern
+tier: kjerne
 ---
 
 # REMA 1000 A/S

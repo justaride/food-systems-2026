@@ -30,11 +30,7 @@ tier: kjerne
 - Kristin Genton — styreleder
 - Ole Robert Reitan — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

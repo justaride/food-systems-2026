@@ -34,11 +34,7 @@ tier: kjerne
 - Runar Hollevik — styreleder
 - Rune Spikseth — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

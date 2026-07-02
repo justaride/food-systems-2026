@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 68.200 — Utleie av egen eller leid fast eiendom
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Gisle Løhre Johansen — styremedlem
@@ -33,11 +29,7 @@ tier: periferi
 - Sten Stenersen — styremedlem
 - Wenche Kjølås — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

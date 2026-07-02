@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 72.190 — Annen forskning og annet utviklingsarbeid innen naturvitenskap og teknikk
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Bente Elisabeth Torstensen — CEO
@@ -40,7 +36,7 @@ tier: periferi
 
 - supplier → [[Nortura SA]] — Nofima leverer FoU-tjenester til Nortura innen kjøttforedling og kvalitet
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

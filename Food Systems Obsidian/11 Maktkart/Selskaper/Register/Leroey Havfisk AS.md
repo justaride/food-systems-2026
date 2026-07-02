@@ -35,11 +35,7 @@ tier: periferi
 - Mona Didriksen — styremedlem
 - Sjur Svenningsson Malm — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 68.110 — Kjøp og salg av egen fast eiendom
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Bjørn Vik-Mo — styreleder
@@ -31,11 +27,7 @@ tier: periferi
 - Rune Brovoll — styremedlem
 - Therese Bjørstad Karlsen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

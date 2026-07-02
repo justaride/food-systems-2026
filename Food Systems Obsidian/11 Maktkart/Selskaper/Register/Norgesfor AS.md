@@ -35,11 +35,7 @@ tier: periferi
 - Trude Ulven — styreleder
 - Unn-Elisabeth Tofthagen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

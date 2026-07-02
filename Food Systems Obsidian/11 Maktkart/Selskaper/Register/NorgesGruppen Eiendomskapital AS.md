@@ -30,11 +30,7 @@ tier: periferi
 - Truls Fjeldstad — styreleder
 - Øistein Brevig Pjaaka — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -41,11 +41,7 @@ tier: periferi
 - Perny Emdal — styremedlem
 - Tommy Glenn Kolsrud — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

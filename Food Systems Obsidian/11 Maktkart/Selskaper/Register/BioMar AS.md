@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 10.912 — Produksjon av fôrvarer for akvakultur
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Carlos Diaz — styreleder

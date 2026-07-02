@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 24.100 — Produksjon av jern og stål, samt ferrolegeringer
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Bjørn Dinesen — styremedlem
@@ -37,11 +33,7 @@ tier: periferi
 - Vibeke Wintervoll — styremedlem
 - Vidar Olsen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

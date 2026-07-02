@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 10.910 — Produksjon av fôrvarer til husdyrhold
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Frank Åge Enstad — styremedlem

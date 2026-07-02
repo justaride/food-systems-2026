@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 03.300 — Tjenester tilknyttet fiske, fangst og akvakultur
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Bjørg Elin Hansen — styremedlem
@@ -32,11 +28,7 @@ tier: periferi
 - Ole Arnold Arnesen Bønå — styremedlem
 - Raymond Sandstad Hansen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

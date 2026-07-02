@@ -5,6 +5,7 @@ type: person
 status: generert
 kilde: scripts/obsidian-vault/sync.ts
 siterbarhet: intern
+tier: kjerne
 ---
 
 # Trond Bentestuen

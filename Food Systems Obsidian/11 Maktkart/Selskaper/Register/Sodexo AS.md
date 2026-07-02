@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 56.220 — Kantinedrift og annen cateringvirksomhet
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Abdulkadir Said Muse — styremedlem
@@ -39,7 +35,7 @@ tier: periferi
 
 - [[ASKO Norge AS]] → supplier — ASKO Servering leverer til Sodexo-kantiner
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -37,10 +37,6 @@ tier: periferi
 - Tore Bekken — styreleder
 - Truls Paulsen Thyregod — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
 ## Eiendom
 
 - warehouse: Delitoppen 4, Vestby (80000 m2)

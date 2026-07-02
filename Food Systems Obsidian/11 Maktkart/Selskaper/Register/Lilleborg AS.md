@@ -33,11 +33,7 @@ tier: periferi
 - Morten Gilberg — styremedlem
 - Thomas Erlend Alnæs — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

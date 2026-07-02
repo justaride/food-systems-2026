@@ -35,11 +35,7 @@ tier: periferi
 - Torild Olaug Brathen — styremedlem
 - Vegar Normann Kulset — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

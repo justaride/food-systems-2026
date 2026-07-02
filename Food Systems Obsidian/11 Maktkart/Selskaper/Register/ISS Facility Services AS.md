@@ -47,7 +47,7 @@ tier: periferi
 
 - [[Compass Group Norge AS]] → supplier — Compass Group og ISS konkurrerer om nordiske kantinekontrakter
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

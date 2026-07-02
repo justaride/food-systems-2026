@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 10.310 — Bearbeiding og konservering av poteter
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Arnt Kristian Klepp — styremedlem
@@ -43,11 +39,7 @@ tier: periferi
 - Tolle Hoel Slotnæs — styremedlem
 - Tørres Bore — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

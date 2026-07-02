@@ -20,20 +20,12 @@ tier: periferi
 - NACE: ukjent
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
-## Styreverv
-
-- Ingen registrert i eksporten.
-
 ## Forsyningskjede
 
 - supplier → [[Martin & Servera AB (SE-556559-1135)|Martin & Servera AB]] — Menigo (Sysco) og Martin & Servera (Axel Johnson) er de to storste foodservice-grossistene i Sverige — direkte konkurrenter
 - [[Axel Johnson AB]] → buyer — Axel Johnson AB eier Axfood (50.1%) og Martin & Servera (100%) — kontrollerer bade retail og foodservice i Sverige
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

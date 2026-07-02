@@ -47,7 +47,7 @@ tier: kjerne
 - supplier → [[Oda Norway AS]] — Bakehuset leverer bakerivarer til Oda Norway
 - supplier → [[Servicegrossistene AS (933444724)|Servicegrossistene AS]] — Bakehuset leverer bakerivarer til Servicegrossistene (storhusholdning)
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

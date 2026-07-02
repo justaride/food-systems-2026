@@ -20,21 +20,13 @@ tier: periferi
 - NACE: 68.110 — Kjøp og salg av egen fast eiendom
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Feng Sheng Zheng — styremedlem
 - Kan Cao — CEO
 - Kan Cao — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

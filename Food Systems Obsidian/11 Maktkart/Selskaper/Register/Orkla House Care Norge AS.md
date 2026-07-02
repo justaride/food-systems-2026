@@ -35,11 +35,7 @@ tier: periferi
 - Vegard Aspehaug — styremedlem
 - Victoria Louise Philemon — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

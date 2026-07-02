@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 70.200 — Bedriftsrådgivning og annen administrativ rådgivning
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Alexander Huth — styremedlem
@@ -38,11 +34,7 @@ tier: periferi
 - Rolf Sverre Asp — CEO
 - Rolf Sverre Asp — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

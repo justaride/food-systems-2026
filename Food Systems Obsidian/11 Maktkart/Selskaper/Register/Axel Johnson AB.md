@@ -37,15 +37,11 @@ tier: periferi
 - [[Martin & Servera AB (SE-556559-1135)|Martin & Servera AB]] (100 %)
 - [[Martin & Servera AB (SE-MARTIN-SERV)|Martin & Servera AB]] (100 %)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
 ## Forsyningskjede
 
 - buyer → [[Menigo Foodservice AB (SE-556424-2537)|Menigo Foodservice AB]] — Axel Johnson AB eier Axfood (50.1%) og Martin & Servera (100%) — kontrollerer bade retail og foodservice i Sverige
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

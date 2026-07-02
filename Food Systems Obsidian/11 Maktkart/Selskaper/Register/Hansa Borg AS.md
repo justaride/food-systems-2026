@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 11.050 — Produksjon av øl
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Annichen Madelene Ropstad — styremedlem
@@ -44,7 +40,7 @@ tier: periferi
 - supplier → [[Reitan Retail AS]] — Hansa Borg leverer øl, brus og vann til REMA 1000
 - supplier → [[Servicegrossistene AS (933444724)|Servicegrossistene AS]] — Hansa Borg leverer drikkevarer til Servicegrossistene (foodservice)
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

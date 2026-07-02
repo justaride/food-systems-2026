@@ -30,11 +30,7 @@ tier: periferi
 - Helge Christian Haugen — styreleder
 - Roger Nyeng — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

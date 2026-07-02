@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 47.111 — Butikkhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Hannah Gunvor Jacobsen — styremedlem
@@ -32,11 +28,7 @@ tier: periferi
 - Tommy Korneliussen — styreleder
 - Trond Laeng — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 10.911 — Produksjon av fôrvarer for husdyr i landbruk
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Alexander Solstad Ringheim — CEO
@@ -33,11 +29,7 @@ tier: periferi
 - Jon Ingemar Gjerde — styremedlem
 - Magni Haugland — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

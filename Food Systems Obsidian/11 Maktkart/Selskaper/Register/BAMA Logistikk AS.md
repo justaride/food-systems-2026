@@ -32,11 +32,7 @@ tier: periferi
 - Silje Bakken — styremedlem
 - Wenche Holen — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

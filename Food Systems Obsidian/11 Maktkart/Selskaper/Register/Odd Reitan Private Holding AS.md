@@ -47,11 +47,7 @@ tier: periferi
 
 - Odd Reitan — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

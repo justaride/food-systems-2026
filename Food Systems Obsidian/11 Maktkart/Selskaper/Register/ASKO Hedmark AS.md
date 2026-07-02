@@ -37,10 +37,6 @@ tier: periferi
 - Tor Egil Bjørsland — styremedlem
 - Tore Bekken — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
 ## Eiendom
 
 - warehouse: Skansvegen 5, Ringsaker

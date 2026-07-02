@@ -34,11 +34,7 @@ tier: periferi
 - Marit Kaarstad Dahl — styremedlem
 - Torgeir Erfjord — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -24,14 +24,6 @@ tier: periferi
 
 - Eier: [[Joh Johannson Invest AS (NO-JJ-INV)|Joh Johannson Invest AS]] — 100 % (subsidiary)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
 ## Eiendom
 
 - retail: Oslo

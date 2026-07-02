@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 68.110 — Kjøp og salg av egen fast eiendom
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Frank Skjæveland — CEO
@@ -33,11 +29,7 @@ tier: periferi
 - Martin Salte — styreleder
 - Paul Hein Haneferd — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

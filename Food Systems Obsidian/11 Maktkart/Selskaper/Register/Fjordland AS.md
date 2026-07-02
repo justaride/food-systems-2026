@@ -43,11 +43,7 @@ tier: periferi
 - Siri Bjorkum — styremedlem
 - Unn Merete Grønvold Nikolaisen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

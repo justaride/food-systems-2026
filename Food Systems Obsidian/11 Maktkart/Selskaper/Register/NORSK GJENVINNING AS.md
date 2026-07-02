@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 38.210 — Materialgjenvinning
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Alexander Bergestuen — styremedlem
@@ -37,11 +33,7 @@ tier: periferi
 - Reidar Astor Bringsli — styremedlem
 - Runa Opdal Kerr — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

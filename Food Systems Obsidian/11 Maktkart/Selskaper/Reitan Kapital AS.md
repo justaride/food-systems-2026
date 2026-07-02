@@ -31,11 +31,7 @@ tier: kjerne
 - Ole Robert Reitan — styremedlem
 - Trond Fredrik Mellingsaeter — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

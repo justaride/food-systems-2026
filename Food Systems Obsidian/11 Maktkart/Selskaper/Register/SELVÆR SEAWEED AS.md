@@ -20,21 +20,13 @@ tier: periferi
 - NACE: 03.110 — Fiske og fangst i sjø
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Anders Budde — CEO
 - Anders Budde — styremedlem
 - Marlieke Maria Cornelia Luit — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

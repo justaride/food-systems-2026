@@ -28,15 +28,11 @@ tier: periferi
 
 - [[ISS Facility Services AS]] (100 %)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
 ## Forsyningskjede
 
 - self-dealing → [[Coop Danmark A-S|Coop Danmark A/S]] — Jeff Gravenhorst var CEO i ISS A/S (2010-2020), na bestyrelsesformand i Coop Danmark — interlocking director
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

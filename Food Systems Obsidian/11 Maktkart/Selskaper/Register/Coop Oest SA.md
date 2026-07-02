@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 47.110 — Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Ann-Kristin Strand — styremedlem
@@ -44,11 +40,7 @@ tier: periferi
 - Tom Olav Gulbrandsen — styremedlem
 - Vidar Antonsen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

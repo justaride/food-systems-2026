@@ -20,20 +20,12 @@ tier: periferi
 - NACE: 85.597 — Annen undervisning ellers
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Johan Henrik Kintzell Frøstrup — CEO
 - Per Gunnar Skorge — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

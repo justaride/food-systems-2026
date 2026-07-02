@@ -33,11 +33,7 @@ tier: periferi
 - Nenna Eline Sommerfelt Skretting — styremedlem
 - Robert Johan Bekkhus — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

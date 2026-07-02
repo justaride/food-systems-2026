@@ -32,11 +32,7 @@ tier: periferi
 - Mette Lier — styreleder
 - Mimi Kristine Sogn Østreng — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

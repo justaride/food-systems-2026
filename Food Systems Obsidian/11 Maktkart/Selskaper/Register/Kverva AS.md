@@ -41,11 +41,7 @@ tier: periferi
 - Therese Log Bergjord — styremedlem
 - Torgeir Johan Svae — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

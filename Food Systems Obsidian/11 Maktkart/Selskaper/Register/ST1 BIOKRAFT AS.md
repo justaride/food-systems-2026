@@ -20,21 +20,13 @@ tier: periferi
 - NACE: 35.210 — Produksjon av gass
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Aleksi Juhani Graan — styremedlem
 - Karl Åke Fredrik Åkesson — CEO
 - Miika Samuel Johansson — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

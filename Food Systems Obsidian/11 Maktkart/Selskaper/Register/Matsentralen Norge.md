@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 94.991 — Aktiviteter i andre interesseorganisasjoner ikke nevnt annet sted
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Anne-Grete Haugen — styremedlem
@@ -42,7 +38,7 @@ tier: periferi
 - supplier → [[NorgesGruppen ASA]] — Matsentralen mottar overskuddsmat fra NorgesGruppen for redistribusjon
 - supplier → [[Nortura SA]] — Matsentralen mottar overskuddsmat fra Nortura for redistribusjon
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

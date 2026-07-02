@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 73.300 — Pr og kommunikasjonstjenester
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Anne-Beth Skrede — styremedlem
@@ -45,7 +41,7 @@ tier: periferi
 - [[Mowi ASA]] → joint-venture — Mowi eksport fremmes via Norges Sjømatråd; 502k tonn 2024
 - [[SalMar ASA]] → joint-venture — SalMar eksport fremmes via Norges Sjømatråd; 232k tonn 2024
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

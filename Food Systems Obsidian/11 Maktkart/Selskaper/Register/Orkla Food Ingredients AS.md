@@ -41,11 +41,7 @@ tier: periferi
 - Vidar Dahl — styremedlem
 - Øyvind Andreas Torpp — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

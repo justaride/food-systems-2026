@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 38.110 — Innsamling av ikke-farlig avfall
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Odd Are Austrheim — styremedlem
@@ -31,11 +27,7 @@ tier: periferi
 - Ole Arthur Vaage — styremedlem
 - Vidar Svenning Olsen — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

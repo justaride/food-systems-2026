@@ -25,15 +25,7 @@ tier: periferi
 - Eier: [[NorgesGruppen Eiendom Holding AS (NO-961483584-EIEH)|NorgesGruppen Eiendom Holding AS]] — 100 % (subsidiary)
 - [[NG Eiendom Vestfold Telemark AS (NO-961483584-VTEIE)|NG Eiendom Vestfold Telemark AS]] — 100 % (subsidiary)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

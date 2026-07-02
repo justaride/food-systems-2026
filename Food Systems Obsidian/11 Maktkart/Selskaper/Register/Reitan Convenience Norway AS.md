@@ -37,11 +37,7 @@ tier: periferi
 - Rita Forsberg — styremedlem
 - Ronja Flack Sandven — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 20.150 — Produksjon av gjødsel, nitrogenforbindelser og vekstjord
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Eva Safrine Aspvik — styremedlem

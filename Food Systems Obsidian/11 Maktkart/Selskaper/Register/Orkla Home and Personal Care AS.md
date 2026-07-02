@@ -42,11 +42,7 @@ tier: periferi
 - Rune Jubskås — styremedlem
 - Simen Garborg Tronsaune — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

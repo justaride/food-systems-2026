@@ -24,15 +24,11 @@ tier: periferi
 
 - Eier: [[Axfood AB]] — 100 % (subsidiary)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
 ## Forsyningskjede
 
 - [[Dagab Inköp & Logistik AB]] → distributor — Dagab er sentral innkjops- og logistikkenhet for Willys og hele Axfood-gruppen
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

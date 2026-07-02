@@ -37,11 +37,7 @@ tier: periferi
 - Trine Charlotte Nordli Owesen-Lein — styremedlem
 - Trude Venset Sleire — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

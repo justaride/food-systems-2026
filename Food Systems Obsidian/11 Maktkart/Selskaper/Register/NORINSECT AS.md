@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 10.890 — Produksjon av næringsmidler ikke nevnt annet sted
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Aslak Lie — styremedlem
@@ -34,11 +30,7 @@ tier: periferi
 - Siri Tømmerås — styremedlem
 - Vladimir Wendl Ibarra — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

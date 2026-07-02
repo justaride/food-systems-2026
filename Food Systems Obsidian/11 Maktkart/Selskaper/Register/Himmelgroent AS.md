@@ -24,14 +24,6 @@ tier: periferi
 
 - Eier: [[Avisomo AS]] — 50 % (joint-venture)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
 ## Eiendom
 
 - production: Gardermoen, Ullensaker

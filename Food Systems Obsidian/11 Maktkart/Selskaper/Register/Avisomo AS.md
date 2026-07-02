@@ -28,15 +28,7 @@ tier: periferi
 
 - [[Himmelgroent AS]] (50 %)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 
