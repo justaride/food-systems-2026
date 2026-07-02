@@ -87,7 +87,7 @@ Kartet er både analyse-cockpit og visningsflate når:
 
 ### M2 — Innholdsløft der det betyr noe (CODEX foreslår → MENNESKE godkjenner)
 
-1. **Selvbærende innsiktsnoter.** I27–I38-notene (de 6 genererte) utvides med tallgrunnlaget fra kildedokumentene (AP-1/AP-5-tall, fokusområdene, objective-function-kriteriene) etter samme mal som I01–I26. Codex genererer utkast; endringer i claim-språk går via godkjenningsarket.
+1. **Selvbærende innsiktsnoter.** De seks genererte utkastnotene I27, I31, I34, I36, I37 og I38 utvides med tallgrunnlaget fra kildedokumentene (AP-1/AP-5-tall, fokusområdene, objective-function-kriteriene) etter samme mal som I01–I26. Codex genererer utkast; endringer i claim-språk går via godkjenningsarket.
 2. **Kuratert sammendrag på kjerneaktørene.** De ~30 kjerneselskaps-/aktørnotene (konsernrøtter + regulatorer + eierfamilier) får en generert «Posisjon i systemet»-seksjon: 3–5 setninger fra research-syntesen (narrativ-struktur, konsern-coverage, AP-funn) med kildelenke — over `## Notater`, styrt seksjon.
 3. **Avklar de parkerte I28–I35.** Egen claim-lock/datareview-økt (menneske + Claude): godkjenn, omformuler eller forkast endelig. Parkert-status skal ikke bli permanent limbo.
 4. **Stakeholder-laget fylles** (menneskelig oppgave med skjelett fra VK-4): `ask`, `prioritet`, `relasjon` på de 15 stakeholder-notene.
