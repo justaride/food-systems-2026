@@ -1035,7 +1035,12 @@ describe('obsidian vault sync helpers', () => {
 
   it('validates VK-5 status and completion audit frontmatter links as one review package', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-vk5-review-package-links-'))
-    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
+    mkdirSync(join(repo, 'docs', 'project', 'plans', 'archive'), { recursive: true })
+    writeFileSync(join(repo, 'docs', 'project', 'plans', 'archive', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'), '')
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'archive', 'obsidian-kunnskapskart-completion-audit-2026-07-02.md'),
+      '',
+    )
     writeFileSync(
       join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-status-2026-07-02.md'),
       [
@@ -1046,6 +1051,9 @@ describe('obsidian vault sync helpers', () => {
         '---',
         '# Status',
         '',
+        '- Kanonisk VK-5-kravliste: `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.',
+        '- Notetall kilde: `npm run vault:sync` og `npm run vault:check`.',
+        '- DB-univers kilde: `data/vault-export/manifest.json`.',
       ].join('\n'),
     )
     writeFileSync(
@@ -1059,6 +1067,9 @@ describe('obsidian vault sync helpers', () => {
         '---',
         '# Audit',
         '',
+        '- Kanonisk VK-5-kravliste: `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.',
+        '- Notetall kilde: `npm run vault:sync` og `npm run vault:check`.',
+        '- DB-univers kilde: `data/vault-export/manifest.json`.',
       ].join('\n'),
     )
 
@@ -1075,7 +1086,12 @@ describe('obsidian vault sync helpers', () => {
 
   it('requires VK-5 review package frontmatter links to resolve to existing plan files', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-vk5-review-package-frontmatter-targets-'))
-    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
+    mkdirSync(join(repo, 'docs', 'project', 'plans', 'archive'), { recursive: true })
+    writeFileSync(join(repo, 'docs', 'project', 'plans', 'archive', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'), '')
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'archive', 'obsidian-kunnskapskart-completion-audit-2026-07-02.md'),
+      '',
+    )
     writeFileSync(
       join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-status-2026-07-02.md'),
       [
@@ -1087,6 +1103,9 @@ describe('obsidian vault sync helpers', () => {
         '---',
         '# Status',
         '',
+        '- Kanonisk VK-5-kravliste: `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.',
+        '- Notetall kilde: `npm run vault:sync` og `npm run vault:check`.',
+        '- DB-univers kilde: `data/vault-export/manifest.json`.',
       ].join('\n'),
     )
     writeFileSync(
@@ -1100,6 +1119,9 @@ describe('obsidian vault sync helpers', () => {
         '---',
         '# Audit',
         '',
+        '- Kanonisk VK-5-kravliste: `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.',
+        '- Notetall kilde: `npm run vault:sync` og `npm run vault:check`.',
+        '- DB-univers kilde: `data/vault-export/manifest.json`.',
       ].join('\n'),
     )
 
@@ -1131,7 +1153,12 @@ describe('obsidian vault sync helpers', () => {
 
   it('keeps VK-5 status and completion audit frontmatter statuses from overclaiming completion', () => {
     const repo = mkdtempSync(join(tmpdir(), 'food-vk5-review-package-status-'))
-    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
+    mkdirSync(join(repo, 'docs', 'project', 'plans', 'archive'), { recursive: true })
+    writeFileSync(join(repo, 'docs', 'project', 'plans', 'archive', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'), '')
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'archive', 'obsidian-kunnskapskart-completion-audit-2026-07-02.md'),
+      '',
+    )
     writeFileSync(
       join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-status-2026-07-02.md'),
       [
@@ -1143,6 +1170,9 @@ describe('obsidian vault sync helpers', () => {
         '---',
         '# Status',
         '',
+        '- Kanonisk VK-5-kravliste: `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.',
+        '- Notetall kilde: `npm run vault:sync` og `npm run vault:check`.',
+        '- DB-univers kilde: `data/vault-export/manifest.json`.',
       ].join('\n'),
     )
     writeFileSync(
@@ -1156,6 +1186,9 @@ describe('obsidian vault sync helpers', () => {
         '---',
         '# Audit',
         '',
+        '- Kanonisk VK-5-kravliste: `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.',
+        '- Notetall kilde: `npm run vault:sync` og `npm run vault:check`.',
+        '- DB-univers kilde: `data/vault-export/manifest.json`.',
       ].join('\n'),
     )
 
@@ -1165,6 +1198,125 @@ describe('obsidian vault sync helpers', () => {
       {
         file: 'docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md',
         message: 'invalid review package frontmatter status: fullfort',
+      },
+    ])
+  })
+
+  it('keeps the long VK-5 review requirement checklist canonical to the protocol', () => {
+    const repo = mkdtempSync(join(tmpdir(), 'food-vk5-review-package-deduped-'))
+    mkdirSync(join(repo, 'docs', 'project', 'plans', 'archive'), { recursive: true })
+    writeFileSync(join(repo, 'docs', 'project', 'plans', 'archive', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'), '')
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'archive', 'obsidian-kunnskapskart-completion-audit-2026-07-02.md'),
+      '',
+    )
+    writeFileSync(join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'), '')
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md'),
+      '',
+    )
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-status-2026-07-02.md'),
+      [
+        '---',
+        'status: klar-for-menneskelig-review',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'completion_audit: docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md',
+        'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
+        '---',
+        '# Status',
+        '',
+        '- Kanonisk VK-5-kravliste: `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.',
+        '- Notetall kilde: `npm run vault:sync` og `npm run vault:check`.',
+        '- DB-univers kilde: `data/vault-export/manifest.json`.',
+        'Dette gjentar masterplanens obligatoriske frontmatter og komplett VK-5-reviewradsett.',
+        '',
+      ].join('\n'),
+    )
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-completion-audit-2026-07-02.md'),
+      [
+        '---',
+        'status: repo-lokalt-klart-ikke-mal-complete',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'statusnotat: docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md',
+        'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
+        '---',
+        '# Audit',
+        '',
+        '- Kanonisk VK-5-kravliste: `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.',
+        '- Notetall kilde: `npm run vault:sync` og `npm run vault:check`.',
+        '- DB-univers kilde: `data/vault-export/manifest.json`.',
+      ].join('\n'),
+    )
+
+    const issues = validateReviewPackageFrontmatterLinks(repo).issues
+
+    assert.deepEqual(issues, [
+      {
+        file: 'docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md',
+        message:
+          'move duplicated VK-5 review requirement checklist text to docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
+      },
+    ])
+  })
+
+  it('requires archived V2 plan and completion audit plus canonical count-source pointers', () => {
+    const repo = mkdtempSync(join(tmpdir(), 'food-vk5-review-process-archive-'))
+    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
+    writeFileSync(join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'), '')
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md'),
+      '',
+    )
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-status-2026-07-02.md'),
+      [
+        '---',
+        'status: klar-for-menneskelig-review',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'completion_audit: docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md',
+        'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
+        '---',
+        '# Status',
+        '',
+        '- Kanonisk VK-5-kravliste: `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.',
+        '- DB-univers kilde: `data/vault-export/manifest.json`.',
+        '',
+      ].join('\n'),
+    )
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-completion-audit-2026-07-02.md'),
+      [
+        '---',
+        'status: repo-lokalt-klart-ikke-mal-complete',
+        'plan: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        'statusnotat: docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md',
+        'vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
+        '---',
+        '# Audit',
+        '',
+        '- Kanonisk VK-5-kravliste: `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.',
+        '- Notetall kilde: `npm run vault:sync` og `npm run vault:check`.',
+        '- DB-univers kilde: `data/vault-export/manifest.json`.',
+        '',
+      ].join('\n'),
+    )
+
+    const issues = validateReviewPackageFrontmatterLinks(repo).issues
+
+    assert.deepEqual(issues, [
+      {
+        file: 'docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md',
+        message: 'missing canonical note-count source pointer',
+      },
+      {
+        file: 'docs/project/plans/archive/obsidian-kunnskapskart-masterplan-2026-07-02.md',
+        message: 'missing archived V2 masterplan',
+      },
+      {
+        file: 'docs/project/plans/archive/obsidian-kunnskapskart-completion-audit-2026-07-02.md',
+        message: 'missing archived V2 completion audit',
       },
     ])
   })

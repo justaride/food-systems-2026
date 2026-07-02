@@ -75,6 +75,9 @@ const VK5_MASTERPLAN_PATH = 'docs/project/plans/obsidian-kunnskapskart-masterpla
 const VK5_REVIEW_PROTOCOL_PATH = 'docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md'
 const VK5_REVIEW_STATUS_PATH = 'docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md'
 const VK5_COMPLETION_AUDIT_PATH = 'docs/project/plans/obsidian-kunnskapskart-completion-audit-2026-07-02.md'
+const VK5_ARCHIVED_MASTERPLAN_PATH = 'docs/project/plans/archive/obsidian-kunnskapskart-masterplan-2026-07-02.md'
+const VK5_ARCHIVED_COMPLETION_AUDIT_PATH =
+  'docs/project/plans/archive/obsidian-kunnskapskart-completion-audit-2026-07-02.md'
 const REQUIRED_MASTERPLAN_FRONTMATTER = {
   status: 'Handover-klar for Codex',
   eier: 'Gabriel',
@@ -143,6 +146,15 @@ const REQUIRED_REVIEW_PACKAGE_FRONTMATTER_STATUSES = {
   [VK5_REVIEW_STATUS_PATH]: 'klar-for-menneskelig-review',
   [VK5_COMPLETION_AUDIT_PATH]: 'repo-lokalt-klart-ikke-mal-complete',
 } as const
+const REVIEW_PACKAGE_DUPLICATED_REQUIREMENT_PHRASES = [
+  'masterplanens obligatoriske frontmatter',
+  'komplett VK-5-reviewradsett',
+  'closeout-port som nekter `fullfort`',
+] as const
+const REVIEW_PACKAGE_CANONICAL_REQUIREMENT_POINTER =
+  `Kanonisk VK-5-kravliste: \`${VK5_REVIEW_PROTOCOL_PATH}\``
+const REVIEW_PACKAGE_CANONICAL_NOTE_COUNT_POINTER = 'Notetall kilde: `npm run vault:sync` og `npm run vault:check`'
+const REVIEW_PACKAGE_CANONICAL_DB_UNIVERSE_POINTER = 'DB-univers kilde: `data/vault-export/manifest.json`'
 const REQUIRED_INSIGHT_CANDIDATE_IDS = Array.from({ length: 12 }, (_, index) => `I${index + 27}`)
 const ALLOWED_INSIGHT_CANDIDATE_STATUSES = new Set([
   'til godkjenning',
@@ -2285,6 +2297,7 @@ export function validateReviewCloseout(repoRoot: string): { issues: VaultIssue[]
 
 export function validateReviewPackageFrontmatterLinks(repoRoot: string): { issues: VaultIssue[] } {
   const issues: VaultIssue[] = []
+  let hasStructuralIssue = false
 
   for (const [documentPath, requiredLinks] of Object.entries(REQUIRED_REVIEW_PACKAGE_FRONTMATTER_LINKS)) {
     const absolutePath = join(repoRoot, documentPath)
@@ -2293,10 +2306,12 @@ export function validateReviewPackageFrontmatterLinks(repoRoot: string): { issue
         file: documentPath,
         message: 'missing review package document',
       })
+      hasStructuralIssue = true
       continue
     }
 
     const frontmatter = parseFrontmatter(readFileSync(absolutePath, 'utf8')).frontmatter
+    const source = readFileSync(absolutePath, 'utf8')
     const requiredStatus =
       REQUIRED_REVIEW_PACKAGE_FRONTMATTER_STATUSES[
         documentPath as keyof typeof REQUIRED_REVIEW_PACKAGE_FRONTMATTER_STATUSES
@@ -2306,6 +2321,7 @@ export function validateReviewPackageFrontmatterLinks(repoRoot: string): { issue
         file: documentPath,
         message: `invalid review package frontmatter status: ${frontmatter.status ?? ''}`,
       })
+      hasStructuralIssue = true
     }
     for (const [field, expectedPath] of Object.entries(requiredLinks)) {
       if (frontmatter[field] !== expectedPath) {
@@ -2313,11 +2329,37 @@ export function validateReviewPackageFrontmatterLinks(repoRoot: string): { issue
           file: documentPath,
           message: `missing review package frontmatter ${field}: ${expectedPath}`,
         })
+        hasStructuralIssue = true
       }
+    }
+    if (REVIEW_PACKAGE_DUPLICATED_REQUIREMENT_PHRASES.some((phrase) => source.includes(phrase))) {
+      issues.push({
+        file: documentPath,
+        message: `move duplicated VK-5 review requirement checklist text to ${VK5_REVIEW_PROTOCOL_PATH}`,
+      })
+      continue
+    }
+    if (!source.includes(REVIEW_PACKAGE_CANONICAL_REQUIREMENT_POINTER)) {
+      issues.push({
+        file: documentPath,
+        message: 'missing canonical VK-5 requirement-list pointer',
+      })
+    }
+    if (!source.includes(REVIEW_PACKAGE_CANONICAL_NOTE_COUNT_POINTER)) {
+      issues.push({
+        file: documentPath,
+        message: 'missing canonical note-count source pointer',
+      })
+    }
+    if (!source.includes(REVIEW_PACKAGE_CANONICAL_DB_UNIVERSE_POINTER)) {
+      issues.push({
+        file: documentPath,
+        message: 'missing canonical DB-universe source pointer',
+      })
     }
   }
 
-  if (issues.length === 0) {
+  if (!hasStructuralIssue) {
     for (const [documentPath, requiredLinks] of Object.entries(REQUIRED_REVIEW_PACKAGE_FRONTMATTER_LINKS)) {
       for (const [field, expectedPath] of Object.entries(requiredLinks)) {
         if (!existsSync(join(repoRoot, expectedPath))) {
@@ -2325,7 +2367,29 @@ export function validateReviewPackageFrontmatterLinks(repoRoot: string): { issue
             file: documentPath,
             message: `missing review package frontmatter target ${field}: ${expectedPath}`,
           })
+          hasStructuralIssue = true
         }
+      }
+    }
+  }
+
+  if (!hasStructuralIssue) {
+    const archiveTargets = [
+      {
+        path: VK5_ARCHIVED_MASTERPLAN_PATH,
+        message: 'missing archived V2 masterplan',
+      },
+      {
+        path: VK5_ARCHIVED_COMPLETION_AUDIT_PATH,
+        message: 'missing archived V2 completion audit',
+      },
+    ] as const
+    for (const target of archiveTargets) {
+      if (!existsSync(join(repoRoot, target.path))) {
+        issues.push({
+          file: target.path,
+          message: target.message,
+        })
       }
     }
   }
