@@ -13,6 +13,8 @@ relaterte_filer:
   - docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md
 ---
 
+> Arkivert av V3/M4 2026-07-02. Aktiv styring ligger i `docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md`; kanonisk VK-5-kravliste ligger i `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.
+
 # Masterplan: Det fullstendige kunnskapskartet
 
 > Arkivstatus: V2-planen er historisk baseline for PR #228. Arkivkopi ligger i `docs/project/plans/archive/obsidian-kunnskapskart-masterplan-2026-07-02.md`, og aktiv videreføring ligger i `docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md`.
