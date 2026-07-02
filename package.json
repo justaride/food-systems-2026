@@ -11,7 +11,7 @@
     "vault:review-preflight": "tsx scripts/obsidian-vault/review-preflight.ts",
     "vault:review-samples": "tsx scripts/obsidian-vault/review-samples.ts",
     "vault:review-closeout": "tsx scripts/obsidian-vault/review-closeout.ts",
-    "compute-metrics:full": "npm run compute-metrics && npm run audit:konsern && npm run compute-coverage",
+    "compute-metrics:full": "npm run compute-metrics && npm run audit:konsern && npm run compute-coverage && npm run vault:export-db && npm run vault:sync",
     "audit:konsern": "tsx scripts/audit-konsern-coverage.ts",
     "audit:aquaculture": "tsx scripts/audit-aquaculture-coverage.ts",
     "audit:aquaculture-reconcile": "tsx scripts/audit-aquaculture-reconcile.ts",
