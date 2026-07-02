@@ -33,11 +33,7 @@ tier: periferi
 - Vegard Kjuus — CEO
 - Øyvind Andersen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

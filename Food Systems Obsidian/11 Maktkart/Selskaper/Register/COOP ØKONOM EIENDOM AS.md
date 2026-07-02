@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 68.320 — Eiendomsforvaltning på oppdrag
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Anja Bratteli — styremedlem
@@ -35,11 +31,7 @@ tier: periferi
 - Tor Harald Alvestad — styremedlem
 - Øyvind Lorentzen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

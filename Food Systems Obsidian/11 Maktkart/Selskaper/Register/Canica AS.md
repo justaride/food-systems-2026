@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 47.520 — Detaljhandel med jernvarer, byggevarer, fargevarer og glass
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Caroline Marie Hagen Kjos — styreleder
@@ -31,11 +27,7 @@ tier: periferi
 - Jo Olav Lunder — styremedlem
 - Stein Erik Hagen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

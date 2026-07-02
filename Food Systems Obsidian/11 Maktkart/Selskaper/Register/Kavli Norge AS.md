@@ -40,11 +40,7 @@ tier: periferi
 - Øydis Nese Haavi — styremedlem
 - Øyvind Ramm — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

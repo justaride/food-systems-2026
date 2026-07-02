@@ -34,11 +34,7 @@ tier: periferi
 - Trine Særvoll — styremedlem
 - Øyvind Andersen — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

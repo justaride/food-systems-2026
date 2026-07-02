@@ -29,15 +29,7 @@ tier: periferi
 - [[NorgesGruppen Eiendom AS (NO-961483584-EIE)|NorgesGruppen Eiendom AS]] (100 %)
   - [[NG Eiendom Vestfold Telemark AS (NO-961483584-VTEIE)|NG Eiendom Vestfold Telemark AS]] (100 %)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

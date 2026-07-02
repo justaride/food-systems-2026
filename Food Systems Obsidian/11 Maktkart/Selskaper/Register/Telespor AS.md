@@ -32,11 +32,7 @@ tier: periferi
 - Nicolay Boberg Jansen — CEO
 - Sunniva Berglund Skogan — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

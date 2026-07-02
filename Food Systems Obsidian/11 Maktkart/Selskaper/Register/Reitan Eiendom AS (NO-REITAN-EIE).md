@@ -28,14 +28,6 @@ tier: periferi
 - [[REBUS Handelseiendom AS]] — 100 % (subsidiary)
 - [[Christiania Areal AS]] — 100 % (subsidiary)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
 ## Eiendom
 
 - retail: NO (2077000 m2)

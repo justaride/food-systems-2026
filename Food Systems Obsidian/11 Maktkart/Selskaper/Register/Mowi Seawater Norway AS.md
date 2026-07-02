@@ -33,11 +33,7 @@ tier: periferi
 - Ørjan Mortveit Tveiten — styremedlem
 - Øyvind Oaland — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

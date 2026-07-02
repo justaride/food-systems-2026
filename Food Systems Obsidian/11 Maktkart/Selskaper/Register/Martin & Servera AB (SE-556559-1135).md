@@ -24,15 +24,11 @@ tier: periferi
 
 - Eier: [[Axel Johnson AB]] — 100 % (subsidiary)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
 ## Forsyningskjede
 
 - [[Menigo Foodservice AB (SE-556424-2537)|Menigo Foodservice AB]] → supplier — Menigo (Sysco) og Martin & Servera (Axel Johnson) er de to storste foodservice-grossistene i Sverige — direkte konkurrenter
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

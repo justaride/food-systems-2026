@@ -20,10 +20,6 @@ tier: periferi
 - NACE: ukjent
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Garðar Newman — stjórnarmaður
@@ -31,10 +27,6 @@ tier: periferi
 - Liv Bergþórsdóttir — stjórnarmaður
 - Magnús Ingi Einarsson — stjórnarmaður
 - Margrét Katrín Guðnadóttir — stjórnarmaður
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
 
 ## Eiendom
 

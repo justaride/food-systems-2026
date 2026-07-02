@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 63.100 — Datainfrastruktur, -behandling, -lagring og tilknyttede tjenester
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Johan Johannson — CEO
@@ -31,11 +27,7 @@ tier: periferi
 - Knut Hartvig Johannson — styremedlem
 - Torbjørn Johannson — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

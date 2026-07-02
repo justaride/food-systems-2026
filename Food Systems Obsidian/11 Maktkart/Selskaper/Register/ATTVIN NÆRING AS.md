@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 38.110 — Innsamling av ikke-farlig avfall
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Eva Merethe Langstein — styremedlem
@@ -42,11 +38,7 @@ tier: periferi
 - Torill Ansnes — styremedlem
 - Øystein Peder Solevåg — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

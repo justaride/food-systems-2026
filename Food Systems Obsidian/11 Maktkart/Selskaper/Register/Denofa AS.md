@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 10.410 — Produksjon av oljer og fettstoffer
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Dante Pozzi — styremedlem
@@ -40,7 +36,7 @@ tier: periferi
 - supplier → [[Nortura SA]] — Denofa leverer soyamel indirekte til Nortura via fôrkjeden
 - supplier → [[BAMA Gruppen AS]] — Denofa leverer vegetabilsk olje til BAMAs foredlingsledd
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

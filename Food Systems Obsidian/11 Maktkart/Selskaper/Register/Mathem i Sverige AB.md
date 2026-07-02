@@ -20,20 +20,12 @@ tier: periferi
 - NACE: ukjent
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
-## Styreverv
-
-- Ingen registrert i eksporten.
-
 ## Forsyningskjede
 
 - [[Mat.se AB]] → self-dealing — Axfood byttet Mat.se for andel i Mathem 2021
 - [[Oda Sverige AB]] → self-dealing — Oda-Mathem merger 2023
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

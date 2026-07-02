@@ -24,15 +24,11 @@ tier: periferi
 
 - Eier: [[SOK (S Group)]] — 100 % (subsidiary)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
 ## Forsyningskjede
 
 - distributor → [[SOK (S Group)]] — Meira Nova Oy er S-Groups foodservice-grossist som leverer til restauranter, kantiner og storhusholdninger
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

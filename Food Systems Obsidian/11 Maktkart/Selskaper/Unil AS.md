@@ -34,7 +34,7 @@ tier: kjerne
 - self-dealing → [[NorgesGruppen ASA]] — Unil er NorgesGruppens importselskap for egne merkevarer og internasjonale varer
 - supplier → [[Oda Norway AS]] — Unil leverer utvalgte EMV-produkter til Oda Norway
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

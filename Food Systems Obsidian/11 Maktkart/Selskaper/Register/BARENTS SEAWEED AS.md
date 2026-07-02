@@ -20,20 +20,12 @@ tier: periferi
 - NACE: 03.110 — Fiske og fangst i sjø
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Kåre Breivik — CEO
 - Kåre Breivik — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

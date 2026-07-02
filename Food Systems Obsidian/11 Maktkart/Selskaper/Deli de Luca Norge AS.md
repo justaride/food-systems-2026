@@ -33,11 +33,7 @@ tier: kjerne
 - Odd Ture Wang — styremedlem
 - Stein Rommerud — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

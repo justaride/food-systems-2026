@@ -33,11 +33,7 @@ tier: periferi
 - Odd Reitan — styreleder
 - Trond Fredrik Mellingsæter — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 10.610 — Produksjon av kornvarer
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Anders Jarle Valle — styremedlem

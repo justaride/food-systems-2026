@@ -40,11 +40,7 @@ tier: periferi
 - Susanne Pedersen — styremedlem
 - Tina Lindeloff — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

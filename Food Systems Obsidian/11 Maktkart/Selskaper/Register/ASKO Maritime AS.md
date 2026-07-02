@@ -31,11 +31,7 @@ tier: periferi
 - Tore Bekken — styreleder
 - Øystein Høsteland Sundby — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

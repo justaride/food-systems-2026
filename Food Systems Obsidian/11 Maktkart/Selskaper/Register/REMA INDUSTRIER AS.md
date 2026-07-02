@@ -20,21 +20,13 @@ tier: periferi
 - NACE: 10.120 — Bearbeiding og konservering av fjørfekjøtt
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Frida Letnes — styremedlem
 - Kjell Åge Stokbakken — CEO
 - Kjell Åge Stokbakken — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

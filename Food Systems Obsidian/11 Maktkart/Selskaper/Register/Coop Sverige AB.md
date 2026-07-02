@@ -20,10 +20,6 @@ tier: periferi
 - NACE: ukjent
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Anders Jonas Nygren — styrelseledamot
@@ -41,10 +37,6 @@ tier: periferi
 - Pär Bernhard Ygge Sandström — styrelseledamot
 - Stig Wilhelm Nilsson — styrelseledamot
 - Örjan Gösta Grandin — extern vice verkställande direktör
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
 
 ## Eiendom
 

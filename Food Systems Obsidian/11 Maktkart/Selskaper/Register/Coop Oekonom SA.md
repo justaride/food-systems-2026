@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 47.110 — Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Anja Bratteli — styremedlem
@@ -42,11 +38,7 @@ tier: periferi
 - Tor Harald Alvestad — styremedlem
 - Øyvind Lorentzen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

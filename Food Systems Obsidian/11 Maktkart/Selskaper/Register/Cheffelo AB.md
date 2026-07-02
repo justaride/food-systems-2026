@@ -30,15 +30,7 @@ tier: periferi
 - [[Linas Matkasse AB]] (100 %)
 - [[RetNemt ApS]] (100 %)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

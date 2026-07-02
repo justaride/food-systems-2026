@@ -33,11 +33,7 @@ tier: periferi
 - Tor Kristian Pedersen — styremedlem
 - Tor-Ivar Ingebrigtsen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

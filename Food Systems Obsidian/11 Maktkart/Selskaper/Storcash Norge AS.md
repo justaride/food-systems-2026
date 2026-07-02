@@ -35,7 +35,7 @@ tier: kjerne
 
 - [[ASKO Norge AS]] → distributor — ASKO Norge distribuerer varer til Storcash cash & carry-butikker
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

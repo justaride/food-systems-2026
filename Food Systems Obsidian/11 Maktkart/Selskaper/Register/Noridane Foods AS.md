@@ -36,11 +36,7 @@ tier: periferi
 - Per Stride — styreleder
 - Rolf Gjermund Fjeldheim — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

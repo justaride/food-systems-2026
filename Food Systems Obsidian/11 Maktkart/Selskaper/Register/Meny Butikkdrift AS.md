@@ -36,11 +36,7 @@ tier: periferi
 - Line Beate Bøhler Jebsen — styremedlem
 - Trond Henrik Haldorsen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

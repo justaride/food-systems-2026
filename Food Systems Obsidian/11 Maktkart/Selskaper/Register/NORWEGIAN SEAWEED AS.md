@@ -20,20 +20,12 @@ tier: periferi
 - NACE: 10.890 — Produksjon av næringsmidler ikke nevnt annet sted
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Christian Baohua Cheung — styreleder
 - Man Bun Peter Cheung — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

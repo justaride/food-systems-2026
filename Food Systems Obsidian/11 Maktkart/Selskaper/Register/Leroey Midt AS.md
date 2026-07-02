@@ -36,11 +36,7 @@ tier: periferi
 - Silje Trøan Paulsen — styremedlem
 - Sjur Svenningsson Malm — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

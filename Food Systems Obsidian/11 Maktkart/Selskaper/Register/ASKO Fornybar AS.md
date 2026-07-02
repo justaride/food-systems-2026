@@ -33,11 +33,7 @@ tier: periferi
 - Stein Rømmerud — styreleder
 - Vibeke Lundby — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

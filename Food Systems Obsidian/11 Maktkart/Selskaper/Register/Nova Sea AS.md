@@ -41,11 +41,7 @@ tier: periferi
 - Ørjan Mortveit Tveiten — CEO
 - Ørjan Mortveit Tveiten — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

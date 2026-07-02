@@ -20,19 +20,11 @@ tier: periferi
 - NACE: ukjent
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
-## Styreverv
-
-- Ingen registrert i eksporten.
-
 ## Forsyningskjede
 
 - self-dealing → [[Mathem i Sverige AB]] — Oda-Mathem merger 2023
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

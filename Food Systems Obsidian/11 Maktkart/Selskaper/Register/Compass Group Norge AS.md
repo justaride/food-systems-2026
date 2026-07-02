@@ -45,7 +45,7 @@ tier: periferi
 - [[ASKO Norge AS]] → supplier — ASKO Servering (NorgesGruppens foodservice-divisjon) leverer til Compass Group-kantiner
 - [[Servicegrossistene AS (933444724)|Servicegrossistene AS]] → supplier — Servicegrossistene leverer til Compass Group-kantiner (alternativ til ASKO)
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

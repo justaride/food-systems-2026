@@ -32,11 +32,7 @@ tier: periferi
 - Rene Nielsen — CEO
 - Vibeke Lamark — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

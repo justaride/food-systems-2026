@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 47.761 — Detaljhandel med blomster, planter, gjødsel og plantevernmidler
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Adelajda Irena Biernat-Aas — styremedlem
@@ -32,11 +28,7 @@ tier: periferi
 - Asgeir Naalsund — styreleder
 - Hogne Vik — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

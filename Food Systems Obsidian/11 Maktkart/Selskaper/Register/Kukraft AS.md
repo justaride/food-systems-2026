@@ -30,11 +30,7 @@ tier: periferi
 - Jon Lasse Garberg — CEO
 - Jon Lasse Garberg — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

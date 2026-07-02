@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 82.990 — Annen forretningsmessig tjenesteyting ikke nevnt annet sted
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Anne Cathrine Berger — styremedlem
@@ -39,7 +35,7 @@ tier: periferi
 - joint-venture → [[Coop Norge SA]] — Matvett bransjeavtale om matsvinnreduksjon med Coop
 - joint-venture → [[BAMA Gruppen AS]] — Matvett bransjeavtale om matsvinnreduksjon med BAMA
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

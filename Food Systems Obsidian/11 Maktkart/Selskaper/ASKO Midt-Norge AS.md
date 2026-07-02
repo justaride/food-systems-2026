@@ -34,10 +34,6 @@ tier: kjerne
 - Tom Roger Larsen — styremedlem
 - Tore Bekken — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
 ## Eiendom
 
 - warehouse: Oestre Rosten 104, Trondheim

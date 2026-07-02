@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 53.100 — Landsdekkende posttjenester
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Ann Elisabeth Wirgeness — styremedlem
@@ -50,7 +46,7 @@ tier: periferi
 - supplier → [[ASKO Norge AS]] — Bring leverer transporttjenester til ASKOs distribusjon
 - [[REMA Distribusjon Norge AS]] → buyer — REMA Distribusjon bruker Bring for siste-mil-levering i grisgrendte strøk
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -39,11 +39,7 @@ tier: kjerne
 - Truls Fjeldstad — styremedlem
 - Zakaria El Mansouri — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

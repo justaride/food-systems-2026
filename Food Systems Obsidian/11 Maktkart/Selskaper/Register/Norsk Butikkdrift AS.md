@@ -40,11 +40,7 @@ tier: periferi
 - Robert Leine — CEO
 - Thomas Hansen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

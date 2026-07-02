@@ -31,11 +31,7 @@ tier: periferi
 - Therese Log Bergjord — styremedlem
 - Tommy Neverdahl Nordbø — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

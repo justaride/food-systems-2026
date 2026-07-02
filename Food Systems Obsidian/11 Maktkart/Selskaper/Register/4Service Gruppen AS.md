@@ -30,11 +30,7 @@ tier: periferi
 - Finn Rune Kristiansen — styremedlem
 - Tor Roenhovde — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

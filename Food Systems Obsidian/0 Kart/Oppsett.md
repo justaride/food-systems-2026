@@ -20,6 +20,18 @@ siterbarhet: intern
 - Juggl eller 3D Graph — presentasjonsgraf.
 - Minimal Theme Settings — roligere canvas-visning.
 
+## M0 baselinegjennomgang
+
+Dette er den menneskelige porten før M1-M4 vurderes for merge. Den skal ikke brukes som VK-5-closeout.
+
+1. Åpne `Food Systems Obsidian/` som vault i Obsidian fra repo-roten på `main`.
+2. Aktiver Dataview, Breadcrumbs, Minimal Theme Settings og Juggl eller 3D Graph.
+3. Aktiver CSS-snippeten `kunnskapskart.css`.
+4. Åpne [[Welcome]], [[Kunnskapskart.canvas|Kunnskapskart]], [[Innsiktskartet]] og [[Maktkartet]].
+5. Bruk 20 minutter med VK-5-protokollens blikk: får du oversikt, eller drukner signalet?
+6. Skriv førsteinntrykket under `## Notater` i [[Welcome]]. Behold status som menneskelig review, ikke repo-closeout.
+7. Bekreft beslutningen utenfor vaulten før #229/M1 tas ut av draft.
+
 ## Dataview-spørringer
 
 ### Innsikter i utkast

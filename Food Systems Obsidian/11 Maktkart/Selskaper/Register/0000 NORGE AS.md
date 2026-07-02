@@ -20,20 +20,12 @@ tier: periferi
 - NACE: 79.121 — Aktiviteter utført av utflukts- og eventarrangører
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Peter Schanche Eikeland — styremedlem
 - Shire Marius Standnes — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

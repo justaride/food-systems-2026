@@ -35,11 +35,7 @@ tier: periferi
 - Torild Huse — CEO
 - Torild Huse — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

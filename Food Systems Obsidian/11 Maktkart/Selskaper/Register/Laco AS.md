@@ -49,11 +49,7 @@ tier: periferi
 - Patrick Andreas Rød Møgster — styremedlem
 - Rolf Kristian Våge — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

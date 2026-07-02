@@ -33,11 +33,7 @@ tier: kjerne
 - Ole Robert Reitan — styreleder
 - Vegar Normann Kulset — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

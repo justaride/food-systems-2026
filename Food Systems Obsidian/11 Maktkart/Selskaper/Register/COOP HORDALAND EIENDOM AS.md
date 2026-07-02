@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 68.200 — Utleie av egen eller leid fast eiendom
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Astrid Borgny Tveten — styremedlem
@@ -34,11 +30,7 @@ tier: periferi
 - Ove Bruntveit — styremedlem
 - Roald Valestrand — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

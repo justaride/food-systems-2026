@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 11.050 — Produksjon av øl
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Andreas Bernhard Kirk — styremedlem
@@ -50,7 +46,7 @@ tier: periferi
 - supplier → [[Servicegrossistene AS (933444724)|Servicegrossistene AS]] — Ringnes leverer drikkevarer til Servicegrossistene (foodservice)
 - supplier → [[Oda Norway AS]] — Ringnes leverer drikkevarer til Oda Norway
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

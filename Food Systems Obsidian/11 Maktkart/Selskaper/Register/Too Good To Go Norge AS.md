@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 73.110 — Reklamebyråer
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Ken Vanhoegaerden — CEO
@@ -38,7 +34,7 @@ tier: periferi
 - buyer → [[NorgesGruppen ASA]] — Too Good To Go selger overskuddsmat fra NorgesGruppen-butikker
 - buyer → [[Reitan Retail AS]] — Too Good To Go selger overskuddsmat fra REMA 1000/Narvesen
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

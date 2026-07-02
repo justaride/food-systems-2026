@@ -30,15 +30,7 @@ tier: periferi
 - [[Bokveien 112 AS]] (100 %)
 - [[Joh. Johannson Eiendom AS]] (100 %)
 
-## Styreverv
-
-- Ingen registrert i eksporten.
-
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

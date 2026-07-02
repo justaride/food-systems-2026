@@ -31,11 +31,7 @@ tier: kjerne
 - Ole Robert Reitan — styreleder
 - Trond Bentestuen — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

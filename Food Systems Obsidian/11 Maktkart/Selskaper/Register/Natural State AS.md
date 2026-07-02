@@ -20,20 +20,12 @@ tier: periferi
 - NACE: 70.200 — Bedriftsrådgivning og annen administrativ rådgivning
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Einar Kleppe Holthe — CEO
 - Einar Kleppe Holthe — styreleder
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

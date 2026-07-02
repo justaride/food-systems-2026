@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 47.110 — Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Andreas Amb — styremedlem
@@ -44,11 +40,7 @@ tier: periferi
 - Vivi Jeanette Fossberget — styremedlem
 - Yngve Blakstad — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

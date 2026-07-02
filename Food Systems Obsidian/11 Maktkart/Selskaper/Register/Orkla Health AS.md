@@ -35,11 +35,7 @@ tier: periferi
 - Mari Stenberg De Wilde — styremedlem
 - Marit Agner Matheson — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

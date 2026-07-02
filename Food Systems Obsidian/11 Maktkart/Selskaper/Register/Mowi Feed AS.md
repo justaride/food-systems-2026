@@ -30,11 +30,7 @@ tier: periferi
 - Ivan Vindheim — styreleder
 - Kristian Ellingsen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -31,11 +31,7 @@ tier: periferi
 - Trond Fidje — styreleder
 - Øystein Heide Arildsen — CEO
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -33,11 +33,7 @@ tier: periferi
 - Jan Erik Fløtre — styremedlem
 - Monika Solberg — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

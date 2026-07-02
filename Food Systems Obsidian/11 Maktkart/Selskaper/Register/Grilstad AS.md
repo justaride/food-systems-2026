@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 10.130 — Produksjon av kjøtt- og fjørfevarer
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Anton Jenssen — styremedlem

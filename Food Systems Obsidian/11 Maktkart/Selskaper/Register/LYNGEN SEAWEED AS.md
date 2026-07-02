@@ -20,20 +20,12 @@ tier: periferi
 - NACE: 10.203 — Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Annbjørg Terese Reiersen — styreleder
 - Arne Samuelsen — styremedlem
 
-## Forsyningskjede
-
-- Ingen registrert i eksporten.
-
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 

@@ -20,10 +20,6 @@ tier: periferi
 - NACE: 46.170 — Agenturhandel med nærings- og nytelsesmidler
 - Research-konstrukt: nei
 
-## Eierskap
-
-- Ingen registrert i eksporten.
-
 ## Styreverv
 
 - Huib Jan Van Der Burg — CEO
@@ -38,7 +34,7 @@ tier: periferi
 - [[Hansa Borg AS]] → supplier — Hansa Borg leverer drikkevarer til Servicegrossistene (foodservice)
 - [[Ringnes AS]] → supplier — Ringnes leverer drikkevarer til Servicegrossistene (foodservice)
 
-## Eiendom
+## Registrerte relasjoner
 
 - Ingen registrert i eksporten.
 
