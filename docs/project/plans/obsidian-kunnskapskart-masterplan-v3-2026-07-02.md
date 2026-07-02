@@ -3,11 +3,17 @@ tittel: Masterplan V3 — Fra komplett vault til lesbart kart (Obsidian)
 status: utkast-til-godkjenning
 eier: Gabriel
 dato: 2026-07-02
-erstatter: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md (V2-planen; VK-0–VK-4 anses levert via PR #228)
+erstatter: docs/project/plans/archive/obsidian-kunnskapskart-masterplan-2026-07-02.md (V2-planen; VK-0–VK-4 anses levert via PR #228)
 arbeidsflate: Food Systems Obsidian/ (vault i repo-roten)
 formål: Analyse-cockpit + visningsflate (besluttet 2026-07-02)
 utfører: Codex via goal-prompt; menneskelige gates markert eksplisitt
 bruksregel: Internt arbeidskart. Ekstern bruk av tall/claims krever claim-lock/siterbarhets-gate (.claude/source-attribution-policy.md).
+relaterte_filer:
+  - scripts/obsidian-vault/sync.ts
+  - scripts/obsidian-vault/review-preflight.ts
+  - scripts/obsidian-vault/review-closeout.ts
+  - docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md
+  - docs/miro-kart-kunnskapsgrunnlag-blueprint.md
 ---
 
 # Masterplan V3: Fra komplett vault til lesbart kart
@@ -20,9 +26,9 @@ bruksregel: Internt arbeidskart. Ekstern bruk av tall/claims krever claim-lock/s
 
 ### 1.1 Faktagrunnlag (verifisert mot branchen 2026-07-02)
 
-- PR #228 = 4 commits (`eb9950f` … `31fbd58`). Vault på branchen: **561 md-noter + 29 canvas**.
-- Sammensetning: `11 Maktkart` 540 filer (354 selskapsnoter, 182 personnoter), `10 Innsiktskart` 126, `12 Kilder` 46, arkivlaget (`0 Kart` + klynge 1–9) ca. 70.
-- Canvas: Kunnskapskart 47 noder/17 kanter, Maktkart 31/33, Verdikjedekart 42/57, 25 konsern-canvas, 2 temacanvas.
+- PR #228 = 4 commits (`eb9950f` … `31fbd58`). Vault på branchen: **764 md-noter + 30 canvas**.
+- Sammensetning: `11 Maktkart` 540 filer (354 selskapsnoter, 182 personnoter), `10 Innsiktskart` 126, `12 Kilder` 46, arkiv-/navigasjonslaget (`0 Kart`, klynge 1–9 og Welcome) 52.
+- Canvas: Kunnskapskart 47 noder/17 kanter, Maktkart 31/33, Verdikjedekart 42/57, Oversiktskart, 25 konsern-canvas og 2 temacanvas.
 - `.obsidian/graph.json`: 10 fargegrupper per mappe; `search: ""` (ingen default-filter), `showOrphans: true`.
 - Infrastruktur: `vault:sync` er idempotent med `## Notater`-merge; `vault:check` dekker wikilenker, frontmatter, canvas-integritet, Dataview-fences, gap→mission, AP-1-bruksregel m.m.; eksport er committede JSON-er i `data/vault-export/` (DB-fri build bevart); 651/651 tester grønne.
 
@@ -35,9 +41,9 @@ bruksregel: Internt arbeidskart. Ekstern bruk av tall/claims krever claim-lock/s
 
 ### 1.3 Kritiske funn — hvorfor du ikke får oversiktsbilde
 
-**F1 — Du ser sannsynligvis ikke V2 i det hele tatt.** Vaulten på disk i prosjektmappa er en *eldre generasjon* (214 noter, gammel Welcome uten frontmatter, python-æraens struktur). V2-vaulten (561 noter) ligger kun på PR-branchen. Å vurdere kartet fra lokal disk gir et falskt bilde. Dette er også en prosessvarsling: ugitte vault-kopier på disk kan avvike stille fra repo-sannheten (samme felle forklarer trolig at completion-auditen rapporterer «764 noter» mens branchen har 561).
+**F1 — Du ser sannsynligvis ikke V2 i det hele tatt.** Vaulten på disk i prosjektmappa er en *eldre generasjon* (214 noter, gammel Welcome uten frontmatter, python-æraens struktur). V2-vaulten (764 noter) ligger kun på PR-branchen. Å vurdere kartet fra lokal disk gir et falskt bilde. Dette er også en prosessvarsling: ugitte vault-kopier på disk kan avvike stille fra repo-sannheten, så tall skal tas fra branchens tracked vault og `vault:check` heller enn fra lokale mapper.
 
-**F2 — Signalet drukner i DB-stubber.** 95 % av notene er generert fra DB-eksporten. `0000 NORGE AS` (eventarrangør, verdikjedeledd «ukjent») har samme nodevekt i grafen som NorgesGruppen ASA. Med `search: ""` og `showOrphans: true` åpner global graf som en hårball av 561 noder der de ~120 kuraterte innsikts-/makt-nodene er i mindretall 4:1. V2-planens egen VK-5-sjekkliste forutså dette («vurder -path-filtre»), men default-konfigurasjonen skiller ikke kjerne fra periferi. **Kartet er komplett, men ikke lesbart — dette er hovedproblemet V3 løser.**
+**F2 — Signalet drukner i DB-stubber.** Majoriteten av notene er generert fra DB-eksporten. `0000 NORGE AS` (eventarrangør, verdikjedeledd «ukjent») har samme nodevekt i grafen som NorgesGruppen ASA. Med `search: ""` og `showOrphans: true` åpner global graf som en hårball av 764 noter der de ~120 kuraterte innsikts-/makt-nodene er i mindretall. V2-planens egen VK-5-sjekkliste forutså dette («vurder -path-filtre»), men default-konfigurasjonen skiller ikke kjerne fra periferi. **Kartet er komplett, men ikke lesbart — dette er hovedproblemet V3 løser.**
 
 **F3 — Legacy slash-filnavn ødelegger noter i grafen.** 8 noter fra python-generasjonen med `/` i tittel ligger som *nestede mapper* i vaulten (3 gaps, 5 looper — verifisert på branchen): `Gap – N/P/K fra oppdrett til fjord…` er lagret som mappe `Gap – N` → `P` → notefil `K fra oppdrett….md`; tilsvarende `Gap – Husdyrgjodsel-N tap til luft/vann`, `Gap – N/P/K i matsvinn…`, `Loop – Fiskeavfall til fiskemel/olje`, `Loop – Gasum tverrnordisk biogass (Finland/Sverige/Norge)`, `Loop – Gratis skolemat (Finland/Sverige)`, `Loop – Potetskall og -trim til for/biogass` og `Loop – REKO-ringer direktesalg (Finland/Sverige/Norge)`. I graf og lenker vises kun siste segment («Norge)», «K fra oppdrett…»). Ny kode (`noteFileName`) saniterer korrekt, men de eksisterende filene ble aldri migrert. Auditens «Slash-/nordiske navn handteres — Oppfylt» er sann for koden og usann for innholdet.
 
@@ -47,7 +53,7 @@ bruksregel: Internt arbeidskart. Ekstern bruk av tall/claims krever claim-lock/s
 
 **F6 — Små generatorfeil svekker inntrykket.** Selskapsnotene dupliserer tomstands-linjen («Ingen registrert i eksporten.» × 2 under både Eierskap og Forsyningskjede). Trivielt, men synlig på 350+ noter.
 
-**F7 — Prosessmaskineriet har vokst forbi kartet.** Review-apparatet (masterplan + completion-audit + VK-5-protokoll + status + kandidatgodkjenning + preflight/samples/closeout-skript) inneholder samme ~200-ords kravliste limt inn 3–4 ganger, og talluoverensstemmelser mellom dokumentene (764 vs. 561 noter; 275 vs. 351 selskaper i DB-universet). Intensjonen (anti-overclaim, i tråd med CLAUDE.md) er riktig; utførelsen har blitt selvrefererende byråkrati som er dyrere å vedlikeholde enn kartet selv, og som svekker tilliten når tallene spriker.
+**F7 — Prosessmaskineriet har vokst forbi kartet.** Review-apparatet (masterplan + completion-audit + VK-5-protokoll + status + kandidatgodkjenning + preflight/samples/closeout-skript) gjentok samme reviewkrav flere steder, og talluoverensstemmelser mellom dokumentene svekket tilliten. Intensjonen (anti-overclaim, i tråd med CLAUDE.md) er riktig; utførelsen må være slankere: protokollen er kanonisk kravliste, vaulttall kommer fra sync/check-output, og DB-universet kommer fra `data/vault-export/manifest.json`.
 
 ### 1.4 Samlet vurdering
 
@@ -87,7 +93,7 @@ Kartet er både analyse-cockpit og visningsflate når:
 
 ### M2 — Innholdsløft der det betyr noe (CODEX foreslår → MENNESKE godkjenner)
 
-1. **Selvbærende innsiktsnoter.** I27–I38-notene (de 6 genererte) utvides med tallgrunnlaget fra kildedokumentene (AP-1/AP-5-tall, fokusområdene, objective-function-kriteriene) etter samme mal som I01–I26. Codex genererer utkast; endringer i claim-språk går via godkjenningsarket.
+1. **Selvbærende innsiktsnoter.** De seks genererte utkastnotene I27, I31, I34, I36, I37 og I38 utvides med tallgrunnlaget fra kildedokumentene (AP-1/AP-5-tall, fokusområdene, objective-function-kriteriene) etter samme mal som I01–I26. Codex genererer utkast; endringer i claim-språk går via godkjenningsarket.
 2. **Kuratert sammendrag på kjerneaktørene.** De ~30 kjerneselskaps-/aktørnotene (konsernrøtter + regulatorer + eierfamilier) får en generert «Posisjon i systemet»-seksjon: 3–5 setninger fra research-syntesen (narrativ-struktur, konsern-coverage, AP-funn) med kildelenke — over `## Notater`, styrt seksjon.
 3. **Avklar de parkerte I28–I35.** Egen claim-lock/datareview-økt (menneske + Claude): godkjenn, omformuler eller forkast endelig. Parkert-status skal ikke bli permanent limbo.
 4. **Stakeholder-laget fylles** (menneskelig oppgave med skjelett fra VK-4): `ask`, `prioritet`, `relasjon` på de 15 stakeholder-notene.
@@ -106,7 +112,7 @@ Kartet er både analyse-cockpit og visningsflate når:
 
 1. Konsolider `vault:review-preflight`/`review-samples`/`review-closeout`-logikken: behold funksjonaliteten, men flytt kravlistene til **ett** kanonisk dokument (review-protokollen); status- og audit-dokumentene refererer med lenke i stedet for å gjenta. Skriptene består, prosaen dedupliseres.
 2. Rett talluoverensstemmelsene: én kanonisk kilde for notetall (sync-loggen/`vault:check`-output), én for DB-universet (`data/vault-export/manifest.json`); dokumentene siterer, ikke gjentar.
-3. Arkiver V2-planen og completion-auditen under `docs/project/plans/archive/` med pekere hit.
+3. Arkiver V2-planen og completion-auditen under `docs/project/plans/archive/` med pekere hit. De aktive status-/auditnotatene skal være korte indeksnotater, ikke nye kopier av reviewkravlisten.
 
 **Akseptanse:** ingen kravliste finnes i mer enn ett dokument; alle antall i styringsdokumentene kan spores til kanonisk kilde; gates fortsatt grønne/røde som før (closeout feiler fortsatt før M5).
 
