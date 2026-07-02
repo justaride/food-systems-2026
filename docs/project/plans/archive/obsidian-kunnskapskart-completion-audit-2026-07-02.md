@@ -8,6 +8,8 @@ statusnotat: docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07
 vk5_review_protokoll: docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md
 ---
 
+> Arkivert av V3/M4 2026-07-02. Aktiv styring ligger i `docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md`; live status ligger i `docs/project/plans/obsidian-kunnskapskart-vk5-review-status-2026-07-02.md`; kanonisk VK-5-kravliste ligger i `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.
+
 # Obsidian kunnskapskart - completion audit
 
 Denne filen er nå en kort repo-lokal auditpeker. Den fullstendige V2-auditen er arkivert i `docs/project/plans/archive/obsidian-kunnskapskart-completion-audit-2026-07-02.md`.
@@ -19,10 +21,10 @@ Repo-lokal V2/M1-infrastruktur kan forberede VK-5, men `/goal` er ikke komplett 
 ## Autoritativ evidens
 
 - Fase- og stopplinjer: `docs/project/plans/obsidian-kunnskapskart-masterplan-v3-2026-07-02.md`.
-- Kanonisk VK-5-kravliste: `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.
+- Review-kravliste og beslutningsrader: `docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md`.
 - Historisk krav-for-krav audit fra V2: `docs/project/plans/archive/obsidian-kunnskapskart-completion-audit-2026-07-02.md`.
-- Notetall kilde: `npm run vault:sync` og `npm run vault:check`.
-- DB-univers kilde: `data/vault-export/manifest.json`.
+- Vault-/notetall: siste `npm run vault:sync` og `npm run vault:check` output.
+- DB-univers: `data/vault-export/manifest.json`.
 - Maskinelle VK-5-stikkprøver: `npm run vault:review-samples`.
 
 ## Stopplinje

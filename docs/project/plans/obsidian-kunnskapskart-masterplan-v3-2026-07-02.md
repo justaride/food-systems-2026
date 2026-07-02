@@ -3,7 +3,7 @@ tittel: Masterplan V3 — Fra komplett vault til lesbart kart (Obsidian)
 status: utkast-til-godkjenning
 eier: Gabriel
 dato: 2026-07-02
-erstatter: docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md (V2-planen; VK-0–VK-4 anses levert via PR #228)
+erstatter: docs/project/plans/archive/obsidian-kunnskapskart-masterplan-2026-07-02.md (V2-planen; VK-0–VK-4 anses levert via PR #228)
 arbeidsflate: Food Systems Obsidian/ (vault i repo-roten)
 formål: Analyse-cockpit + visningsflate (besluttet 2026-07-02)
 utfører: Codex via goal-prompt; menneskelige gates markert eksplisitt
@@ -47,7 +47,7 @@ bruksregel: Internt arbeidskart. Ekstern bruk av tall/claims krever claim-lock/s
 
 **F6 — Små generatorfeil svekker inntrykket.** Selskapsnotene dupliserer tomstands-linjen («Ingen registrert i eksporten.» × 2 under både Eierskap og Forsyningskjede). Trivielt, men synlig på 350+ noter.
 
-**F7 — Prosessmaskineriet har vokst forbi kartet.** Review-apparatet (masterplan + completion-audit + VK-5-protokoll + status + kandidatgodkjenning + preflight/samples/closeout-skript) inneholder samme ~200-ords kravliste limt inn 3–4 ganger, og talluoverensstemmelser mellom dokumentene (764 vs. 561 noter; 275 vs. 351 selskaper i DB-universet). Intensjonen (anti-overclaim, i tråd med CLAUDE.md) er riktig; utførelsen har blitt selvrefererende byråkrati som er dyrere å vedlikeholde enn kartet selv, og som svekker tilliten når tallene spriker.
+**F7 — Prosessmaskineriet har vokst forbi kartet.** Review-apparatet (masterplan + completion-audit + VK-5-protokoll + status + kandidatgodkjenning + preflight/samples/closeout-skript) gjentok samme reviewkrav flere steder, og talluoverensstemmelser mellom dokumentene svekket tilliten. Intensjonen (anti-overclaim, i tråd med CLAUDE.md) er riktig; utførelsen må være slankere: protokollen er kanonisk kravliste, vaulttall kommer fra sync/check-output, og DB-universet kommer fra `data/vault-export/manifest.json`.
 
 ### 1.4 Samlet vurdering
 
@@ -106,7 +106,7 @@ Kartet er både analyse-cockpit og visningsflate når:
 
 1. Konsolider `vault:review-preflight`/`review-samples`/`review-closeout`-logikken: behold funksjonaliteten, men flytt kravlistene til **ett** kanonisk dokument (review-protokollen); status- og audit-dokumentene refererer med lenke i stedet for å gjenta. Skriptene består, prosaen dedupliseres.
 2. Rett talluoverensstemmelsene: én kanonisk kilde for notetall (sync-loggen/`vault:check`-output), én for DB-universet (`data/vault-export/manifest.json`); dokumentene siterer, ikke gjentar.
-3. Arkiver V2-planen og completion-auditen under `docs/project/plans/archive/` med pekere hit.
+3. Arkiver V2-planen og completion-auditen under `docs/project/plans/archive/` med pekere hit. De aktive status-/auditnotatene skal være korte indeksnotater, ikke nye kopier av reviewkravlisten.
 
 **Akseptanse:** ingen kravliste finnes i mer enn ett dokument; alle antall i styringsdokumentene kan spores til kanonisk kilde; gates fortsatt grønne/røde som før (closeout feiler fortsatt før M5).
 
