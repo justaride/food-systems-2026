@@ -4,6 +4,7 @@ import { parseCsvRecords } from '../../src/lib/csv'
 import {
   applyManagedSection,
   buildGraphSettings,
+  buildM2DraftSections,
   buildMeetingTranscriptArtifacts,
   buildRegisterArtifact,
   buildStakeholderArtifacts,
@@ -47,6 +48,7 @@ if (!checkOnly) {
   syncMeetingTranscriptSources()
   syncStakeholderSources()
   syncVaultExport()
+  syncM2DraftSections()
   syncTopologyRegisters()
 }
 
@@ -428,6 +430,7 @@ function syncVaultExport() {
   const exportDir = join(repoRoot, 'data', 'vault-export')
   if (!existsSync(join(exportDir, 'manifest.json'))) return
   const ap1BridgeNames = readAp1BridgeNames()
+  const m2DraftSectionsByPath = new Map(buildM2DraftSections().map((section) => [section.relPath, section]))
 
   const result = buildVaultExportArtifacts({
     manifest: readJson(join(exportDir, 'manifest.json')),
@@ -448,7 +451,11 @@ function syncVaultExport() {
     const target = join(vaultPath, file.path)
     mkdirSync(dirname(target), { recursive: true })
     const before = existsSync(target) ? readFileSync(target, 'utf8') : undefined
-    const after = file.path.endsWith('.md') ? mergeGeneratedNote(file.content, before) : file.content
+    let after = file.path.endsWith('.md') ? mergeGeneratedNote(file.content, before) : file.content
+    const m2DraftSection = m2DraftSectionsByPath.get(file.path)
+    if (m2DraftSection && file.path.endsWith('.md')) {
+      after = applyManagedSection(after, m2DraftSection.heading, m2DraftSection.body)
+    }
     if (after !== before) {
       writeFileSync(target, after)
       changed += 1
@@ -457,6 +464,28 @@ function syncVaultExport() {
   const staleRemoved = removeStaleExportArtifacts(expectedPaths)
 
   console.log(`${result.summaryLine} changed=${changed} staleRemoved=${staleRemoved}`)
+}
+
+function syncM2DraftSections() {
+  const sections = buildM2DraftSections()
+  let changed = 0
+  let skipped = 0
+
+  for (const section of sections) {
+    const filePath = join(vaultPath, section.relPath)
+    if (!existsSync(filePath)) {
+      skipped += 1
+      continue
+    }
+    const before = readFileSync(filePath, 'utf8')
+    const after = applyManagedSection(before, section.heading, section.body)
+    if (after !== before) {
+      writeFileSync(filePath, after)
+      changed += 1
+    }
+  }
+
+  console.log(`vault:sync m2-drafts targets=${sections.length} changed=${changed} skipped=${skipped}`)
 }
 
 function readJson(path: string) {

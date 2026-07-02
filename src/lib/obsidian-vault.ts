@@ -2,6 +2,9 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { basename, dirname, join, relative } from 'node:path'
 import postcss from 'postcss'
 
+export { buildM2DraftSections } from './obsidian-vault-m2'
+export type { M2DraftSection } from './obsidian-vault-m2'
+
 const NOTES_MARKER = '## Notater'
 
 const REQUIRED_FRONTMATTER = ['type', 'status', 'kilde', 'siterbarhet'] as const
@@ -294,6 +297,30 @@ export type VaultIssue = {
   file: string
   message: string
 }
+
+const M2_SELF_CONTAINED_INSIGHT_REQUIREMENTS = new Map<string, string[]>([
+  [
+    'I27 Styreoverlappet peker på smale broer',
+    ['555 styreverv', '32 interlockere', '11 tverrsektorielle broer', '98 av 275'],
+  ],
+  [
+    'I31 Krysseie må leses som kontrollbaner',
+    ['19 tverrsektorielle kontrollører', '39 selskaper', '183 av 275', '67 %'],
+  ],
+  [
+    'I34 Fem fokusområder gjør kartet handlingsrettet',
+    ['11/12', '10/12', 'Importert fôr', 'Matsvinn', 'Strukturell konkurranse'],
+  ],
+  [
+    'I36 Næringsgjenvinning er et prioritert gap',
+    ['66 000 tonn nitrogen', '14 000 tonn fosfor', 'omtrent to prosent', '218 000 tonn'],
+  ],
+  ['I37 Maktkartet må leses gjennom fire linser', ['AP-3', 'AP-1', 'AP-2', 'AP-5', '183 av 275']],
+  [
+    'I38 Objective-function skiller beslutning fra publisering',
+    ['Sett II', 'Resiliens/forsyningssikkerhet', 'Sirkularitet/ressurseffektivitet', 'Bondeøkonomi/distrikt'],
+  ],
+])
 
 type InsightCandidateApprovalRow = {
   title: string
@@ -1104,6 +1131,7 @@ export function validateVault(
       if (!hasSourceNoteLink) {
         issues.push({ file: rel, message: 'insight note must link at least one source note' })
       }
+      validateM2SelfContainedInsightNote(rel, source, issues)
     }
 
     if (
@@ -1211,6 +1239,23 @@ export function validateVault(
   }
 
   return { issues }
+}
+
+function validateM2SelfContainedInsightNote(rel: string, source: string, issues: VaultIssue[]) {
+  if (!rel.startsWith(join('10 Innsiktskart', 'Innsikter') + '/')) return
+
+  const requiredSnippets = M2_SELF_CONTAINED_INSIGHT_REQUIREMENTS.get(inferTitle(source, rel))
+  if (!requiredSnippets) return
+
+  if (!/^## Tallgrunnlag og forbehold$/m.test(source)) {
+    issues.push({ file: rel, message: 'M2 insight note must include ## Tallgrunnlag og forbehold' })
+  }
+
+  for (const snippet of requiredSnippets) {
+    if (!source.includes(snippet)) {
+      issues.push({ file: rel, message: `M2 insight note is missing required evidence text: ${snippet}` })
+    }
+  }
 }
 
 const AP1_USAGE_RULE =

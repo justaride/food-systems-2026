@@ -70,6 +70,15 @@ tier: kjerne
 
 - [[Maktkartet]]
 - [[Eierskapsregisteret]]
+
+## Posisjon i systemet (utkast, krever godkjenning)
+
+Krever menneskelig godkjenning: Codex-utkast for intern review; claim-lock og siterbarhet må godkjennes før ekstern bruk.
+
+Posisjonstekst: Felleskjøpet Agri er et samvirkebasert innstrømsanker for landbruk, med rolle i innsatsfaktorer, korn/fôr og produsentnære tjenester. I M2 bør noten bruke selskapet som bro mellom bondeøkonomi, importert fôr og sirkularitets-/robusthetsspørsmål.
+
+Kilde: `docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md`
+Review-ask: Godkjenn, juster eller dropp posisjonsteksten før den brukes som kuratert selskapsbeskrivelse.
 ## Notater
 
 _Utvikles gjennom prosjektet._

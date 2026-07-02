@@ -46,6 +46,15 @@ tier: kjerne
 
 - [[Maktkartet]]
 - [[Eierskapsregisteret]]
+
+## Posisjon i systemet (utkast, krever godkjenning)
+
+Krever menneskelig godkjenning: Codex-utkast for intern review; claim-lock og siterbarhet må godkjennes før ekstern bruk.
+
+Posisjonstekst: ASKO Midt-Norge er en regional distribusjonsnode i samme grossistlag som ASKO Norge. I M2 bør den forklares som en geografisk forlengelse av logistikkflaten, nyttig for å se hvor nasjonale konsernstrukturer møter regionale forsyningslinjer.
+
+Kilde: `docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md`
+Review-ask: Godkjenn, juster eller dropp posisjonsteksten før den brukes som kuratert selskapsbeskrivelse.
 ## Notater
 
 _Utvikles gjennom prosjektet._

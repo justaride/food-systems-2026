@@ -60,6 +60,15 @@ tier: kjerne
 
 - [[Maktkartet]]
 - [[Eierskapsregisteret]]
+
+## Posisjon i systemet (utkast, krever godkjenning)
+
+Krever menneskelig godkjenning: Codex-utkast for intern review; claim-lock og siterbarhet må godkjennes før ekstern bruk.
+
+Posisjonstekst: REMA Distribusjon Norge er distribusjonslaget som gjør Reitan-systemets retailposisjon logistisk konkret. Noten bør forklare hvorfor logistikk-retail er et viktig sektorpar i AP-1/AP-5, uten å hevde samordning utover dokumentert selskapsstruktur.
+
+Kilde: `docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md`
+Review-ask: Godkjenn, juster eller dropp posisjonsteksten før den brukes som kuratert selskapsbeskrivelse.
 ## Notater
 
 _Utvikles gjennom prosjektet._

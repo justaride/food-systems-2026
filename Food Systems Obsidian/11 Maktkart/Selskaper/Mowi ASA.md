@@ -68,6 +68,15 @@ tier: kjerne
 
 - [[Maktkartet]]
 - [[Eierskapsregisteret]]
+
+## Posisjon i systemet (utkast, krever godkjenning)
+
+Krever menneskelig godkjenning: Codex-utkast for intern review; claim-lock og siterbarhet må godkjennes før ekstern bruk.
+
+Posisjonstekst: Mowi er et globalt havbruksanker i kartet og relevant for sporene om fôr, næringsstofftap og robusthet. M2-teksten bør koble selskapet til akvakulturens materialstrømmer og ikke gjøre selskapsspesifikke miljøpåstander uten separat kildebelegg.
+
+Kilde: `content/hvitbok/03-fokusomraader.md`
+Review-ask: Godkjenn, juster eller dropp posisjonsteksten før den brukes som kuratert selskapsbeskrivelse.
 ## Notater
 
 _Utvikles gjennom prosjektet._
