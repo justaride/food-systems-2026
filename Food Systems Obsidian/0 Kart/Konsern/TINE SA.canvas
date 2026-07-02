@@ -1,0 +1,75 @@
+{
+  "nodes": [
+    {
+      "id": "cmp8xyt3l0037xrvmpzlb3lbw",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/TINE SA.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri0dr0000f9vmiy61mp13",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Diplom-Is AS.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri00g0008eavm9nehuayh",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Fjordland AS.md",
+      "x": 360,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri0eg0007f9vm26qz4x4y",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kukraft AS.md",
+      "x": 360,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri0ef0006f9vmzzgd0s6s",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Mimiro Holding AS.md",
+      "x": 360,
+      "y": 640,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmp8xyt3l0037xrvmpzlb3lbw-cmq8ri0dr0000f9vmiy61mp13",
+      "fromNode": "cmp8xyt3l0037xrvmpzlb3lbw",
+      "toNode": "cmq8ri0dr0000f9vmiy61mp13",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt3l0037xrvmpzlb3lbw-cmq8ri00g0008eavm9nehuayh",
+      "fromNode": "cmp8xyt3l0037xrvmpzlb3lbw",
+      "toNode": "cmq8ri00g0008eavm9nehuayh",
+      "label": "51.10 %"
+    },
+    {
+      "id": "cmp8xyt3l0037xrvmpzlb3lbw-cmq8ri0eg0007f9vm26qz4x4y",
+      "fromNode": "cmp8xyt3l0037xrvmpzlb3lbw",
+      "toNode": "cmq8ri0eg0007f9vm26qz4x4y",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt3l0037xrvmpzlb3lbw-cmq8ri0ef0006f9vmzzgd0s6s",
+      "fromNode": "cmp8xyt3l0037xrvmpzlb3lbw",
+      "toNode": "cmq8ri0ef0006f9vmzzgd0s6s",
+      "label": "56.60 %"
+    }
+  ]
+}

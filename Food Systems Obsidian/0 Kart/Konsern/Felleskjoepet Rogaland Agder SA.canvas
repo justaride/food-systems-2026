@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    {
+      "id": "cmq8ri0s6000bg8vm7vuywe14",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Felleskjoepet Rogaland Agder SA.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri0s9000gg8vm4fgpt60f",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Fiskaa Molle AS.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmq8ri0s6000bg8vm7vuywe14-cmq8ri0s9000gg8vm4fgpt60f",
+      "fromNode": "cmq8ri0s6000bg8vm7vuywe14",
+      "toNode": "cmq8ri0s9000gg8vm4fgpt60f",
+      "label": "100 %"
+    }
+  ]
+}

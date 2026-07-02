@@ -1,0 +1,142 @@
+{
+  "nodes": [
+    {
+      "id": "sammenligning",
+      "type": "file",
+      "file": "6 Nordisk/Sammenligning.md",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 90,
+      "color": "#7C3AED"
+    },
+    {
+      "id": "norge",
+      "type": "file",
+      "file": "10 Innsiktskart/Norden/Norge.md",
+      "x": 0,
+      "y": 180,
+      "width": 260,
+      "height": 70,
+      "color": "#7C3AED"
+    },
+    {
+      "id": "sverige",
+      "type": "file",
+      "file": "10 Innsiktskart/Norden/Sverige.md",
+      "x": 300,
+      "y": 180,
+      "width": 260,
+      "height": 70,
+      "color": "#7C3AED"
+    },
+    {
+      "id": "danmark",
+      "type": "file",
+      "file": "10 Innsiktskart/Norden/Danmark.md",
+      "x": 600,
+      "y": 180,
+      "width": 260,
+      "height": 70,
+      "color": "#7C3AED"
+    },
+    {
+      "id": "finland",
+      "type": "file",
+      "file": "10 Innsiktskart/Norden/Finland.md",
+      "x": 900,
+      "y": 180,
+      "width": 260,
+      "height": 70,
+      "color": "#7C3AED"
+    },
+    {
+      "id": "i10",
+      "type": "file",
+      "file": "10 Innsiktskart/Innsikter/I10 Hele Norden er høykonsentrert.md",
+      "x": 360,
+      "y": 0,
+      "width": 320,
+      "height": 80,
+      "color": "#DB2777"
+    },
+    {
+      "id": "i13",
+      "type": "file",
+      "file": "10 Innsiktskart/Innsikter/I13 Finland – duopol med sterkest regulering.md",
+      "x": 900,
+      "y": 320,
+      "width": 300,
+      "height": 80,
+      "color": "#DB2777"
+    },
+    {
+      "id": "loop-biogass",
+      "type": "file",
+      "file": "10 Innsiktskart/Looper/Loop – Biogass fra matavfall (Danmark).md",
+      "x": 600,
+      "y": 320,
+      "width": 300,
+      "height": 70,
+      "color": "#0891B2"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-sammen-i10",
+      "fromNode": "sammenligning",
+      "fromSide": "right",
+      "toNode": "i10",
+      "toSide": "left",
+      "color": "#7C3AED"
+    },
+    {
+      "id": "e-i10-no",
+      "fromNode": "i10",
+      "fromSide": "bottom",
+      "toNode": "norge",
+      "toSide": "top",
+      "color": "#DB2777"
+    },
+    {
+      "id": "e-i10-se",
+      "fromNode": "i10",
+      "fromSide": "bottom",
+      "toNode": "sverige",
+      "toSide": "top",
+      "color": "#DB2777"
+    },
+    {
+      "id": "e-i10-dk",
+      "fromNode": "i10",
+      "fromSide": "bottom",
+      "toNode": "danmark",
+      "toSide": "top",
+      "color": "#DB2777"
+    },
+    {
+      "id": "e-i10-fi",
+      "fromNode": "i10",
+      "fromSide": "bottom",
+      "toNode": "finland",
+      "toSide": "top",
+      "color": "#DB2777"
+    },
+    {
+      "id": "e-dk-loop",
+      "fromNode": "danmark",
+      "fromSide": "bottom",
+      "toNode": "loop-biogass",
+      "toSide": "top",
+      "color": "#0891B2"
+    },
+    {
+      "id": "e-fi-i13",
+      "fromNode": "finland",
+      "fromSide": "bottom",
+      "toNode": "i13",
+      "toSide": "top",
+      "color": "#DB2777"
+    }
+  ]
+}

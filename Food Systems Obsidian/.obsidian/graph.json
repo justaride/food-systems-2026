@@ -1,0 +1,93 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "path:\"10 Innsiktskart/Ledd\"",
+      "color": {
+        "a": 1,
+        "rgb": 1409085
+      }
+    },
+    {
+      "query": "path:\"10 Innsiktskart/Aktører\"",
+      "color": {
+        "a": 1,
+        "rgb": 1920728
+      }
+    },
+    {
+      "query": "path:\"10 Innsiktskart/Stakeholders\"",
+      "color": {
+        "a": 1,
+        "rgb": 6333946
+      }
+    },
+    {
+      "query": "path:\"10 Innsiktskart/Innsikter\"",
+      "color": {
+        "a": 1,
+        "rgb": 14362487
+      }
+    },
+    {
+      "query": "path:\"10 Innsiktskart/Looper\"",
+      "color": {
+        "a": 1,
+        "rgb": 561586
+      }
+    },
+    {
+      "query": "path:\"10 Innsiktskart/Gaps\"",
+      "color": {
+        "a": 1,
+        "rgb": 15357964
+      }
+    },
+    {
+      "query": "path:\"10 Innsiktskart/Norden\"",
+      "color": {
+        "a": 1,
+        "rgb": 8141549
+      }
+    },
+    {
+      "query": "path:\"11 Maktkart/Selskaper\"",
+      "color": {
+        "a": 1,
+        "rgb": 6333946
+      }
+    },
+    {
+      "query": "path:\"11 Maktkart/Personer\"",
+      "color": {
+        "a": 1,
+        "rgb": 13273604
+      }
+    },
+    {
+      "query": "path:\"12 Kilder\"",
+      "color": {
+        "a": 1,
+        "rgb": 3342336
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 0.8321681732056168,
+  "close": true
+}

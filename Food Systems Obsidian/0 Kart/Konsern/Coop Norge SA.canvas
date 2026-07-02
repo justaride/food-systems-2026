@@ -1,0 +1,135 @@
+{
+  "nodes": [
+    {
+      "id": "cmp8xyt0w000jxrvm0iavgyro",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Coop Norge SA.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhysy0000bcvmf6z6l989",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Coop Norge Eiendom AS (988445177).md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhytt000hbcvm9gt4kaem",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Coop Norge Langhus Eiendom AS.md",
+      "x": 720,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhytt000ibcvmq8lmd64z",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Coop Norge Stavanger Eiendom AS.md",
+      "x": 720,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhytv000kbcvma23x5g3x",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Coop Norge Stavanger Eiendom II AS.md",
+      "x": 720,
+      "y": 640,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhytu000jbcvmsct42qc7",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Coop Norge Tromsoe Eiendom AS.md",
+      "x": 720,
+      "y": 800,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyts000gbcvmj7v68uod",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Coop Norge Trondheim Eiendom AS.md",
+      "x": 720,
+      "y": 960,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhytr000fbcvmhqg0763j",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Coop Norge Kaffe AS.md",
+      "x": 360,
+      "y": 1120,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhytn0008bcvmyop8cnn5",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Norsk Butikkdrift AS.md",
+      "x": 360,
+      "y": 1280,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmp8xyt0w000jxrvm0iavgyro-cmq8rhysy0000bcvmf6z6l989",
+      "fromNode": "cmp8xyt0w000jxrvm0iavgyro",
+      "toNode": "cmq8rhysy0000bcvmf6z6l989",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhysy0000bcvmf6z6l989-cmq8rhytt000hbcvm9gt4kaem",
+      "fromNode": "cmq8rhysy0000bcvmf6z6l989",
+      "toNode": "cmq8rhytt000hbcvm9gt4kaem",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhysy0000bcvmf6z6l989-cmq8rhytt000ibcvmq8lmd64z",
+      "fromNode": "cmq8rhysy0000bcvmf6z6l989",
+      "toNode": "cmq8rhytt000ibcvmq8lmd64z",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhysy0000bcvmf6z6l989-cmq8rhytv000kbcvma23x5g3x",
+      "fromNode": "cmq8rhysy0000bcvmf6z6l989",
+      "toNode": "cmq8rhytv000kbcvma23x5g3x",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhysy0000bcvmf6z6l989-cmq8rhytu000jbcvmsct42qc7",
+      "fromNode": "cmq8rhysy0000bcvmf6z6l989",
+      "toNode": "cmq8rhytu000jbcvmsct42qc7",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhysy0000bcvmf6z6l989-cmq8rhyts000gbcvmj7v68uod",
+      "fromNode": "cmq8rhysy0000bcvmf6z6l989",
+      "toNode": "cmq8rhyts000gbcvmj7v68uod",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt0w000jxrvm0iavgyro-cmq8rhytr000fbcvmhqg0763j",
+      "fromNode": "cmp8xyt0w000jxrvm0iavgyro",
+      "toNode": "cmq8rhytr000fbcvmhqg0763j",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt0w000jxrvm0iavgyro-cmq8rhytn0008bcvmyop8cnn5",
+      "fromNode": "cmp8xyt0w000jxrvm0iavgyro",
+      "toNode": "cmq8rhytn0008bcvmyop8cnn5",
+      "label": "100 %"
+    }
+  ]
+}

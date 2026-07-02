@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    {
+      "id": "cmq8ri3i8000knjvmtbp7h5if",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ISS A-S.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3hx0008njvmrts8ow0o",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ISS Facility Services AS.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmq8ri3i8000knjvmtbp7h5if-cmq8ri3hx0008njvmrts8ow0o",
+      "fromNode": "cmq8ri3i8000knjvmtbp7h5if",
+      "toNode": "cmq8ri3hx0008njvmrts8ow0o",
+      "label": "100 %"
+    }
+  ]
+}

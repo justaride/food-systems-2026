@@ -1,0 +1,203 @@
+---
+type: person
+status: generert
+kilde: data/vault-export/board-members.json
+siterbarhet: intern
+---
+
+# Personregister
+
+> DB-generert register over interlockere med minst to styreverv.
+
+## Interlockere
+
+- [[Truls Fjeldstad]] — 15 verv
+- [[Tore Bekken]] — 14 verv
+- [[Stig Børger Bratlie]] — 12 verv
+- [[Bjørn Strand]] — 11 verv
+- [[Runar Hollevik]] — 11 verv
+- [[Helge Christian Haugen]] — 10 verv
+- [[Ole Robert Reitan]] — 9 verv
+- [[Øistein Brevig Pjaaka]] — 9 verv
+- [[Jarle Gjerde]] — 7 verv
+- [[Johan Johannson]] — 7 verv
+- [[Christian Stange Eidem]] — 6 verv
+- [[Ingjald Sørhøy]] — 6 verv
+- [[Kristin Genton]] — 6 verv
+- [[Mette Lier]] — 6 verv
+- [[Arne Møgster]] — 5 verv
+- [[Bent Andersen]] — 5 verv
+- [[Jan Ole Stangeland]] — 5 verv
+- [[Kristine Stranne]] — 5 verv
+- [[Oyvind Andersen]] — 5 verv
+- [[Sjur Svenningsson Malm]] — 5 verv
+- [[Tina Bachmann]] — 5 verv
+- [[Anne Bech Torgersen]] — 4 verv
+- [[Grete Ovanger]] — 4 verv
+- [[Kjell Åge Stokbakken]] — 4 verv
+- [[Knut Hartvig Johannson]] — 4 verv
+- [[Lise Renee Skarpås]] — 4 verv
+- [[Magnus Reitan]] — 4 verv
+- [[Odd Reitan]] — 4 verv
+- [[Roger Nyeng]] — 4 verv
+- [[Stein Erik Hagen]] — 4 verv
+- [[Torgeir Herlofsen]] — 4 verv
+- [[Alf Christoffer Jahr]] — 3 verv
+- [[Andre Rolf Knüppel]] — 3 verv
+- [[Audun Stensvold]] — 3 verv
+- [[Bjarne Reinert]] — 3 verv
+- [[Britt Kathrine Drivenes]] — 3 verv
+- [[Einar Kleppe Holthe]] — 3 verv
+- [[Finn Rune Kristiansen]] — 3 verv
+- [[Finn Torstein Dybvik]] — 3 verv
+- [[Geir Alsaker]] — 3 verv
+- [[Gustav Witzøe]] — 3 verv
+- [[Helge Singelstad]] — 3 verv
+- [[Henning Kolbjørn Beltestad]] — 3 verv
+- [[Hilde Christin Talseth]] — 3 verv
+- [[Karen Mosebø Haukeland]] — 3 verv
+- [[Kenneth Hamnes]] — 3 verv
+- [[Kristine Aasheim]] — 3 verv
+- [[Magne Søvde]] — 3 verv
+- [[Maria Syse-Nybraaten]] — 3 verv
+- [[Nina Brendsrud-Andersen]] — 3 verv
+- [[Philipp Lasse Engedal]] — 3 verv
+- [[Rolf Gjermund Fjeldheim]] — 3 verv
+- [[Thomas Fredrik Palm]] — 3 verv
+- [[Torbjørn Johannson]] — 3 verv
+- [[Trond Fidje]] — 3 verv
+- [[Trude Venset Sleire]] — 3 verv
+- [[Ørjan Mortveit Tveiten]] — 3 verv
+- [[Øydis Nese Haavi]] — 3 verv
+- [[Ale Christer Løkken Arntzen]] — 2 verv
+- [[Anbjørn Øglend]] — 2 verv
+- [[Anders Budde]] — 2 verv
+- [[Anders Jon Fjellheim]] — 2 verv
+- [[Anders Korneliussen]] — 2 verv
+- [[André Tangerud]] — 2 verv
+- [[Anja Bratteli]] — 2 verv
+- [[Anna Mariette Kristensson]] — 2 verv
+- [[Anne Cathrine Berger]] — 2 verv
+- [[Anne-Grete Haugen]] — 2 verv
+- [[Annichen Elisabeth Haaland Fladager]] — 2 verv
+- [[Arttu-Pekka Vikstrom]] — 2 verv
+- [[Arve Regland]] — 2 verv
+- [[Asgeir Naalsund]] — 2 verv
+- [[Atle Rannestad Beyer]] — 2 verv
+- [[Bjarne Egil Kristiansen]] — 2 verv
+- [[Bjørn Oddvar Stabbetorp]] — 2 verv
+- [[Bjørn Ole Juul-Hansen]] — 2 verv
+- [[Bjørn Vik-Mo]] — 2 verv
+- [[Börje Mats Palmquist]] — 2 verv
+- [[Camilla Varhaug Søberg]] — 2 verv
+- [[Carl-Fredrik Bergan]] — 2 verv
+- [[Christian Rykke]] — 2 verv
+- [[Dag Roger Rinde]] — 2 verv
+- [[Dina Thune]] — 2 verv
+- [[Egil Giørtz]] — 2 verv
+- [[Einar Risnes]] — 2 verv
+- [[Eirik Kristoffer Myking]] — 2 verv
+- [[Elin Viken]] — 2 verv
+- [[Elisabeth Holand]] — 2 verv
+- [[Elisabeth Torget]] — 2 verv
+- [[Erik Gulbrandsen]] — 2 verv
+- [[Erik Norgaard]] — 2 verv
+- [[Erik Nyborg]] — 2 verv
+- [[Espen Arne Andresen]] — 2 verv
+- [[Frank Skjæveland]] — 2 verv
+- [[Frida Letnes]] — 2 verv
+- [[Frode Arntsen]] — 2 verv
+- [[Hans Petter Olsen]] — 2 verv
+- [[Hans Thorn Wittussen]] — 2 verv
+- [[Hege Holter Brekke]] — 2 verv
+- [[Ingrid Haugen Fougner]] — 2 verv
+- [[Ingrid Sofie Nielsen]] — 2 verv
+- [[Irene Egset]] — 2 verv
+- [[Ivan Vindheim]] — 2 verv
+- [[Ivar Sølberg]] — 2 verv
+- [[Jan Roar Nordby]] — 2 verv
+- [[Janne Toril Halvorsen]] — 2 verv
+- [[Jeanett Ivarna Lillesalt]] — 2 verv
+- [[Jill Heidi Eklund Akselsen]] — 2 verv
+- [[Joachim Rangø Andersen]] — 2 verv
+- [[Jon Lasse Garberg]] — 2 verv
+- [[Jonny Sletvold]] — 2 verv
+- [[Jostein Fjeld]] — 2 verv
+- [[Kai Ståle Knutsen]] — 2 verv
+- [[Kan Cao]] — 2 verv
+- [[Karen Ann Huffman]] — 2 verv
+- [[Karina Hinna]] — 2 verv
+- [[Karoline Møgster]] — 2 verv
+- [[Keilih Dahn Hagen Nyback]] — 2 verv
+- [[Kim Kristensen]] — 2 verv
+- [[Knut Bjørnsson Kjøsnes]] — 2 verv
+- [[Knut Magne Wilhelmsen]] — 2 verv
+- [[Kristen Kildal]] — 2 verv
+- [[Kristian Nergaard]] — 2 verv
+- [[Kristina Miriam Renberg]] — 2 verv
+- [[Kåre Breivik]] — 2 verv
+- [[Lars Arve Jakobsen]] — 2 verv
+- [[Lars Erik Olsen]] — 2 verv
+- [[Leif Inge Nordhammer]] — 2 verv
+- [[Leon Sejdiu]] — 2 verv
+- [[Levard Olsen-Hagen]] — 2 verv
+- [[Lill Maren Møgster]] — 2 verv
+- [[Line Margrethe Aarnes]] — 2 verv
+- [[Liv Gisele Marchand]] — 2 verv
+- [[Mads Pinnerød]] — 2 verv
+- [[Marianne Berge]] — 2 verv
+- [[Marte Helene Sølvsberg]] — 2 verv
+- [[Marte Kaarbø Mathisen]] — 2 verv
+- [[Mats Kristofer Stenersen Kallum]] — 2 verv
+- [[Monica Odegaard]] — 2 verv
+- [[Morten Laake]] — 2 verv
+- [[Ola Nilsen Brattvoll]] — 2 verv
+- [[Olaug Rebbestad]] — 2 verv
+- [[Olav Soleide]] — 2 verv
+- [[Ole Arthur Vaage]] — 2 verv
+- [[Ole Christian Solberg Fjeldheim]] — 2 verv
+- [[Ove Drange]] — 2 verv
+- [[Per Harald Vabø]] — 2 verv
+- [[Roald Valestrand]] — 2 verv
+- [[Robert Kollevag]] — 2 verv
+- [[Robert Leine]] — 2 verv
+- [[Roger Vangen]] — 2 verv
+- [[Rolf Sverre Asp]] — 2 verv
+- [[Rune Martin Folkestad]] — 2 verv
+- [[Rune Sakslo]] — 2 verv
+- [[Sara Elisabet Manne]] — 2 verv
+- [[Signe Sæter]] — 2 verv
+- [[Silje Elisabeth Hals]] — 2 verv
+- [[Stein Aukner]] — 2 verv
+- [[Stein Rommerud]] — 2 verv
+- [[Stian Frivåg]] — 2 verv
+- [[Svein Sollie]] — 2 verv
+- [[Svenn Ivar Fure]] — 2 verv
+- [[Therese Log Bergjord]] — 2 verv
+- [[Thomas Havnegjerde]] — 2 verv
+- [[Tor Harald Alvestad]] — 2 verv
+- [[Tor Roenhovde]] — 2 verv
+- [[Tor-Ivar Ingebrigtsen]] — 2 verv
+- [[Torgeir Johan Svae]] — 2 verv
+- [[Torild Huse]] — 2 verv
+- [[Trine Særvoll]] — 2 verv
+- [[Trond Fredrik Mellingsaeter]] — 2 verv
+- [[Trude Ulven]] — 2 verv
+- [[Vegar Normann Kulset]] — 2 verv
+- [[Vegard Kjuus]] — 2 verv
+- [[Vibeke Lamark]] — 2 verv
+- [[Wenche Holen]] — 2 verv
+- [[Yngve Haldorsen]] — 2 verv
+- [[Ørjan Svanevik]] — 2 verv
+- [[Øyvind Andreas Torpp]] — 2 verv
+- [[Øyvind Lorentzen]] — 2 verv
+- [[Øyvind Oaland]] — 2 verv
+
+⚠️ _Bruksregel (fra AP-1): «makt» betyr strukturell posisjon i styregrafen, ikke intensjon, samordning eller ulovlighet. Personnavn er offentlige rolledata, men aktørspesifikke formuleringer går gjennom claim-lock/PCQ før ekstern bruk._
+
+## Koblinger
+
+- [[Maktkartet]]
+## Notater
+
+_Utvikles gjennom prosjektet._

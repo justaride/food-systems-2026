@@ -1,0 +1,45 @@
+{
+  "nodes": [
+    {
+      "id": "cmq8ri3xs0005r2vmeot4mcul",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Joh Johannson Invest AS (NO-JJ-INV).md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3xs0006r2vm9wicie1g",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Bokveien 112 AS.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3xr0004r2vmyjnvo88z",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Joh. Johannson Eiendom AS.md",
+      "x": 360,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmq8ri3xs0005r2vmeot4mcul-cmq8ri3xs0006r2vm9wicie1g",
+      "fromNode": "cmq8ri3xs0005r2vmeot4mcul",
+      "toNode": "cmq8ri3xs0006r2vm9wicie1g",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri3xs0005r2vmeot4mcul-cmq8ri3xr0004r2vmyjnvo88z",
+      "fromNode": "cmq8ri3xs0005r2vmeot4mcul",
+      "toNode": "cmq8ri3xr0004r2vmyjnvo88z",
+      "label": "100 %"
+    }
+  ]
+}

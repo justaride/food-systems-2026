@@ -21,6 +21,27 @@
 
 ---
 
+## VK-4 — Obsidian Gap Missions
+
+Disse mission-radene er koblet direkte til norske gap-noder i `Food Systems Obsidian/10 Innsiktskart/Gaps/`. De er ikke claim-lockede funn; de er arbeidsoppdrag som skal fylle gap-nodene med data eller tydelig stoppe på manglende primærkilder.
+
+| Mission ID | Gap-node | Prioritet | Spørsmål som må besvares | Forventet returformat |
+|---|---|---|---|---|
+| VK4-GAP-001 | Gap – Biogass kapasitetsgap Norge vs Danmark | A | Hva forklarer forskjellen mellom norsk og dansk biogasskapasitet, og hvilke tall er primærkildebasert sammenlignbare? | Kort notat med kilder, tall, land-sammenligning og usikkerhet. |
+| VK4-GAP-002 | Gap – Fiskeavfall kastet i havet | A | Hvor mye marint restråstoff/fiskeavfall går tapt, og hvilke deler kan realistisk løftes i R-stigen? | Kildenotat med volum, avgrensning og relevante aktører. |
+| VK4-GAP-003 | Gap – Matsentralen kapasitetsgap | B | Hva er faktisk kapasitetsgap i matredistribusjon, og hvilke barrierer er logistikk, finansiering eller regelverk? | Mission-notat med baseline, flaskehalser og mulige partnere. |
+| VK4-GAP-004 | Gap – Mikroplast i biorest blokkerer gjodselbruk — gron pose-problemet | A | Hvilke dokumenterte kvalitetsbarrierer hindrer biorest som gjødsel, og hva er dokumentert effekt av pose-/plastproblemet? | Kildenotat med regelverk, kvalitetskrav og sitatbare kilder. |
+| VK4-GAP-005 | Gap – Norge mangler AX Foundation-ekvivalent for for-innovasjon | B | Finnes norske eller nordiske institusjoner som kan fylle AX Foundation-rollen for fôrinnovasjon? | Aktørkart med kandidater, roller og kontakt-/ask-felt. |
+| VK4-GAP-006 | Gap – Oppdrettsslam valorisering | A | Hvilke teknologier og regulatoriske betingelser er mest modne for oppdrettsslam til gjødsel, biokull eller biogass? | Teknologinotat med TRL, kilder og pilotkandidater. |
+| VK4-GAP-007 | Gap – Samlet norsk naeringsstoff-resirkuleringsgap (25-30% av import erstattbar) | A | Kan 25-30% importerstattbar næringsstoffpåstand støttes av primærkilder, eller må den nedgraderes? | Claim-lock-notat med beregning, kilder og beslutning. |
+| VK4-GAP-008 | Gap – Svartvann-fosfor kun 20-23% gjenvunnet (Norge) | B | Hva er beste norske baseline for fosforgjenvinning fra svartvann/avløp, og er 20-23% rett nivå? | Kildenotat med tallserie og metodeforbehold. |
+| VK4-GAP-009 | Gap – Svartvann-nitrogen ikke gjenvunnet (Norge) | B | Hva er status for nitrogengjenvinning i norske avløpssystemer, og hvilke teknologier er realistiske? | Kildenotat med teknologier, barrierer og kilder. |
+| VK4-GAP-010 | Gap – Husdyrgjodsel-N tap til luft/vann (Norge) | B | Hvor stort er nitrogen-tapet fra norsk husdyrgjødsel til luft/vann, og hvilke tiltak har best dokumentert effekt? | Kildenotat med baseline, virkemiddelvurdering og metodeforbehold. |
+| VK4-GAP-011 | Gap – N/P/K fra oppdrett til fjord — 70% av fornaringsstoffer tapt | A | Kan N/P/K-tap fra norsk oppdrett kvantifiseres med primærkilder, og hvilke fangst-/gjenvinningsteknologier er realistiske? | Claim-lock-notat med utslippsbaseline, teknologistatus og usikkerhet. |
+| VK4-GAP-012 | Gap – N/P/K i matsvinn til forbrenning — naeringsstoffer tapt | B | Hvor mye N/P/K går tapt når matavfall forbrennes fremfor behandles som organisk ressurs, og hvilke policygrep endrer flyten? | Kildenotat med volum, systemgrense og sammenlignbare nordiske løsninger. |
+
+---
+
 ## Priority A — Critical Path (Blocks June 2026 Delivery)
 
 ---

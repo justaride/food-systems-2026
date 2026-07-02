@@ -1,0 +1,90 @@
+{
+  "nodes": [
+    {
+      "id": "cmp8xyt58005axrvmq4uvylny",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Mowi ASA.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri16p0002hovmkzh2go59",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Mowi Feed AS.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri16n0001hovmoyb58pus",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Mowi Markets Norway AS.md",
+      "x": 360,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri16q0003hovm1sefyvqb",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Mowi Norway FoU AS.md",
+      "x": 360,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri1670000hovmn2i2hdwg",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Mowi Seawater Norway AS.md",
+      "x": 360,
+      "y": 640,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xytbz00acxrvmjbj3td65",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Nova Sea AS.md",
+      "x": 360,
+      "y": 800,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmp8xyt58005axrvmq4uvylny-cmq8ri16p0002hovmkzh2go59",
+      "fromNode": "cmp8xyt58005axrvmq4uvylny",
+      "toNode": "cmq8ri16p0002hovmkzh2go59",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt58005axrvmq4uvylny-cmq8ri16n0001hovmoyb58pus",
+      "fromNode": "cmp8xyt58005axrvmq4uvylny",
+      "toNode": "cmq8ri16n0001hovmoyb58pus",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt58005axrvmq4uvylny-cmq8ri16q0003hovm1sefyvqb",
+      "fromNode": "cmp8xyt58005axrvmq4uvylny",
+      "toNode": "cmq8ri16q0003hovm1sefyvqb",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt58005axrvmq4uvylny-cmq8ri1670000hovmn2i2hdwg",
+      "fromNode": "cmp8xyt58005axrvmq4uvylny",
+      "toNode": "cmq8ri1670000hovmn2i2hdwg",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt58005axrvmq4uvylny-cmp8xytbz00acxrvmjbj3td65",
+      "fromNode": "cmp8xyt58005axrvmq4uvylny",
+      "toNode": "cmp8xytbz00acxrvmjbj3td65",
+      "label": "95 %"
+    }
+  ]
+}

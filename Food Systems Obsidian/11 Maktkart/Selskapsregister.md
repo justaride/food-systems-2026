@@ -1,0 +1,377 @@
+---
+type: aktor
+status: generert
+kilde: data/vault-export/companies.json
+siterbarhet: intern
+---
+
+# Selskapsregister
+
+> DB-generert register over alle selskapsnoder i vault-exporten · Del av [[Maktkartet]]
+
+## Omfang
+
+- Selskaper: 351
+
+## Selskaper
+
+- [[0000 NORGE AS]] — ukjent · AS · 837000602
+- [[1814 NORD AS]] — ukjent · AS · 816022932
+- [[2CW GRUPPEN AS]] — ukjent · AS · 917619727
+- [[4Service Gruppen AS]] — foodservice · foreign · 897392232
+- [[Agrain A-S|Agrain A/S]] — processing · private · DK-AGRAIN
+- [[AIRTEC  DANMARK A-S|AIRTEC  DANMARK A/S]] — ukjent · UTLA · 920871372
+- [[AKER BIOMARINE ASIA LTD]] — ukjent · UTLA · 920535763
+- [[Alf Bjercke Eiendom AS]] — property · family · NO-BJERCKE-EIE
+- [[ALGAVIDA AS]] — ukjent · AS · 928679969
+- [[Alginor ASA (NO-ALGINOR)|Alginor ASA]] — processing · listed · NO-ALGINOR
+- [[ALGINOR ASA (913422082)|ALGINOR ASA]] — ukjent · ASA · 913422082
+- [[Animalia AS]] — research · cooperative · 919117060
+- [[AQUAPRO AS]] — ukjent · AS · 914827922
+- [[ARCTIC NATURAL NUTRITION AS]] — ukjent · AS · 928103668
+- [[ARCTIC PROTEIN INDUSTRIES AS]] — ukjent · AS · 931863444
+- [[ARCTIC SEAWEED AS]] — ukjent · AS · 917378819
+- [[ASKO Agder AS]] — logistics · family · 913117883
+- [[ASKO Bygg Vestby AS]] — logistics · family · 884133572
+- [[ASKO Fornybar AS]] — logistics · family · 916286074
+- [[ASKO Hedmark AS]] — logistics · family · 918710507
+- [[ASKO Maritime AS]] — logistics · family · 925216534
+- [[ASKO Mat AS]] — foodservice · family · 925109185
+- [[ASKO Midt-Norge AS]] — logistics · family · 979334109
+- [[ASKO Molde AS]] — logistics · family · 813612992
+- [[ASKO Nord AS]] — logistics · family · 979655215
+- [[ASKO Norge AS]] — logistics · family · 929228723
+- [[ASKO Oest AS]] — logistics · family · 912015238
+- [[ASKO Oslofjord AS]] — logistics · family · 930622974
+- [[ASKO Rogaland AS]] — logistics · family · 923622845
+- [[ASKO Transport AS]] — logistics · family · 999320600
+- [[ASKO Vest AS]] — logistics · family · 979487916
+- [[ASKO Vestfold Telemark AS]] — logistics · family · 933129950
+- [[ATOS BELGIUM NV]] — ukjent · NUF · 926751352
+- [[ATTVIN NÆRING AS]] — ukjent · AS · 923030891
+- [[AURORA SEAWEED AS]] — ukjent · AS · 921332017
+- [[Austevoll Seafood ASA]] — seafood · listed · 929975200
+- [[Avisomo AS]] — production · private · NO-AVISOMO
+- [[Axel Johnson AB]] — retail · family · SE-556223-6959
+- [[Axfood AB]] — retail · listed · SE-556542-5353
+- [[Axfood Snabbgross AB]] — foodservice · listed · SE-556000-3575
+- [[BACASSA SEAWEED AS]] — ukjent · AS · 927116758
+- [[Bakehuset AS]] — processing · family · 914183332
+- [[BAMA Blomster Holding AS]] — logistics · family · 981384016
+- [[BAMA Blomster Sourcing AS]] — logistics · family · 992714409
+- [[BAMA Gruppen AS]] — logistics · family · 914224314
+- [[BAMA Industri AS]] — processing · family · 976565967
+- [[BAMA International AS]] — logistics · family · 959657769
+- [[BAMA Logistikk AS]] — logistics · family · 965437150
+- [[BAMA Pakkerier AS]] — processing · family · 995244071
+- [[BAMA Storkjoekken AS]] — foodservice · family · 995518333
+- [[Banan II AS]] — logistics · private · 816488362
+- [[BARENTS SEAWEED AS]] — ukjent · AS · 818481152
+- [[BC Catering]] — wholesale · private · DK-BCCATER
+- [[BIO3 AS]] — ukjent · AS · 915334504
+- [[BioMar AS]] — inputs · foreign · 937843860
+- [[Biomega Group AS]] — processing · private · NO-BIOMEGA
+- [[Biosirk Norge AS]] — processing · cooperative · 921042434
+- [[BOKASHI NORGE AS]] — ukjent · AS · 923456570
+- [[Bokveien 112 AS]] — property · family · NO-BOKV112
+- [[Bondens Marked Norge]] — retail · non-profit · NO-BONDENS
+- [[Bonus hf]] — retail · listed · IS-450199-3389
+- [[Canica AS]] — retail · family · 938701237
+- [[CANICA INVESTOR AS]] — ukjent · AS · 980322939
+- [[CARGILL INC]] — ukjent · NUF · 916635001
+- [[Cermaq Norway AS]] — seafood · foreign · 961922976
+- [[Cernova AS]] — processing · cooperative · 958457952
+- [[Cernova Trading AS]] — processing · cooperative · 912589455
+- [[Cheffelo AB]] — retail · listed · SE-CHEFFELO
+- [[Christiania Areal AS]] — property · family · NO-CHR-AREAL
+- [[Cibus Nordic Real Estate AB]] — property · listed · SE-CIBUS-NRE
+- [[City Gross Sverige AB]] — retail · listed · SE-556597-2451
+- [[Compass Group Norge AS]] — foodservice · foreign · 952507729
+- [[Coop Danmark A-S|Coop Danmark A/S]] — retail · cooperative · DK-26259495
+- [[COOP EIENDOM ROGALAND AS]] — ukjent · AS · 916047967
+- [[Coop Eiendom Soervest AS]] — property · cooperative · NO-COOP-SV
+- [[COOP EIENDOM SØRVEST AS]] — ukjent · AS · 920126839
+- [[COOP EIENDOM VEST AS]] — ukjent · AS · 985052441
+- [[Coop Finnmark SA]] — retail · cooperative · 981397568
+- [[COOP HORDALAND EIENDOM AS]] — ukjent · AS · 917853908
+- [[Coop Hordaland SA]] — retail · cooperative · 982594421
+- [[COOP INNLANDET EIENDOM AS]] — ukjent · AS · 812977032
+- [[Coop Innlandet SA]] — retail · cooperative · 979419287
+- [[Coop Midt-Norge Eiendom AS (NO-COOP-MN)|Coop Midt-Norge Eiendom AS]] — property · cooperative · NO-COOP-MN
+- [[COOP MIDT-NORGE EIENDOM AS (915300219)|COOP MIDT-NORGE EIENDOM AS]] — ukjent · AS · 915300219
+- [[Coop Midt-Norge SA]] — retail · cooperative · 938786054
+- [[Coop Nord SA]] — retail · cooperative · 938497257
+- [[Coop Nordland SA]] — retail · cooperative · 946231819
+- [[Coop Nordvest SA]] — retail · cooperative · 942763654
+- [[Coop Norge Eiendom AS (988445177)|Coop Norge Eiendom AS]] — retail · cooperative · 988445177
+- [[Coop Norge Eiendom AS (NO-948202063-EIE)|Coop Norge Eiendom AS]] — property · cooperative · NO-948202063-EIE
+- [[Coop Norge Kaffe AS]] — processing · cooperative · 882722422
+- [[Coop Norge Langhus Eiendom AS]] — retail · cooperative · 919784814
+- [[Coop Norge SA]] — retail · cooperative · 936560288
+- [[Coop Norge Stavanger Eiendom AS]] — retail · cooperative · 989085557
+- [[Coop Norge Stavanger Eiendom II AS]] — retail · cooperative · 819784922
+- [[Coop Norge Tromsoe Eiendom AS]] — retail · cooperative · 997800419
+- [[Coop Norge Trondheim Eiendom AS]] — retail · cooperative · 919784725
+- [[Coop Oekonom SA]] — retail · cooperative · 953452626
+- [[Coop Oest SA]] — retail · cooperative · 948432617
+- [[Coop Raufoss Kjoepesenter AS]] — property · cooperative · NO-COOP-RAUF
+- [[COOP RAUFOSS KJØPESENTER AS]] — ukjent · AS · 889775912
+- [[Coop Soervest SA]] — retail · cooperative · 966833300
+- [[Coop Sverige AB]] — retail · cooperative · SE-702001-3469
+- [[Coop Vestviken SA]] — retail · cooperative · 950264799
+- [[COOP ØKONOM EIENDOM AS]] — ukjent · AS · 825091912
+- [[Coop.dk MAD]] — retail · cooperative · DK-COOPDKMAD
+- [[Cultivate Food AS]] — retail · private · NO-CULTIVATE
+- [[Dagab Inköp & Logistik AB]] — logistics · listed · SE-556004-7903
+- [[Dagrofa A-S (DK-38714295)|Dagrofa A/S]] — retail · private · DK-38714295
+- [[Dagrofa A-S (DK-DAGROFA)|Dagrofa A/S]] — wholesale · family · DK-DAGROFA
+- [[Dansk Cater A-S|Dansk Cater A/S]] — wholesale · listed · DK-DANSKCATER
+- [[DEBIO MARKED AS]] — ukjent · AS · 915190715
+- [[Deli de Luca Norge AS]] — retail · family · 985402779
+- [[Denofa AS]] — processing · foreign · 987643935
+- [[Diplom-Is AS]] — processing · cooperative · 984460198
+- [[Dyrket.no AS]] — retail · family · NO-DYRKET
+- [[E C Dahls Eiendom AS]] — property · family · NO-ECDAHLS-EIE
+- [[EL-GIGANTEN LOGISTIK AB]] — ukjent · UTLA · 937557922
+- [[EMIRO AS]] — ukjent · AS · 999221963
+- [[Euro Cater A-S|Euro Cater A/S]] — foodservice · family · DK-29783535
+- [[Felleskjoepet Forutvikling AS]] — research · cooperative · 998232058
+- [[Felleskjoepet Rogaland Agder SA]] — inputs · cooperative · 915442552
+- [[Felleskjøpet Agri SA]] — inputs · cooperative · 911608103
+- [[Festi hf]] — retail · listed · IS-540206-2010
+- [[FINNFJORD AS]] — ukjent · AS · 934039254
+- [[Fiskaa Molle AS]] — inputs · cooperative · 975856844
+- [[Fjordkjoekken AS]] — processing · cooperative · 976502744
+- [[Fjordland AS]] — processing · cooperative · 936661386
+- [[Foodora Finland Oy]] — distribution · foreign · FI-FOODORA
+- [[Gartnerhallen SA]] — inputs · cooperative · 945958405
+- [[GEODATA AS]] — ukjent · AS · 893136932
+- [[GRAMINOR AS]] — ukjent · AS · 967247359
+- [[Greve Biogass AS]] — utility · private · NO-GREVEBIO
+- [[Grilstad AS]] — processing · family · 937070632
+- [[Hagar hf]] — retail · listed · IS-670203-2120
+- [[Hagkaup hf]] — retail · listed · IS-430698-3549
+- [[Hallvard Leroey AS]] — seafood · listed · 914353561
+- [[Hansa Borg AS]] — processing · foreign · 876862522
+- [[HELGELAND SEAWEED AS]] — ukjent · AS · 921995938
+- [[Hemkop AB]] — retail · listed · SE-556113-8826
+- [[Himmelgroent AS]] — production · joint-venture · NO-HIMMELGR
+- [[Hoerkram Foodservice A-S|Hoerkram Foodservice A/S]] — wholesale · family · DK-HORKRAM
+- [[HOFF SA]] — ukjent · SA · 940379016
+- [[Hofseth BioCare ASA]] — processing · listed · NO-HOFSETHBC
+- [[Holdbart AS]] — circular · private · 815664582
+- [[Hordafor AS]] — processing · listed · NO-HORDAFOR
+- [[I K Lykke AS]] — retail · family · 814055922
+- [[I.K. Lykke Eiendom AS]] — property · family · NO-IKLYKKE-EIE
+- [[ICA Fastigheter AB]] — retail · listed · SE-556033-8518
+- [[ICA Gruppen AB]] — retail · listed · SE-556048-2837
+- [[ICA Norge AS]] — retail · foreign · NO-ICA-NO
+- [[ICA Sverige AB (SE-556021-0261)|ICA Sverige AB]] — retail · listed · SE-556021-0261
+- [[ICA SVERIGE AB (986619968)|ICA SVERIGE AB]] — ukjent · NUF · 986619968
+- [[INFINITUM AS]] — ukjent · AS · 977199611
+- [[INVERTAPRO AS]] — ukjent · AS · 917809755
+- [[Irma A-S|Irma A/S]] — retail · cooperative · DK-IRMA
+- [[ISS A-S|ISS A/S]] — foodservice · listed · DK-28316745
+- [[ISS Facility Services AS]] — foodservice · foreign · 914791723
+- [[Joh Johannson Eiendom AS]] — retail · family · 983522025
+- [[Joh Johannson Handel AS]] — retail · family · 921979819
+- [[Joh Johannson Invest AS (NO-JJ-INV)|Joh Johannson Invest AS]] — holding · family · NO-JJ-INV
+- [[JOH JOHANNSON INVEST AS (918293477)|JOH JOHANNSON INVEST AS]] — ukjent · AS · 918293477
+- [[Joh. Johannson Eiendom AS]] — property · family · NO-JJ-EIE
+- [[Joh. Johannson Kaffe AS]] — processing · family · 913283805
+- [[K. THORSTEINSSON OG CO EHF]] — ukjent · UTLA · 918579176
+- [[Kavli Holding AS]] — processing · foundation · 913344162
+- [[Kavli Norge AS]] — processing · foundation · 985461791
+- [[Kesko Oyj]] — retail · listed · FI-0110456-8
+- [[Kespro Oy (FI-0777402-5)|Kespro Oy]] — foodservice · listed · FI-0777402-5
+- [[Kespro Oy (FI-KESPRO)|Kespro Oy]] — wholesale · listed · FI-KESPRO
+- [[Kiwi Minidrift AS]] — retail · family · 985131406
+- [[Kiwi Norge AS]] — retail · family · 975959171
+- [[Kjopmannshuset Butikkdrift AS]] — retail · family · 995915820
+- [[Kjopmannshuset Norge AS]] — retail · family · 977263646
+- [[Kronan hf]] — retail · listed · IS-711298-2239
+- [[Kukraft AS]] — inputs · cooperative · 921761929
+- [[Kverva AS]] — seafood · family · 919818824
+- [[Kverva Industrier AS]] — seafood · family · 960329856
+- [[Laco AS]] — seafood · family · 937305354
+- [[Lantmännen Cerealia AS]] — processing · foreign · 910629085
+- [[Leijona Catering Oy]] — foodservice · state · FI-2449777-9
+- [[Leroey Aurora AS]] — seafood · listed · 985940460
+- [[Leroey Havfisk AS]] — seafood · listed · 986392858
+- [[Leroey Midt AS]] — seafood · listed · 985848718
+- [[Leroey Norway Seafoods AS]] — seafood · listed · 995548194
+- [[Leroey Vest AS]] — seafood · listed · 886813082
+- [[Lerøy Seafood Group ASA]] — seafood · listed · 975350940
+- [[Lidl Norge AS]] — retail · foreign · NO-LIDL
+- [[Lidl Suomi Ky]] — retail · foreign · FI-1615492-7
+- [[Lidl Sverige KB]] — retail · foreign · SE-969697-6594
+- [[Lilleborg AS]] — processing · foreign · 925745855
+- [[Linas Matkasse AB]] — retail · listed · SE-LINAS
+- [[LYNGEN SEAWEED AS]] — ukjent · AS · 922997748
+- [[MARSTEIN SEAWEED AS]] — ukjent · AS · 817580122
+- [[Martin & Servera AB (SE-556559-1135)|Martin & Servera AB]] — foodservice · family · SE-556559-1135
+- [[Martin & Servera AB (SE-MARTIN-SERV)|Martin & Servera AB]] — wholesale · family · SE-MARTIN-SERV
+- [[MARTIN & SERVERA AB (926875701)|MARTIN & SERVERA AB]] — ukjent · NUF · 926875701
+- [[Mat.se AB]] — retail · private · SE-MATSE
+- [[Mathem i Sverige AB]] — retail · private · SE-MATHEM
+- [[Matsentralen Norge]] — circular · nonprofit · 919702974
+- [[Matsmart - Motatos AB|Matsmart / Motatos AB]] — retail · foreign · SE-MATSMART
+- [[Matvett AS]] — circular · private · 997898397
+- [[Meira Nova Oy (FI-0697627-4)|Meira Nova Oy]] — foodservice · cooperative · FI-0697627-4
+- [[Meira Nova Oy (FI-MEIRA)|Meira Nova Oy]] — wholesale · cooperative · FI-MEIRA
+- [[Menigo Foodservice AB (SE-556424-2537)|Menigo Foodservice AB]] — foodservice · foreign · SE-556424-2537
+- [[Menigo Foodservice AB (SE-MENIGO)|Menigo Foodservice AB]] — wholesale · listed · SE-MENIGO
+- [[MENON ECONOMICS AS]] — ukjent · AS · 977213193
+- [[MENY AS]] — retail · family · 977066727
+- [[Meny Butikkdrift AS]] — retail · family · 989578790
+- [[Metro-tukku (Wihuri)]] — wholesale · family · FI-METRO-T
+- [[Mimiro Holding AS]] — inputs · cooperative · 821186382
+- [[Mowi ASA]] — seafood · listed · 964118191
+- [[Mowi Feed AS]] — inputs · listed · 911610744
+- [[Mowi Markets Norway AS]] — seafood · listed · 916146337
+- [[Mowi Norway FoU AS]] — research · listed · 919441879
+- [[Mowi Seawater Norway AS]] — seafood · listed · 921668236
+- [[N1 hf]] — retail · listed · IS-411003-3370
+- [[Natural State AS]] — research · private · 919645636
+- [[NG Eiendom Vestfold Telemark AS (NO-961483584-VTEIE)|NG Eiendom Vestfold Telemark AS]] — property · family · NO-961483584-VTEIE
+- [[NG EIENDOM VESTFOLD TELEMARK AS (984980744)|NG EIENDOM VESTFOLD TELEMARK AS]] — ukjent · AS · 984980744
+- [[Nofima AS]] — research · state · 989278835
+- [[Nordic Circular Hotspot AS]] — circular · nonprofit · 930183350
+- [[Norengros AS]] — wholesale · family · NO-NORENGROS
+- [[Norfersk AS]] — processing · cooperative · 997754123
+- [[Norges Sjømatråd AS]] — export-promotion · state · 988597627
+- [[Norgesfor AS]] — inputs · cooperative · 975871096
+- [[NORGESGRUPPEN AGDER AS]] — ukjent · AS · 926994387
+- [[NorgesGruppen ASA]] — retail · family · 819731322
+- [[NorgesGruppen Data AS]] — retail · family · 971047917
+- [[NorgesGruppen Detalj AS]] — retail · family · 882578402
+- [[NorgesGruppen Eiendom AS (976542223)|NorgesGruppen Eiendom AS]] — retail · family · 976542223
+- [[NorgesGruppen Eiendom AS (NO-961483584-EIE)|NorgesGruppen Eiendom AS]] — property · family · NO-961483584-EIE
+- [[NORGESGRUPPEN EIENDOM BUSKERUD AS]] — ukjent · AS · 881452642
+- [[NorgesGruppen Eiendom Holding AS (997747054)|NorgesGruppen Eiendom Holding AS]] — retail · family · 997747054
+- [[NorgesGruppen Eiendom Holding AS (NO-961483584-EIEH)|NorgesGruppen Eiendom Holding AS]] — property · family · NO-961483584-EIEH
+- [[NORGESGRUPPEN EIENDOM MIDT-NORGE AS]] — ukjent · AS · 935480507
+- [[NORGESGRUPPEN EIENDOM REGION AS]] — ukjent · AS · 997732863
+- [[NorgesGruppen Eiendomskapital AS]] — retail · family · 989009001
+- [[NorgesGruppen Eiendomsutvikling AS]] — retail · family · 995666553
+- [[NorgesGruppen Fellestjenester AS]] — retail · family · 983392970
+- [[NorgesGruppen Finans AS]] — retail · family · 920428959
+- [[NorgesGruppen Finans Holding AS]] — retail · family · 920341659
+- [[NorgesGruppen Merkevare AS]] — processing · family · 997732812
+- [[NORGESGRUPPEN MIDT-NORGE AS]] — ukjent · AS · 811793442
+- [[NORGESGRUPPEN MØRE AS]] — ukjent · AS · 987570067
+- [[NORGESGRUPPEN NORD AS]] — ukjent · AS · 990236186
+- [[NorgesGruppen Regnskap AS]] — retail · family · 883743512
+- [[NorgesGruppen Servicehandel AS]] — retail · family · 976769511
+- [[NORGESGRUPPEN VEST AS]] — ukjent · AS · 977389666
+- [[NorgesGruppen Vestfold Telemark AS (NO-961483584-VT)|NorgesGruppen Vestfold Telemark AS]] — retail · family · NO-961483584-VT
+- [[NORGESGRUPPEN VESTFOLD TELEMARK AS (975960714)|NORGESGRUPPEN VESTFOLD TELEMARK AS]] — ukjent · AS · 975960714
+- [[Norgesmollene AS]] — processing · cooperative · 885719422
+- [[Noridane Foods AS]] — processing · cooperative · 992318899
+- [[Norilia AS]] — processing · cooperative · 995643316
+- [[NORINSECT AS]] — ukjent · AS · 916325010
+- [[NorPri AS]] — processing · cooperative · 913755855
+- [[Norsk Butikkdrift AS]] — retail · cooperative · 931186744
+- [[Norsk Dyremat AS]] — processing · cooperative · 962977006
+- [[NORSK GJENVINNING AS]] — ukjent · AS · 937270062
+- [[Norsk Kylling AS]] — processing · family · 980411133
+- [[NORTHERN LIGHTS JV DA]] — ukjent · DA · 926655779
+- [[Nortura SA]] — processing · cooperative · 938752648
+- [[NORWAY SEAWEED AS]] — ukjent · AS · 916335784
+- [[NORWEGIAN SEAWEED AS]] — ukjent · AS · 822659292
+- [[Nova Sea AS]] — seafood · private · 961056268
+- [[NTF KLUBBEN VED ICA NORGE AS LOGISTIKK AVD TRONDHEIM]] — ukjent · FLI · 993450782
+- [[NTS ASA]] — seafood · listed · 952587687
+- [[O Kavli AS]] — processing · foundation · 971142138
+- [[Oda]] — retail · private · 932256134
+- [[Oda Norway AS]] — retail · listed · 912262510
+- [[Oda Sverige AB]] — retail · foreign · SE-ODA
+- [[Odd Reitan Private Holding AS]] — retail · family · 915990487
+- [[Olis hf]] — retail · listed · IS-500269-3249
+- [[Orkla ASA]] — processing · family · 910747711
+- [[Orkla Eiendom AS]] — processing · family · 932176076
+- [[Orkla Food Ingredients AS]] — processing · private · 911161419
+- [[Orkla Foods AS]] — processing · family · 930097705
+- [[Orkla Foods Norge AS]] — processing · family · 916170858
+- [[Orkla Health AS]] — processing · family · 986519904
+- [[Orkla Health Holding AS]] — processing · family · 930097683
+- [[Orkla Home and Personal Care AS]] — processing · family · 911161230
+- [[Orkla House Care Norge AS]] — processing · family · 996888142
+- [[Orkla IT AS]] — processing · family · 991742255
+- [[Orkla Snacks AS]] — processing · family · 930097748
+- [[Orkla Snacks Norge AS]] — processing · family · 940712580
+- [[OSLO ECONOMICS AS]] — ukjent · AS · 993924741
+- [[Oslo Kooperativ SA]] — retail · cooperative · NO-OSLO-KOOP
+- [[PeelPioneers B.V.]] — processing · private · NL-PEELPIO
+- [[Pierre Robert Group AS]] — processing · family · 912692094
+- [[Posten Bring AS]] — logistics · state · 984661185
+- [[Prima Slakt AS]] — processing · cooperative · 885209432
+- [[PRONOFA ASA]] — ukjent · ASA · 926501836
+- [[Q-Meieriene AS]] — processing · foundation · 982423767
+- [[REBUS Handelseiendom AS]] — property · family · NO-REBUS-HEIE
+- [[REBUS Utvikling AS]] — property · family · NO-REBUS-UTV
+- [[Reitan AS (912609987)|Reitan AS]] — retail · family · 912609987
+- [[REITAN AS (NO-REITAN-HOLD)|REITAN AS]] — holding · family · NO-REITAN-HOLD
+- [[Reitan Convenience AS]] — retail · family · 983415652
+- [[Reitan Convenience Norway AS]] — retail · family · 983415660
+- [[Reitan Eiendom AS (915994415)|Reitan Eiendom AS]] — retail · family · 915994415
+- [[Reitan Eiendom AS (NO-REITAN-EIE)|Reitan Eiendom AS]] — property · family · NO-REITAN-EIE
+- [[REITAN EIENDOM DRIFT AS]] — ukjent · AS · 979491514
+- [[Reitan Kapital AS]] — retail · family · 917114684
+- [[Reitan Retail AS]] — retail · family · 914526647
+- [[RELOG AS]] — logistics · family · NO-RELOG
+- [[REMA 1000 A-S|REMA 1000 A/S]] — retail · foreign · DK-14705627
+- [[REMA 1000 AS]] — retail · family · 883409442
+- [[REMA 1000 Norge AS]] — retail · family · 982254604
+- [[REMA Distribusjon Norge AS]] — logistics · family · 894759372
+- [[REMA INDUSTRIER AS]] — ukjent · AS · 994674099
+- [[RetNemt ApS]] — retail · listed · DK-RETNEMT
+- [[Ringnes AS]] — processing · foreign · 914670705
+- [[Ruokaboksi Oy]] — retail · listed · FI-RUOKAB
+- [[Salling Group A-S|Salling Group A/S]] — retail · family · DK-35954716
+- [[SalMar ASA]] — seafood · family · 960514718
+- [[SalMar Farming AS]] — seafood · listed · 966840528
+- [[SALMAR OCEAN AS]] — ukjent · AS · 923534717
+- [[SalmoNor AS]] — seafood · listed · 952662813
+- [[Samkaup hf]] — retail · cooperative · IS-571298-3769
+- [[SEAWEED SOLUTIONS AS]] — ukjent · AS · 993491780
+- [[SELVÆR SEAWEED AS]] — ukjent · AS · 932324997
+- [[Servicegrossistene AS (933444724)|Servicegrossistene AS]] — foodservice · cooperative · 933444724
+- [[Servicegrossistene AS (NO-SERVICEGR)|Servicegrossistene AS]] — wholesale · family · NO-SERVICEGR
+- [[Sjoetroll AS]] — seafood · listed · 927894254
+- [[Skretting AS]] — inputs · foreign · 988044113
+- [[SMART SEAWEED SOLUTIONS AS]] — ukjent · AS · 921275730
+- [[SMARTSOIL BIOTECH AS]] — ukjent · AS · 925470996
+- [[Sodexo AS]] — foodservice · foreign · 932144336
+- [[SOK (S Group)]] — retail · cooperative · FI-0116323-9
+- [[ST1 BIOKRAFT AS]] — ukjent · AS · 894625902
+- [[STEIN ERIK HAGEN AS]] — ukjent · AS · 977047587
+- [[Stockmann Herkku Delicatessen]] — retail · private · FI-STOCKHERKKU
+- [[Storcash Norge AS]] — foodservice · family · 930258008
+- [[Strand Unikorn AS]] — inputs · cooperative · 916329717
+- [[SUMMA EQUITY AB]] — ukjent · NUF · 922876878
+- [[TELEMARK EIENDOM AS]] — ukjent · AS · 915123678
+- [[Telespor AS]] — inputs · cooperative · 987390689
+- [[TINE SA]] — processing · cooperative · 947942638
+- [[Too Good To Go International A-S|Too Good To Go International A/S]] — platform · private · DK-TGTG
+- [[Too Good To Go Norge AS]] — circular · foreign · 917203261
+- [[Unil AS]] — processing · private · 885316522
+- [[Uno-X E-Mobility Norge AS]] — retail · family · 928211398
+- [[Uno-X Mobility AS]] — retail · family · 988247111
+- [[Uno-X Mobility Norge AS]] — retail · family · 921757131
+- [[Valio Aimo]] — wholesale · cooperative · FI-VALIO-AIMO
+- [[VERMINORD AS]] — ukjent · AS · 935948878
+- [[VESTERÅLEN SEAWEED AS]] — ukjent · AS · 917339937
+- [[Willys AB]] — retail · listed · SE-556163-2232
+- [[Wolt Enterprises Oy]] — foodservice · foreign · FI-2646674-9
+- [[Yara International ASA]] — inputs · state · 986228608
+- [[Aarstiderne A-S|Aarstiderne A/S]] — retail · family · DK-AARSTID
+
+## Koblinger
+
+- [[Maktkartet]]
+- [[Eierskapsregisteret]]
+- [[Prisma-database]]
+## Notater
+
+_Utvikles gjennom prosjektet._

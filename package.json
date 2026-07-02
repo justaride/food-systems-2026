@@ -5,6 +5,10 @@
   "scripts": {
     "dev": "tsx scripts/write-version.ts && next dev",
     "compute-metrics": "tsx scripts/compute-chart-metrics.ts --country=all",
+    "vault:sync": "tsx scripts/obsidian-vault/sync.ts",
+    "vault:check": "tsx scripts/obsidian-vault/sync.ts --check",
+    "vault:export-db": "tsx scripts/obsidian-vault/export-db.ts",
+    "vault:review-preflight": "tsx scripts/obsidian-vault/review-preflight.ts",
     "compute-metrics:full": "npm run compute-metrics && npm run audit:konsern && npm run compute-coverage",
     "audit:konsern": "tsx scripts/audit-konsern-coverage.ts",
     "audit:aquaculture": "tsx scripts/audit-aquaculture-coverage.ts",

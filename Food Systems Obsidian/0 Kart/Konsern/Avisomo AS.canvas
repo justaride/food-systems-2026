@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    {
+      "id": "cmq8ri3yv001kr2vmy6zja76p",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Avisomo AS.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3yw001lr2vmfsk8dpp3",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Himmelgroent AS.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmq8ri3yv001kr2vmy6zja76p-cmq8ri3yw001lr2vmfsk8dpp3",
+      "fromNode": "cmq8ri3yv001kr2vmy6zja76p",
+      "toNode": "cmq8ri3yw001lr2vmfsk8dpp3",
+      "label": "50 %"
+    }
+  ]
+}

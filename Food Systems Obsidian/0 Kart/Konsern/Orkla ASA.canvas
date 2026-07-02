@@ -1,0 +1,210 @@
+{
+  "nodes": [
+    {
+      "id": "cmp8xyt25001nxrvm5fopu1xb",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Orkla ASA.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xytc400ahxrvm6dhey2fh",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Lilleborg AS.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhzmq000odbvmtdokirlr",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Orkla Eiendom AS.md",
+      "x": 360,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xytc100aexrvm71qkugy8",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Orkla Food Ingredients AS.md",
+      "x": 360,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhzlv0000dbvmshh1z2vf",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Orkla Foods AS.md",
+      "x": 360,
+      "y": 640,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhzmh0006dbvmeo29g869",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Orkla Foods Norge AS.md",
+      "x": 720,
+      "y": 800,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhzmo000jdbvm5lxbow5a",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Orkla Health Holding AS.md",
+      "x": 360,
+      "y": 960,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhzmo000kdbvm75b3ox1g",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Orkla Health AS.md",
+      "x": 720,
+      "y": 1120,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhzmp000ldbvmek8dap09",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Orkla Home and Personal Care AS.md",
+      "x": 360,
+      "y": 1280,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhzmp000mdbvmxgszys5n",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Orkla House Care Norge AS.md",
+      "x": 720,
+      "y": 1440,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhzmr000pdbvmrml87k52",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Orkla IT AS.md",
+      "x": 360,
+      "y": 1600,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhzml000cdbvmaqc8camf",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Orkla Snacks AS.md",
+      "x": 360,
+      "y": 1760,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhzmm000ddbvmfdj03yu8",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Orkla Snacks Norge AS.md",
+      "x": 720,
+      "y": 1920,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhzmq000ndbvm2xhgdtp7",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Pierre Robert Group AS.md",
+      "x": 360,
+      "y": 2080,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmp8xyt25001nxrvm5fopu1xb-cmp8xytc400ahxrvm6dhey2fh",
+      "fromNode": "cmp8xyt25001nxrvm5fopu1xb",
+      "toNode": "cmp8xytc400ahxrvm6dhey2fh",
+      "label": "0 %"
+    },
+    {
+      "id": "cmp8xyt25001nxrvm5fopu1xb-cmq8rhzmq000odbvmtdokirlr",
+      "fromNode": "cmp8xyt25001nxrvm5fopu1xb",
+      "toNode": "cmq8rhzmq000odbvmtdokirlr",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt25001nxrvm5fopu1xb-cmp8xytc100aexrvm71qkugy8",
+      "fromNode": "cmp8xyt25001nxrvm5fopu1xb",
+      "toNode": "cmp8xytc100aexrvm71qkugy8",
+      "label": "60 %"
+    },
+    {
+      "id": "cmp8xyt25001nxrvm5fopu1xb-cmq8rhzlv0000dbvmshh1z2vf",
+      "fromNode": "cmp8xyt25001nxrvm5fopu1xb",
+      "toNode": "cmq8rhzlv0000dbvmshh1z2vf",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhzlv0000dbvmshh1z2vf-cmq8rhzmh0006dbvmeo29g869",
+      "fromNode": "cmq8rhzlv0000dbvmshh1z2vf",
+      "toNode": "cmq8rhzmh0006dbvmeo29g869",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt25001nxrvm5fopu1xb-cmq8rhzmo000jdbvm5lxbow5a",
+      "fromNode": "cmp8xyt25001nxrvm5fopu1xb",
+      "toNode": "cmq8rhzmo000jdbvm5lxbow5a",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhzmo000jdbvm5lxbow5a-cmq8rhzmo000kdbvm75b3ox1g",
+      "fromNode": "cmq8rhzmo000jdbvm5lxbow5a",
+      "toNode": "cmq8rhzmo000kdbvm75b3ox1g",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt25001nxrvm5fopu1xb-cmq8rhzmp000ldbvmek8dap09",
+      "fromNode": "cmp8xyt25001nxrvm5fopu1xb",
+      "toNode": "cmq8rhzmp000ldbvmek8dap09",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhzmp000ldbvmek8dap09-cmq8rhzmp000mdbvmxgszys5n",
+      "fromNode": "cmq8rhzmp000ldbvmek8dap09",
+      "toNode": "cmq8rhzmp000mdbvmxgszys5n",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt25001nxrvm5fopu1xb-cmq8rhzmr000pdbvmrml87k52",
+      "fromNode": "cmp8xyt25001nxrvm5fopu1xb",
+      "toNode": "cmq8rhzmr000pdbvmrml87k52",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt25001nxrvm5fopu1xb-cmq8rhzml000cdbvmaqc8camf",
+      "fromNode": "cmp8xyt25001nxrvm5fopu1xb",
+      "toNode": "cmq8rhzml000cdbvmaqc8camf",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhzml000cdbvmaqc8camf-cmq8rhzmm000ddbvmfdj03yu8",
+      "fromNode": "cmq8rhzml000cdbvmaqc8camf",
+      "toNode": "cmq8rhzmm000ddbvmfdj03yu8",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt25001nxrvm5fopu1xb-cmq8rhzmq000ndbvm2xhgdtp7",
+      "fromNode": "cmp8xyt25001nxrvm5fopu1xb",
+      "toNode": "cmq8rhzmq000ndbvm2xhgdtp7",
+      "label": "100 %"
+    }
+  ]
+}

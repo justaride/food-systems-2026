@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    {
+      "id": "cmp8xytf500e3xrvm5038rtz6",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/SOK (S Group).md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3ic000mnjvmwra9xqdk",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Meira Nova Oy (FI-0697627-4).md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmp8xytf500e3xrvm5038rtz6-cmq8ri3ic000mnjvmwra9xqdk",
+      "fromNode": "cmp8xytf500e3xrvm5038rtz6",
+      "toNode": "cmq8ri3ic000mnjvmwra9xqdk",
+      "label": "100 %"
+    }
+  ]
+}

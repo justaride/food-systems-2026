@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    {
+      "id": "cmp8xytfe00eixrvmirdqrc44",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kesko Oyj.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri4co0007sxvmwc81k3hf",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kespro Oy (FI-0777402-5).md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmp8xytfe00eixrvmirdqrc44-cmq8ri4co0007sxvmwc81k3hf",
+      "fromNode": "cmp8xytfe00eixrvmirdqrc44",
+      "toNode": "cmq8ri4co0007sxvmwc81k3hf",
+      "label": "100 %"
+    }
+  ]
+}

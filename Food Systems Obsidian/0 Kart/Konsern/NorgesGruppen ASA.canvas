@@ -1,0 +1,735 @@
+{
+  "nodes": [
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen ASA.md",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Norge AS.md",
+      "x": 360,
+      "y": 160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhy04000a9dvmfdzk04tf",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Agder AS.md",
+      "x": 720,
+      "y": 320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhy0a000j9dvmn0dzipbs",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Bygg Vestby AS.md",
+      "x": 720,
+      "y": 480,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhy09000h9dvmzs4otqot",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Fornybar AS.md",
+      "x": 720,
+      "y": 640,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhxzu00029dvm6d47qmtc",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Hedmark AS.md",
+      "x": 720,
+      "y": 800,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhy08000g9dvm5xj0r8ce",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Maritime AS.md",
+      "x": 720,
+      "y": 960,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhy0a000i9dvmifw8vyzk",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Mat AS.md",
+      "x": 720,
+      "y": 1120,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhxzw00049dvm7vhq896z",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Midt-Norge AS.md",
+      "x": 720,
+      "y": 1280,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhy06000e9dvmlz3hizcg",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Molde AS.md",
+      "x": 720,
+      "y": 1440,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhy06000d9dvmtlg6rve3",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Nord AS.md",
+      "x": 720,
+      "y": 1600,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhy05000c9dvmitjheub0",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Oest AS.md",
+      "x": 720,
+      "y": 1760,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhxze00009dvmsw5qqkay",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Oslofjord AS.md",
+      "x": 720,
+      "y": 1920,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhxzv00039dvm40ykw0gr",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Rogaland AS.md",
+      "x": 720,
+      "y": 2080,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhy07000f9dvmz4r2n1jy",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Transport AS.md",
+      "x": 720,
+      "y": 2240,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhxzt00019dvm8ezatn5k",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Vest AS.md",
+      "x": 720,
+      "y": 2400,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhy05000b9dvmnq8brmtv",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/ASKO Vestfold Telemark AS.md",
+      "x": 720,
+      "y": 2560,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xyt4t004sxrvm7b86awqx",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/BAMA Gruppen AS.md",
+      "x": 360,
+      "y": 2720,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri2q20005llvm8m8m5cei",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/BAMA Blomster Holding AS.md",
+      "x": 720,
+      "y": 2880,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri2q30006llvm7cehoe6a",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/BAMA Blomster Sourcing AS.md",
+      "x": 1080,
+      "y": 3040,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri2pi0000llvmqneas7ct",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/BAMA Industri AS.md",
+      "x": 720,
+      "y": 3200,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri2q10004llvmzsy3h67t",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/BAMA International AS.md",
+      "x": 720,
+      "y": 3360,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri2py0002llvm504gy632",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/BAMA Logistikk AS.md",
+      "x": 720,
+      "y": 3520,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri2q00003llvmpna36adn",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/BAMA Pakkerier AS.md",
+      "x": 720,
+      "y": 3680,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri2px0001llvmimilccw0",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/BAMA Storkjoekken AS.md",
+      "x": 720,
+      "y": 3840,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xyter00doxrvm206trvnu",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Dagrofa A-S (DK-38714295).md",
+      "x": 360,
+      "y": 4000,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhydo0000advm1hn6fiih",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kiwi Norge AS.md",
+      "x": 360,
+      "y": 4160,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhye90006advmc07qrod5",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kiwi Minidrift AS.md",
+      "x": 720,
+      "y": 4320,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyeg000gadvmm1fc7zwp",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kjopmannshuset Norge AS.md",
+      "x": 360,
+      "y": 4480,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyek000qadvmgmyyal9h",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Kjopmannshuset Butikkdrift AS.md",
+      "x": 720,
+      "y": 4640,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyea0007advm8eybx3oj",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/MENY AS.md",
+      "x": 360,
+      "y": 4800,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyef000fadvmqk5o6eyn",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Meny Butikkdrift AS.md",
+      "x": 720,
+      "y": 4960,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyep0013advmciotpt15",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Detalj AS.md",
+      "x": 360,
+      "y": 5120,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyf40021advmbgkw7vbn",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Eiendom Holding AS (997747054).md",
+      "x": 360,
+      "y": 5280,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyf50022advm2lj4r8jb",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Eiendom AS (976542223).md",
+      "x": 720,
+      "y": 5440,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyf70027advmxpmmq0aa",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Eiendomsutvikling AS.md",
+      "x": 1080,
+      "y": 5600,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyf70026advmfyy6remv",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Eiendomskapital AS.md",
+      "x": 720,
+      "y": 5760,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyey001ladvmqal42v4f",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Fellestjenester AS.md",
+      "x": 360,
+      "y": 5920,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyey001madvmfjjuxs3y",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Data AS.md",
+      "x": 720,
+      "y": 6080,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyf2001vadvm17c4kkhl",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Regnskap AS.md",
+      "x": 720,
+      "y": 6240,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyf80028advmowiq9bmg",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Finans Holding AS.md",
+      "x": 360,
+      "y": 6400,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyf80029advmb75ln7u3",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Finans AS.md",
+      "x": 720,
+      "y": 6560,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyer0017advmpm4j4zf5",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Merkevare AS.md",
+      "x": 360,
+      "y": 6720,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhxl800008evmyipstgjv",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Bakehuset AS.md",
+      "x": 720,
+      "y": 6880,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyer0018advmyodraxo5",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Joh. Johannson Kaffe AS.md",
+      "x": 720,
+      "y": 7040,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmp8xytbp00a2xrvmgp9lh2h2",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Unil AS.md",
+      "x": 720,
+      "y": 7200,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyek000radvmrcuxm1ra",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/NorgesGruppen Servicehandel AS.md",
+      "x": 360,
+      "y": 7360,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8rhyen000xadvmidtzb00d",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Deli de Luca Norge AS.md",
+      "x": 720,
+      "y": 7520,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "cmq8ri3h70000njvm7r5nclev",
+      "type": "file",
+      "file": "11 Maktkart/Selskaper/Storcash Norge AS.md",
+      "x": 360,
+      "y": 7680,
+      "width": 260,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmp8xyt95007mxrvmlptkx5cl",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhy04000a9dvmfdzk04tf",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhy04000a9dvmfdzk04tf",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhy0a000j9dvmn0dzipbs",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhy0a000j9dvmn0dzipbs",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhy09000h9dvmzs4otqot",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhy09000h9dvmzs4otqot",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhxzu00029dvm6d47qmtc",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhxzu00029dvm6d47qmtc",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhy08000g9dvm5xj0r8ce",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhy08000g9dvm5xj0r8ce",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhy0a000i9dvmifw8vyzk",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhy0a000i9dvmifw8vyzk",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhxzw00049dvm7vhq896z",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhxzw00049dvm7vhq896z",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhy06000e9dvmlz3hizcg",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhy06000e9dvmlz3hizcg",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhy06000d9dvmtlg6rve3",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhy06000d9dvmtlg6rve3",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhy05000c9dvmitjheub0",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhy05000c9dvmitjheub0",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhxze00009dvmsw5qqkay",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhxze00009dvmsw5qqkay",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhxzv00039dvm40ykw0gr",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhxzv00039dvm40ykw0gr",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhy07000f9dvmz4r2n1jy",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhy07000f9dvmz4r2n1jy",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhxzt00019dvm8ezatn5k",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhxzt00019dvm8ezatn5k",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt95007mxrvmlptkx5cl-cmq8rhy05000b9dvmnq8brmtv",
+      "fromNode": "cmp8xyt95007mxrvmlptkx5cl",
+      "toNode": "cmq8rhy05000b9dvmnq8brmtv",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmp8xyt4t004sxrvm7b86awqx",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmp8xyt4t004sxrvm7b86awqx",
+      "label": "46 %"
+    },
+    {
+      "id": "cmp8xyt4t004sxrvm7b86awqx-cmq8ri2q20005llvm8m8m5cei",
+      "fromNode": "cmp8xyt4t004sxrvm7b86awqx",
+      "toNode": "cmq8ri2q20005llvm8m8m5cei",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8ri2q20005llvm8m8m5cei-cmq8ri2q30006llvm7cehoe6a",
+      "fromNode": "cmq8ri2q20005llvm8m8m5cei",
+      "toNode": "cmq8ri2q30006llvm7cehoe6a",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt4t004sxrvm7b86awqx-cmq8ri2pi0000llvmqneas7ct",
+      "fromNode": "cmp8xyt4t004sxrvm7b86awqx",
+      "toNode": "cmq8ri2pi0000llvmqneas7ct",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt4t004sxrvm7b86awqx-cmq8ri2q10004llvmzsy3h67t",
+      "fromNode": "cmp8xyt4t004sxrvm7b86awqx",
+      "toNode": "cmq8ri2q10004llvmzsy3h67t",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt4t004sxrvm7b86awqx-cmq8ri2py0002llvm504gy632",
+      "fromNode": "cmp8xyt4t004sxrvm7b86awqx",
+      "toNode": "cmq8ri2py0002llvm504gy632",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt4t004sxrvm7b86awqx-cmq8ri2q00003llvmpna36adn",
+      "fromNode": "cmp8xyt4t004sxrvm7b86awqx",
+      "toNode": "cmq8ri2q00003llvmpna36adn",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xyt4t004sxrvm7b86awqx-cmq8ri2px0001llvmimilccw0",
+      "fromNode": "cmp8xyt4t004sxrvm7b86awqx",
+      "toNode": "cmq8ri2px0001llvmimilccw0",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmp8xyter00doxrvm206trvnu",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmp8xyter00doxrvm206trvnu",
+      "label": "48.90 %"
+    },
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmq8rhydo0000advm1hn6fiih",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmq8rhydo0000advm1hn6fiih",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhydo0000advm1hn6fiih-cmq8rhye90006advmc07qrod5",
+      "fromNode": "cmq8rhydo0000advm1hn6fiih",
+      "toNode": "cmq8rhye90006advmc07qrod5",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmq8rhyeg000gadvmm1fc7zwp",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmq8rhyeg000gadvmm1fc7zwp",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhyeg000gadvmm1fc7zwp-cmq8rhyek000qadvmgmyyal9h",
+      "fromNode": "cmq8rhyeg000gadvmm1fc7zwp",
+      "toNode": "cmq8rhyek000qadvmgmyyal9h",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmq8rhyea0007advm8eybx3oj",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmq8rhyea0007advm8eybx3oj",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhyea0007advm8eybx3oj-cmq8rhyef000fadvmqk5o6eyn",
+      "fromNode": "cmq8rhyea0007advm8eybx3oj",
+      "toNode": "cmq8rhyef000fadvmqk5o6eyn",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmq8rhyep0013advmciotpt15",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmq8rhyep0013advmciotpt15",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmq8rhyf40021advmbgkw7vbn",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmq8rhyf40021advmbgkw7vbn",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhyf40021advmbgkw7vbn-cmq8rhyf50022advm2lj4r8jb",
+      "fromNode": "cmq8rhyf40021advmbgkw7vbn",
+      "toNode": "cmq8rhyf50022advm2lj4r8jb",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhyf50022advm2lj4r8jb-cmq8rhyf70027advmxpmmq0aa",
+      "fromNode": "cmq8rhyf50022advm2lj4r8jb",
+      "toNode": "cmq8rhyf70027advmxpmmq0aa",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhyf40021advmbgkw7vbn-cmq8rhyf70026advmfyy6remv",
+      "fromNode": "cmq8rhyf40021advmbgkw7vbn",
+      "toNode": "cmq8rhyf70026advmfyy6remv",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmq8rhyey001ladvmqal42v4f",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmq8rhyey001ladvmqal42v4f",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhyey001ladvmqal42v4f-cmq8rhyey001madvmfjjuxs3y",
+      "fromNode": "cmq8rhyey001ladvmqal42v4f",
+      "toNode": "cmq8rhyey001madvmfjjuxs3y",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhyey001ladvmqal42v4f-cmq8rhyf2001vadvm17c4kkhl",
+      "fromNode": "cmq8rhyey001ladvmqal42v4f",
+      "toNode": "cmq8rhyf2001vadvm17c4kkhl",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmq8rhyf80028advmowiq9bmg",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmq8rhyf80028advmowiq9bmg",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhyf80028advmowiq9bmg-cmq8rhyf80029advmb75ln7u3",
+      "fromNode": "cmq8rhyf80028advmowiq9bmg",
+      "toNode": "cmq8rhyf80029advmb75ln7u3",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmq8rhyer0017advmpm4j4zf5",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmq8rhyer0017advmpm4j4zf5",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhyer0017advmpm4j4zf5-cmq8rhxl800008evmyipstgjv",
+      "fromNode": "cmq8rhyer0017advmpm4j4zf5",
+      "toNode": "cmq8rhxl800008evmyipstgjv",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhyer0017advmpm4j4zf5-cmq8rhyer0018advmyodraxo5",
+      "fromNode": "cmq8rhyer0017advmpm4j4zf5",
+      "toNode": "cmq8rhyer0018advmyodraxo5",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhyer0017advmpm4j4zf5-cmp8xytbp00a2xrvmgp9lh2h2",
+      "fromNode": "cmq8rhyer0017advmpm4j4zf5",
+      "toNode": "cmp8xytbp00a2xrvmgp9lh2h2",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmq8rhyek000radvmrcuxm1ra",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmq8rhyek000radvmrcuxm1ra",
+      "label": "100 %"
+    },
+    {
+      "id": "cmq8rhyek000radvmrcuxm1ra-cmq8rhyen000xadvmidtzb00d",
+      "fromNode": "cmq8rhyek000radvmrcuxm1ra",
+      "toNode": "cmq8rhyen000xadvmidtzb00d",
+      "label": "100 %"
+    },
+    {
+      "id": "cmp8xysz20000xrvmbm4d5nat-cmq8ri3h70000njvm7r5nclev",
+      "fromNode": "cmp8xysz20000xrvmbm4d5nat",
+      "toNode": "cmq8ri3h70000njvm7r5nclev",
+      "label": "100 %"
+    }
+  ]
+}
