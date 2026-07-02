@@ -82,6 +82,7 @@ describe('package scripts', () => {
     assert.equal(packageJson.scripts['vault:export-db'], 'tsx scripts/obsidian-vault/export-db.ts')
     assert.equal(packageJson.scripts['vault:review-preflight'], 'tsx scripts/obsidian-vault/review-preflight.ts')
     assert.equal(packageJson.scripts['vault:review-samples'], 'tsx scripts/obsidian-vault/review-samples.ts')
+    assert.equal(packageJson.scripts['vault:review-closeout'], 'tsx scripts/obsidian-vault/review-closeout.ts')
   })
 
   it('includes the I27+ approval gate in the default vault review preflight', () => {
@@ -117,6 +118,18 @@ describe('package scripts', () => {
     assert.ok(
       preflightSource.includes('validateReviewSamples'),
       'default review preflight must validate machine-checkable VK-5 samples',
+    )
+  })
+
+  it('exposes VK-5 review closeout as a separate final gate', () => {
+    const closeoutSource = readFileSync(
+      join(process.cwd(), 'scripts', 'obsidian-vault', 'review-closeout.ts'),
+      'utf8',
+    )
+
+    assert.ok(
+      closeoutSource.includes('validateReviewCloseout'),
+      'review closeout script must use the dedicated final closeout validator',
     )
   })
 })

@@ -8,7 +8,9 @@ siterbarhet: intern
 
 # HUB – Kunnskapsdatabasen
 
-Totaloversikt over kunnskapsbasen i **Food Systems 2026** — Nordic Circular Food Systems (WP3, Nordic Circular Hotspot, kontrakt 201-2503-P25013). Kartet speiler navigasjonen i appen, slik at kart og plattform alltid stemmer overens. Visuelt kart: [[Kunnskapskart.canvas|Kunnskapskart]].
+HUB-en er arkiv- og navigasjonslaget i arbeidskartet. Bruk den når du trenger å finne riktig del av kunnskapsbasen, ikke når du skal lese en ferdig fortelling. For analysearbeid starter du ofte raskere i [[Innsiktskartet]] eller [[Maktkartet]].
+
+Visuelt kart: [[Kunnskapskart.canvas|Kunnskapskart]] · Innsikt: [[Innsiktskartet]] · Makt: [[Maktkartet]]
 
 ## Nøkkeltall
 
@@ -17,6 +19,13 @@ Totaloversikt over kunnskapsbasen i **Food Systems 2026** — Nordic Circular Fo
 - **3 849** butikker · **1 782** havbrukslokaliteter · **357** kommuner
 - Markedskonsentrasjon dagligvare: NorgesGruppen **48,4 %** · Coop **27,1 %** · Reitan **18,0 %** · Bunnpris **6,6 %** (HHI 3 445)
 - **~1 229** forskningsdokumenter · **23** strukturerte datasett
+
+## Når bruker du hva?
+
+- **Orientering:** bruk denne HUB-en og [[Kunnskapskart.canvas|Kunnskapskart]].
+- **Analyse:** bruk [[Innsiktskartet]], [[Maktkartet]], [[Eierskapsregisteret]] og [[Gap-register]].
+- **Neste arbeid:** bruk [[I38 Objective-function skiller beslutning fra publisering]] for å skille beslutningsverdi fra publiserbarhet.
+- **Ekstern bruk:** gå alltid via [[Kilder]] og claim-lock før tall eller aktørclaims løftes ut.
 
 ## Klynger
 
@@ -66,19 +75,19 @@ Totaloversikt over kunnskapsbasen i **Food Systems 2026** — Nordic Circular Fo
 
 ## Innsiktskartet — hva vi vet
 
-Søsterkartet [[Innsiktskartet]] viser *innsikten*, ikke arkivet: verdikjeden som ryggrad, aktørene plassert på leddene sine, bevis-kjeden med 26 innsikter, sirkulære looper og gaps. Visuelt: [[Verdikjedekart.canvas|Verdikjedekart]].
+[[Innsiktskartet]] viser *innsikten*, ikke arkivet: verdikjeden som ryggrad, bevis-kjeden I01-I26, selektiv V2-kuratering I27+, sirkulære looper og gaps. Visuelt: [[Verdikjedekart.canvas|Verdikjedekart]].
 
 ## Maktkartet — hvem som sitter i posisjonene
 
-[[Maktkartet]] viser eierfamilier → konserntrær → styrenettverket (AP-1: 32 interlockere, 11 sektorbroer). Visuelt: [[Maktkart.canvas|Maktkart]].
+[[Maktkartet]] viser selskaper, eierskap, konserntrær og styrenettverk. Les det som strukturelle posisjoner og kontrollbaner, ikke som intensjon eller skyld. Visuelt: [[Maktkart.canvas|Maktkart]].
 
 ## Slik brukes kartet
 
-- **Graf-visning**: åpne Obsidian-grafen — klyngene er fargekodet per mappe.
-- **Canvas**: [[Kunnskapskart.canvas|Kunnskapskart]] gir blueprint-layouten (hub → 8 klynger → datafundament).
-- **Utvikling**: hver seksjonsnote har en «Notater»-seksjon — bygg ut med funn, lenker og delkart etter hvert som prosjektet skrider frem.
-- Kilde-blueprint: `docs/miro-kart-kunnskapsgrunnlag-blueprint.md`.
-- Videre utbygging: `docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md` (Codex-handover, VK-0–VK-5).
+- **Graph view:** bruk mapper/farger til å se mønster, men filtrer bort looper/personer hvis bildet blir for støyete.
+- **Canvas:** bruk `Kunnskapskart`, `Verdikjedekart` og `Maktkart` som samtaleflater, ikke som fasit.
+- **Notater:** menneskelig tekst skal legges under `## Notater`; `vault:sync` skal bevare den.
+- **Kildekontroll:** kildelag og siterbarhet avgjør hva som kan brukes utenfor intern arbeidsflate.
+- **Videre utbygging:** `docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md`.
 
 ## Dynamiske oversikter
 

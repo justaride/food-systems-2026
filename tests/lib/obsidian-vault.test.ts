@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs'
+import { mkdtempSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { describe, it } from 'node:test'
@@ -15,6 +15,7 @@ import {
   validateInsightCandidateApprovalGate,
   validateMasterplanFrontmatterLinks,
   validateReferencedPaths,
+  validateReviewCloseout,
   validateReviewPackageFrontmatterLinks,
   validateReviewProtocolDecisionGate,
   validateReviewSamples,
@@ -2020,6 +2021,63 @@ describe('obsidian vault sync helpers', () => {
           'VK-5 review protocol cannot be marked fullfort with unresolved review decision for Vault-graf til `/graf`: ikke besluttet',
       },
     ])
+  })
+
+  it('keeps VK-5 closeout blocked until the review protocol is explicitly closed', () => {
+    const repo = mkdtempSync(join(tmpdir(), 'food-vk5-review-closeout-open-'))
+    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'),
+      '# Masterplan\n',
+    )
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-completion-audit-2026-07-02.md'),
+      '# Audit\n',
+    )
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md'),
+      readFileSync(
+        join(process.cwd(), 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md'),
+        'utf8',
+      ),
+    )
+
+    const issues = validateReviewCloseout(repo).issues
+
+    assert.deepEqual(issues, [
+      {
+        file: 'docs/project/plans/obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md',
+        message:
+          'VK-5 review closeout requires protocol frontmatter status fullfort/fullført/ferdig/lukket after human Obsidian review',
+      },
+    ])
+  })
+
+  it('allows VK-5 closeout only after protocol status and review rows are resolved', () => {
+    const repo = mkdtempSync(join(tmpdir(), 'food-vk5-review-closeout-closed-'))
+    mkdirSync(join(repo, 'docs', 'project', 'plans'), { recursive: true })
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-masterplan-2026-07-02.md'),
+      '# Masterplan\n',
+    )
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-completion-audit-2026-07-02.md'),
+      '# Audit\n',
+    )
+    const closedProtocol = readFileSync(
+      join(process.cwd(), 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md'),
+      'utf8',
+    )
+      .replace('status: klar-for-gjennomgang-ikke-utfort', 'status: fullfort')
+      .replaceAll('ikke sjekket i review', 'godkjent')
+      .replaceAll('ikke sjekket', 'godkjent')
+      .replaceAll('ikke besluttet', 'parkert')
+    writeFileSync(
+      join(repo, 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md'),
+      closedProtocol,
+    )
+
+    assert.deepEqual(validateReviewCloseout(repo).issues, [])
   })
 
   it('requires the VK-5 review protocol to keep every masterplan review section', () => {

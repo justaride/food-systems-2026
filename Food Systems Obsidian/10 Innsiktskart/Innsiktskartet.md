@@ -8,9 +8,9 @@ siterbarhet: intern
 
 # Innsiktskartet
 
-> Innsiktslaget · Søsterkart til [[HUB – Kunnskapsdatabasen]]
+> Innsiktslaget · Søsterkart til [[HUB – Kunnskapsdatabasen]] og [[Maktkartet]]
 
-Innsiktslaget i kunnskapskartet: ikke *hvor* tingene ligger, men *hva vi vet*. Verdikjeden er ryggraden; aktører, innsikter, looper og gaps henger på den. Visuelt kart: [[Verdikjedekart.canvas|Verdikjedekart]] · Arkivkartet: [[HUB – Kunnskapsdatabasen]].
+Innsiktskartet er arbeidsflaten for hva vi mener vi vet, hva som fortsatt er gap, og hva som bare er internt beslutningsgrunnlag. Verdikjeden er ryggraden; innsikter, looper, gaps og maktlaget henger på den. Visuelt kart: [[Verdikjedekart.canvas|Verdikjedekart]].
 
 > ⚠️ **Internt arbeidskart.** Tall og claims er gjengitt fra research-syntesen (`narrativ-struktur.md` m.fl.). Ekstern bruk krever claim-lock og siterbarhets-gate — se [[Kilder]].
 
@@ -18,7 +18,7 @@ Innsiktslaget i kunnskapskartet: ikke *hvor* tingene ligger, men *hva vi vet*. V
 
 [[Ledd 1 – Innsatsfaktorer]] → [[Ledd 2 – Primærproduksjon]] → [[Ledd 3 – Foredling]] → [[Ledd 4 – Distribusjon og grossist]] → [[Ledd 5 – Dagligvare og detaljhandel]] → [[Ledd 6 – Horeca og storhusholdning]] → [[Ledd 7 – Forbruker og husholdning]] → [[Ledd 8 – Ressurssløyfe og sidestrømmer]]
 
-## Bevis-kjeden (26 innsikter i 7 deler)
+## Bevis-kjeden (I01-I26)
 
 **Del 1 – Det norske systemet**
 
@@ -61,6 +61,17 @@ Innsiktslaget i kunnskapskartet: ikke *hvor* tingene ligger, men *hva vi vet*. V
 - [[I25 Fem overgangsmekanismer]]
 - [[I26 Gaps som krever menneskelig input]]
 
+## V2-kuratering (selektiv I27+)
+
+- [[I27 Styreoverlappet peker på smale broer]]
+- [[I31 Krysseie må leses som kontrollbaner]]
+- [[I34 Fem fokusområder gjør kartet handlingsrettet]]
+- [[I36 Næringsgjenvinning er et prioritert gap]]
+- [[I37 Maktkartet må leses gjennom fire linser]]
+- [[I38 Objective-function skiller beslutning fra publisering]]
+
+Disse notene er interne arbeidsnoder. De er valgt fordi de gjør kartet mer brukbart som cockpit, men de er ikke automatisk publiserbare claims.
+
 ## Aktører
 
 **Konsern:** [[NorgesGruppen]] · [[ASKO]] · [[Reitan Retail]] · [[Coop Norge]] · [[Orkla]] · [[TINE]] · [[Nortura]] · [[Felleskjøpet Agri]] · [[BAMA]] · [[Mowi]] · [[Lerøy Seafood]] · [[SalMar]] · [[Austevoll Seafood]] · [[Bunnpris]]
@@ -79,12 +90,12 @@ Innsiktslaget i kunnskapskartet: ikke *hvor* tingene ligger, men *hva vi vet*. V
 
 ## Maktlaget
 
-[[Maktkartet]] — styrenettverket og eierkantene bak aktørene: interlockere (gul i grafen), [[Eierskapsregisteret]] og M&A-bevegelsene. Empirisk støtte til [[I22 Nordstad-tesen – infrastrukturkontroll]].
+[[Maktkartet]] — styrenettverket og eierkantene bak aktørene: interlockere, [[Eierskapsregisteret]], konserntrær og kontrollbaner. Les sammen med [[I27 Styreoverlappet peker på smale broer]], [[I31 Krysseie må leses som kontrollbaner]] og [[I37 Maktkartet må leses gjennom fire linser]].
 
 ## Slik leses grafen
 
 - **Grønn** = verdikjedeledd (ryggraden) · **Blå** = aktører/eiere · **Rosa** = innsikter (bevis-kjeden) · **Cyan** = looper · **Oransje** = gaps · **Lilla** = Norden
-- Nodestørrelse følger antall lenker: NorgesGruppen og triopol-innsikten dominerer — grafen *viser* maktkonsentrasjonen.
+- Nodestørrelse følger antall lenker: store noder viser hvor kartet har mange koblinger, ikke alene hvor "viktig" eller publiserbar en påstand er.
 - Gaps med få lenker ligger løst i utkanten — hullene i sirkulariteten er bokstavelig talt synlige.
 
 ## Dynamiske oversikter

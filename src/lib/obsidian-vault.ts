@@ -2131,6 +2131,26 @@ export function validateReviewProtocolDecisionGate(repoRoot: string): { issues: 
   return { issues }
 }
 
+export function validateReviewCloseout(repoRoot: string): { issues: VaultIssue[] } {
+  const issues = [...validateReviewProtocolDecisionGate(repoRoot).issues]
+  const absolutePath = join(repoRoot, VK5_REVIEW_PROTOCOL_PATH)
+  if (!existsSync(absolutePath)) {
+    return { issues }
+  }
+
+  const protocolFrontmatter = parseFrontmatter(readFileSync(absolutePath, 'utf8')).frontmatter
+  const protocolStatus = normalizeTableCell(protocolFrontmatter.status ?? '')
+  if (!REVIEW_PROTOCOL_CLOSEOUT_STATUSES.has(protocolStatus)) {
+    issues.push({
+      file: VK5_REVIEW_PROTOCOL_PATH,
+      message:
+        'VK-5 review closeout requires protocol frontmatter status fullfort/fullført/ferdig/lukket after human Obsidian review',
+    })
+  }
+
+  return { issues }
+}
+
 export function validateReviewPackageFrontmatterLinks(repoRoot: string): { issues: VaultIssue[] } {
   const issues: VaultIssue[] = []
 

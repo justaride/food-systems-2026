@@ -10,13 +10,24 @@ siterbarhet: intern
 
 > Maktlaget · Søsterkart til [[Innsiktskartet]] og [[HUB – Kunnskapsdatabasen]]
 
-Maktlaget i innsiktskartet: hvem som faktisk sitter i posisjonene — eierfamilier, konserntrær og styrenettverket. Bygget på AP-1-analysen (styreoverlapp) og eierskaps-seed-filen. Visuelt kart: [[Maktkart.canvas|Maktkart]] · Søsterkart: [[Innsiktskartet]] · [[HUB – Kunnskapsdatabasen]].
+Maktkartet er arbeidsflaten for strukturell posisjon: selskaper, eierskap, konserntrær, styreoverlapp og hvilke deler av verdikjeden de berører. Bruk det til å finne mønstre og spørsmål, ikke til å konkludere om intensjon. Visuelt kart: [[Maktkart.canvas|Maktkart]].
 
 ⚠️ _Bruksregel (fra AP-1): «makt» betyr strukturell posisjon i styregrafen, ikke intensjon, samordning eller ulovlighet. Personnavn er offentlige rolledata, men aktørspesifikke formuleringer går gjennom claim-lock/PCQ før ekstern bruk._
 
+## Leseregel
+
+Start med fire spørsmål:
+
+- Hvilket konsern eller selskap er dette?
+- Hvilke eierskapsbaner peker inn eller ut?
+- Hvilke styre-/personkoblinger er bare rolledata, og hvilke er analyseverdige broer?
+- Er formuleringen intern beslutningsverdi eller ekstern claim-kandidat?
+
+Se også [[I27 Styreoverlappet peker på smale broer]], [[I31 Krysseie må leses som kontrollbaner]] og [[I37 Maktkartet må leses gjennom fire linser]].
+
 ## Hovedfunn (AP-1, 2026-06-14)
 
-**Styreoverlappet peker ikke på et diffust «alle kjenner alle»-nettverk, men på et smalt bro-mønster rundt retail, logistikk og foredling.** Systemkoblingen ligger i dagligvare/distribusjon/foredling-grensesnittet — som styrker [[I22 Nordstad-tesen – infrastrukturkontroll]].
+**Styreoverlappet peker ikke på et diffust nettverk, men på et smalt bro-mønster rundt retail, logistikk og foredling.** Systemkoblingen ligger i dagligvare/distribusjon/foredling-grensesnittet — som styrker [[I22 Nordstad-tesen – infrastrukturkontroll]] som intern analysetese.
 
 - 555 styreverv · 487 personer · 98 selskaper med styredata
 - **32 interlockere** (verv i ≥2 selskaper) · **11 tverrsektorielle broer**
@@ -25,8 +36,9 @@ Maktlaget i innsiktskartet: hvem som faktisk sitter i posisjonene — eierfamili
 
 ## Toppnodene
 
-- **BAMA (interlock-grad 17)** og **ASKO (14)** er de mest sammenkoblede selskapene — grossist/logistikk-leddet, akkurat der Nordstad-tesen sier makten sitter.
-- **Runar Hollevik** (10 verv, 4 sektorer, NorgesGruppen-sfæren) og **Ole Robert Reitan** (9 verv) er de største personnodene.
+- **BAMA** og **ASKO** er sentrale selskapsknutepunkter i AP-1-grafen.
+- **Runar Hollevik** og **Ole Robert Reitan** er store personnoder i rolledataene.
+- Disse punktene er navigasjonsfunn for intern analyse; eksterne formuleringer må gjennom claim-lock.
 
 ## Personer (topp 20 interlockere)
 
@@ -56,7 +68,10 @@ Maktlaget i innsiktskartet: hvem som faktisk sitter i posisjonene — eierfamili
 
 ## Kilder
 
-- `research/analyse/ap1-styreoverlapp-active-only.json` + `docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md`
+- [[Kilde – AP-1 styreoverlapp]] — `docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md`
+- [[Kilde – AP-5 krysseie]] — `docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md`
+- [[Kilde – maktkart-syntese]] — `docs/project/analysis/food-tg-maktkart-syntese-2026-06-14.md`
+- `research/analyse/ap1-styreoverlapp-active-only.json`
 - `scripts/import-company-ownership.ts` (seed-of-truth) · `data/konsern-coverage.json`
 
 - [[Eierskapsregisteret]] — alle eierkanter med kilder og M&A-avtaler

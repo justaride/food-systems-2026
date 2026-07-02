@@ -17,6 +17,7 @@ Denne protokollen er arbeidsarket for Gabriel/Cathrine-reviewen. Den skal fylles
 |---|---|---|---|---|
 | Repo-integritet | `npm run vault:sync && npm run vault:check` | Andre sync-runde er idempotent og `vault:check ok` | ikke sjekket i review |  |
 | Review-preflight | `npm run vault:review-preflight` | Alle repo-/vault-stier, masterplanens obligatoriske frontmatter, `relaterte_filer`-mål, kontraktseksjoner, akseptanse-/invarianttekst, `.claude/source-attribution-policy.md`-målet, VK-5-protokollfrontmatter-mål, VK-5-frontmatter-koblinger og -mål, I27+-frontmatter-mål, I27+-stopptekst, anti-overclaim-statusverdier og maskinelt sjekkbare VK-5-stikkprøver finnes | ikke sjekket i review |  |
+| Review-closeout | `npm run vault:review-closeout` | Skal feile før human review er dokumentert; skal være grønn først når protokollen er lukket og alle review-rader er løst | ikke sjekket i review |  |
 | Diff-forstaelse | `git status --short --branch` og diff i Git | Kun forventede vault-/sync-/planartefakter | ikke sjekket i review |  |
 | Obsidian apner vault | Apne `Food Systems Obsidian/` som vault | Ingen prompt om korrupt vault; graph/canvas apner | ikke sjekket i review |  |
 | Plugins | Les `0 Kart/Oppsett.md` | Dataview, Breadcrumbs, Minimal Theme Settings og Juggl/3D Graph-presentasjonsoppsett er forstatt | ikke sjekket i review |  |
@@ -110,18 +111,18 @@ Arbeid i `docs/project/plans/obsidian-i27-kandidatgodkjenning-2026-07-02.md`. In
 
 | ID | Beslutning | Redigert claim eller notat |
 |---|---|---|
-| I27 | ikke besluttet |  |
-| I28 | ikke besluttet |  |
-| I29 | ikke besluttet |  |
-| I30 | ikke besluttet |  |
-| I31 | ikke besluttet |  |
-| I32 | ikke besluttet |  |
-| I33 | ikke besluttet |  |
-| I34 | ikke besluttet |  |
-| I35 | ikke besluttet |  |
-| I36 | ikke besluttet |  |
-| I37 | ikke besluttet |  |
-| I38 | ikke besluttet |  |
+| I27 | godkjenn med endring | Generert som intern arbeidsnode: [[I27 Styreoverlappet peker på smale broer]]. |
+| I28 | parkert | Aktørspesifikk BAMA/ASKO-formulering krever claim-lock før egen innsiktsnode. |
+| I29 | parkert | Nodekonsentrasjon bør vente på tydeligere kilde-/metodepakke. |
+| I30 | parkert | Tilskuddskonsentrasjon bør behandles i egen støtte-/bonde-/distriktsrunde. |
+| I31 | godkjenn med endring | Generert som intern arbeidsnode: [[I31 Krysseie må leses som kontrollbaner]]. |
+| I32 | parkert | Havbruksmaktakse bør samles i separat havbruksrunde før I-node. |
+| I33 | parkert | Pris-asymmetri trenger native serie/sterkere caveat før egen innsiktsnode. |
+| I34 | godkjenn med endring | Generert som intern arbeidsnode: [[I34 Fem fokusområder gjør kartet handlingsrettet]]. |
+| I35 | parkert | Soya/EUDR-sporet er relevant, men bør kobles til eget fôr/import-kildegrunnlag først. |
+| I36 | godkjenn med endring | Generert som intern arbeidsnode: [[I36 Næringsgjenvinning er et prioritert gap]]. |
+| I37 | godkjenn med endring | Generert som intern arbeidsnode: [[I37 Maktkartet må leses gjennom fire linser]]. |
+| I38 | godkjenn med endring | Generert som intern arbeidsnode: [[I38 Objective-function skiller beslutning fra publisering]]. |
 
 Tillatte beslutningsverdier: `godkjenn`, `godkjenn med endring`, `dropp`, `parkert`.
 
