@@ -3339,6 +3339,44 @@ describe('obsidian vault sync helpers', () => {
     assert.ok(messages.some((message) => message.includes('gap note must reference a research mission')))
   })
 
+  it('requires gap note mission IDs to exist in the research mission register', () => {
+    const repo = mkdtempSync(join(tmpdir(), 'food-vault-gap-mission-register-'))
+    const vault = join(repo, 'Food Systems Obsidian')
+    mkdirSync(join(vault, '10 Innsiktskart', 'Gaps'), { recursive: true })
+    mkdirSync(join(repo, 'research'), { recursive: true })
+    writeFileSync(
+      join(repo, 'research', 'RESEARCH-MISSIONS.md'),
+      [
+        '| Mission ID | Gap-node | Prioritet | Spørsmål som må besvares | Forventet returformat |',
+        '|---|---|---|---|---|',
+        '| VK4-GAP-001 | Gap – Annet | A | Test | Notat |',
+        '',
+      ].join('\n'),
+    )
+    writeFileSync(
+      join(vault, '10 Innsiktskart', 'Gaps', 'Gap – Test.md'),
+      buildGeneratedNote({
+        title: 'Gap – Test',
+        frontmatter: {
+          type: 'gap',
+          status: 'generert',
+          kilde: 'test',
+          siterbarhet: 'intern',
+          mission: 'VK4-GAP-999',
+        },
+        body: ['Gap med ukjent mission.'],
+      }),
+    )
+
+    const messages = validateVault(vault, { requireGapMissions: true }).issues.map(
+      (issue) => `${issue.file}: ${issue.message}`,
+    )
+
+    assert.deepEqual(messages, [
+      '10 Innsiktskart/Gaps/Gap – Test.md: gap note mission VK4-GAP-999 is missing from research/RESEARCH-MISSIONS.md',
+    ])
+  })
+
   it('requires mission references for gap notes stored in nested slash-derived paths', () => {
     const vault = mkdtempSync(join(tmpdir(), 'food-vault-nested-gap-missions-'))
     mkdirSync(join(vault, '10 Innsiktskart', 'Gaps', 'Gap – N'), { recursive: true })

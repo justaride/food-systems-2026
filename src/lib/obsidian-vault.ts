@@ -1117,6 +1117,7 @@ export function validateVault(
   const issues: VaultIssue[] = []
   const markdownFiles = walkFiles(vaultPath, (file) => file.endsWith('.md'))
   const canvasFiles = walkFiles(vaultPath, (file) => file.endsWith('.canvas'))
+  const researchMissionIds = options.requireGapMissions ? readResearchMissionIds(dirname(vaultPath)) : null
   const noteTypes = new Map<string, string>()
   for (const file of markdownFiles) {
     noteTypes.set(basename(file, '.md'), parseFrontmatter(readFileSync(file, 'utf8')).frontmatter.type ?? '')
@@ -1167,6 +1168,12 @@ export function validateVault(
       const mission = parsed.frontmatter.mission
       if (!mission && !source.includes('research/RESEARCH-MISSIONS.md')) {
         issues.push({ file: rel, message: 'gap note must reference a research mission' })
+      }
+      if (mission && researchMissionIds && !researchMissionIds.has(mission)) {
+        issues.push({
+          file: rel,
+          message: `gap note mission ${mission} is missing from research/RESEARCH-MISSIONS.md`,
+        })
       }
     }
 
@@ -1560,6 +1567,13 @@ function validatePendingInsightCandidateGate(vaultPath: string, markdownFiles: s
       })
     }
   }
+}
+
+function readResearchMissionIds(repoRoot: string): Set<string> | null {
+  const missionPath = join(repoRoot, 'research', 'RESEARCH-MISSIONS.md')
+  if (!existsSync(missionPath)) return null
+
+  return new Set([...readFileSync(missionPath, 'utf8').matchAll(/\bVK4-GAP-\d{3}\b/g)].map((match) => match[0]))
 }
 
 function validateCanvasFileTargets(vaultPath: string, canvasRelPath: string, nodes: unknown[], issues: VaultIssue[]) {
