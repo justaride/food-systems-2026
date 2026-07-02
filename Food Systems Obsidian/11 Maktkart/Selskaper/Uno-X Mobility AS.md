@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 988247111
+tier: kjerne
 ---
 
 # Uno-X Mobility AS
@@ -34,7 +35,6 @@ orgnr: 988247111
 
 ## Forsyningskjede
 
-- Ingen registrert i eksporten.
 - Ingen registrert i eksporten.
 
 ## Eiendom

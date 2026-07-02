@@ -1,5 +1,4 @@
 ---
-tags: ""
 rLevel: R7
 maturity: industrial
 country: NO

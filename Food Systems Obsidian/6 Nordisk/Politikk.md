@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /politikk
 type: seksjon
 status: generert

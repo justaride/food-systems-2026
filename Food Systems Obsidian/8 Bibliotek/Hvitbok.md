@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /hvitbok
 type: seksjon
 status: generert

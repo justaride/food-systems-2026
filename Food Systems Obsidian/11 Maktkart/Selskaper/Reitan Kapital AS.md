@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 917114684
+tier: kjerne
 ---
 
 # Reitan Kapital AS
@@ -22,7 +23,6 @@ orgnr: 917114684
 ## Eierskap
 
 - Eier: [[Reitan AS (912609987)|Reitan AS]] — 100 % (subsidiary)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 
@@ -33,7 +33,6 @@ orgnr: 917114684
 
 ## Forsyningskjede
 
-- Ingen registrert i eksporten.
 - Ingen registrert i eksporten.
 
 ## Eiendom

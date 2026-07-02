@@ -1,5 +1,4 @@
 ---
-tags: ""
 farge: #64748B
 rolle: Prosjektstyring
 type: klynge

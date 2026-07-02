@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 913283805
+tier: kjerne
 ---
 
 # Joh. Johannson Kaffe AS
@@ -22,7 +23,6 @@ orgnr: 913283805
 ## Eierskap
 
 - Eier: [[NorgesGruppen Merkevare AS]] — 100 % (subsidiary)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 
@@ -33,7 +33,6 @@ orgnr: 913283805
 
 ## Forsyningskjede
 
-- Ingen registrert i eksporten.
 - Ingen registrert i eksporten.
 
 ## Eiendom

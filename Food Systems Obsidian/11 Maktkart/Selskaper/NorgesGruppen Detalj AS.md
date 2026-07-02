@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 882578402
+tier: kjerne
 ---
 
 # NorgesGruppen Detalj AS
@@ -22,7 +23,6 @@ orgnr: 882578402
 ## Eierskap
 
 - Eier: [[NorgesGruppen ASA]] — 100 % (subsidiary)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 
@@ -33,7 +33,6 @@ orgnr: 882578402
 
 ## Forsyningskjede
 
-- Ingen registrert i eksporten.
 - Ingen registrert i eksporten.
 
 ## Eiendom

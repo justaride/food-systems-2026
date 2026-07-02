@@ -1,5 +1,4 @@
 ---
-tags: ""
 rLevel: R6
 maturity: scaling
 country: DK

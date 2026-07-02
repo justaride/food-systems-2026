@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, unlinkSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, statSync, unlinkSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join, relative } from 'node:path'
 import { parseCsvRecords } from '../../src/lib/csv'
 import {
@@ -24,6 +24,11 @@ if (!existsSync(vaultPath)) {
 }
 
 if (!checkOnly) {
+  const migrated = migrateNestedManagedNotes()
+  if (migrated > 0) {
+    console.log(`vault:sync migrated nested managed notes=${migrated}`)
+  }
+
   const markdownFiles = walkVaultMarkdown(vaultPath)
   let changed = 0
 
@@ -43,6 +48,84 @@ if (!checkOnly) {
   syncStakeholderSources()
   syncVaultExport()
   syncTopologyRegisters()
+}
+
+function migrateNestedManagedNotes(): number {
+  const roots = [
+    join(vaultPath, '10 Innsiktskart', 'Looper'),
+    join(vaultPath, '10 Innsiktskart', 'Gaps'),
+    join(vaultPath, '10 Innsiktskart', 'Innsikter'),
+    join(vaultPath, '11 Maktkart', 'Selskaper'),
+    join(vaultPath, '11 Maktkart', 'Personer'),
+  ]
+  const replacements: Array<{ oldTarget: string; newTarget: string }> = []
+  let migrated = 0
+
+  for (const root of roots) {
+    if (!existsSync(root)) continue
+    for (const file of walkFiles(root)) {
+      if (!file.endsWith('.md')) continue
+      const relFromRoot = relative(root, file)
+      if (relFromRoot.startsWith(`Register/`)) continue
+      if (!relFromRoot.includes('/')) continue
+
+      const title = noteTitleFromFile(file)
+      const target = join(root, noteFileName(title))
+      if (target === file || existsSync(target)) continue
+
+      mkdirSync(dirname(target), { recursive: true })
+      renameSync(file, target)
+      replacements.push({
+        oldTarget: relative(vaultPath, file).replace(/\.md$/i, ''),
+        newTarget: relative(vaultPath, target).replace(/\.md$/i, ''),
+      })
+      replacements.push({
+        oldTarget: title,
+        newTarget: noteFileName(title).replace(/\.md$/i, ''),
+      })
+      migrated += 1
+    }
+    removeEmptyDirectories(root)
+  }
+
+  if (replacements.length > 0) {
+    rewriteWikiLinkTargets(replacements)
+  }
+
+  return migrated
+}
+
+function rewriteWikiLinkTargets(replacements: Array<{ oldTarget: string; newTarget: string }>) {
+  for (const file of walkFiles(vaultPath)) {
+    if (!file.endsWith('.md') && !file.endsWith('.canvas')) continue
+    let source = readFileSync(file, 'utf8')
+    const before = source
+    for (const { oldTarget, newTarget } of replacements) {
+      const oldFileTarget = `${oldTarget}.md`
+      const newFileTarget = `${newTarget}.md`
+      source = source
+        .split(`[[${oldTarget}|`)
+        .join(`[[${newTarget}|`)
+        .split(`[[${oldTarget}]]`)
+        .join(`[[${newTarget}]]`)
+        .split(oldFileTarget)
+        .join(newFileTarget)
+    }
+    if (source !== before) {
+      writeFileSync(file, source)
+    }
+  }
+}
+
+function removeEmptyDirectories(root: string) {
+  for (const entry of readdirSync(root)) {
+    const fullPath = join(root, entry)
+    if (!statSync(fullPath).isDirectory()) continue
+    removeEmptyDirectories(fullPath)
+    if (readdirSync(fullPath).length === 0) {
+      rmSync(fullPath, { recursive: true, force: true })
+    }
+  }
 }
 
 const result = validateVault(vaultPath, {
@@ -344,6 +427,7 @@ function syncStakeholderSources() {
 function syncVaultExport() {
   const exportDir = join(repoRoot, 'data', 'vault-export')
   if (!existsSync(join(exportDir, 'manifest.json'))) return
+  const ap1BridgeNames = readAp1BridgeNames()
 
   const result = buildVaultExportArtifacts({
     manifest: readJson(join(exportDir, 'manifest.json')),
@@ -353,6 +437,9 @@ function syncVaultExport() {
     businessRelationships: readJson(join(exportDir, 'business-relationships.json')),
     properties: readJson(join(exportDir, 'properties.json')),
     ownershipForest: readJson(join(exportDir, 'ownership-forest.json')),
+    coreCompanyIds: readCoreCompanyIds(),
+    coreCompanyNames: ap1BridgeNames.companyNames,
+    corePersonNames: ap1BridgeNames.personNames,
   })
   let changed = 0
   const expectedPaths = new Set(result.files.map((file) => file.path))
@@ -374,6 +461,28 @@ function syncVaultExport() {
 
 function readJson(path: string) {
   return JSON.parse(readFileSync(path, 'utf8'))
+}
+
+function readCoreCompanyIds(): string[] {
+  const coveragePath = join(repoRoot, 'data', 'konsern-coverage.json')
+  if (!existsSync(coveragePath)) return []
+  const coverage = readJson(coveragePath) as { entries?: Array<{ rootCompanyId?: string }> }
+  return (coverage.entries ?? []).map((entry) => entry.rootCompanyId).filter((id): id is string => Boolean(id))
+}
+
+function readAp1BridgeNames(): { companyNames: string[]; personNames: string[] } {
+  const ap1Path = join(repoRoot, 'research', 'analyse', 'ap1-styreoverlapp-active-only.json')
+  if (!existsSync(ap1Path)) return { companyNames: [], personNames: [] }
+  const ap1 = readJson(ap1Path) as { topBridges?: Array<{ name?: string; companies?: string[] }> }
+  const personNames = new Set<string>()
+  const companyNames = new Set<string>()
+  for (const bridge of ap1.topBridges ?? []) {
+    if (bridge.name) personNames.add(bridge.name)
+    for (const company of bridge.companies ?? []) {
+      companyNames.add(company)
+    }
+  }
+  return { companyNames: [...companyNames], personNames: [...personNames] }
 }
 
 function removeStaleExportArtifacts(expectedPaths: Set<string>): number {

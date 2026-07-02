@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /sammenligning
 type: seksjon
 status: generert

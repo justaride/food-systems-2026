@@ -1,5 +1,4 @@
 ---
-tags: ""
 type: innsikt
 status: generert
 kilde: scripts/obsidian-vault/sync.ts

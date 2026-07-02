@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 885316522
+tier: kjerne
 ---
 
 # Unil AS
@@ -22,7 +23,6 @@ orgnr: 885316522
 ## Eierskap
 
 - Eier: [[NorgesGruppen Merkevare AS]] — 100 % (subsidiary)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 
@@ -33,7 +33,6 @@ orgnr: 885316522
 
 - self-dealing → [[NorgesGruppen ASA]] — Unil er NorgesGruppens importselskap for egne merkevarer og internasjonale varer
 - supplier → [[Oda Norway AS]] — Unil leverer utvalgte EMV-produkter til Oda Norway
-- Ingen registrert i eksporten.
 
 ## Eiendom
 

@@ -1,5 +1,4 @@
 ---
-tags: ""
 farge: #B45309
 rolle: Primærledd
 type: klynge

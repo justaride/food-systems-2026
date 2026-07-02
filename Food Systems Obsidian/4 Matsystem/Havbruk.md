@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /havbruk
 type: seksjon
 status: generert

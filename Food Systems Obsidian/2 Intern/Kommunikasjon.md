@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /kommunikasjon
 type: seksjon
 status: generert

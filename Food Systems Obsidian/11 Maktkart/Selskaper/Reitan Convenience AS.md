@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 983415652
+tier: kjerne
 ---
 
 # Reitan Convenience AS
@@ -34,7 +35,6 @@ orgnr: 983415652
 
 ## Forsyningskjede
 
-- Ingen registrert i eksporten.
 - Ingen registrert i eksporten.
 
 ## Eiendom

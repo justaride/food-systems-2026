@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 894759372
+tier: kjerne
 ---
 
 # REMA Distribusjon Norge AS
@@ -22,7 +23,6 @@ orgnr: 894759372
 ## Eierskap
 
 - Eier: [[REMA 1000 Norge AS]] — 100 % (subsidiary)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 

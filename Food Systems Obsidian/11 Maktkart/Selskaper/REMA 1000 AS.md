@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 883409442
+tier: kjerne
 ---
 
 # REMA 1000 AS
@@ -31,7 +32,6 @@ orgnr: 883409442
 
 ## Forsyningskjede
 
-- Ingen registrert i eksporten.
 - Ingen registrert i eksporten.
 
 ## Eiendom

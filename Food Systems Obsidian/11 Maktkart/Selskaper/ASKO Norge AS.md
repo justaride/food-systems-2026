@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 929228723
+tier: kjerne
 ---
 
 # ASKO Norge AS

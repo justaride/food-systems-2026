@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /subsidier
 type: seksjon
 status: generert

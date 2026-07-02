@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /sok
 type: seksjon
 status: generert

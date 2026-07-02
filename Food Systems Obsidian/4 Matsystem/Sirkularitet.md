@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /sirkularitet
 type: seksjon
 status: generert

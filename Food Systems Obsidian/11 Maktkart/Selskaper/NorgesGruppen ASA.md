@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 819731322
+tier: kjerne
 ---
 
 # NorgesGruppen ASA
@@ -21,7 +22,6 @@ orgnr: 819731322
 
 ## Eierskap
 
-- Ingen registrert i eksporten.
 - [[ASKO Norge AS]] — 100 % (subsidiary)
 - [[NorgesGruppen Merkevare AS]] — 100 % (subsidiary)
 - [[NorgesGruppen Fellestjenester AS]] — 100 % (subsidiary)

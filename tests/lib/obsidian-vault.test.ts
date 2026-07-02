@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { describe, it } from 'node:test'
 import {
   applyManagedSection,
+  buildGraphSettings,
   buildMeetingTranscriptArtifacts,
   buildRegisterArtifact,
   buildStakeholderArtifacts,
@@ -2695,7 +2696,7 @@ describe('obsidian vault sync helpers', () => {
     assert.ok(!messages.some((message) => message.includes('0 Kart/Lenket.md')))
   })
 
-  it('accepts full path wikilinks as inbound links for nested notes', () => {
+  it('rejects slash-derived nested notes in managed flat folders', () => {
     const vault = mkdtempSync(join(tmpdir(), 'food-vault-path-links-'))
     mkdirSync(join(vault, '0 Kart'), { recursive: true })
     mkdirSync(join(vault, '10 Innsiktskart', 'Looper', 'Loop – Fiskeavfall til fiskemel'), { recursive: true })
@@ -2731,7 +2732,9 @@ describe('obsidian vault sync helpers', () => {
       allowedOrphanPaths: ['0 Kart/Hub.md'],
     }).issues.map((issue) => `${issue.file}: ${issue.message}`)
 
-    assert.deepEqual(messages, [])
+    assert.deepEqual(messages, [
+      '10 Innsiktskart/Looper/Loop – Fiskeavfall til fiskemel/olje (Norge).md: managed folder 10 Innsiktskart/Looper must stay flat',
+    ])
   })
 
   it('builds register artifacts with explicit wikilinks to indexed notes', () => {
@@ -2922,6 +2925,18 @@ describe('obsidian vault sync helpers', () => {
 
     assert.ok(messages.some((message) => message.includes('missing graph color group path:"10 Innsiktskart/Innsikter"')))
     assert.ok(messages.some((message) => message.includes('missing graph color group path:"11 Maktkart/Personer"')))
+  })
+
+  it('builds a default global graph filter for the curated core layer', () => {
+    const graph = JSON.parse(buildGraphSettings()) as { search: string; showOrphans: boolean }
+
+    assert.equal(graph.showOrphans, false)
+    assert.ok(graph.search.includes('-path:"Selskaper/Register"'))
+    assert.ok(graph.search.includes('-path:"Personer/Register"'))
+    assert.ok(graph.search.includes('-path:"12 Kilder"'))
+    assert.ok(graph.search.includes('-path:"1 Oversikt og navigasjon"'))
+    assert.ok(graph.search.includes('-path:"0 Kart/Konsern"'))
+    assert.ok(graph.search.includes('-path:"10 Innsiktskart/Stakeholders"'))
   })
 
   it('requires graph color group path queries to target existing vault folders', () => {
@@ -3389,6 +3404,9 @@ describe('obsidian vault sync helpers', () => {
           ],
         },
       ],
+      coreCompanyIds: ['parent'],
+      coreCompanyNames: ['ASKO Norge AS', 'Meny AS'],
+      corePersonNames: ['Ada Nord'],
     })
 
     assert.equal(result.summary.companies, 3)
@@ -3678,6 +3696,7 @@ describe('obsidian vault sync helpers', () => {
           ],
         },
       ],
+      coreCompanyIds: ['parent'],
     })
 
     const parent = result.files.find((file) => file.path === '11 Maktkart/Selskaper/NorgesGruppen ASA.md')
@@ -3686,7 +3705,7 @@ describe('obsidian vault sync helpers', () => {
     assert.ok(parent?.content.includes('[[Dagrofa A-S|Dagrofa A/S]]'))
     assert.ok(!parent?.content.includes('[[Dagrofa A/S]]'))
     assert.ok(ownershipRegister?.content.includes('[[Dagrofa A-S|Dagrofa A/S]]'))
-    assert.ok(result.files.some((file) => file.path === '11 Maktkart/Selskaper/Dagrofa A-S.md'))
+    assert.ok(result.files.some((file) => file.path === '11 Maktkart/Selskaper/Register/Dagrofa A-S.md'))
   })
 
   it('disambiguates DB-export company note paths when names collide by casing', () => {
@@ -3777,10 +3796,12 @@ describe('obsidian vault sync helpers', () => {
       businessRelationships: [],
       properties: [],
       ownershipForest: [],
+      coreCompanyIds: ['parent'],
+      corePersonNames: ['Ada Nord'],
     })
 
-    assert.ok(result.files.some((file) => file.path === '11 Maktkart/Selskaper/MARTIN & SERVERA AB (222).md'))
-    assert.ok(result.files.some((file) => file.path === '11 Maktkart/Selskaper/Martin & Servera AB (333).md'))
+    assert.ok(result.files.some((file) => file.path === '11 Maktkart/Selskaper/Register/MARTIN & SERVERA AB (222).md'))
+    assert.ok(result.files.some((file) => file.path === '11 Maktkart/Selskaper/Register/Martin & Servera AB (333).md'))
 
     const parent = result.files.find((file) => file.path === '11 Maktkart/Selskaper/Axel Johnson AB.md')
     assert.ok(parent?.content.includes('[[Martin & Servera AB (333)|Martin & Servera AB]]'))

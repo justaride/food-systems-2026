@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 910747711
+tier: kjerne
 ---
 
 # Orkla ASA
@@ -21,7 +22,6 @@ orgnr: 910747711
 
 ## Eierskap
 
-- Ingen registrert i eksporten.
 - [[Lilleborg AS]] — 0 % (subsidiary)
 - [[Orkla Foods AS]] — 100 % (subsidiary)
 - [[Orkla Snacks AS]] — 100 % (subsidiary)
@@ -67,7 +67,6 @@ orgnr: 910747711
 - supplier → [[Coop Norge SA]] — Orkla leverer merkevarer til Coop Norge
 - supplier → [[NorgesGruppen ASA]] — Orkla leverer merkevarer til NorgesGruppen
 - supplier → [[Reitan Retail AS]] — Orkla leverer merkevarer til REMA 1000
-- Ingen registrert i eksporten.
 
 ## Eiendom
 

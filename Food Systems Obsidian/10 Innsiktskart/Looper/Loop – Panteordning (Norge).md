@@ -1,5 +1,4 @@
 ---
-tags: ""
 rLevel: R3
 maturity: mature
 country: NO

@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 938752648
+tier: kjerne
 ---
 
 # Nortura SA
@@ -21,7 +22,6 @@ orgnr: 938752648
 
 ## Eierskap
 
-- Ingen registrert i eksporten.
 - [[Norilia AS]] — 100 % (subsidiary)
 - [[Norfersk AS]] — 100 % (subsidiary)
 - [[Prima Slakt AS]] — 100 % (subsidiary)

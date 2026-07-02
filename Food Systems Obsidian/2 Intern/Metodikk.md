@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /metodikk
 type: seksjon
 status: generert

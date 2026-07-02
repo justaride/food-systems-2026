@@ -1,5 +1,4 @@
 ---
-tags: ""
 farge: #7C3AED
 rolle: Komparativt
 type: klynge

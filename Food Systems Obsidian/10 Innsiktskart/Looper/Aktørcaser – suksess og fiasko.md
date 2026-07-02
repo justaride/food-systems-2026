@@ -1,5 +1,4 @@
 ---
-tags: ""
 type: loop
 status: generert
 kilde: scripts/obsidian-vault/sync.ts

@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 985402779
+tier: kjerne
 ---
 
 # Deli de Luca Norge AS
@@ -22,7 +23,6 @@ orgnr: 985402779
 ## Eierskap
 
 - Eier: [[NorgesGruppen Servicehandel AS]] — 100 % (subsidiary)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 
@@ -35,7 +35,6 @@ orgnr: 985402779
 
 ## Forsyningskjede
 
-- Ingen registrert i eksporten.
 - Ingen registrert i eksporten.
 
 ## Eiendom

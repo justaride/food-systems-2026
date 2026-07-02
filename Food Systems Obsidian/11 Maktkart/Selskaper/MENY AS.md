@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 977066727
+tier: kjerne
 ---
 
 # MENY AS
@@ -37,7 +38,6 @@ orgnr: 977066727
 
 ## Forsyningskjede
 
-- Ingen registrert i eksporten.
 - Ingen registrert i eksporten.
 
 ## Eiendom

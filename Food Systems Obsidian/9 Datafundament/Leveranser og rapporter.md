@@ -1,5 +1,4 @@
 ---
-tags: ""
 type: datafundament
 status: generert
 kilde: scripts/obsidian-vault/sync.ts

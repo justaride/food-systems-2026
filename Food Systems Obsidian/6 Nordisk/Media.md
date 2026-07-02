@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /media
 type: seksjon
 status: generert

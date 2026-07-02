@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 930258008
+tier: kjerne
 ---
 
 # Storcash Norge AS
@@ -22,7 +23,6 @@ orgnr: 930258008
 ## Eierskap
 
 - Eier: [[NorgesGruppen ASA]] — 100 % (subsidiary)
-- Ingen registrert i eksporten.
 
 ## Styreverv
 
@@ -33,7 +33,6 @@ orgnr: 930258008
 
 ## Forsyningskjede
 
-- Ingen registrert i eksporten.
 - [[ASKO Norge AS]] → distributor — ASKO Norge distribuerer varer til Storcash cash & carry-butikker
 
 ## Eiendom

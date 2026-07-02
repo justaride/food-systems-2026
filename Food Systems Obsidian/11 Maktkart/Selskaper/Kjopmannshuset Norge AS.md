@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 977263646
+tier: kjerne
 ---
 
 # Kjopmannshuset Norge AS
@@ -39,7 +40,6 @@ orgnr: 977263646
 
 ## Forsyningskjede
 
-- Ingen registrert i eksporten.
 - Ingen registrert i eksporten.
 
 ## Eiendom

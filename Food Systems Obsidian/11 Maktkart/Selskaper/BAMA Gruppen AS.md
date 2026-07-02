@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 914224314
+tier: kjerne
 ---
 
 # BAMA Gruppen AS

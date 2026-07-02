@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 960514718
+tier: kjerne
 ---
 
 # SalMar ASA

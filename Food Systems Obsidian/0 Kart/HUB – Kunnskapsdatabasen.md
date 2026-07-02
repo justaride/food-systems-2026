@@ -1,5 +1,4 @@
 ---
-tags: ""
 type: hub
 status: generert
 kilde: scripts/obsidian-vault/sync.ts
@@ -10,7 +9,7 @@ siterbarhet: intern
 
 HUB-en er arkiv- og navigasjonslaget i arbeidskartet. Bruk den når du trenger å finne riktig del av kunnskapsbasen, ikke når du skal lese en ferdig fortelling. For analysearbeid starter du ofte raskere i [[Innsiktskartet]] eller [[Maktkartet]].
 
-Visuelt kart: [[Kunnskapskart.canvas|Kunnskapskart]] · Innsikt: [[Innsiktskartet]] · Makt: [[Maktkartet]]
+Visuelt kart: [[Oversiktskart.canvas|Oversiktskart]] · Arkiv: [[Kunnskapskart.canvas|Kunnskapskart]] · Innsikt: [[Innsiktskartet]] · Makt: [[Maktkartet]]
 
 ## Nøkkeltall
 
@@ -22,7 +21,7 @@ Visuelt kart: [[Kunnskapskart.canvas|Kunnskapskart]] · Innsikt: [[Innsiktskarte
 
 ## Når bruker du hva?
 
-- **Orientering:** bruk denne HUB-en og [[Kunnskapskart.canvas|Kunnskapskart]].
+- **Orientering:** bruk [[Oversiktskart.canvas|Oversiktskart]] først; bruk denne HUB-en og [[Kunnskapskart.canvas|Kunnskapskart]] når du skal finne arkivlaget.
 - **Analyse:** bruk [[Innsiktskartet]], [[Maktkartet]], [[Eierskapsregisteret]] og [[Gap-register]].
 - **Neste arbeid:** bruk [[I38 Objective-function skiller beslutning fra publisering]] for å skille beslutningsverdi fra publiserbarhet.
 - **Ekstern bruk:** gå alltid via [[Kilder]] og claim-lock før tall eller aktørclaims løftes ut.

@@ -3,7 +3,7 @@
     {
       "id": "cmq8ri3xy000dr2vm56jteena",
       "type": "file",
-      "file": "11 Maktkart/Selskaper/REITAN AS (NO-REITAN-HOLD).md",
+      "file": "11 Maktkart/Selskaper/Register/REITAN AS (NO-REITAN-HOLD).md",
       "x": 0,
       "y": 0,
       "width": 260,
@@ -12,7 +12,7 @@
     {
       "id": "cmq8ri3xy000cr2vmt80ql5ns",
       "type": "file",
-      "file": "11 Maktkart/Selskaper/Reitan Eiendom AS (NO-REITAN-EIE).md",
+      "file": "11 Maktkart/Selskaper/Register/Reitan Eiendom AS (NO-REITAN-EIE).md",
       "x": 360,
       "y": 160,
       "width": 260,
@@ -21,7 +21,7 @@
     {
       "id": "cmq8ri3y2000ir2vmes7pk50b",
       "type": "file",
-      "file": "11 Maktkart/Selskaper/Christiania Areal AS.md",
+      "file": "11 Maktkart/Selskaper/Register/Christiania Areal AS.md",
       "x": 720,
       "y": 320,
       "width": 260,
@@ -30,7 +30,7 @@
     {
       "id": "cmq8ri3xz000er2vmwu3ckdra",
       "type": "file",
-      "file": "11 Maktkart/Selskaper/E C Dahls Eiendom AS.md",
+      "file": "11 Maktkart/Selskaper/Register/E C Dahls Eiendom AS.md",
       "x": 720,
       "y": 480,
       "width": 260,
@@ -39,7 +39,7 @@
     {
       "id": "cmq8ri3y1000gr2vm6kxubjv4",
       "type": "file",
-      "file": "11 Maktkart/Selskaper/REBUS Handelseiendom AS.md",
+      "file": "11 Maktkart/Selskaper/Register/REBUS Handelseiendom AS.md",
       "x": 720,
       "y": 640,
       "width": 260,
@@ -48,7 +48,7 @@
     {
       "id": "cmq8ri3y2000hr2vmatlbtwvw",
       "type": "file",
-      "file": "11 Maktkart/Selskaper/REBUS Utvikling AS.md",
+      "file": "11 Maktkart/Selskaper/Register/REBUS Utvikling AS.md",
       "x": 1080,
       "y": 800,
       "width": 260,
@@ -57,7 +57,7 @@
     {
       "id": "cmq8ri3y0000fr2vmottxw7af",
       "type": "file",
-      "file": "11 Maktkart/Selskaper/RELOG AS.md",
+      "file": "11 Maktkart/Selskaper/Register/RELOG AS.md",
       "x": 720,
       "y": 960,
       "width": 260,

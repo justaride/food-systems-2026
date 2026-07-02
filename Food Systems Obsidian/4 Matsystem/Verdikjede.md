@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /verdikjede
 type: seksjon
 status: generert

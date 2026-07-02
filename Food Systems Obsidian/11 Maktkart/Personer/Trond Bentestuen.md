@@ -1,5 +1,4 @@
 ---
-tags: ""
 verv: 2
 sektorer: 2
 type: person

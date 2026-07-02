@@ -1,5 +1,4 @@
 ---
-tags: ""
 rute: /styremedlemmer
 type: seksjon
 status: generert

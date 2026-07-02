@@ -1,5 +1,4 @@
 ---
-tags: ""
 farge: #0F766E
 rolle: Inngang
 type: klynge

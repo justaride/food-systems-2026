@@ -1,5 +1,4 @@
 ---
-tags: ""
 rLevel: R1
 maturity: operational
 country: NO

@@ -1,5 +1,4 @@
 ---
-tags: ""
 type: aktor
 status: generert
 kilde: scripts/obsidian-vault/sync.ts

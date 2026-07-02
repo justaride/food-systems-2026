@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 911608103
+tier: kjerne
 ---
 
 # Felleskjøpet Agri SA
@@ -21,7 +22,6 @@ orgnr: 911608103
 
 ## Eierskap
 
-- Ingen registrert i eksporten.
 - [[Norgesmollene AS]] — 100 % (subsidiary)
 - [[Cernova AS]] — 100 % (subsidiary)
 - [[Strand Unikorn AS]] — 100 % (subsidiary)

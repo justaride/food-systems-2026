@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/companies.json
 siterbarhet: intern
 orgnr: 975959171
+tier: kjerne
 ---
 
 # Kiwi Norge AS
@@ -35,7 +36,6 @@ orgnr: 975959171
 
 ## Forsyningskjede
 
-- Ingen registrert i eksporten.
 - Ingen registrert i eksporten.
 
 ## Eiendom

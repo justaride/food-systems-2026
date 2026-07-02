@@ -4,6 +4,7 @@ status: generert
 kilde: data/vault-export/board-members.json
 siterbarhet: intern
 verv: 11
+tier: kjerne
 ---
 
 # Runar Hollevik

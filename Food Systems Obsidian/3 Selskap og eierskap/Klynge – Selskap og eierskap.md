@@ -1,5 +1,4 @@
 ---
-tags: ""
 farge: #1D4ED8
 rolle: Makt og struktur
 type: klynge
