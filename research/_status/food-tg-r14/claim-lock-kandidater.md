@@ -13,7 +13,7 @@ bruksregel: Ingen ekstern claim, ingen safe_for_ai_context, ingen whitepaper-/de
 |---|---|---|---|---|
 | REKO-tall 2022 | REKO Norge oppga i 2022 over 140 ringer, om lag 500 000 kunder og over 600 produsenter. | R13-GAP-005 / rekonorge.no snapshot | Ikke nåtidstall; ikke 2025/2026-status. | claim-lock-kandidat |
 | Andelslandbruk 93 / 2023 | Landbruksdirektoratet/Økologisk Norge brukte 93 andelslandbruk i drift som 2023-anker. | R13-GAP-005 + R13-AKTOR-002 | Aktiv status per gård er actor-gate. | claim-lock-kandidat |
-| Rest AS konkurs 2024-09-05 | Restaurant Rest AS er bekreftet konkurs åpnet 2024-09-05. | R13-GAP-005 / Brreg/Forvalt-lokator fra R13 | Ikke bruk som miljøeffektclaim. | claim-lock-kandidat |
+| Rest AS konkurs 2024-09-05 | Restaurant Rest AS er bekreftet konkurs åpnet 2024-09-05. | R13-GAP-005 / Forvalt-lokator fra R13; Brreg Enhetsregisteret API bekrefter org.nr./navn og slettet status ved oppslag 2026-07-04, men ikke konkursdato. | Ikke bruk som miljøeffektclaim eller årsaksclaim. | ført til `CL-R14-GAP-005-REST` i claim-lock-tabellen 2026-07-04 |
 
 ## VK4-GAP-007
 
