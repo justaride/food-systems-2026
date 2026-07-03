@@ -22,7 +22,7 @@ tier: periferi
 
 ## Eierskap
 
-- Eier: [[Avisomo AS]] — 50 % (joint-venture)
+- Eier: [[Avisomo AS]] — 50 % (fellesforetak)
 
 ## Eiendom
 

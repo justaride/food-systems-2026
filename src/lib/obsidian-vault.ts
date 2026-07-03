@@ -869,11 +869,15 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
   }
   const ownershipByParent = groupBy(input.ownershipEdges, (edge) => edge.parentCompanyId)
   const ownershipByChild = groupBy(input.ownershipEdges, (edge) => edge.childCompanyId)
+  const ownershipTypeByParentChild = new Map(
+    input.ownershipEdges.map((edge) => [`${edge.parentCompanyId}:${edge.childCompanyId}`, edge.ownershipType]),
+  )
+  const ownershipForest = hydrateForestOwnershipTypes(input.ownershipForest, ownershipTypeByParentChild)
   const boardByCompany = groupBy(input.boardMembers, (member) => member.companyId)
   const relationshipsFrom = groupBy(input.businessRelationships, (relationship) => relationship.fromCompanyId)
   const relationshipsTo = groupBy(input.businessRelationships, (relationship) => relationship.toCompanyId)
   const propertiesByCompany = groupBy(input.properties, (property) => property.companyId)
-  const forestByRoot = new Map(input.ownershipForest.map((root) => [root.id, root]))
+  const forestByRoot = new Map(ownershipForest.map((root) => [root.id, root]))
   const companyTierById = buildCompanyTierIndex(input)
   const corePersonNames = new Set(input.corePersonNames ?? [])
 
@@ -1082,7 +1086,7 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
     })
   }
 
-  const concernRoots = input.ownershipForest.filter((root) => root.children.length > 0)
+  const concernRoots = ownershipForest.filter((root) => root.children.length > 0)
   for (const root of concernRoots) {
     files.push({
       path: join('0 Kart', 'Konsern', `${noteFileName(companyTitleById.get(root.id) ?? root.name).replace(/\.md$/, '')}.canvas`),
@@ -1330,6 +1334,8 @@ function formatPct(value: number | null): string {
 
 function formatOwnershipType(value?: string | null): string {
   if (value === 'divestment') return 'frasalg; ikke live datter'
+  if (value === 'minority-stake') return 'minoritet; ikke kontroll'
+  if (value === 'joint-venture') return 'fellesforetak'
   return value ?? 'ukjent'
 }
 
@@ -1337,8 +1343,16 @@ function formatOwnershipEdge(ownershipPct: number | null, ownershipType?: string
   return `${formatPct(ownershipPct)} (${formatOwnershipType(ownershipType)})`
 }
 
+function formatOwnershipShortType(value?: string | null): string | null {
+  if (value === 'divestment') return 'frasalg'
+  if (value === 'minority-stake') return 'minoritet'
+  if (value === 'joint-venture') return 'fellesforetak'
+  return null
+}
+
 function formatForestOwnershipLabel(node: OwnershipForestNode): string {
-  return node.ownershipType === 'divestment' ? `${formatPct(node.ownershipPct)} · frasalg` : formatPct(node.ownershipPct)
+  const shortType = formatOwnershipShortType(node.ownershipType)
+  return shortType ? `${formatPct(node.ownershipPct)} · ${shortType}` : formatPct(node.ownershipPct)
 }
 
 function listOrPlaceholder<T>(items: T[], render: (item: T) => string): string[] {
@@ -1387,6 +1401,18 @@ function personTier(
   corePersonNames: Set<string>,
 ): 'kjerne' | 'periferi' {
   return corePersonNames.has(roles[0]?.personName ?? '') ? 'kjerne' : 'periferi'
+}
+
+function hydrateForestOwnershipTypes(
+  nodes: OwnershipForestNode[],
+  ownershipTypeByParentChild: Map<string, string | null>,
+  parentId?: string,
+): OwnershipForestNode[] {
+  return nodes.map((node) => ({
+    ...node,
+    ownershipType: node.ownershipType ?? (parentId ? ownershipTypeByParentChild.get(`${parentId}:${node.id}`) ?? null : null),
+    children: hydrateForestOwnershipTypes(node.children, ownershipTypeByParentChild, node.id),
+  }))
 }
 
 function renderForest(nodes: OwnershipForestNode[], depth: number, companyTitleById = new Map<string, string>()): string[] {
@@ -1954,7 +1980,7 @@ export function validateReviewSamples(repoRoot: string, options: ReviewPreflight
         requireReviewText(
           norgesGruppenNotePath,
           norgesGruppenNote,
-          edge.ownershipType,
+          formatOwnershipType(edge.ownershipType),
           `missing sampled ownership type for ${edge.childName} from data/vault-export/ownership-edges.json`,
           issues,
         )

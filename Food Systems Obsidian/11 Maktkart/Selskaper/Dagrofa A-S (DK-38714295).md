@@ -22,7 +22,7 @@ tier: kjerne
 
 ## Eierskap
 
-- Eier: [[NorgesGruppen ASA]] — 48.90 % (minority-stake)
+- Eier: [[NorgesGruppen ASA]] — 48.90 % (minoritet; ikke kontroll)
 
 ## Styreverv
 

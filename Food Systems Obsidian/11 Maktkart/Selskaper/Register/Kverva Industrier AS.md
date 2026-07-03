@@ -23,7 +23,7 @@ tier: periferi
 ## Eierskap
 
 - Eier: [[Kverva AS]] — 100 % (subsidiary)
-- [[SalMar ASA]] — 44.30 % (minority-stake)
+- [[SalMar ASA]] — 44.30 % (minoritet; ikke kontroll)
 
 ## Styreverv
 

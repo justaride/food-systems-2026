@@ -27,7 +27,7 @@ tier: periferi
 ## Konserntre
 
 - [[Kverva Industrier AS]] (100 %)
-  - [[SalMar ASA]] (44.30 %)
+  - [[SalMar ASA]] (44.30 % · minoritet)
     - [[NTS ASA]] (100 %)
     - [[SalMar Farming AS]] (100 %)
     - [[SalmoNor AS]] (100 %)

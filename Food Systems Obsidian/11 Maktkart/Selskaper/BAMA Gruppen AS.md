@@ -22,7 +22,7 @@ tier: kjerne
 
 ## Eierskap
 
-- Eier: [[NorgesGruppen ASA]] — 46 % (minority-stake)
+- Eier: [[NorgesGruppen ASA]] — 46 % (minoritet; ikke kontroll)
 - [[BAMA Industri AS]] — 100 % (subsidiary)
 - [[BAMA Storkjoekken AS]] — 100 % (subsidiary)
 - [[BAMA Logistikk AS]] — 100 % (subsidiary)
