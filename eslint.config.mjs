@@ -14,6 +14,7 @@ const config = [
       '.playwright-cli/**',
       '.playwright-mcp/**',
       'out/**',
+      'Food Systems Obsidian/.obsidian/plugins/**',
     ],
   },
   ...nextConfig,

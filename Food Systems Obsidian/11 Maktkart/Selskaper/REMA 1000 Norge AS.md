@@ -17,7 +17,7 @@ tier: kjerne
 - Land: NO
 - Verdikjedeledd: retail
 - Klassifisering: family
-- NACE: 77.400 — Utleie av immateriell eiendom og lignende produkter, unntatt opphavsrettsbeskyttede verker
+- NACE: 77.400 — Leasing av immateriell eiendom og lignende produkter, unntatt opphavsrettsbeskyttede verker
 - Research-konstrukt: nei
 
 ## Eierskap

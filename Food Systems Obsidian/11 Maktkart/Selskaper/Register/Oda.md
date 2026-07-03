@@ -17,7 +17,7 @@ tier: periferi
 - Land: NO
 - Verdikjedeledd: retail
 - Klassifisering: private
-- NACE: 47.911 — Postordre-/Internetthandel med bredt vareutvalg
+- NACE: 47.120 — Detaljhandel med bredt vareutvalg ellers
 - Research-konstrukt: nei
 
 ## Styreverv

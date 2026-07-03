@@ -55,8 +55,8 @@
     "country": "NO",
     "valueChainStage": "circular",
     "classification": "private",
-    "naceCode": "47.111",
-    "naceDescription": "Butikkhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler",
+    "naceCode": "47.110",
+    "naceDescription": "Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler",
     "isResearchConstruct": false
   },
   {
@@ -115,8 +115,8 @@
     "country": "NO",
     "valueChainStage": "retail",
     "classification": "family",
-    "naceCode": "47.111",
-    "naceDescription": "Butikkhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler",
+    "naceCode": "47.110",
+    "naceDescription": "Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler",
     "isResearchConstruct": false
   },
   {
@@ -848,7 +848,7 @@
     "valueChainStage": "circular",
     "classification": "foreign",
     "naceCode": "73.110",
-    "naceDescription": "Reklamebyråer",
+    "naceDescription": "Reklamebyråvirksomhet",
     "isResearchConstruct": false
   },
   {
@@ -991,8 +991,8 @@
     "country": "NO",
     "valueChainStage": "circular",
     "classification": "nonprofit",
-    "naceCode": "94.991",
-    "naceDescription": "Aktiviteter i andre interesseorganisasjoner ikke nevnt annet sted",
+    "naceCode": "94.992",
+    "naceDescription": "Aktiviteter i andre medlemsorganisasjoner ellers",
     "isResearchConstruct": false
   },
   {
@@ -1303,7 +1303,7 @@
     "country": "NO",
     "valueChainStage": "processing",
     "classification": "foreign",
-    "naceCode": "46.750",
+    "naceCode": "46.850",
     "naceDescription": "Engroshandel med kjemiske produkter",
     "isResearchConstruct": false
   },
@@ -1448,7 +1448,7 @@
     "valueChainStage": "seafood",
     "classification": "listed",
     "naceCode": "03.211",
-    "naceDescription": "Produksjon av matfisk, bløtdyr, krepsdyr og andre akvatiske organismer i saltvann",
+    "naceDescription": "Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann",
     "isResearchConstruct": false
   },
   {
@@ -1579,8 +1579,8 @@
     "country": "NO",
     "valueChainStage": "retail",
     "classification": "private",
-    "naceCode": "47.911",
-    "naceDescription": "Postordre-/Internetthandel med bredt vareutvalg",
+    "naceCode": "47.120",
+    "naceDescription": "Detaljhandel med bredt vareutvalg ellers",
     "isResearchConstruct": false
   },
   {
@@ -1772,7 +1772,7 @@
     "valueChainStage": "processing",
     "classification": "cooperative",
     "naceCode": "10.110",
-    "naceDescription": "Bearbeiding og konservering av kjøtt",
+    "naceDescription": "Bearbeiding og konservering av kjøtt unntatt fjørfekjøtt",
     "isResearchConstruct": false
   },
   {
@@ -1975,8 +1975,8 @@
     "country": "NO",
     "valueChainStage": "seafood",
     "classification": "family",
-    "naceCode": "10.209",
-    "naceDescription": "Slakting, bearbeiding og konservering av fisk og fiskevarer ellers",
+    "naceCode": "10.202",
+    "naceDescription": "Slakting av fisk, skalldyr og bløtdyr",
     "isResearchConstruct": false
   },
   {
@@ -1988,7 +1988,7 @@
     "valueChainStage": "seafood",
     "classification": "private",
     "naceCode": "03.211",
-    "naceDescription": "Produksjon av matfisk og skalldyr i hav- og kystbasert fiskeoppdrett",
+    "naceDescription": "Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann",
     "isResearchConstruct": false
   },
   {
@@ -2024,7 +2024,7 @@
     "valueChainStage": "seafood",
     "classification": "listed",
     "naceCode": "03.211",
-    "naceDescription": "Produksjon av matfisk og skalldyr i hav- og kystbasert fiskeoppdrett",
+    "naceDescription": "Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann",
     "isResearchConstruct": false
   },
   {
@@ -2108,7 +2108,7 @@
     "valueChainStage": "seafood",
     "classification": "listed",
     "naceCode": "03.211",
-    "naceDescription": "Produksjon av matfisk og skalldyr i hav- og kystbasert fiskeoppdrett",
+    "naceDescription": "Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann",
     "isResearchConstruct": false
   },
   {
@@ -2396,7 +2396,7 @@
     "valueChainStage": "retail",
     "classification": "family",
     "naceCode": "77.400",
-    "naceDescription": "Utleie av immateriell eiendom og lignende produkter, unntatt opphavsrettsbeskyttede verker",
+    "naceDescription": "Leasing av immateriell eiendom og lignende produkter, unntatt opphavsrettsbeskyttede verker",
     "isResearchConstruct": false
   },
   {
@@ -2588,7 +2588,7 @@
     "valueChainStage": "inputs",
     "classification": "state",
     "naceCode": "20.150",
-    "naceDescription": "Produksjon av gjødsel, nitrogenforbindelser og vekstjord",
+    "naceDescription": "Produksjon av gjødsel og nitrogenforbindelser",
     "isResearchConstruct": false
   },
   {
@@ -2671,8 +2671,8 @@
     "country": "NO",
     "valueChainStage": "inputs",
     "classification": "foreign",
-    "naceCode": "10.910",
-    "naceDescription": "Produksjon av fôrvarer til husdyrhold",
+    "naceCode": "10.912",
+    "naceDescription": "Produksjon av fôrvarer for akvakultur",
     "isResearchConstruct": false
   },
   {
@@ -2743,8 +2743,8 @@
     "country": "NO",
     "valueChainStage": "research",
     "classification": "state",
-    "naceCode": "72.190",
-    "naceDescription": "Annen forskning og annet utviklingsarbeid innen naturvitenskap og teknikk",
+    "naceCode": "72.100",
+    "naceDescription": "Forskning og eksperimentell utvikling innenfor naturvitenskap og teknikk",
     "isResearchConstruct": false
   },
   {
@@ -3007,8 +3007,8 @@
     "country": "NO",
     "valueChainStage": "circular",
     "classification": "private",
-    "naceCode": "82.990",
-    "naceDescription": "Annen forretningsmessig tjenesteyting ikke nevnt annet sted",
+    "naceCode": "70.200",
+    "naceDescription": "Bedriftsrådgivning og annen administrativ rådgivning",
     "isResearchConstruct": false
   },
   {

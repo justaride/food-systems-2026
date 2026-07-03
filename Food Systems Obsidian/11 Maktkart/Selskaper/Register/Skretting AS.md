@@ -17,7 +17,7 @@ tier: periferi
 - Land: NO
 - Verdikjedeledd: inputs
 - Klassifisering: foreign
-- NACE: 10.910 — Produksjon av fôrvarer til husdyrhold
+- NACE: 10.912 — Produksjon av fôrvarer for akvakultur
 - Research-konstrukt: nei
 
 ## Styreverv

@@ -17,7 +17,7 @@ tier: periferi
 - Land: NO
 - Verdikjedeledd: processing
 - Klassifisering: foreign
-- NACE: 46.750 — Engroshandel med kjemiske produkter
+- NACE: 46.850 — Engroshandel med kjemiske produkter
 - Research-konstrukt: nei
 
 ## Eierskap

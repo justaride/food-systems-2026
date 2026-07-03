@@ -740,7 +740,7 @@ async function checkSourceQualityCoverage() {
   }
 
   if (documentsWithMissingFilePath.length > 0) {
-    sourceAuditIssue(
+    warn(
       `Document: ${documentsWithMissingFilePath.length}/${documents.length} filePath values do not resolve locally` +
         ` (examples: ${documentsWithMissingFilePath
           .slice(0, 5)

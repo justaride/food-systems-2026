@@ -174,9 +174,21 @@ export function isNokReported(reportingCurrency: string | null | undefined): boo
   return reportingCurrency == null || reportingCurrency === 'NOK'
 }
 
+/** True when a number fits Prisma/Postgres Decimal(15,2). */
+export function fitsDecimal15_2(value: number | null | undefined): boolean {
+  if (value == null) return true
+  return Math.abs(value) < 10_000_000_000_000
+}
+
+/** True when a number fits Prisma/Postgres Decimal(5,2). */
+export function fitsDecimal5_2(value: number | null | undefined): boolean {
+  if (value == null) return true
+  return Math.abs(value) < 1_000
+}
+
 /** Bygger `source`-strengen for en rad. */
 export function buildSourceString(orgNr: string, year: number, accessedAt: string): string {
-  return `${SOURCE_PREFIX} API regnskap/${orgNr}, regnskapsår ${year}, hentet ${accessedAt}`
+  return `${REGNSKAP_BASE}/${orgNr}`
 }
 
 // ─── HTTP ────────────────────────────────────────────────────────────────────
@@ -260,6 +272,7 @@ async function main() {
     let errors = 0
     let skippedHolding = 0
     let foreignCurrency = 0
+    let rangeSkipped = 0
 
     for (const company of companies) {
       const { data, status, httpStatus } = await fetchRegnskap(company.orgNr)
@@ -305,6 +318,15 @@ async function main() {
         if (!isNokReported(fin.reportingCurrency)) {
           console.log(`  [VALUTA-SKIP] ${company.orgNr} ${company.name} ${year}: rapportert i ${fin.reportingCurrency} (krever manuell FX)`)
           foreignCurrency++
+          continue
+        }
+        if (
+          !fitsDecimal15_2(fin.revenueNok) ||
+          !fitsDecimal15_2(fin.operatingResult) ||
+          !fitsDecimal5_2(fin.operatingMargin)
+        ) {
+          console.log(`  [RANGE-SKIP] ${company.orgNr} ${company.name} ${year}: tall utenfor Decimal(15,2), krever manuell kontroll`)
+          rangeSkipped++
           continue
         }
 
@@ -368,6 +390,7 @@ async function main() {
     console.log(`  Kuraterte rader beholdt:    ${keptCurated}${overwrite ? '' : ' (kjør --overwrite for å erstatte)'}`)
     console.log(`  Holding-mødre hoppet over:  ${skippedHolding}`)
     console.log(`  Utenlandsk valuta (FX):     ${foreignCurrency}`)
+    console.log(`  Utenfor DB-tallfelt:        ${rangeSkipped}`)
     console.log(`  Ingen innlevert regnskap:   ${notFound}`)
     console.log(`  Feil:                       ${errors}`)
     if (dryRun) console.log(`  (dry-run — ingen DB-skriving)`)

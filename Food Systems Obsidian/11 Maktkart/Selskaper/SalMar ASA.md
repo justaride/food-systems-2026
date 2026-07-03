@@ -17,7 +17,7 @@ tier: kjerne
 - Land: NO
 - Verdikjedeledd: seafood
 - Klassifisering: family
-- NACE: 10.209 — Slakting, bearbeiding og konservering av fisk og fiskevarer ellers
+- NACE: 10.202 — Slakting av fisk, skalldyr og bløtdyr
 - Research-konstrukt: nei
 
 ## Eierskap

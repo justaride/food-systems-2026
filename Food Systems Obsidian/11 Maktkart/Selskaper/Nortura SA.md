@@ -17,7 +17,7 @@ tier: kjerne
 - Land: NO
 - Verdikjedeledd: processing
 - Klassifisering: cooperative
-- NACE: 10.110 — Bearbeiding og konservering av kjøtt
+- NACE: 10.110 — Bearbeiding og konservering av kjøtt unntatt fjørfekjøtt
 - Research-konstrukt: nei
 
 ## Eierskap

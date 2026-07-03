@@ -39,9 +39,9 @@ type KilderPageSearchParams = Record<string, string | string[] | undefined>
 export default async function KilderPage({
   searchParams,
 }: {
-  searchParams?: Promise<KilderPageSearchParams> | KilderPageSearchParams
+  searchParams?: Promise<KilderPageSearchParams>
 }) {
-  const resolvedSearchParams = await Promise.resolve(searchParams ?? {})
+  const resolvedSearchParams = (await searchParams) ?? {}
   const requestedRound = Array.isArray(resolvedSearchParams.round)
     ? resolvedSearchParams.round[0]
     : resolvedSearchParams.round
