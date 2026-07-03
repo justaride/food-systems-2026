@@ -50,7 +50,7 @@ const ownershipRecords: OwnershipRecord[] = [
   { parentOrgNr: '910747711', childOrgNr: '911161419', ownershipPct: 60, ownershipType: 'subsidiary', effectiveFrom: '2024-04-17', source: 'Orkla Pressrelease 2024-04-17', metadata: { dealValue: 'NOK 2.5B (40% stake)', enterpriseValue: 'NOK 15.5B', dealType: 'partial-sale', target: 'Orkla Food Ingredients AS', notes: 'Orkla sold 40% to Rhone Capital. OFI rev. NOK 18.1B. Rhone option for +9% through Mar 2027.' } },
 
   // Orkla -> Lilleborg divestment (100% sold Jun 2024, NOK 600M)
-  { parentOrgNr: '910747711', childOrgNr: '925745855', ownershipPct: 0, ownershipType: 'subsidiary', effectiveFrom: '2024-06-12', effectiveTo: '2024-06-12', source: 'Orkla Pressrelease 2024-06', metadata: { dealValue: 'NOK 600M', dealType: 'divestment', target: 'Lilleborg AS', buyer: 'Solenis International LLC', notes: 'Orkla sold 100% of Lilleborg (B2B cleaning, market leader NO) to Solenis.' } },
+  { parentOrgNr: '910747711', childOrgNr: '925745855', ownershipPct: 0, ownershipType: 'divestment', effectiveFrom: '2024-06-12', effectiveTo: '2024-06-12', source: 'Orkla Pressrelease 2024-06', metadata: { dealValue: 'NOK 600M', dealType: 'divestment', target: 'Lilleborg AS', buyer: 'Solenis International LLC', notes: 'Orkla sold 100% of Lilleborg (B2B cleaning, market leader NO) to Solenis.' } },
 ]
 
 const relationshipRecords: RelationshipRecord[] = [

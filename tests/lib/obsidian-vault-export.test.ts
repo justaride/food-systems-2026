@@ -82,15 +82,17 @@ describe('obsidian vault DB export helpers', () => {
         { id: 'grandchild', name: 'Grandchild', orgNr: '3' },
       ],
       [
-        { parentCompanyId: 'root', childCompanyId: 'child', ownershipPct: 80 },
-        { parentCompanyId: 'child', childCompanyId: 'grandchild', ownershipPct: 51 },
+        { parentCompanyId: 'root', childCompanyId: 'child', ownershipPct: 80, ownershipType: 'subsidiary' },
+        { parentCompanyId: 'child', childCompanyId: 'grandchild', ownershipPct: 51, ownershipType: 'minority-stake' },
       ],
     )
 
     assert.equal(forest.length, 1)
     assert.equal(forest[0].name, 'Root')
     assert.equal(forest[0].children[0].ownershipPct, 80)
+    assert.equal(forest[0].children[0].ownershipType, 'subsidiary')
     assert.equal(forest[0].children[0].children[0].name, 'Grandchild')
+    assert.equal(forest[0].children[0].children[0].ownershipType, 'minority-stake')
   })
 
   it('converts Decimal-like and bigint values to JSON-safe numbers', () => {

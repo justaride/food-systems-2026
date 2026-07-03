@@ -89,6 +89,7 @@ function layoutTree(tree: OwnershipTree): LayoutNode[] {
 
 function edgeStrokeDasharray(ownershipType: string): string | undefined {
   switch (ownershipType) {
+    case 'divestment': return '8 4'
     case 'joint-venture': return '6 3'
     case 'minority-stake': return '2 3'
     default: return undefined
@@ -98,10 +99,16 @@ function edgeStrokeDasharray(ownershipType: string): string | undefined {
 function nodeStrokeClass(ownershipType: string | null, isSynthetic?: boolean): string {
   if (isSynthetic) return 'stroke-stone-300'
   switch (ownershipType) {
+    case 'divestment': return 'stroke-rose-300'
     case 'joint-venture': return 'stroke-amber-300'
     case 'minority-stake': return 'stroke-sky-300'
     default: return 'stroke-stone-200'
   }
+}
+
+function edgeLabel(edge: { ownershipPct: number | null; ownershipType: string }): string | null {
+  if (edge.ownershipPct == null) return null
+  return edge.ownershipType === 'divestment' ? `${edge.ownershipPct}% frasalg` : `${edge.ownershipPct}%`
 }
 
 function nodeFillClass(isSynthetic?: boolean): string {
@@ -132,6 +139,7 @@ export function OwnershipTreeDiagram({ tree }: Props) {
 
     const midY = parentBy + (childTy - parentBy) / 2
     const dasharray = edgeStrokeDasharray(edge.ownershipType)
+    const label = edgeLabel(edge)
 
     edgeElements.push(
       <g key={`${edge.parentId}-${edge.childId}-${edgeIndex}`}>
@@ -142,7 +150,7 @@ export function OwnershipTreeDiagram({ tree }: Props) {
           strokeWidth={1.5}
           strokeDasharray={dasharray}
         />
-        {edge.ownershipPct != null && (
+        {label && (
           <text
             x={childCx + (parentCx === childCx ? 8 : 0)}
             y={midY - 4}
@@ -150,7 +158,7 @@ export function OwnershipTreeDiagram({ tree }: Props) {
             fontSize={9}
             textAnchor={parentCx === childCx ? 'start' : 'middle'}
           >
-            {edge.ownershipPct}%
+            {label}
           </text>
         )}
       </g>

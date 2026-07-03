@@ -45,6 +45,8 @@ const OWNERSHIP_LABELS: Record<string, string> = {
   foreign: 'Utenlandsk',
   listed: 'Børsnotert',
   private: 'Privat',
+  subsidiary: 'Datterselskap',
+  divestment: 'Frasalg',
 }
 
 export function SelskaperContent({

@@ -498,6 +498,7 @@ export type OwnershipForestNode = {
   name: string
   orgNr: string
   ownershipPct: number | null
+  ownershipType?: string | null
   children: OwnershipForestNode[]
 }
 
@@ -886,8 +887,8 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
     const forest = forestByRoot.get(company.id)
     const tier = companyTierById.get(company.id) ?? 'periferi'
     const ownershipLines = [
-      ...parents.map((edge) => `- Eier: ${companyLink(edge.parentCompanyId, edge.parentName)} — ${formatPct(edge.ownershipPct)} (${edge.ownershipType ?? 'ukjent'})`),
-      ...children.map((edge) => `- ${companyLink(edge.childCompanyId, edge.childName)} — ${formatPct(edge.ownershipPct)} (${edge.ownershipType ?? 'ukjent'})`),
+      ...parents.map((edge) => `- Eier: ${companyLink(edge.parentCompanyId, edge.parentName)} — ${formatOwnershipEdge(edge.ownershipPct, edge.ownershipType)}`),
+      ...children.map((edge) => `- ${companyLink(edge.childCompanyId, edge.childName)} — ${formatOwnershipEdge(edge.ownershipPct, edge.ownershipType)}`),
     ]
     const supplyChainLines = [
       ...outbound.map((relationship) => `- ${relationship.relationshipType} → ${companyLink(relationship.toCompanyId, relationship.toCompanyName)}${relationship.description ? ` — ${relationship.description}` : ''}`),
@@ -1007,7 +1008,7 @@ export function buildVaultExportArtifacts(input: VaultExportArtifactsInput): {
         ...listOrPlaceholder(
           input.ownershipEdges,
           (edge) =>
-            `- ${companyLink(edge.parentCompanyId, edge.parentName)} → ${companyLink(edge.childCompanyId, edge.childName)} — ${formatPct(edge.ownershipPct)} (${edge.ownershipType ?? 'ukjent'})${edge.source ? ` · kilde: ${edge.source}` : ''}`,
+            `- ${companyLink(edge.parentCompanyId, edge.parentName)} → ${companyLink(edge.childCompanyId, edge.childName)} — ${formatOwnershipEdge(edge.ownershipPct, edge.ownershipType)}${edge.source ? ` · kilde: ${edge.source}` : ''}`,
         ),
         '',
         '## Koblinger',
@@ -1327,6 +1328,19 @@ function formatPct(value: number | null): string {
   return value == null ? 'ukjent %' : `${Number.isInteger(value) ? value : value.toFixed(2)} %`
 }
 
+function formatOwnershipType(value?: string | null): string {
+  if (value === 'divestment') return 'frasalg; ikke live datter'
+  return value ?? 'ukjent'
+}
+
+function formatOwnershipEdge(ownershipPct: number | null, ownershipType?: string | null): string {
+  return `${formatPct(ownershipPct)} (${formatOwnershipType(ownershipType)})`
+}
+
+function formatForestOwnershipLabel(node: OwnershipForestNode): string {
+  return node.ownershipType === 'divestment' ? `${formatPct(node.ownershipPct)} · frasalg` : formatPct(node.ownershipPct)
+}
+
 function listOrPlaceholder<T>(items: T[], render: (item: T) => string): string[] {
   if (items.length === 0) return ['- Ingen registrert i eksporten.']
   return items.map(render)
@@ -1378,7 +1392,7 @@ function personTier(
 function renderForest(nodes: OwnershipForestNode[], depth: number, companyTitleById = new Map<string, string>()): string[] {
   const lines: string[] = []
   for (const node of nodes) {
-    lines.push(`${'  '.repeat(depth)}- ${wikiLinkForTitle(companyTitleById.get(node.id) ?? node.name, node.name)} (${formatPct(node.ownershipPct)})`)
+    lines.push(`${'  '.repeat(depth)}- ${wikiLinkForTitle(companyTitleById.get(node.id) ?? node.name, node.name)} (${formatForestOwnershipLabel(node)})`)
     lines.push(...renderForest(node.children, depth + 1, companyTitleById))
   }
   return lines
@@ -1810,7 +1824,7 @@ function buildConcernCanvas(
         id: `${parentId}-${nodeId}`,
         fromNode: parentId,
         toNode: nodeId,
-        label: formatPct(node.ownershipPct),
+        label: formatForestOwnershipLabel(node),
       })
     }
     node.children.forEach((child) => visit(child, depth + 1, nodeId))

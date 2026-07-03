@@ -3690,6 +3690,93 @@ describe('obsidian vault sync helpers', () => {
     assert.ok(result.files.some((file) => file.path === '0 Kart/Konsern/NorgesGruppen ASA.canvas'))
   })
 
+  it('renders divestment ownership edges as former ownership, not live subsidiaries', () => {
+    const result = buildVaultExportArtifacts({
+      manifest: {
+        generatedAt: '2026-07-04T00:00:00.000Z',
+        source: 'scripts/obsidian-vault/export-db.ts',
+        counts: {
+          companies: 2,
+          ownershipEdges: 1,
+          boardMembers: 0,
+          businessRelationships: 0,
+          properties: 0,
+        },
+      },
+      companies: [
+        {
+          id: 'orkla',
+          name: 'Orkla ASA',
+          orgNr: '910747711',
+          legalForm: 'ASA',
+          country: 'NO',
+          valueChainStage: 'processing',
+          classification: 'family',
+          naceCode: null,
+          naceDescription: null,
+          isResearchConstruct: false,
+        },
+        {
+          id: 'lilleborg',
+          name: 'Lilleborg AS',
+          orgNr: '925745855',
+          legalForm: 'AS',
+          country: 'NO',
+          valueChainStage: 'processing',
+          classification: 'foreign',
+          naceCode: null,
+          naceDescription: null,
+          isResearchConstruct: false,
+        },
+      ],
+      ownershipEdges: [
+        {
+          id: 'edge-divestment',
+          parentCompanyId: 'orkla',
+          parentName: 'Orkla ASA',
+          childCompanyId: 'lilleborg',
+          childName: 'Lilleborg AS',
+          ownershipPct: 0,
+          ownershipType: 'divestment',
+          source: 'Orkla Pressrelease 2024-06',
+        },
+      ],
+      boardMembers: [],
+      businessRelationships: [],
+      properties: [],
+      ownershipForest: [
+        {
+          id: 'orkla',
+          name: 'Orkla ASA',
+          orgNr: '910747711',
+          ownershipPct: null,
+          children: [
+            {
+              id: 'lilleborg',
+              name: 'Lilleborg AS',
+              orgNr: '925745855',
+              ownershipPct: 0,
+              ownershipType: 'divestment',
+              children: [],
+            },
+          ],
+        },
+      ],
+      coreCompanyIds: ['orkla'],
+    })
+
+    const parent = result.files.find((file) => file.path === '11 Maktkart/Selskaper/Orkla ASA.md')
+    const child = result.files.find((file) => file.path === '11 Maktkart/Selskaper/Register/Lilleborg AS.md')
+    const register = result.files.find((file) => file.path === '11 Maktkart/Eierskapsregisteret.md')
+    const canvas = result.files.find((file) => file.path === '0 Kart/Konsern/Orkla ASA.canvas')
+
+    assert.ok(parent?.content.includes('[[Lilleborg AS]] — 0 % (frasalg; ikke live datter)'))
+    assert.ok(parent?.content.includes('[[Lilleborg AS]] (0 % · frasalg)'))
+    assert.ok(child?.content.includes('Eier: [[Orkla ASA]] — 0 % (frasalg; ikke live datter)'))
+    assert.ok(register?.content.includes('[[Orkla ASA]] → [[Lilleborg AS]] — 0 % (frasalg; ikke live datter)'))
+    assert.ok(canvas?.content.includes('"label": "0 % · frasalg"'))
+  })
+
   it('uses one company placeholder block instead of repeating the empty export line in every empty section', () => {
     const result = buildVaultExportArtifacts({
       manifest: {

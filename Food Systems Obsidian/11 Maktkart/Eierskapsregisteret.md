@@ -136,7 +136,7 @@ siterbarhet: intern
 - [[Nortura SA]] → [[Fjordland AS]] — 38.90 % (minority-stake) · kilde: Broennoysundregistrene / Nortura aarsrapport 2024
 - [[Odd Reitan Private Holding AS]] → [[Reitan AS (912609987)|Reitan AS]] — 33.33 % (minority-stake) · kilde: Broennoysundregistrene / Reitan aarsrapport 2024
 - [[Odd Reitan Private Holding AS]] → [[Reitan Eiendom AS (915994415)|Reitan Eiendom AS]] — 27.76 % (minority-stake) · kilde: Broennoysundregistrene / Reitan aarsrapport 2024
-- [[Orkla ASA]] → [[Lilleborg AS]] — 0 % (subsidiary) · kilde: Orkla Pressrelease 2024-06
+- [[Orkla ASA]] → [[Lilleborg AS]] — 0 % (frasalg; ikke live datter) · kilde: Orkla Pressrelease 2024-06
 - [[Orkla ASA]] → [[Orkla Foods AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / Orkla aarsrapport 2024
 - [[Orkla ASA]] → [[Orkla Snacks AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / Orkla aarsrapport 2024
 - [[Orkla ASA]] → [[Orkla Health Holding AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / Orkla aarsrapport 2024

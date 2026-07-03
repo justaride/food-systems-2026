@@ -22,7 +22,7 @@ tier: periferi
 
 ## Eierskap
 
-- Eier: [[Orkla ASA]] — 0 % (subsidiary)
+- Eier: [[Orkla ASA]] — 0 % (frasalg; ikke live datter)
 
 ## Styreverv
 

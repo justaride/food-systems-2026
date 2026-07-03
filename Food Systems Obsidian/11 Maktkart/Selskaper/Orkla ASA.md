@@ -22,7 +22,7 @@ tier: kjerne
 
 ## Eierskap
 
-- [[Lilleborg AS]] — 0 % (subsidiary)
+- [[Lilleborg AS]] — 0 % (frasalg; ikke live datter)
 - [[Orkla Foods AS]] — 100 % (subsidiary)
 - [[Orkla Snacks AS]] — 100 % (subsidiary)
 - [[Orkla Health Holding AS]] — 100 % (subsidiary)
@@ -34,7 +34,7 @@ tier: kjerne
 
 ## Konserntre
 
-- [[Lilleborg AS]] (0 %)
+- [[Lilleborg AS]] (0 % · frasalg)
 - [[Orkla Eiendom AS]] (100 %)
 - [[Orkla Food Ingredients AS]] (60 %)
 - [[Orkla Foods AS]] (100 %)
