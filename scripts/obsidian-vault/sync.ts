@@ -44,6 +44,7 @@ if (!checkOnly) {
 
   console.log(`vault:sync normalized ${markdownFiles.length} notes (${changed} changed)`)
   syncGraphSettings()
+  syncStartGuides()
   syncDataviewMocs()
   syncMeetingTranscriptSources()
   syncStakeholderSources()
@@ -194,6 +195,88 @@ function syncGraphSettings() {
     writeFileSync(target, after)
   }
   console.log(`vault:sync graph-settings changed=${changed}`)
+}
+
+function syncStartGuides() {
+  const targets = [
+    {
+      relPath: 'Welcome.md',
+      heading: '## Start her',
+      body: [
+        'Les kartet fra handling til detalj. Bruk grafen som navigasjon, ikke som bevis alene.',
+        '',
+        '- **Orienter deg:** [[Oversiktskart.canvas|Oversiktskart]] gir helikopterbildet før du åpner enkeltmapper.',
+        '- **Finn arkivet:** [[HUB – Kunnskapsdatabasen]] peker til klynger, datafundament og prosjektstruktur.',
+        '- **Les analysen:** [[Innsiktskartet]] viser innsikter, sirkularitetslooper og claims som fortsatt er interne.',
+        '- **Velg neste arbeid:** [[Gap-register]] samler hull og research-missions som må lukkes.',
+        '- **Sjekk struktur:** [[Maktkartet]] viser selskaper, eierskap og styreoverlapp som strukturelle posisjoner.',
+      ],
+    },
+    {
+      relPath: 'Welcome.md',
+      heading: '## Slik leses noder',
+      body: [
+        '- En node betyr arbeidsobjekt, kilde, kobling eller intern hypotese; den betyr ikke automatisk ferdig ekstern claim.',
+        '- Farger og mapper viser type og arbeidslag: arkiv, innsikt, gap, aktør, kilde eller maktstruktur.',
+        '- Tall, aktørpåstander og årsaksspråk må fortsatt gjennom claim-lock og siterbarhetsgate før ekstern bruk.',
+      ],
+    },
+    {
+      relPath: '0 Kart/HUB – Kunnskapsdatabasen.md',
+      heading: '## Når bruker du hva?',
+      body: [
+        '- **Orientering:** start i [[Oversiktskart.canvas|Oversiktskart]]; bruk denne HUB-en og [[Kunnskapskart.canvas|Kunnskapskart]] når du skal finne arkivlaget.',
+        '- **Analyse:** bruk [[Innsiktskartet]], [[Maktkartet]], [[Eierskapsregisteret]] og [[Gap-register]].',
+        '- **Arbeidskø:** bruk [[Gap-register]] og `docs/project/plans/obsidian-next-backlog-2026-07-04.md` for neste små PR-er.',
+        '- **Ekstern bruk:** gå alltid via [[Kilder]] og claim-lock før tall eller aktørclaims løftes ut.',
+      ],
+    },
+    {
+      relPath: '0 Kart/HUB – Kunnskapsdatabasen.md',
+      heading: '## Slik brukes kartet',
+      body: [
+        '- **Graph view:** bruk mapper og farger til å se mønster; grafen er et kuratert utsnitt, ikke fasit.',
+        '- **Canvas:** bruk `Kunnskapskart`, `Verdikjedekart` og `Maktkart` som samtaleflater, ikke som publiserbart bevis.',
+        '- **Noder:** les hver node som arbeidsobjekt eller kobling til kilde, ikke som ferdig claim.',
+        '- **Notater:** menneskelig tekst skal legges under `## Notater`; `vault:sync` skal bevare den.',
+        '- **Kildekontroll:** kildelag og siterbarhet avgjør hva som kan brukes utenfor intern arbeidsflate.',
+        '- **Videre utbygging:** `docs/project/plans/obsidian-next-backlog-2026-07-04.md`.',
+      ],
+    },
+    {
+      relPath: '0 Kart/Oppsett.md',
+      heading: '## Lokal Obsidian-konfig',
+      body: [
+        '- Delte, repo-trackede presentasjonsfiler: `.obsidian/graph.json` og `.obsidian/snippets/kunnskapskart.css`.',
+        '- Lokal bruker-/sesjonsstate holdes utracket: `workspace*.json`, `app.json`, `appearance.json`, `community-plugins.json`, `core-plugins.json`, `types.json` og `.obsidian/plugins/`.',
+        '- Installer Dataview, Breadcrumbs, Minimal Theme Settings og Juggl eller 3D Graph lokalt; plugin-bundles skal ikke committes.',
+        '- Beslutningen ligger i `docs/project/reference/obsidian-local-config-policy-2026-07-04.md`.',
+      ],
+    },
+  ]
+  let changed = 0
+
+  for (const target of targets) {
+    const filePath = join(vaultPath, target.relPath)
+    if (!existsSync(filePath)) continue
+    const before = readFileSync(filePath, 'utf8')
+    const normalized =
+      target.relPath === 'Welcome.md'
+        ? before
+            .replace(
+              'Dette er det interne arbeidskartet for Food Systems 2026. Start med [[Oversiktskart.canvas|Oversiktskartet]] for helikopterbildet, eller gå direkte til ett av tre spor:',
+              'Dette er det interne arbeidskartet for Food Systems 2026. Start med [[Oversiktskart.canvas|Oversiktskartet]] for helikopterbildet, eller gå direkte til startstien under:',
+            )
+            .replace('\n## Tre innganger\n', '\n## Start her\n')
+        : before
+    const after = applyManagedSection(normalized, target.heading, target.body)
+    if (after !== before) {
+      writeFileSync(filePath, after)
+      changed += 1
+    }
+  }
+
+  console.log(`vault:sync start-guides targets=${targets.length} changed=${changed}`)
 }
 
 function syncDataviewMocs() {

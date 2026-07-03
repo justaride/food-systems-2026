@@ -21,9 +21,9 @@ Visuelt kart: [[Oversiktskart.canvas|Oversiktskart]] · Arkiv: [[Kunnskapskart.c
 
 ## Når bruker du hva?
 
-- **Orientering:** bruk [[Oversiktskart.canvas|Oversiktskart]] først; bruk denne HUB-en og [[Kunnskapskart.canvas|Kunnskapskart]] når du skal finne arkivlaget.
+- **Orientering:** start i [[Oversiktskart.canvas|Oversiktskart]]; bruk denne HUB-en og [[Kunnskapskart.canvas|Kunnskapskart]] når du skal finne arkivlaget.
 - **Analyse:** bruk [[Innsiktskartet]], [[Maktkartet]], [[Eierskapsregisteret]] og [[Gap-register]].
-- **Neste arbeid:** bruk [[I38 Objective-function skiller beslutning fra publisering]] for å skille beslutningsverdi fra publiserbarhet.
+- **Arbeidskø:** bruk [[Gap-register]] og `docs/project/plans/obsidian-next-backlog-2026-07-04.md` for neste små PR-er.
 - **Ekstern bruk:** gå alltid via [[Kilder]] og claim-lock før tall eller aktørclaims løftes ut.
 
 ## Klynger
@@ -82,11 +82,12 @@ Visuelt kart: [[Oversiktskart.canvas|Oversiktskart]] · Arkiv: [[Kunnskapskart.c
 
 ## Slik brukes kartet
 
-- **Graph view:** bruk mapper/farger til å se mønster, men filtrer bort looper/personer hvis bildet blir for støyete.
-- **Canvas:** bruk `Kunnskapskart`, `Verdikjedekart` og `Maktkart` som samtaleflater, ikke som fasit.
+- **Graph view:** bruk mapper og farger til å se mønster; grafen er et kuratert utsnitt, ikke fasit.
+- **Canvas:** bruk `Kunnskapskart`, `Verdikjedekart` og `Maktkart` som samtaleflater, ikke som publiserbart bevis.
+- **Noder:** les hver node som arbeidsobjekt eller kobling til kilde, ikke som ferdig claim.
 - **Notater:** menneskelig tekst skal legges under `## Notater`; `vault:sync` skal bevare den.
 - **Kildekontroll:** kildelag og siterbarhet avgjør hva som kan brukes utenfor intern arbeidsflate.
-- **Videre utbygging:** `docs/project/plans/obsidian-kunnskapskart-masterplan-2026-07-02.md`.
+- **Videre utbygging:** `docs/project/plans/obsidian-next-backlog-2026-07-04.md`.
 
 ## Dynamiske oversikter
 
