@@ -187,6 +187,22 @@ Det foreløpige 2025-fallet i Brasils soyaandel (~42 %) er **ikke et dokumentert
 | Norsk fiskeslam-aggregat per sluttbruk | Bekreftet **finnes ikke** (Fiskeridir/SSB/Miljødir/Mattilsynet). Beste offisielle spor: Miljødir 2018 ~1 000 t TS fiskeslam til 2 biogassanlegg. |
 | Island mineralgjødsel N/P/K | Fortsatt `needs-data` — verdiene ikke uttrukket (eksport-blokkert). NYTT forbehold: basis-konflikt (nåværende PxWeb-etikett `P`/`K` vs. eldre Hagstofa-årbok `P2O5`/`K2O`) — basis må verifiseres før Island legges i element-basis-serien. |
 
+## R14 GAP-005-delta 2026-07-04 (smal claim-lock)
+
+R14 åpner bare én GAP-005-rad som kontrollert statusclaim i denne runden. REKO- og andelslandbrukstallene beholdes som historiske kandidater fordi de ikke skal leses som nåtidsstatus, og VK4-GAP-007/næringsstoffgap holdes fortsatt tilbake til N/P/K-massebalanse finnes per strøm.
+
+| Claim | Foreslått publikasjonsformulering | Status | Kildeanker | Må alltid sies | Ikke si | Neste port |
+|---|---|---|---|---|---|---|
+| `CL-R14-GAP-005-REST` Restaurant Rest konkursstatus | Restaurant Rest AS (org.nr. 919 972 696) er et norsk matsvinn-til-gourmet-case der R13/Forvalt-lokator dokumenterer konkurs åpnet 2024-09-05; Brreg Enhetsregisteret bekrefter org.nr./navn og slettedato 2025-06-18 ved oppslag 2026-07-04. | `klar-med-forbehold` | `research/external/r13/R13-GAP-005-parkerte-claims-verifisering.md`; `research/_status/food-tg-r14/claim-lock-kandidater.md`; Brreg Enhetsregisteret API `https://data.brreg.no/enhetsregisteret/api/enheter/919972696` (accessed 2026-07-04). | Bruk kun som status-/casehendelse med dato, org.nr. og kildeport. Skill Forvalt-konkursdato fra vanlig Enhetsregister-oppslag, som viser slettet enhet men ikke konkursdato. | "Konkursen beviser miljøeffekt, teknologisvikt, etterspørselssvikt eller at matsvinn-til-gourmet ikke fungerer." | Før ekstern publisering: legg inn direkte Konkursregister-/Forvalt-utskrift eller Brreg-kunngjøringslocator som `sourceCitationId` hvis tilgjengelig. |
+
+### R14-kandidater som ikke åpnes her
+
+| Kandidat | Håndtering | Stopplinje |
+|---|---|---|
+| REKO-tall 2022 | Beholdes som historisk claim-lock-kandidat: "REKO Norge oppga i 2022 over 140 ringer, om lag 500 000 kunder og over 600 produsenter." | Ikke bruk som dagens/2025/2026-tall, ikke som unike eller betalende kunder. |
+| Andelslandbruk 93 / 2023 | Beholdes som historisk claim-lock-kandidat: "Landbruksdirektoratet/Økologisk Norge brukte 93 andelslandbruk i drift som 2023-anker." | Ikke bruk som dagens aktivstatus per gård; actor-gate må lukkes først. |
+| VK4-GAP-007 næringsstoffgap | Ikke åpnet. Krever primær N/P/K-massebalanse per strøm og skille mellom modellert, realisert, potensial og plan. | Ikke si at 25-30 % er dokumentert norsk realisert gjenvinningspotensial. |
+
 ## Neste arbeid
 
 1. Oppdater tabellen etter hver primary-check og aktørrespons.
