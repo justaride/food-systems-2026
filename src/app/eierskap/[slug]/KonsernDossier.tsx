@@ -19,6 +19,7 @@ const OWNERSHIP_TYPE_LABEL: Record<string, string> = {
   foreign:     'Utenlandsk',
   listed:      'Børsnotert',
   subsidiary:  'Datterselskap',
+  divestment:  'Frasalg',
 }
 
 const OWNERSHIP_TYPE_CLASS: Record<string, string> = {
@@ -28,6 +29,7 @@ const OWNERSHIP_TYPE_CLASS: Record<string, string> = {
   foreign:     'bg-violet-50 text-violet-800 border-violet-200',
   listed:      'bg-emerald-50 text-emerald-800 border-emerald-200',
   subsidiary:  'bg-stone-100 text-stone-700 border-stone-300',
+  divestment:  'bg-rose-50 text-rose-800 border-rose-200',
 }
 
 const DEAL_TYPE_LABEL: Record<string, string> = {
@@ -268,7 +270,9 @@ export function KonsernDossier({ dossier }: Props) {
                         <td className="px-3 py-2 text-right tabular-nums text-stone-600">
                           {edge.ownershipPct != null ? `${edge.ownershipPct}%` : '—'}
                         </td>
-                        <td className="px-3 py-2 text-stone-500">{edge.ownershipType}</td>
+                        <td className="px-3 py-2 text-stone-500">
+                          {OWNERSHIP_TYPE_LABEL[edge.ownershipType] ?? edge.ownershipType}
+                        </td>
                       </tr>
                     )
                   })}

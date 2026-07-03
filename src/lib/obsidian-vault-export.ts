@@ -72,6 +72,7 @@ export type OwnershipForestNode = {
   name: string
   orgNr: string
   ownershipPct: number | null
+  ownershipType?: string | null
   children: OwnershipForestNode[]
 }
 
@@ -88,7 +89,7 @@ export function toNumberOrNull(value: unknown): number | null {
 
 export function buildOwnershipForest(
   companies: Array<{ id: string; name: string; orgNr: string }>,
-  edges: Array<{ parentCompanyId: string; childCompanyId: string; ownershipPct: unknown }>,
+  edges: Array<{ parentCompanyId: string; childCompanyId: string; ownershipPct: unknown; ownershipType?: string | null }>,
 ): OwnershipForestNode[] {
   const byId = new Map(companies.map((company) => [company.id, company]))
   const childrenByParent = new Map<string, typeof edges>()
@@ -105,7 +106,12 @@ export function buildOwnershipForest(
     .filter((company) => !childIds.has(company.id))
     .sort((a, b) => a.name.localeCompare(b.name, 'nb'))
 
-  const build = (companyId: string, ownershipPct: number | null, seen: Set<string>): OwnershipForestNode | null => {
+  const build = (
+    companyId: string,
+    ownershipPct: number | null,
+    ownershipType: string | null,
+    seen: Set<string>,
+  ): OwnershipForestNode | null => {
     const company = byId.get(companyId)
     if (!company || seen.has(companyId)) return null
 
@@ -117,15 +123,16 @@ export function buildOwnershipForest(
       name: company.name,
       orgNr: company.orgNr,
       ownershipPct,
+      ownershipType,
       children: (childrenByParent.get(companyId) ?? [])
-        .map((edge) => build(edge.childCompanyId, toNumberOrNull(edge.ownershipPct), nextSeen))
+        .map((edge) => build(edge.childCompanyId, toNumberOrNull(edge.ownershipPct), edge.ownershipType ?? null, nextSeen))
         .filter((node): node is OwnershipForestNode => node != null)
         .sort((a, b) => a.name.localeCompare(b.name, 'nb')),
     }
   }
 
   return roots
-    .map((company) => build(company.id, null, new Set()))
+    .map((company) => build(company.id, null, null, new Set()))
     .filter((node): node is OwnershipForestNode => node != null)
 }
 
