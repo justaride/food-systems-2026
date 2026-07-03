@@ -22,7 +22,7 @@ tier: kjerne
 
 ## Eierskap
 
-- Eier: [[Kverva Industrier AS]] — 44.30 % (minority-stake)
+- Eier: [[Kverva Industrier AS]] — 44.30 % (minoritet; ikke kontroll)
 - [[NTS ASA]] — 100 % (subsidiary)
 - [[SalmoNor AS]] — 100 % (subsidiary)
 - [[SalMar Farming AS]] — 100 % (subsidiary)

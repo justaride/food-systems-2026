@@ -22,7 +22,7 @@ tier: periferi
 
 ## Eierskap
 
-- Eier: [[Nortura SA]] — 49 % (minority-stake)
+- Eier: [[Nortura SA]] — 49 % (minoritet; ikke kontroll)
 
 ## Styreverv
 

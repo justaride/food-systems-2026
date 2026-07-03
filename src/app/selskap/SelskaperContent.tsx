@@ -47,6 +47,8 @@ const OWNERSHIP_LABELS: Record<string, string> = {
   private: 'Privat',
   subsidiary: 'Datterselskap',
   divestment: 'Frasalg',
+  'minority-stake': 'Minoritet; ikke kontroll',
+  'joint-venture': 'Fellesforetak',
 }
 
 export function SelskaperContent({

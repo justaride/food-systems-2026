@@ -22,7 +22,7 @@ tier: periferi
 
 ## Eierskap
 
-- Eier: [[Odd Reitan Private Holding AS]] — 27.76 % (minority-stake)
+- Eier: [[Odd Reitan Private Holding AS]] — 27.76 % (minoritet; ikke kontroll)
 - Eier: [[Reitan AS (912609987)|Reitan AS]] — 72.23 % (subsidiary)
 
 ## Styreverv

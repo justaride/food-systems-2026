@@ -150,7 +150,7 @@
       "id": "cmq8rhz8w001cccvme2qq7igt-cmq8rhz7o0000ccvm7re947er",
       "fromNode": "cmq8rhz8w001cccvme2qq7igt",
       "toNode": "cmq8rhz7o0000ccvm7re947er",
-      "label": "33.33 %"
+      "label": "33.33 % · minoritet"
     },
     {
       "id": "cmq8rhz7o0000ccvm7re947er-cmq8rhz8t0016ccvm3h0ohxmz",
@@ -234,7 +234,7 @@
       "id": "cmq8rhz8w001cccvme2qq7igt-cmq8rhz8t0016ccvm3h0ohxmz",
       "fromNode": "cmq8rhz8w001cccvme2qq7igt",
       "toNode": "cmq8rhz8t0016ccvm3h0ohxmz",
-      "label": "27.76 %"
+      "label": "27.76 % · minoritet"
     }
   ]
 }

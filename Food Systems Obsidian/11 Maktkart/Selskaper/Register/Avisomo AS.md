@@ -22,11 +22,11 @@ tier: periferi
 
 ## Eierskap
 
-- [[Himmelgroent AS]] — 50 % (joint-venture)
+- [[Himmelgroent AS]] — 50 % (fellesforetak)
 
 ## Konserntre
 
-- [[Himmelgroent AS]] (50 %)
+- [[Himmelgroent AS]] (50 % · fellesforetak)
 
 ## Registrerte relasjoner
 

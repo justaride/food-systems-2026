@@ -32,7 +32,7 @@ siterbarhet: intern
 - [[ASKO Norge AS]] → [[ASKO Bygg Vestby AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / NorgesGruppen aarsrapport 2024
 - [[ASKO Norge AS]] → [[ASKO Oslofjord AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / NorgesGruppen aarsrapport 2024
 - [[Austevoll Seafood ASA]] → [[Lerøy Seafood Group ASA]] — 52.70 % (subsidiary) · kilde: Austevoll Seafood årsrapport 2024
-- [[Avisomo AS]] → [[Himmelgroent AS]] — 50 % (joint-venture) · kilde: Himmelgroent founding 2023
+- [[Avisomo AS]] → [[Himmelgroent AS]] — 50 % (fellesforetak) · kilde: Himmelgroent founding 2023
 - [[Axel Johnson AB]] → [[Axfood AB]] — 50.10 % (subsidiary) · kilde: Axel Johnson AB arsredovisning 2024. Axel Johnson har bestammande inflytande.
 - [[Axel Johnson AB]] → [[Martin & Servera AB (SE-556559-1135)|Martin & Servera AB]] — 100 % (subsidiary) · kilde: Axel Johnson AB arsredovisning 2024
 - [[Axel Johnson AB]] → [[Martin & Servera AB (SE-MARTIN-SERV)|Martin & Servera AB]] — 100 % (subsidiary) · kilde: Axel Johnson portfolio
@@ -83,7 +83,7 @@ siterbarhet: intern
 - [[Kiwi Norge AS]] → [[Kiwi Minidrift AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / NorgesGruppen aarsrapport 2024
 - [[Kjopmannshuset Norge AS]] → [[Kjopmannshuset Butikkdrift AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / NorgesGruppen aarsrapport 2024
 - [[Kverva AS]] → [[Kverva Industrier AS]] — 100 % (subsidiary) · kilde: SalMar Annual Report 2024 / Broennoysund
-- [[Kverva Industrier AS]] → [[SalMar ASA]] — 44.30 % (minority-stake) · kilde: SalMar Annual Report 2024 / Broennoysund
+- [[Kverva Industrier AS]] → [[SalMar ASA]] — 44.30 % (minoritet; ikke kontroll) · kilde: SalMar Annual Report 2024 / Broennoysund
 - [[Laco AS]] → [[Austevoll Seafood ASA]] — 55.55 % (subsidiary) · kilde: Austevoll Seafood / Broennoysund aksjeeierboken 2024
 - [[Leroey Vest AS]] → [[Sjoetroll AS]] — 100 % (subsidiary) · kilde: Leroey Annual Report 2024 / Broennoysund
 - [[Lerøy Seafood Group ASA]] → [[Hallvard Leroey AS]] — 100 % (subsidiary) · kilde: Leroey Annual Report 2024 / Broennoysund
@@ -106,11 +106,11 @@ siterbarhet: intern
 - [[NorgesGruppen ASA]] → [[Kjopmannshuset Norge AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / NorgesGruppen aarsrapport 2024
 - [[NorgesGruppen ASA]] → [[NorgesGruppen Detalj AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / NorgesGruppen aarsrapport 2024
 - [[NorgesGruppen ASA]] → [[NorgesGruppen Servicehandel AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / NorgesGruppen aarsrapport 2024
-- [[NorgesGruppen ASA]] → [[Dagrofa A-S (DK-38714295)|Dagrofa A/S]] — 48.90 % (minority-stake) · kilde: NorgesGruppen Credit Report 2025 / Dagrofa corporate presentation
+- [[NorgesGruppen ASA]] → [[Dagrofa A-S (DK-38714295)|Dagrofa A/S]] — 48.90 % (minoritet; ikke kontroll) · kilde: NorgesGruppen Credit Report 2025 / Dagrofa corporate presentation
 - [[NorgesGruppen ASA]] → [[NorgesGruppen Finans Holding AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / NorgesGruppen aarsrapport 2024
 - [[NorgesGruppen ASA]] → [[NorgesGruppen Eiendom Holding AS (997747054)|NorgesGruppen Eiendom Holding AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / NorgesGruppen aarsrapport 2024
 - [[NorgesGruppen ASA]] → [[Storcash Norge AS]] — 100 % (subsidiary) · kilde: Broennoysund / NorgesGruppen aarsrapport
-- [[NorgesGruppen ASA]] → [[BAMA Gruppen AS]] — 46 % (minority-stake) · kilde: Brønnøysund/Årsrapport
+- [[NorgesGruppen ASA]] → [[BAMA Gruppen AS]] — 46 % (minoritet; ikke kontroll) · kilde: Brønnøysund/Årsrapport
 - [[NorgesGruppen Eiendom AS (976542223)|NorgesGruppen Eiendom AS]] → [[NorgesGruppen Eiendomsutvikling AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / NorgesGruppen aarsrapport 2024
 - [[NorgesGruppen Eiendom AS (NO-961483584-EIE)|NorgesGruppen Eiendom AS]] → [[NG Eiendom Vestfold Telemark AS (NO-961483584-VTEIE)|NG Eiendom Vestfold Telemark AS]] — 100 % (subsidiary) · kilde: NorgesGruppen registreringsdokument 2025
 - [[NorgesGruppen Eiendom Holding AS (997747054)|NorgesGruppen Eiendom Holding AS]] → [[NorgesGruppen Eiendom AS (976542223)|NorgesGruppen Eiendom AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / NorgesGruppen aarsrapport 2024
@@ -132,10 +132,10 @@ siterbarhet: intern
 - [[Nortura SA]] → [[Animalia AS]] — 66 % (subsidiary) · kilde: Broennoysundregistrene / Nortura aarsrapport 2024
 - [[Nortura SA]] → [[Noridane Foods AS]] — 65 % (subsidiary) · kilde: Broennoysundregistrene / Nortura aarsrapport 2024
 - [[Nortura SA]] → [[Fjordkjoekken AS]] — 56.50 % (subsidiary) · kilde: Broennoysundregistrene / Nortura aarsrapport 2024
-- [[Nortura SA]] → [[NorPri AS]] — 49 % (minority-stake) · kilde: Broennoysundregistrene / Nortura aarsrapport 2024
-- [[Nortura SA]] → [[Fjordland AS]] — 38.90 % (minority-stake) · kilde: Broennoysundregistrene / Nortura aarsrapport 2024
-- [[Odd Reitan Private Holding AS]] → [[Reitan AS (912609987)|Reitan AS]] — 33.33 % (minority-stake) · kilde: Broennoysundregistrene / Reitan aarsrapport 2024
-- [[Odd Reitan Private Holding AS]] → [[Reitan Eiendom AS (915994415)|Reitan Eiendom AS]] — 27.76 % (minority-stake) · kilde: Broennoysundregistrene / Reitan aarsrapport 2024
+- [[Nortura SA]] → [[NorPri AS]] — 49 % (minoritet; ikke kontroll) · kilde: Broennoysundregistrene / Nortura aarsrapport 2024
+- [[Nortura SA]] → [[Fjordland AS]] — 38.90 % (minoritet; ikke kontroll) · kilde: Broennoysundregistrene / Nortura aarsrapport 2024
+- [[Odd Reitan Private Holding AS]] → [[Reitan AS (912609987)|Reitan AS]] — 33.33 % (minoritet; ikke kontroll) · kilde: Broennoysundregistrene / Reitan aarsrapport 2024
+- [[Odd Reitan Private Holding AS]] → [[Reitan Eiendom AS (915994415)|Reitan Eiendom AS]] — 27.76 % (minoritet; ikke kontroll) · kilde: Broennoysundregistrene / Reitan aarsrapport 2024
 - [[Orkla ASA]] → [[Lilleborg AS]] — 0 % (frasalg; ikke live datter) · kilde: Orkla Pressrelease 2024-06
 - [[Orkla ASA]] → [[Orkla Foods AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / Orkla aarsrapport 2024
 - [[Orkla ASA]] → [[Orkla Snacks AS]] — 100 % (subsidiary) · kilde: Broennoysundregistrene / Orkla aarsrapport 2024

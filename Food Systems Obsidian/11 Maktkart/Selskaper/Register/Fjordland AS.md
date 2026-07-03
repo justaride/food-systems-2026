@@ -22,7 +22,7 @@ tier: periferi
 
 ## Eierskap
 
-- Eier: [[Nortura SA]] — 38.90 % (minority-stake)
+- Eier: [[Nortura SA]] — 38.90 % (minoritet; ikke kontroll)
 - Eier: [[TINE SA]] — 51.10 % (subsidiary)
 
 ## Styreverv

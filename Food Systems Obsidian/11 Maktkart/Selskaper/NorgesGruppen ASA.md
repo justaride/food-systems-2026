@@ -30,11 +30,11 @@ tier: kjerne
 - [[Kjopmannshuset Norge AS]] — 100 % (subsidiary)
 - [[NorgesGruppen Detalj AS]] — 100 % (subsidiary)
 - [[NorgesGruppen Servicehandel AS]] — 100 % (subsidiary)
-- [[Dagrofa A-S (DK-38714295)|Dagrofa A/S]] — 48.90 % (minority-stake)
+- [[Dagrofa A-S (DK-38714295)|Dagrofa A/S]] — 48.90 % (minoritet; ikke kontroll)
 - [[NorgesGruppen Finans Holding AS]] — 100 % (subsidiary)
 - [[NorgesGruppen Eiendom Holding AS (997747054)|NorgesGruppen Eiendom Holding AS]] — 100 % (subsidiary)
 - [[Storcash Norge AS]] — 100 % (subsidiary)
-- [[BAMA Gruppen AS]] — 46 % (minority-stake)
+- [[BAMA Gruppen AS]] — 46 % (minoritet; ikke kontroll)
 
 ## Konserntre
 
@@ -54,7 +54,7 @@ tier: kjerne
   - [[ASKO Transport AS]] (100 %)
   - [[ASKO Vest AS]] (100 %)
   - [[ASKO Vestfold Telemark AS]] (100 %)
-- [[BAMA Gruppen AS]] (46 %)
+- [[BAMA Gruppen AS]] (46 % · minoritet)
   - [[BAMA Blomster Holding AS]] (100 %)
     - [[BAMA Blomster Sourcing AS]] (100 %)
   - [[BAMA Industri AS]] (100 %)
@@ -62,7 +62,7 @@ tier: kjerne
   - [[BAMA Logistikk AS]] (100 %)
   - [[BAMA Pakkerier AS]] (100 %)
   - [[BAMA Storkjoekken AS]] (100 %)
-- [[Dagrofa A-S (DK-38714295)|Dagrofa A/S]] (48.90 %)
+- [[Dagrofa A-S (DK-38714295)|Dagrofa A/S]] (48.90 % · minoritet)
 - [[Kiwi Norge AS]] (100 %)
   - [[Kiwi Minidrift AS]] (100 %)
 - [[Kjopmannshuset Norge AS]] (100 %)

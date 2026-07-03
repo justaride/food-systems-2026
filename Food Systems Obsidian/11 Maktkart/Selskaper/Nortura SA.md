@@ -31,19 +31,19 @@ tier: kjerne
 - [[Animalia AS]] — 66 % (subsidiary)
 - [[Noridane Foods AS]] — 65 % (subsidiary)
 - [[Fjordkjoekken AS]] — 56.50 % (subsidiary)
-- [[NorPri AS]] — 49 % (minority-stake)
-- [[Fjordland AS]] — 38.90 % (minority-stake)
+- [[NorPri AS]] — 49 % (minoritet; ikke kontroll)
+- [[Fjordland AS]] — 38.90 % (minoritet; ikke kontroll)
 
 ## Konserntre
 
 - [[Animalia AS]] (66 %)
 - [[Biosirk Norge AS]] (67 %)
 - [[Fjordkjoekken AS]] (56.50 %)
-- [[Fjordland AS]] (38.90 %)
+- [[Fjordland AS]] (38.90 % · minoritet)
 - [[Norfersk AS]] (100 %)
 - [[Noridane Foods AS]] (65 %)
 - [[Norilia AS]] (100 %)
-- [[NorPri AS]] (49 %)
+- [[NorPri AS]] (49 % · minoritet)
 - [[Norsk Dyremat AS]] (100 %)
 - [[Prima Slakt AS]] (100 %)
 - [[Telespor AS]] (99.70 %)

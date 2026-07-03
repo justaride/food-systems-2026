@@ -20,6 +20,8 @@ const OWNERSHIP_TYPE_LABEL: Record<string, string> = {
   listed:      'Børsnotert',
   subsidiary:  'Datterselskap',
   divestment:  'Frasalg',
+  'minority-stake': 'Minoritet; ikke kontroll',
+  'joint-venture': 'Fellesforetak',
 }
 
 const OWNERSHIP_TYPE_CLASS: Record<string, string> = {
@@ -30,6 +32,8 @@ const OWNERSHIP_TYPE_CLASS: Record<string, string> = {
   listed:      'bg-emerald-50 text-emerald-800 border-emerald-200',
   subsidiary:  'bg-stone-100 text-stone-700 border-stone-300',
   divestment:  'bg-rose-50 text-rose-800 border-rose-200',
+  'minority-stake': 'bg-sky-50 text-sky-800 border-sky-200',
+  'joint-venture': 'bg-amber-50 text-amber-800 border-amber-200',
 }
 
 const DEAL_TYPE_LABEL: Record<string, string> = {

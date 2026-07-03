@@ -108,7 +108,12 @@ function nodeStrokeClass(ownershipType: string | null, isSynthetic?: boolean): s
 
 function edgeLabel(edge: { ownershipPct: number | null; ownershipType: string }): string | null {
   if (edge.ownershipPct == null) return null
-  return edge.ownershipType === 'divestment' ? `${edge.ownershipPct}% frasalg` : `${edge.ownershipPct}%`
+  switch (edge.ownershipType) {
+    case 'divestment': return `${edge.ownershipPct}% frasalg`
+    case 'joint-venture': return `${edge.ownershipPct}% fellesforetak`
+    case 'minority-stake': return `${edge.ownershipPct}% minoritet`
+    default: return `${edge.ownershipPct}%`
+  }
 }
 
 function nodeFillClass(isSynthetic?: boolean): string {

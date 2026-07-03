@@ -3486,8 +3486,8 @@ describe('obsidian vault sync helpers', () => {
         generatedAt: '2026-07-02T00:00:00.000Z',
         source: 'scripts/obsidian-vault/export-db.ts',
         counts: {
-          companies: 3,
-          ownershipEdges: 2,
+          companies: 2,
+          ownershipEdges: 1,
           boardMembers: 4,
           businessRelationships: 1,
           properties: 1,
@@ -3696,8 +3696,8 @@ describe('obsidian vault sync helpers', () => {
         generatedAt: '2026-07-04T00:00:00.000Z',
         source: 'scripts/obsidian-vault/export-db.ts',
         counts: {
-          companies: 2,
-          ownershipEdges: 1,
+          companies: 3,
+          ownershipEdges: 2,
           boardMembers: 0,
           businessRelationships: 0,
           properties: 0,
@@ -4007,8 +4007,8 @@ describe('obsidian vault sync helpers', () => {
         generatedAt: '2026-07-02T00:00:00.000Z',
         source: 'scripts/obsidian-vault/export-db.ts',
         counts: {
-          companies: 2,
-          ownershipEdges: 1,
+          companies: 3,
+          ownershipEdges: 2,
           boardMembers: 0,
           businessRelationships: 0,
           properties: 0,
@@ -4039,6 +4039,18 @@ describe('obsidian vault sync helpers', () => {
           naceDescription: null,
           isResearchConstruct: false,
         },
+        {
+          id: 'joint-venture-child',
+          name: 'Himmelgroent AS',
+          orgNr: 'NO-HIMMELGR',
+          legalForm: 'AS',
+          country: 'NO',
+          valueChainStage: 'production',
+          classification: 'joint-venture',
+          naceCode: null,
+          naceDescription: null,
+          isResearchConstruct: false,
+        },
       ],
       ownershipEdges: [
         {
@@ -4050,6 +4062,16 @@ describe('obsidian vault sync helpers', () => {
           ownershipPct: 48.9,
           ownershipType: 'minority-stake',
           source: 'Årsrapport',
+        },
+        {
+          id: 'joint-venture-edge',
+          parentCompanyId: 'parent',
+          parentName: 'NorgesGruppen ASA',
+          childCompanyId: 'joint-venture-child',
+          childName: 'Himmelgroent AS',
+          ownershipPct: 50,
+          ownershipType: 'joint-venture',
+          source: 'Selskapsstiftelse',
         },
       ],
       boardMembers: [],
@@ -4069,6 +4091,13 @@ describe('obsidian vault sync helpers', () => {
               ownershipPct: 48.9,
               children: [],
             },
+            {
+              id: 'joint-venture-child',
+              name: 'Himmelgroent AS',
+              orgNr: 'NO-HIMMELGR',
+              ownershipPct: 50,
+              children: [],
+            },
           ],
         },
       ],
@@ -4077,10 +4106,19 @@ describe('obsidian vault sync helpers', () => {
 
     const parent = result.files.find((file) => file.path === '11 Maktkart/Selskaper/NorgesGruppen ASA.md')
     const ownershipRegister = result.files.find((file) => file.path === '11 Maktkart/Eierskapsregisteret.md')
+    const canvas = result.files.find((file) => file.path === '0 Kart/Konsern/NorgesGruppen ASA.canvas')
 
     assert.ok(parent?.content.includes('[[Dagrofa A-S|Dagrofa A/S]]'))
     assert.ok(!parent?.content.includes('[[Dagrofa A/S]]'))
     assert.ok(ownershipRegister?.content.includes('[[Dagrofa A-S|Dagrofa A/S]]'))
+    assert.ok(parent?.content.includes('[[Dagrofa A-S|Dagrofa A/S]] — 48.90 % (minoritet; ikke kontroll)'))
+    assert.ok(parent?.content.includes('[[Dagrofa A-S|Dagrofa A/S]] (48.90 % · minoritet)'))
+    assert.ok(parent?.content.includes('[[Himmelgroent AS]] — 50 % (fellesforetak)'))
+    assert.ok(parent?.content.includes('[[Himmelgroent AS]] (50 % · fellesforetak)'))
+    assert.ok(ownershipRegister?.content.includes('[[Dagrofa A-S|Dagrofa A/S]] — 48.90 % (minoritet; ikke kontroll)'))
+    assert.ok(ownershipRegister?.content.includes('[[Himmelgroent AS]] — 50 % (fellesforetak)'))
+    assert.ok(canvas?.content.includes('"label": "48.90 % · minoritet"'))
+    assert.ok(canvas?.content.includes('"label": "50 % · fellesforetak"'))
     assert.ok(result.files.some((file) => file.path === '11 Maktkart/Selskaper/Register/Dagrofa A-S.md'))
   })
 

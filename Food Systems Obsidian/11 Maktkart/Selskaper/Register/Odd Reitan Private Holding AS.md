@@ -22,12 +22,12 @@ tier: periferi
 
 ## Eierskap
 
-- [[Reitan AS (912609987)|Reitan AS]] — 33.33 % (minority-stake)
-- [[Reitan Eiendom AS (915994415)|Reitan Eiendom AS]] — 27.76 % (minority-stake)
+- [[Reitan AS (912609987)|Reitan AS]] — 33.33 % (minoritet; ikke kontroll)
+- [[Reitan Eiendom AS (915994415)|Reitan Eiendom AS]] — 27.76 % (minoritet; ikke kontroll)
 
 ## Konserntre
 
-- [[Reitan AS (912609987)|Reitan AS]] (33.33 %)
+- [[Reitan AS (912609987)|Reitan AS]] (33.33 % · minoritet)
   - [[Reitan Eiendom AS (915994415)|Reitan Eiendom AS]] (72.23 %)
   - [[Reitan Kapital AS]] (100 %)
   - [[Reitan Retail AS]] (100 %)
@@ -41,7 +41,7 @@ tier: periferi
     - [[Uno-X Mobility AS]] (100 %)
       - [[Uno-X E-Mobility Norge AS]] (100 %)
       - [[Uno-X Mobility Norge AS]] (100 %)
-- [[Reitan Eiendom AS (915994415)|Reitan Eiendom AS]] (27.76 %)
+- [[Reitan Eiendom AS (915994415)|Reitan Eiendom AS]] (27.76 % · minoritet)
 
 ## Styreverv
 
