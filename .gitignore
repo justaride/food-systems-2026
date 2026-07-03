@@ -36,6 +36,11 @@ test-results/
 
 # Obsidian local UI state
 Food Systems Obsidian/.obsidian/workspace*.json
+Food Systems Obsidian/.obsidian/plugins/
+Food Systems Obsidian/.obsidian/app.json
+Food Systems Obsidian/.obsidian/appearance.json
+Food Systems Obsidian/.obsidian/community-plugins.json
+Food Systems Obsidian/.obsidian/types.json
 
 /src/generated/prisma
 /src/generated/version.json

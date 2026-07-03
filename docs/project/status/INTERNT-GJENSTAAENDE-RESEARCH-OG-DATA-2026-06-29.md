@@ -4,6 +4,7 @@ status: Levende backlog (internt, deg + Claude). Ikke en ekstern leveranse.
 eier: Gabriel
 medforfatter: Claude
 dato: 2026-06-29
+oppdatert: 2026-07-03 (R13-status korrigert etter kjøring/triage; R14-plan koblet inn)
 horisont: Uke 27 → 31.07 (H1) + august–desember (H2), med oktober-event som siktepunkt
 bruksregel: >
   Dette er en intern arbeidsoversikt over alt vi tenker gjenstår på research- og
@@ -19,6 +20,8 @@ kilder:
   - docs/project/plans/FOOD-TG-ARBEIDSPLAN-MOTE12-VIDEREFORING-2026-06-19.md
   - docs/project/analysis/food-tg-objektivfunksjon-VEDTAK-2026-06-18.md
   - docs/project/mandates/food-tg-n11-bondemargin-goal-2026-06-18.md
+  - research/_status/food-tg-r13/r13-intake-index-2026-06-25.md
+  - docs/project/mandates/food-tg-research-runde14-goal-codex-2026-07-03.md
 ---
 
 # Internt: gjenstående research og datainnhenting
@@ -38,11 +41,17 @@ sin kanoniske kilde (R13-backlog / dekningsbok / mottakslogg), ikke bare her.
 
 ## 1. Sammendrag — tilstanden i to spor
 
-**Research-sporet** har en strukturert backlog på **50 mål (runde 13)**, alle med status
-`planned`: 3 × P0, 34 × P1, 13 × P2. Fordelt på gate er det **24 source-shortlist,
-14 PCQ, 5 actor-gate, 4 forståelse, 3 internal**. I tillegg er **N11 bondemargin**
-(vedtatt spor-A-mål) nylig gate-lukket på «delvis dekket» (2026-06-29), og to bevisste **blindsoner** (etterspørsel N7,
-helse/true-cost N9) parkert mot en eventuell fase 2.
+**Research-sporet** *(oppdatert 2026-07-03)*: R13-backloggen (50 mål) er nå **kjørt og
+triagert 50/50** — se `research/_status/food-tg-r13/r13-intake-index-2026-06-25.md`
+(Kontrollstatus). Triagen ga **14 PCQ-ready, 24 source-shortlist, 1 claim-lock-kandidat,
+8 actor-gate, 4 forståelse, 3 internal, 1 parkert** — og 46 av 50 merket «må ikke
+visualiseres ennå». Det gjenstående er dermed ikke selve promptene, men **oppfølgingen**:
+PCQ-verifisering av «importer»-merkede funn, claim-lock-vurdering av de smale
+GAP-005-kandidatene, vent-items og actor-gate-forberedelse. Dette er operasjonalisert i
+`docs/project/mandates/food-tg-research-runde14-goal-codex-2026-07-03.md` (R14).
+I tillegg er **N11 bondemargin** (vedtatt spor-A-mål) gate-lukket på «delvis dekket»
+(2026-06-29), og to bevisste **blindsoner** (etterspørsel N7, helse/true-cost N9)
+parkert mot en eventuell fase 2.
 
 **Datainnhentings-sporet** er styrt av MVK-dekningskartet: **17 områder**, hvorav
 **12 fortsatt står på 0 %**, et par er delvis dekket (primærproduksjon 11 %,
@@ -91,9 +100,16 @@ rekke **usikre universanslag** som selv må kildebelegges.
   **N11 er dermed formelt lukket på «delvis dekket»-nivå.** Per-kg-margin forblir Type B
   (aktør-gate), ikke en mangel ved denne runden.
 
-### 3.2 R13-backloggen — 50 mål (alle `planned`)
+### 3.2 R13-backloggen — 50 mål (KJØRT OG TRIAGERT per 2026-07-03)
 
-Dette er hovedmengden gjenstående research. Gruppert per tema. **P0 først.**
+> **Statusoppdatering 2026-07-03:** Alle 50 prompts er kjørt (batch 01–13) og
+> mottaksført. Kanonisk status per mål er nå **intake-indeksen**
+> (`research/_status/food-tg-r13/r13-intake-index-2026-06-25.md`), ikke `planned`-kolonnen
+> i backlog-CSV-en. Tabellene under beholdes som opprinnelig planleggingsbilde.
+> Oppfølgingsarbeidet (PCQ-pass, claim-lock-kandidater, vent-items, actor-gate-prep)
+> er sekvensert i R14-goalen:
+> `docs/project/mandates/food-tg-research-runde14-goal-codex-2026-07-03.md`.
+
 Gate-koder: `PCQ` = primary-check queue, `source-shortlist` = kildekandidat-jakt,
 `actor-gate` = krever scope-vedtak (G1), `forstaelse` = triage/forståelsesunderlag,
 `internal` = internt konsoliderings-/figurarbeid.
@@ -303,9 +319,10 @@ kildebelegges før de brukes som nevner i dekning-%:
 
 ## 6. Prioritert rekkefølge (forslag — sekvensert mot H1 31.07 + oktober)
 
-1. **Lukk P0-ene** (R13-GAP-001, GAP-005, WASTE-001). **N11 er gate-lukket 2026-06-29**
-   (verifisert + `audit:citable`/`gate:overclaim` grønt) — ferdig som «delvis dekket». Dette er
-   gap-closure som fjerner kjente svakheter i eksisterende materiale.
+1. **Lukk P0-ene** (R13-GAP-001, GAP-005, WASTE-001). *Oppdatert 2026-07-03: desk-delen
+   er kjørt (batch 01); det som gjenstår er PCQ-passet og claim-lock-vurderingen —
+   R14 batch 01–02.* **N11 er gate-lukket 2026-06-29** (verifisert +
+   `audit:citable`/`gate:overclaim` grønt) — ferdig som «delvis dekket».
 2. **Fyll foredling-industri + resten av primærproduksjon** (data-sporet) — størst
    tomme univers, høyest strategisk vekt, kilde finnes (Brønnøysund).
 3. **Kjør etterkontroll-køen** på de 22 flaggede registernodene → løft fra «kartlagt» til
@@ -382,7 +399,8 @@ og parallelliserbart; det egner seg til en samlet fan-out som bygger kildebredde
 dyrere primæruttrekkingen. Tematisk batching brukes som *sekundær* sortering, ikke primær —
 det gir sammenheng uten å ofre gate-logikken som verktøykjeden allerede følger.
 
-**Neste handling:** Kjør P0-trioen → så en source-shortlist-fanout på P1, tema for tema.
+**Neste handling:** *Utført per 2026-07-03 — hele R13 er kjørt gate-drevet i batch 01–13.*
+Videre kjøring følger R14-goalen (PCQ-pass først, deretter datarunder og actor-gate-prep).
 
 ### 8.4 Usikre universanslag — egen runde eller leve med `lav`?
 

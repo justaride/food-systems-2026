@@ -2024,7 +2024,7 @@ describe('obsidian vault sync helpers', () => {
       readFileSync(
         join(process.cwd(), 'docs', 'project', 'plans', 'obsidian-kunnskapskart-vk5-review-protokoll-2026-07-02.md'),
         'utf8',
-      ),
+      ).replace('status: lukket', 'status: klar-for-gjennomgang-ikke-utfort'),
     )
 
     const issues = validateReviewCloseout(repo).issues
