@@ -45,6 +45,26 @@ describe('domain actor company linking', () => {
     assert.equal(target?.companyId, company.id)
   })
 
+  it('uses existing Actor with same country and name when slug and companyId do not match', () => {
+    const existingActor = {
+      id: 'aktor-samme-navn',
+      slug: 'annen-slug',
+      themeTags: ['domene:legacy'],
+      country: 'NO',
+      name: 'Kjent Matselskap AS',
+      companyId: null,
+    }
+
+    const target = chooseActorTarget(baseRow, {
+      existingBySlug: new Map(),
+      companyByOrgNr: new Map(),
+      existingByCompanyId: new Map(),
+      existingByCountryName: new Map([['NO\x00Kjent Matselskap AS', existingActor]]),
+    })
+
+    assert.equal(target?.id, existingActor.id)
+  })
+
   it('adds companyId to actor payload when org_nr resolves to a Company', () => {
     const data = buildActorImportData(baseRow, {
       datasetTag: 'mvk-frukt-groent-foredling-2026-06-26',

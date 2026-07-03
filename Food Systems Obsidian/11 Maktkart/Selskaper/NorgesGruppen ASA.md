@@ -17,7 +17,7 @@ tier: kjerne
 - Land: NO
 - Verdikjedeledd: retail
 - Klassifisering: family
-- NACE: 47.111 — Butikkhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler
+- NACE: 47.110 — Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler
 - Research-konstrukt: nei
 
 ## Eierskap

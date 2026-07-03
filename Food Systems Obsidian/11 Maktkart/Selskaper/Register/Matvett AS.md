@@ -17,7 +17,7 @@ tier: periferi
 - Land: NO
 - Verdikjedeledd: circular
 - Klassifisering: private
-- NACE: 82.990 — Annen forretningsmessig tjenesteyting ikke nevnt annet sted
+- NACE: 70.200 — Bedriftsrådgivning og annen administrativ rådgivning
 - Research-konstrukt: nei
 
 ## Styreverv

@@ -17,7 +17,7 @@ tier: periferi
 - Land: NO
 - Verdikjedeledd: circular
 - Klassifisering: nonprofit
-- NACE: 94.991 — Aktiviteter i andre interesseorganisasjoner ikke nevnt annet sted
+- NACE: 94.992 — Aktiviteter i andre medlemsorganisasjoner ellers
 - Research-konstrukt: nei
 
 ## Styreverv

@@ -19,7 +19,7 @@
     "refresh:brreg": "tsx scripts/refresh-brreg-tracked.ts",
     "refresh:brreg-financials": "tsx scripts/import-brreg-financials.ts",
     "validate:brreg": "tsx scripts/validate-against-brreg.ts",
-    "build": "tsx scripts/write-version.ts && prisma generate && npm run compute-metrics && next build",
+    "build": "tsx scripts/write-version.ts && prisma generate && npm run compute-metrics && next build --webpack",
     "start": "node .next/standalone/server.js",
     "lint": "eslint",
     "test": "node --import=tsx --test $(find tests -name '*.test.ts')",

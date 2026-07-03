@@ -7,6 +7,8 @@ import {
   isRegistrySourced,
   isNokReported,
   buildSourceString,
+  fitsDecimal15_2,
+  fitsDecimal5_2,
   HOLDING_CONSOLIDATED_ORGNRS,
   type BrregRegnskap,
 } from '../../scripts/import-brreg-financials'
@@ -129,17 +131,27 @@ describe('skrivepolitikk-helpere', () => {
     assert.equal(isRegistrySourced('Årsrapport 2024'), false)
     assert.equal(isRegistrySourced(null), false)
   })
-  it('buildSourceString har endepunkt, år og aksessdato', () => {
+  it('buildSourceString returnerer direkte Regnskapsregisteret-lokator', () => {
     const s = buildSourceString('982254604', 2025, '2026-06-16')
-    assert.match(s, /regnskap\/982254604/)
-    assert.match(s, /regnskapsår 2025/)
-    assert.match(s, /hentet 2026-06-16/)
+    assert.equal(s, 'https://data.brreg.no/regnskapsregisteret/regnskap/982254604')
   })
   it('isNokReported slipper bare NOK gjennom til revenueNok (Mowi EUR blokkeres)', () => {
     assert.equal(isNokReported('NOK'), true)
     assert.equal(isNokReported(null), true)
     assert.equal(isNokReported('EUR'), false)
     assert.equal(isNokReported('USD'), false)
+  })
+  it('fitsDecimal15_2 stopper tall som ikke passer i CompanyFinancial Decimal(15,2)', () => {
+    assert.equal(fitsDecimal15_2(9_999_999_999_999), true)
+    assert.equal(fitsDecimal15_2(-9_999_999_999_999), true)
+    assert.equal(fitsDecimal15_2(10_000_000_000_000), false)
+    assert.equal(fitsDecimal15_2(null), true)
+  })
+  it('fitsDecimal5_2 stopper marginer som ikke passer i CompanyFinancial Decimal(5,2)', () => {
+    assert.equal(fitsDecimal5_2(999.99), true)
+    assert.equal(fitsDecimal5_2(-999.99), true)
+    assert.equal(fitsDecimal5_2(1000), false)
+    assert.equal(fitsDecimal5_2(null), true)
   })
 })
 

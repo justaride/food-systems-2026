@@ -27,6 +27,8 @@ export type ExistingActorLink = {
   id: string
   slug: string
   themeTags: string[]
+  name?: string
+  country?: string
   companyId?: string | null
 }
 
@@ -121,13 +123,17 @@ export function chooseActorTarget(
     existingBySlug: Map<string, ExistingActorLink>
     companyByOrgNr: Map<string, CompanyLink>
     existingByCompanyId: Map<string, ExistingActorLink>
+    existingByCountryName?: Map<string, ExistingActorLink>
   },
 ): ExistingActorLink | null {
   const orgNr = normalizeOrgNr(row.org_nr)
   const company = orgNr ? lookups.companyByOrgNr.get(orgNr) : null
   if (company) {
     const actorForCompany = lookups.existingByCompanyId.get(company.id)
-    if (actorForCompany) return actorForCompany
+      if (actorForCompany) return actorForCompany
   }
-  return lookups.existingBySlug.get(row.node_id) ?? null
+  const actorForSlug = lookups.existingBySlug.get(row.node_id)
+  if (actorForSlug) return actorForSlug
+  const countryNameKey = `${row.country || 'NO'}\x00${row.name}`
+  return lookups.existingByCountryName?.get(countryNameKey) ?? null
 }

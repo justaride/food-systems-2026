@@ -1,6 +1,6 @@
 {
-  "collapse-filter": false,
-  "search": "-path:\"0 Kart/Konsern\" -path:\"0 Kart/Kunnskapskart.canvas\" -path:\"0 Kart/Maktkart.canvas\" -path:\"0 Kart/Oppsett.md\" -path:\"0 Kart/Temakart\" -path:\"0 Kart/Verdikjedekart.canvas\" -path:\"1 Oversikt og navigasjon\" -path:\"2 Intern\" -path:\"3 Selskap og eierskap\" -path:\"4 Matsystem\" -path:\"5 Produsenter og støtte\" -path:\"6 Nordisk\" -path:\"7 Kunnskap\" -path:\"8 Bibliotek\" -path:\"9 Datafundament\" -path:\"10 Innsiktskart/Stakeholders\" -path:\"Selskaper/Register\" -path:\"Personer/Register\" -path:\"12 Kilder\"  ",
+  "collapse-filter": true,
+  "search": "-path:\"0 Kart/Konsern\" -path:\"0 Kart/Kunnskapskart.canvas\" -path:\"0 Kart/Maktkart.canvas\" -path:\"0 Kart/Oppsett.md\" -path:\"0 Kart/Temakart\" -path:\"0 Kart/Verdikjedekart.canvas\" -path:\"1 Oversikt og navigasjon\" -path:\"2 Intern\" -path:\"3 Selskap og eierskap\" -path:\"4 Matsystem\" -path:\"5 Produsenter og støtte\" -path:\"6 Nordisk\" -path:\"7 Kunnskap\" -path:\"8 Bibliotek\" -path:\"9 Datafundament\" -path:\"10 Innsiktskart/Stakeholders\" -path:\"Selskaper/Register\" -path:\"Personer/Register\" -path:\"12 Kilder\"",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
@@ -158,6 +158,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.2686522708621206,
+  "scale": 0.8321681732056168,
   "close": true
 }

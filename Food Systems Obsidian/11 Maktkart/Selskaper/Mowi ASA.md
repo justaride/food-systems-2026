@@ -17,7 +17,7 @@ tier: kjerne
 - Land: NO
 - Verdikjedeledd: seafood
 - Klassifisering: listed
-- NACE: 03.211 — Produksjon av matfisk og skalldyr i hav- og kystbasert fiskeoppdrett
+- NACE: 03.211 — Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann
 - Research-konstrukt: nei
 
 ## Eierskap

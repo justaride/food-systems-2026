@@ -17,7 +17,7 @@ tier: periferi
 - Land: NO
 - Verdikjedeledd: circular
 - Klassifisering: foreign
-- NACE: 73.110 — Reklamebyråer
+- NACE: 73.110 — Reklamebyråvirksomhet
 - Research-konstrukt: nei
 
 ## Styreverv

@@ -17,7 +17,7 @@ tier: periferi
 - Land: NO
 - Verdikjedeledd: research
 - Klassifisering: state
-- NACE: 72.190 — Annen forskning og annet utviklingsarbeid innen naturvitenskap og teknikk
+- NACE: 72.100 — Forskning og eksperimentell utvikling innenfor naturvitenskap og teknikk
 - Research-konstrukt: nei
 
 ## Styreverv

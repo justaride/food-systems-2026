@@ -17,7 +17,7 @@ tier: periferi
 - Land: NO
 - Verdikjedeledd: inputs
 - Klassifisering: state
-- NACE: 20.150 — Produksjon av gjødsel, nitrogenforbindelser og vekstjord
+- NACE: 20.150 — Produksjon av gjødsel og nitrogenforbindelser
 - Research-konstrukt: nei
 
 ## Styreverv

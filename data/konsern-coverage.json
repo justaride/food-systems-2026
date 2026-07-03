@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T23:17:58.979Z",
+  "generatedAt": "2026-07-03T10:22:30.768Z",
   "entries": [
     {
       "slug": "norgesgruppen",
@@ -12,201 +12,27 @@
         "pct": "74.4",
         "source": "document:evidence-pack/arsrapporter/norgesgruppen-2024"
       },
-      "qualityScore": 6,
+      "qualityScore": 7,
       "measuredYear": 2025,
       "metrics": {
         "treeSize": 49,
-        "childrenWithLatestFinancial": 1,
-        "childrenWithOlderFinancial": 44,
-        "childrenWithoutFinancial": 3,
-        "childrenWithBoardMembers": 17,
-        "childrenWithoutBoardMembers": 31,
+        "childrenWithLatestFinancial": 46,
+        "childrenWithOlderFinancial": 0,
+        "childrenWithoutFinancial": 2,
+        "childrenWithBoardMembers": 47,
+        "childrenWithoutBoardMembers": 1,
         "ownershipEdgesWithSource": 48,
         "ownershipEdgesWithoutSource": 0,
         "propertyCount": 28,
         "relationshipCount": 35,
         "maEventCount": 0,
         "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": null
+        "daysSinceBrregRefresh": 0
       },
       "gaps": [
-        "3 datterselskap mangler regnskap helt",
-        "44 datterselskap har bare eldre regnskap enn målt år 2025",
-        "31 datterselskap uten styremedlemmer",
-        "Aldri Brreg-refreshet",
-        "Forventer M&A-aktivitet, ingen events registrert"
-      ]
-    },
-    {
-      "slug": "austevoll",
-      "rootCompanyId": "cmp8xytb8009pxrvmjdg1chp6",
-      "rootName": "Austevoll Seafood ASA",
-      "rootOrgNr": "929975200",
-      "ownershipType": "subsidiary",
-      "controllingOwner": {
-        "name": "Laco AS (Møgster-familien)",
-        "pct": "52.7",
-        "source": "Aksjonærdata: årsrapport 2024"
-      },
-      "qualityScore": 6,
-      "measuredYear": 2025,
-      "metrics": {
-        "treeSize": 9,
-        "childrenWithLatestFinancial": 1,
-        "childrenWithOlderFinancial": 7,
-        "childrenWithoutFinancial": 0,
-        "childrenWithBoardMembers": 1,
-        "childrenWithoutBoardMembers": 7,
-        "ownershipEdgesWithSource": 8,
-        "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 2,
-        "relationshipCount": 5,
-        "maEventCount": 0,
-        "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": null
-      },
-      "gaps": [
-        "7 datterselskap har bare eldre regnskap enn målt år 2025",
-        "7 datterselskap uten styremedlemmer",
-        "Aldri Brreg-refreshet",
-        "Forventer M&A-aktivitet, ingen events registrert"
-      ]
-    },
-    {
-      "slug": "leroy",
-      "rootCompanyId": "cmp8xyt620066xrvmjffvu35l",
-      "rootName": "Lerøy Seafood Group ASA",
-      "rootOrgNr": "975350940",
-      "ownershipType": "subsidiary",
-      "controllingOwner": {
-        "name": "Austevoll Seafood (Møgster-familien)",
-        "pct": "52.7",
-        "source": "Aksjonærdata: årsrapport 2024"
-      },
-      "qualityScore": 6,
-      "measuredYear": 2025,
-      "metrics": {
-        "treeSize": 8,
-        "childrenWithLatestFinancial": 1,
-        "childrenWithOlderFinancial": 6,
-        "childrenWithoutFinancial": 0,
-        "childrenWithBoardMembers": 0,
-        "childrenWithoutBoardMembers": 7,
-        "ownershipEdgesWithSource": 7,
-        "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 2,
-        "relationshipCount": 5,
-        "maEventCount": 0,
-        "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": null
-      },
-      "gaps": [
-        "6 datterselskap har bare eldre regnskap enn målt år 2025",
-        "7 datterselskap uten styremedlemmer",
-        "Aldri Brreg-refreshet",
-        "Forventer M&A-aktivitet, ingen events registrert"
-      ]
-    },
-    {
-      "slug": "reitan-retail",
-      "rootCompanyId": "cmp8xyt1k0019xrvmq0qfsj0z",
-      "rootName": "Reitan Retail AS",
-      "rootOrgNr": "914526647",
-      "ownershipType": "subsidiary",
-      "controllingOwner": {
-        "name": "Reitan-familien (Odd Reitan)",
-        "pct": "100",
-        "source": "document:evidence-pack/arsrapporter/reitan-retail-2024"
-      },
-      "qualityScore": 7,
-      "measuredYear": 2025,
-      "metrics": {
-        "treeSize": 11,
-        "childrenWithLatestFinancial": 2,
-        "childrenWithOlderFinancial": 7,
-        "childrenWithoutFinancial": 1,
-        "childrenWithBoardMembers": 9,
-        "childrenWithoutBoardMembers": 1,
-        "ownershipEdgesWithSource": 10,
-        "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 9,
-        "relationshipCount": 15,
-        "maEventCount": 0,
-        "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": 3
-      },
-      "gaps": [
-        "1 datterselskap mangler regnskap helt",
-        "7 datterselskap har bare eldre regnskap enn målt år 2025",
+        "2 datterselskap mangler regnskap helt",
         "1 datterselskap uten styremedlemmer",
         "Forventer M&A-aktivitet, ingen events registrert"
-      ]
-    },
-    {
-      "slug": "coop",
-      "rootCompanyId": "cmp8xyt0w000jxrvm0iavgyro",
-      "rootName": "Coop Norge SA",
-      "rootOrgNr": "936560288",
-      "ownershipType": "subsidiary",
-      "controllingOwner": {
-        "name": "Samvirkelagene (1,9 mill. medlemmer)",
-        "pct": "100",
-        "source": "document:evidence-pack/arsrapporter/coop-norge-2024"
-      },
-      "qualityScore": 7,
-      "measuredYear": 2024,
-      "metrics": {
-        "treeSize": 9,
-        "childrenWithLatestFinancial": 7,
-        "childrenWithOlderFinancial": 0,
-        "childrenWithoutFinancial": 1,
-        "childrenWithBoardMembers": 2,
-        "childrenWithoutBoardMembers": 6,
-        "ownershipEdgesWithSource": 8,
-        "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 12,
-        "relationshipCount": 15,
-        "maEventCount": 0,
-        "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": null
-      },
-      "gaps": [
-        "1 datterselskap mangler regnskap helt",
-        "6 datterselskap uten styremedlemmer",
-        "Aldri Brreg-refreshet"
-      ]
-    },
-    {
-      "slug": "asko",
-      "rootCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
-      "rootName": "ASKO Norge AS",
-      "rootOrgNr": "929228723",
-      "ownershipType": "subsidiary",
-      "controllingOwner": {
-        "name": "NorgesGruppen ASA (100%)",
-        "pct": "100",
-        "source": "document:evidence-pack/arsrapporter/norgesgruppen-2024"
-      },
-      "qualityScore": 8,
-      "measuredYear": 2024,
-      "metrics": {
-        "treeSize": 16,
-        "childrenWithLatestFinancial": 14,
-        "childrenWithOlderFinancial": 0,
-        "childrenWithoutFinancial": 1,
-        "childrenWithBoardMembers": 1,
-        "childrenWithoutBoardMembers": 14,
-        "ownershipEdgesWithSource": 15,
-        "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 23,
-        "relationshipCount": 6,
-        "maEventCount": 0,
-        "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": 3
-      },
-      "gaps": [
-        "1 datterselskap mangler regnskap helt",
-        "14 datterselskap uten styremedlemmer"
       ]
     },
     {
@@ -227,52 +53,118 @@
         "childrenWithLatestFinancial": 2,
         "childrenWithOlderFinancial": 0,
         "childrenWithoutFinancial": 1,
-        "childrenWithBoardMembers": 0,
-        "childrenWithoutBoardMembers": 3,
+        "childrenWithBoardMembers": 1,
+        "childrenWithoutBoardMembers": 2,
         "ownershipEdgesWithSource": 3,
         "ownershipEdgesWithoutSource": 0,
         "propertyCount": 2,
         "relationshipCount": 3,
         "maEventCount": 1,
         "maEventsWithDealValue": 1,
-        "daysSinceBrregRefresh": 3
+        "daysSinceBrregRefresh": 0
       },
       "gaps": [
         "1 datterselskap mangler regnskap helt",
-        "3 datterselskap uten styremedlemmer"
+        "2 datterselskap uten styremedlemmer"
       ]
     },
     {
-      "slug": "nortura",
-      "rootCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
-      "rootName": "Nortura SA",
-      "rootOrgNr": "938752648",
+      "slug": "reitan-retail",
+      "rootCompanyId": "cmp8xyt1k0019xrvmq0qfsj0z",
+      "rootName": "Reitan Retail AS",
+      "rootOrgNr": "914526647",
       "ownershipType": "subsidiary",
       "controllingOwner": {
-        "name": "17 000 bønder",
+        "name": "Reitan-familien (Odd Reitan)",
         "pct": "100",
+        "source": "document:evidence-pack/arsrapporter/reitan-retail-2024"
+      },
+      "qualityScore": 9,
+      "measuredYear": 2025,
+      "metrics": {
+        "treeSize": 11,
+        "childrenWithLatestFinancial": 10,
+        "childrenWithOlderFinancial": 0,
+        "childrenWithoutFinancial": 0,
+        "childrenWithBoardMembers": 9,
+        "childrenWithoutBoardMembers": 1,
+        "ownershipEdgesWithSource": 10,
+        "ownershipEdgesWithoutSource": 0,
+        "propertyCount": 9,
+        "relationshipCount": 15,
+        "maEventCount": 0,
+        "maEventsWithDealValue": 0,
+        "daysSinceBrregRefresh": 0
+      },
+      "gaps": [
+        "1 datterselskap uten styremedlemmer",
+        "Forventer M&A-aktivitet, ingen events registrert"
+      ]
+    },
+    {
+      "slug": "austevoll",
+      "rootCompanyId": "cmp8xytb8009pxrvmjdg1chp6",
+      "rootName": "Austevoll Seafood ASA",
+      "rootOrgNr": "929975200",
+      "ownershipType": "subsidiary",
+      "controllingOwner": {
+        "name": "Laco AS (Møgster-familien)",
+        "pct": "52.7",
         "source": "Aksjonærdata: årsrapport 2024"
       },
       "qualityScore": 9,
-      "measuredYear": 2024,
+      "measuredYear": 2025,
       "metrics": {
-        "treeSize": 12,
-        "childrenWithLatestFinancial": 11,
+        "treeSize": 9,
+        "childrenWithLatestFinancial": 8,
         "childrenWithOlderFinancial": 0,
         "childrenWithoutFinancial": 0,
-        "childrenWithBoardMembers": 1,
-        "childrenWithoutBoardMembers": 10,
-        "ownershipEdgesWithSource": 11,
+        "childrenWithBoardMembers": 7,
+        "childrenWithoutBoardMembers": 1,
+        "ownershipEdgesWithSource": 8,
         "ownershipEdgesWithoutSource": 0,
-        "propertyCount": 8,
-        "relationshipCount": 10,
+        "propertyCount": 2,
+        "relationshipCount": 5,
         "maEventCount": 0,
         "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": null
+        "daysSinceBrregRefresh": 0
       },
       "gaps": [
-        "10 datterselskap uten styremedlemmer",
-        "Aldri Brreg-refreshet"
+        "1 datterselskap uten styremedlemmer",
+        "Forventer M&A-aktivitet, ingen events registrert"
+      ]
+    },
+    {
+      "slug": "leroy",
+      "rootCompanyId": "cmp8xyt620066xrvmjffvu35l",
+      "rootName": "Lerøy Seafood Group ASA",
+      "rootOrgNr": "975350940",
+      "ownershipType": "subsidiary",
+      "controllingOwner": {
+        "name": "Austevoll Seafood (Møgster-familien)",
+        "pct": "52.7",
+        "source": "Aksjonærdata: årsrapport 2024"
+      },
+      "qualityScore": 9,
+      "measuredYear": 2025,
+      "metrics": {
+        "treeSize": 8,
+        "childrenWithLatestFinancial": 7,
+        "childrenWithOlderFinancial": 0,
+        "childrenWithoutFinancial": 0,
+        "childrenWithBoardMembers": 6,
+        "childrenWithoutBoardMembers": 1,
+        "ownershipEdgesWithSource": 7,
+        "ownershipEdgesWithoutSource": 0,
+        "propertyCount": 2,
+        "relationshipCount": 5,
+        "maEventCount": 0,
+        "maEventsWithDealValue": 0,
+        "daysSinceBrregRefresh": 0
+      },
+      "gaps": [
+        "1 datterselskap uten styremedlemmer",
+        "Forventer M&A-aktivitet, ingen events registrert"
       ]
     },
     {
@@ -293,19 +185,17 @@
         "childrenWithLatestFinancial": 13,
         "childrenWithOlderFinancial": 0,
         "childrenWithoutFinancial": 0,
-        "childrenWithBoardMembers": 3,
-        "childrenWithoutBoardMembers": 10,
+        "childrenWithBoardMembers": 13,
+        "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 13,
         "ownershipEdgesWithoutSource": 0,
         "propertyCount": 3,
         "relationshipCount": 3,
         "maEventCount": 2,
         "maEventsWithDealValue": 2,
-        "daysSinceBrregRefresh": 3
+        "daysSinceBrregRefresh": 0
       },
-      "gaps": [
-        "10 datterselskap uten styremedlemmer"
-      ]
+      "gaps": []
     },
     {
       "slug": "felleskjopet",
@@ -319,25 +209,23 @@
         "source": "Aksjonærdata: årsrapport 2024"
       },
       "qualityScore": 10,
-      "measuredYear": 2024,
+      "measuredYear": 2025,
       "metrics": {
         "treeSize": 7,
         "childrenWithLatestFinancial": 6,
         "childrenWithOlderFinancial": 0,
         "childrenWithoutFinancial": 0,
-        "childrenWithBoardMembers": 1,
-        "childrenWithoutBoardMembers": 5,
+        "childrenWithBoardMembers": 6,
+        "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 6,
         "ownershipEdgesWithoutSource": 0,
         "propertyCount": 3,
         "relationshipCount": 4,
         "maEventCount": 0,
         "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": 3
+        "daysSinceBrregRefresh": 0
       },
-      "gaps": [
-        "5 datterselskap uten styremedlemmer"
-      ]
+      "gaps": []
     },
     {
       "slug": "bama",
@@ -357,19 +245,111 @@
         "childrenWithLatestFinancial": 7,
         "childrenWithOlderFinancial": 0,
         "childrenWithoutFinancial": 0,
-        "childrenWithBoardMembers": 0,
-        "childrenWithoutBoardMembers": 7,
+        "childrenWithBoardMembers": 7,
+        "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 7,
         "ownershipEdgesWithoutSource": 0,
         "propertyCount": 3,
         "relationshipCount": 7,
         "maEventCount": 0,
         "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": 3
+        "daysSinceBrregRefresh": 0
+      },
+      "gaps": []
+    },
+    {
+      "slug": "asko",
+      "rootCompanyId": "cmp8xyt95007mxrvmlptkx5cl",
+      "rootName": "ASKO Norge AS",
+      "rootOrgNr": "929228723",
+      "ownershipType": "subsidiary",
+      "controllingOwner": {
+        "name": "NorgesGruppen ASA (100%)",
+        "pct": "100",
+        "source": "document:evidence-pack/arsrapporter/norgesgruppen-2024"
+      },
+      "qualityScore": 10,
+      "measuredYear": 2024,
+      "metrics": {
+        "treeSize": 16,
+        "childrenWithLatestFinancial": 15,
+        "childrenWithOlderFinancial": 0,
+        "childrenWithoutFinancial": 0,
+        "childrenWithBoardMembers": 14,
+        "childrenWithoutBoardMembers": 1,
+        "ownershipEdgesWithSource": 15,
+        "ownershipEdgesWithoutSource": 0,
+        "propertyCount": 23,
+        "relationshipCount": 6,
+        "maEventCount": 0,
+        "maEventsWithDealValue": 0,
+        "daysSinceBrregRefresh": 0
       },
       "gaps": [
-        "7 datterselskap uten styremedlemmer"
+        "1 datterselskap uten styremedlemmer"
       ]
+    },
+    {
+      "slug": "coop",
+      "rootCompanyId": "cmp8xyt0w000jxrvm0iavgyro",
+      "rootName": "Coop Norge SA",
+      "rootOrgNr": "936560288",
+      "ownershipType": "subsidiary",
+      "controllingOwner": {
+        "name": "Samvirkelagene (1,9 mill. medlemmer)",
+        "pct": "100",
+        "source": "document:evidence-pack/arsrapporter/coop-norge-2024"
+      },
+      "qualityScore": 10,
+      "measuredYear": 2025,
+      "metrics": {
+        "treeSize": 9,
+        "childrenWithLatestFinancial": 8,
+        "childrenWithOlderFinancial": 0,
+        "childrenWithoutFinancial": 0,
+        "childrenWithBoardMembers": 7,
+        "childrenWithoutBoardMembers": 1,
+        "ownershipEdgesWithSource": 8,
+        "ownershipEdgesWithoutSource": 0,
+        "propertyCount": 5,
+        "relationshipCount": 15,
+        "maEventCount": 0,
+        "maEventsWithDealValue": 0,
+        "daysSinceBrregRefresh": 0
+      },
+      "gaps": [
+        "1 datterselskap uten styremedlemmer"
+      ]
+    },
+    {
+      "slug": "nortura",
+      "rootCompanyId": "cmp8xyt2l0025xrvmxuh0939x",
+      "rootName": "Nortura SA",
+      "rootOrgNr": "938752648",
+      "ownershipType": "subsidiary",
+      "controllingOwner": {
+        "name": "17 000 bønder",
+        "pct": "100",
+        "source": "Aksjonærdata: årsrapport 2024"
+      },
+      "qualityScore": 10,
+      "measuredYear": 2025,
+      "metrics": {
+        "treeSize": 12,
+        "childrenWithLatestFinancial": 11,
+        "childrenWithOlderFinancial": 0,
+        "childrenWithoutFinancial": 0,
+        "childrenWithBoardMembers": 11,
+        "childrenWithoutBoardMembers": 0,
+        "ownershipEdgesWithSource": 11,
+        "ownershipEdgesWithoutSource": 0,
+        "propertyCount": 8,
+        "relationshipCount": 10,
+        "maEventCount": 0,
+        "maEventsWithDealValue": 0,
+        "daysSinceBrregRefresh": 0
+      },
+      "gaps": []
     },
     {
       "slug": "tine",
@@ -383,25 +363,23 @@
         "source": "Aksjonærdata: årsrapport 2024"
       },
       "qualityScore": 10,
-      "measuredYear": 2024,
+      "measuredYear": 2025,
       "metrics": {
         "treeSize": 5,
         "childrenWithLatestFinancial": 4,
         "childrenWithOlderFinancial": 0,
         "childrenWithoutFinancial": 0,
-        "childrenWithBoardMembers": 2,
-        "childrenWithoutBoardMembers": 2,
+        "childrenWithBoardMembers": 4,
+        "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 4,
         "ownershipEdgesWithoutSource": 0,
         "propertyCount": 7,
         "relationshipCount": 7,
         "maEventCount": 0,
         "maEventsWithDealValue": 0,
-        "daysSinceBrregRefresh": 3
+        "daysSinceBrregRefresh": 0
       },
-      "gaps": [
-        "2 datterselskap uten styremedlemmer"
-      ]
+      "gaps": []
     },
     {
       "slug": "mowi",
@@ -421,19 +399,17 @@
         "childrenWithLatestFinancial": 5,
         "childrenWithOlderFinancial": 0,
         "childrenWithoutFinancial": 0,
-        "childrenWithBoardMembers": 0,
-        "childrenWithoutBoardMembers": 5,
+        "childrenWithBoardMembers": 5,
+        "childrenWithoutBoardMembers": 0,
         "ownershipEdgesWithSource": 5,
         "ownershipEdgesWithoutSource": 0,
         "propertyCount": 4,
         "relationshipCount": 5,
         "maEventCount": 1,
         "maEventsWithDealValue": 1,
-        "daysSinceBrregRefresh": 3
+        "daysSinceBrregRefresh": 0
       },
-      "gaps": [
-        "5 datterselskap uten styremedlemmer"
-      ]
+      "gaps": []
     }
   ],
   "missingFromData": [],
