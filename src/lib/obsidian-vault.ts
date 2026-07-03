@@ -57,6 +57,13 @@ const REQUIRED_OBSIDIAN_M3_SETUP_TEXT = [
   'Maktkart.canvas',
   'NorgesGruppen ASA.canvas',
 ] as const
+const REQUIRED_OBSIDIAN_LOCAL_CONFIG_TEXT = [
+  '## Lokal Obsidian-konfig',
+  '.obsidian/graph.json',
+  '.obsidian/snippets/kunnskapskart.css',
+  'core-plugins.json',
+  'docs/project/reference/obsidian-local-config-policy-2026-07-04.md',
+] as const
 const CORE_GRAPH_FILTER = [
   '-path:"0 Kart/Konsern"',
   '-path:"0 Kart/Kunnskapskart.canvas"',
@@ -1439,6 +1446,15 @@ function validateObsidianSetupNote(vaultPath: string, issues: VaultIssue[]) {
       issues.push({
         file: setupPath,
         message: `missing M3 setup text ${requiredText}`,
+      })
+    }
+  }
+
+  for (const requiredText of REQUIRED_OBSIDIAN_LOCAL_CONFIG_TEXT) {
+    if (!source.includes(requiredText)) {
+      issues.push({
+        file: setupPath,
+        message: `missing local Obsidian config policy text ${requiredText}`,
       })
     }
   }

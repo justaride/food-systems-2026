@@ -85,6 +85,13 @@ SORT file.name ASC
 - Sjekk projektorlesbarhet: tekststørrelse, overlapp, kantkryss og om første blikk forklarer kartets historie uten muntlig omvei.
 - Stresstest konsernvisningen med `0 Kart/Konsern/NorgesGruppen ASA.canvas`.
 - Noter godkjent, justert eller parkert visning i VK-5-protokollen; Codex kan ikke lukke M3 uten denne skjermbildegjennomgangen.
+
+## Lokal Obsidian-konfig
+
+- Delte, repo-trackede presentasjonsfiler: `.obsidian/graph.json` og `.obsidian/snippets/kunnskapskart.css`.
+- Lokal bruker-/sesjonsstate holdes utracket: `workspace*.json`, `app.json`, `appearance.json`, `community-plugins.json`, `core-plugins.json`, `types.json` og `.obsidian/plugins/`.
+- Installer Dataview, Breadcrumbs, Minimal Theme Settings og Juggl eller 3D Graph lokalt; plugin-bundles skal ikke committes.
+- Beslutningen ligger i `docs/project/reference/obsidian-local-config-policy-2026-07-04.md`.
 ## Notater
 
 _Utvikles gjennom prosjektet._
