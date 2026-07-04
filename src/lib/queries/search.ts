@@ -5,6 +5,7 @@ import {
   type SemanticSearchStatus,
 } from './semantic-search'
 import { isMissingPrismaTable } from './prisma-errors'
+import { getLibraryAnalysisBadgesByDocumentIds, type LibraryAnalysisBadge } from './library-analysis'
 
 export type SearchMode = 'keyword' | 'semantic' | 'hybrid'
 
@@ -16,6 +17,7 @@ export type SearchResult = {
   url?: string | null
   tags?: string[]
   relevance?: number
+  libraryAnalysis?: LibraryAnalysisBadge | null
 }
 
 export type SearchWarning = {
@@ -45,7 +47,7 @@ export async function searchWithDiagnostics(query: string, limit = 20, mode: Sea
         executedMode: 'semantic',
         fallback: false,
         warnings: [],
-        results: mapSemanticResults(results),
+        results: await enrichLibraryAnalysisBadges(mapSemanticResults(results)),
       }
     } catch (error) {
       return fallbackToKeyword(query, limit, mode, error)
@@ -72,7 +74,7 @@ export async function searchWithDiagnostics(query: string, limit = 20, mode: Sea
         executedMode: 'hybrid',
         fallback: false,
         warnings: [],
-        results: merged.slice(0, limit),
+        results: await enrichLibraryAnalysisBadges(merged.slice(0, limit)),
       }
     } catch (error) {
       return fallbackToKeyword(query, limit, mode, error)
@@ -84,7 +86,7 @@ export async function searchWithDiagnostics(query: string, limit = 20, mode: Sea
     executedMode: 'keyword',
     fallback: false,
     warnings: [],
-    results: await keywordSearch(query, limit),
+    results: await enrichLibraryAnalysisBadges(await keywordSearch(query, limit)),
   }
 }
 
@@ -109,7 +111,7 @@ async function fallbackToKeyword(query: string, limit: number, mode: SearchMode,
     executedMode: 'keyword',
     fallback: true,
     warnings: [warning],
-    results: await keywordSearch(query, limit),
+    results: await enrichLibraryAnalysisBadges(await keywordSearch(query, limit)),
   }
 }
 
@@ -163,6 +165,27 @@ function interleaveByType(results: SearchResult[], cap: number): SearchResult[] 
     }
   }
   return out
+}
+
+async function enrichLibraryAnalysisBadges(results: SearchResult[]): Promise<SearchResult[]> {
+  const documentIds = results
+    .filter(result => result.type === 'document')
+    .map(result => result.id)
+  if (documentIds.length === 0) return results
+
+  try {
+    const badges = await getLibraryAnalysisBadgesByDocumentIds(documentIds)
+    return results.map(result => {
+      if (result.type !== 'document') return result
+      return {
+        ...result,
+        libraryAnalysis: badges.get(result.id) ?? null,
+      }
+    })
+  } catch (error) {
+    if (!isMissingPrismaTable(error, 'LibraryAnalysisRecord')) throw error
+    return results
+  }
 }
 
 function tokenizeSearchQuery(query: string): string[] {

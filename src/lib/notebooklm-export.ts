@@ -1,3 +1,4 @@
+import type { Dirent } from 'node:fs'
 import { mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
@@ -96,7 +97,7 @@ async function walkMarkdown(root: string, relativeDir: string, limit: number) {
   const start = path.join(root, relativeDir)
   const out: string[] = []
   async function walkDir(dir: string) {
-    let entries: Awaited<ReturnType<typeof readdir>>
+    let entries: Array<Dirent<string>>
     try {
       entries = await readdir(dir, { withFileTypes: true })
     } catch {

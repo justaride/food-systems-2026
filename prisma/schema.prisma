@@ -80,6 +80,7 @@ model Document {
   companyDocumentRefs CompanyDocumentRef[]
   actorDocumentRefs   ActorDocumentRef[]
   sourceCitations     SourceCitation[]
+  libraryAnalysisRecords LibraryAnalysisRecord[]
 
   @@index([category])
   @@index([country])
@@ -124,6 +125,7 @@ model SourceDoc {
   insights        Insight[]        @relation("InsightSourceDoc")
   mediaEntries    MediaEntry[]
   sourceCitations SourceCitation[]
+  libraryAnalysisRecords LibraryAnalysisRecord[]
 
   @@index([sourceType])
 }
@@ -188,6 +190,47 @@ model FieldCitation {
   @@index([citationId])
   @@index([entityType, entityId])
   @@index([fieldPath])
+}
+
+model LibraryAnalysisRecord {
+  id                String   @id @default(cuid())
+  sourceKind        String
+  sourceKey         String
+  documentId        String?
+  sourceDocId       String?
+  canonicalPath     String?
+  title             String
+  status            String   @default("not_started")
+  usageRule         String   @default("internal_background")
+  reviewStatus      String   @default("not_reviewed")
+  citationReadiness String?
+  analysisTier      String   @default("triage_card")
+  aiCard            Json?
+  aiSummary         String?
+  keyFindings       String[]
+  claimCandidates   Json?
+  projectImplications String[]
+  gaps              Json?
+  controlLinks      Json?
+  riskFlags         String[]
+  contentHash       String?
+  wordCount         Int      @default(0)
+  processedAt       DateTime?
+  reviewedAt        DateTime?
+  reviewer          String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  document  Document?  @relation(fields: [documentId], references: [id], onDelete: SetNull)
+  sourceDoc SourceDoc? @relation(fields: [sourceDocId], references: [id], onDelete: SetNull)
+
+  @@unique([sourceKind, sourceKey])
+  @@index([status])
+  @@index([usageRule])
+  @@index([reviewStatus])
+  @@index([documentId])
+  @@index([sourceDocId])
+  @@index([canonicalPath])
 }
 
 model SourceRef {

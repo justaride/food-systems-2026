@@ -1,4 +1,6 @@
 import { prisma } from '@/lib/db'
+import { getLibraryAnalysisBadgesByDocumentIds } from './library-analysis'
+import { isPrismaDataUnavailable } from './prisma-errors'
 
 const sourceCitationSelect = {
   citationText: true,
@@ -55,7 +57,7 @@ export async function getDocuments(opts?: {
 }
 
 export async function getDocumentsList() {
-  return prisma.document.findMany({
+  const documents = await prisma.document.findMany({
     select: {
       id: true,
       slug: true,
@@ -72,6 +74,20 @@ export async function getDocumentsList() {
     },
     orderBy: { title: 'asc' },
   })
+
+  try {
+    const badges = await getLibraryAnalysisBadgesByDocumentIds(documents.map(document => document.id))
+    return documents.map(document => ({
+      ...document,
+      libraryAnalysis: badges.get(document.id) ?? null,
+    }))
+  } catch (error) {
+    if (!isPrismaDataUnavailable(error)) throw error
+    return documents.map(document => ({
+      ...document,
+      libraryAnalysis: null,
+    }))
+  }
 }
 
 export async function getDocumentById(id: string) {
