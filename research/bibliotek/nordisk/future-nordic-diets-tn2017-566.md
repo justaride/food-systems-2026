@@ -7,7 +7,7 @@
 **Publikasjonsnummer:** TemaNord 2017:566
 **DOI:** 10.6027/TN2017-566
 **URL:** https://www.norden.org/en/publication/future-nordic-diets
-**PDF:** research/bibliotek/nordisk/future-nordic-diets-tn2017-566.pdf
+**PDF/landing page:** https://www.norden.org/en/publication/future-nordic-diets
 
 ## Sammendrag
 

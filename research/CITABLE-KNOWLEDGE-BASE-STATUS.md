@@ -55,7 +55,7 @@ Verification after the fixes (all green):
 | `npm run db:audit:strict-sources` / `audit:citations` | passed | Strict gate exits 0; the three §13 violations are gone. |
 | `npm run audit:citable` | passed | Full chain (`db:audit` + strict + citable-reports + readiness) exits 0. |
 | `npm run research:citation-readiness-queue` | passed | Down to 1 row: P0 0, P1 0, **P2 1**, P3 0 (the intentionally-blocked `agrianalyse-bondens-andel-2025`). |
-| `npm run research:citable-acceptance-pack` | passed | 7 of 12 cite-ready, 5 fail-closed blocked. |
+| `npm run research:citable-acceptance-pack` | passed | Refreshed 2026-07-02: 11 of 16 cite-ready, 5 fail-closed blocked. CA-005 is now cite-ready via official Finlex/KKV locators for Finnish Competition Act §4a. |
 | `npm run build` | passed | Prisma + metrics + Next.js build; timestamp/property-count metric diffs reverted (pre-existing drift, not this fix). |
 | `git diff --check` | passed | No whitespace errors. |
 

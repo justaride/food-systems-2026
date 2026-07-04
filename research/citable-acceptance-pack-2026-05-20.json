@@ -2,8 +2,8 @@
   "generatedAt": "2026-05-20",
   "summary": {
     "total": 16,
-    "citeReady": 10,
-    "blocked": 6,
+    "citeReady": 11,
+    "blocked": 5,
     "categories": {
       "nordic_circularity": 3,
       "market_concentration": 3,
@@ -180,37 +180,39 @@
       "expectedSourceType": "official legal text or verified legal database locator",
       "requiredReadinessLevel": "citable_external",
       "mustUse": [
-        "Official Finlex/legal locator for Konkurrenseloven §4a",
-        "research/v1-2/phase8-T3-ekstern-vs-intern-diff.md only as internal comparison note"
+        "Official Finlex/legal locator for Finnish Competition Act section 4a",
+        "Official Finnish Competition and Consumer Authority locator explaining section 4a"
       ],
       "mustNotUse": [
         "Intern rapporttekst alene som rettskilde",
-        "LLM-diff som juridisk fasit"
+        "LLM-diff som juridisk fasit",
+        "Food Market Act as the statutory locator for the 30 percent dominance rule"
       ],
-      "knownCaveat": "Inntil juridisk primærkilde er koblet direkte, kan regelen brukes som intern analyse, ikke som ekstern juridisk dokumentasjon.",
-      "proposedAnswer": "Blokker som ekstern juridisk påstand til offisiell lovlocator er koblet.",
+      "knownCaveat": "30%-regelen ligger i den finske konkurranseloven §4a, ikke i Elintarvikemarkkinalaki/Food Market Act. Bruk som juridisk sammenligning må derfor sitere konkurranseloven/KKV og navngi dagligvaremarkedets dominanspresumsjon.",
+      "proposedAnswer": "Ja, men bare som juridisk sammenligning av finsk konkurranselov §4a: foretak/sammenslutninger med minst 30 % dagligvaremarkedsandel anses å ha dominerende stilling i det finske dagligvaremarkedet.",
       "citations": [
         {
-          "id": "phase8-finland-30-rule",
-          "title": "Phase 8 note on Finland 30 percent rule",
-          "locator": "research/v1-2/phase8-T3-ekstern-vs-intern-diff.md",
-          "sourceType": "internal comparison note",
-          "readiness": "citable_with_note",
-          "supportsClaim": "Identifiserer regelen som sammenligningspunkt, men er ikke rettskilde."
+          "id": "finlex-competition-act-4a",
+          "title": "Finnish Competition Act section 4a",
+          "locator": "https://www.finlex.fi/en/legislation/2011/948",
+          "sourceType": "official legal database",
+          "readiness": "citable_external",
+          "supportsClaim": "Offisiell rettskilde for §4a om dominerende markedsstilling i dagligvarehandelen ved minst 30 % markedsandel."
+        },
+        {
+          "id": "kkv-competition-act-4a-grocery",
+          "title": "FCCA/KKV explanation of Competition Act section 4a in grocery trade",
+          "locator": "https://www.kkv.fi/en/current/press-releases/competition-act-provision-on-grocery-trade-became-effective-on-1st-of-january/",
+          "sourceType": "official authority explanation",
+          "readiness": "citable_external",
+          "supportsClaim": "Forklarer at forbudet mot misbruk av dominerende stilling kan brukes på dagligvareforetak med nasjonal markedsandel over 30 %, og at bestemmelsen gjaldt fra 1. januar 2014."
         }
       ],
-      "blockingNotes": [
-        "Required readiness is citable_external because the claim is legal in nature.",
-        "Current acceptance input lacks an official legal locator for the statute text."
-      ],
-      "status": "blocked",
-      "readiness": "citable_with_note",
-      "caveatRequired": true,
-      "exclusionNotes": [
-        "Required readiness is citable_external because the claim is legal in nature.",
-        "Current acceptance input lacks an official legal locator for the statute text.",
-        "phase8-finland-30-rule: citable_with_note does not satisfy citable_external"
-      ]
+      "blockingNotes": [],
+      "status": "cite_ready",
+      "readiness": "citable_external",
+      "caveatRequired": false,
+      "exclusionNotes": []
     },
     {
       "id": "CA-006",

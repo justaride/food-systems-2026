@@ -2,7 +2,7 @@
 
 Generated: 2026-05-20
 
-Summary: 10/16 cite-ready, 6 blocked.
+Summary: 11/16 cite-ready, 5 blocked.
 
 A blocked result is intentional when the current evidence only supports internal context or `citable_with_note` while the question requires `citable_external`.
 
@@ -69,19 +69,18 @@ A blocked result is intentional when the current evidence only supports internal
 
 ## CA-005: Kan Finland 30%-regelen brukes som sitatklar juridisk sammenligning?
 
-- Status: `blocked`
-- Readiness: `citable_with_note`
-- Caveat required: yes
-- Proposed answer: Blokker som ekstern juridisk påstand til offisiell lovlocator er koblet.
+- Status: `cite_ready`
+- Readiness: `citable_external`
+- Caveat required: no
+- Proposed answer: Ja, men bare som juridisk sammenligning av finsk konkurranselov §4a: foretak/sammenslutninger med minst 30 % dagligvaremarkedsandel anses å ha dominerende stilling i det finske dagligvaremarkedet.
 - Required readiness: `citable_external`
 - Expected source type: official legal text or verified legal database locator
-- Known caveat: Inntil juridisk primærkilde er koblet direkte, kan regelen brukes som intern analyse, ikke som ekstern juridisk dokumentasjon.
+- Known caveat: 30%-regelen ligger i den finske konkurranseloven §4a, ikke i Elintarvikemarkkinalaki/Food Market Act. Bruk som juridisk sammenligning må derfor sitere konkurranseloven/KKV og navngi dagligvaremarkedets dominanspresumsjon.
 - Citations:
-  - phase8-finland-30-rule: Phase 8 note on Finland 30 percent rule (internal comparison note, citable_with_note) - research/v1-2/phase8-T3-ekstern-vs-intern-diff.md. Supports: Identifiserer regelen som sammenligningspunkt, men er ikke rettskilde.
+  - finlex-competition-act-4a: Finnish Competition Act section 4a (official legal database, citable_external) - https://www.finlex.fi/en/legislation/2011/948. Supports: Offisiell rettskilde for §4a om dominerende markedsstilling i dagligvarehandelen ved minst 30 % markedsandel.
+  - kkv-competition-act-4a-grocery: FCCA/KKV explanation of Competition Act section 4a in grocery trade (official authority explanation, citable_external) - https://www.kkv.fi/en/current/press-releases/competition-act-provision-on-grocery-trade-became-effective-on-1st-of-january/. Supports: Forklarer at forbudet mot misbruk av dominerende stilling kan brukes på dagligvareforetak med nasjonal markedsandel over 30 %, og at bestemmelsen gjaldt fra 1. januar 2014.
 - Exclusion notes:
-  - Required readiness is citable_external because the claim is legal in nature.
-  - Current acceptance input lacks an official legal locator for the statute text.
-  - phase8-finland-30-rule: citable_with_note does not satisfy citable_external
+  - None
 
 ## CA-006: Kan vi bruke FI-DK 6x matsvinn-forskjell som ekstern rangering?
 
