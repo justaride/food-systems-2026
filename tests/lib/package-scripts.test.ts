@@ -261,6 +261,29 @@ describe('package scripts', () => {
     assert.match(scriptSource, /companyFinancial\.upsert/)
   })
 
+  it('exposes guarded country metric harmonization commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const scriptSource = readFileSync(
+      join(process.cwd(), 'scripts', 'backfill-country-metric-harmonization.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['db:backfill:country-metric-harmonization:dry-run'],
+      'tsx scripts/backfill-country-metric-harmonization.ts --dry-run',
+    )
+    assert.equal(
+      packageJson.scripts['db:backfill:country-metric-harmonization:apply'],
+      'tsx scripts/backfill-country-metric-harmonization.ts --apply',
+    )
+    assert.match(scriptSource, /DATABASE_URL is required/)
+    assert.match(scriptSource, /parseApplyMode/)
+    assert.match(scriptSource, /countryMetric\.upsert/)
+    assert.match(scriptSource, /countryMetric\.update/)
+  })
+
   it('exposes guarded library analysis processing dry-run and apply commands', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
