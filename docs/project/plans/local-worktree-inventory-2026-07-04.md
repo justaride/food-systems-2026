@@ -37,6 +37,9 @@ grunnlag:
   - squash-/supersede-review av de tre gjenværende rene worktreene
   - patch-id-verifisert cleanup av MVK-worktreene fra PR #208 og PR #211
   - Food TG 12.06 recovery-port av brutte referanseartefakter og arkiv før sletting
+  - PR #325 for remaining-worktree closeout og Food TG source-note guard
+  - lokal branch-only audit etter PR #325 med `git cherry`/shortstat mot `main`
+  - sletting av lokale fully merged og patch-ekvivalente branches uten `+` commits
 siterbarhet: intern
 ---
 
@@ -55,6 +58,8 @@ Oppdatert etter PR #314 og PR #315: MVK import-payloaden, 86 manglende `db:impor
 Oppdatert etter PR #321, #322 og #323: report-linkage-gapene er lukket, duplicate Salling/Coop-PDF-en er fjernet sammen med seed-map/report-korreksjonene, URL-health review-rader med lokal/mirror evidence er portet, `R13-LAND-004` beholder både 2026-07-02 kontrollnotat og R14-tillegg, og `R13-PROT-008` er kontrollert mot primær-/aktørkilder før port. Siste restklassifisering av den gamle master-research-worktree-en viste 433 collapsed dirty entries: 390 byte-like med `main`, 1 normaliseringsdiff, 4 katalogrester, 1 allerede gjennomført deletion/drop og 37 existing-file differ. De 37 gjenstående diffene ble klassifisert som stale generated output, nyere `main`-innhold som ikke skal overskrives, eller stale script/test-varianter som allerede har tryggere portede versjoner. Dirty payload ble arkivert utenfor repo før sletting i `/Users/gabrielfreeman/Documents/Food Systems 2026 Local Archives/master-research-plan-2026-07-01-residual-2026-07-04.tar.gz` med SHA256 `8fef3bf46d0fc1188b4743e52aec04877998905e2c45b3d8c59c15e067093dfd`. `git merge-base --is-ancestor codex/master-research-plan-2026-07-01 main` var sant, `git cherry -v main codex/master-research-plan-2026-07-01` var tom, og worktree + lokal branch er fjernet.
 
 Oppdatert etter gjenværende worktree-closeout: `codex/matverdikjede-full-kartlegging-2026-06-26` og `codex/matverdikjede-0pct-import-2026-06-27` var rene squash-avvik fra mergete PR-er. Samlet patch-id for `ddf3313..ec39d69` matcher `ddf3313..0ff0f07` (`73447249fba574a6233fa9dd4b56b1eea069fc7d`), og samlet patch-id for `5733155..3c3c17e` matcher `5733155..6d93522` (`6c829eed20b6f5f72b4b6e03edefafac97ff73f7`). Worktrees, lokale branches og remote branches er derfor fjernet. `codex/food-tg-arbeidsplan-2026-06-12` hadde ingen PR og 64 branch-endringer; safe closeout porter bare artefakter dagens `main` allerede refererte til, samt Strand/Enova-locatorene og `uttak-09`, mens eldre `src/`-/test-/statusvarianter beholdes som recovery i arkiv. Arkiv: `/Users/gabrielfreeman/Documents/Food Systems 2026 Local Archives/food-tg-arbeidsplan-2026-06-12-residual-2026-07-04.tar.gz`, SHA256 `20337849f1bc750d48bb9ddbaab8c37da31c00984ebe70b6e236460ce86fca8c`. Etter dette finnes ingen ekstra aktive worktrees utover hovedcheckout.
+
+Oppdatert etter PR #325 og sluttbranch-audit: PR #325 ble merget med grønne `guard`, `test-and-audit` og GitGuardian checks. Lokal `main` står ved `6d973c4`, ren mot `origin/main`, `gh pr list --state open` returnerer `[]`, og `git worktree list --porcelain` viser bare hovedcheckout. Lokale branches `pr-228`, `research/r4-dybdekampanje` og `research/r5-dybdeplan` var fully merged og er slettet. Tolv lokale `claude/*` branches med `git cherry main <branch>` = `+0` ble slettet som patch-ekvivalente/stale lokale kopier. Branchene som gjenstår lokalt har faktiske `+` commits og beholdes som backlogg/recovery, ikke som ren hygiene.
 
 Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/branch når den enten er ren og fullt innlemmet i `main`, eller når en eksplisitt beslutning sier at historikken ikke lenger skal beholdes.
 
@@ -113,6 +118,9 @@ Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/bra
 | `codex/matverdikjede-full-kartlegging-2026-06-26` | Worktree, lokal branch og remote branch slettet. | PR #208 er merget. Branch-commits var ikke ancestors fordi PR-en ble squashet, men samlet patch-id for branchdiffen og mergecommitdiffen er identisk (`73447249fba574a6233fa9dd4b56b1eea069fc7d`). |
 | `codex/matverdikjede-0pct-import-2026-06-27` | Worktree, lokal branch og remote branch slettet. | PR #211 er merget. Branch-commits var ikke ancestors fordi PR-en ble squashet, men samlet patch-id for branchdiffen og mergecommitdiffen er identisk (`6c829eed20b6f5f72b4b6e03edefafac97ff73f7`). |
 | `codex/food-tg-arbeidsplan-2026-06-12` | Manglende referanseartefakter portet; residual payload arkivert; worktree og lokal branch slettet. | Branch hadde ingen PR. 16 refererte/historiske artefakter er portet fra branchen for å lukke brutte Food TG 12.06-referanser, og tre eksisterende case-avsjekk-notater er oppdatert med 2026-07-04 status for Strand source note/uttak-09. Resten er arkivert utenfor repo: `/Users/gabrielfreeman/Documents/Food Systems 2026 Local Archives/food-tg-arbeidsplan-2026-06-12-residual-2026-07-04.tar.gz`, SHA256 `20337849f1bc750d48bb9ddbaab8c37da31c00984ebe70b6e236460ce86fca8c`. |
+| `codex/remaining-worktree-closeout-2026-07-04` | PR #325 merget; remote PR branch slettet. | PR-en portet de siste refererte Food TG-artefaktene, holdt raw PDF-er ute av repo via source notes, oppdaterte inventory/bevis og hadde grønne `guard`, `test-and-audit` og GitGuardian checks før merge. |
+| Lokale fully merged branches | Lokale branches slettet. | `pr-228`, `research/r4-dybdekampanje` og `research/r5-dybdeplan` var i `git branch --merged main`; etter sletting viser samme kommando bare `main`. |
+| Lokale patch-ekvivalente `claude/*` branches | Tolv lokale branches slettet, remote branches ikke rørt. | `git cherry main <branch>` hadde `+0`; de hadde ingen unike commits igjen mot `main`, men store stale tree-differ på grunn av gammel base. |
 
 ## `codex/ai-kunnskap-library-v1` final closeout
 
@@ -150,8 +158,10 @@ Disse har ikke aktiv worktree, men er heller ikke trygge å slette som ren hygie
 
 | Branch | Main vs branch | PR-status | Beslutning |
 |---|---|---|---|
-| `codex/domene-kartlegging-2026-06-25` | `171 6` | PR #205 merget; ingen remote branch. | Behold. Lokal branch har fortsatt 6 `+` commits i `git cherry`, og `git diff --shortstat main..branch` viser 1204 filer, 4086 inn og 119523 ut. Må ha eksplisitt squash-/supersede-review før sletting. |
-| `codex/platform-stack-integration-2026-06-11` | `234 54` | PR #159 lukket uten merge; ingen remote branch. | Behold som recovery-/backloggspor. `git cherry` viser 23 `+` commits, og `git diff --shortstat main..branch` viser 1704 filer, 9379 inn og 170747 ut. Må ha eksplisitt port/drop-beslutning før sletting. |
+| `claude/domene-kartlegging-docs-2026-06-25` | `git cherry`: `-:0 +:2`; shortstat `1735 files changed, 4200 insertions(+), 151044 deletions(-)` | Remote branch finnes; PR-status må sjekkes ved eventuell port/drop. | Behold. Har faktiske `+` commits og stor stale tree-diff. Må ha eksplisitt squash-/supersede-review før sletting. |
+| `claude/domene-kartlegging-impl-2026-06-25` | `git cherry`: `-:0 +:7`; shortstat `1736 files changed, 4200 insertions(+), 151677 deletions(-)` | Remote branch finnes; PR-status må sjekkes ved eventuell port/drop. | Behold. Har faktiske `+` commits og stor stale tree-diff. Må ha eksplisitt squash-/supersede-review før sletting. |
+| `codex/domene-kartlegging-2026-06-25` | `git cherry`: `-:0 +:6`; shortstat `1725 files changed, 4224 insertions(+), 150605 deletions(-)` | PR #205 merget; remote branch finnes. | Behold. Lokal branch har fortsatt 6 `+` commits i `git cherry`. Må ha eksplisitt squash-/supersede-review før sletting. |
+| `codex/platform-stack-integration-2026-06-11` | `git cherry`: `-:0 +:23`; shortstat `2214 files changed, 9494 insertions(+), 201806 deletions(-)` | PR #159 lukket uten merge; remote branch finnes. | Behold som recovery-/backloggspor. Må ha eksplisitt port/drop-beslutning før sletting. |
 
 ## Beholdte branch-only recovery-spor
 
@@ -163,7 +173,7 @@ Ikke slett disse branchene før det finnes en eksplisitt beslutning om at G-stac
 
 ## Neste trygge steg
 
-1. For de to branch-only sporene: gjør bare videre sletting etter eksplisitt squash-/supersede-review eller port/drop-beslutning.
+1. For de fire domene/platform branch-only sporene: gjør bare videre sletting etter eksplisitt squash-/supersede-review eller port/drop-beslutning.
 2. For `codex/master-research-plan-2026-07-01`: ikke gjør mer hygiene. Sporet er lukket, arkivert og fjernet; regenerer coverage/PDF/remediation/data-output fra dagens `main` ved behov.
 3. For `codex/goal-*`: opprett først en recovery-beslutning som sier hvilke G-slices som eventuelt skal portes til ferske `main`-baserte PR-er.
 4. Kjør alltid `git status --short --branch` i worktree-en før sletting.
