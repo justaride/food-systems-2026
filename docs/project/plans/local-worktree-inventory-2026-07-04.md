@@ -3,9 +3,9 @@ tittel: Lokal worktree-inventar etter PR-backlogg-closeout
 dato: 2026-07-04
 status: aktivt-ryddenotat
 grunnlag:
-  - `git status --short --branch` på `main` ved `48a1c42`
+  - `git status --short --branch` på `main` ved `3eb8ad1`
   - `gh pr list --state open --limit 50 --json number,title,url` returnerte `[]`
-  - `git worktree list --porcelain` etter PR #271 og branch/worktree cleanup
+  - `git worktree list --porcelain` etter PR #272 og branch/worktree cleanup
   - `git branch -r --merged origin/main` etter remote-branch cleanup
 siterbarhet: intern
 ---
@@ -38,10 +38,10 @@ Disse har lokale endringer og skal ikke slettes eller resettes uten ny beslutnin
 
 | Branch | Dirty count | Main vs branch | PR-status | Beslutning |
 |---|---:|---|---|---|
-| `codex/ai-kunnskap-library-v1` | 148 | `191 0` | Ingen PR funnet. | Behold. Stort dirty arbeidsområde. |
-| `codex/foodsystems-kb-mcp` | 7 | `127 0` | Ingen PR funnet. | Behold. Dirty MCP-/runbook-spor. |
-| `codex/master-research-plan-2026-07-01` | 433 | `127 0` | Ingen PR funnet. | Behold. Stort dirty forsknings-/planområde. |
-| `codex/notebooklm-export-2026-07-02` | 10 | `127 0` | Ingen PR funnet. | Behold. Dirty NotebookLM-/Obsidian-export-spor. |
+| `codex/ai-kunnskap-library-v1` | 148 | `193 0` | Ingen PR funnet. | Behold. Stort dirty arbeidsområde. |
+| `codex/foodsystems-kb-mcp` | 7 | `129 0` | Ingen PR funnet. | Behold. Dirty MCP-/runbook-spor. |
+| `codex/master-research-plan-2026-07-01` | 433 | `129 0` | Ingen PR funnet. | Behold. Stort dirty forsknings-/planområde. |
+| `codex/notebooklm-export-2026-07-02` | 10 | `129 0` | Ingen PR funnet. | Behold. Dirty NotebookLM-/Obsidian-export-spor. |
 
 ## Beholdte rene, ikke-ancestor worktrees
 
@@ -49,9 +49,18 @@ Disse er rene, men har commits som ikke er innlemmet i `main` som direkte ancest
 
 | Branch | Dirty count | Main vs branch | PR-status | Beslutning |
 |---|---:|---|---|---|
-| `codex/food-tg-arbeidsplan-2026-06-12` | 0 | `287 5` | Ingen PR funnet. | Behold til egen review eller cherry-pick/closeout. |
-| `codex/matverdikjede-0pct-import-2026-06-27` | 0 | `147 4` | PR #211 merget. | Behold til diff mot `main` er vurdert. |
-| `codex/matverdikjede-full-kartlegging-2026-06-26` | 0 | `152 10` | PR #208 merget. | Behold til diff mot `main` er vurdert. |
+| `codex/food-tg-arbeidsplan-2026-06-12` | 0 | `289 5` | Ingen PR funnet. | Behold til egen review eller cherry-pick/closeout. |
+| `codex/matverdikjede-0pct-import-2026-06-27` | 0 | `149 4` | PR #211 merget. | Behold til diff mot `main` er vurdert. |
+| `codex/matverdikjede-full-kartlegging-2026-06-26` | 0 | `154 10` | PR #208 merget. | Behold til diff mot `main` er vurdert. |
+
+## Vurdert, ikke ryddet
+
+Dette er dagens stoppunkt: disse sporene ble inspisert etter PR #272 og er reelt arbeid/backlogg, ikke bare gammel hygiene.
+
+| Spor | Funn | Neste beslutning |
+|---|---|---|
+| `codex/foodsystems-kb-mcp` | Tracked `package*.json` og script-test avviker fra `main`, og nye `mcp/`, `tests/mcp/` og MCP-referansedokumenter mangler i `main`. | Behandle som egen MCP feature/prototype: test, review, og velg publish eller arkiver/drop. |
+| `codex/notebooklm-export-2026-07-02` | `package.json` avviker, og NotebookLM-/Obsidian-/export-filer er delvis nye og delvis ulike dagens `main`. | Behandle som egen NotebookLM/export-leveranse: produktiser i PR eller arkiver som eksplisitt droppet arbeidsområde. |
 
 ## Beholdte andre branch-only spor
 
@@ -59,8 +68,8 @@ Disse har ikke aktiv worktree, men er heller ikke trygge å slette som ren hygie
 
 | Branch | Main vs branch | PR-status | Beslutning |
 |---|---|---|---|
-| `codex/domene-kartlegging-2026-06-25` | `155 6` | PR #205 merget. | Behold til egen diff-review; `git cherry` viste seks `+` commits. |
-| `codex/platform-stack-integration-2026-06-11` | `218 54` | PR #159 lukket. | Behold som recovery-/backloggspor til eksplisitt port/drop-beslutning. |
+| `codex/domene-kartlegging-2026-06-25` | `157 6` | PR #205 merget. | Behold til egen diff-review; `git cherry` viste seks `+` commits. |
+| `codex/platform-stack-integration-2026-06-11` | `220 54` | PR #159 lukket. | Behold som recovery-/backloggspor til eksplisitt port/drop-beslutning. |
 
 ## Beholdte branch-only recovery-spor
 
@@ -70,8 +79,8 @@ Ikke slett disse branchene før det finnes en eksplisitt beslutning om at G-stac
 
 ## Neste trygge steg
 
-1. Behandle dirty worktrees én og én, med egen scopebeslutning før staging/reset/sletting.
-2. For rene ikke-ancestor worktrees: sammenlign `git diff --stat main...<branch>` og relevant PR-mergeform før sletting.
+1. Behandle dirty worktrees én og én, med egen scopebeslutning før staging/reset/sletting. Start med `codex/foodsystems-kb-mcp` eller `codex/notebooklm-export-2026-07-02` fordi de er små nok til review.
+2. For rene ikke-ancestor worktrees: sammenlign `git cherry -v main <branch>`, `git diff --stat main...<branch>`, og relevant PR-mergeform før sletting.
 3. For `codex/goal-*`: opprett først en recovery-beslutning som sier hvilke G-slices som eventuelt skal portes til ferske `main`-baserte PR-er.
 4. Kjør alltid `git status --short --branch` i worktree-en før sletting.
 5. Etter hver sletting: `git worktree list --porcelain`, `git branch --format='%(refname:short)'`, `git fetch --prune`, og `gh pr list --state open`.
