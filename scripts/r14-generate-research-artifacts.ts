@@ -155,11 +155,13 @@ const i27P23Mapping = `P2.3 bekrefter at I28, I29, I30, I32, I33 og I35 fortsatt
 
 I29-datareview 2026-07-04 ligger i \`research/_status/food-tg-r14/datareview/I29-nodekonsentrasjon-datareview-2026-07-04.md\`. Den konkluderer med at I29 fortsatt skal stå parkert: AP-2 nodekonsentrasjon er nyttig som metode-/lensecaveat, men ikke som egen innsiktsnode eller møtefigur.
 
+I30-datareview 2026-07-04 ligger i \`research/_status/food-tg-r14/datareview/I30-tilskuddskonsentrasjon-datareview-2026-07-04.md\`. Den konkluderer med at AP-3 består kilde-/nevnerreview for intern beslutning, men at ny I30-node fortsatt krever eksplisitt menneskelig godkjenning.
+
 | ID | Beslutning | Gate før ny node | Stopplinje |
 |---|---|---|---|
 | I28 | Behold som maktkart-observasjon, ikke egen innsiktsnode. | AP-1 claim-lock med metode, dekningsgrad og node-/brodefinisjon. | Ikke si at BAMA/ASKO er "maktens knutepunkt" uten å vise at dette er intern styregraf og ikke komplett verdikjedeunivers. |
 | I29 | Parkert etter datareview; ikke generer egen I-node. | Ny beslutning + AP-2 claim-lock hvis den skal brukes utenfor I37/metodecaveat. | Ikke oversett intern node-/inntekts-HHI til markedsmakt, grafsentralitet eller kontrollclaim. |
-| I30 | Parker til tilskudds-/fordelings-review. | AP-3 source review med ordningsnevner, mottakerpopulasjon og geografisk caveat. | Ikke bruk tilskuddskonsentrasjon som enkelaktørkritikk. |
+| I30 | Datareviewet; klar til menneskelig I-node-beslutning, men ikke generert. | Eksplisitt beslutning + claim-lock hvis den skal brukes utenfor intern cockpit. | Ikke bruk tilskuddskonsentrasjon som enkelaktørkritikk eller samlet landbruksstøtteclaim. |
 | I32 | Parker til havbruksspesifikk claim-lock. | AP-6 datareview med havbruksunivers, eier-/lokalitetsnivå og dekning. | Ikke blande havbrukskonsentrasjon med dagligvaretriopol-claim. |
 | I33 | Parker til prisserie-review. | AP-7 PCQ for native prisserie før asymmetri-claim. | Ikke bruke proxy-test som dokumentert prisasymmetri. |
 | I35 | Parker til import-/EUDR source-shortlist. | Fôr/soya-kildepakke med land, varestrøm, regelverksstatus og aktørscope. | Ikke si at EUDR automatisk gjør norsk fôr/import til dokumentert sårbarhetsakse. |`
@@ -199,6 +201,46 @@ I29 skal fortsatt være parkert. AP-2 nodekonsentrasjon er verdifull som metode-
 - Ikke oversett AP-2s interne inntekts-HHI til markedskonsentrasjon.
 - Ikke bruk små-n-noder som ranking.
 - Ikke generer I29 uten ny menneskelig beslutning.
+`
+
+const i30DatareviewBody = `## Kort dom
+
+I30 består AP-3 source review for intern beslutning: kilde, ordningsnevner, mottakerpopulasjon, år og stoppspråk er eksplisitt nok til at menneskelig beslutningseier kan vurdere en intern I30-node. Det skal likevel ikke genereres ny innsiktsnote automatisk i denne runden.
+
+## Reviewgrunnlag
+
+| Kilde | Rolle i review |
+|---|---|
+| \`docs/project/analysis/food-tg-ap3-tilskuddskonsentrasjon-funn-2026-06-14.md\` | Hovedfunn og claim-lock-utkast for AP-3. |
+| \`research/analyse/ap3-tilskuddskonsentrasjon.json\` | Råaggregat for Gini, Lorenz, toppandel og ordningsfordeling. |
+| \`scripts/analyze-subsidy-concentration.ts\` | Reproduserbar beregning og kolonneresolver for 2024-fiksen. |
+| \`tests/scripts/analyze-subsidy-concentration.test.ts\` | Enhetstester for Gini/Lorenz/toppandel og 2024-prosaalias. |
+| \`Food Systems Obsidian/10 Innsiktskart/Innsikter/I37 Maktkartet må leses gjennom fire linser.md\` | Trygg eksisterende plass for AP-3 som én av fire linser. |
+
+## Datareview
+
+| Kriterium | Status | Konsekvens |
+|---|---|---|
+| Ordningsnevner eksplisitt | Ja. Gjelder produksjons- og avløsertilskudd, ikke samlet landbruksstøtte. | Kan ikke brukes som total støtte- eller fordelingspolitikkclaim. |
+| Mottakerpopulasjon eksplisitt | Ja. Sum per orgnr/år på mottakernivå. | Ikke les som transaksjoner, persondata eller direkte gårdsstørrelse. |
+| År og kompletthet | Ja for 2022-2024 etter 2024-kolonnefiks. | 2024 kan brukes internt med fikscaveat, men ikke som dramatisk trend. |
+| Geografisk caveat | Ja. Kommune-Gini er jevnere enn mottaker-Gini. | Ikke si at pengene geografisk er like konsentrert som mottakere. |
+| Publiserbar formulering | Delvis. Internt: "moderat, strukturdrevet konsentrasjon". Eksternt: claim-lock først. | I30 kan bli intern beslutningsnode, men ikke ekstern figur uten ny gate. |
+
+## Beslutning
+
+- I30 er datareviewet og klar for eksplisitt menneskelig I-node-beslutning.
+- Ingen \`Food Systems Obsidian/10 Innsiktskart/Innsikter/I30 ...\` skal genereres automatisk i denne runden.
+- AP-3 kan fortsatt brukes i I37 som én linse i maktkartet.
+- En senere I30 bør bare åpnes som intern cockpit-node eller claim-locket AP-3-uttak med synlig ordningsnevner, mottakerpopulasjon, år og strukturforbehold.
+
+## Ikke si
+
+- Ikke si at tilskudd er "kapret av de store".
+- Ikke bruk AP-3 som enkelaktørkritikk.
+- Ikke presenter produksjons- og avløsertilskudd som samlet landbruksstøtte.
+- Ikke skjul at konsentrasjonen delvis følger gårdsstruktur og ordningsdesign.
+- Ikke generer I30 uten eksplisitt menneskelig beslutning.
 `
 
 function addPcq(id: string, title: string, knownWeakness: string, artifactPath: string) {
@@ -384,6 +426,7 @@ decisions.push(decision('09', 'A3.4', 'Aktørspørsmålspakker', join(externalDi
 decisions.push(decision('09', 'B3', 'M&A NG-treet', join(externalDir, 'B3-NG-MA-verifikasjonsrunde.md'), 'source-shortlist', 'vent', 'Verifikasjonsrunde uten akutt importbar endring.', 'Brreg/årsrapport som fremtidig krav', 'Ingen ny A-lokator ført for import.'))
 
 write(join(datareviewDir, 'I29-nodekonsentrasjon-datareview-2026-07-04.md'), artifact('I29 nodekonsentrasjon datareview', i29DatareviewBody, '2026-07-04'))
+write(join(datareviewDir, 'I30-tilskuddskonsentrasjon-datareview-2026-07-04.md'), artifact('I30 tilskuddskonsentrasjon datareview', i30DatareviewBody, '2026-07-04'))
 
 const gapDocs = [
   ['VK4-GAP-001-biogass-no-dk.md', 'VK4-GAP-001 biogass NO/DK', 'Dansk/norsk kapasitetsbaseline må holdes som desk-oppgave med Energistyrelsen og Miljødirektoratet som primærkilder.'],
@@ -408,7 +451,7 @@ for (const [file, title, body] of gapDocs) {
 decisions.push(decision('10', 'B5', 'VK4-GAP-missions', join(externalDir, 'VK4-GAP-007-naeringsstoff-gap.md'), 'source-shortlist', 'vent', 'Alle 12 VK4-GAP-missions er lukket til internt kildenotat eller claim-lock/actor-gate.', 'R13-leveranser + gap-noder', 'Ekstern figurbruk er parkert.'))
 decisions.push(decision('11', 'B4', 'Stakeholder skeletons', join(externalDir, 'B4-stakeholder-skeletons.md'), 'source-shortlist', 'vent', 'Skeletons kan fylles fra eksisterende kilder; samtalekrevende felt går til D.', 'R13-INNO-006/R13-aktørkart', 'Menneskelig input krever G1.'))
 decisions.push(withIkkeSi(
-  decision('12', 'E1', 'I27+ mapping', join(externalDir, 'E1-I27-parkerte-mapping.md'), 'internal', 'internal', 'P2.3 holder I28/I30/I32/I33/I35 parkert; I29 er datareviewet 2026-07-04 og forblir parkert uten ny I-note.', 'I27-port + P2.3 datareview + I29 nodekonsentrasjon datareview', 'Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur.'),
+  decision('12', 'E1', 'I27+ mapping', join(externalDir, 'E1-I27-parkerte-mapping.md'), 'internal', 'internal', 'P2.3 holder I28/I32/I33/I35 parkert; I29 forblir parkert, og I30 er datareviewet til menneskelig I-node-beslutning uten generering.', 'I27-port + P2.3 datareview + I29/I30 datareview', 'Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur.'),
   [
     'Ikke generer I28, I29, I30, I32, I33 eller I35 uten eksplisitt ny beslutning.',
     'Ikke oversett intern graf-/proxyverdi til ekstern claim.',
