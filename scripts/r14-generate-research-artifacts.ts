@@ -149,6 +149,17 @@ function withIkkeSi(item: Decision, ikkeSi: string[]): Decision {
 
 const decisions: Decision[] = []
 
+const i27P23Mapping = `P2.3 bekrefter at I28, I29, I30, I32, I33 og I35 fortsatt er parkerte. Ingen nye I-noter genereres i denne runden. Dette er en portvakt, ikke ny innsiktspublisering.
+
+| ID | Beslutning | Gate før ny node | Stopplinje |
+|---|---|---|---|
+| I28 | Behold som maktkart-observasjon, ikke egen innsiktsnode. | AP-1 claim-lock med metode, dekningsgrad og node-/brodefinisjon. | Ikke si at BAMA/ASKO er "maktens knutepunkt" uten å vise at dette er intern styregraf og ikke komplett verdikjedeunivers. |
+| I29 | Parker til nodekonsentrasjons-review. | AP-2 datareview med eksplisitt grafunivers, terskel og reproduserbar beregning. | Ikke oversett grafsentralitet til markedsmakt eller kontrollclaim. |
+| I30 | Parker til tilskudds-/fordelings-review. | AP-3 source review med ordningsnevner, mottakerpopulasjon og geografisk caveat. | Ikke bruk tilskuddskonsentrasjon som enkelaktørkritikk. |
+| I32 | Parker til havbruksspesifikk claim-lock. | AP-6 datareview med havbruksunivers, eier-/lokalitetsnivå og dekning. | Ikke blande havbrukskonsentrasjon med dagligvaretriopol-claim. |
+| I33 | Parker til prisserie-review. | AP-7 PCQ for native prisserie før asymmetri-claim. | Ikke bruke proxy-test som dokumentert prisasymmetri. |
+| I35 | Parker til import-/EUDR source-shortlist. | Fôr/soya-kildepakke med land, varestrøm, regelverksstatus og aktørscope. | Ikke si at EUDR automatisk gjør norsk fôr/import til dokumentert sårbarhetsakse. |`
+
 function addPcq(id: string, title: string, knownWeakness: string, artifactPath: string) {
   const path = join(pcqDir, `${id}-pcq-${TODAY}.md`)
   const body = `## Kort dom
@@ -250,14 +261,23 @@ const deskDocs = [
   ['A3.4-aktor-sporsmalspakker.md', 'A3.4 aktørspørsmålspakker', 'Spørsmålspakker er formulert for Biogass Norge/NIBIO, NIBIO protein-gram-serie, fôr-grade tonn per aktør og oppdrettsslam massebalanse. De er merket klar til PCQ ved scope-vedtak, men ikke sendt.'],
   ['B3-NG-MA-verifikasjonsrunde.md', 'B3 M&A NG-treet', 'R14 behandlet NG-M&A som verifikasjonsrunde, ikke jaktrunde. Ingen akutt importbar endring ble funnet i repoets kontrollerte kilder; nye hendelser skal inn som Brreg-kunngjøring/årsrapport med A-lokator før import.'],
   ['B4-stakeholder-skeletons.md', 'B4 stakeholder-skeletons', 'Skeleton-noder kan fylles med R13-aktørkart og FoU-aktørregister der kilde allerede finnes. Noder som krever samtale eller menneskelig input rutes til actor-gate, ikke til desk-claim.'],
-  ['E1-I27-parkerte-mapping.md', 'E1 I27+ parkerte mapping', 'I28, I29, I30, I32, I33 og I35 er mappet til datarunder, men ingen nye I-noter genereres. Dette er en portvakt, ikke ny innsiktspublisering.'],
+  ['E1-I27-parkerte-mapping.md', 'E1 I27+ parkerte mapping', i27P23Mapping],
   ['E2-M6-konverteringsevne-scoring.md', 'E2 M6 konverteringsevne scoring', 'R13-INNO-004 og R13-INNO-005 kan brukes til intern score per case: skalert, pilot, konkurs/avviklet, eller lab. Score er intern og skal ikke visualiseres eksternt uten case-PCQ.'],
   ['E3-M3-M7-metodenotat.md', 'E3 M3 true-cost og M7 Nexus metode', 'Metoden holdes bak G3: skyggepris-tilnærming, datakrav og valideringsplan kan beskrives internt; tall og anbefalinger brukes ikke eksternt før metodevalidering.'],
 ]
 
 for (const [file, title, body] of deskDocs) {
   const path = join(externalDir, file)
-  write(path, artifact(title, `## Kort dom\n\n${body}\n\n## Sterkeste kilde\n\nRepoets R13-artifact og R14-mandat.\n\n## Svakeste punkt\n\nSvakeste punkt er ikke løst til ekstern bruk i R14; raden holdes internt, source-shortlist eller actor-gate etter mandatet.\n\n## Ikke si\n\n- Ikke presenter dette som åpnet claim.\n- Ikke anta at fravær av offentlig data betyr null-verdi eller null-aktivitet.\n- Ikke sende aktørspørsmål før G1.`))
+  const weakestPoint = file === 'E1-I27-parkerte-mapping.md'
+    ? 'Svakeste punkt er at hver kandidat blander intern graf-/proxyverdi med mulig ekstern claim. Raden holdes internt til riktig AP/PCQ/claim-lock-gate er lukket.'
+    : 'Svakeste punkt er ikke løst til ekstern bruk i R14; raden holdes internt, source-shortlist eller actor-gate etter mandatet.'
+  const notToSay = [
+    '- Ikke presenter dette som åpnet claim.',
+    '- Ikke anta at fravær av offentlig data betyr null-verdi eller null-aktivitet.',
+    '- Ikke sende aktørspørsmål før G1.',
+    ...(file === 'E1-I27-parkerte-mapping.md' ? ['- Ikke generer I28, I29, I30, I32, I33 eller I35 uten eksplisitt ny beslutning.'] : []),
+  ].join('\n')
+  write(path, artifact(title, `## Kort dom\n\n${body}\n\n## Sterkeste kilde\n\nRepoets R13-artifact og R14-mandat.\n\n## Svakeste punkt\n\n${weakestPoint}\n\n## Ikke si\n\n${notToSay}`))
 }
 
 decisions.push(decision('09', 'A3.1', 'PROT-006 nyere ressursregnskap', join(externalDir, 'A3.1-R13-PROT-006-ressursregnskap.md'), 'PCQ', 'vent', 'Nyere primær ressursregnskap ble ikke åpnet; post-2020 holdes som Type-C/vent.', 'R13-PROT-006', 'Ingen åpen primærserie etter 2020 i kontrollert repo-underlag.'))
@@ -288,7 +308,14 @@ for (const [file, title, body] of gapDocs) {
 
 decisions.push(decision('10', 'B5', 'VK4-GAP-missions', join(externalDir, 'VK4-GAP-007-naeringsstoff-gap.md'), 'source-shortlist', 'vent', 'Alle 12 VK4-GAP-missions er lukket til internt kildenotat eller claim-lock/actor-gate.', 'R13-leveranser + gap-noder', 'Ekstern figurbruk er parkert.'))
 decisions.push(decision('11', 'B4', 'Stakeholder skeletons', join(externalDir, 'B4-stakeholder-skeletons.md'), 'source-shortlist', 'vent', 'Skeletons kan fylles fra eksisterende kilder; samtalekrevende felt går til D.', 'R13-INNO-006/R13-aktørkart', 'Menneskelig input krever G1.'))
-decisions.push(decision('12', 'E1', 'I27+ mapping', join(externalDir, 'E1-I27-parkerte-mapping.md'), 'internal', 'internal', 'Parkerte I27+ er mappet uten ny I-note-generering.', 'I27-port', 'Ny innsikt krever beslutningsrunde.'))
+decisions.push(withIkkeSi(
+  decision('12', 'E1', 'I27+ mapping', join(externalDir, 'E1-I27-parkerte-mapping.md'), 'internal', 'internal', 'P2.3 bekrefter at I28/I29/I30/I32/I33/I35 holdes parkert uten ny I-note-generering.', 'I27-port + P2.3 datareview', 'Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur.'),
+  [
+    'Ikke generer I28, I29, I30, I32, I33 eller I35 uten eksplisitt ny beslutning.',
+    'Ikke oversett intern graf-/proxyverdi til ekstern claim.',
+    'Ikke bland kapasitet, plan, potensial og realisert volum.',
+  ],
+))
 decisions.push(decision('12', 'E2', 'M6 konverteringsevne scoring', join(externalDir, 'E2-M6-konverteringsevne-scoring.md'), 'internal', 'internal', 'Intern case-score mal opprettet.', 'R13-INNO-004/005', 'Ikke ekstern rangering.'))
 decisions.push(decision('12', 'E3', 'M3/M7 metode', join(externalDir, 'E3-M3-M7-metodenotat.md'), 'internal', 'internal', 'Metodenotat opprettet bak G3.', 'Møte 12 + R13', 'Ingen true-cost-tall eksternt.'))
 

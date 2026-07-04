@@ -34,6 +34,19 @@ Dette dokumentet er porten i VK-2: Codex kan foreslå I27+-innsikter, men skal i
 | I37 | Maktkart-syntesen krever fire linser før offentlig formulering | `docs/project/analysis/food-tg-maktkart-syntese-2026-06-14.md` | Kan bli meta-innsikt om hvordan maktclaims skal bygges trygt. | godkjenn med endring |
 | I38 | Objective-function-modellen skiller mellom beslutningsverdi og publiserbarhet | `docs/project/analysis/food-tg-objektivfunksjon-VEDTAK-2026-06-18.md` | Kan hjelpe kartet å vise interne vs eksterne brukslag. | godkjenn med endring |
 
+## P2.3 datareview 2026-07-04
+
+P2.3 bekrefter at de parkerte I27+-kandidatene ikke skal genereres som nye innsiktsnoter i denne runden. De er nyttige som kø, men hver rad trenger egen claim-lock/datareview før den kan bli en I-node eller møtefigur.
+
+| ID | Beslutning | Gate før ny node | Stopplinje |
+|---|---|---|---|
+| I28 | Behold som maktkart-observasjon, ikke egen innsiktsnode. | AP-1 claim-lock med metode, dekningsgrad og node-/brodefinisjon. | Ikke si at BAMA/ASKO er "maktens knutepunkt" uten å vise at dette er intern styregraf og ikke komplett verdikjedeunivers. |
+| I29 | Parker til nodekonsentrasjons-review. | AP-2 datareview med eksplisitt grafunivers, terskel og reproduserbar beregning. | Ikke oversett grafsentralitet til markedsmakt eller kontrollclaim. |
+| I30 | Parker til tilskudds-/fordelings-review. | AP-3 source review med ordningsnevner, mottakerpopulasjon og geografisk caveat. | Ikke bruk tilskuddskonsentrasjon som enkelaktørkritikk. |
+| I32 | Parker til havbruksspesifikk claim-lock. | AP-6 datareview med havbruksunivers, eier-/lokalitetsnivå og dekning. | Ikke blande havbrukskonsentrasjon med dagligvaretriopol-claim. |
+| I33 | Parker til prisserie-review. | AP-7 PCQ for native prisserie før asymmetri-claim. | Ikke bruke proxy-test som dokumentert prisasymmetri. |
+| I35 | Parker til import-/EUDR source-shortlist. | Fôr/soya-kildepakke med land, varestrøm, regelverksstatus og aktørscope. | Ikke si at EUDR automatisk gjør norsk fôr/import til dokumentert sårbarhetsakse. |
+
 ## Ikke generer ennå
 
 - Ingen I27+-noter skal opprettes før denne listen er godkjent.
