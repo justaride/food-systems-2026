@@ -70,6 +70,20 @@
 - Integrere konsentrasjonsrisikoanalyse i anskaffelsesprosessen
 - **KREVER:** Kommunal partner + workshop
 
+### Pilot-brief evidence packs
+
+Status 2026-07-02: WS4.4 desk portion is controlled in `research/evidence-pack/pilot-briefs/`.
+
+The five workshop-start dossiers are:
+
+- Finnish §4a structural threshold: `pilot-briefs/01-finnish-4a-structural-threshold.md`
+- Open logistics access: `pilot-briefs/02-open-logistics-access.md`
+- Zoning and establishment barriers: `pilot-briefs/03-zoning-establishment-barriers.md`
+- ASKO-Vestby dependency model: `pilot-briefs/04-asko-vestby-dependency-model.md`
+- Municipal procurement standard: `pilot-briefs/05-municipal-procurement-standard.md`
+
+These are Mission 6 pre-read dossiers, not partner-approved pilot decisions. Each brief keeps controlled evidence, pilotable question, model inputs, validation asks, and "do not say" guardrails separate.
+
 ### Finansieringsvinduer
 
 - **Nordic Innovation Open Call:** Typisk Q3/Q4 — søknadsfrist overvåkes
@@ -160,6 +174,24 @@
 > - [ ] Nordiske partneres kapasitet og tidsplan (krever validering, Mission 2)
 > - [ ] Akademisk partneravtale (NMBU/NHH) — krever kontakt
 > - [ ] Detaljert budsjett per fase (krever Finance Note, EP #6)
+
+---
+
+## Siterbarhetsbegrensninger per 2026-07-02
+
+WS4.1-kontrollen regenererte `research/citable-acceptance-pack-2026-05-20.md` og `research/citable-acceptance-pack-2026-05-20.json`: 11/16 akseptansespørsmål er nå cite-ready, 5 er legitimt fail-closed. `CA-005` Finland 30%-regelen ble oppgradert etter offisiell Finlex-/KKV-lokator for konkurranseloven §4a; bruk den som finsk konkurranserettslig sammenligning, ikke som Food Market Act-kilde.
+
+De fem gjenværende blokkene er ikke uforklarte kildehull:
+
+| ID | Roadmap-konsekvens | Stopptilstand |
+|---|---|---|
+| CA-002 | T3-diff kan brukes som intern metodekontroll, ikke ekstern validering av konklusjoner. | Krever navngitt ekstern validator, fagfellevurdering eller domeneekspert-signoff. |
+| CA-009 | Grafen alene kan ikke bevise styre-/personrelasjoner i ekstern tekst. | Bruk radnivå BoardMember-kilder eller offisiell registerlokator per relasjon. |
+| CA-011 | Lokal PDF/tittel alene kan ikke brukes som ekstern bibliotekcitation. | Krever DOI, handle, publisher URL eller annen offentlig persistent locator. |
+| CA-012 | Grafrelasjoner eksporteres ikke som siterbare relasjonspåstander uten underliggende kilde. | Krever source-backed edge/row/document locator, confidence og kildeetikett. |
+| CA-015 | AP-1-styrebroer er intern baseline, ikke ekstern maktpåstand alene. | Bruk AP-5/eierkontroll-triangulering for citable maktkart; AP-1 krever primærsjekk og dekningsutvidelse. |
+
+Denne seksjonen er et fail-closed roadmap-filter: punktene kan brukes til å styre videre arbeid, men skal ikke bli whitepaper-, deck- eller søknadspåstander før stopptilstanden er løst.
 
 ---
 
