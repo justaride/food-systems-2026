@@ -3,9 +3,9 @@ tittel: Lokal worktree-inventar etter PR-backlogg-closeout
 dato: 2026-07-04
 status: aktivt-ryddenotat
 grunnlag:
-  - `git status --short --branch` på `main` ved `4fbeb64`
+  - `git status --short --branch` på `main` ved `363c762`
   - `gh pr list --state open --limit 50 --json number,title,url` returnerte `[]`
-  - `git worktree list --porcelain` etter PR #276 og NotebookLM export-vurdering
+  - `git worktree list --porcelain` etter PR #277 og NotebookLM port/drop-beslutning
   - `git branch -r --merged origin/main` etter remote-branch cleanup
 siterbarhet: intern
 ---
@@ -14,7 +14,7 @@ siterbarhet: intern
 
 ## Kort konklusjon
 
-GitHub PR-flaten er tom og `main` er rent mot `origin/main`. MCP-sporet er publisert i PR #274 og den gamle lokale MCP-worktreen er fjernet. NotebookLM eksportsporet er publisert i PR #276 som fersk `2026-07-04`-pakke, men den gamle lokale NotebookLM-worktreen er beholdt fordi den fortsatt inneholder unike vault-/masterplan-recoveryfiler som ikke skal slettes som ren hygiene. Lokal repo-hygiene er fortsatt ikke helt lik "slett alt": noen worktrees er dirty og skal ikke røres uten egen scopebeslutning, og noen rene worktrees har commits som ikke er ancestor av `main`. De er derfor beholdt som aktive eller mulige recovery-spor.
+GitHub PR-flaten er tom og `main` er rent mot `origin/main`. MCP-sporet er publisert i PR #274 og den gamle lokale MCP-worktreen er fjernet. NotebookLM eksportsporet er publisert i PR #276 som fersk `2026-07-04`-pakke, og den gamle lokale NotebookLM-worktreen er nå fjernet etter eksplisitt port/drop-beslutning for recovery-restene. Lokal repo-hygiene er fortsatt ikke helt lik "slett alt": noen worktrees er dirty og skal ikke røres uten egen scopebeslutning, og noen rene worktrees har commits som ikke er ancestor av `main`. De er derfor beholdt som aktive eller mulige recovery-spor.
 
 Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/branch når den enten er ren og fullt innlemmet i `main`, eller når en eksplisitt beslutning sier at historikken ikke lenger skal beholdes.
 
@@ -32,7 +32,7 @@ Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/bra
 | `codex/obsidian-kunnskapskart-m2-2026-07-02` | Worktree, lokal branch og remote branch ble slettet. | Worktree var ren, PR #231 var merget, og branch-tree var identisk med PR #231 sin merge-commit `84a3e08`. |
 | `codex/obsidian-v3-masterplan-main-2026-07-02` | Worktree og lokal branch ble slettet. | Worktree var ren, PR #237 var merget, remote branch var allerede borte, og eneste unike commit var patch-ekvivalent med `main` i `git cherry`. |
 | `codex/foodsystems-kb-mcp` | Worktree og lokal branch ble slettet etter publisering. | MCP-feature ble portet til fersk `main`, testet og merget i PR #274. Gamle lokale filer var enten identiske med `main` eller eldre enn PR #274 sine `kb_list_gaps` filter-/metadataforbedringer, og ingen remote branch fantes. |
-| NotebookLM eksportdel fra `codex/notebooklm-export-2026-07-02` | Generator og fersk export-pakke ble publisert i PR #276. | PR #276 la til `export:notebooklm`, generator/test og `exports/notebooklm/food-systems-2026-2026-07-04/` med 40 kilder, 0 manglende kildebaner og grønne lokale/remote checks. Den gamle worktreen ble ikke slettet fordi den har egne vault-/masterplan-recoveryfiler. |
+| `codex/notebooklm-export-2026-07-02` | Worktree og lokal branch ble slettet etter publisering og port/drop-vurdering. | PR #276 la til `export:notebooklm`, generator/test og `exports/notebooklm/food-systems-2026-2026-07-04/` med 40 kilder, 0 manglende kildebaner og grønne lokale/remote checks. Etterpå viste restvurderingen at branch `HEAD` var ancestor av `main`, ingen remote branch fantes, gamle export-/generator-/package-filer var supersedet av `main`, vault-restene hadde 0 non-placeholder menneskenotater, eldre Obsidian-masterplan var supersedet av V3/main-notatet, og master-research-plan-kopien var eldre enn den aktive `codex/master-research-plan-2026-07-01`-worktreen. |
 
 ## Beholdte dirty worktrees
 
@@ -42,7 +42,6 @@ Disse har lokale endringer og skal ikke slettes eller resettes uten ny beslutnin
 |---|---:|---|---|---|
 | `codex/ai-kunnskap-library-v1` | 148 | `201 0` | Ingen PR funnet. | Behold. Stort dirty arbeidsområde. |
 | `codex/master-research-plan-2026-07-01` | 433 | `137 0` | Ingen PR funnet. | Behold. Stort dirty forsknings-/planområde. |
-| `codex/notebooklm-export-2026-07-02` | 10 | `137 0` | Ingen PR funnet. | Behold. Gammel NotebookLM export-del er publisert i PR #276, men worktreen har fortsatt unike vault-/masterplan-recoveryfiler. |
 
 ## Beholdte rene, ikke-ancestor worktrees
 
@@ -54,13 +53,13 @@ Disse er rene, men har commits som ikke er innlemmet i `main` som direkte ancest
 | `codex/matverdikjede-0pct-import-2026-06-27` | 0 | `157 4` | PR #211 merget. | Behold til diff mot `main` er vurdert. |
 | `codex/matverdikjede-full-kartlegging-2026-06-26` | 0 | `162 10` | PR #208 merget. | Behold til diff mot `main` er vurdert. |
 
-## Vurdert, ikke ryddet
+## Vurdert og droppet etter port/drop
 
-Dette er dagens stoppunkt: disse sporene ble inspisert etter PR #276 og er reelt arbeid/backlogg, ikke bare gammel hygiene.
+Dette er dagens eksplisitte drop-beslutning: sporet ble inspisert etter PR #276 og fjernet fordi gjenværende recovery-filer var supersedet eller tomme/placeholdere.
 
-| Spor | Funn | Neste beslutning |
+| Spor | Funn | Beslutning |
 |---|---|---|
-| `codex/notebooklm-export-2026-07-02` | NotebookLM-generator/test og export-pakke ble portet til fersk `main` i PR #276. Gammel `exports/notebooklm/food-systems-2026-2026-07-02/` er supersedet av `2026-07-04`-pakken, og gamle generatorfiler er enten identiske med `main` eller eldre enn PR #276 sine kildebanejusteringer. Worktreen har fortsatt 46 vault-filer som ikke finnes i `main`, en eldre `obsidian-kunnskapskart-masterplan-2026-07-02.md`, og `research/_plans/MASTER-RESEARCH-PLAN-2026-07-01.md` som også finnes i nyere form i `codex/master-research-plan-2026-07-01`. | Ikke slett som hygiene. Ta eksplisitt port/drop-beslutning for de gjenværende vault-/masterplan-recoveryfilene, eventuelt etter sammenligning med `codex/master-research-plan-2026-07-01`. |
+| `codex/notebooklm-export-2026-07-02` | NotebookLM-generator/test og export-pakke ble portet til fersk `main` i PR #276. Gammel `exports/notebooklm/food-systems-2026-2026-07-02/` er supersedet av `2026-07-04`-pakken, og gamle generatorfiler er enten identiske med `main` eller eldre enn PR #276 sine kildebanejusteringer. De gjenværende vault-filene hadde 0 non-placeholder menneskenotater; de unike filene var Obsidian app/workspace-state, tomme `Untitled`-filer eller gamle genererte gap-/loop-/aktørplassholdere. Den eldre `obsidian-kunnskapskart-masterplan-2026-07-02.md` manglet nåværende main/V3-arkivnotat, og `research/_plans/MASTER-RESEARCH-PLAN-2026-07-01.md` var eldre enn den aktive master-research-worktreens kopi. | Dropp lokal recovery-rest. `git worktree remove --force .worktrees/notebooklm-export-2026-07-02` og `git branch -d codex/notebooklm-export-2026-07-02` er gjennomført; ingen remote branch fantes. |
 
 ## Beholdte andre branch-only spor
 
@@ -79,8 +78,7 @@ Ikke slett disse branchene før det finnes en eksplisitt beslutning om at G-stac
 
 ## Neste trygge steg
 
-1. Ta en eksplisitt port/drop-beslutning for restene i `codex/notebooklm-export-2026-07-02`: 46 unike vault-filer, den eldre Obsidian-masterplanen og master-research-plan-kopien. Ikke slett den worktreen som generell hygiene.
-2. For rene ikke-ancestor worktrees: sammenlign `git cherry -v main <branch>`, `git diff --stat main...<branch>`, og relevant PR-mergeform før sletting.
-3. For `codex/goal-*`: opprett først en recovery-beslutning som sier hvilke G-slices som eventuelt skal portes til ferske `main`-baserte PR-er.
-4. Kjør alltid `git status --short --branch` i worktree-en før sletting.
-5. Etter hver sletting: `git worktree list --porcelain`, `git branch --format='%(refname:short)'`, `git fetch --prune`, og `gh pr list --state open`.
+1. For rene ikke-ancestor worktrees: sammenlign `git cherry -v main <branch>`, `git diff --stat main...<branch>`, og relevant PR-mergeform før sletting.
+2. For `codex/goal-*`: opprett først en recovery-beslutning som sier hvilke G-slices som eventuelt skal portes til ferske `main`-baserte PR-er.
+3. Kjør alltid `git status --short --branch` i worktree-en før sletting.
+4. Etter hver sletting: `git worktree list --porcelain`, `git branch --format='%(refname:short)'`, `git fetch --prune`, og `gh pr list --state open`.
