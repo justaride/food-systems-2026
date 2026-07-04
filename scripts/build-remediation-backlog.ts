@@ -69,6 +69,13 @@ function classifyFixGroup(source: string, problem: string, ref: string, action: 
   return 'Z: ungrouped'
 }
 
+function isOpenHtmlTriageRow(row: Record<string, string>): boolean {
+  return !(
+    row.classification === 'ok-snapshot' &&
+    (row.has_md_companion === 'yes' || row.has_text_companion === 'yes')
+  )
+}
+
 function main(): void {
   const root = process.cwd()
   const rows: BacklogRow[] = []
@@ -133,6 +140,7 @@ function main(): void {
 
   const ht = parseCsv(readFileSync(join(root, 'research', 'HTML-TRIAGE.csv'), 'utf-8'))
   for (const r of ht) {
+    if (!isOpenHtmlTriageRow(r)) continue
     rows.push({
       source: 'html-triage',
       ref: r.path,
@@ -241,6 +249,31 @@ function main(): void {
     groupCounts[r.fix_group].total += 1
   }
 
+  const pdfQualityOpen = rows.filter((r) => r.source === 'pdf-quality').length
+  const orphanFilesOpen = groupCounts['F: orphan files']?.total ?? 0
+  const urlHealthOpen =
+    (groupCounts['P: dead URLs']?.total ?? 0) +
+    (groupCounts['Q: blocked URLs (403/451)']?.total ?? 0) +
+    (groupCounts['R: timeout URLs']?.total ?? 0) +
+    (groupCounts['S: server-error URLs']?.total ?? 0) +
+    (groupCounts['T: other URL issues']?.total ?? 0)
+  const htmlTriageOpen = groupCounts['O: other HTML issues']?.total ?? 0
+  const recommendedSlices = [
+    pdfQualityOpen > 0
+      ? `1. **Gjenværende PDF-quality-funn (${pdfQualityOpen}):** håndter \`low-text\`/\`skipped-too-large\`-rader først der de er brukt i app, rapport eller KI/RAG-inntak.`
+      : '1. **PDF-quality:** 0 åpne funn; ikke prioriter ny PDF-rydding før katalogen endrer seg.',
+    urlHealthOpen > 0
+      ? `2. **URL-helse (${urlHealthOpen}):** rydd URL-er bare der kilden brukes i app/rapport eller har klar ny URL, arkivkopi eller lokal kildepakke.`
+      : '2. **URL-helse:** 0 åpne funn.',
+    htmlTriageOpen > 0
+      ? `3. **HTML-triage (${htmlTriageOpen}):** vurder om ok-snapshot/navigation/error-page HTML-filer skal konverteres til markdown, erstattes av bedre kilde eller parkeres som lokal snapshot.`
+      : '3. **HTML-triage:** 0 åpne funn.',
+    '4. **Graph enrichment:** prioriter board-member profile gaps og company-name duplicate groups; teknisk graf-integritet er allerede grønn.',
+    orphanFilesOpen > 0
+      ? `5. **Orphan files (Gruppe F, ${orphanFilesOpen}):** vurder arkivering/sletting eller eksplisitt seed-/DB-lenke.`
+      : '5. **Orphan files:** 0 åpne funn; alle Document/SourceDoc-lokatorer og interne artefakter er dekket i denne kjøringen.',
+  ]
+
   const mdLines = [
     '# REMEDIATION BACKLOG — data-readiness Fase B',
     '',
@@ -274,18 +307,15 @@ function main(): void {
     '## Nåværende hovedrestanser',
     '',
     `- **SourceDoc-lokatorer:** ${groupCounts['E: missing SourceDoc']?.total ?? 0} funn. Strukturerte SourceDoc-poster regnes som dekket når de har URL, DOI, koblet Document eller lokal fil.`,
-    `- **PDF-OCR:** ${closedReviewedPdfIssues} scannede PDF-er er lukket i \`research/PDF-OCR-REVIEW.csv\` fordi OCR-tekst, eksisterende Document-tekst eller eksplisitt lokal erstatningstekst er dekkende; ${unappliedPdfReviews} review-rader traff ingen aktiv PDF-quality-rad.`,
+    `- **PDF-review:** ${closedReviewedPdfIssues} PDF-quality-rader er lukket i \`research/PDF-OCR-REVIEW.csv\` fordi OCR-tekst, eksisterende Document-tekst, eksplisitt lokal erstatningstekst eller bekreftet tilstrekkelig \`pdftotext\`-uttak er dekkende; ${unappliedPdfReviews} review-rader traff ingen aktiv PDF-quality-rad.`,
     `- **URL-helse:** ${(groupCounts['P: dead URLs']?.total ?? 0) + (groupCounts['Q: blocked URLs (403/451)']?.total ?? 0) + (groupCounts['R: timeout URLs']?.total ?? 0) + (groupCounts['S: server-error URLs']?.total ?? 0) + (groupCounts['T: other URL issues']?.total ?? 0)} funn fordelt på dead/blocked/timeout/server_error/other.`,
-    `- **URL-review:** ${closedReviewedUrlIssues} blokkerte URL-er er lukket i \`research/URL-HEALTH-REVIEW.csv\` fordi de er verifisert via nettleser, citable mirror eller lokal kildepakke; ${unappliedUrlReviews} review-rader traff ingen aktiv URL-health-rad.`,
+    `- **URL-review:** ${closedReviewedUrlIssues} URL-health-rader er lukket i \`research/URL-HEALTH-REVIEW.csv\` fordi de er verifisert via nettleser, citable mirror eller lokal kildepakke; ${unappliedUrlReviews} review-rader traff ingen aktiv URL-health-rad.`,
     `- **Document.filePath:** ${rows.filter((r) => r.problem === 'missing_file_document').length} manglende dokumentfiler i denne kjøringen.`,
     `- **Orphan files:** ${groupCounts['F: orphan files']?.total ?? 0} repo-filer uten DB-rad. Dette er lavere prioritet så lenge de ikke er brukt i app eller rapport.`,
     '',
     '## Anbefalt rekkefølge for neste ryddeslice',
     '',
-    '1. **Åpne MEDIUM-funn:** håndter gjenværende `pdf-quality`-rad først. For skippede/korrupt-lignende PDF-er betyr dette re-nedlasting, erstatningskilde eller eksplisitt arkivbeslutning.',
-    '2. **Graph enrichment:** prioriter board-member profile gaps og company-name duplicate groups; teknisk graf-integritet er allerede grønn.',
-    '3. **Dead/low-priority URL-er (Gruppe P/T):** rydd bare der kilden brukes i app/rapport eller har klar ny URL.',
-    '4. **Orphan files (Gruppe F):** vurder arkivering/sletting senere; alle Document/SourceDoc-lokatorer er grønne i denne kjøringen.',
+    ...recommendedSlices,
     '',
     '## URL-HEALTH status',
     '',
@@ -293,7 +323,7 @@ function main(): void {
     '',
     'Review-lukkede URL-er i `research/URL-HEALTH-REVIEW.csv` beholdes med opprinnelig kilde-URL, men tas ut av åpen backlog når det finnes eksplisitt nettleserverifikasjon, citable mirror eller lokal kildepakke. Dette er ikke det samme som å erklære CLI-sjekken grønn.',
     '',
-    'Scannede PDF-er i `research/PDF-OCR-REVIEW.csv` beholdes som opprinnelige PDF-filer, men tas ut av åpen backlog når OCR-tekst, DB-innhold eller eksplisitt lokal erstatningstekst på minst 100 ord er dekkende. Dette er ikke det samme som å erklære PDF-filen tekstbasert.',
+    'PDF-er i `research/PDF-OCR-REVIEW.csv` beholdes som opprinnelige PDF-filer, men tas ut av åpen backlog når OCR-tekst, DB-innhold, eksplisitt lokal erstatningstekst eller bekreftet tilstrekkelig `pdftotext`-uttak er dekkende. Dette er ikke det samme som å erklære alle PDF-ene teksttette; `low-text` kan fortsatt være density-only.',
     '',
     '## Top 30 høyest prioritet',
     '',

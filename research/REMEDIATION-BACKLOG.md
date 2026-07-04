@@ -1,8 +1,8 @@
 # REMEDIATION BACKLOG — data-readiness Fase B
 
 > Auto-generert av `scripts/build-remediation-backlog.ts` — ikke rediger manuelt.
-> Generert: 2026-07-01T02:10:27.247Z
-> Totalt: **917** funn
+> Generert: 2026-07-04T16:28:25.656Z
+> Totalt: **888** funn
 
 ## Sammendrag per kilde × severity
 
@@ -10,9 +10,9 @@
 |---|---:|---:|---:|---:|
 | file-coverage | 65 | 105 | 342 | 0 |
 | pdf-quality | 0 | 289 | 0 | 0 |
-| html-triage | 0 | 0 | 29 | 0 |
+| html-triage | 0 | 0 | 0 | 0 |
 | url-health | 0 | 0 | 87 | 0 |
-| **Total** | 65 | 394 | 458 | 0 |
+| **Total** | 65 | 394 | 429 | 0 |
 
 ## Fiksgrupper (rotårsak-analyse)
 
@@ -26,7 +26,6 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 | G: broken supportingSource | 1 | 0 | 0 | 1 |
 | H: duplicate Documents | 1 | 0 | 0 | 1 |
 | M: other PDF issues | 289 | 0 | 289 | 0 |
-| O: other HTML issues | 29 | 0 | 0 | 29 |
 | P: dead URLs | 41 | 0 | 0 | 41 |
 | Q: blocked URLs (403/451) | 44 | 0 | 0 | 44 |
 | T: other URL issues | 2 | 0 | 0 | 2 |
@@ -34,18 +33,19 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 ## Nåværende hovedrestanser
 
 - **SourceDoc-lokatorer:** 0 funn. Strukturerte SourceDoc-poster regnes som dekket når de har URL, DOI, koblet Document eller lokal fil.
-- **PDF-OCR:** 0 scannede PDF-er er lukket i `research/PDF-OCR-REVIEW.csv` fordi OCR-tekst, eksisterende Document-tekst eller eksplisitt lokal erstatningstekst er dekkende; 1 review-rader traff ingen aktiv PDF-quality-rad.
+- **PDF-review:** 0 PDF-quality-rader er lukket i `research/PDF-OCR-REVIEW.csv` fordi OCR-tekst, eksisterende Document-tekst, eksplisitt lokal erstatningstekst eller bekreftet tilstrekkelig `pdftotext`-uttak er dekkende; 1 review-rader traff ingen aktiv PDF-quality-rad.
 - **URL-helse:** 87 funn fordelt på dead/blocked/timeout/server_error/other.
-- **URL-review:** 5 blokkerte URL-er er lukket i `research/URL-HEALTH-REVIEW.csv` fordi de er verifisert via nettleser, citable mirror eller lokal kildepakke; 0 review-rader traff ingen aktiv URL-health-rad.
+- **URL-review:** 5 URL-health-rader er lukket i `research/URL-HEALTH-REVIEW.csv` fordi de er verifisert via nettleser, citable mirror eller lokal kildepakke; 0 review-rader traff ingen aktiv URL-health-rad.
 - **Document.filePath:** 141 manglende dokumentfiler i denne kjøringen.
 - **Orphan files:** 369 repo-filer uten DB-rad. Dette er lavere prioritet så lenge de ikke er brukt i app eller rapport.
 
 ## Anbefalt rekkefølge for neste ryddeslice
 
-1. **Åpne MEDIUM-funn:** håndter gjenværende `pdf-quality`-rad først. For skippede/korrupt-lignende PDF-er betyr dette re-nedlasting, erstatningskilde eller eksplisitt arkivbeslutning.
-2. **Graph enrichment:** prioriter board-member profile gaps og company-name duplicate groups; teknisk graf-integritet er allerede grønn.
-3. **Dead/low-priority URL-er (Gruppe P/T):** rydd bare der kilden brukes i app/rapport eller har klar ny URL.
-4. **Orphan files (Gruppe F):** vurder arkivering/sletting senere; alle Document/SourceDoc-lokatorer er grønne i denne kjøringen.
+1. **Gjenværende PDF-quality-funn (289):** håndter `low-text`/`skipped-too-large`-rader først der de er brukt i app, rapport eller KI/RAG-inntak.
+2. **URL-helse (87):** rydd URL-er bare der kilden brukes i app/rapport eller har klar ny URL, arkivkopi eller lokal kildepakke.
+3. **HTML-triage:** 0 åpne funn.
+4. **Graph enrichment:** prioriter board-member profile gaps og company-name duplicate groups; teknisk graf-integritet er allerede grønn.
+5. **Orphan files (Gruppe F, 369):** vurder arkivering/sletting eller eksplisitt seed-/DB-lenke.
 
 ## URL-HEALTH status
 
@@ -53,7 +53,7 @@ URL-helse er klassifisert fra `research/URL-HEALTH.csv`. `blocked` kan være ree
 
 Review-lukkede URL-er i `research/URL-HEALTH-REVIEW.csv` beholdes med opprinnelig kilde-URL, men tas ut av åpen backlog når det finnes eksplisitt nettleserverifikasjon, citable mirror eller lokal kildepakke. Dette er ikke det samme som å erklære CLI-sjekken grønn.
 
-Scannede PDF-er i `research/PDF-OCR-REVIEW.csv` beholdes som opprinnelige PDF-filer, men tas ut av åpen backlog når OCR-tekst, DB-innhold eller eksplisitt lokal erstatningstekst på minst 100 ord er dekkende. Dette er ikke det samme som å erklære PDF-filen tekstbasert.
+PDF-er i `research/PDF-OCR-REVIEW.csv` beholdes som opprinnelige PDF-filer, men tas ut av åpen backlog når OCR-tekst, DB-innhold, eksplisitt lokal erstatningstekst eller bekreftet tilstrekkelig `pdftotext`-uttak er dekkende. Dette er ikke det samme som å erklære alle PDF-ene teksttette; `low-text` kan fortsatt være density-only.
 
 ## Top 30 høyest prioritet
 
