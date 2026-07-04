@@ -1960,6 +1960,163 @@ export const reports: Report[] = [
     sourceUrl: 'https://www.virke.no/bransjeomrade/dagligvare/',
   },
   {
+    id: 'food-systems-2026-pilot-funding-dossiers',
+    title: 'Food Systems 2026 pilot- og finansieringsdossierer',
+    fullTitle: 'Mission 6/7 desk-dossierer for pilotutforming og finansieringsspor',
+    author: 'Food Systems 2026',
+    institution: 'Food Systems 2026',
+    year: 2026,
+    reportCategory: 'oversikt',
+    keyFindings: [
+      'Pilotbriefene avgrenser fem workshop-start spor uten aa simulere partnergodkjenning',
+      'Fundingmatrisen skiller aapne grant-vinduer fra lukkede/kapitalbaserte spor per 2026-07-02',
+      'Dossierene fungerer som intern beslutningsstotte og kildepakke for videre menneskegatede handlinger',
+    ],
+    recommendations: [
+      'Bruk briefene som pre-read og valideringsagenda, ikke som ferdige policyposisjoner',
+      'Bruk fundingmatrisen til konseptnotat og partnerdialog foer eventuell soknad',
+    ],
+    relevance: 'Samler WS4-dossierene slik at de er eksplisitt koblet som interne kildeartefakter og ikke fremstar som foreldrelose evidence-pack filer.',
+    tags: ['pilot', 'finansiering', 'mission-6', 'mission-7', 'ws4', 'intern-syntese'],
+    publisher: 'Food Systems 2026',
+    provenanceType: 'internal_synthesis',
+    supportingSources: [
+      {
+        label: 'Funding matrix',
+        documentPath: 'research/evidence-pack/funding-matrix.md',
+      },
+      {
+        label: 'Pilot brief 01: Finnish structural threshold',
+        documentPath: 'research/evidence-pack/pilot-briefs/01-finnish-4a-structural-threshold.md',
+      },
+      {
+        label: 'Pilot brief 02: Open logistics access',
+        documentPath: 'research/evidence-pack/pilot-briefs/02-open-logistics-access.md',
+      },
+      {
+        label: 'Pilot brief 03: Zoning and establishment barriers',
+        documentPath: 'research/evidence-pack/pilot-briefs/03-zoning-establishment-barriers.md',
+      },
+      {
+        label: 'Pilot brief 04: ASKO-Vestby dependency model',
+        documentPath: 'research/evidence-pack/pilot-briefs/04-asko-vestby-dependency-model.md',
+      },
+      {
+        label: 'Pilot brief 05: Municipal procurement standard',
+        documentPath: 'research/evidence-pack/pilot-briefs/05-municipal-procurement-standard.md',
+      },
+    ],
+  },
+  {
+    id: 'food-systems-2026-internal-artifact-register',
+    title: 'Food Systems 2026 interne metode- og figurartefakter',
+    fullTitle: 'Kontrollregister for interne metodefiler, promptbibliotek, kontraktsoriginal og figurers PDF-eksporter',
+    author: 'Food Systems 2026',
+    institution: 'Food Systems 2026',
+    year: 2026,
+    reportCategory: 'oversikt',
+    keyFindings: [
+      'Open-data README-en kartlegger eksisterende Mission 4-datafiler og gjenværende refetch-/analysegrenser',
+      'Promptbiblioteket dokumenterer deep-research-sporet for sentrale matverdikjedeaktorer',
+      'Kontrakts-PDF-en beholdes som original ved siden av strukturert markdown-ekstrakt',
+      'Figur-PDF-ene beholdes som publiseringsklare vektoreksporter ved siden av PNG-renderingene',
+    ],
+    recommendations: [
+      'Behandle disse som interne metode- og publiseringsartefakter, ikke eksterne kildebevis alene',
+      'Bruk figur-PDF-er som trykk-/deck-eksporter og PNG-er som web-/markdown-renderinger',
+    ],
+    relevance: 'Lukker file-coverage orphan-koeen ved aa eksplisitt registrere artefakter som er tilsiktede prosjektfiler, men som ikke naturlig er egne eksterne rapporter.',
+    tags: ['intern-register', 'file-coverage', 'metode', 'prompt-bibliotek', 'figurer', 'ws5'],
+    publisher: 'Food Systems 2026',
+    provenanceType: 'internal_register',
+    supportingSources: [
+      {
+        label: 'Mission 4 open-data README',
+        documentPath: 'research/data/MISSION-4-OPEN-DATA-README-2026-07-02.md',
+      },
+      {
+        label: 'NCH contract original PDF',
+        documentPath: 'research/external/nch-contract/contract-201-2503-P25013.pdf',
+      },
+      {
+        label: 'Deep-research prompt template',
+        documentPath: 'research/prompt-bibliotek/_mal-deep-research-prompt.md',
+      },
+      {
+        label: 'Meieri prompt',
+        documentPath: 'research/prompt-bibliotek/foredling-meieri.md',
+      },
+      {
+        label: 'Grossist/distributor prompt',
+        documentPath: 'research/prompt-bibliotek/grossist-distributor.md',
+      },
+      {
+        label: 'Havbruk/akvakultur prompt',
+        documentPath: 'research/prompt-bibliotek/havbruk-akvakultur.md',
+      },
+      {
+        label: 'Jordbruk/groent prompt',
+        documentPath: 'research/prompt-bibliotek/primaerproduksjon-jordbruk-groent.md',
+      },
+      {
+        label: 'Figur 1 PDF',
+        documentPath: 'research/visualisering/figurer/fig1_price_transmission_gap.pdf',
+      },
+      {
+        label: 'Figur 2 PDF',
+        documentPath: 'research/visualisering/figurer/fig2_market_concentration_treemap.pdf',
+      },
+      {
+        label: 'Figur 3 PDF',
+        documentPath: 'research/visualisering/figurer/fig3_lorenz_curve_gini.pdf',
+      },
+      {
+        label: 'Figur 4 PDF',
+        documentPath: 'research/visualisering/figurer/fig4_zipf_distribution.pdf',
+      },
+      {
+        label: 'Figur 5 PDF',
+        documentPath: 'research/visualisering/figurer/fig5_ppi_kpi_spread_timeline.pdf',
+      },
+      {
+        label: 'Figur 6 PDF',
+        documentPath: 'research/visualisering/figurer/fig6_nordic_hhi_comparison.pdf',
+      },
+      {
+        label: 'Figur 7 PDF',
+        documentPath: 'research/visualisering/figurer/fig7_nordic_concentration_comparison.pdf',
+      },
+      {
+        label: 'Figur 8 PDF',
+        documentPath: 'research/visualisering/figurer/fig8_self_sufficiency_rates.pdf',
+      },
+      {
+        label: 'Figur 9 PDF',
+        documentPath: 'research/visualisering/figurer/fig9_regulatory_heatmap.pdf',
+      },
+      {
+        label: 'Figur 10 PDF',
+        documentPath: 'research/visualisering/figurer/fig10_nordic_food_inflation_hicp.pdf',
+      },
+      {
+        label: 'Figur 11 PDF',
+        documentPath: 'research/visualisering/figurer/fig11_nordic_food_price_levels.pdf',
+      },
+      {
+        label: 'Figur 12 PDF',
+        documentPath: 'research/visualisering/figurer/fig12_nordic_food_price_panel.pdf',
+      },
+      {
+        label: 'Figur 13 PDF',
+        documentPath: 'research/visualisering/figurer/fig13_nordic_trade_change_panel.pdf',
+      },
+      {
+        label: 'Figur 14 PDF',
+        documentPath: 'research/visualisering/figurer/fig14_nordic_oats_production_panel.pdf',
+      },
+    ],
+  },
+  {
     id: 'oversikt-nordisk-mat-tenkere',
     title: 'Nordiske mat-tenkere og paavirkernettverk',
     fullTitle: 'Kartlegging av sentrale tenkere, forskere og paaverkere i nordisk matpolitikk',
@@ -2848,8 +3005,8 @@ export const reports: Report[] = [
     country: 'NO',
     keyFindings: [
       'BLOKKERT — lokal fil er HTML-landingsside (starter med <!DOCTYPE html>), ikke ekte PDF. Må lastes ned manuelt fra AgriAnalyse før enrichment kan fullføres.',
-      'Se `research/seed-pdf-map.overrides.json` — filen ligger under `reports.agrianalyse-bondens-andel-2025` men innholdet må reerstattes.',
-      'Fremgangsmåte: Åpne rapport-URL i browser, last ned ekte PDF, erstatt fil på samme path, re-kjør `build-pdf-catalog.ts` + `build-seed-pdf-map.ts`, og enrich deretter keyFindings basert på faktisk innhold.',
+      'Ingen lokal PDF er registrert i seed-map før ekte AgriAnalyse-underlag er funnet og verifisert.',
+      'Fremgangsmåte: Åpne rapport-URL i browser, last ned ekte PDF, registrer kontrollert lokal path, re-kjør `build-pdf-catalog.ts` + `build-seed-pdf-map.ts`, og enrich deretter keyFindings basert på faktisk innhold.',
     ],
     recommendations: [
       'Manuell intervensjon: last ned faktisk PDF fra AgriAnalyse og erstatt den HTML-maskerte filen før denne entryen kan brukes i analyse.',
@@ -2863,11 +3020,6 @@ export const reports: Report[] = [
         label: 'AgriAnalyse publikasjoner 2025',
         url: 'https://www.agrianalyse.no/publikasjoner/category856.html?span=01.01.2025-31.12.2025',
         note: 'Tittelen ble ikke funnet i 2025-arkivet ved kontroll 2026-04-27.',
-      },
-      {
-        label: 'Lokal blokkert PDF-kandidat',
-        documentPath: 'research/evidence-pack/akademia/agrianalyse-bondens-andel-2025.pdf',
-        note: 'Filen er registrert som HTML feil-lagret som PDF og skal ikke brukes i analyse.',
       },
     ],
   },

@@ -1,18 +1,18 @@
 # REMEDIATION BACKLOG — data-readiness Fase B
 
 > Auto-generert av `scripts/build-remediation-backlog.ts` — ikke rediger manuelt.
-> Generert: 2026-07-04T16:28:25.656Z
-> Totalt: **888** funn
+> Generert: 2026-07-04T18:36:51.969Z
+> Totalt: **501** funn
 
 ## Sammendrag per kilde × severity
 
 | Kilde | HIGH | MEDIUM | LOW | INFO |
 |---|---:|---:|---:|---:|
-| file-coverage | 65 | 105 | 342 | 0 |
-| pdf-quality | 0 | 289 | 0 | 0 |
+| file-coverage | 11 | 30 | 319 | 0 |
+| pdf-quality | 0 | 0 | 54 | 0 |
 | html-triage | 0 | 0 | 0 | 0 |
 | url-health | 0 | 0 | 87 | 0 |
-| **Total** | 65 | 394 | 429 | 0 |
+| **Total** | 11 | 30 | 460 | 0 |
 
 ## Fiksgrupper (rotårsak-analyse)
 
@@ -20,12 +20,10 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 
 | Gruppe | Funn | HIGH | MEDIUM | LOW |
 |---|---:|---:|---:|---:|
-| B: external/ DB-only | 44 | 0 | 44 | 0 |
-| D: other missing-document | 97 | 65 | 31 | 1 |
-| F: orphan files | 369 | 0 | 30 | 339 |
-| G: broken supportingSource | 1 | 0 | 0 | 1 |
-| H: duplicate Documents | 1 | 0 | 0 | 1 |
-| M: other PDF issues | 289 | 0 | 289 | 0 |
+| D: other missing-document | 11 | 11 | 0 | 0 |
+| F: orphan files | 349 | 0 | 30 | 319 |
+| J: low-text PDFs | 53 | 0 | 0 | 53 |
+| K: oversized PDFs | 1 | 0 | 0 | 1 |
 | P: dead URLs | 41 | 0 | 0 | 41 |
 | Q: blocked URLs (403/451) | 44 | 0 | 0 | 44 |
 | T: other URL issues | 2 | 0 | 0 | 2 |
@@ -33,19 +31,19 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 ## Nåværende hovedrestanser
 
 - **SourceDoc-lokatorer:** 0 funn. Strukturerte SourceDoc-poster regnes som dekket når de har URL, DOI, koblet Document eller lokal fil.
-- **PDF-review:** 0 PDF-quality-rader er lukket i `research/PDF-OCR-REVIEW.csv` fordi OCR-tekst, eksisterende Document-tekst, eksplisitt lokal erstatningstekst eller bekreftet tilstrekkelig `pdftotext`-uttak er dekkende; 1 review-rader traff ingen aktiv PDF-quality-rad.
+- **PDF-review:** 5 PDF-quality-rader er lukket i `research/PDF-OCR-REVIEW.csv` fordi OCR-tekst, eksisterende Document-tekst, eksplisitt lokal erstatningstekst eller bekreftet tilstrekkelig `pdftotext`-uttak er dekkende; 0 review-rader traff ingen aktiv PDF-quality-rad.
 - **URL-helse:** 87 funn fordelt på dead/blocked/timeout/server_error/other.
 - **URL-review:** 5 URL-health-rader er lukket i `research/URL-HEALTH-REVIEW.csv` fordi de er verifisert via nettleser, citable mirror eller lokal kildepakke; 0 review-rader traff ingen aktiv URL-health-rad.
-- **Document.filePath:** 141 manglende dokumentfiler i denne kjøringen.
-- **Orphan files:** 369 repo-filer uten DB-rad. Dette er lavere prioritet så lenge de ikke er brukt i app eller rapport.
+- **Document.filePath:** 11 manglende dokumentfiler i denne kjøringen.
+- **Orphan files:** 349 repo-filer uten DB-rad. Dette er lavere prioritet så lenge de ikke er brukt i app eller rapport.
 
 ## Anbefalt rekkefølge for neste ryddeslice
 
-1. **Gjenværende PDF-quality-funn (289):** håndter `low-text`/`skipped-too-large`-rader først der de er brukt i app, rapport eller KI/RAG-inntak.
+1. **Gjenværende PDF-quality-funn (54):** håndter `low-text`/`skipped-too-large`-rader først der de er brukt i app, rapport eller KI/RAG-inntak.
 2. **URL-helse (87):** rydd URL-er bare der kilden brukes i app/rapport eller har klar ny URL, arkivkopi eller lokal kildepakke.
 3. **HTML-triage:** 0 åpne funn.
 4. **Graph enrichment:** prioriter board-member profile gaps og company-name duplicate groups; teknisk graf-integritet er allerede grønn.
-5. **Orphan files (Gruppe F, 369):** vurder arkivering/sletting eller eksplisitt seed-/DB-lenke.
+5. **Orphan files (Gruppe F, 349):** vurder arkivering/sletting eller eksplisitt seed-/DB-lenke.
 
 ## URL-HEALTH status
 
@@ -59,33 +57,33 @@ PDF-er i `research/PDF-OCR-REVIEW.csv` beholdes som opprinnelige PDF-filer, men 
 
 | # | Severity | Source | Fix-gruppe | Problem | Ref |
 |---:|---|---|---|---|---|
-| 1 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyof0000njvmdjrv2blv (tesdal-2013) |
-| 2 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyqr0001njvm7la1op31 (sedwall-2025) |
-| 3 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyqy0002njvmeo5z64yk (bojo-2023) |
-| 4 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyr30003njvmka3xvjsc (nmbu-circular-vegetables-2022) |
-| 5 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyr60004njvmkuyujbnd (van-straten-2025) |
-| 6 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyrc0005njvm3ccaxbrf (segersven-2024) |
-| 7 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyri0006njvm31b5p6at (rey-verge-2005) |
-| 8 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyrn0007njvmd1h15xme (slu-house-crickets-2025) |
-| 9 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyrr0008njvm72f0l3n2 (bueso-bordils-2021) |
-| 10 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyru0009njvmavxrd7cp (desilva-2023) |
-| 11 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyrz000anjvm40x9zv8t (lund-beijer-2026) |
-| 12 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajys2000bnjvm18kstw5z (mirza-2016) |
-| 13 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyso000cnjvm1vx5gvhu (matsystemutvalget-2026) |
-| 14 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajysv000dnjvm5uvvmk08 (akademia-uib-kjopermakt) |
-| 15 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyt3000fnjvmjakt14qv (se-konkurrensverket-2024-5) |
-| 16 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyt8000gnjvmz8r1gkuy (asko-infrastruktur-2025) |
-| 17 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajytd000hnjvmn60kb31b (kt-markedsundersokelser-2026) |
-| 18 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajytf000injvm3k3rqsu6 (is-markedsstruktur-2024) |
-| 19 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajytj000jnjvmapvnokb7 (juridisk-eudr-norge-2025) |
-| 20 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajytn000knjvm9q2oil3y (nbs-systemkritikk) |
-| 21 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyu3000onjvmqmv7ycxt (norden-policy-2024) |
-| 22 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyu9000pnjvmnf9p1ypx (akademia-sifo-retail-media-2025) |
-| 23 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyuc000qnjvmm7gsitu3 (juridisk-eiendomsmakt-lokal-konku |
-| 24 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyue000rnjvmxrad483t (etmv-toimintakertomus-2024) |
-| 25 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyuh000snjvmgcmt6umd (coop-danmark-2024) |
-| 26 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyul000tnjvmlzlt7jek (verdibutikker-utfordrere) |
-| 27 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyuo000unjvmcl2enn4a (nordisk-sammenligning-2024) |
-| 28 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyut000wnjvm9uh3kihc (dlf-leverandor-2025) |
-| 29 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyv1000ynjvmqjymvcbk (menon-emv-innovasjon) |
-| 30 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyv3000znjvm24f56eod (merkevarer-historie) |
+| 1 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyqy0002njvmeo5z64yk (bojo-2023) |
+| 2 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyr60004njvmkuyujbnd (van-straten-2025) |
+| 3 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyrr0008njvm72f0l3n2 (bueso-bordils-2021) |
+| 4 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyrz000anjvm40x9zv8t (lund-beijer-2026) |
+| 5 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajys2000bnjvm18kstw5z (mirza-2016) |
+| 6 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyu3000onjvmqmv7ycxt (norden-policy-2024) |
+| 7 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyue000rnjvmxrad483t (etmv-toimintakertomus-2024) |
+| 8 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyvb0012njvmnphhze07 (karlstad-declaration-2024) |
+| 9 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyve0013njvmw7zok4yr (nordic-food-alert-2025) |
+| 10 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyxz001snjvmjzin1ww1 (konkurrensverket-2025-5-livsmedel |
+| 11 | HIGH | file-coverage | D: other missing-document | missing_file_document | cmppajyyw0021njvmam1pbay7 (kfst-foedevarehandelslov-evalueri |
+| 12 | MEDIUM | file-coverage | F: orphan files | orphan_file | bibliotek/akademia/nhh-food/butikkstruktur-2024 2.md |
+| 13 | MEDIUM | file-coverage | F: orphan files | orphan_file | bibliotek/akademia/nhh-food/food-konsentrasjon-nordisk-2024  |
+| 14 | MEDIUM | file-coverage | F: orphan files | orphan_file | bibliotek/akademia/nhh-food/matbors-historie 2.md |
+| 15 | MEDIUM | file-coverage | F: orphan files | orphan_file | bibliotek/akademia/nhh-food/pettersen-steen-mot-bedre-vitend |
+| 16 | MEDIUM | file-coverage | F: orphan files | orphan_file | bibliotek/sirkularitet/kilder/ks-veileder-sirkulaerokonomi-o |
+| 17 | MEDIUM | file-coverage | F: orphan files | orphan_file | bibliotek/sirkularitet/kilder/resource-se-slutrapport-region |
+| 18 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/nordisk/nordic-nutrition-recommendations-2023. |
+| 19 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/okologisk-norden-2026-04-29/downloads/dk-landb |
+| 20 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/okologisk-norden-2026-04-29/downloads/dk-okolo |
+| 21 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/okologisk-norden-2026-04-29/downloads/dk-organ |
+| 22 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/okologisk-norden-2026-04-29/downloads/fi-ruoka |
+| 23 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/okologisk-norden-2026-04-29/downloads/is-esa-c |
+| 24 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/okologisk-norden-2026-04-29/downloads/is-esa-o |
+| 25 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/okologisk-norden-2026-04-29/downloads/is-gover |
+| 26 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/okologisk-norden-2026-04-29/downloads/no-debio |
+| 27 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/okologisk-norden-2026-04-29/downloads/no-landb |
+| 28 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/okologisk-norden-2026-04-29/downloads/nordic-f |
+| 29 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekolo |
+| 30 | MEDIUM | file-coverage | F: orphan files | orphan_file | evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekoma |
