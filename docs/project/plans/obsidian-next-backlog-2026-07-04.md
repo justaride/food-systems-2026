@@ -30,6 +30,7 @@ Neste fase skal ikke bygge "mer kart" først. Den skal gjøre kartet brukbart so
 - PR #243 lukket P1.1 for Orkla/Lilleborg 0 %-kanten; PR #244 la til bredere ikke-kontroll-semantikk for eierkanter.
 - PR #245 lukket P2.1 som smal R14 claim-lock-delta for Rest AS, uten å åpne REKO/andelslandbruk som nåtidstall.
 - PR #246 lukket P2.2 ved å nedgradere VK4-GAP-007 fra samlet 25-30 %-claim til N/P/K-arbeidsmatrise per strøm.
+- PR #248 lukket P2.3 ved å bekrefte I28/I29/I30/I32/I33/I35 som parkerte datareview-/claim-lock-kandidater uten ny I-node-generering.
 - VK-5-protokollen er lukket for intern cockpit-bruk.
 - `vault:review-closeout` er forventet grønn så lenge VK-5-protokollen forblir lukket og alle review-rader er løst.
 - Obsidian-grafen er et kuratert utsnitt, ikke hele kunnskapsbasen.
@@ -84,9 +85,9 @@ Bruk disse for å teste om kartet faktisk hjelper, før ny visualisering bygges:
 1. Lukket: P0.1 og P0.2 i PR #242.
 2. Lukket: P1.1 i PR #243, med kantsemantikk fulgt opp i PR #244.
 3. Lukket: P2.1/P2.2 i PR #245 og PR #246.
-4. Neste valg: P2.3 hvis parkerte I27+-kandidater skal avklares før briefing.
-5. Alternativt neste valg: P2.4 hvis aktørspørsmål skal prioriteres før ny intern presentasjon.
-6. Første leveransevalg: P3.1 som intern briefing-pilot basert på pilotspørsmålene, etter at valgt P2-rest er eksplisitt parkert eller lukket.
+4. Lukket: P2.3 i PR #248.
+5. Neste valg: P2.4 hvis aktørspørsmål skal prioriteres før ny intern presentasjon.
+6. Første leveransevalg: P3.1 som intern briefing-pilot basert på pilotspørsmålene, etter at P2.4 er eksplisitt parkert eller lukket.
 
 ## Verifikasjon per slice
 
