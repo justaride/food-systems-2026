@@ -5,7 +5,7 @@ eier: Gabriel
 dato: 2026-06-14
 arbeidspakke: AP-3 i docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md
 datakilde: Landbruksdirektoratet åpne data — produksjons- og avløsertilskudd (samme primærkilde som scripts/import-produksjonstilskudd.ts)
-bruksregel: Internt analysefunn. Tilskudd ≠ misbruk. Tallene er mottaker-nivå (sum av alle ordninger per orgnr/år), ikke transaksjoner. Går gjennom claim-lock/PCQ før ekstern bruk. 2024-tallene er ufullstendige (se §4) og skal ikke brukes som sammenligning før verifisert.
+bruksregel: Internt analysefunn. Tilskudd ≠ misbruk. Tallene er mottaker-nivå (sum av alle ordninger per orgnr/år), ikke transaksjoner. Går gjennom claim-lock/PCQ før ekstern bruk. 2024-tallene er verifisert etter kolonnefiks (se §4), men skal brukes med struktur- og ordningsforbehold.
 relaterte_filer:
   - docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md
   - scripts/analyze-subsidy-concentration.ts
