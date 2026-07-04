@@ -1,4 +1,4 @@
-import { closeSync, existsSync, openSync, readdirSync, readSync, statSync, writeFileSync } from 'fs'
+import { closeSync, existsSync, openSync, readdirSync, readFileSync, readSync, statSync, writeFileSync } from 'fs'
 import { join, relative, sep } from 'path'
 import { reports as seedReports } from '../prisma/seed-data/reports'
 
@@ -15,6 +15,7 @@ type TriageRow = {
   classification: Classification
   wordCount: number
   hasMdCompanion: boolean
+  hasTextCompanion: boolean
   referencedInSeed: boolean
   severity: Severity
   action: string
@@ -192,9 +193,25 @@ function hasMdCompanionFor(rel: string): boolean {
   return existsSync(join(RESEARCH_DIR, mdRel))
 }
 
+function textCompanionFor(rel: string): string | null {
+  const sameDirRel = rel.replace(/\.(html|htm)$/i, '.txt')
+  if (sameDirRel !== rel && existsSync(join(RESEARCH_DIR, sameDirRel))) return sameDirRel
+
+  const downloadsSegment = `${sep}downloads${sep}`
+  if (rel.includes(downloadsSegment)) {
+    const textRel = rel
+      .replace(downloadsSegment, `${sep}text${sep}`)
+      .replace(/\.(html|htm)$/i, '.txt')
+    if (existsSync(join(RESEARCH_DIR, textRel))) return textRel
+  }
+
+  return null
+}
+
 function severityFor(row: {
   classification: Classification
   hasMdCompanion: boolean
+  hasTextCompanion: boolean
   referencedInSeed: boolean
 }): Severity {
   if (
@@ -220,6 +237,7 @@ function severityFor(row: {
 function actionFor(row: {
   classification: Classification
   hasMdCompanion: boolean
+  hasTextCompanion: boolean
   referencedInSeed: boolean
 }): string {
   switch (row.classification) {
@@ -232,9 +250,9 @@ function actionFor(row: {
         ? 'Extract clean Markdown for KI use (referenced in seed)'
         : 'Extract clean Markdown for KI use (not yet referenced)'
     case 'ok-snapshot':
-      return row.hasMdCompanion
-        ? 'OK — Markdown companion present'
-        : 'Snapshot OK; consider extraction if needed for KI'
+      if (row.hasMdCompanion) return 'OK — Markdown companion present'
+      if (row.hasTextCompanion) return 'OK — extracted text companion present'
+      return 'Snapshot OK; consider extraction if needed for KI'
   }
 }
 
@@ -264,6 +282,7 @@ function main(): void {
         classification: 'ok-snapshot',
         wordCount: 0,
         hasMdCompanion: hasMdCompanionFor(rel),
+        hasTextCompanion: textCompanionFor(rel) !== null,
         referencedInSeed: seedRefs.has(rel),
         severity: 'LOW',
         action: 'Skipped (file >5 MB) — manual review needed',
@@ -283,6 +302,7 @@ function main(): void {
         classification: 'error-page',
         wordCount: 0,
         hasMdCompanion: hasMdCompanionFor(rel),
+        hasTextCompanion: textCompanionFor(rel) !== null,
         referencedInSeed: seedRefs.has(rel),
         severity: 'LOW',
         action: 'Read failed — investigate',
@@ -293,12 +313,16 @@ function main(): void {
       continue
     }
 
+    const textCompanion = textCompanionFor(rel)
+    const hasText = textCompanion !== null
     const title = extractTitle(html)
-    const text = stripHtmlToText(html)
+    const text = hasText
+      ? readFileSync(join(RESEARCH_DIR, textCompanion), 'utf-8')
+      : stripHtmlToText(html)
     const wordCount = countWords(text)
 
     const { classification: baseClass } = classifyHtml({
-      title,
+      title: hasText ? '' : title,
       text,
       wordCount,
     })
@@ -306,18 +330,20 @@ function main(): void {
     const referencedInSeed = seedRefs.has(rel)
     const hasMd = hasMdCompanionFor(rel)
     let classification: Classification = baseClass
-    if (baseClass === 'ok-snapshot' && !hasMd) {
+    if (baseClass === 'ok-snapshot' && !hasMd && !hasText) {
       classification = 'needs-md-extraction'
     }
 
     const severity = severityFor({
       classification,
       hasMdCompanion: hasMd,
+      hasTextCompanion: hasText,
       referencedInSeed,
     })
     const action = actionFor({
       classification,
       hasMdCompanion: hasMd,
+      hasTextCompanion: hasText,
       referencedInSeed,
     })
 
@@ -326,6 +352,7 @@ function main(): void {
       classification,
       wordCount,
       hasMdCompanion: hasMd,
+      hasTextCompanion: hasText,
       referencedInSeed,
       severity,
       action,
@@ -336,13 +363,14 @@ function main(): void {
 
   // === CSV ===
   const csvLines = [
-    'path,classification,word_count,has_md_companion,referenced_in_seed,severity,action',
+    'path,classification,word_count,has_md_companion,has_text_companion,referenced_in_seed,severity,action',
     ...rows.map((r) =>
       [
         csvEscape(r.rel),
         r.classification,
         r.wordCount.toString(),
         r.hasMdCompanion ? 'yes' : 'no',
+        r.hasTextCompanion ? 'yes' : 'no',
         r.referencedInSeed ? 'yes' : 'no',
         r.severity,
         csvEscape(r.action),

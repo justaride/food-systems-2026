@@ -1,17 +1,17 @@
 # HTML triage — research/ snapshots
 
 > Auto-generert av `scripts/triage-html.ts` — ikke rediger manuelt.
-> Generert: 2026-07-01T02:09:53.961Z
+> Generert: 2026-07-04T16:28:22.185Z
 > Totalt: **29** HTML-filer skannet (utelater `_plans/`, `_status/`, `intake/`)
 
 ## Klassifisering
 
 | Klasse | Antall |
 |---|---:|
-| ok-snapshot | 23 |
+| ok-snapshot | 29 |
 | needs-md-extraction | 0 |
-| navigation-only | 3 |
-| error-page | 3 |
+| navigation-only | 0 |
+| error-page | 0 |
 
 ## Severity
 
@@ -23,19 +23,11 @@
 
 ## Error-pages
 
-| Path | Tittel | Word count |
-|---|---|---:|
-| evidence-pack/okologisk-norden-2026-04-29/downloads/is-lifraent-island-home-2026.html | Afhverju lífrænt? - Lífrænt Ísland | 22 |
-| evidence-pack/okologisk-norden-2026-04-29/downloads/is-tun-vottunarskra-2026-refresh.html | Lífrænt Vottaðir aðilar   Vottunarstofan Tún | 23 |
-| evidence-pack/okologisk-norden-2026-04-29/downloads/is-tun-vottunarskra-2026.html | Lífrænt Vottaðir aðilar   Vottunarstofan Tún | 23 |
+_Ingen error-pages funnet._
 
 ## Navigation-only
 
-| Path | Tittel | Word count |
-|---|---|---:|
-| evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-effektrapport-page-2026.html | Effektrapport - KRAV | 131 |
-| evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-page-2026.html | KRAVs Ekobarometer - KRAV | 196 |
-| evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-rapporter.html | Rapporter - KRAV | 155 |
+_Ingen navigation-only-filer funnet._
 
 ## Topp 30 needs-md-extraction (prioritet)
 

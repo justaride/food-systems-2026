@@ -1,11 +1,13 @@
 export const CLOSED_PDF_OCR_REVIEW_ACTIONS = ['archived', 'updated'] as const
 export const CLOSED_PDF_REPLACEMENT_REVIEW_ACTIONS = ['replaced_by_local_text'] as const
+export const CLOSED_LOW_TEXT_REVIEW_ACTIONS = ['confirmed_text_sufficient'] as const
 
 export const MIN_USABLE_OCR_WORDS = 100
 
 export type ClosedPdfOcrReviewAction = (typeof CLOSED_PDF_OCR_REVIEW_ACTIONS)[number]
 export type ClosedPdfReplacementReviewAction =
   (typeof CLOSED_PDF_REPLACEMENT_REVIEW_ACTIONS)[number]
+export type ClosedLowTextReviewAction = (typeof CLOSED_LOW_TEXT_REVIEW_ACTIONS)[number]
 
 export type PdfOcrReviewRow = {
   path?: string
@@ -61,6 +63,14 @@ export function isClosedPdfReplacementReviewAction(
   )
 }
 
+export function isClosedLowTextReviewAction(
+  action: string | null | undefined,
+): action is ClosedLowTextReviewAction {
+  return CLOSED_LOW_TEXT_REVIEW_ACTIONS.includes(
+    (action ?? '').trim() as ClosedLowTextReviewAction,
+  )
+}
+
 function hasUsableReplacementText(row: PdfOcrReviewRow, action: string): boolean {
   const replacementPath = (row.replacementPath ?? row.replacement_path ?? '').trim()
   return (
@@ -87,7 +97,8 @@ export function buildPdfOcrReviewMap(
       ocrWordCount,
       isClosed:
         (isClosedPdfOcrReviewAction(action) && ocrWordCount >= MIN_USABLE_OCR_WORDS) ||
-        hasUsableReplacementText(row, action),
+        hasUsableReplacementText(row, action) ||
+        (isClosedLowTextReviewAction(action) && ocrWordCount >= MIN_USABLE_OCR_WORDS),
     })
   }
 
@@ -98,10 +109,18 @@ export function isReviewedPdfQualityIssueOpen(
   row: PdfQualityIssueRow,
   reviews: Map<string, PdfOcrReview>,
 ): boolean {
-  if (row.classification !== 'scanned') return true
-
   const review = reviews.get(normalizePdfPathForReview(row.path))
-  return !review?.isClosed
+  if (row.classification === 'scanned') return !review?.isClosed
+
+  if (row.classification === 'low-text') {
+    return !(
+      review &&
+      isClosedLowTextReviewAction(review.action) &&
+      review.ocrWordCount >= MIN_USABLE_OCR_WORDS
+    )
+  }
+
+  return true
 }
 
 export function summarizePdfOcrReviews(

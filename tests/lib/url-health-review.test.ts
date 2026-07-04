@@ -48,6 +48,17 @@ describe('URL health review ledger', () => {
         {
           url: 'https://example.org/browser-ok',
           source: 'report:browser-ok',
+          classification: 'other',
+        },
+        reviews,
+      ),
+      false,
+    )
+    assert.equal(
+      isReviewedUrlHealthIssueOpen(
+        {
+          url: 'https://example.org/browser-ok',
+          source: 'report:browser-ok',
           classification: 'dead',
         },
         reviews,

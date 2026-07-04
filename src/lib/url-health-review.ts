@@ -61,7 +61,7 @@ export function isReviewedUrlHealthIssueOpen(
   row: UrlHealthIssueRow,
   reviews: Map<string, UrlHealthReview>,
 ): boolean {
-  if (row.classification !== 'blocked') return true
+  if (row.classification !== 'blocked' && row.classification !== 'other') return true
 
   const review = reviews.get(normalizeUrlForReview(row.url))
   return !review?.isClosed

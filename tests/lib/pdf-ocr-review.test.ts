@@ -93,6 +93,36 @@ describe('PDF OCR review ledger', () => {
     )
   })
 
+  it('closes low-text PDF issues only after explicit text-sufficient review', () => {
+    const reviews = buildPdfOcrReviewMap([
+      {
+        path: 'research/sufficient-browser-print.pdf',
+        action: 'confirmed_text_sufficient',
+        ocr_word_count: '612',
+      },
+      {
+        path: 'research/generic-ocr-archive.pdf',
+        action: 'archived',
+        ocr_word_count: '612',
+      },
+    ])
+
+    assert.equal(
+      isReviewedPdfQualityIssueOpen(
+        { path: 'research/sufficient-browser-print.pdf', classification: 'low-text' },
+        reviews,
+      ),
+      false,
+    )
+    assert.equal(
+      isReviewedPdfQualityIssueOpen(
+        { path: 'research/generic-ocr-archive.pdf', classification: 'low-text' },
+        reviews,
+      ),
+      true,
+    )
+  })
+
   it('summarizes closed and unapplied OCR reviews', () => {
     const reviews = buildPdfOcrReviewMap([
       {
@@ -105,18 +135,24 @@ describe('PDF OCR review ledger', () => {
         action: 'archived',
         ocr_word_count: '250',
       },
+      {
+        path: 'research/low-text-closed.pdf',
+        action: 'confirmed_text_sufficient',
+        ocr_word_count: '612',
+      },
     ])
 
     assert.deepEqual(
       summarizePdfOcrReviews(
         [
           { path: 'research/closed.pdf', classification: 'scanned' },
+          { path: 'research/low-text-closed.pdf', classification: 'low-text' },
           { path: 'research/open.pdf', classification: 'scanned' },
         ],
         reviews,
       ),
       {
-        closedReviewedIssues: 1,
+        closedReviewedIssues: 2,
         unappliedReviews: 1,
       },
     )

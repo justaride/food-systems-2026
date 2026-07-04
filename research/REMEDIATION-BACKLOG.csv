@@ -800,35 +800,6 @@ file-coverage,visualisering/figurer/fig8_self_sufficiency_rates.pdf,file,orphan_
 file-coverage,visualisering/figurer/fig9_regulatory_heatmap.pdf,file,orphan_file,LOW,F: orphan files,,Confirm intentional archive copy; otherwise consider removal
 file-coverage,agrianalyse-bondens-andel-2025::Lokal blokkert PDF-kandidat,Report.supportingSources,broken_supportingsource,LOW,G: broken supportingSource,1.0,"Restore ""research/evidence-pack/akademia/agrianalyse-bondens-andel-2025.pdf"" or replace with valid url/documentPath in seed"
 file-coverage,sha:9f8d0396d2dd,Document[],duplicate_file_separate_records,LOW,H: duplicate Documents,,"Consolidate Documents [cmp8xyn3d00grvvvmi1g0q8sq, cmp8xyoej00k6vvvm63gli4a8] -> one canonical record (paths: 3)"
-html-triage,cathrine-ten-step-oppsummering.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/beredskap/beredskap-island-food-stockpiles-2025.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/beredskap/beredskap-island-melmolle-2025.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/bransje/dlf-leverandor-2025.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/fi-proluomu-market-2024.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/fi-proluomu-organics-in-finland.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/fi-ruokavirasto-luomuvalvonta-2024.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-eea-area-under-organic-farming-2025.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-hagstofa-sdg-2-4-1-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-lifraent-island-home-2026.html,HTML,error-page,LOW,O: other HTML issues,,Investigate fetch failure; remove HTML or replace with valid snapshot
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-mast-arsskyrsla-2024.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-agriculture-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-production-in-agriculture-2024-news-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-statice-production-value-agriculture-2024-news-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-tun-lifraent-vottun-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-tun-vottunarskra-2026-refresh.html,HTML,error-page,LOW,O: other HTML issues,,Investigate fetch failure; remove HTML or replace with valid snapshot
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/is-tun-vottunarskra-2026.html,HTML,error-page,LOW,O: other HTML issues,,Investigate fetch failure; remove HTML or replace with valid snapshot
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/no-landbruksdirektoratet-okologiske-jordbruksvarer-2025-press.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekologiska-marknadsdagen-2024-page.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekomatligan-2025-page.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekomatsligan-2024-page.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-nationella-rapporter-statistik-marknadsrapporter-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-offentlig-sektor-2023-page.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-jordbruksverket-ekologisk-animalieproduktion-2024.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-jordbruksverket-ekologisk-vaxtodling-2024.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-effektrapport-page-2026.html,HTML,navigation-only,LOW,O: other HTML issues,,Likely menu/landing page — confirm intent or remove
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-page-2026.html,HTML,navigation-only,LOW,O: other HTML issues,,Likely menu/landing page — confirm intent or remove
-html-triage,evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-rapporter.html,HTML,navigation-only,LOW,O: other HTML issues,,Likely menu/landing page — confirm intent or remove
-html-triage,statusrapport-mars-2026.html,HTML,ok-snapshot,LOW,O: other HTML issues,,OK — Markdown companion present
 url-health,http://go/data-security-policy#data-classification,URL,dead,LOW,P: dead URLs,,dead (HTTP error: ENOTFOUND) — source document:external/coffee-forest/prd; verify URL
 url-health,http://hdl.handle.net/11250/3148444,URL,dead,LOW,P: dead URLs,,dead (HTTP 404) — source document:bibliotek/master-phd-backlog-2026; follow redirect to http://authority.bibsys.no/authority/rest/authorities/html/1707990468084
 url-health,https://beccle.no/files/2020/01/Susanne_Helen_Gangstoe_Masteroppgave.pdf,URL,dead,LOW,P: dead URLs,,dead (HTTP 404) — source document:bibliotek/akademia/masteroppgaver/gangstoe-2019; verify URL
