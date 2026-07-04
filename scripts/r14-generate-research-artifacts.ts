@@ -95,10 +95,10 @@ function writeCsv(path: string, rows: Candidate[]) {
   ].join('\n'))
 }
 
-function artifact(title: string, body: string) {
+function artifact(title: string, body: string, date = TODAY) {
   return `---
 tittel: ${title}
-dato: ${TODAY}
+dato: ${date}
 status: R14 internt arbeidsunderlag
 bruksregel: Ingen ekstern claim, ingen safe_for_ai_context, ingen whitepaper-/deck-stemme. Svakeste punkt styrer gate.
 ---
@@ -396,6 +396,10 @@ P2.4 velger rekkefølge for actor-gate uten å gjennomføre outreach. Første as
 | 2 | D4 frø/genressurs | Dataeier/koordinator for KVANN/NordGen-sporet. | Hvilke norske aktører, lokasjoner og bevaringsroller kan bekreftes offentlig uten person-/medlemsdata? | Ikke gjør medlems-/nettverksliste til aktørkart uten kilde- og personvernavklaring. |
 | 3 | D1/D3/D5 lokal/regenerativ praksis | Kildeholder for markedshager, regenerative praktikere eller skogshage/permakultur-lister. | Hvilken offentlig liste er mest dekkende, når er den oppdatert, og hva betyr aktiv status? | Ikke map enkeltgårder eller praksisfelt som validerte før listeeier eller primærkilde bekrefter universet. |
 
+## P2.4 til G1-D2
+
+G1-D2 beslutningspakken ligger i \`research/_status/food-tg-r14/actor-gate/G1-D2-andelslandbruk-outreach-beslutningspakke-2026-07-04.md\`. Den gir menneskelig ja/nei/vent-beslutning for D2 først, men åpner ikke outreach alene.
+
 ## Klar-til-G1 spørsmålspakke
 
 1. Kan dere bekrefte at listen er aktiv per 2026, og hva som er siste oppdateringsdato?
@@ -409,6 +413,58 @@ P2.4 velger rekkefølge for actor-gate uten å gjennomføre outreach. Første as
 - Ingen e-post, intervju, skjema eller annen outreach er gjennomført i P2.4.
 - Listen er en prioriterings- og forberedelsesflate, ikke en validering.
 - Actor-gate kan bare lukkes etter G1/scope-vedtak og dokumentert svar eller primærkilde.`
+
+const g1D2DecisionPackBody = `## Formål
+
+Dette er en G1-beslutningspakke for D2 andelslandbruk. Den skal gjøre det lett for menneskelig beslutningseier å godkjenne, avvise eller utsette første actor-gate-outreach uten å åpne nye claims.
+
+## Beslutning som trengs
+
+| Valg | Hva det betyr | Når riktig | Neste handling |
+|---|---|---|---|
+| Godkjenn D2 | D2 kan gå fra forberedelse til kontrollert outreach/PCQ-forberedelse. | Teamet har scope-/G1-vedtak og vil avklare aktiv andelslandbruksliste før ny figur. | Send bare D2-asken, logg svar og bruksrett samme dag. |
+| Avvis D2 nå | D2 holdes som historisk/parkert kandidat. | Teamet vil ikke bruke andelslandbruk som nær aktørdata i kommende briefing/figur. | Behold 93/2023 kun som historisk anker med caveat. |
+| Vent | Ingen kontakt; mer offentlig kildejakt først. | Det mangler beslutningseier, mottaker eller kildegrunnlag for trygg ask. | Finn offentlig 2026-liste eller tydelig dataeier før ny G1-runde. |
+
+## Anbefalt default
+
+Vent eller godkjenn D2 med smal scope. D2 bør bare åpnes hvis beslutningseier aksepterer at dette er datakvalitetsavklaring, ikke ekstern fortelling, og at svaret kan bli "kan ikke deles".
+
+## Foreslått D2-ask
+
+1. Finnes det en aktiv 2026-liste over andelslandbruk per gård?
+2. Hva betyr statusfeltet: aktiv, registrert, historisk, pilot, ukjent eller avviklet?
+3. Hvilke felt kan brukes offentlig: navn, kommune/sted, organisasjonsform, eventuell org.nr., start/slutt, status og kilde-URL?
+4. Hvilke rader eller felt skal ikke brukes av personvern-, medlems- eller metodehensyn?
+5. Hvem kan godkjenne bruken i intern Obsidian/app/briefing, og hvilken caveat må følge?
+
+## Mottakerrolle og avsenderkrav
+
+| Felt | Krav før sending |
+|---|---|
+| Mottakerrolle | Datavokter for aktiv andelslandbruksliste, primært Landbruksdirektoratet/Økologisk Norge-sporet. |
+| Avsender | Menneskelig prosjektansvarlig, ikke automatisert agent. |
+| Beslutningslogg | G1-vedtak, dato, beslutningseier og scope må stå i prosjektlogg før sending. |
+| Responslogg | Svar, kilde-URL, bruksrett, datostempel, caveat og neste gate logges samme dag. |
+| Publiserbarhet | Ingen ekstern bruk før PCQ/claim-lock/citable-gate. |
+
+## Stopplinjer
+
+- Ikke send noe uten eksplisitt G1/scope-vedtak.
+- Ikke bruk 93 fra 2023 eller eldre R13-rader som nåtidstall.
+- Ikke behandle manglende svar som null funn eller null aktivitet.
+- Ikke publiser gårds-/person-/medlemsdata uten eksplisitt offentlig lokator og bruksrett.
+- Ikke merk actor-gate som validert før dokumentert svar eller primærkilde finnes.
+
+## Etter svar
+
+| Svarutfall | Gate |
+|---|---|
+| Offentlig 2026-liste med lokator og bruksrett | PCQ først, deretter eventuell claim-lock for presis formulering. |
+| Delvis liste eller metodeforklaring | Intern source-shortlist/PCQ med synlige hull. |
+| Nei/kan ikke deles | D2 blir parkert; bruk historisk 2023-anker kun med caveat. |
+| Ingen svar | Fortsetter som actor-gate, ikke som validert aktørkart. |
+`
 
 for (const [file, sub, id, note] of actorTargets) {
   writeCsv(join(actorGateDir, file), [{
@@ -431,8 +487,9 @@ for (const [file, sub, id, note] of actorTargets) {
   }])
 }
 write(join(actorGateDir, 'D6-aktor-sporsmalspakker.md'), artifact('D6 aktørspørsmålspakker', actorGateP24Body))
+write(join(actorGateDir, 'G1-D2-andelslandbruk-outreach-beslutningspakke-2026-07-04.md'), artifact('G1-D2 andelslandbruk outreach-beslutningspakke', g1D2DecisionPackBody, '2026-07-04'))
 decisions.push(withIkkeSi(
-  decision('11', 'D1-D6', 'Actor-gate prep', join(actorGateDir, 'D6-aktor-sporsmalspakker.md'), 'actor-gate', 'aktørspørsmål', 'P2.4 prioriterer D2 andelslandbruk først, D4 frø/genressurs nummer to og D1/D3/D5 som samlet lokal/regenerativ metodepakke; ingen outreach er utført.', 'R13 actor-gate-kilder + P2.4 prioritering', 'G1/scope-vedtak og dokumentert svar eller primærkilde mangler fortsatt.'),
+  decision('11', 'D1-D6', 'Actor-gate prep', join(actorGateDir, 'D6-aktor-sporsmalspakker.md'), 'actor-gate', 'aktørspørsmål', 'P2.4 prioriterer D2 først; G1-D2 beslutningspakke er opprettet for ja/nei/vent, men ingen outreach er utført.', 'R13 actor-gate-kilder + P2.4 prioritering + G1-D2 beslutningspakke', 'G1/scope-vedtak og dokumentert svar eller primærkilde mangler fortsatt.'),
   [
     'Ikke merk actor-gate som validert før menneskelig svar eller primærkilde.',
     'Ikke bruk eldre kandidatlister som nåtidstall.',
