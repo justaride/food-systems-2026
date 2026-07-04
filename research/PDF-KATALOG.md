@@ -1,9 +1,9 @@
 # PDF-katalog — research/
 
 > AUTO-GENERERT av `scripts/build-pdf-catalog.ts` — ikke rediger manuelt.
-> Generert: 2026-04-27T10:41:09.780Z
+> Generert: 2026-07-04T18:33:57.855Z
 
-**Totalt:** 399 PDF-er, 56 dupe-grupper
+**Totalt:** 436 PDF-er, 57 dupe-grupper
 
 ## Duplikater (samme SHA256)
 
@@ -22,7 +22,6 @@
 - `9f8d0396d2dd`:
   - `arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Afgangsprojekt_HD1_Analyse_af_Salling_Group_AS_og_Coop_Danmark_AS.pdf`
   - `evidence-pack/akademia/huynh-mortensen-2025.pdf`
-  - `evidence-pack/nordisk/salling-coop-danmark-2025.pdf`
 - `82be185d01c8`:
   - `arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/dagligvare_rapport.pdf`
   - `arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/dagligvare_rapport (1).pdf`
@@ -190,6 +189,9 @@
 - `169d47c9eecb`:
   - `arkiv-sortert/Food Research Process 20.04.26/08_Food_Security_Agriculture_And_Seafood/matsikkerhet-og-beredskap-pa-landbruksomradet.pdf`
   - `evidence-pack/offentlig/riksrevisjonen-matsikkerhet-2023.pdf`
+- `d86d220158a6`:
+  - `bibliotek/nordisk/future-nordic-diets-tn2017-566.pdf`
+  - `evidence-pack/nordisk/future-nordic-diets-tn2017-566.pdf`
 
 ## `arkiv-sortert/` — 267 PDF
 
@@ -463,7 +465,15 @@
 | `arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/Susanne_Helen_Gangstøe_Masteroppgave (1).pdf` | 644 KB | 56 | $©ÒÅAlª tuVØÏâg,¯FØì41ë²LAdRß1_m'£Æ´,ÇÄÊÐ¹Ayù©ç*®\SÃ«ò3ôÆ¥ÌøðzøÊr=zóNKb1«¶7PVã{uuÈºë¥kïa$cT¶Ù3Î | Ulrikke Schill | 20190601114905 |
 | `arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/Utredning-om-prisjusteringsvinduer-2023 (1).pdf` | 1.4 MB | 47 | M2ØÂ7³µ½Û>ë¹U\|SNmBÎVt¢¦mÚÇ_þeÅÄÅû+SÝ8sÊ&Õ¦ïîïÏÎJó·ø¢ëf4Ü~ÏKçÝUÏf^(vßt2Ý¯3h-dW×+W9ßâÎª[¹vÂfÕ&û°çó§~93 |  |  |
 
-## `evidence-pack/` — 95 PDF
+## `bibliotek/` — 3 PDF
+
+| Fil | Størrelse | Sider | Tittel (metadata) | Forfatter | Creation |
+|---|---:|---:|---|---|---|
+| `bibliotek/nordisk/future-nordic-diets-tn2017-566.pdf` | 1.6 MB | 98 | Òøövªc·<`*ädüøääI¬\Bè\f~ÇSD3å<´­Î=sK6Twu/«^³êÔy2\`À"F¢Ì\|b³¢yWrIvPr@üáÉ¯6¨öji'ÈüÅ»ücQÄçÙ/n/Ésé1ú´ö² |  |  |
+| `bibliotek/sirkularitet/kilder/ks-veileder-sirkulaerokonomi-om-veilederen-2022.pdf` | 1002 KB | 4 | Om veilederen - Hjem |  | 20260602122855 |
+| `bibliotek/sirkularitet/kilder/resource-se-slutrapport-regional-resurskartlaggning-2026-03.pdf` | 2.8 MB | 48 | Förord |  | 20260306164105 |
+
+## `evidence-pack/` — 120 PDF
 
 | Fil | Størrelse | Sider | Tittel (metadata) | Forfatter | Creation |
 |---|---:|---:|---|---|---|
@@ -512,6 +522,7 @@
 | `evidence-pack/akademia/sturen-2023.pdf` | 2.3 MB | 58 | \|¡Ç6DfLVø~ã½×ãÅ!õÅ(¿WQ²ÙCTèB[F!ÑTÐ S`A;¡@ MÁÝjÐ E ;¿>ÔÝ9hÉ§IÅ¨«ÀøEÝÜBïðp{¦"D©µÍBÍXW{5æ½:O!´×Aw-ôÐÎ ù!û |  |  |
 | `evidence-pack/akademia/tanderup-rasmussen-hansen-2023.pdf` | 3.4 MB | 140 | 1. Abstract |  | 20230508162209 |
 | `evidence-pack/akademia/ulsaker-phd-thesis.pdf` | 533 KB | 99 | I rl´¥ø}¢BöûL½ârÅ@IíZîqHôò­Þj½S²ø~3$îË÷;N÷`!Ý6]¢Ë÷è/g}BÎô4Ý7±íÛÁ·2&/+É8ç«s8¿=Â¹ÈhÈùÈ,ÙØPEìóí§é«loÑ!®1£Æ° |  |  |
+| `evidence-pack/akademia/wur-elbersen-agri-residues-2022.pdf` | 1.8 MB | 51 | .~ä6å6ôi ¨ðÈÙ%`GÈã.I9rºÊºeñYòÎQU¿Â~?.~U\ßäDKÅMø<Wtû-ÙÓÅÃÃâRüýÏs^¨îÞÝy1ñ'I~ìx¯à]WØxoâÍÒ¯sç\|eû+ nN](É |  |  |
 | `evidence-pack/akademia/zakeri-lei-2024.pdf` | 4.5 MB | 108 | 1 Introduction | Amirhadi Zakeri | 20240618094103 |
 | `evidence-pack/arsrapporter/asko-barekraft-2024.pdf` | 17.8 MB | 49 | £ê\|k¡Ujw;¯Lö-mÌÿÖ{ ¤­­%K !¸¸V{5ägd«ôÌAv *úD¥ýD1 å$r"é½ Ê= ¸ôÐô yÈ~OFËâ6·R2Ð©ÛkH>È@c($°êÐ7ÑÿyqUõÆceÓ1%®~· |  | 20250422134322 |
 | `evidence-pack/arsrapporter/axfood-annual-report-2024.pdf` | 14.9 MB | 159 | /éX¶ÇåBì§ä0oVXóµÇåBì§äÃT¼ÅQÊ%F]EÇ¨'²xÆ<{ .OdB2OdB ä.OdaÉäÂd#½6(Ø¥1zlM&vîCw6O&'²!!1Ä5uFµ«Ï«êßeý<6þú¶± |  |  |
@@ -527,13 +538,14 @@
 | `evidence-pack/konsulentrapport/oslo-economics-forsvar-2024.pdf` | 762 KB | 18 | Konkurransen i dagligvare-markedet – betydelig bedre enn sitt rykte! | OE | 20240606193020 |
 | `evidence-pack/nordisk/finland-food-market-ombudsman-2023.pdf` | 1.5 MB | 27 | ýµkqËf:e÷y>m¿kñÈ«zÏñ¸Y:ô¥mw4¢ÙßþQøG{X»]»w.þáºA?õ´Ì'¢ñ±VÙÉ3úWÚo¯ï;çÛUlÞ»£8ÓïÐâê} vo²ïd@¨Æ«[uk©ºkùOß-¯¥V'x |  |  |
 | `evidence-pack/nordisk/finland-food2030.pdf` | 1.0 MB | 42 | Fqð0~p®ç~Æ¹«Á¹«Á7þ{*î©Ö'8÷N¯â`ã8ÇÁ8Vã`yò5.ãb9.ª¸¨â¢*.ª¸¨âb£¸ÅÅ(.Fq1Q\âb£¸ÅÅ(.Fq1Q\âb£¸ÅÅ(.Fq1Q\âb |  |  |
+| `evidence-pack/nordisk/future-nordic-diets-tn2017-566.pdf` | 1.6 MB | 98 | Òøövªc·<`*ädüøääI¬\Bè\f~ÇSD3å<´­Î=sK6Twu/«^³êÔy2\`À"F¢Ì\|b³¢yWrIvPr@üáÉ¯6¨öji'ÈüÅ»ücQÄçÙ/n/Ésé1ú´ö² |  |  |
 | `evidence-pack/nordisk/is-samkeppni-annual-report-2024.pdf` | 7.0 MB | 47 | û¦½<óÓY w;vö>²»p¬Q8"{Î%ËEd ¡&Ñ+Í(dTwÝ»N»«Ê>7÷XßZWè3LÓ69ÓÈa_ðE%,Dvt¿Îòx÷Q¸ªÅHÏ¨!Oî¡O$q_1fTaHk.h^Bk±VfLTÿÖ |  | 20251002120826 |
 | `evidence-pack/nordisk/kfst-salling-coop-2025-full.pdf` | 2.8 MB | 76 | Salling Group A/S erhvervelse af dele af Coop Danmark A/S |  | 20250326135153 |
 | `evidence-pack/nordisk/konkurrensverket-2024-4-dagligvaruhandelns-etablering.pdf` | 3.9 MB | 1 | Dagligvaruhandelns etablering i kommunerna. Konkurrensverkets rapport 2024:4. | Leif Nordqvist | 20240620165254 |
 | `evidence-pack/nordisk/konkurrensverket-summary-2024.pdf` | 2.9 MB | 56 | ©ÞÈ° ¯ 5dùSi!®LÙõ6-r«<Ê1l_CÄ ð³ Tjùfq¢¡ç¨â$¤$ZãÚÔoY­ÖtÑ°³¥êDSM:Ú rDo² Z,z¡Q8¨zIOí ºvàX^\£=Æ§2LtÕHd?y»¾ý~}Õ |  |  |
 | `evidence-pack/nordisk/nordic-food-markets-2005.pdf` | 1.3 MB | 137 | Y¡db§»pþ³*ÀÎûBÚÚ!¿yY¥4È_µÈñs~;«*obÓ¶k±<¬ÅcóWs¤Óå=¢ù6^V»lÿjÄr·âÓöK»Û®röÇâc&ë¢¬+:-Þ³ø²Jâ+ÍâY/, óAaøýF<¡¤SñÄDÏ |  |  |
+| `evidence-pack/nordisk/nordic-nutrition-recommendations-2023.pdf` | 19.1 MB | 374 | q,%6,.HaÏ>{íþµúÊ'?m[Þ_W1ØP5Ø`®7ÖTTUöW®­4ÊËûËåÆÊ¡²N³©¿¡zZµûjKzÌ¥½ÕÆ:3Ô[ÐÙvµ®åKÝMlø Ø¾ó~ËD.Øõf;ÅH%øËO=i¨îïz µÕt |  |  |
 | `evidence-pack/nordisk/pty-finnish-grocery-trade-statistics-2024.pdf` | 332 KB | 10 | ÑE!0L#´Ê4×¢´Ç¼W ¤ ¢ ¢BQHAE<4xÒQ£Á&ÀUâø¶¡EôõJþäðÖCÅTËÔÚüÝ¹T<æ¥ìè¢z HøÃÍÊDEêhÛÒä%&JNs´²Qé7É3¥b.õ%vec[Í«`d­ |  | 20240620101422 |
-| `evidence-pack/nordisk/salling-coop-danmark-2025.pdf` | 459 KB | 42 | Analyse af  salling group A/S og coop danmark A/S | Lucas Emil Glinvad Pedersen | 20250527072515 |
 | `evidence-pack/nordisk/sou-2024-8-livsmedelsberedskap.pdf` | 2.3 MB | 364 | Ô«:_´ðEµ¦9ðÆÈ(37ÆHæÆL ¾réÀÍóu7Ü´èÿøîÎptI«êÑûN0ëck~¼$w~B¯ÊÖo {¥ÜF³²Oq«\²QËî-Ú%H÷%>ÂHuÏÙy¬ZÊ¸!^®ä!$À·ãÁr¼f0» |  |  |
 | `evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2021.pdf` | 1.6 MB | 26 | Årsrapport for Dagligvaretilsynet 2021 | Ingerid Magdalena Egeberg | 20220314163318 |
 | `evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2022.pdf` | 1.1 MB | 31 | Årsrapport for Daglegvaretilsynet              2022 | Ingerid Magdalena Egeberg | 20230417094715 |
@@ -552,6 +564,29 @@
 | `evidence-pack/offentlig/nou-2022-14.pdf` | 4.3 MB | ? | NOU 2022: 14 | Landbruks- og matdepartementet | 20220926125114 |
 | `evidence-pack/offentlig/riksrevisjonen-matsikkerhet-2023.pdf` | 11.3 MB | 236 | C ¤KPeC»LLõÃ·Ýíèf±tKeáh·²uÛmKIa±s¬¦ëf©£Í\Tg]ÂVåªX±¶g·6ÃiÁ]æ¡E hY¤s gKú8&ê½vlÞÜ5Ãë-¸ÃÂ»ivöï8kÔ³²ÚC®0¿Àþ=Ú |  |  |
 | `evidence-pack/offentlig/src-73.pdf` | 3.9 MB | 13 | Circularity in Europe strengthens the sustainability of the global food system | H. H. E. van Zanten | 20230420152945 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/dk-landbrugsstyrelsen-okologiske-jordbrugsbedrifter-2024.pdf` | 5.8 MB | 58 | Microsoft Word - Statistik over økologiske jordbrugsbedrifter 2024 udkast 6 - jenpet.docx | Daniel Gross Bjerregård | 20250722124912 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/dk-okologisk-landsforening-arsrapport-2025.pdf` | 1.3 MB | 75 | \|þ·=ÅkKÛpNíi\¼¶äBûrAÙ'?ôÙÆÖ'~âB°¼hgvC~ãmjsö\| Ô£bÕ©®5ì] Ü\%Bº&Y°\U¡ÓÔO×áÄWEë¯2çè@Iv?Q,d÷ºãÇNÇÙÕIo |  |  |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/dk-organic-denmark-market-report-2025.pdf` | 25.6 MB | 48 | t«ÓÚ[÷Ì­ã'¤f?i_E¯¤õCÚ&ÜöR¾íÖè5â/ùÖ5ÿ ^»Ö¬ÀolmbùeÞ#¡nÙÛPOûFÐnmo>@7@ûbR¦üê§Óø[c'<þx1\|Ö1üFè¶?{ûîÚcØ~8 |  | 20250806111851 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/fi-ruokavirasto-luomuvalvonta-2024.pdf` | 715 KB | 41 | ÆÂù<!B¿»þT8IÁ´îÆë¥HjT4ïlA<Ï'±'@»\|ÃëF¯íWÔÜÈ 5Ë.V·wÿÍz*[EiÔÉpð^]G¿÷ÕK@ÊÈùòs²fÑÎÔï"GÌÎ^¾Õ`¢DjÃÎh"eÄ9Ç$DñT8 |  | 20250429084901 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/is-esa-country-profile-iceland-2023.pdf` | 1.0 MB | 50 | ªMþöÞ¾ÖÓõ]áG¿v>e²­ûäTrï­ièîêý'ý¾òæçö×J¶«gæ}²kô½¡:Ï5uoìéúêº®ëfÜ4¯ ù·özzÎ5=À«ã¼3é³äì²l@ -$Û6ç}ý&[wï@Þ | Marenne, Lena | 20230424120135 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/is-esa-official-controls-2023.pdf` | 721 KB | 16 | INTRODUCTION | Marenne, Lena | 20250404125745 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/is-government-organic-action-plan-2024.pdf` | 5.7 MB | 21 | Inngangur |  | 20240827121053 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/no-debio-statistikk-2024.pdf` | 1006 KB | 22 | ßMæ^pJ+Ç@3ÍWûjKq·bgÂãÐô5Ûßáù*[±±<¨Ë\|ä´KÜp+Û.Ñ&Å;ý]òÇ÷Ì«¨ÈÀ9þµ-pÈ¾JòZ 1Ì"@Øò VRF±eiÆÝùÉÊ=sÍZÒ5àÀéíQMÚÌÇ¾3 | Peter Møller | 20250310103214 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/no-landbruksdirektoratet-okologiske-jordbruksvarer-2025.pdf` | 1.6 MB | 77 | Produksjon av økologiske jordbruksvarer | Mona Hadi | 20260416144614 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/nordic-fibl-ifoam-organic-world-2026.pdf` | 14.6 MB | 356 | Microsoft Word - willer-etal-2026-world-of-organic-2026-02-02-morning.docx | helga.willer | 20260202085044 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekologiska-arsrapporten-2024.pdf` | 2.7 MB | 23 | z.zÈkÇÙE%;o£Ì§¬÷ú2îuY¸OÍ¢U3ú÷È}ý~}ù2hÄ\|Òez×_m9¶®¦IVòÔÚÊVQËtw?Â»§.Ð!,G ºÔ©oHmÐÍz'yÇW/ãT °ß±§!øU,¼4Z |  | 20250424161318 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekologiska-marknadsrapporten-2024.pdf` | 2.9 MB | 29 | vp&¸h§cëaTÀ/èLÏ& âÈVc !ùM¢1À®öâ PÑXä[§dJ nNógZNJgVÞ:n_¢ÃÚ9#È+cõO3j ßÂöáHõªè-´îÅvÆÐJÏýâDývÑÈ ^q £gÑéÜ |  | 20240316163701 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-emc-marknadsrapport-2022.pdf` | 13.4 MB | 28 | 90æÃBX`1\|+`%¬°æÂXí5 "Y#ÄH1^¤B1Jäx/bE¶-&8'd¦LY2E©¡*§Él.sd RDÈÅ`(ÄXQ 1"W¤¡b½°ÁNxácp ÎÂs8áÜ­ |  | 20220517110438 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-emc-marknadsrapport-2023.pdf` | 16.8 MB | 32 | cãª¨CzsµaÁâVfþtÒ½¶TLzÝ0îªwaðQSrî¿­¦ùÜè[.óóñ{«M=siö:6aÝc?q÷?Þ³úùª= ÎÚz#»â;Ì&epüî]»m§Ùº>aÊwþäÆÞ~Ò®÷ø×æ- |  | 20230503164456 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-kompletterande-statistik-ekologiska-arsrapporten-20` | 621 KB | ? | @æÊN¹¯øÐV¾#Ô?>n²ÔXçPWØÈ<u]1´ëñZ ×ñÌhji©èÜ¨Íja_µs` »Xí 8ùAVàÐ ü iü9qïµãÏýµËè9Ì¬b?MÇäw¾pk½ rÖ[¢i÷ª¦ÖLÝGiM ÷\|Vîþ |  |  |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-effektrapport-2025.pdf` | 10.5 MB | 13 | VD HAR ORDET |  | 20250417095241 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2023-april.pdf` | 3.2 MB | 8 | Futura zPö èA¹®{±EÊ=({Pô ìAÑ²EúøæÐc=8fvÈìÙ!³cfÌ2;fvÈìÍ![I} }I} }E}}MMMMMÍpÃð<¦c¦Ý\|Íh{ç0ë/aKLd?ø¯¿Æ4N&¬Âý`³ |  | 20230425162142 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2023-juni-potatis.pdf` | 4.1 MB | 9 | ¥~ðóN6Ûi¨$«'1ª¥Ë$¥ ×Û"ñW-:5<÷käöÃYÖ ¦Êý÷f0¥6,¥ôN ¤÷@mS¬ö¥7ùºèÒ1O2¾7;cÅ]Aº+mðü«ÁªªÙoÚwÚ±âçÒe8=¶2ð 6v¤~Æ¾QðÆôÐòä |  | 20230619083649 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2023-november-biologisk-mangfald.pdf` | 6.2 MB | 10 | nP ç¸üÔ² £³`¿C_°'§íYÔîí\|ws¹Á&x34ËvÇÔ8IÛç³võ¾uVéIL#õ8ó¥¾g#:÷£_Ðµköµâ(*AÁSEàÈ `F ñüµÜÎ}¢ÛÞ ãÜÑè(á°@èÁÜD(GÊ |  | 20231127084618 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2023-september-skolmjolk.pdf` | 3.1 MB | 8 | q\wä+UÑÅMé¶:V¥!>eL×6rJ:Re%1[i4N£Û[¤yM- 7ÉÑ$ Mºe=tú@"ºvÇ õ®hÖ¸ÞJDXã{Ôy#Æ/u½&Çh@Zð¨³!´ÇZíæ;Æ»òÒ¢ |  | 20230926164240 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2024-april.pdf` | 3.1 MB | ? | HÍ´+§\v$>±²NôÂÇ»%FXlÂÓ]ÿµA§Û(´¹(NîóÝSLôÇ-ê«»AíÛT¼Ýmb§räM¼µ>=U³í+XIu©Þ½¼9ÝrHò V¤Ü ÃSöÇ­Þæ-²Ö²Ý½É#ïËsøªIÃ\| |  | 20240417151044 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2024-oktober-beredskap.pdf` | 2.4 MB | 8 | ã÷ªMü.á¶ÅG°Y¶¸¦OéfÈ_Q'GFÕ&3=±©ç4+SªÈSRhr¶´ðä¦i«Nr/P¹ßj³Uî¬6ÎGÒÝ[FÓU¬dW6èqWi²Õf»WÈ¢Óy¨KeÊùZFå%_ÚÑLjÕ±FLSU |  | 20241014163001 |
+| `evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2025-april.pdf` | 3.4 MB | 10 | ×Ú;¸eídùz¦JEy°\|Õ®¯-xíªöÛqõo,jj`ü§2FÉÞÍ,ÿ>ÑC'ZÝÜ¥¤WW'x;R5GrYÎ^]©Da°²dí#Í¸âxnºÇ¶xÇó§ø[[PÒ}t£jÆä'% |  | 20250403112015 |
 | `evidence-pack/tenketank/stockholm-resilience-2019.pdf` | 6.8 MB | 56 | Stockholm Resilience Centre Report March 2019 | Stockholms universitet | 20190619093820 |
 | `evidence-pack/tilsyn/dagligvarerapport-2024.pdf` | 2.1 MB | 23 | ¢¢´(«óPj²Ç®Æ>¨4%P ÆÙ^Iã`ø¥NdÓ`\|&+Òè¾° cot®tøHB6÷{Í¡oÉféÏ}ç3Ox²íìÍ^zCÚókÖy>Ü°¯­O\ME.2¥ì$H ü{ÓrªC |  |  |
 | `evidence-pack/tilsyn/dagligvaretilsynet-samarbeidsklima-2025.pdf` | 870 KB | 60 | æODÔ®Är°µá«¬Tð@[ytC«-$ç¯- AäsCÙßaèKÓAc»§$'.QÒ ç^1~ÆØq ~¡¥ÂneÅò³m S¢ w+Ù²åöÏ\|l]¦SrÃ-ÈÉ:%E¼³ÌA®²;¹â1Lv4Rc |  | 20251104112835 |
@@ -563,10 +598,19 @@
 | `evidence-pack/tilsyn/prisjeger-saken-2024-offentlig-versjon.pdf` | 4.9 MB | 492 | 5>o1n¥îv£ÌøñEíQ4ÏýÔ¹Æù3çZgóç:ñþî¼àlq¶Ò¬÷%w¹ûËîQî;iîÛîyÞ³æ½=Þ½Þßy_òîó¾LóßAï!ï½½G¼¯z{ÿ÷÷5#4Þìàÿ´ ¿ÄÿYÿ ÿçüý· |  |  |
 | `evidence-pack/tilsyn/prisjusteringsvinduer-2023.pdf` | 1.4 MB | 47 | M2ØÂ7³µ½Û>ë¹U\|SNmBÎVt¢¦mÚÇ_þeÅÄÅû+SÝ8sÊ&Õ¦ïîïÏÎJó·ø¢ëf4Ü~ÏKçÝUÏf^(vßt2Ý¯3h-dW×+W9ßâÎª[¹vÂfÕ&û°çó§~93 |  |  |
 
-## `external/` — 1 PDF
+## `external/` — 10 PDF
 
 | Fil | Størrelse | Sider | Tittel (metadata) | Forfatter | Creation |
 |---|---:|---:|---|---|---|
+| `external/dro-1206/downloads/dist/ofg-frukt-og-grontstatistikk-2025.pdf` | 1.6 MB | 24 | éãf®Ò6y7Ä+¢D!E¡A"ÈBB!B!B!!E!B-B!ÿÔè¨>F!" Q#@¢ æÆ9re¨æÆ¶!¶Z±¶&Æ6E¤"±n"&1±66ÈÂ¢,Ú ê DBH $8¡PR ÈÆ0Øc&9ql |  | 20260320100027 |
+| `external/dro-1206/downloads/sintef-fhf-analyse-marint-restrastoff-2024.pdf` | 4.3 MB | 48 | i×À](ÓÚ´×T[¹Ø:!ÂhÁ%v Oª]ßKól^òZvßMÆTÆv³1ÙºO¿ïÞº7xûüf«¶Ü" | i×À](ÓÚU¾ÏU:Fõ$+ÀêÁÌ~#Ù L¹µÜ_WGX- | i×À](ÓÚPô´ |
+| `external/dro-1206/downloads/valio/ruokavirasto-gm-soija-tuonti-rehukayttoon-2008-2023.pdf` | 340 KB | 1 | GM-soijan tuonti_kuvio23.xls | Korkalainen Katja (Ruokavirasto | 20240705145553 |
+| `external/dro-1206/downloads/valio/ruokavirasto-rehuaineet-lisaaineet-esiseokset-tuonti-2022-2023.pdf` | 193 KB | 2 | Tuonti_rehuaineet_ja_lisaaineet2223_020724.xlsx | Korkalainen Katja (Ruokavirasto | 20240710091509 |
+| `external/dro-1206/downloads/valio/ruokavirasto-rehuaineiden-valmistus-2022-2023.pdf` | 354 KB | 3 | Rehuaineet_valmistus23_180624.xlsx | Korkalainen Katja (Ruokavirasto | 20240701135414 |
+| `external/dro-1206/downloads/valio/ruokavirasto-rehuvalvonta-2025.pdf` | 721 KB | 42 | 2õ\|ùÌNr¾oÉûÚÛè¼BNwO¨ÏGýoæÊ¾xF=3O4é!5TÏwò»r!éá1ÝíÎèÔÿ¾z É½Æ,c H\|÷0ÅåhÁg¨/BÎ`ºI-c¢]u­â¸¢{ÑX3ª»;Y?áGPðÒy9H |  | 20260420135750 |
+| `external/dro-1206/downloads/valio/ruokavirasto-tuotantoelainten-rehuseosten-tuonti-2018-2023.pdf` | 555 KB | 2 | Koonti_tuonti_tuotantoelainten_rehuseokset23.xlsx | Korkalainen Katja (Ruokavirasto | 20240705131825 |
+| `external/dro-1206/downloads/valio/ruokavirasto-tuotantoelainten-rehuseosten-valmistus-2011-2023.pdf` | 723 KB | 5 | Rehuseokset_koonti_2011_23.xlsx | Korkalainen Katja (Ruokavirasto | 20240607123212 |
+| `external/dro-1206/downloads/zero-waste-scotland-characterising-fish-processing-by-products.pdf` | 1.1 MB | 29 | Executive Summary | Leah Gourley | 20241203160931 |
 | `external/nch-contract/contract-201-2503-P25013.pdf` | 2.1 MB | 17 | UYì5 ÁÑå¢bÔ½Ýz£ä­Á1a$#iW1² H¢iW5o6ñn´ß²ù£ám¦úIÔJzÏX #I=Åc4,Xu£:W~Ìd.Q3@<!ìt256¨CèµÑ0j&T ÷1ÙV |  |  |
 
 ## `pdf-downloads-20-04-26/` — 22 PDF
@@ -590,7 +634,7 @@
 | `pdf-downloads-20-04-26/nl-20200417-029.pdf` | 150 KB | 4 | HB;é 8¸¹Õ&wh7OoèÖpøo×k6¯*<¸»ìâÑ^ÿºTåÿfÃËÇ*¾:Üëê½Ùp£þ·ª:^¼rácêÁ¤Û8fÏ£Kî/öÜºp¶½7þrÏÚxÒÃd°YAPºoß¾É'<xÐ AÒêê | Dag T. Hoelseth | 20200417170342 |
 | `pdf-downloads-20-04-26/no.ntnu_inspera_142433913_96959685.pdf` | 5.9 MB | 81 | oðiCRnòÀúÆ¬eýÉMGRö~m÷¦g?ÆØúß3;÷â[ý:l6wrÜ[ÃRj¹ {Hû1«e\4}¥\|ÅnãW.·hò(KÔ\ø¾_ßÒó¥a§ÿìuÇHþÜý÷+ît× ~KûÚT\°®õ_Ú6+ |  | 20230609103605 |
 | `pdf-downloads-20-04-26/qmr-06-2020-0073.pdf` | 522 KB | 17 | Practicing mundane consumer resistance in the REKO local food system | Pardeshi, Mangesh | 20210728040207 |
-| `pdf-downloads-20-04-26/Reviews in Aquaculture - 2018 - Nogales‐Mérida - Insect meals in fish nutrition.pdf` | 864 KB | ? | Insect meals in fish nutrition |  | 20191015184234 |
+| `pdf-downloads-20-04-26/Reviews in Aquaculture - 2018 - Nogales‐Mérida - Insect meals in fish nutrition.pdf` | 864 KB | ? | Insect meals in fish nutrition |  | 20191015184234 |
 | `pdf-downloads-20-04-26/sf-20260417-0601.pdf` | 78 KB | 1 |  |  |  |
 | `pdf-downloads-20-04-26/stm201920200027000dddpdfs.pdf` | 34.4 MB | ? | A | Elisabeth Vistung | 20200616122418 |
 | `pdf-downloads-20-04-26/sustainability-13-10471-v2.pdf` | 2.1 MB | 23 | Revitalization of Food in SwedenA Closer Look at the REKO Network | Axel Gruvaeus and Johanna Dahlin | 20210923092732 |

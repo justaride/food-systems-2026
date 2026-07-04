@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-28T13:01:23.072Z",
+  "generatedAt": "2026-07-04T18:36:37.025Z",
   "theses": {
     "jacobsen-jansson-2022": {
       "pdf": "evidence-pack/akademia/jacobsen-jansson-2022-black-sheep.pdf",
@@ -339,12 +339,6 @@
       "confidence": "high",
       "why": "manual-override"
     },
-    "kfst-salling-coop-2025": {
-      "pdf": "evidence-pack/nordisk/kfst-salling-coop-2025-full.pdf",
-      "score": 18,
-      "confidence": "high",
-      "why": "id-boundary+year-2025+title-salling,coop"
-    },
     "se-konkurrensverket-2024-5": {
       "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurrensverket - rapport 2024 5 summary (2024).pdf",
       "score": 6,
@@ -393,6 +387,18 @@
       "confidence": "high",
       "why": "manual-override"
     },
+    "future-nordic-diets-tn2017-566": {
+      "pdf": "bibliotek/nordisk/future-nordic-diets-tn2017-566.pdf",
+      "score": 26,
+      "confidence": "high",
+      "why": "exact-id+year-2017+title-future,diets"
+    },
+    "nnr2023-nordic-nutrition-recommendations": {
+      "pdf": "evidence-pack/nordisk/nordic-nutrition-recommendations-2023.pdf",
+      "score": 11,
+      "confidence": "medium",
+      "why": "year-2023+title-3tok"
+    },
     "stockholm-resilience-2019": {
       "pdf": "evidence-pack/tenketank/stockholm-resilience-2019.pdf",
       "score": 999,
@@ -404,12 +410,6 @@
       "score": 6,
       "confidence": "low",
       "why": "year-2026+title-nibio,2026"
-    },
-    "sirkularitet-matsvinn-2024": {
-      "pdf": "evidence-pack/offentlig/matsvinnutvalget-2024.pdf",
-      "score": 6,
-      "confidence": "low",
-      "why": "year-2024+title-matsvinn,2024"
     },
     "akademia-sifo-kundeprogram-2026": {
       "pdf": "evidence-pack/akademia/akademia-sifo-kundeprogram-2026.pdf",
@@ -473,12 +473,6 @@
     },
     "dk-salling-coop-decision-2025": {
       "pdf": "evidence-pack/nordisk/dk-salling-coop-decision-2025.pdf",
-      "score": 999,
-      "confidence": "high",
-      "why": "manual-override"
-    },
-    "salling-coop-danmark-2025": {
-      "pdf": "evidence-pack/nordisk/salling-coop-danmark-2025.pdf",
       "score": 999,
       "confidence": "high",
       "why": "manual-override"
@@ -557,12 +551,6 @@
     },
     "nou-2013-6-god-handelsskikk": {
       "pdf": "evidence-pack/offentlig/nou-2013-6-god-handelsskikk.pdf",
-      "score": 999,
-      "confidence": "high",
-      "why": "manual-override"
-    },
-    "agrianalyse-bondens-andel-2025": {
-      "pdf": "evidence-pack/akademia/agrianalyse-bondens-andel-2025.pdf",
       "score": 999,
       "confidence": "high",
       "why": "manual-override"
@@ -725,6 +713,12 @@
       "confidence": "high",
       "why": "filename-exact+year-2024"
     },
+    "src-48": {
+      "pdf": "evidence-pack/okologisk-norden-2026-04-29/downloads/dk-okologisk-landsforening-arsrapport-2025.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2025+title-forening,2025"
+    },
     "src-53": {
       "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet-tildelingsbrev-2025.pdf",
       "score": 6,
@@ -756,10 +750,10 @@
       "why": "filename-contains+year-2024"
     },
     "src-79": {
-      "pdf": "evidence-pack/nordisk/kfst-salling-coop-2025-full.pdf",
-      "score": 12,
-      "confidence": "medium",
-      "why": "year-off-by-one+title-4tok"
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/KFST - 20241120 evaluering af foedevarehandelsloven 2024 (2024).pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-kfst,2024"
     },
     "src-82": {
       "pdf": "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Konkurrensverket - rapport 2025 5 (2024).pdf",
@@ -773,17 +767,11 @@
       "confidence": "medium",
       "why": "title-5tok"
     },
-    "src-84": {
-      "pdf": "evidence-pack/arsrapporter/reitan-retail-2024.pdf",
+    "src-86": {
+      "pdf": "evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2024-april.pdf",
       "score": 6,
       "confidence": "low",
-      "why": "year-2024+title-retail,2024"
-    },
-    "src-85": {
-      "pdf": "evidence-pack/arsrapporter/reitan-retail-2024.pdf",
-      "score": 6,
-      "confidence": "low",
-      "why": "year-2024+title-retail,2024"
+      "why": "year-2024+title-april,2024"
     },
     "src-90": {
       "pdf": "evidence-pack/akademia/lehtokunnas-phd-2023.pdf",
@@ -796,6 +784,12 @@
       "score": 29,
       "confidence": "high",
       "why": "filename-exact+year-2024+title-2024"
+    },
+    "src-104": {
+      "pdf": "external/dro-1206/downloads/zero-waste-scotland-characterising-fish-processing-by-products.pdf",
+      "score": 9,
+      "confidence": "low",
+      "why": "title-3tok"
     },
     "src-135": {
       "pdf": "arkiv-sortert/Food Research Process 20.04.26/00_Working_Files/Research-Report-Norges-matrevolusjon-2026.pdf",
@@ -880,14 +874,36 @@
       "score": 6,
       "confidence": "low",
       "why": "year-2024+title-2024,2025"
+    },
+    "src-170": {
+      "pdf": "evidence-pack/akademia/wur-elbersen-agri-residues-2022.pdf",
+      "score": 31,
+      "confidence": "high",
+      "why": "filename-exact+year-2022+title-agri,residues"
+    },
+    "src-172": {
+      "pdf": "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/coop-danmark-aarsrapport-2024.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2024+title-coop,danmark"
+    },
+    "src-175": {
+      "pdf": "pdf-downloads-20-04-26/Aquaculture Nutrition - 2025 - Mahmud - Exploring Protein‐Based Fishmeal Alternatives for Aquaculture Feeds in Bangladesh.pdf",
+      "score": 9,
+      "confidence": "low",
+      "why": "title-3tok"
+    },
+    "src-182": {
+      "pdf": "bibliotek/nordisk/future-nordic-diets-tn2017-566.pdf",
+      "score": 6,
+      "confidence": "low",
+      "why": "year-2017+title-future,diets"
     }
   },
   "orphanPdfs": [
     "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/2022-68-EMV-og-innovasjon-i-dagligvare-1.pdf",
-    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/20250326-salling-groups-erhvervelse-af-dele-af-coop-danmark-a.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Aarsrapport-Dagligvaretilsynet-2023.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Aarsrapport-Dagligvaretilsynet-2024.pdf",
-    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Afgangsprojekt_HD1_Analyse_af_Salling_Group_AS_og_Coop_Danmark_AS.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvare_ Forskjeller i innkjøpspriser ytterligere redusert - Konkurransetilsynet.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet - Dagligvaretilsynet Hringssvar om endringer i lov om god handelsskikk handheving (2024).pdf",
     "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Dagligvaretilsynet-tildelingsbrev-2024.pdf",
@@ -1037,7 +1053,6 @@
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_4.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/cellar_1fefebb0-1b4e-11ee-806b-01aa75ed71a1.0001.02_DOC_5.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/cheffelo-publicerar-trading-update-for-q1-2026.pdf",
-    "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/coop-danmark-aarsrapport-2024.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/drager-og-vagene.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/energies-18-04093.pdf",
     "arkiv-sortert/Food Research Process 20.04.26/07_Academic_Research_And_Theses/etmv-toimintakertomus-2023-liitteineen.pdf",
@@ -1122,17 +1137,48 @@
     "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/coop-danmark-aarsrapport-2024 (1).pdf",
     "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/dagligvare_rapport (1).pdf",
     "arkiv-sortert/Food Research Process 20.04.26/99_Exact_Duplicates/dagligvare_rapport (2).pdf",
+    "bibliotek/sirkularitet/kilder/ks-veileder-sirkulaerokonomi-om-veilederen-2022.pdf",
+    "bibliotek/sirkularitet/kilder/resource-se-slutrapport-regional-resurskartlaggning-2026-03.pdf",
     "evidence-pack/arsrapporter/norgesgruppen-2024.pdf",
+    "evidence-pack/nordisk/future-nordic-diets-tn2017-566.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/dk-landbrugsstyrelsen-okologiske-jordbrugsbedrifter-2024.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/dk-organic-denmark-market-report-2025.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/fi-ruokavirasto-luomuvalvonta-2024.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/is-esa-country-profile-iceland-2023.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/is-esa-official-controls-2023.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/is-government-organic-action-plan-2024.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/no-debio-statistikk-2024.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/no-landbruksdirektoratet-okologiske-jordbruksvarer-2025.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/nordic-fibl-ifoam-organic-world-2026.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekologiska-arsrapporten-2024.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-ekologiska-marknadsrapporten-2024.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-emc-marknadsrapport-2022.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-emc-marknadsrapport-2023.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/se-ekomatcentrum-kompletterande-statistik-ekologiska-arsrapporten-2024.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-effektrapport-2025.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2023-april.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2023-juni-potatis.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2023-november-biologisk-mangfald.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2023-september-skolmjolk.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2024-oktober-beredskap.pdf",
+    "evidence-pack/okologisk-norden-2026-04-29/downloads/se-krav-ekobarometer-2025-april.pdf",
+    "external/dro-1206/downloads/dist/ofg-frukt-og-grontstatistikk-2025.pdf",
+    "external/dro-1206/downloads/sintef-fhf-analyse-marint-restrastoff-2024.pdf",
+    "external/dro-1206/downloads/valio/ruokavirasto-gm-soija-tuonti-rehukayttoon-2008-2023.pdf",
+    "external/dro-1206/downloads/valio/ruokavirasto-rehuaineet-lisaaineet-esiseokset-tuonti-2022-2023.pdf",
+    "external/dro-1206/downloads/valio/ruokavirasto-rehuaineiden-valmistus-2022-2023.pdf",
+    "external/dro-1206/downloads/valio/ruokavirasto-rehuvalvonta-2025.pdf",
+    "external/dro-1206/downloads/valio/ruokavirasto-tuotantoelainten-rehuseosten-tuonti-2018-2023.pdf",
+    "external/dro-1206/downloads/valio/ruokavirasto-tuotantoelainten-rehuseosten-valmistus-2011-2023.pdf",
     "pdf-downloads-20-04-26/1-s2.0-S0044848617322998-main.pdf",
     "pdf-downloads-20-04-26/1-s2.0-S0044848625013481-main.pdf",
     "pdf-downloads-20-04-26/1-s2.0-S2451943X24000486-main.pdf",
     "pdf-downloads-20-04-26/9789264268265-en.pdf",
-    "pdf-downloads-20-04-26/Aquaculture Nutrition - 2025 - Mahmud - Exploring Protein‐Based Fishmeal Alternatives for Aquaculture Feeds in Bangladesh.pdf",
     "pdf-downloads-20-04-26/Characteristics_and_stability_of_consumer_food-buy.pdf",
     "pdf-downloads-20-04-26/Economic feasibility of biochar for carbon stock enhancement in Finnish agricultural soils.pdf",
     "pdf-downloads-20-04-26/Exploring sustainable alternatives in aquaculture feeding_ The role of insects - ScienceDirect.pdf",
     "pdf-downloads-20-04-26/Insect-based livestock feeds are unlikely to become economically viable in the near future - ScienceDirect.pdf",
-    "pdf-downloads-20-04-26/Reviews in Aquaculture - 2018 - Nogales‐Mérida - Insect meals in fish nutrition.pdf",
+    "pdf-downloads-20-04-26/Reviews in Aquaculture - 2018 - Nogales‐Mérida - Insect meals in fish nutrition.pdf",
     "pdf-downloads-20-04-26/What does it take to close the loop_ Lessons from a successful citrus waste valorisation business _ British Food Journal _ Emerald Publishing.pdf",
     "pdf-downloads-20-04-26/brochure-utp-directive_en.pdf",
     "pdf-downloads-20-04-26/brt-2023-chapter-4-compliance-implementation-and-preparing-proposals_en.pdf",
@@ -1187,6 +1233,7 @@
       "matsystemutvalget-2026",
       "meld-st-4-dagligvare",
       "kt-markedsundersokelser-2026",
+      "kfst-salling-coop-2025",
       "kkv-fi-4a-dominans",
       "is-markedsstruktur-2024",
       "nordisk-sammenligning-2024",
@@ -1200,9 +1247,30 @@
       "soa-emv-2023",
       "civita-manifest-debatt",
       "norden-policy-2024",
+      "solutions-menu-2018",
+      "normo-2025-nordic-monitoring",
+      "meltzer-2024-sustainable-diets-nordics",
+      "harwatt-2024-environmental-sustainability-nordic-baltic",
+      "trolle-2024-fbdg-environmental-sustainability",
+      "jackson-holm-2024-food-sustainability-dimensions",
+      "erkkola-2025-nnr-evidence-to-action",
+      "karlstad-declaration-matberedskap-2024",
+      "danmark-groent-danmark-co2-avgift-2024",
+      "ifro-danish-soy-imports-2025",
+      "evida-biogasstatus-danmark-2024",
+      "biogas-danmark-outlook-2024",
+      "riksrevisionen-2025-jordbrukets-klimatomstallning",
+      "naturvardsverket-livsmedelsavfall-sverige-2024",
+      "jordbruksverket-livsmedelskonsumtion-sverige-2024",
+      "finland-nutrition-recommendations-2024",
+      "luke-peat-soils-roadmap-finland-2024",
+      "biokierto-biogas-finland-2030-2040-2024",
+      "statistics-finland-biogas-2024",
+      "valio-sustainability-report-2024",
       "beredskap-finsk-modell-hvk",
       "beredskap-island-melmolle-2025",
       "beredskap-nibio-selvforsyning-metode",
+      "sirkularitet-matsvinn-2024",
       "sirkularitet-definisjoner-wur-emf",
       "juridisk-eiendomsmakt-lokal-konkurranse",
       "juridisk-eudr-norge-2025",
@@ -1211,6 +1279,8 @@
       "akademia-nhh-matbors-historie",
       "akademia-uib-kjopermakt",
       "oversikt-bransje-statistikk-beredskap",
+      "food-systems-2026-pilot-funding-dossiers",
+      "food-systems-2026-internal-artifact-register",
       "oversikt-nordisk-mat-tenkere",
       "oversikt-nordisk-matmakt-historikk",
       "oversikt-nou-stortingsdok-juridisk",
@@ -1219,6 +1289,8 @@
       "oversikt-tenketanker-ngo",
       "oversikt-akademia-dyp-research",
       "oversikt-nordisk-avhandlingsregister",
+      "salling-coop-danmark-2025",
+      "agrianalyse-bondens-andel-2025",
       "pubmed-van-der-fels-klerx-2024",
       "pubmed-van-leeuwen-2024",
       "pubmed-hiis-2024",
@@ -1265,7 +1337,6 @@
       "src-43",
       "src-46",
       "src-47",
-      "src-48",
       "src-49",
       "src-50",
       "src-51",
@@ -1293,7 +1364,8 @@
       "src-77",
       "src-80",
       "src-81",
-      "src-86",
+      "src-84",
+      "src-85",
       "src-87",
       "src-88",
       "src-89",
@@ -1309,7 +1381,6 @@
       "src-101",
       "src-102",
       "src-103",
-      "src-104",
       "src-105",
       "src-106",
       "src-107",
@@ -1355,7 +1426,21 @@
       "src-160",
       "src-161",
       "src-162",
-      "src-163"
+      "src-163",
+      "src-165",
+      "src-166",
+      "src-167",
+      "src-168",
+      "src-169",
+      "src-171",
+      "src-173",
+      "src-174",
+      "src-176",
+      "src-177",
+      "src-178",
+      "src-179",
+      "src-180",
+      "src-181"
     ]
   }
 }

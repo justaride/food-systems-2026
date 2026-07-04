@@ -38,7 +38,6 @@
     "salling-group-2024": "evidence-pack/arsrapporter/salling-group-2024.pdf",
     "is-samkeppni-annual-report-2024": "evidence-pack/nordisk/is-samkeppni-annual-report-2024.pdf",
     "dk-salling-coop-decision-2025": "evidence-pack/nordisk/dk-salling-coop-decision-2025.pdf",
-    "salling-coop-danmark-2025": "evidence-pack/nordisk/salling-coop-danmark-2025.pdf",
     "konkurrensverket-summary-2024": "evidence-pack/nordisk/konkurrensverket-summary-2024.pdf",
     "finland-food-market-ombudsman-2023": "evidence-pack/nordisk/finland-food-market-ombudsman-2023.pdf",
     "finland-food2030": "evidence-pack/nordisk/finland-food2030.pdf",
@@ -52,7 +51,6 @@
     "eu-utp-report-2024": "evidence-pack/offentlig/eu-utp-report-2024.pdf",
     "eu-utp-staff-working-doc-2024": "evidence-pack/offentlig/eu-utp-staff-working-doc-2024.pdf",
     "nou-2013-6-god-handelsskikk": "evidence-pack/offentlig/nou-2013-6-god-handelsskikk.pdf",
-    "agrianalyse-bondens-andel-2025": "evidence-pack/akademia/agrianalyse-bondens-andel-2025.pdf",
     "nou-2022-14": "evidence-pack/offentlig/nou-2022-14.pdf",
     "oslo-economics-forsvar-2024": "evidence-pack/konsulentrapport/oslo-economics-forsvar-2024.pdf",
     "fivh-etikk-2025": "evidence-pack/tenketank/fivh-etikk-2025.pdf",
@@ -75,13 +73,17 @@
     "evidence-pack/akademia/pubmed/van-der-fels-klerx-hj-2024-framework-for-evaluation-of-food.pdf",
     "evidence-pack/akademia/pubmed/van-leeuwen-spj-2024-a-novel-approach-to-identify.pdf",
     "evidence-pack/akademia/pubmed/wohner-b-2020-environmental-and-economic-assessment-of.pdf",
-    "evidence-pack/akademia/pubmed/zamanzadeh-m-2017-biogas-production-from-food-waste.pdf"
+    "evidence-pack/akademia/pubmed/zamanzadeh-m-2017-biogas-production-from-food-waste.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/20250326-salling-groups-erhvervelse-af-dele-af-coop-danmark-a.pdf",
+    "arkiv-sortert/Food Research Process 20.04.26/03_Policy_Governance_And_Market/Afgangsprojekt_HD1_Analyse_af_Salling_Group_AS_og_Coop_Danmark_AS.pdf",
+    "evidence-pack/nordisk/kfst-salling-coop-2025-full.pdf"
   ],
   "_notes": {
     "dagligvarerapport-2025": "SHA256 identisk med dagligvarerapport-2024.pdf — ekte duplikat. Ekskludert.",
     "marginstudie-del1-del2-uten-suffiks": "Mindre/eldre utgaver av del1/del2-offisiell. Beholdt på disk, men offisiell-versjonene er kanoniske.",
+    "salling-coop-danmark-2025": "Rapporten har offentlig sourceUrl og unik lokal report-snapshot. Den byte-identiske evidence-pack-aliasen er slettet, og gammel arkiv-PDF skal ikke brukes som ny seed-map-kanonisk PDF.",
+    "agrianalyse-bondens-andel-2025": "Blocked source uten lokal PDF-mapping inntil ekte AgriAnalyse-PDF er hentet inn og verifisert.",
     "orphans-to-add-to-reports-ts": [
-      "agrianalyse-bondens-andel-2025.pdf",
       "asko-barekraft-2024.pdf",
       "axfood-annual-report-2024.pdf",
       "coop-norge-2024.pdf",
@@ -101,7 +103,6 @@
       "karlstad-declaration-2024.pdf",
       "nordic-food-alert-2025.pdf",
       "dk-salling-coop-decision-2025.pdf",
-      "salling-coop-danmark-2025.pdf",
       "finland-food-market-ombudsman-2023.pdf",
       "finland-food2030.pdf",
       "konkurrensverket-summary-2024.pdf",
