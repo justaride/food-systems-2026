@@ -19,6 +19,8 @@ bruksregel: Ingen ekstern claim, ingen safe_for_ai_context, ingen whitepaper-/de
 
 Påstanden om et samlet norsk næringsstoff-resirkuleringsgap på 25-30 % holdes **ikke** som åpnet claim i R14. P2.2-beslutningen 2026-07-04 nedgraderer raden til arbeidsmatrise: den kan bare videreføres hvis underliggende N/P/K-massebalanse får primærkilde per strøm og cellene merkes som `realisert`, `modellert`, `potensial/plan` eller `mangler`.
 
+P2.2 follow-up 2026-07-04 ligger i `research/_status/food-tg-r14/source-shortlist/VK4-GAP-007-npk-source-shortlist.md`. Den er en primærkildekø per strøm og næringsstoff, ikke en claim-åpning.
+
 | Strøm | N | P | K | Beslutning |
 |---|---|---|---|---|
 | Mineralgjødsel-referanse | referansegrunnlag | referansegrunnlag | referansegrunnlag | Kan brukes som denominator-kontekst, ikke som importerstattbar prosent alene. |

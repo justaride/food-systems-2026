@@ -16,7 +16,7 @@ Mottatt med 2 decision-rader.
 | ID | Tittel | Gate | Importbeslutning | Kort dom | Svakeste punkt |
 |---|---|---|---|---|---|
 | R13-GAP-005-CLAIMLOCK | GAP-005 claim-lock-kandidater | claim-lock | claim-lock-kandidat | Tre smale R13-GAP-005-rader er formulert som kandidater, ikke åpnet claims. | Alle kandidatene krever menneskelig claim-lock-beslutning før ekstern bruk. |
-| VK4-GAP-007 | Næringsstoff-gap 25-30 % | claim-lock | vent | Påstanden holdes som claim-lock-kandidat med nedgraderingsrisiko. | Mangler samlet primær norsk massebalanse for N/P/K. |
+| VK4-GAP-007 | Næringsstoff-gap N/P/K | claim-lock | vent | 25-30 %-påstanden er nedgradert til N/P/K-arbeidsmatrise; P2.2 follow-up oppretter primærkildekø per strøm og næringsstoff. | Mangler samlet primær norsk massebalanse for N/P/K, særlig realisert digestat-N/K og nasjonalt oppdrettsslam-aggregat. |
 
 ## Ikke-si
 
