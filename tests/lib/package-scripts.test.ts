@@ -306,6 +306,29 @@ describe('package scripts', () => {
     assert.match(scriptSource, /document\.update/)
   })
 
+  it('exposes guarded missing document file snapshot export commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const scriptSource = readFileSync(
+      join(process.cwd(), 'scripts', 'export-missing-document-file-snapshots.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['db:export:missing-document-files:dry-run'],
+      'tsx scripts/export-missing-document-file-snapshots.ts --dry-run',
+    )
+    assert.equal(
+      packageJson.scripts['db:export:missing-document-files:apply'],
+      'tsx scripts/export-missing-document-file-snapshots.ts --apply',
+    )
+    assert.match(scriptSource, /DATABASE_URL is required/)
+    assert.match(scriptSource, /parseApplyMode/)
+    assert.match(scriptSource, /writeFileSync/)
+    assert.match(scriptSource, /document\.update/)
+  })
+
   it('exposes guarded library analysis processing dry-run and apply commands', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
