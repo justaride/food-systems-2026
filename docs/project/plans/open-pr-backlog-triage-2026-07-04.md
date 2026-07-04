@@ -1,12 +1,13 @@
 ---
 tittel: Open PR backlog triage
 dato: 2026-07-04
-status: aktiv-ryddenotat
+status: lukket-ryddenotat
 grunnlag:
   - GitHub PR-liste lest 2026-07-04 etter merge av PR #221 og close av PR #114
-  - `git status -sb` på `main` ved `72231ad`
+  - `git status -sb` på `main` ved `2930a83`
   - GitHub PR #141 lukket 2026-07-04 etter at #264 reddet den smale konsern-år/testdelen
   - GitHub PR #159 lukket 2026-07-04 som stale samlet plattform-stack
+  - GitHub PR #142-#157 lukket 2026-07-04 som stale stacked draft-kjede
 siterbarhet: intern
 ---
 
@@ -14,7 +15,9 @@ siterbarhet: intern
 
 ## Kort konklusjon
 
-Ready/non-draft-flaten er ryddet: PR #221 er merget, og PR #114 er lukket som erstattet av #221. Den smale verdien i PR #141 er reddet gjennom #264, og #141 er lukket uten å slette branchen fordi den fortsatt er base for resten av goal-stacken. Den samlede plattform-PR-en #159 er også lukket som stale aggregate. Det står bare goal-stack draft-PR-er igjen. PR #142-#157 er en stacked PR-kjede, ikke 16 uavhengige PR-er mot `main`. De skal ikke merges automatisk selv om flere har grønne gamle checks, fordi de er eldre goal-slices og flere er store nok til å kreve ny scope-, rebase- og produktbeslutning.
+Open PR-flaten er ryddet: PR #221 er merget, PR #114 er lukket som erstattet av #221, PR #141 er erstattet av #264 for den smale konsern-år/testverdien, PR #159 er lukket som stale aggregate, og PR #142-#157 er lukket som gammel stacked draft-kjede. Det står ingen åpne PR-er igjen i GitHub-listen etter denne oppryddingen.
+
+Branchene for den gamle G-01 til G-17-kjeden er bevisst beholdt som recovery-historikk. De skal ikke merges direkte. Eventuelt gjenværende nyttig arbeid må hentes tilbake som ferske `main`-baserte PR-er med smalt scope, dagens tester og eksplisitt data-/produktbeslutning.
 
 ## Utført 2026-07-04
 
@@ -25,41 +28,24 @@ Ready/non-draft-flaten er ryddet: PR #221 er merget, og PR #114 er lukket som er
 | #264 `Add konsern coverage year tests` | Merget til `main` som `8c63016`. | Reddet den smale year-selection/testverdien fra dirty stack-root #141 uten å rebase hele gamle stacken. | Remote branch `codex/konsern-coverage-year-tests-2026-07-04` slettet. |
 | #141 `[codex] Fix konsern coverage measured year` | Lukket uten merge. | Den uttalte measured-year/testverdien er allerede på `main` via #264; gjenværende PR-diff er stale/dirty og må ikke merges som stack-root. | Branch `codex/goal-01-konsern-aar` ble beholdt fordi #142 fortsatt bruker den som base. |
 | #159 `feat: integrate Food TG platform lift stack` | Lukket uten merge. | Stale aggregate over G-01 til G-17, dirty mot dagens `main`, og erstattet som sannhetsflate av enkelt-PR-er/recovery-løp. | Branch `codex/platform-stack-integration-2026-06-11` ble beholdt for inspeksjonshistorikk. |
+| #142-#157 `G-02` til `G-17` | Lukket uten merge. | Draft-kjeden var fra 2026-06-11/15, 242-335 commits bak dagens `main`, og ikke current proof selv om PR-ene var clean mot sine gamle stack-baser. | Branchene `codex/goal-02-*` til `codex/goal-17-*` ble beholdt for recovery/cherry-pick-inspeksjon. |
 
 ## Gjenstående åpne PR-er
 
-| PR | Base | Head | Status | Størrelse | Triage |
-|---|---|---|---|---|---|
-| #157 | `codex/goal-16-claim-board-db` | `codex/goal-17-coverage-badge-system` | draft, clean | +125 / -0 | Toppen av goal-stack, ikke selvstendig `main`-PR. Må enten tas etter ny root/recovery og #142-#156 eller cherry-pickes til ny branch fra `main`. |
-| #156 | `codex/goal-15-detail-breadcrumbs` | `codex/goal-16-claim-board-db` | draft, clean | +723 / -15 | Stack-ledd; krever DB-/claim-board scope-review før ready. |
-| #155 | `codex/goal-14-listesider-utvalg` | `codex/goal-15-detail-breadcrumbs` | draft, clean | +317 / -60 | Stack-ledd; UI/route-slice krever fersk produktreview og build før ready. |
-| #154 | `codex/goal-13-forside-kontekst` | `codex/goal-14-listesider-utvalg` | draft, clean | +236 / -14 | Stack-ledd; UI/innholdsstruktur krever fersk produktreview og build før ready. |
-| #153 | `codex/goal-12-formaalsskille` | `codex/goal-13-forside-kontekst` | draft, clean | +115 / -24 | Stack-ledd; bør vurderes sammen med nåværende forside. |
-| #152 | `codex/goal-11-mandat-metodikk-split` | `codex/goal-12-formaalsskille` | draft, clean | +130 / -9 | Stack-ledd; krever fersk review mot dagens ruter. |
-| #151 | `codex/goal-10-tomme-tabeller` | `codex/goal-11-mandat-metodikk-split` | draft, clean | +83 / -82 | Stack-ledd; må sjekkes mot senere mandat/metodikk-endringer. |
-| #150 | `codex/goal-09-finansvisning-aar` | `codex/goal-10-tomme-tabeller` | draft, clean | +251 / -10 | Stack-ledd; kan være nyttig UX-slice, men krever fersk data-status/build. |
-| #149 | `codex/goal-08-finansdata-backfill` | `codex/goal-09-finansvisning-aar` | draft, clean | +220 / -38 | Stack-ledd; krever fersk økonomi-/datagrunnlagssjekk. |
-| #148 | `codex/goal-07-kolonnedefinisjoner` | `codex/goal-08-finansdata-backfill` | draft, clean | +1100 / -107 | Stack-ledd; data-/import-slice, ikke merge uten DB-migrerings- og auditløp. |
-| #147 | `codex/goal-06-kildede-kpier` | `codex/goal-07-kolonnedefinisjoner` | draft, clean | +464 / -53 | Stack-ledd; kan vurderes etter UI-scope. |
-| #146 | `codex/goal-05-missing-data-semantikk` | `codex/goal-06-kildede-kpier` | draft, clean | +363 / -26 | Stack-ledd; claim-/KPI-nær og krever claim-lock/citable-gate før ready. |
-| #145 | `codex/goal-04-proveniens` | `codex/goal-05-missing-data-semantikk` | draft, clean | +323 / -71 | Stack-ledd; må sjekkes mot nyere coverage-badge/statusspråk. |
-| #144 | `codex/goal-03-datastatus` | `codex/goal-04-proveniens` | draft, clean | +649 / -0 | Stack-ledd; krever citable-/route-review før ready. |
-| #143 | `codex/goal-02-import-reconciliation` | `codex/goal-03-datastatus` | draft, clean | +766 / -3 | Stack-ledd; må sammenlignes mot dagens `/api/data-status` og senere statusarbeid. |
-| #142 | `codex/goal-01-konsern-aar` | `codex/goal-02-import-reconciliation` | draft, clean | +42149 / -1307 | Stack-ledd; svært stor import/reconciliation-PR. Skal splittes eller rebaseres med eksplisitt mandat før merge. |
+Ingen.
 
-## Neste anbefalte rydderekkefølge
+## Recovery-spor
 
-1. Ikke merge flere drafts direkte fra gammel CI-status.
-2. Avklar om goal-stack #142-#157 fortsatt skal bevares som stack, eller om enkeltcommits skal cherry-pickes til nye `main`-baserte PR-er.
-3. Hvis stacken bevares: ikke reåpne #141 som merge-kandidat; #264 har allerede flyttet konsern-år/testdelen til `main`. Etabler i stedet en fersk root/recovery-branch fra dagens `main`, vurder eventuell gjenværende mandat-/intake-diff eksplisitt, kjør full lokal verifikasjon, og la #142-#157 følge etter i rekkefølge.
-4. Hvis stacken splittes: velg én smal commit, cherry-pick til ny branch fra `main`, opprett ny PR, og lukk den gamle stack-PR-en først når erstatningen er merged.
-5. Behandle #142 og #148 som data-/DB-saker med eksplisitt `DATABASE_URL`, full audit og egen importbeslutning.
-6. Lukk eller arkiver flere drafts først etter at branch/worktree er ren og det er dokumentert hva som erstatter dem.
+1. Ikke reåpne eller merge den gamle stacken direkte.
+2. Hvis en G-slice fortsatt trengs, start en ny branch fra dagens `main`, cherry-pick eller porter bare den aktuelle endringen, og åpne en ny smal PR.
+3. Behandle gamle #142 og #148 som data-/DB-saker hvis de hentes tilbake: eksplisitt `DATABASE_URL`, `npm run db:generate`, full audit, `npm test`, `npm run lint`, og `npm run build`.
+4. Behandle gamle #146, #150 og #151 som menneskelige produkt-/claim-scope-beslutninger før eventuell portering.
+5. Slett de beholdte `codex/goal-*` branchene først når recovery-behovet er eksplisitt avklart og det finnes en egen beslutningslogg for hva som ikke skal tas videre.
 
 ## Stopplinjer
 
-- Ikke markér en draft som ready bare fordi gamle checks er grønne.
-- Ikke merge stack-ledd direkte til `main` uten å bevare eller erstatte base-kjeden.
+- Ikke reåpne en lukket draft bare fordi gamle checks var grønne.
+- Ikke merge gamle stack-ledd direkte til `main`; porter smalt fra dagens `main`.
 - Ikke merge `DIRTY`, stor import, DB, claim/KPI eller plattform-PR uten fersk lokal verifikasjon mot dagens `main`.
-- Ikke slett lokale worktrees/branches uten `git status -sb` på den konkrete worktree.
+- Ikke slett recovery-brancher uten eksplisitt beslutning om at historikken ikke lenger trengs.
 - Ikke bland denne PR-ryddingen med Obsidian/P3.2 eller actor-gate-outreach; de krever egne menneskelige scope-valg.
