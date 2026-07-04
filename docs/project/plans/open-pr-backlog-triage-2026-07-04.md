@@ -20,6 +20,7 @@ Ready/non-draft-flaten er ryddet: PR #221 er merget, og PR #114 er lukket som er
 |---|---|---|---|
 | #221 `data-readiness: monthly audit 2026-07` | Merget til `main` som `403ce92`. | Ikke-draft, mergeable, grønne checks, og nyere månedsaudit. | Remote branch `audit/monthly-2026-07` slettet. |
 | #114 `data-readiness: monthly audit 2026-06` | Lukket uten merge. | Erstattet av #221/juli-auditen på samme generated audit-flate. | Worktree `.worktrees/audit-monthly-2026-06`, lokal branch og remote branch slettet. |
+| #264 `Add konsern coverage year tests` | Merget til `main` som `8c63016`. | Reddet den smale year-selection/testverdien fra dirty stack-root #141 uten å rebase hele gamle stacken. | Remote branch `codex/konsern-coverage-year-tests-2026-07-04` slettet. |
 
 ## Gjenstående åpne PR-er
 
@@ -42,13 +43,13 @@ Ready/non-draft-flaten er ryddet: PR #221 er merget, og PR #114 er lukket som er
 | #144 | `codex/goal-03-datastatus` | `codex/goal-04-proveniens` | draft, clean | +649 / -0 | Stack-ledd; krever citable-/route-review før ready. |
 | #143 | `codex/goal-02-import-reconciliation` | `codex/goal-03-datastatus` | draft, clean | +766 / -3 | Stack-ledd; må sammenlignes mot dagens `/api/data-status` og senere statusarbeid. |
 | #142 | `codex/goal-01-konsern-aar` | `codex/goal-02-import-reconciliation` | draft, clean | +42149 / -1307 | Stack-ledd; svært stor import/reconciliation-PR. Skal splittes eller rebaseres med eksplisitt mandat før merge. |
-| #141 | `main` | `codex/goal-01-konsern-aar` | draft, dirty | +786 / -310 | Stack-root, men dirty/stale. Ikke merge uten egen recovery/rebase. |
+| #141 | `main` | `codex/goal-01-konsern-aar` | draft, dirty | +786 / -310 | Stack-root, men dirty/stale. Den smale konsern-år/testverdien er reddet i #264; ikke merge #141 uten ny recovery som eksplisitt vurderer gjenværende mandat-/intake-diff. |
 
 ## Neste anbefalte rydderekkefølge
 
 1. Ikke merge flere drafts direkte fra gammel CI-status.
 2. Avklar om goal-stack #141-#157 fortsatt skal bevares som stack, eller om enkeltcommits skal cherry-pickes til nye `main`-baserte PR-er.
-3. Hvis stacken bevares: start med dirty stack-root #141, rebase mot dagens `main`, kjør full lokal verifikasjon, og la #142-#157 følge etter i rekkefølge.
+3. Hvis stacken bevares: start med dirty stack-root #141, men ikke anta at alt må beholdes; #264 har allerede flyttet konsern-år/testdelen til `main`. Rebase mot dagens `main`, vurder gjenværende dokumentdiff, kjør full lokal verifikasjon, og la #142-#157 følge etter i rekkefølge.
 4. Hvis stacken splittes: velg én smal commit, cherry-pick til ny branch fra `main`, opprett ny PR, og lukk den gamle stack-PR-en først når erstatningen er merged.
 5. Behandle `DIRTY`-PR-en #159 som egen recovery-sak uavhengig av goal-stack.
 6. Behandle #142 og #148 som data-/DB-saker med eksplisitt `DATABASE_URL`, full audit og egen importbeslutning.
