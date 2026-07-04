@@ -18,3 +18,11 @@ Kvalitativ casestudie med analyse av Lidls inntreden (2004) og tilbaketrekning (
 
 ## Relevans for Food Systems 2026
 Den eneste internasjonale utfordreren som har forsøkt å bryte inn i det norske dagligvaremarkedet — og mislyktes. Casen viser at kombinasjonen av importvern, norske forbrukerpreferanser og etablerte kjeders mottiltak gjør det ekstremt vanskelig for nye aktører å entre markedet.
+
+## Kildestatusnotat (library-triage R2, 2026-06-19)
+
+Kosovare Selmani og Ellen Førres masteroppgave om Lidl i Norge er bekreftet tilgjengelig som PDF direkte fra NHH.no (URL allerede oppgitt i filen). PDF-en er NHH-vert og knyttet til høst 2023 (H23). NHH-artikkelen fra FOOD-konferansen mars 2024 bekrefter forfatternes identitet og tema. Oppgaven er åpent tilgjengelig uten innlogging. Notatet forblir internal_background.
+
+Kilder:
+- https://www.nhh.no/contentassets/6547405137a14bf4afcad1355d45a1be/lidl-selmani--forre-h23.pdf  (accessedAt 2026-06-19, sourceClass primary — NHH-vert, åpen tilgang, H23)
+- https://www.nhh.no/nhh-bulletin/artikkelarkiv/2024/mars/samlet-naringsgiganter-pa-arets-food-konferanse/  (accessedAt 2026-06-19, sourceClass secondary — bekrefter forfattere og tema)

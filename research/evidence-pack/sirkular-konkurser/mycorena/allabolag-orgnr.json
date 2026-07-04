@@ -1,8 +1,24 @@
 {
   "company": "Mycorena AB",
   "lookup": "orgnr-oppslag",
-  "source": "https://www.allabolag.se/",
-  "status": "placeholder",
-  "orgNr": null,
-  "note": "Original file contained only a Markdown heading and source line. No organisation number was captured."
+  "orgNr": "559124-3695",
+  "status": "verified",
+  "verificationNote": "Confirmed by krafman.se and allabolag.se — both independently return 559124-3695 for Mycorena AB, Göteborg. Krafman explicitly shows 'Konkurs inledd i Göteborgs tingsrätt 2024-07-10'. This org.nr was already used in prior triage notes and is now formally verified against two registry sources.",
+  "verifiedSources": [
+    {
+      "url": "https://krafman.se/mycorena-ab/5591243695/sammanfattning",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    },
+    {
+      "url": "https://www.allabolag.se/5591243695/mycorena-ab",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    }
+  ],
+  "latestAccountsPeriod": "2022-01-01 – 2022-12-31",
+  "latestAccountsNote": "Both krafman.se and allabolag.se confirm 'Senaste bokslut/årsredovisning: 2022-01-01–2022-12-31'. No 2023 årsredovisning has been filed. File in evidence-pack is labelled aarsredovisning-2023 — the 2023 period report does NOT exist publicly; the latest is 2022.",
+  "konkursDate": "2024-07-10",
+  "konkursCourt": "Göteborgs tingsrätt",
+  "registeredAddress": "Gamlestadsvägen 2 B B27, 415 11 Göteborg"
 }

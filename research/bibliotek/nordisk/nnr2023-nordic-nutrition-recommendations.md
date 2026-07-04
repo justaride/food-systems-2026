@@ -27,3 +27,10 @@ Rapporten danner det vitenskapelige grunnlaget for nasjonale kostrad i Danmark, 
 ## Relevans for Food Systems 2026
 
 NNR2023 er den viktigste felles nordiske referansen for kosthold og miljo, og definerer retningen for matpolitikk i hele regionen. Rapporten er sentral for a forsta hvordan nordiske land forsaker a styre matforbruk mot barekraftige alternativer, og dokumenterer gapet mellom anbefalte og faktiske kosthold (som NORMO 2025 viser er i ferd med a oke). For prosjektets analyse av maktdynamikk i matsystemet er det vesentlig at NNR2023 setter premissene for offentlige innkjop, merkeordninger, avgiftspolitikk og industriens produktutvikling.
+
+## Kildestatusnotat (library-triage E, 2026-06-19)
+
+Nordic Nutrition Recommendations 2023 (NNR2023) er utgitt av Nordisk Ministerråd og tilgjengelig som fullstendig interaktiv publikasjon på pub.norden.org. URL-en ble hentet og bekreftet: pub.norden.org/nord2023-003 er live med full innholdsfortegnelse og PDF-lenke (nord2023-003.pdf). Publikasjonen er den sjette utgaven av NNR, utarbeidet over fem år, og er den første som integrerer miljøaspekter. Innholdet i notatet er korrekt. Filens årsangivelse «oppdatert februar 2025» er ikke verifisert mot primærkilden i dette passet, men hoveddokumentet er fra 2023. Filen forblir intern bakgrunn.
+
+Kilder:
+- https://pub.norden.org/nord2023-003/  (accessedAt 2026-06-19, sourceClass primary)

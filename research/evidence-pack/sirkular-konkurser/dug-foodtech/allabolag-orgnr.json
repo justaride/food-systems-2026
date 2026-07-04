@@ -1,8 +1,30 @@
 {
-  "company": "DUG Foodtech AB",
+  "company": "DUG Foodtech AB (publ)",
+  "formerName": "Veg of Lund AB",
   "lookup": "orgnr-oppslag",
-  "source": "https://www.allabolag.se/",
-  "status": "placeholder",
-  "orgNr": null,
-  "note": "Original file contained only a Markdown heading and source line. No organisation number was captured."
+  "orgNr": "559054-4655",
+  "status": "verified",
+  "verificationNote": "Confirmed by allabolag.se, krafman.se and Skatteverket aktiehistorik — all three independently return 559054-4655 for DUG Foodtech AB (publ), Lund. The org.nr 556851-6445 used in a prior triage note was erroneous and does not resolve to this entity on allabolag.se.",
+  "verifiedSources": [
+    {
+      "url": "https://www.allabolag.se/5590544655/dug-foodtech-ab",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    },
+    {
+      "url": "https://krafman.se/dug-foodtech-ab/5590544655/sammanfattning",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    },
+    {
+      "url": "https://www.skatteverket.se/privat/skatter/vardepapper/aktiehistorik/d/dugfoodtech.4.7eada0316ed67d728278e3.html",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    }
+  ],
+  "latestAccountsPeriod": "2024-01-01 – 2024-12-31",
+  "latestAccountsNote": "Krafman and allabolag both list årsredovisning 2024-01-01–2024-12-31 as the most recent filed period.",
+  "konkursDate": "2025-12-19",
+  "konkursCourt": "Lunds tingsrätt",
+  "registeredAddress": "Scheelevägen 22, 223 63 Lund"
 }

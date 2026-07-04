@@ -1,8 +1,36 @@
 {
-  "company": "Ljusgaarda AB",
-  "lookup": "orgnr-oppslag og driftomlegging",
-  "source": "https://www.allabolag.se/",
-  "status": "placeholder",
-  "orgNr": null,
-  "note": "Original file contained only a Markdown heading and source line. No organisation number was captured."
+  "company": "Ljusgårda AB (publ)",
+  "currentLegalName": "Supernormal Greens AB (publ)",
+  "lookup": "orgnr-oppslag",
+  "orgNr": "559113-5321",
+  "status": "verified",
+  "verificationNote": "Confirmed by allabolag.se (two independent category pages), krafman.se, syna.se, letabolag.se and hitta.se — all five independently return 559113-5321 for Ljusgårda AB (publ), Tibro. As of 2026-06-17 the company has renamed itself to Supernormal Greens AB (publ); the org.nr is unchanged. Company status is Aktiv (no formal konkurs). The org.nr 5591041941 previously used in a Krafman URL resolved to Eltech Halmstad AB — confirmed wrong.",
+  "verifiedSources": [
+    {
+      "url": "https://www.allabolag.se/foretag/ljusgarda-ab-publ/tibro/frukt-bar-och-gronsaker-grossister/2KGTFMHI63IGD",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    },
+    {
+      "url": "https://krafman.se/ljusgarda-ab/5591135321/sammanfattning",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    },
+    {
+      "url": "https://en.syna.se/companypublic/5591135321/ljusgarda-ab-publ",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    },
+    {
+      "url": "https://letabolag.se/foretag/ljusgarda-ab-publ-559113-5321",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    }
+  ],
+  "wrongOrgNrFlagged": "5591041941 — resolves to Eltech Halmstad AB (el-installation), confirmed wrong for Ljusgårda.",
+  "latestAccountsPeriod": "2024-01-01 – 2024-12-31",
+  "latestAccountsNote": "Krafman lists årsredovisning for 2024-01-01–2024-12-31, 2023-01-01–2023-12-31, 2022-01-01–2022-12-31, and 2021-01-01–2021-12-31 as publicly available. File in evidence-pack is labelled aarsredovisning-2023 — a 2023 period report does exist.",
+  "konkursDate": null,
+  "statusNote": "Aktiv as of 2026-06-19. Operational restructuring and layoffs reported January 2026; company has not filed for konkurs. Renamed to Supernormal Greens AB (publ) on 2026-06-17.",
+  "registeredAddress": "Järnvägsgatan 3, 543 50 Tibro"
 }

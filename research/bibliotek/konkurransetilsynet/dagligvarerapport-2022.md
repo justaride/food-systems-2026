@@ -29,3 +29,10 @@
 Dagligvarerapporten 2022 er en nøkkelkilde for Food Systems 2026-prosjektets kartlegging av markedskonsentrasjon og maktstrukturer i norsk dagligvare. Med en HHI som reflekterer et svært konsentrert marked nasjonalt -- og enda mer konsentrert lokalt -- bekrefter rapporten at Norge har et av Europas mest konsentrerte dagligvaremarkeder.
 
 Den første systematiske lokale konkurranseanalysen er særlig verdifull fordi den viser at det nasjonale bildet underkommuniserer utfordringene mange forbrukere møter i praksis. I områder med svak lokal konkurranse har kjedene større mulighet til å sette priser og betingelser uten reelt konkurransepress. Dette kobler direkte til prosjektets analyse av forbrukermakt, tilgjengelighet og den geografiske dimensjonen av maktkonsentrasjon i norsk matforsyning.
+
+## Kildestatusnotat (library-triage C, 2026-06-19)
+
+Dette er Konkurransetilsynets offisielle årsrapport for dagligvaremarkedet 2022, publisert desember 2022. Rapporten introduserte for første gang systematisk lokal konkurranseanalyse i tillegg til nasjonal markedsandelsdata. Kilden er primær — et offentlig tilsynsorgan rapporterer egne analyser. Dokumentet er tilgjengelig som PDF via Konkurransetilsynets nettsted. Filen forblir intern bakgrunn; brukes kun som underlag og skal ikke eksporteres som whitepaper-klar uten at tallene er kryssverifisert mot nyere rapporter (2023, 2024-25).
+
+Kilder:
+- https://konkurransetilsynet.no/wp-content/uploads/2022/12/Konkurransetilsynets-dagligvarerapport-2022.pdf  (accessedAt 2026-06-19, sourceClass primary)

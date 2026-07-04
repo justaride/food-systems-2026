@@ -19,3 +19,11 @@
 
 ## Relevans for Food Systems 2026
 ICA Gruppen er relevant fordi konsernet viser hvordan en butikkjede med selvstendige kjøpmenn kan kombinere sentralisert innkjøp, logistikk, data og lojalitet. Rapporten er også nyttig for å forstå hvordan prisinvesteringer, nettvekst og apotekeksponering påvirker den svenske konkurransen.
+
+## Kildestatusnotat (library-triage R2, 2026-06-19)
+
+ICA Gruppen sin offisielle Annual Report 2024 er bekreftet publisert 21. februar 2025 på icagruppen.se. PDF-en er tilgjengelig direkte fra selskapets globalassets-lagring. Rapporten inkluderer sustainability report og corporate governance report som separate deler av samme dokument. Notatet forblir internal_background.
+
+Kilder:
+- https://www.icagruppen.se/en/annual-report-2024/  (accessedAt 2026-06-19, sourceClass primary)
+- https://www.icagruppen.se/globalassets/xx.-arsredovisning-2024/250221_icagruppen_annual_report_2024.pdf  (accessedAt 2026-06-19, sourceClass primary)

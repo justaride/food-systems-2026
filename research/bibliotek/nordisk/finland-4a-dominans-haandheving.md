@@ -36,3 +36,10 @@ Til tross for lovens ambisiøse design har håndhevingen vært begrenset. KKVs m
 ## Relevans for Food Systems 2026
 
 Finlands §4a er det mest ambisiøse regulatoriske grepet mot dagligvarekonsentrasjon i Norden og et viktig referansepunkt for norsk konkurransepolitikk. Bestemmelsen representerer en anerkjennelse av at dagligvaresektoren har strukturelle særtrekk som krever sektorspesifikke verktøy — en logikk som også ligger bak opprettelsen av det norske Dagligvaretilsynet. Samtidig viser den begrensede håndhevingen at en sektorlov i seg selv ikke er tilstrekkelig — gjennomføringskraft, ressurser og politisk vilje er avgjørende. For Food Systems 2026-prosjektet gir §4a-erfaringen et konkret eksempel på både muligheter og begrensninger ved sektorspesifikk konkurranseregulering i nordiske dagligvaremarkeder.
+
+## Kildestatusnotat (library-triage E, 2026-06-19)
+
+Dette notatet analyserer Finlands konkurranselov §4a og KKV (Finnish Competition and Consumer Authority). KKVs primære pressemeldingside ble hentet og bekrefter: bestemmelsen trådte i kraft 1. januar 2014, og gjelder selskaper med over 30 % nasjonal markedsandel i dagligvarehandelen — i 2014 konkret rettet mot S Group og K Group (Kesko). KKV bekrefter at de gikk inn i diskusjoner med aktørene i 2013 og igangsatte videre undersøkelser av lojalitetsprogrammer og leverandørers tilgang til salgsdata. Notatets faktiske innhold er korrekt verifisert. Filen forblir intern bakgrunn.
+
+Kilder:
+- https://www.kkv.fi/en/current/press-releases/competition-act-provision-on-grocery-trade-became-effective-on-1st-of-january/  (accessedAt 2026-06-19, sourceClass primary)

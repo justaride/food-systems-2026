@@ -1,8 +1,29 @@
 {
   "company": "Stockeld Dreamery AB",
   "lookup": "orgnr-oppslag og wind-down",
-  "source": "https://www.allabolag.se/",
-  "status": "placeholder",
-  "orgNr": null,
-  "note": "Original file contained only a Markdown heading and source line. No organisation number was captured."
+  "orgNr": "559189-7193",
+  "status": "verified",
+  "verificationNote": "Confirmed by allabolag.se (two independent pages), krafman.se and creditsafe.com — all four independently return 559189-7193 for Stockeld Dreamery AB, Älvsjö/Solna, registered 2019-01-03. Company status on krafman is Aktiv (no formal konkurs filed); wind-down announced October 2025 by founder Sorosh Tavakoli.",
+  "verifiedSources": [
+    {
+      "url": "https://www.allabolag.se/foretag/stockeld-dreamery-ab/alvsjo/livsmedel/2KH9RHLI5YFWD",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    },
+    {
+      "url": "https://krafman.se/stockeld-dreamery-ab/5591897193/sammanfattning",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    },
+    {
+      "url": "https://www.creditsafe.com/business-index/en-ie/company/stockeld-dreamery-ab-se04301879",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    }
+  ],
+  "latestAccountsPeriod": "2025-01-01 – 2025-12-31",
+  "latestAccountsNote": "Krafman lists årsredovisning for 2025-01-01–2025-12-31 as the most recent filed period, with 2024 and 2023 also available. File in evidence-pack is labelled aarsredovisning-2023 — periods for 2023, 2024 and 2025 all exist publicly.",
+  "konkursDate": null,
+  "statusNote": "Aktiv as of 2026-06-19. Voluntary wind-down announced October 2025; no formal konkurs has been registered at Bolagsverket. Sorosh Tavakoli stepped down as CEO 2025-06-24.",
+  "registeredAddress": "Blåklintsvägen 11, 125 54 Älvsjö"
 }
