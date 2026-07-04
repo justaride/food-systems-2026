@@ -194,6 +194,32 @@ describe('package scripts', () => {
     assert.doesNotMatch(scriptSource, /upsert|deleteMany|updateMany|createMany/)
   })
 
+  it('exposes the read-only library analysis inventory and ledger commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const inventorySource = readFileSync(
+      join(process.cwd(), 'scripts', 'build-library-analysis-inventory.ts'),
+      'utf8',
+    )
+    const ledgerSource = readFileSync(
+      join(process.cwd(), 'scripts', 'export-library-analysis-ledger.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['research:library:inventory'],
+      'tsx scripts/build-library-analysis-inventory.ts',
+    )
+    assert.equal(
+      packageJson.scripts['research:library:ledger'],
+      'tsx scripts/export-library-analysis-ledger.ts',
+    )
+    assert.match(inventorySource, /loadLibraryAnalysisInventory/)
+    assert.match(ledgerSource, /libraryAnalysisRecord\.findMany/)
+    assert.doesNotMatch(`${inventorySource}\n${ledgerSource}`, /upsert|deleteMany|updateMany|createMany/)
+  })
+
   it('exposes the read-only library analysis PDF extraction profile command', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
