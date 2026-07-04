@@ -13,6 +13,7 @@ bruksregel: Ingen ekstern claim, ingen safe_for_ai_context, ingen whitepaper-/de
 - Decision-rader: 30.
 - PCQ-notater: 7 / 7.
 - Claim-lock-kandidatdokument: opprettet.
+- I28 datareview: opprettet 2026-07-04 uten I-node-generering.
 - I32 datareview: opprettet 2026-07-04 uten I-node-generering.
 - I33 datareview: opprettet 2026-07-04 uten I-node-generering.
 - I35 source-shortlist: opprettet 2026-07-04 uten I-node-generering.
