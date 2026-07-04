@@ -220,6 +220,28 @@ describe('package scripts', () => {
     assert.doesNotMatch(`${inventorySource}\n${ledgerSource}`, /upsert|deleteMany|updateMany|createMany/)
   })
 
+  it('exposes guarded library analysis processing dry-run and apply commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const processSource = readFileSync(join(process.cwd(), 'scripts', 'process-library-analysis.ts'), 'utf8')
+
+    assert.equal(
+      packageJson.scripts['research:library:process:dry-run'],
+      'tsx scripts/process-library-analysis.ts --dry-run',
+    )
+    assert.equal(
+      packageJson.scripts['research:library:process:apply'],
+      'tsx scripts/process-library-analysis.ts --apply',
+    )
+    assert.match(processSource, /process\.argv\.includes\('--apply'\)/)
+    assert.match(processSource, /loadLibraryAnalysisInventory\(\{ requireDb: apply \}\)/)
+    assert.match(processSource, /library-analysis-prune-backup\.jsonl/)
+    assert.match(processSource, /appendFileSync/)
+    assert.match(processSource, /libraryAnalysisRecord\.upsert/)
+    assert.match(processSource, /libraryAnalysisRecord\.deleteMany/)
+  })
+
   it('exposes the read-only library analysis PDF extraction profile command', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
