@@ -194,6 +194,42 @@ describe('package scripts', () => {
     assert.doesNotMatch(scriptSource, /upsert|deleteMany|updateMany|createMany/)
   })
 
+  it('exposes the read-only library analysis PDF extraction profile command', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const scriptSource = readFileSync(
+      join(process.cwd(), 'scripts', 'build-library-analysis-pdf-extraction-profile.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['research:library:pdf-extraction-profile'],
+      'tsx scripts/build-library-analysis-pdf-extraction-profile.ts',
+    )
+    assert.match(scriptSource, /LIBRARY_ANALYSIS_REPAIR_BACKLOG_JSON_PATH/)
+    assert.match(scriptSource, /pdftotext/)
+    assert.doesNotMatch(scriptSource, /upsert|deleteMany|updateMany|createMany/)
+  })
+
+  it('exposes the read-only library analysis URL text profile command', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const scriptSource = readFileSync(
+      join(process.cwd(), 'scripts', 'build-library-analysis-url-text-extraction-profile.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['research:library:url-text-profile'],
+      'tsx scripts/build-library-analysis-url-text-extraction-profile.ts',
+    )
+    assert.match(scriptSource, /LIBRARY_ANALYSIS_LOCATOR_PROFILE_JSON_PATH/)
+    assert.match(scriptSource, /DATABASE_URL is required/)
+    assert.doesNotMatch(scriptSource, /upsert|deleteMany|updateMany|createMany/)
+  })
+
   it('exposes VK-5 review closeout as a separate final gate', () => {
     const closeoutSource = readFileSync(
       join(process.cwd(), 'scripts', 'obsidian-vault', 'review-closeout.ts'),
