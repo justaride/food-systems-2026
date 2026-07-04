@@ -142,6 +142,8 @@
     "research:library:repair-manual-local-match:apply": "tsx scripts/repair-library-analysis-manual-local-match.ts --apply",
     "research:library:repair-manual-pdf-match:dry-run": "tsx scripts/repair-library-analysis-manual-pdf-match.ts --dry-run",
     "research:library:repair-manual-pdf-match:apply": "tsx scripts/repair-library-analysis-manual-pdf-match.ts --apply",
+    "research:library:repair-manual-url-match:dry-run": "tsx scripts/repair-library-analysis-manual-url-match.ts --dry-run",
+    "research:library:repair-manual-url-match:apply": "tsx scripts/repair-library-analysis-manual-url-match.ts --apply",
     "research:library:repair-pdf-text:dry-run": "tsx scripts/repair-library-analysis-pdf-text.ts --dry-run",
     "research:library:repair-pdf-text:apply": "tsx scripts/repair-library-analysis-pdf-text.ts --apply",
     "research:library:repair-url-text:dry-run": "tsx scripts/repair-library-analysis-url-text.ts --dry-run",

@@ -318,6 +318,33 @@ describe('package scripts', () => {
     assert.doesNotMatch(repairSource, /upsert|deleteMany|updateMany|createMany/)
   })
 
+  it('exposes guarded library analysis manual URL match repair dry-run and apply commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const repairSource = readFileSync(
+      join(process.cwd(), 'scripts', 'repair-library-analysis-manual-url-match.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['research:library:repair-manual-url-match:dry-run'],
+      'tsx scripts/repair-library-analysis-manual-url-match.ts --dry-run',
+    )
+    assert.equal(
+      packageJson.scripts['research:library:repair-manual-url-match:apply'],
+      'tsx scripts/repair-library-analysis-manual-url-match.ts --apply',
+    )
+    assert.match(repairSource, /process\.argv\.includes\('--apply'\)/)
+    assert.match(repairSource, /REVIEWED_URL_MATCHES/)
+    assert.match(repairSource, /AbortSignal\.timeout\(FETCH_TIMEOUT_MS\)/)
+    assert.match(repairSource, /MAX_BYTES/)
+    assert.match(repairSource, /library-analysis-manual-url-match-backup\.jsonl/)
+    assert.match(repairSource, /appendFileSync/)
+    assert.match(repairSource, /prisma\.document\.update/)
+    assert.doesNotMatch(repairSource, /upsert|deleteMany|updateMany|createMany/)
+  })
+
   it('exposes guarded library analysis PDF text repair dry-run and apply commands', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
