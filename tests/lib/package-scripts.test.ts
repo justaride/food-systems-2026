@@ -151,6 +151,14 @@ describe('package scripts', () => {
     )
   })
 
+  it('exposes the NotebookLM export command for source-grounded briefing packs', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+
+    assert.equal(packageJson.scripts['export:notebooklm'], 'tsx scripts/build-notebooklm-export.ts')
+  })
+
   it('exposes VK-5 review closeout as a separate final gate', () => {
     const closeoutSource = readFileSync(
       join(process.cwd(), 'scripts', 'obsidian-vault', 'review-closeout.ts'),
