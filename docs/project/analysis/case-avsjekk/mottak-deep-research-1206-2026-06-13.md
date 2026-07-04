@@ -14,6 +14,8 @@ relaterte_filer:
 
 # Mottak av Deep Research-resultater 12.06
 
+> Oppdatering 2026-07-04: Raden for `P-FISH-2` nedenfor er historisk 13.06-status. Strand et al. 2024 er senere lukket med repo-source note og raw PDF bevart i lokalt recovery-arkiv; `research/external/spor1-uttak-2026-06-12/uttak-09-fase2-uthenting-og-arkiv.md` er gjeldende closeout-status for metodebroen.
+
 ## 1. Kort dom
 
 Resultatmappen er nå sikret som ti unike mottaksdokumenter i `research/external/dro-1206/`. Fire filer i Downloads var eksakte duplikater og er ikke kopiert dobbelt.
