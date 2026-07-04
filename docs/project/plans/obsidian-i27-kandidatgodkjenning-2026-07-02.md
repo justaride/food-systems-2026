@@ -44,6 +44,8 @@ I30-datareview 2026-07-04 er utført i `research/_status/food-tg-r14/datareview/
 
 I32-datareview 2026-07-04 er utført i `research/_status/food-tg-r14/datareview/I32-havbrukskonsentrasjon-datareview-2026-07-04.md`. Konklusjonen er at AP-6 har eksplisitt havbruksunivers og MTB-nevner nok til intern beslutning, men ny I32-node og ekstern figurbruk krever fortsatt eksplisitt menneskelig beslutning og claim-lock.
 
+I33-datareview 2026-07-04 er utført i `research/_status/food-tg-r14/datareview/I33-prisasymmetri-datareview-2026-07-04.md`. Konklusjonen er at AP-7 er et nyttig internt prisatferdsfunn for laks→foredling, men I33 skal fortsatt stå parkert til valutakontroll, kategoriavgrensning og native/prisserie-PCQ er gjort.
+
 I35-source-shortlist 2026-07-04 er utført i `research/_status/food-tg-r14/source-shortlist/I35-soya-eudr-source-shortlist-2026-07-04.md`. Konklusjonen er at fôr/soya/EUDR-sporet har nok kildeankre til en claim-lockbar kø, men ny I35-node krever fortsatt eksplisitt formulering, varestrøm og aktørscope.
 
 | ID | Beslutning | Gate før ny node | Stopplinje |
@@ -52,7 +54,7 @@ I35-source-shortlist 2026-07-04 er utført i `research/_status/food-tg-r14/sourc
 | I29 | Parkert etter datareview; ikke generer egen I-node. | Ny beslutning + AP-2 claim-lock hvis den skal brukes utenfor I37/metodecaveat. | Ikke oversett intern node-/inntekts-HHI til markedsmakt, grafsentralitet eller kontrollclaim. |
 | I30 | Datareviewet; klar til menneskelig I-node-beslutning, men ikke generert. | Eksplisitt beslutning + claim-lock hvis den skal brukes utenfor intern cockpit. | Ikke bruk tilskuddskonsentrasjon som enkelaktørkritikk eller samlet landbruksstøtteclaim. |
 | I32 | Datareviewet; klar til menneskelig I-node-/claim-lock-beslutning, men ikke generert. | Eksplisitt beslutning + claim-lock med havbruksunivers, MTB-nevner, rollup-forbehold og restråstoffgrense. | Ikke blande havbrukskonsentrasjon med dagligvaretriopol-claim, slaktevolum eller målt restråstoffkontroll. |
-| I33 | Parker til prisserie-review. | AP-7 PCQ for native prisserie før asymmetri-claim. | Ikke bruke proxy-test som dokumentert prisasymmetri. |
+| I33 | Datareviewet; fortsatt parkert til prisserie-/valuta-PCQ. | Valutakontroll, SNN102 kategoriavgrensning og native fôr-/prisseriesjekk før ny I-node eller ekstern figur. | Ikke bruke proxy-test eller laks→foredling-PPI som dokumentert fôr→oppdrett-asymmetri, marginclaim eller intensjon. |
 | I35 | Source-shortlistet; fortsatt parkert til menneskelig I-node-/claim-lock-beslutning. | Eksplisitt formulering + EUDR-, SSB- og aktørscope claim-lock. | Ikke si at EUDR automatisk gjør norsk fôr/import til dokumentert sårbarhetsakse. |
 
 ## Ikke generer ennå
