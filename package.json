@@ -116,6 +116,8 @@
     "db:correct:food-waste-source-data": "tsx scripts/correct-food-waste-source-data.ts",
     "db:prune:unverified-board-members": "tsx scripts/prune-unverified-board-members.ts",
     "db:fix:nordic-orgnr": "tsx scripts/fix-nordic-orgnr.ts",
+    "db:import:nordic-financials-2025:dry-run": "tsx scripts/import-nordic-financials-2025.ts --dry-run",
+    "db:import:nordic-financials-2025:apply": "tsx scripts/import-nordic-financials-2025.ts --apply",
     "db:check-urls": "tsx scripts/check-urls.ts",
     "db:audit": "tsx scripts/verify-data-integrity.ts",
     "db:audit:strict-sources": "tsx scripts/verify-data-integrity.ts --strict-sources",
