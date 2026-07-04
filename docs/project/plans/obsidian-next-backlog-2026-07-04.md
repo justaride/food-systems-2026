@@ -36,6 +36,7 @@ Neste fase skal ikke bygge "mer kart" først. Den skal gjøre kartet brukbart so
 - PR #251 lukket P2.2 follow-up for VK4-GAP-007: primærkildekø per strøm og næringsstoff, uten å åpne 25-30 %-claim.
 - PR #252 lukket G1-D2 beslutningspakke for actor-gate: ja/nei/vent for andelslandbruk først, uten å sende outreach.
 - PR #253 lukket I29-datareview: nodekonsentrasjon forblir parkert som metodecaveat, uten ny I29-innsiktsnode.
+- PR #254 legger G1-D4 beslutningspakke for actor-gate: ja/nei/vent for frø/genressurs, uten å sende outreach eller lage aktørkart.
 - VK-5-protokollen er lukket for intern cockpit-bruk.
 - `vault:review-closeout` er forventet grønn så lenge VK-5-protokollen forblir lukket og alle review-rader er løst.
 - Obsidian-grafen er et kuratert utsnitt, ikke hele kunnskapsbasen.
@@ -96,7 +97,7 @@ Bruk disse for å teste om kartet faktisk hjelper, før ny visualisering bygges:
 7. Lukket: P2.2 follow-up / N/P/K source-shortlist i PR #251.
 8. Lukket: G1 actor-gate D2 beslutningspakke i PR #252.
 9. Lukket: I29 datareview i PR #253.
-10. Aktiv: D4 frø/genressurs som G1 actor-gate-pakke.
+10. Aktiv: D4 frø/genressurs som G1 actor-gate-pakke i PR #254.
 11. Neste valg etter D4: ny I27+ datareview for I30/I35 eller D1/D3/D5 som samlet lokal/regenerativ metodepakke. P3.2 bør vente til teamet har valgt trygg intern figurflate.
 
 ## Verifikasjon per slice
