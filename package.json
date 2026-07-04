@@ -143,6 +143,7 @@
     "research:library:repair-url-text:dry-run": "tsx scripts/repair-library-analysis-url-text.ts --dry-run",
     "research:library:repair-url-text:apply": "tsx scripts/repair-library-analysis-url-text.ts --apply",
     "research:library:repair-backlog": "tsx scripts/build-library-analysis-repair-backlog.ts",
+    "research:library:decision-queue": "tsx scripts/build-library-analysis-decision-queue.ts",
     "research:library:locator-profile": "tsx scripts/build-library-analysis-locator-profile.ts",
     "research:library:pdf-extraction-profile": "tsx scripts/build-library-analysis-pdf-extraction-profile.ts",
     "research:library:url-text-profile": "tsx scripts/build-library-analysis-url-text-extraction-profile.ts",
