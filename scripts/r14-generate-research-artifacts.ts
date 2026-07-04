@@ -143,6 +143,10 @@ function decision(
   }
 }
 
+function withIkkeSi(item: Decision, ikkeSi: string[]): Decision {
+  return { ...item, ikkeSi }
+}
+
 const decisions: Decision[] = []
 
 function addPcq(id: string, title: string, knownWeakness: string, artifactPath: string) {
@@ -195,21 +199,49 @@ write(join(R14, 'claim-lock-kandidater.md'), artifact('R14 claim-lock-kandidater
 |---|---|---|---|---|
 | REKO-tall 2022 | REKO Norge oppga i 2022 over 140 ringer, om lag 500 000 kunder og over 600 produsenter. | R13-GAP-005 / rekonorge.no snapshot | Ikke nåtidstall; ikke 2025/2026-status. | claim-lock-kandidat |
 | Andelslandbruk 93 / 2023 | Landbruksdirektoratet/Økologisk Norge brukte 93 andelslandbruk i drift som 2023-anker. | R13-GAP-005 + R13-AKTOR-002 | Aktiv status per gård er actor-gate. | claim-lock-kandidat |
-| Rest AS konkurs 2024-09-05 | Restaurant Rest AS er bekreftet konkurs åpnet 2024-09-05. | R13-GAP-005 / Brreg/Forvalt-lokator fra R13 | Ikke bruk som miljøeffektclaim. | claim-lock-kandidat |
+| Rest AS konkurs 2024-09-05 | Restaurant Rest AS er bekreftet konkurs åpnet 2024-09-05. | R13-GAP-005 / Forvalt-lokator fra R13; Brreg Enhetsregisteret API bekrefter org.nr./navn og slettet status ved oppslag 2026-07-04, men ikke konkursdato. | Ikke bruk som miljøeffektclaim eller årsaksclaim. | ført til \`CL-R14-GAP-005-REST\` i claim-lock-tabellen 2026-07-04 |
 
 ## VK4-GAP-007
 
-Påstanden om et samlet norsk næringsstoff-resirkuleringsgap på 25-30 % holdes **ikke** som åpnet claim i R14. Den kan bare videreføres som \`claim-lock-kandidat\` hvis underliggende N/P/K-massebalanse får primærkilde per strøm; per nå er svakeste punkt blandingen av modellert, potensial og faktisk gjenvunnet volum.
+Påstanden om et samlet norsk næringsstoff-resirkuleringsgap på 25-30 % holdes **ikke** som åpnet claim i R14. P2.2-beslutningen 2026-07-04 nedgraderer raden til arbeidsmatrise: den kan bare videreføres hvis underliggende N/P/K-massebalanse får primærkilde per strøm og cellene merkes som \`realisert\`, \`modellert\`, \`potensial/plan\` eller \`mangler\`.
+
+| Strøm | N | P | K | Beslutning |
+|---|---|---|---|---|
+| Mineralgjødsel-referanse | referansegrunnlag | referansegrunnlag | referansegrunnlag | Kan brukes som denominator-kontekst, ikke som importerstattbar prosent alene. |
+| Svensk digestat/SPCR 120 | realisert benchmark | realisert benchmark | realisert benchmark | Måleregime, ikke norsk nivå. |
+| Norsk biorest/digestat | mangler samlet N-retur | P delvis bransjetall | mangler samlet K-retur | P delvis; N/K Type C. |
+| Norsk oppdrettsslam/fiskeslam | modellert tap, mangler realisert aggregat | modellert tap/potensial, mangler realisert aggregat | mangler | Ikke nasjonalt aggregat; aktør-/anleggsrader bare internt. |
+| Svartvann/avløp/Recolab | små avledede case-tall | små avledede case-tall | ingen K-produkt | Benchmark/case, ikke skaleringsclaim. |
+| Husdyrgjødsel | stor masse, plantetilgjengelighet/tap/regionalitet mangler | regional fordeling/tilgjengelighet styrer | separat fraksjon/geografi | PCQ/research-mission før claim. |
+| Matavfall/forbrenning | modellert | modellert | mangler | Holdes som modellnode. |
 
 ## Ikke si
 
 - Ikke si at ASKO/HORECA 70 % er bekreftet.
 - Ikke si at SOIL-score er IPBES-forankret.
 - Ikke si at 25-30 % næringsstoffgap er dokumentert norsk realisert gjenvinningspotensial.
+- Ikke summer N, P og K til én prosent eller én KPI.
+- Ikke bruk biogassvolum som bevis på næringsretur uten dokumentert digestat-/produktretur.
 `))
 
-decisions.push(decision('02', 'R13-GAP-005-CLAIMLOCK', 'GAP-005 claim-lock-kandidater', join(R14, 'claim-lock-kandidater.md'), 'claim-lock', 'claim-lock-kandidat', 'Tre smale R13-GAP-005-rader er formulert som kandidater, ikke åpnet claims.', 'R13-GAP-005 + R13-AKTOR-002/006', 'Alle kandidatene krever menneskelig claim-lock-beslutning før ekstern bruk.'))
-decisions.push(decision('02', 'VK4-GAP-007', 'Næringsstoff-gap 25-30 %', join(R14, 'claim-lock-kandidater.md'), 'claim-lock', 'vent', 'Påstanden holdes som claim-lock-kandidat med nedgraderingsrisiko.', 'R13-WASTE-002/005/007 + gap-node', 'Mangler samlet primær norsk massebalanse for N/P/K.'))
+decisions.push(withIkkeSi(
+  decision('02', 'R13-GAP-005-CLAIMLOCK', 'GAP-005 claim-lock-kandidater', join(R14, 'claim-lock-kandidater.md'), 'claim-lock', 'claim-lock-kandidat', 'Rest AS er ført til smalt claim-lock-delta; REKO og andelslandbruk beholdes som historiske kandidater.', 'R13-GAP-005 + R13-AKTOR-002/006 + Brreg Enhetsregisteret API', 'REKO/andelslandbruk må ikke brukes som nåtidstall; Rest trenger direkte Konkursregister-/Forvalt-lokator før ekstern publisering.'),
+  [
+    'Ikke bruk REKO eller andelslandbruk som dagens status uten ny kilde.',
+    'Ikke bruk Rest som miljøeffekt- eller årsaksclaim.',
+    'Ikke bland kapasitet, plan, potensial og realisert volum.',
+  ],
+))
+decisions.push(withIkkeSi(
+  decision('02', 'VK4-GAP-007', 'Næringsstoff-gap N/P/K', join(R14, 'claim-lock-kandidater.md'), 'claim-lock', 'vent', '25-30 %-påstanden er nedgradert til N/P/K-arbeidsmatrise per strøm; ingen samlet prosentclaim er åpnet.', 'DRO-R4-23 + nutrient-loop-realiserte-tonn + fiskeslam-census + gap-node', 'Mangler samlet primær norsk massebalanse for N/P/K, særlig realisert digestat-N/K og nasjonalt oppdrettsslam-aggregat.'),
+  [
+    'Ikke bruk denne raden som ekstern claim uten PCQ/claim-lock.',
+    'Ikke skjul tomme celler eller Type-C-hull i figur eller tekst.',
+    'Ikke summer N, P og K til én prosent eller én KPI.',
+    'Ikke bland kapasitet, plan, potensial og realisert volum.',
+    'Ikke bruk biogassvolum som bevis på næringsretur uten dokumentert digestat-/produktretur.',
+  ],
+))
 
 const deskDocs = [
   ['A3.1-R13-PROT-006-ressursregnskap.md', 'A3.1 PROT-006 nyere ressursregnskap', 'Nofima/FHF 2020 forblir siste sikre primæranker i repoet. R14 fant ikke repo-internt nyere fullverdig ressursregnskap som kan erstatte dette uten ny ekstern verifisering. Fraværet føres som Type-C/vent; ingen fremskriving etter 2020.'],
@@ -241,7 +273,7 @@ const gapDocs = [
   ['VK4-GAP-004-mikroplast-biorest.md', 'VK4-GAP-004 mikroplast biorest', 'Mattilsynet/gjødselvareforskrift + forskningskilder må skille regelverk, funn og risiko.'],
   ['VK4-GAP-005-ax-ekvivalent.md', 'VK4-GAP-005 AX-ekvivalent', 'Aktørkart-kandidater er bak G1; ingen kontakt i R14.'],
   ['VK4-GAP-006-oppdrettsslam.md', 'VK4-GAP-006 oppdrettsslam', 'TRL-notat kan føres, men massebalansen forblir parkert til aktørdata.'],
-  ['VK4-GAP-007-naeringsstoff-gap.md', 'VK4-GAP-007 næringsstoff-gap', '25-30 %-påstanden er ikke åpnet; holdes som claim-lock-kandidat med nedgraderingsrisiko.'],
+  ['VK4-GAP-007-naeringsstoff-gap.md', 'VK4-GAP-007 næringsstoff-gap', '25-30 %-påstanden er ikke åpnet; holdes som N/P/K-arbeidsmatrise per strøm med realisert/modellert/potensial/mangler-status.'],
   ['VK4-GAP-008-svartvann-p.md', 'VK4-GAP-008 svartvann P', 'Norsk Vann/SSB-baseline trengs før tallclaim.'],
   ['VK4-GAP-009-svartvann-n.md', 'VK4-GAP-009 svartvann N', 'Norsk Vann/SSB-baseline trengs før tallclaim.'],
   ['VK4-GAP-010-husdyrgjodsel-n.md', 'VK4-GAP-010 husdyrgjødsel-N', 'NIBIO/Miljødirektoratet tapsbaseline og tiltakseffekt må holdes separat.'],
@@ -493,7 +525,7 @@ async function main() {
 | Aksjonærdata for sirkulær/altprotein/CEA | Type B/C | Aksjonærregister/proff-tilgang ikke hentet | Ikke bygg eierskapsgraf fra styredata alene |
 | Jordhelse-karbon univers | Type C | Jordsmonnskart proxy 61 % dekning; JordVAAK ikke resultater | Ikke si Norge har nasjonal SOC-baseline |
 | Myke MVK-universer | Type C | Markedshager, skogshage, demonstrasjonssteder og jordhelse-karbon føres med lav nevnerkonfidens | Ikke bruk dekningsprosent uten å vise usikkert univers |
-| Næringsstoff-gap 25-30 % | Type A/C | Claim-lock-kandidat, ikke åpnet | Ikke si samlet norsk potensial uten primær massebalanse |
+| Næringsstoff-gap N/P/K | Type A/C | Nedgradert til arbeidsmatrise, ikke åpnet prosentclaim | Ikke si samlet norsk potensial uten primær massebalanse |
 `)
   }
 }

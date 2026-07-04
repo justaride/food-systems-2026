@@ -24,7 +24,7 @@ siterbarhet: intern
 - [[Gap – N-P-K i matsvinn til forbrenning — naeringsstoffer tapt|Gap – N/P/K i matsvinn til forbrenning — naeringsstoffer tapt]] — mission VK4-GAP-012
 - [[Gap – Norge mangler AX Foundation-ekvivalent for for-innovasjon]] — mission VK4-GAP-005
 - [[Gap – Oppdrettsslam valorisering]] — mission VK4-GAP-006
-- [[Gap – Samlet norsk naeringsstoff-resirkuleringsgap (25-30% av import erstattbar)]] — mission VK4-GAP-007
+- [[Gap – Samlet norsk naeringsstoff-resirkuleringsgap]] — mission VK4-GAP-007
 - [[Gap – Svartvann-fosfor kun 20-23% gjenvunnet (Norge)]] — mission VK4-GAP-008
 - [[Gap – Svartvann-nitrogen ikke gjenvunnet (Norge)]] — mission VK4-GAP-009
 
