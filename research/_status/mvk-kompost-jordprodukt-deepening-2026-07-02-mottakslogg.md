@@ -1,0 +1,14 @@
+# MVK kompost-jordprodukt deepening - mottakslogg 2026-07-02
+
+- Kandidatfil: `research/_status/mvk-kompost-jordprodukt-deepening-2026-07-02-node-kandidater.csv`.
+- Dataset: `mvk-kompost-jordprodukt-deepening-2026-07-02`.
+- Celle: `matsvinn-sirkulaer / kompost-jordprodukt`.
+- Importkommando: `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:import:mvk-kompost-jordprodukt-deepening-2026-07-02`.
+- Kildepass: Brreg Enhetsregisteret navnesøk på `kompost`, `jordprodukt`, `jordprodukter`, `kompostjord`, `kompostering`, `hageavfall`, `matavfall jord`, `matavfall kompost`, `torvfri jord`, `jordforbedring`, `jordforbedringsmiddel`, `organisk avfall jord`, `biorest jord`, `slam jord`, `vekstjord`, `anleggsjord`, `hagejord`, `mold`, `vermikompost`, `bokashi` og `biokull jord`, med detaljoppslag per org.nr., hentet 2026-07-02. I tillegg ble tidligere importerte `gjodsel-jordforbedring`-aktører re-sjekket for eksplisitt jordprodukt-/kompostrolle.
+- Kandidatutvalg: 12 rader med eksplisitt kompostering, kompostjord, jordprodukt, organisk-avfall-til-jord, vermikompost eller bokashi-/komposteringstjeneste i registertekst eller tidligere primærkilde. `VEAS AS`, `VEAS MARKED AS` og `MINORGA VEKST AS` finnes allerede som MVK-aktører og skal gjenbrukes/berikes.
+- Droppet/ikke importert: rene jord-/matjordaktører uten kompost-/avfalls-/restressurssignal, rene slamsuger-/spyleaktører, eiendom/bygg/anlegg/navnetreff på `mold`, restauranter, kurs-/hageutstyrsaktører uten tydelig kompostrolle, inaktive/avviklingsrader, rene biogass-/digestataktører uten jordprodukt-/kompostsignal og FoU-/teknologiaktører uten aktiv jordproduktrolle.
+- Importresultat: 9 nye aktører (`avfall-sor-naering-as`, `glenne-kompostjord-as`, `hardanger-sand-og-kompost-as`, `kompostering-as`, `midt-telemark-jordforedling-as`, `eirs-jord-as`, `kompostmakk-ostbo`, `lokal-bokashi-as`, `organisk-fertilizers-bharj`) og 3 eksisterende aktører beriket (`veas-as`, `veas-marked-as`, `minorga-vekst-as`).
+- Dekningsdelta etter import/audit: `kompost-jordprodukt` 8 -> 20 og gap 12 -> 0; `matsvinn-sirkulaer` er nå 100/120, maks gap er 13, og total domene-tagget dekning er 1,596/1,651. DB Actor-count er 1,535.
+- Kilde-/claim-status: Brreg og tidligere primærkilder bekrefter juridisk enhet/rolle og registertekst eller kildebeskrivelse. Batchen bekrefter ikke innsatsmaterialenes mengder, produktvolum, faktisk matavfall-/hageavfallandel, kvalitetssertifisering, marked, driftsstatus utover registeraktivitet eller nasjonal kompost-/jordproduktdekning. Actor-gate/kartleggingsdekning, ikke hard claim-lock.
+- Resterende gap: ingen for `kompost-jordprodukt` etter run-floor; videre arbeid må handle om kildekvalitet/volum/produktdata, ikke flere actor-gate-fyllrader.
+- Prod-wiring: `db:import:mvk-kompost-jordprodukt-deepening-2026-07-02` skal ligge i `db:prod-sync` rett etter `db:import:mvk-kompost-jordprodukt-2026-06-26`.

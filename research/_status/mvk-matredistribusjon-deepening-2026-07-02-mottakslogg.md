@@ -1,0 +1,14 @@
+# MVK matredistribusjon deepening - mottakslogg 2026-07-02
+
+- Kandidatfil: `research/_status/mvk-matredistribusjon-deepening-2026-07-02-node-kandidater.csv`.
+- Dataset: `mvk-matredistribusjon-deepening-2026-07-02`.
+- Celle: `matsvinn-sirkulaer / matredistribusjon`.
+- Importkommando: `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:import:mvk-matredistribusjon-deepening-2026-07-02`.
+- Kildepass: Brreg Enhetsregisteret navnesøk på `matsvinn`, `overskuddsmat`, `matredder`, `matredderne`, `matdeling`, `matdonasjon`, `donasjon mat`, `redistribusjon mat`, `matutdeling`, `mat utdeling`, `mathjelp`, `gratis mat`, `nødhjelp mat`, `hjelp mat`, `foodsharing`, `foodlist`, `throw no more`, `totalctrl`, `too good to go`, `holdbart`, `havaristen`, `datovare`, `kort dato`, `overskuddsvarer`, `restemat`, `spis opp maten` og `kutt matsvinn`, med detaljoppslag per org.nr., hentet 2026-07-02.
+- Kandidatutvalg: 7 Brreg-aktive enheter med eksplisitt kort-holdbarhet, restemat, kommersiell-til-veldedig redistribusjon, overskuddsmat eller konkret innsamling/utdeling av matprodukter i registertekst. `HOLDBART AS`, `TOO GOOD TO GO NORGE AS` og `FOODLIST AS` finnes allerede som MVK-aktører og skal gjenbrukes/berikes.
+- Droppet/ikke importert: rene student-/ungdomsbedrifter, konkursbo, rådgivning/IT/navnetreff uten matrolle, generelle nødhjelps- og veldedighetsaktører uten dokumentert matredistribusjonsmekanikk, internasjonale bistands-/landbruksnettverk, rene "gratis mat"-arrangementsaktører og `HAVARISTEN AS` fordi Brreg-teksten bare sier uspesifisert engroshandel med blant annet matvarer uten eksplisitt overskudds-/kortdato-/redistribusjonssignal.
+- Importresultat: 4 nye aktører (`mat-pa-bordet`, `skotfoss-matutdeling`, `hjelpende-hand`, `mat-for-mat`) og 3 eksisterende aktører beriket (`holdbart`, `too-good-to-go`, `foodlist-as`).
+- Dekningsdelta etter import/audit: `matredistribusjon` 8 -> 15 og gap 12 -> 5; `matsvinn-sirkulaer` er nå 90/120, maks gap er 13, og total domene-tagget dekning er 1,586/1,651. DB Actor-count er 1,526.
+- Kilde-/claim-status: Brreg bekrefter juridisk enhet, aktiv registerstatus, NACE og registertekst. Brreg bekrefter ikke redistribuert volum, matsvinnreduksjon, leverandørnettverk, mottakernettverk, geografisk dekning, driftshyppighet, faktisk 2026-aktivitet eller om alle innsamlede varer er overskudds-/kortdato-/restemat. Batchen er actor-gate/kartleggingsdekning, ikke hard claim-lock.
+- Resterende gap: dersom audit fortsatt viser gap etter import, skal neste runde enten bruke sterkere primærkilder fra aktør-/nettverkssider eller gå til neste større sikre hull; ikke fyll med generelle mathjelp-/veldedighetsrader uten redistribusjonskilde.
+- Prod-wiring: `db:import:mvk-matredistribusjon-deepening-2026-07-02` skal ligge i `db:prod-sync` rett etter `db:import:mvk-matredistribusjon-2026-06-26`.

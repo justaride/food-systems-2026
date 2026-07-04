@@ -1,0 +1,16 @@
+# MVK mottakslogg: primaerproduksjon / havbruk-akvakultur deepening pass 5 (2026-07-02)
+
+- Kandidatfil: `research/_status/mvk-havbruk-akvakultur-deepening-5-2026-07-02-node-kandidater.csv`.
+- Dataset: `mvk-havbruk-akvakultur-deepening-5-2026-07-02`.
+- Kildepass: Brreg Enhetsregisteret NACE 03.211, sortert etter `antallAnsatte,desc`, med detaljoppslag per org.nr.; Fiskeridirektoratet pub-aqua `entities/sites-by-entity-nr/{orgNr}` brukt som ekstra lokalitets-/tillatelsessignal i notes.
+- Importkommando: `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:import:mvk-havbruk-akvakultur-deepening-5-2026-07-02`.
+- Kandidater klargjort: 20.
+- Importresultat: 20 aktører importert, 20 nye aktører, 0 eksisterende aktører beriket, 0 personer og 0 relasjoner.
+- Dedupe/filter: 613 Brreg NACE 03.211-rader tilgjengelig; 26 detaljrader inspisert før kandidatsett. 83 eksisterende/prior havbruks-org.nr. ble ekskludert før kandidatvalg. 1 inaktiv/avviklingsrad, 1 ikke-primær NACE-rad og 4 rader uten aktørspesifikt havbrukssignal utover NACE og uten pub-aqua-treff ble droppet før kandidatvalg. Kandidatene er aktive juridiske enheter med primær NACE 03.211 og eksplisitt havbruk-/oppdrett-/akvakultursignal i navn/registertekst eller pub-aqua-treff.
+- Pub-aqua-signal: 18 av 20 har pub-aqua lokalitets-/tillatelsestreff; 2 rader uten pub-aqua-treff er satt til middels confidence og review-flagget.
+- Dekningsdelta etter import/audit: `havbruk-akvakultur` 100 -> 120 og gap 20 -> 0; `primaerproduksjon` er nå 340/350, maks gap er 10, og total domene-tagget dekning er 1,532/1,651. DB Actor-count er 1,478.
+- Usikkerhet: Brreg bekrefter juridisk aktiv enhet, NACE/navn og registertekst, og pub-aqua bekrefter lokalitets-/tillatelsessignal der API-en returnerer treff. Batchen beviser ikke komplett konsernstruktur, eierskap, biomasse, produksjonsvolum, luse-/miljøstatus, lønnsomhet, faktisk drift i inneværende uke eller at rader uten pub-aqua-treff er direkte tillatelsesinnehavere.
+- Review-kø: `research/_status/mvk-review-koe-2026-07-01.csv`.
+- Usikkerhet: `research/_status/mvk-usikkerhetslogg-2026-07-01.md`.
+- Verifikasjon: `db:import:mvk-havbruk-akvakultur-deepening-5-2026-07-02`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run compute-metrics:full`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run audit:domain-coverage -- --date=2026-07-02`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:audit`, `npm run audit:research-artifacts -- --base=origin/main`, `node -e "JSON.parse(require('fs').readFileSync('package.json','utf8')); console.log('package.json OK')"`, `git diff --check`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run audit:citable`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:verify`, `npm run test`, `npm run lint` og `npm run build` er grønne. Build gir fortsatt kjent Next/Turbopack workspace-root warning og NFT trace warning via `next.config.ts` / `src/lib/hvitbok/loader.ts`.
+- Prod-wiring: `db:import:mvk-havbruk-akvakultur-deepening-5-2026-07-02` lagt til i `db:prod-sync` før `db:verify`.
