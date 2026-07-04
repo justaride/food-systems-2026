@@ -44,6 +44,7 @@ Neste fase skal ikke bygge "mer kart" først. Den skal gjøre kartet brukbart so
 - PR #259 lukket I33 prisasymmetri datareview, uten ny I33-node-generering.
 - PR #260 lukket I28 styreknutepunkt datareview, uten ny I28-node-generering.
 - I27+-rekken er nå datareviewet/source-shortlistet: I28, I29 og I33 forblir parkert; I30 og I32 er beslutningsklare; I35 venter presis claim-/I-node-formulering.
+- PR #261 lukker backlogg-closeout etter I27+-rekken og setter neste steg til menneskelig scope-beslutning.
 - VK-5-protokollen er lukket for intern cockpit-bruk.
 - `vault:review-closeout` er forventet grønn så lenge VK-5-protokollen forblir lukket og alle review-rader er løst.
 - Obsidian-grafen er et kuratert utsnitt, ikke hele kunnskapsbasen.
