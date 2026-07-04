@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-07-02",
+  "source": "Norges Bank EXR daily observations",
+  "method": "Arithmetic mean of available business-day observations for 2025; API values are quoted as NOK per 100 currency units.",
+  "rates": [
+    {
+      "currency": "SEK",
+      "apiSeries": "EXR/B.SEK.NOK.SP",
+      "periodStart": "2025-01-01",
+      "periodEnd": "2025-12-31",
+      "observations": 251,
+      "averageNokPer100": 105.883984,
+      "nokPer1": 1.05883984,
+      "url": "https://data.norges-bank.no/api/data/EXR/B.SEK.NOK.SP?startPeriod=2025-01-01&endPeriod=2025-12-31&format=sdmx-json"
+    },
+    {
+      "currency": "DKK",
+      "apiSeries": "EXR/B.DKK.NOK.SP",
+      "periodStart": "2025-01-01",
+      "periodEnd": "2025-12-31",
+      "observations": 251,
+      "averageNokPer100": 157.002151,
+      "nokPer1": 1.57002151,
+      "url": "https://data.norges-bank.no/api/data/EXR/B.DKK.NOK.SP?startPeriod=2025-01-01&endPeriod=2025-12-31&format=sdmx-json"
+    }
+  ]
+}

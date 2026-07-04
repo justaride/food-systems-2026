@@ -1,0 +1,45 @@
+# Seafood in the Circular Economy — Analysis March 2022
+
+> Local Document.filePath snapshot generated from existing DB `Document.content`.
+> This is a locator/coverage remediation artifact, not fresh source verification.
+> Canonical external URL remains authoritative where listed below.
+
+## Metadata
+
+- Document ID: cmq8rsni0000xekvmts782ho2
+- Slug: external-iceland-ocean-cluster-seafood-circular-2022
+- Author: Iceland Ocean Cluster
+- Year: 2022
+- Document type: report
+- Category: external
+- Subcategory: rapport
+- Country: is
+- Canonical URL: https://sjavarklasinn.is/wp-content/uploads/2022/03/Analysis-mar22-2.pdf
+- Content SHA256: 7925c952cacb57ae36df832b60c09101b507d5cf06f01bcabab4e216036c40d9
+
+## Source Text Snapshot
+
+# Seafood in the Circular Economy — Analysis March 2022
+
+**Iceland Ocean Cluster** (2022)
+
+## Beskrivelse
+35-45 % av fisk spises typisk globalt; 100 % Fish-initiativet i Island naaet ~90 % utnyttelse via kollagen og biprodukter. Fem-trinns klynge-strategi beskrevet.
+
+## Relevans
+Referansecase for sirkulaer sjomat-klynge og dokumentasjon av 100 % Fish-initiativet.
+
+## Metadata
+- Kilde-ID: src-163
+- Type: rapport
+- Filnavn: iceland-ocean-cluster-seafood-circular-2022.pdf
+- URL: https://sjavarklasinn.is/wp-content/uploads/2022/03/Analysis-mar22-2.pdf
+
+---
+*Ekstern kilde — fulltekst ikke importert. Metadata fra kilderegisteret.*
+--- URL text extraction ---
+Source URL: `https://sjavarklasinn.is/wp-content/uploads/2022/03/Analysis-mar22-2.pdf`
+Content kind: `pdf`
+Extraction method: `pdf_pdftotext`
+Extracted words: 838
+OCEAN CLUSTER ANALYSIS March 2022 Seafood in the circular economy Circular economies are those that close the loop Seafood consumption is rising and according between production and consumption. They design to FAO, 179 million tonnes of fish were the waste out of the system, and regenerate the produced globally in 2018. From this huge production process. On a planet where global production volume, only a small proportion is population is predicted to reach 10 billion people by actually consumed. It is estimated that 35% of the year 2050, it is essential that the products and the global harvest is lost or wasted every year, materials we use, retain their value for as long as ending up in landfill and contributing to possible and that we minimise the generation of greenhouse gas production. For example, a waste. This will both support resource security and cod fillet is around 35-45% of the weight of help to protect our planetary health for future the fish, yet traditionally this is often the only generations. Yet, we are currently far from this part of the fish that has been marketed and target, in 2021, 931 million metric tonnes of food consumed, leaving behind as much as 65% of produced was wasted, and much of this waste goes each fish. Likewise for salmon, around 42% of to landfill, where, as it breaks down, it produces each fish is traditionally considered a waste greenhouse gases and further exacerbates climate product that frequently ends up in landfills. change. In the United Kingdom, if organic food This is an inefficient and unsustainable way waste was saved from landfill, this would save 1.1 to use our seafood resources. billion USD in landfill cost and reduce carbon emissions by 7.4 million tonnes. Ocean Cluster Analysis - March 2022 - Seafood in the circular economy 1/3 Applying circular economic thinking to our fishery Feel Iceland, which utilises fish skin collagen to and aquaculture products gives us the opportunity develop health products in collaboration with to mimic a more natural system to regenerate researchers and investors close to the IOC. “waste” into new and valuable products and side Codland, which works with both fisheries and streams. This is not only beneficial for the researchers, led by the IOC, has resulted in an environment, but also for the economy. There is initiative focused on fish skin and omega-3 rich much discussion in policy and academic research fish oil. The newest collaboration is a collagen about the potential and importance of circular rich drink produced by Collab which is now the economies, but there has often been a gap between most popular energy drink in Iceland, providing the idea and the implementation. unique nutritional value and creating a new valuable side stream from fisheries by products. In Iceland, the Iceland Ocean Cluster has been bridging this gap. The cluster has used its network of knowledgeable actors and industry to seek solutions for minimising waste streams. The matchmaking role of the cluster has led to successful projects in the circular economy. One such is the re-imaging of the Atlantic cod skin into a new resource which has been championed by multiple companies. Marine Collagen, which was initiated within the cluster, has extracted collagen, a structural protein that is responsible for healthy joints and skin elasticity. With extensive collaboration, the parts of Atlantic cod in Iceland that were previously lost have now been saved, and up to 90% utilisation of each fish has been achieved through circular economy approaches. It is now necessary to move toward the total utilisation of our valuable seafood resources. To meet this target, the Iceland Ocean Cluster created 100% Fish, a global project that aims to design-out the waste from our seafood supply chain. Companies, like Marine Collagen, have raised the bar for how we can gain so much value from Atlantic Cod side streams. Ocean Cluster Analysis - March 2022 - Seafood in the circular economy 2/3 There is now huge opportunity to create new value and form regenerative production cycles from a wide range of seafood that is currently wasted both from fisheries and aquaculture. The Iceland Ocean Cluster has a 5-step strategy that we use to successfully develop new value creation. The strategy starts with the emergence of a good idea, a business plan and working group are then built around this good idea, bringing together cluster members with the expertise to support and develop this idea. At this stage, initial financial commitment is required, and the creation of a strong business plan by a now more formal enterprise. Lastly, the owners and team become established and prepare to carry their enterprise forward. The Ocean Cluster Network, a network of global ocean clusters established by the Icelandic Ocean Cluster can support the collaboration, technology and knowledge transfer necessary to change the narrative around “waste” and maximise the value of seafood. For further information contact Dr. Alexandra Leeper or Dr. Thor Sigfusson in tel +354-577- 6200. Ocean Cluster Analysis - March 2022 - Seafood in the circular economy 3/3

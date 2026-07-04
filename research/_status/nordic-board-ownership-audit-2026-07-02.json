@@ -1,0 +1,114 @@
+{
+  "generatedAt": "2026-07-02T07:21:09.947Z",
+  "countries": [
+    "SE",
+    "DK",
+    "FI",
+    "IS"
+  ],
+  "source": "internal DB scoped to non-Norwegian Nordic companies; ownership edges include parent/child edges touching scoped companies",
+  "boardInterlocks": {
+    "totals": {
+      "seats": 118,
+      "distinctPersons": 118,
+      "distinctCompanies": 14,
+      "companyUniverse": 61,
+      "boardCompanyCoverage": 0.2295,
+      "companiesWithSector": 14,
+      "boardCompaniesWithSectorCoverage": 1,
+      "interlockers": 0,
+      "crossSectorBridges": 0
+    },
+    "topInterlockers": [],
+    "topBridges": [],
+    "topCompaniesByInterlockDegree": [],
+    "sectorPairBridges": []
+  },
+  "ownershipControl": {
+    "totals": {
+      "companies": 64,
+      "ownershipEdges": 22,
+      "controllingEdges": 21,
+      "companiesInGraph": 32,
+      "controllers": 10,
+      "ultimateControllers": 9,
+      "crossSectorControllers": 4
+    },
+    "crossSectorControllers": [
+      {
+        "name": "Axel Johnson AB (SE)",
+        "ownSector": "retail",
+        "sectors": [
+          "foodservice",
+          "logistics",
+          "retail",
+          "wholesale"
+        ],
+        "controlledCount": 8,
+        "isUltimate": true
+      },
+      {
+        "name": "Axfood AB (SE)",
+        "ownSector": "retail",
+        "sectors": [
+          "foodservice",
+          "logistics",
+          "retail"
+        ],
+        "controlledCount": 5,
+        "isUltimate": false
+      },
+      {
+        "name": "SOK (S Group) (FI)",
+        "ownSector": "retail",
+        "sectors": [
+          "foodservice",
+          "retail"
+        ],
+        "controlledCount": 1,
+        "isUltimate": true
+      },
+      {
+        "name": "Kesko Oyj (FI)",
+        "ownSector": "retail",
+        "sectors": [
+          "foodservice",
+          "retail"
+        ],
+        "controlledCount": 1,
+        "isUltimate": true
+      }
+    ],
+    "sectorPairControl": [
+      {
+        "pair": "foodservice ↔ retail",
+        "count": 4
+      },
+      {
+        "pair": "foodservice ↔ logistics",
+        "count": 2
+      },
+      {
+        "pair": "logistics ↔ retail",
+        "count": 2
+      },
+      {
+        "pair": "foodservice ↔ wholesale",
+        "count": 1
+      },
+      {
+        "pair": "logistics ↔ wholesale",
+        "count": 1
+      },
+      {
+        "pair": "retail ↔ wholesale",
+        "count": 1
+      }
+    ]
+  },
+  "caveats": [
+    "Board interlocks are structural positions, not evidence of coordination, intent or unlawful conduct.",
+    "Ownership control is defined as subsidiary or ownershipPct >= 50; minority/JV rows are not treated as control.",
+    "Coverage is limited by imported Company, BoardMember and CompanyOwnership rows in the local DB."
+  ]
+}
