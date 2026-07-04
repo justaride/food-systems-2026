@@ -2,6 +2,7 @@
 id: R13-LAND-004
 tittel: Datagap-atlas — norsk matsystem R13
 dato: 2026-06-28
+kontrollert: 2026-07-02
 gate: internal
 importDecision: vent
 regel: intern-datagap-atlas
@@ -14,6 +15,8 @@ basertPå: R13 batch 01-11 + R12 eskaleringsfil (R13-GAP-006)
 ## Hva dette er — og hva det ikke er
 
 Dette dokumentet er et **internt arbeidskart** over type-C-hull i Food TG R13-materialet (batch 01-11), supplert med ekte C-funn fra R12 slik de er klassifisert i R13-GAP-006. Det er ikke en faktakomponent, ikke siterbar kunnskap, ikke whitepaper-stemme og ikke et ferdig visualiseringsgrunnlag.
+
+**Kontrollert:** 2026-07-02. Bruk atlasset som intern stoppliste; senere R13-kontroller kan ha oppdatert enkeltceller, men har ikke gjort denne filen til en ekstern datagap-figur.
 
 Formålet er å samle alle dokumenterte gap på ett sted slik at:
 1. Prosjektet vet hva som blokkerer hvilke faktagrunnlag.
@@ -234,6 +237,10 @@ Dette dokumentet er utelukkende for intern prosjektbruk. Det er ikke siterbar ku
 - identifisere hvilke actor-gate-spørsmål som er høyest prioritert,
 - forhindre at prosjektet formulerer claims basert på C-hull,
 - styre neste innsamlingsrunde (R14 eller actor-gate-sesjon).
+
+## Kontroll 2026-07-02
+
+Atlasset er kontrollert som internt gap-atlas. Noen rader er delvis oppdatert i senere kontrollerte R13-artefakter, særlig WASTE-004, WASTE-005, WASTE-006, WASTE-008, OKO-003, OKO-004, PROT-008 og LAND-005. Det endrer ikke gate: denne filen er fortsatt en samlet stoppliste over hva som ikke kan sies uten ny metode, primærdata eller actor-gate. Ikke bruk domenetabellene som direkte figurgrunnlag uten å regenerere fra nyeste kontrollerte artefakter og synlig scope.
 
 ---
 

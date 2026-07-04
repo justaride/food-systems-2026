@@ -1,8 +1,8 @@
 # REMEDIATION BACKLOG — data-readiness Fase B
 
 > Auto-generert av `scripts/build-remediation-backlog.ts` — ikke rediger manuelt.
-> Generert: 2026-07-04T18:36:51.969Z
-> Totalt: **501** funn
+> Generert: 2026-07-04T18:43:35.583Z
+> Totalt: **488** funn
 
 ## Sammendrag per kilde × severity
 
@@ -11,8 +11,8 @@
 | file-coverage | 11 | 30 | 319 | 0 |
 | pdf-quality | 0 | 0 | 54 | 0 |
 | html-triage | 0 | 0 | 0 | 0 |
-| url-health | 0 | 0 | 87 | 0 |
-| **Total** | 11 | 30 | 460 | 0 |
+| url-health | 0 | 0 | 74 | 0 |
+| **Total** | 11 | 30 | 447 | 0 |
 
 ## Fiksgrupper (rotårsak-analyse)
 
@@ -25,22 +25,21 @@ Mange MEDIUM-funn deler rotårsak. Grupper for batch-fiks:
 | J: low-text PDFs | 53 | 0 | 0 | 53 |
 | K: oversized PDFs | 1 | 0 | 0 | 1 |
 | P: dead URLs | 41 | 0 | 0 | 41 |
-| Q: blocked URLs (403/451) | 44 | 0 | 0 | 44 |
-| T: other URL issues | 2 | 0 | 0 | 2 |
+| Q: blocked URLs (403/451) | 33 | 0 | 0 | 33 |
 
 ## Nåværende hovedrestanser
 
 - **SourceDoc-lokatorer:** 0 funn. Strukturerte SourceDoc-poster regnes som dekket når de har URL, DOI, koblet Document eller lokal fil.
 - **PDF-review:** 5 PDF-quality-rader er lukket i `research/PDF-OCR-REVIEW.csv` fordi OCR-tekst, eksisterende Document-tekst, eksplisitt lokal erstatningstekst eller bekreftet tilstrekkelig `pdftotext`-uttak er dekkende; 0 review-rader traff ingen aktiv PDF-quality-rad.
-- **URL-helse:** 87 funn fordelt på dead/blocked/timeout/server_error/other.
-- **URL-review:** 5 URL-health-rader er lukket i `research/URL-HEALTH-REVIEW.csv` fordi de er verifisert via nettleser, citable mirror eller lokal kildepakke; 0 review-rader traff ingen aktiv URL-health-rad.
+- **URL-helse:** 74 funn fordelt på dead/blocked/timeout/server_error/other.
+- **URL-review:** 18 URL-health-rader er lukket i `research/URL-HEALTH-REVIEW.csv` fordi de er verifisert via nettleser, citable mirror eller lokal kildepakke; 0 review-rader traff ingen aktiv URL-health-rad.
 - **Document.filePath:** 11 manglende dokumentfiler i denne kjøringen.
 - **Orphan files:** 349 repo-filer uten DB-rad. Dette er lavere prioritet så lenge de ikke er brukt i app eller rapport.
 
 ## Anbefalt rekkefølge for neste ryddeslice
 
 1. **Gjenværende PDF-quality-funn (54):** håndter `low-text`/`skipped-too-large`-rader først der de er brukt i app, rapport eller KI/RAG-inntak.
-2. **URL-helse (87):** rydd URL-er bare der kilden brukes i app/rapport eller har klar ny URL, arkivkopi eller lokal kildepakke.
+2. **URL-helse (74):** rydd URL-er bare der kilden brukes i app/rapport eller har klar ny URL, arkivkopi eller lokal kildepakke.
 3. **HTML-triage:** 0 åpne funn.
 4. **Graph enrichment:** prioriter board-member profile gaps og company-name duplicate groups; teknisk graf-integritet er allerede grønn.
 5. **Orphan files (Gruppe F, 349):** vurder arkivering/sletting eller eksplisitt seed-/DB-lenke.
