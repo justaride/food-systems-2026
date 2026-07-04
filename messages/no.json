@@ -13,6 +13,7 @@
     "sok": { "name": "Søk", "description": "Søk på tvers av alt" },
     "team": { "name": "Team", "description": "Medlemmer og roller" },
     "casestatus": { "name": "Casestatus", "description": "Modenhet per caseanker" },
+    "aiKunnskap": { "name": "AI-kunnskap", "description": "Bibliotek-readiness og review queue" },
     "moter": { "name": "Møter", "description": "Møtesammendrag og referater" },
     "kommunikasjon": { "name": "Kommunikasjon", "description": "E-post og korrespondanse" },
     "mandat": { "name": "Mandat", "description": "Food TG scope, claims og validering" },

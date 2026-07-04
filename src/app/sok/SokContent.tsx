@@ -12,6 +12,15 @@ type SearchResult = {
   excerpt: string
   url?: string | null
   tags?: string[]
+  libraryAnalysis?: LibraryAnalysisBadge | null
+}
+
+type LibraryAnalysisBadge = {
+  status: string
+  usageRule: string
+  reviewRequired: boolean
+  claimCandidateCount: number
+  riskFlags: string[]
 }
 
 const TYPE_LABELS: Record<string, string> = {
@@ -58,6 +67,26 @@ const EXAMPLE_QUERIES = [
   'NorgesGruppen leverandører',
 ]
 
+const AI_STATUS_LABELS: Record<string, string> = {
+  approved_internal: 'AI godkjent internt',
+  review_required: 'AI review',
+  blocked: 'AI blokkert',
+  inventory_only: 'Kun inventory',
+  ai_draft: 'AI utkast',
+  validated: 'Validert',
+  not_started: 'Ikke startet',
+  superseded: 'Erstattet',
+}
+
+const AI_USAGE_LABELS: Record<string, string> = {
+  safe_for_ai_context: 'trygg AI-kontekst',
+  claim_candidate_review: 'claim-review',
+  internal_background: 'intern bakgrunn',
+  do_not_use_for_claims: 'ikke claim',
+  requires_actor_gate: 'aktørgate',
+  type_c_gap: 'type-C gap',
+}
+
 type SearchWarning = {
   code: 'semantic-unavailable' | 'semantic-error'
   message: string
@@ -72,6 +101,29 @@ type SearchResponse = {
   count?: number
   results?: SearchResult[]
   error?: string
+}
+
+function LibraryAnalysisBadges({ analysis }: { analysis?: LibraryAnalysisBadge | null }) {
+  if (!analysis) return null
+  const statusTone = analysis.reviewRequired || analysis.status === 'blocked'
+    ? 'border-amber-200 bg-amber-50 text-amber-800'
+    : 'border-emerald-200 bg-emerald-50 text-emerald-800'
+
+  return (
+    <div className="flex flex-wrap gap-1 mt-1.5">
+      <span className={`text-[10px] px-1.5 py-0.5 rounded border ${statusTone}`}>
+        {AI_STATUS_LABELS[analysis.status] ?? analysis.status}
+      </span>
+      <span className="text-[10px] px-1.5 py-0.5 rounded border border-stone-200 bg-white text-stone-500">
+        {AI_USAGE_LABELS[analysis.usageRule] ?? analysis.usageRule}
+      </span>
+      {analysis.claimCandidateCount > 0 && (
+        <span className="text-[10px] px-1.5 py-0.5 rounded border border-rose-200 bg-rose-50 text-rose-700">
+          {analysis.claimCandidateCount} claim-kandidat
+        </span>
+      )}
+    </div>
+  )
 }
 
 export function SokContent() {
@@ -249,6 +301,7 @@ export function SokContent() {
                     {TYPE_LABELS[item.type]}
                   </span>
                 </div>
+                {item.type === 'document' && <LibraryAnalysisBadges analysis={item.libraryAnalysis} />}
                 <p className="text-xs text-stone-500 line-clamp-2">{item.excerpt}</p>
                 {item.tags && item.tags.length > 0 && (
                   <div className="flex flex-wrap gap-1 mt-2">
