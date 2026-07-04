@@ -132,6 +132,7 @@
     "research:source-gap-queue": "tsx scripts/export-strict-source-gap-queue.ts",
     "research:citation-readiness-queue": "tsx scripts/export-citation-readiness-queue.ts",
     "research:citable-acceptance-pack": "tsx scripts/build-citable-acceptance-pack.ts",
+    "export:notebooklm": "tsx scripts/build-notebooklm-export.ts",
     "audit:citations": "tsx scripts/verify-data-integrity.ts --strict-sources",
     "audit:citable-reports": "tsx scripts/audit-citable-reports.ts",
     "gate:overclaim": "npm run compute-coverage && npm run audit:citable-reports",
