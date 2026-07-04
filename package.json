@@ -163,6 +163,7 @@
     "audit:research-artifacts": "tsx scripts/audit-research-artifacts.ts",
     "audit:source-coverage-gaps": "tsx scripts/export-source-coverage-gaps.ts",
     "audit:academic-source-quality": "tsx scripts/audit-academic-source-quality.ts",
+    "audit:nordic-board-ownership": "tsx scripts/analyze-nordic-board-ownership.ts",
     "audit:link-rot-worklist": "tsx scripts/build-link-rot-worklist.ts",
     "audit:report-author-backfill": "tsx scripts/build-report-author-backfill-worklist.ts",
     "audit:crossref-doi-worklist": "tsx scripts/build-crossref-doi-worklist.ts",
