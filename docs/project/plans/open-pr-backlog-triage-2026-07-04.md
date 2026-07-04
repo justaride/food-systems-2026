@@ -4,7 +4,8 @@ dato: 2026-07-04
 status: aktiv-ryddenotat
 grunnlag:
   - GitHub PR-liste lest 2026-07-04 etter merge av PR #221 og close av PR #114
-  - `git status -sb` på `main` ved `403ce92`
+  - `git status -sb` på `main` ved `7536e1a`
+  - GitHub PR #141 lukket 2026-07-04 etter at #264 reddet den smale konsern-år/testdelen
 siterbarhet: intern
 ---
 
@@ -12,7 +13,7 @@ siterbarhet: intern
 
 ## Kort konklusjon
 
-Ready/non-draft-flaten er ryddet: PR #221 er merget, og PR #114 er lukket som erstattet av #221. Det står bare draft-PR-er igjen. PR #141-#157 er i tillegg en stacked PR-kjede, ikke 17 uavhengige PR-er mot `main`. De skal ikke merges automatisk selv om flere har grønne gamle checks, fordi de er eldre plattform-/goal-slices og flere er store nok til å kreve ny scope-, rebase- og produktbeslutning.
+Ready/non-draft-flaten er ryddet: PR #221 er merget, og PR #114 er lukket som erstattet av #221. Den smale verdien i PR #141 er reddet gjennom #264, og #141 er lukket uten å slette branchen fordi den fortsatt er base for resten av goal-stacken. Det står bare draft-PR-er igjen. PR #142-#157 er en stacked PR-kjede, ikke 16 uavhengige PR-er mot `main`. De skal ikke merges automatisk selv om flere har grønne gamle checks, fordi de er eldre plattform-/goal-slices og flere er store nok til å kreve ny scope-, rebase- og produktbeslutning.
 
 ## Utført 2026-07-04
 
@@ -21,6 +22,7 @@ Ready/non-draft-flaten er ryddet: PR #221 er merget, og PR #114 er lukket som er
 | #221 `data-readiness: monthly audit 2026-07` | Merget til `main` som `403ce92`. | Ikke-draft, mergeable, grønne checks, og nyere månedsaudit. | Remote branch `audit/monthly-2026-07` slettet. |
 | #114 `data-readiness: monthly audit 2026-06` | Lukket uten merge. | Erstattet av #221/juli-auditen på samme generated audit-flate. | Worktree `.worktrees/audit-monthly-2026-06`, lokal branch og remote branch slettet. |
 | #264 `Add konsern coverage year tests` | Merget til `main` som `8c63016`. | Reddet den smale year-selection/testverdien fra dirty stack-root #141 uten å rebase hele gamle stacken. | Remote branch `codex/konsern-coverage-year-tests-2026-07-04` slettet. |
+| #141 `[codex] Fix konsern coverage measured year` | Lukket uten merge. | Den uttalte measured-year/testverdien er allerede på `main` via #264; gjenværende PR-diff er stale/dirty og må ikke merges som stack-root. | Branch `codex/goal-01-konsern-aar` ble beholdt fordi #142 fortsatt bruker den som base. |
 
 ## Gjenstående åpne PR-er
 
@@ -43,13 +45,12 @@ Ready/non-draft-flaten er ryddet: PR #221 er merget, og PR #114 er lukket som er
 | #144 | `codex/goal-03-datastatus` | `codex/goal-04-proveniens` | draft, clean | +649 / -0 | Stack-ledd; krever citable-/route-review før ready. |
 | #143 | `codex/goal-02-import-reconciliation` | `codex/goal-03-datastatus` | draft, clean | +766 / -3 | Stack-ledd; må sammenlignes mot dagens `/api/data-status` og senere statusarbeid. |
 | #142 | `codex/goal-01-konsern-aar` | `codex/goal-02-import-reconciliation` | draft, clean | +42149 / -1307 | Stack-ledd; svært stor import/reconciliation-PR. Skal splittes eller rebaseres med eksplisitt mandat før merge. |
-| #141 | `main` | `codex/goal-01-konsern-aar` | draft, dirty | +786 / -310 | Stack-root, men dirty/stale. Den smale konsern-år/testverdien er reddet i #264; ikke merge #141 uten ny recovery som eksplisitt vurderer gjenværende mandat-/intake-diff. |
 
 ## Neste anbefalte rydderekkefølge
 
 1. Ikke merge flere drafts direkte fra gammel CI-status.
-2. Avklar om goal-stack #141-#157 fortsatt skal bevares som stack, eller om enkeltcommits skal cherry-pickes til nye `main`-baserte PR-er.
-3. Hvis stacken bevares: start med dirty stack-root #141, men ikke anta at alt må beholdes; #264 har allerede flyttet konsern-år/testdelen til `main`. Rebase mot dagens `main`, vurder gjenværende dokumentdiff, kjør full lokal verifikasjon, og la #142-#157 følge etter i rekkefølge.
+2. Avklar om goal-stack #142-#157 fortsatt skal bevares som stack, eller om enkeltcommits skal cherry-pickes til nye `main`-baserte PR-er.
+3. Hvis stacken bevares: ikke reåpne #141 som merge-kandidat; #264 har allerede flyttet konsern-år/testdelen til `main`. Etabler i stedet en fersk root/recovery-branch fra dagens `main`, vurder eventuell gjenværende mandat-/intake-diff eksplisitt, kjør full lokal verifikasjon, og la #142-#157 følge etter i rekkefølge.
 4. Hvis stacken splittes: velg én smal commit, cherry-pick til ny branch fra `main`, opprett ny PR, og lukk den gamle stack-PR-en først når erstatningen er merged.
 5. Behandle `DIRTY`-PR-en #159 som egen recovery-sak uavhengig av goal-stack.
 6. Behandle #142 og #148 som data-/DB-saker med eksplisitt `DATABASE_URL`, full audit og egen importbeslutning.
