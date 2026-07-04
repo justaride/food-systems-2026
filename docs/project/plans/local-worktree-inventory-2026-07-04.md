@@ -3,9 +3,9 @@ tittel: Lokal worktree-inventar etter PR-backlogg-closeout
 dato: 2026-07-04
 status: aktivt-ryddenotat
 grunnlag:
-  - `git status --short --branch` på `main` ved `31b1171`
+  - `git status --short --branch` på `main` ved `5ee363b`
   - `gh pr list --state open --limit 50 --json number,title,url` returnerte `[]`
-  - `git worktree list --porcelain` etter PR #279 og branch-only review
+  - `git worktree list --porcelain` etter PR #280 og goal-stack review
   - `git branch -r --merged origin/main` etter remote-branch cleanup
 siterbarhet: intern
 ---
@@ -14,7 +14,7 @@ siterbarhet: intern
 
 ## Kort konklusjon
 
-GitHub PR-flaten er tom og `main` er rent mot `origin/main`. MCP-sporet er publisert i PR #274 og den gamle lokale MCP-worktreen er fjernet. NotebookLM eksportsporet er publisert i PR #276 som fersk `2026-07-04`-pakke, og den gamle lokale NotebookLM-worktreen er nå fjernet etter eksplisitt port/drop-beslutning for recovery-restene. De tre rene ikke-ancestor worktreene og de to branch-only sporene er også gjennomgått; ingen av dem er slettet fordi de fortsatt har `+`-commits i `git cherry` og store stale tree-differ mot dagens `main`. Lokal repo-hygiene er derfor fortsatt ikke helt lik "slett alt": noen worktrees er dirty og skal ikke røres uten egen scopebeslutning, og noen rene worktrees/branches er beholdt som aktive eller mulige recovery-spor.
+GitHub PR-flaten er tom og `main` er rent mot `origin/main`. MCP-sporet er publisert i PR #274 og den gamle lokale MCP-worktreen er fjernet. NotebookLM eksportsporet er publisert i PR #276 som fersk `2026-07-04`-pakke, og den gamle lokale NotebookLM-worktreen er nå fjernet etter eksplisitt port/drop-beslutning for recovery-restene. De tre rene ikke-ancestor worktreene, de to branch-only sporene og den gamle G-stacken er også gjennomgått; ingen av dem er slettet fordi de fortsatt har `+`-commits i `git cherry` og store stale tree-differ mot dagens `main`. Lokal repo-hygiene er derfor fortsatt ikke helt lik "slett alt": noen worktrees er dirty og skal ikke røres uten egen scopebeslutning, og noen rene worktrees/branches er beholdt som aktive eller mulige recovery-spor.
 
 Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/branch når den enten er ren og fullt innlemmet i `main`, eller når en eksplisitt beslutning sier at historikken ikke lenger skal beholdes.
 
@@ -72,7 +72,9 @@ Disse har ikke aktiv worktree, men er heller ikke trygge å slette som ren hygie
 
 ## Beholdte branch-only recovery-spor
 
-De gamle `codex/goal-01-*` til `codex/goal-17-*` branchene finnes lokalt og på remote. PR #141-#157 er lukket uten merge, men branchene er beholdt med vilje fordi de dokumenterer den gamle G-stackens recovery-grunnlag.
+De gamle `codex/goal-01-*` til `codex/goal-17-*` branchene finnes lokalt og på remote, og lokale SHA-er matcher remote SHA-er. PR #141-#157 er lukket uten merge; #142-#157 var kjedet på forrige goal-branch som base, ikke på `main`.
+
+Goal-stack review 2026-07-04 viste at ingen av de 17 branchene er ancestor av `main`. `git cherry` viste fortsatt `+` commits hele veien fra G01 til G17: G01 har 2 `+` commits, G17-toppen har 18 `+` commits. `git diff --shortstat main..codex/goal-17-coverage-badge-system` viste 1910 filer, 10136 inn og 213456 ut, altså et gammelt stack-tre som ville fjerne mye nyere `main`-arbeid hvis det ble brukt direkte.
 
 Ikke slett disse branchene før det finnes en eksplisitt beslutning om at G-stackens gjenværende arbeid ikke skal porteres.
 
