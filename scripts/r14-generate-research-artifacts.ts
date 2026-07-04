@@ -438,9 +438,11 @@ P2.4 velger rekkefølge for actor-gate uten å gjennomføre outreach. Første as
 | 2 | D4 frø/genressurs | Dataeier/koordinator for KVANN/NordGen-sporet. | Hvilke norske aktører, lokasjoner og bevaringsroller kan bekreftes offentlig uten person-/medlemsdata? | Ikke gjør medlems-/nettverksliste til aktørkart uten kilde- og personvernavklaring. |
 | 3 | D1/D3/D5 lokal/regenerativ praksis | Kildeholder for markedshager, regenerative praktikere eller skogshage/permakultur-lister. | Hvilken offentlig liste er mest dekkende, når er den oppdatert, og hva betyr aktiv status? | Ikke map enkeltgårder eller praksisfelt som validerte før listeeier eller primærkilde bekrefter universet. |
 
-## P2.4 til G1-D2
+## P2.4 til G1
 
 G1-D2 beslutningspakken ligger i \`research/_status/food-tg-r14/actor-gate/G1-D2-andelslandbruk-outreach-beslutningspakke-2026-07-04.md\`. Den gir menneskelig ja/nei/vent-beslutning for D2 først, men åpner ikke outreach alene.
+
+G1-D4 beslutningspakken ligger i \`research/_status/food-tg-r14/actor-gate/G1-D4-fro-genressurs-outreach-beslutningspakke-2026-07-04.md\`. Den gir samme ja/nei/vent-beslutning for frø/genressurs-sporet, men stopper før kontakt og før aktørkart.
 
 ## Klar-til-G1 spørsmålspakke
 
@@ -508,6 +510,58 @@ Vent eller godkjenn D2 med smal scope. D2 bør bare åpnes hvis beslutningseier 
 | Ingen svar | Fortsetter som actor-gate, ikke som validert aktørkart. |
 `
 
+const g1D4DecisionPackBody = `## Formål
+
+Dette er en G1-beslutningspakke for D4 frø/genressurs. Den skal gjøre det lett for menneskelig beslutningseier å godkjenne, avvise eller utsette første actor-gate-outreach uten å gjøre KVANN/NordGen-sporet til et publiserbart aktørkart.
+
+## Beslutning som trengs
+
+| Valg | Hva det betyr | Når riktig | Neste handling |
+|---|---|---|---|
+| Godkjenn D4 | D4 kan gå fra forberedelse til kontrollert kildeeier-avklaring/PCQ-forberedelse. | Teamet trenger å vite hvilke norske aktører, lokasjoner og bevaringsroller som kan bekreftes offentlig. | Send bare D4-asken, logg svar, lokator, bruksrett og personvernforbehold samme dag. |
+| Avvis D4 nå | D4 holdes som intern kandidat uten outreach. | Frø/genressurs er ikke relevant for neste briefing/figur, eller risikoen for medlems-/persondata er for høy. | Behold D4 som actor-gate-kandidat; ikke bygg aktørkart. |
+| Vent | Ingen kontakt; mer offentlig kildejakt først. | Det mangler beslutningseier, mottakerrolle eller avklart personvern-/medlemsdatagrense. | Finn offentlig dataeier, publiserbar liste eller klart mandat før ny G1-runde. |
+
+## Anbefalt default
+
+Vent eller godkjenn D4 med smal kildeeier-scope. D4 bør bare åpnes hvis beslutningseier aksepterer at dette er datakvalitetsavklaring, ikke en kartlegging av medlemmer, nettverk eller enkeltpersoner.
+
+## Foreslått D4-ask
+
+1. Hvilke norske aktører, lokasjoner og bevaringsroller innen frø/genressurs kan bekreftes offentlig?
+2. Hvilke felt kan deles uten medlems- eller persondata: organisasjonsnavn, rolle, sted/region, offentlig kilde-URL, oppdateringsdato og kontaktrolle?
+3. Hvilke deler av KVANN/NordGen-sporet er nordisk, norsk, medlemsbasert, historisk eller prosjektbasert?
+4. Hvilke rader, personer, gårder eller nettverkskoblinger skal ikke brukes av personvern-, medlems- eller metodehensyn?
+5. Hvem kan godkjenne at avklarte felt brukes i intern Obsidian/app/briefing, og hvilken caveat må følge?
+
+## Mottakerrolle og avsenderkrav
+
+| Felt | Krav før sending |
+|---|---|
+| Mottakerrolle | Dataeier eller koordinator for KVANN/NordGen-sporet, ikke tilfeldig medlem eller enkeltaktør. |
+| Avsender | Menneskelig prosjektansvarlig, ikke automatisert agent. |
+| Beslutningslogg | G1-vedtak, dato, beslutningseier og scope må stå i prosjektlogg før sending. |
+| Responslogg | Svar, kilde-URL, bruksrett, datostempel, caveat og neste gate logges samme dag. |
+| Publiserbarhet | Ingen ekstern bruk før PCQ/claim-lock/citable-gate. |
+
+## Stopplinjer
+
+- Ikke send noe uten eksplisitt G1/scope-vedtak.
+- Ikke gjør medlemsliste, personnettverk eller frøbytter til aktørkart.
+- Ikke bruk KVANN/NordGen-navn som validering av norske lokasjoner uten offentlig lokator.
+- Ikke behandle manglende svar som null funn eller null aktivitet.
+- Ikke merk D4 som validert før dokumentert svar eller primærkilde finnes.
+
+## Etter svar
+
+| Svarutfall | Gate |
+|---|---|
+| Offentlig liste/lokator med bruksrett og tydelig feltgrense | PCQ først, deretter eventuell claim-lock for presis formulering. |
+| Delvis metodeforklaring uten publiserbare rader | Intern source-shortlist/PCQ med synlige hull. |
+| Nei/kan ikke deles | D4 blir parkert; ikke bygg frø/genressurs-aktørkart. |
+| Ingen svar | Fortsetter som actor-gate, ikke som validert aktørkart. |
+`
+
 for (const [file, sub, id, note] of actorTargets) {
   writeCsv(join(actorGateDir, file), [{
     node_id: slug(`${id}-${sub}`),
@@ -530,8 +584,9 @@ for (const [file, sub, id, note] of actorTargets) {
 }
 write(join(actorGateDir, 'D6-aktor-sporsmalspakker.md'), artifact('D6 aktørspørsmålspakker', actorGateP24Body))
 write(join(actorGateDir, 'G1-D2-andelslandbruk-outreach-beslutningspakke-2026-07-04.md'), artifact('G1-D2 andelslandbruk outreach-beslutningspakke', g1D2DecisionPackBody, '2026-07-04'))
+write(join(actorGateDir, 'G1-D4-fro-genressurs-outreach-beslutningspakke-2026-07-04.md'), artifact('G1-D4 frø/genressurs outreach-beslutningspakke', g1D4DecisionPackBody, '2026-07-04'))
 decisions.push(withIkkeSi(
-  decision('11', 'D1-D6', 'Actor-gate prep', join(actorGateDir, 'D6-aktor-sporsmalspakker.md'), 'actor-gate', 'aktørspørsmål', 'P2.4 prioriterer D2 først; G1-D2 beslutningspakke er opprettet for ja/nei/vent, men ingen outreach er utført.', 'R13 actor-gate-kilder + P2.4 prioritering + G1-D2 beslutningspakke', 'G1/scope-vedtak og dokumentert svar eller primærkilde mangler fortsatt.'),
+  decision('11', 'D1-D6', 'Actor-gate prep', join(actorGateDir, 'D6-aktor-sporsmalspakker.md'), 'actor-gate', 'aktørspørsmål', 'P2.4 har G1-beslutningspakker for D2 og D4, men ingen outreach er utført.', 'R13 actor-gate-kilder + P2.4 prioritering + G1-D2/D4 beslutningspakker', 'G1/scope-vedtak og dokumentert svar eller primærkilde mangler fortsatt.'),
   [
     'Ikke merk actor-gate som validert før menneskelig svar eller primærkilde.',
     'Ikke bruk eldre kandidatlister som nåtidstall.',
@@ -728,7 +783,7 @@ async function main() {
     write(join(R14, `report-batch-${batch}.md`), artifact(`Food TG R14 - Batch ${batch} rapport`, `## Status\n\n${rows.length ? `Mottatt med ${rows.length} decision-rader.` : 'Ingen separat write-rad i denne batchen; batchen er dekket av konsoliderings-/DB-kontroller eller stoppregel.'}\n\n## Mottaksrad-tabell\n\n| ID | Tittel | Gate | Importbeslutning | Kort dom | Svakeste punkt |\n|---|---|---|---|---|---|\n${rows.map(r => `| ${r.id} | ${r.title} | ${r.gate} | ${r.importDecision} | ${r.shortVerdict} | ${r.weakestPoint} |`).join('\n') || '| - | - | - | - | - | - |'}\n\n## Ikke-si\n\n- Ingen batch-rad åpner ekstern claim.\n- Ingen batch-rad bruker safe_for_ai_context.\n- Svakeste punkt og gate beholdes per mottaksprotokoll.`))
   }
 
-  write(join(R14, 'r14-intake-index-2026-07-03.md'), artifact('Food TG R14 intake/triageindeks', `## Kontrollstatus\n\n- Decision-batcher opprettet: 13 / 13.\n- Decision-rader: ${decisions.length}.\n- PCQ-notater: 7 / 7.\n- Claim-lock-kandidatdokument: opprettet.\n- Actor-gate-kandidatlister: 5 + D6-spørsmålspakke.\n- MVK importfiler: handel-dagligvare, meieri, kjøtt/egg.\n\n## Hurtigoppsummering\n\n| Gruppe | Antall |\n|---|---:|\n| PCQ-bekreftet/internt | ${decisions.filter(d => d.importDecision.includes('pcq')).length} |\n| claim-lock-kandidat/vent | ${decisions.filter(d => d.gate.includes('claim-lock')).length} |\n| actor-gate | ${decisions.filter(d => d.gate.includes('actor')).length} |\n| importkandidat | ${decisions.filter(d => d.importDecision === 'importer').length} |\n| internal/source-shortlist/vent | ${decisions.filter(d => d.importDecision !== 'importer').length} |\n\n## Rader\n\n| ID | Batch | Tittel | Gate | Importbeslutning | Artefakt |\n|---|---:|---|---|---|---|\n${decisions.map(d => `| ${d.id} | ${d.batch} | ${d.title} | ${d.gate} | ${d.importDecision} | ${d.canonicalPath} |`).join('\n')}\n\n## Stoppliste\n\n- Claim-lock-kandidater stopper før menneskelig claim-åpning.\n- Actor-gate-pakker stopper før G1/outreach.\n- C2-kandidater er Brreg-registerdekning, ikke volum/markedsandel.`))
+  write(join(R14, 'r14-intake-index-2026-07-03.md'), artifact('Food TG R14 intake/triageindeks', `## Kontrollstatus\n\n- Decision-batcher opprettet: 13 / 13.\n- Decision-rader: ${decisions.length}.\n- PCQ-notater: 7 / 7.\n- Claim-lock-kandidatdokument: opprettet.\n- Actor-gate-kandidatlister: 5 + D6-spørsmålspakke + G1-D2/G1-D4 beslutningspakker.\n- MVK importfiler: handel-dagligvare, meieri, kjøtt/egg.\n\n## Hurtigoppsummering\n\n| Gruppe | Antall |\n|---|---:|\n| PCQ-bekreftet/internt | ${decisions.filter(d => d.importDecision.includes('pcq')).length} |\n| claim-lock-kandidat/vent | ${decisions.filter(d => d.gate.includes('claim-lock')).length} |\n| actor-gate | ${decisions.filter(d => d.gate.includes('actor')).length} |\n| importkandidat | ${decisions.filter(d => d.importDecision === 'importer').length} |\n| internal/source-shortlist/vent | ${decisions.filter(d => d.importDecision !== 'importer').length} |\n\n## Rader\n\n| ID | Batch | Tittel | Gate | Importbeslutning | Artefakt |\n|---|---:|---|---|---|---|\n${decisions.map(d => `| ${d.id} | ${d.batch} | ${d.title} | ${d.gate} | ${d.importDecision} | ${d.canonicalPath} |`).join('\n')}\n\n## Stoppliste\n\n- Claim-lock-kandidater stopper før menneskelig claim-åpning.\n- Actor-gate-pakker stopper før G1/outreach.\n- C2-kandidater er Brreg-registerdekning, ikke volum/markedsandel.`))
 
   const atlasPath = 'docs/project/mandates/R13-LAND-004-datagap-atlas.md'
   const atlas = readFileSync(atlasPath, 'utf8')

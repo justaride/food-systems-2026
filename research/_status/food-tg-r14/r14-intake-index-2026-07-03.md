@@ -13,7 +13,7 @@ bruksregel: Ingen ekstern claim, ingen safe_for_ai_context, ingen whitepaper-/de
 - Decision-rader: 30.
 - PCQ-notater: 7 / 7.
 - Claim-lock-kandidatdokument: opprettet.
-- Actor-gate-kandidatlister: 5 + D6-spørsmålspakke.
+- Actor-gate-kandidatlister: 5 + D6-spørsmålspakke + G1-D2/G1-D4 beslutningspakker.
 - MVK importfiler: handel-dagligvare, meieri, kjøtt/egg.
 
 ## Hurtigoppsummering

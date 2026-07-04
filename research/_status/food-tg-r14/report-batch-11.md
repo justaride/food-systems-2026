@@ -16,7 +16,7 @@ Mottatt med 2 decision-rader.
 | ID | Tittel | Gate | Importbeslutning | Kort dom | Svakeste punkt |
 |---|---|---|---|---|---|
 | B4 | Stakeholder skeletons | source-shortlist | vent | Skeletons kan fylles fra eksisterende kilder; samtalekrevende felt går til D. | Menneskelig input krever G1. |
-| D1-D6 | Actor-gate prep | actor-gate | aktørspørsmål | P2.4 prioriterer D2 først; G1-D2 beslutningspakke er opprettet for ja/nei/vent, men ingen outreach er utført. | G1/scope-vedtak og dokumentert svar eller primærkilde mangler fortsatt. |
+| D1-D6 | Actor-gate prep | actor-gate | aktørspørsmål | P2.4 har G1-beslutningspakker for D2 og D4, men ingen outreach er utført. | G1/scope-vedtak og dokumentert svar eller primærkilde mangler fortsatt. |
 
 ## Ikke-si
 
