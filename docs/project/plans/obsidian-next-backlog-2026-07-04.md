@@ -38,7 +38,8 @@ Neste fase skal ikke bygge "mer kart" først. Den skal gjøre kartet brukbart so
 - PR #253 lukket I29-datareview: nodekonsentrasjon forblir parkert som metodecaveat, uten ny I29-innsiktsnode.
 - PR #254 lukket G1-D4 beslutningspakke for actor-gate: ja/nei/vent for frø/genressurs, uten å sende outreach eller lage aktørkart.
 - PR #255 lukket I30-datareview: tilskuddskonsentrasjon er klar til menneskelig I-node-beslutning, men ikke generert.
-- PR #256 åpnet I35 source-shortlist: fôr/soya/EUDR-sporet får kildepakke, men ingen ny I35-node eller møtefigur.
+- PR #256 lukket I35 source-shortlist: fôr/soya/EUDR-sporet får kildepakke, men ingen ny I35-node eller møtefigur.
+- D1/D3/D5 lokal/regenerativ actor-gate er startet lokalt: beslutningspakke for ja/nei/vent, uten outreach.
 - VK-5-protokollen er lukket for intern cockpit-bruk.
 - `vault:review-closeout` er forventet grønn så lenge VK-5-protokollen forblir lukket og alle review-rader er løst.
 - Obsidian-grafen er et kuratert utsnitt, ikke hele kunnskapsbasen.
@@ -68,7 +69,7 @@ Neste fase skal ikke bygge "mer kart" først. Den skal gjøre kartet brukbart so
 | P2.1 | R14 claim-lock-kandidater | `research/_status/food-tg-r14/claim-lock-kandidater.md` | Åpne bare smale formuleringer med tydelig kilde og caveat. | Ikke si REKO/andelslandbruk som nåtidstall uten ny kilde. |
 | P2.2 | VK4-GAP-007 næringsstoffgap | R14 claim-lock og gap-register. | Del opp N/P/K-massebalanse per strøm før claim. | Ikke si at 25-30 % er dokumentert norsk realisert gjenvinningspotensial. |
 | P2.3 | Parkerte I27+-kandidater | `docs/project/plans/obsidian-i27-kandidatgodkjenning-2026-07-02.md` | I29 er datareviewet i PR #253; I30 er datareviewet i PR #255; I35 er source-shortlistet i PR #256 og venter menneskelig claim-/I-node-beslutning; behandle I28, I32 og I33 som egne små claim-lock/datareview-saker. | Ikke generer nye I-noder uten eksplisitt beslutning. |
-| P2.4 | Actor-gate-pakker | R14 D1-D6. | Velg hvem som faktisk skal spørres først; lag spørsmålspakke før outreach. | Ikke merk actor-gate som validert før menneskelig svar eller primærkilde. |
+| P2.4 | Actor-gate-pakker | R14 D1-D6. | D2 og D4 har G1-beslutningspakker; D1/D3/D5 er startet som samlet lokal/regenerativ G1-pakke; velg hvem som faktisk skal spørres før outreach. | Ikke merk actor-gate som validert før menneskelig svar eller primærkilde. |
 
 ## P3 - første leveranse ut av kartet
 
@@ -101,8 +102,9 @@ Bruk disse for å teste om kartet faktisk hjelper, før ny visualisering bygges:
 9. Lukket: I29 datareview i PR #253.
 10. Lukket: D4 frø/genressurs som G1 actor-gate-pakke i PR #254.
 11. Lukket: I30 tilskuddskonsentrasjon datareview i PR #255.
-12. Aktiv: I35 soya/EUDR source-shortlist i PR #256.
-13. Neste valg etter I35: D1/D3/D5 som samlet lokal/regenerativ metodepakke eller ny I27+ datareview for I28/I32/I33. P3.2 bør vente til teamet har valgt trygg intern figurflate.
+12. Lukket: I35 soya/EUDR source-shortlist i PR #256.
+13. Aktiv: D1/D3/D5 som samlet lokal/regenerativ G1 actor-gate-pakke.
+14. Neste valg etter D1/D3/D5: ny I27+ datareview for I28/I32/I33. P3.2 bør vente til teamet har valgt trygg intern figurflate.
 
 ## Verifikasjon per slice
 

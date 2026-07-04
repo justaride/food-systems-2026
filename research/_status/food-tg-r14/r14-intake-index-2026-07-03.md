@@ -14,7 +14,7 @@ bruksregel: Ingen ekstern claim, ingen safe_for_ai_context, ingen whitepaper-/de
 - PCQ-notater: 7 / 7.
 - Claim-lock-kandidatdokument: opprettet.
 - I35 source-shortlist: opprettet 2026-07-04 uten I-node-generering.
-- Actor-gate-kandidatlister: 5 + D6-spørsmålspakke + G1-D2/G1-D4 beslutningspakker.
+- Actor-gate-kandidatlister: 5 + D6-spørsmålspakke + G1-D2/G1-D4/G1-D1-D3-D5 beslutningspakker.
 - MVK importfiler: handel-dagligvare, meieri, kjøtt/egg.
 
 ## Hurtigoppsummering
