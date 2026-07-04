@@ -30,6 +30,10 @@ grunnlag:
   - smal R13 controlled enrichment-port som hopper over kortere/like lange filer og nyere R14-main-innhold
   - smal evidence/regulatory refresh-port for finance note, roadmap og nordisk regulatorisk enforcement-ledger
   - smal citable/bibliotek refresh-port for CA-005 acceptance-ledgere og Future Nordic Diets offentlig landing page
+  - PR #321 for master-research report-linkage closeout, duplicate PDF cleanup og seed-map-korreksjoner
+  - PR #322 for URL-health review closeout og R13-LAND-004 kontrollnotat uten å miste R14-tillegget
+  - PR #323 for kontrollert R13-PROT-008 kildekort etter ekstern kildeverifisering
+  - arkiv og sletting av `codex/master-research-plan-2026-07-01` etter restklassifisering
 siterbarhet: intern
 ---
 
@@ -44,6 +48,8 @@ Ellevte smale master-research-slice tar missing-file snapshot-exporten, men bare
 Sluttklassifiseringen etter denne porteringen viser at det ikke finnes flere `scripts/*.ts` eller `tests/**/*.ts` som bare eksisterer i den gamle master-research-worktree-en. Det som fortsatt er dirty der, er hovedsakelig R13 research, MVK/generated statusmateriale, coverage/data-output, source notes og den kjente duplicate Salling/Coop-PDF-slettingen. Det skal derfor behandles som research/generated payload eller eksplisitt drop-beslutning, ikke som "mangler bare et script til".
 
 Oppdatert etter PR #314 og PR #315: MVK import-payloaden, 86 manglende `db:import:mvk-*` scripts, `db:prod-sync` wiring, MVK guard-test og alle master-research old-only research/evidence/status-artefakter er landet på `main`. Etter den smale R13 controlled enrichment-porten viste korrigert innholdssammenligning mot den gamle worktree-en 381 filer som matchet `main`, 0 old-only filer, 29 filer som bare avvek fordi whitespace ble normalisert under import, 46 reelle existing-file differ og 2 deletion-/drop-beslutninger. Evidence/regulatory refresh-porten tok tre av disse diffene: funding-notat, roadmap-siterbarhetsfilter og nordisk enforcement-ledger. Citable/bibliotek refreshen tar seks til: CA-005 acceptance-ledgere/status og Future Nordic Diets offentlig landing page. Filbasert reklassifisering etter PR #319 viser at `data/konsern-coverage.json` er en existing-file diff, ikke en deletion/drop-rad. Aktiv rest er derfor 38 reelle existing-file differ og 1 deletion-/drop-beslutning, ikke MVK, old-only source notes eller R13-filene som allerede var lengre/kontrollerte i master-research.
+
+Oppdatert etter PR #321, #322 og #323: report-linkage-gapene er lukket, duplicate Salling/Coop-PDF-en er fjernet sammen med seed-map/report-korreksjonene, URL-health review-rader med lokal/mirror evidence er portet, `R13-LAND-004` beholder både 2026-07-02 kontrollnotat og R14-tillegg, og `R13-PROT-008` er kontrollert mot primær-/aktørkilder før port. Siste restklassifisering av den gamle master-research-worktree-en viste 433 collapsed dirty entries: 390 byte-like med `main`, 1 normaliseringsdiff, 4 katalogrester, 1 allerede gjennomført deletion/drop og 37 existing-file differ. De 37 gjenstående diffene ble klassifisert som stale generated output, nyere `main`-innhold som ikke skal overskrives, eller stale script/test-varianter som allerede har tryggere portede versjoner. Dirty payload ble arkivert utenfor repo før sletting i `/Users/gabrielfreeman/Documents/Food Systems 2026 Local Archives/master-research-plan-2026-07-01-residual-2026-07-04.tar.gz` med SHA256 `8fef3bf46d0fc1188b4743e52aec04877998905e2c45b3d8c59c15e067093dfd`. `git merge-base --is-ancestor codex/master-research-plan-2026-07-01 main` var sant, `git cherry -v main codex/master-research-plan-2026-07-01` var tom, og worktree + lokal branch er fjernet.
 
 Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/branch når den enten er ren og fullt innlemmet i `main`, eller når en eksplisitt beslutning sier at historikken ikke lenger skal beholdes.
 
@@ -95,6 +101,10 @@ Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/bra
 | `codex/master-research-plan-2026-07-01` R13 controlled enrichment slice | Portet som smal existing-file research-slice. | Slicen tar 48 R13-filer der master-research-versjonen var lengre og kontrollert, og hopper eksplisitt over fem filer der gammel versjon var kortere/like lang eller kunne slette nyere `main`-/R14-innhold: `R13-LAND-004-datagap-atlas.md`, `R13-PROT-008-bonner-erter-akerbonne.md`, `batch-01.jsonl`, `r13-intake-index-2026-06-25.md` og `food-tg-research-backlog-2026-06-25.csv`. |
 | `codex/master-research-plan-2026-07-01` evidence/regulatory refresh slice | Portet som smal content-only research-slice. | Slicen tar bare `research/evidence-pack/finance-note.md`, `research/evidence-pack/roadmap.md` og `research/regulatory/nordic-regulatorisk-sammenligning-2026.md`. Disse oppdaterer funding-strategi, pilot-brief/siterbarhetsfilter og nordisk enforcement-ledger fra master-research, uten generated coverage-output, package-script-endringer eller stale script/test-kopier. |
 | `codex/master-research-plan-2026-07-01` citable/bibliotek refresh slice | Portet som smal generated-ledger/content-slice. | Slicen regenererer `research/CITABLE-ACCEPTANCE-TESTS.md` og `research/citable-acceptance-pack-2026-05-20.*` fra `npm run research:citable-acceptance-pack`, oppdaterer `research/CITABLE-KNOWLEDGE-BASE-STATUS.md` for CA-005 cite-ready-status, og peker Future Nordic Diets fra lokal PDF-path til offentlig Norden landing page. |
+| `codex/master-research-plan-2026-07-01` report-linkage closeout slice | Portet og merget i PR #321. | Slicen legger to interne seed reports, fjerner stale/broken supporting source mapping, fjerner byte-identisk Salling/Coop duplicate PDF, regenererer PDF-/file-coverage-/remediation-artefakter og holder `broken_supportingsource`, `report_no_analytical_link` og `duplicate_file_separate_records` på 0. |
+| `codex/master-research-plan-2026-07-01` URL review closeout slice | Portet og merget i PR #322. | Slicen legger kontrollnotat i `R13-LAND-004` uten å slette R14-tillegget, porterer 13 URL-health review-rader med lokal/mirror evidence, og regenererer backlogg/source-gap queue slik at blocked URL-rader faller fra 44 til 33. |
+| `codex/master-research-plan-2026-07-01` R13-PROT-008 source shortlist closeout | Portet og merget i PR #323. | Slicen strammer `R13-PROT-008-bonner-erter-akerbonne.md` til `source-shortlist-controlled`, bytter ut oversterke volum-/matclaims med kildegrenser, og markerer NIBIO/Lundby, Felleskjøpet/Landbruksdirektoratet, Landbruksdirektoratet 2026 og SSB-tabellene som kontrollert kildegrunnlag. |
+| `codex/master-research-plan-2026-07-01` final cleanup | Residual dirty payload arkivert utenfor repo; worktree og lokal branch slettet. | Arkiv: `/Users/gabrielfreeman/Documents/Food Systems 2026 Local Archives/master-research-plan-2026-07-01-residual-2026-07-04.tar.gz` med SHA256 `8fef3bf46d0fc1188b4743e52aec04877998905e2c45b3d8c59c15e067093dfd`. Arkivet har manifest, collapsed/full statusliste og 457 dirty/untracked payload-filer. Branch-head var ancestor av `main`, `git cherry` var tom, og ingen remote branch måtte ryddes. |
 
 ## `codex/ai-kunnskap-library-v1` final closeout
 
@@ -112,11 +122,7 @@ Generated-restene ble deretter arkivert utenfor repo med manifest og SHA256, og 
 
 ## Beholdte dirty worktrees
 
-Disse har lokale endringer og skal ikke slettes eller resettes uten ny beslutning.
-
-| Branch | Dirty count | Main vs branch | PR-status | Beslutning |
-|---|---:|---|---|---|
-| `codex/master-research-plan-2026-07-01` | 103 modified / 1 deleted / 329 untracked status entries i den gamle worktree-en | `203 0` før payload-portene | Ingen PR funnet; ingen remote branch. | Behold. Etter remediation-review-, domain-registration-, 2025-financial-locator-, citable-acceptance-, import-research-docs-, remediation-test-, restgate-, Nordic board/ownership-audit-, 2025 Nordic financial import-, country metric harmonization-, Document.filePath-backfill-, missing Document file snapshot export-, MVK payload-, old-only artifact-, R13 controlled enrichment-, evidence/regulatory refresh- og citable/bibliotek refresh-porteringen viser korrigert innholdssammenligning mot dagens `main`: 390 filer matcher byte-for-byte, 29 importerte filer avviker bare fordi whitespace ble normalisert, 0 old-only filer gjenstår, 38 existing-file differ gjenstår, og 1 deletion-/drop-beslutning må tas eksplisitt. De reelle diffene ligger særlig i coverage/data-output, PDF/remediation-ledgere, noen generated statusfiler, holdte R13-filer og stale script/test-kopier. Ikke slett ennå. |
+Ingen kjente dirty worktrees gjenstår i aktiv `git worktree list` etter master-research closeout. Tidligere `codex/master-research-plan-2026-07-01` er arkivert og fjernet; bruk arkivet over bare som recovery-referanse, ikke som nytt portgrunnlag uten fersk diff mot `main`.
 
 ## Beholdte rene, ikke-ancestor worktrees
 
@@ -157,7 +163,7 @@ Ikke slett disse branchene før det finnes en eksplisitt beslutning om at G-stac
 
 1. For de tre rene ikke-ancestor worktreene: gjør bare videre port/drop etter eksplisitt squash-/supersede-review; ikke slett som hygiene.
 2. For de to branch-only sporene: gjør bare videre sletting etter eksplisitt squash-/supersede-review eller port/drop-beslutning.
-3. For `codex/master-research-plan-2026-07-01`: old-only, MVK payload, trygg R13 enrichment, evidence/regulatory refresh og citable/bibliotek refresh er nå portet. Neste vurdering bør ta de 38 existing-file diffene gruppevis: coverage/data-output først, deretter PDF/remediation-ledgere og de få holdte R13/generated-status-filene. Stale script/test-differ skal bare portes hvis dagens `main` mangler faktisk atferd; tidligere gjennomgang viser at mange allerede har tryggere portede versjoner. Ikke slett duplicate Salling/Coop-PDF-en eller remap den til kanonisk PDF før report-alias, `seed-pdf-map`, file-coverage og unik `Document.filePath` er håndtert samlet. Ikke slett eller reset fordi arbeidet fortsatt er uncommitted.
+3. For `codex/master-research-plan-2026-07-01`: ikke gjør mer hygiene. Sporet er lukket, arkivert og fjernet; regenerer coverage/PDF/remediation/data-output fra dagens `main` ved behov.
 4. For `codex/goal-*`: opprett først en recovery-beslutning som sier hvilke G-slices som eventuelt skal portes til ferske `main`-baserte PR-er.
 5. Kjør alltid `git status --short --branch` i worktree-en før sletting.
 6. Etter hver sletting: `git worktree list --porcelain`, `git branch --format='%(refname:short)'`, `git fetch --prune`, og `gh pr list --state open`.
