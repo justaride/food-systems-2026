@@ -5,6 +5,7 @@ import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { KONSERN_REGISTRY } from '../src/lib/queries/ownership'
 import { computeQualityScore } from './lib/konsern-coverage-scoring'
+import { summarizeKonsernFinancialCoverage } from './lib/konsern-coverage-year'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -71,42 +72,12 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
     select: { name: true, ownershipPct: true, source: true },
   })
 
-  const currentYear = new Date().getFullYear()
   const childFinancials = await prisma.companyFinancial.findMany({
     where: { companyId: { in: childIds } },
     select: { companyId: true, year: true },
   })
 
-  // Recency is judged per company against a fixed threshold, NOT against the
-  // group max year. A single subsidiary that has filed an early next-year set
-  // (e.g. a Nordic entity already at 2025) must not flag every peer that is
-  // correctly at last year as "stale". Filing lag is ~1.5 years, so the newest
-  // accounts that should realistically be on file is currentYear - 2.
-  const recencyThreshold = currentYear - 2
-  const groupYears = childFinancials.map(f => f.year)
-  // measuredYear stays informational: the newest fiscal year present anywhere.
-  const latestYear = groupYears.length > 0 ? Math.max(...groupYears) : currentYear - 1
-
-  // Map childId to its financial years
-  const childYearsMap = new Map<string, number[]>()
-  for (const f of childFinancials) {
-    const years = childYearsMap.get(f.companyId) ?? []
-    years.push(f.year)
-    childYearsMap.set(f.companyId, years)
-  }
-
-  let childrenWithLatestFinancial = 0
-  let childrenWithOlderFinancial = 0
-  for (const childId of childIds) {
-    const years = childYearsMap.get(childId) ?? []
-    if (years.length === 0) continue
-    if (Math.max(...years) >= recencyThreshold) {
-      childrenWithLatestFinancial++
-    } else {
-      childrenWithOlderFinancial++
-    }
-  }
-  const childrenWithoutFinancial = childIds.length - childrenWithLatestFinancial - childrenWithOlderFinancial
+  const financialCoverage = summarizeKonsernFinancialCoverage(childIds, childFinancials, new Date().getFullYear())
 
   const boardMembers = await prisma.boardMember.findMany({
     where: { companyId: { in: childIds } },
@@ -139,7 +110,7 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
     hasControllingOwner: !!controllingShareholder,
     ownershipEdgesWithSource,
     ownershipEdgesTotal: ownershipEdges.length,
-    childrenWithLatestFinancial,
+    childrenWithLatestFinancial: financialCoverage.childrenWithLatestFinancial,
     childrenTotal: childIds.length,
     propertyCount,
     relationshipCount,
@@ -151,8 +122,8 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
   const gaps: string[] = []
   if (!controllingShareholder) gaps.push('Mangler kontrollerende eier på rotnode')
   if (ownershipEdgesWithoutSource > 0) gaps.push(`${ownershipEdgesWithoutSource} ownership-kanter uten source`)
-  if (childrenWithoutFinancial > 0) gaps.push(`${childrenWithoutFinancial} datterselskap mangler regnskap helt`)
-  if (childrenWithOlderFinancial > 0) gaps.push(`${childrenWithOlderFinancial} datterselskap har bare regnskap eldre enn ${recencyThreshold}`)
+  if (financialCoverage.childrenWithoutFinancial > 0) gaps.push(`${financialCoverage.childrenWithoutFinancial} datterselskap mangler regnskap helt`)
+  if (financialCoverage.childrenWithOlderFinancial > 0) gaps.push(`${financialCoverage.childrenWithOlderFinancial} datterselskap har bare regnskap eldre enn ${financialCoverage.recencyThreshold}`)
   const childrenWithoutBoardMembers = childIds.length - childrenWithBoardMembers
   if (childrenWithoutBoardMembers > 0) gaps.push(`${childrenWithoutBoardMembers} datterselskap uten styremedlemmer`)
   if (daysSinceBrregRefresh === null) gaps.push('Aldri Brreg-refreshet')
@@ -169,12 +140,12 @@ async function buildEntry(orgNr: string, cfg: { slug: string; expectsMaActivity:
       ? { name: controllingShareholder.name, pct: controllingShareholder.ownershipPct, source: controllingShareholder.source }
       : null,
     qualityScore,
-    measuredYear: latestYear,
+    measuredYear: financialCoverage.measuredYear,
     metrics: {
       treeSize: treeIds.length,
-      childrenWithLatestFinancial,
-      childrenWithOlderFinancial,
-      childrenWithoutFinancial,
+      childrenWithLatestFinancial: financialCoverage.childrenWithLatestFinancial,
+      childrenWithOlderFinancial: financialCoverage.childrenWithOlderFinancial,
+      childrenWithoutFinancial: financialCoverage.childrenWithoutFinancial,
       childrenWithBoardMembers,
       childrenWithoutBoardMembers,
       ownershipEdgesWithSource,
