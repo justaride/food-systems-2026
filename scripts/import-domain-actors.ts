@@ -8,6 +8,7 @@ import {
   buildActorImportData,
   buildThemeTags,
   chooseActorTarget,
+  mergeDomainRegistrationMetadata,
   nodeMetadata,
   normalizeOrgNr,
   parseAccessedAt,
@@ -143,19 +144,11 @@ async function main() {
 
   // Noen kandidat-noder finnes allerede som kuraterte maktkart-aktører (annen id, samme slug).
   // Disse skal IKKE dupliseres eller overskrives — kun lett berikes (themeTags-union + dok-ref).
-  const actorNames = Array.from(new Set(actorRows.map(r => r.name).filter(Boolean)))
-  const actorCountries = Array.from(new Set(actorRows.map(r => r.country || 'NO')))
   const existing = await prisma.actor.findMany({
-    where: {
-      OR: [
-        { slug: { in: actorIds } },
-        { name: { in: actorNames }, country: { in: actorCountries } },
-      ],
-    },
-    select: { id: true, slug: true, name: true, country: true, themeTags: true, companyId: true },
+    where: { slug: { in: actorIds } },
+    select: { id: true, slug: true, themeTags: true, companyId: true, metadata: true },
   })
   const existingBySlug = new Map(existing.map(a => [a.slug, a]))
-  const existingByCountryName = new Map(existing.map(a => [`${a.country}\x00${a.name}`, a]))
 
   const orgNrs = Array.from(new Set(actorRows.map(r => normalizeOrgNr(r.org_nr)).filter(Boolean)))
   const companies = orgNrs.length
@@ -169,7 +162,7 @@ async function main() {
   const existingCompanyActors = companyIds.length
     ? await prisma.actor.findMany({
         where: { companyId: { in: companyIds } },
-        select: { id: true, slug: true, name: true, country: true, themeTags: true, companyId: true },
+        select: { id: true, slug: true, themeTags: true, companyId: true, metadata: true },
       })
     : []
   const existingByCompanyId = new Map(
@@ -179,7 +172,7 @@ async function main() {
   )
   const targetByNodeId = new Map(actorRows.map(r => [
     r.node_id,
-    chooseActorTarget(r, { existingBySlug, companyByOrgNr, existingByCompanyId, existingByCountryName }),
+    chooseActorTarget(r, { existingBySlug, companyByOrgNr, existingByCompanyId }),
   ]))
   const resolveActorId = (nodeId: string) => targetByNodeId.get(nodeId)?.id ?? nodeId
 
@@ -203,6 +196,7 @@ async function main() {
         where: { id: prior.id },
         data: {
           themeTags: mergedTags,
+          metadata: mergeDomainRegistrationMetadata(prior.metadata, r, datasetTag, prior.themeTags),
           ...(canSetCompanyId ? { companyId: company.id } : {}),
         },
       })

@@ -10,10 +10,32 @@ function metadataRecord(value: unknown): Record<string, unknown> {
     : {}
 }
 
+function countKey(counts: Map<string, number>, domain: string, subdomain: string, geo: string) {
+  const key = `${domain}|${subdomain}|${geo}`
+  counts.set(key, (counts.get(key) ?? 0) + 1)
+}
+
 export function countActorDomainCells(actors: DomainTaggedActor[]): Map<string, number> {
   const counts = new Map<string, number>()
   for (const actor of actors) {
     const metadata = metadataRecord(actor.metadata)
+    const registrations = Array.isArray(metadata.domainRegistrations)
+      ? metadata.domainRegistrations
+          .map(metadataRecord)
+          .filter(r => r.domain && r.subdomain && r.geo)
+      : []
+    if (registrations.length) {
+      for (const registration of registrations) {
+        countKey(
+          counts,
+          String(registration.domain),
+          String(registration.subdomain),
+          String(registration.geo),
+        )
+      }
+      continue
+    }
+
     const tags = actor.themeTags ?? []
     const domainTags = tags
       .filter(t => t.startsWith('domene:'))
@@ -28,8 +50,7 @@ export function countActorDomainCells(actors: DomainTaggedActor[]): Map<string, 
 
     for (const domain of domains) {
       for (const subdomain of subdomains) {
-        const key = `${domain}|${subdomain}|${geo}`
-        counts.set(key, (counts.get(key) ?? 0) + 1)
+        countKey(counts, domain, subdomain, geo)
       }
     }
   }
