@@ -2,13 +2,15 @@
 tittel: "Kritiske importnoder for norsk matsystem — fosfat, fôrprotein, fiskeolje, soya, kaffe, kakao"
 id: R13-GAP-001
 dato: 2026-06-27
-status: "Internt research-underlag — ingen claims"
+status: "PCQ-kontrollert 2026-07-02 — nodevise caveats gjelder"
 gate: PCQ
 ---
 
 ## Kort dom
 
 For soya (HS 1201), fiskeolje (HS 1504), kaffe (HS 0901) og kakao (HS 1801/1803/1804/1805) finnes komplett primær tidsserie 2020–2024 i SSB tabell 08801 med både volum og verdi — disse er Type A og utfylt. Fosfat-importen, som var tom celle i R12, er nå kartlagt: import av fosfatmineral/råfosfat (HS 2510) er tilnærmet null (≈22 tonn i 2024), og fosfor kommer i praksis inn via sammensatt NPK/PK-gjødsel (HS 3105, ≈34 968 tonn i 2024) og via fôr-mineraltilsetninger som ikke fanges av disse HS-kodene. «Fôrprotein-total» lar seg ikke avlese som ett enkelt HS-nummer i 08801 — den krever desaggregering på komponenter (HS 2301/2304/2306/2309) supplert med Landbruksdirektoratets kraftfôrstatistikk, og forblir derfor delvis en metodisk/Type C-luke. Comtrade ble forsøkt som speil men kunne ikke hentes uten abonnementsnøkkel; ingen speiltall er ført inn.
+
+**PCQ-kontroll 2026-07-02:** SSB 08801/PxWeb ble spot-summet over 2024-subkoder og alle land for HS 1201, 1504, 2510, 3103, 3105, 0901, 1801/1803/1804/1805 og 2301/2304/2306/2309. Kontrollsummene matcher tabellverdiene i denne filen. Landbruksdirektoratets kraftfôrside ble også kontrollert mot raden `Sum protein`: 437 634 tonn totalt, 415 970 tonn importert og 21 664 tonn norsk i 2025. Dette lukker raden som PCQ-kontrollert importnode-tabell, men fôrprotein-total, SPC-til-fiskefôr og reell fosfor-total forblir metode-/C-luker.
 
 ## Sterkeste kilde
 
@@ -152,3 +154,5 @@ Hoveddelen (soya, fiskeolje, kaffe, kakao, fosfat-utfylling) er Type A primær S
 - https://www.landbruksdirektoratet.no/nb/statistikk-og-utviklingstrekk/utvikling-i-jordbruket/kraftforstatistikk — Landbruksdirektoratet kraftfôrstatistikk (proteinråvarer husdyrfôr, 2025) — accessedAt 2026-06-27 — sourceClass: primary
 - https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/soyamel-til-kraftfor-naer-halvert-siste-ti-ar — Landbruksdirektoratet nyhetssak (soyamel 113 283 t 2022 vs >200 000 t 2013) — accessedAt 2026-06-27 — sourceClass: primary
 - https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=578&period=2024&cmdCode=1201&flowCode=M — UN Comtrade preview-API (FORSØKT som speil; returnerte 0 rader, krever abonnementsnøkkel; ingen tall hentet) — accessedAt 2026-06-27 — sourceClass: secondary
+- https://data.ssb.no/api/v0/en/table/08801 — kontrollsum 2026-07-02 for 2024 HS4/HS8-subkoder over alle land; matcher hovedradene i funn-tabellen — sourceClass: primary
+- https://www.landbruksdirektoratet.no/nb/statistikk-og-utviklingstrekk/utvikling-i-jordbruket/kraftforstatistikk — kontrollert 2026-07-02 mot `Sum protein` 2025 (437 634 totalt / 415 970 importert / 21 664 norsk) — sourceClass: primary

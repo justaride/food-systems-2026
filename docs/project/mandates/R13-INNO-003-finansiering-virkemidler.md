@@ -6,6 +6,7 @@
 **Geo:** Nordic
 **Output-type:** funding fit matrix
 **Dato:** 2026-06-28
+**Kontrollert:** 2026-07-02
 **Anbefalt gate:** internal
 
 ---
@@ -14,9 +15,9 @@
 
 | Felt | Svar |
 |---|---|
-| Kort dom | Det finnes et bredt virkemiddelapparat relevant for matsystem-omstilling i norsk/nordisk kontekst. De sterkeste treffene for Food TG-tematikk er IPN Landbasert bioøkonomi (løpende), IPN FFL/JA (løpende), FutureFoodS (frist 27. juli 2026 for inviterte), og NordForsk matsikkerhet (planlagt frist 2. desember 2026). Grønn plattform har svakere match fordi Food TG primært er et analyseprosjekt, ikke et FoU-innovasjonsprosjekt. Overclaim-vakt: ingen av disse programmene finansierer analysearbeid, politisk kartlegging eller maktanalyse — de finansierer FoU og næringsutvikling. |
+| Kort dom | Det finnes et bredt virkemiddelapparat relevant for matsystem-omstilling i norsk/nordisk kontekst. Nyere finansieringskontroll 2026-07-02 gjør `research/evidence-pack/funding-matrix.md` og `research/evidence-pack/finance-note.md` til gjeldende operative finansieringsflater. Denne R13-filen bevares som internt programkart: IPN Landbasert bioøkonomi, IPN FFL/JA, inviterte FutureFoodS-spor og NordForsk food-security-sporet er relevante for aktør-/konsortieprosjekter, mens Food TG som analyseprosjekt ikke søker alene. |
 | Sterkeste kilde | Forskningsrådet utlysningssider, 2026, https://www.forskningsradet.no/utlysninger/ |
-| Svakeste punkt | Nordic Innovation «Green and Competitive» søknadsfrist passert (11. februar 2026); NordForsk matsikkerhet-utlysning var ikke live ved søkedato (planlagt åpning juni 2026, frist 2. desember 2026) — nøyaktige vilkår ikke bekreftet. SIVA og EEA Grants hadde ingen relevante åpne matutlysninger funnet. |
+| Svakeste punkt | Filen er ikke den nyeste finansieringsflaten. NordForsk-sporet er senere kontrollert som live utlysning med frist 2. desember 2026 i `research/evidence-pack/funding-matrix.md`; konsortiekrav og søkbarhet må leses der. SIVA og EEA Grants hadde ingen relevante åpne matutlysninger funnet i denne R13-gjennomgangen. |
 | Finansieringsmatrise | se under |
 | Tomme celler | se under |
 | Ikke si | se under |
@@ -36,7 +37,7 @@
 | EU Horizon Europe CL6-2026-02 — FARM2FORK | EU-kommisjonen / REA | Bærekraftige matsystemer; relevante topics: FARM2FORK-03 (proteinvekster), FARM2FORK-05 (sirkulær husdyrproduksjon), FARM2FORK-06 (CEA), FARM2FORK-09 (bærekraftig kosthold), FARM2FORK-11 (mikrobiom) | Middels-høy for aktører i Food TG-nettverket: CEA (F2F-06), proteinvekster (F2F-03), organisk jordbruk to-trinns (FARM2FORK-02-two-stage) | Frist en-trinns topics: 14. april 2026 (PASSERT). To-trinns 1. trinn: 14. april 2026 (PASSERT); 2. trinn: 15. september 2026 (aktiv for inviterte) | B | Norge deltar som EØS-assosiert land. Krever internasjonalt konsortium. Food TG som analyseenhet kan ikke søke direkte. Kilde: accelopment-analyse av EU arbeidsprogrammet, ikke verifisert mot EU-portal |
 | EU Horizon Europe CL6-2026-01 — CIRCBIO | EU-kommisjonen / REA | Sirkulær økonomi og bioøkonomi; bl.a. CIRCBIO-09 (balansering matsikkerhet, bioøkonomi, klima og biologisk mangfold) og CIRCBIO-07 (bio-basert innovasjon) | Middels: bioøkonomi og sirkulære verdikjeder i mat er relevant kontekst, men tematikken er bredere enn Food TG-fokus | Frist en-trinns: 17. september 2026 (aktiv). To-trinns 1. trinn: 16. april 2026 (PASSERT) | B | Samme som over: norsk deltakelse via EØS-assosiert status. Krever internasjonalt konsortium. Kilde: accelopment-analyse av EU arbeidsprogrammet |
 | Nordic Innovation — Green and Competitive Nordic Region | Nordic Innovation (Nordisk Ministerråd) | Grønn omstilling og konkurransekraft; 2–6 mill. NOK per prosjekt; totalt 30 mill. NOK; min. 3 nordiske land; 50% egenfinansiering | Middels: organiske materialer og avfallsstrømmer nevnt under «Innovative Solutions for 2030». Relevant for Food TG-aktører som vil bygge nordiske nettverk om matomstilling | Frist 11. februar 2026 kl. 13:00 CET (PASSERT). Funding decision 27. mars 2026. Neste utlysning: ukjent timing | A | Søknadsfristen er passert. Neste utlysning ikke kunngjort. Food system er ikke eksplisitt prioritert — mat nevnes ikke direkte i utlysningsteksten |
-| NordForsk — Nordic and Baltic Solutions on Food Security | NordForsk | Matsikkerhet og matsystemresiliens i Norden og Baltikum; ca. 10 prosjekter; ca. NOK 115 mill. til nordiske partnere; temaer: kriseberedskap, resiliente støttesystemer, forbrukeratferd | Høy for Food TG-tematikk: matsikkerhet, forsyningssikkerhet, systemresiliens, forbrukerperspektiv — god match med Food TGs analyse av forsyningskjeder | Planlagt åpning: juni 2026. Oppgitt søknadsfrist: 2. desember 2026 | B | Utlysningsdetaljene var ikke live ved søkedato 28. juni 2026. Kilde: fundsforNGOs og NordForsk-nyheter (sekundær). Nøyaktige krav (organisasjonstype, konsortiestørrelse, tematiske avgrensninger) ikke bekreftet fra primærkilde |
+| NordForsk — Nordic and Baltic Solutions on Food Security | NordForsk | Matsikkerhet og matsystemresiliens i Norden og Baltikum; ca. 10 prosjekter; ca. NOK 115 mill. til nordiske partnere; temaer: kriseberedskap, resiliente støttesystemer, forbrukeratferd | Høy for Food TG-tematikk: matsikkerhet, forsyningssikkerhet, systemresiliens, forbrukerperspektiv — god match med Food TGs analyse av forsyningskjeder når det finnes reelt nordisk/baltisk konsortium | Frist 2. desember 2026; se oppdatert kontroll i `research/evidence-pack/funding-matrix.md` | A (etter 2026-07-02-kontroll) | Live spor etter senere kontroll, men ikke en søknad for Food TG alene. Krever partner-/konsortielogikk og prosjekt som passer utlysningen. |
 | SkatteFUNN | Forskningsrådet / Skatteetaten | Skattefradrag på 19% av FoU-kostnader for norske bedrifter; maks 25 mill. kr per år per selskap | Lav-middels: relevant for bedrifter i Food TG-portalen som driver aktiv FoU (altprotein, CEA, matteknologi). Ikke relevant for Food TG som analyseprosjekt | Løpende; garantifrist 1. september 2026 for skattefradrag i 2026 | A | Bare for bedrifter med norsk org.nr. og skatteplikt til Norge. Ikke for forskningsinstitutter, NGOer eller analyseprosjekter |
 | Innovasjon Norge — Landbrukstilskudd (investeringer, etablerertilskudd) | Innovasjon Norge / Landbruksdirektoratet | Investeringstilskudd (inntil 20% av godkjent kostnadsoverslag, maks 200–230 000 NOK) og etablerertilskudd (inntil 400 000 NOK, 75% dekning) for landbruksbedrifter | Lav for Food TG direkte; relevant for primærprodusenter og nisjebedrifter i Food TG-portalen (lokalmat, andelslandbruk, alternativ produksjon) | Løpende (regionale runder; ny søknadsrunde fra september 2026 for avslåtte pga. manglende midler) | A | Sterkt avgrenset til tradisjonelt landbruk og landbruksbaserte næringer. Gjelder ikke for rene analyseprosjekter eller FoU-prosjekter. Regionale prioriteringer varierer per fylke |
 | SIVA — Inkubatorer og næringshager | Siva (Selskapet for industrivekst) | Drift av inkubatorer og næringshager; inngår i Grønn plattform-ordningen som katapult-partner | Lav for Food TG direkte. Relevant indirekte — aktørene Food TG kartlegger (foodtech-startups, altprotein-selskaper) kan bruke SIVA-inkubatorer | Ingen åpen utlysning til enkeltprosjekter funnet per 28. juni 2026 | B | Siva lyser ikke ut direkte til prosjekter — finansierer operatører av inkubatorer og næringshager. Ingen matspesifikk SIVA-utlysning funnet |
@@ -48,7 +49,7 @@
 
 - **MILJØFORSK 2026:** Ingen aktiv utlysning med direkte matsystem-relevans funnet ved søk. Programmet eksisterer, men ingen matspesifikk utlysning er identifisert for 2026.
 - **Nordic Innovation — neste utlysningsrunde:** Tidspunkt for neste utlysning etter februar 2026 er ikke kunngjort per søkedato.
-- **NordForsk matsikkerhet — primærkildedetaljer:** Søknadskrav og konsortiebetingelser ikke bekreftet fra primærkilde (utlysningssiden returnerte tom respons 28. juni 2026).
+- **NordForsk matsikkerhet — opprinnelig hull lukket i senere finansieringsflate:** Denne filen hadde tom respons 28. juni 2026; bruk `research/evidence-pack/funding-matrix.md` for live kontroll og krav.
 - **EEA/Norway Grants — matrelevante calls:** Ingen åpne matrelevante utlysninger verifisert. Pågående 2021–2028-programperiode bekreftet, men spesifikke matutlysninger ikke funnet.
 - **SIVA — direkte prosjektstøtte mat:** Ingen åpen utlysning til mat- eller foodtech-prosjekter funnet. Sivas rolle er infrastrukturell, ikke direkte prosjektfinansiering.
 - **Innovasjon Norge — dedikert matstrategi-program:** «Landbruks- og matprogrammet» som navngitt enhet ble ikke funnet som frittstående program; tilskuddene administreres regionalt.
@@ -63,7 +64,7 @@
 - At Nordic Innovation Green and Competitive er åpen — søknadsfristen var 11. februar 2026.
 - At EU Horizon CL6-2026-02 en-trinns calls er åpne for nye søkere — fristene var i april 2026.
 - At SkatteFUNN eller IN-landbrukstilskudd er relevante for Food TG-prosjektet som helhet — de er relevante for aktørene Food TG kartlegger, ikke for analysearbeidet.
-- At NordForsk matsikkerhet-utlysningen er live med bekreftede detaljer — kun planlagt åpning er kjent, primærkilden var ikke tilgjengelig.
+- At Food TG kan søke NordForsk alene — NordForsk-sporet er senere kontrollert som live, men krever reelt partner-/konsortieprosjekt og skal leses i `research/evidence-pack/funding-matrix.md`.
 - At disse finansieringsprogrammene validerer eller bekrefter funn i Food TG — de kartlegges kun som kontekst for hvilke virkemidler som eksisterer.
 - At SIVA eller EEA/Norway Grants har relevante åpne matutlysninger — dette er tomme celler.
 - At Grønn plattform dekker analysearbeid, politisk kartlegging eller maktanalyse — det gjør den ikke.
@@ -73,6 +74,10 @@
 ## Anbefalt gate
 
 internal — Matrisen inneholder verifiserte programdata fra primærkilder (Forskningsrådet, Innovasjon Norge, Nordic Innovation), men inkluderer også B- og C-klasse informasjon (NordForsk-utlysning ikke live, EEA-gaps, EU Horizon via sekundærkilde). Innholdet er for internt orienteringsformål og er ikke kalibrert for ekstern kommunikasjon eller søknadsrådgivning.
+
+## Kontroll 2026-07-02
+
+Dette artefaktet er kontrollert som eldre intern finansieringsmatrise. Gjeldende finansieringsflate er `research/evidence-pack/funding-matrix.md` med følgeanalyse i `research/evidence-pack/finance-note.md`. R13-INNO-003 skal derfor ikke brukes som siste status for åpne frister eller søknadsråd. Hovedendringen er NordForsk: utlysningen som var kildeusikker 2026-06-28 er senere kontrollert som live P0-spor med frist 2026-12-02, men fortsatt bare som konsortie-/partnerprosjekt, ikke som direkte analysefinansiering for Food TG.
 
 ---
 

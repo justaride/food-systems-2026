@@ -2,6 +2,7 @@
 tittel: R13-GAP-006 — Type-C-eskalering og actor-gate-kø
 id: R13-GAP-006
 dato: 2026-06-27
+kontrollert: 2026-07-02
 status: "Internt arbeidskart — ikke faktastemme"
 gate: forstaelse
 priority: P1
@@ -10,6 +11,8 @@ sourceClass: C (intern R12-triagesyntese)
 ---
 
 # R13-GAP-006 — Type-C-eskalering og actor-gate-kø
+
+**Kontrollert:** 2026-07-02
 
 ## Kort dom
 
@@ -114,6 +117,10 @@ Disse er ikke «research-gjeld». De er funn om hva systemet ikke måler/publise
 ## Anbefalt gate: forstaelse / actor-gate
 
 **Forståelse** for selve eskaleringskartet (intern prioriteringslogikk for R13, ikke siterbar). **Actor-gate** for hele B-køen over: hold den utenfor desk-claims til datert per-aktøridentitet og aktiv status, deretter volum/kontrakt/dedupe, faktisk er innhentet. A-omklassifiserte hull går til PCQ med locator og synlige C-celler; ekte-C-listen bevares som funn.
+
+## Kontroll 2026-07-02
+
+Notatet er kontrollert som intern eskaleringslogikk, ikke som ekstern kilde. Senere R13-kontroller har lukket flere A-lag i egne artefakter, men hovedregelen her står: B-lagene skal fortsatt til actor-gate, og ekte C-hull skal bevares som funn. Bruk derfor denne filen som kø- og stoppliste sammen med de nyeste kontrollerte R13-artefaktene, ikke som siste faktakilde for enkeltceller.
 
 ## Loggede kilder (web-sjekk, accessedAt 2026-06-27)
 

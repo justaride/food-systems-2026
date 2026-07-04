@@ -6,7 +6,8 @@
 **Geo:** International (Nordic/EU focus)
 **Output-type:** failure/survival ledger
 **Dato:** 2026-06-28
-**Anbefalt gate:** source-shortlist
+**Kontrollert:** 2026-07-02
+**Anbefalt gate:** source-shortlist-controlled
 
 ---
 
@@ -14,14 +15,14 @@
 
 | Felt | Svar |
 |---|---|
-| Kort dom | Av ni aktører i ledgeren er fem bekreftet konkurs/avviklet siden 2019, to er i aktiv men alvorlig finansiell uro, og to opererer tilsynelatende stabilt. Felles mønstre er kapitalintensitet, energikostnader, etterspørselssvikt og prematur skalering — ikke teknologisvikt alene. Myndighetsbeslutning om insolvens er bekreftet for Plantagon (SE, 2019), Mycorena (SE, 2024), Infarm (DE/NL/UK, 2023), Enorm Biofactory (DK, 2025) og Restaurant Rest AS (NO, 2024). |
+| Kort dom | Ledgeren skiller mellom juridisk konkurs/avvikling, restrukturert videreføring og fortsatt drift. Fem caser har konkurs-/avviklingssignal siden 2019: Plantagon, gammel Infarm-struktur, Mycorena, Restaurant Rest AS og Enorm Biofactory. Solar Foods, Nordic Harvest, Oatly og Beyond Meat er ikke konkurs i kildene kontrollert 2026-07-02, men de viser svært ulike risikoprofiler. Mønstrene peker mot kapitalintensitet, energikostnader, etterspørselssvikt og prematur skalering, men dette er et risikomønster, ikke en teknologidom. |
 | Sterkeste kilde | AGFunder News — ENORM bankruptcy decree 30 October 2025: https://agfundernews.com/breaking-danish-insect-ag-firm-enorm-declared-bankrupt-after-failed-reconstruction-process |
-| Svakeste punkt | Nordic Harvest: ingen verifiserte offentlige regnskaper eller insolvensmelding funnet — status basert på sekundærkilder fra 2020–2021. Oatly: børsnotert og i drift, men gjennomgående tap siden børsnotering; ingen konkurs. Beyond Meat: analytiker B-nivå. |
+| Svakeste punkt | Nordic Harvest: ingen verifiserte offentlige regnskaper eller insolvensmelding funnet. Beyond Meat og Oatly har ferske IR/SEC-data, men er internasjonal markedskontekst, ikke nordiske startup-caser. |
 | Failure/survival-ledger | se under |
 | Mønstre | se under |
 | Tomme celler | se under |
 | Ikke si | se under |
-| Anbefalt gate | source-shortlist |
+| Anbefalt gate | source-shortlist-controlled |
 
 ---
 
@@ -34,42 +35,42 @@
 | Mycorena AB | SE | Altprotein / mykoprotein | Konkurs + oppkjøpt | Begjærte konkurs 16. juli 2024 etter mislykket Series B og stans i fabrikk­prosjekt; oppkjøpt av Naplasol (VEOS Group, BE) august 2024; Promyc®-produksjon videreføres i Belgia | 2024-07-16 (konkursbegjæring); august 2024 (oppkjøp) | Cultivated-X; Vegconomist; Tech.eu (Naplasol-oppkjøp 29.08.2024); Green Queen | B (bransjepress; Bolagsverket ikke direkte sjekket) | Teknologien er ikke avviklet — Promyc videreføres av Naplasol. Konkurs skyldtes investor-capex-catch-22, ikke produktets tekniske svikt. |
 | Restaurant Rest AS | NO | Sirkulær mat / restaurant | Konkurs (slettet) | Konkursåpning 05.09.2024; foretaket slettet fra Enhetsregisteret 18.06.2025 | 2024-09-05 (konkursåpning); 2025-06-18 (sletting) | Proff Forvalt (forvalt.no) — org.nr. 919972696; Brreg Enhetsregisteret | A (norsk offisielt konkursregister) | Restaurantkonkurs i norsk serveringsbransje — ikke primært en teknologi- eller altprotein-aktør. Koronaettervirkninger og kostnadspress dokumentert av grunnlegger. |
 | Enorm Biofactory (tidl. Enorm Bioscience) | DK | Insektprotein (BSF) | Konkurs | Åpnet 22 000 m²-fabrikk i Hvirring, Jylland, desember 2023; rekonstruksjonsprosess startet ~april/slutten av april 2025; konkursdekretet utstedt 30. oktober 2025; aktiva kjøpt av Euro Steel Trading | 2025-10-30 (konkursdekretet) | AGFunder News: https://agfundernews.com/breaking-danish-insect-ag-firm-enorm-declared-bankrupt-after-failed-reconstruction-process | B (bransjepress; dansk Erhvervsstyrelsen ikke direkte sjekket) | Selskapet hadde reist €50 m inkl. DLG-midler. Etterspørselssvikt, lukt­klager og produksjonsforsinkelser er oppgitte årsaker. Insolvens ≠ bevis mot insektteknologi. |
-| Nordic Harvest ApS | DK | CEA / vertikal farm | Aktiv (tilsynelatende) | Opererer 7 000 m²-fabrikk i Taastrup med 14 etasjer; avtale med Salling Group; beskriver seg som Europas største vertikale farm; planlegger 35 000 m²-utvidelse | Siste tilgjengelige kilde: 2021–2024 | YesHealth Group; Atlas of the Future; Vertical Farm Daily; KPMG DK case | B (sekundærkilder; Erhvervsstyrelsen-regnskaper ikke sjekket) | Ingen verifisert insolvensmelding funnet per 2026-06-28, men selskapet er lite omtalt i nyere presse. Finansiell status er ukjent utover partnerskapet med YesHealth Group (TW). Tom celle: offentlige regnskaper. |
-| Solar Foods Oy | FI | Altprotein / single-cell (gasferm.) | Aktiv — kommersialisering pågår | Factory 01 (160 t/år) operasjonell fra april 2024, nådde designkapasitet Q4 2025; FDA GRAS self-affirmed sept. 2025; EU Novel Food-godkjenning forventet 2026; Factory 02-beslutning i 2026 | Factory 01 åpnet: april 2024; GRAS-søknad: september 2025 | Solar Foods offisiell nettside; Nutrition Insight; Intelligent Living (2026 update); Green Queen | B (selskapskommunikasjon + bransjepress; børsprospekt ikke verifisert) | Selskapet er ikke børsnotert; finansieringsgrunnlag ikke uavhengig verifisert. Factory 02 (6 400 t/år) avhenger av endelig investeringsbeslutning 2026. Regulatorisk godkjenning pågående. |
-| Oatly Group AB | SE | Altprotein / havremelk | Aktiv — alvorlig finansiell uro, ikke konkurs | Børsnotert Nasdaq mai 2021 (IPO ~$10/aksje); aksjen ned >94 % siden IPO per 2024; gjentatte tap hvert kvartal; fabrikker stengt (Singapore 2024, US-anlegg solgt 2023); gjeldsrestrukturering september 2025 | IPO: mai 2021; Singapore-fabrikk stengt: Q4 2024; gjeldsrestrukturering: 30.09.2025 | SEC-filings (Form 6-K); NordSip; Green Queen; Motley Fool | A (SEC-filings for børsnotert selskap) | Oatly er ikke i konkurs og opererer fortsatt. Alvorlig kapitalutfordring men ikke insolvens. Ikke direkte sammenlignbar med oppstartsaktørene over. |
-| Beyond Meat Inc. | US | Altprotein / plantebasert kjøtt | Aktiv — vedvarende tap | Inntektsfall 18 % i 2023 (til $343 m); negativ bruttomargin 2022–2023; gjeldsrestrukturering pågående 2025; strategisk reposisjonering annonsert 2026 | FY2023 resultat; gjeldsrestrukturering løpende 2025–2026 | SEC Form 8-K (2023, 2024, 2025); AGFunder News | A (SEC-filings) | Inkludert som internasjonal kontekst — ikke nordisk. Teknologien er ikke avviklet. Markedstiming og overkapasitet er de primære driverne, ikke produktsvikt. |
+| Nordic Harvest ApS | DK | CEA / vertikal farm | Aktiv (tilsynelatende), finansiell status ukjent | YesHealth/KPMG-kilder beskriver 7 000 m²-fabrikk i Taastrup, 14 etasjer og Salling Group-avtale; Nordic9/YesHealth signal om DKK 62M kapitalrunde for utvidelse | Siste sikre åpne kilder: 2021-2024 | YesHealth Group; KPMG DK case; Nordic9 via YesHealth | B (sekundær/actor-reported; Erhvervsstyrelsen-regnskaper ikke sjekket) | Ingen verifisert insolvensmelding funnet per 2026-07-02, men ferske offentlige regnskaper er ikke kontrollert. Ikke bruk som “stabilt/lønnsomt” case. |
+| Solar Foods Oyj | FI | Altprotein / single-cell (gasferm.) | Aktiv — kommersialisering/oppskalering pågår | Factory 01-kapasitet 160 t/år; 30.03.2026 melder Solar Foods at Factory 02 går fra advanced concept design til final design før investeringsbeslutning; planlagt fase 1: 3,2 kt/år operasjonell ved utgangen av 2028; fase 2: 6,4 kt/år | Factory 01 åpnet: 2024; Factory 02 designoppdatering: 2026-03-30 | Solar Foods offisiell nettside/investor-materiale | B (selskapskommunikasjon; børs-/finansdata ikke fullstendig verifisert her) | Ikke presenter Factory 02 som bygget eller finansiert; endelig investeringsbeslutning står igjen. Regulatorisk EU-spor pågår. |
+| Oatly Group AB | SE | Altprotein / havremelk | Aktiv — fortsatt tap, men ikke konkurs | Q1 2026: inntekter $228,3M (+15,6 % rapportert; +8,1 % constant currency), brutto­margin 33,4 %, net loss attributable to shareholders $12,0M; justert EBITDA $5,0M; 2026 outlook gjentas | Q1 2026 rapport: 2026-04-29 | Oatly investor relations / Form 6-K | A (børs-/IR-kilde) | Oatly er ikke konkurs; omtales som driftende børsnotert selskap med fortsatt nettotap og restruktureringshistorikk, ikke som startup-failure. |
+| Beyond Meat Inc. | US | Altprotein / plantebasert kjøtt | Aktiv — vedvarende etterspørsels- og lønnsomhetspress | Q1 2026: net revenues $58,2M (-15,3 % YoY), net loss $28,5M, adjusted EBITDA loss $27,8M; selskapet peker på svak category demand og redusert distribusjon i flere kanaler | Q1 2026 rapport: 2026-05-06 | Beyond Meat investor relations / SEC-linked filings | A (børs-/IR-kilde) | Inkludert som internasjonal markedskontekst, ikke nordisk case. Aktivt selskap med tap og etterspørselsfall, ikke insolvensbevis. |
 
 ---
 
 ## Mønstre
 
-Fire strukturelle mønstre peker seg ut på tvers av aktørene som har gått konkurs eller er i alvorlig uro:
+Fire strukturelle mønstre peker seg ut på tvers av aktørene som har gått konkurs eller er i alvorlig uro. Mønstrene er analytiske risikohypoteser støttet av kildene, ikke bevis for at én enkelt faktor forklarer hvert case:
 
 **1. Kapitalintensitet møter investortørke**
-Mycorena, Enorm Biofactory og Infarm delte et felles mønster: alle hadde reist betydelig kapital (Enorm €50 m, Mycorena €35 m+, Infarm $500 m+), men stoppet opp da investorene fra 2022–2023 begynte å kreve inntektskontrakter før skalering, mens matindustrien krevde skaleringsbevis før de ville signere kontrakter. Denne catch-22-dynamikken, som Mycorenas CEO beskrev eksplisitt, er sannsynligvis den sterkeste enkeltforklaringen på de nordiske/europeiske konkursene i perioden 2023–2025.
+Mycorena, Enorm Biofactory og Infarm hadde alle kapitalintensive produksjons- eller ekspansjonsløp. Kildene peker på et finansieringsvindu som ble smalere etter 2022, særlig der investorene krevde mer kommersiell traction før ny fabrikk- eller ekspansjonskapital. Dette støtter en kapital-/skaleringsrisiko, men ikke en fullstendig årsaksmodell.
 
 **2. Energipriser som systemsjokk**
 Infarm oppga direkte at stigende energipriser etter Ukraina-krigen i 2022 var en nøkkeldriver. CEA-teknologi (kontrollert lys, temperatur, vanning) er energiintensiv per definisjon. For aktører som ikke hadde låst energipriser eller hadde tatt høyde for volatilitet, ble dette katastrofalt. Dette er spesielt relevant for norsk kontekst: rimelig norsk vannkraft kan gi et konkurransefortrinn for CEA, men det forutsetter langsiktige kraft­avtaler.
 
 **3. Prematur skalering**
-Enorm Biofactory åpnet en 22 000 m²-fabrikk i desember 2023 uten tilstrekkelig etterspørsel; Plantagon nådde ikke produksjonskapasitet å selge fra; Mycorena stanset fabrikk­prosjektet etter at investorinteressen tørket inn. Mønsteret er tydelig: fysisk kapasitet ble bygget ut i forkant av dokumentert markedsetterspørsel.
+Enorm Biofactory åpnet en 22 000 m²-fabrikk i desember 2023 og gikk senere gjennom rekonstruksjon/konkurs; Mycorena stanset sitt fabrikkprosjekt etter kapitaltrøbbel; Infarm bygget et svært ekspansivt nettverk før restrukturering. Mønsteret er at fysisk kapasitet og operasjonell kompleksitet kom før sikker etterspørsel og stabil finansiering.
 
 **4. Etterspørselssvikt i det bredere altprotein-markedet 2022–2025**
-Oatly og Beyond Meat er børsnoterte og gir datapunkter for det generelle markedet: plant-based-segmentet opplevde vekststopp fra 2022, og kategoriveksten som alle aktørene hadde lagt til grunn i sine forretningsmodeller, uteble. Dette er en markedstimings-faktor, ikke en teknologifaktor.
+Oatly og Beyond Meat er børsnoterte datapunkter for det generelle plant-based-markedet, men de må ikke blandes direkte med nordiske startup-konkurscaser. Beyond Meat rapporterte fortsatt inntektsfall i Q1 2026 og pekte selv på svak category demand; Oatly rapporterte Q1 2026-vekst og positiv justert EBITDA, men fortsatt net loss. Samlet støtter de at markedstiming og kategoriutvikling er en risikoakse, ikke at hele altprotein-sektoren er avviklet.
 
 **Relevans for norsk matovergangskontekst**
-Konkursene til Enorm (DK), Mycorena (SE) og Infarm (DE/EU) er de mest relevante casene for norsk politikk og næringsutvikling. Alle tre viser at teknologien i seg selv ikke var bevistilt feil — Promyc® produseres fortsatt, insektprotein har dokumentert fôrverdi, og CEA-prinsippene er intakte. Det som feilet var finansieringsmodellen og markedstimingen. For Norge betyr dette at offentlige virkemidler (Innovasjon Norge, Enova) og langsiktige kraftavtaler potensielt kan redusere de barrierene som felt disse selskapene.
+Konkursene til Enorm (DK), Mycorena (SE) og Infarm (DE/EU) er de mest relevante casene for norsk politikk og næringsutvikling. De viser at produksjonsteknologi, finansiering, kraft/energi, lukt-/nabolagsrisiko, etterspørsel og regulatorisk timing må vurderes sammen. For Norge betyr dette at offentlige virkemidler, kraftavtaler og pilot-/kundeavtaler må evalueres som risikoreduserende mekanismer, ikke som automatisk bevis for levedyktighet.
 
 ---
 
 ## Tomme celler
 
-- **Nordic Harvest**: Ingen offentlige årsregnskap verifisert; ingen insolvens- eller restruktureringsmelding funnet per 2026-06-28. Finansiell helsetilstand er ukjent utover selskapets egne kommunikasjon og YesHealth-partnerskap.
+- **Nordic Harvest**: Ingen offentlige årsregnskap verifisert; ingen insolvens- eller restruktureringsmelding funnet per 2026-07-02. Finansiell helsetilstand er ukjent utover actor-/case-kommunikasjon og YesHealth-partnerskap.
 - **Plantagon**: Eksakt rettsdato for konkursregistrering i Bolagsverket/Stockholms tingsrätt er ikke hentet direkte fra primærregister i denne øvelsen — kun bekreftet via pressekilder.
 - **Infarm**: Eksakte insolvensregistreringsdatoer i tyske, nederlandske og britiske registre er ikke direkte verifisert — kun via selskapspressemelding og bransjepress.
 - **Enorm Biofactory**: Dansk Erhvervsstyrelsen-registrering ikke direkte sjekket — konkursdekretet er bekreftet via AGFunder News og bransjepress, ikke primærregister.
 - **Mycorena**: Bolagsverket-registrering ikke direkte sjekket — konkursbegjæring bekreftet via bransjepress.
-- **Solar Foods**: Ikke børsnotert; uavhengig finansiell stilling (egenkapital, burn rate) er ikke offentlig tilgjengelig.
+- **Solar Foods**: Factory 02 er i designfase før investeringsbeslutning; uavhengig finansiell stilling, full capex og EU Novel Food-utfall er ikke lukket i dette ledgeret.
 - **Restaurant Rest AS**: Grunnlegger og årsak til konkurs bekreftet, men konkursboets sluttbehandling er ikke sjekket utover slettedato.
 
 ---
@@ -81,6 +82,8 @@ Konkursene til Enorm (DK), Mycorena (SE) og Infarm (DE/EU) er de mest relevante 
 - «Infarm er konkurs» — den juridiske entiteten er avviklet, men eierne startet et nytt selskap (InFarm Technologies Ltd) som kjøpte opp aktivaene og opererer i Canada.
 - «Nordic Harvest er i krise» — ingen verifisert kilde støtter dette; siste tilgjengelige informasjon indikerer aktiv drift.
 - «Oatly går konkurs» — selskapet har gjentatte tap og fallende aksje, men er ikke insolvent.
+- «Oatly er i alvorlig finansiell uro per Q1 2026» uten presisering — 2026-rapporten viser fortsatt net loss, men også inntektsvekst, positiv justert EBITDA og gjentatt outlook.
+- «Beyond Meat er konkurs» — Q1 2026 viser inntektsfall og tap, men selskapet er aktivt og har ikke meldt insolvens i kontrollert kilde.
 - «Altprotein-sektoren har feilet» — ledgeren viser et blandet bilde: Solar Foods, Nordic Harvest og (i ny form) Mycorena/Promyc er fortsatt operative.
 - «Enorm Biofactory gikk konkurs i oktober 2025» uten å presisere at et aktivakjøp har funnet sted (Euro Steel Trading) — det er usikkert om teknologien lever videre.
 
@@ -88,7 +91,7 @@ Konkursene til Enorm (DK), Mycorena (SE) og Infarm (DE/EU) er de mest relevante 
 
 ## Anbefalt gate
 
-**source-shortlist** — Ledgeren er basert på sekundærkilder (bransjepress, selskapskommunikasjon) for alle aktørene unntatt Restaurant Rest AS (Brreg A-kilde) og Oatly/Beyond Meat (SEC-filings A-kilde). Før eventuell ekstern bruk av konkursdata bør følgende primærregistre sjekkes direkte: Bolagsverket (Plantagon, Mycorena), Bundesanzeiger/Companies House UK (Infarm), Erhvervsstyrelsen (Enorm, Nordic Harvest), Brreg (Restaurant Rest AS — allerede A-bekreftet).
+**source-shortlist-controlled** — Ledgeren er kildekontrollert som risikokart, ikke som claim-lock. Den er fortsatt basert på sekundærkilder/selskapskommunikasjon for flere konkurs- og survival-caser, med A-kilder for Restaurant Rest AS (Brreg) og børsnoterte Oatly/Beyond Meat. Før ekstern bruk av konkursdata bør følgende primærregistre sjekkes direkte: Bolagsverket (Plantagon, Mycorena), Bundesanzeiger/Companies House UK (Infarm), Erhvervsstyrelsen (Enorm, Nordic Harvest).
 
 ---
 
@@ -113,12 +116,16 @@ Konkursene til Enorm (DK), Mycorena (SE) og Infarm (DE/EU) er de mest relevante 
 | https://www.mynewsdesk.com/plantagon-international/pressreleases/meddelande-fraan-plantagon-international-ab-2840390 | Selskapspressemelding | B | 2026-06-28 |
 | https://livsmedelsnyheter.se/2019/02/26/vertikalodlingsforetaget-plantagon-har-forsatts-i-konkurs/ | Fagpresse (SE) | B | 2026-06-28 |
 | https://forvalt.no/Konkurs/Firmadetaljer/919972696/638863 | Norsk konkursregister (Brreg-basert) | A | 2026-06-28 |
+| https://data.brreg.no/enhetsregisteret/api/enheter/919972696 | Brreg API (slettet enhet Restaurant Rest AS) | A | 2026-07-02 |
 | https://www.yeshealthgroup.com/farms/nordic-harvest | Selskapsnettsted | B | 2026-06-28 |
 | https://solarfoods.com/ | Selskapsnettsted | B | 2026-06-28 |
+| https://solarfoods.com/solar-foods-proceeds-to-the-next-design-phase-of-factory-02/ | Selskaps-/pressemelding Factory 02 | B | 2026-07-02 |
 | https://www.intelligentliving.co/solar-foods-solein-protein-2026-product/ | Bransjepress | B | 2026-06-28 |
 | https://www.greenqueen.com.hk/solar-foods-business-finland-funding-solein-gas-protein/ | Bransjepress | B | 2026-06-28 |
 | https://investors.oatly.com/news-releases/news-release-details/oatly-reports-fourth-quarter-and-full-year-2024-financial/ | Børsrapport / investor relations | A | 2026-06-28 |
+| https://investors.oatly.com/news-releases/news-release-details/oatly-reports-first-quarter-2026-financial-results | Børsrapport / investor relations | A | 2026-07-02 |
 | https://nordsip.com/2025/10/02/oatly-restructures-debt-with-sll/ | Finanspresse | B | 2026-06-28 |
 | https://www.sec.gov/Archives/edgar/data/0001655210/000119312525115042/d917100dex991.htm | SEC Form 8-K (Beyond Meat FY2025) | A | 2026-06-28 |
+| https://investors.beyondmeat.com/news-releases/news-release-details/beyond-meatr-reports-first-quarter-2026-financial-results | Børsrapport / investor relations | A | 2026-07-02 |
 | https://agfundernews.com/progress-report-where-are-vertical-farmings-biggest-leafy-green-growers-now | Bransjepress | B | 2026-06-28 |
 | https://foodlore.blog/why-vertical-farms-go-bankrupt/ | Sekundæranalyse | C | 2026-06-28 |

@@ -6,6 +6,7 @@
 **Geo:** Nordic
 **Output-type:** status memo
 **Dato:** 2026-06-28
+**Kontrollert:** 2026-07-02
 **Anbefalt gate:** forstaelse
 
 ---
@@ -122,12 +123,21 @@ Presisjonsfermentering bruker genetisk modifiserte mikroorganismer (GMO). I EU r
 
 **forstaelse** — Dette notatet gir bakgrunnsforståelse for regulatorisk status og nordiske aktører. Funnene er primært negative (realisert volum = null, ingen EU-godkjenninger for animalske proteiner via presisjonsfermentering eller dyrket kjøtt). Kildebasen er en blanding av primærkildeklasse A (EFSA, Nofima, selskapspressemeldinger fra selskaper med kjent identitet) og klasse B (sekundærkilder, bransjemedia). Ingenting i dette notatet er klar for ekstern sitasjon uten videre kildeverifikasjon mot primærdokumenter (f.eks. EFSA-saksliste, Lovdata, Mattilsynet).
 
+## Kontroll 2026-07-02
+
+Regulatorisk hovedlinje er desk-kontrollert mot EFSA og EU-kommisjonen, men gaten beholdes som `forstaelse`. EFSA-siden for Novel Food-prosedyre er sist gjennomgått 6. mai 2026 og beskriver risikovurdering før markedsplassering, med nominell 9-måneders vurdering og stopp-klokke ved tilleggsinformasjon. EU-kommisjonens søknadsoversikt viser fortsatt 2024-søknaden `Duck cells from cell culture` fra Suprême SAS (Gourmey); det ble ikke funnet `Mosa` i søknadsoversikten ved kontrollen. Kommisjonens unionsliste ble også sjekket uten treff på `cultured`.
+
+Konklusjon for bruk: behold notatet som regulatorisk bakgrunnskart. Ikke bruk det som ekstern claim-lock for teknologistatus, selskapsstatus eller Mattilsynets posisjon uten ny primærkontroll per claim.
+
 ---
 
 ## Kilder sjekket
 
 | URL | Kildetype | Kildeklasse | Tilgangsdato |
 |---|---|---|---|
+| https://www.efsa.europa.eu/en/applications/novel-food | Regulatorisk primærkilde (EFSA), kontrollert på nytt | A | 2026-07-02 |
+| https://food.ec.europa.eu/food-safety/novel-food/authorisations/summary-applications-and-notifications_en | Regulatorisk primærkilde (EU-kommisjonen), kontrollert på nytt | A | 2026-07-02 |
+| https://food.ec.europa.eu/food-safety/novel-food/authorisations/union-list-novel-foods_en | Regulatorisk primærkilde (EU-kommisjonen), kontrollert på nytt | A | 2026-07-02 |
 | https://www.efsa.europa.eu/en/topics/topic/novel-food | Regulatorisk primærkilde (EFSA) | A | 2026-06-28 |
 | https://www.efsa.europa.eu/en/applications/novel-food | Regulatorisk primærkilde (EFSA) | A | 2026-06-28 |
 | https://food.ec.europa.eu/food-safety/novel-food/authorisations/union-list-novel-foods_en | Regulatorisk primærkilde (EU-kommisjonen) | A | 2026-06-28 |

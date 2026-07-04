@@ -7,6 +7,7 @@
 **Output-type:** ownership ledger
 **Dato:** 2026-06-28
 **Anbefalt gate:** PCQ
+**Status:** PCQ-controlled 2026-07-02
 
 ---
 
@@ -14,13 +15,13 @@
 
 | Felt | Svar |
 |---|---|
-| Kort dom | Åtte norske aktører kartlagt via Brreg rolledata (Brreg API 2026-06-28). Rolledata (daglig leder, styreleder, styremedlemmer) er tilgjengelig for alle aktive selskaper. Fullstendig aksjonærregister er ikke offentlig tilgjengelig via API — eierstruktur utover styreroller er et systematisk epistemisk gap for alle selskapene. Restaurant Rest AS er bekreftet slettet (slettedato 2025-06-18, konkurs 2024-09-05). Gruten AS er ikke identifisert i Brreg under det navnet. Vestkorn Milling AS-tilknytning til dsm-firmenich ikke bekreftet via Brreg-data alene. |
-| Sterkeste kilde | Brreg Enhetsregisteret API, data.brreg.no, tilgang 2026-06-28 (kildeklasse A — primærregister) |
-| Svakeste punkt | Aksjonærregister (hvem eier aksjene) er ikke offentlig tilgjengelig via Brreg API eller Skatteetaten uten betalt tilgang. Eierstruktur er en systematisk C-celle for alle selskapene. Founders-identifikasjon er kun tilgjengelig der stiftelsesdato og daglig leder/styreleder samsvarer med oppstart — ingen kausal kobling kan bekreftes uten sekundærkilder. |
+| Kort dom | Åtte norske aktører er kartlagt via Brreg enhets- og rolledata (Brreg API 2026-06-28, live spot-sjekk 2026-07-02). Rolledata (daglig leder, styreleder, styremedlemmer) er tilgjengelig for alle aktive selskaper og kan brukes som rolleledger. Fullstendig aksjonærregister er ikke offentlig tilgjengelig via Brreg API — eierstruktur utover styreroller er et systematisk epistemisk gap for alle selskapene. Restaurant Rest AS er et slettet-/konkurscase, Gruten AS er fortsatt ikke eksakt identifisert i Brreg under det navnet, og Vestkorn/dsm-firmenich kan ikke bekreftes fra Brreg alene. |
+| Sterkeste kilde | Brreg Enhetsregisteret API og rolledata-API, data.brreg.no, tilgang 2026-06-28 og kontroll 2026-07-02 (kildeklasse A — primærregister for enhet/rolle, ikke aksjonærer) |
+| Svakeste punkt | Aksjonærregister (hvem eier aksjene) er ikke offentlig tilgjengelig via Brreg API. Eierstruktur er en systematisk C-celle for alle selskapene. Founders-identifikasjon er kun tilgjengelig der sekundærkilder eksplisitt oppgir gründer/stifter; daglig leder/styreleder er ikke founder-bevis. |
 | Eierskapsledger | se under |
 | Tomme celler | se under |
 | Ikke si | se under |
-| Anbefalt gate | PCQ |
+| Anbefalt gate | PCQ-controlled; ingen claim-lock |
 
 ---
 
@@ -53,11 +54,19 @@
 
 ---
 
+## PCQ-kontroll 2026-07-02
+
+- **Brreg live spot-sjekk:** Enhetsendepunktene returnerte 200 for Invertapro, NorInsect, NorInsect Holding, Vestkorn Milling, Norwegian Mycelium, Avisomo, Onna Greens, Vertical Agri og Restaurant Rest. De åtte aktive selskapene hadde fortsatt ikke konkurs-/avviklingsflagg i responsen. Restaurant Rest beholdes som slettet-/konkurscase fordi rolledata ikke er tilgjengelig for enheten på samme måte som aktive foretak.
+- **Rolledata:** Rolleendepunktene returnerte 200 for alle åtte aktive selskaper. Dette bekrefter at rolleledgeren er kildeklar som rolledata, men ikke som aksjonær- eller founderdata.
+- **Gruten:** Nytt Brreg-navnesøk på `gruten` ga ingen eksakt matrelatert `Gruten AS`. Treffene inkluderer ulike ENK og `GRUT INVEST AS`, men ingen trygg kobling til kaffegrut-/soppaktøren. Status for Gruten forblir C.
+- **Ownership stop:** Aksjonærregister/beneficial-owner layer er ikke lukket. Bruk ikke denne artifacten til å si hvem som eier selskapene, bare hvem som har registrerte roller og hvilke eier-/founderhull som må løses med Proff Forvalt, Skatteetaten/aksjonærregister, årsrapporter eller aktørvalidering.
+- **Gateutfall:** `R13-AKTOR-006` flyttes til `pcq-controlled` fordi PCQ-stoppunktet er kontrollert og synlig. Ingen ekstern claim, figur, decktekst eller `safe_for_ai_context` skal bygges fra raden før aksjonær-/founderlaget er innhentet separat.
+
 ## Tomme celler
 
 Følgende eierstruktur-data er ikke offentlig tilgjengelig via Brreg API eller andre åpne kilder og er eksplisitt dokumentert som gap (kildeklasse C):
 
-1. **Aksjonærregister (alle selskaper):** Hvem som eier aksjer, og i hvilke andeler, er ikke tilgjengelig via Brreg API. Skatteetatens aksjonærregister er ikke åpent. Tilgang krever betalt tjeneste (Proff Forvalt, Infotorg) eller Skatteetaten-innsynsbegjæring. Dette gjelder Invertapro AS, NorInsect AS, NorInsect Holding AS, Vestkorn Milling AS, Norwegian Mycelium AS, Avisomo AS, Onna Greens AS, Vertical Agri AS.
+1. **Aksjonærregister (alle selskaper):** Hvem som eier aksjer, og i hvilke andeler, er ikke tilgjengelig via Brreg API. Tilgang krever betalt tjeneste (Proff Forvalt, Infotorg), Skatteetaten-/aksjonærregisterinnsyn eller aktørvalidering. Dette gjelder Invertapro AS, NorInsect AS, NorInsect Holding AS, Vestkorn Milling AS, Norwegian Mycelium AS, Avisomo AS, Onna Greens AS, Vertical Agri AS.
 
 2. **Gruten AS — org.nr og status:** Ingen enhet med navn "Gruten AS" er funnet i Brreg (aktive eller slettede) via søk 2026-06-28. Selskapet er dokumentert i sekundærkilder (DN 2017, kaffegeek.no 2021) med aktivitet i Oslo. Kan operere under annet navn, som ENK, eller kan være slettet uten at dette er sporbart via standard Brreg-søk. Org.nr er ikke bekreftet.
 
@@ -91,7 +100,7 @@ Følgende eierstruktur-data er ikke offentlig tilgjengelig via Brreg API eller a
 
 ## Anbefalt gate
 
-PCQ — Eierstruktur-data (aksjonærregister) er systematisk ikke-offentlig for alle kartlagte selskaper. Claims om hvem som eier disse selskapene kan ikke underbygges med kildeklasse A eller B uten tilgang til Skatteetatens aksjonærregister (betalt) eller innsynsbegjæring. Rolledata (daglig leder, styre) er kildeklasse A, men representerer ikke eierstruktur. Gruten AS og Restaurant Rest AS har ytterligere identifikasjonsgap. Ingen av disse funnene er klare for ekstern publisering uten PCQ-gjennomgang.
+PCQ-controlled 2026-07-02 — Eierstruktur-data (aksjonærregister) er systematisk ikke-offentlig for alle kartlagte selskaper via Brreg API. Claims om hvem som eier disse selskapene kan ikke underbygges med kildeklasse A eller B uten Proff/Infotorg, Skatteetaten-/aksjonærregisterinnsyn, årsrapport med aksjonærnote eller aktørvalidering. Rolledata (daglig leder, styre) er kildeklasse A, men representerer ikke eierstruktur. Gruten AS og Restaurant Rest AS har ytterligere identifikasjonsgap. Ingen av disse funnene er klare for ekstern publisering som ownership/founder-claim.
 
 ---
 

@@ -2,7 +2,7 @@
 tittel: "Alternative nordiske fôrproteiner — aktørledger (realisert / kapasitet / plan / pilot)"
 id: R13-GAP-004
 dato: 2026-06-27
-status: "Internt research-underlag — ingen claims"
+status: "Source-shortlist-kontrollert 2026-07-02 — ingen volumclaim"
 gate: source-shortlist
 ---
 
@@ -15,6 +15,8 @@ Feltet er fortsatt dominert av **kapasitet og plan, ikke realisert fôr-grade vo
 1. **Enorm Biofactory (DK) gikk konkurs 30. oktober 2025** etter ~€50 mill. investering — anlegget (designkapasitet 10 000 t insektmel/år) nådde **aldri** intendert produksjonsvolum. R12s "kapasitet"-tall må nå merkes som ikke-realisert ved et nedlagt anlegg.
 2. **Solar Foods Factory 01 (FI)** nådde produktivitetsmål for designkapasitet (160 t/år) sent i 2025 (8 mnd kontinuerlig drift) — men Solein selges som **mat/human-protein**, ikke fôr; skal ikke telles som fôr-volum.
 Korreksjon til R12: **Invertapro (NO) farmer melbillelarver (Tenebrio molitor / mealworm), ikke BSF** som R12 anga. Nye nordiske aktører lagt til: **Volare (FI, BSF)**, **Enifer/eniferBio PEKILO (FI, soppprotein)**. Insektprotein har flest fysiske anlegg men også et høyprofilert konkurs-tilfelle; encelle-/soppprotein er overveiende kapasitet/plan; mikroalger/musling/tare er pilot-/utviklings-stadium for fôr.
+
+**Kontroll 2026-07-02:** Current-source pass confirms the core status claims: ENORM bankruptcy is independently reported with 30.10.2025 decree; Solar Foods Factory 01 reached design-capacity productivity for 160 t/år Solein and plans 230 t/år in 2026, still human-protein not feed; Volare 01 remains a funded/planned 5 000 t/år insect-protein facility with Skretting/offtake signal, not realized annual output; Invertapro is still anchored as yellow mealworm/Tenebrio molitor. Row remains source-shortlist, not claim or volume ledger.
 
 ## Sterkeste kilde
 Sterkest er primærkilder med eksplisitt status-/produktivitetsbekreftelse:
@@ -90,5 +92,9 @@ Hold realisert / kapasitet / plan / pilot i adskilte kolonner. Oppgrader aldri k
 | https://www.siemens.com/global/en/company/stories/industry/2025/vaxa-technologies-indoor-farming-microalgae.html | 2026-06-27 | secondary |
 | https://www.leroyseafood.com/en/tasty-seafood/environment-and-society/increasing-production-of-kelp-and-mussel-meal/ | 2026-06-27 | secondary |
 | https://nofima.com/results/salmon-feed-is-slowly-changing/ | 2026-06-27 | secondary |
+| https://agfundernews.com/breaking-danish-insect-ag-firm-enorm-declared-bankrupt-after-failed-reconstruction-process | 2026-07-02 | secondary current-status check |
+| https://solarfoods.com/solar-foods-factory-01-has-reached-its-productivity-targets/ | 2026-07-02 | primary current-status check |
+| https://volare.fi/fi/news/volare-secures-26m/ | 2026-07-02 | primary current-status check |
+| https://corosect.eu/our-team/invertapro/ | 2026-07-02 | project/actor current-status check |
 </content>
 </invoke>

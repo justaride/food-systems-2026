@@ -6,6 +6,7 @@
 **Geo:** NO
 **Output-type:** site inventory
 **Dato:** 2026-06-28
+**Kontrollert:** 2026-07-02
 **Anbefalt gate:** actor-gate
 
 ---
@@ -103,6 +104,10 @@ Alle sites nedenfor er selvrapporterte til Norsk Permakulturforening eller KVANN
 ## Anbefalt gate
 
 **actor-gate** — Alle sites er selvrapporterte til organisasjonsnettverk uten uavhengig feltverifikasjon tilgjengelig i åpne kilder. Før sites brukes som faktapåstander om norsk skogshage-sektor, bør minimum en bekreftet kilde per site innhentes (f.eks. besøksdokumentasjon, offentlig tilskuddsvedtak eller medieoppslag). Root2Fork/KVANN-forumet (åpnet juni 2026) kan gi oppdatert aktørliste fra august 2026.
+
+## Kontroll 2026-07-02
+
+Kontrollert som actor-gate-flate mot `research/_status/food-tg-r13/actor-gate/R13-AKTOR-007-skogshage-permakultur-public-validation-2026-06-25.md`. LAND-nettverket, KVANN/Root2Fork og skoghagekart gir kandidater og metodekilder, men ikke et komplett eller uavhengig verifisert nasjonalt site-inventory. Status etter kontroll: `actor-gate-controlled`; ikke publiser totalantall, nasjonalt kart eller matproduksjonsbidrag uten site-eier-/nettverksbekreftelse og synlig verifikasjonsdato.
 
 ---
 

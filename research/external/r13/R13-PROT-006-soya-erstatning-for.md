@@ -6,6 +6,7 @@
 **Geo:** NO
 **Output-type:** feed protein substitution memo
 **Dato:** 2026-06-28
+**Status:** PCQ-kontrollert 2026-07-02 — 2020 Nofima-tall fortsatt siste åpne ressursregnskap; nyere kilder er aktør-/policyspor
 **Anbefalt gate:** PCQ
 
 ---
@@ -21,6 +22,12 @@
 | Tomme celler | se under |
 | Ikke si | se under |
 | Anbefalt gate | PCQ |
+
+---
+
+## Kontrollnotat 2026-07-02
+
+Ny kildepassering bekrefter at Nofima/FHF 2020 fortsatt er siste åpne kvantitative ressursregnskap for norsk laksefôr-sammensetning. Landbruksdirektoratets kraftfôrstatistikk 2025 bekrefter samtidig husdyrsporet for proteinråvarer (`Sum protein` 437 634 tonn, hvor 415 970 tonn er importert og 21 664 tonn er norsk), men lukker ikke fiskefôr-SPC, raps, insektmel eller SCP-volum etter 2020. Forskningsrådets 20-grep-rapport og regjeringens bærekraftig-fôr-spor gir policy-/roadmap-status mot 2034, ikke realiserte substitusjonsvolumer. Gate holdes derfor som PCQ med synlige caveats.
 
 ---
 
@@ -55,7 +62,7 @@
 - **Encelleprotein (FeedKind/Calysta) i norsk laksefôr:** Leveranser fra Kina-fabrikk til petfood dokumentert 2025, men norsk akvakulturbruk er ikke kvantifisert.
 - **ProTerra sertifiseringsvolum (tonn):** ProTerra publiserer ikke disaggregerte norsk-import-tall for SPC. Totalt sertifisert volum fra Brasil er kjent som "en betydelig andel" (Denofa) men ikke eksakt.
 - **RTRS volum (tonn) til norsk fiskefôr:** RTRS-sertifikater brukes av Denofa, men volumfordeling RTRS vs ProTerra er ikke offentliggjort.
-- **Kraftfôrstatistikk 2023/2024 (Landbruksdirektoratet):** 2022-tall er det nyeste funnet per dato; 2023-tall kan finnes i Markedsrapport 2024 men ble ikke hentet i dette søket.
+- **Kraftfôrstatistikk 2025 (Landbruksdirektoratet):** 2025-råvareforbruk er kontrollert for husdyr-kraftfôr og proteinråvarer, men det lukker ikke fiskefôr-SPC, raps, insektmel eller SCP-volum etter 2020.
 
 ---
 
@@ -101,12 +108,14 @@
 | https://www.landbruksdirektoratet.no/nb/nyhetsrom/rapporter/markedsrapport-2024 | Landbruksdirektoratet Markedsrapport 2024 (ikke hentet i detalj) | A (ikke sjekket) | — |
 | https://www.proterrafoundation.org/news/benchmarking-proterra-standard-v5-and-europa-soya-guidelines-feb-2025/ | ProTerra Foundation benchmarking feb. 2025 | A | 2026-06-28 |
 | https://www.fhf.no/prosjekter/prosjektbasen/901604/ | FHF prosjektbase: Ressursregnskap 2020 | A | 2026-06-28 |
-| https://www.forskningsradet.no/siteassets/publikasjoner/2025/pa-vei-mot-barekraftig-for--20-grep-for-2026.pdf | Forskningsrådet: "På vei mot bærekraftig fôr" 2025 | A | 2026-06-28 |
+| https://www.forskningsradet.no/siteassets/publikasjoner/2025/pa-vei-mot-barekraftig-for--20-grep-for-2026.pdf | Forskningsrådet: "På vei mot bærekraftig fôr" 2025 | A | 2026-06-28 / 2026-07-02 |
 | https://ilaks.no/insektmel-encelleprotein-fermenterte-produkter-og-mikroalger-utgjorde-kun-04-prosent-av-det-totale-volum-i-laksefor/ | iLaks om Nofima 2020-funn | B (sekundær til A) | 2026-06-28 |
 | https://www.skretting.com/en/news-and-stories/insect-meal-now-in-commercial-skretting-feed/ | Skretting pressemelding insektmel 2025 | B | 2026-06-28 |
+| https://www.landbruksdirektoratet.no/nb/statistikk-og-utviklingstrekk/utvikling-i-jordbruket/kraftforstatistikk | Landbruksdirektoratet kraftfôrstatistikk 2025 | A | 2026-07-02 |
+| https://nofima.no/resultater/lakseforet-er-i-sakte-endring/ | Nofima populærformidling av ressursregnskap 2020 | A | 2026-07-02 |
+| https://www.regjeringen.no/no/aktuelt/20-tiltak-for-mer-barekraftig-for/id3108792/ | Regjeringen/Forskningsrådet om 20 tiltak for bærekraftig fôr | A | 2026-07-02 |
 
 **Kilder ikke sjekket (anbefalt for PCQ-runden):**
-- Landbruksdirektoratet kraftfôrstatistikk 2023–2024 (https://www.landbruksdirektoratet.no/nb/statistikk-og-utviklingstrekk/utvikling-i-jordbruket/kraftforstatistikk)
 - Nofima ressursregnskap for fôrråvarer 2022 eller 2024 (ikke funnet publisert per dato)
 - SalMar GRI-indeks 2023 (https://www.salmar.no/wp-content/uploads/2024/04/GRI-index-2023.pdf) — bør gjennomgås for feed-spesifikke tall
 - Mowi Integrated Annual Report 2024 — full PDF (https://mowi.com/wp-content/uploads/2024/03/Mowi_Integrated_Annual_Report_2023.pdf)

@@ -6,6 +6,7 @@
 **Geo:** Nordic (primærfokus Norge; Sverige som referanse)  
 **Dato produsert:** 2026-06-27  
 **Gate:** PCQ  
+**Status:** PCQ-controlled 2026-07-02 — ingen claim-lock; SE `A`-referanse beholdes, NO nasjonal NPK-retur beholdes som `C`/aktørspørsmål.
 
 ---
 
@@ -19,6 +20,19 @@
 | Tomme celler | Se egen seksjon nedenfor |
 | Ikke si | Se egen seksjon nedenfor |
 | Anbefalt gate | PCQ |
+
+---
+
+## PCQ-kontroll 2026-07-02
+
+Kontrollen bekreftet de sentrale gate-punktene uten å løfte nye tall til claim-lock:
+
+- Avfall Sverige sin SPCR 120-årsrapport for 2023 bekrefter at systemeier er Avfall Sverige, sertifiseringsorgan er RISE, at dataene er hentet fra Avfall Web, og at 2023-rapporten dekker 28 samrøtningsanlegg med SPCR 120-sertifikat.
+- Rapportens tabell 4a-c bekrefter næringsverdiene som brukes som svensk `A`-referanse: vanlig biogödsel har TS 4,6 %, Tot-N 111 g/kg TS, NH4-N 72 g/kg TS, Tot-P 13 g/kg TS og Tot-K 46 g/kg TS; flytende og fast fraksjon beholdes som egne fraksjoner.
+- NIBIOs biorest-side bekrefter at NPK-forholdet for ikke-separert biorest fra matavfall ofte ligger rundt 14-1-5 til 18-1-9, og at substratvalg styrer næringsinnholdet. Dette støtter B-/sekundærstatusen, ikke et norsk nasjonalgjennomsnitt.
+- Regjeringens publiserte gjødselvareforskrift (FOR-2025-01-29-116) bekrefter registrering, prøvetaking/analysekrav og sporbarhetsjournal for biorest/fiskeslam i bulkform, men ikke et offentlig aggregert NPK-rapporteringssystem tilsvarende SPCR 120.
+
+Kontrollresultat: R13-WASTE-005 flyttes fra `pcq-ready` til `pcq-controlled`. Den trygge bruken er fortsatt: Sverige kan brukes som sertifisert referansecase; Norge kan bare omtales som anleggsspesifikke målinger/FoU-estimater og et åpent aktør-/datagap for nasjonal NPK-retur.
 
 ---
 

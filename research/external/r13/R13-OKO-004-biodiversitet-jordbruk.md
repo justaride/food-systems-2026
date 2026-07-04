@@ -2,7 +2,8 @@
 id: R13-OKO-004
 tittel: Biodiversitet i jordbrukslandskap — indikatorer, kilder og trend
 dato: 2026-06-28
-gate: source-shortlist
+kontrollert: 2026-07-02
+gate: source-shortlist-controlled
 importDecision: importer
 regel: primary-A-required
 ---
@@ -11,7 +12,7 @@ regel: primary-A-required
 
 ## Kort dom
 
-Norske overvåkingsdata viser en bredt dokumentert negativ trend for biologisk mangfold i jordbrukslandskapet: kulturlandskapsfugler er ned ~25 % siden år 2000 (3Q/NIBIO, 2026), åpent lavland har laveste Naturindeksverdi (0,445) og fortsetter å synke (Miljødirektoratet/NINA, 2025), og semi-naturlig eng er kritisk truet med 60 % av registrerte enger i gjengroingsfase (ASO/NIBIO, 2026). Pollinatorovervåking (humler og dagsommerfugler via 3Q) er systematisk innhentet siden 2021, men dataserie er ennå for kort til å si noe om trend. Indikatormangfold er god for fugler og naturtype-tilstand; svakere for insekter, åkerblomster og direkte mål på trofisk eller funksjonell diversitet.
+Norske overvåkingsdata viser en bredt dokumentert negativ trend for biologisk mangfold i jordbrukslandskapet: kulturlandskapsfugler er ned ~25 % siden år 2000 (3Q/NIBIO, 2026), åpent lavland har lavest Naturindeksverdi (0,445 i datagrunnlaget; Miljødirektoratets nyhet avrunder til 0,45) og fortsetter å synke (Miljødirektoratet/NINA, 2025), og semi-naturlig eng er kritisk truet med en stor gjengroings-/skjøtselsrisiko dokumentert i ASO/Artsdatabanken. Pollinatorovervåking (humler og dagsommerfugler via 3Q) er systematisk innhentet siden 2021, men dataserien er ennå for kort til å si noe om trend. Indikatormangfoldet er godt for fugler og naturtype-tilstand; svakere for insekter, åkerblomster og direkte mål på trofisk eller funksjonell diversitet.
 
 ## Sterkeste kilde
 
@@ -36,15 +37,15 @@ Pollinatorovervåking (humler, dagsommerfugler) via 3Q startet 2021 og er for ny
 |---|---|---|---|---|
 | Fugleindeks jordbrukslandskap (22 arter) | Ned ~25 % siden 2000; indeksverdi 75 i 2023 (basis 100 i 2000) | Nasjonal; 130 faste 1 km²-flater; hvert 3. år | NIBIO 3Q / Pedersen & Alemu 2026 (A) | Proxy for landskapskvalitet; jevn nedgang uten brudd. Gråtrost –56 %, tårnseiler/gulspurv/buskskvett –~50 %. Stillits +54 % |
 | Farmland Bird Index (FBI) — OECD/PECBMS | Negativ trend; norske data rapportert til OECD og PECBMS; eksakt tall ikke hentet direkte | Nasjonal; via PECBMS-nettverket | OECD Nordic Statistics BIOD01 / PECBMS 2024-update (A) | Nordic Statistics-datasett oppdatert okt 2025; eksakt norsk indeksverdi for 2023 er C (ikke lest ut av PxWeb i dette søket) |
-| Naturindeks — Åpent lavland | 0,445 (skala 0–1); laveste av alle 7 økosystemer; fortsetter å synke siden 2000 | Nasjonal; siste oppdatering nov 2025 | Miljødirektoratet / NINA, Naturindeks 2025 (A) | Aggregert indeks over mange indikatorer; indirekte mål via naturtypetilstand. Siste utgave som eget rammeverk — inngår i naturregnskap fra 2026 |
-| Semi-naturlig eng — tilstand (ASO) | 40 % av registrerte enger intakte; 60 % i gjengroing/ute av bruk. Areal: 2 200–4 500 km² (0,7–1,5 % av landareal) | Nasjonal; 100 overvåkingsområder 2021–2025 (713 lokaliteter); første omdrev fullført 2025 | NIBIO ASO / Miljødirektoratet 2026 (A) | Kun statusmål fra første omdrev — ingen trenddata ennå. Arealanslag usikkert (bredt konfidensintervall) |
-| Semi-naturlig eng — naturtype rødlistestatus | Kritisk truet (CR) på Rødliste for naturtyper 2025 | Nasjonal | Artsdatabanken / Norsk rødliste for naturtyper 2025 (A) | CR-klassifisering basert på kvantitativ vurdering av areal og tilstandsreduksjon; ikke bestandstellingsdata |
+| Naturindeks — Åpent lavland | 0,445 i datanedlasting / 0,45 avrundet i nyhetssak; laveste av alle 7 økosystemer; fortsetter å synke siden 2000 | Nasjonal; siste oppdatering nov 2025 | Miljødirektoratet / NINA, Naturindeks 2025 (A) | Aggregert indeks over mange indikatorer; indirekte mål via naturtypetilstand. Siste utgave som eget rammeverk — inngår i naturregnskap fra 2026 |
+| Semi-naturlig eng — tilstand (ASO) | NIBIO: ca. 40 % i god/intakt tilstand og ca. 60 % ikke lenger i aktiv bruk / i gjengroing. Artsdatabanken: 71 % av ASO-engene har ikke tilstrekkelig skjøtsel; minst 60 % antas sterkt gjengrodd når mørketall medregnes. Areal: 2 200–4 500 km² (0,7–1,5 % av landareal) | Nasjonal; 100 overvåkingsområder 2021–2025 (713 lokaliteter); første omdrev fullført 2025 | NIBIO ASO / Artsdatabanken 2025 / Miljødirektoratet 2026 (A) | Kun statusmål fra første omdrev — ingen trenddata ennå. Arealanslag usikkert (bredt konfidensintervall) |
+| Semi-naturlig eng — naturtype rødlistestatus | Rik semi-naturlig eng og flere semi-naturlig-eng-typer er kritisk truet (CR) på Rødliste for naturtyper 2025 | Nasjonal | Artsdatabanken / Norsk rødliste for naturtyper 2025 (A) | CR-klassifisering basert på vurdering av areal og biotisk forringelse; ikke bestandstellingsdata |
 | Karplanter i beitemarkflora (3Q) | Ikke beregnet sammenstilt trendindeks i dette søket; plantesamfunn endres; brakklegging og gjengroing dokumentert over 10-årsperiode (2004–2018) | 97 overvåkingsflater, 569 analyseruter (64 m²); beitemark og villeng | NIBIO 3Q / Pedersen, Kapfer & Sickel 2020 (A) | Siste sammenstilte rapport fra 2020 i tilgjengelig søk; ingen ny nasjonal synteserapport identifisert for 2023–2026 |
 | Rødlistede karplanter i jordbrukslandskapet | 146 av 446 rødlistede karplanter finnes i jordbrukslandskapet og restbiotoper (kantsoner, åkerholmer, semi-naturlig eng) | Nasjonal; Rødliste 2021 | Artsdatabanken, Norsk rødliste for arter 2021 (A) | Andelsberegning, ikke populasjonstellinger. Neste revisjon planlagt 2027 |
 | Pollinatorer — villbier og humler (rødliste) | 17 % av villbier og humler truet; 30,6 % på rødlista (av 210 registrerte bie-/humlearter i Norge); 20 pollinerende arter regionalt utdødd | Nasjonal; Rødliste 2021 | Artsdatabanken, Norsk rødliste for arter 2021 (A) | Rødlistevurdering, ikke populasjonsovervåking. 1 tredel av ~200 biearter truet per NIBIO-omtale 2021 |
 | Pollinatorer — humler og dagsommerfugler i felt (3Q) | Overvåking startet 2021; for kort serie til trendangivelse | Lite utvalg 3Q-flater; 3 besøk/år pr flate | NIBIO 3Q / Fjellstad, Dramstad & Pedersen 2022 (A) | Metodeutvikling-fase; trekantkartlegging; kun 3–5 år med data — ingen trend ennå |
 | Jordbruksareal i drift | ~9,87 millioner daa (2025); stabilt siden 2010, men ned fra topp ~10,47 mill daa i 2001; antall gårdsbruk ned 75 % siden 1969 (fra 155 000 til ~36 600) | Nasjonal; årlig | SSB Gardsbruk, jordbruksareal og husdyr 2025 (A) | Stabil totalflate skjuler intensivering og strukturendring; leiejord nå 49 % av areal i drift |
-| Omdisponering av dyrka jord | 2 500 daa i 2024 (ned fra topp 6 000+ daa); dyrkbar jord 2 700 daa | Nasjonal; KOSTRA-rapportering | SSB Arealforvaltning, okt 2024 (A) | Vedtatt, ikke nødvendigvis faktisk nedbygd; metodeskifte i 2005–2013 påvirker historisk serie |
+| Omdisponering av dyrka jord | 2 500 daa i 2024 (ned fra topp 6 000+ daa); dyrkbar jord 2 700 daa | Nasjonal; KOSTRA-rapportering | SSB Kommunal forvaltning av landbruksarealer / artikkel 23.09.2025 (A) | Vedtatt, ikke nødvendigvis faktisk nedbygd; metodeskifte i 2005–2013 påvirker historisk serie |
 | Strukturell heterogenitet — landskapselementer (3Q) | Gårdsdammer, alleer, steingjerde, åkerholmer og bekker overvåkes via flybildetolking; positiv heterogenitet assosiert med fuglerikdom | Nasjonal; ~1 000 flater; flybildetolking + feltarbeid | NIBIO 3Q / Stokstad 2024 (A) | Arealstruktur er en indirekte proxy for biodiversitet; kausal retning ikke bestemt |
 | Slåttemark — handlingsplan | ~9 000 daa (1 000 lokaliteter) i langsiktig skjøtsel per 2023; utilstrekkelig for nasjonal bevaringsmålsetting | Nasjonal; handlingsplan forlenget til 2037 | Miljødirektoratet Handlingsplan for slåttemark 2023 (A) | Mål ikke nådd — handlingsplan erkjenner utilstrekkelighet |
 
@@ -78,7 +79,7 @@ Pollinatorovervåking (humler, dagsommerfugler) via 3Q startet 2021 og er for ny
 
 ## Anbefalt gate
 
-**source-shortlist** — grunnlag for videre arbeid:
+**source-shortlist-controlled** — kontrollert kilde-/metodekort, ikke claim-lock:
 
 1. **NIBIO 3Q-programmet** — primærkilde for fugleindeks og strukturell biodiversitet; siste rapport: Pedersen & Alemu (2026), DOI: 10.21350/1v8m-rb02. Nasjonal referanse.
 2. **Naturindeks 2025** (Miljødirektoratet/NINA) — oppdatert nov 2025; indeksverdier per økosystem inkl. åpent lavland (0,445); åpne data: https://www.naturindeks.no/DownloadData
@@ -87,6 +88,32 @@ Pollinatorovervåking (humler, dagsommerfugler) via 3Q startet 2021 og er for ny
 5. **OECD/PECBMS Nordic Statistics BIOD01** — Farmland Bird Index for Norge; oppdatert okt 2025; krever PxWeb-uttak for eksakte tall.
 6. **Miljødirektoratet — Tiltaksplan for ville pollinerende insekter 2021–2028** — policy-ramme; evaluering planlagt 2026.
 7. **NIBIO 3Q pollinatorer** — Fjellstad, Dramstad & Pedersen (2022); metodikk og tidlige resultater; trendkilde tidligst 2026–2027.
+
+## Kontroll 2026-07-02
+
+| Kontrollpunkt | Resultat |
+|---|---|
+| NIBIO 3Q fugl | Bekrefter 22 kulturlandskapsfugler, basis 100 i 2000, indeks rundt 75 i 2023, 130 faste 1 km²-flater og treårig telling. Bruk som fugle-/landskapsindikator, ikke direkte årsaksbevis. |
+| Naturindeks 2025 | Bekrefter at åpent lavland er lavest og synkende. Public news avrunder verdien til 0,45; `0,445` skal bare brukes med Naturindeks-data-/nedlastingshenvisning. |
+| ASO / semi-naturlig eng | Bekrefter 713 lokaliteter, 100 overvåkingsområder, 2 200–4 500 km² anslag, ca. 40/60 status og CR-rødlistestatus. Ingen trend før senere omdrev. |
+| Artsdatabanken pollinatorer | Bekrefter 210 bie-/humlearter, 30,6 % på Rødlista, 17 % truet og 20 pollinerende arter utdødd fra Norge i Rødlista 2021. Dette er rødliste-/risikodata, ikke overvåket trend. |
+| SSB omdisponering | Oppdatert kildegrunnlag til SSB-artikkel publisert 23.09.2025 for 2024-verdiene 2 500 daa dyrka jord og 2 700 daa dyrkbar jord. |
+
+## Kilder re-kontrollert 2026-07-02
+
+| URL | Kontrollert bruk |
+|---|---|
+| https://www.nibio.no/nyheter/2026/hver-fjerde-fugl-har-forsvunnet-fra-jordbrukslandskapet | 3Q fugleindeks 2000–2023, metode og DOI. |
+| https://www.miljodirektoratet.no/aktuelt/nyheter/2025/november-2025/ny-naturindeks-norsk-natur-betydelig-redusert/ | Naturindeks 2025, åpent lavland som lavest/synkende og rammeverk-overgang til naturregnskap. |
+| https://www.naturindeks.no/DownloadData | Datagrunnlag for eksakt Naturindeksverdi. |
+| https://www.nibio.no/nyheter/2026/overvaking-av-semi-naturlig-eng-gir-ny-kunnskap | ASO status, arealintervall, 713 lokaliteter og 40/60-framing. |
+| https://lister.artsdatabanken.no/naturtyper/2025/232 | CR-vurdering og biotisk forringelse for rik semi-naturlig eng. |
+| https://lister.artsdatabanken.no/naturtyper/2025 | Flere semi-naturlig-eng-typer i CR-kategori. |
+| https://artsdatabanken.no/arter/rodlista-arter/om-rodlista/fordypning/mange-pollinerende-insekter-pa-rodlista | Pollinator-/bie-/humle-rødlistetall. |
+| https://www.nibio.no/tema/landskap/systematisk-overvaking-av-jordbrukslandskap/3q/3q-overvaking-av-pollinatorer | 3Q pollinatormetode og oppstart 2021. |
+| https://www.nibio.no/tema/landskap/systematisk-overvaking-av-jordbrukslandskap/3q/3q-overvaking-av-planter | 3Q plantemetode, 97 flater / 569 analyseruter og nyeste publiserte plantesyntese. |
+| https://www.ssb.no/jord-skog-jakt-og-fiskeri/jordbruk/statistikk/gardsbruk-jordbruksareal-og-husdyr | Jordbruksareal-/bruksstrukturstatistikk. |
+| https://www.ssb.no/jord-skog-jakt-og-fiskeri/jordbruk/artikler/mindre-omdisponering-av-dyrka-og-dyrkbar-jord | 2024 omdisponeringstall publisert 23.09.2025. |
 
 ---
 

@@ -2,7 +2,7 @@
 tittel: "Marint restråstoff — R-stige (humant konsum / fôr / energi / eksport), SINTEF/FHF"
 id: R13-WASTE-001
 dato: 2026-06-27
-status: "Internt research-underlag — ingen claims"
+status: "PCQ-kontrollert 2026-07-02 — R-stige med tomme celler"
 gate: PCQ
 geo: NO
 prioritet: P0
@@ -13,6 +13,8 @@ primaerkilde: "SINTEF Ocean / Kontali Analyse (FHF-finansiert) — Analyse marin
 ## Kort dom
 
 SINTEF/FHFs årlige "Analyse marint restråstoff" er en sterk, sammenhengende primærkilde (rapportserie #12+ siden 2013) som tallfester totalt restråstoff, utnyttelsesgrad og fordeling på humant konsum / fôr / biogass-energi. Siste utgave (2024-data, rapport 2025:00517, publisert 2025-06-02) er hentet i fulltekst og gir hele R-stigen. Hovedfunn 2024: ca. 1,1 mill. tonn tilgjengelig restråstoff, ca. 976 000 tonn (89 %) "utnyttet" — men kun ca. 15 % av produktvolumet går til humant konsum, mens fôr (66 %) og biogass/energi (19 %) dominerer. Høy utnyttelsesgrad er altså IKKE det samme som høyverdianvendelse; rapporten sier selv at "lite av det norske restråstoffet utnyttes inn i høyere betalende markeder" (kosttilskudd/kosmetikk/farmasi).
+
+**PCQ-kontroll 2026-07-02:** Lokal fulltekst `research/external/dro-1206/downloads/sintef-fhf-analyse-marint-restrastoff-2024.txt` ble kontrollert mot rapportnr. 2025:00517, ISBN 978-82-14-07469-7, totalrammen 3 166 000 t råstoffgrunnlag / 1 094 000 t tilgjengelig / 976 000 t utnyttet / 89 %, produktvolum ca. 476 000 t, humant konsum ca. 70 000 t, fôrprodukter ca. 312 000 t, fritt blod 34 300 t, førstehåndsverdi ca. 4,8 mrd NOK og brutto omsetningsverdi ca. 7,8 mrd NOK. FHF-prosjekt 901844 er per kontrollen merket avsluttet og viser en senere sluttrapport (SINTEF Ocean rapportnr. 2025:00867, 2025-10-07), men FHF-sidens hovedfunn for 2022-2024 stemmer med R-stigeverdiene her. Tabellen beholdes derfor på 2024-årsrapporten som primær tabellkilde.
 
 ## Sterkeste kilde
 
@@ -104,3 +106,4 @@ Primærkilde i fulltekst, internt etterprøvbar tabell, klar R-stige-distinksjon
 | https://www.fhf.no/prosjekter/prosjektbasen/901844/ (FHF prosjekt 901844, Restråstoffanalyser 2023–2025) | 2026-06-27 | primary |
 | https://www.marintrestrastoff.no/ (SINTEF/Kontali visningsverktøy, referert i rapporten) | 2026-06-27 | secondary |
 | https://nva.sikt.no/registration/019cb816e9d8-613672ba-42ff-40f5-8c4a-d11bcb98a574 (Nasjonalt vitenarkiv-oppføring) | 2026-06-27 | public-filing |
+| https://www.fhf.no/prosjekter/prosjektbasen/901844/ (FHF prosjekt 901844, avsluttet; hovedfunn og sluttrapportliste kontrollert) | 2026-07-02 | primary |

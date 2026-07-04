@@ -6,6 +6,7 @@
 **Geo:** Nordic
 **Output-type:** prevention effect catalogue
 **Dato:** 2026-06-28
+**Status:** Source-shortlist-controlled 2026-07-02 — ingen claims
 **Anbefalt gate:** source-shortlist
 
 ---
@@ -14,8 +15,8 @@
 
 | Felt | Svar |
 |---|---|
-| Kort dom | Det finnes et håndfullt norske programmer med verifiserte baseline-tall og pre-post-målinger — KuttMatsvinn2020 (servering, 2017–2020) og bransjeavtalen (alle sektorer, baseline 2015) er de sterkeste. Dagligvarehandelen har dokumentert -47 % (2015–2024, kg/innbygger). Internasjonalt gir WRAP/Courtauld 2025 den beste tiltaks-baseline-kobling. EU/JRC viser at de fleste intervensjoner mangler rigorous effektevaluering. Nordisk sammenligningstabell med baseline per sektor og tiltak mangler. |
-| Sterkeste kilde | NORSUS/Matvett Faktaark om matsvinn i serveringsbransjen 2024 (Van de Glind, OR.30.25, 2025) + Faktaark om matsvinn i Norge 2024 (OR.27.25, 2025) — https://www.matvett.no/uploads/documents/Faktark-om-matsvinn-i-serveringsbransjen-2024.pdf |
+| Kort dom | Det finnes et håndfullt norske programmer med verifiserte baseline-tall og pre-post-målinger — KuttMatsvinn2020 (servering, 2017–2020) og bransjeavtalen (alle sektorer, baseline 2015) er de sterkeste. NORSUS/Matvett OR.27.25 bekrefter 407 100 tonn kartlagt matsvinn i 2024, 73,4 kg/innbygger, og 24 % reduksjon fra 2015 til 2024 målt i kg/innbygger (jordbruk utenfor endringsberegningen). Dagligvarehandelen har dokumentert -47 % (2015–2024, kg/innbygger). EU/JRC viser at de fleste intervensjoner mangler rigorous effektevaluering. Nordisk sammenligningstabell med baseline per sektor og tiltak mangler. |
+| Sterkeste kilde | NORSUS/Matvett Faktaark om matsvinn i Norge 2024 (OR.27.25, 2025) + Matvett/NORSUS serveringsbransje 2024-signal; begge gir baseline/metode, men ikke isolert effekt per tiltak. |
 | Svakeste punkt | Effektattribusjon: de norske tallene viser aggregert bransjereduksjon, ikke isolert prevention-effekt per tiltak. Ingen norsk RCT eller kontrollert pre-post studie isolerer f.eks. porsjonsstørrelsesreduksjon alene fra menyplanlegging alene. |
 | Funn-tabell | se under |
 | Tomme celler | se under |
@@ -36,7 +37,7 @@
 | 4 | **Smart menyplanlegging og prognosestyring** (servering/matindustri) | Bedre innkjøps- og produksjonsprognoser; riktig mengde lages/bestilles. Nevnt hyppig av både serveringsbransje og matindustri. | Ikke isolert. Matindustrien: -24 % (kg/innbygger, 2015–2024, rapporterende bedrifter). | B — Aggregert baseline for matindustri: 51 300 tonn (2015); nedgang til 41 900 tonn (2024). | Selvrapportert tiltak i matindustriundersøkelse (52 bedrifter). | B (aktørrapportert, aggregert) | Confoundere inkluderer prosessinvesteringer, produktmix-endringer og tilgang til alternative salgskanaler. |
 | 5 | **Gjestekommunikasjon** ("Goodiebag", velg porsjonsstørrelse) | KuttMatsvinn Servering har eget kommunikasjonskonsept: gjester oppfordres til å velge passende porsjon og ta rester med hjem. | Ikke isolert effektmålt. Inngår i aggregert programeffekt. | C — Ingen separat baseline for kommunikasjonsdelen alene. | Ingen. | C (epistemisk hull — tiltak eksisterer, effekt ikke målt isolert) | Klassisk konfunderproblem: samtidige tiltak gjør isolering umulig uten kontrolldesign. |
 | 6 | **Kompetanseheving / e-læring ansatte** (servering) | Matvett/KuttMatsvinn Servering tilbyr e-læringskurs og webinarer for ansatte. | Ikke isolert. Nevnt som årsak til reduksjon i omsorgssektoren (-15 % for de med implementerte tiltak i KuttMatsvinn2020). | B — Aggregert baseline 2017 (omsorgssektoren: 15 % reduksjon vs. ingen tiltak). Isolert effekt av kun kompetanse: ikke dokumentert. | Deltakermålt pre-post som del av KuttMatsvinn2020-sluttrapport (Møller et al. 2020). | B (sekundær, deltakermålt) | Deltakere med tiltak vs. uten tiltak er ikke randomisert. Seleksjonsbias mulig. |
-| 7 | **Matsvinnloven 2025** (strukturelt prevention-tiltak, nasjonalt) | Lov om forebygging og reduksjon av matsvinn vedtatt av Stortinget 20.06.2025 (Lovdata LTI/lov/2025-06-20-103). Alle virksomheter som produserer, omsetter eller serverer mat i Norge pålegges: (a) kartlegge og vurdere risiko for matsvinn, (b) utarbeide tiltaksplan, (c) iverksette tiltak, (d) offentliggjøre redegjørelse. | Potensiell systemisk prevention-effekt (nasjonalt nivå). Ingen effektmåling ennå — loven trer i kraft når forskrifter er ferdigstilt (mål: 2026). | C — Ingen baseline eller effektmåling — loven er ny, forskrifter mangler. Bransjeavtalen (2015-baseline) vil fungere som indirekte referansepunkt. | Ikke målt. | C (plan/kapasitet — strukturell innretning, ingen dokumentert effekt) | Dette er en juridisk prevention-mekanisme, ikke et tiltak med målt effekt. Kan ikke bruke til effektpåstand. |
+| 7 | **Matsvinnloven 2025** (strukturelt prevention-tiltak, nasjonalt) | Lov om forebygging og reduksjon av matsvinn ble vedtatt 20.06.2025. Prop. 130 L beskriver krav om aktsomhetsvurderinger, tiltak for å forebygge/reducere matsvinn, donasjonstiltak og nedprising/aktiv markedsføring for raskt forringelige næringsmidler. | Potensiell systemisk prevention-effekt (nasjonalt nivå). Ingen effektmåling ennå — Mattilsynet opplyser at forskrifter skal konkretisere loven og at loven først trer i kraft når forskriftene er vedtatt. | C — Ingen baseline eller effektmåling — loven er ny, forskrifter mangler. Bransjeavtalen (2015-baseline) vil fungere som indirekte referansepunkt. | Ikke målt. | C (plan/kapasitet — strukturell innretning, ingen dokumentert effekt) | Dette er en juridisk prevention-mekanisme, ikke et tiltak med målt effekt. Kan ikke bruke til effektpåstand. |
 | 8 | **Matsvinnutvalgets tiltak (33 tiltak, 2023)** — Aktsomhetsplikt og forsterket bransjeavtale | Matsvinnutvalget (levert 31.12.2023) anbefalte aktsomhetsplikt som viktigste virkemiddel (tilsvarer matsvinnlovens §-krav). Beregnet samlet potensial for 33 tiltak: ~75 % reduksjon. | 75 % reduksjonspotensial (beregnet) for 33 tiltak samlet. Aktsomhetsplikt alene: ikke isolert. | B — Baseline implisitt = 2015-nivå fra bransjeavtalen. Effektanslaget er modellberegnet, ikke målt. | Utvalgets egne scenarioberegninger; ikke peer-reviewed intervensjons­studie. | B (sekundær/avledet estimat — modellbasert, ikke empirisk intervensjonseffekt) | "75 % potensial" er normativ scenarioberegning, ikke dokumentert prevention-effekt. |
 | 9 | **WRAP/Courtauld Commitment 2025 (UK)** | Frivillig bransje­avtale med alle større UK-mataktører. Baseline etablert for 2015 (10,2 mill. tonn total, post-farmgate). Mål: -20 % per capita innen 2025 (fra 156 kg til 125 kg). | Husholdnings­matsvinn: 7,1 mill. tonn (2015 baseline, iht. FLW Standard). Mål-rettet reduksjon -20 % vs. baseline. Siste tilgjengelig milestone: fremgang rapportert gjennom 2022. | A — Formelt baseline 2015, definert iht. internasjonalt FLW-protokoll­standard (WRI/UNEP m.fl.). | Nasjonal vektbasert undersøkelse (husholdning) + kjededata (dagligvare, matindustri, HoReCa). FLW Standard metodikk. | A (primær, tredjeparts­metodikk, FLW-protokoll) | UK, ikke direkte overførbart til Norge uten representative­beregning. Gjelder hele verdikjeden, ikke kun prevention (redistribusjon inngår). |
 | 10 | **EU JRC: Evaluering av 78 forbrukertiltak (JRC133003, 2023)** | ECFWF-forum evaluerte 78 intervensjoner mot forbrukernes matsvinn i EU og utenfor (kombinasjoner av nudges, bevisstgjøring, kampanjer). | Suksess avhenger sterkt av tiltakskombinasjon og hvem som implementerer. Policy-aktører er nøkkeldrivere. Ingen enkelt-tiltak oppgis med isolert effektprosent. | B/C — Mange intervensjoner uten dokumentert baseline eller effektmåling. EU-nivå første felles målebaseline under eksisterende lovendring. | Systematisk litteraturgjennomgang + intervjuevaluering. Ikke RCT. | B (sekundær/syntese — 78 tiltak, heterogen metodikk) | "Effekten av intervensjoner er sjelden evaluert" er et eksplisitt funn i JRC133003 — dette er metodevakt-kilde som bekrefter at god evidence base mangler. |
@@ -73,7 +74,7 @@
 
 ## Anbefalt gate
 
-**source-shortlist** — Kildene i denne katalogen er tilgjengelige primærkilder (Matvett/NORSUS faktaark, Lovdata, WRAP, JRC). Neste steg bør være å verifisere at de faktiske NORSUS-rapportene (OR.27.25, OR.30.25, OR.29.25) er hentet og lenket korrekt, og at Matsvinnutvalgets fulle rapport (regjeringen.no) er bekreftet tilgjengelig som primærkilde for videre sitering. Eventuelle effektpåstander om enkelt-tiltak krever en eksplisitt PCQ (Påstand-Kilde-Kvalifisering) før eksternfacing bruk.
+**source-shortlist-controlled** — NORSUS/Matvett 2024-faktaark, Matvett serveringssignal, JRC133003, Nord 2024:034, Prop. 130 L/Mattilsynet og Matsvinnutvalget er kontrollert som source shortlist. Katalogen kan brukes som intern prevention-evidence map, men ingen effektpåstand om enkelt-tiltak er claim-lock. Eventuelle eksterne tiltakseffekter krever eksplisitt PCQ (Påstand-Kilde-Kvalifisering) med baseline, målemetode og avgrensning.
 
 ---
 
@@ -81,6 +82,8 @@
 
 - https://www.matvett.no/uploads/documents/Faktark-om-matsvinn-i-serveringsbransjen-2024.pdf (OR.30.25 — Van de Glind/NORSUS 2025)
 - https://www.matvett.no/uploads/documents/Faktaark-om-matsvinn-i-Norge-2024-alle-sektorer.pdf (OR.27.25 + OR.29.25 — Plataniti/NORSUS 2025)
+- https://norsus.no/publikasjon/faktaark-om-matsvinn-i-norge-2024/ (NORSUS OR.27.25 publikasjonsside, kontrollert 2026-07-02)
+- https://www.matvett.no/bransje/aktuelt/serveringsbransjen-har-nadd-malet-om-30-reduksjon (Matvett/NORSUS 2026 serveringssignal, kontrollert 2026-07-02)
 - https://www.matvett.no/bransje/kutt-matsvinn-2020 (KuttMatsvinn Servering programside)
 - https://www.matvett.no/bransje/aktuelt/matsvinnaret-2024 (Matsvinnåret 2024)
 - https://pub.norden.org/nord2024-034/introduction.html (Nord 2024:034 innledning)
@@ -90,6 +93,8 @@
 - https://publications.jrc.ec.europa.eu/repository/handle/JRC133003 (EU JRC Evaluation of consumer food waste prevention interventions, 2023)
 - https://lovdata.no/dokument/LTI/lov/2025-06-20-103 (Matsvinnloven — vedtatt 20.06.2025)
 - https://www.stortinget.no/no/Saker-og-publikasjoner/Saker/Sak/?p=101812 (Stortinget — Lov om forebygging og reduksjon av matsvinn)
+- https://www.mattilsynet.no/hoeringer?bId=3687 (Mattilsynet — forskrifter til matsvinnloven, kontrollert 2026-07-02)
+- https://www.regjeringen.no/no/dokumenter/prop.-130-l-20242025/id3096529/ (Prop. 130 L, kontrollert 2026-07-02)
 - https://www.regjeringen.no/contentassets/5a5cadf8907a4f4c94740d23d7c4c6e4/rapport-fra-matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31.12.23.pdf (Matsvinnutvalget rapport 31.12.2023)
 - https://www.wrap.ngo/content/courtauld-2025-baseline-and-restated-household-food-waste-figures (WRAP Courtauld 2025 baseline)
 - https://www.eea.europa.eu/en/topics/in-depth/waste-and-recycling/country-profiles-on-waste-prevention-2025/no-waste-prevention-factsheet-final.pdf/@@download/file (EEA Norway Waste Prevention Country Profile, feb. 2025)

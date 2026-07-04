@@ -6,7 +6,16 @@
 **Geo:** NO
 **Output-type:** CEA actor ledger
 **Dato:** 2026-06-28
-**Anbefalt gate:** source-shortlist
+**Kontrollert:** 2026-07-02
+**Anbefalt gate:** source-shortlist-controlled
+
+---
+
+## Kontrollstatus 2026-07-02
+
+Source-shortlist-controlled 2026-07-02 - ingen claim-lock.
+
+Norsk CEA/vertikalt landbruk kan dokumenteres som et lite, blandet felt med noen revenue-backed produsenter, ett tydelig teknologileverandørspor og flere plan-/pilotspor. Det finnes fortsatt ingen åpen tonn/år-serie for aktørene. Trygg bruk er derfor aktørledger med tydelig skille mellom realisert omsetning/kommersiell lansering, planlagt kapasitet, FoU og ambisjon.
 
 ---
 
@@ -14,83 +23,75 @@
 
 | Felt | Svar |
 |---|---|
-| Kort dom | Det finnes 5–7 identifiserte CEA/vertikallandbruk-aktører i Norge med realisert eller nærstående kommersiell produksjon. Klarest dokumentert realisert produksjon er Onna Greens AS (Moss, omsetning NOK 17,5 mill i 2024) og Himmelgrønt/Avisomo (Gardermoen, pilot oppstartet høst 2025 med varer i Coop-butikk per 2026). Columbi Farms har planlagt aquaponik-basert vertikal farm ved SalMar Tjuin, men regnskap viser minimal omsetning og foretak klassifisert under FoU. The Farm Society (Trondheim) er dokumentert leverandør til restauranter i niche-skala. Ambisjonsnivå er gjennomgående svært mye høyere enn dokumentert realisert produksjon. |
-| Sterkeste kilde | Innovasjon Norge kundehistorie om Avisomo, publisert 30. sep. 2025, https://www.innovasjonnorge.no/kundehistorie/avisomo |
-| Svakeste punkt | Ingen aktører oppgir realisert tonn/år offentlig. Avisomo har ikke innlevert regnskap for 2023/2024 synlig i proff.no. Himmelgrønt AS regnskap ikke funnet i Brønnøysund/Proff. The Farm Society: kun folkeinvest-tall for ambisjon. Columbi Farms: svært lav omsetning indikerer pre-kommersiell fase. |
+| Kort dom | Onna Greens og Farm Society er de tydeligste revenue-backed produsentene. Avisomo er først og fremst teknologileverandør, men har 2024-omsetning og er koblet til Himmelgrønt/Coop. Himmelgrønt har org.nr. og kommersiell lansering/salat i butikk i 2026, men ingen offentlig tonn/år og 2025-regnskap viser 0 driftsinntekter. Columbi Farms og 4.farm/Harabakken står som plan-/pre-kommersiell spor. |
+| Sterkeste kilder | Brreg API/Proff for juridiske enheter og 2024/2025-regnskap; Innovasjon Norge for Avisomo/Himmelgrønt kapasitet/finansiering; Coop pressemelding for JV; VerticalFarmDaily/LinkedIn-signal for 2026 butikk-lansering. |
+| Svakeste punkt | Faktisk produsert kg/tonn per år er ikke offentlig for noen aktør. Finansielle data viser omsetning, ikke avlingsvolum, kundevolum eller lønnsom enhetsøkonomi. |
 | Aktørledger | se under |
 | Tomme celler | se under |
 | Ikke si | se under |
-| Anbefalt gate | source-shortlist |
+| Anbefalt gate | source-shortlist-controlled |
 
 ---
 
 ## Aktørledger — CEA/vertikalt landbruk
 
-| Aktør | Modell | Realisert produksjon | Ambisjon | Eierskap (Brreg) | År | Kildeklasse | Caveat |
-|---|---|---|---|---|---|---|---|
-| **Onna Greens AS** (org.nr. 917 653 135, Moss) | Hydroponikk innendørs, vertikal hylleoppsett, salater/bladgrønnsaker; «clean room»-produksjon | Omsetning NOK 17,5 mill (2024), NOK 5,1 mill (2023), NOK 747k (2022). Antatt salg til dagligvare fra uke 8, 2025 (iGrowNews). Regnskap viser stigende vareomsetning. Intet tonn/år-tall offentliggjort. | Ambisjon: «øke norsk produksjon av frukt og grønt», 2020-pressemelding nevnte mål om norges første storskala vertikale produksjonsanlegg «innen 2021» — ikke realisert på tid. Folkeinvest-profil nevner ikke spesifikt produksjonsvolum. | Største eier: INDUSTRI-INVEST AS (34,99 %), BERGSJO AS (14,38 %), T.D. VEEN AS (11,46 %), BSN INVEST AS (4,53 %). 72 aksjonærer totalt. CEO: Kristina Løfman (grunder). Tidlige investorer: Altitude Capital, Ståle Kyllingstad, Haakon Sæther (NOK 50 mill runde 2020). | 2020 (stiftet 2016) – 2024-regnskap | B | Realisert omsetning er dokumentert, men tonn/år er ikke offentlig. Selskapet brenner kontanter raskt (EBIT −46 mill i 2024, egenkapital NOK 79 mill synkende fra 184 mill i 2021). Fremtidig finansiering er en åpen usikkerhet. |
-| **Avisomo AS** (org.nr. 920 937 659, Gjøvik/Gardermoen) | Teknologileverandør: helautomatisert «plug-and-play» plantefabrikk-system. Leverer robotiserte vekststasjoner til kunder på lisensmodell; driver ikke selv produksjon. | Ingen Avisomo-eide driftsinntekter fra produksjon identifisert. Omsetning 2022: NOK 1,1 mill (trolig lisens/leveranse), nyere regnskap ikke tilgjengelig via Proff (innlevert 2023 ifølge Proff-header, tall ikke synlig). | Ambisjon: bli global leverandør av vertikale systemer; levere til Himmelgrønt/Coop pilot med kapasitet 100 tonn/år salat. Innovasjon Norge (sep. 2025): «Til høsten kommer de første produktene i butikk» — om Himmelgrønt. Internasjonal ekspansjon uttalt. | Grunder Martin Molenaar (22,3 %), Jo André Flåseth (18,2 %), ADLER KONSULT II AS (19,9 %), KOMM-IN AS (10,8 %), VAAGER INNOVASJON AS (4,6 %), øvrige inkl. TELECOM AS. Totalt 13 eiere. Investorer inkluderer Element Logic og Innovasjon Norge (tilskudd). | 2018 – siste offentlige regnskap 2022 | B | Avisomo er teknologiselskap, ikke produsent — realisert produksjon hører til kunders anlegg. Finansieringsrunde jan. 2025: €5 mill (€1,6 mill tilskudd Innovasjon Norge/Bionova + €3,4 mill private). I 2024 fikk de NOK 18,7 mill tilskudd + NOK 39,5 mill fra investorer (Innovasjon Norge). |
-| **Himmelgrønt AS** (JV Coop Norge Industri AS / Avisomo AS, Gardermoen) | Helautomatisert vertikal salat/urte-produksjon. Hydroponikk, robotstyring, 5-etasjes hylleoppsett. Pilotanlegg ved Gardermoen. | Pilot under bygging fra feb. 2024, oppstart høst 2025. Coop annonsørinnhold (udatert, men refererer til Himmelgrønt som pågående pilot): produkter i Coop-butikk per 2026. Planlagte volum 100 tonn/år ruccola og babyleaf. Faktisk realisert volum per dato: ikke offentliggjort. | 100 tonn/år fersk salat (ambisjon oppgitt av Coop/Avisomo, kilde: Innovasjon Norge sep. 2025 + Coop pressemeldning des. 2023). Etter hvert «varer for mange millioner kroner» (Coop pressemelding). | Joint venture: Coop Norge Industri AS + Avisomo AS. Himmelgrønt AS org.nr. ikke identifisert i offentlig søk (nyregistrert eller ikke arkivert). Regnskap: ikke funnet. | 2023 (stiftet) – pilot 2025 | B | Ambisjon (100 t/år) er ikke bekreftet realisert. «100 tonn» er planmålet — ikke målt produksjon. Innovasjon Norges beskrivelse fra sep. 2025 bruker fremtidstid («vil etter planen produsere»), men refererer til høst 2025. Coop-annonsørinnhold (2026) omtaler Himmelgrønt som pågående pilot. Reelt volum ukjent. |
-| **Columbi Farms AS** (org.nr. 925 791 237, datterselskap av Columbi Salmon AS) | Sirkulær aquaponikk: vertikal grønnsaksproduksjon kombinert med landbasert lakseoppdrett (SalMar Tjuin, Inderøy/Steinkjer-regionen, Trøndelag). Planlagt 10 000 m² dyrkeflate, 36 hylleplan. Bruker avløpsstrøm fra fiskefarm som næringstilfang. | Regnskap 2024: omsetning NOK 163 000, underskudd NOK −1 mill, foretak klassifisert under «forskning og utvikling». Svært lav omsetning indikerer pre-kommersiell / pilot-/FoU-fase. Faktisk produsert volum: ikke offentliggjort. | Ambisjon: Norges største vertikale farm (10 000 m²), 36 hylleplan. Columbis eget nettsted omtaler foretak som «truly circular food production platform». Columbisalmon.no: «storstilt vertikal grønnsaksproduksjon» i Trøndelag. | Morselskap: Columbi Salmon AS. Columbi Farms AS org.nr. 925 791 237, stiftet 2020. Eierstruktur i Columbi Salmon: ikke undersøkt i denne runden. | 2020 (stiftet) – 2024-regnskap | B/C | Ambisjon om «Norges største vertikale farm» er ikke realisert per regnskap 2024. Minimal omsetning. Byggestatus for anlegget Tjuin: usikker — iLaks-artikler fra 2024 omtaler SalMar Tjuin som fortsatt under utvikling. Kildeklasse C for realisert produksjon. |
-| **The Farm Society** (Trondheim, Nyhavna) | Vertikal innendørs dyrking, 200–250 m², bladgrønnsaker og urter. Leveranser til restauranter, hoteller, kantiner i Trondheim og Oslo. | 250 m² farm i Trondheim med kapasitet opp til 3 000 bladgrønnsaker + 1 000 urter/uke ved full kapasitet (Folkeinvest). Dokumentert leverandør til Michelinstjernerestauranter i Trondheim. Oslo-leveranser rapportert. | Ambisjon: 1 500 m²-modell-gårder, mål NOK 82 mill omsetning innen 2028 (Folkeinvest). | Privat eierskap via folkeinvest-runde. Gründer/daglig leder: ikke bekreftet i tilgjengelig åpent kilde. Org.nr: ikke identifisert i denne runden. | 2023 (folkeinvest-runde) – | B | Produksjonsvolum (grønnsaker/uke) er aktørrapportert/Folkeinvest-prospekt (kildeklasse B). Mål NOK 82 mill er ambisjon, ikke realisert. Ingen offentlig regnskap funnet. |
-| **Harabakken AS / 4.farm AS** (Gjøvik-regionen) | Planlegger robotiserte plantefabrikker basert på Avisomo-teknologi, med lokal gartnerdrift. Harabakken AS: eiendomsselskap/-utvikler som etablerer konseptet. 4.farm AS: driftsentitet for selve produksjonen. | Ingen realisert kommersiell produksjon identifisert. Harabakken-nettsted beskriver planer, ikke produksjon i gang. | Storskala innendørs matproduksjon (salater, urter, microgreens, frukt). Samarbeidspartnere: lokale gartnere og bønder. Forskning- og leieareal planlagt. | Harabakken AS: privat, eierskap ukjent. 4.farm AS org.nr. og eierskap: ikke identifisert i denne runden. | Ikke datert (nettsted sist oppdatert per 2026) | C | Ingen dokumentasjon for realisert produksjon funnet. Planer omtalt på nettsted, men ingen pressedekning med faktisk oppstart/volum. |
-| **Infarm** (tysk, global) | Vertikal farm i supermarked og distribusjonssentre, hydroponikk. | Ingen norsk operasjon identifisert. Infarm avviklet europeisk virksomhet 2022–2023, inkludert UK, FR, DE, NL, DK. Gikk konkurs (Nederland) sep. 2023, UK administration okt. 2023. | Hadde ambisjon om global ekspansjon inkl. Norden. | Utenlandsk foretak (grunnlagt Berlin). | 2022–2023 (Europa-avvikling) | C | Ingen bevis for at Infarm noensinne etablerte norsk tilstedeværelse. «Norsk marked» for Infarm er epistemic gap — ikke bekreftet av noen kilde. |
-| **Nordic Harvest** (dansk) | Vertikal farm, hydroponikk, stor skala (Copenhagen-område). | Ingen norsk produksjon identifisert. Primært dansk operasjon. | Skandinavisk ambisjon; ingen norsk facility bekreftet. | Dansk selskap (Taastrup/Storkøbenhavn). | — | C | Norsk tilstedeværelse er ikke bekreftet av noen kilde funnet i dette søket. |
+| Aktør | Modell | Realisert / kontrollert status | Ambisjon / plan | Eierskap / register | År | Kildeklasse | Caveat |
+|---|---|---|---|---|---:|---|---|
+| **Onna Greens AS** (org.nr. 917 653 135, Moss) | Innendørs/hydroponisk salat og bladgrønt | Brreg aktiv enhet, NACE 01.130, 50 ansatte i Enhetsregisteret. Proff/Brreg-regnskap viser sum driftsinntekter 17,548 mill. NOK i 2024, EBIT -46,285 mill. NOK og egenkapital 79,521 mill. NOK. | Norsk salat-/bladgrøntproduksjon i større innendørsskala. | Største aksjonær i Proff-visning: Industri-Invest AS. | 2024 | A/B | Omsetning er kontrollert, men tonn/år, produktmiks og kjedekunder er ikke offentlig claim-lock. |
+| **Avisomo AS** (org.nr. 920 937 659, Gjøvik/Gardermoen) | Teknologileverandør for helautomatiserte vertikale anlegg | Brreg aktiv enhet, NACE 72.100, 17 ansatte. Proff/Brreg-regnskap viser sum driftsinntekter 17,062 mill. NOK i 2024, EBIT -4,151 mill. NOK og egenkapital 10,562 mill. NOK. | Lisens-/systemleverandør; Innovasjon Norge beskriver Gardermoen-testanlegg med planlagt opptil 100 tonn fersk salat per år og butikkprodukter fra høsten 2025/2026-sporet. | Daglig leder Martin Molenaar; største aksjonær oppgis som Martin Molenaar i Proff. | 2024-2026 | A/B | Avisomo produserer ikke nødvendigvis egen salat; produksjonsclaim hører til kundens/JV-anlegg. 100 tonn er plan-/kapasitetsmål, ikke målt realisert volum. |
+| **Himmelgrønt AS** (org.nr. 932 723 093, Jessheim) | Coop/Avisomo vertikal salatproduksjon ved Gardermoen/Jessheim | Brreg/Proff: stiftet 27.11.2023, registrert 27.12.2023, NACE 01.190, formål industriell planteproduksjon. Proff viser 2025 driftsinntekter 0 og resultat før skatt -4,696 mill. NOK. VerticalFarmDaily/Avisomo signaliserer kommersiell lansering i Coop Mega/Reindyrka i 2026. | Coop 2023-pressemelding: JV mellom Coop Norge Industri og Avisomo, først test/skalering; Innovasjon Norge: opptil 100 tonn fersk salat per år etter plan. | Del av Coop Norge Industri AS; Proff viser Coop Norge Industri AS som største aksjonær/morselskap. | 2023-2026 | B | Butikk-lansering er sterkere enn tidligere, men 2025-regnskap viser ikke salgsinntekter og offentlig tonn/år finnes ikke. |
+| **Farm Society AS** (org.nr. 920 527 965, Trondheim) | Vertikalt landbruk/gartneri, bladgrønt og urter | Brreg/Proff: NACE 01.190, 7 ansatte, vedtektsformål vertikalt landbruk og gartnerivirksomhet. Proff/Brreg-regnskap viser sum driftsinntekter 4,171 mill. NOK i 2024, EBIT -3,577 mill. NOK. Egen side beskriver indoor food production på Nyhavna. | Lokal/restaurantrettet innendørs produksjon; tidligere Folkeinvest/aktørkilder oppgir kapasitets- og vekstambisjoner. | Daglig leder/styreleder Cathrine Vik-Pedersen i Proff. | 2024 | A/B | Revenue-backed produsent, men volum/uke og kundeportefølje er aktør-/prospektdata, ikke offentlig tonnserie. |
+| **Columbi Farms AS** (org.nr. 925 791 237, Oslo/Tjuin-plan) | Planlagt sirkulær/aquaponisk vertikal grønnsaksproduksjon koblet til oppdrett/industri | Brreg/Proff: NACE 72.100, 2024 driftsinntekter 163 000 NOK, EBIT -4,448 mill. NOK, morselskap Axolo Group AS i Proff. Aktørside fra 2022 beskriver planlagt storskala vertikal gård og forventet ferdigstillelse i 2024. | Plan: 36 etasjer/reolsystem og kobling til SalMar/Malm-industriparkressurser. | Proff viser Axolo Group AS som morselskap/største aksjonær per kontroll. | 2022-2024 | B/C | Regnskap 2024 støtter pre-kommersiell/FoU-lignende status, ikke realisert storskala matproduksjon. |
+| **4.farm AS / Harabakken-sporet** | Planlagte robotiserte plantefabrikker, Avisomo-teknologi | 4.farm egen side sier to store plantefabrikker er under planlegging: Ringsaker/Rudshøgda og Osterøy. Ingen realisert produksjon eller regnskapstall kontrollert her. | Planlagt 2 500 m2-bygg på Rudshøgda og ca. 2 000 m2 gulvareal på Osterøy. | Juridisk/eierskapsstruktur ikke lukket i denne raden. | 2026 | C | Plan-/prosjektspor. Ikke bruk som realisert produksjon uten byggestatus, regnskap og salgs-/volumdata. |
+| **Infarm / Nordic Harvest** | Utenlandske vertikale farm-aktører | Ingen norsk produksjonsenhet kontrollert i denne runden. | Internasjonal/nordisk kontekst. | Utenlandske foretak. | - | C | Hold utenfor norsk aktørledger som operativt norsk volum. |
 
 ---
 
 ## Tomme celler
 
-- **Avisomo regnskap 2023–2024**: Proff.no viser kun regnskap til og med 2022. 2023/2024-tall ikke tilgjengelig i åpen kilde.
-- **Himmelgrønt AS org.nr. og regnskap**: Selskapet er nyregistrert (2023), org.nr. ikke funnet i åpent søk i denne runden. Ingen innlevert regnskap funnet.
-- **Realisert tonn/år for alle aktører**: Ingen aktør har offentliggjort faktisk produksjonsvolumt (kg/tonn per år).
-- **The Farm Society org.nr. og regnskap**: Ikke identifisert i denne runden.
-- **Harabakken AS og 4.farm AS finansielle data**: Ikke undersøkt i tilstrekkelig dybde — org.nr. for 4.farm ikke identifisert.
-- **Columbi Farms eierstruktur oppover**: Columbi Salmon AS eierstruktur (utover at det er morselskap) er ikke undersøkt.
-- **Onna Greens kunder og salgssteder**: Hvilke kjeder og butikker de leverer til er ikke bekreftet i åpen kilde.
-- **Himmelgrønt faktisk oppstartstidspunkt**: Innovasjon Norge (sep. 2025) bruker fremtidstid. Coop annonsørinnhold (2026) antyder produkter i butikk, men ingen pressmelding med eksakt oppstart.
-- **Infarm i Norge**: Ingen bekreftet tilstedeværelse — epistemic gap, ikke bekreftet fravær.
+- **Realisert tonn/kg per år:** Ikke offentlig for Onna, Himmelgrønt, Farm Society, Columbi eller 4.farm.
+- **Himmelgrønt 2026 salgsvolum:** Butikk-lansering er dokumentert via aktør-/bransjesignal, men volum, distribusjonsomfang og varighet er ikke publisert.
+- **Lønnsom enhetsøkonomi:** 2024/2025 regnskap viser inntekter og underskudd for flere aktører, men ikke kostnad per kg, energibruk per kg eller margin per produkt.
+- **Kundelister og kjedekontrakter:** Onna/Farm Society kunde- og salgssteder er ikke komplett offentlig kontrollert.
+- **4.farm/Harabakken juridisk struktur og byggestatus:** Ikke lukket utover egen nettsides planstatus.
+- **Columbi Farms faktisk byggestatus Tjuin/Malm:** 2022-aktørplan og 2024-regnskap gir ikke bevis for operativ storskala vertikal farm.
 
 ---
 
 ## Ikke si
 
-- «Himmelgrønt produserer 100 tonn salat per år» — dette er planmålet, ikke dokumentert realisert volum
-- «Onna Greens er Norges ledende vertikale farm» — ikke dokumentert; omsetningsrangering er ikke gjort
-- «Infarm hadde norsk operasjon» — ingen bevis funnet
-- «Columbi Farms er Norges største vertikale farm» — dette er ambisjon, ikke realisert; regnskap 2024 viser NOK 163 000 omsetning
-- «CEA er lønnsomt i Norge» — ingen av de undersøkte selskapene viser positivt driftsresultat; Onna Greens hadde EBIT −46 mill i 2024
-- «Nordic Harvest opererer i Norge» — ikke bekreftet
-- «The Farm Society planlegger å nå NOK 82 mill» som realisert — dette er Folkeinvest-ambisjon
-- «Avisomo produserer salat» — Avisomo er teknologileverandør, ikke produsent
+- At Himmelgrønt produserer 100 tonn salat per år. 100 tonn er plan-/kapasitetsmål, ikke offentlig realisert volum.
+- At Avisomo produserer salat. Avisomo er teknologileverandør; produksjon ligger hos kunder/JV.
+- At CEA/vertikalt landbruk er lønnsomt i Norge. De åpne regnskapene her viser underskudd hos sentrale aktører.
+- At Columbi Farms er Norges største vertikale farm i drift. Det er en plan/ambisjon, mens 2024-regnskapet viser svært lav omsetning.
+- At 2026 butikk-lansering = nasjonal skala. Den viser kommersiell lansering, ikke volumdekning.
+- At Infarm eller Nordic Harvest har norsk operativ produksjon uten ny primærkilde.
 
 ---
 
 ## Anbefalt gate
 
-**source-shortlist** — Alle produksjonstall er enten aktøregenrapporterte (kildeklasse B) eller ikke-offentlige (kildeklasse C). Før noen av disse tallene brukes eksternt, bør primærkilder hentes: (1) Brønnøysundregistrene-regnskap for Himmelgrønt AS og Avisomo 2023–2024; (2) direkte kildekontroll av Coop årsrapport 2025 for Himmelgrønt-omtale; (3) eventuelle årsrapporter fra Onna Greens med produksjonsvolum; (4) plan- og byggesøknader Columbi Farms / Tjuin for faktisk byggestatus.
+**source-shortlist-controlled** - Raden er kontrollert som aktør- og metodeledger. Bruk den til å skille revenue-backed produsenter, teknologileverandør, kommersiell lansering, planlagt kapasitet og pre-kommersiell/FoU. Ekstern claim-lock krever aktør- eller regnskapskilde med produsert volum, faktisk salgsperiode, produktmiks og metode.
 
 ---
 
 ## Kilder sjekket
 
-| URL | Kildetype | Kildeklasse | Tilgangsdato |
-|---|---|---|---|
-| https://www.innovasjonnorge.no/kundehistorie/avisomo | Offentlig støtteorgan, kundehistorie | A (primær, offentlig myndighet) | 2026-06-28 |
-| https://kommunikasjon.ntb.no/pressemelding/18029538/coop-investerer-i-vertikal-salatdyrking | Pressemelding (Coop Norge) | B (aktørrapportert) | 2026-06-28 |
-| https://www.proff.no/regnskap/onna-greens-as/moss/jordbruk-dyrking/IF6CHOV10OH | Proff.no (Brønnøysund-kilde) | A (offisielt regnskap) | 2026-06-28 |
-| https://www.proff.no/aksjon%C3%A6rer/-/onna-greens-as/917653135 | Proff.no aksjonærregister | A (Brønnøysund-basert) | 2026-06-28 |
-| https://www.proff.no/aksjon%C3%A6rer/bedrift/avisomo-as/920937659 | Proff.no aksjonærregister | A (Brønnøysund-basert) | 2026-06-28 |
-| https://nordic9.com/news/onna-farming-secured-nok-50m-news4160604636/ | Startup-nyhetsbrev | B (sekundær) | 2026-06-28 |
-| https://www.columbisalmon.com/planlegger-storstilt-vertikal-gronnsaksproduksjon-i-trondelag | Aktørens eget nettsted | B (aktørrapportert) | 2026-06-28 |
-| https://www.harabakken.no/v%C3%85re-prosjekter/h%C3%B8yteknologisk-vertikalt-landbruk | Aktørens eget nettsted | B (aktørrapportert) | 2026-06-28 |
-| https://www.vg.no/annonsorinnhold/coop/teknologi-og-matproduksjon/ | Annonsørinnhold (Coop/Schibsted) | B (betalt innhold) | 2026-06-28 |
-| https://www.edibleplanetventures.com/post/norway-s-avisomo-lands-5m-to-expand-vertical-farming-innovations | Bransjenyheter | B (sekundær) | 2026-06-28 |
-| https://arcticstartup.com/avisomo-raises-e5-million/ | Startup-media (tom respons) | B (ikke lastet) | 2026-06-28 |
-| https://thefarmsociety.no/pages/about | Aktørens eget nettsted | B (aktørrapportert) | 2026-06-28 |
-| https://folkeinvest.no/investeringstilbud/the-farm-society | Folkeinvest-prospekt | B (aktørrapportert/investor-dokument) | 2026-06-28 |
-| https://www.proff.no/selskap/columbi-farms-as/oslo/forskning-og-utvikling/IFB6X3900FV | Proff.no selskapsprofil | A (Brønnøysund-basert) | 2026-06-28 |
-| https://sifted.eu/articles/infarm-bankrupt-netherlands | Næringsmedia | B (sekundær) | 2026-06-28 |
-| https://digitalnorway.com/aktuelt/slik-blir-coops-helautomatiserte-salatfabrikk-roboter-og-sensorer-styrer-driften | Teknologimedia | B (sekundær) | 2026-06-28 |
-| https://igrownews.com/unveiling-onna/ | Bransjenyheter | B (sekundær) | 2026-06-28 |
-| https://www.verticalfarmingtoday.com/news/vertical-farming/new-vertical-farming-joint-venture-in-norway.html | Bransjenyheter | B (sekundær) | 2026-06-28 |
+| URL | Kildetype | Kildeklasse | Tilgangsdato | Kontrollresultat |
+|---|---|---|---|---|
+| https://data.brreg.no/enhetsregisteret/api/enheter/917653135 | Brreg API - Onna Greens AS | A | 2026-07-02 | Juridisk enhet, NACE 01.130, Moss-adresse og ansattsignal kontrollert. |
+| https://www.proff.no/selskap/onna-greens-as/oslo/jordbruk/IF870PL10OF | Proff/Brreg-regnskap - Onna Greens | A/B | 2026-07-02 | 2024 driftsinntekter 17,548 mill. NOK, EBIT -46,285 mill. NOK, egenkapital 79,521 mill. NOK. |
+| https://data.brreg.no/enhetsregisteret/api/enheter/920937659 | Brreg API - Avisomo AS | A | 2026-07-02 | Juridisk enhet, NACE 72.100, Gjøvik-adresse og ansattsignal kontrollert. |
+| https://www.proff.no/selskap/avisomo-as/gardermoen/forskning-og-utvikling/IF8AW1N00FV | Proff/Brreg-regnskap - Avisomo | A/B | 2026-07-02 | 2024 driftsinntekter 17,062 mill. NOK og teknologiformål kontrollert. |
+| https://www.innovasjonnorge.no/kundehistorie/avisomo | Innovasjon Norge kundehistorie | A/B | 2026-07-02 | Kontrollerer Gardermoen/Coop-anlegg, planlagt opptil 100 t/år, 2024 Bionova-/investorfinansiering og Avisomo som lisens-/systemleverandør. |
+| https://kommunikasjon.ntb.no/pressemelding/18029538/coop-investerer-i-vertikal-salatdyrking?lang=no&publisherId=89490 | Coop pressemelding | B | 2026-07-02 | Kontrollerer Himmelgrønt som JV mellom Coop Norge Industri AS og Avisomo AS, først test og deretter skalering. |
+| https://data.brreg.no/enhetsregisteret/api/enheter/932723093 | Brreg API - Himmelgrønt AS | A | 2026-07-02 | Org.nr., stiftelses-/registreringsdato, NACE 01.190 og Jessheim-adresse kontrollert. |
+| https://www.proff.no/selskap/himmelgr%C3%B8nt-as/jessheim/jordbruk/IFFBHQT10OF | Proff/Brreg-regnskap - Himmelgrønt | A/B | 2026-07-02 | Kontrollerer 2025 driftsinntekter 0, resultat før skatt -4,696 mill. NOK, Coop Norge Industri som morselskap/største aksjonær. |
+| https://www.verticalfarmdaily.com/article/9820294/for-the-end-customer-this-means-a-product-was-growing-just-hours-before-it-hit-the-shelf/ | Bransjemedia om Himmelgrønt-lansering | B | 2026-07-02 | Støtter kommersiell lansering/Reindyrka i Coop Mega, men ikke volum. |
+| https://data.brreg.no/enhetsregisteret/api/enheter/920527965 | Brreg API - Farm Society AS | A | 2026-07-02 | Juridisk enhet, NACE 01.190, Trondheim-adresse og 7 ansatte kontrollert. |
+| https://www.proff.no/selskap/farm-society-as/trondheim/jordbruk/IF823X910OF | Proff/Brreg-regnskap - Farm Society | A/B | 2026-07-02 | 2024 driftsinntekter 4,171 mill. NOK, EBIT -3,577 mill. NOK og vedtektsformål vertikalt landbruk kontrollert. |
+| https://thefarmsociety.no/pages/about | Aktørside - Farm Society | B | 2026-07-02 | Kontrollerer Nyhavna/Trondheim indoor leafy-greens/herb-produksjon som aktørpåstand. |
+| https://data.brreg.no/enhetsregisteret/api/enheter/925791237 | Brreg API - Columbi Farms AS | A | 2026-07-02 | Juridisk enhet og NACE 72.100 kontrollert. |
+| https://www.proff.no/selskap/columbi-farms-as/oslo/forskning-og-utvikling/IFB6X3900FV | Proff/Brreg-regnskap - Columbi Farms | A/B | 2026-07-02 | 2024 driftsinntekter 163 000 NOK og Axolo Group AS som morselskap/største aksjonær i Proff-visningen. |
+| https://www.columbisalmon.com/planlegger-storstilt-vertikal-gronnsaksproduksjon-i-trondelag | Columbi Salmon aktørside | B | 2026-07-02 | Kontrollerer plan/ambisjon for Malm/Tjuin-spor; ikke realisert drift. |
+| https://www.4.farm/ | 4.farm aktørside | C | 2026-07-02 | Kontrollerer at to plantefabrikker står som under planlegging, ikke realisert produksjon. |

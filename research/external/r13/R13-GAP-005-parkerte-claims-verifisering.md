@@ -2,7 +2,7 @@
 tittel: "Verifisering av 7 parkerte R12-tallclaim (R13-GAP-005)"
 id: R13-GAP-005
 dato: 2026-06-27
-status: "Internt research-underlag — ingen claims"
+status: "PCQ-kontrollert 2026-07-02 — ingen claim-lock"
 gate: PCQ
 geo: NO
 prioritet: P0
@@ -12,11 +12,11 @@ prioritet: P0
 
 ## Kort dom
 
-Av de 7 parkerte tallene kan **3 løftes med caveat** (REKO-tall som 2022-øyeblikksbilde, andelslandbruk 93 i drift 2023, Restaurant Rest-konkursen sept. 2024), **1 fiskeolje-tall delvis løftes** etter kryssjekk mot Nofima-primær, og **3 forblir parkert eller nedgraderes** (ASKO/HORECA «70 %» er et omstridt konkurrent-anslag, ikke et uavhengig primærtall; Plantagon mangler norsk relevans for NO-geo; SOIL-score har uklart proveniens og kunne ikke spores til IPBES eller annen primærkilde). Ingenting i denne raden er løftet til claim — alt går videre til PCQ-gate.
+Etter PCQ-kontroll 2026-07-02 er alle 7 parkerte claims avklart på radenivå, men ingen er claim-lock. **3 kan brukes bare som daterte/caveatede underlag** (REKO-tall per februar 2022, andelslandbruk 93 i drift i 2023, Restaurant Rest som konsept/case med konkurs omtalt i redaksjonelle kilder). **1 fiskeolje-tall er styrket mot Nofima-primær** for 30 % (2000) -> 10 % (2020) i laksefôr, men gjelder fôrinklusjon, ikke total sluttbruk. **3 forblir parkert eller nedgradert** (ASKO/HORECA «70 %» mangler uavhengig primærmåling; Plantagon mangler NO-geo-relevans; SOIL-score har ukjent proveniens og kunne ikke spores til IPBES eller annen primærkilde).
 
 ## Sterkeste kilde
 
-Restaurant Rest-konkursen og andelslandbruk-tellingen er sterkest underbygd: konkursen er en offentlig registerhendelse (Restaurant Rest AS, org. 919 972 696, konkurs åpnet 2024-09-05) bekreftet av flere uavhengige redaksjoner (Aftenposten/Vink, DN, Horecanytt), og andelslandbruk-tallet (93 i drift 2023) stammer fra Landbruksdirektoratets prosjektoppfølging via Økologisk Norge.
+Nofima og Økologisk Norge er sterkest underbygd for tall: Nofima bekrefter både 2020-sammensetning i laksefôr og 2000->2020-fallet i fiskeoljeandel, mens Økologisk Norge bekrefter 93 andelslandbruk i drift i 2023 og at senere tall ikke er eksakte. REKO-tallene er også primært org-rapportert, men bare som februar 2022-øyeblikksbilde. Restaurant Rest er bare claim-nært som case/status-hendelse: Brreg Enhetsregisteret bekrefter org.nr. 919 972 696 og navnet RESTAURANT REST AS, men en ren Brreg-kunngjøringslokator for konkursdato ble ikke hentet i 2026-07-02-kontrollen.
 
 ## Svakeste punkt
 
@@ -26,13 +26,13 @@ ASKO/HORECA «70 %» og SOIL-score. «70 %» er eksplisitt et konkurrent-anslag 
 
 | # | Parkert claim | Nåværende formulering | Sterkeste uavhengige kilde (navn, år, lokator) | Vurdering | Kildeklasse | Caveat |
 |---|---|---|---|---|---|---|
-| 1 | ASKO/HORECA 70 % | ASKO har ~70 % andel av storhusholdnings-/HORECA-grossistmarkedet i Norge | Ingen uavhengig primær funnet. «70 %» er konkurrent-anslag (Servicegrossistene) under alternativ markedsavgrensning; NorgesGruppen oppgir selv ~36 % (NHO Reiseliv «Konkurranseforholdene i verdikjeden for mat og drikke», 2018) | **Nedgrader / fortsatt parkert** | C (omstridt; aktør-rapportert B i begge retninger) | To uforenlige aktørtall (36 % vs 70 %) avhengig av markedsdefinisjon; ingen KT-primærmåling lokalisert. Ikke bruk noe enkelttall uten å oppgi markedsavgrensning og kilde |
-| 2 | REKO-tall | REKO-ringen i Norge: antall ringer / produsenter / kunder | REKO Norge, «Hva er REKO», rekonorge.no, tall per feb. 2022: >140 ringer, ~500 000 kunder, >600 produsenter | **Løft som 2022-øyeblikksbilde** (ikke som «dagens»/2025-tall) | B (aktør-rapportert primær fra organisasjonen) | Tall er fra feb. 2022; «500 000 kunder» er FB-gruppemedlemskap, ikke unike/betalende kunder; REKO Norge (stiftelse) ble først dannet jan. 2025 og hadde ingen vedtatt årsmelding med ferske tall ved uthenting |
-| 3 | Andelslandbruk aktiv-telling | Antall aktive andelslandbruk (CSA) i Norge | Økologisk Norge / Landbruksdirektoratet «Andelslandbruk i Norge 2022»: 93 andelslandbruk i drift registrert 2023 | **Løft som 2023-tall** | B (aktør + direktorat-prosjekt) | Etter 2023 ingen systematisk telling; Økologisk Norge anslår «80–90 aktive»; >120 etablert totalt, ikke alle i drift. Ikke presenter som 2025/2026-tall |
+| 1 | ASKO/HORECA 70 % | ASKO har ~70 % andel av storhusholdnings-/HORECA-grossistmarkedet i Norge | Ingen uavhengig primær funnet. NHO Reiseliv-høringssvar omtaler ASKO som dominerende, men gir ikke et uavhengig tall; KT-meldingen ASKO/Konsum Gruppen avgrenser storhusholdningsmarkedet og åpne innkjøpsgrupper, men gir ikke en 70 %-måling | **Nedgrader / fortsatt parkert** | C (omstridt; aktør-/interesseorganisasjonsrapportert) | Ingen enkel prosent kan brukes uten eksplisitt markedsavgrensning, år, målemetode og primærkilde. «Dominerende» er ikke det samme som 70 % |
+| 2 | REKO-tall | REKO-ringen i Norge: antall ringer / produsenter / kunder | REKO Norge, «Hva er REKO», rekonorge.no, tall per feb. 2022: >140 ringer, ~500 000 kunder, >600 produsenter; kontrollert på nytt 2026-07-02 | **Løft som 2022-øyeblikksbilde** (ikke som «dagens»/2025/2026-tall) | B (aktør-rapportert primær fra organisasjonen) | Tall er fra feb. 2022; «500 000 kunder» er FB-gruppemedlemskap, ikke unike/betalende kunder; ingen nyere vedtatt årsmelding/tallserie er claim-locket her |
+| 3 | Andelslandbruk aktiv-telling | Antall aktive andelslandbruk (CSA) i Norge | Økologisk Norge-side kontrollert 2026-07-02: 93 andelslandbruk i drift i 2023; etter 2023 ingen eksakt statistikk, anslag rundt 80-90 aktive | **Løft som 2023-tall** | B (aktør-/prosjekt-rapportert primær) | Ikke presenter som 2025/2026-tall. Ikke bland 129 etablerte totalt med aktive i drift |
 | 4 | SOIL-score | En «SOIL-score» (jordhelse-/jordkvalitetsindeks) | Ingen kilde lokalisert. IPBES Land Degradation and Restoration Assessment (2018) finnes, men definerer ingen «SOIL-score»; proveniens ukjent | **Fortsatt parkert** | C (epistemisk gap / proveniens ukjent) | Trolig prosjektintern eller misforstått metrikk; må ikke siteres til IPBES uten eksplisitt sidehenvisning. Avklar opprinnelig kilde internt før evt. ny verifisering |
-| 5 | Fiskeolje art/sluttbruk | Fiskeoljens art/opprinnelse og sluttbruk (fôr/omega-3) | Sekundær: fiskeolje fra villfanget fisk + restråstoff (laks, ørret, sild, lever fra hvitfisk); fôrandel i laks ~30 % (2000) → ~10 % (2020). Primær mangler i denne runden (Nofima fôr-ressursrapporter, Ytrestøyl/Aas, ikke direkte verifisert) | **Delvis løft etter kryssjekk mot Nofima-primær** | B (sekundær/aktør; primær ikke verifisert her) | «30 %→10 %»-tallet er fôrinklusjon i laksefôr, ikke totalt sluttbruk; må kryssjekkes mot Nofima/Mowi fôr-ressursoppgjør før løft. Skill art (opprinnelse) fra sluttbruk (fôr vs humant omega-3) |
+| 5 | Fiskeolje art/sluttbruk | Fiskeoljens art/opprinnelse og sluttbruk (fôr/omega-3) | Nofima, «Research on new oil source» (2024): 30 % fiskeolje i laksefôr i 2000, 10 % i 2020. Nofima, «Salmon feed is slowly changing» / «Verdt å vite om fiskefôr»: 2020-laksefôr besto av 10 % fiskeolje / marine oljer, 12 % fiskemel m.m. | **Løft med caveat for fôrinklusjon** | B (Nofima primær institusjonskilde; ikke total sluttbrukstabell) | «30 %->10 %» gjelder andel i laksefôr, ikke totalt sluttbruk av fiskeolje. Bruk ikke som art-/opprinnelsesfordeling eller human omega-3/fôr-fordeling uten egen ressursregnskapstabell |
 | 6 | Plantagon-case | Plantagon som vertikal-landbruk-/sirkulær-case | Plantagon International AB (Sverige), konkurs erklært 2019-02-15 (Agritecture 2019, Wikipedia, hortidaily); primær ville vært svensk Bolagsverket/tingsrätt | **Nedgrader for NO-geo / park** | B (sekundær internasjonal presse) | Svensk selskap; ingen norsk avdeling/drift funnet. Konkursen er faktisk, men casen har lav NO-relevans (denne raden er Geo NO). Bruk evt. kun som internasjonalt advarsels-case, ikke norsk |
-| 7 | Rest-case | Restaurant Rest (matsvinn-til-gourmet) som case | Restaurant Rest AS, org. 919 972 696, konkurs åpnet 2024-09-05 (Proff/Forvalt konkursoppføring; Aftenposten/Vink, DN, Horecanytt 2024); grunnlegger Jimmy Øien, Michelin grønn stjerne | **Løft (faktisk hendelse)** | B / offentlig registeroppføring (konkursregister) | Org.nr. bør bekreftes direkte i Brønnøysund/konkursregisteret før claim; «matsvinn-til-gourmet» er konseptbeskrivelse, ikke kvantifisert miljøeffekt. Konkursårsak (covid/likviditet/strøm) er aktør-forklart |
+| 7 | Rest-case | Restaurant Rest (matsvinn-til-gourmet) som case | Brreg Enhetsregisteret API kontrollert 2026-07-02: org.nr. 919 972 696 = RESTAURANT REST AS. Konkursdatoen er fortsatt belagt med Proff/Forvalt/redaksjonelle kilder i denne filen, ikke ren Brreg-kunngjøringslokator | **Løft bare som case med registry-id; konkursdato ikke hard claim-lock** | B (Brreg for identitet; konkursdato fortsatt sekundær/offentlig-register-avledet) | Ikke knytt kvantifisert miljø-/matsvinneffekt til Restaurant Rest. Ikke claim-lock konkursdato før ren konkursregister-/Brreg-kunngjøringslokator er festet |
 
 ## Tomme celler
 
@@ -40,8 +40,9 @@ ASKO/HORECA «70 %» og SOIL-score. «70 %» er eksplisitt et konkurrent-anslag 
 - REKO: ingen vedtatt 2025/2026-årsmelding med oppdaterte tall tilgjengelig (handlingsplan skulle legges fram mars 2026).
 - Andelslandbruk: ingen samlet medlems-/deltakertelling; kun «>10 000 deltakere»-anslag fra Økologisk Norge uten år.
 - SOIL-score: hele proveniensen er tom — ingen definisjon, metode eller kilde funnet.
-- Fiskeolje: ingen direkte Nofima/Fiskeridirektoratet-primærtabell hentet for art-fordeling og total sluttbruksfordeling.
+- Fiskeolje: Nofima-kontroll lukker fôrinklusjon 30 % (2000) -> 10 % (2020), men art-/opprinnelsesfordeling og total sluttbruksfordeling mangler fortsatt.
 - Plantagon: ingen norsk Brreg-enhet eller norsk drift bekreftet.
+- Restaurant Rest: Brreg API bekrefter org.nr./navn, men ren konkurskunngjøringslokator ble ikke hentet; konkursdato holdes derfor under PCQ-caveat.
 
 ## Ikke si
 
@@ -61,9 +62,9 @@ ASKO/HORECA «70 %» og SOIL-score. «70 %» er eksplisitt et konkurrent-anslag 
 | 2 | REKO-tall | PCQ → claim-lock-kandidat KUN som «per feb. 2022»-tall med caveat |
 | 3 | Andelslandbruk-telling | PCQ → claim-lock-kandidat som «93 i drift 2023» med caveat |
 | 4 | SOIL-score | Fortsatt parkering (proveniens-avklaring kreves) |
-| 5 | Fiskeolje art/sluttbruk | PCQ (vent på Nofima-primær før claim-lock) |
+| 5 | Fiskeolje art/sluttbruk | PCQ-kontrollert for fôrinklusjon; separat primærkilde kreves for art-/opprinnelses- og sluttbruksfordeling |
 | 6 | Plantagon-case | Fortsatt parkering for NO-geo (evt. internasjonalt sidecase) |
-| 7 | Rest-case | PCQ → claim-lock-kandidat etter Brreg-bekreftelse av org.nr/dato |
+| 7 | Rest-case | PCQ-kontrollert for org.nr./navn; konkursdato krever ren Brreg-/konkursregisterlokator før claim-lock |
 
 ## Hentede kilder
 
@@ -81,3 +82,7 @@ ASKO/HORECA «70 %» og SOIL-score. «70 %» er eksplisitt et konkurrent-anslag 
 | https://en.wikipedia.org/wiki/Plantagon | 2026-06-27 | secondary |
 | https://www.biomar.com/no-no/innsikt/foropplysningen/hvilke-kilder-til-omega-3-finnes-det | 2026-06-27 | secondary (aktør) |
 | https://www.ipbes.net/assessment-reports/ldr | 2026-06-27 | primary (ingen SOIL-score funnet) |
+| https://nofima.com/results/research-on-new-oil-source/ | 2026-07-02 | primary (Nofima institusjonskilde; fôrinklusjon 2000/2020) |
+| https://nofima.com/results/salmon-feed-is-slowly-changing/ | 2026-07-02 | primary (Nofima institusjonskilde; 2020 fôrressursregnskap) |
+| https://nofima.no/fakta/verdt-a-vite-om-forets-kompleksitet/ | 2026-07-02 | primary (Nofima institusjonskilde; 2020 fôrinnhold) |
+| https://data.brreg.no/enhetsregisteret/api/enheter/919972696 | 2026-07-02 | public registry (org.nr./navn, ikke konkursdato i kontrollresponsen) |

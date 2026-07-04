@@ -1,6 +1,6 @@
 ---
 tittel: R13-PROT-004 - Plantebasert humanprotein
-status: Batch 05 research-output - ikke claim
+status: Source-shortlist-kontrollert 2026-07-02 - ikke claim
 id: R13-PROT-004
 priority: P1
 theme: protein-alt
@@ -15,6 +15,8 @@ sourceClass: A/B for research/market indicators; C for full volume/import alloca
 ## Kort dom
 
 Plantebasert humanprotein i Norge har bedre markeds- og ravarekilder enn tidligere, men ikke en apen komplett volum-/markedsandelsserie. Nofima viser at plantebaserte kjottalternativer og plantedrikker toppet i 2021 og falt tilbake til 2020-niva, samtidig som markedet fortsatt er betydelig storre enn i 2016. Norskproduserte kjottalternativer har tatt storre andel i Asko-dekkede data, men markedsandeler er B fordi datagrunnlaget ikke dekker hele dagligvaremarkedet. Landbruksdirektoratet/NIBIO viser potensial og areal for akerbonner/erter, men fa produkter i butikk er dokumentert basert pa norske ravarer.
+
+**Kontroll 2026-07-02:** Current-source pass confirms Nofima's 2024 report exists, NIBIO reports about 48 000 daa åkerbønner and 38 000 daa erter in 2024, and Landbruksdirektoratet's 2026 report supports the 27-34 % tørrstoff protein range for åkerbønner. None of these sources gives a complete product-level volume/market-share/raw-material-origin table, so the source-shortlist gate remains.
 
 ## Sterkeste kilde
 
@@ -71,4 +73,6 @@ Source-shortlist. Importer som marked-/ravareprofil med tydelige C-felt. Full vo
 | https://www.nibio.no/nyheter/mange-muligheter-med-akerbonner-og-erter | NIBIO fag-/nyhetsartikkel | A/B | 2026-06-28 |
 | https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/%C3%85kerb%C3%B8nner%2C%20erter%20og%20oljefr%C3%B8.%20Vurdering%20av%20tilskudd%20for%20%C3%A5%20%C3%B8ke%20norskandelen%20i%20matindustrien%20Rapport%202026%203%2016.pdf | Landbruksdirektoratet rapport | A | 2026-06-28 |
 | https://www.ssb.no/en/utenriksokonomi/utenrikshandel/artikler/import-og-eksport-alle-land-og-varenummer | SSB 08801 inngang | A | 2026-06-28 |
-
+| https://nofima.com/publication/2277888/ | Nofima rapportside, 2024 follow-up report | A/B | 2026-07-02 |
+| https://www.nibio.no/nyheter/mange-muligheter-med-akerbonner-og-erter | NIBIO fag-/nyhetsartikkel, 2024 areal | A/B | 2026-07-02 |
+| https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/%C3%85kerb%C3%B8nner%2C%20erter%20og%20oljefr%C3%B8.%20Vurdering%20av%20tilskudd%20for%20%C3%A5%20%C3%B8ke%20norskandelen%20i%20matindustrien%20Rapport%202026%203%2016.pdf | Landbruksdirektoratet rapport 2026/3, protein and value-chain caveats | A | 2026-07-02 |

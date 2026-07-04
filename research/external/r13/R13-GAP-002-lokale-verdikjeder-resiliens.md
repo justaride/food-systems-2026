@@ -2,7 +2,7 @@
 tittel: "Lokale/korte verdikjeder og faktisk forsyningssikkerhet — mekanisme vs. identitet"
 id: R13-GAP-002
 dato: 2026-06-27
-status: "Internt research-underlag — ingen claims"
+status: "Source-shortlist-controlled 2026-07-02 — ingen claims"
 gate: source-shortlist
 geo: NO
 prioritet: P1
@@ -23,20 +23,20 @@ Dette utvider R12-RES-004 ved å hente inn fagfellevurdert mekanisme-litteratur 
 
 ## Sterkeste kilde
 
-Fagfellevurdert/forskningssynteser som definerer **redundans** som mekanismen bak SFSC-resiliens (Stein/EU4Advice-syntese 2024; MDPI Sustainability 13(11):5913 2021; Springer *Agricultural and Food Economics* 2025). Disse gir mekanismespråket ("redundancy mechanism … safeguarding a baseline supply of fresh and perishable food"; "different actors assuming the same function") som mangler i aktør-narrativet. På norsk infrastruktur-side er FFI-rapport 26/010 (2026) fortsatt sterkest for desentralisert-lager-mekanismen, men full PDF er ikke maskinlesbar (kryptert) i sesjonen — uendret fra R12.
+Fagfellevurdert/forskningssynteser som definerer **redundans** som mekanismen bak SFSC-resiliens (EU4Advice-syntese 2024; MDPI *Sustainability* 13(11):5913 2021; Springer *Agricultural and Food Economics* 2025 som kandidat). Disse gir mekanismespråket (fleksibilitet, redundans, samarbeid, synlighet og smidighet) som mangler i aktør-narrativet. På norsk infrastruktur-side er FFI-rapport 26/010 (2026) fortsatt sterkest for desentralisert-lager-/kritisk-infrastrukturmekanismen og for påminnelsen om at norsk matproduksjon fortsatt avhenger av importerte innsatsfaktorer.
 
 ## Svakeste punkt
 
-Ingen av kildene **kvantifiserer** bidraget til nasjonal forsyningssikkerhet. Redundans-mekanismen er overveiende beskrevet som *kapasitet/potensial*; den eneste samtidige data-drevne casen i EU4Advice-syntesen er et nederlandsk food-hub-pilotprosjekt (EIT, 2021), ikke et norsk volumstudie. NIBIO/Ruralis leverte ikke et primærstudie som direkte måler "kort kjede → forsyningssikkerhet"; deres bidrag er kvalitativt (levende landbruk, regionale matnettverk) eller policy-/mandatnivå (Matsystemutvalget). De norske lokalmat-tallene (12,3 mrd NOK 2024 m.m.) er fortsatt uverifiserte aktørtall.
+Ingen av kildene **kvantifiserer** bidraget til nasjonal forsyningssikkerhet fra norske korte/lokale verdikjeder. Redundans-mekanismen er overveiende beskrevet som *kapasitet/potensial*; MDPI-artikkelen er en Mexico-case, og EU4Advice er en europeisk syntese/strategitekst, ikke et norsk volumstudie. NIBIO/Ruralis leverte ikke et primærstudie som direkte måler "kort kjede → forsyningssikkerhet"; deres bidrag er kvalitativt (levende landbruk, regionale matnettverk) eller policy-/mandatnivå (Matsystemutvalget). De norske lokalmat-tallene (12,3 mrd NOK 2024 m.m.) er fortsatt uverifiserte aktørtall.
 
 ## Funn-tabell
 
 | Case | Mekanisme | Påstått vs dokumentert effekt | Evidens | Kilde, år | Lokator | Kildeklasse | Caveat |
 |---|---|---|---|---|---|---|---|
 | SFSC som redundans-mekanisme | Redundans: parallell uavhengig forsyningsvei; "ulike aktører fyller samme funksjon" når globale kjeder svikter | Dokumentert som *kapasitet/mekanisme* i syntese; effekt på forsyningssikkerhet ikke kvantifisert | Forskningssyntese / kunnskapsoppsummering | EU4Advice-syntese, 2024 | eu4advice.eu "From Vulnerability to Resilience" | B | EU-kontekst (NL/HU/ES/IE), ingen Norge-spesifikk data; "could function as" = potensial, ikke målt bidrag |
-| SFSC-resilienskapabiliteter (fleksibilitet, redundans, samarbeid, synlighet, smidighet) | Korte kjeder + tette produsent-kunde-relasjoner gir risikodeling og redundans | Dels dokumentert (case-observasjon under covid), dels teoretisk rammeverk | Fagfellevurdert case-studie | MDPI *Sustainability* 13(11):5913, 2021 | mdpi.com/2071-1050/13/11/5913 (abstrakt; fulltekst 403 i sesjon) | B | Fulltekst ikke hentet (403); kun abstrakt/søkesammendrag verifisert |
+| SFSC-resilienskapabiliteter (fleksibilitet, redundans, samarbeid, synlighet, smidighet) | Korte kjeder + tette produsent-kunde-relasjoner gir risikodeling og redundans | Dels dokumentert (case-observasjon under covid), dels teoretisk rammeverk | Fagfellevurdert case-studie | MDPI *Sustainability* 13(11):5913, 2021 | mdpi.com/2071-1050/13/11/5913 | B | Fulltekst tilgjengelig 2026-07-02; to SFSC-caser i Mexico, ikke norsk volum-/beredskapsstudie |
 | Relasjonell resiliensprosess i SFSC ved inflasjon/sjokk | Relasjonelle/samarbeids-mekanismer opprettholder forsyning under prispress | Påstått/teoretisert; case-basert | Fagfellevurdert artikkel | Springer *Agric. and Food Econ.*, 2025 | link.springer.com/article/10.1186/s40100-025-00368-4 (paywall/redirect) | C | Paywall (IDP-redirect), innhold ikke verifisert i sesjon |
-| Regionale/desentraliserte beredskapslagre → kortere kritisk node + robusthet mot transportbrudd; sentralisert Østlands-lager = sårbarhet | Desentralisert lager/infrastruktur (ikke salgskanal) | Dokumentert som mekanisme i FFI-litteratur (via R12-sammendrag) | Forsknings-/beredskapsrapport | FFI-rapport 26/010, 2026 | regjeringen.no FFI-PDF (kryptert/ikke maskinlesbar); ffi.no publ.side | B | Full PDF ikke maskinlesbar i sesjon (uendret fra R12); gjelder LAGRE, ikke "lokalmat" |
+| Regionale/desentraliserte beredskapslagre → kortere kritisk node + robusthet mot transportbrudd; sentralisert Østlands-lager = sårbarhet | Desentralisert lager/infrastruktur (ikke salgskanal) | Dokumentert som mekanisme i FFI-litteratur og på FFI publiseringsside | Forsknings-/beredskapsrapport | FFI-rapport 26/010, 2026 | FFI publiseringsside + regjeringen.no PDF | B | Gjelder LAGRE, drivstoff/matforsyning og innsatsfaktorer, ikke "lokalmat"; lokale salgskanaler kan ikke arve denne evidensen uten konkret infrastrukturmekanisme |
 | Levende landbruk + lokal ressursutnyttelse (gras inn-/utmark som fôr) | Redusert importavhengighet i innsatsvareleddet (fôr/protein); geografisk spredt produksjon = redundans | Påstått mekanisme; ingen tall på redusert importandel | Institutts-temaside (kvalitativ) | NIBIO, Senter for arktisk landbruk (udatert temaside, lest 2026-06-27) | nibio.no/.../matsikkerhet-og-matberedskap-i-nord | B | Kvalitativ; "innsatsfaktorene må baseres på landsdelens ressurser dersom selvforsyningsgraden skal økes reelt" — ingen kvantifisering |
 | Korte/lokale verdikjeder + regionale produksjonsmål som beredskapsgrunnlag | Klimatilpasning + kortere kjeder for "robust matsystem og økt beredskap" | Mandat/policy-framing — IKKE evidens for effekt | Offentlig utvalgsmandat | Matsystemutvalget (regjeringen), oppnevnt 2025; NOU underveis | nettsteder.regjeringen.no/matsystemutvalget/mandat | C | Mandattekst beskriver *hva utvalget skal vurdere*, ikke et dokumentert funn; sirkulær hvis brukt som evidens |
 | Lokal produksjon alene gir IKKE robusthet | Motmekanisme: vedvarende importavhengighet på innsatsvarer; lokal katastrofe rammer hardere uten importmulighet | Dokumentert resonnement fra forskere | Forskningsformidling (intervju) | forskning.no, K. Syse (UiO) 2020; P. Kinnunen (Aalto) m.fl. | forskning.no/.../1677380 | B | "vi kan ikke melde oss helt ut av verden"; internasjonal handel + selvforsyning må kombineres — direkte overclaim-vakt |
@@ -47,8 +47,8 @@ Ingen av kildene **kvantifiserer** bidraget til nasjonal forsyningssikkerhet. Re
 
 - **Kvantifisert bidrag til nasjonal forsyningssikkerhet fra korte kjeder**: ikke funnet i noen kilde. Mekanismene er beskrevet som kapasitet/potensial.
 - **Norsk fagfellevurdert volumstudie (NIBIO/Ruralis) som måler kort kjede → forsyningssikkerhet**: ikke funnet/hentet. NIBIO-bidraget er kvalitativt; Ruralis-bidraget gjelder verdiskaping/nettverk/læring.
-- **FFI 26/010 full PDF-tekst**: kryptert/ikke maskinlesbar i sesjon (2,9 MB lastet, ikke utlesbar). Eksakte lagervolum/tiltakstall ikke verifisert mot primærtekst — uendret fra R12.
-- **MDPI 5913 og Springer 2025 fulltekst**: 403 / paywall — kun abstrakt/sammendrag verifisert.
+- **FFI 26/010 full PDF-tekst**: offisiell publiseringsside/PDF verifisert 2026-07-02, men eksakte lagervolum/tiltakstall er ikke trukket ut i denne artifacten.
+- **Springer 2025 fulltekst**: paywall/redirect — ikke verifisert.
 - **ScienceDirect global review (S2211912425000173)**: 403 Forbidden — innhold ikke verifisert.
 - **REKO/andelslandbruk realisert markedsandel**: fortsatt umålt (uendret fra R12); trolig <1 % av total forsyning, ikke dokumentert.
 - **ØE-rapport 60-2023**: ikke re-hentet denne sesjonen; PDF var ikke-maskinlesbar i R12 — forblir tom celle.
@@ -61,11 +61,19 @@ Ingen av kildene **kvantifiserer** bidraget til nasjonal forsyningssikkerhet. Re
 - IKKE påstå at korte kjeder reduserer importavhengighet generelt — sluttleddet kan være lokalt mens innsatsvarene (frø, fôr, gjødsel, drivstoff) er fullt importavhengige. Mekanismen teller kun i innsatsvareleddet.
 - IKKE gjengi 12,3 mrd NOK / 12,2 % vekst, ~130 REKO-ringer, <50 %/90 % selvforsyning, 29 %→6 % frukt/bær som verifiserte — uverifiserte aktør-/sammendragstall.
 - IKKE underslå motevidensen (Syse/Kinnunen): lokal produksjon alene kan øke sårbarhet ved lokale sjokk og fjerner ikke importavhengighet — handel + selvforsyning er komplementære, ikke motsetninger.
-- IKKE sitér FFI/MDPI/Springer/ScienceDirect-tall som verifisert fulltekst — alle var enten krypterte, paywalled eller 403 i sesjonen.
+- IKKE sitér Springer/ScienceDirect-tall som verifisert fulltekst. MDPI og FFI kan brukes som mekanisme-/rammekilder, men ikke som norsk kvantifisert effekt.
 
-## Anbefalt gate: source-shortlist
+## Anbefalt gate: source-shortlist-controlled
 
-Mekanisme-evidensen er nå tydeligere kategorisert (fagfellevurdert redundans-rammeverk + norsk infrastruktur/FFI + eksplisitt motevidens), men ingenting er kvantifisert mot norsk forsyningssikkerhet, og de sterkeste fagkildene var utilgjengelige som fulltekst. Før noe kan løftes mot ekstern claim trengs en primærkilde-shortlist: (1) FFI 26/010 full PDF (maskinlesbar kopi), (2) MDPI 5913 + Springer 2025 fulltekst for redundans-mekanismens evidensgrad, (3) et eventuelt NIBIO/Ruralis-primærstudie som faktisk måler volum/andel, (4) primærverifisering av norske selvforsynings-/lokalmat-tall (SSB/NIBIO).
+Mekanisme-evidensen er nå kontrollert som kilde-/metodekort: fagfellevurdert redundans-rammeverk (MDPI), europeisk SFSC-strategisyntese (EU4Advice), norsk infrastruktur-/innsatsfaktoravgrensning (FFI/NIBIO) og eksplisitt motevidens. Ingen claim-lock: ingenting er kvantifisert mot norsk forsyningssikkerhet. Før noe kan løftes mot ekstern claim trengs: (1) konkret FFI/NIBIO/SSB-lokator for den kritiske noden, (2) et norsk primærstudie eller tallgrunnlag som måler volum/andel/beredskapseffekt, (3) primærverifisering av norske selvforsynings-/lokalmat-tall.
+
+## Source-shortlist-kontroll 2026-07-02
+
+- **FFI 26/010** er verifisert som offisiell FFI-rapportside/PDF. Den styrker lager-, drivstoff-, innsatsfaktor- og kritisk-infrastrukturmekanismen, ikke en generell "lokalmat gir beredskap"-claim.
+- **MDPI *Sustainability* 13(11):5913** er verifisert som fulltekst tilgjengelig. Den støtter SFSC-resilienskapabiliteter som fleksibilitet, redundans, samarbeid, synlighet og smidighet, men er basert på to Mexico-caser og er ikke norsk effektmåling.
+- **EU4Advice** brukes som strategisyntese/advisory-kontekst, ikke som målt norsk evidens.
+- **NIBIO/Ruralis/Matsystemutvalget** beholdes som norsk kontekst og policy-/kvalitativt underlag. Det er fortsatt ikke funnet en norsk primærstudie som måler "kort verdikjede → nasjonal forsyningssikkerhet".
+- **Gateutfall:** flyttes til `source-shortlist-controlled`. Ikke visualiser, ikke claim-lock og ikke skriv "lokal = resilient" uten mekanisme, node og målt omfang.
 
 ## Hentede kilder
 
@@ -76,8 +84,9 @@ Mekanisme-evidensen er nå tydeligere kategorisert (fagfellevurdert redundans-ra
 | https://nettsteder.regjeringen.no/matsystemutvalget/mandat/ | 2026-06-27 | primary | Mandat (via søk) |
 | https://eu4advice.eu/from-vulnerability-to-resilience-short-food-supply-chains-in-the-face-of-global-shocks/ | 2026-06-27 | secondary | Forskningssyntese, hentet |
 | https://www.forskning.no/landbruk-mat/kortreist-mat-og-selvforsyning-er-en-onskedrom-for-de-fleste-land-i-verden/1677380 | 2026-06-27 | secondary | Forskningsformidling (Syse/Kinnunen), hentet |
-| https://www.mdpi.com/2071-1050/13/11/5913 | 2026-06-27 | secondary | Fagfellevurdert; fulltekst 403, kun abstrakt |
+| https://www.mdpi.com/2071-1050/13/11/5913 | 2026-07-02 | secondary | Fagfellevurdert fulltekst tilgjengelig; Mexico-caser, ikke norsk volumstudie |
 | https://link.springer.com/article/10.1186/s40100-025-00368-4 | 2026-06-27 | secondary | Paywall/redirect, ikke verifisert |
 | https://www.sciencedirect.com/science/article/pii/S2211912425000173 | 2026-06-27 | secondary | 403 Forbidden, ikke verifisert |
-| https://www.regjeringen.no/contentassets/ae61fb43e430495f8d9b9e40d22ffa95/ffi-rapport-oppdatert.pdf | 2026-06-27 | primary | FFI 26/010 PDF lastet (2,9 MB), kryptert/ikke maskinlesbar |
+| https://www.ffi.no/publikasjoner/arkiv/nasjonal-forsyningssikkerhet-i-krise-og-krig-sarbarheter-konsekvenser-og-tiltak-for-mat-og-drivstofforsyningen | 2026-07-02 | primary | FFI 26/010 publiseringsside verifisert |
+| https://www.regjeringen.no/contentassets/ae61fb43e430495f8d9b9e40d22ffa95/ffi-rapport-oppdatert.pdf | 2026-07-02 | primary | FFI 26/010 PDF verifisert som offisiell PDF |
 | https://ruralis.no/2018/04/26/kortreist-skolemat-gir-bedre-laering-og-styrker-lokalsamfunn/ | 2026-06-27 | secondary | Ruralis formidling (via søk) |

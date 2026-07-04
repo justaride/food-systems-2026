@@ -2,6 +2,7 @@
 tittel: "Oppdrettsslam massebalanse — modellert utslipp vs innsamlet vs behandlet"
 id: R13-WASTE-002
 dato: 2026-06-27
+kontrollert: 2026-07-02
 status: "Internt research-underlag — ingen claims"
 gate: PCQ
 geo: NO
@@ -90,8 +91,16 @@ tørrstoff/våtvekt og kildeklasse. Importbeslutning: **vent** — egnet som int
 underlag og som ramme for en aktørspørsmål-runde (leverandører/Bioretur/Sterner,
 statsforvaltere) for å fylle innsamlet/behandlet-kolonnene før noe brukes eksternt.
 
+## Kontroll 2026-07-02
+
+Raden er kontrollert som `parked-controlled`: stopptilstanden er dokumentert og fortsatt gyldig. FHF-prosjekt 901572 er kontrollert på nytt og gir modellert nasjonalt utslippsgrunnlag, men delrapporten beskriver ikke en åpen, anleggsvis trekolonners balanse for modellert/innsamlet/behandlet samme år. NIBIOs fiskeslam-side, publisert 2025-06-12, støtter samme skille: oppsamlet fiskeslam er bare en liten del av total ekskrement-/fôrrestmengde, landbaserte anlegg er oppsamlingssporet, og åpne merder samler normalt ikke fiskeslam fra matfiskproduksjon.
+
+Bruksregel etter kontroll: bevar fila som PCQ-parkert metode- og datagap-notat. Ikke gjør modellerte FHF/NIBIO-tall til innsamlet eller behandlet volum, og ikke lag massebalansefigur før en dataeier kan koble de tre kolonnene på samme anlegg/år med tørrstoff/våtvekt, N/P og behandlingstype.
+
 ## Hentede kilder
 
+- FHF prosjekt 901572 — kontrollert på nytt 2026-07-02; prosjektstatus avsluttet, hovedfunn og delrapportoppsummering fortsatt tilgjengelig. https://www.fhf.no/prosjekter/prosjektbasen/901572/ — primær prosjektside / sekundær syntese (B for modellerte tall).
+- NIBIO — «Fiskeslam» — kontrollert 2026-07-02; publisert 2025-06-12. https://www.nibio.no/tema/jord/organisk-avfall-som-gjodsel/fiskeslam — sekundær/fagtema (B).
 - FHF prosjekt 901572 — «Kunnskaps- og erfaringskartlegging om effekter av og muligheter for utnyttelse av utslipp av organisk materiale og næringssalter fra havbruk». https://www.fhf.no/prosjekter/prosjektbasen/901572/ — accessedAt 2026-06-27 — sekundær (B, modellert syntese).
 - Miljødirektoratet — «Landbasert oppdrett har for dårlig utslippskontroll» (kontroll 2024, publ. mai 2025). https://www.miljodirektoratet.no/aktuelt/nyheter/2025/mai-2025/landbasert-oppdrett-har-for-darlig-utslippskontroll — accessedAt 2026-06-27 — primær/regulator (A).
 - NIBIO — «Fiskeslam» (organisk avfall som gjødsel). https://www.nibio.no/tema/jord/organisk-avfall-som-gjodsel/fiskeslam — accessedAt 2026-06-27 — sekundær (B); «ca. 2 %» innsamlet, kun landbaserte pålagt, tørrstoff ~30/90 %.
