@@ -132,6 +132,8 @@
     "research:source-gap-queue": "tsx scripts/export-strict-source-gap-queue.ts",
     "research:citation-readiness-queue": "tsx scripts/export-citation-readiness-queue.ts",
     "research:citable-acceptance-pack": "tsx scripts/build-citable-acceptance-pack.ts",
+    "research:library:inventory": "tsx scripts/build-library-analysis-inventory.ts",
+    "research:library:ledger": "tsx scripts/export-library-analysis-ledger.ts",
     "research:library:repair-backlog": "tsx scripts/build-library-analysis-repair-backlog.ts",
     "research:library:locator-profile": "tsx scripts/build-library-analysis-locator-profile.ts",
     "research:library:pdf-extraction-profile": "tsx scripts/build-library-analysis-pdf-extraction-profile.ts",
