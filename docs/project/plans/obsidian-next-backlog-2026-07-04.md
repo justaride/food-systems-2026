@@ -40,9 +40,11 @@ Neste fase skal ikke bygge "mer kart" først. Den skal gjøre kartet brukbart so
 - PR #255 lukket I30-datareview: tilskuddskonsentrasjon er klar til menneskelig I-node-beslutning, men ikke generert.
 - PR #256 lukket I35 source-shortlist: fôr/soya/EUDR-sporet får kildepakke, men ingen ny I35-node eller møtefigur.
 - PR #257 lukket D1/D3/D5 lokal/regenerativ actor-gate: beslutningspakke for ja/nei/vent, uten outreach.
-- PR #258 følger opp I32 havbrukskonsentrasjon datareview, uten ny I32-node-generering.
-- PR #259 følger opp I33 prisasymmetri datareview, uten ny I33-node-generering.
-- PR #260 følger opp I28 styreknutepunkt datareview, uten ny I28-node-generering.
+- PR #258 lukket I32 havbrukskonsentrasjon datareview, uten ny I32-node-generering.
+- PR #259 lukket I33 prisasymmetri datareview, uten ny I33-node-generering.
+- PR #260 lukket I28 styreknutepunkt datareview, uten ny I28-node-generering.
+- I27+-rekken er nå datareviewet/source-shortlistet: I28, I29 og I33 forblir parkert; I30 og I32 er beslutningsklare; I35 venter presis claim-/I-node-formulering.
+- PR #261 lukker backlogg-closeout etter I27+-rekken og setter neste steg til menneskelig scope-beslutning.
 - VK-5-protokollen er lukket for intern cockpit-bruk.
 - `vault:review-closeout` er forventet grønn så lenge VK-5-protokollen forblir lukket og alle review-rader er løst.
 - Obsidian-grafen er et kuratert utsnitt, ikke hele kunnskapsbasen.
@@ -71,7 +73,7 @@ Neste fase skal ikke bygge "mer kart" først. Den skal gjøre kartet brukbart so
 |---|---|---|---|---|
 | P2.1 | R14 claim-lock-kandidater | `research/_status/food-tg-r14/claim-lock-kandidater.md` | Åpne bare smale formuleringer med tydelig kilde og caveat. | Ikke si REKO/andelslandbruk som nåtidstall uten ny kilde. |
 | P2.2 | VK4-GAP-007 næringsstoffgap | R14 claim-lock og gap-register. | Del opp N/P/K-massebalanse per strøm før claim. | Ikke si at 25-30 % er dokumentert norsk realisert gjenvinningspotensial. |
-| P2.3 | Parkerte I27+-kandidater | `docs/project/plans/obsidian-i27-kandidatgodkjenning-2026-07-02.md` | I28 er datareviewet i PR #260; I29 er datareviewet i PR #253; I30 er datareviewet i PR #255; I32 er datareviewet i PR #258; I33 er datareviewet i PR #259; I35 er source-shortlistet i PR #256 og venter menneskelig claim-/I-node-beslutning. | Ikke generer nye I-noder uten eksplisitt beslutning. |
+| P2.3 | Parkerte I27+-kandidater | `docs/project/plans/obsidian-i27-kandidatgodkjenning-2026-07-02.md` | Lukket: I28/I29/I30/I32/I33 er datareviewet, og I35 er source-shortlistet. Neste handling er menneskelig ja/nei på om I30, I32 eller I35 skal claim-lockes/genereres. | Ikke generer nye I-noder uten eksplisitt beslutning. |
 | P2.4 | Actor-gate-pakker | R14 D1-D6. | D2, D4 og D1/D3/D5 har G1-beslutningspakker; velg hvem som faktisk skal spørres før outreach. | Ikke merk actor-gate som validert før menneskelig svar eller primærkilde. |
 
 ## P3 - første leveranse ut av kartet
@@ -107,9 +109,10 @@ Bruk disse for å teste om kartet faktisk hjelper, før ny visualisering bygges:
 11. Lukket: I30 tilskuddskonsentrasjon datareview i PR #255.
 12. Lukket: I35 soya/EUDR source-shortlist i PR #256.
 13. Lukket: D1/D3/D5 som samlet lokal/regenerativ G1 actor-gate-pakke i PR #257.
-14. I32 havbrukskonsentrasjon datareview i PR #258.
-15. I33 prisasymmetri datareview i PR #259.
-16. I28 styreknutepunkt datareview i PR #260. P3.2 bør vente til teamet har valgt trygg intern figurflate.
+14. Lukket: I32 havbrukskonsentrasjon datareview i PR #258.
+15. Lukket: I33 prisasymmetri datareview i PR #259.
+16. Lukket: I28 styreknutepunkt datareview i PR #260.
+17. Neste valg: velg trygg intern figurflate for P3.2 eller faktisk actor-gate-outreach fra P2.4; begge krever menneskelig scope-beslutning før Codex lager ekstern/presentasjonsrettet output.
 
 ## Verifikasjon per slice
 
