@@ -17,10 +17,22 @@ bruksregel: Ingen ekstern claim, ingen safe_for_ai_context, ingen whitepaper-/de
 
 ## VK4-GAP-007
 
-Påstanden om et samlet norsk næringsstoff-resirkuleringsgap på 25-30 % holdes **ikke** som åpnet claim i R14. Den kan bare videreføres som `claim-lock-kandidat` hvis underliggende N/P/K-massebalanse får primærkilde per strøm; per nå er svakeste punkt blandingen av modellert, potensial og faktisk gjenvunnet volum.
+Påstanden om et samlet norsk næringsstoff-resirkuleringsgap på 25-30 % holdes **ikke** som åpnet claim i R14. P2.2-beslutningen 2026-07-04 nedgraderer raden til arbeidsmatrise: den kan bare videreføres hvis underliggende N/P/K-massebalanse får primærkilde per strøm og cellene merkes som `realisert`, `modellert`, `potensial/plan` eller `mangler`.
+
+| Strøm | N | P | K | Beslutning |
+|---|---|---|---|---|
+| Mineralgjødsel-referanse | referansegrunnlag | referansegrunnlag | referansegrunnlag | Kan brukes som denominator-kontekst, ikke som importerstattbar prosent alene. |
+| Svensk digestat/SPCR 120 | realisert benchmark | realisert benchmark | realisert benchmark | Måleregime, ikke norsk nivå. |
+| Norsk biorest/digestat | mangler samlet N-retur | P delvis bransjetall | mangler samlet K-retur | P delvis; N/K Type C. |
+| Norsk oppdrettsslam/fiskeslam | modellert tap, mangler realisert aggregat | modellert tap/potensial, mangler realisert aggregat | mangler | Ikke nasjonalt aggregat; aktør-/anleggsrader bare internt. |
+| Svartvann/avløp/Recolab | små avledede case-tall | små avledede case-tall | ingen K-produkt | Benchmark/case, ikke skaleringsclaim. |
+| Husdyrgjødsel | stor masse, plantetilgjengelighet/tap/regionalitet mangler | regional fordeling/tilgjengelighet styrer | separat fraksjon/geografi | PCQ/research-mission før claim. |
+| Matavfall/forbrenning | modellert | modellert | mangler | Holdes som modellnode. |
 
 ## Ikke si
 
 - Ikke si at ASKO/HORECA 70 % er bekreftet.
 - Ikke si at SOIL-score er IPBES-forankret.
 - Ikke si at 25-30 % næringsstoffgap er dokumentert norsk realisert gjenvinningspotensial.
+- Ikke summer N, P og K til én prosent eller én KPI.
+- Ikke bruk biogassvolum som bevis på næringsretur uten dokumentert digestat-/produktretur.

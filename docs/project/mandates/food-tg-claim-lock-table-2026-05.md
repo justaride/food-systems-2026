@@ -203,6 +203,29 @@ R14 åpner bare én GAP-005-rad som kontrollert statusclaim i denne runden. REKO
 | Andelslandbruk 93 / 2023 | Beholdes som historisk claim-lock-kandidat: "Landbruksdirektoratet/Økologisk Norge brukte 93 andelslandbruk i drift som 2023-anker." | Ikke bruk som dagens aktivstatus per gård; actor-gate må lukkes først. |
 | VK4-GAP-007 næringsstoffgap | Ikke åpnet. Krever primær N/P/K-massebalanse per strøm og skille mellom modellert, realisert, potensial og plan. | Ikke si at 25-30 % er dokumentert norsk realisert gjenvinningspotensial. |
 
+## R14 P2.2-delta 2026-07-04 (NPK-splitt for VK4-GAP-007)
+
+`VK4-GAP-007` nedgraderes fra prosentclaim til arbeidsmatrise. Den gamle gap-noden må ikke leses som "25-30 % av import kan erstattes"; den kan bare brukes som intern pekepinn på hvilke strømmer som trenger primær massebalanse. Før ekstern figur eller tekst må hver celle skilles i fire datatyper: `realisert`, `modellert`, `potensial/plan` eller `mangler`.
+
+| Strøm | N-status | P-status | K-status | Kildeanker | Claim-lock-beslutning |
+|---|---|---|---|---|---|
+| Mineralgjødsel-referanse | Kan brukes som referansegrunnlag når land, år og gjødselår oppgis. | Kan brukes med element-basis-forbehold. | Kan brukes med element-basis-forbehold. | `CL-B-024`; `research/external/r2/STATBANK-dk-island-gjodsel-2026-06-16.md`; `research/external/r4/deep-research-r4-23-2026-06-18.md`. | Åpnet som referanse, ikke som "erstattbar import"-denominator alene. |
+| Svensk digestat/SPCR 120 | `realisert` benchmark: 6 200 t NH4-N i sertifisert samrøtningsbiogødsel 2024. | `realisert` benchmark: 1 300 t P 2024. | `realisert` benchmark: 4 000 t K 2024. | `research/external/r4/deep-research-r4-23-2026-06-18.md`. | Benchmark for måleregime; ikke norsk nivå eller nordisk sum. |
+| Norsk biorest/digestat | Norsk produksjon/bruk finnes, men nasjonal N-retur mangler samlet. | Delvis tallfestet: ca. 2 400 t P i norsk biogjødsel 2023 er bransjestatistikk. | Nasjonal K-retur mangler samlet. | `research/external/r4/deep-research-r4-23-2026-06-18.md`; `research/forstaelse/forstaelse-r4-19-2026-06-18.md`. | Ikke åpne prosentclaim; bruk som hull: P delvis, N/K Type C. |
+| Norsk oppdrettsslam/fiskeslam | Tap til sjø er modellert; realisert nasjonal innsamlet/sluttbrukt N mangler. | Tap/potensial finnes som modell; realisert nasjonal P-sluttbruk mangler. | K er lavere/ikke hovedsporet; nasjonal K-massebalanse mangler. | `research/external/r2/nutrient-loop-realiserte-tonn-2026-06-16.md`; `research/external/r3/deep-research-r3-03-fiskeslam-census-2026-06-17.md`. | Kun anleggs-/aktør-rader kan brukes internt; ikke nasjonalt aggregat. |
+| Svartvann/avløp/Recolab | RecoLab realisert produkt-N er bare avledet fra små 2024-produktmengder. | RecoLab realisert produkt-P er bare avledet fra struvittmengde; avløps-P krever egen kilde. | Ingen K-produkt i RecoLab-raden. | `research/external/r2/nutrient-loop-realiserte-tonn-2026-06-16.md`. | Benchmark/case, ikke skalerings- eller norsk effektclaim. |
+| Husdyrgjødsel | Stor N-masse finnes, men plantetilgjengelighet, tap, regional fordeling og biogassandel må skilles. | P-problemet er regional fordeling og tilgjengelighet, ikke bare nasjonal masse. | K må vurderes separat fra N/P; ofte annen fraksjon/geografi. | `research/forstaelse/forstaelse-r2-03-mineralgjodsel-2026-06-16.md`. | Behandles som research-mission/PCQ til primær regional N/P/K-serie finnes. |
+| Matavfall til forbrenning | Eldre tapstall er modellert; realisert N-retur finnes ikke. | Eldre tapstall er modellert; P i aske/retur krever egen primærkilde. | K ikke låst. | `public/data/food-systems/circularity-loops.json`; råinntak fra april 2026. | Hold tilbake som modellnode; ikke siter som målt tap eller substitusjon. |
+
+### P2.2 ikke-si
+
+- Ikke si at "25-30 % av importert næring kan erstattes" som faktum.
+- Ikke summer N, P og K til én prosent eller én KPI.
+- Ikke bland import, mineralgjødselforbruk, tap til miljø, teknisk potensial og realisert næringsretur.
+- Ikke bruk biogassvolum som bevis på næringssirkularitet uten dokumentert digestat-/produktretur.
+- Ikke bruk SINTEF marint restråstoff som fiskeslam- eller oppdrettsslamtall.
+- Ikke skjul Type-C-cellene i figur, briefing eller Obsidian-kart.
+
 ## Neste arbeid
 
 1. Oppdater tabellen etter hver primary-check og aktørrespons.

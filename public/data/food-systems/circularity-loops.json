@@ -967,18 +967,21 @@
     },
     {
       "id": "gap-samlet-npk-resirkulering",
-      "name": "Samlet norsk naeringsstoff-resirkuleringsgap (25-30% av import erstattbar)",
+      "name": "Samlet norsk naeringsstoff-resirkuleringsgap",
       "country": "NO",
       "rLevel": "R8",
-      "potential_volume": "Sum tapstrommes: ~91.5 kt N/ar og ~14 kt P/ar. Med 70% teknisk gjenvinning = 64 kt N og 9.8 kt P gjenvinnbart. Dekker 25-30% av importert N (247 kt) og 30% av importert P (33 kt).",
+      "potential_volume": "Intern modellnode: eldre gapestimat blander tapstrommer, teknisk potensial og importreferanse. Ikke publiserbar prosentclaim; krever N/P/K-massebalanse per strom og primaer locator for realisert volum.",
       "barrier": "structural",
-      "policy_lever": "Nasjonal naeringsstoffstrategi som kobler avlopssektoren, oppdrett, husdyr og matavfall. Nordisk MFA-basert 'Nordic Nutrient Budget' som styringsverktoy.",
-      "comparable_solution": "Interreg Baltic Sea rapporterer gjennomsnittlig NRI pa ~28%. Sverige/Danmark har ambisjon om 40-50% P-resirkulering.",
+      "policy_lever": "For claim-lock: splitt avlop/svartvann, oppdrettsslam, husdyrgjodsel, biorest/digestat og matavfall per N, P og K; skill modellert, realisert, potensial og plan.",
+      "comparable_solution": "Sverige SPCR 120 kan brukes som mal for malt digestat-N/P/K; norske tall er forelopig hull eller enkelstrommer, ikke samlet prosent.",
       "theme": "nutrient_loop",
+      "claim_status": "hold_tilbake",
+      "claim_gate": "VK4-GAP-007",
       "sources": [
         "Perplexity NPK-systemanalyse 20.04.26",
         "Interreg Baltic Sea NRI-rapport",
-        "Frontiers P-MFA Hamilton 2023"
+        "Frontiers P-MFA Hamilton 2023",
+        "docs/project/mandates/food-tg-claim-lock-table-2026-05.md#r14-p22-delta-2026-07-04-npk-splitt-for-vk4-gap-007"
       ]
     },
     {
