@@ -27,9 +27,8 @@ export type ExistingActorLink = {
   id: string
   slug: string
   themeTags: string[]
-  name?: string
-  country?: string
   companyId?: string | null
+  metadata?: unknown
 }
 
 const ACTOR_TYPE_BY_NODE_TYPE: Record<string, string> = {
@@ -89,6 +88,55 @@ export function nodeMetadata(
   }
 }
 
+function metadataRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === 'object' && !Array.isArray(value)
+    ? value as Record<string, unknown>
+    : {}
+}
+
+export function mergeDomainRegistrationMetadata(
+  existingMetadata: unknown,
+  row: DomainActorCsvRow,
+  datasetTag: string,
+  existingThemeTags: string[] = [],
+): Record<string, unknown> {
+  const metadata = { ...metadataRecord(existingMetadata) }
+  const legacySubdomain = metadata.subdomain
+    ?? existingThemeTags
+      .filter(tag => tag.startsWith('subdomene:'))
+      .map(tag => tag.slice('subdomene:'.length))
+      .find(subdomain => subdomain !== row.subdomain)
+  const legacyRegistration = metadata.domain && legacySubdomain
+    ? [{
+        dataset: metadata.dataset ?? null,
+        domain: metadata.domain,
+        subdomain: legacySubdomain,
+        geo: metadata.geo ?? 'NO',
+      }]
+    : []
+  const arrayRegistrations = Array.isArray(metadata.domainRegistrations)
+    ? metadata.domainRegistrations.filter(item =>
+        item && typeof item === 'object' && !Array.isArray(item))
+    : []
+  const current = [...arrayRegistrations, ...legacyRegistration]
+  const next = {
+    dataset: datasetTag,
+    domain: row.domain,
+    subdomain: row.subdomain || '(uklassifisert)',
+    geo: row.country || 'NO',
+  }
+  const key = (item: unknown) => {
+    const record = item as Record<string, unknown>
+    return `${record.dataset ?? ''}|${record.domain ?? ''}|${record.subdomain ?? ''}|${record.geo ?? ''}`
+  }
+  const byKey = new Map(current.map(item => [key(item), item]))
+  byKey.set(key(next), next)
+  return {
+    ...metadata,
+    domainRegistrations: Array.from(byKey.values()),
+  }
+}
+
 export function buildThemeTags(row: DomainActorCsvRow, datasetTag: string): string[] {
   return [
     'domene:' + row.domain,
@@ -123,17 +171,13 @@ export function chooseActorTarget(
     existingBySlug: Map<string, ExistingActorLink>
     companyByOrgNr: Map<string, CompanyLink>
     existingByCompanyId: Map<string, ExistingActorLink>
-    existingByCountryName?: Map<string, ExistingActorLink>
   },
 ): ExistingActorLink | null {
   const orgNr = normalizeOrgNr(row.org_nr)
   const company = orgNr ? lookups.companyByOrgNr.get(orgNr) : null
   if (company) {
     const actorForCompany = lookups.existingByCompanyId.get(company.id)
-      if (actorForCompany) return actorForCompany
+    if (actorForCompany) return actorForCompany
   }
-  const actorForSlug = lookups.existingBySlug.get(row.node_id)
-  if (actorForSlug) return actorForSlug
-  const countryNameKey = `${row.country || 'NO'}\x00${row.name}`
-  return lookups.existingByCountryName?.get(countryNameKey) ?? null
+  return lookups.existingBySlug.get(row.node_id) ?? null
 }

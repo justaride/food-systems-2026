@@ -3,6 +3,7 @@ import { describe, it } from 'node:test'
 import {
   buildActorImportData,
   chooseActorTarget,
+  mergeDomainRegistrationMetadata,
   type DomainActorCsvRow,
 } from '../../scripts/lib/domain-actor-import'
 
@@ -45,26 +46,6 @@ describe('domain actor company linking', () => {
     assert.equal(target?.companyId, company.id)
   })
 
-  it('uses existing Actor with same country and name when slug and companyId do not match', () => {
-    const existingActor = {
-      id: 'aktor-samme-navn',
-      slug: 'annen-slug',
-      themeTags: ['domene:legacy'],
-      country: 'NO',
-      name: 'Kjent Matselskap AS',
-      companyId: null,
-    }
-
-    const target = chooseActorTarget(baseRow, {
-      existingBySlug: new Map(),
-      companyByOrgNr: new Map(),
-      existingByCompanyId: new Map(),
-      existingByCountryName: new Map([['NO\x00Kjent Matselskap AS', existingActor]]),
-    })
-
-    assert.equal(target?.id, existingActor.id)
-  })
-
   it('adds companyId to actor payload when org_nr resolves to a Company', () => {
     const data = buildActorImportData(baseRow, {
       datasetTag: 'mvk-frukt-groent-foredling-2026-06-26',
@@ -77,6 +58,148 @@ describe('domain actor company linking', () => {
       'domene:foredling-industri',
       'subdomene:frukt-groent-foredling',
       'mvk-frukt-groent-foredling-2026-06-26',
+    ])
+  })
+
+  it('merges exact domain registration metadata for existing global actors', () => {
+    const metadata = mergeDomainRegistrationMetadata(
+      { curated: true },
+      baseRow,
+      'mvk-frukt-groent-foredling-2026-06-26',
+    )
+
+    assert.equal(metadata.curated, true)
+    assert.deepEqual(metadata.domainRegistrations, [
+      {
+        dataset: 'mvk-frukt-groent-foredling-2026-06-26',
+        domain: 'foredling-industri',
+        subdomain: 'frukt-groent-foredling',
+        geo: 'NO',
+      },
+    ])
+  })
+
+  it('preserves a legacy top-level domain registration when adding another domain', () => {
+    const metadata = mergeDomainRegistrationMetadata(
+      {
+        dataset: 'mvk-politisk-program-2026-07-01',
+        domain: 'virkemiddel-policy',
+        subdomain: 'politisk-program',
+        geo: 'NO',
+      },
+      baseRow,
+      'mvk-frukt-groent-foredling-2026-06-26',
+    )
+
+    assert.deepEqual(metadata.domainRegistrations, [
+      {
+        dataset: 'mvk-politisk-program-2026-07-01',
+        domain: 'virkemiddel-policy',
+        subdomain: 'politisk-program',
+        geo: 'NO',
+      },
+      {
+        dataset: 'mvk-frukt-groent-foredling-2026-06-26',
+        domain: 'foredling-industri',
+        subdomain: 'frukt-groent-foredling',
+        geo: 'NO',
+      },
+    ])
+  })
+
+  it('defaults a legacy top-level registration to NO when geo is missing', () => {
+    const metadata = mergeDomainRegistrationMetadata(
+      {
+        dataset: 'lokale-verdikjeder-2026-06-25',
+        domain: 'lokale-verdikjeder',
+        subdomain: 'andelslandbruk',
+      },
+      baseRow,
+      'mvk-frukt-groent-foredling-2026-06-26',
+    )
+
+    assert.deepEqual(metadata.domainRegistrations, [
+      {
+        dataset: 'lokale-verdikjeder-2026-06-25',
+        domain: 'lokale-verdikjeder',
+        subdomain: 'andelslandbruk',
+        geo: 'NO',
+      },
+      {
+        dataset: 'mvk-frukt-groent-foredling-2026-06-26',
+        domain: 'foredling-industri',
+        subdomain: 'frukt-groent-foredling',
+        geo: 'NO',
+      },
+    ])
+  })
+
+  it('recovers a legacy subdomain from existing tags when metadata subdomain is missing', () => {
+    const metadata = mergeDomainRegistrationMetadata(
+      {
+        dataset: 'lokale-verdikjeder-2026-06-25',
+        domain: 'lokale-verdikjeder',
+      },
+      baseRow,
+      'mvk-frukt-groent-foredling-2026-06-26',
+      ['domene:lokale-verdikjeder', 'subdomene:andelslandbruk'],
+    )
+
+    assert.deepEqual(metadata.domainRegistrations, [
+      {
+        dataset: 'lokale-verdikjeder-2026-06-25',
+        domain: 'lokale-verdikjeder',
+        subdomain: 'andelslandbruk',
+        geo: 'NO',
+      },
+      {
+        dataset: 'mvk-frukt-groent-foredling-2026-06-26',
+        domain: 'foredling-industri',
+        subdomain: 'frukt-groent-foredling',
+        geo: 'NO',
+      },
+    ])
+  })
+
+  it('backfills a legacy top-level registration even when an array already exists', () => {
+    const metadata = mergeDomainRegistrationMetadata(
+      {
+        dataset: 'mvk-politisk-program-2026-07-01',
+        domain: 'virkemiddel-policy',
+        subdomain: 'politisk-program',
+        geo: 'NO',
+        domainRegistrations: [
+          {
+            dataset: 'mvk-institusjon-virkemiddel-ordning-2026-07-01',
+            domain: 'institusjon-finansiering',
+            subdomain: 'virkemiddel-ordning',
+            geo: 'NO',
+          },
+        ],
+      },
+      baseRow,
+      'mvk-frukt-groent-foredling-2026-06-26',
+    )
+
+    assert.deepEqual(metadata.domainRegistrations, [
+      {
+        dataset: 'mvk-institusjon-virkemiddel-ordning-2026-07-01',
+        domain: 'institusjon-finansiering',
+        subdomain: 'virkemiddel-ordning',
+        geo: 'NO',
+      },
+      {
+        dataset: 'mvk-politisk-program-2026-07-01',
+        domain: 'virkemiddel-policy',
+        subdomain: 'politisk-program',
+        geo: 'NO',
+      },
+      {
+        dataset: 'mvk-frukt-groent-foredling-2026-06-26',
+        domain: 'foredling-industri',
+        subdomain: 'frukt-groent-foredling',
+        geo: 'NO',
+      },
     ])
   })
 })
