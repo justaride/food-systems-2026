@@ -292,6 +292,32 @@ describe('package scripts', () => {
     assert.doesNotMatch(repairSource, /upsert|deleteMany|updateMany|createMany/)
   })
 
+  it('exposes guarded library analysis manual PDF match repair dry-run and apply commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const repairSource = readFileSync(
+      join(process.cwd(), 'scripts', 'repair-library-analysis-manual-pdf-match.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['research:library:repair-manual-pdf-match:dry-run'],
+      'tsx scripts/repair-library-analysis-manual-pdf-match.ts --dry-run',
+    )
+    assert.equal(
+      packageJson.scripts['research:library:repair-manual-pdf-match:apply'],
+      'tsx scripts/repair-library-analysis-manual-pdf-match.ts --apply',
+    )
+    assert.match(repairSource, /process\.argv\.includes\('--apply'\)/)
+    assert.match(repairSource, /REVIEWED_PDF_MATCHES/)
+    assert.match(repairSource, /pdftotext/)
+    assert.match(repairSource, /library-analysis-manual-pdf-match-backup\.jsonl/)
+    assert.match(repairSource, /appendFileSync/)
+    assert.match(repairSource, /prisma\.document\.update/)
+    assert.doesNotMatch(repairSource, /upsert|deleteMany|updateMany|createMany/)
+  })
+
   it('exposes guarded library analysis PDF text repair dry-run and apply commands', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
