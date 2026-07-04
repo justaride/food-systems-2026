@@ -267,6 +267,31 @@ describe('package scripts', () => {
     assert.doesNotMatch(repairSource, /upsert|deleteMany|updateMany|createMany/)
   })
 
+  it('exposes guarded library analysis manual local match repair dry-run and apply commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const repairSource = readFileSync(
+      join(process.cwd(), 'scripts', 'repair-library-analysis-manual-local-match.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['research:library:repair-manual-local-match:dry-run'],
+      'tsx scripts/repair-library-analysis-manual-local-match.ts --dry-run',
+    )
+    assert.equal(
+      packageJson.scripts['research:library:repair-manual-local-match:apply'],
+      'tsx scripts/repair-library-analysis-manual-local-match.ts --apply',
+    )
+    assert.match(repairSource, /process\.argv\.includes\('--apply'\)/)
+    assert.match(repairSource, /REVIEWED_LOCAL_MATCHES/)
+    assert.match(repairSource, /library-analysis-manual-local-match-backup\.jsonl/)
+    assert.match(repairSource, /appendFileSync/)
+    assert.match(repairSource, /prisma\.document\.update/)
+    assert.doesNotMatch(repairSource, /upsert|deleteMany|updateMany|createMany/)
+  })
+
   it('exposes guarded library analysis PDF text repair dry-run and apply commands', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
