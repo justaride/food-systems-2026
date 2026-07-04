@@ -38,7 +38,7 @@ bruksregel: Ingen ekstern claim, ingen safe_for_ai_context, ingen whitepaper-/de
 | R13-LAND-001 | 01 | Maktkonsentrasjon | PCQ | pcq-bekreftet | research/_status/food-tg-r14/pcq/R13-LAND-001-pcq-2026-07-03.md |
 | R13-LAND-002 | 01 | Vertikal integrasjon | PCQ | pcq-bekreftet | research/_status/food-tg-r14/pcq/R13-LAND-002-pcq-2026-07-03.md |
 | R13-GAP-005-CLAIMLOCK | 02 | GAP-005 claim-lock-kandidater | claim-lock | claim-lock-kandidat | research/_status/food-tg-r14/claim-lock-kandidater.md |
-| VK4-GAP-007 | 02 | Næringsstoff-gap 25-30 % | claim-lock | vent | research/_status/food-tg-r14/claim-lock-kandidater.md |
+| VK4-GAP-007 | 02 | Næringsstoff-gap N/P/K | claim-lock | vent | research/_status/food-tg-r14/source-shortlist/VK4-GAP-007-npk-source-shortlist.md |
 | A3.1 | 09 | PROT-006 nyere ressursregnskap | PCQ | vent | research/external/r14/A3.1-R13-PROT-006-ressursregnskap.md |
 | A3.2 | 09 | AKTOR-006 aksjonærdata | PCQ | vent | research/external/r14/A3.2-R13-AKTOR-006-aksjonaerdata.md |
 | A3.3 | 09 | OKO-003 jordsmonnskart proxy | source-shortlist | vent | research/external/r14/A3.3-R13-OKO-003-jordsmonnskart-proxy.md |
