@@ -153,6 +153,7 @@
     "research:library:locator-profile": "tsx scripts/build-library-analysis-locator-profile.ts",
     "research:library:pdf-extraction-profile": "tsx scripts/build-library-analysis-pdf-extraction-profile.ts",
     "research:library:url-text-profile": "tsx scripts/build-library-analysis-url-text-extraction-profile.ts",
+    "audit:library-analysis": "tsx scripts/audit-library-analysis.ts",
     "export:notebooklm": "tsx scripts/build-notebooklm-export.ts",
     "audit:citations": "tsx scripts/verify-data-integrity.ts --strict-sources",
     "audit:citable-reports": "tsx scripts/audit-citable-reports.ts",

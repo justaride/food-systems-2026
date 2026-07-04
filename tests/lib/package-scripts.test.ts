@@ -421,6 +421,26 @@ describe('package scripts', () => {
     assert.doesNotMatch(scriptSource, /upsert|deleteMany|updateMany|createMany|document\.update/)
   })
 
+  it('exposes the library analysis artifact audit command', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const auditSource = readFileSync(
+      join(process.cwd(), 'scripts', 'audit-library-analysis.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['audit:library-analysis'],
+      'tsx scripts/audit-library-analysis.ts',
+    )
+    assert.match(auditSource, /auditLibraryAnalysisArtifacts/)
+    assert.match(auditSource, /LIBRARY_ANALYSIS_LEDGER_PATH/)
+    assert.match(auditSource, /LIBRARY_ANALYSIS_DECISION_QUEUE_JSON_PATH/)
+    assert.doesNotMatch(auditSource, /PrismaClient|createLibraryAnalysisPrismaClient/)
+    assert.doesNotMatch(auditSource, /upsert|deleteMany|updateMany|createMany|document\.update/)
+  })
+
   it('exposes the read-only library analysis PDF extraction profile command', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
