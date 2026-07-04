@@ -159,6 +159,8 @@ I30-datareview 2026-07-04 ligger i \`research/_status/food-tg-r14/datareview/I30
 
 I32-datareview 2026-07-04 ligger i \`research/_status/food-tg-r14/datareview/I32-havbrukskonsentrasjon-datareview-2026-07-04.md\`. Den konkluderer med at AP-6 har eksplisitt havbruksunivers og MTB-nevner nok til intern beslutning, men at ny I32-node og ekstern figurbruk krever eksplisitt menneskelig beslutning og claim-lock.
 
+I33-datareview 2026-07-04 ligger i \`research/_status/food-tg-r14/datareview/I33-prisasymmetri-datareview-2026-07-04.md\`. Den konkluderer med at AP-7 er et nyttig internt prisatferdsfunn for laks→foredling, men at I33 fortsatt skal stå parkert til valutakontroll, kategoriavgrensning og native/prisserie-PCQ er gjort.
+
 I35-source-shortlist 2026-07-04 ligger i \`research/_status/food-tg-r14/source-shortlist/I35-soya-eudr-source-shortlist-2026-07-04.md\`. Den samler import-/EUDR-kilder for fôr/soya-sporet, men åpner ikke I35 som innsiktsnode eller møtefigur.
 
 | ID | Beslutning | Gate før ny node | Stopplinje |
@@ -167,7 +169,7 @@ I35-source-shortlist 2026-07-04 ligger i \`research/_status/food-tg-r14/source-s
 | I29 | Parkert etter datareview; ikke generer egen I-node. | Ny beslutning + AP-2 claim-lock hvis den skal brukes utenfor I37/metodecaveat. | Ikke oversett intern node-/inntekts-HHI til markedsmakt, grafsentralitet eller kontrollclaim. |
 | I30 | Datareviewet; klar til menneskelig I-node-beslutning, men ikke generert. | Eksplisitt beslutning + claim-lock hvis den skal brukes utenfor intern cockpit. | Ikke bruk tilskuddskonsentrasjon som enkelaktørkritikk eller samlet landbruksstøtteclaim. |
 | I32 | Datareviewet; klar til menneskelig I-node-/claim-lock-beslutning, men ikke generert. | Eksplisitt beslutning + claim-lock med havbruksunivers, MTB-nevner, rollup-forbehold og restråstoffgrense. | Ikke blande havbrukskonsentrasjon med dagligvaretriopol-claim, slaktevolum eller målt restråstoffkontroll. |
-| I33 | Parker til prisserie-review. | AP-7 PCQ for native prisserie før asymmetri-claim. | Ikke bruke proxy-test som dokumentert prisasymmetri. |
+| I33 | Datareviewet; fortsatt parkert til prisserie-/valuta-PCQ. | Valutakontroll, SNN102 kategoriavgrensning og native fôr-/prisseriesjekk før ny I-node eller ekstern figur. | Ikke bruke proxy-test eller laks→foredling-PPI som dokumentert fôr→oppdrett-asymmetri, marginclaim eller intensjon. |
 | I35 | Source-shortlistet; fortsatt parkert til menneskelig I-node-/claim-lock-beslutning. | Eksplisitt formulering + EUDR-, SSB- og aktørscope claim-lock. | Ikke si at EUDR automatisk gjør norsk fôr/import til dokumentert sårbarhetsakse. |`
 
 const i29DatareviewBody = `## Kort dom
@@ -287,6 +289,47 @@ I32 er datareviewet og kan gå til eksplisitt menneskelig I-node-/claim-lock-bes
 - Ikke si at fire aktører kontrollerer 57 % av restråstoffvolumet som kildebelagt faktum; det er høyst en flagget strukturell inferens uten per-aktør data.
 - Ikke si at eierskapsprosent eller ultimate owner er Aksjonærregister-bekreftet.
 - Ikke generer I32 uten eksplisitt menneskelig beslutning.`
+
+const i33DatareviewBody = `## Kort dom
+
+I33 skal fortsatt være parkert etter datareview. AP-7 er et nyttig internt prisatferdsfunn for laks→foredling, med eksplisitte SSB-serier og klar metodepresedens. Men det er ikke nok til ny I33-innsiktsnode eller ekstern møtefigur: valuta er ikke kontrollert, nedstrømsserien er bredere enn laks, og det opprinnelige fôr→oppdrett-leddet mangler native månedlig fôr-/prisserie.
+
+## Reviewgrunnlag
+
+| Kilde | Rolle i review |
+|---|---|
+| \`docs/project/analysis/food-tg-ap7-prisasymmetri-funn-2026-06-14.md\` | Hovedanalyse, claim-lock-utkast, valuta-/kategori-forbehold og needs-data for fôr→oppdrett. |
+| \`research/norge/kvantitativ-dybdeanalyse.md\` | Metodepresedens for asymmetri-testen, brukt som intern sammenligningsramme. |
+| SSB 03024, \`https://data.ssb.no/api/v0/no/table/03024/\` | Oppstrøms laks, eksport av oppalen laks, kilopris. |
+| SSB 12462, \`https://data.ssb.no/api/v0/no/table/12462/\` | Nedstrøms PPI SNN102 for bearbeiding fisk, skalldyr og bløtdyr. |
+| \`docs/project/figures/food-tg-2026-06-15/fig-ap7-pris-asymmetri.svg\` | Intern figurflate; ikke ekstern uten claim-lock og valutakontroll. |
+
+## Datareview
+
+| Kriterium | Status | Konsekvens |
+|---|---|---|
+| Testet domene eksplisitt | Ja. AP-7 tester laks→foredling for 2019M01-2025M12. | Kan ikke generaliseres til grønt, dagligvare, fôr→oppdrett eller hele havbruksøkonomien. |
+| Serietilpasning | Delvis. Oppstrøms er laksespesifikk, nedstrøms er SNN102 for all fisk/skall/bløtdyr. | Ikke les funnet som ren laksespesifikk margin- eller markedsmaktclaim. |
+| Valutakontroll | Ikke lukket. AP-7 sier eksplisitt at NOK-svekkelse kan løfte eksport-PPI. | Ekstern bruk krever valutadeflatering, USD/EUR-kontroll eller separat hjemmemarkedsserie. |
+| Native fôr-/prisseriesjekk | Ikke lukket. Norsk månedlig fôr-PPI finnes ikke i SSB-underlaget; fôr→oppdrett er proxy-testbart, men ikke native tilfredsstilt. | I33 må ikke bli fôr/import- eller fôrkost-asymmetri-node uten ny PCQ. |
+| Metode/reproduserbarhet | Delvis. NARDL/distribuert-lag er subagent-beregnet og internt dokumentert; 2025-illustrasjonen er enklere å etterprøve. | Bruk internt som metode-/prisatferdsindikator; reproduser beregning før ekstern claim. |
+| Publiserbar formulering | Nei som I33 nå. Ja som caveat: "AP-7 peker på asymmetrisk prisatferd, men svakeste punkt styrer gate." | Behold i researchkø/claim-lock, ikke ny Obsidian-node eller møtefigur. |
+
+## Beslutning
+
+- I33 forblir parkert etter datareview.
+- Ingen \`Food Systems Obsidian/10 Innsiktskart/Innsikter/I33 ...\` skal genereres i denne runden.
+- AP-7 kan brukes internt som prisatferds-/metodecaveat, men ikke som ekstern margin-, intensjons- eller fôr→oppdrett-claim.
+- En senere I33 kan bare åpnes etter eksplisitt ny beslutning og PCQ/claim-lock som lukker valuta, SNN102-kategori, metode-reproduksjon og native/proxy-seriegrense.
+
+## Ikke si
+
+- Ikke si at proxy-testen dokumenterer fôr→oppdrett-prisasymmetri.
+- Ikke si at stigende foredlings-PPI mens råpris faller beviser marginbygging, intensjon eller misbruk av markedsmakt.
+- Ikke behandle SNN102 som en ren lakseforedlingsserie.
+- Ikke generaliser AP-7 til dagligvare, grønt, fôrkjede eller andre domener.
+- Ikke bruke AP-7 eksternt uten valutakontroll, kategoriavgrensning og claim-lock.
+- Ikke generer I33 uten eksplisitt menneskelig beslutning.`
 
 const i35SourceShortlistBody = `## Kort dom
 
@@ -519,6 +562,7 @@ decisions.push(decision('09', 'B3', 'M&A NG-treet', join(externalDir, 'B3-NG-MA-
 write(join(datareviewDir, 'I29-nodekonsentrasjon-datareview-2026-07-04.md'), artifact('I29 nodekonsentrasjon datareview', i29DatareviewBody, '2026-07-04'))
 write(join(datareviewDir, 'I30-tilskuddskonsentrasjon-datareview-2026-07-04.md'), artifact('I30 tilskuddskonsentrasjon datareview', i30DatareviewBody, '2026-07-04'))
 write(join(datareviewDir, 'I32-havbrukskonsentrasjon-datareview-2026-07-04.md'), artifact('I32 havbrukskonsentrasjon datareview', i32DatareviewBody, '2026-07-04'))
+write(join(datareviewDir, 'I33-prisasymmetri-datareview-2026-07-04.md'), artifact('I33 prisasymmetri datareview', i33DatareviewBody, '2026-07-04'))
 write(join(sourceShortlistDir, 'I35-soya-eudr-source-shortlist-2026-07-04.md'), artifact('I35 soya/EUDR source-shortlist', i35SourceShortlistBody, '2026-07-04'))
 
 const gapDocs = [
@@ -544,12 +588,13 @@ for (const [file, title, body] of gapDocs) {
 decisions.push(decision('10', 'B5', 'VK4-GAP-missions', join(externalDir, 'VK4-GAP-007-naeringsstoff-gap.md'), 'source-shortlist', 'vent', 'Alle 12 VK4-GAP-missions er lukket til internt kildenotat eller claim-lock/actor-gate.', 'R13-leveranser + gap-noder', 'Ekstern figurbruk er parkert.'))
 decisions.push(decision('11', 'B4', 'Stakeholder skeletons', join(externalDir, 'B4-stakeholder-skeletons.md'), 'source-shortlist', 'vent', 'Skeletons kan fylles fra eksisterende kilder; samtalekrevende felt går til D.', 'R13-INNO-006/R13-aktørkart', 'Menneskelig input krever G1.'))
 decisions.push(withIkkeSi(
-  decision('12', 'E1', 'I27+ mapping', join(externalDir, 'E1-I27-parkerte-mapping.md'), 'internal', 'internal', 'P2.3 holder I28/I33 parkert; I29 forblir parkert, I30 og I32 er datareviewet, og I35 er source-shortlistet uten generering.', 'I27-port + P2.3 datareview + I29/I30/I32 datareview + I35 source-shortlist', 'Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur.'),
+  decision('12', 'E1', 'I27+ mapping', join(externalDir, 'E1-I27-parkerte-mapping.md'), 'internal', 'internal', 'P2.3 holder I28 parkert; I29 og I33 forblir parkert etter datareview, I30 og I32 er datareviewet, og I35 er source-shortlistet uten generering.', 'I27-port + P2.3 datareview + I29/I30/I32/I33 datareview + I35 source-shortlist', 'Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur.'),
   [
     'Ikke generer I28, I29, I30, I32, I33 eller I35 uten eksplisitt ny beslutning.',
     'Ikke oversett intern graf-/proxyverdi til ekstern claim.',
     'Ikke si at EUDR automatisk gjør norsk fôr/import til dokumentert sårbarhetsakse.',
     'Ikke blande havbrukskonsentrasjon med dagligvaretriopol-claim, MTB/slaktevolum eller målt restråstoffkontroll.',
+    'Ikke bruke proxy-test eller laks→foredling-PPI som dokumentert fôr→oppdrett-asymmetri, marginclaim eller intensjon.',
     'Ikke bland kapasitet, plan, potensial og realisert volum.',
   ],
 ))
@@ -986,6 +1031,7 @@ async function main() {
 - PCQ-notater: 7 / 7.
 - Claim-lock-kandidatdokument: opprettet.
 - I32 datareview: opprettet 2026-07-04 uten I-node-generering.
+- I33 datareview: opprettet 2026-07-04 uten I-node-generering.
 - I35 source-shortlist: opprettet 2026-07-04 uten I-node-generering.
 - Actor-gate-kandidatlister: 5 + D6-spørsmålspakke + G1-D2/G1-D4/G1-D1-D3-D5 beslutningspakker.
 - MVK importfiler: handel-dagligvare, meieri, kjøtt/egg.
