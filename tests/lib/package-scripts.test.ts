@@ -267,6 +267,33 @@ describe('package scripts', () => {
     assert.doesNotMatch(repairSource, /upsert|deleteMany|updateMany|createMany/)
   })
 
+  it('exposes guarded library analysis PDF text repair dry-run and apply commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const repairSource = readFileSync(
+      join(process.cwd(), 'scripts', 'repair-library-analysis-pdf-text.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['research:library:repair-pdf-text:dry-run'],
+      'tsx scripts/repair-library-analysis-pdf-text.ts --dry-run',
+    )
+    assert.equal(
+      packageJson.scripts['research:library:repair-pdf-text:apply'],
+      'tsx scripts/repair-library-analysis-pdf-text.ts --apply',
+    )
+    assert.match(repairSource, /process\.argv\.includes\('--apply'\)/)
+    assert.match(repairSource, /LIBRARY_ANALYSIS_PDF_EXTRACTION_PROFILE_JSON_PATH/)
+    assert.match(repairSource, /LIBRARY_ANALYSIS_REPAIR_BACKLOG_JSON_PATH/)
+    assert.match(repairSource, /pdftotext/)
+    assert.match(repairSource, /library-analysis-pdf-text-repair-backup\.jsonl/)
+    assert.match(repairSource, /appendFileSync/)
+    assert.match(repairSource, /prisma\.document\.update/)
+    assert.doesNotMatch(repairSource, /upsert|deleteMany|updateMany|createMany/)
+  })
+
   it('exposes the read-only library analysis PDF extraction profile command', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
