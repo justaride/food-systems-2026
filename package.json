@@ -23,6 +23,9 @@
     "start": "node .next/standalone/server.js",
     "lint": "eslint",
     "test": "node --import=tsx --test $(find tests -name '*.test.ts')",
+    "mcp:kb": "tsx mcp/foodsystems-kb/server.ts",
+    "mcp:kb:test": "tsx mcp/foodsystems-kb/smoke.ts",
+    "mcp:kb:inspect": "npx @modelcontextprotocol/inspector -- npx tsx mcp/foodsystems-kb/server.ts",
     "verify:platform-stack-main": "npm run db:generate && npm run lint && npm test && npm run build && npm run db:audit && npm run db:audit:strict-sources && npm run audit:konsern && npm run graph:audit && npm run audit:citable",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
@@ -161,6 +164,7 @@
     "db:import:mvk-grossist-distributor-2026-06-27": "tsx scripts/import-domain-actors.ts --csv=research/_status/mvk-grossist-distributor-node-kandidater-2026-06-27.csv --dataset=mvk-grossist-distributor-2026-06-27"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "@nivo/bar": "^0.99.0",
     "@nivo/core": "^0.99.0",
     "@nivo/pie": "^0.99.0",
@@ -179,7 +183,8 @@
     "react-dom": "^19.2.4",
     "react-force-graph-2d": "^1.29.1",
     "react-leaflet": "^5.0.0",
-    "recharts": "^3.8.0"
+    "recharts": "^3.8.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/node": "^25.4.0",
