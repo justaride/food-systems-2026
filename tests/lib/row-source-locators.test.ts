@@ -1198,6 +1198,53 @@ describe('row source locators', () => {
       'https://s-ryhma.fi/en/news/s-groups-investments-in-finland-nearly-eur-1-billi/7chnW0iL7yorOogGzyYcSa',
     )
 
+    const verifiedNordic2025Financials = [
+      [
+        'SE-556048-2837',
+        'ICA Gruppen Annual Report 2025. SEK 142403m net sales; SEK 5408m operating profit excl. items; Norges Bank 2025 average SEK/NOK',
+        'https://www.icagruppen.se/en/annual-report-2025/',
+      ],
+      [
+        'SE-556542-5353',
+        'Axfood Annual and Sustainability Report 2025. SEK 89152m net sales; SEK 3572m adjusted operating profit; Norges Bank 2025 average SEK/NOK',
+        'https://www.axfood.com/investors/reports-and-presentations/annual-and-sustainability-report-20252/',
+      ],
+      [
+        'SE-702001-3469',
+        'Coop Sverige/KF Annual Report 2025. SEK 36377m net sales; SEK -305m operating result; Norges Bank 2025 average SEK/NOK',
+        'https://kf.se/wp-content/uploads/2026/03/kf-arsredovisning-2025.pdf',
+      ],
+      [
+        'DK-35954716',
+        'Salling Group Key Figures 2025. DKK 83168m revenue; DKK 3245m EBIT; Norges Bank 2025 average DKK/NOK',
+        'https://sallinggroup.com/en/stores/key-figures',
+      ],
+      [
+        'DK-26259495',
+        'Coop Danmark Annual Report 2025. DKK 32565m net sales; DKK -215m operating result; Norges Bank 2025 average DKK/NOK',
+        'https://coop.dk/media/hv1lo4bk/coop-danmark-aarsrapport-2025.pdf',
+      ],
+      [
+        'DK-14705627',
+        'Reitan Retail Annual Report 2025. REMA 1000 Denmark segment: NOK 45239m revenue; NOK 1518m operating profit',
+        'https://www.reitanretail.no/en/about/reports',
+      ],
+    ] as const
+
+    for (const [orgNr, source, expected] of verifiedNordic2025Financials) {
+      assert.equal(
+        resolveCompanyFinancialSourceLocator(
+          {
+            source,
+            year: 2025,
+            company: { orgNr },
+          },
+          new Set(),
+        ),
+        expected,
+      )
+    }
+
     assert.equal(
       resolveCompanyFinancialSourceLocator(
         {

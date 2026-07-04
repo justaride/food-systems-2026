@@ -93,6 +93,7 @@ const REITAN_RETAIL_ANNUAL_REPORT_2022_URL =
   'https://cdn.sanity.io/files/z1voeyrb/production/4468c7db7ad29d4b695400c9cc27e756c5d1a545.pdf'
 const REITAN_RETAIL_ANNUAL_REPORT_2023_URL =
   'https://cdn.sanity.io/files/z1voeyrb/production/ed33530339030204bf8f8e6e768645581b9dd2c0.pdf'
+const REITAN_RETAIL_REPORTS_URL = 'https://www.reitanretail.no/en/about/reports'
 const REITAN_ANNUAL_REPORT_2020_URL =
   'https://api.reitan.no/app/uploads/2021/10/Arsrapport_2020_digital_fil.pdf'
 const ORKLA_ANNUAL_REPORT_2020_URL =
@@ -138,6 +139,8 @@ const AXFOOD_ANNUAL_REPORT_2022_URL =
   'https://www.axfood.com/investors/reports-and-presentations/annual-and-sustainability-report-2022/'
 const AXFOOD_ANNUAL_REPORT_2023_URL =
   'https://www.axfood.com/newsroom/press-releases/2024/02/axfood-publishes-annual-and-sustainability-report-2023/'
+const AXFOOD_ANNUAL_REPORT_2025_URL =
+  'https://www.axfood.com/investors/reports-and-presentations/annual-and-sustainability-report-20252/'
 const AXFOOD_CITY_GROSS_APPROVAL_URL =
   'https://www.axfood.com/newsroom/press-releases/2024/10/axfoods-acquisition-of-city-gross-approved-by-the-swedish-competition-authority/'
 const AXFOOD_CITY_GROSS_KEY_FIGURES_URL =
@@ -170,6 +173,10 @@ const S_GROUP_2024_FINANCIAL_RESULTS_URL =
 const COOP_DANMARK_ANNUAL_REPORTS_URL =
   'https://coop.dk/kontakt/pressekontakt/arsrapporter/'
 const COOP_SWEDEN_KF_ANNUAL_REPORTS_URL = 'https://kf.se/verksamhetsberattelse/'
+const COOP_DANMARK_ANNUAL_REPORT_2025_URL =
+  'https://coop.dk/media/hv1lo4bk/coop-danmark-aarsrapport-2025.pdf'
+const COOP_SWEDEN_KF_ANNUAL_REPORT_2025_URL =
+  'https://kf.se/wp-content/uploads/2026/03/kf-arsredovisning-2025.pdf'
 const BIOMAR_GROUP_STRUCTURE_URL = 'https://www.biomar.com/our-story/our-structure/our-board'
 const CERMAQ_ABOUT_URL = 'https://www.cermaq.no/om-cermaq'
 const DAGROFA_ANNUAL_REPORT_2024_URL =
@@ -201,6 +208,8 @@ const ICA_GRUPPEN_ANNUAL_REPORT_2020_URL = 'https://report.icagruppen.se/sv/ar20
 const ICA_GRUPPEN_ANNUAL_REPORT_2021_URL = 'https://report.icagruppen.se/sv/ar2021'
 const ICA_GRUPPEN_ANNUAL_REPORT_2022_URL = 'https://report.icagruppen.se/sv/ar2022'
 const ICA_GRUPPEN_ANNUAL_REPORT_2023_URL = 'https://report.icagruppen.se/sv/ar2023'
+const ICA_GRUPPEN_ANNUAL_REPORT_2025_URL =
+  'https://www.icagruppen.se/en/annual-report-2025/'
 const KESKO_ANNUAL_REPORTS_URL =
   'https://www.kesko.fi/en/investor/financial-information-and-publications/Annual-reports/'
 const NOFIMA_ANNUAL_REPORT_2020_URL =
@@ -212,6 +221,7 @@ const NOFIMA_ANNUAL_REPORT_2022_URL =
 const NOFIMA_ANNUAL_REPORT_2023_URL =
   'https://nofima.no/wp-content/uploads/2024/06/Nofima_AS_Arsmelding_2023-signert-inkl-revisjonsberetning.pdf'
 const SALLING_GROUP_PUBLICATIONS_URL = 'https://sallinggroup.com/en/publications'
+const SALLING_GROUP_KEY_FIGURES_URL = 'https://sallinggroup.com/en/stores/key-figures'
 const S_GROUP_FINANCIAL_RESULTS_2020_URL =
   'https://s-ryhma.fi/en/news/record-figures-in-supermarket-trade-helped-s-group/7twxdtvvCTZNVAqtlbWY5X'
 const S_GROUP_FINANCIAL_RESULTS_2021_URL =
@@ -381,6 +391,8 @@ const COMPANY_FINANCIAL_ANNUAL_REPORT_URLS: Record<string, string> = {
   'DK-26259495:2021': COOP_DANMARK_ANNUAL_REPORTS_URL,
   'DK-26259495:2022': COOP_DANMARK_ANNUAL_REPORTS_URL,
   'DK-26259495:2023': COOP_DANMARK_ANNUAL_REPORTS_URL,
+  'DK-26259495:2025': COOP_DANMARK_ANNUAL_REPORT_2025_URL,
+  'DK-14705627:2025': REITAN_RETAIL_REPORTS_URL,
   '914526647:2021': REITAN_RETAIL_ANNUAL_REPORT_2021_URL,
   '914526647:2022': REITAN_RETAIL_ANNUAL_REPORT_2022_URL,
   '914526647:2023': REITAN_RETAIL_ANNUAL_REPORT_2023_URL,
@@ -436,15 +448,18 @@ const COMPANY_FINANCIAL_ANNUAL_REPORT_URLS: Record<string, string> = {
   'SE-556048-2837:2021': ICA_GRUPPEN_ANNUAL_REPORT_2021_URL,
   'SE-556048-2837:2022': ICA_GRUPPEN_ANNUAL_REPORT_2022_URL,
   'SE-556048-2837:2023': ICA_GRUPPEN_ANNUAL_REPORT_2023_URL,
+  'SE-556048-2837:2025': ICA_GRUPPEN_ANNUAL_REPORT_2025_URL,
   'SE-556542-5353:2020': AXFOOD_ANNUAL_REPORT_2020_URL,
   'SE-556542-5353:2021': AXFOOD_ANNUAL_REPORT_2021_URL,
   'SE-556542-5353:2022': AXFOOD_ANNUAL_REPORT_2022_URL,
   'SE-556542-5353:2023': AXFOOD_ANNUAL_REPORT_2023_URL,
+  'SE-556542-5353:2025': AXFOOD_ANNUAL_REPORT_2025_URL,
   'SE-702001-3469:2020': COOP_SWEDEN_KF_ANNUAL_REPORTS_URL,
   'SE-702001-3469:2021': COOP_SWEDEN_KF_ANNUAL_REPORTS_URL,
   'SE-702001-3469:2022': COOP_SWEDEN_KF_ANNUAL_REPORTS_URL,
   'SE-702001-3469:2023': COOP_SWEDEN_KF_ANNUAL_REPORTS_URL,
   'SE-702001-3469:2024': COOP_SWEDEN_KF_ANNUAL_REPORTS_URL,
+  'SE-702001-3469:2025': COOP_SWEDEN_KF_ANNUAL_REPORT_2025_URL,
   'DK-38714295:2020': DAGROFA_ANNUAL_REPORTS_URL,
   'DK-38714295:2021': DAGROFA_ANNUAL_REPORTS_URL,
   'DK-38714295:2022': DAGROFA_ANNUAL_REPORTS_URL,
@@ -461,6 +476,7 @@ const COMPANY_FINANCIAL_ANNUAL_REPORT_URLS: Record<string, string> = {
   'DK-35954716:2021': SALLING_GROUP_PUBLICATIONS_URL,
   'DK-35954716:2022': SALLING_GROUP_PUBLICATIONS_URL,
   'DK-35954716:2023': SALLING_GROUP_PUBLICATIONS_URL,
+  'DK-35954716:2025': SALLING_GROUP_KEY_FIGURES_URL,
   'FI-0116323-9:2020': S_GROUP_FINANCIAL_RESULTS_2020_URL,
   'FI-0116323-9:2021': S_GROUP_FINANCIAL_RESULTS_2021_URL,
   'FI-0116323-9:2022': S_GROUP_FINANCIAL_RESULTS_2022_URL,
@@ -478,6 +494,12 @@ const COMPANY_FINANCIAL_OFFICIAL_RESULT_LOCATORS: Array<{
     year: 2025,
     sourceTokens: ['axfood', 'city', 'gross', 'key', 'figures', '2025'],
     url: AXFOOD_CITY_GROSS_KEY_FIGURES_URL,
+  },
+  {
+    orgNr: 'DK-35954716',
+    year: 2025,
+    sourceTokens: ['salling', 'group', 'key', 'figures', '2025'],
+    url: SALLING_GROUP_KEY_FIGURES_URL,
   },
   {
     orgNr: 'DK-38714295',
