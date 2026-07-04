@@ -64,12 +64,13 @@ Every question states the source type, readiness level, allowed evidence, disall
 - Expected source type: official legal text or verified legal database locator
 - Required citation readiness: `citable_external`
 - Must use:
-  - Official Finlex/legal locator for Konkurrenseloven §4a
-  - research/v1-2/phase8-T3-ekstern-vs-intern-diff.md only as internal comparison note
+  - Official Finlex/legal locator for Finnish Competition Act section 4a
+  - Official Finnish Competition and Consumer Authority locator explaining section 4a
 - Must not use:
   - Intern rapporttekst alene som rettskilde
   - LLM-diff som juridisk fasit
-- Known caveat: Inntil juridisk primærkilde er koblet direkte, kan regelen brukes som intern analyse, ikke som ekstern juridisk dokumentasjon.
+  - Food Market Act as the statutory locator for the 30 percent dominance rule
+- Known caveat: 30%-regelen ligger i den finske konkurranseloven §4a, ikke i Elintarvikemarkkinalaki/Food Market Act. Bruk som juridisk sammenligning må derfor sitere konkurranseloven/KKV og navngi dagligvaremarkedets dominanspresumsjon.
 
 ## CA-006: Kan vi bruke FI-DK 6x matsvinn-forskjell som ekstern rangering?
 
