@@ -15,7 +15,7 @@ Mottatt med 3 decision-rader.
 
 | ID | Tittel | Gate | Importbeslutning | Kort dom | Svakeste punkt |
 |---|---|---|---|---|---|
-| E1 | I27+ mapping | internal | internal | P2.3 bekrefter at I28/I29/I30/I32/I33/I35 holdes parkert uten ny I-note-generering. | Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur. |
+| E1 | I27+ mapping | internal | internal | P2.3 holder I28/I30/I32/I33/I35 parkert; I29 er datareviewet 2026-07-04 og forblir parkert uten ny I-note. | Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur. |
 | E2 | M6 konverteringsevne scoring | internal | internal | Intern case-score mal opprettet. | Ikke ekstern rangering. |
 | E3 | M3/M7 metode | internal | internal | Metodenotat opprettet bak G3. | Ingen true-cost-tall eksternt. |
 

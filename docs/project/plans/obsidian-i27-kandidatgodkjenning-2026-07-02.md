@@ -38,10 +38,12 @@ Dette dokumentet er porten i VK-2: Codex kan foreslå I27+-innsikter, men skal i
 
 P2.3 bekrefter at de parkerte I27+-kandidatene ikke skal genereres som nye innsiktsnoter i denne runden. De er nyttige som kø, men hver rad trenger egen claim-lock/datareview før den kan bli en I-node eller møtefigur.
 
+I29-datareview 2026-07-04 er utført i `research/_status/food-tg-r14/datareview/I29-nodekonsentrasjon-datareview-2026-07-04.md`. Konklusjonen er fortsatt parkering: AP-2 nodekonsentrasjon kan brukes som intern metodecaveat i I37/maktkartet, men skal ikke bli egen I29-node.
+
 | ID | Beslutning | Gate før ny node | Stopplinje |
 |---|---|---|---|
 | I28 | Behold som maktkart-observasjon, ikke egen innsiktsnode. | AP-1 claim-lock med metode, dekningsgrad og node-/brodefinisjon. | Ikke si at BAMA/ASKO er "maktens knutepunkt" uten å vise at dette er intern styregraf og ikke komplett verdikjedeunivers. |
-| I29 | Parker til nodekonsentrasjons-review. | AP-2 datareview med eksplisitt grafunivers, terskel og reproduserbar beregning. | Ikke oversett grafsentralitet til markedsmakt eller kontrollclaim. |
+| I29 | Parkert etter datareview; ikke generer egen I-node. | Ny beslutning + AP-2 claim-lock hvis den skal brukes utenfor I37/metodecaveat. | Ikke oversett intern node-/inntekts-HHI til markedsmakt, grafsentralitet eller kontrollclaim. |
 | I30 | Parker til tilskudds-/fordelings-review. | AP-3 source review med ordningsnevner, mottakerpopulasjon og geografisk caveat. | Ikke bruk tilskuddskonsentrasjon som enkelaktørkritikk. |
 | I32 | Parker til havbruksspesifikk claim-lock. | AP-6 datareview med havbruksunivers, eier-/lokalitetsnivå og dekning. | Ikke blande havbrukskonsentrasjon med dagligvaretriopol-claim. |
 | I33 | Parker til prisserie-review. | AP-7 PCQ for native prisserie før asymmetri-claim. | Ikke bruke proxy-test som dokumentert prisasymmetri. |
