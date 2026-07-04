@@ -6,6 +6,7 @@
 **Geo:** NO
 **Output-type:** actor status list
 **Dato:** 2026-06-28
+**Kontrollert:** 2026-07-02
 **Anbefalt gate:** actor-gate
 
 ---
@@ -113,6 +114,10 @@ Domenet www.andelslandbruk.no returnerte tomt svar. Referert til i en bildetekst
 ## Anbefalt gate
 
 **actor-gate** — Begrunnelse: Aggregattallet (90 aktive) er B-klasse (aktør-rapportert). Per-gård-lista for hele sektoren er ikke tilgjengelig uten JavaScript-kjøring av Økoguiden. Brreg-verifiserte enheter (25 identifisert) dekker anslagsvis 25–30 % av total populasjon. Ingen enkelt A-klasse kilde gir komplett per-gård aktiv status. Eventuelle fremstillinger av navngitte enkeltgårder som «aktive» krever individuell verifisering mot gårdens egne kanaler (nettside, sosiale medier, sesongopptak).
+
+## Kontroll 2026-07-02
+
+Kontrollert som actor-gate-flate mot `research/_status/food-tg-r13/actor-gate/R13-AKTOR-002-andelslandbruk-public-validation-2026-06-25.md`. Økologisk Norge-aggregatet og Brreg-utvalget kan brukes som datert kandidatgrunnlag, men ikke som uavhengig komplett aktivtelling. Status etter kontroll: `actor-gate-controlled`; raden er desk-dokumentert, men actor-gaten står til Økologisk Norge/andelslandbruk.no eller enkeltgårdene kan gi publiserbar aktiv 2025/2026-liste med dedupe-regel.
 
 ---
 

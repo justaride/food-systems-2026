@@ -2,6 +2,7 @@
 id: R13-LAND-003
 tittel: "Helsystem-kart og aktørtypologi — norsk matsystem"
 dato: 2026-06-28
+kontrollert: 2026-07-02
 gate: forstaelse
 importDecision: vent
 regel: intern-syntese
@@ -12,6 +13,8 @@ regel: intern-syntese
 **Dette dokumentet er et forståelse-dokument (arbeidskart), ikke en faktastemme.**
 
 Alle noder er syntetisert fra R13-outputs (batch 01–11). Kildeklasse og gate er beholdt fra originalfilene og er ikke løftet til et høyere nivå gjennom syntesen. Ingen node i dette kartet er klar for ekstern publisering uten PCQ eller actor-gate-gjennomgang slik angitt per node. Overclaim-vakt gjelder: syntese er ikke bevis.
+
+**Kontrollert:** 2026-07-02. Senere R13-kontroller overstyrer enkeltfakta i dette kartet; bruk filen som intern systemstruktur, ikke som siste faktakilde.
 
 ---
 
@@ -274,6 +277,12 @@ Dette kartet er ikke grunnlag for følgende påstander:
 - **source-shortlist**: Node 4 (distribusjon/REKO/Bondens marked), Node 7 (innovasjons-failure-ledger)
 
 Neste steg for å styrke kartet: lese R13-LAND-001 og LAND-002 (makt/eierkonsentrasjon og vertikal integrasjon), R13-AKTOR-004 (regenerative praktikere), R13-WASTE-serien, og INNO-001–003.
+
+## Kontroll 2026-07-02
+
+Kartet er kontrollert som intern syntese. Flere av blindflekkene som var korrekte 2026-06-28 er senere kontrollert i egne R13-filer, blant annet R13-LAND-001/002/005, R13-WASTE-001/003/004/005/006/007/008, R13-INNO-001/002/003/004/005/006/007, R13-OKO-002/003/004/005/006/007 og R13-PROT-001/002/003/004/005/006/007/008. Det gjør ikke denne filen claimbar; det gjør den til et eldre systemkart som må leses sammen med nyere kontrollerte artefakter.
+
+Bruksregel etter kontroll: ikke bruk tall, aktørlister eller statuslinjer her som ekstern kilde uten å gå til det nyeste kontrollerte underlagsdokumentet for den konkrete noden.
 
 ---
 

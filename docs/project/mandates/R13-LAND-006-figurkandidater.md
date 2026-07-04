@@ -2,6 +2,7 @@
 id: R13-LAND-006
 tittel: Figurkandidat-oversikt for whitepaper — R13
 dato: 2026-06-28
+kontrollert: 2026-07-02
 gate: internal
 importDecision: vent
 regel: intern figur-kandidatregister — ikke siterbar; ingen figur uten gate+status
@@ -12,6 +13,8 @@ regel: intern figur-kandidatregister — ikke siterbar; ingen figur uten gate+st
 ## Hva dette er — og hva det ikke er
 
 Dette er et **internt arbeidsregister** over hvilke R13-funn som *teknisk kunne bli* en figur, tabell, case-card eller kart i et eventuelt fremtidig whitepaper. Det er en kartlegging, **ikke en godkjenning til å publisere**, og **ikke en faktastemme**.
+
+**Kontrollert:** 2026-07-02. Registeret er ikke regenerert fra alle nyeste kontrollerte R13-artefakter; det bevares som intern figurkø med gate- og stoppliste.
 
 - Hver kandidat beholder **gaten fra originalfilen** (PCQ / source-shortlist / actor-gate / forstaelse / internal / parkert). Ingen funn er oppgradert fordi det ville gitt en god figur. En klar dataserie og en figur-klar dataserie er ikke det samme: gate avgjør, ikke estetikk.
 - Kolonnen **Figur-klar?** sier kun om funnet *per nå* har den datakvaliteten + synlige tomme cellene en ærlig figur krever — den endrer ikke gaten.
@@ -131,7 +134,7 @@ Funn som *ser* figur-verdige ut men er blokkert av C-hull (gjentatt fra underlag
 - **Direktesalg-kanaldekomponering** og **REKO 2025-tall**: ikke offentlig / frosset 2022. (R13-AKTOR-008/003)
 
 Gap i selve registeret:
-- R13-batch-13 ikke startet — ikke dekket her.
+- R13-batch-13 er senere kontrollert for LAND-005, og dette registeret har ikke blitt fullstendig regenerert fra 2026-07-02-kontrolltilstanden.
 - R4/R5/R6-domener (jf. datagap-atlas) ikke representert i R13-funnene.
 - Registeret rangerer ikke kandidater etter whitepaper-prioritet — det er bevisst (rangering ville være en figur-beslutning utenfor mandatet).
 
@@ -149,6 +152,10 @@ Gap i selve registeret:
 ## Anbefalt gate: internal
 
 Internt arbeidsregister. Ikke siterbart, ingen ekstern claim, ingen DB-skriving. Neste steg ved et eventuelt whitepaper-figurarbeid: ta hver kandidat merket **Ja / Ja, betinget** gjennom PCQ/claim-lock per figur, med de navngitte tomme cellene inkludert i figuren. Hold alle **Nei**-rader utenfor figurarbeid til underliggende gate flyttes.
+
+## Kontroll 2026-07-02
+
+Registeret er kontrollert som figurkø, ikke som endelig whitepaper-uttrekk. Flere underliggende R13-rader er nå kontrollert etter at registeret ble skrevet, inkludert R13-LAND-005 og flere waste/protein/økologi/innovasjon-filer. Det gjør bare køen tryggere som stoppliste: enhver figur må fortsatt bygges fra nyeste kontrollerte underlag med gate, kildeklasse, svakeste punkt og tomme celler synlig. R13-LAND-005 er kontrollert som nettverkskart, men er fortsatt ikke figurklart som samlet bevegelsesgraf uten åpne lenker og datert scope.
 
 ---DECISION-JSONL---
 {"id":"R13-LAND-006","decision":"enrich","valueTier":"high","title":"Figurkandidat-oversikt for whitepaper — R13","canonicalPath":"docs/project/mandates/R13-LAND-006-figurkandidater.md","shortVerdict":"~30 figurkandidater kartlagt på tvers av seks domener; ca. 6–8 er figur-klare med synlige tomme celler (dagligvarekonsentrasjon, vertikal integrasjon, marint R-stige, proteinselvforsyning, biodiversitet, øko-mål), resten blokkert av PCQ-C-hull, actor-gate eller forstaelse/internal-status; gate beholdt per kandidat fra originalfil","strongestSource":"R13-syntese batch 01-12 + claim-lock/PCQ-status","weakestPoint":"Registeret arver underlagets C-hull; største risiko er at en C-luke (fiskefôr, grossistprosenter, SOC-baseline, protein-gram-serie, realiserte altprotein-volum) pakkes som figur-klar data","sourceClass":"intern syntese — ikke siterbar; behold gate per kandidat","gapType":"C-hull i underlaget + batch-13/R4-R6 ikke dekket; ingen prioritetsrangering","gate":"internal","importDecision":"vent","ikkeSi":["R13 har X figur-klare funn til whitepaper (som publiseringsklart)","Disse tallene kan settes rett i en figur uten gate/tomme celler","Konsentrasjon = monopol eller koordinering","Utnyttet restråstoff = høyverdi","Selvforsyningsgraden er 50 %","Norge har en nasjonal SOC-baseline","Biodiversiteten er i fri fall","Behandle registeret eller forstaelse-kartene som siterbar kilde"],"fetchedSources":[],"fileEdited":true}

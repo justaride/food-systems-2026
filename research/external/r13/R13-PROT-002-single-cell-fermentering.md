@@ -1,6 +1,6 @@
 ---
 tittel: R13-PROT-002 - Single-cell og fermenteringsprotein
-status: Batch 05 research-output - ikke claim
+status: Source-shortlist-kontrollert 2026-07-02 - ikke claim
 id: R13-PROT-002
 priority: P1
 theme: protein-alt
@@ -15,6 +15,8 @@ sourceClass: A/B for actor capacity/status; C for realized Nordic annual volume
 ## Kort dom
 
 Nordisk single-cell og fermenteringsprotein har sterke teknologispor, men fortsatt svake apne data for realisert arlig volum. Unibio har forrelevant UniProtein med en dokumentert kommersiell forsteforsendelse til Danish Agro i 2021. Solar Foods har sterk kapasitet/status for Solein i Finland, med Factory 01 pa 160 tonn/ar og planer/LOI-er for hoyere volum, men Solein er mat-/humanprotein og ikke forvolum. Enifer/Pekilo og Nofima-sporene peker pa mykoprotein og nye foringredienser, men ma ikke gjores til realisert produksjon uten primarvolum.
+
+**Kontroll 2026-07-02:** Current-source pass confirms Unibio's first European UniProtein shipment was 24 t to Danish Agro in 2021, Solar Foods LOI remains 500-1 650 t/år Solein for health/performance nutrition in 2026-2030, Enifer's Finnish PEKILO plant remains capacity/ramp-up rather than realized annual volume, and Nofima's digestibility project is 2025-2027 method work. No annual Nordic realized feed-volume claim was promoted.
 
 ## Sterkeste kilde
 
@@ -71,4 +73,7 @@ Source-shortlist. Bruk som teknologi- og aktorledger. Alle volum og substitusjon
 | https://solarfoods.com/solar-foods-has-signed-a-letter-of-intent-regarding-commercialisation-of-5001650-tonnes-of-solein-per-year/ | Aktorprimar, LOI | B | 2026-06-28 |
 | https://nofima.com/projects/the-effect-of-process-on-protein-digestibility-in-salmon/ | Forskningsprosjekt | A/B | 2026-06-28 |
 | https://agfundernews.com/solar-foods-ceo-on-scaling-up-protein-from-thin-air-we-have-mous-and-lois-for-more-than-50-of-new-factory-already | Bransjeintervju/sekundar | B | 2026-06-28 |
-
+| https://www.unibio.dk/news?8ac15e48_page=2 | Aktorprimar/news index, UniProtein 24 t shipment | A/B | 2026-07-02 |
+| https://view.news.eu.nasdaq.com/view?id=b29d212bd4d69eb583a4d8983f7a13099&lang=en&src=listed | Public filing/news release, Solar Foods LOI | B | 2026-07-02 |
+| https://enifer.com/enifer-partners-with-fs | Aktorprimar, PEKILO facility status | A/B | 2026-07-02 |
+| https://nofima.com/projects/the-effect-of-process-on-protein-digestibility-in-salmon/ | Forskningsprosjekt, 2025-2027 | A/B | 2026-07-02 |

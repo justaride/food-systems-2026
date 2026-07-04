@@ -6,6 +6,7 @@
 **Geo:** NO
 **Output-type:** waste baseline memo
 **Dato:** 2026-06-27
+**Status:** PCQ-kontrollert 2026-07-02 — 2024-baseline bekreftet; husholdning 2025 ikke faktisk målt ennå
 **Anbefalt gate:** PCQ
 
 ---
@@ -21,6 +22,12 @@
 | Tomme celler | se under |
 | Ikke si | se under |
 | Anbefalt gate | PCQ |
+
+---
+
+## Kontrollnotat 2026-07-02
+
+Ny kildepassering bekrefter at NORSUS/Matvett 2024-faktaarket fortsatt er riktig baseline: kartlagt matsvinn ca. 407 100 tonn i 2024, 73,4 kg per innbygger, og 24 % reduksjon målt i kg per innbygger fra 2015 når jordbruk holdes utenfor endringsberegningen. Dagligvareleddet står fortsatt som 43 600 tonn i 2024 og -47 % målt i kg per innbygger fra 2015. NORSUS' 2025-forbrukerrapport gir selvrapportert husholdningssvinn på nivå med 2024 og -11 % fra 2022, men presiserer at selvrapportering ikke kan brukes som faktisk matsvinn. NORSUS oppgir også at faktiske 2025-husholdningstall kommer neste år. PCQ holdes kontrollert, uten claim-lock på 2025-husholdningsvolum.
 
 ---
 
@@ -99,8 +106,12 @@ Baseline-år varierer: husholdning bruker 2016, bransje bruker 2015. Reduksjonsp
 | Regjeringen.no / LMD — Bransjeavtale om reduksjon av matsvinn | 2017, oppdatert 2025-01-02 | Åpen HTML | Primær | https://www.regjeringen.no/no/tema/mat-fiske-og-landbruk/mat-og-ernaring/matsvinn/bransjeavtale-om-matsvinn-reduksjon/id2891198/ |
 | Lovdata — Lov om forebygging og reduksjon av matsvinn (matsvinnloven) | 2025-06-02 | Åpen | Primær | https://lovdata.no/dokument/ISL/isl/2025-06-02-68 |
 | SSB avfallsstatistikk | Løpende | Åpen | Primær (rådata, tolket av NORSUS) | https://www.ssb.no/statbank/table/13136 |
+| SSB Notater 2025/37 — Matavfall og matsvinnstatistikk | 2025 | Åpen PDF | Primær/metodenotat | https://www.ssb.no/natur-og-miljo/avfall/artikler/matavfall-og-matsvinnstatistikk/_/attachment/inline/94d9fa84-86a0-4d50-826c-b06eb703ac4b%3A7766af10975a5a29f2454f2bd04dc3a88420b1a5/NOT2025-37.pdf |
+| NORSUS/Matvett — Matsvinn i norske husholdninger, forbrukerundersøkelser 2025 | 2025 | Åpen PDF | Primær undersøkelse, ikke faktisk volumstatistikk | https://www.matvett.no/uploads/documents/Kartleggingsrapport_Forbrukerundersokelser-med-dybdeanalyser-2025.pdf |
+| NORSUS nyhet om matsvinntall 2024/2025 | 2025 | Åpen HTML | Sekundær oppsummering | https://norsus.no/en/nye-matsvinntall-fra-norsus-byr-pa-gode-nyheter-men-viser-at-innsatsen-fortsatt-ma-okes/ |
 
 *Alle kilder hentet 2026-06-27.*
+*Tilleggskilder kontrollert 2026-07-02.*
 
 ---
 

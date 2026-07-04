@@ -5,7 +5,7 @@
 **Tema:** Food waste / Side-stream ledger  
 **Geo:** NO  
 **Dato:** 2026-06-27  
-**Status:** Intern research-artefakt — ikke whitepaper, ikke citerbar uten videre gate
+**Status:** Source-shortlist-kontrollert 2026-07-02 — ikke whitepaper, ikke siterbar uten videre gate
 
 ---
 
@@ -20,6 +20,12 @@
 | Tomme celler | Se under |
 | Ikke si | Se under |
 | Anbefalt gate | source-shortlist |
+
+---
+
+## Kontrollnotat 2026-07-02
+
+Ny kildepassering fant ingen åpen norsk oppdatering som erstatter Nofima 67/2016 som samlet industriell sidestrøm-ledger for bryggeri, meieri og slakteri. Nofimas restråstoff-temaside er generell, Nofimas publikasjonsoversikt viser nye restråstoffarbeider men ikke en ny samlet jordbruk/industri-fraksjonstabell, og nyere SINTEF/NORSUS/Matvett-spor handler primært om matsvinn/matavfall, dagligvare eller sjømat, ikke fraksjonerte industrielle sidestrømmer på bryggeri/meieri/slakteri. Raden flyttes derfor til source-shortlist-controlled med samme tomme celler og uten volumclaim-oppgradering.
 
 ---
 
@@ -106,6 +112,9 @@
 | https://www.fhf.no/nyheter-og-arrangementer/nyheter-fra-fhf/rester-fra-oel-og-kyllingbein-kan-bli-fremtidens-laksemat/ | 2026-06-27 | Primær (FHF prosjektbeskrivelse, 2025) |
 | https://www.folkebladet.no/nyheter/i/k61P8j/mack-vil-bruke-co2-fra-oelbrygging-i-brus-og-flaskevann | 2026-06-27 | Sekundær (journalistisk, Mack-pilotprosjekt CO₂, 2022) |
 | https://norsus.no/wp-content/uploads/1.-OR.24.25-Faktaark-om-matsvinn-i-matindustrien-2024.pdf | 2026-06-27 | Primær (NORSUS/Matvett 2024 — matsvinn, ikke sidestrøm spesifikt) |
+| https://nofima.no/tema/restrastoff/ | 2026-07-02 | Primær temaside (generell restråstoffforskning, ikke volumledger) |
+| https://www.sintef.no/prosjekter/2025/kartlegging-av-matsvinn-fra-norsk-dagligvare/ | 2026-07-02 | Primær prosjektside (dagligvare/matsvinn, ikke industriell sidestrømledger) |
+| https://www.sintef.no/prosjekter/2022/matsvinn-2025/ | 2026-07-02 | Primær prosjektside (sjømat/matsvinn, ikke bryggeri/meieri/slakteri-fraksjoner) |
 
 ---
 

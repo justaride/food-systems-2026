@@ -6,7 +6,8 @@
 **Geo:** NO
 **Output-type:** R&D actor map
 **Dato:** 2026-06-28
-**Anbefalt gate:** source-shortlist
+**Kontrollert:** 2026-07-02
+**Anbefalt gate:** source-shortlist-controlled
 
 ---
 
@@ -14,13 +15,13 @@
 
 | Felt | Svar |
 |---|---|
-| Kort dom | Norsk matforskning er bredt organisert på tvers av NMBU, Nofima, NIBIO, SINTEF, Ruralis og NorSøk, med tung vekt på planteprotein, regenerativt jordbruk, fôrbærekraft, matsvinn og matsystemstyring. Nofima dominerer den industrinære forskningen med fire parallelle strategiske programmer 2025–2028 (FFL/Forskningsrådet, 350 mill. NOK ramme). NMBU og NIBIO har sterk prosjektportefølje på planteproduksjon og agroøkologi. Ruralis har intensivert arbeidet med matsystemmakt og klimapolitikk. |
-| Sterkeste kilde | Nofima prosjektportefølje (nofima.com/research-areas, 2025–2026, direkte institusjonsside) |
+| Kort dom | Norsk matforskning er bredt organisert på tvers av NMBU, Nofima, NIBIO, SINTEF, Ruralis og NorSøk, med tung vekt på planteprotein, regenerativt jordbruk, fôrbærekraft, matsvinn, beredskap og matsystemstyring. Nofima er en stor industrinær node gjennom fire parallelle FFL-strategiske programmer 2025–2028 (350 mill. NOK samlet ramme, maks 95 mill. NOK per program), men dette er et aktør-/prosjektkart, ikke dokumentasjon på implementerte resultater. NMBU og NIBIO har sterk prosjektportefølje på planteproduksjon, agroøkologi og areal-/beredskapsforskning. Ruralis har pågående prosjekter på matsystemmakt og klima-/helse-/miljøpolitikk. |
+| Sterkeste kilde | Forskningsrådets FFL-utlysning for Nofima 2025–2028 og direkte Nofima-prosjektsider (kontrollert 2026-07-02) |
 | Svakeste punkt | Budsjett og faktisk bemanning per prosjekt er sjelden offentlig tilgjengelig; prosjektliste ved SINTEF mat/landbruk er ufullstendig på offentlig nett; NorSøk-prosjektliste mangler fullstendige budsjetttall |
 | FoU-aktørkart | Se under |
 | Tomme celler | Se under |
 | Ikke si | Se under |
-| Anbefalt gate | source-shortlist |
+| Anbefalt gate | source-shortlist-controlled |
 
 ---
 
@@ -36,7 +37,7 @@
 | NMBU | DiversityOats — ny genetisk diversitet i havre; nye produkter inkl. glutenfri brød og vegansk meierierstatter; samler hele verdikjeden frå Graminor til Norgesgruppen | Havre / produktinnovasjon / selvforsyning | 2024–2027 | https://www.nmbu.no/en/research/projects/diversityoats | B | Tidlige faser; ingen publiserte resultater identifisert per søkedato |
 | NMBU | ProteinBar — økt proteininnhold i norsk fôrbygg gjennom splittet gjødsling og foredling; redusere importert protein | Fôrprotein / bygg | 2023–2026 | https://www.nmbu.no/en/research/projects/proteinbar | B | Budsjett og finansieringskilde ikke oppgitt på prosjektside |
 | NMBU | AllEcoSys — Horizon Europe living lab-nettverk for agroøkologiske praksiser; NMBU koordinerer; living labs i Norge (Dysterjordet andelslandbruk), Danmark, Tyskland, Frankrike, Romania | Agroøkologi / jordhelse / biodiversitet | 2025–2028 | https://www.nmbu.no/en/research/projects/allecosys | B | Oppstartsår 2025; ingen publiserte resultater per søkedato |
-| NMBU / NIBIO | INLAND — Center for Innovative Solutions for Sustainable Land Use and Nature Management; ledet av NIBIO og NMBU; 8-årig senter | Arealbruk / naturforvaltning / matsikkerhet | 2026–2034 | https://www.nibio.no/prosjekter/inland | B | Startet 1. aug 2026; offisiell nettside ikke etablert per søkedato; prosjektinnhold foreløpig begrenset offentlig tilgjengelig |
+| NMBU / NIBIO | INLAND — Center for Innovative Solutions for Sustainable Land Use and Nature Management; ledet av NIBIO og NMBU; 8-årig senter | Arealbruk / naturforvaltning / matsikkerhet | 2026–2034 | https://www.nibio.no/prosjekter/inland | B | NIBIO-siden var markert `inaktiv` 2026-07-02 med planlagt start aug 2026 og offisiell nettside først ved oppstart 1. aug 2026; ikke operativt per kontrolldato |
 
 ---
 
@@ -65,7 +66,7 @@
 | NIBIO | Mer mangfold i dyrkingsstrategiene — testing av kantvegetasjon, jordarbeiding, fangvekster, sortsblanding og samdyrking i korn og protein; samarbeid NLR | Biodiversitet / agroøkologi / integrert bekjempelse | 2023–2026 | https://www.nibio.no/prosjekter/mer-mangfold-i-dyrkingsstrategiene-for-a-oke-lonnsom-produksjon-av-sunne-okologiske-korn-og-proteinvekster | B | Totalbudsjett 2,49 mill. NOK; finansiert av Landbruksdirektoratet |
 | NIBIO | BestPrepared — styrket beredskap gjennom urbant landbruk og sanking; living labs i Oslo og Tromsø; inkl. ukrainsk erfaringsutveksling | Beredskap / urbant landbruk / matsikkerhet | 2026–2030 | https://www.nibio.no/en/projects/bestprepared | B | Totalbudsjett 10,85 mill. NOK; finansiert av Forskningsrådet |
 | NIBIO | Selvforsyningsberegninger — løpende statistisk arbeid for å beregne norsk matsselvforsyningsgrad (for LMD og Helsedirektoratet) | Selvforsyning / statistikk / politikk | Løpende | https://www.nibio.no/en/about-eng/research-matters/division-of-survey-and-statistics/research-matters-survey-and-statistics-2024/the-challenge-of-food-self-sufficiency | B | Metodisk arbeid, ikke avgrenset enkeltprosjekt; finansiert av LMD og Helsedirektoratet |
-| NIBIO | ProRefine — fraksjonering av engbelgvekster for lokal proteinfôr til enmaga dyr (gris, fjørfe) i ekonomisk landbruk; EU-prosjekt i 6 regioner | Proteinforedling / engbelgvekster / fôr | Pågående (sluttdato ikke funnet) | https://www.nibio.no/prosjekter/nye-metoder-for-produksjon-av-lokalt-hoykvalitetsfor-prorefine | C | Sluttdato og fullstendig finansieringsinfo ikke funnet i søk |
+| NIBIO | ProRefine — fraksjonering av engbelgvekster for lokal proteinfôr til enmaga dyr (gris, fjørfe) i økologisk landbruk; EU-prosjekt i 6 regioner | Proteinforedling / engbelgvekster / fôr | Pågående (sluttdato ikke funnet) | https://www.nibio.no/prosjekter/nye-metoder-for-produksjon-av-lokalt-hoykvalitetsfor-prorefine | C | Sluttdato og fullstendig finansieringsinfo ikke funnet i søk |
 
 ---
 
@@ -99,7 +100,7 @@
 
 | Institusjon | Prosjekt/program | Tema | År | Locator | Kildeklasse | Caveat |
 |---|---|---|---|---|---|---|
-| NorSøk | BIO2 (Horizon Europe, nr. 101181331) — nye løsninger for å erstatte uønskede innsatsfaktorer (kobber, svovel, antibiotika) i ekonomisk landbruk; barkekstrakter og marin gjødsel; 20 partnere fra 8 land inkl. Nofima, NIBIO, NLR | Ekonomisk landbruk / innsatsfaktorer / biokontroll | 2025–2028 | https://www.norsok.no/prosjekter/2025/nye-losninger-for-a-erstatte-uonska-innsatsfaktorer-i-okologisk-landbruk-naturlig-biomasse-og-mikrobiell-biokontroll | B | NORSØK er norsk partner under CNR Italia; industriell produksjon foreløpig ikke oppnådd |
+| NorSøk | BIO2 (Horizon Europe, nr. 101181331) — nye løsninger for å erstatte uønskede innsatsfaktorer (kobber, svovel, antibiotika) i økologisk landbruk; barkekstrakter og marin gjødsel; 20 partnere fra 8 land inkl. Nofima, NIBIO, NLR | Økologisk landbruk / innsatsfaktorer / biokontroll | 2025–2028 | https://www.norsok.no/prosjekter/2025/nye-losninger-for-a-erstatte-uonska-innsatsfaktorer-i-okologisk-landbruk-naturlig-biomasse-og-mikrobiell-biokontroll | B | NORSØK er norsk partner under CNR Italia; industriell produksjon foreløpig ikke oppnådd |
 | NorSøk | GREENHOOD (Horizon Europe, HORIZON-CL6-2024) — næringsbalanse og ressursoptimalisering i Trondheimsfjord-regionen; testing av nye gjødseltyper fra biogas, fiskeslam; 31 partnere fra 10 land | Næringsstrømmer / sirkulær gjødsel / akvakultur-landbruk | 2025–2028 | https://www.norsok.no/prosjekter/2025/naeringsbalanse-og-ressursoptimalisering-i-regionale-okosystemer-gjennom-helhetlig-baerekraftig-og-nullforurensningslosning | B | Prosjektleder er BETA Technological Center, Spania; NORSØK er norsk partner med feltansvar |
 | NorSøk | Frass-ladet biokull — testing av insektfrass-ladet biokull i sandjord for å redusere næringsutvasking; samarbeid NorInsect og RIBI Bioenergi | Insektbiprodukt / jordkvalitet / sirkulærøkonomi | 2026 | https://www.norsok.no/prosjekter/2026/frass-ladet-biokull-for-redusert-naeringsutvasking-i-sandjord | B | Enkeltårs pilotprosjekt (2026); finansiert av Statsforvalteren i Møre og Romsdal; svært begrenset omfang |
 | NorSøk | Matvekster for økt diversitet — integrering av matvekster på ekonomiske eng- og husdyrgårder i Trøndelag; agroøkologisk tilnærming; samarbeid NLR og Statsforvalteren | Diversifisering / lokal mat / agroøkologi | 2025–2027 | https://www.norsok.no/prosjekter/2025/matvekster-for-okt-diversitet-og-baerekraft-pa-okologiske-garder | B | Finansiert av Landbruksdirektoratet; deltakende prosess med bønder, ingen publiserte resultater ennå |
@@ -112,7 +113,7 @@
 | Aktør | Program/utlysning | Tema | År | Locator | Kildeklasse | Caveat |
 |---|---|---|---|---|---|---|
 | Forskningsrådet | FFL Strategiske programmer Nofima 2025–2028 — ramme 350 mill. NOK for fire programmer (Enable, InnoSense, MicroPack, NorwegianFoods) | Matforskning / bioøkonomi / FFL | 2025–2028 | https://www.forskningsradet.no/en/call-for-proposals/2024/new-strategic-programmes-nofima/ | A | Rammeutlysning; enkeltprosjektbudsjett offentliggjort som maks 95 mill. NOK per program |
-| Forskningsrådet | Portefølje Mat og bioressurser — investeringsplan 2026–2028; ~452 mill. NOK per år; temaer: bærekraftig fôr, jordhelse, robuste matsystemer, natur og arealbruk, FutureFoodS-partnerskap | Bioøkonomi / matsystem / innovasjon | 2026–2028 | https://www.forskningsradet.no/siteassets/portefoljer/mat-og-bioressurser/investeringsplan-2026-2028-portefolje-mat-bioressurser.pdf | A | Investeringsplan er et styrende dokument, ikke en liste over vedtatte prosjekter |
+| Forskningsrådet | Portefølje Mat og bioressurser — investeringsplan 2026–2028; tabellen viser 496 mill. NOK i 2026 og 488 mill. NOK i 2027/2028; temaer: bærekraftig fôr, jordhelse, robuste matsystemer, natur og arealbruk, FutureFoodS-partnerskap | Bioøkonomi / matsystem / innovasjon | 2026–2028 | https://www.forskningsradet.no/siteassets/portefoljer/mat-og-bioressurser/investeringsplan-2026-2028-portefolje-mat-bioressurser.pdf | A | Investeringsplan er et styrende dokument og planlagt porteføljeramme, ikke en liste over vedtatte prosjekter; utlysninger er med forbehold |
 | Forskningsrådet | Innovasjonsprosjekt landbasert bioøkonomi 2026 — 46,2 mill. NOK tilgjengelig; støtter bedriftsprosjekter innen jordbruk, matindustri, skogbruk | Landbasert bioøkonomi / næringslivsprosjekter | 2026–pågående | https://www.forskningsradet.no/en/call-for-proposals/2026/innovation-projects-for-the-industrial-sector-food-and-bioresources-2026/ | A | Åpen utlysning; ingen prosjektliste tilgjengelig (søknader under behandling) |
 | Forskningsrådet | Tildeling 166,5 mill. NOK til 14 prosjekter (okt 2024) — fôr (NIBIO, Feed&Feeding m.fl.), karbonomsetning, mat-klima-folkehelse-kobling (9 prosjekter) | Fôrbærekraft / jordhelse / matsystemhelse | 2025–2028 (estimert) | https://www.regjeringen.no/no/aktuelt/forskningsradet-deler-ut-1665-millioner-kroner-til-nye-forskningsprosjekt-innen-landbruk-og-mat/id3058758/ | B | Navneliste over prosjekter delvis tilgjengelig fra regjeringen.no-pressemelding; fullstendige prosjektbeskrivelser i prosjektbanken |
 | Forskningsrådet | FutureFoodS EU-partnerskap — startet 2024; norsk deltagelse i matsystemforskning; første utlysning åpnet 2024 | Matsystem / EU-samarbeid / transformasjon | 2024–pågående | https://www.forskningsradet.no/siteassets/portefoljer/mat-og-bioressurser/investeringsplan-mat-og-bioressurser-2025-2027.pdf | B | Norske prosjekter under FutureFoodS ikke identifisert i søk |
@@ -151,7 +152,7 @@
 
 ## Anbefalt gate
 
-source-shortlist — Mange prosjekter er identifisert, men fullstendige detaljer (budsjett, eksakte partnerlister, publiserte resultater) mangler for store deler av porteføljen. En source-shortlist bør prioritere: (1) Nofimas fire FFL-programmer med direkte kontakt for budsjett og partnerlister; (2) Forskningsrådets prosjektbank (prosjektbanken.forskningsradet.no) for de 14 prosjektene fra oktober 2024-tildelingen; (3) FutureFoodS-partnerskapets norske prosjekter; (4) INLAND-senteret etter offisiell oppstart august 2026.
+source-shortlist-controlled — Aktør- og prosjektkartet er kontrollert mot institusjonssider og Forskningsrådets utlysninger/investeringsplan per 2026-07-02. Det holder som kilde-/metodekort for FoU-aktører, men ikke som claim-lock: prosjektbudsjett, bemanning, partnerdetaljer, prosjektbankuttrekk og dokumenterte resultater mangler for flere rader. Videre arbeid bør prioritere: (1) Nofimas fire FFL-programmer med direkte kontakt eller prosjektbank for budsjett/partnerlister; (2) Forskningsrådets prosjektbank for de 14 prosjektene fra oktober 2024-tildelingen; (3) FutureFoodS-partnerskapets norske prosjekter; (4) INLAND-senteret etter offisiell oppstart 1. august 2026.
 
 ---
 
@@ -204,3 +205,15 @@ source-shortlist — Mange prosjekter er identifisert, men fullstendige detaljer
 | https://www.regjeringen.no/no/aktuelt/forskningsradet-deler-ut-1665-millioner-kroner-til-nye-forskningsprosjekt-innen-landbruk-og-mat/id3058758/ | Pressemelding (regjeringen.no) | B | 2026-06-28 |
 | https://www.sintef.no/forskning | Institusjonsnettside | C | 2026-06-28 — crawler ikke tilgjengelig (CRAWL_NOT_FOUND) |
 | https://nofima.no/prosjekter | Prosjektliste | C | 2026-06-28 — crawler ikke tilgjengelig (CRAWL_NOT_FOUND) |
+| https://www.forskningsradet.no/en/call-for-proposals/2024/new-strategic-programmes-nofima/ | Utlysningstekst re-kontroll | A | 2026-07-02 |
+| https://nofima.no/prosjekt/muliggjorende-teknologier-for-framtidens-matproduksjon/ | Prosjektside re-kontroll | B | 2026-07-02 |
+| https://nofima.com/projects/innovation-consumer-understanding-and-sensory-science-for-future-food-systems/ | Prosjektside re-kontroll | B | 2026-07-02 |
+| https://nofima.com/projects/food-microbiology-and-circular-packaging-solutions/ | Prosjektside re-kontroll | B | 2026-07-02 |
+| https://nofima.com/projects/improved-utilization-of-norwegian-agricultural-resources/ | Prosjektside re-kontroll | B | 2026-07-02 |
+| https://www.nibio.no/prosjekter/inland | Prosjektside re-kontroll | B | 2026-07-02 |
+| https://www.nibio.no/en/projects/bestprepared | Prosjektside re-kontroll | B | 2026-07-02 |
+| https://ruralis.no/prosjekter/cheops/ | Prosjektside re-kontroll | B | 2026-07-02 |
+| https://ruralis.no/en/projects/matmakt-korleis-maktforholda-i-det-norske-matsystemet-paverkar-berekraftsutviklinga-pa-tvers-av-mat-miljo-klima-og-folkehelse/ | Prosjektside re-kontroll | B | 2026-07-02 |
+| https://www.norsok.no/prosjekter/2025/nye-losninger-for-a-erstatte-uonska-innsatsfaktorer-i-okologisk-landbruk-naturlig-biomasse-og-mikrobiell-biokontroll | Prosjektside re-kontroll | B | 2026-07-02 |
+| https://www.norsok.no/prosjekter/2025/naeringsbalanse-og-ressursoptimalisering-i-regionale-okosystemer-gjennom-helhetlig-baerekraftig-og-nullforurensningslosning | Prosjektside re-kontroll | B | 2026-07-02 |
+| https://www.forskningsradet.no/siteassets/portefoljer/mat-og-bioressurser/investeringsplan-2026-2028-portefolje-mat-bioressurser.pdf | Styringsdokument re-kontroll | A | 2026-07-02 |

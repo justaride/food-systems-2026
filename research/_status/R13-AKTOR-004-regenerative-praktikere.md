@@ -6,6 +6,7 @@
 **Geo:** NO
 **Output-type:** practitioner map
 **Dato:** 2026-06-28
+**Kontrollert:** 2026-07-02
 **Anbefalt gate:** actor-gate
 
 ---
@@ -137,6 +138,10 @@
 ## Anbefalt gate
 
 actor-gate — Kartleggingen identifiserer et begrenset antall navngitte og stedfestede gårder med selvrapportert regenerativ praksis (B-klasse), samt et bredere nettverk av HM-utøvere uten offentlig navneliste (C for enkeltaktørene). Før disse aktørene kan brukes som «verifiserte» i et eksternt dokument, bør actor-gate gjøre to ting: (1) sjekke om navngitte gårder fortsatt er aktive (Fossnes, Korsviken, Steinvik osv.), og (2) avklare om en norsk primærkilde (f.eks. NLR-register, Debio-liste eller Regenerativt Norges eget kart) kan løfte enkeltaktører fra B til A.
+
+## Kontroll 2026-07-02
+
+Kontrollert som actor-gate-flate mot `research/_status/food-tg-r13/actor-gate/R13-AKTOR-004-regenerative-praktikere-public-validation-2026-06-25.md`. Navngitte gårder, prosjekter og nettverk gir kandidat- og metodekart, men ikke et verifisert nasjonalt register over aktive regenerative praktikere, praksisfelt eller effektmålinger. Status etter kontroll: `actor-gate-controlled`; ikke bruk som totalantall, kart eller verifisert praksisregister uten dataeier-/gårdsbekreftelse.
 
 ---
 

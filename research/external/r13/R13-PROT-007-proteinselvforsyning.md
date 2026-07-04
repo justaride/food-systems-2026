@@ -6,6 +6,7 @@
 **Geo:** NO
 **Output-type:** protein self-sufficiency memo
 **Dato:** 2026-06-28
+**Status:** PCQ-kontrollert 2026-07-02 — 2025 NIBIO-foreløpig lagt til; proteinserie fortsatt C-hull
 **Anbefalt gate:** PCQ
 
 ---
@@ -14,7 +15,7 @@
 
 | Felt | Svar |
 |---|---|
-| Kort dom | Norges offisielle selvforsyningsgrad er ~41 % (rå, 2024), men fôrkorrigert er den kun 35 %. Ingen offisiell serie finnes for protein-spesifikk selvforsyning (gram protein innenlands vs. import). For enkeltgrupper som kjøtt/meieri/egg er rå-andel 75–99 %, men fôrkorrigert faller den til 75–81 %. Proteinråvarene i kraftfôr er 95 % importert (2025). Fiskeoppdrett er i praksis utelatt fra selvforsyningsberegningen fordi fôret er nær 100 % importert. |
+| Kort dom | NIBIOs foreløpige 2025-side viser rå selvforsyningsgrad 40,7 % og fôrkorrigert 35,7 %; Helsedirektoratets 2025-rapport viser 2024-nivå 41,3 % rå, 34,9 % fôrkorrigert og dekningsgrad 79,1 %. Ingen offisiell serie finnes for protein-spesifikk selvforsyning (gram protein innenlands vs. import). For enkeltgrupper som kjøtt/meieri/egg er rå-andel 75–99 %, men fôrkorrigert faller den til 75–81 %. Proteinråvarene i kraftfôr er 95 % importert (2025). Fiskeoppdrett er i praksis utelatt fra selvforsyningsberegningen fordi fôret er nær 100 % importert. |
 | Sterkeste kilde | NIBIO/Helsedirektoratet «Utviklingen i norsk kosthold 2025», kap. 4.12, nov. 2025 — https://www.helsedirektoratet.no/rapporter/utviklingen-i-norsk-kosthold-2025/matvarer/selvforsyningsgrad |
 | Svakeste punkt | Ingen offisiell protein-spesifikk selvforsyningsserie finnes (gram protein per capita innenlands vs. import). Fôrkorrigert metode dekker ikke fiskefôr. Aquakultur-fôrandel er estimert av bransje, ikke offisiell statistikk. |
 | Funn-tabell | Se under |
@@ -44,6 +45,8 @@ FAO beregner «dekningsgrad» (coverage ratio) — hva et land produserer relati
 
 | Kategori | Innenlands andel | Import | Metode | År | Kildeklasse | Caveat |
 |---|---|---|---|---|---|---|
+| Total matforsyning (rå selvforsyningsgrad) | 40,7 % | 59,3 % | Rå; energibasis; ekskl. fiskefôrkorreksjon | 2025 (foreløpig) | A — NIBIO temaside | Foreløpig; NIBIO oppgir også avrundet 36 % for norske jordbruksråvarer korrigert for importert fôr |
+| Total matforsyning (fôrkorrigert, husdyr) | 35,7 % | 64,3 % | Fôrkorrigert; korrigerer kun kraftfôr til husdyr; ekskl. fiskefôr | 2025 (foreløpig) | A — NIBIO temaside | NIBIO presiserer at modellen bare korrigerer import av kraftfôr til husdyr, ikke fiskefôr eller andre fôrimporter |
 | Total matforsyning (rå selvforsyningsgrad) | 41,3 % | 58,7 % | Rå; energibasis; ekskl. fiskefôrkorreksjon | 2024 (foreløpig) | A — NIBIO/Helsedirektoratet | Foreløpige tall; matkornhøst 2023–2024 dårlig, trekker ned |
 | Total matforsyning (fôrkorrigert, husdyr) | 34,9 % | 65,1 % | Fôrkorrigert; korrigerer kun kraftfôr til husdyr; ekskl. fiskefôr | 2024 (foreløpig) | A — NIBIO/Helsedirektoratet | Faller markant fra 41,6 % (2023); metodisk brudd: fiskemel/SPC til oppdrett ikke med |
 | Total matforsyning (fôrkorrigert, husdyr) | 41,6 % | 58,4 % | Fôrkorrigert; husdyr | 2023 | A — NIBIO/Helsedirektoratet | Høyere pga. bedre matkornhøst |
@@ -69,7 +72,7 @@ FAO beregner «dekningsgrad» (coverage ratio) — hva et land produserer relati
 
 ## Tomme celler
 
-- **Protein-spesifikk selvforsyning i gram/capita/dag:** Ingen offisiell norsk serie. NIBIO nevner muligheten, men måler per energi (kJ), ikke per protein. Epistemisk hull (C).
+- **Protein-spesifikk selvforsyning i gram/capita/dag:** Ingen offisiell norsk serie funnet etter kontroll mot NIBIOs nåværende selvforsyningsside og Helsedirektoratets 2025-rapport. NIBIO nevner muligheten, men måler per energi (kJ), ikke per protein. Epistemisk hull (C).
 - **Fôrkorrigert selvforsyningsgrad inkl. fiskefôr:** Eksisterende offisiell beregning korrigerer kun for kraftfôr til husdyr. Fiskefôr (SPC, fiskemel, rapsolje etc.) er ekskludert. NIBIO erkjenner dette som en kjent begrensning. Hull (C) for total fôrkorrigert inkl. akvakulturfôr.
 - **Produktgruppevis selvforsyningsgrad 2024 (oppdatert):** NIBIO varslet at tallene for individuelle produktgrupper for 2024 ville foreligge før sommer 2025. Disse er ikke verifisert tilgjengelig i kildesøket (mulig C).
 - **Aquakultur proteinbalanse:** Volum norskprodusert protein i laksefôr (fiskemel fra trimmingavfall, norsk insektprotein etc.) vs. importvolum — kun aktøranslag, ikke offisiell statistikk (B/C).
@@ -100,7 +103,7 @@ FAO beregner «dekningsgrad» (coverage ratio) — hva et land produserer relati
 
 ## Kilder sjekket
 
-- https://www.nibio.no/tema/landbruksokonomi/selvforsyningsgrad-og-engrosforbruk (NIBIO, oppdatert mai 2025)
+- https://www.nibio.no/tema/landbruksokonomi/selvforsyningsgrad-og-engrosforbruk (NIBIO, foreløpige 2025-tall kontrollert 2026-07-02)
 - https://www.helsedirektoratet.no/rapporter/utviklingen-i-norsk-kosthold-2025/matvarer/selvforsyningsgrad (Helsedirektoratet, nov. 2025)
 - https://nibio.brage.unit.no/nibio-xmlui/bitstream/handle/11250/3105805/NIBIO_RAPPORT_2023_9_137.pdf (NIBIO Rapport 2023:137 — «Norsk selvforsyning av matvarer – status og potensial»; PDF ikke tilgjengelig for direkte lesing, men sitert i sekundærkilder)
 - https://www.landbruksdirektoratet.no/nb/statistikk-og-utviklingstrekk/utvikling-i-jordbruket/kraftforstatistikk (Landbruksdirektoratet, råvareforbruk kraftfôr 2025, oppdatert mai 2026)

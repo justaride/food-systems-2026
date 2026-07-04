@@ -6,6 +6,7 @@
 **Geo:** Nordic
 **Output-type:** network map memo
 **Dato:** 2026-06-28
+**Kontrollert:** 2026-07-02
 **Anbefalt gate:** actor-gate
 
 ---
@@ -68,6 +69,10 @@
 ## Anbefalt gate
 
 actor-gate — Alle fire navngitte noder er bekreftet med locator og norsk kobling. Frøsamlerne er avklart som dansk aktør med norsk samarbeidskobling via KVANN. Tomme celler er dokumenterte episteme-gap, ikke feil. Før nettverksdata tas inn i akørdatabasen bør følgende sjekkes: (1) KVANN-organisasjonsnummer i Brreg, (2) Solhatt AS-organisasjonsnummer og eierskap i Brreg, (3) GENBIS-søk for norskspesifikke frøprøver i NordGen, (4) Landbruksdirektoratets seneste tilskuddsoversikt for genressurstiltak.
+
+## Kontroll 2026-07-02
+
+Kontrollert som actor-gate-flate mot `research/_status/food-tg-r13/actor-gate/R13-AKTOR-005-fro-genressurs-dataeier-2026-06-25.md` og senere R13-LAND-005-kontroll. KVANNs org.nr. og stiftelsesdato er nå kontrollert i R13-LAND-005/Brreg, men denne filens hovedgate består: sort-/accessionfelt, norsk andel i NordGen, Solhatt-frøavlernettverk, tilgangsregler og volum krever dataeier eller databasesøk før atlas/figur/DB-import. Status etter kontroll: `actor-gate-controlled`; bruk som nettverks- og dataeierkart, ikke som lukket genressursregister.
 
 ---
 

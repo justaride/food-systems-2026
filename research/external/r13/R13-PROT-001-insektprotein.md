@@ -1,6 +1,6 @@
 ---
 tittel: R13-PROT-001 - Insektprotein aktorledger
-status: Batch 05 research-output - ikke claim
+status: Source-shortlist-kontrollert 2026-07-02 - ikke claim
 id: R13-PROT-001
 priority: P1
 theme: protein-alt
@@ -15,6 +15,8 @@ sourceClass: A/B for actor/regulatory status; C for realized volume
 ## Kort dom
 
 Insektprotein i Norge/Norden er best dokumentert som FoU, pilot, kapasitet og regulatorisk mulighet, ikke som en apen realisert forvolumserie. Invertapro har sterkt norsk aktoranker for insektbaserte forprodukter til laksefisk og fjorfe, men oppgir ikke tonnasje. EU/EOS-regelverket apner for prosessert animalsk protein fra insekter til akvakultur under vilkar, mens novel-food-sporet for insekt som menneskemat er en annen regulatorisk vei. Pure Salmon Kaldnes/Pure Salmon Technology er i apne kilder primart RAS-/teknologiaktor, ikke dokumentert insektproteinprodusent.
+
+**Kontroll 2026-07-02:** Invertapro/CoRoSect current pages still anchor the Norwegian actor as Tenebrio/yellow-mealworm, while current ENORM/Volare checks reinforce the same row logic as R13-GAP-004: capacity/funding/offtake is not realized feed volume. No open annual Nordic insect-protein tonnage was promoted.
 
 ## Sterkeste kilde
 
@@ -71,4 +73,6 @@ Source-shortlist. Bruk som aktor- og regulatorisk ledger. Faktisk volum og kunde
 | https://food.ec.europa.eu/food-safety/novel-food/authorisations/approval-insect-novel-food_en | EU novel food | A | 2026-06-28 |
 | https://nofima.com/results/new-fraction-from-insect-meal-tested-in-feed/ | Forsknings-/forsoksanker | A/B | 2026-06-28 |
 | https://www.skretting.com/en/news-and-stories/insect-meal-now-in-commercial-skretting-feed/ | Aktor-/bransjeanker | B | 2026-06-28 |
-
+| https://corosect.eu/our-team/invertapro/ | Aktor-/prosjektanker, Tenebrio/yellow-mealworm | B | 2026-07-02 |
+| https://agfundernews.com/breaking-danish-insect-ag-firm-enorm-declared-bankrupt-after-failed-reconstruction-process | Bransje-/statusanker, ENORM bankruptcy | B | 2026-07-02 |
+| https://volare.fi/fi/news/volare-secures-26m/ | Aktorprimar, Volare capacity/offtake status | A/B | 2026-07-02 |

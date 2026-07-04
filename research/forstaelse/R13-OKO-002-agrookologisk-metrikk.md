@@ -6,6 +6,7 @@
 **Geo:** NO
 **Output-type:** metric inventory
 **Dato:** 2026-06-28
+**Kontrollert:** 2026-07-02
 **Anbefalt gate:** forstaelse
 
 ---
@@ -100,6 +101,10 @@ Det er ikke etablert et samlet nasjonalt overvåkingssystem for agroøkologiske 
 ## Anbefalt gate
 
 forstaelse — Kildebildet er fragmentert og mange tomme celler er dokumentert. Funnene egner seg til å kartlegge kunnskapslandskapet og identifisere hva som faktisk måles vs. hva som påstås. Ingen av indikatorene i dette dokumentet er klare for ekstern fremstilling som etablerte norske data uten videre kildeverifisering. Dokumentet er grunnlag for prioritering av videre kildearbeid (særlig NIBIO 3Q-programmet, TerraNordica-resultater, og EOV-status i Norge).
+
+## Kontroll 2026-07-02
+
+Notatet er kontrollert som metrikklandskap, ikke som siste eksterne kilde. For jordkarbon, JordVAAK, NSCM, jordkartlegging og nasjonal SOC-baseline skal `research/external/r13/R13-OKO-003-jordhelse-karbon.md` brukes som nyeste kontrollerte kilde. For 3Q, Naturindeks, ASO, Artsdatabanken og biodiversitetsindikatorer skal `research/external/r13/R13-OKO-004-biodiversitet-jordbruk.md` brukes som nyeste kontrollerte kilde. Denne filen bevarer helhetsbildet og tomme celler for agroøkologisk/regenerativ metrikk; den åpner ingen figur eller ekstern påstand.
 
 ---
 

@@ -6,6 +6,7 @@
 **Geo:** NO
 **Output-type:** verified actor CSV
 **Dato:** 2026-06-28
+**Kontrollert:** 2026-07-02
 **Anbefalt gate:** actor-gate
 
 ---
@@ -111,6 +112,10 @@
 ## Anbefalt gate
 
 **actor-gate** — Ledgeren bygger på Brreg-primærdata (kildeklasse A) for alle individuelle foretak. Organisasjonene Småskala Grønt Norge og Markedshager Vestland er primærverifisert i Brreg, men mangler sekundærdata (nettside, medlemsliste, kontaktperson). Ledgeren er egnet til intern bruk for kartlegging, men bør ikke brukes til å hevde fullstendighet av det norske markedshage-segmentet. Neste steg: direkte henvendelse til Småskala Grønt Norge for å innhente medlemsliste.
+
+## Kontroll 2026-07-02
+
+Kontrollert som actor-gate-flate mot `research/_status/food-tg-r13/actor-gate/R13-AKTOR-001-markedshager-public-validation-2026-06-25.md`. Brreg-navnesøk og nettverksflater kan brukes som kandidatledger, men ikke som nasjonal populasjon, aktivstatus eller produksjonsbevis. Status etter kontroll: `actor-gate-controlled`; raden er desk-dokumentert, men selve actor-gaten er ikke lukket før dataeier/produsent bekrefter aktiv 2025/2026-status, medlemsliste eller deduplisert produsentregister.
 
 ---
 

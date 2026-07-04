@@ -1,6 +1,6 @@
 ---
 tittel: R13-PROT-003 - Musling, tang og tare
-status: Batch 05 research-output - ikke claim
+status: Source-shortlist-kontrollert 2026-07-02 - ikke claim
 id: R13-PROT-003
 priority: P1
 theme: protein-alt
@@ -15,6 +15,8 @@ sourceClass: A for project/status; C for realized commercial feed volume
 ## Kort dom
 
 R12-FEED-005 kan lukkes som source-shortlist, ikke som volumclaim. Blaskjellprotein har det sterkeste primarankeret gjennom FHF 901895 / Mussel Up og Nofima/HI-prosjektomtale. Prosjektet pagar 2023-2026 og undersoker oppskalering, prosessering, fortest, LCA og okonomi. Potensialtallene for stor skala ma behandles som scenario/potensial, ikke realisert produksjon. Tang/tare og mikroalger er relevante FoU-/mattrygghets- og ravare-spor, men realisert kommersiell nordisk forvolumserie er fortsatt C.
+
+**Kontroll 2026-07-02:** Nofima and Havforskningsinstituttet still frame Mussel Up as a 2023-2026 research/testing project, not a realized commercial feed-volume series. Nordic seaweed evidence remains food-safety/risk-management oriented. The source-shortlist gate is therefore retained.
 
 ## Sterkeste kilde
 
@@ -70,4 +72,6 @@ Source-shortlist. Lukk R12-hullet som teknologi- og datagapledger. Eventuell cla
 | https://nofima.no/forskning/ravarer-fra-havbruk-fiskeri-og-landbruk/mat-fra-nye-arter-vekster/ | Forskningsoversikt | B | 2026-06-28 |
 | https://www.nordicinnovation.org/programs/local-fish-feed-ingredients-competitive-and-sustainable-production-high-quality | Nordisk prosjektanker | A/B | 2026-06-28 |
 | https://pub.norden.org/temanord2022-564/1introduction.html | Nordisk policy-/kunnskapsrapport | A/B | 2026-06-28 |
-
+| https://nofima.com/projects/blue-mussel-protein-for-aquafeeds/ | Forsknings-/prosjektomtale, Mussel Up 2023-2026 | A/B | 2026-07-02 |
+| https://www.hi.no/en/hi/news/2026/january/we-are-testing-blue-mussels-in-salmon-feed | Forsknings-/prosjektomtale, feed testing | A/B | 2026-07-02 |
+| https://pub.norden.org/temanord2022-564/ | Nordisk food-safety report landing page | A/B | 2026-07-02 |

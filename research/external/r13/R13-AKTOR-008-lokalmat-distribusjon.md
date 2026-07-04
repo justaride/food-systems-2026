@@ -6,6 +6,7 @@
 **Geo:** NO
 **Output-type:** distribution actor map
 **Dato:** 2026-06-28
+**Status:** Source-shortlist-controlled 2026-07-02 — ingen claims
 **Anbefalt gate:** source-shortlist
 
 ---
@@ -14,9 +15,9 @@
 
 | Felt | Svar |
 |---|---|
-| Kort dom | Lokalmat-distribusjon i Norge er fragmentert mellom fire distinkte lag: statlig kuratert B2B-portal (Lokalmat.no), sesongstyrt direktesalg (Bondens marked, REKO), regionale food hubs/andelslag (Gudbrandsdalsmat m.fl.) og kommersielle spesialvaresgrossister (Godt Lokalt/Spesialgrossistene). Totalt direktesalg via alle kanaler (gårdsutsalg, Bondens marked, REKO m.m.) var 938 mill. kr i 2025, opp 8 % fra 725 mill. kr i 2023/2024. Digitale kortreist-plattformer (LocalFood, Dyrket, Tastebuds, Rekono) er aktive men fragmenterte og mangler omsetningstall. |
-| Sterkeste kilde | Reiler Consulting / Stiftelsen Norsk Mat, Lokalmatrapport for 2025, regjeringen.no, 2025-12-02 |
-| Svakeste punkt | Kanaloversikt fordelt per salgskanal (dvs. andel av 938 mill. kr som tilhører hvert enkelt direktesalgsformat) finnes ikke i offentlig tilgjengelig kilde. Aktørantal og volum for de digitale plattformene LocalFood, Dyrket, Tastebuds og Rekono er ikke publisert. |
+| Kort dom | Lokalmat-distribusjon i Norge er fragmentert mellom fire distinkte lag: B2B-oversikt/infrastruktur (Lokalmat.no), sesongstyrt direktesalg (Bondens marked, REKO, gårdsutsalg), regionale food hubs/andelslag (Gudbrandsdalsmat m.fl.) og kommersielle spesialgrossister (Godt Lokalt/Spesialgrossistene). Lokalmatrapport 2025 kontrollerer totalmarkedet på 13,55 mrd. kr, dagligvare på 6,45 mrd. kr og storhusholdning + direktesalg på 7,1 mrd. kr, hvor direktesalg er 938 mill. kr. Digitale kortreist-plattformer (LocalFood, Dyrket, Tastebuds, Rekono) er aktive/observerbare, men har ikke offentlig omsetnings- eller markedsandelsgrunnlag. |
+| Sterkeste kilde | Stiftelsen Norsk Mat/Reiler Consulting Lokalmatrapport 2025 + regjeringen.no pressemelding for aggregerte markedstall; Lokalmat.no, Bondens marked og Godt Lokalt egne sider for aktørklassifisering. |
+| Svakeste punkt | Kanaloversikt fordelt per salgskanal (dvs. andel av 938 mill. kr som tilhører hvert enkelt direktesalgsformat) finnes ikke i offentlig tilgjengelig kilde. Aktørantall og volum for LocalFood, Dyrket, Tastebuds og Rekono er helt eller delvis upublisert. |
 | Aktørkart | se under |
 | Tomme celler | se under |
 | Ikke si | se under |
@@ -34,15 +35,15 @@ Stiftelsen Norsk Mat (tidligere Matmerk) er den sentrale institusjonen bak Lokal
 
 | Aktør | Kanaltype | Dekning | Locator | Kildeklasse | Caveat |
 |---|---|---|---|---|---|
-| **Lokalmat.no** | B2B-katalogportal; kobler produsenter med innkjøpere i dagligvare og HoReCa. Ingen direktesalg til forbruker. | Nasjonal. 650+ produsenter, 3 100+ produkter (2024). | https://www.lokalmat.no | A — driftsinfo og produsenttall fra Stiftelsen Norsk Mat (2024/2026) | Er en produktkatalog/matchmaking-portal, ikke en transaksjonskanal. Distribusjon skjer via grossist (Tine, Servicegrossistene, Spesialgrossisten m.fl.) eller direkte. Ingen omsetningstall for portalen spesifikt. |
+| **Lokalmat.no** | B2B-katalog/oversikt; kobler produsenter med innkjøpere i dagligvare, hotell og restaurant. Ingen direktesalg til forbruker. | Nasjonal. Over 650 produsenter og over 3 100 produkter ifølge Lokalmat.no. | https://www.lokalmat.no | A — driftsinfo og produsenttall fra Stiftelsen Norsk Mat/Lokalmat.no | Er en produktkatalog/matchmaking-portal, ikke en transaksjonskanal. Distribusjon skjer via produsent, grossist eller annen kanal. Ingen omsetningstall for portalen spesifikt. |
 | **Stiftelsen Norsk Mat (Matmerk)** | Forvaltningsorgan; merkeordninger (Nyt Norge, Spesialitet, Beskyttede betegnelser), KSL, Lokalmat.no. Ingen distribusjonskanal. | Nasjonal | https://www.matmerk.no / https://stiftelsennorskmat.no | A — offentlig stiftelse, LMD-oppdrag | Matmerk er ikke en distribusjonsaktør. Relevant som sertifiserings- og informasjonsinfrastruktur. |
-| **Bondens marked Norge** (Stiftelsen Bondens marked Norge, org.nr. 995 680 254) | Fysiske direktesalgsmarkeder: produsent selger selv til forbruker. Andelslag-modell per lokallag. | Ca. 20 steder i aktiv drift (2026), over 50 markeder nevnes på forsiden. 388 markedsdager i 2023/2024. Oslo størst med 27 mill. kr omsetning 2023. | https://bondensmarked.no | A — stiftelsens egne sider og bondebladet.no, nov. 2024 | Sesongstyrt (vår–høst). Kun 2 fast ansatte nasjonalt; avhengig av frivillige lokallag. Telemark-laget la ned i 2024/2025. Statstilskudd: 2 mill. kr/år (2026-sats). Kanalvolum for hele Bondens marked nasjonalt ikke offentliggjort. |
-| **REKO-ringer** | Direktesalg via lukkede Facebook-grupper; forhåndsbestilling, fast utleveringssted. Ingen organisatorisk overbygning (grasrotbevegelse). | Over 200 ringer (2025). ~500 000 tilknyttede kunder og 600+ produsenter (per feb. 2022; oppdatert tall mangler). | https://www.rekonorge.no | B — tall fra rekonorge.no (ikke uavhengig kilde); facebook-basert struktur gjør nasjonal telling usikker | **Se R13-AKTOR-003 for full REKO-kartlegging.** Ikke duplikert her. Inkludert i direktesalg-totalen 938 mill. kr (2025) men andel ikke brutt ned. |
+| **Bondens marked Norge** (Stiftelsen Bondens marked Norge, org.nr. 995 680 254) | Fysiske direktesalgsmarkeder: produsent selger selv til forbruker. Andelslag-modell per lokallag. | Om lag 20 ulike steder i Norge ifølge `om oss`; forsiden markedsfører over 50 markeder i hele Norge. | https://bondensmarked.no | A — stiftelsens egne sider; fagpresse for eldre omsetningssignaler | Sesongstyrt. "Over 50 markeder" og "om lag 20 steder" teller ulike ting; nasjonal omsetning for Bondens marked alene er ikke offentliggjort i de kontrollerte kildene. |
+| **REKO-ringer** | Direktesalg via Facebook-grupper; forhåndsbestilling, fast utleveringssted. Lokale autonome ringer med ny nasjonal støtteorganisasjon. | Over 130 ringer på REKO Norges forside; over 140 ringer, ca. 500 000 kunder og over 600 produsenter er datert februar 2022. | https://www.rekonorge.no | B — tall fra rekonorge.no og Landbruksdirektoratet 4/2026; Facebook-basert struktur gjør nasjonal telling usikker | **Se R13-AKTOR-003 for full REKO-kartlegging.** Ikke duplikert her. Inkludert i direktesalg-totalen 938 mill. kr, men REKO-andel er ikke brutt ned. |
 | **LocalFood.no** | Digital markedsplass for REKO-ringer og direktesalg; app/nettside for bestilling og betaling utenfor Facebook. | Nasjonal (kartfunksjon, alle fylker). Antall aktive ringer/produsenter ikke oppgitt. | https://localfood.no | B — aktørens egne nettsider; ingen uavhengig omtale funnet | Relativt ny plattform; relasjonen til REKO-nettverket uklar (supplement vs. konkurrent til Facebook-basert REKO). Omsetningstall ikke offentlig. |
 | **Rekono** | Kortreist mat levert hjem via lokale idrettslag; produsenter selger, idrettslaget utfører levering. | Oslo-basert (Odins gate 1 C); lansert 2026. Utbredelse ikke dokumentert. | https://rekono.no | B — aktørens egne nettsider (2026) | Konseptstadium/svært tidlig. Idrettslagsmodellen er unik men volum og produsenter er ikke kjent. |
-| **Dyrket.no** | Digital salgs- og distribusjonstjeneste; hub-og-spoke fra lager på Sollihøgda; levering til private og HoReCa i Oslo-regionen. | Oslo-regionen. Ca. 100 produsenter, 1 000+ produkter. | https://www.dyrket.no | B — aktørens egne sider og Regjeringens lokalmatstrategi, 2024 | Omfang utenfor Oslo-regionen ikke dokumentert. Omsetningstall ikke offentlig. Nevnt i Regjeringens "Oppskrift for mer lokalmat"-strategi som eksempel på digital plattform. |
+| **Dyrket.no** | Digital salgs- og distribusjonstjeneste; direkte bestilling fra lokale produsenter. | Oslo-området ifølge regjeringens strategi. 100 små og mellomstore produsenter i strategiens eksempelboks. | https://www.dyrket.no | B — aktørens egne sider og Regjeringens lokalmatstrategi | Omfang utenfor Oslo-regionen ikke dokumentert i kontrollerte kilder. Omsetningstall ikke offentlig. |
 | **Tastebuds** | Hjemlevering av lokalmat i Bergen; plukker fra produsenter og samler i én ukentlig levering. | Bergen by. 50+ produsenter. Bestilling tirsdag, levering torsdag. | https://www.tastebuds.no | B — aktørens egne sider; DOGA-pressemelding okt. 2024; Retailmagasinet okt. 2024 | Kun Bergen (2026). Fikk 500 000 kr DOGA DIP-støtte okt. 2024 for å videreutvikle plattform ("Spotify for mat"). Omsetningstall ikke offentlig. |
-| **Godt Lokalt / Spesialgrossistene (DLVRY)** | Kommersiell spesialgrossist; samler lokalmat fra 350+ produsenter, distribuerer til dagligvare og HoReCa via regionale avdelinger (Troye Øst, Vest, Midt, Nord). | Nasjonal, alle regioner. | https://norskmatskatt.no / via Lokalmat.no grossistoversikt | A — HoReCanytt feb. 2026; Reiseliv1 april 2026; pressemeldinger | Tidenes omsetningsrekord: >1 mrd. kr i 2025. Kjedenøytral. Samarbeid med NHO Reiseliv Innkjøpskjede fra april 2026. Primærmarked er dagligvare, men HoReCa vokser. Viktig aktør for å forstå lokalmat-grossistleddet. |
+| **Godt Lokalt / Spesialgrossistene** | Kommersiell spesialgrossist; samler lokalmat fra produsenter og distribuerer til dagligvare og HoReCa via regionale salgsgrossister. | Nasjonal. Godt Lokalt oppgir 9 kjedenøytrale lokale salgsgrossister og over 370 leverandører, hvor ca. 270 er små og mellomstore lokalmatprodusenter. | https://www.godtlokalt.no/spesialgrossisten | A/B — aktørens egne sider + HoReCanytt | Godt Lokalt oppgir omsetning i overkant av 1 mrd. kr i 2025. Dette er grossistomsetning, ikke kortreist direktesalg/REKO-andel. |
 | **Gudbrandsdalsmat SA** | Regionalt andelslag/food hub; 25+ produsenter i Gudbrandsdalen; én ordre/én levering-modell; distribuerer via Tine. | Gudbrandsdalen (Lillehammer–Skjåk); salg til hele Norge via Tine. | https://gudbrandsdalsmat.no / https://www.lokalmat.no/produsenter-liste/produsentnettverk/gudbrandsdalsmat | A — Lokalmat.no, stiftelsens egne sider; Regjeringens lokalmatstrategi | Eksempel nevnt eksplisitt i regjeringens lokalmatstrategi som modell for felles distribusjonsordning. 5 ansatte (Proff). Omsetningstall ikke offentlig. |
 | **Romeriksmat (under etablering)** | Planlagt lokalt food hub / salgsapparat for lokalmatprodusenter på Romerike; søkte Innovasjon Norge om støtte. Planlegger fast lokalmatbutikk på Jessheim. | Romerike (Akershus). Status uklar (forprosjekt per siste kilde). | https://innovasjon-gardermoen.no/prosjekter-lokalmatnettverk-romeriksmat/ | C — næringsaktørenes egne prosjektsider; prosjektstart/fullførelse ikke bekreftet | Status usikker. Inkludert som eksempel på lokal food hub-initiering utenfor etablerte strukturer. |
 | **HANEN** (Norsk Bygdeturisme og Gardsmat) | Næringsorganisasjon; 620 medlemsbedrifter (gårdsbutikker, gårdsturisme, småskala matproduksjon). Gårdsbutikk-skole, vegskiltordning, messerepresentasjon. Ingen distribusjonskanal. | Nasjonal. | https://www.hanen.no | A — HANENs egne sider (2025) | HANEN er ikke selv distribusjonsaktør, men er inngangspunkt for gårdsbutikk-segmentet. Samarbeidspartner for Lokalmat.no og Bondens marked. |
@@ -97,7 +98,7 @@ Direktesalg i 2023/2024 var 725 mill. kr. Ingen offentlig kilde bryter ned de 93
 
 ## Anbefalt gate
 
-source-shortlist — Kanalvolymer for enkeltaktørene (Bondens marked nasjonal total, REKO, Dyrket, Tastebuds, LocalFood) mangler primærkilder. For videre bruk bør følgende bekreftesmot primærkilder før ekstern bruk: (1) Bondens marked Norge årsrapport/regnskap for nasjonal omsetning; (2) oppdatert REKO-statistikk fra nasjonal kilde; (3) direktekontakt med Dyrket.no, Tastebuds og LocalFood for omsetningstall. Godt Lokalt og direktesalg-totalene (Reiler Consulting/Stiftelsen Norsk Mat) er A-klassifisert og kan brukes med kilde.
+**source-shortlist-controlled** — Aggregate lokalmat totals and selected actor-role facts are controlled, but channel volumes for individual direct-sales actors (Bondens marked national total, REKO, Dyrket, Tastebuds, LocalFood, Rekono) still lack primary public sources. For external use, keep the 938 mill. kr direct-sales total aggregated and do not allocate it across channels without a new primary source.
 
 ---
 
@@ -106,10 +107,11 @@ source-shortlist — Kanalvolymer for enkeltaktørene (Bondens marked nasjonal t
 | URL | Kildetype | Kildeklasse | Tilgangsdato |
 |---|---|---|---|
 | https://www.lokalmat.no/velkommen/om-lokalmat/ | Aktørens egne sider (Stiftelsen Norsk Mat) | A | 2026-06-28 |
-| https://www.lokalmat.no/velkommen/norges-stoerste-oversikt-paa-lokalmat/ | Aktørens egne sider | A | 2026-06-28 |
+| https://www.lokalmat.no/velkommen/norges-stoerste-oversikt-paa-lokalmat/ | Aktørens egne sider | A | 2026-07-02 |
 | https://stiftelsennorskmat.no/english/ | Aktørens egne sider (Stiftelsen Norsk Mat, engelsk) | A | 2026-06-28 |
 | https://www.matmerk.no | Aktørens egne sider (Stiftelsen Norsk Mat) | A | 2026-06-28 |
-| https://bondensmarked.no/om-oss | Aktørens egne sider (Stiftelsen Bondens marked Norge) | A | 2026-06-28 |
+| https://bondensmarked.no/ | Aktørens egne sider (Stiftelsen Bondens marked Norge) | A | 2026-07-02 |
+| https://bondensmarked.no/om-oss | Aktørens egne sider (Stiftelsen Bondens marked Norge) | A | 2026-07-02 |
 | https://bondensmarked.no/lokallag | Aktørens egne sider | A | 2026-06-28 |
 | https://www.bondebladet.no/bondens-marked-rekordomsetning-for-lokalmat-i-2023-2024-oslo-og-innlandet-storst/s/5-150-95246 | Fagpresse (Bondebladet), nov. 2024 | A | 2026-06-28 |
 | https://www.okologisk24.no/nyheter/staten-sier-nei-til-bondens-marked/1324292 | Fagpresse (Økologisk24), mai 2025 | B | 2026-06-28 |
@@ -121,7 +123,7 @@ source-shortlist — Kanalvolymer for enkeltaktørene (Bondens marked nasjonal t
 | https://localfood.no/ | Aktørens egne sider (LocalFood) | B | 2026-06-28 |
 | https://rekono.no/ | Aktørens egne sider (Rekono) | B | 2026-06-28 |
 | https://www.dyrket.no/ | Aktørens egne sider (Dyrket.no) | B | 2026-06-28 |
-| https://www.dyrket.no/aboutUs | Aktørens egne sider | B | 2026-06-28 |
+| https://www.dyrket.no/aboutUs | Aktørens egne sider | B | 2026-07-02 |
 | https://www.tastebuds.no/ | Aktørens egne sider (Tastebuds) | B | 2026-06-28 |
 | https://doga.no/mottakere/portal-for-lokal-matglede | DOGA pressemelding (okt. 2024) | A | 2026-06-28 |
 | https://www.retailmagasinet.no/baerekraft-doga-tastebud/satser-pa-kortreist-matportal-far-innovasjonsstotte/1084700 | Fagpresse (Retailmagasinet), okt. 2024 | B | 2026-06-28 |
@@ -129,7 +131,7 @@ source-shortlist — Kanalvolymer for enkeltaktørene (Bondens marked nasjonal t
 | https://www.lokalmat.no/produsenter-liste/produsentnettverk/gudbrandsdalsmat | Lokalmat.no produsentprofil | A | 2026-06-28 |
 | https://www.horecanytt.no/februar-2026-godt-lokalt-lokalmat/vi-vil-ha-lokalmat/1495944 | Fagpresse (HoReCanytt), feb. 2026 | A | 2026-06-28 |
 | https://www.reiseliv1.no/restaurant/lokalmat-i-sterk-vekst-nytt-samarbeid-gjor-produktene-lettere-tilgjengelig/1419790 | Fagpresse (Reiseliv1), apr. 2026 | A | 2026-06-28 |
-| https://norskmatskatt.no/ | Aktørens egne sider (Godt Lokalt) | B | 2026-06-28 |
+| https://www.godtlokalt.no/spesialgrossisten | Aktørens egne sider (Godt Lokalt) | B | 2026-07-02 |
 | https://www.hanen.no/ | Aktørens egne sider (HANEN) | A | 2026-06-28 |
 | https://www.hanen.no/om-hanen/ | Aktørens egne sider | A | 2026-06-28 |
 | https://innovasjon-gardermoen.no/prosjekter-lokalmatnettverk-romeriksmat/ | Næringsaktørens prosjektsider | C | 2026-06-28 |
