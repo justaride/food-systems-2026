@@ -122,6 +122,8 @@
     "db:backfill:country-metric-harmonization:apply": "tsx scripts/backfill-country-metric-harmonization.ts --apply",
     "db:backfill:document-file-paths:dry-run": "tsx scripts/backfill-document-file-paths-from-seed-map.ts --dry-run",
     "db:backfill:document-file-paths:apply": "tsx scripts/backfill-document-file-paths-from-seed-map.ts --apply",
+    "db:export:missing-document-files:dry-run": "tsx scripts/export-missing-document-file-snapshots.ts --dry-run",
+    "db:export:missing-document-files:apply": "tsx scripts/export-missing-document-file-snapshots.ts --apply",
     "db:check-urls": "tsx scripts/check-urls.ts",
     "db:audit": "tsx scripts/verify-data-integrity.ts",
     "db:audit:strict-sources": "tsx scripts/verify-data-integrity.ts --strict-sources",
