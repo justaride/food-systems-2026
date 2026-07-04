@@ -220,6 +220,25 @@ describe('package scripts', () => {
     assert.doesNotMatch(`${inventorySource}\n${ledgerSource}`, /upsert|deleteMany|updateMany|createMany/)
   })
 
+  it('exposes the read-only Nordic board ownership audit command', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const scriptSource = readFileSync(
+      join(process.cwd(), 'scripts', 'analyze-nordic-board-ownership.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['audit:nordic-board-ownership'],
+      'tsx scripts/analyze-nordic-board-ownership.ts',
+    )
+    assert.match(scriptSource, /DATABASE_URL is required/)
+    assert.match(scriptSource, /computeInterlocks/)
+    assert.match(scriptSource, /computeCrossHoldings/)
+    assert.doesNotMatch(scriptSource, /upsert|deleteMany|updateMany|createMany/)
+  })
+
   it('exposes guarded library analysis processing dry-run and apply commands', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
