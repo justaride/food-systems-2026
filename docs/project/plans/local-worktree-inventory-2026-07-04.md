@@ -3,9 +3,9 @@ tittel: Lokal worktree-inventar etter PR-backlogg-closeout
 dato: 2026-07-04
 status: aktivt-ryddenotat
 grunnlag:
-  - `git status --short --branch` på `main` ved `13c4538`
+  - `git status --short --branch` på `main` ved `48a1c42`
   - `gh pr list --state open --limit 50 --json number,title,url` returnerte `[]`
-  - `git worktree list --porcelain` etter PR #268 og branch/worktree cleanup
+  - `git worktree list --porcelain` etter PR #271 og branch/worktree cleanup
   - `git branch -r --merged origin/main` etter remote-branch cleanup
 siterbarhet: intern
 ---
@@ -29,6 +29,8 @@ Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/bra
 | `codex/reader-layer-completeness` | Lokal og remote branch ble slettet. | PR #119 var merget og branchen var ancestor av `main`. |
 | Mergede remote-only `origin/codex/*` branches | Remote branches uten lokal branch/worktree ble slettet når de allerede var innlemmet i `origin/main`. | Før R13-vurderingen var eneste gjenværende merged remote codex-branch `codex/food-tg-research-r13`, som da ble beholdt fordi den hadde lokal dirty worktree. |
 | `codex/food-tg-research-r13` | Worktree, lokal branch og remote branch ble slettet. | Den eneste dirty endringen var en lokal sletting av `research/forstaelse/R13-GAP-006-type-c-eskalering.md`; samme blob fantes i både branch `HEAD` og `main`, PR #202 var merget, og branch var ancestor av `main`. |
+| `codex/obsidian-kunnskapskart-m2-2026-07-02` | Worktree, lokal branch og remote branch ble slettet. | Worktree var ren, PR #231 var merget, og branch-tree var identisk med PR #231 sin merge-commit `84a3e08`. |
+| `codex/obsidian-v3-masterplan-main-2026-07-02` | Worktree og lokal branch ble slettet. | Worktree var ren, PR #237 var merget, remote branch var allerede borte, og eneste unike commit var patch-ekvivalent med `main` i `git cherry`. |
 
 ## Beholdte dirty worktrees
 
@@ -36,10 +38,10 @@ Disse har lokale endringer og skal ikke slettes eller resettes uten ny beslutnin
 
 | Branch | Dirty count | Main vs branch | PR-status | Beslutning |
 |---|---:|---|---|---|
-| `codex/ai-kunnskap-library-v1` | 148 | `185 0` | Ingen PR funnet. | Behold. Stort dirty arbeidsområde. |
-| `codex/foodsystems-kb-mcp` | 7 | `121 0` | Ingen PR funnet. | Behold. Dirty MCP-/runbook-spor. |
-| `codex/master-research-plan-2026-07-01` | 433 | `121 0` | Ingen PR funnet. | Behold. Stort dirty forsknings-/planområde. |
-| `codex/notebooklm-export-2026-07-02` | 10 | `121 0` | Ingen PR funnet. | Behold. Dirty NotebookLM-/Obsidian-export-spor. |
+| `codex/ai-kunnskap-library-v1` | 148 | `191 0` | Ingen PR funnet. | Behold. Stort dirty arbeidsområde. |
+| `codex/foodsystems-kb-mcp` | 7 | `127 0` | Ingen PR funnet. | Behold. Dirty MCP-/runbook-spor. |
+| `codex/master-research-plan-2026-07-01` | 433 | `127 0` | Ingen PR funnet. | Behold. Stort dirty forsknings-/planområde. |
+| `codex/notebooklm-export-2026-07-02` | 10 | `127 0` | Ingen PR funnet. | Behold. Dirty NotebookLM-/Obsidian-export-spor. |
 
 ## Beholdte rene, ikke-ancestor worktrees
 
@@ -47,11 +49,18 @@ Disse er rene, men har commits som ikke er innlemmet i `main` som direkte ancest
 
 | Branch | Dirty count | Main vs branch | PR-status | Beslutning |
 |---|---:|---|---|---|
-| `codex/food-tg-arbeidsplan-2026-06-12` | 0 | `281 5` | Ingen PR funnet. | Behold til egen review eller cherry-pick/closeout. |
-| `codex/matverdikjede-0pct-import-2026-06-27` | 0 | `141 4` | PR #211 merget. | Behold til diff mot `main` er vurdert. |
-| `codex/matverdikjede-full-kartlegging-2026-06-26` | 0 | `146 10` | PR #208 merget. | Behold til diff mot `main` er vurdert. |
-| `codex/obsidian-kunnskapskart-m2-2026-07-02` | 0 | `106 1` | PR #231 merget. | Behold til stacked/squash ancestry er avklart. |
-| `codex/obsidian-v3-masterplan-main-2026-07-02` | 0 | `111 1` | PR #237 merget. | Behold til stacked/squash ancestry er avklart. |
+| `codex/food-tg-arbeidsplan-2026-06-12` | 0 | `287 5` | Ingen PR funnet. | Behold til egen review eller cherry-pick/closeout. |
+| `codex/matverdikjede-0pct-import-2026-06-27` | 0 | `147 4` | PR #211 merget. | Behold til diff mot `main` er vurdert. |
+| `codex/matverdikjede-full-kartlegging-2026-06-26` | 0 | `152 10` | PR #208 merget. | Behold til diff mot `main` er vurdert. |
+
+## Beholdte andre branch-only spor
+
+Disse har ikke aktiv worktree, men er heller ikke trygge å slette som ren hygiene ennå.
+
+| Branch | Main vs branch | PR-status | Beslutning |
+|---|---|---|---|
+| `codex/domene-kartlegging-2026-06-25` | `155 6` | PR #205 merget. | Behold til egen diff-review; `git cherry` viste seks `+` commits. |
+| `codex/platform-stack-integration-2026-06-11` | `218 54` | PR #159 lukket. | Behold som recovery-/backloggspor til eksplisitt port/drop-beslutning. |
 
 ## Beholdte branch-only recovery-spor
 
