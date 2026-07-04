@@ -8,11 +8,13 @@ bruksregel: "Sammenligning holdes tilbake til Strand et al. 2024 foreligger loka
 
 # Deep Research - P-FISH-2
 
+> Oppdatering 2026-07-04: Dette dokumentet bevarer 13.06-stoppsignalet. Raw PDF er senere bevart i lokalt recovery-arkiv, repo-metadata ligger i `research/external/dro-0906/downloads/strand-etal-2024.md`, og oppdatert vurdering ligger i `research/external/spor1-uttak-2026-06-12/uttak-09-fase2-uthenting-og-arkiv.md`. Ikke bruk dette notatet alene som gjeldende metodebro-status.
+
 ## 0. Kort svar
 
 P-FISH-2 kan ikke lukkes i denne kjøringen. Prompten krever lokal fulltekst av Strand et al. 2024 (`Resources, Environment and Sustainability` 16:100157) på denne stien:
 
-`research/external/dro-0906/downloads/strand-etal-2024.pdf`
+`research/external/dro-0906/downloads/strand-etal-2024.md`
 
 Den filen finnes ikke i repoet, og den forventede `downloads`-mappen under `research/external/dro-0906/` finnes heller ikke. Repo-nært søk etter `strand`, `100157`, `Resources, Environment and Sustainability`, `S2666*`, `Iceland` og PDF-kandidater fant ikke artikkelen. Flere generiske ScienceDirect-PDF-er i `research/pdf-downloads-20-04-26/` ble sjekket lokalt; de var andre artikler.
 
@@ -22,7 +24,7 @@ Den filen finnes ikke i repoet, og den forventede `downloads`-mappen under `rese
 
 | Krav i prompt | Funn | Konsekvens |
 |---|---|---|
-| Bruk lokal `research/external/dro-0906/downloads/strand-etal-2024.pdf` | Fil og mappe ikke funnet | Stoppsignal truffet |
+| Bruk lokal Strand-locator | Fil og mappe ikke funnet i 13.06-kjøringen | Historisk stoppsignal; se 2026-07-04 source note og uttak-09 |
 | Ingen websøk | Overholdt | Ingen ekstern gjenhenting av artikkel i denne kjøringen |
 | Definer `restråstoff`, `utnyttet`, `tilgjengelig` fra Strand et al. | Ikke mulig uten fulltekst | Definisjonstabell må stå åpen |
 | Sammenlign mot SINTEF/FHF og Hagstofa SJA09114 | Ikke metodisk forsvarlig uten Strand-definisjonene | Sammenligning holdes tilbake |

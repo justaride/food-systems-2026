@@ -34,6 +34,9 @@ grunnlag:
   - PR #322 for URL-health review closeout og R13-LAND-004 kontrollnotat uten å miste R14-tillegget
   - PR #323 for kontrollert R13-PROT-008 kildekort etter ekstern kildeverifisering
   - arkiv og sletting av `codex/master-research-plan-2026-07-01` etter restklassifisering
+  - squash-/supersede-review av de tre gjenværende rene worktreene
+  - patch-id-verifisert cleanup av MVK-worktreene fra PR #208 og PR #211
+  - Food TG 12.06 recovery-port av brutte referanseartefakter og arkiv før sletting
 siterbarhet: intern
 ---
 
@@ -50,6 +53,8 @@ Sluttklassifiseringen etter denne porteringen viser at det ikke finnes flere `sc
 Oppdatert etter PR #314 og PR #315: MVK import-payloaden, 86 manglende `db:import:mvk-*` scripts, `db:prod-sync` wiring, MVK guard-test og alle master-research old-only research/evidence/status-artefakter er landet på `main`. Etter den smale R13 controlled enrichment-porten viste korrigert innholdssammenligning mot den gamle worktree-en 381 filer som matchet `main`, 0 old-only filer, 29 filer som bare avvek fordi whitespace ble normalisert under import, 46 reelle existing-file differ og 2 deletion-/drop-beslutninger. Evidence/regulatory refresh-porten tok tre av disse diffene: funding-notat, roadmap-siterbarhetsfilter og nordisk enforcement-ledger. Citable/bibliotek refreshen tar seks til: CA-005 acceptance-ledgere/status og Future Nordic Diets offentlig landing page. Filbasert reklassifisering etter PR #319 viser at `data/konsern-coverage.json` er en existing-file diff, ikke en deletion/drop-rad. Aktiv rest er derfor 38 reelle existing-file differ og 1 deletion-/drop-beslutning, ikke MVK, old-only source notes eller R13-filene som allerede var lengre/kontrollerte i master-research.
 
 Oppdatert etter PR #321, #322 og #323: report-linkage-gapene er lukket, duplicate Salling/Coop-PDF-en er fjernet sammen med seed-map/report-korreksjonene, URL-health review-rader med lokal/mirror evidence er portet, `R13-LAND-004` beholder både 2026-07-02 kontrollnotat og R14-tillegg, og `R13-PROT-008` er kontrollert mot primær-/aktørkilder før port. Siste restklassifisering av den gamle master-research-worktree-en viste 433 collapsed dirty entries: 390 byte-like med `main`, 1 normaliseringsdiff, 4 katalogrester, 1 allerede gjennomført deletion/drop og 37 existing-file differ. De 37 gjenstående diffene ble klassifisert som stale generated output, nyere `main`-innhold som ikke skal overskrives, eller stale script/test-varianter som allerede har tryggere portede versjoner. Dirty payload ble arkivert utenfor repo før sletting i `/Users/gabrielfreeman/Documents/Food Systems 2026 Local Archives/master-research-plan-2026-07-01-residual-2026-07-04.tar.gz` med SHA256 `8fef3bf46d0fc1188b4743e52aec04877998905e2c45b3d8c59c15e067093dfd`. `git merge-base --is-ancestor codex/master-research-plan-2026-07-01 main` var sant, `git cherry -v main codex/master-research-plan-2026-07-01` var tom, og worktree + lokal branch er fjernet.
+
+Oppdatert etter gjenværende worktree-closeout: `codex/matverdikjede-full-kartlegging-2026-06-26` og `codex/matverdikjede-0pct-import-2026-06-27` var rene squash-avvik fra mergete PR-er. Samlet patch-id for `ddf3313..ec39d69` matcher `ddf3313..0ff0f07` (`73447249fba574a6233fa9dd4b56b1eea069fc7d`), og samlet patch-id for `5733155..3c3c17e` matcher `5733155..6d93522` (`6c829eed20b6f5f72b4b6e03edefafac97ff73f7`). Worktrees, lokale branches og remote branches er derfor fjernet. `codex/food-tg-arbeidsplan-2026-06-12` hadde ingen PR og 64 branch-endringer; safe closeout porter bare artefakter dagens `main` allerede refererte til, samt Strand/Enova-locatorene og `uttak-09`, mens eldre `src/`-/test-/statusvarianter beholdes som recovery i arkiv. Arkiv: `/Users/gabrielfreeman/Documents/Food Systems 2026 Local Archives/food-tg-arbeidsplan-2026-06-12-residual-2026-07-04.tar.gz`, SHA256 `20337849f1bc750d48bb9ddbaab8c37da31c00984ebe70b6e236460ce86fca8c`. Etter dette finnes ingen ekstra aktive worktrees utover hovedcheckout.
 
 Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/branch når den enten er ren og fullt innlemmet i `main`, eller når en eksplisitt beslutning sier at historikken ikke lenger skal beholdes.
 
@@ -105,6 +110,9 @@ Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/bra
 | `codex/master-research-plan-2026-07-01` URL review closeout slice | Portet og merget i PR #322. | Slicen legger kontrollnotat i `R13-LAND-004` uten å slette R14-tillegget, porterer 13 URL-health review-rader med lokal/mirror evidence, og regenererer backlogg/source-gap queue slik at blocked URL-rader faller fra 44 til 33. |
 | `codex/master-research-plan-2026-07-01` R13-PROT-008 source shortlist closeout | Portet og merget i PR #323. | Slicen strammer `R13-PROT-008-bonner-erter-akerbonne.md` til `source-shortlist-controlled`, bytter ut oversterke volum-/matclaims med kildegrenser, og markerer NIBIO/Lundby, Felleskjøpet/Landbruksdirektoratet, Landbruksdirektoratet 2026 og SSB-tabellene som kontrollert kildegrunnlag. |
 | `codex/master-research-plan-2026-07-01` final cleanup | Residual dirty payload arkivert utenfor repo; worktree og lokal branch slettet. | Arkiv: `/Users/gabrielfreeman/Documents/Food Systems 2026 Local Archives/master-research-plan-2026-07-01-residual-2026-07-04.tar.gz` med SHA256 `8fef3bf46d0fc1188b4743e52aec04877998905e2c45b3d8c59c15e067093dfd`. Arkivet har manifest, collapsed/full statusliste og 457 dirty/untracked payload-filer. Branch-head var ancestor av `main`, `git cherry` var tom, og ingen remote branch måtte ryddes. |
+| `codex/matverdikjede-full-kartlegging-2026-06-26` | Worktree, lokal branch og remote branch slettet. | PR #208 er merget. Branch-commits var ikke ancestors fordi PR-en ble squashet, men samlet patch-id for branchdiffen og mergecommitdiffen er identisk (`73447249fba574a6233fa9dd4b56b1eea069fc7d`). |
+| `codex/matverdikjede-0pct-import-2026-06-27` | Worktree, lokal branch og remote branch slettet. | PR #211 er merget. Branch-commits var ikke ancestors fordi PR-en ble squashet, men samlet patch-id for branchdiffen og mergecommitdiffen er identisk (`6c829eed20b6f5f72b4b6e03edefafac97ff73f7`). |
+| `codex/food-tg-arbeidsplan-2026-06-12` | Manglende referanseartefakter portet; residual payload arkivert; worktree og lokal branch slettet. | Branch hadde ingen PR. 16 refererte/historiske artefakter er portet fra branchen for å lukke brutte Food TG 12.06-referanser, og tre eksisterende case-avsjekk-notater er oppdatert med 2026-07-04 status for Strand source note/uttak-09. Resten er arkivert utenfor repo: `/Users/gabrielfreeman/Documents/Food Systems 2026 Local Archives/food-tg-arbeidsplan-2026-06-12-residual-2026-07-04.tar.gz`, SHA256 `20337849f1bc750d48bb9ddbaab8c37da31c00984ebe70b6e236460ce86fca8c`. |
 
 ## `codex/ai-kunnskap-library-v1` final closeout
 
@@ -126,13 +134,7 @@ Ingen kjente dirty worktrees gjenstår i aktiv `git worktree list` etter master-
 
 ## Beholdte rene, ikke-ancestor worktrees
 
-Disse er rene, men har commits som ikke er innlemmet i `main` som direkte ancestors. De kan være squash-/mergeavvik, recovery-spor eller arbeid som må sammenlignes fil-for-fil før sletting.
-
-| Branch | Dirty count | Main vs branch | PR-status | Beslutning |
-|---|---:|---|---|---|
-| `codex/food-tg-arbeidsplan-2026-06-12` | 0 | `301 5` | Ingen PR funnet. | Behold. `git cherry` viser 5 `+` commits, og `git diff --shortstat main..branch` viser 1792 filer, 5466 inn og 204163 ut. Dette er recovery-/portarbeid, ikke hygiene-sletting. |
-| `codex/matverdikjede-0pct-import-2026-06-27` | 0 | `161 4` | PR #211 merget. | Behold. PR er merget, men lokal branch har fortsatt 4 `+` commits og tree-diffen mot dagens `main` er 1152 filer, 3989 inn og 115875 ut. Må ha eksplisitt squash-/supersede-review før sletting. |
-| `codex/matverdikjede-full-kartlegging-2026-06-26` | 0 | `166 10` | PR #208 merget. | Behold. PR er merget, men lokal branch har fortsatt 10 `+` commits og tree-diffen mot dagens `main` er 1170 filer, 4015 inn og 117354 ut. Må ha eksplisitt squash-/supersede-review før sletting. |
+Ingen gjenstår etter squash-/supersede-review og cleanup.
 
 ## Vurdert og droppet etter port/drop
 
@@ -161,9 +163,8 @@ Ikke slett disse branchene før det finnes en eksplisitt beslutning om at G-stac
 
 ## Neste trygge steg
 
-1. For de tre rene ikke-ancestor worktreene: gjør bare videre port/drop etter eksplisitt squash-/supersede-review; ikke slett som hygiene.
-2. For de to branch-only sporene: gjør bare videre sletting etter eksplisitt squash-/supersede-review eller port/drop-beslutning.
-3. For `codex/master-research-plan-2026-07-01`: ikke gjør mer hygiene. Sporet er lukket, arkivert og fjernet; regenerer coverage/PDF/remediation/data-output fra dagens `main` ved behov.
-4. For `codex/goal-*`: opprett først en recovery-beslutning som sier hvilke G-slices som eventuelt skal portes til ferske `main`-baserte PR-er.
-5. Kjør alltid `git status --short --branch` i worktree-en før sletting.
-6. Etter hver sletting: `git worktree list --porcelain`, `git branch --format='%(refname:short)'`, `git fetch --prune`, og `gh pr list --state open`.
+1. For de to branch-only sporene: gjør bare videre sletting etter eksplisitt squash-/supersede-review eller port/drop-beslutning.
+2. For `codex/master-research-plan-2026-07-01`: ikke gjør mer hygiene. Sporet er lukket, arkivert og fjernet; regenerer coverage/PDF/remediation/data-output fra dagens `main` ved behov.
+3. For `codex/goal-*`: opprett først en recovery-beslutning som sier hvilke G-slices som eventuelt skal portes til ferske `main`-baserte PR-er.
+4. Kjør alltid `git status --short --branch` i worktree-en før sletting.
+5. Etter hver sletting: `git worktree list --porcelain`, `git branch --format='%(refname:short)'`, `git fetch --prune`, og `gh pr list --state open`.

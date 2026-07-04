@@ -75,7 +75,7 @@ Ikke bruk islandske priser som norske. Ikke estimer potensial i kroner. Ikke gj�
 ### P-FISH-2: Metodebro Island–Norge (leseoppgave på hentet kilde)
 
 ```text
-Oppgave: Vurder om Island–Norge-sammenligning av restråstoffutnyttelse er metodisk holdbar, basert på Strand et al. 2024 (Resources, Environment and Sustainability 16:100157). Forventet lokal sti var `research/external/dro-0906/downloads/strand-etal-2024.pdf`, men 13.06-mottaket dokumenterer at PDF-en mangler og må hentes/verifiseres før lesing.
+Oppgave: Vurder om Island–Norge-sammenligning av restråstoffutnyttelse er metodisk holdbar, basert på Strand et al. 2024 (Resources, Environment and Sustainability 16:100157). Forventet locator-notat er `research/external/dro-0906/downloads/strand-etal-2024.md`. 13.06-mottaket dokumenterte opprinnelig at PDF-en manglet; 2026-07-04-closeout portet metadata/source note og `research/external/spor1-uttak-2026-06-12/uttak-09-fase2-uthenting-og-arkiv.md` inn fra recovery-worktree. Bruk uttak-09 som oppdatert metodebro-status før eventuell claim-lock.
 
 Svar presist på:
 1. Hvilke definisjoner bruker artikkelen for «restråstoff», «utnyttet» og «tilgjengelig» — og er de kompatible med (a) SINTEF/FHF-metoden (teoretisk tilgjengelig vs. anvendt) og (b) Hagstofa SJA09114 (registrerte landinger/disponering)?

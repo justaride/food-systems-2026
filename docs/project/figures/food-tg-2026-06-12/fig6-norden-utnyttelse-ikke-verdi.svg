@@ -1,0 +1,56 @@
+<svg viewBox="0 0 880 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="880" height="500" fill="#faf8f2"/>
+  <text x="42" y="42" font-size="21" font-weight="800" fill="#191814" font-family="Inter, system-ui, sans-serif">Norden har løst utnyttelse — ikke verdi</text>
+  <text x="42" y="66" font-size="12" fill="#646057" font-family="Inter, system-ui, sans-serif">Kompositt for partnerdialog: Norge gir baseline, Skottland viser prislogikk, Island viser verdi-retning.</text>
+
+  <line x1="64" y1="118" x2="816" y2="118" stroke="#ece6dc"/>
+  <line x1="64" y1="255" x2="816" y2="255" stroke="#ece6dc"/>
+  <line x1="64" y1="392" x2="816" y2="392" stroke="#ece6dc"/>
+
+  <g>
+    <text x="70" y="108" font-size="12" font-weight="700" fill="#646057" font-family="Inter, system-ui, sans-serif">Norge / SINTEF-FHF 2024</text>
+    <rect x="70" y="132" width="560" height="34" rx="5" fill="#116b55" opacity="0.85"/>
+    <rect x="70" y="177" width="95" height="34" rx="5" fill="#aa3f31" opacity="0.88"/>
+    <rect x="70" y="222" width="395" height="18" rx="4" fill="#646057" opacity="0.35"/>
+    <text x="646" y="155" font-size="18" font-weight="800" fill="#116b55" font-family="Inter, system-ui, sans-serif">89 % utnyttet</text>
+    <text x="180" y="199" font-size="18" font-weight="800" fill="#aa3f31" font-family="Inter, system-ui, sans-serif">~15 % humant konsum</text>
+    <text x="480" y="236" font-size="11" fill="#646057" font-family="Inter, system-ui, sans-serif">resten domineres av fôr/biogass</text>
+    <text x="70" y="160" font-size="12" fill="#faf8f2" font-family="Inter, system-ui, sans-serif">976 000 av 1 094 000 tonn</text>
+  </g>
+
+  <g>
+    <text x="70" y="245" font-size="12" font-weight="700" fill="#646057" font-family="Inter, system-ui, sans-serif">Skottland / ZWS-Enscape 2019-survey</text>
+    <rect x="70" y="274" width="155" height="42" rx="5" fill="#646057" opacity="0.75"/>
+    <rect x="355" y="274" width="300" height="42" rx="5" fill="#116b55" opacity="0.85"/>
+    <path d="M 242 294 C 278 248, 322 248, 352 294" fill="none" stroke="#aa3f31" stroke-width="2.2" marker-end="url(#arrow)"/>
+    <text x="278" y="258" font-size="17" font-weight="800" fill="#aa3f31" text-anchor="middle" font-family="Inter, system-ui, sans-serif">3-7x</text>
+    <text x="145" y="300" font-size="13" font-weight="700" fill="#faf8f2" text-anchor="middle" font-family="Inter, system-ui, sans-serif">£62-173/t</text>
+    <text x="505" y="300" font-size="13" font-weight="700" fill="#faf8f2" text-anchor="middle" font-family="Inter, system-ui, sans-serif">£250-520/t</text>
+    <text x="145" y="332" font-size="11" fill="#646057" text-anchor="middle" font-family="Inter, system-ui, sans-serif">blandet</text>
+    <text x="505" y="332" font-size="11" fill="#646057" text-anchor="middle" font-family="Inter, system-ui, sans-serif">segregerte fraksjoner</text>
+  </g>
+
+  <g>
+    <text x="70" y="382" font-size="12" font-weight="700" fill="#646057" font-family="Inter, system-ui, sans-serif">Island / Statistics Iceland SJA09114</text>
+    <polyline points="80,455 175,444 270,421 365,378 460,395 555,427 650,414 745,405" fill="none" stroke="#116b55" stroke-width="3"/>
+    <polyline points="80,458 175,452 270,438 365,394 460,375 555,353 650,333 745,287" fill="none" stroke="#aa3f31" stroke-width="3"/>
+    <circle cx="365" cy="378" r="5" fill="#116b55"/>
+    <circle cx="745" cy="287" r="5" fill="#aa3f31"/>
+    <text x="365" y="366" font-size="11" font-weight="700" fill="#116b55" text-anchor="middle" font-family="Inter, system-ui, sans-serif">2013 volumtopp</text>
+    <text x="739" y="275" font-size="11" font-weight="700" fill="#aa3f31" text-anchor="end" font-family="Inter, system-ui, sans-serif">7,26 mrd ISK i 2024</text>
+    <text x="72" y="475" font-size="10" fill="#646057" font-family="Inter, system-ui, sans-serif">Grønn: volum. Rød: nominell verdi. Retningen er mindre volum, høyere verdi.</text>
+  </g>
+
+  <rect x="618" y="82" width="214" height="114" rx="8" fill="#191814"/>
+  <text x="636" y="111" font-size="12" font-weight="700" fill="#f5efe3" font-family="Inter, system-ui, sans-serif">Partnerimplikasjon</text>
+  <text x="636" y="136" font-size="12" fill="#f5efe3" font-family="Inter, system-ui, sans-serif">Ikke start med «mer utnyttelse».</text>
+  <text x="636" y="156" font-size="12" fill="#f5efe3" font-family="Inter, system-ui, sans-serif">Start med fraksjonsrenhet,</text>
+  <text x="636" y="176" font-size="12" fill="#f5efe3" font-family="Inter, system-ui, sans-serif">mottaker og høyverdi-løp.</text>
+
+  <text x="42" y="478" font-size="10" fill="#646057" font-family="Inter, system-ui, sans-serif">Kilde: SINTEF/FHF 2024; ZWS/Enscape 2019-survey; Statistics Iceland SJA09114. Caveat: ulike år, metoder og verdi-/prisbegreper; figuren er intern syntese, ikke én samlet modell.</text>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L8,3.5 L0,7 z" fill="#aa3f31"/>
+    </marker>
+  </defs>
+</svg>
