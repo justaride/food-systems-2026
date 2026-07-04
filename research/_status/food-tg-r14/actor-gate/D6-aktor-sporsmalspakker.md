@@ -25,6 +25,8 @@ G1-D2 beslutningspakken ligger i `research/_status/food-tg-r14/actor-gate/G1-D2-
 
 G1-D4 beslutningspakken ligger i `research/_status/food-tg-r14/actor-gate/G1-D4-fro-genressurs-outreach-beslutningspakke-2026-07-04.md`. Den gir samme ja/nei/vent-beslutning for frø/genressurs-sporet, men stopper før kontakt og før aktørkart.
 
+G1-D1-D3-D5 beslutningspakken ligger i `research/_status/food-tg-r14/actor-gate/G1-D1-D3-D5-lokal-regenerativ-outreach-beslutningspakke-2026-07-04.md`. Den gir samlet ja/nei/vent-beslutning for markedshager, regenerative praktikere og skogshage/permakultur, men stopper før kontakt og før lokalt praksiskart.
+
 ## Klar-til-G1 spørsmålspakke
 
 1. Kan dere bekrefte at listen er aktiv per 2026, og hva som er siste oppdateringsdato?
