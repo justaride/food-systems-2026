@@ -1,8 +1,24 @@
 {
   "company": "Hooked Foods AB",
   "lookup": "orgnr-oppslag",
-  "source": "https://www.allabolag.se/",
-  "status": "placeholder",
-  "orgNr": null,
-  "note": "Original file contained only a Markdown heading and source line. No organisation number was captured."
+  "orgNr": "559161-9944",
+  "status": "verified",
+  "verificationNote": "Confirmed by allabolag.se and krafman.se — both independently return 559161-9944 for Hooked Foods AB, Stockholm, konkurs inledd Södertörns tingsrätt 2026-01-13. The org.nr 559003-8399 used in a prior triage note was erroneous and does not match this entity.",
+  "verifiedSources": [
+    {
+      "url": "https://www.allabolag.se/5591619944/hooked-foods-ab",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    },
+    {
+      "url": "https://krafman.se/hooked-foods-ab/5591619944/sammanfattning",
+      "accessedAt": "2026-06-19",
+      "sourceClass": "registry_snapshot"
+    }
+  ],
+  "latestAccountsPeriod": "2024-01-01 – 2024-12-31",
+  "latestAccountsNote": "Krafman and allabolag both list årsredovisning 2024-01-01–2024-12-31 as the most recent filed period.",
+  "konkursDate": "2026-01-13",
+  "konkursCourt": "Södertörns tingsrätt",
+  "registeredAddress": "Box 92138, 120 08 Stockholm"
 }

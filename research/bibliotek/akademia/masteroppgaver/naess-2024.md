@@ -18,3 +18,10 @@ Ikke offentlig beskrevet i den tilgjengelige UiB-posten.
 
 ## Relevans for Food Systems 2026
 Relevant som inngang til litteratur om plattformlogikk, konkurranse og egne merkevarer, men den offentlige kilden er for knapp til a trekke sikre faglige slutninger uten fulltekst.
+
+## Kildestatusnotat (library-triage R2, 2026-06-19)
+
+Nora Næss sin masteroppgave "To-rolle-plattformer og egne merkevarer: en analyse av konkurranse- og velferdseffekter" er bekreftet i UiBs offisielle masteroppgaveliste for Institutt for økonomi, listet under VÅR 2025 på siden slik den ble hentet 2026-06-19. En separat repository-URL, handle eller fulltekst i BORA ble ikke funnet i denne runden. Beslutning: park som internal_background med bekreftet instituttmetadata, men uten verifisert repository-/handle-lokator.
+
+Kilder:
+- https://www.uib.no/econ/38279/masteroppgaver  (accessedAt 2026-06-19, sourceClass secondary — UiB instituttsside, bekrefter tittel; siden lister posten under VÅR 2025)

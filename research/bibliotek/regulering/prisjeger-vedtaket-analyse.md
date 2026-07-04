@@ -60,3 +60,10 @@ Konkurransetilsynets vurdering er at dette systematiske informasjonssamarbeidet 
 ## Relevans for Food Systems 2026
 
 Prisjeger-saken er et sentralt datapunkt for aa forstaa maktdynamikken i norsk dagligvare. Den avdekker hvordan de tre dominerende kjedene har utviklet mekanismer for informasjonsdeling som i praksis demper priskonkurransen -- til tross for at markedet utad fremstaar som preget av intens priskonkurranse. Vedtaket og den paafølgende rettssaken representerer det stoerste regulatoriske inngrepet i norsk dagligvarehistorie og vil forme handlingsrommet for kjedenes prisstrategier i aarene framover. For Food Systems 2026-prosjektet gir saken konkret dokumentasjon paa koordineringsmekanismer mellom aktorer som til sammen kontrollerer over 96 prosent av det norske dagligvaremarkedet.
+
+## Kildestatusnotat (library-triage C, 2026-06-19)
+
+Konkurransetilsynets vedtak V2024-4 av 21. august 2024 er Norges historisk sett største konkurranserettslige gebyr: 4 926 981 000 kroner samlet mot Norgesgruppen (2 313 MNOK), Coop (1 321 MNOK) og Rema 1000/Reitan (1 293 MNOK) for ulovlig informasjonsutveksling via prisjegervirksomhet. Vedtaket ble opprettholdt enstemmig av Konkurranseklagenemnda i august 2025 (V02-2025). Per juni 2026 er alle tre kjeder anket til Gulating lagmannsrett med 36 berammede rettsdager. Kilden er primær — offentlig forvaltningsvedtak. URL i filen peker direkte til Konkurransetilsynets vedtaksside. Filen forblir intern bakgrunn; vedtaksteksten bør arkiveres som lokal kopi for whitepaper-sitering.
+
+Kilder:
+- https://konkurransetilsynet.no/decisions/vedtak-v2024-4-coop-norge-sa-norgesgruppen-asa-rema-1000-as-palegg-om-opphor-av-overtredelse-etter-konkurranseloven-%C2%A7-12-1-ledd-og-ileggelse-av-overtredelsesgebyr-etter-konkurransel/  (accessedAt 2026-06-19, sourceClass primary)

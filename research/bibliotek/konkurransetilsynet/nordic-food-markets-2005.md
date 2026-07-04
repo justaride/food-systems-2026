@@ -33,3 +33,10 @@
 Denne rapporten fra 2005 dokumenterer de strukturelle problemene som fortsatt preger nordiske matvaremarkeder to tiår senere. Den høye markedskonsentrasjonen som ble identifisert -- der de tre største kjedene kontrollerer 60-80 % av markedet -- har i Norge forsterket seg ytterligere til rundt 96 % for de tre største (NorgesGruppen, Coop, Rema 1000). Rapportens funn om kjøpermakt, smalere utvalg og høyere priser enn resten av Europa er fortsatt relevante problemstillinger.
 
 Rapporten gir et viktig historisk referansepunkt for å forstå hvordan maktdynamikkene i nordisk dagligvare har utviklet seg over tid. Den viser at utfordringene med konsentrasjon og maktasymmetri mellom kjeder og leverandører ble identifisert tidlig, men at politiske tiltak ikke har klart å reversere trenden. For Food Systems 2026-prosjektet er dette sentralt for å dokumentere den langsiktige utviklingen av maktforholdene i verdikjeden for mat.
+
+## Kildestatusnotat (library-triage C, 2026-06-19)
+
+«Nordic Food Markets — a taste for competition» (Rapport nr. 1/2005) er en felles rapport fra de fem nordiske konkurransemyndighetene (NO, SE, DK, FI, IS), utgitt i 2005. Den representerer en primærkilde i form av offisielle tilsynsdata og er det viktigste historiske baseline-dokumentet for nordisk dagligvarekonsentrasjon. Rapporten er tilgjengelig som PDF via Konkurransetilsynets arkiv. Filen forblir intern bakgrunn; tallene fra 2005 er historiske og skal ikke siteres som gjeldende markedsandeler uten eksplisitt presisering av tidsperiode.
+
+Kilder:
+- https://konkurransetilsynet.no/wp-content/uploads/2018/08/NORDIC_FOOD_MARKETS.pdf  (accessedAt 2026-06-19, sourceClass primary)

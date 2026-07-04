@@ -19,3 +19,10 @@ Studien dykker ned i faktiske marginer på over 1000 enkeltprodukter for å se h
 
 ## Relevans for Food Systems 2026
 Gir oss "beviset" for at kjedene bruker pris som et strategisk våpen på tvers av kategorier. Dette er essensielt for å forklare hvorfor enkelte varer er uforholdsmessig dyre i Norge sammenlignet med Sverige.
+
+## Kildestatusnotat (library-triage C, 2026-06-19)
+
+Dette er Konkurransetilsynets Marginstudie Del 2, publisert januar 2025, som analyserer marginer på produktnivå for over 1 000 enkeltprodukter. Dette er en primær kvantitativ analyse fra det norske konkurransetilsynet. Dokumentet er tilgjengelig som PDF via Konkurransetilsynets nettsted. Filen forblir intern bakgrunn; brukes kun som underlag. Merknad: studien analyserer historiske marginer og bør ikke brukes som kilde for løpende markedsdata uten å angi referanseperiode.
+
+Kilder:
+- https://konkurransetilsynet.no/wp-content/uploads/2025/01/Del-2.-Kartlegging-av-marginer-ved-bruk-av-informasjon-pa-produktniva.pdf  (accessedAt 2026-06-19, sourceClass primary)

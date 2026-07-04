@@ -26,3 +26,10 @@ Norge har innført tilsvarende regulering gjennom lov om god handelsskikk (2020)
 ## Relevans for Food Systems 2026
 
 Kjernerelevant for prosjektets analyse av maktforhold i forsyningskjeden. UTP-direktivet og lov om god handelsskikk er de viktigste regulatoriske verktøyene for å begrense maktmisbruk fra dagligvarekjeder overfor leverandører. Den pågående debatten om Dagligvaretilsynets fremtid illustrerer spenningen mellom politisk vilje og praktisk gjennomføring av regulering.
+
+## Kildestatusnotat (library-triage E, 2026-06-19)
+
+Direktiv (EU) 2019/633 er hentet og bekreftet live på EUR-Lex via den stabile ELI-URL-en. EUR-Lex viser status «In force» og bekrefter publikasjon i OJ L 111, 25.4.2019 (s. 59–72). Den kanoniske ELI-URL-en (http://data.europa.eu/eli/dir/2019/633/oj) er å foretrekke som persistent lokator. Innholdet i dette notatet er korrekt — direktivet er vedtatt 17. april 2019, gjennomføringsfrist nasjonal lov 1. mai 2021. Filen forblir intern bakgrunn.
+
+Kilder:
+- https://eur-lex.europa.eu/eli/dir/2019/633/oj/eng  (accessedAt 2026-06-19, sourceClass primary)

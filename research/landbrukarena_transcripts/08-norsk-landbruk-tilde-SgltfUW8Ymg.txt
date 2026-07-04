@@ -1,3 +1,24 @@
+--- Transcript fragment curation ---
+
+Status: blocked_source / transcript_fragment_unusable
+Video: https://www.youtube.com/watch?v=SgltfUW8Ymg
+Title: Norsk landbruk Tilde
+
+Decision: Do not use this transcript fragment as AI context, claim evidence, or
+external source text. The imported file contains a short Norwegian auto-caption
+fragment, but it is still below the review floor and does not represent a
+complete interview or episode transcript. Direct YouTube timedtext list lookup
+returned no usable captions, and the YouTube watch page exposed a Norwegian
+auto-generated caption track whose timedtext payload returned empty bodies in
+checked formats.
+
+Operator note: keep the YouTube URL as a locator only. Reopen this source only if
+a complete Norwegian transcript, verified subtitle file, or manual transcript is
+created from the video. Until then this row is intentionally parked and should
+not remain in the text-repair queue.
+
+Original imported fragment:
+
 [00:00.000] [Musikk]
 [00:00.680] heltids sponde sammen med mannen min to
 [00:02.800] små unger det skal noe til å få det

@@ -29,3 +29,12 @@
 
 ## Relevans for Food Systems 2026
 Beviser at Norge faktisk har **lavere marginer** i butikkleddet enn både Sverige og Finland, til tross for høyere priser. Dette underbygger tesen om at de høye norske prisene ligger i leddene *før* butikken (toll, råvarer, industri).
+
+## Kildestatusnotat (library-triage R2, 2026-06-19)
+
+Dette faktaarket er en intern syntese basert på tre underliggende primærrapporter som alle er verifisert i library-triage R2. Kildekilder og tilhørende IR-sider er funnet og bekreftet for FY2024: ICA Gruppen (icagruppen.se, publisert 21. feb 2025), Axfood (axfood.com, publisert 21. feb 2025) og Kesko (kesko.fi, publisert 28. feb 2025). Margintall og markedsandelstall i faktaarket er ikke direkte sitert fra primærrapportene i dette notatet — de er oppgitt som interne analysetall og bør verifiseres mot primærrapportene før ekstern bruk. Faktaarket forblir internal_background og sourceClass synthesis.
+
+Underliggende primærkilder:
+- ICA Gruppen Annual Report 2024: https://www.icagruppen.se/globalassets/xx.-arsredovisning-2024/250221_icagruppen_annual_report_2024.pdf  (accessedAt 2026-06-19, sourceClass primary)
+- Axfood Annual and Sustainability Report 2024: https://www.axfood.com/globalassets/startsida/investerare/rapporter-och-presentationer/arkiv/2024/axfood-annual-and-sustainability-report-2024.pdf  (accessedAt 2026-06-19, sourceClass primary)
+- Kesko Annual Report 2024: https://www.kesko.fi/493454/globalassets/03-sijoittaja/raporttikeskus/2025/q1/vuosiraportti-2024/kesko_annual_report_2024.pdf  (accessedAt 2026-06-19, sourceClass primary)

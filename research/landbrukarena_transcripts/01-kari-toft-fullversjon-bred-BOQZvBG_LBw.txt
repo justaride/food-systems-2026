@@ -1,3 +1,23 @@
+--- Transcript fragment curation ---
+
+Status: blocked_source / transcript_fragment_unusable
+Video: https://www.youtube.com/watch?v=BOQZvBG_LBw
+Title: Kari Toft fullversjon bred
+
+Decision: Do not use this transcript fragment as AI context, claim evidence, or
+external source text. The imported file contains mostly music markers and a few
+English auto-caption tokens, not a usable Norwegian interview transcript. Direct
+YouTube timedtext list lookup returned no usable captions, and the YouTube watch
+page exposed only an English auto-generated caption track whose timedtext payload
+returned empty bodies in checked formats.
+
+Operator note: keep the YouTube URL as a locator only. Reopen this source only if
+a complete Norwegian transcript, verified subtitle file, or manual transcript is
+created from the video. Until then this row is intentionally parked and should
+not remain in the text-repair queue.
+
+Original imported fragment:
+
 [00:05.860] [Music]
 [00:11.620] [Music]
 [00:20.000] foreign

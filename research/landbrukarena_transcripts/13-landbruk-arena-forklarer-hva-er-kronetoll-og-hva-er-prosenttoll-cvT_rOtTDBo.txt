@@ -1,3 +1,22 @@
+--- Transcript fragment curation ---
+
+Status: blocked_source / transcript_fragment_unusable
+Video: https://www.youtube.com/watch?v=cvT_rOtTDBo
+Title: Landbruk Arena forklarer: Hva er kronetoll og hva er prosenttoll?
+
+Decision: Do not use this transcript fragment as AI context, claim evidence, or
+external source text. The imported file contains only a few auto-caption tokens
+and music markers. Direct YouTube timedtext list lookup returned no usable
+captions, and the YouTube watch page exposed only a Vietnamese auto-generated
+caption track whose timedtext payload returned empty bodies in checked formats.
+
+Operator note: keep the YouTube URL as a locator only. Reopen this source only if
+a complete Norwegian transcript, verified subtitle file, or manual transcript is
+created from the video. Until then this row is intentionally parked and should
+not remain in the text-repair queue.
+
+Original imported fragment:
+
 [00:00.000] ừ ừ
 [00:25.800] [âm nhạc]
 [00:52.700] [âm nhạc]

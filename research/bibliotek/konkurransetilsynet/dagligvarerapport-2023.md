@@ -32,3 +32,10 @@
 Dagligvarerapporten 2023 utdyper bildet av et todelt norsk dagligvaremarked: nasjonalt dominert av tre kjeder med tilsynelatende stabil konsentrasjon, men med betydelig variasjon lokalt der mange forbrukere har svært begrenset valgfrihet. Funnet om at 30 % av butikkene opererer uten reell konkurranse er særlig viktig for prosjektets analyse av forbrukermakt og pristransparens.
 
 For Food Systems 2026-prosjektet er de regionale forskjellene i markedsandeler viktige for å forstå maktgeografien i norsk matforsyning. NorgesGruppens dominans i sentrale strøk versus Coops styrke i distrikts-Norge avspeiler ulike forretningsmodeller og historiske etableringsmønstre som former tilgjengelighet og pris for norske matforbrukere. Funnet om svakere konkurranse for jordbruksprodukter peker mot sammenhengene mellom landbrukspolitikk, importvern og konkurranseforhold som er sentralt i prosjektets helhetlige analyse.
+
+## Kildestatusnotat (library-triage C, 2026-06-19)
+
+Dette er Konkurransetilsynets offisielle årsrapport for dagligvaremarkedet 2023, publisert januar 2024. Nøkkelfunnet om at 30 % av norske dagligvarebutikker opererer uten reell konkurranse (12 % uten annen kjede i nærområdet, 18 % med kun én konkurrerende kjede) er primær markedsdata fra tilsynsmyndigheten. Rapporten er tilgjengelig som PDF via Konkurransetilsynets nettsted. Filen forblir intern bakgrunn; brukes kun som underlag og skal ikke eksporteres som whitepaper-klar uten kryssverifisering mot 2024-25-rapporten.
+
+Kilder:
+- https://konkurransetilsynet.no/wp-content/uploads/2024/01/Konkurransetilsynets-dagligvarerapport-2023.pdf  (accessedAt 2026-06-19, sourceClass primary)

@@ -17,3 +17,14 @@
 
 ## Relevans for Food Systems 2026
 S Group er relevant fordi den finske samvirkemodellen fortsatt er en av de tydeligste motpolene til konsern- og franchisebaserte dagligvaremodeller i Norden. Notatet viser hvordan medlemskap, bonus, investeringer og bærekraft brukes som konkurranseverktøy i et modent marked.
+
+## Kildestatusnotat (library-triage R2, 2026-06-19)
+
+S Groups offisielle S Group and Sustainability 2024-rapport er bekreftet på S Groups rapportside og som PDF fra Contentful-lagringen brukt av s-ryhma.fi. Rapporten dekker S Group/SOK og de regionale samvirkelagene, mens SOK Corporations Financial Statements 2024 og Financial Statements Bulletin 2024 gir regnskapsunderlag. Nøkkeltall i notatet (retail sales EUR 14.3bn, driftsresultat EUR 499m, bonus EUR 535m) er i tråd med de offisielle S Group/SOK-kildene. Notatet forblir internal_background.
+
+Kilder:
+- https://s-ryhma.fi/en/finance-and-administration/reports  (accessedAt 2026-06-19, sourceClass primary)
+- https://s-ryhma.fi/en/news/annual-report-and-sustainability-review-2024-susta/30p5V01sJnJ3HT7gkAto8G  (accessedAt 2026-06-19, sourceClass primary)
+- https://assets.ctfassets.net/8122zj5k3sy9/QLeVjrOipS3Ciocgn1D3G/ef0a70e73a569d0641aa8d9b3944db2a/S_Group_and_Sustainability_2024_www.pdf  (accessedAt 2026-06-19, sourceClass primary)
+- https://assets.ctfassets.net/8122zj5k3sy9/3J2YHt4fmjyMkKS7xbQSKB/7cbc813c5c5682bcc70d9309910d1e37/S_Group_and_Sustainability_2024.pdf  (accessedAt 2026-06-19, sourceClass primary)
+- https://assets.ctfassets.net/8122zj5k3sy9/3wP2S73BVHPHin6V8amoT5/d6423204d722e3988611551a8515f1a8/SOK_Corporation_Financial_Statements_Bulletin_2024.pdf  (accessedAt 2026-06-19, sourceClass primary)

@@ -20,3 +20,11 @@
 
 ## Relevans for Food Systems 2026
 Coop Danmark er relevant fordi selskapet viser hvor langt en stor samvirkeaktør kan måtte gå i en markedssituasjon med hard priskonkurranse og behov for omstilling. Rapporten er særlig nyttig for å følge eierskapsendringer, balanseforsterkning og effekten av kjedeforenkling i dansk dagligvare.
+
+## Kildestatusnotat (library-triage R2, 2026-06-19)
+
+Coop Danmark A/S sin offisielle Årsrapport 2024 (FY1. januar–31. desember 2024) er bekreftet tilgjengelig som PDF direkte fra coop.dk. Rapporten ble fremlagt og godkjent på ordinær generalforsamling 22. april 2025. Nøkkeltall i notatet (nettoomsætning DKK 33,618m, EBIT før særlige poster DKK 162m, årets resultat DKK 818m) er verifisert mot PDF-innholdet og Coops egen pressemelding. Eierskapsnotatet er korrekt: Coop Danmark A/S eies av OK a.m.b.a. (50.82 %) og Coop amba (49.18 %). Notatet forblir internal_background.
+
+Kilder:
+- https://coop.dk/media/vvwp2bdy/coop-danmark-aarsrapport-2024.pdf  (accessedAt 2026-06-19, sourceClass primary)
+- https://coop.dk/kontakt/pressekontakt/aarsrapporter/  (accessedAt 2026-06-19, sourceClass primary)

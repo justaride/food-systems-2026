@@ -28,3 +28,10 @@ For Norge er implementeringen spesielt utfordrende. Regjeringen har besluttet aa
 ## Relevans for Food Systems 2026
 
 Hoey relevans for prosjektets analyse av forsyningskjeder og globale raavareavhengigheter. EUDR paavirker direkte BAMA (tropisk frukt, kakao), Orkla (kakao, kaffe, palmeolje), og saerlig Denofa/Felleskjoepet (soyaimport til for). Tredjelandsstatusen eksponerer en strukturell svakhet i EOES-avtalen for norsk naeringsmiddelindustri. BusinessRelationship-modellen boer kartlegge hvilke norske selskaper som er eksponert mot EUDR-regulerte raavarekedjerm, og CompanyProperty kan brukes til aa spore lagrings- og logistikkfasiliteter for regulerte varer.
+
+## Kildestatusnotat (library-triage E, 2026-06-19)
+
+Dette notatet dekker EUDR (Forordning (EU) 2023/1115) og den påfølgende forordning (EU) 2025/2650 som utsatte og forenklet implementeringen. EU-Kommisjonens offisielle EUDR-side ble hentet og bekrefter innholdets riktighet: ikrafttredelsesdatoer (store aktører 30. desember 2026, SMB 30. juni 2027) er korrekte. Siden bekrefter også at EUDR-informasjonssystemet ble lansert 4. desember 2024. Notatets norske EØS-analyse (tredjelandsstatus, Denofa-caset) er intern analyse og ikke verifisert mot offisielle norske myndighetskilder i dette passet. Filen forblir intern bakgrunn.
+
+Kilder:
+- https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en  (accessedAt 2026-06-19, sourceClass primary)
