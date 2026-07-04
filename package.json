@@ -133,6 +133,7 @@
     "research:citation-readiness-queue": "tsx scripts/export-citation-readiness-queue.ts",
     "research:citable-acceptance-pack": "tsx scripts/build-citable-acceptance-pack.ts",
     "research:library:repair-backlog": "tsx scripts/build-library-analysis-repair-backlog.ts",
+    "research:library:locator-profile": "tsx scripts/build-library-analysis-locator-profile.ts",
     "export:notebooklm": "tsx scripts/build-notebooklm-export.ts",
     "audit:citations": "tsx scripts/verify-data-integrity.ts --strict-sources",
     "audit:citable-reports": "tsx scripts/audit-citable-reports.ts",
