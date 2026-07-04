@@ -3,9 +3,9 @@ tittel: Lokal worktree-inventar etter PR-backlogg-closeout
 dato: 2026-07-04
 status: aktivt-ryddenotat
 grunnlag:
-  - `git status --short --branch` på `main` ved `bbe6194`
+  - `git status --short --branch` på `main` ved `31b1171`
   - `gh pr list --state open --limit 50 --json number,title,url` returnerte `[]`
-  - `git worktree list --porcelain` etter PR #278 og clean non-ancestor worktree-review
+  - `git worktree list --porcelain` etter PR #279 og branch-only review
   - `git branch -r --merged origin/main` etter remote-branch cleanup
 siterbarhet: intern
 ---
@@ -14,7 +14,7 @@ siterbarhet: intern
 
 ## Kort konklusjon
 
-GitHub PR-flaten er tom og `main` er rent mot `origin/main`. MCP-sporet er publisert i PR #274 og den gamle lokale MCP-worktreen er fjernet. NotebookLM eksportsporet er publisert i PR #276 som fersk `2026-07-04`-pakke, og den gamle lokale NotebookLM-worktreen er nå fjernet etter eksplisitt port/drop-beslutning for recovery-restene. De tre rene ikke-ancestor worktreene er også gjennomgått; ingen av dem er slettet fordi de fortsatt har `+`-commits i `git cherry` og store stale tree-differ mot dagens `main`. Lokal repo-hygiene er derfor fortsatt ikke helt lik "slett alt": noen worktrees er dirty og skal ikke røres uten egen scopebeslutning, og noen rene worktrees er beholdt som aktive eller mulige recovery-spor.
+GitHub PR-flaten er tom og `main` er rent mot `origin/main`. MCP-sporet er publisert i PR #274 og den gamle lokale MCP-worktreen er fjernet. NotebookLM eksportsporet er publisert i PR #276 som fersk `2026-07-04`-pakke, og den gamle lokale NotebookLM-worktreen er nå fjernet etter eksplisitt port/drop-beslutning for recovery-restene. De tre rene ikke-ancestor worktreene og de to branch-only sporene er også gjennomgått; ingen av dem er slettet fordi de fortsatt har `+`-commits i `git cherry` og store stale tree-differ mot dagens `main`. Lokal repo-hygiene er derfor fortsatt ikke helt lik "slett alt": noen worktrees er dirty og skal ikke røres uten egen scopebeslutning, og noen rene worktrees/branches er beholdt som aktive eller mulige recovery-spor.
 
 Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/branch når den enten er ren og fullt innlemmet i `main`, eller når en eksplisitt beslutning sier at historikken ikke lenger skal beholdes.
 
@@ -67,8 +67,8 @@ Disse har ikke aktiv worktree, men er heller ikke trygge å slette som ren hygie
 
 | Branch | Main vs branch | PR-status | Beslutning |
 |---|---|---|---|
-| `codex/domene-kartlegging-2026-06-25` | `165 6` | PR #205 merget. | Behold til egen diff-review; `git cherry` viste seks `+` commits. |
-| `codex/platform-stack-integration-2026-06-11` | `228 54` | PR #159 lukket. | Behold som recovery-/backloggspor til eksplisitt port/drop-beslutning. |
+| `codex/domene-kartlegging-2026-06-25` | `171 6` | PR #205 merget; ingen remote branch. | Behold. Lokal branch har fortsatt 6 `+` commits i `git cherry`, og `git diff --shortstat main..branch` viser 1204 filer, 4086 inn og 119523 ut. Må ha eksplisitt squash-/supersede-review før sletting. |
+| `codex/platform-stack-integration-2026-06-11` | `234 54` | PR #159 lukket uten merge; ingen remote branch. | Behold som recovery-/backloggspor. `git cherry` viser 23 `+` commits, og `git diff --shortstat main..branch` viser 1704 filer, 9379 inn og 170747 ut. Må ha eksplisitt port/drop-beslutning før sletting. |
 
 ## Beholdte branch-only recovery-spor
 
@@ -79,7 +79,7 @@ Ikke slett disse branchene før det finnes en eksplisitt beslutning om at G-stac
 ## Neste trygge steg
 
 1. For de tre rene ikke-ancestor worktreene: gjør bare videre port/drop etter eksplisitt squash-/supersede-review; ikke slett som hygiene.
-2. For branch-only sporene: sammenlign `git cherry -v main <branch>`, `git diff --stat main...<branch>`, og relevant PR-mergeform før sletting.
+2. For de to branch-only sporene: gjør bare videre sletting etter eksplisitt squash-/supersede-review eller port/drop-beslutning.
 3. For `codex/goal-*`: opprett først en recovery-beslutning som sier hvilke G-slices som eventuelt skal portes til ferske `main`-baserte PR-er.
 4. Kjør alltid `git status --short --branch` i worktree-en før sletting.
 5. Etter hver sletting: `git worktree list --porcelain`, `git branch --format='%(refname:short)'`, `git fetch --prune`, og `gh pr list --state open`.
