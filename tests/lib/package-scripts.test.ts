@@ -138,6 +138,19 @@ describe('package scripts', () => {
     )
   })
 
+  it('exposes Food Systems KB MCP commands for local coworker setup', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+
+    assert.equal(packageJson.scripts['mcp:kb'], 'tsx mcp/foodsystems-kb/server.ts')
+    assert.equal(packageJson.scripts['mcp:kb:test'], 'tsx mcp/foodsystems-kb/smoke.ts')
+    assert.equal(
+      packageJson.scripts['mcp:kb:inspect'],
+      'npx @modelcontextprotocol/inspector -- npx tsx mcp/foodsystems-kb/server.ts',
+    )
+  })
+
   it('exposes VK-5 review closeout as a separate final gate', () => {
     const closeoutSource = readFileSync(
       join(process.cwd(), 'scripts', 'obsidian-vault', 'review-closeout.ts'),

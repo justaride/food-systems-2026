@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food Systems Knowledge MCP - prosess og tilkoblingsguide</title>
+<meta name="description" content="Kort presentasjon av Food Systems Knowledge MCP: hva som er bygget, hvordan prosessen fungerer, og hvordan koble serveren til Codex og Claude.">
+<style>
+  :root{
+    --bg:#f6f4ee;
+    --paper:#fffdf8;
+    --ink:#18211c;
+    --muted:#59645c;
+    --line:#d8d2c5;
+    --green:#2f6b4f;
+    --green-2:#dcebdd;
+    --blue:#225a72;
+    --blue-2:#dbe9ef;
+    --amber:#9b6b18;
+    --amber-2:#f4e5bf;
+    --red:#953928;
+    --red-2:#f2d9d4;
+    --charcoal:#121612;
+    --radius:8px;
+    --max:1180px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    color:var(--ink);
+    background:
+      linear-gradient(90deg, rgba(24,33,28,.035) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(24,33,28,.025) 1px, transparent 1px),
+      var(--bg);
+    background-size:42px 42px;
+    font:16px/1.55 "Avenir Next", "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(34,90,114,.35)}
+  a:hover{border-bottom-color:var(--blue)}
+  code{
+    font:13px/1.45 "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    background:#ebe7dc;
+    color:#26332b;
+    padding:2px 5px;
+    border-radius:5px;
+  }
+  pre{
+    margin:12px 0 0;
+    padding:14px 16px;
+    overflow:auto;
+    color:#edf4ee;
+    background:#101611;
+    border-radius:var(--radius);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.025);
+  }
+  pre code{background:transparent;color:inherit;padding:0;border-radius:0}
+
+  .deck{max-width:var(--max);margin:0 auto;padding:28px 18px 72px}
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    align-items:center;
+    margin:0 0 18px;
+    color:var(--muted);
+    font-size:13px;
+  }
+  .mark{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--ink);
+    font-weight:700;
+  }
+  .mark-dot{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 34% 32%, #f7fff2 0 12%, transparent 13%),
+      conic-gradient(from 210deg, var(--green), #7ea45a, var(--blue), var(--green));
+    border:1px solid rgba(24,33,28,.16);
+  }
+
+  .slide{
+    min-height:calc(100vh - 56px);
+    display:grid;
+    align-content:center;
+    padding:clamp(34px,5vw,62px);
+    margin:0 0 22px;
+    background:rgba(255,253,248,.92);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 22px 70px rgba(24,33,28,.08);
+    position:relative;
+    overflow:hidden;
+  }
+  .slide.compact{min-height:auto}
+  .slide.dark{
+    background:
+      linear-gradient(120deg, rgba(47,107,79,.28), transparent 48%),
+      linear-gradient(315deg, rgba(34,90,114,.22), transparent 46%),
+      var(--charcoal);
+    color:#fffdf8;
+    border-color:#252e26;
+  }
+  .slide.dark a{color:#b9d9e6;border-bottom-color:rgba(185,217,230,.4)}
+  .slide.dark .eyebrow,.slide.dark .muted{color:rgba(255,253,248,.72)}
+  .slide.dark code{background:rgba(255,255,255,.13);color:#fffdf8}
+
+  .kicker{
+    margin:0 0 12px;
+    color:var(--green);
+    font-weight:800;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    font-size:12px;
+  }
+  .dark .kicker{color:#9bd49f}
+  h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.01em}
+  h1{
+    max-width:780px;
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(42px,7vw,82px);
+    font-weight:500;
+  }
+  h2{
+    max-width:780px;
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(32px,5vw,58px);
+    font-weight:500;
+  }
+  h3{font-size:19px;margin:0 0 8px}
+  .lede{
+    max-width:760px;
+    margin:18px 0 0;
+    color:var(--muted);
+    font-size:clamp(18px,2.2vw,24px);
+    line-height:1.45;
+  }
+  .dark .lede{color:rgba(255,253,248,.78)}
+  .muted{color:var(--muted)}
+
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:28px 0 0;
+  }
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:7px 10px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.08);
+    color:rgba(255,253,248,.86);
+    font-weight:700;
+    font-size:13px;
+  }
+  .pill span{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#9bd49f;
+  }
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .panel{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px;
+  }
+  .dark .panel{
+    background:rgba(255,255,255,.08);
+    border-color:rgba(255,255,255,.16);
+  }
+  .panel p{margin:0;color:var(--muted)}
+  .dark .panel p{color:rgba(255,253,248,.73)}
+  .panel strong{display:block;margin:0 0 5px;color:var(--ink)}
+  .dark .panel strong{color:#fffdf8}
+  .panel.green{border-left:5px solid var(--green)}
+  .panel.blue{border-left:5px solid var(--blue)}
+  .panel.amber{border-left:5px solid var(--amber)}
+  .panel.red{border-left:5px solid var(--red)}
+
+  .process{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    margin-top:28px;
+  }
+  .step{
+    min-height:142px;
+    padding:15px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:#fff;
+    position:relative;
+  }
+  .step::after{
+    content:"";
+    position:absolute;
+    right:-10px;
+    top:50%;
+    width:10px;
+    border-top:2px solid var(--line);
+  }
+  .step:last-child::after{display:none}
+  .step .n{
+    display:inline-grid;
+    place-items:center;
+    width:26px;
+    height:26px;
+    margin:0 0 12px;
+    border-radius:50%;
+    color:#fff;
+    background:var(--green);
+    font-weight:800;
+    font-size:12px;
+  }
+  .step h3{font-size:16px}
+  .step p{margin:0;color:var(--muted);font-size:14px}
+
+  .matrix{
+    width:100%;
+    margin-top:24px;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    background:#fff;
+  }
+  .matrix th,.matrix td{
+    padding:12px 14px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+    text-align:left;
+  }
+  .matrix th{
+    color:var(--muted);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    background:#f2eee4;
+  }
+  .matrix tr:last-child td{border-bottom:0}
+  .matrix td:first-child{font-weight:750}
+
+  .callout{
+    margin-top:24px;
+    padding:18px;
+    border-radius:var(--radius);
+    background:var(--blue-2);
+    border:1px solid #c5dae2;
+  }
+  .callout.warning{
+    background:var(--amber-2);
+    border-color:#e0c777;
+  }
+  .callout p{margin:0;color:#25352c}
+  details{
+    margin-top:16px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:#fff;
+    overflow:hidden;
+  }
+  summary{
+    cursor:pointer;
+    padding:13px 16px;
+    font-weight:800;
+    color:var(--ink);
+  }
+  details pre{margin:0;border-radius:0;border-left:0;border-right:0;border-bottom:0}
+  .soft-note{
+    margin-top:14px;
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  .split{
+    display:grid;
+    grid-template-columns:minmax(0, .85fr) minmax(0, 1.15fr);
+    gap:28px;
+    align-items:start;
+    margin-top:24px;
+  }
+  .checklist{
+    list-style:none;
+    margin:20px 0 0;
+    padding:0;
+  }
+  .checklist li{
+    display:grid;
+    grid-template-columns:28px 1fr;
+    gap:10px;
+    margin:0 0 12px;
+    color:var(--muted);
+  }
+  .checklist li::before{
+    content:"";
+    width:19px;
+    height:19px;
+    margin-top:3px;
+    border-radius:50%;
+    background:
+      linear-gradient(135deg, transparent 46%, #fff 47% 53%, transparent 54%),
+      var(--green);
+    box-shadow:0 0 0 1px rgba(47,107,79,.24);
+  }
+
+  .footer-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:24px;
+    font-size:13px;
+  }
+  .footer-links a{
+    padding:8px 10px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:#fff;
+  }
+
+  @media (max-width:900px){
+    .slide{min-height:auto}
+    .grid-2,.grid-3,.split{grid-template-columns:1fr}
+    .process{grid-template-columns:1fr}
+    .step::after{display:none}
+  }
+  @media (max-width:620px){
+    .deck{padding:12px 10px 44px}
+    .topbar{align-items:flex-start;flex-direction:column}
+    .slide{padding:28px 20px;border-radius:10px}
+    .matrix{font-size:14px}
+    .matrix th,.matrix td{padding:10px}
+  }
+  @media print{
+    body{background:#fff}
+    .deck{max-width:none;padding:0}
+    .topbar{display:none}
+    .slide{
+      min-height:0;
+      break-after:page;
+      border:0;
+      border-radius:0;
+      box-shadow:none;
+      margin:0;
+    }
+    a{color:var(--ink);border-bottom:0}
+  }
+</style>
+</head>
+<body>
+<main class="deck">
+  <div class="topbar">
+    <div class="mark"><span class="mark-dot" aria-hidden="true"></span>Food Systems Knowledge MCP</div>
+    <div>Pedagogisk oversikt · hvordan kollegaer kan bruke kunnskapsbasen med AI</div>
+  </div>
+
+  <section class="slide dark" id="forside">
+    <p class="kicker">Kort presentasjon</p>
+    <h1>En kildebevisst assistent for Food Systems</h1>
+    <p class="lede">Vi har laget en trygg måte for Codex og Claude å lese prosjektets kunnskapsbase på. Poenget er enkelt: kollegaen kan stille vanlige spørsmål og få svar som viser hvor informasjonen kommer fra.</p>
+    <div class="meta-row" aria-label="Hovedegenskaper">
+      <span class="pill"><span></span>Bare lesing</span>
+      <span class="pill"><span></span>Kilder først</span>
+      <span class="pill"><span></span>Varsler usikkerhet</span>
+      <span class="pill"><span></span>Codex klar</span>
+      <span class="pill"><span></span>Claude kan kobles på</span>
+    </div>
+  </section>
+
+  <section class="slide" id="hva-er-bygget">
+    <p class="kicker">01 · Hva er dette?</p>
+    <h2>Tenk på MCP som en kontrollert dør inn til kunnskapsbasen</h2>
+    <p class="lede">AI-en får ikke rote fritt rundt. Den får en liten, ryddig meny: søk, hent et dokument, sjekk en påstand, vis kilden, eller finn hull i materialet.</p>
+    <div class="grid-3">
+      <div class="panel green">
+        <strong>For kollegaen</strong>
+        <p>Still spørsmål på vanlig språk: “Hva vet vi om eierskap i nordisk dagligvare?”</p>
+      </div>
+      <div class="panel blue">
+        <strong>For AI-en</strong>
+        <p>Den får lov til å slå opp i riktig kunnskapsgrunnlag og returnere korte, kontrollerte svar.</p>
+      </div>
+      <div class="panel amber">
+        <strong>For prosjektet</strong>
+        <p>Svarene skiller mellom det vi kan sitere, det som bare er internt, og det som mangler kilde.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="prosess">
+    <p class="kicker">02 · Slik fungerer det i praksis</p>
+    <h2>Fra spørsmål til svar med kilde og forbehold</h2>
+    <div class="process" aria-label="Prosessflyt">
+      <div class="step">
+        <span class="n">1</span>
+        <h3>Spør</h3>
+        <p>Kollegaen stiller et vanlig spørsmål i Codex eller Claude.</p>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <h3>Finn</h3>
+        <p>Assistenten søker i dokumenter, selskaper, personer, aktører og kilder.</p>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <h3>Sjekk</h3>
+        <p>Den ser om funnet har kilde, lenke, lokal fil eller trenger gjennomgang.</p>
+      </div>
+      <div class="step">
+        <span class="n">4</span>
+        <h3>Svar</h3>
+        <p>Den gir kort svar med sitatstatus, ikke en stor datadump.</p>
+      </div>
+      <div class="step">
+        <span class="n">5</span>
+        <h3>Varsle</h3>
+        <p>Hvis noe er usikkert, sier den fra i stedet for å late som.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="sikkerhet">
+    <p class="kicker">03 · Hva kan den hjelpe med?</p>
+    <h2>Den gjør kunnskapsbasen mer samtalebar</h2>
+    <div class="grid-2">
+      <div class="panel green">
+        <strong>Finne informasjon</strong>
+        <p>Søk etter tema, dokumenter, selskaper, aktører eller personer uten å vite hvor i prosjektet dataene ligger.</p>
+      </div>
+      <div class="panel blue">
+        <strong>Forklare sammenhenger</strong>
+        <p>Be om korte profiler: hvem eier hva, hvilke dokumenter støtter dette, og hva er relasjonen?</p>
+      </div>
+      <div class="panel amber">
+        <strong>Sjekke påstander</strong>
+        <p>Gi den en konkret påstand og be den vise om prosjektet har kildebelegg for den.</p>
+      </div>
+      <div class="panel red">
+        <strong>Finne hull</strong>
+        <p>List opp hva som mangler kilde, har lav tillit, eller bør ryddes før ekstern bruk.</p>
+      </div>
+    </div>
+    <div class="callout warning">
+      <p><strong>Hovedregelen:</strong> Når noe ikke er godt nok dokumentert, skal assistenten si “dette er ikke klart for ekstern bruk” i stedet for å pynte på svaret.</p>
+    </div>
+  </section>
+
+  <section class="slide" id="codex">
+    <p class="kicker">04 · Hva vi bygget</p>
+    <h2>En lesetilgang med rekkverk</h2>
+    <p class="lede">Serveren kan bare lese. Den kan ikke endre databasen, importere filer, synke vaulten eller kjøre frie databasekommandoer. Det gjør den trygg nok som standardverktøy for kollegaer.</p>
+    <div class="grid-3">
+      <div class="panel green">
+        <strong>Søk</strong>
+        <p>Finner relevante poster på tvers av kunnskapsbasen.</p>
+      </div>
+      <div class="panel blue">
+        <strong>Hent</strong>
+        <p>Viser korte dokumentutdrag og profiler med lenker.</p>
+      </div>
+      <div class="panel amber">
+        <strong>Kontroller</strong>
+        <p>Viser kildestatus, kildehull og usikkerhet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide compact" id="codex-config">
+    <p class="kicker">05 · Hva kollegaen trenger å vite</p>
+    <h2>Tre enkle ting holder</h2>
+    <div class="grid-3">
+      <div class="panel green">
+        <strong>1. Spør konkret</strong>
+        <p>“Hva vet vi om X?” er bra. “Kan dette siteres eksternt?” er enda bedre.</p>
+      </div>
+      <div class="panel blue">
+        <strong>2. Be om kilder</strong>
+        <p>Legg til “vis kildene og si hva som er usikkert”.</p>
+      </div>
+      <div class="panel amber">
+        <strong>3. Ikke overtolk</strong>
+        <p>Hvis assistenten sier at noe er internt eller usikkert, må det ryddes før ekstern bruk.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="claude">
+    <p class="kicker">06 · Koble til Codex og Claude</p>
+    <h2>Samme kunnskapsdør, ulike måter å åpne den på</h2>
+    <p class="lede">For brukeren bør dette oppleves likt: åpne AI-verktøyet, se at Food Systems-kilden er koblet på, og spør med krav om kilder.</p>
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th>Der du jobber</th>
+          <th>Hva betyr det i praksis?</th>
+          <th>Anbefaling nå</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Codex</td>
+          <td>Codex starter kunnskapskoblingen fra repoet på maskinen din.</td>
+          <td>Best førstetest. Dette er v1-hovedsporet.</td>
+        </tr>
+        <tr>
+          <td>Claude Code</td>
+          <td>Claude kan kobles på fra terminalen på omtrent samme måte.</td>
+          <td>Godt alternativ for tekniske kollegaer.</td>
+        </tr>
+        <tr>
+          <td>Claude Desktop</td>
+          <td>Bør pakkes som en liten installasjonspakke før bred deling.</td>
+          <td>Neste praktiske forbedring hvis desktop er viktig.</td>
+        </tr>
+        <tr>
+          <td>Claude web / Cowork</td>
+          <td>Trenger en hosted versjon som kan nås utenfra.</td>
+          <td>Ikke v1. Planlegg som v2 med innlogging og drift.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="callout warning">
+      <p><strong>Enkel huskeregel:</strong> Codex og Claude Code kan bruke lokal kopi nå. Claude web/Cowork trenger en delt nettadresse senere.</p>
+    </div>
+  </section>
+
+  <section class="slide compact" id="claude-code">
+    <p class="kicker">07 · Eksempelspørsmål</p>
+    <h2>Slik kan kollegaen spørre</h2>
+    <div class="grid-2">
+      <div class="panel green">
+        <strong>Få oversikt</strong>
+        <p>“Hva vet vi om matsvinn i kunnskapsbasen? Bruk bare funn som har gode kilder.”</p>
+      </div>
+      <div class="panel blue">
+        <strong>Sjekk en påstand</strong>
+        <p>“Kan påstanden om REMA 1000-eierskap dokumenteres? Vis kilde og usikkerhet.”</p>
+      </div>
+      <div class="panel amber">
+        <strong>Forbered publisering</strong>
+        <p>“Hvilke funn om nordisk dagligvare er klare for ekstern bruk, og hva må holdes tilbake?”</p>
+      </div>
+      <div class="panel red">
+        <strong>Finn ryddearbeid</strong>
+        <p>“List de viktigste kildehullene for selskaper og aktører.”</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide compact" id="claude-desktop">
+    <p class="kicker">08 · Praktisk oppsett</p>
+    <h2>For brukeren: tre steg. For installatør: detaljer under.</h2>
+    <div class="grid-2">
+      <div class="panel blue">
+        <strong>Brukerens opplevelse</strong>
+        <p>1. Få tilgang til repo og database. 2. Koble Food Systems-kilden til AI-verktøyet. 3. Start med et statusspørsmål.</p>
+      </div>
+      <div class="panel amber">
+        <strong>Installatørens ansvar</strong>
+        <p>Sørg for at tilgangen er lesetilgang, at hemmeligheter ikke ligger i repoet, og at Codex/Claude viser serveren som aktiv.</p>
+      </div>
+    </div>
+    <details>
+      <summary>Teknisk detalj: Codex-kommando</summary>
+      <pre><code>codex mcp add foodsystems-kb \
+  --env DATABASE_URL="$DATABASE_URL" \
+  --env OPENAI_API_KEY="$OPENAI_API_KEY" \
+  -- npx tsx mcp/foodsystems-kb/server.ts
+
+codex mcp list
+# Restart Codex og åpne /mcp for å sjekke status.</code></pre>
+    </details>
+    <details>
+      <summary>Teknisk detalj: Claude Code-kommando</summary>
+      <pre><code>claude mcp add --transport stdio foodsystems-kb \
+  --env DATABASE_URL="$DATABASE_URL" \
+  --env OPENAI_API_KEY="$OPENAI_API_KEY" \
+  -- npx tsx mcp/foodsystems-kb/server.ts
+
+claude mcp list
+# Start Claude Code i repoet og bruk /mcp for status.</code></pre>
+    </details>
+    <p class="soft-note">Claude Desktop bør pakkes som Desktop Extension før bred deling. Claude web/Cowork bør vente på en hosted versjon.</p>
+  </section>
+
+  <section class="slide" id="bruk">
+    <p class="kicker">09 · Hva skjer nå?</p>
+    <h2>Vi tester med ekte spørsmål før vi gjør den bredere</h2>
+    <div class="grid-2">
+      <div class="panel green">
+        <strong>1. Koble til i Codex</strong>
+        <p>Bruk ekte database-tilgang og sjekk at Food Systems-kilden er synlig.</p>
+      </div>
+      <div class="panel blue">
+        <strong>2. Test 5-10 spørsmål</strong>
+        <p>Velg spørsmål kollegaen faktisk vil bruke i arbeidshverdagen.</p>
+      </div>
+      <div class="panel amber">
+        <strong>3. Juster språk og output</strong>
+        <p>Hvis svarene blir for tekniske, strammer vi presentasjon og prompts.</p>
+      </div>
+      <div class="panel red">
+        <strong>4. Vurder delt løsning</strong>
+        <p>Delt nettversjon kommer først når innlogging, logging og lesetilgang er avklart.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="validering">
+    <p class="kicker">10 · Hva er allerede kontrollert?</p>
+    <h2>Den lokale versjonen er testet før overlevering</h2>
+    <div class="grid-2">
+      <div>
+        <h3>Teknisk verifisering</h3>
+        <ul class="checklist">
+          <li>Serveren kan lastes og viser forventede funksjoner.</li>
+          <li>Tester bekrefter at tomme søk og farlige filstier avvises.</li>
+          <li>Dokumentinnhold begrenses, så modellen ikke får store rådump ved et uhell.</li>
+          <li>Repoets test, lint og build passerer.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Bruksverifisering gjenstår</h3>
+        <ul class="checklist">
+          <li>Test med ekte kollegaspørsmål.</li>
+          <li>Sjekk at svarene er forståelige for ikke-tekniske lesere.</li>
+          <li>Se om kildestatus er tydelig nok.</li>
+          <li>Bestem om Claude Desktop-pakke eller hosted versjon er neste behov.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide compact" id="kilder">
+    <p class="kicker">Referanser</p>
+    <h2>Offisiell dokumentasjon brukt i guiden</h2>
+    <div class="footer-links">
+      <a href="https://developers.openai.com/codex/mcp">OpenAI: Codex MCP configuration</a>
+      <a href="https://code.claude.com/docs/en/mcp">Anthropic: Claude Code MCP</a>
+      <a href="https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop">Claude Desktop: local MCP servers and extensions</a>
+      <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Claude: remote MCP connectors</a>
+      <a href="https://modelcontextprotocol.io/specification/2025-03-26/basic/transports">MCP spec: transports</a>
+      <a href="https://modelcontextprotocol.io/docs/getting-started/intro">MCP intro</a>
+    </div>
+  </section>
+</main>
+</body>
+</html>
