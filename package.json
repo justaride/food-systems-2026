@@ -120,6 +120,8 @@
     "db:import:nordic-financials-2025:apply": "tsx scripts/import-nordic-financials-2025.ts --apply",
     "db:backfill:country-metric-harmonization:dry-run": "tsx scripts/backfill-country-metric-harmonization.ts --dry-run",
     "db:backfill:country-metric-harmonization:apply": "tsx scripts/backfill-country-metric-harmonization.ts --apply",
+    "db:backfill:document-file-paths:dry-run": "tsx scripts/backfill-document-file-paths-from-seed-map.ts --dry-run",
+    "db:backfill:document-file-paths:apply": "tsx scripts/backfill-document-file-paths-from-seed-map.ts --apply",
     "db:check-urls": "tsx scripts/check-urls.ts",
     "db:audit": "tsx scripts/verify-data-integrity.ts",
     "db:audit:strict-sources": "tsx scripts/verify-data-integrity.ts --strict-sources",

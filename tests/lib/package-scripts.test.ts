@@ -284,6 +284,28 @@ describe('package scripts', () => {
     assert.match(scriptSource, /countryMetric\.update/)
   })
 
+  it('exposes guarded document filePath backfill commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const scriptSource = readFileSync(
+      join(process.cwd(), 'scripts', 'backfill-document-file-paths-from-seed-map.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['db:backfill:document-file-paths:dry-run'],
+      'tsx scripts/backfill-document-file-paths-from-seed-map.ts --dry-run',
+    )
+    assert.equal(
+      packageJson.scripts['db:backfill:document-file-paths:apply'],
+      'tsx scripts/backfill-document-file-paths-from-seed-map.ts --apply',
+    )
+    assert.match(scriptSource, /DATABASE_URL is required/)
+    assert.match(scriptSource, /parseApplyMode/)
+    assert.match(scriptSource, /document\.update/)
+  })
+
   it('exposes guarded library analysis processing dry-run and apply commands', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
