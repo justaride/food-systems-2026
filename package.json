@@ -136,6 +136,8 @@
     "research:library:ledger": "tsx scripts/export-library-analysis-ledger.ts",
     "research:library:process:dry-run": "tsx scripts/process-library-analysis.ts --dry-run",
     "research:library:process:apply": "tsx scripts/process-library-analysis.ts --apply",
+    "research:library:repair-local-text:dry-run": "tsx scripts/repair-library-analysis-local-text.ts --dry-run",
+    "research:library:repair-local-text:apply": "tsx scripts/repair-library-analysis-local-text.ts --apply",
     "research:library:repair-backlog": "tsx scripts/build-library-analysis-repair-backlog.ts",
     "research:library:locator-profile": "tsx scripts/build-library-analysis-locator-profile.ts",
     "research:library:pdf-extraction-profile": "tsx scripts/build-library-analysis-pdf-extraction-profile.ts",
