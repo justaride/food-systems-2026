@@ -153,6 +153,8 @@ const decisions: Decision[] = []
 
 const i27P23Mapping = `P2.3 bekrefter at I28, I29, I30, I32, I33 og I35 fortsatt er parkerte. Ingen nye I-noter genereres i denne runden. Dette er en portvakt, ikke ny innsiktspublisering.
 
+I28-datareview 2026-07-04 ligger i \`research/_status/food-tg-r14/datareview/I28-styreknutepunkt-datareview-2026-07-04.md\`. Den konkluderer med at BAMA/ASKO kan beholdes som intern AP-1/maktkart-observasjon, men ikke som egen I28-node eller frittstående aktørclaim uten AP-1 claim-lock med grafunivers, dekning, metode og stoppspråk.
+
 I29-datareview 2026-07-04 ligger i \`research/_status/food-tg-r14/datareview/I29-nodekonsentrasjon-datareview-2026-07-04.md\`. Den konkluderer med at I29 fortsatt skal stå parkert: AP-2 nodekonsentrasjon er nyttig som metode-/lensecaveat, men ikke som egen innsiktsnode eller møtefigur.
 
 I30-datareview 2026-07-04 ligger i \`research/_status/food-tg-r14/datareview/I30-tilskuddskonsentrasjon-datareview-2026-07-04.md\`. Den konkluderer med at AP-3 består kilde-/nevnerreview for intern beslutning, men at ny I30-node fortsatt krever eksplisitt menneskelig godkjenning.
@@ -165,12 +167,54 @@ I35-source-shortlist 2026-07-04 ligger i \`research/_status/food-tg-r14/source-s
 
 | ID | Beslutning | Gate før ny node | Stopplinje |
 |---|---|---|---|
-| I28 | Behold som maktkart-observasjon, ikke egen innsiktsnode. | AP-1 claim-lock med metode, dekningsgrad og node-/brodefinisjon. | Ikke si at BAMA/ASKO er "maktens knutepunkt" uten å vise at dette er intern styregraf og ikke komplett verdikjedeunivers. |
+| I28 | Datareviewet; behold som maktkart-observasjon, ikke egen innsiktsnode. | AP-1 claim-lock med grafunivers, dekningsgrad, metode, dato og aktørspesifikk Brreg-støtte før ekstern bruk. | Ikke si at BAMA/ASKO er "maktens knutepunkt", kontrollerer eller koordinerer uten å vise at dette er intern styregraf, ikke komplett verdikjedeunivers. |
 | I29 | Parkert etter datareview; ikke generer egen I-node. | Ny beslutning + AP-2 claim-lock hvis den skal brukes utenfor I37/metodecaveat. | Ikke oversett intern node-/inntekts-HHI til markedsmakt, grafsentralitet eller kontrollclaim. |
 | I30 | Datareviewet; klar til menneskelig I-node-beslutning, men ikke generert. | Eksplisitt beslutning + claim-lock hvis den skal brukes utenfor intern cockpit. | Ikke bruk tilskuddskonsentrasjon som enkelaktørkritikk eller samlet landbruksstøtteclaim. |
 | I32 | Datareviewet; klar til menneskelig I-node-/claim-lock-beslutning, men ikke generert. | Eksplisitt beslutning + claim-lock med havbruksunivers, MTB-nevner, rollup-forbehold og restråstoffgrense. | Ikke blande havbrukskonsentrasjon med dagligvaretriopol-claim, slaktevolum eller målt restråstoffkontroll. |
 | I33 | Datareviewet; fortsatt parkert til prisserie-/valuta-PCQ. | Valutakontroll, SNN102 kategoriavgrensning og native fôr-/prisseriesjekk før ny I-node eller ekstern figur. | Ikke bruke proxy-test eller laks→foredling-PPI som dokumentert fôr→oppdrett-asymmetri, marginclaim eller intensjon. |
 | I35 | Source-shortlistet; fortsatt parkert til menneskelig I-node-/claim-lock-beslutning. | Eksplisitt formulering + EUDR-, SSB- og aktørscope claim-lock. | Ikke si at EUDR automatisk gjør norsk fôr/import til dokumentert sårbarhetsakse. |`
+
+const i28DatareviewBody = `## Kort dom
+
+I28 skal ikke bli egen innsiktsnode nå. AP-1 gir en nyttig intern observasjon: BAMA Gruppen AS og ASKO Norge AS er høyt sammenkoblede selskapsnoder i den interne styregrafen. Men I28 er aktørspesifikk og lett å overlese som makt-, kontroll- eller koordineringspåstand. Trygg bruk er som maktkart-/I37-observasjon med tydelig grafunivers og dekningsforbehold, ikke som frittstående BAMA/ASKO-claim.
+
+## Reviewgrunnlag
+
+| Kilde | Rolle i review |
+|---|---|
+| \`docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md\` | Hovedanalyse for styreoverlapp, sektorbroer og selskapsinterlock-grad. |
+| \`research/analyse/ap1-styreoverlapp.json\` | Råaggregat for AP-1-baseline. |
+| \`scripts/analyze-board-interlocks.ts\` og \`tests/scripts/analyze-board-interlocks.test.ts\` | Reproduserbar beregning og enhetstestet interlock-logikk. |
+| \`docs/project/analysis/food-tg-ap1-dekningsutvidelse-funn-2026-06-14.md\` | Viser at baseline-dekning 98/275 kan løftes, men at etter-tall er projisert til DB-kjøring. |
+| \`docs/project/analysis/food-tg-maktkart-bronnoysund-stikkprove-2026-06-14.md\` | Primærsjekk av juridisk form og topp-broere, inkludert BAMA/ASKO-relaterte roller. |
+| \`Food Systems Obsidian/10 Innsiktskart/Innsikter/I37 Maktkartet må leses gjennom fire linser.md\` | Tryggere eksisterende hjem for AP-1 som én av flere linser. |
+
+## Datareview
+
+| Kriterium | Status | Konsekvens |
+|---|---|---|
+| Grafunivers eksplisitt | Delvis. AP-1 baseline har styredata for 98 av 275 selskaper; dekningsutvidelsen er delvis projisert til DB-kjøring. | Ikke bruk I28 som komplett verdikjedeunivers eller helhetlig markedsmaktkart. |
+| Metric eksplisitt | Ja. "Selskapsknutepunkt" betyr deler styremedlem med andre selskaper i intern styregraf. | Ikke oversett til eierskap, kontroll, koordinering, markedsandel eller konkurranserettslig funn. |
+| Aktørspesifikk sensitivitet | Høy. BAMA/ASKO kan lett leses som aktørkritikk. | Må ha claim-lock og trygg språkpakke før ekstern bruk. |
+| Primærstøtte | Delvis. Brønnøysund-stikkprøven støtter juridisk form og flere topp-broer, men AP-1 er fortsatt strukturell posisjon. | Primærsjekk støtter at rollene finnes; den beviser ikke intensjon eller atferd. |
+| Triangulering | Ja som intern maktkart-linse. AP-1 blir sterkere sammen med AP-5/eiergraf, ikke alene. | Bruk i I37/maktkartet heller enn å lage en smal I28-aktørnode. |
+| Publiserbar formulering | Nei som I28. Ja internt: "AP-1 peker på BAMA/ASKO som sentrale noder i den interne styregrafen." | Behold som intern cockpit-/maktkart-observasjon. |
+
+## Beslutning
+
+- I28 forblir parkert som egen I-node.
+- Ingen \`Food Systems Obsidian/10 Innsiktskart/Innsikter/I28 ...\` skal genereres i denne runden.
+- AP-1 kan brukes internt i I37/maktkartet som styregraf-linse, med synlig dekning og "struktur, ikke atferd"-språk.
+- En senere I28 kan bare åpnes etter eksplisitt ny beslutning og AP-1 claim-lock med grafunivers, dekningsgrad, metode, dato, Brreg-støtte og aktørspesifikk stopplinje.
+
+## Ikke si
+
+- Ikke si at BAMA eller ASKO er "maktens knutepunkt" som ekstern påstand fra AP-1 alene.
+- Ikke si at styreoverlapp beviser koordinering, intensjon, ulovlighet, markedsmakt eller operativ kontroll.
+- Ikke fremstille 98/275-styregrafen som komplett verdikjedeunivers.
+- Ikke bruke BAMA/ASKO-raden som enkelaktørkritikk eller distribusjonsblokkeringsclaim.
+- Ikke blande AP-1 styreverv med AP-5 eierskap eller AP-2 markeds-HHI uten tydelig lenseforklaring.
+- Ikke generer I28 uten eksplisitt menneskelig beslutning.`
 
 const i29DatareviewBody = `## Kort dom
 
@@ -559,6 +603,7 @@ decisions.push(decision('09', 'A3.3', 'OKO-003 jordsmonnskart proxy', join(exter
 decisions.push(decision('09', 'A3.4', 'Aktørspørsmålspakker', join(externalDir, 'A3.4-aktor-sporsmalspakker.md'), 'actor-gate', 'aktørspørsmål', 'Spørsmålspakker opprettet, ikke sendt.', 'R13-WASTE-005/R13-PROT-007/R13-GAP-004/R13-WASTE-002', 'G1 ikke fattet.'))
 decisions.push(decision('09', 'B3', 'M&A NG-treet', join(externalDir, 'B3-NG-MA-verifikasjonsrunde.md'), 'source-shortlist', 'vent', 'Verifikasjonsrunde uten akutt importbar endring.', 'Brreg/årsrapport som fremtidig krav', 'Ingen ny A-lokator ført for import.'))
 
+write(join(datareviewDir, 'I28-styreknutepunkt-datareview-2026-07-04.md'), artifact('I28 styreknutepunkt datareview', i28DatareviewBody, '2026-07-04'))
 write(join(datareviewDir, 'I29-nodekonsentrasjon-datareview-2026-07-04.md'), artifact('I29 nodekonsentrasjon datareview', i29DatareviewBody, '2026-07-04'))
 write(join(datareviewDir, 'I30-tilskuddskonsentrasjon-datareview-2026-07-04.md'), artifact('I30 tilskuddskonsentrasjon datareview', i30DatareviewBody, '2026-07-04'))
 write(join(datareviewDir, 'I32-havbrukskonsentrasjon-datareview-2026-07-04.md'), artifact('I32 havbrukskonsentrasjon datareview', i32DatareviewBody, '2026-07-04'))
@@ -588,10 +633,11 @@ for (const [file, title, body] of gapDocs) {
 decisions.push(decision('10', 'B5', 'VK4-GAP-missions', join(externalDir, 'VK4-GAP-007-naeringsstoff-gap.md'), 'source-shortlist', 'vent', 'Alle 12 VK4-GAP-missions er lukket til internt kildenotat eller claim-lock/actor-gate.', 'R13-leveranser + gap-noder', 'Ekstern figurbruk er parkert.'))
 decisions.push(decision('11', 'B4', 'Stakeholder skeletons', join(externalDir, 'B4-stakeholder-skeletons.md'), 'source-shortlist', 'vent', 'Skeletons kan fylles fra eksisterende kilder; samtalekrevende felt går til D.', 'R13-INNO-006/R13-aktørkart', 'Menneskelig input krever G1.'))
 decisions.push(withIkkeSi(
-  decision('12', 'E1', 'I27+ mapping', join(externalDir, 'E1-I27-parkerte-mapping.md'), 'internal', 'internal', 'P2.3 holder I28 parkert; I29 og I33 forblir parkert etter datareview, I30 og I32 er datareviewet, og I35 er source-shortlistet uten generering.', 'I27-port + P2.3 datareview + I29/I30/I32/I33 datareview + I35 source-shortlist', 'Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur.'),
+  decision('12', 'E1', 'I27+ mapping', join(externalDir, 'E1-I27-parkerte-mapping.md'), 'internal', 'internal', 'P2.3 har datareviewet I28/I29/I30/I32/I33; I28, I29 og I33 forblir parkert, I30 og I32 er beslutningsklare, og I35 er source-shortlistet uten generering.', 'I27-port + P2.3 datareview + I28/I29/I30/I32/I33 datareview + I35 source-shortlist', 'Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur.'),
   [
     'Ikke generer I28, I29, I30, I32, I33 eller I35 uten eksplisitt ny beslutning.',
     'Ikke oversett intern graf-/proxyverdi til ekstern claim.',
+    'Ikke si at BAMA/ASKO er "maktens knutepunkt", kontrollerer eller koordinerer fra AP-1 alene.',
     'Ikke si at EUDR automatisk gjør norsk fôr/import til dokumentert sårbarhetsakse.',
     'Ikke blande havbrukskonsentrasjon med dagligvaretriopol-claim, MTB/slaktevolum eller målt restråstoffkontroll.',
     'Ikke bruke proxy-test eller laks→foredling-PPI som dokumentert fôr→oppdrett-asymmetri, marginclaim eller intensjon.',
@@ -1030,6 +1076,7 @@ async function main() {
 - Decision-rader: ${decisions.length}.
 - PCQ-notater: 7 / 7.
 - Claim-lock-kandidatdokument: opprettet.
+- I28 datareview: opprettet 2026-07-04 uten I-node-generering.
 - I32 datareview: opprettet 2026-07-04 uten I-node-generering.
 - I33 datareview: opprettet 2026-07-04 uten I-node-generering.
 - I35 source-shortlist: opprettet 2026-07-04 uten I-node-generering.
