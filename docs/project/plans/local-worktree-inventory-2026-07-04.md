@@ -27,7 +27,8 @@ Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/bra
 | Stale `/tmp/wt` | Låst worktree-metadata ble låst opp og prunet. | Mappen fantes ikke på disk. |
 | Mergede, rene Food TG/Obsidian worktrees | Worktrees, lokale branches og remote branches ble fjernet for klart innlemmede PR-spor. | `git merge-base --is-ancestor <branch> main` var sant og worktree-status var ren. |
 | `codex/reader-layer-completeness` | Lokal og remote branch ble slettet. | PR #119 var merget og branchen var ancestor av `main`. |
-| Mergede remote-only `origin/codex/*` branches | Remote branches uten lokal branch/worktree ble slettet når de allerede var innlemmet i `origin/main`. | Etter opprydding var eneste gjenværende merged remote codex-branch `codex/food-tg-research-r13`, som ble beholdt fordi den har lokal dirty worktree. |
+| Mergede remote-only `origin/codex/*` branches | Remote branches uten lokal branch/worktree ble slettet når de allerede var innlemmet i `origin/main`. | Før R13-vurderingen var eneste gjenværende merged remote codex-branch `codex/food-tg-research-r13`, som da ble beholdt fordi den hadde lokal dirty worktree. |
+| `codex/food-tg-research-r13` | Worktree, lokal branch og remote branch ble slettet. | Den eneste dirty endringen var en lokal sletting av `research/forstaelse/R13-GAP-006-type-c-eskalering.md`; samme blob fantes i både branch `HEAD` og `main`, PR #202 var merget, og branch var ancestor av `main`. |
 
 ## Beholdte dirty worktrees
 
@@ -36,7 +37,6 @@ Disse har lokale endringer og skal ikke slettes eller resettes uten ny beslutnin
 | Branch | Dirty count | Main vs branch | PR-status | Beslutning |
 |---|---:|---|---|---|
 | `codex/ai-kunnskap-library-v1` | 148 | `185 0` | Ingen PR funnet. | Behold. Stort dirty arbeidsområde. |
-| `codex/food-tg-research-r13` | 1 | `167 0` | PR #202 merget. | Behold inntil den ene lokale endringen er vurdert; remote branch er også beholdt av samme grunn. |
 | `codex/foodsystems-kb-mcp` | 7 | `121 0` | Ingen PR funnet. | Behold. Dirty MCP-/runbook-spor. |
 | `codex/master-research-plan-2026-07-01` | 433 | `121 0` | Ingen PR funnet. | Behold. Stort dirty forsknings-/planområde. |
 | `codex/notebooklm-export-2026-07-02` | 10 | `121 0` | Ingen PR funnet. | Behold. Dirty NotebookLM-/Obsidian-export-spor. |
