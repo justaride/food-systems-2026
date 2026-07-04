@@ -32,6 +32,7 @@ Neste fase skal ikke bygge "mer kart" først. Den skal gjøre kartet brukbart so
 - PR #246 lukket P2.2 ved å nedgradere VK4-GAP-007 fra samlet 25-30 %-claim til N/P/K-arbeidsmatrise per strøm.
 - PR #248 lukket P2.3 ved å bekrefte I28/I29/I30/I32/I33/I35 som parkerte datareview-/claim-lock-kandidater uten ny I-node-generering.
 - PR #249 lukket P2.4 ved å prioritere actor-gate-spørsmål uten outreach: D2 først, D4 nummer to og D1/D3/D5 som samlet lokal/regenerativ metodepakke.
+- PR #250 lukket P3.1 som intern briefing-pilot: 25-minutters møteflyt, svar på pilotspørsmålene, trygg språkpakke og neste beslutningsvalg.
 - VK-5-protokollen er lukket for intern cockpit-bruk.
 - `vault:review-closeout` er forventet grønn så lenge VK-5-protokollen forblir lukket og alle review-rader er løst.
 - Obsidian-grafen er et kuratert utsnitt, ikke hele kunnskapsbasen.
@@ -67,7 +68,7 @@ Neste fase skal ikke bygge "mer kart" først. Den skal gjøre kartet brukbart so
 
 | ID | Kandidat | Fordel | Risiko | Anbefaling |
 |---|---|---|---|---|
-| P3.1 | Intern briefing for teamet | Lav risiko, høy læring. | Kan bli for generell hvis den ikke bruker konkrete spørsmål. | Førstevalg. |
+| P3.1 | Intern briefing for teamet | Lav risiko, høy læring. | Kan bli for generell hvis den ikke bruker konkrete spørsmål. | Lukket i PR #250 som briefing-pilot. |
 | P3.2 | Temacanvas Sirkularitet som møtefigur | Tydelig og kompakt. | Krever claim-lock før ekstern bruk. | Bra etter P2.2. |
 | P3.3 | `/graf` eller app-side | Kan gjøre kunnskapsbasen mer synlig. | Høyere teknisk kost og fort scope creep. | Vent til pilotspørsmålene er testet. |
 
@@ -88,7 +89,8 @@ Bruk disse for å teste om kartet faktisk hjelper, før ny visualisering bygges:
 3. Lukket: P2.1/P2.2 i PR #245 og PR #246.
 4. Lukket: P2.3 i PR #248.
 5. Lukket: P2.4 i PR #249.
-6. Neste valg: P3.1 som intern briefing-pilot basert på pilotspørsmålene.
+6. Lukket: P3.1 i PR #250.
+7. Neste valg etter intern pilot: N/P/K source-shortlist, G1 actor-gate eller I27+ datareview. P3.2 bør vente til teamet har valgt trygg intern figurflate.
 
 ## Verifikasjon per slice
 
