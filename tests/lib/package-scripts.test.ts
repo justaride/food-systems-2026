@@ -102,6 +102,33 @@ describe('package scripts', () => {
     )
   })
 
+  it('keeps MVK import scripts wired to existing files and prod sync', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const mvkImportScripts = Object.entries(packageJson.scripts).filter(([name]) =>
+      name.startsWith('db:import:mvk-'),
+    )
+    const missingFileRefs: string[] = []
+
+    for (const [name, command] of mvkImportScripts) {
+      for (const match of command.matchAll(/--(?:csv|rel)=([^ ]+)/g)) {
+        const relativePath = match[1]
+        if (!relativePath || !existsSync(join(process.cwd(), relativePath))) {
+          missingFileRefs.push(`${name} -> ${relativePath}`)
+        }
+      }
+    }
+
+    const prodSync = packageJson.scripts['db:prod-sync'] ?? ''
+    const missingFromProdSync = mvkImportScripts
+      .map(([name]) => name)
+      .filter((name) => !prodSync.includes(`npm run ${name}`))
+
+    assert.deepEqual(missingFileRefs, [])
+    assert.deepEqual(missingFromProdSync, [])
+  })
+
   it('includes the I27+ approval gate in the default vault review preflight', () => {
     const preflightSource = readFileSync(
       join(process.cwd(), 'scripts', 'obsidian-vault', 'review-preflight.ts'),

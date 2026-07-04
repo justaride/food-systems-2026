@@ -1,0 +1,14 @@
+# MVK bondens-marked deepeningpass - mottakslogg 2026-07-02
+
+- Kandidatfil: `research/_status/mvk-bondens-marked-deepening-2026-07-02-node-kandidater.csv`.
+- Dataset: `mvk-bondens-marked-deepening-2026-07-02`.
+- Celle: `lokale-verdikjeder / bondens-marked`.
+- Importkommando: `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:import:mvk-bondens-marked-deepening-2026-07-02`.
+- Kildepass: Bondens marked sin offisielle `markedsplasser`-side, hentet 2026-07-02. Siden oppgir 283 markedsplasser totalt og viser en toppseksjon med markedsplasser som har kommende markeder, inkludert dato, lokallag og produsenttall per kommende marked.
+- Kandidatutvalg: 16 markedsplass-/kalendernoder med kommende markeder fra den offisielle listen, valgt for å lukke 16-gapet etter de fire tidligere lokallag-nodene (`Oslo og omegn`, `Trøndelag`, `Rogaland`, `Bergen`).
+- Grain/avgrensning: dette passet importerer markedsplasser/arrangementssteder, ikke juridiske enheter. Telemark ble ikke brukt fordi lokallagssiden sier at driften er lagt på is og at det inntil videre ikke gjennomføres markeder.
+- Confidence: 16 `middels`, fordi kilden er offisiell og fersk, men radene er venue-/kalendernoder uten org.nr. og uten uavhengig bekreftelse på årlig drift/volum.
+- Kilde-/claim-status: Offisiell Bondens marked-side bekrefter markedsplass, kommende marked, lokallag og oppgitt produsenttall for kommende arrangement. Den bekrefter ikke årsvolum, faktisk gjennomføring, omsetning, komplett produsentliste, permanent driftsstatus eller juridisk enhet for hver markedsplass. Batchen er actor-gate/kartleggingsdekning, ikke hard claim-lock.
+- Dekningsdelta etter import/audit: `bondens-marked` 4 -> 20 og gap 16 -> 0; `lokale-verdikjeder` er nå 237/258, maks gap er 16, og total domene-tagget dekning er 1,568/1,651. DB Actor-count er 1,514.
+- Verifikasjon: `db:import:mvk-bondens-marked-deepening-2026-07-02`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run compute-metrics:full`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run audit:domain-coverage -- --date=2026-07-02`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:audit`, `npm run audit:research-artifacts -- --base=origin/main`, `node -e "JSON.parse(require('fs').readFileSync('package.json','utf8')); console.log('package.json OK')"`, `git diff --check`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run audit:citable`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:verify`, `npm run test`, `npm run lint` og `npm run build` er grønne. Build gir fortsatt kjent Next/Turbopack workspace-root warning og NFT trace warning via `next.config.ts` / `src/lib/hvitbok/loader.ts`.
+- Prod-wiring: `db:import:mvk-bondens-marked-deepening-2026-07-02` lagt til i `db:prod-sync` før `db:verify`.

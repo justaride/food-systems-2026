@@ -1,0 +1,15 @@
+# MVK mottakslogg: lokale-verdikjeder / andelslandbruk deepening pass 3 (2026-07-02)
+
+- Kandidatfil: `research/_status/mvk-andelslandbruk-deepening-3-2026-07-02-node-kandidater.csv`.
+- Dataset: `mvk-andelslandbruk-deepening-3-2026-07-02`.
+- Kildepass: Økoguiden API `/Umbraco/Api/EcoGuideApi/Search/8074` med POST `categoryId=8467`, hentet 2026-07-02.
+- Importkommando: `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:import:mvk-andelslandbruk-deepening-3-2026-07-02`.
+- Kandidater klargjort: 14.
+- Importresultat: 14 aktørrader prosessert; netto 13 nye aktører og 1 eksisterende aktør beriket (`branaas-sondre-gard`). Første importforsøk opprettet 13 nye aktører og stoppet på unik `country,name`-kollisjon for Brånås Søndre gård; CSV-en ble deretter rettet til eksisterende actor-slug og importen rerunnet idempotent. DB Actor-count etter import/audit er 1,420.
+- Dedupe/filter: API-et returnerte 71 rader. 40 rader var allerede brukt i to tidligere andelslandbruk-kandidatfiler, og live DB hadde 60 `subdomene:andelslandbruk`-registreringer før dette passet. Etter normalisert lokator-/navnededupe mot DB og tidligere CSV-er sto 14 Økoguiden-lokatorer igjen. 13 er nye aktørslugs; `Brånås Søndre gård` gjenbruker eksisterende actor `branaas-sondre-gard` fra market-gardening-passet. Passet er derfor kildebegrenset til 14 kandidater, ikke et fullt 20-raders batch.
+- Dekningsdelta etter import/audit: `andelslandbruk` 60 -> 74 og gap 30 -> 16; `lokale-verdikjeder` er nå 202/258, maks gap er 20, og total domene-tagget dekning er 1,473/1,651.
+- Usikkerhet: Økoguiden bekrefter guidekategori/lokator, men ikke aktiv 2026-sesongdrift, andelstilbud, medlemstall, produksjonsvolum, Debio-status, areal, juridisk enhet eller komplett nasjonal aktivliste. Kildesettet er egnet som actor-gate, ikke hard claim-lock.
+- Review-kø: `research/_status/mvk-review-koe-2026-07-01.csv`.
+- Usikkerhet: `research/_status/mvk-usikkerhetslogg-2026-07-01.md`.
+- Verifikasjon: CSV-struktur/package-wiring, `db:import:mvk-andelslandbruk-deepening-3-2026-07-02`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run compute-metrics:full`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run audit:domain-coverage -- --date=2026-07-02`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:audit`, `npm run audit:research-artifacts -- --base=origin/main`, `node -e "JSON.parse(require('fs').readFileSync('package.json','utf8')); console.log('package.json OK')"`, `git diff --check`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run audit:citable`, `DATABASE_URL='postgresql://localhost:5432/foodsystems?schema=public' npm run db:verify`, `npm run test`, `npm run lint` og `npm run build` er grønne. Build gir fortsatt kjent Next/Turbopack workspace-root warning og NFT trace warning via `next.config.ts` / `src/lib/hvitbok/loader.ts`.
+- Prod-wiring: `db:import:mvk-andelslandbruk-deepening-3-2026-07-02` lagt til i `db:prod-sync` før `db:verify`.
