@@ -71,6 +71,11 @@ const thesisById = new Map(theses.map(thesis => [thesis.id, thesis]))
 const reportById = new Map(reports.map(report => [report.id, report]))
 const sourceById = new Map(sources.map(source => [source.id, source]))
 
+const IGNORED_RESEARCH_FILES = new Set([
+  // Duplicate byte-identical alias of evidence-pack/akademia/huynh-mortensen-2025.pdf.
+  'evidence-pack/nordisk/salling-coop-danmark-2025.pdf',
+])
+
 const SUPPLEMENTAL_PDF_MATCHES: Record<string, SupplementalPdfMatch> = {
   'evidence-pack/akademia/agrianalyse-bondens-andel-2025.pdf': {
     title: 'AgriAnalyse 2025 placeholder for missing publication',
@@ -161,14 +166,6 @@ const SUPPLEMENTAL_PDF_MATCHES: Record<string, SupplementalPdfMatch> = {
     country: 'Nordic',
     documentType: 'report',
     tags: ['nordic', 'competition', 'food-markets'],
-  },
-  'evidence-pack/nordisk/salling-coop-danmark-2025.pdf': {
-    title: 'Salling Coop Danmark 2025',
-    year: 2025,
-    country: 'DK',
-    documentType: 'report',
-    tags: ['denmark', 'competition', 'grocery'],
-    note: 'Lokal fil er ikke mapet til en strukturert kildepost enda.',
   },
   'evidence-pack/nordisk/sou-2024-8-livsmedelsberedskap.pdf': { reportId: 'sou-2024-8-svensk-beredskap' },
   'evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2024.pdf': {
@@ -1345,6 +1342,11 @@ async function main() {
   let skipped = 0
 
   for (const file of files) {
+    if (IGNORED_RESEARCH_FILES.has(file.relPath.replaceAll('\\', '/'))) {
+      skipped++
+      continue
+    }
+
     const slug = slugify(file.relPath)
 
     try {
