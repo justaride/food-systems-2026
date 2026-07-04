@@ -159,6 +159,23 @@ describe('package scripts', () => {
     assert.equal(packageJson.scripts['export:notebooklm'], 'tsx scripts/build-notebooklm-export.ts')
   })
 
+  it('exposes the read-only library analysis repair backlog command', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const scriptSource = readFileSync(
+      join(process.cwd(), 'scripts', 'build-library-analysis-repair-backlog.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['research:library:repair-backlog'],
+      'tsx scripts/build-library-analysis-repair-backlog.ts',
+    )
+    assert.match(scriptSource, /DATABASE_URL is required/)
+    assert.doesNotMatch(scriptSource, /upsert|deleteMany|updateMany|createMany/)
+  })
+
   it('exposes VK-5 review closeout as a separate final gate', () => {
     const closeoutSource = readFileSync(
       join(process.cwd(), 'scripts', 'obsidian-vault', 'review-closeout.ts'),
