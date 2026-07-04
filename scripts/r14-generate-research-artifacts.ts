@@ -157,6 +157,8 @@ I29-datareview 2026-07-04 ligger i \`research/_status/food-tg-r14/datareview/I29
 
 I30-datareview 2026-07-04 ligger i \`research/_status/food-tg-r14/datareview/I30-tilskuddskonsentrasjon-datareview-2026-07-04.md\`. Den konkluderer med at AP-3 består kilde-/nevnerreview for intern beslutning, men at ny I30-node fortsatt krever eksplisitt menneskelig godkjenning.
 
+I32-datareview 2026-07-04 ligger i \`research/_status/food-tg-r14/datareview/I32-havbrukskonsentrasjon-datareview-2026-07-04.md\`. Den konkluderer med at AP-6 har eksplisitt havbruksunivers og MTB-nevner nok til intern beslutning, men at ny I32-node og ekstern figurbruk krever eksplisitt menneskelig beslutning og claim-lock.
+
 I35-source-shortlist 2026-07-04 ligger i \`research/_status/food-tg-r14/source-shortlist/I35-soya-eudr-source-shortlist-2026-07-04.md\`. Den samler import-/EUDR-kilder for fôr/soya-sporet, men åpner ikke I35 som innsiktsnode eller møtefigur.
 
 | ID | Beslutning | Gate før ny node | Stopplinje |
@@ -164,7 +166,7 @@ I35-source-shortlist 2026-07-04 ligger i \`research/_status/food-tg-r14/source-s
 | I28 | Behold som maktkart-observasjon, ikke egen innsiktsnode. | AP-1 claim-lock med metode, dekningsgrad og node-/brodefinisjon. | Ikke si at BAMA/ASKO er "maktens knutepunkt" uten å vise at dette er intern styregraf og ikke komplett verdikjedeunivers. |
 | I29 | Parkert etter datareview; ikke generer egen I-node. | Ny beslutning + AP-2 claim-lock hvis den skal brukes utenfor I37/metodecaveat. | Ikke oversett intern node-/inntekts-HHI til markedsmakt, grafsentralitet eller kontrollclaim. |
 | I30 | Datareviewet; klar til menneskelig I-node-beslutning, men ikke generert. | Eksplisitt beslutning + claim-lock hvis den skal brukes utenfor intern cockpit. | Ikke bruk tilskuddskonsentrasjon som enkelaktørkritikk eller samlet landbruksstøtteclaim. |
-| I32 | Parker til havbruksspesifikk claim-lock. | AP-6 datareview med havbruksunivers, eier-/lokalitetsnivå og dekning. | Ikke blande havbrukskonsentrasjon med dagligvaretriopol-claim. |
+| I32 | Datareviewet; klar til menneskelig I-node-/claim-lock-beslutning, men ikke generert. | Eksplisitt beslutning + claim-lock med havbruksunivers, MTB-nevner, rollup-forbehold og restråstoffgrense. | Ikke blande havbrukskonsentrasjon med dagligvaretriopol-claim, slaktevolum eller målt restråstoffkontroll. |
 | I33 | Parker til prisserie-review. | AP-7 PCQ for native prisserie før asymmetri-claim. | Ikke bruke proxy-test som dokumentert prisasymmetri. |
 | I35 | Source-shortlistet; fortsatt parkert til menneskelig I-node-/claim-lock-beslutning. | Eksplisitt formulering + EUDR-, SSB- og aktørscope claim-lock. | Ikke si at EUDR automatisk gjør norsk fôr/import til dokumentert sårbarhetsakse. |`
 
@@ -244,6 +246,47 @@ I30 består AP-3 source review for intern beslutning: kilde, ordningsnevner, mot
 - Ikke skjul at konsentrasjonen delvis følger gårdsstruktur og ordningsdesign.
 - Ikke generer I30 uten eksplisitt menneskelig beslutning.
 `
+
+const i32DatareviewBody = `## Kort dom
+
+I32 er datareviewet og kan gå til eksplisitt menneskelig I-node-/claim-lock-beslutning. AP-6 er sterkere enn en ren proxy fordi havbruksunivers, kilde, MTB-nevner og stopplinjer er eksplisitte. Det skal likevel ikke genereres ny I32-innsiktsnote automatisk, og ekstern bruk krever claim-lock med tydelig univers, dato, kilde, nevner og restforbehold.
+
+## Reviewgrunnlag
+
+| Kilde | Rolle i review |
+|---|---|
+| \`docs/project/analysis/food-tg-ap6-havbrukskonsentrasjon-funn-2026-06-14.md\` | Hovedanalyse, tallgrunnlag og claim-lock-utkast for havbrukskonsentrasjon. |
+| \`scripts/import-akvakulturregister.ts\` | Kanonisk importsti for Fiskeridirektoratets Akvakulturregister. |
+| \`public/data/food-systems/no/aquaculture_sites.geojson\` | Lokalitetsunivers; nyttig som dekning, men uten operatørfelt. |
+| \`docs/project/figures/food-tg-2026-06-15/fig-ap6-havbruk-konsentrasjon.svg\` | Intern figurflate for AP-6; ikke ekstern uten claim-lock. |
+| \`docs/project/analysis/food-tg-ap2-nodekonsentrasjon-funn-2026-06-14.md\` | Kontrast som viser at AP-6 ikke må blandes med AP-2s interne node-HHI. |
+
+## Datareview
+
+| Kriterium | Status | Konsekvens |
+|---|---|---|
+| Havbruksunivers eksplisitt | Ja. Gjelder norsk laks-/ørretoppdrett, kommersiell matfisk og særskilt sjø/hav-basert MTB. | Kan brukes som havbruksspesifikk beslutningsflate, ikke som generell matmakt- eller dagligvaretriopol-claim. |
+| Nevner eksplisitt | Ja. MTB er maksimalt tillatt biomasse, ikke slaktevolum, omsetning eller lokalitetstelling. | Claim kan handle om strukturell kapasitet/posisjon, ikke målt produksjon eller markedssalg. |
+| Land-RAS/offshore skille | Ja. AP-6 viser at total-MTB inkl. land/offshore kan fortynne sjøbasert konsentrasjon. | Bruk skillet som metodepoeng; ikke merk land/offshore-tillatelser som inaktive uten refresh. |
+| Eier-/konsernrollup | Delvis. Brreg-stikkprøve bekrefter aktive enheter og navn-rollup, men ikke eierandels-% eller ultimat eierskap. | Ikke si Aksjonærregister-bekreftet; AP-5/Aksjonærregister trengs før eierandelsclaim. |
+| Restråstoffkobling | Delvis. Nasjonalt/akvakulturvolum er delvis kildebelagt, men per-aktør restråstofftonnasje er \`needs-data\`. | Ikke gjør CR4 MTB til kildebelagt CR4 for restråstoffvolum; kall det strukturell inferens hvis det brukes. |
+| Publiserbar formulering | Delvis. Internt: sjøbasert MTB er mer konsentrert enn total-MTB. Eksternt: claim-lock først. | I32 kan bli intern cockpit-node eller claim-locket AP-6-uttak, ikke automatisk innsiktsnote. |
+
+## Beslutning
+
+- I32 er datareviewet og klar til eksplisitt menneskelig I-node-/claim-lock-beslutning.
+- Ingen \`Food Systems Obsidian/10 Innsiktskart/Innsikter/I32 ...\` skal genereres automatisk i denne runden.
+- AP-6 kan vurderes som intern cockpit-node fordi univers, kilde og MTB-nevner er tydelige.
+- Ekstern bruk må claim-locke nøyaktig formulering, dato, Fiskeridirektoratet-kilde, sjøbasert/total-MTB-skille, Brreg-rollup-forbehold og restråstoffgrense.
+
+## Ikke si
+
+- Ikke bland havbrukskonsentrasjon med dagligvaretriopol-claim.
+- Ikke si at MTB er faktisk slaktevolum, omsetning eller restråstofftonn.
+- Ikke behandle lokalitetstelling, MTB og restråstoffvolum som samme metric.
+- Ikke si at fire aktører kontrollerer 57 % av restråstoffvolumet som kildebelagt faktum; det er høyst en flagget strukturell inferens uten per-aktør data.
+- Ikke si at eierskapsprosent eller ultimate owner er Aksjonærregister-bekreftet.
+- Ikke generer I32 uten eksplisitt menneskelig beslutning.`
 
 const i35SourceShortlistBody = `## Kort dom
 
@@ -475,6 +518,7 @@ decisions.push(decision('09', 'B3', 'M&A NG-treet', join(externalDir, 'B3-NG-MA-
 
 write(join(datareviewDir, 'I29-nodekonsentrasjon-datareview-2026-07-04.md'), artifact('I29 nodekonsentrasjon datareview', i29DatareviewBody, '2026-07-04'))
 write(join(datareviewDir, 'I30-tilskuddskonsentrasjon-datareview-2026-07-04.md'), artifact('I30 tilskuddskonsentrasjon datareview', i30DatareviewBody, '2026-07-04'))
+write(join(datareviewDir, 'I32-havbrukskonsentrasjon-datareview-2026-07-04.md'), artifact('I32 havbrukskonsentrasjon datareview', i32DatareviewBody, '2026-07-04'))
 write(join(sourceShortlistDir, 'I35-soya-eudr-source-shortlist-2026-07-04.md'), artifact('I35 soya/EUDR source-shortlist', i35SourceShortlistBody, '2026-07-04'))
 
 const gapDocs = [
@@ -500,11 +544,12 @@ for (const [file, title, body] of gapDocs) {
 decisions.push(decision('10', 'B5', 'VK4-GAP-missions', join(externalDir, 'VK4-GAP-007-naeringsstoff-gap.md'), 'source-shortlist', 'vent', 'Alle 12 VK4-GAP-missions er lukket til internt kildenotat eller claim-lock/actor-gate.', 'R13-leveranser + gap-noder', 'Ekstern figurbruk er parkert.'))
 decisions.push(decision('11', 'B4', 'Stakeholder skeletons', join(externalDir, 'B4-stakeholder-skeletons.md'), 'source-shortlist', 'vent', 'Skeletons kan fylles fra eksisterende kilder; samtalekrevende felt går til D.', 'R13-INNO-006/R13-aktørkart', 'Menneskelig input krever G1.'))
 decisions.push(withIkkeSi(
-  decision('12', 'E1', 'I27+ mapping', join(externalDir, 'E1-I27-parkerte-mapping.md'), 'internal', 'internal', 'P2.3 holder I28/I32/I33 parkert; I29 forblir parkert, I30 er datareviewet, og I35 er source-shortlistet uten generering.', 'I27-port + P2.3 datareview + I29/I30 datareview + I35 source-shortlist', 'Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur.'),
+  decision('12', 'E1', 'I27+ mapping', join(externalDir, 'E1-I27-parkerte-mapping.md'), 'internal', 'internal', 'P2.3 holder I28/I33 parkert; I29 forblir parkert, I30 og I32 er datareviewet, og I35 er source-shortlistet uten generering.', 'I27-port + P2.3 datareview + I29/I30/I32 datareview + I35 source-shortlist', 'Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur.'),
   [
     'Ikke generer I28, I29, I30, I32, I33 eller I35 uten eksplisitt ny beslutning.',
     'Ikke oversett intern graf-/proxyverdi til ekstern claim.',
     'Ikke si at EUDR automatisk gjør norsk fôr/import til dokumentert sårbarhetsakse.',
+    'Ikke blande havbrukskonsentrasjon med dagligvaretriopol-claim, MTB/slaktevolum eller målt restråstoffkontroll.',
     'Ikke bland kapasitet, plan, potensial og realisert volum.',
   ],
 ))
@@ -940,6 +985,7 @@ async function main() {
 - Decision-rader: ${decisions.length}.
 - PCQ-notater: 7 / 7.
 - Claim-lock-kandidatdokument: opprettet.
+- I32 datareview: opprettet 2026-07-04 uten I-node-generering.
 - I35 source-shortlist: opprettet 2026-07-04 uten I-node-generering.
 - Actor-gate-kandidatlister: 5 + D6-spørsmålspakke + G1-D2/G1-D4/G1-D1-D3-D5 beslutningspakker.
 - MVK importfiler: handel-dagligvare, meieri, kjøtt/egg.

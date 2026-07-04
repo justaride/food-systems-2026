@@ -15,7 +15,7 @@ Mottatt med 3 decision-rader.
 
 | ID | Tittel | Gate | Importbeslutning | Kort dom | Svakeste punkt |
 |---|---|---|---|---|---|
-| E1 | I27+ mapping | internal | internal | P2.3 holder I28/I32/I33 parkert; I29 forblir parkert, I30 er datareviewet, og I35 er source-shortlistet uten generering. | Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur. |
+| E1 | I27+ mapping | internal | internal | P2.3 holder I28/I33 parkert; I29 forblir parkert, I30 og I32 er datareviewet, og I35 er source-shortlistet uten generering. | Hver parkert kandidat trenger egen AP/PCQ/claim-lock-gate før ny innsiktsnode eller møtefigur. |
 | E2 | M6 konverteringsevne scoring | internal | internal | Intern case-score mal opprettet. | Ikke ekstern rangering. |
 | E3 | M3/M7 metode | internal | internal | Metodenotat opprettet bak G3. | Ingen true-cost-tall eksternt. |
 
