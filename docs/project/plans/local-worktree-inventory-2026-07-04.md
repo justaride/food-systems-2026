@@ -9,6 +9,7 @@ grunnlag:
   - `git worktree list --porcelain` etter PR #281 og dirty-worktree review
   - `git worktree list --porcelain` etter PR #283 og fjerning av fersk port-worktree
   - `git branch -r --merged origin/main` etter remote-branch cleanup
+  - `git status --short --branch`, innholdssammenligning mot `main`, og `gh pr list --state open` etter PR #298
 siterbarhet: intern
 ---
 
@@ -16,7 +17,7 @@ siterbarhet: intern
 
 ## Kort konklusjon
 
-GitHub PR-flaten er tom og `main` er rent mot `origin/main`. MCP-sporet er publisert i PR #274 og den gamle lokale MCP-worktreen er fjernet. NotebookLM eksportsporet er publisert i PR #276 som fersk `2026-07-04`-pakke, og den gamle lokale NotebookLM-worktreen er nå fjernet etter eksplisitt port/drop-beslutning for recovery-restene. `ai-kunnskap` core/cockpit-slicen fra den gamle dirty worktree-en er publisert i PR #283, merget på `main`, og den ferske port-worktree-en er fjernet igjen. De read-only `library-analysis` inventory/ledger-, repair-backlog-, locator-profile-, PDF extraction- og URL text profile-generatorene er skilt ut som egne trygge port-slices. Prosess-projeksjonen er også skilt ut med eksplisitt dry-run/apply og stale-backup før prune, uten generated `research/_status` output. De tre rene ikke-ancestor worktreene, de to branch-only sporene, den gamle G-stacken og de to opprinnelige dirty worktreene er også gjennomgått; de gjenværende sporene er beholdt fordi de enten har `+`-commits i `git cherry`, store stale tree-differ, eller uncommitted arbeid som ikke finnes i commits. Lokal repo-hygiene er derfor fortsatt ikke helt lik "slett alt": noen worktrees er dirty og skal ikke røres uten egen scopebeslutning, og noen rene worktrees/branches er beholdt som aktive eller mulige recovery-spor.
+GitHub PR-flaten er tom og `main` er rent mot `origin/main`. MCP-sporet er publisert i PR #274 og den gamle lokale MCP-worktreen er fjernet. NotebookLM eksportsporet er publisert i PR #276 som fersk `2026-07-04`-pakke, og den gamle lokale NotebookLM-worktreen er nå fjernet etter eksplisitt port/drop-beslutning for recovery-restene. `ai-kunnskap` core/cockpit-slicen fra den gamle dirty worktree-en er publisert i PR #283, merget på `main`, og den ferske port-worktree-en er fjernet igjen. De read-only `library-analysis` inventory/ledger-, repair-backlog-, locator-profile-, PDF extraction- og URL text profile-generatorene er skilt ut som egne trygge port-slices. Prosess-projeksjonen er også skilt ut med eksplisitt dry-run/apply og stale-backup før prune, uten generated `research/_status` output. Library-triage kildestatusnotater er portet som content-only slice i PR #298. Etter dette er den gamle `codex/ai-kunnskap-library-v1`-worktreen ikke lenger et generelt portarbeid, men et rest-/arkivspørsmål: 106 filer matcher dagens `main`, 66 gamle generated `_status`/triage-artefakter finnes bare lokalt, og de få reelle code-differ er stale kopier som ikke skal portes tilbake. De tre rene ikke-ancestor worktreene, de to branch-only sporene, den gamle G-stacken og de opprinnelige dirty worktreene er også gjennomgått; de gjenværende sporene er beholdt fordi de enten har `+`-commits i `git cherry`, store stale tree-differ, eller uncommitted arbeid som ikke finnes i commits. Lokal repo-hygiene er derfor fortsatt ikke helt lik "slett alt": noen worktrees er dirty og skal ikke røres uten egen scopebeslutning, og noen rene worktrees/branches er beholdt som aktive eller mulige recovery-spor.
 
 Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/branch når den enten er ren og fullt innlemmet i `main`, eller når en eksplisitt beslutning sier at historikken ikke lenger skal beholdes.
 
@@ -49,6 +50,21 @@ Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/bra
 | `codex/ai-kunnskap-library-v1` repair-backlog-generator | Portet til fersk branch som read-only generator-slice. | Slicen legger til `research:library:repair-backlog`, `scripts/build-library-analysis-repair-backlog.ts`, `src/lib/library-analysis-repair-backlog.ts` og tester. Den skriver bare markdown/JSON backlog-artefakter når operatøren kjører kommandoen med `DATABASE_URL`; den porterer ikke generated `research/_status` output, apply-scripts, PDF/URL-profiler eller kildekuratering. |
 | `codex/ai-kunnskap-library-v1` locator-profile-generator | Portet til fersk branch som read-only generator-slice. | Slicen legger til `research:library:locator-profile`, `scripts/build-library-analysis-locator-profile.ts`, `src/lib/library-analysis-locator-profile.ts` og tester. Den leser repair-backlog JSON og skriver locator-profil JSON/markdown når operatøren kjører kommandoen med `DATABASE_URL`; den porterer ikke generated output, apply-scripts, PDF/URL-profiler eller kildekuratering. |
 | `codex/ai-kunnskap-library-v1` extraction-profile-generatorer | Portet til fersk branch som read-only generator-slice. | Slicen legger til `research:library:pdf-extraction-profile`, `research:library:url-text-profile`, tilsvarende scripts, `src/lib`-profilbyggere og tester. De lager bare profiler for senere operatørstyrt reparasjon; de porterer ikke generated output, repair/apply-scripts eller kildekuratering. |
+| `codex/ai-kunnskap-library-v1` library-triage source status notes | Portet til fersk branch som content-only slice. | Slicen legger til kildestatusnotater i 51 research-filer og oppdaterer utvalgte registry JSON-stubber. Den porterer ikke generated `research/_status` eller DB-apply output, og notatene løfter ikke kildene til ekstern claim-bruk uten separat claim/citation review. |
+
+## `codex/ai-kunnskap-library-v1` closeout etter PR #298
+
+Etter PR #298 ble den gamle dirty worktree-en sammenlignet fil-for-fil mot dagens `main`. `git status --short` viser fortsatt 148 linjer fordi worktree-en står på en eldre branchbase og fordi untracked kataloger kollapses i statusvisningen. Innholdssammenligningen er mer presis:
+
+| Restkategori | Antall | Beslutning |
+|---|---:|---|
+| Modified filer som nå matcher `main` | 56 | Allerede portet; ikke port mer fra disse filene. |
+| Untracked filer som nå matcher `main` | 50 | Allerede portet; dette er stale untracked kopier i gammel worktree. |
+| Gamle generated `_status`/`library-triage` artefakter som bare finnes lokalt | 66 | Ikke commit som cleanup. Regenerer fra `main` ved behov, eller arkiver utenfor repo før sletting. |
+| Modified filer som fortsatt skiller seg fra `main` | 4 | Stale branchbase-differ: `messages/en.json`, `messages/no.json`, `package.json`, `src/lib/data/nav.ts`. Ikke port tilbake; `main` har nyere script/nav/app-tilstand. |
+| Untracked code-filer som fortsatt skiller seg fra `main` | 5 | Stale prototyper: tre gamle generator-scripts, gammel `src/lib/library-analysis-audit.ts` og gammel audit-test. Ikke port tilbake; PR #289-#297 har nyere, testede versjoner. |
+
+Stoppregel: ikke slett `codex/ai-kunnskap-library-v1` bare fordi portarbeidet er ferdig. Slett først når det finnes en eksplisitt beslutning om at de 66 gamle generated artefaktene ikke skal beholdes, eller når de er arkivert utenfor repo. Hvis sletting besluttes, slett hele worktree/branch som hygiene; ikke cherry-pick stale code-diffene tilbake til `main`.
 
 ## Beholdte dirty worktrees
 
@@ -56,7 +72,7 @@ Disse har lokale endringer og skal ikke slettes eller resettes uten ny beslutnin
 
 | Branch | Dirty count | Main vs branch | PR-status | Beslutning |
 |---|---:|---|---|---|
-| `codex/ai-kunnskap-library-v1` | 148 | `215 0` | Core/cockpit portet og merget i PR #283; read-only inventory/ledger, process-projeksjon, repair-backlog, locator-profile og extraction-profile portet; fortsatt ingen PR/remote branch for resten. | Behold. Status er fortsatt 60 modified + 88 untracked fordi worktree-en står på en eldre branchbase, men core-filene, prosess-projeksjonen og de read-only analyse-/profilgeneratorene er nå skilt ut på `main`. Gjenværende verdi ligger i uncommitted pipeline-/dataarbeid: repair/apply-scripts, generated `research/_status/library-analysis*` og `research/_status/library-triage/`, samt kildekuratering i `research/bibliotek/**`, `research/evidence-pack/**`, `research/landbrukarena_transcripts/**` og `research/regulatory/**`. Trenger egen port/drop-beslutning per kategori før sletting. |
+| `codex/ai-kunnskap-library-v1` | 148 | `215 0` | Core/cockpit portet og merget i PR #283; read-only inventory/ledger, process-projeksjon, repair-backlog, locator-profile, extraction-profile, repair/apply-scripts, audit, decision queue og source-status-notater er portet i separate PR-er. | Behold inntil generated-rest besluttes. Etter PR #298 matcher 106 dirty/untracked filer dagens `main`, 66 gamle generated `_status`/`library-triage` artefakter finnes bare lokalt, og de 9 reelle code-diffene er stale kopier som ikke skal portes. Worktree-en er nå et arkiv-/slettevalg, ikke en kilde til flere code-slices. |
 | `codex/master-research-plan-2026-07-01` | 433 | `147 0` | Ingen PR funnet; ingen remote branch. | Behold. Status er 103 modified + 1 deleted + 329 untracked. Branch har 0 commits foran `main` (`git cherry` 0/0), så verdien ligger i uncommitted research/MVK/R13-R14/materialiseringsarbeid. Trenger egen port/commit-plan før sletting. |
 
 ## Beholdte rene, ikke-ancestor worktrees
@@ -98,7 +114,7 @@ Ikke slett disse branchene før det finnes en eksplisitt beslutning om at G-stac
 
 1. For de tre rene ikke-ancestor worktreene: gjør bare videre port/drop etter eksplisitt squash-/supersede-review; ikke slett som hygiene.
 2. For de to branch-only sporene: gjør bare videre sletting etter eksplisitt squash-/supersede-review eller port/drop-beslutning.
-3. For `codex/ai-kunnskap-library-v1`: behandle restene som separate beslutninger: repair/apply-scripts, generated `research/_status` artifacts, kildekuratering, og gjenværende package-script wiring. Ikke slett eller reset hele worktree-en bare fordi core/cockpit, prosess-projeksjon og read-only analyse-/profilgeneratorer er landet.
+3. For `codex/ai-kunnskap-library-v1`: ikke port mer kode fra den gamle worktree-en. Gjenstående beslutning er om de 66 gamle generated `_status`/`library-triage` artefaktene skal arkiveres utenfor repo eller forkastes, og deretter om worktree/branch kan slettes.
 4. For `codex/master-research-plan-2026-07-01`: lag først en eksplisitt port/commit-plan; ikke slett eller reset fordi arbeidet er uncommitted.
 5. For `codex/goal-*`: opprett først en recovery-beslutning som sier hvilke G-slices som eventuelt skal portes til ferske `main`-baserte PR-er.
 6. Kjør alltid `git status --short --branch` i worktree-en før sletting.
