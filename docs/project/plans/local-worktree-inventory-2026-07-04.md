@@ -4,8 +4,10 @@ dato: 2026-07-04
 status: aktivt-ryddenotat
 grunnlag:
   - `git status --short --branch` på `main` ved `4913e12`
+  - `git status --short --branch` på `main` ved `0aaf34a` etter PR #283
   - `gh pr list --state open --limit 50 --json number,title,url` returnerte `[]`
   - `git worktree list --porcelain` etter PR #281 og dirty-worktree review
+  - `git worktree list --porcelain` etter PR #283 og fjerning av fersk port-worktree
   - `git branch -r --merged origin/main` etter remote-branch cleanup
 siterbarhet: intern
 ---
@@ -14,7 +16,7 @@ siterbarhet: intern
 
 ## Kort konklusjon
 
-GitHub PR-flaten er tom og `main` er rent mot `origin/main`. MCP-sporet er publisert i PR #274 og den gamle lokale MCP-worktreen er fjernet. NotebookLM eksportsporet er publisert i PR #276 som fersk `2026-07-04`-pakke, og den gamle lokale NotebookLM-worktreen er nå fjernet etter eksplisitt port/drop-beslutning for recovery-restene. De tre rene ikke-ancestor worktreene, de to branch-only sporene, den gamle G-stacken og de to dirty worktreene er også gjennomgått; de gjenværende sporene er beholdt fordi de enten har `+`-commits i `git cherry`, store stale tree-differ, eller uncommitted arbeid som ikke finnes i commits. Lokal repo-hygiene er derfor fortsatt ikke helt lik "slett alt": noen worktrees er dirty og skal ikke røres uten egen scopebeslutning, og noen rene worktrees/branches er beholdt som aktive eller mulige recovery-spor.
+GitHub PR-flaten er tom og `main` er rent mot `origin/main`. MCP-sporet er publisert i PR #274 og den gamle lokale MCP-worktreen er fjernet. NotebookLM eksportsporet er publisert i PR #276 som fersk `2026-07-04`-pakke, og den gamle lokale NotebookLM-worktreen er nå fjernet etter eksplisitt port/drop-beslutning for recovery-restene. `ai-kunnskap` core/cockpit-slicen fra den gamle dirty worktree-en er publisert i PR #283, merget på `main`, og den ferske port-worktree-en er fjernet igjen. De tre rene ikke-ancestor worktreene, de to branch-only sporene, den gamle G-stacken og de to opprinnelige dirty worktreene er også gjennomgått; de gjenværende sporene er beholdt fordi de enten har `+`-commits i `git cherry`, store stale tree-differ, eller uncommitted arbeid som ikke finnes i commits. Lokal repo-hygiene er derfor fortsatt ikke helt lik "slett alt": noen worktrees er dirty og skal ikke røres uten egen scopebeslutning, og noen rene worktrees/branches er beholdt som aktive eller mulige recovery-spor.
 
 Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/branch når den enten er ren og fullt innlemmet i `main`, eller når en eksplisitt beslutning sier at historikken ikke lenger skal beholdes.
 
@@ -33,6 +35,7 @@ Dette notatet er en stoppregel for senere opprydding: slett bare en worktree/bra
 | `codex/obsidian-v3-masterplan-main-2026-07-02` | Worktree og lokal branch ble slettet. | Worktree var ren, PR #237 var merget, remote branch var allerede borte, og eneste unike commit var patch-ekvivalent med `main` i `git cherry`. |
 | `codex/foodsystems-kb-mcp` | Worktree og lokal branch ble slettet etter publisering. | MCP-feature ble portet til fersk `main`, testet og merget i PR #274. Gamle lokale filer var enten identiske med `main` eller eldre enn PR #274 sine `kb_list_gaps` filter-/metadataforbedringer, og ingen remote branch fantes. |
 | `codex/notebooklm-export-2026-07-02` | Worktree og lokal branch ble slettet etter publisering og port/drop-vurdering. | PR #276 la til `export:notebooklm`, generator/test og `exports/notebooklm/food-systems-2026-2026-07-04/` med 40 kilder, 0 manglende kildebaner og grønne lokale/remote checks. Etterpå viste restvurderingen at branch `HEAD` var ancestor av `main`, ingen remote branch fantes, gamle export-/generator-/package-filer var supersedet av `main`, vault-restene hadde 0 non-placeholder menneskenotater, eldre Obsidian-masterplan var supersedet av V3/main-notatet, og master-research-plan-kopien var eldre enn den aktive `codex/master-research-plan-2026-07-01`-worktreen. |
+| `codex/ai-kunnskap-library-v1` core/cockpit-slice | Portet til fersk branch og merget i PR #283; den ferske port-worktree-en og remote PR-branch ble slettet etter merge. | PR #283 la til `LibraryAnalysisRecord` schema/migration, `/ai-kunnskap`, `/api/library-analysis/status`, library/search badges, query helpers og tre kontraktstester. Lokalt verifisert med `npm run db:generate`, målrettede library-analysis tester, `npm run lint`, `npm run build` og `npm test`; GitHub checks var grønne. Dette er ikke en drop-beslutning for resten av den gamle dirty worktree-en. |
 
 ## Beholdte dirty worktrees
 
@@ -40,7 +43,7 @@ Disse har lokale endringer og skal ikke slettes eller resettes uten ny beslutnin
 
 | Branch | Dirty count | Main vs branch | PR-status | Beslutning |
 |---|---:|---|---|---|
-| `codex/ai-kunnskap-library-v1` | 148 | `211 0` | Ingen PR funnet; ingen remote branch. | Behold. Status er 60 modified + 88 untracked. Branch har 0 commits foran `main` (`git cherry` 0/0), så verdien ligger i uncommitted featurearbeid: schema/migration, `ai-kunnskap` app/API, library-analysis scripts/tests og kildekuratering. Trenger egen port/commit-plan før sletting. |
+| `codex/ai-kunnskap-library-v1` | 148 | `215 0` | Core/cockpit portet og merget i PR #283; fortsatt ingen PR/remote branch for resten. | Behold. Status er fortsatt 60 modified + 88 untracked fordi worktree-en står på en eldre branchbase, men core-filene er nå landet på `main` via PR #283. Gjenværende verdi ligger i uncommitted pipeline-/dataarbeid: package-script wiring, library-analysis prosesserings- og reparasjonsscripts, generated `research/_status/library-analysis*` og `research/_status/library-triage/`, samt kildekuratering i `research/bibliotek/**`, `research/evidence-pack/**`, `research/landbrukarena_transcripts/**` og `research/regulatory/**`. Trenger egen port/drop-beslutning per kategori før sletting. |
 | `codex/master-research-plan-2026-07-01` | 433 | `147 0` | Ingen PR funnet; ingen remote branch. | Behold. Status er 103 modified + 1 deleted + 329 untracked. Branch har 0 commits foran `main` (`git cherry` 0/0), så verdien ligger i uncommitted research/MVK/R13-R14/materialiseringsarbeid. Trenger egen port/commit-plan før sletting. |
 
 ## Beholdte rene, ikke-ancestor worktrees
@@ -82,7 +85,8 @@ Ikke slett disse branchene før det finnes en eksplisitt beslutning om at G-stac
 
 1. For de tre rene ikke-ancestor worktreene: gjør bare videre port/drop etter eksplisitt squash-/supersede-review; ikke slett som hygiene.
 2. For de to branch-only sporene: gjør bare videre sletting etter eksplisitt squash-/supersede-review eller port/drop-beslutning.
-3. For de to dirty worktreene: lag først en eksplisitt port/commit-plan; ikke slett eller reset fordi arbeidet er uncommitted.
-4. For `codex/goal-*`: opprett først en recovery-beslutning som sier hvilke G-slices som eventuelt skal portes til ferske `main`-baserte PR-er.
-5. Kjør alltid `git status --short --branch` i worktree-en før sletting.
-6. Etter hver sletting: `git worktree list --porcelain`, `git branch --format='%(refname:short)'`, `git fetch --prune`, og `gh pr list --state open`.
+3. For `codex/ai-kunnskap-library-v1`: behandle restene som minst fire separate beslutninger: pipeline-scripts/tests, generated `research/_status` artifacts, kildekuratering, og eventuell package-script wiring. Ikke slett eller reset hele worktree-en bare fordi core/cockpit er landet.
+4. For `codex/master-research-plan-2026-07-01`: lag først en eksplisitt port/commit-plan; ikke slett eller reset fordi arbeidet er uncommitted.
+5. For `codex/goal-*`: opprett først en recovery-beslutning som sier hvilke G-slices som eventuelt skal portes til ferske `main`-baserte PR-er.
+6. Kjør alltid `git status --short --branch` i worktree-en før sletting.
+7. Etter hver sletting: `git worktree list --porcelain`, `git branch --format='%(refname:short)'`, `git fetch --prune`, og `gh pr list --state open`.
