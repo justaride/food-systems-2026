@@ -239,6 +239,28 @@ describe('package scripts', () => {
     assert.doesNotMatch(scriptSource, /upsert|deleteMany|updateMany|createMany/)
   })
 
+  it('exposes guarded Nordic 2025 financial import commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const scriptSource = readFileSync(
+      join(process.cwd(), 'scripts', 'import-nordic-financials-2025.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['db:import:nordic-financials-2025:dry-run'],
+      'tsx scripts/import-nordic-financials-2025.ts --dry-run',
+    )
+    assert.equal(
+      packageJson.scripts['db:import:nordic-financials-2025:apply'],
+      'tsx scripts/import-nordic-financials-2025.ts --apply',
+    )
+    assert.match(scriptSource, /DATABASE_URL is required/)
+    assert.match(scriptSource, /parseApplyMode/)
+    assert.match(scriptSource, /companyFinancial\.upsert/)
+  })
+
   it('exposes guarded library analysis processing dry-run and apply commands', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
