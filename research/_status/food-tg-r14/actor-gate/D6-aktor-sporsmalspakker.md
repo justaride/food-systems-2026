@@ -19,9 +19,11 @@ P2.4 velger rekkefølge for actor-gate uten å gjennomføre outreach. Første as
 | 2 | D4 frø/genressurs | Dataeier/koordinator for KVANN/NordGen-sporet. | Hvilke norske aktører, lokasjoner og bevaringsroller kan bekreftes offentlig uten person-/medlemsdata? | Ikke gjør medlems-/nettverksliste til aktørkart uten kilde- og personvernavklaring. |
 | 3 | D1/D3/D5 lokal/regenerativ praksis | Kildeholder for markedshager, regenerative praktikere eller skogshage/permakultur-lister. | Hvilken offentlig liste er mest dekkende, når er den oppdatert, og hva betyr aktiv status? | Ikke map enkeltgårder eller praksisfelt som validerte før listeeier eller primærkilde bekrefter universet. |
 
-## P2.4 til G1-D2
+## P2.4 til G1
 
 G1-D2 beslutningspakken ligger i `research/_status/food-tg-r14/actor-gate/G1-D2-andelslandbruk-outreach-beslutningspakke-2026-07-04.md`. Den gir menneskelig ja/nei/vent-beslutning for D2 først, men åpner ikke outreach alene.
+
+G1-D4 beslutningspakken ligger i `research/_status/food-tg-r14/actor-gate/G1-D4-fro-genressurs-outreach-beslutningspakke-2026-07-04.md`. Den gir samme ja/nei/vent-beslutning for frø/genressurs-sporet, men stopper før kontakt og før aktørkart.
 
 ## Klar-til-G1 spørsmålspakke
 
