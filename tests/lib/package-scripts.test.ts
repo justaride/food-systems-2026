@@ -322,6 +322,27 @@ describe('package scripts', () => {
     assert.doesNotMatch(repairSource, /upsert|deleteMany|updateMany|createMany/)
   })
 
+  it('exposes the read-only library analysis decision queue command', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const scriptSource = readFileSync(
+      join(process.cwd(), 'scripts', 'build-library-analysis-decision-queue.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['research:library:decision-queue'],
+      'tsx scripts/build-library-analysis-decision-queue.ts',
+    )
+    assert.match(scriptSource, /LIBRARY_ANALYSIS_REPAIR_BACKLOG_JSON_PATH/)
+    assert.match(scriptSource, /LIBRARY_ANALYSIS_LOCAL_TEXT_REPAIR_PLAN_JSON_PATH/)
+    assert.match(scriptSource, /LIBRARY_ANALYSIS_URL_TEXT_EXTRACTION_PROFILE_JSON_PATH/)
+    assert.match(scriptSource, /LIBRARY_ANALYSIS_DECISION_QUEUE_JSON_PATH/)
+    assert.doesNotMatch(scriptSource, /PrismaClient|createLibraryAnalysisPrismaClient/)
+    assert.doesNotMatch(scriptSource, /upsert|deleteMany|updateMany|createMany|document\.update/)
+  })
+
   it('exposes the read-only library analysis PDF extraction profile command', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>
