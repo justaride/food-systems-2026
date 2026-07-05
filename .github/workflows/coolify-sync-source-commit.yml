@@ -20,10 +20,14 @@ on:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: coolify-sha-sync-main
+  cancel-in-progress: true
+
 jobs:
   sync-and-redeploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Get current commit SHA
         id: sha
@@ -73,6 +77,7 @@ jobs:
           fi
 
       - name: Trigger redeploy
+        id: deploy
         env:
           TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
           BASE: ${{ secrets.COOLIFY_BASE_URL }}
@@ -85,10 +90,25 @@ jobs:
           import sys, json
           try:
               d = json.load(sys.stdin)
-              print(d.get('deployments',[{}])[0].get('deployment_uuid','?'))
-          except: print('?')
+              candidates = [
+                  d.get('deployment_uuid'),
+                  d.get('uuid'),
+                  d.get('id'),
+              ]
+              deployments = d.get('deployments')
+              if isinstance(deployments, list) and deployments:
+                  first = deployments[0]
+                  candidates.extend([
+                      first.get('deployment_uuid'),
+                      first.get('uuid'),
+                      first.get('id'),
+                  ])
+              print(next((c for c in candidates if c), 'unknown'))
+          except Exception:
+              print('unknown')
           ")
           echo "Deployment queued: $deployment_uuid"
+          echo "deployment_uuid=$deployment_uuid" >> "$GITHUB_OUTPUT"
 
       - name: Wait for deploy + verify /api/version
         env:
@@ -96,39 +116,67 @@ jobs:
           BASE: ${{ secrets.COOLIFY_BASE_URL }}
           UUID: ${{ secrets.COOLIFY_APP_UUID }}
           SHA: ${{ steps.sha.outputs.sha }}
+          DEPLOYMENT_UUID: ${{ steps.deploy.outputs.deployment_uuid }}
           CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
           CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
-          # Vent på at deploy fullføres (maks 8 min)
-          for i in $(seq 1 48); do
+          # Vent på at deploy fullføres (maks 12 min). Hvis Coolify blir stående
+          # i queued/building skal workflow feile, ikke rapportere grønt med
+          # stale /api/version.
+          deploy_finished=0
+          for i in $(seq 1 72); do
             sleep 10
             status=$(curl -sS -H "Authorization: Bearer $TOKEN" \
               "$BASE/api/v1/deployments/applications/$UUID" \
               | python3 -c "
           import sys, json
           d = json.load(sys.stdin)
-          print(d.get('deployments',[{}])[0].get('status','?'))
+          deployments = d.get('deployments', [])
+          wanted = '$DEPLOYMENT_UUID'
+          if wanted and wanted != 'unknown':
+              for item in deployments:
+                  if wanted in (item.get('deployment_uuid'), item.get('uuid'), item.get('id')):
+                      print(item.get('status', '?'))
+                      break
+              else:
+                  print(deployments[0].get('status','?') if deployments else '?')
+          else:
+              print(deployments[0].get('status','?') if deployments else '?')
           ")
-            echo "[${i}/48] deploy status: $status"
+            echo "[${i}/72] deploy status: $status"
             case "$status" in
-              finished) break;;
+              finished) deploy_finished=1; break;;
               failed|cancelled)
                 echo "::error::Deploy $status"
                 exit 1
                 ;;
             esac
           done
+          if [ "$deploy_finished" != "1" ]; then
+            echo "::error::Deploy did not finish before timeout. Last status: $status"
+            exit 1
+          fi
 
           # Verifiser /api/version
-          if [ -n "$CF_ID" ] && [ -n "$CF_SECRET" ]; then
-            version=$(curl -sS \
-              -H "CF-Access-Client-Id: $CF_ID" \
-              -H "CF-Access-Client-Secret: $CF_SECRET" \
-              "https://food-systems.naturalstateproject.com/api/version")
-            echo "Deployed version: $version"
-            if echo "$version" | grep -q "${SHA:0:7}"; then
-              echo "::notice::/api/version matcher push-SHA ✓"
-            else
-              echo "::warning::/api/version ($version) matcher ikke SHA ${SHA:0:7}"
-            fi
+          if [ -z "$CF_ID" ] || [ -z "$CF_SECRET" ]; then
+            echo "::error::CF Access service token secrets are required for deploy proof"
+            exit 1
           fi
+
+          version=$(curl -sS \
+            -H "CF-Access-Client-Id: $CF_ID" \
+            -H "CF-Access-Client-Secret: $CF_SECRET" \
+            "https://food-systems.naturalstateproject.com/api/version?deploy_check=$SHA")
+          echo "Deployed version: $version"
+          actual_sha=$(echo "$version" | python3 -c "
+          import sys, json
+          try:
+              print(json.load(sys.stdin).get('sha', ''))
+          except Exception:
+              print('')
+          ")
+          if [ "$actual_sha" != "$SHA" ]; then
+            echo "::error::/api/version ($actual_sha) matcher ikke SHA $SHA"
+            exit 1
+          fi
+          echo "::notice::/api/version matcher push-SHA"
