@@ -21,6 +21,8 @@ describe('visible UI diacritics', () => {
     'src/components/charts/RLadderMatrix.tsx',
     'src/components/charts/RLadderMaturityOverview.tsx',
     'src/components/charts/NutrientFlowsView.tsx',
+    'src/components/system/MatsystemetsSnitt.tsx',
+    'src/components/visualization/EvidenceGrammarLegend.tsx',
     'src/lib/data/applications.ts',
     'src/lib/data/media-landscape.ts',
     'src/lib/data/meetings.ts',
@@ -28,6 +30,7 @@ describe('visible UI diacritics', () => {
     'src/lib/data/verdikjede.ts',
     'src/lib/data/circularity-questions.ts',
     'src/lib/data/r-ladder.ts',
+    'src/lib/data/matsystem-snitt.ts',
     'src/components/ui/StatusBadge.tsx',
   ]
 
