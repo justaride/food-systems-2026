@@ -28,10 +28,7 @@ jobs:
     timeout-minutes: 15
     if: ${{ vars.CITATION_VERIFY_ENABLED == 'true' }}
     env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
       TUNNEL_HOSTNAME: fs-db.naturalstateproject.com
-      CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
-      CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -50,20 +47,88 @@ jobs:
 
       - name: Install cloudflared
         run: |
-          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+          set -euo pipefail
+          curl -fsSL https://github.com/cloudflare/cloudflared/releases/download/2026.7.2/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+          echo "ec905ea7b7e327ff8abdde8cb64697a2152de74dbcdbf6aec9db8364eb3886cd  /usr/local/bin/cloudflared" | sha256sum -c -
           chmod +x /usr/local/bin/cloudflared
           cloudflared --version
 
-      - name: Start TCP tunnel to prod DB
+      - name: Prepare private libpq connection
+        shell: bash
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
-          # cloudflared access tcp reads the service token from --service-token-id/
-          # --secret, NOT CF_ACCESS_CLIENT_ID/SECRET — passing the wrong vars means no
-          # token is presented and CF Access rejects with "websocket: bad handshake".
+          set -euo pipefail
+          connection_dir="$(mktemp -d "${RUNNER_TEMP}/citation-db.XXXXXX")"
+          chmod 700 "$connection_dir"
+
+          cleanup_on_error() {
+            rm -f -- "$connection_dir/pgpass"
+            rmdir -- "$connection_dir" 2>/dev/null || true
+          }
+          trap cleanup_on_error ERR
+
+          RAW_DATABASE_URL="$DATABASE_URL" \
+            DATABASE_CONNECTION_DIR="$connection_dir" \
+            GITHUB_ENV_FILE="$GITHUB_ENV" \
+            node <<'NODE'
+          const fs = require('node:fs')
+          const path = require('node:path')
+
+          const url = new URL(process.env.RAW_DATABASE_URL)
+          if (!/^postgres(ql)?:$/.test(url.protocol)) {
+            throw new Error('DATABASE_URL must use PostgreSQL')
+          }
+
+          const decode = (value) => decodeURIComponent(value)
+          const host = url.hostname
+          const port = url.port || '5432'
+          const database = decode(url.pathname.replace(/^\/+/, ''))
+          const user = decode(url.username)
+          const password = decode(url.password)
+          const sslmode = url.searchParams.get('sslmode') || 'prefer'
+          const values = { host, port, database, user, password, sslmode }
+
+          for (const [name, value] of Object.entries(values)) {
+            if (!value || /[\r\n\0]/.test(value)) {
+              throw new Error(`DATABASE_URL has an invalid ${name}`)
+            }
+          }
+
+          const escapePgpass = (value) => value.replace(/\\/g, '\\\\').replace(/:/g, '\\:')
+          const pgpass = [host, port, database, user, password].map(escapePgpass).join(':') + '\n'
+          const pgpassFile = path.join(process.env.DATABASE_CONNECTION_DIR, 'pgpass')
+          fs.writeFileSync(pgpassFile, pgpass, { mode: 0o600 })
+
+          const env = [
+            ['DATABASE_CONNECTION_DIR', process.env.DATABASE_CONNECTION_DIR],
+            ['PGHOST', host],
+            ['PGPORT', port],
+            ['PGDATABASE', database],
+            ['PGUSER', user],
+            ['PGSSLMODE', sslmode],
+            ['PGPASSFILE', pgpassFile],
+          ]
+          fs.appendFileSync(
+            process.env.GITHUB_ENV_FILE,
+            env.map(([name, value]) => `${name}=${value}`).join('\n') + '\n',
+          )
+          NODE
+
+          trap - ERR
+
+      - name: Start TCP tunnel to prod DB
+        env:
+          TUNNEL_SERVICE_TOKEN_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          TUNNEL_SERVICE_TOKEN_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          set -euo pipefail
+          unset PGPASSWORD
+          # cloudflared 2026.7.2 maps these inherited env variables to its
+          # service-token flags. Keep the secret out of the process argument list.
           nohup cloudflared access tcp \
             --hostname "$TUNNEL_HOSTNAME" \
             --url localhost:5432 \
-            --service-token-id "$CF_ACCESS_CLIENT_ID" \
-            --service-token-secret "$CF_ACCESS_CLIENT_SECRET" \
             > tunnel.log 2>&1 &
           echo $! > tunnel.pid
           # Wait for an authenticated Postgres connection through the tunnel, not just
@@ -72,7 +137,7 @@ jobs:
           # "websocket: bad handshake"). psql probes the real end-to-end path.
           ok=0
           for i in $(seq 1 30); do
-            if psql "$DATABASE_URL" -tAc 'select 1' >/dev/null 2>&1; then
+            if psql -X -tAc 'select 1' >/dev/null 2>&1; then
               echo "Authenticated DB connection ready (attempt $i)"; ok=1; break
             fi
             sleep 3
@@ -80,12 +145,22 @@ jobs:
           if [ "$ok" != "1" ]; then echo "::error::DB not reachable through CF Access tunnel"; cat tunnel.log; exit 1; fi
 
       - name: Verify fileHash
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: npm run db:verify:filehash
 
       - name: Stop tunnel
         if: always()
         run: |
           if [ -f tunnel.pid ]; then kill "$(cat tunnel.pid)" 2>/dev/null || true; fi
+          case "${DATABASE_CONNECTION_DIR:-}" in
+            "$RUNNER_TEMP"/citation-db.*)
+              rm -f -- "$DATABASE_CONNECTION_DIR/pgpass"
+              rmdir -- "$DATABASE_CONNECTION_DIR" 2>/dev/null || true
+              ;;
+            '') ;;
+            *) echo "::warning::Refusing to remove unexpected connection directory" ;;
+          esac
 
   url-health:
     name: HTTP-verify needs_review SourceCitations
@@ -93,10 +168,7 @@ jobs:
     timeout-minutes: 30
     if: ${{ vars.CITATION_VERIFY_ENABLED == 'true' }}
     env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
       TUNNEL_HOSTNAME: fs-db.naturalstateproject.com
-      CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
-      CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -115,26 +187,95 @@ jobs:
 
       - name: Install cloudflared
         run: |
-          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+          set -euo pipefail
+          curl -fsSL https://github.com/cloudflare/cloudflared/releases/download/2026.7.2/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+          echo "ec905ea7b7e327ff8abdde8cb64697a2152de74dbcdbf6aec9db8364eb3886cd  /usr/local/bin/cloudflared" | sha256sum -c -
           chmod +x /usr/local/bin/cloudflared
+          cloudflared --version
+
+      - name: Prepare private libpq connection
+        shell: bash
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          set -euo pipefail
+          connection_dir="$(mktemp -d "${RUNNER_TEMP}/citation-db.XXXXXX")"
+          chmod 700 "$connection_dir"
+
+          cleanup_on_error() {
+            rm -f -- "$connection_dir/pgpass"
+            rmdir -- "$connection_dir" 2>/dev/null || true
+          }
+          trap cleanup_on_error ERR
+
+          RAW_DATABASE_URL="$DATABASE_URL" \
+            DATABASE_CONNECTION_DIR="$connection_dir" \
+            GITHUB_ENV_FILE="$GITHUB_ENV" \
+            node <<'NODE'
+          const fs = require('node:fs')
+          const path = require('node:path')
+
+          const url = new URL(process.env.RAW_DATABASE_URL)
+          if (!/^postgres(ql)?:$/.test(url.protocol)) {
+            throw new Error('DATABASE_URL must use PostgreSQL')
+          }
+
+          const decode = (value) => decodeURIComponent(value)
+          const host = url.hostname
+          const port = url.port || '5432'
+          const database = decode(url.pathname.replace(/^\/+/, ''))
+          const user = decode(url.username)
+          const password = decode(url.password)
+          const sslmode = url.searchParams.get('sslmode') || 'prefer'
+          const values = { host, port, database, user, password, sslmode }
+
+          for (const [name, value] of Object.entries(values)) {
+            if (!value || /[\r\n\0]/.test(value)) {
+              throw new Error(`DATABASE_URL has an invalid ${name}`)
+            }
+          }
+
+          const escapePgpass = (value) => value.replace(/\\/g, '\\\\').replace(/:/g, '\\:')
+          const pgpass = [host, port, database, user, password].map(escapePgpass).join(':') + '\n'
+          const pgpassFile = path.join(process.env.DATABASE_CONNECTION_DIR, 'pgpass')
+          fs.writeFileSync(pgpassFile, pgpass, { mode: 0o600 })
+
+          const env = [
+            ['DATABASE_CONNECTION_DIR', process.env.DATABASE_CONNECTION_DIR],
+            ['PGHOST', host],
+            ['PGPORT', port],
+            ['PGDATABASE', database],
+            ['PGUSER', user],
+            ['PGSSLMODE', sslmode],
+            ['PGPASSFILE', pgpassFile],
+          ]
+          fs.appendFileSync(
+            process.env.GITHUB_ENV_FILE,
+            env.map(([name, value]) => `${name}=${value}`).join('\n') + '\n',
+          )
+          NODE
+
+          trap - ERR
 
       - name: Start TCP tunnel to prod DB
+        env:
+          TUNNEL_SERVICE_TOKEN_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          TUNNEL_SERVICE_TOKEN_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
-          # cloudflared access tcp reads the service token from --service-token-id/
-          # --secret, NOT CF_ACCESS_CLIENT_ID/SECRET — passing the wrong vars means no
-          # token is presented and CF Access rejects with "websocket: bad handshake".
+          set -euo pipefail
+          unset PGPASSWORD
+          # cloudflared 2026.7.2 maps these inherited env variables to its
+          # service-token flags. Keep the secret out of the process argument list.
           nohup cloudflared access tcp \
             --hostname "$TUNNEL_HOSTNAME" \
             --url localhost:5432 \
-            --service-token-id "$CF_ACCESS_CLIENT_ID" \
-            --service-token-secret "$CF_ACCESS_CLIENT_SECRET" \
             > tunnel.log 2>&1 &
           echo $! > tunnel.pid
           # Authenticated probe (see filehash job for rationale): `nc -z` false-positives
           # on the cloudflared listener when the CF Access handshake to origin fails.
           ok=0
           for i in $(seq 1 30); do
-            if psql "$DATABASE_URL" -tAc 'select 1' >/dev/null 2>&1; then
+            if psql -X -tAc 'select 1' >/dev/null 2>&1; then
               echo "Authenticated DB connection ready (attempt $i)"; ok=1; break
             fi
             sleep 3
@@ -143,9 +284,19 @@ jobs:
 
       - name: Verify URL health (apply mode)
         # --limit caps each run at 300 rows. Backlog drains over multiple weeks.
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: npx tsx scripts/verify-source-citation-url-health.ts --apply --limit 300
 
       - name: Stop tunnel
         if: always()
         run: |
           if [ -f tunnel.pid ]; then kill "$(cat tunnel.pid)" 2>/dev/null || true; fi
+          case "${DATABASE_CONNECTION_DIR:-}" in
+            "$RUNNER_TEMP"/citation-db.*)
+              rm -f -- "$DATABASE_CONNECTION_DIR/pgpass"
+              rmdir -- "$DATABASE_CONNECTION_DIR" 2>/dev/null || true
+              ;;
+            '') ;;
+            *) echo "::warning::Refusing to remove unexpected connection directory" ;;
+          esac

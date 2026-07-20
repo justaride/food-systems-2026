@@ -3,6 +3,7 @@
 **Full tittel:** Riksrevisjonens undersøkelse av matsikkerhet og beredskap på jordbruksområdet (Dokument 3:4 2023–2024)
 **Dato:** 11. mars 2026 (Analysert)
 **Kilde:** Riksrevisjonen (Okt 2023)
+**URL:** https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/matsikkerhet-og-beredskap-pa-landbruksomradet/
 
 ---
 

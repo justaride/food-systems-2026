@@ -10,6 +10,7 @@ const inputs: LibraryAnalysisUrlTextRepairInput[] = [
   {
     sourceKey: 'document:update-pdf',
     documentId: 'doc-update-pdf',
+    existingUpdatedAt: '2026-06-18T11:00:00.000Z',
     title: 'URL PDF',
     repairBatch: 'missing_document_locator_search',
     url: 'https://example.org/source.pdf',
@@ -25,6 +26,7 @@ const inputs: LibraryAnalysisUrlTextRepairInput[] = [
   {
     sourceKey: 'document:update-html',
     documentId: 'doc-update-html',
+    existingUpdatedAt: '2026-06-18T11:01:00.000Z',
     title: 'URL HTML',
     repairBatch: 'missing_sourcedoc_locator',
     url: 'https://example.org/article',
@@ -40,6 +42,7 @@ const inputs: LibraryAnalysisUrlTextRepairInput[] = [
   {
     sourceKey: 'document:no-document',
     documentId: null,
+    existingUpdatedAt: null,
     title: 'No document target',
     repairBatch: 'missing_document_locator_search',
     url: 'https://example.org/no-document',
@@ -55,6 +58,7 @@ const inputs: LibraryAnalysisUrlTextRepairInput[] = [
   {
     sourceKey: 'document:not-extractable',
     documentId: 'doc-not-extractable',
+    existingUpdatedAt: '2026-06-18T11:02:00.000Z',
     title: 'HTTP error',
     repairBatch: 'missing_sourcedoc_locator',
     url: 'https://example.org/missing',
@@ -70,6 +74,7 @@ const inputs: LibraryAnalysisUrlTextRepairInput[] = [
   {
     sourceKey: 'document:no-gain',
     documentId: 'doc-no-gain',
+    existingUpdatedAt: '2026-06-18T11:03:00.000Z',
     title: 'Existing richer content',
     repairBatch: 'missing_document_locator_search',
     url: 'https://example.org/rich',
@@ -112,6 +117,7 @@ describe('library analysis URL text repair', () => {
 
     const update = plan.rows.find(row => row.sourceKey === 'document:update-pdf')
     assert.equal(update?.action, 'update')
+    assert.equal(update?.expectedUpdatedAt, '2026-06-18T11:00:00.000Z')
     assert.equal(update?.extractionStatus, 'extractable_500_plus')
     assert.equal(update?.contentKind, 'pdf')
     assert.match(update?.nextContent ?? '', /URL text extraction/)
@@ -145,6 +151,8 @@ describe('library analysis URL text repair', () => {
     assert.match(markdown, /^# Library Analysis URL Text Repair Plan/m)
     assert.match(markdown, /Document.content/)
     assert.match(markdown, /lager ikke claim-kandidater/)
+    assert.match(markdown, /Document\.updatedAt, wordCount og content/)
+    assert.match(markdown, /avbryter hele batchen/)
     assert.match(markdown, /Total rows \| 5/)
     assert.match(markdown, /Update rows \| 2/)
     assert.match(markdown, /Clears low-text rows \| 2/)

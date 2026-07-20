@@ -6,7 +6,7 @@ import { EmptyState } from '@/components/ui/EmptyState'
 import { StatusLegend } from '@/components/visualization/StatusLegend'
 
 type SearchResult = {
-  type: 'document' | 'insight' | 'source' | 'thesis' | 'company' | 'actor' | 'relationship' | 'property' | 'person'
+  type: 'document' | 'insight' | 'source' | 'report' | 'thesis' | 'company' | 'actor' | 'relationship' | 'property' | 'person'
   id: string
   title: string
   excerpt: string
@@ -21,12 +21,14 @@ type LibraryAnalysisBadge = {
   reviewRequired: boolean
   claimCandidateCount: number
   riskFlags: string[]
+  externalClaimEligible: boolean
 }
 
 const TYPE_LABELS: Record<string, string> = {
   document: 'Dokument',
   insight: 'Innsikt',
   source: 'Kilde',
+  report: 'Rapport',
   thesis: 'Masteroppgave',
   company: 'Selskap',
   actor: 'Aktør',
@@ -39,6 +41,7 @@ const TYPE_COLORS: Record<string, string> = {
   document: 'bg-blue-50 text-blue-700 border-blue-200',
   insight: 'bg-emerald-50 text-emerald-700 border-emerald-200',
   source: 'bg-amber-50 text-amber-700 border-amber-200',
+  report: 'bg-cyan-50 text-cyan-700 border-cyan-200',
   thesis: 'bg-violet-50 text-violet-700 border-violet-200',
   company: 'bg-rose-50 text-rose-700 border-rose-200',
   actor: 'bg-teal-50 text-teal-700 border-teal-200',
@@ -80,6 +83,7 @@ const AI_STATUS_LABELS: Record<string, string> = {
 
 const AI_USAGE_LABELS: Record<string, string> = {
   safe_for_ai_context: 'trygg AI-kontekst',
+  safe_for_external_claims: 'ekstern godkjenning markert',
   claim_candidate_review: 'claim-review',
   internal_background: 'intern bakgrunn',
   do_not_use_for_claims: 'ikke claim',
@@ -115,7 +119,9 @@ function LibraryAnalysisBadges({ analysis }: { analysis?: LibraryAnalysisBadge |
         {AI_STATUS_LABELS[analysis.status] ?? analysis.status}
       </span>
       <span className="text-[10px] px-1.5 py-0.5 rounded border border-stone-200 bg-white text-stone-500">
-        {AI_USAGE_LABELS[analysis.usageRule] ?? analysis.usageRule}
+        {analysis.usageRule === 'safe_for_external_claims' && analysis.externalClaimEligible
+          ? 'godkjent eksternt'
+          : (AI_USAGE_LABELS[analysis.usageRule] ?? analysis.usageRule)}
       </span>
       {analysis.claimCandidateCount > 0 && (
         <span className="text-[10px] px-1.5 py-0.5 rounded border border-rose-200 bg-rose-50 text-rose-700">
@@ -181,7 +187,7 @@ export function SokContent() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Søk</h1>
-        <p className="text-sm text-stone-400 mt-1">Søk på tvers av dokumenter, innsikt, kilder, selskaper, aktører, relasjoner, eiendommer og personer</p>
+        <p className="text-sm text-stone-400 mt-1">Søk på tvers av dokumenter, innsikt, kilder, rapporter, masteroppgaver, selskaper, aktører, relasjoner, eiendommer og personer</p>
       </div>
 
       <div className="relative">

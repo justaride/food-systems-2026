@@ -23,29 +23,44 @@ function tryGit(args: string): string {
   }
 }
 
+function firstValidSha(...candidates: Array<string | undefined>): string | undefined {
+  return candidates
+    .map(candidate => candidate?.trim().toLowerCase())
+    .find(candidate => Boolean(candidate && candidate !== 'unknown' && /^[a-f0-9]{40,64}$/.test(candidate)))
+}
+
+function firstKnownValue(...candidates: Array<string | undefined>): string | undefined {
+  return candidates
+    .map(candidate => candidate?.trim())
+    .find(candidate => Boolean(candidate && candidate.toLowerCase() !== 'unknown'))
+}
+
 // Priority order:
 //   1. git rev-parse — best when .git is available
-//   2. Coolify's auto-injected vars — refleksjons-trygt under deploy
-//   3. Generic SOURCE_COMMIT — fallback for manual builds; OBS: Coolify-
-//      brukere som manuelt setter SOURCE_COMMIT i app-env vil overstyre
-//      auto-injected verdi. Sjekk Coolify-env-tabellen hvis SHA blir
-//      stale på prod (jf. /api/version-bug 2026-04-30 → 2026-05-12).
-const sha =
-  tryGit('rev-parse HEAD') ||
-  process.env.COOLIFY_GIT_COMMIT_SHA ||
-  process.env.SOURCE_COMMIT ||
-  process.env.COMMIT_SHA ||
-  process.env.GIT_SHA ||
-  'unknown'
+//   2. SOURCE_COMMIT / COOLIFY_BRANCH — Coolify's documented predefined vars
+//      when "Include Source Commit in Build" is enabled
+//   3. legacy/generic CI fallbacks
+//
+// Do not create a static Coolify application env named SOURCE_COMMIT. It
+// shadows the predefined value and makes /api/version stale across deploys.
+const sha = firstValidSha(
+  tryGit('rev-parse HEAD'),
+  process.env.SOURCE_COMMIT,
+  process.env.COOLIFY_GIT_COMMIT_SHA,
+  process.env.COMMIT_SHA,
+  process.env.GIT_SHA,
+) ?? 'unknown'
 
 const branchRaw = tryGit('rev-parse --abbrev-ref HEAD')
 const branch =
   branchRaw && branchRaw !== 'HEAD'
     ? branchRaw
-    : process.env.COOLIFY_GIT_BRANCH ||
-      process.env.SOURCE_BRANCH ||
-      process.env.GIT_BRANCH ||
-      'unknown'
+    : firstKnownValue(
+        process.env.COOLIFY_BRANCH,
+        process.env.SOURCE_BRANCH,
+        process.env.COOLIFY_GIT_BRANCH,
+        process.env.GIT_BRANCH,
+      ) ?? 'unknown'
 
 const version = {
   sha,

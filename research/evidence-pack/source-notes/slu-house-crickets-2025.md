@@ -1,6 +1,6 @@
 # Source locator: slu-house-crickets-2025
 
-Title: Integrating house crickets in circular food systems
+Title: House crickets in circular food systems: From crop residue diets to frass-based farming
 Source URL: https://pub.epsilon.slu.se/id/document/20453027
 Local status: locator note
 Created: 2026-07-02

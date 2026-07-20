@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict'
+import { spawnSync } from 'node:child_process'
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, it } from 'node:test'
+import { buildEffectiveLibraryAnalysisSyncPlan } from '../../scripts/process-library-analysis'
+import type { LibraryAnalysisSyncPlan } from '../../src/lib/library-analysis-processing'
 
 describe('library analysis package scripts', () => {
   it('exposes the expected research and audit commands', () => {
@@ -12,6 +15,14 @@ describe('library analysis package scripts', () => {
     assert.equal(packageJson.scripts['research:library:inventory'], 'tsx scripts/build-library-analysis-inventory.ts')
     assert.equal(packageJson.scripts['research:library:process:dry-run'], 'tsx scripts/process-library-analysis.ts --dry-run')
     assert.equal(packageJson.scripts['research:library:process:apply'], 'tsx scripts/process-library-analysis.ts --apply')
+    assert.equal(
+      packageJson.scripts['research:library:process:create-only:dry-run'],
+      'tsx scripts/process-library-analysis.ts --dry-run --create-only',
+    )
+    assert.equal(
+      packageJson.scripts['research:library:process:create-only:apply'],
+      'tsx scripts/process-library-analysis.ts --apply --create-only',
+    )
     assert.equal(packageJson.scripts['research:library:ledger'], 'tsx scripts/export-library-analysis-ledger.ts')
     assert.equal(packageJson.scripts['research:library:repair-backlog'], 'tsx scripts/build-library-analysis-repair-backlog.ts')
     assert.equal(packageJson.scripts['research:library:pdf-extraction-profile'], 'tsx scripts/build-library-analysis-pdf-extraction-profile.ts')
@@ -53,6 +64,28 @@ describe('library analysis package scripts', () => {
     ]) {
       assert.ok(existsSync(join(process.cwd(), 'scripts', script)), `missing ${script}`)
     }
+  })
+
+  it('fails external approval before database access when the reviewed content hash is missing', () => {
+    const result = spawnSync(
+      join(process.cwd(), 'node_modules', '.bin', 'tsx'),
+      [
+        'scripts/review-library-analysis-external.ts',
+        '--apply',
+        '--decision=approve',
+        '--source-key=document:test',
+        '--reviewer=Test Reviewer',
+        '--ack=I_HAVE_REVIEWED_THE_CURRENT_DOCUMENT',
+      ],
+      {
+        cwd: process.cwd(),
+        encoding: 'utf8',
+        env: { ...process.env, DATABASE_URL: '' },
+      },
+    )
+
+    assert.equal(result.status, 1)
+    assert.match(result.stderr, /--expected-content-hash is required/)
   })
 
   it('wires the audit command to the repair backlog artifacts', () => {
@@ -102,6 +135,18 @@ describe('library analysis package scripts', () => {
     assert.match(auditScript, /urlTextRepairPlanMarkdownContent/)
     assert.match(auditScript, /decisionQueueJsonContent/)
     assert.match(auditScript, /decisionQueueMarkdownContent/)
+    assert.match(auditScript, /auditLibraryAnalysisLedgerLiveParity/)
+    assert.match(auditScript, /loadLibraryAnalysisInventory\(\{ requireDb: true \}\)/)
+    assert.match(auditScript, /artifact-only \(DATABASE_URL not set; live parity not claimed\)/)
+  })
+
+  it('exports only current inventory identities while reporting retained history separately', () => {
+    const script = readFileSync(join(process.cwd(), 'scripts/export-library-analysis-ledger.ts'), 'utf8')
+
+    assert.match(script, /partitionLibraryAnalysisRecordsForLiveLedger/)
+    assert.match(script, /libraryAnalysisIdentityKey/)
+    assert.match(script, /Stale retained outside live ledger/)
+    assert.doesNotMatch(script, /currentBySourceKey/)
   })
 
   it('keeps URL text extraction profiling bounded but parallel', () => {
@@ -287,12 +332,72 @@ describe('library analysis package scripts', () => {
     assert.match(script, /appendArtifact\(BACKUP_PATH/)
   })
 
-  it('prunes stale library analysis projection rows only with a backup', () => {
+  it('plans exact writes and retains stale projection rows by policy', () => {
     const script = readFileSync(join(process.cwd(), 'scripts/process-library-analysis.ts'), 'utf8')
 
-    assert.match(script, /findStaleLibraryAnalysisRecordIdentities/)
-    assert.match(script, /library-analysis-prune-backup\.jsonl/)
+    assert.match(script, /buildLibraryAnalysisSyncPlan/)
+    assert.match(script, /stalePolicy/)
+    assert.match(script, /library-analysis-approval-revocation-backup\.jsonl/)
     assert.match(script, /appendFileSync/)
-    assert.match(script, /deleteMany/)
+    assert.equal((script.match(/prisma\.\$transaction/g) ?? []).length, 1)
+    assert.match(script, /isolationLevel: 'Serializable'/)
+    assert.match(script, /libraryAnalysisRecord\.create/)
+    assert.match(script, /libraryAnalysisRecord\.updateMany/)
+    assert.match(script, /toLibraryAnalysisCasWhere\(action\.expectedSnapshot\)/)
+    assert.match(script, /result\.count !== 1/)
+    assert.match(script, /code === 'P2002' \|\| code === 'P2034'/)
+    assert.ok(
+      script.indexOf("}, { isolationLevel: 'Serializable' })") <
+        script.indexOf('appendBackup('),
+      'approval-revocation backup must be appended only after transaction commit',
+    )
+    assert.doesNotMatch(script, /deleteMany/)
+  })
+
+  it('reduces create-only execution to creates while exposing every skipped update and approval action', () => {
+    const action = (
+      classification: 'create' | 'material_update' | 'noop' | 'stale',
+      key: string,
+      approvalAction: 'none' | 'preserved' | 'revoked' = 'none',
+    ) => ({
+      classification,
+      key,
+      identity: { sourceKind: 'document', sourceKey: key },
+      row: null,
+      existing: null,
+      changedFields: [],
+      approvalAction,
+      approvalReasons: [],
+      expectedSnapshot: null,
+    })
+    const actions = [
+      action('create', 'document:new-a'),
+      action('create', 'document:new-b'),
+      action('material_update', 'document:tailored', 'preserved'),
+      action('material_update', 'document:review', 'revoked'),
+      action('noop', 'document:stable'),
+      action('stale', 'document:stale'),
+    ] satisfies LibraryAnalysisSyncPlan['actions']
+    const plan: LibraryAnalysisSyncPlan = {
+      actions,
+      counts: { create: 2, material_update: 2, noop: 1, stale: 1 },
+      keys: {
+        create: ['document:new-a', 'document:new-b'],
+        material_update: ['document:tailored', 'document:review'],
+        noop: ['document:stable'],
+        stale: ['document:stale'],
+      },
+      stalePolicy: 'retain',
+    }
+
+    const effective = buildEffectiveLibraryAnalysisSyncPlan(plan, 'create-only')
+    assert.deepEqual(effective.keys.create, ['document:new-a', 'document:new-b'])
+    assert.deepEqual(effective.counts, { create: 2, material_update: 0, noop: 0, stale: 0 })
+    assert.equal(effective.skippedMaterialUpdates, 2)
+    assert.deepEqual(effective.skippedApprovalActions, {
+      preserved: ['document:tailored'],
+      revoked: ['document:review'],
+    })
+    assert.ok(effective.actions.every(item => item.classification === 'create'))
   })
 })

@@ -70,8 +70,13 @@ export async function loadLibraryAnalysisInventory(options?: {
           thesis: { select: { id: true } },
           sourceCitations: {
             select: {
+              id: true,
+              sourceClass: true,
               citationReadiness: true,
+              verificationStatus: true,
               url: true,
+              archivedUrl: true,
+              accessedAt: true,
             },
           },
         },
@@ -124,12 +129,15 @@ function localFileExists(path: string | null | undefined): boolean {
   return candidateLocalFilePaths(path).some(candidate => existsSync(candidate))
 }
 
-export function writeLibraryAnalysisArtifacts(rows: LibraryAnalysisInventoryRow[]) {
+export function writeLibraryAnalysisArtifacts(
+  rows: LibraryAnalysisInventoryRow[],
+  options: { staleRetainedCount?: number } = {},
+) {
   const ledgerPath = join(process.cwd(), LIBRARY_ANALYSIS_LEDGER_PATH)
   const summaryPath = join(process.cwd(), LIBRARY_ANALYSIS_SUMMARY_PATH)
   mkdirSync(join(process.cwd(), 'research/_status'), { recursive: true })
   writeFileSync(ledgerPath, formatLibraryAnalysisLedgerJsonl(rows), 'utf8')
-  writeFileSync(summaryPath, formatLibraryAnalysisSummaryMarkdown(rows), 'utf8')
+  writeFileSync(summaryPath, formatLibraryAnalysisSummaryMarkdown(rows, options), 'utf8')
   return { ledgerPath, summaryPath }
 }
 

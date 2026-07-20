@@ -2,10 +2,15 @@
 
 **Tema:** Markedsandeler og omsetning i norsk dagligvare (2024-tall)
 **Dato:** 11. mars 2026 (Analysert)
+**Verifisert locator:** https://www.virke.no/analyse/statistikk-rapporter/dagligvarehandelen/ (tilgang 19. juli 2026)
+
+**Kildestatus:** Virke-siden er identifisert som locator, men siden eksponerer ikke tallene som er oppsummert nedenfor.
+**Kilderolle:** Bransjepresentasjon av markedsdata knyttet til Virke/NielsenIQ; landingssiden er ikke i seg selv dokumentasjon for de gjengitte tallene.
+**Evidensgrense:** Tall og markedsbeskrivelser må forankres i selve rapporten, en navngitt tabell/side eller et datert arkivopptak. Inntil det foreligger, behandles innholdet som intern bakgrunn, ikke som eksternt verifiserte påstander.
 
 ---
 
-## Totalmarkedet
+## Totalmarkedet (arbeidstall uten sideanker)
 - **Totalomsetning:** 266 milliarder kroner (+5,1 % fra 2023).
 - **Vekstdriver:** Prisvekst er hovedårsaken til økningen, ikke økt volum.
 
@@ -22,4 +27,4 @@
 - **EMV:** Utgjør nå 20,4 % av totalmarkedet.
 
 ## Relevans for Food Systems 2026
-Dette er "fasiten" på markedets struktur. Tallene bekrefter at det norske systemet er et rendyrket lavprissystem styrt av tre store blokker.
+Notatet skisserer en mulig beskrivelse av markedsstrukturen, men er ikke en «fasit» før tallene er kontrollert mot rapportens tabeller og definisjoner.

@@ -3,7 +3,7 @@
 **Full tittel:** Horisontal konkurranse i dagligvaremarkedet: Bruken av egne merkevarer i konkurransen mellom norske dagligvarekjeder
 **Type:** Masteroppgave
 **Dato:** 13. mars 2026 (Analysert)
-**URL:** https://openaccess.nhh.no/nhh-xmlui/handle/11250/166778
+**URL:** https://hdl.handle.net/11250/169513
 
 ---
 

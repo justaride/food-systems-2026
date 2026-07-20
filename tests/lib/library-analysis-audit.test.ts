@@ -1,8 +1,134 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { auditLibraryAnalysisArtifacts } from '../../src/lib/library-analysis-audit'
+import {
+  assessLibraryAnalysisExternalReadiness,
+  auditLibraryAnalysisArtifacts,
+} from '../../src/lib/library-analysis-audit'
 
 describe('library analysis audit', () => {
+  it('keeps internal AI readiness separate from external claim readiness', () => {
+    const readiness = assessLibraryAnalysisExternalReadiness([
+      JSON.stringify({
+        sourceKey: 'document:doc-1',
+        status: 'approved_internal',
+        usageRule: 'safe_for_ai_context',
+        reviewStatus: 'not_required',
+        reviewedAt: null,
+        reviewer: null,
+      }),
+      JSON.stringify({
+        sourceKey: 'document:doc-2',
+        status: 'ai_draft',
+        usageRule: 'internal_background',
+        reviewStatus: 'not_reviewed',
+        reviewedAt: null,
+        reviewer: null,
+      }),
+    ].join('\n') + '\n')
+
+    assert.equal(readiness.ledgerValid, true)
+    assert.equal(readiness.status, 'not_ready')
+    assert.equal(readiness.safeForAiContextRows, 1)
+    assert.equal(readiness.aiDraftRows, 1)
+    assert.equal(readiness.humanReviewedRows, 0)
+    assert.equal(readiness.reviewProvenanceAvailable, true)
+    assert.equal(readiness.externalClaimContractAvailable, true)
+    assert.equal(readiness.externalClaimEligibleRows, 0)
+    assert.ok(readiness.blockers.some(blocker => /no rows.*human review/.test(blocker)))
+  })
+
+  it('counts only complete human external approvals and rejects incomplete external markers', () => {
+    const validRow = {
+      sourceKind: 'document',
+      sourceKey: 'document:valid',
+      linkedDocumentId: 'valid',
+      status: 'validated',
+      usageRule: 'safe_for_external_claims',
+      reviewStatus: 'approved',
+      reviewedAt: '2026-07-19T10:00:00.000Z',
+      reviewer: 'Fagansvarlig',
+      citationReadiness: 'citable_external',
+      contentHash: 'a'.repeat(64),
+      currentContentHash: 'a'.repeat(64),
+      externalCitationPolicyHash: 'c'.repeat(64),
+      currentExternalCitationPolicyHash: 'c'.repeat(64),
+      riskFlags: [],
+      claimCandidateCount: 0,
+    }
+    const incompleteRow = {
+      ...validRow,
+      sourceKey: 'document:incomplete',
+      linkedDocumentId: 'incomplete',
+      reviewStatus: 'not_reviewed',
+      reviewedAt: null,
+      reviewer: null,
+    }
+
+    const readiness = assessLibraryAnalysisExternalReadiness(`${JSON.stringify(validRow)}\n`)
+    assert.equal(readiness.externalClaimEligibleRows, 1)
+    assert.equal(readiness.invalidExternalApprovalRows, 0)
+    assert.equal(readiness.externalCitationPolicyBlockedRows, 0)
+    assert.equal(readiness.externalClaimContractAvailable, true)
+
+    const failures = auditLibraryAnalysisArtifacts({
+      ledgerContent: `${JSON.stringify(incompleteRow)}\n`,
+      summaryContent: [
+        '| Metric | Count |',
+        '|---|---:|',
+        '| Total sources | 1 |',
+        '| Finished internal | 1 |',
+        '| Review queue | 0 |',
+        '| Blocked | 0 |',
+        '| Type-B actor gates | 0 |',
+        '| Type-C gaps | 0 |',
+        '| Claim candidates | 0 |',
+        '| Missing text | 0 |',
+      ].join('\n'),
+      localFileExists: () => true,
+    })
+    assert.ok(failures.some(failure => /review_status_not_approved/.test(failure)))
+    assert.ok(failures.some(failure => /review_provenance_missing/.test(failure)))
+
+    const invalidReadiness = assessLibraryAnalysisExternalReadiness(`${JSON.stringify(incompleteRow)}\n`)
+    assert.equal(invalidReadiness.ledgerValid, false)
+    assert.equal(invalidReadiness.invalidExternalApprovalRows, 1)
+    assert.ok(invalidReadiness.blockers.some(blocker => /violate the approval contract/.test(blocker)))
+  })
+
+  it('fails static readiness when current citation eligibility is lost or replaced', () => {
+    const baseRow = {
+      sourceKind: 'document',
+      sourceKey: 'document:doc-1',
+      linkedDocumentId: 'doc-1',
+      status: 'validated',
+      usageRule: 'safe_for_external_claims',
+      reviewStatus: 'approved',
+      reviewedAt: '2026-07-19T10:00:00.000Z',
+      reviewer: 'Fagansvarlig',
+      citationReadiness: 'citable_external',
+      contentHash: 'a'.repeat(64),
+      currentContentHash: 'a'.repeat(64),
+      externalCitationPolicyHash: 'c'.repeat(64),
+      currentExternalCitationPolicyHash: null,
+      riskFlags: [],
+      claimCandidateCount: 0,
+    }
+
+    const locatorLost = assessLibraryAnalysisExternalReadiness(`${JSON.stringify(baseRow)}\n`)
+    assert.equal(locatorLost.ledgerValid, false)
+    assert.equal(locatorLost.externalClaimEligibleRows, 0)
+    assert.equal(locatorLost.externalCitationPolicyBlockedRows, 1)
+    assert.ok(locatorLost.blockers.some(blocker => /current citation policy binding/.test(blocker)))
+
+    const locatorReplaced = assessLibraryAnalysisExternalReadiness(`${JSON.stringify({
+      ...baseRow,
+      currentExternalCitationPolicyHash: 'd'.repeat(64),
+    })}\n`)
+    assert.equal(locatorReplaced.ledgerValid, false)
+    assert.equal(locatorReplaced.externalClaimEligibleRows, 0)
+    assert.equal(locatorReplaced.externalCitationPolicyBlockedRows, 1)
+  })
+
   it('accepts matching ledger, summary, and repair backlog artifacts', () => {
     const failures = auditLibraryAnalysisArtifacts({
       ledgerContent: [

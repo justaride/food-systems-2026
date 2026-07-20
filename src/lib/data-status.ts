@@ -27,6 +27,9 @@ export type DataStatusDb = {
   meeting: CountDelegate
   communication: CountDelegate
   document: CountDelegate
+  sourceCitation: CountDelegate
+  fieldCitation: CountDelegate
+  libraryAnalysisRecord: CountDelegate
   actor: CountDelegate
   personProfile: CountDelegate
 }
@@ -40,6 +43,16 @@ export type FallbackSurface = {
   statusCoverage: 'listed_only' | 'counted_table'
   risk: 'medium' | 'low'
 }
+
+export const knowledgeBaseMinimums = {
+  documents: 1539,
+  sourceCitations: 2699,
+  fieldCitations: 244516,
+  libraryAnalysisRecords: 1295,
+  actors: 1636,
+  companies: 351,
+  personProfiles: 1594,
+} as const
 
 export const fallbackSurfaces: FallbackSurface[] = [
   {
@@ -129,6 +142,9 @@ export async function getDataStatus(db: DataStatusDb) {
     safeCount('meetings', () => db.meeting.count()),
     safeCount('communications', () => db.communication.count()),
     safeCount('documents', () => db.document.count()),
+    safeCount('sourceCitations', () => db.sourceCitation.count()),
+    safeCount('fieldCitations', () => db.fieldCitation.count()),
+    safeCount('libraryAnalysisRecords', () => db.libraryAnalysisRecord.count()),
     safeCount('actors', () => db.actor.count()),
     safeCount('companies', () => db.company.count()),
     safeCount('personProfiles', () => db.personProfile.count()),
@@ -149,6 +165,32 @@ export async function getDataStatus(db: DataStatusDb) {
     subsidier: buildCountStatus(actual('subsidiesProduksjon'), 100, error('subsidiesProduksjon')),
     havbruk: buildCountStatus(actual('aquacultureSites'), 50, error('aquacultureSites')),
     forsyningskjede: buildCountStatus(actual('deliveryVolumes'), 1, error('deliveryVolumes')),
+  }
+
+  const knowledgeBase: Record<string, CountStatus> = {
+    documents: buildCountStatus(actual('documents'), knowledgeBaseMinimums.documents, error('documents')),
+    sourceCitations: buildCountStatus(
+      actual('sourceCitations'),
+      knowledgeBaseMinimums.sourceCitations,
+      error('sourceCitations'),
+    ),
+    fieldCitations: buildCountStatus(
+      actual('fieldCitations'),
+      knowledgeBaseMinimums.fieldCitations,
+      error('fieldCitations'),
+    ),
+    libraryAnalysisRecords: buildCountStatus(
+      actual('libraryAnalysisRecords'),
+      knowledgeBaseMinimums.libraryAnalysisRecords,
+      error('libraryAnalysisRecords'),
+    ),
+    actors: buildCountStatus(actual('actors'), knowledgeBaseMinimums.actors, error('actors')),
+    companies: buildCountStatus(actual('companies'), knowledgeBaseMinimums.companies, error('companies')),
+    personProfiles: buildCountStatus(
+      actual('personProfiles'),
+      knowledgeBaseMinimums.personProfiles,
+      error('personProfiles'),
+    ),
   }
 
   const fallbackSensitiveTables = {
@@ -178,14 +220,17 @@ export async function getDataStatus(db: DataStatusDb) {
 
   const dbOk = Object.keys(tableErrors).length === 0
   const pageGatesOk = Object.values(pages).every(page => page.ok)
+  const knowledgeBaseGatesOk = Object.values(knowledgeBase).every(gate => gate.ok)
 
   return {
-    ok: dbOk && pageGatesOk,
+    ok: dbOk && pageGatesOk && knowledgeBaseGatesOk,
     dbOk,
     pageGatesOk,
+    knowledgeBaseGatesOk,
     tables,
     tableErrors,
     pages,
+    knowledgeBase,
     fallbackSurfaces,
     fallbackSensitiveTables,
   }

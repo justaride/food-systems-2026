@@ -1,6 +1,7 @@
 import {
   LIBRARY_ANALYSIS_STATUSES,
   LIBRARY_ANALYSIS_USAGE_RULES,
+  assessLibraryAnalysisExternalApproval,
   summarizeLibraryAnalysisRecords,
 } from './library-analysis'
 
@@ -34,6 +35,100 @@ export type AuditLibraryAnalysisArtifactsInput = {
 
 const statusSet = new Set<string>(LIBRARY_ANALYSIS_STATUSES)
 const usageRuleSet = new Set<string>(LIBRARY_ANALYSIS_USAGE_RULES)
+
+export type LibraryAnalysisExternalReadiness = {
+  ledgerValid: boolean
+  status: 'ready' | 'not_ready'
+  total: number
+  byStatus: Record<string, number>
+  byUsageRule: Record<string, number>
+  aiDraftRows: number
+  safeForAiContextRows: number
+  blockedRows: number
+  humanReviewedRows: number
+  reviewProvenanceAvailable: boolean
+  externalClaimContractAvailable: boolean
+  externalClaimEligibleRows: number
+  invalidExternalApprovalRows: number
+  externalCitationPolicyBlockedRows: number
+  blockers: string[]
+}
+
+const EXTERNAL_CLAIM_USAGE_RULES = new Set([
+  'safe_for_external_claims',
+])
+
+export function assessLibraryAnalysisExternalReadiness(
+  ledgerContent: string,
+): LibraryAnalysisExternalReadiness {
+  const parseFailures: string[] = []
+  const rows = parseLedgerRows(ledgerContent, parseFailures)
+  const byStatus = countByField(rows, 'status')
+  const byUsageRule = countByField(rows, 'usageRule')
+  const reviewProvenanceAvailable = rows.length > 0 && rows.every(row => (
+    Object.hasOwn(row, 'reviewStatus') &&
+    Object.hasOwn(row, 'reviewedAt') &&
+    Object.hasOwn(row, 'reviewer')
+  ))
+  const humanReviewedRows = rows.filter(row => (
+    Boolean(stringValue(row.reviewedAt)) && Boolean(stringValue(row.reviewer))
+  )).length
+  const externalClaimContractAvailable = LIBRARY_ANALYSIS_USAGE_RULES.some(rule => (
+    EXTERNAL_CLAIM_USAGE_RULES.has(rule)
+  ))
+  const externalClaimEligibleRows = rows.filter(row => (
+    assessExternalApproval(row).eligible
+  )).length
+  const invalidExternalApprovalRows = rows.filter(row => (
+    EXTERNAL_CLAIM_USAGE_RULES.has(stringValue(row.usageRule)) &&
+    !assessExternalApproval(row).eligible
+  )).length
+  const externalCitationPolicyBlockedRows = rows.filter(row => (
+    EXTERNAL_CLAIM_USAGE_RULES.has(stringValue(row.usageRule)) &&
+    assessExternalApproval(row).blockers.some(isExternalCitationPolicyBlocker)
+  )).length
+  const aiDraftRows = byStatus.ai_draft ?? 0
+  const safeForAiContextRows = byUsageRule.safe_for_ai_context ?? 0
+  const blockedRows = byStatus.blocked ?? 0
+  const blockers: string[] = []
+
+  if (parseFailures.length > 0) blockers.push(`ledger is invalid: ${parseFailures.join('; ')}`)
+  if (!externalClaimContractAvailable) {
+    blockers.push('usage-rule contract has no external-claim state; safe_for_ai_context is internal only')
+  }
+  if (invalidExternalApprovalRows > 0) {
+    blockers.push(`${invalidExternalApprovalRows} external approval rows violate the approval contract`)
+  }
+  if (externalCitationPolicyBlockedRows > 0) {
+    blockers.push(`${externalCitationPolicyBlockedRows} external approval rows fail current citation policy binding`)
+  }
+  if (!reviewProvenanceAvailable) {
+    blockers.push('ledger omits reviewStatus, reviewedAt, or reviewer provenance')
+  } else if (humanReviewedRows === 0) {
+    blockers.push('ledger contains no rows with dated, named human review provenance')
+  }
+  if (aiDraftRows > 0) blockers.push(`${aiDraftRows} rows remain ai_draft`)
+  if (blockedRows > 0) blockers.push(`${blockedRows} rows are blocked`)
+  if (externalClaimEligibleRows === 0) blockers.push('no rows are explicitly eligible for external claims')
+
+  return {
+    ledgerValid: parseFailures.length === 0 && invalidExternalApprovalRows === 0,
+    status: blockers.length === 0 ? 'ready' : 'not_ready',
+    total: rows.length,
+    byStatus,
+    byUsageRule,
+    aiDraftRows,
+    safeForAiContextRows,
+    blockedRows,
+    humanReviewedRows,
+    reviewProvenanceAvailable,
+    externalClaimContractAvailable,
+    externalClaimEligibleRows,
+    invalidExternalApprovalRows,
+    externalCitationPolicyBlockedRows,
+    blockers,
+  }
+}
 
 export function auditLibraryAnalysisArtifacts(input: AuditLibraryAnalysisArtifactsInput): string[] {
   const failures: string[] = []
@@ -141,14 +236,46 @@ function auditLedgerRows(
     }
     const requiresResolvedCanonicalPath =
       status === 'approved_internal' ||
-      usageRule === 'safe_for_ai_context'
+      usageRule === 'safe_for_ai_context' ||
+      usageRule === 'safe_for_external_claims'
     if (canonicalPath && requiresResolvedCanonicalPath && !localFileExists(canonicalPath)) {
       failures.push(`line ${lineNumber}: unresolved canonicalPath ${canonicalPath}`)
     }
     if ((status === 'approved_internal' || usageRule === 'safe_for_ai_context') && riskFlags.length > 0) {
       failures.push(`line ${lineNumber}: approved internal rows must not carry risk flags`)
     }
+    if (usageRule === 'safe_for_external_claims') {
+      for (const blocker of assessExternalApproval(row).blockers) {
+        failures.push(`line ${lineNumber}: invalid external approval: ${blocker}`)
+      }
+    }
   }
+}
+
+function assessExternalApproval(row: Record<string, unknown>) {
+  return assessLibraryAnalysisExternalApproval({
+    sourceKind: stringValue(row.sourceKind),
+    sourceKey: stringValue(row.sourceKey),
+    documentId: stringValue(row.linkedDocumentId),
+    status: stringValue(row.status),
+    usageRule: stringValue(row.usageRule),
+    reviewStatus: stringValue(row.reviewStatus),
+    reviewedAt: stringValue(row.reviewedAt),
+    reviewer: stringValue(row.reviewer),
+    citationReadiness: stringValue(row.citationReadiness),
+    contentHash: stringValue(row.contentHash),
+    currentContentHash: stringValue(row.currentContentHash),
+    externalCitationPolicyHash: stringValue(row.externalCitationPolicyHash),
+    currentExternalCitationPolicyHash: stringValue(row.currentExternalCitationPolicyHash),
+    riskFlags: stringArray(row.riskFlags),
+    claimCandidateCount: numberValue(row.claimCandidateCount),
+  })
+}
+
+function isExternalCitationPolicyBlocker(blocker: string): boolean {
+  return blocker === 'external_citation_policy_hash_missing_or_invalid' ||
+    blocker === 'current_external_citation_policy_ineligible' ||
+    blocker === 'external_citation_policy_hash_mismatch'
 }
 
 function auditSummary(

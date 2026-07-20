@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-07-20T03:49:33.833Z",
+  "ledgerValid": true,
+  "status": "not_ready",
+  "total": 1555,
+  "byStatus": {
+    "ai_draft": 1427,
+    "approved_internal": 35,
+    "blocked": 4,
+    "review_required": 89
+  },
+  "byUsageRule": {
+    "do_not_use_for_claims": 4,
+    "internal_background": 1516,
+    "safe_for_ai_context": 35
+  },
+  "aiDraftRows": 1427,
+  "safeForAiContextRows": 35,
+  "blockedRows": 4,
+  "humanReviewedRows": 0,
+  "reviewProvenanceAvailable": true,
+  "externalClaimContractAvailable": true,
+  "externalClaimEligibleRows": 0,
+  "invalidExternalApprovalRows": 0,
+  "externalCitationPolicyBlockedRows": 0,
+  "blockers": [
+    "ledger contains no rows with dated, named human review provenance",
+    "1427 rows remain ai_draft",
+    "4 rows are blocked",
+    "no rows are explicitly eligible for external claims"
+  ]
+}

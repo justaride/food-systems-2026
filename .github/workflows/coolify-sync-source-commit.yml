@@ -1,182 +1,139 @@
-name: Coolify SHA Sync
+name: Coolify Deploy Verify
 
-# Synker Coolify SOURCE_COMMIT env-var med main HEAD etter merge.
-# Bakgrunn: Coolify auto-injecter ikke COOLIFY_GIT_COMMIT_SHA som
-# build-arg, så write-version.ts er avhengig av manuelt-satt
-# SOURCE_COMMIT. Denne workflow oppdaterer det automatisk så
-# /api/version reflekterer faktisk deployed SHA.
+# Manual, read-only proof for a deployment that Coolify has already built from
+# its Git integration. This workflow never changes application environment
+# variables and never triggers a deploy.
 #
-# Repository secrets som kreves:
-#   COOLIFY_API_TOKEN — API-token fra Coolify
-#   COOLIFY_BASE_URL  — http://77.42.43.227:8000
-#   COOLIFY_APP_UUID  — so8ko44goccc8gcgswwscgco
-#
-# Workflow triggers redeploy så ny SHA skrives av write-version.ts
-# under bygging.
+# Required production-environment secrets:
+#   COOLIFY_READ_API_TOKEN
+#   COOLIFY_BASE_URL
+#   COOLIFY_APP_UUID
+#   CF_ACCESS_CLIENT_ID
+#   CF_ACCESS_CLIENT_SECRET
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type VERIFY to run read-only deployment verification'
+        required: true
+        default: ''
+
+permissions:
+  contents: read
 
 concurrency:
-  group: coolify-sha-sync-main
-  cancel-in-progress: true
+  group: coolify-deploy-verify
+  cancel-in-progress: false
+
+env:
+  APP_DOMAIN: food-systems.naturalstateproject.com
 
 jobs:
-  sync-and-redeploy:
+  verify-deployment:
+    if: ${{ inputs.confirm == 'VERIFY' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    environment: production
     steps:
-      - name: Get current commit SHA
-        id: sha
-        run: echo "sha=${{ github.sha }}" >> "$GITHUB_OUTPUT"
+      - name: Checkout hardened API helper
+        uses: actions/checkout@v6
 
-      - name: Find existing SOURCE_COMMIT envs
-        id: envs
+      - name: Verify latest Coolify deployment is finished
         env:
-          TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
-          BASE: ${{ secrets.COOLIFY_BASE_URL }}
+          COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_READ_API_TOKEN }}
+          COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
           UUID: ${{ secrets.COOLIFY_APP_UUID }}
+          EXPECTED_SHA: ${{ github.sha }}
         run: |
-          response=$(curl -sS -H "Authorization: Bearer $TOKEN" "$BASE/api/v1/applications/$UUID/envs")
-          uuids=$(echo "$response" | python3 -c "
-          import sys, json
-          d = json.load(sys.stdin)
-          envs = d if isinstance(d, list) else d.get('envs', [])
-          uuids = [e['uuid'] for e in envs if e.get('key') == 'SOURCE_COMMIT']
-          print(' '.join(uuids))
-          ")
-          echo "uuids=$uuids" >> "$GITHUB_OUTPUT"
-          echo "Existing SOURCE_COMMIT uuids: $uuids"
+          set -euo pipefail
+          deployment_file=$(mktemp)
+          curl_config_file=$(mktemp)
+          trap 'rm -f "$deployment_file" "$curl_config_file"' EXIT
+          COOLIFY_API_PATH="/api/v1/deployments/applications/$UUID" \
+            scripts/write-private-coolify-curl-config.py "$curl_config_file"
+          unset COOLIFY_API_TOKEN COOLIFY_BASE_URL UUID
+          curl --config "$curl_config_file" -fsS -m 15 > "$deployment_file"
+          python3 - "$deployment_file" "$EXPECTED_SHA" <<'PY'
+          import json
+          import re
+          import sys
 
-      - name: Update SOURCE_COMMIT envs
+          path, expected_sha = sys.argv[1:]
+          if not re.fullmatch(r'[0-9a-f]{40}', expected_sha):
+              raise SystemExit('github.sha is not a full 40-character commit SHA')
+          with open(path, encoding='utf-8') as handle:
+              payload = json.load(handle)
+          deployments = payload if isinstance(payload, list) else payload.get('deployments', [])
+          if not deployments:
+              raise SystemExit('Coolify returned no deployments')
+          latest = deployments[0]
+          if latest.get('status') != 'finished':
+              raise SystemExit(f"Latest Coolify deployment is not finished: {latest.get('status')}")
+          deployed_sha = (
+              latest.get('commit')
+              or latest.get('commit_sha')
+              or latest.get('git_commit_sha')
+          )
+          if deployed_sha and deployed_sha != expected_sha:
+              raise SystemExit(f'Latest Coolify deployment SHA differs from selected ref: {deployed_sha}')
+          print('Coolify deployment record is finished')
+          PY
+      - name: Verify exact runtime SHA and application health
         env:
-          TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
-          BASE: ${{ secrets.COOLIFY_BASE_URL }}
-          UUID: ${{ secrets.COOLIFY_APP_UUID }}
-          SHA: ${{ steps.sha.outputs.sha }}
-          ENV_UUIDS: ${{ steps.envs.outputs.uuids }}
-        run: |
-          if [ -z "$ENV_UUIDS" ]; then
-            echo "No SOURCE_COMMIT env found — creating new"
-            curl -sS -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
-              "$BASE/api/v1/applications/$UUID/envs" \
-              -d "{\"key\":\"SOURCE_COMMIT\",\"value\":\"$SHA\"}"
-            echo ""
-          else
-            for env_uuid in $ENV_UUIDS; do
-              echo "Updating env $env_uuid → $SHA"
-              # PATCH endpoint to update existing
-              curl -sS -X PATCH -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
-                "$BASE/api/v1/applications/$UUID/envs" \
-                -d "{\"key\":\"SOURCE_COMMIT\",\"value\":\"$SHA\"}"
-              echo ""
-            done
-          fi
-
-      - name: Trigger redeploy
-        id: deploy
-        env:
-          TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
-          BASE: ${{ secrets.COOLIFY_BASE_URL }}
-          UUID: ${{ secrets.COOLIFY_APP_UUID }}
-        run: |
-          response=$(curl -sS -X POST -H "Authorization: Bearer $TOKEN" \
-            "$BASE/api/v1/deploy?uuid=$UUID&force=true")
-          echo "$response"
-          deployment_uuid=$(echo "$response" | python3 -c "
-          import sys, json
-          try:
-              d = json.load(sys.stdin)
-              candidates = [
-                  d.get('deployment_uuid'),
-                  d.get('uuid'),
-                  d.get('id'),
-              ]
-              deployments = d.get('deployments')
-              if isinstance(deployments, list) and deployments:
-                  first = deployments[0]
-                  candidates.extend([
-                      first.get('deployment_uuid'),
-                      first.get('uuid'),
-                      first.get('id'),
-                  ])
-              print(next((c for c in candidates if c), 'unknown'))
-          except Exception:
-              print('unknown')
-          ")
-          echo "Deployment queued: $deployment_uuid"
-          echo "deployment_uuid=$deployment_uuid" >> "$GITHUB_OUTPUT"
-
-      - name: Wait for deploy + verify /api/version
-        env:
-          TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
-          BASE: ${{ secrets.COOLIFY_BASE_URL }}
-          UUID: ${{ secrets.COOLIFY_APP_UUID }}
-          SHA: ${{ steps.sha.outputs.sha }}
-          DEPLOYMENT_UUID: ${{ steps.deploy.outputs.deployment_uuid }}
+          EXPECTED_SHA: ${{ github.sha }}
           CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
           CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
-          # Vent på at deploy fullføres (maks 12 min). Hvis Coolify blir stående
-          # i queued/building skal workflow feile, ikke rapportere grønt med
-          # stale /api/version.
-          deploy_finished=0
-          for i in $(seq 1 72); do
-            sleep 10
-            status=$(curl -sS -H "Authorization: Bearer $TOKEN" \
-              "$BASE/api/v1/deployments/applications/$UUID" \
-              | python3 -c "
-          import sys, json
-          d = json.load(sys.stdin)
-          deployments = d.get('deployments', [])
-          wanted = '$DEPLOYMENT_UUID'
-          if wanted and wanted != 'unknown':
-              for item in deployments:
-                  if wanted in (item.get('deployment_uuid'), item.get('uuid'), item.get('id')):
-                      print(item.get('status', '?'))
-                      break
-              else:
-                  print(deployments[0].get('status','?') if deployments else '?')
-          else:
-              print(deployments[0].get('status','?') if deployments else '?')
-          ")
-            echo "[${i}/72] deploy status: $status"
-            case "$status" in
-              finished) deploy_finished=1; break;;
-              failed|cancelled)
-                echo "::error::Deploy $status"
-                exit 1
-                ;;
+          set -euo pipefail
+          version_file=$(mktemp)
+          data_file=$(mktemp)
+          library_file=$(mktemp)
+          access_header_file=$(mktemp)
+          trap 'rm -f "$version_file" "$data_file" "$library_file" "$access_header_file"' EXIT
+          case "$CF_ID" in
+            ''|*$'\r'*|*$'\n'*) echo '::error::Invalid Cloudflare Access client ID'; exit 1 ;;
+          esac
+          case "$CF_SECRET" in
+            ''|*$'\r'*|*$'\n'*) echo '::error::Invalid Cloudflare Access client secret'; exit 1 ;;
+          esac
+          (umask 077; {
+            printf 'CF-Access-Client-Id: %s\n' "$CF_ID"
+            printf 'CF-Access-Client-Secret: %s\n' "$CF_SECRET"
+          } > "$access_header_file")
+          chmod 600 "$access_header_file"
+          unset CF_ID CF_SECRET
+
+          for endpoint in version data-status library-analysis/status; do
+            case "$endpoint" in
+              version) output=$version_file ;;
+              data-status) output=$data_file ;;
+              library-analysis/status) output=$library_file ;;
             esac
+            curl -fsS -m 20 --header "@$access_header_file" \
+              "https://$APP_DOMAIN/api/$endpoint?deploy_check=$EXPECTED_SHA" > "$output"
           done
-          if [ "$deploy_finished" != "1" ]; then
-            echo "::error::Deploy did not finish before timeout. Last status: $status"
-            exit 1
-          fi
 
-          # Verifiser /api/version
-          if [ -z "$CF_ID" ] || [ -z "$CF_SECRET" ]; then
-            echo "::error::CF Access service token secrets are required for deploy proof"
-            exit 1
-          fi
+          python3 - "$version_file" "$data_file" "$library_file" "$EXPECTED_SHA" <<'PY'
+          import json
+          import sys
 
-          version=$(curl -sS \
-            -H "CF-Access-Client-Id: $CF_ID" \
-            -H "CF-Access-Client-Secret: $CF_SECRET" \
-            "https://food-systems.naturalstateproject.com/api/version?deploy_check=$SHA")
-          echo "Deployed version: $version"
-          actual_sha=$(echo "$version" | python3 -c "
-          import sys, json
-          try:
-              print(json.load(sys.stdin).get('sha', ''))
-          except Exception:
-              print('')
-          ")
-          if [ "$actual_sha" != "$SHA" ]; then
-            echo "::error::/api/version ($actual_sha) matcher ikke SHA $SHA"
-            exit 1
-          fi
-          echo "::notice::/api/version matcher push-SHA"
+          version_path, data_path, library_path, expected_sha = sys.argv[1:]
+          with open(version_path, encoding='utf-8') as handle:
+              version = json.load(handle)
+          with open(data_path, encoding='utf-8') as handle:
+              data = json.load(handle)
+          with open(library_path, encoding='utf-8') as handle:
+              library = json.load(handle)
+
+          actual_sha = version.get('sha')
+          if actual_sha != expected_sha:
+              raise SystemExit(f'/api/version SHA mismatch: {actual_sha} != {expected_sha}')
+          required_data_flags = ('ok', 'dbOk', 'pageGatesOk', 'knowledgeBaseGatesOk')
+          failed = [flag for flag in required_data_flags if data.get(flag) is not True]
+          if failed:
+              raise SystemExit(f'/api/data-status failed gates: {", ".join(failed)}')
+          if library.get('ok') is not True:
+              raise SystemExit('/api/library-analysis/status is not operationally healthy')
+          print(f'Runtime proof PASS: {actual_sha}')
+          PY

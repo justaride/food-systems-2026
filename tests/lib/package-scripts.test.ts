@@ -171,11 +171,71 @@ describe('package scripts', () => {
     }
 
     assert.equal(packageJson.scripts['mcp:kb'], 'tsx mcp/foodsystems-kb/server.ts')
-    assert.equal(packageJson.scripts['mcp:kb:test'], 'tsx mcp/foodsystems-kb/smoke.ts')
+    assert.equal(
+      packageJson.scripts['mcp:kb:test'],
+      'tsx mcp/foodsystems-kb/smoke.ts && node --import=tsx --test tests/mcp/*.test.ts',
+    )
     assert.equal(
       packageJson.scripts['mcp:kb:inspect'],
       'npx @modelcontextprotocol/inspector -- npx tsx mcp/foodsystems-kb/server.ts',
     )
+  })
+
+  it('keeps the linked MCP presentation on the credential-safe wrapper setup', () => {
+    const presentation = readFileSync(
+      join(process.cwd(), 'docs/project/reference/foodsystems-kb-mcp-presentasjon.html'),
+      'utf8',
+    )
+
+    assert.match(presentation, /\.local\/bin\/foodsystems-kb-mcp/)
+    assert.match(presentation, /kontrollert PATH/)
+    assert.match(presentation, /semantisk\/Obsidian\/proxy-miljø/)
+    assert.doesNotMatch(presentation, /--env\s+(?:DATABASE_URL|OPENAI_API_KEY)/)
+    assert.doesNotMatch(presentation, /npx tsx mcp\/foodsystems-kb\/server\.ts/)
+  })
+
+  it('documents a fail-closed Keychain wrapper with controlled execution environment', () => {
+    const guide = readFileSync(
+      join(process.cwd(), 'docs/project/reference/FOODSYSTEMS-KB-MCP.md'),
+      'utf8',
+    )
+    const wrapper = guide.match(/```sh\n#!\/bin\/sh\n([\s\S]*?)\n```/)?.[0] ?? ''
+
+    assert.match(wrapper, /PATH='\/opt\/homebrew\/bin:\/usr\/local\/bin:\/usr\/bin:\/bin'/)
+    for (const variable of [
+      'OPENAI_API_KEY',
+      'FOODSYSTEMS_MCP_ENABLE_SEMANTIC',
+      'FOODSYSTEMS_MCP_ENABLE_OBSIDIAN',
+      'HTTP_PROXY',
+      'HTTPS_PROXY',
+      'ALL_PROXY',
+      'NO_PROXY',
+      'http_proxy',
+      'https_proxy',
+      'all_proxy',
+      'no_proxy',
+    ]) {
+      assert.match(wrapper, new RegExp(`\\b${variable}\\b`), `${variable} must be cleared`)
+    }
+    assert.match(wrapper, /NODE_BIN=\$\(command -v node\)/)
+    assert.match(wrapper, /TSX_CLI="\$REPO_ROOT\/node_modules\/tsx\/dist\/cli\.mjs"/)
+    assert.match(wrapper, /exec "\$NODE_BIN" "\$TSX_CLI"/)
+    assert.doesNotMatch(wrapper, /exec "\$REPO_ROOT\/node_modules\/\.bin\/tsx"/)
+  })
+
+  it('keeps backup proof separate from role and ACL proof', () => {
+    const readiness = readFileSync(
+      join(
+        process.cwd(),
+        'docs/project/status/knowledge-base-mcp-readiness-2026-07-19.md',
+      ),
+      'utf8',
+    )
+
+    assert.match(readiness, /`--no-owner --no-acl`/)
+    assert.match(readiness, /inneholder derfor \*\*ikke\*\* login-roller, eierskap, grants eller default ACL/)
+    assert.match(readiness, /MCP-rolle\/ACL er et separat bevislag/)
+    assert.doesNotMatch(readiness, /inkluderer[^\n]*ACL-hardening/)
   })
 
   it('exposes the NotebookLM export command for source-grounded briefing packs', () => {
@@ -370,12 +430,69 @@ describe('package scripts', () => {
       packageJson.scripts['research:library:process:apply'],
       'tsx scripts/process-library-analysis.ts --apply',
     )
-    assert.match(processSource, /process\.argv\.includes\('--apply'\)/)
-    assert.match(processSource, /loadLibraryAnalysisInventory\(\{ requireDb: apply \}\)/)
-    assert.match(processSource, /library-analysis-prune-backup\.jsonl/)
+    assert.equal(
+      packageJson.scripts['research:library:process:create-only:dry-run'],
+      'tsx scripts/process-library-analysis.ts --dry-run --create-only',
+    )
+    assert.equal(
+      packageJson.scripts['research:library:process:create-only:apply'],
+      'tsx scripts/process-library-analysis.ts --apply --create-only',
+    )
+    assert.match(processSource, /parseArgs\(process\.argv\.slice\(2\)\)/)
+    assert.match(processSource, /buildEffectiveLibraryAnalysisSyncPlan/)
+    assert.match(processSource, /skippedMaterialUpdates/)
+    assert.match(processSource, /LOCK TABLE \"LibraryAnalysisRecord\" IN SHARE ROW EXCLUSIVE MODE/)
+    assert.match(processSource, /loadLibraryAnalysisInventory\(\{ requireDb: true \}\)/)
+    assert.match(processSource, /buildLibraryAnalysisSyncPlan/)
+    assert.match(processSource, /stalePolicy/)
     assert.match(processSource, /appendFileSync/)
-    assert.match(processSource, /libraryAnalysisRecord\.upsert/)
-    assert.match(processSource, /libraryAnalysisRecord\.deleteMany/)
+    assert.equal((processSource.match(/prisma\.\$transaction/g) ?? []).length, 1)
+    assert.match(processSource, /isolationLevel: 'Serializable'/)
+    assert.match(processSource, /libraryAnalysisRecord\.create/)
+    assert.match(processSource, /libraryAnalysisRecord\.updateMany/)
+    assert.match(processSource, /toLibraryAnalysisCasWhere\(action\.expectedSnapshot\)/)
+    assert.match(processSource, /result\.count !== 1/)
+    assert.match(processSource, /zero batch writes were committed/)
+    assert.ok(
+      processSource.indexOf("}, { isolationLevel: 'Serializable' })") <
+        processSource.indexOf('appendBackup('),
+      'approval-revocation backup must be appended only after transaction commit',
+    )
+    assert.doesNotMatch(processSource, /libraryAnalysisRecord\.deleteMany/)
+  })
+
+  it('exposes an explicit human external-review command with a strong acknowledgement', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const reviewSource = readFileSync(
+      join(process.cwd(), 'scripts', 'review-library-analysis-external.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['research:library:review-external:dry-run'],
+      'tsx scripts/review-library-analysis-external.ts --dry-run',
+    )
+    assert.equal(
+      packageJson.scripts['research:library:review-external:apply'],
+      'tsx scripts/review-library-analysis-external.ts --apply',
+    )
+    assert.match(reviewSource, /I_HAVE_REVIEWED_THE_CURRENT_DOCUMENT/)
+    assert.match(reviewSource, /--expected-content-hash/)
+    assert.match(reviewSource, /Current document hash differs from --expected-content-hash/)
+    assert.match(reviewSource, /record\.contentHash !== currentContentHash/)
+    assert.match(reviewSource, /Library analysis is stale for the current document hash/)
+    assert.match(reviewSource, /prisma\.\$transaction/)
+    assert.match(reviewSource, /isolationLevel: 'Serializable'/)
+    assert.match(reviewSource, /FOR UPDATE/)
+    assert.match(reviewSource, /FOR SHARE/)
+    assert.match(reviewSource, /I_AM_REVOKING_EXTERNAL_APPROVAL/)
+    assert.match(reviewSource, /sourceKey\.startsWith\('document:'\)/)
+    assert.match(reviewSource, /currentContentHash/)
+    assert.match(reviewSource, /!externalCitationPolicy\.policyHash/)
+    assert.match(reviewSource, /setLibraryAnalysisExternalApprovalEvidence/)
+    assert.match(reviewSource, /library-analysis-human-review-log\.jsonl/)
   })
 
   it('exposes guarded library analysis local text repair dry-run and apply commands', () => {
@@ -399,8 +516,19 @@ describe('package scripts', () => {
     assert.match(repairSource, /LIBRARY_ANALYSIS_REPAIR_BACKLOG_JSON_PATH/)
     assert.match(repairSource, /library-analysis-local-text-repair-backup\.jsonl/)
     assert.match(repairSource, /appendFileSync/)
-    assert.match(repairSource, /prisma\.document\.update/)
-    assert.doesNotMatch(repairSource, /upsert|deleteMany|updateMany|createMany/)
+    assert.match(repairSource, /prisma\.\$transaction/)
+    assert.match(repairSource, /transaction\.document\.updateMany/)
+    assert.match(repairSource, /updatedAt: new Date\(row\.expectedUpdatedAt\)/)
+    assert.match(repairSource, /wordCount: row\.existingWordCount/)
+    assert.match(repairSource, /content: expectedDocument\.content/)
+    assert.match(repairSource, /result\.count !== 1/)
+    assert.match(repairSource, /isolationLevel: 'Serializable'/)
+    assert.ok(
+      repairSource.indexOf('await prisma.$transaction') <
+        repairSource.indexOf('appendArtifact(BACKUP_PATH'),
+      'backup must only be appended after the CAS transaction succeeds',
+    )
+    assert.doesNotMatch(repairSource, /upsert|deleteMany|createMany/)
   })
 
   it('exposes guarded library analysis manual local match repair dry-run and apply commands', () => {
@@ -504,8 +632,19 @@ describe('package scripts', () => {
     assert.match(repairSource, /pdftotext/)
     assert.match(repairSource, /library-analysis-pdf-text-repair-backup\.jsonl/)
     assert.match(repairSource, /appendFileSync/)
-    assert.match(repairSource, /prisma\.document\.update/)
-    assert.doesNotMatch(repairSource, /upsert|deleteMany|updateMany|createMany/)
+    assert.match(repairSource, /prisma\.\$transaction/)
+    assert.match(repairSource, /transaction\.document\.updateMany/)
+    assert.match(repairSource, /updatedAt: new Date\(row\.expectedUpdatedAt\)/)
+    assert.match(repairSource, /wordCount: row\.existingWordCount/)
+    assert.match(repairSource, /content: expectedDocument\.content/)
+    assert.match(repairSource, /result\.count !== 1/)
+    assert.match(repairSource, /isolationLevel: 'Serializable'/)
+    assert.ok(
+      repairSource.indexOf('await prisma.$transaction') <
+        repairSource.indexOf('appendArtifact(BACKUP_PATH'),
+      'backup must only be appended after the CAS transaction succeeds',
+    )
+    assert.doesNotMatch(repairSource, /upsert|deleteMany|createMany/)
   })
 
   it('exposes guarded library analysis URL text repair dry-run and apply commands', () => {
@@ -532,8 +671,19 @@ describe('package scripts', () => {
     assert.match(repairSource, /URL_TEXT_REPAIR_CONCURRENCY/)
     assert.match(repairSource, /library-analysis-url-text-repair-backup\.jsonl/)
     assert.match(repairSource, /appendFileSync/)
-    assert.match(repairSource, /prisma\.document\.update/)
-    assert.doesNotMatch(repairSource, /upsert|deleteMany|updateMany|createMany/)
+    assert.match(repairSource, /prisma\.\$transaction/)
+    assert.match(repairSource, /transaction\.document\.updateMany/)
+    assert.match(repairSource, /updatedAt: new Date\(row\.expectedUpdatedAt\)/)
+    assert.match(repairSource, /wordCount: row\.existingWordCount/)
+    assert.match(repairSource, /content: expectedDocument\.content/)
+    assert.match(repairSource, /result\.count !== 1/)
+    assert.match(repairSource, /isolationLevel: 'Serializable'/)
+    assert.ok(
+      repairSource.indexOf('await prisma.$transaction') <
+        repairSource.indexOf('appendArtifact(BACKUP_PATH'),
+      'backup must only be appended after the CAS transaction succeeds',
+    )
+    assert.doesNotMatch(repairSource, /upsert|deleteMany|createMany/)
   })
 
   it('exposes the read-only library analysis decision queue command', () => {
@@ -611,6 +761,53 @@ describe('package scripts', () => {
     assert.match(scriptSource, /LIBRARY_ANALYSIS_LOCATOR_PROFILE_JSON_PATH/)
     assert.match(scriptSource, /DATABASE_URL is required/)
     assert.doesNotMatch(scriptSource, /upsert|deleteMany|updateMany|createMany/)
+  })
+
+  it('exposes guarded academic locator and SourceDoc provenance repair commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const locatorSource = readFileSync(
+      join(process.cwd(), 'scripts', 'apply-academic-locator-repairs.ts'),
+      'utf8',
+    )
+    const provenanceSource = readFileSync(
+      join(process.cwd(), 'scripts', 'apply-source-doc-provenance.ts'),
+      'utf8',
+    )
+    const citationLocatorSource = readFileSync(
+      join(process.cwd(), 'scripts', 'reconcile-academic-citation-locators.ts'),
+      'utf8',
+    )
+    const claimAnchorSource = readFileSync(
+      join(process.cwd(), 'scripts', 'apply-academic-claim-anchor-pilot.ts'),
+      'utf8',
+    )
+
+    assert.equal(
+      packageJson.scripts['repair:academic-locators'],
+      'tsx scripts/apply-academic-locator-repairs.ts',
+    )
+    assert.equal(
+      packageJson.scripts['repair:source-doc-provenance'],
+      'tsx scripts/apply-source-doc-provenance.ts',
+    )
+    assert.equal(
+      packageJson.scripts['repair:academic-citation-locators'],
+      'tsx scripts/reconcile-academic-citation-locators.ts',
+    )
+    assert.equal(
+      packageJson.scripts['repair:academic-claim-anchor-pilot'],
+      'tsx scripts/apply-academic-claim-anchor-pilot.ts',
+    )
+    assert.match(locatorSource, /APPLY_VERIFIED_ACADEMIC_LOCATORS/)
+    assert.match(provenanceSource, /APPLY_REVIEWED_SOURCE_DOC_PROVENANCE/)
+    assert.match(citationLocatorSource, /APPLY_VERIFIED_ACADEMIC_CITATION_LOCATORS/)
+    assert.match(claimAnchorSource, /APPLY_REVIEWED_ACADEMIC_CLAIM_ANCHOR_PILOT/)
+    assert.match(locatorSource, /isolationLevel: 'Serializable'/)
+    assert.match(provenanceSource, /isolationLevel: 'Serializable'/)
+    assert.match(citationLocatorSource, /isolationLevel: 'Serializable'/)
+    assert.match(claimAnchorSource, /isolationLevel: 'Serializable'/)
   })
 
   it('exposes VK-5 review closeout as a separate final gate', () => {
