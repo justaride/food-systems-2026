@@ -100,7 +100,7 @@ De fem dossierene er den kontrollerte juli-køen. Status kan bare løftes gjenno
 | [Logistikkavhengighetsmodell](./pilot-briefs/04-asko-vestby-dependency-model.md) | Modellspesifikasjon for 24 timer, 72 timer og to ukers redusert kapasitet. | logistikk-/beredskapsekspert, dataeier, modellreviewer | rute-/kategori-/bufferdata + modelleier | Modellert eksponering er ikke observert svikt, skyld eller bevist single point of failure. |
 | [Kommunal innkjøpsstandard](./pilot-briefs/05-municipal-procurement-standard.md) | Workshop om baseline, kjøkkenkompetanse, meny, sesong, matsvinn og leverandørkapasitet. | kommune, kjøkken, innkjøpsjurist, leverandør, ernæringsfaglig reviewer | kommune + budsjett + baseline + måleplan | København er en mekanismebenchmark; sertifiseringsandel eller klausul alene beviser ikke overgang. |
 
-København kan brukes med den kontrollerte tids- og metodekonteksten i CA-001: 88 prosent i 2024 og 85 prosent i 2015. Dagens nivå bygger på innkjøpsdata, og målemetoden er endret over tid. Det er et kommunalt kjøkken-/innkjøpsbenchmark, ikke en nasjonal dansk andel eller en fullt metodeidentisk tidsserie.
+København kan brukes med den kontrollerte tids- og metodekonteksten i CA-001: 87,7 prosent i 2024 (nesten 88 prosent) og 88 prosent i 2015. Dagens nivå bygger på innkjøpsdata, mens 2015 hadde et eldre, blandet målegrunnlag. Det er et kommunalt kjøkken-/innkjøpsbenchmark, ikke en nasjonal dansk andel eller en metodeidentisk trend.
 
 ## 5. Målgrupper og valideringsspørsmål
 

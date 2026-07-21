@@ -98,9 +98,9 @@
     {
       "name": "HoReCa",
       "id": "horeca",
-      "notes": "Copenhagen municipality: 88% of municipal food purchases were organic in 2024, versus 85% in 2015. Procurement-data measurement changed over time; this is not a national Danish share.",
+      "notes": "Copenhagen municipality: 87.7% of municipal food purchases were organic in 2024, versus 88% in 2015. The 2024 figure uses procurement data, while 2015 used an older mixed measurement basis; this is neither a method-identical trend nor a national Danish share.",
       "waste_tonnes": null,
-      "sources": ["https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10", "https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf", "verdikjede.ts"]
+      "sources": ["https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10", "https://www.kk.dk/sites/default/files/agenda/93138585-f5a0-47a5-b500-a21cc5033912/816b7e92-7d10-403a-a631-4c742327c643-bilag-2.pdf", "https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf", "verdikjede.ts"]
     },
     {
       "name": "Husholdning",

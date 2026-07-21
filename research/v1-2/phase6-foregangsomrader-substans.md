@@ -167,7 +167,7 @@ For hvert av rapportens 5 foregangsområder gir vi nå:
 
 | Land | Hovedaktør | Rolle | Relevant referanse |
 |---|---|---|---|
-| 🇩🇰 DK | Økologisk Landsforening + Mejeriforeningen + Køben­havns Madhus | Branche + meieri + kommune | 11,6% retail; København 85% (peak 90%); foodservice +13% |
+| 🇩🇰 DK | Økologisk Landsforening + Mejeriforeningen + Køben­havns Madhus | Branche + meieri + kommune | 11,6% retail; København 87,7 % i 2024 og 88 % i 2015 (endret målegrunnlag; kommunalt scope); foodservice +13% |
 | 🇸🇪 SE | Jordbruksverket + Ekomatcentrum + KRAV | Statlig + offentlig + sertifisering | UAA 16,7%; øko-melk -39%; off. sektor 37→34,2% |
 | 🇳🇴 NO | Landbruksdirektoratet + Debio + Norsk Landbrukssamvirke | Statlig + sertifisering + bondeorg | Anvendelsesgrad melk 80%, egg 88%; UAA 4,66% |
 | 🇫🇮 FI | Pro Luomu + Maatalousministeriö | Bransje + statlig | UAA 14,5%; grocery -5% |

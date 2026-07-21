@@ -786,7 +786,8 @@ Modify:
 Expected fixes:
 
 - T3 is consistently marked as completed if `research/v1-2/phase8-T3-ekstern-vs-intern-diff.md` remains the accepted source.
-- Copenhagen value uses one verified value across report and appendix.
+- Copenhagen values are paired with explicit years across report and appendix;
+  a multi-year comparison states the changed measurement basis.
 - historical line count comments are either removed or recalculated.
 - weak/missing claims from the claim audit are no longer presented as settled facts.
 
@@ -807,6 +808,9 @@ Task 11 status on 2026-05-20:
 - Added `tests/lib/report-claim-audit.test.ts` covering contradictory T3 status text, highlighted numeric claims without support, and resolved numeric claims with source citations.
 - Fixed report drift across `public/reports/nordisk-sirkularitetsrapport-2026-05.html`, `docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md`, `research/norden/sirkularitet-sprint-2026-05/README.md`, and `research/v1-2/phase7-selvkritikk.md`.
 - Closed the concrete audit findings: T3 is consistently marked completed as an internal method check, Copenhagen public-kitchen organic share is standardized to 85 percent in 2024 with peak context where relevant, README line-count/KB text is no longer used as a quality claim, Norwegian concentration is labelled as `HHI 3445 (CR3 96,6%)`, and the weak IFRO soy bibliography note is replaced with the concrete IFRO Documentation 2025-01 citation.
+- Correction on 2026-07-22: primary-source recheck superseded the Copenhagen
+  figures above. The controlled values are 87.7 percent in 2024 (almost 88
+  percent) and 88 percent in 2015; 90 percent was a target, not a realized peak.
 - Verification passed: `npm run audit:citable-reports`, `npm test -- tests/lib/report-claim-audit.test.ts` (full runner reported 148 tests), `npm test` (148 tests), `npm run lint`, `npm run build`, `npm run db:audit` (warnings only), `npm run graph:audit`, and `git diff --check`. `npm run db:audit:strict-sources` still fails as expected only on citation coverage: 1,963 externally relevant blocked `FieldCitation` rows and 10 missing-claim-text audit issues.
 
 ## Task 12: Build Acceptance Tests For "Can Be Cited" Use

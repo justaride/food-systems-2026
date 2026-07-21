@@ -138,7 +138,7 @@ export const verdikjedeStages: VerdikjedeStage[] = [
     title: 'HoReCa og storhusholdning',
     subtitle: 'Hotell, restaurant, catering og offentlig måltid',
     summary:
-      'Nordisk HoReCa representerer 30-45 % av totalt matforbruk. Norge har høyest grossistkonsentrasjon (ASKO Servering ~70 %, aktørrapportert — ikke uavhengig/tilsynsverifisert, DRO-R4-13). Finland og Sverige tilbyr universelt gratis skolemat (siden 1946/1948), mens Norge og Danmark har matpakkekultur. Compass Group dominerer kontraktcatering etter oppkjøp av Fazer Food Services (2020) og 4Service (2024). København rapporterer 88 % økologiske kommunale matinnkjøp i 2024 mot 85 % i 2015; innkjøpsmetoden er endret over tid, og tallet er ikke en nasjonal dansk andel. Wolt dominerer matlevering i hele Norden.',
+      'Nordisk HoReCa representerer 30-45 % av totalt matforbruk. Norge har høyest grossistkonsentrasjon (ASKO Servering ~70 %, aktørrapportert — ikke uavhengig/tilsynsverifisert, DRO-R4-13). Finland og Sverige tilbyr universelt gratis skolemat (siden 1946/1948), mens Norge og Danmark har matpakkekultur. Compass Group dominerer kontraktcatering etter oppkjøp av Fazer Food Services (2020) og 4Service (2024). København rapporterer 87,7 % økologiske kommunale matinnkjøp i 2024 mot 88 % i 2015; 2024 bygger på innkjøpsdata, mens 2015 hadde et eldre, blandet målegrunnlag. Tallene er ikke en metodeidentisk trend eller en nasjonal dansk andel. Wolt dominerer matlevering i hele Norden.',
     keyPoints: [
       'Norges foodservice-profittsektor: 76,9 mrd NOK (2024), forventet 92,5 mrd innen 2029',
       'Michelin Guide Nordic 2025: 282 anbefalte restauranter, 6 trestjernes, 39 Green Stars',

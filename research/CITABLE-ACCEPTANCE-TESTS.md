@@ -11,14 +11,15 @@ Every question states the source type, readiness level, allowed evidence, disall
 - Required citation readiness: `citable_with_note`
 - Must use:
   - https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10
+  - https://www.kk.dk/sites/default/files/agenda/93138585-f5a0-47a5-b500-a21cc5033912/816b7e92-7d10-403a-a631-4c742327c643-bilag-2.pdf
   - https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf
   - public/reports/nordisk-sirkularitetsrapport-2026-05.html
   - docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md
 - Must not use:
-  - 85% i 2024 eller 90% i 2015
+  - 85 % i 2024, 85 % i 2015 eller 90 % som oppnådd topp i 2015
   - København-tallet som generell nasjonal dansk økologiandel
   - Generert README-linjetall eller filstørrelse som kvalitetsbevis
-- Known caveat: Bruk 88 % avrundet (kommunens vedtaksside: nesten 88 %) i 2024 og 85 % i 2015. Tallene gjelder økologi i Københavns kommunale institusjoner og kjøkken, bygger nå på innkjøpsdata, og målemetoden er endret over tid. Dette er ikke en nasjonal dansk økologiandel.
+- Known caveat: Bruk 87,7 % i 2024 (kommunens vedtaksside: nesten 88 %) og 88 % i 2015. Tallene gjelder økologi i Københavns kommunale institusjoner og kjøkken. Dagens nivå bygger på innkjøpsdata, mens 2015-tallet hadde et eldre, blandet målegrunnlag. Dette er ikke en metodeidentisk tidsserie eller en nasjonal dansk økologiandel.
 
 ## CA-002: Kan T3-diffen siteres som ekstern validering av rapportens konklusjoner?
 

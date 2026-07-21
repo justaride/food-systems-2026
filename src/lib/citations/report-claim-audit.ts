@@ -177,8 +177,29 @@ function hasCorpusSupport(claim: string, corpus: string) {
   })
 }
 
+type CopenhagenPercentageObservation = {
+  value: string
+  year: number | null
+}
+
+function nearestExplicitYear(line: string, percentageIndex: number, percentageLength: number) {
+  const yearPattern = /\b(?:19|20)\d{2}\b/g
+  const after = line.slice(percentageIndex + percentageLength, percentageIndex + percentageLength + 120)
+  const afterBoundary = after.search(/\d+(?:[,.]\d+)?\s*%/)
+  const afterWindow = afterBoundary === -1 ? after : after.slice(0, afterBoundary)
+  const afterYear = afterWindow.match(yearPattern)?.[0]
+  if (afterYear) return Number(afterYear)
+
+  const before = line.slice(Math.max(0, percentageIndex - 120), percentageIndex)
+  const beforeBoundary = before.search(/\d+(?:[,.]\d+)?\s*%[^%]*$/)
+  const beforeWindow = beforeBoundary === -1 ? before : before.slice(beforeBoundary).replace(/^\d+(?:[,.]\d+)?\s*%/, '')
+  const beforeYears = [...beforeWindow.matchAll(yearPattern)]
+  const beforeYear = beforeYears.at(-1)?.[0]
+  return beforeYear ? Number(beforeYear) : null
+}
+
 function extractCopenhagenPublicKitchenPercentages(...texts: string[]) {
-  const values = new Set<string>()
+  const observations: CopenhagenPercentageObservation[] = []
 
   for (const text of texts) {
     for (const { line } of getLineContexts(text, candidate => /københavn|copenhagen/i.test(candidate))) {
@@ -187,14 +208,26 @@ function extractCopenhagenPublicKitchenPercentages(...texts: string[]) {
         const number = Number(value)
         if (!Number.isFinite(number)) continue
         if (number < 50 || number > 89) continue
-        const matchWindow = line.slice(Math.max(0, match.index - 30), match.index + match[0].length + 30).toLowerCase()
-        if (matchWindow.includes('mål') || matchWindow.includes('target')) continue
-        values.add(value)
+        const percentageIndex = match.index ?? 0
+        const matchWindow = line.slice(Math.max(0, percentageIndex - 30), percentageIndex + match[0].length + 30).toLowerCase()
+        if (/\b(?:mål(?:et)?|måls(?:etning|ætning)|target)\b/i.test(matchWindow)) continue
+        observations.push({
+          value,
+          year: nearestExplicitYear(line, percentageIndex, match[0].length),
+        })
       }
     }
   }
 
-  return [...values].sort()
+  return observations
+}
+
+function hasCopenhagenMeasurementMethodCaveat(...texts: string[]) {
+  return texts.some(text =>
+    getLineContexts(text, candidate => /københavn|copenhagen/i.test(candidate)).some(({ line }) =>
+      /(?:måle(?:metod(?:e|en)?|grunnlag(?:et)?)[^.]{0,80}(?:endret|ændret|skift)|(?:endret|ændret|skift)[^.]{0,80}måle(?:metod|grunnlag))/i.test(line),
+    ),
+  )
 }
 
 function t3IsDone(input: CitableReportAuditInput) {
@@ -263,12 +296,36 @@ export function auditCitableReportDocuments(input: CitableReportAuditInput): Cit
     })
   }
 
-  const copenhagenPercentages = extractCopenhagenPublicKitchenPercentages(input.html, input.appendix, input.readme)
-  if (copenhagenPercentages.length > 1) {
+  const copenhagenObservations = extractCopenhagenPublicKitchenPercentages(input.html, input.appendix, input.readme)
+  const copenhagenValues = new Set(copenhagenObservations.map(observation => observation.value))
+  const valuesByYear = new Map<number, Set<string>>()
+  const undatedValues = new Set<string>()
+
+  for (const observation of copenhagenObservations) {
+    if (observation.year === null) {
+      undatedValues.add(observation.value)
+      continue
+    }
+    const values = valuesByYear.get(observation.year) ?? new Set<string>()
+    values.add(observation.value)
+    valuesByYear.set(observation.year, values)
+  }
+
+  const conflictingYears = [...valuesByYear.entries()].filter(([, values]) => values.size > 1)
+  const hasTemporalSeries = valuesByYear.size > 1
+  const hasAmbiguousUndatedValue = undatedValues.size > 0 && (copenhagenValues.size > 1 || hasTemporalSeries)
+  const lacksMethodCaveat = hasTemporalSeries && !hasCopenhagenMeasurementMethodCaveat(input.html, input.appendix, input.readme)
+
+  if (conflictingYears.length > 0 || hasAmbiguousUndatedValue || lacksMethodCaveat) {
+    const reasons = [
+      ...conflictingYears.map(([year, values]) => `${year} has ${[...values].sort().join(', ')}`),
+      ...(hasAmbiguousUndatedValue ? [`undated values: ${[...undatedValues].sort().join(', ')}`] : []),
+      ...(lacksMethodCaveat ? ['multi-year comparison lacks an explicit measurement-method caveat'] : []),
+    ]
     issues.push({
       code: 'copenhagen_percentage_mismatch',
       severity: 'blocking',
-      message: `Copenhagen public-kitchen percentage is inconsistent: ${copenhagenPercentages.join(', ')}.`,
+      message: `Copenhagen public-kitchen percentage has incompatible year/value context: ${reasons.join('; ')}.`,
     })
   }
 

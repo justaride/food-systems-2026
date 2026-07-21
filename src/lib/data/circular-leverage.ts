@@ -203,13 +203,14 @@ export const circularLeverages: CircularLeverage[] = [
     shortTitle: 'NO offentlig innkjøp',
     effects: { klima: 'high', natur: 'high', forurensning: 'medium', distrikt: 'medium' },
     aggregate: 'high',
-    headline: '611 mrd. NOK uten øko-mål · KBH rapporterer 88 % økologiske kommunale matinnkjøp i 2024',
+    headline: '611 mrd. NOK uten øko-mål · KBH rapporterer 87,7 % økologiske kommunale matinnkjøp i 2024',
     justification:
-      'Norge har 611 mrd. NOK i offentlige innkjøp uten en nasjonal måling av økologisk matandel. København rapporterer at nesten 88 % av kommunens matinnkjøp til institusjoner og kjøkken var økologiske i 2024; den offisielle serien viser 85 % i 2015. Dagens nivå er målt med innkjøpsdata, og metoden er endret over tid. København er derfor et kommunalt mekanismebenchmark for innkjøp og kjøkkendrift, ikke en nasjonal dansk andel, en fullt sammenlignbar tidsserie eller kausalt effektbevis.',
+      'Norge har 611 mrd. NOK i offentlige innkjøp uten en nasjonal måling av økologisk matandel. København rapporterer at 87,7 % av kommunens matinnkjøp til institusjoner og kjøkken var økologiske i 2024, omtalt som nesten 88 %; i 2015 var nivået 88 %. Dagens nivå er målt med innkjøpsdata, mens 2015 hadde et eldre, blandet målegrunnlag. København er derfor et kommunalt mekanismebenchmark for innkjøp og kjøkkendrift, ikke en nasjonal dansk andel, en metodeidentisk trend eller kausalt effektbevis.',
     evidenceStatus: 'estimated',
     sourceRefs: [
       { label: 'Whitepaper v2 §6.3', path: 'research/whitepaper/food-systems-2026-synthesis-v2.md' },
       { label: 'Københavns Kommune — status for økologisk mat', href: 'https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10' },
+      { label: 'Københavns Kommune — erfaringsopsamling 2020–2024', href: 'https://www.kk.dk/sites/default/files/agenda/93138585-f5a0-47a5-b500-a21cc5033912/816b7e92-7d10-403a-a631-4c742327c643-bilag-2.pdf' },
       { label: 'Københavns Kommune — Status på København 2025', href: 'https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf' },
     ],
     barriers: [

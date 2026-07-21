@@ -76,7 +76,7 @@ Full plan: `~/.claude/plans/la-oss-lage-en-snazzy-kahan.md`
 
 1. **FI fase-ut av importert fôr i melkeproduksjon** (kritisk — kjerneeksempel fra Jan Thomas)
 2. **Regenerativt landbruk per land** (distinkt fra øko)
-3. **NO offentlig innkjøp øko-andel** (sammenligning mot DK København 85% i 2024, peak 90% i 2015)
+3. **NO offentlig innkjøp øko-andel** (sammenligning mot DK København 87,7 % i 2024 og 88 % i 2015; dagens nivå bygger på innkjøpsdata, mens 2015 hadde et eldre, blandet målegrunnlag; ikke en metodeidentisk trend eller nasjonal DK-andel)
 4. **Subsidier per land** (kun NO godt dekket)
 5. **IS marint restråstoff-detaljer** utover 100% Fish-programmet
 6. **Cognitive dissonance-base — politiske påstander per land** (kritisk)

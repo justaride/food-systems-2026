@@ -67,19 +67,20 @@ export const ACCEPTANCE_TESTS: CitableAcceptanceTest[] = [
     requiredReadinessLevel: 'citable_with_note',
     mustUse: [
       'https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10',
+      'https://www.kk.dk/sites/default/files/agenda/93138585-f5a0-47a5-b500-a21cc5033912/816b7e92-7d10-403a-a631-4c742327c643-bilag-2.pdf',
       'https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf',
       'public/reports/nordisk-sirkularitetsrapport-2026-05.html',
       'docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md',
     ],
     mustNotUse: [
-      '85% i 2024 eller 90% i 2015',
+      '85 % i 2024, 85 % i 2015 eller 90 % som oppnådd topp i 2015',
       'København-tallet som generell nasjonal dansk økologiandel',
       'Generert README-linjetall eller filstørrelse som kvalitetsbevis',
     ],
     knownCaveat:
-      'Bruk 88 % avrundet (kommunens vedtaksside: nesten 88 %) i 2024 og 85 % i 2015. Tallene gjelder økologi i Københavns kommunale institusjoner og kjøkken, bygger nå på innkjøpsdata, og målemetoden er endret over tid. Dette er ikke en nasjonal dansk økologiandel.',
+      'Bruk 87,7 % i 2024 (kommunens vedtaksside: nesten 88 %) og 88 % i 2015. Tallene gjelder økologi i Københavns kommunale institusjoner og kjøkken. Dagens nivå bygger på innkjøpsdata, mens 2015-tallet hadde et eldre, blandet målegrunnlag. Dette er ikke en metodeidentisk tidsserie eller en nasjonal dansk økologiandel.',
     proposedAnswer:
-      'Ja, som kommunalt innkjøps- og kjøkkenbenchmark: København rapporterer 88 % økologi i 2024, mot 85 % i 2015. Serien bygger nå på innkjøpsdata, men målemetoden er endret over tid, så den skal ikke fremstilles som en fullt metodeidentisk tidsserie eller som Danmarks nasjonale andel.',
+      'Ja, som kommunalt innkjøps- og kjøkkenbenchmark: København rapporterer 87,7 % økologi i 2024 (nesten 88 %), mot 88 % i 2015. Dagens nivå bygger på innkjøpsdata, men målemetoden er endret over tid, så sammenstillingen skal ikke fremstilles som en metodeidentisk trend eller som Danmarks nasjonale andel.',
     citations: [
       {
         id: 'copenhagen-meal-strategy-renewal-2025',
@@ -92,6 +93,16 @@ export const ACCEPTANCE_TESTS: CitableAcceptanceTest[] = [
           'Oppgir at kommunen i 2024 lå på nesten 88 % økologi på tvers av kommunens enheter.',
       },
       {
+        id: 'copenhagen-meal-strategy-experience-2020-2024',
+        title: 'Erfaringsopsamling på implementering af Mad- og Måltidsstrategien 2020-2024',
+        locator:
+          'https://www.kk.dk/sites/default/files/agenda/93138585-f5a0-47a5-b500-a21cc5033912/816b7e92-7d10-403a-a631-4c742327c643-bilag-2.pdf',
+        sourceType: 'municipal strategy implementation report',
+        readiness: 'citable_external',
+        supportsClaim:
+          'Oppgir 87,7 % i 2024 og dokumenterer den nyere målingen ved Meyers Madhus.',
+      },
+      {
         id: 'copenhagen-status-2025-organic-procurement',
         title: 'Status på København 2025',
         locator:
@@ -99,7 +110,7 @@ export const ACCEPTANCE_TESTS: CitableAcceptanceTest[] = [
         sourceType: 'municipal statistical report',
         readiness: 'citable_external',
         supportsClaim:
-          'Viser 88 % i 2024 og 85 % i 2015 for kommunale institusjoner og kjøkken, og dokumenterer innkjøpsdata samt endret målemetode.',
+          'Viser 88 % i 2015, omtaler 2024 som 88 % avrundet og dokumenterer skiftet til et rent innkjøpsdatagrunnlag.',
       },
       {
         id: 'nordic-circularity-report-html',

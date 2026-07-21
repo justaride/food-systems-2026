@@ -333,13 +333,15 @@ Nordic circularity report drift:
   `scripts/audit-citable-reports.ts` now audit the HTML report, appendix,
   sprint README, claim audit, primary-check notes, self-critique, and T3 diff
   note together.
-- The audit blocks inconsistent T3 status text, Copenhagen percentage drift,
+- The audit blocks inconsistent T3 status text, conflicting or undated Copenhagen
+  year/value pairs and multi-year comparisons without a measurement-method caveat,
   README line-count/KB quality claims, HHI/CR3 mislabelling, unresolved weak
   claim markers, and highlighted numerical claims without source or caveat.
 - T3 is now consistently described as completed in v1.2 Phase 8, but as an
   internal method check rather than external validation.
-- Copenhagen public-kitchen organic share is standardized to 85 percent in
-  2024, with peak context where relevant.
+- Copenhagen public-kitchen organic share is standardized to 87.7 percent in
+  2024 (almost 88 percent) and 88 percent in 2015, with the changed measurement
+  basis and municipal scope stated explicitly.
 - Norwegian concentration is labelled as `HHI 3445 (CR3 96,6%)`, not `HHI
   96,6%`.
 - The weak IFRO soy bibliography placeholder was replaced with the concrete

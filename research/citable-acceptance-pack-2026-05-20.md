@@ -11,13 +11,14 @@ A blocked result is intentional when the current evidence only supports internal
 - Status: `cite_ready`
 - Readiness: `citable_with_note`
 - Caveat required: yes
-- Proposed answer: Ja, som kommunalt innkjøps- og kjøkkenbenchmark: København rapporterer 88 % økologi i 2024, mot 85 % i 2015. Serien bygger nå på innkjøpsdata, men målemetoden er endret over tid, så den skal ikke fremstilles som en fullt metodeidentisk tidsserie eller som Danmarks nasjonale andel.
+- Proposed answer: Ja, som kommunalt innkjøps- og kjøkkenbenchmark: København rapporterer 87,7 % økologi i 2024 (nesten 88 %), mot 88 % i 2015. Dagens nivå bygger på innkjøpsdata, men målemetoden er endret over tid, så sammenstillingen skal ikke fremstilles som en metodeidentisk trend eller som Danmarks nasjonale andel.
 - Required readiness: `citable_with_note`
 - Expected source type: municipal/public procurement source plus audited report package
-- Known caveat: Bruk 88 % avrundet (kommunens vedtaksside: nesten 88 %) i 2024 og 85 % i 2015. Tallene gjelder økologi i Københavns kommunale institusjoner og kjøkken, bygger nå på innkjøpsdata, og målemetoden er endret over tid. Dette er ikke en nasjonal dansk økologiandel.
+- Known caveat: Bruk 87,7 % i 2024 (kommunens vedtaksside: nesten 88 %) og 88 % i 2015. Tallene gjelder økologi i Københavns kommunale institusjoner og kjøkken. Dagens nivå bygger på innkjøpsdata, mens 2015-tallet hadde et eldre, blandet målegrunnlag. Dette er ikke en metodeidentisk tidsserie eller en nasjonal dansk økologiandel.
 - Citations:
   - copenhagen-meal-strategy-renewal-2025: Godkendelse af fornyelse af Københavns Kommunes Mad- og Måltidsstrategi (municipal decision record, citable_external) - https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10. Supports: Oppgir at kommunen i 2024 lå på nesten 88 % økologi på tvers av kommunens enheter.
-  - copenhagen-status-2025-organic-procurement: Status på København 2025 (municipal statistical report, citable_external) - https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf. Supports: Viser 88 % i 2024 og 85 % i 2015 for kommunale institusjoner og kjøkken, og dokumenterer innkjøpsdata samt endret målemetode.
+  - copenhagen-meal-strategy-experience-2020-2024: Erfaringsopsamling på implementering af Mad- og Måltidsstrategien 2020-2024 (municipal strategy implementation report, citable_external) - https://www.kk.dk/sites/default/files/agenda/93138585-f5a0-47a5-b500-a21cc5033912/816b7e92-7d10-403a-a631-4c742327c643-bilag-2.pdf. Supports: Oppgir 87,7 % i 2024 og dokumenterer den nyere målingen ved Meyers Madhus.
+  - copenhagen-status-2025-organic-procurement: Status på København 2025 (municipal statistical report, citable_external) - https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf. Supports: Viser 88 % i 2015, omtaler 2024 som 88 % avrundet og dokumenterer skiftet til et rent innkjøpsdatagrunnlag.
   - nordic-circularity-report-html: Nordisk sirkularitetsrapport 2026-05 (audited report package, citable_with_note) - public/reports/nordisk-sirkularitetsrapport-2026-05.html. Supports: Propagerer korrigerte København-tall og kommunal metodekontekst.
   - nordic-circularity-appendix: Nordisk sirkularitetsrapport appendiks (appendix and evidence matrix, citable_with_note) - docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md. Supports: Propagerer samme København-verdier og kildeavgrensning som HTML-rapporten.
 - Exclusion notes:
