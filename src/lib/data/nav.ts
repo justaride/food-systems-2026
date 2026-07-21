@@ -11,6 +11,7 @@ export const navGroups: NavGroup[] = [
     { key: 'team', href: '/team' },
     { key: 'casestatus', href: '/casestatus' },
     { key: 'aiKunnskap', href: '/ai-kunnskap' },
+    { key: 'masterhjerne', href: '/masterhjerne' },
     { key: 'moter', href: '/moter' },
     { key: 'kommunikasjon', href: '/kommunikasjon' },
     { key: 'mandat', href: '/mandat' },

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gap-tracker snapshot — Food Systems 2026</title>
+<style>
+  .viz-root{color-scheme:light;--surface:#fcfcfb;--page:#f9f9f7;--ink1:#0b0b0b;--ink2:#52514e;--ink3:#898781;--grid:#e1e0d9;--border:rgba(11,11,11,.10);
+    --blue:#2a78d6;--good:#0ca30c;--warn:#fab219;--serious:#ec835a;--crit:#d03b3b;--good-t:#006300;--wash:rgba(42,120,214,.07);}
+  @media (prefers-color-scheme:dark){:root:where(:not([data-theme=light])) .viz-root{color-scheme:dark;--surface:#1a1a19;--page:#0d0d0d;--ink1:#fff;--ink2:#c3c2b7;--ink3:#898781;--grid:#2c2c2a;--border:rgba(255,255,255,.10);--blue:#3987e5;--good-t:#0ca30c;--wash:rgba(57,135,229,.12);}}
+  :root[data-theme=dark] .viz-root{color-scheme:dark;--surface:#1a1a19;--page:#0d0d0d;--ink1:#fff;--ink2:#c3c2b7;--ink3:#898781;--grid:#2c2c2a;--border:rgba(255,255,255,.10);--blue:#3987e5;--good-t:#0ca30c;--wash:rgba(57,135,229,.12);}
+  *{box-sizing:border-box;margin:0}body{background:var(--page)}
+  .viz-root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--page);color:var(--ink1);padding:26px 20px 60px;min-height:100vh}
+  .wrap{max-width:1180px;margin:0 auto}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);font-weight:600}
+  h1{font-size:27px;font-weight:700;margin:6px 0 4px;letter-spacing:-.01em}
+  .sub{color:var(--ink2);font-size:14px;max-width:860px;line-height:1.5}
+  .themebtn{float:right;margin-top:-42px;font-size:12px;border:1px solid var(--border);background:var(--surface);color:var(--ink2);border-radius:8px;padding:6px 10px;cursor:pointer}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+  .tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+  .tile .v{font-size:26px;font-weight:650;letter-spacing:-.01em}.tile .l{font-size:12px;color:var(--ink2);margin-top:2px}
+  .bar{display:flex;height:26px;border-radius:6px;overflow:hidden;gap:2px;margin:6px 0 4px}
+  .seg{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;min-width:22px}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin:8px 0}
+  .legend .k{display:inline-flex;align-items:center;gap:6px}.sw{width:10px;height:10px;border-radius:3px}
+  .wave{margin-top:26px}.wave h2{font-size:15px;font-weight:700;margin-bottom:2px}.wave .wsub{font-size:12.5px;color:var(--ink2);margin-bottom:10px}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  th{text-align:left;color:var(--ink3);font-weight:600;font-size:11px;letter-spacing:.03em;padding:8px 10px;border-bottom:1px solid var(--grid);background:var(--wash)}
+  td{padding:9px 10px;border-bottom:1px solid var(--grid);vertical-align:top;color:var(--ink2)}
+  tr:last-child td{border-bottom:none}
+  td.id{font-weight:700;color:var(--ink1);white-space:nowrap;font-variant-numeric:tabular-nums}
+  td.gap{color:var(--ink1);font-weight:600}
+  .pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:650;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .p-lukk{color:var(--good-t);background:color-mix(in srgb,var(--good) 13%,transparent)}
+  .p-prosess{color:var(--ink1);background:color-mix(in srgb,var(--blue) 16%,transparent)}
+  .p-dok{color:var(--ink1);background:color-mix(in srgb,var(--warn) 20%,transparent)}
+  .p-modell{color:var(--ink1);background:color-mix(in srgb,var(--serious) 18%,transparent)}
+  .p-hyg{color:var(--ink2);background:color-mix(in srgb,var(--ink3) 18%,transparent)}
+  .st{font-size:11px;font-weight:650;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .st-done{color:var(--good-t);background:color-mix(in srgb,var(--good) 13%,transparent)}
+  .st-pkg{color:var(--ink1);background:color-mix(in srgb,var(--blue) 14%,transparent)}
+  .st-q{color:var(--ink1);background:color-mix(in srgb,var(--warn) 18%,transparent)}
+  .st-h2{color:var(--ink2);background:color-mix(in srgb,var(--ink3) 15%,transparent)}
+  .type{font-size:10.5px;font-weight:700;color:var(--ink3)}
+  .foot{margin-top:34px;font-size:11.5px;color:var(--ink3);line-height:1.6;border-top:1px solid var(--grid);padding-top:14px}
+  .tt{position:fixed;pointer-events:none;background:var(--surface);border:1px solid var(--border);box-shadow:0 4px 14px rgba(0,0,0,.12);border-radius:8px;padding:7px 10px;font-size:12px;color:var(--ink1);z-index:50;display:none;max-width:300px}
+  @media(max-width:640px){.themebtn{float:none;margin:8px 0 0}.hidecol{display:none}}
+</style></head>
+<body><div class="viz-root" id="root"><div class="wrap">
+<div class="kicker">Natural State · Food Systems TG · gap-lukkingsprogram</div>
+<h1>Gap-tracker · snapshot</h1>
+<button class="themebtn" id="tb">Bytt lys/mørk</button>
+<div class="sub">Snapshot per 21.07.2026 av 22 dokumenterte gap fra datagap-analysen og masterhjerne-statusen. Dette er ikke en interaktiv eller selvoppdaterende tracker. Statusendringer skal føres i kildefilen og avstemmes mot <a href="../../../docs/project/status/food-systems-completion-register-2026-07-15.md">completion registeret</a>, som er kanonisk completion-flate. Menneskepakkene er beslutningsklare utkast, ikke utsendingsklare. En foreslått disposisjon er ikke det samme som et lukket gap.</div>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="legend" style="margin-top:-6px">
+  <span class="k"><span class="sw" style="background:var(--good)"></span>Lukk (Type A, desk)</span>
+  <span class="k"><span class="sw" style="background:var(--blue)"></span>Prosess (Type B, utkast/menneskehandling)</span>
+  <span class="k"><span class="sw" style="background:var(--warn)"></span>Dokumentér (Type C, funn)</span>
+  <span class="k"><span class="sw" style="background:var(--serious)"></span>Modell</span>
+  <span class="k"><span class="sw" style="background:var(--ink3)"></span>Hygiene</span>
+</div>
+
+<div id="waves"></div>
+
+<div class="foot" id="foot"></div>
+</div><div class="tt" id="tt"></div>
+
+<script>
+const $=id=>document.getElementById(id);
+const ROUTE={lukk:['p-lukk','Lukk'],prosess:['p-prosess','Prosess'],dok:['p-dok','Dokumentér'],modell:['p-modell','Modell'],hyg:['p-hyg','Hygiene']};
+const STAT={done:['st-done','ferdig lukket'],review:['st-q','kandidat · under review'],draft:['st-pkg','prosessutkast'],ko:['st-q','i kø / spesifisert'],h2:['st-h2','H2']};
+const GAPS=[
+ {w:0,id:'T3',gap:'FI/IS 2025-finanser',type:'A',route:'lukk',st:'review',next:'Validator: 16=15+1; 5 grupper model_decision_required; Samkaup source_gap; canApply:false',art:'data/nordisk-finanser-2025-*'},
+ {w:0,id:'T4',gap:'«Det Norge ikke måler»-boks',type:'A/C',route:'dok',st:'review',next:'6 formuleringer er datert kandidatmateriale; kilde- og claim-review gjenstår',art:'funn/det-norge-ikke-maaler-2026-07'},
+ {w:0,id:'T1',gap:'Mission 1-intervjuer (5 stemmer)',type:'B',route:'prosess',st:'draft',next:'Beslutningsklart, ikke utsendingsklart: lukk eier, personvern, samtykke, scope og review',art:'prosess/mission-1-intervjupakke'},
+ {w:0,id:'T2',gap:'Mission 2 nordisk validering',type:'B',route:'prosess',st:'draft',next:'4 SE + 5 DK-rader fylt; fortsatt ikke partnerbekreftet/sendt: lukk mottaker, scope, Cathrine-review og sendebeslutning',art:'prosess/mission-2-nordisk-validering'},
+ {w:0,id:'T10',gap:'Innsyn: DSB / Landbruksdir. / DFØ-KS',type:'A/C',route:'prosess',st:'draft',next:'3 beslutningsklare brevutkast; avsender/signatur, scope og juridisk readback mangler',art:'innsyn/innsynsbrev-samlet'},
+ {w:0,id:'T6',gap:'Aksjonær-/founderlag topp 50',type:'A/B',route:'prosess',st:'draft',next:'Beslutningsklart brevutkast; avsender/signatur, scope, personvern og juridisk readback mangler',art:'innsyn/innsynsbrev-samlet'},
+ {w:1,id:'T5',gap:'Aktivitetssignal havbruk+villfisk (270)',type:'A',route:'lukk',st:'ko',next:'270 er prosjektutvalg, ikke univers; bygg Actor→Company→register-preflight og velg domenevis signal',art:'program §5'},
+ {w:1,id:'T8',gap:'N/P/K-tabellskjelett (VK4-GAP-007)',type:'A',route:'lukk',st:'ko',next:'Cellekontrakt/kildeshortlist finnes; Type A-celler er ikke fylt; legacy-JSON er proxy/modell',art:'program §5'},
+ {w:1,id:'T9',gap:'Alt-protein realisert volum topp 15',type:'A/B',route:'prosess',st:'ko',next:'Ingen frosset topp-15/pipeline; finans = aktivitetssignal, ikke tonnasje; direkte volum eller actor-gate',art:'program §5'},
+ {w:1,id:'T7',gap:'REKO/CSA 2026-aktivitet',type:'A→B',route:'prosess',st:'draft',next:'Beslutningsklart surveyutkast; personvern, samtykke, minstegrense, scope og review mangler',art:'innsyn/reko-csa-survey'},
+ {w:1,id:'Q1',gap:'Appraisal 0/417 (evidenskvalitet)',type:'—',route:'prosess',st:'draft',next:'Produksjonsworkflow mangler; 3 piloter venter navngitt menneskereview før topp-50',art:'prosess/appraisal-sprint-plan'},
+ {w:1,id:'Q2',gap:'Bibliotek review-kø 89',type:'—',route:'prosess',st:'ko',next:'24 mekanisk URL, 57 sammendragskuratering, 8 manuelt kildeoppslag; 0 menneskereviewet',art:'prosess/appraisal-sprint-plan'},
+ {w:1,id:'Q3',gap:'Tekstreparasjon',type:'A',route:'lukk',st:'ko',next:'Dry-run: URL 17 foreslåtte oppdateringer; lokal/PDF 0; review før eventuell apply',art:'_status/library-analysis-*-repair'},
+ {w:1,id:'Q4',gap:'Varig kildearkiv',type:'A',route:'lukk',st:'ko',next:'521/2376 eksternt klare/med-note har varig kopi; 1855 trenger arkiv; 1872 blokkerende ID-er',art:'scripts/audit-source-citation-archive-coverage.ts'},
+ {w:2,id:'T11',gap:'Nordisk MVK-replikering 3 steg×SE/DK',type:'A/B',route:'lukk',st:'h2',next:'Importskjelett finnes; frys celler/univers/ID-regler og pilotér kandidat-only én celle per land',art:'program bølge 2'},
+ {w:2,id:'T12',gap:'Nordisk styredekning 14→61 selskaper',type:'A/B',route:'lukk',st:'h2',next:'Baseline 14/61; source/access-gated; skill styre/eierskap og pilotér én kildeadapter',art:'program bølge 2'},
+ {w:2,id:'T13',gap:'Subsektor-HHI som tidsserie',type:'A/B',route:'lukk',st:'h2',next:'Ingen målserie ennå; definer marked/nevner/konsolidering og pilotér minst tre år',art:'program bølge 2'},
+ {w:2,id:'T14',gap:'Materialstrøm + sårbarhetsindeks',type:'A+mod',route:'modell',st:'h2',next:'H2: celleledger + indeks-spec; full N/P/K-balanse forblir H3',art:'program bølge 2'},
+ {w:2,id:'T15',gap:'Kausalitet: case-klasse m/evidensgradering',type:'B/hyp',route:'prosess',st:'h2',next:'Uvalidert mal, 0 case; fyll og review ett pilotcase før skjema/validator',art:'prosess/t15-kausalitets-case-mal'},
+ {w:2,id:'T16',gap:'Kanalfordeling lokalmat',type:'B',route:'prosess',st:'h2',next:'Parkert: definer kanaler/nevner/output og avklar kilde, lisens, pris og partner',art:'program bølge 2'},
+ {w:3,id:'Q5',gap:'Backlog-status-synk (50 «planned»)',type:'—',route:'hyg',st:'ko',next:'Avstem statusregler → dry-run-diff fra intake-indeks → review før CSV-skriv',art:'program §7'},
+ {w:3,id:'Q6',gap:'Interne konsistensavvik',type:'—',route:'hyg',st:'ko',next:'Tall propagert; 18 identitetsavvik + katalogvintage gjenstår; destruktiv matsvinnloven-apply er deaktivert',art:'program §7'},
+];
+const WAVES=[
+ {w:0,t:'Bølge 0 — denne uken (før 31. juli)',s:'Whitepaper-kritiske kandidater og beslutningsklare utkast. Personvern, avsender, scope, utfylling og review gjenstår før eventuell ekstern sending.'},
+ {w:1,t:'Bølge 1 — Horisont 1 (aug–des): metode- og konfidensarbeid',s:'Metodevalg, entity resolution, kildelukking, menneskereview og kontrollert kjøring; ingen blind batch.'},
+ {w:2,t:'Bølge 2 — Horisont 2 (2027): nye lag',s:'H2-backlog. Mal eller metode betyr ikke at et gap er lukket.'},
+ {w:3,t:'Løpende — hygiene og rytme',s:'Så hull ikke gjenoppstår. Kobles til masterhjerne-generatoren.'},
+];
+// KPIs
+const done=GAPS.filter(g=>g.st==='done').length, review=GAPS.filter(g=>g.st==='review').length, drafts=GAPS.filter(g=>g.st==='draft').length, ko=GAPS.filter(g=>g.st==='ko').length, h2=GAPS.filter(g=>g.st==='h2').length;
+$('kpis').innerHTML=[
+ ['22','dokumenterte gap','alle har foreslått disposisjon'],
+ [done,'nye gap ferdig lukket','completion krever beståtte gater'],
+ [review,'kandidater under review','T3 source-gated; T4 claim-gated'],
+ [drafts,'gap-ID-er med prosessutkast','ikke sendt eller ferdigstilt'],
+ [ko+h2,'i kø / hygiene / H2','14 gap gjenstår'],
+].map(k=>`<div class="tile"><div class="v">${k[0]}</div><div class="l">${k[1]}</div><div class="l" style="color:var(--ink3);font-size:11px">${k[2]}</div></div>`).join('');
+// waves
+$('waves').innerHTML=WAVES.map(wv=>{
+ const rows=GAPS.filter(g=>g.w===wv.w);
+ return `<div class="wave"><h2>${wv.t}</h2><div class="wsub">${wv.s}</div>
+ <table><thead><tr><th style="width:44px">#</th><th style="width:210px">Hull</th><th style="width:44px" class="hidecol">Type</th><th style="width:104px">Rute</th><th style="width:118px">Status</th><th>Neste steg</th></tr></thead><tbody>
+ ${rows.map(g=>`<tr data-tt="Artefakt: ${g.art}">
+   <td class="id">${g.id}</td><td class="gap">${g.gap}</td>
+   <td class="hidecol"><span class="type">${g.type}</span></td>
+   <td><span class="pill ${ROUTE[g.route][0]}">${ROUTE[g.route][1]}</span></td>
+   <td><span class="st ${STAT[g.st][0]}">${STAT[g.st][1]}</span></td>
+   <td>${g.next}</td></tr>`).join('')}
+ </tbody></table></div>`;
+}).join('');
+$('foot').innerHTML='Snapshotkilder: DATAGAP-ANALYSE-2026-07-06 · MASTERHJERNE-STATUS-2026-07-21 · GAP-LUKKINGSPROGRAM-2026-07-21. Kanonisk completion-status: <a href="../../../docs/project/status/food-systems-completion-register-2026-07-15.md">docs/project/status/food-systems-completion-register-2026-07-15.md</a>. T3 og T4 er kandidater under review, ikke claim-locket. Menneskepakkene krever beslutninger, utfylling og review før eventuell sending. Et innsynsavslag er et reviewpliktig tilgangsutfall, ikke automatisk bevis på nasjonalt datafravær. Oppdater kildefilen og completion registeret sammen; nettleservisningen lagrer ingen endringer.';
+// tooltip + theme
+const tt=$('tt');
+document.addEventListener('mousemove',e=>{const el=e.target.closest('[data-tt]');if(el){tt.style.display='block';tt.textContent=el.getAttribute('data-tt');tt.style.left=Math.min(innerWidth-310,e.clientX+14)+'px';tt.style.top=(e.clientY+16)+'px';}else tt.style.display='none';});
+$('tb').onclick=()=>{const r=document.documentElement,c=r.getAttribute('data-theme');const d=c?c==='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.setAttribute('data-theme',d?'light':'dark');};
+</script></body></html>

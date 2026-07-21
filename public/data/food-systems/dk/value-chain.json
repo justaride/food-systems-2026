@@ -98,9 +98,9 @@
     {
       "name": "HoReCa",
       "id": "horeca",
-      "notes": "Copenhagen: 84% organic food in 900 public kitchens. Danes eat out more frequently than other Nordics.",
+      "notes": "Copenhagen municipality: 88% of municipal food purchases were organic in 2024, versus 85% in 2015. Procurement-data measurement changed over time; this is not a national Danish share.",
       "waste_tonnes": null,
-      "sources": ["verdikjede.ts"]
+      "sources": ["https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10", "https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf", "verdikjede.ts"]
     },
     {
       "name": "Husholdning",

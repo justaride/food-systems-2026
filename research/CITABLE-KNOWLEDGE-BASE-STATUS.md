@@ -11,6 +11,37 @@ knowledge base usable as a citable external knowledge base. It replaces older
 snapshot interpretation for this workstream. Historical audit counts should be
 treated as stale unless repeated here.
 
+> **Supersession note, 2026-07-15:** The current cite-ready national measure is
+> **revenue HHI 3 327** with **CR3 96.6%** for 2024, as specified in CA-004.
+> Occurrences of HHI 3 445 below describe an older milestone, a dated report or
+> the cross-country store-count proxy; they must not be reused as the current
+> Norwegian revenue HHI.
+
+## 2026-07-21 Live Citation Readback (supersedes all counts below)
+
+The active database was read back with both `npm run db:audit` and
+`npm run db:audit:strict-sources` on 2026-07-21. Both commands exited `0`.
+Current citation coverage is:
+
+- `SourceCitation=2703`
+- `citable_external=154`
+- `citable_with_note=2222`
+- `internal_context=110`
+- `blocked_unsourced=217`
+- `FieldCitation=244516`
+- external blocking citation issues `0`
+
+This is a **technical citation/source-gate result**, not a declaration of
+external academic readiness. The 217 `blocked_unsourced` rows remain
+fail-closed and cannot support external claims; the strict audit passes because
+none is being presented as external-ready. The separate academic quality audit
+still reports `not_ready`, including 0/417 complete current appraisal
+dispositions. Eleven of 1,539 `Document.filePath` values also do not resolve in
+the current checkout and remain warnings for artifact availability.
+
+Counts below are historical unless a later, explicitly dated live readback
+supersedes this section.
+
 ## 2026-06-10 Strict-Gate Re-Greening (supersedes all verification sections below)
 
 Running the operator sequence on `codex/food-tg-mandat-2026-06-09` found the

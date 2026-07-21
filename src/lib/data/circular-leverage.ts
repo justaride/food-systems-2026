@@ -33,7 +33,7 @@ export type CircularLeverage = {
   relatedQuestionIds?: string[]
 }
 
-export const lastUpdated = '2026-04-29'
+export const lastUpdated = '2026-07-21'
 
 // Objektivfunksjon-linser (vedtak Sett II, 2026-06-18). Fase 1 = aktive dimensjoner;
 // fase 2 = planlagt blindsone (helse) som bevisst står tom til den åpnes.
@@ -203,13 +203,14 @@ export const circularLeverages: CircularLeverage[] = [
     shortTitle: 'NO offentlig innkjøp',
     effects: { klima: 'high', natur: 'high', forurensning: 'medium', distrikt: 'medium' },
     aggregate: 'high',
-    headline: '611 mrd. NOK uten øko-mål · KBH har 84 % økologisk uten budsjettøkning',
+    headline: '611 mrd. NOK uten øko-mål · KBH rapporterer 88 % økologiske kommunale matinnkjøp i 2024',
     justification:
-      'Norge har 611 mrd. NOK i offentlige innkjøp uten nasjonal måling av økologisk andel. Danmark har 60 %-mål; Sverige 60 %-mål med 39 % oppnådd. København oppnår 84 % økologisk i 1 000+ kjøkken med 70 000 måltider daglig — uten økt budsjett. Dette er det eneste tiltaket på listen som krever null ny teknologi: politisk vilje + kompetanseheving av kjøkkenpersonell er hele løsningen. Strukturell virkning: stabilt offentlig marked reduserer omleggingsrisiko for produsenter og driver pesticid-reduksjon (KBH har beskyttet 370 mill. l grunnvann).',
+      'Norge har 611 mrd. NOK i offentlige innkjøp uten en nasjonal måling av økologisk matandel. København rapporterer at nesten 88 % av kommunens matinnkjøp til institusjoner og kjøkken var økologiske i 2024; den offisielle serien viser 85 % i 2015. Dagens nivå er målt med innkjøpsdata, og metoden er endret over tid. København er derfor et kommunalt mekanismebenchmark for innkjøp og kjøkkendrift, ikke en nasjonal dansk andel, en fullt sammenlignbar tidsserie eller kausalt effektbevis.',
     evidenceStatus: 'estimated',
     sourceRefs: [
-      { label: 'Whitepaper §7.3', path: 'research/whitepaper/section-7-circular-food-systems.md' },
-      { label: 'Future of Food Foundation 2024 (nettsted)', href: 'https://www.futureoffoodfoundation.org/' },
+      { label: 'Whitepaper v2 §6.3', path: 'research/whitepaper/food-systems-2026-synthesis-v2.md' },
+      { label: 'Københavns Kommune — status for økologisk mat', href: 'https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10' },
+      { label: 'Københavns Kommune — Status på København 2025', href: 'https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf' },
     ],
     barriers: [
       'Ingen nasjonale mål eller måling',

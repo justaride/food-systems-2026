@@ -71,7 +71,7 @@ Skåringsregel: 1 = svakest/lavest/dårligst innen Norden; 5 = sterkest. Relativ
 |---|---:|---|
 | NO | 4 | Tilbud-flaskehals melk/egg (80%/88% utnyttelse). Grocery +17,6% YoY. Marked vokser, areal lavest. |
 | SE | 2 | UAA 16,7% høyest, men marked faller -1,5% (2024). Øko-melk -39% siden 2021. |
-| DK | 5 | Retail value share 11,6% verdens høyeste. Foodservice +13% (2023). DKK 16 mrd retail. København 85% øko offentlig i 2024, peak 90% i 2015. |
+| DK | 5 | Retail value share 11,6% verdens høyeste. Foodservice +13% (2023). DKK 16 mrd retail. København: 88 % økologi i kommunale institusjoner/kjøkken i 2024 og 85 % i 2015; innkjøpsdata, endret målemetode, ikke nasjonal DK-andel. |
 | FI | 2 | Grocery -5% YoY (2024). UAA 13,49% (definition_diff). Stabilt marked. |
 | IS | 1 | UAA 0,4% laveste i Norden. needs_primary_check. |
 
@@ -91,7 +91,7 @@ Skåringsregel: 1 = svakest/lavest/dårligst innen Norden; 5 = sterkest. Relativ
 |---|---:|---|
 | NO | 1 | INGEN universell ordning. Ingen aggregert øko-innkjøp-statistikk. Pilotforsøk fragmentert. |
 | SE | 3 | Skolemåltid siden 1948 (~SEK 7 mrd/år). Off. sektor øko falt 37→34,2% (2022→2023). |
-| DK | 5 | København 85% øko i 2024 (peak 90% i 2015; ca. 900 kjøkken). Foodservice øko DKK 3,7 mrd (+13%). Sektor-mål 60% i mange kommuner. |
+| DK | 5 | København 88 % økologi i kommunale institusjoner/kjøkken i 2024 (85 % i 2015; ca. 900 kjøkken). Serien bygger nå på innkjøpsdata, men målemetoden er endret; dette er ikke en nasjonal DK-andel. Foodservice øko DKK 3,7 mrd (+13%). Sektor-mål 60% i mange kommuner. |
 | FI | 4 | Skolemåltid siden 1946 (verdens eldste). 63% off. kjøkken bruker øko daglig. 28% øko skolemelk. |
 | IS | 1 | Begrenset omfang. Datagap. |
 
@@ -267,7 +267,7 @@ Hver påstand i hovedrapporten kan spores tilbake til:
 - **CL-B-017** (NO 24% matsvinn-reduksjon) → §2 NO + Foregangsområde 2
 - **CL-B-018** (SE matsvinn-stagnasjon) → CD-7
 - **CL-B-019** (Norden biogass-asymmetri) → Foregangsområde 4
-- **CL-B-020** (Salling Group 2,8→1,8%) → Foregangsområde 2
+- **CL-B-020** (Salling Groups danske virksomhet: food waste percentage 2,8 % i 2015 → 1,8 % i 2024, ned 1,0 prosentpoeng) → Foregangsområde 2
 - **CL-B-021** (ren prosess-sidestrøm pilot) → Foregangsområde 1
 - **CL-B-024** (FI torvmyr-paradoks) → §2 FI
 - **CL-C-001** (markedsstruktur som adoption-gate) → CD-4 + Foregangsområde 3
@@ -303,6 +303,8 @@ Hver påstand i hovedrapporten kan spores tilbake til:
 - **DK** DST: https://www.dst.dk/
 - **DK** KFST: https://en.kfst.dk/
 - **DK** Skatteministeriet: https://www.skm.dk/
+- **DK** Københavns Kommune, Mad- og Måltidsstrategi-status 2025: https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10
+- **DK** Københavns Kommune, *Status på København 2025*: https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf
 - **FI** Luke: https://www.luke.fi/
 - **FI** stat.fi
 - **FI** HVK: https://www.huoltovarmuuskeskus.fi/
@@ -324,7 +326,7 @@ Hver påstand i hovedrapporten kan spores tilbake til:
 - Skretting Impact Report 2024: https://www.skretting.com/no/baerekraft/baerekraftsrapport/impact-report-2024-skretting-norway/
 - Denofa: https://www.denofa.no/en/soy/
 - Solar Foods, Enifer (FI alt-protein)
-- Salling Group bærekraftsrapport 2024
+- Salling Group *Annual Report 2024 — Every Day Better*: https://digitalassets.sallinggroup.com/raw/upload/fl_attachment:Annual%20report%202024%252epdf/external_content_providers/magnolia/next/jcr:c5f40c7a-153b-434d-8d7f-3c1eafb3dafe
 - Organic Denmark Market Report 2025: https://organicdenmark.com/market-insights/toolbox/organic-market-report/
 - Ekomatcentrum: https://ekomatcentrum.se/
 
@@ -388,7 +390,7 @@ Organic Denmark. (2025). *Organic Market Report 2025*. https://organicdenmark.co
 
 Pro Luomu. (2024). *Organics in Finland 2024*. https://proluomu.fi/en/organics-in-finland/
 
-Salling Group. (2025). *Bærekraftsrapport 2024*. https://sallinggroup.com/
+Salling Group. (2025). *Annual Report 2024 — Every Day Better*. https://digitalassets.sallinggroup.com/raw/upload/fl_attachment:Annual%20report%202024%252epdf/external_content_providers/magnolia/next/jcr:c5f40c7a-153b-434d-8d7f-3c1eafb3dafe
 
 Skretting Norge. (2024). *Use of vegetable raw materials 2024 (Impact Report 2024)*. https://www.skretting.com/no/baerekraft/baerekraftsrapport/impact-report-2024-skretting-norway/use-of-vegetable-raw-materials-2024/
 
@@ -477,6 +479,10 @@ Naturvårdsverket. (2024). *Matsvinn 2024*. https://www.naturvardsverket.se/
 Riksrevisionen. (2025). *Granskning av jordbrukets klimagassutslipp*. https://www.riksrevisionen.se/
 
 ### Myndigheter — Danmark
+
+Københavns Kommune. (2025, 18. mars). *Godkendelse af fornyelse af Københavns Kommunes Mad- og Måltidsstrategi*. https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10
+
+Københavns Kommune. (2025). *Status på København 2025*. https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf
 
 Danmarks Statistik (DST). (2024). *Selvforsyning og landbrugsproduktion 2024*. https://www.dst.dk/
 

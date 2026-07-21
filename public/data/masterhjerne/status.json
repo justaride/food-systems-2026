@@ -1,0 +1,507 @@
+{
+  "generatedAt": "2026-07-21T22:41:28.764Z",
+  "sources": [
+    {
+      "id": "bibliotek-ledger",
+      "path": "research/_status/library-analysis-ledger.jsonl",
+      "modifiedAt": "2026-07-20T22:22:35.487Z",
+      "ok": true
+    },
+    {
+      "id": "akademisk-audit",
+      "path": "research/_status/academic-source-quality-status.json",
+      "modifiedAt": "2026-07-21T22:13:20.312Z",
+      "ok": true
+    },
+    {
+      "id": "citable-status",
+      "path": "research/CITABLE-KNOWLEDGE-BASE-STATUS.md",
+      "modifiedAt": "2026-07-21T22:10:31.808Z",
+      "ok": true,
+      "note": "Tall leses fra dokumentets øverste, eksplisitt supersederende live-readback"
+    },
+    {
+      "id": "domene-dekning",
+      "path": "research/_status/domene-dekning-hull-2026-07-02.md",
+      "modifiedAt": "2026-07-04T18:01:48.123Z",
+      "ok": true,
+      "note": "Nyeste hull-rapport (etter filnavn-dato)"
+    },
+    {
+      "id": "ki-priority",
+      "path": "research/KI-PRIORITY.csv",
+      "modifiedAt": "2026-07-04T10:12:45.600Z",
+      "ok": true
+    },
+    {
+      "id": "url-health",
+      "path": "research/URL-HEALTH.csv",
+      "modifiedAt": "2026-05-20T10:02:59.330Z",
+      "ok": true
+    },
+    {
+      "id": "pdf-katalog",
+      "path": "research/pdf-katalog.json",
+      "modifiedAt": "2026-07-04T18:41:09.458Z",
+      "ok": true
+    },
+    {
+      "id": "vault-export",
+      "path": "data/vault-export/manifest.json",
+      "modifiedAt": "2026-07-03T22:48:02.261Z",
+      "ok": true
+    },
+    {
+      "id": "coverage-profiles",
+      "path": "public/data/coverage/profiles.json",
+      "modifiedAt": "2026-07-16T00:36:43.793Z",
+      "ok": true
+    },
+    {
+      "id": "mission-backlog",
+      "path": "research/_status/food-tg-research-backlog-2026-06-25.csv",
+      "modifiedAt": "2026-06-29T09:20:52.197Z",
+      "ok": true,
+      "note": "Nyeste backlog (etter filnavn-dato)"
+    }
+  ],
+  "warnings": [],
+  "bibliotek": {
+    "total": 1555,
+    "byStatus": {
+      "ai_draft": 1427,
+      "review_required": 89,
+      "approved_internal": 35,
+      "blocked": 4
+    },
+    "byUsageRule": {
+      "internal_background": 1516,
+      "safe_for_ai_context": 35,
+      "do_not_use_for_claims": 4
+    },
+    "missingText": 89,
+    "claimCandidates": 0
+  },
+  "akademisk": {
+    "auditGeneratedAt": "2026-07-21T22:13:19.599Z",
+    "reports": 139,
+    "theses": 79,
+    "sourceDocs": 199,
+    "totalRows": 417,
+    "regressionGate": "pass",
+    "externalReadiness": "not_ready",
+    "coverage": [
+      {
+        "set": "Report",
+        "key": "year",
+        "label": "year",
+        "present": 139,
+        "total": 139,
+        "pct": 100
+      },
+      {
+        "set": "Report",
+        "key": "institution",
+        "label": "institution",
+        "present": 139,
+        "total": 139,
+        "pct": 100
+      },
+      {
+        "set": "Report",
+        "key": "attribution",
+        "label": "attribution*",
+        "present": 139,
+        "total": 139,
+        "pct": 100
+      },
+      {
+        "set": "Report",
+        "key": "source_url",
+        "label": "valid absolute http(s) sourceUrl",
+        "present": 126,
+        "total": 139,
+        "pct": 90.6
+      },
+      {
+        "set": "Report",
+        "key": "author",
+        "label": "author",
+        "present": 38,
+        "total": 139,
+        "pct": 27.3
+      },
+      {
+        "set": "Report",
+        "key": "doi",
+        "label": "valid DOI syntax",
+        "present": 22,
+        "total": 139,
+        "pct": 15.8
+      },
+      {
+        "set": "Report",
+        "key": "access_date",
+        "label": "accessedAt",
+        "present": 92,
+        "total": 139,
+        "pct": 66.2
+      },
+      {
+        "set": "Report",
+        "key": "appraisal_status",
+        "label": "appraisal disposition",
+        "present": 0,
+        "total": 139,
+        "pct": 0
+      },
+      {
+        "set": "Report",
+        "key": "structured_appraisal",
+        "label": "complete current structured appraisal or explicit exclusion",
+        "present": 0,
+        "total": 139,
+        "pct": 0
+      },
+      {
+        "set": "Thesis",
+        "key": "year",
+        "label": "year",
+        "present": 79,
+        "total": 79,
+        "pct": 100
+      },
+      {
+        "set": "Thesis",
+        "key": "institution",
+        "label": "institution",
+        "present": 79,
+        "total": 79,
+        "pct": 100
+      },
+      {
+        "set": "Thesis",
+        "key": "attribution",
+        "label": "authors",
+        "present": 79,
+        "total": 79,
+        "pct": 100
+      },
+      {
+        "set": "Thesis",
+        "key": "url",
+        "label": "valid absolute http(s) url",
+        "present": 79,
+        "total": 79,
+        "pct": 100
+      },
+      {
+        "set": "Thesis",
+        "key": "persistent_identifier",
+        "label": "recognized persistent identifier",
+        "present": 37,
+        "total": 79,
+        "pct": 46.8
+      },
+      {
+        "set": "Thesis",
+        "key": "doi",
+        "label": "valid DOI syntax",
+        "present": 1,
+        "total": 79,
+        "pct": 1.3
+      },
+      {
+        "set": "Thesis",
+        "key": "access_date",
+        "label": "accessDate",
+        "present": 78,
+        "total": 79,
+        "pct": 98.7
+      },
+      {
+        "set": "Thesis",
+        "key": "appraisal_status",
+        "label": "appraisal disposition",
+        "present": 0,
+        "total": 79,
+        "pct": 0
+      },
+      {
+        "set": "Thesis",
+        "key": "structured_appraisal",
+        "label": "complete current structured appraisal or explicit exclusion",
+        "present": 0,
+        "total": 79,
+        "pct": 0
+      },
+      {
+        "set": "SourceDoc",
+        "key": "year",
+        "label": "year",
+        "present": 171,
+        "total": 199,
+        "pct": 85.9
+      },
+      {
+        "set": "SourceDoc",
+        "key": "author",
+        "label": "author",
+        "present": 185,
+        "total": 199,
+        "pct": 93
+      },
+      {
+        "set": "SourceDoc",
+        "key": "url",
+        "label": "valid absolute http(s) url",
+        "present": 118,
+        "total": 199,
+        "pct": 59.3
+      },
+      {
+        "set": "SourceDoc",
+        "key": "doi",
+        "label": "valid DOI syntax",
+        "present": 10,
+        "total": 199,
+        "pct": 5
+      },
+      {
+        "set": "SourceDoc",
+        "key": "accessed_at",
+        "label": "accessedAt",
+        "present": 78,
+        "total": 199,
+        "pct": 39.2
+      },
+      {
+        "set": "SourceDoc",
+        "key": "archived_url",
+        "label": "archivedUrl",
+        "present": 0,
+        "total": 199,
+        "pct": 0
+      },
+      {
+        "set": "SourceDoc",
+        "key": "appraisal_status",
+        "label": "appraisal disposition",
+        "present": 0,
+        "total": 199,
+        "pct": 0
+      },
+      {
+        "set": "SourceDoc",
+        "key": "structured_appraisal",
+        "label": "complete current structured appraisal or explicit exclusion",
+        "present": 0,
+        "total": 199,
+        "pct": 0
+      }
+    ]
+  },
+  "siterbarhet": {
+    "fieldCitations": 244516,
+    "sourceCitations": 2703,
+    "citableExternal": 154,
+    "citableWithNote": 2222,
+    "internalContext": 110,
+    "blockedUnsourced": 217,
+    "acceptanceReady": 11,
+    "acceptanceTotal": 16
+  },
+  "dekning": {
+    "reportFile": "research/_status/domene-dekning-hull-2026-07-02.md",
+    "totalMapped": 1634,
+    "totalUniverse": 1651,
+    "cells": 70,
+    "confidence": {
+      "lav": 59,
+      "middels": 9,
+      "hoey": 2
+    },
+    "domains": [
+      {
+        "domain": "primaerproduksjon",
+        "mapped": 350,
+        "universe": 350
+      },
+      {
+        "domain": "lokale-verdikjeder",
+        "mapped": 251,
+        "universe": 258
+      },
+      {
+        "domain": "foredling-industri",
+        "mapped": 140,
+        "universe": 140
+      },
+      {
+        "domain": "distribusjon-grossist",
+        "mapped": 120,
+        "universe": 120
+      },
+      {
+        "domain": "matsvinn-sirkulaer",
+        "mapped": 104,
+        "universe": 120
+      },
+      {
+        "domain": "regenerativ-praksis",
+        "mapped": 91,
+        "universe": 89
+      },
+      {
+        "domain": "permakultur-fleraarige",
+        "mapped": 81,
+        "universe": 77
+      },
+      {
+        "domain": "innsatsfaktorer",
+        "mapped": 80,
+        "universe": 80
+      },
+      {
+        "domain": "horeca-offentlig",
+        "mapped": 60,
+        "universe": 60
+      },
+      {
+        "domain": "interesseorg-paraply",
+        "mapped": 60,
+        "universe": 60
+      },
+      {
+        "domain": "finansiering-investering",
+        "mapped": 60,
+        "universe": 60
+      },
+      {
+        "domain": "institusjon-finansiering",
+        "mapped": 49,
+        "universe": 49
+      },
+      {
+        "domain": "fou-institusjon",
+        "mapped": 44,
+        "universe": 44
+      },
+      {
+        "domain": "handel-dagligvare",
+        "mapped": 40,
+        "universe": 40
+      },
+      {
+        "domain": "okologi-sertifisering",
+        "mapped": 40,
+        "universe": 40
+      },
+      {
+        "domain": "virkemiddel-policy",
+        "mapped": 34,
+        "universe": 34
+      },
+      {
+        "domain": "forbruk",
+        "mapped": 30,
+        "universe": 30
+      }
+    ],
+    "openGaps": [
+      {
+        "domain": "matsvinn-sirkulaer",
+        "subdomain": "insekt-alternativ-protein",
+        "mapped": 7,
+        "universe": 20,
+        "gap": 13
+      },
+      {
+        "domain": "lokale-verdikjeder",
+        "subdomain": "andelslandbruk",
+        "mapped": 83,
+        "universe": 90,
+        "gap": 7
+      },
+      {
+        "domain": "matsvinn-sirkulaer",
+        "subdomain": "matredistribusjon",
+        "mapped": 15,
+        "universe": 20,
+        "gap": 5
+      },
+      {
+        "domain": "lokale-verdikjeder",
+        "subdomain": "reko",
+        "mapped": 139,
+        "universe": 140,
+        "gap": 1
+      }
+    ]
+  },
+  "kiKorpus": {
+    "n": 208,
+    "meanScore": 4.83,
+    "byYear": {
+      "2005": 2,
+      "2006": 1,
+      "2010": 1,
+      "2011": 2,
+      "2012": 1,
+      "2013": 2,
+      "2014": 2,
+      "2015": 3,
+      "2016": 7,
+      "2017": 9,
+      "2018": 2,
+      "2019": 7,
+      "2020": 5,
+      "2021": 8,
+      "2022": 9,
+      "2023": 24,
+      "2024": 68,
+      "2025": 48,
+      "2026": 7
+    },
+    "byGroup": {
+      "offentlig-tilsyn": 59,
+      "ovrig": 20,
+      "akademisk": 102,
+      "bransje": 27
+    },
+    "share2023PlusPct": 70.7
+  },
+  "urlHelse": {
+    "checked": 600,
+    "ok": 506,
+    "blocked": 49,
+    "dead": 41,
+    "other": 4,
+    "highPriorityChecked": 173,
+    "highPriorityDead": 0,
+    "highPriorityBlocked": 5
+  },
+  "pdfKatalog": {
+    "count": 436,
+    "pages": 23559
+  },
+  "vaultExport": {
+    "generatedAt": "2026-07-03T10:22:31.890Z",
+    "companies": 351,
+    "ownershipEdges": 160,
+    "boardMembers": 1800,
+    "businessRelationships": 105,
+    "properties": 104
+  },
+  "subsidier": {
+    "total": 179311,
+    "computedAt": "2026-07-03T10:22:31.247Z"
+  },
+  "missions": {
+    "file": "research/_status/food-tg-research-backlog-2026-06-25.csv",
+    "total": 50,
+    "byStatus": {
+      "planned": 50
+    }
+  }
+}

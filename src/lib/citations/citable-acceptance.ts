@@ -66,25 +66,48 @@ export const ACCEPTANCE_TESTS: CitableAcceptanceTest[] = [
     expectedSourceType: 'municipal/public procurement source plus audited report package',
     requiredReadinessLevel: 'citable_with_note',
     mustUse: [
+      'https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10',
+      'https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf',
       'public/reports/nordisk-sirkularitetsrapport-2026-05.html',
       'docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md',
     ],
     mustNotUse: [
-      'Eldre København 84%-formulering uten 2024/peak-kontekst',
+      '85% i 2024 eller 90% i 2015',
+      'København-tallet som generell nasjonal dansk økologiandel',
       'Generert README-linjetall eller filstørrelse som kvalitetsbevis',
     ],
     knownCaveat:
-      'Bruk 85% i 2024 og skill det fra peak 90% i 2015; forklar at dette er procurement-benchmark, ikke generell nasjonal DK-andel.',
+      'Bruk 88 % avrundet (kommunens vedtaksside: nesten 88 %) i 2024 og 85 % i 2015. Tallene gjelder økologi i Københavns kommunale institusjoner og kjøkken, bygger nå på innkjøpsdata, og målemetoden er endret over tid. Dette er ikke en nasjonal dansk økologiandel.',
     proposedAnswer:
-      'Ja, men bare med metodecaveat: rapportpakken kan brukes til å peke på København 85% i 2024 og peak 90% i 2015 som offentlig-kjøkkenbenchmark.',
+      'Ja, som kommunalt innkjøps- og kjøkkenbenchmark: København rapporterer 88 % økologi i 2024, mot 85 % i 2015. Serien bygger nå på innkjøpsdata, men målemetoden er endret over tid, så den skal ikke fremstilles som en fullt metodeidentisk tidsserie eller som Danmarks nasjonale andel.',
     citations: [
+      {
+        id: 'copenhagen-meal-strategy-renewal-2025',
+        title: 'Godkendelse af fornyelse af Københavns Kommunes Mad- og Måltidsstrategi',
+        locator:
+          'https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10',
+        sourceType: 'municipal decision record',
+        readiness: 'citable_external',
+        supportsClaim:
+          'Oppgir at kommunen i 2024 lå på nesten 88 % økologi på tvers av kommunens enheter.',
+      },
+      {
+        id: 'copenhagen-status-2025-organic-procurement',
+        title: 'Status på København 2025',
+        locator:
+          'https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf',
+        sourceType: 'municipal statistical report',
+        readiness: 'citable_external',
+        supportsClaim:
+          'Viser 88 % i 2024 og 85 % i 2015 for kommunale institusjoner og kjøkken, og dokumenterer innkjøpsdata samt endret målemetode.',
+      },
       {
         id: 'nordic-circularity-report-html',
         title: 'Nordisk sirkularitetsrapport 2026-05',
         locator: 'public/reports/nordisk-sirkularitetsrapport-2026-05.html',
         sourceType: 'audited report package',
         readiness: 'citable_with_note',
-        supportsClaim: 'Standardisert København-tall og offentlig innkjøpskontekst.',
+        supportsClaim: 'Propagerer korrigerte København-tall og kommunal metodekontekst.',
       },
       {
         id: 'nordic-circularity-appendix',
@@ -92,7 +115,7 @@ export const ACCEPTANCE_TESTS: CitableAcceptanceTest[] = [
         locator: 'docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md',
         sourceType: 'appendix and evidence matrix',
         readiness: 'citable_with_note',
-        supportsClaim: 'Samme København-verdi og kildeavgrensning som HTML-rapporten.',
+        supportsClaim: 'Propagerer samme København-verdier og kildeavgrensning som HTML-rapporten.',
       },
     ],
   },
@@ -288,22 +311,46 @@ export const ACCEPTANCE_TESTS: CitableAcceptanceTest[] = [
     expectedSourceType: 'company or audited report source with scope note',
     requiredReadinessLevel: 'citable_with_note',
     mustUse: [
+      'https://digitalassets.sallinggroup.com/raw/upload/fl_attachment:Annual%20report%202024%252epdf/external_content_providers/magnolia/next/jcr:c5f40c7a-153b-434d-8d7f-3c1eafb3dafe',
       'public/reports/nordisk-sirkularitetsrapport-2026-05.html',
       'docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md',
     ],
-    mustNotUse: ['Halvering', 'Uten scope-note om food waste percentage og baseline'],
+    mustNotUse: [
+      'Halvering som realisert reduksjon',
+      '-34,8% som reduksjonstall i den eksterne formuleringen',
+      'Relativ reduksjon uten eksplisitt avledningsnote fra avrundede endepunkter',
+      'Uten scope-note om food waste percentage og dansk virksomhet',
+    ],
     knownCaveat:
-      'Bruk 2,8% baseline 2015 til 1,8% i 2024 (-34,8%), ikke halvering.',
+      'Bruk 2,8 % i 2015 til 1,8 % i 2024 for Salling Groups danske virksomhet: en nedgang på 1,0 prosentpoeng. Dette er ikke en halvering. Utelat relativ prosent med mindre den eksplisitt avledes fra de avrundede endepunktene.',
     proposedAnswer:
-      'Ja, men teksten må si -34,8% mot baseline og ikke omtale det som halvering.',
+      'Nei, ikke som halvering. Salling Groups danske virksomhet kan beskrives med en nedgang i food waste percentage fra 2,8 % i 2015 til 1,8 % i 2024, altså 1,0 prosentpoeng.',
     citations: [
+      {
+        id: 'salling-group-annual-report-2024-food-waste',
+        title: 'Salling Group Annual Report 2024 — Every Day Better',
+        locator:
+          'https://digitalassets.sallinggroup.com/raw/upload/fl_attachment:Annual%20report%202024%252epdf/external_content_providers/magnolia/next/jcr:c5f40c7a-153b-434d-8d7f-3c1eafb3dafe',
+        sourceType: 'company annual report',
+        readiness: 'citable_external',
+        supportsClaim:
+          'Viser food waste percentage 1,8 % i 2024 mot 2,8 % i 2015 og avgrenser baseline til danske formater.',
+      },
       {
         id: 'report-salling-waste',
         title: 'Nordisk sirkularitetsrapport Salling food-waste percentage',
         locator: 'public/reports/nordisk-sirkularitetsrapport-2026-05.html',
         sourceType: 'audited report package',
         readiness: 'citable_with_note',
-        supportsClaim: 'Inneholder korrigert Salling-baseline og scope-note.',
+        supportsClaim: 'Propagerer korrigerte endepunkter, 1,0 prosentpoeng og dansk scope-note.',
+      },
+      {
+        id: 'appendix-salling-waste',
+        title: 'Nordisk sirkularitetsrapport appendiks — Salling food-waste percentage',
+        locator: 'docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md',
+        sourceType: 'appendix and evidence matrix',
+        readiness: 'citable_with_note',
+        supportsClaim: 'Knytter den aktive rapportformuleringen til Salling Groups offisielle årsrapport.',
       },
     ],
   },
